@@ -3,9 +3,9 @@ package com.prokarma.pkmst.model;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.prokarma.pkmst.model.LocationAreaDetailEncounterMethodRatesInner;
-import com.prokarma.pkmst.model.LocationAreaDetailPokemonEncountersInner;
+import com.prokarma.pkmst.model.LocationAreaEncounterRate;
 import com.prokarma.pkmst.model.LocationAreaName;
+import com.prokarma.pkmst.model.LocationAreaPokemonEncounter;
 import com.prokarma.pkmst.model.LocationSummary;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -21,7 +21,7 @@ import java.util.List;
  * LocationAreaDetail
  */
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-10-25T05:48:09.645019047Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-11-09T13:49:28.343088631Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class LocationAreaDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -34,7 +34,7 @@ public class LocationAreaDetail   {
 
   @JsonProperty("encounter_method_rates")
   
-  private List<LocationAreaDetailEncounterMethodRatesInner> encounterMethodRates = new ArrayList<>();
+  private List<LocationAreaEncounterRate> encounterMethodRates = new ArrayList<>();
 
   @JsonProperty("location")
   private LocationSummary location;
@@ -45,7 +45,7 @@ public class LocationAreaDetail   {
 
   @JsonProperty("pokemon_encounters")
   
-  private List<LocationAreaDetailPokemonEncountersInner> pokemonEncounters = new ArrayList<>();
+  private List<LocationAreaPokemonEncounter> pokemonEncounters = new ArrayList<>();
 
   public LocationAreaDetail id(Integer id) {
     this.id = id;
@@ -53,10 +53,10 @@ public class LocationAreaDetail   {
   }
 
   /**
-   * Get id
+   * The identifier for this resource.
    * @return id
    */
-  @ApiModelProperty(required = true, readOnly = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "The identifier for this resource.")
   public Integer getId() {
     return id;
   }
@@ -71,10 +71,10 @@ public class LocationAreaDetail   {
   }
 
   /**
-   * Get name
+   * The name for this resource.
    * @return name
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   public String getName() {
     return name;
   }
@@ -89,10 +89,12 @@ public class LocationAreaDetail   {
   }
 
   /**
-   * Get gameIndex
+   * The internal id of an API resource within game data.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return gameIndex
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The internal id of an API resource within game data.")
   public Integer getGameIndex() {
     return gameIndex;
   }
@@ -101,12 +103,12 @@ public class LocationAreaDetail   {
     this.gameIndex = gameIndex;
   }
 
-  public LocationAreaDetail encounterMethodRates(List<LocationAreaDetailEncounterMethodRatesInner> encounterMethodRates) {
+  public LocationAreaDetail encounterMethodRates(List<LocationAreaEncounterRate> encounterMethodRates) {
     this.encounterMethodRates = encounterMethodRates;
     return this;
   }
 
-  public LocationAreaDetail addEncounterMethodRatesItem(LocationAreaDetailEncounterMethodRatesInner encounterMethodRatesItem) {
+  public LocationAreaDetail addEncounterMethodRatesItem(LocationAreaEncounterRate encounterMethodRatesItem) {
     if (this.encounterMethodRates == null) {
       this.encounterMethodRates = new ArrayList<>();
     }
@@ -115,15 +117,15 @@ public class LocationAreaDetail   {
   }
 
   /**
-   * Get encounterMethodRates
+   * A list of methods in which Pokémon may be encountered in this area and how likely the method will occur depending on the version of the game.
    * @return encounterMethodRates
    */
-  @ApiModelProperty(required = true, readOnly = true, value = "")
-  public List<LocationAreaDetailEncounterMethodRatesInner> getEncounterMethodRates() {
+  @ApiModelProperty(required = true, readOnly = true, value = "A list of methods in which Pokémon may be encountered in this area and how likely the method will occur depending on the version of the game.")
+  public List<LocationAreaEncounterRate> getEncounterMethodRates() {
     return encounterMethodRates;
   }
 
-  public void setEncounterMethodRates(List<LocationAreaDetailEncounterMethodRatesInner> encounterMethodRates) {
+  public void setEncounterMethodRates(List<LocationAreaEncounterRate> encounterMethodRates) {
     this.encounterMethodRates = encounterMethodRates;
   }
 
@@ -133,10 +135,10 @@ public class LocationAreaDetail   {
   }
 
   /**
-   * Get location
+   * The region this location area can be found in.
    * @return location
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The region this location area can be found in.")
   public LocationSummary getLocation() {
     return location;
   }
@@ -159,10 +161,10 @@ public class LocationAreaDetail   {
   }
 
   /**
-   * Get names
+   * The name of this resource listed in different languages.
    * @return names
    */
-  @ApiModelProperty(required = true, readOnly = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "The name of this resource listed in different languages.")
   public List<LocationAreaName> getNames() {
     return names;
   }
@@ -171,12 +173,12 @@ public class LocationAreaDetail   {
     this.names = names;
   }
 
-  public LocationAreaDetail pokemonEncounters(List<LocationAreaDetailPokemonEncountersInner> pokemonEncounters) {
+  public LocationAreaDetail pokemonEncounters(List<LocationAreaPokemonEncounter> pokemonEncounters) {
     this.pokemonEncounters = pokemonEncounters;
     return this;
   }
 
-  public LocationAreaDetail addPokemonEncountersItem(LocationAreaDetailPokemonEncountersInner pokemonEncountersItem) {
+  public LocationAreaDetail addPokemonEncountersItem(LocationAreaPokemonEncounter pokemonEncountersItem) {
     if (this.pokemonEncounters == null) {
       this.pokemonEncounters = new ArrayList<>();
     }
@@ -185,15 +187,15 @@ public class LocationAreaDetail   {
   }
 
   /**
-   * Get pokemonEncounters
+   * A list of Pokémon that can be encountered in this area along with version specific details about the encounter.
    * @return pokemonEncounters
    */
-  @ApiModelProperty(required = true, readOnly = true, value = "")
-  public List<LocationAreaDetailPokemonEncountersInner> getPokemonEncounters() {
+  @ApiModelProperty(required = true, readOnly = true, value = "A list of Pokémon that can be encountered in this area along with version specific details about the encounter.")
+  public List<LocationAreaPokemonEncounter> getPokemonEncounters() {
     return pokemonEncounters;
   }
 
-  public void setPokemonEncounters(List<LocationAreaDetailPokemonEncountersInner> pokemonEncounters) {
+  public void setPokemonEncounters(List<LocationAreaPokemonEncounter> pokemonEncounters) {
     this.pokemonEncounters = pokemonEncounters;
   }
 

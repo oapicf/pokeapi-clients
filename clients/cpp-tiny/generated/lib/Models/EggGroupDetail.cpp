@@ -9,7 +9,7 @@ EggGroupDetail::EggGroupDetail()
 	id = int(0);
 	name = std::string();
 	names = std::list<EggGroupName>();
-	pokemon_species = std::list<EggGroupDetail_pokemon_species_inner>();
+	pokemon_species = std::list<PokemonSpeciesSummary>();
 }
 
 EggGroupDetail::EggGroupDetail(std::string jsonString)
@@ -82,8 +82,8 @@ EggGroupDetail::fromJson(std::string jsonObj)
         bourne::json value = object[pokemon_speciesKey];
 
 
-        std::list<EggGroupDetail_pokemon_species_inner> pokemon_species_list;
-        EggGroupDetail_pokemon_species_inner element;
+        std::list<PokemonSpeciesSummary> pokemon_species_list;
+        PokemonSpeciesSummary element;
         for(auto& var : value.array_range())
         {
 
@@ -137,12 +137,12 @@ EggGroupDetail::toJson()
 
 
 
-    std::list<EggGroupDetail_pokemon_species_inner> pokemon_species_list = getPokemonSpecies();
+    std::list<PokemonSpeciesSummary> pokemon_species_list = getPokemonSpecies();
     bourne::json pokemon_species_arr = bourne::json::array();
 
     for(auto& var : pokemon_species_list)
     {
-        EggGroupDetail_pokemon_species_inner obj = var;
+        PokemonSpeciesSummary obj = var;
         pokemon_species_arr.append(obj.toJson());
     }
     object["pokemon_species"] = pokemon_species_arr;
@@ -190,14 +190,14 @@ EggGroupDetail::setNames(std::list<EggGroupName> names)
 	this->names = names;
 }
 
-std::list<EggGroupDetail_pokemon_species_inner>
+std::list<PokemonSpeciesSummary>
 EggGroupDetail::getPokemonSpecies()
 {
 	return pokemon_species;
 }
 
 void
-EggGroupDetail::setPokemonSpecies(std::list<EggGroupDetail_pokemon_species_inner> pokemon_species)
+EggGroupDetail::setPokemonSpecies(std::list<PokemonSpeciesSummary> pokemon_species)
 {
 	this->pokemon_species = pokemon_species;
 }

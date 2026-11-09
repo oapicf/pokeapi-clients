@@ -2,21 +2,33 @@
 Protected Class PokeathlonStatDetail
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The identifier for this resource.
+		#tag EndNote
 		id As Integer
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The name for this resource.
+		#tag EndNote
 		name As String
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
-		affecting_natures As OpenAPIClient.Models.PokeathlonStatDetailAffectingNatures
+		#tag Note
+			A detail of natures which affect this Pokéathlon stat positively or negatively.
+		#tag EndNote
+		affecting_natures As OpenAPIClient.Models.PokeathlonStatAffectingNatures
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The name of this resource listed in different languages.
+		#tag EndNote
 		names() As OpenAPIClient.Models.PokeathlonStatName
 	#tag EndProperty
 
@@ -78,7 +90,7 @@ Protected Class PokeathlonStatDetail
 			Visible=false
 			Group="Behavior"
 			InitialValue=""
-			Type="PokeathlonStatDetailAffectingNatures"
+			Type="PokeathlonStatAffectingNatures"
 			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty

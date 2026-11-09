@@ -24,16 +24,11 @@ import java.util.List;
  * @author pkmst
  *
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-10-25T05:48:09.645019047Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-11-09T13:49:28.343088631Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 @Api(value = "Contests", description = "the Contests API")
 public interface ContestsApi {
 
-    @ApiOperation(value = "List contest effects", notes = "Contest effects refer to the effects of moves when used in contests.", response = PaginatedContestEffectSummaryList.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "contests", })
+    @ApiOperation(value = "List contest effects", notes = "Contest effects refer to the effects of moves when used in contests.", response = PaginatedContestEffectSummaryList.class, tags={ "contests", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedContestEffectSummaryList.class) })
     @RequestMapping(
@@ -41,15 +36,10 @@ public interface ContestsApi {
         value = "/api/v2/contest-effect/",
         produces = { "application/json" }
     )
-    ResponseEntity<PaginatedContestEffectSummaryList> contestEffectList(@ApiParam(value = "Number of results to return per page.")  @RequestParam(value = "limit", required = false) Integer limit,@ApiParam(value = "The initial index from which to return the results.")  @RequestParam(value = "offset", required = false) Integer offset,@ApiParam(value = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")  @RequestParam(value = "q", required = false) String q, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
+    ResponseEntity<PaginatedContestEffectSummaryList> contestEffectList(@ApiParam(value = "Number of results to return per page.")  @RequestParam(value = "limit", required = false) Integer limit,@ApiParam(value = "The initial index from which to return the results.")  @RequestParam(value = "offset", required = false) Integer offset, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "Get contest effect", notes = "Contest effects refer to the effects of moves when used in contests.", response = ContestEffectDetail.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "contests", })
+    @ApiOperation(value = "Get contest effect", notes = "Contest effects refer to the effects of moves when used in contests.", response = ContestEffectDetail.class, tags={ "contests", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = ContestEffectDetail.class) })
     @RequestMapping(
@@ -60,12 +50,7 @@ public interface ContestsApi {
     ResponseEntity<ContestEffectDetail> contestEffectRetrieve(@ApiParam(value = "This parameter can be a string or an integer.",required=true ) @PathVariable("id") String id, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "List contest types", notes = "Contest types are categories judges used to weigh a Pokémon's condition in Pokémon contests. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Contest_condition) for greater detail.", response = PaginatedContestTypeSummaryList.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "contests", })
+    @ApiOperation(value = "List contest types", notes = "Contest types are categories judges used to weigh a Pokémon's condition in Pokémon contests. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Contest_condition) for greater detail.", response = PaginatedContestTypeSummaryList.class, tags={ "contests", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedContestTypeSummaryList.class) })
     @RequestMapping(
@@ -76,12 +61,7 @@ public interface ContestsApi {
     ResponseEntity<PaginatedContestTypeSummaryList> contestTypeList(@ApiParam(value = "Number of results to return per page.")  @RequestParam(value = "limit", required = false) Integer limit,@ApiParam(value = "The initial index from which to return the results.")  @RequestParam(value = "offset", required = false) Integer offset,@ApiParam(value = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")  @RequestParam(value = "q", required = false) String q, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "Get contest type", notes = "Contest types are categories judges used to weigh a Pokémon's condition in Pokémon contests. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Contest_condition) for greater detail.", response = ContestTypeDetail.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "contests", })
+    @ApiOperation(value = "Get contest type", notes = "Contest types are categories judges used to weigh a Pokémon's condition in Pokémon contests. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Contest_condition) for greater detail.", response = ContestTypeDetail.class, tags={ "contests", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = ContestTypeDetail.class) })
     @RequestMapping(
@@ -92,12 +72,7 @@ public interface ContestsApi {
     ResponseEntity<ContestTypeDetail> contestTypeRetrieve(@ApiParam(value = "This parameter can be a string or an integer.",required=true ) @PathVariable("id") String id, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "List super contest effects", notes = "Super contest effects refer to the effects of moves when used in super contests.", response = PaginatedSuperContestEffectSummaryList.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "contests", })
+    @ApiOperation(value = "List super contest effects", notes = "Super contest effects refer to the effects of moves when used in super contests.", response = PaginatedSuperContestEffectSummaryList.class, tags={ "contests", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedSuperContestEffectSummaryList.class) })
     @RequestMapping(
@@ -105,15 +80,10 @@ public interface ContestsApi {
         value = "/api/v2/super-contest-effect/",
         produces = { "application/json" }
     )
-    ResponseEntity<PaginatedSuperContestEffectSummaryList> superContestEffectList(@ApiParam(value = "Number of results to return per page.")  @RequestParam(value = "limit", required = false) Integer limit,@ApiParam(value = "The initial index from which to return the results.")  @RequestParam(value = "offset", required = false) Integer offset,@ApiParam(value = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")  @RequestParam(value = "q", required = false) String q, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
+    ResponseEntity<PaginatedSuperContestEffectSummaryList> superContestEffectList(@ApiParam(value = "Number of results to return per page.")  @RequestParam(value = "limit", required = false) Integer limit,@ApiParam(value = "The initial index from which to return the results.")  @RequestParam(value = "offset", required = false) Integer offset, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "Get super contest effect", notes = "Super contest effects refer to the effects of moves when used in super contests.", response = SuperContestEffectDetail.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "contests", })
+    @ApiOperation(value = "Get super contest effect", notes = "Super contest effects refer to the effects of moves when used in super contests.", response = SuperContestEffectDetail.class, tags={ "contests", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = SuperContestEffectDetail.class) })
     @RequestMapping(

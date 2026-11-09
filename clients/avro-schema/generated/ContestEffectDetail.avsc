@@ -7,17 +7,17 @@
     {
       "name": "id",
       "type": "int",
-      "doc": ""
+      "doc": "The identifier for this resource."
     },
     {
       "name": "appeal",
       "type": "int",
-      "doc": ""
+      "doc": "The base number of hearts the user of this move gets."
     },
     {
       "name": "jam",
       "type": "int",
-      "doc": ""
+      "doc": "The base number of hearts the user's opponent loses."
     },
     {
       "name": "effect_entries",
@@ -25,7 +25,7 @@
         "type": "array",
         "items": "model.ContestEffectEffectText"
       },
-      "doc": ""
+      "doc": "The result of this contest effect listed in different languages."
     },
     {
       "name": "flavor_text_entries",
@@ -33,7 +33,7 @@
         "type": "array",
         "items": "model.ContestEffectFlavorText"
       },
-      "doc": ""
+      "doc": "The flavor text of this contest effect listed in different languages."
     }
   ]
 

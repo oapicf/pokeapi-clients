@@ -24,10 +24,10 @@
 package org.openapitools.client.models
 
 import org.openapitools.client.models.AbilityChange
-import org.openapitools.client.models.AbilityDetailPokemonInner
 import org.openapitools.client.models.AbilityEffectText
 import org.openapitools.client.models.AbilityFlavorText
 import org.openapitools.client.models.AbilityName
+import org.openapitools.client.models.AbilityPokemonDetail
 import org.openapitools.client.models.GenerationSummary
 
 import com.squareup.moshi.Json
@@ -36,44 +36,53 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param id 
- * @param name 
- * @param generation 
- * @param names 
- * @param effectEntries 
- * @param effectChanges 
- * @param flavorTextEntries 
- * @param pokemon 
- * @param isMainSeries 
+ * @param id The identifier for this resource.
+ * @param name The name for this resource.
+ * @param generation The generation this ability originated in.
+ * @param names The name of this resource listed in different languages.
+ * @param effectEntries The effect of this ability listed in different languages.
+ * @param effectChanges The list of previous effects this ability has had across version groups.
+ * @param flavorTextEntries The flavor text of this ability listed in different languages.
+ * @param pokemon A list of Pokémon that could potentially have this ability.
+ * @param isMainSeries Whether or not this ability originated in the main series of the video games.
  */
 
 
 data class AbilityDetail (
 
+    /* The identifier for this resource. */
     @Json(name = "id")
     val id: kotlin.Int,
 
+    /* The name for this resource. */
     @Json(name = "name")
     val name: kotlin.String,
 
+    /* The generation this ability originated in. */
     @Json(name = "generation")
     val generation: GenerationSummary,
 
+    /* The name of this resource listed in different languages. */
     @Json(name = "names")
     val names: kotlin.collections.List<AbilityName>,
 
+    /* The effect of this ability listed in different languages. */
     @Json(name = "effect_entries")
     val effectEntries: kotlin.collections.List<AbilityEffectText>,
 
+    /* The list of previous effects this ability has had across version groups. */
     @Json(name = "effect_changes")
     val effectChanges: kotlin.collections.List<AbilityChange>,
 
+    /* The flavor text of this ability listed in different languages. */
     @Json(name = "flavor_text_entries")
     val flavorTextEntries: kotlin.collections.List<AbilityFlavorText>,
 
+    /* A list of Pokémon that could potentially have this ability. */
     @Json(name = "pokemon")
-    val pokemon: kotlin.collections.List<AbilityDetailPokemonInner>,
+    val pokemon: kotlin.collections.List<AbilityPokemonDetail>,
 
+    /* Whether or not this ability originated in the main series of the video games. */
     @Json(name = "is_main_series")
     val isMainSeries: kotlin.Boolean? = null
 

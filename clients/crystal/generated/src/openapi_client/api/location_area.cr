@@ -12,7 +12,7 @@ module OpenAPIClient
         path: "/api/v2/location-area/",
         query: { "limit" => limit, "offset" => offset },
         accept: %w[application/json],
-        auth: %w[basicAuth cookieAuth])
+        auth: %w[])
     end
 
     # Get location area Location areas are sections of areas, such as floors in a building or cave. Each area has its own set of possible Pokémon encounters.
@@ -21,7 +21,7 @@ module OpenAPIClient
         method: :GET,
         path: "/api/v2/location-area/{id}/".sub("{id}", OpenAPIClient.enc(id)),
         accept: %w[application/json],
-        auth: %w[basicAuth cookieAuth])
+        auth: %w[])
     end
   end
   end

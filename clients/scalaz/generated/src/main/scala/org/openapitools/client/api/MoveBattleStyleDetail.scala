@@ -12,9 +12,12 @@ import org.joda.time.DateTime
 import MoveBattleStyleDetail._
 
 case class MoveBattleStyleDetail (
+  /* The identifier for this resource. */
   id: Integer,
-name: String,
-names: List[MoveBattleStyleName])
+/* The name for this resource. */
+  name: String,
+/* The name of this resource listed in different languages. */
+  names: List[MoveBattleStyleName])
 
 object MoveBattleStyleDetail {
   import DateTimeCodecs._

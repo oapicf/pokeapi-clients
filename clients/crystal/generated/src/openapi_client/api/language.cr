@@ -12,7 +12,7 @@ module OpenAPIClient
         path: "/api/v2/language/",
         query: { "limit" => limit, "offset" => offset, "q" => q },
         accept: %w[application/json],
-        auth: %w[basicAuth cookieAuth])
+        auth: %w[])
     end
 
     # Get language Languages for translations of API resource information.
@@ -21,7 +21,7 @@ module OpenAPIClient
         method: :GET,
         path: "/api/v2/language/{id}/".sub("{id}", OpenAPIClient.enc(id)),
         accept: %w[application/json],
-        auth: %w[basicAuth cookieAuth])
+        auth: %w[])
     end
   end
   end

@@ -10,6 +10,7 @@ class_name EncounterMethodDetail
 # EncounterMethodDetail Model
 
 
+# The identifier for this resource.
 # Required: True
 # isArray: false
 @export var id: int:
@@ -18,6 +19,7 @@ class_name EncounterMethodDetail
 		id = value
 var __id__was__set := false
 
+# The name for this resource.
 # Required: True
 # isArray: false
 @export var name: String:
@@ -26,6 +28,7 @@ var __id__was__set := false
 		name = value
 var __name__was__set := false
 
+# A good value for sorting.
 # Required: False
 # isArray: false
 @export var order: int:
@@ -34,6 +37,7 @@ var __name__was__set := false
 		order = value
 var __order__was__set := false
 
+# The name of this resource listed in different languages.
 # Required: True
 # isArray: true
 @export var names: Array:

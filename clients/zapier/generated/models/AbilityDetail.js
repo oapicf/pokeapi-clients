@@ -1,9 +1,9 @@
 const utils = require('../utils/utils');
 const AbilityChange = require('../models/AbilityChange');
-const AbilityDetail_pokemon_inner = require('../models/AbilityDetail_pokemon_inner');
 const AbilityEffectText = require('../models/AbilityEffectText');
 const AbilityFlavorText = require('../models/AbilityFlavorText');
 const AbilityName = require('../models/AbilityName');
+const AbilityPokemonDetail = require('../models/AbilityPokemonDetail');
 const GenerationSummary = require('../models/GenerationSummary');
 
 module.exports = {
@@ -12,19 +12,19 @@ module.exports = {
         return [
             {
                 key: `${keyPrefix}id`,
-                label: `[${labelPrefix}id]`,
+                label: `The identifier for this resource. - [${labelPrefix}id]`,
                 required: true,
                 type: 'integer',
             },
             {
                 key: `${keyPrefix}name`,
-                label: `[${labelPrefix}name]`,
+                label: `The name for this resource. - [${labelPrefix}name]`,
                 required: true,
                 type: 'string',
             },
             {
                 key: `${keyPrefix}is_main_series`,
-                label: `[${labelPrefix}is_main_series]`,
+                label: `Whether or not this ability originated in the main series of the video games. - [${labelPrefix}is_main_series]`,
                 type: 'boolean',
             },
             ...GenerationSummary.fields(`${keyPrefix}generation`, isInput),
@@ -51,7 +51,7 @@ module.exports = {
             {
                 key: `${keyPrefix}pokemon`,
                 label: `[${labelPrefix}pokemon]`,
-                children: AbilityDetail_pokemon_inner.fields(`${keyPrefix}pokemon${!isInput ? '[]' : ''}`, isInput, true), 
+                children: AbilityPokemonDetail.fields(`${keyPrefix}pokemon${!isInput ? '[]' : ''}`, isInput, true), 
             },
         ]
     },
@@ -66,7 +66,7 @@ module.exports = {
             'effect_entries': utils.childMapping(bundle.inputData?.[`${keyPrefix}effect_entries`], `${keyPrefix}effect_entries`, AbilityEffectText),
             'effect_changes': utils.childMapping(bundle.inputData?.[`${keyPrefix}effect_changes`], `${keyPrefix}effect_changes`, AbilityChange),
             'flavor_text_entries': utils.childMapping(bundle.inputData?.[`${keyPrefix}flavor_text_entries`], `${keyPrefix}flavor_text_entries`, AbilityFlavorText),
-            'pokemon': utils.childMapping(bundle.inputData?.[`${keyPrefix}pokemon`], `${keyPrefix}pokemon`, AbilityDetail_pokemon_inner),
+            'pokemon': utils.childMapping(bundle.inputData?.[`${keyPrefix}pokemon`], `${keyPrefix}pokemon`, AbilityPokemonDetail),
         }
     },
 }

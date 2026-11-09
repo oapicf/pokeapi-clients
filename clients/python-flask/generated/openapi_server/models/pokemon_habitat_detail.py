@@ -62,6 +62,7 @@ class PokemonHabitatDetail(Model):
     def id(self) -> int:
         """Gets the id of this PokemonHabitatDetail.
 
+        The identifier for this resource.  # noqa: E501
 
         :return: The id of this PokemonHabitatDetail.
         :rtype: int
@@ -72,6 +73,7 @@ class PokemonHabitatDetail(Model):
     def id(self, id: int):
         """Sets the id of this PokemonHabitatDetail.
 
+        The identifier for this resource.  # noqa: E501
 
         :param id: The id of this PokemonHabitatDetail.
         :type id: int
@@ -85,6 +87,7 @@ class PokemonHabitatDetail(Model):
     def name(self) -> str:
         """Gets the name of this PokemonHabitatDetail.
 
+        The name for this resource.  # noqa: E501
 
         :return: The name of this PokemonHabitatDetail.
         :rtype: str
@@ -95,14 +98,15 @@ class PokemonHabitatDetail(Model):
     def name(self, name: str):
         """Sets the name of this PokemonHabitatDetail.
 
+        The name for this resource.  # noqa: E501
 
         :param name: The name of this PokemonHabitatDetail.
         :type name: str
         """
         if name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
-        if name is not None and len(name) > 100:
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `100`")  # noqa: E501
+        if name is not None and len(name) > 200:
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `200`")  # noqa: E501
 
         self._name = name
 
@@ -110,6 +114,7 @@ class PokemonHabitatDetail(Model):
     def names(self) -> List[PokemonHabitatName]:
         """Gets the names of this PokemonHabitatDetail.
 
+        The name of this resource listed in different languages.  # noqa: E501
 
         :return: The names of this PokemonHabitatDetail.
         :rtype: List[PokemonHabitatName]
@@ -120,6 +125,7 @@ class PokemonHabitatDetail(Model):
     def names(self, names: List[PokemonHabitatName]):
         """Sets the names of this PokemonHabitatDetail.
 
+        The name of this resource listed in different languages.  # noqa: E501
 
         :param names: The names of this PokemonHabitatDetail.
         :type names: List[PokemonHabitatName]
@@ -133,6 +139,7 @@ class PokemonHabitatDetail(Model):
     def pokemon_species(self) -> List[PokemonSpeciesSummary]:
         """Gets the pokemon_species of this PokemonHabitatDetail.
 
+        A list of the Pokémon species that can be found in this habitat.  # noqa: E501
 
         :return: The pokemon_species of this PokemonHabitatDetail.
         :rtype: List[PokemonSpeciesSummary]
@@ -143,6 +150,7 @@ class PokemonHabitatDetail(Model):
     def pokemon_species(self, pokemon_species: List[PokemonSpeciesSummary]):
         """Sets the pokemon_species of this PokemonHabitatDetail.
 
+        A list of the Pokémon species that can be found in this habitat.  # noqa: E501
 
         :param pokemon_species: The pokemon_species of this PokemonHabitatDetail.
         :type pokemon_species: List[PokemonSpeciesSummary]

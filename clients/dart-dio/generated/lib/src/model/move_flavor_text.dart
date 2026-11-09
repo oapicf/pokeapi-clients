@@ -13,17 +13,20 @@ part 'move_flavor_text.g.dart';
 /// MoveFlavorText
 ///
 /// Properties:
-/// * [flavorText] 
-/// * [language] 
-/// * [versionGroup] 
+/// * [flavorText] - The localized flavor text for an api resource in a specific language.
+/// * [language] - The language this name is in.
+/// * [versionGroup] - The version group that uses this flavor text.
 @BuiltValue()
 abstract class MoveFlavorText implements Built<MoveFlavorText, MoveFlavorTextBuilder> {
+  /// The localized flavor text for an api resource in a specific language.
   @BuiltValueField(wireName: r'flavor_text')
   String get flavorText;
 
+  /// The language this name is in.
   @BuiltValueField(wireName: r'language')
   LanguageSummary get language;
 
+  /// The version group that uses this flavor text.
   @BuiltValueField(wireName: r'version_group')
   VersionGroupSummary get versionGroup;
 

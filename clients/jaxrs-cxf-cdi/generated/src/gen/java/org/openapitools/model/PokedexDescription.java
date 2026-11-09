@@ -21,6 +21,7 @@ public class PokedexDescription   {
   private LanguageSummary language;
 
   /**
+   * The localized description for an API resource in a specific language.
    **/
   public PokedexDescription description(String description) {
     this.description = description;
@@ -28,9 +29,9 @@ public class PokedexDescription   {
   }
 
   
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The localized description for an API resource in a specific language.")
   @JsonProperty("description")
- @Size(max=1000)  public String getDescription() {
+ @Size(max=2000)  public String getDescription() {
     return description;
   }
   public void setDescription(String description) {
@@ -39,6 +40,7 @@ public class PokedexDescription   {
 
 
   /**
+   * The language this name is in.
    **/
   public PokedexDescription language(LanguageSummary language) {
     this.language = language;
@@ -46,7 +48,7 @@ public class PokedexDescription   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The language this name is in.")
   @JsonProperty("language")
   @NotNull
   public LanguageSummary getLanguage() {

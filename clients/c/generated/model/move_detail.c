@@ -13,7 +13,7 @@ static move_detail_t *move_detail_create_internal(
     int *pp,
     int *priority,
     int *power,
-    move_detail_contest_combos_t *contest_combos,
+    move_combos_t *contest_combos,
     contest_type_summary_t *contest_type,
     contest_effect_summary_t *contest_effect,
     move_damage_class_summary_t *damage_class,
@@ -72,7 +72,7 @@ __attribute__((deprecated)) move_detail_t *move_detail_create(
     int *pp,
     int *priority,
     int *power,
-    move_detail_contest_combos_t *contest_combos,
+    move_combos_t *contest_combos,
     contest_type_summary_t *contest_type,
     contest_effect_summary_t *contest_effect,
     move_damage_class_summary_t *damage_class,
@@ -195,7 +195,7 @@ void move_detail_free(move_detail_t *move_detail) {
         move_detail->power = NULL;
     }
     if (move_detail->contest_combos) {
-        move_detail_contest_combos_free(move_detail->contest_combos);
+        move_combos_free(move_detail->contest_combos);
         move_detail->contest_combos = NULL;
     }
     if (move_detail->contest_type) {
@@ -212,14 +212,14 @@ void move_detail_free(move_detail_t *move_detail) {
     }
     if (move_detail->effect_entries) {
         list_ForEach(listEntry, move_detail->effect_entries) {
-            move_change_effect_entries_inner_free(listEntry->data);
+            move_effect_effect_text_free(listEntry->data);
         }
         list_freeList(move_detail->effect_entries);
         move_detail->effect_entries = NULL;
     }
     if (move_detail->effect_changes) {
         list_ForEach(listEntry, move_detail->effect_changes) {
-            move_detail_effect_changes_inner_free(listEntry->data);
+            move_effect_change_free(listEntry->data);
         }
         list_freeList(move_detail->effect_changes);
         move_detail->effect_changes = NULL;
@@ -248,7 +248,7 @@ void move_detail_free(move_detail_t *move_detail) {
     }
     if (move_detail->stat_changes) {
         list_ForEach(listEntry, move_detail->stat_changes) {
-            move_detail_stat_changes_inner_free(listEntry->data);
+            move_meta_stat_change_free(listEntry->data);
         }
         list_freeList(move_detail->stat_changes);
         move_detail->stat_changes = NULL;
@@ -267,7 +267,7 @@ void move_detail_free(move_detail_t *move_detail) {
     }
     if (move_detail->machines) {
         list_ForEach(listEntry, move_detail->machines) {
-            move_detail_machines_inner_free(listEntry->data);
+            item_machine_free(listEntry->data);
         }
         list_freeList(move_detail->machines);
         move_detail->machines = NULL;
@@ -281,7 +281,7 @@ void move_detail_free(move_detail_t *move_detail) {
     }
     if (move_detail->learned_by_pokemon) {
         list_ForEach(listEntry, move_detail->learned_by_pokemon) {
-            ability_detail_pokemon_inner_pokemon_free(listEntry->data);
+            pokemon_summary_free(listEntry->data);
         }
         list_freeList(move_detail->learned_by_pokemon);
         move_detail->learned_by_pokemon = NULL;
@@ -355,7 +355,7 @@ cJSON *move_detail_convertToJSON(move_detail_t *move_detail) {
     if (!move_detail->contest_combos) {
         goto fail;
     }
-    cJSON *contest_combos_local_JSON = move_detail_contest_combos_convertToJSON(move_detail->contest_combos);
+    cJSON *contest_combos_local_JSON = move_combos_convertToJSON(move_detail->contest_combos);
     if(contest_combos_local_JSON == NULL) {
     goto fail; //model
     }
@@ -419,7 +419,7 @@ cJSON *move_detail_convertToJSON(move_detail_t *move_detail) {
     listEntry_t *effect_entriesListEntry;
     if (move_detail->effect_entries) {
     list_ForEach(effect_entriesListEntry, move_detail->effect_entries) {
-    cJSON *itemLocal = move_change_effect_entries_inner_convertToJSON(effect_entriesListEntry->data);
+    cJSON *itemLocal = move_effect_effect_text_convertToJSON(effect_entriesListEntry->data);
     if(itemLocal == NULL) {
     goto fail;
     }
@@ -440,7 +440,7 @@ cJSON *move_detail_convertToJSON(move_detail_t *move_detail) {
     listEntry_t *effect_changesListEntry;
     if (move_detail->effect_changes) {
     list_ForEach(effect_changesListEntry, move_detail->effect_changes) {
-    cJSON *itemLocal = move_detail_effect_changes_inner_convertToJSON(effect_changesListEntry->data);
+    cJSON *itemLocal = move_effect_change_convertToJSON(effect_changesListEntry->data);
     if(itemLocal == NULL) {
     goto fail;
     }
@@ -531,7 +531,7 @@ cJSON *move_detail_convertToJSON(move_detail_t *move_detail) {
     listEntry_t *stat_changesListEntry;
     if (move_detail->stat_changes) {
     list_ForEach(stat_changesListEntry, move_detail->stat_changes) {
-    cJSON *itemLocal = move_detail_stat_changes_inner_convertToJSON(stat_changesListEntry->data);
+    cJSON *itemLocal = move_meta_stat_change_convertToJSON(stat_changesListEntry->data);
     if(itemLocal == NULL) {
     goto fail;
     }
@@ -594,7 +594,7 @@ cJSON *move_detail_convertToJSON(move_detail_t *move_detail) {
     listEntry_t *machinesListEntry;
     if (move_detail->machines) {
     list_ForEach(machinesListEntry, move_detail->machines) {
-    cJSON *itemLocal = move_detail_machines_inner_convertToJSON(machinesListEntry->data);
+    cJSON *itemLocal = item_machine_convertToJSON(machinesListEntry->data);
     if(itemLocal == NULL) {
     goto fail;
     }
@@ -636,7 +636,7 @@ cJSON *move_detail_convertToJSON(move_detail_t *move_detail) {
     listEntry_t *learned_by_pokemonListEntry;
     if (move_detail->learned_by_pokemon) {
     list_ForEach(learned_by_pokemonListEntry, move_detail->learned_by_pokemon) {
-    cJSON *itemLocal = ability_detail_pokemon_inner_pokemon_convertToJSON(learned_by_pokemonListEntry->data);
+    cJSON *itemLocal = pokemon_summary_convertToJSON(learned_by_pokemonListEntry->data);
     if(itemLocal == NULL) {
     goto fail;
     }
@@ -677,7 +677,7 @@ move_detail_t *move_detail_parseFromJSON(cJSON *move_detailJSON){
     int *power_local_var = NULL;
 
     // define the local variable for move_detail->contest_combos
-    move_detail_contest_combos_t *contest_combos_local_nonprim = NULL;
+    move_combos_t *contest_combos_local_nonprim = NULL;
 
     // define the local variable for move_detail->contest_type
     contest_type_summary_t *contest_type_local_nonprim = NULL;
@@ -866,7 +866,7 @@ move_detail_t *move_detail_parseFromJSON(cJSON *move_detailJSON){
     }
 
     
-    contest_combos_local_nonprim = move_detail_contest_combos_parseFromJSON(contest_combos); //nonprimitive
+    contest_combos_local_nonprim = move_combos_parseFromJSON(contest_combos); //nonprimitive
 
     // move_detail->contest_type
     cJSON *contest_type = cJSON_GetObjectItemCaseSensitive(move_detailJSON, "contest_type");
@@ -926,7 +926,7 @@ move_detail_t *move_detail_parseFromJSON(cJSON *move_detailJSON){
         if(!cJSON_IsObject(effect_entries_local_nonprimitive)){
             goto end;
         }
-        move_change_effect_entries_inner_t *effect_entriesItem = move_change_effect_entries_inner_parseFromJSON(effect_entries_local_nonprimitive);
+        move_effect_effect_text_t *effect_entriesItem = move_effect_effect_text_parseFromJSON(effect_entries_local_nonprimitive);
 
         list_addElement(effect_entriesList, effect_entriesItem);
     }
@@ -953,7 +953,7 @@ move_detail_t *move_detail_parseFromJSON(cJSON *move_detailJSON){
         if(!cJSON_IsObject(effect_changes_local_nonprimitive)){
             goto end;
         }
-        move_detail_effect_changes_inner_t *effect_changesItem = move_detail_effect_changes_inner_parseFromJSON(effect_changes_local_nonprimitive);
+        move_effect_change_t *effect_changesItem = move_effect_change_parseFromJSON(effect_changes_local_nonprimitive);
 
         list_addElement(effect_changesList, effect_changesItem);
     }
@@ -1058,7 +1058,7 @@ move_detail_t *move_detail_parseFromJSON(cJSON *move_detailJSON){
         if(!cJSON_IsObject(stat_changes_local_nonprimitive)){
             goto end;
         }
-        move_detail_stat_changes_inner_t *stat_changesItem = move_detail_stat_changes_inner_parseFromJSON(stat_changes_local_nonprimitive);
+        move_meta_stat_change_t *stat_changesItem = move_meta_stat_change_parseFromJSON(stat_changes_local_nonprimitive);
 
         list_addElement(stat_changesList, stat_changesItem);
     }
@@ -1121,7 +1121,7 @@ move_detail_t *move_detail_parseFromJSON(cJSON *move_detailJSON){
         if(!cJSON_IsObject(machines_local_nonprimitive)){
             goto end;
         }
-        move_detail_machines_inner_t *machinesItem = move_detail_machines_inner_parseFromJSON(machines_local_nonprimitive);
+        item_machine_t *machinesItem = item_machine_parseFromJSON(machines_local_nonprimitive);
 
         list_addElement(machinesList, machinesItem);
     }
@@ -1175,7 +1175,7 @@ move_detail_t *move_detail_parseFromJSON(cJSON *move_detailJSON){
         if(!cJSON_IsObject(learned_by_pokemon_local_nonprimitive)){
             goto end;
         }
-        ability_detail_pokemon_inner_pokemon_t *learned_by_pokemonItem = ability_detail_pokemon_inner_pokemon_parseFromJSON(learned_by_pokemon_local_nonprimitive);
+        pokemon_summary_t *learned_by_pokemonItem = pokemon_summary_parseFromJSON(learned_by_pokemon_local_nonprimitive);
 
         list_addElement(learned_by_pokemonList, learned_by_pokemonItem);
     }
@@ -1245,7 +1245,7 @@ end:
         power_local_var = NULL;
     }
     if (contest_combos_local_nonprim) {
-        move_detail_contest_combos_free(contest_combos_local_nonprim);
+        move_combos_free(contest_combos_local_nonprim);
         contest_combos_local_nonprim = NULL;
     }
     if (contest_type_local_nonprim) {
@@ -1263,7 +1263,7 @@ end:
     if (effect_entriesList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, effect_entriesList) {
-            move_change_effect_entries_inner_free(listEntry->data);
+            move_effect_effect_text_free(listEntry->data);
             listEntry->data = NULL;
         }
         list_freeList(effect_entriesList);
@@ -1272,7 +1272,7 @@ end:
     if (effect_changesList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, effect_changesList) {
-            move_detail_effect_changes_inner_free(listEntry->data);
+            move_effect_change_free(listEntry->data);
             listEntry->data = NULL;
         }
         list_freeList(effect_changesList);
@@ -1307,7 +1307,7 @@ end:
     if (stat_changesList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, stat_changesList) {
-            move_detail_stat_changes_inner_free(listEntry->data);
+            move_meta_stat_change_free(listEntry->data);
             listEntry->data = NULL;
         }
         list_freeList(stat_changesList);
@@ -1328,7 +1328,7 @@ end:
     if (machinesList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, machinesList) {
-            move_detail_machines_inner_free(listEntry->data);
+            item_machine_free(listEntry->data);
             listEntry->data = NULL;
         }
         list_freeList(machinesList);
@@ -1346,7 +1346,7 @@ end:
     if (learned_by_pokemonList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, learned_by_pokemonList) {
-            ability_detail_pokemon_inner_pokemon_free(listEntry->data);
+            pokemon_summary_free(listEntry->data);
             listEntry->data = NULL;
         }
         list_freeList(learned_by_pokemonList);

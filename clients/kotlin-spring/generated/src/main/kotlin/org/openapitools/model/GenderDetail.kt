@@ -2,8 +2,8 @@ package org.openapitools.model
 
 import java.util.Objects
 import com.fasterxml.jackson.annotation.JsonProperty
-import org.openapitools.model.AbilityDetailPokemonInnerPokemon
-import org.openapitools.model.GenderDetailPokemonSpeciesDetailsInner
+import org.openapitools.model.GenderPokemonSpecies
+import org.openapitools.model.PokemonSpeciesSummary
 import javax.validation.constraints.DecimalMax
 import javax.validation.constraints.DecimalMin
 import javax.validation.constraints.Email
@@ -17,31 +17,31 @@ import io.swagger.v3.oas.annotations.media.Schema
 
 /**
  * 
- * @param id 
- * @param name 
- * @param pokemonSpeciesDetails 
- * @param requiredForEvolution 
+ * @param id The identifier for this resource.
+ * @param name The name for this resource.
+ * @param pokemonSpeciesDetails A list of Pokémon species that can be this gender and how likely it is that they will be.
+ * @param requiredForEvolution A list of Pokémon species that required this gender in order for a Pokémon to evolve into them.
  */
 data class GenderDetail(
 
-    @Schema(required = true, readOnly = true, description = "")
+    @Schema(required = true, readOnly = true, description = "The identifier for this resource.")
     @param:JsonProperty("id", required = true)
     @get:JsonProperty("id", required = true) val id: kotlin.Int,
 
-    @get:Size(max=100)
-    @Schema(required = true, description = "")
+    @get:Size(max=200)
+    @Schema(required = true, description = "The name for this resource.")
     @param:JsonProperty("name", required = true)
     @get:JsonProperty("name", required = true) val name: kotlin.String,
 
     @field:Valid
-    @Schema(required = true, readOnly = true, description = "")
+    @Schema(required = true, readOnly = true, description = "A list of Pokémon species that can be this gender and how likely it is that they will be.")
     @param:JsonProperty("pokemon_species_details", required = true)
-    @get:JsonProperty("pokemon_species_details", required = true) val pokemonSpeciesDetails: kotlin.collections.List<GenderDetailPokemonSpeciesDetailsInner>,
+    @get:JsonProperty("pokemon_species_details", required = true) val pokemonSpeciesDetails: kotlin.collections.List<GenderPokemonSpecies>,
 
     @field:Valid
-    @Schema(required = true, readOnly = true, description = "")
+    @Schema(required = true, readOnly = true, description = "A list of Pokémon species that required this gender in order for a Pokémon to evolve into them.")
     @param:JsonProperty("required_for_evolution", required = true)
-    @get:JsonProperty("required_for_evolution", required = true) val requiredForEvolution: kotlin.collections.List<AbilityDetailPokemonInnerPokemon>
+    @get:JsonProperty("required_for_evolution", required = true) val requiredForEvolution: kotlin.collections.List<PokemonSpeciesSummary>
 ) {
 
 }

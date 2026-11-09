@@ -7,7 +7,7 @@ using namespace Tiny;
 PokemonHabitatName::PokemonHabitatName()
 {
 	name = std::string();
-	language = LanguageSummary();
+	language = null;
 }
 
 PokemonHabitatName::PokemonHabitatName(std::string jsonString)

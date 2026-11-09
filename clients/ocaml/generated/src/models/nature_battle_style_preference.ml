@@ -15,19 +15,22 @@
                 
                 
                 ; [@key "low_hp_preference"]
-                                              high_hp_preference: int32
+                    (** Chance of using the move, in percent, if HP is under one half. *)
+                                      high_hp_preference: int32
                   
                   
                 
                 
                 ; [@key "high_hp_preference"]
-                                              move_battle_style: Move_battle_style_summary.t
+                    (** Chance of using the move, in percent, if HP is over one half. *)
+                                      move_battle_style: Move_battle_style_summary.t
                   
                   
                 
                 
                 ; [@key "move_battle_style"]
-                        } [@@deriving yojson { strict = false }, show, eq ];;
+                    (** The move battle style. *)
+                } [@@deriving yojson { strict = false }, show, eq ];;
         
         let create (low_hp_preference : int32) (high_hp_preference : int32) (move_battle_style : Move_battle_style_summary.t) : t = {
             low_hp_preference = low_hp_preference;

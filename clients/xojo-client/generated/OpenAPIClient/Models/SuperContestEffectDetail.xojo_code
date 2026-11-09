@@ -2,21 +2,33 @@
 Protected Class SuperContestEffectDetail
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The identifier for this resource.
+		#tag EndNote
 		id As Integer
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The level of appeal this super contest effect has.
+		#tag EndNote
 		appeal As Integer
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The flavor text of this super contest effect listed in different languages.
+		#tag EndNote
 		flavor_text_entries() As OpenAPIClient.Models.SuperContestEffectFlavorText
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			A list of moves that have the effect when used in super contests.
+		#tag EndNote
 		moves() As OpenAPIClient.Models.MoveSummary
 	#tag EndProperty
 

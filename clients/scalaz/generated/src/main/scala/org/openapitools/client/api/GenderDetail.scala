@@ -12,10 +12,14 @@ import org.joda.time.DateTime
 import GenderDetail._
 
 case class GenderDetail (
+  /* The identifier for this resource. */
   id: Integer,
-name: String,
-pokemonSpeciesDetails: List[GenderDetailPokemonSpeciesDetailsInner],
-requiredForEvolution: List[AbilityDetailPokemonInnerPokemon])
+/* The name for this resource. */
+  name: String,
+/* A list of Pokémon species that can be this gender and how likely it is that they will be. */
+  pokemonSpeciesDetails: List[GenderPokemonSpecies],
+/* A list of Pokémon species that required this gender in order for a Pokémon to evolve into them. */
+  requiredForEvolution: List[PokemonSpeciesSummary])
 
 object GenderDetail {
   import DateTimeCodecs._

@@ -12,8 +12,10 @@ import org.joda.time.DateTime
 import MoveDamageClassDescription._
 
 case class MoveDamageClassDescription (
+  /* The localized description for an API resource in a specific language. */
   description: Option[String],
-language: LanguageSummary)
+/* The language this name is in. */
+  language: LanguageSummary)
 
 object MoveDamageClassDescription {
   import DateTimeCodecs._

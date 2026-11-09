@@ -47,6 +47,7 @@ class ContestEffectFlavorText(Model):
     def flavor_text(self):
         """Gets the flavor_text of this ContestEffectFlavorText.
 
+        The localized flavor text for an API resource in a specific language.
 
         :return: The flavor_text of this ContestEffectFlavorText.
         :rtype: str
@@ -57,6 +58,7 @@ class ContestEffectFlavorText(Model):
     def flavor_text(self, flavor_text):
         """Sets the flavor_text of this ContestEffectFlavorText.
 
+        The localized flavor text for an API resource in a specific language.
 
         :param flavor_text: The flavor_text of this ContestEffectFlavorText.
         :type flavor_text: str
@@ -72,6 +74,7 @@ class ContestEffectFlavorText(Model):
     def language(self):
         """Gets the language of this ContestEffectFlavorText.
 
+        The language this name is in.
 
         :return: The language of this ContestEffectFlavorText.
         :rtype: LanguageSummary
@@ -82,6 +85,7 @@ class ContestEffectFlavorText(Model):
     def language(self, language):
         """Sets the language of this ContestEffectFlavorText.
 
+        The language this name is in.
 
         :param language: The language of this ContestEffectFlavorText.
         :type language: LanguageSummary

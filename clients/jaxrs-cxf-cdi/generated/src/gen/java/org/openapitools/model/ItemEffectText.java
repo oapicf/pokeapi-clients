@@ -23,6 +23,7 @@ public class ItemEffectText   {
   private LanguageSummary language;
 
   /**
+   * The localized effect text for an API resource in a specific language.
    **/
   public ItemEffectText effect(String effect) {
     this.effect = effect;
@@ -30,7 +31,7 @@ public class ItemEffectText   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The localized effect text for an API resource in a specific language.")
   @JsonProperty("effect")
   @NotNull
  @Size(max=6000)  public String getEffect() {
@@ -42,6 +43,7 @@ public class ItemEffectText   {
 
 
   /**
+   * The localized effect text in brief.
    **/
   public ItemEffectText shortEffect(String shortEffect) {
     this.shortEffect = shortEffect;
@@ -49,7 +51,7 @@ public class ItemEffectText   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The localized effect text in brief.")
   @JsonProperty("short_effect")
   @NotNull
  @Size(max=300)  public String getShortEffect() {
@@ -61,6 +63,7 @@ public class ItemEffectText   {
 
 
   /**
+   * The language this effect is in.
    **/
   public ItemEffectText language(LanguageSummary language) {
     this.language = language;
@@ -68,7 +71,7 @@ public class ItemEffectText   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The language this effect is in.")
   @JsonProperty("language")
   @NotNull
   public LanguageSummary getLanguage() {

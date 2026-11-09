@@ -12,10 +12,14 @@ import org.joda.time.DateTime
 import PokeathlonStatDetail._
 
 case class PokeathlonStatDetail (
+  /* The identifier for this resource. */
   id: Integer,
-name: String,
-affectingNatures: PokeathlonStatDetailAffectingNatures,
-names: List[PokeathlonStatName])
+/* The name for this resource. */
+  name: String,
+/* A detail of natures which affect this Pokéathlon stat positively or negatively. */
+  affectingNatures: PokeathlonStatAffectingNatures,
+/* The name of this resource listed in different languages. */
+  names: List[PokeathlonStatName])
 
 object PokeathlonStatDetail {
   import DateTimeCodecs._

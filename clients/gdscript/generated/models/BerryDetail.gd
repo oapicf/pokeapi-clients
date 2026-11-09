@@ -10,6 +10,7 @@ class_name BerryDetail
 # BerryDetail Model
 
 
+# The identifier for this resource.
 # Required: True
 # isArray: false
 @export var id: int:
@@ -18,6 +19,7 @@ class_name BerryDetail
 		id = value
 var __id__was__set := false
 
+# The name for this resource.
 # Required: True
 # isArray: false
 @export var name: String:
@@ -26,7 +28,8 @@ var __id__was__set := false
 		name = value
 var __name__was__set := false
 
-# Required: True
+# Time it takes the tree to grow one stage, in hours. Berry trees go through four of these growth stages before they can be picked.
+# Required: False
 # isArray: false
 @export var growthUnderscoretime: int:
 	set(value):
@@ -34,7 +37,8 @@ var __name__was__set := false
 		growthUnderscoretime = value
 var __growthUnderscoretime__was__set := false
 
-# Required: True
+# The maximum number of these berries that can grow on one tree in Generation IV.
+# Required: False
 # isArray: false
 @export var maxUnderscoreharvest: int:
 	set(value):
@@ -42,7 +46,8 @@ var __growthUnderscoretime__was__set := false
 		maxUnderscoreharvest = value
 var __maxUnderscoreharvest__was__set := false
 
-# Required: True
+# The power of the move \"Natural Gift\" when used with this Berry.
+# Required: False
 # isArray: false
 @export var naturalUnderscoregiftUnderscorepower: int:
 	set(value):
@@ -50,7 +55,8 @@ var __maxUnderscoreharvest__was__set := false
 		naturalUnderscoregiftUnderscorepower = value
 var __naturalUnderscoregiftUnderscorepower__was__set := false
 
-# Required: True
+# The size of this Berry, in millimeters.
+# Required: False
 # isArray: false
 @export var size: int:
 	set(value):
@@ -58,7 +64,8 @@ var __naturalUnderscoregiftUnderscorepower__was__set := false
 		size = value
 var __size__was__set := false
 
-# Required: True
+# The smoothness of this Berry, used in making Pokéblocks or Poffins.
+# Required: False
 # isArray: false
 @export var smoothness: int:
 	set(value):
@@ -66,7 +73,8 @@ var __size__was__set := false
 		smoothness = value
 var __smoothness__was__set := false
 
-# Required: True
+# The speed at which this Berry dries out the soil as it grows. A higher rate means the soil dries more quickly.
+# Required: False
 # isArray: false
 @export var soilUnderscoredryness: int:
 	set(value):
@@ -74,6 +82,7 @@ var __smoothness__was__set := false
 		soilUnderscoredryness = value
 var __soilUnderscoredryness__was__set := false
 
+# The firmness of this berry, used in making Pokéblocks or Poffins.
 # Required: True
 # isArray: false
 @export var firmness: BerryFirmnessSummary:
@@ -82,6 +91,7 @@ var __soilUnderscoredryness__was__set := false
 		firmness = value
 var __firmness__was__set := false
 
+# A list of references to each flavor a berry can have and the potency of each of those flavors in regard to this berry.
 # Required: True
 # isArray: true
 @export var flavors: Array:
@@ -90,6 +100,7 @@ var __firmness__was__set := false
 		flavors = value
 var __flavors__was__set := false
 
+# Berries are actually items. This is a reference to the item specific data for this berry.
 # Required: True
 # isArray: false
 @export var item: ItemSummary:
@@ -98,6 +109,7 @@ var __flavors__was__set := false
 		item = value
 var __item__was__set := false
 
+# The type inherited by \"Natural Gift\" when used with this Berry.
 # Required: True
 # isArray: false
 @export var naturalUnderscoregiftUnderscoretype: TypeSummary:
@@ -113,18 +125,6 @@ func bzz_collect_missing_properties() -> Array:
 		bzz_missing_properties.append("id")
 	if not self.__name__was__set:
 		bzz_missing_properties.append("name")
-	if not self.__growthUnderscoretime__was__set:
-		bzz_missing_properties.append("growthUnderscoretime")
-	if not self.__maxUnderscoreharvest__was__set:
-		bzz_missing_properties.append("maxUnderscoreharvest")
-	if not self.__naturalUnderscoregiftUnderscorepower__was__set:
-		bzz_missing_properties.append("naturalUnderscoregiftUnderscorepower")
-	if not self.__size__was__set:
-		bzz_missing_properties.append("size")
-	if not self.__smoothness__was__set:
-		bzz_missing_properties.append("smoothness")
-	if not self.__soilUnderscoredryness__was__set:
-		bzz_missing_properties.append("soilUnderscoredryness")
 	if not self.__firmness__was__set:
 		bzz_missing_properties.append("firmness")
 	if not self.__flavors__was__set:
@@ -187,7 +187,7 @@ static func bzz_denormalize_single(from_dict: Dictionary):
 	if from_dict.has("firmness"):
 		me.firmness = BerryFirmnessSummary.bzz_denormalize_single(from_dict["firmness"])
 	if from_dict.has("flavors"):
-		me.flavors = BerryDetail_flavors_inner.bzz_denormalize_multiple(from_dict["flavors"])
+		me.flavors = BerryFlavorMap.bzz_denormalize_multiple(from_dict["flavors"])
 	if from_dict.has("item"):
 		me.item = ItemSummary.bzz_denormalize_single(from_dict["item"])
 	if from_dict.has("naturalUnderscoregiftUnderscoretype"):

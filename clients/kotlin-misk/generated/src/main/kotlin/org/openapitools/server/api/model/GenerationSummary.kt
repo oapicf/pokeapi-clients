@@ -4,6 +4,8 @@ import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
 data class GenerationSummary(
+    /** The name of the referenced resource. */
     val name: kotlin.String,
+    /** The URL of the referenced resource. */
     val url: java.net.URI
 )

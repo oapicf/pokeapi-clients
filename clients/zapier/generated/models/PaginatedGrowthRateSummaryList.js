@@ -7,17 +7,18 @@ module.exports = {
         return [
             {
                 key: `${keyPrefix}count`,
-                label: `[${labelPrefix}count]`,
+                label: `The total number of resources available from this API. - [${labelPrefix}count]`,
+                required: true,
                 type: 'integer',
             },
             {
                 key: `${keyPrefix}next`,
-                label: `[${labelPrefix}next]`,
+                label: `The URL for the next page in the list, or null if there is no next page. - [${labelPrefix}next]`,
                 type: 'string',
             },
             {
                 key: `${keyPrefix}previous`,
-                label: `[${labelPrefix}previous]`,
+                label: `The URL for the previous page in the list, or null if there is no previous page. - [${labelPrefix}previous]`,
                 type: 'string',
             },
             {

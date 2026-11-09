@@ -9,15 +9,15 @@ Name | Type
 ------------ | -------------
 `id` | number
 `name` | string
-`damageRelations` | [TypeDetailDamageRelations](TypeDetailDamageRelations.md)
-`pastDamageRelations` | [Array&lt;TypeDetailPastDamageRelationsInner&gt;](TypeDetailPastDamageRelationsInner.md)
+`damageRelations` | [TypeRelationships](TypeRelationships.md)
+`pastDamageRelations` | [Array&lt;TypePastRelationships&gt;](TypePastRelationships.md)
 `gameIndices` | [Array&lt;TypeGameIndex&gt;](TypeGameIndex.md)
 `generation` | [GenerationSummary](GenerationSummary.md)
 `moveDamageClass` | [MoveDamageClassSummary](MoveDamageClassSummary.md)
-`names` | [Array&lt;AbilityName&gt;](AbilityName.md)
-`pokemon` | [Array&lt;TypeDetailPokemonInner&gt;](TypeDetailPokemonInner.md)
+`names` | [Array&lt;TypeName&gt;](TypeName.md)
+`pokemon` | [Array&lt;TypePokemon&gt;](TypePokemon.md)
 `moves` | [Array&lt;MoveSummary&gt;](MoveSummary.md)
-`sprites` | { [key: string]: { [key: string]: TypeDetailSpritesValueValue; }; }
+`sprites` | { [key: string]: { [key: string]: TypeGameSprite; }; }
 
 ## Example
 

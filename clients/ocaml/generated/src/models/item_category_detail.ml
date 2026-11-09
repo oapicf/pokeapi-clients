@@ -15,27 +15,32 @@
                 
                 
                 ; [@key "id"]
-                                              name: string
+                    (** The identifier for this resource. *)
+                                      name: string
                   
                   
                 
                 
                 ; [@key "name"]
-                                              items: Item_summary.t list
+                    (** The name for this resource. *)
+                                      items: Item_summary.t list
                 
                 
                 ; [@key "items"]
-                                              names: Item_category_name.t list
+                    (** A list of items that are a part of this category. *)
+                                      names: Item_category_name.t list
                 
                 
                 ; [@key "names"]
-                                              pocket: Item_pocket_summary.t
+                    (** The name of this item category listed in different languages. *)
+                                      pocket: Item_pocket_summary.t
                   
                   
                 
                 
                 ; [@key "pocket"]
-                        } [@@deriving yojson { strict = false }, show, eq ];;
+                    (** The pocket items in this category would be put in. *)
+                } [@@deriving yojson { strict = false }, show, eq ];;
         
         let create (id : int32) (name : string) (items : Item_summary.t list) (names : Item_category_name.t list) (pocket : Item_pocket_summary.t) : t = {
             id = id;

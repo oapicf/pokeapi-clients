@@ -8,13 +8,13 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.model.AbilityDetailPokemonInnerPokemon;
 import org.openapitools.model.MoveMetaAilmentName;
+import org.openapitools.model.MoveSummary;
 
 /**
  * MoveMetaAilmentDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-10-25T05:48:05.787850114Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-11-09T13:49:25.341948748Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class MoveMetaAilmentDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -23,16 +23,16 @@ public class MoveMetaAilmentDetail   {
   private String name;
 
   @JsonProperty("moves")
-  private List<@Valid AbilityDetailPokemonInnerPokemon> moves = new ArrayList<>();
+  private List<@Valid MoveSummary> moves = new ArrayList<>();
 
   @JsonProperty("names")
   private List<@Valid MoveMetaAilmentName> names = new ArrayList<>();
 
    /**
-   * Get id
+   * The identifier for this resource.
    * @return id
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   public Integer getId() {
     return id;
   }
@@ -43,10 +43,10 @@ public class MoveMetaAilmentDetail   {
   }
 
    /**
-   * Get name
+   * The name for this resource.
    * @return name
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   public String getName() {
     return name;
   }
@@ -56,19 +56,19 @@ public class MoveMetaAilmentDetail   {
   }
 
    /**
-   * Get moves
+   * A list of moves that cause this ailment.
    * @return moves
   **/
-  @ApiModelProperty(required = true, value = "")
-  public List<@Valid AbilityDetailPokemonInnerPokemon> getMoves() {
+  @ApiModelProperty(required = true, value = "A list of moves that cause this ailment.")
+  public List<@Valid MoveSummary> getMoves() {
     return moves;
   }
 
    /**
-   * Get names
+   * The name of this resource listed in different languages.
    * @return names
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
   public List<@Valid MoveMetaAilmentName> getNames() {
     return names;
   }

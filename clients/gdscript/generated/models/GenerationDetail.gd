@@ -10,6 +10,7 @@ class_name GenerationDetail
 # GenerationDetail Model
 
 
+# The identifier for this resource.
 # Required: True
 # isArray: false
 @export var id: int:
@@ -18,6 +19,7 @@ class_name GenerationDetail
 		id = value
 var __id__was__set := false
 
+# The name for this resource.
 # Required: True
 # isArray: false
 @export var name: String:
@@ -26,6 +28,7 @@ var __id__was__set := false
 		name = value
 var __name__was__set := false
 
+# A list of abilities that were introduced in this generation.
 # Required: True
 # isArray: true
 @export var abilities: Array:
@@ -34,6 +37,7 @@ var __name__was__set := false
 		abilities = value
 var __abilities__was__set := false
 
+# The main region travelled in this generation.
 # Required: True
 # isArray: false
 @export var mainUnderscoreregion: RegionSummary:
@@ -42,6 +46,7 @@ var __abilities__was__set := false
 		mainUnderscoreregion = value
 var __mainUnderscoreregion__was__set := false
 
+# A list of moves that were introduced in this generation.
 # Required: True
 # isArray: true
 @export var moves: Array:
@@ -50,6 +55,7 @@ var __mainUnderscoreregion__was__set := false
 		moves = value
 var __moves__was__set := false
 
+# The name of this resource listed in different languages.
 # Required: True
 # isArray: true
 @export var names: Array:
@@ -58,6 +64,7 @@ var __moves__was__set := false
 		names = value
 var __names__was__set := false
 
+# A list of Pokémon species that were introduced in this generation.
 # Required: True
 # isArray: true
 @export var pokemonUnderscorespecies: Array:
@@ -66,6 +73,7 @@ var __names__was__set := false
 		pokemonUnderscorespecies = value
 var __pokemonUnderscorespecies__was__set := false
 
+# A list of types that were introduced in this generation.
 # Required: True
 # isArray: true
 @export var types: Array:
@@ -74,6 +82,7 @@ var __pokemonUnderscorespecies__was__set := false
 		types = value
 var __types__was__set := false
 
+# A list of version groups that were introduced in this generation.
 # Required: True
 # isArray: true
 @export var versionUnderscoregroups: Array:

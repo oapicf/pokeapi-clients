@@ -19,12 +19,16 @@ class ItemPocketDetail {
     this.names = const [],
   });
 
+  /// The identifier for this resource.
   int id;
 
+  /// The name for this resource.
   String name;
 
+  /// A list of item categories that are relevant to this item pocket.
   List<ItemCategorySummary> categories;
 
+  /// The name of this resource listed in different languages.
   List<ItemPocketName> names;
 
   @override

@@ -1,6 +1,6 @@
 package apimodels;
 
-import apimodels.EvolutionChainDetailChain;
+import apimodels.EvolutionChainLink;
 import apimodels.ItemSummary;
 import com.fasterxml.jackson.annotation.*;
 import java.util.Set;
@@ -11,7 +11,7 @@ import javax.validation.Valid;
 /**
  * EvolutionChainDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-10-25T05:48:13.486809836Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-11-09T13:49:31.462302702Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class EvolutionChainDetail   {
   @JsonProperty("id")
@@ -29,7 +29,7 @@ public class EvolutionChainDetail   {
   @NotNull
 @Valid
 
-  private EvolutionChainDetailChain chain;
+  private EvolutionChainLink chain;
 
   public EvolutionChainDetail id(Integer id) {
     this.id = id;
@@ -37,7 +37,7 @@ public class EvolutionChainDetail   {
   }
 
    /**
-   * Get id
+   * The identifier for this resource.
    * @return id
   **/
   public Integer getId() {
@@ -54,7 +54,7 @@ public class EvolutionChainDetail   {
   }
 
    /**
-   * Get babyTriggerItem
+   * The item that a Pokémon would be holding when mating that would trigger the egg hatching a baby Pokémon rather than a basic Pokémon.
    * @return babyTriggerItem
   **/
   public ItemSummary getBabyTriggerItem() {
@@ -65,20 +65,20 @@ public class EvolutionChainDetail   {
     this.babyTriggerItem = babyTriggerItem;
   }
 
-  public EvolutionChainDetail chain(EvolutionChainDetailChain chain) {
+  public EvolutionChainDetail chain(EvolutionChainLink chain) {
     this.chain = chain;
     return this;
   }
 
    /**
-   * Get chain
+   * The base chain link object. Each link contains evolution details for a Pokémon in the chain. Each link references the next Pokémon in the natural evolution order.
    * @return chain
   **/
-  public EvolutionChainDetailChain getChain() {
+  public EvolutionChainLink getChain() {
     return chain;
   }
 
-  public void setChain(EvolutionChainDetailChain chain) {
+  public void setChain(EvolutionChainLink chain) {
     this.chain = chain;
   }
 

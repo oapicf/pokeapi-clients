@@ -6,10 +6,10 @@ Should have a link to Version Group info but the Circular dependency and compila
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **number** |  | [readonly] [default to undefined]
-**name** | **string** |  | [default to undefined]
-**names** | [**Array&lt;VersionName&gt;**](VersionName.md) |  | [readonly] [default to undefined]
-**version_group** | [**VersionGroupSummary**](VersionGroupSummary.md) |  | [default to undefined]
+**id** | **number** | The identifier for this resource. | [readonly] [default to undefined]
+**name** | **string** | The name for this resource. | [default to undefined]
+**names** | [**Array&lt;VersionName&gt;**](VersionName.md) | The name of this resource listed in different languages. | [readonly] [default to undefined]
+**version_group** | [**VersionGroupSummary**](VersionGroupSummary.md) | The version group this version belongs to. | [default to undefined]
 
 ## Example
 

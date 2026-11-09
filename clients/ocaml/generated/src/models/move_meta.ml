@@ -15,73 +15,85 @@
                 
                 
                 ; [@key "ailment"]
-                                              category: Move_meta_category_summary.t
+                    (** The status ailment this move inflicts on its target. *)
+                                      category: Move_meta_category_summary.t
                   
                   
                 
                 
                 ; [@key "category"]
-                                              min_hits: int32
+                    (** The category of move this move falls under, e.g. damage or ailment. *)
+                                      min_hits: int32
                   
                    option [@default None]
                 
                 
                 ; [@key "min_hits"]
-                                              max_hits: int32
+                    (** The minimum number of times this move hits. Null if it always only hits once. *)
+                                      max_hits: int32
                   
                    option [@default None]
                 
                 
                 ; [@key "max_hits"]
-                                              min_turns: int32
+                    (** The maximum number of times this move hits. Null if it always only hits once. *)
+                                      min_turns: int32
                   
                    option [@default None]
                 
                 
                 ; [@key "min_turns"]
-                                              max_turns: int32
+                    (** The minimum number of turns this move continues to take effect. Null if it always only lasts one turn. *)
+                                      max_turns: int32
                   
                    option [@default None]
                 
                 
                 ; [@key "max_turns"]
-                                              drain: int32
+                    (** The maximum number of turns this move continues to take effect. Null if it always only lasts one turn. *)
+                                      drain: int32
                   
                    option [@default None]
                 
                 
                 ; [@key "drain"]
-                                              healing: int32
+                    (** HP drain (if positive) or Recoil damage (if negative), in percent of damage done. *)
+                                      healing: int32
                   
                    option [@default None]
                 
                 
                 ; [@key "healing"]
-                                              crit_rate: int32
+                    (** The amount of hp gained by the attacking Pokemon, in percent of it's maximum HP. *)
+                                      crit_rate: int32
                   
                    option [@default None]
                 
                 
                 ; [@key "crit_rate"]
-                                              ailment_chance: int32
+                    (** Critical hit rate bonus. *)
+                                      ailment_chance: int32
                   
                    option [@default None]
                 
                 
                 ; [@key "ailment_chance"]
-                                              flinch_chance: int32
+                    (** The likelihood this attack will cause an ailment. *)
+                                      flinch_chance: int32
                   
                    option [@default None]
                 
                 
                 ; [@key "flinch_chance"]
-                                              stat_chance: int32
+                    (** The likelihood this attack will cause the target Pokémon to flinch. *)
+                                      stat_chance: int32
                   
                    option [@default None]
                 
                 
                 ; [@key "stat_chance"]
-                        } [@@deriving yojson { strict = false }, show, eq ];;
+                    (** The likelihood this attack will cause a stat change in the target Pokémon. *)
+                } [@@deriving yojson { strict = false }, show, eq ];;
         
         let create (ailment : Move_meta_ailment_summary.t) (category : Move_meta_category_summary.t) : t = {
             ailment = ailment;

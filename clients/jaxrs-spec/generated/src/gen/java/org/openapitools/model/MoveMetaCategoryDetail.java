@@ -5,8 +5,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.model.AbilityDetailPokemonInnerPokemon;
 import org.openapitools.model.MoveMetaCategoryDescription;
+import org.openapitools.model.MoveSummary;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
@@ -21,12 +21,12 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("MoveMetaCategoryDetail")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-11-09T13:50:06.168269698Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class MoveMetaCategoryDetail   {
   private Integer id;
   private String name;
   private List<@Valid MoveMetaCategoryDescription> descriptions = new ArrayList<>();
-  private List<@Valid AbilityDetailPokemonInnerPokemon> moves = new ArrayList<>();
+  private List<@Valid MoveSummary> moves = new ArrayList<>();
 
   public MoveMetaCategoryDetail() {
   }
@@ -36,7 +36,7 @@ public class MoveMetaCategoryDetail   {
     @JsonProperty(required = true, value = "id") Integer id,
     @JsonProperty(required = true, value = "name") String name,
     @JsonProperty(required = true, value = "descriptions") List<@Valid MoveMetaCategoryDescription> descriptions,
-    @JsonProperty(required = true, value = "moves") List<@Valid AbilityDetailPokemonInnerPokemon> moves
+    @JsonProperty(required = true, value = "moves") List<@Valid MoveSummary> moves
   ) {
     this.id = id;
     this.name = name;
@@ -45,6 +45,7 @@ public class MoveMetaCategoryDetail   {
   }
 
   /**
+   * The identifier for this resource.
    **/
   public MoveMetaCategoryDetail id(Integer id) {
     this.id = id;
@@ -52,7 +53,7 @@ public class MoveMetaCategoryDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   @JsonProperty(required = true, value = "id")
   public Integer getId() {
     return id;
@@ -64,6 +65,7 @@ public class MoveMetaCategoryDetail   {
   }
 
   /**
+   * The name for this resource.
    **/
   public MoveMetaCategoryDetail name(String name) {
     this.name = name;
@@ -71,9 +73,9 @@ public class MoveMetaCategoryDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   @JsonProperty(required = true, value = "name")
-  @NotNull  @Size(max=100)public String getName() {
+  @NotNull  @Size(max=200)public String getName() {
     return name;
   }
 
@@ -83,6 +85,7 @@ public class MoveMetaCategoryDetail   {
   }
 
   /**
+   * The description of this resource listed in different languages.
    **/
   public MoveMetaCategoryDetail descriptions(List<@Valid MoveMetaCategoryDescription> descriptions) {
     this.descriptions = descriptions;
@@ -90,7 +93,7 @@ public class MoveMetaCategoryDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The description of this resource listed in different languages.")
   @JsonProperty(required = true, value = "descriptions")
   public List<@Valid MoveMetaCategoryDescription> getDescriptions() {
     return descriptions;
@@ -118,25 +121,26 @@ public class MoveMetaCategoryDetail   {
     return this;
   }
   /**
+   * A list of moves that fall into this category.
    **/
-  public MoveMetaCategoryDetail moves(List<@Valid AbilityDetailPokemonInnerPokemon> moves) {
+  public MoveMetaCategoryDetail moves(List<@Valid MoveSummary> moves) {
     this.moves = moves;
     return this;
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of moves that fall into this category.")
   @JsonProperty(required = true, value = "moves")
-  public List<@Valid AbilityDetailPokemonInnerPokemon> getMoves() {
+  public List<@Valid MoveSummary> getMoves() {
     return moves;
   }
 
   @JsonProperty(required = true, value = "moves")
-  public void setMoves(List<@Valid AbilityDetailPokemonInnerPokemon> moves) {
+  public void setMoves(List<@Valid MoveSummary> moves) {
     this.moves = moves;
   }
 
-  public MoveMetaCategoryDetail addMovesItem(AbilityDetailPokemonInnerPokemon movesItem) {
+  public MoveMetaCategoryDetail addMovesItem(MoveSummary movesItem) {
     if (this.moves == null) {
       this.moves = new ArrayList<>();
     }
@@ -145,7 +149,7 @@ public class MoveMetaCategoryDetail   {
     return this;
   }
 
-  public MoveMetaCategoryDetail removeMovesItem(AbilityDetailPokemonInnerPokemon movesItem) {
+  public MoveMetaCategoryDetail removeMovesItem(MoveSummary movesItem) {
     if (movesItem != null && this.moves != null) {
       this.moves.remove(movesItem);
     }

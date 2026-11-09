@@ -11,6 +11,7 @@ class_name VersionDetail
 # Should have a link to Version Group info but the Circular dependency and compilation order fight eachother and I'm not sure how to add anything other than a hyperlink
 
 
+# The identifier for this resource.
 # Required: True
 # isArray: false
 @export var id: int:
@@ -19,6 +20,7 @@ class_name VersionDetail
 		id = value
 var __id__was__set := false
 
+# The name for this resource.
 # Required: True
 # isArray: false
 @export var name: String:
@@ -27,6 +29,7 @@ var __id__was__set := false
 		name = value
 var __name__was__set := false
 
+# The name of this resource listed in different languages.
 # Required: True
 # isArray: true
 @export var names: Array:
@@ -35,6 +38,7 @@ var __name__was__set := false
 		names = value
 var __names__was__set := false
 
+# The version group this version belongs to.
 # Required: True
 # isArray: false
 @export var versionUnderscoregroup: VersionGroupSummary:

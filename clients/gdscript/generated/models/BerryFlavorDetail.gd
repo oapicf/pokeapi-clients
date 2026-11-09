@@ -10,6 +10,7 @@ class_name BerryFlavorDetail
 # BerryFlavorDetail Model
 
 
+# The identifier for this resource.
 # Required: True
 # isArray: false
 @export var id: int:
@@ -18,6 +19,7 @@ class_name BerryFlavorDetail
 		id = value
 var __id__was__set := false
 
+# The name for this resource.
 # Required: True
 # isArray: false
 @export var name: String:
@@ -26,6 +28,7 @@ var __id__was__set := false
 		name = value
 var __name__was__set := false
 
+# A list of the berries with this flavor.
 # Required: True
 # isArray: true
 @export var berries: Array:
@@ -34,6 +37,7 @@ var __name__was__set := false
 		berries = value
 var __berries__was__set := false
 
+# The contest type that correlates with this berry flavor.
 # Required: True
 # isArray: false
 @export var contestUnderscoretype: ContestTypeSummary:
@@ -42,6 +46,7 @@ var __berries__was__set := false
 		contestUnderscoretype = value
 var __contestUnderscoretype__was__set := false
 
+# The name of this resource listed in different languages.
 # Required: True
 # isArray: true
 @export var names: Array:
@@ -89,7 +94,7 @@ static func bzz_denormalize_single(from_dict: Dictionary):
 	if from_dict.has("name"):
 		me.name = from_dict["name"]
 	if from_dict.has("berries"):
-		me.berries = BerryFlavorDetail_berries_inner.bzz_denormalize_multiple(from_dict["berries"])
+		me.berries = BerryFlavorBerryMap.bzz_denormalize_multiple(from_dict["berries"])
 	if from_dict.has("contestUnderscoretype"):
 		me.contestUnderscoretype = ContestTypeSummary.bzz_denormalize_single(from_dict["contestUnderscoretype"])
 	if from_dict.has("names"):

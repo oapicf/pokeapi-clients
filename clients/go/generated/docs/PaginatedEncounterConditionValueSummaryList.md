@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Count** | Pointer to **int32** |  | [optional] 
-**Next** | Pointer to **string** |  | [optional] 
-**Previous** | Pointer to **string** |  | [optional] 
-**Results** | Pointer to [**[]EncounterConditionValueSummary**](EncounterConditionValueSummary.md) |  | [optional] 
+**Count** | **int32** | The total number of resources available from this API. | 
+**Next** | Pointer to **NullableString** | The URL for the next page in the list, or null if there is no next page. | [optional] 
+**Previous** | Pointer to **NullableString** | The URL for the previous page in the list, or null if there is no previous page. | [optional] 
+**Results** | [**[]EncounterConditionValueSummary**](EncounterConditionValueSummary.md) | A list of API resources on this page. | 
 
 ## Methods
 
 ### NewPaginatedEncounterConditionValueSummaryList
 
-`func NewPaginatedEncounterConditionValueSummaryList() *PaginatedEncounterConditionValueSummaryList`
+`func NewPaginatedEncounterConditionValueSummaryList(count int32, results []EncounterConditionValueSummary, ) *PaginatedEncounterConditionValueSummaryList`
 
 NewPaginatedEncounterConditionValueSummaryList instantiates a new PaginatedEncounterConditionValueSummaryList object
 This constructor will assign default values to properties that have it defined,
@@ -47,11 +47,6 @@ and a boolean to check if the value has been set.
 
 SetCount sets Count field to given value.
 
-### HasCount
-
-`func (o *PaginatedEncounterConditionValueSummaryList) HasCount() bool`
-
-HasCount returns a boolean if a field has been set.
 
 ### GetNext
 
@@ -78,6 +73,16 @@ SetNext sets Next field to given value.
 
 HasNext returns a boolean if a field has been set.
 
+### SetNextNil
+
+`func (o *PaginatedEncounterConditionValueSummaryList) SetNextNil(b bool)`
+
+ SetNextNil sets the value for Next to be an explicit nil
+
+### UnsetNext
+`func (o *PaginatedEncounterConditionValueSummaryList) UnsetNext()`
+
+UnsetNext ensures that no value is present for Next, not even an explicit nil
 ### GetPrevious
 
 `func (o *PaginatedEncounterConditionValueSummaryList) GetPrevious() string`
@@ -103,6 +108,16 @@ SetPrevious sets Previous field to given value.
 
 HasPrevious returns a boolean if a field has been set.
 
+### SetPreviousNil
+
+`func (o *PaginatedEncounterConditionValueSummaryList) SetPreviousNil(b bool)`
+
+ SetPreviousNil sets the value for Previous to be an explicit nil
+
+### UnsetPrevious
+`func (o *PaginatedEncounterConditionValueSummaryList) UnsetPrevious()`
+
+UnsetPrevious ensures that no value is present for Previous, not even an explicit nil
 ### GetResults
 
 `func (o *PaginatedEncounterConditionValueSummaryList) GetResults() []EncounterConditionValueSummary`
@@ -122,11 +137,6 @@ and a boolean to check if the value has been set.
 
 SetResults sets Results field to given value.
 
-### HasResults
-
-`func (o *PaginatedEncounterConditionValueSummaryList) HasResults() bool`
-
-HasResults returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

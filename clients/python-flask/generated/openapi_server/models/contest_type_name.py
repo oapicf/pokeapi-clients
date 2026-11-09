@@ -55,6 +55,7 @@ class ContestTypeName(Model):
     def name(self) -> str:
         """Gets the name of this ContestTypeName.
 
+        The name for this contest.  # noqa: E501
 
         :return: The name of this ContestTypeName.
         :rtype: str
@@ -65,14 +66,15 @@ class ContestTypeName(Model):
     def name(self, name: str):
         """Sets the name of this ContestTypeName.
 
+        The name for this contest.  # noqa: E501
 
         :param name: The name of this ContestTypeName.
         :type name: str
         """
         if name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
-        if name is not None and len(name) > 100:
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `100`")  # noqa: E501
+        if name is not None and len(name) > 200:
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `200`")  # noqa: E501
 
         self._name = name
 
@@ -80,6 +82,7 @@ class ContestTypeName(Model):
     def color(self) -> str:
         """Gets the color of this ContestTypeName.
 
+        The color associated with this contest's name.  # noqa: E501
 
         :return: The color of this ContestTypeName.
         :rtype: str
@@ -90,6 +93,7 @@ class ContestTypeName(Model):
     def color(self, color: str):
         """Sets the color of this ContestTypeName.
 
+        The color associated with this contest's name.  # noqa: E501
 
         :param color: The color of this ContestTypeName.
         :type color: str
@@ -105,6 +109,7 @@ class ContestTypeName(Model):
     def language(self) -> LanguageSummary:
         """Gets the language of this ContestTypeName.
 
+        The language that this name is in.  # noqa: E501
 
         :return: The language of this ContestTypeName.
         :rtype: LanguageSummary
@@ -115,6 +120,7 @@ class ContestTypeName(Model):
     def language(self, language: LanguageSummary):
         """Sets the language of this ContestTypeName.
 
+        The language that this name is in.  # noqa: E501
 
         :param language: The language of this ContestTypeName.
         :type language: LanguageSummary

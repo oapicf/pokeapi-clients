@@ -104,20 +104,6 @@
 
 - (NSDictionary *) authSettings {
     return @{
-               @"basicAuth":
-                   @{
-                       @"type": @"basic",
-                       @"in": @"header",
-                       @"key": @"Authorization",
-                       @"value": [self getBasicAuthToken]
-                   },
-               @"cookieAuth":
-                   @{
-                       @"type": @"api_key",
-                       @"in": ,
-                       @"key": @"sessionid",
-                       @"value": [self getApiKeyWithPrefix:@"sessionid"]
-                   },
                };
 }
 

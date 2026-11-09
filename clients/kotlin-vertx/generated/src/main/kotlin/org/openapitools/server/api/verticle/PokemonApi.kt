@@ -49,14 +49,14 @@ import java.util.Map
 interface PokemonApi  {
     fun init(vertx:Vertx,config:JsonObject)
     /* abilityList
-     *  */
+     * List abilities */
     suspend fun abilityList(limit:kotlin.Int?,offset:kotlin.Int?,q:kotlin.String?,context:OperationRequest):Response<PaginatedAbilitySummaryList>
     /* abilityRetrieve
-     *  */
+     * Get ability */
     suspend fun abilityRetrieve(id:kotlin.String?,context:OperationRequest):Response<AbilityDetail>
     /* characteristicList
-     * List charecterictics */
-    suspend fun characteristicList(limit:kotlin.Int?,offset:kotlin.Int?,q:kotlin.String?,context:OperationRequest):Response<PaginatedCharacteristicSummaryList>
+     * List characteristics */
+    suspend fun characteristicList(limit:kotlin.Int?,offset:kotlin.Int?,context:OperationRequest):Response<PaginatedCharacteristicSummaryList>
     /* characteristicRetrieve
      * Get characteristic */
     suspend fun characteristicRetrieve(id:kotlin.String?,context:OperationRequest):Response<CharacteristicDetail>

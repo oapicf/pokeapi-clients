@@ -11,9 +11,10 @@ part 'contest_effect_summary.g.dart';
 /// ContestEffectSummary
 ///
 /// Properties:
-/// * [url] 
+/// * [url] - The URL of the referenced resource.
 @BuiltValue()
 abstract class ContestEffectSummary implements Built<ContestEffectSummary, ContestEffectSummaryBuilder> {
+  /// The URL of the referenced resource.
   @BuiltValueField(wireName: r'url')
   String get url;
 

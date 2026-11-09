@@ -11,21 +11,21 @@ type MoveDetail struct {
 	Pp int32 `json:"pp,omitempty"`
 	Priority int32 `json:"priority,omitempty"`
 	Power int32 `json:"power,omitempty"`
-	ContestCombos MoveDetailContestCombos `json:"contest_combos"`
+	ContestCombos MoveCombos `json:"contest_combos"`
 	ContestType ContestTypeSummary `json:"contest_type"`
 	ContestEffect ContestEffectSummary `json:"contest_effect"`
 	DamageClass MoveDamageClassSummary `json:"damage_class"`
-	EffectEntries []MoveChangeEffectEntriesInner `json:"effect_entries"`
-	EffectChanges []MoveDetailEffectChangesInner `json:"effect_changes"`
+	EffectEntries []MoveEffectEffectText `json:"effect_entries"`
+	EffectChanges []MoveEffectChange `json:"effect_changes"`
 	Generation GenerationSummary `json:"generation"`
 	Meta MoveMeta `json:"meta"`
 	Names []MoveName `json:"names"`
 	PastValues []MoveChange `json:"past_values"`
-	StatChanges []MoveDetailStatChangesInner `json:"stat_changes"`
+	StatChanges []MoveMetaStatChange `json:"stat_changes"`
 	SuperContestEffect SuperContestEffectSummary `json:"super_contest_effect"`
 	Target MoveTargetSummary `json:"target"`
 	Type TypeSummary `json:"type"`
-	Machines []MoveDetailMachinesInner `json:"machines"`
+	Machines []ItemMachine `json:"machines"`
 	FlavorTextEntries []MoveFlavorText `json:"flavor_text_entries"`
-	LearnedByPokemon []AbilityDetailPokemonInnerPokemon `json:"learned_by_pokemon"`
+	LearnedByPokemon []PokemonSummary `json:"learned_by_pokemon"`
 }

@@ -20,14 +20,19 @@ class MoveTargetDetail {
     this.names = const [],
   });
 
+  /// The identifier for this resource.
   int id;
 
+  /// The name for this resource.
   String name;
 
+  /// The description of this resource listed in different languages.
   List<MoveTargetDescription> descriptions;
 
+  /// A list of moves that that are directed at this target.
   List<MoveSummary> moves;
 
+  /// The name of this resource listed in different languages.
   List<MoveTargetName> names;
 
   @override

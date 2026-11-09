@@ -31,17 +31,10 @@ open class ContestsAPI {
     /// List contest effects
     /// - GET /api/v2/contest-effect/
     /// - Contest effects refer to the effects of moves when used in contests.
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter limit: (query) Number of results to return per page. (optional)
     /// - parameter offset: (query) The initial index from which to return the results. (optional)
-    /// - parameter q: (query) &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
     /// - returns: AnyPublisher<PaginatedContestEffectSummaryList, Error> 
-    open func contestEffectList(limit: Int? = nil, offset: Int? = nil, q: String? = nil) -> AnyPublisher<PaginatedContestEffectSummaryList, Error> {
+    open func contestEffectList(limit: Int? = nil, offset: Int? = nil) -> AnyPublisher<PaginatedContestEffectSummaryList, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
@@ -53,7 +46,6 @@ open class ContestsAPI {
                 var queryItems: [URLQueryItem] = []
                 if let limit = limit { queryItems.append(URLQueryItem(name: "limit", value: "\(limit)")) } 
                 if let offset = offset { queryItems.append(URLQueryItem(name: "offset", value: "\(offset)")) } 
-                if let q = q { queryItems.append(URLQueryItem(name: "q", value: q)) } 
                 components?.queryItems = queryItems
                 guard let requestURL = components?.url else {
                     throw OpenAPITransportError.badURLError()
@@ -75,12 +67,6 @@ open class ContestsAPI {
     /// Get contest effect
     /// - GET /api/v2/contest-effect/{id}/
     /// - Contest effects refer to the effects of moves when used in contests.
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter id: (path) This parameter can be a string or an integer. 
     /// - returns: AnyPublisher<ContestEffectDetail, Error> 
     open func contestEffectRetrieve(id: String) -> AnyPublisher<ContestEffectDetail, Error> {
@@ -113,12 +99,6 @@ open class ContestsAPI {
     /// List contest types
     /// - GET /api/v2/contest-type/
     /// - Contest types are categories judges used to weigh a Pokémon's condition in Pokémon contests. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Contest_condition) for greater detail.
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter limit: (query) Number of results to return per page. (optional)
     /// - parameter offset: (query) The initial index from which to return the results. (optional)
     /// - parameter q: (query) &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
@@ -157,12 +137,6 @@ open class ContestsAPI {
     /// Get contest type
     /// - GET /api/v2/contest-type/{id}/
     /// - Contest types are categories judges used to weigh a Pokémon's condition in Pokémon contests. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Contest_condition) for greater detail.
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter id: (path) This parameter can be a string or an integer. 
     /// - returns: AnyPublisher<ContestTypeDetail, Error> 
     open func contestTypeRetrieve(id: String) -> AnyPublisher<ContestTypeDetail, Error> {
@@ -195,17 +169,10 @@ open class ContestsAPI {
     /// List super contest effects
     /// - GET /api/v2/super-contest-effect/
     /// - Super contest effects refer to the effects of moves when used in super contests.
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter limit: (query) Number of results to return per page. (optional)
     /// - parameter offset: (query) The initial index from which to return the results. (optional)
-    /// - parameter q: (query) &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
     /// - returns: AnyPublisher<PaginatedSuperContestEffectSummaryList, Error> 
-    open func superContestEffectList(limit: Int? = nil, offset: Int? = nil, q: String? = nil) -> AnyPublisher<PaginatedSuperContestEffectSummaryList, Error> {
+    open func superContestEffectList(limit: Int? = nil, offset: Int? = nil) -> AnyPublisher<PaginatedSuperContestEffectSummaryList, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
@@ -217,7 +184,6 @@ open class ContestsAPI {
                 var queryItems: [URLQueryItem] = []
                 if let limit = limit { queryItems.append(URLQueryItem(name: "limit", value: "\(limit)")) } 
                 if let offset = offset { queryItems.append(URLQueryItem(name: "offset", value: "\(offset)")) } 
-                if let q = q { queryItems.append(URLQueryItem(name: "q", value: q)) } 
                 components?.queryItems = queryItems
                 guard let requestURL = components?.url else {
                     throw OpenAPITransportError.badURLError()
@@ -239,12 +205,6 @@ open class ContestsAPI {
     /// Get super contest effect
     /// - GET /api/v2/super-contest-effect/{id}/
     /// - Super contest effects refer to the effects of moves when used in super contests.
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter id: (path) This parameter can be a string or an integer. 
     /// - returns: AnyPublisher<SuperContestEffectDetail, Error> 
     open func superContestEffectRetrieve(id: String) -> AnyPublisher<SuperContestEffectDetail, Error> {

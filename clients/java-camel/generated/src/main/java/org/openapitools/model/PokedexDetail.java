@@ -7,11 +7,11 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.model.AbilityDetailPokemonInnerPokemon;
 import org.openapitools.model.PokedexDescription;
-import org.openapitools.model.PokedexDetailPokemonEntriesInner;
 import org.openapitools.model.PokedexName;
+import org.openapitools.model.PokemonDexNumber;
 import org.openapitools.model.RegionSummary;
+import org.openapitools.model.VersionGroupSummary;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
@@ -26,7 +26,7 @@ import jakarta.annotation.Generated;
  * PokedexDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-10-25T05:48:25.711080506Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-11-09T13:49:41.168612095Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PokedexDetail {
 
   private Integer id;
@@ -39,11 +39,11 @@ public class PokedexDetail {
 
   private List<@Valid PokedexName> names = new ArrayList<>();
 
-  private List<@Valid PokedexDetailPokemonEntriesInner> pokemonEntries = new ArrayList<>();
+  private List<@Valid PokemonDexNumber> pokemonEntries = new ArrayList<>();
 
-  private RegionSummary region;
+  private JsonNullable<RegionSummary> region = JsonNullable.<RegionSummary>undefined();
 
-  private List<@Valid AbilityDetailPokemonInnerPokemon> versionGroups = new ArrayList<>();
+  private List<@Valid VersionGroupSummary> versionGroups = new ArrayList<>();
 
   public PokedexDetail() {
     super();
@@ -52,13 +52,13 @@ public class PokedexDetail {
   /**
    * Constructor with only required parameters
    */
-  public PokedexDetail(Integer id, String name, List<@Valid PokedexDescription> descriptions, List<@Valid PokedexName> names, List<@Valid PokedexDetailPokemonEntriesInner> pokemonEntries, RegionSummary region, List<@Valid AbilityDetailPokemonInnerPokemon> versionGroups) {
+  public PokedexDetail(Integer id, String name, List<@Valid PokedexDescription> descriptions, List<@Valid PokedexName> names, List<@Valid PokemonDexNumber> pokemonEntries, RegionSummary region, List<@Valid VersionGroupSummary> versionGroups) {
     this.id = id;
     this.name = name;
     this.descriptions = descriptions;
     this.names = names;
     this.pokemonEntries = pokemonEntries;
-    this.region = region;
+    this.region = JsonNullable.of(region);
     this.versionGroups = versionGroups;
   }
 
@@ -68,11 +68,11 @@ public class PokedexDetail {
   }
 
   /**
-   * Get id
+   * The identifier for this resource.
    * @return id
    */
   
-  @Schema(name = "id", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "id", accessMode = Schema.AccessMode.READ_ONLY, description = "The identifier for this resource.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("id")
   public Integer getId() {
     return id;
@@ -88,11 +88,11 @@ public class PokedexDetail {
   }
 
   /**
-   * Get name
+   * The name for this resource.
    * @return name
    */
-  @NotNull @Size(max = 100) 
-  @Schema(name = "name", requiredMode = Schema.RequiredMode.REQUIRED)
+  @NotNull @Size(max = 200) 
+  @Schema(name = "name", description = "The name for this resource.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("name")
   public String getName() {
     return name;
@@ -108,11 +108,11 @@ public class PokedexDetail {
   }
 
   /**
-   * Get isMainSeries
+   * Whether or not this Pokédex originated in the main series of the video games.
    * @return isMainSeries
    */
   
-  @Schema(name = "is_main_series", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Schema(name = "is_main_series", description = "Whether or not this Pokédex originated in the main series of the video games.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("is_main_series")
   public Boolean getIsMainSeries() {
     return isMainSeries;
@@ -136,11 +136,11 @@ public class PokedexDetail {
   }
 
   /**
-   * Get descriptions
+   * The description of this resource listed in different languages.
    * @return descriptions
    */
   
-  @Schema(name = "descriptions", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "descriptions", accessMode = Schema.AccessMode.READ_ONLY, description = "The description of this resource listed in different languages.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("descriptions")
   public List<@Valid PokedexDescription> getDescriptions() {
     return descriptions;
@@ -164,11 +164,11 @@ public class PokedexDetail {
   }
 
   /**
-   * Get names
+   * The name of this resource listed in different languages.
    * @return names
    */
   
-  @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, description = "The name of this resource listed in different languages.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("names")
   public List<@Valid PokedexName> getNames() {
     return names;
@@ -178,12 +178,12 @@ public class PokedexDetail {
     this.names = names;
   }
 
-  public PokedexDetail pokemonEntries(List<@Valid PokedexDetailPokemonEntriesInner> pokemonEntries) {
+  public PokedexDetail pokemonEntries(List<@Valid PokemonDexNumber> pokemonEntries) {
     this.pokemonEntries = pokemonEntries;
     return this;
   }
 
-  public PokedexDetail addPokemonEntriesItem(PokedexDetailPokemonEntriesInner pokemonEntriesItem) {
+  public PokedexDetail addPokemonEntriesItem(PokemonDexNumber pokemonEntriesItem) {
     if (this.pokemonEntries == null) {
       this.pokemonEntries = new ArrayList<>();
     }
@@ -192,46 +192,46 @@ public class PokedexDetail {
   }
 
   /**
-   * Get pokemonEntries
+   * A list of Pokémon catalogued in this Pokédex and their indexes.
    * @return pokemonEntries
    */
   
-  @Schema(name = "pokemon_entries", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "pokemon_entries", accessMode = Schema.AccessMode.READ_ONLY, description = "A list of Pokémon catalogued in this Pokédex and their indexes.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("pokemon_entries")
-  public List<@Valid PokedexDetailPokemonEntriesInner> getPokemonEntries() {
+  public List<@Valid PokemonDexNumber> getPokemonEntries() {
     return pokemonEntries;
   }
 
-  public void setPokemonEntries(List<@Valid PokedexDetailPokemonEntriesInner> pokemonEntries) {
+  public void setPokemonEntries(List<@Valid PokemonDexNumber> pokemonEntries) {
     this.pokemonEntries = pokemonEntries;
   }
 
   public PokedexDetail region(RegionSummary region) {
-    this.region = region;
+    this.region = JsonNullable.of(region);
     return this;
   }
 
   /**
-   * Get region
+   * The region this Pokédex catalogues Pokémon for.
    * @return region
    */
-  @NotNull @Valid 
-  @Schema(name = "region", requiredMode = Schema.RequiredMode.REQUIRED)
+  /* @Present */ @Valid 
+  @Schema(name = "region", description = "The region this Pokédex catalogues Pokémon for.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("region")
-  public RegionSummary getRegion() {
+  public JsonNullable<RegionSummary> getRegion() {
     return region;
   }
 
-  public void setRegion(RegionSummary region) {
+  public void setRegion(JsonNullable<RegionSummary> region) {
     this.region = region;
   }
 
-  public PokedexDetail versionGroups(List<@Valid AbilityDetailPokemonInnerPokemon> versionGroups) {
+  public PokedexDetail versionGroups(List<@Valid VersionGroupSummary> versionGroups) {
     this.versionGroups = versionGroups;
     return this;
   }
 
-  public PokedexDetail addVersionGroupsItem(AbilityDetailPokemonInnerPokemon versionGroupsItem) {
+  public PokedexDetail addVersionGroupsItem(VersionGroupSummary versionGroupsItem) {
     if (this.versionGroups == null) {
       this.versionGroups = new ArrayList<>();
     }
@@ -240,17 +240,17 @@ public class PokedexDetail {
   }
 
   /**
-   * Get versionGroups
+   * A list of version groups this Pokédex is relevant to.
    * @return versionGroups
    */
   
-  @Schema(name = "version_groups", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "version_groups", accessMode = Schema.AccessMode.READ_ONLY, description = "A list of version groups this Pokédex is relevant to.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("version_groups")
-  public List<@Valid AbilityDetailPokemonInnerPokemon> getVersionGroups() {
+  public List<@Valid VersionGroupSummary> getVersionGroups() {
     return versionGroups;
   }
 
-  public void setVersionGroups(List<@Valid AbilityDetailPokemonInnerPokemon> versionGroups) {
+  public void setVersionGroups(List<@Valid VersionGroupSummary> versionGroups) {
     this.versionGroups = versionGroups;
   }
 

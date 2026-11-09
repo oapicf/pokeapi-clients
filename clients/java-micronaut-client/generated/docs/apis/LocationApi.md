@@ -62,9 +62,7 @@ Location areas are sections of areas, such as floors in a building or cave. Each
 ### Return type
 [**PaginatedLocationAreaSummaryList**](PaginatedLocationAreaSummaryList.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -89,9 +87,7 @@ Location areas are sections of areas, such as floors in a building or cave. Each
 ### Return type
 [**LocationAreaDetail**](LocationAreaDetail.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -118,9 +114,7 @@ Locations that can be visited within the games. Locations make up sizable portio
 ### Return type
 [**PaginatedLocationSummaryList**](PaginatedLocationSummaryList.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -145,9 +139,7 @@ Locations that can be visited within the games. Locations make up sizable portio
 ### Return type
 [**LocationDetail**](LocationDetail.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -174,9 +166,7 @@ Areas used for grouping Pokémon encounters in Pal Park. They&#39;re like habita
 ### Return type
 [**PaginatedPalParkAreaSummaryList**](PaginatedPalParkAreaSummaryList.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -201,9 +191,7 @@ Areas used for grouping Pokémon encounters in Pal Park. They&#39;re like habita
 ### Return type
 [**PalParkAreaDetail**](PalParkAreaDetail.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -230,9 +218,7 @@ A region is an organized area of the Pokémon world. Most often, the main differ
 ### Return type
 [**PaginatedRegionSummaryList**](PaginatedRegionSummaryList.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -257,9 +243,7 @@ A region is an organized area of the Pokémon world. Most often, the main differ
 ### Return type
 [**RegionDetail**](RegionDetail.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined

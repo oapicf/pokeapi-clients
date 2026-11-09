@@ -24,10 +24,13 @@ class AbilityDetail {
     this.pokemon = const [],
   });
 
+  /// The identifier for this resource.
   int id;
 
+  /// The name for this resource.
   String name;
 
+  /// Whether or not this ability originated in the main series of the video games.
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated
@@ -36,17 +39,23 @@ class AbilityDetail {
   ///
   bool? isMainSeries;
 
+  /// The generation this ability originated in.
   GenerationSummary generation;
 
+  /// The name of this resource listed in different languages.
   List<AbilityName> names;
 
+  /// The effect of this ability listed in different languages.
   List<AbilityEffectText> effectEntries;
 
+  /// The list of previous effects this ability has had across version groups.
   List<AbilityChange> effectChanges;
 
+  /// The flavor text of this ability listed in different languages.
   List<AbilityFlavorText> flavorTextEntries;
 
-  List<AbilityDetailPokemonInner> pokemon;
+  /// A list of Pokémon that could potentially have this ability.
+  List<AbilityPokemonDetail> pokemon;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is AbilityDetail &&
@@ -133,7 +142,7 @@ class AbilityDetail {
         effectEntries: AbilityEffectText.listFromJson(json[r'effect_entries']),
         effectChanges: AbilityChange.listFromJson(json[r'effect_changes']),
         flavorTextEntries: AbilityFlavorText.listFromJson(json[r'flavor_text_entries']),
-        pokemon: AbilityDetailPokemonInner.listFromJson(json[r'pokemon']),
+        pokemon: AbilityPokemonDetail.listFromJson(json[r'pokemon']),
       );
     }
     return null;

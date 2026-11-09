@@ -7,7 +7,7 @@
 #' @title EvolutionChainSummary
 #' @description EvolutionChainSummary Class
 #' @format An \code{R6Class} generator object
-#' @field url  character
+#' @field url The URL of the referenced resource. character
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -19,7 +19,7 @@ EvolutionChainSummary <- R6::R6Class(
     #' @description
     #' Initialize a new EvolutionChainSummary class.
     #'
-    #' @param url url
+    #' @param url The URL of the referenced resource.
     #' @param ... Other optional arguments.
     initialize = function(`url`, ...) {
       if (!missing(`url`)) {

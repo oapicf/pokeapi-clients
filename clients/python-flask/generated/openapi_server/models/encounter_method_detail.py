@@ -60,6 +60,7 @@ class EncounterMethodDetail(Model):
     def id(self) -> int:
         """Gets the id of this EncounterMethodDetail.
 
+        The identifier for this resource.  # noqa: E501
 
         :return: The id of this EncounterMethodDetail.
         :rtype: int
@@ -70,6 +71,7 @@ class EncounterMethodDetail(Model):
     def id(self, id: int):
         """Sets the id of this EncounterMethodDetail.
 
+        The identifier for this resource.  # noqa: E501
 
         :param id: The id of this EncounterMethodDetail.
         :type id: int
@@ -83,6 +85,7 @@ class EncounterMethodDetail(Model):
     def name(self) -> str:
         """Gets the name of this EncounterMethodDetail.
 
+        The name for this resource.  # noqa: E501
 
         :return: The name of this EncounterMethodDetail.
         :rtype: str
@@ -93,14 +96,15 @@ class EncounterMethodDetail(Model):
     def name(self, name: str):
         """Sets the name of this EncounterMethodDetail.
 
+        The name for this resource.  # noqa: E501
 
         :param name: The name of this EncounterMethodDetail.
         :type name: str
         """
         if name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
-        if name is not None and len(name) > 100:
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `100`")  # noqa: E501
+        if name is not None and len(name) > 200:
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `200`")  # noqa: E501
 
         self._name = name
 
@@ -108,6 +112,7 @@ class EncounterMethodDetail(Model):
     def order(self) -> int:
         """Gets the order of this EncounterMethodDetail.
 
+        A good value for sorting.  # noqa: E501
 
         :return: The order of this EncounterMethodDetail.
         :rtype: int
@@ -118,10 +123,15 @@ class EncounterMethodDetail(Model):
     def order(self, order: int):
         """Sets the order of this EncounterMethodDetail.
 
+        A good value for sorting.  # noqa: E501
 
         :param order: The order of this EncounterMethodDetail.
         :type order: int
         """
+        if order is not None and order > 2147483647:  # noqa: E501
+            raise ValueError("Invalid value for `order`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if order is not None and order < -2147483648:  # noqa: E501
+            raise ValueError("Invalid value for `order`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._order = order
 
@@ -129,6 +139,7 @@ class EncounterMethodDetail(Model):
     def names(self) -> List[EncounterMethodName]:
         """Gets the names of this EncounterMethodDetail.
 
+        The name of this resource listed in different languages.  # noqa: E501
 
         :return: The names of this EncounterMethodDetail.
         :rtype: List[EncounterMethodName]
@@ -139,6 +150,7 @@ class EncounterMethodDetail(Model):
     def names(self, names: List[EncounterMethodName]):
         """Sets the names of this EncounterMethodDetail.
 
+        The name of this resource listed in different languages.  # noqa: E501
 
         :param names: The names of this EncounterMethodDetail.
         :type names: List[EncounterMethodName]

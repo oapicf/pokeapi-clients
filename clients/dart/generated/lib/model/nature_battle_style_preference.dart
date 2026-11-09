@@ -18,10 +18,19 @@ class NatureBattleStylePreference {
     required this.moveBattleStyle,
   });
 
+  /// Chance of using the move, in percent, if HP is under one half.
+  ///
+  /// Minimum value: -2147483648
+  /// Maximum value: 2147483647
   int lowHpPreference;
 
+  /// Chance of using the move, in percent, if HP is over one half.
+  ///
+  /// Minimum value: -2147483648
+  /// Maximum value: 2147483647
   int highHpPreference;
 
+  /// The move battle style.
   MoveBattleStyleSummary moveBattleStyle;
 
   @override

@@ -21,22 +21,11 @@ Machines are the representation of items that teach moves to Pokémon. They vary
 
 ```javascript
 import PokeapiClient from 'pokeapi-client';
-let defaultClient = PokeapiClient.ApiClient.instance;
-// Configure HTTP basic authorization: basicAuth
-let basicAuth = defaultClient.authentications['basicAuth'];
-basicAuth.username = 'YOUR USERNAME';
-basicAuth.password = 'YOUR PASSWORD';
-// Configure API key authorization: cookieAuth
-let cookieAuth = defaultClient.authentications['cookieAuth'];
-cookieAuth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//cookieAuth.apiKeyPrefix = 'Token';
 
 let apiInstance = new PokeapiClient.MachinesApi();
 let opts = {
   'limit': 56, // Number | Number of results to return per page.
-  'offset': 56, // Number | The initial index from which to return the results.
-  'q': "q_example" // String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+  'offset': 56 // Number | The initial index from which to return the results.
 };
 apiInstance.machineList(opts, (error, data, response) => {
   if (error) {
@@ -54,7 +43,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **Number**| Number of results to return per page. | [optional] 
  **offset** | **Number**| The initial index from which to return the results. | [optional] 
- **q** | **String**| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional] 
 
 ### Return type
 
@@ -62,7 +50,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -82,19 +70,9 @@ Machines are the representation of items that teach moves to Pokémon. They vary
 
 ```javascript
 import PokeapiClient from 'pokeapi-client';
-let defaultClient = PokeapiClient.ApiClient.instance;
-// Configure HTTP basic authorization: basicAuth
-let basicAuth = defaultClient.authentications['basicAuth'];
-basicAuth.username = 'YOUR USERNAME';
-basicAuth.password = 'YOUR PASSWORD';
-// Configure API key authorization: cookieAuth
-let cookieAuth = defaultClient.authentications['cookieAuth'];
-cookieAuth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//cookieAuth.apiKeyPrefix = 'Token';
 
 let apiInstance = new PokeapiClient.MachinesApi();
-let id = "id_example"; // String | This parameter can be a string or an integer.
+let id = "1"; // String | This parameter can be a string or an integer.
 apiInstance.machineRetrieve(id, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -117,7 +95,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

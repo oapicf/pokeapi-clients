@@ -19,13 +19,17 @@ class GenderDetail {
     this.requiredForEvolution = const [],
   });
 
+  /// The identifier for this resource.
   int id;
 
+  /// The name for this resource.
   String name;
 
-  List<GenderDetailPokemonSpeciesDetailsInner> pokemonSpeciesDetails;
+  /// A list of Pokémon species that can be this gender and how likely it is that they will be.
+  List<GenderPokemonSpecies> pokemonSpeciesDetails;
 
-  List<AbilityDetailPokemonInnerPokemon> requiredForEvolution;
+  /// A list of Pokémon species that required this gender in order for a Pokémon to evolve into them.
+  List<PokemonSpeciesSummary> requiredForEvolution;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is GenderDetail &&
@@ -79,8 +83,8 @@ class GenderDetail {
       return GenderDetail(
         id: mapValueOfType<int>(json, r'id')!,
         name: mapValueOfType<String>(json, r'name')!,
-        pokemonSpeciesDetails: GenderDetailPokemonSpeciesDetailsInner.listFromJson(json[r'pokemon_species_details']),
-        requiredForEvolution: AbilityDetailPokemonInnerPokemon.listFromJson(json[r'required_for_evolution']),
+        pokemonSpeciesDetails: GenderPokemonSpecies.listFromJson(json[r'pokemon_species_details']),
+        requiredForEvolution: PokemonSpeciesSummary.listFromJson(json[r'required_for_evolution']),
       );
     }
     return null;

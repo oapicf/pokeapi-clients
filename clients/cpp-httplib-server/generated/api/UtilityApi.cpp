@@ -11,12 +11,11 @@
 
 // Project headers
 #include "UtilityApi.h"
-#include "AuthenticationManager.h"
 
 constexpr int HTTP_RESPONSE_CODE_PAGINATED_LANGUAGE_SUMMARY_LIST = 200;
 constexpr int HTTP_RESPONSE_CODE_LANGUAGE_DETAIL = 200;
+constexpr int HTTP_RESPONSE_CODE_POKEAPI_META_RESPONSE = 200;
 constexpr int HTTP_RESPONSE_CODE_BAD_REQUEST = 400;
-constexpr int HTTP_RESPONSE_CODE_UNAUTHORIZED = 401;
 constexpr int HTTP_RESPONSE_CODE_INTERNAL_SERVER_ERROR = 500;
 
 namespace Api {
@@ -125,62 +124,20 @@ void Utility::handleApiv2languageidGetResponse(const Apiv2languageidGetResponse&
     to_json(responseJson, result);
     res.set_content(responseJson.dump(), "application/json");
 }
-
-bool Utility::performAuthentication(
-    const httplib::Request& req,
-    std::shared_ptr<AuthenticationManager> auth,
-    httplib::Response& res)
+void Utility::handleApiv2metaGetResponse(const Apiv2metaGetResponse& result, httplib::Response& res)
 {
-    if (!auth)
-    {
-        nlohmann::json errorJson = nlohmann::json::object();
-        errorJson["message"] = "AuthenticationManager not configured";
-        res.status = HTTP_RESPONSE_CODE_INTERNAL_SERVER_ERROR;
-        res.set_content(errorJson.dump(), "application/json");
-        return false;
-    }
-
-    {
-        auto cookieHeader = req.get_header_value("Cookie");
-        std::string key = "sessionid=";
-        size_t start = cookieHeader.find(key);
-        if (start != std::string::npos)
-        {
-            start += key.length();
-            size_t end = cookieHeader.find(";", start);
-            if (end == std::string::npos) end = cookieHeader.length();
-            std::string cookieValue = cookieHeader.substr(start, end - start);
-            if (auth->validateApiKey(cookieValue)) return true;
-        }
-    }
-
-    if (req.has_header("Authorization"))
-    {
-        auto authHeader = req.get_header_value("Authorization");
-        if (authHeader.find("Basic ") == 0)
-        {
-            std::string credentials = authHeader.substr(6);
-            if (auth->validateBasicAuth(credentials, "")) return true;
-        }
-    }
-
-
-
-    return false;
+    // Single response type
+    res.status = HTTP_RESPONSE_CODE_POKEAPI_META_RESPONSE;
+    nlohmann::json responseJson;
+    to_json(responseJson, result);
+    res.set_content(responseJson.dump(), "application/json");
 }
 
-void Utility::handleApiv2languageGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+
+void Utility::handleApiv2languageGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2languageGetRequest params;
         std::vector<std::string> paramErrors;
@@ -206,18 +163,10 @@ void Utility::handleApiv2languageGetRequest([[maybe_unused]] const httplib::Requ
     }
 }
 
-void Utility::handleApiv2languageidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Utility::handleApiv2languageidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2languageidGetRequest params;
         std::vector<std::string> paramErrors;
@@ -243,16 +192,38 @@ void Utility::handleApiv2languageidGetRequest([[maybe_unused]] const httplib::Re
     }
 }
 
-
-void Utility::registerRoutes(httplib::Server& svr, std::shared_ptr<AuthenticationManager> auth)
+void Utility::handleApiv2metaGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
-    svr.Get("/api/v2/language/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    try
     {
-        handleApiv2languageGetRequest(req, res, auth);
+
+        auto result = handleGetForApiv2meta();
+        handleApiv2metaGetResponse(result, res);
+
+    }
+    catch (const std::exception& e)
+    {
+        nlohmann::json errorJson = nlohmann::json::object();
+        errorJson["message"] = "Internal error: " + std::string(e.what());
+        res.status = HTTP_RESPONSE_CODE_INTERNAL_SERVER_ERROR;
+        res.set_content(errorJson.dump(), "application/json");
+    }
+}
+
+
+void Utility::registerRoutes(httplib::Server& svr)
+{
+    svr.Get("/api/v2/language/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    {
+        handleApiv2languageGetRequest(req, res);
     });
-    svr.Get("/api/v2/language/{id}/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/language/{id}/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2languageidGetRequest(req, res, auth);
+        handleApiv2languageidGetRequest(req, res);
+    });
+    svr.Get("/api/v2/meta/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    {
+        handleApiv2metaGetRequest(req, res);
     });
 }
 

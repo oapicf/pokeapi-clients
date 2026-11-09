@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 # **machineList**
 ```swift
-    open class func machineList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedMachineSummaryList
+    open class func machineList(limit: Int? = nil, offset: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedMachineSummaryList
 ```
 
 List machines
@@ -24,11 +24,10 @@ import OpenAPIClient
 
 let limit = 987 // Int | Number of results to return per page. (optional)
 let offset = 987 // Int | The initial index from which to return the results. (optional)
-let q = "q_example" // String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
 
 // List machines
 do {
-    let response = try await MachinesAPI.machineList(limit: limit, offset: offset, q: q)
+    let response = try await MachinesAPI.machineList(limit: limit, offset: offset)
     dump(response)
 } catch {
     print(error)
@@ -41,7 +40,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **Int** | Number of results to return per page. | [optional] 
  **offset** | **Int** | The initial index from which to return the results. | [optional] 
- **q** | **String** | &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional] 
 
 ### Return type
 
@@ -49,7 +47,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -95,7 +93,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

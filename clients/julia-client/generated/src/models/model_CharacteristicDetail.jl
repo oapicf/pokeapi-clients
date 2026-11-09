@@ -12,11 +12,11 @@
         descriptions=nothing,
     )
 
-    - id::Int64
-    - gene_modulo::Int64
-    - possible_values::Vector{Int64}
-    - highest_stat::StatSummary
-    - descriptions::Vector{CharacteristicDescription}
+    - id::Int64 : The identifier for this resource.
+    - gene_modulo::Int64 : The remainder of the highest stat/IV divided by 5.
+    - possible_values::Vector{Int64} : The possible values of the highest stat that would result in a Pokémon recieving this characteristic when divided by 5.
+    - highest_stat::StatSummary : The stat which results in this characteristic.
+    - descriptions::Vector{CharacteristicDescription} : The descriptions of this characteristic listed in different languages.
 """
 Base.@kwdef mutable struct CharacteristicDetail <: OpenAPI.APIModel
     id::Union{Nothing, Int64} = nothing

@@ -7,8 +7,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
-import org.openapitools.vertxweb.server.model.AbilityDetailPokemonInnerPokemon;
 import org.openapitools.vertxweb.server.model.GenerationSummary;
+import org.openapitools.vertxweb.server.model.MoveLearnMethodSummary;
+import org.openapitools.vertxweb.server.model.PokedexSummary;
+import org.openapitools.vertxweb.server.model.RegionSummary;
 import org.openapitools.vertxweb.server.model.VersionSummary;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -18,16 +20,16 @@ public class VersionGroupDetail   {
   private String name;
   private Integer order;
   private GenerationSummary generation;
-  private List<AbilityDetailPokemonInnerPokemon> moveLearnMethods = new ArrayList<>();
-  private List<AbilityDetailPokemonInnerPokemon> pokedexes = new ArrayList<>();
-  private List<AbilityDetailPokemonInnerPokemon> regions = new ArrayList<>();
+  private List<MoveLearnMethodSummary> moveLearnMethods = new ArrayList<>();
+  private List<PokedexSummary> pokedexes = new ArrayList<>();
+  private List<RegionSummary> regions = new ArrayList<>();
   private List<VersionSummary> versions = new ArrayList<>();
 
   public VersionGroupDetail () {
 
   }
 
-  public VersionGroupDetail (Integer id, String name, Integer order, GenerationSummary generation, List<AbilityDetailPokemonInnerPokemon> moveLearnMethods, List<AbilityDetailPokemonInnerPokemon> pokedexes, List<AbilityDetailPokemonInnerPokemon> regions, List<VersionSummary> versions) {
+  public VersionGroupDetail (Integer id, String name, Integer order, GenerationSummary generation, List<MoveLearnMethodSummary> moveLearnMethods, List<PokedexSummary> pokedexes, List<RegionSummary> regions, List<VersionSummary> versions) {
     this.id = id;
     this.name = name;
     this.order = order;
@@ -76,28 +78,28 @@ public class VersionGroupDetail   {
 
     
   @JsonProperty("move_learn_methods")
-  public List<AbilityDetailPokemonInnerPokemon> getMoveLearnMethods() {
+  public List<MoveLearnMethodSummary> getMoveLearnMethods() {
     return moveLearnMethods;
   }
-  public void setMoveLearnMethods(List<AbilityDetailPokemonInnerPokemon> moveLearnMethods) {
+  public void setMoveLearnMethods(List<MoveLearnMethodSummary> moveLearnMethods) {
     this.moveLearnMethods = moveLearnMethods;
   }
 
     
   @JsonProperty("pokedexes")
-  public List<AbilityDetailPokemonInnerPokemon> getPokedexes() {
+  public List<PokedexSummary> getPokedexes() {
     return pokedexes;
   }
-  public void setPokedexes(List<AbilityDetailPokemonInnerPokemon> pokedexes) {
+  public void setPokedexes(List<PokedexSummary> pokedexes) {
     this.pokedexes = pokedexes;
   }
 
     
   @JsonProperty("regions")
-  public List<AbilityDetailPokemonInnerPokemon> getRegions() {
+  public List<RegionSummary> getRegions() {
     return regions;
   }
-  public void setRegions(List<AbilityDetailPokemonInnerPokemon> regions) {
+  public void setRegions(List<RegionSummary> regions) {
     this.regions = regions;
   }
 

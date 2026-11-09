@@ -2,11 +2,15 @@ package models
 
 type PaginatedBerrySummaryList struct {
 
-	Count int32 `json:"count,omitempty"`
+	// The total number of resources available from this API.
+	Count int32 `json:"count"`
 
-	Next string `json:"next,omitempty"`
+	// The URL for the next page in the list, or null if there is no next page.
+	Next *string `json:"next,omitempty"`
 
-	Previous string `json:"previous,omitempty"`
+	// The URL for the previous page in the list, or null if there is no previous page.
+	Previous *string `json:"previous,omitempty"`
 
-	Results []BerrySummary `json:"results,omitempty"`
+	// A list of API resources on this page.
+	Results []BerrySummary `json:"results"`
 }

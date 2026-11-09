@@ -48,12 +48,6 @@ object Example extends App {
     
     implicit val system: ActorSystem = ActorSystem()
     import system.dispatcher
-    
-    // Configure HTTP basic authorization: basicAuth
-    implicit val basicAuth: BasicCredentials = BasicCredentials("YOUR USERNAME", "YOUR PASSWORD")
-
-    // Configure API key authorization: cookieAuth
-    implicit val cookieAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
     val apiInstance = LocationApi("https://pokeapi.co")
@@ -99,7 +93,7 @@ ApiRequest[[**PaginatedLocationAreaSummaryList**](PaginatedLocationAreaSummaryLi
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -137,16 +131,10 @@ object Example extends App {
     
     implicit val system: ActorSystem = ActorSystem()
     import system.dispatcher
-    
-    // Configure HTTP basic authorization: basicAuth
-    implicit val basicAuth: BasicCredentials = BasicCredentials("YOUR USERNAME", "YOUR PASSWORD")
-
-    // Configure API key authorization: cookieAuth
-    implicit val cookieAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
     val apiInstance = LocationApi("https://pokeapi.co")
-    val id: Int = 56 // Int | A unique integer value identifying this location area.
+    val id: Int = 1 // Int | A unique integer value identifying this location area.
     
     val request = apiInstance.locationAreaRetrieve(id)
     val response = apiInvoker.execute(request)
@@ -185,7 +173,7 @@ ApiRequest[[**LocationAreaDetail**](LocationAreaDetail.md)]
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -223,12 +211,6 @@ object Example extends App {
     
     implicit val system: ActorSystem = ActorSystem()
     import system.dispatcher
-    
-    // Configure HTTP basic authorization: basicAuth
-    implicit val basicAuth: BasicCredentials = BasicCredentials("YOUR USERNAME", "YOUR PASSWORD")
-
-    // Configure API key authorization: cookieAuth
-    implicit val cookieAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
     val apiInstance = LocationApi("https://pokeapi.co")
@@ -277,7 +259,7 @@ ApiRequest[[**PaginatedLocationSummaryList**](PaginatedLocationSummaryList.md)]
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -315,16 +297,10 @@ object Example extends App {
     
     implicit val system: ActorSystem = ActorSystem()
     import system.dispatcher
-    
-    // Configure HTTP basic authorization: basicAuth
-    implicit val basicAuth: BasicCredentials = BasicCredentials("YOUR USERNAME", "YOUR PASSWORD")
-
-    // Configure API key authorization: cookieAuth
-    implicit val cookieAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
     val apiInstance = LocationApi("https://pokeapi.co")
-    val id: String = id_example // String | This parameter can be a string or an integer.
+    val id: String = 1 // String | This parameter can be a string or an integer.
     
     val request = apiInstance.locationRetrieve(id)
     val response = apiInvoker.execute(request)
@@ -363,7 +339,7 @@ ApiRequest[[**LocationDetail**](LocationDetail.md)]
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -401,12 +377,6 @@ object Example extends App {
     
     implicit val system: ActorSystem = ActorSystem()
     import system.dispatcher
-    
-    // Configure HTTP basic authorization: basicAuth
-    implicit val basicAuth: BasicCredentials = BasicCredentials("YOUR USERNAME", "YOUR PASSWORD")
-
-    // Configure API key authorization: cookieAuth
-    implicit val cookieAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
     val apiInstance = LocationApi("https://pokeapi.co")
@@ -455,7 +425,7 @@ ApiRequest[[**PaginatedPalParkAreaSummaryList**](PaginatedPalParkAreaSummaryList
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -493,16 +463,10 @@ object Example extends App {
     
     implicit val system: ActorSystem = ActorSystem()
     import system.dispatcher
-    
-    // Configure HTTP basic authorization: basicAuth
-    implicit val basicAuth: BasicCredentials = BasicCredentials("YOUR USERNAME", "YOUR PASSWORD")
-
-    // Configure API key authorization: cookieAuth
-    implicit val cookieAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
     val apiInstance = LocationApi("https://pokeapi.co")
-    val id: String = id_example // String | This parameter can be a string or an integer.
+    val id: String = 1 // String | This parameter can be a string or an integer.
     
     val request = apiInstance.palParkAreaRetrieve(id)
     val response = apiInvoker.execute(request)
@@ -541,7 +505,7 @@ ApiRequest[[**PalParkAreaDetail**](PalParkAreaDetail.md)]
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -579,12 +543,6 @@ object Example extends App {
     
     implicit val system: ActorSystem = ActorSystem()
     import system.dispatcher
-    
-    // Configure HTTP basic authorization: basicAuth
-    implicit val basicAuth: BasicCredentials = BasicCredentials("YOUR USERNAME", "YOUR PASSWORD")
-
-    // Configure API key authorization: cookieAuth
-    implicit val cookieAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
     val apiInstance = LocationApi("https://pokeapi.co")
@@ -633,7 +591,7 @@ ApiRequest[[**PaginatedRegionSummaryList**](PaginatedRegionSummaryList.md)]
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -671,16 +629,10 @@ object Example extends App {
     
     implicit val system: ActorSystem = ActorSystem()
     import system.dispatcher
-    
-    // Configure HTTP basic authorization: basicAuth
-    implicit val basicAuth: BasicCredentials = BasicCredentials("YOUR USERNAME", "YOUR PASSWORD")
-
-    // Configure API key authorization: cookieAuth
-    implicit val cookieAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
     val apiInstance = LocationApi("https://pokeapi.co")
-    val id: String = id_example // String | This parameter can be a string or an integer.
+    val id: String = 1 // String | This parameter can be a string or an integer.
     
     val request = apiInstance.regionRetrieve(id)
     val response = apiInvoker.execute(request)
@@ -719,7 +671,7 @@ ApiRequest[[**RegionDetail**](RegionDetail.md)]
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

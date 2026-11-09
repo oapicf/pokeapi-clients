@@ -17,7 +17,7 @@
  * This method is used by `JSONModel`.
  */
 + (JSONKeyMapper *)keyMapper {
-  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{ @"_id": @"id", @"name": @"name", @"cost": @"cost", @"flingPower": @"fling_power", @"flingEffect": @"fling_effect", @"attributes": @"attributes", @"category": @"category", @"effectEntries": @"effect_entries", @"flavorTextEntries": @"flavor_text_entries", @"gameIndices": @"game_indices", @"names": @"names", @"heldByPokemon": @"held_by_pokemon", @"sprites": @"sprites", @"babyTriggerFor": @"baby_trigger_for", @"machines": @"machines" }];
+  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{ @"_id": @"id", @"name": @"name", @"flingPower": @"fling_power", @"flingEffect": @"fling_effect", @"attributes": @"attributes", @"category": @"category", @"effectEntries": @"effect_entries", @"flavorTextEntries": @"flavor_text_entries", @"gameIndices": @"game_indices", @"prices": @"prices", @"names": @"names", @"heldByPokemon": @"held_by_pokemon", @"sprites": @"sprites", @"babyTriggerFor": @"baby_trigger_for", @"machines": @"machines" }];
 }
 
 /**
@@ -27,7 +27,7 @@
  */
 + (BOOL)propertyIsOptional:(NSString *)propertyName {
 
-  NSArray *optionalProperties = @[@"cost", @"flingPower", ];
+  NSArray *optionalProperties = @[@"flingPower", ];
   return [optionalProperties containsObject:propertyName];
 }
 

@@ -11,7 +11,6 @@ namespace models {
 AbilityEffectText::AbilityEffectText()
 : effect("")
 , shortEffect("")
-, language(LanguageSummary())
 {
 }
 // =========================================

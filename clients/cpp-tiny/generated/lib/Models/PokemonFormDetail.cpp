@@ -14,12 +14,14 @@ PokemonFormDetail::PokemonFormDetail()
 	is_battle_only = bool(false);
 	is_mega = bool(false);
 	form_name = std::string();
-	pokemon = PokemonSummary();
-	sprites = PokemonFormDetail_sprites();
-	version_group = VersionGroupSummary();
-	form_names = std::list<PokemonFormDetail_form_names_inner>();
-	names = std::list<PokemonFormDetail_form_names_inner>();
-	types = std::list<PokemonDetail_types_inner>();
+	pokemon = null;
+	sprites = null;
+	version_group = null;
+	form_names = std::list<PokemonFormName>();
+	names = std::list<PokemonFormName>();
+	types = std::list<PokemonFormType>();
+	trigger_conditions = std::list<PokemonFormTriggerCondition>();
+	flavor_text_entries = std::list<PokemonFormFlavorText>();
 }
 
 PokemonFormDetail::PokemonFormDetail(std::string jsonString)
@@ -164,7 +166,7 @@ PokemonFormDetail::fromJson(std::string jsonObj)
 
 
 
-        PokemonFormDetail_sprites* obj = &sprites;
+        PokemonFormSprites* obj = &sprites;
 		obj->fromJson(value.dump());
 
     }
@@ -190,8 +192,8 @@ PokemonFormDetail::fromJson(std::string jsonObj)
         bourne::json value = object[form_namesKey];
 
 
-        std::list<PokemonFormDetail_form_names_inner> form_names_list;
-        PokemonFormDetail_form_names_inner element;
+        std::list<PokemonFormName> form_names_list;
+        PokemonFormName element;
         for(auto& var : value.array_range())
         {
 
@@ -212,8 +214,8 @@ PokemonFormDetail::fromJson(std::string jsonObj)
         bourne::json value = object[namesKey];
 
 
-        std::list<PokemonFormDetail_form_names_inner> names_list;
-        PokemonFormDetail_form_names_inner element;
+        std::list<PokemonFormName> names_list;
+        PokemonFormName element;
         for(auto& var : value.array_range())
         {
 
@@ -234,8 +236,8 @@ PokemonFormDetail::fromJson(std::string jsonObj)
         bourne::json value = object[typesKey];
 
 
-        std::list<PokemonDetail_types_inner> types_list;
-        PokemonDetail_types_inner element;
+        std::list<PokemonFormType> types_list;
+        PokemonFormType element;
         for(auto& var : value.array_range())
         {
 
@@ -245,6 +247,50 @@ PokemonFormDetail::fromJson(std::string jsonObj)
             types_list.push_back(element);
         }
         types = types_list;
+
+
+    }
+
+    const char *trigger_conditionsKey = "trigger_conditions";
+
+    if(object.has_key(trigger_conditionsKey))
+    {
+        bourne::json value = object[trigger_conditionsKey];
+
+
+        std::list<PokemonFormTriggerCondition> trigger_conditions_list;
+        PokemonFormTriggerCondition element;
+        for(auto& var : value.array_range())
+        {
+
+
+            element.fromJson(var.dump());
+
+            trigger_conditions_list.push_back(element);
+        }
+        trigger_conditions = trigger_conditions_list;
+
+
+    }
+
+    const char *flavor_text_entriesKey = "flavor_text_entries";
+
+    if(object.has_key(flavor_text_entriesKey))
+    {
+        bourne::json value = object[flavor_text_entriesKey];
+
+
+        std::list<PokemonFormFlavorText> flavor_text_entries_list;
+        PokemonFormFlavorText element;
+        for(auto& var : value.array_range())
+        {
+
+
+            element.fromJson(var.dump());
+
+            flavor_text_entries_list.push_back(element);
+        }
+        flavor_text_entries = flavor_text_entries_list;
 
 
     }
@@ -337,12 +383,12 @@ PokemonFormDetail::toJson()
 
 
 
-    std::list<PokemonFormDetail_form_names_inner> form_names_list = getFormNames();
+    std::list<PokemonFormName> form_names_list = getFormNames();
     bourne::json form_names_arr = bourne::json::array();
 
     for(auto& var : form_names_list)
     {
-        PokemonFormDetail_form_names_inner obj = var;
+        PokemonFormName obj = var;
         form_names_arr.append(obj.toJson());
     }
     object["form_names"] = form_names_arr;
@@ -352,12 +398,12 @@ PokemonFormDetail::toJson()
 
 
 
-    std::list<PokemonFormDetail_form_names_inner> names_list = getNames();
+    std::list<PokemonFormName> names_list = getNames();
     bourne::json names_arr = bourne::json::array();
 
     for(auto& var : names_list)
     {
-        PokemonFormDetail_form_names_inner obj = var;
+        PokemonFormName obj = var;
         names_arr.append(obj.toJson());
     }
     object["names"] = names_arr;
@@ -367,15 +413,45 @@ PokemonFormDetail::toJson()
 
 
 
-    std::list<PokemonDetail_types_inner> types_list = getTypes();
+    std::list<PokemonFormType> types_list = getTypes();
     bourne::json types_arr = bourne::json::array();
 
     for(auto& var : types_list)
     {
-        PokemonDetail_types_inner obj = var;
+        PokemonFormType obj = var;
         types_arr.append(obj.toJson());
     }
     object["types"] = types_arr;
+
+
+
+
+
+
+    std::list<PokemonFormTriggerCondition> trigger_conditions_list = getTriggerConditions();
+    bourne::json trigger_conditions_arr = bourne::json::array();
+
+    for(auto& var : trigger_conditions_list)
+    {
+        PokemonFormTriggerCondition obj = var;
+        trigger_conditions_arr.append(obj.toJson());
+    }
+    object["trigger_conditions"] = trigger_conditions_arr;
+
+
+
+
+
+
+    std::list<PokemonFormFlavorText> flavor_text_entries_list = getFlavorTextEntries();
+    bourne::json flavor_text_entries_arr = bourne::json::array();
+
+    for(auto& var : flavor_text_entries_list)
+    {
+        PokemonFormFlavorText obj = var;
+        flavor_text_entries_arr.append(obj.toJson());
+    }
+    object["flavor_text_entries"] = flavor_text_entries_arr;
 
 
 
@@ -492,14 +568,14 @@ PokemonFormDetail::setPokemon(PokemonSummary pokemon)
 	this->pokemon = pokemon;
 }
 
-PokemonFormDetail_sprites&lt;std::string, std::string&gt;
+PokemonFormSprites
 PokemonFormDetail::getSprites()
 {
 	return sprites;
 }
 
 void
-PokemonFormDetail::setSprites(PokemonFormDetail_sprites&lt;std::string, std::string&gt; sprites)
+PokemonFormDetail::setSprites(PokemonFormSprites sprites)
 {
 	this->sprites = sprites;
 }
@@ -516,40 +592,64 @@ PokemonFormDetail::setVersionGroup(VersionGroupSummary version_group)
 	this->version_group = version_group;
 }
 
-std::list<PokemonFormDetail_form_names_inner>
+std::list<PokemonFormName>
 PokemonFormDetail::getFormNames()
 {
 	return form_names;
 }
 
 void
-PokemonFormDetail::setFormNames(std::list<PokemonFormDetail_form_names_inner> form_names)
+PokemonFormDetail::setFormNames(std::list<PokemonFormName> form_names)
 {
 	this->form_names = form_names;
 }
 
-std::list<PokemonFormDetail_form_names_inner>
+std::list<PokemonFormName>
 PokemonFormDetail::getNames()
 {
 	return names;
 }
 
 void
-PokemonFormDetail::setNames(std::list<PokemonFormDetail_form_names_inner> names)
+PokemonFormDetail::setNames(std::list<PokemonFormName> names)
 {
 	this->names = names;
 }
 
-std::list<PokemonDetail_types_inner>
+std::list<PokemonFormType>
 PokemonFormDetail::getTypes()
 {
 	return types;
 }
 
 void
-PokemonFormDetail::setTypes(std::list<PokemonDetail_types_inner> types)
+PokemonFormDetail::setTypes(std::list<PokemonFormType> types)
 {
 	this->types = types;
+}
+
+std::list<PokemonFormTriggerCondition>
+PokemonFormDetail::getTriggerConditions()
+{
+	return trigger_conditions;
+}
+
+void
+PokemonFormDetail::setTriggerConditions(std::list<PokemonFormTriggerCondition> trigger_conditions)
+{
+	this->trigger_conditions = trigger_conditions;
+}
+
+std::list<PokemonFormFlavorText>
+PokemonFormDetail::getFlavorTextEntries()
+{
+	return flavor_text_entries;
+}
+
+void
+PokemonFormDetail::setFlavorTextEntries(std::list<PokemonFormFlavorText> flavor_text_entries)
+{
+	this->flavor_text_entries = flavor_text_entries;
 }
 
 

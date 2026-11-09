@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
-import org.openapitools.model.MoveChangeEffectEntriesInner;
+import org.openapitools.model.MoveEffectEffectText;
 import org.openapitools.model.TypeSummary;
 import org.openapitools.model.VersionGroupSummary;
 import javax.validation.constraints.*;
@@ -17,43 +17,66 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class MoveChange  {
   
-  @ApiModelProperty(value = "")
+ /**
+  * The percent value of how likely this move is to be successful.
+  */
+  @ApiModelProperty(value = "The percent value of how likely this move is to be successful.")
 
   private Integer accuracy;
 
-  @ApiModelProperty(value = "")
+ /**
+  * The base power before the listed version group, or null if power did not change.
+  */
+  @ApiModelProperty(value = "The base power before the listed version group, or null if power did not change.")
 
   private Integer power;
 
-  @ApiModelProperty(value = "")
+ /**
+  * Power points. The number of times this move can be used.
+  */
+  @ApiModelProperty(value = "Power points. The number of times this move can be used.")
 
   private Integer pp;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The percent value of how likely it is this moves effect will take effect.
+  */
+  @ApiModelProperty(required = true, value = "The percent value of how likely it is this moves effect will take effect.")
 
   private Integer effectChance;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The effect of this move listed in different languages.
+  */
+  @ApiModelProperty(required = true, value = "The effect of this move listed in different languages.")
 
-  private List<@Valid MoveChangeEffectEntriesInner> effectEntries = new ArrayList<>();
+  private List<@Valid MoveEffectEffectText> effectEntries = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The elemental type of this move.
+  */
+  @ApiModelProperty(required = true, value = "The elemental type of this move.")
 
   @Valid
 
   private TypeSummary type;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The version group in which these move stat values were in effect.
+  */
+  @ApiModelProperty(required = true, value = "The version group in which these move stat values were in effect.")
 
   @Valid
 
   private VersionGroupSummary versionGroup;
  /**
-   * Get accuracy
+   * The percent value of how likely this move is to be successful.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return accuracy
   **/
   @JsonProperty("accuracy")
-  public Integer getAccuracy() {
+ @Min(-2147483648) @Max(2147483647)  public Integer getAccuracy() {
     return accuracy;
   }
 
@@ -67,11 +90,13 @@ public class MoveChange  {
   }
 
  /**
-   * Get power
+   * The base power before the listed version group, or null if power did not change.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return power
   **/
   @JsonProperty("power")
-  public Integer getPower() {
+ @Min(-2147483648) @Max(2147483647)  public Integer getPower() {
     return power;
   }
 
@@ -85,11 +110,13 @@ public class MoveChange  {
   }
 
  /**
-   * Get pp
+   * Power points. The number of times this move can be used.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return pp
   **/
   @JsonProperty("pp")
-  public Integer getPp() {
+ @Min(-2147483648) @Max(2147483647)  public Integer getPp() {
     return pp;
   }
 
@@ -103,7 +130,7 @@ public class MoveChange  {
   }
 
  /**
-   * Get effectChance
+   * The percent value of how likely it is this moves effect will take effect.
    * @return effectChance
   **/
   @JsonProperty("effect_chance")
@@ -122,18 +149,18 @@ public class MoveChange  {
   }
 
  /**
-   * Get effectEntries
+   * The effect of this move listed in different languages.
    * @return effectEntries
   **/
   @JsonProperty("effect_entries")
   @NotNull
-  public List<@Valid MoveChangeEffectEntriesInner> getEffectEntries() {
+  public List<@Valid MoveEffectEffectText> getEffectEntries() {
     return effectEntries;
   }
 
 
  /**
-   * Get type
+   * The elemental type of this move.
    * @return type
   **/
   @JsonProperty("type")
@@ -152,7 +179,7 @@ public class MoveChange  {
   }
 
  /**
-   * Get versionGroup
+   * The version group in which these move stat values were in effect.
    * @return versionGroup
   **/
   @JsonProperty("version_group")

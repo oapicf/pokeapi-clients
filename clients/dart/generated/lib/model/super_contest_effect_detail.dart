@@ -19,12 +19,19 @@ class SuperContestEffectDetail {
     this.moves = const [],
   });
 
+  /// The identifier for this resource.
   int id;
 
+  /// The level of appeal this super contest effect has.
+  ///
+  /// Minimum value: -2147483648
+  /// Maximum value: 2147483647
   int appeal;
 
+  /// The flavor text of this super contest effect listed in different languages.
   List<SuperContestEffectFlavorText> flavorTextEntries;
 
+  /// A list of moves that have the effect when used in super contests.
   List<MoveSummary> moves;
 
   @override

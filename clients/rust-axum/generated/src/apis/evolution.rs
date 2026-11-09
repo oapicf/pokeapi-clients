@@ -44,6 +44,24 @@ pub enum EvolutionTriggerRetrieveResponse {
     (models::EvolutionTriggerDetail)
 }
 
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+#[must_use]
+#[allow(clippy::large_enum_variant)]
+pub enum EvolutionVariableListResponse {
+
+    Status200
+    (models::PaginatedEvolutionVariableSummaryList)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+#[must_use]
+#[allow(clippy::large_enum_variant)]
+pub enum EvolutionVariableRetrieveResponse {
+
+    Status200
+    (models::EvolutionVariableDetail)
+}
+
 
 
 
@@ -51,8 +69,6 @@ pub enum EvolutionTriggerRetrieveResponse {
 #[async_trait]
 #[allow(clippy::ptr_arg)]
 pub trait Evolution<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorHandler<E> {
-    type Claims;
-
     /// List evolution chains.
     ///
     /// EvolutionChainList - GET /api/v2/evolution-chain/
@@ -62,7 +78,6 @@ pub trait Evolution<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Err
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       query_params: &models::EvolutionChainListQueryParams,
     ) -> Result<EvolutionChainListResponse, E>;
 
@@ -75,7 +90,6 @@ pub trait Evolution<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Err
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       path_params: &models::EvolutionChainRetrievePathParams,
     ) -> Result<EvolutionChainRetrieveResponse, E>;
 
@@ -88,7 +102,6 @@ pub trait Evolution<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Err
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       query_params: &models::EvolutionTriggerListQueryParams,
     ) -> Result<EvolutionTriggerListResponse, E>;
 
@@ -101,7 +114,30 @@ pub trait Evolution<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Err
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       path_params: &models::EvolutionTriggerRetrievePathParams,
     ) -> Result<EvolutionTriggerRetrieveResponse, E>;
+
+    /// List evolution variables.
+    ///
+    /// EvolutionVariableList - GET /api/v2/evolution-variable/
+    async fn evolution_variable_list(
+    &self,
+    
+    method: &Method,
+    host: &Host,
+    cookies: &CookieJar,
+      query_params: &models::EvolutionVariableListQueryParams,
+    ) -> Result<EvolutionVariableListResponse, E>;
+
+    /// Get evolution variable.
+    ///
+    /// EvolutionVariableRetrieve - GET /api/v2/evolution-variable/{id}/
+    async fn evolution_variable_retrieve(
+    &self,
+    
+    method: &Method,
+    host: &Host,
+    cookies: &CookieJar,
+      path_params: &models::EvolutionVariableRetrievePathParams,
+    ) -> Result<EvolutionVariableRetrieveResponse, E>;
 }

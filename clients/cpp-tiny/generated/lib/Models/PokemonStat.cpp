@@ -8,7 +8,7 @@ PokemonStat::PokemonStat()
 {
 	base_stat = int(0);
 	effort = int(0);
-	stat = StatSummary();
+	stat = null;
 }
 
 PokemonStat::PokemonStat(std::string jsonString)

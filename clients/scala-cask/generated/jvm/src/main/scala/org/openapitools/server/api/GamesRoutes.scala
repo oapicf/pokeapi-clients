@@ -3,9 +3,9 @@
 //> using lib "com.lihaoyi::scalatags:0.12.0"
 /**
  * PokéAPI
- * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+ * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
  *
- * OpenAPI spec version: 2.7.0
+ * OpenAPI spec version: 2.10.0
  *
  * Contact: blah+oapicf@cliffano.com
  *
@@ -79,8 +79,6 @@ class GamesRoutes(service : GamesService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/generation/{id}/, /api/v2/generation/] after/api/v2/generation, ignoring @cask.get("/api/v2/generation/")
         def generationList(request: cask.Request, limit : Option[Int], offset : Option[Int], q : Option[String]) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
@@ -102,8 +100,6 @@ class GamesRoutes(service : GamesService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/generation/{id}/, /api/v2/generation/] after/api/v2/generation, ignoring @cask.get("/api/v2/generation/:id/")
         def generationRetrieve(id : String, request: cask.Request) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
@@ -126,8 +122,6 @@ class GamesRoutes(service : GamesService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/pokedex/{id}/, /api/v2/pokedex/] after/api/v2/pokedex, ignoring @cask.get("/api/v2/pokedex/")
         def pokedexList(request: cask.Request, limit : Option[Int], offset : Option[Int], q : Option[String]) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
@@ -149,8 +143,6 @@ class GamesRoutes(service : GamesService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/pokedex/{id}/, /api/v2/pokedex/] after/api/v2/pokedex, ignoring @cask.get("/api/v2/pokedex/:id/")
         def pokedexRetrieve(id : String, request: cask.Request) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
@@ -173,8 +165,6 @@ class GamesRoutes(service : GamesService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/version-group/{id}/, /api/v2/version-group/] after/api/v2/version-group, ignoring // conflicts with [/api/v2/version/{id}/, /api/v2/version-group/, /api/v2/version-group/{id}/, /api/v2/version/] after/api/v2/version, ignoring @cask.get("/api/v2/version-group/")
         def versionGroupList(request: cask.Request, limit : Option[Int], offset : Option[Int], q : Option[String]) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
@@ -196,8 +186,6 @@ class GamesRoutes(service : GamesService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/version-group/{id}/, /api/v2/version-group/] after/api/v2/version-group, ignoring // conflicts with [/api/v2/version/{id}/, /api/v2/version-group/, /api/v2/version-group/{id}/, /api/v2/version/] after/api/v2/version, ignoring @cask.get("/api/v2/version-group/:id/")
         def versionGroupRetrieve(id : String, request: cask.Request) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
@@ -220,8 +208,6 @@ class GamesRoutes(service : GamesService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/version/{id}/, /api/v2/version-group/, /api/v2/version-group/{id}/, /api/v2/version/] after/api/v2/version, ignoring @cask.get("/api/v2/version/")
         def versionList(request: cask.Request, limit : Option[Int], offset : Option[Int], q : Option[String]) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
@@ -243,8 +229,6 @@ class GamesRoutes(service : GamesService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/version/{id}/, /api/v2/version-group/, /api/v2/version-group/{id}/, /api/v2/version/] after/api/v2/version, ignoring @cask.get("/api/v2/version/:id/")
         def versionRetrieve(id : String, request: cask.Request) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 

@@ -15,23 +15,27 @@
                 
                 
                 ; [@key "id"]
-                                              name: string
+                    (** The identifier for this resource. *)
+                                      name: string
                   
                   
                 
                 
                 ; [@key "name"]
-                                              names: Pal_park_area_name.t list
+                    (** The name for this resource. *)
+                                      names: Pal_park_area_name.t list
                 
                 
                 ; [@key "names"]
-                                              pokemon_encounters: Pal_park_area_detail_pokemon_encounters_inner.t list
+                    (** The name of this resource listed in different languages. *)
+                                      pokemon_encounters: Pal_park_encounter.t list
                 
                 
                 ; [@key "pokemon_encounters"]
-                        } [@@deriving yojson { strict = false }, show, eq ];;
+                    (** A list of Pokémon encountered in thi pal park area along with details. *)
+                } [@@deriving yojson { strict = false }, show, eq ];;
         
-        let create (id : int32) (name : string) (names : Pal_park_area_name.t list) (pokemon_encounters : Pal_park_area_detail_pokemon_encounters_inner.t list) : t = {
+        let create (id : int32) (name : string) (names : Pal_park_area_name.t list) (pokemon_encounters : Pal_park_encounter.t list) : t = {
             id = id;
             name = name;
             names = names;

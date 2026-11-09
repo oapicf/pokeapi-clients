@@ -29,6 +29,7 @@ public class ItemFlingEffectDetail   {
   private List<@Valid ItemSummary> items = new ArrayList<>();
 
   /**
+   * The identifier for this resource.
    **/
   public ItemFlingEffectDetail id(Integer id) {
     this.id = id;
@@ -36,7 +37,7 @@ public class ItemFlingEffectDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   @JsonProperty("id")
   @NotNull
   public Integer getId() {
@@ -48,6 +49,7 @@ public class ItemFlingEffectDetail   {
 
 
   /**
+   * The name for this resource.
    **/
   public ItemFlingEffectDetail name(String name) {
     this.name = name;
@@ -55,10 +57,10 @@ public class ItemFlingEffectDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   @JsonProperty("name")
   @NotNull
- @Size(max=100)  public String getName() {
+ @Size(max=200)  public String getName() {
     return name;
   }
   public void setName(String name) {
@@ -67,6 +69,7 @@ public class ItemFlingEffectDetail   {
 
 
   /**
+   * The result of this fling effect listed in different languages.
    **/
   public ItemFlingEffectDetail effectEntries(List<@Valid ItemFlingEffectEffectText> effectEntries) {
     this.effectEntries = effectEntries;
@@ -74,7 +77,7 @@ public class ItemFlingEffectDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The result of this fling effect listed in different languages.")
   @JsonProperty("effect_entries")
   @NotNull
   public List<@Valid ItemFlingEffectEffectText> getEffectEntries() {
@@ -94,6 +97,7 @@ public class ItemFlingEffectDetail   {
 
 
   /**
+   * A list of items that have this fling effect.
    **/
   public ItemFlingEffectDetail items(List<@Valid ItemSummary> items) {
     this.items = items;
@@ -101,7 +105,7 @@ public class ItemFlingEffectDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of items that have this fling effect.")
   @JsonProperty("items")
   @NotNull
   public List<@Valid ItemSummary> getItems() {

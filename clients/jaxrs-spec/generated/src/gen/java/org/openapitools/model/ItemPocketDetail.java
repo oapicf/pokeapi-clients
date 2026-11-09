@@ -21,7 +21,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("ItemPocketDetail")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-11-09T13:50:06.168269698Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class ItemPocketDetail   {
   private Integer id;
   private String name;
@@ -45,6 +45,7 @@ public class ItemPocketDetail   {
   }
 
   /**
+   * The identifier for this resource.
    **/
   public ItemPocketDetail id(Integer id) {
     this.id = id;
@@ -52,7 +53,7 @@ public class ItemPocketDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   @JsonProperty(required = true, value = "id")
   public Integer getId() {
     return id;
@@ -64,6 +65,7 @@ public class ItemPocketDetail   {
   }
 
   /**
+   * The name for this resource.
    **/
   public ItemPocketDetail name(String name) {
     this.name = name;
@@ -71,9 +73,9 @@ public class ItemPocketDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   @JsonProperty(required = true, value = "name")
-  @NotNull  @Size(max=100)public String getName() {
+  @NotNull  @Size(max=200)public String getName() {
     return name;
   }
 
@@ -83,6 +85,7 @@ public class ItemPocketDetail   {
   }
 
   /**
+   * A list of item categories that are relevant to this item pocket.
    **/
   public ItemPocketDetail categories(List<@Valid ItemCategorySummary> categories) {
     this.categories = categories;
@@ -90,7 +93,7 @@ public class ItemPocketDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of item categories that are relevant to this item pocket.")
   @JsonProperty(required = true, value = "categories")
   public List<@Valid ItemCategorySummary> getCategories() {
     return categories;
@@ -118,6 +121,7 @@ public class ItemPocketDetail   {
     return this;
   }
   /**
+   * The name of this resource listed in different languages.
    **/
   public ItemPocketDetail names(List<@Valid ItemPocketName> names) {
     this.names = names;
@@ -125,7 +129,7 @@ public class ItemPocketDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
   @JsonProperty(required = true, value = "names")
   public List<@Valid ItemPocketName> getNames() {
     return names;

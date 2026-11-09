@@ -16,13 +16,14 @@
        'past_abilities' := list(),
        'forms' := list(),
        'game_indices' := list(),
-       'held_items' := openapi_pokemon_detail_held_items:openapi_pokemon_detail_held_items(),
+       'held_items' := list(),
        'location_area_encounters' := binary(),
        'moves' := list(),
        'species' := openapi_pokemon_species_summary:openapi_pokemon_species_summary(),
-       'sprites' := openapi_pokemon_detail_sprites:openapi_pokemon_detail_sprites(),
-       'cries' := openapi_pokemon_detail_cries:openapi_pokemon_detail_cries(),
+       'sprites' := openapi_pokemon_sprites:openapi_pokemon_sprites(),
+       'cries' := openapi_pokemon_cries:openapi_pokemon_cries(),
        'stats' := list(),
+       'past_stats' := list(),
        'types' := list(),
        'past_types' := list()
      }.
@@ -45,6 +46,7 @@ encode(#{ 'id' := Id,
           'sprites' := Sprites,
           'cries' := Cries,
           'stats' := Stats,
+          'past_stats' := PastStats,
           'types' := Types,
           'past_types' := PastTypes
         }) ->
@@ -66,6 +68,7 @@ encode(#{ 'id' := Id,
        'sprites' => Sprites,
        'cries' => Cries,
        'stats' => Stats,
+       'past_stats' => PastStats,
        'types' => Types,
        'past_types' => PastTypes
      }.

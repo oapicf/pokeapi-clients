@@ -16,27 +16,42 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class MoveTargetDetail  {
   
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The identifier for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
 
   private Integer id;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The name for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The name for this resource.")
 
   private String name;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The description of this resource listed in different languages.
+  */
+  @ApiModelProperty(required = true, value = "The description of this resource listed in different languages.")
 
   private List<@Valid MoveTargetDescription> descriptions = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * A list of moves that that are directed at this target.
+  */
+  @ApiModelProperty(required = true, value = "A list of moves that that are directed at this target.")
 
   private List<@Valid MoveSummary> moves = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The name of this resource listed in different languages.
+  */
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
 
   private List<@Valid MoveTargetName> names = new ArrayList<>();
  /**
-   * Get id
+   * The identifier for this resource.
    * @return id
   **/
   @JsonProperty("id")
@@ -47,12 +62,12 @@ public class MoveTargetDetail  {
 
 
  /**
-   * Get name
+   * The name for this resource.
    * @return name
   **/
   @JsonProperty("name")
   @NotNull
- @Size(max=100)  public String getName() {
+ @Size(max=200)  public String getName() {
     return name;
   }
 
@@ -66,7 +81,7 @@ public class MoveTargetDetail  {
   }
 
  /**
-   * Get descriptions
+   * The description of this resource listed in different languages.
    * @return descriptions
   **/
   @JsonProperty("descriptions")
@@ -77,7 +92,7 @@ public class MoveTargetDetail  {
 
 
  /**
-   * Get moves
+   * A list of moves that that are directed at this target.
    * @return moves
   **/
   @JsonProperty("moves")
@@ -88,7 +103,7 @@ public class MoveTargetDetail  {
 
 
  /**
-   * Get names
+   * The name of this resource listed in different languages.
    * @return names
   **/
   @JsonProperty("names")

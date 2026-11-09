@@ -3,8 +3,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **String** |  | 
-**Url** | **String** |  | [readonly] 
+**Name** | **String** | The name of the referenced resource. | 
+**Url** | **String** | The URL of the referenced resource. | [readonly] 
 
 ## Examples
 

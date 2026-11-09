@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int32** |  | [readonly] 
-**Name** | **string** |  | 
-**Names** | [**[]MoveBattleStyleName**](MoveBattleStyleName.md) |  | [readonly] 
+**Id** | **int32** | The identifier for this resource. | [readonly] 
+**Name** | **string** | The name for this resource. | 
+**Names** | [**[]MoveBattleStyleName**](MoveBattleStyleName.md) | The name of this resource listed in different languages. | [readonly] 
 
 ## Methods
 

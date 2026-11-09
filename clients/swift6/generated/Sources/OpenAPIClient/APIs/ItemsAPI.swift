@@ -10,6 +10,93 @@ import Foundation
 open class ItemsAPI {
 
     /**
+     List currencies
+     
+     - parameter limit: (query) Number of results to return per page. (optional)
+     - parameter offset: (query) The initial index from which to return the results. (optional)
+     - parameter q: (query) &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: PaginatedCurrencySummaryList
+     */
+    open class func currencyList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedCurrencySummaryList {
+        return try await currencyListWithRequestBuilder(limit: limit, offset: offset, q: q, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     List currencies
+     - GET /api/v2/currency/
+     - Currencies used to buy items.
+     - parameter limit: (query) Number of results to return per page. (optional)
+     - parameter offset: (query) The initial index from which to return the results. (optional)
+     - parameter q: (query) &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<PaginatedCurrencySummaryList> 
+     */
+    open class func currencyListWithRequestBuilder(limit: Int? = nil, offset: Int? = nil, q: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<PaginatedCurrencySummaryList> {
+        let localVariablePath = "/api/v2/currency/"
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
+        let localVariableQueryParameters: [String: (wrappedValue: (any Sendable)?, isExplode: Bool)] = [
+            "limit": (wrappedValue: limit?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "offset": (wrappedValue: offset?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "q": (wrappedValue: q?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+        ]
+        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems(localVariableQueryParameters)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<PaginatedCurrencySummaryList>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: false, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+     Get currency
+     
+     - parameter id: (path) This parameter can be a string or an integer. 
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: CurrencyDetail
+     */
+    open class func currencyRetrieve(id: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> CurrencyDetail {
+        return try await currencyRetrieveWithRequestBuilder(id: id, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     Get currency
+     - GET /api/v2/currency/{id}/
+     - Currencies used to buy items.
+     - parameter id: (path) This parameter can be a string or an integer. 
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<CurrencyDetail> 
+     */
+    open class func currencyRetrieveWithRequestBuilder(id: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<CurrencyDetail> {
+        var localVariablePath = "/api/v2/currency/{id}/"
+        let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
+        let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<CurrencyDetail>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: false, apiConfiguration: apiConfiguration)
+    }
+
+    /**
      List item attributes
      
      - parameter limit: (query) Number of results to return per page. (optional)
@@ -26,12 +113,6 @@ open class ItemsAPI {
      List item attributes
      - GET /api/v2/item-attribute/
      - Item attributes define particular aspects of items, e.g.\"usable in battle\" or \"consumable\".
-     - BASIC:
-       - type: http
-       - name: basicAuth
-     - API Key:
-       - type: apiKey sessionid 
-       - name: cookieAuth
      - parameter limit: (query) Number of results to return per page. (optional)
      - parameter offset: (query) The initial index from which to return the results. (optional)
      - parameter q: (query) &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
@@ -59,7 +140,7 @@ open class ItemsAPI {
 
         let localVariableRequestBuilder: RequestBuilder<PaginatedItemAttributeSummaryList>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: false, apiConfiguration: apiConfiguration)
     }
 
     /**
@@ -77,12 +158,6 @@ open class ItemsAPI {
      Get item attribute
      - GET /api/v2/item-attribute/{id}/
      - Item attributes define particular aspects of items, e.g.\"usable in battle\" or \"consumable\".
-     - BASIC:
-       - type: http
-       - name: basicAuth
-     - API Key:
-       - type: apiKey sessionid 
-       - name: cookieAuth
      - parameter id: (path) This parameter can be a string or an integer. 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ItemAttributeDetail> 
@@ -105,7 +180,7 @@ open class ItemsAPI {
 
         let localVariableRequestBuilder: RequestBuilder<ItemAttributeDetail>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: false, apiConfiguration: apiConfiguration)
     }
 
     /**
@@ -125,12 +200,6 @@ open class ItemsAPI {
      List item categories
      - GET /api/v2/item-category/
      - Item categories determine where items will be placed in the players bag.
-     - BASIC:
-       - type: http
-       - name: basicAuth
-     - API Key:
-       - type: apiKey sessionid 
-       - name: cookieAuth
      - parameter limit: (query) Number of results to return per page. (optional)
      - parameter offset: (query) The initial index from which to return the results. (optional)
      - parameter q: (query) &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
@@ -158,7 +227,7 @@ open class ItemsAPI {
 
         let localVariableRequestBuilder: RequestBuilder<PaginatedItemCategorySummaryList>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: false, apiConfiguration: apiConfiguration)
     }
 
     /**
@@ -176,12 +245,6 @@ open class ItemsAPI {
      Get item category
      - GET /api/v2/item-category/{id}/
      - Item categories determine where items will be placed in the players bag.
-     - BASIC:
-       - type: http
-       - name: basicAuth
-     - API Key:
-       - type: apiKey sessionid 
-       - name: cookieAuth
      - parameter id: (path) This parameter can be a string or an integer. 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ItemCategoryDetail> 
@@ -204,7 +267,7 @@ open class ItemsAPI {
 
         let localVariableRequestBuilder: RequestBuilder<ItemCategoryDetail>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: false, apiConfiguration: apiConfiguration)
     }
 
     /**
@@ -224,12 +287,6 @@ open class ItemsAPI {
      List item fling effects
      - GET /api/v2/item-fling-effect/
      - The various effects of the move\"Fling\" when used with different items.
-     - BASIC:
-       - type: http
-       - name: basicAuth
-     - API Key:
-       - type: apiKey sessionid 
-       - name: cookieAuth
      - parameter limit: (query) Number of results to return per page. (optional)
      - parameter offset: (query) The initial index from which to return the results. (optional)
      - parameter q: (query) &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
@@ -257,7 +314,7 @@ open class ItemsAPI {
 
         let localVariableRequestBuilder: RequestBuilder<PaginatedItemFlingEffectSummaryList>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: false, apiConfiguration: apiConfiguration)
     }
 
     /**
@@ -275,12 +332,6 @@ open class ItemsAPI {
      Get item fling effect
      - GET /api/v2/item-fling-effect/{id}/
      - The various effects of the move\"Fling\" when used with different items.
-     - BASIC:
-       - type: http
-       - name: basicAuth
-     - API Key:
-       - type: apiKey sessionid 
-       - name: cookieAuth
      - parameter id: (path) This parameter can be a string or an integer. 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ItemFlingEffectDetail> 
@@ -303,7 +354,7 @@ open class ItemsAPI {
 
         let localVariableRequestBuilder: RequestBuilder<ItemFlingEffectDetail>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: false, apiConfiguration: apiConfiguration)
     }
 
     /**
@@ -323,12 +374,6 @@ open class ItemsAPI {
      List items
      - GET /api/v2/item/
      - An item is an object in the games which the player can pick up, keep in their bag, and use in some manner. They have various uses, including healing, powering up, helping catch Pokémon, or to access a new area.
-     - BASIC:
-       - type: http
-       - name: basicAuth
-     - API Key:
-       - type: apiKey sessionid 
-       - name: cookieAuth
      - parameter limit: (query) Number of results to return per page. (optional)
      - parameter offset: (query) The initial index from which to return the results. (optional)
      - parameter q: (query) &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
@@ -356,7 +401,7 @@ open class ItemsAPI {
 
         let localVariableRequestBuilder: RequestBuilder<PaginatedItemSummaryList>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: false, apiConfiguration: apiConfiguration)
     }
 
     /**
@@ -376,12 +421,6 @@ open class ItemsAPI {
      List item pockets
      - GET /api/v2/item-pocket/
      - Pockets within the players bag used for storing items by category.
-     - BASIC:
-       - type: http
-       - name: basicAuth
-     - API Key:
-       - type: apiKey sessionid 
-       - name: cookieAuth
      - parameter limit: (query) Number of results to return per page. (optional)
      - parameter offset: (query) The initial index from which to return the results. (optional)
      - parameter q: (query) &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
@@ -409,7 +448,7 @@ open class ItemsAPI {
 
         let localVariableRequestBuilder: RequestBuilder<PaginatedItemPocketSummaryList>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: false, apiConfiguration: apiConfiguration)
     }
 
     /**
@@ -427,12 +466,6 @@ open class ItemsAPI {
      Get item pocket
      - GET /api/v2/item-pocket/{id}/
      - Pockets within the players bag used for storing items by category.
-     - BASIC:
-       - type: http
-       - name: basicAuth
-     - API Key:
-       - type: apiKey sessionid 
-       - name: cookieAuth
      - parameter id: (path) This parameter can be a string or an integer. 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ItemPocketDetail> 
@@ -455,7 +488,7 @@ open class ItemsAPI {
 
         let localVariableRequestBuilder: RequestBuilder<ItemPocketDetail>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: false, apiConfiguration: apiConfiguration)
     }
 
     /**
@@ -473,12 +506,6 @@ open class ItemsAPI {
      Get item
      - GET /api/v2/item/{id}/
      - An item is an object in the games which the player can pick up, keep in their bag, and use in some manner. They have various uses, including healing, powering up, helping catch Pokémon, or to access a new area.
-     - BASIC:
-       - type: http
-       - name: basicAuth
-     - API Key:
-       - type: apiKey sessionid 
-       - name: cookieAuth
      - parameter id: (path) This parameter can be a string or an integer. 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<ItemDetail> 
@@ -501,6 +528,6 @@ open class ItemsAPI {
 
         let localVariableRequestBuilder: RequestBuilder<ItemDetail>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: false, apiConfiguration: apiConfiguration)
     }
 }

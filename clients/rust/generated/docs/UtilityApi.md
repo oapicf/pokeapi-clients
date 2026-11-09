@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**language_list**](UtilityApi.md#language_list) | **GET** /api/v2/language/ | List languages
 [**language_retrieve**](UtilityApi.md#language_retrieve) | **GET** /api/v2/language/{id}/ | Get language
+[**meta_retrieve**](UtilityApi.md#meta_retrieve) | **GET** /api/v2/meta/ | Get API metadata
 
 
 
@@ -31,7 +32,7 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -61,7 +62,34 @@ Name | Type | Description  | Required | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## meta_retrieve
+
+> models::PokeapiMetaResponse meta_retrieve()
+Get API metadata
+
+Returns metadata about the current deployed version of the API, including the git commit hash, deploy date, and tag (if any).
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**models::PokeapiMetaResponse**](PokeapiMetaResponse.md)
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 

@@ -8,12 +8,16 @@
 import Foundation
 
 public struct PokeathlonStatDetail: Codable {
+    /// The identifier for this resource.
     public var id: Int
+    /// The name for this resource.
     public var name: String
-    public var affectingNatures: PokeathlonStatDetailAffectingNatures
+    /// A detail of natures which affect this Pokéathlon stat positively or negatively.
+    public var affectingNatures: PokeathlonStatAffectingNatures
+    /// The name of this resource listed in different languages.
     public var names: [PokeathlonStatName]
 
-    public init(id: Int, name: String, affectingNatures: PokeathlonStatDetailAffectingNatures, names: [PokeathlonStatName]) {
+    public init(id: Int, name: String, affectingNatures: PokeathlonStatAffectingNatures, names: [PokeathlonStatName]) {
         self.id = id
         self.name = name
         self.affectingNatures = affectingNatures
@@ -31,7 +35,7 @@ public struct PokeathlonStatDetail: Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         id = try container.decode(Int.self, forKey: .id)
         name = try container.decode(String.self, forKey: .name)
-        affectingNatures = try container.decode(PokeathlonStatDetailAffectingNatures.self, forKey: .affectingNatures)
+        affectingNatures = try container.decode(PokeathlonStatAffectingNatures.self, forKey: .affectingNatures)
         names = try container.decode([PokeathlonStatName].self, forKey: .names)
     }
 

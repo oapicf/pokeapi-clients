@@ -9,7 +9,7 @@ Name | Type
 `id` | number
 `name` | string
 `names` | [Array&lt;EggGroupName&gt;](EggGroupName.md)
-`pokemonSpecies` | [Array&lt;EggGroupDetailPokemonSpeciesInner&gt;](EggGroupDetailPokemonSpeciesInner.md)
+`pokemonSpecies` | [Array&lt;PokemonSpeciesSummary&gt;](PokemonSpeciesSummary.md)
 
 ## Example
 

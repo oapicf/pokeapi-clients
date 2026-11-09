@@ -56,6 +56,8 @@ class ItemsApiSimulation extends Simulation {
     }
 
     // Setup all the operations per second for the test to ultimately be generated from configs
+    val currencyListPerSecond = config.getDouble("performance.operationsPerSecond.currencyList") * rateMultiplier * instanceMultiplier
+    val currencyRetrievePerSecond = config.getDouble("performance.operationsPerSecond.currencyRetrieve") * rateMultiplier * instanceMultiplier
     val itemAttributeListPerSecond = config.getDouble("performance.operationsPerSecond.itemAttributeList") * rateMultiplier * instanceMultiplier
     val itemAttributeRetrievePerSecond = config.getDouble("performance.operationsPerSecond.itemAttributeRetrieve") * rateMultiplier * instanceMultiplier
     val itemCategoryListPerSecond = config.getDouble("performance.operationsPerSecond.itemCategoryList") * rateMultiplier * instanceMultiplier
@@ -70,6 +72,8 @@ class ItemsApiSimulation extends Simulation {
     val scenarioBuilders: mutable.MutableList[PopulationBuilder] = new mutable.MutableList[PopulationBuilder]()
 
     // Set up CSV feeders
+    val currency_listQUERYFeeder = csv(userDataDirectory + File.separator + "currencyList-queryParams.csv").random
+    val currency_retrievePATHFeeder = csv(userDataDirectory + File.separator + "currencyRetrieve-pathParams.csv").random
     val item_attribute_listQUERYFeeder = csv(userDataDirectory + File.separator + "itemAttributeList-queryParams.csv").random
     val item_attribute_retrievePATHFeeder = csv(userDataDirectory + File.separator + "itemAttributeRetrieve-pathParams.csv").random
     val item_category_listQUERYFeeder = csv(userDataDirectory + File.separator + "itemCategoryList-queryParams.csv").random
@@ -84,12 +88,43 @@ class ItemsApiSimulation extends Simulation {
     // Setup all scenarios
 
     
+    val scncurrencyList = scenario("currencyListSimulation")
+        .feed(currency_listQUERYFeeder)
+        .exec(http("currencyList")
+        .httpRequest("GET","/api/v2/currency/")
+        .queryParam("offset","${offset}")
+        .queryParam("q","${q}")
+        .queryParam("limit","${limit}")
+)
+
+    // Run scncurrencyList with warm up and reach a constant rate for entire duration
+    scenarioBuilders += scncurrencyList.inject(
+        rampUsersPerSec(1) to(currencyListPerSecond) during(rampUpSeconds),
+        constantUsersPerSec(currencyListPerSecond) during(durationSeconds),
+        rampUsersPerSec(currencyListPerSecond) to(1) during(rampDownSeconds)
+    )
+
+    
+    val scncurrencyRetrieve = scenario("currencyRetrieveSimulation")
+        .feed(currency_retrievePATHFeeder)
+        .exec(http("currencyRetrieve")
+        .httpRequest("GET","/api/v2/currency/${id}/")
+)
+
+    // Run scncurrencyRetrieve with warm up and reach a constant rate for entire duration
+    scenarioBuilders += scncurrencyRetrieve.inject(
+        rampUsersPerSec(1) to(currencyRetrievePerSecond) during(rampUpSeconds),
+        constantUsersPerSec(currencyRetrievePerSecond) during(durationSeconds),
+        rampUsersPerSec(currencyRetrievePerSecond) to(1) during(rampDownSeconds)
+    )
+
+    
     val scnitemAttributeList = scenario("itemAttributeListSimulation")
         .feed(item_attribute_listQUERYFeeder)
         .exec(http("itemAttributeList")
         .httpRequest("GET","/api/v2/item-attribute/")
-        .queryParam("q","${q}")
         .queryParam("offset","${offset}")
+        .queryParam("q","${q}")
         .queryParam("limit","${limit}")
 )
 
@@ -119,8 +154,8 @@ class ItemsApiSimulation extends Simulation {
         .feed(item_category_listQUERYFeeder)
         .exec(http("itemCategoryList")
         .httpRequest("GET","/api/v2/item-category/")
-        .queryParam("q","${q}")
         .queryParam("offset","${offset}")
+        .queryParam("q","${q}")
         .queryParam("limit","${limit}")
 )
 
@@ -150,8 +185,8 @@ class ItemsApiSimulation extends Simulation {
         .feed(item_fling_effect_listQUERYFeeder)
         .exec(http("itemFlingEffectList")
         .httpRequest("GET","/api/v2/item-fling-effect/")
-        .queryParam("q","${q}")
         .queryParam("offset","${offset}")
+        .queryParam("q","${q}")
         .queryParam("limit","${limit}")
 )
 
@@ -181,8 +216,8 @@ class ItemsApiSimulation extends Simulation {
         .feed(item_listQUERYFeeder)
         .exec(http("itemList")
         .httpRequest("GET","/api/v2/item/")
-        .queryParam("q","${q}")
         .queryParam("offset","${offset}")
+        .queryParam("q","${q}")
         .queryParam("limit","${limit}")
 )
 
@@ -198,8 +233,8 @@ class ItemsApiSimulation extends Simulation {
         .feed(item_pocket_listQUERYFeeder)
         .exec(http("itemPocketList")
         .httpRequest("GET","/api/v2/item-pocket/")
-        .queryParam("q","${q}")
         .queryParam("offset","${offset}")
+        .queryParam("q","${q}")
         .queryParam("limit","${limit}")
 )
 

@@ -53,7 +53,7 @@ const { status, data } = await apiInstance.encounterConditionList(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -104,7 +104,7 @@ const { status, data } = await apiInstance.encounterConditionRetrieve(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -161,7 +161,7 @@ const { status, data } = await apiInstance.encounterConditionValueList(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -212,7 +212,7 @@ const { status, data } = await apiInstance.encounterConditionValueRetrieve(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -269,7 +269,7 @@ const { status, data } = await apiInstance.encounterMethodList(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -320,7 +320,7 @@ const { status, data } = await apiInstance.encounterMethodRetrieve(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

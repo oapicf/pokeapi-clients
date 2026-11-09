@@ -3,8 +3,8 @@ namespace OpenAPI.Model
 open System
 open System.Collections.Generic
 open Newtonsoft.Json
-open OpenAPI.Model.AbilityDetailPokemonInnerPokemon
 open OpenAPI.Model.EvolutionTriggerName
+open OpenAPI.Model.PokemonSpeciesSummary
 
 module EvolutionTriggerDetail =
 
@@ -19,7 +19,7 @@ module EvolutionTriggerDetail =
     [<JsonProperty(PropertyName = "names")>]
     Names : EvolutionTriggerName[];
     [<JsonProperty(PropertyName = "pokemon_species")>]
-    PokemonSpecies : AbilityDetailPokemonInnerPokemon[];
+    PokemonSpecies : PokemonSpeciesSummary[];
   }
 
   //#endregion

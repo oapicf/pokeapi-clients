@@ -4,9 +4,9 @@ All URIs are relative to *https://pokeapi.co*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**AbilityList**](pokemon_api.md#AbilityList) | **GET** /api/v2/ability/ | 
-[**AbilityRetrieve**](pokemon_api.md#AbilityRetrieve) | **GET** /api/v2/ability/{id}/ | 
-[**CharacteristicList**](pokemon_api.md#CharacteristicList) | **GET** /api/v2/characteristic/ | List charecterictics
+[**AbilityList**](pokemon_api.md#AbilityList) | **GET** /api/v2/ability/ | List abilities
+[**AbilityRetrieve**](pokemon_api.md#AbilityRetrieve) | **GET** /api/v2/ability/{id}/ | Get ability
+[**CharacteristicList**](pokemon_api.md#CharacteristicList) | **GET** /api/v2/characteristic/ | List characteristics
 [**CharacteristicRetrieve**](pokemon_api.md#CharacteristicRetrieve) | **GET** /api/v2/characteristic/{id}/ | Get characteristic
 [**EggGroupList**](pokemon_api.md#EggGroupList) | **GET** /api/v2/egg-group/ | List egg groups
 [**EggGroupRetrieve**](pokemon_api.md#EggGroupRetrieve) | **GET** /api/v2/egg-group/{id}/ | Get egg group
@@ -42,21 +42,21 @@ Method | HTTP request | Description
 # **AbilityList**
 > PaginatedAbilitySummaryList AbilityList(limit, offset, q)
 
-
+List abilities
 
 Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
 <a name="AbilityRetrieve"></a>
 # **AbilityRetrieve**
 > AbilityDetail AbilityRetrieve(Id_)
 
-
+Get ability
 
 Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
 <a name="CharacteristicList"></a>
 # **CharacteristicList**
-> PaginatedCharacteristicSummaryList CharacteristicList(limit, offset, q)
+> PaginatedCharacteristicSummaryList CharacteristicList(limit, offset)
 
-List charecterictics
+List characteristics
 
 Characteristics indicate which stat contains a Pokémon&#39;s highest IV. A Pokémon&#39;s Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail.
 <a name="CharacteristicRetrieve"></a>

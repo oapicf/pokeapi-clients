@@ -16,10 +16,10 @@ import java.io.FileInputStream;
 import play.libs.Files.TemporaryFile;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-10-25T05:48:13.486809836Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-11-09T13:49:31.462302702Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class ContestsApiControllerImp extends ContestsApiControllerImpInterface {
     @Override
-    public PaginatedContestEffectSummaryList contestEffectList(Http.Request request, Integer limit, Integer offset, String q) throws Exception {
+    public PaginatedContestEffectSummaryList contestEffectList(Http.Request request, Integer limit, Integer offset) throws Exception {
         //Do your magic!!!
         return new PaginatedContestEffectSummaryList();
     }
@@ -43,7 +43,7 @@ public class ContestsApiControllerImp extends ContestsApiControllerImpInterface 
     }
 
     @Override
-    public PaginatedSuperContestEffectSummaryList superContestEffectList(Http.Request request, Integer limit, Integer offset, String q) throws Exception {
+    public PaginatedSuperContestEffectSummaryList superContestEffectList(Http.Request request, Integer limit, Integer offset) throws Exception {
         //Do your magic!!!
         return new PaginatedSuperContestEffectSummaryList();
     }

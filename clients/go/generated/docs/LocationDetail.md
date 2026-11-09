@@ -4,18 +4,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int32** |  | [readonly] 
-**Name** | **string** |  | 
-**Region** | [**RegionSummary**](RegionSummary.md) |  | 
-**Names** | [**[]LocationName**](LocationName.md) |  | [readonly] 
-**GameIndices** | [**[]LocationGameIndex**](LocationGameIndex.md) |  | [readonly] 
-**Areas** | [**[]LocationAreaSummary**](LocationAreaSummary.md) |  | [readonly] 
+**Id** | **int32** | The identifier for this resource. | [readonly] 
+**Name** | **string** | The name for this resource. | 
+**Region** | [**NullableRegionSummary**](RegionSummary.md) | The region this location can be found in. | 
+**Names** | [**[]LocationName**](LocationName.md) | The name of this resource listed in different languages. | [readonly] 
+**GameIndices** | [**[]LocationGameIndex**](LocationGameIndex.md) | A list of game indices relevent to this location by generation. | [readonly] 
+**Areas** | [**[]LocationAreaSummary**](LocationAreaSummary.md) | Areas that can be found within this location. | [readonly] 
 
 ## Methods
 
 ### NewLocationDetail
 
-`func NewLocationDetail(id int32, name string, region RegionSummary, names []LocationName, gameIndices []LocationGameIndex, areas []LocationAreaSummary, ) *LocationDetail`
+`func NewLocationDetail(id int32, name string, region NullableRegionSummary, names []LocationName, gameIndices []LocationGameIndex, areas []LocationAreaSummary, ) *LocationDetail`
 
 NewLocationDetail instantiates a new LocationDetail object
 This constructor will assign default values to properties that have it defined,
@@ -90,6 +90,16 @@ and a boolean to check if the value has been set.
 SetRegion sets Region field to given value.
 
 
+### SetRegionNil
+
+`func (o *LocationDetail) SetRegionNil(b bool)`
+
+ SetRegionNil sets the value for Region to be an explicit nil
+
+### UnsetRegion
+`func (o *LocationDetail) UnsetRegion()`
+
+UnsetRegion ensures that no value is present for Region, not even an explicit nil
 ### GetNames
 
 `func (o *LocationDetail) GetNames() []LocationName`

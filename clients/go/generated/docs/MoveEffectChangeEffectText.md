@@ -1,0 +1,72 @@
+# MoveEffectChangeEffectText
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Effect** | **string** | The localized effect text for an API resource in a specific language. | 
+**Language** | [**LanguageSummary**](LanguageSummary.md) | The language this effect is in. | 
+
+## Methods
+
+### NewMoveEffectChangeEffectText
+
+`func NewMoveEffectChangeEffectText(effect string, language LanguageSummary, ) *MoveEffectChangeEffectText`
+
+NewMoveEffectChangeEffectText instantiates a new MoveEffectChangeEffectText object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewMoveEffectChangeEffectTextWithDefaults
+
+`func NewMoveEffectChangeEffectTextWithDefaults() *MoveEffectChangeEffectText`
+
+NewMoveEffectChangeEffectTextWithDefaults instantiates a new MoveEffectChangeEffectText object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetEffect
+
+`func (o *MoveEffectChangeEffectText) GetEffect() string`
+
+GetEffect returns the Effect field if non-nil, zero value otherwise.
+
+### GetEffectOk
+
+`func (o *MoveEffectChangeEffectText) GetEffectOk() (*string, bool)`
+
+GetEffectOk returns a tuple with the Effect field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEffect
+
+`func (o *MoveEffectChangeEffectText) SetEffect(v string)`
+
+SetEffect sets Effect field to given value.
+
+
+### GetLanguage
+
+`func (o *MoveEffectChangeEffectText) GetLanguage() LanguageSummary`
+
+GetLanguage returns the Language field if non-nil, zero value otherwise.
+
+### GetLanguageOk
+
+`func (o *MoveEffectChangeEffectText) GetLanguageOk() (*LanguageSummary, bool)`
+
+GetLanguageOk returns a tuple with the Language field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLanguage
+
+`func (o *MoveEffectChangeEffectText) SetLanguage(v LanguageSummary)`
+
+SetLanguage sets Language field to given value.
+
+
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

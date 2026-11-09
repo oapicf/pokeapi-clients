@@ -3,7 +3,7 @@ package org.openapitools.server.model;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.server.model.BerryFlavorDetailBerriesInner;
+import org.openapitools.server.model.BerryFlavorBerryMap;
 import org.openapitools.server.model.BerryFlavorName;
 import org.openapitools.server.model.ContestTypeSummary;
 import jakarta.validation.constraints.*;
@@ -15,7 +15,7 @@ public class BerryFlavorDetail   {
 
     private Integer id;
     private String name;
-    private List<@Valid BerryFlavorDetailBerriesInner> berries = new ArrayList<>();
+    private List<@Valid BerryFlavorBerryMap> berries = new ArrayList<>();
     private ContestTypeSummary contestType;
     private List<@Valid BerryFlavorName> names = new ArrayList<>();
 
@@ -29,16 +29,16 @@ public class BerryFlavorDetail   {
     /**
      * Create BerryFlavorDetail.
      *
-     * @param id id
-     * @param name name
-     * @param berries berries
-     * @param contestType contestType
-     * @param names names
+     * @param id The identifier for this resource.
+     * @param name The name for this resource.
+     * @param berries A list of the berries with this flavor.
+     * @param contestType The contest type that correlates with this berry flavor.
+     * @param names The name of this resource listed in different languages.
      */
     public BerryFlavorDetail(
         Integer id, 
         String name, 
-        List<@Valid BerryFlavorDetailBerriesInner> berries, 
+        List<@Valid BerryFlavorBerryMap> berries, 
         ContestTypeSummary contestType, 
         List<@Valid BerryFlavorName> names
     ) {
@@ -52,7 +52,7 @@ public class BerryFlavorDetail   {
 
 
     /**
-     * Get id
+     * The identifier for this resource.
      * @return id
      */
     public Integer getId() {
@@ -64,7 +64,7 @@ public class BerryFlavorDetail   {
     }
 
     /**
-     * Get name
+     * The name for this resource.
      * @return name
      */
     public String getName() {
@@ -76,19 +76,19 @@ public class BerryFlavorDetail   {
     }
 
     /**
-     * Get berries
+     * A list of the berries with this flavor.
      * @return berries
      */
-    public List<@Valid BerryFlavorDetailBerriesInner> getBerries() {
+    public List<@Valid BerryFlavorBerryMap> getBerries() {
         return berries;
     }
 
-    public void setBerries(List<@Valid BerryFlavorDetailBerriesInner> berries) {
+    public void setBerries(List<@Valid BerryFlavorBerryMap> berries) {
         this.berries = berries;
     }
 
     /**
-     * Get contestType
+     * The contest type that correlates with this berry flavor.
      * @return contestType
      */
     public ContestTypeSummary getContestType() {
@@ -100,7 +100,7 @@ public class BerryFlavorDetail   {
     }
 
     /**
-     * Get names
+     * The name of this resource listed in different languages.
      * @return names
      */
     public List<@Valid BerryFlavorName> getNames() {

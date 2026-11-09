@@ -1,0 +1,31 @@
+# LocationAreaEncounterDetail
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**MinLevel** | **Int32** | The lowest level the Pokémon could be encountered at. | 
+**MaxLevel** | **Int32** | The highest level the Pokémon could be encountered at. | 
+**Chance** | **Int32** | Percent chance that this encounter will occur. | [optional] [default to 0]
+**Method** | [**EncounterMethodSummary**](EncounterMethodSummary.md) | The method by which this encounter happens. | [optional] 
+**ConditionValues** | [**EncounterConditionValueSummary[]**](EncounterConditionValueSummary.md) | A list of condition values that must be in effect for this encounter to occur. | [readonly] 
+**PokemonDetails** | [**EncounterPokemonDetail**](EncounterPokemonDetail.md) | Additional properties of the encountered Pokémon, or null if unspecified. | [readonly] 
+
+## Examples
+
+- Prepare the resource
+```powershell
+$LocationAreaEncounterDetail = Initialize-PSOpenAPIToolsLocationAreaEncounterDetail  -MinLevel null `
+ -MaxLevel null `
+ -Chance null `
+ -Method null `
+ -ConditionValues null `
+ -PokemonDetails null
+```
+
+- Convert the resource to JSON
+```powershell
+$LocationAreaEncounterDetail | ConvertTo-JSON
+```
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+

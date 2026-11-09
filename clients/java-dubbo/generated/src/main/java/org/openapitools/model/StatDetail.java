@@ -1,9 +1,10 @@
 package org.openapitools.model;
 
 import org.openapitools.model.CharacteristicSummary;
+import org.openapitools.model.ItemSummary;
 import org.openapitools.model.MoveDamageClassSummary;
-import org.openapitools.model.StatDetailAffectingMoves;
-import org.openapitools.model.StatDetailAffectingNatures;
+import org.openapitools.model.StatAffectingMoves;
+import org.openapitools.model.StatAffectingNatures;
 import org.openapitools.model.StatName;
 import java.util.*;
 import java.util.Objects;
@@ -17,35 +18,68 @@ import java.math.*;
 public class StatDetail implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * The identifier for this resource.
+   */
   @JsonProperty("id")
   private Integer id;
 
+  /**
+   * The name for this resource.
+   */
   @JsonProperty("name")
   private String name;
 
+  /**
+   * ID the games use for this stat.
+   */
   @JsonProperty("game_index")
   private Integer gameIndex;
 
+  /**
+   * Whether this stat only exists within a battle.
+   */
   @JsonProperty("is_battle_only")
   private Boolean isBattleOnly;
 
+  /**
+   * A detail of moves which affect this stat positively or negatively.
+   */
   @JsonProperty("affecting_moves")
-  private StatDetailAffectingMoves affectingMoves;
+  private StatAffectingMoves affectingMoves;
 
+  /**
+   * A detail of natures which affect this stat positively or negatively.
+   */
   @JsonProperty("affecting_natures")
-  private StatDetailAffectingNatures affectingNatures;
+  private StatAffectingNatures affectingNatures;
 
+  /**
+   * Items that affect this stat, such as vitamins and battle items.
+   */
+  @JsonProperty("affecting_items")
+  private List<ItemSummary> affectingItems = new ArrayList<>();
+
+  /**
+   * A list of characteristics that are set on a Pokémon when its highest base stat is this stat.
+   */
   @JsonProperty("characteristics")
   private List<CharacteristicSummary> characteristics = new ArrayList<>();
 
+  /**
+   * The class of damage this stat is directly related to.
+   */
   @JsonProperty("move_damage_class")
   private MoveDamageClassSummary moveDamageClass;
 
+  /**
+   * The name of this resource listed in different languages.
+   */
   @JsonProperty("names")
   private List<StatName> names = new ArrayList<>();
 
   /**
-   * 
+   * The identifier for this resource.
    * @return id
    */
   public Integer getId() {
@@ -57,7 +91,7 @@ public class StatDetail implements Serializable {
   }
 
   /**
-   * 
+   * The name for this resource.
    * @return name
    */
   public String getName() {
@@ -69,7 +103,7 @@ public class StatDetail implements Serializable {
   }
 
   /**
-   * 
+   * ID the games use for this stat.
    * @return gameIndex
    */
   public Integer getGameIndex() {
@@ -81,7 +115,7 @@ public class StatDetail implements Serializable {
   }
 
   /**
-   * 
+   * Whether this stat only exists within a battle.
    * @return isBattleOnly
    */
   public Boolean getIsBattleOnly() {
@@ -93,31 +127,43 @@ public class StatDetail implements Serializable {
   }
 
   /**
-   * 
+   * A detail of moves which affect this stat positively or negatively.
    * @return affectingMoves
    */
-  public StatDetailAffectingMoves getAffectingMoves() {
+  public StatAffectingMoves getAffectingMoves() {
     return affectingMoves;
   }
 
-  public void setAffectingMoves(StatDetailAffectingMoves affectingMoves) {
+  public void setAffectingMoves(StatAffectingMoves affectingMoves) {
     this.affectingMoves = affectingMoves;
   }
 
   /**
-   * 
+   * A detail of natures which affect this stat positively or negatively.
    * @return affectingNatures
    */
-  public StatDetailAffectingNatures getAffectingNatures() {
+  public StatAffectingNatures getAffectingNatures() {
     return affectingNatures;
   }
 
-  public void setAffectingNatures(StatDetailAffectingNatures affectingNatures) {
+  public void setAffectingNatures(StatAffectingNatures affectingNatures) {
     this.affectingNatures = affectingNatures;
   }
 
   /**
-   * 
+   * Items that affect this stat, such as vitamins and battle items.
+   * @return affectingItems
+   */
+  public List<ItemSummary> getAffectingItems() {
+    return affectingItems;
+  }
+
+  public void setAffectingItems(List<ItemSummary> affectingItems) {
+    this.affectingItems = affectingItems;
+  }
+
+  /**
+   * A list of characteristics that are set on a Pokémon when its highest base stat is this stat.
    * @return characteristics
    */
   public List<CharacteristicSummary> getCharacteristics() {
@@ -129,7 +175,7 @@ public class StatDetail implements Serializable {
   }
 
   /**
-   * 
+   * The class of damage this stat is directly related to.
    * @return moveDamageClass
    */
   public MoveDamageClassSummary getMoveDamageClass() {
@@ -141,7 +187,7 @@ public class StatDetail implements Serializable {
   }
 
   /**
-   * 
+   * The name of this resource listed in different languages.
    * @return names
    */
   public List<StatName> getNames() {
@@ -168,6 +214,7 @@ public class StatDetail implements Serializable {
         Objects.equals(this.isBattleOnly, statDetail.isBattleOnly) &&
         Objects.equals(this.affectingMoves, statDetail.affectingMoves) &&
         Objects.equals(this.affectingNatures, statDetail.affectingNatures) &&
+        Objects.equals(this.affectingItems, statDetail.affectingItems) &&
         Objects.equals(this.characteristics, statDetail.characteristics) &&
         Objects.equals(this.moveDamageClass, statDetail.moveDamageClass) &&
         Objects.equals(this.names, statDetail.names);
@@ -175,7 +222,7 @@ public class StatDetail implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, gameIndex, isBattleOnly, affectingMoves, affectingNatures, characteristics, moveDamageClass, names);
+    return Objects.hash(id, name, gameIndex, isBattleOnly, affectingMoves, affectingNatures, affectingItems, characteristics, moveDamageClass, names);
   }
 
   @Override
@@ -189,6 +236,7 @@ public class StatDetail implements Serializable {
     sb.append("    isBattleOnly: ").append(toIndentedString(isBattleOnly)).append("\n");
     sb.append("    affectingMoves: ").append(toIndentedString(affectingMoves)).append("\n");
     sb.append("    affectingNatures: ").append(toIndentedString(affectingNatures)).append("\n");
+    sb.append("    affectingItems: ").append(toIndentedString(affectingItems)).append("\n");
     sb.append("    characteristics: ").append(toIndentedString(characteristics)).append("\n");
     sb.append("    moveDamageClass: ").append(toIndentedString(moveDamageClass)).append("\n");
     sb.append("    names: ").append(toIndentedString(names)).append("\n");

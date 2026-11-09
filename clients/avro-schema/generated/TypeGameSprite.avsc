@@ -1,0 +1,21 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "TypeGameSprite",
+  "fields": [
+    {
+      "name": "name_icon",
+      "type": ["null", "string"],
+      "doc": "The URL of the icon displaying the type name in this game, or null if unavailable.",
+      "default": null
+    },
+    {
+      "name": "symbol_icon",
+      "type": ["null", "string"],
+      "doc": "The URL of the type symbol icon in this game, or null if unavailable.",
+      "default": null
+    }
+  ]
+
+}

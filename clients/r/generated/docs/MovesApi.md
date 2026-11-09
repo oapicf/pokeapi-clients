@@ -37,11 +37,6 @@ var_offset <- 56 # integer | The initial index from which to return the results.
 var_q <- "q_example" # character | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (Optional)
 
 api_instance <- MovesApi$new()
-# Configure HTTP basic authorization: basicAuth
-api_instance$api_client$username <- Sys.getenv("USERNAME")
-api_instance$api_client$password <- Sys.getenv("PASSWORD")
-# Configure API key authorization: cookieAuth
-# api_instance$api_client$api_keys["sessionid"] <- Sys.getenv("API_KEY")
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
 # result <- api_instance$MoveAilmentList(limit = var_limit, offset = var_offset, q = var_qdata_file = "result.txt")
 result <- api_instance$MoveAilmentList(limit = var_limit, offset = var_offset, q = var_q)
@@ -62,7 +57,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -88,14 +83,9 @@ library(openapi)
 # Get move meta ailment
 #
 # prepare function argument(s)
-var_id <- "id_example" # character | This parameter can be a string or an integer.
+var_id <- "1" # character | This parameter can be a string or an integer.
 
 api_instance <- MovesApi$new()
-# Configure HTTP basic authorization: basicAuth
-api_instance$api_client$username <- Sys.getenv("USERNAME")
-api_instance$api_client$password <- Sys.getenv("PASSWORD")
-# Configure API key authorization: cookieAuth
-# api_instance$api_client$api_keys["sessionid"] <- Sys.getenv("API_KEY")
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
 # result <- api_instance$MoveAilmentRetrieve(var_iddata_file = "result.txt")
 result <- api_instance$MoveAilmentRetrieve(var_id)
@@ -114,7 +104,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -145,11 +135,6 @@ var_offset <- 56 # integer | The initial index from which to return the results.
 var_q <- "q_example" # character | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (Optional)
 
 api_instance <- MovesApi$new()
-# Configure HTTP basic authorization: basicAuth
-api_instance$api_client$username <- Sys.getenv("USERNAME")
-api_instance$api_client$password <- Sys.getenv("PASSWORD")
-# Configure API key authorization: cookieAuth
-# api_instance$api_client$api_keys["sessionid"] <- Sys.getenv("API_KEY")
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
 # result <- api_instance$MoveBattleStyleList(limit = var_limit, offset = var_offset, q = var_qdata_file = "result.txt")
 result <- api_instance$MoveBattleStyleList(limit = var_limit, offset = var_offset, q = var_q)
@@ -170,7 +155,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -196,14 +181,9 @@ library(openapi)
 # Get move battle style
 #
 # prepare function argument(s)
-var_id <- "id_example" # character | This parameter can be a string or an integer.
+var_id <- "1" # character | This parameter can be a string or an integer.
 
 api_instance <- MovesApi$new()
-# Configure HTTP basic authorization: basicAuth
-api_instance$api_client$username <- Sys.getenv("USERNAME")
-api_instance$api_client$password <- Sys.getenv("PASSWORD")
-# Configure API key authorization: cookieAuth
-# api_instance$api_client$api_keys["sessionid"] <- Sys.getenv("API_KEY")
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
 # result <- api_instance$MoveBattleStyleRetrieve(var_iddata_file = "result.txt")
 result <- api_instance$MoveBattleStyleRetrieve(var_id)
@@ -222,7 +202,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -253,11 +233,6 @@ var_offset <- 56 # integer | The initial index from which to return the results.
 var_q <- "q_example" # character | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (Optional)
 
 api_instance <- MovesApi$new()
-# Configure HTTP basic authorization: basicAuth
-api_instance$api_client$username <- Sys.getenv("USERNAME")
-api_instance$api_client$password <- Sys.getenv("PASSWORD")
-# Configure API key authorization: cookieAuth
-# api_instance$api_client$api_keys["sessionid"] <- Sys.getenv("API_KEY")
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
 # result <- api_instance$MoveCategoryList(limit = var_limit, offset = var_offset, q = var_qdata_file = "result.txt")
 result <- api_instance$MoveCategoryList(limit = var_limit, offset = var_offset, q = var_q)
@@ -278,7 +253,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -304,14 +279,9 @@ library(openapi)
 # Get move meta category
 #
 # prepare function argument(s)
-var_id <- "id_example" # character | This parameter can be a string or an integer.
+var_id <- "1" # character | This parameter can be a string or an integer.
 
 api_instance <- MovesApi$new()
-# Configure HTTP basic authorization: basicAuth
-api_instance$api_client$username <- Sys.getenv("USERNAME")
-api_instance$api_client$password <- Sys.getenv("PASSWORD")
-# Configure API key authorization: cookieAuth
-# api_instance$api_client$api_keys["sessionid"] <- Sys.getenv("API_KEY")
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
 # result <- api_instance$MoveCategoryRetrieve(var_iddata_file = "result.txt")
 result <- api_instance$MoveCategoryRetrieve(var_id)
@@ -330,7 +300,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -361,11 +331,6 @@ var_offset <- 56 # integer | The initial index from which to return the results.
 var_q <- "q_example" # character | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (Optional)
 
 api_instance <- MovesApi$new()
-# Configure HTTP basic authorization: basicAuth
-api_instance$api_client$username <- Sys.getenv("USERNAME")
-api_instance$api_client$password <- Sys.getenv("PASSWORD")
-# Configure API key authorization: cookieAuth
-# api_instance$api_client$api_keys["sessionid"] <- Sys.getenv("API_KEY")
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
 # result <- api_instance$MoveLearnMethodList(limit = var_limit, offset = var_offset, q = var_qdata_file = "result.txt")
 result <- api_instance$MoveLearnMethodList(limit = var_limit, offset = var_offset, q = var_q)
@@ -386,7 +351,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -412,14 +377,9 @@ library(openapi)
 # Get move learn method
 #
 # prepare function argument(s)
-var_id <- "id_example" # character | This parameter can be a string or an integer.
+var_id <- "1" # character | This parameter can be a string or an integer.
 
 api_instance <- MovesApi$new()
-# Configure HTTP basic authorization: basicAuth
-api_instance$api_client$username <- Sys.getenv("USERNAME")
-api_instance$api_client$password <- Sys.getenv("PASSWORD")
-# Configure API key authorization: cookieAuth
-# api_instance$api_client$api_keys["sessionid"] <- Sys.getenv("API_KEY")
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
 # result <- api_instance$MoveLearnMethodRetrieve(var_iddata_file = "result.txt")
 result <- api_instance$MoveLearnMethodRetrieve(var_id)
@@ -438,7 +398,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -469,11 +429,6 @@ var_offset <- 56 # integer | The initial index from which to return the results.
 var_q <- "q_example" # character | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (Optional)
 
 api_instance <- MovesApi$new()
-# Configure HTTP basic authorization: basicAuth
-api_instance$api_client$username <- Sys.getenv("USERNAME")
-api_instance$api_client$password <- Sys.getenv("PASSWORD")
-# Configure API key authorization: cookieAuth
-# api_instance$api_client$api_keys["sessionid"] <- Sys.getenv("API_KEY")
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
 # result <- api_instance$MoveList(limit = var_limit, offset = var_offset, q = var_qdata_file = "result.txt")
 result <- api_instance$MoveList(limit = var_limit, offset = var_offset, q = var_q)
@@ -494,7 +449,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -520,14 +475,9 @@ library(openapi)
 # Get move
 #
 # prepare function argument(s)
-var_id <- "id_example" # character | This parameter can be a string or an integer.
+var_id <- "1" # character | This parameter can be a string or an integer.
 
 api_instance <- MovesApi$new()
-# Configure HTTP basic authorization: basicAuth
-api_instance$api_client$username <- Sys.getenv("USERNAME")
-api_instance$api_client$password <- Sys.getenv("PASSWORD")
-# Configure API key authorization: cookieAuth
-# api_instance$api_client$api_keys["sessionid"] <- Sys.getenv("API_KEY")
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
 # result <- api_instance$MoveRetrieve(var_iddata_file = "result.txt")
 result <- api_instance$MoveRetrieve(var_id)
@@ -546,7 +496,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -577,11 +527,6 @@ var_offset <- 56 # integer | The initial index from which to return the results.
 var_q <- "q_example" # character | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (Optional)
 
 api_instance <- MovesApi$new()
-# Configure HTTP basic authorization: basicAuth
-api_instance$api_client$username <- Sys.getenv("USERNAME")
-api_instance$api_client$password <- Sys.getenv("PASSWORD")
-# Configure API key authorization: cookieAuth
-# api_instance$api_client$api_keys["sessionid"] <- Sys.getenv("API_KEY")
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
 # result <- api_instance$MoveTargetList(limit = var_limit, offset = var_offset, q = var_qdata_file = "result.txt")
 result <- api_instance$MoveTargetList(limit = var_limit, offset = var_offset, q = var_q)
@@ -602,7 +547,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -628,14 +573,9 @@ library(openapi)
 # Get move target
 #
 # prepare function argument(s)
-var_id <- "id_example" # character | This parameter can be a string or an integer.
+var_id <- "1" # character | This parameter can be a string or an integer.
 
 api_instance <- MovesApi$new()
-# Configure HTTP basic authorization: basicAuth
-api_instance$api_client$username <- Sys.getenv("USERNAME")
-api_instance$api_client$password <- Sys.getenv("PASSWORD")
-# Configure API key authorization: cookieAuth
-# api_instance$api_client$api_keys["sessionid"] <- Sys.getenv("API_KEY")
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
 # result <- api_instance$MoveTargetRetrieve(var_iddata_file = "result.txt")
 result <- api_instance$MoveTargetRetrieve(var_id)
@@ -654,7 +594,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

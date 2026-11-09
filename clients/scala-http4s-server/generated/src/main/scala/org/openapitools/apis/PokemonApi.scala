@@ -48,8 +48,8 @@ import org.http4s.dsl.Http4sDsl
 import org.http4s.circe.CirceEntityEncoder._
 
 final case class PokemonApiRoutes[
-  F[_]: JsonDecoder: Monad, basicAuth, cookieAuth
-](delegate: PokemonApiDelegate[F, basicAuth, cookieAuth]) extends Http4sDsl[F] {
+  F[_]: JsonDecoder: Monad
+](delegate: PokemonApiDelegate[F]) extends Http4sDsl[F] {
   object abilityList {
     import PokemonApiDelegate.abilityListResponses
 
@@ -57,16 +57,12 @@ final case class PokemonApiRoutes[
     object offsetQueryParam extends OptionalQueryParamDecoderMatcher[Int]("offset")
     object qQueryParam extends OptionalQueryParamDecoderMatcher[String]("q")
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "ability" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q)) as auth =>
-        delegate.abilityList.handle_basicAuth(auth, req, limit, offset, q, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "ability" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q) =>
+        delegate.abilityList.handle(req, limit, offset, q, responses)
 
     }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "ability" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q)) as auth =>
-        delegate.abilityList.handle_cookieAuth(auth, req, limit, offset, q, responses)
 
-    }
 
     val responses: abilityListResponses[F] = new abilityListResponses[F] {
       def resp200(value: PaginatedAbilitySummaryList): F[Response[F]] = Ok(value)
@@ -76,16 +72,12 @@ final case class PokemonApiRoutes[
     import PokemonApiDelegate.abilityRetrieveResponses
 
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "ability" / id) as auth =>
-        delegate.abilityRetrieve.handle_basicAuth(auth, req, id, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "ability" / id =>
+        delegate.abilityRetrieve.handle(req, id, responses)
 
     }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "ability" / id) as auth =>
-        delegate.abilityRetrieve.handle_cookieAuth(auth, req, id, responses)
 
-    }
 
     val responses: abilityRetrieveResponses[F] = new abilityRetrieveResponses[F] {
       def resp200(value: AbilityDetail): F[Response[F]] = Ok(value)
@@ -96,18 +88,13 @@ final case class PokemonApiRoutes[
 
     object limitQueryParam extends OptionalQueryParamDecoderMatcher[Int]("limit")
     object offsetQueryParam extends OptionalQueryParamDecoderMatcher[Int]("offset")
-    object qQueryParam extends OptionalQueryParamDecoderMatcher[String]("q")
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "characteristic" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q)) as auth =>
-        delegate.characteristicList.handle_basicAuth(auth, req, limit, offset, q, responses)
-
-    }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "characteristic" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q)) as auth =>
-        delegate.characteristicList.handle_cookieAuth(auth, req, limit, offset, q, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "characteristic" :? limitQueryParam(limit) +& offsetQueryParam(offset) =>
+        delegate.characteristicList.handle(req, limit, offset, responses)
 
     }
+
 
     val responses: characteristicListResponses[F] = new characteristicListResponses[F] {
       def resp200(value: PaginatedCharacteristicSummaryList): F[Response[F]] = Ok(value)
@@ -117,16 +104,12 @@ final case class PokemonApiRoutes[
     import PokemonApiDelegate.characteristicRetrieveResponses
 
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "characteristic" / id) as auth =>
-        delegate.characteristicRetrieve.handle_basicAuth(auth, req, id, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "characteristic" / id =>
+        delegate.characteristicRetrieve.handle(req, id, responses)
 
     }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "characteristic" / id) as auth =>
-        delegate.characteristicRetrieve.handle_cookieAuth(auth, req, id, responses)
 
-    }
 
     val responses: characteristicRetrieveResponses[F] = new characteristicRetrieveResponses[F] {
       def resp200(value: CharacteristicDetail): F[Response[F]] = Ok(value)
@@ -139,16 +122,12 @@ final case class PokemonApiRoutes[
     object offsetQueryParam extends OptionalQueryParamDecoderMatcher[Int]("offset")
     object qQueryParam extends OptionalQueryParamDecoderMatcher[String]("q")
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "egg-group" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q)) as auth =>
-        delegate.eggGroupList.handle_basicAuth(auth, req, limit, offset, q, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "egg-group" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q) =>
+        delegate.eggGroupList.handle(req, limit, offset, q, responses)
 
     }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "egg-group" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q)) as auth =>
-        delegate.eggGroupList.handle_cookieAuth(auth, req, limit, offset, q, responses)
 
-    }
 
     val responses: eggGroupListResponses[F] = new eggGroupListResponses[F] {
       def resp200(value: PaginatedEggGroupSummaryList): F[Response[F]] = Ok(value)
@@ -158,16 +137,12 @@ final case class PokemonApiRoutes[
     import PokemonApiDelegate.eggGroupRetrieveResponses
 
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "egg-group" / id) as auth =>
-        delegate.eggGroupRetrieve.handle_basicAuth(auth, req, id, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "egg-group" / id =>
+        delegate.eggGroupRetrieve.handle(req, id, responses)
 
     }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "egg-group" / id) as auth =>
-        delegate.eggGroupRetrieve.handle_cookieAuth(auth, req, id, responses)
 
-    }
 
     val responses: eggGroupRetrieveResponses[F] = new eggGroupRetrieveResponses[F] {
       def resp200(value: EggGroupDetail): F[Response[F]] = Ok(value)
@@ -180,16 +155,12 @@ final case class PokemonApiRoutes[
     object offsetQueryParam extends OptionalQueryParamDecoderMatcher[Int]("offset")
     object qQueryParam extends OptionalQueryParamDecoderMatcher[String]("q")
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "gender" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q)) as auth =>
-        delegate.genderList.handle_basicAuth(auth, req, limit, offset, q, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "gender" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q) =>
+        delegate.genderList.handle(req, limit, offset, q, responses)
 
     }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "gender" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q)) as auth =>
-        delegate.genderList.handle_cookieAuth(auth, req, limit, offset, q, responses)
 
-    }
 
     val responses: genderListResponses[F] = new genderListResponses[F] {
       def resp200(value: PaginatedGenderSummaryList): F[Response[F]] = Ok(value)
@@ -199,16 +170,12 @@ final case class PokemonApiRoutes[
     import PokemonApiDelegate.genderRetrieveResponses
 
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "gender" / id) as auth =>
-        delegate.genderRetrieve.handle_basicAuth(auth, req, id, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "gender" / id =>
+        delegate.genderRetrieve.handle(req, id, responses)
 
     }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "gender" / id) as auth =>
-        delegate.genderRetrieve.handle_cookieAuth(auth, req, id, responses)
 
-    }
 
     val responses: genderRetrieveResponses[F] = new genderRetrieveResponses[F] {
       def resp200(value: GenderDetail): F[Response[F]] = Ok(value)
@@ -221,16 +188,12 @@ final case class PokemonApiRoutes[
     object offsetQueryParam extends OptionalQueryParamDecoderMatcher[Int]("offset")
     object qQueryParam extends OptionalQueryParamDecoderMatcher[String]("q")
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "growth-rate" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q)) as auth =>
-        delegate.growthRateList.handle_basicAuth(auth, req, limit, offset, q, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "growth-rate" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q) =>
+        delegate.growthRateList.handle(req, limit, offset, q, responses)
 
     }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "growth-rate" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q)) as auth =>
-        delegate.growthRateList.handle_cookieAuth(auth, req, limit, offset, q, responses)
 
-    }
 
     val responses: growthRateListResponses[F] = new growthRateListResponses[F] {
       def resp200(value: PaginatedGrowthRateSummaryList): F[Response[F]] = Ok(value)
@@ -240,16 +203,12 @@ final case class PokemonApiRoutes[
     import PokemonApiDelegate.growthRateRetrieveResponses
 
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "growth-rate" / id) as auth =>
-        delegate.growthRateRetrieve.handle_basicAuth(auth, req, id, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "growth-rate" / id =>
+        delegate.growthRateRetrieve.handle(req, id, responses)
 
     }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "growth-rate" / id) as auth =>
-        delegate.growthRateRetrieve.handle_cookieAuth(auth, req, id, responses)
 
-    }
 
     val responses: growthRateRetrieveResponses[F] = new growthRateRetrieveResponses[F] {
       def resp200(value: GrowthRateDetail): F[Response[F]] = Ok(value)
@@ -262,16 +221,12 @@ final case class PokemonApiRoutes[
     object offsetQueryParam extends OptionalQueryParamDecoderMatcher[Int]("offset")
     object qQueryParam extends OptionalQueryParamDecoderMatcher[String]("q")
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "move-damage-class" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q)) as auth =>
-        delegate.moveDamageClassList.handle_basicAuth(auth, req, limit, offset, q, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "move-damage-class" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q) =>
+        delegate.moveDamageClassList.handle(req, limit, offset, q, responses)
 
     }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "move-damage-class" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q)) as auth =>
-        delegate.moveDamageClassList.handle_cookieAuth(auth, req, limit, offset, q, responses)
 
-    }
 
     val responses: moveDamageClassListResponses[F] = new moveDamageClassListResponses[F] {
       def resp200(value: PaginatedMoveDamageClassSummaryList): F[Response[F]] = Ok(value)
@@ -281,16 +236,12 @@ final case class PokemonApiRoutes[
     import PokemonApiDelegate.moveDamageClassRetrieveResponses
 
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "move-damage-class" / id) as auth =>
-        delegate.moveDamageClassRetrieve.handle_basicAuth(auth, req, id, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "move-damage-class" / id =>
+        delegate.moveDamageClassRetrieve.handle(req, id, responses)
 
     }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "move-damage-class" / id) as auth =>
-        delegate.moveDamageClassRetrieve.handle_cookieAuth(auth, req, id, responses)
 
-    }
 
     val responses: moveDamageClassRetrieveResponses[F] = new moveDamageClassRetrieveResponses[F] {
       def resp200(value: MoveDamageClassDetail): F[Response[F]] = Ok(value)
@@ -303,16 +254,12 @@ final case class PokemonApiRoutes[
     object offsetQueryParam extends OptionalQueryParamDecoderMatcher[Int]("offset")
     object qQueryParam extends OptionalQueryParamDecoderMatcher[String]("q")
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "nature" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q)) as auth =>
-        delegate.natureList.handle_basicAuth(auth, req, limit, offset, q, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "nature" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q) =>
+        delegate.natureList.handle(req, limit, offset, q, responses)
 
     }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "nature" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q)) as auth =>
-        delegate.natureList.handle_cookieAuth(auth, req, limit, offset, q, responses)
 
-    }
 
     val responses: natureListResponses[F] = new natureListResponses[F] {
       def resp200(value: PaginatedNatureSummaryList): F[Response[F]] = Ok(value)
@@ -322,16 +269,12 @@ final case class PokemonApiRoutes[
     import PokemonApiDelegate.natureRetrieveResponses
 
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "nature" / id) as auth =>
-        delegate.natureRetrieve.handle_basicAuth(auth, req, id, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "nature" / id =>
+        delegate.natureRetrieve.handle(req, id, responses)
 
     }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "nature" / id) as auth =>
-        delegate.natureRetrieve.handle_cookieAuth(auth, req, id, responses)
 
-    }
 
     val responses: natureRetrieveResponses[F] = new natureRetrieveResponses[F] {
       def resp200(value: NatureDetail): F[Response[F]] = Ok(value)
@@ -344,16 +287,12 @@ final case class PokemonApiRoutes[
     object offsetQueryParam extends OptionalQueryParamDecoderMatcher[Int]("offset")
     object qQueryParam extends OptionalQueryParamDecoderMatcher[String]("q")
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "pokeathlon-stat" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q)) as auth =>
-        delegate.pokeathlonStatList.handle_basicAuth(auth, req, limit, offset, q, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "pokeathlon-stat" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q) =>
+        delegate.pokeathlonStatList.handle(req, limit, offset, q, responses)
 
     }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "pokeathlon-stat" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q)) as auth =>
-        delegate.pokeathlonStatList.handle_cookieAuth(auth, req, limit, offset, q, responses)
 
-    }
 
     val responses: pokeathlonStatListResponses[F] = new pokeathlonStatListResponses[F] {
       def resp200(value: PaginatedPokeathlonStatSummaryList): F[Response[F]] = Ok(value)
@@ -363,16 +302,12 @@ final case class PokemonApiRoutes[
     import PokemonApiDelegate.pokeathlonStatRetrieveResponses
 
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "pokeathlon-stat" / id) as auth =>
-        delegate.pokeathlonStatRetrieve.handle_basicAuth(auth, req, id, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "pokeathlon-stat" / id =>
+        delegate.pokeathlonStatRetrieve.handle(req, id, responses)
 
     }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "pokeathlon-stat" / id) as auth =>
-        delegate.pokeathlonStatRetrieve.handle_cookieAuth(auth, req, id, responses)
 
-    }
 
     val responses: pokeathlonStatRetrieveResponses[F] = new pokeathlonStatRetrieveResponses[F] {
       def resp200(value: PokeathlonStatDetail): F[Response[F]] = Ok(value)
@@ -385,16 +320,12 @@ final case class PokemonApiRoutes[
     object offsetQueryParam extends OptionalQueryParamDecoderMatcher[Int]("offset")
     object qQueryParam extends OptionalQueryParamDecoderMatcher[String]("q")
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "pokemon-color" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q)) as auth =>
-        delegate.pokemonColorList.handle_basicAuth(auth, req, limit, offset, q, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "pokemon-color" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q) =>
+        delegate.pokemonColorList.handle(req, limit, offset, q, responses)
 
     }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "pokemon-color" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q)) as auth =>
-        delegate.pokemonColorList.handle_cookieAuth(auth, req, limit, offset, q, responses)
 
-    }
 
     val responses: pokemonColorListResponses[F] = new pokemonColorListResponses[F] {
       def resp200(value: PaginatedPokemonColorSummaryList): F[Response[F]] = Ok(value)
@@ -404,16 +335,12 @@ final case class PokemonApiRoutes[
     import PokemonApiDelegate.pokemonColorRetrieveResponses
 
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "pokemon-color" / id) as auth =>
-        delegate.pokemonColorRetrieve.handle_basicAuth(auth, req, id, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "pokemon-color" / id =>
+        delegate.pokemonColorRetrieve.handle(req, id, responses)
 
     }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "pokemon-color" / id) as auth =>
-        delegate.pokemonColorRetrieve.handle_cookieAuth(auth, req, id, responses)
 
-    }
 
     val responses: pokemonColorRetrieveResponses[F] = new pokemonColorRetrieveResponses[F] {
       def resp200(value: PokemonColorDetail): F[Response[F]] = Ok(value)
@@ -426,16 +353,12 @@ final case class PokemonApiRoutes[
     object offsetQueryParam extends OptionalQueryParamDecoderMatcher[Int]("offset")
     object qQueryParam extends OptionalQueryParamDecoderMatcher[String]("q")
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "pokemon-form" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q)) as auth =>
-        delegate.pokemonFormList.handle_basicAuth(auth, req, limit, offset, q, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "pokemon-form" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q) =>
+        delegate.pokemonFormList.handle(req, limit, offset, q, responses)
 
     }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "pokemon-form" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q)) as auth =>
-        delegate.pokemonFormList.handle_cookieAuth(auth, req, limit, offset, q, responses)
 
-    }
 
     val responses: pokemonFormListResponses[F] = new pokemonFormListResponses[F] {
       def resp200(value: PaginatedPokemonFormSummaryList): F[Response[F]] = Ok(value)
@@ -445,16 +368,12 @@ final case class PokemonApiRoutes[
     import PokemonApiDelegate.pokemonFormRetrieveResponses
 
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "pokemon-form" / id) as auth =>
-        delegate.pokemonFormRetrieve.handle_basicAuth(auth, req, id, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "pokemon-form" / id =>
+        delegate.pokemonFormRetrieve.handle(req, id, responses)
 
     }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "pokemon-form" / id) as auth =>
-        delegate.pokemonFormRetrieve.handle_cookieAuth(auth, req, id, responses)
 
-    }
 
     val responses: pokemonFormRetrieveResponses[F] = new pokemonFormRetrieveResponses[F] {
       def resp200(value: PokemonFormDetail): F[Response[F]] = Ok(value)
@@ -467,16 +386,12 @@ final case class PokemonApiRoutes[
     object offsetQueryParam extends OptionalQueryParamDecoderMatcher[Int]("offset")
     object qQueryParam extends OptionalQueryParamDecoderMatcher[String]("q")
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "pokemon-habitat" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q)) as auth =>
-        delegate.pokemonHabitatList.handle_basicAuth(auth, req, limit, offset, q, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "pokemon-habitat" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q) =>
+        delegate.pokemonHabitatList.handle(req, limit, offset, q, responses)
 
     }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "pokemon-habitat" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q)) as auth =>
-        delegate.pokemonHabitatList.handle_cookieAuth(auth, req, limit, offset, q, responses)
 
-    }
 
     val responses: pokemonHabitatListResponses[F] = new pokemonHabitatListResponses[F] {
       def resp200(value: PaginatedPokemonHabitatSummaryList): F[Response[F]] = Ok(value)
@@ -486,16 +401,12 @@ final case class PokemonApiRoutes[
     import PokemonApiDelegate.pokemonHabitatRetrieveResponses
 
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "pokemon-habitat" / id) as auth =>
-        delegate.pokemonHabitatRetrieve.handle_basicAuth(auth, req, id, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "pokemon-habitat" / id =>
+        delegate.pokemonHabitatRetrieve.handle(req, id, responses)
 
     }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "pokemon-habitat" / id) as auth =>
-        delegate.pokemonHabitatRetrieve.handle_cookieAuth(auth, req, id, responses)
 
-    }
 
     val responses: pokemonHabitatRetrieveResponses[F] = new pokemonHabitatRetrieveResponses[F] {
       def resp200(value: PokemonHabitatDetail): F[Response[F]] = Ok(value)
@@ -508,16 +419,12 @@ final case class PokemonApiRoutes[
     object offsetQueryParam extends OptionalQueryParamDecoderMatcher[Int]("offset")
     object qQueryParam extends OptionalQueryParamDecoderMatcher[String]("q")
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "pokemon" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q)) as auth =>
-        delegate.pokemonList.handle_basicAuth(auth, req, limit, offset, q, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "pokemon" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q) =>
+        delegate.pokemonList.handle(req, limit, offset, q, responses)
 
     }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "pokemon" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q)) as auth =>
-        delegate.pokemonList.handle_cookieAuth(auth, req, limit, offset, q, responses)
 
-    }
 
     val responses: pokemonListResponses[F] = new pokemonListResponses[F] {
       def resp200(value: PaginatedPokemonSummaryList): F[Response[F]] = Ok(value)
@@ -527,16 +434,12 @@ final case class PokemonApiRoutes[
     import PokemonApiDelegate.pokemonRetrieveResponses
 
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "pokemon" / id) as auth =>
-        delegate.pokemonRetrieve.handle_basicAuth(auth, req, id, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "pokemon" / id =>
+        delegate.pokemonRetrieve.handle(req, id, responses)
 
     }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "pokemon" / id) as auth =>
-        delegate.pokemonRetrieve.handle_cookieAuth(auth, req, id, responses)
 
-    }
 
     val responses: pokemonRetrieveResponses[F] = new pokemonRetrieveResponses[F] {
       def resp200(value: PokemonDetail): F[Response[F]] = Ok(value)
@@ -549,16 +452,12 @@ final case class PokemonApiRoutes[
     object offsetQueryParam extends OptionalQueryParamDecoderMatcher[Int]("offset")
     object qQueryParam extends OptionalQueryParamDecoderMatcher[String]("q")
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "pokemon-shape" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q)) as auth =>
-        delegate.pokemonShapeList.handle_basicAuth(auth, req, limit, offset, q, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "pokemon-shape" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q) =>
+        delegate.pokemonShapeList.handle(req, limit, offset, q, responses)
 
     }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "pokemon-shape" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q)) as auth =>
-        delegate.pokemonShapeList.handle_cookieAuth(auth, req, limit, offset, q, responses)
 
-    }
 
     val responses: pokemonShapeListResponses[F] = new pokemonShapeListResponses[F] {
       def resp200(value: PaginatedPokemonShapeSummaryList): F[Response[F]] = Ok(value)
@@ -568,16 +467,12 @@ final case class PokemonApiRoutes[
     import PokemonApiDelegate.pokemonShapeRetrieveResponses
 
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "pokemon-shape" / id) as auth =>
-        delegate.pokemonShapeRetrieve.handle_basicAuth(auth, req, id, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "pokemon-shape" / id =>
+        delegate.pokemonShapeRetrieve.handle(req, id, responses)
 
     }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "pokemon-shape" / id) as auth =>
-        delegate.pokemonShapeRetrieve.handle_cookieAuth(auth, req, id, responses)
 
-    }
 
     val responses: pokemonShapeRetrieveResponses[F] = new pokemonShapeRetrieveResponses[F] {
       def resp200(value: PokemonShapeDetail): F[Response[F]] = Ok(value)
@@ -590,16 +485,12 @@ final case class PokemonApiRoutes[
     object offsetQueryParam extends OptionalQueryParamDecoderMatcher[Int]("offset")
     object qQueryParam extends OptionalQueryParamDecoderMatcher[String]("q")
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "pokemon-species" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q)) as auth =>
-        delegate.pokemonSpeciesList.handle_basicAuth(auth, req, limit, offset, q, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "pokemon-species" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q) =>
+        delegate.pokemonSpeciesList.handle(req, limit, offset, q, responses)
 
     }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "pokemon-species" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q)) as auth =>
-        delegate.pokemonSpeciesList.handle_cookieAuth(auth, req, limit, offset, q, responses)
 
-    }
 
     val responses: pokemonSpeciesListResponses[F] = new pokemonSpeciesListResponses[F] {
       def resp200(value: PaginatedPokemonSpeciesSummaryList): F[Response[F]] = Ok(value)
@@ -609,16 +500,12 @@ final case class PokemonApiRoutes[
     import PokemonApiDelegate.pokemonSpeciesRetrieveResponses
 
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "pokemon-species" / id) as auth =>
-        delegate.pokemonSpeciesRetrieve.handle_basicAuth(auth, req, id, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "pokemon-species" / id =>
+        delegate.pokemonSpeciesRetrieve.handle(req, id, responses)
 
     }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "pokemon-species" / id) as auth =>
-        delegate.pokemonSpeciesRetrieve.handle_cookieAuth(auth, req, id, responses)
 
-    }
 
     val responses: pokemonSpeciesRetrieveResponses[F] = new pokemonSpeciesRetrieveResponses[F] {
       def resp200(value: PokemonSpeciesDetail): F[Response[F]] = Ok(value)
@@ -631,16 +518,12 @@ final case class PokemonApiRoutes[
     object offsetQueryParam extends OptionalQueryParamDecoderMatcher[Int]("offset")
     object qQueryParam extends OptionalQueryParamDecoderMatcher[String]("q")
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "stat" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q)) as auth =>
-        delegate.statList.handle_basicAuth(auth, req, limit, offset, q, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "stat" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q) =>
+        delegate.statList.handle(req, limit, offset, q, responses)
 
     }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "stat" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q)) as auth =>
-        delegate.statList.handle_cookieAuth(auth, req, limit, offset, q, responses)
 
-    }
 
     val responses: statListResponses[F] = new statListResponses[F] {
       def resp200(value: PaginatedStatSummaryList): F[Response[F]] = Ok(value)
@@ -650,16 +533,12 @@ final case class PokemonApiRoutes[
     import PokemonApiDelegate.statRetrieveResponses
 
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "stat" / id) as auth =>
-        delegate.statRetrieve.handle_basicAuth(auth, req, id, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "stat" / id =>
+        delegate.statRetrieve.handle(req, id, responses)
 
     }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "stat" / id) as auth =>
-        delegate.statRetrieve.handle_cookieAuth(auth, req, id, responses)
 
-    }
 
     val responses: statRetrieveResponses[F] = new statRetrieveResponses[F] {
       def resp200(value: StatDetail): F[Response[F]] = Ok(value)
@@ -672,16 +551,12 @@ final case class PokemonApiRoutes[
     object offsetQueryParam extends OptionalQueryParamDecoderMatcher[Int]("offset")
     object qQueryParam extends OptionalQueryParamDecoderMatcher[String]("q")
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "type" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q)) as auth =>
-        delegate.typeList.handle_basicAuth(auth, req, limit, offset, q, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "type" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q) =>
+        delegate.typeList.handle(req, limit, offset, q, responses)
 
     }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "type" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q)) as auth =>
-        delegate.typeList.handle_cookieAuth(auth, req, limit, offset, q, responses)
 
-    }
 
     val responses: typeListResponses[F] = new typeListResponses[F] {
       def resp200(value: PaginatedTypeSummaryList): F[Response[F]] = Ok(value)
@@ -691,88 +566,51 @@ final case class PokemonApiRoutes[
     import PokemonApiDelegate.typeRetrieveResponses
 
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "type" / id) as auth =>
-        delegate.typeRetrieve.handle_basicAuth(auth, req, id, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "type" / id =>
+        delegate.typeRetrieve.handle(req, id, responses)
 
     }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "type" / id) as auth =>
-        delegate.typeRetrieve.handle_cookieAuth(auth, req, id, responses)
 
-    }
 
     val responses: typeRetrieveResponses[F] = new typeRetrieveResponses[F] {
       def resp200(value: TypeDetail): F[Response[F]] = Ok(value)
     }
   }
 
-  val routesbasicAuth =
-    abilityList.routebasicAuth <+>
-    abilityRetrieve.routebasicAuth <+>
-    characteristicList.routebasicAuth <+>
-    characteristicRetrieve.routebasicAuth <+>
-    eggGroupList.routebasicAuth <+>
-    eggGroupRetrieve.routebasicAuth <+>
-    genderList.routebasicAuth <+>
-    genderRetrieve.routebasicAuth <+>
-    growthRateList.routebasicAuth <+>
-    growthRateRetrieve.routebasicAuth <+>
-    moveDamageClassList.routebasicAuth <+>
-    moveDamageClassRetrieve.routebasicAuth <+>
-    natureList.routebasicAuth <+>
-    natureRetrieve.routebasicAuth <+>
-    pokeathlonStatList.routebasicAuth <+>
-    pokeathlonStatRetrieve.routebasicAuth <+>
-    pokemonColorList.routebasicAuth <+>
-    pokemonColorRetrieve.routebasicAuth <+>
-    pokemonFormList.routebasicAuth <+>
-    pokemonFormRetrieve.routebasicAuth <+>
-    pokemonHabitatList.routebasicAuth <+>
-    pokemonHabitatRetrieve.routebasicAuth <+>
-    pokemonList.routebasicAuth <+>
-    pokemonRetrieve.routebasicAuth <+>
-    pokemonShapeList.routebasicAuth <+>
-    pokemonShapeRetrieve.routebasicAuth <+>
-    pokemonSpeciesList.routebasicAuth <+>
-    pokemonSpeciesRetrieve.routebasicAuth <+>
-    statList.routebasicAuth <+>
-    statRetrieve.routebasicAuth <+>
-    typeList.routebasicAuth <+>
-    typeRetrieve.routebasicAuth
-  val routescookieAuth =
-    abilityList.routecookieAuth <+>
-    abilityRetrieve.routecookieAuth <+>
-    characteristicList.routecookieAuth <+>
-    characteristicRetrieve.routecookieAuth <+>
-    eggGroupList.routecookieAuth <+>
-    eggGroupRetrieve.routecookieAuth <+>
-    genderList.routecookieAuth <+>
-    genderRetrieve.routecookieAuth <+>
-    growthRateList.routecookieAuth <+>
-    growthRateRetrieve.routecookieAuth <+>
-    moveDamageClassList.routecookieAuth <+>
-    moveDamageClassRetrieve.routecookieAuth <+>
-    natureList.routecookieAuth <+>
-    natureRetrieve.routecookieAuth <+>
-    pokeathlonStatList.routecookieAuth <+>
-    pokeathlonStatRetrieve.routecookieAuth <+>
-    pokemonColorList.routecookieAuth <+>
-    pokemonColorRetrieve.routecookieAuth <+>
-    pokemonFormList.routecookieAuth <+>
-    pokemonFormRetrieve.routecookieAuth <+>
-    pokemonHabitatList.routecookieAuth <+>
-    pokemonHabitatRetrieve.routecookieAuth <+>
-    pokemonList.routecookieAuth <+>
-    pokemonRetrieve.routecookieAuth <+>
-    pokemonShapeList.routecookieAuth <+>
-    pokemonShapeRetrieve.routecookieAuth <+>
-    pokemonSpeciesList.routecookieAuth <+>
-    pokemonSpeciesRetrieve.routecookieAuth <+>
-    statList.routecookieAuth <+>
-    statRetrieve.routecookieAuth <+>
-    typeList.routecookieAuth <+>
-    typeRetrieve.routecookieAuth
+  val routes =
+    abilityList.route <+>
+    abilityRetrieve.route <+>
+    characteristicList.route <+>
+    characteristicRetrieve.route <+>
+    eggGroupList.route <+>
+    eggGroupRetrieve.route <+>
+    genderList.route <+>
+    genderRetrieve.route <+>
+    growthRateList.route <+>
+    growthRateRetrieve.route <+>
+    moveDamageClassList.route <+>
+    moveDamageClassRetrieve.route <+>
+    natureList.route <+>
+    natureRetrieve.route <+>
+    pokeathlonStatList.route <+>
+    pokeathlonStatRetrieve.route <+>
+    pokemonColorList.route <+>
+    pokemonColorRetrieve.route <+>
+    pokemonFormList.route <+>
+    pokemonFormRetrieve.route <+>
+    pokemonHabitatList.route <+>
+    pokemonHabitatRetrieve.route <+>
+    pokemonList.route <+>
+    pokemonRetrieve.route <+>
+    pokemonShapeList.route <+>
+    pokemonShapeRetrieve.route <+>
+    pokemonSpeciesList.route <+>
+    pokemonSpeciesRetrieve.route <+>
+    statList.route <+>
+    statRetrieve.route <+>
+    typeList.route <+>
+    typeRetrieve.route
 }
 
 object PokemonApiDelegate {
@@ -906,23 +744,12 @@ object PokemonApiDelegate {
 
 }
 
-trait PokemonApiDelegate[F[_], basicAuth, cookieAuth] {
+trait PokemonApiDelegate[F[_]] {
 
   trait abilityList {
     import PokemonApiDelegate.abilityListResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
-      req: Request[F],
-      limit: Option[Int],
-      offset: Option[Int],
-      q: Option[String],
-      responses: abilityListResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
+    def handle(
       req: Request[F],
       limit: Option[Int],
       offset: Option[Int],
@@ -937,16 +764,7 @@ trait PokemonApiDelegate[F[_], basicAuth, cookieAuth] {
   trait abilityRetrieve {
     import PokemonApiDelegate.abilityRetrieveResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
-      req: Request[F],
-      id: String,
-      responses: abilityRetrieveResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
+    def handle(
       req: Request[F],
       id: String,
       responses: abilityRetrieveResponses[F]
@@ -959,22 +777,10 @@ trait PokemonApiDelegate[F[_], basicAuth, cookieAuth] {
   trait characteristicList {
     import PokemonApiDelegate.characteristicListResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
+    def handle(
       req: Request[F],
       limit: Option[Int],
       offset: Option[Int],
-      q: Option[String],
-      responses: characteristicListResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
-      req: Request[F],
-      limit: Option[Int],
-      offset: Option[Int],
-      q: Option[String],
       responses: characteristicListResponses[F]
     ): F[Response[F]]
 
@@ -985,16 +791,7 @@ trait PokemonApiDelegate[F[_], basicAuth, cookieAuth] {
   trait characteristicRetrieve {
     import PokemonApiDelegate.characteristicRetrieveResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
-      req: Request[F],
-      id: String,
-      responses: characteristicRetrieveResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
+    def handle(
       req: Request[F],
       id: String,
       responses: characteristicRetrieveResponses[F]
@@ -1007,18 +804,7 @@ trait PokemonApiDelegate[F[_], basicAuth, cookieAuth] {
   trait eggGroupList {
     import PokemonApiDelegate.eggGroupListResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
-      req: Request[F],
-      limit: Option[Int],
-      offset: Option[Int],
-      q: Option[String],
-      responses: eggGroupListResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
+    def handle(
       req: Request[F],
       limit: Option[Int],
       offset: Option[Int],
@@ -1033,16 +819,7 @@ trait PokemonApiDelegate[F[_], basicAuth, cookieAuth] {
   trait eggGroupRetrieve {
     import PokemonApiDelegate.eggGroupRetrieveResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
-      req: Request[F],
-      id: String,
-      responses: eggGroupRetrieveResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
+    def handle(
       req: Request[F],
       id: String,
       responses: eggGroupRetrieveResponses[F]
@@ -1055,18 +832,7 @@ trait PokemonApiDelegate[F[_], basicAuth, cookieAuth] {
   trait genderList {
     import PokemonApiDelegate.genderListResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
-      req: Request[F],
-      limit: Option[Int],
-      offset: Option[Int],
-      q: Option[String],
-      responses: genderListResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
+    def handle(
       req: Request[F],
       limit: Option[Int],
       offset: Option[Int],
@@ -1081,16 +847,7 @@ trait PokemonApiDelegate[F[_], basicAuth, cookieAuth] {
   trait genderRetrieve {
     import PokemonApiDelegate.genderRetrieveResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
-      req: Request[F],
-      id: String,
-      responses: genderRetrieveResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
+    def handle(
       req: Request[F],
       id: String,
       responses: genderRetrieveResponses[F]
@@ -1103,18 +860,7 @@ trait PokemonApiDelegate[F[_], basicAuth, cookieAuth] {
   trait growthRateList {
     import PokemonApiDelegate.growthRateListResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
-      req: Request[F],
-      limit: Option[Int],
-      offset: Option[Int],
-      q: Option[String],
-      responses: growthRateListResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
+    def handle(
       req: Request[F],
       limit: Option[Int],
       offset: Option[Int],
@@ -1129,16 +875,7 @@ trait PokemonApiDelegate[F[_], basicAuth, cookieAuth] {
   trait growthRateRetrieve {
     import PokemonApiDelegate.growthRateRetrieveResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
-      req: Request[F],
-      id: String,
-      responses: growthRateRetrieveResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
+    def handle(
       req: Request[F],
       id: String,
       responses: growthRateRetrieveResponses[F]
@@ -1151,18 +888,7 @@ trait PokemonApiDelegate[F[_], basicAuth, cookieAuth] {
   trait moveDamageClassList {
     import PokemonApiDelegate.moveDamageClassListResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
-      req: Request[F],
-      limit: Option[Int],
-      offset: Option[Int],
-      q: Option[String],
-      responses: moveDamageClassListResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
+    def handle(
       req: Request[F],
       limit: Option[Int],
       offset: Option[Int],
@@ -1177,16 +903,7 @@ trait PokemonApiDelegate[F[_], basicAuth, cookieAuth] {
   trait moveDamageClassRetrieve {
     import PokemonApiDelegate.moveDamageClassRetrieveResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
-      req: Request[F],
-      id: String,
-      responses: moveDamageClassRetrieveResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
+    def handle(
       req: Request[F],
       id: String,
       responses: moveDamageClassRetrieveResponses[F]
@@ -1199,18 +916,7 @@ trait PokemonApiDelegate[F[_], basicAuth, cookieAuth] {
   trait natureList {
     import PokemonApiDelegate.natureListResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
-      req: Request[F],
-      limit: Option[Int],
-      offset: Option[Int],
-      q: Option[String],
-      responses: natureListResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
+    def handle(
       req: Request[F],
       limit: Option[Int],
       offset: Option[Int],
@@ -1225,16 +931,7 @@ trait PokemonApiDelegate[F[_], basicAuth, cookieAuth] {
   trait natureRetrieve {
     import PokemonApiDelegate.natureRetrieveResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
-      req: Request[F],
-      id: String,
-      responses: natureRetrieveResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
+    def handle(
       req: Request[F],
       id: String,
       responses: natureRetrieveResponses[F]
@@ -1247,18 +944,7 @@ trait PokemonApiDelegate[F[_], basicAuth, cookieAuth] {
   trait pokeathlonStatList {
     import PokemonApiDelegate.pokeathlonStatListResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
-      req: Request[F],
-      limit: Option[Int],
-      offset: Option[Int],
-      q: Option[String],
-      responses: pokeathlonStatListResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
+    def handle(
       req: Request[F],
       limit: Option[Int],
       offset: Option[Int],
@@ -1273,16 +959,7 @@ trait PokemonApiDelegate[F[_], basicAuth, cookieAuth] {
   trait pokeathlonStatRetrieve {
     import PokemonApiDelegate.pokeathlonStatRetrieveResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
-      req: Request[F],
-      id: String,
-      responses: pokeathlonStatRetrieveResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
+    def handle(
       req: Request[F],
       id: String,
       responses: pokeathlonStatRetrieveResponses[F]
@@ -1295,18 +972,7 @@ trait PokemonApiDelegate[F[_], basicAuth, cookieAuth] {
   trait pokemonColorList {
     import PokemonApiDelegate.pokemonColorListResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
-      req: Request[F],
-      limit: Option[Int],
-      offset: Option[Int],
-      q: Option[String],
-      responses: pokemonColorListResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
+    def handle(
       req: Request[F],
       limit: Option[Int],
       offset: Option[Int],
@@ -1321,16 +987,7 @@ trait PokemonApiDelegate[F[_], basicAuth, cookieAuth] {
   trait pokemonColorRetrieve {
     import PokemonApiDelegate.pokemonColorRetrieveResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
-      req: Request[F],
-      id: String,
-      responses: pokemonColorRetrieveResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
+    def handle(
       req: Request[F],
       id: String,
       responses: pokemonColorRetrieveResponses[F]
@@ -1343,18 +1000,7 @@ trait PokemonApiDelegate[F[_], basicAuth, cookieAuth] {
   trait pokemonFormList {
     import PokemonApiDelegate.pokemonFormListResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
-      req: Request[F],
-      limit: Option[Int],
-      offset: Option[Int],
-      q: Option[String],
-      responses: pokemonFormListResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
+    def handle(
       req: Request[F],
       limit: Option[Int],
       offset: Option[Int],
@@ -1369,16 +1015,7 @@ trait PokemonApiDelegate[F[_], basicAuth, cookieAuth] {
   trait pokemonFormRetrieve {
     import PokemonApiDelegate.pokemonFormRetrieveResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
-      req: Request[F],
-      id: String,
-      responses: pokemonFormRetrieveResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
+    def handle(
       req: Request[F],
       id: String,
       responses: pokemonFormRetrieveResponses[F]
@@ -1391,18 +1028,7 @@ trait PokemonApiDelegate[F[_], basicAuth, cookieAuth] {
   trait pokemonHabitatList {
     import PokemonApiDelegate.pokemonHabitatListResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
-      req: Request[F],
-      limit: Option[Int],
-      offset: Option[Int],
-      q: Option[String],
-      responses: pokemonHabitatListResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
+    def handle(
       req: Request[F],
       limit: Option[Int],
       offset: Option[Int],
@@ -1417,16 +1043,7 @@ trait PokemonApiDelegate[F[_], basicAuth, cookieAuth] {
   trait pokemonHabitatRetrieve {
     import PokemonApiDelegate.pokemonHabitatRetrieveResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
-      req: Request[F],
-      id: String,
-      responses: pokemonHabitatRetrieveResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
+    def handle(
       req: Request[F],
       id: String,
       responses: pokemonHabitatRetrieveResponses[F]
@@ -1439,18 +1056,7 @@ trait PokemonApiDelegate[F[_], basicAuth, cookieAuth] {
   trait pokemonList {
     import PokemonApiDelegate.pokemonListResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
-      req: Request[F],
-      limit: Option[Int],
-      offset: Option[Int],
-      q: Option[String],
-      responses: pokemonListResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
+    def handle(
       req: Request[F],
       limit: Option[Int],
       offset: Option[Int],
@@ -1465,16 +1071,7 @@ trait PokemonApiDelegate[F[_], basicAuth, cookieAuth] {
   trait pokemonRetrieve {
     import PokemonApiDelegate.pokemonRetrieveResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
-      req: Request[F],
-      id: String,
-      responses: pokemonRetrieveResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
+    def handle(
       req: Request[F],
       id: String,
       responses: pokemonRetrieveResponses[F]
@@ -1487,18 +1084,7 @@ trait PokemonApiDelegate[F[_], basicAuth, cookieAuth] {
   trait pokemonShapeList {
     import PokemonApiDelegate.pokemonShapeListResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
-      req: Request[F],
-      limit: Option[Int],
-      offset: Option[Int],
-      q: Option[String],
-      responses: pokemonShapeListResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
+    def handle(
       req: Request[F],
       limit: Option[Int],
       offset: Option[Int],
@@ -1513,16 +1099,7 @@ trait PokemonApiDelegate[F[_], basicAuth, cookieAuth] {
   trait pokemonShapeRetrieve {
     import PokemonApiDelegate.pokemonShapeRetrieveResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
-      req: Request[F],
-      id: String,
-      responses: pokemonShapeRetrieveResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
+    def handle(
       req: Request[F],
       id: String,
       responses: pokemonShapeRetrieveResponses[F]
@@ -1535,18 +1112,7 @@ trait PokemonApiDelegate[F[_], basicAuth, cookieAuth] {
   trait pokemonSpeciesList {
     import PokemonApiDelegate.pokemonSpeciesListResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
-      req: Request[F],
-      limit: Option[Int],
-      offset: Option[Int],
-      q: Option[String],
-      responses: pokemonSpeciesListResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
+    def handle(
       req: Request[F],
       limit: Option[Int],
       offset: Option[Int],
@@ -1561,16 +1127,7 @@ trait PokemonApiDelegate[F[_], basicAuth, cookieAuth] {
   trait pokemonSpeciesRetrieve {
     import PokemonApiDelegate.pokemonSpeciesRetrieveResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
-      req: Request[F],
-      id: String,
-      responses: pokemonSpeciesRetrieveResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
+    def handle(
       req: Request[F],
       id: String,
       responses: pokemonSpeciesRetrieveResponses[F]
@@ -1583,18 +1140,7 @@ trait PokemonApiDelegate[F[_], basicAuth, cookieAuth] {
   trait statList {
     import PokemonApiDelegate.statListResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
-      req: Request[F],
-      limit: Option[Int],
-      offset: Option[Int],
-      q: Option[String],
-      responses: statListResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
+    def handle(
       req: Request[F],
       limit: Option[Int],
       offset: Option[Int],
@@ -1609,16 +1155,7 @@ trait PokemonApiDelegate[F[_], basicAuth, cookieAuth] {
   trait statRetrieve {
     import PokemonApiDelegate.statRetrieveResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
-      req: Request[F],
-      id: String,
-      responses: statRetrieveResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
+    def handle(
       req: Request[F],
       id: String,
       responses: statRetrieveResponses[F]
@@ -1631,18 +1168,7 @@ trait PokemonApiDelegate[F[_], basicAuth, cookieAuth] {
   trait typeList {
     import PokemonApiDelegate.typeListResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
-      req: Request[F],
-      limit: Option[Int],
-      offset: Option[Int],
-      q: Option[String],
-      responses: typeListResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
+    def handle(
       req: Request[F],
       limit: Option[Int],
       offset: Option[Int],
@@ -1657,16 +1183,7 @@ trait PokemonApiDelegate[F[_], basicAuth, cookieAuth] {
   trait typeRetrieve {
     import PokemonApiDelegate.typeRetrieveResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
-      req: Request[F],
-      id: String,
-      responses: typeRetrieveResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
+    def handle(
       req: Request[F],
       id: String,
       responses: typeRetrieveResponses[F]

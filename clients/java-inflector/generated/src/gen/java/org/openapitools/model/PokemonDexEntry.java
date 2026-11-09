@@ -11,7 +11,7 @@ import org.openapitools.model.PokedexSummary;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-10-25T05:47:53.227411880Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-11-09T13:49:15.621225368Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PokemonDexEntry   {
   @JsonProperty("entry_number")
   private Integer entryNumber;
@@ -20,6 +20,7 @@ public class PokemonDexEntry   {
   private PokedexSummary pokedex;
 
   /**
+   * The index number within the Pokédex.
    **/
   public PokemonDexEntry entryNumber(Integer entryNumber) {
     this.entryNumber = entryNumber;
@@ -27,7 +28,7 @@ public class PokemonDexEntry   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The index number within the Pokédex.")
   @JsonProperty("entry_number")
   public Integer getEntryNumber() {
     return entryNumber;
@@ -37,6 +38,7 @@ public class PokemonDexEntry   {
   }
 
   /**
+   * The Pokédex the referenced Pokémon species can be found in.
    **/
   public PokemonDexEntry pokedex(PokedexSummary pokedex) {
     this.pokedex = pokedex;
@@ -44,7 +46,7 @@ public class PokemonDexEntry   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The Pokédex the referenced Pokémon species can be found in.")
   @JsonProperty("pokedex")
   public PokedexSummary getPokedex() {
     return pokedex;

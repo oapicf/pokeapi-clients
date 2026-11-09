@@ -1,0 +1,81 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server PokemonFormSprites"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a PokemonFormSprites"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  PokemonSpritesOther = openapi_server.resourceTypes.PokemonSpritesOther
+}
+resourceTypes {
+
+  PokemonFormSprites {
+    title = PokemonFormSprites
+    description = PokemonFormSprites
+    derivedFrom = Root
+    properties {
+        front_default {
+          type =  string
+          description = "The default depiction of this Pokémon from the front in battle."
+          optional = true
+        }
+        front_shiny {
+          type =  string
+          description = "The shiny depiction of this Pokémon from the front in battle."
+          optional = true
+        }
+        front_female {
+          type =  string
+          description = "The female depiction of this Pokémon from the front in battle."
+          optional = true
+        }
+        front_shiny_female {
+          type =  string
+          description = "The shiny female depiction of this Pokémon from the front in battle."
+          optional = true
+        }
+        back_default {
+          type =  string
+          description = "The default depiction of this Pokémon from the back in battle."
+          optional = true
+        }
+        back_shiny {
+          type =  string
+          description = "The shiny depiction of this Pokémon from the back in battle."
+          optional = true
+        }
+        back_female {
+          type =  string
+          description = "The female depiction of this Pokémon from the back in battle."
+          optional = true
+        }
+        back_shiny_female {
+          type =  string
+          description = "The shiny female depiction of this Pokémon from the back in battle."
+          optional = true
+        }
+        other {
+          type = PokemonSpritesOther
+          description = "Additional sprites grouped by source, such as official artwork, HOME, and Showdown. Available keys vary by resource."
+          optional = false
+        }
+        versions {
+          # TODO
+          description = "Sprites grouped by generation and game. Available keys vary by resource."
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  PokemonFormSprites {
+    title = PokemonFormSprites
+    description = PokemonFormSprites
+    implements = openapi_server.resourceTypes.PokemonFormSprites
+
+  }
+}

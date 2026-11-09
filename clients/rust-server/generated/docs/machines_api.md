@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **machine_list**
-> models::PaginatedMachineSummaryList machine_list(ctx, ctx, optional)
+> models::PaginatedMachineSummaryList machine_list(optional)
 List machines
 
 Machines are the representation of items that teach moves to Pokémon. They vary from version to version, so it is not certain that one specific TM or HM corresponds to a single Machine.
@@ -18,8 +18,6 @@ Machines are the representation of items that teach moves to Pokémon. They vary
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -29,7 +27,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **i32**| Number of results to return per page. | 
  **offset** | **i32**| The initial index from which to return the results. | 
- **q** | **String**| > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  | 
 
 ### Return type
 
@@ -37,7 +34,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -47,7 +44,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **machine_retrieve**
-> models::MachineDetail machine_retrieve(ctx, ctx, id)
+> models::MachineDetail machine_retrieve(id)
 Get machine
 
 Machines are the representation of items that teach moves to Pokémon. They vary from version to version, so it is not certain that one specific TM or HM corresponds to a single Machine.
@@ -56,8 +53,6 @@ Machines are the representation of items that teach moves to Pokémon. They vary
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **String**| This parameter can be a string or an integer. | 
 
 ### Return type
@@ -66,7 +61,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

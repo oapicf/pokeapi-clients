@@ -7,8 +7,10 @@ authors     = ["F. Bar (foo@bar.baz)"]
 
 imports {
   Root = tosca.resourceTypes.Root
-  AbilityDetailPokemonInnerPokemon = openapi_server.resourceTypes.AbilityDetailPokemonInnerPokemon
   GenerationSummary = openapi_server.resourceTypes.GenerationSummary
+  MoveLearnMethodSummary = openapi_server.resourceTypes.MoveLearnMethodSummary
+  PokedexSummary = openapi_server.resourceTypes.PokedexSummary
+  RegionSummary = openapi_server.resourceTypes.RegionSummary
   VersionSummary = openapi_server.resourceTypes.VersionSummary
 }
 resourceTypes {
@@ -20,46 +22,46 @@ resourceTypes {
     properties {
         id {
           type =  integer
-          description = ""
+          description = "The identifier for this resource."
           optional = true
         }
         name {
           type =  string
-          description = ""
+          description = "The name for this resource."
           optional = true
         }
         order {
           type =  integer
-          description = ""
+          description = "Order for sorting. Almost by date of release, except similar versions are grouped together."
           optional = false
         }
         generation {
           type = GenerationSummary
-          description = ""
+          description = "The generation this version was introduced in."
           optional = true
         }
         move_learn_methods {
           type = array
-          items.type = AbilityDetailPokemonInnerPokemon
-          description = ""
+          items.type = MoveLearnMethodSummary
+          description = "A list of methods in which Pokémon can learn moves in this version group."
           optional = true
         }
         pokedexes {
           type = array
-          items.type = AbilityDetailPokemonInnerPokemon
-          description = ""
+          items.type = PokedexSummary
+          description = "A list of Pokédexes introduces in this version group."
           optional = true
         }
         regions {
           type = array
-          items.type = AbilityDetailPokemonInnerPokemon
-          description = ""
+          items.type = RegionSummary
+          description = "A list of regions that can be visited in this version group."
           optional = true
         }
         versions {
           type = array
           items.type = VersionSummary
-          description = ""
+          description = "The versions this version group owns."
           optional = true
         }
     }

@@ -5,10 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **number** |  | [readonly] [default to undefined]
-**name** | **string** |  | [default to undefined]
-**berries** | [**Array&lt;BerrySummary&gt;**](BerrySummary.md) |  | [readonly] [default to undefined]
-**names** | [**Array&lt;BerryFirmnessName&gt;**](BerryFirmnessName.md) |  | [readonly] [default to undefined]
+**id** | **number** | The identifier for this resource. | [readonly] [default to undefined]
+**name** | **string** | The name for this resource. | [default to undefined]
+**berries** | [**Array&lt;BerrySummary&gt;**](BerrySummary.md) | A list of the berries with this firmness. | [readonly] [default to undefined]
+**names** | [**Array&lt;BerryFirmnessName&gt;**](BerryFirmnessName.md) | The name of this resource listed in different languages. | [readonly] [default to undefined]
 
 ## Example
 

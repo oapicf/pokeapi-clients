@@ -58,6 +58,7 @@ class UtilityApiSimulation extends Simulation {
     // Setup all the operations per second for the test to ultimately be generated from configs
     val languageListPerSecond = config.getDouble("performance.operationsPerSecond.languageList") * rateMultiplier * instanceMultiplier
     val languageRetrievePerSecond = config.getDouble("performance.operationsPerSecond.languageRetrieve") * rateMultiplier * instanceMultiplier
+    val metaRetrievePerSecond = config.getDouble("performance.operationsPerSecond.metaRetrieve") * rateMultiplier * instanceMultiplier
 
     val scenarioBuilders: mutable.MutableList[PopulationBuilder] = new mutable.MutableList[PopulationBuilder]()
 
@@ -72,8 +73,8 @@ class UtilityApiSimulation extends Simulation {
         .feed(language_listQUERYFeeder)
         .exec(http("languageList")
         .httpRequest("GET","/api/v2/language/")
-        .queryParam("q","${q}")
         .queryParam("offset","${offset}")
+        .queryParam("q","${q}")
         .queryParam("limit","${limit}")
 )
 
@@ -96,6 +97,19 @@ class UtilityApiSimulation extends Simulation {
         rampUsersPerSec(1) to(languageRetrievePerSecond) during(rampUpSeconds),
         constantUsersPerSec(languageRetrievePerSecond) during(durationSeconds),
         rampUsersPerSec(languageRetrievePerSecond) to(1) during(rampDownSeconds)
+    )
+
+    
+    val scnmetaRetrieve = scenario("metaRetrieveSimulation")
+        .exec(http("metaRetrieve")
+        .httpRequest("GET","/api/v2/meta/")
+)
+
+    // Run scnmetaRetrieve with warm up and reach a constant rate for entire duration
+    scenarioBuilders += scnmetaRetrieve.inject(
+        rampUsersPerSec(1) to(metaRetrievePerSecond) during(rampUpSeconds),
+        constantUsersPerSec(metaRetrievePerSecond) during(durationSeconds),
+        rampUsersPerSec(metaRetrievePerSecond) to(1) during(rampDownSeconds)
     )
 
     setUp(

@@ -15,11 +15,13 @@ static pokemon_form_detail_t *pokemon_form_detail_create_internal(
     int *is_mega,
     char *form_name,
     pokemon_summary_t *pokemon,
-    pokemon_form_detail_sprites_t *sprites,
+    pokemon_form_sprites_t *sprites,
     version_group_summary_t *version_group,
     list_t *form_names,
     list_t *names,
-    list_t *types
+    list_t *types,
+    list_t *trigger_conditions,
+    list_t *flavor_text_entries
     ) {
     pokemon_form_detail_t *pokemon_form_detail_local_var = malloc(sizeof(pokemon_form_detail_t));
     if (!pokemon_form_detail_local_var) {
@@ -41,6 +43,8 @@ static pokemon_form_detail_t *pokemon_form_detail_create_internal(
     pokemon_form_detail_local_var->form_names = form_names;
     pokemon_form_detail_local_var->names = names;
     pokemon_form_detail_local_var->types = types;
+    pokemon_form_detail_local_var->trigger_conditions = trigger_conditions;
+    pokemon_form_detail_local_var->flavor_text_entries = flavor_text_entries;
     return pokemon_form_detail_local_var;
 }
 
@@ -54,11 +58,13 @@ __attribute__((deprecated)) pokemon_form_detail_t *pokemon_form_detail_create(
     int *is_mega,
     char *form_name,
     pokemon_summary_t *pokemon,
-    pokemon_form_detail_sprites_t *sprites,
+    pokemon_form_sprites_t *sprites,
     version_group_summary_t *version_group,
     list_t *form_names,
     list_t *names,
-    list_t *types
+    list_t *types,
+    list_t *trigger_conditions,
+    list_t *flavor_text_entries
     ) {
     int *id_copy = NULL;
     if (id) {
@@ -104,7 +110,9 @@ __attribute__((deprecated)) pokemon_form_detail_t *pokemon_form_detail_create(
         version_group,
         form_names,
         names,
-        types
+        types,
+        trigger_conditions,
+        flavor_text_entries
         );
     if (!result) {
         free(id_copy);
@@ -163,7 +171,7 @@ void pokemon_form_detail_free(pokemon_form_detail_t *pokemon_form_detail) {
         pokemon_form_detail->pokemon = NULL;
     }
     if (pokemon_form_detail->sprites) {
-        pokemon_form_detail_sprites_free(pokemon_form_detail->sprites);
+        pokemon_form_sprites_free(pokemon_form_detail->sprites);
         pokemon_form_detail->sprites = NULL;
     }
     if (pokemon_form_detail->version_group) {
@@ -172,24 +180,38 @@ void pokemon_form_detail_free(pokemon_form_detail_t *pokemon_form_detail) {
     }
     if (pokemon_form_detail->form_names) {
         list_ForEach(listEntry, pokemon_form_detail->form_names) {
-            pokemon_form_detail_form_names_inner_free(listEntry->data);
+            pokemon_form_name_free(listEntry->data);
         }
         list_freeList(pokemon_form_detail->form_names);
         pokemon_form_detail->form_names = NULL;
     }
     if (pokemon_form_detail->names) {
         list_ForEach(listEntry, pokemon_form_detail->names) {
-            pokemon_form_detail_form_names_inner_free(listEntry->data);
+            pokemon_form_name_free(listEntry->data);
         }
         list_freeList(pokemon_form_detail->names);
         pokemon_form_detail->names = NULL;
     }
     if (pokemon_form_detail->types) {
         list_ForEach(listEntry, pokemon_form_detail->types) {
-            pokemon_detail_types_inner_free(listEntry->data);
+            pokemon_form_type_free(listEntry->data);
         }
         list_freeList(pokemon_form_detail->types);
         pokemon_form_detail->types = NULL;
+    }
+    if (pokemon_form_detail->trigger_conditions) {
+        list_ForEach(listEntry, pokemon_form_detail->trigger_conditions) {
+            pokemon_form_trigger_condition_free(listEntry->data);
+        }
+        list_freeList(pokemon_form_detail->trigger_conditions);
+        pokemon_form_detail->trigger_conditions = NULL;
+    }
+    if (pokemon_form_detail->flavor_text_entries) {
+        list_ForEach(listEntry, pokemon_form_detail->flavor_text_entries) {
+            pokemon_form_flavor_text_free(listEntry->data);
+        }
+        list_freeList(pokemon_form_detail->flavor_text_entries);
+        pokemon_form_detail->flavor_text_entries = NULL;
     }
     free(pokemon_form_detail);
 }
@@ -282,13 +304,13 @@ cJSON *pokemon_form_detail_convertToJSON(pokemon_form_detail_t *pokemon_form_det
     if (!pokemon_form_detail->sprites) {
         goto fail;
     }
-    cJSON *sprites_local_JSON = pokemon_form_detail_sprites_convertToJSON(pokemon_form_detail->sprites);
+    cJSON *sprites_local_JSON = pokemon_form_sprites_convertToJSON(pokemon_form_detail->sprites);
     if(sprites_local_JSON == NULL) {
-        goto fail; // custom
+    goto fail; //model
     }
     cJSON_AddItemToObject(item, "sprites", sprites_local_JSON);
     if(item->child == NULL) {
-        goto fail;
+    goto fail;
     }
 
 
@@ -318,7 +340,7 @@ cJSON *pokemon_form_detail_convertToJSON(pokemon_form_detail_t *pokemon_form_det
     listEntry_t *form_namesListEntry;
     if (pokemon_form_detail->form_names) {
     list_ForEach(form_namesListEntry, pokemon_form_detail->form_names) {
-    cJSON *itemLocal = pokemon_form_detail_form_names_inner_convertToJSON(form_namesListEntry->data);
+    cJSON *itemLocal = pokemon_form_name_convertToJSON(form_namesListEntry->data);
     if(itemLocal == NULL) {
     goto fail;
     }
@@ -339,7 +361,7 @@ cJSON *pokemon_form_detail_convertToJSON(pokemon_form_detail_t *pokemon_form_det
     listEntry_t *namesListEntry;
     if (pokemon_form_detail->names) {
     list_ForEach(namesListEntry, pokemon_form_detail->names) {
-    cJSON *itemLocal = pokemon_form_detail_form_names_inner_convertToJSON(namesListEntry->data);
+    cJSON *itemLocal = pokemon_form_name_convertToJSON(namesListEntry->data);
     if(itemLocal == NULL) {
     goto fail;
     }
@@ -360,11 +382,53 @@ cJSON *pokemon_form_detail_convertToJSON(pokemon_form_detail_t *pokemon_form_det
     listEntry_t *typesListEntry;
     if (pokemon_form_detail->types) {
     list_ForEach(typesListEntry, pokemon_form_detail->types) {
-    cJSON *itemLocal = pokemon_detail_types_inner_convertToJSON(typesListEntry->data);
+    cJSON *itemLocal = pokemon_form_type_convertToJSON(typesListEntry->data);
     if(itemLocal == NULL) {
     goto fail;
     }
     cJSON_AddItemToArray(types, itemLocal);
+    }
+    }
+
+
+    // pokemon_form_detail->trigger_conditions
+    if (!pokemon_form_detail->trigger_conditions) {
+        goto fail;
+    }
+    cJSON *trigger_conditions = cJSON_AddArrayToObject(item, "trigger_conditions");
+    if(trigger_conditions == NULL) {
+    goto fail; //nonprimitive container
+    }
+
+    listEntry_t *trigger_conditionsListEntry;
+    if (pokemon_form_detail->trigger_conditions) {
+    list_ForEach(trigger_conditionsListEntry, pokemon_form_detail->trigger_conditions) {
+    cJSON *itemLocal = pokemon_form_trigger_condition_convertToJSON(trigger_conditionsListEntry->data);
+    if(itemLocal == NULL) {
+    goto fail;
+    }
+    cJSON_AddItemToArray(trigger_conditions, itemLocal);
+    }
+    }
+
+
+    // pokemon_form_detail->flavor_text_entries
+    if (!pokemon_form_detail->flavor_text_entries) {
+        goto fail;
+    }
+    cJSON *flavor_text_entries = cJSON_AddArrayToObject(item, "flavor_text_entries");
+    if(flavor_text_entries == NULL) {
+    goto fail; //nonprimitive container
+    }
+
+    listEntry_t *flavor_text_entriesListEntry;
+    if (pokemon_form_detail->flavor_text_entries) {
+    list_ForEach(flavor_text_entriesListEntry, pokemon_form_detail->flavor_text_entries) {
+    cJSON *itemLocal = pokemon_form_flavor_text_convertToJSON(flavor_text_entriesListEntry->data);
+    if(itemLocal == NULL) {
+    goto fail;
+    }
+    cJSON_AddItemToArray(flavor_text_entries, itemLocal);
     }
     }
 
@@ -406,7 +470,7 @@ pokemon_form_detail_t *pokemon_form_detail_parseFromJSON(cJSON *pokemon_form_det
     pokemon_summary_t *pokemon_local_nonprim = NULL;
 
     // define the local variable for pokemon_form_detail->sprites
-    pokemon_form_detail_sprites_t *sprites_local_nonprim = NULL;
+    pokemon_form_sprites_t *sprites_local_nonprim = NULL;
 
     // define the local variable for pokemon_form_detail->version_group
     version_group_summary_t *version_group_local_nonprim = NULL;
@@ -419,6 +483,12 @@ pokemon_form_detail_t *pokemon_form_detail_parseFromJSON(cJSON *pokemon_form_det
 
     // define the local list for pokemon_form_detail->types
     list_t *typesList = NULL;
+
+    // define the local list for pokemon_form_detail->trigger_conditions
+    list_t *trigger_conditionsList = NULL;
+
+    // define the local list for pokemon_form_detail->flavor_text_entries
+    list_t *flavor_text_entriesList = NULL;
 
     // pokemon_form_detail->id
     cJSON *id = cJSON_GetObjectItemCaseSensitive(pokemon_form_detailJSON, "id");
@@ -583,7 +653,7 @@ pokemon_form_detail_t *pokemon_form_detail_parseFromJSON(cJSON *pokemon_form_det
     }
 
     
-    sprites_local_nonprim = pokemon_form_detail_sprites_parseFromJSON(sprites); //custom
+    sprites_local_nonprim = pokemon_form_sprites_parseFromJSON(sprites); //nonprimitive
 
     // pokemon_form_detail->version_group
     cJSON *version_group = cJSON_GetObjectItemCaseSensitive(pokemon_form_detailJSON, "version_group");
@@ -619,7 +689,7 @@ pokemon_form_detail_t *pokemon_form_detail_parseFromJSON(cJSON *pokemon_form_det
         if(!cJSON_IsObject(form_names_local_nonprimitive)){
             goto end;
         }
-        pokemon_form_detail_form_names_inner_t *form_namesItem = pokemon_form_detail_form_names_inner_parseFromJSON(form_names_local_nonprimitive);
+        pokemon_form_name_t *form_namesItem = pokemon_form_name_parseFromJSON(form_names_local_nonprimitive);
 
         list_addElement(form_namesList, form_namesItem);
     }
@@ -646,7 +716,7 @@ pokemon_form_detail_t *pokemon_form_detail_parseFromJSON(cJSON *pokemon_form_det
         if(!cJSON_IsObject(names_local_nonprimitive)){
             goto end;
         }
-        pokemon_form_detail_form_names_inner_t *namesItem = pokemon_form_detail_form_names_inner_parseFromJSON(names_local_nonprimitive);
+        pokemon_form_name_t *namesItem = pokemon_form_name_parseFromJSON(names_local_nonprimitive);
 
         list_addElement(namesList, namesItem);
     }
@@ -673,9 +743,63 @@ pokemon_form_detail_t *pokemon_form_detail_parseFromJSON(cJSON *pokemon_form_det
         if(!cJSON_IsObject(types_local_nonprimitive)){
             goto end;
         }
-        pokemon_detail_types_inner_t *typesItem = pokemon_detail_types_inner_parseFromJSON(types_local_nonprimitive);
+        pokemon_form_type_t *typesItem = pokemon_form_type_parseFromJSON(types_local_nonprimitive);
 
         list_addElement(typesList, typesItem);
+    }
+
+    // pokemon_form_detail->trigger_conditions
+    cJSON *trigger_conditions = cJSON_GetObjectItemCaseSensitive(pokemon_form_detailJSON, "trigger_conditions");
+    if (cJSON_IsNull(trigger_conditions)) {
+        trigger_conditions = NULL;
+    }
+    if (!trigger_conditions) {
+        goto end;
+    }
+
+    
+    cJSON *trigger_conditions_local_nonprimitive = NULL;
+    if(!cJSON_IsArray(trigger_conditions)){
+        goto end; //nonprimitive container
+    }
+
+    trigger_conditionsList = list_createList();
+
+    cJSON_ArrayForEach(trigger_conditions_local_nonprimitive,trigger_conditions )
+    {
+        if(!cJSON_IsObject(trigger_conditions_local_nonprimitive)){
+            goto end;
+        }
+        pokemon_form_trigger_condition_t *trigger_conditionsItem = pokemon_form_trigger_condition_parseFromJSON(trigger_conditions_local_nonprimitive);
+
+        list_addElement(trigger_conditionsList, trigger_conditionsItem);
+    }
+
+    // pokemon_form_detail->flavor_text_entries
+    cJSON *flavor_text_entries = cJSON_GetObjectItemCaseSensitive(pokemon_form_detailJSON, "flavor_text_entries");
+    if (cJSON_IsNull(flavor_text_entries)) {
+        flavor_text_entries = NULL;
+    }
+    if (!flavor_text_entries) {
+        goto end;
+    }
+
+    
+    cJSON *flavor_text_entries_local_nonprimitive = NULL;
+    if(!cJSON_IsArray(flavor_text_entries)){
+        goto end; //nonprimitive container
+    }
+
+    flavor_text_entriesList = list_createList();
+
+    cJSON_ArrayForEach(flavor_text_entries_local_nonprimitive,flavor_text_entries )
+    {
+        if(!cJSON_IsObject(flavor_text_entries_local_nonprimitive)){
+            goto end;
+        }
+        pokemon_form_flavor_text_t *flavor_text_entriesItem = pokemon_form_flavor_text_parseFromJSON(flavor_text_entries_local_nonprimitive);
+
+        list_addElement(flavor_text_entriesList, flavor_text_entriesItem);
     }
 
 
@@ -696,7 +820,9 @@ pokemon_form_detail_t *pokemon_form_detail_parseFromJSON(cJSON *pokemon_form_det
         version_group_local_nonprim,
         form_namesList,
         namesList,
-        typesList
+        typesList,
+        trigger_conditionsList,
+        flavor_text_entriesList
         );
 
     if (!pokemon_form_detail_local_var) {
@@ -742,7 +868,7 @@ end:
         pokemon_local_nonprim = NULL;
     }
     if (sprites_local_nonprim) {
-        pokemon_form_detail_sprites_free(sprites_local_nonprim);
+        pokemon_form_sprites_free(sprites_local_nonprim);
         sprites_local_nonprim = NULL;
     }
     if (version_group_local_nonprim) {
@@ -752,7 +878,7 @@ end:
     if (form_namesList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, form_namesList) {
-            pokemon_form_detail_form_names_inner_free(listEntry->data);
+            pokemon_form_name_free(listEntry->data);
             listEntry->data = NULL;
         }
         list_freeList(form_namesList);
@@ -761,7 +887,7 @@ end:
     if (namesList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, namesList) {
-            pokemon_form_detail_form_names_inner_free(listEntry->data);
+            pokemon_form_name_free(listEntry->data);
             listEntry->data = NULL;
         }
         list_freeList(namesList);
@@ -770,11 +896,29 @@ end:
     if (typesList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, typesList) {
-            pokemon_detail_types_inner_free(listEntry->data);
+            pokemon_form_type_free(listEntry->data);
             listEntry->data = NULL;
         }
         list_freeList(typesList);
         typesList = NULL;
+    }
+    if (trigger_conditionsList) {
+        listEntry_t *listEntry = NULL;
+        list_ForEach(listEntry, trigger_conditionsList) {
+            pokemon_form_trigger_condition_free(listEntry->data);
+            listEntry->data = NULL;
+        }
+        list_freeList(trigger_conditionsList);
+        trigger_conditionsList = NULL;
+    }
+    if (flavor_text_entriesList) {
+        listEntry_t *listEntry = NULL;
+        list_ForEach(listEntry, flavor_text_entriesList) {
+            pokemon_form_flavor_text_free(listEntry->data);
+            listEntry->data = NULL;
+        }
+        list_freeList(flavor_text_entriesList);
+        flavor_text_entriesList = NULL;
     }
     return NULL;
 

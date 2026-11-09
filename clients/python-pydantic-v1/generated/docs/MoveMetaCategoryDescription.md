@@ -4,8 +4,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**description** | **str** |  | [optional] 
-**language** | [**LanguageSummary**](LanguageSummary.md) |  | 
+**description** | **str** | The localized description for an API resource in a specific language. | [optional] 
+**language** | [**LanguageSummary**](LanguageSummary.md) | The language this name is in. | 
 
 ## Example
 

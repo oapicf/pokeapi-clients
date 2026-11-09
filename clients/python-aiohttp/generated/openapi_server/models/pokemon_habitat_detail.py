@@ -56,6 +56,7 @@ class PokemonHabitatDetail(Model):
     def id(self):
         """Gets the id of this PokemonHabitatDetail.
 
+        The identifier for this resource.
 
         :return: The id of this PokemonHabitatDetail.
         :rtype: int
@@ -66,6 +67,7 @@ class PokemonHabitatDetail(Model):
     def id(self, id):
         """Sets the id of this PokemonHabitatDetail.
 
+        The identifier for this resource.
 
         :param id: The id of this PokemonHabitatDetail.
         :type id: int
@@ -79,6 +81,7 @@ class PokemonHabitatDetail(Model):
     def name(self):
         """Gets the name of this PokemonHabitatDetail.
 
+        The name for this resource.
 
         :return: The name of this PokemonHabitatDetail.
         :rtype: str
@@ -89,14 +92,15 @@ class PokemonHabitatDetail(Model):
     def name(self, name):
         """Sets the name of this PokemonHabitatDetail.
 
+        The name for this resource.
 
         :param name: The name of this PokemonHabitatDetail.
         :type name: str
         """
         if name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")
-        if name is not None and len(name) > 100:
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `100`")
+        if name is not None and len(name) > 200:
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `200`")
 
         self._name = name
 
@@ -104,6 +108,7 @@ class PokemonHabitatDetail(Model):
     def names(self):
         """Gets the names of this PokemonHabitatDetail.
 
+        The name of this resource listed in different languages.
 
         :return: The names of this PokemonHabitatDetail.
         :rtype: List[PokemonHabitatName]
@@ -114,6 +119,7 @@ class PokemonHabitatDetail(Model):
     def names(self, names):
         """Sets the names of this PokemonHabitatDetail.
 
+        The name of this resource listed in different languages.
 
         :param names: The names of this PokemonHabitatDetail.
         :type names: List[PokemonHabitatName]
@@ -127,6 +133,7 @@ class PokemonHabitatDetail(Model):
     def pokemon_species(self):
         """Gets the pokemon_species of this PokemonHabitatDetail.
 
+        A list of the Pokémon species that can be found in this habitat.
 
         :return: The pokemon_species of this PokemonHabitatDetail.
         :rtype: List[PokemonSpeciesSummary]
@@ -137,6 +144,7 @@ class PokemonHabitatDetail(Model):
     def pokemon_species(self, pokemon_species):
         """Sets the pokemon_species of this PokemonHabitatDetail.
 
+        A list of the Pokémon species that can be found in this habitat.
 
         :param pokemon_species: The pokemon_species of this PokemonHabitatDetail.
         :type pokemon_species: List[PokemonSpeciesSummary]

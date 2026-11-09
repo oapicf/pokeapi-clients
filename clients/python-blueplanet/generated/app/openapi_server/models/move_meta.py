@@ -103,6 +103,7 @@ class MoveMeta(Model):
     def ailment(self) -> MoveMetaAilmentSummary:
         """Gets the ailment of this MoveMeta.
 
+        The status ailment this move inflicts on its target.  # noqa: E501
 
         :return: The ailment of this MoveMeta.
         :rtype: MoveMetaAilmentSummary
@@ -113,6 +114,7 @@ class MoveMeta(Model):
     def ailment(self, ailment: MoveMetaAilmentSummary):
         """Sets the ailment of this MoveMeta.
 
+        The status ailment this move inflicts on its target.  # noqa: E501
 
         :param ailment: The ailment of this MoveMeta.
         :type ailment: MoveMetaAilmentSummary
@@ -126,6 +128,7 @@ class MoveMeta(Model):
     def category(self) -> MoveMetaCategorySummary:
         """Gets the category of this MoveMeta.
 
+        The category of move this move falls under, e.g. damage or ailment.  # noqa: E501
 
         :return: The category of this MoveMeta.
         :rtype: MoveMetaCategorySummary
@@ -136,6 +139,7 @@ class MoveMeta(Model):
     def category(self, category: MoveMetaCategorySummary):
         """Sets the category of this MoveMeta.
 
+        The category of move this move falls under, e.g. damage or ailment.  # noqa: E501
 
         :param category: The category of this MoveMeta.
         :type category: MoveMetaCategorySummary
@@ -149,6 +153,7 @@ class MoveMeta(Model):
     def min_hits(self) -> int:
         """Gets the min_hits of this MoveMeta.
 
+        The minimum number of times this move hits. Null if it always only hits once.  # noqa: E501
 
         :return: The min_hits of this MoveMeta.
         :rtype: int
@@ -159,10 +164,15 @@ class MoveMeta(Model):
     def min_hits(self, min_hits: int):
         """Sets the min_hits of this MoveMeta.
 
+        The minimum number of times this move hits. Null if it always only hits once.  # noqa: E501
 
         :param min_hits: The min_hits of this MoveMeta.
         :type min_hits: int
         """
+        if min_hits is not None and min_hits > 2147483647:  # noqa: E501
+            raise ValueError("Invalid value for `min_hits`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if min_hits is not None and min_hits < -2147483648:  # noqa: E501
+            raise ValueError("Invalid value for `min_hits`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._min_hits = min_hits
 
@@ -170,6 +180,7 @@ class MoveMeta(Model):
     def max_hits(self) -> int:
         """Gets the max_hits of this MoveMeta.
 
+        The maximum number of times this move hits. Null if it always only hits once.  # noqa: E501
 
         :return: The max_hits of this MoveMeta.
         :rtype: int
@@ -180,10 +191,15 @@ class MoveMeta(Model):
     def max_hits(self, max_hits: int):
         """Sets the max_hits of this MoveMeta.
 
+        The maximum number of times this move hits. Null if it always only hits once.  # noqa: E501
 
         :param max_hits: The max_hits of this MoveMeta.
         :type max_hits: int
         """
+        if max_hits is not None and max_hits > 2147483647:  # noqa: E501
+            raise ValueError("Invalid value for `max_hits`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if max_hits is not None and max_hits < -2147483648:  # noqa: E501
+            raise ValueError("Invalid value for `max_hits`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._max_hits = max_hits
 
@@ -191,6 +207,7 @@ class MoveMeta(Model):
     def min_turns(self) -> int:
         """Gets the min_turns of this MoveMeta.
 
+        The minimum number of turns this move continues to take effect. Null if it always only lasts one turn.  # noqa: E501
 
         :return: The min_turns of this MoveMeta.
         :rtype: int
@@ -201,10 +218,15 @@ class MoveMeta(Model):
     def min_turns(self, min_turns: int):
         """Sets the min_turns of this MoveMeta.
 
+        The minimum number of turns this move continues to take effect. Null if it always only lasts one turn.  # noqa: E501
 
         :param min_turns: The min_turns of this MoveMeta.
         :type min_turns: int
         """
+        if min_turns is not None and min_turns > 2147483647:  # noqa: E501
+            raise ValueError("Invalid value for `min_turns`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if min_turns is not None and min_turns < -2147483648:  # noqa: E501
+            raise ValueError("Invalid value for `min_turns`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._min_turns = min_turns
 
@@ -212,6 +234,7 @@ class MoveMeta(Model):
     def max_turns(self) -> int:
         """Gets the max_turns of this MoveMeta.
 
+        The maximum number of turns this move continues to take effect. Null if it always only lasts one turn.  # noqa: E501
 
         :return: The max_turns of this MoveMeta.
         :rtype: int
@@ -222,10 +245,15 @@ class MoveMeta(Model):
     def max_turns(self, max_turns: int):
         """Sets the max_turns of this MoveMeta.
 
+        The maximum number of turns this move continues to take effect. Null if it always only lasts one turn.  # noqa: E501
 
         :param max_turns: The max_turns of this MoveMeta.
         :type max_turns: int
         """
+        if max_turns is not None and max_turns > 2147483647:  # noqa: E501
+            raise ValueError("Invalid value for `max_turns`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if max_turns is not None and max_turns < -2147483648:  # noqa: E501
+            raise ValueError("Invalid value for `max_turns`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._max_turns = max_turns
 
@@ -233,6 +261,7 @@ class MoveMeta(Model):
     def drain(self) -> int:
         """Gets the drain of this MoveMeta.
 
+        HP drain (if positive) or Recoil damage (if negative), in percent of damage done.  # noqa: E501
 
         :return: The drain of this MoveMeta.
         :rtype: int
@@ -243,10 +272,15 @@ class MoveMeta(Model):
     def drain(self, drain: int):
         """Sets the drain of this MoveMeta.
 
+        HP drain (if positive) or Recoil damage (if negative), in percent of damage done.  # noqa: E501
 
         :param drain: The drain of this MoveMeta.
         :type drain: int
         """
+        if drain is not None and drain > 2147483647:  # noqa: E501
+            raise ValueError("Invalid value for `drain`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if drain is not None and drain < -2147483648:  # noqa: E501
+            raise ValueError("Invalid value for `drain`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._drain = drain
 
@@ -254,6 +288,7 @@ class MoveMeta(Model):
     def healing(self) -> int:
         """Gets the healing of this MoveMeta.
 
+        The amount of hp gained by the attacking Pokemon, in percent of it's maximum HP.  # noqa: E501
 
         :return: The healing of this MoveMeta.
         :rtype: int
@@ -264,10 +299,15 @@ class MoveMeta(Model):
     def healing(self, healing: int):
         """Sets the healing of this MoveMeta.
 
+        The amount of hp gained by the attacking Pokemon, in percent of it's maximum HP.  # noqa: E501
 
         :param healing: The healing of this MoveMeta.
         :type healing: int
         """
+        if healing is not None and healing > 2147483647:  # noqa: E501
+            raise ValueError("Invalid value for `healing`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if healing is not None and healing < -2147483648:  # noqa: E501
+            raise ValueError("Invalid value for `healing`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._healing = healing
 
@@ -275,6 +315,7 @@ class MoveMeta(Model):
     def crit_rate(self) -> int:
         """Gets the crit_rate of this MoveMeta.
 
+        Critical hit rate bonus.  # noqa: E501
 
         :return: The crit_rate of this MoveMeta.
         :rtype: int
@@ -285,10 +326,15 @@ class MoveMeta(Model):
     def crit_rate(self, crit_rate: int):
         """Sets the crit_rate of this MoveMeta.
 
+        Critical hit rate bonus.  # noqa: E501
 
         :param crit_rate: The crit_rate of this MoveMeta.
         :type crit_rate: int
         """
+        if crit_rate is not None and crit_rate > 2147483647:  # noqa: E501
+            raise ValueError("Invalid value for `crit_rate`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if crit_rate is not None and crit_rate < -2147483648:  # noqa: E501
+            raise ValueError("Invalid value for `crit_rate`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._crit_rate = crit_rate
 
@@ -296,6 +342,7 @@ class MoveMeta(Model):
     def ailment_chance(self) -> int:
         """Gets the ailment_chance of this MoveMeta.
 
+        The likelihood this attack will cause an ailment.  # noqa: E501
 
         :return: The ailment_chance of this MoveMeta.
         :rtype: int
@@ -306,10 +353,15 @@ class MoveMeta(Model):
     def ailment_chance(self, ailment_chance: int):
         """Sets the ailment_chance of this MoveMeta.
 
+        The likelihood this attack will cause an ailment.  # noqa: E501
 
         :param ailment_chance: The ailment_chance of this MoveMeta.
         :type ailment_chance: int
         """
+        if ailment_chance is not None and ailment_chance > 2147483647:  # noqa: E501
+            raise ValueError("Invalid value for `ailment_chance`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if ailment_chance is not None and ailment_chance < -2147483648:  # noqa: E501
+            raise ValueError("Invalid value for `ailment_chance`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._ailment_chance = ailment_chance
 
@@ -317,6 +369,7 @@ class MoveMeta(Model):
     def flinch_chance(self) -> int:
         """Gets the flinch_chance of this MoveMeta.
 
+        The likelihood this attack will cause the target Pokémon to flinch.  # noqa: E501
 
         :return: The flinch_chance of this MoveMeta.
         :rtype: int
@@ -327,10 +380,15 @@ class MoveMeta(Model):
     def flinch_chance(self, flinch_chance: int):
         """Sets the flinch_chance of this MoveMeta.
 
+        The likelihood this attack will cause the target Pokémon to flinch.  # noqa: E501
 
         :param flinch_chance: The flinch_chance of this MoveMeta.
         :type flinch_chance: int
         """
+        if flinch_chance is not None and flinch_chance > 2147483647:  # noqa: E501
+            raise ValueError("Invalid value for `flinch_chance`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if flinch_chance is not None and flinch_chance < -2147483648:  # noqa: E501
+            raise ValueError("Invalid value for `flinch_chance`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._flinch_chance = flinch_chance
 
@@ -338,6 +396,7 @@ class MoveMeta(Model):
     def stat_chance(self) -> int:
         """Gets the stat_chance of this MoveMeta.
 
+        The likelihood this attack will cause a stat change in the target Pokémon.  # noqa: E501
 
         :return: The stat_chance of this MoveMeta.
         :rtype: int
@@ -348,9 +407,14 @@ class MoveMeta(Model):
     def stat_chance(self, stat_chance: int):
         """Sets the stat_chance of this MoveMeta.
 
+        The likelihood this attack will cause a stat change in the target Pokémon.  # noqa: E501
 
         :param stat_chance: The stat_chance of this MoveMeta.
         :type stat_chance: int
         """
+        if stat_chance is not None and stat_chance > 2147483647:  # noqa: E501
+            raise ValueError("Invalid value for `stat_chance`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if stat_chance is not None and stat_chance < -2147483648:  # noqa: E501
+            raise ValueError("Invalid value for `stat_chance`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._stat_chance = stat_chance

@@ -13,7 +13,6 @@ ItemCategoryDetail::ItemCategoryDetail()
 , name("")
 , items(std::vector<ItemSummary>())
 , names(std::vector<ItemCategoryName>())
-, pocket(ItemPocketSummary())
 {
 }
 // =========================================

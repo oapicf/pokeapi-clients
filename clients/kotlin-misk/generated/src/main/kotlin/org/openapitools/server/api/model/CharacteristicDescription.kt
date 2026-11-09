@@ -5,6 +5,8 @@ import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
 data class CharacteristicDescription(
+    /** The language this name is in. */
     val language: LanguageSummary,
+    /** The localized description for an API resource in a specific language. */
     val description: kotlin.String? = null
 )

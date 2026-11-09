@@ -7,7 +7,7 @@ module.exports = {
         return [
             {
                 key: `${keyPrefix}description`,
-                label: `[${labelPrefix}description]`,
+                label: `The localized description for an API resource in a specific language. - [${labelPrefix}description]`,
                 type: 'string',
             },
             ...LanguageSummary.fields(`${keyPrefix}language`, isInput),

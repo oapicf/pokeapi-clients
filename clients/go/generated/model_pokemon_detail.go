@@ -1,9 +1,9 @@
 /*
 PokéAPI
 
-All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
 
-API version: 2.7.0
+API version: 2.10.0
 Contact: blah+oapicf@cliffano.com
 */
 
@@ -22,26 +22,48 @@ var _ MappedNullable = &PokemonDetail{}
 
 // PokemonDetail struct for PokemonDetail
 type PokemonDetail struct {
+	// The identifier for this resource.
 	Id int32 `json:"id"`
+	// The name for this resource.
 	Name string `json:"name"`
+	// The base experience gained for defeating this Pokémon.
 	BaseExperience NullableInt32 `json:"base_experience,omitempty"`
+	// The height of this Pokémon in decimetres.
 	Height NullableInt32 `json:"height,omitempty"`
+	// Set for exactly one Pokémon used as the default for each species.
 	IsDefault *bool `json:"is_default,omitempty"`
+	// Order for sorting. Almost national order, except families are grouped together.
 	Order NullableInt32 `json:"order,omitempty"`
+	// The weight of this Pokémon in hectograms.
 	Weight NullableInt32 `json:"weight,omitempty"`
-	Abilities []PokemonDetailAbilitiesInner `json:"abilities"`
-	PastAbilities []PokemonDetailPastAbilitiesInner `json:"past_abilities"`
+	// A list of abilities this Pokémon could potentially have.
+	Abilities []PokemonAbility `json:"abilities"`
+	// A list of details showing abilities this pokémon had in previous generations
+	PastAbilities []PokemonPastAbility `json:"past_abilities"`
+	// A list of forms this Pokémon can take on.
 	Forms []PokemonFormSummary `json:"forms"`
+	// A list of game indices relevent to Pokémon item by generation.
 	GameIndices []PokemonGameIndex `json:"game_indices"`
-	HeldItems PokemonDetailHeldItems `json:"held_items"`
+	// A list of items this Pokémon may be holding when encountered.
+	HeldItems []PokemonHeldItemSummary `json:"held_items"`
+	// A link to a list of location areas, as well as encounter details pertaining to specific versions.
 	LocationAreaEncounters string `json:"location_area_encounters"`
-	Moves []PokemonDetailMovesInner `json:"moves"`
+	// A list of moves along with learn methods and level details pertaining to specific version groups.
+	Moves []PokemonMove `json:"moves"`
+	// The species this Pokémon belongs to.
 	Species PokemonSpeciesSummary `json:"species"`
-	Sprites PokemonDetailSprites `json:"sprites"`
-	Cries PokemonDetailCries `json:"cries"`
+	// A set of sprites used to depict this Pokémon in the game. A visual representation of the various sprites can be found at <a href='https://github.com/PokeAPI/sprites#sprites'>PokeAPI/sprites</a>
+	Sprites PokemonSprites `json:"sprites"`
+	// A set of cries used to depict this Pokémon in the game. A visual representation of the various cries can be found at <a href='https://github.com/PokeAPI/cries#cries'>PokeAPI/cries</a>
+	Cries PokemonCries `json:"cries"`
+	// A list of base stat values for this Pokémon.
 	Stats []PokemonStat `json:"stats"`
-	Types []PokemonDetailTypesInner `json:"types"`
-	PastTypes []PokemonDetailPastTypesInner `json:"past_types"`
+	// A list of details showing stats this pokémon had in previous generations
+	PastStats []PokemonPastStat `json:"past_stats"`
+	// A list of details showing types this Pokémon has.
+	Types []PokemonType `json:"types"`
+	// A list of details showing types this pokémon had in previous generations
+	PastTypes []PokemonPastType `json:"past_types"`
 }
 
 type _PokemonDetail PokemonDetail
@@ -50,7 +72,7 @@ type _PokemonDetail PokemonDetail
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPokemonDetail(id int32, name string, abilities []PokemonDetailAbilitiesInner, pastAbilities []PokemonDetailPastAbilitiesInner, forms []PokemonFormSummary, gameIndices []PokemonGameIndex, heldItems PokemonDetailHeldItems, locationAreaEncounters string, moves []PokemonDetailMovesInner, species PokemonSpeciesSummary, sprites PokemonDetailSprites, cries PokemonDetailCries, stats []PokemonStat, types []PokemonDetailTypesInner, pastTypes []PokemonDetailPastTypesInner) *PokemonDetail {
+func NewPokemonDetail(id int32, name string, abilities []PokemonAbility, pastAbilities []PokemonPastAbility, forms []PokemonFormSummary, gameIndices []PokemonGameIndex, heldItems []PokemonHeldItemSummary, locationAreaEncounters string, moves []PokemonMove, species PokemonSpeciesSummary, sprites PokemonSprites, cries PokemonCries, stats []PokemonStat, pastStats []PokemonPastStat, types []PokemonType, pastTypes []PokemonPastType) *PokemonDetail {
 	this := PokemonDetail{}
 	this.Id = id
 	this.Name = name
@@ -65,6 +87,7 @@ func NewPokemonDetail(id int32, name string, abilities []PokemonDetailAbilitiesI
 	this.Sprites = sprites
 	this.Cries = cries
 	this.Stats = stats
+	this.PastStats = pastStats
 	this.Types = types
 	this.PastTypes = pastTypes
 	return &this
@@ -327,9 +350,9 @@ func (o *PokemonDetail) UnsetWeight() {
 }
 
 // GetAbilities returns the Abilities field value
-func (o *PokemonDetail) GetAbilities() []PokemonDetailAbilitiesInner {
+func (o *PokemonDetail) GetAbilities() []PokemonAbility {
 	if o == nil {
-		var ret []PokemonDetailAbilitiesInner
+		var ret []PokemonAbility
 		return ret
 	}
 
@@ -338,7 +361,7 @@ func (o *PokemonDetail) GetAbilities() []PokemonDetailAbilitiesInner {
 
 // GetAbilitiesOk returns a tuple with the Abilities field value
 // and a boolean to check if the value has been set.
-func (o *PokemonDetail) GetAbilitiesOk() ([]PokemonDetailAbilitiesInner, bool) {
+func (o *PokemonDetail) GetAbilitiesOk() ([]PokemonAbility, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -346,14 +369,14 @@ func (o *PokemonDetail) GetAbilitiesOk() ([]PokemonDetailAbilitiesInner, bool) {
 }
 
 // SetAbilities sets field value
-func (o *PokemonDetail) SetAbilities(v []PokemonDetailAbilitiesInner) {
+func (o *PokemonDetail) SetAbilities(v []PokemonAbility) {
 	o.Abilities = v
 }
 
 // GetPastAbilities returns the PastAbilities field value
-func (o *PokemonDetail) GetPastAbilities() []PokemonDetailPastAbilitiesInner {
+func (o *PokemonDetail) GetPastAbilities() []PokemonPastAbility {
 	if o == nil {
-		var ret []PokemonDetailPastAbilitiesInner
+		var ret []PokemonPastAbility
 		return ret
 	}
 
@@ -362,7 +385,7 @@ func (o *PokemonDetail) GetPastAbilities() []PokemonDetailPastAbilitiesInner {
 
 // GetPastAbilitiesOk returns a tuple with the PastAbilities field value
 // and a boolean to check if the value has been set.
-func (o *PokemonDetail) GetPastAbilitiesOk() ([]PokemonDetailPastAbilitiesInner, bool) {
+func (o *PokemonDetail) GetPastAbilitiesOk() ([]PokemonPastAbility, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -370,7 +393,7 @@ func (o *PokemonDetail) GetPastAbilitiesOk() ([]PokemonDetailPastAbilitiesInner,
 }
 
 // SetPastAbilities sets field value
-func (o *PokemonDetail) SetPastAbilities(v []PokemonDetailPastAbilitiesInner) {
+func (o *PokemonDetail) SetPastAbilities(v []PokemonPastAbility) {
 	o.PastAbilities = v
 }
 
@@ -423,9 +446,9 @@ func (o *PokemonDetail) SetGameIndices(v []PokemonGameIndex) {
 }
 
 // GetHeldItems returns the HeldItems field value
-func (o *PokemonDetail) GetHeldItems() PokemonDetailHeldItems {
+func (o *PokemonDetail) GetHeldItems() []PokemonHeldItemSummary {
 	if o == nil {
-		var ret PokemonDetailHeldItems
+		var ret []PokemonHeldItemSummary
 		return ret
 	}
 
@@ -434,15 +457,15 @@ func (o *PokemonDetail) GetHeldItems() PokemonDetailHeldItems {
 
 // GetHeldItemsOk returns a tuple with the HeldItems field value
 // and a boolean to check if the value has been set.
-func (o *PokemonDetail) GetHeldItemsOk() (*PokemonDetailHeldItems, bool) {
+func (o *PokemonDetail) GetHeldItemsOk() ([]PokemonHeldItemSummary, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.HeldItems, true
+	return o.HeldItems, true
 }
 
 // SetHeldItems sets field value
-func (o *PokemonDetail) SetHeldItems(v PokemonDetailHeldItems) {
+func (o *PokemonDetail) SetHeldItems(v []PokemonHeldItemSummary) {
 	o.HeldItems = v
 }
 
@@ -471,9 +494,9 @@ func (o *PokemonDetail) SetLocationAreaEncounters(v string) {
 }
 
 // GetMoves returns the Moves field value
-func (o *PokemonDetail) GetMoves() []PokemonDetailMovesInner {
+func (o *PokemonDetail) GetMoves() []PokemonMove {
 	if o == nil {
-		var ret []PokemonDetailMovesInner
+		var ret []PokemonMove
 		return ret
 	}
 
@@ -482,7 +505,7 @@ func (o *PokemonDetail) GetMoves() []PokemonDetailMovesInner {
 
 // GetMovesOk returns a tuple with the Moves field value
 // and a boolean to check if the value has been set.
-func (o *PokemonDetail) GetMovesOk() ([]PokemonDetailMovesInner, bool) {
+func (o *PokemonDetail) GetMovesOk() ([]PokemonMove, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -490,7 +513,7 @@ func (o *PokemonDetail) GetMovesOk() ([]PokemonDetailMovesInner, bool) {
 }
 
 // SetMoves sets field value
-func (o *PokemonDetail) SetMoves(v []PokemonDetailMovesInner) {
+func (o *PokemonDetail) SetMoves(v []PokemonMove) {
 	o.Moves = v
 }
 
@@ -519,9 +542,9 @@ func (o *PokemonDetail) SetSpecies(v PokemonSpeciesSummary) {
 }
 
 // GetSprites returns the Sprites field value
-func (o *PokemonDetail) GetSprites() PokemonDetailSprites {
+func (o *PokemonDetail) GetSprites() PokemonSprites {
 	if o == nil {
-		var ret PokemonDetailSprites
+		var ret PokemonSprites
 		return ret
 	}
 
@@ -530,7 +553,7 @@ func (o *PokemonDetail) GetSprites() PokemonDetailSprites {
 
 // GetSpritesOk returns a tuple with the Sprites field value
 // and a boolean to check if the value has been set.
-func (o *PokemonDetail) GetSpritesOk() (*PokemonDetailSprites, bool) {
+func (o *PokemonDetail) GetSpritesOk() (*PokemonSprites, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -538,14 +561,14 @@ func (o *PokemonDetail) GetSpritesOk() (*PokemonDetailSprites, bool) {
 }
 
 // SetSprites sets field value
-func (o *PokemonDetail) SetSprites(v PokemonDetailSprites) {
+func (o *PokemonDetail) SetSprites(v PokemonSprites) {
 	o.Sprites = v
 }
 
 // GetCries returns the Cries field value
-func (o *PokemonDetail) GetCries() PokemonDetailCries {
+func (o *PokemonDetail) GetCries() PokemonCries {
 	if o == nil {
-		var ret PokemonDetailCries
+		var ret PokemonCries
 		return ret
 	}
 
@@ -554,7 +577,7 @@ func (o *PokemonDetail) GetCries() PokemonDetailCries {
 
 // GetCriesOk returns a tuple with the Cries field value
 // and a boolean to check if the value has been set.
-func (o *PokemonDetail) GetCriesOk() (*PokemonDetailCries, bool) {
+func (o *PokemonDetail) GetCriesOk() (*PokemonCries, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -562,7 +585,7 @@ func (o *PokemonDetail) GetCriesOk() (*PokemonDetailCries, bool) {
 }
 
 // SetCries sets field value
-func (o *PokemonDetail) SetCries(v PokemonDetailCries) {
+func (o *PokemonDetail) SetCries(v PokemonCries) {
 	o.Cries = v
 }
 
@@ -590,10 +613,34 @@ func (o *PokemonDetail) SetStats(v []PokemonStat) {
 	o.Stats = v
 }
 
-// GetTypes returns the Types field value
-func (o *PokemonDetail) GetTypes() []PokemonDetailTypesInner {
+// GetPastStats returns the PastStats field value
+func (o *PokemonDetail) GetPastStats() []PokemonPastStat {
 	if o == nil {
-		var ret []PokemonDetailTypesInner
+		var ret []PokemonPastStat
+		return ret
+	}
+
+	return o.PastStats
+}
+
+// GetPastStatsOk returns a tuple with the PastStats field value
+// and a boolean to check if the value has been set.
+func (o *PokemonDetail) GetPastStatsOk() ([]PokemonPastStat, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.PastStats, true
+}
+
+// SetPastStats sets field value
+func (o *PokemonDetail) SetPastStats(v []PokemonPastStat) {
+	o.PastStats = v
+}
+
+// GetTypes returns the Types field value
+func (o *PokemonDetail) GetTypes() []PokemonType {
+	if o == nil {
+		var ret []PokemonType
 		return ret
 	}
 
@@ -602,7 +649,7 @@ func (o *PokemonDetail) GetTypes() []PokemonDetailTypesInner {
 
 // GetTypesOk returns a tuple with the Types field value
 // and a boolean to check if the value has been set.
-func (o *PokemonDetail) GetTypesOk() ([]PokemonDetailTypesInner, bool) {
+func (o *PokemonDetail) GetTypesOk() ([]PokemonType, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -610,14 +657,14 @@ func (o *PokemonDetail) GetTypesOk() ([]PokemonDetailTypesInner, bool) {
 }
 
 // SetTypes sets field value
-func (o *PokemonDetail) SetTypes(v []PokemonDetailTypesInner) {
+func (o *PokemonDetail) SetTypes(v []PokemonType) {
 	o.Types = v
 }
 
 // GetPastTypes returns the PastTypes field value
-func (o *PokemonDetail) GetPastTypes() []PokemonDetailPastTypesInner {
+func (o *PokemonDetail) GetPastTypes() []PokemonPastType {
 	if o == nil {
-		var ret []PokemonDetailPastTypesInner
+		var ret []PokemonPastType
 		return ret
 	}
 
@@ -626,7 +673,7 @@ func (o *PokemonDetail) GetPastTypes() []PokemonDetailPastTypesInner {
 
 // GetPastTypesOk returns a tuple with the PastTypes field value
 // and a boolean to check if the value has been set.
-func (o *PokemonDetail) GetPastTypesOk() ([]PokemonDetailPastTypesInner, bool) {
+func (o *PokemonDetail) GetPastTypesOk() ([]PokemonPastType, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -634,7 +681,7 @@ func (o *PokemonDetail) GetPastTypesOk() ([]PokemonDetailPastTypesInner, bool) {
 }
 
 // SetPastTypes sets field value
-func (o *PokemonDetail) SetPastTypes(v []PokemonDetailPastTypesInner) {
+func (o *PokemonDetail) SetPastTypes(v []PokemonPastType) {
 	o.PastTypes = v
 }
 
@@ -676,6 +723,7 @@ func (o PokemonDetail) ToMap() (map[string]interface{}, error) {
 	toSerialize["sprites"] = o.Sprites
 	toSerialize["cries"] = o.Cries
 	toSerialize["stats"] = o.Stats
+	toSerialize["past_stats"] = o.PastStats
 	toSerialize["types"] = o.Types
 	toSerialize["past_types"] = o.PastTypes
 	return toSerialize, nil
@@ -699,6 +747,7 @@ func (o *PokemonDetail) UnmarshalJSON(data []byte) (err error) {
 		"sprites",
 		"cries",
 		"stats",
+		"past_stats",
 		"types",
 		"past_types",
 	}

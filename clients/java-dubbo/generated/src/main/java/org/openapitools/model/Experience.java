@@ -11,14 +11,20 @@ import java.math.*;
 public class Experience implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * The level gained.
+   */
   @JsonProperty("level")
   private Integer level;
 
+  /**
+   * The amount of experience required to reach the referenced level.
+   */
   @JsonProperty("experience")
   private Integer experience;
 
   /**
-   * 
+   * The level gained.
    * @return level
    */
   public Integer getLevel() {
@@ -30,7 +36,7 @@ public class Experience implements Serializable {
   }
 
   /**
-   * 
+   * The amount of experience required to reach the referenced level.
    * @return experience
    */
   public Integer getExperience() {

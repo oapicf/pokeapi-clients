@@ -3,6 +3,7 @@ from aiohttp import web
 
 from openapi_server.models.language_detail import LanguageDetail
 from openapi_server.models.paginated_language_summary_list import PaginatedLanguageSummaryList
+from openapi_server.models.pokeapi_meta_response import PokeapiMetaResponse
 from openapi_server import util
 
 
@@ -29,6 +30,16 @@ async def language_retrieve(request: web.Request, id) -> web.Response:
 
     :param id: This parameter can be a string or an integer.
     :type id: str
+
+    """
+    return web.Response(status=200)
+
+
+async def meta_retrieve(request: web.Request, ) -> web.Response:
+    """Get API metadata
+
+    Returns metadata about the current deployed version of the API, including the git commit hash, deploy date, and tag (if any).
+
 
     """
     return web.Response(status=200)

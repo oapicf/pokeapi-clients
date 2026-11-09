@@ -12,7 +12,7 @@ module OpenAPIClient
         path: "/api/v2/item-attribute/",
         query: { "limit" => limit, "offset" => offset, "q" => q },
         accept: %w[application/json],
-        auth: %w[basicAuth cookieAuth])
+        auth: %w[])
     end
 
     # Get item attribute Item attributes define particular aspects of items, e.g.\&quot;usable in battle\&quot; or \&quot;consumable\&quot;.
@@ -21,7 +21,7 @@ module OpenAPIClient
         method: :GET,
         path: "/api/v2/item-attribute/{id}/".sub("{id}", OpenAPIClient.enc(id)),
         accept: %w[application/json],
-        auth: %w[basicAuth cookieAuth])
+        auth: %w[])
     end
   end
   end

@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**game_index** | **number** |  | [default to undefined]
-**generation** | [**GenerationSummary**](GenerationSummary.md) |  | [default to undefined]
+**game_index** | **number** | The internal id of an API resource within game data. | [default to undefined]
+**generation** | [**GenerationSummary**](GenerationSummary.md) | The generation relevent to this game index. | [default to undefined]
 
 ## Example
 

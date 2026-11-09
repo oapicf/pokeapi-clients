@@ -5,15 +5,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **number** |  | [readonly] [default to undefined]
-**name** | **string** |  | [default to undefined]
-**abilities** | [**Array&lt;AbilitySummary&gt;**](AbilitySummary.md) |  | [readonly] [default to undefined]
-**main_region** | [**RegionSummary**](RegionSummary.md) |  | [default to undefined]
-**moves** | [**Array&lt;MoveSummary&gt;**](MoveSummary.md) |  | [readonly] [default to undefined]
-**names** | [**Array&lt;GenerationName&gt;**](GenerationName.md) |  | [readonly] [default to undefined]
-**pokemon_species** | [**Array&lt;PokemonSpeciesSummary&gt;**](PokemonSpeciesSummary.md) |  | [readonly] [default to undefined]
-**types** | [**Array&lt;TypeSummary&gt;**](TypeSummary.md) |  | [readonly] [default to undefined]
-**version_groups** | [**Array&lt;VersionGroupSummary&gt;**](VersionGroupSummary.md) |  | [readonly] [default to undefined]
+**id** | **number** | The identifier for this resource. | [readonly] [default to undefined]
+**name** | **string** | The name for this resource. | [default to undefined]
+**abilities** | [**Array&lt;AbilitySummary&gt;**](AbilitySummary.md) | A list of abilities that were introduced in this generation. | [readonly] [default to undefined]
+**main_region** | [**RegionSummary**](RegionSummary.md) | The main region travelled in this generation. | [default to undefined]
+**moves** | [**Array&lt;MoveSummary&gt;**](MoveSummary.md) | A list of moves that were introduced in this generation. | [readonly] [default to undefined]
+**names** | [**Array&lt;GenerationName&gt;**](GenerationName.md) | The name of this resource listed in different languages. | [readonly] [default to undefined]
+**pokemon_species** | [**Array&lt;PokemonSpeciesSummary&gt;**](PokemonSpeciesSummary.md) | A list of Pokémon species that were introduced in this generation. | [readonly] [default to undefined]
+**types** | [**Array&lt;TypeSummary&gt;**](TypeSummary.md) | A list of types that were introduced in this generation. | [readonly] [default to undefined]
+**version_groups** | [**Array&lt;VersionGroupSummary&gt;**](VersionGroupSummary.md) | A list of version groups that were introduced in this generation. | [readonly] [default to undefined]
 
 ## Example
 

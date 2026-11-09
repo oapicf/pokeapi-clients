@@ -11,10 +11,10 @@
         pokemon_species=nothing,
     )
 
-    - id::Int64
-    - name::String
-    - names::Vector{PokemonHabitatName}
-    - pokemon_species::Vector{PokemonSpeciesSummary}
+    - id::Int64 : The identifier for this resource.
+    - name::String : The name for this resource.
+    - names::Vector{PokemonHabitatName} : The name of this resource listed in different languages.
+    - pokemon_species::Vector{PokemonSpeciesSummary} : A list of the Pokémon species that can be found in this habitat.
 """
 Base.@kwdef mutable struct PokemonHabitatDetail <: OpenAPI.APIModel
     id::Union{Nothing, Int64} = nothing
@@ -51,7 +51,7 @@ function OpenAPI.validate_property(::Type{ PokemonHabitatDetail }, name::Symbol,
 
 
     if name === Symbol("name")
-        OpenAPI.validate_param(name, "PokemonHabitatDetail", :maxLength, val, 100)
+        OpenAPI.validate_param(name, "PokemonHabitatDetail", :maxLength, val, 200)
     end
 
 

@@ -10,8 +10,9 @@ Name | Type
 `name` | string
 `gameIndex` | number
 `isBattleOnly` | boolean
-`affectingMoves` | [StatDetailAffectingMoves](StatDetailAffectingMoves.md)
-`affectingNatures` | [StatDetailAffectingNatures](StatDetailAffectingNatures.md)
+`affectingMoves` | [StatAffectingMoves](StatAffectingMoves.md)
+`affectingNatures` | [StatAffectingNatures](StatAffectingNatures.md)
+`affectingItems` | [Array&lt;ItemSummary&gt;](ItemSummary.md)
 `characteristics` | [Array&lt;CharacteristicSummary&gt;](CharacteristicSummary.md)
 `moveDamageClass` | [MoveDamageClassSummary](MoveDamageClassSummary.md)
 `names` | [Array&lt;StatName&gt;](StatName.md)
@@ -29,6 +30,7 @@ const example = {
   "isBattleOnly": null,
   "affectingMoves": null,
   "affectingNatures": null,
+  "affectingItems": null,
   "characteristics": null,
   "moveDamageClass": null,
   "names": null,

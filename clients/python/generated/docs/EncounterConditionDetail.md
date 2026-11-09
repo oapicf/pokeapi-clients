@@ -5,10 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** |  | [readonly] 
-**name** | **str** |  | 
-**values** | [**List[EncounterConditionValueSummary]**](EncounterConditionValueSummary.md) |  | [readonly] 
-**names** | [**List[EncounterConditionName]**](EncounterConditionName.md) |  | [readonly] 
+**id** | **int** | The identifier for this resource. | [readonly] 
+**name** | **str** | The name for this resource. | 
+**values** | [**List[EncounterConditionValueSummary]**](EncounterConditionValueSummary.md) | A list of possible values for this encounter condition. | [readonly] 
+**names** | [**List[EncounterConditionName]**](EncounterConditionName.md) | The name of this resource listed in different languages. | [readonly] 
 
 ## Example
 

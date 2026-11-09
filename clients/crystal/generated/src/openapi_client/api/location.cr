@@ -12,7 +12,7 @@ module OpenAPIClient
         path: "/api/v2/location/",
         query: { "limit" => limit, "offset" => offset, "q" => q },
         accept: %w[application/json],
-        auth: %w[basicAuth cookieAuth])
+        auth: %w[])
     end
 
     # Get location Locations that can be visited within the games. Locations make up sizable portions of regions, like cities or routes.
@@ -21,7 +21,7 @@ module OpenAPIClient
         method: :GET,
         path: "/api/v2/location/{id}/".sub("{id}", OpenAPIClient.enc(id)),
         accept: %w[application/json],
-        auth: %w[basicAuth cookieAuth])
+        auth: %w[])
     end
   end
   end

@@ -10,6 +10,7 @@ class_name PokemonDetail
 # PokemonDetail Model
 
 
+# The identifier for this resource.
 # Required: True
 # isArray: false
 @export var id: int:
@@ -18,6 +19,7 @@ class_name PokemonDetail
 		id = value
 var __id__was__set := false
 
+# The name for this resource.
 # Required: True
 # isArray: false
 @export var name: String:
@@ -26,6 +28,7 @@ var __id__was__set := false
 		name = value
 var __name__was__set := false
 
+# The base experience gained for defeating this Pokémon.
 # Required: False
 # isArray: false
 @export var baseUnderscoreexperience: int:
@@ -34,6 +37,7 @@ var __name__was__set := false
 		baseUnderscoreexperience = value
 var __baseUnderscoreexperience__was__set := false
 
+# The height of this Pokémon in decimetres.
 # Required: False
 # isArray: false
 @export var height: int:
@@ -42,6 +46,7 @@ var __baseUnderscoreexperience__was__set := false
 		height = value
 var __height__was__set := false
 
+# Set for exactly one Pokémon used as the default for each species.
 # Required: False
 # isArray: false
 @export var isUnderscoredefault: bool:
@@ -50,6 +55,7 @@ var __height__was__set := false
 		isUnderscoredefault = value
 var __isUnderscoredefault__was__set := false
 
+# Order for sorting. Almost national order, except families are grouped together.
 # Required: False
 # isArray: false
 @export var order: int:
@@ -58,6 +64,7 @@ var __isUnderscoredefault__was__set := false
 		order = value
 var __order__was__set := false
 
+# The weight of this Pokémon in hectograms.
 # Required: False
 # isArray: false
 @export var weight: int:
@@ -66,6 +73,7 @@ var __order__was__set := false
 		weight = value
 var __weight__was__set := false
 
+# A list of abilities this Pokémon could potentially have.
 # Required: True
 # isArray: true
 @export var abilities: Array:
@@ -74,6 +82,7 @@ var __weight__was__set := false
 		abilities = value
 var __abilities__was__set := false
 
+# A list of details showing abilities this pokémon had in previous generations
 # Required: True
 # isArray: true
 @export var pastUnderscoreabilities: Array:
@@ -82,6 +91,7 @@ var __abilities__was__set := false
 		pastUnderscoreabilities = value
 var __pastUnderscoreabilities__was__set := false
 
+# A list of forms this Pokémon can take on.
 # Required: True
 # isArray: true
 @export var forms: Array:
@@ -90,6 +100,7 @@ var __pastUnderscoreabilities__was__set := false
 		forms = value
 var __forms__was__set := false
 
+# A list of game indices relevent to Pokémon item by generation.
 # Required: True
 # isArray: true
 @export var gameUnderscoreindices: Array:
@@ -98,14 +109,16 @@ var __forms__was__set := false
 		gameUnderscoreindices = value
 var __gameUnderscoreindices__was__set := false
 
+# A list of items this Pokémon may be holding when encountered.
 # Required: True
-# isArray: false
-@export var heldUnderscoreitems: PokemonDetailHeldItems:
+# isArray: true
+@export var heldUnderscoreitems: Array:
 	set(value):
 		__heldUnderscoreitems__was__set = true
 		heldUnderscoreitems = value
 var __heldUnderscoreitems__was__set := false
 
+# A link to a list of location areas, as well as encounter details pertaining to specific versions.
 # Required: True
 # isArray: false
 @export var locationUnderscoreareaUnderscoreencounters: String:
@@ -114,6 +127,7 @@ var __heldUnderscoreitems__was__set := false
 		locationUnderscoreareaUnderscoreencounters = value
 var __locationUnderscoreareaUnderscoreencounters__was__set := false
 
+# A list of moves along with learn methods and level details pertaining to specific version groups.
 # Required: True
 # isArray: true
 @export var moves: Array:
@@ -122,6 +136,7 @@ var __locationUnderscoreareaUnderscoreencounters__was__set := false
 		moves = value
 var __moves__was__set := false
 
+# The species this Pokémon belongs to.
 # Required: True
 # isArray: false
 @export var species: PokemonSpeciesSummary:
@@ -130,22 +145,25 @@ var __moves__was__set := false
 		species = value
 var __species__was__set := false
 
+# A set of sprites used to depict this Pokémon in the game. A visual representation of the various sprites can be found at <a href='https://github.com/PokeAPI/sprites#sprites'>PokeAPI/sprites</a>
 # Required: True
 # isArray: false
-@export var sprites: PokemonDetailSprites:
+@export var sprites: PokemonSprites:
 	set(value):
 		__sprites__was__set = true
 		sprites = value
 var __sprites__was__set := false
 
+# A set of cries used to depict this Pokémon in the game. A visual representation of the various cries can be found at <a href='https://github.com/PokeAPI/cries#cries'>PokeAPI/cries</a>
 # Required: True
 # isArray: false
-@export var cries: PokemonDetailCries:
+@export var cries: PokemonCries:
 	set(value):
 		__cries__was__set = true
 		cries = value
 var __cries__was__set := false
 
+# A list of base stat values for this Pokémon.
 # Required: True
 # isArray: true
 @export var stats: Array:
@@ -154,6 +172,16 @@ var __cries__was__set := false
 		stats = value
 var __stats__was__set := false
 
+# A list of details showing stats this pokémon had in previous generations
+# Required: True
+# isArray: true
+@export var pastUnderscorestats: Array:
+	set(value):
+		__pastUnderscorestats__was__set = true
+		pastUnderscorestats = value
+var __pastUnderscorestats__was__set := false
+
+# A list of details showing types this Pokémon has.
 # Required: True
 # isArray: true
 @export var types: Array:
@@ -162,6 +190,7 @@ var __stats__was__set := false
 		types = value
 var __types__was__set := false
 
+# A list of details showing types this pokémon had in previous generations
 # Required: True
 # isArray: true
 @export var pastUnderscoretypes: Array:
@@ -199,6 +228,8 @@ func bzz_collect_missing_properties() -> Array:
 		bzz_missing_properties.append("cries")
 	if not self.__stats__was__set:
 		bzz_missing_properties.append("stats")
+	if not self.__pastUnderscorestats__was__set:
+		bzz_missing_properties.append("pastUnderscorestats")
 	if not self.__types__was__set:
 		bzz_missing_properties.append("types")
 	if not self.__pastUnderscoretypes__was__set:
@@ -244,6 +275,8 @@ func bzz_normalize() -> Dictionary:
 		bzz_dictionary["cries"] = self.cries
 	if self.__stats__was__set:
 		bzz_dictionary["stats"] = self.stats
+	if self.__pastUnderscorestats__was__set:
+		bzz_dictionary["pastUnderscorestats"] = self.pastUnderscorestats
 	if self.__types__was__set:
 		bzz_dictionary["types"] = self.types
 	if self.__pastUnderscoretypes__was__set:
@@ -269,31 +302,33 @@ static func bzz_denormalize_single(from_dict: Dictionary):
 	if from_dict.has("weight"):
 		me.weight = from_dict["weight"]
 	if from_dict.has("abilities"):
-		me.abilities = PokemonDetail_abilities_inner.bzz_denormalize_multiple(from_dict["abilities"])
+		me.abilities = PokemonAbility.bzz_denormalize_multiple(from_dict["abilities"])
 	if from_dict.has("pastUnderscoreabilities"):
-		me.pastUnderscoreabilities = PokemonDetail_past_abilities_inner.bzz_denormalize_multiple(from_dict["pastUnderscoreabilities"])
+		me.pastUnderscoreabilities = PokemonPastAbility.bzz_denormalize_multiple(from_dict["pastUnderscoreabilities"])
 	if from_dict.has("forms"):
 		me.forms = PokemonFormSummary.bzz_denormalize_multiple(from_dict["forms"])
 	if from_dict.has("gameUnderscoreindices"):
 		me.gameUnderscoreindices = PokemonGameIndex.bzz_denormalize_multiple(from_dict["gameUnderscoreindices"])
 	if from_dict.has("heldUnderscoreitems"):
-		me.heldUnderscoreitems = PokemonDetail_held_items.bzz_denormalize_single(from_dict["heldUnderscoreitems"])
+		me.heldUnderscoreitems = PokemonHeldItemSummary.bzz_denormalize_multiple(from_dict["heldUnderscoreitems"])
 	if from_dict.has("locationUnderscoreareaUnderscoreencounters"):
 		me.locationUnderscoreareaUnderscoreencounters = from_dict["locationUnderscoreareaUnderscoreencounters"]
 	if from_dict.has("moves"):
-		me.moves = PokemonDetail_moves_inner.bzz_denormalize_multiple(from_dict["moves"])
+		me.moves = PokemonMove.bzz_denormalize_multiple(from_dict["moves"])
 	if from_dict.has("species"):
 		me.species = PokemonSpeciesSummary.bzz_denormalize_single(from_dict["species"])
 	if from_dict.has("sprites"):
-		me.sprites = from_dict["sprites"]
+		me.sprites = PokemonSprites.bzz_denormalize_single(from_dict["sprites"])
 	if from_dict.has("cries"):
-		me.cries = PokemonDetail_cries.bzz_denormalize_single(from_dict["cries"])
+		me.cries = PokemonCries.bzz_denormalize_single(from_dict["cries"])
 	if from_dict.has("stats"):
 		me.stats = PokemonStat.bzz_denormalize_multiple(from_dict["stats"])
+	if from_dict.has("pastUnderscorestats"):
+		me.pastUnderscorestats = PokemonPastStat.bzz_denormalize_multiple(from_dict["pastUnderscorestats"])
 	if from_dict.has("types"):
-		me.types = PokemonDetail_types_inner.bzz_denormalize_multiple(from_dict["types"])
+		me.types = PokemonType.bzz_denormalize_multiple(from_dict["types"])
 	if from_dict.has("pastUnderscoretypes"):
-		me.pastUnderscoretypes = PokemonDetail_past_types_inner.bzz_denormalize_multiple(from_dict["pastUnderscoretypes"])
+		me.pastUnderscoretypes = PokemonPastType.bzz_denormalize_multiple(from_dict["pastUnderscoretypes"])
 	return me
 
 

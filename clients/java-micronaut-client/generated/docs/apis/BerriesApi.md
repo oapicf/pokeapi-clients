@@ -61,9 +61,7 @@ Berries can be soft or hard. Check out [Bulbapedia](http://bulbapedia.bulbagarde
 ### Return type
 [**PaginatedBerryFirmnessSummaryList**](PaginatedBerryFirmnessSummaryList.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -88,9 +86,7 @@ Berries can be soft or hard. Check out [Bulbapedia](http://bulbapedia.bulbagarde
 ### Return type
 [**BerryFirmnessDetail**](BerryFirmnessDetail.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -117,9 +113,7 @@ Flavors determine whether a Pokémon will benefit or suffer from eating a berry 
 ### Return type
 [**PaginatedBerryFlavorSummaryList**](PaginatedBerryFlavorSummaryList.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -144,9 +138,7 @@ Flavors determine whether a Pokémon will benefit or suffer from eating a berry 
 ### Return type
 [**BerryFlavorDetail**](BerryFlavorDetail.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -173,9 +165,7 @@ Berries are small fruits that can provide HP and status condition restoration, s
 ### Return type
 [**PaginatedBerrySummaryList**](PaginatedBerrySummaryList.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -200,9 +190,7 @@ Berries are small fruits that can provide HP and status condition restoration, s
 ### Return type
 [**BerryDetail**](BerryDetail.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined

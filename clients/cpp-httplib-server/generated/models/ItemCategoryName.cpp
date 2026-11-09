@@ -10,7 +10,6 @@ namespace models {
 
 ItemCategoryName::ItemCategoryName()
 : name("")
-, language(LanguageSummary())
 {
 }
 // =========================================

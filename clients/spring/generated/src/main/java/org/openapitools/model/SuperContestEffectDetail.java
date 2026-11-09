@@ -24,7 +24,7 @@ import jakarta.annotation.Generated;
  * SuperContestEffectDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-10-25T05:53:37.479908528Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-11-09T13:53:47.069318184Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class SuperContestEffectDetail {
 
   private Integer id;
@@ -55,11 +55,11 @@ public class SuperContestEffectDetail {
   }
 
   /**
-   * Get id
+   * The identifier for this resource.
    * @return id
    */
   
-  @Schema(name = "id", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "id", accessMode = Schema.AccessMode.READ_ONLY, description = "The identifier for this resource.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("id")
   public Integer getId() {
     return id;
@@ -76,11 +76,13 @@ public class SuperContestEffectDetail {
   }
 
   /**
-   * Get appeal
+   * The level of appeal this super contest effect has.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return appeal
    */
-  @NotNull 
-  @Schema(name = "appeal", requiredMode = Schema.RequiredMode.REQUIRED)
+  @NotNull @Min(value = -2147483648) @Max(value = 2147483647) 
+  @Schema(name = "appeal", description = "The level of appeal this super contest effect has.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("appeal")
   public Integer getAppeal() {
     return appeal;
@@ -105,11 +107,11 @@ public class SuperContestEffectDetail {
   }
 
   /**
-   * Get flavorTextEntries
+   * The flavor text of this super contest effect listed in different languages.
    * @return flavorTextEntries
    */
   
-  @Schema(name = "flavor_text_entries", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "flavor_text_entries", accessMode = Schema.AccessMode.READ_ONLY, description = "The flavor text of this super contest effect listed in different languages.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("flavor_text_entries")
   public List<@Valid SuperContestEffectFlavorText> getFlavorTextEntries() {
     return flavorTextEntries;
@@ -134,11 +136,11 @@ public class SuperContestEffectDetail {
   }
 
   /**
-   * Get moves
+   * A list of moves that have the effect when used in super contests.
    * @return moves
    */
   
-  @Schema(name = "moves", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "moves", accessMode = Schema.AccessMode.READ_ONLY, description = "A list of moves that have the effect when used in super contests.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("moves")
   public List<@Valid MoveSummary> getMoves() {
     return moves;

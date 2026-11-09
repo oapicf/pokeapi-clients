@@ -20,14 +20,19 @@ class ItemCategoryDetail {
     required this.pocket,
   });
 
+  /// The identifier for this resource.
   int id;
 
+  /// The name for this resource.
   String name;
 
+  /// A list of items that are a part of this category.
   List<ItemSummary> items;
 
+  /// The name of this item category listed in different languages.
   List<ItemCategoryName> names;
 
+  /// The pocket items in this category would be put in.
   ItemPocketSummary pocket;
 
   @override

@@ -24,7 +24,7 @@ import jakarta.annotation.Generated;
  * AbilityChange
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-10-25T05:53:37.479908528Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-11-09T13:53:47.069318184Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class AbilityChange {
 
   private VersionGroupSummary versionGroup;
@@ -49,11 +49,11 @@ public class AbilityChange {
   }
 
   /**
-   * Get versionGroup
+   * The version group in which the previous effect of this ability originated.
    * @return versionGroup
    */
   @NotNull @Valid 
-  @Schema(name = "version_group", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "version_group", description = "The version group in which the previous effect of this ability originated.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("version_group")
   public VersionGroupSummary getVersionGroup() {
     return versionGroup;
@@ -78,11 +78,11 @@ public class AbilityChange {
   }
 
   /**
-   * Get effectEntries
+   * The previous effect of this ability listed in different languages.
    * @return effectEntries
    */
   
-  @Schema(name = "effect_entries", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "effect_entries", accessMode = Schema.AccessMode.READ_ONLY, description = "The previous effect of this ability listed in different languages.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("effect_entries")
   public List<@Valid AbilityChangeEffectText> getEffectEntries() {
     return effectEntries;

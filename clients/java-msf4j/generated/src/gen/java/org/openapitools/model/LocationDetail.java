@@ -16,7 +16,7 @@ import org.openapitools.model.RegionSummary;
 /**
  * LocationDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-10-25T05:48:05.787850114Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-11-09T13:49:25.341948748Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class LocationDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -37,10 +37,10 @@ public class LocationDetail   {
   private List<@Valid LocationAreaSummary> areas = new ArrayList<>();
 
    /**
-   * Get id
+   * The identifier for this resource.
    * @return id
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   public Integer getId() {
     return id;
   }
@@ -51,10 +51,10 @@ public class LocationDetail   {
   }
 
    /**
-   * Get name
+   * The name for this resource.
    * @return name
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   public String getName() {
     return name;
   }
@@ -69,10 +69,10 @@ public class LocationDetail   {
   }
 
    /**
-   * Get region
+   * The region this location can be found in.
    * @return region
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The region this location can be found in.")
   public RegionSummary getRegion() {
     return region;
   }
@@ -82,28 +82,28 @@ public class LocationDetail   {
   }
 
    /**
-   * Get names
+   * The name of this resource listed in different languages.
    * @return names
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
   public List<@Valid LocationName> getNames() {
     return names;
   }
 
    /**
-   * Get gameIndices
+   * A list of game indices relevent to this location by generation.
    * @return gameIndices
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of game indices relevent to this location by generation.")
   public List<@Valid LocationGameIndex> getGameIndices() {
     return gameIndices;
   }
 
    /**
-   * Get areas
+   * Areas that can be found within this location.
    * @return areas
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "Areas that can be found within this location.")
   public List<@Valid LocationAreaSummary> getAreas() {
     return areas;
   }

@@ -4,15 +4,15 @@
 ## Properties
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
-| **id** | **kotlin.Int** |  |  [readonly] |
-| **name** | **kotlin.String** |  |  |
-| **generation** | [**GenerationSummary**](GenerationSummary.md) |  |  |
-| **names** | [**kotlin.collections.List&lt;AbilityName&gt;**](AbilityName.md) |  |  [readonly] |
-| **effectEntries** | [**kotlin.collections.List&lt;AbilityEffectText&gt;**](AbilityEffectText.md) |  |  [readonly] |
-| **effectChanges** | [**kotlin.collections.List&lt;AbilityChange&gt;**](AbilityChange.md) |  |  [readonly] |
-| **flavorTextEntries** | [**kotlin.collections.List&lt;AbilityFlavorText&gt;**](AbilityFlavorText.md) |  |  [readonly] |
-| **pokemon** | [**kotlin.collections.List&lt;AbilityDetailPokemonInner&gt;**](AbilityDetailPokemonInner.md) |  |  [readonly] |
-| **isMainSeries** | **kotlin.Boolean** |  |  [optional] |
+| **id** | **kotlin.Int** | The identifier for this resource. |  [readonly] |
+| **name** | **kotlin.String** | The name for this resource. |  |
+| **generation** | [**GenerationSummary**](GenerationSummary.md) | The generation this ability originated in. |  |
+| **names** | [**kotlin.collections.List&lt;AbilityName&gt;**](AbilityName.md) | The name of this resource listed in different languages. |  [readonly] |
+| **effectEntries** | [**kotlin.collections.List&lt;AbilityEffectText&gt;**](AbilityEffectText.md) | The effect of this ability listed in different languages. |  [readonly] |
+| **effectChanges** | [**kotlin.collections.List&lt;AbilityChange&gt;**](AbilityChange.md) | The list of previous effects this ability has had across version groups. |  [readonly] |
+| **flavorTextEntries** | [**kotlin.collections.List&lt;AbilityFlavorText&gt;**](AbilityFlavorText.md) | The flavor text of this ability listed in different languages. |  [readonly] |
+| **pokemon** | [**kotlin.collections.List&lt;AbilityPokemonDetail&gt;**](AbilityPokemonDetail.md) | A list of Pokémon that could potentially have this ability. |  [readonly] |
+| **isMainSeries** | **kotlin.Boolean** | Whether or not this ability originated in the main series of the video games. |  [optional] |
 
 
 

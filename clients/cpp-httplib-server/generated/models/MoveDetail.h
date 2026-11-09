@@ -14,18 +14,18 @@
 #include "ContestEffectSummary.h"
 #include "ContestTypeSummary.h"
 #include "GenerationSummary.h"
+#include "ItemMachine.h"
 #include "MoveChange.h"
+#include "MoveCombos.h"
 #include "MoveDamageClassSummary.h"
-#include "MoveDetailContestCombos.h"
-#include "MoveDetailEffectChangesInner.h"
-#include "MoveDetailEffectEntriesInner.h"
-#include "MoveDetailLearnedByPokemonInner.h"
-#include "MoveDetailMachinesInner.h"
-#include "MoveDetailStatChangesInner.h"
+#include "MoveEffectChange.h"
+#include "MoveEffectEffectText.h"
 #include "MoveFlavorText.h"
 #include "MoveMeta.h"
+#include "MoveMetaStatChange.h"
 #include "MoveName.h"
 #include "MoveTargetSummary.h"
+#include "PokemonSummary.h"
 #include "SuperContestEffectSummary.h"
 #include "TypeSummary.h"
 
@@ -56,18 +56,18 @@ public:
     void setPriority(const int& priority);
     [[nodiscard]] int getPower() const;
     void setPower(const int& power);
-    [[nodiscard]] MoveDetailContestCombos getContestCombos() const;
-    void setContestCombos(const MoveDetailContestCombos& contestCombos);
+    [[nodiscard]] MoveCombos getContestCombos() const;
+    void setContestCombos(const MoveCombos& contestCombos);
     [[nodiscard]] ContestTypeSummary getContestType() const;
     void setContestType(const ContestTypeSummary& contestType);
     [[nodiscard]] ContestEffectSummary getContestEffect() const;
     void setContestEffect(const ContestEffectSummary& contestEffect);
     [[nodiscard]] MoveDamageClassSummary getDamageClass() const;
     void setDamageClass(const MoveDamageClassSummary& damageClass);
-    [[nodiscard]] std::vector<MoveDetail_effect_entries_inner> getEffectEntries() const;
-    void setEffectEntries(const std::vector<MoveDetail_effect_entries_inner>& effectEntries);
-    [[nodiscard]] std::vector<MoveDetail_effect_changes_inner> getEffectChanges() const;
-    void setEffectChanges(const std::vector<MoveDetail_effect_changes_inner>& effectChanges);
+    [[nodiscard]] std::vector<MoveEffectEffectText> getEffectEntries() const;
+    void setEffectEntries(const std::vector<MoveEffectEffectText>& effectEntries);
+    [[nodiscard]] std::vector<MoveEffectChange> getEffectChanges() const;
+    void setEffectChanges(const std::vector<MoveEffectChange>& effectChanges);
     [[nodiscard]] GenerationSummary getGeneration() const;
     void setGeneration(const GenerationSummary& generation);
     [[nodiscard]] MoveMeta getMeta() const;
@@ -76,20 +76,20 @@ public:
     void setNames(const std::vector<MoveName>& names);
     [[nodiscard]] std::vector<MoveChange> getPastValues() const;
     void setPastValues(const std::vector<MoveChange>& pastValues);
-    [[nodiscard]] std::vector<MoveDetail_stat_changes_inner> getStatChanges() const;
-    void setStatChanges(const std::vector<MoveDetail_stat_changes_inner>& statChanges);
+    [[nodiscard]] std::vector<MoveMetaStatChange> getStatChanges() const;
+    void setStatChanges(const std::vector<MoveMetaStatChange>& statChanges);
     [[nodiscard]] SuperContestEffectSummary getSuperContestEffect() const;
     void setSuperContestEffect(const SuperContestEffectSummary& superContestEffect);
     [[nodiscard]] MoveTargetSummary getTarget() const;
     void setTarget(const MoveTargetSummary& target);
     [[nodiscard]] TypeSummary getType() const;
     void setType(const TypeSummary& type);
-    [[nodiscard]] std::vector<MoveDetail_machines_inner> getMachines() const;
-    void setMachines(const std::vector<MoveDetail_machines_inner>& machines);
+    [[nodiscard]] std::vector<ItemMachine> getMachines() const;
+    void setMachines(const std::vector<ItemMachine>& machines);
     [[nodiscard]] std::vector<MoveFlavorText> getFlavorTextEntries() const;
     void setFlavorTextEntries(const std::vector<MoveFlavorText>& flavorTextEntries);
-    [[nodiscard]] std::vector<MoveDetail_learned_by_pokemon_inner> getLearnedByPokemon() const;
-    void setLearnedByPokemon(const std::vector<MoveDetail_learned_by_pokemon_inner>& learnedByPokemon);
+    [[nodiscard]] std::vector<PokemonSummary> getLearnedByPokemon() const;
+    void setLearnedByPokemon(const std::vector<PokemonSummary>& learnedByPokemon);
 
 
     // JSON serialization using NLOHMANN INTRUSIVE macro (must be inside class to access private members)
@@ -104,23 +104,23 @@ private:
     int pp;
     int priority;
     int power;
-    MoveDetailContestCombos contestCombos;
+    MoveCombos contestCombos;
     ContestTypeSummary contestType;
     ContestEffectSummary contestEffect;
     MoveDamageClassSummary damageClass;
-    std::vector<MoveDetail_effect_entries_inner> effectEntries;
-    std::vector<MoveDetail_effect_changes_inner> effectChanges;
+    std::vector<MoveEffectEffectText> effectEntries;
+    std::vector<MoveEffectChange> effectChanges;
     GenerationSummary generation;
     MoveMeta meta;
     std::vector<MoveName> names;
     std::vector<MoveChange> pastValues;
-    std::vector<MoveDetail_stat_changes_inner> statChanges;
+    std::vector<MoveMetaStatChange> statChanges;
     SuperContestEffectSummary superContestEffect;
     MoveTargetSummary target;
     TypeSummary type;
-    std::vector<MoveDetail_machines_inner> machines;
+    std::vector<ItemMachine> machines;
     std::vector<MoveFlavorText> flavorTextEntries;
-    std::vector<MoveDetail_learned_by_pokemon_inner> learnedByPokemon;
+    std::vector<PokemonSummary> learnedByPokemon;
 };
 
 

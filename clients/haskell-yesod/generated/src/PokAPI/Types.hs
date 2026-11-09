@@ -7,21 +7,18 @@ module PokAPI.Types (
   AbilityChange (..),
   AbilityChangeEffectText (..),
   AbilityDetail (..),
-  AbilityDetailPokemonInner (..),
-  AbilityDetailPokemonInnerPokemon (..),
   AbilityEffectText (..),
   AbilityFlavorText (..),
   AbilityName (..),
+  AbilityPokemonDetail (..),
   AbilitySummary (..),
   BerryDetail (..),
-  BerryDetailFlavorsInner (..),
-  BerryDetailFlavorsInnerFlavor (..),
   BerryFirmnessDetail (..),
   BerryFirmnessName (..),
   BerryFirmnessSummary (..),
+  BerryFlavorBerryMap (..),
   BerryFlavorDetail (..),
-  BerryFlavorDetailBerriesInner (..),
-  BerryFlavorDetailBerriesInnerBerry (..),
+  BerryFlavorMap (..),
   BerryFlavorName (..),
   BerryFlavorSummary (..),
   BerrySummary (..),
@@ -35,8 +32,10 @@ module PokAPI.Types (
   ContestTypeDetail (..),
   ContestTypeName (..),
   ContestTypeSummary (..),
+  CurrencyDetail (..),
+  CurrencyName (..),
+  CurrencySummary (..),
   EggGroupDetail (..),
-  EggGroupDetailPokemonSpeciesInner (..),
   EggGroupName (..),
   EggGroupSummary (..),
   EncounterConditionDetail (..),
@@ -48,18 +47,21 @@ module PokAPI.Types (
   EncounterMethodDetail (..),
   EncounterMethodName (..),
   EncounterMethodSummary (..),
+  EncounterPokemonDetail (..),
   EvolutionChainDetail (..),
-  EvolutionChainDetailChain (..),
-  EvolutionChainDetailChainEvolvesToInner (..),
-  EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner (..),
-  EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender (..),
+  EvolutionChainLink (..),
   EvolutionChainSummary (..),
+  EvolutionConditionExpression (..),
   EvolutionTriggerDetail (..),
   EvolutionTriggerName (..),
   EvolutionTriggerSummary (..),
+  EvolutionVariableDescription (..),
+  EvolutionVariableDetail (..),
+  EvolutionVariableName (..),
+  EvolutionVariableSummary (..),
   Experience (..),
   GenderDetail (..),
-  GenderDetailPokemonSpeciesDetailsInner (..),
+  GenderPokemonSpecies (..),
   GenderSummary (..),
   GenerationDetail (..),
   GenerationName (..),
@@ -75,32 +77,30 @@ module PokAPI.Types (
   ItemCategoryName (..),
   ItemCategorySummary (..),
   ItemDetail (..),
-  ItemDetailBabyTriggerFor (..),
-  ItemDetailHeldByPokemonInner (..),
-  ItemDetailHeldByPokemonInnerVersionDetailsInner (..),
-  ItemDetailMachinesInner (..),
-  ItemDetailSprites (..),
   ItemEffectText (..),
   ItemFlavorText (..),
   ItemFlingEffectDetail (..),
   ItemFlingEffectEffectText (..),
   ItemFlingEffectSummary (..),
   ItemGameIndex (..),
+  ItemMachine (..),
   ItemName (..),
   ItemPocketDetail (..),
   ItemPocketName (..),
   ItemPocketSummary (..),
+  ItemPrice (..),
+  ItemSprites (..),
   ItemSummary (..),
   LanguageDetail (..),
   LanguageName (..),
   LanguageSummary (..),
   LocationAreaDetail (..),
-  LocationAreaDetailEncounterMethodRatesInner (..),
-  LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner (..),
-  LocationAreaDetailPokemonEncountersInner (..),
-  LocationAreaDetailPokemonEncountersInnerVersionDetailsInner (..),
-  LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails (..),
+  LocationAreaEncounterDetail (..),
+  LocationAreaEncounterRate (..),
+  LocationAreaEncounterVersionDetail (..),
   LocationAreaName (..),
+  LocationAreaPokemonEncounter (..),
+  LocationAreaPokemonEncounterVersion (..),
   LocationAreaSummary (..),
   LocationDetail (..),
   LocationGameIndex (..),
@@ -112,19 +112,16 @@ module PokAPI.Types (
   MoveBattleStyleName (..),
   MoveBattleStyleSummary (..),
   MoveChange (..),
-  MoveChangeEffectEntriesInner (..),
+  MoveComboUsage (..),
+  MoveCombos (..),
   MoveDamageClassDescription (..),
   MoveDamageClassDetail (..),
   MoveDamageClassName (..),
   MoveDamageClassSummary (..),
   MoveDetail (..),
-  MoveDetailContestCombos (..),
-  MoveDetailContestCombosNormal (..),
-  MoveDetailEffectChangesInner (..),
-  MoveDetailEffectChangesInnerEffectEntriesInner (..),
-  MoveDetailMachinesInner (..),
-  MoveDetailMachinesInnerMachine (..),
-  MoveDetailStatChangesInner (..),
+  MoveEffectChange (..),
+  MoveEffectChangeEffectText (..),
+  MoveEffectEffectText (..),
   MoveFlavorText (..),
   MoveLearnMethodDescription (..),
   MoveLearnMethodDetail (..),
@@ -137,7 +134,9 @@ module PokAPI.Types (
   MoveMetaCategoryDescription (..),
   MoveMetaCategoryDetail (..),
   MoveMetaCategorySummary (..),
+  MoveMetaStatChange (..),
   MoveName (..),
+  MoveStatChange (..),
   MoveSummary (..),
   MoveTargetDescription (..),
   MoveTargetDetail (..),
@@ -145,8 +144,8 @@ module PokAPI.Types (
   MoveTargetSummary (..),
   NatureBattleStylePreference (..),
   NatureDetail (..),
-  NatureDetailPokeathlonStatChangesInner (..),
   NatureName (..),
+  NaturePokeathlonStat (..),
   NatureSummary (..),
   PaginatedAbilitySummaryList (..),
   PaginatedBerryFirmnessSummaryList (..),
@@ -155,12 +154,14 @@ module PokAPI.Types (
   PaginatedCharacteristicSummaryList (..),
   PaginatedContestEffectSummaryList (..),
   PaginatedContestTypeSummaryList (..),
+  PaginatedCurrencySummaryList (..),
   PaginatedEggGroupSummaryList (..),
   PaginatedEncounterConditionSummaryList (..),
   PaginatedEncounterConditionValueSummaryList (..),
   PaginatedEncounterMethodSummaryList (..),
   PaginatedEvolutionChainSummaryList (..),
   PaginatedEvolutionTriggerSummaryList (..),
+  PaginatedEvolutionVariableSummaryList (..),
   PaginatedGenderSummaryList (..),
   PaginatedGenerationSummaryList (..),
   PaginatedGrowthRateSummaryList (..),
@@ -197,75 +198,91 @@ module PokAPI.Types (
   PaginatedVersionGroupSummaryList (..),
   PaginatedVersionSummaryList (..),
   PalParkAreaDetail (..),
-  PalParkAreaDetailPokemonEncountersInner (..),
   PalParkAreaName (..),
   PalParkAreaSummary (..),
+  PalParkEncounter (..),
+  PokeapiMetaResponse (..),
+  PokeathlonStatAffectingNature (..),
+  PokeathlonStatAffectingNatures (..),
   PokeathlonStatDetail (..),
-  PokeathlonStatDetailAffectingNatures (..),
-  PokeathlonStatDetailAffectingNaturesDecreaseInner (..),
-  PokeathlonStatDetailAffectingNaturesIncreaseInner (..),
   PokeathlonStatName (..),
   PokeathlonStatSummary (..),
   PokedexDescription (..),
   PokedexDetail (..),
-  PokedexDetailPokemonEntriesInner (..),
   PokedexName (..),
   PokedexSummary (..),
+  PokemonAbility (..),
+  PokemonAbilityPast (..),
   PokemonColorDetail (..),
   PokemonColorName (..),
   PokemonColorSummary (..),
+  PokemonCries (..),
   PokemonDetail (..),
-  PokemonDetailAbilitiesInner (..),
-  PokemonDetailCries (..),
-  PokemonDetailHeldItems (..),
-  PokemonDetailMovesInner (..),
-  PokemonDetailMovesInnerVersionGroupDetailsInner (..),
-  PokemonDetailPastAbilitiesInner (..),
-  PokemonDetailPastTypesInner (..),
-  PokemonDetailSprites (..),
-  PokemonDetailTypesInner (..),
   PokemonDexEntry (..),
+  PokemonDexNumber (..),
+  PokemonEncounterDetailResponse (..),
+  PokemonEncounterResponse (..),
+  PokemonEncounterVersionDetailResponse (..),
+  PokemonEvolution (..),
+  PokemonEvolutionKnownMove (..),
   PokemonFormDetail (..),
-  PokemonFormDetailFormNamesInner (..),
-  PokemonFormDetailSprites (..),
+  PokemonFormFlavorText (..),
+  PokemonFormName (..),
+  PokemonFormSprites (..),
   PokemonFormSummary (..),
+  PokemonFormTriggerCondition (..),
+  PokemonFormType (..),
   PokemonGameIndex (..),
   PokemonHabitatDetail (..),
   PokemonHabitatName (..),
   PokemonHabitatSummary (..),
+  PokemonHeldItem (..),
+  PokemonHeldItemSummary (..),
+  PokemonHeldItemVersion (..),
+  PokemonMove (..),
+  PokemonMoveVersionGroup (..),
+  PokemonPastAbility (..),
+  PokemonPastStat (..),
+  PokemonPastType (..),
+  PokemonShapeAwesomeName (..),
   PokemonShapeDetail (..),
-  PokemonShapeDetailAwesomeNamesInner (..),
-  PokemonShapeDetailNamesInner (..),
+  PokemonShapeName (..),
   PokemonShapeSummary (..),
   PokemonSpeciesDescription (..),
   PokemonSpeciesDetail (..),
-  PokemonSpeciesDetailGeneraInner (..),
-  PokemonSpeciesDetailPalParkEncountersInner (..),
-  PokemonSpeciesDetailVarietiesInner (..),
   PokemonSpeciesFlavorText (..),
+  PokemonSpeciesGenus (..),
+  PokemonSpeciesName (..),
+  PokemonSpeciesPalParkEncounter (..),
   PokemonSpeciesSummary (..),
+  PokemonSpeciesVariety (..),
+  PokemonSprites (..),
+  PokemonSpritesOther (..),
+  PokemonSpritesOtherDreamWorld (..),
+  PokemonSpritesOtherHome (..),
+  PokemonSpritesOtherOfficialArtwork (..),
+  PokemonSpritesOtherShowdown (..),
   PokemonStat (..),
   PokemonSummary (..),
+  PokemonType (..),
   RegionDetail (..),
   RegionName (..),
   RegionSummary (..),
+  StatAffectingMoves (..),
+  StatAffectingNatures (..),
   StatDetail (..),
-  StatDetailAffectingMoves (..),
-  StatDetailAffectingMovesIncreaseInner (..),
-  StatDetailAffectingNatures (..),
   StatName (..),
   StatSummary (..),
   SuperContestEffectDetail (..),
   SuperContestEffectFlavorText (..),
   SuperContestEffectSummary (..),
   TypeDetail (..),
-  TypeDetailDamageRelations (..),
-  TypeDetailPastDamageRelationsInner (..),
-  TypeDetailPastDamageRelationsInnerDamageRelations (..),
-  TypeDetailPokemonInner (..),
-  TypeDetailPokemonInnerPokemon (..),
-  TypeDetailSpritesValueValue (..),
   TypeGameIndex (..),
+  TypeGameSprite (..),
+  TypeName (..),
+  TypePastRelationships (..),
+  TypePokemon (..),
+  TypeRelationships (..),
   TypeSummary (..),
   VersionDetail (..),
   VersionGroupDetail (..),
@@ -288,8 +305,8 @@ import GHC.Generics (Generic)
 
 -- | 
 data AbilityChange = AbilityChange
-  { abilityChangeVersionUnderscoregroup :: VersionGroupSummary -- ^ 
-  , abilityChangeEffectUnderscoreentries :: [AbilityChangeEffectText] -- ^ 
+  { abilityChangeVersionUnderscoregroup :: VersionGroupSummary -- ^ The version group in which the previous effect of this ability originated.
+  , abilityChangeEffectUnderscoreentries :: [AbilityChangeEffectText] -- ^ The previous effect of this ability listed in different languages.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON AbilityChange where
@@ -312,8 +329,8 @@ optionsAbilityChange =
 
 -- | 
 data AbilityChangeEffectText = AbilityChangeEffectText
-  { abilityChangeEffectTextEffect :: Text -- ^ 
-  , abilityChangeEffectTextLanguage :: LanguageSummary -- ^ 
+  { abilityChangeEffectTextEffect :: Text -- ^ The localized effect text for an API resource in a specific language.
+  , abilityChangeEffectTextLanguage :: LanguageSummary -- ^ The language this effect is in.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON AbilityChangeEffectText where
@@ -336,15 +353,15 @@ optionsAbilityChangeEffectText =
 
 -- | 
 data AbilityDetail = AbilityDetail
-  { abilityDetailId :: Int -- ^ 
-  , abilityDetailName :: Text -- ^ 
-  , abilityDetailIsUnderscoremainUnderscoreseries :: Maybe Bool -- ^ 
-  , abilityDetailGeneration :: GenerationSummary -- ^ 
-  , abilityDetailNames :: [AbilityName] -- ^ 
-  , abilityDetailEffectUnderscoreentries :: [AbilityEffectText] -- ^ 
-  , abilityDetailEffectUnderscorechanges :: [AbilityChange] -- ^ 
-  , abilityDetailFlavorUnderscoretextUnderscoreentries :: [AbilityFlavorText] -- ^ 
-  , abilityDetailPokemon :: [AbilityDetailPokemonInner] -- ^ 
+  { abilityDetailId :: Int -- ^ The identifier for this resource.
+  , abilityDetailName :: Text -- ^ The name for this resource.
+  , abilityDetailIsUnderscoremainUnderscoreseries :: Maybe Bool -- ^ Whether or not this ability originated in the main series of the video games.
+  , abilityDetailGeneration :: GenerationSummary -- ^ The generation this ability originated in.
+  , abilityDetailNames :: [AbilityName] -- ^ The name of this resource listed in different languages.
+  , abilityDetailEffectUnderscoreentries :: [AbilityEffectText] -- ^ The effect of this ability listed in different languages.
+  , abilityDetailEffectUnderscorechanges :: [AbilityChange] -- ^ The list of previous effects this ability has had across version groups.
+  , abilityDetailFlavorUnderscoretextUnderscoreentries :: [AbilityFlavorText] -- ^ The flavor text of this ability listed in different languages.
+  , abilityDetailPokemon :: [AbilityPokemonDetail] -- ^ A list of Pokémon that could potentially have this ability.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON AbilityDetail where
@@ -373,60 +390,10 @@ optionsAbilityDetail =
 
 
 -- | 
-data AbilityDetailPokemonInner = AbilityDetailPokemonInner
-  { abilityDetailPokemonInnerIsUnderscorehidden :: Bool -- ^ 
-  , abilityDetailPokemonInnerSlot :: Int -- ^ 
-  , abilityDetailPokemonInnerPokemon :: AbilityDetailPokemonInnerPokemon -- ^ 
-  } deriving (Show, Eq, Generic)
-
-instance FromJSON AbilityDetailPokemonInner where
-  parseJSON = genericParseJSON optionsAbilityDetailPokemonInner
-instance ToJSON AbilityDetailPokemonInner where
-  toJSON = genericToJSON optionsAbilityDetailPokemonInner
-
-optionsAbilityDetailPokemonInner :: Options
-optionsAbilityDetailPokemonInner =
-  defaultOptions
-    { omitNothingFields  = True
-    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
-    }
-  where
-    table =
-      [ ("abilityDetailPokemonInnerIsUnderscorehidden", "is_hidden")
-      , ("abilityDetailPokemonInnerSlot", "slot")
-      , ("abilityDetailPokemonInnerPokemon", "pokemon")
-      ]
-
-
--- | 
-data AbilityDetailPokemonInnerPokemon = AbilityDetailPokemonInnerPokemon
-  { abilityDetailPokemonInnerPokemonName :: Text -- ^ 
-  , abilityDetailPokemonInnerPokemonUrl :: Text -- ^ 
-  } deriving (Show, Eq, Generic)
-
-instance FromJSON AbilityDetailPokemonInnerPokemon where
-  parseJSON = genericParseJSON optionsAbilityDetailPokemonInnerPokemon
-instance ToJSON AbilityDetailPokemonInnerPokemon where
-  toJSON = genericToJSON optionsAbilityDetailPokemonInnerPokemon
-
-optionsAbilityDetailPokemonInnerPokemon :: Options
-optionsAbilityDetailPokemonInnerPokemon =
-  defaultOptions
-    { omitNothingFields  = True
-    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
-    }
-  where
-    table =
-      [ ("abilityDetailPokemonInnerPokemonName", "name")
-      , ("abilityDetailPokemonInnerPokemonUrl", "url")
-      ]
-
-
--- | 
 data AbilityEffectText = AbilityEffectText
-  { abilityEffectTextEffect :: Text -- ^ 
-  , abilityEffectTextShortUnderscoreeffect :: Text -- ^ 
-  , abilityEffectTextLanguage :: LanguageSummary -- ^ 
+  { abilityEffectTextEffect :: Text -- ^ The localized effect text for an API resource in a specific language.
+  , abilityEffectTextShortUnderscoreeffect :: Text -- ^ The localized effect text in brief.
+  , abilityEffectTextLanguage :: LanguageSummary -- ^ The language this effect is in.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON AbilityEffectText where
@@ -450,9 +417,9 @@ optionsAbilityEffectText =
 
 -- | 
 data AbilityFlavorText = AbilityFlavorText
-  { abilityFlavorTextFlavorUnderscoretext :: Text -- ^ 
-  , abilityFlavorTextLanguage :: LanguageSummary -- ^ 
-  , abilityFlavorTextVersionUnderscoregroup :: VersionGroupSummary -- ^ 
+  { abilityFlavorTextFlavorUnderscoretext :: Text -- ^ The localized name for an API resource in a specific language.
+  , abilityFlavorTextLanguage :: LanguageSummary -- ^ The language this text resource is in.
+  , abilityFlavorTextVersionUnderscoregroup :: VersionGroupSummary -- ^ The version group that uses this flavor text.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON AbilityFlavorText where
@@ -476,8 +443,8 @@ optionsAbilityFlavorText =
 
 -- | 
 data AbilityName = AbilityName
-  { abilityNameName :: Text -- ^ 
-  , abilityNameLanguage :: LanguageSummary -- ^ 
+  { abilityNameName :: Text -- ^ The localized name for an API resource in a specific language.
+  , abilityNameLanguage :: LanguageSummary -- ^ The language this name is in.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON AbilityName where
@@ -499,9 +466,35 @@ optionsAbilityName =
 
 
 -- | 
+data AbilityPokemonDetail = AbilityPokemonDetail
+  { abilityPokemonDetailIsUnderscorehidden :: Maybe Bool -- ^ Whether or not this a hidden ability for the referenced Pokémon.
+  , abilityPokemonDetailSlot :: Int -- ^ Pokémon have 3 ability 'slots' which hold references to possible abilities they could have. This is the slot of this ability for the referenced pokemon.
+  , abilityPokemonDetailPokemon :: PokemonSummary -- ^ The Pokémon this ability could belong to.
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON AbilityPokemonDetail where
+  parseJSON = genericParseJSON optionsAbilityPokemonDetail
+instance ToJSON AbilityPokemonDetail where
+  toJSON = genericToJSON optionsAbilityPokemonDetail
+
+optionsAbilityPokemonDetail :: Options
+optionsAbilityPokemonDetail =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ ("abilityPokemonDetailIsUnderscorehidden", "is_hidden")
+      , ("abilityPokemonDetailSlot", "slot")
+      , ("abilityPokemonDetailPokemon", "pokemon")
+      ]
+
+
+-- | 
 data AbilitySummary = AbilitySummary
-  { abilitySummaryName :: Text -- ^ 
-  , abilitySummaryUrl :: Text -- ^ 
+  { abilitySummaryName :: Text -- ^ The name of the referenced resource.
+  , abilitySummaryUrl :: Text -- ^ The URL of the referenced resource.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON AbilitySummary where
@@ -524,18 +517,18 @@ optionsAbilitySummary =
 
 -- | 
 data BerryDetail = BerryDetail
-  { berryDetailId :: Int -- ^ 
-  , berryDetailName :: Text -- ^ 
-  , berryDetailGrowthUnderscoretime :: Int -- ^ 
-  , berryDetailMaxUnderscoreharvest :: Int -- ^ 
-  , berryDetailNaturalUnderscoregiftUnderscorepower :: Int -- ^ 
-  , berryDetailSize :: Int -- ^ 
-  , berryDetailSmoothness :: Int -- ^ 
-  , berryDetailSoilUnderscoredryness :: Int -- ^ 
-  , berryDetailFirmness :: BerryFirmnessSummary -- ^ 
-  , berryDetailFlavors :: [BerryDetailFlavorsInner] -- ^ 
-  , berryDetailItem :: ItemSummary -- ^ 
-  , berryDetailNaturalUnderscoregiftUnderscoretype :: TypeSummary -- ^ 
+  { berryDetailId :: Int -- ^ The identifier for this resource.
+  , berryDetailName :: Text -- ^ The name for this resource.
+  , berryDetailGrowthUnderscoretime :: Maybe Int -- ^ Time it takes the tree to grow one stage, in hours. Berry trees go through four of these growth stages before they can be picked.
+  , berryDetailMaxUnderscoreharvest :: Maybe Int -- ^ The maximum number of these berries that can grow on one tree in Generation IV.
+  , berryDetailNaturalUnderscoregiftUnderscorepower :: Maybe Int -- ^ The power of the move \"Natural Gift\" when used with this Berry.
+  , berryDetailSize :: Maybe Int -- ^ The size of this Berry, in millimeters.
+  , berryDetailSmoothness :: Maybe Int -- ^ The smoothness of this Berry, used in making Pokéblocks or Poffins.
+  , berryDetailSoilUnderscoredryness :: Maybe Int -- ^ The speed at which this Berry dries out the soil as it grows. A higher rate means the soil dries more quickly.
+  , berryDetailFirmness :: BerryFirmnessSummary -- ^ The firmness of this berry, used in making Pokéblocks or Poffins.
+  , berryDetailFlavors :: [BerryFlavorMap] -- ^ A list of references to each flavor a berry can have and the potency of each of those flavors in regard to this berry.
+  , berryDetailItem :: ItemSummary -- ^ Berries are actually items. This is a reference to the item specific data for this berry.
+  , berryDetailNaturalUnderscoregiftUnderscoretype :: TypeSummary -- ^ The type inherited by \"Natural Gift\" when used with this Berry.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON BerryDetail where
@@ -567,59 +560,11 @@ optionsBerryDetail =
 
 
 -- | 
-data BerryDetailFlavorsInner = BerryDetailFlavorsInner
-  { berryDetailFlavorsInnerPotency :: Int -- ^ 
-  , berryDetailFlavorsInnerFlavor :: BerryDetailFlavorsInnerFlavor -- ^ 
-  } deriving (Show, Eq, Generic)
-
-instance FromJSON BerryDetailFlavorsInner where
-  parseJSON = genericParseJSON optionsBerryDetailFlavorsInner
-instance ToJSON BerryDetailFlavorsInner where
-  toJSON = genericToJSON optionsBerryDetailFlavorsInner
-
-optionsBerryDetailFlavorsInner :: Options
-optionsBerryDetailFlavorsInner =
-  defaultOptions
-    { omitNothingFields  = True
-    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
-    }
-  where
-    table =
-      [ ("berryDetailFlavorsInnerPotency", "potency")
-      , ("berryDetailFlavorsInnerFlavor", "flavor")
-      ]
-
-
--- | 
-data BerryDetailFlavorsInnerFlavor = BerryDetailFlavorsInnerFlavor
-  { berryDetailFlavorsInnerFlavorName :: Maybe Text -- ^ The name of the flavor
-  , berryDetailFlavorsInnerFlavorUrl :: Maybe Text -- ^ The URL to get more information about the flavor
-  } deriving (Show, Eq, Generic)
-
-instance FromJSON BerryDetailFlavorsInnerFlavor where
-  parseJSON = genericParseJSON optionsBerryDetailFlavorsInnerFlavor
-instance ToJSON BerryDetailFlavorsInnerFlavor where
-  toJSON = genericToJSON optionsBerryDetailFlavorsInnerFlavor
-
-optionsBerryDetailFlavorsInnerFlavor :: Options
-optionsBerryDetailFlavorsInnerFlavor =
-  defaultOptions
-    { omitNothingFields  = True
-    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
-    }
-  where
-    table =
-      [ ("berryDetailFlavorsInnerFlavorName", "name")
-      , ("berryDetailFlavorsInnerFlavorUrl", "url")
-      ]
-
-
--- | 
 data BerryFirmnessDetail = BerryFirmnessDetail
-  { berryFirmnessDetailId :: Int -- ^ 
-  , berryFirmnessDetailName :: Text -- ^ 
-  , berryFirmnessDetailBerries :: [BerrySummary] -- ^ 
-  , berryFirmnessDetailNames :: [BerryFirmnessName] -- ^ 
+  { berryFirmnessDetailId :: Int -- ^ The identifier for this resource.
+  , berryFirmnessDetailName :: Text -- ^ The name for this resource.
+  , berryFirmnessDetailBerries :: [BerrySummary] -- ^ A list of the berries with this firmness.
+  , berryFirmnessDetailNames :: [BerryFirmnessName] -- ^ The name of this resource listed in different languages.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON BerryFirmnessDetail where
@@ -644,8 +589,8 @@ optionsBerryFirmnessDetail =
 
 -- | 
 data BerryFirmnessName = BerryFirmnessName
-  { berryFirmnessNameName :: Text -- ^ 
-  , berryFirmnessNameLanguage :: LanguageSummary -- ^ 
+  { berryFirmnessNameName :: Text -- ^ The localized name for an API resource in a specific language.
+  , berryFirmnessNameLanguage :: LanguageSummary -- ^ The language this name is in.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON BerryFirmnessName where
@@ -668,8 +613,8 @@ optionsBerryFirmnessName =
 
 -- | 
 data BerryFirmnessSummary = BerryFirmnessSummary
-  { berryFirmnessSummaryName :: Text -- ^ 
-  , berryFirmnessSummaryUrl :: Text -- ^ 
+  { berryFirmnessSummaryName :: Text -- ^ The name of the referenced resource.
+  , berryFirmnessSummaryUrl :: Text -- ^ The URL of the referenced resource.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON BerryFirmnessSummary where
@@ -691,12 +636,36 @@ optionsBerryFirmnessSummary =
 
 
 -- | 
+data BerryFlavorBerryMap = BerryFlavorBerryMap
+  { berryFlavorBerryMapPotency :: Int -- ^ How powerful the referenced flavor is for this berry.
+  , berryFlavorBerryMapBerry :: BerrySummary -- ^ The berry with the referenced flavor.
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON BerryFlavorBerryMap where
+  parseJSON = genericParseJSON optionsBerryFlavorBerryMap
+instance ToJSON BerryFlavorBerryMap where
+  toJSON = genericToJSON optionsBerryFlavorBerryMap
+
+optionsBerryFlavorBerryMap :: Options
+optionsBerryFlavorBerryMap =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ ("berryFlavorBerryMapPotency", "potency")
+      , ("berryFlavorBerryMapBerry", "berry")
+      ]
+
+
+-- | 
 data BerryFlavorDetail = BerryFlavorDetail
-  { berryFlavorDetailId :: Int -- ^ 
-  , berryFlavorDetailName :: Text -- ^ 
-  , berryFlavorDetailBerries :: [BerryFlavorDetailBerriesInner] -- ^ 
-  , berryFlavorDetailContestUnderscoretype :: ContestTypeSummary -- ^ 
-  , berryFlavorDetailNames :: [BerryFlavorName] -- ^ 
+  { berryFlavorDetailId :: Int -- ^ The identifier for this resource.
+  , berryFlavorDetailName :: Text -- ^ The name for this resource.
+  , berryFlavorDetailBerries :: [BerryFlavorBerryMap] -- ^ A list of the berries with this flavor.
+  , berryFlavorDetailContestUnderscoretype :: ContestTypeSummary -- ^ The contest type that correlates with this berry flavor.
+  , berryFlavorDetailNames :: [BerryFlavorName] -- ^ The name of this resource listed in different languages.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON BerryFlavorDetail where
@@ -721,57 +690,33 @@ optionsBerryFlavorDetail =
 
 
 -- | 
-data BerryFlavorDetailBerriesInner = BerryFlavorDetailBerriesInner
-  { berryFlavorDetailBerriesInnerPotency :: Int -- ^ 
-  , berryFlavorDetailBerriesInnerBerry :: BerryFlavorDetailBerriesInnerBerry -- ^ 
+data BerryFlavorMap = BerryFlavorMap
+  { berryFlavorMapPotency :: Int -- ^ How powerful the referenced flavor is for this berry.
+  , berryFlavorMapFlavor :: BerryFlavorSummary -- ^ The referenced berry flavor.
   } deriving (Show, Eq, Generic)
 
-instance FromJSON BerryFlavorDetailBerriesInner where
-  parseJSON = genericParseJSON optionsBerryFlavorDetailBerriesInner
-instance ToJSON BerryFlavorDetailBerriesInner where
-  toJSON = genericToJSON optionsBerryFlavorDetailBerriesInner
+instance FromJSON BerryFlavorMap where
+  parseJSON = genericParseJSON optionsBerryFlavorMap
+instance ToJSON BerryFlavorMap where
+  toJSON = genericToJSON optionsBerryFlavorMap
 
-optionsBerryFlavorDetailBerriesInner :: Options
-optionsBerryFlavorDetailBerriesInner =
+optionsBerryFlavorMap :: Options
+optionsBerryFlavorMap =
   defaultOptions
     { omitNothingFields  = True
     , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
     }
   where
     table =
-      [ ("berryFlavorDetailBerriesInnerPotency", "potency")
-      , ("berryFlavorDetailBerriesInnerBerry", "berry")
-      ]
-
-
--- | 
-data BerryFlavorDetailBerriesInnerBerry = BerryFlavorDetailBerriesInnerBerry
-  { berryFlavorDetailBerriesInnerBerryName :: Maybe Text -- ^ The name of the berry
-  , berryFlavorDetailBerriesInnerBerryUrl :: Maybe Text -- ^ The URL to get more information about the berry
-  } deriving (Show, Eq, Generic)
-
-instance FromJSON BerryFlavorDetailBerriesInnerBerry where
-  parseJSON = genericParseJSON optionsBerryFlavorDetailBerriesInnerBerry
-instance ToJSON BerryFlavorDetailBerriesInnerBerry where
-  toJSON = genericToJSON optionsBerryFlavorDetailBerriesInnerBerry
-
-optionsBerryFlavorDetailBerriesInnerBerry :: Options
-optionsBerryFlavorDetailBerriesInnerBerry =
-  defaultOptions
-    { omitNothingFields  = True
-    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
-    }
-  where
-    table =
-      [ ("berryFlavorDetailBerriesInnerBerryName", "name")
-      , ("berryFlavorDetailBerriesInnerBerryUrl", "url")
+      [ ("berryFlavorMapPotency", "potency")
+      , ("berryFlavorMapFlavor", "flavor")
       ]
 
 
 -- | 
 data BerryFlavorName = BerryFlavorName
-  { berryFlavorNameName :: Text -- ^ 
-  , berryFlavorNameLanguage :: LanguageSummary -- ^ 
+  { berryFlavorNameName :: Text -- ^ The localized name for an API resource in a specific language.
+  , berryFlavorNameLanguage :: LanguageSummary -- ^ The language this name is in.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON BerryFlavorName where
@@ -794,8 +739,8 @@ optionsBerryFlavorName =
 
 -- | 
 data BerryFlavorSummary = BerryFlavorSummary
-  { berryFlavorSummaryName :: Text -- ^ 
-  , berryFlavorSummaryUrl :: Text -- ^ 
+  { berryFlavorSummaryName :: Text -- ^ The name of the referenced resource.
+  , berryFlavorSummaryUrl :: Text -- ^ The URL of the referenced resource.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON BerryFlavorSummary where
@@ -818,8 +763,8 @@ optionsBerryFlavorSummary =
 
 -- | 
 data BerrySummary = BerrySummary
-  { berrySummaryName :: Text -- ^ 
-  , berrySummaryUrl :: Text -- ^ 
+  { berrySummaryName :: Text -- ^ The name of the referenced resource.
+  , berrySummaryUrl :: Text -- ^ The URL of the referenced resource.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON BerrySummary where
@@ -842,8 +787,8 @@ optionsBerrySummary =
 
 -- | 
 data CharacteristicDescription = CharacteristicDescription
-  { characteristicDescriptionDescription :: Maybe Text -- ^ 
-  , characteristicDescriptionLanguage :: LanguageSummary -- ^ 
+  { characteristicDescriptionDescription :: Maybe Text -- ^ The localized description for an API resource in a specific language.
+  , characteristicDescriptionLanguage :: LanguageSummary -- ^ The language this name is in.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON CharacteristicDescription where
@@ -866,11 +811,11 @@ optionsCharacteristicDescription =
 
 -- | 
 data CharacteristicDetail = CharacteristicDetail
-  { characteristicDetailId :: Int -- ^ 
-  , characteristicDetailGeneUnderscoremodulo :: Int -- ^ 
-  , characteristicDetailPossibleUnderscorevalues :: [Int] -- ^ 
-  , characteristicDetailHighestUnderscorestat :: StatSummary -- ^ 
-  , characteristicDetailDescriptions :: [CharacteristicDescription] -- ^ 
+  { characteristicDetailId :: Int -- ^ The identifier for this resource.
+  , characteristicDetailGeneUnderscoremodulo :: Int -- ^ The remainder of the highest stat/IV divided by 5.
+  , characteristicDetailPossibleUnderscorevalues :: [Int] -- ^ The possible values of the highest stat that would result in a Pokémon recieving this characteristic when divided by 5.
+  , characteristicDetailHighestUnderscorestat :: StatSummary -- ^ The stat which results in this characteristic.
+  , characteristicDetailDescriptions :: [CharacteristicDescription] -- ^ The descriptions of this characteristic listed in different languages.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON CharacteristicDetail where
@@ -896,7 +841,7 @@ optionsCharacteristicDetail =
 
 -- | 
 data CharacteristicSummary = CharacteristicSummary
-  { characteristicSummaryUrl :: Text -- ^ 
+  { characteristicSummaryUrl :: Text -- ^ The URL of the referenced resource.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON CharacteristicSummary where
@@ -918,11 +863,11 @@ optionsCharacteristicSummary =
 
 -- | 
 data ContestEffectDetail = ContestEffectDetail
-  { contestEffectDetailId :: Int -- ^ 
-  , contestEffectDetailAppeal :: Int -- ^ 
-  , contestEffectDetailJam :: Int -- ^ 
-  , contestEffectDetailEffectUnderscoreentries :: [ContestEffectEffectText] -- ^ 
-  , contestEffectDetailFlavorUnderscoretextUnderscoreentries :: [ContestEffectFlavorText] -- ^ 
+  { contestEffectDetailId :: Int -- ^ The identifier for this resource.
+  , contestEffectDetailAppeal :: Int -- ^ The base number of hearts the user of this move gets.
+  , contestEffectDetailJam :: Int -- ^ The base number of hearts the user's opponent loses.
+  , contestEffectDetailEffectUnderscoreentries :: [ContestEffectEffectText] -- ^ The result of this contest effect listed in different languages.
+  , contestEffectDetailFlavorUnderscoretextUnderscoreentries :: [ContestEffectFlavorText] -- ^ The flavor text of this contest effect listed in different languages.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON ContestEffectDetail where
@@ -948,8 +893,8 @@ optionsContestEffectDetail =
 
 -- | 
 data ContestEffectEffectText = ContestEffectEffectText
-  { contestEffectEffectTextEffect :: Text -- ^ 
-  , contestEffectEffectTextLanguage :: LanguageSummary -- ^ 
+  { contestEffectEffectTextEffect :: Text -- ^ The localized effect text for an API resource in a specific language.
+  , contestEffectEffectTextLanguage :: LanguageSummary -- ^ The language this effect is in.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON ContestEffectEffectText where
@@ -972,8 +917,8 @@ optionsContestEffectEffectText =
 
 -- | 
 data ContestEffectFlavorText = ContestEffectFlavorText
-  { contestEffectFlavorTextFlavorUnderscoretext :: Text -- ^ 
-  , contestEffectFlavorTextLanguage :: LanguageSummary -- ^ 
+  { contestEffectFlavorTextFlavorUnderscoretext :: Text -- ^ The localized flavor text for an API resource in a specific language.
+  , contestEffectFlavorTextLanguage :: LanguageSummary -- ^ The language this name is in.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON ContestEffectFlavorText where
@@ -996,7 +941,7 @@ optionsContestEffectFlavorText =
 
 -- | 
 data ContestEffectSummary = ContestEffectSummary
-  { contestEffectSummaryUrl :: Text -- ^ 
+  { contestEffectSummaryUrl :: Text -- ^ The URL of the referenced resource.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON ContestEffectSummary where
@@ -1018,10 +963,10 @@ optionsContestEffectSummary =
 
 -- | 
 data ContestTypeDetail = ContestTypeDetail
-  { contestTypeDetailId :: Int -- ^ 
-  , contestTypeDetailName :: Text -- ^ 
-  , contestTypeDetailBerryUnderscoreflavor :: BerryFlavorSummary -- ^ 
-  , contestTypeDetailNames :: [ContestTypeName] -- ^ 
+  { contestTypeDetailId :: Int -- ^ The identifier for this resource.
+  , contestTypeDetailName :: Text -- ^ The name for this resource.
+  , contestTypeDetailBerryUnderscoreflavor :: BerryFlavorSummary -- ^ The berry flavor that correlates with this contest type.
+  , contestTypeDetailNames :: [ContestTypeName] -- ^ The name of this contest type listed in different languages.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON ContestTypeDetail where
@@ -1046,9 +991,9 @@ optionsContestTypeDetail =
 
 -- | 
 data ContestTypeName = ContestTypeName
-  { contestTypeNameName :: Text -- ^ 
-  , contestTypeNameColor :: Text -- ^ 
-  , contestTypeNameLanguage :: LanguageSummary -- ^ 
+  { contestTypeNameName :: Text -- ^ The name for this contest.
+  , contestTypeNameColor :: Text -- ^ The color associated with this contest's name.
+  , contestTypeNameLanguage :: LanguageSummary -- ^ The language that this name is in.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON ContestTypeName where
@@ -1072,8 +1017,8 @@ optionsContestTypeName =
 
 -- | 
 data ContestTypeSummary = ContestTypeSummary
-  { contestTypeSummaryName :: Text -- ^ 
-  , contestTypeSummaryUrl :: Text -- ^ 
+  { contestTypeSummaryName :: Text -- ^ The name of the referenced resource.
+  , contestTypeSummaryUrl :: Text -- ^ The URL of the referenced resource.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON ContestTypeSummary where
@@ -1095,11 +1040,85 @@ optionsContestTypeSummary =
 
 
 -- | 
+data CurrencyDetail = CurrencyDetail
+  { currencyDetailId :: Int -- ^ The identifier for this resource.
+  , currencyDetailName :: Text -- ^ The name for this resource.
+  , currencyDetailNames :: [CurrencyName] -- ^ The name of this resource listed in different languages.
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON CurrencyDetail where
+  parseJSON = genericParseJSON optionsCurrencyDetail
+instance ToJSON CurrencyDetail where
+  toJSON = genericToJSON optionsCurrencyDetail
+
+optionsCurrencyDetail :: Options
+optionsCurrencyDetail =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ ("currencyDetailId", "id")
+      , ("currencyDetailName", "name")
+      , ("currencyDetailNames", "names")
+      ]
+
+
+-- | 
+data CurrencyName = CurrencyName
+  { currencyNameName :: Text -- ^ The localized name for an API resource in a specific language.
+  , currencyNameLanguage :: LanguageSummary -- ^ The language this name is in.
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON CurrencyName where
+  parseJSON = genericParseJSON optionsCurrencyName
+instance ToJSON CurrencyName where
+  toJSON = genericToJSON optionsCurrencyName
+
+optionsCurrencyName :: Options
+optionsCurrencyName =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ ("currencyNameName", "name")
+      , ("currencyNameLanguage", "language")
+      ]
+
+
+-- | 
+data CurrencySummary = CurrencySummary
+  { currencySummaryName :: Text -- ^ The name of the referenced resource.
+  , currencySummaryUrl :: Text -- ^ The URL of the referenced resource.
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON CurrencySummary where
+  parseJSON = genericParseJSON optionsCurrencySummary
+instance ToJSON CurrencySummary where
+  toJSON = genericToJSON optionsCurrencySummary
+
+optionsCurrencySummary :: Options
+optionsCurrencySummary =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ ("currencySummaryName", "name")
+      , ("currencySummaryUrl", "url")
+      ]
+
+
+-- | 
 data EggGroupDetail = EggGroupDetail
-  { eggGroupDetailId :: Int -- ^ 
-  , eggGroupDetailName :: Text -- ^ 
-  , eggGroupDetailNames :: [EggGroupName] -- ^ 
-  , eggGroupDetailPokemonUnderscorespecies :: [EggGroupDetailPokemonSpeciesInner] -- ^ 
+  { eggGroupDetailId :: Int -- ^ The identifier for this resource.
+  , eggGroupDetailName :: Text -- ^ The name for this resource.
+  , eggGroupDetailNames :: [EggGroupName] -- ^ The name of this resource listed in different languages.
+  , eggGroupDetailPokemonUnderscorespecies :: [PokemonSpeciesSummary] -- ^ A list of all Pokémon species that are members of this egg group.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON EggGroupDetail where
@@ -1123,33 +1142,9 @@ optionsEggGroupDetail =
 
 
 -- | 
-data EggGroupDetailPokemonSpeciesInner = EggGroupDetailPokemonSpeciesInner
-  { eggGroupDetailPokemonSpeciesInnerName :: Maybe Text -- ^ Pokemon species name.
-  , eggGroupDetailPokemonSpeciesInnerUrl :: Maybe Text -- ^ The URL to get more information about the species
-  } deriving (Show, Eq, Generic)
-
-instance FromJSON EggGroupDetailPokemonSpeciesInner where
-  parseJSON = genericParseJSON optionsEggGroupDetailPokemonSpeciesInner
-instance ToJSON EggGroupDetailPokemonSpeciesInner where
-  toJSON = genericToJSON optionsEggGroupDetailPokemonSpeciesInner
-
-optionsEggGroupDetailPokemonSpeciesInner :: Options
-optionsEggGroupDetailPokemonSpeciesInner =
-  defaultOptions
-    { omitNothingFields  = True
-    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
-    }
-  where
-    table =
-      [ ("eggGroupDetailPokemonSpeciesInnerName", "name")
-      , ("eggGroupDetailPokemonSpeciesInnerUrl", "url")
-      ]
-
-
--- | 
 data EggGroupName = EggGroupName
-  { eggGroupNameName :: Text -- ^ 
-  , eggGroupNameLanguage :: LanguageSummary -- ^ 
+  { eggGroupNameName :: Text -- ^ The localized name for an API resource in a specific language.
+  , eggGroupNameLanguage :: LanguageSummary -- ^ The language this name is in.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON EggGroupName where
@@ -1172,8 +1167,8 @@ optionsEggGroupName =
 
 -- | 
 data EggGroupSummary = EggGroupSummary
-  { eggGroupSummaryName :: Text -- ^ 
-  , eggGroupSummaryUrl :: Text -- ^ 
+  { eggGroupSummaryName :: Text -- ^ The name of the referenced resource.
+  , eggGroupSummaryUrl :: Text -- ^ The URL of the referenced resource.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON EggGroupSummary where
@@ -1196,10 +1191,10 @@ optionsEggGroupSummary =
 
 -- | 
 data EncounterConditionDetail = EncounterConditionDetail
-  { encounterConditionDetailId :: Int -- ^ 
-  , encounterConditionDetailName :: Text -- ^ 
-  , encounterConditionDetailValues :: [EncounterConditionValueSummary] -- ^ 
-  , encounterConditionDetailNames :: [EncounterConditionName] -- ^ 
+  { encounterConditionDetailId :: Int -- ^ The identifier for this resource.
+  , encounterConditionDetailName :: Text -- ^ The name for this resource.
+  , encounterConditionDetailValues :: [EncounterConditionValueSummary] -- ^ A list of possible values for this encounter condition.
+  , encounterConditionDetailNames :: [EncounterConditionName] -- ^ The name of this resource listed in different languages.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON EncounterConditionDetail where
@@ -1224,8 +1219,8 @@ optionsEncounterConditionDetail =
 
 -- | 
 data EncounterConditionName = EncounterConditionName
-  { encounterConditionNameName :: Text -- ^ 
-  , encounterConditionNameLanguage :: LanguageSummary -- ^ 
+  { encounterConditionNameName :: Text -- ^ The localized name for an API resource in a specific language.
+  , encounterConditionNameLanguage :: LanguageSummary -- ^ The language this name is in.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON EncounterConditionName where
@@ -1248,8 +1243,8 @@ optionsEncounterConditionName =
 
 -- | 
 data EncounterConditionSummary = EncounterConditionSummary
-  { encounterConditionSummaryName :: Text -- ^ 
-  , encounterConditionSummaryUrl :: Text -- ^ 
+  { encounterConditionSummaryName :: Text -- ^ The name of the referenced resource.
+  , encounterConditionSummaryUrl :: Text -- ^ The URL of the referenced resource.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON EncounterConditionSummary where
@@ -1272,10 +1267,10 @@ optionsEncounterConditionSummary =
 
 -- | 
 data EncounterConditionValueDetail = EncounterConditionValueDetail
-  { encounterConditionValueDetailId :: Int -- ^ 
-  , encounterConditionValueDetailName :: Text -- ^ 
-  , encounterConditionValueDetailCondition :: EncounterConditionSummary -- ^ 
-  , encounterConditionValueDetailNames :: [EncounterConditionValueName] -- ^ 
+  { encounterConditionValueDetailId :: Int -- ^ The identifier for this resource.
+  , encounterConditionValueDetailName :: Text -- ^ The name for this resource.
+  , encounterConditionValueDetailCondition :: EncounterConditionSummary -- ^ The condition this encounter condition value pertains to.
+  , encounterConditionValueDetailNames :: [EncounterConditionValueName] -- ^ The name of this resource listed in different languages.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON EncounterConditionValueDetail where
@@ -1300,8 +1295,8 @@ optionsEncounterConditionValueDetail =
 
 -- | 
 data EncounterConditionValueName = EncounterConditionValueName
-  { encounterConditionValueNameName :: Text -- ^ 
-  , encounterConditionValueNameLanguage :: LanguageSummary -- ^ 
+  { encounterConditionValueNameName :: Text -- ^ The localized name for an API resource in a specific language.
+  , encounterConditionValueNameLanguage :: LanguageSummary -- ^ The language this name is in.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON EncounterConditionValueName where
@@ -1324,8 +1319,8 @@ optionsEncounterConditionValueName =
 
 -- | 
 data EncounterConditionValueSummary = EncounterConditionValueSummary
-  { encounterConditionValueSummaryName :: Text -- ^ 
-  , encounterConditionValueSummaryUrl :: Text -- ^ 
+  { encounterConditionValueSummaryName :: Text -- ^ The name of the referenced resource.
+  , encounterConditionValueSummaryUrl :: Text -- ^ The URL of the referenced resource.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON EncounterConditionValueSummary where
@@ -1348,10 +1343,10 @@ optionsEncounterConditionValueSummary =
 
 -- | 
 data EncounterMethodDetail = EncounterMethodDetail
-  { encounterMethodDetailId :: Int -- ^ 
-  , encounterMethodDetailName :: Text -- ^ 
-  , encounterMethodDetailOrder :: Maybe Int -- ^ 
-  , encounterMethodDetailNames :: [EncounterMethodName] -- ^ 
+  { encounterMethodDetailId :: Int -- ^ The identifier for this resource.
+  , encounterMethodDetailName :: Text -- ^ The name for this resource.
+  , encounterMethodDetailOrder :: Maybe Int -- ^ A good value for sorting.
+  , encounterMethodDetailNames :: [EncounterMethodName] -- ^ The name of this resource listed in different languages.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON EncounterMethodDetail where
@@ -1376,8 +1371,8 @@ optionsEncounterMethodDetail =
 
 -- | 
 data EncounterMethodName = EncounterMethodName
-  { encounterMethodNameName :: Text -- ^ 
-  , encounterMethodNameLanguage :: LanguageSummary -- ^ 
+  { encounterMethodNameName :: Text -- ^ The localized name for an API resource in a specific language.
+  , encounterMethodNameLanguage :: LanguageSummary -- ^ The language this name is in.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON EncounterMethodName where
@@ -1400,8 +1395,8 @@ optionsEncounterMethodName =
 
 -- | 
 data EncounterMethodSummary = EncounterMethodSummary
-  { encounterMethodSummaryName :: Text -- ^ 
-  , encounterMethodSummaryUrl :: Text -- ^ 
+  { encounterMethodSummaryName :: Text -- ^ The name of the referenced resource.
+  , encounterMethodSummaryUrl :: Text -- ^ The URL of the referenced resource.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON EncounterMethodSummary where
@@ -1423,10 +1418,38 @@ optionsEncounterMethodSummary =
 
 
 -- | 
+data EncounterPokemonDetail = EncounterPokemonDetail
+  { encounterPokemonDetailMinUnderscoreperfectUnderscoreivs :: Maybe Int -- ^ The minimum number of perfect IVs, or null if unspecified.
+  , encounterPokemonDetailAlwaysUnderscoreshiny :: Maybe Bool -- ^ Whether the encountered Pokémon is always shiny.
+  , encounterPokemonDetailNeverUnderscoreshiny :: Maybe Bool -- ^ Whether the encountered Pokémon can never be shiny.
+  , encounterPokemonDetailIsUnderscorealpha :: Maybe Bool -- ^ Whether the encountered Pokémon is an alpha Pokémon.
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON EncounterPokemonDetail where
+  parseJSON = genericParseJSON optionsEncounterPokemonDetail
+instance ToJSON EncounterPokemonDetail where
+  toJSON = genericToJSON optionsEncounterPokemonDetail
+
+optionsEncounterPokemonDetail :: Options
+optionsEncounterPokemonDetail =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ ("encounterPokemonDetailMinUnderscoreperfectUnderscoreivs", "min_perfect_ivs")
+      , ("encounterPokemonDetailAlwaysUnderscoreshiny", "always_shiny")
+      , ("encounterPokemonDetailNeverUnderscoreshiny", "never_shiny")
+      , ("encounterPokemonDetailIsUnderscorealpha", "is_alpha")
+      ]
+
+
+-- | 
 data EvolutionChainDetail = EvolutionChainDetail
-  { evolutionChainDetailId :: Int -- ^ 
-  , evolutionChainDetailBabyUnderscoretriggerUnderscoreitem :: ItemSummary -- ^ 
-  , evolutionChainDetailChain :: EvolutionChainDetailChain -- ^ 
+  { evolutionChainDetailId :: Int -- ^ The identifier for this resource.
+  , evolutionChainDetailBabyUnderscoretriggerUnderscoreitem :: ItemSummary -- ^ The item that a Pokémon would be holding when mating that would trigger the egg hatching a baby Pokémon rather than a basic Pokémon.
+  , evolutionChainDetailChain :: EvolutionChainLink -- ^ The base chain link object. Each link contains evolution details for a Pokémon in the chain. Each link references the next Pokémon in the natural evolution order.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON EvolutionChainDetail where
@@ -1449,142 +1472,36 @@ optionsEvolutionChainDetail =
 
 
 -- | 
-data EvolutionChainDetailChain = EvolutionChainDetailChain
-  { evolutionChainDetailChainEvolutionUnderscoredetails :: [Value] -- ^ 
-  , evolutionChainDetailChainEvolvesUnderscoreto :: [EvolutionChainDetailChainEvolvesToInner] -- ^ 
-  , evolutionChainDetailChainIsUnderscorebaby :: Bool -- ^ 
-  , evolutionChainDetailChainSpecies :: AbilityDetailPokemonInnerPokemon -- ^ 
+data EvolutionChainLink = EvolutionChainLink
+  { evolutionChainLinkIsUnderscorebaby :: Bool -- ^ Whether or not this link is for a baby Pokémon. This would only ever be true on the base link.
+  , evolutionChainLinkSpecies :: PokemonSpeciesSummary -- ^ The Pokémon species at this point in the evolution chain.
+  , evolutionChainLinkEvolutionUnderscoredetails :: [PokemonEvolution] -- ^ All details regarding the specific details of the referenced Pokémon species evolution.
+  , evolutionChainLinkEvolvesUnderscoreto :: [EvolutionChainLink] -- ^ A List of chain objects.
   } deriving (Show, Eq, Generic)
 
-instance FromJSON EvolutionChainDetailChain where
-  parseJSON = genericParseJSON optionsEvolutionChainDetailChain
-instance ToJSON EvolutionChainDetailChain where
-  toJSON = genericToJSON optionsEvolutionChainDetailChain
+instance FromJSON EvolutionChainLink where
+  parseJSON = genericParseJSON optionsEvolutionChainLink
+instance ToJSON EvolutionChainLink where
+  toJSON = genericToJSON optionsEvolutionChainLink
 
-optionsEvolutionChainDetailChain :: Options
-optionsEvolutionChainDetailChain =
+optionsEvolutionChainLink :: Options
+optionsEvolutionChainLink =
   defaultOptions
     { omitNothingFields  = True
     , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
     }
   where
     table =
-      [ ("evolutionChainDetailChainEvolutionUnderscoredetails", "evolution_details")
-      , ("evolutionChainDetailChainEvolvesUnderscoreto", "evolves_to")
-      , ("evolutionChainDetailChainIsUnderscorebaby", "is_baby")
-      , ("evolutionChainDetailChainSpecies", "species")
-      ]
-
-
--- | 
-data EvolutionChainDetailChainEvolvesToInner = EvolutionChainDetailChainEvolvesToInner
-  { evolutionChainDetailChainEvolvesToInnerEvolutionUnderscoredetails :: [EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner] -- ^ 
-  , evolutionChainDetailChainEvolvesToInnerIsUnderscorebaby :: Bool -- ^ 
-  , evolutionChainDetailChainEvolvesToInnerSpecies :: AbilityDetailPokemonInnerPokemon -- ^ 
-  } deriving (Show, Eq, Generic)
-
-instance FromJSON EvolutionChainDetailChainEvolvesToInner where
-  parseJSON = genericParseJSON optionsEvolutionChainDetailChainEvolvesToInner
-instance ToJSON EvolutionChainDetailChainEvolvesToInner where
-  toJSON = genericToJSON optionsEvolutionChainDetailChainEvolvesToInner
-
-optionsEvolutionChainDetailChainEvolvesToInner :: Options
-optionsEvolutionChainDetailChainEvolvesToInner =
-  defaultOptions
-    { omitNothingFields  = True
-    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
-    }
-  where
-    table =
-      [ ("evolutionChainDetailChainEvolvesToInnerEvolutionUnderscoredetails", "evolution_details")
-      , ("evolutionChainDetailChainEvolvesToInnerIsUnderscorebaby", "is_baby")
-      , ("evolutionChainDetailChainEvolvesToInnerSpecies", "species")
-      ]
-
-
--- | 
-data EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner = EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
-  { evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender :: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender -- ^ 
-  , evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerHeldUnderscoreitem :: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender -- ^ 
-  , evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerItem :: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender -- ^ 
-  , evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerKnownUnderscoremove :: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender -- ^ 
-  , evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerKnownUnderscoremoveUnderscoretype :: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender -- ^ 
-  , evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerLocation :: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender -- ^ 
-  , evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerMinUnderscoreaffection :: Int -- ^ 
-  , evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerMinUnderscorebeauty :: Int -- ^ 
-  , evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerMinUnderscorehappiness :: Int -- ^ 
-  , evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerMinUnderscorelevel :: Int -- ^ 
-  , evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerNeedsUnderscoreoverworldUnderscorerain :: Bool -- ^ 
-  , evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerPartyUnderscorespecies :: Text -- ^ 
-  , evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerPartyUnderscoretype :: Text -- ^ 
-  , evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerRelativeUnderscorephysicalUnderscorestats :: Text -- ^ 
-  , evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerTimeUnderscoreofUnderscoreday :: Text -- ^ 
-  , evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerTradeUnderscorespecies :: Text -- ^ 
-  , evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerTrigger :: AbilityDetailPokemonInnerPokemon -- ^ 
-  , evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerTurnUnderscoreupsideUnderscoredown :: Bool -- ^ 
-  } deriving (Show, Eq, Generic)
-
-instance FromJSON EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner where
-  parseJSON = genericParseJSON optionsEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
-instance ToJSON EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner where
-  toJSON = genericToJSON optionsEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
-
-optionsEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner :: Options
-optionsEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner =
-  defaultOptions
-    { omitNothingFields  = True
-    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
-    }
-  where
-    table =
-      [ ("evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender", "gender")
-      , ("evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerHeldUnderscoreitem", "held_item")
-      , ("evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerItem", "item")
-      , ("evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerKnownUnderscoremove", "known_move")
-      , ("evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerKnownUnderscoremoveUnderscoretype", "known_move_type")
-      , ("evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerLocation", "location")
-      , ("evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerMinUnderscoreaffection", "min_affection")
-      , ("evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerMinUnderscorebeauty", "min_beauty")
-      , ("evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerMinUnderscorehappiness", "min_happiness")
-      , ("evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerMinUnderscorelevel", "min_level")
-      , ("evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerNeedsUnderscoreoverworldUnderscorerain", "needs_overworld_rain")
-      , ("evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerPartyUnderscorespecies", "party_species")
-      , ("evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerPartyUnderscoretype", "party_type")
-      , ("evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerRelativeUnderscorephysicalUnderscorestats", "relative_physical_stats")
-      , ("evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerTimeUnderscoreofUnderscoreday", "time_of_day")
-      , ("evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerTradeUnderscorespecies", "trade_species")
-      , ("evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerTrigger", "trigger")
-      , ("evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerTurnUnderscoreupsideUnderscoredown", "turn_upside_down")
-      ]
-
-
--- | 
-data EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender = EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
-  { evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGenderName :: Text -- ^ 
-  , evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGenderUrl :: Text -- ^ 
-  } deriving (Show, Eq, Generic)
-
-instance FromJSON EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender where
-  parseJSON = genericParseJSON optionsEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
-instance ToJSON EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender where
-  toJSON = genericToJSON optionsEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
-
-optionsEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender :: Options
-optionsEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender =
-  defaultOptions
-    { omitNothingFields  = True
-    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
-    }
-  where
-    table =
-      [ ("evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGenderName", "name")
-      , ("evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGenderUrl", "url")
+      [ ("evolutionChainLinkIsUnderscorebaby", "is_baby")
+      , ("evolutionChainLinkSpecies", "species")
+      , ("evolutionChainLinkEvolutionUnderscoredetails", "evolution_details")
+      , ("evolutionChainLinkEvolvesUnderscoreto", "evolves_to")
       ]
 
 
 -- | 
 data EvolutionChainSummary = EvolutionChainSummary
-  { evolutionChainSummaryUrl :: Text -- ^ 
+  { evolutionChainSummaryUrl :: Text -- ^ The URL of the referenced resource.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON EvolutionChainSummary where
@@ -1605,11 +1522,37 @@ optionsEvolutionChainSummary =
 
 
 -- | 
+data EvolutionConditionExpression = EvolutionConditionExpression
+  { evolutionConditionExpressionExpression :: Text -- ^ Evaluatable RPN condition expression using evolution variables (e.g. 'EC 100 % 0 ==')
+  , evolutionConditionExpressionPercentageUnderscorechance :: Double -- ^ Percentage chance of evolution under this condition (0-100)
+  , evolutionConditionExpressionVariables :: [EvolutionVariableSummary] -- ^ Evolution variables referenced in the expression
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON EvolutionConditionExpression where
+  parseJSON = genericParseJSON optionsEvolutionConditionExpression
+instance ToJSON EvolutionConditionExpression where
+  toJSON = genericToJSON optionsEvolutionConditionExpression
+
+optionsEvolutionConditionExpression :: Options
+optionsEvolutionConditionExpression =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ ("evolutionConditionExpressionExpression", "expression")
+      , ("evolutionConditionExpressionPercentageUnderscorechance", "percentage_chance")
+      , ("evolutionConditionExpressionVariables", "variables")
+      ]
+
+
+-- | 
 data EvolutionTriggerDetail = EvolutionTriggerDetail
-  { evolutionTriggerDetailId :: Int -- ^ 
-  , evolutionTriggerDetailName :: Text -- ^ 
-  , evolutionTriggerDetailNames :: [EvolutionTriggerName] -- ^ 
-  , evolutionTriggerDetailPokemonUnderscorespecies :: [AbilityDetailPokemonInnerPokemon] -- ^ 
+  { evolutionTriggerDetailId :: Int -- ^ The identifier for this resource.
+  , evolutionTriggerDetailName :: Text -- ^ The name for this resource.
+  , evolutionTriggerDetailNames :: [EvolutionTriggerName] -- ^ The name of this resource listed in different languages.
+  , evolutionTriggerDetailPokemonUnderscorespecies :: [PokemonSpeciesSummary] -- ^ A list of pokemon species that result from this evolution trigger.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON EvolutionTriggerDetail where
@@ -1634,8 +1577,8 @@ optionsEvolutionTriggerDetail =
 
 -- | 
 data EvolutionTriggerName = EvolutionTriggerName
-  { evolutionTriggerNameName :: Text -- ^ 
-  , evolutionTriggerNameLanguage :: LanguageSummary -- ^ 
+  { evolutionTriggerNameName :: Text -- ^ The localized name for an API resource in a specific language.
+  , evolutionTriggerNameLanguage :: LanguageSummary -- ^ The language this name is in.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON EvolutionTriggerName where
@@ -1658,8 +1601,8 @@ optionsEvolutionTriggerName =
 
 -- | 
 data EvolutionTriggerSummary = EvolutionTriggerSummary
-  { evolutionTriggerSummaryName :: Text -- ^ 
-  , evolutionTriggerSummaryUrl :: Text -- ^ 
+  { evolutionTriggerSummaryName :: Text -- ^ The name of the referenced resource.
+  , evolutionTriggerSummaryUrl :: Text -- ^ The URL of the referenced resource.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON EvolutionTriggerSummary where
@@ -1681,9 +1624,117 @@ optionsEvolutionTriggerSummary =
 
 
 -- | 
+data EvolutionVariableDescription = EvolutionVariableDescription
+  { evolutionVariableDescriptionDescription :: Maybe Text -- ^ The localized description for an API resource in a specific language.
+  , evolutionVariableDescriptionLanguage :: LanguageSummary -- ^ The language this name is in.
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON EvolutionVariableDescription where
+  parseJSON = genericParseJSON optionsEvolutionVariableDescription
+instance ToJSON EvolutionVariableDescription where
+  toJSON = genericToJSON optionsEvolutionVariableDescription
+
+optionsEvolutionVariableDescription :: Options
+optionsEvolutionVariableDescription =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ ("evolutionVariableDescriptionDescription", "description")
+      , ("evolutionVariableDescriptionLanguage", "language")
+      ]
+
+
+-- | 
+data EvolutionVariableDetail = EvolutionVariableDetail
+  { evolutionVariableDetailId :: Int -- ^ The identifier for this resource.
+  , evolutionVariableDetailName :: Text -- ^ The name for this resource.
+  , evolutionVariableDetailSymbol :: Text -- ^ The symbol used for this variable in evolution condition expressions.
+  , evolutionVariableDetailDataUnderscoretype :: Maybe Text -- ^ The data type of this variable.
+  , evolutionVariableDetailSource :: Maybe Text -- ^ The source of the variable value.
+  , evolutionVariableDetailVersionUnderscoregroup :: VersionGroupSummary -- ^ The version group in which this variable was introduced.
+  , evolutionVariableDetailNames :: [EvolutionVariableName] -- ^ The name of this resource listed in different languages.
+  , evolutionVariableDetailDescriptions :: [EvolutionVariableDescription] -- ^ The description of this resource listed in different languages.
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON EvolutionVariableDetail where
+  parseJSON = genericParseJSON optionsEvolutionVariableDetail
+instance ToJSON EvolutionVariableDetail where
+  toJSON = genericToJSON optionsEvolutionVariableDetail
+
+optionsEvolutionVariableDetail :: Options
+optionsEvolutionVariableDetail =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ ("evolutionVariableDetailId", "id")
+      , ("evolutionVariableDetailName", "name")
+      , ("evolutionVariableDetailSymbol", "symbol")
+      , ("evolutionVariableDetailDataUnderscoretype", "data_type")
+      , ("evolutionVariableDetailSource", "source")
+      , ("evolutionVariableDetailVersionUnderscoregroup", "version_group")
+      , ("evolutionVariableDetailNames", "names")
+      , ("evolutionVariableDetailDescriptions", "descriptions")
+      ]
+
+
+-- | 
+data EvolutionVariableName = EvolutionVariableName
+  { evolutionVariableNameName :: Text -- ^ The localized name for an API resource in a specific language.
+  , evolutionVariableNameLanguage :: LanguageSummary -- ^ The language this name is in.
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON EvolutionVariableName where
+  parseJSON = genericParseJSON optionsEvolutionVariableName
+instance ToJSON EvolutionVariableName where
+  toJSON = genericToJSON optionsEvolutionVariableName
+
+optionsEvolutionVariableName :: Options
+optionsEvolutionVariableName =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ ("evolutionVariableNameName", "name")
+      , ("evolutionVariableNameLanguage", "language")
+      ]
+
+
+-- | 
+data EvolutionVariableSummary = EvolutionVariableSummary
+  { evolutionVariableSummaryName :: Text -- ^ The name of the referenced resource.
+  , evolutionVariableSummaryUrl :: Text -- ^ The URL of the referenced resource.
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON EvolutionVariableSummary where
+  parseJSON = genericParseJSON optionsEvolutionVariableSummary
+instance ToJSON EvolutionVariableSummary where
+  toJSON = genericToJSON optionsEvolutionVariableSummary
+
+optionsEvolutionVariableSummary :: Options
+optionsEvolutionVariableSummary =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ ("evolutionVariableSummaryName", "name")
+      , ("evolutionVariableSummaryUrl", "url")
+      ]
+
+
+-- | 
 data Experience = Experience
-  { experienceLevel :: Int -- ^ 
-  , experienceExperience :: Int -- ^ 
+  { experienceLevel :: Int -- ^ The level gained.
+  , experienceExperience :: Int -- ^ The amount of experience required to reach the referenced level.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON Experience where
@@ -1706,10 +1757,10 @@ optionsExperience =
 
 -- | 
 data GenderDetail = GenderDetail
-  { genderDetailId :: Int -- ^ 
-  , genderDetailName :: Text -- ^ 
-  , genderDetailPokemonUnderscorespeciesUnderscoredetails :: [GenderDetailPokemonSpeciesDetailsInner] -- ^ 
-  , genderDetailRequiredUnderscoreforUnderscoreevolution :: [AbilityDetailPokemonInnerPokemon] -- ^ 
+  { genderDetailId :: Int -- ^ The identifier for this resource.
+  , genderDetailName :: Text -- ^ The name for this resource.
+  , genderDetailPokemonUnderscorespeciesUnderscoredetails :: [GenderPokemonSpecies] -- ^ A list of Pokémon species that can be this gender and how likely it is that they will be.
+  , genderDetailRequiredUnderscoreforUnderscoreevolution :: [PokemonSpeciesSummary] -- ^ A list of Pokémon species that required this gender in order for a Pokémon to evolve into them.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON GenderDetail where
@@ -1733,33 +1784,33 @@ optionsGenderDetail =
 
 
 -- | 
-data GenderDetailPokemonSpeciesDetailsInner = GenderDetailPokemonSpeciesDetailsInner
-  { genderDetailPokemonSpeciesDetailsInnerRate :: Int -- ^ 
-  , genderDetailPokemonSpeciesDetailsInnerPokemonUnderscorespecies :: AbilityDetailPokemonInnerPokemon -- ^ 
+data GenderPokemonSpecies = GenderPokemonSpecies
+  { genderPokemonSpeciesRate :: Int -- ^ The chance of this Pokémon being female, in eighths; or -1 for genderless.
+  , genderPokemonSpeciesPokemonUnderscorespecies :: PokemonSpeciesSummary -- ^ A Pokémon species that can be the referenced gender.
   } deriving (Show, Eq, Generic)
 
-instance FromJSON GenderDetailPokemonSpeciesDetailsInner where
-  parseJSON = genericParseJSON optionsGenderDetailPokemonSpeciesDetailsInner
-instance ToJSON GenderDetailPokemonSpeciesDetailsInner where
-  toJSON = genericToJSON optionsGenderDetailPokemonSpeciesDetailsInner
+instance FromJSON GenderPokemonSpecies where
+  parseJSON = genericParseJSON optionsGenderPokemonSpecies
+instance ToJSON GenderPokemonSpecies where
+  toJSON = genericToJSON optionsGenderPokemonSpecies
 
-optionsGenderDetailPokemonSpeciesDetailsInner :: Options
-optionsGenderDetailPokemonSpeciesDetailsInner =
+optionsGenderPokemonSpecies :: Options
+optionsGenderPokemonSpecies =
   defaultOptions
     { omitNothingFields  = True
     , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
     }
   where
     table =
-      [ ("genderDetailPokemonSpeciesDetailsInnerRate", "rate")
-      , ("genderDetailPokemonSpeciesDetailsInnerPokemonUnderscorespecies", "pokemon_species")
+      [ ("genderPokemonSpeciesRate", "rate")
+      , ("genderPokemonSpeciesPokemonUnderscorespecies", "pokemon_species")
       ]
 
 
 -- | 
 data GenderSummary = GenderSummary
-  { genderSummaryName :: Text -- ^ 
-  , genderSummaryUrl :: Text -- ^ 
+  { genderSummaryName :: Text -- ^ The name of the referenced resource.
+  , genderSummaryUrl :: Text -- ^ The URL of the referenced resource.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON GenderSummary where
@@ -1782,15 +1833,15 @@ optionsGenderSummary =
 
 -- | 
 data GenerationDetail = GenerationDetail
-  { generationDetailId :: Int -- ^ 
-  , generationDetailName :: Text -- ^ 
-  , generationDetailAbilities :: [AbilitySummary] -- ^ 
-  , generationDetailMainUnderscoreregion :: RegionSummary -- ^ 
-  , generationDetailMoves :: [MoveSummary] -- ^ 
-  , generationDetailNames :: [GenerationName] -- ^ 
-  , generationDetailPokemonUnderscorespecies :: [PokemonSpeciesSummary] -- ^ 
-  , generationDetailTypes :: [TypeSummary] -- ^ 
-  , generationDetailVersionUnderscoregroups :: [VersionGroupSummary] -- ^ 
+  { generationDetailId :: Int -- ^ The identifier for this resource.
+  , generationDetailName :: Text -- ^ The name for this resource.
+  , generationDetailAbilities :: [AbilitySummary] -- ^ A list of abilities that were introduced in this generation.
+  , generationDetailMainUnderscoreregion :: RegionSummary -- ^ The main region travelled in this generation.
+  , generationDetailMoves :: [MoveSummary] -- ^ A list of moves that were introduced in this generation.
+  , generationDetailNames :: [GenerationName] -- ^ The name of this resource listed in different languages.
+  , generationDetailPokemonUnderscorespecies :: [PokemonSpeciesSummary] -- ^ A list of Pokémon species that were introduced in this generation.
+  , generationDetailTypes :: [TypeSummary] -- ^ A list of types that were introduced in this generation.
+  , generationDetailVersionUnderscoregroups :: [VersionGroupSummary] -- ^ A list of version groups that were introduced in this generation.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON GenerationDetail where
@@ -1820,8 +1871,8 @@ optionsGenerationDetail =
 
 -- | 
 data GenerationName = GenerationName
-  { generationNameName :: Text -- ^ 
-  , generationNameLanguage :: LanguageSummary -- ^ 
+  { generationNameName :: Text -- ^ The localized name for an API resource in a specific language.
+  , generationNameLanguage :: LanguageSummary -- ^ The language this name is in.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON GenerationName where
@@ -1844,8 +1895,8 @@ optionsGenerationName =
 
 -- | 
 data GenerationSummary = GenerationSummary
-  { generationSummaryName :: Text -- ^ 
-  , generationSummaryUrl :: Text -- ^ 
+  { generationSummaryName :: Text -- ^ The name of the referenced resource.
+  , generationSummaryUrl :: Text -- ^ The URL of the referenced resource.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON GenerationSummary where
@@ -1868,8 +1919,8 @@ optionsGenerationSummary =
 
 -- | 
 data GrowthRateDescription = GrowthRateDescription
-  { growthRateDescriptionDescription :: Maybe Text -- ^ 
-  , growthRateDescriptionLanguage :: LanguageSummary -- ^ 
+  { growthRateDescriptionDescription :: Maybe Text -- ^ The localized description for an API resource in a specific language.
+  , growthRateDescriptionLanguage :: LanguageSummary -- ^ The language this name is in.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON GrowthRateDescription where
@@ -1892,12 +1943,12 @@ optionsGrowthRateDescription =
 
 -- | 
 data GrowthRateDetail = GrowthRateDetail
-  { growthRateDetailId :: Int -- ^ 
-  , growthRateDetailName :: Text -- ^ 
-  , growthRateDetailFormula :: Text -- ^ 
-  , growthRateDetailDescriptions :: [GrowthRateDescription] -- ^ 
-  , growthRateDetailLevels :: [Experience] -- ^ 
-  , growthRateDetailPokemonUnderscorespecies :: [PokemonSpeciesSummary] -- ^ 
+  { growthRateDetailId :: Int -- ^ The identifier for this resource.
+  , growthRateDetailName :: Text -- ^ The name for this resource.
+  , growthRateDetailFormula :: Text -- ^ The formula used to calculate the rate at which the Pokémon species gains level.
+  , growthRateDetailDescriptions :: [GrowthRateDescription] -- ^ The descriptions of this characteristic listed in different languages.
+  , growthRateDetailLevels :: [Experience] -- ^ A list of levels and the amount of experienced needed to atain them based on this growth rate.
+  , growthRateDetailPokemonUnderscorespecies :: [PokemonSpeciesSummary] -- ^ A list of Pokémon species that gain levels at this growth rate.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON GrowthRateDetail where
@@ -1924,8 +1975,8 @@ optionsGrowthRateDetail =
 
 -- | 
 data GrowthRateSummary = GrowthRateSummary
-  { growthRateSummaryName :: Text -- ^ 
-  , growthRateSummaryUrl :: Text -- ^ 
+  { growthRateSummaryName :: Text -- ^ The name of the referenced resource.
+  , growthRateSummaryUrl :: Text -- ^ The URL of the referenced resource.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON GrowthRateSummary where
@@ -1948,8 +1999,8 @@ optionsGrowthRateSummary =
 
 -- | 
 data ItemAttributeDescription = ItemAttributeDescription
-  { itemAttributeDescriptionDescription :: Maybe Text -- ^ 
-  , itemAttributeDescriptionLanguage :: LanguageSummary -- ^ 
+  { itemAttributeDescriptionDescription :: Maybe Text -- ^ The localized description for an API resource in a specific language.
+  , itemAttributeDescriptionLanguage :: LanguageSummary -- ^ The language this name is in.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON ItemAttributeDescription where
@@ -1972,11 +2023,11 @@ optionsItemAttributeDescription =
 
 -- | 
 data ItemAttributeDetail = ItemAttributeDetail
-  { itemAttributeDetailId :: Int -- ^ 
-  , itemAttributeDetailName :: Text -- ^ 
-  , itemAttributeDetailDescriptions :: [ItemAttributeDescription] -- ^ 
-  , itemAttributeDetailItems :: [AbilityDetailPokemonInnerPokemon] -- ^ 
-  , itemAttributeDetailNames :: [ItemAttributeName] -- ^ 
+  { itemAttributeDetailId :: Int -- ^ The identifier for this resource.
+  , itemAttributeDetailName :: Text -- ^ The name for this resource.
+  , itemAttributeDetailDescriptions :: [ItemAttributeDescription] -- ^ The description of this item attribute listed in different languages.
+  , itemAttributeDetailItems :: [ItemSummary] -- ^ A list of items that have this attribute.
+  , itemAttributeDetailNames :: [ItemAttributeName] -- ^ The name of this item attribute listed in different languages.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON ItemAttributeDetail where
@@ -2002,8 +2053,8 @@ optionsItemAttributeDetail =
 
 -- | 
 data ItemAttributeName = ItemAttributeName
-  { itemAttributeNameName :: Text -- ^ 
-  , itemAttributeNameLanguage :: LanguageSummary -- ^ 
+  { itemAttributeNameName :: Text -- ^ The localized name for an API resource in a specific language.
+  , itemAttributeNameLanguage :: LanguageSummary -- ^ The language this name is in.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON ItemAttributeName where
@@ -2026,8 +2077,8 @@ optionsItemAttributeName =
 
 -- | 
 data ItemAttributeSummary = ItemAttributeSummary
-  { itemAttributeSummaryName :: Text -- ^ 
-  , itemAttributeSummaryUrl :: Text -- ^ 
+  { itemAttributeSummaryName :: Text -- ^ The name of the referenced resource.
+  , itemAttributeSummaryUrl :: Text -- ^ The URL of the referenced resource.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON ItemAttributeSummary where
@@ -2050,11 +2101,11 @@ optionsItemAttributeSummary =
 
 -- | 
 data ItemCategoryDetail = ItemCategoryDetail
-  { itemCategoryDetailId :: Int -- ^ 
-  , itemCategoryDetailName :: Text -- ^ 
-  , itemCategoryDetailItems :: [ItemSummary] -- ^ 
-  , itemCategoryDetailNames :: [ItemCategoryName] -- ^ 
-  , itemCategoryDetailPocket :: ItemPocketSummary -- ^ 
+  { itemCategoryDetailId :: Int -- ^ The identifier for this resource.
+  , itemCategoryDetailName :: Text -- ^ The name for this resource.
+  , itemCategoryDetailItems :: [ItemSummary] -- ^ A list of items that are a part of this category.
+  , itemCategoryDetailNames :: [ItemCategoryName] -- ^ The name of this item category listed in different languages.
+  , itemCategoryDetailPocket :: ItemPocketSummary -- ^ The pocket items in this category would be put in.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON ItemCategoryDetail where
@@ -2080,8 +2131,8 @@ optionsItemCategoryDetail =
 
 -- | 
 data ItemCategoryName = ItemCategoryName
-  { itemCategoryNameName :: Text -- ^ 
-  , itemCategoryNameLanguage :: LanguageSummary -- ^ 
+  { itemCategoryNameName :: Text -- ^ The localized name for an API resource in a specific language.
+  , itemCategoryNameLanguage :: LanguageSummary -- ^ The language this name is in.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON ItemCategoryName where
@@ -2104,8 +2155,8 @@ optionsItemCategoryName =
 
 -- | 
 data ItemCategorySummary = ItemCategorySummary
-  { itemCategorySummaryName :: Text -- ^ 
-  , itemCategorySummaryUrl :: Text -- ^ 
+  { itemCategorySummaryName :: Text -- ^ The name of the referenced resource.
+  , itemCategorySummaryUrl :: Text -- ^ The URL of the referenced resource.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON ItemCategorySummary where
@@ -2128,21 +2179,21 @@ optionsItemCategorySummary =
 
 -- | 
 data ItemDetail = ItemDetail
-  { itemDetailId :: Int -- ^ 
-  , itemDetailName :: Text -- ^ 
-  , itemDetailCost :: Maybe Int -- ^ 
-  , itemDetailFlingUnderscorepower :: Maybe Int -- ^ 
-  , itemDetailFlingUnderscoreeffect :: ItemFlingEffectSummary -- ^ 
-  , itemDetailAttributes :: [AbilityDetailPokemonInnerPokemon] -- ^ 
-  , itemDetailCategory :: ItemCategorySummary -- ^ 
-  , itemDetailEffectUnderscoreentries :: [ItemEffectText] -- ^ 
-  , itemDetailFlavorUnderscoretextUnderscoreentries :: [ItemFlavorText] -- ^ 
-  , itemDetailGameUnderscoreindices :: [ItemGameIndex] -- ^ 
-  , itemDetailNames :: [ItemName] -- ^ 
-  , itemDetailHeldUnderscorebyUnderscorepokemon :: [ItemDetailHeldByPokemonInner] -- ^ 
-  , itemDetailSprites :: ItemDetailSprites -- ^ 
-  , itemDetailBabyUnderscoretriggerUnderscorefor :: ItemDetailBabyTriggerFor -- ^ 
-  , itemDetailMachines :: [ItemDetailMachinesInner] -- ^ 
+  { itemDetailId :: Int -- ^ The identifier for this resource.
+  , itemDetailName :: Text -- ^ The name for this resource.
+  , itemDetailFlingUnderscorepower :: Maybe Int -- ^ The power of the move Fling when used with this item.
+  , itemDetailFlingUnderscoreeffect :: ItemFlingEffectSummary -- ^ The effect of the move Fling when used with this item.
+  , itemDetailAttributes :: [ItemAttributeSummary] -- ^ A list of attributes this item has.
+  , itemDetailCategory :: ItemCategorySummary -- ^ The category of items this item falls into.
+  , itemDetailEffectUnderscoreentries :: [ItemEffectText] -- ^ The effect of this ability listed in different languages.
+  , itemDetailFlavorUnderscoretextUnderscoreentries :: [ItemFlavorText] -- ^ The flavor text of this ability listed in different languages.
+  , itemDetailGameUnderscoreindices :: [ItemGameIndex] -- ^ A list of game indices relevent to this item by generation.
+  , itemDetailPrices :: [ItemPrice] -- ^ Purchase and sell prices by currency and version group. Prices may be null when the item cannot be bought or sold.
+  , itemDetailNames :: [ItemName] -- ^ The name of this item listed in different languages.
+  , itemDetailHeldUnderscorebyUnderscorepokemon :: [PokemonHeldItem] -- ^ A list of Pokémon that might be found in the wild holding this item.
+  , itemDetailSprites :: ItemSprites -- ^ A set of sprites used to depict this item in the game.
+  , itemDetailBabyUnderscoretriggerUnderscorefor :: EvolutionChainSummary -- ^ An evolution chain this item requires to produce a bay during mating.
+  , itemDetailMachines :: [ItemMachine] -- ^ A list of the machines related to this item.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON ItemDetail where
@@ -2160,7 +2211,6 @@ optionsItemDetail =
     table =
       [ ("itemDetailId", "id")
       , ("itemDetailName", "name")
-      , ("itemDetailCost", "cost")
       , ("itemDetailFlingUnderscorepower", "fling_power")
       , ("itemDetailFlingUnderscoreeffect", "fling_effect")
       , ("itemDetailAttributes", "attributes")
@@ -2168,6 +2218,7 @@ optionsItemDetail =
       , ("itemDetailEffectUnderscoreentries", "effect_entries")
       , ("itemDetailFlavorUnderscoretextUnderscoreentries", "flavor_text_entries")
       , ("itemDetailGameUnderscoreindices", "game_indices")
+      , ("itemDetailPrices", "prices")
       , ("itemDetailNames", "names")
       , ("itemDetailHeldUnderscorebyUnderscorepokemon", "held_by_pokemon")
       , ("itemDetailSprites", "sprites")
@@ -2177,126 +2228,10 @@ optionsItemDetail =
 
 
 -- | 
-data ItemDetailBabyTriggerFor = ItemDetailBabyTriggerFor
-  { itemDetailBabyTriggerForUrl :: Text -- ^ 
-  } deriving (Show, Eq, Generic)
-
-instance FromJSON ItemDetailBabyTriggerFor where
-  parseJSON = genericParseJSON optionsItemDetailBabyTriggerFor
-instance ToJSON ItemDetailBabyTriggerFor where
-  toJSON = genericToJSON optionsItemDetailBabyTriggerFor
-
-optionsItemDetailBabyTriggerFor :: Options
-optionsItemDetailBabyTriggerFor =
-  defaultOptions
-    { omitNothingFields  = True
-    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
-    }
-  where
-    table =
-      [ ("itemDetailBabyTriggerForUrl", "url")
-      ]
-
-
--- | 
-data ItemDetailHeldByPokemonInner = ItemDetailHeldByPokemonInner
-  { itemDetailHeldByPokemonInnerPokemon :: AbilityDetailPokemonInnerPokemon -- ^ 
-  , itemDetailHeldByPokemonInnerVersionDashdetails :: [ItemDetailHeldByPokemonInnerVersionDetailsInner] -- ^ 
-  } deriving (Show, Eq, Generic)
-
-instance FromJSON ItemDetailHeldByPokemonInner where
-  parseJSON = genericParseJSON optionsItemDetailHeldByPokemonInner
-instance ToJSON ItemDetailHeldByPokemonInner where
-  toJSON = genericToJSON optionsItemDetailHeldByPokemonInner
-
-optionsItemDetailHeldByPokemonInner :: Options
-optionsItemDetailHeldByPokemonInner =
-  defaultOptions
-    { omitNothingFields  = True
-    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
-    }
-  where
-    table =
-      [ ("itemDetailHeldByPokemonInnerPokemon", "pokemon")
-      , ("itemDetailHeldByPokemonInnerVersionDashdetails", "version-details")
-      ]
-
-
--- | 
-data ItemDetailHeldByPokemonInnerVersionDetailsInner = ItemDetailHeldByPokemonInnerVersionDetailsInner
-  { itemDetailHeldByPokemonInnerVersionDetailsInnerRarity :: Int -- ^ 
-  , itemDetailHeldByPokemonInnerVersionDetailsInnerVersion :: AbilityDetailPokemonInnerPokemon -- ^ 
-  } deriving (Show, Eq, Generic)
-
-instance FromJSON ItemDetailHeldByPokemonInnerVersionDetailsInner where
-  parseJSON = genericParseJSON optionsItemDetailHeldByPokemonInnerVersionDetailsInner
-instance ToJSON ItemDetailHeldByPokemonInnerVersionDetailsInner where
-  toJSON = genericToJSON optionsItemDetailHeldByPokemonInnerVersionDetailsInner
-
-optionsItemDetailHeldByPokemonInnerVersionDetailsInner :: Options
-optionsItemDetailHeldByPokemonInnerVersionDetailsInner =
-  defaultOptions
-    { omitNothingFields  = True
-    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
-    }
-  where
-    table =
-      [ ("itemDetailHeldByPokemonInnerVersionDetailsInnerRarity", "rarity")
-      , ("itemDetailHeldByPokemonInnerVersionDetailsInnerVersion", "version")
-      ]
-
-
--- | 
-data ItemDetailMachinesInner = ItemDetailMachinesInner
-  { itemDetailMachinesInnerMachine :: Text -- ^ 
-  , itemDetailMachinesInnerVersionUnderscoregroup :: AbilityDetailPokemonInnerPokemon -- ^ 
-  } deriving (Show, Eq, Generic)
-
-instance FromJSON ItemDetailMachinesInner where
-  parseJSON = genericParseJSON optionsItemDetailMachinesInner
-instance ToJSON ItemDetailMachinesInner where
-  toJSON = genericToJSON optionsItemDetailMachinesInner
-
-optionsItemDetailMachinesInner :: Options
-optionsItemDetailMachinesInner =
-  defaultOptions
-    { omitNothingFields  = True
-    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
-    }
-  where
-    table =
-      [ ("itemDetailMachinesInnerMachine", "machine")
-      , ("itemDetailMachinesInnerVersionUnderscoregroup", "version_group")
-      ]
-
-
--- | 
-data ItemDetailSprites = ItemDetailSprites
-  { itemDetailSpritesDefault :: Text -- ^ 
-  } deriving (Show, Eq, Generic)
-
-instance FromJSON ItemDetailSprites where
-  parseJSON = genericParseJSON optionsItemDetailSprites
-instance ToJSON ItemDetailSprites where
-  toJSON = genericToJSON optionsItemDetailSprites
-
-optionsItemDetailSprites :: Options
-optionsItemDetailSprites =
-  defaultOptions
-    { omitNothingFields  = True
-    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
-    }
-  where
-    table =
-      [ ("itemDetailSpritesDefault", "default")
-      ]
-
-
--- | 
 data ItemEffectText = ItemEffectText
-  { itemEffectTextEffect :: Text -- ^ 
-  , itemEffectTextShortUnderscoreeffect :: Text -- ^ 
-  , itemEffectTextLanguage :: LanguageSummary -- ^ 
+  { itemEffectTextEffect :: Text -- ^ The localized effect text for an API resource in a specific language.
+  , itemEffectTextShortUnderscoreeffect :: Text -- ^ The localized effect text in brief.
+  , itemEffectTextLanguage :: LanguageSummary -- ^ The language this effect is in.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON ItemEffectText where
@@ -2320,9 +2255,9 @@ optionsItemEffectText =
 
 -- | 
 data ItemFlavorText = ItemFlavorText
-  { itemFlavorTextText :: Text -- ^ 
-  , itemFlavorTextVersionUnderscoregroup :: VersionGroupSummary -- ^ 
-  , itemFlavorTextLanguage :: LanguageSummary -- ^ 
+  { itemFlavorTextText :: Text -- ^ The localized flavor text for an API resource in a specific language.
+  , itemFlavorTextVersionUnderscoregroup :: VersionGroupSummary -- ^ The version group which uses this flavor text.
+  , itemFlavorTextLanguage :: LanguageSummary -- ^ The language this name is in.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON ItemFlavorText where
@@ -2346,10 +2281,10 @@ optionsItemFlavorText =
 
 -- | 
 data ItemFlingEffectDetail = ItemFlingEffectDetail
-  { itemFlingEffectDetailId :: Int -- ^ 
-  , itemFlingEffectDetailName :: Text -- ^ 
-  , itemFlingEffectDetailEffectUnderscoreentries :: [ItemFlingEffectEffectText] -- ^ 
-  , itemFlingEffectDetailItems :: [ItemSummary] -- ^ 
+  { itemFlingEffectDetailId :: Int -- ^ The identifier for this resource.
+  , itemFlingEffectDetailName :: Text -- ^ The name for this resource.
+  , itemFlingEffectDetailEffectUnderscoreentries :: [ItemFlingEffectEffectText] -- ^ The result of this fling effect listed in different languages.
+  , itemFlingEffectDetailItems :: [ItemSummary] -- ^ A list of items that have this fling effect.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON ItemFlingEffectDetail where
@@ -2374,8 +2309,8 @@ optionsItemFlingEffectDetail =
 
 -- | 
 data ItemFlingEffectEffectText = ItemFlingEffectEffectText
-  { itemFlingEffectEffectTextEffect :: Text -- ^ 
-  , itemFlingEffectEffectTextLanguage :: LanguageSummary -- ^ 
+  { itemFlingEffectEffectTextEffect :: Text -- ^ The localized effect text for an API resource in a specific language.
+  , itemFlingEffectEffectTextLanguage :: LanguageSummary -- ^ The language this effect is in.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON ItemFlingEffectEffectText where
@@ -2398,8 +2333,8 @@ optionsItemFlingEffectEffectText =
 
 -- | 
 data ItemFlingEffectSummary = ItemFlingEffectSummary
-  { itemFlingEffectSummaryName :: Text -- ^ 
-  , itemFlingEffectSummaryUrl :: Text -- ^ 
+  { itemFlingEffectSummaryName :: Text -- ^ The name of the referenced resource.
+  , itemFlingEffectSummaryUrl :: Text -- ^ The URL of the referenced resource.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON ItemFlingEffectSummary where
@@ -2422,8 +2357,8 @@ optionsItemFlingEffectSummary =
 
 -- | 
 data ItemGameIndex = ItemGameIndex
-  { itemGameIndexGameUnderscoreindex :: Int -- ^ 
-  , itemGameIndexGeneration :: GenerationSummary -- ^ 
+  { itemGameIndexGameUnderscoreindex :: Int -- ^ The internal id of an API resource within game data.
+  , itemGameIndexGeneration :: GenerationSummary -- ^ The generation relevent to this game index.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON ItemGameIndex where
@@ -2445,9 +2380,33 @@ optionsItemGameIndex =
 
 
 -- | 
+data ItemMachine = ItemMachine
+  { itemMachineMachine :: MachineSummary -- ^ The machine that teaches a move from an item.
+  , itemMachineVersionUnderscoregroup :: VersionGroupSummary -- ^ The version group of this specific machine.
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON ItemMachine where
+  parseJSON = genericParseJSON optionsItemMachine
+instance ToJSON ItemMachine where
+  toJSON = genericToJSON optionsItemMachine
+
+optionsItemMachine :: Options
+optionsItemMachine =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ ("itemMachineMachine", "machine")
+      , ("itemMachineVersionUnderscoregroup", "version_group")
+      ]
+
+
+-- | 
 data ItemName = ItemName
-  { itemNameName :: Text -- ^ 
-  , itemNameLanguage :: LanguageSummary -- ^ 
+  { itemNameName :: Text -- ^ The localized name for an API resource in a specific language.
+  , itemNameLanguage :: LanguageSummary -- ^ The language this name is in.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON ItemName where
@@ -2470,10 +2429,10 @@ optionsItemName =
 
 -- | 
 data ItemPocketDetail = ItemPocketDetail
-  { itemPocketDetailId :: Int -- ^ 
-  , itemPocketDetailName :: Text -- ^ 
-  , itemPocketDetailCategories :: [ItemCategorySummary] -- ^ 
-  , itemPocketDetailNames :: [ItemPocketName] -- ^ 
+  { itemPocketDetailId :: Int -- ^ The identifier for this resource.
+  , itemPocketDetailName :: Text -- ^ The name for this resource.
+  , itemPocketDetailCategories :: [ItemCategorySummary] -- ^ A list of item categories that are relevant to this item pocket.
+  , itemPocketDetailNames :: [ItemPocketName] -- ^ The name of this resource listed in different languages.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON ItemPocketDetail where
@@ -2498,8 +2457,8 @@ optionsItemPocketDetail =
 
 -- | 
 data ItemPocketName = ItemPocketName
-  { itemPocketNameName :: Text -- ^ 
-  , itemPocketNameLanguage :: LanguageSummary -- ^ 
+  { itemPocketNameName :: Text -- ^ The localized name for an API resource in a specific language.
+  , itemPocketNameLanguage :: LanguageSummary -- ^ The language this name is in.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON ItemPocketName where
@@ -2522,8 +2481,8 @@ optionsItemPocketName =
 
 -- | 
 data ItemPocketSummary = ItemPocketSummary
-  { itemPocketSummaryName :: Text -- ^ 
-  , itemPocketSummaryUrl :: Text -- ^ 
+  { itemPocketSummaryName :: Text -- ^ The name of the referenced resource.
+  , itemPocketSummaryUrl :: Text -- ^ The URL of the referenced resource.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON ItemPocketSummary where
@@ -2545,9 +2504,59 @@ optionsItemPocketSummary =
 
 
 -- | 
+data ItemPrice = ItemPrice
+  { itemPricePurchaseUnderscoreprice :: Maybe Int -- ^ The purchase price in this currency and version group, or null if unavailable.
+  , itemPriceSellUnderscoreprice :: Maybe Int -- ^ The sell price in this currency and version group, or null if unavailable.
+  , itemPriceCurrency :: CurrencySummary -- ^ The currency used for this price.
+  , itemPriceVersionUnderscoregroup :: VersionGroupSummary -- ^ The version group to which this price applies.
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON ItemPrice where
+  parseJSON = genericParseJSON optionsItemPrice
+instance ToJSON ItemPrice where
+  toJSON = genericToJSON optionsItemPrice
+
+optionsItemPrice :: Options
+optionsItemPrice =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ ("itemPricePurchaseUnderscoreprice", "purchase_price")
+      , ("itemPriceSellUnderscoreprice", "sell_price")
+      , ("itemPriceCurrency", "currency")
+      , ("itemPriceVersionUnderscoregroup", "version_group")
+      ]
+
+
+-- | 
+data ItemSprites = ItemSprites
+  { itemSpritesDefault :: Text -- ^ The default depiction of this item.
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON ItemSprites where
+  parseJSON = genericParseJSON optionsItemSprites
+instance ToJSON ItemSprites where
+  toJSON = genericToJSON optionsItemSprites
+
+optionsItemSprites :: Options
+optionsItemSprites =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ ("itemSpritesDefault", "default")
+      ]
+
+
+-- | 
 data ItemSummary = ItemSummary
-  { itemSummaryName :: Text -- ^ 
-  , itemSummaryUrl :: Text -- ^ 
+  { itemSummaryName :: Text -- ^ The name of the referenced resource.
+  , itemSummaryUrl :: Text -- ^ The URL of the referenced resource.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON ItemSummary where
@@ -2570,12 +2579,12 @@ optionsItemSummary =
 
 -- | 
 data LanguageDetail = LanguageDetail
-  { languageDetailId :: Int -- ^ 
-  , languageDetailName :: Text -- ^ 
-  , languageDetailOfficial :: Maybe Bool -- ^ 
-  , languageDetailIso639 :: Text -- ^ 
-  , languageDetailIso3166 :: Text -- ^ 
-  , languageDetailNames :: [LanguageName] -- ^ 
+  { languageDetailId :: Int -- ^ The identifier for this resource.
+  , languageDetailName :: Text -- ^ The name for this resource.
+  , languageDetailOfficial :: Maybe Bool -- ^ Whether or not the games are published in this language.
+  , languageDetailIso639 :: Text -- ^ The two-letter ISO 639-1 language code. Multiple PokéAPI language records may share this code.
+  , languageDetailIso3166 :: Text -- ^ The two-letter ISO 3166-1 alpha-2 code of the country or region associated with this language record. Multiple PokéAPI language records may share this code.
+  , languageDetailNames :: [LanguageName] -- ^ The name of this resource listed in different languages.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON LanguageDetail where
@@ -2602,8 +2611,8 @@ optionsLanguageDetail =
 
 -- | 
 data LanguageName = LanguageName
-  { languageNameName :: Text -- ^ 
-  , languageNameLanguage :: LanguageSummary -- ^ 
+  { languageNameName :: Text -- ^ The localized name for an API resource in a specific language.
+  , languageNameLanguage :: LanguageSummary -- ^ The language this name is in.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON LanguageName where
@@ -2626,8 +2635,8 @@ optionsLanguageName =
 
 -- | 
 data LanguageSummary = LanguageSummary
-  { languageSummaryName :: Text -- ^ 
-  , languageSummaryUrl :: Text -- ^ 
+  { languageSummaryName :: Text -- ^ The name of the referenced resource.
+  , languageSummaryUrl :: Text -- ^ The URL of the referenced resource.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON LanguageSummary where
@@ -2650,13 +2659,13 @@ optionsLanguageSummary =
 
 -- | 
 data LocationAreaDetail = LocationAreaDetail
-  { locationAreaDetailId :: Int -- ^ 
-  , locationAreaDetailName :: Text -- ^ 
-  , locationAreaDetailGameUnderscoreindex :: Int -- ^ 
-  , locationAreaDetailEncounterUnderscoremethodUnderscorerates :: [LocationAreaDetailEncounterMethodRatesInner] -- ^ 
-  , locationAreaDetailLocation :: LocationSummary -- ^ 
-  , locationAreaDetailNames :: [LocationAreaName] -- ^ 
-  , locationAreaDetailPokemonUnderscoreencounters :: [LocationAreaDetailPokemonEncountersInner] -- ^ 
+  { locationAreaDetailId :: Int -- ^ The identifier for this resource.
+  , locationAreaDetailName :: Text -- ^ The name for this resource.
+  , locationAreaDetailGameUnderscoreindex :: Int -- ^ The internal id of an API resource within game data.
+  , locationAreaDetailEncounterUnderscoremethodUnderscorerates :: [LocationAreaEncounterRate] -- ^ A list of methods in which Pokémon may be encountered in this area and how likely the method will occur depending on the version of the game.
+  , locationAreaDetailLocation :: LocationSummary -- ^ The region this location area can be found in.
+  , locationAreaDetailNames :: [LocationAreaName] -- ^ The name of this resource listed in different languages.
+  , locationAreaDetailPokemonUnderscoreencounters :: [LocationAreaPokemonEncounter] -- ^ A list of Pokémon that can be encountered in this area along with version specific details about the encounter.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON LocationAreaDetail where
@@ -2683,137 +2692,89 @@ optionsLocationAreaDetail =
 
 
 -- | 
-data LocationAreaDetailEncounterMethodRatesInner = LocationAreaDetailEncounterMethodRatesInner
-  { locationAreaDetailEncounterMethodRatesInnerEncounterUnderscoremethod :: AbilityDetailPokemonInnerPokemon -- ^ 
-  , locationAreaDetailEncounterMethodRatesInnerVersionUnderscoredetails :: [LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner] -- ^ 
+data LocationAreaEncounterDetail = LocationAreaEncounterDetail
+  { locationAreaEncounterDetailMinUnderscorelevel :: Int -- ^ The lowest level the Pokémon could be encountered at.
+  , locationAreaEncounterDetailMaxUnderscorelevel :: Int -- ^ The highest level the Pokémon could be encountered at.
+  , locationAreaEncounterDetailChance :: Maybe Int -- ^ Percent chance that this encounter will occur.
+  , locationAreaEncounterDetailMethod :: Maybe EncounterMethodSummary -- ^ The method by which this encounter happens.
+  , locationAreaEncounterDetailConditionUnderscorevalues :: [EncounterConditionValueSummary] -- ^ A list of condition values that must be in effect for this encounter to occur.
+  , locationAreaEncounterDetailPokemonUnderscoredetails :: EncounterPokemonDetail -- ^ Additional properties of the encountered Pokémon, or null if unspecified.
   } deriving (Show, Eq, Generic)
 
-instance FromJSON LocationAreaDetailEncounterMethodRatesInner where
-  parseJSON = genericParseJSON optionsLocationAreaDetailEncounterMethodRatesInner
-instance ToJSON LocationAreaDetailEncounterMethodRatesInner where
-  toJSON = genericToJSON optionsLocationAreaDetailEncounterMethodRatesInner
+instance FromJSON LocationAreaEncounterDetail where
+  parseJSON = genericParseJSON optionsLocationAreaEncounterDetail
+instance ToJSON LocationAreaEncounterDetail where
+  toJSON = genericToJSON optionsLocationAreaEncounterDetail
 
-optionsLocationAreaDetailEncounterMethodRatesInner :: Options
-optionsLocationAreaDetailEncounterMethodRatesInner =
+optionsLocationAreaEncounterDetail :: Options
+optionsLocationAreaEncounterDetail =
   defaultOptions
     { omitNothingFields  = True
     , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
     }
   where
     table =
-      [ ("locationAreaDetailEncounterMethodRatesInnerEncounterUnderscoremethod", "encounter_method")
-      , ("locationAreaDetailEncounterMethodRatesInnerVersionUnderscoredetails", "version_details")
+      [ ("locationAreaEncounterDetailMinUnderscorelevel", "min_level")
+      , ("locationAreaEncounterDetailMaxUnderscorelevel", "max_level")
+      , ("locationAreaEncounterDetailChance", "chance")
+      , ("locationAreaEncounterDetailMethod", "method")
+      , ("locationAreaEncounterDetailConditionUnderscorevalues", "condition_values")
+      , ("locationAreaEncounterDetailPokemonUnderscoredetails", "pokemon_details")
       ]
 
 
 -- | 
-data LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner = LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner
-  { locationAreaDetailEncounterMethodRatesInnerVersionDetailsInnerRate :: Int -- ^ 
-  , locationAreaDetailEncounterMethodRatesInnerVersionDetailsInnerVersion :: AbilityDetailPokemonInnerPokemon -- ^ 
+data LocationAreaEncounterRate = LocationAreaEncounterRate
+  { locationAreaEncounterRateEncounterUnderscoremethod :: EncounterMethodSummary -- ^ The method in which Pokémon may be encountered in an area..
+  , locationAreaEncounterRateVersionUnderscoredetails :: [LocationAreaEncounterVersionDetail] -- ^ The chance of the encounter to occur on a version of the game.
   } deriving (Show, Eq, Generic)
 
-instance FromJSON LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner where
-  parseJSON = genericParseJSON optionsLocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner
-instance ToJSON LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner where
-  toJSON = genericToJSON optionsLocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner
+instance FromJSON LocationAreaEncounterRate where
+  parseJSON = genericParseJSON optionsLocationAreaEncounterRate
+instance ToJSON LocationAreaEncounterRate where
+  toJSON = genericToJSON optionsLocationAreaEncounterRate
 
-optionsLocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner :: Options
-optionsLocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner =
+optionsLocationAreaEncounterRate :: Options
+optionsLocationAreaEncounterRate =
   defaultOptions
     { omitNothingFields  = True
     , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
     }
   where
     table =
-      [ ("locationAreaDetailEncounterMethodRatesInnerVersionDetailsInnerRate", "rate")
-      , ("locationAreaDetailEncounterMethodRatesInnerVersionDetailsInnerVersion", "version")
+      [ ("locationAreaEncounterRateEncounterUnderscoremethod", "encounter_method")
+      , ("locationAreaEncounterRateVersionUnderscoredetails", "version_details")
       ]
 
 
 -- | 
-data LocationAreaDetailPokemonEncountersInner = LocationAreaDetailPokemonEncountersInner
-  { locationAreaDetailPokemonEncountersInnerPokemon :: AbilityDetailPokemonInnerPokemon -- ^ 
-  , locationAreaDetailPokemonEncountersInnerVersionUnderscoredetails :: [LocationAreaDetailPokemonEncountersInnerVersionDetailsInner] -- ^ 
+data LocationAreaEncounterVersionDetail = LocationAreaEncounterVersionDetail
+  { locationAreaEncounterVersionDetailRate :: Int -- ^ The chance of an encounter to occur.
+  , locationAreaEncounterVersionDetailVersion :: VersionSummary -- ^ The version of the game in which the encounter can occur with the given chance.
   } deriving (Show, Eq, Generic)
 
-instance FromJSON LocationAreaDetailPokemonEncountersInner where
-  parseJSON = genericParseJSON optionsLocationAreaDetailPokemonEncountersInner
-instance ToJSON LocationAreaDetailPokemonEncountersInner where
-  toJSON = genericToJSON optionsLocationAreaDetailPokemonEncountersInner
+instance FromJSON LocationAreaEncounterVersionDetail where
+  parseJSON = genericParseJSON optionsLocationAreaEncounterVersionDetail
+instance ToJSON LocationAreaEncounterVersionDetail where
+  toJSON = genericToJSON optionsLocationAreaEncounterVersionDetail
 
-optionsLocationAreaDetailPokemonEncountersInner :: Options
-optionsLocationAreaDetailPokemonEncountersInner =
+optionsLocationAreaEncounterVersionDetail :: Options
+optionsLocationAreaEncounterVersionDetail =
   defaultOptions
     { omitNothingFields  = True
     , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
     }
   where
     table =
-      [ ("locationAreaDetailPokemonEncountersInnerPokemon", "pokemon")
-      , ("locationAreaDetailPokemonEncountersInnerVersionUnderscoredetails", "version_details")
-      ]
-
-
--- | 
-data LocationAreaDetailPokemonEncountersInnerVersionDetailsInner = LocationAreaDetailPokemonEncountersInnerVersionDetailsInner
-  { locationAreaDetailPokemonEncountersInnerVersionDetailsInnerVersion :: AbilityDetailPokemonInnerPokemon -- ^ 
-  , locationAreaDetailPokemonEncountersInnerVersionDetailsInnerMaxUnderscorechance :: Int -- ^ 
-  , locationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterUnderscoredetails :: LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails -- ^ 
-  } deriving (Show, Eq, Generic)
-
-instance FromJSON LocationAreaDetailPokemonEncountersInnerVersionDetailsInner where
-  parseJSON = genericParseJSON optionsLocationAreaDetailPokemonEncountersInnerVersionDetailsInner
-instance ToJSON LocationAreaDetailPokemonEncountersInnerVersionDetailsInner where
-  toJSON = genericToJSON optionsLocationAreaDetailPokemonEncountersInnerVersionDetailsInner
-
-optionsLocationAreaDetailPokemonEncountersInnerVersionDetailsInner :: Options
-optionsLocationAreaDetailPokemonEncountersInnerVersionDetailsInner =
-  defaultOptions
-    { omitNothingFields  = True
-    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
-    }
-  where
-    table =
-      [ ("locationAreaDetailPokemonEncountersInnerVersionDetailsInnerVersion", "version")
-      , ("locationAreaDetailPokemonEncountersInnerVersionDetailsInnerMaxUnderscorechance", "max_chance")
-      , ("locationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterUnderscoredetails", "encounter_details")
-      ]
-
-
--- | 
-data LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails = LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails
-  { locationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetailsMinUnderscorelevel :: Int -- ^ 
-  , locationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetailsMaxUnderscorelevel :: Int -- ^ 
-  , locationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetailsConditionUnderscorevalues :: Maybe AbilityDetailPokemonInnerPokemon -- ^ 
-  , locationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetailsChance :: Int -- ^ 
-  , locationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetailsMethod :: AbilityDetailPokemonInnerPokemon -- ^ 
-  } deriving (Show, Eq, Generic)
-
-instance FromJSON LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails where
-  parseJSON = genericParseJSON optionsLocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails
-instance ToJSON LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails where
-  toJSON = genericToJSON optionsLocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails
-
-optionsLocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails :: Options
-optionsLocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails =
-  defaultOptions
-    { omitNothingFields  = True
-    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
-    }
-  where
-    table =
-      [ ("locationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetailsMinUnderscorelevel", "min_level")
-      , ("locationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetailsMaxUnderscorelevel", "max_level")
-      , ("locationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetailsConditionUnderscorevalues", "condition_values")
-      , ("locationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetailsChance", "chance")
-      , ("locationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetailsMethod", "method")
+      [ ("locationAreaEncounterVersionDetailRate", "rate")
+      , ("locationAreaEncounterVersionDetailVersion", "version")
       ]
 
 
 -- | 
 data LocationAreaName = LocationAreaName
-  { locationAreaNameName :: Text -- ^ 
-  , locationAreaNameLanguage :: LanguageSummary -- ^ 
+  { locationAreaNameName :: Text -- ^ The localized name for an API resource in a specific language.
+  , locationAreaNameLanguage :: LanguageSummary -- ^ The language this name is in.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON LocationAreaName where
@@ -2835,9 +2796,59 @@ optionsLocationAreaName =
 
 
 -- | 
+data LocationAreaPokemonEncounter = LocationAreaPokemonEncounter
+  { locationAreaPokemonEncounterPokemon :: PokemonSummary -- ^ The Pokémon being encountered.
+  , locationAreaPokemonEncounterVersionUnderscoredetails :: [LocationAreaPokemonEncounterVersion] -- ^ A list of versions and encounters with Pokémon that might happen in the referenced location area.
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON LocationAreaPokemonEncounter where
+  parseJSON = genericParseJSON optionsLocationAreaPokemonEncounter
+instance ToJSON LocationAreaPokemonEncounter where
+  toJSON = genericToJSON optionsLocationAreaPokemonEncounter
+
+optionsLocationAreaPokemonEncounter :: Options
+optionsLocationAreaPokemonEncounter =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ ("locationAreaPokemonEncounterPokemon", "pokemon")
+      , ("locationAreaPokemonEncounterVersionUnderscoredetails", "version_details")
+      ]
+
+
+-- | 
+data LocationAreaPokemonEncounterVersion = LocationAreaPokemonEncounterVersion
+  { locationAreaPokemonEncounterVersionVersion :: VersionSummary -- ^ The game version this encounter happens in.
+  , locationAreaPokemonEncounterVersionMaxUnderscorechance :: Int -- ^ The total percentage of all encounter potential.
+  , locationAreaPokemonEncounterVersionEncounterUnderscoredetails :: [LocationAreaEncounterDetail] -- ^ A list of encounters and their specifics.
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON LocationAreaPokemonEncounterVersion where
+  parseJSON = genericParseJSON optionsLocationAreaPokemonEncounterVersion
+instance ToJSON LocationAreaPokemonEncounterVersion where
+  toJSON = genericToJSON optionsLocationAreaPokemonEncounterVersion
+
+optionsLocationAreaPokemonEncounterVersion :: Options
+optionsLocationAreaPokemonEncounterVersion =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ ("locationAreaPokemonEncounterVersionVersion", "version")
+      , ("locationAreaPokemonEncounterVersionMaxUnderscorechance", "max_chance")
+      , ("locationAreaPokemonEncounterVersionEncounterUnderscoredetails", "encounter_details")
+      ]
+
+
+-- | 
 data LocationAreaSummary = LocationAreaSummary
-  { locationAreaSummaryName :: Text -- ^ 
-  , locationAreaSummaryUrl :: Text -- ^ 
+  { locationAreaSummaryName :: Text -- ^ The name of the referenced resource.
+  , locationAreaSummaryUrl :: Text -- ^ The URL of the referenced resource.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON LocationAreaSummary where
@@ -2860,12 +2871,12 @@ optionsLocationAreaSummary =
 
 -- | 
 data LocationDetail = LocationDetail
-  { locationDetailId :: Int -- ^ 
-  , locationDetailName :: Text -- ^ 
-  , locationDetailRegion :: RegionSummary -- ^ 
-  , locationDetailNames :: [LocationName] -- ^ 
-  , locationDetailGameUnderscoreindices :: [LocationGameIndex] -- ^ 
-  , locationDetailAreas :: [LocationAreaSummary] -- ^ 
+  { locationDetailId :: Int -- ^ The identifier for this resource.
+  , locationDetailName :: Text -- ^ The name for this resource.
+  , locationDetailRegion :: RegionSummary -- ^ The region this location can be found in.
+  , locationDetailNames :: [LocationName] -- ^ The name of this resource listed in different languages.
+  , locationDetailGameUnderscoreindices :: [LocationGameIndex] -- ^ A list of game indices relevent to this location by generation.
+  , locationDetailAreas :: [LocationAreaSummary] -- ^ Areas that can be found within this location.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON LocationDetail where
@@ -2892,8 +2903,8 @@ optionsLocationDetail =
 
 -- | 
 data LocationGameIndex = LocationGameIndex
-  { locationGameIndexGameUnderscoreindex :: Int -- ^ 
-  , locationGameIndexGeneration :: GenerationSummary -- ^ 
+  { locationGameIndexGameUnderscoreindex :: Int -- ^ The internal id of an API resource within game data.
+  , locationGameIndexGeneration :: GenerationSummary -- ^ The generation relevent to this game index.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON LocationGameIndex where
@@ -2916,8 +2927,8 @@ optionsLocationGameIndex =
 
 -- | 
 data LocationName = LocationName
-  { locationNameName :: Text -- ^ 
-  , locationNameLanguage :: LanguageSummary -- ^ 
+  { locationNameName :: Text -- ^ The localized name for an API resource in a specific language.
+  , locationNameLanguage :: LanguageSummary -- ^ The language this name is in.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON LocationName where
@@ -2940,8 +2951,8 @@ optionsLocationName =
 
 -- | 
 data LocationSummary = LocationSummary
-  { locationSummaryName :: Text -- ^ 
-  , locationSummaryUrl :: Text -- ^ 
+  { locationSummaryName :: Text -- ^ The name of the referenced resource.
+  , locationSummaryUrl :: Text -- ^ The URL of the referenced resource.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON LocationSummary where
@@ -2964,10 +2975,10 @@ optionsLocationSummary =
 
 -- | 
 data MachineDetail = MachineDetail
-  { machineDetailId :: Int -- ^ 
-  , machineDetailItem :: ItemSummary -- ^ 
-  , machineDetailVersionUnderscoregroup :: VersionGroupSummary -- ^ 
-  , machineDetailMove :: MoveSummary -- ^ 
+  { machineDetailId :: Int -- ^ The identifier for this resource.
+  , machineDetailItem :: ItemSummary -- ^ The TM or HM item that corresponds to this machine.
+  , machineDetailVersionUnderscoregroup :: VersionGroupSummary -- ^ The version group that this machine applies to.
+  , machineDetailMove :: MoveSummary -- ^ The move that is taught by this machine.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON MachineDetail where
@@ -2992,7 +3003,7 @@ optionsMachineDetail =
 
 -- | 
 data MachineSummary = MachineSummary
-  { machineSummaryUrl :: Text -- ^ 
+  { machineSummaryUrl :: Text -- ^ The URL of the referenced resource.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON MachineSummary where
@@ -3014,9 +3025,9 @@ optionsMachineSummary =
 
 -- | 
 data MoveBattleStyleDetail = MoveBattleStyleDetail
-  { moveBattleStyleDetailId :: Int -- ^ 
-  , moveBattleStyleDetailName :: Text -- ^ 
-  , moveBattleStyleDetailNames :: [MoveBattleStyleName] -- ^ 
+  { moveBattleStyleDetailId :: Int -- ^ The identifier for this resource.
+  , moveBattleStyleDetailName :: Text -- ^ The name for this resource.
+  , moveBattleStyleDetailNames :: [MoveBattleStyleName] -- ^ The name of this resource listed in different languages.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON MoveBattleStyleDetail where
@@ -3040,8 +3051,8 @@ optionsMoveBattleStyleDetail =
 
 -- | 
 data MoveBattleStyleName = MoveBattleStyleName
-  { moveBattleStyleNameName :: Text -- ^ 
-  , moveBattleStyleNameLanguage :: LanguageSummary -- ^ 
+  { moveBattleStyleNameName :: Text -- ^ The localized name for an API resource in a specific language.
+  , moveBattleStyleNameLanguage :: LanguageSummary -- ^ The language this name is in.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON MoveBattleStyleName where
@@ -3064,8 +3075,8 @@ optionsMoveBattleStyleName =
 
 -- | 
 data MoveBattleStyleSummary = MoveBattleStyleSummary
-  { moveBattleStyleSummaryName :: Text -- ^ 
-  , moveBattleStyleSummaryUrl :: Text -- ^ 
+  { moveBattleStyleSummaryName :: Text -- ^ The name of the referenced resource.
+  , moveBattleStyleSummaryUrl :: Text -- ^ The URL of the referenced resource.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON MoveBattleStyleSummary where
@@ -3088,13 +3099,13 @@ optionsMoveBattleStyleSummary =
 
 -- | 
 data MoveChange = MoveChange
-  { moveChangeAccuracy :: Maybe Int -- ^ 
-  , moveChangePower :: Maybe Int -- ^ 
-  , moveChangePp :: Maybe Int -- ^ 
-  , moveChangeEffectUnderscorechance :: Int -- ^ 
-  , moveChangeEffectUnderscoreentries :: [MoveChangeEffectEntriesInner] -- ^ 
-  , moveChangeType :: TypeSummary -- ^ 
-  , moveChangeVersionUnderscoregroup :: VersionGroupSummary -- ^ 
+  { moveChangeAccuracy :: Maybe Int -- ^ The percent value of how likely this move is to be successful.
+  , moveChangePower :: Maybe Int -- ^ The base power before the listed version group, or null if power did not change.
+  , moveChangePp :: Maybe Int -- ^ Power points. The number of times this move can be used.
+  , moveChangeEffectUnderscorechance :: Int -- ^ The percent value of how likely it is this moves effect will take effect.
+  , moveChangeEffectUnderscoreentries :: [MoveEffectEffectText] -- ^ The effect of this move listed in different languages.
+  , moveChangeType :: TypeSummary -- ^ The elemental type of this move.
+  , moveChangeVersionUnderscoregroup :: VersionGroupSummary -- ^ The version group in which these move stat values were in effect.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON MoveChange where
@@ -3121,35 +3132,57 @@ optionsMoveChange =
 
 
 -- | 
-data MoveChangeEffectEntriesInner = MoveChangeEffectEntriesInner
-  { moveChangeEffectEntriesInnerEffect :: Text -- ^ 
-  , moveChangeEffectEntriesInnerShortUnderscoreeffect :: Text -- ^ 
-  , moveChangeEffectEntriesInnerLanguage :: AbilityDetailPokemonInnerPokemon -- ^ 
+data MoveComboUsage = MoveComboUsage
+  { moveComboUsageUseUnderscorebefore :: [MoveSummary] -- ^ A list of moves to use before this move.
+  , moveComboUsageUseUnderscoreafter :: [MoveSummary] -- ^ A list of moves to use after this move.
   } deriving (Show, Eq, Generic)
 
-instance FromJSON MoveChangeEffectEntriesInner where
-  parseJSON = genericParseJSON optionsMoveChangeEffectEntriesInner
-instance ToJSON MoveChangeEffectEntriesInner where
-  toJSON = genericToJSON optionsMoveChangeEffectEntriesInner
+instance FromJSON MoveComboUsage where
+  parseJSON = genericParseJSON optionsMoveComboUsage
+instance ToJSON MoveComboUsage where
+  toJSON = genericToJSON optionsMoveComboUsage
 
-optionsMoveChangeEffectEntriesInner :: Options
-optionsMoveChangeEffectEntriesInner =
+optionsMoveComboUsage :: Options
+optionsMoveComboUsage =
   defaultOptions
     { omitNothingFields  = True
     , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
     }
   where
     table =
-      [ ("moveChangeEffectEntriesInnerEffect", "effect")
-      , ("moveChangeEffectEntriesInnerShortUnderscoreeffect", "short_effect")
-      , ("moveChangeEffectEntriesInnerLanguage", "language")
+      [ ("moveComboUsageUseUnderscorebefore", "use_before")
+      , ("moveComboUsageUseUnderscoreafter", "use_after")
+      ]
+
+
+-- | 
+data MoveCombos = MoveCombos
+  { moveCombosNormal :: MoveComboUsage -- ^ A detail of moves this move can be used before or after, granting additional appeal points in contests.
+  , moveCombosSuper :: MoveComboUsage -- ^ A detail of moves this move can be used before or after, granting additional appeal points in super contests.
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON MoveCombos where
+  parseJSON = genericParseJSON optionsMoveCombos
+instance ToJSON MoveCombos where
+  toJSON = genericToJSON optionsMoveCombos
+
+optionsMoveCombos :: Options
+optionsMoveCombos =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ ("moveCombosNormal", "normal")
+      , ("moveCombosSuper", "super")
       ]
 
 
 -- | 
 data MoveDamageClassDescription = MoveDamageClassDescription
-  { moveDamageClassDescriptionDescription :: Maybe Text -- ^ 
-  , moveDamageClassDescriptionLanguage :: LanguageSummary -- ^ 
+  { moveDamageClassDescriptionDescription :: Maybe Text -- ^ The localized description for an API resource in a specific language.
+  , moveDamageClassDescriptionLanguage :: LanguageSummary -- ^ The language this name is in.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON MoveDamageClassDescription where
@@ -3172,11 +3205,11 @@ optionsMoveDamageClassDescription =
 
 -- | 
 data MoveDamageClassDetail = MoveDamageClassDetail
-  { moveDamageClassDetailId :: Int -- ^ 
-  , moveDamageClassDetailName :: Text -- ^ 
-  , moveDamageClassDetailDescriptions :: [MoveDamageClassDescription] -- ^ 
-  , moveDamageClassDetailMoves :: [MoveSummary] -- ^ 
-  , moveDamageClassDetailNames :: [MoveDamageClassName] -- ^ 
+  { moveDamageClassDetailId :: Int -- ^ The identifier for this resource.
+  , moveDamageClassDetailName :: Text -- ^ The name for this resource.
+  , moveDamageClassDetailDescriptions :: [MoveDamageClassDescription] -- ^ The description of this resource listed in different languages.
+  , moveDamageClassDetailMoves :: [MoveSummary] -- ^ A list of moves that fall into this damage class.
+  , moveDamageClassDetailNames :: [MoveDamageClassName] -- ^ The name of this resource listed in different languages.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON MoveDamageClassDetail where
@@ -3202,8 +3235,8 @@ optionsMoveDamageClassDetail =
 
 -- | 
 data MoveDamageClassName = MoveDamageClassName
-  { moveDamageClassNameName :: Text -- ^ 
-  , moveDamageClassNameLanguage :: LanguageSummary -- ^ 
+  { moveDamageClassNameName :: Text -- ^ The localized name for an API resource in a specific language.
+  , moveDamageClassNameLanguage :: LanguageSummary -- ^ The language this name is in.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON MoveDamageClassName where
@@ -3226,8 +3259,8 @@ optionsMoveDamageClassName =
 
 -- | 
 data MoveDamageClassSummary = MoveDamageClassSummary
-  { moveDamageClassSummaryName :: Text -- ^ 
-  , moveDamageClassSummaryUrl :: Text -- ^ 
+  { moveDamageClassSummaryName :: Text -- ^ The name of the referenced resource.
+  , moveDamageClassSummaryUrl :: Text -- ^ The URL of the referenced resource.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON MoveDamageClassSummary where
@@ -3250,30 +3283,30 @@ optionsMoveDamageClassSummary =
 
 -- | 
 data MoveDetail = MoveDetail
-  { moveDetailId :: Int -- ^ 
-  , moveDetailName :: Text -- ^ 
-  , moveDetailAccuracy :: Maybe Int -- ^ 
-  , moveDetailEffectUnderscorechance :: Int -- ^ 
-  , moveDetailPp :: Maybe Int -- ^ 
-  , moveDetailPriority :: Maybe Int -- ^ 
-  , moveDetailPower :: Maybe Int -- ^ 
-  , moveDetailContestUnderscorecombos :: MoveDetailContestCombos -- ^ 
-  , moveDetailContestUnderscoretype :: ContestTypeSummary -- ^ 
-  , moveDetailContestUnderscoreeffect :: ContestEffectSummary -- ^ 
-  , moveDetailDamageUnderscoreclass :: MoveDamageClassSummary -- ^ 
-  , moveDetailEffectUnderscoreentries :: [MoveChangeEffectEntriesInner] -- ^ 
-  , moveDetailEffectUnderscorechanges :: [MoveDetailEffectChangesInner] -- ^ 
-  , moveDetailGeneration :: GenerationSummary -- ^ 
-  , moveDetailMeta :: MoveMeta -- ^ 
-  , moveDetailNames :: [MoveName] -- ^ 
-  , moveDetailPastUnderscorevalues :: [MoveChange] -- ^ 
-  , moveDetailStatUnderscorechanges :: [MoveDetailStatChangesInner] -- ^ 
-  , moveDetailSuperUnderscorecontestUnderscoreeffect :: SuperContestEffectSummary -- ^ 
-  , moveDetailTarget :: MoveTargetSummary -- ^ 
-  , moveDetailType :: TypeSummary -- ^ 
-  , moveDetailMachines :: [MoveDetailMachinesInner] -- ^ 
-  , moveDetailFlavorUnderscoretextUnderscoreentries :: [MoveFlavorText] -- ^ 
-  , moveDetailLearnedUnderscorebyUnderscorepokemon :: [AbilityDetailPokemonInnerPokemon] -- ^ 
+  { moveDetailId :: Int -- ^ The identifier for this resource.
+  , moveDetailName :: Text -- ^ The name for this resource.
+  , moveDetailAccuracy :: Maybe Int -- ^ The percent value of how likely this move is to be successful.
+  , moveDetailEffectUnderscorechance :: Int -- ^ The percent value of how likely it is this moves effect will happen.
+  , moveDetailPp :: Maybe Int -- ^ Power points. The number of times this move can be used.
+  , moveDetailPriority :: Maybe Int -- ^ A value between -8 and 8. Sets the order in which moves are executed during battle. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Priority) for greater detail.
+  , moveDetailPower :: Maybe Int -- ^ The base power of this move, or null if it has no fixed base power.
+  , moveDetailContestUnderscorecombos :: MoveCombos -- ^ A detail of normal and super contest combos that require this move.
+  , moveDetailContestUnderscoretype :: ContestTypeSummary -- ^ The type of appeal this move gives a Pokémon when used in a contest.
+  , moveDetailContestUnderscoreeffect :: ContestEffectSummary -- ^ The effect the move has when used in a contest.
+  , moveDetailDamageUnderscoreclass :: MoveDamageClassSummary -- ^ The type of damage the move inflicts on the target, e.g. physical.
+  , moveDetailEffectUnderscoreentries :: [MoveEffectEffectText] -- ^ The effect of this move listed in different languages.
+  , moveDetailEffectUnderscorechanges :: [MoveEffectChange] -- ^ The list of previous effects this move has had across version groups of the games.
+  , moveDetailGeneration :: GenerationSummary -- ^ The generation in which this move was introduced.
+  , moveDetailMeta :: MoveMeta -- ^ Metadata about this move
+  , moveDetailNames :: [MoveName] -- ^ The name of this resource listed in different languages.
+  , moveDetailPastUnderscorevalues :: [MoveChange] -- ^ A list of move resource value changes across version groups of the game.
+  , moveDetailStatUnderscorechanges :: [MoveMetaStatChange] -- ^ A list of stats this moves effects and how much it effects them.
+  , moveDetailSuperUnderscorecontestUnderscoreeffect :: SuperContestEffectSummary -- ^ The effect the move has when used in a super contest.
+  , moveDetailTarget :: MoveTargetSummary -- ^ The type of target that will receive the effects of the attack.
+  , moveDetailType :: TypeSummary -- ^ The elemental type of this move.
+  , moveDetailMachines :: [ItemMachine] -- ^ A list of the machines that teach this move.
+  , moveDetailFlavorUnderscoretextUnderscoreentries :: [MoveFlavorText] -- ^ The flavor text of this move listed in different languages.
+  , moveDetailLearnedUnderscorebyUnderscorepokemon :: [PokemonSummary] -- ^ List of Pokemon that can learn the move
   } deriving (Show, Eq, Generic)
 
 instance FromJSON MoveDetail where
@@ -3317,176 +3350,84 @@ optionsMoveDetail =
 
 
 -- | 
-data MoveDetailContestCombos = MoveDetailContestCombos
-  { moveDetailContestCombosNormal :: MoveDetailContestCombosNormal -- ^ 
-  , moveDetailContestCombosSuper :: MoveDetailContestCombosNormal -- ^ 
+data MoveEffectChange = MoveEffectChange
+  { moveEffectChangeVersionUnderscoregroup :: VersionGroupSummary -- ^ The version group in which the previous effect of this ability originated.
+  , moveEffectChangeEffectUnderscoreentries :: [MoveEffectChangeEffectText] -- ^ The previous effect of this ability listed in different languages.
   } deriving (Show, Eq, Generic)
 
-instance FromJSON MoveDetailContestCombos where
-  parseJSON = genericParseJSON optionsMoveDetailContestCombos
-instance ToJSON MoveDetailContestCombos where
-  toJSON = genericToJSON optionsMoveDetailContestCombos
+instance FromJSON MoveEffectChange where
+  parseJSON = genericParseJSON optionsMoveEffectChange
+instance ToJSON MoveEffectChange where
+  toJSON = genericToJSON optionsMoveEffectChange
 
-optionsMoveDetailContestCombos :: Options
-optionsMoveDetailContestCombos =
+optionsMoveEffectChange :: Options
+optionsMoveEffectChange =
   defaultOptions
     { omitNothingFields  = True
     , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
     }
   where
     table =
-      [ ("moveDetailContestCombosNormal", "normal")
-      , ("moveDetailContestCombosSuper", "super")
+      [ ("moveEffectChangeVersionUnderscoregroup", "version_group")
+      , ("moveEffectChangeEffectUnderscoreentries", "effect_entries")
       ]
 
 
 -- | 
-data MoveDetailContestCombosNormal = MoveDetailContestCombosNormal
-  { moveDetailContestCombosNormalUseUnderscorebefore :: [AbilityDetailPokemonInnerPokemon] -- ^ 
-  , moveDetailContestCombosNormalUseUnderscoreafter :: [AbilityDetailPokemonInnerPokemon] -- ^ 
+data MoveEffectChangeEffectText = MoveEffectChangeEffectText
+  { moveEffectChangeEffectTextEffect :: Text -- ^ The localized effect text for an API resource in a specific language.
+  , moveEffectChangeEffectTextLanguage :: LanguageSummary -- ^ The language this effect is in.
   } deriving (Show, Eq, Generic)
 
-instance FromJSON MoveDetailContestCombosNormal where
-  parseJSON = genericParseJSON optionsMoveDetailContestCombosNormal
-instance ToJSON MoveDetailContestCombosNormal where
-  toJSON = genericToJSON optionsMoveDetailContestCombosNormal
+instance FromJSON MoveEffectChangeEffectText where
+  parseJSON = genericParseJSON optionsMoveEffectChangeEffectText
+instance ToJSON MoveEffectChangeEffectText where
+  toJSON = genericToJSON optionsMoveEffectChangeEffectText
 
-optionsMoveDetailContestCombosNormal :: Options
-optionsMoveDetailContestCombosNormal =
+optionsMoveEffectChangeEffectText :: Options
+optionsMoveEffectChangeEffectText =
   defaultOptions
     { omitNothingFields  = True
     , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
     }
   where
     table =
-      [ ("moveDetailContestCombosNormalUseUnderscorebefore", "use_before")
-      , ("moveDetailContestCombosNormalUseUnderscoreafter", "use_after")
+      [ ("moveEffectChangeEffectTextEffect", "effect")
+      , ("moveEffectChangeEffectTextLanguage", "language")
       ]
 
 
 -- | 
-data MoveDetailEffectChangesInner = MoveDetailEffectChangesInner
-  { moveDetailEffectChangesInnerEffectUnderscoreentries :: [MoveDetailEffectChangesInnerEffectEntriesInner] -- ^ 
-  , moveDetailEffectChangesInnerVersionUnderscoregroup :: AbilityDetailPokemonInnerPokemon -- ^ 
+data MoveEffectEffectText = MoveEffectEffectText
+  { moveEffectEffectTextEffect :: Text -- ^ The localized effect text for an API resource in a specific language.
+  , moveEffectEffectTextShortUnderscoreeffect :: Text -- ^ The localized effect text in brief.
+  , moveEffectEffectTextLanguage :: LanguageSummary -- ^ The language this effect is in.
   } deriving (Show, Eq, Generic)
 
-instance FromJSON MoveDetailEffectChangesInner where
-  parseJSON = genericParseJSON optionsMoveDetailEffectChangesInner
-instance ToJSON MoveDetailEffectChangesInner where
-  toJSON = genericToJSON optionsMoveDetailEffectChangesInner
+instance FromJSON MoveEffectEffectText where
+  parseJSON = genericParseJSON optionsMoveEffectEffectText
+instance ToJSON MoveEffectEffectText where
+  toJSON = genericToJSON optionsMoveEffectEffectText
 
-optionsMoveDetailEffectChangesInner :: Options
-optionsMoveDetailEffectChangesInner =
+optionsMoveEffectEffectText :: Options
+optionsMoveEffectEffectText =
   defaultOptions
     { omitNothingFields  = True
     , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
     }
   where
     table =
-      [ ("moveDetailEffectChangesInnerEffectUnderscoreentries", "effect_entries")
-      , ("moveDetailEffectChangesInnerVersionUnderscoregroup", "version_group")
-      ]
-
-
--- | 
-data MoveDetailEffectChangesInnerEffectEntriesInner = MoveDetailEffectChangesInnerEffectEntriesInner
-  { moveDetailEffectChangesInnerEffectEntriesInnerEffect :: Text -- ^ 
-  , moveDetailEffectChangesInnerEffectEntriesInnerLanguage :: AbilityDetailPokemonInnerPokemon -- ^ 
-  } deriving (Show, Eq, Generic)
-
-instance FromJSON MoveDetailEffectChangesInnerEffectEntriesInner where
-  parseJSON = genericParseJSON optionsMoveDetailEffectChangesInnerEffectEntriesInner
-instance ToJSON MoveDetailEffectChangesInnerEffectEntriesInner where
-  toJSON = genericToJSON optionsMoveDetailEffectChangesInnerEffectEntriesInner
-
-optionsMoveDetailEffectChangesInnerEffectEntriesInner :: Options
-optionsMoveDetailEffectChangesInnerEffectEntriesInner =
-  defaultOptions
-    { omitNothingFields  = True
-    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
-    }
-  where
-    table =
-      [ ("moveDetailEffectChangesInnerEffectEntriesInnerEffect", "effect")
-      , ("moveDetailEffectChangesInnerEffectEntriesInnerLanguage", "language")
-      ]
-
-
--- | 
-data MoveDetailMachinesInner = MoveDetailMachinesInner
-  { moveDetailMachinesInnerMachine :: MoveDetailMachinesInnerMachine -- ^ 
-  , moveDetailMachinesInnerVersionUnderscoregroup :: AbilityDetailPokemonInnerPokemon -- ^ 
-  } deriving (Show, Eq, Generic)
-
-instance FromJSON MoveDetailMachinesInner where
-  parseJSON = genericParseJSON optionsMoveDetailMachinesInner
-instance ToJSON MoveDetailMachinesInner where
-  toJSON = genericToJSON optionsMoveDetailMachinesInner
-
-optionsMoveDetailMachinesInner :: Options
-optionsMoveDetailMachinesInner =
-  defaultOptions
-    { omitNothingFields  = True
-    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
-    }
-  where
-    table =
-      [ ("moveDetailMachinesInnerMachine", "machine")
-      , ("moveDetailMachinesInnerVersionUnderscoregroup", "version_group")
-      ]
-
-
--- | 
-data MoveDetailMachinesInnerMachine = MoveDetailMachinesInnerMachine
-  { moveDetailMachinesInnerMachineUrl :: Text -- ^ 
-  } deriving (Show, Eq, Generic)
-
-instance FromJSON MoveDetailMachinesInnerMachine where
-  parseJSON = genericParseJSON optionsMoveDetailMachinesInnerMachine
-instance ToJSON MoveDetailMachinesInnerMachine where
-  toJSON = genericToJSON optionsMoveDetailMachinesInnerMachine
-
-optionsMoveDetailMachinesInnerMachine :: Options
-optionsMoveDetailMachinesInnerMachine =
-  defaultOptions
-    { omitNothingFields  = True
-    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
-    }
-  where
-    table =
-      [ ("moveDetailMachinesInnerMachineUrl", "url")
-      ]
-
-
--- | 
-data MoveDetailStatChangesInner = MoveDetailStatChangesInner
-  { moveDetailStatChangesInnerChange :: Int -- ^ 
-  , moveDetailStatChangesInnerStat :: AbilityDetailPokemonInnerPokemon -- ^ 
-  } deriving (Show, Eq, Generic)
-
-instance FromJSON MoveDetailStatChangesInner where
-  parseJSON = genericParseJSON optionsMoveDetailStatChangesInner
-instance ToJSON MoveDetailStatChangesInner where
-  toJSON = genericToJSON optionsMoveDetailStatChangesInner
-
-optionsMoveDetailStatChangesInner :: Options
-optionsMoveDetailStatChangesInner =
-  defaultOptions
-    { omitNothingFields  = True
-    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
-    }
-  where
-    table =
-      [ ("moveDetailStatChangesInnerChange", "change")
-      , ("moveDetailStatChangesInnerStat", "stat")
+      [ ("moveEffectEffectTextEffect", "effect")
+      , ("moveEffectEffectTextShortUnderscoreeffect", "short_effect")
+      , ("moveEffectEffectTextLanguage", "language")
       ]
 
 
 -- | 
 data MoveFlavorText = MoveFlavorText
-  { moveFlavorTextFlavorUnderscoretext :: Text -- ^ 
-  , moveFlavorTextLanguage :: LanguageSummary -- ^ 
-  , moveFlavorTextVersionUnderscoregroup :: VersionGroupSummary -- ^ 
+  { moveFlavorTextFlavorUnderscoretext :: Text -- ^ The localized flavor text for an api resource in a specific language.
+  , moveFlavorTextLanguage :: LanguageSummary -- ^ The language this name is in.
+  , moveFlavorTextVersionUnderscoregroup :: VersionGroupSummary -- ^ The version group that uses this flavor text.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON MoveFlavorText where
@@ -3510,8 +3451,8 @@ optionsMoveFlavorText =
 
 -- | 
 data MoveLearnMethodDescription = MoveLearnMethodDescription
-  { moveLearnMethodDescriptionDescription :: Maybe Text -- ^ 
-  , moveLearnMethodDescriptionLanguage :: LanguageSummary -- ^ 
+  { moveLearnMethodDescriptionDescription :: Maybe Text -- ^ The localized description for an API resource in a specific language.
+  , moveLearnMethodDescriptionLanguage :: LanguageSummary -- ^ The language this name is in.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON MoveLearnMethodDescription where
@@ -3534,11 +3475,11 @@ optionsMoveLearnMethodDescription =
 
 -- | 
 data MoveLearnMethodDetail = MoveLearnMethodDetail
-  { moveLearnMethodDetailId :: Int -- ^ 
-  , moveLearnMethodDetailName :: Text -- ^ 
-  , moveLearnMethodDetailNames :: [MoveLearnMethodName] -- ^ 
-  , moveLearnMethodDetailDescriptions :: [MoveLearnMethodDescription] -- ^ 
-  , moveLearnMethodDetailVersionUnderscoregroups :: [AbilityDetailPokemonInnerPokemon] -- ^ 
+  { moveLearnMethodDetailId :: Int -- ^ The identifier for this resource.
+  , moveLearnMethodDetailName :: Text -- ^ The name for this resource.
+  , moveLearnMethodDetailNames :: [MoveLearnMethodName] -- ^ The name of this resource listed in different languages.
+  , moveLearnMethodDetailDescriptions :: [MoveLearnMethodDescription] -- ^ The description of this resource listed in different languages.
+  , moveLearnMethodDetailVersionUnderscoregroups :: [VersionGroupSummary] -- ^ A list of version groups where moves can be learned through this method.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON MoveLearnMethodDetail where
@@ -3564,8 +3505,8 @@ optionsMoveLearnMethodDetail =
 
 -- | 
 data MoveLearnMethodName = MoveLearnMethodName
-  { moveLearnMethodNameName :: Text -- ^ 
-  , moveLearnMethodNameLanguage :: LanguageSummary -- ^ 
+  { moveLearnMethodNameName :: Text -- ^ The localized name for an API resource in a specific language.
+  , moveLearnMethodNameLanguage :: LanguageSummary -- ^ The language this name is in.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON MoveLearnMethodName where
@@ -3588,8 +3529,8 @@ optionsMoveLearnMethodName =
 
 -- | 
 data MoveLearnMethodSummary = MoveLearnMethodSummary
-  { moveLearnMethodSummaryName :: Text -- ^ 
-  , moveLearnMethodSummaryUrl :: Text -- ^ 
+  { moveLearnMethodSummaryName :: Text -- ^ The name of the referenced resource.
+  , moveLearnMethodSummaryUrl :: Text -- ^ The URL of the referenced resource.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON MoveLearnMethodSummary where
@@ -3612,18 +3553,18 @@ optionsMoveLearnMethodSummary =
 
 -- | 
 data MoveMeta = MoveMeta
-  { moveMetaAilment :: MoveMetaAilmentSummary -- ^ 
-  , moveMetaCategory :: MoveMetaCategorySummary -- ^ 
-  , moveMetaMinUnderscorehits :: Maybe Int -- ^ 
-  , moveMetaMaxUnderscorehits :: Maybe Int -- ^ 
-  , moveMetaMinUnderscoreturns :: Maybe Int -- ^ 
-  , moveMetaMaxUnderscoreturns :: Maybe Int -- ^ 
-  , moveMetaDrain :: Maybe Int -- ^ 
-  , moveMetaHealing :: Maybe Int -- ^ 
-  , moveMetaCritUnderscorerate :: Maybe Int -- ^ 
-  , moveMetaAilmentUnderscorechance :: Maybe Int -- ^ 
-  , moveMetaFlinchUnderscorechance :: Maybe Int -- ^ 
-  , moveMetaStatUnderscorechance :: Maybe Int -- ^ 
+  { moveMetaAilment :: MoveMetaAilmentSummary -- ^ The status ailment this move inflicts on its target.
+  , moveMetaCategory :: MoveMetaCategorySummary -- ^ The category of move this move falls under, e.g. damage or ailment.
+  , moveMetaMinUnderscorehits :: Maybe Int -- ^ The minimum number of times this move hits. Null if it always only hits once.
+  , moveMetaMaxUnderscorehits :: Maybe Int -- ^ The maximum number of times this move hits. Null if it always only hits once.
+  , moveMetaMinUnderscoreturns :: Maybe Int -- ^ The minimum number of turns this move continues to take effect. Null if it always only lasts one turn.
+  , moveMetaMaxUnderscoreturns :: Maybe Int -- ^ The maximum number of turns this move continues to take effect. Null if it always only lasts one turn.
+  , moveMetaDrain :: Maybe Int -- ^ HP drain (if positive) or Recoil damage (if negative), in percent of damage done.
+  , moveMetaHealing :: Maybe Int -- ^ The amount of hp gained by the attacking Pokemon, in percent of it's maximum HP.
+  , moveMetaCritUnderscorerate :: Maybe Int -- ^ Critical hit rate bonus.
+  , moveMetaAilmentUnderscorechance :: Maybe Int -- ^ The likelihood this attack will cause an ailment.
+  , moveMetaFlinchUnderscorechance :: Maybe Int -- ^ The likelihood this attack will cause the target Pokémon to flinch.
+  , moveMetaStatUnderscorechance :: Maybe Int -- ^ The likelihood this attack will cause a stat change in the target Pokémon.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON MoveMeta where
@@ -3656,10 +3597,10 @@ optionsMoveMeta =
 
 -- | 
 data MoveMetaAilmentDetail = MoveMetaAilmentDetail
-  { moveMetaAilmentDetailId :: Int -- ^ 
-  , moveMetaAilmentDetailName :: Text -- ^ 
-  , moveMetaAilmentDetailMoves :: [AbilityDetailPokemonInnerPokemon] -- ^ 
-  , moveMetaAilmentDetailNames :: [MoveMetaAilmentName] -- ^ 
+  { moveMetaAilmentDetailId :: Int -- ^ The identifier for this resource.
+  , moveMetaAilmentDetailName :: Text -- ^ The name for this resource.
+  , moveMetaAilmentDetailMoves :: [MoveSummary] -- ^ A list of moves that cause this ailment.
+  , moveMetaAilmentDetailNames :: [MoveMetaAilmentName] -- ^ The name of this resource listed in different languages.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON MoveMetaAilmentDetail where
@@ -3684,8 +3625,8 @@ optionsMoveMetaAilmentDetail =
 
 -- | 
 data MoveMetaAilmentName = MoveMetaAilmentName
-  { moveMetaAilmentNameName :: Text -- ^ 
-  , moveMetaAilmentNameLanguage :: LanguageSummary -- ^ 
+  { moveMetaAilmentNameName :: Text -- ^ The localized name for an API resource in a specific language.
+  , moveMetaAilmentNameLanguage :: LanguageSummary -- ^ The language this name is in.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON MoveMetaAilmentName where
@@ -3708,8 +3649,8 @@ optionsMoveMetaAilmentName =
 
 -- | 
 data MoveMetaAilmentSummary = MoveMetaAilmentSummary
-  { moveMetaAilmentSummaryName :: Text -- ^ 
-  , moveMetaAilmentSummaryUrl :: Text -- ^ 
+  { moveMetaAilmentSummaryName :: Text -- ^ The name of the referenced resource.
+  , moveMetaAilmentSummaryUrl :: Text -- ^ The URL of the referenced resource.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON MoveMetaAilmentSummary where
@@ -3732,8 +3673,8 @@ optionsMoveMetaAilmentSummary =
 
 -- | 
 data MoveMetaCategoryDescription = MoveMetaCategoryDescription
-  { moveMetaCategoryDescriptionDescription :: Maybe Text -- ^ 
-  , moveMetaCategoryDescriptionLanguage :: LanguageSummary -- ^ 
+  { moveMetaCategoryDescriptionDescription :: Maybe Text -- ^ The localized description for an API resource in a specific language.
+  , moveMetaCategoryDescriptionLanguage :: LanguageSummary -- ^ The language this name is in.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON MoveMetaCategoryDescription where
@@ -3756,10 +3697,10 @@ optionsMoveMetaCategoryDescription =
 
 -- | 
 data MoveMetaCategoryDetail = MoveMetaCategoryDetail
-  { moveMetaCategoryDetailId :: Int -- ^ 
-  , moveMetaCategoryDetailName :: Text -- ^ 
-  , moveMetaCategoryDetailDescriptions :: [MoveMetaCategoryDescription] -- ^ 
-  , moveMetaCategoryDetailMoves :: [AbilityDetailPokemonInnerPokemon] -- ^ 
+  { moveMetaCategoryDetailId :: Int -- ^ The identifier for this resource.
+  , moveMetaCategoryDetailName :: Text -- ^ The name for this resource.
+  , moveMetaCategoryDetailDescriptions :: [MoveMetaCategoryDescription] -- ^ The description of this resource listed in different languages.
+  , moveMetaCategoryDetailMoves :: [MoveSummary] -- ^ A list of moves that fall into this category.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON MoveMetaCategoryDetail where
@@ -3784,8 +3725,8 @@ optionsMoveMetaCategoryDetail =
 
 -- | 
 data MoveMetaCategorySummary = MoveMetaCategorySummary
-  { moveMetaCategorySummaryName :: Text -- ^ 
-  , moveMetaCategorySummaryUrl :: Text -- ^ 
+  { moveMetaCategorySummaryName :: Text -- ^ The name of the referenced resource.
+  , moveMetaCategorySummaryUrl :: Text -- ^ The URL of the referenced resource.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON MoveMetaCategorySummary where
@@ -3807,9 +3748,33 @@ optionsMoveMetaCategorySummary =
 
 
 -- | 
+data MoveMetaStatChange = MoveMetaStatChange
+  { moveMetaStatChangeChange :: Int -- ^ The amount of change.
+  , moveMetaStatChangeStat :: StatSummary -- ^ The stat being affected.
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON MoveMetaStatChange where
+  parseJSON = genericParseJSON optionsMoveMetaStatChange
+instance ToJSON MoveMetaStatChange where
+  toJSON = genericToJSON optionsMoveMetaStatChange
+
+optionsMoveMetaStatChange :: Options
+optionsMoveMetaStatChange =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ ("moveMetaStatChangeChange", "change")
+      , ("moveMetaStatChangeStat", "stat")
+      ]
+
+
+-- | 
 data MoveName = MoveName
-  { moveNameName :: Text -- ^ 
-  , moveNameLanguage :: LanguageSummary -- ^ 
+  { moveNameName :: Text -- ^ The localized name for an API resource in a specific language.
+  , moveNameLanguage :: LanguageSummary -- ^ The language this name is in.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON MoveName where
@@ -3831,9 +3796,33 @@ optionsMoveName =
 
 
 -- | 
+data MoveStatChange = MoveStatChange
+  { moveStatChangeChange :: Int -- ^ The maximum amount of change to the referenced stat.
+  , moveStatChangeMove :: MoveSummary -- ^ The move causing the change.
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON MoveStatChange where
+  parseJSON = genericParseJSON optionsMoveStatChange
+instance ToJSON MoveStatChange where
+  toJSON = genericToJSON optionsMoveStatChange
+
+optionsMoveStatChange :: Options
+optionsMoveStatChange =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ ("moveStatChangeChange", "change")
+      , ("moveStatChangeMove", "move")
+      ]
+
+
+-- | 
 data MoveSummary = MoveSummary
-  { moveSummaryName :: Text -- ^ 
-  , moveSummaryUrl :: Text -- ^ 
+  { moveSummaryName :: Text -- ^ The name of the referenced resource.
+  , moveSummaryUrl :: Text -- ^ The URL of the referenced resource.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON MoveSummary where
@@ -3856,8 +3845,8 @@ optionsMoveSummary =
 
 -- | 
 data MoveTargetDescription = MoveTargetDescription
-  { moveTargetDescriptionDescription :: Maybe Text -- ^ 
-  , moveTargetDescriptionLanguage :: LanguageSummary -- ^ 
+  { moveTargetDescriptionDescription :: Maybe Text -- ^ The localized description for an API resource in a specific language.
+  , moveTargetDescriptionLanguage :: LanguageSummary -- ^ The language this name is in.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON MoveTargetDescription where
@@ -3880,11 +3869,11 @@ optionsMoveTargetDescription =
 
 -- | 
 data MoveTargetDetail = MoveTargetDetail
-  { moveTargetDetailId :: Int -- ^ 
-  , moveTargetDetailName :: Text -- ^ 
-  , moveTargetDetailDescriptions :: [MoveTargetDescription] -- ^ 
-  , moveTargetDetailMoves :: [MoveSummary] -- ^ 
-  , moveTargetDetailNames :: [MoveTargetName] -- ^ 
+  { moveTargetDetailId :: Int -- ^ The identifier for this resource.
+  , moveTargetDetailName :: Text -- ^ The name for this resource.
+  , moveTargetDetailDescriptions :: [MoveTargetDescription] -- ^ The description of this resource listed in different languages.
+  , moveTargetDetailMoves :: [MoveSummary] -- ^ A list of moves that that are directed at this target.
+  , moveTargetDetailNames :: [MoveTargetName] -- ^ The name of this resource listed in different languages.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON MoveTargetDetail where
@@ -3910,8 +3899,8 @@ optionsMoveTargetDetail =
 
 -- | 
 data MoveTargetName = MoveTargetName
-  { moveTargetNameName :: Text -- ^ 
-  , moveTargetNameLanguage :: LanguageSummary -- ^ 
+  { moveTargetNameName :: Text -- ^ The localized name for an API resource in a specific language.
+  , moveTargetNameLanguage :: LanguageSummary -- ^ The language this name is in.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON MoveTargetName where
@@ -3934,8 +3923,8 @@ optionsMoveTargetName =
 
 -- | 
 data MoveTargetSummary = MoveTargetSummary
-  { moveTargetSummaryName :: Text -- ^ 
-  , moveTargetSummaryUrl :: Text -- ^ 
+  { moveTargetSummaryName :: Text -- ^ The name of the referenced resource.
+  , moveTargetSummaryUrl :: Text -- ^ The URL of the referenced resource.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON MoveTargetSummary where
@@ -3958,9 +3947,9 @@ optionsMoveTargetSummary =
 
 -- | 
 data NatureBattleStylePreference = NatureBattleStylePreference
-  { natureBattleStylePreferenceLowUnderscorehpUnderscorepreference :: Int -- ^ 
-  , natureBattleStylePreferenceHighUnderscorehpUnderscorepreference :: Int -- ^ 
-  , natureBattleStylePreferenceMoveUnderscorebattleUnderscorestyle :: MoveBattleStyleSummary -- ^ 
+  { natureBattleStylePreferenceLowUnderscorehpUnderscorepreference :: Int -- ^ Chance of using the move, in percent, if HP is under one half.
+  , natureBattleStylePreferenceHighUnderscorehpUnderscorepreference :: Int -- ^ Chance of using the move, in percent, if HP is over one half.
+  , natureBattleStylePreferenceMoveUnderscorebattleUnderscorestyle :: MoveBattleStyleSummary -- ^ The move battle style.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON NatureBattleStylePreference where
@@ -3984,16 +3973,15 @@ optionsNatureBattleStylePreference =
 
 -- | 
 data NatureDetail = NatureDetail
-  { natureDetailId :: Int -- ^ 
-  , natureDetailName :: Text -- ^ 
-  , natureDetailDecreasedUnderscorestat :: StatSummary -- ^ 
-  , natureDetailIncreasedUnderscorestat :: StatSummary -- ^ 
-  , natureDetailLikesUnderscoreflavor :: BerryFlavorSummary -- ^ 
-  , natureDetailHatesUnderscoreflavor :: BerryFlavorSummary -- ^ 
-  , natureDetailBerries :: [BerrySummary] -- ^ 
-  , natureDetailPokeathlonUnderscorestatUnderscorechanges :: [NatureDetailPokeathlonStatChangesInner] -- ^ 
-  , natureDetailMoveUnderscorebattleUnderscorestyleUnderscorepreferences :: [NatureBattleStylePreference] -- ^ 
-  , natureDetailNames :: [NatureName] -- ^ 
+  { natureDetailId :: Int -- ^ The identifier for this resource.
+  , natureDetailName :: Text -- ^ The name for this resource.
+  , natureDetailDecreasedUnderscorestat :: StatSummary -- ^ The stat decreased by 10% in Pokémon with this nature.
+  , natureDetailIncreasedUnderscorestat :: StatSummary -- ^ The stat increased by 10% in Pokémon with this nature.
+  , natureDetailLikesUnderscoreflavor :: BerryFlavorSummary -- ^ The flavor liked by Pokémon with this nature.
+  , natureDetailHatesUnderscoreflavor :: BerryFlavorSummary -- ^ The flavor hated by Pokémon with this nature.
+  , natureDetailPokeathlonUnderscorestatUnderscorechanges :: [NaturePokeathlonStat] -- ^ A list of Pokéathlon stats this nature effects and how much it effects them.
+  , natureDetailMoveUnderscorebattleUnderscorestyleUnderscorepreferences :: [NatureBattleStylePreference] -- ^ A list of battle styles and how likely a Pokémon with this nature is to use them in the Battle Palace or Battle Tent.
+  , natureDetailNames :: [NatureName] -- ^ The name of this resource listed in different languages.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON NatureDetail where
@@ -4015,7 +4003,6 @@ optionsNatureDetail =
       , ("natureDetailIncreasedUnderscorestat", "increased_stat")
       , ("natureDetailLikesUnderscoreflavor", "likes_flavor")
       , ("natureDetailHatesUnderscoreflavor", "hates_flavor")
-      , ("natureDetailBerries", "berries")
       , ("natureDetailPokeathlonUnderscorestatUnderscorechanges", "pokeathlon_stat_changes")
       , ("natureDetailMoveUnderscorebattleUnderscorestyleUnderscorepreferences", "move_battle_style_preferences")
       , ("natureDetailNames", "names")
@@ -4023,33 +4010,9 @@ optionsNatureDetail =
 
 
 -- | 
-data NatureDetailPokeathlonStatChangesInner = NatureDetailPokeathlonStatChangesInner
-  { natureDetailPokeathlonStatChangesInnerMaxUnderscorechange :: Int -- ^ 
-  , natureDetailPokeathlonStatChangesInnerPokeathlonUnderscorestat :: AbilityDetailPokemonInnerPokemon -- ^ 
-  } deriving (Show, Eq, Generic)
-
-instance FromJSON NatureDetailPokeathlonStatChangesInner where
-  parseJSON = genericParseJSON optionsNatureDetailPokeathlonStatChangesInner
-instance ToJSON NatureDetailPokeathlonStatChangesInner where
-  toJSON = genericToJSON optionsNatureDetailPokeathlonStatChangesInner
-
-optionsNatureDetailPokeathlonStatChangesInner :: Options
-optionsNatureDetailPokeathlonStatChangesInner =
-  defaultOptions
-    { omitNothingFields  = True
-    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
-    }
-  where
-    table =
-      [ ("natureDetailPokeathlonStatChangesInnerMaxUnderscorechange", "max_change")
-      , ("natureDetailPokeathlonStatChangesInnerPokeathlonUnderscorestat", "pokeathlon_stat")
-      ]
-
-
--- | 
 data NatureName = NatureName
-  { natureNameName :: Text -- ^ 
-  , natureNameLanguage :: LanguageSummary -- ^ 
+  { natureNameName :: Text -- ^ The localized name for an API resource in a specific language.
+  , natureNameLanguage :: LanguageSummary -- ^ The language this name is in.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON NatureName where
@@ -4071,9 +4034,33 @@ optionsNatureName =
 
 
 -- | 
+data NaturePokeathlonStat = NaturePokeathlonStat
+  { naturePokeathlonStatMaxUnderscorechange :: Int -- ^ The amount of change.
+  , naturePokeathlonStatPokeathlonUnderscorestat :: PokeathlonStatSummary -- ^ The stat being affected.
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON NaturePokeathlonStat where
+  parseJSON = genericParseJSON optionsNaturePokeathlonStat
+instance ToJSON NaturePokeathlonStat where
+  toJSON = genericToJSON optionsNaturePokeathlonStat
+
+optionsNaturePokeathlonStat :: Options
+optionsNaturePokeathlonStat =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ ("naturePokeathlonStatMaxUnderscorechange", "max_change")
+      , ("naturePokeathlonStatPokeathlonUnderscorestat", "pokeathlon_stat")
+      ]
+
+
+-- | 
 data NatureSummary = NatureSummary
-  { natureSummaryName :: Text -- ^ 
-  , natureSummaryUrl :: Text -- ^ 
+  { natureSummaryName :: Text -- ^ The name of the referenced resource.
+  , natureSummaryUrl :: Text -- ^ The URL of the referenced resource.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON NatureSummary where
@@ -4096,10 +4083,10 @@ optionsNatureSummary =
 
 -- | 
 data PaginatedAbilitySummaryList = PaginatedAbilitySummaryList
-  { paginatedAbilitySummaryListCount :: Maybe Int -- ^ 
-  , paginatedAbilitySummaryListNext :: Maybe Text -- ^ 
-  , paginatedAbilitySummaryListPrevious :: Maybe Text -- ^ 
-  , paginatedAbilitySummaryListResults :: Maybe [AbilitySummary] -- ^ 
+  { paginatedAbilitySummaryListCount :: Int -- ^ The total number of resources available from this API.
+  , paginatedAbilitySummaryListNext :: Maybe Text -- ^ The URL for the next page in the list, or null if there is no next page.
+  , paginatedAbilitySummaryListPrevious :: Maybe Text -- ^ The URL for the previous page in the list, or null if there is no previous page.
+  , paginatedAbilitySummaryListResults :: [AbilitySummary] -- ^ A list of API resources on this page.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PaginatedAbilitySummaryList where
@@ -4124,10 +4111,10 @@ optionsPaginatedAbilitySummaryList =
 
 -- | 
 data PaginatedBerryFirmnessSummaryList = PaginatedBerryFirmnessSummaryList
-  { paginatedBerryFirmnessSummaryListCount :: Maybe Int -- ^ 
-  , paginatedBerryFirmnessSummaryListNext :: Maybe Text -- ^ 
-  , paginatedBerryFirmnessSummaryListPrevious :: Maybe Text -- ^ 
-  , paginatedBerryFirmnessSummaryListResults :: Maybe [BerryFirmnessSummary] -- ^ 
+  { paginatedBerryFirmnessSummaryListCount :: Int -- ^ The total number of resources available from this API.
+  , paginatedBerryFirmnessSummaryListNext :: Maybe Text -- ^ The URL for the next page in the list, or null if there is no next page.
+  , paginatedBerryFirmnessSummaryListPrevious :: Maybe Text -- ^ The URL for the previous page in the list, or null if there is no previous page.
+  , paginatedBerryFirmnessSummaryListResults :: [BerryFirmnessSummary] -- ^ A list of API resources on this page.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PaginatedBerryFirmnessSummaryList where
@@ -4152,10 +4139,10 @@ optionsPaginatedBerryFirmnessSummaryList =
 
 -- | 
 data PaginatedBerryFlavorSummaryList = PaginatedBerryFlavorSummaryList
-  { paginatedBerryFlavorSummaryListCount :: Maybe Int -- ^ 
-  , paginatedBerryFlavorSummaryListNext :: Maybe Text -- ^ 
-  , paginatedBerryFlavorSummaryListPrevious :: Maybe Text -- ^ 
-  , paginatedBerryFlavorSummaryListResults :: Maybe [BerryFlavorSummary] -- ^ 
+  { paginatedBerryFlavorSummaryListCount :: Int -- ^ The total number of resources available from this API.
+  , paginatedBerryFlavorSummaryListNext :: Maybe Text -- ^ The URL for the next page in the list, or null if there is no next page.
+  , paginatedBerryFlavorSummaryListPrevious :: Maybe Text -- ^ The URL for the previous page in the list, or null if there is no previous page.
+  , paginatedBerryFlavorSummaryListResults :: [BerryFlavorSummary] -- ^ A list of API resources on this page.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PaginatedBerryFlavorSummaryList where
@@ -4180,10 +4167,10 @@ optionsPaginatedBerryFlavorSummaryList =
 
 -- | 
 data PaginatedBerrySummaryList = PaginatedBerrySummaryList
-  { paginatedBerrySummaryListCount :: Maybe Int -- ^ 
-  , paginatedBerrySummaryListNext :: Maybe Text -- ^ 
-  , paginatedBerrySummaryListPrevious :: Maybe Text -- ^ 
-  , paginatedBerrySummaryListResults :: Maybe [BerrySummary] -- ^ 
+  { paginatedBerrySummaryListCount :: Int -- ^ The total number of resources available from this API.
+  , paginatedBerrySummaryListNext :: Maybe Text -- ^ The URL for the next page in the list, or null if there is no next page.
+  , paginatedBerrySummaryListPrevious :: Maybe Text -- ^ The URL for the previous page in the list, or null if there is no previous page.
+  , paginatedBerrySummaryListResults :: [BerrySummary] -- ^ A list of API resources on this page.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PaginatedBerrySummaryList where
@@ -4208,10 +4195,10 @@ optionsPaginatedBerrySummaryList =
 
 -- | 
 data PaginatedCharacteristicSummaryList = PaginatedCharacteristicSummaryList
-  { paginatedCharacteristicSummaryListCount :: Maybe Int -- ^ 
-  , paginatedCharacteristicSummaryListNext :: Maybe Text -- ^ 
-  , paginatedCharacteristicSummaryListPrevious :: Maybe Text -- ^ 
-  , paginatedCharacteristicSummaryListResults :: Maybe [CharacteristicSummary] -- ^ 
+  { paginatedCharacteristicSummaryListCount :: Int -- ^ The total number of resources available from this API.
+  , paginatedCharacteristicSummaryListNext :: Maybe Text -- ^ The URL for the next page in the list, or null if there is no next page.
+  , paginatedCharacteristicSummaryListPrevious :: Maybe Text -- ^ The URL for the previous page in the list, or null if there is no previous page.
+  , paginatedCharacteristicSummaryListResults :: [CharacteristicSummary] -- ^ A list of API resources on this page.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PaginatedCharacteristicSummaryList where
@@ -4236,10 +4223,10 @@ optionsPaginatedCharacteristicSummaryList =
 
 -- | 
 data PaginatedContestEffectSummaryList = PaginatedContestEffectSummaryList
-  { paginatedContestEffectSummaryListCount :: Maybe Int -- ^ 
-  , paginatedContestEffectSummaryListNext :: Maybe Text -- ^ 
-  , paginatedContestEffectSummaryListPrevious :: Maybe Text -- ^ 
-  , paginatedContestEffectSummaryListResults :: Maybe [ContestEffectSummary] -- ^ 
+  { paginatedContestEffectSummaryListCount :: Int -- ^ The total number of resources available from this API.
+  , paginatedContestEffectSummaryListNext :: Maybe Text -- ^ The URL for the next page in the list, or null if there is no next page.
+  , paginatedContestEffectSummaryListPrevious :: Maybe Text -- ^ The URL for the previous page in the list, or null if there is no previous page.
+  , paginatedContestEffectSummaryListResults :: [ContestEffectSummary] -- ^ A list of API resources on this page.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PaginatedContestEffectSummaryList where
@@ -4264,10 +4251,10 @@ optionsPaginatedContestEffectSummaryList =
 
 -- | 
 data PaginatedContestTypeSummaryList = PaginatedContestTypeSummaryList
-  { paginatedContestTypeSummaryListCount :: Maybe Int -- ^ 
-  , paginatedContestTypeSummaryListNext :: Maybe Text -- ^ 
-  , paginatedContestTypeSummaryListPrevious :: Maybe Text -- ^ 
-  , paginatedContestTypeSummaryListResults :: Maybe [ContestTypeSummary] -- ^ 
+  { paginatedContestTypeSummaryListCount :: Int -- ^ The total number of resources available from this API.
+  , paginatedContestTypeSummaryListNext :: Maybe Text -- ^ The URL for the next page in the list, or null if there is no next page.
+  , paginatedContestTypeSummaryListPrevious :: Maybe Text -- ^ The URL for the previous page in the list, or null if there is no previous page.
+  , paginatedContestTypeSummaryListResults :: [ContestTypeSummary] -- ^ A list of API resources on this page.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PaginatedContestTypeSummaryList where
@@ -4291,11 +4278,39 @@ optionsPaginatedContestTypeSummaryList =
 
 
 -- | 
+data PaginatedCurrencySummaryList = PaginatedCurrencySummaryList
+  { paginatedCurrencySummaryListCount :: Int -- ^ The total number of resources available from this API.
+  , paginatedCurrencySummaryListNext :: Maybe Text -- ^ The URL for the next page in the list, or null if there is no next page.
+  , paginatedCurrencySummaryListPrevious :: Maybe Text -- ^ The URL for the previous page in the list, or null if there is no previous page.
+  , paginatedCurrencySummaryListResults :: [CurrencySummary] -- ^ A list of API resources on this page.
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON PaginatedCurrencySummaryList where
+  parseJSON = genericParseJSON optionsPaginatedCurrencySummaryList
+instance ToJSON PaginatedCurrencySummaryList where
+  toJSON = genericToJSON optionsPaginatedCurrencySummaryList
+
+optionsPaginatedCurrencySummaryList :: Options
+optionsPaginatedCurrencySummaryList =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ ("paginatedCurrencySummaryListCount", "count")
+      , ("paginatedCurrencySummaryListNext", "next")
+      , ("paginatedCurrencySummaryListPrevious", "previous")
+      , ("paginatedCurrencySummaryListResults", "results")
+      ]
+
+
+-- | 
 data PaginatedEggGroupSummaryList = PaginatedEggGroupSummaryList
-  { paginatedEggGroupSummaryListCount :: Maybe Int -- ^ 
-  , paginatedEggGroupSummaryListNext :: Maybe Text -- ^ 
-  , paginatedEggGroupSummaryListPrevious :: Maybe Text -- ^ 
-  , paginatedEggGroupSummaryListResults :: Maybe [EggGroupSummary] -- ^ 
+  { paginatedEggGroupSummaryListCount :: Int -- ^ The total number of resources available from this API.
+  , paginatedEggGroupSummaryListNext :: Maybe Text -- ^ The URL for the next page in the list, or null if there is no next page.
+  , paginatedEggGroupSummaryListPrevious :: Maybe Text -- ^ The URL for the previous page in the list, or null if there is no previous page.
+  , paginatedEggGroupSummaryListResults :: [EggGroupSummary] -- ^ A list of API resources on this page.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PaginatedEggGroupSummaryList where
@@ -4320,10 +4335,10 @@ optionsPaginatedEggGroupSummaryList =
 
 -- | 
 data PaginatedEncounterConditionSummaryList = PaginatedEncounterConditionSummaryList
-  { paginatedEncounterConditionSummaryListCount :: Maybe Int -- ^ 
-  , paginatedEncounterConditionSummaryListNext :: Maybe Text -- ^ 
-  , paginatedEncounterConditionSummaryListPrevious :: Maybe Text -- ^ 
-  , paginatedEncounterConditionSummaryListResults :: Maybe [EncounterConditionSummary] -- ^ 
+  { paginatedEncounterConditionSummaryListCount :: Int -- ^ The total number of resources available from this API.
+  , paginatedEncounterConditionSummaryListNext :: Maybe Text -- ^ The URL for the next page in the list, or null if there is no next page.
+  , paginatedEncounterConditionSummaryListPrevious :: Maybe Text -- ^ The URL for the previous page in the list, or null if there is no previous page.
+  , paginatedEncounterConditionSummaryListResults :: [EncounterConditionSummary] -- ^ A list of API resources on this page.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PaginatedEncounterConditionSummaryList where
@@ -4348,10 +4363,10 @@ optionsPaginatedEncounterConditionSummaryList =
 
 -- | 
 data PaginatedEncounterConditionValueSummaryList = PaginatedEncounterConditionValueSummaryList
-  { paginatedEncounterConditionValueSummaryListCount :: Maybe Int -- ^ 
-  , paginatedEncounterConditionValueSummaryListNext :: Maybe Text -- ^ 
-  , paginatedEncounterConditionValueSummaryListPrevious :: Maybe Text -- ^ 
-  , paginatedEncounterConditionValueSummaryListResults :: Maybe [EncounterConditionValueSummary] -- ^ 
+  { paginatedEncounterConditionValueSummaryListCount :: Int -- ^ The total number of resources available from this API.
+  , paginatedEncounterConditionValueSummaryListNext :: Maybe Text -- ^ The URL for the next page in the list, or null if there is no next page.
+  , paginatedEncounterConditionValueSummaryListPrevious :: Maybe Text -- ^ The URL for the previous page in the list, or null if there is no previous page.
+  , paginatedEncounterConditionValueSummaryListResults :: [EncounterConditionValueSummary] -- ^ A list of API resources on this page.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PaginatedEncounterConditionValueSummaryList where
@@ -4376,10 +4391,10 @@ optionsPaginatedEncounterConditionValueSummaryList =
 
 -- | 
 data PaginatedEncounterMethodSummaryList = PaginatedEncounterMethodSummaryList
-  { paginatedEncounterMethodSummaryListCount :: Maybe Int -- ^ 
-  , paginatedEncounterMethodSummaryListNext :: Maybe Text -- ^ 
-  , paginatedEncounterMethodSummaryListPrevious :: Maybe Text -- ^ 
-  , paginatedEncounterMethodSummaryListResults :: Maybe [EncounterMethodSummary] -- ^ 
+  { paginatedEncounterMethodSummaryListCount :: Int -- ^ The total number of resources available from this API.
+  , paginatedEncounterMethodSummaryListNext :: Maybe Text -- ^ The URL for the next page in the list, or null if there is no next page.
+  , paginatedEncounterMethodSummaryListPrevious :: Maybe Text -- ^ The URL for the previous page in the list, or null if there is no previous page.
+  , paginatedEncounterMethodSummaryListResults :: [EncounterMethodSummary] -- ^ A list of API resources on this page.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PaginatedEncounterMethodSummaryList where
@@ -4404,10 +4419,10 @@ optionsPaginatedEncounterMethodSummaryList =
 
 -- | 
 data PaginatedEvolutionChainSummaryList = PaginatedEvolutionChainSummaryList
-  { paginatedEvolutionChainSummaryListCount :: Maybe Int -- ^ 
-  , paginatedEvolutionChainSummaryListNext :: Maybe Text -- ^ 
-  , paginatedEvolutionChainSummaryListPrevious :: Maybe Text -- ^ 
-  , paginatedEvolutionChainSummaryListResults :: Maybe [EvolutionChainSummary] -- ^ 
+  { paginatedEvolutionChainSummaryListCount :: Int -- ^ The total number of resources available from this API.
+  , paginatedEvolutionChainSummaryListNext :: Maybe Text -- ^ The URL for the next page in the list, or null if there is no next page.
+  , paginatedEvolutionChainSummaryListPrevious :: Maybe Text -- ^ The URL for the previous page in the list, or null if there is no previous page.
+  , paginatedEvolutionChainSummaryListResults :: [EvolutionChainSummary] -- ^ A list of API resources on this page.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PaginatedEvolutionChainSummaryList where
@@ -4432,10 +4447,10 @@ optionsPaginatedEvolutionChainSummaryList =
 
 -- | 
 data PaginatedEvolutionTriggerSummaryList = PaginatedEvolutionTriggerSummaryList
-  { paginatedEvolutionTriggerSummaryListCount :: Maybe Int -- ^ 
-  , paginatedEvolutionTriggerSummaryListNext :: Maybe Text -- ^ 
-  , paginatedEvolutionTriggerSummaryListPrevious :: Maybe Text -- ^ 
-  , paginatedEvolutionTriggerSummaryListResults :: Maybe [EvolutionTriggerSummary] -- ^ 
+  { paginatedEvolutionTriggerSummaryListCount :: Int -- ^ The total number of resources available from this API.
+  , paginatedEvolutionTriggerSummaryListNext :: Maybe Text -- ^ The URL for the next page in the list, or null if there is no next page.
+  , paginatedEvolutionTriggerSummaryListPrevious :: Maybe Text -- ^ The URL for the previous page in the list, or null if there is no previous page.
+  , paginatedEvolutionTriggerSummaryListResults :: [EvolutionTriggerSummary] -- ^ A list of API resources on this page.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PaginatedEvolutionTriggerSummaryList where
@@ -4459,11 +4474,39 @@ optionsPaginatedEvolutionTriggerSummaryList =
 
 
 -- | 
+data PaginatedEvolutionVariableSummaryList = PaginatedEvolutionVariableSummaryList
+  { paginatedEvolutionVariableSummaryListCount :: Int -- ^ The total number of resources available from this API.
+  , paginatedEvolutionVariableSummaryListNext :: Maybe Text -- ^ The URL for the next page in the list, or null if there is no next page.
+  , paginatedEvolutionVariableSummaryListPrevious :: Maybe Text -- ^ The URL for the previous page in the list, or null if there is no previous page.
+  , paginatedEvolutionVariableSummaryListResults :: [EvolutionVariableSummary] -- ^ A list of API resources on this page.
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON PaginatedEvolutionVariableSummaryList where
+  parseJSON = genericParseJSON optionsPaginatedEvolutionVariableSummaryList
+instance ToJSON PaginatedEvolutionVariableSummaryList where
+  toJSON = genericToJSON optionsPaginatedEvolutionVariableSummaryList
+
+optionsPaginatedEvolutionVariableSummaryList :: Options
+optionsPaginatedEvolutionVariableSummaryList =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ ("paginatedEvolutionVariableSummaryListCount", "count")
+      , ("paginatedEvolutionVariableSummaryListNext", "next")
+      , ("paginatedEvolutionVariableSummaryListPrevious", "previous")
+      , ("paginatedEvolutionVariableSummaryListResults", "results")
+      ]
+
+
+-- | 
 data PaginatedGenderSummaryList = PaginatedGenderSummaryList
-  { paginatedGenderSummaryListCount :: Maybe Int -- ^ 
-  , paginatedGenderSummaryListNext :: Maybe Text -- ^ 
-  , paginatedGenderSummaryListPrevious :: Maybe Text -- ^ 
-  , paginatedGenderSummaryListResults :: Maybe [GenderSummary] -- ^ 
+  { paginatedGenderSummaryListCount :: Int -- ^ The total number of resources available from this API.
+  , paginatedGenderSummaryListNext :: Maybe Text -- ^ The URL for the next page in the list, or null if there is no next page.
+  , paginatedGenderSummaryListPrevious :: Maybe Text -- ^ The URL for the previous page in the list, or null if there is no previous page.
+  , paginatedGenderSummaryListResults :: [GenderSummary] -- ^ A list of API resources on this page.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PaginatedGenderSummaryList where
@@ -4488,10 +4531,10 @@ optionsPaginatedGenderSummaryList =
 
 -- | 
 data PaginatedGenerationSummaryList = PaginatedGenerationSummaryList
-  { paginatedGenerationSummaryListCount :: Maybe Int -- ^ 
-  , paginatedGenerationSummaryListNext :: Maybe Text -- ^ 
-  , paginatedGenerationSummaryListPrevious :: Maybe Text -- ^ 
-  , paginatedGenerationSummaryListResults :: Maybe [GenerationSummary] -- ^ 
+  { paginatedGenerationSummaryListCount :: Int -- ^ The total number of resources available from this API.
+  , paginatedGenerationSummaryListNext :: Maybe Text -- ^ The URL for the next page in the list, or null if there is no next page.
+  , paginatedGenerationSummaryListPrevious :: Maybe Text -- ^ The URL for the previous page in the list, or null if there is no previous page.
+  , paginatedGenerationSummaryListResults :: [GenerationSummary] -- ^ A list of API resources on this page.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PaginatedGenerationSummaryList where
@@ -4516,10 +4559,10 @@ optionsPaginatedGenerationSummaryList =
 
 -- | 
 data PaginatedGrowthRateSummaryList = PaginatedGrowthRateSummaryList
-  { paginatedGrowthRateSummaryListCount :: Maybe Int -- ^ 
-  , paginatedGrowthRateSummaryListNext :: Maybe Text -- ^ 
-  , paginatedGrowthRateSummaryListPrevious :: Maybe Text -- ^ 
-  , paginatedGrowthRateSummaryListResults :: Maybe [GrowthRateSummary] -- ^ 
+  { paginatedGrowthRateSummaryListCount :: Int -- ^ The total number of resources available from this API.
+  , paginatedGrowthRateSummaryListNext :: Maybe Text -- ^ The URL for the next page in the list, or null if there is no next page.
+  , paginatedGrowthRateSummaryListPrevious :: Maybe Text -- ^ The URL for the previous page in the list, or null if there is no previous page.
+  , paginatedGrowthRateSummaryListResults :: [GrowthRateSummary] -- ^ A list of API resources on this page.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PaginatedGrowthRateSummaryList where
@@ -4544,10 +4587,10 @@ optionsPaginatedGrowthRateSummaryList =
 
 -- | 
 data PaginatedItemAttributeSummaryList = PaginatedItemAttributeSummaryList
-  { paginatedItemAttributeSummaryListCount :: Maybe Int -- ^ 
-  , paginatedItemAttributeSummaryListNext :: Maybe Text -- ^ 
-  , paginatedItemAttributeSummaryListPrevious :: Maybe Text -- ^ 
-  , paginatedItemAttributeSummaryListResults :: Maybe [ItemAttributeSummary] -- ^ 
+  { paginatedItemAttributeSummaryListCount :: Int -- ^ The total number of resources available from this API.
+  , paginatedItemAttributeSummaryListNext :: Maybe Text -- ^ The URL for the next page in the list, or null if there is no next page.
+  , paginatedItemAttributeSummaryListPrevious :: Maybe Text -- ^ The URL for the previous page in the list, or null if there is no previous page.
+  , paginatedItemAttributeSummaryListResults :: [ItemAttributeSummary] -- ^ A list of API resources on this page.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PaginatedItemAttributeSummaryList where
@@ -4572,10 +4615,10 @@ optionsPaginatedItemAttributeSummaryList =
 
 -- | 
 data PaginatedItemCategorySummaryList = PaginatedItemCategorySummaryList
-  { paginatedItemCategorySummaryListCount :: Maybe Int -- ^ 
-  , paginatedItemCategorySummaryListNext :: Maybe Text -- ^ 
-  , paginatedItemCategorySummaryListPrevious :: Maybe Text -- ^ 
-  , paginatedItemCategorySummaryListResults :: Maybe [ItemCategorySummary] -- ^ 
+  { paginatedItemCategorySummaryListCount :: Int -- ^ The total number of resources available from this API.
+  , paginatedItemCategorySummaryListNext :: Maybe Text -- ^ The URL for the next page in the list, or null if there is no next page.
+  , paginatedItemCategorySummaryListPrevious :: Maybe Text -- ^ The URL for the previous page in the list, or null if there is no previous page.
+  , paginatedItemCategorySummaryListResults :: [ItemCategorySummary] -- ^ A list of API resources on this page.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PaginatedItemCategorySummaryList where
@@ -4600,10 +4643,10 @@ optionsPaginatedItemCategorySummaryList =
 
 -- | 
 data PaginatedItemFlingEffectSummaryList = PaginatedItemFlingEffectSummaryList
-  { paginatedItemFlingEffectSummaryListCount :: Maybe Int -- ^ 
-  , paginatedItemFlingEffectSummaryListNext :: Maybe Text -- ^ 
-  , paginatedItemFlingEffectSummaryListPrevious :: Maybe Text -- ^ 
-  , paginatedItemFlingEffectSummaryListResults :: Maybe [ItemFlingEffectSummary] -- ^ 
+  { paginatedItemFlingEffectSummaryListCount :: Int -- ^ The total number of resources available from this API.
+  , paginatedItemFlingEffectSummaryListNext :: Maybe Text -- ^ The URL for the next page in the list, or null if there is no next page.
+  , paginatedItemFlingEffectSummaryListPrevious :: Maybe Text -- ^ The URL for the previous page in the list, or null if there is no previous page.
+  , paginatedItemFlingEffectSummaryListResults :: [ItemFlingEffectSummary] -- ^ A list of API resources on this page.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PaginatedItemFlingEffectSummaryList where
@@ -4628,10 +4671,10 @@ optionsPaginatedItemFlingEffectSummaryList =
 
 -- | 
 data PaginatedItemPocketSummaryList = PaginatedItemPocketSummaryList
-  { paginatedItemPocketSummaryListCount :: Maybe Int -- ^ 
-  , paginatedItemPocketSummaryListNext :: Maybe Text -- ^ 
-  , paginatedItemPocketSummaryListPrevious :: Maybe Text -- ^ 
-  , paginatedItemPocketSummaryListResults :: Maybe [ItemPocketSummary] -- ^ 
+  { paginatedItemPocketSummaryListCount :: Int -- ^ The total number of resources available from this API.
+  , paginatedItemPocketSummaryListNext :: Maybe Text -- ^ The URL for the next page in the list, or null if there is no next page.
+  , paginatedItemPocketSummaryListPrevious :: Maybe Text -- ^ The URL for the previous page in the list, or null if there is no previous page.
+  , paginatedItemPocketSummaryListResults :: [ItemPocketSummary] -- ^ A list of API resources on this page.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PaginatedItemPocketSummaryList where
@@ -4656,10 +4699,10 @@ optionsPaginatedItemPocketSummaryList =
 
 -- | 
 data PaginatedItemSummaryList = PaginatedItemSummaryList
-  { paginatedItemSummaryListCount :: Maybe Int -- ^ 
-  , paginatedItemSummaryListNext :: Maybe Text -- ^ 
-  , paginatedItemSummaryListPrevious :: Maybe Text -- ^ 
-  , paginatedItemSummaryListResults :: Maybe [ItemSummary] -- ^ 
+  { paginatedItemSummaryListCount :: Int -- ^ The total number of resources available from this API.
+  , paginatedItemSummaryListNext :: Maybe Text -- ^ The URL for the next page in the list, or null if there is no next page.
+  , paginatedItemSummaryListPrevious :: Maybe Text -- ^ The URL for the previous page in the list, or null if there is no previous page.
+  , paginatedItemSummaryListResults :: [ItemSummary] -- ^ A list of API resources on this page.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PaginatedItemSummaryList where
@@ -4684,10 +4727,10 @@ optionsPaginatedItemSummaryList =
 
 -- | 
 data PaginatedLanguageSummaryList = PaginatedLanguageSummaryList
-  { paginatedLanguageSummaryListCount :: Maybe Int -- ^ 
-  , paginatedLanguageSummaryListNext :: Maybe Text -- ^ 
-  , paginatedLanguageSummaryListPrevious :: Maybe Text -- ^ 
-  , paginatedLanguageSummaryListResults :: Maybe [LanguageSummary] -- ^ 
+  { paginatedLanguageSummaryListCount :: Int -- ^ The total number of resources available from this API.
+  , paginatedLanguageSummaryListNext :: Maybe Text -- ^ The URL for the next page in the list, or null if there is no next page.
+  , paginatedLanguageSummaryListPrevious :: Maybe Text -- ^ The URL for the previous page in the list, or null if there is no previous page.
+  , paginatedLanguageSummaryListResults :: [LanguageSummary] -- ^ A list of API resources on this page.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PaginatedLanguageSummaryList where
@@ -4712,10 +4755,10 @@ optionsPaginatedLanguageSummaryList =
 
 -- | 
 data PaginatedLocationAreaSummaryList = PaginatedLocationAreaSummaryList
-  { paginatedLocationAreaSummaryListCount :: Maybe Int -- ^ 
-  , paginatedLocationAreaSummaryListNext :: Maybe Text -- ^ 
-  , paginatedLocationAreaSummaryListPrevious :: Maybe Text -- ^ 
-  , paginatedLocationAreaSummaryListResults :: Maybe [LocationAreaSummary] -- ^ 
+  { paginatedLocationAreaSummaryListCount :: Int -- ^ The total number of resources available from this API.
+  , paginatedLocationAreaSummaryListNext :: Maybe Text -- ^ The URL for the next page in the list, or null if there is no next page.
+  , paginatedLocationAreaSummaryListPrevious :: Maybe Text -- ^ The URL for the previous page in the list, or null if there is no previous page.
+  , paginatedLocationAreaSummaryListResults :: [LocationAreaSummary] -- ^ A list of API resources on this page.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PaginatedLocationAreaSummaryList where
@@ -4740,10 +4783,10 @@ optionsPaginatedLocationAreaSummaryList =
 
 -- | 
 data PaginatedLocationSummaryList = PaginatedLocationSummaryList
-  { paginatedLocationSummaryListCount :: Maybe Int -- ^ 
-  , paginatedLocationSummaryListNext :: Maybe Text -- ^ 
-  , paginatedLocationSummaryListPrevious :: Maybe Text -- ^ 
-  , paginatedLocationSummaryListResults :: Maybe [LocationSummary] -- ^ 
+  { paginatedLocationSummaryListCount :: Int -- ^ The total number of resources available from this API.
+  , paginatedLocationSummaryListNext :: Maybe Text -- ^ The URL for the next page in the list, or null if there is no next page.
+  , paginatedLocationSummaryListPrevious :: Maybe Text -- ^ The URL for the previous page in the list, or null if there is no previous page.
+  , paginatedLocationSummaryListResults :: [LocationSummary] -- ^ A list of API resources on this page.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PaginatedLocationSummaryList where
@@ -4768,10 +4811,10 @@ optionsPaginatedLocationSummaryList =
 
 -- | 
 data PaginatedMachineSummaryList = PaginatedMachineSummaryList
-  { paginatedMachineSummaryListCount :: Maybe Int -- ^ 
-  , paginatedMachineSummaryListNext :: Maybe Text -- ^ 
-  , paginatedMachineSummaryListPrevious :: Maybe Text -- ^ 
-  , paginatedMachineSummaryListResults :: Maybe [MachineSummary] -- ^ 
+  { paginatedMachineSummaryListCount :: Int -- ^ The total number of resources available from this API.
+  , paginatedMachineSummaryListNext :: Maybe Text -- ^ The URL for the next page in the list, or null if there is no next page.
+  , paginatedMachineSummaryListPrevious :: Maybe Text -- ^ The URL for the previous page in the list, or null if there is no previous page.
+  , paginatedMachineSummaryListResults :: [MachineSummary] -- ^ A list of API resources on this page.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PaginatedMachineSummaryList where
@@ -4796,10 +4839,10 @@ optionsPaginatedMachineSummaryList =
 
 -- | 
 data PaginatedMoveBattleStyleSummaryList = PaginatedMoveBattleStyleSummaryList
-  { paginatedMoveBattleStyleSummaryListCount :: Maybe Int -- ^ 
-  , paginatedMoveBattleStyleSummaryListNext :: Maybe Text -- ^ 
-  , paginatedMoveBattleStyleSummaryListPrevious :: Maybe Text -- ^ 
-  , paginatedMoveBattleStyleSummaryListResults :: Maybe [MoveBattleStyleSummary] -- ^ 
+  { paginatedMoveBattleStyleSummaryListCount :: Int -- ^ The total number of resources available from this API.
+  , paginatedMoveBattleStyleSummaryListNext :: Maybe Text -- ^ The URL for the next page in the list, or null if there is no next page.
+  , paginatedMoveBattleStyleSummaryListPrevious :: Maybe Text -- ^ The URL for the previous page in the list, or null if there is no previous page.
+  , paginatedMoveBattleStyleSummaryListResults :: [MoveBattleStyleSummary] -- ^ A list of API resources on this page.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PaginatedMoveBattleStyleSummaryList where
@@ -4824,10 +4867,10 @@ optionsPaginatedMoveBattleStyleSummaryList =
 
 -- | 
 data PaginatedMoveDamageClassSummaryList = PaginatedMoveDamageClassSummaryList
-  { paginatedMoveDamageClassSummaryListCount :: Maybe Int -- ^ 
-  , paginatedMoveDamageClassSummaryListNext :: Maybe Text -- ^ 
-  , paginatedMoveDamageClassSummaryListPrevious :: Maybe Text -- ^ 
-  , paginatedMoveDamageClassSummaryListResults :: Maybe [MoveDamageClassSummary] -- ^ 
+  { paginatedMoveDamageClassSummaryListCount :: Int -- ^ The total number of resources available from this API.
+  , paginatedMoveDamageClassSummaryListNext :: Maybe Text -- ^ The URL for the next page in the list, or null if there is no next page.
+  , paginatedMoveDamageClassSummaryListPrevious :: Maybe Text -- ^ The URL for the previous page in the list, or null if there is no previous page.
+  , paginatedMoveDamageClassSummaryListResults :: [MoveDamageClassSummary] -- ^ A list of API resources on this page.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PaginatedMoveDamageClassSummaryList where
@@ -4852,10 +4895,10 @@ optionsPaginatedMoveDamageClassSummaryList =
 
 -- | 
 data PaginatedMoveLearnMethodSummaryList = PaginatedMoveLearnMethodSummaryList
-  { paginatedMoveLearnMethodSummaryListCount :: Maybe Int -- ^ 
-  , paginatedMoveLearnMethodSummaryListNext :: Maybe Text -- ^ 
-  , paginatedMoveLearnMethodSummaryListPrevious :: Maybe Text -- ^ 
-  , paginatedMoveLearnMethodSummaryListResults :: Maybe [MoveLearnMethodSummary] -- ^ 
+  { paginatedMoveLearnMethodSummaryListCount :: Int -- ^ The total number of resources available from this API.
+  , paginatedMoveLearnMethodSummaryListNext :: Maybe Text -- ^ The URL for the next page in the list, or null if there is no next page.
+  , paginatedMoveLearnMethodSummaryListPrevious :: Maybe Text -- ^ The URL for the previous page in the list, or null if there is no previous page.
+  , paginatedMoveLearnMethodSummaryListResults :: [MoveLearnMethodSummary] -- ^ A list of API resources on this page.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PaginatedMoveLearnMethodSummaryList where
@@ -4880,10 +4923,10 @@ optionsPaginatedMoveLearnMethodSummaryList =
 
 -- | 
 data PaginatedMoveMetaAilmentSummaryList = PaginatedMoveMetaAilmentSummaryList
-  { paginatedMoveMetaAilmentSummaryListCount :: Maybe Int -- ^ 
-  , paginatedMoveMetaAilmentSummaryListNext :: Maybe Text -- ^ 
-  , paginatedMoveMetaAilmentSummaryListPrevious :: Maybe Text -- ^ 
-  , paginatedMoveMetaAilmentSummaryListResults :: Maybe [MoveMetaAilmentSummary] -- ^ 
+  { paginatedMoveMetaAilmentSummaryListCount :: Int -- ^ The total number of resources available from this API.
+  , paginatedMoveMetaAilmentSummaryListNext :: Maybe Text -- ^ The URL for the next page in the list, or null if there is no next page.
+  , paginatedMoveMetaAilmentSummaryListPrevious :: Maybe Text -- ^ The URL for the previous page in the list, or null if there is no previous page.
+  , paginatedMoveMetaAilmentSummaryListResults :: [MoveMetaAilmentSummary] -- ^ A list of API resources on this page.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PaginatedMoveMetaAilmentSummaryList where
@@ -4908,10 +4951,10 @@ optionsPaginatedMoveMetaAilmentSummaryList =
 
 -- | 
 data PaginatedMoveMetaCategorySummaryList = PaginatedMoveMetaCategorySummaryList
-  { paginatedMoveMetaCategorySummaryListCount :: Maybe Int -- ^ 
-  , paginatedMoveMetaCategorySummaryListNext :: Maybe Text -- ^ 
-  , paginatedMoveMetaCategorySummaryListPrevious :: Maybe Text -- ^ 
-  , paginatedMoveMetaCategorySummaryListResults :: Maybe [MoveMetaCategorySummary] -- ^ 
+  { paginatedMoveMetaCategorySummaryListCount :: Int -- ^ The total number of resources available from this API.
+  , paginatedMoveMetaCategorySummaryListNext :: Maybe Text -- ^ The URL for the next page in the list, or null if there is no next page.
+  , paginatedMoveMetaCategorySummaryListPrevious :: Maybe Text -- ^ The URL for the previous page in the list, or null if there is no previous page.
+  , paginatedMoveMetaCategorySummaryListResults :: [MoveMetaCategorySummary] -- ^ A list of API resources on this page.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PaginatedMoveMetaCategorySummaryList where
@@ -4936,10 +4979,10 @@ optionsPaginatedMoveMetaCategorySummaryList =
 
 -- | 
 data PaginatedMoveSummaryList = PaginatedMoveSummaryList
-  { paginatedMoveSummaryListCount :: Maybe Int -- ^ 
-  , paginatedMoveSummaryListNext :: Maybe Text -- ^ 
-  , paginatedMoveSummaryListPrevious :: Maybe Text -- ^ 
-  , paginatedMoveSummaryListResults :: Maybe [MoveSummary] -- ^ 
+  { paginatedMoveSummaryListCount :: Int -- ^ The total number of resources available from this API.
+  , paginatedMoveSummaryListNext :: Maybe Text -- ^ The URL for the next page in the list, or null if there is no next page.
+  , paginatedMoveSummaryListPrevious :: Maybe Text -- ^ The URL for the previous page in the list, or null if there is no previous page.
+  , paginatedMoveSummaryListResults :: [MoveSummary] -- ^ A list of API resources on this page.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PaginatedMoveSummaryList where
@@ -4964,10 +5007,10 @@ optionsPaginatedMoveSummaryList =
 
 -- | 
 data PaginatedMoveTargetSummaryList = PaginatedMoveTargetSummaryList
-  { paginatedMoveTargetSummaryListCount :: Maybe Int -- ^ 
-  , paginatedMoveTargetSummaryListNext :: Maybe Text -- ^ 
-  , paginatedMoveTargetSummaryListPrevious :: Maybe Text -- ^ 
-  , paginatedMoveTargetSummaryListResults :: Maybe [MoveTargetSummary] -- ^ 
+  { paginatedMoveTargetSummaryListCount :: Int -- ^ The total number of resources available from this API.
+  , paginatedMoveTargetSummaryListNext :: Maybe Text -- ^ The URL for the next page in the list, or null if there is no next page.
+  , paginatedMoveTargetSummaryListPrevious :: Maybe Text -- ^ The URL for the previous page in the list, or null if there is no previous page.
+  , paginatedMoveTargetSummaryListResults :: [MoveTargetSummary] -- ^ A list of API resources on this page.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PaginatedMoveTargetSummaryList where
@@ -4992,10 +5035,10 @@ optionsPaginatedMoveTargetSummaryList =
 
 -- | 
 data PaginatedNatureSummaryList = PaginatedNatureSummaryList
-  { paginatedNatureSummaryListCount :: Maybe Int -- ^ 
-  , paginatedNatureSummaryListNext :: Maybe Text -- ^ 
-  , paginatedNatureSummaryListPrevious :: Maybe Text -- ^ 
-  , paginatedNatureSummaryListResults :: Maybe [NatureSummary] -- ^ 
+  { paginatedNatureSummaryListCount :: Int -- ^ The total number of resources available from this API.
+  , paginatedNatureSummaryListNext :: Maybe Text -- ^ The URL for the next page in the list, or null if there is no next page.
+  , paginatedNatureSummaryListPrevious :: Maybe Text -- ^ The URL for the previous page in the list, or null if there is no previous page.
+  , paginatedNatureSummaryListResults :: [NatureSummary] -- ^ A list of API resources on this page.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PaginatedNatureSummaryList where
@@ -5020,10 +5063,10 @@ optionsPaginatedNatureSummaryList =
 
 -- | 
 data PaginatedPalParkAreaSummaryList = PaginatedPalParkAreaSummaryList
-  { paginatedPalParkAreaSummaryListCount :: Maybe Int -- ^ 
-  , paginatedPalParkAreaSummaryListNext :: Maybe Text -- ^ 
-  , paginatedPalParkAreaSummaryListPrevious :: Maybe Text -- ^ 
-  , paginatedPalParkAreaSummaryListResults :: Maybe [PalParkAreaSummary] -- ^ 
+  { paginatedPalParkAreaSummaryListCount :: Int -- ^ The total number of resources available from this API.
+  , paginatedPalParkAreaSummaryListNext :: Maybe Text -- ^ The URL for the next page in the list, or null if there is no next page.
+  , paginatedPalParkAreaSummaryListPrevious :: Maybe Text -- ^ The URL for the previous page in the list, or null if there is no previous page.
+  , paginatedPalParkAreaSummaryListResults :: [PalParkAreaSummary] -- ^ A list of API resources on this page.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PaginatedPalParkAreaSummaryList where
@@ -5048,10 +5091,10 @@ optionsPaginatedPalParkAreaSummaryList =
 
 -- | 
 data PaginatedPokeathlonStatSummaryList = PaginatedPokeathlonStatSummaryList
-  { paginatedPokeathlonStatSummaryListCount :: Maybe Int -- ^ 
-  , paginatedPokeathlonStatSummaryListNext :: Maybe Text -- ^ 
-  , paginatedPokeathlonStatSummaryListPrevious :: Maybe Text -- ^ 
-  , paginatedPokeathlonStatSummaryListResults :: Maybe [PokeathlonStatSummary] -- ^ 
+  { paginatedPokeathlonStatSummaryListCount :: Int -- ^ The total number of resources available from this API.
+  , paginatedPokeathlonStatSummaryListNext :: Maybe Text -- ^ The URL for the next page in the list, or null if there is no next page.
+  , paginatedPokeathlonStatSummaryListPrevious :: Maybe Text -- ^ The URL for the previous page in the list, or null if there is no previous page.
+  , paginatedPokeathlonStatSummaryListResults :: [PokeathlonStatSummary] -- ^ A list of API resources on this page.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PaginatedPokeathlonStatSummaryList where
@@ -5076,10 +5119,10 @@ optionsPaginatedPokeathlonStatSummaryList =
 
 -- | 
 data PaginatedPokedexSummaryList = PaginatedPokedexSummaryList
-  { paginatedPokedexSummaryListCount :: Maybe Int -- ^ 
-  , paginatedPokedexSummaryListNext :: Maybe Text -- ^ 
-  , paginatedPokedexSummaryListPrevious :: Maybe Text -- ^ 
-  , paginatedPokedexSummaryListResults :: Maybe [PokedexSummary] -- ^ 
+  { paginatedPokedexSummaryListCount :: Int -- ^ The total number of resources available from this API.
+  , paginatedPokedexSummaryListNext :: Maybe Text -- ^ The URL for the next page in the list, or null if there is no next page.
+  , paginatedPokedexSummaryListPrevious :: Maybe Text -- ^ The URL for the previous page in the list, or null if there is no previous page.
+  , paginatedPokedexSummaryListResults :: [PokedexSummary] -- ^ A list of API resources on this page.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PaginatedPokedexSummaryList where
@@ -5104,10 +5147,10 @@ optionsPaginatedPokedexSummaryList =
 
 -- | 
 data PaginatedPokemonColorSummaryList = PaginatedPokemonColorSummaryList
-  { paginatedPokemonColorSummaryListCount :: Maybe Int -- ^ 
-  , paginatedPokemonColorSummaryListNext :: Maybe Text -- ^ 
-  , paginatedPokemonColorSummaryListPrevious :: Maybe Text -- ^ 
-  , paginatedPokemonColorSummaryListResults :: Maybe [PokemonColorSummary] -- ^ 
+  { paginatedPokemonColorSummaryListCount :: Int -- ^ The total number of resources available from this API.
+  , paginatedPokemonColorSummaryListNext :: Maybe Text -- ^ The URL for the next page in the list, or null if there is no next page.
+  , paginatedPokemonColorSummaryListPrevious :: Maybe Text -- ^ The URL for the previous page in the list, or null if there is no previous page.
+  , paginatedPokemonColorSummaryListResults :: [PokemonColorSummary] -- ^ A list of API resources on this page.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PaginatedPokemonColorSummaryList where
@@ -5132,10 +5175,10 @@ optionsPaginatedPokemonColorSummaryList =
 
 -- | 
 data PaginatedPokemonFormSummaryList = PaginatedPokemonFormSummaryList
-  { paginatedPokemonFormSummaryListCount :: Maybe Int -- ^ 
-  , paginatedPokemonFormSummaryListNext :: Maybe Text -- ^ 
-  , paginatedPokemonFormSummaryListPrevious :: Maybe Text -- ^ 
-  , paginatedPokemonFormSummaryListResults :: Maybe [PokemonFormSummary] -- ^ 
+  { paginatedPokemonFormSummaryListCount :: Int -- ^ The total number of resources available from this API.
+  , paginatedPokemonFormSummaryListNext :: Maybe Text -- ^ The URL for the next page in the list, or null if there is no next page.
+  , paginatedPokemonFormSummaryListPrevious :: Maybe Text -- ^ The URL for the previous page in the list, or null if there is no previous page.
+  , paginatedPokemonFormSummaryListResults :: [PokemonFormSummary] -- ^ A list of API resources on this page.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PaginatedPokemonFormSummaryList where
@@ -5160,10 +5203,10 @@ optionsPaginatedPokemonFormSummaryList =
 
 -- | 
 data PaginatedPokemonHabitatSummaryList = PaginatedPokemonHabitatSummaryList
-  { paginatedPokemonHabitatSummaryListCount :: Maybe Int -- ^ 
-  , paginatedPokemonHabitatSummaryListNext :: Maybe Text -- ^ 
-  , paginatedPokemonHabitatSummaryListPrevious :: Maybe Text -- ^ 
-  , paginatedPokemonHabitatSummaryListResults :: Maybe [PokemonHabitatSummary] -- ^ 
+  { paginatedPokemonHabitatSummaryListCount :: Int -- ^ The total number of resources available from this API.
+  , paginatedPokemonHabitatSummaryListNext :: Maybe Text -- ^ The URL for the next page in the list, or null if there is no next page.
+  , paginatedPokemonHabitatSummaryListPrevious :: Maybe Text -- ^ The URL for the previous page in the list, or null if there is no previous page.
+  , paginatedPokemonHabitatSummaryListResults :: [PokemonHabitatSummary] -- ^ A list of API resources on this page.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PaginatedPokemonHabitatSummaryList where
@@ -5188,10 +5231,10 @@ optionsPaginatedPokemonHabitatSummaryList =
 
 -- | 
 data PaginatedPokemonShapeSummaryList = PaginatedPokemonShapeSummaryList
-  { paginatedPokemonShapeSummaryListCount :: Maybe Int -- ^ 
-  , paginatedPokemonShapeSummaryListNext :: Maybe Text -- ^ 
-  , paginatedPokemonShapeSummaryListPrevious :: Maybe Text -- ^ 
-  , paginatedPokemonShapeSummaryListResults :: Maybe [PokemonShapeSummary] -- ^ 
+  { paginatedPokemonShapeSummaryListCount :: Int -- ^ The total number of resources available from this API.
+  , paginatedPokemonShapeSummaryListNext :: Maybe Text -- ^ The URL for the next page in the list, or null if there is no next page.
+  , paginatedPokemonShapeSummaryListPrevious :: Maybe Text -- ^ The URL for the previous page in the list, or null if there is no previous page.
+  , paginatedPokemonShapeSummaryListResults :: [PokemonShapeSummary] -- ^ A list of API resources on this page.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PaginatedPokemonShapeSummaryList where
@@ -5216,10 +5259,10 @@ optionsPaginatedPokemonShapeSummaryList =
 
 -- | 
 data PaginatedPokemonSpeciesSummaryList = PaginatedPokemonSpeciesSummaryList
-  { paginatedPokemonSpeciesSummaryListCount :: Maybe Int -- ^ 
-  , paginatedPokemonSpeciesSummaryListNext :: Maybe Text -- ^ 
-  , paginatedPokemonSpeciesSummaryListPrevious :: Maybe Text -- ^ 
-  , paginatedPokemonSpeciesSummaryListResults :: Maybe [PokemonSpeciesSummary] -- ^ 
+  { paginatedPokemonSpeciesSummaryListCount :: Int -- ^ The total number of resources available from this API.
+  , paginatedPokemonSpeciesSummaryListNext :: Maybe Text -- ^ The URL for the next page in the list, or null if there is no next page.
+  , paginatedPokemonSpeciesSummaryListPrevious :: Maybe Text -- ^ The URL for the previous page in the list, or null if there is no previous page.
+  , paginatedPokemonSpeciesSummaryListResults :: [PokemonSpeciesSummary] -- ^ A list of API resources on this page.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PaginatedPokemonSpeciesSummaryList where
@@ -5244,10 +5287,10 @@ optionsPaginatedPokemonSpeciesSummaryList =
 
 -- | 
 data PaginatedPokemonSummaryList = PaginatedPokemonSummaryList
-  { paginatedPokemonSummaryListCount :: Maybe Int -- ^ 
-  , paginatedPokemonSummaryListNext :: Maybe Text -- ^ 
-  , paginatedPokemonSummaryListPrevious :: Maybe Text -- ^ 
-  , paginatedPokemonSummaryListResults :: Maybe [PokemonSummary] -- ^ 
+  { paginatedPokemonSummaryListCount :: Int -- ^ The total number of resources available from this API.
+  , paginatedPokemonSummaryListNext :: Maybe Text -- ^ The URL for the next page in the list, or null if there is no next page.
+  , paginatedPokemonSummaryListPrevious :: Maybe Text -- ^ The URL for the previous page in the list, or null if there is no previous page.
+  , paginatedPokemonSummaryListResults :: [PokemonSummary] -- ^ A list of API resources on this page.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PaginatedPokemonSummaryList where
@@ -5272,10 +5315,10 @@ optionsPaginatedPokemonSummaryList =
 
 -- | 
 data PaginatedRegionSummaryList = PaginatedRegionSummaryList
-  { paginatedRegionSummaryListCount :: Maybe Int -- ^ 
-  , paginatedRegionSummaryListNext :: Maybe Text -- ^ 
-  , paginatedRegionSummaryListPrevious :: Maybe Text -- ^ 
-  , paginatedRegionSummaryListResults :: Maybe [RegionSummary] -- ^ 
+  { paginatedRegionSummaryListCount :: Int -- ^ The total number of resources available from this API.
+  , paginatedRegionSummaryListNext :: Maybe Text -- ^ The URL for the next page in the list, or null if there is no next page.
+  , paginatedRegionSummaryListPrevious :: Maybe Text -- ^ The URL for the previous page in the list, or null if there is no previous page.
+  , paginatedRegionSummaryListResults :: [RegionSummary] -- ^ A list of API resources on this page.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PaginatedRegionSummaryList where
@@ -5300,10 +5343,10 @@ optionsPaginatedRegionSummaryList =
 
 -- | 
 data PaginatedStatSummaryList = PaginatedStatSummaryList
-  { paginatedStatSummaryListCount :: Maybe Int -- ^ 
-  , paginatedStatSummaryListNext :: Maybe Text -- ^ 
-  , paginatedStatSummaryListPrevious :: Maybe Text -- ^ 
-  , paginatedStatSummaryListResults :: Maybe [StatSummary] -- ^ 
+  { paginatedStatSummaryListCount :: Int -- ^ The total number of resources available from this API.
+  , paginatedStatSummaryListNext :: Maybe Text -- ^ The URL for the next page in the list, or null if there is no next page.
+  , paginatedStatSummaryListPrevious :: Maybe Text -- ^ The URL for the previous page in the list, or null if there is no previous page.
+  , paginatedStatSummaryListResults :: [StatSummary] -- ^ A list of API resources on this page.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PaginatedStatSummaryList where
@@ -5328,10 +5371,10 @@ optionsPaginatedStatSummaryList =
 
 -- | 
 data PaginatedSuperContestEffectSummaryList = PaginatedSuperContestEffectSummaryList
-  { paginatedSuperContestEffectSummaryListCount :: Maybe Int -- ^ 
-  , paginatedSuperContestEffectSummaryListNext :: Maybe Text -- ^ 
-  , paginatedSuperContestEffectSummaryListPrevious :: Maybe Text -- ^ 
-  , paginatedSuperContestEffectSummaryListResults :: Maybe [SuperContestEffectSummary] -- ^ 
+  { paginatedSuperContestEffectSummaryListCount :: Int -- ^ The total number of resources available from this API.
+  , paginatedSuperContestEffectSummaryListNext :: Maybe Text -- ^ The URL for the next page in the list, or null if there is no next page.
+  , paginatedSuperContestEffectSummaryListPrevious :: Maybe Text -- ^ The URL for the previous page in the list, or null if there is no previous page.
+  , paginatedSuperContestEffectSummaryListResults :: [SuperContestEffectSummary] -- ^ A list of API resources on this page.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PaginatedSuperContestEffectSummaryList where
@@ -5356,10 +5399,10 @@ optionsPaginatedSuperContestEffectSummaryList =
 
 -- | 
 data PaginatedTypeSummaryList = PaginatedTypeSummaryList
-  { paginatedTypeSummaryListCount :: Maybe Int -- ^ 
-  , paginatedTypeSummaryListNext :: Maybe Text -- ^ 
-  , paginatedTypeSummaryListPrevious :: Maybe Text -- ^ 
-  , paginatedTypeSummaryListResults :: Maybe [TypeSummary] -- ^ 
+  { paginatedTypeSummaryListCount :: Int -- ^ The total number of resources available from this API.
+  , paginatedTypeSummaryListNext :: Maybe Text -- ^ The URL for the next page in the list, or null if there is no next page.
+  , paginatedTypeSummaryListPrevious :: Maybe Text -- ^ The URL for the previous page in the list, or null if there is no previous page.
+  , paginatedTypeSummaryListResults :: [TypeSummary] -- ^ A list of API resources on this page.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PaginatedTypeSummaryList where
@@ -5384,10 +5427,10 @@ optionsPaginatedTypeSummaryList =
 
 -- | 
 data PaginatedVersionGroupSummaryList = PaginatedVersionGroupSummaryList
-  { paginatedVersionGroupSummaryListCount :: Maybe Int -- ^ 
-  , paginatedVersionGroupSummaryListNext :: Maybe Text -- ^ 
-  , paginatedVersionGroupSummaryListPrevious :: Maybe Text -- ^ 
-  , paginatedVersionGroupSummaryListResults :: Maybe [VersionGroupSummary] -- ^ 
+  { paginatedVersionGroupSummaryListCount :: Int -- ^ The total number of resources available from this API.
+  , paginatedVersionGroupSummaryListNext :: Maybe Text -- ^ The URL for the next page in the list, or null if there is no next page.
+  , paginatedVersionGroupSummaryListPrevious :: Maybe Text -- ^ The URL for the previous page in the list, or null if there is no previous page.
+  , paginatedVersionGroupSummaryListResults :: [VersionGroupSummary] -- ^ A list of API resources on this page.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PaginatedVersionGroupSummaryList where
@@ -5412,10 +5455,10 @@ optionsPaginatedVersionGroupSummaryList =
 
 -- | 
 data PaginatedVersionSummaryList = PaginatedVersionSummaryList
-  { paginatedVersionSummaryListCount :: Maybe Int -- ^ 
-  , paginatedVersionSummaryListNext :: Maybe Text -- ^ 
-  , paginatedVersionSummaryListPrevious :: Maybe Text -- ^ 
-  , paginatedVersionSummaryListResults :: Maybe [VersionSummary] -- ^ 
+  { paginatedVersionSummaryListCount :: Int -- ^ The total number of resources available from this API.
+  , paginatedVersionSummaryListNext :: Maybe Text -- ^ The URL for the next page in the list, or null if there is no next page.
+  , paginatedVersionSummaryListPrevious :: Maybe Text -- ^ The URL for the previous page in the list, or null if there is no previous page.
+  , paginatedVersionSummaryListResults :: [VersionSummary] -- ^ A list of API resources on this page.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PaginatedVersionSummaryList where
@@ -5440,10 +5483,10 @@ optionsPaginatedVersionSummaryList =
 
 -- | 
 data PalParkAreaDetail = PalParkAreaDetail
-  { palParkAreaDetailId :: Int -- ^ 
-  , palParkAreaDetailName :: Text -- ^ 
-  , palParkAreaDetailNames :: [PalParkAreaName] -- ^ 
-  , palParkAreaDetailPokemonUnderscoreencounters :: [PalParkAreaDetailPokemonEncountersInner] -- ^ 
+  { palParkAreaDetailId :: Int -- ^ The identifier for this resource.
+  , palParkAreaDetailName :: Text -- ^ The name for this resource.
+  , palParkAreaDetailNames :: [PalParkAreaName] -- ^ The name of this resource listed in different languages.
+  , palParkAreaDetailPokemonUnderscoreencounters :: [PalParkEncounter] -- ^ A list of Pokémon encountered in thi pal park area along with details.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PalParkAreaDetail where
@@ -5467,35 +5510,9 @@ optionsPalParkAreaDetail =
 
 
 -- | 
-data PalParkAreaDetailPokemonEncountersInner = PalParkAreaDetailPokemonEncountersInner
-  { palParkAreaDetailPokemonEncountersInnerBaseUnderscorescore :: Int -- ^ 
-  , palParkAreaDetailPokemonEncountersInnerPokemonDashspecies :: AbilityDetailPokemonInnerPokemon -- ^ 
-  , palParkAreaDetailPokemonEncountersInnerRate :: Int -- ^ 
-  } deriving (Show, Eq, Generic)
-
-instance FromJSON PalParkAreaDetailPokemonEncountersInner where
-  parseJSON = genericParseJSON optionsPalParkAreaDetailPokemonEncountersInner
-instance ToJSON PalParkAreaDetailPokemonEncountersInner where
-  toJSON = genericToJSON optionsPalParkAreaDetailPokemonEncountersInner
-
-optionsPalParkAreaDetailPokemonEncountersInner :: Options
-optionsPalParkAreaDetailPokemonEncountersInner =
-  defaultOptions
-    { omitNothingFields  = True
-    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
-    }
-  where
-    table =
-      [ ("palParkAreaDetailPokemonEncountersInnerBaseUnderscorescore", "base_score")
-      , ("palParkAreaDetailPokemonEncountersInnerPokemonDashspecies", "pokemon-species")
-      , ("palParkAreaDetailPokemonEncountersInnerRate", "rate")
-      ]
-
-
--- | 
 data PalParkAreaName = PalParkAreaName
-  { palParkAreaNameName :: Text -- ^ 
-  , palParkAreaNameLanguage :: LanguageSummary -- ^ 
+  { palParkAreaNameName :: Text -- ^ The localized name for an API resource in a specific language.
+  , palParkAreaNameLanguage :: LanguageSummary -- ^ The language this name is in.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PalParkAreaName where
@@ -5518,8 +5535,8 @@ optionsPalParkAreaName =
 
 -- | 
 data PalParkAreaSummary = PalParkAreaSummary
-  { palParkAreaSummaryName :: Text -- ^ 
-  , palParkAreaSummaryUrl :: Text -- ^ 
+  { palParkAreaSummaryName :: Text -- ^ The name of the referenced resource.
+  , palParkAreaSummaryUrl :: Text -- ^ The URL of the referenced resource.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PalParkAreaSummary where
@@ -5541,11 +5558,111 @@ optionsPalParkAreaSummary =
 
 
 -- | 
+data PalParkEncounter = PalParkEncounter
+  { palParkEncounterBaseUnderscorescore :: Maybe Int -- ^ The base score given to the player when this Pokémon is caught during a pal park run.
+  , palParkEncounterRate :: Int -- ^ The base rate for encountering this Pokémon in this pal park area.
+  , palParkEncounterPokemonUnderscorespecies :: PokemonSpeciesSummary -- ^ The Pokémon species being encountered.
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON PalParkEncounter where
+  parseJSON = genericParseJSON optionsPalParkEncounter
+instance ToJSON PalParkEncounter where
+  toJSON = genericToJSON optionsPalParkEncounter
+
+optionsPalParkEncounter :: Options
+optionsPalParkEncounter =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ ("palParkEncounterBaseUnderscorescore", "base_score")
+      , ("palParkEncounterRate", "rate")
+      , ("palParkEncounterPokemonUnderscorespecies", "pokemon_species")
+      ]
+
+
+-- | 
+data PokeapiMetaResponse = PokeapiMetaResponse
+  { pokeapiMetaResponseDeployUnderscoredate :: Text -- ^ The deployment time as a Unix timestamp string.
+  , pokeapiMetaResponseHash :: Text -- ^ The source commit hash used for this deployment.
+  , pokeapiMetaResponseTag :: Text -- ^ The deployment tag, or null if the deployment has no tag.
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON PokeapiMetaResponse where
+  parseJSON = genericParseJSON optionsPokeapiMetaResponse
+instance ToJSON PokeapiMetaResponse where
+  toJSON = genericToJSON optionsPokeapiMetaResponse
+
+optionsPokeapiMetaResponse :: Options
+optionsPokeapiMetaResponse =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ ("pokeapiMetaResponseDeployUnderscoredate", "deploy_date")
+      , ("pokeapiMetaResponseHash", "hash")
+      , ("pokeapiMetaResponseTag", "tag")
+      ]
+
+
+-- | 
+data PokeathlonStatAffectingNature = PokeathlonStatAffectingNature
+  { pokeathlonStatAffectingNatureMaxUnderscorechange :: Int -- ^ The maximum amount of change to the referenced Pokéathlon stat.
+  , pokeathlonStatAffectingNatureNature :: NatureSummary -- ^ The nature causing the change.
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON PokeathlonStatAffectingNature where
+  parseJSON = genericParseJSON optionsPokeathlonStatAffectingNature
+instance ToJSON PokeathlonStatAffectingNature where
+  toJSON = genericToJSON optionsPokeathlonStatAffectingNature
+
+optionsPokeathlonStatAffectingNature :: Options
+optionsPokeathlonStatAffectingNature =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ ("pokeathlonStatAffectingNatureMaxUnderscorechange", "max_change")
+      , ("pokeathlonStatAffectingNatureNature", "nature")
+      ]
+
+
+-- | 
+data PokeathlonStatAffectingNatures = PokeathlonStatAffectingNatures
+  { pokeathlonStatAffectingNaturesIncrease :: [PokeathlonStatAffectingNature] -- ^ A list of natures and how they change the referenced Pokéathlon stat.
+  , pokeathlonStatAffectingNaturesDecrease :: [PokeathlonStatAffectingNature] -- ^ A list of natures and how they change the referenced Pokéathlon stat.
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON PokeathlonStatAffectingNatures where
+  parseJSON = genericParseJSON optionsPokeathlonStatAffectingNatures
+instance ToJSON PokeathlonStatAffectingNatures where
+  toJSON = genericToJSON optionsPokeathlonStatAffectingNatures
+
+optionsPokeathlonStatAffectingNatures :: Options
+optionsPokeathlonStatAffectingNatures =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ ("pokeathlonStatAffectingNaturesIncrease", "increase")
+      , ("pokeathlonStatAffectingNaturesDecrease", "decrease")
+      ]
+
+
+-- | 
 data PokeathlonStatDetail = PokeathlonStatDetail
-  { pokeathlonStatDetailId :: Int -- ^ 
-  , pokeathlonStatDetailName :: Text -- ^ 
-  , pokeathlonStatDetailAffectingUnderscorenatures :: PokeathlonStatDetailAffectingNatures -- ^ 
-  , pokeathlonStatDetailNames :: [PokeathlonStatName] -- ^ 
+  { pokeathlonStatDetailId :: Int -- ^ The identifier for this resource.
+  , pokeathlonStatDetailName :: Text -- ^ The name for this resource.
+  , pokeathlonStatDetailAffectingUnderscorenatures :: PokeathlonStatAffectingNatures -- ^ A detail of natures which affect this Pokéathlon stat positively or negatively.
+  , pokeathlonStatDetailNames :: [PokeathlonStatName] -- ^ The name of this resource listed in different languages.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PokeathlonStatDetail where
@@ -5569,81 +5686,9 @@ optionsPokeathlonStatDetail =
 
 
 -- | 
-data PokeathlonStatDetailAffectingNatures = PokeathlonStatDetailAffectingNatures
-  { pokeathlonStatDetailAffectingNaturesDecrease :: [PokeathlonStatDetailAffectingNaturesDecreaseInner] -- ^ 
-  , pokeathlonStatDetailAffectingNaturesIncrease :: [PokeathlonStatDetailAffectingNaturesIncreaseInner] -- ^ 
-  } deriving (Show, Eq, Generic)
-
-instance FromJSON PokeathlonStatDetailAffectingNatures where
-  parseJSON = genericParseJSON optionsPokeathlonStatDetailAffectingNatures
-instance ToJSON PokeathlonStatDetailAffectingNatures where
-  toJSON = genericToJSON optionsPokeathlonStatDetailAffectingNatures
-
-optionsPokeathlonStatDetailAffectingNatures :: Options
-optionsPokeathlonStatDetailAffectingNatures =
-  defaultOptions
-    { omitNothingFields  = True
-    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
-    }
-  where
-    table =
-      [ ("pokeathlonStatDetailAffectingNaturesDecrease", "decrease")
-      , ("pokeathlonStatDetailAffectingNaturesIncrease", "increase")
-      ]
-
-
--- | 
-data PokeathlonStatDetailAffectingNaturesDecreaseInner = PokeathlonStatDetailAffectingNaturesDecreaseInner
-  { pokeathlonStatDetailAffectingNaturesDecreaseInnerMaxUnderscorechange :: Int -- ^ 
-  , pokeathlonStatDetailAffectingNaturesDecreaseInnerNature :: AbilityDetailPokemonInnerPokemon -- ^ 
-  } deriving (Show, Eq, Generic)
-
-instance FromJSON PokeathlonStatDetailAffectingNaturesDecreaseInner where
-  parseJSON = genericParseJSON optionsPokeathlonStatDetailAffectingNaturesDecreaseInner
-instance ToJSON PokeathlonStatDetailAffectingNaturesDecreaseInner where
-  toJSON = genericToJSON optionsPokeathlonStatDetailAffectingNaturesDecreaseInner
-
-optionsPokeathlonStatDetailAffectingNaturesDecreaseInner :: Options
-optionsPokeathlonStatDetailAffectingNaturesDecreaseInner =
-  defaultOptions
-    { omitNothingFields  = True
-    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
-    }
-  where
-    table =
-      [ ("pokeathlonStatDetailAffectingNaturesDecreaseInnerMaxUnderscorechange", "max_change")
-      , ("pokeathlonStatDetailAffectingNaturesDecreaseInnerNature", "nature")
-      ]
-
-
--- | 
-data PokeathlonStatDetailAffectingNaturesIncreaseInner = PokeathlonStatDetailAffectingNaturesIncreaseInner
-  { pokeathlonStatDetailAffectingNaturesIncreaseInnerMaxUnderscorechange :: Int -- ^ 
-  , pokeathlonStatDetailAffectingNaturesIncreaseInnerNature :: AbilityDetailPokemonInnerPokemon -- ^ 
-  } deriving (Show, Eq, Generic)
-
-instance FromJSON PokeathlonStatDetailAffectingNaturesIncreaseInner where
-  parseJSON = genericParseJSON optionsPokeathlonStatDetailAffectingNaturesIncreaseInner
-instance ToJSON PokeathlonStatDetailAffectingNaturesIncreaseInner where
-  toJSON = genericToJSON optionsPokeathlonStatDetailAffectingNaturesIncreaseInner
-
-optionsPokeathlonStatDetailAffectingNaturesIncreaseInner :: Options
-optionsPokeathlonStatDetailAffectingNaturesIncreaseInner =
-  defaultOptions
-    { omitNothingFields  = True
-    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
-    }
-  where
-    table =
-      [ ("pokeathlonStatDetailAffectingNaturesIncreaseInnerMaxUnderscorechange", "max_change")
-      , ("pokeathlonStatDetailAffectingNaturesIncreaseInnerNature", "nature")
-      ]
-
-
--- | 
 data PokeathlonStatName = PokeathlonStatName
-  { pokeathlonStatNameName :: Text -- ^ 
-  , pokeathlonStatNameLanguage :: LanguageSummary -- ^ 
+  { pokeathlonStatNameName :: Text -- ^ The localized name for an API resource in a specific language.
+  , pokeathlonStatNameLanguage :: LanguageSummary -- ^ The language this name is in.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PokeathlonStatName where
@@ -5666,8 +5711,8 @@ optionsPokeathlonStatName =
 
 -- | 
 data PokeathlonStatSummary = PokeathlonStatSummary
-  { pokeathlonStatSummaryName :: Text -- ^ 
-  , pokeathlonStatSummaryUrl :: Text -- ^ 
+  { pokeathlonStatSummaryName :: Text -- ^ The name of the referenced resource.
+  , pokeathlonStatSummaryUrl :: Text -- ^ The URL of the referenced resource.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PokeathlonStatSummary where
@@ -5690,8 +5735,8 @@ optionsPokeathlonStatSummary =
 
 -- | 
 data PokedexDescription = PokedexDescription
-  { pokedexDescriptionDescription :: Maybe Text -- ^ 
-  , pokedexDescriptionLanguage :: LanguageSummary -- ^ 
+  { pokedexDescriptionDescription :: Maybe Text -- ^ The localized description for an API resource in a specific language.
+  , pokedexDescriptionLanguage :: LanguageSummary -- ^ The language this name is in.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PokedexDescription where
@@ -5714,14 +5759,14 @@ optionsPokedexDescription =
 
 -- | 
 data PokedexDetail = PokedexDetail
-  { pokedexDetailId :: Int -- ^ 
-  , pokedexDetailName :: Text -- ^ 
-  , pokedexDetailIsUnderscoremainUnderscoreseries :: Maybe Bool -- ^ 
-  , pokedexDetailDescriptions :: [PokedexDescription] -- ^ 
-  , pokedexDetailNames :: [PokedexName] -- ^ 
-  , pokedexDetailPokemonUnderscoreentries :: [PokedexDetailPokemonEntriesInner] -- ^ 
-  , pokedexDetailRegion :: RegionSummary -- ^ 
-  , pokedexDetailVersionUnderscoregroups :: [AbilityDetailPokemonInnerPokemon] -- ^ 
+  { pokedexDetailId :: Int -- ^ The identifier for this resource.
+  , pokedexDetailName :: Text -- ^ The name for this resource.
+  , pokedexDetailIsUnderscoremainUnderscoreseries :: Maybe Bool -- ^ Whether or not this Pokédex originated in the main series of the video games.
+  , pokedexDetailDescriptions :: [PokedexDescription] -- ^ The description of this resource listed in different languages.
+  , pokedexDetailNames :: [PokedexName] -- ^ The name of this resource listed in different languages.
+  , pokedexDetailPokemonUnderscoreentries :: [PokemonDexNumber] -- ^ A list of Pokémon catalogued in this Pokédex and their indexes.
+  , pokedexDetailRegion :: RegionSummary -- ^ The region this Pokédex catalogues Pokémon for.
+  , pokedexDetailVersionUnderscoregroups :: [VersionGroupSummary] -- ^ A list of version groups this Pokédex is relevant to.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PokedexDetail where
@@ -5749,33 +5794,9 @@ optionsPokedexDetail =
 
 
 -- | 
-data PokedexDetailPokemonEntriesInner = PokedexDetailPokemonEntriesInner
-  { pokedexDetailPokemonEntriesInnerEntryUnderscorenumber :: Int -- ^ 
-  , pokedexDetailPokemonEntriesInnerPokemonUnderscorespecies :: AbilityDetailPokemonInnerPokemon -- ^ 
-  } deriving (Show, Eq, Generic)
-
-instance FromJSON PokedexDetailPokemonEntriesInner where
-  parseJSON = genericParseJSON optionsPokedexDetailPokemonEntriesInner
-instance ToJSON PokedexDetailPokemonEntriesInner where
-  toJSON = genericToJSON optionsPokedexDetailPokemonEntriesInner
-
-optionsPokedexDetailPokemonEntriesInner :: Options
-optionsPokedexDetailPokemonEntriesInner =
-  defaultOptions
-    { omitNothingFields  = True
-    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
-    }
-  where
-    table =
-      [ ("pokedexDetailPokemonEntriesInnerEntryUnderscorenumber", "entry_number")
-      , ("pokedexDetailPokemonEntriesInnerPokemonUnderscorespecies", "pokemon_species")
-      ]
-
-
--- | 
 data PokedexName = PokedexName
-  { pokedexNameName :: Text -- ^ 
-  , pokedexNameLanguage :: LanguageSummary -- ^ 
+  { pokedexNameName :: Text -- ^ The localized name for an API resource in a specific language.
+  , pokedexNameLanguage :: LanguageSummary -- ^ The language this name is in.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PokedexName where
@@ -5798,8 +5819,8 @@ optionsPokedexName =
 
 -- | 
 data PokedexSummary = PokedexSummary
-  { pokedexSummaryName :: Text -- ^ 
-  , pokedexSummaryUrl :: Text -- ^ 
+  { pokedexSummaryName :: Text -- ^ The name of the referenced resource.
+  , pokedexSummaryUrl :: Text -- ^ The URL of the referenced resource.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PokedexSummary where
@@ -5821,11 +5842,63 @@ optionsPokedexSummary =
 
 
 -- | 
+data PokemonAbility = PokemonAbility
+  { pokemonAbilityIsUnderscorehidden :: Maybe Bool -- ^ Whether or not this is a hidden ability.
+  , pokemonAbilitySlot :: Int -- ^ The slot this ability occupies in this Pokémon species.
+  , pokemonAbilityAbility :: AbilitySummary -- ^ The ability the Pokémon may have.
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON PokemonAbility where
+  parseJSON = genericParseJSON optionsPokemonAbility
+instance ToJSON PokemonAbility where
+  toJSON = genericToJSON optionsPokemonAbility
+
+optionsPokemonAbility :: Options
+optionsPokemonAbility =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ ("pokemonAbilityIsUnderscorehidden", "is_hidden")
+      , ("pokemonAbilitySlot", "slot")
+      , ("pokemonAbilityAbility", "ability")
+      ]
+
+
+-- | 
+data PokemonAbilityPast = PokemonAbilityPast
+  { pokemonAbilityPastIsUnderscorehidden :: Maybe Bool -- ^ Whether or not this is a hidden ability.
+  , pokemonAbilityPastSlot :: Int -- ^ The slot this ability occupies in this Pokémon species.
+  , pokemonAbilityPastAbility :: AbilitySummary -- ^ The ability the Pokémon may have.
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON PokemonAbilityPast where
+  parseJSON = genericParseJSON optionsPokemonAbilityPast
+instance ToJSON PokemonAbilityPast where
+  toJSON = genericToJSON optionsPokemonAbilityPast
+
+optionsPokemonAbilityPast :: Options
+optionsPokemonAbilityPast =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ ("pokemonAbilityPastIsUnderscorehidden", "is_hidden")
+      , ("pokemonAbilityPastSlot", "slot")
+      , ("pokemonAbilityPastAbility", "ability")
+      ]
+
+
+-- | 
 data PokemonColorDetail = PokemonColorDetail
-  { pokemonColorDetailId :: Int -- ^ 
-  , pokemonColorDetailName :: Text -- ^ 
-  , pokemonColorDetailNames :: [PokemonColorName] -- ^ 
-  , pokemonColorDetailPokemonUnderscorespecies :: [PokemonSpeciesSummary] -- ^ 
+  { pokemonColorDetailId :: Int -- ^ The identifier for this resource.
+  , pokemonColorDetailName :: Text -- ^ The name for this resource.
+  , pokemonColorDetailNames :: [PokemonColorName] -- ^ The name of this resource listed in different languages.
+  , pokemonColorDetailPokemonUnderscorespecies :: [PokemonSpeciesSummary] -- ^ A list of the Pokémon species that have this color.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PokemonColorDetail where
@@ -5850,8 +5923,8 @@ optionsPokemonColorDetail =
 
 -- | 
 data PokemonColorName = PokemonColorName
-  { pokemonColorNameName :: Text -- ^ 
-  , pokemonColorNameLanguage :: LanguageSummary -- ^ 
+  { pokemonColorNameName :: Text -- ^ The localized name for an API resource in a specific language.
+  , pokemonColorNameLanguage :: LanguageSummary -- ^ The language this name is in.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PokemonColorName where
@@ -5874,8 +5947,8 @@ optionsPokemonColorName =
 
 -- | 
 data PokemonColorSummary = PokemonColorSummary
-  { pokemonColorSummaryName :: Text -- ^ 
-  , pokemonColorSummaryUrl :: Text -- ^ 
+  { pokemonColorSummaryName :: Text -- ^ The name of the referenced resource.
+  , pokemonColorSummaryUrl :: Text -- ^ The URL of the referenced resource.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PokemonColorSummary where
@@ -5897,27 +5970,52 @@ optionsPokemonColorSummary =
 
 
 -- | 
+data PokemonCries = PokemonCries
+  { pokemonCriesLatest :: Text -- ^ The latest depiction of this Pokémon's cry.
+  , pokemonCriesLegacy :: Text -- ^ The legacy depiction of this Pokémon's cry.
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON PokemonCries where
+  parseJSON = genericParseJSON optionsPokemonCries
+instance ToJSON PokemonCries where
+  toJSON = genericToJSON optionsPokemonCries
+
+optionsPokemonCries :: Options
+optionsPokemonCries =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ ("pokemonCriesLatest", "latest")
+      , ("pokemonCriesLegacy", "legacy")
+      ]
+
+
+-- | 
 data PokemonDetail = PokemonDetail
-  { pokemonDetailId :: Int -- ^ 
-  , pokemonDetailName :: Text -- ^ 
-  , pokemonDetailBaseUnderscoreexperience :: Maybe Int -- ^ 
-  , pokemonDetailHeight :: Maybe Int -- ^ 
-  , pokemonDetailIsUnderscoredefault :: Maybe Bool -- ^ 
-  , pokemonDetailOrder :: Maybe Int -- ^ 
-  , pokemonDetailWeight :: Maybe Int -- ^ 
-  , pokemonDetailAbilities :: [PokemonDetailAbilitiesInner] -- ^ 
-  , pokemonDetailPastUnderscoreabilities :: [PokemonDetailPastAbilitiesInner] -- ^ 
-  , pokemonDetailForms :: [PokemonFormSummary] -- ^ 
-  , pokemonDetailGameUnderscoreindices :: [PokemonGameIndex] -- ^ 
-  , pokemonDetailHeldUnderscoreitems :: PokemonDetailHeldItems -- ^ 
-  , pokemonDetailLocationUnderscoreareaUnderscoreencounters :: Text -- ^ 
-  , pokemonDetailMoves :: [PokemonDetailMovesInner] -- ^ 
-  , pokemonDetailSpecies :: PokemonSpeciesSummary -- ^ 
-  , pokemonDetailSprites :: PokemonDetailSprites -- ^ 
-  , pokemonDetailCries :: PokemonDetailCries -- ^ 
-  , pokemonDetailStats :: [PokemonStat] -- ^ 
-  , pokemonDetailTypes :: [PokemonDetailTypesInner] -- ^ 
-  , pokemonDetailPastUnderscoretypes :: [PokemonDetailPastTypesInner] -- ^ 
+  { pokemonDetailId :: Int -- ^ The identifier for this resource.
+  , pokemonDetailName :: Text -- ^ The name for this resource.
+  , pokemonDetailBaseUnderscoreexperience :: Maybe Int -- ^ The base experience gained for defeating this Pokémon.
+  , pokemonDetailHeight :: Maybe Int -- ^ The height of this Pokémon in decimetres.
+  , pokemonDetailIsUnderscoredefault :: Maybe Bool -- ^ Set for exactly one Pokémon used as the default for each species.
+  , pokemonDetailOrder :: Maybe Int -- ^ Order for sorting. Almost national order, except families are grouped together.
+  , pokemonDetailWeight :: Maybe Int -- ^ The weight of this Pokémon in hectograms.
+  , pokemonDetailAbilities :: [PokemonAbility] -- ^ A list of abilities this Pokémon could potentially have.
+  , pokemonDetailPastUnderscoreabilities :: [PokemonPastAbility] -- ^ A list of details showing abilities this pokémon had in previous generations
+  , pokemonDetailForms :: [PokemonFormSummary] -- ^ A list of forms this Pokémon can take on.
+  , pokemonDetailGameUnderscoreindices :: [PokemonGameIndex] -- ^ A list of game indices relevent to Pokémon item by generation.
+  , pokemonDetailHeldUnderscoreitems :: [PokemonHeldItemSummary] -- ^ A list of items this Pokémon may be holding when encountered.
+  , pokemonDetailLocationUnderscoreareaUnderscoreencounters :: Text -- ^ A link to a list of location areas, as well as encounter details pertaining to specific versions.
+  , pokemonDetailMoves :: [PokemonMove] -- ^ A list of moves along with learn methods and level details pertaining to specific version groups.
+  , pokemonDetailSpecies :: PokemonSpeciesSummary -- ^ The species this Pokémon belongs to.
+  , pokemonDetailSprites :: PokemonSprites -- ^ A set of sprites used to depict this Pokémon in the game. A visual representation of the various sprites can be found at <a href='https://github.com/PokeAPI/sprites#sprites'>PokeAPI/sprites</a>
+  , pokemonDetailCries :: PokemonCries -- ^ A set of cries used to depict this Pokémon in the game. A visual representation of the various cries can be found at <a href='https://github.com/PokeAPI/cries#cries'>PokeAPI/cries</a>
+  , pokemonDetailStats :: [PokemonStat] -- ^ A list of base stat values for this Pokémon.
+  , pokemonDetailPastUnderscorestats :: [PokemonPastStat] -- ^ A list of details showing stats this pokémon had in previous generations
+  , pokemonDetailTypes :: [PokemonType] -- ^ A list of details showing types this Pokémon has.
+  , pokemonDetailPastUnderscoretypes :: [PokemonPastType] -- ^ A list of details showing types this pokémon had in previous generations
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PokemonDetail where
@@ -5951,215 +6049,16 @@ optionsPokemonDetail =
       , ("pokemonDetailSprites", "sprites")
       , ("pokemonDetailCries", "cries")
       , ("pokemonDetailStats", "stats")
+      , ("pokemonDetailPastUnderscorestats", "past_stats")
       , ("pokemonDetailTypes", "types")
       , ("pokemonDetailPastUnderscoretypes", "past_types")
       ]
 
 
 -- | 
-data PokemonDetailAbilitiesInner = PokemonDetailAbilitiesInner
-  { pokemonDetailAbilitiesInnerAbility :: AbilityDetailPokemonInnerPokemon -- ^ 
-  , pokemonDetailAbilitiesInnerIsUnderscorehidden :: Bool -- ^ 
-  , pokemonDetailAbilitiesInnerSlot :: Int -- ^ 
-  } deriving (Show, Eq, Generic)
-
-instance FromJSON PokemonDetailAbilitiesInner where
-  parseJSON = genericParseJSON optionsPokemonDetailAbilitiesInner
-instance ToJSON PokemonDetailAbilitiesInner where
-  toJSON = genericToJSON optionsPokemonDetailAbilitiesInner
-
-optionsPokemonDetailAbilitiesInner :: Options
-optionsPokemonDetailAbilitiesInner =
-  defaultOptions
-    { omitNothingFields  = True
-    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
-    }
-  where
-    table =
-      [ ("pokemonDetailAbilitiesInnerAbility", "ability")
-      , ("pokemonDetailAbilitiesInnerIsUnderscorehidden", "is_hidden")
-      , ("pokemonDetailAbilitiesInnerSlot", "slot")
-      ]
-
-
--- | 
-data PokemonDetailCries = PokemonDetailCries
-  { pokemonDetailCriesLatest :: Text -- ^ 
-  , pokemonDetailCriesLegacy :: Text -- ^ 
-  } deriving (Show, Eq, Generic)
-
-instance FromJSON PokemonDetailCries where
-  parseJSON = genericParseJSON optionsPokemonDetailCries
-instance ToJSON PokemonDetailCries where
-  toJSON = genericToJSON optionsPokemonDetailCries
-
-optionsPokemonDetailCries :: Options
-optionsPokemonDetailCries =
-  defaultOptions
-    { omitNothingFields  = True
-    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
-    }
-  where
-    table =
-      [ ("pokemonDetailCriesLatest", "latest")
-      , ("pokemonDetailCriesLegacy", "legacy")
-      ]
-
-
--- | 
-data PokemonDetailHeldItems = PokemonDetailHeldItems
-  { pokemonDetailHeldItemsItem :: AbilityDetailPokemonInnerPokemon -- ^ 
-  , pokemonDetailHeldItemsVersionUnderscoredetails :: [ItemDetailHeldByPokemonInnerVersionDetailsInner] -- ^ 
-  } deriving (Show, Eq, Generic)
-
-instance FromJSON PokemonDetailHeldItems where
-  parseJSON = genericParseJSON optionsPokemonDetailHeldItems
-instance ToJSON PokemonDetailHeldItems where
-  toJSON = genericToJSON optionsPokemonDetailHeldItems
-
-optionsPokemonDetailHeldItems :: Options
-optionsPokemonDetailHeldItems =
-  defaultOptions
-    { omitNothingFields  = True
-    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
-    }
-  where
-    table =
-      [ ("pokemonDetailHeldItemsItem", "item")
-      , ("pokemonDetailHeldItemsVersionUnderscoredetails", "version_details")
-      ]
-
-
--- | 
-data PokemonDetailMovesInner = PokemonDetailMovesInner
-  { pokemonDetailMovesInnerMove :: AbilityDetailPokemonInnerPokemon -- ^ 
-  , pokemonDetailMovesInnerVersionUnderscoregroupUnderscoredetails :: [PokemonDetailMovesInnerVersionGroupDetailsInner] -- ^ 
-  } deriving (Show, Eq, Generic)
-
-instance FromJSON PokemonDetailMovesInner where
-  parseJSON = genericParseJSON optionsPokemonDetailMovesInner
-instance ToJSON PokemonDetailMovesInner where
-  toJSON = genericToJSON optionsPokemonDetailMovesInner
-
-optionsPokemonDetailMovesInner :: Options
-optionsPokemonDetailMovesInner =
-  defaultOptions
-    { omitNothingFields  = True
-    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
-    }
-  where
-    table =
-      [ ("pokemonDetailMovesInnerMove", "move")
-      , ("pokemonDetailMovesInnerVersionUnderscoregroupUnderscoredetails", "version_group_details")
-      ]
-
-
--- | 
-data PokemonDetailMovesInnerVersionGroupDetailsInner = PokemonDetailMovesInnerVersionGroupDetailsInner
-  { pokemonDetailMovesInnerVersionGroupDetailsInnerLevelUnderscorelearnedUnderscoreat :: Int -- ^ 
-  , pokemonDetailMovesInnerVersionGroupDetailsInnerMoveUnderscorelearnUnderscoremethod :: AbilityDetailPokemonInnerPokemon -- ^ 
-  , pokemonDetailMovesInnerVersionGroupDetailsInnerVersionUnderscoregroup :: AbilityDetailPokemonInnerPokemon -- ^ 
-  } deriving (Show, Eq, Generic)
-
-instance FromJSON PokemonDetailMovesInnerVersionGroupDetailsInner where
-  parseJSON = genericParseJSON optionsPokemonDetailMovesInnerVersionGroupDetailsInner
-instance ToJSON PokemonDetailMovesInnerVersionGroupDetailsInner where
-  toJSON = genericToJSON optionsPokemonDetailMovesInnerVersionGroupDetailsInner
-
-optionsPokemonDetailMovesInnerVersionGroupDetailsInner :: Options
-optionsPokemonDetailMovesInnerVersionGroupDetailsInner =
-  defaultOptions
-    { omitNothingFields  = True
-    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
-    }
-  where
-    table =
-      [ ("pokemonDetailMovesInnerVersionGroupDetailsInnerLevelUnderscorelearnedUnderscoreat", "level_learned_at")
-      , ("pokemonDetailMovesInnerVersionGroupDetailsInnerMoveUnderscorelearnUnderscoremethod", "move_learn_method")
-      , ("pokemonDetailMovesInnerVersionGroupDetailsInnerVersionUnderscoregroup", "version_group")
-      ]
-
-
--- | 
-data PokemonDetailPastAbilitiesInner = PokemonDetailPastAbilitiesInner
-  { pokemonDetailPastAbilitiesInnerAbilities :: [PokemonDetailAbilitiesInner] -- ^ 
-  , pokemonDetailPastAbilitiesInnerGeneration :: AbilityDetailPokemonInnerPokemon -- ^ 
-  } deriving (Show, Eq, Generic)
-
-instance FromJSON PokemonDetailPastAbilitiesInner where
-  parseJSON = genericParseJSON optionsPokemonDetailPastAbilitiesInner
-instance ToJSON PokemonDetailPastAbilitiesInner where
-  toJSON = genericToJSON optionsPokemonDetailPastAbilitiesInner
-
-optionsPokemonDetailPastAbilitiesInner :: Options
-optionsPokemonDetailPastAbilitiesInner =
-  defaultOptions
-    { omitNothingFields  = True
-    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
-    }
-  where
-    table =
-      [ ("pokemonDetailPastAbilitiesInnerAbilities", "abilities")
-      , ("pokemonDetailPastAbilitiesInnerGeneration", "generation")
-      ]
-
-
--- | 
-data PokemonDetailPastTypesInner = PokemonDetailPastTypesInner
-  { pokemonDetailPastTypesInnerGeneration :: AbilityDetailPokemonInnerPokemon -- ^ 
-  , pokemonDetailPastTypesInnerTypes :: [PokemonDetailTypesInner] -- ^ 
-  } deriving (Show, Eq, Generic)
-
-instance FromJSON PokemonDetailPastTypesInner where
-  parseJSON = genericParseJSON optionsPokemonDetailPastTypesInner
-instance ToJSON PokemonDetailPastTypesInner where
-  toJSON = genericToJSON optionsPokemonDetailPastTypesInner
-
-optionsPokemonDetailPastTypesInner :: Options
-optionsPokemonDetailPastTypesInner =
-  defaultOptions
-    { omitNothingFields  = True
-    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
-    }
-  where
-    table =
-      [ ("pokemonDetailPastTypesInnerGeneration", "generation")
-      , ("pokemonDetailPastTypesInnerTypes", "types")
-      ]
-
-
--- | 
-newtype PokemonDetailSprites = PokemonDetailSprites { unPokemonDetailSprites :: (Map.Map Text Text) }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic)
-
--- | 
-data PokemonDetailTypesInner = PokemonDetailTypesInner
-  { pokemonDetailTypesInnerSlot :: Int -- ^ 
-  , pokemonDetailTypesInnerType :: AbilityDetailPokemonInnerPokemon -- ^ 
-  } deriving (Show, Eq, Generic)
-
-instance FromJSON PokemonDetailTypesInner where
-  parseJSON = genericParseJSON optionsPokemonDetailTypesInner
-instance ToJSON PokemonDetailTypesInner where
-  toJSON = genericToJSON optionsPokemonDetailTypesInner
-
-optionsPokemonDetailTypesInner :: Options
-optionsPokemonDetailTypesInner =
-  defaultOptions
-    { omitNothingFields  = True
-    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
-    }
-  where
-    table =
-      [ ("pokemonDetailTypesInnerSlot", "slot")
-      , ("pokemonDetailTypesInnerType", "type")
-      ]
-
-
--- | 
 data PokemonDexEntry = PokemonDexEntry
-  { pokemonDexEntryEntryUnderscorenumber :: Int -- ^ 
-  , pokemonDexEntryPokedex :: PokedexSummary -- ^ 
+  { pokemonDexEntryEntryUnderscorenumber :: Int -- ^ The index number within the Pokédex.
+  , pokemonDexEntryPokedex :: PokedexSummary -- ^ The Pokédex the referenced Pokémon species can be found in.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PokemonDexEntry where
@@ -6181,21 +6080,233 @@ optionsPokemonDexEntry =
 
 
 -- | 
+data PokemonDexNumber = PokemonDexNumber
+  { pokemonDexNumberEntryUnderscorenumber :: Int -- ^ The index of this Pokémon species entry within the Pokédex.
+  , pokemonDexNumberPokemonUnderscorespecies :: PokemonSpeciesSummary -- ^ The Pokémon species being encountered.
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON PokemonDexNumber where
+  parseJSON = genericParseJSON optionsPokemonDexNumber
+instance ToJSON PokemonDexNumber where
+  toJSON = genericToJSON optionsPokemonDexNumber
+
+optionsPokemonDexNumber :: Options
+optionsPokemonDexNumber =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ ("pokemonDexNumberEntryUnderscorenumber", "entry_number")
+      , ("pokemonDexNumberPokemonUnderscorespecies", "pokemon_species")
+      ]
+
+
+-- | 
+data PokemonEncounterDetailResponse = PokemonEncounterDetailResponse
+  { pokemonEncounterDetailResponseChance :: Int -- ^ Percent chance that this encounter will occur.
+  , pokemonEncounterDetailResponseConditionUnderscorevalues :: [EncounterConditionValueSummary] -- ^ A list of condition values that must be in effect for this encounter to occur.
+  , pokemonEncounterDetailResponseMaxUnderscorelevel :: Int -- ^ The highest level the Pokémon could be encountered at.
+  , pokemonEncounterDetailResponseMethod :: EncounterMethodSummary -- ^ The method by which this encounter happens.
+  , pokemonEncounterDetailResponseMinUnderscorelevel :: Int -- ^ The lowest level the Pokémon could be encountered at.
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON PokemonEncounterDetailResponse where
+  parseJSON = genericParseJSON optionsPokemonEncounterDetailResponse
+instance ToJSON PokemonEncounterDetailResponse where
+  toJSON = genericToJSON optionsPokemonEncounterDetailResponse
+
+optionsPokemonEncounterDetailResponse :: Options
+optionsPokemonEncounterDetailResponse =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ ("pokemonEncounterDetailResponseChance", "chance")
+      , ("pokemonEncounterDetailResponseConditionUnderscorevalues", "condition_values")
+      , ("pokemonEncounterDetailResponseMaxUnderscorelevel", "max_level")
+      , ("pokemonEncounterDetailResponseMethod", "method")
+      , ("pokemonEncounterDetailResponseMinUnderscorelevel", "min_level")
+      ]
+
+
+-- | 
+data PokemonEncounterResponse = PokemonEncounterResponse
+  { pokemonEncounterResponseLocationUnderscorearea :: LocationAreaSummary -- ^ The location area the referenced Pokémon can be encountered in.
+  , pokemonEncounterResponseVersionUnderscoredetails :: [PokemonEncounterVersionDetailResponse] -- ^ A list of versions and encounters with the referenced Pokémon that might happen.
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON PokemonEncounterResponse where
+  parseJSON = genericParseJSON optionsPokemonEncounterResponse
+instance ToJSON PokemonEncounterResponse where
+  toJSON = genericToJSON optionsPokemonEncounterResponse
+
+optionsPokemonEncounterResponse :: Options
+optionsPokemonEncounterResponse =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ ("pokemonEncounterResponseLocationUnderscorearea", "location_area")
+      , ("pokemonEncounterResponseVersionUnderscoredetails", "version_details")
+      ]
+
+
+-- | 
+data PokemonEncounterVersionDetailResponse = PokemonEncounterVersionDetailResponse
+  { pokemonEncounterVersionDetailResponseVersion :: VersionSummary -- ^ The game version this encounter happens in.
+  , pokemonEncounterVersionDetailResponseMaxUnderscorechance :: Int -- ^ The total percentage of all encounter potential.
+  , pokemonEncounterVersionDetailResponseEncounterUnderscoredetails :: [PokemonEncounterDetailResponse] -- ^ A list of encounters and their specifics.
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON PokemonEncounterVersionDetailResponse where
+  parseJSON = genericParseJSON optionsPokemonEncounterVersionDetailResponse
+instance ToJSON PokemonEncounterVersionDetailResponse where
+  toJSON = genericToJSON optionsPokemonEncounterVersionDetailResponse
+
+optionsPokemonEncounterVersionDetailResponse :: Options
+optionsPokemonEncounterVersionDetailResponse =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ ("pokemonEncounterVersionDetailResponseVersion", "version")
+      , ("pokemonEncounterVersionDetailResponseMaxUnderscorechance", "max_chance")
+      , ("pokemonEncounterVersionDetailResponseEncounterUnderscoredetails", "encounter_details")
+      ]
+
+
+-- | 
+data PokemonEvolution = PokemonEvolution
+  { pokemonEvolutionVersionUnderscoregroup :: VersionGroupSummary -- ^ The version group in which these evolution requirements apply.
+  , pokemonEvolutionIsUnderscoredefault :: Maybe Bool -- ^ Whether the evolution is considered as the expected evolution in a main series game. Each unique Pokémon variety of a line capable of evolution should have exactly one 'default' evolution. For example, the Meowth species has three default evolutions as there are three distinct varieties it can evolve into: Persian, Alolan Persian, and Perrserker.
+  , pokemonEvolutionItem :: ItemSummary -- ^ The item required to cause evolution this into Pokémon species.
+  , pokemonEvolutionTrigger :: EvolutionTriggerSummary -- ^ The type of event that triggers evolution into this Pokémon species.
+  , pokemonEvolutionGender :: Maybe Int -- ^ The id of the gender of the evolving Pokémon species must be in order to evolve into this Pokémon species.
+  , pokemonEvolutionHeldUnderscoreitem :: ItemSummary -- ^ The item the evolving Pokémon species must be holding during the evolution trigger event to evolve into this Pokémon species.
+  , pokemonEvolutionKnownUnderscoremove :: PokemonEvolutionKnownMove -- ^ 
+  , pokemonEvolutionKnownUnderscoremoveUnderscoretype :: PokemonEvolutionKnownMove -- ^ 
+  , pokemonEvolutionLocation :: LocationSummary -- ^ The location the evolution must be triggered at.
+  , pokemonEvolutionMinUnderscorelevel :: Maybe Int -- ^ The minimum required level of the evolving Pokémon species to evolve into this Pokémon species.
+  , pokemonEvolutionMinUnderscorehappiness :: Maybe Int -- ^ The minimum required level of happiness the evolving Pokémon species to evolve into this Pokémon species.
+  , pokemonEvolutionMinUnderscorebeauty :: Maybe Int -- ^ The minimum required level of beauty the evolving Pokémon species to evolve into this Pokémon species.
+  , pokemonEvolutionMinUnderscoreaffection :: Maybe Int -- ^ The minimum required level of affection the evolving Pokémon species to evolve into this Pokémon species.
+  , pokemonEvolutionNearUnderscorespecialUnderscorerock :: Maybe Bool -- ^ Whether or not you need to be near a Moss Rock or Icy Rock to evolve into this Pokémon species.
+  , pokemonEvolutionNeedsUnderscoremultiplayer :: Maybe Bool -- ^ Whether or not multiplayer link play is needed to evolve into this Pokémon species (e.g. Union Circle).
+  , pokemonEvolutionNeedsUnderscoreoverworldUnderscorerain :: Maybe Bool -- ^ Whether or not it must be raining in the overworld to cause evolution this Pokémon species.
+  , pokemonEvolutionPartyUnderscorespecies :: PokemonSpeciesSummary -- ^ The Pokémon species that must be in the players party in order for the evolving Pokémon species to evolve into this Pokémon species.
+  , pokemonEvolutionPartyUnderscoretype :: TypeSummary -- ^ The player must have a Pokémon of this type in their party during the evolution trigger event in order for the evolving Pokémon species to evolve into this Pokémon species.
+  , pokemonEvolutionRelativeUnderscorephysicalUnderscorestats :: Maybe Int -- ^ The required relation between the Pokémon's Attack and Defense stats. 1 means Attack > Defense. 0 means Attack = Defense. -1 means Attack < Defense.
+  , pokemonEvolutionTimeUnderscoreofUnderscoreday :: Maybe Text -- ^ The required time of day. Day or night.
+  , pokemonEvolutionTradeUnderscorespecies :: PokemonSpeciesSummary -- ^ Pokémon species for which this one must be traded.
+  , pokemonEvolutionTurnUnderscoreupsideUnderscoredown :: Maybe Bool -- ^ Whether or not the 3DS needs to be turned upside-down as this Pokémon levels up.
+  , pokemonEvolutionRegion :: RegionSummary -- ^ The required region in which this evolution can occur.
+  , pokemonEvolutionRequiredUnderscorepokemonUnderscoreform :: PokemonFormSummary -- ^ The Pokémon form required before evolving, or null if unrestricted.
+  , pokemonEvolutionEvolvedUnderscorepokemonUnderscoreform :: PokemonFormSummary -- ^ The Pokémon form produced by this evolution, or null if unspecified.
+  , pokemonEvolutionUsedUnderscoremove :: MoveSummary -- ^ The move that must be used by the evolving Pokémon species during the evolution trigger event in order to evolve into this Pokémon species.
+  , pokemonEvolutionMinUnderscoremoveUnderscorecount :: Maybe Int -- ^ The minimum number of times a move must be used in order to evolve into this Pokémon species.
+  , pokemonEvolutionMinUnderscoresteps :: Maybe Int -- ^ The minimum number of steps that must be taken in order to evolve into this Pokémon species.
+  , pokemonEvolutionMinUnderscoredamageUnderscoretaken :: Maybe Int -- ^ The minimum amount of damage taken during the evolution trigger event in order to evolve into this Pokémon species.
+  , pokemonEvolutionAllowedUnderscorenatures :: [NatureSummary] -- ^ The natures that allow this evolution, or null if unrestricted.
+  , pokemonEvolutionConditionUnderscoreexpression :: EvolutionConditionExpression -- ^ An additional evolution condition expressed in reverse Polish notation, or null if none.
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON PokemonEvolution where
+  parseJSON = genericParseJSON optionsPokemonEvolution
+instance ToJSON PokemonEvolution where
+  toJSON = genericToJSON optionsPokemonEvolution
+
+optionsPokemonEvolution :: Options
+optionsPokemonEvolution =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ ("pokemonEvolutionVersionUnderscoregroup", "version_group")
+      , ("pokemonEvolutionIsUnderscoredefault", "is_default")
+      , ("pokemonEvolutionItem", "item")
+      , ("pokemonEvolutionTrigger", "trigger")
+      , ("pokemonEvolutionGender", "gender")
+      , ("pokemonEvolutionHeldUnderscoreitem", "held_item")
+      , ("pokemonEvolutionKnownUnderscoremove", "known_move")
+      , ("pokemonEvolutionKnownUnderscoremoveUnderscoretype", "known_move_type")
+      , ("pokemonEvolutionLocation", "location")
+      , ("pokemonEvolutionMinUnderscorelevel", "min_level")
+      , ("pokemonEvolutionMinUnderscorehappiness", "min_happiness")
+      , ("pokemonEvolutionMinUnderscorebeauty", "min_beauty")
+      , ("pokemonEvolutionMinUnderscoreaffection", "min_affection")
+      , ("pokemonEvolutionNearUnderscorespecialUnderscorerock", "near_special_rock")
+      , ("pokemonEvolutionNeedsUnderscoremultiplayer", "needs_multiplayer")
+      , ("pokemonEvolutionNeedsUnderscoreoverworldUnderscorerain", "needs_overworld_rain")
+      , ("pokemonEvolutionPartyUnderscorespecies", "party_species")
+      , ("pokemonEvolutionPartyUnderscoretype", "party_type")
+      , ("pokemonEvolutionRelativeUnderscorephysicalUnderscorestats", "relative_physical_stats")
+      , ("pokemonEvolutionTimeUnderscoreofUnderscoreday", "time_of_day")
+      , ("pokemonEvolutionTradeUnderscorespecies", "trade_species")
+      , ("pokemonEvolutionTurnUnderscoreupsideUnderscoredown", "turn_upside_down")
+      , ("pokemonEvolutionRegion", "region")
+      , ("pokemonEvolutionRequiredUnderscorepokemonUnderscoreform", "required_pokemon_form")
+      , ("pokemonEvolutionEvolvedUnderscorepokemonUnderscoreform", "evolved_pokemon_form")
+      , ("pokemonEvolutionUsedUnderscoremove", "used_move")
+      , ("pokemonEvolutionMinUnderscoremoveUnderscorecount", "min_move_count")
+      , ("pokemonEvolutionMinUnderscoresteps", "min_steps")
+      , ("pokemonEvolutionMinUnderscoredamageUnderscoretaken", "min_damage_taken")
+      , ("pokemonEvolutionAllowedUnderscorenatures", "allowed_natures")
+      , ("pokemonEvolutionConditionUnderscoreexpression", "condition_expression")
+      ]
+
+
+-- | 
+data PokemonEvolutionKnownMove = PokemonEvolutionKnownMove
+  { pokemonEvolutionKnownMoveName :: Text -- ^ 
+  , pokemonEvolutionKnownMoveUrl :: Text -- ^ 
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON PokemonEvolutionKnownMove where
+  parseJSON = genericParseJSON optionsPokemonEvolutionKnownMove
+instance ToJSON PokemonEvolutionKnownMove where
+  toJSON = genericToJSON optionsPokemonEvolutionKnownMove
+
+optionsPokemonEvolutionKnownMove :: Options
+optionsPokemonEvolutionKnownMove =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ ("pokemonEvolutionKnownMoveName", "name")
+      , ("pokemonEvolutionKnownMoveUrl", "url")
+      ]
+
+
+-- | 
 data PokemonFormDetail = PokemonFormDetail
-  { pokemonFormDetailId :: Int -- ^ 
-  , pokemonFormDetailName :: Text -- ^ 
-  , pokemonFormDetailOrder :: Maybe Int -- ^ 
-  , pokemonFormDetailFormUnderscoreorder :: Maybe Int -- ^ 
-  , pokemonFormDetailIsUnderscoredefault :: Maybe Bool -- ^ 
-  , pokemonFormDetailIsUnderscorebattleUnderscoreonly :: Maybe Bool -- ^ 
-  , pokemonFormDetailIsUnderscoremega :: Maybe Bool -- ^ 
-  , pokemonFormDetailFormUnderscorename :: Text -- ^ 
-  , pokemonFormDetailPokemon :: PokemonSummary -- ^ 
-  , pokemonFormDetailSprites :: PokemonFormDetailSprites -- ^ 
-  , pokemonFormDetailVersionUnderscoregroup :: VersionGroupSummary -- ^ 
-  , pokemonFormDetailFormUnderscorenames :: [PokemonFormDetailFormNamesInner] -- ^ 
-  , pokemonFormDetailNames :: [PokemonFormDetailFormNamesInner] -- ^ 
-  , pokemonFormDetailTypes :: [PokemonDetailTypesInner] -- ^ 
+  { pokemonFormDetailId :: Int -- ^ The identifier for this resource.
+  , pokemonFormDetailName :: Text -- ^ The name for this resource.
+  , pokemonFormDetailOrder :: Maybe Int -- ^ The order in which forms should be sorted within all forms. Multiple forms may have equal order, in which case they should fall back on sorting by name.
+  , pokemonFormDetailFormUnderscoreorder :: Maybe Int -- ^ The order in which forms should be sorted within a species' forms.
+  , pokemonFormDetailIsUnderscoredefault :: Maybe Bool -- ^ True for exactly one form used as the default for each Pokémon.
+  , pokemonFormDetailIsUnderscorebattleUnderscoreonly :: Maybe Bool -- ^ Whether or not this form can only happen during battle.
+  , pokemonFormDetailIsUnderscoremega :: Maybe Bool -- ^ Whether or not this form requires mega evolution.
+  , pokemonFormDetailFormUnderscorename :: Text -- ^ The name of this form.
+  , pokemonFormDetailPokemon :: PokemonSummary -- ^ The Pokémon that can take on this form.
+  , pokemonFormDetailSprites :: PokemonFormSprites -- ^ A set of sprites used to depict this Pokémon form in the game.
+  , pokemonFormDetailVersionUnderscoregroup :: VersionGroupSummary -- ^ The version group this Pokémon form was introduced in.
+  , pokemonFormDetailFormUnderscorenames :: [PokemonFormName] -- ^ The form specific form name of this Pokémon form, or empty if the form does not have a specific name.
+  , pokemonFormDetailNames :: [PokemonFormName] -- ^ The form specific full name of this Pokémon form, or empty if the form does not have a specific name.
+  , pokemonFormDetailTypes :: [PokemonFormType] -- ^ A list of details showing types this Pokémon form has.
+  , pokemonFormDetailTriggerUnderscoreconditions :: [PokemonFormTriggerCondition] -- ^ The conditions that trigger this form. Resource names and URLs are included when the trigger requires a resource.
+  , pokemonFormDetailFlavorUnderscoretextUnderscoreentries :: [PokemonFormFlavorText] -- ^ The flavor text of this form listed in different languages and versions.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PokemonFormDetail where
@@ -6225,41 +6336,105 @@ optionsPokemonFormDetail =
       , ("pokemonFormDetailFormUnderscorenames", "form_names")
       , ("pokemonFormDetailNames", "names")
       , ("pokemonFormDetailTypes", "types")
+      , ("pokemonFormDetailTriggerUnderscoreconditions", "trigger_conditions")
+      , ("pokemonFormDetailFlavorUnderscoretextUnderscoreentries", "flavor_text_entries")
       ]
 
 
 -- | 
-data PokemonFormDetailFormNamesInner = PokemonFormDetailFormNamesInner
-  { pokemonFormDetailFormNamesInnerLanguage :: AbilityDetailPokemonInnerPokemon -- ^ 
-  , pokemonFormDetailFormNamesInnerName :: Text -- ^ 
+data PokemonFormFlavorText = PokemonFormFlavorText
+  { pokemonFormFlavorTextFlavorUnderscoretext :: Text -- ^ The localized flavor text for an API resource in a specific language. Note that this text is left unprocessed as it is found in game files. This means that it contains special characters that one might want to replace with their visible decodable version. Please check out this <a href='https://github.com/veekun/pokedex/issues/218#issuecomment-339841781' >issue</a> to find out more. 
+  , pokemonFormFlavorTextLanguage :: LanguageSummary -- ^ The language this name is in.
+  , pokemonFormFlavorTextVersion :: VersionSummary -- ^ The game version this flavor text is extracted from.
   } deriving (Show, Eq, Generic)
 
-instance FromJSON PokemonFormDetailFormNamesInner where
-  parseJSON = genericParseJSON optionsPokemonFormDetailFormNamesInner
-instance ToJSON PokemonFormDetailFormNamesInner where
-  toJSON = genericToJSON optionsPokemonFormDetailFormNamesInner
+instance FromJSON PokemonFormFlavorText where
+  parseJSON = genericParseJSON optionsPokemonFormFlavorText
+instance ToJSON PokemonFormFlavorText where
+  toJSON = genericToJSON optionsPokemonFormFlavorText
 
-optionsPokemonFormDetailFormNamesInner :: Options
-optionsPokemonFormDetailFormNamesInner =
+optionsPokemonFormFlavorText :: Options
+optionsPokemonFormFlavorText =
   defaultOptions
     { omitNothingFields  = True
     , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
     }
   where
     table =
-      [ ("pokemonFormDetailFormNamesInnerLanguage", "language")
-      , ("pokemonFormDetailFormNamesInnerName", "name")
+      [ ("pokemonFormFlavorTextFlavorUnderscoretext", "flavor_text")
+      , ("pokemonFormFlavorTextLanguage", "language")
+      , ("pokemonFormFlavorTextVersion", "version")
       ]
 
 
 -- | 
-newtype PokemonFormDetailSprites = PokemonFormDetailSprites { unPokemonFormDetailSprites :: (Map.Map Text Text) }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic)
+data PokemonFormName = PokemonFormName
+  { pokemonFormNameName :: Text -- ^ The localized name for an API resource in a specific language.
+  , pokemonFormNameLanguage :: LanguageSummary -- ^ The language this name is in.
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON PokemonFormName where
+  parseJSON = genericParseJSON optionsPokemonFormName
+instance ToJSON PokemonFormName where
+  toJSON = genericToJSON optionsPokemonFormName
+
+optionsPokemonFormName :: Options
+optionsPokemonFormName =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ ("pokemonFormNameName", "name")
+      , ("pokemonFormNameLanguage", "language")
+      ]
+
+
+-- | 
+data PokemonFormSprites = PokemonFormSprites
+  { pokemonFormSpritesFrontUnderscoredefault :: Text -- ^ The default depiction of this Pokémon from the front in battle.
+  , pokemonFormSpritesFrontUnderscoreshiny :: Text -- ^ The shiny depiction of this Pokémon from the front in battle.
+  , pokemonFormSpritesFrontUnderscorefemale :: Text -- ^ The female depiction of this Pokémon from the front in battle.
+  , pokemonFormSpritesFrontUnderscoreshinyUnderscorefemale :: Text -- ^ The shiny female depiction of this Pokémon from the front in battle.
+  , pokemonFormSpritesBackUnderscoredefault :: Text -- ^ The default depiction of this Pokémon from the back in battle.
+  , pokemonFormSpritesBackUnderscoreshiny :: Text -- ^ The shiny depiction of this Pokémon from the back in battle.
+  , pokemonFormSpritesBackUnderscorefemale :: Text -- ^ The female depiction of this Pokémon from the back in battle.
+  , pokemonFormSpritesBackUnderscoreshinyUnderscorefemale :: Text -- ^ The shiny female depiction of this Pokémon from the back in battle.
+  , pokemonFormSpritesOther :: Maybe PokemonSpritesOther -- ^ Additional sprites grouped by source, such as official artwork, HOME, and Showdown. Available keys vary by resource.
+  , pokemonFormSpritesVersions :: Maybe (Map.Map String (Map.Map String Value)) -- ^ Sprites grouped by generation and game. Available keys vary by resource.
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON PokemonFormSprites where
+  parseJSON = genericParseJSON optionsPokemonFormSprites
+instance ToJSON PokemonFormSprites where
+  toJSON = genericToJSON optionsPokemonFormSprites
+
+optionsPokemonFormSprites :: Options
+optionsPokemonFormSprites =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ ("pokemonFormSpritesFrontUnderscoredefault", "front_default")
+      , ("pokemonFormSpritesFrontUnderscoreshiny", "front_shiny")
+      , ("pokemonFormSpritesFrontUnderscorefemale", "front_female")
+      , ("pokemonFormSpritesFrontUnderscoreshinyUnderscorefemale", "front_shiny_female")
+      , ("pokemonFormSpritesBackUnderscoredefault", "back_default")
+      , ("pokemonFormSpritesBackUnderscoreshiny", "back_shiny")
+      , ("pokemonFormSpritesBackUnderscorefemale", "back_female")
+      , ("pokemonFormSpritesBackUnderscoreshinyUnderscorefemale", "back_shiny_female")
+      , ("pokemonFormSpritesOther", "other")
+      , ("pokemonFormSpritesVersions", "versions")
+      ]
+
 
 -- | 
 data PokemonFormSummary = PokemonFormSummary
-  { pokemonFormSummaryName :: Text -- ^ 
-  , pokemonFormSummaryUrl :: Text -- ^ 
+  { pokemonFormSummaryName :: Text -- ^ The name of the referenced resource.
+  , pokemonFormSummaryUrl :: Text -- ^ The URL of the referenced resource.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PokemonFormSummary where
@@ -6281,9 +6456,61 @@ optionsPokemonFormSummary =
 
 
 -- | 
+data PokemonFormTriggerCondition = PokemonFormTriggerCondition
+  { pokemonFormTriggerConditionTrigger :: Text -- ^ The trigger for this form change.
+  , pokemonFormTriggerConditionName :: Maybe Text -- ^ The name of the required item, ability, or move. Only present for a resource-based trigger.
+  , pokemonFormTriggerConditionUrl :: Maybe Text -- ^ The URL of the required item, ability, or move. Only present for a resource-based trigger.
+  , pokemonFormTriggerConditionBaseUnderscoreform :: Maybe PokemonFormSummary -- ^ The required base form. Only present when the trigger specifies one.
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON PokemonFormTriggerCondition where
+  parseJSON = genericParseJSON optionsPokemonFormTriggerCondition
+instance ToJSON PokemonFormTriggerCondition where
+  toJSON = genericToJSON optionsPokemonFormTriggerCondition
+
+optionsPokemonFormTriggerCondition :: Options
+optionsPokemonFormTriggerCondition =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ ("pokemonFormTriggerConditionTrigger", "trigger")
+      , ("pokemonFormTriggerConditionName", "name")
+      , ("pokemonFormTriggerConditionUrl", "url")
+      , ("pokemonFormTriggerConditionBaseUnderscoreform", "base_form")
+      ]
+
+
+-- | 
+data PokemonFormType = PokemonFormType
+  { pokemonFormTypeSlot :: Int -- ^ The order the Pokémon's types are listed in.
+  , pokemonFormTypeType :: TypeSummary -- ^ The type the referenced Form has.
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON PokemonFormType where
+  parseJSON = genericParseJSON optionsPokemonFormType
+instance ToJSON PokemonFormType where
+  toJSON = genericToJSON optionsPokemonFormType
+
+optionsPokemonFormType :: Options
+optionsPokemonFormType =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ ("pokemonFormTypeSlot", "slot")
+      , ("pokemonFormTypeType", "type")
+      ]
+
+
+-- | 
 data PokemonGameIndex = PokemonGameIndex
-  { pokemonGameIndexGameUnderscoreindex :: Int -- ^ 
-  , pokemonGameIndexVersion :: VersionSummary -- ^ 
+  { pokemonGameIndexGameUnderscoreindex :: Int -- ^ The internal id of an API resource within game data.
+  , pokemonGameIndexVersion :: VersionSummary -- ^ The version relevent to this game index.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PokemonGameIndex where
@@ -6306,10 +6533,10 @@ optionsPokemonGameIndex =
 
 -- | 
 data PokemonHabitatDetail = PokemonHabitatDetail
-  { pokemonHabitatDetailId :: Int -- ^ 
-  , pokemonHabitatDetailName :: Text -- ^ 
-  , pokemonHabitatDetailNames :: [PokemonHabitatName] -- ^ 
-  , pokemonHabitatDetailPokemonUnderscorespecies :: [PokemonSpeciesSummary] -- ^ 
+  { pokemonHabitatDetailId :: Int -- ^ The identifier for this resource.
+  , pokemonHabitatDetailName :: Text -- ^ The name for this resource.
+  , pokemonHabitatDetailNames :: [PokemonHabitatName] -- ^ The name of this resource listed in different languages.
+  , pokemonHabitatDetailPokemonUnderscorespecies :: [PokemonSpeciesSummary] -- ^ A list of the Pokémon species that can be found in this habitat.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PokemonHabitatDetail where
@@ -6334,8 +6561,8 @@ optionsPokemonHabitatDetail =
 
 -- | 
 data PokemonHabitatName = PokemonHabitatName
-  { pokemonHabitatNameName :: Text -- ^ 
-  , pokemonHabitatNameLanguage :: LanguageSummary -- ^ 
+  { pokemonHabitatNameName :: Text -- ^ The localized name for an API resource in a specific language.
+  , pokemonHabitatNameLanguage :: LanguageSummary -- ^ The language this name is in.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PokemonHabitatName where
@@ -6358,8 +6585,8 @@ optionsPokemonHabitatName =
 
 -- | 
 data PokemonHabitatSummary = PokemonHabitatSummary
-  { pokemonHabitatSummaryName :: Text -- ^ 
-  , pokemonHabitatSummaryUrl :: Text -- ^ 
+  { pokemonHabitatSummaryName :: Text -- ^ The name of the referenced resource.
+  , pokemonHabitatSummaryUrl :: Text -- ^ The URL of the referenced resource.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PokemonHabitatSummary where
@@ -6381,12 +6608,232 @@ optionsPokemonHabitatSummary =
 
 
 -- | 
+data PokemonHeldItem = PokemonHeldItem
+  { pokemonHeldItemPokemon :: PokemonSummary -- ^ The Pokémon that holds this item.
+  , pokemonHeldItemVersionUnderscoredetails :: [PokemonHeldItemVersion] -- ^ The details for the version that this item is held in by the Pokémon.
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON PokemonHeldItem where
+  parseJSON = genericParseJSON optionsPokemonHeldItem
+instance ToJSON PokemonHeldItem where
+  toJSON = genericToJSON optionsPokemonHeldItem
+
+optionsPokemonHeldItem :: Options
+optionsPokemonHeldItem =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ ("pokemonHeldItemPokemon", "pokemon")
+      , ("pokemonHeldItemVersionUnderscoredetails", "version_details")
+      ]
+
+
+-- | 
+data PokemonHeldItemSummary = PokemonHeldItemSummary
+  { pokemonHeldItemSummaryItem :: ItemSummary -- ^ The item the referenced Pokémon holds.
+  , pokemonHeldItemSummaryVersionUnderscoredetails :: [PokemonHeldItemVersion] -- ^ The details of the different versions in which the item is held.
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON PokemonHeldItemSummary where
+  parseJSON = genericParseJSON optionsPokemonHeldItemSummary
+instance ToJSON PokemonHeldItemSummary where
+  toJSON = genericToJSON optionsPokemonHeldItemSummary
+
+optionsPokemonHeldItemSummary :: Options
+optionsPokemonHeldItemSummary =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ ("pokemonHeldItemSummaryItem", "item")
+      , ("pokemonHeldItemSummaryVersionUnderscoredetails", "version_details")
+      ]
+
+
+-- | 
+data PokemonHeldItemVersion = PokemonHeldItemVersion
+  { pokemonHeldItemVersionRarity :: Int -- ^ How often the item is held.
+  , pokemonHeldItemVersionVersion :: VersionSummary -- ^ The version in which the item is held.
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON PokemonHeldItemVersion where
+  parseJSON = genericParseJSON optionsPokemonHeldItemVersion
+instance ToJSON PokemonHeldItemVersion where
+  toJSON = genericToJSON optionsPokemonHeldItemVersion
+
+optionsPokemonHeldItemVersion :: Options
+optionsPokemonHeldItemVersion =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ ("pokemonHeldItemVersionRarity", "rarity")
+      , ("pokemonHeldItemVersionVersion", "version")
+      ]
+
+
+-- | 
+data PokemonMove = PokemonMove
+  { pokemonMoveMove :: MoveSummary -- ^ The move the Pokémon can learn.
+  , pokemonMoveVersionUnderscoregroupUnderscoredetails :: [PokemonMoveVersionGroup] -- ^ The details of the version in which the Pokémon can learn the move.
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON PokemonMove where
+  parseJSON = genericParseJSON optionsPokemonMove
+instance ToJSON PokemonMove where
+  toJSON = genericToJSON optionsPokemonMove
+
+optionsPokemonMove :: Options
+optionsPokemonMove =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ ("pokemonMoveMove", "move")
+      , ("pokemonMoveVersionUnderscoregroupUnderscoredetails", "version_group_details")
+      ]
+
+
+-- | 
+data PokemonMoveVersionGroup = PokemonMoveVersionGroup
+  { pokemonMoveVersionGroupLevelUnderscorelearnedUnderscoreat :: Int -- ^ The minimum level to learn the move.
+  , pokemonMoveVersionGroupMoveUnderscorelearnUnderscoremethod :: MoveLearnMethodSummary -- ^ The method by which the move is learned.
+  , pokemonMoveVersionGroupVersionUnderscoregroup :: VersionGroupSummary -- ^ The version group in which the move is learned.
+  , pokemonMoveVersionGroupOrder :: Maybe Int -- ^ Order by which the pokemon will learn the move. A newly learnt move will replace the move with lowest order.
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON PokemonMoveVersionGroup where
+  parseJSON = genericParseJSON optionsPokemonMoveVersionGroup
+instance ToJSON PokemonMoveVersionGroup where
+  toJSON = genericToJSON optionsPokemonMoveVersionGroup
+
+optionsPokemonMoveVersionGroup :: Options
+optionsPokemonMoveVersionGroup =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ ("pokemonMoveVersionGroupLevelUnderscorelearnedUnderscoreat", "level_learned_at")
+      , ("pokemonMoveVersionGroupMoveUnderscorelearnUnderscoremethod", "move_learn_method")
+      , ("pokemonMoveVersionGroupVersionUnderscoregroup", "version_group")
+      , ("pokemonMoveVersionGroupOrder", "order")
+      ]
+
+
+-- | 
+data PokemonPastAbility = PokemonPastAbility
+  { pokemonPastAbilityAbilities :: [PokemonAbilityPast] -- ^ The abilities the referenced pokémon had up to and including the listed generation. If null, the slot was previously empty.
+  , pokemonPastAbilityGeneration :: GenerationSummary -- ^ The last generation in which the referenced pokémon had the listed abilities.
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON PokemonPastAbility where
+  parseJSON = genericParseJSON optionsPokemonPastAbility
+instance ToJSON PokemonPastAbility where
+  toJSON = genericToJSON optionsPokemonPastAbility
+
+optionsPokemonPastAbility :: Options
+optionsPokemonPastAbility =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ ("pokemonPastAbilityAbilities", "abilities")
+      , ("pokemonPastAbilityGeneration", "generation")
+      ]
+
+
+-- | 
+data PokemonPastStat = PokemonPastStat
+  { pokemonPastStatGeneration :: GenerationSummary -- ^ The last generation in which the referenced pokémon had the listed stats.
+  , pokemonPastStatStats :: [PokemonStat] -- ^ The stat the Pokémon had up to and including the listed generation.
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON PokemonPastStat where
+  parseJSON = genericParseJSON optionsPokemonPastStat
+instance ToJSON PokemonPastStat where
+  toJSON = genericToJSON optionsPokemonPastStat
+
+optionsPokemonPastStat :: Options
+optionsPokemonPastStat =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ ("pokemonPastStatGeneration", "generation")
+      , ("pokemonPastStatStats", "stats")
+      ]
+
+
+-- | 
+data PokemonPastType = PokemonPastType
+  { pokemonPastTypeGeneration :: GenerationSummary -- ^ The last generation in which the referenced pokémon had the listed types.
+  , pokemonPastTypeTypes :: [PokemonType] -- ^ The types the referenced pokémon had up to and including the listed generation.
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON PokemonPastType where
+  parseJSON = genericParseJSON optionsPokemonPastType
+instance ToJSON PokemonPastType where
+  toJSON = genericToJSON optionsPokemonPastType
+
+optionsPokemonPastType :: Options
+optionsPokemonPastType =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ ("pokemonPastTypeGeneration", "generation")
+      , ("pokemonPastTypeTypes", "types")
+      ]
+
+
+-- | 
+data PokemonShapeAwesomeName = PokemonShapeAwesomeName
+  { pokemonShapeAwesomeNameAwesomeUnderscorename :: Text -- ^ The localized \"scientific\" name for an API resource in a specific language.
+  , pokemonShapeAwesomeNameLanguage :: LanguageSummary -- ^ The language this \"scientific\" name is in.
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON PokemonShapeAwesomeName where
+  parseJSON = genericParseJSON optionsPokemonShapeAwesomeName
+instance ToJSON PokemonShapeAwesomeName where
+  toJSON = genericToJSON optionsPokemonShapeAwesomeName
+
+optionsPokemonShapeAwesomeName :: Options
+optionsPokemonShapeAwesomeName =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ ("pokemonShapeAwesomeNameAwesomeUnderscorename", "awesome_name")
+      , ("pokemonShapeAwesomeNameLanguage", "language")
+      ]
+
+
+-- | 
 data PokemonShapeDetail = PokemonShapeDetail
-  { pokemonShapeDetailId :: Int -- ^ 
-  , pokemonShapeDetailName :: Text -- ^ 
-  , pokemonShapeDetailAwesomeUnderscorenames :: [PokemonShapeDetailAwesomeNamesInner] -- ^ 
-  , pokemonShapeDetailNames :: [PokemonShapeDetailNamesInner] -- ^ 
-  , pokemonShapeDetailPokemonUnderscorespecies :: [PokemonSpeciesSummary] -- ^ 
+  { pokemonShapeDetailId :: Int -- ^ The identifier for this resource.
+  , pokemonShapeDetailName :: Text -- ^ The name for this resource.
+  , pokemonShapeDetailAwesomeUnderscorenames :: [PokemonShapeAwesomeName] -- ^ The \"scientific\" name of this Pokémon shape listed in different languages.
+  , pokemonShapeDetailNames :: [PokemonShapeName] -- ^ The name of this resource listed in different languages.
+  , pokemonShapeDetailPokemonUnderscorespecies :: [PokemonSpeciesSummary] -- ^ A list of the Pokémon species that have this shape.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PokemonShapeDetail where
@@ -6411,57 +6858,33 @@ optionsPokemonShapeDetail =
 
 
 -- | 
-data PokemonShapeDetailAwesomeNamesInner = PokemonShapeDetailAwesomeNamesInner
-  { pokemonShapeDetailAwesomeNamesInnerAwesomeUnderscorename :: Text -- ^ 
-  , pokemonShapeDetailAwesomeNamesInnerLanguage :: AbilityDetailPokemonInnerPokemon -- ^ 
+data PokemonShapeName = PokemonShapeName
+  { pokemonShapeNameName :: Text -- ^ The localized name for an API resource in a specific language.
+  , pokemonShapeNameLanguage :: LanguageSummary -- ^ The language this name is in.
   } deriving (Show, Eq, Generic)
 
-instance FromJSON PokemonShapeDetailAwesomeNamesInner where
-  parseJSON = genericParseJSON optionsPokemonShapeDetailAwesomeNamesInner
-instance ToJSON PokemonShapeDetailAwesomeNamesInner where
-  toJSON = genericToJSON optionsPokemonShapeDetailAwesomeNamesInner
+instance FromJSON PokemonShapeName where
+  parseJSON = genericParseJSON optionsPokemonShapeName
+instance ToJSON PokemonShapeName where
+  toJSON = genericToJSON optionsPokemonShapeName
 
-optionsPokemonShapeDetailAwesomeNamesInner :: Options
-optionsPokemonShapeDetailAwesomeNamesInner =
+optionsPokemonShapeName :: Options
+optionsPokemonShapeName =
   defaultOptions
     { omitNothingFields  = True
     , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
     }
   where
     table =
-      [ ("pokemonShapeDetailAwesomeNamesInnerAwesomeUnderscorename", "awesome_name")
-      , ("pokemonShapeDetailAwesomeNamesInnerLanguage", "language")
-      ]
-
-
--- | 
-data PokemonShapeDetailNamesInner = PokemonShapeDetailNamesInner
-  { pokemonShapeDetailNamesInnerUrl :: Text -- ^ 
-  , pokemonShapeDetailNamesInnerName :: Text -- ^ 
-  } deriving (Show, Eq, Generic)
-
-instance FromJSON PokemonShapeDetailNamesInner where
-  parseJSON = genericParseJSON optionsPokemonShapeDetailNamesInner
-instance ToJSON PokemonShapeDetailNamesInner where
-  toJSON = genericToJSON optionsPokemonShapeDetailNamesInner
-
-optionsPokemonShapeDetailNamesInner :: Options
-optionsPokemonShapeDetailNamesInner =
-  defaultOptions
-    { omitNothingFields  = True
-    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
-    }
-  where
-    table =
-      [ ("pokemonShapeDetailNamesInnerUrl", "url")
-      , ("pokemonShapeDetailNamesInnerName", "name")
+      [ ("pokemonShapeNameName", "name")
+      , ("pokemonShapeNameLanguage", "language")
       ]
 
 
 -- | 
 data PokemonShapeSummary = PokemonShapeSummary
-  { pokemonShapeSummaryName :: Text -- ^ 
-  , pokemonShapeSummaryUrl :: Text -- ^ 
+  { pokemonShapeSummaryName :: Text -- ^ The name of the referenced resource.
+  , pokemonShapeSummaryUrl :: Text -- ^ The URL of the referenced resource.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PokemonShapeSummary where
@@ -6484,8 +6907,8 @@ optionsPokemonShapeSummary =
 
 -- | 
 data PokemonSpeciesDescription = PokemonSpeciesDescription
-  { pokemonSpeciesDescriptionDescription :: Maybe Text -- ^ 
-  , pokemonSpeciesDescriptionLanguage :: LanguageSummary -- ^ 
+  { pokemonSpeciesDescriptionDescription :: Maybe Text -- ^ The localized description for an API resource in a specific language.
+  , pokemonSpeciesDescriptionLanguage :: LanguageSummary -- ^ The language this name is in.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PokemonSpeciesDescription where
@@ -6508,33 +6931,33 @@ optionsPokemonSpeciesDescription =
 
 -- | 
 data PokemonSpeciesDetail = PokemonSpeciesDetail
-  { pokemonSpeciesDetailId :: Int -- ^ 
-  , pokemonSpeciesDetailName :: Text -- ^ 
-  , pokemonSpeciesDetailOrder :: Maybe Int -- ^ 
-  , pokemonSpeciesDetailGenderUnderscorerate :: Maybe Int -- ^ 
-  , pokemonSpeciesDetailCaptureUnderscorerate :: Maybe Int -- ^ 
-  , pokemonSpeciesDetailBaseUnderscorehappiness :: Maybe Int -- ^ 
-  , pokemonSpeciesDetailIsUnderscorebaby :: Maybe Bool -- ^ 
-  , pokemonSpeciesDetailIsUnderscorelegendary :: Maybe Bool -- ^ 
-  , pokemonSpeciesDetailIsUnderscoremythical :: Maybe Bool -- ^ 
-  , pokemonSpeciesDetailHatchUnderscorecounter :: Maybe Int -- ^ 
-  , pokemonSpeciesDetailHasUnderscoregenderUnderscoredifferences :: Maybe Bool -- ^ 
-  , pokemonSpeciesDetailFormsUnderscoreswitchable :: Maybe Bool -- ^ 
-  , pokemonSpeciesDetailGrowthUnderscorerate :: GrowthRateSummary -- ^ 
-  , pokemonSpeciesDetailPokedexUnderscorenumbers :: [PokemonDexEntry] -- ^ 
-  , pokemonSpeciesDetailEggUnderscoregroups :: [AbilityDetailPokemonInnerPokemon] -- ^ 
-  , pokemonSpeciesDetailColor :: PokemonColorSummary -- ^ 
-  , pokemonSpeciesDetailShape :: PokemonShapeSummary -- ^ 
-  , pokemonSpeciesDetailEvolvesUnderscorefromUnderscorespecies :: PokemonSpeciesSummary -- ^ 
-  , pokemonSpeciesDetailEvolutionUnderscorechain :: EvolutionChainSummary -- ^ 
-  , pokemonSpeciesDetailHabitat :: PokemonHabitatSummary -- ^ 
-  , pokemonSpeciesDetailGeneration :: GenerationSummary -- ^ 
-  , pokemonSpeciesDetailNames :: [PokemonFormDetailFormNamesInner] -- ^ 
-  , pokemonSpeciesDetailPalUnderscoreparkUnderscoreencounters :: [PokemonSpeciesDetailPalParkEncountersInner] -- ^ 
-  , pokemonSpeciesDetailFormUnderscoredescriptions :: [PokemonSpeciesDescription] -- ^ 
-  , pokemonSpeciesDetailFlavorUnderscoretextUnderscoreentries :: [PokemonSpeciesFlavorText] -- ^ 
-  , pokemonSpeciesDetailGenera :: [PokemonSpeciesDetailGeneraInner] -- ^ 
-  , pokemonSpeciesDetailVarieties :: [PokemonSpeciesDetailVarietiesInner] -- ^ 
+  { pokemonSpeciesDetailId :: Int -- ^ The identifier for this resource.
+  , pokemonSpeciesDetailName :: Text -- ^ The name for this resource.
+  , pokemonSpeciesDetailOrder :: Maybe Int -- ^ The order in which species should be sorted. Based on National Dex order, except families are grouped together and sorted by stage.
+  , pokemonSpeciesDetailGenderUnderscorerate :: Maybe Int -- ^ The chance of this Pokémon being female, in eighths; or -1 for genderless.
+  , pokemonSpeciesDetailCaptureUnderscorerate :: Maybe Int -- ^ The base capture rate; up to 255. The higher the number, the easier the catch.
+  , pokemonSpeciesDetailBaseUnderscorehappiness :: Maybe Int -- ^ The happiness when caught by a normal Pokéball; up to 255. The higher the number, the happier the Pokémon.
+  , pokemonSpeciesDetailIsUnderscorebaby :: Maybe Bool -- ^ Whether or not this is a baby Pokémon.
+  , pokemonSpeciesDetailIsUnderscorelegendary :: Maybe Bool -- ^ Whether or not this is a legendary Pokémon.
+  , pokemonSpeciesDetailIsUnderscoremythical :: Maybe Bool -- ^ Whether or not this is a mythical Pokémon.
+  , pokemonSpeciesDetailHatchUnderscorecounter :: Maybe Int -- ^ Initial hatch counter: one must walk Y × (hatch_counter + 1) steps before this Pokémon's egg hatches, unless utilizing bonuses like Flame Body's. Y varies per generation. In Generations II, III, and VII, Egg cycles are 256 steps long. In Generation IV, Egg cycles are 255 steps long. In Pokémon Brilliant Diamond and Shining Pearl, Egg cycles are also 255 steps long, but are shorter on special dates. In Generations V and VI, Egg cycles are 257 steps long. In Pokémon Sword and Shield, and in Pokémon Scarlet and Violet, Egg cycles are 128 steps long.
+  , pokemonSpeciesDetailHasUnderscoregenderUnderscoredifferences :: Maybe Bool -- ^ Whether or not this Pokémon has visual gender differences.
+  , pokemonSpeciesDetailFormsUnderscoreswitchable :: Maybe Bool -- ^ Whether or not this Pokémon has multiple forms and can switch between them.
+  , pokemonSpeciesDetailGrowthUnderscorerate :: GrowthRateSummary -- ^ The rate at which this Pokémon species gains levels.
+  , pokemonSpeciesDetailPokedexUnderscorenumbers :: [PokemonDexEntry] -- ^ A list of Pokedexes and the indexes reserved within them for this Pokémon species.
+  , pokemonSpeciesDetailEggUnderscoregroups :: [EggGroupSummary] -- ^ A list of egg groups this Pokémon species is a member of.
+  , pokemonSpeciesDetailColor :: PokemonColorSummary -- ^ The color of this Pokémon for Pokédex search.
+  , pokemonSpeciesDetailShape :: PokemonShapeSummary -- ^ The shape of this Pokémon for Pokédex search.
+  , pokemonSpeciesDetailEvolvesUnderscorefromUnderscorespecies :: PokemonSpeciesSummary -- ^ The Pokémon species that evolves into this Pokemon_species.
+  , pokemonSpeciesDetailEvolutionUnderscorechain :: EvolutionChainSummary -- ^ The evolution chain this Pokémon species is a member of.
+  , pokemonSpeciesDetailHabitat :: PokemonHabitatSummary -- ^ The habitat this Pokémon species can be encountered in.
+  , pokemonSpeciesDetailGeneration :: GenerationSummary -- ^ The generation this Pokémon species was introduced in.
+  , pokemonSpeciesDetailNames :: [PokemonSpeciesName] -- ^ The name of this resource listed in different languages.
+  , pokemonSpeciesDetailPalUnderscoreparkUnderscoreencounters :: [PokemonSpeciesPalParkEncounter] -- ^ A list of encounters that can be had with this Pokémon species in pal park.
+  , pokemonSpeciesDetailFormUnderscoredescriptions :: [PokemonSpeciesDescription] -- ^ Descriptions of different forms Pokémon take on within the Pokémon species.
+  , pokemonSpeciesDetailFlavorUnderscoretextUnderscoreentries :: [PokemonSpeciesFlavorText] -- ^ A list of flavor text entries for this Pokémon species.
+  , pokemonSpeciesDetailGenera :: [PokemonSpeciesGenus] -- ^ The genus of this Pokémon species listed in multiple languages.
+  , pokemonSpeciesDetailVarieties :: [PokemonSpeciesVariety] -- ^ A list of the Pokémon that exist within this Pokémon species.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PokemonSpeciesDetail where
@@ -6581,84 +7004,10 @@ optionsPokemonSpeciesDetail =
 
 
 -- | 
-data PokemonSpeciesDetailGeneraInner = PokemonSpeciesDetailGeneraInner
-  { pokemonSpeciesDetailGeneraInnerGenus :: Text -- ^ 
-  , pokemonSpeciesDetailGeneraInnerLanguage :: AbilityDetailPokemonInnerPokemon -- ^ 
-  } deriving (Show, Eq, Generic)
-
-instance FromJSON PokemonSpeciesDetailGeneraInner where
-  parseJSON = genericParseJSON optionsPokemonSpeciesDetailGeneraInner
-instance ToJSON PokemonSpeciesDetailGeneraInner where
-  toJSON = genericToJSON optionsPokemonSpeciesDetailGeneraInner
-
-optionsPokemonSpeciesDetailGeneraInner :: Options
-optionsPokemonSpeciesDetailGeneraInner =
-  defaultOptions
-    { omitNothingFields  = True
-    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
-    }
-  where
-    table =
-      [ ("pokemonSpeciesDetailGeneraInnerGenus", "genus")
-      , ("pokemonSpeciesDetailGeneraInnerLanguage", "language")
-      ]
-
-
--- | 
-data PokemonSpeciesDetailPalParkEncountersInner = PokemonSpeciesDetailPalParkEncountersInner
-  { pokemonSpeciesDetailPalParkEncountersInnerArea :: AbilityDetailPokemonInnerPokemon -- ^ 
-  , pokemonSpeciesDetailPalParkEncountersInnerBaseUnderscorescore :: Int -- ^ 
-  , pokemonSpeciesDetailPalParkEncountersInnerRate :: Int -- ^ 
-  } deriving (Show, Eq, Generic)
-
-instance FromJSON PokemonSpeciesDetailPalParkEncountersInner where
-  parseJSON = genericParseJSON optionsPokemonSpeciesDetailPalParkEncountersInner
-instance ToJSON PokemonSpeciesDetailPalParkEncountersInner where
-  toJSON = genericToJSON optionsPokemonSpeciesDetailPalParkEncountersInner
-
-optionsPokemonSpeciesDetailPalParkEncountersInner :: Options
-optionsPokemonSpeciesDetailPalParkEncountersInner =
-  defaultOptions
-    { omitNothingFields  = True
-    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
-    }
-  where
-    table =
-      [ ("pokemonSpeciesDetailPalParkEncountersInnerArea", "area")
-      , ("pokemonSpeciesDetailPalParkEncountersInnerBaseUnderscorescore", "base_score")
-      , ("pokemonSpeciesDetailPalParkEncountersInnerRate", "rate")
-      ]
-
-
--- | 
-data PokemonSpeciesDetailVarietiesInner = PokemonSpeciesDetailVarietiesInner
-  { pokemonSpeciesDetailVarietiesInnerIsUnderscoredefault :: Bool -- ^ 
-  , pokemonSpeciesDetailVarietiesInnerPokemon :: AbilityDetailPokemonInnerPokemon -- ^ 
-  } deriving (Show, Eq, Generic)
-
-instance FromJSON PokemonSpeciesDetailVarietiesInner where
-  parseJSON = genericParseJSON optionsPokemonSpeciesDetailVarietiesInner
-instance ToJSON PokemonSpeciesDetailVarietiesInner where
-  toJSON = genericToJSON optionsPokemonSpeciesDetailVarietiesInner
-
-optionsPokemonSpeciesDetailVarietiesInner :: Options
-optionsPokemonSpeciesDetailVarietiesInner =
-  defaultOptions
-    { omitNothingFields  = True
-    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
-    }
-  where
-    table =
-      [ ("pokemonSpeciesDetailVarietiesInnerIsUnderscoredefault", "is_default")
-      , ("pokemonSpeciesDetailVarietiesInnerPokemon", "pokemon")
-      ]
-
-
--- | 
 data PokemonSpeciesFlavorText = PokemonSpeciesFlavorText
-  { pokemonSpeciesFlavorTextFlavorUnderscoretext :: Text -- ^ 
-  , pokemonSpeciesFlavorTextLanguage :: LanguageSummary -- ^ 
-  , pokemonSpeciesFlavorTextVersion :: VersionSummary -- ^ 
+  { pokemonSpeciesFlavorTextFlavorUnderscoretext :: Text -- ^ The localized flavor text for an API resource in a specific language. Note that this text is left unprocessed as it is found in game files. This means that it contains special characters that one might want to replace with their visible decodable version. Please check out this <a href='https://github.com/veekun/pokedex/issues/218#issuecomment-339841781' >issue</a> to find out more. 
+  , pokemonSpeciesFlavorTextLanguage :: LanguageSummary -- ^ The language this name is in.
+  , pokemonSpeciesFlavorTextVersion :: VersionSummary -- ^ The game version this flavor text is extracted from.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PokemonSpeciesFlavorText where
@@ -6681,9 +7030,83 @@ optionsPokemonSpeciesFlavorText =
 
 
 -- | 
+data PokemonSpeciesGenus = PokemonSpeciesGenus
+  { pokemonSpeciesGenusGenus :: Text -- ^ The localized genus for the referenced Pokémon species
+  , pokemonSpeciesGenusLanguage :: LanguageSummary -- ^ The language this genus is in.
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON PokemonSpeciesGenus where
+  parseJSON = genericParseJSON optionsPokemonSpeciesGenus
+instance ToJSON PokemonSpeciesGenus where
+  toJSON = genericToJSON optionsPokemonSpeciesGenus
+
+optionsPokemonSpeciesGenus :: Options
+optionsPokemonSpeciesGenus =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ ("pokemonSpeciesGenusGenus", "genus")
+      , ("pokemonSpeciesGenusLanguage", "language")
+      ]
+
+
+-- | 
+data PokemonSpeciesName = PokemonSpeciesName
+  { pokemonSpeciesNameName :: Text -- ^ The localized name for an API resource in a specific language.
+  , pokemonSpeciesNameLanguage :: LanguageSummary -- ^ The language this name is in.
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON PokemonSpeciesName where
+  parseJSON = genericParseJSON optionsPokemonSpeciesName
+instance ToJSON PokemonSpeciesName where
+  toJSON = genericToJSON optionsPokemonSpeciesName
+
+optionsPokemonSpeciesName :: Options
+optionsPokemonSpeciesName =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ ("pokemonSpeciesNameName", "name")
+      , ("pokemonSpeciesNameLanguage", "language")
+      ]
+
+
+-- | 
+data PokemonSpeciesPalParkEncounter = PokemonSpeciesPalParkEncounter
+  { pokemonSpeciesPalParkEncounterBaseUnderscorescore :: Maybe Int -- ^ The base score given to the player when the referenced Pokémon is caught during a pal park run.
+  , pokemonSpeciesPalParkEncounterRate :: Int -- ^ The base rate for encountering the referenced Pokémon in this pal park area.
+  , pokemonSpeciesPalParkEncounterArea :: PalParkAreaSummary -- ^ The pal park area where this encounter happens.
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON PokemonSpeciesPalParkEncounter where
+  parseJSON = genericParseJSON optionsPokemonSpeciesPalParkEncounter
+instance ToJSON PokemonSpeciesPalParkEncounter where
+  toJSON = genericToJSON optionsPokemonSpeciesPalParkEncounter
+
+optionsPokemonSpeciesPalParkEncounter :: Options
+optionsPokemonSpeciesPalParkEncounter =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ ("pokemonSpeciesPalParkEncounterBaseUnderscorescore", "base_score")
+      , ("pokemonSpeciesPalParkEncounterRate", "rate")
+      , ("pokemonSpeciesPalParkEncounterArea", "area")
+      ]
+
+
+-- | 
 data PokemonSpeciesSummary = PokemonSpeciesSummary
-  { pokemonSpeciesSummaryName :: Text -- ^ 
-  , pokemonSpeciesSummaryUrl :: Text -- ^ 
+  { pokemonSpeciesSummaryName :: Text -- ^ The name of the referenced resource.
+  , pokemonSpeciesSummaryUrl :: Text -- ^ The URL of the referenced resource.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PokemonSpeciesSummary where
@@ -6705,10 +7128,216 @@ optionsPokemonSpeciesSummary =
 
 
 -- | 
+data PokemonSpeciesVariety = PokemonSpeciesVariety
+  { pokemonSpeciesVarietyIsUnderscoredefault :: Bool -- ^ Whether this variety is the default variety.
+  , pokemonSpeciesVarietyPokemon :: PokemonSummary -- ^ The Pokémon variety.
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON PokemonSpeciesVariety where
+  parseJSON = genericParseJSON optionsPokemonSpeciesVariety
+instance ToJSON PokemonSpeciesVariety where
+  toJSON = genericToJSON optionsPokemonSpeciesVariety
+
+optionsPokemonSpeciesVariety :: Options
+optionsPokemonSpeciesVariety =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ ("pokemonSpeciesVarietyIsUnderscoredefault", "is_default")
+      , ("pokemonSpeciesVarietyPokemon", "pokemon")
+      ]
+
+
+-- | 
+data PokemonSprites = PokemonSprites
+  { pokemonSpritesFrontUnderscoredefault :: Text -- ^ The default depiction of this Pokémon from the front in battle.
+  , pokemonSpritesFrontUnderscoreshiny :: Text -- ^ The shiny depiction of this Pokémon from the front in battle.
+  , pokemonSpritesFrontUnderscorefemale :: Text -- ^ The female depiction of this Pokémon from the front in battle.
+  , pokemonSpritesFrontUnderscoreshinyUnderscorefemale :: Text -- ^ The shiny female depiction of this Pokémon from the front in battle.
+  , pokemonSpritesBackUnderscoredefault :: Text -- ^ The default depiction of this Pokémon from the back in battle.
+  , pokemonSpritesBackUnderscoreshiny :: Text -- ^ The shiny depiction of this Pokémon from the back in battle.
+  , pokemonSpritesBackUnderscorefemale :: Text -- ^ The female depiction of this Pokémon from the back in battle.
+  , pokemonSpritesBackUnderscoreshinyUnderscorefemale :: Text -- ^ The shiny female depiction of this Pokémon from the back in battle.
+  , pokemonSpritesOther :: Maybe PokemonSpritesOther -- ^ Additional sprites grouped by source, such as official artwork, HOME, and Showdown. Available keys vary by resource.
+  , pokemonSpritesVersions :: Maybe (Map.Map String (Map.Map String Value)) -- ^ Sprites grouped by generation and game. Available keys vary by resource.
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON PokemonSprites where
+  parseJSON = genericParseJSON optionsPokemonSprites
+instance ToJSON PokemonSprites where
+  toJSON = genericToJSON optionsPokemonSprites
+
+optionsPokemonSprites :: Options
+optionsPokemonSprites =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ ("pokemonSpritesFrontUnderscoredefault", "front_default")
+      , ("pokemonSpritesFrontUnderscoreshiny", "front_shiny")
+      , ("pokemonSpritesFrontUnderscorefemale", "front_female")
+      , ("pokemonSpritesFrontUnderscoreshinyUnderscorefemale", "front_shiny_female")
+      , ("pokemonSpritesBackUnderscoredefault", "back_default")
+      , ("pokemonSpritesBackUnderscoreshiny", "back_shiny")
+      , ("pokemonSpritesBackUnderscorefemale", "back_female")
+      , ("pokemonSpritesBackUnderscoreshinyUnderscorefemale", "back_shiny_female")
+      , ("pokemonSpritesOther", "other")
+      , ("pokemonSpritesVersions", "versions")
+      ]
+
+
+-- | 
+data PokemonSpritesOther = PokemonSpritesOther
+  { pokemonSpritesOtherDreamUnderscoreworld :: Maybe PokemonSpritesOtherDreamWorld -- ^ Pokémon Dream World artwork URLs.
+  , pokemonSpritesOtherHome :: Maybe PokemonSpritesOtherHome -- ^ Pokémon HOME sprite URLs.
+  , pokemonSpritesOtherShowdown :: Maybe PokemonSpritesOtherShowdown -- ^ Pokémon Showdown sprite URLs.
+  , pokemonSpritesOtherOfficialDashartwork :: Maybe PokemonSpritesOtherOfficialArtwork -- ^ Official Pokémon artwork URLs, including shiny artwork and version-specific variants.
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON PokemonSpritesOther where
+  parseJSON = genericParseJSON optionsPokemonSpritesOther
+instance ToJSON PokemonSpritesOther where
+  toJSON = genericToJSON optionsPokemonSpritesOther
+
+optionsPokemonSpritesOther :: Options
+optionsPokemonSpritesOther =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ ("pokemonSpritesOtherDreamUnderscoreworld", "dream_world")
+      , ("pokemonSpritesOtherHome", "home")
+      , ("pokemonSpritesOtherShowdown", "showdown")
+      , ("pokemonSpritesOtherOfficialDashartwork", "official-artwork")
+      ]
+
+
+-- | 
+data PokemonSpritesOtherDreamWorld = PokemonSpritesOtherDreamWorld
+  { pokemonSpritesOtherDreamWorldFrontUnderscoredefault :: Text -- ^ The URL of the default Pokémon Dream World front image, or null if unavailable.
+  , pokemonSpritesOtherDreamWorldFrontUnderscorefemale :: Text -- ^ The URL of the female Pokémon Dream World front image, or null if unavailable.
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON PokemonSpritesOtherDreamWorld where
+  parseJSON = genericParseJSON optionsPokemonSpritesOtherDreamWorld
+instance ToJSON PokemonSpritesOtherDreamWorld where
+  toJSON = genericToJSON optionsPokemonSpritesOtherDreamWorld
+
+optionsPokemonSpritesOtherDreamWorld :: Options
+optionsPokemonSpritesOtherDreamWorld =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ ("pokemonSpritesOtherDreamWorldFrontUnderscoredefault", "front_default")
+      , ("pokemonSpritesOtherDreamWorldFrontUnderscorefemale", "front_female")
+      ]
+
+
+-- | 
+data PokemonSpritesOtherHome = PokemonSpritesOtherHome
+  { pokemonSpritesOtherHomeFrontUnderscoredefault :: Text -- ^ The URL of the default Pokémon HOME front image, or null if unavailable.
+  , pokemonSpritesOtherHomeFrontUnderscorefemale :: Text -- ^ The URL of the female Pokémon HOME front image, or null if unavailable.
+  , pokemonSpritesOtherHomeFrontUnderscoreshiny :: Text -- ^ The URL of the shiny Pokémon HOME front image, or null if unavailable.
+  , pokemonSpritesOtherHomeFrontUnderscoreshinyUnderscorefemale :: Text -- ^ The URL of the shiny female Pokémon HOME front image, or null if unavailable.
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON PokemonSpritesOtherHome where
+  parseJSON = genericParseJSON optionsPokemonSpritesOtherHome
+instance ToJSON PokemonSpritesOtherHome where
+  toJSON = genericToJSON optionsPokemonSpritesOtherHome
+
+optionsPokemonSpritesOtherHome :: Options
+optionsPokemonSpritesOtherHome =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ ("pokemonSpritesOtherHomeFrontUnderscoredefault", "front_default")
+      , ("pokemonSpritesOtherHomeFrontUnderscorefemale", "front_female")
+      , ("pokemonSpritesOtherHomeFrontUnderscoreshiny", "front_shiny")
+      , ("pokemonSpritesOtherHomeFrontUnderscoreshinyUnderscorefemale", "front_shiny_female")
+      ]
+
+
+-- | 
+data PokemonSpritesOtherOfficialArtwork = PokemonSpritesOtherOfficialArtwork
+  { pokemonSpritesOtherOfficialArtworkFrontUnderscoredefault :: Text -- ^ The URL of the default front official artwork, or null if unavailable.
+  , pokemonSpritesOtherOfficialArtworkFrontUnderscoreshiny :: Text -- ^ The URL of the shiny front official artwork, or null if unavailable.
+  , pokemonSpritesOtherOfficialArtworkVersions :: Maybe (Map.Map String (Map.Map String Value)) -- ^ Additional official artwork grouped by version. Available keys vary by resource.
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON PokemonSpritesOtherOfficialArtwork where
+  parseJSON = genericParseJSON optionsPokemonSpritesOtherOfficialArtwork
+instance ToJSON PokemonSpritesOtherOfficialArtwork where
+  toJSON = genericToJSON optionsPokemonSpritesOtherOfficialArtwork
+
+optionsPokemonSpritesOtherOfficialArtwork :: Options
+optionsPokemonSpritesOtherOfficialArtwork =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ ("pokemonSpritesOtherOfficialArtworkFrontUnderscoredefault", "front_default")
+      , ("pokemonSpritesOtherOfficialArtworkFrontUnderscoreshiny", "front_shiny")
+      , ("pokemonSpritesOtherOfficialArtworkVersions", "versions")
+      ]
+
+
+-- | 
+data PokemonSpritesOtherShowdown = PokemonSpritesOtherShowdown
+  { pokemonSpritesOtherShowdownFrontUnderscoredefault :: Text -- ^ The URL of the default Pokémon Showdown front image, or null if unavailable.
+  , pokemonSpritesOtherShowdownFrontUnderscorefemale :: Text -- ^ The URL of the female Pokémon Showdown front image, or null if unavailable.
+  , pokemonSpritesOtherShowdownFrontUnderscoreshiny :: Text -- ^ The URL of the shiny Pokémon Showdown front image, or null if unavailable.
+  , pokemonSpritesOtherShowdownFrontUnderscoreshinyUnderscorefemale :: Text -- ^ The URL of the shiny female Pokémon Showdown front image, or null if unavailable.
+  , pokemonSpritesOtherShowdownBackUnderscoredefault :: Text -- ^ The URL of the default Pokémon Showdown back image, or null if unavailable.
+  , pokemonSpritesOtherShowdownBackUnderscorefemale :: Text -- ^ The URL of the female Pokémon Showdown back image, or null if unavailable.
+  , pokemonSpritesOtherShowdownBackUnderscoreshiny :: Text -- ^ The URL of the shiny Pokémon Showdown back image, or null if unavailable.
+  , pokemonSpritesOtherShowdownBackUnderscoreshinyUnderscorefemale :: Text -- ^ The URL of the shiny female Pokémon Showdown back image, or null if unavailable.
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON PokemonSpritesOtherShowdown where
+  parseJSON = genericParseJSON optionsPokemonSpritesOtherShowdown
+instance ToJSON PokemonSpritesOtherShowdown where
+  toJSON = genericToJSON optionsPokemonSpritesOtherShowdown
+
+optionsPokemonSpritesOtherShowdown :: Options
+optionsPokemonSpritesOtherShowdown =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ ("pokemonSpritesOtherShowdownFrontUnderscoredefault", "front_default")
+      , ("pokemonSpritesOtherShowdownFrontUnderscorefemale", "front_female")
+      , ("pokemonSpritesOtherShowdownFrontUnderscoreshiny", "front_shiny")
+      , ("pokemonSpritesOtherShowdownFrontUnderscoreshinyUnderscorefemale", "front_shiny_female")
+      , ("pokemonSpritesOtherShowdownBackUnderscoredefault", "back_default")
+      , ("pokemonSpritesOtherShowdownBackUnderscorefemale", "back_female")
+      , ("pokemonSpritesOtherShowdownBackUnderscoreshiny", "back_shiny")
+      , ("pokemonSpritesOtherShowdownBackUnderscoreshinyUnderscorefemale", "back_shiny_female")
+      ]
+
+
+-- | 
 data PokemonStat = PokemonStat
-  { pokemonStatBaseUnderscorestat :: Int -- ^ 
-  , pokemonStatEffort :: Int -- ^ 
-  , pokemonStatStat :: StatSummary -- ^ 
+  { pokemonStatBaseUnderscorestat :: Int -- ^ The base value of the stat.
+  , pokemonStatEffort :: Int -- ^ The effort points (EV) the Pokémon has in the stat.
+  , pokemonStatStat :: StatSummary -- ^ The stat the Pokémon has.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PokemonStat where
@@ -6732,8 +7361,8 @@ optionsPokemonStat =
 
 -- | 
 data PokemonSummary = PokemonSummary
-  { pokemonSummaryName :: Text -- ^ 
-  , pokemonSummaryUrl :: Text -- ^ 
+  { pokemonSummaryName :: Text -- ^ The name of the referenced resource.
+  , pokemonSummaryUrl :: Text -- ^ The URL of the referenced resource.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON PokemonSummary where
@@ -6755,14 +7384,38 @@ optionsPokemonSummary =
 
 
 -- | 
+data PokemonType = PokemonType
+  { pokemonTypeSlot :: Int -- ^ The order the Pokémon's types are listed in.
+  , pokemonTypeType :: TypeSummary -- ^ The type the referenced Pokémon has.
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON PokemonType where
+  parseJSON = genericParseJSON optionsPokemonType
+instance ToJSON PokemonType where
+  toJSON = genericToJSON optionsPokemonType
+
+optionsPokemonType :: Options
+optionsPokemonType =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ ("pokemonTypeSlot", "slot")
+      , ("pokemonTypeType", "type")
+      ]
+
+
+-- | 
 data RegionDetail = RegionDetail
-  { regionDetailId :: Int -- ^ 
-  , regionDetailName :: Text -- ^ 
-  , regionDetailLocations :: [LocationSummary] -- ^ 
-  , regionDetailMainUnderscoregeneration :: GenerationSummary -- ^ 
-  , regionDetailNames :: [RegionName] -- ^ 
-  , regionDetailPokedexes :: [PokedexSummary] -- ^ 
-  , regionDetailVersionUnderscoregroups :: [AbilityDetailPokemonInnerPokemon] -- ^ 
+  { regionDetailId :: Int -- ^ The identifier for this resource.
+  , regionDetailName :: Text -- ^ The name for this resource.
+  , regionDetailLocations :: [LocationSummary] -- ^ A list of locations that can be found in this region.
+  , regionDetailMainUnderscoregeneration :: GenerationSummary -- ^ The generation this region was introduced in.
+  , regionDetailNames :: [RegionName] -- ^ The name of this resource listed in different languages.
+  , regionDetailPokedexes :: [PokedexSummary] -- ^ A list of pokédexes that catalogue Pokémon in this region.
+  , regionDetailVersionUnderscoregroups :: [VersionGroupSummary] -- ^ A list of version groups where this region can be visited.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON RegionDetail where
@@ -6790,8 +7443,8 @@ optionsRegionDetail =
 
 -- | 
 data RegionName = RegionName
-  { regionNameName :: Text -- ^ 
-  , regionNameLanguage :: LanguageSummary -- ^ 
+  { regionNameName :: Text -- ^ The localized name for an API resource in a specific language.
+  , regionNameLanguage :: LanguageSummary -- ^ The language this name is in.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON RegionName where
@@ -6814,8 +7467,8 @@ optionsRegionName =
 
 -- | 
 data RegionSummary = RegionSummary
-  { regionSummaryName :: Text -- ^ 
-  , regionSummaryUrl :: Text -- ^ 
+  { regionSummaryName :: Text -- ^ The name of the referenced resource.
+  , regionSummaryUrl :: Text -- ^ The URL of the referenced resource.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON RegionSummary where
@@ -6837,16 +7490,65 @@ optionsRegionSummary =
 
 
 -- | 
+data StatAffectingMoves = StatAffectingMoves
+  { statAffectingMovesIncrease :: [MoveStatChange] -- ^ A list of moves and how they change the referenced stat.
+  , statAffectingMovesDecrease :: [MoveStatChange] -- ^ A list of moves and how they change the referenced stat.
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON StatAffectingMoves where
+  parseJSON = genericParseJSON optionsStatAffectingMoves
+instance ToJSON StatAffectingMoves where
+  toJSON = genericToJSON optionsStatAffectingMoves
+
+optionsStatAffectingMoves :: Options
+optionsStatAffectingMoves =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ ("statAffectingMovesIncrease", "increase")
+      , ("statAffectingMovesDecrease", "decrease")
+      ]
+
+
+-- | 
+data StatAffectingNatures = StatAffectingNatures
+  { statAffectingNaturesIncrease :: [NatureSummary] -- ^ A list of natures and how they change the referenced stat.
+  , statAffectingNaturesDecrease :: [NatureSummary] -- ^ A list of nature sand how they change the referenced stat.
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON StatAffectingNatures where
+  parseJSON = genericParseJSON optionsStatAffectingNatures
+instance ToJSON StatAffectingNatures where
+  toJSON = genericToJSON optionsStatAffectingNatures
+
+optionsStatAffectingNatures :: Options
+optionsStatAffectingNatures =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ ("statAffectingNaturesIncrease", "increase")
+      , ("statAffectingNaturesDecrease", "decrease")
+      ]
+
+
+-- | 
 data StatDetail = StatDetail
-  { statDetailId :: Int -- ^ 
-  , statDetailName :: Text -- ^ 
-  , statDetailGameUnderscoreindex :: Int -- ^ 
-  , statDetailIsUnderscorebattleUnderscoreonly :: Maybe Bool -- ^ 
-  , statDetailAffectingUnderscoremoves :: StatDetailAffectingMoves -- ^ 
-  , statDetailAffectingUnderscorenatures :: StatDetailAffectingNatures -- ^ 
-  , statDetailCharacteristics :: [CharacteristicSummary] -- ^ 
-  , statDetailMoveUnderscoredamageUnderscoreclass :: MoveDamageClassSummary -- ^ 
-  , statDetailNames :: [StatName] -- ^ 
+  { statDetailId :: Int -- ^ The identifier for this resource.
+  , statDetailName :: Text -- ^ The name for this resource.
+  , statDetailGameUnderscoreindex :: Int -- ^ ID the games use for this stat.
+  , statDetailIsUnderscorebattleUnderscoreonly :: Maybe Bool -- ^ Whether this stat only exists within a battle.
+  , statDetailAffectingUnderscoremoves :: StatAffectingMoves -- ^ A detail of moves which affect this stat positively or negatively.
+  , statDetailAffectingUnderscorenatures :: StatAffectingNatures -- ^ A detail of natures which affect this stat positively or negatively.
+  , statDetailAffectingUnderscoreitems :: [ItemSummary] -- ^ Items that affect this stat, such as vitamins and battle items.
+  , statDetailCharacteristics :: [CharacteristicSummary] -- ^ A list of characteristics that are set on a Pokémon when its highest base stat is this stat.
+  , statDetailMoveUnderscoredamageUnderscoreclass :: MoveDamageClassSummary -- ^ The class of damage this stat is directly related to.
+  , statDetailNames :: [StatName] -- ^ The name of this resource listed in different languages.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON StatDetail where
@@ -6868,6 +7570,7 @@ optionsStatDetail =
       , ("statDetailIsUnderscorebattleUnderscoreonly", "is_battle_only")
       , ("statDetailAffectingUnderscoremoves", "affecting_moves")
       , ("statDetailAffectingUnderscorenatures", "affecting_natures")
+      , ("statDetailAffectingUnderscoreitems", "affecting_items")
       , ("statDetailCharacteristics", "characteristics")
       , ("statDetailMoveUnderscoredamageUnderscoreclass", "move_damage_class")
       , ("statDetailNames", "names")
@@ -6875,81 +7578,9 @@ optionsStatDetail =
 
 
 -- | 
-data StatDetailAffectingMoves = StatDetailAffectingMoves
-  { statDetailAffectingMovesIncrease :: [StatDetailAffectingMovesIncreaseInner] -- ^ 
-  , statDetailAffectingMovesDecrease :: [StatDetailAffectingMovesIncreaseInner] -- ^ 
-  } deriving (Show, Eq, Generic)
-
-instance FromJSON StatDetailAffectingMoves where
-  parseJSON = genericParseJSON optionsStatDetailAffectingMoves
-instance ToJSON StatDetailAffectingMoves where
-  toJSON = genericToJSON optionsStatDetailAffectingMoves
-
-optionsStatDetailAffectingMoves :: Options
-optionsStatDetailAffectingMoves =
-  defaultOptions
-    { omitNothingFields  = True
-    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
-    }
-  where
-    table =
-      [ ("statDetailAffectingMovesIncrease", "increase")
-      , ("statDetailAffectingMovesDecrease", "decrease")
-      ]
-
-
--- | 
-data StatDetailAffectingMovesIncreaseInner = StatDetailAffectingMovesIncreaseInner
-  { statDetailAffectingMovesIncreaseInnerChange :: Int -- ^ 
-  , statDetailAffectingMovesIncreaseInnerMove :: AbilityDetailPokemonInnerPokemon -- ^ 
-  } deriving (Show, Eq, Generic)
-
-instance FromJSON StatDetailAffectingMovesIncreaseInner where
-  parseJSON = genericParseJSON optionsStatDetailAffectingMovesIncreaseInner
-instance ToJSON StatDetailAffectingMovesIncreaseInner where
-  toJSON = genericToJSON optionsStatDetailAffectingMovesIncreaseInner
-
-optionsStatDetailAffectingMovesIncreaseInner :: Options
-optionsStatDetailAffectingMovesIncreaseInner =
-  defaultOptions
-    { omitNothingFields  = True
-    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
-    }
-  where
-    table =
-      [ ("statDetailAffectingMovesIncreaseInnerChange", "change")
-      , ("statDetailAffectingMovesIncreaseInnerMove", "move")
-      ]
-
-
--- | 
-data StatDetailAffectingNatures = StatDetailAffectingNatures
-  { statDetailAffectingNaturesIncrease :: [AbilityDetailPokemonInnerPokemon] -- ^ 
-  , statDetailAffectingNaturesDecrease :: [AbilityDetailPokemonInnerPokemon] -- ^ 
-  } deriving (Show, Eq, Generic)
-
-instance FromJSON StatDetailAffectingNatures where
-  parseJSON = genericParseJSON optionsStatDetailAffectingNatures
-instance ToJSON StatDetailAffectingNatures where
-  toJSON = genericToJSON optionsStatDetailAffectingNatures
-
-optionsStatDetailAffectingNatures :: Options
-optionsStatDetailAffectingNatures =
-  defaultOptions
-    { omitNothingFields  = True
-    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
-    }
-  where
-    table =
-      [ ("statDetailAffectingNaturesIncrease", "increase")
-      , ("statDetailAffectingNaturesDecrease", "decrease")
-      ]
-
-
--- | 
 data StatName = StatName
-  { statNameName :: Text -- ^ 
-  , statNameLanguage :: LanguageSummary -- ^ 
+  { statNameName :: Text -- ^ The localized name for an API resource in a specific language.
+  , statNameLanguage :: LanguageSummary -- ^ The language this name is in.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON StatName where
@@ -6972,8 +7603,8 @@ optionsStatName =
 
 -- | 
 data StatSummary = StatSummary
-  { statSummaryName :: Text -- ^ 
-  , statSummaryUrl :: Text -- ^ 
+  { statSummaryName :: Text -- ^ The name of the referenced resource.
+  , statSummaryUrl :: Text -- ^ The URL of the referenced resource.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON StatSummary where
@@ -6996,10 +7627,10 @@ optionsStatSummary =
 
 -- | 
 data SuperContestEffectDetail = SuperContestEffectDetail
-  { superContestEffectDetailId :: Int -- ^ 
-  , superContestEffectDetailAppeal :: Int -- ^ 
-  , superContestEffectDetailFlavorUnderscoretextUnderscoreentries :: [SuperContestEffectFlavorText] -- ^ 
-  , superContestEffectDetailMoves :: [MoveSummary] -- ^ 
+  { superContestEffectDetailId :: Int -- ^ The identifier for this resource.
+  , superContestEffectDetailAppeal :: Int -- ^ The level of appeal this super contest effect has.
+  , superContestEffectDetailFlavorUnderscoretextUnderscoreentries :: [SuperContestEffectFlavorText] -- ^ The flavor text of this super contest effect listed in different languages.
+  , superContestEffectDetailMoves :: [MoveSummary] -- ^ A list of moves that have the effect when used in super contests.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON SuperContestEffectDetail where
@@ -7024,8 +7655,8 @@ optionsSuperContestEffectDetail =
 
 -- | 
 data SuperContestEffectFlavorText = SuperContestEffectFlavorText
-  { superContestEffectFlavorTextFlavorUnderscoretext :: Text -- ^ 
-  , superContestEffectFlavorTextLanguage :: LanguageSummary -- ^ 
+  { superContestEffectFlavorTextFlavorUnderscoretext :: Text -- ^ The localized flavor text for an API resource in a specific language.
+  , superContestEffectFlavorTextLanguage :: LanguageSummary -- ^ The language this name is in.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON SuperContestEffectFlavorText where
@@ -7048,7 +7679,7 @@ optionsSuperContestEffectFlavorText =
 
 -- | 
 data SuperContestEffectSummary = SuperContestEffectSummary
-  { superContestEffectSummaryUrl :: Text -- ^ 
+  { superContestEffectSummaryUrl :: Text -- ^ The URL of the referenced resource.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON SuperContestEffectSummary where
@@ -7070,17 +7701,17 @@ optionsSuperContestEffectSummary =
 
 -- | Serializer for the Type resource
 data TypeDetail = TypeDetail
-  { typeDetailId :: Int -- ^ 
-  , typeDetailName :: Text -- ^ 
-  , typeDetailDamageUnderscorerelations :: TypeDetailDamageRelations -- ^ 
-  , typeDetailPastUnderscoredamageUnderscorerelations :: [TypeDetailPastDamageRelationsInner] -- ^ 
-  , typeDetailGameUnderscoreindices :: [TypeGameIndex] -- ^ 
-  , typeDetailGeneration :: GenerationSummary -- ^ 
-  , typeDetailMoveUnderscoredamageUnderscoreclass :: MoveDamageClassSummary -- ^ 
-  , typeDetailNames :: [AbilityName] -- ^ 
-  , typeDetailPokemon :: [TypeDetailPokemonInner] -- ^ 
-  , typeDetailMoves :: [MoveSummary] -- ^ 
-  , typeDetailSprites :: (Map.Map String (Map.Map String TypeDetailSpritesValueValue)) -- ^ 
+  { typeDetailId :: Int -- ^ The identifier for this resource.
+  , typeDetailName :: Text -- ^ The name for this resource.
+  , typeDetailDamageUnderscorerelations :: TypeRelationships -- ^ A detail of how effective this type is toward others and vice versa.
+  , typeDetailPastUnderscoredamageUnderscorerelations :: [TypePastRelationships] -- ^ A list of details of how effective this type was toward others and vice versa in previous generations
+  , typeDetailGameUnderscoreindices :: [TypeGameIndex] -- ^ A list of game indices relevent to this item by generation.
+  , typeDetailGeneration :: GenerationSummary -- ^ The generation this type was introduced in.
+  , typeDetailMoveUnderscoredamageUnderscoreclass :: MoveDamageClassSummary -- ^ The class of damage inflicted by this type.
+  , typeDetailNames :: [TypeName] -- ^ The name of this resource listed in different languages.
+  , typeDetailPokemon :: [TypePokemon] -- ^ A list of details of Pokémon that have this type.
+  , typeDetailMoves :: [MoveSummary] -- ^ A list of moves that have this type.
+  , typeDetailSprites :: (Map.Map String (Map.Map String TypeGameSprite)) -- ^ Type icons grouped by generation and game, with name_icon and symbol_icon URLs. Unavailable icons are null.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON TypeDetail where
@@ -7111,167 +7742,9 @@ optionsTypeDetail =
 
 
 -- | 
-data TypeDetailDamageRelations = TypeDetailDamageRelations
-  { typeDetailDamageRelationsNoUnderscoredamageUnderscoreto :: [AbilityDetailPokemonInnerPokemon] -- ^ 
-  , typeDetailDamageRelationsHalfUnderscoredamageUnderscoreto :: [AbilityDetailPokemonInnerPokemon] -- ^ 
-  , typeDetailDamageRelationsDoubleUnderscoredamageUnderscoreto :: [AbilityDetailPokemonInnerPokemon] -- ^ 
-  , typeDetailDamageRelationsNoUnderscoredamageUnderscorefrom :: [AbilityDetailPokemonInnerPokemon] -- ^ 
-  , typeDetailDamageRelationsHalfUnderscoredamageUnderscorefrom :: [AbilityDetailPokemonInnerPokemon] -- ^ 
-  , typeDetailDamageRelationsDoubleUnderscoredamageUnderscorefrom :: [AbilityDetailPokemonInnerPokemon] -- ^ 
-  } deriving (Show, Eq, Generic)
-
-instance FromJSON TypeDetailDamageRelations where
-  parseJSON = genericParseJSON optionsTypeDetailDamageRelations
-instance ToJSON TypeDetailDamageRelations where
-  toJSON = genericToJSON optionsTypeDetailDamageRelations
-
-optionsTypeDetailDamageRelations :: Options
-optionsTypeDetailDamageRelations =
-  defaultOptions
-    { omitNothingFields  = True
-    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
-    }
-  where
-    table =
-      [ ("typeDetailDamageRelationsNoUnderscoredamageUnderscoreto", "no_damage_to")
-      , ("typeDetailDamageRelationsHalfUnderscoredamageUnderscoreto", "half_damage_to")
-      , ("typeDetailDamageRelationsDoubleUnderscoredamageUnderscoreto", "double_damage_to")
-      , ("typeDetailDamageRelationsNoUnderscoredamageUnderscorefrom", "no_damage_from")
-      , ("typeDetailDamageRelationsHalfUnderscoredamageUnderscorefrom", "half_damage_from")
-      , ("typeDetailDamageRelationsDoubleUnderscoredamageUnderscorefrom", "double_damage_from")
-      ]
-
-
--- | 
-data TypeDetailPastDamageRelationsInner = TypeDetailPastDamageRelationsInner
-  { typeDetailPastDamageRelationsInnerGeneration :: AbilityDetailPokemonInnerPokemon -- ^ 
-  , typeDetailPastDamageRelationsInnerDamageUnderscorerelations :: TypeDetailPastDamageRelationsInnerDamageRelations -- ^ 
-  } deriving (Show, Eq, Generic)
-
-instance FromJSON TypeDetailPastDamageRelationsInner where
-  parseJSON = genericParseJSON optionsTypeDetailPastDamageRelationsInner
-instance ToJSON TypeDetailPastDamageRelationsInner where
-  toJSON = genericToJSON optionsTypeDetailPastDamageRelationsInner
-
-optionsTypeDetailPastDamageRelationsInner :: Options
-optionsTypeDetailPastDamageRelationsInner =
-  defaultOptions
-    { omitNothingFields  = True
-    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
-    }
-  where
-    table =
-      [ ("typeDetailPastDamageRelationsInnerGeneration", "generation")
-      , ("typeDetailPastDamageRelationsInnerDamageUnderscorerelations", "damage_relations")
-      ]
-
-
--- | 
-data TypeDetailPastDamageRelationsInnerDamageRelations = TypeDetailPastDamageRelationsInnerDamageRelations
-  { typeDetailPastDamageRelationsInnerDamageRelationsNoUnderscoredamageUnderscoreto :: [AbilityDetailPokemonInnerPokemon] -- ^ 
-  , typeDetailPastDamageRelationsInnerDamageRelationsHalfUnderscoredamageUnderscoreto :: [AbilityDetailPokemonInnerPokemon] -- ^ 
-  , typeDetailPastDamageRelationsInnerDamageRelationsDoubleUnderscoredamageUnderscoreto :: [AbilityDetailPokemonInnerPokemon] -- ^ 
-  , typeDetailPastDamageRelationsInnerDamageRelationsNoUnderscoredamageUnderscorefrom :: [AbilityDetailPokemonInnerPokemon] -- ^ 
-  , typeDetailPastDamageRelationsInnerDamageRelationsHalfUnderscoredamageUnderscorefrom :: [AbilityDetailPokemonInnerPokemon] -- ^ 
-  , typeDetailPastDamageRelationsInnerDamageRelationsDoubleUnderscoredamageUnderscorefrom :: [AbilityDetailPokemonInnerPokemon] -- ^ 
-  } deriving (Show, Eq, Generic)
-
-instance FromJSON TypeDetailPastDamageRelationsInnerDamageRelations where
-  parseJSON = genericParseJSON optionsTypeDetailPastDamageRelationsInnerDamageRelations
-instance ToJSON TypeDetailPastDamageRelationsInnerDamageRelations where
-  toJSON = genericToJSON optionsTypeDetailPastDamageRelationsInnerDamageRelations
-
-optionsTypeDetailPastDamageRelationsInnerDamageRelations :: Options
-optionsTypeDetailPastDamageRelationsInnerDamageRelations =
-  defaultOptions
-    { omitNothingFields  = True
-    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
-    }
-  where
-    table =
-      [ ("typeDetailPastDamageRelationsInnerDamageRelationsNoUnderscoredamageUnderscoreto", "no_damage_to")
-      , ("typeDetailPastDamageRelationsInnerDamageRelationsHalfUnderscoredamageUnderscoreto", "half_damage_to")
-      , ("typeDetailPastDamageRelationsInnerDamageRelationsDoubleUnderscoredamageUnderscoreto", "double_damage_to")
-      , ("typeDetailPastDamageRelationsInnerDamageRelationsNoUnderscoredamageUnderscorefrom", "no_damage_from")
-      , ("typeDetailPastDamageRelationsInnerDamageRelationsHalfUnderscoredamageUnderscorefrom", "half_damage_from")
-      , ("typeDetailPastDamageRelationsInnerDamageRelationsDoubleUnderscoredamageUnderscorefrom", "double_damage_from")
-      ]
-
-
--- | 
-data TypeDetailPokemonInner = TypeDetailPokemonInner
-  { typeDetailPokemonInnerSlot :: Maybe Int -- ^ 
-  , typeDetailPokemonInnerPokemon :: Maybe TypeDetailPokemonInnerPokemon -- ^ 
-  } deriving (Show, Eq, Generic)
-
-instance FromJSON TypeDetailPokemonInner where
-  parseJSON = genericParseJSON optionsTypeDetailPokemonInner
-instance ToJSON TypeDetailPokemonInner where
-  toJSON = genericToJSON optionsTypeDetailPokemonInner
-
-optionsTypeDetailPokemonInner :: Options
-optionsTypeDetailPokemonInner =
-  defaultOptions
-    { omitNothingFields  = True
-    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
-    }
-  where
-    table =
-      [ ("typeDetailPokemonInnerSlot", "slot")
-      , ("typeDetailPokemonInnerPokemon", "pokemon")
-      ]
-
-
--- | 
-data TypeDetailPokemonInnerPokemon = TypeDetailPokemonInnerPokemon
-  { typeDetailPokemonInnerPokemonName :: Maybe Text -- ^ The name of the pokemon
-  , typeDetailPokemonInnerPokemonUrl :: Maybe Text -- ^ The URL to get more information about the pokemon
-  } deriving (Show, Eq, Generic)
-
-instance FromJSON TypeDetailPokemonInnerPokemon where
-  parseJSON = genericParseJSON optionsTypeDetailPokemonInnerPokemon
-instance ToJSON TypeDetailPokemonInnerPokemon where
-  toJSON = genericToJSON optionsTypeDetailPokemonInnerPokemon
-
-optionsTypeDetailPokemonInnerPokemon :: Options
-optionsTypeDetailPokemonInnerPokemon =
-  defaultOptions
-    { omitNothingFields  = True
-    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
-    }
-  where
-    table =
-      [ ("typeDetailPokemonInnerPokemonName", "name")
-      , ("typeDetailPokemonInnerPokemonUrl", "url")
-      ]
-
-
--- | 
-data TypeDetailSpritesValueValue = TypeDetailSpritesValueValue
-  { typeDetailSpritesValueValueNameDashicon :: Maybe Text -- ^ 
-  } deriving (Show, Eq, Generic)
-
-instance FromJSON TypeDetailSpritesValueValue where
-  parseJSON = genericParseJSON optionsTypeDetailSpritesValueValue
-instance ToJSON TypeDetailSpritesValueValue where
-  toJSON = genericToJSON optionsTypeDetailSpritesValueValue
-
-optionsTypeDetailSpritesValueValue :: Options
-optionsTypeDetailSpritesValueValue =
-  defaultOptions
-    { omitNothingFields  = True
-    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
-    }
-  where
-    table =
-      [ ("typeDetailSpritesValueValueNameDashicon", "name-icon")
-      ]
-
-
--- | 
 data TypeGameIndex = TypeGameIndex
-  { typeGameIndexGameUnderscoreindex :: Int -- ^ 
-  , typeGameIndexGeneration :: GenerationSummary -- ^ 
+  { typeGameIndexGameUnderscoreindex :: Int -- ^ The internal id of an API resource within game data.
+  , typeGameIndexGeneration :: GenerationSummary -- ^ The generation relevent to this game index.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON TypeGameIndex where
@@ -7293,9 +7766,137 @@ optionsTypeGameIndex =
 
 
 -- | 
+data TypeGameSprite = TypeGameSprite
+  { typeGameSpriteNameUnderscoreicon :: Maybe Text -- ^ The URL of the icon displaying the type name in this game, or null if unavailable.
+  , typeGameSpriteSymbolUnderscoreicon :: Maybe Text -- ^ The URL of the type symbol icon in this game, or null if unavailable.
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON TypeGameSprite where
+  parseJSON = genericParseJSON optionsTypeGameSprite
+instance ToJSON TypeGameSprite where
+  toJSON = genericToJSON optionsTypeGameSprite
+
+optionsTypeGameSprite :: Options
+optionsTypeGameSprite =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ ("typeGameSpriteNameUnderscoreicon", "name_icon")
+      , ("typeGameSpriteSymbolUnderscoreicon", "symbol_icon")
+      ]
+
+
+-- | 
+data TypeName = TypeName
+  { typeNameName :: Text -- ^ The localized name for an API resource in a specific language.
+  , typeNameLanguage :: LanguageSummary -- ^ The language this name is in.
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON TypeName where
+  parseJSON = genericParseJSON optionsTypeName
+instance ToJSON TypeName where
+  toJSON = genericToJSON optionsTypeName
+
+optionsTypeName :: Options
+optionsTypeName =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ ("typeNameName", "name")
+      , ("typeNameLanguage", "language")
+      ]
+
+
+-- | 
+data TypePastRelationships = TypePastRelationships
+  { typePastRelationshipsGeneration :: GenerationSummary -- ^ The last generation in which the referenced type had the listed damage relations
+  , typePastRelationshipsDamageUnderscorerelations :: TypeRelationships -- ^ The damage relations the referenced type had up to and including the listed generation
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON TypePastRelationships where
+  parseJSON = genericParseJSON optionsTypePastRelationships
+instance ToJSON TypePastRelationships where
+  toJSON = genericToJSON optionsTypePastRelationships
+
+optionsTypePastRelationships :: Options
+optionsTypePastRelationships =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ ("typePastRelationshipsGeneration", "generation")
+      , ("typePastRelationshipsDamageUnderscorerelations", "damage_relations")
+      ]
+
+
+-- | 
+data TypePokemon = TypePokemon
+  { typePokemonSlot :: Int -- ^ The order the Pokémon's types are listed in.
+  , typePokemonPokemon :: PokemonSummary -- ^ The Pokémon that has the referenced type.
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON TypePokemon where
+  parseJSON = genericParseJSON optionsTypePokemon
+instance ToJSON TypePokemon where
+  toJSON = genericToJSON optionsTypePokemon
+
+optionsTypePokemon :: Options
+optionsTypePokemon =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ ("typePokemonSlot", "slot")
+      , ("typePokemonPokemon", "pokemon")
+      ]
+
+
+-- | 
+data TypeRelationships = TypeRelationships
+  { typeRelationshipsNoUnderscoredamageUnderscoreto :: [TypeSummary] -- ^ A list of types this type has no effect on.
+  , typeRelationshipsHalfUnderscoredamageUnderscoreto :: [TypeSummary] -- ^ A list of types this type is not very effect against.
+  , typeRelationshipsDoubleUnderscoredamageUnderscoreto :: [TypeSummary] -- ^ A list of types this type is very effect against.
+  , typeRelationshipsNoUnderscoredamageUnderscorefrom :: [TypeSummary] -- ^ A list of types that have no effect on this type.
+  , typeRelationshipsHalfUnderscoredamageUnderscorefrom :: [TypeSummary] -- ^ A list of types that are not very effective against this type.
+  , typeRelationshipsDoubleUnderscoredamageUnderscorefrom :: [TypeSummary] -- ^ A list of types that are very effective against this type.
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON TypeRelationships where
+  parseJSON = genericParseJSON optionsTypeRelationships
+instance ToJSON TypeRelationships where
+  toJSON = genericToJSON optionsTypeRelationships
+
+optionsTypeRelationships :: Options
+optionsTypeRelationships =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ ("typeRelationshipsNoUnderscoredamageUnderscoreto", "no_damage_to")
+      , ("typeRelationshipsHalfUnderscoredamageUnderscoreto", "half_damage_to")
+      , ("typeRelationshipsDoubleUnderscoredamageUnderscoreto", "double_damage_to")
+      , ("typeRelationshipsNoUnderscoredamageUnderscorefrom", "no_damage_from")
+      , ("typeRelationshipsHalfUnderscoredamageUnderscorefrom", "half_damage_from")
+      , ("typeRelationshipsDoubleUnderscoredamageUnderscorefrom", "double_damage_from")
+      ]
+
+
+-- | 
 data TypeSummary = TypeSummary
-  { typeSummaryName :: Text -- ^ 
-  , typeSummaryUrl :: Text -- ^ 
+  { typeSummaryName :: Text -- ^ The name of the referenced resource.
+  , typeSummaryUrl :: Text -- ^ The URL of the referenced resource.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON TypeSummary where
@@ -7318,10 +7919,10 @@ optionsTypeSummary =
 
 -- | Should have a link to Version Group info but the Circular dependency and compilation order fight eachother and I&#39;m not sure how to add anything other than a hyperlink
 data VersionDetail = VersionDetail
-  { versionDetailId :: Int -- ^ 
-  , versionDetailName :: Text -- ^ 
-  , versionDetailNames :: [VersionName] -- ^ 
-  , versionDetailVersionUnderscoregroup :: VersionGroupSummary -- ^ 
+  { versionDetailId :: Int -- ^ The identifier for this resource.
+  , versionDetailName :: Text -- ^ The name for this resource.
+  , versionDetailNames :: [VersionName] -- ^ The name of this resource listed in different languages.
+  , versionDetailVersionUnderscoregroup :: VersionGroupSummary -- ^ The version group this version belongs to.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON VersionDetail where
@@ -7346,14 +7947,14 @@ optionsVersionDetail =
 
 -- | 
 data VersionGroupDetail = VersionGroupDetail
-  { versionGroupDetailId :: Int -- ^ 
-  , versionGroupDetailName :: Text -- ^ 
-  , versionGroupDetailOrder :: Maybe Int -- ^ 
-  , versionGroupDetailGeneration :: GenerationSummary -- ^ 
-  , versionGroupDetailMoveUnderscorelearnUnderscoremethods :: [AbilityDetailPokemonInnerPokemon] -- ^ 
-  , versionGroupDetailPokedexes :: [AbilityDetailPokemonInnerPokemon] -- ^ 
-  , versionGroupDetailRegions :: [AbilityDetailPokemonInnerPokemon] -- ^ 
-  , versionGroupDetailVersions :: [VersionSummary] -- ^ 
+  { versionGroupDetailId :: Int -- ^ The identifier for this resource.
+  , versionGroupDetailName :: Text -- ^ The name for this resource.
+  , versionGroupDetailOrder :: Maybe Int -- ^ Order for sorting. Almost by date of release, except similar versions are grouped together.
+  , versionGroupDetailGeneration :: GenerationSummary -- ^ The generation this version was introduced in.
+  , versionGroupDetailMoveUnderscorelearnUnderscoremethods :: [MoveLearnMethodSummary] -- ^ A list of methods in which Pokémon can learn moves in this version group.
+  , versionGroupDetailPokedexes :: [PokedexSummary] -- ^ A list of Pokédexes introduces in this version group.
+  , versionGroupDetailRegions :: [RegionSummary] -- ^ A list of regions that can be visited in this version group.
+  , versionGroupDetailVersions :: [VersionSummary] -- ^ The versions this version group owns.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON VersionGroupDetail where
@@ -7382,8 +7983,8 @@ optionsVersionGroupDetail =
 
 -- | 
 data VersionGroupSummary = VersionGroupSummary
-  { versionGroupSummaryName :: Text -- ^ 
-  , versionGroupSummaryUrl :: Text -- ^ 
+  { versionGroupSummaryName :: Text -- ^ The name of the referenced resource.
+  , versionGroupSummaryUrl :: Text -- ^ The URL of the referenced resource.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON VersionGroupSummary where
@@ -7406,8 +8007,8 @@ optionsVersionGroupSummary =
 
 -- | 
 data VersionName = VersionName
-  { versionNameName :: Text -- ^ 
-  , versionNameLanguage :: LanguageSummary -- ^ 
+  { versionNameName :: Text -- ^ The localized name for an API resource in a specific language.
+  , versionNameLanguage :: LanguageSummary -- ^ The language this name is in.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON VersionName where
@@ -7430,8 +8031,8 @@ optionsVersionName =
 
 -- | 
 data VersionSummary = VersionSummary
-  { versionSummaryName :: Text -- ^ 
-  , versionSummaryUrl :: Text -- ^ 
+  { versionSummaryName :: Text -- ^ The name of the referenced resource.
+  , versionSummaryUrl :: Text -- ^ The URL of the referenced resource.
   } deriving (Show, Eq, Generic)
 
 instance FromJSON VersionSummary where

@@ -1,0 +1,114 @@
+package org.openapitools.model;
+
+import org.openapitools.model.LanguageSummary;
+import javax.validation.constraints.*;
+import javax.validation.Valid;
+
+import io.swagger.annotations.ApiModelProperty;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+
+public class PokemonFormName  {
+  
+ /**
+  * The localized name for an API resource in a specific language.
+  */
+  @ApiModelProperty(required = true, value = "The localized name for an API resource in a specific language.")
+  private String name;
+
+ /**
+  * The language this name is in.
+  */
+  @ApiModelProperty(required = true, value = "The language this name is in.")
+  @Valid
+  private LanguageSummary language;
+ /**
+  * The localized name for an API resource in a specific language.
+  * @return name
+  */
+  @JsonProperty("name")
+  @NotNull
+ @Size(max=200)  public String getName() {
+    return name;
+  }
+
+  /**
+   * Sets the <code>name</code> property.
+   */
+ public void setName(String name) {
+    this.name = name;
+  }
+
+  /**
+   * Sets the <code>name</code> property.
+   */
+  public PokemonFormName name(String name) {
+    this.name = name;
+    return this;
+  }
+
+ /**
+  * The language this name is in.
+  * @return language
+  */
+  @JsonProperty("language")
+  @NotNull
+  public LanguageSummary getLanguage() {
+    return language;
+  }
+
+  /**
+   * Sets the <code>language</code> property.
+   */
+ public void setLanguage(LanguageSummary language) {
+    this.language = language;
+  }
+
+  /**
+   * Sets the <code>language</code> property.
+   */
+  public PokemonFormName language(LanguageSummary language) {
+    this.language = language;
+    return this;
+  }
+
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    PokemonFormName pokemonFormName = (PokemonFormName) o;
+    return Objects.equals(this.name, pokemonFormName.name) &&
+        Objects.equals(this.language, pokemonFormName.language);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(name, language);
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class PokemonFormName {\n");
+    
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    language: ").append(toIndentedString(language)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private static String toIndentedString(Object o) {
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
+  }
+}
+

@@ -8,6 +8,8 @@ Method | HTTP request | Description
 [**languageListWithHttpInfo**](UtilityApi.md#languageListWithHttpInfo) | **GET** /api/v2/language/ | List languages
 [**languageRetrieve**](UtilityApi.md#languageRetrieve) | **GET** /api/v2/language/{id}/ | Get language
 [**languageRetrieveWithHttpInfo**](UtilityApi.md#languageRetrieveWithHttpInfo) | **GET** /api/v2/language/{id}/ | Get language
+[**metaRetrieve**](UtilityApi.md#metaRetrieve) | **GET** /api/v2/meta/ | Get API metadata
+[**metaRetrieveWithHttpInfo**](UtilityApi.md#metaRetrieveWithHttpInfo) | **GET** /api/v2/meta/ | Get API metadata
 
 
 
@@ -36,12 +38,6 @@ object Example extends App {
     
     implicit val system: ActorSystem = ActorSystem()
     import system.dispatcher
-    
-    // Configure HTTP basic authorization: basicAuth
-    implicit val basicAuth: BasicCredentials = BasicCredentials("YOUR USERNAME", "YOUR PASSWORD")
-
-    // Configure API key authorization: cookieAuth
-    implicit val cookieAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
     val apiInstance = UtilityApi("https://pokeapi.co")
@@ -90,7 +86,7 @@ ApiRequest[[**PaginatedLanguageSummaryList**](PaginatedLanguageSummaryList.md)]
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -128,16 +124,10 @@ object Example extends App {
     
     implicit val system: ActorSystem = ActorSystem()
     import system.dispatcher
-    
-    // Configure HTTP basic authorization: basicAuth
-    implicit val basicAuth: BasicCredentials = BasicCredentials("YOUR USERNAME", "YOUR PASSWORD")
-
-    // Configure API key authorization: cookieAuth
-    implicit val cookieAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
     val apiInstance = UtilityApi("https://pokeapi.co")
-    val id: String = id_example // String | This parameter can be a string or an integer.
+    val id: String = 1 // String | This parameter can be a string or an integer.
     
     val request = apiInstance.languageRetrieve(id)
     val response = apiInvoker.execute(request)
@@ -176,7 +166,82 @@ ApiRequest[[**LanguageDetail**](LanguageDetail.md)]
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** |  |  -  |
+
+
+## metaRetrieve
+
+> metaRetrieve(): ApiRequest[PokeapiMetaResponse]
+
+Get API metadata
+
+Returns metadata about the current deployed version of the API, including the git commit hash, deploy date, and tag (if any).
+
+### Example
+
+```scala
+// Import classes:
+import 
+import org.openapitools.client.core._
+import org.openapitools.client.core.CollectionFormats._
+import org.openapitools.client.core.ApiKeyLocations._
+
+import akka.actor.ActorSystem
+import scala.concurrent.Future
+import scala.util.{Failure, Success}
+
+object Example extends App {
+    
+    implicit val system: ActorSystem = ActorSystem()
+    import system.dispatcher
+
+    val apiInvoker = ApiInvoker()
+    val apiInstance = UtilityApi("https://pokeapi.co")    
+    val request = apiInstance.metaRetrieve()
+    val response = apiInvoker.execute(request)
+
+    response.onComplete {
+        case Success(ApiResponse(code, content, headers)) =>
+            System.out.println(s"Status code: $code}")
+            System.out.println(s"Response headers: ${headers.mkString(", ")}")
+            System.out.println(s"Response body: $content")
+        
+        case Failure(error @ ApiError(code, message, responseContent, cause, headers)) =>
+            System.err.println("Exception when calling UtilityApi#metaRetrieve")
+            System.err.println(s"Status code: $code}")
+            System.err.println(s"Reason: $responseContent")
+            System.err.println(s"Response headers: ${headers.mkString(", ")}")
+            error.printStackTrace();
+
+        case Failure(exception) => 
+            System.err.println("Exception when calling UtilityApi#metaRetrieve")
+            exception.printStackTrace();
+    }
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+ApiRequest[[**PokeapiMetaResponse**](PokeapiMetaResponse.md)]
+
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 

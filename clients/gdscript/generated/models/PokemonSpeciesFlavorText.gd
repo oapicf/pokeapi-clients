@@ -10,6 +10,7 @@ class_name PokemonSpeciesFlavorText
 # PokemonSpeciesFlavorText Model
 
 
+# The localized flavor text for an API resource in a specific language. Note that this text is left unprocessed as it is found in game files. This means that it contains special characters that one might want to replace with their visible decodable version. Please check out this <a href='https://github.com/veekun/pokedex/issues/218#issuecomment-339841781' >issue</a> to find out more. 
 # Required: True
 # isArray: false
 @export var flavorUnderscoretext: String:
@@ -18,6 +19,7 @@ class_name PokemonSpeciesFlavorText
 		flavorUnderscoretext = value
 var __flavorUnderscoretext__was__set := false
 
+# The language this name is in.
 # Required: True
 # isArray: false
 @export var language: LanguageSummary:
@@ -26,6 +28,7 @@ var __flavorUnderscoretext__was__set := false
 		language = value
 var __language__was__set := false
 
+# The game version this flavor text is extracted from.
 # Required: True
 # isArray: false
 @export var version: VersionSummary:

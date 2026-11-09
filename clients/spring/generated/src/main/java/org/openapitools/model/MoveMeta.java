@@ -24,32 +24,32 @@ import jakarta.annotation.Generated;
  * MoveMeta
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-10-25T05:53:37.479908528Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-11-09T13:53:47.069318184Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class MoveMeta {
 
   private MoveMetaAilmentSummary ailment;
 
   private MoveMetaCategorySummary category;
 
-  private JsonNullable<Integer> minHits = JsonNullable.<Integer>undefined();
+  private JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> minHits = JsonNullable.<Integer>undefined();
 
-  private JsonNullable<Integer> maxHits = JsonNullable.<Integer>undefined();
+  private JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> maxHits = JsonNullable.<Integer>undefined();
 
-  private JsonNullable<Integer> minTurns = JsonNullable.<Integer>undefined();
+  private JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> minTurns = JsonNullable.<Integer>undefined();
 
-  private JsonNullable<Integer> maxTurns = JsonNullable.<Integer>undefined();
+  private JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> maxTurns = JsonNullable.<Integer>undefined();
 
-  private JsonNullable<Integer> drain = JsonNullable.<Integer>undefined();
+  private JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> drain = JsonNullable.<Integer>undefined();
 
-  private JsonNullable<Integer> healing = JsonNullable.<Integer>undefined();
+  private JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> healing = JsonNullable.<Integer>undefined();
 
-  private JsonNullable<Integer> critRate = JsonNullable.<Integer>undefined();
+  private JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> critRate = JsonNullable.<Integer>undefined();
 
-  private JsonNullable<Integer> ailmentChance = JsonNullable.<Integer>undefined();
+  private JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> ailmentChance = JsonNullable.<Integer>undefined();
 
-  private JsonNullable<Integer> flinchChance = JsonNullable.<Integer>undefined();
+  private JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> flinchChance = JsonNullable.<Integer>undefined();
 
-  private JsonNullable<Integer> statChance = JsonNullable.<Integer>undefined();
+  private JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> statChance = JsonNullable.<Integer>undefined();
 
   public MoveMeta() {
     super();
@@ -69,11 +69,11 @@ public class MoveMeta {
   }
 
   /**
-   * Get ailment
+   * The status ailment this move inflicts on its target.
    * @return ailment
    */
   @NotNull @Valid 
-  @Schema(name = "ailment", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "ailment", description = "The status ailment this move inflicts on its target.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("ailment")
   public MoveMetaAilmentSummary getAilment() {
     return ailment;
@@ -90,11 +90,11 @@ public class MoveMeta {
   }
 
   /**
-   * Get category
+   * The category of move this move falls under, e.g. damage or ailment.
    * @return category
    */
   @NotNull @Valid 
-  @Schema(name = "category", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "category", description = "The category of move this move falls under, e.g. damage or ailment.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("category")
   public MoveMetaCategorySummary getCategory() {
     return category;
@@ -111,13 +111,15 @@ public class MoveMeta {
   }
 
   /**
-   * Get minHits
+   * The minimum number of times this move hits. Null if it always only hits once.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return minHits
    */
-  
-  @Schema(name = "min_hits", requiredMode = Schema.RequiredMode.NOT_REQUIRED, nullable = true)
+  @Min(value = -2147483648) @Max(value = 2147483647) 
+  @Schema(name = "min_hits", description = "The minimum number of times this move hits. Null if it always only hits once.", requiredMode = Schema.RequiredMode.NOT_REQUIRED, nullable = true)
   @JsonProperty("min_hits")
-  public JsonNullable<Integer> getMinHits() {
+  public JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> getMinHits() {
     return minHits;
   }
 
@@ -131,13 +133,15 @@ public class MoveMeta {
   }
 
   /**
-   * Get maxHits
+   * The maximum number of times this move hits. Null if it always only hits once.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return maxHits
    */
-  
-  @Schema(name = "max_hits", requiredMode = Schema.RequiredMode.NOT_REQUIRED, nullable = true)
+  @Min(value = -2147483648) @Max(value = 2147483647) 
+  @Schema(name = "max_hits", description = "The maximum number of times this move hits. Null if it always only hits once.", requiredMode = Schema.RequiredMode.NOT_REQUIRED, nullable = true)
   @JsonProperty("max_hits")
-  public JsonNullable<Integer> getMaxHits() {
+  public JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> getMaxHits() {
     return maxHits;
   }
 
@@ -151,13 +155,15 @@ public class MoveMeta {
   }
 
   /**
-   * Get minTurns
+   * The minimum number of turns this move continues to take effect. Null if it always only lasts one turn.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return minTurns
    */
-  
-  @Schema(name = "min_turns", requiredMode = Schema.RequiredMode.NOT_REQUIRED, nullable = true)
+  @Min(value = -2147483648) @Max(value = 2147483647) 
+  @Schema(name = "min_turns", description = "The minimum number of turns this move continues to take effect. Null if it always only lasts one turn.", requiredMode = Schema.RequiredMode.NOT_REQUIRED, nullable = true)
   @JsonProperty("min_turns")
-  public JsonNullable<Integer> getMinTurns() {
+  public JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> getMinTurns() {
     return minTurns;
   }
 
@@ -171,13 +177,15 @@ public class MoveMeta {
   }
 
   /**
-   * Get maxTurns
+   * The maximum number of turns this move continues to take effect. Null if it always only lasts one turn.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return maxTurns
    */
-  
-  @Schema(name = "max_turns", requiredMode = Schema.RequiredMode.NOT_REQUIRED, nullable = true)
+  @Min(value = -2147483648) @Max(value = 2147483647) 
+  @Schema(name = "max_turns", description = "The maximum number of turns this move continues to take effect. Null if it always only lasts one turn.", requiredMode = Schema.RequiredMode.NOT_REQUIRED, nullable = true)
   @JsonProperty("max_turns")
-  public JsonNullable<Integer> getMaxTurns() {
+  public JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> getMaxTurns() {
     return maxTurns;
   }
 
@@ -191,13 +199,15 @@ public class MoveMeta {
   }
 
   /**
-   * Get drain
+   * HP drain (if positive) or Recoil damage (if negative), in percent of damage done.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return drain
    */
-  
-  @Schema(name = "drain", requiredMode = Schema.RequiredMode.NOT_REQUIRED, nullable = true)
+  @Min(value = -2147483648) @Max(value = 2147483647) 
+  @Schema(name = "drain", description = "HP drain (if positive) or Recoil damage (if negative), in percent of damage done.", requiredMode = Schema.RequiredMode.NOT_REQUIRED, nullable = true)
   @JsonProperty("drain")
-  public JsonNullable<Integer> getDrain() {
+  public JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> getDrain() {
     return drain;
   }
 
@@ -211,13 +221,15 @@ public class MoveMeta {
   }
 
   /**
-   * Get healing
+   * The amount of hp gained by the attacking Pokemon, in percent of it's maximum HP.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return healing
    */
-  
-  @Schema(name = "healing", requiredMode = Schema.RequiredMode.NOT_REQUIRED, nullable = true)
+  @Min(value = -2147483648) @Max(value = 2147483647) 
+  @Schema(name = "healing", description = "The amount of hp gained by the attacking Pokemon, in percent of it's maximum HP.", requiredMode = Schema.RequiredMode.NOT_REQUIRED, nullable = true)
   @JsonProperty("healing")
-  public JsonNullable<Integer> getHealing() {
+  public JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> getHealing() {
     return healing;
   }
 
@@ -231,13 +243,15 @@ public class MoveMeta {
   }
 
   /**
-   * Get critRate
+   * Critical hit rate bonus.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return critRate
    */
-  
-  @Schema(name = "crit_rate", requiredMode = Schema.RequiredMode.NOT_REQUIRED, nullable = true)
+  @Min(value = -2147483648) @Max(value = 2147483647) 
+  @Schema(name = "crit_rate", description = "Critical hit rate bonus.", requiredMode = Schema.RequiredMode.NOT_REQUIRED, nullable = true)
   @JsonProperty("crit_rate")
-  public JsonNullable<Integer> getCritRate() {
+  public JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> getCritRate() {
     return critRate;
   }
 
@@ -251,13 +265,15 @@ public class MoveMeta {
   }
 
   /**
-   * Get ailmentChance
+   * The likelihood this attack will cause an ailment.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return ailmentChance
    */
-  
-  @Schema(name = "ailment_chance", requiredMode = Schema.RequiredMode.NOT_REQUIRED, nullable = true)
+  @Min(value = -2147483648) @Max(value = 2147483647) 
+  @Schema(name = "ailment_chance", description = "The likelihood this attack will cause an ailment.", requiredMode = Schema.RequiredMode.NOT_REQUIRED, nullable = true)
   @JsonProperty("ailment_chance")
-  public JsonNullable<Integer> getAilmentChance() {
+  public JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> getAilmentChance() {
     return ailmentChance;
   }
 
@@ -271,13 +287,15 @@ public class MoveMeta {
   }
 
   /**
-   * Get flinchChance
+   * The likelihood this attack will cause the target Pokémon to flinch.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return flinchChance
    */
-  
-  @Schema(name = "flinch_chance", requiredMode = Schema.RequiredMode.NOT_REQUIRED, nullable = true)
+  @Min(value = -2147483648) @Max(value = 2147483647) 
+  @Schema(name = "flinch_chance", description = "The likelihood this attack will cause the target Pokémon to flinch.", requiredMode = Schema.RequiredMode.NOT_REQUIRED, nullable = true)
   @JsonProperty("flinch_chance")
-  public JsonNullable<Integer> getFlinchChance() {
+  public JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> getFlinchChance() {
     return flinchChance;
   }
 
@@ -291,13 +309,15 @@ public class MoveMeta {
   }
 
   /**
-   * Get statChance
+   * The likelihood this attack will cause a stat change in the target Pokémon.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return statChance
    */
-  
-  @Schema(name = "stat_chance", requiredMode = Schema.RequiredMode.NOT_REQUIRED, nullable = true)
+  @Min(value = -2147483648) @Max(value = 2147483647) 
+  @Schema(name = "stat_chance", description = "The likelihood this attack will cause a stat change in the target Pokémon.", requiredMode = Schema.RequiredMode.NOT_REQUIRED, nullable = true)
   @JsonProperty("stat_chance")
-  public JsonNullable<Integer> getStatChance() {
+  public JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> getStatChance() {
     return statChance;
   }
 

@@ -10,5 +10,5 @@ type RegionDetail struct {
 	MainGeneration GenerationSummary `json:"main_generation"`
 	Names []RegionName `json:"names"`
 	Pokedexes []PokedexSummary `json:"pokedexes"`
-	VersionGroups []AbilityDetailPokemonInnerPokemon `json:"version_groups"`
+	VersionGroups []VersionGroupSummary `json:"version_groups"`
 }

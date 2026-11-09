@@ -29,11 +29,11 @@ public class MoveDamageClassDetail   {
     /**
      * Create MoveDamageClassDetail.
      *
-     * @param id id
-     * @param name name
-     * @param descriptions descriptions
-     * @param moves moves
-     * @param names names
+     * @param id The identifier for this resource.
+     * @param name The name for this resource.
+     * @param descriptions The description of this resource listed in different languages.
+     * @param moves A list of moves that fall into this damage class.
+     * @param names The name of this resource listed in different languages.
      */
     public MoveDamageClassDetail(
         Integer id, 
@@ -52,7 +52,7 @@ public class MoveDamageClassDetail   {
 
 
     /**
-     * Get id
+     * The identifier for this resource.
      * @return id
      */
     public Integer getId() {
@@ -64,7 +64,7 @@ public class MoveDamageClassDetail   {
     }
 
     /**
-     * Get name
+     * The name for this resource.
      * @return name
      */
     public String getName() {
@@ -76,7 +76,7 @@ public class MoveDamageClassDetail   {
     }
 
     /**
-     * Get descriptions
+     * The description of this resource listed in different languages.
      * @return descriptions
      */
     public List<@Valid MoveDamageClassDescription> getDescriptions() {
@@ -88,7 +88,7 @@ public class MoveDamageClassDetail   {
     }
 
     /**
-     * Get moves
+     * A list of moves that fall into this damage class.
      * @return moves
      */
     public List<@Valid MoveSummary> getMoves() {
@@ -100,7 +100,7 @@ public class MoveDamageClassDetail   {
     }
 
     /**
-     * Get names
+     * The name of this resource listed in different languages.
      * @return names
      */
     public List<@Valid MoveDamageClassName> getNames() {

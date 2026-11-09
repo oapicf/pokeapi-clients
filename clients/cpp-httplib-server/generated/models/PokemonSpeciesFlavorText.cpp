@@ -10,8 +10,6 @@ namespace models {
 
 PokemonSpeciesFlavorText::PokemonSpeciesFlavorText()
 : flavorText("")
-, language(LanguageSummary())
-, version(VersionSummary())
 {
 }
 // =========================================

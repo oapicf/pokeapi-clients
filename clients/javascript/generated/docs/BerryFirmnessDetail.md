@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Number** |  | [readonly] 
-**name** | **String** |  | 
-**berries** | [**[BerrySummary]**](BerrySummary.md) |  | [readonly] 
-**names** | [**[BerryFirmnessName]**](BerryFirmnessName.md) |  | [readonly] 
+**id** | **Number** | The identifier for this resource. | [readonly] 
+**name** | **String** | The name for this resource. | 
+**berries** | [**[BerrySummary]**](BerrySummary.md) | A list of the berries with this firmness. | [readonly] 
+**names** | [**[BerryFirmnessName]**](BerryFirmnessName.md) | The name of this resource listed in different languages. | [readonly] 
 
 

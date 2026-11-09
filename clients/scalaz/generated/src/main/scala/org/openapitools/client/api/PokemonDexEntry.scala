@@ -12,8 +12,10 @@ import org.joda.time.DateTime
 import PokemonDexEntry._
 
 case class PokemonDexEntry (
+  /* The index number within the Pokédex. */
   entryNumber: Integer,
-pokedex: PokedexSummary)
+/* The Pokédex the referenced Pokémon species can be found in. */
+  pokedex: PokedexSummary)
 
 object PokemonDexEntry {
   import DateTimeCodecs._

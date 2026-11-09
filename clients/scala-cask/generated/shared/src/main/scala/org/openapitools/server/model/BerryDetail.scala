@@ -1,8 +1,8 @@
 /**
  * PokéAPI
- * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+ * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
  *
- * OpenAPI spec version: 2.7.0
+ * OpenAPI spec version: 2.10.0
  *
  * Contact: blah+oapicf@cliffano.com
  *
@@ -23,17 +23,29 @@ import upickle.default.*
 
         
 case class BerryDetail(
+        /* The identifier for this resource. */
     id: Int,
+        /* The name for this resource. */
     name: String,
-    growthTime: Int,
-    maxHarvest: Int,
-    naturalGiftPower: Int,
-    size: Int,
-    smoothness: Int,
-    soilDryness: Int,
+        /* Time it takes the tree to grow one stage, in hours. Berry trees go through four of these growth stages before they can be picked. */
+    growthTime: Option[Int] = None ,
+        /* The maximum number of these berries that can grow on one tree in Generation IV. */
+    maxHarvest: Option[Int] = None ,
+        /* The power of the move \"Natural Gift\" when used with this Berry. */
+    naturalGiftPower: Option[Int] = None ,
+        /* The size of this Berry, in millimeters. */
+    size: Option[Int] = None ,
+        /* The smoothness of this Berry, used in making Pokéblocks or Poffins. */
+    smoothness: Option[Int] = None ,
+        /* The speed at which this Berry dries out the soil as it grows. A higher rate means the soil dries more quickly. */
+    soilDryness: Option[Int] = None ,
+        /* The firmness of this berry, used in making Pokéblocks or Poffins. */
     firmness: BerryFirmnessSummary,
-    flavors: Seq[BerryDetailFlavorsInner],
+        /* A list of references to each flavor a berry can have and the potency of each of those flavors in regard to this berry. */
+    flavors: Seq[BerryFlavorMap],
+        /* Berries are actually items. This is a reference to the item specific data for this berry. */
     item: ItemSummary,
+        /* The type inherited by \"Natural Gift\" when used with this Berry. */
     naturalGiftType: TypeSummary
 
 
@@ -46,12 +58,12 @@ def asData : BerryDetailData = {
 BerryDetailData(
     id = id /* 2 */,
     name = name /* 2 */,
-    growthTime = growthTime /* 2 */,
-    maxHarvest = maxHarvest /* 2 */,
-    naturalGiftPower = naturalGiftPower /* 2 */,
-    size = size /* 2 */,
-    smoothness = smoothness /* 2 */,
-    soilDryness = soilDryness /* 2 */,
+    growthTime = growthTime.getOrElse(0) /*  1 */,
+    maxHarvest = maxHarvest.getOrElse(0) /*  1 */,
+    naturalGiftPower = naturalGiftPower.getOrElse(0) /*  1 */,
+    size = size.getOrElse(0) /*  1 */,
+    smoothness = smoothness.getOrElse(0) /*  1 */,
+    soilDryness = soilDryness.getOrElse(0) /*  1 */,
     firmness = firmness.asData /* 8 */,
     flavors = flavors.map(_.asData) /* 6 */,
     item = item.asData /* 8 */,

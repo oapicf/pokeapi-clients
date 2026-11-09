@@ -10,8 +10,7 @@ namespace models {
 
 EvolutionChainDetail::EvolutionChainDetail()
 : id(0)
-, babyTriggerItem(ItemSummary())
-, chain(EvolutionChainDetailChain())
+, babyTriggerItem(std::nullopt)
 {
 }
 // =========================================
@@ -28,7 +27,7 @@ ItemSummary EvolutionChainDetail::getBabyTriggerItem() const
 {
     return babyTriggerItem;
 }
-EvolutionChainDetailChain EvolutionChainDetail::getChain() const
+EvolutionChainLink EvolutionChainDetail::getChain() const
 {
     return chain;
 }
@@ -44,7 +43,7 @@ void EvolutionChainDetail::setBabyTriggerItem(const ItemSummary& babyTriggerItem
 {
     babyTriggerItem = babyTriggerItemObj;
 }
-void EvolutionChainDetail::setChain(const EvolutionChainDetailChain& chainObj)
+void EvolutionChainDetail::setChain(const EvolutionChainLink& chainObj)
 {
     chain = chainObj;
 }

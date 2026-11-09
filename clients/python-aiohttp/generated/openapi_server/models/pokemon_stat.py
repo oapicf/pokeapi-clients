@@ -51,6 +51,7 @@ class PokemonStat(Model):
     def base_stat(self):
         """Gets the base_stat of this PokemonStat.
 
+        The base value of the stat.
 
         :return: The base_stat of this PokemonStat.
         :rtype: int
@@ -61,12 +62,17 @@ class PokemonStat(Model):
     def base_stat(self, base_stat):
         """Sets the base_stat of this PokemonStat.
 
+        The base value of the stat.
 
         :param base_stat: The base_stat of this PokemonStat.
         :type base_stat: int
         """
         if base_stat is None:
             raise ValueError("Invalid value for `base_stat`, must not be `None`")
+        if base_stat is not None and base_stat > 2147483647:
+            raise ValueError("Invalid value for `base_stat`, must be a value less than or equal to `2147483647`")
+        if base_stat is not None and base_stat < -2147483648:
+            raise ValueError("Invalid value for `base_stat`, must be a value greater than or equal to `-2147483648`")
 
         self._base_stat = base_stat
 
@@ -74,6 +80,7 @@ class PokemonStat(Model):
     def effort(self):
         """Gets the effort of this PokemonStat.
 
+        The effort points (EV) the Pokémon has in the stat.
 
         :return: The effort of this PokemonStat.
         :rtype: int
@@ -84,12 +91,17 @@ class PokemonStat(Model):
     def effort(self, effort):
         """Sets the effort of this PokemonStat.
 
+        The effort points (EV) the Pokémon has in the stat.
 
         :param effort: The effort of this PokemonStat.
         :type effort: int
         """
         if effort is None:
             raise ValueError("Invalid value for `effort`, must not be `None`")
+        if effort is not None and effort > 2147483647:
+            raise ValueError("Invalid value for `effort`, must be a value less than or equal to `2147483647`")
+        if effort is not None and effort < -2147483648:
+            raise ValueError("Invalid value for `effort`, must be a value greater than or equal to `-2147483648`")
 
         self._effort = effort
 
@@ -97,6 +109,7 @@ class PokemonStat(Model):
     def stat(self):
         """Gets the stat of this PokemonStat.
 
+        The stat the Pokémon has.
 
         :return: The stat of this PokemonStat.
         :rtype: StatSummary
@@ -107,6 +120,7 @@ class PokemonStat(Model):
     def stat(self, stat):
         """Sets the stat of this PokemonStat.
 
+        The stat the Pokémon has.
 
         :param stat: The stat of this PokemonStat.
         :type stat: StatSummary

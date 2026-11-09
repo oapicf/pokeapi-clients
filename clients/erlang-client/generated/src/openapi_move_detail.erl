@@ -12,7 +12,7 @@
        'pp' => integer(),
        'priority' => integer(),
        'power' => integer(),
-       'contest_combos' := openapi_move_detail_contest_combos:openapi_move_detail_contest_combos(),
+       'contest_combos' := openapi_move_combos:openapi_move_combos(),
        'contest_type' := openapi_contest_type_summary:openapi_contest_type_summary(),
        'contest_effect' := openapi_contest_effect_summary:openapi_contest_effect_summary(),
        'damage_class' := openapi_move_damage_class_summary:openapi_move_damage_class_summary(),

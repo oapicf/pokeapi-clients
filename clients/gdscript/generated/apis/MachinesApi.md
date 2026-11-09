@@ -12,7 +12,7 @@ Method | HTTP request | Description
 # **machine_list**   { #machine_list }
 <a name="machine_list"></a>
 
-> `machine_list(limit = null,offset = null,q = null, on_success: Callable, on_failure: Callable)`
+> `machine_list(limit = null,offset = null, on_success: Callable, on_failure: Callable)`
 
 List machines
 
@@ -20,8 +20,6 @@ Machines are the representation of items that teach moves to Pokémon. They vary
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -46,9 +44,6 @@ api.machine_list(
 	# offset: int   Eg: 56
 	# The initial index from which to return the results.
 	offset,
-	# q: String   Eg: q_example
-	# > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-	q,
 	# On Success
 	func(response):  # response is ApiResponse
 		prints("Success!", "machine_list", response)
@@ -74,8 +69,6 @@ Machines are the representation of items that teach moves to Pokémon. They vary
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -94,7 +87,7 @@ var api = MachinesApi.new(config)
 
 # Invoke an endpoint
 api.machine_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id,
 	# On Success
@@ -114,8 +107,7 @@ api.machine_retrieve(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), 
-[cookieAuth](../README.md#cookieAuth)
+No authorization required.
 
 [[Back to top]](#__pageTop) \
 [[Back to API list]](../README.md#documentation-for-api-endpoints) \

@@ -15,19 +15,31 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class ItemFlingEffectDetail  {
   
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The identifier for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   private Integer id;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The name for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   private String name;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The result of this fling effect listed in different languages.
+  */
+  @ApiModelProperty(required = true, value = "The result of this fling effect listed in different languages.")
   private List<@Valid ItemFlingEffectEffectText> effectEntries = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * A list of items that have this fling effect.
+  */
+  @ApiModelProperty(required = true, value = "A list of items that have this fling effect.")
   private List<@Valid ItemSummary> items = new ArrayList<>();
  /**
-  * Get id
+  * The identifier for this resource.
   * @return id
   */
   @JsonProperty("id")
@@ -54,12 +66,12 @@ public class ItemFlingEffectDetail  {
   }
 
  /**
-  * Get name
+  * The name for this resource.
   * @return name
   */
   @JsonProperty("name")
   @NotNull
- @Size(max=100)  public String getName() {
+ @Size(max=200)  public String getName() {
     return name;
   }
 
@@ -79,7 +91,7 @@ public class ItemFlingEffectDetail  {
   }
 
  /**
-  * Get effectEntries
+  * The result of this fling effect listed in different languages.
   * @return effectEntries
   */
   @JsonProperty("effect_entries")
@@ -115,7 +127,7 @@ public class ItemFlingEffectDetail  {
   }
 
  /**
-  * Get items
+  * A list of items that have this fling effect.
   * @return items
   */
   @JsonProperty("items")

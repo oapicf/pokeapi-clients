@@ -8,14 +8,14 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.model.BerryFlavorDetailBerriesInner;
+import org.openapitools.model.BerryFlavorBerryMap;
 import org.openapitools.model.BerryFlavorName;
 import org.openapitools.model.ContestTypeSummary;
 
 /**
  * BerryFlavorDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-10-25T05:48:05.787850114Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-11-09T13:49:25.341948748Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class BerryFlavorDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -24,7 +24,7 @@ public class BerryFlavorDetail   {
   private String name;
 
   @JsonProperty("berries")
-  private List<@Valid BerryFlavorDetailBerriesInner> berries = new ArrayList<>();
+  private List<@Valid BerryFlavorBerryMap> berries = new ArrayList<>();
 
   @JsonProperty("contest_type")
   private ContestTypeSummary contestType;
@@ -33,10 +33,10 @@ public class BerryFlavorDetail   {
   private List<@Valid BerryFlavorName> names = new ArrayList<>();
 
    /**
-   * Get id
+   * The identifier for this resource.
    * @return id
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   public Integer getId() {
     return id;
   }
@@ -47,10 +47,10 @@ public class BerryFlavorDetail   {
   }
 
    /**
-   * Get name
+   * The name for this resource.
    * @return name
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   public String getName() {
     return name;
   }
@@ -60,11 +60,11 @@ public class BerryFlavorDetail   {
   }
 
    /**
-   * Get berries
+   * A list of the berries with this flavor.
    * @return berries
   **/
-  @ApiModelProperty(required = true, value = "")
-  public List<@Valid BerryFlavorDetailBerriesInner> getBerries() {
+  @ApiModelProperty(required = true, value = "A list of the berries with this flavor.")
+  public List<@Valid BerryFlavorBerryMap> getBerries() {
     return berries;
   }
 
@@ -74,10 +74,10 @@ public class BerryFlavorDetail   {
   }
 
    /**
-   * Get contestType
+   * The contest type that correlates with this berry flavor.
    * @return contestType
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The contest type that correlates with this berry flavor.")
   public ContestTypeSummary getContestType() {
     return contestType;
   }
@@ -87,10 +87,10 @@ public class BerryFlavorDetail   {
   }
 
    /**
-   * Get names
+   * The name of this resource listed in different languages.
    * @return names
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
   public List<@Valid BerryFlavorName> getNames() {
     return names;
   }

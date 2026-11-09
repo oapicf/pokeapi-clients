@@ -38,7 +38,7 @@ module.exports = {
         key: 'abilityList',
         noun: 'pokemon',
         display: {
-            label: '',
+            label: 'List abilities',
             description: 'Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.',
             hidden: false,
         },
@@ -93,7 +93,7 @@ module.exports = {
         key: 'abilityRetrieve',
         noun: 'pokemon',
         display: {
-            label: '',
+            label: 'Get ability',
             description: 'Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.',
             hidden: false,
         },
@@ -136,7 +136,7 @@ module.exports = {
         key: 'characteristicList',
         noun: 'pokemon',
         display: {
-            label: 'List charecterictics',
+            label: 'List characteristics',
             description: 'Characteristics indicate which stat contains a Pokémon&#39;s highest IV. A Pokémon&#39;s Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail.',
             hidden: false,
         },
@@ -151,11 +151,6 @@ module.exports = {
                     key: 'offset',
                     label: 'The initial index from which to return the results.',
                     type: 'integer',
-                },
-                {
-                    key: 'q',
-                    label: '&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ',
-                    type: 'string',
                 },
             ],
             outputFields: [
@@ -173,7 +168,6 @@ module.exports = {
                     params: {
                         'limit': bundle.inputData?.['limit'],
                         'offset': bundle.inputData?.['offset'],
-                        'q': bundle.inputData?.['q'],
                     },
                     body: {
                     },

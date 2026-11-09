@@ -7,31 +7,64 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { TypeDetailDamageRelations } from './typeDetailDamageRelations';
+import { TypePokemon } from './typePokemon';
+import { TypeName } from './typeName';
 import { TypeGameIndex } from './typeGameIndex';
-import { TypeDetailSpritesValueValue } from './typeDetailSpritesValueValue';
+import { TypePastRelationships } from './typePastRelationships';
 import { MoveDamageClassSummary } from './moveDamageClassSummary';
+import { TypeRelationships } from './typeRelationships';
 import { MoveSummary } from './moveSummary';
-import { AbilityName } from './abilityName';
 import { GenerationSummary } from './generationSummary';
-import { TypeDetailPastDamageRelationsInner } from './typeDetailPastDamageRelationsInner';
-import { TypeDetailPokemonInner } from './typeDetailPokemonInner';
+import { TypeGameSprite } from './typeGameSprite';
 
 
 /**
  * Serializer for the Type resource
  */
 export interface TypeDetail { 
+    /**
+     * The identifier for this resource.
+     */
     readonly id: number;
+    /**
+     * The name for this resource.
+     */
     name: string;
-    damage_relations: TypeDetailDamageRelations;
-    readonly past_damage_relations: Array<TypeDetailPastDamageRelationsInner>;
+    /**
+     * A detail of how effective this type is toward others and vice versa.
+     */
+    readonly damage_relations: TypeRelationships;
+    /**
+     * A list of details of how effective this type was toward others and vice versa in previous generations
+     */
+    readonly past_damage_relations: Array<TypePastRelationships>;
+    /**
+     * A list of game indices relevent to this item by generation.
+     */
     readonly game_indices: Array<TypeGameIndex>;
+    /**
+     * The generation this type was introduced in.
+     */
     generation: GenerationSummary;
-    move_damage_class: MoveDamageClassSummary;
-    readonly names: Array<AbilityName>;
-    readonly pokemon: Array<TypeDetailPokemonInner>;
+    /**
+     * The class of damage inflicted by this type.
+     */
+    move_damage_class: MoveDamageClassSummary | null;
+    /**
+     * The name of this resource listed in different languages.
+     */
+    readonly names: Array<TypeName>;
+    /**
+     * A list of details of Pokémon that have this type.
+     */
+    readonly pokemon: Array<TypePokemon>;
+    /**
+     * A list of moves that have this type.
+     */
     readonly moves: Array<MoveSummary>;
-    readonly sprites: { [key: string]: { [key: string]: TypeDetailSpritesValueValue; }; };
+    /**
+     * Type icons grouped by generation and game, with name_icon and symbol_icon URLs. Unavailable icons are null.
+     */
+    readonly sprites: { [key: string]: { [key: string]: TypeGameSprite; }; };
 }
 

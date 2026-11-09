@@ -1,6 +1,6 @@
 = PokéAPI
 blah+oapicf@cliffano.com
-2.7.0
+2.10.0
 :toc: left
 :numbered:
 :toclevels: 4
@@ -14,21 +14,11 @@ blah+oapicf@cliffano.com
 
 [abstract]
 .Abstract
-All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
 
 
 // markup not found, no include::{specDir}intro.adoc[opts=optional]
 
-
-== Access
-
-* *HTTP Basic* Authentication _basicAuth_
-
-
-
-
-
-* *APIKey* KeyParamName:     _sessionid_,     KeyInQuery: _false_, KeyInHeader: _false_
 
 
 == Endpoints
@@ -610,12 +600,6 @@ Contest effects refer to the effects of moves when used in contests.
 | null
 | 
 
-| q
-| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  
-| -
-| null
-| 
-
 |===
 
 
@@ -958,12 +942,6 @@ Super contest effects refer to the effects of moves when used in super contests.
 
 | offset
 | The initial index from which to return the results. 
-| -
-| null
-| 
-
-| q
-| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  
 | -
 | null
 | 
@@ -1674,12 +1652,6 @@ Evolution chains are essentially family trees. They start with the lowest stage 
 | null
 | 
 
-| q
-| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  
-| -
-| null
-| 
-
 |===
 
 
@@ -1981,6 +1953,182 @@ ifdef::internal-generation[]
 ===== Implementation
 
 // markup not found, no include::{specDir}api/v2/evolution-trigger/\{id\}/GET/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.evolutionVariableList]
+==== evolutionVariableList
+
+`GET /api/v2/evolution-variable/`
+
+List evolution variables
+
+===== Description
+
+Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+
+
+// markup not found, no include::{specDir}api/v2/evolution-variable/GET/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+
+
+
+
+====== Query Parameters
+
+[cols="2,3,1,1,1"]
+|===
+|Name| Description| Required| Default| Pattern
+
+| limit
+| Number of results to return per page. 
+| -
+| null
+| 
+
+| offset
+| The initial index from which to return the results. 
+| -
+| null
+| 
+
+| q
+| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  
+| -
+| null
+| 
+
+|===
+
+
+===== Return Type
+
+<<PaginatedEvolutionVariableSummaryList>>
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.HTTP Response Codes
+[cols="2,3,1"]
+|===
+| Code | Message | Datatype
+
+
+| 200
+| 
+|  <<PaginatedEvolutionVariableSummaryList>>
+
+|===
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}api/v2/evolution-variable/GET/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}api/v2/evolution-variable/GET/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :api/v2/evolution-variable/GET/GET.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}api/v2/evolution-variable/GET/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.evolutionVariableRetrieve]
+==== evolutionVariableRetrieve
+
+`GET /api/v2/evolution-variable/{id}/`
+
+Get evolution variable
+
+===== Description
+
+Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+
+
+// markup not found, no include::{specDir}api/v2/evolution-variable/\{id\}/GET/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+====== Path Parameters
+
+[cols="2,3,1,1,1"]
+|===
+|Name| Description| Required| Default| Pattern
+
+| id
+| This parameter can be a string or an integer. 
+| X
+| null
+| 
+
+|===
+
+
+
+
+
+
+===== Return Type
+
+<<EvolutionVariableDetail>>
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.HTTP Response Codes
+[cols="2,3,1"]
+|===
+| Code | Message | Datatype
+
+
+| 200
+| 
+|  <<EvolutionVariableDetail>>
+
+|===
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}api/v2/evolution-variable/\{id\}/GET/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}api/v2/evolution-variable/\{id\}/GET/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :api/v2/evolution-variable/{id}/GET/GET.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}api/v2/evolution-variable/\{id\}/GET/implementation.adoc[opts=optional]
 
 
 endif::internal-generation[]
@@ -2696,6 +2844,182 @@ endif::internal-generation[]
 
 [.Items]
 === Items
+
+
+[.currencyList]
+==== currencyList
+
+`GET /api/v2/currency/`
+
+List currencies
+
+===== Description
+
+Currencies used to buy items.
+
+
+// markup not found, no include::{specDir}api/v2/currency/GET/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+
+
+
+
+====== Query Parameters
+
+[cols="2,3,1,1,1"]
+|===
+|Name| Description| Required| Default| Pattern
+
+| limit
+| Number of results to return per page. 
+| -
+| null
+| 
+
+| offset
+| The initial index from which to return the results. 
+| -
+| null
+| 
+
+| q
+| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  
+| -
+| null
+| 
+
+|===
+
+
+===== Return Type
+
+<<PaginatedCurrencySummaryList>>
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.HTTP Response Codes
+[cols="2,3,1"]
+|===
+| Code | Message | Datatype
+
+
+| 200
+| 
+|  <<PaginatedCurrencySummaryList>>
+
+|===
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}api/v2/currency/GET/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}api/v2/currency/GET/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :api/v2/currency/GET/GET.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}api/v2/currency/GET/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.currencyRetrieve]
+==== currencyRetrieve
+
+`GET /api/v2/currency/{id}/`
+
+Get currency
+
+===== Description
+
+Currencies used to buy items.
+
+
+// markup not found, no include::{specDir}api/v2/currency/\{id\}/GET/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+====== Path Parameters
+
+[cols="2,3,1,1,1"]
+|===
+|Name| Description| Required| Default| Pattern
+
+| id
+| This parameter can be a string or an integer. 
+| X
+| null
+| 
+
+|===
+
+
+
+
+
+
+===== Return Type
+
+<<CurrencyDetail>>
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.HTTP Response Codes
+[cols="2,3,1"]
+|===
+| Code | Message | Datatype
+
+
+| 200
+| 
+|  <<CurrencyDetail>>
+
+|===
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}api/v2/currency/\{id\}/GET/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}api/v2/currency/\{id\}/GET/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :api/v2/currency/{id}/GET/GET.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}api/v2/currency/\{id\}/GET/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
 
 
 [.itemAttributeList]
@@ -4324,12 +4648,6 @@ Machines are the representation of items that teach moves to Pokémon. They vary
 | null
 | 
 
-| q
-| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  
-| -
-| null
-| 
-
 |===
 
 
@@ -5529,7 +5847,7 @@ endif::internal-generation[]
 
 `GET /api/v2/ability/`
 
-
+List abilities
 
 ===== Description
 
@@ -5623,7 +5941,7 @@ endif::internal-generation[]
 
 `GET /api/v2/ability/{id}/`
 
-
+Get ability
 
 ===== Description
 
@@ -5705,7 +6023,7 @@ endif::internal-generation[]
 
 `GET /api/v2/characteristic/`
 
-List charecterictics
+List characteristics
 
 ===== Description
 
@@ -5736,12 +6054,6 @@ Characteristics indicate which stat contains a Pokémon's highest IV. A Pokémon
 
 | offset
 | The initial index from which to return the results. 
-| -
-| null
-| 
-
-| q
-| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  
 | -
 | null
 | 
@@ -8520,6 +8832,75 @@ ifdef::internal-generation[]
 endif::internal-generation[]
 
 
+[.metaRetrieve]
+==== metaRetrieve
+
+`GET /api/v2/meta/`
+
+Get API metadata
+
+===== Description
+
+Returns metadata about the current deployed version of the API, including the git commit hash, deploy date, and tag (if any).
+
+
+// markup not found, no include::{specDir}api/v2/meta/GET/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+
+
+
+
+
+
+===== Return Type
+
+<<PokeapiMetaResponse>>
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.HTTP Response Codes
+[cols="2,3,1"]
+|===
+| Code | Message | Datatype
+
+
+| 200
+| 
+|  <<PokeapiMetaResponse>>
+
+|===
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}api/v2/meta/GET/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}api/v2/meta/GET/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :api/v2/meta/GET/GET.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}api/v2/meta/GET/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
 [#models]
 == Models
 
@@ -8539,14 +8920,14 @@ endif::internal-generation[]
 | X
 | 
 | <<VersionGroupSummary>>    
-| 
+| The version group in which the previous effect of this ability originated.
 |     
 
 | effect_entries
 | X
 | 
 |   List   of <<AbilityChangeEffectText>>
-| 
+| The previous effect of this ability listed in different languages.
 |     
 
 |===
@@ -8568,14 +8949,14 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The localized effect text for an API resource in a specific language.
 |     
 
 | language
 | X
 | 
 | <<LanguageSummary>>    
-| 
+| The language this effect is in.
 |     
 
 |===
@@ -8597,129 +8978,64 @@ endif::internal-generation[]
 | X
 | 
 |   Integer  
-| 
+| The identifier for this resource.
 |     
 
 | name
 | X
 | 
 |   String  
-| 
+| The name for this resource.
 |     
 
 | is_main_series
 | 
 | 
 |   Boolean  
-| 
+| Whether or not this ability originated in the main series of the video games.
 |     
 
 | generation
 | X
 | 
 | <<GenerationSummary>>    
-| 
+| The generation this ability originated in.
 |     
 
 | names
 | X
 | 
 |   List   of <<AbilityName>>
-| 
+| The name of this resource listed in different languages.
 |     
 
 | effect_entries
 | X
 | 
 |   List   of <<AbilityEffectText>>
-| 
+| The effect of this ability listed in different languages.
 |     
 
 | effect_changes
 | X
 | 
 |   List   of <<AbilityChange>>
-| 
+| The list of previous effects this ability has had across version groups.
 |     
 
 | flavor_text_entries
 | X
 | 
 |   List   of <<AbilityFlavorText>>
-| 
+| The flavor text of this ability listed in different languages.
 |     
 
 | pokemon
 | X
 | 
-|   List   of <<AbilityDetail_pokemon_inner>>
-| 
+|   List   of <<AbilityPokemonDetail>>
+| A list of Pokémon that could potentially have this ability.
 |     
-
-|===
-
-
-
-[#AbilityDetailPokemonInner]
-=== _AbilityDetailPokemonInner_ 
-
-
-
-
-[.fields-AbilityDetailPokemonInner]
-[cols="2,1,1,2,4,1"]
-|===
-| Field Name| Required| Nullable | Type| Description | Format
-
-| is_hidden
-| X
-| 
-|   Boolean  
-| 
-|     
-
-| slot
-| X
-| 
-|   Integer  
-| 
-| int32    
-
-| pokemon
-| X
-| 
-| <<AbilityDetail_pokemon_inner_pokemon>>    
-| 
-|     
-
-|===
-
-
-
-[#AbilityDetailPokemonInnerPokemon]
-=== _AbilityDetailPokemonInnerPokemon_ 
-
-
-
-
-[.fields-AbilityDetailPokemonInnerPokemon]
-[cols="2,1,1,2,4,1"]
-|===
-| Field Name| Required| Nullable | Type| Description | Format
-
-| name
-| X
-| 
-|   String  
-| 
-|     
-
-| url
-| X
-| 
-|   URI  
-| 
-| uri    
 
 |===
 
@@ -8740,21 +9056,21 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The localized effect text for an API resource in a specific language.
 |     
 
 | short_effect
 | X
 | 
 |   String  
-| 
+| The localized effect text in brief.
 |     
 
 | language
 | X
 | 
 | <<LanguageSummary>>    
-| 
+| The language this effect is in.
 |     
 
 |===
@@ -8776,21 +9092,21 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The localized name for an API resource in a specific language.
 |     
 
 | language
 | X
 | 
 | <<LanguageSummary>>    
-| 
+| The language this text resource is in.
 |     
 
 | version_group
 | X
 | 
 | <<VersionGroupSummary>>    
-| 
+| The version group that uses this flavor text.
 |     
 
 |===
@@ -8812,14 +9128,50 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The localized name for an API resource in a specific language.
 |     
 
 | language
 | X
 | 
 | <<LanguageSummary>>    
+| The language this name is in.
+|     
+
+|===
+
+
+
+[#AbilityPokemonDetail]
+=== _AbilityPokemonDetail_ 
+
+
+
+
+[.fields-AbilityPokemonDetail]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| is_hidden
 | 
+| 
+|   Boolean  
+| Whether or not this a hidden ability for the referenced Pokémon.
+|     
+
+| slot
+| X
+| 
+|   Integer  
+| Pokémon have 3 ability &#39;slots&#39; which hold references to possible abilities they could have. This is the slot of this ability for the referenced pokemon.
+|     
+
+| pokemon
+| X
+| 
+| <<PokemonSummary>>    
+| The Pokémon this ability could belong to.
 |     
 
 |===
@@ -8841,14 +9193,14 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The name of the referenced resource.
 |     
 
 | url
 | X
 | 
 |   URI  
-| 
+| The URL of the referenced resource.
 | uri    
 
 |===
@@ -8870,143 +9222,85 @@ endif::internal-generation[]
 | X
 | 
 |   Integer  
-| 
+| The identifier for this resource.
 |     
 
 | name
 | X
 | 
 |   String  
-| 
+| The name for this resource.
 |     
 
 | growth_time
+| 
 | X
-| 
 |   Integer  
-| 
+| Time it takes the tree to grow one stage, in hours. Berry trees go through four of these growth stages before they can be picked.
 |     
 
 | max_harvest
+| 
 | X
-| 
 |   Integer  
-| 
+| The maximum number of these berries that can grow on one tree in Generation IV.
 |     
 
 | natural_gift_power
+| 
 | X
-| 
 |   Integer  
-| 
+| The power of the move \&quot;Natural Gift\&quot; when used with this Berry.
 |     
 
 | size
+| 
 | X
-| 
 |   Integer  
-| 
+| The size of this Berry, in millimeters.
 |     
 
 | smoothness
+| 
 | X
-| 
 |   Integer  
-| 
+| The smoothness of this Berry, used in making Pokéblocks or Poffins.
 |     
 
 | soil_dryness
+| 
 | X
-| 
 |   Integer  
-| 
+| The speed at which this Berry dries out the soil as it grows. A higher rate means the soil dries more quickly.
 |     
 
 | firmness
 | X
-| 
+| X
 | <<BerryFirmnessSummary>>    
-| 
+| The firmness of this berry, used in making Pokéblocks or Poffins.
 |     
 
 | flavors
 | X
 | 
-|   List   of <<BerryDetail_flavors_inner>>
-| 
+|   List   of <<BerryFlavorMap>>
+| A list of references to each flavor a berry can have and the potency of each of those flavors in regard to this berry.
 |     
 
 | item
 | X
 | 
 | <<ItemSummary>>    
-| 
+| Berries are actually items. This is a reference to the item specific data for this berry.
 |     
 
 | natural_gift_type
 | X
-| 
+| X
 | <<TypeSummary>>    
-| 
+| The type inherited by \&quot;Natural Gift\&quot; when used with this Berry.
 |     
-
-|===
-
-
-
-[#BerryDetailFlavorsInner]
-=== _BerryDetailFlavorsInner_ 
-
-
-
-
-[.fields-BerryDetailFlavorsInner]
-[cols="2,1,1,2,4,1"]
-|===
-| Field Name| Required| Nullable | Type| Description | Format
-
-| potency
-| X
-| 
-|   Integer  
-| 
-|     
-
-| flavor
-| X
-| 
-| <<BerryDetail_flavors_inner_flavor>>    
-| 
-|     
-
-|===
-
-
-
-[#BerryDetailFlavorsInnerFlavor]
-=== _BerryDetailFlavorsInnerFlavor_ 
-
-
-
-
-[.fields-BerryDetailFlavorsInnerFlavor]
-[cols="2,1,1,2,4,1"]
-|===
-| Field Name| Required| Nullable | Type| Description | Format
-
-| name
-| 
-| 
-|   String  
-| The name of the flavor
-|     
-
-| url
-| 
-| 
-|   URI  
-| The URL to get more information about the flavor
-| uri    
 
 |===
 
@@ -9027,28 +9321,28 @@ endif::internal-generation[]
 | X
 | 
 |   Integer  
-| 
+| The identifier for this resource.
 |     
 
 | name
 | X
 | 
 |   String  
-| 
+| The name for this resource.
 |     
 
 | berries
 | X
 | 
 |   List   of <<BerrySummary>>
-| 
+| A list of the berries with this firmness.
 |     
 
 | names
 | X
 | 
 |   List   of <<BerryFirmnessName>>
-| 
+| The name of this resource listed in different languages.
 |     
 
 |===
@@ -9070,14 +9364,14 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The localized name for an API resource in a specific language.
 |     
 
 | language
 | X
 | 
 | <<LanguageSummary>>    
-| 
+| The language this name is in.
 |     
 
 |===
@@ -9099,15 +9393,44 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The name of the referenced resource.
 |     
 
 | url
 | X
 | 
 |   URI  
-| 
+| The URL of the referenced resource.
 | uri    
+
+|===
+
+
+
+[#BerryFlavorBerryMap]
+=== _BerryFlavorBerryMap_ 
+
+
+
+
+[.fields-BerryFlavorBerryMap]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| potency
+| X
+| 
+|   Integer  
+| How powerful the referenced flavor is for this berry.
+|     
+
+| berry
+| X
+| 
+| <<BerrySummary>>    
+| The berry with the referenced flavor.
+|     
 
 |===
 
@@ -9128,48 +9451,48 @@ endif::internal-generation[]
 | X
 | 
 |   Integer  
-| 
+| The identifier for this resource.
 |     
 
 | name
 | X
 | 
 |   String  
-| 
+| The name for this resource.
 |     
 
 | berries
 | X
 | 
-|   List   of <<BerryFlavorDetail_berries_inner>>
-| 
+|   List   of <<BerryFlavorBerryMap>>
+| A list of the berries with this flavor.
 |     
 
 | contest_type
 | X
 | 
 | <<ContestTypeSummary>>    
-| 
+| The contest type that correlates with this berry flavor.
 |     
 
 | names
 | X
 | 
 |   List   of <<BerryFlavorName>>
-| 
+| The name of this resource listed in different languages.
 |     
 
 |===
 
 
 
-[#BerryFlavorDetailBerriesInner]
-=== _BerryFlavorDetailBerriesInner_ 
+[#BerryFlavorMap]
+=== _BerryFlavorMap_ 
 
 
 
 
-[.fields-BerryFlavorDetailBerriesInner]
+[.fields-BerryFlavorMap]
 [cols="2,1,1,2,4,1"]
 |===
 | Field Name| Required| Nullable | Type| Description | Format
@@ -9178,44 +9501,15 @@ endif::internal-generation[]
 | X
 | 
 |   Integer  
-| 
+| How powerful the referenced flavor is for this berry.
 |     
 
-| berry
+| flavor
 | X
 | 
-| <<BerryFlavorDetail_berries_inner_berry>>    
-| 
+| <<BerryFlavorSummary>>    
+| The referenced berry flavor.
 |     
-
-|===
-
-
-
-[#BerryFlavorDetailBerriesInnerBerry]
-=== _BerryFlavorDetailBerriesInnerBerry_ 
-
-
-
-
-[.fields-BerryFlavorDetailBerriesInnerBerry]
-[cols="2,1,1,2,4,1"]
-|===
-| Field Name| Required| Nullable | Type| Description | Format
-
-| name
-| 
-| 
-|   String  
-| The name of the berry
-|     
-
-| url
-| 
-| 
-|   URI  
-| The URL to get more information about the berry
-| uri    
 
 |===
 
@@ -9236,14 +9530,14 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The localized name for an API resource in a specific language.
 |     
 
 | language
 | X
 | 
 | <<LanguageSummary>>    
-| 
+| The language this name is in.
 |     
 
 |===
@@ -9265,14 +9559,14 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The name of the referenced resource.
 |     
 
 | url
 | X
 | 
 |   URI  
-| 
+| The URL of the referenced resource.
 | uri    
 
 |===
@@ -9294,14 +9588,14 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The name of the referenced resource.
 |     
 
 | url
 | X
 | 
 |   URI  
-| 
+| The URL of the referenced resource.
 | uri    
 
 |===
@@ -9323,14 +9617,14 @@ endif::internal-generation[]
 | 
 | 
 |   String  
-| 
+| The localized description for an API resource in a specific language.
 |     
 
 | language
 | X
 | 
 | <<LanguageSummary>>    
-| 
+| The language this name is in.
 |     
 
 |===
@@ -9352,35 +9646,35 @@ endif::internal-generation[]
 | X
 | 
 |   Integer  
-| 
+| The identifier for this resource.
 |     
 
 | gene_modulo
 | X
 | 
 |   Integer  
-| 
+| The remainder of the highest stat/IV divided by 5.
 |     
 
 | possible_values
 | X
 | 
 |   List   of <<integer>>
-| 
-| int32    
+| The possible values of the highest stat that would result in a Pokémon recieving this characteristic when divided by 5.
+|     
 
 | highest_stat
 | X
 | 
 | <<StatSummary>>    
-| 
+| The stat which results in this characteristic.
 |     
 
 | descriptions
 | X
 | 
 |   List   of <<CharacteristicDescription>>
-| 
+| The descriptions of this characteristic listed in different languages.
 |     
 
 |===
@@ -9402,7 +9696,7 @@ endif::internal-generation[]
 | X
 | 
 |   URI  
-| 
+| The URL of the referenced resource.
 | uri    
 
 |===
@@ -9424,35 +9718,35 @@ endif::internal-generation[]
 | X
 | 
 |   Integer  
-| 
+| The identifier for this resource.
 |     
 
 | appeal
 | X
 | 
 |   Integer  
-| 
+| The base number of hearts the user of this move gets.
 |     
 
 | jam
 | X
 | 
 |   Integer  
-| 
+| The base number of hearts the user&#39;s opponent loses.
 |     
 
 | effect_entries
 | X
 | 
 |   List   of <<ContestEffectEffectText>>
-| 
+| The result of this contest effect listed in different languages.
 |     
 
 | flavor_text_entries
 | X
 | 
 |   List   of <<ContestEffectFlavorText>>
-| 
+| The flavor text of this contest effect listed in different languages.
 |     
 
 |===
@@ -9474,14 +9768,14 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The localized effect text for an API resource in a specific language.
 |     
 
 | language
 | X
 | 
 | <<LanguageSummary>>    
-| 
+| The language this effect is in.
 |     
 
 |===
@@ -9503,14 +9797,14 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The localized flavor text for an API resource in a specific language.
 |     
 
 | language
 | X
 | 
 | <<LanguageSummary>>    
-| 
+| The language this name is in.
 |     
 
 |===
@@ -9532,7 +9826,7 @@ endif::internal-generation[]
 | X
 | 
 |   URI  
-| 
+| The URL of the referenced resource.
 | uri    
 
 |===
@@ -9554,28 +9848,28 @@ endif::internal-generation[]
 | X
 | 
 |   Integer  
-| 
+| The identifier for this resource.
 |     
 
 | name
 | X
 | 
 |   String  
-| 
+| The name for this resource.
 |     
 
 | berry_flavor
 | X
 | 
 | <<BerryFlavorSummary>>    
-| 
+| The berry flavor that correlates with this contest type.
 |     
 
 | names
 | X
 | 
 |   List   of <<ContestTypeName>>
-| 
+| The name of this contest type listed in different languages.
 |     
 
 |===
@@ -9597,21 +9891,21 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The name for this contest.
 |     
 
 | color
 | X
 | 
 |   String  
-| 
+| The color associated with this contest&#39;s name.
 |     
 
 | language
 | X
 | 
 | <<LanguageSummary>>    
-| 
+| The language that this name is in.
 |     
 
 |===
@@ -9633,14 +9927,108 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The name of the referenced resource.
 |     
 
 | url
 | X
 | 
 |   URI  
+| The URL of the referenced resource.
+| uri    
+
+|===
+
+
+
+[#CurrencyDetail]
+=== _CurrencyDetail_ 
+
+
+
+
+[.fields-CurrencyDetail]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| id
+| X
 | 
+|   Integer  
+| The identifier for this resource.
+|     
+
+| name
+| X
+| 
+|   String  
+| The name for this resource.
+|     
+
+| names
+| X
+| 
+|   List   of <<CurrencyName>>
+| The name of this resource listed in different languages.
+|     
+
+|===
+
+
+
+[#CurrencyName]
+=== _CurrencyName_ 
+
+
+
+
+[.fields-CurrencyName]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| name
+| X
+| 
+|   String  
+| The localized name for an API resource in a specific language.
+|     
+
+| language
+| X
+| 
+| <<LanguageSummary>>    
+| The language this name is in.
+|     
+
+|===
+
+
+
+[#CurrencySummary]
+=== _CurrencySummary_ 
+
+
+
+
+[.fields-CurrencySummary]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| name
+| X
+| 
+|   String  
+| The name of the referenced resource.
+|     
+
+| url
+| X
+| 
+|   URI  
+| The URL of the referenced resource.
 | uri    
 
 |===
@@ -9662,58 +10050,29 @@ endif::internal-generation[]
 | X
 | 
 |   Integer  
-| 
+| The identifier for this resource.
 |     
 
 | name
 | X
 | 
 |   String  
-| 
+| The name for this resource.
 |     
 
 | names
 | X
 | 
 |   List   of <<EggGroupName>>
-| 
+| The name of this resource listed in different languages.
 |     
 
 | pokemon_species
 | X
 | 
-|   List   of <<EggGroupDetail_pokemon_species_inner>>
-| 
+|   List   of <<PokemonSpeciesSummary>>
+| A list of all Pokémon species that are members of this egg group.
 |     
-
-|===
-
-
-
-[#EggGroupDetailPokemonSpeciesInner]
-=== _EggGroupDetailPokemonSpeciesInner_ 
-
-
-
-
-[.fields-EggGroupDetailPokemonSpeciesInner]
-[cols="2,1,1,2,4,1"]
-|===
-| Field Name| Required| Nullable | Type| Description | Format
-
-| name
-| 
-| 
-|   String  
-| Pokemon species name.
-|     
-
-| url
-| 
-| 
-|   URI  
-| The URL to get more information about the species
-| uri    
 
 |===
 
@@ -9734,14 +10093,14 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The localized name for an API resource in a specific language.
 |     
 
 | language
 | X
 | 
 | <<LanguageSummary>>    
-| 
+| The language this name is in.
 |     
 
 |===
@@ -9763,14 +10122,14 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The name of the referenced resource.
 |     
 
 | url
 | X
 | 
 |   URI  
-| 
+| The URL of the referenced resource.
 | uri    
 
 |===
@@ -9792,28 +10151,28 @@ endif::internal-generation[]
 | X
 | 
 |   Integer  
-| 
+| The identifier for this resource.
 |     
 
 | name
 | X
 | 
 |   String  
-| 
+| The name for this resource.
 |     
 
 | values
 | X
 | 
 |   List   of <<EncounterConditionValueSummary>>
-| 
+| A list of possible values for this encounter condition.
 |     
 
 | names
 | X
 | 
 |   List   of <<EncounterConditionName>>
-| 
+| The name of this resource listed in different languages.
 |     
 
 |===
@@ -9835,14 +10194,14 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The localized name for an API resource in a specific language.
 |     
 
 | language
 | X
 | 
 | <<LanguageSummary>>    
-| 
+| The language this name is in.
 |     
 
 |===
@@ -9864,14 +10223,14 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The name of the referenced resource.
 |     
 
 | url
 | X
 | 
 |   URI  
-| 
+| The URL of the referenced resource.
 | uri    
 
 |===
@@ -9893,28 +10252,28 @@ endif::internal-generation[]
 | X
 | 
 |   Integer  
-| 
+| The identifier for this resource.
 |     
 
 | name
 | X
 | 
 |   String  
-| 
+| The name for this resource.
 |     
 
 | condition
 | X
 | 
 | <<EncounterConditionSummary>>    
-| 
+| The condition this encounter condition value pertains to.
 |     
 
 | names
 | X
 | 
 |   List   of <<EncounterConditionValueName>>
-| 
+| The name of this resource listed in different languages.
 |     
 
 |===
@@ -9936,14 +10295,14 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The localized name for an API resource in a specific language.
 |     
 
 | language
 | X
 | 
 | <<LanguageSummary>>    
-| 
+| The language this name is in.
 |     
 
 |===
@@ -9965,14 +10324,14 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The name of the referenced resource.
 |     
 
 | url
 | X
 | 
 |   URI  
-| 
+| The URL of the referenced resource.
 | uri    
 
 |===
@@ -9994,28 +10353,28 @@ endif::internal-generation[]
 | X
 | 
 |   Integer  
-| 
+| The identifier for this resource.
 |     
 
 | name
 | X
 | 
 |   String  
-| 
+| The name for this resource.
 |     
 
 | order
 | 
 | X
 |   Integer  
-| 
+| A good value for sorting.
 |     
 
 | names
 | X
 | 
 |   List   of <<EncounterMethodName>>
-| 
+| The name of this resource listed in different languages.
 |     
 
 |===
@@ -10037,14 +10396,14 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The localized name for an API resource in a specific language.
 |     
 
 | language
 | X
 | 
 | <<LanguageSummary>>    
-| 
+| The language this name is in.
 |     
 
 |===
@@ -10066,15 +10425,58 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The name of the referenced resource.
 |     
 
 | url
 | X
 | 
 |   URI  
-| 
+| The URL of the referenced resource.
 | uri    
+
+|===
+
+
+
+[#EncounterPokemonDetail]
+=== _EncounterPokemonDetail_ 
+
+
+
+
+[.fields-EncounterPokemonDetail]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| min_perfect_ivs
+| 
+| X
+|   Integer  
+| The minimum number of perfect IVs, or null if unspecified.
+|     
+
+| always_shiny
+| 
+| 
+|   Boolean  
+| Whether the encountered Pokémon is always shiny.
+|     
+
+| never_shiny
+| 
+| 
+|   Boolean  
+| Whether the encountered Pokémon can never be shiny.
+|     
+
+| is_alpha
+| 
+| 
+|   Boolean  
+| Whether the encountered Pokémon is an alpha Pokémon.
+|     
 
 |===
 
@@ -10095,271 +10497,65 @@ endif::internal-generation[]
 | X
 | 
 |   Integer  
-| 
+| The identifier for this resource.
 |     
 
 | baby_trigger_item
 | X
-| 
+| X
 | <<ItemSummary>>    
-| 
+| The item that a Pokémon would be holding when mating that would trigger the egg hatching a baby Pokémon rather than a basic Pokémon.
 |     
 
 | chain
 | X
 | 
-| <<EvolutionChainDetail_chain>>    
-| 
+| <<EvolutionChainLink>>    
+| The base chain link object. Each link contains evolution details for a Pokémon in the chain. Each link references the next Pokémon in the natural evolution order.
 |     
 
 |===
 
 
 
-[#EvolutionChainDetailChain]
-=== _EvolutionChainDetailChain_ 
+[#EvolutionChainLink]
+=== _EvolutionChainLink_ 
 
 
 
 
-[.fields-EvolutionChainDetailChain]
+[.fields-EvolutionChainLink]
 [cols="2,1,1,2,4,1"]
 |===
 | Field Name| Required| Nullable | Type| Description | Format
 
+| is_baby
+| X
+| 
+|   Boolean  
+| Whether or not this link is for a baby Pokémon. This would only ever be true on the base link.
+|     
+
+| species
+| X
+| 
+| <<PokemonSpeciesSummary>>    
+| The Pokémon species at this point in the evolution chain.
+|     
+
 | evolution_details
 | X
 | 
-|   List   of <<AnyType>>
-| 
+|   List   of <<PokemonEvolution>>
+| All details regarding the specific details of the referenced Pokémon species evolution.
 |     
 
 | evolves_to
 | X
 | 
-|   List   of <<EvolutionChainDetail_chain_evolves_to_inner>>
-| 
+|   List   of <<EvolutionChainLink>>
+| A List of chain objects.
 |     
-
-| is_baby
-| X
-| 
-|   Boolean  
-| 
-|     
-
-| species
-| X
-| 
-| <<AbilityDetail_pokemon_inner_pokemon>>    
-| 
-|     
-
-|===
-
-
-
-[#EvolutionChainDetailChainEvolvesToInner]
-=== _EvolutionChainDetailChainEvolvesToInner_ 
-
-
-
-
-[.fields-EvolutionChainDetailChainEvolvesToInner]
-[cols="2,1,1,2,4,1"]
-|===
-| Field Name| Required| Nullable | Type| Description | Format
-
-| evolution_details
-| X
-| 
-|   List   of <<EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner>>
-| 
-|     
-
-| is_baby
-| X
-| 
-|   Boolean  
-| 
-|     
-
-| species
-| X
-| 
-| <<AbilityDetail_pokemon_inner_pokemon>>    
-| 
-|     
-
-|===
-
-
-
-[#EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner]
-=== _EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner_ 
-
-
-
-
-[.fields-EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner]
-[cols="2,1,1,2,4,1"]
-|===
-| Field Name| Required| Nullable | Type| Description | Format
-
-| gender
-| X
-| 
-| <<EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender>>    
-| 
-|     
-
-| held_item
-| X
-| 
-| <<EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender>>    
-| 
-|     
-
-| item
-| X
-| 
-| <<EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender>>    
-| 
-|     
-
-| known_move
-| X
-| 
-| <<EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender>>    
-| 
-|     
-
-| known_move_type
-| X
-| 
-| <<EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender>>    
-| 
-|     
-
-| location
-| X
-| 
-| <<EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender>>    
-| 
-|     
-
-| min_affection
-| X
-| 
-|   Integer  
-| 
-| int32    
-
-| min_beauty
-| X
-| 
-|   Integer  
-| 
-| int32    
-
-| min_happiness
-| X
-| 
-|   Integer  
-| 
-| int32    
-
-| min_level
-| X
-| 
-|   Integer  
-| 
-| int32    
-
-| needs_overworld_rain
-| X
-| 
-|   Boolean  
-| 
-|     
-
-| party_species
-| X
-| 
-|   String  
-| 
-|     
-
-| party_type
-| X
-| 
-|   String  
-| 
-|     
-
-| relative_physical_stats
-| X
-| 
-|   String  
-| 
-|     
-
-| time_of_day
-| X
-| 
-|   String  
-| 
-|     
-
-| trade_species
-| X
-| 
-|   String  
-| 
-|     
-
-| trigger
-| X
-| 
-| <<AbilityDetail_pokemon_inner_pokemon>>    
-| 
-|     
-
-| turn_upside_down
-| X
-| 
-|   Boolean  
-| 
-|     
-
-|===
-
-
-
-[#EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender]
-=== _EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender_ 
-
-
-
-
-[.fields-EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender]
-[cols="2,1,1,2,4,1"]
-|===
-| Field Name| Required| Nullable | Type| Description | Format
-
-| name
-| X
-| 
-|   String  
-| 
-|     
-
-| url
-| X
-| 
-|   URI  
-| 
-| uri    
 
 |===
 
@@ -10380,8 +10576,44 @@ endif::internal-generation[]
 | X
 | 
 |   URI  
-| 
+| The URL of the referenced resource.
 | uri    
+
+|===
+
+
+
+[#EvolutionConditionExpression]
+=== _EvolutionConditionExpression_ 
+
+
+
+
+[.fields-EvolutionConditionExpression]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| expression
+| X
+| 
+|   String  
+| Evaluatable RPN condition expression using evolution variables (e.g. &#39;EC 100 % 0 &#x3D;&#x3D;&#39;)
+|     
+
+| percentage_chance
+| X
+| X
+|   Double  
+| Percentage chance of evolution under this condition (0-100)
+| double    
+
+| variables
+| X
+| 
+|   List   of <<EvolutionVariableSummary>>
+| Evolution variables referenced in the expression
+|     
 
 |===
 
@@ -10402,28 +10634,28 @@ endif::internal-generation[]
 | X
 | 
 |   Integer  
-| 
+| The identifier for this resource.
 |     
 
 | name
 | X
 | 
 |   String  
-| 
+| The name for this resource.
 |     
 
 | names
 | X
 | 
 |   List   of <<EvolutionTriggerName>>
-| 
+| The name of this resource listed in different languages.
 |     
 
 | pokemon_species
 | X
 | 
-|   List   of <<AbilityDetail_pokemon_inner_pokemon>>
-| 
+|   List   of <<PokemonSpeciesSummary>>
+| A list of pokemon species that result from this evolution trigger.
 |     
 
 |===
@@ -10445,14 +10677,14 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The localized name for an API resource in a specific language.
 |     
 
 | language
 | X
 | 
 | <<LanguageSummary>>    
-| 
+| The language this name is in.
 |     
 
 |===
@@ -10474,14 +10706,172 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The name of the referenced resource.
 |     
 
 | url
 | X
 | 
 |   URI  
+| The URL of the referenced resource.
+| uri    
+
+|===
+
+
+
+[#EvolutionVariableDescription]
+=== _EvolutionVariableDescription_ 
+
+
+
+
+[.fields-EvolutionVariableDescription]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| description
 | 
+| 
+|   String  
+| The localized description for an API resource in a specific language.
+|     
+
+| language
+| X
+| 
+| <<LanguageSummary>>    
+| The language this name is in.
+|     
+
+|===
+
+
+
+[#EvolutionVariableDetail]
+=== _EvolutionVariableDetail_ 
+
+
+
+
+[.fields-EvolutionVariableDetail]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| id
+| X
+| 
+|   Integer  
+| The identifier for this resource.
+|     
+
+| name
+| X
+| 
+|   String  
+| The name for this resource.
+|     
+
+| symbol
+| X
+| 
+|   String  
+| The symbol used for this variable in evolution condition expressions.
+|     
+
+| data_type
+| 
+| 
+|   String  
+| The data type of this variable.
+|     
+
+| source
+| 
+| 
+|   String  
+| The source of the variable value.
+|     
+
+| version_group
+| X
+| 
+| <<VersionGroupSummary>>    
+| The version group in which this variable was introduced.
+|     
+
+| names
+| X
+| 
+|   List   of <<EvolutionVariableName>>
+| The name of this resource listed in different languages.
+|     
+
+| descriptions
+| X
+| 
+|   List   of <<EvolutionVariableDescription>>
+| The description of this resource listed in different languages.
+|     
+
+|===
+
+
+
+[#EvolutionVariableName]
+=== _EvolutionVariableName_ 
+
+
+
+
+[.fields-EvolutionVariableName]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| name
+| X
+| 
+|   String  
+| The localized name for an API resource in a specific language.
+|     
+
+| language
+| X
+| 
+| <<LanguageSummary>>    
+| The language this name is in.
+|     
+
+|===
+
+
+
+[#EvolutionVariableSummary]
+=== _EvolutionVariableSummary_ 
+
+
+
+
+[.fields-EvolutionVariableSummary]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| name
+| X
+| 
+|   String  
+| The name of the referenced resource.
+|     
+
+| url
+| X
+| 
+|   URI  
+| The URL of the referenced resource.
 | uri    
 
 |===
@@ -10503,14 +10893,14 @@ endif::internal-generation[]
 | X
 | 
 |   Integer  
-| 
+| The level gained.
 |     
 
 | experience
 | X
 | 
 |   Integer  
-| 
+| The amount of experience required to reach the referenced level.
 |     
 
 |===
@@ -10532,41 +10922,41 @@ endif::internal-generation[]
 | X
 | 
 |   Integer  
-| 
+| The identifier for this resource.
 |     
 
 | name
 | X
 | 
 |   String  
-| 
+| The name for this resource.
 |     
 
 | pokemon_species_details
 | X
 | 
-|   List   of <<GenderDetail_pokemon_species_details_inner>>
-| 
+|   List   of <<GenderPokemonSpecies>>
+| A list of Pokémon species that can be this gender and how likely it is that they will be.
 |     
 
 | required_for_evolution
 | X
 | 
-|   List   of <<AbilityDetail_pokemon_inner_pokemon>>
-| 
+|   List   of <<PokemonSpeciesSummary>>
+| A list of Pokémon species that required this gender in order for a Pokémon to evolve into them.
 |     
 
 |===
 
 
 
-[#GenderDetailPokemonSpeciesDetailsInner]
-=== _GenderDetailPokemonSpeciesDetailsInner_ 
+[#GenderPokemonSpecies]
+=== _GenderPokemonSpecies_ 
 
 
 
 
-[.fields-GenderDetailPokemonSpeciesDetailsInner]
+[.fields-GenderPokemonSpecies]
 [cols="2,1,1,2,4,1"]
 |===
 | Field Name| Required| Nullable | Type| Description | Format
@@ -10575,14 +10965,14 @@ endif::internal-generation[]
 | X
 | 
 |   Integer  
-| 
-| int32    
+| The chance of this Pokémon being female, in eighths; or -1 for genderless.
+|     
 
 | pokemon_species
 | X
 | 
-| <<AbilityDetail_pokemon_inner_pokemon>>    
-| 
+| <<PokemonSpeciesSummary>>    
+| A Pokémon species that can be the referenced gender.
 |     
 
 |===
@@ -10604,14 +10994,14 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The name of the referenced resource.
 |     
 
 | url
 | X
 | 
 |   URI  
-| 
+| The URL of the referenced resource.
 | uri    
 
 |===
@@ -10633,63 +11023,63 @@ endif::internal-generation[]
 | X
 | 
 |   Integer  
-| 
+| The identifier for this resource.
 |     
 
 | name
 | X
 | 
 |   String  
-| 
+| The name for this resource.
 |     
 
 | abilities
 | X
 | 
 |   List   of <<AbilitySummary>>
-| 
+| A list of abilities that were introduced in this generation.
 |     
 
 | main_region
 | X
 | 
 | <<RegionSummary>>    
-| 
+| The main region travelled in this generation.
 |     
 
 | moves
 | X
 | 
 |   List   of <<MoveSummary>>
-| 
+| A list of moves that were introduced in this generation.
 |     
 
 | names
 | X
 | 
 |   List   of <<GenerationName>>
-| 
+| The name of this resource listed in different languages.
 |     
 
 | pokemon_species
 | X
 | 
 |   List   of <<PokemonSpeciesSummary>>
-| 
+| A list of Pokémon species that were introduced in this generation.
 |     
 
 | types
 | X
 | 
 |   List   of <<TypeSummary>>
-| 
+| A list of types that were introduced in this generation.
 |     
 
 | version_groups
 | X
 | 
 |   List   of <<VersionGroupSummary>>
-| 
+| A list of version groups that were introduced in this generation.
 |     
 
 |===
@@ -10711,14 +11101,14 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The localized name for an API resource in a specific language.
 |     
 
 | language
 | X
 | 
 | <<LanguageSummary>>    
-| 
+| The language this name is in.
 |     
 
 |===
@@ -10740,14 +11130,14 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The name of the referenced resource.
 |     
 
 | url
 | X
 | 
 |   URI  
-| 
+| The URL of the referenced resource.
 | uri    
 
 |===
@@ -10769,14 +11159,14 @@ endif::internal-generation[]
 | 
 | 
 |   String  
-| 
+| The localized description for an API resource in a specific language.
 |     
 
 | language
 | X
 | 
 | <<LanguageSummary>>    
-| 
+| The language this name is in.
 |     
 
 |===
@@ -10798,42 +11188,42 @@ endif::internal-generation[]
 | X
 | 
 |   Integer  
-| 
+| The identifier for this resource.
 |     
 
 | name
 | X
 | 
 |   String  
-| 
+| The name for this resource.
 |     
 
 | formula
 | X
 | 
 |   String  
-| 
+| The formula used to calculate the rate at which the Pokémon species gains level.
 |     
 
 | descriptions
 | X
 | 
 |   List   of <<GrowthRateDescription>>
-| 
+| The descriptions of this characteristic listed in different languages.
 |     
 
 | levels
 | X
 | 
 |   List   of <<Experience>>
-| 
+| A list of levels and the amount of experienced needed to atain them based on this growth rate.
 |     
 
 | pokemon_species
 | X
 | 
 |   List   of <<PokemonSpeciesSummary>>
-| 
+| A list of Pokémon species that gain levels at this growth rate.
 |     
 
 |===
@@ -10855,14 +11245,14 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The name of the referenced resource.
 |     
 
 | url
 | X
 | 
 |   URI  
-| 
+| The URL of the referenced resource.
 | uri    
 
 |===
@@ -10884,14 +11274,14 @@ endif::internal-generation[]
 | 
 | 
 |   String  
-| 
+| The localized description for an API resource in a specific language.
 |     
 
 | language
 | X
 | 
 | <<LanguageSummary>>    
-| 
+| The language this name is in.
 |     
 
 |===
@@ -10913,35 +11303,35 @@ endif::internal-generation[]
 | X
 | 
 |   Integer  
-| 
+| The identifier for this resource.
 |     
 
 | name
 | X
 | 
 |   String  
-| 
+| The name for this resource.
 |     
 
 | descriptions
 | X
 | 
 |   List   of <<ItemAttributeDescription>>
-| 
+| The description of this item attribute listed in different languages.
 |     
 
 | items
 | X
 | 
-|   List   of <<AbilityDetail_pokemon_inner_pokemon>>
-| 
+|   List   of <<ItemSummary>>
+| A list of items that have this attribute.
 |     
 
 | names
 | X
 | 
 |   List   of <<ItemAttributeName>>
-| 
+| The name of this item attribute listed in different languages.
 |     
 
 |===
@@ -10963,14 +11353,14 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The localized name for an API resource in a specific language.
 |     
 
 | language
 | X
 | 
 | <<LanguageSummary>>    
-| 
+| The language this name is in.
 |     
 
 |===
@@ -10992,14 +11382,14 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The name of the referenced resource.
 |     
 
 | url
 | X
 | 
 |   URI  
-| 
+| The URL of the referenced resource.
 | uri    
 
 |===
@@ -11021,35 +11411,35 @@ endif::internal-generation[]
 | X
 | 
 |   Integer  
-| 
+| The identifier for this resource.
 |     
 
 | name
 | X
 | 
 |   String  
-| 
+| The name for this resource.
 |     
 
 | items
 | X
 | 
 |   List   of <<ItemSummary>>
-| 
+| A list of items that are a part of this category.
 |     
 
 | names
 | X
 | 
 |   List   of <<ItemCategoryName>>
-| 
+| The name of this item category listed in different languages.
 |     
 
 | pocket
 | X
 | 
 | <<ItemPocketSummary>>    
-| 
+| The pocket items in this category would be put in.
 |     
 
 |===
@@ -11071,14 +11461,14 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The localized name for an API resource in a specific language.
 |     
 
 | language
 | X
 | 
 | <<LanguageSummary>>    
-| 
+| The language this name is in.
 |     
 
 |===
@@ -11100,14 +11490,14 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The name of the referenced resource.
 |     
 
 | url
 | X
 | 
 |   URI  
-| 
+| The URL of the referenced resource.
 | uri    
 
 |===
@@ -11129,237 +11519,106 @@ endif::internal-generation[]
 | X
 | 
 |   Integer  
-| 
+| The identifier for this resource.
 |     
 
 | name
 | X
 | 
 |   String  
-| 
-|     
-
-| cost
-| 
-| X
-|   Integer  
-| 
+| The name for this resource.
 |     
 
 | fling_power
 | 
 | X
 |   Integer  
-| 
+| The power of the move Fling when used with this item.
 |     
 
 | fling_effect
 | X
-| 
+| X
 | <<ItemFlingEffectSummary>>    
-| 
+| The effect of the move Fling when used with this item.
 |     
 
 | attributes
 | X
 | 
-|   List   of <<AbilityDetail_pokemon_inner_pokemon>>
-| 
+|   List   of <<ItemAttributeSummary>>
+| A list of attributes this item has.
 |     
 
 | category
 | X
 | 
 | <<ItemCategorySummary>>    
-| 
+| The category of items this item falls into.
 |     
 
 | effect_entries
 | X
 | 
 |   List   of <<ItemEffectText>>
-| 
+| The effect of this ability listed in different languages.
 |     
 
 | flavor_text_entries
 | X
 | 
 |   List   of <<ItemFlavorText>>
-| 
+| The flavor text of this ability listed in different languages.
 |     
 
 | game_indices
 | X
 | 
 |   List   of <<ItemGameIndex>>
+| A list of game indices relevent to this item by generation.
+|     
+
+| prices
+| X
 | 
+|   List   of <<ItemPrice>>
+| Purchase and sell prices by currency and version group. Prices may be null when the item cannot be bought or sold.
 |     
 
 | names
 | X
 | 
 |   List   of <<ItemName>>
-| 
+| The name of this item listed in different languages.
 |     
 
 | held_by_pokemon
 | X
 | 
-|   List   of <<ItemDetail_held_by_pokemon_inner>>
-| 
+|   List   of <<PokemonHeldItem>>
+| A list of Pokémon that might be found in the wild holding this item.
 |     
 
 | sprites
 | X
 | 
-| <<ItemDetail_sprites>>    
-| 
+| <<ItemSprites>>    
+| A set of sprites used to depict this item in the game.
 |     
 
 | baby_trigger_for
 | X
-| 
-| <<ItemDetail_baby_trigger_for>>    
-| 
+| X
+| <<EvolutionChainSummary>>    
+| An evolution chain this item requires to produce a bay during mating.
 |     
 
 | machines
 | X
 | 
-|   List   of <<ItemDetail_machines_inner>>
-| 
+|   List   of <<ItemMachine>>
+| A list of the machines related to this item.
 |     
-
-|===
-
-
-
-[#ItemDetailBabyTriggerFor]
-=== _ItemDetailBabyTriggerFor_ 
-
-
-
-
-[.fields-ItemDetailBabyTriggerFor]
-[cols="2,1,1,2,4,1"]
-|===
-| Field Name| Required| Nullable | Type| Description | Format
-
-| url
-| X
-| 
-|   URI  
-| 
-| uri    
-
-|===
-
-
-
-[#ItemDetailHeldByPokemonInner]
-=== _ItemDetailHeldByPokemonInner_ 
-
-
-
-
-[.fields-ItemDetailHeldByPokemonInner]
-[cols="2,1,1,2,4,1"]
-|===
-| Field Name| Required| Nullable | Type| Description | Format
-
-| pokemon
-| X
-| 
-| <<AbilityDetail_pokemon_inner_pokemon>>    
-| 
-|     
-
-| version-details
-| X
-| 
-|   List   of <<ItemDetail_held_by_pokemon_inner_version_details_inner>>
-| 
-|     
-
-|===
-
-
-
-[#ItemDetailHeldByPokemonInnerVersionDetailsInner]
-=== _ItemDetailHeldByPokemonInnerVersionDetailsInner_ 
-
-
-
-
-[.fields-ItemDetailHeldByPokemonInnerVersionDetailsInner]
-[cols="2,1,1,2,4,1"]
-|===
-| Field Name| Required| Nullable | Type| Description | Format
-
-| rarity
-| X
-| 
-|   Integer  
-| 
-| int32    
-
-| version
-| X
-| 
-| <<AbilityDetail_pokemon_inner_pokemon>>    
-| 
-|     
-
-|===
-
-
-
-[#ItemDetailMachinesInner]
-=== _ItemDetailMachinesInner_ 
-
-
-
-
-[.fields-ItemDetailMachinesInner]
-[cols="2,1,1,2,4,1"]
-|===
-| Field Name| Required| Nullable | Type| Description | Format
-
-| machine
-| X
-| 
-|   URI  
-| 
-| uri    
-
-| version_group
-| X
-| 
-| <<AbilityDetail_pokemon_inner_pokemon>>    
-| 
-|     
-
-|===
-
-
-
-[#ItemDetailSprites]
-=== _ItemDetailSprites_ 
-
-
-
-
-[.fields-ItemDetailSprites]
-[cols="2,1,1,2,4,1"]
-|===
-| Field Name| Required| Nullable | Type| Description | Format
-
-| default
-| X
-| 
-|   URI  
-| 
-| uri    
 
 |===
 
@@ -11380,21 +11639,21 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The localized effect text for an API resource in a specific language.
 |     
 
 | short_effect
 | X
 | 
 |   String  
-| 
+| The localized effect text in brief.
 |     
 
 | language
 | X
 | 
 | <<LanguageSummary>>    
-| 
+| The language this effect is in.
 |     
 
 |===
@@ -11416,21 +11675,21 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The localized flavor text for an API resource in a specific language.
 |     
 
 | version_group
 | X
 | 
 | <<VersionGroupSummary>>    
-| 
+| The version group which uses this flavor text.
 |     
 
 | language
 | X
 | 
 | <<LanguageSummary>>    
-| 
+| The language this name is in.
 |     
 
 |===
@@ -11452,28 +11711,28 @@ endif::internal-generation[]
 | X
 | 
 |   Integer  
-| 
+| The identifier for this resource.
 |     
 
 | name
 | X
 | 
 |   String  
-| 
+| The name for this resource.
 |     
 
 | effect_entries
 | X
 | 
 |   List   of <<ItemFlingEffectEffectText>>
-| 
+| The result of this fling effect listed in different languages.
 |     
 
 | items
 | X
 | 
 |   List   of <<ItemSummary>>
-| 
+| A list of items that have this fling effect.
 |     
 
 |===
@@ -11495,14 +11754,14 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The localized effect text for an API resource in a specific language.
 |     
 
 | language
 | X
 | 
 | <<LanguageSummary>>    
-| 
+| The language this effect is in.
 |     
 
 |===
@@ -11524,14 +11783,14 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The name of the referenced resource.
 |     
 
 | url
 | X
 | 
 |   URI  
-| 
+| The URL of the referenced resource.
 | uri    
 
 |===
@@ -11553,14 +11812,43 @@ endif::internal-generation[]
 | X
 | 
 |   Integer  
-| 
+| The internal id of an API resource within game data.
 |     
 
 | generation
 | X
 | 
 | <<GenerationSummary>>    
+| The generation relevent to this game index.
+|     
+
+|===
+
+
+
+[#ItemMachine]
+=== _ItemMachine_ 
+
+
+
+
+[.fields-ItemMachine]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| machine
+| X
 | 
+| <<MachineSummary>>    
+| The machine that teaches a move from an item.
+|     
+
+| version_group
+| X
+| 
+| <<VersionGroupSummary>>    
+| The version group of this specific machine.
 |     
 
 |===
@@ -11582,14 +11870,14 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The localized name for an API resource in a specific language.
 |     
 
 | language
 | X
 | 
 | <<LanguageSummary>>    
-| 
+| The language this name is in.
 |     
 
 |===
@@ -11611,28 +11899,28 @@ endif::internal-generation[]
 | X
 | 
 |   Integer  
-| 
+| The identifier for this resource.
 |     
 
 | name
 | X
 | 
 |   String  
-| 
+| The name for this resource.
 |     
 
 | categories
 | X
 | 
 |   List   of <<ItemCategorySummary>>
-| 
+| A list of item categories that are relevant to this item pocket.
 |     
 
 | names
 | X
 | 
 |   List   of <<ItemPocketName>>
-| 
+| The name of this resource listed in different languages.
 |     
 
 |===
@@ -11654,14 +11942,14 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The localized name for an API resource in a specific language.
 |     
 
 | language
 | X
 | 
 | <<LanguageSummary>>    
-| 
+| The language this name is in.
 |     
 
 |===
@@ -11683,15 +11971,80 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The name of the referenced resource.
 |     
 
 | url
 | X
 | 
 |   URI  
-| 
+| The URL of the referenced resource.
 | uri    
+
+|===
+
+
+
+[#ItemPrice]
+=== _ItemPrice_ 
+
+
+
+
+[.fields-ItemPrice]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| purchase_price
+| 
+| X
+|   Integer  
+| The purchase price in this currency and version group, or null if unavailable.
+|     
+
+| sell_price
+| 
+| X
+|   Integer  
+| The sell price in this currency and version group, or null if unavailable.
+|     
+
+| currency
+| X
+| 
+| <<CurrencySummary>>    
+| The currency used for this price.
+|     
+
+| version_group
+| X
+| 
+| <<VersionGroupSummary>>    
+| The version group to which this price applies.
+|     
+
+|===
+
+
+
+[#ItemSprites]
+=== _ItemSprites_ 
+
+
+
+
+[.fields-ItemSprites]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| default
+| X
+| X
+|   String  
+| The default depiction of this item.
+|     
 
 |===
 
@@ -11712,14 +12065,14 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The name of the referenced resource.
 |     
 
 | url
 | X
 | 
 |   URI  
-| 
+| The URL of the referenced resource.
 | uri    
 
 |===
@@ -11741,42 +12094,42 @@ endif::internal-generation[]
 | X
 | 
 |   Integer  
-| 
+| The identifier for this resource.
 |     
 
 | name
 | X
 | 
 |   String  
-| 
+| The name for this resource.
 |     
 
 | official
 | 
 | 
 |   Boolean  
-| 
+| Whether or not the games are published in this language.
 |     
 
 | iso639
 | X
 | 
 |   String  
-| 
+| The two-letter ISO 639-1 language code. Multiple PokéAPI language records may share this code.
 |     
 
 | iso3166
 | X
 | 
 |   String  
-| 
+| The two-letter ISO 3166-1 alpha-2 code of the country or region associated with this language record. Multiple PokéAPI language records may share this code.
 |     
 
 | names
 | X
 | 
 |   List   of <<LanguageName>>
-| 
+| The name of this resource listed in different languages.
 |     
 
 |===
@@ -11798,14 +12151,14 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The localized name for an API resource in a specific language.
 |     
 
 | language
 | X
 | 
 | <<LanguageSummary>>    
-| 
+| The language this name is in.
 |     
 
 |===
@@ -11827,14 +12180,14 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The name of the referenced resource.
 |     
 
 | url
 | X
 | 
 |   URI  
-| 
+| The URL of the referenced resource.
 | uri    
 
 |===
@@ -11856,185 +12209,62 @@ endif::internal-generation[]
 | X
 | 
 |   Integer  
-| 
+| The identifier for this resource.
 |     
 
 | name
 | X
 | 
 |   String  
-| 
+| The name for this resource.
 |     
 
 | game_index
 | X
 | 
 |   Integer  
-| 
+| The internal id of an API resource within game data.
 |     
 
 | encounter_method_rates
 | X
 | 
-|   List   of <<LocationAreaDetail_encounter_method_rates_inner>>
-| 
+|   List   of <<LocationAreaEncounterRate>>
+| A list of methods in which Pokémon may be encountered in this area and how likely the method will occur depending on the version of the game.
 |     
 
 | location
 | X
 | 
 | <<LocationSummary>>    
-| 
+| The region this location area can be found in.
 |     
 
 | names
 | X
 | 
 |   List   of <<LocationAreaName>>
-| 
+| The name of this resource listed in different languages.
 |     
 
 | pokemon_encounters
 | X
 | 
-|   List   of <<LocationAreaDetail_pokemon_encounters_inner>>
-| 
+|   List   of <<LocationAreaPokemonEncounter>>
+| A list of Pokémon that can be encountered in this area along with version specific details about the encounter.
 |     
 
 |===
 
 
 
-[#LocationAreaDetailEncounterMethodRatesInner]
-=== _LocationAreaDetailEncounterMethodRatesInner_ 
+[#LocationAreaEncounterDetail]
+=== _LocationAreaEncounterDetail_ 
 
 
 
 
-[.fields-LocationAreaDetailEncounterMethodRatesInner]
-[cols="2,1,1,2,4,1"]
-|===
-| Field Name| Required| Nullable | Type| Description | Format
-
-| encounter_method
-| X
-| 
-| <<AbilityDetail_pokemon_inner_pokemon>>    
-| 
-|     
-
-| version_details
-| X
-| 
-|   List   of <<LocationAreaDetail_encounter_method_rates_inner_version_details_inner>>
-| 
-|     
-
-|===
-
-
-
-[#LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner]
-=== _LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner_ 
-
-
-
-
-[.fields-LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner]
-[cols="2,1,1,2,4,1"]
-|===
-| Field Name| Required| Nullable | Type| Description | Format
-
-| rate
-| X
-| 
-|   Integer  
-| 
-| int32    
-
-| version
-| X
-| 
-| <<AbilityDetail_pokemon_inner_pokemon>>    
-| 
-|     
-
-|===
-
-
-
-[#LocationAreaDetailPokemonEncountersInner]
-=== _LocationAreaDetailPokemonEncountersInner_ 
-
-
-
-
-[.fields-LocationAreaDetailPokemonEncountersInner]
-[cols="2,1,1,2,4,1"]
-|===
-| Field Name| Required| Nullable | Type| Description | Format
-
-| pokemon
-| X
-| 
-| <<AbilityDetail_pokemon_inner_pokemon>>    
-| 
-|     
-
-| version_details
-| X
-| 
-|   List   of <<LocationAreaDetail_pokemon_encounters_inner_version_details_inner>>
-| 
-|     
-
-|===
-
-
-
-[#LocationAreaDetailPokemonEncountersInnerVersionDetailsInner]
-=== _LocationAreaDetailPokemonEncountersInnerVersionDetailsInner_ 
-
-
-
-
-[.fields-LocationAreaDetailPokemonEncountersInnerVersionDetailsInner]
-[cols="2,1,1,2,4,1"]
-|===
-| Field Name| Required| Nullable | Type| Description | Format
-
-| version
-| X
-| 
-| <<AbilityDetail_pokemon_inner_pokemon>>    
-| 
-|     
-
-| max_chance
-| X
-| 
-|   Integer  
-| 
-| int32    
-
-| encounter_details
-| X
-| 
-| <<LocationAreaDetail_pokemon_encounters_inner_version_details_inner_encounter_details>>    
-| 
-|     
-
-|===
-
-
-
-[#LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails]
-=== _LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails_ 
-
-
-
-
-[.fields-LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails]
+[.fields-LocationAreaEncounterDetail]
 [cols="2,1,1,2,4,1"]
 |===
 | Field Name| Required| Nullable | Type| Description | Format
@@ -12043,35 +12273,100 @@ endif::internal-generation[]
 | X
 | 
 |   Integer  
-| 
-| int32    
+| The lowest level the Pokémon could be encountered at.
+|     
 
 | max_level
 | X
 | 
 |   Integer  
-| 
-| int32    
-
-| condition_values
-| 
-| 
-| <<AbilityDetail_pokemon_inner_pokemon>>    
-| 
+| The highest level the Pokémon could be encountered at.
 |     
 
 | chance
+| 
+| 
+|   Integer  
+| Percent chance that this encounter will occur.
+|     
+
+| method
+| 
+| 
+| <<EncounterMethodSummary>>    
+| The method by which this encounter happens.
+|     
+
+| condition_values
+| X
+| 
+|   List   of <<EncounterConditionValueSummary>>
+| A list of condition values that must be in effect for this encounter to occur.
+|     
+
+| pokemon_details
+| X
+| X
+| <<EncounterPokemonDetail>>    
+| Additional properties of the encountered Pokémon, or null if unspecified.
+|     
+
+|===
+
+
+
+[#LocationAreaEncounterRate]
+=== _LocationAreaEncounterRate_ 
+
+
+
+
+[.fields-LocationAreaEncounterRate]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| encounter_method
+| X
+| 
+| <<EncounterMethodSummary>>    
+| The method in which Pokémon may be encountered in an area..
+|     
+
+| version_details
+| X
+| 
+|   List   of <<LocationAreaEncounterVersionDetail>>
+| The chance of the encounter to occur on a version of the game.
+|     
+
+|===
+
+
+
+[#LocationAreaEncounterVersionDetail]
+=== _LocationAreaEncounterVersionDetail_ 
+
+
+
+
+[.fields-LocationAreaEncounterVersionDetail]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| rate
 | X
 | 
 |   Integer  
-| 
-| int32    
+| The chance of an encounter to occur.
+|     
 
-| method
+| version
 | X
 | 
-| <<AbilityDetail_pokemon_inner_pokemon>>    
-| 
+| <<VersionSummary>>    
+| The version of the game in which the encounter can occur with the given chance.
 |     
 
 |===
@@ -12093,14 +12388,79 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The localized name for an API resource in a specific language.
 |     
 
 | language
 | X
 | 
 | <<LanguageSummary>>    
+| The language this name is in.
+|     
+
+|===
+
+
+
+[#LocationAreaPokemonEncounter]
+=== _LocationAreaPokemonEncounter_ 
+
+
+
+
+[.fields-LocationAreaPokemonEncounter]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| pokemon
+| X
 | 
+| <<PokemonSummary>>    
+| The Pokémon being encountered.
+|     
+
+| version_details
+| X
+| 
+|   List   of <<LocationAreaPokemonEncounterVersion>>
+| A list of versions and encounters with Pokémon that might happen in the referenced location area.
+|     
+
+|===
+
+
+
+[#LocationAreaPokemonEncounterVersion]
+=== _LocationAreaPokemonEncounterVersion_ 
+
+
+
+
+[.fields-LocationAreaPokemonEncounterVersion]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| version
+| X
+| 
+| <<VersionSummary>>    
+| The game version this encounter happens in.
+|     
+
+| max_chance
+| X
+| 
+|   Integer  
+| The total percentage of all encounter potential.
+|     
+
+| encounter_details
+| X
+| 
+|   List   of <<LocationAreaEncounterDetail>>
+| A list of encounters and their specifics.
 |     
 
 |===
@@ -12122,14 +12482,14 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The name of the referenced resource.
 |     
 
 | url
 | X
 | 
 |   URI  
-| 
+| The URL of the referenced resource.
 | uri    
 
 |===
@@ -12151,42 +12511,42 @@ endif::internal-generation[]
 | X
 | 
 |   Integer  
-| 
+| The identifier for this resource.
 |     
 
 | name
 | X
 | 
 |   String  
-| 
+| The name for this resource.
 |     
 
 | region
 | X
-| 
+| X
 | <<RegionSummary>>    
-| 
+| The region this location can be found in.
 |     
 
 | names
 | X
 | 
 |   List   of <<LocationName>>
-| 
+| The name of this resource listed in different languages.
 |     
 
 | game_indices
 | X
 | 
 |   List   of <<LocationGameIndex>>
-| 
+| A list of game indices relevent to this location by generation.
 |     
 
 | areas
 | X
 | 
 |   List   of <<LocationAreaSummary>>
-| 
+| Areas that can be found within this location.
 |     
 
 |===
@@ -12208,14 +12568,14 @@ endif::internal-generation[]
 | X
 | 
 |   Integer  
-| 
+| The internal id of an API resource within game data.
 |     
 
 | generation
 | X
 | 
 | <<GenerationSummary>>    
-| 
+| The generation relevent to this game index.
 |     
 
 |===
@@ -12237,14 +12597,14 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The localized name for an API resource in a specific language.
 |     
 
 | language
 | X
 | 
 | <<LanguageSummary>>    
-| 
+| The language this name is in.
 |     
 
 |===
@@ -12266,14 +12626,14 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The name of the referenced resource.
 |     
 
 | url
 | X
 | 
 |   URI  
-| 
+| The URL of the referenced resource.
 | uri    
 
 |===
@@ -12295,28 +12655,28 @@ endif::internal-generation[]
 | X
 | 
 |   Integer  
-| 
+| The identifier for this resource.
 |     
 
 | item
 | X
 | 
 | <<ItemSummary>>    
-| 
+| The TM or HM item that corresponds to this machine.
 |     
 
 | version_group
 | X
 | 
 | <<VersionGroupSummary>>    
-| 
+| The version group that this machine applies to.
 |     
 
 | move
 | X
 | 
 | <<MoveSummary>>    
-| 
+| The move that is taught by this machine.
 |     
 
 |===
@@ -12338,7 +12698,7 @@ endif::internal-generation[]
 | X
 | 
 |   URI  
-| 
+| The URL of the referenced resource.
 | uri    
 
 |===
@@ -12360,21 +12720,21 @@ endif::internal-generation[]
 | X
 | 
 |   Integer  
-| 
+| The identifier for this resource.
 |     
 
 | name
 | X
 | 
 |   String  
-| 
+| The name for this resource.
 |     
 
 | names
 | X
 | 
 |   List   of <<MoveBattleStyleName>>
-| 
+| The name of this resource listed in different languages.
 |     
 
 |===
@@ -12396,14 +12756,14 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The localized name for an API resource in a specific language.
 |     
 
 | language
 | X
 | 
 | <<LanguageSummary>>    
-| 
+| The language this name is in.
 |     
 
 |===
@@ -12425,14 +12785,14 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The name of the referenced resource.
 |     
 
 | url
 | X
 | 
 |   URI  
-| 
+| The URL of the referenced resource.
 | uri    
 
 |===
@@ -12454,85 +12814,107 @@ endif::internal-generation[]
 | 
 | X
 |   Integer  
-| 
+| The percent value of how likely this move is to be successful.
 |     
 
 | power
 | 
 | X
 |   Integer  
-| 
+| The base power before the listed version group, or null if power did not change.
 |     
 
 | pp
 | 
 | X
 |   Integer  
-| 
+| Power points. The number of times this move can be used.
 |     
 
 | effect_chance
 | X
-| 
+| X
 |   Integer  
-| 
+| The percent value of how likely it is this moves effect will take effect.
 |     
 
 | effect_entries
 | X
 | 
-|   List   of <<MoveChange_effect_entries_inner>>
-| 
+|   List   of <<MoveEffectEffectText>>
+| The effect of this move listed in different languages.
 |     
 
 | type
 | X
-| 
+| X
 | <<TypeSummary>>    
-| 
+| The elemental type of this move.
 |     
 
 | version_group
 | X
 | 
 | <<VersionGroupSummary>>    
-| 
+| The version group in which these move stat values were in effect.
 |     
 
 |===
 
 
 
-[#MoveChangeEffectEntriesInner]
-=== _MoveChangeEffectEntriesInner_ 
+[#MoveComboUsage]
+=== _MoveComboUsage_ 
 
 
 
 
-[.fields-MoveChangeEffectEntriesInner]
+[.fields-MoveComboUsage]
 [cols="2,1,1,2,4,1"]
 |===
 | Field Name| Required| Nullable | Type| Description | Format
 
-| effect
+| use_before
 | X
-| 
-|   String  
-| 
+| X
+|   List   of <<MoveSummary>>
+| A list of moves to use before this move.
 |     
 
-| short_effect
+| use_after
 | X
-| 
-|   String  
-| 
+| X
+|   List   of <<MoveSummary>>
+| A list of moves to use after this move.
 |     
 
-| language
+|===
+
+
+
+[#MoveCombos]
+=== _MoveCombos_ 
+
+
+
+
+[.fields-MoveCombos]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| normal
 | X
 | 
-| <<AbilityDetail_pokemon_inner_pokemon>>    
+| <<MoveComboUsage>>    
+| A detail of moves this move can be used before or after, granting additional appeal points in contests.
+|     
+
+| super
+| X
 | 
+| <<MoveComboUsage>>    
+| A detail of moves this move can be used before or after, granting additional appeal points in super contests.
 |     
 
 |===
@@ -12554,14 +12936,14 @@ endif::internal-generation[]
 | 
 | 
 |   String  
-| 
+| The localized description for an API resource in a specific language.
 |     
 
 | language
 | X
 | 
 | <<LanguageSummary>>    
-| 
+| The language this name is in.
 |     
 
 |===
@@ -12583,35 +12965,35 @@ endif::internal-generation[]
 | X
 | 
 |   Integer  
-| 
+| The identifier for this resource.
 |     
 
 | name
 | X
 | 
 |   String  
-| 
+| The name for this resource.
 |     
 
 | descriptions
 | X
 | 
 |   List   of <<MoveDamageClassDescription>>
-| 
+| The description of this resource listed in different languages.
 |     
 
 | moves
 | X
 | 
 |   List   of <<MoveSummary>>
-| 
+| A list of moves that fall into this damage class.
 |     
 
 | names
 | X
 | 
 |   List   of <<MoveDamageClassName>>
-| 
+| The name of this resource listed in different languages.
 |     
 
 |===
@@ -12633,14 +13015,14 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The localized name for an API resource in a specific language.
 |     
 
 | language
 | X
 | 
 | <<LanguageSummary>>    
-| 
+| The language this name is in.
 |     
 
 |===
@@ -12662,14 +13044,14 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The name of the referenced resource.
 |     
 
 | url
 | X
 | 
 |   URI  
-| 
+| The URL of the referenced resource.
 | uri    
 
 |===
@@ -12691,268 +13073,210 @@ endif::internal-generation[]
 | X
 | 
 |   Integer  
-| 
+| The identifier for this resource.
 |     
 
 | name
 | X
 | 
 |   String  
-| 
+| The name for this resource.
 |     
 
 | accuracy
 | 
 | X
 |   Integer  
-| 
+| The percent value of how likely this move is to be successful.
 |     
 
 | effect_chance
 | X
-| 
+| X
 |   Integer  
-| 
+| The percent value of how likely it is this moves effect will happen.
 |     
 
 | pp
 | 
 | X
 |   Integer  
-| 
+| Power points. The number of times this move can be used.
 |     
 
 | priority
 | 
 | X
 |   Integer  
-| 
+| A value between -8 and 8. Sets the order in which moves are executed during battle. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Priority) for greater detail.
 |     
 
 | power
 | 
 | X
 |   Integer  
-| 
+| The base power of this move, or null if it has no fixed base power.
 |     
 
 | contest_combos
 | X
-| 
-| <<MoveDetail_contest_combos>>    
-| 
+| X
+| <<MoveCombos>>    
+| A detail of normal and super contest combos that require this move.
 |     
 
 | contest_type
 | X
-| 
+| X
 | <<ContestTypeSummary>>    
-| 
+| The type of appeal this move gives a Pokémon when used in a contest.
 |     
 
 | contest_effect
 | X
-| 
+| X
 | <<ContestEffectSummary>>    
-| 
+| The effect the move has when used in a contest.
 |     
 
 | damage_class
 | X
 | 
 | <<MoveDamageClassSummary>>    
-| 
+| The type of damage the move inflicts on the target, e.g. physical.
 |     
 
 | effect_entries
 | X
 | 
-|   List   of <<MoveChange_effect_entries_inner>>
-| 
+|   List   of <<MoveEffectEffectText>>
+| The effect of this move listed in different languages.
 |     
 
 | effect_changes
 | X
 | 
-|   List   of <<MoveDetail_effect_changes_inner>>
-| 
+|   List   of <<MoveEffectChange>>
+| The list of previous effects this move has had across version groups of the games.
 |     
 
 | generation
 | X
 | 
 | <<GenerationSummary>>    
-| 
+| The generation in which this move was introduced.
 |     
 
 | meta
 | X
-| 
+| X
 | <<MoveMeta>>    
-| 
+| Metadata about this move
 |     
 
 | names
 | X
 | 
 |   List   of <<MoveName>>
-| 
+| The name of this resource listed in different languages.
 |     
 
 | past_values
 | X
 | 
 |   List   of <<MoveChange>>
-| 
+| A list of move resource value changes across version groups of the game.
 |     
 
 | stat_changes
 | X
 | 
-|   List   of <<MoveDetail_stat_changes_inner>>
-| 
+|   List   of <<MoveMetaStatChange>>
+| A list of stats this moves effects and how much it effects them.
 |     
 
 | super_contest_effect
 | X
-| 
+| X
 | <<SuperContestEffectSummary>>    
-| 
+| The effect the move has when used in a super contest.
 |     
 
 | target
 | X
 | 
 | <<MoveTargetSummary>>    
-| 
+| The type of target that will receive the effects of the attack.
 |     
 
 | type
 | X
 | 
 | <<TypeSummary>>    
-| 
+| The elemental type of this move.
 |     
 
 | machines
 | X
 | 
-|   List   of <<MoveDetail_machines_inner>>
-| 
+|   List   of <<ItemMachine>>
+| A list of the machines that teach this move.
 |     
 
 | flavor_text_entries
 | X
 | 
 |   List   of <<MoveFlavorText>>
-| 
+| The flavor text of this move listed in different languages.
 |     
 
 | learned_by_pokemon
 | X
 | 
-|   List   of <<AbilityDetail_pokemon_inner_pokemon>>
-| 
+|   List   of <<PokemonSummary>>
+| List of Pokemon that can learn the move
 |     
 
 |===
 
 
 
-[#MoveDetailContestCombos]
-=== _MoveDetailContestCombos_ 
+[#MoveEffectChange]
+=== _MoveEffectChange_ 
 
 
 
 
-[.fields-MoveDetailContestCombos]
+[.fields-MoveEffectChange]
 [cols="2,1,1,2,4,1"]
 |===
 | Field Name| Required| Nullable | Type| Description | Format
-
-| normal
-| X
-| 
-| <<MoveDetail_contest_combos_normal>>    
-| 
-|     
-
-| super
-| X
-| 
-| <<MoveDetail_contest_combos_normal>>    
-| 
-|     
-
-|===
-
-
-
-[#MoveDetailContestCombosNormal]
-=== _MoveDetailContestCombosNormal_ 
-
-
-
-
-[.fields-MoveDetailContestCombosNormal]
-[cols="2,1,1,2,4,1"]
-|===
-| Field Name| Required| Nullable | Type| Description | Format
-
-| use_before
-| X
-| 
-|   List   of <<AbilityDetail_pokemon_inner_pokemon>>
-| 
-|     
-
-| use_after
-| X
-| 
-|   List   of <<AbilityDetail_pokemon_inner_pokemon>>
-| 
-|     
-
-|===
-
-
-
-[#MoveDetailEffectChangesInner]
-=== _MoveDetailEffectChangesInner_ 
-
-
-
-
-[.fields-MoveDetailEffectChangesInner]
-[cols="2,1,1,2,4,1"]
-|===
-| Field Name| Required| Nullable | Type| Description | Format
-
-| effect_entries
-| X
-| 
-|   List   of <<MoveDetail_effect_changes_inner_effect_entries_inner>>
-| 
-|     
 
 | version_group
 | X
 | 
-| <<AbilityDetail_pokemon_inner_pokemon>>    
+| <<VersionGroupSummary>>    
+| The version group in which the previous effect of this ability originated.
+|     
+
+| effect_entries
+| X
 | 
+|   List   of <<MoveEffectChangeEffectText>>
+| The previous effect of this ability listed in different languages.
 |     
 
 |===
 
 
 
-[#MoveDetailEffectChangesInnerEffectEntriesInner]
-=== _MoveDetailEffectChangesInnerEffectEntriesInner_ 
+[#MoveEffectChangeEffectText]
+=== _MoveEffectChangeEffectText_ 
 
 
 
 
-[.fields-MoveDetailEffectChangesInnerEffectEntriesInner]
+[.fields-MoveEffectChangeEffectText]
 [cols="2,1,1,2,4,1"]
 |===
 | Field Name| Required| Nullable | Type| Description | Format
@@ -12961,94 +13285,50 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The localized effect text for an API resource in a specific language.
 |     
 
 | language
 | X
 | 
-| <<AbilityDetail_pokemon_inner_pokemon>>    
-| 
+| <<LanguageSummary>>    
+| The language this effect is in.
 |     
 
 |===
 
 
 
-[#MoveDetailMachinesInner]
-=== _MoveDetailMachinesInner_ 
+[#MoveEffectEffectText]
+=== _MoveEffectEffectText_ 
 
 
 
 
-[.fields-MoveDetailMachinesInner]
+[.fields-MoveEffectEffectText]
 [cols="2,1,1,2,4,1"]
 |===
 | Field Name| Required| Nullable | Type| Description | Format
 
-| machine
+| effect
 | X
 | 
-| <<MoveDetail_machines_inner_machine>>    
-| 
+|   String  
+| The localized effect text for an API resource in a specific language.
 |     
 
-| version_group
+| short_effect
 | X
 | 
-| <<AbilityDetail_pokemon_inner_pokemon>>    
-| 
+|   String  
+| The localized effect text in brief.
 |     
 
-|===
-
-
-
-[#MoveDetailMachinesInnerMachine]
-=== _MoveDetailMachinesInnerMachine_ 
-
-
-
-
-[.fields-MoveDetailMachinesInnerMachine]
-[cols="2,1,1,2,4,1"]
-|===
-| Field Name| Required| Nullable | Type| Description | Format
-
-| url
+| language
 | X
 | 
-|   URI  
-| 
-| uri    
-
-|===
-
-
-
-[#MoveDetailStatChangesInner]
-=== _MoveDetailStatChangesInner_ 
-
-
-
-
-[.fields-MoveDetailStatChangesInner]
-[cols="2,1,1,2,4,1"]
-|===
-| Field Name| Required| Nullable | Type| Description | Format
-
-| change
-| X
-| 
-|   Integer  
-| 
-| int32    
-
-| stat
-| X
-| 
-| <<AbilityDetail_pokemon_inner_pokemon>>    
-| 
+| <<LanguageSummary>>    
+| The language this effect is in.
 |     
 
 |===
@@ -13070,21 +13350,21 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The localized flavor text for an api resource in a specific language.
 |     
 
 | language
 | X
 | 
 | <<LanguageSummary>>    
-| 
+| The language this name is in.
 |     
 
 | version_group
 | X
 | 
 | <<VersionGroupSummary>>    
-| 
+| The version group that uses this flavor text.
 |     
 
 |===
@@ -13106,14 +13386,14 @@ endif::internal-generation[]
 | 
 | 
 |   String  
-| 
+| The localized description for an API resource in a specific language.
 |     
 
 | language
 | X
 | 
 | <<LanguageSummary>>    
-| 
+| The language this name is in.
 |     
 
 |===
@@ -13135,35 +13415,35 @@ endif::internal-generation[]
 | X
 | 
 |   Integer  
-| 
+| The identifier for this resource.
 |     
 
 | name
 | X
 | 
 |   String  
-| 
+| The name for this resource.
 |     
 
 | names
 | X
 | 
 |   List   of <<MoveLearnMethodName>>
-| 
+| The name of this resource listed in different languages.
 |     
 
 | descriptions
 | X
 | 
 |   List   of <<MoveLearnMethodDescription>>
-| 
+| The description of this resource listed in different languages.
 |     
 
 | version_groups
 | X
 | 
-|   List   of <<AbilityDetail_pokemon_inner_pokemon>>
-| 
+|   List   of <<VersionGroupSummary>>
+| A list of version groups where moves can be learned through this method.
 |     
 
 |===
@@ -13185,14 +13465,14 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The localized name for an API resource in a specific language.
 |     
 
 | language
 | X
 | 
 | <<LanguageSummary>>    
-| 
+| The language this name is in.
 |     
 
 |===
@@ -13214,14 +13494,14 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The name of the referenced resource.
 |     
 
 | url
 | X
 | 
 |   URI  
-| 
+| The URL of the referenced resource.
 | uri    
 
 |===
@@ -13243,84 +13523,84 @@ endif::internal-generation[]
 | X
 | 
 | <<MoveMetaAilmentSummary>>    
-| 
+| The status ailment this move inflicts on its target.
 |     
 
 | category
 | X
 | 
 | <<MoveMetaCategorySummary>>    
-| 
+| The category of move this move falls under, e.g. damage or ailment.
 |     
 
 | min_hits
 | 
 | X
 |   Integer  
-| 
+| The minimum number of times this move hits. Null if it always only hits once.
 |     
 
 | max_hits
 | 
 | X
 |   Integer  
-| 
+| The maximum number of times this move hits. Null if it always only hits once.
 |     
 
 | min_turns
 | 
 | X
 |   Integer  
-| 
+| The minimum number of turns this move continues to take effect. Null if it always only lasts one turn.
 |     
 
 | max_turns
 | 
 | X
 |   Integer  
-| 
+| The maximum number of turns this move continues to take effect. Null if it always only lasts one turn.
 |     
 
 | drain
 | 
 | X
 |   Integer  
-| 
+| HP drain (if positive) or Recoil damage (if negative), in percent of damage done.
 |     
 
 | healing
 | 
 | X
 |   Integer  
-| 
+| The amount of hp gained by the attacking Pokemon, in percent of it&#39;s maximum HP.
 |     
 
 | crit_rate
 | 
 | X
 |   Integer  
-| 
+| Critical hit rate bonus.
 |     
 
 | ailment_chance
 | 
 | X
 |   Integer  
-| 
+| The likelihood this attack will cause an ailment.
 |     
 
 | flinch_chance
 | 
 | X
 |   Integer  
-| 
+| The likelihood this attack will cause the target Pokémon to flinch.
 |     
 
 | stat_chance
 | 
 | X
 |   Integer  
-| 
+| The likelihood this attack will cause a stat change in the target Pokémon.
 |     
 
 |===
@@ -13342,28 +13622,28 @@ endif::internal-generation[]
 | X
 | 
 |   Integer  
-| 
+| The identifier for this resource.
 |     
 
 | name
 | X
 | 
 |   String  
-| 
+| The name for this resource.
 |     
 
 | moves
 | X
 | 
-|   List   of <<AbilityDetail_pokemon_inner_pokemon>>
-| 
+|   List   of <<MoveSummary>>
+| A list of moves that cause this ailment.
 |     
 
 | names
 | X
 | 
 |   List   of <<MoveMetaAilmentName>>
-| 
+| The name of this resource listed in different languages.
 |     
 
 |===
@@ -13385,14 +13665,14 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The localized name for an API resource in a specific language.
 |     
 
 | language
 | X
 | 
 | <<LanguageSummary>>    
-| 
+| The language this name is in.
 |     
 
 |===
@@ -13414,14 +13694,14 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The name of the referenced resource.
 |     
 
 | url
 | X
 | 
 |   URI  
-| 
+| The URL of the referenced resource.
 | uri    
 
 |===
@@ -13443,14 +13723,14 @@ endif::internal-generation[]
 | 
 | 
 |   String  
-| 
+| The localized description for an API resource in a specific language.
 |     
 
 | language
 | X
 | 
 | <<LanguageSummary>>    
-| 
+| The language this name is in.
 |     
 
 |===
@@ -13472,28 +13752,28 @@ endif::internal-generation[]
 | X
 | 
 |   Integer  
-| 
+| The identifier for this resource.
 |     
 
 | name
 | X
 | 
 |   String  
-| 
+| The name for this resource.
 |     
 
 | descriptions
 | X
 | 
 |   List   of <<MoveMetaCategoryDescription>>
-| 
+| The description of this resource listed in different languages.
 |     
 
 | moves
 | X
 | 
-|   List   of <<AbilityDetail_pokemon_inner_pokemon>>
-| 
+|   List   of <<MoveSummary>>
+| A list of moves that fall into this category.
 |     
 
 |===
@@ -13515,15 +13795,44 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The name of the referenced resource.
 |     
 
 | url
 | X
 | 
 |   URI  
-| 
+| The URL of the referenced resource.
 | uri    
+
+|===
+
+
+
+[#MoveMetaStatChange]
+=== _MoveMetaStatChange_ 
+
+
+
+
+[.fields-MoveMetaStatChange]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| change
+| X
+| 
+|   Integer  
+| The amount of change.
+|     
+
+| stat
+| X
+| 
+| <<StatSummary>>    
+| The stat being affected.
+|     
 
 |===
 
@@ -13544,14 +13853,43 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The localized name for an API resource in a specific language.
 |     
 
 | language
 | X
 | 
 | <<LanguageSummary>>    
+| The language this name is in.
+|     
+
+|===
+
+
+
+[#MoveStatChange]
+=== _MoveStatChange_ 
+
+
+
+
+[.fields-MoveStatChange]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| change
+| X
 | 
+|   Integer  
+| The maximum amount of change to the referenced stat.
+|     
+
+| move
+| X
+| 
+| <<MoveSummary>>    
+| The move causing the change.
 |     
 
 |===
@@ -13573,14 +13911,14 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The name of the referenced resource.
 |     
 
 | url
 | X
 | 
 |   URI  
-| 
+| The URL of the referenced resource.
 | uri    
 
 |===
@@ -13602,14 +13940,14 @@ endif::internal-generation[]
 | 
 | 
 |   String  
-| 
+| The localized description for an API resource in a specific language.
 |     
 
 | language
 | X
 | 
 | <<LanguageSummary>>    
-| 
+| The language this name is in.
 |     
 
 |===
@@ -13631,35 +13969,35 @@ endif::internal-generation[]
 | X
 | 
 |   Integer  
-| 
+| The identifier for this resource.
 |     
 
 | name
 | X
 | 
 |   String  
-| 
+| The name for this resource.
 |     
 
 | descriptions
 | X
 | 
 |   List   of <<MoveTargetDescription>>
-| 
+| The description of this resource listed in different languages.
 |     
 
 | moves
 | X
 | 
 |   List   of <<MoveSummary>>
-| 
+| A list of moves that that are directed at this target.
 |     
 
 | names
 | X
 | 
 |   List   of <<MoveTargetName>>
-| 
+| The name of this resource listed in different languages.
 |     
 
 |===
@@ -13681,14 +14019,14 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The localized name for an API resource in a specific language.
 |     
 
 | language
 | X
 | 
 | <<LanguageSummary>>    
-| 
+| The language this name is in.
 |     
 
 |===
@@ -13710,14 +14048,14 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The name of the referenced resource.
 |     
 
 | url
 | X
 | 
 |   URI  
-| 
+| The URL of the referenced resource.
 | uri    
 
 |===
@@ -13739,21 +14077,21 @@ endif::internal-generation[]
 | X
 | 
 |   Integer  
-| 
+| Chance of using the move, in percent, if HP is under one half.
 |     
 
 | high_hp_preference
 | X
 | 
 |   Integer  
-| 
+| Chance of using the move, in percent, if HP is over one half.
 |     
 
 | move_battle_style
 | X
 | 
 | <<MoveBattleStyleSummary>>    
-| 
+| The move battle style.
 |     
 
 |===
@@ -13775,99 +14113,63 @@ endif::internal-generation[]
 | X
 | 
 |   Integer  
-| 
+| The identifier for this resource.
 |     
 
 | name
 | X
 | 
 |   String  
-| 
+| The name for this resource.
 |     
 
 | decreased_stat
 | X
-| 
+| X
 | <<StatSummary>>    
-| 
+| The stat decreased by 10% in Pokémon with this nature.
 |     
 
 | increased_stat
 | X
-| 
+| X
 | <<StatSummary>>    
-| 
+| The stat increased by 10% in Pokémon with this nature.
 |     
 
 | likes_flavor
 | X
-| 
+| X
 | <<BerryFlavorSummary>>    
-| 
+| The flavor liked by Pokémon with this nature.
 |     
 
 | hates_flavor
 | X
-| 
-| <<BerryFlavorSummary>>    
-| 
-|     
-
-| berries
 | X
-| 
-|   List   of <<BerrySummary>>
-| 
+| <<BerryFlavorSummary>>    
+| The flavor hated by Pokémon with this nature.
 |     
 
 | pokeathlon_stat_changes
 | X
 | 
-|   List   of <<NatureDetail_pokeathlon_stat_changes_inner>>
-| 
+|   List   of <<NaturePokeathlonStat>>
+| A list of Pokéathlon stats this nature effects and how much it effects them.
 |     
 
 | move_battle_style_preferences
 | X
 | 
 |   List   of <<NatureBattleStylePreference>>
-| 
+| A list of battle styles and how likely a Pokémon with this nature is to use them in the Battle Palace or Battle Tent.
 |     
 
 | names
 | X
 | 
 |   List   of <<NatureName>>
-| 
-|     
-
-|===
-
-
-
-[#NatureDetailPokeathlonStatChangesInner]
-=== _NatureDetailPokeathlonStatChangesInner_ 
-
-
-
-
-[.fields-NatureDetailPokeathlonStatChangesInner]
-[cols="2,1,1,2,4,1"]
-|===
-| Field Name| Required| Nullable | Type| Description | Format
-
-| max_change
-| X
-| 
-|   Integer  
-| 
-| int32    
-
-| pokeathlon_stat
-| X
-| 
-| <<AbilityDetail_pokemon_inner_pokemon>>    
-| 
+| The name of this resource listed in different languages.
 |     
 
 |===
@@ -13889,14 +14191,43 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The localized name for an API resource in a specific language.
 |     
 
 | language
 | X
 | 
 | <<LanguageSummary>>    
+| The language this name is in.
+|     
+
+|===
+
+
+
+[#NaturePokeathlonStat]
+=== _NaturePokeathlonStat_ 
+
+
+
+
+[.fields-NaturePokeathlonStat]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| max_change
+| X
 | 
+|   Integer  
+| The amount of change.
+|     
+
+| pokeathlon_stat
+| X
+| 
+| <<PokeathlonStatSummary>>    
+| The stat being affected.
 |     
 
 |===
@@ -13918,14 +14249,14 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The name of the referenced resource.
 |     
 
 | url
 | X
 | 
 |   URI  
-| 
+| The URL of the referenced resource.
 | uri    
 
 |===
@@ -13944,31 +14275,31 @@ endif::internal-generation[]
 | Field Name| Required| Nullable | Type| Description | Format
 
 | count
-| 
+| X
 | 
 |   Integer  
-| 
+| The total number of resources available from this API.
 |     
 
 | next
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the next page in the list, or null if there is no next page.
 | uri    
 
 | previous
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the previous page in the list, or null if there is no previous page.
 | uri    
 
 | results
-| 
+| X
 | 
 |   List   of <<AbilitySummary>>
-| 
+| A list of API resources on this page.
 |     
 
 |===
@@ -13987,31 +14318,31 @@ endif::internal-generation[]
 | Field Name| Required| Nullable | Type| Description | Format
 
 | count
-| 
+| X
 | 
 |   Integer  
-| 
+| The total number of resources available from this API.
 |     
 
 | next
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the next page in the list, or null if there is no next page.
 | uri    
 
 | previous
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the previous page in the list, or null if there is no previous page.
 | uri    
 
 | results
-| 
+| X
 | 
 |   List   of <<BerryFirmnessSummary>>
-| 
+| A list of API resources on this page.
 |     
 
 |===
@@ -14030,31 +14361,31 @@ endif::internal-generation[]
 | Field Name| Required| Nullable | Type| Description | Format
 
 | count
-| 
+| X
 | 
 |   Integer  
-| 
+| The total number of resources available from this API.
 |     
 
 | next
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the next page in the list, or null if there is no next page.
 | uri    
 
 | previous
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the previous page in the list, or null if there is no previous page.
 | uri    
 
 | results
-| 
+| X
 | 
 |   List   of <<BerryFlavorSummary>>
-| 
+| A list of API resources on this page.
 |     
 
 |===
@@ -14073,31 +14404,31 @@ endif::internal-generation[]
 | Field Name| Required| Nullable | Type| Description | Format
 
 | count
-| 
+| X
 | 
 |   Integer  
-| 
+| The total number of resources available from this API.
 |     
 
 | next
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the next page in the list, or null if there is no next page.
 | uri    
 
 | previous
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the previous page in the list, or null if there is no previous page.
 | uri    
 
 | results
-| 
+| X
 | 
 |   List   of <<BerrySummary>>
-| 
+| A list of API resources on this page.
 |     
 
 |===
@@ -14116,31 +14447,31 @@ endif::internal-generation[]
 | Field Name| Required| Nullable | Type| Description | Format
 
 | count
-| 
+| X
 | 
 |   Integer  
-| 
+| The total number of resources available from this API.
 |     
 
 | next
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the next page in the list, or null if there is no next page.
 | uri    
 
 | previous
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the previous page in the list, or null if there is no previous page.
 | uri    
 
 | results
-| 
+| X
 | 
 |   List   of <<CharacteristicSummary>>
-| 
+| A list of API resources on this page.
 |     
 
 |===
@@ -14159,31 +14490,31 @@ endif::internal-generation[]
 | Field Name| Required| Nullable | Type| Description | Format
 
 | count
-| 
+| X
 | 
 |   Integer  
-| 
+| The total number of resources available from this API.
 |     
 
 | next
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the next page in the list, or null if there is no next page.
 | uri    
 
 | previous
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the previous page in the list, or null if there is no previous page.
 | uri    
 
 | results
-| 
+| X
 | 
 |   List   of <<ContestEffectSummary>>
-| 
+| A list of API resources on this page.
 |     
 
 |===
@@ -14202,31 +14533,74 @@ endif::internal-generation[]
 | Field Name| Required| Nullable | Type| Description | Format
 
 | count
-| 
+| X
 | 
 |   Integer  
-| 
+| The total number of resources available from this API.
 |     
 
 | next
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the next page in the list, or null if there is no next page.
 | uri    
 
 | previous
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the previous page in the list, or null if there is no previous page.
 | uri    
 
 | results
-| 
+| X
 | 
 |   List   of <<ContestTypeSummary>>
+| A list of API resources on this page.
+|     
+
+|===
+
+
+
+[#PaginatedCurrencySummaryList]
+=== _PaginatedCurrencySummaryList_ 
+
+
+
+
+[.fields-PaginatedCurrencySummaryList]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| count
+| X
 | 
+|   Integer  
+| The total number of resources available from this API.
+|     
+
+| next
+| 
+| X
+|   URI  
+| The URL for the next page in the list, or null if there is no next page.
+| uri    
+
+| previous
+| 
+| X
+|   URI  
+| The URL for the previous page in the list, or null if there is no previous page.
+| uri    
+
+| results
+| X
+| 
+|   List   of <<CurrencySummary>>
+| A list of API resources on this page.
 |     
 
 |===
@@ -14245,31 +14619,31 @@ endif::internal-generation[]
 | Field Name| Required| Nullable | Type| Description | Format
 
 | count
-| 
+| X
 | 
 |   Integer  
-| 
+| The total number of resources available from this API.
 |     
 
 | next
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the next page in the list, or null if there is no next page.
 | uri    
 
 | previous
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the previous page in the list, or null if there is no previous page.
 | uri    
 
 | results
-| 
+| X
 | 
 |   List   of <<EggGroupSummary>>
-| 
+| A list of API resources on this page.
 |     
 
 |===
@@ -14288,31 +14662,31 @@ endif::internal-generation[]
 | Field Name| Required| Nullable | Type| Description | Format
 
 | count
-| 
+| X
 | 
 |   Integer  
-| 
+| The total number of resources available from this API.
 |     
 
 | next
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the next page in the list, or null if there is no next page.
 | uri    
 
 | previous
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the previous page in the list, or null if there is no previous page.
 | uri    
 
 | results
-| 
+| X
 | 
 |   List   of <<EncounterConditionSummary>>
-| 
+| A list of API resources on this page.
 |     
 
 |===
@@ -14331,31 +14705,31 @@ endif::internal-generation[]
 | Field Name| Required| Nullable | Type| Description | Format
 
 | count
-| 
+| X
 | 
 |   Integer  
-| 
+| The total number of resources available from this API.
 |     
 
 | next
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the next page in the list, or null if there is no next page.
 | uri    
 
 | previous
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the previous page in the list, or null if there is no previous page.
 | uri    
 
 | results
-| 
+| X
 | 
 |   List   of <<EncounterConditionValueSummary>>
-| 
+| A list of API resources on this page.
 |     
 
 |===
@@ -14374,31 +14748,31 @@ endif::internal-generation[]
 | Field Name| Required| Nullable | Type| Description | Format
 
 | count
-| 
+| X
 | 
 |   Integer  
-| 
+| The total number of resources available from this API.
 |     
 
 | next
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the next page in the list, or null if there is no next page.
 | uri    
 
 | previous
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the previous page in the list, or null if there is no previous page.
 | uri    
 
 | results
-| 
+| X
 | 
 |   List   of <<EncounterMethodSummary>>
-| 
+| A list of API resources on this page.
 |     
 
 |===
@@ -14417,31 +14791,31 @@ endif::internal-generation[]
 | Field Name| Required| Nullable | Type| Description | Format
 
 | count
-| 
+| X
 | 
 |   Integer  
-| 
+| The total number of resources available from this API.
 |     
 
 | next
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the next page in the list, or null if there is no next page.
 | uri    
 
 | previous
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the previous page in the list, or null if there is no previous page.
 | uri    
 
 | results
-| 
+| X
 | 
 |   List   of <<EvolutionChainSummary>>
-| 
+| A list of API resources on this page.
 |     
 
 |===
@@ -14460,31 +14834,74 @@ endif::internal-generation[]
 | Field Name| Required| Nullable | Type| Description | Format
 
 | count
-| 
+| X
 | 
 |   Integer  
-| 
+| The total number of resources available from this API.
 |     
 
 | next
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the next page in the list, or null if there is no next page.
 | uri    
 
 | previous
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the previous page in the list, or null if there is no previous page.
 | uri    
 
 | results
-| 
+| X
 | 
 |   List   of <<EvolutionTriggerSummary>>
+| A list of API resources on this page.
+|     
+
+|===
+
+
+
+[#PaginatedEvolutionVariableSummaryList]
+=== _PaginatedEvolutionVariableSummaryList_ 
+
+
+
+
+[.fields-PaginatedEvolutionVariableSummaryList]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| count
+| X
 | 
+|   Integer  
+| The total number of resources available from this API.
+|     
+
+| next
+| 
+| X
+|   URI  
+| The URL for the next page in the list, or null if there is no next page.
+| uri    
+
+| previous
+| 
+| X
+|   URI  
+| The URL for the previous page in the list, or null if there is no previous page.
+| uri    
+
+| results
+| X
+| 
+|   List   of <<EvolutionVariableSummary>>
+| A list of API resources on this page.
 |     
 
 |===
@@ -14503,31 +14920,31 @@ endif::internal-generation[]
 | Field Name| Required| Nullable | Type| Description | Format
 
 | count
-| 
+| X
 | 
 |   Integer  
-| 
+| The total number of resources available from this API.
 |     
 
 | next
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the next page in the list, or null if there is no next page.
 | uri    
 
 | previous
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the previous page in the list, or null if there is no previous page.
 | uri    
 
 | results
-| 
+| X
 | 
 |   List   of <<GenderSummary>>
-| 
+| A list of API resources on this page.
 |     
 
 |===
@@ -14546,31 +14963,31 @@ endif::internal-generation[]
 | Field Name| Required| Nullable | Type| Description | Format
 
 | count
-| 
+| X
 | 
 |   Integer  
-| 
+| The total number of resources available from this API.
 |     
 
 | next
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the next page in the list, or null if there is no next page.
 | uri    
 
 | previous
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the previous page in the list, or null if there is no previous page.
 | uri    
 
 | results
-| 
+| X
 | 
 |   List   of <<GenerationSummary>>
-| 
+| A list of API resources on this page.
 |     
 
 |===
@@ -14589,31 +15006,31 @@ endif::internal-generation[]
 | Field Name| Required| Nullable | Type| Description | Format
 
 | count
-| 
+| X
 | 
 |   Integer  
-| 
+| The total number of resources available from this API.
 |     
 
 | next
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the next page in the list, or null if there is no next page.
 | uri    
 
 | previous
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the previous page in the list, or null if there is no previous page.
 | uri    
 
 | results
-| 
+| X
 | 
 |   List   of <<GrowthRateSummary>>
-| 
+| A list of API resources on this page.
 |     
 
 |===
@@ -14632,31 +15049,31 @@ endif::internal-generation[]
 | Field Name| Required| Nullable | Type| Description | Format
 
 | count
-| 
+| X
 | 
 |   Integer  
-| 
+| The total number of resources available from this API.
 |     
 
 | next
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the next page in the list, or null if there is no next page.
 | uri    
 
 | previous
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the previous page in the list, or null if there is no previous page.
 | uri    
 
 | results
-| 
+| X
 | 
 |   List   of <<ItemAttributeSummary>>
-| 
+| A list of API resources on this page.
 |     
 
 |===
@@ -14675,31 +15092,31 @@ endif::internal-generation[]
 | Field Name| Required| Nullable | Type| Description | Format
 
 | count
-| 
+| X
 | 
 |   Integer  
-| 
+| The total number of resources available from this API.
 |     
 
 | next
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the next page in the list, or null if there is no next page.
 | uri    
 
 | previous
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the previous page in the list, or null if there is no previous page.
 | uri    
 
 | results
-| 
+| X
 | 
 |   List   of <<ItemCategorySummary>>
-| 
+| A list of API resources on this page.
 |     
 
 |===
@@ -14718,31 +15135,31 @@ endif::internal-generation[]
 | Field Name| Required| Nullable | Type| Description | Format
 
 | count
-| 
+| X
 | 
 |   Integer  
-| 
+| The total number of resources available from this API.
 |     
 
 | next
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the next page in the list, or null if there is no next page.
 | uri    
 
 | previous
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the previous page in the list, or null if there is no previous page.
 | uri    
 
 | results
-| 
+| X
 | 
 |   List   of <<ItemFlingEffectSummary>>
-| 
+| A list of API resources on this page.
 |     
 
 |===
@@ -14761,31 +15178,31 @@ endif::internal-generation[]
 | Field Name| Required| Nullable | Type| Description | Format
 
 | count
-| 
+| X
 | 
 |   Integer  
-| 
+| The total number of resources available from this API.
 |     
 
 | next
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the next page in the list, or null if there is no next page.
 | uri    
 
 | previous
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the previous page in the list, or null if there is no previous page.
 | uri    
 
 | results
-| 
+| X
 | 
 |   List   of <<ItemPocketSummary>>
-| 
+| A list of API resources on this page.
 |     
 
 |===
@@ -14804,31 +15221,31 @@ endif::internal-generation[]
 | Field Name| Required| Nullable | Type| Description | Format
 
 | count
-| 
+| X
 | 
 |   Integer  
-| 
+| The total number of resources available from this API.
 |     
 
 | next
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the next page in the list, or null if there is no next page.
 | uri    
 
 | previous
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the previous page in the list, or null if there is no previous page.
 | uri    
 
 | results
-| 
+| X
 | 
 |   List   of <<ItemSummary>>
-| 
+| A list of API resources on this page.
 |     
 
 |===
@@ -14847,31 +15264,31 @@ endif::internal-generation[]
 | Field Name| Required| Nullable | Type| Description | Format
 
 | count
-| 
+| X
 | 
 |   Integer  
-| 
+| The total number of resources available from this API.
 |     
 
 | next
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the next page in the list, or null if there is no next page.
 | uri    
 
 | previous
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the previous page in the list, or null if there is no previous page.
 | uri    
 
 | results
-| 
+| X
 | 
 |   List   of <<LanguageSummary>>
-| 
+| A list of API resources on this page.
 |     
 
 |===
@@ -14890,31 +15307,31 @@ endif::internal-generation[]
 | Field Name| Required| Nullable | Type| Description | Format
 
 | count
-| 
+| X
 | 
 |   Integer  
-| 
+| The total number of resources available from this API.
 |     
 
 | next
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the next page in the list, or null if there is no next page.
 | uri    
 
 | previous
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the previous page in the list, or null if there is no previous page.
 | uri    
 
 | results
-| 
+| X
 | 
 |   List   of <<LocationAreaSummary>>
-| 
+| A list of API resources on this page.
 |     
 
 |===
@@ -14933,31 +15350,31 @@ endif::internal-generation[]
 | Field Name| Required| Nullable | Type| Description | Format
 
 | count
-| 
+| X
 | 
 |   Integer  
-| 
+| The total number of resources available from this API.
 |     
 
 | next
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the next page in the list, or null if there is no next page.
 | uri    
 
 | previous
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the previous page in the list, or null if there is no previous page.
 | uri    
 
 | results
-| 
+| X
 | 
 |   List   of <<LocationSummary>>
-| 
+| A list of API resources on this page.
 |     
 
 |===
@@ -14976,31 +15393,31 @@ endif::internal-generation[]
 | Field Name| Required| Nullable | Type| Description | Format
 
 | count
-| 
+| X
 | 
 |   Integer  
-| 
+| The total number of resources available from this API.
 |     
 
 | next
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the next page in the list, or null if there is no next page.
 | uri    
 
 | previous
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the previous page in the list, or null if there is no previous page.
 | uri    
 
 | results
-| 
+| X
 | 
 |   List   of <<MachineSummary>>
-| 
+| A list of API resources on this page.
 |     
 
 |===
@@ -15019,31 +15436,31 @@ endif::internal-generation[]
 | Field Name| Required| Nullable | Type| Description | Format
 
 | count
-| 
+| X
 | 
 |   Integer  
-| 
+| The total number of resources available from this API.
 |     
 
 | next
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the next page in the list, or null if there is no next page.
 | uri    
 
 | previous
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the previous page in the list, or null if there is no previous page.
 | uri    
 
 | results
-| 
+| X
 | 
 |   List   of <<MoveBattleStyleSummary>>
-| 
+| A list of API resources on this page.
 |     
 
 |===
@@ -15062,31 +15479,31 @@ endif::internal-generation[]
 | Field Name| Required| Nullable | Type| Description | Format
 
 | count
-| 
+| X
 | 
 |   Integer  
-| 
+| The total number of resources available from this API.
 |     
 
 | next
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the next page in the list, or null if there is no next page.
 | uri    
 
 | previous
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the previous page in the list, or null if there is no previous page.
 | uri    
 
 | results
-| 
+| X
 | 
 |   List   of <<MoveDamageClassSummary>>
-| 
+| A list of API resources on this page.
 |     
 
 |===
@@ -15105,31 +15522,31 @@ endif::internal-generation[]
 | Field Name| Required| Nullable | Type| Description | Format
 
 | count
-| 
+| X
 | 
 |   Integer  
-| 
+| The total number of resources available from this API.
 |     
 
 | next
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the next page in the list, or null if there is no next page.
 | uri    
 
 | previous
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the previous page in the list, or null if there is no previous page.
 | uri    
 
 | results
-| 
+| X
 | 
 |   List   of <<MoveLearnMethodSummary>>
-| 
+| A list of API resources on this page.
 |     
 
 |===
@@ -15148,31 +15565,31 @@ endif::internal-generation[]
 | Field Name| Required| Nullable | Type| Description | Format
 
 | count
-| 
+| X
 | 
 |   Integer  
-| 
+| The total number of resources available from this API.
 |     
 
 | next
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the next page in the list, or null if there is no next page.
 | uri    
 
 | previous
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the previous page in the list, or null if there is no previous page.
 | uri    
 
 | results
-| 
+| X
 | 
 |   List   of <<MoveMetaAilmentSummary>>
-| 
+| A list of API resources on this page.
 |     
 
 |===
@@ -15191,31 +15608,31 @@ endif::internal-generation[]
 | Field Name| Required| Nullable | Type| Description | Format
 
 | count
-| 
+| X
 | 
 |   Integer  
-| 
+| The total number of resources available from this API.
 |     
 
 | next
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the next page in the list, or null if there is no next page.
 | uri    
 
 | previous
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the previous page in the list, or null if there is no previous page.
 | uri    
 
 | results
-| 
+| X
 | 
 |   List   of <<MoveMetaCategorySummary>>
-| 
+| A list of API resources on this page.
 |     
 
 |===
@@ -15234,31 +15651,31 @@ endif::internal-generation[]
 | Field Name| Required| Nullable | Type| Description | Format
 
 | count
-| 
+| X
 | 
 |   Integer  
-| 
+| The total number of resources available from this API.
 |     
 
 | next
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the next page in the list, or null if there is no next page.
 | uri    
 
 | previous
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the previous page in the list, or null if there is no previous page.
 | uri    
 
 | results
-| 
+| X
 | 
 |   List   of <<MoveSummary>>
-| 
+| A list of API resources on this page.
 |     
 
 |===
@@ -15277,31 +15694,31 @@ endif::internal-generation[]
 | Field Name| Required| Nullable | Type| Description | Format
 
 | count
-| 
+| X
 | 
 |   Integer  
-| 
+| The total number of resources available from this API.
 |     
 
 | next
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the next page in the list, or null if there is no next page.
 | uri    
 
 | previous
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the previous page in the list, or null if there is no previous page.
 | uri    
 
 | results
-| 
+| X
 | 
 |   List   of <<MoveTargetSummary>>
-| 
+| A list of API resources on this page.
 |     
 
 |===
@@ -15320,31 +15737,31 @@ endif::internal-generation[]
 | Field Name| Required| Nullable | Type| Description | Format
 
 | count
-| 
+| X
 | 
 |   Integer  
-| 
+| The total number of resources available from this API.
 |     
 
 | next
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the next page in the list, or null if there is no next page.
 | uri    
 
 | previous
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the previous page in the list, or null if there is no previous page.
 | uri    
 
 | results
-| 
+| X
 | 
 |   List   of <<NatureSummary>>
-| 
+| A list of API resources on this page.
 |     
 
 |===
@@ -15363,31 +15780,31 @@ endif::internal-generation[]
 | Field Name| Required| Nullable | Type| Description | Format
 
 | count
-| 
+| X
 | 
 |   Integer  
-| 
+| The total number of resources available from this API.
 |     
 
 | next
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the next page in the list, or null if there is no next page.
 | uri    
 
 | previous
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the previous page in the list, or null if there is no previous page.
 | uri    
 
 | results
-| 
+| X
 | 
 |   List   of <<PalParkAreaSummary>>
-| 
+| A list of API resources on this page.
 |     
 
 |===
@@ -15406,31 +15823,31 @@ endif::internal-generation[]
 | Field Name| Required| Nullable | Type| Description | Format
 
 | count
-| 
+| X
 | 
 |   Integer  
-| 
+| The total number of resources available from this API.
 |     
 
 | next
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the next page in the list, or null if there is no next page.
 | uri    
 
 | previous
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the previous page in the list, or null if there is no previous page.
 | uri    
 
 | results
-| 
+| X
 | 
 |   List   of <<PokeathlonStatSummary>>
-| 
+| A list of API resources on this page.
 |     
 
 |===
@@ -15449,31 +15866,31 @@ endif::internal-generation[]
 | Field Name| Required| Nullable | Type| Description | Format
 
 | count
-| 
+| X
 | 
 |   Integer  
-| 
+| The total number of resources available from this API.
 |     
 
 | next
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the next page in the list, or null if there is no next page.
 | uri    
 
 | previous
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the previous page in the list, or null if there is no previous page.
 | uri    
 
 | results
-| 
+| X
 | 
 |   List   of <<PokedexSummary>>
-| 
+| A list of API resources on this page.
 |     
 
 |===
@@ -15492,31 +15909,31 @@ endif::internal-generation[]
 | Field Name| Required| Nullable | Type| Description | Format
 
 | count
-| 
+| X
 | 
 |   Integer  
-| 
+| The total number of resources available from this API.
 |     
 
 | next
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the next page in the list, or null if there is no next page.
 | uri    
 
 | previous
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the previous page in the list, or null if there is no previous page.
 | uri    
 
 | results
-| 
+| X
 | 
 |   List   of <<PokemonColorSummary>>
-| 
+| A list of API resources on this page.
 |     
 
 |===
@@ -15535,31 +15952,31 @@ endif::internal-generation[]
 | Field Name| Required| Nullable | Type| Description | Format
 
 | count
-| 
+| X
 | 
 |   Integer  
-| 
+| The total number of resources available from this API.
 |     
 
 | next
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the next page in the list, or null if there is no next page.
 | uri    
 
 | previous
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the previous page in the list, or null if there is no previous page.
 | uri    
 
 | results
-| 
+| X
 | 
 |   List   of <<PokemonFormSummary>>
-| 
+| A list of API resources on this page.
 |     
 
 |===
@@ -15578,31 +15995,31 @@ endif::internal-generation[]
 | Field Name| Required| Nullable | Type| Description | Format
 
 | count
-| 
+| X
 | 
 |   Integer  
-| 
+| The total number of resources available from this API.
 |     
 
 | next
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the next page in the list, or null if there is no next page.
 | uri    
 
 | previous
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the previous page in the list, or null if there is no previous page.
 | uri    
 
 | results
-| 
+| X
 | 
 |   List   of <<PokemonHabitatSummary>>
-| 
+| A list of API resources on this page.
 |     
 
 |===
@@ -15621,31 +16038,31 @@ endif::internal-generation[]
 | Field Name| Required| Nullable | Type| Description | Format
 
 | count
-| 
+| X
 | 
 |   Integer  
-| 
+| The total number of resources available from this API.
 |     
 
 | next
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the next page in the list, or null if there is no next page.
 | uri    
 
 | previous
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the previous page in the list, or null if there is no previous page.
 | uri    
 
 | results
-| 
+| X
 | 
 |   List   of <<PokemonShapeSummary>>
-| 
+| A list of API resources on this page.
 |     
 
 |===
@@ -15664,31 +16081,31 @@ endif::internal-generation[]
 | Field Name| Required| Nullable | Type| Description | Format
 
 | count
-| 
+| X
 | 
 |   Integer  
-| 
+| The total number of resources available from this API.
 |     
 
 | next
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the next page in the list, or null if there is no next page.
 | uri    
 
 | previous
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the previous page in the list, or null if there is no previous page.
 | uri    
 
 | results
-| 
+| X
 | 
 |   List   of <<PokemonSpeciesSummary>>
-| 
+| A list of API resources on this page.
 |     
 
 |===
@@ -15707,31 +16124,31 @@ endif::internal-generation[]
 | Field Name| Required| Nullable | Type| Description | Format
 
 | count
-| 
+| X
 | 
 |   Integer  
-| 
+| The total number of resources available from this API.
 |     
 
 | next
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the next page in the list, or null if there is no next page.
 | uri    
 
 | previous
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the previous page in the list, or null if there is no previous page.
 | uri    
 
 | results
-| 
+| X
 | 
 |   List   of <<PokemonSummary>>
-| 
+| A list of API resources on this page.
 |     
 
 |===
@@ -15750,31 +16167,31 @@ endif::internal-generation[]
 | Field Name| Required| Nullable | Type| Description | Format
 
 | count
-| 
+| X
 | 
 |   Integer  
-| 
+| The total number of resources available from this API.
 |     
 
 | next
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the next page in the list, or null if there is no next page.
 | uri    
 
 | previous
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the previous page in the list, or null if there is no previous page.
 | uri    
 
 | results
-| 
+| X
 | 
 |   List   of <<RegionSummary>>
-| 
+| A list of API resources on this page.
 |     
 
 |===
@@ -15793,31 +16210,31 @@ endif::internal-generation[]
 | Field Name| Required| Nullable | Type| Description | Format
 
 | count
-| 
+| X
 | 
 |   Integer  
-| 
+| The total number of resources available from this API.
 |     
 
 | next
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the next page in the list, or null if there is no next page.
 | uri    
 
 | previous
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the previous page in the list, or null if there is no previous page.
 | uri    
 
 | results
-| 
+| X
 | 
 |   List   of <<StatSummary>>
-| 
+| A list of API resources on this page.
 |     
 
 |===
@@ -15836,31 +16253,31 @@ endif::internal-generation[]
 | Field Name| Required| Nullable | Type| Description | Format
 
 | count
-| 
+| X
 | 
 |   Integer  
-| 
+| The total number of resources available from this API.
 |     
 
 | next
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the next page in the list, or null if there is no next page.
 | uri    
 
 | previous
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the previous page in the list, or null if there is no previous page.
 | uri    
 
 | results
-| 
+| X
 | 
 |   List   of <<SuperContestEffectSummary>>
-| 
+| A list of API resources on this page.
 |     
 
 |===
@@ -15879,31 +16296,31 @@ endif::internal-generation[]
 | Field Name| Required| Nullable | Type| Description | Format
 
 | count
-| 
+| X
 | 
 |   Integer  
-| 
+| The total number of resources available from this API.
 |     
 
 | next
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the next page in the list, or null if there is no next page.
 | uri    
 
 | previous
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the previous page in the list, or null if there is no previous page.
 | uri    
 
 | results
-| 
+| X
 | 
 |   List   of <<TypeSummary>>
-| 
+| A list of API resources on this page.
 |     
 
 |===
@@ -15922,31 +16339,31 @@ endif::internal-generation[]
 | Field Name| Required| Nullable | Type| Description | Format
 
 | count
-| 
+| X
 | 
 |   Integer  
-| 
+| The total number of resources available from this API.
 |     
 
 | next
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the next page in the list, or null if there is no next page.
 | uri    
 
 | previous
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the previous page in the list, or null if there is no previous page.
 | uri    
 
 | results
-| 
+| X
 | 
 |   List   of <<VersionGroupSummary>>
-| 
+| A list of API resources on this page.
 |     
 
 |===
@@ -15965,31 +16382,31 @@ endif::internal-generation[]
 | Field Name| Required| Nullable | Type| Description | Format
 
 | count
-| 
+| X
 | 
 |   Integer  
-| 
+| The total number of resources available from this API.
 |     
 
 | next
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the next page in the list, or null if there is no next page.
 | uri    
 
 | previous
 | 
-| 
+| X
 |   URI  
-| 
+| The URL for the previous page in the list, or null if there is no previous page.
 | uri    
 
 | results
-| 
+| X
 | 
 |   List   of <<VersionSummary>>
-| 
+| A list of API resources on this page.
 |     
 
 |===
@@ -16011,65 +16428,29 @@ endif::internal-generation[]
 | X
 | 
 |   Integer  
-| 
+| The identifier for this resource.
 |     
 
 | name
 | X
 | 
 |   String  
-| 
+| The name for this resource.
 |     
 
 | names
 | X
 | 
 |   List   of <<PalParkAreaName>>
-| 
+| The name of this resource listed in different languages.
 |     
 
 | pokemon_encounters
 | X
 | 
-|   List   of <<PalParkAreaDetail_pokemon_encounters_inner>>
-| 
+|   List   of <<PalParkEncounter>>
+| A list of Pokémon encountered in thi pal park area along with details.
 |     
-
-|===
-
-
-
-[#PalParkAreaDetailPokemonEncountersInner]
-=== _PalParkAreaDetailPokemonEncountersInner_ 
-
-
-
-
-[.fields-PalParkAreaDetailPokemonEncountersInner]
-[cols="2,1,1,2,4,1"]
-|===
-| Field Name| Required| Nullable | Type| Description | Format
-
-| base_score
-| X
-| 
-|   Integer  
-| 
-| int32    
-
-| pokemon-species
-| X
-| 
-| <<AbilityDetail_pokemon_inner_pokemon>>    
-| 
-|     
-
-| rate
-| X
-| 
-|   Integer  
-| 
-| int32    
 
 |===
 
@@ -16090,14 +16471,14 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The localized name for an API resource in a specific language.
 |     
 
 | language
 | X
 | 
 | <<LanguageSummary>>    
-| 
+| The language this name is in.
 |     
 
 |===
@@ -16119,15 +16500,145 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The name of the referenced resource.
 |     
 
 | url
 | X
 | 
 |   URI  
-| 
+| The URL of the referenced resource.
 | uri    
+
+|===
+
+
+
+[#PalParkEncounter]
+=== _PalParkEncounter_ 
+
+
+
+
+[.fields-PalParkEncounter]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| base_score
+| 
+| X
+|   Integer  
+| The base score given to the player when this Pokémon is caught during a pal park run.
+|     
+
+| rate
+| X
+| 
+|   Integer  
+| The base rate for encountering this Pokémon in this pal park area.
+|     
+
+| pokemon_species
+| X
+| 
+| <<PokemonSpeciesSummary>>    
+| The Pokémon species being encountered.
+|     
+
+|===
+
+
+
+[#PokeapiMetaResponse]
+=== _PokeapiMetaResponse_ 
+
+
+
+
+[.fields-PokeapiMetaResponse]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| deploy_date
+| X
+| X
+|   String  
+| The deployment time as a Unix timestamp string.
+|     
+
+| hash
+| X
+| X
+|   String  
+| The source commit hash used for this deployment.
+|     
+
+| tag
+| X
+| X
+|   String  
+| The deployment tag, or null if the deployment has no tag.
+|     
+
+|===
+
+
+
+[#PokeathlonStatAffectingNature]
+=== _PokeathlonStatAffectingNature_ 
+
+
+
+
+[.fields-PokeathlonStatAffectingNature]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| max_change
+| X
+| 
+|   Integer  
+| The maximum amount of change to the referenced Pokéathlon stat.
+|     
+
+| nature
+| X
+| 
+| <<NatureSummary>>    
+| The nature causing the change.
+|     
+
+|===
+
+
+
+[#PokeathlonStatAffectingNatures]
+=== _PokeathlonStatAffectingNatures_ 
+
+
+
+
+[.fields-PokeathlonStatAffectingNatures]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| increase
+| X
+| 
+|   List   of <<PokeathlonStatAffectingNature>>
+| A list of natures and how they change the referenced Pokéathlon stat.
+|     
+
+| decrease
+| X
+| 
+|   List   of <<PokeathlonStatAffectingNature>>
+| A list of natures and how they change the referenced Pokéathlon stat.
+|     
 
 |===
 
@@ -16148,115 +16659,28 @@ endif::internal-generation[]
 | X
 | 
 |   Integer  
-| 
+| The identifier for this resource.
 |     
 
 | name
 | X
 | 
 |   String  
-| 
+| The name for this resource.
 |     
 
 | affecting_natures
 | X
 | 
-| <<PokeathlonStatDetail_affecting_natures>>    
-| 
+| <<PokeathlonStatAffectingNatures>>    
+| A detail of natures which affect this Pokéathlon stat positively or negatively.
 |     
 
 | names
 | X
 | 
 |   List   of <<PokeathlonStatName>>
-| 
-|     
-
-|===
-
-
-
-[#PokeathlonStatDetailAffectingNatures]
-=== _PokeathlonStatDetailAffectingNatures_ 
-
-
-
-
-[.fields-PokeathlonStatDetailAffectingNatures]
-[cols="2,1,1,2,4,1"]
-|===
-| Field Name| Required| Nullable | Type| Description | Format
-
-| decrease
-| X
-| 
-|   List   of <<PokeathlonStatDetail_affecting_natures_decrease_inner>>
-| 
-|     
-
-| increase
-| X
-| 
-|   List   of <<PokeathlonStatDetail_affecting_natures_increase_inner>>
-| 
-|     
-
-|===
-
-
-
-[#PokeathlonStatDetailAffectingNaturesDecreaseInner]
-=== _PokeathlonStatDetailAffectingNaturesDecreaseInner_ 
-
-
-
-
-[.fields-PokeathlonStatDetailAffectingNaturesDecreaseInner]
-[cols="2,1,1,2,4,1"]
-|===
-| Field Name| Required| Nullable | Type| Description | Format
-
-| max_change
-| X
-| 
-|   Integer  
-| 
-| int32    
-
-| nature
-| X
-| 
-| <<AbilityDetail_pokemon_inner_pokemon>>    
-| 
-|     
-
-|===
-
-
-
-[#PokeathlonStatDetailAffectingNaturesIncreaseInner]
-=== _PokeathlonStatDetailAffectingNaturesIncreaseInner_ 
-
-
-
-
-[.fields-PokeathlonStatDetailAffectingNaturesIncreaseInner]
-[cols="2,1,1,2,4,1"]
-|===
-| Field Name| Required| Nullable | Type| Description | Format
-
-| max_change
-| X
-| 
-|   Integer  
-| 
-| int32    
-
-| nature
-| X
-| 
-| <<AbilityDetail_pokemon_inner_pokemon>>    
-| 
+| The name of this resource listed in different languages.
 |     
 
 |===
@@ -16278,14 +16702,14 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The localized name for an API resource in a specific language.
 |     
 
 | language
 | X
 | 
 | <<LanguageSummary>>    
-| 
+| The language this name is in.
 |     
 
 |===
@@ -16307,14 +16731,14 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The name of the referenced resource.
 |     
 
 | url
 | X
 | 
 |   URI  
-| 
+| The URL of the referenced resource.
 | uri    
 
 |===
@@ -16336,14 +16760,14 @@ endif::internal-generation[]
 | 
 | 
 |   String  
-| 
+| The localized description for an API resource in a specific language.
 |     
 
 | language
 | X
 | 
 | <<LanguageSummary>>    
-| 
+| The language this name is in.
 |     
 
 |===
@@ -16365,85 +16789,56 @@ endif::internal-generation[]
 | X
 | 
 |   Integer  
-| 
+| The identifier for this resource.
 |     
 
 | name
 | X
 | 
 |   String  
-| 
+| The name for this resource.
 |     
 
 | is_main_series
 | 
 | 
 |   Boolean  
-| 
+| Whether or not this Pokédex originated in the main series of the video games.
 |     
 
 | descriptions
 | X
 | 
 |   List   of <<PokedexDescription>>
-| 
+| The description of this resource listed in different languages.
 |     
 
 | names
 | X
 | 
 |   List   of <<PokedexName>>
-| 
+| The name of this resource listed in different languages.
 |     
 
 | pokemon_entries
 | X
 | 
-|   List   of <<PokedexDetail_pokemon_entries_inner>>
-| 
+|   List   of <<PokemonDexNumber>>
+| A list of Pokémon catalogued in this Pokédex and their indexes.
 |     
 
 | region
 | X
-| 
+| X
 | <<RegionSummary>>    
-| 
+| The region this Pokédex catalogues Pokémon for.
 |     
 
 | version_groups
 | X
 | 
-|   List   of <<AbilityDetail_pokemon_inner_pokemon>>
-| 
-|     
-
-|===
-
-
-
-[#PokedexDetailPokemonEntriesInner]
-=== _PokedexDetailPokemonEntriesInner_ 
-
-
-
-
-[.fields-PokedexDetailPokemonEntriesInner]
-[cols="2,1,1,2,4,1"]
-|===
-| Field Name| Required| Nullable | Type| Description | Format
-
-| entry_number
-| X
-| 
-|   Integer  
-| 
-| int32    
-
-| pokemon_species
-| X
-| 
-| <<AbilityDetail_pokemon_inner_pokemon>>    
-| 
+|   List   of <<VersionGroupSummary>>
+| A list of version groups this Pokédex is relevant to.
 |     
 
 |===
@@ -16465,14 +16860,14 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The localized name for an API resource in a specific language.
 |     
 
 | language
 | X
 | 
 | <<LanguageSummary>>    
-| 
+| The language this name is in.
 |     
 
 |===
@@ -16494,15 +16889,87 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The name of the referenced resource.
 |     
 
 | url
 | X
 | 
 |   URI  
-| 
+| The URL of the referenced resource.
 | uri    
+
+|===
+
+
+
+[#PokemonAbility]
+=== _PokemonAbility_ 
+
+
+
+
+[.fields-PokemonAbility]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| is_hidden
+| 
+| 
+|   Boolean  
+| Whether or not this is a hidden ability.
+|     
+
+| slot
+| X
+| 
+|   Integer  
+| The slot this ability occupies in this Pokémon species.
+|     
+
+| ability
+| X
+| 
+| <<AbilitySummary>>    
+| The ability the Pokémon may have.
+|     
+
+|===
+
+
+
+[#PokemonAbilityPast]
+=== _PokemonAbilityPast_ 
+
+
+
+
+[.fields-PokemonAbilityPast]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| is_hidden
+| 
+| 
+|   Boolean  
+| Whether or not this is a hidden ability.
+|     
+
+| slot
+| X
+| 
+|   Integer  
+| The slot this ability occupies in this Pokémon species.
+|     
+
+| ability
+| X
+| X
+| <<AbilitySummary>>    
+| The ability the Pokémon may have.
+|     
 
 |===
 
@@ -16523,28 +16990,28 @@ endif::internal-generation[]
 | X
 | 
 |   Integer  
-| 
+| The identifier for this resource.
 |     
 
 | name
 | X
 | 
 |   String  
-| 
+| The name for this resource.
 |     
 
 | names
 | X
 | 
 |   List   of <<PokemonColorName>>
-| 
+| The name of this resource listed in different languages.
 |     
 
 | pokemon_species
 | X
 | 
 |   List   of <<PokemonSpeciesSummary>>
-| 
+| A list of the Pokémon species that have this color.
 |     
 
 |===
@@ -16566,14 +17033,14 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The localized name for an API resource in a specific language.
 |     
 
 | language
 | X
 | 
 | <<LanguageSummary>>    
-| 
+| The language this name is in.
 |     
 
 |===
@@ -16595,15 +17062,44 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The name of the referenced resource.
 |     
 
 | url
 | X
 | 
 |   URI  
-| 
+| The URL of the referenced resource.
 | uri    
+
+|===
+
+
+
+[#PokemonCries]
+=== _PokemonCries_ 
+
+
+
+
+[.fields-PokemonCries]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| latest
+| X
+| X
+|   String  
+| The latest depiction of this Pokémon&#39;s cry.
+|     
+
+| legacy
+| X
+| X
+|   String  
+| The legacy depiction of this Pokémon&#39;s cry.
+|     
 
 |===
 
@@ -16624,408 +17120,147 @@ endif::internal-generation[]
 | X
 | 
 |   Integer  
-| 
+| The identifier for this resource.
 |     
 
 | name
 | X
 | 
 |   String  
-| 
+| The name for this resource.
 |     
 
 | base_experience
 | 
 | X
 |   Integer  
-| 
+| The base experience gained for defeating this Pokémon.
 |     
 
 | height
 | 
 | X
 |   Integer  
-| 
+| The height of this Pokémon in decimetres.
 |     
 
 | is_default
 | 
 | 
 |   Boolean  
-| 
+| Set for exactly one Pokémon used as the default for each species.
 |     
 
 | order
 | 
 | X
 |   Integer  
-| 
+| Order for sorting. Almost national order, except families are grouped together.
 |     
 
 | weight
 | 
 | X
 |   Integer  
-| 
+| The weight of this Pokémon in hectograms.
 |     
 
 | abilities
 | X
 | 
-|   List   of <<PokemonDetail_abilities_inner>>
-| 
+|   List   of <<PokemonAbility>>
+| A list of abilities this Pokémon could potentially have.
 |     
 
 | past_abilities
 | X
 | 
-|   List   of <<PokemonDetail_past_abilities_inner>>
-| 
+|   List   of <<PokemonPastAbility>>
+| A list of details showing abilities this pokémon had in previous generations
 |     
 
 | forms
 | X
 | 
 |   List   of <<PokemonFormSummary>>
-| 
+| A list of forms this Pokémon can take on.
 |     
 
 | game_indices
 | X
 | 
 |   List   of <<PokemonGameIndex>>
-| 
+| A list of game indices relevent to Pokémon item by generation.
 |     
 
 | held_items
 | X
 | 
-| <<PokemonDetail_held_items>>    
-| 
+|   List   of <<PokemonHeldItemSummary>>
+| A list of items this Pokémon may be holding when encountered.
 |     
 
 | location_area_encounters
 | X
 | 
 |   String  
-| 
+| A link to a list of location areas, as well as encounter details pertaining to specific versions.
 |     
 
 | moves
 | X
 | 
-|   List   of <<PokemonDetail_moves_inner>>
-| 
+|   List   of <<PokemonMove>>
+| A list of moves along with learn methods and level details pertaining to specific version groups.
 |     
 
 | species
 | X
 | 
 | <<PokemonSpeciesSummary>>    
-| 
+| The species this Pokémon belongs to.
 |     
 
 | sprites
 | X
 | 
-|   PokemonDetail_sprites  
-| 
+| <<PokemonSprites>>    
+| A set of sprites used to depict this Pokémon in the game. A visual representation of the various sprites can be found at &lt;a href&#x3D;&#39;https://github.com/PokeAPI/sprites#sprites&#39;&gt;PokeAPI/sprites&lt;/a&gt;
 |     
 
 | cries
 | X
 | 
-| <<PokemonDetail_cries>>    
-| 
+| <<PokemonCries>>    
+| A set of cries used to depict this Pokémon in the game. A visual representation of the various cries can be found at &lt;a href&#x3D;&#39;https://github.com/PokeAPI/cries#cries&#39;&gt;PokeAPI/cries&lt;/a&gt;
 |     
 
 | stats
 | X
 | 
 |   List   of <<PokemonStat>>
+| A list of base stat values for this Pokémon.
+|     
+
+| past_stats
+| X
 | 
+|   List   of <<PokemonPastStat>>
+| A list of details showing stats this pokémon had in previous generations
 |     
 
 | types
 | X
 | 
-|   List   of <<PokemonDetail_types_inner>>
-| 
+|   List   of <<PokemonType>>
+| A list of details showing types this Pokémon has.
 |     
 
 | past_types
 | X
 | 
-|   List   of <<PokemonDetail_past_types_inner>>
-| 
-|     
-
-|===
-
-
-
-[#PokemonDetailAbilitiesInner]
-=== _PokemonDetailAbilitiesInner_ 
-
-
-
-
-[.fields-PokemonDetailAbilitiesInner]
-[cols="2,1,1,2,4,1"]
-|===
-| Field Name| Required| Nullable | Type| Description | Format
-
-| ability
-| X
-| 
-| <<AbilityDetail_pokemon_inner_pokemon>>    
-| 
-|     
-
-| is_hidden
-| X
-| 
-|   Boolean  
-| 
-|     
-
-| slot
-| X
-| 
-|   Integer  
-| 
-| int32    
-
-|===
-
-
-
-[#PokemonDetailCries]
-=== _PokemonDetailCries_ 
-
-
-
-
-[.fields-PokemonDetailCries]
-[cols="2,1,1,2,4,1"]
-|===
-| Field Name| Required| Nullable | Type| Description | Format
-
-| latest
-| X
-| 
-|   URI  
-| 
-| uri    
-
-| legacy
-| X
-| 
-|   URI  
-| 
-| uri    
-
-|===
-
-
-
-[#PokemonDetailHeldItems]
-=== _PokemonDetailHeldItems_ 
-
-
-
-
-[.fields-PokemonDetailHeldItems]
-[cols="2,1,1,2,4,1"]
-|===
-| Field Name| Required| Nullable | Type| Description | Format
-
-| item
-| X
-| 
-| <<AbilityDetail_pokemon_inner_pokemon>>    
-| 
-|     
-
-| version_details
-| X
-| 
-|   List   of <<ItemDetail_held_by_pokemon_inner_version_details_inner>>
-| 
-|     
-
-|===
-
-
-
-[#PokemonDetailMovesInner]
-=== _PokemonDetailMovesInner_ 
-
-
-
-
-[.fields-PokemonDetailMovesInner]
-[cols="2,1,1,2,4,1"]
-|===
-| Field Name| Required| Nullable | Type| Description | Format
-
-| move
-| X
-| 
-| <<AbilityDetail_pokemon_inner_pokemon>>    
-| 
-|     
-
-| version_group_details
-| X
-| 
-|   List   of <<PokemonDetail_moves_inner_version_group_details_inner>>
-| 
-|     
-
-|===
-
-
-
-[#PokemonDetailMovesInnerVersionGroupDetailsInner]
-=== _PokemonDetailMovesInnerVersionGroupDetailsInner_ 
-
-
-
-
-[.fields-PokemonDetailMovesInnerVersionGroupDetailsInner]
-[cols="2,1,1,2,4,1"]
-|===
-| Field Name| Required| Nullable | Type| Description | Format
-
-| level_learned_at
-| X
-| 
-|   Integer  
-| 
-| int32    
-
-| move_learn_method
-| X
-| 
-| <<AbilityDetail_pokemon_inner_pokemon>>    
-| 
-|     
-
-| version_group
-| X
-| 
-| <<AbilityDetail_pokemon_inner_pokemon>>    
-| 
-|     
-
-|===
-
-
-
-[#PokemonDetailPastAbilitiesInner]
-=== _PokemonDetailPastAbilitiesInner_ 
-
-
-
-
-[.fields-PokemonDetailPastAbilitiesInner]
-[cols="2,1,1,2,4,1"]
-|===
-| Field Name| Required| Nullable | Type| Description | Format
-
-| abilities
-| X
-| 
-|   List   of <<PokemonDetail_abilities_inner>>
-| 
-|     
-
-| generation
-| X
-| 
-| <<AbilityDetail_pokemon_inner_pokemon>>    
-| 
-|     
-
-|===
-
-
-
-[#PokemonDetailPastTypesInner]
-=== _PokemonDetailPastTypesInner_ 
-
-
-
-
-[.fields-PokemonDetailPastTypesInner]
-[cols="2,1,1,2,4,1"]
-|===
-| Field Name| Required| Nullable | Type| Description | Format
-
-| generation
-| X
-| 
-| <<AbilityDetail_pokemon_inner_pokemon>>    
-| 
-|     
-
-| types
-| X
-| 
-|   List   of <<PokemonDetail_types_inner>>
-| 
-|     
-
-|===
-
-
-
-[#PokemonDetailSprites]
-=== _PokemonDetailSprites_ 
-
-
-
-
-[.fields-PokemonDetailSprites]
-[cols="2,1,1,2,4,1"]
-|===
-| Field Name| Required| Nullable | Type| Description | Format
-
-| front_default
-| 
-| 
-|   URI  
-| 
-| uri    
-
-|===
-
-
-
-[#PokemonDetailTypesInner]
-=== _PokemonDetailTypesInner_ 
-
-
-
-
-[.fields-PokemonDetailTypesInner]
-[cols="2,1,1,2,4,1"]
-|===
-| Field Name| Required| Nullable | Type| Description | Format
-
-| slot
-| X
-| 
-|   Integer  
-| 
-| int32    
-
-| type
-| X
-| 
-| <<AbilityDetail_pokemon_inner_pokemon>>    
-| 
+|   List   of <<PokemonPastType>>
+| A list of details showing types this pokémon had in previous generations
 |     
 
 |===
@@ -17047,191 +17282,403 @@ endif::internal-generation[]
 | X
 | 
 |   Integer  
-| 
+| The index number within the Pokédex.
 |     
 
 | pokedex
 | X
 | 
 | <<PokedexSummary>>    
-| 
+| The Pokédex the referenced Pokémon species can be found in.
 |     
 
 |===
 
 
 
-[#PokemonFormDetail]
-=== _PokemonFormDetail_ 
+[#PokemonDexNumber]
+=== _PokemonDexNumber_ 
 
 
 
 
-[.fields-PokemonFormDetail]
+[.fields-PokemonDexNumber]
 [cols="2,1,1,2,4,1"]
 |===
 | Field Name| Required| Nullable | Type| Description | Format
 
-| id
+| entry_number
 | X
 | 
 |   Integer  
-| 
+| The index of this Pokémon species entry within the Pokédex.
 |     
 
-| name
+| pokemon_species
 | X
 | 
-|   String  
-| 
+| <<PokemonSpeciesSummary>>    
+| The Pokémon species being encountered.
 |     
 
-| order
-| 
+|===
+
+
+
+[#PokemonEncounterDetailResponse]
+=== _PokemonEncounterDetailResponse_ 
+
+
+
+
+[.fields-PokemonEncounterDetailResponse]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| chance
 | X
+| 
 |   Integer  
-| 
+| Percent chance that this encounter will occur.
 |     
 
-| form_order
-| 
+| condition_values
 | X
-|   Integer  
 | 
+|   List   of <<EncounterConditionValueSummary>>
+| A list of condition values that must be in effect for this encounter to occur.
+|     
+
+| max_level
+| X
+| 
+|   Integer  
+| The highest level the Pokémon could be encountered at.
+|     
+
+| method
+| X
+| 
+| <<EncounterMethodSummary>>    
+| The method by which this encounter happens.
+|     
+
+| min_level
+| X
+| 
+|   Integer  
+| The lowest level the Pokémon could be encountered at.
+|     
+
+|===
+
+
+
+[#PokemonEncounterResponse]
+=== _PokemonEncounterResponse_ 
+
+
+
+
+[.fields-PokemonEncounterResponse]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| location_area
+| X
+| 
+| <<LocationAreaSummary>>    
+| The location area the referenced Pokémon can be encountered in.
+|     
+
+| version_details
+| X
+| 
+|   List   of <<PokemonEncounterVersionDetailResponse>>
+| A list of versions and encounters with the referenced Pokémon that might happen.
+|     
+
+|===
+
+
+
+[#PokemonEncounterVersionDetailResponse]
+=== _PokemonEncounterVersionDetailResponse_ 
+
+
+
+
+[.fields-PokemonEncounterVersionDetailResponse]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| version
+| X
+| 
+| <<VersionSummary>>    
+| The game version this encounter happens in.
+|     
+
+| max_chance
+| X
+| 
+|   Integer  
+| The total percentage of all encounter potential.
+|     
+
+| encounter_details
+| X
+| 
+|   List   of <<PokemonEncounterDetailResponse>>
+| A list of encounters and their specifics.
+|     
+
+|===
+
+
+
+[#PokemonEvolution]
+=== _PokemonEvolution_ 
+
+
+
+
+[.fields-PokemonEvolution]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| version_group
+| X
+| 
+| <<VersionGroupSummary>>    
+| The version group in which these evolution requirements apply.
 |     
 
 | is_default
 | 
 | 
 |   Boolean  
+| Whether the evolution is considered as the expected evolution in a main series game. Each unique Pokémon variety of a line capable of evolution should have exactly one &#39;default&#39; evolution. For example, the Meowth species has three default evolutions as there are three distinct varieties it can evolve into: Persian, Alolan Persian, and Perrserker.
+|     
+
+| item
+| X
+| X
+| <<ItemSummary>>    
+| The item required to cause evolution this into Pokémon species.
+|     
+
+| trigger
+| X
+| 
+| <<EvolutionTriggerSummary>>    
+| The type of event that triggers evolution into this Pokémon species.
+|     
+
+| gender
+| 
+| X
+|   Integer  
+| The id of the gender of the evolving Pokémon species must be in order to evolve into this Pokémon species.
+|     
+
+| held_item
+| X
+| X
+| <<ItemSummary>>    
+| The item the evolving Pokémon species must be holding during the evolution trigger event to evolve into this Pokémon species.
+|     
+
+| known_move
+| X
+| 
+| <<PokemonEvolution_known_move>>    
 | 
 |     
 
-| is_battle_only
+| known_move_type
+| X
+| 
+| <<PokemonEvolution_known_move>>    
+| 
+|     
+
+| location
+| X
+| X
+| <<LocationSummary>>    
+| The location the evolution must be triggered at.
+|     
+
+| min_level
+| 
+| X
+|   Integer  
+| The minimum required level of the evolving Pokémon species to evolve into this Pokémon species.
+|     
+
+| min_happiness
+| 
+| X
+|   Integer  
+| The minimum required level of happiness the evolving Pokémon species to evolve into this Pokémon species.
+|     
+
+| min_beauty
+| 
+| X
+|   Integer  
+| The minimum required level of beauty the evolving Pokémon species to evolve into this Pokémon species.
+|     
+
+| min_affection
+| 
+| X
+|   Integer  
+| The minimum required level of affection the evolving Pokémon species to evolve into this Pokémon species.
+|     
+
+| near_special_rock
 | 
 | 
 |   Boolean  
-| 
+| Whether or not you need to be near a Moss Rock or Icy Rock to evolve into this Pokémon species.
 |     
 
-| is_mega
+| needs_multiplayer
 | 
 | 
 |   Boolean  
-| 
+| Whether or not multiplayer link play is needed to evolve into this Pokémon species (e.g. Union Circle).
 |     
 
-| form_name
+| needs_overworld_rain
+| 
+| 
+|   Boolean  
+| Whether or not it must be raining in the overworld to cause evolution this Pokémon species.
+|     
+
+| party_species
 | X
+| X
+| <<PokemonSpeciesSummary>>    
+| The Pokémon species that must be in the players party in order for the evolving Pokémon species to evolve into this Pokémon species.
+|     
+
+| party_type
+| X
+| X
+| <<TypeSummary>>    
+| The player must have a Pokémon of this type in their party during the evolution trigger event in order for the evolving Pokémon species to evolve into this Pokémon species.
+|     
+
+| relative_physical_stats
+| 
+| X
+|   Integer  
+| The required relation between the Pokémon&#39;s Attack and Defense stats. 1 means Attack &gt; Defense. 0 means Attack &#x3D; Defense. -1 means Attack &lt; Defense.
+|     
+
+| time_of_day
+| 
 | 
 |   String  
-| 
+| The required time of day. Day or night.
 |     
 
-| pokemon
+| trade_species
 | X
-| 
-| <<PokemonSummary>>    
-| 
+| X
+| <<PokemonSpeciesSummary>>    
+| Pokémon species for which this one must be traded.
 |     
 
-| sprites
-| X
+| turn_upside_down
 | 
-|   PokemonFormDetail_sprites  
 | 
+|   Boolean  
+| Whether or not the 3DS needs to be turned upside-down as this Pokémon levels up.
 |     
 
-| version_group
+| region
 | X
-| 
-| <<VersionGroupSummary>>    
-| 
+| X
+| <<RegionSummary>>    
+| The required region in which this evolution can occur.
 |     
 
-| form_names
+| required_pokemon_form
 | X
-| 
-|   List   of <<PokemonFormDetail_form_names_inner>>
-| 
+| X
+| <<PokemonFormSummary>>    
+| The Pokémon form required before evolving, or null if unrestricted.
 |     
 
-| names
+| evolved_pokemon_form
 | X
-| 
-|   List   of <<PokemonFormDetail_form_names_inner>>
-| 
+| X
+| <<PokemonFormSummary>>    
+| The Pokémon form produced by this evolution, or null if unspecified.
 |     
 
-| types
+| used_move
 | X
+| X
+| <<MoveSummary>>    
+| The move that must be used by the evolving Pokémon species during the evolution trigger event in order to evolve into this Pokémon species.
+|     
+
+| min_move_count
 | 
-|   List   of <<PokemonDetail_types_inner>>
+| X
+|   Integer  
+| The minimum number of times a move must be used in order to evolve into this Pokémon species.
+|     
+
+| min_steps
 | 
+| X
+|   Integer  
+| The minimum number of steps that must be taken in order to evolve into this Pokémon species.
+|     
+
+| min_damage_taken
+| 
+| X
+|   Integer  
+| The minimum amount of damage taken during the evolution trigger event in order to evolve into this Pokémon species.
+|     
+
+| allowed_natures
+| X
+| X
+|   List   of <<NatureSummary>>
+| The natures that allow this evolution, or null if unrestricted.
+|     
+
+| condition_expression
+| X
+| X
+| <<EvolutionConditionExpression>>    
+| An additional evolution condition expressed in reverse Polish notation, or null if none.
 |     
 
 |===
 
 
 
-[#PokemonFormDetailFormNamesInner]
-=== _PokemonFormDetailFormNamesInner_ 
+[#PokemonEvolutionKnownMove]
+=== _PokemonEvolutionKnownMove_ 
 
 
 
 
-[.fields-PokemonFormDetailFormNamesInner]
-[cols="2,1,1,2,4,1"]
-|===
-| Field Name| Required| Nullable | Type| Description | Format
-
-| language
-| X
-| 
-| <<AbilityDetail_pokemon_inner_pokemon>>    
-| 
-|     
-
-| name
-| X
-| 
-|   String  
-| 
-|     
-
-|===
-
-
-
-[#PokemonFormDetailSprites]
-=== _PokemonFormDetailSprites_ 
-
-
-
-
-[.fields-PokemonFormDetailSprites]
-[cols="2,1,1,2,4,1"]
-|===
-| Field Name| Required| Nullable | Type| Description | Format
-
-| default
-| 
-| 
-|   URI  
-| 
-| uri    
-
-|===
-
-
-
-[#PokemonFormSummary]
-=== _PokemonFormSummary_ 
-
-
-
-
-[.fields-PokemonFormSummary]
+[.fields-PokemonEvolutionKnownMove]
 [cols="2,1,1,2,4,1"]
 |===
 | Field Name| Required| Nullable | Type| Description | Format
@@ -17254,6 +17701,384 @@ endif::internal-generation[]
 
 
 
+[#PokemonFormDetail]
+=== _PokemonFormDetail_ 
+
+
+
+
+[.fields-PokemonFormDetail]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| id
+| X
+| 
+|   Integer  
+| The identifier for this resource.
+|     
+
+| name
+| X
+| 
+|   String  
+| The name for this resource.
+|     
+
+| order
+| 
+| X
+|   Integer  
+| The order in which forms should be sorted within all forms. Multiple forms may have equal order, in which case they should fall back on sorting by name.
+|     
+
+| form_order
+| 
+| X
+|   Integer  
+| The order in which forms should be sorted within a species&#39; forms.
+|     
+
+| is_default
+| 
+| 
+|   Boolean  
+| True for exactly one form used as the default for each Pokémon.
+|     
+
+| is_battle_only
+| 
+| 
+|   Boolean  
+| Whether or not this form can only happen during battle.
+|     
+
+| is_mega
+| 
+| 
+|   Boolean  
+| Whether or not this form requires mega evolution.
+|     
+
+| form_name
+| X
+| 
+|   String  
+| The name of this form.
+|     
+
+| pokemon
+| X
+| 
+| <<PokemonSummary>>    
+| The Pokémon that can take on this form.
+|     
+
+| sprites
+| X
+| 
+| <<PokemonFormSprites>>    
+| A set of sprites used to depict this Pokémon form in the game.
+|     
+
+| version_group
+| X
+| 
+| <<VersionGroupSummary>>    
+| The version group this Pokémon form was introduced in.
+|     
+
+| form_names
+| X
+| 
+|   List   of <<PokemonFormName>>
+| The form specific form name of this Pokémon form, or empty if the form does not have a specific name.
+|     
+
+| names
+| X
+| 
+|   List   of <<PokemonFormName>>
+| The form specific full name of this Pokémon form, or empty if the form does not have a specific name.
+|     
+
+| types
+| X
+| 
+|   List   of <<PokemonFormType>>
+| A list of details showing types this Pokémon form has.
+|     
+
+| trigger_conditions
+| X
+| 
+|   List   of <<PokemonFormTriggerCondition>>
+| The conditions that trigger this form. Resource names and URLs are included when the trigger requires a resource.
+|     
+
+| flavor_text_entries
+| X
+| 
+|   List   of <<PokemonFormFlavorText>>
+| The flavor text of this form listed in different languages and versions.
+|     
+
+|===
+
+
+
+[#PokemonFormFlavorText]
+=== _PokemonFormFlavorText_ 
+
+
+
+
+[.fields-PokemonFormFlavorText]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| flavor_text
+| X
+| 
+|   String  
+| The localized flavor text for an API resource in a specific language. Note that this text is left unprocessed as it is found in game files. This means that it contains special characters that one might want to replace with their visible decodable version. Please check out this &lt;a href&#x3D;&#39;https://github.com/veekun/pokedex/issues/218#issuecomment-339841781&#39; &gt;issue&lt;/a&gt; to find out more. 
+|     
+
+| language
+| X
+| 
+| <<LanguageSummary>>    
+| The language this name is in.
+|     
+
+| version
+| X
+| 
+| <<VersionSummary>>    
+| The game version this flavor text is extracted from.
+|     
+
+|===
+
+
+
+[#PokemonFormName]
+=== _PokemonFormName_ 
+
+
+
+
+[.fields-PokemonFormName]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| name
+| X
+| 
+|   String  
+| The localized name for an API resource in a specific language.
+|     
+
+| language
+| X
+| 
+| <<LanguageSummary>>    
+| The language this name is in.
+|     
+
+|===
+
+
+
+[#PokemonFormSprites]
+=== _PokemonFormSprites_ 
+
+
+
+
+[.fields-PokemonFormSprites]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| front_default
+| X
+| X
+|   String  
+| The default depiction of this Pokémon from the front in battle.
+|     
+
+| front_shiny
+| X
+| X
+|   String  
+| The shiny depiction of this Pokémon from the front in battle.
+|     
+
+| front_female
+| X
+| X
+|   String  
+| The female depiction of this Pokémon from the front in battle.
+|     
+
+| front_shiny_female
+| X
+| X
+|   String  
+| The shiny female depiction of this Pokémon from the front in battle.
+|     
+
+| back_default
+| X
+| X
+|   String  
+| The default depiction of this Pokémon from the back in battle.
+|     
+
+| back_shiny
+| X
+| X
+|   String  
+| The shiny depiction of this Pokémon from the back in battle.
+|     
+
+| back_female
+| X
+| X
+|   String  
+| The female depiction of this Pokémon from the back in battle.
+|     
+
+| back_shiny_female
+| X
+| X
+|   String  
+| The shiny female depiction of this Pokémon from the back in battle.
+|     
+
+| other
+| 
+| 
+| <<PokemonSpritesOther>>    
+| Additional sprites grouped by source, such as official artwork, HOME, and Showdown. Available keys vary by resource.
+|     
+
+| versions
+| 
+| 
+|   Map   of <<map>>
+| Sprites grouped by generation and game. Available keys vary by resource.
+|     
+
+|===
+
+
+
+[#PokemonFormSummary]
+=== _PokemonFormSummary_ 
+
+
+
+
+[.fields-PokemonFormSummary]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| name
+| X
+| 
+|   String  
+| The name of the referenced resource.
+|     
+
+| url
+| X
+| 
+|   URI  
+| The URL of the referenced resource.
+| uri    
+
+|===
+
+
+
+[#PokemonFormTriggerCondition]
+=== _PokemonFormTriggerCondition_ 
+
+
+
+
+[.fields-PokemonFormTriggerCondition]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| trigger
+| X
+| 
+|   String  
+| The trigger for this form change.
+|     
+
+| name
+| 
+| 
+|   String  
+| The name of the required item, ability, or move. Only present for a resource-based trigger.
+|     
+
+| url
+| 
+| 
+|   URI  
+| The URL of the required item, ability, or move. Only present for a resource-based trigger.
+| uri    
+
+| base_form
+| 
+| 
+| <<PokemonFormSummary>>    
+| The required base form. Only present when the trigger specifies one.
+|     
+
+|===
+
+
+
+[#PokemonFormType]
+=== _PokemonFormType_ 
+
+
+
+
+[.fields-PokemonFormType]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| slot
+| X
+| 
+|   Integer  
+| The order the Pokémon&#39;s types are listed in.
+|     
+
+| type
+| X
+| 
+| <<TypeSummary>>    
+| The type the referenced Form has.
+|     
+
+|===
+
+
+
 [#PokemonGameIndex]
 === _PokemonGameIndex_ 
 
@@ -17269,14 +18094,14 @@ endif::internal-generation[]
 | X
 | 
 |   Integer  
-| 
+| The internal id of an API resource within game data.
 |     
 
 | version
 | X
 | 
 | <<VersionSummary>>    
-| 
+| The version relevent to this game index.
 |     
 
 |===
@@ -17298,28 +18123,28 @@ endif::internal-generation[]
 | X
 | 
 |   Integer  
-| 
+| The identifier for this resource.
 |     
 
 | name
 | X
 | 
 |   String  
-| 
+| The name for this resource.
 |     
 
 | names
 | X
 | 
 |   List   of <<PokemonHabitatName>>
-| 
+| The name of this resource listed in different languages.
 |     
 
 | pokemon_species
 | X
 | 
 |   List   of <<PokemonSpeciesSummary>>
-| 
+| A list of the Pokémon species that can be found in this habitat.
 |     
 
 |===
@@ -17341,14 +18166,14 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The localized name for an API resource in a specific language.
 |     
 
 | language
 | X
 | 
 | <<LanguageSummary>>    
-| 
+| The language this name is in.
 |     
 
 |===
@@ -17370,15 +18195,290 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The name of the referenced resource.
 |     
 
 | url
 | X
 | 
 |   URI  
-| 
+| The URL of the referenced resource.
 | uri    
+
+|===
+
+
+
+[#PokemonHeldItem]
+=== _PokemonHeldItem_ 
+
+
+
+
+[.fields-PokemonHeldItem]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| pokemon
+| X
+| 
+| <<PokemonSummary>>    
+| The Pokémon that holds this item.
+|     
+
+| version_details
+| X
+| 
+|   List   of <<PokemonHeldItemVersion>>
+| The details for the version that this item is held in by the Pokémon.
+|     
+
+|===
+
+
+
+[#PokemonHeldItemSummary]
+=== _PokemonHeldItemSummary_ 
+
+
+
+
+[.fields-PokemonHeldItemSummary]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| item
+| X
+| 
+| <<ItemSummary>>    
+| The item the referenced Pokémon holds.
+|     
+
+| version_details
+| X
+| 
+|   List   of <<PokemonHeldItemVersion>>
+| The details of the different versions in which the item is held.
+|     
+
+|===
+
+
+
+[#PokemonHeldItemVersion]
+=== _PokemonHeldItemVersion_ 
+
+
+
+
+[.fields-PokemonHeldItemVersion]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| rarity
+| X
+| 
+|   Integer  
+| How often the item is held.
+|     
+
+| version
+| X
+| 
+| <<VersionSummary>>    
+| The version in which the item is held.
+|     
+
+|===
+
+
+
+[#PokemonMove]
+=== _PokemonMove_ 
+
+
+
+
+[.fields-PokemonMove]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| move
+| X
+| 
+| <<MoveSummary>>    
+| The move the Pokémon can learn.
+|     
+
+| version_group_details
+| X
+| 
+|   List   of <<PokemonMoveVersionGroup>>
+| The details of the version in which the Pokémon can learn the move.
+|     
+
+|===
+
+
+
+[#PokemonMoveVersionGroup]
+=== _PokemonMoveVersionGroup_ 
+
+
+
+
+[.fields-PokemonMoveVersionGroup]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| level_learned_at
+| X
+| 
+|   Integer  
+| The minimum level to learn the move.
+|     
+
+| move_learn_method
+| X
+| 
+| <<MoveLearnMethodSummary>>    
+| The method by which the move is learned.
+|     
+
+| version_group
+| X
+| 
+| <<VersionGroupSummary>>    
+| The version group in which the move is learned.
+|     
+
+| order
+| 
+| X
+|   Integer  
+| Order by which the pokemon will learn the move. A newly learnt move will replace the move with lowest order.
+|     
+
+|===
+
+
+
+[#PokemonPastAbility]
+=== _PokemonPastAbility_ 
+
+
+
+
+[.fields-PokemonPastAbility]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| abilities
+| X
+| 
+|   List   of <<PokemonAbilityPast>>
+| The abilities the referenced pokémon had up to and including the listed generation. If null, the slot was previously empty.
+|     
+
+| generation
+| X
+| 
+| <<GenerationSummary>>    
+| The last generation in which the referenced pokémon had the listed abilities.
+|     
+
+|===
+
+
+
+[#PokemonPastStat]
+=== _PokemonPastStat_ 
+
+
+
+
+[.fields-PokemonPastStat]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| generation
+| X
+| 
+| <<GenerationSummary>>    
+| The last generation in which the referenced pokémon had the listed stats.
+|     
+
+| stats
+| X
+| 
+|   List   of <<PokemonStat>>
+| The stat the Pokémon had up to and including the listed generation.
+|     
+
+|===
+
+
+
+[#PokemonPastType]
+=== _PokemonPastType_ 
+
+
+
+
+[.fields-PokemonPastType]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| generation
+| X
+| 
+| <<GenerationSummary>>    
+| The last generation in which the referenced pokémon had the listed types.
+|     
+
+| types
+| X
+| 
+|   List   of <<PokemonType>>
+| The types the referenced pokémon had up to and including the listed generation.
+|     
+
+|===
+
+
+
+[#PokemonShapeAwesomeName]
+=== _PokemonShapeAwesomeName_ 
+
+
+
+
+[.fields-PokemonShapeAwesomeName]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| awesome_name
+| X
+| 
+|   String  
+| The localized \&quot;scientific\&quot; name for an API resource in a specific language.
+|     
+
+| language
+| X
+| 
+| <<LanguageSummary>>    
+| The language this \&quot;scientific\&quot; name is in.
+|     
 
 |===
 
@@ -17399,93 +18499,64 @@ endif::internal-generation[]
 | X
 | 
 |   Integer  
-| 
+| The identifier for this resource.
 |     
 
 | name
 | X
 | 
 |   String  
-| 
+| The name for this resource.
 |     
 
 | awesome_names
 | X
 | 
-|   List   of <<PokemonShapeDetail_awesome_names_inner>>
-| 
+|   List   of <<PokemonShapeAwesomeName>>
+| The \&quot;scientific\&quot; name of this Pokémon shape listed in different languages.
 |     
 
 | names
 | X
 | 
-|   List   of <<PokemonShapeDetail_names_inner>>
-| 
+|   List   of <<PokemonShapeName>>
+| The name of this resource listed in different languages.
 |     
 
 | pokemon_species
 | X
 | 
 |   List   of <<PokemonSpeciesSummary>>
-| 
+| A list of the Pokémon species that have this shape.
 |     
 
 |===
 
 
 
-[#PokemonShapeDetailAwesomeNamesInner]
-=== _PokemonShapeDetailAwesomeNamesInner_ 
+[#PokemonShapeName]
+=== _PokemonShapeName_ 
 
 
 
 
-[.fields-PokemonShapeDetailAwesomeNamesInner]
+[.fields-PokemonShapeName]
 [cols="2,1,1,2,4,1"]
 |===
 | Field Name| Required| Nullable | Type| Description | Format
-
-| awesome_name
-| X
-| 
-|   String  
-| 
-|     
-
-| language
-| X
-| 
-| <<AbilityDetail_pokemon_inner_pokemon>>    
-| 
-|     
-
-|===
-
-
-
-[#PokemonShapeDetailNamesInner]
-=== _PokemonShapeDetailNamesInner_ 
-
-
-
-
-[.fields-PokemonShapeDetailNamesInner]
-[cols="2,1,1,2,4,1"]
-|===
-| Field Name| Required| Nullable | Type| Description | Format
-
-| url
-| X
-| 
-|   URI  
-| 
-| uri    
 
 | name
 | X
 | 
 |   String  
+| The localized name for an API resource in a specific language.
+|     
+
+| language
+| X
 | 
+| <<LanguageSummary>>    
+| The language this name is in.
 |     
 
 |===
@@ -17507,14 +18578,14 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The name of the referenced resource.
 |     
 
 | url
 | X
 | 
 |   URI  
-| 
+| The URL of the referenced resource.
 | uri    
 
 |===
@@ -17536,14 +18607,14 @@ endif::internal-generation[]
 | 
 | 
 |   String  
-| 
+| The localized description for an API resource in a specific language.
 |     
 
 | language
 | X
 | 
 | <<LanguageSummary>>    
-| 
+| The language this name is in.
 |     
 
 |===
@@ -17565,283 +18636,189 @@ endif::internal-generation[]
 | X
 | 
 |   Integer  
-| 
+| The identifier for this resource.
 |     
 
 | name
 | X
 | 
 |   String  
-| 
+| The name for this resource.
 |     
 
 | order
 | 
 | X
 |   Integer  
-| 
+| The order in which species should be sorted. Based on National Dex order, except families are grouped together and sorted by stage.
 |     
 
 | gender_rate
 | 
 | X
 |   Integer  
-| 
+| The chance of this Pokémon being female, in eighths; or -1 for genderless.
 |     
 
 | capture_rate
 | 
 | X
 |   Integer  
-| 
+| The base capture rate; up to 255. The higher the number, the easier the catch.
 |     
 
 | base_happiness
 | 
 | X
 |   Integer  
-| 
+| The happiness when caught by a normal Pokéball; up to 255. The higher the number, the happier the Pokémon.
 |     
 
 | is_baby
 | 
 | 
 |   Boolean  
-| 
+| Whether or not this is a baby Pokémon.
 |     
 
 | is_legendary
 | 
 | 
 |   Boolean  
-| 
+| Whether or not this is a legendary Pokémon.
 |     
 
 | is_mythical
 | 
 | 
 |   Boolean  
-| 
+| Whether or not this is a mythical Pokémon.
 |     
 
 | hatch_counter
 | 
 | X
 |   Integer  
-| 
+| Initial hatch counter: one must walk Y × (hatch_counter + 1) steps before this Pokémon&#39;s egg hatches, unless utilizing bonuses like Flame Body&#39;s. Y varies per generation. In Generations II, III, and VII, Egg cycles are 256 steps long. In Generation IV, Egg cycles are 255 steps long. In Pokémon Brilliant Diamond and Shining Pearl, Egg cycles are also 255 steps long, but are shorter on special dates. In Generations V and VI, Egg cycles are 257 steps long. In Pokémon Sword and Shield, and in Pokémon Scarlet and Violet, Egg cycles are 128 steps long.
 |     
 
 | has_gender_differences
 | 
 | 
 |   Boolean  
-| 
+| Whether or not this Pokémon has visual gender differences.
 |     
 
 | forms_switchable
 | 
 | 
 |   Boolean  
-| 
+| Whether or not this Pokémon has multiple forms and can switch between them.
 |     
 
 | growth_rate
 | X
 | 
 | <<GrowthRateSummary>>    
-| 
+| The rate at which this Pokémon species gains levels.
 |     
 
 | pokedex_numbers
 | X
 | 
 |   List   of <<PokemonDexEntry>>
-| 
+| A list of Pokedexes and the indexes reserved within them for this Pokémon species.
 |     
 
 | egg_groups
 | X
 | 
-|   List   of <<AbilityDetail_pokemon_inner_pokemon>>
-| 
+|   List   of <<EggGroupSummary>>
+| A list of egg groups this Pokémon species is a member of.
 |     
 
 | color
 | X
 | 
 | <<PokemonColorSummary>>    
-| 
+| The color of this Pokémon for Pokédex search.
 |     
 
 | shape
 | X
 | 
 | <<PokemonShapeSummary>>    
-| 
+| The shape of this Pokémon for Pokédex search.
 |     
 
 | evolves_from_species
 | X
-| 
+| X
 | <<PokemonSpeciesSummary>>    
-| 
+| The Pokémon species that evolves into this Pokemon_species.
 |     
 
 | evolution_chain
 | X
 | 
 | <<EvolutionChainSummary>>    
-| 
+| The evolution chain this Pokémon species is a member of.
 |     
 
 | habitat
 | X
-| 
+| X
 | <<PokemonHabitatSummary>>    
-| 
+| The habitat this Pokémon species can be encountered in.
 |     
 
 | generation
 | X
 | 
 | <<GenerationSummary>>    
-| 
+| The generation this Pokémon species was introduced in.
 |     
 
 | names
 | X
 | 
-|   List   of <<PokemonFormDetail_form_names_inner>>
-| 
+|   List   of <<PokemonSpeciesName>>
+| The name of this resource listed in different languages.
 |     
 
 | pal_park_encounters
 | X
 | 
-|   List   of <<PokemonSpeciesDetail_pal_park_encounters_inner>>
-| 
+|   List   of <<PokemonSpeciesPalParkEncounter>>
+| A list of encounters that can be had with this Pokémon species in pal park.
 |     
 
 | form_descriptions
 | X
 | 
 |   List   of <<PokemonSpeciesDescription>>
-| 
+| Descriptions of different forms Pokémon take on within the Pokémon species.
 |     
 
 | flavor_text_entries
 | X
 | 
 |   List   of <<PokemonSpeciesFlavorText>>
-| 
+| A list of flavor text entries for this Pokémon species.
 |     
 
 | genera
 | X
 | 
-|   List   of <<PokemonSpeciesDetail_genera_inner>>
-| 
+|   List   of <<PokemonSpeciesGenus>>
+| The genus of this Pokémon species listed in multiple languages.
 |     
 
 | varieties
 | X
 | 
-|   List   of <<PokemonSpeciesDetail_varieties_inner>>
-| 
-|     
-
-|===
-
-
-
-[#PokemonSpeciesDetailGeneraInner]
-=== _PokemonSpeciesDetailGeneraInner_ 
-
-
-
-
-[.fields-PokemonSpeciesDetailGeneraInner]
-[cols="2,1,1,2,4,1"]
-|===
-| Field Name| Required| Nullable | Type| Description | Format
-
-| genus
-| X
-| 
-|   String  
-| 
-|     
-
-| language
-| X
-| 
-| <<AbilityDetail_pokemon_inner_pokemon>>    
-| 
-|     
-
-|===
-
-
-
-[#PokemonSpeciesDetailPalParkEncountersInner]
-=== _PokemonSpeciesDetailPalParkEncountersInner_ 
-
-
-
-
-[.fields-PokemonSpeciesDetailPalParkEncountersInner]
-[cols="2,1,1,2,4,1"]
-|===
-| Field Name| Required| Nullable | Type| Description | Format
-
-| area
-| X
-| 
-| <<AbilityDetail_pokemon_inner_pokemon>>    
-| 
-|     
-
-| base_score
-| X
-| 
-|   Integer  
-| 
-| int32    
-
-| rate
-| X
-| 
-|   Integer  
-| 
-| int32    
-
-|===
-
-
-
-[#PokemonSpeciesDetailVarietiesInner]
-=== _PokemonSpeciesDetailVarietiesInner_ 
-
-
-
-
-[.fields-PokemonSpeciesDetailVarietiesInner]
-[cols="2,1,1,2,4,1"]
-|===
-| Field Name| Required| Nullable | Type| Description | Format
-
-| is_default
-| X
-| 
-|   Boolean  
-| 
-|     
-
-| pokemon
-| X
-| 
-| <<AbilityDetail_pokemon_inner_pokemon>>    
-| 
+|   List   of <<PokemonSpeciesVariety>>
+| A list of the Pokémon that exist within this Pokémon species.
 |     
 
 |===
@@ -17863,21 +18840,115 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The localized flavor text for an API resource in a specific language. Note that this text is left unprocessed as it is found in game files. This means that it contains special characters that one might want to replace with their visible decodable version. Please check out this &lt;a href&#x3D;&#39;https://github.com/veekun/pokedex/issues/218#issuecomment-339841781&#39; &gt;issue&lt;/a&gt; to find out more. 
 |     
 
 | language
 | X
 | 
 | <<LanguageSummary>>    
-| 
+| The language this name is in.
 |     
 
 | version
 | X
 | 
 | <<VersionSummary>>    
+| The game version this flavor text is extracted from.
+|     
+
+|===
+
+
+
+[#PokemonSpeciesGenus]
+=== _PokemonSpeciesGenus_ 
+
+
+
+
+[.fields-PokemonSpeciesGenus]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| genus
+| X
 | 
+|   String  
+| The localized genus for the referenced Pokémon species
+|     
+
+| language
+| X
+| 
+| <<LanguageSummary>>    
+| The language this genus is in.
+|     
+
+|===
+
+
+
+[#PokemonSpeciesName]
+=== _PokemonSpeciesName_ 
+
+
+
+
+[.fields-PokemonSpeciesName]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| name
+| X
+| 
+|   String  
+| The localized name for an API resource in a specific language.
+|     
+
+| language
+| X
+| 
+| <<LanguageSummary>>    
+| The language this name is in.
+|     
+
+|===
+
+
+
+[#PokemonSpeciesPalParkEncounter]
+=== _PokemonSpeciesPalParkEncounter_ 
+
+
+
+
+[.fields-PokemonSpeciesPalParkEncounter]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| base_score
+| 
+| X
+|   Integer  
+| The base score given to the player when the referenced Pokémon is caught during a pal park run.
+|     
+
+| rate
+| X
+| 
+|   Integer  
+| The base rate for encountering the referenced Pokémon in this pal park area.
+|     
+
+| area
+| X
+| 
+| <<PalParkAreaSummary>>    
+| The pal park area where this encounter happens.
 |     
 
 |===
@@ -17899,15 +18970,351 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The name of the referenced resource.
 |     
 
 | url
 | X
 | 
 |   URI  
-| 
+| The URL of the referenced resource.
 | uri    
+
+|===
+
+
+
+[#PokemonSpeciesVariety]
+=== _PokemonSpeciesVariety_ 
+
+
+
+
+[.fields-PokemonSpeciesVariety]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| is_default
+| X
+| 
+|   Boolean  
+| Whether this variety is the default variety.
+|     
+
+| pokemon
+| X
+| 
+| <<PokemonSummary>>    
+| The Pokémon variety.
+|     
+
+|===
+
+
+
+[#PokemonSprites]
+=== _PokemonSprites_ 
+
+
+
+
+[.fields-PokemonSprites]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| front_default
+| X
+| X
+|   String  
+| The default depiction of this Pokémon from the front in battle.
+|     
+
+| front_shiny
+| X
+| X
+|   String  
+| The shiny depiction of this Pokémon from the front in battle.
+|     
+
+| front_female
+| X
+| X
+|   String  
+| The female depiction of this Pokémon from the front in battle.
+|     
+
+| front_shiny_female
+| X
+| X
+|   String  
+| The shiny female depiction of this Pokémon from the front in battle.
+|     
+
+| back_default
+| X
+| X
+|   String  
+| The default depiction of this Pokémon from the back in battle.
+|     
+
+| back_shiny
+| X
+| X
+|   String  
+| The shiny depiction of this Pokémon from the back in battle.
+|     
+
+| back_female
+| X
+| X
+|   String  
+| The female depiction of this Pokémon from the back in battle.
+|     
+
+| back_shiny_female
+| X
+| X
+|   String  
+| The shiny female depiction of this Pokémon from the back in battle.
+|     
+
+| other
+| 
+| 
+| <<PokemonSpritesOther>>    
+| Additional sprites grouped by source, such as official artwork, HOME, and Showdown. Available keys vary by resource.
+|     
+
+| versions
+| 
+| 
+|   Map   of <<map>>
+| Sprites grouped by generation and game. Available keys vary by resource.
+|     
+
+|===
+
+
+
+[#PokemonSpritesOther]
+=== _PokemonSpritesOther_ 
+
+
+
+
+[.fields-PokemonSpritesOther]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| dream_world
+| 
+| 
+| <<PokemonSpritesOtherDreamWorld>>    
+| Pokémon Dream World artwork URLs.
+|     
+
+| home
+| 
+| 
+| <<PokemonSpritesOtherHome>>    
+| Pokémon HOME sprite URLs.
+|     
+
+| showdown
+| 
+| 
+| <<PokemonSpritesOtherShowdown>>    
+| Pokémon Showdown sprite URLs.
+|     
+
+| official-artwork
+| 
+| 
+| <<PokemonSpritesOtherOfficialArtwork>>    
+| Official Pokémon artwork URLs, including shiny artwork and version-specific variants.
+|     
+
+|===
+
+
+
+[#PokemonSpritesOtherDreamWorld]
+=== _PokemonSpritesOtherDreamWorld_ 
+
+
+
+
+[.fields-PokemonSpritesOtherDreamWorld]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| front_default
+| X
+| X
+|   String  
+| The URL of the default Pokémon Dream World front image, or null if unavailable.
+|     
+
+| front_female
+| X
+| X
+|   String  
+| The URL of the female Pokémon Dream World front image, or null if unavailable.
+|     
+
+|===
+
+
+
+[#PokemonSpritesOtherHome]
+=== _PokemonSpritesOtherHome_ 
+
+
+
+
+[.fields-PokemonSpritesOtherHome]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| front_default
+| X
+| X
+|   String  
+| The URL of the default Pokémon HOME front image, or null if unavailable.
+|     
+
+| front_female
+| X
+| X
+|   String  
+| The URL of the female Pokémon HOME front image, or null if unavailable.
+|     
+
+| front_shiny
+| X
+| X
+|   String  
+| The URL of the shiny Pokémon HOME front image, or null if unavailable.
+|     
+
+| front_shiny_female
+| X
+| X
+|   String  
+| The URL of the shiny female Pokémon HOME front image, or null if unavailable.
+|     
+
+|===
+
+
+
+[#PokemonSpritesOtherOfficialArtwork]
+=== _PokemonSpritesOtherOfficialArtwork_ 
+
+
+
+
+[.fields-PokemonSpritesOtherOfficialArtwork]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| front_default
+| X
+| X
+|   String  
+| The URL of the default front official artwork, or null if unavailable.
+|     
+
+| front_shiny
+| X
+| X
+|   String  
+| The URL of the shiny front official artwork, or null if unavailable.
+|     
+
+| versions
+| 
+| 
+|   Map   of <<map>>
+| Additional official artwork grouped by version. Available keys vary by resource.
+|     
+
+|===
+
+
+
+[#PokemonSpritesOtherShowdown]
+=== _PokemonSpritesOtherShowdown_ 
+
+
+
+
+[.fields-PokemonSpritesOtherShowdown]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| front_default
+| X
+| X
+|   String  
+| The URL of the default Pokémon Showdown front image, or null if unavailable.
+|     
+
+| front_female
+| X
+| X
+|   String  
+| The URL of the female Pokémon Showdown front image, or null if unavailable.
+|     
+
+| front_shiny
+| X
+| X
+|   String  
+| The URL of the shiny Pokémon Showdown front image, or null if unavailable.
+|     
+
+| front_shiny_female
+| X
+| X
+|   String  
+| The URL of the shiny female Pokémon Showdown front image, or null if unavailable.
+|     
+
+| back_default
+| X
+| X
+|   String  
+| The URL of the default Pokémon Showdown back image, or null if unavailable.
+|     
+
+| back_female
+| X
+| X
+|   String  
+| The URL of the female Pokémon Showdown back image, or null if unavailable.
+|     
+
+| back_shiny
+| X
+| X
+|   String  
+| The URL of the shiny Pokémon Showdown back image, or null if unavailable.
+|     
+
+| back_shiny_female
+| X
+| X
+|   String  
+| The URL of the shiny female Pokémon Showdown back image, or null if unavailable.
+|     
 
 |===
 
@@ -17928,21 +19335,21 @@ endif::internal-generation[]
 | X
 | 
 |   Integer  
-| 
+| The base value of the stat.
 |     
 
 | effort
 | X
 | 
 |   Integer  
-| 
+| The effort points (EV) the Pokémon has in the stat.
 |     
 
 | stat
 | X
 | 
 | <<StatSummary>>    
-| 
+| The stat the Pokémon has.
 |     
 
 |===
@@ -17964,15 +19371,44 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The name of the referenced resource.
 |     
 
 | url
 | X
 | 
 |   URI  
-| 
+| The URL of the referenced resource.
 | uri    
+
+|===
+
+
+
+[#PokemonType]
+=== _PokemonType_ 
+
+
+
+
+[.fields-PokemonType]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| slot
+| X
+| 
+|   Integer  
+| The order the Pokémon&#39;s types are listed in.
+|     
+
+| type
+| X
+| 
+| <<TypeSummary>>    
+| The type the referenced Pokémon has.
+|     
 
 |===
 
@@ -17993,49 +19429,49 @@ endif::internal-generation[]
 | X
 | 
 |   Integer  
-| 
+| The identifier for this resource.
 |     
 
 | name
 | X
 | 
 |   String  
-| 
+| The name for this resource.
 |     
 
 | locations
 | X
 | 
 |   List   of <<LocationSummary>>
-| 
+| A list of locations that can be found in this region.
 |     
 
 | main_generation
 | X
-| 
+| X
 | <<GenerationSummary>>    
-| 
+| The generation this region was introduced in.
 |     
 
 | names
 | X
 | 
 |   List   of <<RegionName>>
-| 
+| The name of this resource listed in different languages.
 |     
 
 | pokedexes
 | X
 | 
 |   List   of <<PokedexSummary>>
-| 
+| A list of pokédexes that catalogue Pokémon in this region.
 |     
 
 | version_groups
 | X
 | 
-|   List   of <<AbilityDetail_pokemon_inner_pokemon>>
-| 
+|   List   of <<VersionGroupSummary>>
+| A list of version groups where this region can be visited.
 |     
 
 |===
@@ -18057,14 +19493,14 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The localized name for an API resource in a specific language.
 |     
 
 | language
 | X
 | 
 | <<LanguageSummary>>    
-| 
+| The language this name is in.
 |     
 
 |===
@@ -18086,15 +19522,73 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The name of the referenced resource.
 |     
 
 | url
 | X
 | 
 |   URI  
-| 
+| The URL of the referenced resource.
 | uri    
+
+|===
+
+
+
+[#StatAffectingMoves]
+=== _StatAffectingMoves_ 
+
+
+
+
+[.fields-StatAffectingMoves]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| increase
+| X
+| 
+|   List   of <<MoveStatChange>>
+| A list of moves and how they change the referenced stat.
+|     
+
+| decrease
+| X
+| 
+|   List   of <<MoveStatChange>>
+| A list of moves and how they change the referenced stat.
+|     
+
+|===
+
+
+
+[#StatAffectingNatures]
+=== _StatAffectingNatures_ 
+
+
+
+
+[.fields-StatAffectingNatures]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| increase
+| X
+| 
+|   List   of <<NatureSummary>>
+| A list of natures and how they change the referenced stat.
+|     
+
+| decrease
+| X
+| 
+|   List   of <<NatureSummary>>
+| A list of nature sand how they change the referenced stat.
+|     
 
 |===
 
@@ -18115,150 +19609,70 @@ endif::internal-generation[]
 | X
 | 
 |   Integer  
-| 
+| The identifier for this resource.
 |     
 
 | name
 | X
 | 
 |   String  
-| 
+| The name for this resource.
 |     
 
 | game_index
 | X
 | 
 |   Integer  
-| 
+| ID the games use for this stat.
 |     
 
 | is_battle_only
 | 
 | 
 |   Boolean  
-| 
+| Whether this stat only exists within a battle.
 |     
 
 | affecting_moves
 | X
 | 
-| <<StatDetail_affecting_moves>>    
-| 
+| <<StatAffectingMoves>>    
+| A detail of moves which affect this stat positively or negatively.
 |     
 
 | affecting_natures
 | X
 | 
-| <<StatDetail_affecting_natures>>    
+| <<StatAffectingNatures>>    
+| A detail of natures which affect this stat positively or negatively.
+|     
+
+| affecting_items
+| X
 | 
+|   List   of <<ItemSummary>>
+| Items that affect this stat, such as vitamins and battle items.
 |     
 
 | characteristics
 | X
 | 
 |   List   of <<CharacteristicSummary>>
-| 
+| A list of characteristics that are set on a Pokémon when its highest base stat is this stat.
 |     
 
 | move_damage_class
 | X
-| 
+| X
 | <<MoveDamageClassSummary>>    
-| 
+| The class of damage this stat is directly related to.
 |     
 
 | names
 | X
 | 
 |   List   of <<StatName>>
-| 
-|     
-
-|===
-
-
-
-[#StatDetailAffectingMoves]
-=== _StatDetailAffectingMoves_ 
-
-
-
-
-[.fields-StatDetailAffectingMoves]
-[cols="2,1,1,2,4,1"]
-|===
-| Field Name| Required| Nullable | Type| Description | Format
-
-| increase
-| X
-| 
-|   List   of <<StatDetail_affecting_moves_increase_inner>>
-| 
-|     
-
-| decrease
-| X
-| 
-|   List   of <<StatDetail_affecting_moves_increase_inner>>
-| 
-|     
-
-|===
-
-
-
-[#StatDetailAffectingMovesIncreaseInner]
-=== _StatDetailAffectingMovesIncreaseInner_ 
-
-
-
-
-[.fields-StatDetailAffectingMovesIncreaseInner]
-[cols="2,1,1,2,4,1"]
-|===
-| Field Name| Required| Nullable | Type| Description | Format
-
-| change
-| X
-| 
-|   Integer  
-| 
-| int32    
-
-| move
-| X
-| 
-| <<AbilityDetail_pokemon_inner_pokemon>>    
-| 
-|     
-
-|===
-
-
-
-[#StatDetailAffectingNatures]
-=== _StatDetailAffectingNatures_ 
-
-
-
-
-[.fields-StatDetailAffectingNatures]
-[cols="2,1,1,2,4,1"]
-|===
-| Field Name| Required| Nullable | Type| Description | Format
-
-| increase
-| X
-| 
-|   List   of <<AbilityDetail_pokemon_inner_pokemon>>
-| 
-|     
-
-| decrease
-| X
-| 
-|   List   of <<AbilityDetail_pokemon_inner_pokemon>>
-| 
+| The name of this resource listed in different languages.
 |     
 
 |===
@@ -18280,14 +19694,14 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The localized name for an API resource in a specific language.
 |     
 
 | language
 | X
 | 
 | <<LanguageSummary>>    
-| 
+| The language this name is in.
 |     
 
 |===
@@ -18309,14 +19723,14 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The name of the referenced resource.
 |     
 
 | url
 | X
 | 
 |   URI  
-| 
+| The URL of the referenced resource.
 | uri    
 
 |===
@@ -18338,28 +19752,28 @@ endif::internal-generation[]
 | X
 | 
 |   Integer  
-| 
+| The identifier for this resource.
 |     
 
 | appeal
 | X
 | 
 |   Integer  
-| 
+| The level of appeal this super contest effect has.
 |     
 
 | flavor_text_entries
 | X
 | 
 |   List   of <<SuperContestEffectFlavorText>>
-| 
+| The flavor text of this super contest effect listed in different languages.
 |     
 
 | moves
 | X
 | 
 |   List   of <<MoveSummary>>
-| 
+| A list of moves that have the effect when used in super contests.
 |     
 
 |===
@@ -18381,14 +19795,14 @@ endif::internal-generation[]
 | X
 | 
 |   String  
-| 
+| The localized flavor text for an API resource in a specific language.
 |     
 
 | language
 | X
 | 
 | <<LanguageSummary>>    
-| 
+| The language this name is in.
 |     
 
 |===
@@ -18410,7 +19824,7 @@ endif::internal-generation[]
 | X
 | 
 |   URI  
-| 
+| The URL of the referenced resource.
 | uri    
 
 |===
@@ -18432,301 +19846,78 @@ Serializer for the Type resource
 | X
 | 
 |   Integer  
-| 
+| The identifier for this resource.
 |     
 
 | name
 | X
 | 
 |   String  
-| 
+| The name for this resource.
 |     
 
 | damage_relations
 | X
 | 
-| <<TypeDetail_damage_relations>>    
-| 
+| <<TypeRelationships>>    
+| A detail of how effective this type is toward others and vice versa.
 |     
 
 | past_damage_relations
 | X
 | 
-|   List   of <<TypeDetail_past_damage_relations_inner>>
-| 
+|   List   of <<TypePastRelationships>>
+| A list of details of how effective this type was toward others and vice versa in previous generations
 |     
 
 | game_indices
 | X
 | 
 |   List   of <<TypeGameIndex>>
-| 
+| A list of game indices relevent to this item by generation.
 |     
 
 | generation
 | X
 | 
 | <<GenerationSummary>>    
-| 
+| The generation this type was introduced in.
 |     
 
 | move_damage_class
 | X
-| 
+| X
 | <<MoveDamageClassSummary>>    
-| 
+| The class of damage inflicted by this type.
 |     
 
 | names
 | X
 | 
-|   List   of <<AbilityName>>
-| 
+|   List   of <<TypeName>>
+| The name of this resource listed in different languages.
 |     
 
 | pokemon
 | X
 | 
-|   List   of <<TypeDetail_pokemon_inner>>
-| 
+|   List   of <<TypePokemon>>
+| A list of details of Pokémon that have this type.
 |     
 
 | moves
 | X
 | 
 |   List   of <<MoveSummary>>
-| 
+| A list of moves that have this type.
 |     
 
 | sprites
 | X
 | 
 |   Map   of <<map>>
-| 
+| Type icons grouped by generation and game, with name_icon and symbol_icon URLs. Unavailable icons are null.
 |     
-
-|===
-
-
-
-[#TypeDetailDamageRelations]
-=== _TypeDetailDamageRelations_ 
-
-
-
-
-[.fields-TypeDetailDamageRelations]
-[cols="2,1,1,2,4,1"]
-|===
-| Field Name| Required| Nullable | Type| Description | Format
-
-| no_damage_to
-| X
-| 
-|   List   of <<AbilityDetail_pokemon_inner_pokemon>>
-| 
-|     
-
-| half_damage_to
-| X
-| 
-|   List   of <<AbilityDetail_pokemon_inner_pokemon>>
-| 
-|     
-
-| double_damage_to
-| X
-| 
-|   List   of <<AbilityDetail_pokemon_inner_pokemon>>
-| 
-|     
-
-| no_damage_from
-| X
-| 
-|   List   of <<AbilityDetail_pokemon_inner_pokemon>>
-| 
-|     
-
-| half_damage_from
-| X
-| 
-|   List   of <<AbilityDetail_pokemon_inner_pokemon>>
-| 
-|     
-
-| double_damage_from
-| X
-| 
-|   List   of <<AbilityDetail_pokemon_inner_pokemon>>
-| 
-|     
-
-|===
-
-
-
-[#TypeDetailPastDamageRelationsInner]
-=== _TypeDetailPastDamageRelationsInner_ 
-
-
-
-
-[.fields-TypeDetailPastDamageRelationsInner]
-[cols="2,1,1,2,4,1"]
-|===
-| Field Name| Required| Nullable | Type| Description | Format
-
-| generation
-| X
-| 
-| <<AbilityDetail_pokemon_inner_pokemon>>    
-| 
-|     
-
-| damage_relations
-| X
-| 
-| <<TypeDetail_past_damage_relations_inner_damage_relations>>    
-| 
-|     
-
-|===
-
-
-
-[#TypeDetailPastDamageRelationsInnerDamageRelations]
-=== _TypeDetailPastDamageRelationsInnerDamageRelations_ 
-
-
-
-
-[.fields-TypeDetailPastDamageRelationsInnerDamageRelations]
-[cols="2,1,1,2,4,1"]
-|===
-| Field Name| Required| Nullable | Type| Description | Format
-
-| no_damage_to
-| X
-| 
-|   List   of <<AbilityDetail_pokemon_inner_pokemon>>
-| 
-|     
-
-| half_damage_to
-| X
-| 
-|   List   of <<AbilityDetail_pokemon_inner_pokemon>>
-| 
-|     
-
-| double_damage_to
-| X
-| 
-|   List   of <<AbilityDetail_pokemon_inner_pokemon>>
-| 
-|     
-
-| no_damage_from
-| X
-| 
-|   List   of <<AbilityDetail_pokemon_inner_pokemon>>
-| 
-|     
-
-| half_damage_from
-| X
-| 
-|   List   of <<AbilityDetail_pokemon_inner_pokemon>>
-| 
-|     
-
-| double_damage_from
-| X
-| 
-|   List   of <<AbilityDetail_pokemon_inner_pokemon>>
-| 
-|     
-
-|===
-
-
-
-[#TypeDetailPokemonInner]
-=== _TypeDetailPokemonInner_ 
-
-
-
-
-[.fields-TypeDetailPokemonInner]
-[cols="2,1,1,2,4,1"]
-|===
-| Field Name| Required| Nullable | Type| Description | Format
-
-| slot
-| 
-| 
-|   Integer  
-| 
-|     
-
-| pokemon
-| 
-| 
-| <<TypeDetail_pokemon_inner_pokemon>>    
-| 
-|     
-
-|===
-
-
-
-[#TypeDetailPokemonInnerPokemon]
-=== _TypeDetailPokemonInnerPokemon_ 
-
-
-
-
-[.fields-TypeDetailPokemonInnerPokemon]
-[cols="2,1,1,2,4,1"]
-|===
-| Field Name| Required| Nullable | Type| Description | Format
-
-| name
-| 
-| 
-|   String  
-| The name of the pokemon
-|     
-
-| url
-| 
-| 
-|   URI  
-| The URL to get more information about the pokemon
-| uri    
-
-|===
-
-
-
-[#TypeDetailSpritesValueValue]
-=== _TypeDetailSpritesValueValue_ 
-
-
-
-
-[.fields-TypeDetailSpritesValueValue]
-[cols="2,1,1,2,4,1"]
-|===
-| Field Name| Required| Nullable | Type| Description | Format
-
-| name-icon
-| 
-| 
-|   URI  
-| 
-| uri    
 
 |===
 
@@ -18747,14 +19938,187 @@ Serializer for the Type resource
 | X
 | 
 |   Integer  
-| 
+| The internal id of an API resource within game data.
 |     
 
 | generation
 | X
 | 
 | <<GenerationSummary>>    
+| The generation relevent to this game index.
+|     
+
+|===
+
+
+
+[#TypeGameSprite]
+=== _TypeGameSprite_ 
+
+
+
+
+[.fields-TypeGameSprite]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| name_icon
 | 
+| X
+|   String  
+| The URL of the icon displaying the type name in this game, or null if unavailable.
+|     
+
+| symbol_icon
+| 
+| X
+|   String  
+| The URL of the type symbol icon in this game, or null if unavailable.
+|     
+
+|===
+
+
+
+[#TypeName]
+=== _TypeName_ 
+
+
+
+
+[.fields-TypeName]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| name
+| X
+| 
+|   String  
+| The localized name for an API resource in a specific language.
+|     
+
+| language
+| X
+| 
+| <<LanguageSummary>>    
+| The language this name is in.
+|     
+
+|===
+
+
+
+[#TypePastRelationships]
+=== _TypePastRelationships_ 
+
+
+
+
+[.fields-TypePastRelationships]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| generation
+| X
+| 
+| <<GenerationSummary>>    
+| The last generation in which the referenced type had the listed damage relations
+|     
+
+| damage_relations
+| X
+| 
+| <<TypeRelationships>>    
+| The damage relations the referenced type had up to and including the listed generation
+|     
+
+|===
+
+
+
+[#TypePokemon]
+=== _TypePokemon_ 
+
+
+
+
+[.fields-TypePokemon]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| slot
+| X
+| 
+|   Integer  
+| The order the Pokémon&#39;s types are listed in.
+|     
+
+| pokemon
+| X
+| 
+| <<PokemonSummary>>    
+| The Pokémon that has the referenced type.
+|     
+
+|===
+
+
+
+[#TypeRelationships]
+=== _TypeRelationships_ 
+
+
+
+
+[.fields-TypeRelationships]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+| no_damage_to
+| X
+| 
+|   List   of <<TypeSummary>>
+| A list of types this type has no effect on.
+|     
+
+| half_damage_to
+| X
+| 
+|   List   of <<TypeSummary>>
+| A list of types this type is not very effect against.
+|     
+
+| double_damage_to
+| X
+| 
+|   List   of <<TypeSummary>>
+| A list of types this type is very effect against.
+|     
+
+| no_damage_from
+| X
+| 
+|   List   of <<TypeSummary>>
+| A list of types that have no effect on this type.
+|     
+
+| half_damage_from
+| X
+| 
+|   List   of <<TypeSummary>>
+| A list of types that are not very effective against this type.
+|     
+
+| double_damage_from
+| X
+| 
+|   List   of <<TypeSummary>>
+| A list of types that are very effective against this type.
 |     
 
 |===
@@ -18776,14 +20140,14 @@ Serializer for the Type resource
 | X
 | 
 |   String  
-| 
+| The name of the referenced resource.
 |     
 
 | url
 | X
 | 
 |   URI  
-| 
+| The URL of the referenced resource.
 | uri    
 
 |===
@@ -18807,28 +20171,28 @@ not sure how to add anything other than a hyperlink
 | X
 | 
 |   Integer  
-| 
+| The identifier for this resource.
 |     
 
 | name
 | X
 | 
 |   String  
-| 
+| The name for this resource.
 |     
 
 | names
 | X
 | 
 |   List   of <<VersionName>>
-| 
+| The name of this resource listed in different languages.
 |     
 
 | version_group
 | X
 | 
 | <<VersionGroupSummary>>    
-| 
+| The version group this version belongs to.
 |     
 
 |===
@@ -18850,56 +20214,56 @@ not sure how to add anything other than a hyperlink
 | X
 | 
 |   Integer  
-| 
+| The identifier for this resource.
 |     
 
 | name
 | X
 | 
 |   String  
-| 
+| The name for this resource.
 |     
 
 | order
 | 
 | X
 |   Integer  
-| 
+| Order for sorting. Almost by date of release, except similar versions are grouped together.
 |     
 
 | generation
 | X
 | 
 | <<GenerationSummary>>    
-| 
+| The generation this version was introduced in.
 |     
 
 | move_learn_methods
 | X
 | 
-|   List   of <<AbilityDetail_pokemon_inner_pokemon>>
-| 
+|   List   of <<MoveLearnMethodSummary>>
+| A list of methods in which Pokémon can learn moves in this version group.
 |     
 
 | pokedexes
 | X
 | 
-|   List   of <<AbilityDetail_pokemon_inner_pokemon>>
-| 
+|   List   of <<PokedexSummary>>
+| A list of Pokédexes introduces in this version group.
 |     
 
 | regions
 | X
 | 
-|   List   of <<AbilityDetail_pokemon_inner_pokemon>>
-| 
+|   List   of <<RegionSummary>>
+| A list of regions that can be visited in this version group.
 |     
 
 | versions
 | X
 | 
 |   List   of <<VersionSummary>>
-| 
+| The versions this version group owns.
 |     
 
 |===
@@ -18921,14 +20285,14 @@ not sure how to add anything other than a hyperlink
 | X
 | 
 |   String  
-| 
+| The name of the referenced resource.
 |     
 
 | url
 | X
 | 
 |   URI  
-| 
+| The URL of the referenced resource.
 | uri    
 
 |===
@@ -18950,14 +20314,14 @@ not sure how to add anything other than a hyperlink
 | X
 | 
 |   String  
-| 
+| The localized name for an API resource in a specific language.
 |     
 
 | language
 | X
 | 
 | <<LanguageSummary>>    
-| 
+| The language this name is in.
 |     
 
 |===
@@ -18979,14 +20343,14 @@ not sure how to add anything other than a hyperlink
 | X
 | 
 |   String  
-| 
+| The name of the referenced resource.
 |     
 
 | url
 | X
 | 
 |   URI  
-| 
+| The URL of the referenced resource.
 | uri    
 
 |===

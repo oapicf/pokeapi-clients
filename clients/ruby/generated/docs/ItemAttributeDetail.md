@@ -4,11 +4,11 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **Integer** |  | [readonly] |
-| **name** | **String** |  |  |
-| **descriptions** | [**Array&lt;ItemAttributeDescription&gt;**](ItemAttributeDescription.md) |  | [readonly] |
-| **items** | [**Array&lt;AbilityDetailPokemonInnerPokemon&gt;**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] |
-| **names** | [**Array&lt;ItemAttributeName&gt;**](ItemAttributeName.md) |  | [readonly] |
+| **id** | **Integer** | The identifier for this resource. | [readonly] |
+| **name** | **String** | The name for this resource. |  |
+| **descriptions** | [**Array&lt;ItemAttributeDescription&gt;**](ItemAttributeDescription.md) | The description of this item attribute listed in different languages. | [readonly] |
+| **items** | [**Array&lt;ItemSummary&gt;**](ItemSummary.md) | A list of items that have this attribute. | [readonly] |
+| **names** | [**Array&lt;ItemAttributeName&gt;**](ItemAttributeName.md) | The name of this item attribute listed in different languages. | [readonly] |
 
 ## Example
 

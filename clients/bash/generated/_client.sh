@@ -315,14 +315,18 @@ case $state in
             "encounterMethodRetrieve[Get encounter method]"             "evolutionChainList[List evolution chains]" \
             "evolutionChainRetrieve[Get evolution chain]" \
             "evolutionTriggerList[List evolution triggers]" \
-            "evolutionTriggerRetrieve[Get evolution trigger]"             "generationList[List genrations]" \
+            "evolutionTriggerRetrieve[Get evolution trigger]" \
+            "evolutionVariableList[List evolution variables]" \
+            "evolutionVariableRetrieve[Get evolution variable]"             "generationList[List genrations]" \
             "generationRetrieve[Get genration]" \
             "pokedexList[List pokedex]" \
             "pokedexRetrieve[Get pokedex]" \
             "versionGroupList[List version groups]" \
             "versionGroupRetrieve[Get version group]" \
             "versionList[List versions]" \
-            "versionRetrieve[Get version]"             "itemAttributeList[List item attributes]" \
+            "versionRetrieve[Get version]"             "currencyList[List currencies]" \
+            "currencyRetrieve[Get currency]" \
+            "itemAttributeList[List item attributes]" \
             "itemAttributeRetrieve[Get item attribute]" \
             "itemCategoryList[List item categories]" \
             "itemCategoryRetrieve[Get item category]" \
@@ -350,9 +354,9 @@ case $state in
             "moveList[List moves]" \
             "moveRetrieve[Get move]" \
             "moveTargetList[List move targets]" \
-            "moveTargetRetrieve[Get move target]"             "abilityList[]" \
-            "abilityRetrieve[]" \
-            "characteristicList[List charecterictics]" \
+            "moveTargetRetrieve[Get move target]"             "abilityList[List abilities]" \
+            "abilityRetrieve[Get ability]" \
+            "characteristicList[List characteristics]" \
             "characteristicRetrieve[Get characteristic]" \
             "eggGroupList[List egg groups]" \
             "eggGroupRetrieve[Get egg group]" \
@@ -383,6 +387,7 @@ case $state in
             "typeList[List types]" \
             "typeRetrieve[Get types]"             "languageList[List languages]" \
             "languageRetrieve[Get language]" \
+            "metaRetrieve[Get API metadata]" \
 
     _arguments "(--help)--help[Print information about operation]"
 
@@ -446,8 +451,6 @@ Case-insensitive query applied on the &#39;name&#39; property."
         _op_arguments=(
                     "limit=:[QUERY] Number of results to return per page."
 "offset=:[QUERY] The initial index from which to return the results."
-"q=:[QUERY] &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
-Case-insensitive query applied on the &#39;name&#39; property."
           )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
@@ -480,8 +483,6 @@ Case-insensitive query applied on the &#39;name&#39; property."
         _op_arguments=(
                     "limit=:[QUERY] Number of results to return per page."
 "offset=:[QUERY] The initial index from which to return the results."
-"q=:[QUERY] &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
-Case-insensitive query applied on the &#39;name&#39; property."
           )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
@@ -548,8 +549,6 @@ Case-insensitive query applied on the &#39;name&#39; property."
         _op_arguments=(
                     "limit=:[QUERY] Number of results to return per page."
 "offset=:[QUERY] The initial index from which to return the results."
-"q=:[QUERY] &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
-Case-insensitive query applied on the &#39;name&#39; property."
           )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
@@ -571,6 +570,23 @@ Case-insensitive query applied on the &#39;name&#39; property."
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
       evolutionTriggerRetrieve)
+        local -a _op_arguments
+        _op_arguments=(
+          "id=:[PATH] This parameter can be a string or an integer."
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      evolutionVariableList)
+        local -a _op_arguments
+        _op_arguments=(
+                    "limit=:[QUERY] Number of results to return per page."
+"offset=:[QUERY] The initial index from which to return the results."
+"q=:[QUERY] &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the &#39;name&#39; property."
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      evolutionVariableRetrieve)
         local -a _op_arguments
         _op_arguments=(
           "id=:[PATH] This parameter can be a string or an integer."
@@ -639,6 +655,23 @@ Case-insensitive query applied on the &#39;name&#39; property."
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
       versionRetrieve)
+        local -a _op_arguments
+        _op_arguments=(
+          "id=:[PATH] This parameter can be a string or an integer."
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      currencyList)
+        local -a _op_arguments
+        _op_arguments=(
+                    "limit=:[QUERY] Number of results to return per page."
+"offset=:[QUERY] The initial index from which to return the results."
+"q=:[QUERY] &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the &#39;name&#39; property."
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      currencyRetrieve)
         local -a _op_arguments
         _op_arguments=(
           "id=:[PATH] This parameter can be a string or an integer."
@@ -801,8 +834,6 @@ Case-insensitive query applied on the &#39;name&#39; property."
         _op_arguments=(
                     "limit=:[QUERY] Number of results to return per page."
 "offset=:[QUERY] The initial index from which to return the results."
-"q=:[QUERY] &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
-Case-insensitive query applied on the &#39;name&#39; property."
           )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
@@ -937,8 +968,6 @@ Case-insensitive query applied on the &#39;name&#39; property."
         _op_arguments=(
                     "limit=:[QUERY] Number of results to return per page."
 "offset=:[QUERY] The initial index from which to return the results."
-"q=:[QUERY] &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
-Case-insensitive query applied on the &#39;name&#39; property."
           )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
@@ -1202,6 +1231,12 @@ Case-insensitive query applied on the &#39;name&#39; property."
         _op_arguments=(
           "id=:[PATH] This parameter can be a string or an integer."
                     )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      metaRetrieve)
+        local -a _op_arguments
+        _op_arguments=(
+                              )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
     esac

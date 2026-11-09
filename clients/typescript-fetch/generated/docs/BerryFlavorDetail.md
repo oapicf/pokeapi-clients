@@ -8,7 +8,7 @@ Name | Type
 ------------ | -------------
 `id` | number
 `name` | string
-`berries` | [Array&lt;BerryFlavorDetailBerriesInner&gt;](BerryFlavorDetailBerriesInner.md)
+`berries` | [Array&lt;BerryFlavorBerryMap&gt;](BerryFlavorBerryMap.md)
 `contestType` | [ContestTypeSummary](ContestTypeSummary.md)
 `names` | [Array&lt;BerryFlavorName&gt;](BerryFlavorName.md)
 

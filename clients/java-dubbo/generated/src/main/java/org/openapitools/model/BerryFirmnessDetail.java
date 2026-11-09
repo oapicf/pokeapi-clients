@@ -14,20 +14,32 @@ import java.math.*;
 public class BerryFirmnessDetail implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * The identifier for this resource.
+   */
   @JsonProperty("id")
   private Integer id;
 
+  /**
+   * The name for this resource.
+   */
   @JsonProperty("name")
   private String name;
 
+  /**
+   * A list of the berries with this firmness.
+   */
   @JsonProperty("berries")
   private List<BerrySummary> berries = new ArrayList<>();
 
+  /**
+   * The name of this resource listed in different languages.
+   */
   @JsonProperty("names")
   private List<BerryFirmnessName> names = new ArrayList<>();
 
   /**
-   * 
+   * The identifier for this resource.
    * @return id
    */
   public Integer getId() {
@@ -39,7 +51,7 @@ public class BerryFirmnessDetail implements Serializable {
   }
 
   /**
-   * 
+   * The name for this resource.
    * @return name
    */
   public String getName() {
@@ -51,7 +63,7 @@ public class BerryFirmnessDetail implements Serializable {
   }
 
   /**
-   * 
+   * A list of the berries with this firmness.
    * @return berries
    */
   public List<BerrySummary> getBerries() {
@@ -63,7 +75,7 @@ public class BerryFirmnessDetail implements Serializable {
   }
 
   /**
-   * 
+   * The name of this resource listed in different languages.
    * @return names
    */
   public List<BerryFirmnessName> getNames() {

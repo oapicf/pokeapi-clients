@@ -33,11 +33,6 @@ var_offset <- 56 # integer | The initial index from which to return the results.
 var_q <- "q_example" # character | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (Optional)
 
 api_instance <- GamesApi$new()
-# Configure HTTP basic authorization: basicAuth
-api_instance$api_client$username <- Sys.getenv("USERNAME")
-api_instance$api_client$password <- Sys.getenv("PASSWORD")
-# Configure API key authorization: cookieAuth
-# api_instance$api_client$api_keys["sessionid"] <- Sys.getenv("API_KEY")
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
 # result <- api_instance$GenerationList(limit = var_limit, offset = var_offset, q = var_qdata_file = "result.txt")
 result <- api_instance$GenerationList(limit = var_limit, offset = var_offset, q = var_q)
@@ -58,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -84,14 +79,9 @@ library(openapi)
 # Get genration
 #
 # prepare function argument(s)
-var_id <- "id_example" # character | This parameter can be a string or an integer.
+var_id <- "1" # character | This parameter can be a string or an integer.
 
 api_instance <- GamesApi$new()
-# Configure HTTP basic authorization: basicAuth
-api_instance$api_client$username <- Sys.getenv("USERNAME")
-api_instance$api_client$password <- Sys.getenv("PASSWORD")
-# Configure API key authorization: cookieAuth
-# api_instance$api_client$api_keys["sessionid"] <- Sys.getenv("API_KEY")
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
 # result <- api_instance$GenerationRetrieve(var_iddata_file = "result.txt")
 result <- api_instance$GenerationRetrieve(var_id)
@@ -110,7 +100,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -141,11 +131,6 @@ var_offset <- 56 # integer | The initial index from which to return the results.
 var_q <- "q_example" # character | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (Optional)
 
 api_instance <- GamesApi$new()
-# Configure HTTP basic authorization: basicAuth
-api_instance$api_client$username <- Sys.getenv("USERNAME")
-api_instance$api_client$password <- Sys.getenv("PASSWORD")
-# Configure API key authorization: cookieAuth
-# api_instance$api_client$api_keys["sessionid"] <- Sys.getenv("API_KEY")
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
 # result <- api_instance$PokedexList(limit = var_limit, offset = var_offset, q = var_qdata_file = "result.txt")
 result <- api_instance$PokedexList(limit = var_limit, offset = var_offset, q = var_q)
@@ -166,7 +151,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -192,14 +177,9 @@ library(openapi)
 # Get pokedex
 #
 # prepare function argument(s)
-var_id <- "id_example" # character | This parameter can be a string or an integer.
+var_id <- "1" # character | This parameter can be a string or an integer.
 
 api_instance <- GamesApi$new()
-# Configure HTTP basic authorization: basicAuth
-api_instance$api_client$username <- Sys.getenv("USERNAME")
-api_instance$api_client$password <- Sys.getenv("PASSWORD")
-# Configure API key authorization: cookieAuth
-# api_instance$api_client$api_keys["sessionid"] <- Sys.getenv("API_KEY")
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
 # result <- api_instance$PokedexRetrieve(var_iddata_file = "result.txt")
 result <- api_instance$PokedexRetrieve(var_id)
@@ -218,7 +198,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -249,11 +229,6 @@ var_offset <- 56 # integer | The initial index from which to return the results.
 var_q <- "q_example" # character | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (Optional)
 
 api_instance <- GamesApi$new()
-# Configure HTTP basic authorization: basicAuth
-api_instance$api_client$username <- Sys.getenv("USERNAME")
-api_instance$api_client$password <- Sys.getenv("PASSWORD")
-# Configure API key authorization: cookieAuth
-# api_instance$api_client$api_keys["sessionid"] <- Sys.getenv("API_KEY")
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
 # result <- api_instance$VersionGroupList(limit = var_limit, offset = var_offset, q = var_qdata_file = "result.txt")
 result <- api_instance$VersionGroupList(limit = var_limit, offset = var_offset, q = var_q)
@@ -274,7 +249,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -300,14 +275,9 @@ library(openapi)
 # Get version group
 #
 # prepare function argument(s)
-var_id <- "id_example" # character | This parameter can be a string or an integer.
+var_id <- "1" # character | This parameter can be a string or an integer.
 
 api_instance <- GamesApi$new()
-# Configure HTTP basic authorization: basicAuth
-api_instance$api_client$username <- Sys.getenv("USERNAME")
-api_instance$api_client$password <- Sys.getenv("PASSWORD")
-# Configure API key authorization: cookieAuth
-# api_instance$api_client$api_keys["sessionid"] <- Sys.getenv("API_KEY")
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
 # result <- api_instance$VersionGroupRetrieve(var_iddata_file = "result.txt")
 result <- api_instance$VersionGroupRetrieve(var_id)
@@ -326,7 +296,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -357,11 +327,6 @@ var_offset <- 56 # integer | The initial index from which to return the results.
 var_q <- "q_example" # character | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (Optional)
 
 api_instance <- GamesApi$new()
-# Configure HTTP basic authorization: basicAuth
-api_instance$api_client$username <- Sys.getenv("USERNAME")
-api_instance$api_client$password <- Sys.getenv("PASSWORD")
-# Configure API key authorization: cookieAuth
-# api_instance$api_client$api_keys["sessionid"] <- Sys.getenv("API_KEY")
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
 # result <- api_instance$VersionList(limit = var_limit, offset = var_offset, q = var_qdata_file = "result.txt")
 result <- api_instance$VersionList(limit = var_limit, offset = var_offset, q = var_q)
@@ -382,7 +347,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -408,14 +373,9 @@ library(openapi)
 # Get version
 #
 # prepare function argument(s)
-var_id <- "id_example" # character | This parameter can be a string or an integer.
+var_id <- "1" # character | This parameter can be a string or an integer.
 
 api_instance <- GamesApi$new()
-# Configure HTTP basic authorization: basicAuth
-api_instance$api_client$username <- Sys.getenv("USERNAME")
-api_instance$api_client$password <- Sys.getenv("PASSWORD")
-# Configure API key authorization: cookieAuth
-# api_instance$api_client$api_keys["sessionid"] <- Sys.getenv("API_KEY")
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
 # result <- api_instance$VersionRetrieve(var_iddata_file = "result.txt")
 result <- api_instance$VersionRetrieve(var_id)
@@ -434,7 +394,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

@@ -73,7 +73,7 @@ void evolution_trigger_detail_free(evolution_trigger_detail_t *evolution_trigger
     }
     if (evolution_trigger_detail->pokemon_species) {
         list_ForEach(listEntry, evolution_trigger_detail->pokemon_species) {
-            ability_detail_pokemon_inner_pokemon_free(listEntry->data);
+            pokemon_species_summary_free(listEntry->data);
         }
         list_freeList(evolution_trigger_detail->pokemon_species);
         evolution_trigger_detail->pokemon_species = NULL;
@@ -135,7 +135,7 @@ cJSON *evolution_trigger_detail_convertToJSON(evolution_trigger_detail_t *evolut
     listEntry_t *pokemon_speciesListEntry;
     if (evolution_trigger_detail->pokemon_species) {
     list_ForEach(pokemon_speciesListEntry, evolution_trigger_detail->pokemon_species) {
-    cJSON *itemLocal = ability_detail_pokemon_inner_pokemon_convertToJSON(pokemon_speciesListEntry->data);
+    cJSON *itemLocal = pokemon_species_summary_convertToJSON(pokemon_speciesListEntry->data);
     if(itemLocal == NULL) {
     goto fail;
     }
@@ -251,7 +251,7 @@ evolution_trigger_detail_t *evolution_trigger_detail_parseFromJSON(cJSON *evolut
         if(!cJSON_IsObject(pokemon_species_local_nonprimitive)){
             goto end;
         }
-        ability_detail_pokemon_inner_pokemon_t *pokemon_speciesItem = ability_detail_pokemon_inner_pokemon_parseFromJSON(pokemon_species_local_nonprimitive);
+        pokemon_species_summary_t *pokemon_speciesItem = pokemon_species_summary_parseFromJSON(pokemon_species_local_nonprimitive);
 
         list_addElement(pokemon_speciesList, pokemon_speciesItem);
     }
@@ -292,7 +292,7 @@ end:
     if (pokemon_speciesList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, pokemon_speciesList) {
-            ability_detail_pokemon_inner_pokemon_free(listEntry->data);
+            pokemon_species_summary_free(listEntry->data);
             listEntry->data = NULL;
         }
         list_freeList(pokemon_speciesList);

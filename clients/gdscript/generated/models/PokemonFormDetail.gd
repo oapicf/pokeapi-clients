@@ -10,6 +10,7 @@ class_name PokemonFormDetail
 # PokemonFormDetail Model
 
 
+# The identifier for this resource.
 # Required: True
 # isArray: false
 @export var id: int:
@@ -18,6 +19,7 @@ class_name PokemonFormDetail
 		id = value
 var __id__was__set := false
 
+# The name for this resource.
 # Required: True
 # isArray: false
 @export var name: String:
@@ -26,6 +28,7 @@ var __id__was__set := false
 		name = value
 var __name__was__set := false
 
+# The order in which forms should be sorted within all forms. Multiple forms may have equal order, in which case they should fall back on sorting by name.
 # Required: False
 # isArray: false
 @export var order: int:
@@ -34,6 +37,7 @@ var __name__was__set := false
 		order = value
 var __order__was__set := false
 
+# The order in which forms should be sorted within a species' forms.
 # Required: False
 # isArray: false
 @export var formUnderscoreorder: int:
@@ -42,6 +46,7 @@ var __order__was__set := false
 		formUnderscoreorder = value
 var __formUnderscoreorder__was__set := false
 
+# True for exactly one form used as the default for each Pokémon.
 # Required: False
 # isArray: false
 @export var isUnderscoredefault: bool:
@@ -50,6 +55,7 @@ var __formUnderscoreorder__was__set := false
 		isUnderscoredefault = value
 var __isUnderscoredefault__was__set := false
 
+# Whether or not this form can only happen during battle.
 # Required: False
 # isArray: false
 @export var isUnderscorebattleUnderscoreonly: bool:
@@ -58,6 +64,7 @@ var __isUnderscoredefault__was__set := false
 		isUnderscorebattleUnderscoreonly = value
 var __isUnderscorebattleUnderscoreonly__was__set := false
 
+# Whether or not this form requires mega evolution.
 # Required: False
 # isArray: false
 @export var isUnderscoremega: bool:
@@ -66,6 +73,7 @@ var __isUnderscorebattleUnderscoreonly__was__set := false
 		isUnderscoremega = value
 var __isUnderscoremega__was__set := false
 
+# The name of this form.
 # Required: True
 # isArray: false
 @export var formUnderscorename: String:
@@ -74,6 +82,7 @@ var __isUnderscoremega__was__set := false
 		formUnderscorename = value
 var __formUnderscorename__was__set := false
 
+# The Pokémon that can take on this form.
 # Required: True
 # isArray: false
 @export var pokemon: PokemonSummary:
@@ -82,14 +91,16 @@ var __formUnderscorename__was__set := false
 		pokemon = value
 var __pokemon__was__set := false
 
+# A set of sprites used to depict this Pokémon form in the game.
 # Required: True
 # isArray: false
-@export var sprites: PokemonFormDetailSprites:
+@export var sprites: PokemonFormSprites:
 	set(value):
 		__sprites__was__set = true
 		sprites = value
 var __sprites__was__set := false
 
+# The version group this Pokémon form was introduced in.
 # Required: True
 # isArray: false
 @export var versionUnderscoregroup: VersionGroupSummary:
@@ -98,6 +109,7 @@ var __sprites__was__set := false
 		versionUnderscoregroup = value
 var __versionUnderscoregroup__was__set := false
 
+# The form specific form name of this Pokémon form, or empty if the form does not have a specific name.
 # Required: True
 # isArray: true
 @export var formUnderscorenames: Array:
@@ -106,6 +118,7 @@ var __versionUnderscoregroup__was__set := false
 		formUnderscorenames = value
 var __formUnderscorenames__was__set := false
 
+# The form specific full name of this Pokémon form, or empty if the form does not have a specific name.
 # Required: True
 # isArray: true
 @export var names: Array:
@@ -114,6 +127,7 @@ var __formUnderscorenames__was__set := false
 		names = value
 var __names__was__set := false
 
+# A list of details showing types this Pokémon form has.
 # Required: True
 # isArray: true
 @export var types: Array:
@@ -121,6 +135,24 @@ var __names__was__set := false
 		__types__was__set = true
 		types = value
 var __types__was__set := false
+
+# The conditions that trigger this form. Resource names and URLs are included when the trigger requires a resource.
+# Required: True
+# isArray: true
+@export var triggerUnderscoreconditions: Array:
+	set(value):
+		__triggerUnderscoreconditions__was__set = true
+		triggerUnderscoreconditions = value
+var __triggerUnderscoreconditions__was__set := false
+
+# The flavor text of this form listed in different languages and versions.
+# Required: True
+# isArray: true
+@export var flavorUnderscoretextUnderscoreentries: Array:
+	set(value):
+		__flavorUnderscoretextUnderscoreentries__was__set = true
+		flavorUnderscoretextUnderscoreentries = value
+var __flavorUnderscoretextUnderscoreentries__was__set := false
 
 
 func bzz_collect_missing_properties() -> Array:
@@ -143,6 +175,10 @@ func bzz_collect_missing_properties() -> Array:
 		bzz_missing_properties.append("names")
 	if not self.__types__was__set:
 		bzz_missing_properties.append("types")
+	if not self.__triggerUnderscoreconditions__was__set:
+		bzz_missing_properties.append("triggerUnderscoreconditions")
+	if not self.__flavorUnderscoretextUnderscoreentries__was__set:
+		bzz_missing_properties.append("flavorUnderscoretextUnderscoreentries")
 	return bzz_missing_properties
 
 
@@ -176,6 +212,10 @@ func bzz_normalize() -> Dictionary:
 		bzz_dictionary["names"] = self.names
 	if self.__types__was__set:
 		bzz_dictionary["types"] = self.types
+	if self.__triggerUnderscoreconditions__was__set:
+		bzz_dictionary["triggerUnderscoreconditions"] = self.triggerUnderscoreconditions
+	if self.__flavorUnderscoretextUnderscoreentries__was__set:
+		bzz_dictionary["flavorUnderscoretextUnderscoreentries"] = self.flavorUnderscoretextUnderscoreentries
 	return bzz_dictionary
 
 
@@ -201,15 +241,19 @@ static func bzz_denormalize_single(from_dict: Dictionary):
 	if from_dict.has("pokemon"):
 		me.pokemon = PokemonSummary.bzz_denormalize_single(from_dict["pokemon"])
 	if from_dict.has("sprites"):
-		me.sprites = from_dict["sprites"]
+		me.sprites = PokemonFormSprites.bzz_denormalize_single(from_dict["sprites"])
 	if from_dict.has("versionUnderscoregroup"):
 		me.versionUnderscoregroup = VersionGroupSummary.bzz_denormalize_single(from_dict["versionUnderscoregroup"])
 	if from_dict.has("formUnderscorenames"):
-		me.formUnderscorenames = PokemonFormDetail_form_names_inner.bzz_denormalize_multiple(from_dict["formUnderscorenames"])
+		me.formUnderscorenames = PokemonFormName.bzz_denormalize_multiple(from_dict["formUnderscorenames"])
 	if from_dict.has("names"):
-		me.names = PokemonFormDetail_form_names_inner.bzz_denormalize_multiple(from_dict["names"])
+		me.names = PokemonFormName.bzz_denormalize_multiple(from_dict["names"])
 	if from_dict.has("types"):
-		me.types = PokemonDetail_types_inner.bzz_denormalize_multiple(from_dict["types"])
+		me.types = PokemonFormType.bzz_denormalize_multiple(from_dict["types"])
+	if from_dict.has("triggerUnderscoreconditions"):
+		me.triggerUnderscoreconditions = PokemonFormTriggerCondition.bzz_denormalize_multiple(from_dict["triggerUnderscoreconditions"])
+	if from_dict.has("flavorUnderscoretextUnderscoreentries"):
+		me.flavorUnderscoretextUnderscoreentries = PokemonFormFlavorText.bzz_denormalize_multiple(from_dict["flavorUnderscoretextUnderscoreentries"])
 	return me
 
 

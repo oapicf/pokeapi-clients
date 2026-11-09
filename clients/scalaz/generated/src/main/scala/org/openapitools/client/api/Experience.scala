@@ -12,8 +12,10 @@ import org.joda.time.DateTime
 import Experience._
 
 case class Experience (
+  /* The level gained. */
   level: Integer,
-experience: Integer)
+/* The amount of experience required to reach the referenced level. */
+  experience: Integer)
 
 object Experience {
   import DateTimeCodecs._

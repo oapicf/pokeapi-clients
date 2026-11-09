@@ -78,3 +78,35 @@ module EvolutionApiHandlers =
           let responseContentType = "application/json"
           ContentResult(Content = content, ContentType = responseContentType, StatusCode = System.Nullable(200))
 
+    //#region EvolutionVariableList
+    /// <summary>
+    /// List evolution variables
+    /// </summary>
+   [<FunctionName("EvolutionVariableList")>]
+    let EvolutionVariableList
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/evolution-variable/")>]
+        req:HttpRequest ) =
+
+      let result = EvolutionApiService.EvolutionVariableList ()
+      match result with
+      | EvolutionVariableListStatusCode200 resolved ->
+          let content = JsonConvert.SerializeObject resolved.content
+          let responseContentType = "application/json"
+          ContentResult(Content = content, ContentType = responseContentType, StatusCode = System.Nullable(200))
+
+    //#region EvolutionVariableRetrieve
+    /// <summary>
+    /// Get evolution variable
+    /// </summary>
+   [<FunctionName("EvolutionVariableRetrieve")>]
+    let EvolutionVariableRetrieve
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/evolution-variable/{id}/")>]
+        req:HttpRequest ) =
+
+      let result = EvolutionApiService.EvolutionVariableRetrieve ()
+      match result with
+      | EvolutionVariableRetrieveStatusCode200 resolved ->
+          let content = JsonConvert.SerializeObject resolved.content
+          let responseContentType = "application/json"
+          ContentResult(Content = content, ContentType = responseContentType, StatusCode = System.Nullable(200))
+

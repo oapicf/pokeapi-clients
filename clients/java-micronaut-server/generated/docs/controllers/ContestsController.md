@@ -16,7 +16,7 @@ Method | HTTP request | Description
 <a id="contestEffectList"></a>
 # **contestEffectList**
 ```java
-Mono<PaginatedContestEffectSummaryList> ContestsController.contestEffectList(limitoffsetq)
+Mono<PaginatedContestEffectSummaryList> ContestsController.contestEffectList(limitoffset)
 ```
 
 List contest effects
@@ -28,14 +28,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **limit** | `Integer` | Number of results to return per page. | [optional parameter]
 **offset** | `Integer` | The initial index from which to return the results. | [optional parameter]
-**q** | `String` | &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional parameter]
 
 ### Return type
 [**PaginatedContestEffectSummaryList**](../../docs/models/PaginatedContestEffectSummaryList.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -59,9 +55,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**ContestEffectDetail**](../../docs/models/ContestEffectDetail.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -87,9 +80,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**PaginatedContestTypeSummaryList**](../../docs/models/PaginatedContestTypeSummaryList.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -113,9 +103,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**ContestTypeDetail**](../../docs/models/ContestTypeDetail.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -124,7 +111,7 @@ Name | Type | Description  | Notes
 <a id="superContestEffectList"></a>
 # **superContestEffectList**
 ```java
-Mono<PaginatedSuperContestEffectSummaryList> ContestsController.superContestEffectList(limitoffsetq)
+Mono<PaginatedSuperContestEffectSummaryList> ContestsController.superContestEffectList(limitoffset)
 ```
 
 List super contest effects
@@ -136,14 +123,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **limit** | `Integer` | Number of results to return per page. | [optional parameter]
 **offset** | `Integer` | The initial index from which to return the results. | [optional parameter]
-**q** | `String` | &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional parameter]
 
 ### Return type
 [**PaginatedSuperContestEffectSummaryList**](../../docs/models/PaginatedSuperContestEffectSummaryList.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -167,9 +150,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**SuperContestEffectDetail**](../../docs/models/SuperContestEffectDetail.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined

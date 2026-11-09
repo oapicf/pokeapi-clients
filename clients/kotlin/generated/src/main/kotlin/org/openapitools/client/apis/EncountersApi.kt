@@ -143,7 +143,7 @@ open class EncountersApi(basePath: kotlin.String = defaultBasePath, client: Call
             path = "/api/v2/encounter-condition/",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -216,7 +216,7 @@ open class EncountersApi(basePath: kotlin.String = defaultBasePath, client: Call
             path = "/api/v2/encounter-condition/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -306,7 +306,7 @@ open class EncountersApi(basePath: kotlin.String = defaultBasePath, client: Call
             path = "/api/v2/encounter-condition-value/",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -379,7 +379,7 @@ open class EncountersApi(basePath: kotlin.String = defaultBasePath, client: Call
             path = "/api/v2/encounter-condition-value/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -469,7 +469,7 @@ open class EncountersApi(basePath: kotlin.String = defaultBasePath, client: Call
             path = "/api/v2/encounter-method/",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -542,7 +542,7 @@ open class EncountersApi(basePath: kotlin.String = defaultBasePath, client: Call
             path = "/api/v2/encounter-method/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }

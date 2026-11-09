@@ -2,26 +2,41 @@
 Protected Class BerryFlavorDetail
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The identifier for this resource.
+		#tag EndNote
 		id As Integer
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The name for this resource.
+		#tag EndNote
 		name As String
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
-		berries() As OpenAPIClient.Models.BerryFlavorDetailBerriesInner
+		#tag Note
+			A list of the berries with this flavor.
+		#tag EndNote
+		berries() As OpenAPIClient.Models.BerryFlavorBerryMap
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The contest type that correlates with this berry flavor.
+		#tag EndNote
 		contest_type As OpenAPIClient.Models.ContestTypeSummary
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The name of this resource listed in different languages.
+		#tag EndNote
 		names() As OpenAPIClient.Models.BerryFlavorName
 	#tag EndProperty
 
@@ -83,7 +98,7 @@ Protected Class BerryFlavorDetail
 			Visible=false
 			Group="Behavior"
 			InitialValue=""
-			Type="BerryFlavorDetailBerriesInner"
+			Type="BerryFlavorBerryMap"
 			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty

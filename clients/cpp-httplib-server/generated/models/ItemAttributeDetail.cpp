@@ -12,7 +12,7 @@ ItemAttributeDetail::ItemAttributeDetail()
 : id(0)
 , name("")
 , descriptions(std::vector<ItemAttributeDescription>())
-, items(std::vector<ItemAttributeDetail_items_inner>())
+, items(std::vector<ItemSummary>())
 , names(std::vector<ItemAttributeName>())
 {
 }
@@ -34,7 +34,7 @@ std::vector<ItemAttributeDescription> ItemAttributeDetail::getDescriptions() con
 {
     return descriptions;
 }
-std::vector<ItemAttributeDetail_items_inner> ItemAttributeDetail::getItems() const
+std::vector<ItemSummary> ItemAttributeDetail::getItems() const
 {
     return items;
 }
@@ -58,7 +58,7 @@ void ItemAttributeDetail::setDescriptions(const std::vector<ItemAttributeDescrip
 {
     descriptions = descriptionsObj;
 }
-void ItemAttributeDetail::setItems(const std::vector<ItemAttributeDetail_items_inner>& itemsObj)
+void ItemAttributeDetail::setItems(const std::vector<ItemSummary>& itemsObj)
 {
     items = itemsObj;
 }

@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int32** |  | [readonly] 
-**Name** | **string** |  | 
-**Formula** | **string** |  | 
-**Descriptions** | [**[]GrowthRateDescription**](GrowthRateDescription.md) |  | [readonly] 
-**Levels** | [**[]Experience**](Experience.md) |  | [readonly] 
-**PokemonSpecies** | [**[]PokemonSpeciesSummary**](PokemonSpeciesSummary.md) |  | [readonly] 
+**Id** | **int32** | The identifier for this resource. | [readonly] 
+**Name** | **string** | The name for this resource. | 
+**Formula** | **string** | The formula used to calculate the rate at which the Pokémon species gains level. | 
+**Descriptions** | [**[]GrowthRateDescription**](GrowthRateDescription.md) | The descriptions of this characteristic listed in different languages. | [readonly] 
+**Levels** | [**[]Experience**](Experience.md) | A list of levels and the amount of experienced needed to atain them based on this growth rate. | [readonly] 
+**PokemonSpecies** | [**[]PokemonSpeciesSummary**](PokemonSpeciesSummary.md) | A list of Pokémon species that gain levels at this growth rate. | [readonly] 
 
 ## Methods
 

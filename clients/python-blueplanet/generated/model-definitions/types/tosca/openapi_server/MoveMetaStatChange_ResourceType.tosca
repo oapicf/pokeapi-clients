@@ -1,0 +1,41 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server MoveMetaStatChange"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a MoveMetaStatChange"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  StatSummary = openapi_server.resourceTypes.StatSummary
+}
+resourceTypes {
+
+  MoveMetaStatChange {
+    title = MoveMetaStatChange
+    description = MoveMetaStatChange
+    derivedFrom = Root
+    properties {
+        change {
+          type =  integer
+          description = "The amount of change."
+          optional = true
+        }
+        stat {
+          type = StatSummary
+          description = "The stat being affected."
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  MoveMetaStatChange {
+    title = MoveMetaStatChange
+    description = MoveMetaStatChange
+    implements = openapi_server.resourceTypes.MoveMetaStatChange
+
+  }
+}

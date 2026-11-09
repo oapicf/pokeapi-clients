@@ -7,8 +7,8 @@ using namespace Tiny;
 MoveFlavorText::MoveFlavorText()
 {
 	flavor_text = std::string();
-	language = LanguageSummary();
-	version_group = VersionGroupSummary();
+	language = null;
+	version_group = null;
 }
 
 MoveFlavorText::MoveFlavorText(std::string jsonString)

@@ -15,8 +15,8 @@
 
 typedef struct evolution_trigger_detail_t evolution_trigger_detail_t;
 
-#include "ability_detail_pokemon_inner_pokemon.h"
 #include "evolution_trigger_name.h"
+#include "pokemon_species_summary.h"
 
 
 

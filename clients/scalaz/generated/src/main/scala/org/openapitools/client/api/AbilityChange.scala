@@ -12,8 +12,10 @@ import org.joda.time.DateTime
 import AbilityChange._
 
 case class AbilityChange (
+  /* The version group in which the previous effect of this ability originated. */
   versionGroup: VersionGroupSummary,
-effectEntries: List[AbilityChangeEffectText])
+/* The previous effect of this ability listed in different languages. */
+  effectEntries: List[AbilityChangeEffectText])
 
 object AbilityChange {
   import DateTimeCodecs._

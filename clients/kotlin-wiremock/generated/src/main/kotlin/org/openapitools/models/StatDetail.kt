@@ -18,10 +18,13 @@ data class StatDetail(
     val gameIndex: kotlin.Int,
 
     @field:JsonProperty("affecting_moves")
-    val affectingMoves: StatDetailAffectingMoves,
+    val affectingMoves: StatAffectingMoves,
 
     @field:JsonProperty("affecting_natures")
-    val affectingNatures: StatDetailAffectingNatures,
+    val affectingNatures: StatAffectingNatures,
+
+    @field:JsonProperty("affecting_items")
+    val affectingItems: kotlin.collections.List<ItemSummary>,
 
     @field:JsonProperty("characteristics")
     val characteristics: kotlin.collections.List<CharacteristicSummary>,

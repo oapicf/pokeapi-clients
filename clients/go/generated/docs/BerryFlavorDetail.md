@@ -4,17 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int32** |  | [readonly] 
-**Name** | **string** |  | 
-**Berries** | [**[]BerryFlavorDetailBerriesInner**](BerryFlavorDetailBerriesInner.md) |  | [readonly] 
-**ContestType** | [**ContestTypeSummary**](ContestTypeSummary.md) |  | 
-**Names** | [**[]BerryFlavorName**](BerryFlavorName.md) |  | [readonly] 
+**Id** | **int32** | The identifier for this resource. | [readonly] 
+**Name** | **string** | The name for this resource. | 
+**Berries** | [**[]BerryFlavorBerryMap**](BerryFlavorBerryMap.md) | A list of the berries with this flavor. | [readonly] 
+**ContestType** | [**ContestTypeSummary**](ContestTypeSummary.md) | The contest type that correlates with this berry flavor. | 
+**Names** | [**[]BerryFlavorName**](BerryFlavorName.md) | The name of this resource listed in different languages. | [readonly] 
 
 ## Methods
 
 ### NewBerryFlavorDetail
 
-`func NewBerryFlavorDetail(id int32, name string, berries []BerryFlavorDetailBerriesInner, contestType ContestTypeSummary, names []BerryFlavorName, ) *BerryFlavorDetail`
+`func NewBerryFlavorDetail(id int32, name string, berries []BerryFlavorBerryMap, contestType ContestTypeSummary, names []BerryFlavorName, ) *BerryFlavorDetail`
 
 NewBerryFlavorDetail instantiates a new BerryFlavorDetail object
 This constructor will assign default values to properties that have it defined,
@@ -71,20 +71,20 @@ SetName sets Name field to given value.
 
 ### GetBerries
 
-`func (o *BerryFlavorDetail) GetBerries() []BerryFlavorDetailBerriesInner`
+`func (o *BerryFlavorDetail) GetBerries() []BerryFlavorBerryMap`
 
 GetBerries returns the Berries field if non-nil, zero value otherwise.
 
 ### GetBerriesOk
 
-`func (o *BerryFlavorDetail) GetBerriesOk() (*[]BerryFlavorDetailBerriesInner, bool)`
+`func (o *BerryFlavorDetail) GetBerriesOk() (*[]BerryFlavorBerryMap, bool)`
 
 GetBerriesOk returns a tuple with the Berries field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetBerries
 
-`func (o *BerryFlavorDetail) SetBerries(v []BerryFlavorDetailBerriesInner)`
+`func (o *BerryFlavorDetail) SetBerries(v []BerryFlavorBerryMap)`
 
 SetBerries sets Berries field to given value.
 

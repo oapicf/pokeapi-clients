@@ -103,7 +103,7 @@ void region_detail_free(region_detail_t *region_detail) {
     }
     if (region_detail->version_groups) {
         list_ForEach(listEntry, region_detail->version_groups) {
-            ability_detail_pokemon_inner_pokemon_free(listEntry->data);
+            version_group_summary_free(listEntry->data);
         }
         list_freeList(region_detail->version_groups);
         region_detail->version_groups = NULL;
@@ -221,7 +221,7 @@ cJSON *region_detail_convertToJSON(region_detail_t *region_detail) {
     listEntry_t *version_groupsListEntry;
     if (region_detail->version_groups) {
     list_ForEach(version_groupsListEntry, region_detail->version_groups) {
-    cJSON *itemLocal = ability_detail_pokemon_inner_pokemon_convertToJSON(version_groupsListEntry->data);
+    cJSON *itemLocal = version_group_summary_convertToJSON(version_groupsListEntry->data);
     if(itemLocal == NULL) {
     goto fail;
     }
@@ -412,7 +412,7 @@ region_detail_t *region_detail_parseFromJSON(cJSON *region_detailJSON){
         if(!cJSON_IsObject(version_groups_local_nonprimitive)){
             goto end;
         }
-        ability_detail_pokemon_inner_pokemon_t *version_groupsItem = ability_detail_pokemon_inner_pokemon_parseFromJSON(version_groups_local_nonprimitive);
+        version_group_summary_t *version_groupsItem = version_group_summary_parseFromJSON(version_groups_local_nonprimitive);
 
         list_addElement(version_groupsList, version_groupsItem);
     }
@@ -478,7 +478,7 @@ end:
     if (version_groupsList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, version_groupsList) {
-            ability_detail_pokemon_inner_pokemon_free(listEntry->data);
+            version_group_summary_free(listEntry->data);
             listEntry->data = NULL;
         }
         list_freeList(version_groupsList);

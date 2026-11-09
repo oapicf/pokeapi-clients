@@ -9,8 +9,8 @@
         experience=nothing,
     )
 
-    - level::Int64
-    - experience::Int64
+    - level::Int64 : The level gained.
+    - experience::Int64 : The amount of experience required to reach the referenced level.
 """
 Base.@kwdef mutable struct Experience <: OpenAPI.APIModel
     level::Union{Nothing, Int64} = nothing
@@ -39,5 +39,13 @@ end
 
 function OpenAPI.validate_property(::Type{ Experience }, name::Symbol, val)
 
+    if name === Symbol("level")
+        OpenAPI.validate_param(name, "Experience", :maximum, val, 2147483647, false)
+        OpenAPI.validate_param(name, "Experience", :minimum, val, -2147483648, false)
+    end
 
+    if name === Symbol("experience")
+        OpenAPI.validate_param(name, "Experience", :maximum, val, 2147483647, false)
+        OpenAPI.validate_param(name, "Experience", :minimum, val, -2147483648, false)
+    end
 end

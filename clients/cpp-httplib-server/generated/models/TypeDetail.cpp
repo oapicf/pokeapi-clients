@@ -11,15 +11,13 @@ namespace models {
 TypeDetail::TypeDetail()
 : id(0)
 , name("")
-, damageRelations(TypeDetailDamageRelations())
-, pastDamageRelations(std::vector<TypeDetail_past_damage_relations_inner>())
+, pastDamageRelations(std::vector<TypePastRelationships>())
 , gameIndices(std::vector<TypeGameIndex>())
-, generation(GenerationSummary())
-, moveDamageClass(MoveDamageClassSummary())
-, names(std::vector<AbilityName>())
-, pokemon(std::vector<TypeDetail_pokemon_inner>())
+, moveDamageClass(std::nullopt)
+, names(std::vector<TypeName>())
+, pokemon(std::vector<TypePokemon>())
 , moves(std::vector<MoveSummary>())
-, sprites(std::map<std::string, std::map<std::string, TypeDetail_sprites_value_value>>())
+, sprites(std::map<std::string, std::map<std::string, TypeGameSprite>>())
 {
 }
 // =========================================
@@ -36,11 +34,11 @@ std::string TypeDetail::getName() const
 {
     return name;
 }
-TypeDetailDamageRelations TypeDetail::getDamageRelations() const
+TypeRelationships TypeDetail::getDamageRelations() const
 {
     return damageRelations;
 }
-std::vector<TypeDetail_past_damage_relations_inner> TypeDetail::getPastDamageRelations() const
+std::vector<TypePastRelationships> TypeDetail::getPastDamageRelations() const
 {
     return pastDamageRelations;
 }
@@ -56,11 +54,11 @@ MoveDamageClassSummary TypeDetail::getMoveDamageClass() const
 {
     return moveDamageClass;
 }
-std::vector<AbilityName> TypeDetail::getNames() const
+std::vector<TypeName> TypeDetail::getNames() const
 {
     return names;
 }
-std::vector<TypeDetail_pokemon_inner> TypeDetail::getPokemon() const
+std::vector<TypePokemon> TypeDetail::getPokemon() const
 {
     return pokemon;
 }
@@ -68,7 +66,7 @@ std::vector<MoveSummary> TypeDetail::getMoves() const
 {
     return moves;
 }
-std::map<std::string, std::map<std::string, TypeDetail_sprites_value_value>> TypeDetail::getSprites() const
+std::map<std::string, std::map<std::string, TypeGameSprite>> TypeDetail::getSprites() const
 {
     return sprites;
 }
@@ -84,11 +82,11 @@ void TypeDetail::setName(const std::string& nameObj)
 {
     name = nameObj;
 }
-void TypeDetail::setDamageRelations(const TypeDetailDamageRelations& damageRelationsObj)
+void TypeDetail::setDamageRelations(const TypeRelationships& damageRelationsObj)
 {
     damageRelations = damageRelationsObj;
 }
-void TypeDetail::setPastDamageRelations(const std::vector<TypeDetail_past_damage_relations_inner>& pastDamageRelationsObj)
+void TypeDetail::setPastDamageRelations(const std::vector<TypePastRelationships>& pastDamageRelationsObj)
 {
     pastDamageRelations = pastDamageRelationsObj;
 }
@@ -104,11 +102,11 @@ void TypeDetail::setMoveDamageClass(const MoveDamageClassSummary& moveDamageClas
 {
     moveDamageClass = moveDamageClassObj;
 }
-void TypeDetail::setNames(const std::vector<AbilityName>& namesObj)
+void TypeDetail::setNames(const std::vector<TypeName>& namesObj)
 {
     names = namesObj;
 }
-void TypeDetail::setPokemon(const std::vector<TypeDetail_pokemon_inner>& pokemonObj)
+void TypeDetail::setPokemon(const std::vector<TypePokemon>& pokemonObj)
 {
     pokemon = pokemonObj;
 }
@@ -116,7 +114,7 @@ void TypeDetail::setMoves(const std::vector<MoveSummary>& movesObj)
 {
     moves = movesObj;
 }
-void TypeDetail::setSprites(const std::map<std::string, std::map<std::string, TypeDetail_sprites_value_value>>& spritesObj)
+void TypeDetail::setSprites(const std::map<std::string, std::map<std::string, TypeGameSprite>>& spritesObj)
 {
     sprites = spritesObj;
 }

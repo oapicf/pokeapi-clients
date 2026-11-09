@@ -60,6 +60,7 @@ class ContestEffectDetail(Model):
     def id(self):
         """Gets the id of this ContestEffectDetail.
 
+        The identifier for this resource.
 
         :return: The id of this ContestEffectDetail.
         :rtype: int
@@ -70,6 +71,7 @@ class ContestEffectDetail(Model):
     def id(self, id):
         """Sets the id of this ContestEffectDetail.
 
+        The identifier for this resource.
 
         :param id: The id of this ContestEffectDetail.
         :type id: int
@@ -83,6 +85,7 @@ class ContestEffectDetail(Model):
     def appeal(self):
         """Gets the appeal of this ContestEffectDetail.
 
+        The base number of hearts the user of this move gets.
 
         :return: The appeal of this ContestEffectDetail.
         :rtype: int
@@ -93,12 +96,17 @@ class ContestEffectDetail(Model):
     def appeal(self, appeal):
         """Sets the appeal of this ContestEffectDetail.
 
+        The base number of hearts the user of this move gets.
 
         :param appeal: The appeal of this ContestEffectDetail.
         :type appeal: int
         """
         if appeal is None:
             raise ValueError("Invalid value for `appeal`, must not be `None`")
+        if appeal is not None and appeal > 2147483647:
+            raise ValueError("Invalid value for `appeal`, must be a value less than or equal to `2147483647`")
+        if appeal is not None and appeal < -2147483648:
+            raise ValueError("Invalid value for `appeal`, must be a value greater than or equal to `-2147483648`")
 
         self._appeal = appeal
 
@@ -106,6 +114,7 @@ class ContestEffectDetail(Model):
     def jam(self):
         """Gets the jam of this ContestEffectDetail.
 
+        The base number of hearts the user's opponent loses.
 
         :return: The jam of this ContestEffectDetail.
         :rtype: int
@@ -116,12 +125,17 @@ class ContestEffectDetail(Model):
     def jam(self, jam):
         """Sets the jam of this ContestEffectDetail.
 
+        The base number of hearts the user's opponent loses.
 
         :param jam: The jam of this ContestEffectDetail.
         :type jam: int
         """
         if jam is None:
             raise ValueError("Invalid value for `jam`, must not be `None`")
+        if jam is not None and jam > 2147483647:
+            raise ValueError("Invalid value for `jam`, must be a value less than or equal to `2147483647`")
+        if jam is not None and jam < -2147483648:
+            raise ValueError("Invalid value for `jam`, must be a value greater than or equal to `-2147483648`")
 
         self._jam = jam
 
@@ -129,6 +143,7 @@ class ContestEffectDetail(Model):
     def effect_entries(self):
         """Gets the effect_entries of this ContestEffectDetail.
 
+        The result of this contest effect listed in different languages.
 
         :return: The effect_entries of this ContestEffectDetail.
         :rtype: List[ContestEffectEffectText]
@@ -139,6 +154,7 @@ class ContestEffectDetail(Model):
     def effect_entries(self, effect_entries):
         """Sets the effect_entries of this ContestEffectDetail.
 
+        The result of this contest effect listed in different languages.
 
         :param effect_entries: The effect_entries of this ContestEffectDetail.
         :type effect_entries: List[ContestEffectEffectText]
@@ -152,6 +168,7 @@ class ContestEffectDetail(Model):
     def flavor_text_entries(self):
         """Gets the flavor_text_entries of this ContestEffectDetail.
 
+        The flavor text of this contest effect listed in different languages.
 
         :return: The flavor_text_entries of this ContestEffectDetail.
         :rtype: List[ContestEffectFlavorText]
@@ -162,6 +179,7 @@ class ContestEffectDetail(Model):
     def flavor_text_entries(self, flavor_text_entries):
         """Sets the flavor_text_entries of this ContestEffectDetail.
 
+        The flavor text of this contest effect listed in different languages.
 
         :param flavor_text_entries: The flavor_text_entries of this ContestEffectDetail.
         :type flavor_text_entries: List[ContestEffectFlavorText]

@@ -3,11 +3,11 @@ package org.openapitools.model;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.model.AbilityDetailPokemonInnerPokemon;
 import org.openapitools.model.GenerationSummary;
 import org.openapitools.model.LocationSummary;
 import org.openapitools.model.PokedexSummary;
 import org.openapitools.model.RegionName;
+import org.openapitools.model.VersionGroupSummary;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
@@ -18,37 +18,58 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class RegionDetail  {
   
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The identifier for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
 
   private Integer id;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The name for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The name for this resource.")
 
   private String name;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * A list of locations that can be found in this region.
+  */
+  @ApiModelProperty(required = true, value = "A list of locations that can be found in this region.")
 
   private List<@Valid LocationSummary> locations = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The generation this region was introduced in.
+  */
+  @ApiModelProperty(required = true, value = "The generation this region was introduced in.")
 
   @Valid
 
   private GenerationSummary mainGeneration;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The name of this resource listed in different languages.
+  */
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
 
   private List<@Valid RegionName> names = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * A list of pokédexes that catalogue Pokémon in this region.
+  */
+  @ApiModelProperty(required = true, value = "A list of pokédexes that catalogue Pokémon in this region.")
 
   private List<@Valid PokedexSummary> pokedexes = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
-
-  private List<@Valid AbilityDetailPokemonInnerPokemon> versionGroups = new ArrayList<>();
  /**
-   * Get id
+  * A list of version groups where this region can be visited.
+  */
+  @ApiModelProperty(required = true, value = "A list of version groups where this region can be visited.")
+
+  private List<@Valid VersionGroupSummary> versionGroups = new ArrayList<>();
+ /**
+   * The identifier for this resource.
    * @return id
   **/
   @JsonProperty("id")
@@ -59,12 +80,12 @@ public class RegionDetail  {
 
 
  /**
-   * Get name
+   * The name for this resource.
    * @return name
   **/
   @JsonProperty("name")
   @NotNull
- @Size(max=100)  public String getName() {
+ @Size(max=200)  public String getName() {
     return name;
   }
 
@@ -78,7 +99,7 @@ public class RegionDetail  {
   }
 
  /**
-   * Get locations
+   * A list of locations that can be found in this region.
    * @return locations
   **/
   @JsonProperty("locations")
@@ -89,7 +110,7 @@ public class RegionDetail  {
 
 
  /**
-   * Get mainGeneration
+   * The generation this region was introduced in.
    * @return mainGeneration
   **/
   @JsonProperty("main_generation")
@@ -100,7 +121,7 @@ public class RegionDetail  {
 
 
  /**
-   * Get names
+   * The name of this resource listed in different languages.
    * @return names
   **/
   @JsonProperty("names")
@@ -111,7 +132,7 @@ public class RegionDetail  {
 
 
  /**
-   * Get pokedexes
+   * A list of pokédexes that catalogue Pokémon in this region.
    * @return pokedexes
   **/
   @JsonProperty("pokedexes")
@@ -122,12 +143,12 @@ public class RegionDetail  {
 
 
  /**
-   * Get versionGroups
+   * A list of version groups where this region can be visited.
    * @return versionGroups
   **/
   @JsonProperty("version_groups")
   @NotNull
-  public List<@Valid AbilityDetailPokemonInnerPokemon> getVersionGroups() {
+  public List<@Valid VersionGroupSummary> getVersionGroups() {
     return versionGroups;
   }
 

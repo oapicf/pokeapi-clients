@@ -13,8 +13,10 @@ import java.net.URI
 import EvolutionTriggerSummary._
 
 case class EvolutionTriggerSummary (
+  /* The name of the referenced resource. */
   name: String,
-url: URI)
+/* The URL of the referenced resource. */
+  url: URI)
 
 object EvolutionTriggerSummary {
   import DateTimeCodecs._

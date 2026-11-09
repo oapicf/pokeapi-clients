@@ -4,33 +4,33 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int** |  | [readonly] 
-**Name** | **string** |  | 
-**GrowthRate** | [**GrowthRateSummary**](GrowthRateSummary.md) |  | 
-**PokedexNumbers** | [**List&lt;PokemonDexEntry&gt;**](PokemonDexEntry.md) |  | [readonly] 
-**EggGroups** | [**List&lt;AbilityDetailPokemonInnerPokemon&gt;**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] 
-**Color** | [**PokemonColorSummary**](PokemonColorSummary.md) |  | 
-**Shape** | [**PokemonShapeSummary**](PokemonShapeSummary.md) |  | 
-**EvolvesFromSpecies** | [**PokemonSpeciesSummary**](PokemonSpeciesSummary.md) |  | 
-**EvolutionChain** | [**EvolutionChainSummary**](EvolutionChainSummary.md) |  | 
-**Habitat** | [**PokemonHabitatSummary**](PokemonHabitatSummary.md) |  | 
-**Generation** | [**GenerationSummary**](GenerationSummary.md) |  | 
-**Names** | [**List&lt;PokemonFormDetailFormNamesInner&gt;**](PokemonFormDetailFormNamesInner.md) |  | [readonly] 
-**PalParkEncounters** | [**List&lt;PokemonSpeciesDetailPalParkEncountersInner&gt;**](PokemonSpeciesDetailPalParkEncountersInner.md) |  | [readonly] 
-**FormDescriptions** | [**List&lt;PokemonSpeciesDescription&gt;**](PokemonSpeciesDescription.md) |  | [readonly] 
-**FlavorTextEntries** | [**List&lt;PokemonSpeciesFlavorText&gt;**](PokemonSpeciesFlavorText.md) |  | [readonly] 
-**Genera** | [**List&lt;PokemonSpeciesDetailGeneraInner&gt;**](PokemonSpeciesDetailGeneraInner.md) |  | [readonly] 
-**Varieties** | [**List&lt;PokemonSpeciesDetailVarietiesInner&gt;**](PokemonSpeciesDetailVarietiesInner.md) |  | [readonly] 
-**Order** | **int** |  | [optional] 
-**GenderRate** | **int** |  | [optional] 
-**CaptureRate** | **int** |  | [optional] 
-**BaseHappiness** | **int** |  | [optional] 
-**IsBaby** | **bool** |  | [optional] 
-**IsLegendary** | **bool** |  | [optional] 
-**IsMythical** | **bool** |  | [optional] 
-**HatchCounter** | **int** |  | [optional] 
-**HasGenderDifferences** | **bool** |  | [optional] 
-**FormsSwitchable** | **bool** |  | [optional] 
+**Id** | **int** | The identifier for this resource. | [readonly] 
+**Name** | **string** | The name for this resource. | 
+**GrowthRate** | [**GrowthRateSummary**](GrowthRateSummary.md) | The rate at which this Pokémon species gains levels. | 
+**PokedexNumbers** | [**List&lt;PokemonDexEntry&gt;**](PokemonDexEntry.md) | A list of Pokedexes and the indexes reserved within them for this Pokémon species. | [readonly] 
+**EggGroups** | [**List&lt;EggGroupSummary&gt;**](EggGroupSummary.md) | A list of egg groups this Pokémon species is a member of. | [readonly] 
+**Color** | [**PokemonColorSummary**](PokemonColorSummary.md) | The color of this Pokémon for Pokédex search. | 
+**Shape** | [**PokemonShapeSummary**](PokemonShapeSummary.md) | The shape of this Pokémon for Pokédex search. | 
+**EvolutionChain** | [**EvolutionChainSummary**](EvolutionChainSummary.md) | The evolution chain this Pokémon species is a member of. | 
+**Generation** | [**GenerationSummary**](GenerationSummary.md) | The generation this Pokémon species was introduced in. | 
+**Names** | [**List&lt;PokemonSpeciesName&gt;**](PokemonSpeciesName.md) | The name of this resource listed in different languages. | [readonly] 
+**PalParkEncounters** | [**List&lt;PokemonSpeciesPalParkEncounter&gt;**](PokemonSpeciesPalParkEncounter.md) | A list of encounters that can be had with this Pokémon species in pal park. | [readonly] 
+**FormDescriptions** | [**List&lt;PokemonSpeciesDescription&gt;**](PokemonSpeciesDescription.md) | Descriptions of different forms Pokémon take on within the Pokémon species. | [readonly] 
+**FlavorTextEntries** | [**List&lt;PokemonSpeciesFlavorText&gt;**](PokemonSpeciesFlavorText.md) | A list of flavor text entries for this Pokémon species. | [readonly] 
+**Genera** | [**List&lt;PokemonSpeciesGenus&gt;**](PokemonSpeciesGenus.md) | The genus of this Pokémon species listed in multiple languages. | [readonly] 
+**Varieties** | [**List&lt;PokemonSpeciesVariety&gt;**](PokemonSpeciesVariety.md) | A list of the Pokémon that exist within this Pokémon species. | [readonly] 
+**Order** | **int** | The order in which species should be sorted. Based on National Dex order, except families are grouped together and sorted by stage. | [optional] 
+**GenderRate** | **int** | The chance of this Pokémon being female, in eighths; or -1 for genderless. | [optional] 
+**CaptureRate** | **int** | The base capture rate; up to 255. The higher the number, the easier the catch. | [optional] 
+**BaseHappiness** | **int** | The happiness when caught by a normal Pokéball; up to 255. The higher the number, the happier the Pokémon. | [optional] 
+**IsBaby** | **bool** | Whether or not this is a baby Pokémon. | [optional] 
+**IsLegendary** | **bool** | Whether or not this is a legendary Pokémon. | [optional] 
+**IsMythical** | **bool** | Whether or not this is a mythical Pokémon. | [optional] 
+**HatchCounter** | **int** | Initial hatch counter: one must walk Y × (hatch_counter + 1) steps before this Pokémon&#39;s egg hatches, unless utilizing bonuses like Flame Body&#39;s. Y varies per generation. In Generations II, III, and VII, Egg cycles are 256 steps long. In Generation IV, Egg cycles are 255 steps long. In Pokémon Brilliant Diamond and Shining Pearl, Egg cycles are also 255 steps long, but are shorter on special dates. In Generations V and VI, Egg cycles are 257 steps long. In Pokémon Sword and Shield, and in Pokémon Scarlet and Violet, Egg cycles are 128 steps long. | [optional] 
+**HasGenderDifferences** | **bool** | Whether or not this Pokémon has visual gender differences. | [optional] 
+**FormsSwitchable** | **bool** | Whether or not this Pokémon has multiple forms and can switch between them. | [optional] 
+**EvolvesFromSpecies** | [**PokemonSpeciesSummary**](PokemonSpeciesSummary.md) | The Pokémon species that evolves into this Pokemon_species. | 
+**Habitat** | [**PokemonHabitatSummary**](PokemonHabitatSummary.md) | The habitat this Pokémon species can be encountered in. | 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

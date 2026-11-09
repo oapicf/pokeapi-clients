@@ -15,12 +15,6 @@ Protected Class GamesApi
 		  // - A generation is a grouping of the Pokémon games that separates them based on the Pokémon they include. In each generation, a new set of Pokémon, Moves, Abilities and Types that did not exist in the previous generation are released.
 		  // - defaultResponse: Nil
 		  //
-		  // - BASIC:
-		  //   - type: http
-		  //   - name: basicAuth
-		  // - API Key:
-		  //   - type: apiKey sessionid 
-		  //   - name: cookieAuth
 		  //
 		  
 		  Dim localVarHTTPSocket As New HTTPSecureSocket
@@ -34,10 +28,6 @@ Protected Class GamesApi
 		  If q <> nil Then localVarQueryParams = localVarQueryParams + "&" + EncodeURLComponent("q") + "=" + EncodeURLComponent(q)
 		  
 
-		  
-		  AddHandler localVarHTTPSocket.AuthenticationRequired, addressof Me.AuthenticationRequiredIf me.ApiKeycookieAuth = "" Then Raise New OpenAPIClient.OpenAPIClientException(kErrorCannotAuthenticate, "API key is unset. Please assign a value to `GamesApi.ApiKeycookieAuth` before invoking `GamesApi.GenerationList()`.")
-		  
-		  
 		  
 
 
@@ -157,20 +147,10 @@ Protected Class GamesApi
 		  // - A generation is a grouping of the Pokémon games that separates them based on the Pokémon they include. In each generation, a new set of Pokémon, Moves, Abilities and Types that did not exist in the previous generation are released.
 		  // - defaultResponse: Nil
 		  //
-		  // - BASIC:
-		  //   - type: http
-		  //   - name: basicAuth
-		  // - API Key:
-		  //   - type: apiKey sessionid 
-		  //   - name: cookieAuth
 		  //
 		  
 		  Dim localVarHTTPSocket As New HTTPSecureSocket
 		  Me.PrivateFuncPrepareSocket(localVarHTTPSocket)
-		  
-		  
-		  
-		  AddHandler localVarHTTPSocket.AuthenticationRequired, addressof Me.AuthenticationRequiredIf me.ApiKeycookieAuth = "" Then Raise New OpenAPIClient.OpenAPIClientException(kErrorCannotAuthenticate, "API key is unset. Please assign a value to `GamesApi.ApiKeycookieAuth` before invoking `GamesApi.GenerationRetrieve()`.")
 		  
 		  
 		  
@@ -297,12 +277,6 @@ Protected Class GamesApi
 		  // - A Pokédex is a handheld electronic encyclopedia device; one which is capable of recording and retaining information of the various Pokémon in a given region with the exception of the national dex and some smaller dexes related to portions of a region. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pokedex) for greater detail.
 		  // - defaultResponse: Nil
 		  //
-		  // - BASIC:
-		  //   - type: http
-		  //   - name: basicAuth
-		  // - API Key:
-		  //   - type: apiKey sessionid 
-		  //   - name: cookieAuth
 		  //
 		  
 		  Dim localVarHTTPSocket As New HTTPSecureSocket
@@ -316,10 +290,6 @@ Protected Class GamesApi
 		  If q <> nil Then localVarQueryParams = localVarQueryParams + "&" + EncodeURLComponent("q") + "=" + EncodeURLComponent(q)
 		  
 
-		  
-		  AddHandler localVarHTTPSocket.AuthenticationRequired, addressof Me.AuthenticationRequiredIf me.ApiKeycookieAuth = "" Then Raise New OpenAPIClient.OpenAPIClientException(kErrorCannotAuthenticate, "API key is unset. Please assign a value to `GamesApi.ApiKeycookieAuth` before invoking `GamesApi.PokedexList()`.")
-		  
-		  
 		  
 
 
@@ -439,20 +409,10 @@ Protected Class GamesApi
 		  // - A Pokédex is a handheld electronic encyclopedia device; one which is capable of recording and retaining information of the various Pokémon in a given region with the exception of the national dex and some smaller dexes related to portions of a region. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pokedex) for greater detail.
 		  // - defaultResponse: Nil
 		  //
-		  // - BASIC:
-		  //   - type: http
-		  //   - name: basicAuth
-		  // - API Key:
-		  //   - type: apiKey sessionid 
-		  //   - name: cookieAuth
 		  //
 		  
 		  Dim localVarHTTPSocket As New HTTPSecureSocket
 		  Me.PrivateFuncPrepareSocket(localVarHTTPSocket)
-		  
-		  
-		  
-		  AddHandler localVarHTTPSocket.AuthenticationRequired, addressof Me.AuthenticationRequiredIf me.ApiKeycookieAuth = "" Then Raise New OpenAPIClient.OpenAPIClientException(kErrorCannotAuthenticate, "API key is unset. Please assign a value to `GamesApi.ApiKeycookieAuth` before invoking `GamesApi.PokedexRetrieve()`.")
 		  
 		  
 		  
@@ -579,12 +539,6 @@ Protected Class GamesApi
 		  // - Version groups categorize highly similar versions of the games.
 		  // - defaultResponse: Nil
 		  //
-		  // - BASIC:
-		  //   - type: http
-		  //   - name: basicAuth
-		  // - API Key:
-		  //   - type: apiKey sessionid 
-		  //   - name: cookieAuth
 		  //
 		  
 		  Dim localVarHTTPSocket As New HTTPSecureSocket
@@ -598,10 +552,6 @@ Protected Class GamesApi
 		  If q <> nil Then localVarQueryParams = localVarQueryParams + "&" + EncodeURLComponent("q") + "=" + EncodeURLComponent(q)
 		  
 
-		  
-		  AddHandler localVarHTTPSocket.AuthenticationRequired, addressof Me.AuthenticationRequiredIf me.ApiKeycookieAuth = "" Then Raise New OpenAPIClient.OpenAPIClientException(kErrorCannotAuthenticate, "API key is unset. Please assign a value to `GamesApi.ApiKeycookieAuth` before invoking `GamesApi.VersionGroupList()`.")
-		  
-		  
 		  
 
 
@@ -721,20 +671,10 @@ Protected Class GamesApi
 		  // - Version groups categorize highly similar versions of the games.
 		  // - defaultResponse: Nil
 		  //
-		  // - BASIC:
-		  //   - type: http
-		  //   - name: basicAuth
-		  // - API Key:
-		  //   - type: apiKey sessionid 
-		  //   - name: cookieAuth
 		  //
 		  
 		  Dim localVarHTTPSocket As New HTTPSecureSocket
 		  Me.PrivateFuncPrepareSocket(localVarHTTPSocket)
-		  
-		  
-		  
-		  AddHandler localVarHTTPSocket.AuthenticationRequired, addressof Me.AuthenticationRequiredIf me.ApiKeycookieAuth = "" Then Raise New OpenAPIClient.OpenAPIClientException(kErrorCannotAuthenticate, "API key is unset. Please assign a value to `GamesApi.ApiKeycookieAuth` before invoking `GamesApi.VersionGroupRetrieve()`.")
 		  
 		  
 		  
@@ -861,12 +801,6 @@ Protected Class GamesApi
 		  // - Versions of the games, e.g., Red, Blue or Yellow.
 		  // - defaultResponse: Nil
 		  //
-		  // - BASIC:
-		  //   - type: http
-		  //   - name: basicAuth
-		  // - API Key:
-		  //   - type: apiKey sessionid 
-		  //   - name: cookieAuth
 		  //
 		  
 		  Dim localVarHTTPSocket As New HTTPSecureSocket
@@ -880,10 +814,6 @@ Protected Class GamesApi
 		  If q <> nil Then localVarQueryParams = localVarQueryParams + "&" + EncodeURLComponent("q") + "=" + EncodeURLComponent(q)
 		  
 
-		  
-		  AddHandler localVarHTTPSocket.AuthenticationRequired, addressof Me.AuthenticationRequiredIf me.ApiKeycookieAuth = "" Then Raise New OpenAPIClient.OpenAPIClientException(kErrorCannotAuthenticate, "API key is unset. Please assign a value to `GamesApi.ApiKeycookieAuth` before invoking `GamesApi.VersionList()`.")
-		  
-		  
 		  
 
 
@@ -1003,20 +933,10 @@ Protected Class GamesApi
 		  // - Versions of the games, e.g., Red, Blue or Yellow.
 		  // - defaultResponse: Nil
 		  //
-		  // - BASIC:
-		  //   - type: http
-		  //   - name: basicAuth
-		  // - API Key:
-		  //   - type: apiKey sessionid 
-		  //   - name: cookieAuth
 		  //
 		  
 		  Dim localVarHTTPSocket As New HTTPSecureSocket
 		  Me.PrivateFuncPrepareSocket(localVarHTTPSocket)
-		  
-		  
-		  
-		  AddHandler localVarHTTPSocket.AuthenticationRequired, addressof Me.AuthenticationRequiredIf me.ApiKeycookieAuth = "" Then Raise New OpenAPIClient.OpenAPIClientException(kErrorCannotAuthenticate, "API key is unset. Please assign a value to `GamesApi.ApiKeycookieAuth` before invoking `GamesApi.VersionRetrieve()`.")
 		  
 		  
 		  
@@ -1174,10 +1094,6 @@ Protected Class GamesApi
 
 	#tag Property, Flags = &h0
 		AdditionalHeaders As Dictionary
-	#tag EndProperty
-
-	#tag Property, Flags = &h0
-		ApiKeycookieAuth As String
 	#tag EndProperty
 
 	#tag Property, Flags = &h0

@@ -46,6 +46,7 @@ class MachineSummary(Model):
     def url(self) -> str:
         """Gets the url of this MachineSummary.
 
+        The URL of the referenced resource.  # noqa: E501
 
         :return: The url of this MachineSummary.
         :rtype: str
@@ -56,6 +57,7 @@ class MachineSummary(Model):
     def url(self, url: str):
         """Sets the url of this MachineSummary.
 
+        The URL of the referenced resource.  # noqa: E501
 
         :param url: The url of this MachineSummary.
         :type url: str

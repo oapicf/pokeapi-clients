@@ -1,0 +1,19 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "PokeathlonStatAffectingNature",
+  "fields": [
+    {
+      "name": "max_change",
+      "type": "int",
+      "doc": "The maximum amount of change to the referenced Pokéathlon stat."
+    },
+    {
+      "name": "nature",
+      "type": "model.NatureSummary",
+      "doc": "The nature causing the change."
+    }
+  ]
+
+}

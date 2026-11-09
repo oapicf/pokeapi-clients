@@ -8,8 +8,7 @@
            (java.text SimpleDateFormat)))
 
 (def auth-definitions
-  {"basicAuth" {:type :basic}
-   "cookieAuth" {:type :api-key :param-name "sessionid"}})
+  {})
 
 (def default-api-context
   "Default API context."
@@ -18,8 +17,7 @@
    :datetime-format "yyyy-MM-dd'T'HH:mm:ss.SSSXXX"
    :decode-models   false
    :debug           false
-   :auths           {"basicAuth" nil
-                     "cookieAuth" nil}})
+   :auths           {}})
 
 (def ^:dynamic *api-context*
   "Dynamic API context to be applied in API calls."

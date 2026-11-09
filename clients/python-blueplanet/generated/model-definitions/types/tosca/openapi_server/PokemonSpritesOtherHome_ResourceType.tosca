@@ -1,0 +1,50 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server PokemonSpritesOtherHome"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a PokemonSpritesOtherHome"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+}
+resourceTypes {
+
+  PokemonSpritesOtherHome {
+    title = PokemonSpritesOtherHome
+    description = PokemonSpritesOtherHome
+    derivedFrom = Root
+    properties {
+        front_default {
+          type =  string
+          description = "The URL of the default Pokémon HOME front image, or null if unavailable."
+          optional = true
+        }
+        front_female {
+          type =  string
+          description = "The URL of the female Pokémon HOME front image, or null if unavailable."
+          optional = true
+        }
+        front_shiny {
+          type =  string
+          description = "The URL of the shiny Pokémon HOME front image, or null if unavailable."
+          optional = true
+        }
+        front_shiny_female {
+          type =  string
+          description = "The URL of the shiny female Pokémon HOME front image, or null if unavailable."
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  PokemonSpritesOtherHome {
+    title = PokemonSpritesOtherHome
+    description = PokemonSpritesOtherHome
+    implements = openapi_server.resourceTypes.PokemonSpritesOtherHome
+
+  }
+}

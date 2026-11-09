@@ -7,8 +7,8 @@ using namespace Tiny;
 PokemonSpeciesFlavorText::PokemonSpeciesFlavorText()
 {
 	flavor_text = std::string();
-	language = LanguageSummary();
-	version = VersionSummary();
+	language = null;
+	version = null;
 }
 
 PokemonSpeciesFlavorText::PokemonSpeciesFlavorText(std::string jsonString)

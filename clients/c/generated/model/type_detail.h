@@ -15,22 +15,22 @@
 
 typedef struct type_detail_t type_detail_t;
 
-#include "ability_name.h"
+#include "ModelTypeName.h"
 #include "generation_summary.h"
 #include "move_damage_class_summary.h"
 #include "move_summary.h"
-#include "type_detail_damage_relations.h"
-#include "type_detail_past_damage_relations_inner.h"
-#include "type_detail_pokemon_inner.h"
-#include "type_detail_sprites_value_value.h"
 #include "type_game_index.h"
+#include "type_game_sprite.h"
+#include "type_past_relationships.h"
+#include "type_pokemon.h"
+#include "type_relationships.h"
 
 
 
 typedef struct type_detail_t {
     int *id; //numeric
     char *name; // string
-    struct type_detail_damage_relations_t *damage_relations; //model
+    struct type_relationships_t *damage_relations; //model
     list_t *past_damage_relations; //nonprimitive container
     list_t *game_indices; //nonprimitive container
     struct generation_summary_t *generation; //model
@@ -46,7 +46,7 @@ typedef struct type_detail_t {
 __attribute__((deprecated)) type_detail_t *type_detail_create(
     int *id,
     char *name,
-    type_detail_damage_relations_t *damage_relations,
+    type_relationships_t *damage_relations,
     list_t *past_damage_relations,
     list_t *game_indices,
     generation_summary_t *generation,

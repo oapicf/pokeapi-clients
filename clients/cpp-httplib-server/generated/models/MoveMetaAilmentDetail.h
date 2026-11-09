@@ -10,8 +10,8 @@
 #include <cstdint>
 #include <string>
 #include <vector>
-#include "MoveMetaAilmentDetailMovesInner.h"
 #include "MoveMetaAilmentName.h"
+#include "MoveSummary.h"
 
 
 
@@ -30,8 +30,8 @@ public:
     void setId(const int& id);
     [[nodiscard]] std::string getName() const;
     void setName(const std::string& name);
-    [[nodiscard]] std::vector<MoveMetaAilmentDetail_moves_inner> getMoves() const;
-    void setMoves(const std::vector<MoveMetaAilmentDetail_moves_inner>& moves);
+    [[nodiscard]] std::vector<MoveSummary> getMoves() const;
+    void setMoves(const std::vector<MoveSummary>& moves);
     [[nodiscard]] std::vector<MoveMetaAilmentName> getNames() const;
     void setNames(const std::vector<MoveMetaAilmentName>& names);
 
@@ -43,7 +43,7 @@ public:
 private:
     int id;
     std::string name;
-    std::vector<MoveMetaAilmentDetail_moves_inner> moves;
+    std::vector<MoveSummary> moves;
     std::vector<MoveMetaAilmentName> names;
 };
 

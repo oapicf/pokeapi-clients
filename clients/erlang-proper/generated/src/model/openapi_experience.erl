@@ -18,8 +18,8 @@ openapi_experience() ->
     openapi_experience([]).
 
 openapi_experience(Fields) ->
-  Default = [ {'level', integer() }
-            , {'experience', integer() }
+  Default = [ {'level', integer(-2147483648, 2147483647) }
+            , {'experience', integer(-2147483648, 2147483647) }
             ],
   lists:ukeymerge(1, lists:sort(Fields), lists:sort(Default)).
 

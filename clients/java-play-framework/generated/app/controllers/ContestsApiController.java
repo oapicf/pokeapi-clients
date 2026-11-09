@@ -29,7 +29,7 @@ import com.typesafe.config.Config;
 
 import openapitools.OpenAPIUtils.ApiAction;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-10-25T05:48:13.486809836Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-11-09T13:49:31.462302702Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class ContestsApiController extends Controller {
     private final ContestsApiControllerImpInterface imp;
     private final ObjectMapper mapper;
@@ -58,14 +58,7 @@ public class ContestsApiController extends Controller {
         } else {
             offset = null;
         }
-        String valueq = request.getQueryString("q");
-        String q;
-        if (valueq != null) {
-            q = valueq;
-        } else {
-            q = null;
-        }
-        return imp.contestEffectListHttp(request, limit, offset, q);
+        return imp.contestEffectListHttp(request, limit, offset);
     }
 
     @ApiAction
@@ -120,14 +113,7 @@ public class ContestsApiController extends Controller {
         } else {
             offset = null;
         }
-        String valueq = request.getQueryString("q");
-        String q;
-        if (valueq != null) {
-            q = valueq;
-        } else {
-            q = null;
-        }
-        return imp.superContestEffectListHttp(request, limit, offset, q);
+        return imp.superContestEffectListHttp(request, limit, offset);
     }
 
     @ApiAction

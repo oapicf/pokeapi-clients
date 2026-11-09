@@ -8,10 +8,10 @@ use WWW::OpenAPIClient::Object::EncounterConditionValueDetail;
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** |  | [readonly] 
-**name** | **string** |  | 
-**condition** | [**EncounterConditionSummary**](EncounterConditionSummary.md) |  | 
-**names** | [**ARRAY[EncounterConditionValueName]**](EncounterConditionValueName.md) |  | [readonly] 
+**id** | **int** | The identifier for this resource. | [readonly] 
+**name** | **string** | The name for this resource. | 
+**condition** | [**EncounterConditionSummary**](EncounterConditionSummary.md) | The condition this encounter condition value pertains to. | 
+**names** | [**ARRAY[EncounterConditionValueName]**](EncounterConditionValueName.md) | The name of this resource listed in different languages. | [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

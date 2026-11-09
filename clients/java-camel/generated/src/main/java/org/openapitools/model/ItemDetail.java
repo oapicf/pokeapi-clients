@@ -8,17 +8,18 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
-import org.openapitools.model.AbilityDetailPokemonInnerPokemon;
+import org.openapitools.model.EvolutionChainSummary;
+import org.openapitools.model.ItemAttributeSummary;
 import org.openapitools.model.ItemCategorySummary;
-import org.openapitools.model.ItemDetailBabyTriggerFor;
-import org.openapitools.model.ItemDetailHeldByPokemonInner;
-import org.openapitools.model.ItemDetailMachinesInner;
-import org.openapitools.model.ItemDetailSprites;
 import org.openapitools.model.ItemEffectText;
 import org.openapitools.model.ItemFlavorText;
 import org.openapitools.model.ItemFlingEffectSummary;
 import org.openapitools.model.ItemGameIndex;
+import org.openapitools.model.ItemMachine;
 import org.openapitools.model.ItemName;
+import org.openapitools.model.ItemPrice;
+import org.openapitools.model.ItemSprites;
+import org.openapitools.model.PokemonHeldItem;
 import java.util.NoSuchElementException;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
@@ -34,20 +35,18 @@ import jakarta.annotation.Generated;
  * ItemDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-10-25T05:48:25.711080506Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-11-09T13:49:41.168612095Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class ItemDetail {
 
   private Integer id;
 
   private String name;
 
-  private JsonNullable<Integer> cost = JsonNullable.<Integer>undefined();
+  private JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> flingPower = JsonNullable.<Integer>undefined();
 
-  private JsonNullable<Integer> flingPower = JsonNullable.<Integer>undefined();
+  private JsonNullable<ItemFlingEffectSummary> flingEffect = JsonNullable.<ItemFlingEffectSummary>undefined();
 
-  private ItemFlingEffectSummary flingEffect;
-
-  private List<@Valid AbilityDetailPokemonInnerPokemon> attributes = new ArrayList<>();
+  private List<@Valid ItemAttributeSummary> attributes = new ArrayList<>();
 
   private ItemCategorySummary category;
 
@@ -57,15 +56,17 @@ public class ItemDetail {
 
   private List<@Valid ItemGameIndex> gameIndices = new ArrayList<>();
 
+  private List<@Valid ItemPrice> prices = new ArrayList<>();
+
   private List<@Valid ItemName> names = new ArrayList<>();
 
-  private List<@Valid ItemDetailHeldByPokemonInner> heldByPokemon = new ArrayList<>();
+  private List<@Valid PokemonHeldItem> heldByPokemon = new ArrayList<>();
 
-  private ItemDetailSprites sprites;
+  private ItemSprites sprites;
 
-  private ItemDetailBabyTriggerFor babyTriggerFor;
+  private JsonNullable<EvolutionChainSummary> babyTriggerFor = JsonNullable.<EvolutionChainSummary>undefined();
 
-  private List<@Valid ItemDetailMachinesInner> machines = new ArrayList<>();
+  private List<@Valid ItemMachine> machines = new ArrayList<>();
 
   public ItemDetail() {
     super();
@@ -74,19 +75,20 @@ public class ItemDetail {
   /**
    * Constructor with only required parameters
    */
-  public ItemDetail(Integer id, String name, ItemFlingEffectSummary flingEffect, List<@Valid AbilityDetailPokemonInnerPokemon> attributes, ItemCategorySummary category, List<@Valid ItemEffectText> effectEntries, List<@Valid ItemFlavorText> flavorTextEntries, List<@Valid ItemGameIndex> gameIndices, List<@Valid ItemName> names, List<@Valid ItemDetailHeldByPokemonInner> heldByPokemon, ItemDetailSprites sprites, ItemDetailBabyTriggerFor babyTriggerFor, List<@Valid ItemDetailMachinesInner> machines) {
+  public ItemDetail(Integer id, String name, ItemFlingEffectSummary flingEffect, List<@Valid ItemAttributeSummary> attributes, ItemCategorySummary category, List<@Valid ItemEffectText> effectEntries, List<@Valid ItemFlavorText> flavorTextEntries, List<@Valid ItemGameIndex> gameIndices, List<@Valid ItemPrice> prices, List<@Valid ItemName> names, List<@Valid PokemonHeldItem> heldByPokemon, ItemSprites sprites, EvolutionChainSummary babyTriggerFor, List<@Valid ItemMachine> machines) {
     this.id = id;
     this.name = name;
-    this.flingEffect = flingEffect;
+    this.flingEffect = JsonNullable.of(flingEffect);
     this.attributes = attributes;
     this.category = category;
     this.effectEntries = effectEntries;
     this.flavorTextEntries = flavorTextEntries;
     this.gameIndices = gameIndices;
+    this.prices = prices;
     this.names = names;
     this.heldByPokemon = heldByPokemon;
     this.sprites = sprites;
-    this.babyTriggerFor = babyTriggerFor;
+    this.babyTriggerFor = JsonNullable.of(babyTriggerFor);
     this.machines = machines;
   }
 
@@ -96,11 +98,11 @@ public class ItemDetail {
   }
 
   /**
-   * Get id
+   * The identifier for this resource.
    * @return id
    */
   
-  @Schema(name = "id", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "id", accessMode = Schema.AccessMode.READ_ONLY, description = "The identifier for this resource.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("id")
   public Integer getId() {
     return id;
@@ -116,11 +118,11 @@ public class ItemDetail {
   }
 
   /**
-   * Get name
+   * The name for this resource.
    * @return name
    */
-  @NotNull @Size(max = 100) 
-  @Schema(name = "name", requiredMode = Schema.RequiredMode.REQUIRED)
+  @NotNull @Size(max = 200) 
+  @Schema(name = "name", description = "The name for this resource.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("name")
   public String getName() {
     return name;
@@ -130,39 +132,21 @@ public class ItemDetail {
     this.name = name;
   }
 
-  public ItemDetail cost(Integer cost) {
-    this.cost = JsonNullable.of(cost);
-    return this;
-  }
-
-  /**
-   * Get cost
-   * @return cost
-   */
-  
-  @Schema(name = "cost", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("cost")
-  public JsonNullable<Integer> getCost() {
-    return cost;
-  }
-
-  public void setCost(JsonNullable<Integer> cost) {
-    this.cost = cost;
-  }
-
   public ItemDetail flingPower(Integer flingPower) {
     this.flingPower = JsonNullable.of(flingPower);
     return this;
   }
 
   /**
-   * Get flingPower
+   * The power of the move Fling when used with this item.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return flingPower
    */
-  
-  @Schema(name = "fling_power", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Min(value = -2147483648) @Max(value = 2147483647) 
+  @Schema(name = "fling_power", description = "The power of the move Fling when used with this item.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("fling_power")
-  public JsonNullable<Integer> getFlingPower() {
+  public JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> getFlingPower() {
     return flingPower;
   }
 
@@ -171,31 +155,31 @@ public class ItemDetail {
   }
 
   public ItemDetail flingEffect(ItemFlingEffectSummary flingEffect) {
-    this.flingEffect = flingEffect;
+    this.flingEffect = JsonNullable.of(flingEffect);
     return this;
   }
 
   /**
-   * Get flingEffect
+   * The effect of the move Fling when used with this item.
    * @return flingEffect
    */
-  @NotNull @Valid 
-  @Schema(name = "fling_effect", requiredMode = Schema.RequiredMode.REQUIRED)
+  /* @Present */ @Valid 
+  @Schema(name = "fling_effect", description = "The effect of the move Fling when used with this item.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("fling_effect")
-  public ItemFlingEffectSummary getFlingEffect() {
+  public JsonNullable<ItemFlingEffectSummary> getFlingEffect() {
     return flingEffect;
   }
 
-  public void setFlingEffect(ItemFlingEffectSummary flingEffect) {
+  public void setFlingEffect(JsonNullable<ItemFlingEffectSummary> flingEffect) {
     this.flingEffect = flingEffect;
   }
 
-  public ItemDetail attributes(List<@Valid AbilityDetailPokemonInnerPokemon> attributes) {
+  public ItemDetail attributes(List<@Valid ItemAttributeSummary> attributes) {
     this.attributes = attributes;
     return this;
   }
 
-  public ItemDetail addAttributesItem(AbilityDetailPokemonInnerPokemon attributesItem) {
+  public ItemDetail addAttributesItem(ItemAttributeSummary attributesItem) {
     if (this.attributes == null) {
       this.attributes = new ArrayList<>();
     }
@@ -204,17 +188,17 @@ public class ItemDetail {
   }
 
   /**
-   * Get attributes
+   * A list of attributes this item has.
    * @return attributes
    */
   
-  @Schema(name = "attributes", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "attributes", accessMode = Schema.AccessMode.READ_ONLY, description = "A list of attributes this item has.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("attributes")
-  public List<@Valid AbilityDetailPokemonInnerPokemon> getAttributes() {
+  public List<@Valid ItemAttributeSummary> getAttributes() {
     return attributes;
   }
 
-  public void setAttributes(List<@Valid AbilityDetailPokemonInnerPokemon> attributes) {
+  public void setAttributes(List<@Valid ItemAttributeSummary> attributes) {
     this.attributes = attributes;
   }
 
@@ -224,11 +208,11 @@ public class ItemDetail {
   }
 
   /**
-   * Get category
+   * The category of items this item falls into.
    * @return category
    */
   @NotNull @Valid 
-  @Schema(name = "category", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "category", description = "The category of items this item falls into.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("category")
   public ItemCategorySummary getCategory() {
     return category;
@@ -252,11 +236,11 @@ public class ItemDetail {
   }
 
   /**
-   * Get effectEntries
+   * The effect of this ability listed in different languages.
    * @return effectEntries
    */
   
-  @Schema(name = "effect_entries", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "effect_entries", accessMode = Schema.AccessMode.READ_ONLY, description = "The effect of this ability listed in different languages.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("effect_entries")
   public List<@Valid ItemEffectText> getEffectEntries() {
     return effectEntries;
@@ -280,11 +264,11 @@ public class ItemDetail {
   }
 
   /**
-   * Get flavorTextEntries
+   * The flavor text of this ability listed in different languages.
    * @return flavorTextEntries
    */
   
-  @Schema(name = "flavor_text_entries", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "flavor_text_entries", accessMode = Schema.AccessMode.READ_ONLY, description = "The flavor text of this ability listed in different languages.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("flavor_text_entries")
   public List<@Valid ItemFlavorText> getFlavorTextEntries() {
     return flavorTextEntries;
@@ -308,11 +292,11 @@ public class ItemDetail {
   }
 
   /**
-   * Get gameIndices
+   * A list of game indices relevent to this item by generation.
    * @return gameIndices
    */
   
-  @Schema(name = "game_indices", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "game_indices", accessMode = Schema.AccessMode.READ_ONLY, description = "A list of game indices relevent to this item by generation.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("game_indices")
   public List<@Valid ItemGameIndex> getGameIndices() {
     return gameIndices;
@@ -320,6 +304,34 @@ public class ItemDetail {
 
   public void setGameIndices(List<@Valid ItemGameIndex> gameIndices) {
     this.gameIndices = gameIndices;
+  }
+
+  public ItemDetail prices(List<@Valid ItemPrice> prices) {
+    this.prices = prices;
+    return this;
+  }
+
+  public ItemDetail addPricesItem(ItemPrice pricesItem) {
+    if (this.prices == null) {
+      this.prices = new ArrayList<>();
+    }
+    this.prices.add(pricesItem);
+    return this;
+  }
+
+  /**
+   * Purchase and sell prices by currency and version group. Prices may be null when the item cannot be bought or sold.
+   * @return prices
+   */
+  
+  @Schema(name = "prices", accessMode = Schema.AccessMode.READ_ONLY, description = "Purchase and sell prices by currency and version group. Prices may be null when the item cannot be bought or sold.", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("prices")
+  public List<@Valid ItemPrice> getPrices() {
+    return prices;
+  }
+
+  public void setPrices(List<@Valid ItemPrice> prices) {
+    this.prices = prices;
   }
 
   public ItemDetail names(List<@Valid ItemName> names) {
@@ -336,11 +348,11 @@ public class ItemDetail {
   }
 
   /**
-   * Get names
+   * The name of this item listed in different languages.
    * @return names
    */
   
-  @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, description = "The name of this item listed in different languages.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("names")
   public List<@Valid ItemName> getNames() {
     return names;
@@ -350,12 +362,12 @@ public class ItemDetail {
     this.names = names;
   }
 
-  public ItemDetail heldByPokemon(List<@Valid ItemDetailHeldByPokemonInner> heldByPokemon) {
+  public ItemDetail heldByPokemon(List<@Valid PokemonHeldItem> heldByPokemon) {
     this.heldByPokemon = heldByPokemon;
     return this;
   }
 
-  public ItemDetail addHeldByPokemonItem(ItemDetailHeldByPokemonInner heldByPokemonItem) {
+  public ItemDetail addHeldByPokemonItem(PokemonHeldItem heldByPokemonItem) {
     if (this.heldByPokemon == null) {
       this.heldByPokemon = new ArrayList<>();
     }
@@ -364,66 +376,66 @@ public class ItemDetail {
   }
 
   /**
-   * Get heldByPokemon
+   * A list of Pokémon that might be found in the wild holding this item.
    * @return heldByPokemon
    */
   
-  @Schema(name = "held_by_pokemon", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "held_by_pokemon", accessMode = Schema.AccessMode.READ_ONLY, description = "A list of Pokémon that might be found in the wild holding this item.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("held_by_pokemon")
-  public List<@Valid ItemDetailHeldByPokemonInner> getHeldByPokemon() {
+  public List<@Valid PokemonHeldItem> getHeldByPokemon() {
     return heldByPokemon;
   }
 
-  public void setHeldByPokemon(List<@Valid ItemDetailHeldByPokemonInner> heldByPokemon) {
+  public void setHeldByPokemon(List<@Valid PokemonHeldItem> heldByPokemon) {
     this.heldByPokemon = heldByPokemon;
   }
 
-  public ItemDetail sprites(ItemDetailSprites sprites) {
+  public ItemDetail sprites(ItemSprites sprites) {
     this.sprites = sprites;
     return this;
   }
 
   /**
-   * Get sprites
+   * A set of sprites used to depict this item in the game.
    * @return sprites
    */
-  @NotNull @Valid 
-  @Schema(name = "sprites", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "sprites", accessMode = Schema.AccessMode.READ_ONLY, description = "A set of sprites used to depict this item in the game.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("sprites")
-  public ItemDetailSprites getSprites() {
+  public ItemSprites getSprites() {
     return sprites;
   }
 
-  public void setSprites(ItemDetailSprites sprites) {
+  public void setSprites(ItemSprites sprites) {
     this.sprites = sprites;
   }
 
-  public ItemDetail babyTriggerFor(ItemDetailBabyTriggerFor babyTriggerFor) {
-    this.babyTriggerFor = babyTriggerFor;
+  public ItemDetail babyTriggerFor(EvolutionChainSummary babyTriggerFor) {
+    this.babyTriggerFor = JsonNullable.of(babyTriggerFor);
     return this;
   }
 
   /**
-   * Get babyTriggerFor
+   * An evolution chain this item requires to produce a bay during mating.
    * @return babyTriggerFor
    */
-  @NotNull @Valid 
-  @Schema(name = "baby_trigger_for", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "baby_trigger_for", accessMode = Schema.AccessMode.READ_ONLY, description = "An evolution chain this item requires to produce a bay during mating.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("baby_trigger_for")
-  public ItemDetailBabyTriggerFor getBabyTriggerFor() {
+  public JsonNullable<EvolutionChainSummary> getBabyTriggerFor() {
     return babyTriggerFor;
   }
 
-  public void setBabyTriggerFor(ItemDetailBabyTriggerFor babyTriggerFor) {
+  public void setBabyTriggerFor(JsonNullable<EvolutionChainSummary> babyTriggerFor) {
     this.babyTriggerFor = babyTriggerFor;
   }
 
-  public ItemDetail machines(List<@Valid ItemDetailMachinesInner> machines) {
+  public ItemDetail machines(List<@Valid ItemMachine> machines) {
     this.machines = machines;
     return this;
   }
 
-  public ItemDetail addMachinesItem(ItemDetailMachinesInner machinesItem) {
+  public ItemDetail addMachinesItem(ItemMachine machinesItem) {
     if (this.machines == null) {
       this.machines = new ArrayList<>();
     }
@@ -432,17 +444,17 @@ public class ItemDetail {
   }
 
   /**
-   * Get machines
+   * A list of the machines related to this item.
    * @return machines
    */
   
-  @Schema(name = "machines", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "machines", accessMode = Schema.AccessMode.READ_ONLY, description = "A list of the machines related to this item.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("machines")
-  public List<@Valid ItemDetailMachinesInner> getMachines() {
+  public List<@Valid ItemMachine> getMachines() {
     return machines;
   }
 
-  public void setMachines(List<@Valid ItemDetailMachinesInner> machines) {
+  public void setMachines(List<@Valid ItemMachine> machines) {
     this.machines = machines;
   }
 
@@ -457,7 +469,6 @@ public class ItemDetail {
     ItemDetail itemDetail = (ItemDetail) o;
     return Objects.equals(this.id, itemDetail.id) &&
         Objects.equals(this.name, itemDetail.name) &&
-        equalsNullable(this.cost, itemDetail.cost) &&
         equalsNullable(this.flingPower, itemDetail.flingPower) &&
         Objects.equals(this.flingEffect, itemDetail.flingEffect) &&
         Objects.equals(this.attributes, itemDetail.attributes) &&
@@ -465,6 +476,7 @@ public class ItemDetail {
         Objects.equals(this.effectEntries, itemDetail.effectEntries) &&
         Objects.equals(this.flavorTextEntries, itemDetail.flavorTextEntries) &&
         Objects.equals(this.gameIndices, itemDetail.gameIndices) &&
+        Objects.equals(this.prices, itemDetail.prices) &&
         Objects.equals(this.names, itemDetail.names) &&
         Objects.equals(this.heldByPokemon, itemDetail.heldByPokemon) &&
         Objects.equals(this.sprites, itemDetail.sprites) &&
@@ -478,7 +490,7 @@ public class ItemDetail {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, hashCodeNullable(cost), hashCodeNullable(flingPower), flingEffect, attributes, category, effectEntries, flavorTextEntries, gameIndices, names, heldByPokemon, sprites, babyTriggerFor, machines);
+    return Objects.hash(id, name, hashCodeNullable(flingPower), flingEffect, attributes, category, effectEntries, flavorTextEntries, gameIndices, prices, names, heldByPokemon, sprites, babyTriggerFor, machines);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -494,7 +506,6 @@ public class ItemDetail {
     sb.append("class ItemDetail {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    cost: ").append(toIndentedString(cost)).append("\n");
     sb.append("    flingPower: ").append(toIndentedString(flingPower)).append("\n");
     sb.append("    flingEffect: ").append(toIndentedString(flingEffect)).append("\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
@@ -502,6 +513,7 @@ public class ItemDetail {
     sb.append("    effectEntries: ").append(toIndentedString(effectEntries)).append("\n");
     sb.append("    flavorTextEntries: ").append(toIndentedString(flavorTextEntries)).append("\n");
     sb.append("    gameIndices: ").append(toIndentedString(gameIndices)).append("\n");
+    sb.append("    prices: ").append(toIndentedString(prices)).append("\n");
     sb.append("    names: ").append(toIndentedString(names)).append("\n");
     sb.append("    heldByPokemon: ").append(toIndentedString(heldByPokemon)).append("\n");
     sb.append("    sprites: ").append(toIndentedString(sprites)).append("\n");

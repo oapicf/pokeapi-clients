@@ -1,0 +1,157 @@
+package org.openapitools.model;
+
+import java.net.URI;
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import org.openapitools.model.CurrencyName;
+import org.springframework.lang.Nullable;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
+
+/**
+ * CurrencyDetail
+ */
+
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-11-09T13:53:47.069318184Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+public class CurrencyDetail {
+
+  private Integer id;
+
+  private String name;
+
+  private List<@Valid CurrencyName> names = new ArrayList<>();
+
+  public CurrencyDetail() {
+    super();
+  }
+
+  /**
+   * Constructor with only required parameters
+   */
+  public CurrencyDetail(Integer id, String name, List<@Valid CurrencyName> names) {
+    this.id = id;
+    this.name = name;
+    this.names = names;
+  }
+
+  public CurrencyDetail id(Integer id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * The identifier for this resource.
+   * @return id
+   */
+  
+  @Schema(name = "id", accessMode = Schema.AccessMode.READ_ONLY, description = "The identifier for this resource.", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("id")
+  public Integer getId() {
+    return id;
+  }
+
+  @JsonProperty("id")
+  public void setId(Integer id) {
+    this.id = id;
+  }
+
+  public CurrencyDetail name(String name) {
+    this.name = name;
+    return this;
+  }
+
+  /**
+   * The name for this resource.
+   * @return name
+   */
+  @NotNull @Size(max = 200) 
+  @Schema(name = "name", description = "The name for this resource.", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("name")
+  public String getName() {
+    return name;
+  }
+
+  @JsonProperty("name")
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public CurrencyDetail names(List<@Valid CurrencyName> names) {
+    this.names = names;
+    return this;
+  }
+
+  public CurrencyDetail addNamesItem(CurrencyName namesItem) {
+    if (this.names == null) {
+      this.names = new ArrayList<>();
+    }
+    this.names.add(namesItem);
+    return this;
+  }
+
+  /**
+   * The name of this resource listed in different languages.
+   * @return names
+   */
+  
+  @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, description = "The name of this resource listed in different languages.", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("names")
+  public List<@Valid CurrencyName> getNames() {
+    return names;
+  }
+
+  @JsonProperty("names")
+  public void setNames(List<@Valid CurrencyName> names) {
+    this.names = names;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    CurrencyDetail currencyDetail = (CurrencyDetail) o;
+    return Objects.equals(this.id, currencyDetail.id) &&
+        Objects.equals(this.name, currencyDetail.name) &&
+        Objects.equals(this.names, currencyDetail.names);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(id, name, names);
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class CurrencyDetail {\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    names: ").append(toIndentedString(names)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(@Nullable Object o) {
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
+  }
+}
+

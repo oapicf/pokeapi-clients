@@ -9,15 +9,15 @@ import com.fasterxml.jackson.annotation.JsonProperty
 
 data class PaginatedMoveTargetSummaryList(
     @field:JsonProperty("count")
-    val count: kotlin.Int? = null,
+    val count: kotlin.Int,
+
+    @field:JsonProperty("results")
+    val results: kotlin.collections.List<MoveTargetSummary>,
 
     @field:JsonProperty("next")
     val next: java.net.URI? = null,
 
     @field:JsonProperty("previous")
     val previous: java.net.URI? = null,
-
-    @field:JsonProperty("results")
-    val results: kotlin.collections.List<MoveTargetSummary>? = null,
 
 )

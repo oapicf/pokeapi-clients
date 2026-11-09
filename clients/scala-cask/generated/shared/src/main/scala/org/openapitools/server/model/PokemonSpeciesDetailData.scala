@@ -1,8 +1,8 @@
 /**
  * PokéAPI
- * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+ * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
  *
- * OpenAPI spec version: 2.7.0
+ * OpenAPI spec version: 2.10.0
  *
  * Contact: blah+oapicf@cliffano.com
  *
@@ -25,33 +25,60 @@ import upickle.default.*
   * It has no validation - there may be nulls, values out of range, etc
   */
 case class PokemonSpeciesDetailData(
+/* The identifier for this resource. */
   id: Int,
+/* The name for this resource. */
   name: String,
+/* The order in which species should be sorted. Based on National Dex order, except families are grouped together and sorted by stage. */
   order: Int = 0 ,
+/* The chance of this Pokémon being female, in eighths; or -1 for genderless. */
   genderRate: Int = 0 ,
+/* The base capture rate; up to 255. The higher the number, the easier the catch. */
   captureRate: Int = 0 ,
+/* The happiness when caught by a normal Pokéball; up to 255. The higher the number, the happier the Pokémon. */
   baseHappiness: Int = 0 ,
+/* Whether or not this is a baby Pokémon. */
   isBaby: Boolean = false ,
+/* Whether or not this is a legendary Pokémon. */
   isLegendary: Boolean = false ,
+/* Whether or not this is a mythical Pokémon. */
   isMythical: Boolean = false ,
+/* Initial hatch counter: one must walk Y × (hatch_counter + 1) steps before this Pokémon's egg hatches, unless utilizing bonuses like Flame Body's. Y varies per generation. In Generations II, III, and VII, Egg cycles are 256 steps long. In Generation IV, Egg cycles are 255 steps long. In Pokémon Brilliant Diamond and Shining Pearl, Egg cycles are also 255 steps long, but are shorter on special dates. In Generations V and VI, Egg cycles are 257 steps long. In Pokémon Sword and Shield, and in Pokémon Scarlet and Violet, Egg cycles are 128 steps long. */
   hatchCounter: Int = 0 ,
+/* Whether or not this Pokémon has visual gender differences. */
   hasGenderDifferences: Boolean = false ,
+/* Whether or not this Pokémon has multiple forms and can switch between them. */
   formsSwitchable: Boolean = false ,
+/* The rate at which this Pokémon species gains levels. */
   growthRate: GrowthRateSummaryData,
+/* A list of Pokedexes and the indexes reserved within them for this Pokémon species. */
   pokedexNumbers: Seq[PokemonDexEntryData],
-  eggGroups: Seq[AbilityDetailPokemonInnerPokemonData],
+/* A list of egg groups this Pokémon species is a member of. */
+  eggGroups: Seq[EggGroupSummaryData],
+/* The color of this Pokémon for Pokédex search. */
   color: PokemonColorSummaryData,
+/* The shape of this Pokémon for Pokédex search. */
   shape: PokemonShapeSummaryData,
+/* The Pokémon species that evolves into this Pokemon_species. */
   evolvesFromSpecies: PokemonSpeciesSummaryData,
+/* The evolution chain this Pokémon species is a member of. */
   evolutionChain: EvolutionChainSummaryData,
+/* The habitat this Pokémon species can be encountered in. */
   habitat: PokemonHabitatSummaryData,
+/* The generation this Pokémon species was introduced in. */
   generation: GenerationSummaryData,
-  names: Seq[PokemonFormDetailFormNamesInnerData],
-  palParkEncounters: Seq[PokemonSpeciesDetailPalParkEncountersInnerData],
+/* The name of this resource listed in different languages. */
+  names: Seq[PokemonSpeciesNameData],
+/* A list of encounters that can be had with this Pokémon species in pal park. */
+  palParkEncounters: Seq[PokemonSpeciesPalParkEncounterData],
+/* Descriptions of different forms Pokémon take on within the Pokémon species. */
   formDescriptions: Seq[PokemonSpeciesDescriptionData],
+/* A list of flavor text entries for this Pokémon species. */
   flavorTextEntries: Seq[PokemonSpeciesFlavorTextData],
-  genera: Seq[PokemonSpeciesDetailGeneraInnerData],
-  varieties: Seq[PokemonSpeciesDetailVarietiesInnerData]
+/* The genus of this Pokémon species listed in multiple languages. */
+  genera: Seq[PokemonSpeciesGenusData],
+/* A list of the Pokémon that exist within this Pokémon species. */
+  varieties: Seq[PokemonSpeciesVarietyData]
   
 
 ) derives RW {
@@ -72,11 +99,11 @@ case class PokemonSpeciesDetailData(
         
 
         // ================== name validation ==================
-        // validate max length 100
+        // validate max length 200
         if (_allValidationErrors.isEmpty || !failFast)  {
           val len = if name == null then 0 else name.length
-            if (len < 100) {
-               _allValidationErrors += ValidationError(path :+ PokemonSpeciesDetail.Fields.name, s"length $len is longer than the max length 100")
+            if (len < 200) {
+               _allValidationErrors += ValidationError(path :+ PokemonSpeciesDetail.Fields.name, s"length $len is longer than the max length 200")
             }
         }
         
@@ -85,24 +112,64 @@ case class PokemonSpeciesDetailData(
         
 
         // ================== order validation ==================
+        // validate against minimum -2147483648
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if !(order >= -2147483648) then
+            _allValidationErrors += ValidationError(path :+ PokemonSpeciesDetail.Fields.order, s"value '$order' is not greater than the minimum value -2147483648")
+        }
+        // validate against maximum 2147483647
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if !(order <= 2147483647) then
+            _allValidationErrors += ValidationError(path :+ PokemonSpeciesDetail.Fields.order, s"value '$order' is not greater than the maximum value 2147483647")
+        }
         
         
         
         
 
         // ================== genderRate validation ==================
+        // validate against minimum -2147483648
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if !(genderRate >= -2147483648) then
+            _allValidationErrors += ValidationError(path :+ PokemonSpeciesDetail.Fields.genderRate, s"value '$genderRate' is not greater than the minimum value -2147483648")
+        }
+        // validate against maximum 2147483647
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if !(genderRate <= 2147483647) then
+            _allValidationErrors += ValidationError(path :+ PokemonSpeciesDetail.Fields.genderRate, s"value '$genderRate' is not greater than the maximum value 2147483647")
+        }
         
         
         
         
 
         // ================== captureRate validation ==================
+        // validate against minimum -2147483648
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if !(captureRate >= -2147483648) then
+            _allValidationErrors += ValidationError(path :+ PokemonSpeciesDetail.Fields.captureRate, s"value '$captureRate' is not greater than the minimum value -2147483648")
+        }
+        // validate against maximum 2147483647
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if !(captureRate <= 2147483647) then
+            _allValidationErrors += ValidationError(path :+ PokemonSpeciesDetail.Fields.captureRate, s"value '$captureRate' is not greater than the maximum value 2147483647")
+        }
         
         
         
         
 
         // ================== baseHappiness validation ==================
+        // validate against minimum -2147483648
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if !(baseHappiness >= -2147483648) then
+            _allValidationErrors += ValidationError(path :+ PokemonSpeciesDetail.Fields.baseHappiness, s"value '$baseHappiness' is not greater than the minimum value -2147483648")
+        }
+        // validate against maximum 2147483647
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if !(baseHappiness <= 2147483647) then
+            _allValidationErrors += ValidationError(path :+ PokemonSpeciesDetail.Fields.baseHappiness, s"value '$baseHappiness' is not greater than the maximum value 2147483647")
+        }
         
         
         
@@ -127,6 +194,16 @@ case class PokemonSpeciesDetailData(
         
 
         // ================== hatchCounter validation ==================
+        // validate against minimum -2147483648
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if !(hatchCounter >= -2147483648) then
+            _allValidationErrors += ValidationError(path :+ PokemonSpeciesDetail.Fields.hatchCounter, s"value '$hatchCounter' is not greater than the minimum value -2147483648")
+        }
+        // validate against maximum 2147483647
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if !(hatchCounter <= 2147483647) then
+            _allValidationErrors += ValidationError(path :+ PokemonSpeciesDetail.Fields.hatchCounter, s"value '$hatchCounter' is not greater than the maximum value 2147483647")
+        }
         
         
         

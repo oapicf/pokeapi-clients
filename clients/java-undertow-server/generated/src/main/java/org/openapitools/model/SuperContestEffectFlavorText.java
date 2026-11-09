@@ -1,9 +1,9 @@
 /*
  * PokéAPI
  *
- * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+ * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
  *
- * OpenAPI document version: 2.7.0
+ * OpenAPI document version: 2.10.0
  * Maintained by: blah+oapicf@cliffano.com
  *
  * AUTO-GENERATED FILE, DO NOT MODIFY!
@@ -21,13 +21,14 @@ import org.openapitools.model.LanguageSummary;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2026-10-25T05:48:17.483504027Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2026-11-09T13:49:34.675912514Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class SuperContestEffectFlavorText   {
   
   private String flavorText;
   private LanguageSummary language;
 
   /**
+   * The localized flavor text for an API resource in a specific language.
    */
   public SuperContestEffectFlavorText flavorText(String flavorText) {
     this.flavorText = flavorText;
@@ -35,7 +36,7 @@ public class SuperContestEffectFlavorText   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The localized flavor text for an API resource in a specific language.")
   @JsonProperty("flavor_text")
   public String getFlavorText() {
     return flavorText;
@@ -45,6 +46,7 @@ public class SuperContestEffectFlavorText   {
   }
 
   /**
+   * The language this name is in.
    */
   public SuperContestEffectFlavorText language(LanguageSummary language) {
     this.language = language;
@@ -52,7 +54,7 @@ public class SuperContestEffectFlavorText   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The language this name is in.")
   @JsonProperty("language")
   public LanguageSummary getLanguage() {
     return language;

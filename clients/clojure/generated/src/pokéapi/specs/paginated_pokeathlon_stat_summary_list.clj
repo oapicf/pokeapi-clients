@@ -8,10 +8,10 @@
 
 (def paginated-pokeathlon-stat-summary-list-data
   {
-   (ds/opt :count) int?
+   (ds/req :count) int?
    (ds/opt :next) string?
    (ds/opt :previous) string?
-   (ds/opt :results) (s/coll-of pokeathlon-stat-summary-spec)
+   (ds/req :results) (s/coll-of pokeathlon-stat-summary-spec)
    })
 
 (def paginated-pokeathlon-stat-summary-list-spec

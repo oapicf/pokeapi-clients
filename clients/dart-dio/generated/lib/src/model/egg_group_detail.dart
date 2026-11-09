@@ -5,7 +5,7 @@
 // ignore_for_file: unused_element
 import 'package:openapi/src/model/egg_group_name.dart';
 import 'package:built_collection/built_collection.dart';
-import 'package:openapi/src/model/egg_group_detail_pokemon_species_inner.dart';
+import 'package:openapi/src/model/pokemon_species_summary.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -14,23 +14,27 @@ part 'egg_group_detail.g.dart';
 /// EggGroupDetail
 ///
 /// Properties:
-/// * [id] 
-/// * [name] 
-/// * [names] 
-/// * [pokemonSpecies] 
+/// * [id] - The identifier for this resource.
+/// * [name] - The name for this resource.
+/// * [names] - The name of this resource listed in different languages.
+/// * [pokemonSpecies] - A list of all Pokémon species that are members of this egg group.
 @BuiltValue()
 abstract class EggGroupDetail implements Built<EggGroupDetail, EggGroupDetailBuilder> {
+  /// The identifier for this resource.
   @BuiltValueField(wireName: r'id')
   int get id;
 
+  /// The name for this resource.
   @BuiltValueField(wireName: r'name')
   String get name;
 
+  /// The name of this resource listed in different languages.
   @BuiltValueField(wireName: r'names')
   BuiltList<EggGroupName> get names;
 
+  /// A list of all Pokémon species that are members of this egg group.
   @BuiltValueField(wireName: r'pokemon_species')
-  BuiltList<EggGroupDetailPokemonSpeciesInner> get pokemonSpecies;
+  BuiltList<PokemonSpeciesSummary> get pokemonSpecies;
 
   EggGroupDetail._();
 
@@ -73,7 +77,7 @@ class _$EggGroupDetailSerializer implements PrimitiveSerializer<EggGroupDetail> 
     yield r'pokemon_species';
     yield serializers.serialize(
       object.pokemonSpecies,
-      specifiedType: const FullType(BuiltList, [FullType(EggGroupDetailPokemonSpeciesInner)]),
+      specifiedType: const FullType(BuiltList, [FullType(PokemonSpeciesSummary)]),
     );
   }
 
@@ -122,8 +126,8 @@ class _$EggGroupDetailSerializer implements PrimitiveSerializer<EggGroupDetail> 
         case r'pokemon_species':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(EggGroupDetailPokemonSpeciesInner)]),
-          ) as BuiltList<EggGroupDetailPokemonSpeciesInner>;
+            specifiedType: const FullType(BuiltList, [FullType(PokemonSpeciesSummary)]),
+          ) as BuiltList<PokemonSpeciesSummary>;
           result.pokemonSpecies.replace(valueDes);
           break;
         default:

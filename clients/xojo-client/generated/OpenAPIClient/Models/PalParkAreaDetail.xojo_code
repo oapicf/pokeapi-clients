@@ -2,22 +2,34 @@
 Protected Class PalParkAreaDetail
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The identifier for this resource.
+		#tag EndNote
 		id As Integer
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The name for this resource.
+		#tag EndNote
 		name As String
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The name of this resource listed in different languages.
+		#tag EndNote
 		names() As OpenAPIClient.Models.PalParkAreaName
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
-		pokemon_encounters() As OpenAPIClient.Models.PalParkAreaDetailPokemonEncountersInner
+		#tag Note
+			A list of Pokémon encountered in thi pal park area along with details.
+		#tag EndNote
+		pokemon_encounters() As OpenAPIClient.Models.PalParkEncounter
 	#tag EndProperty
 
 
@@ -86,7 +98,7 @@ Protected Class PalParkAreaDetail
 			Visible=false
 			Group="Behavior"
 			InitialValue=""
-			Type="PalParkAreaDetailPokemonEncountersInner"
+			Type="PalParkEncounter"
 			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior

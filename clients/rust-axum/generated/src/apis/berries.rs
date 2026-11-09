@@ -69,8 +69,6 @@ pub enum BerryRetrieveResponse {
 #[async_trait]
 #[allow(clippy::ptr_arg)]
 pub trait Berries<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorHandler<E> {
-    type Claims;
-
     /// List berry firmness.
     ///
     /// BerryFirmnessList - GET /api/v2/berry-firmness/
@@ -80,7 +78,6 @@ pub trait Berries<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Error
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       query_params: &models::BerryFirmnessListQueryParams,
     ) -> Result<BerryFirmnessListResponse, E>;
 
@@ -93,7 +90,6 @@ pub trait Berries<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Error
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       path_params: &models::BerryFirmnessRetrievePathParams,
     ) -> Result<BerryFirmnessRetrieveResponse, E>;
 
@@ -106,7 +102,6 @@ pub trait Berries<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Error
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       query_params: &models::BerryFlavorListQueryParams,
     ) -> Result<BerryFlavorListResponse, E>;
 
@@ -119,7 +114,6 @@ pub trait Berries<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Error
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       path_params: &models::BerryFlavorRetrievePathParams,
     ) -> Result<BerryFlavorRetrieveResponse, E>;
 
@@ -132,7 +126,6 @@ pub trait Berries<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Error
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       query_params: &models::BerryListQueryParams,
     ) -> Result<BerryListResponse, E>;
 
@@ -145,7 +138,6 @@ pub trait Berries<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Error
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       path_params: &models::BerryRetrievePathParams,
     ) -> Result<BerryRetrieveResponse, E>;
 }

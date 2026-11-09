@@ -7,47 +7,47 @@
     {
       "name": "id",
       "type": "int",
-      "doc": ""
+      "doc": "The identifier for this resource."
     },
     {
       "name": "name",
       "type": "string",
-      "doc": ""
+      "doc": "The name for this resource."
     },
     {
       "name": "order",
       "type": ["null", "int"],
-      "doc": "",
+      "doc": "Order for sorting. Almost by date of release, except similar versions are grouped together.",
       "default": null
     },
     {
       "name": "generation",
       "type": "model.GenerationSummary",
-      "doc": ""
+      "doc": "The generation this version was introduced in."
     },
     {
       "name": "move_learn_methods",
       "type": {
         "type": "array",
-        "items": "model.AbilityDetailPokemonInnerPokemon"
+        "items": "model.MoveLearnMethodSummary"
       },
-      "doc": ""
+      "doc": "A list of methods in which Pokémon can learn moves in this version group."
     },
     {
       "name": "pokedexes",
       "type": {
         "type": "array",
-        "items": "model.AbilityDetailPokemonInnerPokemon"
+        "items": "model.PokedexSummary"
       },
-      "doc": ""
+      "doc": "A list of Pokédexes introduces in this version group."
     },
     {
       "name": "regions",
       "type": {
         "type": "array",
-        "items": "model.AbilityDetailPokemonInnerPokemon"
+        "items": "model.RegionSummary"
       },
-      "doc": ""
+      "doc": "A list of regions that can be visited in this version group."
     },
     {
       "name": "versions",
@@ -55,7 +55,7 @@
         "type": "array",
         "items": "model.VersionSummary"
       },
-      "doc": ""
+      "doc": "The versions this version group owns."
     }
   ]
 

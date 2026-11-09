@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## MachineList
 
-> PaginatedMachineSummaryList MachineList(ctx).Limit(limit).Offset(offset).Q(q).Execute()
+> PaginatedMachineSummaryList MachineList(ctx).Limit(limit).Offset(offset).Execute()
 
 List machines
 
@@ -32,11 +32,10 @@ import (
 func main() {
 	limit := int32(56) // int32 | Number of results to return per page. (optional)
 	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
-	q := "q_example" // string | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MachinesAPI.MachineList(context.Background()).Limit(limit).Offset(offset).Q(q).Execute()
+	resp, r, err := apiClient.MachinesAPI.MachineList(context.Background()).Limit(limit).Offset(offset).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `MachinesAPI.MachineList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -59,7 +58,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **int32** | Number of results to return per page. | 
  **offset** | **int32** | The initial index from which to return the results. | 
- **q** | **string** | &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | 
 
 ### Return type
 
@@ -67,7 +65,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -100,7 +98,7 @@ import (
 )
 
 func main() {
-	id := "id_example" // string | This parameter can be a string or an integer.
+	id := "1" // string | This parameter can be a string or an integer.
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -137,7 +135,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

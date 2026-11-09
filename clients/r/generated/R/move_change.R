@@ -7,13 +7,13 @@
 #' @title MoveChange
 #' @description MoveChange Class
 #' @format An \code{R6Class} generator object
-#' @field accuracy  integer [optional]
-#' @field power  integer [optional]
-#' @field pp  integer [optional]
-#' @field effect_chance  integer
-#' @field effect_entries  list(\link{MoveChangeEffectEntriesInner})
-#' @field type  \link{TypeSummary}
-#' @field version_group  \link{VersionGroupSummary}
+#' @field accuracy The percent value of how likely this move is to be successful. integer [optional]
+#' @field power The base power before the listed version group, or null if power did not change. integer [optional]
+#' @field pp Power points. The number of times this move can be used. integer [optional]
+#' @field effect_chance The percent value of how likely it is this moves effect will take effect. integer
+#' @field effect_entries The effect of this move listed in different languages. list(\link{MoveEffectEffectText})
+#' @field type The elemental type of this move. \link{TypeSummary}
+#' @field version_group The version group in which these move stat values were in effect. \link{VersionGroupSummary}
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -31,13 +31,13 @@ MoveChange <- R6::R6Class(
     #' @description
     #' Initialize a new MoveChange class.
     #'
-    #' @param effect_chance effect_chance
-    #' @param effect_entries effect_entries
-    #' @param type type
-    #' @param version_group version_group
-    #' @param accuracy accuracy
-    #' @param power power
-    #' @param pp pp
+    #' @param effect_chance The percent value of how likely it is this moves effect will take effect.
+    #' @param effect_entries The effect of this move listed in different languages.
+    #' @param type The elemental type of this move.
+    #' @param version_group The version group in which these move stat values were in effect.
+    #' @param accuracy The percent value of how likely this move is to be successful.
+    #' @param power The base power before the listed version group, or null if power did not change.
+    #' @param pp Power points. The number of times this move can be used.
     #' @param ... Other optional arguments.
     initialize = function(`effect_chance`, `effect_entries`, `type`, `version_group`, `accuracy` = NULL, `power` = NULL, `pp` = NULL, ...) {
       if (!missing(`effect_chance`)) {
@@ -184,7 +184,7 @@ MoveChange <- R6::R6Class(
         self$`effect_chance` <- this_object$`effect_chance`
       }
       if (!is.null(this_object$`effect_entries`)) {
-        self$`effect_entries` <- ApiClient$new()$deserializeObj(this_object$`effect_entries`, "array[MoveChangeEffectEntriesInner]", loadNamespace("openapi"))
+        self$`effect_entries` <- ApiClient$new()$deserializeObj(this_object$`effect_entries`, "array[MoveEffectEffectText]", loadNamespace("openapi"))
       }
       if (!is.null(this_object$`type`)) {
         `type_object` <- TypeSummary$new()
@@ -221,7 +221,7 @@ MoveChange <- R6::R6Class(
       self$`power` <- this_object$`power`
       self$`pp` <- this_object$`pp`
       self$`effect_chance` <- this_object$`effect_chance`
-      self$`effect_entries` <- ApiClient$new()$deserializeObj(this_object$`effect_entries`, "array[MoveChangeEffectEntriesInner]", loadNamespace("openapi"))
+      self$`effect_entries` <- ApiClient$new()$deserializeObj(this_object$`effect_entries`, "array[MoveEffectEffectText]", loadNamespace("openapi"))
       self$`type` <- TypeSummary$new()$fromJSON(jsonlite::toJSON(this_object$`type`, auto_unbox = TRUE, digits = NA))
       self$`version_group` <- VersionGroupSummary$new()$fromJSON(jsonlite::toJSON(this_object$`version_group`, auto_unbox = TRUE, digits = NA))
       self
@@ -275,18 +275,29 @@ MoveChange <- R6::R6Class(
     #'
     #' @return true if the values in all fields are valid.
     isValid = function() {
-      # check if the required `effect_chance` is null
-      if (is.null(self$`effect_chance`)) {
+      if (self$`accuracy` > 2147483647) {
+        return(FALSE)
+      }
+      if (self$`accuracy` < -2147483648) {
+        return(FALSE)
+      }
+
+      if (self$`power` > 2147483647) {
+        return(FALSE)
+      }
+      if (self$`power` < -2147483648) {
+        return(FALSE)
+      }
+
+      if (self$`pp` > 2147483647) {
+        return(FALSE)
+      }
+      if (self$`pp` < -2147483648) {
         return(FALSE)
       }
 
       # check if the required `effect_entries` is null
       if (is.null(self$`effect_entries`)) {
-        return(FALSE)
-      }
-
-      # check if the required `type` is null
-      if (is.null(self$`type`)) {
         return(FALSE)
       }
 
@@ -304,19 +315,30 @@ MoveChange <- R6::R6Class(
     #' @return A list of invalid fields (if any).
     getInvalidFields = function() {
       invalid_fields <- list()
-      # check if the required `effect_chance` is null
-      if (is.null(self$`effect_chance`)) {
-        invalid_fields["effect_chance"] <- "Non-nullable required field `effect_chance` cannot be null."
+      if (self$`accuracy` > 2147483647) {
+        invalid_fields["accuracy"] <- "Invalid value for `accuracy`, must be smaller than or equal to 2147483647."
+      }
+      if (self$`accuracy` < -2147483648) {
+        invalid_fields["accuracy"] <- "Invalid value for `accuracy`, must be bigger than or equal to -2147483648."
+      }
+
+      if (self$`power` > 2147483647) {
+        invalid_fields["power"] <- "Invalid value for `power`, must be smaller than or equal to 2147483647."
+      }
+      if (self$`power` < -2147483648) {
+        invalid_fields["power"] <- "Invalid value for `power`, must be bigger than or equal to -2147483648."
+      }
+
+      if (self$`pp` > 2147483647) {
+        invalid_fields["pp"] <- "Invalid value for `pp`, must be smaller than or equal to 2147483647."
+      }
+      if (self$`pp` < -2147483648) {
+        invalid_fields["pp"] <- "Invalid value for `pp`, must be bigger than or equal to -2147483648."
       }
 
       # check if the required `effect_entries` is null
       if (is.null(self$`effect_entries`)) {
         invalid_fields["effect_entries"] <- "Non-nullable required field `effect_entries` cannot be null."
-      }
-
-      # check if the required `type` is null
-      if (is.null(self$`type`)) {
-        invalid_fields["type"] <- "Non-nullable required field `type` cannot be null."
       }
 
       # check if the required `version_group` is null

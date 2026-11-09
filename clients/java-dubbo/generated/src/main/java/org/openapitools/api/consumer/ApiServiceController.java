@@ -7,12 +7,14 @@ import org.openapitools.model.BerryFlavorDetail;
 import org.openapitools.model.CharacteristicDetail;
 import org.openapitools.model.ContestEffectDetail;
 import org.openapitools.model.ContestTypeDetail;
+import org.openapitools.model.CurrencyDetail;
 import org.openapitools.model.EggGroupDetail;
 import org.openapitools.model.EncounterConditionDetail;
 import org.openapitools.model.EncounterConditionValueDetail;
 import org.openapitools.model.EncounterMethodDetail;
 import org.openapitools.model.EvolutionChainDetail;
 import org.openapitools.model.EvolutionTriggerDetail;
+import org.openapitools.model.EvolutionVariableDetail;
 import org.openapitools.model.GenderDetail;
 import org.openapitools.model.GenerationDetail;
 import org.openapitools.model.GrowthRateDetail;
@@ -40,12 +42,14 @@ import org.openapitools.model.PaginatedBerrySummaryList;
 import org.openapitools.model.PaginatedCharacteristicSummaryList;
 import org.openapitools.model.PaginatedContestEffectSummaryList;
 import org.openapitools.model.PaginatedContestTypeSummaryList;
+import org.openapitools.model.PaginatedCurrencySummaryList;
 import org.openapitools.model.PaginatedEggGroupSummaryList;
 import org.openapitools.model.PaginatedEncounterConditionSummaryList;
 import org.openapitools.model.PaginatedEncounterConditionValueSummaryList;
 import org.openapitools.model.PaginatedEncounterMethodSummaryList;
 import org.openapitools.model.PaginatedEvolutionChainSummaryList;
 import org.openapitools.model.PaginatedEvolutionTriggerSummaryList;
+import org.openapitools.model.PaginatedEvolutionVariableSummaryList;
 import org.openapitools.model.PaginatedGenderSummaryList;
 import org.openapitools.model.PaginatedGenerationSummaryList;
 import org.openapitools.model.PaginatedGrowthRateSummaryList;
@@ -82,6 +86,7 @@ import org.openapitools.model.PaginatedTypeSummaryList;
 import org.openapitools.model.PaginatedVersionGroupSummaryList;
 import org.openapitools.model.PaginatedVersionSummaryList;
 import org.openapitools.model.PalParkAreaDetail;
+import org.openapitools.model.PokeapiMetaResponse;
 import org.openapitools.model.PokeathlonStatDetail;
 import org.openapitools.model.PokedexDetail;
 import org.openapitools.model.PokemonColorDetail;
@@ -184,10 +189,9 @@ public class ApiServiceController {
     @RequestMapping(method = RequestMethod.GET, value = "/v2/characteristic/")
     public PaginatedCharacteristicSummaryList characteristicList(
         @RequestParam(name = "limit") Integer limit,
-        @RequestParam(name = "offset") Integer offset,
-        @RequestParam(name = "q") String q
+        @RequestParam(name = "offset") Integer offset
     ) {
-        return apiService.characteristicList(limit, offset, q);
+        return apiService.characteristicList(limit, offset);
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/v2/characteristic/{id}/")
@@ -200,10 +204,9 @@ public class ApiServiceController {
     @RequestMapping(method = RequestMethod.GET, value = "/v2/contest-effect/")
     public PaginatedContestEffectSummaryList contestEffectList(
         @RequestParam(name = "limit") Integer limit,
-        @RequestParam(name = "offset") Integer offset,
-        @RequestParam(name = "q") String q
+        @RequestParam(name = "offset") Integer offset
     ) {
-        return apiService.contestEffectList(limit, offset, q);
+        return apiService.contestEffectList(limit, offset);
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/v2/contest-effect/{id}/")
@@ -227,6 +230,22 @@ public class ApiServiceController {
         @RequestParam(name = "id") String id
     ) {
         return apiService.contestTypeRetrieve(id);
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/v2/currency/")
+    public PaginatedCurrencySummaryList currencyList(
+        @RequestParam(name = "limit") Integer limit,
+        @RequestParam(name = "offset") Integer offset,
+        @RequestParam(name = "q") String q
+    ) {
+        return apiService.currencyList(limit, offset, q);
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/v2/currency/{id}/")
+    public CurrencyDetail currencyRetrieve(
+        @RequestParam(name = "id") String id
+    ) {
+        return apiService.currencyRetrieve(id);
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/v2/egg-group/")
@@ -296,10 +315,9 @@ public class ApiServiceController {
     @RequestMapping(method = RequestMethod.GET, value = "/v2/evolution-chain/")
     public PaginatedEvolutionChainSummaryList evolutionChainList(
         @RequestParam(name = "limit") Integer limit,
-        @RequestParam(name = "offset") Integer offset,
-        @RequestParam(name = "q") String q
+        @RequestParam(name = "offset") Integer offset
     ) {
-        return apiService.evolutionChainList(limit, offset, q);
+        return apiService.evolutionChainList(limit, offset);
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/v2/evolution-chain/{id}/")
@@ -323,6 +341,22 @@ public class ApiServiceController {
         @RequestParam(name = "id") String id
     ) {
         return apiService.evolutionTriggerRetrieve(id);
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/v2/evolution-variable/")
+    public PaginatedEvolutionVariableSummaryList evolutionVariableList(
+        @RequestParam(name = "limit") Integer limit,
+        @RequestParam(name = "offset") Integer offset,
+        @RequestParam(name = "q") String q
+    ) {
+        return apiService.evolutionVariableList(limit, offset, q);
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/v2/evolution-variable/{id}/")
+    public EvolutionVariableDetail evolutionVariableRetrieve(
+        @RequestParam(name = "id") String id
+    ) {
+        return apiService.evolutionVariableRetrieve(id);
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/v2/gender/")
@@ -503,10 +537,9 @@ public class ApiServiceController {
     @RequestMapping(method = RequestMethod.GET, value = "/v2/machine/")
     public PaginatedMachineSummaryList machineList(
         @RequestParam(name = "limit") Integer limit,
-        @RequestParam(name = "offset") Integer offset,
-        @RequestParam(name = "q") String q
+        @RequestParam(name = "offset") Integer offset
     ) {
-        return apiService.machineList(limit, offset, q);
+        return apiService.machineList(limit, offset);
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/v2/machine/{id}/")
@@ -514,6 +547,12 @@ public class ApiServiceController {
         @RequestParam(name = "id") String id
     ) {
         return apiService.machineRetrieve(id);
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/v2/meta/")
+    public PokeapiMetaResponse metaRetrieve(
+    ) {
+        return apiService.metaRetrieve();
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/v2/move-ailment/")
@@ -823,10 +862,9 @@ public class ApiServiceController {
     @RequestMapping(method = RequestMethod.GET, value = "/v2/super-contest-effect/")
     public PaginatedSuperContestEffectSummaryList superContestEffectList(
         @RequestParam(name = "limit") Integer limit,
-        @RequestParam(name = "offset") Integer offset,
-        @RequestParam(name = "q") String q
+        @RequestParam(name = "offset") Integer offset
     ) {
-        return apiService.superContestEffectList(limit, offset, q);
+        return apiService.superContestEffectList(limit, offset);
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/v2/super-contest-effect/{id}/")

@@ -5,17 +5,19 @@ from typing import ClassVar, Dict, List, Tuple  # noqa: F401
 from pydantic import Field
 from typing import Optional
 from typing_extensions import Annotated
+from openapi_server.models.currency_detail import CurrencyDetail
 from openapi_server.models.item_attribute_detail import ItemAttributeDetail
 from openapi_server.models.item_category_detail import ItemCategoryDetail
 from openapi_server.models.item_detail import ItemDetail
 from openapi_server.models.item_fling_effect_detail import ItemFlingEffectDetail
 from openapi_server.models.item_pocket_detail import ItemPocketDetail
+from openapi_server.models.paginated_currency_summary_list import PaginatedCurrencySummaryList
 from openapi_server.models.paginated_item_attribute_summary_list import PaginatedItemAttributeSummaryList
 from openapi_server.models.paginated_item_category_summary_list import PaginatedItemCategorySummaryList
 from openapi_server.models.paginated_item_fling_effect_summary_list import PaginatedItemFlingEffectSummaryList
 from openapi_server.models.paginated_item_pocket_summary_list import PaginatedItemPocketSummaryList
 from openapi_server.models.paginated_item_summary_list import PaginatedItemSummaryList
-from openapi_server.security_api import get_token_basicAuth, get_token_cookieAuth
+
 
 class BaseItemsApi:
     subclasses: ClassVar[Tuple] = ()
@@ -110,4 +112,22 @@ class BaseItemsApi:
         id: Annotated[str, Field(description="This parameter can be a string or an integer.")],
     ) -> ItemPocketDetail:
         """Pockets within the players bag used for storing items by category."""
+        ...
+
+
+    async def currency_list(
+        self,
+        limit: Annotated[Optional[int], Field(description="Number of results to return per page.")],
+        offset: Annotated[Optional[int], Field(description="The initial index from which to return the results.")],
+        q: Annotated[Optional[str], Field(description="> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")],
+    ) -> PaginatedCurrencySummaryList:
+        """Currencies used to buy items."""
+        ...
+
+
+    async def currency_retrieve(
+        self,
+        id: Annotated[str, Field(description="This parameter can be a string or an integer.")],
+    ) -> CurrencyDetail:
+        """Currencies used to buy items."""
         ...

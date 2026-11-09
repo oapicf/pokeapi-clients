@@ -7,8 +7,8 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.model.AbilityDetailPokemonInnerPokemon;
 import org.openapitools.model.EvolutionTriggerName;
+import org.openapitools.model.PokemonSpeciesSummary;
 import org.springframework.lang.Nullable;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
@@ -24,7 +24,7 @@ import jakarta.annotation.Generated;
  * EvolutionTriggerDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-10-25T05:53:37.479908528Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-11-09T13:53:47.069318184Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class EvolutionTriggerDetail {
 
   private Integer id;
@@ -33,7 +33,7 @@ public class EvolutionTriggerDetail {
 
   private List<@Valid EvolutionTriggerName> names = new ArrayList<>();
 
-  private List<@Valid AbilityDetailPokemonInnerPokemon> pokemonSpecies = new ArrayList<>();
+  private List<@Valid PokemonSpeciesSummary> pokemonSpecies = new ArrayList<>();
 
   public EvolutionTriggerDetail() {
     super();
@@ -42,7 +42,7 @@ public class EvolutionTriggerDetail {
   /**
    * Constructor with only required parameters
    */
-  public EvolutionTriggerDetail(Integer id, String name, List<@Valid EvolutionTriggerName> names, List<@Valid AbilityDetailPokemonInnerPokemon> pokemonSpecies) {
+  public EvolutionTriggerDetail(Integer id, String name, List<@Valid EvolutionTriggerName> names, List<@Valid PokemonSpeciesSummary> pokemonSpecies) {
     this.id = id;
     this.name = name;
     this.names = names;
@@ -55,11 +55,11 @@ public class EvolutionTriggerDetail {
   }
 
   /**
-   * Get id
+   * The identifier for this resource.
    * @return id
    */
   
-  @Schema(name = "id", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "id", accessMode = Schema.AccessMode.READ_ONLY, description = "The identifier for this resource.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("id")
   public Integer getId() {
     return id;
@@ -76,11 +76,11 @@ public class EvolutionTriggerDetail {
   }
 
   /**
-   * Get name
+   * The name for this resource.
    * @return name
    */
-  @NotNull @Size(max = 100) 
-  @Schema(name = "name", requiredMode = Schema.RequiredMode.REQUIRED)
+  @NotNull @Size(max = 200) 
+  @Schema(name = "name", description = "The name for this resource.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("name")
   public String getName() {
     return name;
@@ -105,11 +105,11 @@ public class EvolutionTriggerDetail {
   }
 
   /**
-   * Get names
+   * The name of this resource listed in different languages.
    * @return names
    */
   
-  @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, description = "The name of this resource listed in different languages.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("names")
   public List<@Valid EvolutionTriggerName> getNames() {
     return names;
@@ -120,12 +120,12 @@ public class EvolutionTriggerDetail {
     this.names = names;
   }
 
-  public EvolutionTriggerDetail pokemonSpecies(List<@Valid AbilityDetailPokemonInnerPokemon> pokemonSpecies) {
+  public EvolutionTriggerDetail pokemonSpecies(List<@Valid PokemonSpeciesSummary> pokemonSpecies) {
     this.pokemonSpecies = pokemonSpecies;
     return this;
   }
 
-  public EvolutionTriggerDetail addPokemonSpeciesItem(AbilityDetailPokemonInnerPokemon pokemonSpeciesItem) {
+  public EvolutionTriggerDetail addPokemonSpeciesItem(PokemonSpeciesSummary pokemonSpeciesItem) {
     if (this.pokemonSpecies == null) {
       this.pokemonSpecies = new ArrayList<>();
     }
@@ -134,18 +134,18 @@ public class EvolutionTriggerDetail {
   }
 
   /**
-   * Get pokemonSpecies
+   * A list of pokemon species that result from this evolution trigger.
    * @return pokemonSpecies
    */
   
-  @Schema(name = "pokemon_species", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "pokemon_species", accessMode = Schema.AccessMode.READ_ONLY, description = "A list of pokemon species that result from this evolution trigger.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("pokemon_species")
-  public List<@Valid AbilityDetailPokemonInnerPokemon> getPokemonSpecies() {
+  public List<@Valid PokemonSpeciesSummary> getPokemonSpecies() {
     return pokemonSpecies;
   }
 
   @JsonProperty("pokemon_species")
-  public void setPokemonSpecies(List<@Valid AbilityDetailPokemonInnerPokemon> pokemonSpecies) {
+  public void setPokemonSpecies(List<@Valid PokemonSpeciesSummary> pokemonSpecies) {
     this.pokemonSpecies = pokemonSpecies;
   }
 

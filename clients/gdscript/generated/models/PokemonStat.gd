@@ -10,6 +10,7 @@ class_name PokemonStat
 # PokemonStat Model
 
 
+# The base value of the stat.
 # Required: True
 # isArray: false
 @export var baseUnderscorestat: int:
@@ -18,6 +19,7 @@ class_name PokemonStat
 		baseUnderscorestat = value
 var __baseUnderscorestat__was__set := false
 
+# The effort points (EV) the Pokémon has in the stat.
 # Required: True
 # isArray: false
 @export var effort: int:
@@ -26,6 +28,7 @@ var __baseUnderscorestat__was__set := false
 		effort = value
 var __effort__was__set := false
 
+# The stat the Pokémon has.
 # Required: True
 # isArray: false
 @export var stat: StatSummary:

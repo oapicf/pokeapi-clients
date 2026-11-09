@@ -11,6 +11,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**language_list**](UtilityApi.md#language_list) | **GET** /api/v2/language/ | List languages
 [**language_retrieve**](UtilityApi.md#language_retrieve) | **GET** /api/v2/language/{id}/ | Get language
+[**meta_retrieve**](UtilityApi.md#meta_retrieve) | **GET** /api/v2/meta/ | Get API metadata
 
 
 # **language_list**
@@ -25,15 +26,6 @@ Languages for translations of API resource information.
 use Data::Dumper;
 use WWW::OpenAPIClient::UtilityApi;
 my $api_instance = WWW::OpenAPIClient::UtilityApi->new(
-
-    # Configure HTTP basic authorization: basicAuth
-    username => 'YOUR_USERNAME',
-    password => 'YOUR_PASSWORD',
-    
-    # Configure API key authorization: cookieAuth
-    api_key => {'sessionid' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'sessionid' => 'Bearer'},
 );
 
 my $limit = 56; # int | Number of results to return per page.
@@ -63,7 +55,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -84,18 +76,9 @@ Languages for translations of API resource information.
 use Data::Dumper;
 use WWW::OpenAPIClient::UtilityApi;
 my $api_instance = WWW::OpenAPIClient::UtilityApi->new(
-
-    # Configure HTTP basic authorization: basicAuth
-    username => 'YOUR_USERNAME',
-    password => 'YOUR_PASSWORD',
-    
-    # Configure API key authorization: cookieAuth
-    api_key => {'sessionid' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'sessionid' => 'Bearer'},
 );
 
-my $id = "id_example"; # string | This parameter can be a string or an integer.
+my $id = 1; # string | This parameter can be a string or an integer.
 
 eval {
     my $result = $api_instance->language_retrieve(id => $id);
@@ -118,7 +101,49 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **meta_retrieve**
+> PokeapiMetaResponse meta_retrieve()
+
+Get API metadata
+
+Returns metadata about the current deployed version of the API, including the git commit hash, deploy date, and tag (if any).
+
+### Example
+```perl
+use Data::Dumper;
+use WWW::OpenAPIClient::UtilityApi;
+my $api_instance = WWW::OpenAPIClient::UtilityApi->new(
+);
+
+
+eval {
+    my $result = $api_instance->meta_retrieve();
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling UtilityApi->meta_retrieve: $@\n";
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**PokeapiMetaResponse**](PokeapiMetaResponse.md)
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 

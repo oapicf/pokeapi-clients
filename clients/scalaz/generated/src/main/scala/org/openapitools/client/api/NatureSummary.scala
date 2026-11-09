@@ -13,8 +13,10 @@ import java.net.URI
 import NatureSummary._
 
 case class NatureSummary (
+  /* The name of the referenced resource. */
   name: String,
-url: URI)
+/* The URL of the referenced resource. */
+  url: URI)
 
 object NatureSummary {
   import DateTimeCodecs._

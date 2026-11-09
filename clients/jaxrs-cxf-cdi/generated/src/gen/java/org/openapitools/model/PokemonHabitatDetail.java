@@ -29,6 +29,7 @@ public class PokemonHabitatDetail   {
   private List<@Valid PokemonSpeciesSummary> pokemonSpecies = new ArrayList<>();
 
   /**
+   * The identifier for this resource.
    **/
   public PokemonHabitatDetail id(Integer id) {
     this.id = id;
@@ -36,7 +37,7 @@ public class PokemonHabitatDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   @JsonProperty("id")
   @NotNull
   public Integer getId() {
@@ -48,6 +49,7 @@ public class PokemonHabitatDetail   {
 
 
   /**
+   * The name for this resource.
    **/
   public PokemonHabitatDetail name(String name) {
     this.name = name;
@@ -55,10 +57,10 @@ public class PokemonHabitatDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   @JsonProperty("name")
   @NotNull
- @Size(max=100)  public String getName() {
+ @Size(max=200)  public String getName() {
     return name;
   }
   public void setName(String name) {
@@ -67,6 +69,7 @@ public class PokemonHabitatDetail   {
 
 
   /**
+   * The name of this resource listed in different languages.
    **/
   public PokemonHabitatDetail names(List<@Valid PokemonHabitatName> names) {
     this.names = names;
@@ -74,7 +77,7 @@ public class PokemonHabitatDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
   @JsonProperty("names")
   @NotNull
   public List<@Valid PokemonHabitatName> getNames() {
@@ -94,6 +97,7 @@ public class PokemonHabitatDetail   {
 
 
   /**
+   * A list of the Pokémon species that can be found in this habitat.
    **/
   public PokemonHabitatDetail pokemonSpecies(List<@Valid PokemonSpeciesSummary> pokemonSpecies) {
     this.pokemonSpecies = pokemonSpecies;
@@ -101,7 +105,7 @@ public class PokemonHabitatDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of the Pokémon species that can be found in this habitat.")
   @JsonProperty("pokemon_species")
   @NotNull
   public List<@Valid PokemonSpeciesSummary> getPokemonSpecies() {

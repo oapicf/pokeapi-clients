@@ -12,7 +12,7 @@ import org.openapitools.model.VersionGroupSummary;
 /**
  * MachineDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-10-25T05:48:05.787850114Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-11-09T13:49:25.341948748Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class MachineDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -27,10 +27,10 @@ public class MachineDetail   {
   private MoveSummary move;
 
    /**
-   * Get id
+   * The identifier for this resource.
    * @return id
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   public Integer getId() {
     return id;
   }
@@ -41,10 +41,10 @@ public class MachineDetail   {
   }
 
    /**
-   * Get item
+   * The TM or HM item that corresponds to this machine.
    * @return item
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The TM or HM item that corresponds to this machine.")
   public ItemSummary getItem() {
     return item;
   }
@@ -59,10 +59,10 @@ public class MachineDetail   {
   }
 
    /**
-   * Get versionGroup
+   * The version group that this machine applies to.
    * @return versionGroup
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The version group that this machine applies to.")
   public VersionGroupSummary getVersionGroup() {
     return versionGroup;
   }
@@ -77,10 +77,10 @@ public class MachineDetail   {
   }
 
    /**
-   * Get move
+   * The move that is taught by this machine.
    * @return move
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The move that is taught by this machine.")
   public MoveSummary getMove() {
     return move;
   }

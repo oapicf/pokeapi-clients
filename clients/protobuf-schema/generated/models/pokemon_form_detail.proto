@@ -1,9 +1,9 @@
 /*
   PokéAPI
 
-  All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+  All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
 
-  The version of the OpenAPI document: 2.7.0
+  The version of the OpenAPI document: 2.10.0
 
   Contact: blah+oapicf@cliffano.com
 
@@ -14,41 +14,63 @@ syntax = "proto3";
 
 package openapitools;
 
-import public "models/pokemon_detail_types_inner.proto";
-import public "models/pokemon_form_detail_form_names_inner.proto";
-import public "models/pokemon_form_detail_sprites.proto";
+import public "models/pokemon_form_flavor_text.proto";
+import public "models/pokemon_form_name.proto";
+import public "models/pokemon_form_sprites.proto";
+import public "models/pokemon_form_trigger_condition.proto";
+import public "models/pokemon_form_type.proto";
 import public "models/pokemon_summary.proto";
 import public "models/version_group_summary.proto";
 
 message PokemonFormDetail {
 
+  // The identifier for this resource.
   int32 id = 3355;
 
+  // The name for this resource.
   string name = 3373707;
 
+  // The order in which forms should be sorted within all forms. Multiple forms may have equal order, in which case they should fall back on sorting by name.
   optional int32 order = 106006350;
 
+  // The order in which forms should be sorted within a species' forms.
   optional int32 form_order = 262820883;
 
+  // True for exactly one form used as the default for each Pokémon.
   bool is_default = 176111574;
 
+  // Whether or not this form can only happen during battle.
   bool is_battle_only = 387200833;
 
+  // Whether or not this form requires mega evolution.
   bool is_mega = 471427690;
 
+  // The name of this form.
   string form_name = 198934825;
 
+  // The Pokémon that can take on this form.
   PokemonSummary pokemon = 399033133;
 
-  PokemonFormDetailSprites sprites = 385657269;
+  // A set of sprites used to depict this Pokémon form in the game.
+  PokemonFormSprites sprites = 385657269;
 
+  // The version group this Pokémon form was introduced in.
   VersionGroupSummary version_group = 32470106;
 
-  repeated PokemonFormDetailFormNamesInner form_names = 261399565;
+  // The form specific form name of this Pokémon form, or empty if the form does not have a specific name.
+  repeated PokemonFormName form_names = 261399565;
 
-  repeated PokemonFormDetailFormNamesInner names = 104585032;
+  // The form specific full name of this Pokémon form, or empty if the form does not have a specific name.
+  repeated PokemonFormName names = 104585032;
 
-  repeated PokemonDetailTypesInner types = 110844025;
+  // A list of details showing types this Pokémon form has.
+  repeated PokemonFormType types = 110844025;
+
+  // The conditions that trigger this form. Resource names and URLs are included when the trigger requires a resource.
+  repeated PokemonFormTriggerCondition trigger_conditions = 440857503;
+
+  // The flavor text of this form listed in different languages and versions.
+  repeated PokemonFormFlavorText flavor_text_entries = 261557380;
 
 }
 

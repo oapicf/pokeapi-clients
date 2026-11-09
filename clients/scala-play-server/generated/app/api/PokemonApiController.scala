@@ -37,7 +37,7 @@ import model.PokemonSpeciesDetail
 import model.StatDetail
 import model.TypeDetail
 
-@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2026-10-25T05:53:17.467323765Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2026-11-09T13:53:31.572745352Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 @Singleton
 class PokemonApiController @Inject()(cc: ControllerComponents, api: PokemonApi) extends AbstractController(cc) {
   /**
@@ -76,7 +76,7 @@ class PokemonApiController @Inject()(cc: ControllerComponents, api: PokemonApi) 
   }
 
   /**
-    * GET /api/v2/characteristic/?limit=[value]&offset=[value]&q=[value]
+    * GET /api/v2/characteristic/?limit=[value]&offset=[value]
     */
   def characteristicList(): Action[AnyContent] = Action { request =>
     def executeApi(): PaginatedCharacteristicSummaryList = {
@@ -86,9 +86,7 @@ class PokemonApiController @Inject()(cc: ControllerComponents, api: PokemonApi) 
       val offset = request.getQueryString("offset")
         .map(value => value.toInt)
         
-      val q = request.getQueryString("q")
-        
-      api.characteristicList(limit, offset, q)
+      api.characteristicList(limit, offset)
     }
 
     val result = executeApi()

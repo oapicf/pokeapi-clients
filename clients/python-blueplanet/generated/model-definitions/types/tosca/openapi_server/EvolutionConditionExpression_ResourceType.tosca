@@ -1,0 +1,47 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server EvolutionConditionExpression"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a EvolutionConditionExpression"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  EvolutionVariableSummary = openapi_server.resourceTypes.EvolutionVariableSummary
+}
+resourceTypes {
+
+  EvolutionConditionExpression {
+    title = EvolutionConditionExpression
+    description = EvolutionConditionExpression
+    derivedFrom = Root
+    properties {
+        expression {
+          type =  string
+          description = "Evaluatable RPN condition expression using evolution variables (e.g. &#39;EC 100 % 0 &#x3D;&#x3D;&#39;)"
+          optional = true
+        }
+        percentage_chance {
+          type =  integer
+          description = "Percentage chance of evolution under this condition (0-100)"
+          optional = true
+        }
+        variables {
+          type = array
+          items.type = EvolutionVariableSummary
+          description = "Evolution variables referenced in the expression"
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  EvolutionConditionExpression {
+    title = EvolutionConditionExpression
+    description = EvolutionConditionExpression
+    implements = openapi_server.resourceTypes.EvolutionConditionExpression
+
+  }
+}

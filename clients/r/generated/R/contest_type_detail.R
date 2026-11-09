@@ -7,10 +7,10 @@
 #' @title ContestTypeDetail
 #' @description ContestTypeDetail Class
 #' @format An \code{R6Class} generator object
-#' @field id  integer
-#' @field name  character
-#' @field berry_flavor  \link{BerryFlavorSummary}
-#' @field names  list(\link{ContestTypeName})
+#' @field id The identifier for this resource. integer
+#' @field name The name for this resource. character
+#' @field berry_flavor The berry flavor that correlates with this contest type. \link{BerryFlavorSummary}
+#' @field names The name of this contest type listed in different languages. list(\link{ContestTypeName})
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -25,10 +25,10 @@ ContestTypeDetail <- R6::R6Class(
     #' @description
     #' Initialize a new ContestTypeDetail class.
     #'
-    #' @param id id
-    #' @param name name
-    #' @param berry_flavor berry_flavor
-    #' @param names names
+    #' @param id The identifier for this resource.
+    #' @param name The name for this resource.
+    #' @param berry_flavor The berry flavor that correlates with this contest type.
+    #' @param names The name of this contest type listed in different languages.
     #' @param ... Other optional arguments.
     initialize = function(`id`, `name`, `berry_flavor`, `names`, ...) {
       if (!missing(`id`)) {
@@ -236,7 +236,7 @@ ContestTypeDetail <- R6::R6Class(
         return(FALSE)
       }
 
-      if (nchar(self$`name`) > 100) {
+      if (nchar(self$`name`) > 200) {
         return(FALSE)
       }
 
@@ -269,8 +269,8 @@ ContestTypeDetail <- R6::R6Class(
         invalid_fields["name"] <- "Non-nullable required field `name` cannot be null."
       }
 
-      if (nchar(self$`name`) > 100) {
-        invalid_fields["name"] <- "Invalid length for `name`, must be smaller than or equal to 100."
+      if (nchar(self$`name`) > 200) {
+        invalid_fields["name"] <- "Invalid length for `name`, must be smaller than or equal to 200."
       }
 
       # check if the required `berry_flavor` is null

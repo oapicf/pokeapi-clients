@@ -7,12 +7,14 @@ import org.openapitools.model.BerryFlavorDetail;
 import org.openapitools.model.CharacteristicDetail;
 import org.openapitools.model.ContestEffectDetail;
 import org.openapitools.model.ContestTypeDetail;
+import org.openapitools.model.CurrencyDetail;
 import org.openapitools.model.EggGroupDetail;
 import org.openapitools.model.EncounterConditionDetail;
 import org.openapitools.model.EncounterConditionValueDetail;
 import org.openapitools.model.EncounterMethodDetail;
 import org.openapitools.model.EvolutionChainDetail;
 import org.openapitools.model.EvolutionTriggerDetail;
+import org.openapitools.model.EvolutionVariableDetail;
 import org.openapitools.model.GenderDetail;
 import org.openapitools.model.GenerationDetail;
 import org.openapitools.model.GrowthRateDetail;
@@ -40,12 +42,14 @@ import org.openapitools.model.PaginatedBerrySummaryList;
 import org.openapitools.model.PaginatedCharacteristicSummaryList;
 import org.openapitools.model.PaginatedContestEffectSummaryList;
 import org.openapitools.model.PaginatedContestTypeSummaryList;
+import org.openapitools.model.PaginatedCurrencySummaryList;
 import org.openapitools.model.PaginatedEggGroupSummaryList;
 import org.openapitools.model.PaginatedEncounterConditionSummaryList;
 import org.openapitools.model.PaginatedEncounterConditionValueSummaryList;
 import org.openapitools.model.PaginatedEncounterMethodSummaryList;
 import org.openapitools.model.PaginatedEvolutionChainSummaryList;
 import org.openapitools.model.PaginatedEvolutionTriggerSummaryList;
+import org.openapitools.model.PaginatedEvolutionVariableSummaryList;
 import org.openapitools.model.PaginatedGenderSummaryList;
 import org.openapitools.model.PaginatedGenerationSummaryList;
 import org.openapitools.model.PaginatedGrowthRateSummaryList;
@@ -82,6 +86,7 @@ import org.openapitools.model.PaginatedTypeSummaryList;
 import org.openapitools.model.PaginatedVersionGroupSummaryList;
 import org.openapitools.model.PaginatedVersionSummaryList;
 import org.openapitools.model.PalParkAreaDetail;
+import org.openapitools.model.PokeapiMetaResponse;
 import org.openapitools.model.PokeathlonStatDetail;
 import org.openapitools.model.PokedexDetail;
 import org.openapitools.model.PokemonColorDetail;
@@ -110,7 +115,7 @@ import javax.annotation.Generated;
 public interface ApiService {
 
     /**
-     * 
+     * List abilities
      * Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
      *
      * @param limit Number of results to return per page. (optional)
@@ -125,7 +130,7 @@ public interface ApiService {
     );
 
     /**
-     * 
+     * Get ability
      * Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
      *
      * @param id This parameter can be a string or an integer. (required)
@@ -214,18 +219,16 @@ public interface ApiService {
     );
 
     /**
-     * List charecterictics
+     * List characteristics
      * Characteristics indicate which stat contains a Pokémon&#39;s highest IV. A Pokémon&#39;s Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail.
      *
      * @param limit Number of results to return per page. (optional)
      * @param offset The initial index from which to return the results. (optional)
-     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
      * @return PaginatedCharacteristicSummaryList
      */
     PaginatedCharacteristicSummaryList characteristicList(
         Integer limit,
-        Integer offset,
-        String q
+        Integer offset
     );
 
     /**
@@ -245,13 +248,11 @@ public interface ApiService {
      *
      * @param limit Number of results to return per page. (optional)
      * @param offset The initial index from which to return the results. (optional)
-     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
      * @return PaginatedContestEffectSummaryList
      */
     PaginatedContestEffectSummaryList contestEffectList(
         Integer limit,
-        Integer offset,
-        String q
+        Integer offset
     );
 
     /**
@@ -288,6 +289,32 @@ public interface ApiService {
      * @return ContestTypeDetail
      */
     ContestTypeDetail contestTypeRetrieve(
+        String id
+    );
+
+    /**
+     * List currencies
+     * Currencies used to buy items.
+     *
+     * @param limit Number of results to return per page. (optional)
+     * @param offset The initial index from which to return the results. (optional)
+     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     * @return PaginatedCurrencySummaryList
+     */
+    PaginatedCurrencySummaryList currencyList(
+        Integer limit,
+        Integer offset,
+        String q
+    );
+
+    /**
+     * Get currency
+     * Currencies used to buy items.
+     *
+     * @param id This parameter can be a string or an integer. (required)
+     * @return CurrencyDetail
+     */
+    CurrencyDetail currencyRetrieve(
         String id
     );
 
@@ -401,13 +428,11 @@ public interface ApiService {
      *
      * @param limit Number of results to return per page. (optional)
      * @param offset The initial index from which to return the results. (optional)
-     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
      * @return PaginatedEvolutionChainSummaryList
      */
     PaginatedEvolutionChainSummaryList evolutionChainList(
         Integer limit,
-        Integer offset,
-        String q
+        Integer offset
     );
 
     /**
@@ -444,6 +469,32 @@ public interface ApiService {
      * @return EvolutionTriggerDetail
      */
     EvolutionTriggerDetail evolutionTriggerRetrieve(
+        String id
+    );
+
+    /**
+     * List evolution variables
+     * Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+     *
+     * @param limit Number of results to return per page. (optional)
+     * @param offset The initial index from which to return the results. (optional)
+     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     * @return PaginatedEvolutionVariableSummaryList
+     */
+    PaginatedEvolutionVariableSummaryList evolutionVariableList(
+        Integer limit,
+        Integer offset,
+        String q
+    );
+
+    /**
+     * Get evolution variable
+     * Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+     *
+     * @param id This parameter can be a string or an integer. (required)
+     * @return EvolutionVariableDetail
+     */
+    EvolutionVariableDetail evolutionVariableRetrieve(
         String id
     );
 
@@ -737,13 +788,11 @@ public interface ApiService {
      *
      * @param limit Number of results to return per page. (optional)
      * @param offset The initial index from which to return the results. (optional)
-     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
      * @return PaginatedMachineSummaryList
      */
     PaginatedMachineSummaryList machineList(
         Integer limit,
-        Integer offset,
-        String q
+        Integer offset
     );
 
     /**
@@ -755,6 +804,15 @@ public interface ApiService {
      */
     MachineDetail machineRetrieve(
         String id
+    );
+
+    /**
+     * Get API metadata
+     * Returns metadata about the current deployed version of the API, including the git commit hash, deploy date, and tag (if any).
+     *
+     * @return PokeapiMetaResponse
+     */
+    PokeapiMetaResponse metaRetrieve(
     );
 
     /**
@@ -1257,13 +1315,11 @@ public interface ApiService {
      *
      * @param limit Number of results to return per page. (optional)
      * @param offset The initial index from which to return the results. (optional)
-     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
      * @return PaginatedSuperContestEffectSummaryList
      */
     PaginatedSuperContestEffectSummaryList superContestEffectList(
         Integer limit,
-        Integer offset,
-        String q
+        Integer offset
     );
 
     /**

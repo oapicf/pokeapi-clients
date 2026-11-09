@@ -12,7 +12,7 @@ module OpenAPIClient
         path: "/api/v2/encounter-condition-value/",
         query: { "limit" => limit, "offset" => offset, "q" => q },
         accept: %w[application/json],
-        auth: %w[basicAuth cookieAuth])
+        auth: %w[])
     end
 
     # Get encounter condition value Encounter condition values are the various states that an encounter condition can have, i.e., time of day can be either day or night.
@@ -21,7 +21,7 @@ module OpenAPIClient
         method: :GET,
         path: "/api/v2/encounter-condition-value/{id}/".sub("{id}", OpenAPIClient.enc(id)),
         accept: %w[application/json],
-        auth: %w[basicAuth cookieAuth])
+        auth: %w[])
     end
   end
   end

@@ -10,7 +10,6 @@ namespace models {
 
 MoveMetaAilmentName::MoveMetaAilmentName()
 : name("")
-, language(LanguageSummary())
 {
 }
 // =========================================

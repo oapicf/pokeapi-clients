@@ -1,7 +1,9 @@
 package apimodels;
 
-import apimodels.AbilityDetailPokemonInnerPokemon;
 import apimodels.GenerationSummary;
+import apimodels.MoveLearnMethodSummary;
+import apimodels.PokedexSummary;
+import apimodels.RegionSummary;
 import apimodels.VersionSummary;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -16,7 +18,7 @@ import javax.validation.Valid;
 /**
  * VersionGroupDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-10-25T05:48:13.486809836Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-11-09T13:49:31.462302702Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class VersionGroupDetail   {
   @JsonProperty("id")
@@ -26,12 +28,14 @@ public class VersionGroupDetail   {
 
   @JsonProperty("name")
   @NotNull
-@Size(max=100)
+@Size(max=200)
 
   private String name;
 
   @JsonProperty("order")
-  
+  @Min(-2147483648)
+@Max(2147483647)
+
   private Integer order;
 
   @JsonProperty("generation")
@@ -44,19 +48,19 @@ public class VersionGroupDetail   {
   @NotNull
 @Valid
 
-  private List<@Valid AbilityDetailPokemonInnerPokemon> moveLearnMethods = new ArrayList<>();
+  private List<@Valid MoveLearnMethodSummary> moveLearnMethods = new ArrayList<>();
 
   @JsonProperty("pokedexes")
   @NotNull
 @Valid
 
-  private List<@Valid AbilityDetailPokemonInnerPokemon> pokedexes = new ArrayList<>();
+  private List<@Valid PokedexSummary> pokedexes = new ArrayList<>();
 
   @JsonProperty("regions")
   @NotNull
 @Valid
 
-  private List<@Valid AbilityDetailPokemonInnerPokemon> regions = new ArrayList<>();
+  private List<@Valid RegionSummary> regions = new ArrayList<>();
 
   @JsonProperty("versions")
   @NotNull
@@ -70,7 +74,7 @@ public class VersionGroupDetail   {
   }
 
    /**
-   * Get id
+   * The identifier for this resource.
    * @return id
   **/
   public Integer getId() {
@@ -87,7 +91,7 @@ public class VersionGroupDetail   {
   }
 
    /**
-   * Get name
+   * The name for this resource.
    * @return name
   **/
   public String getName() {
@@ -104,7 +108,9 @@ public class VersionGroupDetail   {
   }
 
    /**
-   * Get order
+   * Order for sorting. Almost by date of release, except similar versions are grouped together.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return order
   **/
   public Integer getOrder() {
@@ -121,7 +127,7 @@ public class VersionGroupDetail   {
   }
 
    /**
-   * Get generation
+   * The generation this version was introduced in.
    * @return generation
   **/
   public GenerationSummary getGeneration() {
@@ -132,12 +138,12 @@ public class VersionGroupDetail   {
     this.generation = generation;
   }
 
-  public VersionGroupDetail moveLearnMethods(List<@Valid AbilityDetailPokemonInnerPokemon> moveLearnMethods) {
+  public VersionGroupDetail moveLearnMethods(List<@Valid MoveLearnMethodSummary> moveLearnMethods) {
     this.moveLearnMethods = moveLearnMethods;
     return this;
   }
 
-  public VersionGroupDetail addMoveLearnMethodsItem(AbilityDetailPokemonInnerPokemon moveLearnMethodsItem) {
+  public VersionGroupDetail addMoveLearnMethodsItem(MoveLearnMethodSummary moveLearnMethodsItem) {
     if (this.moveLearnMethods == null) {
       this.moveLearnMethods = new ArrayList<>();
     }
@@ -146,23 +152,23 @@ public class VersionGroupDetail   {
   }
 
    /**
-   * Get moveLearnMethods
+   * A list of methods in which Pokémon can learn moves in this version group.
    * @return moveLearnMethods
   **/
-  public List<@Valid AbilityDetailPokemonInnerPokemon> getMoveLearnMethods() {
+  public List<@Valid MoveLearnMethodSummary> getMoveLearnMethods() {
     return moveLearnMethods;
   }
 
-  public void setMoveLearnMethods(List<@Valid AbilityDetailPokemonInnerPokemon> moveLearnMethods) {
+  public void setMoveLearnMethods(List<@Valid MoveLearnMethodSummary> moveLearnMethods) {
     this.moveLearnMethods = moveLearnMethods;
   }
 
-  public VersionGroupDetail pokedexes(List<@Valid AbilityDetailPokemonInnerPokemon> pokedexes) {
+  public VersionGroupDetail pokedexes(List<@Valid PokedexSummary> pokedexes) {
     this.pokedexes = pokedexes;
     return this;
   }
 
-  public VersionGroupDetail addPokedexesItem(AbilityDetailPokemonInnerPokemon pokedexesItem) {
+  public VersionGroupDetail addPokedexesItem(PokedexSummary pokedexesItem) {
     if (this.pokedexes == null) {
       this.pokedexes = new ArrayList<>();
     }
@@ -171,23 +177,23 @@ public class VersionGroupDetail   {
   }
 
    /**
-   * Get pokedexes
+   * A list of Pokédexes introduces in this version group.
    * @return pokedexes
   **/
-  public List<@Valid AbilityDetailPokemonInnerPokemon> getPokedexes() {
+  public List<@Valid PokedexSummary> getPokedexes() {
     return pokedexes;
   }
 
-  public void setPokedexes(List<@Valid AbilityDetailPokemonInnerPokemon> pokedexes) {
+  public void setPokedexes(List<@Valid PokedexSummary> pokedexes) {
     this.pokedexes = pokedexes;
   }
 
-  public VersionGroupDetail regions(List<@Valid AbilityDetailPokemonInnerPokemon> regions) {
+  public VersionGroupDetail regions(List<@Valid RegionSummary> regions) {
     this.regions = regions;
     return this;
   }
 
-  public VersionGroupDetail addRegionsItem(AbilityDetailPokemonInnerPokemon regionsItem) {
+  public VersionGroupDetail addRegionsItem(RegionSummary regionsItem) {
     if (this.regions == null) {
       this.regions = new ArrayList<>();
     }
@@ -196,14 +202,14 @@ public class VersionGroupDetail   {
   }
 
    /**
-   * Get regions
+   * A list of regions that can be visited in this version group.
    * @return regions
   **/
-  public List<@Valid AbilityDetailPokemonInnerPokemon> getRegions() {
+  public List<@Valid RegionSummary> getRegions() {
     return regions;
   }
 
-  public void setRegions(List<@Valid AbilityDetailPokemonInnerPokemon> regions) {
+  public void setRegions(List<@Valid RegionSummary> regions) {
     this.regions = regions;
   }
 
@@ -221,7 +227,7 @@ public class VersionGroupDetail   {
   }
 
    /**
-   * Get versions
+   * The versions this version group owns.
    * @return versions
   **/
   public List<@Valid VersionSummary> getVersions() {

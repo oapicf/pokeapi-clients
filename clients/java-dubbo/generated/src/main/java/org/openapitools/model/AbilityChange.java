@@ -14,14 +14,20 @@ import java.math.*;
 public class AbilityChange implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * The version group in which the previous effect of this ability originated.
+   */
   @JsonProperty("version_group")
   private VersionGroupSummary versionGroup;
 
+  /**
+   * The previous effect of this ability listed in different languages.
+   */
   @JsonProperty("effect_entries")
   private List<AbilityChangeEffectText> effectEntries = new ArrayList<>();
 
   /**
-   * 
+   * The version group in which the previous effect of this ability originated.
    * @return versionGroup
    */
   public VersionGroupSummary getVersionGroup() {
@@ -33,7 +39,7 @@ public class AbilityChange implements Serializable {
   }
 
   /**
-   * 
+   * The previous effect of this ability listed in different languages.
    * @return effectEntries
    */
   public List<AbilityChangeEffectText> getEffectEntries() {

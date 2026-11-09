@@ -5,15 +5,15 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import org.openapitools.server.model.AbilityName;
 import org.openapitools.server.model.GenerationSummary;
 import org.openapitools.server.model.MoveDamageClassSummary;
 import org.openapitools.server.model.MoveSummary;
-import org.openapitools.server.model.TypeDetailDamageRelations;
-import org.openapitools.server.model.TypeDetailPastDamageRelationsInner;
-import org.openapitools.server.model.TypeDetailPokemonInner;
-import org.openapitools.server.model.TypeDetailSpritesValueValue;
 import org.openapitools.server.model.TypeGameIndex;
+import org.openapitools.server.model.TypeGameSprite;
+import org.openapitools.server.model.TypeName;
+import org.openapitools.server.model.TypePastRelationships;
+import org.openapitools.server.model.TypePokemon;
+import org.openapitools.server.model.TypeRelationships;
 import jakarta.validation.constraints.*;
 import jakarta.validation.Valid;
 
@@ -25,15 +25,15 @@ public class TypeDetail   {
 
     private Integer id;
     private String name;
-    private TypeDetailDamageRelations damageRelations;
-    private List<@Valid TypeDetailPastDamageRelationsInner> pastDamageRelations = new ArrayList<>();
+    private TypeRelationships damageRelations;
+    private List<@Valid TypePastRelationships> pastDamageRelations = new ArrayList<>();
     private List<@Valid TypeGameIndex> gameIndices = new ArrayList<>();
     private GenerationSummary generation;
     private MoveDamageClassSummary moveDamageClass;
-    private List<@Valid AbilityName> names = new ArrayList<>();
-    private List<@Valid TypeDetailPokemonInner> pokemon = new ArrayList<>();
+    private List<@Valid TypeName> names = new ArrayList<>();
+    private List<@Valid TypePokemon> pokemon = new ArrayList<>();
     private List<@Valid MoveSummary> moves = new ArrayList<>();
-    private Map<String, Map<String, TypeDetailSpritesValueValue>> sprites = new HashMap<>();
+    private Map<String, Map<String, TypeGameSprite>> sprites = new HashMap<>();
 
     /**
      * Default constructor.
@@ -45,30 +45,30 @@ public class TypeDetail   {
     /**
      * Create TypeDetail.
      *
-     * @param id id
-     * @param name name
-     * @param damageRelations damageRelations
-     * @param pastDamageRelations pastDamageRelations
-     * @param gameIndices gameIndices
-     * @param generation generation
-     * @param moveDamageClass moveDamageClass
-     * @param names names
-     * @param pokemon pokemon
-     * @param moves moves
-     * @param sprites sprites
+     * @param id The identifier for this resource.
+     * @param name The name for this resource.
+     * @param damageRelations A detail of how effective this type is toward others and vice versa.
+     * @param pastDamageRelations A list of details of how effective this type was toward others and vice versa in previous generations
+     * @param gameIndices A list of game indices relevent to this item by generation.
+     * @param generation The generation this type was introduced in.
+     * @param moveDamageClass The class of damage inflicted by this type.
+     * @param names The name of this resource listed in different languages.
+     * @param pokemon A list of details of Pokémon that have this type.
+     * @param moves A list of moves that have this type.
+     * @param sprites Type icons grouped by generation and game, with name_icon and symbol_icon URLs. Unavailable icons are null.
      */
     public TypeDetail(
         Integer id, 
         String name, 
-        TypeDetailDamageRelations damageRelations, 
-        List<@Valid TypeDetailPastDamageRelationsInner> pastDamageRelations, 
+        TypeRelationships damageRelations, 
+        List<@Valid TypePastRelationships> pastDamageRelations, 
         List<@Valid TypeGameIndex> gameIndices, 
         GenerationSummary generation, 
         MoveDamageClassSummary moveDamageClass, 
-        List<@Valid AbilityName> names, 
-        List<@Valid TypeDetailPokemonInner> pokemon, 
+        List<@Valid TypeName> names, 
+        List<@Valid TypePokemon> pokemon, 
         List<@Valid MoveSummary> moves, 
-        Map<String, Map<String, TypeDetailSpritesValueValue>> sprites
+        Map<String, Map<String, TypeGameSprite>> sprites
     ) {
         this.id = id;
         this.name = name;
@@ -86,7 +86,7 @@ public class TypeDetail   {
 
 
     /**
-     * Get id
+     * The identifier for this resource.
      * @return id
      */
     public Integer getId() {
@@ -98,7 +98,7 @@ public class TypeDetail   {
     }
 
     /**
-     * Get name
+     * The name for this resource.
      * @return name
      */
     public String getName() {
@@ -110,31 +110,31 @@ public class TypeDetail   {
     }
 
     /**
-     * Get damageRelations
+     * A detail of how effective this type is toward others and vice versa.
      * @return damageRelations
      */
-    public TypeDetailDamageRelations getDamageRelations() {
+    public TypeRelationships getDamageRelations() {
         return damageRelations;
     }
 
-    public void setDamageRelations(TypeDetailDamageRelations damageRelations) {
+    public void setDamageRelations(TypeRelationships damageRelations) {
         this.damageRelations = damageRelations;
     }
 
     /**
-     * Get pastDamageRelations
+     * A list of details of how effective this type was toward others and vice versa in previous generations
      * @return pastDamageRelations
      */
-    public List<@Valid TypeDetailPastDamageRelationsInner> getPastDamageRelations() {
+    public List<@Valid TypePastRelationships> getPastDamageRelations() {
         return pastDamageRelations;
     }
 
-    public void setPastDamageRelations(List<@Valid TypeDetailPastDamageRelationsInner> pastDamageRelations) {
+    public void setPastDamageRelations(List<@Valid TypePastRelationships> pastDamageRelations) {
         this.pastDamageRelations = pastDamageRelations;
     }
 
     /**
-     * Get gameIndices
+     * A list of game indices relevent to this item by generation.
      * @return gameIndices
      */
     public List<@Valid TypeGameIndex> getGameIndices() {
@@ -146,7 +146,7 @@ public class TypeDetail   {
     }
 
     /**
-     * Get generation
+     * The generation this type was introduced in.
      * @return generation
      */
     public GenerationSummary getGeneration() {
@@ -158,7 +158,7 @@ public class TypeDetail   {
     }
 
     /**
-     * Get moveDamageClass
+     * The class of damage inflicted by this type.
      * @return moveDamageClass
      */
     public MoveDamageClassSummary getMoveDamageClass() {
@@ -170,31 +170,31 @@ public class TypeDetail   {
     }
 
     /**
-     * Get names
+     * The name of this resource listed in different languages.
      * @return names
      */
-    public List<@Valid AbilityName> getNames() {
+    public List<@Valid TypeName> getNames() {
         return names;
     }
 
-    public void setNames(List<@Valid AbilityName> names) {
+    public void setNames(List<@Valid TypeName> names) {
         this.names = names;
     }
 
     /**
-     * Get pokemon
+     * A list of details of Pokémon that have this type.
      * @return pokemon
      */
-    public List<@Valid TypeDetailPokemonInner> getPokemon() {
+    public List<@Valid TypePokemon> getPokemon() {
         return pokemon;
     }
 
-    public void setPokemon(List<@Valid TypeDetailPokemonInner> pokemon) {
+    public void setPokemon(List<@Valid TypePokemon> pokemon) {
         this.pokemon = pokemon;
     }
 
     /**
-     * Get moves
+     * A list of moves that have this type.
      * @return moves
      */
     public List<@Valid MoveSummary> getMoves() {
@@ -206,14 +206,14 @@ public class TypeDetail   {
     }
 
     /**
-     * Get sprites
+     * Type icons grouped by generation and game, with name_icon and symbol_icon URLs. Unavailable icons are null.
      * @return sprites
      */
-    public Map<String, Map<String, TypeDetailSpritesValueValue>> getSprites() {
+    public Map<String, Map<String, TypeGameSprite>> getSprites() {
         return sprites;
     }
 
-    public void setSprites(Map<String, Map<String, TypeDetailSpritesValueValue>> sprites) {
+    public void setSprites(Map<String, Map<String, TypeGameSprite>> sprites) {
         this.sprites = sprites;
     }
 

@@ -7,65 +7,71 @@
     {
       "name": "id",
       "type": "int",
-      "doc": ""
+      "doc": "The identifier for this resource."
     },
     {
       "name": "name",
       "type": "string",
-      "doc": ""
+      "doc": "The name for this resource."
     },
     {
       "name": "growth_time",
-      "type": "int",
-      "doc": ""
+      "type": ["null", "int"],
+      "doc": "Time it takes the tree to grow one stage, in hours. Berry trees go through four of these growth stages before they can be picked.",
+      "default": null
     },
     {
       "name": "max_harvest",
-      "type": "int",
-      "doc": ""
+      "type": ["null", "int"],
+      "doc": "The maximum number of these berries that can grow on one tree in Generation IV.",
+      "default": null
     },
     {
       "name": "natural_gift_power",
-      "type": "int",
-      "doc": ""
+      "type": ["null", "int"],
+      "doc": "The power of the move \"Natural Gift\" when used with this Berry.",
+      "default": null
     },
     {
       "name": "size",
-      "type": "int",
-      "doc": ""
+      "type": ["null", "int"],
+      "doc": "The size of this Berry, in millimeters.",
+      "default": null
     },
     {
       "name": "smoothness",
-      "type": "int",
-      "doc": ""
+      "type": ["null", "int"],
+      "doc": "The smoothness of this Berry, used in making Pokéblocks or Poffins.",
+      "default": null
     },
     {
       "name": "soil_dryness",
-      "type": "int",
-      "doc": ""
+      "type": ["null", "int"],
+      "doc": "The speed at which this Berry dries out the soil as it grows. A higher rate means the soil dries more quickly.",
+      "default": null
     },
     {
       "name": "firmness",
       "type": "model.BerryFirmnessSummary",
-      "doc": ""
+      "doc": "The firmness of this berry, used in making Pokéblocks or Poffins."
     },
     {
       "name": "flavors",
       "type": {
         "type": "array",
-        "items": "model.BerryDetailFlavorsInner"
+        "items": "model.BerryFlavorMap"
       },
-      "doc": ""
+      "doc": "A list of references to each flavor a berry can have and the potency of each of those flavors in regard to this berry."
     },
     {
       "name": "item",
       "type": "model.ItemSummary",
-      "doc": ""
+      "doc": "Berries are actually items. This is a reference to the item specific data for this berry."
     },
     {
       "name": "natural_gift_type",
       "type": "model.TypeSummary",
-      "doc": ""
+      "doc": "The type inherited by \"Natural Gift\" when used with this Berry."
     }
   ]
 

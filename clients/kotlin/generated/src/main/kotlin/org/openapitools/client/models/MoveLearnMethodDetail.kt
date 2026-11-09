@@ -23,9 +23,9 @@
 
 package org.openapitools.client.models
 
-import org.openapitools.client.models.AbilityDetailPokemonInnerPokemon
 import org.openapitools.client.models.MoveLearnMethodDescription
 import org.openapitools.client.models.MoveLearnMethodName
+import org.openapitools.client.models.VersionGroupSummary
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -33,30 +33,35 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param id 
- * @param name 
- * @param names 
- * @param descriptions 
- * @param versionGroups 
+ * @param id The identifier for this resource.
+ * @param name The name for this resource.
+ * @param names The name of this resource listed in different languages.
+ * @param descriptions The description of this resource listed in different languages.
+ * @param versionGroups A list of version groups where moves can be learned through this method.
  */
 
 
 data class MoveLearnMethodDetail (
 
+    /* The identifier for this resource. */
     @Json(name = "id")
     val id: kotlin.Int,
 
+    /* The name for this resource. */
     @Json(name = "name")
     val name: kotlin.String,
 
+    /* The name of this resource listed in different languages. */
     @Json(name = "names")
     val names: kotlin.collections.List<MoveLearnMethodName>,
 
+    /* The description of this resource listed in different languages. */
     @Json(name = "descriptions")
     val descriptions: kotlin.collections.List<MoveLearnMethodDescription>,
 
+    /* A list of version groups where moves can be learned through this method. */
     @Json(name = "version_groups")
-    val versionGroups: kotlin.collections.List<AbilityDetailPokemonInnerPokemon>
+    val versionGroups: kotlin.collections.List<VersionGroupSummary>
 
 ) {
 

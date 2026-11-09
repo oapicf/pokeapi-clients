@@ -9,12 +9,12 @@ AbilityDetail::AbilityDetail()
 	id = int(0);
 	name = std::string();
 	is_main_series = bool(false);
-	generation = GenerationSummary();
+	generation = null;
 	names = std::list<AbilityName>();
 	effect_entries = std::list<AbilityEffectText>();
 	effect_changes = std::list<AbilityChange>();
 	flavor_text_entries = std::list<AbilityFlavorText>();
-	pokemon = std::list<AbilityDetail_pokemon_inner>();
+	pokemon = std::list<AbilityPokemonDetail>();
 }
 
 AbilityDetail::AbilityDetail(std::string jsonString)
@@ -180,8 +180,8 @@ AbilityDetail::fromJson(std::string jsonObj)
         bourne::json value = object[pokemonKey];
 
 
-        std::list<AbilityDetail_pokemon_inner> pokemon_list;
-        AbilityDetail_pokemon_inner element;
+        std::list<AbilityPokemonDetail> pokemon_list;
+        AbilityPokemonDetail element;
         for(auto& var : value.array_range())
         {
 
@@ -294,12 +294,12 @@ AbilityDetail::toJson()
 
 
 
-    std::list<AbilityDetail_pokemon_inner> pokemon_list = getPokemon();
+    std::list<AbilityPokemonDetail> pokemon_list = getPokemon();
     bourne::json pokemon_arr = bourne::json::array();
 
     for(auto& var : pokemon_list)
     {
-        AbilityDetail_pokemon_inner obj = var;
+        AbilityPokemonDetail obj = var;
         pokemon_arr.append(obj.toJson());
     }
     object["pokemon"] = pokemon_arr;
@@ -407,14 +407,14 @@ AbilityDetail::setFlavorTextEntries(std::list<AbilityFlavorText> flavor_text_ent
 	this->flavor_text_entries = flavor_text_entries;
 }
 
-std::list<AbilityDetail_pokemon_inner>
+std::list<AbilityPokemonDetail>
 AbilityDetail::getPokemon()
 {
 	return pokemon;
 }
 
 void
-AbilityDetail::setPokemon(std::list<AbilityDetail_pokemon_inner> pokemon)
+AbilityDetail::setPokemon(std::list<AbilityPokemonDetail> pokemon)
 {
 	this->pokemon = pokemon;
 }

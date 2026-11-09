@@ -16,26 +16,44 @@ import java.math.*;
 public class LocationDetail implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * The identifier for this resource.
+   */
   @JsonProperty("id")
   private Integer id;
 
+  /**
+   * The name for this resource.
+   */
   @JsonProperty("name")
   private String name;
 
+  /**
+   * The region this location can be found in.
+   */
   @JsonProperty("region")
   private RegionSummary region;
 
+  /**
+   * The name of this resource listed in different languages.
+   */
   @JsonProperty("names")
   private List<LocationName> names = new ArrayList<>();
 
+  /**
+   * A list of game indices relevent to this location by generation.
+   */
   @JsonProperty("game_indices")
   private List<LocationGameIndex> gameIndices = new ArrayList<>();
 
+  /**
+   * Areas that can be found within this location.
+   */
   @JsonProperty("areas")
   private List<LocationAreaSummary> areas = new ArrayList<>();
 
   /**
-   * 
+   * The identifier for this resource.
    * @return id
    */
   public Integer getId() {
@@ -47,7 +65,7 @@ public class LocationDetail implements Serializable {
   }
 
   /**
-   * 
+   * The name for this resource.
    * @return name
    */
   public String getName() {
@@ -59,7 +77,7 @@ public class LocationDetail implements Serializable {
   }
 
   /**
-   * 
+   * The region this location can be found in.
    * @return region
    */
   public RegionSummary getRegion() {
@@ -71,7 +89,7 @@ public class LocationDetail implements Serializable {
   }
 
   /**
-   * 
+   * The name of this resource listed in different languages.
    * @return names
    */
   public List<LocationName> getNames() {
@@ -83,7 +101,7 @@ public class LocationDetail implements Serializable {
   }
 
   /**
-   * 
+   * A list of game indices relevent to this location by generation.
    * @return gameIndices
    */
   public List<LocationGameIndex> getGameIndices() {
@@ -95,7 +113,7 @@ public class LocationDetail implements Serializable {
   }
 
   /**
-   * 
+   * Areas that can be found within this location.
    * @return areas
    */
   public List<LocationAreaSummary> getAreas() {

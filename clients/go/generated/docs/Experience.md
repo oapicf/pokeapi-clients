@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Level** | **int32** |  | 
-**Experience** | **int32** |  | 
+**Level** | **int32** | The level gained. | 
+**Experience** | **int32** | The amount of experience required to reach the referenced level. | 
 
 ## Methods
 

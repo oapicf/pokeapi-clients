@@ -11,13 +11,15 @@ part 'experience.g.dart';
 /// Experience
 ///
 /// Properties:
-/// * [level] 
-/// * [experience] 
+/// * [level] - The level gained.
+/// * [experience] - The amount of experience required to reach the referenced level.
 @BuiltValue()
 abstract class Experience implements Built<Experience, ExperienceBuilder> {
+  /// The level gained.
   @BuiltValueField(wireName: r'level')
   int get level;
 
+  /// The amount of experience required to reach the referenced level.
   @BuiltValueField(wireName: r'experience')
   int get experience;
 

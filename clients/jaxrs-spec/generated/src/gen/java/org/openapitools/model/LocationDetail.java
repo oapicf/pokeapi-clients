@@ -23,7 +23,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("LocationDetail")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-11-09T13:50:06.168269698Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class LocationDetail   {
   private Integer id;
   private String name;
@@ -53,6 +53,7 @@ public class LocationDetail   {
   }
 
   /**
+   * The identifier for this resource.
    **/
   public LocationDetail id(Integer id) {
     this.id = id;
@@ -60,7 +61,7 @@ public class LocationDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   @JsonProperty(required = true, value = "id")
   public Integer getId() {
     return id;
@@ -72,6 +73,7 @@ public class LocationDetail   {
   }
 
   /**
+   * The name for this resource.
    **/
   public LocationDetail name(String name) {
     this.name = name;
@@ -79,9 +81,9 @@ public class LocationDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   @JsonProperty(required = true, value = "name")
-  @NotNull  @Size(max=100)public String getName() {
+  @NotNull  @Size(max=200)public String getName() {
     return name;
   }
 
@@ -91,6 +93,7 @@ public class LocationDetail   {
   }
 
   /**
+   * The region this location can be found in.
    **/
   public LocationDetail region(RegionSummary region) {
     this.region = region;
@@ -98,7 +101,7 @@ public class LocationDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The region this location can be found in.")
   @JsonProperty(required = true, value = "region")
   @NotNull @Valid public RegionSummary getRegion() {
     return region;
@@ -110,6 +113,7 @@ public class LocationDetail   {
   }
 
   /**
+   * The name of this resource listed in different languages.
    **/
   public LocationDetail names(List<@Valid LocationName> names) {
     this.names = names;
@@ -117,7 +121,7 @@ public class LocationDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
   @JsonProperty(required = true, value = "names")
   public List<@Valid LocationName> getNames() {
     return names;
@@ -145,6 +149,7 @@ public class LocationDetail   {
     return this;
   }
   /**
+   * A list of game indices relevent to this location by generation.
    **/
   public LocationDetail gameIndices(List<@Valid LocationGameIndex> gameIndices) {
     this.gameIndices = gameIndices;
@@ -152,7 +157,7 @@ public class LocationDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of game indices relevent to this location by generation.")
   @JsonProperty(required = true, value = "game_indices")
   public List<@Valid LocationGameIndex> getGameIndices() {
     return gameIndices;
@@ -180,6 +185,7 @@ public class LocationDetail   {
     return this;
   }
   /**
+   * Areas that can be found within this location.
    **/
   public LocationDetail areas(List<@Valid LocationAreaSummary> areas) {
     this.areas = areas;
@@ -187,7 +193,7 @@ public class LocationDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "Areas that can be found within this location.")
   @JsonProperty(required = true, value = "areas")
   public List<@Valid LocationAreaSummary> getAreas() {
     return areas;

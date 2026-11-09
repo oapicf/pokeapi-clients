@@ -9,7 +9,7 @@ All URIs are relative to *https://pokeapi.co*
 
 <a id="machinelist"></a>
 # **MachineList**
-> PaginatedMachineSummaryList MachineList (int limit = null, int offset = null, string q = null)
+> PaginatedMachineSummaryList MachineList (int limit = null, int offset = null)
 
 List machines
 
@@ -22,7 +22,6 @@ Machines are the representation of items that teach moves to Pokémon. They vary
 |------|------|-------------|-------|
 | **limit** | **int** | Number of results to return per page. | [optional]  |
 | **offset** | **int** | The initial index from which to return the results. | [optional]  |
-| **q** | **string** | &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional]  |
 
 ### Return type
 
@@ -30,7 +29,7 @@ Machines are the representation of items that teach moves to Pokémon. They vary
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -66,7 +65,7 @@ Machines are the representation of items that teach moves to Pokémon. They vary
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

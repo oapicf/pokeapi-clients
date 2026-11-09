@@ -20,14 +20,19 @@ class ItemAttributeDetail {
     this.names = const [],
   });
 
+  /// The identifier for this resource.
   int id;
 
+  /// The name for this resource.
   String name;
 
+  /// The description of this item attribute listed in different languages.
   List<ItemAttributeDescription> descriptions;
 
-  List<AbilityDetailPokemonInnerPokemon> items;
+  /// A list of items that have this attribute.
+  List<ItemSummary> items;
 
+  /// The name of this item attribute listed in different languages.
   List<ItemAttributeName> names;
 
   @override
@@ -88,7 +93,7 @@ class ItemAttributeDetail {
         id: mapValueOfType<int>(json, r'id')!,
         name: mapValueOfType<String>(json, r'name')!,
         descriptions: ItemAttributeDescription.listFromJson(json[r'descriptions']),
-        items: AbilityDetailPokemonInnerPokemon.listFromJson(json[r'items']),
+        items: ItemSummary.listFromJson(json[r'items']),
         names: ItemAttributeName.listFromJson(json[r'names']),
       );
     }

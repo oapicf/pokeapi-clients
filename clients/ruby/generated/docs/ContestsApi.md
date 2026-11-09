@@ -25,23 +25,11 @@ Contest effects refer to the effects of moves when used in contests.
 ```ruby
 require 'time'
 require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
 
 api_instance = PokeApiClient::ContestsApi.new
 opts = {
   limit: 56, # Integer | Number of results to return per page.
-  offset: 56, # Integer | The initial index from which to return the results.
-  q: 'q_example' # String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+  offset: 56 # Integer | The initial index from which to return the results.
 }
 
 begin
@@ -77,7 +65,6 @@ end
 | ---- | ---- | ----------- | ----- |
 | **limit** | **Integer** | Number of results to return per page. | [optional] |
 | **offset** | **Integer** | The initial index from which to return the results. | [optional] |
-| **q** | **String** | &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional] |
 
 ### Return type
 
@@ -85,7 +72,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -106,20 +93,9 @@ Contest effects refer to the effects of moves when used in contests.
 ```ruby
 require 'time'
 require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
 
 api_instance = PokeApiClient::ContestsApi.new
-id = 'id_example' # String | This parameter can be a string or an integer.
+id = '1' # String | This parameter can be a string or an integer.
 
 begin
   # Get contest effect
@@ -160,7 +136,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -181,17 +157,6 @@ Contest types are categories judges used to weigh a PokÃ©mon's condition in PokÃ
 ```ruby
 require 'time'
 require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
 
 api_instance = PokeApiClient::ContestsApi.new
 opts = {
@@ -241,7 +206,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -262,20 +227,9 @@ Contest types are categories judges used to weigh a PokÃ©mon's condition in PokÃ
 ```ruby
 require 'time'
 require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
 
 api_instance = PokeApiClient::ContestsApi.new
-id = 'id_example' # String | This parameter can be a string or an integer.
+id = '1' # String | This parameter can be a string or an integer.
 
 begin
   # Get contest type
@@ -316,7 +270,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -337,23 +291,11 @@ Super contest effects refer to the effects of moves when used in super contests.
 ```ruby
 require 'time'
 require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
 
 api_instance = PokeApiClient::ContestsApi.new
 opts = {
   limit: 56, # Integer | Number of results to return per page.
-  offset: 56, # Integer | The initial index from which to return the results.
-  q: 'q_example' # String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+  offset: 56 # Integer | The initial index from which to return the results.
 }
 
 begin
@@ -389,7 +331,6 @@ end
 | ---- | ---- | ----------- | ----- |
 | **limit** | **Integer** | Number of results to return per page. | [optional] |
 | **offset** | **Integer** | The initial index from which to return the results. | [optional] |
-| **q** | **String** | &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional] |
 
 ### Return type
 
@@ -397,7 +338,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -418,20 +359,9 @@ Super contest effects refer to the effects of moves when used in super contests.
 ```ruby
 require 'time'
 require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
 
 api_instance = PokeApiClient::ContestsApi.new
-id = 'id_example' # String | This parameter can be a string or an integer.
+id = '1' # String | This parameter can be a string or an integer.
 
 begin
   # Get super contest effect
@@ -472,7 +402,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

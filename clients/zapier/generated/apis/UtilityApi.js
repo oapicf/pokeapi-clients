@@ -1,6 +1,7 @@
 const samples = require('../samples/UtilityApi');
 const LanguageDetail = require('../models/LanguageDetail');
 const PaginatedLanguageSummaryList = require('../models/PaginatedLanguageSummaryList');
+const PokeapiMetaResponse = require('../models/PokeapiMetaResponse');
 const utils = require('../utils/utils');
 
 module.exports = {
@@ -100,6 +101,43 @@ module.exports = {
                 })
             },
             sample: samples['LanguageDetailSample']
+        }
+    },
+    metaRetrieve: {
+        key: 'metaRetrieve',
+        noun: 'utility',
+        display: {
+            label: 'Get API metadata',
+            description: 'Returns metadata about the current deployed version of the API, including the git commit hash, deploy date, and tag (if any).',
+            hidden: false,
+        },
+        operation: {
+            inputFields: [
+            ],
+            outputFields: [
+                ...PokeapiMetaResponse.fields('', false),
+            ],
+            perform: async (z, bundle) => {
+                const options = {
+                    url: utils.replacePathParameters('https://pokeapi.co/api/v2/meta/'),
+                    method: 'GET',
+                    removeMissingValuesFrom: { params: true, body: true },
+                    headers: {
+                        'Content-Type': '',
+                        'Accept': 'application/json',
+                    },
+                    params: {
+                    },
+                    body: {
+                    },
+                }
+                return z.request(utils.requestOptionsMiddleware(z, bundle, options)).then((response) => {
+                    response.throwForStatus();
+                    const results = utils.responseOptionsMiddleware(z, bundle, 'metaRetrieve', response.json);
+                    return results;
+                })
+            },
+            sample: samples['PokeapiMetaResponseSample']
         }
     },
 }

@@ -8,7 +8,7 @@ The class is defined in **[ContestEffectSummary.java](../../src/main/java/org/op
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**url** | `URI` |  |  [readonly property]
+**url** | `URI` | The URL of the referenced resource. |  [readonly property]
 
 
 

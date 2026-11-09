@@ -1,0 +1,41 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server MoveStatChange"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a MoveStatChange"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  MoveSummary = openapi_server.resourceTypes.MoveSummary
+}
+resourceTypes {
+
+  MoveStatChange {
+    title = MoveStatChange
+    description = MoveStatChange
+    derivedFrom = Root
+    properties {
+        change {
+          type =  integer
+          description = "The maximum amount of change to the referenced stat."
+          optional = true
+        }
+        move {
+          type = MoveSummary
+          description = "The move causing the change."
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  MoveStatChange {
+    title = MoveStatChange
+    description = MoveStatChange
+    implements = openapi_server.resourceTypes.MoveStatChange
+
+  }
+}

@@ -3,9 +3,9 @@
 /*
  * PokéAPI
  *
- * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+ * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
  *
- * API version: 2.7.0
+ * API version: 2.10.0
  * Contact: blah+oapicf@cliffano.com
  */
 
@@ -51,6 +51,12 @@ func NewUtilityAPIController(s UtilityAPIServicer, opts ...UtilityAPIOption) *Ut
 // Routes returns all the api routes for the UtilityAPIController
 func (c *UtilityAPIController) Routes() Routes {
 	return Routes{
+		"MetaRetrieve": Route{
+			"MetaRetrieve",
+			strings.ToUpper("Get"),
+			"/api/v2/meta/",
+			c.MetaRetrieve,
+		},
 		"LanguageList": Route{
 			"LanguageList",
 			strings.ToUpper("Get"),
@@ -70,6 +76,12 @@ func (c *UtilityAPIController) Routes() Routes {
 func (c *UtilityAPIController) OrderedRoutes() []Route {
 	return []Route{
 		Route{
+			"MetaRetrieve",
+			strings.ToUpper("Get"),
+			"/api/v2/meta/",
+			c.MetaRetrieve,
+		},
+		Route{
 			"LanguageList",
 			strings.ToUpper("Get"),
 			"/api/v2/language/",
@@ -85,6 +97,18 @@ func (c *UtilityAPIController) OrderedRoutes() []Route {
 }
 
 
+
+// MetaRetrieve - Get API metadata
+func (c *UtilityAPIController) MetaRetrieve(w http.ResponseWriter, r *http.Request) {
+	result, err := c.service.MetaRetrieve(r.Context())
+	// If an error occurred, encode the error with the status code
+	if err != nil {
+		c.errorHandler(w, r, err, &result)
+		return
+	}
+	// If no error, encode the body and the result code
+	_ = EncodeJSONResponse(result.Body, &result.Code, w)
+}
 
 // LanguageList - List languages
 func (c *UtilityAPIController) LanguageList(w http.ResponseWriter, r *http.Request) {

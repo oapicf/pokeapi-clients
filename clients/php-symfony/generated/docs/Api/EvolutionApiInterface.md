@@ -8,6 +8,8 @@ Method | HTTP request | Description
 [**evolutionChainRetrieve**](EvolutionApiInterface.md#evolutionChainRetrieve) | **GET** /api/v2/evolution-chain/{id}/ | Get evolution chain
 [**evolutionTriggerList**](EvolutionApiInterface.md#evolutionTriggerList) | **GET** /api/v2/evolution-trigger/ | List evolution triggers
 [**evolutionTriggerRetrieve**](EvolutionApiInterface.md#evolutionTriggerRetrieve) | **GET** /api/v2/evolution-trigger/{id}/ | Get evolution trigger
+[**evolutionVariableList**](EvolutionApiInterface.md#evolutionVariableList) | **GET** /api/v2/evolution-variable/ | List evolution variables
+[**evolutionVariableRetrieve**](EvolutionApiInterface.md#evolutionVariableRetrieve) | **GET** /api/v2/evolution-variable/{id}/ | Get evolution variable
 
 
 ## Service Declaration
@@ -22,7 +24,7 @@ services:
 ```
 
 ## **evolutionChainList**
-> OpenAPI\Server\Model\PaginatedEvolutionChainSummaryList evolutionChainList($limit, $offset, $q)
+> OpenAPI\Server\Model\PaginatedEvolutionChainSummaryList evolutionChainList($limit, $offset)
 
 List evolution chains
 
@@ -40,20 +42,12 @@ use OpenAPI\Server\Api\EvolutionApiInterface;
 class EvolutionApi implements EvolutionApiInterface
 {
 
-    /**
-     * Configure API key authorization: cookieAuth
-     */
-    public function setcookieAuth($apiKey)
-    {
-        // Retrieve logged in user from $apiKey ...
-    }
-
     // ...
 
     /**
      * Implementation of EvolutionApiInterface#evolutionChainList
      */
-    public function evolutionChainList(?int $limit, ?int $offset, ?string $q, int &$responseCode, array &$responseHeaders): array|object|null
+    public function evolutionChainList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }
@@ -68,7 +62,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
- **q** | **string**| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. | [optional]
 
 ### Return type
 
@@ -76,7 +69,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -104,14 +97,6 @@ use OpenAPI\Server\Api\EvolutionApiInterface;
 class EvolutionApi implements EvolutionApiInterface
 {
 
-    /**
-     * Configure API key authorization: cookieAuth
-     */
-    public function setcookieAuth($apiKey)
-    {
-        // Retrieve logged in user from $apiKey ...
-    }
-
     // ...
 
     /**
@@ -138,7 +123,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -165,14 +150,6 @@ use OpenAPI\Server\Api\EvolutionApiInterface;
 
 class EvolutionApi implements EvolutionApiInterface
 {
-
-    /**
-     * Configure API key authorization: cookieAuth
-     */
-    public function setcookieAuth($apiKey)
-    {
-        // Retrieve logged in user from $apiKey ...
-    }
 
     // ...
 
@@ -202,7 +179,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -230,14 +207,6 @@ use OpenAPI\Server\Api\EvolutionApiInterface;
 class EvolutionApi implements EvolutionApiInterface
 {
 
-    /**
-     * Configure API key authorization: cookieAuth
-     */
-    public function setcookieAuth($apiKey)
-    {
-        // Retrieve logged in user from $apiKey ...
-    }
-
     // ...
 
     /**
@@ -264,7 +233,117 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+## **evolutionVariableList**
+> OpenAPI\Server\Model\PaginatedEvolutionVariableSummaryList evolutionVariableList($limit, $offset, $q)
+
+List evolution variables
+
+Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+
+### Example Implementation
+```php
+<?php
+// src/Acme/MyBundle/Api/EvolutionApiInterface.php
+
+namespace Acme\MyBundle\Api;
+
+use OpenAPI\Server\Api\EvolutionApiInterface;
+
+class EvolutionApi implements EvolutionApiInterface
+{
+
+    // ...
+
+    /**
+     * Implementation of EvolutionApiInterface#evolutionVariableList
+     */
+    public function evolutionVariableList(?int $limit, ?int $offset, ?string $q, int &$responseCode, array &$responseHeaders): array|object|null
+    {
+        // Implement the operation ...
+    }
+
+    // ...
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | **int**| Number of results to return per page. | [optional]
+ **offset** | **int**| The initial index from which to return the results. | [optional]
+ **q** | **string**| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. | [optional]
+
+### Return type
+
+[**OpenAPI\Server\Model\PaginatedEvolutionVariableSummaryList**](../Model/PaginatedEvolutionVariableSummaryList.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+## **evolutionVariableRetrieve**
+> OpenAPI\Server\Model\EvolutionVariableDetail evolutionVariableRetrieve($id)
+
+Get evolution variable
+
+Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+
+### Example Implementation
+```php
+<?php
+// src/Acme/MyBundle/Api/EvolutionApiInterface.php
+
+namespace Acme\MyBundle\Api;
+
+use OpenAPI\Server\Api\EvolutionApiInterface;
+
+class EvolutionApi implements EvolutionApiInterface
+{
+
+    // ...
+
+    /**
+     * Implementation of EvolutionApiInterface#evolutionVariableRetrieve
+     */
+    public function evolutionVariableRetrieve(string $id, int &$responseCode, array &$responseHeaders): array|object|null
+    {
+        // Implement the operation ...
+    }
+
+    // ...
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **string**| This parameter can be a string or an integer. |
+
+### Return type
+
+[**OpenAPI\Server\Model\EvolutionVariableDetail**](../Model/EvolutionVariableDetail.md)
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 

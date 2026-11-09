@@ -8,12 +8,16 @@
 import Foundation
 
 public struct EvolutionTriggerDetail: Codable {
+    /// The identifier for this resource.
     public var id: Int
+    /// The name for this resource.
     public var name: String
+    /// The name of this resource listed in different languages.
     public var names: [EvolutionTriggerName]
-    public var pokemonSpecies: [AbilityDetailPokemonInnerPokemon]
+    /// A list of pokemon species that result from this evolution trigger.
+    public var pokemonSpecies: [PokemonSpeciesSummary]
 
-    public init(id: Int, name: String, names: [EvolutionTriggerName], pokemonSpecies: [AbilityDetailPokemonInnerPokemon]) {
+    public init(id: Int, name: String, names: [EvolutionTriggerName], pokemonSpecies: [PokemonSpeciesSummary]) {
         self.id = id
         self.name = name
         self.names = names
@@ -32,7 +36,7 @@ public struct EvolutionTriggerDetail: Codable {
         id = try container.decode(Int.self, forKey: .id)
         name = try container.decode(String.self, forKey: .name)
         names = try container.decode([EvolutionTriggerName].self, forKey: .names)
-        pokemonSpecies = try container.decode([AbilityDetailPokemonInnerPokemon].self, forKey: .pokemonSpecies)
+        pokemonSpecies = try container.decode([PokemonSpeciesSummary].self, forKey: .pokemonSpecies)
     }
 
     public func encode(to encoder: Encoder) throws {

@@ -5,49 +5,49 @@
 ## Properties
 Name | Mapping | SQL Type | Default | Type | Description | Notes
 ---- | ------- | -------- | ------- | ---- | ----------- | -----
-**id** | id | int NOT NULL PRIMARY KEY AUTOINCREMENT |  | **kotlin.Int** |  |  [readonly]
-**name** | name | text NOT NULL |  | **kotlin.String** |  | 
-**generation** | generation | long NOT NULL |  | [**GenerationSummary**](GenerationSummary.md) |  |  [foreignkey]
-**moveLearnMethods** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;AbilityDetailPokemonInnerPokemon&gt;**](AbilityDetailPokemonInnerPokemon.md) |  |  [readonly]
-**pokedexes** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;AbilityDetailPokemonInnerPokemon&gt;**](AbilityDetailPokemonInnerPokemon.md) |  |  [readonly]
-**regions** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;AbilityDetailPokemonInnerPokemon&gt;**](AbilityDetailPokemonInnerPokemon.md) |  |  [readonly]
-**versions** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;VersionSummary&gt;**](VersionSummary.md) |  |  [readonly]
-**order** | order | int |  | **kotlin.Int** |  |  [optional]
+**id** | id | int NOT NULL PRIMARY KEY AUTOINCREMENT |  | **kotlin.Int** | The identifier for this resource. |  [readonly]
+**name** | name | text NOT NULL |  | **kotlin.String** | The name for this resource. | 
+**generation** | generation | long NOT NULL |  | [**GenerationSummary**](GenerationSummary.md) | The generation this version was introduced in. |  [foreignkey]
+**moveLearnMethods** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;MoveLearnMethodSummary&gt;**](MoveLearnMethodSummary.md) | A list of methods in which Pokémon can learn moves in this version group. |  [readonly]
+**pokedexes** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;PokedexSummary&gt;**](PokedexSummary.md) | A list of Pokédexes introduces in this version group. |  [readonly]
+**regions** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;RegionSummary&gt;**](RegionSummary.md) | A list of regions that can be visited in this version group. |  [readonly]
+**versions** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;VersionSummary&gt;**](VersionSummary.md) | The versions this version group owns. |  [readonly]
+**order** | order | int |  | **kotlin.Int** | Order for sorting. Almost by date of release, except similar versions are grouped together. |  [optional]
 
 
 
 
 
-# **Table `VersionGroupDetailAbilityDetailPokemonInnerPokemon`**
-(mapped from: VersionGroupDetailAbilityDetailPokemonInnerPokemon)
-
-## Properties
-Name | Mapping | SQL Type | Default | Type | Description | Notes
----- | ------- | -------- | ------- | ---- | ----------- | -----
-versionGroupDetail | versionGroupDetail | long | | kotlin.Long | Primary Key | *one*
-abilityDetailPokemonInnerPokemon | abilityDetailPokemonInnerPokemon | long | | kotlin.Long | Foreign Key | *many*
-
-
-
-# **Table `VersionGroupDetailAbilityDetailPokemonInnerPokemon`**
-(mapped from: VersionGroupDetailAbilityDetailPokemonInnerPokemon)
+# **Table `VersionGroupDetailMoveLearnMethodSummary`**
+(mapped from: VersionGroupDetailMoveLearnMethodSummary)
 
 ## Properties
 Name | Mapping | SQL Type | Default | Type | Description | Notes
 ---- | ------- | -------- | ------- | ---- | ----------- | -----
 versionGroupDetail | versionGroupDetail | long | | kotlin.Long | Primary Key | *one*
-abilityDetailPokemonInnerPokemon | abilityDetailPokemonInnerPokemon | long | | kotlin.Long | Foreign Key | *many*
+moveLearnMethodSummary | moveLearnMethodSummary | long | | kotlin.Long | Foreign Key | *many*
 
 
 
-# **Table `VersionGroupDetailAbilityDetailPokemonInnerPokemon`**
-(mapped from: VersionGroupDetailAbilityDetailPokemonInnerPokemon)
+# **Table `VersionGroupDetailPokedexSummary`**
+(mapped from: VersionGroupDetailPokedexSummary)
 
 ## Properties
 Name | Mapping | SQL Type | Default | Type | Description | Notes
 ---- | ------- | -------- | ------- | ---- | ----------- | -----
 versionGroupDetail | versionGroupDetail | long | | kotlin.Long | Primary Key | *one*
-abilityDetailPokemonInnerPokemon | abilityDetailPokemonInnerPokemon | long | | kotlin.Long | Foreign Key | *many*
+pokedexSummary | pokedexSummary | long | | kotlin.Long | Foreign Key | *many*
+
+
+
+# **Table `VersionGroupDetailRegionSummary`**
+(mapped from: VersionGroupDetailRegionSummary)
+
+## Properties
+Name | Mapping | SQL Type | Default | Type | Description | Notes
+---- | ------- | -------- | ------- | ---- | ----------- | -----
+versionGroupDetail | versionGroupDetail | long | | kotlin.Long | Primary Key | *one*
+regionSummary | regionSummary | long | | kotlin.Long | Foreign Key | *many*
 
 
 

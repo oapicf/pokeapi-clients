@@ -1,6 +1,7 @@
 package org.openapitools.model;
 
 import java.net.URI;
+import org.openapitools.jackson.nullable.JsonNullable;
 import org.openapitools.model.LocationAreaSummary;
 import java.util.*;
 import java.util.Objects;
@@ -14,20 +15,32 @@ import java.math.*;
 public class PaginatedLocationAreaSummaryList implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * The total number of resources available from this API.
+   */
   @JsonProperty("count")
   private Integer count;
 
+  /**
+   * The URL for the next page in the list, or null if there is no next page.
+   */
   @JsonProperty("next")
   private URI next;
 
+  /**
+   * The URL for the previous page in the list, or null if there is no previous page.
+   */
   @JsonProperty("previous")
   private URI previous;
 
+  /**
+   * A list of API resources on this page.
+   */
   @JsonProperty("results")
   private List<LocationAreaSummary> results = new ArrayList<>();
 
   /**
-   * 
+   * The total number of resources available from this API.
    * @return count
    */
   public Integer getCount() {
@@ -39,7 +52,7 @@ public class PaginatedLocationAreaSummaryList implements Serializable {
   }
 
   /**
-   * 
+   * The URL for the next page in the list, or null if there is no next page.
    * @return next
    */
   public URI getNext() {
@@ -51,7 +64,7 @@ public class PaginatedLocationAreaSummaryList implements Serializable {
   }
 
   /**
-   * 
+   * The URL for the previous page in the list, or null if there is no previous page.
    * @return previous
    */
   public URI getPrevious() {
@@ -63,7 +76,7 @@ public class PaginatedLocationAreaSummaryList implements Serializable {
   }
 
   /**
-   * 
+   * A list of API resources on this page.
    * @return results
    */
   public List<LocationAreaSummary> getResults() {

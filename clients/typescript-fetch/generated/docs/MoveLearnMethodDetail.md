@@ -10,7 +10,7 @@ Name | Type
 `name` | string
 `names` | [Array&lt;MoveLearnMethodName&gt;](MoveLearnMethodName.md)
 `descriptions` | [Array&lt;MoveLearnMethodDescription&gt;](MoveLearnMethodDescription.md)
-`versionGroups` | [Array&lt;AbilityDetailPokemonInnerPokemon&gt;](AbilityDetailPokemonInnerPokemon.md)
+`versionGroups` | [Array&lt;VersionGroupSummary&gt;](VersionGroupSummary.md)
 
 ## Example
 

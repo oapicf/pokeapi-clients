@@ -10,9 +10,9 @@
         language=nothing,
     )
 
-    - effect::String
-    - short_effect::String
-    - language::LanguageSummary
+    - effect::String : The localized effect text for an API resource in a specific language.
+    - short_effect::String : The localized effect text in brief.
+    - language::LanguageSummary : The language this effect is in.
 """
 Base.@kwdef mutable struct AbilityEffectText <: OpenAPI.APIModel
     effect::Union{Nothing, String} = nothing

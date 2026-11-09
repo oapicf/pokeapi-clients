@@ -7,7 +7,7 @@
     {
       "name": "version_group",
       "type": "model.VersionGroupSummary",
-      "doc": ""
+      "doc": "The version group in which the previous effect of this ability originated."
     },
     {
       "name": "effect_entries",
@@ -15,7 +15,7 @@
         "type": "array",
         "items": "model.AbilityChangeEffectText"
       },
-      "doc": ""
+      "doc": "The previous effect of this ability listed in different languages."
     }
   ]
 

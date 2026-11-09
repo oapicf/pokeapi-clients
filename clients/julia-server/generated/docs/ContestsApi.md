@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **contest_effect_list**
-> `contest_effect_list`(req::`HTTP.Request`; `limit`=nothing, `offset`=nothing, `q`=nothing,) -> `PaginatedContestEffectSummaryList`
+> `contest_effect_list`(req::`HTTP.Request`; `limit`=nothing, `offset`=nothing,) -> `PaginatedContestEffectSummaryList`
 
 List contest effects
 
@@ -31,7 +31,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **`limit`** | **`Int64`**| Number of results to return per page. | [default to nothing]
  **`offset`** | **`Int64`**| The initial index from which to return the results. | [default to nothing]
- **`q`** | **`String`**| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [default to nothing]
 
 ### Return type
 
@@ -39,7 +38,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -68,7 +67,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -104,7 +103,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -133,7 +132,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -143,7 +142,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **super_contest_effect_list**
-> `super_contest_effect_list`(req::`HTTP.Request`; `limit`=nothing, `offset`=nothing, `q`=nothing,) -> `PaginatedSuperContestEffectSummaryList`
+> `super_contest_effect_list`(req::`HTTP.Request`; `limit`=nothing, `offset`=nothing,) -> `PaginatedSuperContestEffectSummaryList`
 
 List super contest effects
 
@@ -161,7 +160,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **`limit`** | **`Int64`**| Number of results to return per page. | [default to nothing]
  **`offset`** | **`Int64`**| The initial index from which to return the results. | [default to nothing]
- **`q`** | **`String`**| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [default to nothing]
 
 ### Return type
 
@@ -169,7 +167,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -198,7 +196,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

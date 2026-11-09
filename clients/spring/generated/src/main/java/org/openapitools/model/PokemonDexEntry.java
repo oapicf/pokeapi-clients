@@ -20,7 +20,7 @@ import jakarta.annotation.Generated;
  * PokemonDexEntry
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-10-25T05:53:37.479908528Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-11-09T13:53:47.069318184Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PokemonDexEntry {
 
   private Integer entryNumber;
@@ -45,11 +45,11 @@ public class PokemonDexEntry {
   }
 
   /**
-   * Get entryNumber
+   * The index number within the Pokédex.
    * @return entryNumber
    */
   @NotNull 
-  @Schema(name = "entry_number", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "entry_number", description = "The index number within the Pokédex.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("entry_number")
   public Integer getEntryNumber() {
     return entryNumber;
@@ -66,11 +66,11 @@ public class PokemonDexEntry {
   }
 
   /**
-   * Get pokedex
+   * The Pokédex the referenced Pokémon species can be found in.
    * @return pokedex
    */
   @NotNull @Valid 
-  @Schema(name = "pokedex", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "pokedex", description = "The Pokédex the referenced Pokémon species can be found in.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("pokedex")
   public PokedexSummary getPokedex() {
     return pokedex;

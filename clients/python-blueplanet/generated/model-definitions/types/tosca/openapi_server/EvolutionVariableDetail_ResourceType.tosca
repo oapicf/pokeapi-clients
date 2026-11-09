@@ -1,0 +1,75 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server EvolutionVariableDetail"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a EvolutionVariableDetail"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  EvolutionVariableDescription = openapi_server.resourceTypes.EvolutionVariableDescription
+  EvolutionVariableName = openapi_server.resourceTypes.EvolutionVariableName
+  VersionGroupSummary = openapi_server.resourceTypes.VersionGroupSummary
+}
+resourceTypes {
+
+  EvolutionVariableDetail {
+    title = EvolutionVariableDetail
+    description = EvolutionVariableDetail
+    derivedFrom = Root
+    properties {
+        id {
+          type =  integer
+          description = "The identifier for this resource."
+          optional = true
+        }
+        name {
+          type =  string
+          description = "The name for this resource."
+          optional = true
+        }
+        symbol {
+          type =  string
+          description = "The symbol used for this variable in evolution condition expressions."
+          optional = true
+        }
+        data_type {
+          type =  string
+          description = "The data type of this variable."
+          optional = false
+        }
+        source {
+          type =  string
+          description = "The source of the variable value."
+          optional = false
+        }
+        version_group {
+          type = VersionGroupSummary
+          description = "The version group in which this variable was introduced."
+          optional = true
+        }
+        names {
+          type = array
+          items.type = EvolutionVariableName
+          description = "The name of this resource listed in different languages."
+          optional = true
+        }
+        descriptions {
+          type = array
+          items.type = EvolutionVariableDescription
+          description = "The description of this resource listed in different languages."
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  EvolutionVariableDetail {
+    title = EvolutionVariableDetail
+    description = EvolutionVariableDetail
+    implements = openapi_server.resourceTypes.EvolutionVariableDetail
+
+  }
+}

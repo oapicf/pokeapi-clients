@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int32** |  | [readonly] 
-**Name** | **string** |  | 
-**Descriptions** | [**[]MoveMetaCategoryDescription**](MoveMetaCategoryDescription.md) |  | [readonly] 
-**Moves** | [**[]AbilityDetailPokemonInnerPokemon**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] 
+**Id** | **int32** | The identifier for this resource. | [readonly] 
+**Name** | **string** | The name for this resource. | 
+**Descriptions** | [**[]MoveMetaCategoryDescription**](MoveMetaCategoryDescription.md) | The description of this resource listed in different languages. | [readonly] 
+**Moves** | [**[]MoveSummary**](MoveSummary.md) | A list of moves that fall into this category. | [readonly] 
 
 ## Methods
 
 ### NewMoveMetaCategoryDetail
 
-`func NewMoveMetaCategoryDetail(id int32, name string, descriptions []MoveMetaCategoryDescription, moves []AbilityDetailPokemonInnerPokemon, ) *MoveMetaCategoryDetail`
+`func NewMoveMetaCategoryDetail(id int32, name string, descriptions []MoveMetaCategoryDescription, moves []MoveSummary, ) *MoveMetaCategoryDetail`
 
 NewMoveMetaCategoryDetail instantiates a new MoveMetaCategoryDetail object
 This constructor will assign default values to properties that have it defined,
@@ -90,20 +90,20 @@ SetDescriptions sets Descriptions field to given value.
 
 ### GetMoves
 
-`func (o *MoveMetaCategoryDetail) GetMoves() []AbilityDetailPokemonInnerPokemon`
+`func (o *MoveMetaCategoryDetail) GetMoves() []MoveSummary`
 
 GetMoves returns the Moves field if non-nil, zero value otherwise.
 
 ### GetMovesOk
 
-`func (o *MoveMetaCategoryDetail) GetMovesOk() (*[]AbilityDetailPokemonInnerPokemon, bool)`
+`func (o *MoveMetaCategoryDetail) GetMovesOk() (*[]MoveSummary, bool)`
 
 GetMovesOk returns a tuple with the Moves field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMoves
 
-`func (o *MoveMetaCategoryDetail) SetMoves(v []AbilityDetailPokemonInnerPokemon)`
+`func (o *MoveMetaCategoryDetail) SetMoves(v []MoveSummary)`
 
 SetMoves sets Moves field to given value.
 

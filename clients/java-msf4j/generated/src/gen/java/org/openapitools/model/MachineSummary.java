@@ -10,16 +10,16 @@ import java.net.URI;
 /**
  * MachineSummary
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-10-25T05:48:05.787850114Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-11-09T13:49:25.341948748Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class MachineSummary   {
   @JsonProperty("url")
   private URI url;
 
    /**
-   * Get url
+   * The URL of the referenced resource.
    * @return url
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The URL of the referenced resource.")
   public URI getUrl() {
     return url;
   }

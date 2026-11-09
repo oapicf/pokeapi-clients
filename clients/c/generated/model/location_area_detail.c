@@ -88,7 +88,7 @@ void location_area_detail_free(location_area_detail_t *location_area_detail) {
     }
     if (location_area_detail->encounter_method_rates) {
         list_ForEach(listEntry, location_area_detail->encounter_method_rates) {
-            location_area_detail_encounter_method_rates_inner_free(listEntry->data);
+            location_area_encounter_rate_free(listEntry->data);
         }
         list_freeList(location_area_detail->encounter_method_rates);
         location_area_detail->encounter_method_rates = NULL;
@@ -106,7 +106,7 @@ void location_area_detail_free(location_area_detail_t *location_area_detail) {
     }
     if (location_area_detail->pokemon_encounters) {
         list_ForEach(listEntry, location_area_detail->pokemon_encounters) {
-            location_area_detail_pokemon_encounters_inner_free(listEntry->data);
+            location_area_pokemon_encounter_free(listEntry->data);
         }
         list_freeList(location_area_detail->pokemon_encounters);
         location_area_detail->pokemon_encounters = NULL;
@@ -156,7 +156,7 @@ cJSON *location_area_detail_convertToJSON(location_area_detail_t *location_area_
     listEntry_t *encounter_method_ratesListEntry;
     if (location_area_detail->encounter_method_rates) {
     list_ForEach(encounter_method_ratesListEntry, location_area_detail->encounter_method_rates) {
-    cJSON *itemLocal = location_area_detail_encounter_method_rates_inner_convertToJSON(encounter_method_ratesListEntry->data);
+    cJSON *itemLocal = location_area_encounter_rate_convertToJSON(encounter_method_ratesListEntry->data);
     if(itemLocal == NULL) {
     goto fail;
     }
@@ -212,7 +212,7 @@ cJSON *location_area_detail_convertToJSON(location_area_detail_t *location_area_
     listEntry_t *pokemon_encountersListEntry;
     if (location_area_detail->pokemon_encounters) {
     list_ForEach(pokemon_encountersListEntry, location_area_detail->pokemon_encounters) {
-    cJSON *itemLocal = location_area_detail_pokemon_encounters_inner_convertToJSON(pokemon_encountersListEntry->data);
+    cJSON *itemLocal = location_area_pokemon_encounter_convertToJSON(pokemon_encountersListEntry->data);
     if(itemLocal == NULL) {
     goto fail;
     }
@@ -331,7 +331,7 @@ location_area_detail_t *location_area_detail_parseFromJSON(cJSON *location_area_
         if(!cJSON_IsObject(encounter_method_rates_local_nonprimitive)){
             goto end;
         }
-        location_area_detail_encounter_method_rates_inner_t *encounter_method_ratesItem = location_area_detail_encounter_method_rates_inner_parseFromJSON(encounter_method_rates_local_nonprimitive);
+        location_area_encounter_rate_t *encounter_method_ratesItem = location_area_encounter_rate_parseFromJSON(encounter_method_rates_local_nonprimitive);
 
         list_addElement(encounter_method_ratesList, encounter_method_ratesItem);
     }
@@ -397,7 +397,7 @@ location_area_detail_t *location_area_detail_parseFromJSON(cJSON *location_area_
         if(!cJSON_IsObject(pokemon_encounters_local_nonprimitive)){
             goto end;
         }
-        location_area_detail_pokemon_encounters_inner_t *pokemon_encountersItem = location_area_detail_pokemon_encounters_inner_parseFromJSON(pokemon_encounters_local_nonprimitive);
+        location_area_pokemon_encounter_t *pokemon_encountersItem = location_area_pokemon_encounter_parseFromJSON(pokemon_encounters_local_nonprimitive);
 
         list_addElement(pokemon_encountersList, pokemon_encountersItem);
     }
@@ -436,7 +436,7 @@ end:
     if (encounter_method_ratesList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, encounter_method_ratesList) {
-            location_area_detail_encounter_method_rates_inner_free(listEntry->data);
+            location_area_encounter_rate_free(listEntry->data);
             listEntry->data = NULL;
         }
         list_freeList(encounter_method_ratesList);
@@ -458,7 +458,7 @@ end:
     if (pokemon_encountersList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, pokemon_encountersList) {
-            location_area_detail_pokemon_encounters_inner_free(listEntry->data);
+            location_area_pokemon_encounter_free(listEntry->data);
             listEntry->data = NULL;
         }
         list_freeList(pokemon_encountersList);

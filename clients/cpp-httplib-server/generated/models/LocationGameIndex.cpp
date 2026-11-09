@@ -10,7 +10,6 @@ namespace models {
 
 LocationGameIndex::LocationGameIndex()
 : gameIndex(0)
-, generation(GenerationSummary())
 {
 }
 // =========================================

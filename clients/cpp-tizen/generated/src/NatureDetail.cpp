@@ -25,11 +25,10 @@ NatureDetail::__init()
 {
 	//id = int(0);
 	//name = std::string();
-	//decreased_stat = new StatSummary();
-	//increased_stat = new StatSummary();
-	//likes_flavor = new BerryFlavorSummary();
-	//hates_flavor = new BerryFlavorSummary();
-	//new std::list()std::list> berries;
+	//decreased_stat = null;
+	//increased_stat = null;
+	//likes_flavor = null;
+	//hates_flavor = null;
 	//new std::list()std::list> pokeathlon_stat_changes;
 	//new std::list()std::list> move_battle_style_preferences;
 	//new std::list()std::list> names;
@@ -67,11 +66,6 @@ NatureDetail::__cleanup()
 	//
 	//delete hates_flavor;
 	//hates_flavor = NULL;
-	//}
-	//if(berries != NULL) {
-	//berries.RemoveAll(true);
-	//delete berries;
-	//berries = NULL;
 	//}
 	//if(pokeathlon_stat_changes != NULL) {
 	//pokeathlon_stat_changes.RemoveAll(true);
@@ -174,30 +168,6 @@ NatureDetail::fromJson(char* jsonStr)
 			
 		}
 	}
-	const gchar *berriesKey = "berries";
-	node = json_object_get_member(pJsonObject, berriesKey);
-	if (node !=NULL) {
-	
-		{
-			JsonArray* arr = json_node_get_array(node);
-			JsonNode*  temp_json;
-			list<BerrySummary> new_list;
-			BerrySummary inst;
-			for (guint i=0;i<json_array_get_length(arr);i++) {
-				temp_json = json_array_get_element(arr,i);
-				if (isprimitive("BerrySummary")) {
-					jsonToValue(&inst, temp_json, "BerrySummary", "");
-				} else {
-					
-					inst.fromJson(json_to_string(temp_json, false));
-					
-				}
-				new_list.push_back(inst);
-			}
-			berries = new_list;
-		}
-		
-	}
 	const gchar *pokeathlon_stat_changesKey = "pokeathlon_stat_changes";
 	node = json_object_get_member(pJsonObject, pokeathlon_stat_changesKey);
 	if (node !=NULL) {
@@ -205,12 +175,12 @@ NatureDetail::fromJson(char* jsonStr)
 		{
 			JsonArray* arr = json_node_get_array(node);
 			JsonNode*  temp_json;
-			list<NatureDetail_pokeathlon_stat_changes_inner> new_list;
-			NatureDetail_pokeathlon_stat_changes_inner inst;
+			list<NaturePokeathlonStat> new_list;
+			NaturePokeathlonStat inst;
 			for (guint i=0;i<json_array_get_length(arr);i++) {
 				temp_json = json_array_get_element(arr,i);
-				if (isprimitive("NatureDetail_pokeathlon_stat_changes_inner")) {
-					jsonToValue(&inst, temp_json, "NatureDetail_pokeathlon_stat_changes_inner", "");
+				if (isprimitive("NaturePokeathlonStat")) {
+					jsonToValue(&inst, temp_json, "NaturePokeathlonStat", "");
 				} else {
 					
 					inst.fromJson(json_to_string(temp_json, false));
@@ -356,43 +326,18 @@ NatureDetail::toJson()
 	}
 	const gchar *hates_flavorKey = "hates_flavor";
 	json_object_set_member(pJsonObject, hates_flavorKey, node);
-	if (isprimitive("BerrySummary")) {
-		list<BerrySummary> new_list = static_cast<list <BerrySummary> > (getBerries());
-		node = converttoJson(&new_list, "BerrySummary", "array");
+	if (isprimitive("NaturePokeathlonStat")) {
+		list<NaturePokeathlonStat> new_list = static_cast<list <NaturePokeathlonStat> > (getPokeathlonStatChanges());
+		node = converttoJson(&new_list, "NaturePokeathlonStat", "array");
 	} else {
 		node = json_node_alloc();
-		list<BerrySummary> new_list = static_cast<list <BerrySummary> > (getBerries());
+		list<NaturePokeathlonStat> new_list = static_cast<list <NaturePokeathlonStat> > (getPokeathlonStatChanges());
 		JsonArray* json_array = json_array_new();
 		GError *mygerror;
 		
-		for (list<BerrySummary>::iterator it = new_list.begin(); it != new_list.end(); it++) {
+		for (list<NaturePokeathlonStat>::iterator it = new_list.begin(); it != new_list.end(); it++) {
 			mygerror = NULL;
-			BerrySummary obj = *it;
-			JsonNode *node_temp = json_from_string(obj.toJson(), &mygerror);
-			json_array_add_element(json_array, node_temp);
-			g_clear_error(&mygerror);
-		}
-		json_node_init_array(node, json_array);
-		json_array_unref(json_array);
-		
-	}
-
-
-	
-	const gchar *berriesKey = "berries";
-	json_object_set_member(pJsonObject, berriesKey, node);
-	if (isprimitive("NatureDetail_pokeathlon_stat_changes_inner")) {
-		list<NatureDetail_pokeathlon_stat_changes_inner> new_list = static_cast<list <NatureDetail_pokeathlon_stat_changes_inner> > (getPokeathlonStatChanges());
-		node = converttoJson(&new_list, "NatureDetail_pokeathlon_stat_changes_inner", "array");
-	} else {
-		node = json_node_alloc();
-		list<NatureDetail_pokeathlon_stat_changes_inner> new_list = static_cast<list <NatureDetail_pokeathlon_stat_changes_inner> > (getPokeathlonStatChanges());
-		JsonArray* json_array = json_array_new();
-		GError *mygerror;
-		
-		for (list<NatureDetail_pokeathlon_stat_changes_inner>::iterator it = new_list.begin(); it != new_list.end(); it++) {
-			mygerror = NULL;
-			NatureDetail_pokeathlon_stat_changes_inner obj = *it;
+			NaturePokeathlonStat obj = *it;
 			JsonNode *node_temp = json_from_string(obj.toJson(), &mygerror);
 			json_array_add_element(json_array, node_temp);
 			g_clear_error(&mygerror);
@@ -536,26 +481,14 @@ NatureDetail::setHatesFlavor(BerryFlavorSummary  hates_flavor)
 	this->hates_flavor = hates_flavor;
 }
 
-std::list<BerrySummary>
-NatureDetail::getBerries()
-{
-	return berries;
-}
-
-void
-NatureDetail::setBerries(std::list <BerrySummary> berries)
-{
-	this->berries = berries;
-}
-
-std::list<NatureDetail_pokeathlon_stat_changes_inner>
+std::list<NaturePokeathlonStat>
 NatureDetail::getPokeathlonStatChanges()
 {
 	return pokeathlon_stat_changes;
 }
 
 void
-NatureDetail::setPokeathlonStatChanges(std::list <NatureDetail_pokeathlon_stat_changes_inner> pokeathlon_stat_changes)
+NatureDetail::setPokeathlonStatChanges(std::list <NaturePokeathlonStat> pokeathlon_stat_changes)
 {
 	this->pokeathlon_stat_changes = pokeathlon_stat_changes;
 }

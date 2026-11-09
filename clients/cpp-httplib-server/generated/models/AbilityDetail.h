@@ -11,10 +11,10 @@
 #include <string>
 #include <vector>
 #include "AbilityChange.h"
-#include "AbilityDetailPokemonInner.h"
 #include "AbilityEffectText.h"
 #include "AbilityFlavorText.h"
 #include "AbilityName.h"
+#include "AbilityPokemonDetail.h"
 #include "GenerationSummary.h"
 
 
@@ -46,8 +46,8 @@ public:
     void setEffectChanges(const std::vector<AbilityChange>& effectChanges);
     [[nodiscard]] std::vector<AbilityFlavorText> getFlavorTextEntries() const;
     void setFlavorTextEntries(const std::vector<AbilityFlavorText>& flavorTextEntries);
-    [[nodiscard]] std::vector<AbilityDetail_pokemon_inner> getPokemon() const;
-    void setPokemon(const std::vector<AbilityDetail_pokemon_inner>& pokemon);
+    [[nodiscard]] std::vector<AbilityPokemonDetail> getPokemon() const;
+    void setPokemon(const std::vector<AbilityPokemonDetail>& pokemon);
 
 
     // JSON serialization using NLOHMANN INTRUSIVE macro (must be inside class to access private members)
@@ -63,7 +63,7 @@ private:
     std::vector<AbilityEffectText> effectEntries;
     std::vector<AbilityChange> effectChanges;
     std::vector<AbilityFlavorText> flavorTextEntries;
-    std::vector<AbilityDetail_pokemon_inner> pokemon;
+    std::vector<AbilityPokemonDetail> pokemon;
 };
 
 

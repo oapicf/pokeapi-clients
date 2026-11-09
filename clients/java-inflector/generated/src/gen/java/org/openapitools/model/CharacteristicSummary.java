@@ -11,12 +11,13 @@ import java.net.URI;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-10-25T05:47:53.227411880Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-11-09T13:49:15.621225368Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class CharacteristicSummary   {
   @JsonProperty("url")
   private URI url;
 
   /**
+   * The URL of the referenced resource.
    **/
   public CharacteristicSummary url(URI url) {
     this.url = url;
@@ -24,7 +25,7 @@ public class CharacteristicSummary   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The URL of the referenced resource.")
   @JsonProperty("url")
   public URI getUrl() {
     return url;

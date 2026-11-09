@@ -73,7 +73,7 @@ void egg_group_detail_free(egg_group_detail_t *egg_group_detail) {
     }
     if (egg_group_detail->pokemon_species) {
         list_ForEach(listEntry, egg_group_detail->pokemon_species) {
-            egg_group_detail_pokemon_species_inner_free(listEntry->data);
+            pokemon_species_summary_free(listEntry->data);
         }
         list_freeList(egg_group_detail->pokemon_species);
         egg_group_detail->pokemon_species = NULL;
@@ -135,7 +135,7 @@ cJSON *egg_group_detail_convertToJSON(egg_group_detail_t *egg_group_detail) {
     listEntry_t *pokemon_speciesListEntry;
     if (egg_group_detail->pokemon_species) {
     list_ForEach(pokemon_speciesListEntry, egg_group_detail->pokemon_species) {
-    cJSON *itemLocal = egg_group_detail_pokemon_species_inner_convertToJSON(pokemon_speciesListEntry->data);
+    cJSON *itemLocal = pokemon_species_summary_convertToJSON(pokemon_speciesListEntry->data);
     if(itemLocal == NULL) {
     goto fail;
     }
@@ -251,7 +251,7 @@ egg_group_detail_t *egg_group_detail_parseFromJSON(cJSON *egg_group_detailJSON){
         if(!cJSON_IsObject(pokemon_species_local_nonprimitive)){
             goto end;
         }
-        egg_group_detail_pokemon_species_inner_t *pokemon_speciesItem = egg_group_detail_pokemon_species_inner_parseFromJSON(pokemon_species_local_nonprimitive);
+        pokemon_species_summary_t *pokemon_speciesItem = pokemon_species_summary_parseFromJSON(pokemon_species_local_nonprimitive);
 
         list_addElement(pokemon_speciesList, pokemon_speciesItem);
     }
@@ -292,7 +292,7 @@ end:
     if (pokemon_speciesList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, pokemon_speciesList) {
-            egg_group_detail_pokemon_species_inner_free(listEntry->data);
+            pokemon_species_summary_free(listEntry->data);
             listEntry->data = NULL;
         }
         list_freeList(pokemon_speciesList);

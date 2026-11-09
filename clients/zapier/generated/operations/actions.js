@@ -34,6 +34,8 @@ const actions = {
     [EvolutionApi.evolutionChainRetrieve.key]: EvolutionApi.evolutionChainRetrieve,
     [EvolutionApi.evolutionTriggerList.key]: EvolutionApi.evolutionTriggerList,
     [EvolutionApi.evolutionTriggerRetrieve.key]: EvolutionApi.evolutionTriggerRetrieve,
+    [EvolutionApi.evolutionVariableList.key]: EvolutionApi.evolutionVariableList,
+    [EvolutionApi.evolutionVariableRetrieve.key]: EvolutionApi.evolutionVariableRetrieve,
     [GamesApi.generationList.key]: GamesApi.generationList,
     [GamesApi.generationRetrieve.key]: GamesApi.generationRetrieve,
     [GamesApi.pokedexList.key]: GamesApi.pokedexList,
@@ -42,6 +44,8 @@ const actions = {
     [GamesApi.versionGroupRetrieve.key]: GamesApi.versionGroupRetrieve,
     [GamesApi.versionList.key]: GamesApi.versionList,
     [GamesApi.versionRetrieve.key]: GamesApi.versionRetrieve,
+    [ItemsApi.currencyList.key]: ItemsApi.currencyList,
+    [ItemsApi.currencyRetrieve.key]: ItemsApi.currencyRetrieve,
     [ItemsApi.itemAttributeList.key]: ItemsApi.itemAttributeList,
     [ItemsApi.itemAttributeRetrieve.key]: ItemsApi.itemAttributeRetrieve,
     [ItemsApi.itemCategoryList.key]: ItemsApi.itemCategoryList,
@@ -108,6 +112,7 @@ const actions = {
     [PokemonApi.typeRetrieve.key]: PokemonApi.typeRetrieve,
     [UtilityApi.languageList.key]: UtilityApi.languageList,
     [UtilityApi.languageRetrieve.key]: UtilityApi.languageRetrieve,
+    [UtilityApi.metaRetrieve.key]: UtilityApi.metaRetrieve,
 }
 
 module.exports = {

@@ -20,9 +20,6 @@ module ContestsApiHandlerParams =
 
       offset : int option;
 
-
-      q : string option;
-
     }
     //#endregion
 
@@ -103,9 +100,6 @@ module ContestsApiHandlerParams =
 
 
       offset : int option;
-
-
-      q : string option;
 
     }
     //#endregion

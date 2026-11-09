@@ -20,7 +20,7 @@ public class ContestEffectSummary   {
     /**
      * Create ContestEffectSummary.
      *
-     * @param url url
+     * @param url The URL of the referenced resource.
      */
     public ContestEffectSummary(
         URI url
@@ -31,7 +31,7 @@ public class ContestEffectSummary   {
 
 
     /**
-     * Get url
+     * The URL of the referenced resource.
      * @return url
      */
     public URI getUrl() {

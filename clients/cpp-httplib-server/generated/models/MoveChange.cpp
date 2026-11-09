@@ -13,9 +13,8 @@ MoveChange::MoveChange()
 , power(0)
 , pp(0)
 , effectChance(0)
-, effectEntries(std::vector<MoveChange_effect_entries_inner>())
-, type(TypeSummary())
-, versionGroup(VersionGroupSummary())
+, effectEntries(std::vector<MoveEffectEffectText>())
+, type(std::nullopt)
 {
 }
 // =========================================
@@ -40,7 +39,7 @@ int MoveChange::getEffectChance() const
 {
     return effectChance;
 }
-std::vector<MoveChange_effect_entries_inner> MoveChange::getEffectEntries() const
+std::vector<MoveEffectEffectText> MoveChange::getEffectEntries() const
 {
     return effectEntries;
 }
@@ -72,7 +71,7 @@ void MoveChange::setEffectChance(const int& effectChanceObj)
 {
     effectChance = effectChanceObj;
 }
-void MoveChange::setEffectEntries(const std::vector<MoveChange_effect_entries_inner>& effectEntriesObj)
+void MoveChange::setEffectEntries(const std::vector<MoveEffectEffectText>& effectEntriesObj)
 {
     effectEntries = effectEntriesObj;
 }

@@ -7,45 +7,45 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
-import org.openapitools.vertxweb.server.model.AbilityDetailPokemonInnerPokemon;
+import org.openapitools.vertxweb.server.model.EvolutionChainSummary;
+import org.openapitools.vertxweb.server.model.ItemAttributeSummary;
 import org.openapitools.vertxweb.server.model.ItemCategorySummary;
-import org.openapitools.vertxweb.server.model.ItemDetailBabyTriggerFor;
-import org.openapitools.vertxweb.server.model.ItemDetailHeldByPokemonInner;
-import org.openapitools.vertxweb.server.model.ItemDetailMachinesInner;
-import org.openapitools.vertxweb.server.model.ItemDetailSprites;
 import org.openapitools.vertxweb.server.model.ItemEffectText;
 import org.openapitools.vertxweb.server.model.ItemFlavorText;
 import org.openapitools.vertxweb.server.model.ItemFlingEffectSummary;
 import org.openapitools.vertxweb.server.model.ItemGameIndex;
+import org.openapitools.vertxweb.server.model.ItemMachine;
 import org.openapitools.vertxweb.server.model.ItemName;
+import org.openapitools.vertxweb.server.model.ItemPrice;
+import org.openapitools.vertxweb.server.model.ItemSprites;
+import org.openapitools.vertxweb.server.model.PokemonHeldItem;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ItemDetail   {
   
   private Integer id;
   private String name;
-  private Integer cost;
   private Integer flingPower;
   private ItemFlingEffectSummary flingEffect;
-  private List<AbilityDetailPokemonInnerPokemon> attributes = new ArrayList<>();
+  private List<ItemAttributeSummary> attributes = new ArrayList<>();
   private ItemCategorySummary category;
   private List<ItemEffectText> effectEntries = new ArrayList<>();
   private List<ItemFlavorText> flavorTextEntries = new ArrayList<>();
   private List<ItemGameIndex> gameIndices = new ArrayList<>();
+  private List<ItemPrice> prices = new ArrayList<>();
   private List<ItemName> names = new ArrayList<>();
-  private List<ItemDetailHeldByPokemonInner> heldByPokemon = new ArrayList<>();
-  private ItemDetailSprites sprites;
-  private ItemDetailBabyTriggerFor babyTriggerFor;
-  private List<ItemDetailMachinesInner> machines = new ArrayList<>();
+  private List<PokemonHeldItem> heldByPokemon = new ArrayList<>();
+  private ItemSprites sprites;
+  private EvolutionChainSummary babyTriggerFor;
+  private List<ItemMachine> machines = new ArrayList<>();
 
   public ItemDetail () {
 
   }
 
-  public ItemDetail (Integer id, String name, Integer cost, Integer flingPower, ItemFlingEffectSummary flingEffect, List<AbilityDetailPokemonInnerPokemon> attributes, ItemCategorySummary category, List<ItemEffectText> effectEntries, List<ItemFlavorText> flavorTextEntries, List<ItemGameIndex> gameIndices, List<ItemName> names, List<ItemDetailHeldByPokemonInner> heldByPokemon, ItemDetailSprites sprites, ItemDetailBabyTriggerFor babyTriggerFor, List<ItemDetailMachinesInner> machines) {
+  public ItemDetail (Integer id, String name, Integer flingPower, ItemFlingEffectSummary flingEffect, List<ItemAttributeSummary> attributes, ItemCategorySummary category, List<ItemEffectText> effectEntries, List<ItemFlavorText> flavorTextEntries, List<ItemGameIndex> gameIndices, List<ItemPrice> prices, List<ItemName> names, List<PokemonHeldItem> heldByPokemon, ItemSprites sprites, EvolutionChainSummary babyTriggerFor, List<ItemMachine> machines) {
     this.id = id;
     this.name = name;
-    this.cost = cost;
     this.flingPower = flingPower;
     this.flingEffect = flingEffect;
     this.attributes = attributes;
@@ -53,6 +53,7 @@ public class ItemDetail   {
     this.effectEntries = effectEntries;
     this.flavorTextEntries = flavorTextEntries;
     this.gameIndices = gameIndices;
+    this.prices = prices;
     this.names = names;
     this.heldByPokemon = heldByPokemon;
     this.sprites = sprites;
@@ -79,15 +80,6 @@ public class ItemDetail   {
   }
 
     
-  @JsonProperty("cost")
-  public Integer getCost() {
-    return cost;
-  }
-  public void setCost(Integer cost) {
-    this.cost = cost;
-  }
-
-    
   @JsonProperty("fling_power")
   public Integer getFlingPower() {
     return flingPower;
@@ -107,10 +99,10 @@ public class ItemDetail   {
 
     
   @JsonProperty("attributes")
-  public List<AbilityDetailPokemonInnerPokemon> getAttributes() {
+  public List<ItemAttributeSummary> getAttributes() {
     return attributes;
   }
-  public void setAttributes(List<AbilityDetailPokemonInnerPokemon> attributes) {
+  public void setAttributes(List<ItemAttributeSummary> attributes) {
     this.attributes = attributes;
   }
 
@@ -151,6 +143,15 @@ public class ItemDetail   {
   }
 
     
+  @JsonProperty("prices")
+  public List<ItemPrice> getPrices() {
+    return prices;
+  }
+  public void setPrices(List<ItemPrice> prices) {
+    this.prices = prices;
+  }
+
+    
   @JsonProperty("names")
   public List<ItemName> getNames() {
     return names;
@@ -161,37 +162,37 @@ public class ItemDetail   {
 
     
   @JsonProperty("held_by_pokemon")
-  public List<ItemDetailHeldByPokemonInner> getHeldByPokemon() {
+  public List<PokemonHeldItem> getHeldByPokemon() {
     return heldByPokemon;
   }
-  public void setHeldByPokemon(List<ItemDetailHeldByPokemonInner> heldByPokemon) {
+  public void setHeldByPokemon(List<PokemonHeldItem> heldByPokemon) {
     this.heldByPokemon = heldByPokemon;
   }
 
     
   @JsonProperty("sprites")
-  public ItemDetailSprites getSprites() {
+  public ItemSprites getSprites() {
     return sprites;
   }
-  public void setSprites(ItemDetailSprites sprites) {
+  public void setSprites(ItemSprites sprites) {
     this.sprites = sprites;
   }
 
     
   @JsonProperty("baby_trigger_for")
-  public ItemDetailBabyTriggerFor getBabyTriggerFor() {
+  public EvolutionChainSummary getBabyTriggerFor() {
     return babyTriggerFor;
   }
-  public void setBabyTriggerFor(ItemDetailBabyTriggerFor babyTriggerFor) {
+  public void setBabyTriggerFor(EvolutionChainSummary babyTriggerFor) {
     this.babyTriggerFor = babyTriggerFor;
   }
 
     
   @JsonProperty("machines")
-  public List<ItemDetailMachinesInner> getMachines() {
+  public List<ItemMachine> getMachines() {
     return machines;
   }
-  public void setMachines(List<ItemDetailMachinesInner> machines) {
+  public void setMachines(List<ItemMachine> machines) {
     this.machines = machines;
   }
 
@@ -207,7 +208,6 @@ public class ItemDetail   {
     ItemDetail itemDetail = (ItemDetail) o;
     return Objects.equals(id, itemDetail.id) &&
         Objects.equals(name, itemDetail.name) &&
-        Objects.equals(cost, itemDetail.cost) &&
         Objects.equals(flingPower, itemDetail.flingPower) &&
         Objects.equals(flingEffect, itemDetail.flingEffect) &&
         Objects.equals(attributes, itemDetail.attributes) &&
@@ -215,6 +215,7 @@ public class ItemDetail   {
         Objects.equals(effectEntries, itemDetail.effectEntries) &&
         Objects.equals(flavorTextEntries, itemDetail.flavorTextEntries) &&
         Objects.equals(gameIndices, itemDetail.gameIndices) &&
+        Objects.equals(prices, itemDetail.prices) &&
         Objects.equals(names, itemDetail.names) &&
         Objects.equals(heldByPokemon, itemDetail.heldByPokemon) &&
         Objects.equals(sprites, itemDetail.sprites) &&
@@ -224,7 +225,7 @@ public class ItemDetail   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, cost, flingPower, flingEffect, attributes, category, effectEntries, flavorTextEntries, gameIndices, names, heldByPokemon, sprites, babyTriggerFor, machines);
+    return Objects.hash(id, name, flingPower, flingEffect, attributes, category, effectEntries, flavorTextEntries, gameIndices, prices, names, heldByPokemon, sprites, babyTriggerFor, machines);
   }
 
   @Override
@@ -234,7 +235,6 @@ public class ItemDetail   {
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    cost: ").append(toIndentedString(cost)).append("\n");
     sb.append("    flingPower: ").append(toIndentedString(flingPower)).append("\n");
     sb.append("    flingEffect: ").append(toIndentedString(flingEffect)).append("\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
@@ -242,6 +242,7 @@ public class ItemDetail   {
     sb.append("    effectEntries: ").append(toIndentedString(effectEntries)).append("\n");
     sb.append("    flavorTextEntries: ").append(toIndentedString(flavorTextEntries)).append("\n");
     sb.append("    gameIndices: ").append(toIndentedString(gameIndices)).append("\n");
+    sb.append("    prices: ").append(toIndentedString(prices)).append("\n");
     sb.append("    names: ").append(toIndentedString(names)).append("\n");
     sb.append("    heldByPokemon: ").append(toIndentedString(heldByPokemon)).append("\n");
     sb.append("    sprites: ").append(toIndentedString(sprites)).append("\n");

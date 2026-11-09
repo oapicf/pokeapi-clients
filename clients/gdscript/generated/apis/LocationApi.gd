@@ -90,7 +90,7 @@ func location_area_list_threaded(
 #
 # Location areas are sections of areas, such as floors in a building or cave. Each area has its own set of possible Pokémon encounters.
 func location_area_retrieve(
-	# id: int   Eg: 56
+	# id: int   Eg: 1
 	# A unique integer value identifying this location area.
 	id: int,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -130,7 +130,7 @@ func location_area_retrieve(
 
 
 func location_area_retrieve_threaded(
-	# id: int   Eg: 56
+	# id: int   Eg: 1
 	# A unique integer value identifying this location area.
 	id: int,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -231,7 +231,7 @@ func location_list_threaded(
 #
 # Locations that can be visited within the games. Locations make up sizable portions of regions, like cities or routes.
 func location_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -271,7 +271,7 @@ func location_retrieve(
 
 
 func location_retrieve_threaded(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -372,7 +372,7 @@ func pal_park_area_list_threaded(
 #
 # Areas used for grouping Pokémon encounters in Pal Park. They're like habitats that are specific to Pal Park.
 func pal_park_area_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -412,7 +412,7 @@ func pal_park_area_retrieve(
 
 
 func pal_park_area_retrieve_threaded(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -513,7 +513,7 @@ func region_list_threaded(
 #
 # A region is an organized area of the Pokémon world. Most often, the main difference between regions is the species of Pokémon that can be encountered within them.
 func region_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -553,7 +553,7 @@ func region_retrieve(
 
 
 func region_retrieve_threaded(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)

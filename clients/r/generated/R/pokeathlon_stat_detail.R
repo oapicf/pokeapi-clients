@@ -7,10 +7,10 @@
 #' @title PokeathlonStatDetail
 #' @description PokeathlonStatDetail Class
 #' @format An \code{R6Class} generator object
-#' @field id  integer
-#' @field name  character
-#' @field affecting_natures  \link{PokeathlonStatDetailAffectingNatures}
-#' @field names  list(\link{PokeathlonStatName})
+#' @field id The identifier for this resource. integer
+#' @field name The name for this resource. character
+#' @field affecting_natures A detail of natures which affect this Pokéathlon stat positively or negatively. \link{PokeathlonStatAffectingNatures}
+#' @field names The name of this resource listed in different languages. list(\link{PokeathlonStatName})
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -25,10 +25,10 @@ PokeathlonStatDetail <- R6::R6Class(
     #' @description
     #' Initialize a new PokeathlonStatDetail class.
     #'
-    #' @param id id
-    #' @param name name
-    #' @param affecting_natures affecting_natures
-    #' @param names names
+    #' @param id The identifier for this resource.
+    #' @param name The name for this resource.
+    #' @param affecting_natures A detail of natures which affect this Pokéathlon stat positively or negatively.
+    #' @param names The name of this resource listed in different languages.
     #' @param ... Other optional arguments.
     initialize = function(`id`, `name`, `affecting_natures`, `names`, ...) {
       if (!missing(`id`)) {
@@ -141,7 +141,7 @@ PokeathlonStatDetail <- R6::R6Class(
         self$`name` <- this_object$`name`
       }
       if (!is.null(this_object$`affecting_natures`)) {
-        `affecting_natures_object` <- PokeathlonStatDetailAffectingNatures$new()
+        `affecting_natures_object` <- PokeathlonStatAffectingNatures$new()
         `affecting_natures_object`$fromJSON(jsonlite::toJSON(this_object$`affecting_natures`, auto_unbox = TRUE, digits = NA))
         self$`affecting_natures` <- `affecting_natures_object`
       }
@@ -171,7 +171,7 @@ PokeathlonStatDetail <- R6::R6Class(
       this_object <- jsonlite::fromJSON(input_json)
       self$`id` <- this_object$`id`
       self$`name` <- this_object$`name`
-      self$`affecting_natures` <- PokeathlonStatDetailAffectingNatures$new()$fromJSON(jsonlite::toJSON(this_object$`affecting_natures`, auto_unbox = TRUE, digits = NA))
+      self$`affecting_natures` <- PokeathlonStatAffectingNatures$new()$fromJSON(jsonlite::toJSON(this_object$`affecting_natures`, auto_unbox = TRUE, digits = NA))
       self$`names` <- ApiClient$new()$deserializeObj(this_object$`names`, "array[PokeathlonStatName]", loadNamespace("openapi"))
       self
     },
@@ -236,7 +236,7 @@ PokeathlonStatDetail <- R6::R6Class(
         return(FALSE)
       }
 
-      if (nchar(self$`name`) > 100) {
+      if (nchar(self$`name`) > 200) {
         return(FALSE)
       }
 
@@ -269,8 +269,8 @@ PokeathlonStatDetail <- R6::R6Class(
         invalid_fields["name"] <- "Non-nullable required field `name` cannot be null."
       }
 
-      if (nchar(self$`name`) > 100) {
-        invalid_fields["name"] <- "Invalid length for `name`, must be smaller than or equal to 100."
+      if (nchar(self$`name`) > 200) {
+        invalid_fields["name"] <- "Invalid length for `name`, must be smaller than or equal to 200."
       }
 
       # check if the required `affecting_natures` is null

@@ -5,11 +5,11 @@ from datetime import date, datetime
 from typing import List, Dict, Type
 
 from openapi_server.models.base_model import Model
-from openapi_server.models.ability_detail_pokemon_inner_pokemon import AbilityDetailPokemonInnerPokemon
 from openapi_server.models.generation_summary import GenerationSummary
 from openapi_server.models.location_summary import LocationSummary
 from openapi_server.models.pokedex_summary import PokedexSummary
 from openapi_server.models.region_name import RegionName
+from openapi_server.models.version_group_summary import VersionGroupSummary
 from openapi_server import util
 
 
@@ -19,7 +19,7 @@ class RegionDetail(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, id: int=None, name: str=None, locations: List[LocationSummary]=None, main_generation: GenerationSummary=None, names: List[RegionName]=None, pokedexes: List[PokedexSummary]=None, version_groups: List[AbilityDetailPokemonInnerPokemon]=None):
+    def __init__(self, id: int=None, name: str=None, locations: List[LocationSummary]=None, main_generation: GenerationSummary=None, names: List[RegionName]=None, pokedexes: List[PokedexSummary]=None, version_groups: List[VersionGroupSummary]=None):
         """RegionDetail - a model defined in OpenAPI
 
         :param id: The id of this RegionDetail.
@@ -37,7 +37,7 @@ class RegionDetail(Model):
             'main_generation': GenerationSummary,
             'names': List[RegionName],
             'pokedexes': List[PokedexSummary],
-            'version_groups': List[AbilityDetailPokemonInnerPokemon]
+            'version_groups': List[VersionGroupSummary]
         }
 
         self.attribute_map = {
@@ -71,6 +71,7 @@ class RegionDetail(Model):
     def id(self):
         """Gets the id of this RegionDetail.
 
+        The identifier for this resource.
 
         :return: The id of this RegionDetail.
         :rtype: int
@@ -81,6 +82,7 @@ class RegionDetail(Model):
     def id(self, id):
         """Sets the id of this RegionDetail.
 
+        The identifier for this resource.
 
         :param id: The id of this RegionDetail.
         :type id: int
@@ -94,6 +96,7 @@ class RegionDetail(Model):
     def name(self):
         """Gets the name of this RegionDetail.
 
+        The name for this resource.
 
         :return: The name of this RegionDetail.
         :rtype: str
@@ -104,14 +107,15 @@ class RegionDetail(Model):
     def name(self, name):
         """Sets the name of this RegionDetail.
 
+        The name for this resource.
 
         :param name: The name of this RegionDetail.
         :type name: str
         """
         if name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")
-        if name is not None and len(name) > 100:
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `100`")
+        if name is not None and len(name) > 200:
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `200`")
 
         self._name = name
 
@@ -119,6 +123,7 @@ class RegionDetail(Model):
     def locations(self):
         """Gets the locations of this RegionDetail.
 
+        A list of locations that can be found in this region.
 
         :return: The locations of this RegionDetail.
         :rtype: List[LocationSummary]
@@ -129,6 +134,7 @@ class RegionDetail(Model):
     def locations(self, locations):
         """Sets the locations of this RegionDetail.
 
+        A list of locations that can be found in this region.
 
         :param locations: The locations of this RegionDetail.
         :type locations: List[LocationSummary]
@@ -142,6 +148,7 @@ class RegionDetail(Model):
     def main_generation(self):
         """Gets the main_generation of this RegionDetail.
 
+        The generation this region was introduced in.
 
         :return: The main_generation of this RegionDetail.
         :rtype: GenerationSummary
@@ -152,6 +159,7 @@ class RegionDetail(Model):
     def main_generation(self, main_generation):
         """Sets the main_generation of this RegionDetail.
 
+        The generation this region was introduced in.
 
         :param main_generation: The main_generation of this RegionDetail.
         :type main_generation: GenerationSummary
@@ -165,6 +173,7 @@ class RegionDetail(Model):
     def names(self):
         """Gets the names of this RegionDetail.
 
+        The name of this resource listed in different languages.
 
         :return: The names of this RegionDetail.
         :rtype: List[RegionName]
@@ -175,6 +184,7 @@ class RegionDetail(Model):
     def names(self, names):
         """Sets the names of this RegionDetail.
 
+        The name of this resource listed in different languages.
 
         :param names: The names of this RegionDetail.
         :type names: List[RegionName]
@@ -188,6 +198,7 @@ class RegionDetail(Model):
     def pokedexes(self):
         """Gets the pokedexes of this RegionDetail.
 
+        A list of pokédexes that catalogue Pokémon in this region.
 
         :return: The pokedexes of this RegionDetail.
         :rtype: List[PokedexSummary]
@@ -198,6 +209,7 @@ class RegionDetail(Model):
     def pokedexes(self, pokedexes):
         """Sets the pokedexes of this RegionDetail.
 
+        A list of pokédexes that catalogue Pokémon in this region.
 
         :param pokedexes: The pokedexes of this RegionDetail.
         :type pokedexes: List[PokedexSummary]
@@ -211,9 +223,10 @@ class RegionDetail(Model):
     def version_groups(self):
         """Gets the version_groups of this RegionDetail.
 
+        A list of version groups where this region can be visited.
 
         :return: The version_groups of this RegionDetail.
-        :rtype: List[AbilityDetailPokemonInnerPokemon]
+        :rtype: List[VersionGroupSummary]
         """
         return self._version_groups
 
@@ -221,9 +234,10 @@ class RegionDetail(Model):
     def version_groups(self, version_groups):
         """Sets the version_groups of this RegionDetail.
 
+        A list of version groups where this region can be visited.
 
         :param version_groups: The version_groups of this RegionDetail.
-        :type version_groups: List[AbilityDetailPokemonInnerPokemon]
+        :type version_groups: List[VersionGroupSummary]
         """
         if version_groups is None:
             raise ValueError("Invalid value for `version_groups`, must not be `None`")

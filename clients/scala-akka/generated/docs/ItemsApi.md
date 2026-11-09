@@ -4,6 +4,10 @@ All URIs are relative to *https://pokeapi.co*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**currencyList**](ItemsApi.md#currencyList) | **GET** /api/v2/currency/ | List currencies
+[**currencyListWithHttpInfo**](ItemsApi.md#currencyListWithHttpInfo) | **GET** /api/v2/currency/ | List currencies
+[**currencyRetrieve**](ItemsApi.md#currencyRetrieve) | **GET** /api/v2/currency/{id}/ | Get currency
+[**currencyRetrieveWithHttpInfo**](ItemsApi.md#currencyRetrieveWithHttpInfo) | **GET** /api/v2/currency/{id}/ | Get currency
 [**itemAttributeList**](ItemsApi.md#itemAttributeList) | **GET** /api/v2/item-attribute/ | List item attributes
 [**itemAttributeListWithHttpInfo**](ItemsApi.md#itemAttributeListWithHttpInfo) | **GET** /api/v2/item-attribute/ | List item attributes
 [**itemAttributeRetrieve**](ItemsApi.md#itemAttributeRetrieve) | **GET** /api/v2/item-attribute/{id}/ | Get item attribute
@@ -25,6 +29,172 @@ Method | HTTP request | Description
 [**itemRetrieve**](ItemsApi.md#itemRetrieve) | **GET** /api/v2/item/{id}/ | Get item
 [**itemRetrieveWithHttpInfo**](ItemsApi.md#itemRetrieveWithHttpInfo) | **GET** /api/v2/item/{id}/ | Get item
 
+
+
+## currencyList
+
+> currencyList(currencyListRequest): ApiRequest[PaginatedCurrencySummaryList]
+
+List currencies
+
+Currencies used to buy items.
+
+### Example
+
+```scala
+// Import classes:
+import 
+import org.openapitools.client.core._
+import org.openapitools.client.core.CollectionFormats._
+import org.openapitools.client.core.ApiKeyLocations._
+
+import akka.actor.ActorSystem
+import scala.concurrent.Future
+import scala.util.{Failure, Success}
+
+object Example extends App {
+    
+    implicit val system: ActorSystem = ActorSystem()
+    import system.dispatcher
+
+    val apiInvoker = ApiInvoker()
+    val apiInstance = ItemsApi("https://pokeapi.co")
+    val limit: Int = 56 // Int | Number of results to return per page.
+
+    val offset: Int = 56 // Int | The initial index from which to return the results.
+
+    val `q`: String = `q`_example // String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+    
+    val request = apiInstance.currencyList(limit, offset, `q`)
+    val response = apiInvoker.execute(request)
+
+    response.onComplete {
+        case Success(ApiResponse(code, content, headers)) =>
+            System.out.println(s"Status code: $code}")
+            System.out.println(s"Response headers: ${headers.mkString(", ")}")
+            System.out.println(s"Response body: $content")
+        
+        case Failure(error @ ApiError(code, message, responseContent, cause, headers)) =>
+            System.err.println("Exception when calling ItemsApi#currencyList")
+            System.err.println(s"Status code: $code}")
+            System.err.println(s"Reason: $responseContent")
+            System.err.println(s"Response headers: ${headers.mkString(", ")}")
+            error.printStackTrace();
+
+        case Failure(exception) => 
+            System.err.println("Exception when calling ItemsApi#currencyList")
+            exception.printStackTrace();
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | **Int**| Number of results to return per page. | [optional]
+ **offset** | **Int**| The initial index from which to return the results. | [optional]
+ **`q`** | **String**| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional]
+
+### Return type
+
+ApiRequest[[**PaginatedCurrencySummaryList**](PaginatedCurrencySummaryList.md)]
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** |  |  -  |
+
+
+## currencyRetrieve
+
+> currencyRetrieve(currencyRetrieveRequest): ApiRequest[CurrencyDetail]
+
+Get currency
+
+Currencies used to buy items.
+
+### Example
+
+```scala
+// Import classes:
+import 
+import org.openapitools.client.core._
+import org.openapitools.client.core.CollectionFormats._
+import org.openapitools.client.core.ApiKeyLocations._
+
+import akka.actor.ActorSystem
+import scala.concurrent.Future
+import scala.util.{Failure, Success}
+
+object Example extends App {
+    
+    implicit val system: ActorSystem = ActorSystem()
+    import system.dispatcher
+
+    val apiInvoker = ApiInvoker()
+    val apiInstance = ItemsApi("https://pokeapi.co")
+    val id: String = 1 // String | This parameter can be a string or an integer.
+    
+    val request = apiInstance.currencyRetrieve(id)
+    val response = apiInvoker.execute(request)
+
+    response.onComplete {
+        case Success(ApiResponse(code, content, headers)) =>
+            System.out.println(s"Status code: $code}")
+            System.out.println(s"Response headers: ${headers.mkString(", ")}")
+            System.out.println(s"Response body: $content")
+        
+        case Failure(error @ ApiError(code, message, responseContent, cause, headers)) =>
+            System.err.println("Exception when calling ItemsApi#currencyRetrieve")
+            System.err.println(s"Status code: $code}")
+            System.err.println(s"Reason: $responseContent")
+            System.err.println(s"Response headers: ${headers.mkString(", ")}")
+            error.printStackTrace();
+
+        case Failure(exception) => 
+            System.err.println("Exception when calling ItemsApi#currencyRetrieve")
+            exception.printStackTrace();
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| This parameter can be a string or an integer. |
+
+### Return type
+
+ApiRequest[[**CurrencyDetail**](CurrencyDetail.md)]
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** |  |  -  |
 
 
 ## itemAttributeList
@@ -52,12 +222,6 @@ object Example extends App {
     
     implicit val system: ActorSystem = ActorSystem()
     import system.dispatcher
-    
-    // Configure HTTP basic authorization: basicAuth
-    implicit val basicAuth: BasicCredentials = BasicCredentials("YOUR USERNAME", "YOUR PASSWORD")
-
-    // Configure API key authorization: cookieAuth
-    implicit val cookieAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
     val apiInstance = ItemsApi("https://pokeapi.co")
@@ -106,7 +270,7 @@ ApiRequest[[**PaginatedItemAttributeSummaryList**](PaginatedItemAttributeSummary
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -144,16 +308,10 @@ object Example extends App {
     
     implicit val system: ActorSystem = ActorSystem()
     import system.dispatcher
-    
-    // Configure HTTP basic authorization: basicAuth
-    implicit val basicAuth: BasicCredentials = BasicCredentials("YOUR USERNAME", "YOUR PASSWORD")
-
-    // Configure API key authorization: cookieAuth
-    implicit val cookieAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
     val apiInstance = ItemsApi("https://pokeapi.co")
-    val id: String = id_example // String | This parameter can be a string or an integer.
+    val id: String = 1 // String | This parameter can be a string or an integer.
     
     val request = apiInstance.itemAttributeRetrieve(id)
     val response = apiInvoker.execute(request)
@@ -192,7 +350,7 @@ ApiRequest[[**ItemAttributeDetail**](ItemAttributeDetail.md)]
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -230,12 +388,6 @@ object Example extends App {
     
     implicit val system: ActorSystem = ActorSystem()
     import system.dispatcher
-    
-    // Configure HTTP basic authorization: basicAuth
-    implicit val basicAuth: BasicCredentials = BasicCredentials("YOUR USERNAME", "YOUR PASSWORD")
-
-    // Configure API key authorization: cookieAuth
-    implicit val cookieAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
     val apiInstance = ItemsApi("https://pokeapi.co")
@@ -284,7 +436,7 @@ ApiRequest[[**PaginatedItemCategorySummaryList**](PaginatedItemCategorySummaryLi
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -322,16 +474,10 @@ object Example extends App {
     
     implicit val system: ActorSystem = ActorSystem()
     import system.dispatcher
-    
-    // Configure HTTP basic authorization: basicAuth
-    implicit val basicAuth: BasicCredentials = BasicCredentials("YOUR USERNAME", "YOUR PASSWORD")
-
-    // Configure API key authorization: cookieAuth
-    implicit val cookieAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
     val apiInstance = ItemsApi("https://pokeapi.co")
-    val id: String = id_example // String | This parameter can be a string or an integer.
+    val id: String = 1 // String | This parameter can be a string or an integer.
     
     val request = apiInstance.itemCategoryRetrieve(id)
     val response = apiInvoker.execute(request)
@@ -370,7 +516,7 @@ ApiRequest[[**ItemCategoryDetail**](ItemCategoryDetail.md)]
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -408,12 +554,6 @@ object Example extends App {
     
     implicit val system: ActorSystem = ActorSystem()
     import system.dispatcher
-    
-    // Configure HTTP basic authorization: basicAuth
-    implicit val basicAuth: BasicCredentials = BasicCredentials("YOUR USERNAME", "YOUR PASSWORD")
-
-    // Configure API key authorization: cookieAuth
-    implicit val cookieAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
     val apiInstance = ItemsApi("https://pokeapi.co")
@@ -462,7 +602,7 @@ ApiRequest[[**PaginatedItemFlingEffectSummaryList**](PaginatedItemFlingEffectSum
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -500,16 +640,10 @@ object Example extends App {
     
     implicit val system: ActorSystem = ActorSystem()
     import system.dispatcher
-    
-    // Configure HTTP basic authorization: basicAuth
-    implicit val basicAuth: BasicCredentials = BasicCredentials("YOUR USERNAME", "YOUR PASSWORD")
-
-    // Configure API key authorization: cookieAuth
-    implicit val cookieAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
     val apiInstance = ItemsApi("https://pokeapi.co")
-    val id: String = id_example // String | This parameter can be a string or an integer.
+    val id: String = 1 // String | This parameter can be a string or an integer.
     
     val request = apiInstance.itemFlingEffectRetrieve(id)
     val response = apiInvoker.execute(request)
@@ -548,7 +682,7 @@ ApiRequest[[**ItemFlingEffectDetail**](ItemFlingEffectDetail.md)]
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -586,12 +720,6 @@ object Example extends App {
     
     implicit val system: ActorSystem = ActorSystem()
     import system.dispatcher
-    
-    // Configure HTTP basic authorization: basicAuth
-    implicit val basicAuth: BasicCredentials = BasicCredentials("YOUR USERNAME", "YOUR PASSWORD")
-
-    // Configure API key authorization: cookieAuth
-    implicit val cookieAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
     val apiInstance = ItemsApi("https://pokeapi.co")
@@ -640,7 +768,7 @@ ApiRequest[[**PaginatedItemSummaryList**](PaginatedItemSummaryList.md)]
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -678,12 +806,6 @@ object Example extends App {
     
     implicit val system: ActorSystem = ActorSystem()
     import system.dispatcher
-    
-    // Configure HTTP basic authorization: basicAuth
-    implicit val basicAuth: BasicCredentials = BasicCredentials("YOUR USERNAME", "YOUR PASSWORD")
-
-    // Configure API key authorization: cookieAuth
-    implicit val cookieAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
     val apiInstance = ItemsApi("https://pokeapi.co")
@@ -732,7 +854,7 @@ ApiRequest[[**PaginatedItemPocketSummaryList**](PaginatedItemPocketSummaryList.m
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -770,16 +892,10 @@ object Example extends App {
     
     implicit val system: ActorSystem = ActorSystem()
     import system.dispatcher
-    
-    // Configure HTTP basic authorization: basicAuth
-    implicit val basicAuth: BasicCredentials = BasicCredentials("YOUR USERNAME", "YOUR PASSWORD")
-
-    // Configure API key authorization: cookieAuth
-    implicit val cookieAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
     val apiInstance = ItemsApi("https://pokeapi.co")
-    val id: String = id_example // String | This parameter can be a string or an integer.
+    val id: String = 1 // String | This parameter can be a string or an integer.
     
     val request = apiInstance.itemPocketRetrieve(id)
     val response = apiInvoker.execute(request)
@@ -818,7 +934,7 @@ ApiRequest[[**ItemPocketDetail**](ItemPocketDetail.md)]
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -856,16 +972,10 @@ object Example extends App {
     
     implicit val system: ActorSystem = ActorSystem()
     import system.dispatcher
-    
-    // Configure HTTP basic authorization: basicAuth
-    implicit val basicAuth: BasicCredentials = BasicCredentials("YOUR USERNAME", "YOUR PASSWORD")
-
-    // Configure API key authorization: cookieAuth
-    implicit val cookieAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
     val apiInstance = ItemsApi("https://pokeapi.co")
-    val id: String = id_example // String | This parameter can be a string or an integer.
+    val id: String = 1 // String | This parameter can be a string or an integer.
     
     val request = apiInstance.itemRetrieve(id)
     val response = apiInvoker.execute(request)
@@ -904,7 +1014,7 @@ ApiRequest[[**ItemDetail**](ItemDetail.md)]
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

@@ -10,7 +10,7 @@ import javax.validation.Valid;
 /**
  * SuperContestEffectFlavorText
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-10-25T05:48:13.486809836Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-11-09T13:49:31.462302702Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class SuperContestEffectFlavorText   {
   @JsonProperty("flavor_text")
@@ -31,7 +31,7 @@ public class SuperContestEffectFlavorText   {
   }
 
    /**
-   * Get flavorText
+   * The localized flavor text for an API resource in a specific language.
    * @return flavorText
   **/
   public String getFlavorText() {
@@ -48,7 +48,7 @@ public class SuperContestEffectFlavorText   {
   }
 
    /**
-   * Get language
+   * The language this name is in.
    * @return language
   **/
   public LanguageSummary getLanguage() {

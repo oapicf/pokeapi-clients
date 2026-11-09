@@ -7,17 +7,17 @@
     {
       "name": "effect",
       "type": "string",
-      "doc": ""
+      "doc": "The localized effect text for an API resource in a specific language."
     },
     {
       "name": "short_effect",
       "type": "string",
-      "doc": ""
+      "doc": "The localized effect text in brief."
     },
     {
       "name": "language",
       "type": "model.LanguageSummary",
-      "doc": ""
+      "doc": "The language this effect is in."
     }
   ]
 

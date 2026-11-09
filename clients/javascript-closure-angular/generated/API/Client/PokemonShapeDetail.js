@@ -6,30 +6,35 @@ goog.provide('API.Client.PokemonShapeDetail');
 API.Client.PokemonShapeDetail = function() {}
 
 /**
+ * The identifier for this resource.
  * @type {!number}
  * @export
  */
 API.Client.PokemonShapeDetail.prototype.id;
 
 /**
+ * The name for this resource.
  * @type {!string}
  * @export
  */
 API.Client.PokemonShapeDetail.prototype.name;
 
 /**
- * @type {!Array<!API.Client.PokemonShapeDetail_awesome_names_inner>}
+ * The \"scientific\" name of this Pokémon shape listed in different languages.
+ * @type {!Array<!API.Client.PokemonShapeAwesomeName>}
  * @export
  */
 API.Client.PokemonShapeDetail.prototype.awesomeNames;
 
 /**
- * @type {!Array<!API.Client.PokemonShapeDetail_names_inner>}
+ * The name of this resource listed in different languages.
+ * @type {!Array<!API.Client.PokemonShapeName>}
  * @export
  */
 API.Client.PokemonShapeDetail.prototype.names;
 
 /**
+ * A list of the Pokémon species that have this shape.
  * @type {!Array<!API.Client.PokemonSpeciesSummary>}
  * @export
  */

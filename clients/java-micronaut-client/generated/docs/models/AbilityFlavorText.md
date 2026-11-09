@@ -8,9 +8,9 @@ The class is defined in **[AbilityFlavorText.java](../../src/main/java/org/opena
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**flavorText** | `String` |  | 
-**language** | [`LanguageSummary`](LanguageSummary.md) |  | 
-**versionGroup** | [`VersionGroupSummary`](VersionGroupSummary.md) |  | 
+**flavorText** | `String` | The localized name for an API resource in a specific language. | 
+**language** | [`LanguageSummary`](LanguageSummary.md) | The language this text resource is in. | 
+**versionGroup** | [`VersionGroupSummary`](VersionGroupSummary.md) | The version group that uses this flavor text. | 
 
 
 

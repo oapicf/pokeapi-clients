@@ -3,7 +3,9 @@ package org.openapitools.client.model
 
 
 case class ContestEffectFlavorText (
+    /* The localized flavor text for an API resource in a specific language. */
     _flavorText: String,
+    /* The language this name is in. */
     _language: LanguageSummary
 )
 object ContestEffectFlavorText {

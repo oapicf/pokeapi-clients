@@ -1,0 +1,41 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server PokemonShapeAwesomeName"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a PokemonShapeAwesomeName"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  LanguageSummary = openapi_server.resourceTypes.LanguageSummary
+}
+resourceTypes {
+
+  PokemonShapeAwesomeName {
+    title = PokemonShapeAwesomeName
+    description = PokemonShapeAwesomeName
+    derivedFrom = Root
+    properties {
+        awesome_name {
+          type =  string
+          description = "The localized \&quot;scientific\&quot; name for an API resource in a specific language."
+          optional = true
+        }
+        language {
+          type = LanguageSummary
+          description = "The language this \&quot;scientific\&quot; name is in."
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  PokemonShapeAwesomeName {
+    title = PokemonShapeAwesomeName
+    description = PokemonShapeAwesomeName
+    implements = openapi_server.resourceTypes.PokemonShapeAwesomeName
+
+  }
+}

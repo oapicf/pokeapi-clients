@@ -6,15 +6,15 @@ from datetime import date, datetime  # noqa: F401
 from typing import List, Dict  # noqa: F401
 
 from app.openapi_server.models.base_model import Model
-from app.openapi_server.models.ability_name import AbilityName  # noqa: F401,E501
 from app.openapi_server.models.generation_summary import GenerationSummary  # noqa: F401,E501
 from app.openapi_server.models.move_damage_class_summary import MoveDamageClassSummary  # noqa: F401,E501
 from app.openapi_server.models.move_summary import MoveSummary  # noqa: F401,E501
-from app.openapi_server.models.type_detail_damage_relations import TypeDetailDamageRelations  # noqa: F401,E501
-from app.openapi_server.models.type_detail_past_damage_relations_inner import TypeDetailPastDamageRelationsInner  # noqa: F401,E501
-from app.openapi_server.models.type_detail_pokemon_inner import TypeDetailPokemonInner  # noqa: F401,E501
-from app.openapi_server.models.type_detail_sprites_value_value import TypeDetailSpritesValueValue  # noqa: F401,E501
 from app.openapi_server.models.type_game_index import TypeGameIndex  # noqa: F401,E501
+from app.openapi_server.models.type_game_sprite import TypeGameSprite  # noqa: F401,E501
+from app.openapi_server.models.type_name import TypeName  # noqa: F401,E501
+from app.openapi_server.models.type_past_relationships import TypePastRelationships  # noqa: F401,E501
+from app.openapi_server.models.type_pokemon import TypePokemon  # noqa: F401,E501
+from app.openapi_server.models.type_relationships import TypeRelationships  # noqa: F401,E501
 from openapi_server import util
 
 
@@ -24,7 +24,7 @@ class TypeDetail(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, id: int=None, name: str=None, damage_relations: TypeDetailDamageRelations=None, past_damage_relations: List[TypeDetailPastDamageRelationsInner]=None, game_indices: List[TypeGameIndex]=None, generation: GenerationSummary=None, move_damage_class: MoveDamageClassSummary=None, names: List[AbilityName]=None, pokemon: List[TypeDetailPokemonInner]=None, moves: List[MoveSummary]=None, sprites: Dict[str, Dict[str, TypeDetailSpritesValueValue]]=None):  # noqa: E501
+    def __init__(self, id: int=None, name: str=None, damage_relations: TypeRelationships=None, past_damage_relations: List[TypePastRelationships]=None, game_indices: List[TypeGameIndex]=None, generation: GenerationSummary=None, move_damage_class: MoveDamageClassSummary=None, names: List[TypeName]=None, pokemon: List[TypePokemon]=None, moves: List[MoveSummary]=None, sprites: Dict[str, Dict[str, TypeGameSprite]]=None):  # noqa: E501
         """TypeDetail - a model defined in Swagger
 
         :param id: The id of this TypeDetail.  # noqa: E501
@@ -32,9 +32,9 @@ class TypeDetail(Model):
         :param name: The name of this TypeDetail.  # noqa: E501
         :type name: str
         :param damage_relations: The damage_relations of this TypeDetail.  # noqa: E501
-        :type damage_relations: TypeDetailDamageRelations
+        :type damage_relations: TypeRelationships
         :param past_damage_relations: The past_damage_relations of this TypeDetail.  # noqa: E501
-        :type past_damage_relations: List[TypeDetailPastDamageRelationsInner]
+        :type past_damage_relations: List[TypePastRelationships]
         :param game_indices: The game_indices of this TypeDetail.  # noqa: E501
         :type game_indices: List[TypeGameIndex]
         :param generation: The generation of this TypeDetail.  # noqa: E501
@@ -42,26 +42,26 @@ class TypeDetail(Model):
         :param move_damage_class: The move_damage_class of this TypeDetail.  # noqa: E501
         :type move_damage_class: MoveDamageClassSummary
         :param names: The names of this TypeDetail.  # noqa: E501
-        :type names: List[AbilityName]
+        :type names: List[TypeName]
         :param pokemon: The pokemon of this TypeDetail.  # noqa: E501
-        :type pokemon: List[TypeDetailPokemonInner]
+        :type pokemon: List[TypePokemon]
         :param moves: The moves of this TypeDetail.  # noqa: E501
         :type moves: List[MoveSummary]
         :param sprites: The sprites of this TypeDetail.  # noqa: E501
-        :type sprites: Dict[str, Dict[str, TypeDetailSpritesValueValue]]
+        :type sprites: Dict[str, Dict[str, TypeGameSprite]]
         """
         self.swagger_types = {
             'id': int,
             'name': str,
-            'damage_relations': TypeDetailDamageRelations,
-            'past_damage_relations': List[TypeDetailPastDamageRelationsInner],
+            'damage_relations': TypeRelationships,
+            'past_damage_relations': List[TypePastRelationships],
             'game_indices': List[TypeGameIndex],
             'generation': GenerationSummary,
             'move_damage_class': MoveDamageClassSummary,
-            'names': List[AbilityName],
-            'pokemon': List[TypeDetailPokemonInner],
+            'names': List[TypeName],
+            'pokemon': List[TypePokemon],
             'moves': List[MoveSummary],
-            'sprites': Dict[str, Dict[str, TypeDetailSpritesValueValue]]
+            'sprites': Dict[str, Dict[str, TypeGameSprite]]
         }
 
         self.attribute_map = {
@@ -105,6 +105,7 @@ class TypeDetail(Model):
     def id(self) -> int:
         """Gets the id of this TypeDetail.
 
+        The identifier for this resource.  # noqa: E501
 
         :return: The id of this TypeDetail.
         :rtype: int
@@ -115,6 +116,7 @@ class TypeDetail(Model):
     def id(self, id: int):
         """Sets the id of this TypeDetail.
 
+        The identifier for this resource.  # noqa: E501
 
         :param id: The id of this TypeDetail.
         :type id: int
@@ -128,6 +130,7 @@ class TypeDetail(Model):
     def name(self) -> str:
         """Gets the name of this TypeDetail.
 
+        The name for this resource.  # noqa: E501
 
         :return: The name of this TypeDetail.
         :rtype: str
@@ -138,34 +141,37 @@ class TypeDetail(Model):
     def name(self, name: str):
         """Sets the name of this TypeDetail.
 
+        The name for this resource.  # noqa: E501
 
         :param name: The name of this TypeDetail.
         :type name: str
         """
         if name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
-        if name is not None and len(name) > 100:
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `100`")  # noqa: E501
+        if name is not None and len(name) > 200:
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `200`")  # noqa: E501
 
         self._name = name
 
     @property
-    def damage_relations(self) -> TypeDetailDamageRelations:
+    def damage_relations(self) -> TypeRelationships:
         """Gets the damage_relations of this TypeDetail.
 
+        A detail of how effective this type is toward others and vice versa.  # noqa: E501
 
         :return: The damage_relations of this TypeDetail.
-        :rtype: TypeDetailDamageRelations
+        :rtype: TypeRelationships
         """
         return self._damage_relations
 
     @damage_relations.setter
-    def damage_relations(self, damage_relations: TypeDetailDamageRelations):
+    def damage_relations(self, damage_relations: TypeRelationships):
         """Sets the damage_relations of this TypeDetail.
 
+        A detail of how effective this type is toward others and vice versa.  # noqa: E501
 
         :param damage_relations: The damage_relations of this TypeDetail.
-        :type damage_relations: TypeDetailDamageRelations
+        :type damage_relations: TypeRelationships
         """
         if damage_relations is None:
             raise ValueError("Invalid value for `damage_relations`, must not be `None`")  # noqa: E501
@@ -173,22 +179,24 @@ class TypeDetail(Model):
         self._damage_relations = damage_relations
 
     @property
-    def past_damage_relations(self) -> List[TypeDetailPastDamageRelationsInner]:
+    def past_damage_relations(self) -> List[TypePastRelationships]:
         """Gets the past_damage_relations of this TypeDetail.
 
+        A list of details of how effective this type was toward others and vice versa in previous generations  # noqa: E501
 
         :return: The past_damage_relations of this TypeDetail.
-        :rtype: List[TypeDetailPastDamageRelationsInner]
+        :rtype: List[TypePastRelationships]
         """
         return self._past_damage_relations
 
     @past_damage_relations.setter
-    def past_damage_relations(self, past_damage_relations: List[TypeDetailPastDamageRelationsInner]):
+    def past_damage_relations(self, past_damage_relations: List[TypePastRelationships]):
         """Sets the past_damage_relations of this TypeDetail.
 
+        A list of details of how effective this type was toward others and vice versa in previous generations  # noqa: E501
 
         :param past_damage_relations: The past_damage_relations of this TypeDetail.
-        :type past_damage_relations: List[TypeDetailPastDamageRelationsInner]
+        :type past_damage_relations: List[TypePastRelationships]
         """
         if past_damage_relations is None:
             raise ValueError("Invalid value for `past_damage_relations`, must not be `None`")  # noqa: E501
@@ -199,6 +207,7 @@ class TypeDetail(Model):
     def game_indices(self) -> List[TypeGameIndex]:
         """Gets the game_indices of this TypeDetail.
 
+        A list of game indices relevent to this item by generation.  # noqa: E501
 
         :return: The game_indices of this TypeDetail.
         :rtype: List[TypeGameIndex]
@@ -209,6 +218,7 @@ class TypeDetail(Model):
     def game_indices(self, game_indices: List[TypeGameIndex]):
         """Sets the game_indices of this TypeDetail.
 
+        A list of game indices relevent to this item by generation.  # noqa: E501
 
         :param game_indices: The game_indices of this TypeDetail.
         :type game_indices: List[TypeGameIndex]
@@ -222,6 +232,7 @@ class TypeDetail(Model):
     def generation(self) -> GenerationSummary:
         """Gets the generation of this TypeDetail.
 
+        The generation this type was introduced in.  # noqa: E501
 
         :return: The generation of this TypeDetail.
         :rtype: GenerationSummary
@@ -232,6 +243,7 @@ class TypeDetail(Model):
     def generation(self, generation: GenerationSummary):
         """Sets the generation of this TypeDetail.
 
+        The generation this type was introduced in.  # noqa: E501
 
         :param generation: The generation of this TypeDetail.
         :type generation: GenerationSummary
@@ -245,6 +257,7 @@ class TypeDetail(Model):
     def move_damage_class(self) -> MoveDamageClassSummary:
         """Gets the move_damage_class of this TypeDetail.
 
+        The class of damage inflicted by this type.  # noqa: E501
 
         :return: The move_damage_class of this TypeDetail.
         :rtype: MoveDamageClassSummary
@@ -255,6 +268,7 @@ class TypeDetail(Model):
     def move_damage_class(self, move_damage_class: MoveDamageClassSummary):
         """Sets the move_damage_class of this TypeDetail.
 
+        The class of damage inflicted by this type.  # noqa: E501
 
         :param move_damage_class: The move_damage_class of this TypeDetail.
         :type move_damage_class: MoveDamageClassSummary
@@ -265,22 +279,24 @@ class TypeDetail(Model):
         self._move_damage_class = move_damage_class
 
     @property
-    def names(self) -> List[AbilityName]:
+    def names(self) -> List[TypeName]:
         """Gets the names of this TypeDetail.
 
+        The name of this resource listed in different languages.  # noqa: E501
 
         :return: The names of this TypeDetail.
-        :rtype: List[AbilityName]
+        :rtype: List[TypeName]
         """
         return self._names
 
     @names.setter
-    def names(self, names: List[AbilityName]):
+    def names(self, names: List[TypeName]):
         """Sets the names of this TypeDetail.
 
+        The name of this resource listed in different languages.  # noqa: E501
 
         :param names: The names of this TypeDetail.
-        :type names: List[AbilityName]
+        :type names: List[TypeName]
         """
         if names is None:
             raise ValueError("Invalid value for `names`, must not be `None`")  # noqa: E501
@@ -288,22 +304,24 @@ class TypeDetail(Model):
         self._names = names
 
     @property
-    def pokemon(self) -> List[TypeDetailPokemonInner]:
+    def pokemon(self) -> List[TypePokemon]:
         """Gets the pokemon of this TypeDetail.
 
+        A list of details of Pokémon that have this type.  # noqa: E501
 
         :return: The pokemon of this TypeDetail.
-        :rtype: List[TypeDetailPokemonInner]
+        :rtype: List[TypePokemon]
         """
         return self._pokemon
 
     @pokemon.setter
-    def pokemon(self, pokemon: List[TypeDetailPokemonInner]):
+    def pokemon(self, pokemon: List[TypePokemon]):
         """Sets the pokemon of this TypeDetail.
 
+        A list of details of Pokémon that have this type.  # noqa: E501
 
         :param pokemon: The pokemon of this TypeDetail.
-        :type pokemon: List[TypeDetailPokemonInner]
+        :type pokemon: List[TypePokemon]
         """
         if pokemon is None:
             raise ValueError("Invalid value for `pokemon`, must not be `None`")  # noqa: E501
@@ -314,6 +332,7 @@ class TypeDetail(Model):
     def moves(self) -> List[MoveSummary]:
         """Gets the moves of this TypeDetail.
 
+        A list of moves that have this type.  # noqa: E501
 
         :return: The moves of this TypeDetail.
         :rtype: List[MoveSummary]
@@ -324,6 +343,7 @@ class TypeDetail(Model):
     def moves(self, moves: List[MoveSummary]):
         """Sets the moves of this TypeDetail.
 
+        A list of moves that have this type.  # noqa: E501
 
         :param moves: The moves of this TypeDetail.
         :type moves: List[MoveSummary]
@@ -334,22 +354,24 @@ class TypeDetail(Model):
         self._moves = moves
 
     @property
-    def sprites(self) -> Dict[str, Dict[str, TypeDetailSpritesValueValue]]:
+    def sprites(self) -> Dict[str, Dict[str, TypeGameSprite]]:
         """Gets the sprites of this TypeDetail.
 
+        Type icons grouped by generation and game, with name_icon and symbol_icon URLs. Unavailable icons are null.  # noqa: E501
 
         :return: The sprites of this TypeDetail.
-        :rtype: Dict[str, Dict[str, TypeDetailSpritesValueValue]]
+        :rtype: Dict[str, Dict[str, TypeGameSprite]]
         """
         return self._sprites
 
     @sprites.setter
-    def sprites(self, sprites: Dict[str, Dict[str, TypeDetailSpritesValueValue]]):
+    def sprites(self, sprites: Dict[str, Dict[str, TypeGameSprite]]):
         """Sets the sprites of this TypeDetail.
 
+        Type icons grouped by generation and game, with name_icon and symbol_icon URLs. Unavailable icons are null.  # noqa: E501
 
         :param sprites: The sprites of this TypeDetail.
-        :type sprites: Dict[str, Dict[str, TypeDetailSpritesValueValue]]
+        :type sprites: Dict[str, Dict[str, TypeGameSprite]]
         """
         if sprites is None:
             raise ValueError("Invalid value for `sprites`, must not be `None`")  # noqa: E501

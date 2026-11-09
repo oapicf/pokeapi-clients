@@ -19,29 +19,29 @@ resourceTypes {
     properties {
         id {
           type =  integer
-          description = ""
+          description = "The identifier for this resource."
           optional = true
         }
         appeal {
           type =  integer
-          description = ""
+          description = "The base number of hearts the user of this move gets."
           optional = true
         }
         jam {
           type =  integer
-          description = ""
+          description = "The base number of hearts the user&#39;s opponent loses."
           optional = true
         }
         effect_entries {
           type = array
           items.type = ContestEffectEffectText
-          description = ""
+          description = "The result of this contest effect listed in different languages."
           optional = true
         }
         flavor_text_entries {
           type = array
           items.type = ContestEffectFlavorText
-          description = ""
+          description = "The flavor text of this contest effect listed in different languages."
           optional = true
         }
     }

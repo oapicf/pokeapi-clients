@@ -1,8 +1,8 @@
 package org.openapitools.model;
 
-import org.openapitools.model.LocationAreaDetailEncounterMethodRatesInner;
-import org.openapitools.model.LocationAreaDetailPokemonEncountersInner;
+import org.openapitools.model.LocationAreaEncounterRate;
 import org.openapitools.model.LocationAreaName;
+import org.openapitools.model.LocationAreaPokemonEncounter;
 import org.openapitools.model.LocationSummary;
 import java.util.*;
 import java.util.Objects;
@@ -16,29 +16,50 @@ import java.math.*;
 public class LocationAreaDetail implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * The identifier for this resource.
+   */
   @JsonProperty("id")
   private Integer id;
 
+  /**
+   * The name for this resource.
+   */
   @JsonProperty("name")
   private String name;
 
+  /**
+   * The internal id of an API resource within game data.
+   */
   @JsonProperty("game_index")
   private Integer gameIndex;
 
+  /**
+   * A list of methods in which Pokémon may be encountered in this area and how likely the method will occur depending on the version of the game.
+   */
   @JsonProperty("encounter_method_rates")
-  private List<LocationAreaDetailEncounterMethodRatesInner> encounterMethodRates = new ArrayList<>();
+  private List<LocationAreaEncounterRate> encounterMethodRates = new ArrayList<>();
 
+  /**
+   * The region this location area can be found in.
+   */
   @JsonProperty("location")
   private LocationSummary location;
 
+  /**
+   * The name of this resource listed in different languages.
+   */
   @JsonProperty("names")
   private List<LocationAreaName> names = new ArrayList<>();
 
+  /**
+   * A list of Pokémon that can be encountered in this area along with version specific details about the encounter.
+   */
   @JsonProperty("pokemon_encounters")
-  private List<LocationAreaDetailPokemonEncountersInner> pokemonEncounters = new ArrayList<>();
+  private List<LocationAreaPokemonEncounter> pokemonEncounters = new ArrayList<>();
 
   /**
-   * 
+   * The identifier for this resource.
    * @return id
    */
   public Integer getId() {
@@ -50,7 +71,7 @@ public class LocationAreaDetail implements Serializable {
   }
 
   /**
-   * 
+   * The name for this resource.
    * @return name
    */
   public String getName() {
@@ -62,7 +83,7 @@ public class LocationAreaDetail implements Serializable {
   }
 
   /**
-   * 
+   * The internal id of an API resource within game data.
    * @return gameIndex
    */
   public Integer getGameIndex() {
@@ -74,19 +95,19 @@ public class LocationAreaDetail implements Serializable {
   }
 
   /**
-   * 
+   * A list of methods in which Pokémon may be encountered in this area and how likely the method will occur depending on the version of the game.
    * @return encounterMethodRates
    */
-  public List<LocationAreaDetailEncounterMethodRatesInner> getEncounterMethodRates() {
+  public List<LocationAreaEncounterRate> getEncounterMethodRates() {
     return encounterMethodRates;
   }
 
-  public void setEncounterMethodRates(List<LocationAreaDetailEncounterMethodRatesInner> encounterMethodRates) {
+  public void setEncounterMethodRates(List<LocationAreaEncounterRate> encounterMethodRates) {
     this.encounterMethodRates = encounterMethodRates;
   }
 
   /**
-   * 
+   * The region this location area can be found in.
    * @return location
    */
   public LocationSummary getLocation() {
@@ -98,7 +119,7 @@ public class LocationAreaDetail implements Serializable {
   }
 
   /**
-   * 
+   * The name of this resource listed in different languages.
    * @return names
    */
   public List<LocationAreaName> getNames() {
@@ -110,14 +131,14 @@ public class LocationAreaDetail implements Serializable {
   }
 
   /**
-   * 
+   * A list of Pokémon that can be encountered in this area along with version specific details about the encounter.
    * @return pokemonEncounters
    */
-  public List<LocationAreaDetailPokemonEncountersInner> getPokemonEncounters() {
+  public List<LocationAreaPokemonEncounter> getPokemonEncounters() {
     return pokemonEncounters;
   }
 
-  public void setPokemonEncounters(List<LocationAreaDetailPokemonEncountersInner> pokemonEncounters) {
+  public void setPokemonEncounters(List<LocationAreaPokemonEncounter> pokemonEncounters) {
     this.pokemonEncounters = pokemonEncounters;
   }
 

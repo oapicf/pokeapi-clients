@@ -21,6 +21,7 @@ public class ItemFlingEffectEffectText   {
   private LanguageSummary language;
 
   /**
+   * The localized effect text for an API resource in a specific language.
    **/
   public ItemFlingEffectEffectText effect(String effect) {
     this.effect = effect;
@@ -28,7 +29,7 @@ public class ItemFlingEffectEffectText   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The localized effect text for an API resource in a specific language.")
   @JsonProperty("effect")
   @NotNull
  @Size(max=6000)  public String getEffect() {
@@ -40,6 +41,7 @@ public class ItemFlingEffectEffectText   {
 
 
   /**
+   * The language this effect is in.
    **/
   public ItemFlingEffectEffectText language(LanguageSummary language) {
     this.language = language;
@@ -47,7 +49,7 @@ public class ItemFlingEffectEffectText   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The language this effect is in.")
   @JsonProperty("language")
   @NotNull
   public LanguageSummary getLanguage() {

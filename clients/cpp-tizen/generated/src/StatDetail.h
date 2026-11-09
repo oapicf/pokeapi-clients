@@ -10,9 +10,10 @@
 
 #include <string>
 #include "CharacteristicSummary.h"
+#include "ItemSummary.h"
 #include "MoveDamageClassSummary.h"
-#include "StatDetail_affecting_moves.h"
-#include "StatDetail_affecting_natures.h"
+#include "StatAffectingMoves.h"
+#include "StatAffectingNatures.h"
 #include "StatName.h"
 #include <list>
 #include "Object.h"
@@ -51,67 +52,74 @@ public:
 	 */
 	void fromJson(char* jsonStr);
 
-	/*! \brief Get 
+	/*! \brief Get The identifier for this resource.
 	 */
 	int getId();
 
-	/*! \brief Set 
+	/*! \brief Set The identifier for this resource.
 	 */
 	void setId(int  id);
-	/*! \brief Get 
+	/*! \brief Get The name for this resource.
 	 */
 	std::string getName();
 
-	/*! \brief Set 
+	/*! \brief Set The name for this resource.
 	 */
 	void setName(std::string  name);
-	/*! \brief Get 
+	/*! \brief Get ID the games use for this stat.
 	 */
 	int getGameIndex();
 
-	/*! \brief Set 
+	/*! \brief Set ID the games use for this stat.
 	 */
 	void setGameIndex(int  game_index);
-	/*! \brief Get 
+	/*! \brief Get Whether this stat only exists within a battle.
 	 */
 	bool getIsBattleOnly();
 
-	/*! \brief Set 
+	/*! \brief Set Whether this stat only exists within a battle.
 	 */
 	void setIsBattleOnly(bool  is_battle_only);
-	/*! \brief Get 
+	/*! \brief Get A detail of moves which affect this stat positively or negatively.
 	 */
-	StatDetail_affecting_moves getAffectingMoves();
+	StatAffectingMoves getAffectingMoves();
 
-	/*! \brief Set 
+	/*! \brief Set A detail of moves which affect this stat positively or negatively.
 	 */
-	void setAffectingMoves(StatDetail_affecting_moves  affecting_moves);
-	/*! \brief Get 
+	void setAffectingMoves(StatAffectingMoves  affecting_moves);
+	/*! \brief Get A detail of natures which affect this stat positively or negatively.
 	 */
-	StatDetail_affecting_natures getAffectingNatures();
+	StatAffectingNatures getAffectingNatures();
 
-	/*! \brief Set 
+	/*! \brief Set A detail of natures which affect this stat positively or negatively.
 	 */
-	void setAffectingNatures(StatDetail_affecting_natures  affecting_natures);
-	/*! \brief Get 
+	void setAffectingNatures(StatAffectingNatures  affecting_natures);
+	/*! \brief Get Items that affect this stat, such as vitamins and battle items.
+	 */
+	std::list<ItemSummary> getAffectingItems();
+
+	/*! \brief Set Items that affect this stat, such as vitamins and battle items.
+	 */
+	void setAffectingItems(std::list <ItemSummary> affecting_items);
+	/*! \brief Get A list of characteristics that are set on a Pokémon when its highest base stat is this stat.
 	 */
 	std::list<CharacteristicSummary> getCharacteristics();
 
-	/*! \brief Set 
+	/*! \brief Set A list of characteristics that are set on a Pokémon when its highest base stat is this stat.
 	 */
 	void setCharacteristics(std::list <CharacteristicSummary> characteristics);
-	/*! \brief Get 
+	/*! \brief Get The class of damage this stat is directly related to.
 	 */
 	MoveDamageClassSummary getMoveDamageClass();
 
-	/*! \brief Set 
+	/*! \brief Set The class of damage this stat is directly related to.
 	 */
 	void setMoveDamageClass(MoveDamageClassSummary  move_damage_class);
-	/*! \brief Get 
+	/*! \brief Get The name of this resource listed in different languages.
 	 */
 	std::list<StatName> getNames();
 
-	/*! \brief Set 
+	/*! \brief Set The name of this resource listed in different languages.
 	 */
 	void setNames(std::list <StatName> names);
 
@@ -120,8 +128,9 @@ private:
 	std::string name;
 	int game_index;
 	bool is_battle_only;
-	StatDetail_affecting_moves affecting_moves;
-	StatDetail_affecting_natures affecting_natures;
+	StatAffectingMoves affecting_moves;
+	StatAffectingNatures affecting_natures;
+	std::list <ItemSummary>affecting_items;
 	std::list <CharacteristicSummary>characteristics;
 	MoveDamageClassSummary move_damage_class;
 	std::list <StatName>names;

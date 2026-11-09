@@ -1,9 +1,9 @@
 /*
 PokéAPI
 
-All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
 
-API version: 2.7.0
+API version: 2.10.0
 Contact: blah+oapicf@cliffano.com
 */
 
@@ -55,7 +55,7 @@ func (r ApiAbilityListRequest) Execute() (*PaginatedAbilitySummaryList, *http.Re
 }
 
 /*
-AbilityList Method for AbilityList
+AbilityList List abilities
 
 Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
 
@@ -164,7 +164,7 @@ func (r ApiAbilityRetrieveRequest) Execute() (*AbilityDetail, *http.Response, er
 }
 
 /*
-AbilityRetrieve Method for AbilityRetrieve
+AbilityRetrieve Get ability
 
 Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
 
@@ -261,7 +261,6 @@ type ApiCharacteristicListRequest struct {
 	ApiService *PokemonAPIService
 	limit *int32
 	offset *int32
-	q *string
 }
 
 // Number of results to return per page.
@@ -276,18 +275,12 @@ func (r ApiCharacteristicListRequest) Offset(offset int32) ApiCharacteristicList
 	return r
 }
 
-// &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. 
-func (r ApiCharacteristicListRequest) Q(q string) ApiCharacteristicListRequest {
-	r.q = &q
-	return r
-}
-
 func (r ApiCharacteristicListRequest) Execute() (*PaginatedCharacteristicSummaryList, *http.Response, error) {
 	return r.ApiService.CharacteristicListExecute(r)
 }
 
 /*
-CharacteristicList List charecterictics
+CharacteristicList List characteristics
 
 Characteristics indicate which stat contains a Pokémon's highest IV. A Pokémon's Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail.
 
@@ -327,9 +320,6 @@ func (a *PokemonAPIService) CharacteristicListExecute(r ApiCharacteristicListReq
 	}
 	if r.offset != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "form", "")
-	}
-	if r.q != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "q", r.q, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

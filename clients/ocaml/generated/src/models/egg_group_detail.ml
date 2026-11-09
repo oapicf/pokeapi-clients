@@ -15,23 +15,27 @@
                 
                 
                 ; [@key "id"]
-                                              name: string
+                    (** The identifier for this resource. *)
+                                      name: string
                   
                   
                 
                 
                 ; [@key "name"]
-                                              names: Egg_group_name.t list
+                    (** The name for this resource. *)
+                                      names: Egg_group_name.t list
                 
                 
                 ; [@key "names"]
-                                              pokemon_species: Egg_group_detail_pokemon_species_inner.t list
+                    (** The name of this resource listed in different languages. *)
+                                      pokemon_species: Pokemon_species_summary.t list
                 
                 
                 ; [@key "pokemon_species"]
-                        } [@@deriving yojson { strict = false }, show, eq ];;
+                    (** A list of all Pokémon species that are members of this egg group. *)
+                } [@@deriving yojson { strict = false }, show, eq ];;
         
-        let create (id : int32) (name : string) (names : Egg_group_name.t list) (pokemon_species : Egg_group_detail_pokemon_species_inner.t list) : t = {
+        let create (id : int32) (name : string) (names : Egg_group_name.t list) (pokemon_species : Pokemon_species_summary.t list) : t = {
             id = id;
             name = name;
             names = names;

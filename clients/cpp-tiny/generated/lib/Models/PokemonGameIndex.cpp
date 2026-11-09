@@ -7,7 +7,7 @@ using namespace Tiny;
 PokemonGameIndex::PokemonGameIndex()
 {
 	game_index = int(0);
-	version = VersionSummary();
+	version = null;
 }
 
 PokemonGameIndex::PokemonGameIndex(std::string jsonString)

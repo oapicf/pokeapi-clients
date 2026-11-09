@@ -15,131 +15,155 @@
                 
                 
                 ; [@key "id"]
-                                              name: string
+                    (** The identifier for this resource. *)
+                                      name: string
                   
                   
                 
                 
                 ; [@key "name"]
-                                              accuracy: int32
+                    (** The name for this resource. *)
+                                      accuracy: int32
                   
                    option [@default None]
                 
                 
                 ; [@key "accuracy"]
-                                              effect_chance: int32
-                  
+                    (** The percent value of how likely this move is to be successful. *)
+                                      effect_chance: int32
+                   option
                   
                 
                 
                 ; [@key "effect_chance"]
-                                              pp: int32
+                    (** The percent value of how likely it is this moves effect will happen. *)
+                                      pp: int32
                   
                    option [@default None]
                 
                 
                 ; [@key "pp"]
-                                              priority: int32
+                    (** Power points. The number of times this move can be used. *)
+                                      priority: int32
                   
                    option [@default None]
                 
                 
                 ; [@key "priority"]
-                                              power: int32
+                    (** A value between -8 and 8. Sets the order in which moves are executed during battle. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Priority) for greater detail. *)
+                                      power: int32
                   
                    option [@default None]
                 
                 
                 ; [@key "power"]
-                                              contest_combos: Move_detail_contest_combos.t
-                  
+                    (** The base power of this move, or null if it has no fixed base power. *)
+                                      contest_combos: Move_combos.t
+                   option
                   
                 
                 
                 ; [@key "contest_combos"]
-                                              contest_type: Contest_type_summary.t
-                  
+                    (** A detail of normal and super contest combos that require this move. *)
+                                      contest_type: Contest_type_summary.t
+                   option
                   
                 
                 
                 ; [@key "contest_type"]
-                                              contest_effect: Contest_effect_summary.t
-                  
+                    (** The type of appeal this move gives a Pokémon when used in a contest. *)
+                                      contest_effect: Contest_effect_summary.t
+                   option
                   
                 
                 
                 ; [@key "contest_effect"]
-                                              damage_class: Move_damage_class_summary.t
+                    (** The effect the move has when used in a contest. *)
+                                      damage_class: Move_damage_class_summary.t
                   
                   
                 
                 
                 ; [@key "damage_class"]
-                                              effect_entries: Move_change_effect_entries_inner.t list
+                    (** The type of damage the move inflicts on the target, e.g. physical. *)
+                                      effect_entries: Move_effect_effect_text.t list
                 
                 
                 ; [@key "effect_entries"]
-                                              effect_changes: Move_detail_effect_changes_inner.t list
+                    (** The effect of this move listed in different languages. *)
+                                      effect_changes: Move_effect_change.t list
                 
                 
                 ; [@key "effect_changes"]
-                                              generation: Generation_summary.t
+                    (** The list of previous effects this move has had across version groups of the games. *)
+                                      generation: Generation_summary.t
                   
                   
                 
                 
                 ; [@key "generation"]
-                                              meta: Move_meta.t
-                  
+                    (** The generation in which this move was introduced. *)
+                                      meta: Move_meta.t
+                   option
                   
                 
                 
                 ; [@key "meta"]
-                                              names: Move_name.t list
+                    (** Metadata about this move *)
+                                      names: Move_name.t list
                 
                 
                 ; [@key "names"]
-                                              past_values: Move_change.t list
+                    (** The name of this resource listed in different languages. *)
+                                      past_values: Move_change.t list
                 
                 
                 ; [@key "past_values"]
-                                              stat_changes: Move_detail_stat_changes_inner.t list
+                    (** A list of move resource value changes across version groups of the game. *)
+                                      stat_changes: Move_meta_stat_change.t list
                 
                 
                 ; [@key "stat_changes"]
-                                              super_contest_effect: Super_contest_effect_summary.t
-                  
+                    (** A list of stats this moves effects and how much it effects them. *)
+                                      super_contest_effect: Super_contest_effect_summary.t
+                   option
                   
                 
                 
                 ; [@key "super_contest_effect"]
-                                              target: Move_target_summary.t
+                    (** The effect the move has when used in a super contest. *)
+                                      target: Move_target_summary.t
                   
                   
                 
                 
                 ; [@key "target"]
-                                              _type: Type_summary.t
+                    (** The type of target that will receive the effects of the attack. *)
+                                      _type: Type_summary.t
                   
                   
                 
                 
                 ; [@key "type"]
-                                              machines: Move_detail_machines_inner.t list
+                    (** The elemental type of this move. *)
+                                      machines: Item_machine.t list
                 
                 
                 ; [@key "machines"]
-                                              flavor_text_entries: Move_flavor_text.t list
+                    (** A list of the machines that teach this move. *)
+                                      flavor_text_entries: Move_flavor_text.t list
                 
                 
                 ; [@key "flavor_text_entries"]
-                                              learned_by_pokemon: Ability_detail_pokemon_inner_pokemon.t list
+                    (** The flavor text of this move listed in different languages. *)
+                                      learned_by_pokemon: Pokemon_summary.t list
                 
                 
                 ; [@key "learned_by_pokemon"]
-                        } [@@deriving yojson { strict = false }, show, eq ];;
+                    (** List of Pokemon that can learn the move *)
+                } [@@deriving yojson { strict = false }, show, eq ];;
         
-        let create (id : int32) (name : string) (effect_chance : int32) (contest_combos : Move_detail_contest_combos.t) (contest_type : Contest_type_summary.t) (contest_effect : Contest_effect_summary.t) (damage_class : Move_damage_class_summary.t) (effect_entries : Move_change_effect_entries_inner.t list) (effect_changes : Move_detail_effect_changes_inner.t list) (generation : Generation_summary.t) (meta : Move_meta.t) (names : Move_name.t list) (past_values : Move_change.t list) (stat_changes : Move_detail_stat_changes_inner.t list) (super_contest_effect : Super_contest_effect_summary.t) (target : Move_target_summary.t) (_type : Type_summary.t) (machines : Move_detail_machines_inner.t list) (flavor_text_entries : Move_flavor_text.t list) (learned_by_pokemon : Ability_detail_pokemon_inner_pokemon.t list) : t = {
+        let create (id : int32) (name : string) (effect_chance : int32 option) (contest_combos : Move_combos.t option) (contest_type : Contest_type_summary.t option) (contest_effect : Contest_effect_summary.t option) (damage_class : Move_damage_class_summary.t) (effect_entries : Move_effect_effect_text.t list) (effect_changes : Move_effect_change.t list) (generation : Generation_summary.t) (meta : Move_meta.t option) (names : Move_name.t list) (past_values : Move_change.t list) (stat_changes : Move_meta_stat_change.t list) (super_contest_effect : Super_contest_effect_summary.t option) (target : Move_target_summary.t) (_type : Type_summary.t) (machines : Item_machine.t list) (flavor_text_entries : Move_flavor_text.t list) (learned_by_pokemon : Pokemon_summary.t list) : t = {
             id = id;
             name = name;
             accuracy = None;

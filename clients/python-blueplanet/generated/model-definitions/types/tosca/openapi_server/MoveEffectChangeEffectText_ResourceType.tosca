@@ -1,0 +1,41 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server MoveEffectChangeEffectText"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a MoveEffectChangeEffectText"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  LanguageSummary = openapi_server.resourceTypes.LanguageSummary
+}
+resourceTypes {
+
+  MoveEffectChangeEffectText {
+    title = MoveEffectChangeEffectText
+    description = MoveEffectChangeEffectText
+    derivedFrom = Root
+    properties {
+        effect {
+          type =  string
+          description = "The localized effect text for an API resource in a specific language."
+          optional = true
+        }
+        language {
+          type = LanguageSummary
+          description = "The language this effect is in."
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  MoveEffectChangeEffectText {
+    title = MoveEffectChangeEffectText
+    description = MoveEffectChangeEffectText
+    implements = openapi_server.resourceTypes.MoveEffectChangeEffectText
+
+  }
+}

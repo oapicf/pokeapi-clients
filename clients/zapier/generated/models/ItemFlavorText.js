@@ -8,7 +8,7 @@ module.exports = {
         return [
             {
                 key: `${keyPrefix}text`,
-                label: `[${labelPrefix}text]`,
+                label: `The localized flavor text for an API resource in a specific language. - [${labelPrefix}text]`,
                 required: true,
                 type: 'string',
             },

@@ -34,7 +34,7 @@ object ContestsApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def contestEffectList(host: String, limit: Integer, offset: Integer, q: String)(implicit limitQuery: QueryParam[Integer], offsetQuery: QueryParam[Integer], qQuery: QueryParam[String]): Task[PaginatedContestEffectSummaryList] = {
+  def contestEffectList(host: String, limit: Integer, offset: Integer)(implicit limitQuery: QueryParam[Integer], offsetQuery: QueryParam[Integer]): Task[PaginatedContestEffectSummaryList] = {
     implicit val returnTypeDecoder: EntityDecoder[PaginatedContestEffectSummaryList] = jsonOf[PaginatedContestEffectSummaryList]
 
     val path = "/api/v2/contest-effect/"
@@ -44,7 +44,7 @@ object ContestsApi {
     val headers = Headers(
       )
     val queryParams = Query(
-      ("limit", Some(limitQuery.toParamString(limit))), ("offset", Some(offsetQuery.toParamString(offset))), ("q", Some(qQuery.toParamString(q))))
+      ("limit", Some(limitQuery.toParamString(limit))), ("offset", Some(offsetQuery.toParamString(offset))))
 
     for {
       uri           <- Task.fromDisjunction(Uri.fromString(host + path))
@@ -118,7 +118,7 @@ object ContestsApi {
     } yield resp
   }
 
-  def superContestEffectList(host: String, limit: Integer, offset: Integer, q: String)(implicit limitQuery: QueryParam[Integer], offsetQuery: QueryParam[Integer], qQuery: QueryParam[String]): Task[PaginatedSuperContestEffectSummaryList] = {
+  def superContestEffectList(host: String, limit: Integer, offset: Integer)(implicit limitQuery: QueryParam[Integer], offsetQuery: QueryParam[Integer]): Task[PaginatedSuperContestEffectSummaryList] = {
     implicit val returnTypeDecoder: EntityDecoder[PaginatedSuperContestEffectSummaryList] = jsonOf[PaginatedSuperContestEffectSummaryList]
 
     val path = "/api/v2/super-contest-effect/"
@@ -128,7 +128,7 @@ object ContestsApi {
     val headers = Headers(
       )
     val queryParams = Query(
-      ("limit", Some(limitQuery.toParamString(limit))), ("offset", Some(offsetQuery.toParamString(offset))), ("q", Some(qQuery.toParamString(q))))
+      ("limit", Some(limitQuery.toParamString(limit))), ("offset", Some(offsetQuery.toParamString(offset))))
 
     for {
       uri           <- Task.fromDisjunction(Uri.fromString(host + path))
@@ -167,7 +167,7 @@ class HttpServiceContestsApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def contestEffectList(limit: Integer, offset: Integer, q: String)(implicit limitQuery: QueryParam[Integer], offsetQuery: QueryParam[Integer], qQuery: QueryParam[String]): Task[PaginatedContestEffectSummaryList] = {
+  def contestEffectList(limit: Integer, offset: Integer)(implicit limitQuery: QueryParam[Integer], offsetQuery: QueryParam[Integer]): Task[PaginatedContestEffectSummaryList] = {
     implicit val returnTypeDecoder: EntityDecoder[PaginatedContestEffectSummaryList] = jsonOf[PaginatedContestEffectSummaryList]
 
     val path = "/api/v2/contest-effect/"
@@ -177,7 +177,7 @@ class HttpServiceContestsApi(service: HttpService) {
     val headers = Headers(
       )
     val queryParams = Query(
-      ("limit", Some(limitQuery.toParamString(limit))), ("offset", Some(offsetQuery.toParamString(offset))), ("q", Some(qQuery.toParamString(q))))
+      ("limit", Some(limitQuery.toParamString(limit))), ("offset", Some(offsetQuery.toParamString(offset))))
 
     for {
       uri           <- Task.fromDisjunction(Uri.fromString(path))
@@ -251,7 +251,7 @@ class HttpServiceContestsApi(service: HttpService) {
     } yield resp
   }
 
-  def superContestEffectList(limit: Integer, offset: Integer, q: String)(implicit limitQuery: QueryParam[Integer], offsetQuery: QueryParam[Integer], qQuery: QueryParam[String]): Task[PaginatedSuperContestEffectSummaryList] = {
+  def superContestEffectList(limit: Integer, offset: Integer)(implicit limitQuery: QueryParam[Integer], offsetQuery: QueryParam[Integer]): Task[PaginatedSuperContestEffectSummaryList] = {
     implicit val returnTypeDecoder: EntityDecoder[PaginatedSuperContestEffectSummaryList] = jsonOf[PaginatedSuperContestEffectSummaryList]
 
     val path = "/api/v2/super-contest-effect/"
@@ -261,7 +261,7 @@ class HttpServiceContestsApi(service: HttpService) {
     val headers = Headers(
       )
     val queryParams = Query(
-      ("limit", Some(limitQuery.toParamString(limit))), ("offset", Some(offsetQuery.toParamString(offset))), ("q", Some(qQuery.toParamString(q))))
+      ("limit", Some(limitQuery.toParamString(limit))), ("offset", Some(offsetQuery.toParamString(offset))))
 
     for {
       uri           <- Task.fromDisjunction(Uri.fromString(path))

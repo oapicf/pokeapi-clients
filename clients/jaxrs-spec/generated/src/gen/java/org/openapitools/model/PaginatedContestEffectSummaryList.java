@@ -6,6 +6,7 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.openapitools.jackson.nullable.JsonNullable;
 import org.openapitools.model.ContestEffectSummary;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
@@ -21,7 +22,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("PaginatedContestEffectSummaryList")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-11-09T13:50:06.168269698Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PaginatedContestEffectSummaryList   {
   private Integer count;
   private URI next;
@@ -31,7 +32,17 @@ public class PaginatedContestEffectSummaryList   {
   public PaginatedContestEffectSummaryList() {
   }
 
+  @JsonCreator
+  public PaginatedContestEffectSummaryList(
+    @JsonProperty(required = true, value = "count") Integer count,
+    @JsonProperty(required = true, value = "results") List<@Valid ContestEffectSummary> results
+  ) {
+    this.count = count;
+    this.results = results;
+  }
+
   /**
+   * The total number of resources available from this API.
    **/
   public PaginatedContestEffectSummaryList count(Integer count) {
     this.count = count;
@@ -39,18 +50,19 @@ public class PaginatedContestEffectSummaryList   {
   }
 
   
-  @ApiModelProperty(example = "123", value = "")
-  @JsonProperty("count")
-  public Integer getCount() {
+  @ApiModelProperty(example = "100", required = true, value = "The total number of resources available from this API.")
+  @JsonProperty(required = true, value = "count")
+  @NotNull public Integer getCount() {
     return count;
   }
 
-  @JsonProperty("count")
+  @JsonProperty(required = true, value = "count")
   public void setCount(Integer count) {
     this.count = count;
   }
 
   /**
+   * The URL for the next page in the list, or null if there is no next page.
    **/
   public PaginatedContestEffectSummaryList next(URI next) {
     this.next = next;
@@ -58,7 +70,7 @@ public class PaginatedContestEffectSummaryList   {
   }
 
   
-  @ApiModelProperty(example = "http://api.example.org/accounts/?offset=400&limit=100", value = "")
+  @ApiModelProperty(example = "https://pokeapi.co/api/v2/contest-effect/?offset=40&limit=20", value = "The URL for the next page in the list, or null if there is no next page.")
   @JsonProperty("next")
   public URI getNext() {
     return next;
@@ -70,6 +82,7 @@ public class PaginatedContestEffectSummaryList   {
   }
 
   /**
+   * The URL for the previous page in the list, or null if there is no previous page.
    **/
   public PaginatedContestEffectSummaryList previous(URI previous) {
     this.previous = previous;
@@ -77,7 +90,7 @@ public class PaginatedContestEffectSummaryList   {
   }
 
   
-  @ApiModelProperty(example = "http://api.example.org/accounts/?offset=200&limit=100", value = "")
+  @ApiModelProperty(example = "https://pokeapi.co/api/v2/contest-effect/?offset=0&limit=20", value = "The URL for the previous page in the list, or null if there is no previous page.")
   @JsonProperty("previous")
   public URI getPrevious() {
     return previous;
@@ -89,6 +102,7 @@ public class PaginatedContestEffectSummaryList   {
   }
 
   /**
+   * A list of API resources on this page.
    **/
   public PaginatedContestEffectSummaryList results(List<@Valid ContestEffectSummary> results) {
     this.results = results;
@@ -96,13 +110,13 @@ public class PaginatedContestEffectSummaryList   {
   }
 
   
-  @ApiModelProperty(value = "")
-  @JsonProperty("results")
-  public List<@Valid ContestEffectSummary> getResults() {
+  @ApiModelProperty(required = true, value = "A list of API resources on this page.")
+  @JsonProperty(required = true, value = "results")
+  @NotNull public List<@Valid ContestEffectSummary> getResults() {
     return results;
   }
 
-  @JsonProperty("results")
+  @JsonProperty(required = true, value = "results")
   public void setResults(List<@Valid ContestEffectSummary> results) {
     this.results = results;
   }

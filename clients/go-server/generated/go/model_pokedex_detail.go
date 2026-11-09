@@ -3,9 +3,9 @@
 /*
  * PokéAPI
  *
- * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+ * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
  *
- * API version: 2.7.0
+ * API version: 2.10.0
  * Contact: blah+oapicf@cliffano.com
  */
 
@@ -21,21 +21,29 @@ import (
 
 type PokedexDetail struct {
 
+	// The identifier for this resource.
 	Id int32 `json:"id"`
 
+	// The name for this resource.
 	Name string `json:"name"`
 
+	// Whether or not this Pokédex originated in the main series of the video games.
 	IsMainSeries bool `json:"is_main_series,omitempty"`
 
+	// The description of this resource listed in different languages.
 	Descriptions []PokedexDescription `json:"descriptions"`
 
+	// The name of this resource listed in different languages.
 	Names []PokedexName `json:"names"`
 
-	PokemonEntries []PokedexDetailPokemonEntriesInner `json:"pokemon_entries"`
+	// A list of Pokémon catalogued in this Pokédex and their indexes.
+	PokemonEntries []PokemonDexNumber `json:"pokemon_entries"`
 
-	Region RegionSummary `json:"region"`
+	// The region this Pokédex catalogues Pokémon for.
+	Region *RegionSummary `json:"region"`
 
-	VersionGroups []AbilityDetailPokemonInnerPokemon `json:"version_groups"`
+	// A list of version groups this Pokédex is relevant to.
+	VersionGroups []VersionGroupSummary `json:"version_groups"`
 }
 // UnmarshalJSON validates required property keys then unmarshals into PokedexDetail
 func (o *PokedexDetail) UnmarshalJSON(data []byte) (err error) {
@@ -48,7 +56,7 @@ func (o *PokedexDetail) UnmarshalJSON(data []byte) (err error) {
 
 	requiredNullableProperties := map[string]bool{
 		"name": false,
-		"region": false,
+		"region": true,
 	}
 
 	allowedJsonKeys := map[string]struct{}{
@@ -137,25 +145,20 @@ func (o *PokedexDetail) UnmarshalJSON(data []byte) (err error) {
 // AssertPokedexDetailRequired checks complex required fields (models, arrays, maps) and embedded parents.
 // Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertPokedexDetailRequired(obj PokedexDetail) error {
-	elements := map[string]interface{}{
-		"region": obj.Region,
-	}
-	for name, el := range elements {
-		if isZero := IsZeroValue(el); isZero {
-			return &RequiredError{Field: name}
+	if obj.Region != nil {
+		if err := AssertRegionSummaryRequired(*obj.Region); err != nil {
+			return err
 		}
-	}
-
-	if err := AssertRegionSummaryRequired(obj.Region); err != nil {
-		return err
 	}
 	return nil
 }
 
 // AssertPokedexDetailConstraints checks if the values respects the defined constraints
 func AssertPokedexDetailConstraints(obj PokedexDetail) error {
-	if err := AssertRegionSummaryConstraints(obj.Region); err != nil {
-		return err
-	}
+    if obj.Region != nil {
+     	if err := AssertRegionSummaryConstraints(*obj.Region); err != nil {
+     		return err
+     	}
+    }
 	return nil
 }

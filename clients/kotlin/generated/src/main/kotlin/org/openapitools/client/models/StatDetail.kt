@@ -24,9 +24,10 @@
 package org.openapitools.client.models
 
 import org.openapitools.client.models.CharacteristicSummary
+import org.openapitools.client.models.ItemSummary
 import org.openapitools.client.models.MoveDamageClassSummary
-import org.openapitools.client.models.StatDetailAffectingMoves
-import org.openapitools.client.models.StatDetailAffectingNatures
+import org.openapitools.client.models.StatAffectingMoves
+import org.openapitools.client.models.StatAffectingNatures
 import org.openapitools.client.models.StatName
 
 import com.squareup.moshi.Json
@@ -35,44 +36,58 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param id 
- * @param name 
- * @param gameIndex 
- * @param affectingMoves 
- * @param affectingNatures 
- * @param characteristics 
- * @param moveDamageClass 
- * @param names 
- * @param isBattleOnly 
+ * @param id The identifier for this resource.
+ * @param name The name for this resource.
+ * @param gameIndex ID the games use for this stat.
+ * @param affectingMoves A detail of moves which affect this stat positively or negatively.
+ * @param affectingNatures A detail of natures which affect this stat positively or negatively.
+ * @param affectingItems Items that affect this stat, such as vitamins and battle items.
+ * @param characteristics A list of characteristics that are set on a Pokémon when its highest base stat is this stat.
+ * @param moveDamageClass The class of damage this stat is directly related to.
+ * @param names The name of this resource listed in different languages.
+ * @param isBattleOnly Whether this stat only exists within a battle.
  */
 
 
 data class StatDetail (
 
+    /* The identifier for this resource. */
     @Json(name = "id")
     val id: kotlin.Int,
 
+    /* The name for this resource. */
     @Json(name = "name")
     val name: kotlin.String,
 
+    /* ID the games use for this stat. */
     @Json(name = "game_index")
     val gameIndex: kotlin.Int,
 
+    /* A detail of moves which affect this stat positively or negatively. */
     @Json(name = "affecting_moves")
-    val affectingMoves: StatDetailAffectingMoves,
+    val affectingMoves: StatAffectingMoves,
 
+    /* A detail of natures which affect this stat positively or negatively. */
     @Json(name = "affecting_natures")
-    val affectingNatures: StatDetailAffectingNatures,
+    val affectingNatures: StatAffectingNatures,
 
+    /* Items that affect this stat, such as vitamins and battle items. */
+    @Json(name = "affecting_items")
+    val affectingItems: kotlin.collections.List<ItemSummary>,
+
+    /* A list of characteristics that are set on a Pokémon when its highest base stat is this stat. */
     @Json(name = "characteristics")
     val characteristics: kotlin.collections.List<CharacteristicSummary>,
 
+    /* The class of damage this stat is directly related to. */
     @Json(name = "move_damage_class")
-    val moveDamageClass: MoveDamageClassSummary,
+    val moveDamageClass: MoveDamageClassSummary?,
 
+    /* The name of this resource listed in different languages. */
     @Json(name = "names")
     val names: kotlin.collections.List<StatName>,
 
+    /* Whether this stat only exists within a battle. */
     @Json(name = "is_battle_only")
     val isBattleOnly: kotlin.Boolean? = null
 

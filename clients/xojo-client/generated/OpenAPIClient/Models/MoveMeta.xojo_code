@@ -2,61 +2,97 @@
 Protected Class MoveMeta
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The status ailment this move inflicts on its target.
+		#tag EndNote
 		ailment As OpenAPIClient.Models.MoveMetaAilmentSummary
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The category of move this move falls under, e.g. damage or ailment.
+		#tag EndNote
 		category As OpenAPIClient.Models.MoveMetaCategorySummary
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The minimum number of times this move hits. Null if it always only hits once.
+		#tag EndNote
 		min_hits As Xoson.O.OptionalInteger
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The maximum number of times this move hits. Null if it always only hits once.
+		#tag EndNote
 		max_hits As Xoson.O.OptionalInteger
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The minimum number of turns this move continues to take effect. Null if it always only lasts one turn.
+		#tag EndNote
 		min_turns As Xoson.O.OptionalInteger
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The maximum number of turns this move continues to take effect. Null if it always only lasts one turn.
+		#tag EndNote
 		max_turns As Xoson.O.OptionalInteger
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			HP drain (if positive) or Recoil damage (if negative), in percent of damage done.
+		#tag EndNote
 		drain As Xoson.O.OptionalInteger
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The amount of hp gained by the attacking Pokemon, in percent of it's maximum HP.
+		#tag EndNote
 		healing As Xoson.O.OptionalInteger
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			Critical hit rate bonus.
+		#tag EndNote
 		crit_rate As Xoson.O.OptionalInteger
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The likelihood this attack will cause an ailment.
+		#tag EndNote
 		ailment_chance As Xoson.O.OptionalInteger
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The likelihood this attack will cause the target Pokémon to flinch.
+		#tag EndNote
 		flinch_chance As Xoson.O.OptionalInteger
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The likelihood this attack will cause a stat change in the target Pokémon.
+		#tag EndNote
 		stat_chance As Xoson.O.OptionalInteger
 	#tag EndProperty
 

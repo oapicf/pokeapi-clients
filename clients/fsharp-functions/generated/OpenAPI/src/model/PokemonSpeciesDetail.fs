@@ -3,21 +3,21 @@ namespace OpenAPI.Model
 open System
 open System.Collections.Generic
 open Newtonsoft.Json
-open OpenAPI.Model.AbilityDetailPokemonInnerPokemon
+open OpenAPI.Model.EggGroupSummary
 open OpenAPI.Model.EvolutionChainSummary
 open OpenAPI.Model.GenerationSummary
 open OpenAPI.Model.GrowthRateSummary
 open OpenAPI.Model.PokemonColorSummary
 open OpenAPI.Model.PokemonDexEntry
-open OpenAPI.Model.PokemonFormDetailFormNamesInner
 open OpenAPI.Model.PokemonHabitatSummary
 open OpenAPI.Model.PokemonShapeSummary
 open OpenAPI.Model.PokemonSpeciesDescription
-open OpenAPI.Model.PokemonSpeciesDetailGeneraInner
-open OpenAPI.Model.PokemonSpeciesDetailPalParkEncountersInner
-open OpenAPI.Model.PokemonSpeciesDetailVarietiesInner
 open OpenAPI.Model.PokemonSpeciesFlavorText
+open OpenAPI.Model.PokemonSpeciesGenus
+open OpenAPI.Model.PokemonSpeciesName
+open OpenAPI.Model.PokemonSpeciesPalParkEncounter
 open OpenAPI.Model.PokemonSpeciesSummary
+open OpenAPI.Model.PokemonSpeciesVariety
 open OpenAPI.Model.int option
 
 module PokemonSpeciesDetail =
@@ -55,7 +55,7 @@ module PokemonSpeciesDetail =
     [<JsonProperty(PropertyName = "pokedex_numbers")>]
     PokedexNumbers : PokemonDexEntry[];
     [<JsonProperty(PropertyName = "egg_groups")>]
-    EggGroups : AbilityDetailPokemonInnerPokemon[];
+    EggGroups : EggGroupSummary[];
     [<JsonProperty(PropertyName = "color")>]
     Color : PokemonColorSummary;
     [<JsonProperty(PropertyName = "shape")>]
@@ -69,17 +69,17 @@ module PokemonSpeciesDetail =
     [<JsonProperty(PropertyName = "generation")>]
     Generation : GenerationSummary;
     [<JsonProperty(PropertyName = "names")>]
-    Names : PokemonFormDetailFormNamesInner[];
+    Names : PokemonSpeciesName[];
     [<JsonProperty(PropertyName = "pal_park_encounters")>]
-    PalParkEncounters : PokemonSpeciesDetailPalParkEncountersInner[];
+    PalParkEncounters : PokemonSpeciesPalParkEncounter[];
     [<JsonProperty(PropertyName = "form_descriptions")>]
     FormDescriptions : PokemonSpeciesDescription[];
     [<JsonProperty(PropertyName = "flavor_text_entries")>]
     FlavorTextEntries : PokemonSpeciesFlavorText[];
     [<JsonProperty(PropertyName = "genera")>]
-    Genera : PokemonSpeciesDetailGeneraInner[];
+    Genera : PokemonSpeciesGenus[];
     [<JsonProperty(PropertyName = "varieties")>]
-    Varieties : PokemonSpeciesDetailVarietiesInner[];
+    Varieties : PokemonSpeciesVariety[];
   }
 
   //#endregion

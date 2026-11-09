@@ -8,8 +8,8 @@ Name | Type
 ------------ | -------------
 `id` | number
 `name` | string
-`pokemonSpeciesDetails` | [Array&lt;GenderDetailPokemonSpeciesDetailsInner&gt;](GenderDetailPokemonSpeciesDetailsInner.md)
-`requiredForEvolution` | [Array&lt;AbilityDetailPokemonInnerPokemon&gt;](AbilityDetailPokemonInnerPokemon.md)
+`pokemonSpeciesDetails` | [Array&lt;GenderPokemonSpecies&gt;](GenderPokemonSpecies.md)
+`requiredForEvolution` | [Array&lt;PokemonSpeciesSummary&gt;](PokemonSpeciesSummary.md)
 
 ## Example
 

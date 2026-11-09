@@ -8,9 +8,13 @@
 import Foundation
 
 public struct EncounterConditionValueDetail: Codable {
+    /// The identifier for this resource.
     public var id: Int
+    /// The name for this resource.
     public var name: String
+    /// The condition this encounter condition value pertains to.
     public var condition: EncounterConditionSummary
+    /// The name of this resource listed in different languages.
     public var names: [EncounterConditionValueName]
 
     public init(id: Int, name: String, condition: EncounterConditionSummary, names: [EncounterConditionValueName]) {

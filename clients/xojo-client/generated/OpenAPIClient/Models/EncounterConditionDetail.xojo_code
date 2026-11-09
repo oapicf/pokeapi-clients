@@ -2,21 +2,33 @@
 Protected Class EncounterConditionDetail
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The identifier for this resource.
+		#tag EndNote
 		id As Integer
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The name for this resource.
+		#tag EndNote
 		name As String
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			A list of possible values for this encounter condition.
+		#tag EndNote
 		values() As OpenAPIClient.Models.EncounterConditionValueSummary
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The name of this resource listed in different languages.
+		#tag EndNote
 		names() As OpenAPIClient.Models.EncounterConditionName
 	#tag EndProperty
 

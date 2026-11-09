@@ -8,7 +8,7 @@ ContestTypeName::ContestTypeName()
 {
 	name = std::string();
 	color = std::string();
-	language = LanguageSummary();
+	language = null;
 }
 
 ContestTypeName::ContestTypeName(std::string jsonString)

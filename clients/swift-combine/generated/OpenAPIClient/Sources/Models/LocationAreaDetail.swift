@@ -8,15 +8,22 @@
 import Foundation
 
 public struct LocationAreaDetail: Codable {
+    /// The identifier for this resource.
     public var id: Int
+    /// The name for this resource.
     public var name: String
+    /// The internal id of an API resource within game data.
     public var gameIndex: Int
-    public var encounterMethodRates: [LocationAreaDetailEncounterMethodRatesInner]
+    /// A list of methods in which Pokémon may be encountered in this area and how likely the method will occur depending on the version of the game.
+    public var encounterMethodRates: [LocationAreaEncounterRate]
+    /// The region this location area can be found in.
     public var location: LocationSummary
+    /// The name of this resource listed in different languages.
     public var names: [LocationAreaName]
-    public var pokemonEncounters: [LocationAreaDetailPokemonEncountersInner]
+    /// A list of Pokémon that can be encountered in this area along with version specific details about the encounter.
+    public var pokemonEncounters: [LocationAreaPokemonEncounter]
 
-    public init(id: Int, name: String, gameIndex: Int, encounterMethodRates: [LocationAreaDetailEncounterMethodRatesInner], location: LocationSummary, names: [LocationAreaName], pokemonEncounters: [LocationAreaDetailPokemonEncountersInner]) {
+    public init(id: Int, name: String, gameIndex: Int, encounterMethodRates: [LocationAreaEncounterRate], location: LocationSummary, names: [LocationAreaName], pokemonEncounters: [LocationAreaPokemonEncounter]) {
         self.id = id
         self.name = name
         self.gameIndex = gameIndex
@@ -41,10 +48,10 @@ public struct LocationAreaDetail: Codable {
         id = try container.decode(Int.self, forKey: .id)
         name = try container.decode(String.self, forKey: .name)
         gameIndex = try container.decode(Int.self, forKey: .gameIndex)
-        encounterMethodRates = try container.decode([LocationAreaDetailEncounterMethodRatesInner].self, forKey: .encounterMethodRates)
+        encounterMethodRates = try container.decode([LocationAreaEncounterRate].self, forKey: .encounterMethodRates)
         location = try container.decode(LocationSummary.self, forKey: .location)
         names = try container.decode([LocationAreaName].self, forKey: .names)
-        pokemonEncounters = try container.decode([LocationAreaDetailPokemonEncountersInner].self, forKey: .pokemonEncounters)
+        pokemonEncounters = try container.decode([LocationAreaPokemonEncounter].self, forKey: .pokemonEncounters)
     }
 
     public func encode(to encoder: Encoder) throws {

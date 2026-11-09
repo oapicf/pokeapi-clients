@@ -16,7 +16,7 @@ const _returntypes_ability_list_PokemonApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_ability_list(_api::PokemonApi; limit=nothing, offset=nothing, q=nothing, _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_ability_list_PokemonApi, "/api/v2/ability/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_ability_list_PokemonApi, "/api/v2/ability/", [])
     OpenAPI.Clients.set_param(_ctx.query, "limit", limit; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "offset", offset; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "q", q; style="form", is_explode=true)  # type String
@@ -25,7 +25,9 @@ function _oacinternal_ability_list(_api::PokemonApi; limit=nothing, offset=nothi
     return _ctx
 end
 
-@doc raw"""Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
+@doc raw"""List abilities
+
+Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
 
 Params:
 - `limit`::`Int64`
@@ -49,14 +51,16 @@ const _returntypes_ability_retrieve_PokemonApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_ability_retrieve(_api::PokemonApi, id::String; _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_ability_retrieve_PokemonApi, "/api/v2/ability/{id}/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_ability_retrieve_PokemonApi, "/api/v2/ability/{id}/", [])
     OpenAPI.Clients.set_param(_ctx.path, "id", id)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
     return _ctx
 end
 
-@doc raw"""Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
+@doc raw"""Get ability
+
+Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
 
 Params:
 - `id`::`String` (required)
@@ -77,34 +81,32 @@ const _returntypes_characteristic_list_PokemonApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => PaginatedCharacteristicSummaryList,
 )
 
-function _oacinternal_characteristic_list(_api::PokemonApi; limit=nothing, offset=nothing, q=nothing, _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_characteristic_list_PokemonApi, "/api/v2/characteristic/", ["basicAuth", "cookieAuth", ])
+function _oacinternal_characteristic_list(_api::PokemonApi; limit=nothing, offset=nothing, _mediaType=nothing)
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_characteristic_list_PokemonApi, "/api/v2/characteristic/", [])
     OpenAPI.Clients.set_param(_ctx.query, "limit", limit; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "offset", offset; style="form", is_explode=true)  # type Int64
-    OpenAPI.Clients.set_param(_ctx.query, "q", q; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
     return _ctx
 end
 
-@doc raw"""List charecterictics
+@doc raw"""List characteristics
 
 Characteristics indicate which stat contains a Pokémon's highest IV. A Pokémon's Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail.
 
 Params:
 - `limit`::`Int64`
 - `offset`::`Int64`
-- `q`::`String`
 
 Return: `PaginatedCharacteristicSummaryList`, `OpenAPI.Clients.ApiResponse`
 """
-function characteristic_list(_api::PokemonApi; limit=nothing, offset=nothing, q=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_characteristic_list(_api; limit=limit, offset=offset, q=q, _mediaType=_mediaType)
+function characteristic_list(_api::PokemonApi; limit=nothing, offset=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_characteristic_list(_api; limit=limit, offset=offset, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function characteristic_list(_api::PokemonApi, response_stream::Channel; limit=nothing, offset=nothing, q=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_characteristic_list(_api; limit=limit, offset=offset, q=q, _mediaType=_mediaType)
+function characteristic_list(_api::PokemonApi, response_stream::Channel; limit=nothing, offset=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_characteristic_list(_api; limit=limit, offset=offset, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -113,7 +115,7 @@ const _returntypes_characteristic_retrieve_PokemonApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_characteristic_retrieve(_api::PokemonApi, id::String; _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_characteristic_retrieve_PokemonApi, "/api/v2/characteristic/{id}/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_characteristic_retrieve_PokemonApi, "/api/v2/characteristic/{id}/", [])
     OpenAPI.Clients.set_param(_ctx.path, "id", id)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
@@ -144,7 +146,7 @@ const _returntypes_egg_group_list_PokemonApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_egg_group_list(_api::PokemonApi; limit=nothing, offset=nothing, q=nothing, _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_egg_group_list_PokemonApi, "/api/v2/egg-group/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_egg_group_list_PokemonApi, "/api/v2/egg-group/", [])
     OpenAPI.Clients.set_param(_ctx.query, "limit", limit; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "offset", offset; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "q", q; style="form", is_explode=true)  # type String
@@ -179,7 +181,7 @@ const _returntypes_egg_group_retrieve_PokemonApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_egg_group_retrieve(_api::PokemonApi, id::String; _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_egg_group_retrieve_PokemonApi, "/api/v2/egg-group/{id}/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_egg_group_retrieve_PokemonApi, "/api/v2/egg-group/{id}/", [])
     OpenAPI.Clients.set_param(_ctx.path, "id", id)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
@@ -210,7 +212,7 @@ const _returntypes_gender_list_PokemonApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_gender_list(_api::PokemonApi; limit=nothing, offset=nothing, q=nothing, _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_gender_list_PokemonApi, "/api/v2/gender/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_gender_list_PokemonApi, "/api/v2/gender/", [])
     OpenAPI.Clients.set_param(_ctx.query, "limit", limit; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "offset", offset; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "q", q; style="form", is_explode=true)  # type String
@@ -245,7 +247,7 @@ const _returntypes_gender_retrieve_PokemonApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_gender_retrieve(_api::PokemonApi, id::String; _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_gender_retrieve_PokemonApi, "/api/v2/gender/{id}/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_gender_retrieve_PokemonApi, "/api/v2/gender/{id}/", [])
     OpenAPI.Clients.set_param(_ctx.path, "id", id)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
@@ -276,7 +278,7 @@ const _returntypes_growth_rate_list_PokemonApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_growth_rate_list(_api::PokemonApi; limit=nothing, offset=nothing, q=nothing, _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_growth_rate_list_PokemonApi, "/api/v2/growth-rate/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_growth_rate_list_PokemonApi, "/api/v2/growth-rate/", [])
     OpenAPI.Clients.set_param(_ctx.query, "limit", limit; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "offset", offset; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "q", q; style="form", is_explode=true)  # type String
@@ -311,7 +313,7 @@ const _returntypes_growth_rate_retrieve_PokemonApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_growth_rate_retrieve(_api::PokemonApi, id::String; _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_growth_rate_retrieve_PokemonApi, "/api/v2/growth-rate/{id}/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_growth_rate_retrieve_PokemonApi, "/api/v2/growth-rate/{id}/", [])
     OpenAPI.Clients.set_param(_ctx.path, "id", id)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
@@ -342,7 +344,7 @@ const _returntypes_move_damage_class_list_PokemonApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_move_damage_class_list(_api::PokemonApi; limit=nothing, offset=nothing, q=nothing, _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_move_damage_class_list_PokemonApi, "/api/v2/move-damage-class/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_move_damage_class_list_PokemonApi, "/api/v2/move-damage-class/", [])
     OpenAPI.Clients.set_param(_ctx.query, "limit", limit; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "offset", offset; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "q", q; style="form", is_explode=true)  # type String
@@ -377,7 +379,7 @@ const _returntypes_move_damage_class_retrieve_PokemonApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_move_damage_class_retrieve(_api::PokemonApi, id::String; _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_move_damage_class_retrieve_PokemonApi, "/api/v2/move-damage-class/{id}/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_move_damage_class_retrieve_PokemonApi, "/api/v2/move-damage-class/{id}/", [])
     OpenAPI.Clients.set_param(_ctx.path, "id", id)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
@@ -408,7 +410,7 @@ const _returntypes_nature_list_PokemonApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_nature_list(_api::PokemonApi; limit=nothing, offset=nothing, q=nothing, _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_nature_list_PokemonApi, "/api/v2/nature/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_nature_list_PokemonApi, "/api/v2/nature/", [])
     OpenAPI.Clients.set_param(_ctx.query, "limit", limit; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "offset", offset; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "q", q; style="form", is_explode=true)  # type String
@@ -443,7 +445,7 @@ const _returntypes_nature_retrieve_PokemonApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_nature_retrieve(_api::PokemonApi, id::String; _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_nature_retrieve_PokemonApi, "/api/v2/nature/{id}/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_nature_retrieve_PokemonApi, "/api/v2/nature/{id}/", [])
     OpenAPI.Clients.set_param(_ctx.path, "id", id)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
@@ -474,7 +476,7 @@ const _returntypes_pokeathlon_stat_list_PokemonApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_pokeathlon_stat_list(_api::PokemonApi; limit=nothing, offset=nothing, q=nothing, _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_pokeathlon_stat_list_PokemonApi, "/api/v2/pokeathlon-stat/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_pokeathlon_stat_list_PokemonApi, "/api/v2/pokeathlon-stat/", [])
     OpenAPI.Clients.set_param(_ctx.query, "limit", limit; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "offset", offset; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "q", q; style="form", is_explode=true)  # type String
@@ -509,7 +511,7 @@ const _returntypes_pokeathlon_stat_retrieve_PokemonApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_pokeathlon_stat_retrieve(_api::PokemonApi, id::String; _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_pokeathlon_stat_retrieve_PokemonApi, "/api/v2/pokeathlon-stat/{id}/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_pokeathlon_stat_retrieve_PokemonApi, "/api/v2/pokeathlon-stat/{id}/", [])
     OpenAPI.Clients.set_param(_ctx.path, "id", id)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
@@ -540,7 +542,7 @@ const _returntypes_pokemon_color_list_PokemonApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_pokemon_color_list(_api::PokemonApi; limit=nothing, offset=nothing, q=nothing, _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_pokemon_color_list_PokemonApi, "/api/v2/pokemon-color/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_pokemon_color_list_PokemonApi, "/api/v2/pokemon-color/", [])
     OpenAPI.Clients.set_param(_ctx.query, "limit", limit; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "offset", offset; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "q", q; style="form", is_explode=true)  # type String
@@ -575,7 +577,7 @@ const _returntypes_pokemon_color_retrieve_PokemonApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_pokemon_color_retrieve(_api::PokemonApi, id::String; _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_pokemon_color_retrieve_PokemonApi, "/api/v2/pokemon-color/{id}/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_pokemon_color_retrieve_PokemonApi, "/api/v2/pokemon-color/{id}/", [])
     OpenAPI.Clients.set_param(_ctx.path, "id", id)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
@@ -606,7 +608,7 @@ const _returntypes_pokemon_form_list_PokemonApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_pokemon_form_list(_api::PokemonApi; limit=nothing, offset=nothing, q=nothing, _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_pokemon_form_list_PokemonApi, "/api/v2/pokemon-form/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_pokemon_form_list_PokemonApi, "/api/v2/pokemon-form/", [])
     OpenAPI.Clients.set_param(_ctx.query, "limit", limit; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "offset", offset; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "q", q; style="form", is_explode=true)  # type String
@@ -641,7 +643,7 @@ const _returntypes_pokemon_form_retrieve_PokemonApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_pokemon_form_retrieve(_api::PokemonApi, id::String; _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_pokemon_form_retrieve_PokemonApi, "/api/v2/pokemon-form/{id}/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_pokemon_form_retrieve_PokemonApi, "/api/v2/pokemon-form/{id}/", [])
     OpenAPI.Clients.set_param(_ctx.path, "id", id)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
@@ -672,7 +674,7 @@ const _returntypes_pokemon_habitat_list_PokemonApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_pokemon_habitat_list(_api::PokemonApi; limit=nothing, offset=nothing, q=nothing, _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_pokemon_habitat_list_PokemonApi, "/api/v2/pokemon-habitat/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_pokemon_habitat_list_PokemonApi, "/api/v2/pokemon-habitat/", [])
     OpenAPI.Clients.set_param(_ctx.query, "limit", limit; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "offset", offset; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "q", q; style="form", is_explode=true)  # type String
@@ -707,7 +709,7 @@ const _returntypes_pokemon_habitat_retrieve_PokemonApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_pokemon_habitat_retrieve(_api::PokemonApi, id::String; _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_pokemon_habitat_retrieve_PokemonApi, "/api/v2/pokemon-habitat/{id}/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_pokemon_habitat_retrieve_PokemonApi, "/api/v2/pokemon-habitat/{id}/", [])
     OpenAPI.Clients.set_param(_ctx.path, "id", id)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
@@ -738,7 +740,7 @@ const _returntypes_pokemon_list_PokemonApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_pokemon_list(_api::PokemonApi; limit=nothing, offset=nothing, q=nothing, _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_pokemon_list_PokemonApi, "/api/v2/pokemon/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_pokemon_list_PokemonApi, "/api/v2/pokemon/", [])
     OpenAPI.Clients.set_param(_ctx.query, "limit", limit; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "offset", offset; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "q", q; style="form", is_explode=true)  # type String
@@ -773,7 +775,7 @@ const _returntypes_pokemon_retrieve_PokemonApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_pokemon_retrieve(_api::PokemonApi, id::String; _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_pokemon_retrieve_PokemonApi, "/api/v2/pokemon/{id}/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_pokemon_retrieve_PokemonApi, "/api/v2/pokemon/{id}/", [])
     OpenAPI.Clients.set_param(_ctx.path, "id", id)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
@@ -804,7 +806,7 @@ const _returntypes_pokemon_shape_list_PokemonApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_pokemon_shape_list(_api::PokemonApi; limit=nothing, offset=nothing, q=nothing, _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_pokemon_shape_list_PokemonApi, "/api/v2/pokemon-shape/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_pokemon_shape_list_PokemonApi, "/api/v2/pokemon-shape/", [])
     OpenAPI.Clients.set_param(_ctx.query, "limit", limit; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "offset", offset; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "q", q; style="form", is_explode=true)  # type String
@@ -839,7 +841,7 @@ const _returntypes_pokemon_shape_retrieve_PokemonApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_pokemon_shape_retrieve(_api::PokemonApi, id::String; _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_pokemon_shape_retrieve_PokemonApi, "/api/v2/pokemon-shape/{id}/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_pokemon_shape_retrieve_PokemonApi, "/api/v2/pokemon-shape/{id}/", [])
     OpenAPI.Clients.set_param(_ctx.path, "id", id)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
@@ -870,7 +872,7 @@ const _returntypes_pokemon_species_list_PokemonApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_pokemon_species_list(_api::PokemonApi; limit=nothing, offset=nothing, q=nothing, _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_pokemon_species_list_PokemonApi, "/api/v2/pokemon-species/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_pokemon_species_list_PokemonApi, "/api/v2/pokemon-species/", [])
     OpenAPI.Clients.set_param(_ctx.query, "limit", limit; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "offset", offset; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "q", q; style="form", is_explode=true)  # type String
@@ -905,7 +907,7 @@ const _returntypes_pokemon_species_retrieve_PokemonApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_pokemon_species_retrieve(_api::PokemonApi, id::String; _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_pokemon_species_retrieve_PokemonApi, "/api/v2/pokemon-species/{id}/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_pokemon_species_retrieve_PokemonApi, "/api/v2/pokemon-species/{id}/", [])
     OpenAPI.Clients.set_param(_ctx.path, "id", id)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
@@ -936,7 +938,7 @@ const _returntypes_stat_list_PokemonApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_stat_list(_api::PokemonApi; limit=nothing, offset=nothing, q=nothing, _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_stat_list_PokemonApi, "/api/v2/stat/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_stat_list_PokemonApi, "/api/v2/stat/", [])
     OpenAPI.Clients.set_param(_ctx.query, "limit", limit; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "offset", offset; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "q", q; style="form", is_explode=true)  # type String
@@ -971,7 +973,7 @@ const _returntypes_stat_retrieve_PokemonApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_stat_retrieve(_api::PokemonApi, id::String; _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_stat_retrieve_PokemonApi, "/api/v2/stat/{id}/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_stat_retrieve_PokemonApi, "/api/v2/stat/{id}/", [])
     OpenAPI.Clients.set_param(_ctx.path, "id", id)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
@@ -1002,7 +1004,7 @@ const _returntypes_type_list_PokemonApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_type_list(_api::PokemonApi; limit=nothing, offset=nothing, q=nothing, _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_type_list_PokemonApi, "/api/v2/type/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_type_list_PokemonApi, "/api/v2/type/", [])
     OpenAPI.Clients.set_param(_ctx.query, "limit", limit; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "offset", offset; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "q", q; style="form", is_explode=true)  # type String
@@ -1037,7 +1039,7 @@ const _returntypes_type_retrieve_PokemonApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_type_retrieve(_api::PokemonApi, id::String; _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_type_retrieve_PokemonApi, "/api/v2/type/{id}/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_type_retrieve_PokemonApi, "/api/v2/type/{id}/", [])
     OpenAPI.Clients.set_param(_ctx.path, "id", id)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])

@@ -17,7 +17,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("PokemonGameIndex")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-11-09T13:50:06.168269698Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PokemonGameIndex   {
   private Integer gameIndex;
   private VersionSummary version;
@@ -35,6 +35,9 @@ public class PokemonGameIndex   {
   }
 
   /**
+   * The internal id of an API resource within game data.
+   * minimum: -2147483648
+   * maximum: 2147483647
    **/
   public PokemonGameIndex gameIndex(Integer gameIndex) {
     this.gameIndex = gameIndex;
@@ -42,9 +45,9 @@ public class PokemonGameIndex   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The internal id of an API resource within game data.")
   @JsonProperty(required = true, value = "game_index")
-  @NotNull public Integer getGameIndex() {
+  @NotNull  @Min(-2147483648) @Max(2147483647)public Integer getGameIndex() {
     return gameIndex;
   }
 
@@ -54,6 +57,7 @@ public class PokemonGameIndex   {
   }
 
   /**
+   * The version relevent to this game index.
    **/
   public PokemonGameIndex version(VersionSummary version) {
     this.version = version;
@@ -61,7 +65,7 @@ public class PokemonGameIndex   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The version relevent to this game index.")
   @JsonProperty(required = true, value = "version")
   @NotNull @Valid public VersionSummary getVersion() {
     return version;

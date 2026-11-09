@@ -15,8 +15,8 @@
 
 typedef struct egg_group_detail_t egg_group_detail_t;
 
-#include "egg_group_detail_pokemon_species_inner.h"
 #include "egg_group_name.h"
+#include "pokemon_species_summary.h"
 
 
 

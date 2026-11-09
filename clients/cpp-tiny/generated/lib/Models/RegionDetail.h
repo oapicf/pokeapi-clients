@@ -12,11 +12,11 @@
 #include <string>
 #include "bourne/json.hpp"
 #include "Helpers.h"
-#include "AbilityDetail_pokemon_inner_pokemon.h"
 #include "GenerationSummary.h"
 #include "LocationSummary.h"
 #include "PokedexSummary.h"
 #include "RegionName.h"
+#include "VersionGroupSummary.h"
 #include <list>
 
 namespace Tiny {
@@ -51,55 +51,55 @@ public:
 	 */
     void fromJson(std::string jsonObj);
 
-	/*! \brief Get 
+	/*! \brief Get The identifier for this resource.
 	 */
 	int getId();
 
-	/*! \brief Set 
+	/*! \brief Set The identifier for this resource.
 	 */
 	void setId(int id);
-	/*! \brief Get 
+	/*! \brief Get The name for this resource.
 	 */
 	std::string getName();
 
-	/*! \brief Set 
+	/*! \brief Set The name for this resource.
 	 */
 	void setName(std::string name);
-	/*! \brief Get 
+	/*! \brief Get A list of locations that can be found in this region.
 	 */
 	std::list<LocationSummary> getLocations();
 
-	/*! \brief Set 
+	/*! \brief Set A list of locations that can be found in this region.
 	 */
 	void setLocations(std::list<LocationSummary> locations);
-	/*! \brief Get 
+	/*! \brief Get The generation this region was introduced in.
 	 */
 	GenerationSummary getMainGeneration();
 
-	/*! \brief Set 
+	/*! \brief Set The generation this region was introduced in.
 	 */
 	void setMainGeneration(GenerationSummary main_generation);
-	/*! \brief Get 
+	/*! \brief Get The name of this resource listed in different languages.
 	 */
 	std::list<RegionName> getNames();
 
-	/*! \brief Set 
+	/*! \brief Set The name of this resource listed in different languages.
 	 */
 	void setNames(std::list<RegionName> names);
-	/*! \brief Get 
+	/*! \brief Get A list of pokédexes that catalogue Pokémon in this region.
 	 */
 	std::list<PokedexSummary> getPokedexes();
 
-	/*! \brief Set 
+	/*! \brief Set A list of pokédexes that catalogue Pokémon in this region.
 	 */
 	void setPokedexes(std::list<PokedexSummary> pokedexes);
-	/*! \brief Get 
+	/*! \brief Get A list of version groups where this region can be visited.
 	 */
-	std::list<AbilityDetail_pokemon_inner_pokemon> getVersionGroups();
+	std::list<VersionGroupSummary> getVersionGroups();
 
-	/*! \brief Set 
+	/*! \brief Set A list of version groups where this region can be visited.
 	 */
-	void setVersionGroups(std::list<AbilityDetail_pokemon_inner_pokemon> version_groups);
+	void setVersionGroups(std::list<VersionGroupSummary> version_groups);
 
 
     private:
@@ -109,7 +109,7 @@ public:
     GenerationSummary main_generation;
     std::list<RegionName> names;
     std::list<PokedexSummary> pokedexes;
-    std::list<AbilityDetail_pokemon_inner_pokemon> version_groups;
+    std::list<VersionGroupSummary> version_groups;
 };
 }
 

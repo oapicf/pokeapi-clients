@@ -1,8 +1,8 @@
 /**
  * PokéAPI
- * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+ * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
  *
- * OpenAPI spec version: 2.7.0
+ * OpenAPI spec version: 2.10.0
  *
  * Contact: blah+oapicf@cliffano.com
  *
@@ -25,20 +25,38 @@ import upickle.default.*
   * It has no validation - there may be nulls, values out of range, etc
   */
 case class PokemonFormDetailData(
+/* The identifier for this resource. */
   id: Int,
+/* The name for this resource. */
   name: String,
+/* The order in which forms should be sorted within all forms. Multiple forms may have equal order, in which case they should fall back on sorting by name. */
   order: Int = 0 ,
+/* The order in which forms should be sorted within a species' forms. */
   formOrder: Int = 0 ,
+/* True for exactly one form used as the default for each Pokémon. */
   isDefault: Boolean = false ,
+/* Whether or not this form can only happen during battle. */
   isBattleOnly: Boolean = false ,
+/* Whether or not this form requires mega evolution. */
   isMega: Boolean = false ,
+/* The name of this form. */
   formName: String,
+/* The Pokémon that can take on this form. */
   pokemon: PokemonSummaryData,
-  sprites: PokemonFormDetailSprites,
+/* A set of sprites used to depict this Pokémon form in the game. */
+  sprites: PokemonFormSpritesData,
+/* The version group this Pokémon form was introduced in. */
   versionGroup: VersionGroupSummaryData,
-  formNames: Seq[PokemonFormDetailFormNamesInnerData],
-  names: Seq[PokemonFormDetailFormNamesInnerData],
-  types: Seq[PokemonDetailTypesInnerData]
+/* The form specific form name of this Pokémon form, or empty if the form does not have a specific name. */
+  formNames: Seq[PokemonFormNameData],
+/* The form specific full name of this Pokémon form, or empty if the form does not have a specific name. */
+  names: Seq[PokemonFormNameData],
+/* A list of details showing types this Pokémon form has. */
+  types: Seq[PokemonFormTypeData],
+/* The conditions that trigger this form. Resource names and URLs are included when the trigger requires a resource. */
+  triggerConditions: Seq[PokemonFormTriggerConditionData],
+/* The flavor text of this form listed in different languages and versions. */
+  flavorTextEntries: Seq[PokemonFormFlavorTextData]
   
 
 ) derives RW {
@@ -59,11 +77,11 @@ case class PokemonFormDetailData(
         
 
         // ================== name validation ==================
-        // validate max length 100
+        // validate max length 200
         if (_allValidationErrors.isEmpty || !failFast)  {
           val len = if name == null then 0 else name.length
-            if (len < 100) {
-               _allValidationErrors += ValidationError(path :+ PokemonFormDetail.Fields.name, s"length $len is longer than the max length 100")
+            if (len < 200) {
+               _allValidationErrors += ValidationError(path :+ PokemonFormDetail.Fields.name, s"length $len is longer than the max length 200")
             }
         }
         
@@ -72,12 +90,32 @@ case class PokemonFormDetailData(
         
 
         // ================== order validation ==================
+        // validate against minimum -2147483648
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if !(order >= -2147483648) then
+            _allValidationErrors += ValidationError(path :+ PokemonFormDetail.Fields.order, s"value '$order' is not greater than the minimum value -2147483648")
+        }
+        // validate against maximum 2147483647
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if !(order <= 2147483647) then
+            _allValidationErrors += ValidationError(path :+ PokemonFormDetail.Fields.order, s"value '$order' is not greater than the maximum value 2147483647")
+        }
         
         
         
         
 
         // ================== formOrder validation ==================
+        // validate against minimum -2147483648
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if !(formOrder >= -2147483648) then
+            _allValidationErrors += ValidationError(path :+ PokemonFormDetail.Fields.formOrder, s"value '$formOrder' is not greater than the minimum value -2147483648")
+        }
+        // validate against maximum 2147483647
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if !(formOrder <= 2147483647) then
+            _allValidationErrors += ValidationError(path :+ PokemonFormDetail.Fields.formOrder, s"value '$formOrder' is not greater than the maximum value 2147483647")
+        }
         
         
         
@@ -141,6 +179,10 @@ case class PokemonFormDetailData(
         
         
         
+        // validating sprites
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if sprites != null then _allValidationErrors ++= sprites.validationErrors(path :+ PokemonFormDetail.Fields.sprites, failFast)
+        }
 
         // ================== versionGroup validation ==================
         
@@ -230,6 +272,54 @@ case class PokemonFormDetailData(
         }
         
 
+        // ================== triggerConditions validation ==================
+        
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if (triggerConditions == null) {
+            _allValidationErrors += ValidationError(path :+ PokemonFormDetail.Fields.triggerConditions, "triggerConditions is a required field and cannot be null")
+            }
+        }
+        
+        
+        
+        
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if (triggerConditions != null) {
+                triggerConditions.zipWithIndex.foreach {
+                    case (value, i) if _allValidationErrors.isEmpty || !failFast =>
+                      _allValidationErrors ++= value.validationErrors(
+                        path :+ PokemonFormDetail.Fields.triggerConditions :+ Field(i.toString),
+                        failFast)
+                    case (value, i) =>
+                }
+            }
+        }
+        
+
+        // ================== flavorTextEntries validation ==================
+        
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if (flavorTextEntries == null) {
+            _allValidationErrors += ValidationError(path :+ PokemonFormDetail.Fields.flavorTextEntries, "flavorTextEntries is a required field and cannot be null")
+            }
+        }
+        
+        
+        
+        
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if (flavorTextEntries != null) {
+                flavorTextEntries.zipWithIndex.foreach {
+                    case (value, i) if _allValidationErrors.isEmpty || !failFast =>
+                      _allValidationErrors ++= value.validationErrors(
+                        path :+ PokemonFormDetail.Fields.flavorTextEntries :+ Field(i.toString),
+                        failFast)
+                    case (value, i) =>
+                }
+            }
+        }
+        
+
     _allValidationErrors.toSeq
   }
 
@@ -259,7 +349,9 @@ case class PokemonFormDetailData(
         versionGroup = versionGroup.asModel /* 6 */,
         formNames = formNames.map(_.asModel) /* 5 */,
         names = names.map(_.asModel) /* 5 */,
-        types = types.map(_.asModel) /* 5 */
+        types = types.map(_.asModel) /* 5 */,
+        triggerConditions = triggerConditions.map(_.asModel) /* 5 */,
+        flavorTextEntries = flavorTextEntries.map(_.asModel) /* 5 */
     
     )
   }

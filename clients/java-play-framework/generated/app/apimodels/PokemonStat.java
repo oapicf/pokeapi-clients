@@ -10,16 +10,20 @@ import javax.validation.Valid;
 /**
  * PokemonStat
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-10-25T05:48:13.486809836Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-11-09T13:49:31.462302702Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class PokemonStat   {
   @JsonProperty("base_stat")
   @NotNull
+@Min(-2147483648)
+@Max(2147483647)
 
   private Integer baseStat;
 
   @JsonProperty("effort")
   @NotNull
+@Min(-2147483648)
+@Max(2147483647)
 
   private Integer effort;
 
@@ -35,7 +39,9 @@ public class PokemonStat   {
   }
 
    /**
-   * Get baseStat
+   * The base value of the stat.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return baseStat
   **/
   public Integer getBaseStat() {
@@ -52,7 +58,9 @@ public class PokemonStat   {
   }
 
    /**
-   * Get effort
+   * The effort points (EV) the Pokémon has in the stat.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return effort
   **/
   public Integer getEffort() {
@@ -69,7 +77,7 @@ public class PokemonStat   {
   }
 
    /**
-   * Get stat
+   * The stat the Pokémon has.
    * @return stat
   **/
   public StatSummary getStat() {

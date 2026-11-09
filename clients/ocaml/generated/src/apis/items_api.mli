@@ -5,6 +5,8 @@
  *
  *)
 
+val currency_list : ?limit:int32 -> ?offset:int32 -> ?q:string -> unit -> Paginated_currency_summary_list.t Lwt.t
+val currency_retrieve : id:string -> Currency_detail.t Lwt.t
 val item_attribute_list : ?limit:int32 -> ?offset:int32 -> ?q:string -> unit -> Paginated_item_attribute_summary_list.t Lwt.t
 val item_attribute_retrieve : id:string -> Item_attribute_detail.t Lwt.t
 val item_category_list : ?limit:int32 -> ?offset:int32 -> ?q:string -> unit -> Paginated_item_category_summary_list.t Lwt.t

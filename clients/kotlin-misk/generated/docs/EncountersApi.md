@@ -56,7 +56,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -78,7 +78,7 @@ Conditions which affect what pokemon might appear in the wild, e.g., day or nigh
 //import org.openapitools.server.api.model.*
 
 val apiInstance = EncountersApi()
-val id : kotlin.String = id_example // kotlin.String | This parameter can be a string or an integer.
+val id : kotlin.String = 1 // kotlin.String | This parameter can be a string or an integer.
 try {
     val result : EncounterConditionDetail = apiInstance.encounterConditionRetrieve(id)
     println(result)
@@ -103,7 +103,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -154,7 +154,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -176,7 +176,7 @@ Encounter condition values are the various states that an encounter condition ca
 //import org.openapitools.server.api.model.*
 
 val apiInstance = EncountersApi()
-val id : kotlin.String = id_example // kotlin.String | This parameter can be a string or an integer.
+val id : kotlin.String = 1 // kotlin.String | This parameter can be a string or an integer.
 try {
     val result : EncounterConditionValueDetail = apiInstance.encounterConditionValueRetrieve(id)
     println(result)
@@ -201,7 +201,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -252,7 +252,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -274,7 +274,7 @@ Methods by which the player might can encounter Pokémon in the wild, e.g., walk
 //import org.openapitools.server.api.model.*
 
 val apiInstance = EncountersApi()
-val id : kotlin.String = id_example // kotlin.String | This parameter can be a string or an integer.
+val id : kotlin.String = 1 // kotlin.String | This parameter can be a string or an integer.
 try {
     val result : EncounterMethodDetail = apiInstance.encounterMethodRetrieve(id)
     println(result)
@@ -299,7 +299,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

@@ -13,8 +13,10 @@ import java.net.URI
 import MoveMetaAilmentSummary._
 
 case class MoveMetaAilmentSummary (
+  /* The name of the referenced resource. */
   name: String,
-url: URI)
+/* The URL of the referenced resource. */
+  url: URI)
 
 object MoveMetaAilmentSummary {
   import DateTimeCodecs._

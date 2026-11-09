@@ -11,7 +11,7 @@
 #include <string>
 #include <vector>
 #include "MoveMetaCategoryDescription.h"
-#include "MoveMetaCategoryDetailMovesInner.h"
+#include "MoveSummary.h"
 
 
 
@@ -32,8 +32,8 @@ public:
     void setName(const std::string& name);
     [[nodiscard]] std::vector<MoveMetaCategoryDescription> getDescriptions() const;
     void setDescriptions(const std::vector<MoveMetaCategoryDescription>& descriptions);
-    [[nodiscard]] std::vector<MoveMetaCategoryDetail_moves_inner> getMoves() const;
-    void setMoves(const std::vector<MoveMetaCategoryDetail_moves_inner>& moves);
+    [[nodiscard]] std::vector<MoveSummary> getMoves() const;
+    void setMoves(const std::vector<MoveSummary>& moves);
 
 
     // JSON serialization using NLOHMANN INTRUSIVE macro (must be inside class to access private members)
@@ -44,7 +44,7 @@ private:
     int id;
     std::string name;
     std::vector<MoveMetaCategoryDescription> descriptions;
-    std::vector<MoveMetaCategoryDetail_moves_inner> moves;
+    std::vector<MoveSummary> moves;
 };
 
 

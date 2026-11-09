@@ -12,17 +12,26 @@ import java.math.*;
 public class PokemonStat implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * The base value of the stat.
+   */
   @JsonProperty("base_stat")
   private Integer baseStat;
 
+  /**
+   * The effort points (EV) the Pokémon has in the stat.
+   */
   @JsonProperty("effort")
   private Integer effort;
 
+  /**
+   * The stat the Pokémon has.
+   */
   @JsonProperty("stat")
   private StatSummary stat;
 
   /**
-   * 
+   * The base value of the stat.
    * @return baseStat
    */
   public Integer getBaseStat() {
@@ -34,7 +43,7 @@ public class PokemonStat implements Serializable {
   }
 
   /**
-   * 
+   * The effort points (EV) the Pokémon has in the stat.
    * @return effort
    */
   public Integer getEffort() {
@@ -46,7 +55,7 @@ public class PokemonStat implements Serializable {
   }
 
   /**
-   * 
+   * The stat the Pokémon has.
    * @return stat
    */
   public StatSummary getStat() {

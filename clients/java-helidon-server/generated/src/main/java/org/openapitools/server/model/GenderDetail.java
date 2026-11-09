@@ -3,8 +3,8 @@ package org.openapitools.server.model;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.server.model.AbilityDetailPokemonInnerPokemon;
-import org.openapitools.server.model.GenderDetailPokemonSpeciesDetailsInner;
+import org.openapitools.server.model.GenderPokemonSpecies;
+import org.openapitools.server.model.PokemonSpeciesSummary;
 import jakarta.validation.constraints.*;
 import jakarta.validation.Valid;
 
@@ -14,8 +14,8 @@ public class GenderDetail   {
 
     private Integer id;
     private String name;
-    private List<@Valid GenderDetailPokemonSpeciesDetailsInner> pokemonSpeciesDetails = new ArrayList<>();
-    private List<@Valid AbilityDetailPokemonInnerPokemon> requiredForEvolution = new ArrayList<>();
+    private List<@Valid GenderPokemonSpecies> pokemonSpeciesDetails = new ArrayList<>();
+    private List<@Valid PokemonSpeciesSummary> requiredForEvolution = new ArrayList<>();
 
     /**
      * Default constructor.
@@ -27,16 +27,16 @@ public class GenderDetail   {
     /**
      * Create GenderDetail.
      *
-     * @param id id
-     * @param name name
-     * @param pokemonSpeciesDetails pokemonSpeciesDetails
-     * @param requiredForEvolution requiredForEvolution
+     * @param id The identifier for this resource.
+     * @param name The name for this resource.
+     * @param pokemonSpeciesDetails A list of Pokémon species that can be this gender and how likely it is that they will be.
+     * @param requiredForEvolution A list of Pokémon species that required this gender in order for a Pokémon to evolve into them.
      */
     public GenderDetail(
         Integer id, 
         String name, 
-        List<@Valid GenderDetailPokemonSpeciesDetailsInner> pokemonSpeciesDetails, 
-        List<@Valid AbilityDetailPokemonInnerPokemon> requiredForEvolution
+        List<@Valid GenderPokemonSpecies> pokemonSpeciesDetails, 
+        List<@Valid PokemonSpeciesSummary> requiredForEvolution
     ) {
         this.id = id;
         this.name = name;
@@ -47,7 +47,7 @@ public class GenderDetail   {
 
 
     /**
-     * Get id
+     * The identifier for this resource.
      * @return id
      */
     public Integer getId() {
@@ -59,7 +59,7 @@ public class GenderDetail   {
     }
 
     /**
-     * Get name
+     * The name for this resource.
      * @return name
      */
     public String getName() {
@@ -71,26 +71,26 @@ public class GenderDetail   {
     }
 
     /**
-     * Get pokemonSpeciesDetails
+     * A list of Pokémon species that can be this gender and how likely it is that they will be.
      * @return pokemonSpeciesDetails
      */
-    public List<@Valid GenderDetailPokemonSpeciesDetailsInner> getPokemonSpeciesDetails() {
+    public List<@Valid GenderPokemonSpecies> getPokemonSpeciesDetails() {
         return pokemonSpeciesDetails;
     }
 
-    public void setPokemonSpeciesDetails(List<@Valid GenderDetailPokemonSpeciesDetailsInner> pokemonSpeciesDetails) {
+    public void setPokemonSpeciesDetails(List<@Valid GenderPokemonSpecies> pokemonSpeciesDetails) {
         this.pokemonSpeciesDetails = pokemonSpeciesDetails;
     }
 
     /**
-     * Get requiredForEvolution
+     * A list of Pokémon species that required this gender in order for a Pokémon to evolve into them.
      * @return requiredForEvolution
      */
-    public List<@Valid AbilityDetailPokemonInnerPokemon> getRequiredForEvolution() {
+    public List<@Valid PokemonSpeciesSummary> getRequiredForEvolution() {
         return requiredForEvolution;
     }
 
-    public void setRequiredForEvolution(List<@Valid AbilityDetailPokemonInnerPokemon> requiredForEvolution) {
+    public void setRequiredForEvolution(List<@Valid PokemonSpeciesSummary> requiredForEvolution) {
         this.requiredForEvolution = requiredForEvolution;
     }
 

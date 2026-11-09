@@ -9,17 +9,39 @@ import Foundation
 
 public struct MoveMeta: Sendable, Codable, Hashable {
 
+    public static let minHitsRule = NumericRule<Int>(minimum: -2147483648, exclusiveMinimum: false, maximum: 2147483647, exclusiveMaximum: false, multipleOf: nil)
+    public static let maxHitsRule = NumericRule<Int>(minimum: -2147483648, exclusiveMinimum: false, maximum: 2147483647, exclusiveMaximum: false, multipleOf: nil)
+    public static let minTurnsRule = NumericRule<Int>(minimum: -2147483648, exclusiveMinimum: false, maximum: 2147483647, exclusiveMaximum: false, multipleOf: nil)
+    public static let maxTurnsRule = NumericRule<Int>(minimum: -2147483648, exclusiveMinimum: false, maximum: 2147483647, exclusiveMaximum: false, multipleOf: nil)
+    public static let drainRule = NumericRule<Int>(minimum: -2147483648, exclusiveMinimum: false, maximum: 2147483647, exclusiveMaximum: false, multipleOf: nil)
+    public static let healingRule = NumericRule<Int>(minimum: -2147483648, exclusiveMinimum: false, maximum: 2147483647, exclusiveMaximum: false, multipleOf: nil)
+    public static let critRateRule = NumericRule<Int>(minimum: -2147483648, exclusiveMinimum: false, maximum: 2147483647, exclusiveMaximum: false, multipleOf: nil)
+    public static let ailmentChanceRule = NumericRule<Int>(minimum: -2147483648, exclusiveMinimum: false, maximum: 2147483647, exclusiveMaximum: false, multipleOf: nil)
+    public static let flinchChanceRule = NumericRule<Int>(minimum: -2147483648, exclusiveMinimum: false, maximum: 2147483647, exclusiveMaximum: false, multipleOf: nil)
+    public static let statChanceRule = NumericRule<Int>(minimum: -2147483648, exclusiveMinimum: false, maximum: 2147483647, exclusiveMaximum: false, multipleOf: nil)
+    /** The status ailment this move inflicts on its target. */
     public var ailment: MoveMetaAilmentSummary
+    /** The category of move this move falls under, e.g. damage or ailment. */
     public var category: MoveMetaCategorySummary
+    /** The minimum number of times this move hits. Null if it always only hits once. */
     public var minHits: Int?
+    /** The maximum number of times this move hits. Null if it always only hits once. */
     public var maxHits: Int?
+    /** The minimum number of turns this move continues to take effect. Null if it always only lasts one turn. */
     public var minTurns: Int?
+    /** The maximum number of turns this move continues to take effect. Null if it always only lasts one turn. */
     public var maxTurns: Int?
+    /** HP drain (if positive) or Recoil damage (if negative), in percent of damage done. */
     public var drain: Int?
+    /** The amount of hp gained by the attacking Pokemon, in percent of it's maximum HP. */
     public var healing: Int?
+    /** Critical hit rate bonus. */
     public var critRate: Int?
+    /** The likelihood this attack will cause an ailment. */
     public var ailmentChance: Int?
+    /** The likelihood this attack will cause the target Pokémon to flinch. */
     public var flinchChance: Int?
+    /** The likelihood this attack will cause a stat change in the target Pokémon. */
     public var statChance: Int?
 
     public init(ailment: MoveMetaAilmentSummary, category: MoveMetaCategorySummary, minHits: Int? = nil, maxHits: Int? = nil, minTurns: Int? = nil, maxTurns: Int? = nil, drain: Int? = nil, healing: Int? = nil, critRate: Int? = nil, ailmentChance: Int? = nil, flinchChance: Int? = nil, statChance: Int? = nil) {

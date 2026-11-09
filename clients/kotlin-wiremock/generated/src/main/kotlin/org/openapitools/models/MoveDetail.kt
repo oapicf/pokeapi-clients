@@ -18,7 +18,7 @@ data class MoveDetail(
     val effectChance: kotlin.Int,
 
     @field:JsonProperty("contest_combos")
-    val contestCombos: MoveDetailContestCombos,
+    val contestCombos: MoveCombos,
 
     @field:JsonProperty("contest_type")
     val contestType: ContestTypeSummary,
@@ -30,10 +30,10 @@ data class MoveDetail(
     val damageClass: MoveDamageClassSummary,
 
     @field:JsonProperty("effect_entries")
-    val effectEntries: kotlin.collections.List<MoveChangeEffectEntriesInner>,
+    val effectEntries: kotlin.collections.List<MoveEffectEffectText>,
 
     @field:JsonProperty("effect_changes")
-    val effectChanges: kotlin.collections.List<MoveDetailEffectChangesInner>,
+    val effectChanges: kotlin.collections.List<MoveEffectChange>,
 
     @field:JsonProperty("generation")
     val generation: GenerationSummary,
@@ -48,7 +48,7 @@ data class MoveDetail(
     val pastValues: kotlin.collections.List<MoveChange>,
 
     @field:JsonProperty("stat_changes")
-    val statChanges: kotlin.collections.List<MoveDetailStatChangesInner>,
+    val statChanges: kotlin.collections.List<MoveMetaStatChange>,
 
     @field:JsonProperty("super_contest_effect")
     val superContestEffect: SuperContestEffectSummary,
@@ -60,13 +60,13 @@ data class MoveDetail(
     val type: TypeSummary,
 
     @field:JsonProperty("machines")
-    val machines: kotlin.collections.List<MoveDetailMachinesInner>,
+    val machines: kotlin.collections.List<ItemMachine>,
 
     @field:JsonProperty("flavor_text_entries")
     val flavorTextEntries: kotlin.collections.List<MoveFlavorText>,
 
     @field:JsonProperty("learned_by_pokemon")
-    val learnedByPokemon: kotlin.collections.List<AbilityDetailPokemonInnerPokemon>,
+    val learnedByPokemon: kotlin.collections.List<PokemonSummary>,
 
     @field:JsonProperty("accuracy")
     val accuracy: kotlin.Int? = null,

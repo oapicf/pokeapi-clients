@@ -17,7 +17,7 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 import io.swagger.annotations.*;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2026-10-25T05:48:53.778376553Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2026-11-09T13:50:03.149615362Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class LocationDetail   {
   
   private Integer id;
@@ -28,9 +28,10 @@ public class LocationDetail   {
   private List<@Valid LocationAreaSummary> areas = new ArrayList<>();
 
   /**
+   * The identifier for this resource.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   @JsonProperty("id")
   @NotNull
   public Integer getId() {
@@ -41,12 +42,13 @@ public class LocationDetail   {
   }
 
   /**
+   * The name for this resource.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   @JsonProperty("name")
   @NotNull
- @Size(max=100)  public String getName() {
+ @Size(max=200)  public String getName() {
     return name;
   }
   public void setName(String name) {
@@ -54,9 +56,10 @@ public class LocationDetail   {
   }
 
   /**
+   * The region this location can be found in.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The region this location can be found in.")
   @JsonProperty("region")
   @NotNull
   public RegionSummary getRegion() {
@@ -67,9 +70,10 @@ public class LocationDetail   {
   }
 
   /**
+   * The name of this resource listed in different languages.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
   @JsonProperty("names")
   @NotNull
   public List<@Valid LocationName> getNames() {
@@ -80,9 +84,10 @@ public class LocationDetail   {
   }
 
   /**
+   * A list of game indices relevent to this location by generation.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of game indices relevent to this location by generation.")
   @JsonProperty("game_indices")
   @NotNull
   public List<@Valid LocationGameIndex> getGameIndices() {
@@ -93,9 +98,10 @@ public class LocationDetail   {
   }
 
   /**
+   * Areas that can be found within this location.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "Areas that can be found within this location.")
   @JsonProperty("areas")
   @NotNull
   public List<@Valid LocationAreaSummary> getAreas() {

@@ -60,7 +60,6 @@ open class MachinesApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * Machines are the representation of items that teach moves to Pokémon. They vary from version to version, so it is not certain that one specific TM or HM corresponds to a single Machine.
      * @param limit Number of results to return per page. (optional)
      * @param offset The initial index from which to return the results. (optional)
-     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
      * @return PaginatedMachineSummaryList
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -70,8 +69,8 @@ open class MachinesApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun machineList(limit: kotlin.Int? = null, offset: kotlin.Int? = null, q: kotlin.String? = null) : PaginatedMachineSummaryList {
-        val localVarResponse = machineListWithHttpInfo(limit = limit, offset = offset, q = q)
+    fun machineList(limit: kotlin.Int? = null, offset: kotlin.Int? = null) : PaginatedMachineSummaryList {
+        val localVarResponse = machineListWithHttpInfo(limit = limit, offset = offset)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as PaginatedMachineSummaryList
@@ -94,15 +93,14 @@ open class MachinesApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * Machines are the representation of items that teach moves to Pokémon. They vary from version to version, so it is not certain that one specific TM or HM corresponds to a single Machine.
      * @param limit Number of results to return per page. (optional)
      * @param offset The initial index from which to return the results. (optional)
-     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
      * @return ApiResponse<PaginatedMachineSummaryList?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun machineListWithHttpInfo(limit: kotlin.Int?, offset: kotlin.Int?, q: kotlin.String?) : ApiResponse<PaginatedMachineSummaryList?> {
-        val localVariableConfig = machineListRequestConfig(limit = limit, offset = offset, q = q)
+    fun machineListWithHttpInfo(limit: kotlin.Int?, offset: kotlin.Int?) : ApiResponse<PaginatedMachineSummaryList?> {
+        val localVariableConfig = machineListRequestConfig(limit = limit, offset = offset)
 
         return request<Unit, PaginatedMachineSummaryList>(
             localVariableConfig
@@ -114,10 +112,9 @@ open class MachinesApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      *
      * @param limit Number of results to return per page. (optional)
      * @param offset The initial index from which to return the results. (optional)
-     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
      * @return RequestConfig
      */
-    fun machineListRequestConfig(limit: kotlin.Int?, offset: kotlin.Int?, q: kotlin.String?) : RequestConfig<Unit> {
+    fun machineListRequestConfig(limit: kotlin.Int?, offset: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -126,9 +123,6 @@ open class MachinesApi(basePath: kotlin.String = defaultBasePath, client: Call.F
                 }
                 if (offset != null) {
                     put("offset", listOf(offset.toString()))
-                }
-                if (q != null) {
-                    put("q", listOf(q.toString()))
                 }
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
@@ -139,7 +133,7 @@ open class MachinesApi(basePath: kotlin.String = defaultBasePath, client: Call.F
             path = "/api/v2/machine/",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -212,7 +206,7 @@ open class MachinesApi(basePath: kotlin.String = defaultBasePath, client: Call.F
             path = "/api/v2/machine/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }

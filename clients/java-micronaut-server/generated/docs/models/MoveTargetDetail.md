@@ -8,11 +8,11 @@ The class is defined in **[MoveTargetDetail.java](../../src/main/java/org/openap
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | `Integer` |  |  [readonly property]
-**name** | `String` |  | 
-**descriptions** | [`List&lt;MoveTargetDescription&gt;`](MoveTargetDescription.md) |  |  [readonly property]
-**moves** | [`List&lt;MoveSummary&gt;`](MoveSummary.md) |  |  [readonly property]
-**names** | [`List&lt;MoveTargetName&gt;`](MoveTargetName.md) |  |  [readonly property]
+**id** | `Integer` | The identifier for this resource. |  [readonly property]
+**name** | `String` | The name for this resource. | 
+**descriptions** | [`List&lt;MoveTargetDescription&gt;`](MoveTargetDescription.md) | The description of this resource listed in different languages. |  [readonly property]
+**moves** | [`List&lt;MoveSummary&gt;`](MoveSummary.md) | A list of moves that that are directed at this target. |  [readonly property]
+**names** | [`List&lt;MoveTargetName&gt;`](MoveTargetName.md) | The name of this resource listed in different languages. |  [readonly property]
 
 
 

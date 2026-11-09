@@ -26,14 +26,14 @@ import jakarta.annotation.Generated;
  * LocationDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-10-25T05:53:37.479908528Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-11-09T13:53:47.069318184Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class LocationDetail {
 
   private Integer id;
 
   private String name;
 
-  private RegionSummary region;
+  private JsonNullable<RegionSummary> region = JsonNullable.<RegionSummary>undefined();
 
   private List<@Valid LocationName> names = new ArrayList<>();
 
@@ -51,7 +51,7 @@ public class LocationDetail {
   public LocationDetail(Integer id, String name, RegionSummary region, List<@Valid LocationName> names, List<@Valid LocationGameIndex> gameIndices, List<@Valid LocationAreaSummary> areas) {
     this.id = id;
     this.name = name;
-    this.region = region;
+    this.region = JsonNullable.of(region);
     this.names = names;
     this.gameIndices = gameIndices;
     this.areas = areas;
@@ -63,11 +63,11 @@ public class LocationDetail {
   }
 
   /**
-   * Get id
+   * The identifier for this resource.
    * @return id
    */
   
-  @Schema(name = "id", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "id", accessMode = Schema.AccessMode.READ_ONLY, description = "The identifier for this resource.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("id")
   public Integer getId() {
     return id;
@@ -84,11 +84,11 @@ public class LocationDetail {
   }
 
   /**
-   * Get name
+   * The name for this resource.
    * @return name
    */
-  @NotNull @Size(max = 100) 
-  @Schema(name = "name", requiredMode = Schema.RequiredMode.REQUIRED)
+  @NotNull @Size(max = 200) 
+  @Schema(name = "name", description = "The name for this resource.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("name")
   public String getName() {
     return name;
@@ -100,23 +100,23 @@ public class LocationDetail {
   }
 
   public LocationDetail region(RegionSummary region) {
-    this.region = region;
+    this.region = JsonNullable.of(region);
     return this;
   }
 
   /**
-   * Get region
+   * The region this location can be found in.
    * @return region
    */
-  @NotNull @Valid 
-  @Schema(name = "region", requiredMode = Schema.RequiredMode.REQUIRED)
+  /* @Present */ @Valid 
+  @Schema(name = "region", description = "The region this location can be found in.", requiredMode = Schema.RequiredMode.REQUIRED, nullable = true)
   @JsonProperty("region")
-  public RegionSummary getRegion() {
+  public JsonNullable<RegionSummary> getRegion() {
     return region;
   }
 
   @JsonProperty("region")
-  public void setRegion(RegionSummary region) {
+  public void setRegion(JsonNullable<RegionSummary> region) {
     this.region = region;
   }
 
@@ -134,11 +134,11 @@ public class LocationDetail {
   }
 
   /**
-   * Get names
+   * The name of this resource listed in different languages.
    * @return names
    */
   
-  @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, description = "The name of this resource listed in different languages.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("names")
   public List<@Valid LocationName> getNames() {
     return names;
@@ -163,11 +163,11 @@ public class LocationDetail {
   }
 
   /**
-   * Get gameIndices
+   * A list of game indices relevent to this location by generation.
    * @return gameIndices
    */
   
-  @Schema(name = "game_indices", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "game_indices", accessMode = Schema.AccessMode.READ_ONLY, description = "A list of game indices relevent to this location by generation.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("game_indices")
   public List<@Valid LocationGameIndex> getGameIndices() {
     return gameIndices;
@@ -192,11 +192,11 @@ public class LocationDetail {
   }
 
   /**
-   * Get areas
+   * Areas that can be found within this location.
    * @return areas
    */
   
-  @Schema(name = "areas", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "areas", accessMode = Schema.AccessMode.READ_ONLY, description = "Areas that can be found within this location.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("areas")
   public List<@Valid LocationAreaSummary> getAreas() {
     return areas;

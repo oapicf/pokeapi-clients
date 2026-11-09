@@ -3,10 +3,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **Int32** |  | [readonly] 
-**Name** | **String** |  | 
-**Names** | [**PokemonColorName[]**](PokemonColorName.md) |  | [readonly] 
-**PokemonSpecies** | [**PokemonSpeciesSummary[]**](PokemonSpeciesSummary.md) |  | [readonly] 
+**Id** | **Int32** | The identifier for this resource. | [readonly] 
+**Name** | **String** | The name for this resource. | 
+**Names** | [**PokemonColorName[]**](PokemonColorName.md) | The name of this resource listed in different languages. | [readonly] 
+**PokemonSpecies** | [**PokemonSpeciesSummary[]**](PokemonSpeciesSummary.md) | A list of the Pokémon species that have this color. | [readonly] 
 
 ## Examples
 

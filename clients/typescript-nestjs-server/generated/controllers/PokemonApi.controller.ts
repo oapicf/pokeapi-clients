@@ -19,8 +19,8 @@ export class PokemonApiController {
   }
 
   @Get('/api/v2/characteristic/')
-  characteristicList(@Query('limit') limit: number | undefined, @Query('offset') offset: number | undefined, @Query('q') q: string | undefined, @Req() request: Request): PaginatedCharacteristicSummaryList | Promise<PaginatedCharacteristicSummaryList> | Observable<PaginatedCharacteristicSummaryList> {
-    return this.pokemonApi.characteristicList(limit, offset, q, request);
+  characteristicList(@Query('limit') limit: number | undefined, @Query('offset') offset: number | undefined, @Req() request: Request): PaginatedCharacteristicSummaryList | Promise<PaginatedCharacteristicSummaryList> | Observable<PaginatedCharacteristicSummaryList> {
+    return this.pokemonApi.characteristicList(limit, offset, request);
   }
 
   @Get('/api/v2/characteristic/:id/')

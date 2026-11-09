@@ -26,8 +26,10 @@ use openapi_client::{
     EncounterMethodRetrieveResponse,
     EvolutionChainListResponse,
     EvolutionTriggerListResponse,
+    EvolutionVariableListResponse,
     EvolutionChainRetrieveResponse,
     EvolutionTriggerRetrieveResponse,
+    EvolutionVariableRetrieveResponse,
     GenerationListResponse,
     PokedexListResponse,
     VersionGroupListResponse,
@@ -36,11 +38,13 @@ use openapi_client::{
     PokedexRetrieveResponse,
     VersionGroupRetrieveResponse,
     VersionRetrieveResponse,
+    CurrencyListResponse,
     ItemAttributeListResponse,
     ItemCategoryListResponse,
     ItemFlingEffectListResponse,
     ItemListResponse,
     ItemPocketListResponse,
+    CurrencyRetrieveResponse,
     ItemAttributeRetrieveResponse,
     ItemCategoryRetrieveResponse,
     ItemFlingEffectRetrieveResponse,
@@ -101,6 +105,7 @@ use openapi_client::{
     StatRetrieveResponse,
     TypeRetrieveResponse,
     LanguageListResponse,
+    MetaRetrieveResponse,
     LanguageRetrieveResponse,
 };
 use simple_logger::SimpleLogger;
@@ -116,7 +121,7 @@ type ClientContext = swagger::make_context_ty!(
 #[derive(Parser, Debug)]
 #[clap(
     name = "PokéAPI",
-    version = "2.7.0",
+    version = "2.10.0",
     about = "CLI access to PokéAPI"
 )]
 struct Cli {
@@ -148,10 +153,6 @@ struct Cli {
 
     #[command(flatten)]
     verbosity: clap_verbosity_flag::Verbosity,
-
-    /// API key for authentication
-    #[arg(long, env = "OPENAPI_CLIENT_API_KEY", hide_env = true)]
-    api_key: Option<String>,
 }
 
 #[derive(Parser, Debug)]
@@ -204,8 +205,6 @@ enum Operation {
         limit: Option<i32>,
         /// The initial index from which to return the results.
         offset: Option<i32>,
-        /// > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-        q: Option<String>,
     },
     /// List contest types
     ContestTypeList {
@@ -222,8 +221,6 @@ enum Operation {
         limit: Option<i32>,
         /// The initial index from which to return the results.
         offset: Option<i32>,
-        /// > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-        q: Option<String>,
     },
     /// Get contest effect
     ContestEffectRetrieve {
@@ -288,11 +285,18 @@ enum Operation {
         limit: Option<i32>,
         /// The initial index from which to return the results.
         offset: Option<i32>,
-        /// > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-        q: Option<String>,
     },
     /// List evolution triggers
     EvolutionTriggerList {
+        /// Number of results to return per page.
+        limit: Option<i32>,
+        /// The initial index from which to return the results.
+        offset: Option<i32>,
+        /// > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+        q: Option<String>,
+    },
+    /// List evolution variables
+    EvolutionVariableList {
         /// Number of results to return per page.
         limit: Option<i32>,
         /// The initial index from which to return the results.
@@ -307,6 +311,11 @@ enum Operation {
     },
     /// Get evolution trigger
     EvolutionTriggerRetrieve {
+        /// This parameter can be a string or an integer.
+        id: String,
+    },
+    /// Get evolution variable
+    EvolutionVariableRetrieve {
         /// This parameter can be a string or an integer.
         id: String,
     },
@@ -366,6 +375,15 @@ enum Operation {
         /// This parameter can be a string or an integer.
         id: String,
     },
+    /// List currencies
+    CurrencyList {
+        /// Number of results to return per page.
+        limit: Option<i32>,
+        /// The initial index from which to return the results.
+        offset: Option<i32>,
+        /// > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+        q: Option<String>,
+    },
     /// List item attributes
     ItemAttributeList {
         /// Number of results to return per page.
@@ -410,6 +428,11 @@ enum Operation {
         offset: Option<i32>,
         /// > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
         q: Option<String>,
+    },
+    /// Get currency
+    CurrencyRetrieve {
+        /// This parameter can be a string or an integer.
+        id: String,
     },
     /// Get item attribute
     ItemAttributeRetrieve {
@@ -496,8 +519,6 @@ enum Operation {
         limit: Option<i32>,
         /// The initial index from which to return the results.
         offset: Option<i32>,
-        /// > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-        q: Option<String>,
     },
     /// Get machine
     MachineRetrieve {
@@ -588,6 +609,7 @@ enum Operation {
         /// This parameter can be a string or an integer.
         id: String,
     },
+    /// List abilities
     AbilityList {
         /// Number of results to return per page.
         limit: Option<i32>,
@@ -596,14 +618,12 @@ enum Operation {
         /// > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
         q: Option<String>,
     },
-    /// List charecterictics
+    /// List characteristics
     CharacteristicList {
         /// Number of results to return per page.
         limit: Option<i32>,
         /// The initial index from which to return the results.
         offset: Option<i32>,
-        /// > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-        q: Option<String>,
     },
     /// List egg groups
     EggGroupList {
@@ -731,6 +751,7 @@ enum Operation {
         /// > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
         q: Option<String>,
     },
+    /// Get ability
     AbilityRetrieve {
         /// This parameter can be a string or an integer.
         id: String,
@@ -819,6 +840,9 @@ enum Operation {
         /// > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
         q: Option<String>,
     },
+    /// Get API metadata
+    MetaRetrieve {
+    },
     /// Get language
     LanguageRetrieve {
         /// This parameter can be a string or an integer.
@@ -876,12 +900,7 @@ async fn main() -> Result<()> {
 
     debug!("Arguments: {:?}", &args);
 
-    let mut auth_data: Option<AuthData> = None;
-
-    if let Some(ref api_key) = args.api_key {
-        debug!("Using API key");
-        auth_data = Some(AuthData::apikey(api_key));
-    }
+    let auth_data: Option<AuthData> = None;
 
     #[allow(trivial_casts)]
     let context = swagger::make_context!(
@@ -1023,14 +1042,12 @@ async fn main() -> Result<()> {
         Operation::ContestEffectList {
             limit,
             offset,
-            q,
         } => {
             info!("Performing a ContestEffectList request");
 
             let result = client.contest_effect_list(
                 limit,
                 offset,
-                q,
             ).await?;
             debug!("Result: {:?}", result);
 
@@ -1067,14 +1084,12 @@ async fn main() -> Result<()> {
         Operation::SuperContestEffectList {
             limit,
             offset,
-            q,
         } => {
             info!("Performing a SuperContestEffectList request");
 
             let result = client.super_contest_effect_list(
                 limit,
                 offset,
-                q,
             ).await?;
             debug!("Result: {:?}", result);
 
@@ -1275,14 +1290,12 @@ async fn main() -> Result<()> {
         Operation::EvolutionChainList {
             limit,
             offset,
-            q,
         } => {
             info!("Performing a EvolutionChainList request");
 
             let result = client.evolution_chain_list(
                 limit,
                 offset,
-                q,
             ).await?;
             debug!("Result: {:?}", result);
 
@@ -1310,6 +1323,28 @@ async fn main() -> Result<()> {
 
             match result {
                 EvolutionTriggerListResponse::Status200
+                (body)
+                => "Status200\n".to_string()
+                   +
+                    &serde_json::to_string_pretty(&body)?,
+            }
+        }
+        Operation::EvolutionVariableList {
+            limit,
+            offset,
+            q,
+        } => {
+            info!("Performing a EvolutionVariableList request");
+
+            let result = client.evolution_variable_list(
+                limit,
+                offset,
+                q,
+            ).await?;
+            debug!("Result: {:?}", result);
+
+            match result {
+                EvolutionVariableListResponse::Status200
                 (body)
                 => "Status200\n".to_string()
                    +
@@ -1350,6 +1385,26 @@ async fn main() -> Result<()> {
 
             match result {
                 EvolutionTriggerRetrieveResponse::Status200
+                (body)
+                => "Status200\n".to_string()
+                   +
+                    &serde_json::to_string_pretty(&body)?,
+            }
+        }
+        Operation::EvolutionVariableRetrieve {
+            id,
+        } => {
+            info!("Performing a EvolutionVariableRetrieve request on {:?}", (
+                &id
+            ));
+
+            let result = client.evolution_variable_retrieve(
+                id,
+            ).await?;
+            debug!("Result: {:?}", result);
+
+            match result {
+                EvolutionVariableRetrieveResponse::Status200
                 (body)
                 => "Status200\n".to_string()
                    +
@@ -1524,6 +1579,28 @@ async fn main() -> Result<()> {
                     &serde_json::to_string_pretty(&body)?,
             }
         }
+        Operation::CurrencyList {
+            limit,
+            offset,
+            q,
+        } => {
+            info!("Performing a CurrencyList request");
+
+            let result = client.currency_list(
+                limit,
+                offset,
+                q,
+            ).await?;
+            debug!("Result: {:?}", result);
+
+            match result {
+                CurrencyListResponse::Status200
+                (body)
+                => "Status200\n".to_string()
+                   +
+                    &serde_json::to_string_pretty(&body)?,
+            }
+        }
         Operation::ItemAttributeList {
             limit,
             offset,
@@ -1628,6 +1705,26 @@ async fn main() -> Result<()> {
 
             match result {
                 ItemPocketListResponse::Status200
+                (body)
+                => "Status200\n".to_string()
+                   +
+                    &serde_json::to_string_pretty(&body)?,
+            }
+        }
+        Operation::CurrencyRetrieve {
+            id,
+        } => {
+            info!("Performing a CurrencyRetrieve request on {:?}", (
+                &id
+            ));
+
+            let result = client.currency_retrieve(
+                id,
+            ).await?;
+            debug!("Result: {:?}", result);
+
+            match result {
+                CurrencyRetrieveResponse::Status200
                 (body)
                 => "Status200\n".to_string()
                    +
@@ -1903,14 +2000,12 @@ async fn main() -> Result<()> {
         Operation::MachineList {
             limit,
             offset,
-            q,
         } => {
             info!("Performing a MachineList request");
 
             let result = client.machine_list(
                 limit,
                 offset,
-                q,
             ).await?;
             debug!("Result: {:?}", result);
 
@@ -2219,14 +2314,12 @@ async fn main() -> Result<()> {
         Operation::CharacteristicList {
             limit,
             offset,
-            q,
         } => {
             info!("Performing a CharacteristicList request");
 
             let result = client.characteristic_list(
                 limit,
                 offset,
-                q,
             ).await?;
             debug!("Result: {:?}", result);
 
@@ -2882,6 +2975,22 @@ async fn main() -> Result<()> {
 
             match result {
                 LanguageListResponse::Status200
+                (body)
+                => "Status200\n".to_string()
+                   +
+                    &serde_json::to_string_pretty(&body)?,
+            }
+        }
+        Operation::MetaRetrieve {
+        } => {
+            info!("Performing a MetaRetrieve request");
+
+            let result = client.meta_retrieve(
+            ).await?;
+            debug!("Result: {:?}", result);
+
+            match result {
+                MetaRetrieveResponse::Status200
                 (body)
                 => "Status200\n".to_string()
                    +

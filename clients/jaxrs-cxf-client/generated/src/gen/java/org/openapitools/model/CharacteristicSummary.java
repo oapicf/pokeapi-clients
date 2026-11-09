@@ -9,11 +9,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class CharacteristicSummary  {
   
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The URL of the referenced resource.
+  */
+  @ApiModelProperty(required = true, value = "The URL of the referenced resource.")
 
   private URI url;
  /**
-   * Get url
+   * The URL of the referenced resource.
    * @return url
   **/
   @JsonProperty("url")

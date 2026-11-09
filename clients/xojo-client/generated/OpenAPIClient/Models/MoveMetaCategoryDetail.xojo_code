@@ -2,22 +2,34 @@
 Protected Class MoveMetaCategoryDetail
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The identifier for this resource.
+		#tag EndNote
 		id As Integer
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The name for this resource.
+		#tag EndNote
 		name As String
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The description of this resource listed in different languages.
+		#tag EndNote
 		descriptions() As OpenAPIClient.Models.MoveMetaCategoryDescription
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
-		moves() As OpenAPIClient.Models.AbilityDetailPokemonInnerPokemon
+		#tag Note
+			A list of moves that fall into this category.
+		#tag EndNote
+		moves() As OpenAPIClient.Models.MoveSummary
 	#tag EndProperty
 
 
@@ -86,7 +98,7 @@ Protected Class MoveMetaCategoryDetail
 			Visible=false
 			Group="Behavior"
 			InitialValue=""
-			Type="AbilityDetailPokemonInnerPokemon"
+			Type="MoveSummary"
 			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior

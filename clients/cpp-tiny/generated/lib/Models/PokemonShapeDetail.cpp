@@ -8,8 +8,8 @@ PokemonShapeDetail::PokemonShapeDetail()
 {
 	id = int(0);
 	name = std::string();
-	awesome_names = std::list<PokemonShapeDetail_awesome_names_inner>();
-	names = std::list<PokemonShapeDetail_names_inner>();
+	awesome_names = std::list<PokemonShapeAwesomeName>();
+	names = std::list<PokemonShapeName>();
 	pokemon_species = std::list<PokemonSpeciesSummary>();
 }
 
@@ -61,8 +61,8 @@ PokemonShapeDetail::fromJson(std::string jsonObj)
         bourne::json value = object[awesome_namesKey];
 
 
-        std::list<PokemonShapeDetail_awesome_names_inner> awesome_names_list;
-        PokemonShapeDetail_awesome_names_inner element;
+        std::list<PokemonShapeAwesomeName> awesome_names_list;
+        PokemonShapeAwesomeName element;
         for(auto& var : value.array_range())
         {
 
@@ -83,8 +83,8 @@ PokemonShapeDetail::fromJson(std::string jsonObj)
         bourne::json value = object[namesKey];
 
 
-        std::list<PokemonShapeDetail_names_inner> names_list;
-        PokemonShapeDetail_names_inner element;
+        std::list<PokemonShapeName> names_list;
+        PokemonShapeName element;
         for(auto& var : value.array_range())
         {
 
@@ -145,12 +145,12 @@ PokemonShapeDetail::toJson()
 
 
 
-    std::list<PokemonShapeDetail_awesome_names_inner> awesome_names_list = getAwesomeNames();
+    std::list<PokemonShapeAwesomeName> awesome_names_list = getAwesomeNames();
     bourne::json awesome_names_arr = bourne::json::array();
 
     for(auto& var : awesome_names_list)
     {
-        PokemonShapeDetail_awesome_names_inner obj = var;
+        PokemonShapeAwesomeName obj = var;
         awesome_names_arr.append(obj.toJson());
     }
     object["awesome_names"] = awesome_names_arr;
@@ -160,12 +160,12 @@ PokemonShapeDetail::toJson()
 
 
 
-    std::list<PokemonShapeDetail_names_inner> names_list = getNames();
+    std::list<PokemonShapeName> names_list = getNames();
     bourne::json names_arr = bourne::json::array();
 
     for(auto& var : names_list)
     {
-        PokemonShapeDetail_names_inner obj = var;
+        PokemonShapeName obj = var;
         names_arr.append(obj.toJson());
     }
     object["names"] = names_arr;
@@ -216,26 +216,26 @@ PokemonShapeDetail::setName(std::string name)
 	this->name = name;
 }
 
-std::list<PokemonShapeDetail_awesome_names_inner>
+std::list<PokemonShapeAwesomeName>
 PokemonShapeDetail::getAwesomeNames()
 {
 	return awesome_names;
 }
 
 void
-PokemonShapeDetail::setAwesomeNames(std::list<PokemonShapeDetail_awesome_names_inner> awesome_names)
+PokemonShapeDetail::setAwesomeNames(std::list<PokemonShapeAwesomeName> awesome_names)
 {
 	this->awesome_names = awesome_names;
 }
 
-std::list<PokemonShapeDetail_names_inner>
+std::list<PokemonShapeName>
 PokemonShapeDetail::getNames()
 {
 	return names;
 }
 
 void
-PokemonShapeDetail::setNames(std::list<PokemonShapeDetail_names_inner> names)
+PokemonShapeDetail::setNames(std::list<PokemonShapeName> names)
 {
 	this->names = names;
 }

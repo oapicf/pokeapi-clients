@@ -19,30 +19,36 @@ class NatureDetail {
     required this.increasedStat,
     required this.likesFlavor,
     required this.hatesFlavor,
-    this.berries = const [],
     this.pokeathlonStatChanges = const [],
     this.moveBattleStylePreferences = const [],
     this.names = const [],
   });
 
+  /// The identifier for this resource.
   int id;
 
+  /// The name for this resource.
   String name;
 
-  StatSummary decreasedStat;
+  /// The stat decreased by 10% in Pokémon with this nature.
+  StatSummary? decreasedStat;
 
-  StatSummary increasedStat;
+  /// The stat increased by 10% in Pokémon with this nature.
+  StatSummary? increasedStat;
 
-  BerryFlavorSummary likesFlavor;
+  /// The flavor liked by Pokémon with this nature.
+  BerryFlavorSummary? likesFlavor;
 
-  BerryFlavorSummary hatesFlavor;
+  /// The flavor hated by Pokémon with this nature.
+  BerryFlavorSummary? hatesFlavor;
 
-  List<BerrySummary> berries;
+  /// A list of Pokéathlon stats this nature effects and how much it effects them.
+  List<NaturePokeathlonStat> pokeathlonStatChanges;
 
-  List<NatureDetailPokeathlonStatChangesInner> pokeathlonStatChanges;
-
+  /// A list of battle styles and how likely a Pokémon with this nature is to use them in the Battle Palace or Battle Tent.
   List<NatureBattleStylePreference> moveBattleStylePreferences;
 
+  /// The name of this resource listed in different languages.
   List<NatureName> names;
 
   @override
@@ -53,7 +59,6 @@ class NatureDetail {
     other.increasedStat == increasedStat &&
     other.likesFlavor == likesFlavor &&
     other.hatesFlavor == hatesFlavor &&
-    _deepEquality.equals(other.berries, berries) &&
     _deepEquality.equals(other.pokeathlonStatChanges, pokeathlonStatChanges) &&
     _deepEquality.equals(other.moveBattleStylePreferences, moveBattleStylePreferences) &&
     _deepEquality.equals(other.names, names);
@@ -63,27 +68,41 @@ class NatureDetail {
     // ignore: unnecessary_parenthesis
     (id.hashCode) +
     (name.hashCode) +
-    (decreasedStat.hashCode) +
-    (increasedStat.hashCode) +
-    (likesFlavor.hashCode) +
-    (hatesFlavor.hashCode) +
-    (berries.hashCode) +
+    (decreasedStat == null ? 0 : decreasedStat!.hashCode) +
+    (increasedStat == null ? 0 : increasedStat!.hashCode) +
+    (likesFlavor == null ? 0 : likesFlavor!.hashCode) +
+    (hatesFlavor == null ? 0 : hatesFlavor!.hashCode) +
     (pokeathlonStatChanges.hashCode) +
     (moveBattleStylePreferences.hashCode) +
     (names.hashCode);
 
   @override
-  String toString() => 'NatureDetail[id=$id, name=$name, decreasedStat=$decreasedStat, increasedStat=$increasedStat, likesFlavor=$likesFlavor, hatesFlavor=$hatesFlavor, berries=$berries, pokeathlonStatChanges=$pokeathlonStatChanges, moveBattleStylePreferences=$moveBattleStylePreferences, names=$names]';
+  String toString() => 'NatureDetail[id=$id, name=$name, decreasedStat=$decreasedStat, increasedStat=$increasedStat, likesFlavor=$likesFlavor, hatesFlavor=$hatesFlavor, pokeathlonStatChanges=$pokeathlonStatChanges, moveBattleStylePreferences=$moveBattleStylePreferences, names=$names]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
       json[r'id'] = this.id;
       json[r'name'] = this.name;
+    if (this.decreasedStat != null) {
       json[r'decreased_stat'] = this.decreasedStat;
+    } else {
+      json[r'decreased_stat'] = null;
+    }
+    if (this.increasedStat != null) {
       json[r'increased_stat'] = this.increasedStat;
+    } else {
+      json[r'increased_stat'] = null;
+    }
+    if (this.likesFlavor != null) {
       json[r'likes_flavor'] = this.likesFlavor;
+    } else {
+      json[r'likes_flavor'] = null;
+    }
+    if (this.hatesFlavor != null) {
       json[r'hates_flavor'] = this.hatesFlavor;
-      json[r'berries'] = this.berries;
+    } else {
+      json[r'hates_flavor'] = null;
+    }
       json[r'pokeathlon_stat_changes'] = this.pokeathlonStatChanges;
       json[r'move_battle_style_preferences'] = this.moveBattleStylePreferences;
       json[r'names'] = this.names;
@@ -106,15 +125,9 @@ class NatureDetail {
         assert(json.containsKey(r'name'), 'Required key "NatureDetail[name]" is missing from JSON.');
         assert(json[r'name'] != null, 'Required key "NatureDetail[name]" has a null value in JSON.');
         assert(json.containsKey(r'decreased_stat'), 'Required key "NatureDetail[decreased_stat]" is missing from JSON.');
-        assert(json[r'decreased_stat'] != null, 'Required key "NatureDetail[decreased_stat]" has a null value in JSON.');
         assert(json.containsKey(r'increased_stat'), 'Required key "NatureDetail[increased_stat]" is missing from JSON.');
-        assert(json[r'increased_stat'] != null, 'Required key "NatureDetail[increased_stat]" has a null value in JSON.');
         assert(json.containsKey(r'likes_flavor'), 'Required key "NatureDetail[likes_flavor]" is missing from JSON.');
-        assert(json[r'likes_flavor'] != null, 'Required key "NatureDetail[likes_flavor]" has a null value in JSON.');
         assert(json.containsKey(r'hates_flavor'), 'Required key "NatureDetail[hates_flavor]" is missing from JSON.');
-        assert(json[r'hates_flavor'] != null, 'Required key "NatureDetail[hates_flavor]" has a null value in JSON.');
-        assert(json.containsKey(r'berries'), 'Required key "NatureDetail[berries]" is missing from JSON.');
-        assert(json[r'berries'] != null, 'Required key "NatureDetail[berries]" has a null value in JSON.');
         assert(json.containsKey(r'pokeathlon_stat_changes'), 'Required key "NatureDetail[pokeathlon_stat_changes]" is missing from JSON.');
         assert(json[r'pokeathlon_stat_changes'] != null, 'Required key "NatureDetail[pokeathlon_stat_changes]" has a null value in JSON.');
         assert(json.containsKey(r'move_battle_style_preferences'), 'Required key "NatureDetail[move_battle_style_preferences]" is missing from JSON.');
@@ -127,12 +140,11 @@ class NatureDetail {
       return NatureDetail(
         id: mapValueOfType<int>(json, r'id')!,
         name: mapValueOfType<String>(json, r'name')!,
-        decreasedStat: StatSummary.fromJson(json[r'decreased_stat'])!,
-        increasedStat: StatSummary.fromJson(json[r'increased_stat'])!,
-        likesFlavor: BerryFlavorSummary.fromJson(json[r'likes_flavor'])!,
-        hatesFlavor: BerryFlavorSummary.fromJson(json[r'hates_flavor'])!,
-        berries: BerrySummary.listFromJson(json[r'berries']),
-        pokeathlonStatChanges: NatureDetailPokeathlonStatChangesInner.listFromJson(json[r'pokeathlon_stat_changes']),
+        decreasedStat: StatSummary.fromJson(json[r'decreased_stat']),
+        increasedStat: StatSummary.fromJson(json[r'increased_stat']),
+        likesFlavor: BerryFlavorSummary.fromJson(json[r'likes_flavor']),
+        hatesFlavor: BerryFlavorSummary.fromJson(json[r'hates_flavor']),
+        pokeathlonStatChanges: NaturePokeathlonStat.listFromJson(json[r'pokeathlon_stat_changes']),
         moveBattleStylePreferences: NatureBattleStylePreference.listFromJson(json[r'move_battle_style_preferences']),
         names: NatureName.listFromJson(json[r'names']),
       );
@@ -188,7 +200,6 @@ class NatureDetail {
     'increased_stat',
     'likes_flavor',
     'hates_flavor',
-    'berries',
     'pokeathlon_stat_changes',
     'move_battle_style_preferences',
     'names',

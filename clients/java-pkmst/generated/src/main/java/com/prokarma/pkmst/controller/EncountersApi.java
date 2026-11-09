@@ -24,16 +24,11 @@ import java.util.List;
  * @author pkmst
  *
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-10-25T05:48:09.645019047Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-11-09T13:49:28.343088631Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 @Api(value = "Encounters", description = "the Encounters API")
 public interface EncountersApi {
 
-    @ApiOperation(value = "List encounter conditions", notes = "Conditions which affect what pokemon might appear in the wild, e.g., day or night.", response = PaginatedEncounterConditionSummaryList.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "encounters", })
+    @ApiOperation(value = "List encounter conditions", notes = "Conditions which affect what pokemon might appear in the wild, e.g., day or night.", response = PaginatedEncounterConditionSummaryList.class, tags={ "encounters", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedEncounterConditionSummaryList.class) })
     @RequestMapping(
@@ -44,12 +39,7 @@ public interface EncountersApi {
     ResponseEntity<PaginatedEncounterConditionSummaryList> encounterConditionList(@ApiParam(value = "Number of results to return per page.")  @RequestParam(value = "limit", required = false) Integer limit,@ApiParam(value = "The initial index from which to return the results.")  @RequestParam(value = "offset", required = false) Integer offset,@ApiParam(value = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")  @RequestParam(value = "q", required = false) String q, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "Get encounter condition", notes = "Conditions which affect what pokemon might appear in the wild, e.g., day or night.", response = EncounterConditionDetail.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "encounters", })
+    @ApiOperation(value = "Get encounter condition", notes = "Conditions which affect what pokemon might appear in the wild, e.g., day or night.", response = EncounterConditionDetail.class, tags={ "encounters", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = EncounterConditionDetail.class) })
     @RequestMapping(
@@ -60,12 +50,7 @@ public interface EncountersApi {
     ResponseEntity<EncounterConditionDetail> encounterConditionRetrieve(@ApiParam(value = "This parameter can be a string or an integer.",required=true ) @PathVariable("id") String id, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "List encounter condition values", notes = "Encounter condition values are the various states that an encounter condition can have, i.e., time of day can be either day or night.", response = PaginatedEncounterConditionValueSummaryList.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "encounters", })
+    @ApiOperation(value = "List encounter condition values", notes = "Encounter condition values are the various states that an encounter condition can have, i.e., time of day can be either day or night.", response = PaginatedEncounterConditionValueSummaryList.class, tags={ "encounters", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedEncounterConditionValueSummaryList.class) })
     @RequestMapping(
@@ -76,12 +61,7 @@ public interface EncountersApi {
     ResponseEntity<PaginatedEncounterConditionValueSummaryList> encounterConditionValueList(@ApiParam(value = "Number of results to return per page.")  @RequestParam(value = "limit", required = false) Integer limit,@ApiParam(value = "The initial index from which to return the results.")  @RequestParam(value = "offset", required = false) Integer offset,@ApiParam(value = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")  @RequestParam(value = "q", required = false) String q, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "Get encounter condition value", notes = "Encounter condition values are the various states that an encounter condition can have, i.e., time of day can be either day or night.", response = EncounterConditionValueDetail.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "encounters", })
+    @ApiOperation(value = "Get encounter condition value", notes = "Encounter condition values are the various states that an encounter condition can have, i.e., time of day can be either day or night.", response = EncounterConditionValueDetail.class, tags={ "encounters", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = EncounterConditionValueDetail.class) })
     @RequestMapping(
@@ -92,12 +72,7 @@ public interface EncountersApi {
     ResponseEntity<EncounterConditionValueDetail> encounterConditionValueRetrieve(@ApiParam(value = "This parameter can be a string or an integer.",required=true ) @PathVariable("id") String id, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "List encounter methods", notes = "Methods by which the player might can encounter Pokémon in the wild, e.g., walking in tall grass. Check out Bulbapedia for greater detail.", response = PaginatedEncounterMethodSummaryList.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "encounters", })
+    @ApiOperation(value = "List encounter methods", notes = "Methods by which the player might can encounter Pokémon in the wild, e.g., walking in tall grass. Check out Bulbapedia for greater detail.", response = PaginatedEncounterMethodSummaryList.class, tags={ "encounters", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedEncounterMethodSummaryList.class) })
     @RequestMapping(
@@ -108,12 +83,7 @@ public interface EncountersApi {
     ResponseEntity<PaginatedEncounterMethodSummaryList> encounterMethodList(@ApiParam(value = "Number of results to return per page.")  @RequestParam(value = "limit", required = false) Integer limit,@ApiParam(value = "The initial index from which to return the results.")  @RequestParam(value = "offset", required = false) Integer offset,@ApiParam(value = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")  @RequestParam(value = "q", required = false) String q, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "Get encounter method", notes = "Methods by which the player might can encounter Pokémon in the wild, e.g., walking in tall grass. Check out Bulbapedia for greater detail.", response = EncounterMethodDetail.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "encounters", })
+    @ApiOperation(value = "Get encounter method", notes = "Methods by which the player might can encounter Pokémon in the wild, e.g., walking in tall grass. Check out Bulbapedia for greater detail.", response = EncounterMethodDetail.class, tags={ "encounters", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = EncounterMethodDetail.class) })
     @RequestMapping(

@@ -20,29 +20,29 @@ resourceTypes {
     properties {
         id {
           type =  integer
-          description = ""
+          description = "The identifier for this resource."
           optional = true
         }
         name {
           type =  string
-          description = ""
+          description = "The name for this resource."
           optional = true
         }
         items {
           type = array
           items.type = ItemSummary
-          description = ""
+          description = "A list of items that are a part of this category."
           optional = true
         }
         names {
           type = array
           items.type = ItemCategoryName
-          description = ""
+          description = "The name of this item category listed in different languages."
           optional = true
         }
         pocket {
           type = ItemPocketSummary
-          description = ""
+          description = "The pocket items in this category would be put in."
           optional = true
         }
     }

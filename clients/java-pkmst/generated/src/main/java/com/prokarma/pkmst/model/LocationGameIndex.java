@@ -15,7 +15,7 @@ import io.swagger.annotations.ApiModelProperty;
  * LocationGameIndex
  */
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-10-25T05:48:09.645019047Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-11-09T13:49:28.343088631Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class LocationGameIndex   {
   @JsonProperty("game_index")
   private Integer gameIndex;
@@ -29,10 +29,12 @@ public class LocationGameIndex   {
   }
 
   /**
-   * Get gameIndex
+   * The internal id of an API resource within game data.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return gameIndex
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The internal id of an API resource within game data.")
   public Integer getGameIndex() {
     return gameIndex;
   }
@@ -47,10 +49,10 @@ public class LocationGameIndex   {
   }
 
   /**
-   * Get generation
+   * The generation relevent to this game index.
    * @return generation
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The generation relevent to this game index.")
   public GenerationSummary getGeneration() {
     return generation;
   }

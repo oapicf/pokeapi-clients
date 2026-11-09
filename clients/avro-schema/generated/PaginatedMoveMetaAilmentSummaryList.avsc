@@ -6,30 +6,28 @@
   "fields": [
     {
       "name": "count",
-      "type": ["null", "int"],
-      "doc": "",
-      "default": null
+      "type": "int",
+      "doc": "The total number of resources available from this API."
     },
     {
       "name": "next",
       "type": ["null", "model.URI"],
-      "doc": "",
+      "doc": "The URL for the next page in the list, or null if there is no next page.",
       "default": null
     },
     {
       "name": "previous",
       "type": ["null", "model.URI"],
-      "doc": "",
+      "doc": "The URL for the previous page in the list, or null if there is no previous page.",
       "default": null
     },
     {
       "name": "results",
-      "type": ["null", {
+      "type": {
         "type": "array",
         "items": "model.MoveMetaAilmentSummary"
-      }],
-      "doc": "",
-      "default": null
+      },
+      "doc": "A list of API resources on this page."
     }
   ]
 

@@ -24,6 +24,8 @@ Articus\PathHandler\RouteInjectionFactory:
     - App\Handler\ApiV2ContestEffectId
     - App\Handler\ApiV2ContestType
     - App\Handler\ApiV2ContestTypeId
+    - App\Handler\ApiV2Currency
+    - App\Handler\ApiV2CurrencyId
     - App\Handler\ApiV2EggGroup
     - App\Handler\ApiV2EggGroupId
     - App\Handler\ApiV2EncounterConditionValue
@@ -36,6 +38,8 @@ Articus\PathHandler\RouteInjectionFactory:
     - App\Handler\ApiV2EvolutionChainId
     - App\Handler\ApiV2EvolutionTrigger
     - App\Handler\ApiV2EvolutionTriggerId
+    - App\Handler\ApiV2EvolutionVariable
+    - App\Handler\ApiV2EvolutionVariableId
     - App\Handler\ApiV2Gender
     - App\Handler\ApiV2GenderId
     - App\Handler\ApiV2Generation
@@ -60,6 +64,7 @@ Articus\PathHandler\RouteInjectionFactory:
     - App\Handler\ApiV2LocationId
     - App\Handler\ApiV2Machine
     - App\Handler\ApiV2MachineId
+    - App\Handler\ApiV2Meta
     - App\Handler\ApiV2MoveAilment
     - App\Handler\ApiV2MoveAilmentId
     - App\Handler\ApiV2MoveBattleStyle
@@ -138,6 +143,8 @@ Laminas\ServiceManager\AbstractFactory\ConfigAbstractFactory:
   App\Handler\ApiV2ContestEffectId: []
   App\Handler\ApiV2ContestType: []
   App\Handler\ApiV2ContestTypeId: []
+  App\Handler\ApiV2Currency: []
+  App\Handler\ApiV2CurrencyId: []
   App\Handler\ApiV2EggGroup: []
   App\Handler\ApiV2EggGroupId: []
   App\Handler\ApiV2EncounterConditionValue: []
@@ -150,6 +157,8 @@ Laminas\ServiceManager\AbstractFactory\ConfigAbstractFactory:
   App\Handler\ApiV2EvolutionChainId: []
   App\Handler\ApiV2EvolutionTrigger: []
   App\Handler\ApiV2EvolutionTriggerId: []
+  App\Handler\ApiV2EvolutionVariable: []
+  App\Handler\ApiV2EvolutionVariableId: []
   App\Handler\ApiV2Gender: []
   App\Handler\ApiV2GenderId: []
   App\Handler\ApiV2Generation: []
@@ -174,6 +183,7 @@ Laminas\ServiceManager\AbstractFactory\ConfigAbstractFactory:
   App\Handler\ApiV2LocationId: []
   App\Handler\ApiV2Machine: []
   App\Handler\ApiV2MachineId: []
+  App\Handler\ApiV2Meta: []
   App\Handler\ApiV2MoveAilment: []
   App\Handler\ApiV2MoveAilmentId: []
   App\Handler\ApiV2MoveBattleStyle: []

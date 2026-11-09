@@ -34,14 +34,7 @@ import type { GenerationListRequest } from '';
 
 async function example() {
   console.log("🚀 Testing  SDK...");
-  const config = new Configuration({ 
-    // To configure HTTP basic authorization: basicAuth
-    username: "YOUR USERNAME",
-    password: "YOUR PASSWORD",
-    // To configure API key authorization: cookieAuth
-    apiKey: "YOUR API KEY",
-  });
-  const api = new GamesApi(config);
+  const api = new GamesApi();
 
   const body = {
     // number | Number of results to return per page. (optional)
@@ -79,7 +72,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -114,18 +107,11 @@ import type { GenerationRetrieveRequest } from '';
 
 async function example() {
   console.log("🚀 Testing  SDK...");
-  const config = new Configuration({ 
-    // To configure HTTP basic authorization: basicAuth
-    username: "YOUR USERNAME",
-    password: "YOUR PASSWORD",
-    // To configure API key authorization: cookieAuth
-    apiKey: "YOUR API KEY",
-  });
-  const api = new GamesApi(config);
+  const api = new GamesApi();
 
   const body = {
     // string | This parameter can be a string or an integer.
-    id: id_example,
+    id: 1,
   } satisfies GenerationRetrieveRequest;
 
   try {
@@ -153,7 +139,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -188,14 +174,7 @@ import type { PokedexListRequest } from '';
 
 async function example() {
   console.log("🚀 Testing  SDK...");
-  const config = new Configuration({ 
-    // To configure HTTP basic authorization: basicAuth
-    username: "YOUR USERNAME",
-    password: "YOUR PASSWORD",
-    // To configure API key authorization: cookieAuth
-    apiKey: "YOUR API KEY",
-  });
-  const api = new GamesApi(config);
+  const api = new GamesApi();
 
   const body = {
     // number | Number of results to return per page. (optional)
@@ -233,7 +212,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -268,18 +247,11 @@ import type { PokedexRetrieveRequest } from '';
 
 async function example() {
   console.log("🚀 Testing  SDK...");
-  const config = new Configuration({ 
-    // To configure HTTP basic authorization: basicAuth
-    username: "YOUR USERNAME",
-    password: "YOUR PASSWORD",
-    // To configure API key authorization: cookieAuth
-    apiKey: "YOUR API KEY",
-  });
-  const api = new GamesApi(config);
+  const api = new GamesApi();
 
   const body = {
     // string | This parameter can be a string or an integer.
-    id: id_example,
+    id: 1,
   } satisfies PokedexRetrieveRequest;
 
   try {
@@ -307,7 +279,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -342,14 +314,7 @@ import type { VersionGroupListRequest } from '';
 
 async function example() {
   console.log("🚀 Testing  SDK...");
-  const config = new Configuration({ 
-    // To configure HTTP basic authorization: basicAuth
-    username: "YOUR USERNAME",
-    password: "YOUR PASSWORD",
-    // To configure API key authorization: cookieAuth
-    apiKey: "YOUR API KEY",
-  });
-  const api = new GamesApi(config);
+  const api = new GamesApi();
 
   const body = {
     // number | Number of results to return per page. (optional)
@@ -387,7 +352,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -422,18 +387,11 @@ import type { VersionGroupRetrieveRequest } from '';
 
 async function example() {
   console.log("🚀 Testing  SDK...");
-  const config = new Configuration({ 
-    // To configure HTTP basic authorization: basicAuth
-    username: "YOUR USERNAME",
-    password: "YOUR PASSWORD",
-    // To configure API key authorization: cookieAuth
-    apiKey: "YOUR API KEY",
-  });
-  const api = new GamesApi(config);
+  const api = new GamesApi();
 
   const body = {
     // string | This parameter can be a string or an integer.
-    id: id_example,
+    id: 1,
   } satisfies VersionGroupRetrieveRequest;
 
   try {
@@ -461,7 +419,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -496,14 +454,7 @@ import type { VersionListRequest } from '';
 
 async function example() {
   console.log("🚀 Testing  SDK...");
-  const config = new Configuration({ 
-    // To configure HTTP basic authorization: basicAuth
-    username: "YOUR USERNAME",
-    password: "YOUR PASSWORD",
-    // To configure API key authorization: cookieAuth
-    apiKey: "YOUR API KEY",
-  });
-  const api = new GamesApi(config);
+  const api = new GamesApi();
 
   const body = {
     // number | Number of results to return per page. (optional)
@@ -541,7 +492,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -576,18 +527,11 @@ import type { VersionRetrieveRequest } from '';
 
 async function example() {
   console.log("🚀 Testing  SDK...");
-  const config = new Configuration({ 
-    // To configure HTTP basic authorization: basicAuth
-    username: "YOUR USERNAME",
-    password: "YOUR PASSWORD",
-    // To configure API key authorization: cookieAuth
-    apiKey: "YOUR API KEY",
-  });
-  const api = new GamesApi(config);
+  const api = new GamesApi();
 
   const body = {
     // string | This parameter can be a string or an integer.
-    id: id_example,
+    id: 1,
   } satisfies VersionRetrieveRequest;
 
   try {
@@ -615,7 +559,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

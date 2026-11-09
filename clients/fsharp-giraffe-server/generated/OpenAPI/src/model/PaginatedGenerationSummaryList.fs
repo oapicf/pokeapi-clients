@@ -3,6 +3,7 @@ namespace OpenAPI.Model
 open System
 open System.Collections.Generic
 open OpenAPI.Model.GenerationSummary
+open OpenAPI.Model.string option
 
 module PaginatedGenerationSummaryList =
 
@@ -11,8 +12,8 @@ module PaginatedGenerationSummaryList =
 
   type PaginatedGenerationSummaryList = {
     Count : int;
-    Next : string;
-    Previous : string;
+    Next : string option;
+    Previous : string option;
     Results : GenerationSummary[];
   }
   //#endregion

@@ -11,12 +11,14 @@ import org.openapitools.model.BerryFlavorDetail;
 import org.openapitools.model.CharacteristicDetail;
 import org.openapitools.model.ContestEffectDetail;
 import org.openapitools.model.ContestTypeDetail;
+import org.openapitools.model.CurrencyDetail;
 import org.openapitools.model.EggGroupDetail;
 import org.openapitools.model.EncounterConditionDetail;
 import org.openapitools.model.EncounterConditionValueDetail;
 import org.openapitools.model.EncounterMethodDetail;
 import org.openapitools.model.EvolutionChainDetail;
 import org.openapitools.model.EvolutionTriggerDetail;
+import org.openapitools.model.EvolutionVariableDetail;
 import org.openapitools.model.GenderDetail;
 import org.openapitools.model.GenerationDetail;
 import org.openapitools.model.GrowthRateDetail;
@@ -44,12 +46,14 @@ import org.openapitools.model.PaginatedBerrySummaryList;
 import org.openapitools.model.PaginatedCharacteristicSummaryList;
 import org.openapitools.model.PaginatedContestEffectSummaryList;
 import org.openapitools.model.PaginatedContestTypeSummaryList;
+import org.openapitools.model.PaginatedCurrencySummaryList;
 import org.openapitools.model.PaginatedEggGroupSummaryList;
 import org.openapitools.model.PaginatedEncounterConditionSummaryList;
 import org.openapitools.model.PaginatedEncounterConditionValueSummaryList;
 import org.openapitools.model.PaginatedEncounterMethodSummaryList;
 import org.openapitools.model.PaginatedEvolutionChainSummaryList;
 import org.openapitools.model.PaginatedEvolutionTriggerSummaryList;
+import org.openapitools.model.PaginatedEvolutionVariableSummaryList;
 import org.openapitools.model.PaginatedGenderSummaryList;
 import org.openapitools.model.PaginatedGenerationSummaryList;
 import org.openapitools.model.PaginatedGrowthRateSummaryList;
@@ -86,6 +90,7 @@ import org.openapitools.model.PaginatedTypeSummaryList;
 import org.openapitools.model.PaginatedVersionGroupSummaryList;
 import org.openapitools.model.PaginatedVersionSummaryList;
 import org.openapitools.model.PalParkAreaDetail;
+import org.openapitools.model.PokeapiMetaResponse;
 import org.openapitools.model.PokeathlonStatDetail;
 import org.openapitools.model.PokedexDetail;
 import org.openapitools.model.PokemonColorDetail;
@@ -113,7 +118,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 
 @RequestScoped
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2026-10-25T05:48:49.952264473Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2026-11-09T13:50:00.159999817Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class ApiApiServiceImpl implements ApiApiService {
       public Response abilityList(Integer limit,Integer offset,String q,SecurityContext securityContext)
       throws NotFoundException {
@@ -155,7 +160,7 @@ public class ApiApiServiceImpl implements ApiApiService {
       // do some magic!
       return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
   }
-      public Response characteristicList(Integer limit,Integer offset,String q,SecurityContext securityContext)
+      public Response characteristicList(Integer limit,Integer offset,SecurityContext securityContext)
       throws NotFoundException {
       // do some magic!
       return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
@@ -165,7 +170,7 @@ public class ApiApiServiceImpl implements ApiApiService {
       // do some magic!
       return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
   }
-      public Response contestEffectList(Integer limit,Integer offset,String q,SecurityContext securityContext)
+      public Response contestEffectList(Integer limit,Integer offset,SecurityContext securityContext)
       throws NotFoundException {
       // do some magic!
       return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
@@ -181,6 +186,16 @@ public class ApiApiServiceImpl implements ApiApiService {
       return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
   }
       public Response contestTypeRetrieve(String id,SecurityContext securityContext)
+      throws NotFoundException {
+      // do some magic!
+      return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
+  }
+      public Response currencyList(Integer limit,Integer offset,String q,SecurityContext securityContext)
+      throws NotFoundException {
+      // do some magic!
+      return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
+  }
+      public Response currencyRetrieve(String id,SecurityContext securityContext)
       throws NotFoundException {
       // do some magic!
       return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
@@ -225,7 +240,7 @@ public class ApiApiServiceImpl implements ApiApiService {
       // do some magic!
       return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
   }
-      public Response evolutionChainList(Integer limit,Integer offset,String q,SecurityContext securityContext)
+      public Response evolutionChainList(Integer limit,Integer offset,SecurityContext securityContext)
       throws NotFoundException {
       // do some magic!
       return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
@@ -241,6 +256,16 @@ public class ApiApiServiceImpl implements ApiApiService {
       return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
   }
       public Response evolutionTriggerRetrieve(String id,SecurityContext securityContext)
+      throws NotFoundException {
+      // do some magic!
+      return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
+  }
+      public Response evolutionVariableList(Integer limit,Integer offset,String q,SecurityContext securityContext)
+      throws NotFoundException {
+      // do some magic!
+      return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
+  }
+      public Response evolutionVariableRetrieve(String id,SecurityContext securityContext)
       throws NotFoundException {
       // do some magic!
       return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
@@ -355,12 +380,17 @@ public class ApiApiServiceImpl implements ApiApiService {
       // do some magic!
       return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
   }
-      public Response machineList(Integer limit,Integer offset,String q,SecurityContext securityContext)
+      public Response machineList(Integer limit,Integer offset,SecurityContext securityContext)
       throws NotFoundException {
       // do some magic!
       return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
   }
       public Response machineRetrieve(String id,SecurityContext securityContext)
+      throws NotFoundException {
+      // do some magic!
+      return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
+  }
+      public Response metaRetrieve(SecurityContext securityContext)
       throws NotFoundException {
       // do some magic!
       return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
@@ -555,7 +585,7 @@ public class ApiApiServiceImpl implements ApiApiService {
       // do some magic!
       return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
   }
-      public Response superContestEffectList(Integer limit,Integer offset,String q,SecurityContext securityContext)
+      public Response superContestEffectList(Integer limit,Integer offset,SecurityContext securityContext)
       throws NotFoundException {
       // do some magic!
       return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();

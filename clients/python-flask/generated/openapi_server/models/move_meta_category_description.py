@@ -50,6 +50,7 @@ class MoveMetaCategoryDescription(Model):
     def description(self) -> str:
         """Gets the description of this MoveMetaCategoryDescription.
 
+        The localized description for an API resource in a specific language.  # noqa: E501
 
         :return: The description of this MoveMetaCategoryDescription.
         :rtype: str
@@ -60,12 +61,13 @@ class MoveMetaCategoryDescription(Model):
     def description(self, description: str):
         """Sets the description of this MoveMetaCategoryDescription.
 
+        The localized description for an API resource in a specific language.  # noqa: E501
 
         :param description: The description of this MoveMetaCategoryDescription.
         :type description: str
         """
-        if description is not None and len(description) > 1000:
-            raise ValueError("Invalid value for `description`, length must be less than or equal to `1000`")  # noqa: E501
+        if description is not None and len(description) > 2000:
+            raise ValueError("Invalid value for `description`, length must be less than or equal to `2000`")  # noqa: E501
 
         self._description = description
 
@@ -73,6 +75,7 @@ class MoveMetaCategoryDescription(Model):
     def language(self) -> LanguageSummary:
         """Gets the language of this MoveMetaCategoryDescription.
 
+        The language this name is in.  # noqa: E501
 
         :return: The language of this MoveMetaCategoryDescription.
         :rtype: LanguageSummary
@@ -83,6 +86,7 @@ class MoveMetaCategoryDescription(Model):
     def language(self, language: LanguageSummary):
         """Sets the language of this MoveMetaCategoryDescription.
 
+        The language this name is in.  # noqa: E501
 
         :param language: The language of this MoveMetaCategoryDescription.
         :type language: LanguageSummary

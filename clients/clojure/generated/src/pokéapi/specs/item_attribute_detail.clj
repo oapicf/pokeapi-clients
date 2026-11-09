@@ -2,7 +2,7 @@
   (:require [clojure.spec.alpha :as s]
             [spec-tools.data-spec :as ds]
             [pokéapi.specs.item-attribute-description :refer :all]
-            [pokéapi.specs.ability-detail-pokemon-inner-pokemon :refer :all]
+            [pokéapi.specs.item-summary :refer :all]
             [pokéapi.specs.item-attribute-name :refer :all]
             )
   (:import (java.io File)))
@@ -13,7 +13,7 @@
    (ds/req :id) int?
    (ds/req :name) string?
    (ds/req :descriptions) (s/coll-of item-attribute-description-spec)
-   (ds/req :items) (s/coll-of ability-detail-pokemon-inner-pokemon-spec)
+   (ds/req :items) (s/coll-of item-summary-spec)
    (ds/req :names) (s/coll-of item-attribute-name-spec)
    })
 

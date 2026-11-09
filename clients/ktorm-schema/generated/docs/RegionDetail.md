@@ -5,13 +5,13 @@
 ## Properties
 Name | Mapping | SQL Type | Default | Type | Description | Notes
 ---- | ------- | -------- | ------- | ---- | ----------- | -----
-**id** | id | int NOT NULL PRIMARY KEY AUTOINCREMENT |  | **kotlin.Int** |  |  [readonly]
-**name** | name | text NOT NULL |  | **kotlin.String** |  | 
-**locations** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;LocationSummary&gt;**](LocationSummary.md) |  |  [readonly]
-**mainGeneration** | main_generation | long NOT NULL |  | [**GenerationSummary**](GenerationSummary.md) |  |  [readonly] [foreignkey]
-**names** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;RegionName&gt;**](RegionName.md) |  |  [readonly]
-**pokedexes** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;PokedexSummary&gt;**](PokedexSummary.md) |  |  [readonly]
-**versionGroups** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;AbilityDetailPokemonInnerPokemon&gt;**](AbilityDetailPokemonInnerPokemon.md) |  |  [readonly]
+**id** | id | int NOT NULL PRIMARY KEY AUTOINCREMENT |  | **kotlin.Int** | The identifier for this resource. |  [readonly]
+**name** | name | text NOT NULL |  | **kotlin.String** | The name for this resource. | 
+**locations** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;LocationSummary&gt;**](LocationSummary.md) | A list of locations that can be found in this region. |  [readonly]
+**mainGeneration** | main_generation | long NOT NULL |  | [**GenerationSummary**](GenerationSummary.md) | The generation this region was introduced in. |  [readonly] [foreignkey]
+**names** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;RegionName&gt;**](RegionName.md) | The name of this resource listed in different languages. |  [readonly]
+**pokedexes** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;PokedexSummary&gt;**](PokedexSummary.md) | A list of pokédexes that catalogue Pokémon in this region. |  [readonly]
+**versionGroups** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;VersionGroupSummary&gt;**](VersionGroupSummary.md) | A list of version groups where this region can be visited. |  [readonly]
 
 
 
@@ -50,14 +50,14 @@ pokedexSummary | pokedexSummary | long | | kotlin.Long | Foreign Key | *many*
 
 
 
-# **Table `RegionDetailAbilityDetailPokemonInnerPokemon`**
-(mapped from: RegionDetailAbilityDetailPokemonInnerPokemon)
+# **Table `RegionDetailVersionGroupSummary`**
+(mapped from: RegionDetailVersionGroupSummary)
 
 ## Properties
 Name | Mapping | SQL Type | Default | Type | Description | Notes
 ---- | ------- | -------- | ------- | ---- | ----------- | -----
 regionDetail | regionDetail | long | | kotlin.Long | Primary Key | *one*
-abilityDetailPokemonInnerPokemon | abilityDetailPokemonInnerPokemon | long | | kotlin.Long | Foreign Key | *many*
+versionGroupSummary | versionGroupSummary | long | | kotlin.Long | Foreign Key | *many*
 
 
 

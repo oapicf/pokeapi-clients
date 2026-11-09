@@ -5,11 +5,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** |  | [readonly] 
-**name** | **str** |  | 
-**descriptions** | [**List[MoveTargetDescription]**](MoveTargetDescription.md) |  | [readonly] 
-**moves** | [**List[MoveSummary]**](MoveSummary.md) |  | [readonly] 
-**names** | [**List[MoveTargetName]**](MoveTargetName.md) |  | [readonly] 
+**id** | **int** | The identifier for this resource. | [readonly] 
+**name** | **str** | The name for this resource. | 
+**descriptions** | [**List[MoveTargetDescription]**](MoveTargetDescription.md) | The description of this resource listed in different languages. | [readonly] 
+**moves** | [**List[MoveSummary]**](MoveSummary.md) | A list of moves that that are directed at this target. | [readonly] 
+**names** | [**List[MoveTargetName]**](MoveTargetName.md) | The name of this resource listed in different languages. | [readonly] 
 
 ## Example
 

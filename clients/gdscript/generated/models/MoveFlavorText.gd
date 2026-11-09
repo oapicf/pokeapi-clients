@@ -10,6 +10,7 @@ class_name MoveFlavorText
 # MoveFlavorText Model
 
 
+# The localized flavor text for an api resource in a specific language.
 # Required: True
 # isArray: false
 @export var flavorUnderscoretext: String:
@@ -18,6 +19,7 @@ class_name MoveFlavorText
 		flavorUnderscoretext = value
 var __flavorUnderscoretext__was__set := false
 
+# The language this name is in.
 # Required: True
 # isArray: false
 @export var language: LanguageSummary:
@@ -26,6 +28,7 @@ var __flavorUnderscoretext__was__set := false
 		language = value
 var __language__was__set := false
 
+# The version group that uses this flavor text.
 # Required: True
 # isArray: false
 @export var versionUnderscoregroup: VersionGroupSummary:

@@ -82,10 +82,11 @@ cJSON *paginated_pokemon_form_summary_list_convertToJSON(paginated_pokemon_form_
     cJSON *item = cJSON_CreateObject();
 
     // paginated_pokemon_form_summary_list->count
-    if(paginated_pokemon_form_summary_list->count) {
+    if (!paginated_pokemon_form_summary_list->count) {
+        goto fail;
+    }
     if(cJSON_AddNumberToObject(item, "count", *paginated_pokemon_form_summary_list->count) == NULL) {
     goto fail; //Numeric
-    }
     }
 
 
@@ -106,7 +107,9 @@ cJSON *paginated_pokemon_form_summary_list_convertToJSON(paginated_pokemon_form_
 
 
     // paginated_pokemon_form_summary_list->results
-    if(paginated_pokemon_form_summary_list->results) {
+    if (!paginated_pokemon_form_summary_list->results) {
+        goto fail;
+    }
     cJSON *results = cJSON_AddArrayToObject(item, "results");
     if(results == NULL) {
     goto fail; //nonprimitive container
@@ -120,7 +123,6 @@ cJSON *paginated_pokemon_form_summary_list_convertToJSON(paginated_pokemon_form_
     goto fail;
     }
     cJSON_AddItemToArray(results, itemLocal);
-    }
     }
     }
 
@@ -151,7 +153,11 @@ paginated_pokemon_form_summary_list_t *paginated_pokemon_form_summary_list_parse
     if (cJSON_IsNull(count)) {
         count = NULL;
     }
-    if (count) { 
+    if (!count) {
+        goto end;
+    }
+
+    
     if(!cJSON_IsNumber(count))
     {
     goto end; //Numeric
@@ -162,7 +168,6 @@ paginated_pokemon_form_summary_list_t *paginated_pokemon_form_summary_list_parse
         goto end;
     }
     *count_local_var = count->valuedouble;
-    }
 
     // paginated_pokemon_form_summary_list->next
     cJSON *next = cJSON_GetObjectItemCaseSensitive(paginated_pokemon_form_summary_listJSON, "next");
@@ -193,7 +198,11 @@ paginated_pokemon_form_summary_list_t *paginated_pokemon_form_summary_list_parse
     if (cJSON_IsNull(results)) {
         results = NULL;
     }
-    if (results) { 
+    if (!results) {
+        goto end;
+    }
+
+    
     cJSON *results_local_nonprimitive = NULL;
     if(!cJSON_IsArray(results)){
         goto end; //nonprimitive container
@@ -210,7 +219,6 @@ paginated_pokemon_form_summary_list_t *paginated_pokemon_form_summary_list_parse
 
         list_addElement(resultsList, resultsItem);
     }
-    }
 
 
     if (next && !cJSON_IsNull(next)) next_local_str = strdup(next->valuestring);
@@ -220,7 +228,7 @@ paginated_pokemon_form_summary_list_t *paginated_pokemon_form_summary_list_parse
         count_local_var,
         next_local_str,
         previous_local_str,
-        results ? resultsList : NULL
+        resultsList
         );
 
     if (!paginated_pokemon_form_summary_list_local_var) {

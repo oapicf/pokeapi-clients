@@ -15,37 +15,44 @@
                 
                 
                 ; [@key "id"]
-                                              name: string
+                    (** The identifier for this resource. *)
+                                      name: string
                   
                   
                 
                 
                 ; [@key "name"]
-                                              locations: Location_summary.t list
+                    (** The name for this resource. *)
+                                      locations: Location_summary.t list
                 
                 
                 ; [@key "locations"]
-                                              main_generation: Generation_summary.t
-                  
+                    (** A list of locations that can be found in this region. *)
+                                      main_generation: Generation_summary.t
+                   option
                   
                 
                 
                 ; [@key "main_generation"]
-                                              names: Region_name.t list
+                    (** The generation this region was introduced in. *)
+                                      names: Region_name.t list
                 
                 
                 ; [@key "names"]
-                                              pokedexes: Pokedex_summary.t list
+                    (** The name of this resource listed in different languages. *)
+                                      pokedexes: Pokedex_summary.t list
                 
                 
                 ; [@key "pokedexes"]
-                                              version_groups: Ability_detail_pokemon_inner_pokemon.t list
+                    (** A list of pokédexes that catalogue Pokémon in this region. *)
+                                      version_groups: Version_group_summary.t list
                 
                 
                 ; [@key "version_groups"]
-                        } [@@deriving yojson { strict = false }, show, eq ];;
+                    (** A list of version groups where this region can be visited. *)
+                } [@@deriving yojson { strict = false }, show, eq ];;
         
-        let create (id : int32) (name : string) (locations : Location_summary.t list) (main_generation : Generation_summary.t) (names : Region_name.t list) (pokedexes : Pokedex_summary.t list) (version_groups : Ability_detail_pokemon_inner_pokemon.t list) : t = {
+        let create (id : int32) (name : string) (locations : Location_summary.t list) (main_generation : Generation_summary.t option) (names : Region_name.t list) (pokedexes : Pokedex_summary.t list) (version_groups : Version_group_summary.t list) : t = {
             id = id;
             name = name;
             locations = locations;

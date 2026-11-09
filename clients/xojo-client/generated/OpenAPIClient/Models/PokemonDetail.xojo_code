@@ -2,102 +2,170 @@
 Protected Class PokemonDetail
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The identifier for this resource.
+		#tag EndNote
 		id As Integer
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The name for this resource.
+		#tag EndNote
 		name As String
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The base experience gained for defeating this Pokémon.
+		#tag EndNote
 		base_experience As Xoson.O.OptionalInteger
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The height of this Pokémon in decimetres.
+		#tag EndNote
 		height As Xoson.O.OptionalInteger
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			Set for exactly one Pokémon used as the default for each species.
+		#tag EndNote
 		is_default As Xoson.O.OptionalBoolean
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			Order for sorting. Almost national order, except families are grouped together.
+		#tag EndNote
 		order As Xoson.O.OptionalInteger
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The weight of this Pokémon in hectograms.
+		#tag EndNote
 		weight As Xoson.O.OptionalInteger
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
-		abilities() As OpenAPIClient.Models.PokemonDetailAbilitiesInner
+		#tag Note
+			A list of abilities this Pokémon could potentially have.
+		#tag EndNote
+		abilities() As OpenAPIClient.Models.PokemonAbility
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
-		past_abilities() As OpenAPIClient.Models.PokemonDetailPastAbilitiesInner
+		#tag Note
+			A list of details showing abilities this pokémon had in previous generations
+		#tag EndNote
+		past_abilities() As OpenAPIClient.Models.PokemonPastAbility
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			A list of forms this Pokémon can take on.
+		#tag EndNote
 		forms() As OpenAPIClient.Models.PokemonFormSummary
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			A list of game indices relevent to Pokémon item by generation.
+		#tag EndNote
 		game_indices() As OpenAPIClient.Models.PokemonGameIndex
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
-		held_items As OpenAPIClient.Models.PokemonDetailHeldItems
+		#tag Note
+			A list of items this Pokémon may be holding when encountered.
+		#tag EndNote
+		held_items() As OpenAPIClient.Models.PokemonHeldItemSummary
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			A link to a list of location areas, as well as encounter details pertaining to specific versions.
+		#tag EndNote
 		location_area_encounters As String
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
-		moves() As OpenAPIClient.Models.PokemonDetailMovesInner
+		#tag Note
+			A list of moves along with learn methods and level details pertaining to specific version groups.
+		#tag EndNote
+		moves() As OpenAPIClient.Models.PokemonMove
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The species this Pokémon belongs to.
+		#tag EndNote
 		species As OpenAPIClient.Models.PokemonSpeciesSummary
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
-		sprites As PokemonDetailSprites
+		#tag Note
+			A set of sprites used to depict this Pokémon in the game. A visual representation of the various sprites can be found at <a href='https://github.com/PokeAPI/sprites#sprites'>PokeAPI/sprites</a>
+		#tag EndNote
+		sprites As OpenAPIClient.Models.PokemonSprites
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
-		cries As OpenAPIClient.Models.PokemonDetailCries
+		#tag Note
+			A set of cries used to depict this Pokémon in the game. A visual representation of the various cries can be found at <a href='https://github.com/PokeAPI/cries#cries'>PokeAPI/cries</a>
+		#tag EndNote
+		cries As OpenAPIClient.Models.PokemonCries
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			A list of base stat values for this Pokémon.
+		#tag EndNote
 		stats() As OpenAPIClient.Models.PokemonStat
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
-		types() As OpenAPIClient.Models.PokemonDetailTypesInner
+		#tag Note
+			A list of details showing stats this pokémon had in previous generations
+		#tag EndNote
+		past_stats() As OpenAPIClient.Models.PokemonPastStat
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
-		past_types() As OpenAPIClient.Models.PokemonDetailPastTypesInner
+		#tag Note
+			A list of details showing types this Pokémon has.
+		#tag EndNote
+		types() As OpenAPIClient.Models.PokemonType
+	#tag EndProperty
+
+
+	#tag Property, Flags = &h0
+		#tag Note
+			A list of details showing types this pokémon had in previous generations
+		#tag EndNote
+		past_types() As OpenAPIClient.Models.PokemonPastType
 	#tag EndProperty
 
 
@@ -198,7 +266,7 @@ Protected Class PokemonDetail
 			Visible=false
 			Group="Behavior"
 			InitialValue=""
-			Type="PokemonDetailAbilitiesInner"
+			Type="PokemonAbility"
 			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
@@ -206,7 +274,7 @@ Protected Class PokemonDetail
 			Visible=false
 			Group="Behavior"
 			InitialValue=""
-			Type="PokemonDetailPastAbilitiesInner"
+			Type="PokemonPastAbility"
 			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
@@ -230,7 +298,7 @@ Protected Class PokemonDetail
 			Visible=false
 			Group="Behavior"
 			InitialValue=""
-			Type="PokemonDetailHeldItems"
+			Type="PokemonHeldItemSummary"
 			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
@@ -246,7 +314,7 @@ Protected Class PokemonDetail
 			Visible=false
 			Group="Behavior"
 			InitialValue=""
-			Type="PokemonDetailMovesInner"
+			Type="PokemonMove"
 			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
@@ -262,7 +330,7 @@ Protected Class PokemonDetail
 			Visible=false
 			Group="Behavior"
 			InitialValue=""
-			Type="PokemonDetailSprites"
+			Type="PokemonSprites"
 			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
@@ -270,7 +338,7 @@ Protected Class PokemonDetail
 			Visible=false
 			Group="Behavior"
 			InitialValue=""
-			Type="PokemonDetailCries"
+			Type="PokemonCries"
 			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
@@ -282,11 +350,19 @@ Protected Class PokemonDetail
 			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="past_stats"
+			Visible=false
+			Group="Behavior"
+			InitialValue=""
+			Type="PokemonPastStat"
+			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="types"
 			Visible=false
 			Group="Behavior"
 			InitialValue=""
-			Type="PokemonDetailTypesInner"
+			Type="PokemonType"
 			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
@@ -294,7 +370,7 @@ Protected Class PokemonDetail
 			Visible=false
 			Group="Behavior"
 			InitialValue=""
-			Type="PokemonDetailPastTypesInner"
+			Type="PokemonPastType"
 			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior

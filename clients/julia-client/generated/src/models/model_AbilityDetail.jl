@@ -16,15 +16,15 @@
         pokemon=nothing,
     )
 
-    - id::Int64
-    - name::String
-    - is_main_series::Bool
-    - generation::GenerationSummary
-    - names::Vector{AbilityName}
-    - effect_entries::Vector{AbilityEffectText}
-    - effect_changes::Vector{AbilityChange}
-    - flavor_text_entries::Vector{AbilityFlavorText}
-    - pokemon::Vector{AbilityDetailPokemonInner}
+    - id::Int64 : The identifier for this resource.
+    - name::String : The name for this resource.
+    - is_main_series::Bool : Whether or not this ability originated in the main series of the video games.
+    - generation::GenerationSummary : The generation this ability originated in.
+    - names::Vector{AbilityName} : The name of this resource listed in different languages.
+    - effect_entries::Vector{AbilityEffectText} : The effect of this ability listed in different languages.
+    - effect_changes::Vector{AbilityChange} : The list of previous effects this ability has had across version groups.
+    - flavor_text_entries::Vector{AbilityFlavorText} : The flavor text of this ability listed in different languages.
+    - pokemon::Vector{AbilityPokemonDetail} : A list of Pokémon that could potentially have this ability.
 """
 Base.@kwdef mutable struct AbilityDetail <: OpenAPI.APIModel
     id::Union{Nothing, Int64} = nothing
@@ -35,7 +35,7 @@ Base.@kwdef mutable struct AbilityDetail <: OpenAPI.APIModel
     effect_entries::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{AbilityEffectText} }
     effect_changes::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{AbilityChange} }
     flavor_text_entries::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{AbilityFlavorText} }
-    pokemon::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{AbilityDetailPokemonInner} }
+    pokemon::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{AbilityPokemonDetail} }
 
     function AbilityDetail(id, name, is_main_series, generation, names, effect_entries, effect_changes, flavor_text_entries, pokemon, )
         o = new(id, name, is_main_series, generation, names, effect_entries, effect_changes, flavor_text_entries, pokemon, )
@@ -44,7 +44,7 @@ Base.@kwdef mutable struct AbilityDetail <: OpenAPI.APIModel
     end
 end # type AbilityDetail
 
-const _property_types_AbilityDetail = Dict{Symbol,String}(Symbol("id")=>"Int64", Symbol("name")=>"String", Symbol("is_main_series")=>"Bool", Symbol("generation")=>"GenerationSummary", Symbol("names")=>"Vector{AbilityName}", Symbol("effect_entries")=>"Vector{AbilityEffectText}", Symbol("effect_changes")=>"Vector{AbilityChange}", Symbol("flavor_text_entries")=>"Vector{AbilityFlavorText}", Symbol("pokemon")=>"Vector{AbilityDetailPokemonInner}", )
+const _property_types_AbilityDetail = Dict{Symbol,String}(Symbol("id")=>"Int64", Symbol("name")=>"String", Symbol("is_main_series")=>"Bool", Symbol("generation")=>"GenerationSummary", Symbol("names")=>"Vector{AbilityName}", Symbol("effect_entries")=>"Vector{AbilityEffectText}", Symbol("effect_changes")=>"Vector{AbilityChange}", Symbol("flavor_text_entries")=>"Vector{AbilityFlavorText}", Symbol("pokemon")=>"Vector{AbilityPokemonDetail}", )
 OpenAPI.property_type(::Type{ AbilityDetail }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_AbilityDetail[name]))}
 
 function OpenAPI.check_required(o::AbilityDetail)
@@ -75,7 +75,7 @@ function OpenAPI.validate_property(::Type{ AbilityDetail }, name::Symbol, val)
 
 
     if name === Symbol("name")
-        OpenAPI.validate_param(name, "AbilityDetail", :maxLength, val, 100)
+        OpenAPI.validate_param(name, "AbilityDetail", :maxLength, val, 200)
     end
 
 

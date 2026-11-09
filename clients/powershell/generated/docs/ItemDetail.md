@@ -3,21 +3,21 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **Int32** |  | [readonly] 
-**Name** | **String** |  | 
-**Cost** | **Int32** |  | [optional] 
-**FlingPower** | **Int32** |  | [optional] 
-**FlingEffect** | [**ItemFlingEffectSummary**](ItemFlingEffectSummary.md) |  | 
-**Attributes** | [**AbilityDetailPokemonInnerPokemon[]**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] 
-**Category** | [**ItemCategorySummary**](ItemCategorySummary.md) |  | 
-**EffectEntries** | [**ItemEffectText[]**](ItemEffectText.md) |  | [readonly] 
-**FlavorTextEntries** | [**ItemFlavorText[]**](ItemFlavorText.md) |  | [readonly] 
-**GameIndices** | [**ItemGameIndex[]**](ItemGameIndex.md) |  | [readonly] 
-**Names** | [**ItemName[]**](ItemName.md) |  | [readonly] 
-**HeldByPokemon** | [**ItemDetailHeldByPokemonInner[]**](ItemDetailHeldByPokemonInner.md) |  | [readonly] 
-**Sprites** | [**ItemDetailSprites**](ItemDetailSprites.md) |  | 
-**BabyTriggerFor** | [**ItemDetailBabyTriggerFor**](ItemDetailBabyTriggerFor.md) |  | 
-**Machines** | [**ItemDetailMachinesInner[]**](ItemDetailMachinesInner.md) |  | [readonly] 
+**Id** | **Int32** | The identifier for this resource. | [readonly] 
+**Name** | **String** | The name for this resource. | 
+**FlingPower** | **Int32** | The power of the move Fling when used with this item. | [optional] 
+**FlingEffect** | [**ItemFlingEffectSummary**](ItemFlingEffectSummary.md) | The effect of the move Fling when used with this item. | 
+**Attributes** | [**ItemAttributeSummary[]**](ItemAttributeSummary.md) | A list of attributes this item has. | [readonly] 
+**Category** | [**ItemCategorySummary**](ItemCategorySummary.md) | The category of items this item falls into. | 
+**EffectEntries** | [**ItemEffectText[]**](ItemEffectText.md) | The effect of this ability listed in different languages. | [readonly] 
+**FlavorTextEntries** | [**ItemFlavorText[]**](ItemFlavorText.md) | The flavor text of this ability listed in different languages. | [readonly] 
+**GameIndices** | [**ItemGameIndex[]**](ItemGameIndex.md) | A list of game indices relevent to this item by generation. | [readonly] 
+**Prices** | [**ItemPrice[]**](ItemPrice.md) | Purchase and sell prices by currency and version group. Prices may be null when the item cannot be bought or sold. | [readonly] 
+**Names** | [**ItemName[]**](ItemName.md) | The name of this item listed in different languages. | [readonly] 
+**HeldByPokemon** | [**PokemonHeldItem[]**](PokemonHeldItem.md) | A list of Pokémon that might be found in the wild holding this item. | [readonly] 
+**Sprites** | [**ItemSprites**](ItemSprites.md) | A set of sprites used to depict this item in the game. | [readonly] 
+**BabyTriggerFor** | [**EvolutionChainSummary**](EvolutionChainSummary.md) | An evolution chain this item requires to produce a bay during mating. | [readonly] 
+**Machines** | [**ItemMachine[]**](ItemMachine.md) | A list of the machines related to this item. | [readonly] 
 
 ## Examples
 
@@ -25,7 +25,6 @@ Name | Type | Description | Notes
 ```powershell
 $ItemDetail = Initialize-PSOpenAPIToolsItemDetail  -Id null `
  -Name null `
- -Cost null `
  -FlingPower null `
  -FlingEffect null `
  -Attributes null `
@@ -33,6 +32,7 @@ $ItemDetail = Initialize-PSOpenAPIToolsItemDetail  -Id null `
  -EffectEntries null `
  -FlavorTextEntries null `
  -GameIndices null `
+ -Prices null `
  -Names null `
  -HeldByPokemon null `
  -Sprites null `

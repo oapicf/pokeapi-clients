@@ -303,8 +303,8 @@ pub enum TypeRetrieveResponse {
 #[async_trait]
 #[allow(clippy::ptr_arg)]
 pub trait Pokemon<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorHandler<E> {
-    type Claims;
-
+    /// List abilities.
+    ///
     /// AbilityList - GET /api/v2/ability/
     async fn ability_list(
     &self,
@@ -312,10 +312,11 @@ pub trait Pokemon<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Error
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       query_params: &models::AbilityListQueryParams,
     ) -> Result<AbilityListResponse, E>;
 
+    /// Get ability.
+    ///
     /// AbilityRetrieve - GET /api/v2/ability/{id}/
     async fn ability_retrieve(
     &self,
@@ -323,11 +324,10 @@ pub trait Pokemon<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Error
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       path_params: &models::AbilityRetrievePathParams,
     ) -> Result<AbilityRetrieveResponse, E>;
 
-    /// List charecterictics.
+    /// List characteristics.
     ///
     /// CharacteristicList - GET /api/v2/characteristic/
     async fn characteristic_list(
@@ -336,7 +336,6 @@ pub trait Pokemon<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Error
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       query_params: &models::CharacteristicListQueryParams,
     ) -> Result<CharacteristicListResponse, E>;
 
@@ -349,7 +348,6 @@ pub trait Pokemon<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Error
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       path_params: &models::CharacteristicRetrievePathParams,
     ) -> Result<CharacteristicRetrieveResponse, E>;
 
@@ -362,7 +360,6 @@ pub trait Pokemon<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Error
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       query_params: &models::EggGroupListQueryParams,
     ) -> Result<EggGroupListResponse, E>;
 
@@ -375,7 +372,6 @@ pub trait Pokemon<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Error
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       path_params: &models::EggGroupRetrievePathParams,
     ) -> Result<EggGroupRetrieveResponse, E>;
 
@@ -388,7 +384,6 @@ pub trait Pokemon<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Error
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       query_params: &models::GenderListQueryParams,
     ) -> Result<GenderListResponse, E>;
 
@@ -401,7 +396,6 @@ pub trait Pokemon<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Error
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       path_params: &models::GenderRetrievePathParams,
     ) -> Result<GenderRetrieveResponse, E>;
 
@@ -414,7 +408,6 @@ pub trait Pokemon<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Error
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       query_params: &models::GrowthRateListQueryParams,
     ) -> Result<GrowthRateListResponse, E>;
 
@@ -427,7 +420,6 @@ pub trait Pokemon<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Error
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       path_params: &models::GrowthRateRetrievePathParams,
     ) -> Result<GrowthRateRetrieveResponse, E>;
 
@@ -440,7 +432,6 @@ pub trait Pokemon<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Error
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       query_params: &models::MoveDamageClassListQueryParams,
     ) -> Result<MoveDamageClassListResponse, E>;
 
@@ -453,7 +444,6 @@ pub trait Pokemon<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Error
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       path_params: &models::MoveDamageClassRetrievePathParams,
     ) -> Result<MoveDamageClassRetrieveResponse, E>;
 
@@ -466,7 +456,6 @@ pub trait Pokemon<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Error
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       query_params: &models::NatureListQueryParams,
     ) -> Result<NatureListResponse, E>;
 
@@ -479,7 +468,6 @@ pub trait Pokemon<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Error
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       path_params: &models::NatureRetrievePathParams,
     ) -> Result<NatureRetrieveResponse, E>;
 
@@ -492,7 +480,6 @@ pub trait Pokemon<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Error
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       query_params: &models::PokeathlonStatListQueryParams,
     ) -> Result<PokeathlonStatListResponse, E>;
 
@@ -505,7 +492,6 @@ pub trait Pokemon<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Error
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       path_params: &models::PokeathlonStatRetrievePathParams,
     ) -> Result<PokeathlonStatRetrieveResponse, E>;
 
@@ -518,7 +504,6 @@ pub trait Pokemon<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Error
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       query_params: &models::PokemonColorListQueryParams,
     ) -> Result<PokemonColorListResponse, E>;
 
@@ -531,7 +516,6 @@ pub trait Pokemon<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Error
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       path_params: &models::PokemonColorRetrievePathParams,
     ) -> Result<PokemonColorRetrieveResponse, E>;
 
@@ -544,7 +528,6 @@ pub trait Pokemon<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Error
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       query_params: &models::PokemonFormListQueryParams,
     ) -> Result<PokemonFormListResponse, E>;
 
@@ -557,7 +540,6 @@ pub trait Pokemon<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Error
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       path_params: &models::PokemonFormRetrievePathParams,
     ) -> Result<PokemonFormRetrieveResponse, E>;
 
@@ -570,7 +552,6 @@ pub trait Pokemon<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Error
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       query_params: &models::PokemonHabitatListQueryParams,
     ) -> Result<PokemonHabitatListResponse, E>;
 
@@ -583,7 +564,6 @@ pub trait Pokemon<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Error
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       path_params: &models::PokemonHabitatRetrievePathParams,
     ) -> Result<PokemonHabitatRetrieveResponse, E>;
 
@@ -596,7 +576,6 @@ pub trait Pokemon<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Error
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       query_params: &models::PokemonListQueryParams,
     ) -> Result<PokemonListResponse, E>;
 
@@ -609,7 +588,6 @@ pub trait Pokemon<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Error
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       path_params: &models::PokemonRetrievePathParams,
     ) -> Result<PokemonRetrieveResponse, E>;
 
@@ -622,7 +600,6 @@ pub trait Pokemon<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Error
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       query_params: &models::PokemonShapeListQueryParams,
     ) -> Result<PokemonShapeListResponse, E>;
 
@@ -635,7 +612,6 @@ pub trait Pokemon<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Error
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       path_params: &models::PokemonShapeRetrievePathParams,
     ) -> Result<PokemonShapeRetrieveResponse, E>;
 
@@ -648,7 +624,6 @@ pub trait Pokemon<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Error
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       query_params: &models::PokemonSpeciesListQueryParams,
     ) -> Result<PokemonSpeciesListResponse, E>;
 
@@ -661,7 +636,6 @@ pub trait Pokemon<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Error
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       path_params: &models::PokemonSpeciesRetrievePathParams,
     ) -> Result<PokemonSpeciesRetrieveResponse, E>;
 
@@ -674,7 +648,6 @@ pub trait Pokemon<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Error
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       query_params: &models::StatListQueryParams,
     ) -> Result<StatListResponse, E>;
 
@@ -687,7 +660,6 @@ pub trait Pokemon<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Error
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       path_params: &models::StatRetrievePathParams,
     ) -> Result<StatRetrieveResponse, E>;
 
@@ -700,7 +672,6 @@ pub trait Pokemon<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Error
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       query_params: &models::TypeListQueryParams,
     ) -> Result<TypeListResponse, E>;
 
@@ -713,7 +684,6 @@ pub trait Pokemon<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Error
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       path_params: &models::TypeRetrievePathParams,
     ) -> Result<TypeRetrieveResponse, E>;
 }

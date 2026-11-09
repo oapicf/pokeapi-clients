@@ -5,8 +5,8 @@ from datetime import date, datetime
 from typing import List, Dict, Type
 
 from openapi_server.models.base_model import Model
-from openapi_server.models.berry_detail_flavors_inner import BerryDetailFlavorsInner
 from openapi_server.models.berry_firmness_summary import BerryFirmnessSummary
+from openapi_server.models.berry_flavor_map import BerryFlavorMap
 from openapi_server.models.item_summary import ItemSummary
 from openapi_server.models.type_summary import TypeSummary
 from openapi_server import util
@@ -18,7 +18,7 @@ class BerryDetail(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, id: int=None, name: str=None, growth_time: int=None, max_harvest: int=None, natural_gift_power: int=None, size: int=None, smoothness: int=None, soil_dryness: int=None, firmness: BerryFirmnessSummary=None, flavors: List[BerryDetailFlavorsInner]=None, item: ItemSummary=None, natural_gift_type: TypeSummary=None):
+    def __init__(self, id: int=None, name: str=None, growth_time: int=None, max_harvest: int=None, natural_gift_power: int=None, size: int=None, smoothness: int=None, soil_dryness: int=None, firmness: BerryFirmnessSummary=None, flavors: List[BerryFlavorMap]=None, item: ItemSummary=None, natural_gift_type: TypeSummary=None):
         """BerryDetail - a model defined in OpenAPI
 
         :param id: The id of this BerryDetail.
@@ -44,7 +44,7 @@ class BerryDetail(Model):
             'smoothness': int,
             'soil_dryness': int,
             'firmness': BerryFirmnessSummary,
-            'flavors': List[BerryDetailFlavorsInner],
+            'flavors': List[BerryFlavorMap],
             'item': ItemSummary,
             'natural_gift_type': TypeSummary
         }
@@ -90,6 +90,7 @@ class BerryDetail(Model):
     def id(self):
         """Gets the id of this BerryDetail.
 
+        The identifier for this resource.
 
         :return: The id of this BerryDetail.
         :rtype: int
@@ -100,6 +101,7 @@ class BerryDetail(Model):
     def id(self, id):
         """Sets the id of this BerryDetail.
 
+        The identifier for this resource.
 
         :param id: The id of this BerryDetail.
         :type id: int
@@ -113,6 +115,7 @@ class BerryDetail(Model):
     def name(self):
         """Gets the name of this BerryDetail.
 
+        The name for this resource.
 
         :return: The name of this BerryDetail.
         :rtype: str
@@ -123,14 +126,15 @@ class BerryDetail(Model):
     def name(self, name):
         """Sets the name of this BerryDetail.
 
+        The name for this resource.
 
         :param name: The name of this BerryDetail.
         :type name: str
         """
         if name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")
-        if name is not None and len(name) > 100:
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `100`")
+        if name is not None and len(name) > 200:
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `200`")
 
         self._name = name
 
@@ -138,6 +142,7 @@ class BerryDetail(Model):
     def growth_time(self):
         """Gets the growth_time of this BerryDetail.
 
+        Time it takes the tree to grow one stage, in hours. Berry trees go through four of these growth stages before they can be picked.
 
         :return: The growth_time of this BerryDetail.
         :rtype: int
@@ -148,12 +153,15 @@ class BerryDetail(Model):
     def growth_time(self, growth_time):
         """Sets the growth_time of this BerryDetail.
 
+        Time it takes the tree to grow one stage, in hours. Berry trees go through four of these growth stages before they can be picked.
 
         :param growth_time: The growth_time of this BerryDetail.
         :type growth_time: int
         """
-        if growth_time is None:
-            raise ValueError("Invalid value for `growth_time`, must not be `None`")
+        if growth_time is not None and growth_time > 2147483647:
+            raise ValueError("Invalid value for `growth_time`, must be a value less than or equal to `2147483647`")
+        if growth_time is not None and growth_time < -2147483648:
+            raise ValueError("Invalid value for `growth_time`, must be a value greater than or equal to `-2147483648`")
 
         self._growth_time = growth_time
 
@@ -161,6 +169,7 @@ class BerryDetail(Model):
     def max_harvest(self):
         """Gets the max_harvest of this BerryDetail.
 
+        The maximum number of these berries that can grow on one tree in Generation IV.
 
         :return: The max_harvest of this BerryDetail.
         :rtype: int
@@ -171,12 +180,15 @@ class BerryDetail(Model):
     def max_harvest(self, max_harvest):
         """Sets the max_harvest of this BerryDetail.
 
+        The maximum number of these berries that can grow on one tree in Generation IV.
 
         :param max_harvest: The max_harvest of this BerryDetail.
         :type max_harvest: int
         """
-        if max_harvest is None:
-            raise ValueError("Invalid value for `max_harvest`, must not be `None`")
+        if max_harvest is not None and max_harvest > 2147483647:
+            raise ValueError("Invalid value for `max_harvest`, must be a value less than or equal to `2147483647`")
+        if max_harvest is not None and max_harvest < -2147483648:
+            raise ValueError("Invalid value for `max_harvest`, must be a value greater than or equal to `-2147483648`")
 
         self._max_harvest = max_harvest
 
@@ -184,6 +196,7 @@ class BerryDetail(Model):
     def natural_gift_power(self):
         """Gets the natural_gift_power of this BerryDetail.
 
+        The power of the move \"Natural Gift\" when used with this Berry.
 
         :return: The natural_gift_power of this BerryDetail.
         :rtype: int
@@ -194,12 +207,15 @@ class BerryDetail(Model):
     def natural_gift_power(self, natural_gift_power):
         """Sets the natural_gift_power of this BerryDetail.
 
+        The power of the move \"Natural Gift\" when used with this Berry.
 
         :param natural_gift_power: The natural_gift_power of this BerryDetail.
         :type natural_gift_power: int
         """
-        if natural_gift_power is None:
-            raise ValueError("Invalid value for `natural_gift_power`, must not be `None`")
+        if natural_gift_power is not None and natural_gift_power > 2147483647:
+            raise ValueError("Invalid value for `natural_gift_power`, must be a value less than or equal to `2147483647`")
+        if natural_gift_power is not None and natural_gift_power < -2147483648:
+            raise ValueError("Invalid value for `natural_gift_power`, must be a value greater than or equal to `-2147483648`")
 
         self._natural_gift_power = natural_gift_power
 
@@ -207,6 +223,7 @@ class BerryDetail(Model):
     def size(self):
         """Gets the size of this BerryDetail.
 
+        The size of this Berry, in millimeters.
 
         :return: The size of this BerryDetail.
         :rtype: int
@@ -217,12 +234,15 @@ class BerryDetail(Model):
     def size(self, size):
         """Sets the size of this BerryDetail.
 
+        The size of this Berry, in millimeters.
 
         :param size: The size of this BerryDetail.
         :type size: int
         """
-        if size is None:
-            raise ValueError("Invalid value for `size`, must not be `None`")
+        if size is not None and size > 2147483647:
+            raise ValueError("Invalid value for `size`, must be a value less than or equal to `2147483647`")
+        if size is not None and size < -2147483648:
+            raise ValueError("Invalid value for `size`, must be a value greater than or equal to `-2147483648`")
 
         self._size = size
 
@@ -230,6 +250,7 @@ class BerryDetail(Model):
     def smoothness(self):
         """Gets the smoothness of this BerryDetail.
 
+        The smoothness of this Berry, used in making Pokéblocks or Poffins.
 
         :return: The smoothness of this BerryDetail.
         :rtype: int
@@ -240,12 +261,15 @@ class BerryDetail(Model):
     def smoothness(self, smoothness):
         """Sets the smoothness of this BerryDetail.
 
+        The smoothness of this Berry, used in making Pokéblocks or Poffins.
 
         :param smoothness: The smoothness of this BerryDetail.
         :type smoothness: int
         """
-        if smoothness is None:
-            raise ValueError("Invalid value for `smoothness`, must not be `None`")
+        if smoothness is not None and smoothness > 2147483647:
+            raise ValueError("Invalid value for `smoothness`, must be a value less than or equal to `2147483647`")
+        if smoothness is not None and smoothness < -2147483648:
+            raise ValueError("Invalid value for `smoothness`, must be a value greater than or equal to `-2147483648`")
 
         self._smoothness = smoothness
 
@@ -253,6 +277,7 @@ class BerryDetail(Model):
     def soil_dryness(self):
         """Gets the soil_dryness of this BerryDetail.
 
+        The speed at which this Berry dries out the soil as it grows. A higher rate means the soil dries more quickly.
 
         :return: The soil_dryness of this BerryDetail.
         :rtype: int
@@ -263,12 +288,15 @@ class BerryDetail(Model):
     def soil_dryness(self, soil_dryness):
         """Sets the soil_dryness of this BerryDetail.
 
+        The speed at which this Berry dries out the soil as it grows. A higher rate means the soil dries more quickly.
 
         :param soil_dryness: The soil_dryness of this BerryDetail.
         :type soil_dryness: int
         """
-        if soil_dryness is None:
-            raise ValueError("Invalid value for `soil_dryness`, must not be `None`")
+        if soil_dryness is not None and soil_dryness > 2147483647:
+            raise ValueError("Invalid value for `soil_dryness`, must be a value less than or equal to `2147483647`")
+        if soil_dryness is not None and soil_dryness < -2147483648:
+            raise ValueError("Invalid value for `soil_dryness`, must be a value greater than or equal to `-2147483648`")
 
         self._soil_dryness = soil_dryness
 
@@ -276,6 +304,7 @@ class BerryDetail(Model):
     def firmness(self):
         """Gets the firmness of this BerryDetail.
 
+        The firmness of this berry, used in making Pokéblocks or Poffins.
 
         :return: The firmness of this BerryDetail.
         :rtype: BerryFirmnessSummary
@@ -286,6 +315,7 @@ class BerryDetail(Model):
     def firmness(self, firmness):
         """Sets the firmness of this BerryDetail.
 
+        The firmness of this berry, used in making Pokéblocks or Poffins.
 
         :param firmness: The firmness of this BerryDetail.
         :type firmness: BerryFirmnessSummary
@@ -299,9 +329,10 @@ class BerryDetail(Model):
     def flavors(self):
         """Gets the flavors of this BerryDetail.
 
+        A list of references to each flavor a berry can have and the potency of each of those flavors in regard to this berry.
 
         :return: The flavors of this BerryDetail.
-        :rtype: List[BerryDetailFlavorsInner]
+        :rtype: List[BerryFlavorMap]
         """
         return self._flavors
 
@@ -309,9 +340,10 @@ class BerryDetail(Model):
     def flavors(self, flavors):
         """Sets the flavors of this BerryDetail.
 
+        A list of references to each flavor a berry can have and the potency of each of those flavors in regard to this berry.
 
         :param flavors: The flavors of this BerryDetail.
-        :type flavors: List[BerryDetailFlavorsInner]
+        :type flavors: List[BerryFlavorMap]
         """
         if flavors is None:
             raise ValueError("Invalid value for `flavors`, must not be `None`")
@@ -322,6 +354,7 @@ class BerryDetail(Model):
     def item(self):
         """Gets the item of this BerryDetail.
 
+        Berries are actually items. This is a reference to the item specific data for this berry.
 
         :return: The item of this BerryDetail.
         :rtype: ItemSummary
@@ -332,6 +365,7 @@ class BerryDetail(Model):
     def item(self, item):
         """Sets the item of this BerryDetail.
 
+        Berries are actually items. This is a reference to the item specific data for this berry.
 
         :param item: The item of this BerryDetail.
         :type item: ItemSummary
@@ -345,6 +379,7 @@ class BerryDetail(Model):
     def natural_gift_type(self):
         """Gets the natural_gift_type of this BerryDetail.
 
+        The type inherited by \"Natural Gift\" when used with this Berry.
 
         :return: The natural_gift_type of this BerryDetail.
         :rtype: TypeSummary
@@ -355,6 +390,7 @@ class BerryDetail(Model):
     def natural_gift_type(self, natural_gift_type):
         """Sets the natural_gift_type of this BerryDetail.
 
+        The type inherited by \"Natural Gift\" when used with this Berry.
 
         :param natural_gift_type: The natural_gift_type of this BerryDetail.
         :type natural_gift_type: TypeSummary

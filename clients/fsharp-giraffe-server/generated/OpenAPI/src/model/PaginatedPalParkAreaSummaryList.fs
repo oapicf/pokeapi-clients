@@ -3,6 +3,7 @@ namespace OpenAPI.Model
 open System
 open System.Collections.Generic
 open OpenAPI.Model.PalParkAreaSummary
+open OpenAPI.Model.string option
 
 module PaginatedPalParkAreaSummaryList =
 
@@ -11,8 +12,8 @@ module PaginatedPalParkAreaSummaryList =
 
   type PaginatedPalParkAreaSummaryList = {
     Count : int;
-    Next : string;
-    Previous : string;
+    Next : string option;
+    Previous : string option;
     Results : PalParkAreaSummary[];
   }
   //#endregion

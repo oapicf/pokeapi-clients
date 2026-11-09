@@ -9,14 +9,19 @@ import Foundation
 
 public struct MoveLearnMethodDetail: Sendable, Codable, Hashable {
 
-    public static let nameRule = StringRule(minLength: nil, maxLength: 100, pattern: nil)
+    public static let nameRule = StringRule(minLength: nil, maxLength: 200, pattern: nil)
+    /** The identifier for this resource. */
     public var id: Int
+    /** The name for this resource. */
     public var name: String
+    /** The name of this resource listed in different languages. */
     public var names: [MoveLearnMethodName]
+    /** The description of this resource listed in different languages. */
     public var descriptions: [MoveLearnMethodDescription]
-    public var versionGroups: [AbilityDetailPokemonInnerPokemon]
+    /** A list of version groups where moves can be learned through this method. */
+    public var versionGroups: [VersionGroupSummary]
 
-    public init(id: Int, name: String, names: [MoveLearnMethodName], descriptions: [MoveLearnMethodDescription], versionGroups: [AbilityDetailPokemonInnerPokemon]) {
+    public init(id: Int, name: String, names: [MoveLearnMethodName], descriptions: [MoveLearnMethodDescription], versionGroups: [VersionGroupSummary]) {
         self.id = id
         self.name = name
         self.names = names

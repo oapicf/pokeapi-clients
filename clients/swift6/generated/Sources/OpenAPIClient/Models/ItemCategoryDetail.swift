@@ -9,11 +9,16 @@ import Foundation
 
 public struct ItemCategoryDetail: Sendable, Codable, Hashable {
 
-    public static let nameRule = StringRule(minLength: nil, maxLength: 100, pattern: nil)
+    public static let nameRule = StringRule(minLength: nil, maxLength: 200, pattern: nil)
+    /** The identifier for this resource. */
     public var id: Int
+    /** The name for this resource. */
     public var name: String
+    /** A list of items that are a part of this category. */
     public var items: [ItemSummary]
+    /** The name of this item category listed in different languages. */
     public var names: [ItemCategoryName]
+    /** The pocket items in this category would be put in. */
     public var pocket: ItemPocketSummary
 
     public init(id: Int, name: String, items: [ItemSummary], names: [ItemCategoryName], pocket: ItemPocketSummary) {

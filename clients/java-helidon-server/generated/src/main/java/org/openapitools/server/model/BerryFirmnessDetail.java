@@ -27,10 +27,10 @@ public class BerryFirmnessDetail   {
     /**
      * Create BerryFirmnessDetail.
      *
-     * @param id id
-     * @param name name
-     * @param berries berries
-     * @param names names
+     * @param id The identifier for this resource.
+     * @param name The name for this resource.
+     * @param berries A list of the berries with this firmness.
+     * @param names The name of this resource listed in different languages.
      */
     public BerryFirmnessDetail(
         Integer id, 
@@ -47,7 +47,7 @@ public class BerryFirmnessDetail   {
 
 
     /**
-     * Get id
+     * The identifier for this resource.
      * @return id
      */
     public Integer getId() {
@@ -59,7 +59,7 @@ public class BerryFirmnessDetail   {
     }
 
     /**
-     * Get name
+     * The name for this resource.
      * @return name
      */
     public String getName() {
@@ -71,7 +71,7 @@ public class BerryFirmnessDetail   {
     }
 
     /**
-     * Get berries
+     * A list of the berries with this firmness.
      * @return berries
      */
     public List<@Valid BerrySummary> getBerries() {
@@ -83,7 +83,7 @@ public class BerryFirmnessDetail   {
     }
 
     /**
-     * Get names
+     * The name of this resource listed in different languages.
      * @return names
      */
     public List<@Valid BerryFirmnessName> getNames() {

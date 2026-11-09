@@ -8,7 +8,7 @@ EncounterConditionValueDetail::EncounterConditionValueDetail()
 {
 	id = int(0);
 	name = std::string();
-	condition = EncounterConditionSummary();
+	condition = null;
 	names = std::list<EncounterConditionValueName>();
 }
 

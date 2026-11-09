@@ -10,7 +10,6 @@ namespace models {
 
 PokemonDexEntry::PokemonDexEntry()
 : entryNumber(0)
-, pokedex(PokedexSummary())
 {
 }
 // =========================================

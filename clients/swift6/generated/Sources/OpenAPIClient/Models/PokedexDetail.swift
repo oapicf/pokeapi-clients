@@ -9,17 +9,25 @@ import Foundation
 
 public struct PokedexDetail: Sendable, Codable, Hashable {
 
-    public static let nameRule = StringRule(minLength: nil, maxLength: 100, pattern: nil)
+    public static let nameRule = StringRule(minLength: nil, maxLength: 200, pattern: nil)
+    /** The identifier for this resource. */
     public var id: Int
+    /** The name for this resource. */
     public var name: String
+    /** Whether or not this Pokédex originated in the main series of the video games. */
     public var isMainSeries: Bool?
+    /** The description of this resource listed in different languages. */
     public var descriptions: [PokedexDescription]
+    /** The name of this resource listed in different languages. */
     public var names: [PokedexName]
-    public var pokemonEntries: [PokedexDetailPokemonEntriesInner]
-    public var region: RegionSummary
-    public var versionGroups: [AbilityDetailPokemonInnerPokemon]
+    /** A list of Pokémon catalogued in this Pokédex and their indexes. */
+    public var pokemonEntries: [PokemonDexNumber]
+    /** The region this Pokédex catalogues Pokémon for. */
+    public var region: RegionSummary?
+    /** A list of version groups this Pokédex is relevant to. */
+    public var versionGroups: [VersionGroupSummary]
 
-    public init(id: Int, name: String, isMainSeries: Bool? = nil, descriptions: [PokedexDescription], names: [PokedexName], pokemonEntries: [PokedexDetailPokemonEntriesInner], region: RegionSummary, versionGroups: [AbilityDetailPokemonInnerPokemon]) {
+    public init(id: Int, name: String, isMainSeries: Bool? = nil, descriptions: [PokedexDescription], names: [PokedexName], pokemonEntries: [PokemonDexNumber], region: RegionSummary?, versionGroups: [VersionGroupSummary]) {
         self.id = id
         self.name = name
         self.isMainSeries = isMainSeries

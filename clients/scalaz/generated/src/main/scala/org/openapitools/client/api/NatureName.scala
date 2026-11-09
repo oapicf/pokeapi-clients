@@ -12,8 +12,10 @@ import org.joda.time.DateTime
 import NatureName._
 
 case class NatureName (
+  /* The localized name for an API resource in a specific language. */
   name: String,
-language: LanguageSummary)
+/* The language this name is in. */
+  language: LanguageSummary)
 
 object NatureName {
   import DateTimeCodecs._

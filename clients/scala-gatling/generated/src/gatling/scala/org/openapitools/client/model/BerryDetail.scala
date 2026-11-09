@@ -3,17 +3,29 @@ package org.openapitools.client.model
 
 
 case class BerryDetail (
+    /* The identifier for this resource. */
     _id: Integer,
+    /* The name for this resource. */
     _name: String,
-    _growthTime: Integer,
-    _maxHarvest: Integer,
-    _naturalGiftPower: Integer,
-    _size: Integer,
-    _smoothness: Integer,
-    _soilDryness: Integer,
+    /* Time it takes the tree to grow one stage, in hours. Berry trees go through four of these growth stages before they can be picked. */
+    _growthTime: Option[Integer],
+    /* The maximum number of these berries that can grow on one tree in Generation IV. */
+    _maxHarvest: Option[Integer],
+    /* The power of the move \"Natural Gift\" when used with this Berry. */
+    _naturalGiftPower: Option[Integer],
+    /* The size of this Berry, in millimeters. */
+    _size: Option[Integer],
+    /* The smoothness of this Berry, used in making Pokéblocks or Poffins. */
+    _smoothness: Option[Integer],
+    /* The speed at which this Berry dries out the soil as it grows. A higher rate means the soil dries more quickly. */
+    _soilDryness: Option[Integer],
+    /* The firmness of this berry, used in making Pokéblocks or Poffins. */
     _firmness: BerryFirmnessSummary,
-    _flavors: List[BerryDetailFlavorsInner],
+    /* A list of references to each flavor a berry can have and the potency of each of those flavors in regard to this berry. */
+    _flavors: List[BerryFlavorMap],
+    /* Berries are actually items. This is a reference to the item specific data for this berry. */
     _item: ItemSummary,
+    /* The type inherited by \"Natural Gift\" when used with this Berry. */
     _naturalGiftType: TypeSummary
 )
 object BerryDetail {

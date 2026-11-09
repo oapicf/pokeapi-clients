@@ -27,16 +27,6 @@ Location areas are sections of areas, such as floors in a building or cave. Each
 
 ### Example
 ```objc
-OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
-// Configure HTTP basic authorization (authentication scheme: basicAuth)
-[apiConfig setUsername:@"YOUR_USERNAME"];
-[apiConfig setPassword:@"YOUR_PASSWORD"];
-
-// Configure API key authorization: (authentication scheme: cookieAuth)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"sessionid"];
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"sessionid"];
-
 
 NSNumber* limit = @56; // Number of results to return per page. (optional)
 NSNumber* offset = @56; // The initial index from which to return the results. (optional)
@@ -69,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -90,18 +80,8 @@ Location areas are sections of areas, such as floors in a building or cave. Each
 
 ### Example
 ```objc
-OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
-// Configure HTTP basic authorization (authentication scheme: basicAuth)
-[apiConfig setUsername:@"YOUR_USERNAME"];
-[apiConfig setPassword:@"YOUR_PASSWORD"];
 
-// Configure API key authorization: (authentication scheme: cookieAuth)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"sessionid"];
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"sessionid"];
-
-
-NSNumber* _id = @56; // A unique integer value identifying this location area.
+NSNumber* _id = 1; // A unique integer value identifying this location area.
 
 OAILocationApi*apiInstance = [[OAILocationApi alloc] init];
 
@@ -129,7 +109,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -152,16 +132,6 @@ Locations that can be visited within the games. Locations make up sizable portio
 
 ### Example
 ```objc
-OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
-// Configure HTTP basic authorization (authentication scheme: basicAuth)
-[apiConfig setUsername:@"YOUR_USERNAME"];
-[apiConfig setPassword:@"YOUR_PASSWORD"];
-
-// Configure API key authorization: (authentication scheme: cookieAuth)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"sessionid"];
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"sessionid"];
-
 
 NSNumber* limit = @56; // Number of results to return per page. (optional)
 NSNumber* offset = @56; // The initial index from which to return the results. (optional)
@@ -197,7 +167,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -218,18 +188,8 @@ Locations that can be visited within the games. Locations make up sizable portio
 
 ### Example
 ```objc
-OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
-// Configure HTTP basic authorization (authentication scheme: basicAuth)
-[apiConfig setUsername:@"YOUR_USERNAME"];
-[apiConfig setPassword:@"YOUR_PASSWORD"];
 
-// Configure API key authorization: (authentication scheme: cookieAuth)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"sessionid"];
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"sessionid"];
-
-
-NSString* _id = @"_id_example"; // This parameter can be a string or an integer.
+NSString* _id = 1; // This parameter can be a string or an integer.
 
 OAILocationApi*apiInstance = [[OAILocationApi alloc] init];
 
@@ -257,7 +217,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -280,16 +240,6 @@ Areas used for grouping Pokémon encounters in Pal Park. They're like habitats t
 
 ### Example
 ```objc
-OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
-// Configure HTTP basic authorization (authentication scheme: basicAuth)
-[apiConfig setUsername:@"YOUR_USERNAME"];
-[apiConfig setPassword:@"YOUR_PASSWORD"];
-
-// Configure API key authorization: (authentication scheme: cookieAuth)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"sessionid"];
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"sessionid"];
-
 
 NSNumber* limit = @56; // Number of results to return per page. (optional)
 NSNumber* offset = @56; // The initial index from which to return the results. (optional)
@@ -325,7 +275,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -346,18 +296,8 @@ Areas used for grouping Pokémon encounters in Pal Park. They're like habitats t
 
 ### Example
 ```objc
-OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
-// Configure HTTP basic authorization (authentication scheme: basicAuth)
-[apiConfig setUsername:@"YOUR_USERNAME"];
-[apiConfig setPassword:@"YOUR_PASSWORD"];
 
-// Configure API key authorization: (authentication scheme: cookieAuth)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"sessionid"];
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"sessionid"];
-
-
-NSString* _id = @"_id_example"; // This parameter can be a string or an integer.
+NSString* _id = 1; // This parameter can be a string or an integer.
 
 OAILocationApi*apiInstance = [[OAILocationApi alloc] init];
 
@@ -385,7 +325,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -408,16 +348,6 @@ A region is an organized area of the Pokémon world. Most often, the main differ
 
 ### Example
 ```objc
-OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
-// Configure HTTP basic authorization (authentication scheme: basicAuth)
-[apiConfig setUsername:@"YOUR_USERNAME"];
-[apiConfig setPassword:@"YOUR_PASSWORD"];
-
-// Configure API key authorization: (authentication scheme: cookieAuth)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"sessionid"];
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"sessionid"];
-
 
 NSNumber* limit = @56; // Number of results to return per page. (optional)
 NSNumber* offset = @56; // The initial index from which to return the results. (optional)
@@ -453,7 +383,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -474,18 +404,8 @@ A region is an organized area of the Pokémon world. Most often, the main differ
 
 ### Example
 ```objc
-OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
-// Configure HTTP basic authorization (authentication scheme: basicAuth)
-[apiConfig setUsername:@"YOUR_USERNAME"];
-[apiConfig setPassword:@"YOUR_PASSWORD"];
 
-// Configure API key authorization: (authentication scheme: cookieAuth)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"sessionid"];
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"sessionid"];
-
-
-NSString* _id = @"_id_example"; // This parameter can be a string or an integer.
+NSString* _id = 1; // This parameter can be a string or an integer.
 
 OAILocationApi*apiInstance = [[OAILocationApi alloc] init];
 
@@ -513,7 +433,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

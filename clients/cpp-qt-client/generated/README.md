@@ -4,7 +4,7 @@
 
 PokéAPI
 
-- API version: 2.7.0
+- API version: 2.10.0
 - Generator version: 7.26.0
 
 All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.
@@ -21,8 +21,7 @@ We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this A
 
 This API will always be publicly available and will never require any extensive setup process to consume.
 
-Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
-    
+Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
 
   For more information, please visit [https://github.com/oapicf/pokeapi-clients](https://github.com/oapicf/pokeapi-clients)
 
@@ -78,13 +77,6 @@ QString Example::create(){
 void Example::exampleFunction1(){
      OAIBerriesApi apiInstance;
      
-      // Configure HTTP basic authorization: basicAuth
-      apiInstance.setUsername("YOUR USERNAME");
-      apiInstance.setPassword("YOUR PASSWORD");
-
-      // Configure API key authorization: cookieAuth
-      apiInstance.setApiKey("YOUR API KEY NAME","YOUR API KEY");
-
       QEventLoop loop;
       connect(&apiInstance, &OAIBerriesApi::berryFirmnessListSignal, [&]() {
           loop.quit();
@@ -184,19 +176,8 @@ servers:
 
 ## Documentation for Authorization
 
+All endpoints do not require authorization.
 Authentication schemes defined for the API:
-### basicAuth
-
-
-- **Type**: HTTP basic authentication
-
-### cookieAuth
-
-
-- **Type**: API key
-- **API key parameter name**: sessionid
-- **Location**: 
-
 
 ## Author
 

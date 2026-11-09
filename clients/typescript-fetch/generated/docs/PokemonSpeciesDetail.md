@@ -20,19 +20,19 @@ Name | Type
 `formsSwitchable` | boolean
 `growthRate` | [GrowthRateSummary](GrowthRateSummary.md)
 `pokedexNumbers` | [Array&lt;PokemonDexEntry&gt;](PokemonDexEntry.md)
-`eggGroups` | [Array&lt;AbilityDetailPokemonInnerPokemon&gt;](AbilityDetailPokemonInnerPokemon.md)
+`eggGroups` | [Array&lt;EggGroupSummary&gt;](EggGroupSummary.md)
 `color` | [PokemonColorSummary](PokemonColorSummary.md)
 `shape` | [PokemonShapeSummary](PokemonShapeSummary.md)
 `evolvesFromSpecies` | [PokemonSpeciesSummary](PokemonSpeciesSummary.md)
 `evolutionChain` | [EvolutionChainSummary](EvolutionChainSummary.md)
 `habitat` | [PokemonHabitatSummary](PokemonHabitatSummary.md)
 `generation` | [GenerationSummary](GenerationSummary.md)
-`names` | [Array&lt;PokemonFormDetailFormNamesInner&gt;](PokemonFormDetailFormNamesInner.md)
-`palParkEncounters` | [Array&lt;PokemonSpeciesDetailPalParkEncountersInner&gt;](PokemonSpeciesDetailPalParkEncountersInner.md)
+`names` | [Array&lt;PokemonSpeciesName&gt;](PokemonSpeciesName.md)
+`palParkEncounters` | [Array&lt;PokemonSpeciesPalParkEncounter&gt;](PokemonSpeciesPalParkEncounter.md)
 `formDescriptions` | [Array&lt;PokemonSpeciesDescription&gt;](PokemonSpeciesDescription.md)
 `flavorTextEntries` | [Array&lt;PokemonSpeciesFlavorText&gt;](PokemonSpeciesFlavorText.md)
-`genera` | [Array&lt;PokemonSpeciesDetailGeneraInner&gt;](PokemonSpeciesDetailGeneraInner.md)
-`varieties` | [Array&lt;PokemonSpeciesDetailVarietiesInner&gt;](PokemonSpeciesDetailVarietiesInner.md)
+`genera` | [Array&lt;PokemonSpeciesGenus&gt;](PokemonSpeciesGenus.md)
+`varieties` | [Array&lt;PokemonSpeciesVariety&gt;](PokemonSpeciesVariety.md)
 
 ## Example
 

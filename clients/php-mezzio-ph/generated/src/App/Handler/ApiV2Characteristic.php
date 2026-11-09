@@ -16,7 +16,7 @@ use Psr\Http\Message\ServerRequestInterface;
 class ApiV2Characteristic
 {
     /**
-     * List charecterictics
+     * List characteristics
      * @PHA\Get()
      * @PHA\Attribute(name=PHAttribute\Transfer::class, options={
      *     "type":\App\DTO\CharacteristicListQueryData::class,

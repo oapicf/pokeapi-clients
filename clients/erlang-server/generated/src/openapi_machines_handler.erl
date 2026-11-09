@@ -71,24 +71,6 @@ allowed_methods(Req, State) ->
 
 -spec is_authorized(cowboy_req:req(), state()) ->
     {true | {false, iodata()}, cowboy_req:req(), state()}.
-is_authorized(Req0,
-              #state{operation_id = 'machine_list' = OperationID,
-                     api_key_callback = Handler} = State) ->
-    case openapi_auth:authorize_api_key(Handler, OperationID, header, <<"authorization">>, Req0) of
-        {true, Context, Req} ->
-            {true, Req, State#state{context = Context}};
-        {false, AuthHeader, Req} ->
-            {{false, AuthHeader}, Req, State}
-    end;
-is_authorized(Req0,
-              #state{operation_id = 'machine_retrieve' = OperationID,
-                     api_key_callback = Handler} = State) ->
-    case openapi_auth:authorize_api_key(Handler, OperationID, header, <<"authorization">>, Req0) of
-        {true, Context, Req} ->
-            {true, Req, State#state{context = Context}};
-        {false, AuthHeader, Req} ->
-            {{false, AuthHeader}, Req, State}
-    end;
 is_authorized(Req, State) ->
     {true, Req, State}.
 

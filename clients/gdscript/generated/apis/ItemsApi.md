@@ -6,6 +6,8 @@ All URIs are relative to *https://pokeapi.co*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**currency_list**](#currency_list) | **GET** `/api/v2/currency/` | List currencies
+[**currency_retrieve**](#currency_retrieve) | **GET** `/api/v2/currency/{id}/` | Get currency
 [**item_attribute_list**](#item_attribute_list) | **GET** `/api/v2/item-attribute/` | List item attributes
 [**item_attribute_retrieve**](#item_attribute_retrieve) | **GET** `/api/v2/item-attribute/{id}/` | Get item attribute
 [**item_category_list**](#item_category_list) | **GET** `/api/v2/item-category/` | List item categories
@@ -16,6 +18,104 @@ Method | HTTP request | Description
 [**item_pocket_list**](#item_pocket_list) | **GET** `/api/v2/item-pocket/` | List item pockets
 [**item_pocket_retrieve**](#item_pocket_retrieve) | **GET** `/api/v2/item-pocket/{id}/` | Get item pocket
 [**item_retrieve**](#item_retrieve) | **GET** `/api/v2/item/{id}/` | Get item
+
+# **currency_list**   { #currency_list }
+<a name="currency_list"></a>
+
+> `currency_list(limit = null,offset = null,q = null, on_success: Callable, on_failure: Callable)`
+
+List currencies
+
+Currencies used to buy items.
+
+### Example
+
+
+```gdscript
+
+# Customize configuration
+var config := ApiConfig.new()
+config.host = "localhost"
+config.port = 8080
+#config.tls_enabled = true
+#config.trusted_chain = preload("res://my_cert_chain.crt")
+
+# Instantiate the api
+var api = ItemsApi.new(config)
+# You can also provide your own HTTPClient, to re-use it across apis.
+#var api = ItemsApi.new(config, client)
+
+
+# Invoke an endpoint
+api.currency_list(
+	# limit: int   Eg: 56
+	# Number of results to return per page.
+	limit,
+	# offset: int   Eg: 56
+	# The initial index from which to return the results.
+	offset,
+	# q: String   Eg: q_example
+	# > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+	q,
+	# On Success
+	func(response):  # response is ApiResponse
+		prints("Success!", "currency_list", response)
+		assert(response.data is PaginatedCurrencySummaryList)
+		pass  # do things, make stuff
+		,
+	# On Error
+	func(error):  # error is ApiError
+		push_error(str(error))
+		,
+)
+
+```
+
+# **currency_retrieve**   { #currency_retrieve }
+<a name="currency_retrieve"></a>
+
+> `currency_retrieve(id: String, on_success: Callable, on_failure: Callable)`
+
+Get currency
+
+Currencies used to buy items.
+
+### Example
+
+
+```gdscript
+
+# Customize configuration
+var config := ApiConfig.new()
+config.host = "localhost"
+config.port = 8080
+#config.tls_enabled = true
+#config.trusted_chain = preload("res://my_cert_chain.crt")
+
+# Instantiate the api
+var api = ItemsApi.new(config)
+# You can also provide your own HTTPClient, to re-use it across apis.
+#var api = ItemsApi.new(config, client)
+
+
+# Invoke an endpoint
+api.currency_retrieve(
+	# id: String   Eg: 1
+	# This parameter can be a string or an integer.
+	id,
+	# On Success
+	func(response):  # response is ApiResponse
+		prints("Success!", "currency_retrieve", response)
+		assert(response.data is CurrencyDetail)
+		pass  # do things, make stuff
+		,
+	# On Error
+	func(error):  # error is ApiError
+		push_error(str(error))
+		,
+)
+
+```
 
 # **item_attribute_list**   { #item_attribute_list }
 <a name="item_attribute_list"></a>
@@ -28,8 +128,6 @@ Item attributes define particular aspects of items, e.g.\"usable in battle\" or 
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -82,8 +180,6 @@ Item attributes define particular aspects of items, e.g.\"usable in battle\" or 
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -102,7 +198,7 @@ var api = ItemsApi.new(config)
 
 # Invoke an endpoint
 api.item_attribute_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id,
 	# On Success
@@ -130,8 +226,6 @@ Item categories determine where items will be placed in the players bag.
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -184,8 +278,6 @@ Item categories determine where items will be placed in the players bag.
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -204,7 +296,7 @@ var api = ItemsApi.new(config)
 
 # Invoke an endpoint
 api.item_category_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id,
 	# On Success
@@ -232,8 +324,6 @@ The various effects of the move\"Fling\" when used with different items.
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -286,8 +376,6 @@ The various effects of the move\"Fling\" when used with different items.
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -306,7 +394,7 @@ var api = ItemsApi.new(config)
 
 # Invoke an endpoint
 api.item_fling_effect_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id,
 	# On Success
@@ -334,8 +422,6 @@ An item is an object in the games which the player can pick up, keep in their ba
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -388,8 +474,6 @@ Pockets within the players bag used for storing items by category.
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -442,8 +526,6 @@ Pockets within the players bag used for storing items by category.
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -462,7 +544,7 @@ var api = ItemsApi.new(config)
 
 # Invoke an endpoint
 api.item_pocket_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id,
 	# On Success
@@ -490,8 +572,6 @@ An item is an object in the games which the player can pick up, keep in their ba
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -510,7 +590,7 @@ var api = ItemsApi.new(config)
 
 # Invoke an endpoint
 api.item_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id,
 	# On Success
@@ -530,8 +610,7 @@ api.item_retrieve(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), 
-[cookieAuth](../README.md#cookieAuth)
+No authorization required.
 
 [[Back to top]](#__pageTop) \
 [[Back to API list]](../README.md#documentation-for-api-endpoints) \

@@ -153,13 +153,11 @@ public class PokemonApiHandler {
 
         Integer limit = requestParameters.queryParameter("limit") != null ? requestParameters.queryParameter("limit").getInteger() : null;
         Integer offset = requestParameters.queryParameter("offset") != null ? requestParameters.queryParameter("offset").getInteger() : null;
-        String q = requestParameters.queryParameter("q") != null ? requestParameters.queryParameter("q").getString() : null;
 
         logger.debug("Parameter limit is {}", limit);
         logger.debug("Parameter offset is {}", offset);
-        logger.debug("Parameter q is {}", q);
 
-        api.characteristicList(limit, offset, q)
+        api.characteristicList(limit, offset)
             .onSuccess(apiResponse -> {
                 routingContext.response().setStatusCode(apiResponse.getStatusCode());
                 if (apiResponse.hasData()) {

@@ -11,7 +11,6 @@
 
 // Project headers
 #include "PokemonApi.h"
-#include "AuthenticationManager.h"
 
 constexpr int HTTP_RESPONSE_CODE_PAGINATED_ABILITY_SUMMARY_LIST = 200;
 constexpr int HTTP_RESPONSE_CODE_ABILITY_DETAIL = 200;
@@ -46,7 +45,6 @@ constexpr int HTTP_RESPONSE_CODE_STAT_DETAIL = 200;
 constexpr int HTTP_RESPONSE_CODE_PAGINATED_TYPE_SUMMARY_LIST = 200;
 constexpr int HTTP_RESPONSE_CODE_TYPE_DETAIL = 200;
 constexpr int HTTP_RESPONSE_CODE_BAD_REQUEST = 400;
-constexpr int HTTP_RESPONSE_CODE_UNAUTHORIZED = 401;
 constexpr int HTTP_RESPONSE_CODE_INTERNAL_SERVER_ERROR = 500;
 
 namespace Api {
@@ -192,16 +190,6 @@ bool Pokemon::parseApiv2characteristicGetParams(const httplib::Request& req, Pok
     {
         // Use default value for optional parameter
         params.m_offset = 0;
-    }
-    // Query Parameters - q
-    if (req.has_param("q"))
-    {
-        params.m_q = req.get_param_value("q");
-    }
-    else
-    {
-        // Use default value for optional parameter
-        params.m_q = "";
     }
 
     // Return errors via out-parameter, return false if any errors
@@ -1686,61 +1674,11 @@ void Pokemon::handleApiv2typeidGetResponse(const Apiv2typeidGetResponse& result,
     res.set_content(responseJson.dump(), "application/json");
 }
 
-bool Pokemon::performAuthentication(
-    const httplib::Request& req,
-    std::shared_ptr<AuthenticationManager> auth,
-    httplib::Response& res)
-{
-    if (!auth)
-    {
-        nlohmann::json errorJson = nlohmann::json::object();
-        errorJson["message"] = "AuthenticationManager not configured";
-        res.status = HTTP_RESPONSE_CODE_INTERNAL_SERVER_ERROR;
-        res.set_content(errorJson.dump(), "application/json");
-        return false;
-    }
 
-    {
-        auto cookieHeader = req.get_header_value("Cookie");
-        std::string key = "sessionid=";
-        size_t start = cookieHeader.find(key);
-        if (start != std::string::npos)
-        {
-            start += key.length();
-            size_t end = cookieHeader.find(";", start);
-            if (end == std::string::npos) end = cookieHeader.length();
-            std::string cookieValue = cookieHeader.substr(start, end - start);
-            if (auth->validateApiKey(cookieValue)) return true;
-        }
-    }
-
-    if (req.has_header("Authorization"))
-    {
-        auto authHeader = req.get_header_value("Authorization");
-        if (authHeader.find("Basic ") == 0)
-        {
-            std::string credentials = authHeader.substr(6);
-            if (auth->validateBasicAuth(credentials, "")) return true;
-        }
-    }
-
-
-
-    return false;
-}
-
-void Pokemon::handleApiv2abilityGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Pokemon::handleApiv2abilityGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2abilityGetRequest params;
         std::vector<std::string> paramErrors;
@@ -1766,18 +1704,10 @@ void Pokemon::handleApiv2abilityGetRequest([[maybe_unused]] const httplib::Reque
     }
 }
 
-void Pokemon::handleApiv2abilityidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Pokemon::handleApiv2abilityidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2abilityidGetRequest params;
         std::vector<std::string> paramErrors;
@@ -1803,18 +1733,10 @@ void Pokemon::handleApiv2abilityidGetRequest([[maybe_unused]] const httplib::Req
     }
 }
 
-void Pokemon::handleApiv2characteristicGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Pokemon::handleApiv2characteristicGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2characteristicGetRequest params;
         std::vector<std::string> paramErrors;
@@ -1840,18 +1762,10 @@ void Pokemon::handleApiv2characteristicGetRequest([[maybe_unused]] const httplib
     }
 }
 
-void Pokemon::handleApiv2characteristicidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Pokemon::handleApiv2characteristicidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2characteristicidGetRequest params;
         std::vector<std::string> paramErrors;
@@ -1877,18 +1791,10 @@ void Pokemon::handleApiv2characteristicidGetRequest([[maybe_unused]] const httpl
     }
 }
 
-void Pokemon::handleApiv2eggGroupGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Pokemon::handleApiv2eggGroupGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2eggGroupGetRequest params;
         std::vector<std::string> paramErrors;
@@ -1914,18 +1820,10 @@ void Pokemon::handleApiv2eggGroupGetRequest([[maybe_unused]] const httplib::Requ
     }
 }
 
-void Pokemon::handleApiv2eggGroupidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Pokemon::handleApiv2eggGroupidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2eggGroupidGetRequest params;
         std::vector<std::string> paramErrors;
@@ -1951,18 +1849,10 @@ void Pokemon::handleApiv2eggGroupidGetRequest([[maybe_unused]] const httplib::Re
     }
 }
 
-void Pokemon::handleApiv2genderGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Pokemon::handleApiv2genderGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2genderGetRequest params;
         std::vector<std::string> paramErrors;
@@ -1988,18 +1878,10 @@ void Pokemon::handleApiv2genderGetRequest([[maybe_unused]] const httplib::Reques
     }
 }
 
-void Pokemon::handleApiv2genderidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Pokemon::handleApiv2genderidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2genderidGetRequest params;
         std::vector<std::string> paramErrors;
@@ -2025,18 +1907,10 @@ void Pokemon::handleApiv2genderidGetRequest([[maybe_unused]] const httplib::Requ
     }
 }
 
-void Pokemon::handleApiv2growthRateGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Pokemon::handleApiv2growthRateGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2growthRateGetRequest params;
         std::vector<std::string> paramErrors;
@@ -2062,18 +1936,10 @@ void Pokemon::handleApiv2growthRateGetRequest([[maybe_unused]] const httplib::Re
     }
 }
 
-void Pokemon::handleApiv2growthRateidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Pokemon::handleApiv2growthRateidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2growthRateidGetRequest params;
         std::vector<std::string> paramErrors;
@@ -2099,18 +1965,10 @@ void Pokemon::handleApiv2growthRateidGetRequest([[maybe_unused]] const httplib::
     }
 }
 
-void Pokemon::handleApiv2moveDamageClassGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Pokemon::handleApiv2moveDamageClassGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2moveDamageClassGetRequest params;
         std::vector<std::string> paramErrors;
@@ -2136,18 +1994,10 @@ void Pokemon::handleApiv2moveDamageClassGetRequest([[maybe_unused]] const httpli
     }
 }
 
-void Pokemon::handleApiv2moveDamageClassidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Pokemon::handleApiv2moveDamageClassidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2moveDamageClassidGetRequest params;
         std::vector<std::string> paramErrors;
@@ -2173,18 +2023,10 @@ void Pokemon::handleApiv2moveDamageClassidGetRequest([[maybe_unused]] const http
     }
 }
 
-void Pokemon::handleApiv2natureGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Pokemon::handleApiv2natureGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2natureGetRequest params;
         std::vector<std::string> paramErrors;
@@ -2210,18 +2052,10 @@ void Pokemon::handleApiv2natureGetRequest([[maybe_unused]] const httplib::Reques
     }
 }
 
-void Pokemon::handleApiv2natureidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Pokemon::handleApiv2natureidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2natureidGetRequest params;
         std::vector<std::string> paramErrors;
@@ -2247,18 +2081,10 @@ void Pokemon::handleApiv2natureidGetRequest([[maybe_unused]] const httplib::Requ
     }
 }
 
-void Pokemon::handleApiv2pokeathlonStatGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Pokemon::handleApiv2pokeathlonStatGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2pokeathlonStatGetRequest params;
         std::vector<std::string> paramErrors;
@@ -2284,18 +2110,10 @@ void Pokemon::handleApiv2pokeathlonStatGetRequest([[maybe_unused]] const httplib
     }
 }
 
-void Pokemon::handleApiv2pokeathlonStatidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Pokemon::handleApiv2pokeathlonStatidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2pokeathlonStatidGetRequest params;
         std::vector<std::string> paramErrors;
@@ -2321,18 +2139,10 @@ void Pokemon::handleApiv2pokeathlonStatidGetRequest([[maybe_unused]] const httpl
     }
 }
 
-void Pokemon::handleApiv2pokemonColorGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Pokemon::handleApiv2pokemonColorGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2pokemonColorGetRequest params;
         std::vector<std::string> paramErrors;
@@ -2358,18 +2168,10 @@ void Pokemon::handleApiv2pokemonColorGetRequest([[maybe_unused]] const httplib::
     }
 }
 
-void Pokemon::handleApiv2pokemonColoridGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Pokemon::handleApiv2pokemonColoridGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2pokemonColoridGetRequest params;
         std::vector<std::string> paramErrors;
@@ -2395,18 +2197,10 @@ void Pokemon::handleApiv2pokemonColoridGetRequest([[maybe_unused]] const httplib
     }
 }
 
-void Pokemon::handleApiv2pokemonFormGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Pokemon::handleApiv2pokemonFormGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2pokemonFormGetRequest params;
         std::vector<std::string> paramErrors;
@@ -2432,18 +2226,10 @@ void Pokemon::handleApiv2pokemonFormGetRequest([[maybe_unused]] const httplib::R
     }
 }
 
-void Pokemon::handleApiv2pokemonFormidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Pokemon::handleApiv2pokemonFormidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2pokemonFormidGetRequest params;
         std::vector<std::string> paramErrors;
@@ -2469,18 +2255,10 @@ void Pokemon::handleApiv2pokemonFormidGetRequest([[maybe_unused]] const httplib:
     }
 }
 
-void Pokemon::handleApiv2pokemonHabitatGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Pokemon::handleApiv2pokemonHabitatGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2pokemonHabitatGetRequest params;
         std::vector<std::string> paramErrors;
@@ -2506,18 +2284,10 @@ void Pokemon::handleApiv2pokemonHabitatGetRequest([[maybe_unused]] const httplib
     }
 }
 
-void Pokemon::handleApiv2pokemonHabitatidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Pokemon::handleApiv2pokemonHabitatidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2pokemonHabitatidGetRequest params;
         std::vector<std::string> paramErrors;
@@ -2543,18 +2313,10 @@ void Pokemon::handleApiv2pokemonHabitatidGetRequest([[maybe_unused]] const httpl
     }
 }
 
-void Pokemon::handleApiv2pokemonGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Pokemon::handleApiv2pokemonGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2pokemonGetRequest params;
         std::vector<std::string> paramErrors;
@@ -2580,18 +2342,10 @@ void Pokemon::handleApiv2pokemonGetRequest([[maybe_unused]] const httplib::Reque
     }
 }
 
-void Pokemon::handleApiv2pokemonidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Pokemon::handleApiv2pokemonidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2pokemonidGetRequest params;
         std::vector<std::string> paramErrors;
@@ -2617,18 +2371,10 @@ void Pokemon::handleApiv2pokemonidGetRequest([[maybe_unused]] const httplib::Req
     }
 }
 
-void Pokemon::handleApiv2pokemonShapeGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Pokemon::handleApiv2pokemonShapeGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2pokemonShapeGetRequest params;
         std::vector<std::string> paramErrors;
@@ -2654,18 +2400,10 @@ void Pokemon::handleApiv2pokemonShapeGetRequest([[maybe_unused]] const httplib::
     }
 }
 
-void Pokemon::handleApiv2pokemonShapeidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Pokemon::handleApiv2pokemonShapeidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2pokemonShapeidGetRequest params;
         std::vector<std::string> paramErrors;
@@ -2691,18 +2429,10 @@ void Pokemon::handleApiv2pokemonShapeidGetRequest([[maybe_unused]] const httplib
     }
 }
 
-void Pokemon::handleApiv2pokemonSpeciesGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Pokemon::handleApiv2pokemonSpeciesGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2pokemonSpeciesGetRequest params;
         std::vector<std::string> paramErrors;
@@ -2728,18 +2458,10 @@ void Pokemon::handleApiv2pokemonSpeciesGetRequest([[maybe_unused]] const httplib
     }
 }
 
-void Pokemon::handleApiv2pokemonSpeciesidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Pokemon::handleApiv2pokemonSpeciesidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2pokemonSpeciesidGetRequest params;
         std::vector<std::string> paramErrors;
@@ -2765,18 +2487,10 @@ void Pokemon::handleApiv2pokemonSpeciesidGetRequest([[maybe_unused]] const httpl
     }
 }
 
-void Pokemon::handleApiv2statGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Pokemon::handleApiv2statGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2statGetRequest params;
         std::vector<std::string> paramErrors;
@@ -2802,18 +2516,10 @@ void Pokemon::handleApiv2statGetRequest([[maybe_unused]] const httplib::Request&
     }
 }
 
-void Pokemon::handleApiv2statidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Pokemon::handleApiv2statidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2statidGetRequest params;
         std::vector<std::string> paramErrors;
@@ -2839,18 +2545,10 @@ void Pokemon::handleApiv2statidGetRequest([[maybe_unused]] const httplib::Reques
     }
 }
 
-void Pokemon::handleApiv2typeGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Pokemon::handleApiv2typeGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2typeGetRequest params;
         std::vector<std::string> paramErrors;
@@ -2876,18 +2574,10 @@ void Pokemon::handleApiv2typeGetRequest([[maybe_unused]] const httplib::Request&
     }
 }
 
-void Pokemon::handleApiv2typeidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Pokemon::handleApiv2typeidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2typeidGetRequest params;
         std::vector<std::string> paramErrors;
@@ -2914,135 +2604,135 @@ void Pokemon::handleApiv2typeidGetRequest([[maybe_unused]] const httplib::Reques
 }
 
 
-void Pokemon::registerRoutes(httplib::Server& svr, std::shared_ptr<AuthenticationManager> auth)
+void Pokemon::registerRoutes(httplib::Server& svr)
 {
-    svr.Get("/api/v2/ability/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/ability/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2abilityGetRequest(req, res, auth);
+        handleApiv2abilityGetRequest(req, res);
     });
-    svr.Get("/api/v2/ability/{id}/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/ability/{id}/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2abilityidGetRequest(req, res, auth);
+        handleApiv2abilityidGetRequest(req, res);
     });
-    svr.Get("/api/v2/characteristic/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/characteristic/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2characteristicGetRequest(req, res, auth);
+        handleApiv2characteristicGetRequest(req, res);
     });
-    svr.Get("/api/v2/characteristic/{id}/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/characteristic/{id}/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2characteristicidGetRequest(req, res, auth);
+        handleApiv2characteristicidGetRequest(req, res);
     });
-    svr.Get("/api/v2/egg-group/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/egg-group/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2eggGroupGetRequest(req, res, auth);
+        handleApiv2eggGroupGetRequest(req, res);
     });
-    svr.Get("/api/v2/egg-group/{id}/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/egg-group/{id}/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2eggGroupidGetRequest(req, res, auth);
+        handleApiv2eggGroupidGetRequest(req, res);
     });
-    svr.Get("/api/v2/gender/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/gender/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2genderGetRequest(req, res, auth);
+        handleApiv2genderGetRequest(req, res);
     });
-    svr.Get("/api/v2/gender/{id}/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/gender/{id}/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2genderidGetRequest(req, res, auth);
+        handleApiv2genderidGetRequest(req, res);
     });
-    svr.Get("/api/v2/growth-rate/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/growth-rate/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2growthRateGetRequest(req, res, auth);
+        handleApiv2growthRateGetRequest(req, res);
     });
-    svr.Get("/api/v2/growth-rate/{id}/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/growth-rate/{id}/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2growthRateidGetRequest(req, res, auth);
+        handleApiv2growthRateidGetRequest(req, res);
     });
-    svr.Get("/api/v2/move-damage-class/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/move-damage-class/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2moveDamageClassGetRequest(req, res, auth);
+        handleApiv2moveDamageClassGetRequest(req, res);
     });
-    svr.Get("/api/v2/move-damage-class/{id}/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/move-damage-class/{id}/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2moveDamageClassidGetRequest(req, res, auth);
+        handleApiv2moveDamageClassidGetRequest(req, res);
     });
-    svr.Get("/api/v2/nature/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/nature/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2natureGetRequest(req, res, auth);
+        handleApiv2natureGetRequest(req, res);
     });
-    svr.Get("/api/v2/nature/{id}/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/nature/{id}/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2natureidGetRequest(req, res, auth);
+        handleApiv2natureidGetRequest(req, res);
     });
-    svr.Get("/api/v2/pokeathlon-stat/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/pokeathlon-stat/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2pokeathlonStatGetRequest(req, res, auth);
+        handleApiv2pokeathlonStatGetRequest(req, res);
     });
-    svr.Get("/api/v2/pokeathlon-stat/{id}/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/pokeathlon-stat/{id}/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2pokeathlonStatidGetRequest(req, res, auth);
+        handleApiv2pokeathlonStatidGetRequest(req, res);
     });
-    svr.Get("/api/v2/pokemon-color/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/pokemon-color/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2pokemonColorGetRequest(req, res, auth);
+        handleApiv2pokemonColorGetRequest(req, res);
     });
-    svr.Get("/api/v2/pokemon-color/{id}/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/pokemon-color/{id}/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2pokemonColoridGetRequest(req, res, auth);
+        handleApiv2pokemonColoridGetRequest(req, res);
     });
-    svr.Get("/api/v2/pokemon-form/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/pokemon-form/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2pokemonFormGetRequest(req, res, auth);
+        handleApiv2pokemonFormGetRequest(req, res);
     });
-    svr.Get("/api/v2/pokemon-form/{id}/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/pokemon-form/{id}/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2pokemonFormidGetRequest(req, res, auth);
+        handleApiv2pokemonFormidGetRequest(req, res);
     });
-    svr.Get("/api/v2/pokemon-habitat/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/pokemon-habitat/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2pokemonHabitatGetRequest(req, res, auth);
+        handleApiv2pokemonHabitatGetRequest(req, res);
     });
-    svr.Get("/api/v2/pokemon-habitat/{id}/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/pokemon-habitat/{id}/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2pokemonHabitatidGetRequest(req, res, auth);
+        handleApiv2pokemonHabitatidGetRequest(req, res);
     });
-    svr.Get("/api/v2/pokemon/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/pokemon/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2pokemonGetRequest(req, res, auth);
+        handleApiv2pokemonGetRequest(req, res);
     });
-    svr.Get("/api/v2/pokemon/{id}/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/pokemon/{id}/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2pokemonidGetRequest(req, res, auth);
+        handleApiv2pokemonidGetRequest(req, res);
     });
-    svr.Get("/api/v2/pokemon-shape/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/pokemon-shape/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2pokemonShapeGetRequest(req, res, auth);
+        handleApiv2pokemonShapeGetRequest(req, res);
     });
-    svr.Get("/api/v2/pokemon-shape/{id}/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/pokemon-shape/{id}/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2pokemonShapeidGetRequest(req, res, auth);
+        handleApiv2pokemonShapeidGetRequest(req, res);
     });
-    svr.Get("/api/v2/pokemon-species/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/pokemon-species/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2pokemonSpeciesGetRequest(req, res, auth);
+        handleApiv2pokemonSpeciesGetRequest(req, res);
     });
-    svr.Get("/api/v2/pokemon-species/{id}/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/pokemon-species/{id}/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2pokemonSpeciesidGetRequest(req, res, auth);
+        handleApiv2pokemonSpeciesidGetRequest(req, res);
     });
-    svr.Get("/api/v2/stat/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/stat/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2statGetRequest(req, res, auth);
+        handleApiv2statGetRequest(req, res);
     });
-    svr.Get("/api/v2/stat/{id}/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/stat/{id}/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2statidGetRequest(req, res, auth);
+        handleApiv2statidGetRequest(req, res);
     });
-    svr.Get("/api/v2/type/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/type/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2typeGetRequest(req, res, auth);
+        handleApiv2typeGetRequest(req, res);
     });
-    svr.Get("/api/v2/type/{id}/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/type/{id}/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2typeidGetRequest(req, res, auth);
+        handleApiv2typeidGetRequest(req, res);
     });
 }
 

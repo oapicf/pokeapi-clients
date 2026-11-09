@@ -7,7 +7,7 @@ using namespace Tiny;
 EncounterConditionValueName::EncounterConditionValueName()
 {
 	name = std::string();
-	language = LanguageSummary();
+	language = null;
 }
 
 EncounterConditionValueName::EncounterConditionValueName(std::string jsonString)

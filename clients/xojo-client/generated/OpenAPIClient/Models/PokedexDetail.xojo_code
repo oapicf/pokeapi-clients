@@ -2,42 +2,66 @@
 Protected Class PokedexDetail
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The identifier for this resource.
+		#tag EndNote
 		id As Integer
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The name for this resource.
+		#tag EndNote
 		name As String
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			Whether or not this Pokédex originated in the main series of the video games.
+		#tag EndNote
 		is_main_series As Xoson.O.OptionalBoolean
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The description of this resource listed in different languages.
+		#tag EndNote
 		descriptions() As OpenAPIClient.Models.PokedexDescription
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The name of this resource listed in different languages.
+		#tag EndNote
 		names() As OpenAPIClient.Models.PokedexName
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
-		pokemon_entries() As OpenAPIClient.Models.PokedexDetailPokemonEntriesInner
+		#tag Note
+			A list of Pokémon catalogued in this Pokédex and their indexes.
+		#tag EndNote
+		pokemon_entries() As OpenAPIClient.Models.PokemonDexNumber
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The region this Pokédex catalogues Pokémon for.
+		#tag EndNote
 		region As OpenAPIClient.Models.RegionSummary
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
-		version_groups() As OpenAPIClient.Models.AbilityDetailPokemonInnerPokemon
+		#tag Note
+			A list of version groups this Pokédex is relevant to.
+		#tag EndNote
+		version_groups() As OpenAPIClient.Models.VersionGroupSummary
 	#tag EndProperty
 
 
@@ -122,7 +146,7 @@ Protected Class PokedexDetail
 			Visible=false
 			Group="Behavior"
 			InitialValue=""
-			Type="PokedexDetailPokemonEntriesInner"
+			Type="PokemonDexNumber"
 			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
@@ -138,7 +162,7 @@ Protected Class PokedexDetail
 			Visible=false
 			Group="Behavior"
 			InitialValue=""
-			Type="AbilityDetailPokemonInnerPokemon"
+			Type="VersionGroupSummary"
 			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior

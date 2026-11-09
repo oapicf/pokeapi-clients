@@ -24,9 +24,9 @@ defmodule PokéAPI.Model.PokedexDetail do
     :is_main_series => boolean() | nil,
     :descriptions => [PokéAPI.Model.PokedexDescription.t],
     :names => [PokéAPI.Model.PokedexName.t],
-    :pokemon_entries => [PokéAPI.Model.PokedexDetailPokemonEntriesInner.t],
-    :region => PokéAPI.Model.RegionSummary.t,
-    :version_groups => [PokéAPI.Model.AbilityDetailPokemonInnerPokemon.t]
+    :pokemon_entries => [PokéAPI.Model.PokemonDexNumber.t],
+    :region => PokéAPI.Model.RegionSummary.t | nil,
+    :version_groups => [PokéAPI.Model.VersionGroupSummary.t]
   }
 
   alias PokéAPI.Deserializer
@@ -35,9 +35,9 @@ defmodule PokéAPI.Model.PokedexDetail do
     value
      |> Deserializer.deserialize(:descriptions, :list, PokéAPI.Model.PokedexDescription)
      |> Deserializer.deserialize(:names, :list, PokéAPI.Model.PokedexName)
-     |> Deserializer.deserialize(:pokemon_entries, :list, PokéAPI.Model.PokedexDetailPokemonEntriesInner)
+     |> Deserializer.deserialize(:pokemon_entries, :list, PokéAPI.Model.PokemonDexNumber)
      |> Deserializer.deserialize(:region, :struct, PokéAPI.Model.RegionSummary)
-     |> Deserializer.deserialize(:version_groups, :list, PokéAPI.Model.AbilityDetailPokemonInnerPokemon)
+     |> Deserializer.deserialize(:version_groups, :list, PokéAPI.Model.VersionGroupSummary)
   end
 end
 

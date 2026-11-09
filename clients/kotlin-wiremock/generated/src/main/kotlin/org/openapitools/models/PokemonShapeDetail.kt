@@ -15,10 +15,10 @@ data class PokemonShapeDetail(
     val name: kotlin.String,
 
     @field:JsonProperty("awesome_names")
-    val awesomeNames: kotlin.collections.List<PokemonShapeDetailAwesomeNamesInner>,
+    val awesomeNames: kotlin.collections.List<PokemonShapeAwesomeName>,
 
     @field:JsonProperty("names")
-    val names: kotlin.collections.List<PokemonShapeDetailNamesInner>,
+    val names: kotlin.collections.List<PokemonShapeName>,
 
     @field:JsonProperty("pokemon_species")
     val pokemonSpecies: kotlin.collections.List<PokemonSpeciesSummary>,

@@ -13,9 +13,9 @@
   | {'name', binary() }
   | {'order', integer() }
   | {'generation', openapi_generation_summary:openapi_generation_summary() }
-  | {'move_learn_methods', list(openapi_ability_detail_pokemon_inner_pokemon:openapi_ability_detail_pokemon_inner_pokemon()) }
-  | {'pokedexes', list(openapi_ability_detail_pokemon_inner_pokemon:openapi_ability_detail_pokemon_inner_pokemon()) }
-  | {'regions', list(openapi_ability_detail_pokemon_inner_pokemon:openapi_ability_detail_pokemon_inner_pokemon()) }
+  | {'move_learn_methods', list(openapi_move_learn_method_summary:openapi_move_learn_method_summary()) }
+  | {'pokedexes', list(openapi_pokedex_summary:openapi_pokedex_summary()) }
+  | {'regions', list(openapi_region_summary:openapi_region_summary()) }
   | {'versions', list(openapi_version_summary:openapi_version_summary()) }
   ].
 
@@ -26,11 +26,11 @@ openapi_version_group_detail() ->
 openapi_version_group_detail(Fields) ->
   Default = [ {'id', integer() }
             , {'name', binary() }
-            , {'order', integer() }
+            , {'order', integer(-2147483648, 2147483647) }
             , {'generation', openapi_generation_summary:openapi_generation_summary() }
-            , {'move_learn_methods', list(openapi_ability_detail_pokemon_inner_pokemon:openapi_ability_detail_pokemon_inner_pokemon()) }
-            , {'pokedexes', list(openapi_ability_detail_pokemon_inner_pokemon:openapi_ability_detail_pokemon_inner_pokemon()) }
-            , {'regions', list(openapi_ability_detail_pokemon_inner_pokemon:openapi_ability_detail_pokemon_inner_pokemon()) }
+            , {'move_learn_methods', list(openapi_move_learn_method_summary:openapi_move_learn_method_summary()) }
+            , {'pokedexes', list(openapi_pokedex_summary:openapi_pokedex_summary()) }
+            , {'regions', list(openapi_region_summary:openapi_region_summary()) }
             , {'versions', list(openapi_version_summary:openapi_version_summary()) }
             ],
   lists:ukeymerge(1, lists:sort(Fields), lists:sort(Default)).

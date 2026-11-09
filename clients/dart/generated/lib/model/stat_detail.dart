@@ -19,17 +19,25 @@ class StatDetail {
     this.isBattleOnly,
     required this.affectingMoves,
     required this.affectingNatures,
+    this.affectingItems = const [],
     this.characteristics = const [],
     required this.moveDamageClass,
     this.names = const [],
   });
 
+  /// The identifier for this resource.
   int id;
 
+  /// The name for this resource.
   String name;
 
+  /// ID the games use for this stat.
+  ///
+  /// Minimum value: -2147483648
+  /// Maximum value: 2147483647
   int gameIndex;
 
+  /// Whether this stat only exists within a battle.
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated
@@ -38,14 +46,22 @@ class StatDetail {
   ///
   bool? isBattleOnly;
 
-  StatDetailAffectingMoves affectingMoves;
+  /// A detail of moves which affect this stat positively or negatively.
+  StatAffectingMoves affectingMoves;
 
-  StatDetailAffectingNatures affectingNatures;
+  /// A detail of natures which affect this stat positively or negatively.
+  StatAffectingNatures affectingNatures;
 
+  /// Items that affect this stat, such as vitamins and battle items.
+  List<ItemSummary> affectingItems;
+
+  /// A list of characteristics that are set on a Pokémon when its highest base stat is this stat.
   List<CharacteristicSummary> characteristics;
 
-  MoveDamageClassSummary moveDamageClass;
+  /// The class of damage this stat is directly related to.
+  MoveDamageClassSummary? moveDamageClass;
 
+  /// The name of this resource listed in different languages.
   List<StatName> names;
 
   @override
@@ -56,6 +72,7 @@ class StatDetail {
     other.isBattleOnly == isBattleOnly &&
     other.affectingMoves == affectingMoves &&
     other.affectingNatures == affectingNatures &&
+    _deepEquality.equals(other.affectingItems, affectingItems) &&
     _deepEquality.equals(other.characteristics, characteristics) &&
     other.moveDamageClass == moveDamageClass &&
     _deepEquality.equals(other.names, names);
@@ -69,12 +86,13 @@ class StatDetail {
     (isBattleOnly == null ? 0 : isBattleOnly!.hashCode) +
     (affectingMoves.hashCode) +
     (affectingNatures.hashCode) +
+    (affectingItems.hashCode) +
     (characteristics.hashCode) +
-    (moveDamageClass.hashCode) +
+    (moveDamageClass == null ? 0 : moveDamageClass!.hashCode) +
     (names.hashCode);
 
   @override
-  String toString() => 'StatDetail[id=$id, name=$name, gameIndex=$gameIndex, isBattleOnly=$isBattleOnly, affectingMoves=$affectingMoves, affectingNatures=$affectingNatures, characteristics=$characteristics, moveDamageClass=$moveDamageClass, names=$names]';
+  String toString() => 'StatDetail[id=$id, name=$name, gameIndex=$gameIndex, isBattleOnly=$isBattleOnly, affectingMoves=$affectingMoves, affectingNatures=$affectingNatures, affectingItems=$affectingItems, characteristics=$characteristics, moveDamageClass=$moveDamageClass, names=$names]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -88,8 +106,13 @@ class StatDetail {
     }
       json[r'affecting_moves'] = this.affectingMoves;
       json[r'affecting_natures'] = this.affectingNatures;
+      json[r'affecting_items'] = this.affectingItems;
       json[r'characteristics'] = this.characteristics;
+    if (this.moveDamageClass != null) {
       json[r'move_damage_class'] = this.moveDamageClass;
+    } else {
+      json[r'move_damage_class'] = null;
+    }
       json[r'names'] = this.names;
     return json;
   }
@@ -115,10 +138,11 @@ class StatDetail {
         assert(json[r'affecting_moves'] != null, 'Required key "StatDetail[affecting_moves]" has a null value in JSON.');
         assert(json.containsKey(r'affecting_natures'), 'Required key "StatDetail[affecting_natures]" is missing from JSON.');
         assert(json[r'affecting_natures'] != null, 'Required key "StatDetail[affecting_natures]" has a null value in JSON.');
+        assert(json.containsKey(r'affecting_items'), 'Required key "StatDetail[affecting_items]" is missing from JSON.');
+        assert(json[r'affecting_items'] != null, 'Required key "StatDetail[affecting_items]" has a null value in JSON.');
         assert(json.containsKey(r'characteristics'), 'Required key "StatDetail[characteristics]" is missing from JSON.');
         assert(json[r'characteristics'] != null, 'Required key "StatDetail[characteristics]" has a null value in JSON.');
         assert(json.containsKey(r'move_damage_class'), 'Required key "StatDetail[move_damage_class]" is missing from JSON.');
-        assert(json[r'move_damage_class'] != null, 'Required key "StatDetail[move_damage_class]" has a null value in JSON.');
         assert(json.containsKey(r'names'), 'Required key "StatDetail[names]" is missing from JSON.');
         assert(json[r'names'] != null, 'Required key "StatDetail[names]" has a null value in JSON.');
         return true;
@@ -129,10 +153,11 @@ class StatDetail {
         name: mapValueOfType<String>(json, r'name')!,
         gameIndex: mapValueOfType<int>(json, r'game_index')!,
         isBattleOnly: mapValueOfType<bool>(json, r'is_battle_only'),
-        affectingMoves: StatDetailAffectingMoves.fromJson(json[r'affecting_moves'])!,
-        affectingNatures: StatDetailAffectingNatures.fromJson(json[r'affecting_natures'])!,
+        affectingMoves: StatAffectingMoves.fromJson(json[r'affecting_moves'])!,
+        affectingNatures: StatAffectingNatures.fromJson(json[r'affecting_natures'])!,
+        affectingItems: ItemSummary.listFromJson(json[r'affecting_items']),
         characteristics: CharacteristicSummary.listFromJson(json[r'characteristics']),
-        moveDamageClass: MoveDamageClassSummary.fromJson(json[r'move_damage_class'])!,
+        moveDamageClass: MoveDamageClassSummary.fromJson(json[r'move_damage_class']),
         names: StatName.listFromJson(json[r'names']),
       );
     }
@@ -186,6 +211,7 @@ class StatDetail {
     'game_index',
     'affecting_moves',
     'affecting_natures',
+    'affecting_items',
     'characteristics',
     'move_damage_class',
     'names',

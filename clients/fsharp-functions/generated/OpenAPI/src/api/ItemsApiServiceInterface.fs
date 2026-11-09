@@ -8,6 +8,8 @@ module ItemsApiServiceInterface =
 
     //#region Service interface
     type IItemsApiService =
+      abstract member CurrencyList : unit -> CurrencyListResult
+      abstract member CurrencyRetrieve : unit -> CurrencyRetrieveResult
       abstract member ItemAttributeList : unit -> ItemAttributeListResult
       abstract member ItemAttributeRetrieve : unit -> ItemAttributeRetrieveResult
       abstract member ItemCategoryList : unit -> ItemCategoryListResult

@@ -3,9 +3,9 @@
 //> using lib "com.lihaoyi::scalatags:0.12.0"
 /**
  * PokéAPI
- * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+ * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
  *
- * OpenAPI spec version: 2.7.0
+ * OpenAPI spec version: 2.10.0
  *
  * Contact: blah+oapicf@cliffano.com
  *
@@ -109,8 +109,6 @@ class MovesRoutes(service : MovesService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/move-ailment/{id}/, /api/v2/move-ailment/] after/api/v2/move-ailment, ignoring // conflicts with [/api/v2/move/{id}/, /api/v2/move-ailment/, /api/v2/move-ailment/{id}/, /api/v2/move-battle-style/, /api/v2/move-battle-style/{id}/, /api/v2/move-category/, /api/v2/move-category/{id}/, /api/v2/move-learn-method/, /api/v2/move-learn-method/{id}/, /api/v2/move/, /api/v2/move-target/, /api/v2/move-target/{id}/] after/api/v2/move, ignoring @cask.get("/api/v2/move-ailment/")
         def moveAilmentList(request: cask.Request, limit : Option[Int], offset : Option[Int], q : Option[String]) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
@@ -132,8 +130,6 @@ class MovesRoutes(service : MovesService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/move-ailment/{id}/, /api/v2/move-ailment/] after/api/v2/move-ailment, ignoring // conflicts with [/api/v2/move/{id}/, /api/v2/move-ailment/, /api/v2/move-ailment/{id}/, /api/v2/move-battle-style/, /api/v2/move-battle-style/{id}/, /api/v2/move-category/, /api/v2/move-category/{id}/, /api/v2/move-learn-method/, /api/v2/move-learn-method/{id}/, /api/v2/move/, /api/v2/move-target/, /api/v2/move-target/{id}/] after/api/v2/move, ignoring @cask.get("/api/v2/move-ailment/:id/")
         def moveAilmentRetrieve(id : String, request: cask.Request) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
@@ -156,8 +152,6 @@ class MovesRoutes(service : MovesService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/move/{id}/, /api/v2/move-ailment/, /api/v2/move-ailment/{id}/, /api/v2/move-battle-style/, /api/v2/move-battle-style/{id}/, /api/v2/move-category/, /api/v2/move-category/{id}/, /api/v2/move-learn-method/, /api/v2/move-learn-method/{id}/, /api/v2/move/, /api/v2/move-target/, /api/v2/move-target/{id}/] after/api/v2/move, ignoring // conflicts with [/api/v2/move-battle-style/{id}/, /api/v2/move-battle-style/] after/api/v2/move-battle-style, ignoring @cask.get("/api/v2/move-battle-style/")
         def moveBattleStyleList(request: cask.Request, limit : Option[Int], offset : Option[Int], q : Option[String]) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
@@ -179,8 +173,6 @@ class MovesRoutes(service : MovesService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/move/{id}/, /api/v2/move-ailment/, /api/v2/move-ailment/{id}/, /api/v2/move-battle-style/, /api/v2/move-battle-style/{id}/, /api/v2/move-category/, /api/v2/move-category/{id}/, /api/v2/move-learn-method/, /api/v2/move-learn-method/{id}/, /api/v2/move/, /api/v2/move-target/, /api/v2/move-target/{id}/] after/api/v2/move, ignoring // conflicts with [/api/v2/move-battle-style/{id}/, /api/v2/move-battle-style/] after/api/v2/move-battle-style, ignoring @cask.get("/api/v2/move-battle-style/:id/")
         def moveBattleStyleRetrieve(id : String, request: cask.Request) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
@@ -203,8 +195,6 @@ class MovesRoutes(service : MovesService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/move/{id}/, /api/v2/move-ailment/, /api/v2/move-ailment/{id}/, /api/v2/move-battle-style/, /api/v2/move-battle-style/{id}/, /api/v2/move-category/, /api/v2/move-category/{id}/, /api/v2/move-learn-method/, /api/v2/move-learn-method/{id}/, /api/v2/move/, /api/v2/move-target/, /api/v2/move-target/{id}/] after/api/v2/move, ignoring // conflicts with [/api/v2/move-category/{id}/, /api/v2/move-category/] after/api/v2/move-category, ignoring @cask.get("/api/v2/move-category/")
         def moveCategoryList(request: cask.Request, limit : Option[Int], offset : Option[Int], q : Option[String]) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
@@ -226,8 +216,6 @@ class MovesRoutes(service : MovesService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/move/{id}/, /api/v2/move-ailment/, /api/v2/move-ailment/{id}/, /api/v2/move-battle-style/, /api/v2/move-battle-style/{id}/, /api/v2/move-category/, /api/v2/move-category/{id}/, /api/v2/move-learn-method/, /api/v2/move-learn-method/{id}/, /api/v2/move/, /api/v2/move-target/, /api/v2/move-target/{id}/] after/api/v2/move, ignoring // conflicts with [/api/v2/move-category/{id}/, /api/v2/move-category/] after/api/v2/move-category, ignoring @cask.get("/api/v2/move-category/:id/")
         def moveCategoryRetrieve(id : String, request: cask.Request) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
@@ -250,8 +238,6 @@ class MovesRoutes(service : MovesService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/move-learn-method/{id}/, /api/v2/move-learn-method/] after/api/v2/move-learn-method, ignoring // conflicts with [/api/v2/move/{id}/, /api/v2/move-ailment/, /api/v2/move-ailment/{id}/, /api/v2/move-battle-style/, /api/v2/move-battle-style/{id}/, /api/v2/move-category/, /api/v2/move-category/{id}/, /api/v2/move-learn-method/, /api/v2/move-learn-method/{id}/, /api/v2/move/, /api/v2/move-target/, /api/v2/move-target/{id}/] after/api/v2/move, ignoring @cask.get("/api/v2/move-learn-method/")
         def moveLearnMethodList(request: cask.Request, limit : Option[Int], offset : Option[Int], q : Option[String]) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
@@ -273,8 +259,6 @@ class MovesRoutes(service : MovesService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/move-learn-method/{id}/, /api/v2/move-learn-method/] after/api/v2/move-learn-method, ignoring // conflicts with [/api/v2/move/{id}/, /api/v2/move-ailment/, /api/v2/move-ailment/{id}/, /api/v2/move-battle-style/, /api/v2/move-battle-style/{id}/, /api/v2/move-category/, /api/v2/move-category/{id}/, /api/v2/move-learn-method/, /api/v2/move-learn-method/{id}/, /api/v2/move/, /api/v2/move-target/, /api/v2/move-target/{id}/] after/api/v2/move, ignoring @cask.get("/api/v2/move-learn-method/:id/")
         def moveLearnMethodRetrieve(id : String, request: cask.Request) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
@@ -297,8 +281,6 @@ class MovesRoutes(service : MovesService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/move/{id}/, /api/v2/move-ailment/, /api/v2/move-ailment/{id}/, /api/v2/move-battle-style/, /api/v2/move-battle-style/{id}/, /api/v2/move-category/, /api/v2/move-category/{id}/, /api/v2/move-learn-method/, /api/v2/move-learn-method/{id}/, /api/v2/move/, /api/v2/move-target/, /api/v2/move-target/{id}/] after/api/v2/move, ignoring @cask.get("/api/v2/move/")
         def moveList(request: cask.Request, limit : Option[Int], offset : Option[Int], q : Option[String]) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
@@ -320,8 +302,6 @@ class MovesRoutes(service : MovesService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/move/{id}/, /api/v2/move-ailment/, /api/v2/move-ailment/{id}/, /api/v2/move-battle-style/, /api/v2/move-battle-style/{id}/, /api/v2/move-category/, /api/v2/move-category/{id}/, /api/v2/move-learn-method/, /api/v2/move-learn-method/{id}/, /api/v2/move/, /api/v2/move-target/, /api/v2/move-target/{id}/] after/api/v2/move, ignoring @cask.get("/api/v2/move/:id/")
         def moveRetrieve(id : String, request: cask.Request) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
@@ -344,8 +324,6 @@ class MovesRoutes(service : MovesService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/move/{id}/, /api/v2/move-ailment/, /api/v2/move-ailment/{id}/, /api/v2/move-battle-style/, /api/v2/move-battle-style/{id}/, /api/v2/move-category/, /api/v2/move-category/{id}/, /api/v2/move-learn-method/, /api/v2/move-learn-method/{id}/, /api/v2/move/, /api/v2/move-target/, /api/v2/move-target/{id}/] after/api/v2/move, ignoring // conflicts with [/api/v2/move-target/{id}/, /api/v2/move-target/] after/api/v2/move-target, ignoring @cask.get("/api/v2/move-target/")
         def moveTargetList(request: cask.Request, limit : Option[Int], offset : Option[Int], q : Option[String]) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
@@ -367,8 +345,6 @@ class MovesRoutes(service : MovesService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/move/{id}/, /api/v2/move-ailment/, /api/v2/move-ailment/{id}/, /api/v2/move-battle-style/, /api/v2/move-battle-style/{id}/, /api/v2/move-category/, /api/v2/move-category/{id}/, /api/v2/move-learn-method/, /api/v2/move-learn-method/{id}/, /api/v2/move/, /api/v2/move-target/, /api/v2/move-target/{id}/] after/api/v2/move, ignoring // conflicts with [/api/v2/move-target/{id}/, /api/v2/move-target/] after/api/v2/move-target, ignoring @cask.get("/api/v2/move-target/:id/")
         def moveTargetRetrieve(id : String, request: cask.Request) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 

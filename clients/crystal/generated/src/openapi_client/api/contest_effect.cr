@@ -6,13 +6,13 @@ module OpenAPIClient
     def initialize(@conn : Connection); end
 
     # List contest effects Contest effects refer to the effects of moves when used in contests.
-    def list(*, limit : Int32? = nil, offset : Int32? = nil, q : String? = nil) : Response(OpenAPIClient::PaginatedContestEffectSummaryList)
+    def list(*, limit : Int32? = nil, offset : Int32? = nil) : Response(OpenAPIClient::PaginatedContestEffectSummaryList)
       @conn.request(OpenAPIClient::PaginatedContestEffectSummaryList,
         method: :GET,
         path: "/api/v2/contest-effect/",
-        query: { "limit" => limit, "offset" => offset, "q" => q },
+        query: { "limit" => limit, "offset" => offset },
         accept: %w[application/json],
-        auth: %w[basicAuth cookieAuth])
+        auth: %w[])
     end
 
     # Get contest effect Contest effects refer to the effects of moves when used in contests.
@@ -21,7 +21,7 @@ module OpenAPIClient
         method: :GET,
         path: "/api/v2/contest-effect/{id}/".sub("{id}", OpenAPIClient.enc(id)),
         accept: %w[application/json],
-        auth: %w[basicAuth cookieAuth])
+        auth: %w[])
     end
   end
   end

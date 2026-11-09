@@ -27,16 +27,6 @@ A generation is a grouping of the Pokémon games that separates them based on th
 
 ```javascript
 import PokeapiClient from 'pokeapi-client';
-let defaultClient = PokeapiClient.ApiClient.instance;
-// Configure HTTP basic authorization: basicAuth
-let basicAuth = defaultClient.authentications['basicAuth'];
-basicAuth.username = 'YOUR USERNAME';
-basicAuth.password = 'YOUR PASSWORD';
-// Configure API key authorization: cookieAuth
-let cookieAuth = defaultClient.authentications['cookieAuth'];
-cookieAuth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//cookieAuth.apiKeyPrefix = 'Token';
 
 let apiInstance = new PokeapiClient.GamesApi();
 let opts = {
@@ -68,7 +58,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -88,19 +78,9 @@ A generation is a grouping of the Pokémon games that separates them based on th
 
 ```javascript
 import PokeapiClient from 'pokeapi-client';
-let defaultClient = PokeapiClient.ApiClient.instance;
-// Configure HTTP basic authorization: basicAuth
-let basicAuth = defaultClient.authentications['basicAuth'];
-basicAuth.username = 'YOUR USERNAME';
-basicAuth.password = 'YOUR PASSWORD';
-// Configure API key authorization: cookieAuth
-let cookieAuth = defaultClient.authentications['cookieAuth'];
-cookieAuth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//cookieAuth.apiKeyPrefix = 'Token';
 
 let apiInstance = new PokeapiClient.GamesApi();
-let id = "id_example"; // String | This parameter can be a string or an integer.
+let id = "1"; // String | This parameter can be a string or an integer.
 apiInstance.generationRetrieve(id, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -123,7 +103,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -143,16 +123,6 @@ A Pokédex is a handheld electronic encyclopedia device; one which is capable of
 
 ```javascript
 import PokeapiClient from 'pokeapi-client';
-let defaultClient = PokeapiClient.ApiClient.instance;
-// Configure HTTP basic authorization: basicAuth
-let basicAuth = defaultClient.authentications['basicAuth'];
-basicAuth.username = 'YOUR USERNAME';
-basicAuth.password = 'YOUR PASSWORD';
-// Configure API key authorization: cookieAuth
-let cookieAuth = defaultClient.authentications['cookieAuth'];
-cookieAuth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//cookieAuth.apiKeyPrefix = 'Token';
 
 let apiInstance = new PokeapiClient.GamesApi();
 let opts = {
@@ -184,7 +154,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -204,19 +174,9 @@ A Pokédex is a handheld electronic encyclopedia device; one which is capable of
 
 ```javascript
 import PokeapiClient from 'pokeapi-client';
-let defaultClient = PokeapiClient.ApiClient.instance;
-// Configure HTTP basic authorization: basicAuth
-let basicAuth = defaultClient.authentications['basicAuth'];
-basicAuth.username = 'YOUR USERNAME';
-basicAuth.password = 'YOUR PASSWORD';
-// Configure API key authorization: cookieAuth
-let cookieAuth = defaultClient.authentications['cookieAuth'];
-cookieAuth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//cookieAuth.apiKeyPrefix = 'Token';
 
 let apiInstance = new PokeapiClient.GamesApi();
-let id = "id_example"; // String | This parameter can be a string or an integer.
+let id = "1"; // String | This parameter can be a string or an integer.
 apiInstance.pokedexRetrieve(id, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -239,7 +199,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -259,16 +219,6 @@ Version groups categorize highly similar versions of the games.
 
 ```javascript
 import PokeapiClient from 'pokeapi-client';
-let defaultClient = PokeapiClient.ApiClient.instance;
-// Configure HTTP basic authorization: basicAuth
-let basicAuth = defaultClient.authentications['basicAuth'];
-basicAuth.username = 'YOUR USERNAME';
-basicAuth.password = 'YOUR PASSWORD';
-// Configure API key authorization: cookieAuth
-let cookieAuth = defaultClient.authentications['cookieAuth'];
-cookieAuth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//cookieAuth.apiKeyPrefix = 'Token';
 
 let apiInstance = new PokeapiClient.GamesApi();
 let opts = {
@@ -300,7 +250,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -320,19 +270,9 @@ Version groups categorize highly similar versions of the games.
 
 ```javascript
 import PokeapiClient from 'pokeapi-client';
-let defaultClient = PokeapiClient.ApiClient.instance;
-// Configure HTTP basic authorization: basicAuth
-let basicAuth = defaultClient.authentications['basicAuth'];
-basicAuth.username = 'YOUR USERNAME';
-basicAuth.password = 'YOUR PASSWORD';
-// Configure API key authorization: cookieAuth
-let cookieAuth = defaultClient.authentications['cookieAuth'];
-cookieAuth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//cookieAuth.apiKeyPrefix = 'Token';
 
 let apiInstance = new PokeapiClient.GamesApi();
-let id = "id_example"; // String | This parameter can be a string or an integer.
+let id = "1"; // String | This parameter can be a string or an integer.
 apiInstance.versionGroupRetrieve(id, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -355,7 +295,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -375,16 +315,6 @@ Versions of the games, e.g., Red, Blue or Yellow.
 
 ```javascript
 import PokeapiClient from 'pokeapi-client';
-let defaultClient = PokeapiClient.ApiClient.instance;
-// Configure HTTP basic authorization: basicAuth
-let basicAuth = defaultClient.authentications['basicAuth'];
-basicAuth.username = 'YOUR USERNAME';
-basicAuth.password = 'YOUR PASSWORD';
-// Configure API key authorization: cookieAuth
-let cookieAuth = defaultClient.authentications['cookieAuth'];
-cookieAuth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//cookieAuth.apiKeyPrefix = 'Token';
 
 let apiInstance = new PokeapiClient.GamesApi();
 let opts = {
@@ -416,7 +346,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -436,19 +366,9 @@ Versions of the games, e.g., Red, Blue or Yellow.
 
 ```javascript
 import PokeapiClient from 'pokeapi-client';
-let defaultClient = PokeapiClient.ApiClient.instance;
-// Configure HTTP basic authorization: basicAuth
-let basicAuth = defaultClient.authentications['basicAuth'];
-basicAuth.username = 'YOUR USERNAME';
-basicAuth.password = 'YOUR PASSWORD';
-// Configure API key authorization: cookieAuth
-let cookieAuth = defaultClient.authentications['cookieAuth'];
-cookieAuth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//cookieAuth.apiKeyPrefix = 'Token';
 
 let apiInstance = new PokeapiClient.GamesApi();
-let id = "id_example"; // String | This parameter can be a string or an integer.
+let id = "1"; // String | This parameter can be a string or an integer.
 apiInstance.versionRetrieve(id, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -471,7 +391,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

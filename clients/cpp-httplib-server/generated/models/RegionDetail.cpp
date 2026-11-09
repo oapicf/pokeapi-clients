@@ -12,9 +12,10 @@ RegionDetail::RegionDetail()
 : id(0)
 , name("")
 , locations(std::vector<LocationSummary>())
+, mainGeneration(std::nullopt)
 , names(std::vector<RegionName>())
 , pokedexes(std::vector<PokedexSummary>())
-, versionGroups(std::vector<RegionDetail_version_groups_inner>())
+, versionGroups(std::vector<VersionGroupSummary>())
 {
 }
 // =========================================
@@ -47,7 +48,7 @@ std::vector<PokedexSummary> RegionDetail::getPokedexes() const
 {
     return pokedexes;
 }
-std::vector<RegionDetail_version_groups_inner> RegionDetail::getVersionGroups() const
+std::vector<VersionGroupSummary> RegionDetail::getVersionGroups() const
 {
     return versionGroups;
 }
@@ -79,7 +80,7 @@ void RegionDetail::setPokedexes(const std::vector<PokedexSummary>& pokedexesObj)
 {
     pokedexes = pokedexesObj;
 }
-void RegionDetail::setVersionGroups(const std::vector<RegionDetail_version_groups_inner>& versionGroupsObj)
+void RegionDetail::setVersionGroups(const std::vector<VersionGroupSummary>& versionGroupsObj)
 {
     versionGroups = versionGroupsObj;
 }

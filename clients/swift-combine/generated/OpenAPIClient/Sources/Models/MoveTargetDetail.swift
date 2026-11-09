@@ -8,10 +8,15 @@
 import Foundation
 
 public struct MoveTargetDetail: Codable {
+    /// The identifier for this resource.
     public var id: Int
+    /// The name for this resource.
     public var name: String
+    /// The description of this resource listed in different languages.
     public var descriptions: [MoveTargetDescription]
+    /// A list of moves that that are directed at this target.
     public var moves: [MoveSummary]
+    /// The name of this resource listed in different languages.
     public var names: [MoveTargetName]
 
     public init(id: Int, name: String, descriptions: [MoveTargetDescription], moves: [MoveSummary], names: [MoveTargetName]) {

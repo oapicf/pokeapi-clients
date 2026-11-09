@@ -7,9 +7,9 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.model.AbilityDetailPokemonInnerPokemon;
 import org.openapitools.model.ItemAttributeDescription;
 import org.openapitools.model.ItemAttributeName;
+import org.openapitools.model.ItemSummary;
 import org.springframework.lang.Nullable;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
@@ -25,7 +25,7 @@ import jakarta.annotation.Generated;
  * ItemAttributeDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-10-25T05:53:37.479908528Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-11-09T13:53:47.069318184Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class ItemAttributeDetail {
 
   private Integer id;
@@ -34,7 +34,7 @@ public class ItemAttributeDetail {
 
   private List<@Valid ItemAttributeDescription> descriptions = new ArrayList<>();
 
-  private List<@Valid AbilityDetailPokemonInnerPokemon> items = new ArrayList<>();
+  private List<@Valid ItemSummary> items = new ArrayList<>();
 
   private List<@Valid ItemAttributeName> names = new ArrayList<>();
 
@@ -45,7 +45,7 @@ public class ItemAttributeDetail {
   /**
    * Constructor with only required parameters
    */
-  public ItemAttributeDetail(Integer id, String name, List<@Valid ItemAttributeDescription> descriptions, List<@Valid AbilityDetailPokemonInnerPokemon> items, List<@Valid ItemAttributeName> names) {
+  public ItemAttributeDetail(Integer id, String name, List<@Valid ItemAttributeDescription> descriptions, List<@Valid ItemSummary> items, List<@Valid ItemAttributeName> names) {
     this.id = id;
     this.name = name;
     this.descriptions = descriptions;
@@ -59,11 +59,11 @@ public class ItemAttributeDetail {
   }
 
   /**
-   * Get id
+   * The identifier for this resource.
    * @return id
    */
   
-  @Schema(name = "id", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "id", accessMode = Schema.AccessMode.READ_ONLY, description = "The identifier for this resource.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("id")
   public Integer getId() {
     return id;
@@ -80,11 +80,11 @@ public class ItemAttributeDetail {
   }
 
   /**
-   * Get name
+   * The name for this resource.
    * @return name
    */
-  @NotNull @Size(max = 100) 
-  @Schema(name = "name", requiredMode = Schema.RequiredMode.REQUIRED)
+  @NotNull @Size(max = 200) 
+  @Schema(name = "name", description = "The name for this resource.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("name")
   public String getName() {
     return name;
@@ -109,11 +109,11 @@ public class ItemAttributeDetail {
   }
 
   /**
-   * Get descriptions
+   * The description of this item attribute listed in different languages.
    * @return descriptions
    */
   
-  @Schema(name = "descriptions", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "descriptions", accessMode = Schema.AccessMode.READ_ONLY, description = "The description of this item attribute listed in different languages.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("descriptions")
   public List<@Valid ItemAttributeDescription> getDescriptions() {
     return descriptions;
@@ -124,12 +124,12 @@ public class ItemAttributeDetail {
     this.descriptions = descriptions;
   }
 
-  public ItemAttributeDetail items(List<@Valid AbilityDetailPokemonInnerPokemon> items) {
+  public ItemAttributeDetail items(List<@Valid ItemSummary> items) {
     this.items = items;
     return this;
   }
 
-  public ItemAttributeDetail addItemsItem(AbilityDetailPokemonInnerPokemon itemsItem) {
+  public ItemAttributeDetail addItemsItem(ItemSummary itemsItem) {
     if (this.items == null) {
       this.items = new ArrayList<>();
     }
@@ -138,18 +138,18 @@ public class ItemAttributeDetail {
   }
 
   /**
-   * Get items
+   * A list of items that have this attribute.
    * @return items
    */
   
-  @Schema(name = "items", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "items", accessMode = Schema.AccessMode.READ_ONLY, description = "A list of items that have this attribute.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("items")
-  public List<@Valid AbilityDetailPokemonInnerPokemon> getItems() {
+  public List<@Valid ItemSummary> getItems() {
     return items;
   }
 
   @JsonProperty("items")
-  public void setItems(List<@Valid AbilityDetailPokemonInnerPokemon> items) {
+  public void setItems(List<@Valid ItemSummary> items) {
     this.items = items;
   }
 
@@ -167,11 +167,11 @@ public class ItemAttributeDetail {
   }
 
   /**
-   * Get names
+   * The name of this item attribute listed in different languages.
    * @return names
    */
   
-  @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, description = "The name of this item attribute listed in different languages.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("names")
   public List<@Valid ItemAttributeName> getNames() {
     return names;

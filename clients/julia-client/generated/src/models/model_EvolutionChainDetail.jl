@@ -10,14 +10,14 @@
         chain=nothing,
     )
 
-    - id::Int64
-    - baby_trigger_item::ItemSummary
-    - chain::EvolutionChainDetailChain
+    - id::Int64 : The identifier for this resource.
+    - baby_trigger_item::ItemSummary : The item that a Pokémon would be holding when mating that would trigger the egg hatching a baby Pokémon rather than a basic Pokémon.
+    - chain::EvolutionChainLink : The base chain link object. Each link contains evolution details for a Pokémon in the chain. Each link references the next Pokémon in the natural evolution order.
 """
 Base.@kwdef mutable struct EvolutionChainDetail <: OpenAPI.APIModel
     id::Union{Nothing, Int64} = nothing
     baby_trigger_item = nothing # spec type: Union{ Nothing, ItemSummary }
-    chain = nothing # spec type: Union{ Nothing, EvolutionChainDetailChain }
+    chain = nothing # spec type: Union{ Nothing, EvolutionChainLink }
 
     function EvolutionChainDetail(id, baby_trigger_item, chain, )
         o = new(id, baby_trigger_item, chain, )
@@ -26,7 +26,7 @@ Base.@kwdef mutable struct EvolutionChainDetail <: OpenAPI.APIModel
     end
 end # type EvolutionChainDetail
 
-const _property_types_EvolutionChainDetail = Dict{Symbol,String}(Symbol("id")=>"Int64", Symbol("baby_trigger_item")=>"ItemSummary", Symbol("chain")=>"EvolutionChainDetailChain", )
+const _property_types_EvolutionChainDetail = Dict{Symbol,String}(Symbol("id")=>"Int64", Symbol("baby_trigger_item")=>"ItemSummary", Symbol("chain")=>"EvolutionChainLink", )
 OpenAPI.property_type(::Type{ EvolutionChainDetail }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_EvolutionChainDetail[name]))}
 
 function OpenAPI.check_required(o::EvolutionChainDetail)

@@ -8,10 +8,10 @@
 
 (def paginated-pal-park-area-summary-list-data
   {
-   (ds/opt :count) int?
+   (ds/req :count) int?
    (ds/opt :next) string?
    (ds/opt :previous) string?
-   (ds/opt :results) (s/coll-of pal-park-area-summary-spec)
+   (ds/req :results) (s/coll-of pal-park-area-summary-spec)
    })
 
 (def paginated-pal-park-area-summary-list-spec

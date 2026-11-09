@@ -23,6 +23,9 @@ public class PokemonStat   {
   private StatSummary stat;
 
   /**
+   * The base value of the stat.
+   * minimum: -2147483648
+   * maximum: 2147483647
    **/
   public PokemonStat baseStat(Integer baseStat) {
     this.baseStat = baseStat;
@@ -30,10 +33,10 @@ public class PokemonStat   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The base value of the stat.")
   @JsonProperty("base_stat")
   @NotNull
-  public Integer getBaseStat() {
+ @Min(-2147483648) @Max(2147483647)  public Integer getBaseStat() {
     return baseStat;
   }
   public void setBaseStat(Integer baseStat) {
@@ -42,6 +45,9 @@ public class PokemonStat   {
 
 
   /**
+   * The effort points (EV) the Pokémon has in the stat.
+   * minimum: -2147483648
+   * maximum: 2147483647
    **/
   public PokemonStat effort(Integer effort) {
     this.effort = effort;
@@ -49,10 +55,10 @@ public class PokemonStat   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The effort points (EV) the Pokémon has in the stat.")
   @JsonProperty("effort")
   @NotNull
-  public Integer getEffort() {
+ @Min(-2147483648) @Max(2147483647)  public Integer getEffort() {
     return effort;
   }
   public void setEffort(Integer effort) {
@@ -61,6 +67,7 @@ public class PokemonStat   {
 
 
   /**
+   * The stat the Pokémon has.
    **/
   public PokemonStat stat(StatSummary stat) {
     this.stat = stat;
@@ -68,7 +75,7 @@ public class PokemonStat   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The stat the Pokémon has.")
   @JsonProperty("stat")
   @NotNull
   public StatSummary getStat() {

@@ -14,7 +14,7 @@ import org.openapitools.model.VersionGroupSummary;
 /**
  * AbilityChange
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-10-25T05:48:05.787850114Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-11-09T13:49:25.341948748Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class AbilityChange   {
   @JsonProperty("version_group")
   private VersionGroupSummary versionGroup;
@@ -28,10 +28,10 @@ public class AbilityChange   {
   }
 
    /**
-   * Get versionGroup
+   * The version group in which the previous effect of this ability originated.
    * @return versionGroup
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The version group in which the previous effect of this ability originated.")
   public VersionGroupSummary getVersionGroup() {
     return versionGroup;
   }
@@ -41,10 +41,10 @@ public class AbilityChange   {
   }
 
    /**
-   * Get effectEntries
+   * The previous effect of this ability listed in different languages.
    * @return effectEntries
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The previous effect of this ability listed in different languages.")
   public List<@Valid AbilityChangeEffectText> getEffectEntries() {
     return effectEntries;
   }

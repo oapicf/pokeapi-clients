@@ -55,19 +55,7 @@ try {
 
 ### Authorization
 
-
-Configure basicAuth statically:
-```kotlin
-ApiClient.username = ""
-ApiClient.password = ""
-```
-Configure basicAuth dynamically:
-```kotlin
-apiInstance.userCredentialProvider = { "user" to "pass" }
-```
-Configure cookieAuth:
-    ApiClient.apiKey["sessionid"] = ""
-    ApiClient.apiKeyPrefix["sessionid"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -89,7 +77,7 @@ Berries can be soft or hard. Check out [Bulbapedia](http://bulbapedia.bulbagarde
 //import org.openapitools.client.models.*
 
 val apiInstance = BerriesApi()
-val id : kotlin.String = id_example // kotlin.String | This parameter can be a string or an integer.
+val id : kotlin.String = 1 // kotlin.String | This parameter can be a string or an integer.
 try {
     val result : BerryFirmnessDetail = apiInstance.berryFirmnessRetrieve(id)
     println(result)
@@ -113,19 +101,7 @@ try {
 
 ### Authorization
 
-
-Configure basicAuth statically:
-```kotlin
-ApiClient.username = ""
-ApiClient.password = ""
-```
-Configure basicAuth dynamically:
-```kotlin
-apiInstance.userCredentialProvider = { "user" to "pass" }
-```
-Configure cookieAuth:
-    ApiClient.apiKey["sessionid"] = ""
-    ApiClient.apiKeyPrefix["sessionid"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -175,19 +151,7 @@ try {
 
 ### Authorization
 
-
-Configure basicAuth statically:
-```kotlin
-ApiClient.username = ""
-ApiClient.password = ""
-```
-Configure basicAuth dynamically:
-```kotlin
-apiInstance.userCredentialProvider = { "user" to "pass" }
-```
-Configure cookieAuth:
-    ApiClient.apiKey["sessionid"] = ""
-    ApiClient.apiKeyPrefix["sessionid"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -209,7 +173,7 @@ Flavors determine whether a Pokémon will benefit or suffer from eating a berry 
 //import org.openapitools.client.models.*
 
 val apiInstance = BerriesApi()
-val id : kotlin.String = id_example // kotlin.String | This parameter can be a string or an integer.
+val id : kotlin.String = 1 // kotlin.String | This parameter can be a string or an integer.
 try {
     val result : BerryFlavorDetail = apiInstance.berryFlavorRetrieve(id)
     println(result)
@@ -233,19 +197,7 @@ try {
 
 ### Authorization
 
-
-Configure basicAuth statically:
-```kotlin
-ApiClient.username = ""
-ApiClient.password = ""
-```
-Configure basicAuth dynamically:
-```kotlin
-apiInstance.userCredentialProvider = { "user" to "pass" }
-```
-Configure cookieAuth:
-    ApiClient.apiKey["sessionid"] = ""
-    ApiClient.apiKeyPrefix["sessionid"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -295,19 +247,7 @@ try {
 
 ### Authorization
 
-
-Configure basicAuth statically:
-```kotlin
-ApiClient.username = ""
-ApiClient.password = ""
-```
-Configure basicAuth dynamically:
-```kotlin
-apiInstance.userCredentialProvider = { "user" to "pass" }
-```
-Configure cookieAuth:
-    ApiClient.apiKey["sessionid"] = ""
-    ApiClient.apiKeyPrefix["sessionid"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -329,7 +269,7 @@ Berries are small fruits that can provide HP and status condition restoration, s
 //import org.openapitools.client.models.*
 
 val apiInstance = BerriesApi()
-val id : kotlin.String = id_example // kotlin.String | This parameter can be a string or an integer.
+val id : kotlin.String = 1 // kotlin.String | This parameter can be a string or an integer.
 try {
     val result : BerryDetail = apiInstance.berryRetrieve(id)
     println(result)
@@ -353,19 +293,7 @@ try {
 
 ### Authorization
 
-
-Configure basicAuth statically:
-```kotlin
-ApiClient.username = ""
-ApiClient.password = ""
-```
-Configure basicAuth dynamically:
-```kotlin
-apiInstance.userCredentialProvider = { "user" to "pass" }
-```
-Configure cookieAuth:
-    ApiClient.apiKey["sessionid"] = ""
-    ApiClient.apiKeyPrefix["sessionid"] = ""
+No authorization required
 
 ### HTTP request headers
 

@@ -4,9 +4,9 @@ All URIs are relative to *https://pokeapi.co*
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**abilityList**](PokemonApi.md#abilityList) | **GET** /api/v2/ability/ |  |
-| [**abilityRetrieve**](PokemonApi.md#abilityRetrieve) | **GET** /api/v2/ability/{id}/ |  |
-| [**characteristicList**](PokemonApi.md#characteristicList) | **GET** /api/v2/characteristic/ | List charecterictics |
+| [**abilityList**](PokemonApi.md#abilityList) | **GET** /api/v2/ability/ | List abilities |
+| [**abilityRetrieve**](PokemonApi.md#abilityRetrieve) | **GET** /api/v2/ability/{id}/ | Get ability |
+| [**characteristicList**](PokemonApi.md#characteristicList) | **GET** /api/v2/characteristic/ | List characteristics |
 | [**characteristicRetrieve**](PokemonApi.md#characteristicRetrieve) | **GET** /api/v2/characteristic/{id}/ | Get characteristic |
 | [**eggGroupList**](PokemonApi.md#eggGroupList) | **GET** /api/v2/egg-group/ | List egg groups |
 | [**eggGroupRetrieve**](PokemonApi.md#eggGroupRetrieve) | **GET** /api/v2/egg-group/{id}/ | Get egg group |
@@ -42,7 +42,7 @@ All URIs are relative to *https://pokeapi.co*
 # **abilityList**
 > PaginatedAbilitySummaryList abilityList(limit, offset, q)
 
-
+List abilities
 
 Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
 
@@ -81,19 +81,7 @@ try {
 
 ### Authorization
 
-
-Configure basicAuth statically:
-```kotlin
-ApiClient.username = ""
-ApiClient.password = ""
-```
-Configure basicAuth dynamically:
-```kotlin
-apiInstance.userCredentialProvider = { "user" to "pass" }
-```
-Configure cookieAuth:
-    ApiClient.apiKey["sessionid"] = ""
-    ApiClient.apiKeyPrefix["sessionid"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -104,7 +92,7 @@ Configure cookieAuth:
 # **abilityRetrieve**
 > AbilityDetail abilityRetrieve(id)
 
-
+Get ability
 
 Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
 
@@ -115,7 +103,7 @@ Abilities provide passive effects for Pokémon in battle or in the overworld. Po
 //import org.openapitools.client.models.*
 
 val apiInstance = PokemonApi()
-val id : kotlin.String = id_example // kotlin.String | This parameter can be a string or an integer.
+val id : kotlin.String = 1 // kotlin.String | This parameter can be a string or an integer.
 try {
     val result : AbilityDetail = apiInstance.abilityRetrieve(id)
     println(result)
@@ -139,19 +127,7 @@ try {
 
 ### Authorization
 
-
-Configure basicAuth statically:
-```kotlin
-ApiClient.username = ""
-ApiClient.password = ""
-```
-Configure basicAuth dynamically:
-```kotlin
-apiInstance.userCredentialProvider = { "user" to "pass" }
-```
-Configure cookieAuth:
-    ApiClient.apiKey["sessionid"] = ""
-    ApiClient.apiKeyPrefix["sessionid"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -160,9 +136,9 @@ Configure cookieAuth:
 
 <a id="characteristicList"></a>
 # **characteristicList**
-> PaginatedCharacteristicSummaryList characteristicList(limit, offset, q)
+> PaginatedCharacteristicSummaryList characteristicList(limit, offset)
 
-List charecterictics
+List characteristics
 
 Characteristics indicate which stat contains a Pokémon&#39;s highest IV. A Pokémon&#39;s Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail.
 
@@ -175,9 +151,8 @@ Characteristics indicate which stat contains a Pokémon&#39;s highest IV. A Pok�
 val apiInstance = PokemonApi()
 val limit : kotlin.Int = 56 // kotlin.Int | Number of results to return per page.
 val offset : kotlin.Int = 56 // kotlin.Int | The initial index from which to return the results.
-val q : kotlin.String = q_example // kotlin.String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
 try {
-    val result : PaginatedCharacteristicSummaryList = apiInstance.characteristicList(limit, offset, q)
+    val result : PaginatedCharacteristicSummaryList = apiInstance.characteristicList(limit, offset)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling PokemonApi#characteristicList")
@@ -193,7 +168,6 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **limit** | **kotlin.Int**| Number of results to return per page. | [optional] |
 | **offset** | **kotlin.Int**| The initial index from which to return the results. | [optional] |
-| **q** | **kotlin.String**| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional] |
 
 ### Return type
 
@@ -201,19 +175,7 @@ try {
 
 ### Authorization
 
-
-Configure basicAuth statically:
-```kotlin
-ApiClient.username = ""
-ApiClient.password = ""
-```
-Configure basicAuth dynamically:
-```kotlin
-apiInstance.userCredentialProvider = { "user" to "pass" }
-```
-Configure cookieAuth:
-    ApiClient.apiKey["sessionid"] = ""
-    ApiClient.apiKeyPrefix["sessionid"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -235,7 +197,7 @@ Characteristics indicate which stat contains a Pokémon&#39;s highest IV. A Pok�
 //import org.openapitools.client.models.*
 
 val apiInstance = PokemonApi()
-val id : kotlin.String = id_example // kotlin.String | This parameter can be a string or an integer.
+val id : kotlin.String = 1 // kotlin.String | This parameter can be a string or an integer.
 try {
     val result : CharacteristicDetail = apiInstance.characteristicRetrieve(id)
     println(result)
@@ -259,19 +221,7 @@ try {
 
 ### Authorization
 
-
-Configure basicAuth statically:
-```kotlin
-ApiClient.username = ""
-ApiClient.password = ""
-```
-Configure basicAuth dynamically:
-```kotlin
-apiInstance.userCredentialProvider = { "user" to "pass" }
-```
-Configure cookieAuth:
-    ApiClient.apiKey["sessionid"] = ""
-    ApiClient.apiKeyPrefix["sessionid"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -321,19 +271,7 @@ try {
 
 ### Authorization
 
-
-Configure basicAuth statically:
-```kotlin
-ApiClient.username = ""
-ApiClient.password = ""
-```
-Configure basicAuth dynamically:
-```kotlin
-apiInstance.userCredentialProvider = { "user" to "pass" }
-```
-Configure cookieAuth:
-    ApiClient.apiKey["sessionid"] = ""
-    ApiClient.apiKeyPrefix["sessionid"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -355,7 +293,7 @@ Egg Groups are categories which determine which Pokémon are able to interbreed.
 //import org.openapitools.client.models.*
 
 val apiInstance = PokemonApi()
-val id : kotlin.String = id_example // kotlin.String | This parameter can be a string or an integer.
+val id : kotlin.String = 1 // kotlin.String | This parameter can be a string or an integer.
 try {
     val result : EggGroupDetail = apiInstance.eggGroupRetrieve(id)
     println(result)
@@ -379,19 +317,7 @@ try {
 
 ### Authorization
 
-
-Configure basicAuth statically:
-```kotlin
-ApiClient.username = ""
-ApiClient.password = ""
-```
-Configure basicAuth dynamically:
-```kotlin
-apiInstance.userCredentialProvider = { "user" to "pass" }
-```
-Configure cookieAuth:
-    ApiClient.apiKey["sessionid"] = ""
-    ApiClient.apiKeyPrefix["sessionid"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -441,19 +367,7 @@ try {
 
 ### Authorization
 
-
-Configure basicAuth statically:
-```kotlin
-ApiClient.username = ""
-ApiClient.password = ""
-```
-Configure basicAuth dynamically:
-```kotlin
-apiInstance.userCredentialProvider = { "user" to "pass" }
-```
-Configure cookieAuth:
-    ApiClient.apiKey["sessionid"] = ""
-    ApiClient.apiKeyPrefix["sessionid"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -475,7 +389,7 @@ Genders were introduced in Generation II for the purposes of breeding Pokémon b
 //import org.openapitools.client.models.*
 
 val apiInstance = PokemonApi()
-val id : kotlin.String = id_example // kotlin.String | This parameter can be a string or an integer.
+val id : kotlin.String = 1 // kotlin.String | This parameter can be a string or an integer.
 try {
     val result : GenderDetail = apiInstance.genderRetrieve(id)
     println(result)
@@ -499,19 +413,7 @@ try {
 
 ### Authorization
 
-
-Configure basicAuth statically:
-```kotlin
-ApiClient.username = ""
-ApiClient.password = ""
-```
-Configure basicAuth dynamically:
-```kotlin
-apiInstance.userCredentialProvider = { "user" to "pass" }
-```
-Configure cookieAuth:
-    ApiClient.apiKey["sessionid"] = ""
-    ApiClient.apiKeyPrefix["sessionid"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -561,19 +463,7 @@ try {
 
 ### Authorization
 
-
-Configure basicAuth statically:
-```kotlin
-ApiClient.username = ""
-ApiClient.password = ""
-```
-Configure basicAuth dynamically:
-```kotlin
-apiInstance.userCredentialProvider = { "user" to "pass" }
-```
-Configure cookieAuth:
-    ApiClient.apiKey["sessionid"] = ""
-    ApiClient.apiKeyPrefix["sessionid"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -595,7 +485,7 @@ Growth rates are the speed with which Pokémon gain levels through experience. C
 //import org.openapitools.client.models.*
 
 val apiInstance = PokemonApi()
-val id : kotlin.String = id_example // kotlin.String | This parameter can be a string or an integer.
+val id : kotlin.String = 1 // kotlin.String | This parameter can be a string or an integer.
 try {
     val result : GrowthRateDetail = apiInstance.growthRateRetrieve(id)
     println(result)
@@ -619,19 +509,7 @@ try {
 
 ### Authorization
 
-
-Configure basicAuth statically:
-```kotlin
-ApiClient.username = ""
-ApiClient.password = ""
-```
-Configure basicAuth dynamically:
-```kotlin
-apiInstance.userCredentialProvider = { "user" to "pass" }
-```
-Configure cookieAuth:
-    ApiClient.apiKey["sessionid"] = ""
-    ApiClient.apiKeyPrefix["sessionid"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -681,19 +559,7 @@ try {
 
 ### Authorization
 
-
-Configure basicAuth statically:
-```kotlin
-ApiClient.username = ""
-ApiClient.password = ""
-```
-Configure basicAuth dynamically:
-```kotlin
-apiInstance.userCredentialProvider = { "user" to "pass" }
-```
-Configure cookieAuth:
-    ApiClient.apiKey["sessionid"] = ""
-    ApiClient.apiKeyPrefix["sessionid"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -715,7 +581,7 @@ Damage classes moves can have, e.g. physical, special, or non-damaging.
 //import org.openapitools.client.models.*
 
 val apiInstance = PokemonApi()
-val id : kotlin.String = id_example // kotlin.String | This parameter can be a string or an integer.
+val id : kotlin.String = 1 // kotlin.String | This parameter can be a string or an integer.
 try {
     val result : MoveDamageClassDetail = apiInstance.moveDamageClassRetrieve(id)
     println(result)
@@ -739,19 +605,7 @@ try {
 
 ### Authorization
 
-
-Configure basicAuth statically:
-```kotlin
-ApiClient.username = ""
-ApiClient.password = ""
-```
-Configure basicAuth dynamically:
-```kotlin
-apiInstance.userCredentialProvider = { "user" to "pass" }
-```
-Configure cookieAuth:
-    ApiClient.apiKey["sessionid"] = ""
-    ApiClient.apiKeyPrefix["sessionid"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -801,19 +655,7 @@ try {
 
 ### Authorization
 
-
-Configure basicAuth statically:
-```kotlin
-ApiClient.username = ""
-ApiClient.password = ""
-```
-Configure basicAuth dynamically:
-```kotlin
-apiInstance.userCredentialProvider = { "user" to "pass" }
-```
-Configure cookieAuth:
-    ApiClient.apiKey["sessionid"] = ""
-    ApiClient.apiKeyPrefix["sessionid"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -835,7 +677,7 @@ Natures influence how a Pokémon&#39;s stats grow. See [Bulbapedia](http://bulba
 //import org.openapitools.client.models.*
 
 val apiInstance = PokemonApi()
-val id : kotlin.String = id_example // kotlin.String | This parameter can be a string or an integer.
+val id : kotlin.String = 1 // kotlin.String | This parameter can be a string or an integer.
 try {
     val result : NatureDetail = apiInstance.natureRetrieve(id)
     println(result)
@@ -859,19 +701,7 @@ try {
 
 ### Authorization
 
-
-Configure basicAuth statically:
-```kotlin
-ApiClient.username = ""
-ApiClient.password = ""
-```
-Configure basicAuth dynamically:
-```kotlin
-apiInstance.userCredentialProvider = { "user" to "pass" }
-```
-Configure cookieAuth:
-    ApiClient.apiKey["sessionid"] = ""
-    ApiClient.apiKeyPrefix["sessionid"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -921,19 +751,7 @@ try {
 
 ### Authorization
 
-
-Configure basicAuth statically:
-```kotlin
-ApiClient.username = ""
-ApiClient.password = ""
-```
-Configure basicAuth dynamically:
-```kotlin
-apiInstance.userCredentialProvider = { "user" to "pass" }
-```
-Configure cookieAuth:
-    ApiClient.apiKey["sessionid"] = ""
-    ApiClient.apiKeyPrefix["sessionid"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -955,7 +773,7 @@ Pokeathlon Stats are different attributes of a Pokémon&#39;s performance in Pok
 //import org.openapitools.client.models.*
 
 val apiInstance = PokemonApi()
-val id : kotlin.String = id_example // kotlin.String | This parameter can be a string or an integer.
+val id : kotlin.String = 1 // kotlin.String | This parameter can be a string or an integer.
 try {
     val result : PokeathlonStatDetail = apiInstance.pokeathlonStatRetrieve(id)
     println(result)
@@ -979,19 +797,7 @@ try {
 
 ### Authorization
 
-
-Configure basicAuth statically:
-```kotlin
-ApiClient.username = ""
-ApiClient.password = ""
-```
-Configure basicAuth dynamically:
-```kotlin
-apiInstance.userCredentialProvider = { "user" to "pass" }
-```
-Configure cookieAuth:
-    ApiClient.apiKey["sessionid"] = ""
-    ApiClient.apiKeyPrefix["sessionid"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -1041,19 +847,7 @@ try {
 
 ### Authorization
 
-
-Configure basicAuth statically:
-```kotlin
-ApiClient.username = ""
-ApiClient.password = ""
-```
-Configure basicAuth dynamically:
-```kotlin
-apiInstance.userCredentialProvider = { "user" to "pass" }
-```
-Configure cookieAuth:
-    ApiClient.apiKey["sessionid"] = ""
-    ApiClient.apiKeyPrefix["sessionid"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -1075,7 +869,7 @@ Colors used for sorting Pokémon in a Pokédex. The color listed in the Pokédex
 //import org.openapitools.client.models.*
 
 val apiInstance = PokemonApi()
-val id : kotlin.String = id_example // kotlin.String | This parameter can be a string or an integer.
+val id : kotlin.String = 1 // kotlin.String | This parameter can be a string or an integer.
 try {
     val result : PokemonColorDetail = apiInstance.pokemonColorRetrieve(id)
     println(result)
@@ -1099,19 +893,7 @@ try {
 
 ### Authorization
 
-
-Configure basicAuth statically:
-```kotlin
-ApiClient.username = ""
-ApiClient.password = ""
-```
-Configure basicAuth dynamically:
-```kotlin
-apiInstance.userCredentialProvider = { "user" to "pass" }
-```
-Configure cookieAuth:
-    ApiClient.apiKey["sessionid"] = ""
-    ApiClient.apiKeyPrefix["sessionid"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -1161,19 +943,7 @@ try {
 
 ### Authorization
 
-
-Configure basicAuth statically:
-```kotlin
-ApiClient.username = ""
-ApiClient.password = ""
-```
-Configure basicAuth dynamically:
-```kotlin
-apiInstance.userCredentialProvider = { "user" to "pass" }
-```
-Configure cookieAuth:
-    ApiClient.apiKey["sessionid"] = ""
-    ApiClient.apiKeyPrefix["sessionid"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -1195,7 +965,7 @@ Some Pokémon may appear in one of multiple, visually different forms. These dif
 //import org.openapitools.client.models.*
 
 val apiInstance = PokemonApi()
-val id : kotlin.String = id_example // kotlin.String | This parameter can be a string or an integer.
+val id : kotlin.String = 1 // kotlin.String | This parameter can be a string or an integer.
 try {
     val result : PokemonFormDetail = apiInstance.pokemonFormRetrieve(id)
     println(result)
@@ -1219,19 +989,7 @@ try {
 
 ### Authorization
 
-
-Configure basicAuth statically:
-```kotlin
-ApiClient.username = ""
-ApiClient.password = ""
-```
-Configure basicAuth dynamically:
-```kotlin
-apiInstance.userCredentialProvider = { "user" to "pass" }
-```
-Configure cookieAuth:
-    ApiClient.apiKey["sessionid"] = ""
-    ApiClient.apiKeyPrefix["sessionid"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -1281,19 +1039,7 @@ try {
 
 ### Authorization
 
-
-Configure basicAuth statically:
-```kotlin
-ApiClient.username = ""
-ApiClient.password = ""
-```
-Configure basicAuth dynamically:
-```kotlin
-apiInstance.userCredentialProvider = { "user" to "pass" }
-```
-Configure cookieAuth:
-    ApiClient.apiKey["sessionid"] = ""
-    ApiClient.apiKeyPrefix["sessionid"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -1315,7 +1061,7 @@ Habitats are generally different terrain Pokémon can be found in but can also b
 //import org.openapitools.client.models.*
 
 val apiInstance = PokemonApi()
-val id : kotlin.String = id_example // kotlin.String | This parameter can be a string or an integer.
+val id : kotlin.String = 1 // kotlin.String | This parameter can be a string or an integer.
 try {
     val result : PokemonHabitatDetail = apiInstance.pokemonHabitatRetrieve(id)
     println(result)
@@ -1339,19 +1085,7 @@ try {
 
 ### Authorization
 
-
-Configure basicAuth statically:
-```kotlin
-ApiClient.username = ""
-ApiClient.password = ""
-```
-Configure basicAuth dynamically:
-```kotlin
-apiInstance.userCredentialProvider = { "user" to "pass" }
-```
-Configure cookieAuth:
-    ApiClient.apiKey["sessionid"] = ""
-    ApiClient.apiKeyPrefix["sessionid"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -1401,19 +1135,7 @@ try {
 
 ### Authorization
 
-
-Configure basicAuth statically:
-```kotlin
-ApiClient.username = ""
-ApiClient.password = ""
-```
-Configure basicAuth dynamically:
-```kotlin
-apiInstance.userCredentialProvider = { "user" to "pass" }
-```
-Configure cookieAuth:
-    ApiClient.apiKey["sessionid"] = ""
-    ApiClient.apiKeyPrefix["sessionid"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -1435,7 +1157,7 @@ Pokémon are the creatures that inhabit the world of the Pokémon games. They ca
 //import org.openapitools.client.models.*
 
 val apiInstance = PokemonApi()
-val id : kotlin.String = id_example // kotlin.String | This parameter can be a string or an integer.
+val id : kotlin.String = 1 // kotlin.String | This parameter can be a string or an integer.
 try {
     val result : PokemonDetail = apiInstance.pokemonRetrieve(id)
     println(result)
@@ -1459,19 +1181,7 @@ try {
 
 ### Authorization
 
-
-Configure basicAuth statically:
-```kotlin
-ApiClient.username = ""
-ApiClient.password = ""
-```
-Configure basicAuth dynamically:
-```kotlin
-apiInstance.userCredentialProvider = { "user" to "pass" }
-```
-Configure cookieAuth:
-    ApiClient.apiKey["sessionid"] = ""
-    ApiClient.apiKeyPrefix["sessionid"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -1521,19 +1231,7 @@ try {
 
 ### Authorization
 
-
-Configure basicAuth statically:
-```kotlin
-ApiClient.username = ""
-ApiClient.password = ""
-```
-Configure basicAuth dynamically:
-```kotlin
-apiInstance.userCredentialProvider = { "user" to "pass" }
-```
-Configure cookieAuth:
-    ApiClient.apiKey["sessionid"] = ""
-    ApiClient.apiKeyPrefix["sessionid"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -1555,7 +1253,7 @@ Shapes used for sorting Pokémon in a Pokédex.
 //import org.openapitools.client.models.*
 
 val apiInstance = PokemonApi()
-val id : kotlin.String = id_example // kotlin.String | This parameter can be a string or an integer.
+val id : kotlin.String = 1 // kotlin.String | This parameter can be a string or an integer.
 try {
     val result : PokemonShapeDetail = apiInstance.pokemonShapeRetrieve(id)
     println(result)
@@ -1579,19 +1277,7 @@ try {
 
 ### Authorization
 
-
-Configure basicAuth statically:
-```kotlin
-ApiClient.username = ""
-ApiClient.password = ""
-```
-Configure basicAuth dynamically:
-```kotlin
-apiInstance.userCredentialProvider = { "user" to "pass" }
-```
-Configure cookieAuth:
-    ApiClient.apiKey["sessionid"] = ""
-    ApiClient.apiKeyPrefix["sessionid"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -1641,19 +1327,7 @@ try {
 
 ### Authorization
 
-
-Configure basicAuth statically:
-```kotlin
-ApiClient.username = ""
-ApiClient.password = ""
-```
-Configure basicAuth dynamically:
-```kotlin
-apiInstance.userCredentialProvider = { "user" to "pass" }
-```
-Configure cookieAuth:
-    ApiClient.apiKey["sessionid"] = ""
-    ApiClient.apiKeyPrefix["sessionid"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -1675,7 +1349,7 @@ A Pokémon Species forms the basis for at least one Pokémon. Attributes of a Po
 //import org.openapitools.client.models.*
 
 val apiInstance = PokemonApi()
-val id : kotlin.String = id_example // kotlin.String | This parameter can be a string or an integer.
+val id : kotlin.String = 1 // kotlin.String | This parameter can be a string or an integer.
 try {
     val result : PokemonSpeciesDetail = apiInstance.pokemonSpeciesRetrieve(id)
     println(result)
@@ -1699,19 +1373,7 @@ try {
 
 ### Authorization
 
-
-Configure basicAuth statically:
-```kotlin
-ApiClient.username = ""
-ApiClient.password = ""
-```
-Configure basicAuth dynamically:
-```kotlin
-apiInstance.userCredentialProvider = { "user" to "pass" }
-```
-Configure cookieAuth:
-    ApiClient.apiKey["sessionid"] = ""
-    ApiClient.apiKeyPrefix["sessionid"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -1761,19 +1423,7 @@ try {
 
 ### Authorization
 
-
-Configure basicAuth statically:
-```kotlin
-ApiClient.username = ""
-ApiClient.password = ""
-```
-Configure basicAuth dynamically:
-```kotlin
-apiInstance.userCredentialProvider = { "user" to "pass" }
-```
-Configure cookieAuth:
-    ApiClient.apiKey["sessionid"] = ""
-    ApiClient.apiKeyPrefix["sessionid"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -1795,7 +1445,7 @@ Stats determine certain aspects of battles. Each Pokémon has a value for each s
 //import org.openapitools.client.models.*
 
 val apiInstance = PokemonApi()
-val id : kotlin.String = id_example // kotlin.String | This parameter can be a string or an integer.
+val id : kotlin.String = 1 // kotlin.String | This parameter can be a string or an integer.
 try {
     val result : StatDetail = apiInstance.statRetrieve(id)
     println(result)
@@ -1819,19 +1469,7 @@ try {
 
 ### Authorization
 
-
-Configure basicAuth statically:
-```kotlin
-ApiClient.username = ""
-ApiClient.password = ""
-```
-Configure basicAuth dynamically:
-```kotlin
-apiInstance.userCredentialProvider = { "user" to "pass" }
-```
-Configure cookieAuth:
-    ApiClient.apiKey["sessionid"] = ""
-    ApiClient.apiKeyPrefix["sessionid"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -1881,19 +1519,7 @@ try {
 
 ### Authorization
 
-
-Configure basicAuth statically:
-```kotlin
-ApiClient.username = ""
-ApiClient.password = ""
-```
-Configure basicAuth dynamically:
-```kotlin
-apiInstance.userCredentialProvider = { "user" to "pass" }
-```
-Configure cookieAuth:
-    ApiClient.apiKey["sessionid"] = ""
-    ApiClient.apiKeyPrefix["sessionid"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -1915,7 +1541,7 @@ Types are properties for Pokémon and their moves. Each type has three propertie
 //import org.openapitools.client.models.*
 
 val apiInstance = PokemonApi()
-val id : kotlin.String = id_example // kotlin.String | This parameter can be a string or an integer.
+val id : kotlin.String = 1 // kotlin.String | This parameter can be a string or an integer.
 try {
     val result : TypeDetail = apiInstance.typeRetrieve(id)
     println(result)
@@ -1939,19 +1565,7 @@ try {
 
 ### Authorization
 
-
-Configure basicAuth statically:
-```kotlin
-ApiClient.username = ""
-ApiClient.password = ""
-```
-Configure basicAuth dynamically:
-```kotlin
-apiInstance.userCredentialProvider = { "user" to "pass" }
-```
-Configure cookieAuth:
-    ApiClient.apiKey["sessionid"] = ""
-    ApiClient.apiKeyPrefix["sessionid"] = ""
+No authorization required
 
 ### HTTP request headers
 

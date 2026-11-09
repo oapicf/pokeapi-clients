@@ -22,7 +22,7 @@ openapi_encounter_method_detail() ->
 openapi_encounter_method_detail(Fields) ->
   Default = [ {'id', integer() }
             , {'name', binary() }
-            , {'order', integer() }
+            , {'order', integer(-2147483648, 2147483647) }
             , {'names', list(openapi_encounter_method_name:openapi_encounter_method_name()) }
             ],
   lists:ukeymerge(1, lists:sort(Fields), lists:sort(Default)).

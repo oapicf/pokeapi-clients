@@ -10,6 +10,7 @@ class_name MoveMetaAilmentDetail
 # MoveMetaAilmentDetail Model
 
 
+# The identifier for this resource.
 # Required: True
 # isArray: false
 @export var id: int:
@@ -18,6 +19,7 @@ class_name MoveMetaAilmentDetail
 		id = value
 var __id__was__set := false
 
+# The name for this resource.
 # Required: True
 # isArray: false
 @export var name: String:
@@ -26,6 +28,7 @@ var __id__was__set := false
 		name = value
 var __name__was__set := false
 
+# A list of moves that cause this ailment.
 # Required: True
 # isArray: true
 @export var moves: Array:
@@ -34,6 +37,7 @@ var __name__was__set := false
 		moves = value
 var __moves__was__set := false
 
+# The name of this resource listed in different languages.
 # Required: True
 # isArray: true
 @export var names: Array:
@@ -77,7 +81,7 @@ static func bzz_denormalize_single(from_dict: Dictionary):
 	if from_dict.has("name"):
 		me.name = from_dict["name"]
 	if from_dict.has("moves"):
-		me.moves = AbilityDetail_pokemon_inner_pokemon.bzz_denormalize_multiple(from_dict["moves"])
+		me.moves = MoveSummary.bzz_denormalize_multiple(from_dict["moves"])
 	if from_dict.has("names"):
 		me.names = MoveMetaAilmentName.bzz_denormalize_multiple(from_dict["names"])
 	return me

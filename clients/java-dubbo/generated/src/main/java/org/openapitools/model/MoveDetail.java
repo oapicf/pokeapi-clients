@@ -1,21 +1,21 @@
 package org.openapitools.model;
 
 import org.openapitools.jackson.nullable.JsonNullable;
-import org.openapitools.model.AbilityDetailPokemonInnerPokemon;
 import org.openapitools.model.ContestEffectSummary;
 import org.openapitools.model.ContestTypeSummary;
 import org.openapitools.model.GenerationSummary;
+import org.openapitools.model.ItemMachine;
 import org.openapitools.model.MoveChange;
-import org.openapitools.model.MoveChangeEffectEntriesInner;
+import org.openapitools.model.MoveCombos;
 import org.openapitools.model.MoveDamageClassSummary;
-import org.openapitools.model.MoveDetailContestCombos;
-import org.openapitools.model.MoveDetailEffectChangesInner;
-import org.openapitools.model.MoveDetailMachinesInner;
-import org.openapitools.model.MoveDetailStatChangesInner;
+import org.openapitools.model.MoveEffectChange;
+import org.openapitools.model.MoveEffectEffectText;
 import org.openapitools.model.MoveFlavorText;
 import org.openapitools.model.MoveMeta;
+import org.openapitools.model.MoveMetaStatChange;
 import org.openapitools.model.MoveName;
 import org.openapitools.model.MoveTargetSummary;
+import org.openapitools.model.PokemonSummary;
 import org.openapitools.model.SuperContestEffectSummary;
 import org.openapitools.model.TypeSummary;
 import java.util.*;
@@ -30,80 +30,152 @@ import java.math.*;
 public class MoveDetail implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * The identifier for this resource.
+   */
   @JsonProperty("id")
   private Integer id;
 
+  /**
+   * The name for this resource.
+   */
   @JsonProperty("name")
   private String name;
 
+  /**
+   * The percent value of how likely this move is to be successful.
+   */
   @JsonProperty("accuracy")
   private Integer accuracy;
 
+  /**
+   * The percent value of how likely it is this moves effect will happen.
+   */
   @JsonProperty("effect_chance")
   private Integer effectChance;
 
+  /**
+   * Power points. The number of times this move can be used.
+   */
   @JsonProperty("pp")
   private Integer pp;
 
+  /**
+   * A value between -8 and 8. Sets the order in which moves are executed during battle. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Priority) for greater detail.
+   */
   @JsonProperty("priority")
   private Integer priority;
 
+  /**
+   * The base power of this move, or null if it has no fixed base power.
+   */
   @JsonProperty("power")
   private Integer power;
 
+  /**
+   * A detail of normal and super contest combos that require this move.
+   */
   @JsonProperty("contest_combos")
-  private MoveDetailContestCombos contestCombos;
+  private MoveCombos contestCombos;
 
+  /**
+   * The type of appeal this move gives a Pokémon when used in a contest.
+   */
   @JsonProperty("contest_type")
   private ContestTypeSummary contestType;
 
+  /**
+   * The effect the move has when used in a contest.
+   */
   @JsonProperty("contest_effect")
   private ContestEffectSummary contestEffect;
 
+  /**
+   * The type of damage the move inflicts on the target, e.g. physical.
+   */
   @JsonProperty("damage_class")
   private MoveDamageClassSummary damageClass;
 
+  /**
+   * The effect of this move listed in different languages.
+   */
   @JsonProperty("effect_entries")
-  private List<MoveChangeEffectEntriesInner> effectEntries = new ArrayList<>();
+  private List<MoveEffectEffectText> effectEntries = new ArrayList<>();
 
+  /**
+   * The list of previous effects this move has had across version groups of the games.
+   */
   @JsonProperty("effect_changes")
-  private List<MoveDetailEffectChangesInner> effectChanges = new ArrayList<>();
+  private List<MoveEffectChange> effectChanges = new ArrayList<>();
 
+  /**
+   * The generation in which this move was introduced.
+   */
   @JsonProperty("generation")
   private GenerationSummary generation;
 
+  /**
+   * Metadata about this move
+   */
   @JsonProperty("meta")
   private MoveMeta meta;
 
+  /**
+   * The name of this resource listed in different languages.
+   */
   @JsonProperty("names")
   private List<MoveName> names = new ArrayList<>();
 
+  /**
+   * A list of move resource value changes across version groups of the game.
+   */
   @JsonProperty("past_values")
   private List<MoveChange> pastValues = new ArrayList<>();
 
+  /**
+   * A list of stats this moves effects and how much it effects them.
+   */
   @JsonProperty("stat_changes")
-  private List<MoveDetailStatChangesInner> statChanges = new ArrayList<>();
+  private List<MoveMetaStatChange> statChanges = new ArrayList<>();
 
+  /**
+   * The effect the move has when used in a super contest.
+   */
   @JsonProperty("super_contest_effect")
   private SuperContestEffectSummary superContestEffect;
 
+  /**
+   * The type of target that will receive the effects of the attack.
+   */
   @JsonProperty("target")
   private MoveTargetSummary target;
 
+  /**
+   * The elemental type of this move.
+   */
   @JsonProperty("type")
   private TypeSummary type;
 
+  /**
+   * A list of the machines that teach this move.
+   */
   @JsonProperty("machines")
-  private List<MoveDetailMachinesInner> machines = new ArrayList<>();
+  private List<ItemMachine> machines = new ArrayList<>();
 
+  /**
+   * The flavor text of this move listed in different languages.
+   */
   @JsonProperty("flavor_text_entries")
   private List<MoveFlavorText> flavorTextEntries = new ArrayList<>();
 
+  /**
+   * List of Pokemon that can learn the move
+   */
   @JsonProperty("learned_by_pokemon")
-  private List<AbilityDetailPokemonInnerPokemon> learnedByPokemon = new ArrayList<>();
+  private List<PokemonSummary> learnedByPokemon = new ArrayList<>();
 
   /**
-   * 
+   * The identifier for this resource.
    * @return id
    */
   public Integer getId() {
@@ -115,7 +187,7 @@ public class MoveDetail implements Serializable {
   }
 
   /**
-   * 
+   * The name for this resource.
    * @return name
    */
   public String getName() {
@@ -127,7 +199,7 @@ public class MoveDetail implements Serializable {
   }
 
   /**
-   * 
+   * The percent value of how likely this move is to be successful.
    * @return accuracy
    */
   public Integer getAccuracy() {
@@ -139,7 +211,7 @@ public class MoveDetail implements Serializable {
   }
 
   /**
-   * 
+   * The percent value of how likely it is this moves effect will happen.
    * @return effectChance
    */
   public Integer getEffectChance() {
@@ -151,7 +223,7 @@ public class MoveDetail implements Serializable {
   }
 
   /**
-   * 
+   * Power points. The number of times this move can be used.
    * @return pp
    */
   public Integer getPp() {
@@ -163,7 +235,7 @@ public class MoveDetail implements Serializable {
   }
 
   /**
-   * 
+   * A value between -8 and 8. Sets the order in which moves are executed during battle. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Priority) for greater detail.
    * @return priority
    */
   public Integer getPriority() {
@@ -175,7 +247,7 @@ public class MoveDetail implements Serializable {
   }
 
   /**
-   * 
+   * The base power of this move, or null if it has no fixed base power.
    * @return power
    */
   public Integer getPower() {
@@ -187,19 +259,19 @@ public class MoveDetail implements Serializable {
   }
 
   /**
-   * 
+   * A detail of normal and super contest combos that require this move.
    * @return contestCombos
    */
-  public MoveDetailContestCombos getContestCombos() {
+  public MoveCombos getContestCombos() {
     return contestCombos;
   }
 
-  public void setContestCombos(MoveDetailContestCombos contestCombos) {
+  public void setContestCombos(MoveCombos contestCombos) {
     this.contestCombos = contestCombos;
   }
 
   /**
-   * 
+   * The type of appeal this move gives a Pokémon when used in a contest.
    * @return contestType
    */
   public ContestTypeSummary getContestType() {
@@ -211,7 +283,7 @@ public class MoveDetail implements Serializable {
   }
 
   /**
-   * 
+   * The effect the move has when used in a contest.
    * @return contestEffect
    */
   public ContestEffectSummary getContestEffect() {
@@ -223,7 +295,7 @@ public class MoveDetail implements Serializable {
   }
 
   /**
-   * 
+   * The type of damage the move inflicts on the target, e.g. physical.
    * @return damageClass
    */
   public MoveDamageClassSummary getDamageClass() {
@@ -235,31 +307,31 @@ public class MoveDetail implements Serializable {
   }
 
   /**
-   * 
+   * The effect of this move listed in different languages.
    * @return effectEntries
    */
-  public List<MoveChangeEffectEntriesInner> getEffectEntries() {
+  public List<MoveEffectEffectText> getEffectEntries() {
     return effectEntries;
   }
 
-  public void setEffectEntries(List<MoveChangeEffectEntriesInner> effectEntries) {
+  public void setEffectEntries(List<MoveEffectEffectText> effectEntries) {
     this.effectEntries = effectEntries;
   }
 
   /**
-   * 
+   * The list of previous effects this move has had across version groups of the games.
    * @return effectChanges
    */
-  public List<MoveDetailEffectChangesInner> getEffectChanges() {
+  public List<MoveEffectChange> getEffectChanges() {
     return effectChanges;
   }
 
-  public void setEffectChanges(List<MoveDetailEffectChangesInner> effectChanges) {
+  public void setEffectChanges(List<MoveEffectChange> effectChanges) {
     this.effectChanges = effectChanges;
   }
 
   /**
-   * 
+   * The generation in which this move was introduced.
    * @return generation
    */
   public GenerationSummary getGeneration() {
@@ -271,7 +343,7 @@ public class MoveDetail implements Serializable {
   }
 
   /**
-   * 
+   * Metadata about this move
    * @return meta
    */
   public MoveMeta getMeta() {
@@ -283,7 +355,7 @@ public class MoveDetail implements Serializable {
   }
 
   /**
-   * 
+   * The name of this resource listed in different languages.
    * @return names
    */
   public List<MoveName> getNames() {
@@ -295,7 +367,7 @@ public class MoveDetail implements Serializable {
   }
 
   /**
-   * 
+   * A list of move resource value changes across version groups of the game.
    * @return pastValues
    */
   public List<MoveChange> getPastValues() {
@@ -307,19 +379,19 @@ public class MoveDetail implements Serializable {
   }
 
   /**
-   * 
+   * A list of stats this moves effects and how much it effects them.
    * @return statChanges
    */
-  public List<MoveDetailStatChangesInner> getStatChanges() {
+  public List<MoveMetaStatChange> getStatChanges() {
     return statChanges;
   }
 
-  public void setStatChanges(List<MoveDetailStatChangesInner> statChanges) {
+  public void setStatChanges(List<MoveMetaStatChange> statChanges) {
     this.statChanges = statChanges;
   }
 
   /**
-   * 
+   * The effect the move has when used in a super contest.
    * @return superContestEffect
    */
   public SuperContestEffectSummary getSuperContestEffect() {
@@ -331,7 +403,7 @@ public class MoveDetail implements Serializable {
   }
 
   /**
-   * 
+   * The type of target that will receive the effects of the attack.
    * @return target
    */
   public MoveTargetSummary getTarget() {
@@ -343,7 +415,7 @@ public class MoveDetail implements Serializable {
   }
 
   /**
-   * 
+   * The elemental type of this move.
    * @return type
    */
   public TypeSummary getType() {
@@ -355,19 +427,19 @@ public class MoveDetail implements Serializable {
   }
 
   /**
-   * 
+   * A list of the machines that teach this move.
    * @return machines
    */
-  public List<MoveDetailMachinesInner> getMachines() {
+  public List<ItemMachine> getMachines() {
     return machines;
   }
 
-  public void setMachines(List<MoveDetailMachinesInner> machines) {
+  public void setMachines(List<ItemMachine> machines) {
     this.machines = machines;
   }
 
   /**
-   * 
+   * The flavor text of this move listed in different languages.
    * @return flavorTextEntries
    */
   public List<MoveFlavorText> getFlavorTextEntries() {
@@ -379,14 +451,14 @@ public class MoveDetail implements Serializable {
   }
 
   /**
-   * 
+   * List of Pokemon that can learn the move
    * @return learnedByPokemon
    */
-  public List<AbilityDetailPokemonInnerPokemon> getLearnedByPokemon() {
+  public List<PokemonSummary> getLearnedByPokemon() {
     return learnedByPokemon;
   }
 
-  public void setLearnedByPokemon(List<AbilityDetailPokemonInnerPokemon> learnedByPokemon) {
+  public void setLearnedByPokemon(List<PokemonSummary> learnedByPokemon) {
     this.learnedByPokemon = learnedByPokemon;
   }
 

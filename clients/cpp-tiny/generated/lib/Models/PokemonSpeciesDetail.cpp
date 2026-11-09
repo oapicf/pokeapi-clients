@@ -18,21 +18,21 @@ PokemonSpeciesDetail::PokemonSpeciesDetail()
 	hatch_counter = int(0);
 	has_gender_differences = bool(false);
 	forms_switchable = bool(false);
-	growth_rate = GrowthRateSummary();
+	growth_rate = null;
 	pokedex_numbers = std::list<PokemonDexEntry>();
-	egg_groups = std::list<AbilityDetail_pokemon_inner_pokemon>();
-	color = PokemonColorSummary();
-	shape = PokemonShapeSummary();
-	evolves_from_species = PokemonSpeciesSummary();
-	evolution_chain = EvolutionChainSummary();
-	habitat = PokemonHabitatSummary();
-	generation = GenerationSummary();
-	names = std::list<PokemonFormDetail_form_names_inner>();
-	pal_park_encounters = std::list<PokemonSpeciesDetail_pal_park_encounters_inner>();
+	egg_groups = std::list<EggGroupSummary>();
+	color = null;
+	shape = null;
+	evolves_from_species = null;
+	evolution_chain = null;
+	habitat = null;
+	generation = null;
+	names = std::list<PokemonSpeciesName>();
+	pal_park_encounters = std::list<PokemonSpeciesPalParkEncounter>();
 	form_descriptions = std::list<PokemonSpeciesDescription>();
 	flavor_text_entries = std::list<PokemonSpeciesFlavorText>();
-	genera = std::list<PokemonSpeciesDetail_genera_inner>();
-	varieties = std::list<PokemonSpeciesDetail_varieties_inner>();
+	genera = std::list<PokemonSpeciesGenus>();
+	varieties = std::list<PokemonSpeciesVariety>();
 }
 
 PokemonSpeciesDetail::PokemonSpeciesDetail(std::string jsonString)
@@ -249,8 +249,8 @@ PokemonSpeciesDetail::fromJson(std::string jsonObj)
         bourne::json value = object[egg_groupsKey];
 
 
-        std::list<AbilityDetail_pokemon_inner_pokemon> egg_groups_list;
-        AbilityDetail_pokemon_inner_pokemon element;
+        std::list<EggGroupSummary> egg_groups_list;
+        EggGroupSummary element;
         for(auto& var : value.array_range())
         {
 
@@ -355,8 +355,8 @@ PokemonSpeciesDetail::fromJson(std::string jsonObj)
         bourne::json value = object[namesKey];
 
 
-        std::list<PokemonFormDetail_form_names_inner> names_list;
-        PokemonFormDetail_form_names_inner element;
+        std::list<PokemonSpeciesName> names_list;
+        PokemonSpeciesName element;
         for(auto& var : value.array_range())
         {
 
@@ -377,8 +377,8 @@ PokemonSpeciesDetail::fromJson(std::string jsonObj)
         bourne::json value = object[pal_park_encountersKey];
 
 
-        std::list<PokemonSpeciesDetail_pal_park_encounters_inner> pal_park_encounters_list;
-        PokemonSpeciesDetail_pal_park_encounters_inner element;
+        std::list<PokemonSpeciesPalParkEncounter> pal_park_encounters_list;
+        PokemonSpeciesPalParkEncounter element;
         for(auto& var : value.array_range())
         {
 
@@ -443,8 +443,8 @@ PokemonSpeciesDetail::fromJson(std::string jsonObj)
         bourne::json value = object[generaKey];
 
 
-        std::list<PokemonSpeciesDetail_genera_inner> genera_list;
-        PokemonSpeciesDetail_genera_inner element;
+        std::list<PokemonSpeciesGenus> genera_list;
+        PokemonSpeciesGenus element;
         for(auto& var : value.array_range())
         {
 
@@ -465,8 +465,8 @@ PokemonSpeciesDetail::fromJson(std::string jsonObj)
         bourne::json value = object[varietiesKey];
 
 
-        std::list<PokemonSpeciesDetail_varieties_inner> varieties_list;
-        PokemonSpeciesDetail_varieties_inner element;
+        std::list<PokemonSpeciesVariety> varieties_list;
+        PokemonSpeciesVariety element;
         for(auto& var : value.array_range())
         {
 
@@ -597,12 +597,12 @@ PokemonSpeciesDetail::toJson()
 
 
 
-    std::list<AbilityDetail_pokemon_inner_pokemon> egg_groups_list = getEggGroups();
+    std::list<EggGroupSummary> egg_groups_list = getEggGroups();
     bourne::json egg_groups_arr = bourne::json::array();
 
     for(auto& var : egg_groups_list)
     {
-        AbilityDetail_pokemon_inner_pokemon obj = var;
+        EggGroupSummary obj = var;
         egg_groups_arr.append(obj.toJson());
     }
     object["egg_groups"] = egg_groups_arr;
@@ -654,12 +654,12 @@ PokemonSpeciesDetail::toJson()
 
 
 
-    std::list<PokemonFormDetail_form_names_inner> names_list = getNames();
+    std::list<PokemonSpeciesName> names_list = getNames();
     bourne::json names_arr = bourne::json::array();
 
     for(auto& var : names_list)
     {
-        PokemonFormDetail_form_names_inner obj = var;
+        PokemonSpeciesName obj = var;
         names_arr.append(obj.toJson());
     }
     object["names"] = names_arr;
@@ -669,12 +669,12 @@ PokemonSpeciesDetail::toJson()
 
 
 
-    std::list<PokemonSpeciesDetail_pal_park_encounters_inner> pal_park_encounters_list = getPalParkEncounters();
+    std::list<PokemonSpeciesPalParkEncounter> pal_park_encounters_list = getPalParkEncounters();
     bourne::json pal_park_encounters_arr = bourne::json::array();
 
     for(auto& var : pal_park_encounters_list)
     {
-        PokemonSpeciesDetail_pal_park_encounters_inner obj = var;
+        PokemonSpeciesPalParkEncounter obj = var;
         pal_park_encounters_arr.append(obj.toJson());
     }
     object["pal_park_encounters"] = pal_park_encounters_arr;
@@ -714,12 +714,12 @@ PokemonSpeciesDetail::toJson()
 
 
 
-    std::list<PokemonSpeciesDetail_genera_inner> genera_list = getGenera();
+    std::list<PokemonSpeciesGenus> genera_list = getGenera();
     bourne::json genera_arr = bourne::json::array();
 
     for(auto& var : genera_list)
     {
-        PokemonSpeciesDetail_genera_inner obj = var;
+        PokemonSpeciesGenus obj = var;
         genera_arr.append(obj.toJson());
     }
     object["genera"] = genera_arr;
@@ -729,12 +729,12 @@ PokemonSpeciesDetail::toJson()
 
 
 
-    std::list<PokemonSpeciesDetail_varieties_inner> varieties_list = getVarieties();
+    std::list<PokemonSpeciesVariety> varieties_list = getVarieties();
     bourne::json varieties_arr = bourne::json::array();
 
     for(auto& var : varieties_list)
     {
-        PokemonSpeciesDetail_varieties_inner obj = var;
+        PokemonSpeciesVariety obj = var;
         varieties_arr.append(obj.toJson());
     }
     object["varieties"] = varieties_arr;
@@ -914,14 +914,14 @@ PokemonSpeciesDetail::setPokedexNumbers(std::list<PokemonDexEntry> pokedex_numbe
 	this->pokedex_numbers = pokedex_numbers;
 }
 
-std::list<AbilityDetail_pokemon_inner_pokemon>
+std::list<EggGroupSummary>
 PokemonSpeciesDetail::getEggGroups()
 {
 	return egg_groups;
 }
 
 void
-PokemonSpeciesDetail::setEggGroups(std::list<AbilityDetail_pokemon_inner_pokemon> egg_groups)
+PokemonSpeciesDetail::setEggGroups(std::list<EggGroupSummary> egg_groups)
 {
 	this->egg_groups = egg_groups;
 }
@@ -998,26 +998,26 @@ PokemonSpeciesDetail::setGeneration(GenerationSummary generation)
 	this->generation = generation;
 }
 
-std::list<PokemonFormDetail_form_names_inner>
+std::list<PokemonSpeciesName>
 PokemonSpeciesDetail::getNames()
 {
 	return names;
 }
 
 void
-PokemonSpeciesDetail::setNames(std::list<PokemonFormDetail_form_names_inner> names)
+PokemonSpeciesDetail::setNames(std::list<PokemonSpeciesName> names)
 {
 	this->names = names;
 }
 
-std::list<PokemonSpeciesDetail_pal_park_encounters_inner>
+std::list<PokemonSpeciesPalParkEncounter>
 PokemonSpeciesDetail::getPalParkEncounters()
 {
 	return pal_park_encounters;
 }
 
 void
-PokemonSpeciesDetail::setPalParkEncounters(std::list<PokemonSpeciesDetail_pal_park_encounters_inner> pal_park_encounters)
+PokemonSpeciesDetail::setPalParkEncounters(std::list<PokemonSpeciesPalParkEncounter> pal_park_encounters)
 {
 	this->pal_park_encounters = pal_park_encounters;
 }
@@ -1046,26 +1046,26 @@ PokemonSpeciesDetail::setFlavorTextEntries(std::list<PokemonSpeciesFlavorText> f
 	this->flavor_text_entries = flavor_text_entries;
 }
 
-std::list<PokemonSpeciesDetail_genera_inner>
+std::list<PokemonSpeciesGenus>
 PokemonSpeciesDetail::getGenera()
 {
 	return genera;
 }
 
 void
-PokemonSpeciesDetail::setGenera(std::list<PokemonSpeciesDetail_genera_inner> genera)
+PokemonSpeciesDetail::setGenera(std::list<PokemonSpeciesGenus> genera)
 {
 	this->genera = genera;
 }
 
-std::list<PokemonSpeciesDetail_varieties_inner>
+std::list<PokemonSpeciesVariety>
 PokemonSpeciesDetail::getVarieties()
 {
 	return varieties;
 }
 
 void
-PokemonSpeciesDetail::setVarieties(std::list<PokemonSpeciesDetail_varieties_inner> varieties)
+PokemonSpeciesDetail::setVarieties(std::list<PokemonSpeciesVariety> varieties)
 {
 	this->varieties = varieties;
 }

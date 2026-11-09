@@ -15,9 +15,9 @@
 
 typedef struct location_area_detail_t location_area_detail_t;
 
-#include "location_area_detail_encounter_method_rates_inner.h"
-#include "location_area_detail_pokemon_encounters_inner.h"
+#include "location_area_encounter_rate.h"
 #include "location_area_name.h"
+#include "location_area_pokemon_encounter.h"
 #include "location_summary.h"
 
 

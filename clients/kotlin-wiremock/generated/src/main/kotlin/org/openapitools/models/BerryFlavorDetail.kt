@@ -15,7 +15,7 @@ data class BerryFlavorDetail(
     val name: kotlin.String,
 
     @field:JsonProperty("berries")
-    val berries: kotlin.collections.List<BerryFlavorDetailBerriesInner>,
+    val berries: kotlin.collections.List<BerryFlavorBerryMap>,
 
     @field:JsonProperty("contest_type")
     val contestType: ContestTypeSummary,

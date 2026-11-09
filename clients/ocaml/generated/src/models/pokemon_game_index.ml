@@ -15,13 +15,15 @@
                 
                 
                 ; [@key "game_index"]
-                                              version: Version_summary.t
+                    (** The internal id of an API resource within game data. *)
+                                      version: Version_summary.t
                   
                   
                 
                 
                 ; [@key "version"]
-                        } [@@deriving yojson { strict = false }, show, eq ];;
+                    (** The version relevent to this game index. *)
+                } [@@deriving yojson { strict = false }, show, eq ];;
         
         let create (game_index : int32) (version : Version_summary.t) : t = {
             game_index = game_index;

@@ -16,28 +16,30 @@ import io.swagger.v3.oas.annotations.media.Schema
 
 /**
  * 
- * @param id 
- * @param name 
- * @param names 
- * @param order 
+ * @param id The identifier for this resource.
+ * @param name The name for this resource.
+ * @param names The name of this resource listed in different languages.
+ * @param order A good value for sorting.
  */
 data class EncounterMethodDetail(
 
-    @Schema(required = true, readOnly = true, description = "")
+    @Schema(required = true, readOnly = true, description = "The identifier for this resource.")
     @param:JsonProperty("id", required = true)
     @get:JsonProperty("id", required = true) val id: kotlin.Int,
 
-    @get:Size(max=100)
-    @Schema(required = true, description = "")
+    @get:Size(max=200)
+    @Schema(required = true, description = "The name for this resource.")
     @param:JsonProperty("name", required = true)
     @get:JsonProperty("name", required = true) val name: kotlin.String,
 
     @field:Valid
-    @Schema(required = true, readOnly = true, description = "")
+    @Schema(required = true, readOnly = true, description = "The name of this resource listed in different languages.")
     @param:JsonProperty("names", required = true)
     @get:JsonProperty("names", required = true) val names: kotlin.collections.List<EncounterMethodName>,
 
-    @Schema(description = "")
+    @get:Min(value=-2147483648)
+    @get:Max(value=2147483647)
+    @Schema(description = "A good value for sorting.")
     @param:JsonProperty("order")
     @get:JsonProperty("order") val order: kotlin.Int? = null
 ) {

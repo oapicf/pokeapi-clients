@@ -10,6 +10,7 @@ class_name NatureBattleStylePreference
 # NatureBattleStylePreference Model
 
 
+# Chance of using the move, in percent, if HP is under one half.
 # Required: True
 # isArray: false
 @export var lowUnderscorehpUnderscorepreference: int:
@@ -18,6 +19,7 @@ class_name NatureBattleStylePreference
 		lowUnderscorehpUnderscorepreference = value
 var __lowUnderscorehpUnderscorepreference__was__set := false
 
+# Chance of using the move, in percent, if HP is over one half.
 # Required: True
 # isArray: false
 @export var highUnderscorehpUnderscorepreference: int:
@@ -26,6 +28,7 @@ var __lowUnderscorehpUnderscorepreference__was__set := false
 		highUnderscorehpUnderscorepreference = value
 var __highUnderscorehpUnderscorepreference__was__set := false
 
+# The move battle style.
 # Required: True
 # isArray: false
 @export var moveUnderscorebattleUnderscorestyle: MoveBattleStyleSummary:

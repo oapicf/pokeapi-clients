@@ -8,7 +8,9 @@
 import Foundation
 
 public struct PokemonDexEntry: Codable {
+    /// The index number within the Pokédex.
     public var entryNumber: Int
+    /// The Pokédex the referenced Pokémon species can be found in.
     public var pokedex: PokedexSummary
 
     public init(entryNumber: Int, pokedex: PokedexSummary) {

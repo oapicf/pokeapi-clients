@@ -8,11 +8,11 @@ The class is defined in **[CharacteristicDetail.java](../../src/main/java/org/op
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | `Integer` |  |  [readonly property]
-**geneModulo** | `Integer` |  | 
-**possibleValues** | `List&lt;Integer&gt;` |  |  [readonly property]
-**highestStat** | [`StatSummary`](StatSummary.md) |  | 
-**descriptions** | [`List&lt;CharacteristicDescription&gt;`](CharacteristicDescription.md) |  |  [readonly property]
+**id** | `Integer` | The identifier for this resource. |  [readonly property]
+**geneModulo** | `Integer` | The remainder of the highest stat/IV divided by 5. | 
+**possibleValues** | `List&lt;Integer&gt;` | The possible values of the highest stat that would result in a Pokémon recieving this characteristic when divided by 5. |  [readonly property]
+**highestStat** | [`StatSummary`](StatSummary.md) | The stat which results in this characteristic. | 
+**descriptions** | [`List&lt;CharacteristicDescription&gt;`](CharacteristicDescription.md) | The descriptions of this characteristic listed in different languages. |  [readonly property]
 
 
 

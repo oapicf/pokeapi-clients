@@ -17,7 +17,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
  * MoveMeta
  */
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-10-25T05:48:09.645019047Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-11-09T13:49:28.343088631Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class MoveMeta   {
   @JsonProperty("ailment")
   private MoveMetaAilmentSummary ailment;
@@ -61,10 +61,10 @@ public class MoveMeta   {
   }
 
   /**
-   * Get ailment
+   * The status ailment this move inflicts on its target.
    * @return ailment
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The status ailment this move inflicts on its target.")
   public MoveMetaAilmentSummary getAilment() {
     return ailment;
   }
@@ -79,10 +79,10 @@ public class MoveMeta   {
   }
 
   /**
-   * Get category
+   * The category of move this move falls under, e.g. damage or ailment.
    * @return category
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The category of move this move falls under, e.g. damage or ailment.")
   public MoveMetaCategorySummary getCategory() {
     return category;
   }
@@ -97,10 +97,12 @@ public class MoveMeta   {
   }
 
   /**
-   * Get minHits
+   * The minimum number of times this move hits. Null if it always only hits once.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return minHits
    */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The minimum number of times this move hits. Null if it always only hits once.")
   public Integer getMinHits() {
     return minHits;
   }
@@ -115,10 +117,12 @@ public class MoveMeta   {
   }
 
   /**
-   * Get maxHits
+   * The maximum number of times this move hits. Null if it always only hits once.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return maxHits
    */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The maximum number of times this move hits. Null if it always only hits once.")
   public Integer getMaxHits() {
     return maxHits;
   }
@@ -133,10 +137,12 @@ public class MoveMeta   {
   }
 
   /**
-   * Get minTurns
+   * The minimum number of turns this move continues to take effect. Null if it always only lasts one turn.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return minTurns
    */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The minimum number of turns this move continues to take effect. Null if it always only lasts one turn.")
   public Integer getMinTurns() {
     return minTurns;
   }
@@ -151,10 +157,12 @@ public class MoveMeta   {
   }
 
   /**
-   * Get maxTurns
+   * The maximum number of turns this move continues to take effect. Null if it always only lasts one turn.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return maxTurns
    */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The maximum number of turns this move continues to take effect. Null if it always only lasts one turn.")
   public Integer getMaxTurns() {
     return maxTurns;
   }
@@ -169,10 +177,12 @@ public class MoveMeta   {
   }
 
   /**
-   * Get drain
+   * HP drain (if positive) or Recoil damage (if negative), in percent of damage done.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return drain
    */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "HP drain (if positive) or Recoil damage (if negative), in percent of damage done.")
   public Integer getDrain() {
     return drain;
   }
@@ -187,10 +197,12 @@ public class MoveMeta   {
   }
 
   /**
-   * Get healing
+   * The amount of hp gained by the attacking Pokemon, in percent of it's maximum HP.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return healing
    */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The amount of hp gained by the attacking Pokemon, in percent of it's maximum HP.")
   public Integer getHealing() {
     return healing;
   }
@@ -205,10 +217,12 @@ public class MoveMeta   {
   }
 
   /**
-   * Get critRate
+   * Critical hit rate bonus.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return critRate
    */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Critical hit rate bonus.")
   public Integer getCritRate() {
     return critRate;
   }
@@ -223,10 +237,12 @@ public class MoveMeta   {
   }
 
   /**
-   * Get ailmentChance
+   * The likelihood this attack will cause an ailment.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return ailmentChance
    */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The likelihood this attack will cause an ailment.")
   public Integer getAilmentChance() {
     return ailmentChance;
   }
@@ -241,10 +257,12 @@ public class MoveMeta   {
   }
 
   /**
-   * Get flinchChance
+   * The likelihood this attack will cause the target Pokémon to flinch.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return flinchChance
    */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The likelihood this attack will cause the target Pokémon to flinch.")
   public Integer getFlinchChance() {
     return flinchChance;
   }
@@ -259,10 +277,12 @@ public class MoveMeta   {
   }
 
   /**
-   * Get statChance
+   * The likelihood this attack will cause a stat change in the target Pokémon.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return statChance
    */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The likelihood this attack will cause a stat change in the target Pokémon.")
   public Integer getStatChance() {
     return statChance;
   }

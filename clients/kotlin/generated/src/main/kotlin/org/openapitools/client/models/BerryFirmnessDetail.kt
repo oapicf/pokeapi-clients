@@ -32,24 +32,28 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param id 
- * @param name 
- * @param berries 
- * @param names 
+ * @param id The identifier for this resource.
+ * @param name The name for this resource.
+ * @param berries A list of the berries with this firmness.
+ * @param names The name of this resource listed in different languages.
  */
 
 
 data class BerryFirmnessDetail (
 
+    /* The identifier for this resource. */
     @Json(name = "id")
     val id: kotlin.Int,
 
+    /* The name for this resource. */
     @Json(name = "name")
     val name: kotlin.String,
 
+    /* A list of the berries with this firmness. */
     @Json(name = "berries")
     val berries: kotlin.collections.List<BerrySummary>,
 
+    /* The name of this resource listed in different languages. */
     @Json(name = "names")
     val names: kotlin.collections.List<BerryFirmnessName>
 

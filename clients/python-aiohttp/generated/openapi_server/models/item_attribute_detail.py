@@ -5,9 +5,9 @@ from datetime import date, datetime
 from typing import List, Dict, Type
 
 from openapi_server.models.base_model import Model
-from openapi_server.models.ability_detail_pokemon_inner_pokemon import AbilityDetailPokemonInnerPokemon
 from openapi_server.models.item_attribute_description import ItemAttributeDescription
 from openapi_server.models.item_attribute_name import ItemAttributeName
+from openapi_server.models.item_summary import ItemSummary
 from openapi_server import util
 
 
@@ -17,7 +17,7 @@ class ItemAttributeDetail(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, id: int=None, name: str=None, descriptions: List[ItemAttributeDescription]=None, items: List[AbilityDetailPokemonInnerPokemon]=None, names: List[ItemAttributeName]=None):
+    def __init__(self, id: int=None, name: str=None, descriptions: List[ItemAttributeDescription]=None, items: List[ItemSummary]=None, names: List[ItemAttributeName]=None):
         """ItemAttributeDetail - a model defined in OpenAPI
 
         :param id: The id of this ItemAttributeDetail.
@@ -30,7 +30,7 @@ class ItemAttributeDetail(Model):
             'id': int,
             'name': str,
             'descriptions': List[ItemAttributeDescription],
-            'items': List[AbilityDetailPokemonInnerPokemon],
+            'items': List[ItemSummary],
             'names': List[ItemAttributeName]
         }
 
@@ -61,6 +61,7 @@ class ItemAttributeDetail(Model):
     def id(self):
         """Gets the id of this ItemAttributeDetail.
 
+        The identifier for this resource.
 
         :return: The id of this ItemAttributeDetail.
         :rtype: int
@@ -71,6 +72,7 @@ class ItemAttributeDetail(Model):
     def id(self, id):
         """Sets the id of this ItemAttributeDetail.
 
+        The identifier for this resource.
 
         :param id: The id of this ItemAttributeDetail.
         :type id: int
@@ -84,6 +86,7 @@ class ItemAttributeDetail(Model):
     def name(self):
         """Gets the name of this ItemAttributeDetail.
 
+        The name for this resource.
 
         :return: The name of this ItemAttributeDetail.
         :rtype: str
@@ -94,14 +97,15 @@ class ItemAttributeDetail(Model):
     def name(self, name):
         """Sets the name of this ItemAttributeDetail.
 
+        The name for this resource.
 
         :param name: The name of this ItemAttributeDetail.
         :type name: str
         """
         if name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")
-        if name is not None and len(name) > 100:
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `100`")
+        if name is not None and len(name) > 200:
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `200`")
 
         self._name = name
 
@@ -109,6 +113,7 @@ class ItemAttributeDetail(Model):
     def descriptions(self):
         """Gets the descriptions of this ItemAttributeDetail.
 
+        The description of this item attribute listed in different languages.
 
         :return: The descriptions of this ItemAttributeDetail.
         :rtype: List[ItemAttributeDescription]
@@ -119,6 +124,7 @@ class ItemAttributeDetail(Model):
     def descriptions(self, descriptions):
         """Sets the descriptions of this ItemAttributeDetail.
 
+        The description of this item attribute listed in different languages.
 
         :param descriptions: The descriptions of this ItemAttributeDetail.
         :type descriptions: List[ItemAttributeDescription]
@@ -132,9 +138,10 @@ class ItemAttributeDetail(Model):
     def items(self):
         """Gets the items of this ItemAttributeDetail.
 
+        A list of items that have this attribute.
 
         :return: The items of this ItemAttributeDetail.
-        :rtype: List[AbilityDetailPokemonInnerPokemon]
+        :rtype: List[ItemSummary]
         """
         return self._items
 
@@ -142,9 +149,10 @@ class ItemAttributeDetail(Model):
     def items(self, items):
         """Sets the items of this ItemAttributeDetail.
 
+        A list of items that have this attribute.
 
         :param items: The items of this ItemAttributeDetail.
-        :type items: List[AbilityDetailPokemonInnerPokemon]
+        :type items: List[ItemSummary]
         """
         if items is None:
             raise ValueError("Invalid value for `items`, must not be `None`")
@@ -155,6 +163,7 @@ class ItemAttributeDetail(Model):
     def names(self):
         """Gets the names of this ItemAttributeDetail.
 
+        The name of this item attribute listed in different languages.
 
         :return: The names of this ItemAttributeDetail.
         :rtype: List[ItemAttributeName]
@@ -165,6 +174,7 @@ class ItemAttributeDetail(Model):
     def names(self, names):
         """Sets the names of this ItemAttributeDetail.
 
+        The name of this item attribute listed in different languages.
 
         :param names: The names of this ItemAttributeDetail.
         :type names: List[ItemAttributeName]

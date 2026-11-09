@@ -7,20 +7,22 @@
 #' @title PokemonFormDetail
 #' @description PokemonFormDetail Class
 #' @format An \code{R6Class} generator object
-#' @field id  integer
-#' @field name  character
-#' @field order  integer [optional]
-#' @field form_order  integer [optional]
-#' @field is_default  character [optional]
-#' @field is_battle_only  character [optional]
-#' @field is_mega  character [optional]
-#' @field form_name  character
-#' @field pokemon  \link{PokemonSummary}
-#' @field sprites  \link{PokemonFormDetailSprites}
-#' @field version_group  \link{VersionGroupSummary}
-#' @field form_names  list(\link{PokemonFormDetailFormNamesInner})
-#' @field names  list(\link{PokemonFormDetailFormNamesInner})
-#' @field types  list(\link{PokemonDetailTypesInner})
+#' @field id The identifier for this resource. integer
+#' @field name The name for this resource. character
+#' @field order The order in which forms should be sorted within all forms. Multiple forms may have equal order, in which case they should fall back on sorting by name. integer [optional]
+#' @field form_order The order in which forms should be sorted within a species' forms. integer [optional]
+#' @field is_default True for exactly one form used as the default for each Pokémon. character [optional]
+#' @field is_battle_only Whether or not this form can only happen during battle. character [optional]
+#' @field is_mega Whether or not this form requires mega evolution. character [optional]
+#' @field form_name The name of this form. character
+#' @field pokemon The Pokémon that can take on this form. \link{PokemonSummary}
+#' @field sprites A set of sprites used to depict this Pokémon form in the game. \link{PokemonFormSprites}
+#' @field version_group The version group this Pokémon form was introduced in. \link{VersionGroupSummary}
+#' @field form_names The form specific form name of this Pokémon form, or empty if the form does not have a specific name. list(\link{PokemonFormName})
+#' @field names The form specific full name of this Pokémon form, or empty if the form does not have a specific name. list(\link{PokemonFormName})
+#' @field types A list of details showing types this Pokémon form has. list(\link{PokemonFormType})
+#' @field trigger_conditions The conditions that trigger this form. Resource names and URLs are included when the trigger requires a resource. list(\link{PokemonFormTriggerCondition})
+#' @field flavor_text_entries The flavor text of this form listed in different languages and versions. list(\link{PokemonFormFlavorText})
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -41,26 +43,30 @@ PokemonFormDetail <- R6::R6Class(
     `form_names` = NULL,
     `names` = NULL,
     `types` = NULL,
+    `trigger_conditions` = NULL,
+    `flavor_text_entries` = NULL,
 
     #' @description
     #' Initialize a new PokemonFormDetail class.
     #'
-    #' @param id id
-    #' @param name name
-    #' @param form_name form_name
-    #' @param pokemon pokemon
-    #' @param sprites sprites
-    #' @param version_group version_group
-    #' @param form_names form_names
-    #' @param names names
-    #' @param types types
-    #' @param order order
-    #' @param form_order form_order
-    #' @param is_default is_default
-    #' @param is_battle_only is_battle_only
-    #' @param is_mega is_mega
+    #' @param id The identifier for this resource.
+    #' @param name The name for this resource.
+    #' @param form_name The name of this form.
+    #' @param pokemon The Pokémon that can take on this form.
+    #' @param sprites A set of sprites used to depict this Pokémon form in the game.
+    #' @param version_group The version group this Pokémon form was introduced in.
+    #' @param form_names The form specific form name of this Pokémon form, or empty if the form does not have a specific name.
+    #' @param names The form specific full name of this Pokémon form, or empty if the form does not have a specific name.
+    #' @param types A list of details showing types this Pokémon form has.
+    #' @param trigger_conditions The conditions that trigger this form. Resource names and URLs are included when the trigger requires a resource.
+    #' @param flavor_text_entries The flavor text of this form listed in different languages and versions.
+    #' @param order The order in which forms should be sorted within all forms. Multiple forms may have equal order, in which case they should fall back on sorting by name.
+    #' @param form_order The order in which forms should be sorted within a species' forms.
+    #' @param is_default True for exactly one form used as the default for each Pokémon.
+    #' @param is_battle_only Whether or not this form can only happen during battle.
+    #' @param is_mega Whether or not this form requires mega evolution.
     #' @param ... Other optional arguments.
-    initialize = function(`id`, `name`, `form_name`, `pokemon`, `sprites`, `version_group`, `form_names`, `names`, `types`, `order` = NULL, `form_order` = NULL, `is_default` = NULL, `is_battle_only` = NULL, `is_mega` = NULL, ...) {
+    initialize = function(`id`, `name`, `form_name`, `pokemon`, `sprites`, `version_group`, `form_names`, `names`, `types`, `trigger_conditions`, `flavor_text_entries`, `order` = NULL, `form_order` = NULL, `is_default` = NULL, `is_battle_only` = NULL, `is_mega` = NULL, ...) {
       if (!missing(`id`)) {
         if (!(is.numeric(`id`) && length(`id`) == 1)) {
           stop(paste("Error! Invalid data for `id`. Must be an integer:", `id`))
@@ -105,6 +111,16 @@ PokemonFormDetail <- R6::R6Class(
         stopifnot(is.vector(`types`), length(`types`) != 0)
         sapply(`types`, function(x) stopifnot(R6::is.R6(x)))
         self$`types` <- `types`
+      }
+      if (!missing(`trigger_conditions`)) {
+        stopifnot(is.vector(`trigger_conditions`), length(`trigger_conditions`) != 0)
+        sapply(`trigger_conditions`, function(x) stopifnot(R6::is.R6(x)))
+        self$`trigger_conditions` <- `trigger_conditions`
+      }
+      if (!missing(`flavor_text_entries`)) {
+        stopifnot(is.vector(`flavor_text_entries`), length(`flavor_text_entries`) != 0)
+        sapply(`flavor_text_entries`, function(x) stopifnot(R6::is.R6(x)))
+        self$`flavor_text_entries` <- `flavor_text_entries`
       }
       if (!is.null(`order`)) {
         if (!(is.numeric(`order`) && length(`order`) == 1)) {
@@ -225,6 +241,14 @@ PokemonFormDetail <- R6::R6Class(
         PokemonFormDetailObject[["types"]] <-
           self$extractSimpleType(self$`types`)
       }
+      if (!is.null(self$`trigger_conditions`)) {
+        PokemonFormDetailObject[["trigger_conditions"]] <-
+          self$extractSimpleType(self$`trigger_conditions`)
+      }
+      if (!is.null(self$`flavor_text_entries`)) {
+        PokemonFormDetailObject[["flavor_text_entries"]] <-
+          self$extractSimpleType(self$`flavor_text_entries`)
+      }
       return(PokemonFormDetailObject)
     },
 
@@ -288,7 +312,7 @@ PokemonFormDetail <- R6::R6Class(
         self$`pokemon` <- `pokemon_object`
       }
       if (!is.null(this_object$`sprites`)) {
-        `sprites_object` <- PokemonFormDetailSprites$new()
+        `sprites_object` <- PokemonFormSprites$new()
         `sprites_object`$fromJSON(jsonlite::toJSON(this_object$`sprites`, auto_unbox = TRUE, digits = NA))
         self$`sprites` <- `sprites_object`
       }
@@ -298,13 +322,19 @@ PokemonFormDetail <- R6::R6Class(
         self$`version_group` <- `version_group_object`
       }
       if (!is.null(this_object$`form_names`)) {
-        self$`form_names` <- ApiClient$new()$deserializeObj(this_object$`form_names`, "array[PokemonFormDetailFormNamesInner]", loadNamespace("openapi"))
+        self$`form_names` <- ApiClient$new()$deserializeObj(this_object$`form_names`, "array[PokemonFormName]", loadNamespace("openapi"))
       }
       if (!is.null(this_object$`names`)) {
-        self$`names` <- ApiClient$new()$deserializeObj(this_object$`names`, "array[PokemonFormDetailFormNamesInner]", loadNamespace("openapi"))
+        self$`names` <- ApiClient$new()$deserializeObj(this_object$`names`, "array[PokemonFormName]", loadNamespace("openapi"))
       }
       if (!is.null(this_object$`types`)) {
-        self$`types` <- ApiClient$new()$deserializeObj(this_object$`types`, "array[PokemonDetailTypesInner]", loadNamespace("openapi"))
+        self$`types` <- ApiClient$new()$deserializeObj(this_object$`types`, "array[PokemonFormType]", loadNamespace("openapi"))
+      }
+      if (!is.null(this_object$`trigger_conditions`)) {
+        self$`trigger_conditions` <- ApiClient$new()$deserializeObj(this_object$`trigger_conditions`, "array[PokemonFormTriggerCondition]", loadNamespace("openapi"))
+      }
+      if (!is.null(this_object$`flavor_text_entries`)) {
+        self$`flavor_text_entries` <- ApiClient$new()$deserializeObj(this_object$`flavor_text_entries`, "array[PokemonFormFlavorText]", loadNamespace("openapi"))
       }
       self
     },
@@ -336,11 +366,13 @@ PokemonFormDetail <- R6::R6Class(
       self$`is_mega` <- this_object$`is_mega`
       self$`form_name` <- this_object$`form_name`
       self$`pokemon` <- PokemonSummary$new()$fromJSON(jsonlite::toJSON(this_object$`pokemon`, auto_unbox = TRUE, digits = NA))
-      self$`sprites` <- PokemonFormDetailSprites$new()$fromJSON(jsonlite::toJSON(this_object$`sprites`, auto_unbox = TRUE, digits = NA))
+      self$`sprites` <- PokemonFormSprites$new()$fromJSON(jsonlite::toJSON(this_object$`sprites`, auto_unbox = TRUE, digits = NA))
       self$`version_group` <- VersionGroupSummary$new()$fromJSON(jsonlite::toJSON(this_object$`version_group`, auto_unbox = TRUE, digits = NA))
-      self$`form_names` <- ApiClient$new()$deserializeObj(this_object$`form_names`, "array[PokemonFormDetailFormNamesInner]", loadNamespace("openapi"))
-      self$`names` <- ApiClient$new()$deserializeObj(this_object$`names`, "array[PokemonFormDetailFormNamesInner]", loadNamespace("openapi"))
-      self$`types` <- ApiClient$new()$deserializeObj(this_object$`types`, "array[PokemonDetailTypesInner]", loadNamespace("openapi"))
+      self$`form_names` <- ApiClient$new()$deserializeObj(this_object$`form_names`, "array[PokemonFormName]", loadNamespace("openapi"))
+      self$`names` <- ApiClient$new()$deserializeObj(this_object$`names`, "array[PokemonFormName]", loadNamespace("openapi"))
+      self$`types` <- ApiClient$new()$deserializeObj(this_object$`types`, "array[PokemonFormType]", loadNamespace("openapi"))
+      self$`trigger_conditions` <- ApiClient$new()$deserializeObj(this_object$`trigger_conditions`, "array[PokemonFormTriggerCondition]", loadNamespace("openapi"))
+      self$`flavor_text_entries` <- ApiClient$new()$deserializeObj(this_object$`flavor_text_entries`, "array[PokemonFormFlavorText]", loadNamespace("openapi"))
       self
     },
 
@@ -413,6 +445,20 @@ PokemonFormDetail <- R6::R6Class(
       } else {
         stop(paste("The JSON input `", input, "` is invalid for PokemonFormDetail: the required field `types` is missing."))
       }
+      # check the required field `trigger_conditions`
+      if (!is.null(input_json$`trigger_conditions`)) {
+        stopifnot(is.vector(input_json$`trigger_conditions`), length(input_json$`trigger_conditions`) != 0)
+        tmp <- sapply(input_json$`trigger_conditions`, function(x) stopifnot(R6::is.R6(x)))
+      } else {
+        stop(paste("The JSON input `", input, "` is invalid for PokemonFormDetail: the required field `trigger_conditions` is missing."))
+      }
+      # check the required field `flavor_text_entries`
+      if (!is.null(input_json$`flavor_text_entries`)) {
+        stopifnot(is.vector(input_json$`flavor_text_entries`), length(input_json$`flavor_text_entries`) != 0)
+        tmp <- sapply(input_json$`flavor_text_entries`, function(x) stopifnot(R6::is.R6(x)))
+      } else {
+        stop(paste("The JSON input `", input, "` is invalid for PokemonFormDetail: the required field `flavor_text_entries` is missing."))
+      }
     },
 
     #' @description
@@ -438,7 +484,21 @@ PokemonFormDetail <- R6::R6Class(
         return(FALSE)
       }
 
-      if (nchar(self$`name`) > 100) {
+      if (nchar(self$`name`) > 200) {
+        return(FALSE)
+      }
+
+      if (self$`order` > 2147483647) {
+        return(FALSE)
+      }
+      if (self$`order` < -2147483648) {
+        return(FALSE)
+      }
+
+      if (self$`form_order` > 2147483647) {
+        return(FALSE)
+      }
+      if (self$`form_order` < -2147483648) {
         return(FALSE)
       }
 
@@ -481,6 +541,16 @@ PokemonFormDetail <- R6::R6Class(
         return(FALSE)
       }
 
+      # check if the required `trigger_conditions` is null
+      if (is.null(self$`trigger_conditions`)) {
+        return(FALSE)
+      }
+
+      # check if the required `flavor_text_entries` is null
+      if (is.null(self$`flavor_text_entries`)) {
+        return(FALSE)
+      }
+
       TRUE
     },
 
@@ -500,8 +570,22 @@ PokemonFormDetail <- R6::R6Class(
         invalid_fields["name"] <- "Non-nullable required field `name` cannot be null."
       }
 
-      if (nchar(self$`name`) > 100) {
-        invalid_fields["name"] <- "Invalid length for `name`, must be smaller than or equal to 100."
+      if (nchar(self$`name`) > 200) {
+        invalid_fields["name"] <- "Invalid length for `name`, must be smaller than or equal to 200."
+      }
+
+      if (self$`order` > 2147483647) {
+        invalid_fields["order"] <- "Invalid value for `order`, must be smaller than or equal to 2147483647."
+      }
+      if (self$`order` < -2147483648) {
+        invalid_fields["order"] <- "Invalid value for `order`, must be bigger than or equal to -2147483648."
+      }
+
+      if (self$`form_order` > 2147483647) {
+        invalid_fields["form_order"] <- "Invalid value for `form_order`, must be smaller than or equal to 2147483647."
+      }
+      if (self$`form_order` < -2147483648) {
+        invalid_fields["form_order"] <- "Invalid value for `form_order`, must be bigger than or equal to -2147483648."
       }
 
       # check if the required `form_name` is null
@@ -541,6 +625,16 @@ PokemonFormDetail <- R6::R6Class(
       # check if the required `types` is null
       if (is.null(self$`types`)) {
         invalid_fields["types"] <- "Non-nullable required field `types` cannot be null."
+      }
+
+      # check if the required `trigger_conditions` is null
+      if (is.null(self$`trigger_conditions`)) {
+        invalid_fields["trigger_conditions"] <- "Non-nullable required field `trigger_conditions` cannot be null."
+      }
+
+      # check if the required `flavor_text_entries` is null
+      if (is.null(self$`flavor_text_entries`)) {
+        invalid_fields["flavor_text_entries"] <- "Non-nullable required field `flavor_text_entries` cannot be null."
       }
 
       invalid_fields

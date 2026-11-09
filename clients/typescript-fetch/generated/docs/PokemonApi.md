@@ -4,9 +4,9 @@ All URIs are relative to *https://pokeapi.co*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**abilityList**](PokemonApi.md#abilitylist) | **GET** /api/v2/ability/ |  |
-| [**abilityRetrieve**](PokemonApi.md#abilityretrieve) | **GET** /api/v2/ability/{id}/ |  |
-| [**characteristicList**](PokemonApi.md#characteristiclist) | **GET** /api/v2/characteristic/ | List charecterictics |
+| [**abilityList**](PokemonApi.md#abilitylist) | **GET** /api/v2/ability/ | List abilities |
+| [**abilityRetrieve**](PokemonApi.md#abilityretrieve) | **GET** /api/v2/ability/{id}/ | Get ability |
+| [**characteristicList**](PokemonApi.md#characteristiclist) | **GET** /api/v2/characteristic/ | List characteristics |
 | [**characteristicRetrieve**](PokemonApi.md#characteristicretrieve) | **GET** /api/v2/characteristic/{id}/ | Get characteristic |
 | [**eggGroupList**](PokemonApi.md#egggrouplist) | **GET** /api/v2/egg-group/ | List egg groups |
 | [**eggGroupRetrieve**](PokemonApi.md#egggroupretrieve) | **GET** /api/v2/egg-group/{id}/ | Get egg group |
@@ -43,7 +43,7 @@ All URIs are relative to *https://pokeapi.co*
 
 > PaginatedAbilitySummaryList abilityList(limit, offset, q)
 
-
+List abilities
 
 Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
 
@@ -58,14 +58,7 @@ import type { AbilityListRequest } from '';
 
 async function example() {
   console.log("🚀 Testing  SDK...");
-  const config = new Configuration({ 
-    // To configure HTTP basic authorization: basicAuth
-    username: "YOUR USERNAME",
-    password: "YOUR PASSWORD",
-    // To configure API key authorization: cookieAuth
-    apiKey: "YOUR API KEY",
-  });
-  const api = new PokemonApi(config);
+  const api = new PokemonApi();
 
   const body = {
     // number | Number of results to return per page. (optional)
@@ -103,7 +96,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -123,7 +116,7 @@ example().catch(console.error);
 
 > AbilityDetail abilityRetrieve(id)
 
-
+Get ability
 
 Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
 
@@ -138,18 +131,11 @@ import type { AbilityRetrieveRequest } from '';
 
 async function example() {
   console.log("🚀 Testing  SDK...");
-  const config = new Configuration({ 
-    // To configure HTTP basic authorization: basicAuth
-    username: "YOUR USERNAME",
-    password: "YOUR PASSWORD",
-    // To configure API key authorization: cookieAuth
-    apiKey: "YOUR API KEY",
-  });
-  const api = new PokemonApi(config);
+  const api = new PokemonApi();
 
   const body = {
     // string | This parameter can be a string or an integer.
-    id: id_example,
+    id: 1,
   } satisfies AbilityRetrieveRequest;
 
   try {
@@ -177,7 +163,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -195,9 +181,9 @@ example().catch(console.error);
 
 ## characteristicList
 
-> PaginatedCharacteristicSummaryList characteristicList(limit, offset, q)
+> PaginatedCharacteristicSummaryList characteristicList(limit, offset)
 
-List charecterictics
+List characteristics
 
 Characteristics indicate which stat contains a Pokémon\&#39;s highest IV. A Pokémon\&#39;s Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail.
 
@@ -212,22 +198,13 @@ import type { CharacteristicListRequest } from '';
 
 async function example() {
   console.log("🚀 Testing  SDK...");
-  const config = new Configuration({ 
-    // To configure HTTP basic authorization: basicAuth
-    username: "YOUR USERNAME",
-    password: "YOUR PASSWORD",
-    // To configure API key authorization: cookieAuth
-    apiKey: "YOUR API KEY",
-  });
-  const api = new PokemonApi(config);
+  const api = new PokemonApi();
 
   const body = {
     // number | Number of results to return per page. (optional)
     limit: 56,
     // number | The initial index from which to return the results. (optional)
     offset: 56,
-    // string | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
-    q: q_example,
   } satisfies CharacteristicListRequest;
 
   try {
@@ -249,7 +226,6 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **limit** | `number` | Number of results to return per page. | [Optional] [Defaults to `undefined`] |
 | **offset** | `number` | The initial index from which to return the results. | [Optional] [Defaults to `undefined`] |
-| **q** | `string` | &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -257,7 +233,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -292,18 +268,11 @@ import type { CharacteristicRetrieveRequest } from '';
 
 async function example() {
   console.log("🚀 Testing  SDK...");
-  const config = new Configuration({ 
-    // To configure HTTP basic authorization: basicAuth
-    username: "YOUR USERNAME",
-    password: "YOUR PASSWORD",
-    // To configure API key authorization: cookieAuth
-    apiKey: "YOUR API KEY",
-  });
-  const api = new PokemonApi(config);
+  const api = new PokemonApi();
 
   const body = {
     // string | This parameter can be a string or an integer.
-    id: id_example,
+    id: 1,
   } satisfies CharacteristicRetrieveRequest;
 
   try {
@@ -331,7 +300,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -366,14 +335,7 @@ import type { EggGroupListRequest } from '';
 
 async function example() {
   console.log("🚀 Testing  SDK...");
-  const config = new Configuration({ 
-    // To configure HTTP basic authorization: basicAuth
-    username: "YOUR USERNAME",
-    password: "YOUR PASSWORD",
-    // To configure API key authorization: cookieAuth
-    apiKey: "YOUR API KEY",
-  });
-  const api = new PokemonApi(config);
+  const api = new PokemonApi();
 
   const body = {
     // number | Number of results to return per page. (optional)
@@ -411,7 +373,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -446,18 +408,11 @@ import type { EggGroupRetrieveRequest } from '';
 
 async function example() {
   console.log("🚀 Testing  SDK...");
-  const config = new Configuration({ 
-    // To configure HTTP basic authorization: basicAuth
-    username: "YOUR USERNAME",
-    password: "YOUR PASSWORD",
-    // To configure API key authorization: cookieAuth
-    apiKey: "YOUR API KEY",
-  });
-  const api = new PokemonApi(config);
+  const api = new PokemonApi();
 
   const body = {
     // string | This parameter can be a string or an integer.
-    id: id_example,
+    id: 1,
   } satisfies EggGroupRetrieveRequest;
 
   try {
@@ -485,7 +440,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -520,14 +475,7 @@ import type { GenderListRequest } from '';
 
 async function example() {
   console.log("🚀 Testing  SDK...");
-  const config = new Configuration({ 
-    // To configure HTTP basic authorization: basicAuth
-    username: "YOUR USERNAME",
-    password: "YOUR PASSWORD",
-    // To configure API key authorization: cookieAuth
-    apiKey: "YOUR API KEY",
-  });
-  const api = new PokemonApi(config);
+  const api = new PokemonApi();
 
   const body = {
     // number | Number of results to return per page. (optional)
@@ -565,7 +513,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -600,18 +548,11 @@ import type { GenderRetrieveRequest } from '';
 
 async function example() {
   console.log("🚀 Testing  SDK...");
-  const config = new Configuration({ 
-    // To configure HTTP basic authorization: basicAuth
-    username: "YOUR USERNAME",
-    password: "YOUR PASSWORD",
-    // To configure API key authorization: cookieAuth
-    apiKey: "YOUR API KEY",
-  });
-  const api = new PokemonApi(config);
+  const api = new PokemonApi();
 
   const body = {
     // string | This parameter can be a string or an integer.
-    id: id_example,
+    id: 1,
   } satisfies GenderRetrieveRequest;
 
   try {
@@ -639,7 +580,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -674,14 +615,7 @@ import type { GrowthRateListRequest } from '';
 
 async function example() {
   console.log("🚀 Testing  SDK...");
-  const config = new Configuration({ 
-    // To configure HTTP basic authorization: basicAuth
-    username: "YOUR USERNAME",
-    password: "YOUR PASSWORD",
-    // To configure API key authorization: cookieAuth
-    apiKey: "YOUR API KEY",
-  });
-  const api = new PokemonApi(config);
+  const api = new PokemonApi();
 
   const body = {
     // number | Number of results to return per page. (optional)
@@ -719,7 +653,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -754,18 +688,11 @@ import type { GrowthRateRetrieveRequest } from '';
 
 async function example() {
   console.log("🚀 Testing  SDK...");
-  const config = new Configuration({ 
-    // To configure HTTP basic authorization: basicAuth
-    username: "YOUR USERNAME",
-    password: "YOUR PASSWORD",
-    // To configure API key authorization: cookieAuth
-    apiKey: "YOUR API KEY",
-  });
-  const api = new PokemonApi(config);
+  const api = new PokemonApi();
 
   const body = {
     // string | This parameter can be a string or an integer.
-    id: id_example,
+    id: 1,
   } satisfies GrowthRateRetrieveRequest;
 
   try {
@@ -793,7 +720,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -828,14 +755,7 @@ import type { MoveDamageClassListRequest } from '';
 
 async function example() {
   console.log("🚀 Testing  SDK...");
-  const config = new Configuration({ 
-    // To configure HTTP basic authorization: basicAuth
-    username: "YOUR USERNAME",
-    password: "YOUR PASSWORD",
-    // To configure API key authorization: cookieAuth
-    apiKey: "YOUR API KEY",
-  });
-  const api = new PokemonApi(config);
+  const api = new PokemonApi();
 
   const body = {
     // number | Number of results to return per page. (optional)
@@ -873,7 +793,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -908,18 +828,11 @@ import type { MoveDamageClassRetrieveRequest } from '';
 
 async function example() {
   console.log("🚀 Testing  SDK...");
-  const config = new Configuration({ 
-    // To configure HTTP basic authorization: basicAuth
-    username: "YOUR USERNAME",
-    password: "YOUR PASSWORD",
-    // To configure API key authorization: cookieAuth
-    apiKey: "YOUR API KEY",
-  });
-  const api = new PokemonApi(config);
+  const api = new PokemonApi();
 
   const body = {
     // string | This parameter can be a string or an integer.
-    id: id_example,
+    id: 1,
   } satisfies MoveDamageClassRetrieveRequest;
 
   try {
@@ -947,7 +860,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -982,14 +895,7 @@ import type { NatureListRequest } from '';
 
 async function example() {
   console.log("🚀 Testing  SDK...");
-  const config = new Configuration({ 
-    // To configure HTTP basic authorization: basicAuth
-    username: "YOUR USERNAME",
-    password: "YOUR PASSWORD",
-    // To configure API key authorization: cookieAuth
-    apiKey: "YOUR API KEY",
-  });
-  const api = new PokemonApi(config);
+  const api = new PokemonApi();
 
   const body = {
     // number | Number of results to return per page. (optional)
@@ -1027,7 +933,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1062,18 +968,11 @@ import type { NatureRetrieveRequest } from '';
 
 async function example() {
   console.log("🚀 Testing  SDK...");
-  const config = new Configuration({ 
-    // To configure HTTP basic authorization: basicAuth
-    username: "YOUR USERNAME",
-    password: "YOUR PASSWORD",
-    // To configure API key authorization: cookieAuth
-    apiKey: "YOUR API KEY",
-  });
-  const api = new PokemonApi(config);
+  const api = new PokemonApi();
 
   const body = {
     // string | This parameter can be a string or an integer.
-    id: id_example,
+    id: 1,
   } satisfies NatureRetrieveRequest;
 
   try {
@@ -1101,7 +1000,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1136,14 +1035,7 @@ import type { PokeathlonStatListRequest } from '';
 
 async function example() {
   console.log("🚀 Testing  SDK...");
-  const config = new Configuration({ 
-    // To configure HTTP basic authorization: basicAuth
-    username: "YOUR USERNAME",
-    password: "YOUR PASSWORD",
-    // To configure API key authorization: cookieAuth
-    apiKey: "YOUR API KEY",
-  });
-  const api = new PokemonApi(config);
+  const api = new PokemonApi();
 
   const body = {
     // number | Number of results to return per page. (optional)
@@ -1181,7 +1073,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1216,18 +1108,11 @@ import type { PokeathlonStatRetrieveRequest } from '';
 
 async function example() {
   console.log("🚀 Testing  SDK...");
-  const config = new Configuration({ 
-    // To configure HTTP basic authorization: basicAuth
-    username: "YOUR USERNAME",
-    password: "YOUR PASSWORD",
-    // To configure API key authorization: cookieAuth
-    apiKey: "YOUR API KEY",
-  });
-  const api = new PokemonApi(config);
+  const api = new PokemonApi();
 
   const body = {
     // string | This parameter can be a string or an integer.
-    id: id_example,
+    id: 1,
   } satisfies PokeathlonStatRetrieveRequest;
 
   try {
@@ -1255,7 +1140,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1290,14 +1175,7 @@ import type { PokemonColorListRequest } from '';
 
 async function example() {
   console.log("🚀 Testing  SDK...");
-  const config = new Configuration({ 
-    // To configure HTTP basic authorization: basicAuth
-    username: "YOUR USERNAME",
-    password: "YOUR PASSWORD",
-    // To configure API key authorization: cookieAuth
-    apiKey: "YOUR API KEY",
-  });
-  const api = new PokemonApi(config);
+  const api = new PokemonApi();
 
   const body = {
     // number | Number of results to return per page. (optional)
@@ -1335,7 +1213,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1370,18 +1248,11 @@ import type { PokemonColorRetrieveRequest } from '';
 
 async function example() {
   console.log("🚀 Testing  SDK...");
-  const config = new Configuration({ 
-    // To configure HTTP basic authorization: basicAuth
-    username: "YOUR USERNAME",
-    password: "YOUR PASSWORD",
-    // To configure API key authorization: cookieAuth
-    apiKey: "YOUR API KEY",
-  });
-  const api = new PokemonApi(config);
+  const api = new PokemonApi();
 
   const body = {
     // string | This parameter can be a string or an integer.
-    id: id_example,
+    id: 1,
   } satisfies PokemonColorRetrieveRequest;
 
   try {
@@ -1409,7 +1280,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1444,14 +1315,7 @@ import type { PokemonFormListRequest } from '';
 
 async function example() {
   console.log("🚀 Testing  SDK...");
-  const config = new Configuration({ 
-    // To configure HTTP basic authorization: basicAuth
-    username: "YOUR USERNAME",
-    password: "YOUR PASSWORD",
-    // To configure API key authorization: cookieAuth
-    apiKey: "YOUR API KEY",
-  });
-  const api = new PokemonApi(config);
+  const api = new PokemonApi();
 
   const body = {
     // number | Number of results to return per page. (optional)
@@ -1489,7 +1353,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1524,18 +1388,11 @@ import type { PokemonFormRetrieveRequest } from '';
 
 async function example() {
   console.log("🚀 Testing  SDK...");
-  const config = new Configuration({ 
-    // To configure HTTP basic authorization: basicAuth
-    username: "YOUR USERNAME",
-    password: "YOUR PASSWORD",
-    // To configure API key authorization: cookieAuth
-    apiKey: "YOUR API KEY",
-  });
-  const api = new PokemonApi(config);
+  const api = new PokemonApi();
 
   const body = {
     // string | This parameter can be a string or an integer.
-    id: id_example,
+    id: 1,
   } satisfies PokemonFormRetrieveRequest;
 
   try {
@@ -1563,7 +1420,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1598,14 +1455,7 @@ import type { PokemonHabitatListRequest } from '';
 
 async function example() {
   console.log("🚀 Testing  SDK...");
-  const config = new Configuration({ 
-    // To configure HTTP basic authorization: basicAuth
-    username: "YOUR USERNAME",
-    password: "YOUR PASSWORD",
-    // To configure API key authorization: cookieAuth
-    apiKey: "YOUR API KEY",
-  });
-  const api = new PokemonApi(config);
+  const api = new PokemonApi();
 
   const body = {
     // number | Number of results to return per page. (optional)
@@ -1643,7 +1493,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1678,18 +1528,11 @@ import type { PokemonHabitatRetrieveRequest } from '';
 
 async function example() {
   console.log("🚀 Testing  SDK...");
-  const config = new Configuration({ 
-    // To configure HTTP basic authorization: basicAuth
-    username: "YOUR USERNAME",
-    password: "YOUR PASSWORD",
-    // To configure API key authorization: cookieAuth
-    apiKey: "YOUR API KEY",
-  });
-  const api = new PokemonApi(config);
+  const api = new PokemonApi();
 
   const body = {
     // string | This parameter can be a string or an integer.
-    id: id_example,
+    id: 1,
   } satisfies PokemonHabitatRetrieveRequest;
 
   try {
@@ -1717,7 +1560,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1752,14 +1595,7 @@ import type { PokemonListRequest } from '';
 
 async function example() {
   console.log("🚀 Testing  SDK...");
-  const config = new Configuration({ 
-    // To configure HTTP basic authorization: basicAuth
-    username: "YOUR USERNAME",
-    password: "YOUR PASSWORD",
-    // To configure API key authorization: cookieAuth
-    apiKey: "YOUR API KEY",
-  });
-  const api = new PokemonApi(config);
+  const api = new PokemonApi();
 
   const body = {
     // number | Number of results to return per page. (optional)
@@ -1797,7 +1633,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1832,18 +1668,11 @@ import type { PokemonRetrieveRequest } from '';
 
 async function example() {
   console.log("🚀 Testing  SDK...");
-  const config = new Configuration({ 
-    // To configure HTTP basic authorization: basicAuth
-    username: "YOUR USERNAME",
-    password: "YOUR PASSWORD",
-    // To configure API key authorization: cookieAuth
-    apiKey: "YOUR API KEY",
-  });
-  const api = new PokemonApi(config);
+  const api = new PokemonApi();
 
   const body = {
     // string | This parameter can be a string or an integer.
-    id: id_example,
+    id: 1,
   } satisfies PokemonRetrieveRequest;
 
   try {
@@ -1871,7 +1700,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1906,14 +1735,7 @@ import type { PokemonShapeListRequest } from '';
 
 async function example() {
   console.log("🚀 Testing  SDK...");
-  const config = new Configuration({ 
-    // To configure HTTP basic authorization: basicAuth
-    username: "YOUR USERNAME",
-    password: "YOUR PASSWORD",
-    // To configure API key authorization: cookieAuth
-    apiKey: "YOUR API KEY",
-  });
-  const api = new PokemonApi(config);
+  const api = new PokemonApi();
 
   const body = {
     // number | Number of results to return per page. (optional)
@@ -1951,7 +1773,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1986,18 +1808,11 @@ import type { PokemonShapeRetrieveRequest } from '';
 
 async function example() {
   console.log("🚀 Testing  SDK...");
-  const config = new Configuration({ 
-    // To configure HTTP basic authorization: basicAuth
-    username: "YOUR USERNAME",
-    password: "YOUR PASSWORD",
-    // To configure API key authorization: cookieAuth
-    apiKey: "YOUR API KEY",
-  });
-  const api = new PokemonApi(config);
+  const api = new PokemonApi();
 
   const body = {
     // string | This parameter can be a string or an integer.
-    id: id_example,
+    id: 1,
   } satisfies PokemonShapeRetrieveRequest;
 
   try {
@@ -2025,7 +1840,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -2060,14 +1875,7 @@ import type { PokemonSpeciesListRequest } from '';
 
 async function example() {
   console.log("🚀 Testing  SDK...");
-  const config = new Configuration({ 
-    // To configure HTTP basic authorization: basicAuth
-    username: "YOUR USERNAME",
-    password: "YOUR PASSWORD",
-    // To configure API key authorization: cookieAuth
-    apiKey: "YOUR API KEY",
-  });
-  const api = new PokemonApi(config);
+  const api = new PokemonApi();
 
   const body = {
     // number | Number of results to return per page. (optional)
@@ -2105,7 +1913,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -2140,18 +1948,11 @@ import type { PokemonSpeciesRetrieveRequest } from '';
 
 async function example() {
   console.log("🚀 Testing  SDK...");
-  const config = new Configuration({ 
-    // To configure HTTP basic authorization: basicAuth
-    username: "YOUR USERNAME",
-    password: "YOUR PASSWORD",
-    // To configure API key authorization: cookieAuth
-    apiKey: "YOUR API KEY",
-  });
-  const api = new PokemonApi(config);
+  const api = new PokemonApi();
 
   const body = {
     // string | This parameter can be a string or an integer.
-    id: id_example,
+    id: 1,
   } satisfies PokemonSpeciesRetrieveRequest;
 
   try {
@@ -2179,7 +1980,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -2214,14 +2015,7 @@ import type { StatListRequest } from '';
 
 async function example() {
   console.log("🚀 Testing  SDK...");
-  const config = new Configuration({ 
-    // To configure HTTP basic authorization: basicAuth
-    username: "YOUR USERNAME",
-    password: "YOUR PASSWORD",
-    // To configure API key authorization: cookieAuth
-    apiKey: "YOUR API KEY",
-  });
-  const api = new PokemonApi(config);
+  const api = new PokemonApi();
 
   const body = {
     // number | Number of results to return per page. (optional)
@@ -2259,7 +2053,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -2294,18 +2088,11 @@ import type { StatRetrieveRequest } from '';
 
 async function example() {
   console.log("🚀 Testing  SDK...");
-  const config = new Configuration({ 
-    // To configure HTTP basic authorization: basicAuth
-    username: "YOUR USERNAME",
-    password: "YOUR PASSWORD",
-    // To configure API key authorization: cookieAuth
-    apiKey: "YOUR API KEY",
-  });
-  const api = new PokemonApi(config);
+  const api = new PokemonApi();
 
   const body = {
     // string | This parameter can be a string or an integer.
-    id: id_example,
+    id: 1,
   } satisfies StatRetrieveRequest;
 
   try {
@@ -2333,7 +2120,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -2368,14 +2155,7 @@ import type { TypeListRequest } from '';
 
 async function example() {
   console.log("🚀 Testing  SDK...");
-  const config = new Configuration({ 
-    // To configure HTTP basic authorization: basicAuth
-    username: "YOUR USERNAME",
-    password: "YOUR PASSWORD",
-    // To configure API key authorization: cookieAuth
-    apiKey: "YOUR API KEY",
-  });
-  const api = new PokemonApi(config);
+  const api = new PokemonApi();
 
   const body = {
     // number | Number of results to return per page. (optional)
@@ -2413,7 +2193,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -2448,18 +2228,11 @@ import type { TypeRetrieveRequest } from '';
 
 async function example() {
   console.log("🚀 Testing  SDK...");
-  const config = new Configuration({ 
-    // To configure HTTP basic authorization: basicAuth
-    username: "YOUR USERNAME",
-    password: "YOUR PASSWORD",
-    // To configure API key authorization: cookieAuth
-    apiKey: "YOUR API KEY",
-  });
-  const api = new PokemonApi(config);
+  const api = new PokemonApi();
 
   const body = {
     // string | This parameter can be a string or an integer.
-    id: id_example,
+    id: 1,
   } satisfies TypeRetrieveRequest;
 
   try {
@@ -2487,7 +2260,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

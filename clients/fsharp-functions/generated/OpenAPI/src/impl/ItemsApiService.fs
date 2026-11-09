@@ -1,9 +1,11 @@
 namespace OpenAPI
+open OpenAPI.Model.CurrencyDetail
 open OpenAPI.Model.ItemAttributeDetail
 open OpenAPI.Model.ItemCategoryDetail
 open OpenAPI.Model.ItemDetail
 open OpenAPI.Model.ItemFlingEffectDetail
 open OpenAPI.Model.ItemPocketDetail
+open OpenAPI.Model.PaginatedCurrencySummaryList
 open OpenAPI.Model.PaginatedItemAttributeSummaryList
 open OpenAPI.Model.PaginatedItemCategorySummaryList
 open OpenAPI.Model.PaginatedItemFlingEffectSummaryList
@@ -19,6 +21,14 @@ module ItemsApiServiceImplementation =
     //#region Service implementation
     type ItemsApiServiceImpl() =
       interface IItemsApiService with
+
+        member this.CurrencyList () =
+            let content = "" :> obj :?> PaginatedCurrencySummaryList // this cast is obviously wrong, and is only intended to allow generated project to compile   
+            CurrencyListStatusCode200 { content = content }
+
+        member this.CurrencyRetrieve () =
+            let content = "" :> obj :?> CurrencyDetail // this cast is obviously wrong, and is only intended to allow generated project to compile   
+            CurrencyRetrieveStatusCode200 { content = content }
 
         member this.ItemAttributeList () =
             let content = "" :> obj :?> PaginatedItemAttributeSummaryList // this cast is obviously wrong, and is only intended to allow generated project to compile   

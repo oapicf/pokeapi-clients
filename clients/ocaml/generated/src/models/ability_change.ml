@@ -15,11 +15,13 @@
                 
                 
                 ; [@key "version_group"]
-                                              effect_entries: Ability_change_effect_text.t list
+                    (** The version group in which the previous effect of this ability originated. *)
+                                      effect_entries: Ability_change_effect_text.t list
                 
                 
                 ; [@key "effect_entries"]
-                        } [@@deriving yojson { strict = false }, show, eq ];;
+                    (** The previous effect of this ability listed in different languages. *)
+                } [@@deriving yojson { strict = false }, show, eq ];;
         
         let create (version_group : Version_group_summary.t) (effect_entries : Ability_change_effect_text.t list) : t = {
             version_group = version_group;

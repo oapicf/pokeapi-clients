@@ -16,18 +16,18 @@ import io.swagger.v3.oas.annotations.media.Schema
 
 /**
  * 
- * @param flavorText 
- * @param language 
+ * @param flavorText The localized flavor text for an API resource in a specific language.
+ * @param language The language this name is in.
  */
 data class ContestEffectFlavorText(
 
     @get:Size(max=500)
-    @Schema(required = true, description = "")
+    @Schema(required = true, description = "The localized flavor text for an API resource in a specific language.")
     @param:JsonProperty("flavor_text", required = true)
     @get:JsonProperty("flavor_text", required = true) val flavorText: kotlin.String,
 
     @field:Valid
-    @Schema(required = true, description = "")
+    @Schema(required = true, description = "The language this name is in.")
     @param:JsonProperty("language", required = true)
     @get:JsonProperty("language", required = true) val language: LanguageSummary
 ) {

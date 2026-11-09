@@ -11,10 +11,10 @@
         results=nothing,
     )
 
-    - count::Int64
-    - next::String
-    - previous::String
-    - results::Vector{ItemAttributeSummary}
+    - count::Int64 : The total number of resources available from this API.
+    - next::String : The URL for the next page in the list, or null if there is no next page.
+    - previous::String : The URL for the previous page in the list, or null if there is no previous page.
+    - results::Vector{ItemAttributeSummary} : A list of API resources on this page.
 """
 Base.@kwdef mutable struct PaginatedItemAttributeSummaryList <: OpenAPI.APIModel
     count::Union{Nothing, Int64} = nothing
@@ -33,6 +33,8 @@ const _property_types_PaginatedItemAttributeSummaryList = Dict{Symbol,String}(Sy
 OpenAPI.property_type(::Type{ PaginatedItemAttributeSummaryList }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_PaginatedItemAttributeSummaryList[name]))}
 
 function OpenAPI.check_required(o::PaginatedItemAttributeSummaryList)
+    o.count === nothing && (return false)
+    o.results === nothing && (return false)
     true
 end
 

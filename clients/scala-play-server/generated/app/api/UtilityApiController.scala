@@ -6,8 +6,9 @@ import play.api.libs.json._
 import play.api.mvc._
 import model.LanguageDetail
 import model.PaginatedLanguageSummaryList
+import model.PokeapiMetaResponse
 
-@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2026-10-25T05:53:17.467323765Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2026-11-09T13:53:31.572745352Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 @Singleton
 class UtilityApiController @Inject()(cc: ControllerComponents, api: UtilityApi) extends AbstractController(cc) {
   /**
@@ -38,6 +39,19 @@ class UtilityApiController @Inject()(cc: ControllerComponents, api: UtilityApi) 
   def languageRetrieve(id: String): Action[AnyContent] = Action { request =>
     def executeApi(): LanguageDetail = {
       api.languageRetrieve(id)
+    }
+
+    val result = executeApi()
+    val json = Json.toJson(result)
+    Ok(json)
+  }
+
+  /**
+    * GET /api/v2/meta/
+    */
+  def metaRetrieve(): Action[AnyContent] = Action { request =>
+    def executeApi(): PokeapiMetaResponse = {
+      api.metaRetrieve()
     }
 
     val result = executeApi()

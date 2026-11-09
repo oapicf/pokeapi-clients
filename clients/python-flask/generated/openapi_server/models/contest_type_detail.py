@@ -62,6 +62,7 @@ class ContestTypeDetail(Model):
     def id(self) -> int:
         """Gets the id of this ContestTypeDetail.
 
+        The identifier for this resource.  # noqa: E501
 
         :return: The id of this ContestTypeDetail.
         :rtype: int
@@ -72,6 +73,7 @@ class ContestTypeDetail(Model):
     def id(self, id: int):
         """Sets the id of this ContestTypeDetail.
 
+        The identifier for this resource.  # noqa: E501
 
         :param id: The id of this ContestTypeDetail.
         :type id: int
@@ -85,6 +87,7 @@ class ContestTypeDetail(Model):
     def name(self) -> str:
         """Gets the name of this ContestTypeDetail.
 
+        The name for this resource.  # noqa: E501
 
         :return: The name of this ContestTypeDetail.
         :rtype: str
@@ -95,14 +98,15 @@ class ContestTypeDetail(Model):
     def name(self, name: str):
         """Sets the name of this ContestTypeDetail.
 
+        The name for this resource.  # noqa: E501
 
         :param name: The name of this ContestTypeDetail.
         :type name: str
         """
         if name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
-        if name is not None and len(name) > 100:
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `100`")  # noqa: E501
+        if name is not None and len(name) > 200:
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `200`")  # noqa: E501
 
         self._name = name
 
@@ -110,6 +114,7 @@ class ContestTypeDetail(Model):
     def berry_flavor(self) -> BerryFlavorSummary:
         """Gets the berry_flavor of this ContestTypeDetail.
 
+        The berry flavor that correlates with this contest type.  # noqa: E501
 
         :return: The berry_flavor of this ContestTypeDetail.
         :rtype: BerryFlavorSummary
@@ -120,6 +125,7 @@ class ContestTypeDetail(Model):
     def berry_flavor(self, berry_flavor: BerryFlavorSummary):
         """Sets the berry_flavor of this ContestTypeDetail.
 
+        The berry flavor that correlates with this contest type.  # noqa: E501
 
         :param berry_flavor: The berry_flavor of this ContestTypeDetail.
         :type berry_flavor: BerryFlavorSummary
@@ -133,6 +139,7 @@ class ContestTypeDetail(Model):
     def names(self) -> List[ContestTypeName]:
         """Gets the names of this ContestTypeDetail.
 
+        The name of this contest type listed in different languages.  # noqa: E501
 
         :return: The names of this ContestTypeDetail.
         :rtype: List[ContestTypeName]
@@ -143,6 +150,7 @@ class ContestTypeDetail(Model):
     def names(self, names: List[ContestTypeName]):
         """Sets the names of this ContestTypeDetail.
 
+        The name of this contest type listed in different languages.  # noqa: E501
 
         :param names: The names of this ContestTypeDetail.
         :type names: List[ContestTypeName]

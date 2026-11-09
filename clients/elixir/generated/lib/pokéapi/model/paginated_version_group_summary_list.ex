@@ -15,10 +15,10 @@ defmodule PokéAPI.Model.PaginatedVersionGroupSummaryList do
   ]
 
   @type t :: %__MODULE__{
-    :count => integer() | nil,
+    :count => integer(),
     :next => Uri | nil,
     :previous => Uri | nil,
-    :results => [PokéAPI.Model.VersionGroupSummary.t] | nil
+    :results => [PokéAPI.Model.VersionGroupSummary.t]
   }
 
   alias PokéAPI.Deserializer

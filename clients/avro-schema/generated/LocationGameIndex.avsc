@@ -7,12 +7,12 @@
     {
       "name": "game_index",
       "type": "int",
-      "doc": ""
+      "doc": "The internal id of an API resource within game data."
     },
     {
       "name": "generation",
       "type": "model.GenerationSummary",
-      "doc": ""
+      "doc": "The generation relevent to this game index."
     }
   ]
 

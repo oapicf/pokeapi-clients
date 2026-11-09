@@ -10,7 +10,6 @@ namespace models {
 
 ContestEffectEffectText::ContestEffectEffectText()
 : effect("")
-, language(LanguageSummary())
 {
 }
 // =========================================

@@ -8,6 +8,7 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.openapitools.jackson.nullable.JsonNullable;
 import org.openapitools.model.LanguageSummary;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
@@ -29,6 +30,7 @@ public class PaginatedLanguageSummaryList   {
   private List<@Valid LanguageSummary> results = new ArrayList<>();
 
   /**
+   * The total number of resources available from this API.
    **/
   public PaginatedLanguageSummaryList count(Integer count) {
     this.count = count;
@@ -36,8 +38,9 @@ public class PaginatedLanguageSummaryList   {
   }
 
   
-  @ApiModelProperty(example = "123", value = "")
+  @ApiModelProperty(example = "100", required = true, value = "The total number of resources available from this API.")
   @JsonProperty("count")
+  @NotNull
   public Integer getCount() {
     return count;
   }
@@ -47,6 +50,7 @@ public class PaginatedLanguageSummaryList   {
 
 
   /**
+   * The URL for the next page in the list, or null if there is no next page.
    **/
   public PaginatedLanguageSummaryList next(URI next) {
     this.next = next;
@@ -54,7 +58,7 @@ public class PaginatedLanguageSummaryList   {
   }
 
   
-  @ApiModelProperty(example = "http://api.example.org/accounts/?offset=400&limit=100", value = "")
+  @ApiModelProperty(example = "https://pokeapi.co/api/v2/language/?offset=40&limit=20", value = "The URL for the next page in the list, or null if there is no next page.")
   @JsonProperty("next")
   public URI getNext() {
     return next;
@@ -65,6 +69,7 @@ public class PaginatedLanguageSummaryList   {
 
 
   /**
+   * The URL for the previous page in the list, or null if there is no previous page.
    **/
   public PaginatedLanguageSummaryList previous(URI previous) {
     this.previous = previous;
@@ -72,7 +77,7 @@ public class PaginatedLanguageSummaryList   {
   }
 
   
-  @ApiModelProperty(example = "http://api.example.org/accounts/?offset=200&limit=100", value = "")
+  @ApiModelProperty(example = "https://pokeapi.co/api/v2/language/?offset=0&limit=20", value = "The URL for the previous page in the list, or null if there is no previous page.")
   @JsonProperty("previous")
   public URI getPrevious() {
     return previous;
@@ -83,6 +88,7 @@ public class PaginatedLanguageSummaryList   {
 
 
   /**
+   * A list of API resources on this page.
    **/
   public PaginatedLanguageSummaryList results(List<@Valid LanguageSummary> results) {
     this.results = results;
@@ -90,8 +96,9 @@ public class PaginatedLanguageSummaryList   {
   }
 
   
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "A list of API resources on this page.")
   @JsonProperty("results")
+  @NotNull
   public List<@Valid LanguageSummary> getResults() {
     return results;
   }

@@ -14,7 +14,7 @@ All URIs are relative to *https://pokeapi.co*
 
 <a id="contestEffectList"></a>
 # **contestEffectList**
-> PaginatedContestEffectSummaryList contestEffectList(limit, offset, q)
+> PaginatedContestEffectSummaryList contestEffectList(limit, offset)
 
 List contest effects
 
@@ -29,9 +29,8 @@ Contest effects refer to the effects of moves when used in contests.
 val apiInstance = ContestsApi()
 val limit : kotlin.Int = 56 // kotlin.Int | Number of results to return per page.
 val offset : kotlin.Int = 56 // kotlin.Int | The initial index from which to return the results.
-val q : kotlin.String = q_example // kotlin.String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
 try {
-    val result : PaginatedContestEffectSummaryList = apiInstance.contestEffectList(limit, offset, q)
+    val result : PaginatedContestEffectSummaryList = apiInstance.contestEffectList(limit, offset)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ContestsApi#contestEffectList")
@@ -47,7 +46,6 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **limit** | **kotlin.Int**| Number of results to return per page. | [optional] |
 | **offset** | **kotlin.Int**| The initial index from which to return the results. | [optional] |
-| **q** | **kotlin.String**| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional] |
 
 ### Return type
 
@@ -55,19 +53,7 @@ try {
 
 ### Authorization
 
-
-Configure basicAuth statically:
-```kotlin
-ApiClient.username = ""
-ApiClient.password = ""
-```
-Configure basicAuth dynamically:
-```kotlin
-apiInstance.userCredentialProvider = { "user" to "pass" }
-```
-Configure cookieAuth:
-    ApiClient.apiKey["sessionid"] = ""
-    ApiClient.apiKeyPrefix["sessionid"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -89,7 +75,7 @@ Contest effects refer to the effects of moves when used in contests.
 //import org.openapitools.client.models.*
 
 val apiInstance = ContestsApi()
-val id : kotlin.String = id_example // kotlin.String | This parameter can be a string or an integer.
+val id : kotlin.String = 1 // kotlin.String | This parameter can be a string or an integer.
 try {
     val result : ContestEffectDetail = apiInstance.contestEffectRetrieve(id)
     println(result)
@@ -113,19 +99,7 @@ try {
 
 ### Authorization
 
-
-Configure basicAuth statically:
-```kotlin
-ApiClient.username = ""
-ApiClient.password = ""
-```
-Configure basicAuth dynamically:
-```kotlin
-apiInstance.userCredentialProvider = { "user" to "pass" }
-```
-Configure cookieAuth:
-    ApiClient.apiKey["sessionid"] = ""
-    ApiClient.apiKeyPrefix["sessionid"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -175,19 +149,7 @@ try {
 
 ### Authorization
 
-
-Configure basicAuth statically:
-```kotlin
-ApiClient.username = ""
-ApiClient.password = ""
-```
-Configure basicAuth dynamically:
-```kotlin
-apiInstance.userCredentialProvider = { "user" to "pass" }
-```
-Configure cookieAuth:
-    ApiClient.apiKey["sessionid"] = ""
-    ApiClient.apiKeyPrefix["sessionid"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -209,7 +171,7 @@ Contest types are categories judges used to weigh a Pokémon&#39;s condition in 
 //import org.openapitools.client.models.*
 
 val apiInstance = ContestsApi()
-val id : kotlin.String = id_example // kotlin.String | This parameter can be a string or an integer.
+val id : kotlin.String = 1 // kotlin.String | This parameter can be a string or an integer.
 try {
     val result : ContestTypeDetail = apiInstance.contestTypeRetrieve(id)
     println(result)
@@ -233,19 +195,7 @@ try {
 
 ### Authorization
 
-
-Configure basicAuth statically:
-```kotlin
-ApiClient.username = ""
-ApiClient.password = ""
-```
-Configure basicAuth dynamically:
-```kotlin
-apiInstance.userCredentialProvider = { "user" to "pass" }
-```
-Configure cookieAuth:
-    ApiClient.apiKey["sessionid"] = ""
-    ApiClient.apiKeyPrefix["sessionid"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -254,7 +204,7 @@ Configure cookieAuth:
 
 <a id="superContestEffectList"></a>
 # **superContestEffectList**
-> PaginatedSuperContestEffectSummaryList superContestEffectList(limit, offset, q)
+> PaginatedSuperContestEffectSummaryList superContestEffectList(limit, offset)
 
 List super contest effects
 
@@ -269,9 +219,8 @@ Super contest effects refer to the effects of moves when used in super contests.
 val apiInstance = ContestsApi()
 val limit : kotlin.Int = 56 // kotlin.Int | Number of results to return per page.
 val offset : kotlin.Int = 56 // kotlin.Int | The initial index from which to return the results.
-val q : kotlin.String = q_example // kotlin.String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
 try {
-    val result : PaginatedSuperContestEffectSummaryList = apiInstance.superContestEffectList(limit, offset, q)
+    val result : PaginatedSuperContestEffectSummaryList = apiInstance.superContestEffectList(limit, offset)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ContestsApi#superContestEffectList")
@@ -287,7 +236,6 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **limit** | **kotlin.Int**| Number of results to return per page. | [optional] |
 | **offset** | **kotlin.Int**| The initial index from which to return the results. | [optional] |
-| **q** | **kotlin.String**| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional] |
 
 ### Return type
 
@@ -295,19 +243,7 @@ try {
 
 ### Authorization
 
-
-Configure basicAuth statically:
-```kotlin
-ApiClient.username = ""
-ApiClient.password = ""
-```
-Configure basicAuth dynamically:
-```kotlin
-apiInstance.userCredentialProvider = { "user" to "pass" }
-```
-Configure cookieAuth:
-    ApiClient.apiKey["sessionid"] = ""
-    ApiClient.apiKeyPrefix["sessionid"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -329,7 +265,7 @@ Super contest effects refer to the effects of moves when used in super contests.
 //import org.openapitools.client.models.*
 
 val apiInstance = ContestsApi()
-val id : kotlin.String = id_example // kotlin.String | This parameter can be a string or an integer.
+val id : kotlin.String = 1 // kotlin.String | This parameter can be a string or an integer.
 try {
     val result : SuperContestEffectDetail = apiInstance.superContestEffectRetrieve(id)
     println(result)
@@ -353,19 +289,7 @@ try {
 
 ### Authorization
 
-
-Configure basicAuth statically:
-```kotlin
-ApiClient.username = ""
-ApiClient.password = ""
-```
-Configure basicAuth dynamically:
-```kotlin
-apiInstance.userCredentialProvider = { "user" to "pass" }
-```
-Configure cookieAuth:
-    ApiClient.apiKey["sessionid"] = ""
-    ApiClient.apiKeyPrefix["sessionid"] = ""
+No authorization required
 
 ### HTTP request headers
 

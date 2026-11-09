@@ -20,30 +20,30 @@ resourceTypes {
     properties {
         id {
           type =  integer
-          description = ""
+          description = "The identifier for this resource."
           optional = true
         }
         name {
           type =  string
-          description = ""
+          description = "The name for this resource."
           optional = true
         }
         descriptions {
           type = array
           items.type = MoveDamageClassDescription
-          description = ""
+          description = "The description of this resource listed in different languages."
           optional = true
         }
         moves {
           type = array
           items.type = MoveSummary
-          description = ""
+          description = "A list of moves that fall into this damage class."
           optional = true
         }
         names {
           type = array
           items.type = MoveDamageClassName
-          description = ""
+          description = "The name of this resource listed in different languages."
           optional = true
         }
     }

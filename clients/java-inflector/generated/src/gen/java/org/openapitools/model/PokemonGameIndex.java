@@ -11,7 +11,7 @@ import org.openapitools.model.VersionSummary;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-10-25T05:47:53.227411880Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-11-09T13:49:15.621225368Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PokemonGameIndex   {
   @JsonProperty("game_index")
   private Integer gameIndex;
@@ -20,6 +20,9 @@ public class PokemonGameIndex   {
   private VersionSummary version;
 
   /**
+   * The internal id of an API resource within game data.
+   * minimum: -2147483648
+   * maximum: 2147483647
    **/
   public PokemonGameIndex gameIndex(Integer gameIndex) {
     this.gameIndex = gameIndex;
@@ -27,7 +30,7 @@ public class PokemonGameIndex   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The internal id of an API resource within game data.")
   @JsonProperty("game_index")
   public Integer getGameIndex() {
     return gameIndex;
@@ -37,6 +40,7 @@ public class PokemonGameIndex   {
   }
 
   /**
+   * The version relevent to this game index.
    **/
   public PokemonGameIndex version(VersionSummary version) {
     this.version = version;
@@ -44,7 +48,7 @@ public class PokemonGameIndex   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The version relevent to this game index.")
   @JsonProperty("version")
   public VersionSummary getVersion() {
     return version;

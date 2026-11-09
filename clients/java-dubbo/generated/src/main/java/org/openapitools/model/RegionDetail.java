@@ -1,10 +1,10 @@
 package org.openapitools.model;
 
-import org.openapitools.model.AbilityDetailPokemonInnerPokemon;
 import org.openapitools.model.GenerationSummary;
 import org.openapitools.model.LocationSummary;
 import org.openapitools.model.PokedexSummary;
 import org.openapitools.model.RegionName;
+import org.openapitools.model.VersionGroupSummary;
 import java.util.*;
 import java.util.Objects;
 import java.io.Serializable;
@@ -17,29 +17,50 @@ import java.math.*;
 public class RegionDetail implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * The identifier for this resource.
+   */
   @JsonProperty("id")
   private Integer id;
 
+  /**
+   * The name for this resource.
+   */
   @JsonProperty("name")
   private String name;
 
+  /**
+   * A list of locations that can be found in this region.
+   */
   @JsonProperty("locations")
   private List<LocationSummary> locations = new ArrayList<>();
 
+  /**
+   * The generation this region was introduced in.
+   */
   @JsonProperty("main_generation")
   private GenerationSummary mainGeneration;
 
+  /**
+   * The name of this resource listed in different languages.
+   */
   @JsonProperty("names")
   private List<RegionName> names = new ArrayList<>();
 
+  /**
+   * A list of pokédexes that catalogue Pokémon in this region.
+   */
   @JsonProperty("pokedexes")
   private List<PokedexSummary> pokedexes = new ArrayList<>();
 
+  /**
+   * A list of version groups where this region can be visited.
+   */
   @JsonProperty("version_groups")
-  private List<AbilityDetailPokemonInnerPokemon> versionGroups = new ArrayList<>();
+  private List<VersionGroupSummary> versionGroups = new ArrayList<>();
 
   /**
-   * 
+   * The identifier for this resource.
    * @return id
    */
   public Integer getId() {
@@ -51,7 +72,7 @@ public class RegionDetail implements Serializable {
   }
 
   /**
-   * 
+   * The name for this resource.
    * @return name
    */
   public String getName() {
@@ -63,7 +84,7 @@ public class RegionDetail implements Serializable {
   }
 
   /**
-   * 
+   * A list of locations that can be found in this region.
    * @return locations
    */
   public List<LocationSummary> getLocations() {
@@ -75,7 +96,7 @@ public class RegionDetail implements Serializable {
   }
 
   /**
-   * 
+   * The generation this region was introduced in.
    * @return mainGeneration
    */
   public GenerationSummary getMainGeneration() {
@@ -87,7 +108,7 @@ public class RegionDetail implements Serializable {
   }
 
   /**
-   * 
+   * The name of this resource listed in different languages.
    * @return names
    */
   public List<RegionName> getNames() {
@@ -99,7 +120,7 @@ public class RegionDetail implements Serializable {
   }
 
   /**
-   * 
+   * A list of pokédexes that catalogue Pokémon in this region.
    * @return pokedexes
    */
   public List<PokedexSummary> getPokedexes() {
@@ -111,14 +132,14 @@ public class RegionDetail implements Serializable {
   }
 
   /**
-   * 
+   * A list of version groups where this region can be visited.
    * @return versionGroups
    */
-  public List<AbilityDetailPokemonInnerPokemon> getVersionGroups() {
+  public List<VersionGroupSummary> getVersionGroups() {
     return versionGroups;
   }
 
-  public void setVersionGroups(List<AbilityDetailPokemonInnerPokemon> versionGroups) {
+  public void setVersionGroups(List<VersionGroupSummary> versionGroups) {
     this.versionGroups = versionGroups;
   }
 

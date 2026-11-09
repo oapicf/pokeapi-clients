@@ -3,14 +3,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **Int32** |  | [readonly] 
-**Name** | **String** |  | 
-**Order** | **Int32** |  | [optional] 
-**Generation** | [**GenerationSummary**](GenerationSummary.md) |  | 
-**MoveLearnMethods** | [**AbilityDetailPokemonInnerPokemon[]**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] 
-**Pokedexes** | [**AbilityDetailPokemonInnerPokemon[]**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] 
-**Regions** | [**AbilityDetailPokemonInnerPokemon[]**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] 
-**Versions** | [**VersionSummary[]**](VersionSummary.md) |  | [readonly] 
+**Id** | **Int32** | The identifier for this resource. | [readonly] 
+**Name** | **String** | The name for this resource. | 
+**Order** | **Int32** | Order for sorting. Almost by date of release, except similar versions are grouped together. | [optional] 
+**Generation** | [**GenerationSummary**](GenerationSummary.md) | The generation this version was introduced in. | 
+**MoveLearnMethods** | [**MoveLearnMethodSummary[]**](MoveLearnMethodSummary.md) | A list of methods in which Pokémon can learn moves in this version group. | [readonly] 
+**Pokedexes** | [**PokedexSummary[]**](PokedexSummary.md) | A list of Pokédexes introduces in this version group. | [readonly] 
+**Regions** | [**RegionSummary[]**](RegionSummary.md) | A list of regions that can be visited in this version group. | [readonly] 
+**Versions** | [**VersionSummary[]**](VersionSummary.md) | The versions this version group owns. | [readonly] 
 
 ## Examples
 

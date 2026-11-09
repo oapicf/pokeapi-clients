@@ -19,30 +19,30 @@ Serializer for the Type resource
         sprites=nothing,
     )
 
-    - id::Int64
-    - name::String
-    - damage_relations::TypeDetailDamageRelations
-    - past_damage_relations::Vector{TypeDetailPastDamageRelationsInner}
-    - game_indices::Vector{TypeGameIndex}
-    - generation::GenerationSummary
-    - move_damage_class::MoveDamageClassSummary
-    - names::Vector{AbilityName}
-    - pokemon::Vector{TypeDetailPokemonInner}
-    - moves::Vector{MoveSummary}
-    - sprites::Dict{String, Dict{String, TypeDetailSpritesValueValue}}
+    - id::Int64 : The identifier for this resource.
+    - name::String : The name for this resource.
+    - damage_relations::TypeRelationships : A detail of how effective this type is toward others and vice versa.
+    - past_damage_relations::Vector{TypePastRelationships} : A list of details of how effective this type was toward others and vice versa in previous generations
+    - game_indices::Vector{TypeGameIndex} : A list of game indices relevent to this item by generation.
+    - generation::GenerationSummary : The generation this type was introduced in.
+    - move_damage_class::MoveDamageClassSummary : The class of damage inflicted by this type.
+    - names::Vector{TypeName} : The name of this resource listed in different languages.
+    - pokemon::Vector{TypePokemon} : A list of details of Pokémon that have this type.
+    - moves::Vector{MoveSummary} : A list of moves that have this type.
+    - sprites::Dict{String, Dict{String, TypeGameSprite}} : Type icons grouped by generation and game, with name_icon and symbol_icon URLs. Unavailable icons are null.
 """
 Base.@kwdef mutable struct TypeDetail <: OpenAPI.APIModel
     id::Union{Nothing, Int64} = nothing
     name::Union{Nothing, String} = nothing
-    damage_relations = nothing # spec type: Union{ Nothing, TypeDetailDamageRelations }
-    past_damage_relations::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{TypeDetailPastDamageRelationsInner} }
+    damage_relations = nothing # spec type: Union{ Nothing, TypeRelationships }
+    past_damage_relations::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{TypePastRelationships} }
     game_indices::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{TypeGameIndex} }
     generation = nothing # spec type: Union{ Nothing, GenerationSummary }
     move_damage_class = nothing # spec type: Union{ Nothing, MoveDamageClassSummary }
-    names::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{AbilityName} }
-    pokemon::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{TypeDetailPokemonInner} }
+    names::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{TypeName} }
+    pokemon::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{TypePokemon} }
     moves::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{MoveSummary} }
-    sprites::Union{Nothing, Dict{String, Dict{String, TypeDetailSpritesValueValue}}} = nothing
+    sprites::Union{Nothing, Dict{String, Dict{String, TypeGameSprite}}} = nothing
 
     function TypeDetail(id, name, damage_relations, past_damage_relations, game_indices, generation, move_damage_class, names, pokemon, moves, sprites, )
         o = new(id, name, damage_relations, past_damage_relations, game_indices, generation, move_damage_class, names, pokemon, moves, sprites, )
@@ -51,7 +51,7 @@ Base.@kwdef mutable struct TypeDetail <: OpenAPI.APIModel
     end
 end # type TypeDetail
 
-const _property_types_TypeDetail = Dict{Symbol,String}(Symbol("id")=>"Int64", Symbol("name")=>"String", Symbol("damage_relations")=>"TypeDetailDamageRelations", Symbol("past_damage_relations")=>"Vector{TypeDetailPastDamageRelationsInner}", Symbol("game_indices")=>"Vector{TypeGameIndex}", Symbol("generation")=>"GenerationSummary", Symbol("move_damage_class")=>"MoveDamageClassSummary", Symbol("names")=>"Vector{AbilityName}", Symbol("pokemon")=>"Vector{TypeDetailPokemonInner}", Symbol("moves")=>"Vector{MoveSummary}", Symbol("sprites")=>"Dict{String, Dict{String, TypeDetailSpritesValueValue}}", )
+const _property_types_TypeDetail = Dict{Symbol,String}(Symbol("id")=>"Int64", Symbol("name")=>"String", Symbol("damage_relations")=>"TypeRelationships", Symbol("past_damage_relations")=>"Vector{TypePastRelationships}", Symbol("game_indices")=>"Vector{TypeGameIndex}", Symbol("generation")=>"GenerationSummary", Symbol("move_damage_class")=>"MoveDamageClassSummary", Symbol("names")=>"Vector{TypeName}", Symbol("pokemon")=>"Vector{TypePokemon}", Symbol("moves")=>"Vector{MoveSummary}", Symbol("sprites")=>"Dict{String, Dict{String, TypeGameSprite}}", )
 OpenAPI.property_type(::Type{ TypeDetail }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_TypeDetail[name]))}
 
 function OpenAPI.check_required(o::TypeDetail)
@@ -87,7 +87,7 @@ function OpenAPI.validate_property(::Type{ TypeDetail }, name::Symbol, val)
 
 
     if name === Symbol("name")
-        OpenAPI.validate_param(name, "TypeDetail", :maxLength, val, 100)
+        OpenAPI.validate_param(name, "TypeDetail", :maxLength, val, 200)
     end
 
 

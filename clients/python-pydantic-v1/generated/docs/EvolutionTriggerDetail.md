@@ -4,10 +4,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** |  | [readonly] 
-**name** | **str** |  | 
-**names** | [**List[EvolutionTriggerName]**](EvolutionTriggerName.md) |  | [readonly] 
-**pokemon_species** | [**List[AbilityDetailPokemonInnerPokemon]**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] 
+**id** | **int** | The identifier for this resource. | [readonly] 
+**name** | **str** | The name for this resource. | 
+**names** | [**List[EvolutionTriggerName]**](EvolutionTriggerName.md) | The name of this resource listed in different languages. | [readonly] 
+**pokemon_species** | [**List[PokemonSpeciesSummary]**](PokemonSpeciesSummary.md) | A list of pokemon species that result from this evolution trigger. | [readonly] 
 
 ## Example
 

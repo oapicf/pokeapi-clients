@@ -22,8 +22,8 @@ import org.http4s.dsl.Http4sDsl
 import org.http4s.circe.CirceEntityEncoder._
 
 final case class BerriesApiRoutes[
-  F[_]: JsonDecoder: Monad, basicAuth, cookieAuth
-](delegate: BerriesApiDelegate[F, basicAuth, cookieAuth]) extends Http4sDsl[F] {
+  F[_]: JsonDecoder: Monad
+](delegate: BerriesApiDelegate[F]) extends Http4sDsl[F] {
   object berryFirmnessList {
     import BerriesApiDelegate.berryFirmnessListResponses
 
@@ -31,16 +31,12 @@ final case class BerriesApiRoutes[
     object offsetQueryParam extends OptionalQueryParamDecoderMatcher[Int]("offset")
     object qQueryParam extends OptionalQueryParamDecoderMatcher[String]("q")
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "berry-firmness" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q)) as auth =>
-        delegate.berryFirmnessList.handle_basicAuth(auth, req, limit, offset, q, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "berry-firmness" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q) =>
+        delegate.berryFirmnessList.handle(req, limit, offset, q, responses)
 
     }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "berry-firmness" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q)) as auth =>
-        delegate.berryFirmnessList.handle_cookieAuth(auth, req, limit, offset, q, responses)
 
-    }
 
     val responses: berryFirmnessListResponses[F] = new berryFirmnessListResponses[F] {
       def resp200(value: PaginatedBerryFirmnessSummaryList): F[Response[F]] = Ok(value)
@@ -50,16 +46,12 @@ final case class BerriesApiRoutes[
     import BerriesApiDelegate.berryFirmnessRetrieveResponses
 
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "berry-firmness" / id) as auth =>
-        delegate.berryFirmnessRetrieve.handle_basicAuth(auth, req, id, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "berry-firmness" / id =>
+        delegate.berryFirmnessRetrieve.handle(req, id, responses)
 
     }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "berry-firmness" / id) as auth =>
-        delegate.berryFirmnessRetrieve.handle_cookieAuth(auth, req, id, responses)
 
-    }
 
     val responses: berryFirmnessRetrieveResponses[F] = new berryFirmnessRetrieveResponses[F] {
       def resp200(value: BerryFirmnessDetail): F[Response[F]] = Ok(value)
@@ -72,16 +64,12 @@ final case class BerriesApiRoutes[
     object offsetQueryParam extends OptionalQueryParamDecoderMatcher[Int]("offset")
     object qQueryParam extends OptionalQueryParamDecoderMatcher[String]("q")
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "berry-flavor" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q)) as auth =>
-        delegate.berryFlavorList.handle_basicAuth(auth, req, limit, offset, q, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "berry-flavor" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q) =>
+        delegate.berryFlavorList.handle(req, limit, offset, q, responses)
 
     }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "berry-flavor" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q)) as auth =>
-        delegate.berryFlavorList.handle_cookieAuth(auth, req, limit, offset, q, responses)
 
-    }
 
     val responses: berryFlavorListResponses[F] = new berryFlavorListResponses[F] {
       def resp200(value: PaginatedBerryFlavorSummaryList): F[Response[F]] = Ok(value)
@@ -91,16 +79,12 @@ final case class BerriesApiRoutes[
     import BerriesApiDelegate.berryFlavorRetrieveResponses
 
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "berry-flavor" / id) as auth =>
-        delegate.berryFlavorRetrieve.handle_basicAuth(auth, req, id, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "berry-flavor" / id =>
+        delegate.berryFlavorRetrieve.handle(req, id, responses)
 
     }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "berry-flavor" / id) as auth =>
-        delegate.berryFlavorRetrieve.handle_cookieAuth(auth, req, id, responses)
 
-    }
 
     val responses: berryFlavorRetrieveResponses[F] = new berryFlavorRetrieveResponses[F] {
       def resp200(value: BerryFlavorDetail): F[Response[F]] = Ok(value)
@@ -113,16 +97,12 @@ final case class BerriesApiRoutes[
     object offsetQueryParam extends OptionalQueryParamDecoderMatcher[Int]("offset")
     object qQueryParam extends OptionalQueryParamDecoderMatcher[String]("q")
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "berry" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q)) as auth =>
-        delegate.berryList.handle_basicAuth(auth, req, limit, offset, q, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "berry" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q) =>
+        delegate.berryList.handle(req, limit, offset, q, responses)
 
     }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "berry" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q)) as auth =>
-        delegate.berryList.handle_cookieAuth(auth, req, limit, offset, q, responses)
 
-    }
 
     val responses: berryListResponses[F] = new berryListResponses[F] {
       def resp200(value: PaginatedBerrySummaryList): F[Response[F]] = Ok(value)
@@ -132,36 +112,25 @@ final case class BerriesApiRoutes[
     import BerriesApiDelegate.berryRetrieveResponses
 
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "berry" / id) as auth =>
-        delegate.berryRetrieve.handle_basicAuth(auth, req, id, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "berry" / id =>
+        delegate.berryRetrieve.handle(req, id, responses)
 
     }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "berry" / id) as auth =>
-        delegate.berryRetrieve.handle_cookieAuth(auth, req, id, responses)
 
-    }
 
     val responses: berryRetrieveResponses[F] = new berryRetrieveResponses[F] {
       def resp200(value: BerryDetail): F[Response[F]] = Ok(value)
     }
   }
 
-  val routesbasicAuth =
-    berryFirmnessList.routebasicAuth <+>
-    berryFirmnessRetrieve.routebasicAuth <+>
-    berryFlavorList.routebasicAuth <+>
-    berryFlavorRetrieve.routebasicAuth <+>
-    berryList.routebasicAuth <+>
-    berryRetrieve.routebasicAuth
-  val routescookieAuth =
-    berryFirmnessList.routecookieAuth <+>
-    berryFirmnessRetrieve.routecookieAuth <+>
-    berryFlavorList.routecookieAuth <+>
-    berryFlavorRetrieve.routecookieAuth <+>
-    berryList.routecookieAuth <+>
-    berryRetrieve.routecookieAuth
+  val routes =
+    berryFirmnessList.route <+>
+    berryFirmnessRetrieve.route <+>
+    berryFlavorList.route <+>
+    berryFlavorRetrieve.route <+>
+    berryList.route <+>
+    berryRetrieve.route
 }
 
 object BerriesApiDelegate {
@@ -191,23 +160,12 @@ object BerriesApiDelegate {
 
 }
 
-trait BerriesApiDelegate[F[_], basicAuth, cookieAuth] {
+trait BerriesApiDelegate[F[_]] {
 
   trait berryFirmnessList {
     import BerriesApiDelegate.berryFirmnessListResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
-      req: Request[F],
-      limit: Option[Int],
-      offset: Option[Int],
-      q: Option[String],
-      responses: berryFirmnessListResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
+    def handle(
       req: Request[F],
       limit: Option[Int],
       offset: Option[Int],
@@ -222,16 +180,7 @@ trait BerriesApiDelegate[F[_], basicAuth, cookieAuth] {
   trait berryFirmnessRetrieve {
     import BerriesApiDelegate.berryFirmnessRetrieveResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
-      req: Request[F],
-      id: String,
-      responses: berryFirmnessRetrieveResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
+    def handle(
       req: Request[F],
       id: String,
       responses: berryFirmnessRetrieveResponses[F]
@@ -244,18 +193,7 @@ trait BerriesApiDelegate[F[_], basicAuth, cookieAuth] {
   trait berryFlavorList {
     import BerriesApiDelegate.berryFlavorListResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
-      req: Request[F],
-      limit: Option[Int],
-      offset: Option[Int],
-      q: Option[String],
-      responses: berryFlavorListResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
+    def handle(
       req: Request[F],
       limit: Option[Int],
       offset: Option[Int],
@@ -270,16 +208,7 @@ trait BerriesApiDelegate[F[_], basicAuth, cookieAuth] {
   trait berryFlavorRetrieve {
     import BerriesApiDelegate.berryFlavorRetrieveResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
-      req: Request[F],
-      id: String,
-      responses: berryFlavorRetrieveResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
+    def handle(
       req: Request[F],
       id: String,
       responses: berryFlavorRetrieveResponses[F]
@@ -292,18 +221,7 @@ trait BerriesApiDelegate[F[_], basicAuth, cookieAuth] {
   trait berryList {
     import BerriesApiDelegate.berryListResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
-      req: Request[F],
-      limit: Option[Int],
-      offset: Option[Int],
-      q: Option[String],
-      responses: berryListResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
+    def handle(
       req: Request[F],
       limit: Option[Int],
       offset: Option[Int],
@@ -318,16 +236,7 @@ trait BerriesApiDelegate[F[_], basicAuth, cookieAuth] {
   trait berryRetrieve {
     import BerriesApiDelegate.berryRetrieveResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
-      req: Request[F],
-      id: String,
-      responses: berryRetrieveResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
+    def handle(
       req: Request[F],
       id: String,
       responses: berryRetrieveResponses[F]

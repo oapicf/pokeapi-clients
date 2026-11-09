@@ -11,9 +11,9 @@ public class PokedexDetail
     public bool IsMainSeries { get; set; }
     public List<PokedexDescription> Descriptions { get; set; }
     public List<PokedexName> Names { get; set; }
-    public List<PokedexDetailPokemonEntriesInner> PokemonEntries { get; set; }
+    public List<PokemonDexNumber> PokemonEntries { get; set; }
     public RegionSummary Region { get; set; }
-    public List<AbilityDetailPokemonInnerPokemon> VersionGroups { get; set; }
+    public List<VersionGroupSummary> VersionGroups { get; set; }
 }
 
 

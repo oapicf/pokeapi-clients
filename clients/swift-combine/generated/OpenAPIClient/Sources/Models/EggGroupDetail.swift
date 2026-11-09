@@ -8,12 +8,16 @@
 import Foundation
 
 public struct EggGroupDetail: Codable {
+    /// The identifier for this resource.
     public var id: Int
+    /// The name for this resource.
     public var name: String
+    /// The name of this resource listed in different languages.
     public var names: [EggGroupName]
-    public var pokemonSpecies: [EggGroupDetailPokemonSpeciesInner]
+    /// A list of all Pokémon species that are members of this egg group.
+    public var pokemonSpecies: [PokemonSpeciesSummary]
 
-    public init(id: Int, name: String, names: [EggGroupName], pokemonSpecies: [EggGroupDetailPokemonSpeciesInner]) {
+    public init(id: Int, name: String, names: [EggGroupName], pokemonSpecies: [PokemonSpeciesSummary]) {
         self.id = id
         self.name = name
         self.names = names
@@ -32,7 +36,7 @@ public struct EggGroupDetail: Codable {
         id = try container.decode(Int.self, forKey: .id)
         name = try container.decode(String.self, forKey: .name)
         names = try container.decode([EggGroupName].self, forKey: .names)
-        pokemonSpecies = try container.decode([EggGroupDetailPokemonSpeciesInner].self, forKey: .pokemonSpecies)
+        pokemonSpecies = try container.decode([PokemonSpeciesSummary].self, forKey: .pokemonSpecies)
     }
 
     public func encode(to encoder: Encoder) throws {

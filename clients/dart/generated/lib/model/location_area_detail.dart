@@ -22,19 +22,29 @@ class LocationAreaDetail {
     this.pokemonEncounters = const [],
   });
 
+  /// The identifier for this resource.
   int id;
 
+  /// The name for this resource.
   String name;
 
+  /// The internal id of an API resource within game data.
+  ///
+  /// Minimum value: -2147483648
+  /// Maximum value: 2147483647
   int gameIndex;
 
-  List<LocationAreaDetailEncounterMethodRatesInner> encounterMethodRates;
+  /// A list of methods in which Pokémon may be encountered in this area and how likely the method will occur depending on the version of the game.
+  List<LocationAreaEncounterRate> encounterMethodRates;
 
+  /// The region this location area can be found in.
   LocationSummary location;
 
+  /// The name of this resource listed in different languages.
   List<LocationAreaName> names;
 
-  List<LocationAreaDetailPokemonEncountersInner> pokemonEncounters;
+  /// A list of Pokémon that can be encountered in this area along with version specific details about the encounter.
+  List<LocationAreaPokemonEncounter> pokemonEncounters;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is LocationAreaDetail &&
@@ -104,10 +114,10 @@ class LocationAreaDetail {
         id: mapValueOfType<int>(json, r'id')!,
         name: mapValueOfType<String>(json, r'name')!,
         gameIndex: mapValueOfType<int>(json, r'game_index')!,
-        encounterMethodRates: LocationAreaDetailEncounterMethodRatesInner.listFromJson(json[r'encounter_method_rates']),
+        encounterMethodRates: LocationAreaEncounterRate.listFromJson(json[r'encounter_method_rates']),
         location: LocationSummary.fromJson(json[r'location'])!,
         names: LocationAreaName.listFromJson(json[r'names']),
-        pokemonEncounters: LocationAreaDetailPokemonEncountersInner.listFromJson(json[r'pokemon_encounters']),
+        pokemonEncounters: LocationAreaPokemonEncounter.listFromJson(json[r'pokemon_encounters']),
       );
     }
     return null;

@@ -8,8 +8,8 @@ The class is defined in **[MoveDamageClassDescription.java](../../src/main/java/
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**description** | `String` |  |  [optional property]
-**language** | [`LanguageSummary`](LanguageSummary.md) |  | 
+**description** | `String` | The localized description for an API resource in a specific language. |  [optional property]
+**language** | [`LanguageSummary`](LanguageSummary.md) | The language this name is in. | 
 
 
 

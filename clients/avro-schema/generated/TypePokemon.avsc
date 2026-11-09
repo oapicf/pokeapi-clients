@@ -1,0 +1,19 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "TypePokemon",
+  "fields": [
+    {
+      "name": "slot",
+      "type": "int",
+      "doc": "The order the Pokémon's types are listed in."
+    },
+    {
+      "name": "pokemon",
+      "type": "model.PokemonSummary",
+      "doc": "The Pokémon that has the referenced type."
+    }
+  ]
+
+}

@@ -9,36 +9,68 @@ import Foundation
 
 public struct PokemonSpeciesDetail: Sendable, Codable, Hashable {
 
-    public static let nameRule = StringRule(minLength: nil, maxLength: 100, pattern: nil)
+    public static let nameRule = StringRule(minLength: nil, maxLength: 200, pattern: nil)
+    public static let orderRule = NumericRule<Int>(minimum: -2147483648, exclusiveMinimum: false, maximum: 2147483647, exclusiveMaximum: false, multipleOf: nil)
+    public static let genderRateRule = NumericRule<Int>(minimum: -2147483648, exclusiveMinimum: false, maximum: 2147483647, exclusiveMaximum: false, multipleOf: nil)
+    public static let captureRateRule = NumericRule<Int>(minimum: -2147483648, exclusiveMinimum: false, maximum: 2147483647, exclusiveMaximum: false, multipleOf: nil)
+    public static let baseHappinessRule = NumericRule<Int>(minimum: -2147483648, exclusiveMinimum: false, maximum: 2147483647, exclusiveMaximum: false, multipleOf: nil)
+    public static let hatchCounterRule = NumericRule<Int>(minimum: -2147483648, exclusiveMinimum: false, maximum: 2147483647, exclusiveMaximum: false, multipleOf: nil)
+    /** The identifier for this resource. */
     public var id: Int
+    /** The name for this resource. */
     public var name: String
+    /** The order in which species should be sorted. Based on National Dex order, except families are grouped together and sorted by stage. */
     public var order: Int?
+    /** The chance of this Pokémon being female, in eighths; or -1 for genderless. */
     public var genderRate: Int?
+    /** The base capture rate; up to 255. The higher the number, the easier the catch. */
     public var captureRate: Int?
+    /** The happiness when caught by a normal Pokéball; up to 255. The higher the number, the happier the Pokémon. */
     public var baseHappiness: Int?
+    /** Whether or not this is a baby Pokémon. */
     public var isBaby: Bool?
+    /** Whether or not this is a legendary Pokémon. */
     public var isLegendary: Bool?
+    /** Whether or not this is a mythical Pokémon. */
     public var isMythical: Bool?
+    /** Initial hatch counter: one must walk Y × (hatch_counter + 1) steps before this Pokémon's egg hatches, unless utilizing bonuses like Flame Body's. Y varies per generation. In Generations II, III, and VII, Egg cycles are 256 steps long. In Generation IV, Egg cycles are 255 steps long. In Pokémon Brilliant Diamond and Shining Pearl, Egg cycles are also 255 steps long, but are shorter on special dates. In Generations V and VI, Egg cycles are 257 steps long. In Pokémon Sword and Shield, and in Pokémon Scarlet and Violet, Egg cycles are 128 steps long. */
     public var hatchCounter: Int?
+    /** Whether or not this Pokémon has visual gender differences. */
     public var hasGenderDifferences: Bool?
+    /** Whether or not this Pokémon has multiple forms and can switch between them. */
     public var formsSwitchable: Bool?
+    /** The rate at which this Pokémon species gains levels. */
     public var growthRate: GrowthRateSummary
+    /** A list of Pokedexes and the indexes reserved within them for this Pokémon species. */
     public var pokedexNumbers: [PokemonDexEntry]
-    public var eggGroups: [AbilityDetailPokemonInnerPokemon]
+    /** A list of egg groups this Pokémon species is a member of. */
+    public var eggGroups: [EggGroupSummary]
+    /** The color of this Pokémon for Pokédex search. */
     public var color: PokemonColorSummary
+    /** The shape of this Pokémon for Pokédex search. */
     public var shape: PokemonShapeSummary
-    public var evolvesFromSpecies: PokemonSpeciesSummary
+    /** The Pokémon species that evolves into this Pokemon_species. */
+    public var evolvesFromSpecies: PokemonSpeciesSummary?
+    /** The evolution chain this Pokémon species is a member of. */
     public var evolutionChain: EvolutionChainSummary
-    public var habitat: PokemonHabitatSummary
+    /** The habitat this Pokémon species can be encountered in. */
+    public var habitat: PokemonHabitatSummary?
+    /** The generation this Pokémon species was introduced in. */
     public var generation: GenerationSummary
-    public var names: [PokemonFormDetailFormNamesInner]
-    public var palParkEncounters: [PokemonSpeciesDetailPalParkEncountersInner]
+    /** The name of this resource listed in different languages. */
+    public var names: [PokemonSpeciesName]
+    /** A list of encounters that can be had with this Pokémon species in pal park. */
+    public var palParkEncounters: [PokemonSpeciesPalParkEncounter]
+    /** Descriptions of different forms Pokémon take on within the Pokémon species. */
     public var formDescriptions: [PokemonSpeciesDescription]
+    /** A list of flavor text entries for this Pokémon species. */
     public var flavorTextEntries: [PokemonSpeciesFlavorText]
-    public var genera: [PokemonSpeciesDetailGeneraInner]
-    public var varieties: [PokemonSpeciesDetailVarietiesInner]
+    /** The genus of this Pokémon species listed in multiple languages. */
+    public var genera: [PokemonSpeciesGenus]
+    /** A list of the Pokémon that exist within this Pokémon species. */
+    public var varieties: [PokemonSpeciesVariety]
 
-    public init(id: Int, name: String, order: Int? = nil, genderRate: Int? = nil, captureRate: Int? = nil, baseHappiness: Int? = nil, isBaby: Bool? = nil, isLegendary: Bool? = nil, isMythical: Bool? = nil, hatchCounter: Int? = nil, hasGenderDifferences: Bool? = nil, formsSwitchable: Bool? = nil, growthRate: GrowthRateSummary, pokedexNumbers: [PokemonDexEntry], eggGroups: [AbilityDetailPokemonInnerPokemon], color: PokemonColorSummary, shape: PokemonShapeSummary, evolvesFromSpecies: PokemonSpeciesSummary, evolutionChain: EvolutionChainSummary, habitat: PokemonHabitatSummary, generation: GenerationSummary, names: [PokemonFormDetailFormNamesInner], palParkEncounters: [PokemonSpeciesDetailPalParkEncountersInner], formDescriptions: [PokemonSpeciesDescription], flavorTextEntries: [PokemonSpeciesFlavorText], genera: [PokemonSpeciesDetailGeneraInner], varieties: [PokemonSpeciesDetailVarietiesInner]) {
+    public init(id: Int, name: String, order: Int? = nil, genderRate: Int? = nil, captureRate: Int? = nil, baseHappiness: Int? = nil, isBaby: Bool? = nil, isLegendary: Bool? = nil, isMythical: Bool? = nil, hatchCounter: Int? = nil, hasGenderDifferences: Bool? = nil, formsSwitchable: Bool? = nil, growthRate: GrowthRateSummary, pokedexNumbers: [PokemonDexEntry], eggGroups: [EggGroupSummary], color: PokemonColorSummary, shape: PokemonShapeSummary, evolvesFromSpecies: PokemonSpeciesSummary?, evolutionChain: EvolutionChainSummary, habitat: PokemonHabitatSummary?, generation: GenerationSummary, names: [PokemonSpeciesName], palParkEncounters: [PokemonSpeciesPalParkEncounter], formDescriptions: [PokemonSpeciesDescription], flavorTextEntries: [PokemonSpeciesFlavorText], genera: [PokemonSpeciesGenus], varieties: [PokemonSpeciesVariety]) {
         self.id = id
         self.name = name
         self.order = order

@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** |  | [readonly]
-**name** | **string** |  |
-**names** | [**\OpenAPI\Client\Model\PokemonColorName[]**](PokemonColorName.md) |  | [readonly]
-**pokemon_species** | [**\OpenAPI\Client\Model\PokemonSpeciesSummary[]**](PokemonSpeciesSummary.md) |  | [readonly]
+**id** | **int** | The identifier for this resource. | [readonly]
+**name** | **string** | The name for this resource. |
+**names** | [**\OpenAPI\Client\Model\PokemonColorName[]**](PokemonColorName.md) | The name of this resource listed in different languages. | [readonly]
+**pokemon_species** | [**\OpenAPI\Client\Model\PokemonSpeciesSummary[]**](PokemonSpeciesSummary.md) | A list of the Pokémon species that have this color. | [readonly]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

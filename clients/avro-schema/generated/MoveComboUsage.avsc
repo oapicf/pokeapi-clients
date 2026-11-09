@@ -1,0 +1,25 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "MoveComboUsage",
+  "fields": [
+    {
+      "name": "use_before",
+      "type": {
+        "type": "array",
+        "items": "model.MoveSummary"
+      },
+      "doc": "A list of moves to use before this move."
+    },
+    {
+      "name": "use_after",
+      "type": {
+        "type": "array",
+        "items": "model.MoveSummary"
+      },
+      "doc": "A list of moves to use after this move."
+    }
+  ]
+
+}

@@ -1,6 +1,6 @@
 package org.openapitools.model;
 
-import org.openapitools.model.EvolutionChainDetailChain;
+import org.openapitools.model.EvolutionChainLink;
 import org.openapitools.model.ItemSummary;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
@@ -12,23 +12,32 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class EvolutionChainDetail  {
   
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The identifier for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
 
   private Integer id;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The item that a Pokémon would be holding when mating that would trigger the egg hatching a baby Pokémon rather than a basic Pokémon.
+  */
+  @ApiModelProperty(required = true, value = "The item that a Pokémon would be holding when mating that would trigger the egg hatching a baby Pokémon rather than a basic Pokémon.")
 
   @Valid
 
   private ItemSummary babyTriggerItem;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The base chain link object. Each link contains evolution details for a Pokémon in the chain. Each link references the next Pokémon in the natural evolution order.
+  */
+  @ApiModelProperty(required = true, value = "The base chain link object. Each link contains evolution details for a Pokémon in the chain. Each link references the next Pokémon in the natural evolution order.")
 
   @Valid
 
-  private EvolutionChainDetailChain chain;
+  private EvolutionChainLink chain;
  /**
-   * Get id
+   * The identifier for this resource.
    * @return id
   **/
   @JsonProperty("id")
@@ -39,7 +48,7 @@ public class EvolutionChainDetail  {
 
 
  /**
-   * Get babyTriggerItem
+   * The item that a Pokémon would be holding when mating that would trigger the egg hatching a baby Pokémon rather than a basic Pokémon.
    * @return babyTriggerItem
   **/
   @JsonProperty("baby_trigger_item")
@@ -58,23 +67,15 @@ public class EvolutionChainDetail  {
   }
 
  /**
-   * Get chain
+   * The base chain link object. Each link contains evolution details for a Pokémon in the chain. Each link references the next Pokémon in the natural evolution order.
    * @return chain
   **/
   @JsonProperty("chain")
   @NotNull
-  public EvolutionChainDetailChain getChain() {
+  public EvolutionChainLink getChain() {
     return chain;
   }
 
-  public void setChain(EvolutionChainDetailChain chain) {
-    this.chain = chain;
-  }
-
-  public EvolutionChainDetail chain(EvolutionChainDetailChain chain) {
-    this.chain = chain;
-    return this;
-  }
 
   @Override
   public boolean equals(Object o) {

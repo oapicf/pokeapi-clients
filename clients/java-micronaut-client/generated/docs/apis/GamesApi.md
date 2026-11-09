@@ -63,9 +63,7 @@ A generation is a grouping of the Pokémon games that separates them based on th
 ### Return type
 [**PaginatedGenerationSummaryList**](PaginatedGenerationSummaryList.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -90,9 +88,7 @@ A generation is a grouping of the Pokémon games that separates them based on th
 ### Return type
 [**GenerationDetail**](GenerationDetail.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -119,9 +115,7 @@ A Pokédex is a handheld electronic encyclopedia device; one which is capable of
 ### Return type
 [**PaginatedPokedexSummaryList**](PaginatedPokedexSummaryList.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -146,9 +140,7 @@ A Pokédex is a handheld electronic encyclopedia device; one which is capable of
 ### Return type
 [**PokedexDetail**](PokedexDetail.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -175,9 +167,7 @@ Version groups categorize highly similar versions of the games.
 ### Return type
 [**PaginatedVersionGroupSummaryList**](PaginatedVersionGroupSummaryList.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -202,9 +192,7 @@ Version groups categorize highly similar versions of the games.
 ### Return type
 [**VersionGroupDetail**](VersionGroupDetail.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -231,9 +219,7 @@ Versions of the games, e.g., Red, Blue or Yellow.
 ### Return type
 [**PaginatedVersionSummaryList**](PaginatedVersionSummaryList.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -258,9 +244,7 @@ Versions of the games, e.g., Red, Blue or Yellow.
 ### Return type
 [**VersionDetail**](VersionDetail.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined

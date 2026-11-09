@@ -11,13 +11,15 @@ part 'location_area_summary.g.dart';
 /// LocationAreaSummary
 ///
 /// Properties:
-/// * [name] 
-/// * [url] 
+/// * [name] - The name of the referenced resource.
+/// * [url] - The URL of the referenced resource.
 @BuiltValue()
 abstract class LocationAreaSummary implements Built<LocationAreaSummary, LocationAreaSummaryBuilder> {
+  /// The name of the referenced resource.
   @BuiltValueField(wireName: r'name')
   String get name;
 
+  /// The URL of the referenced resource.
   @BuiltValueField(wireName: r'url')
   String get url;
 

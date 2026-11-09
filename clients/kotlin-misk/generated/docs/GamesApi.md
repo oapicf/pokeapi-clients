@@ -58,7 +58,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -80,7 +80,7 @@ A generation is a grouping of the Pokémon games that separates them based on th
 //import org.openapitools.server.api.model.*
 
 val apiInstance = GamesApi()
-val id : kotlin.String = id_example // kotlin.String | This parameter can be a string or an integer.
+val id : kotlin.String = 1 // kotlin.String | This parameter can be a string or an integer.
 try {
     val result : GenerationDetail = apiInstance.generationRetrieve(id)
     println(result)
@@ -105,7 +105,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -156,7 +156,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -178,7 +178,7 @@ A Pokédex is a handheld electronic encyclopedia device; one which is capable of
 //import org.openapitools.server.api.model.*
 
 val apiInstance = GamesApi()
-val id : kotlin.String = id_example // kotlin.String | This parameter can be a string or an integer.
+val id : kotlin.String = 1 // kotlin.String | This parameter can be a string or an integer.
 try {
     val result : PokedexDetail = apiInstance.pokedexRetrieve(id)
     println(result)
@@ -203,7 +203,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -254,7 +254,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -276,7 +276,7 @@ Version groups categorize highly similar versions of the games.
 //import org.openapitools.server.api.model.*
 
 val apiInstance = GamesApi()
-val id : kotlin.String = id_example // kotlin.String | This parameter can be a string or an integer.
+val id : kotlin.String = 1 // kotlin.String | This parameter can be a string or an integer.
 try {
     val result : VersionGroupDetail = apiInstance.versionGroupRetrieve(id)
     println(result)
@@ -301,7 +301,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -352,7 +352,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -374,7 +374,7 @@ Versions of the games, e.g., Red, Blue or Yellow.
 //import org.openapitools.server.api.model.*
 
 val apiInstance = GamesApi()
-val id : kotlin.String = id_example // kotlin.String | This parameter can be a string or an integer.
+val id : kotlin.String = 1 // kotlin.String | This parameter can be a string or an integer.
 try {
     val result : VersionDetail = apiInstance.versionRetrieve(id)
     println(result)
@@ -399,7 +399,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

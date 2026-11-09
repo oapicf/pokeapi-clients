@@ -3,8 +3,10 @@ package com.prokarma.pkmst.model;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.prokarma.pkmst.model.AbilityDetailPokemonInnerPokemon;
 import com.prokarma.pkmst.model.GenerationSummary;
+import com.prokarma.pkmst.model.MoveLearnMethodSummary;
+import com.prokarma.pkmst.model.PokedexSummary;
+import com.prokarma.pkmst.model.RegionSummary;
 import com.prokarma.pkmst.model.VersionSummary;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -21,7 +23,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
  * VersionGroupDetail
  */
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-10-25T05:48:09.645019047Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-11-09T13:49:28.343088631Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class VersionGroupDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -37,15 +39,15 @@ public class VersionGroupDetail   {
 
   @JsonProperty("move_learn_methods")
   
-  private List<AbilityDetailPokemonInnerPokemon> moveLearnMethods = new ArrayList<>();
+  private List<MoveLearnMethodSummary> moveLearnMethods = new ArrayList<>();
 
   @JsonProperty("pokedexes")
   
-  private List<AbilityDetailPokemonInnerPokemon> pokedexes = new ArrayList<>();
+  private List<PokedexSummary> pokedexes = new ArrayList<>();
 
   @JsonProperty("regions")
   
-  private List<AbilityDetailPokemonInnerPokemon> regions = new ArrayList<>();
+  private List<RegionSummary> regions = new ArrayList<>();
 
   @JsonProperty("versions")
   
@@ -57,10 +59,10 @@ public class VersionGroupDetail   {
   }
 
   /**
-   * Get id
+   * The identifier for this resource.
    * @return id
    */
-  @ApiModelProperty(required = true, readOnly = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "The identifier for this resource.")
   public Integer getId() {
     return id;
   }
@@ -75,10 +77,10 @@ public class VersionGroupDetail   {
   }
 
   /**
-   * Get name
+   * The name for this resource.
    * @return name
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   public String getName() {
     return name;
   }
@@ -93,10 +95,12 @@ public class VersionGroupDetail   {
   }
 
   /**
-   * Get order
+   * Order for sorting. Almost by date of release, except similar versions are grouped together.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return order
    */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Order for sorting. Almost by date of release, except similar versions are grouped together.")
   public Integer getOrder() {
     return order;
   }
@@ -111,10 +115,10 @@ public class VersionGroupDetail   {
   }
 
   /**
-   * Get generation
+   * The generation this version was introduced in.
    * @return generation
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The generation this version was introduced in.")
   public GenerationSummary getGeneration() {
     return generation;
   }
@@ -123,12 +127,12 @@ public class VersionGroupDetail   {
     this.generation = generation;
   }
 
-  public VersionGroupDetail moveLearnMethods(List<AbilityDetailPokemonInnerPokemon> moveLearnMethods) {
+  public VersionGroupDetail moveLearnMethods(List<MoveLearnMethodSummary> moveLearnMethods) {
     this.moveLearnMethods = moveLearnMethods;
     return this;
   }
 
-  public VersionGroupDetail addMoveLearnMethodsItem(AbilityDetailPokemonInnerPokemon moveLearnMethodsItem) {
+  public VersionGroupDetail addMoveLearnMethodsItem(MoveLearnMethodSummary moveLearnMethodsItem) {
     if (this.moveLearnMethods == null) {
       this.moveLearnMethods = new ArrayList<>();
     }
@@ -137,24 +141,24 @@ public class VersionGroupDetail   {
   }
 
   /**
-   * Get moveLearnMethods
+   * A list of methods in which Pokémon can learn moves in this version group.
    * @return moveLearnMethods
    */
-  @ApiModelProperty(required = true, readOnly = true, value = "")
-  public List<AbilityDetailPokemonInnerPokemon> getMoveLearnMethods() {
+  @ApiModelProperty(required = true, readOnly = true, value = "A list of methods in which Pokémon can learn moves in this version group.")
+  public List<MoveLearnMethodSummary> getMoveLearnMethods() {
     return moveLearnMethods;
   }
 
-  public void setMoveLearnMethods(List<AbilityDetailPokemonInnerPokemon> moveLearnMethods) {
+  public void setMoveLearnMethods(List<MoveLearnMethodSummary> moveLearnMethods) {
     this.moveLearnMethods = moveLearnMethods;
   }
 
-  public VersionGroupDetail pokedexes(List<AbilityDetailPokemonInnerPokemon> pokedexes) {
+  public VersionGroupDetail pokedexes(List<PokedexSummary> pokedexes) {
     this.pokedexes = pokedexes;
     return this;
   }
 
-  public VersionGroupDetail addPokedexesItem(AbilityDetailPokemonInnerPokemon pokedexesItem) {
+  public VersionGroupDetail addPokedexesItem(PokedexSummary pokedexesItem) {
     if (this.pokedexes == null) {
       this.pokedexes = new ArrayList<>();
     }
@@ -163,24 +167,24 @@ public class VersionGroupDetail   {
   }
 
   /**
-   * Get pokedexes
+   * A list of Pokédexes introduces in this version group.
    * @return pokedexes
    */
-  @ApiModelProperty(required = true, readOnly = true, value = "")
-  public List<AbilityDetailPokemonInnerPokemon> getPokedexes() {
+  @ApiModelProperty(required = true, readOnly = true, value = "A list of Pokédexes introduces in this version group.")
+  public List<PokedexSummary> getPokedexes() {
     return pokedexes;
   }
 
-  public void setPokedexes(List<AbilityDetailPokemonInnerPokemon> pokedexes) {
+  public void setPokedexes(List<PokedexSummary> pokedexes) {
     this.pokedexes = pokedexes;
   }
 
-  public VersionGroupDetail regions(List<AbilityDetailPokemonInnerPokemon> regions) {
+  public VersionGroupDetail regions(List<RegionSummary> regions) {
     this.regions = regions;
     return this;
   }
 
-  public VersionGroupDetail addRegionsItem(AbilityDetailPokemonInnerPokemon regionsItem) {
+  public VersionGroupDetail addRegionsItem(RegionSummary regionsItem) {
     if (this.regions == null) {
       this.regions = new ArrayList<>();
     }
@@ -189,15 +193,15 @@ public class VersionGroupDetail   {
   }
 
   /**
-   * Get regions
+   * A list of regions that can be visited in this version group.
    * @return regions
    */
-  @ApiModelProperty(required = true, readOnly = true, value = "")
-  public List<AbilityDetailPokemonInnerPokemon> getRegions() {
+  @ApiModelProperty(required = true, readOnly = true, value = "A list of regions that can be visited in this version group.")
+  public List<RegionSummary> getRegions() {
     return regions;
   }
 
-  public void setRegions(List<AbilityDetailPokemonInnerPokemon> regions) {
+  public void setRegions(List<RegionSummary> regions) {
     this.regions = regions;
   }
 
@@ -215,10 +219,10 @@ public class VersionGroupDetail   {
   }
 
   /**
-   * Get versions
+   * The versions this version group owns.
    * @return versions
    */
-  @ApiModelProperty(required = true, readOnly = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "The versions this version group owns.")
   public List<VersionSummary> getVersions() {
     return versions;
   }

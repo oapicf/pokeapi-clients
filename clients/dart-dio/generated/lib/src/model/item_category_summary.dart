@@ -11,13 +11,15 @@ part 'item_category_summary.g.dart';
 /// ItemCategorySummary
 ///
 /// Properties:
-/// * [name] 
-/// * [url] 
+/// * [name] - The name of the referenced resource.
+/// * [url] - The URL of the referenced resource.
 @BuiltValue()
 abstract class ItemCategorySummary implements Built<ItemCategorySummary, ItemCategorySummaryBuilder> {
+  /// The name of the referenced resource.
   @BuiltValueField(wireName: r'name')
   String get name;
 
+  /// The URL of the referenced resource.
   @BuiltValueField(wireName: r'url')
   String get url;
 

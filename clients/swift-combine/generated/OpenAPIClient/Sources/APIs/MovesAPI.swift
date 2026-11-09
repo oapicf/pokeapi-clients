@@ -31,12 +31,6 @@ open class MovesAPI {
     /// List move meta ailments
     /// - GET /api/v2/move-ailment/
     /// - Move Ailments are status conditions caused by moves used during battle. See [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Status_condition) for greater detail.
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter limit: (query) Number of results to return per page. (optional)
     /// - parameter offset: (query) The initial index from which to return the results. (optional)
     /// - parameter q: (query) &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
@@ -75,12 +69,6 @@ open class MovesAPI {
     /// Get move meta ailment
     /// - GET /api/v2/move-ailment/{id}/
     /// - Move Ailments are status conditions caused by moves used during battle. See [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Status_condition) for greater detail.
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter id: (path) This parameter can be a string or an integer. 
     /// - returns: AnyPublisher<MoveMetaAilmentDetail, Error> 
     open func moveAilmentRetrieve(id: String) -> AnyPublisher<MoveMetaAilmentDetail, Error> {
@@ -113,12 +101,6 @@ open class MovesAPI {
     /// List move battle styles
     /// - GET /api/v2/move-battle-style/
     /// - Styles of moves when used in the Battle Palace. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Battle_Frontier_(Generation_III)) for greater detail.
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter limit: (query) Number of results to return per page. (optional)
     /// - parameter offset: (query) The initial index from which to return the results. (optional)
     /// - parameter q: (query) &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
@@ -157,12 +139,6 @@ open class MovesAPI {
     /// Get move battle style
     /// - GET /api/v2/move-battle-style/{id}/
     /// - Styles of moves when used in the Battle Palace. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Battle_Frontier_(Generation_III)) for greater detail.
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter id: (path) This parameter can be a string or an integer. 
     /// - returns: AnyPublisher<MoveBattleStyleDetail, Error> 
     open func moveBattleStyleRetrieve(id: String) -> AnyPublisher<MoveBattleStyleDetail, Error> {
@@ -195,12 +171,6 @@ open class MovesAPI {
     /// List move meta categories
     /// - GET /api/v2/move-category/
     /// - Very general categories that loosely group move effects.
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter limit: (query) Number of results to return per page. (optional)
     /// - parameter offset: (query) The initial index from which to return the results. (optional)
     /// - parameter q: (query) &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
@@ -239,12 +209,6 @@ open class MovesAPI {
     /// Get move meta category
     /// - GET /api/v2/move-category/{id}/
     /// - Very general categories that loosely group move effects.
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter id: (path) This parameter can be a string or an integer. 
     /// - returns: AnyPublisher<MoveMetaCategoryDetail, Error> 
     open func moveCategoryRetrieve(id: String) -> AnyPublisher<MoveMetaCategoryDetail, Error> {
@@ -277,12 +241,6 @@ open class MovesAPI {
     /// List move learn methods
     /// - GET /api/v2/move-learn-method/
     /// - Methods by which Pokémon can learn moves.
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter limit: (query) Number of results to return per page. (optional)
     /// - parameter offset: (query) The initial index from which to return the results. (optional)
     /// - parameter q: (query) &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
@@ -321,12 +279,6 @@ open class MovesAPI {
     /// Get move learn method
     /// - GET /api/v2/move-learn-method/{id}/
     /// - Methods by which Pokémon can learn moves.
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter id: (path) This parameter can be a string or an integer. 
     /// - returns: AnyPublisher<MoveLearnMethodDetail, Error> 
     open func moveLearnMethodRetrieve(id: String) -> AnyPublisher<MoveLearnMethodDetail, Error> {
@@ -359,12 +311,6 @@ open class MovesAPI {
     /// List moves
     /// - GET /api/v2/move/
     /// - Moves are the skills of Pokémon in battle. In battle, a Pokémon uses one move each turn. Some moves (including those learned by Hidden Machine) can be used outside of battle as well, usually for the purpose of removing obstacles or exploring new areas.
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter limit: (query) Number of results to return per page. (optional)
     /// - parameter offset: (query) The initial index from which to return the results. (optional)
     /// - parameter q: (query) &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
@@ -403,12 +349,6 @@ open class MovesAPI {
     /// Get move
     /// - GET /api/v2/move/{id}/
     /// - Moves are the skills of Pokémon in battle. In battle, a Pokémon uses one move each turn. Some moves (including those learned by Hidden Machine) can be used outside of battle as well, usually for the purpose of removing obstacles or exploring new areas.
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter id: (path) This parameter can be a string or an integer. 
     /// - returns: AnyPublisher<MoveDetail, Error> 
     open func moveRetrieve(id: String) -> AnyPublisher<MoveDetail, Error> {
@@ -441,12 +381,6 @@ open class MovesAPI {
     /// List move targets
     /// - GET /api/v2/move-target/
     /// - Targets moves can be directed at during battle. Targets can be Pokémon, environments or even other moves.
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter limit: (query) Number of results to return per page. (optional)
     /// - parameter offset: (query) The initial index from which to return the results. (optional)
     /// - parameter q: (query) &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
@@ -485,12 +419,6 @@ open class MovesAPI {
     /// Get move target
     /// - GET /api/v2/move-target/{id}/
     /// - Targets moves can be directed at during battle. Targets can be Pokémon, environments or even other moves.
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter id: (path) This parameter can be a string or an integer. 
     /// - returns: AnyPublisher<MoveTargetDetail, Error> 
     open func moveTargetRetrieve(id: String) -> AnyPublisher<MoveTargetDetail, Error> {

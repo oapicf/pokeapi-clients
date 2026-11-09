@@ -14,6 +14,7 @@ defmodule PokéAPI.Model.StatDetail do
     :is_battle_only,
     :affecting_moves,
     :affecting_natures,
+    :affecting_items,
     :characteristics,
     :move_damage_class,
     :names
@@ -24,10 +25,11 @@ defmodule PokéAPI.Model.StatDetail do
     :name => String.t,
     :game_index => integer(),
     :is_battle_only => boolean() | nil,
-    :affecting_moves => PokéAPI.Model.StatDetailAffectingMoves.t,
-    :affecting_natures => PokéAPI.Model.StatDetailAffectingNatures.t,
+    :affecting_moves => PokéAPI.Model.StatAffectingMoves.t,
+    :affecting_natures => PokéAPI.Model.StatAffectingNatures.t,
+    :affecting_items => [PokéAPI.Model.ItemSummary.t],
     :characteristics => [PokéAPI.Model.CharacteristicSummary.t],
-    :move_damage_class => PokéAPI.Model.MoveDamageClassSummary.t,
+    :move_damage_class => PokéAPI.Model.MoveDamageClassSummary.t | nil,
     :names => [PokéAPI.Model.StatName.t]
   }
 
@@ -35,8 +37,9 @@ defmodule PokéAPI.Model.StatDetail do
 
   def decode(value) do
     value
-     |> Deserializer.deserialize(:affecting_moves, :struct, PokéAPI.Model.StatDetailAffectingMoves)
-     |> Deserializer.deserialize(:affecting_natures, :struct, PokéAPI.Model.StatDetailAffectingNatures)
+     |> Deserializer.deserialize(:affecting_moves, :struct, PokéAPI.Model.StatAffectingMoves)
+     |> Deserializer.deserialize(:affecting_natures, :struct, PokéAPI.Model.StatAffectingNatures)
+     |> Deserializer.deserialize(:affecting_items, :list, PokéAPI.Model.ItemSummary)
      |> Deserializer.deserialize(:characteristics, :list, PokéAPI.Model.CharacteristicSummary)
      |> Deserializer.deserialize(:move_damage_class, :struct, PokéAPI.Model.MoveDamageClassSummary)
      |> Deserializer.deserialize(:names, :list, PokéAPI.Model.StatName)

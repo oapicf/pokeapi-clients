@@ -12,13 +12,15 @@ part 'characteristic_description.g.dart';
 /// CharacteristicDescription
 ///
 /// Properties:
-/// * [description] 
-/// * [language] 
+/// * [description] - The localized description for an API resource in a specific language.
+/// * [language] - The language this name is in.
 @BuiltValue()
 abstract class CharacteristicDescription implements Built<CharacteristicDescription, CharacteristicDescriptionBuilder> {
+  /// The localized description for an API resource in a specific language.
   @BuiltValueField(wireName: r'description')
   String? get description;
 
+  /// The language this name is in.
   @BuiltValueField(wireName: r'language')
   LanguageSummary get language;
 

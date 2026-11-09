@@ -10,12 +10,13 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.openapitools.jackson.nullable.JsonNullable;
 import org.openapitools.model.SuperContestEffectSummary;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 import io.swagger.annotations.*;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2026-10-25T05:48:49.952264473Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2026-11-09T13:50:00.159999817Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PaginatedSuperContestEffectSummaryList   {
   
   private Integer count;
@@ -24,10 +25,12 @@ public class PaginatedSuperContestEffectSummaryList   {
   private List<@Valid SuperContestEffectSummary> results = new ArrayList<>();
 
   /**
+   * The total number of resources available from this API.
    **/
   
-  @ApiModelProperty(example = "123", value = "")
+  @ApiModelProperty(example = "100", required = true, value = "The total number of resources available from this API.")
   @JsonProperty("count")
+  @NotNull
   public Integer getCount() {
     return count;
   }
@@ -36,9 +39,10 @@ public class PaginatedSuperContestEffectSummaryList   {
   }
 
   /**
+   * The URL for the next page in the list, or null if there is no next page.
    **/
   
-  @ApiModelProperty(example = "http://api.example.org/accounts/?offset=400&limit=100", value = "")
+  @ApiModelProperty(example = "https://pokeapi.co/api/v2/super-contest-effect/?offset=40&limit=20", value = "The URL for the next page in the list, or null if there is no next page.")
   @JsonProperty("next")
   public URI getNext() {
     return next;
@@ -48,9 +52,10 @@ public class PaginatedSuperContestEffectSummaryList   {
   }
 
   /**
+   * The URL for the previous page in the list, or null if there is no previous page.
    **/
   
-  @ApiModelProperty(example = "http://api.example.org/accounts/?offset=200&limit=100", value = "")
+  @ApiModelProperty(example = "https://pokeapi.co/api/v2/super-contest-effect/?offset=0&limit=20", value = "The URL for the previous page in the list, or null if there is no previous page.")
   @JsonProperty("previous")
   public URI getPrevious() {
     return previous;
@@ -60,10 +65,12 @@ public class PaginatedSuperContestEffectSummaryList   {
   }
 
   /**
+   * A list of API resources on this page.
    **/
   
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "A list of API resources on this page.")
   @JsonProperty("results")
+  @NotNull
   public List<@Valid SuperContestEffectSummary> getResults() {
     return results;
   }

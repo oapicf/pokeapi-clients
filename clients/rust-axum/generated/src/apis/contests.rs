@@ -69,8 +69,6 @@ pub enum SuperContestEffectRetrieveResponse {
 #[async_trait]
 #[allow(clippy::ptr_arg)]
 pub trait Contests<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorHandler<E> {
-    type Claims;
-
     /// List contest effects.
     ///
     /// ContestEffectList - GET /api/v2/contest-effect/
@@ -80,7 +78,6 @@ pub trait Contests<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Erro
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       query_params: &models::ContestEffectListQueryParams,
     ) -> Result<ContestEffectListResponse, E>;
 
@@ -93,7 +90,6 @@ pub trait Contests<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Erro
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       path_params: &models::ContestEffectRetrievePathParams,
     ) -> Result<ContestEffectRetrieveResponse, E>;
 
@@ -106,7 +102,6 @@ pub trait Contests<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Erro
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       query_params: &models::ContestTypeListQueryParams,
     ) -> Result<ContestTypeListResponse, E>;
 
@@ -119,7 +114,6 @@ pub trait Contests<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Erro
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       path_params: &models::ContestTypeRetrievePathParams,
     ) -> Result<ContestTypeRetrieveResponse, E>;
 
@@ -132,7 +126,6 @@ pub trait Contests<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Erro
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       query_params: &models::SuperContestEffectListQueryParams,
     ) -> Result<SuperContestEffectListResponse, E>;
 
@@ -145,7 +138,6 @@ pub trait Contests<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Erro
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       path_params: &models::SuperContestEffectRetrievePathParams,
     ) -> Result<SuperContestEffectRetrieveResponse, E>;
 }

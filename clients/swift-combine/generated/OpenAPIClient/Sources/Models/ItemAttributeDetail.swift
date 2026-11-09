@@ -8,13 +8,18 @@
 import Foundation
 
 public struct ItemAttributeDetail: Codable {
+    /// The identifier for this resource.
     public var id: Int
+    /// The name for this resource.
     public var name: String
+    /// The description of this item attribute listed in different languages.
     public var descriptions: [ItemAttributeDescription]
-    public var items: [AbilityDetailPokemonInnerPokemon]
+    /// A list of items that have this attribute.
+    public var items: [ItemSummary]
+    /// The name of this item attribute listed in different languages.
     public var names: [ItemAttributeName]
 
-    public init(id: Int, name: String, descriptions: [ItemAttributeDescription], items: [AbilityDetailPokemonInnerPokemon], names: [ItemAttributeName]) {
+    public init(id: Int, name: String, descriptions: [ItemAttributeDescription], items: [ItemSummary], names: [ItemAttributeName]) {
         self.id = id
         self.name = name
         self.descriptions = descriptions

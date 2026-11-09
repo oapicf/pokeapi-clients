@@ -33,24 +33,28 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param id 
- * @param item 
- * @param versionGroup 
- * @param move 
+ * @param id The identifier for this resource.
+ * @param item The TM or HM item that corresponds to this machine.
+ * @param versionGroup The version group that this machine applies to.
+ * @param move The move that is taught by this machine.
  */
 
 
 data class MachineDetail (
 
+    /* The identifier for this resource. */
     @Json(name = "id")
     val id: kotlin.Int,
 
+    /* The TM or HM item that corresponds to this machine. */
     @Json(name = "item")
     val item: ItemSummary,
 
+    /* The version group that this machine applies to. */
     @Json(name = "version_group")
     val versionGroup: VersionGroupSummary,
 
+    /* The move that is taught by this machine. */
     @Json(name = "move")
     val move: MoveSummary
 

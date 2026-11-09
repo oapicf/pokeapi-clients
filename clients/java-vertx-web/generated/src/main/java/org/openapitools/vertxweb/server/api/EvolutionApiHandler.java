@@ -2,8 +2,10 @@ package org.openapitools.vertxweb.server.api;
 
 import org.openapitools.vertxweb.server.model.EvolutionChainDetail;
 import org.openapitools.vertxweb.server.model.EvolutionTriggerDetail;
+import org.openapitools.vertxweb.server.model.EvolutionVariableDetail;
 import org.openapitools.vertxweb.server.model.PaginatedEvolutionChainSummaryList;
 import org.openapitools.vertxweb.server.model.PaginatedEvolutionTriggerSummaryList;
+import org.openapitools.vertxweb.server.model.PaginatedEvolutionVariableSummaryList;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import io.vertx.core.json.jackson.DatabindCodec;
@@ -39,6 +41,8 @@ public class EvolutionApiHandler {
         builder.operation("evolutionChainRetrieve").handler(this::evolutionChainRetrieve);
         builder.operation("evolutionTriggerList").handler(this::evolutionTriggerList);
         builder.operation("evolutionTriggerRetrieve").handler(this::evolutionTriggerRetrieve);
+        builder.operation("evolutionVariableList").handler(this::evolutionVariableList);
+        builder.operation("evolutionVariableRetrieve").handler(this::evolutionVariableRetrieve);
     }
 
     private void evolutionChainList(RoutingContext routingContext) {
@@ -49,13 +53,11 @@ public class EvolutionApiHandler {
 
         Integer limit = requestParameters.queryParameter("limit") != null ? requestParameters.queryParameter("limit").getInteger() : null;
         Integer offset = requestParameters.queryParameter("offset") != null ? requestParameters.queryParameter("offset").getInteger() : null;
-        String q = requestParameters.queryParameter("q") != null ? requestParameters.queryParameter("q").getString() : null;
 
         logger.debug("Parameter limit is {}", limit);
         logger.debug("Parameter offset is {}", offset);
-        logger.debug("Parameter q is {}", q);
 
-        api.evolutionChainList(limit, offset, q)
+        api.evolutionChainList(limit, offset)
             .onSuccess(apiResponse -> {
                 routingContext.response().setStatusCode(apiResponse.getStatusCode());
                 if (apiResponse.hasData()) {
@@ -126,6 +128,54 @@ public class EvolutionApiHandler {
         logger.debug("Parameter id is {}", id);
 
         api.evolutionTriggerRetrieve(id)
+            .onSuccess(apiResponse -> {
+                routingContext.response().setStatusCode(apiResponse.getStatusCode());
+                if (apiResponse.hasData()) {
+                    routingContext.json(apiResponse.getData());
+                } else {
+                    routingContext.response().end();
+                }
+            })
+            .onFailure(routingContext::fail);
+    }
+
+    private void evolutionVariableList(RoutingContext routingContext) {
+        logger.info("evolutionVariableList()");
+
+        // Param extraction
+        RequestParameters requestParameters = routingContext.get(ValidationHandler.REQUEST_CONTEXT_KEY);
+
+        Integer limit = requestParameters.queryParameter("limit") != null ? requestParameters.queryParameter("limit").getInteger() : null;
+        Integer offset = requestParameters.queryParameter("offset") != null ? requestParameters.queryParameter("offset").getInteger() : null;
+        String q = requestParameters.queryParameter("q") != null ? requestParameters.queryParameter("q").getString() : null;
+
+        logger.debug("Parameter limit is {}", limit);
+        logger.debug("Parameter offset is {}", offset);
+        logger.debug("Parameter q is {}", q);
+
+        api.evolutionVariableList(limit, offset, q)
+            .onSuccess(apiResponse -> {
+                routingContext.response().setStatusCode(apiResponse.getStatusCode());
+                if (apiResponse.hasData()) {
+                    routingContext.json(apiResponse.getData());
+                } else {
+                    routingContext.response().end();
+                }
+            })
+            .onFailure(routingContext::fail);
+    }
+
+    private void evolutionVariableRetrieve(RoutingContext routingContext) {
+        logger.info("evolutionVariableRetrieve()");
+
+        // Param extraction
+        RequestParameters requestParameters = routingContext.get(ValidationHandler.REQUEST_CONTEXT_KEY);
+
+        String id = requestParameters.pathParameter("id") != null ? requestParameters.pathParameter("id").getString() : null;
+
+        logger.debug("Parameter id is {}", id);
+
+        api.evolutionVariableRetrieve(id)
             .onSuccess(apiResponse -> {
                 routingContext.response().setStatusCode(apiResponse.getStatusCode());
                 if (apiResponse.hasData()) {

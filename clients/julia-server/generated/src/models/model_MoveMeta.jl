@@ -19,18 +19,18 @@
         stat_chance=nothing,
     )
 
-    - ailment::MoveMetaAilmentSummary
-    - category::MoveMetaCategorySummary
-    - min_hits::Int64
-    - max_hits::Int64
-    - min_turns::Int64
-    - max_turns::Int64
-    - drain::Int64
-    - healing::Int64
-    - crit_rate::Int64
-    - ailment_chance::Int64
-    - flinch_chance::Int64
-    - stat_chance::Int64
+    - ailment::MoveMetaAilmentSummary : The status ailment this move inflicts on its target.
+    - category::MoveMetaCategorySummary : The category of move this move falls under, e.g. damage or ailment.
+    - min_hits::Int64 : The minimum number of times this move hits. Null if it always only hits once.
+    - max_hits::Int64 : The maximum number of times this move hits. Null if it always only hits once.
+    - min_turns::Int64 : The minimum number of turns this move continues to take effect. Null if it always only lasts one turn.
+    - max_turns::Int64 : The maximum number of turns this move continues to take effect. Null if it always only lasts one turn.
+    - drain::Int64 : HP drain (if positive) or Recoil damage (if negative), in percent of damage done.
+    - healing::Int64 : The amount of hp gained by the attacking Pokemon, in percent of it&#39;s maximum HP.
+    - crit_rate::Int64 : Critical hit rate bonus.
+    - ailment_chance::Int64 : The likelihood this attack will cause an ailment.
+    - flinch_chance::Int64 : The likelihood this attack will cause the target Pokémon to flinch.
+    - stat_chance::Int64 : The likelihood this attack will cause a stat change in the target Pokémon.
 """
 Base.@kwdef mutable struct MoveMeta <: OpenAPI.APIModel
     ailment = nothing # spec type: Union{ Nothing, MoveMetaAilmentSummary }
@@ -81,13 +81,53 @@ function OpenAPI.validate_property(::Type{ MoveMeta }, name::Symbol, val)
 
 
 
+    if name === Symbol("min_hits")
+        OpenAPI.validate_param(name, "MoveMeta", :maximum, val, 2147483647, false)
+        OpenAPI.validate_param(name, "MoveMeta", :minimum, val, -2147483648, false)
+    end
 
+    if name === Symbol("max_hits")
+        OpenAPI.validate_param(name, "MoveMeta", :maximum, val, 2147483647, false)
+        OpenAPI.validate_param(name, "MoveMeta", :minimum, val, -2147483648, false)
+    end
 
+    if name === Symbol("min_turns")
+        OpenAPI.validate_param(name, "MoveMeta", :maximum, val, 2147483647, false)
+        OpenAPI.validate_param(name, "MoveMeta", :minimum, val, -2147483648, false)
+    end
 
+    if name === Symbol("max_turns")
+        OpenAPI.validate_param(name, "MoveMeta", :maximum, val, 2147483647, false)
+        OpenAPI.validate_param(name, "MoveMeta", :minimum, val, -2147483648, false)
+    end
 
+    if name === Symbol("drain")
+        OpenAPI.validate_param(name, "MoveMeta", :maximum, val, 2147483647, false)
+        OpenAPI.validate_param(name, "MoveMeta", :minimum, val, -2147483648, false)
+    end
 
+    if name === Symbol("healing")
+        OpenAPI.validate_param(name, "MoveMeta", :maximum, val, 2147483647, false)
+        OpenAPI.validate_param(name, "MoveMeta", :minimum, val, -2147483648, false)
+    end
 
+    if name === Symbol("crit_rate")
+        OpenAPI.validate_param(name, "MoveMeta", :maximum, val, 2147483647, false)
+        OpenAPI.validate_param(name, "MoveMeta", :minimum, val, -2147483648, false)
+    end
 
+    if name === Symbol("ailment_chance")
+        OpenAPI.validate_param(name, "MoveMeta", :maximum, val, 2147483647, false)
+        OpenAPI.validate_param(name, "MoveMeta", :minimum, val, -2147483648, false)
+    end
 
+    if name === Symbol("flinch_chance")
+        OpenAPI.validate_param(name, "MoveMeta", :maximum, val, 2147483647, false)
+        OpenAPI.validate_param(name, "MoveMeta", :minimum, val, -2147483648, false)
+    end
 
+    if name === Symbol("stat_chance")
+        OpenAPI.validate_param(name, "MoveMeta", :maximum, val, 2147483647, false)
+        OpenAPI.validate_param(name, "MoveMeta", :minimum, val, -2147483648, false)
+    end
 end

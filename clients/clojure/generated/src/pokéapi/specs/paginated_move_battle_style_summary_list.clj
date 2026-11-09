@@ -8,10 +8,10 @@
 
 (def paginated-move-battle-style-summary-list-data
   {
-   (ds/opt :count) int?
+   (ds/req :count) int?
    (ds/opt :next) string?
    (ds/opt :previous) string?
-   (ds/opt :results) (s/coll-of move-battle-style-summary-spec)
+   (ds/req :results) (s/coll-of move-battle-style-summary-spec)
    })
 
 (def paginated-move-battle-style-summary-list-spec

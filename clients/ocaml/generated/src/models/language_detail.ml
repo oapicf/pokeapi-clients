@@ -15,35 +15,41 @@
                 
                 
                 ; [@key "id"]
-                                              name: string
+                    (** The identifier for this resource. *)
+                                      name: string
                   
                   
                 
                 
                 ; [@key "name"]
-                                              official: bool
+                    (** The name for this resource. *)
+                                      official: bool
                   
                    option [@default None]
                 
                 
                 ; [@key "official"]
-                                              iso639: string
+                    (** Whether or not the games are published in this language. *)
+                                      iso639: string
                   
                   
                 
                 
                 ; [@key "iso639"]
-                                              iso3166: string
+                    (** The two-letter ISO 639-1 language code. Multiple PokéAPI language records may share this code. *)
+                                      iso3166: string
                   
                   
                 
                 
                 ; [@key "iso3166"]
-                                              names: Language_name.t list
+                    (** The two-letter ISO 3166-1 alpha-2 code of the country or region associated with this language record. Multiple PokéAPI language records may share this code. *)
+                                      names: Language_name.t list
                 
                 
                 ; [@key "names"]
-                        } [@@deriving yojson { strict = false }, show, eq ];;
+                    (** The name of this resource listed in different languages. *)
+                } [@@deriving yojson { strict = false }, show, eq ];;
         
         let create (id : int32) (name : string) (iso639 : string) (iso3166 : string) (names : Language_name.t list) : t = {
             id = id;

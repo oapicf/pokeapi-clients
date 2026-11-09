@@ -34,7 +34,6 @@ public:
     * Contest effects refer to the effects of moves when used in contests.
     * \param limit Number of results to return per page.
     * \param offset The initial index from which to return the results.
-    * \param q > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
     */
     Response<
                 PaginatedContestEffectSummaryList
@@ -45,9 +44,6 @@ public:
             , 
             
             int offset
-            , 
-            
-            std::string q
             
     );
     /**
@@ -106,7 +102,6 @@ public:
     * Super contest effects refer to the effects of moves when used in super contests.
     * \param limit Number of results to return per page.
     * \param offset The initial index from which to return the results.
-    * \param q > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
     */
     Response<
                 PaginatedSuperContestEffectSummaryList
@@ -117,9 +112,6 @@ public:
             , 
             
             int offset
-            , 
-            
-            std::string q
             
     );
     /**

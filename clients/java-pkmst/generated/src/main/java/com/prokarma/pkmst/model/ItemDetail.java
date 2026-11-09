@@ -3,17 +3,18 @@ package com.prokarma.pkmst.model;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.prokarma.pkmst.model.AbilityDetailPokemonInnerPokemon;
+import com.prokarma.pkmst.model.EvolutionChainSummary;
+import com.prokarma.pkmst.model.ItemAttributeSummary;
 import com.prokarma.pkmst.model.ItemCategorySummary;
-import com.prokarma.pkmst.model.ItemDetailBabyTriggerFor;
-import com.prokarma.pkmst.model.ItemDetailHeldByPokemonInner;
-import com.prokarma.pkmst.model.ItemDetailMachinesInner;
-import com.prokarma.pkmst.model.ItemDetailSprites;
 import com.prokarma.pkmst.model.ItemEffectText;
 import com.prokarma.pkmst.model.ItemFlavorText;
 import com.prokarma.pkmst.model.ItemFlingEffectSummary;
 import com.prokarma.pkmst.model.ItemGameIndex;
+import com.prokarma.pkmst.model.ItemMachine;
 import com.prokarma.pkmst.model.ItemName;
+import com.prokarma.pkmst.model.ItemPrice;
+import com.prokarma.pkmst.model.ItemSprites;
+import com.prokarma.pkmst.model.PokemonHeldItem;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
@@ -29,16 +30,13 @@ import org.openapitools.jackson.nullable.JsonNullable;
  * ItemDetail
  */
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-10-25T05:48:09.645019047Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-11-09T13:49:28.343088631Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class ItemDetail   {
   @JsonProperty("id")
   private Integer id;
 
   @JsonProperty("name")
   private String name;
-
-  @JsonProperty("cost")
-  private Integer cost;
 
   @JsonProperty("fling_power")
   private Integer flingPower;
@@ -48,7 +46,7 @@ public class ItemDetail   {
 
   @JsonProperty("attributes")
   
-  private List<AbilityDetailPokemonInnerPokemon> attributes = new ArrayList<>();
+  private List<ItemAttributeSummary> attributes = new ArrayList<>();
 
   @JsonProperty("category")
   private ItemCategorySummary category;
@@ -65,23 +63,27 @@ public class ItemDetail   {
   
   private List<ItemGameIndex> gameIndices = new ArrayList<>();
 
+  @JsonProperty("prices")
+  
+  private List<ItemPrice> prices = new ArrayList<>();
+
   @JsonProperty("names")
   
   private List<ItemName> names = new ArrayList<>();
 
   @JsonProperty("held_by_pokemon")
   
-  private List<ItemDetailHeldByPokemonInner> heldByPokemon = new ArrayList<>();
+  private List<PokemonHeldItem> heldByPokemon = new ArrayList<>();
 
   @JsonProperty("sprites")
-  private ItemDetailSprites sprites;
+  private ItemSprites sprites;
 
   @JsonProperty("baby_trigger_for")
-  private ItemDetailBabyTriggerFor babyTriggerFor;
+  private EvolutionChainSummary babyTriggerFor;
 
   @JsonProperty("machines")
   
-  private List<ItemDetailMachinesInner> machines = new ArrayList<>();
+  private List<ItemMachine> machines = new ArrayList<>();
 
   public ItemDetail id(Integer id) {
     this.id = id;
@@ -89,10 +91,10 @@ public class ItemDetail   {
   }
 
   /**
-   * Get id
+   * The identifier for this resource.
    * @return id
    */
-  @ApiModelProperty(required = true, readOnly = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "The identifier for this resource.")
   public Integer getId() {
     return id;
   }
@@ -107,10 +109,10 @@ public class ItemDetail   {
   }
 
   /**
-   * Get name
+   * The name for this resource.
    * @return name
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   public String getName() {
     return name;
   }
@@ -119,34 +121,18 @@ public class ItemDetail   {
     this.name = name;
   }
 
-  public ItemDetail cost(Integer cost) {
-    this.cost = cost;
-    return this;
-  }
-
-  /**
-   * Get cost
-   * @return cost
-   */
-  @ApiModelProperty(value = "")
-  public Integer getCost() {
-    return cost;
-  }
-
-  public void setCost(Integer cost) {
-    this.cost = cost;
-  }
-
   public ItemDetail flingPower(Integer flingPower) {
     this.flingPower = flingPower;
     return this;
   }
 
   /**
-   * Get flingPower
+   * The power of the move Fling when used with this item.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return flingPower
    */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The power of the move Fling when used with this item.")
   public Integer getFlingPower() {
     return flingPower;
   }
@@ -161,10 +147,10 @@ public class ItemDetail   {
   }
 
   /**
-   * Get flingEffect
+   * The effect of the move Fling when used with this item.
    * @return flingEffect
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The effect of the move Fling when used with this item.")
   public ItemFlingEffectSummary getFlingEffect() {
     return flingEffect;
   }
@@ -173,12 +159,12 @@ public class ItemDetail   {
     this.flingEffect = flingEffect;
   }
 
-  public ItemDetail attributes(List<AbilityDetailPokemonInnerPokemon> attributes) {
+  public ItemDetail attributes(List<ItemAttributeSummary> attributes) {
     this.attributes = attributes;
     return this;
   }
 
-  public ItemDetail addAttributesItem(AbilityDetailPokemonInnerPokemon attributesItem) {
+  public ItemDetail addAttributesItem(ItemAttributeSummary attributesItem) {
     if (this.attributes == null) {
       this.attributes = new ArrayList<>();
     }
@@ -187,15 +173,15 @@ public class ItemDetail   {
   }
 
   /**
-   * Get attributes
+   * A list of attributes this item has.
    * @return attributes
    */
-  @ApiModelProperty(required = true, readOnly = true, value = "")
-  public List<AbilityDetailPokemonInnerPokemon> getAttributes() {
+  @ApiModelProperty(required = true, readOnly = true, value = "A list of attributes this item has.")
+  public List<ItemAttributeSummary> getAttributes() {
     return attributes;
   }
 
-  public void setAttributes(List<AbilityDetailPokemonInnerPokemon> attributes) {
+  public void setAttributes(List<ItemAttributeSummary> attributes) {
     this.attributes = attributes;
   }
 
@@ -205,10 +191,10 @@ public class ItemDetail   {
   }
 
   /**
-   * Get category
+   * The category of items this item falls into.
    * @return category
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The category of items this item falls into.")
   public ItemCategorySummary getCategory() {
     return category;
   }
@@ -231,10 +217,10 @@ public class ItemDetail   {
   }
 
   /**
-   * Get effectEntries
+   * The effect of this ability listed in different languages.
    * @return effectEntries
    */
-  @ApiModelProperty(required = true, readOnly = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "The effect of this ability listed in different languages.")
   public List<ItemEffectText> getEffectEntries() {
     return effectEntries;
   }
@@ -257,10 +243,10 @@ public class ItemDetail   {
   }
 
   /**
-   * Get flavorTextEntries
+   * The flavor text of this ability listed in different languages.
    * @return flavorTextEntries
    */
-  @ApiModelProperty(required = true, readOnly = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "The flavor text of this ability listed in different languages.")
   public List<ItemFlavorText> getFlavorTextEntries() {
     return flavorTextEntries;
   }
@@ -283,16 +269,42 @@ public class ItemDetail   {
   }
 
   /**
-   * Get gameIndices
+   * A list of game indices relevent to this item by generation.
    * @return gameIndices
    */
-  @ApiModelProperty(required = true, readOnly = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "A list of game indices relevent to this item by generation.")
   public List<ItemGameIndex> getGameIndices() {
     return gameIndices;
   }
 
   public void setGameIndices(List<ItemGameIndex> gameIndices) {
     this.gameIndices = gameIndices;
+  }
+
+  public ItemDetail prices(List<ItemPrice> prices) {
+    this.prices = prices;
+    return this;
+  }
+
+  public ItemDetail addPricesItem(ItemPrice pricesItem) {
+    if (this.prices == null) {
+      this.prices = new ArrayList<>();
+    }
+    this.prices.add(pricesItem);
+    return this;
+  }
+
+  /**
+   * Purchase and sell prices by currency and version group. Prices may be null when the item cannot be bought or sold.
+   * @return prices
+   */
+  @ApiModelProperty(required = true, readOnly = true, value = "Purchase and sell prices by currency and version group. Prices may be null when the item cannot be bought or sold.")
+  public List<ItemPrice> getPrices() {
+    return prices;
+  }
+
+  public void setPrices(List<ItemPrice> prices) {
+    this.prices = prices;
   }
 
   public ItemDetail names(List<ItemName> names) {
@@ -309,10 +321,10 @@ public class ItemDetail   {
   }
 
   /**
-   * Get names
+   * The name of this item listed in different languages.
    * @return names
    */
-  @ApiModelProperty(required = true, readOnly = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "The name of this item listed in different languages.")
   public List<ItemName> getNames() {
     return names;
   }
@@ -321,12 +333,12 @@ public class ItemDetail   {
     this.names = names;
   }
 
-  public ItemDetail heldByPokemon(List<ItemDetailHeldByPokemonInner> heldByPokemon) {
+  public ItemDetail heldByPokemon(List<PokemonHeldItem> heldByPokemon) {
     this.heldByPokemon = heldByPokemon;
     return this;
   }
 
-  public ItemDetail addHeldByPokemonItem(ItemDetailHeldByPokemonInner heldByPokemonItem) {
+  public ItemDetail addHeldByPokemonItem(PokemonHeldItem heldByPokemonItem) {
     if (this.heldByPokemon == null) {
       this.heldByPokemon = new ArrayList<>();
     }
@@ -335,60 +347,60 @@ public class ItemDetail   {
   }
 
   /**
-   * Get heldByPokemon
+   * A list of Pokémon that might be found in the wild holding this item.
    * @return heldByPokemon
    */
-  @ApiModelProperty(required = true, readOnly = true, value = "")
-  public List<ItemDetailHeldByPokemonInner> getHeldByPokemon() {
+  @ApiModelProperty(required = true, readOnly = true, value = "A list of Pokémon that might be found in the wild holding this item.")
+  public List<PokemonHeldItem> getHeldByPokemon() {
     return heldByPokemon;
   }
 
-  public void setHeldByPokemon(List<ItemDetailHeldByPokemonInner> heldByPokemon) {
+  public void setHeldByPokemon(List<PokemonHeldItem> heldByPokemon) {
     this.heldByPokemon = heldByPokemon;
   }
 
-  public ItemDetail sprites(ItemDetailSprites sprites) {
+  public ItemDetail sprites(ItemSprites sprites) {
     this.sprites = sprites;
     return this;
   }
 
   /**
-   * Get sprites
+   * A set of sprites used to depict this item in the game.
    * @return sprites
    */
-  @ApiModelProperty(required = true, value = "")
-  public ItemDetailSprites getSprites() {
+  @ApiModelProperty(required = true, readOnly = true, value = "A set of sprites used to depict this item in the game.")
+  public ItemSprites getSprites() {
     return sprites;
   }
 
-  public void setSprites(ItemDetailSprites sprites) {
+  public void setSprites(ItemSprites sprites) {
     this.sprites = sprites;
   }
 
-  public ItemDetail babyTriggerFor(ItemDetailBabyTriggerFor babyTriggerFor) {
+  public ItemDetail babyTriggerFor(EvolutionChainSummary babyTriggerFor) {
     this.babyTriggerFor = babyTriggerFor;
     return this;
   }
 
   /**
-   * Get babyTriggerFor
+   * An evolution chain this item requires to produce a bay during mating.
    * @return babyTriggerFor
    */
-  @ApiModelProperty(required = true, value = "")
-  public ItemDetailBabyTriggerFor getBabyTriggerFor() {
+  @ApiModelProperty(required = true, readOnly = true, value = "An evolution chain this item requires to produce a bay during mating.")
+  public EvolutionChainSummary getBabyTriggerFor() {
     return babyTriggerFor;
   }
 
-  public void setBabyTriggerFor(ItemDetailBabyTriggerFor babyTriggerFor) {
+  public void setBabyTriggerFor(EvolutionChainSummary babyTriggerFor) {
     this.babyTriggerFor = babyTriggerFor;
   }
 
-  public ItemDetail machines(List<ItemDetailMachinesInner> machines) {
+  public ItemDetail machines(List<ItemMachine> machines) {
     this.machines = machines;
     return this;
   }
 
-  public ItemDetail addMachinesItem(ItemDetailMachinesInner machinesItem) {
+  public ItemDetail addMachinesItem(ItemMachine machinesItem) {
     if (this.machines == null) {
       this.machines = new ArrayList<>();
     }
@@ -397,15 +409,15 @@ public class ItemDetail   {
   }
 
   /**
-   * Get machines
+   * A list of the machines related to this item.
    * @return machines
    */
-  @ApiModelProperty(required = true, readOnly = true, value = "")
-  public List<ItemDetailMachinesInner> getMachines() {
+  @ApiModelProperty(required = true, readOnly = true, value = "A list of the machines related to this item.")
+  public List<ItemMachine> getMachines() {
     return machines;
   }
 
-  public void setMachines(List<ItemDetailMachinesInner> machines) {
+  public void setMachines(List<ItemMachine> machines) {
     this.machines = machines;
   }
 
@@ -421,7 +433,6 @@ public class ItemDetail   {
     ItemDetail itemDetail = (ItemDetail) o;
     return Objects.equals(this.id, itemDetail.id) &&
         Objects.equals(this.name, itemDetail.name) &&
-        Objects.equals(this.cost, itemDetail.cost) &&
         Objects.equals(this.flingPower, itemDetail.flingPower) &&
         Objects.equals(this.flingEffect, itemDetail.flingEffect) &&
         Objects.equals(this.attributes, itemDetail.attributes) &&
@@ -429,6 +440,7 @@ public class ItemDetail   {
         Objects.equals(this.effectEntries, itemDetail.effectEntries) &&
         Objects.equals(this.flavorTextEntries, itemDetail.flavorTextEntries) &&
         Objects.equals(this.gameIndices, itemDetail.gameIndices) &&
+        Objects.equals(this.prices, itemDetail.prices) &&
         Objects.equals(this.names, itemDetail.names) &&
         Objects.equals(this.heldByPokemon, itemDetail.heldByPokemon) &&
         Objects.equals(this.sprites, itemDetail.sprites) &&
@@ -438,7 +450,7 @@ public class ItemDetail   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, cost, flingPower, flingEffect, attributes, category, effectEntries, flavorTextEntries, gameIndices, names, heldByPokemon, sprites, babyTriggerFor, machines);
+    return Objects.hash(id, name, flingPower, flingEffect, attributes, category, effectEntries, flavorTextEntries, gameIndices, prices, names, heldByPokemon, sprites, babyTriggerFor, machines);
   }
 
   @Override
@@ -448,7 +460,6 @@ public class ItemDetail   {
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    cost: ").append(toIndentedString(cost)).append("\n");
     sb.append("    flingPower: ").append(toIndentedString(flingPower)).append("\n");
     sb.append("    flingEffect: ").append(toIndentedString(flingEffect)).append("\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
@@ -456,6 +467,7 @@ public class ItemDetail   {
     sb.append("    effectEntries: ").append(toIndentedString(effectEntries)).append("\n");
     sb.append("    flavorTextEntries: ").append(toIndentedString(flavorTextEntries)).append("\n");
     sb.append("    gameIndices: ").append(toIndentedString(gameIndices)).append("\n");
+    sb.append("    prices: ").append(toIndentedString(prices)).append("\n");
     sb.append("    names: ").append(toIndentedString(names)).append("\n");
     sb.append("    heldByPokemon: ").append(toIndentedString(heldByPokemon)).append("\n");
     sb.append("    sprites: ").append(toIndentedString(sprites)).append("\n");

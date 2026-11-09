@@ -7,8 +7,8 @@ import org.openapitools.model.LanguageSummary;
 
 @Canonical
 class GrowthRateDescription {
-    
+    /* The localized description for an API resource in a specific language. */
     String description
-    
+    /* The language this name is in. */
     LanguageSummary language
 }

@@ -4,15 +4,15 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** |  | [readonly] 
-**name** | **str** |  | 
-**abilities** | [**List[AbilitySummary]**](AbilitySummary.md) |  | [readonly] 
-**main_region** | [**RegionSummary**](RegionSummary.md) |  | 
-**moves** | [**List[MoveSummary]**](MoveSummary.md) |  | [readonly] 
-**names** | [**List[GenerationName]**](GenerationName.md) |  | [readonly] 
-**pokemon_species** | [**List[PokemonSpeciesSummary]**](PokemonSpeciesSummary.md) |  | [readonly] 
-**types** | [**List[TypeSummary]**](TypeSummary.md) |  | [readonly] 
-**version_groups** | [**List[VersionGroupSummary]**](VersionGroupSummary.md) |  | [readonly] 
+**id** | **int** | The identifier for this resource. | [readonly] 
+**name** | **str** | The name for this resource. | 
+**abilities** | [**List[AbilitySummary]**](AbilitySummary.md) | A list of abilities that were introduced in this generation. | [readonly] 
+**main_region** | [**RegionSummary**](RegionSummary.md) | The main region travelled in this generation. | 
+**moves** | [**List[MoveSummary]**](MoveSummary.md) | A list of moves that were introduced in this generation. | [readonly] 
+**names** | [**List[GenerationName]**](GenerationName.md) | The name of this resource listed in different languages. | [readonly] 
+**pokemon_species** | [**List[PokemonSpeciesSummary]**](PokemonSpeciesSummary.md) | A list of Pokémon species that were introduced in this generation. | [readonly] 
+**types** | [**List[TypeSummary]**](TypeSummary.md) | A list of types that were introduced in this generation. | [readonly] 
+**version_groups** | [**List[VersionGroupSummary]**](VersionGroupSummary.md) | A list of version groups that were introduced in this generation. | [readonly] 
 
 ## Example
 

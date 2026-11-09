@@ -5,33 +5,33 @@
 ## Properties
 Name | Mapping | SQL Type | Default | Type | Description | Notes
 ---- | ------- | -------- | ------- | ---- | ----------- | -----
-**id** | id | int NOT NULL PRIMARY KEY AUTOINCREMENT |  | **kotlin.Int** |  |  [readonly]
-**name** | name | text NOT NULL |  | **kotlin.String** |  | 
-**pokemonSpeciesDetails** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;GenderDetailPokemonSpeciesDetailsInner&gt;**](GenderDetailPokemonSpeciesDetailsInner.md) |  |  [readonly]
-**requiredForEvolution** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;AbilityDetailPokemonInnerPokemon&gt;**](AbilityDetailPokemonInnerPokemon.md) |  |  [readonly]
+**id** | id | int NOT NULL PRIMARY KEY AUTOINCREMENT |  | **kotlin.Int** | The identifier for this resource. |  [readonly]
+**name** | name | text NOT NULL |  | **kotlin.String** | The name for this resource. | 
+**pokemonSpeciesDetails** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;GenderPokemonSpecies&gt;**](GenderPokemonSpecies.md) | A list of Pokémon species that can be this gender and how likely it is that they will be. |  [readonly]
+**requiredForEvolution** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;PokemonSpeciesSummary&gt;**](PokemonSpeciesSummary.md) | A list of Pokémon species that required this gender in order for a Pokémon to evolve into them. |  [readonly]
 
 
 
 
-# **Table `GenderDetailGenderDetailPokemonSpeciesDetailsInner`**
-(mapped from: GenderDetailGenderDetailPokemonSpeciesDetailsInner)
-
-## Properties
-Name | Mapping | SQL Type | Default | Type | Description | Notes
----- | ------- | -------- | ------- | ---- | ----------- | -----
-genderDetail | genderDetail | long | | kotlin.Long | Primary Key | *one*
-genderDetailPokemonSpeciesDetailsInner | genderDetailPokemonSpeciesDetailsInner | long | | kotlin.Long | Foreign Key | *many*
-
-
-
-# **Table `GenderDetailAbilityDetailPokemonInnerPokemon`**
-(mapped from: GenderDetailAbilityDetailPokemonInnerPokemon)
+# **Table `GenderDetailGenderPokemonSpecies`**
+(mapped from: GenderDetailGenderPokemonSpecies)
 
 ## Properties
 Name | Mapping | SQL Type | Default | Type | Description | Notes
 ---- | ------- | -------- | ------- | ---- | ----------- | -----
 genderDetail | genderDetail | long | | kotlin.Long | Primary Key | *one*
-abilityDetailPokemonInnerPokemon | abilityDetailPokemonInnerPokemon | long | | kotlin.Long | Foreign Key | *many*
+genderPokemonSpecies | genderPokemonSpecies | long | | kotlin.Long | Foreign Key | *many*
+
+
+
+# **Table `GenderDetailPokemonSpeciesSummary`**
+(mapped from: GenderDetailPokemonSpeciesSummary)
+
+## Properties
+Name | Mapping | SQL Type | Default | Type | Description | Notes
+---- | ------- | -------- | ------- | ---- | ----------- | -----
+genderDetail | genderDetail | long | | kotlin.Long | Primary Key | *one*
+pokemonSpeciesSummary | pokemonSpeciesSummary | long | | kotlin.Long | Foreign Key | *many*
 
 
 

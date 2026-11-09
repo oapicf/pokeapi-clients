@@ -15,7 +15,7 @@ import javax.validation.Valid;
 /**
  * ItemCategoryDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-10-25T05:48:13.486809836Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-11-09T13:49:31.462302702Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class ItemCategoryDetail   {
   @JsonProperty("id")
@@ -25,7 +25,7 @@ public class ItemCategoryDetail   {
 
   @JsonProperty("name")
   @NotNull
-@Size(max=100)
+@Size(max=200)
 
   private String name;
 
@@ -53,7 +53,7 @@ public class ItemCategoryDetail   {
   }
 
    /**
-   * Get id
+   * The identifier for this resource.
    * @return id
   **/
   public Integer getId() {
@@ -70,7 +70,7 @@ public class ItemCategoryDetail   {
   }
 
    /**
-   * Get name
+   * The name for this resource.
    * @return name
   **/
   public String getName() {
@@ -95,7 +95,7 @@ public class ItemCategoryDetail   {
   }
 
    /**
-   * Get items
+   * A list of items that are a part of this category.
    * @return items
   **/
   public List<@Valid ItemSummary> getItems() {
@@ -120,7 +120,7 @@ public class ItemCategoryDetail   {
   }
 
    /**
-   * Get names
+   * The name of this item category listed in different languages.
    * @return names
   **/
   public List<@Valid ItemCategoryName> getNames() {
@@ -137,7 +137,7 @@ public class ItemCategoryDetail   {
   }
 
    /**
-   * Get pocket
+   * The pocket items in this category would be put in.
    * @return pocket
   **/
   public ItemPocketSummary getPocket() {

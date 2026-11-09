@@ -25,9 +25,6 @@ func evolution_chain_list(
 	# offset: int   Eg: 56
 	# The initial index from which to return the results.
 	offset = null,
-	# q: String   Eg: q_example
-	# > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-	q = null,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
 	on_failure: Callable = Callable(),  # func(error: ApiError)
 ):
@@ -51,7 +48,6 @@ func evolution_chain_list(
 	var bzz_query := Dictionary()
 	bzz_query["limit"] = limit
 	bzz_query["offset"] = offset
-	bzz_query["q"] = q
 
 	var bzz_body = null
 
@@ -74,9 +70,6 @@ func evolution_chain_list_threaded(
 	# offset: int   Eg: 56
 	# The initial index from which to return the results.
 	offset = null,
-	# q: String   Eg: q_example
-	# > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-	q = null,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
 	on_failure: Callable = Callable(),  # func(error: ApiError)
 ) -> Thread:
@@ -85,7 +78,6 @@ func evolution_chain_list_threaded(
 	bzz_callable.bind(
 		limit,
 		offset,
-		q,
 		on_success,
 		on_failure,
 	)
@@ -98,7 +90,7 @@ func evolution_chain_list_threaded(
 #
 # Evolution chains are essentially family trees. They start with the lowest stage within a family and detail evolution conditions for each as well as Pokémon they can evolve into up through the hierarchy.
 func evolution_chain_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -138,7 +130,7 @@ func evolution_chain_retrieve(
 
 
 func evolution_chain_retrieve_threaded(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -239,7 +231,7 @@ func evolution_trigger_list_threaded(
 #
 # Evolution triggers are the events and conditions that cause a Pokémon to evolve. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Methods_of_evolution) for greater detail.
 func evolution_trigger_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -279,7 +271,7 @@ func evolution_trigger_retrieve(
 
 
 func evolution_trigger_retrieve_threaded(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -287,6 +279,147 @@ func evolution_trigger_retrieve_threaded(
 ) -> Thread:
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "evolution_trigger_retrieve")
+	bzz_callable.bind(
+		id,
+		on_success,
+		on_failure,
+	)
+	bzz_thread.start(bzz_callable)
+	return bzz_thread
+
+
+# Operation evolutionVariableList → GET /api/v2/evolution-variable/
+# List evolution variables
+#
+# Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+func evolution_variable_list(
+	# limit: int   Eg: 56
+	# Number of results to return per page.
+	limit = null,
+	# offset: int   Eg: 56
+	# The initial index from which to return the results.
+	offset = null,
+	# q: String   Eg: q_example
+	# > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+	q = null,
+	on_success: Callable = Callable(),  # func(response: ApiResponse)
+	on_failure: Callable = Callable(),  # func(error: ApiError)
+):
+
+	# Convert the String HTTP method to a Constant Godot understands
+	var bzz_method := self._bzz_convert_http_method("GET")
+
+	# Compute the URL path to the API resource
+	var bzz_path := "/api/v2/evolution-variable/"
+
+	# Collect the headers
+	var bzz_headers := Dictionary()
+	var bzz_mimes_produced_by_server := ['application/json']
+	for bzz_mime in BZZ_CONSUMABLE_CONTENT_TYPES:
+		if bzz_mime in bzz_mimes_produced_by_server:
+			bzz_headers["Accept"] = bzz_mime
+			break
+
+	# Collect the query parameters
+	# Note: we do not support multiple values for a single param (for now), nor arrays
+	var bzz_query := Dictionary()
+	bzz_query["limit"] = limit
+	bzz_query["offset"] = offset
+	bzz_query["q"] = q
+
+	var bzz_body = null
+
+	self._bzz_request(
+		bzz_method, bzz_path, bzz_headers, bzz_query, bzz_body,
+		func(bzz_response):
+			bzz_response.data = PaginatedEvolutionVariableSummaryList.bzz_denormalize_single(bzz_response.data)
+			on_success.call(bzz_response)
+			,
+		func(bzz_error):
+			on_failure.call(bzz_error)
+			,  # ざわ‥
+	)
+
+
+func evolution_variable_list_threaded(
+	# limit: int   Eg: 56
+	# Number of results to return per page.
+	limit = null,
+	# offset: int   Eg: 56
+	# The initial index from which to return the results.
+	offset = null,
+	# q: String   Eg: q_example
+	# > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+	q = null,
+	on_success: Callable = Callable(),  # func(response: ApiResponse)
+	on_failure: Callable = Callable(),  # func(error: ApiError)
+) -> Thread:
+	var bzz_thread := Thread.new()
+	var bzz_callable := Callable(self, "evolution_variable_list")
+	bzz_callable.bind(
+		limit,
+		offset,
+		q,
+		on_success,
+		on_failure,
+	)
+	bzz_thread.start(bzz_callable)
+	return bzz_thread
+
+
+# Operation evolutionVariableRetrieve → GET /api/v2/evolution-variable/{id}/
+# Get evolution variable
+#
+# Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+func evolution_variable_retrieve(
+	# id: String   Eg: 1
+	# This parameter can be a string or an integer.
+	id: String,
+	on_success: Callable = Callable(),  # func(response: ApiResponse)
+	on_failure: Callable = Callable(),  # func(error: ApiError)
+):
+
+	# Convert the String HTTP method to a Constant Godot understands
+	var bzz_method := self._bzz_convert_http_method("GET")
+
+	# Compute the URL path to the API resource
+	var bzz_path := "/api/v2/evolution-variable/{id}/".replace("{" + "id" + "}", _bzz_urlize_path_param(id))
+
+	# Collect the headers
+	var bzz_headers := Dictionary()
+	var bzz_mimes_produced_by_server := ['application/json']
+	for bzz_mime in BZZ_CONSUMABLE_CONTENT_TYPES:
+		if bzz_mime in bzz_mimes_produced_by_server:
+			bzz_headers["Accept"] = bzz_mime
+			break
+
+	# Collect the query parameters
+	# Note: we do not support multiple values for a single param (for now), nor arrays
+	var bzz_query := Dictionary()
+
+	var bzz_body = null
+
+	self._bzz_request(
+		bzz_method, bzz_path, bzz_headers, bzz_query, bzz_body,
+		func(bzz_response):
+			bzz_response.data = EvolutionVariableDetail.bzz_denormalize_single(bzz_response.data)
+			on_success.call(bzz_response)
+			,
+		func(bzz_error):
+			on_failure.call(bzz_error)
+			,  # ざわ‥
+	)
+
+
+func evolution_variable_retrieve_threaded(
+	# id: String   Eg: 1
+	# This parameter can be a string or an integer.
+	id: String,
+	on_success: Callable = Callable(),  # func(response: ApiResponse)
+	on_failure: Callable = Callable(),  # func(error: ApiError)
+) -> Thread:
+	var bzz_thread := Thread.new()
+	var bzz_callable := Callable(self, "evolution_variable_retrieve")
 	bzz_callable.bind(
 		id,
 		on_success,

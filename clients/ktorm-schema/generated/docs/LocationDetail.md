@@ -5,12 +5,12 @@
 ## Properties
 Name | Mapping | SQL Type | Default | Type | Description | Notes
 ---- | ------- | -------- | ------- | ---- | ----------- | -----
-**id** | id | int NOT NULL PRIMARY KEY AUTOINCREMENT |  | **kotlin.Int** |  |  [readonly]
-**name** | name | text NOT NULL |  | **kotlin.String** |  | 
-**region** | region | long NOT NULL |  | [**RegionSummary**](RegionSummary.md) |  |  [foreignkey]
-**names** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;LocationName&gt;**](LocationName.md) |  |  [readonly]
-**gameIndices** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;LocationGameIndex&gt;**](LocationGameIndex.md) |  |  [readonly]
-**areas** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;LocationAreaSummary&gt;**](LocationAreaSummary.md) |  |  [readonly]
+**id** | id | int NOT NULL PRIMARY KEY AUTOINCREMENT |  | **kotlin.Int** | The identifier for this resource. |  [readonly]
+**name** | name | text NOT NULL |  | **kotlin.String** | The name for this resource. | 
+**region** | region | long NOT NULL |  | [**RegionSummary**](RegionSummary.md) | The region this location can be found in. |  [foreignkey]
+**names** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;LocationName&gt;**](LocationName.md) | The name of this resource listed in different languages. |  [readonly]
+**gameIndices** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;LocationGameIndex&gt;**](LocationGameIndex.md) | A list of game indices relevent to this location by generation. |  [readonly]
+**areas** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;LocationAreaSummary&gt;**](LocationAreaSummary.md) | Areas that can be found within this location. |  [readonly]
 
 
 

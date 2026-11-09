@@ -7,14 +7,26 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { PokeathlonStatDetailAffectingNatures } from './pokeathlonStatDetailAffectingNatures';
 import { PokeathlonStatName } from './pokeathlonStatName';
+import { PokeathlonStatAffectingNatures } from './pokeathlonStatAffectingNatures';
 
 
 export interface PokeathlonStatDetail { 
+    /**
+     * The identifier for this resource.
+     */
     readonly id: number;
+    /**
+     * The name for this resource.
+     */
     name: string;
-    affecting_natures: PokeathlonStatDetailAffectingNatures;
+    /**
+     * A detail of natures which affect this Pokéathlon stat positively or negatively.
+     */
+    readonly affecting_natures: PokeathlonStatAffectingNatures;
+    /**
+     * The name of this resource listed in different languages.
+     */
     readonly names: Array<PokeathlonStatName>;
 }
 

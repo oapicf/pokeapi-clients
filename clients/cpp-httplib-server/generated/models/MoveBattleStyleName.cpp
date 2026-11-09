@@ -10,7 +10,6 @@ namespace models {
 
 MoveBattleStyleName::MoveBattleStyleName()
 : name("")
-, language(LanguageSummary())
 {
 }
 // =========================================

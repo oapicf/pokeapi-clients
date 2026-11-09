@@ -5,8 +5,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.model.PalParkAreaDetailPokemonEncountersInner;
 import org.openapitools.model.PalParkAreaName;
+import org.openapitools.model.PalParkEncounter;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
@@ -21,12 +21,12 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("PalParkAreaDetail")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-11-09T13:50:06.168269698Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PalParkAreaDetail   {
   private Integer id;
   private String name;
   private List<@Valid PalParkAreaName> names = new ArrayList<>();
-  private List<@Valid PalParkAreaDetailPokemonEncountersInner> pokemonEncounters = new ArrayList<>();
+  private List<@Valid PalParkEncounter> pokemonEncounters = new ArrayList<>();
 
   public PalParkAreaDetail() {
   }
@@ -36,7 +36,7 @@ public class PalParkAreaDetail   {
     @JsonProperty(required = true, value = "id") Integer id,
     @JsonProperty(required = true, value = "name") String name,
     @JsonProperty(required = true, value = "names") List<@Valid PalParkAreaName> names,
-    @JsonProperty(required = true, value = "pokemon_encounters") List<@Valid PalParkAreaDetailPokemonEncountersInner> pokemonEncounters
+    @JsonProperty(required = true, value = "pokemon_encounters") List<@Valid PalParkEncounter> pokemonEncounters
   ) {
     this.id = id;
     this.name = name;
@@ -45,6 +45,7 @@ public class PalParkAreaDetail   {
   }
 
   /**
+   * The identifier for this resource.
    **/
   public PalParkAreaDetail id(Integer id) {
     this.id = id;
@@ -52,7 +53,7 @@ public class PalParkAreaDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   @JsonProperty(required = true, value = "id")
   public Integer getId() {
     return id;
@@ -64,6 +65,7 @@ public class PalParkAreaDetail   {
   }
 
   /**
+   * The name for this resource.
    **/
   public PalParkAreaDetail name(String name) {
     this.name = name;
@@ -71,9 +73,9 @@ public class PalParkAreaDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   @JsonProperty(required = true, value = "name")
-  @NotNull  @Size(max=100)public String getName() {
+  @NotNull  @Size(max=200)public String getName() {
     return name;
   }
 
@@ -83,6 +85,7 @@ public class PalParkAreaDetail   {
   }
 
   /**
+   * The name of this resource listed in different languages.
    **/
   public PalParkAreaDetail names(List<@Valid PalParkAreaName> names) {
     this.names = names;
@@ -90,7 +93,7 @@ public class PalParkAreaDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
   @JsonProperty(required = true, value = "names")
   public List<@Valid PalParkAreaName> getNames() {
     return names;
@@ -118,25 +121,26 @@ public class PalParkAreaDetail   {
     return this;
   }
   /**
+   * A list of Pokémon encountered in thi pal park area along with details.
    **/
-  public PalParkAreaDetail pokemonEncounters(List<@Valid PalParkAreaDetailPokemonEncountersInner> pokemonEncounters) {
+  public PalParkAreaDetail pokemonEncounters(List<@Valid PalParkEncounter> pokemonEncounters) {
     this.pokemonEncounters = pokemonEncounters;
     return this;
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of Pokémon encountered in thi pal park area along with details.")
   @JsonProperty(required = true, value = "pokemon_encounters")
-  public List<@Valid PalParkAreaDetailPokemonEncountersInner> getPokemonEncounters() {
+  public List<@Valid PalParkEncounter> getPokemonEncounters() {
     return pokemonEncounters;
   }
 
   @JsonProperty(required = true, value = "pokemon_encounters")
-  public void setPokemonEncounters(List<@Valid PalParkAreaDetailPokemonEncountersInner> pokemonEncounters) {
+  public void setPokemonEncounters(List<@Valid PalParkEncounter> pokemonEncounters) {
     this.pokemonEncounters = pokemonEncounters;
   }
 
-  public PalParkAreaDetail addPokemonEncountersItem(PalParkAreaDetailPokemonEncountersInner pokemonEncountersItem) {
+  public PalParkAreaDetail addPokemonEncountersItem(PalParkEncounter pokemonEncountersItem) {
     if (this.pokemonEncounters == null) {
       this.pokemonEncounters = new ArrayList<>();
     }
@@ -145,7 +149,7 @@ public class PalParkAreaDetail   {
     return this;
   }
 
-  public PalParkAreaDetail removePokemonEncountersItem(PalParkAreaDetailPokemonEncountersInner pokemonEncountersItem) {
+  public PalParkAreaDetail removePokemonEncountersItem(PalParkEncounter pokemonEncountersItem) {
     if (pokemonEncountersItem != null && this.pokemonEncounters != null) {
       this.pokemonEncounters.remove(pokemonEncountersItem);
     }

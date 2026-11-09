@@ -15,43 +15,51 @@
                 
                 
                 ; [@key "id"]
-                                              name: string
+                    (** The identifier for this resource. *)
+                                      name: string
                   
                   
                 
                 
                 ; [@key "name"]
-                                              is_main_series: bool
+                    (** The name for this resource. *)
+                                      is_main_series: bool
                   
                    option [@default None]
                 
                 
                 ; [@key "is_main_series"]
-                                              descriptions: Pokedex_description.t list
+                    (** Whether or not this Pokédex originated in the main series of the video games. *)
+                                      descriptions: Pokedex_description.t list
                 
                 
                 ; [@key "descriptions"]
-                                              names: Pokedex_name.t list
+                    (** The description of this resource listed in different languages. *)
+                                      names: Pokedex_name.t list
                 
                 
                 ; [@key "names"]
-                                              pokemon_entries: Pokedex_detail_pokemon_entries_inner.t list
+                    (** The name of this resource listed in different languages. *)
+                                      pokemon_entries: Pokemon_dex_number.t list
                 
                 
                 ; [@key "pokemon_entries"]
-                                              region: Region_summary.t
-                  
+                    (** A list of Pokémon catalogued in this Pokédex and their indexes. *)
+                                      region: Region_summary.t
+                   option
                   
                 
                 
                 ; [@key "region"]
-                                              version_groups: Ability_detail_pokemon_inner_pokemon.t list
+                    (** The region this Pokédex catalogues Pokémon for. *)
+                                      version_groups: Version_group_summary.t list
                 
                 
                 ; [@key "version_groups"]
-                        } [@@deriving yojson { strict = false }, show, eq ];;
+                    (** A list of version groups this Pokédex is relevant to. *)
+                } [@@deriving yojson { strict = false }, show, eq ];;
         
-        let create (id : int32) (name : string) (descriptions : Pokedex_description.t list) (names : Pokedex_name.t list) (pokemon_entries : Pokedex_detail_pokemon_entries_inner.t list) (region : Region_summary.t) (version_groups : Ability_detail_pokemon_inner_pokemon.t list) : t = {
+        let create (id : int32) (name : string) (descriptions : Pokedex_description.t list) (names : Pokedex_name.t list) (pokemon_entries : Pokemon_dex_number.t list) (region : Region_summary.t option) (version_groups : Version_group_summary.t list) : t = {
             id = id;
             name = name;
             is_main_series = None;

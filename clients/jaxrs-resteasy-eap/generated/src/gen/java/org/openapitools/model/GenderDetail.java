@@ -9,24 +9,25 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.model.AbilityDetailPokemonInnerPokemon;
-import org.openapitools.model.GenderDetailPokemonSpeciesDetailsInner;
+import org.openapitools.model.GenderPokemonSpecies;
+import org.openapitools.model.PokemonSpeciesSummary;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 import io.swagger.annotations.*;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2026-10-25T05:48:53.778376553Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2026-11-09T13:50:03.149615362Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class GenderDetail   {
   
   private Integer id;
   private String name;
-  private List<@Valid GenderDetailPokemonSpeciesDetailsInner> pokemonSpeciesDetails = new ArrayList<>();
-  private List<@Valid AbilityDetailPokemonInnerPokemon> requiredForEvolution = new ArrayList<>();
+  private List<@Valid GenderPokemonSpecies> pokemonSpeciesDetails = new ArrayList<>();
+  private List<@Valid PokemonSpeciesSummary> requiredForEvolution = new ArrayList<>();
 
   /**
+   * The identifier for this resource.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   @JsonProperty("id")
   @NotNull
   public Integer getId() {
@@ -37,12 +38,13 @@ public class GenderDetail   {
   }
 
   /**
+   * The name for this resource.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   @JsonProperty("name")
   @NotNull
- @Size(max=100)  public String getName() {
+ @Size(max=200)  public String getName() {
     return name;
   }
   public void setName(String name) {
@@ -50,28 +52,30 @@ public class GenderDetail   {
   }
 
   /**
+   * A list of Pokémon species that can be this gender and how likely it is that they will be.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of Pokémon species that can be this gender and how likely it is that they will be.")
   @JsonProperty("pokemon_species_details")
   @NotNull
-  public List<@Valid GenderDetailPokemonSpeciesDetailsInner> getPokemonSpeciesDetails() {
+  public List<@Valid GenderPokemonSpecies> getPokemonSpeciesDetails() {
     return pokemonSpeciesDetails;
   }
-  public void setPokemonSpeciesDetails(List<@Valid GenderDetailPokemonSpeciesDetailsInner> pokemonSpeciesDetails) {
+  public void setPokemonSpeciesDetails(List<@Valid GenderPokemonSpecies> pokemonSpeciesDetails) {
     this.pokemonSpeciesDetails = pokemonSpeciesDetails;
   }
 
   /**
+   * A list of Pokémon species that required this gender in order for a Pokémon to evolve into them.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of Pokémon species that required this gender in order for a Pokémon to evolve into them.")
   @JsonProperty("required_for_evolution")
   @NotNull
-  public List<@Valid AbilityDetailPokemonInnerPokemon> getRequiredForEvolution() {
+  public List<@Valid PokemonSpeciesSummary> getRequiredForEvolution() {
     return requiredForEvolution;
   }
-  public void setRequiredForEvolution(List<@Valid AbilityDetailPokemonInnerPokemon> requiredForEvolution) {
+  public void setRequiredForEvolution(List<@Valid PokemonSpeciesSummary> requiredForEvolution) {
     this.requiredForEvolution = requiredForEvolution;
   }
 

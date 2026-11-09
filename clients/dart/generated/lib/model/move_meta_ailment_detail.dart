@@ -19,12 +19,16 @@ class MoveMetaAilmentDetail {
     this.names = const [],
   });
 
+  /// The identifier for this resource.
   int id;
 
+  /// The name for this resource.
   String name;
 
-  List<AbilityDetailPokemonInnerPokemon> moves;
+  /// A list of moves that cause this ailment.
+  List<MoveSummary> moves;
 
+  /// The name of this resource listed in different languages.
   List<MoveMetaAilmentName> names;
 
   @override
@@ -79,7 +83,7 @@ class MoveMetaAilmentDetail {
       return MoveMetaAilmentDetail(
         id: mapValueOfType<int>(json, r'id')!,
         name: mapValueOfType<String>(json, r'name')!,
-        moves: AbilityDetailPokemonInnerPokemon.listFromJson(json[r'moves']),
+        moves: MoveSummary.listFromJson(json[r'moves']),
         names: MoveMetaAilmentName.listFromJson(json[r'names']),
       );
     }

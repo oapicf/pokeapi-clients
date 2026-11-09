@@ -9,8 +9,8 @@
         language=nothing,
     )
 
-    - name::String
-    - language::LanguageSummary
+    - name::String : The localized name for an API resource in a specific language.
+    - language::LanguageSummary : The language this name is in.
 """
 Base.@kwdef mutable struct BerryFirmnessName <: OpenAPI.APIModel
     name::Union{Nothing, String} = nothing
@@ -40,7 +40,7 @@ end
 function OpenAPI.validate_property(::Type{ BerryFirmnessName }, name::Symbol, val)
 
     if name === Symbol("name")
-        OpenAPI.validate_param(name, "BerryFirmnessName", :maxLength, val, 100)
+        OpenAPI.validate_param(name, "BerryFirmnessName", :maxLength, val, 200)
     end
 
 end

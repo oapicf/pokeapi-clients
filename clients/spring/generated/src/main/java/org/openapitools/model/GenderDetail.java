@@ -7,8 +7,8 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.model.AbilityDetailPokemonInnerPokemon;
-import org.openapitools.model.GenderDetailPokemonSpeciesDetailsInner;
+import org.openapitools.model.GenderPokemonSpecies;
+import org.openapitools.model.PokemonSpeciesSummary;
 import org.springframework.lang.Nullable;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
@@ -24,16 +24,16 @@ import jakarta.annotation.Generated;
  * GenderDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-10-25T05:53:37.479908528Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-11-09T13:53:47.069318184Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class GenderDetail {
 
   private Integer id;
 
   private String name;
 
-  private List<@Valid GenderDetailPokemonSpeciesDetailsInner> pokemonSpeciesDetails = new ArrayList<>();
+  private List<@Valid GenderPokemonSpecies> pokemonSpeciesDetails = new ArrayList<>();
 
-  private List<@Valid AbilityDetailPokemonInnerPokemon> requiredForEvolution = new ArrayList<>();
+  private List<@Valid PokemonSpeciesSummary> requiredForEvolution = new ArrayList<>();
 
   public GenderDetail() {
     super();
@@ -42,7 +42,7 @@ public class GenderDetail {
   /**
    * Constructor with only required parameters
    */
-  public GenderDetail(Integer id, String name, List<@Valid GenderDetailPokemonSpeciesDetailsInner> pokemonSpeciesDetails, List<@Valid AbilityDetailPokemonInnerPokemon> requiredForEvolution) {
+  public GenderDetail(Integer id, String name, List<@Valid GenderPokemonSpecies> pokemonSpeciesDetails, List<@Valid PokemonSpeciesSummary> requiredForEvolution) {
     this.id = id;
     this.name = name;
     this.pokemonSpeciesDetails = pokemonSpeciesDetails;
@@ -55,11 +55,11 @@ public class GenderDetail {
   }
 
   /**
-   * Get id
+   * The identifier for this resource.
    * @return id
    */
   
-  @Schema(name = "id", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "id", accessMode = Schema.AccessMode.READ_ONLY, description = "The identifier for this resource.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("id")
   public Integer getId() {
     return id;
@@ -76,11 +76,11 @@ public class GenderDetail {
   }
 
   /**
-   * Get name
+   * The name for this resource.
    * @return name
    */
-  @NotNull @Size(max = 100) 
-  @Schema(name = "name", requiredMode = Schema.RequiredMode.REQUIRED)
+  @NotNull @Size(max = 200) 
+  @Schema(name = "name", description = "The name for this resource.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("name")
   public String getName() {
     return name;
@@ -91,12 +91,12 @@ public class GenderDetail {
     this.name = name;
   }
 
-  public GenderDetail pokemonSpeciesDetails(List<@Valid GenderDetailPokemonSpeciesDetailsInner> pokemonSpeciesDetails) {
+  public GenderDetail pokemonSpeciesDetails(List<@Valid GenderPokemonSpecies> pokemonSpeciesDetails) {
     this.pokemonSpeciesDetails = pokemonSpeciesDetails;
     return this;
   }
 
-  public GenderDetail addPokemonSpeciesDetailsItem(GenderDetailPokemonSpeciesDetailsInner pokemonSpeciesDetailsItem) {
+  public GenderDetail addPokemonSpeciesDetailsItem(GenderPokemonSpecies pokemonSpeciesDetailsItem) {
     if (this.pokemonSpeciesDetails == null) {
       this.pokemonSpeciesDetails = new ArrayList<>();
     }
@@ -105,27 +105,27 @@ public class GenderDetail {
   }
 
   /**
-   * Get pokemonSpeciesDetails
+   * A list of Pokémon species that can be this gender and how likely it is that they will be.
    * @return pokemonSpeciesDetails
    */
   
-  @Schema(name = "pokemon_species_details", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "pokemon_species_details", accessMode = Schema.AccessMode.READ_ONLY, description = "A list of Pokémon species that can be this gender and how likely it is that they will be.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("pokemon_species_details")
-  public List<@Valid GenderDetailPokemonSpeciesDetailsInner> getPokemonSpeciesDetails() {
+  public List<@Valid GenderPokemonSpecies> getPokemonSpeciesDetails() {
     return pokemonSpeciesDetails;
   }
 
   @JsonProperty("pokemon_species_details")
-  public void setPokemonSpeciesDetails(List<@Valid GenderDetailPokemonSpeciesDetailsInner> pokemonSpeciesDetails) {
+  public void setPokemonSpeciesDetails(List<@Valid GenderPokemonSpecies> pokemonSpeciesDetails) {
     this.pokemonSpeciesDetails = pokemonSpeciesDetails;
   }
 
-  public GenderDetail requiredForEvolution(List<@Valid AbilityDetailPokemonInnerPokemon> requiredForEvolution) {
+  public GenderDetail requiredForEvolution(List<@Valid PokemonSpeciesSummary> requiredForEvolution) {
     this.requiredForEvolution = requiredForEvolution;
     return this;
   }
 
-  public GenderDetail addRequiredForEvolutionItem(AbilityDetailPokemonInnerPokemon requiredForEvolutionItem) {
+  public GenderDetail addRequiredForEvolutionItem(PokemonSpeciesSummary requiredForEvolutionItem) {
     if (this.requiredForEvolution == null) {
       this.requiredForEvolution = new ArrayList<>();
     }
@@ -134,18 +134,18 @@ public class GenderDetail {
   }
 
   /**
-   * Get requiredForEvolution
+   * A list of Pokémon species that required this gender in order for a Pokémon to evolve into them.
    * @return requiredForEvolution
    */
   
-  @Schema(name = "required_for_evolution", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "required_for_evolution", accessMode = Schema.AccessMode.READ_ONLY, description = "A list of Pokémon species that required this gender in order for a Pokémon to evolve into them.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("required_for_evolution")
-  public List<@Valid AbilityDetailPokemonInnerPokemon> getRequiredForEvolution() {
+  public List<@Valid PokemonSpeciesSummary> getRequiredForEvolution() {
     return requiredForEvolution;
   }
 
   @JsonProperty("required_for_evolution")
-  public void setRequiredForEvolution(List<@Valid AbilityDetailPokemonInnerPokemon> requiredForEvolution) {
+  public void setRequiredForEvolution(List<@Valid PokemonSpeciesSummary> requiredForEvolution) {
     this.requiredForEvolution = requiredForEvolution;
   }
 

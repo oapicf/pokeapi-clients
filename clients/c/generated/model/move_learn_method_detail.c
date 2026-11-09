@@ -84,7 +84,7 @@ void move_learn_method_detail_free(move_learn_method_detail_t *move_learn_method
     }
     if (move_learn_method_detail->version_groups) {
         list_ForEach(listEntry, move_learn_method_detail->version_groups) {
-            ability_detail_pokemon_inner_pokemon_free(listEntry->data);
+            version_group_summary_free(listEntry->data);
         }
         list_freeList(move_learn_method_detail->version_groups);
         move_learn_method_detail->version_groups = NULL;
@@ -167,7 +167,7 @@ cJSON *move_learn_method_detail_convertToJSON(move_learn_method_detail_t *move_l
     listEntry_t *version_groupsListEntry;
     if (move_learn_method_detail->version_groups) {
     list_ForEach(version_groupsListEntry, move_learn_method_detail->version_groups) {
-    cJSON *itemLocal = ability_detail_pokemon_inner_pokemon_convertToJSON(version_groupsListEntry->data);
+    cJSON *itemLocal = version_group_summary_convertToJSON(version_groupsListEntry->data);
     if(itemLocal == NULL) {
     goto fail;
     }
@@ -313,7 +313,7 @@ move_learn_method_detail_t *move_learn_method_detail_parseFromJSON(cJSON *move_l
         if(!cJSON_IsObject(version_groups_local_nonprimitive)){
             goto end;
         }
-        ability_detail_pokemon_inner_pokemon_t *version_groupsItem = ability_detail_pokemon_inner_pokemon_parseFromJSON(version_groups_local_nonprimitive);
+        version_group_summary_t *version_groupsItem = version_group_summary_parseFromJSON(version_groups_local_nonprimitive);
 
         list_addElement(version_groupsList, version_groupsItem);
     }
@@ -364,7 +364,7 @@ end:
     if (version_groupsList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, version_groupsList) {
-            ability_detail_pokemon_inner_pokemon_free(listEntry->data);
+            version_group_summary_free(listEntry->data);
             listEntry->data = NULL;
         }
         list_freeList(version_groupsList);

@@ -4,15 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int** |  | [readonly] 
-**Name** | **string** |  | 
-**GameIndex** | **int** |  | 
-**AffectingMoves** | [**StatDetailAffectingMoves**](StatDetailAffectingMoves.md) |  | 
-**AffectingNatures** | [**StatDetailAffectingNatures**](StatDetailAffectingNatures.md) |  | 
-**Characteristics** | [**List&lt;CharacteristicSummary&gt;**](CharacteristicSummary.md) |  | [readonly] 
-**MoveDamageClass** | [**MoveDamageClassSummary**](MoveDamageClassSummary.md) |  | 
-**Names** | [**List&lt;StatName&gt;**](StatName.md) |  | [readonly] 
-**IsBattleOnly** | **bool** |  | [optional] 
+**Id** | **int** | The identifier for this resource. | [readonly] 
+**Name** | **string** | The name for this resource. | 
+**GameIndex** | **int** | ID the games use for this stat. | 
+**AffectingMoves** | [**StatAffectingMoves**](StatAffectingMoves.md) | A detail of moves which affect this stat positively or negatively. | [readonly] 
+**AffectingNatures** | [**StatAffectingNatures**](StatAffectingNatures.md) | A detail of natures which affect this stat positively or negatively. | [readonly] 
+**AffectingItems** | [**List&lt;ItemSummary&gt;**](ItemSummary.md) | Items that affect this stat, such as vitamins and battle items. | [readonly] 
+**Characteristics** | [**List&lt;CharacteristicSummary&gt;**](CharacteristicSummary.md) | A list of characteristics that are set on a Pokémon when its highest base stat is this stat. | [readonly] 
+**Names** | [**List&lt;StatName&gt;**](StatName.md) | The name of this resource listed in different languages. | [readonly] 
+**IsBattleOnly** | **bool** | Whether this stat only exists within a battle. | [optional] 
+**MoveDamageClass** | [**MoveDamageClassSummary**](MoveDamageClassSummary.md) | The class of damage this stat is directly related to. | 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

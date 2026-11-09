@@ -15,6 +15,7 @@ func _bzz_get_api_name() -> String:
 
 
 # Operation abilityList → GET /api/v2/ability/
+# List abilities
 #
 # Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
 func ability_list(
@@ -93,10 +94,11 @@ func ability_list_threaded(
 
 
 # Operation abilityRetrieve → GET /api/v2/ability/{id}/
+# Get ability
 #
 # Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
 func ability_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -136,7 +138,7 @@ func ability_retrieve(
 
 
 func ability_retrieve_threaded(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -154,7 +156,7 @@ func ability_retrieve_threaded(
 
 
 # Operation characteristicList → GET /api/v2/characteristic/
-# List charecterictics
+# List characteristics
 #
 # Characteristics indicate which stat contains a Pokémon's highest IV. A Pokémon's Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail.
 func characteristic_list(
@@ -164,9 +166,6 @@ func characteristic_list(
 	# offset: int   Eg: 56
 	# The initial index from which to return the results.
 	offset = null,
-	# q: String   Eg: q_example
-	# > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-	q = null,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
 	on_failure: Callable = Callable(),  # func(error: ApiError)
 ):
@@ -190,7 +189,6 @@ func characteristic_list(
 	var bzz_query := Dictionary()
 	bzz_query["limit"] = limit
 	bzz_query["offset"] = offset
-	bzz_query["q"] = q
 
 	var bzz_body = null
 
@@ -213,9 +211,6 @@ func characteristic_list_threaded(
 	# offset: int   Eg: 56
 	# The initial index from which to return the results.
 	offset = null,
-	# q: String   Eg: q_example
-	# > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-	q = null,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
 	on_failure: Callable = Callable(),  # func(error: ApiError)
 ) -> Thread:
@@ -224,7 +219,6 @@ func characteristic_list_threaded(
 	bzz_callable.bind(
 		limit,
 		offset,
-		q,
 		on_success,
 		on_failure,
 	)
@@ -237,7 +231,7 @@ func characteristic_list_threaded(
 #
 # Characteristics indicate which stat contains a Pokémon's highest IV. A Pokémon's Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail.
 func characteristic_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -277,7 +271,7 @@ func characteristic_retrieve(
 
 
 func characteristic_retrieve_threaded(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -378,7 +372,7 @@ func egg_group_list_threaded(
 #
 # Egg Groups are categories which determine which Pokémon are able to interbreed. Pokémon may belong to either one or two Egg Groups. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Egg_Group) for greater detail.
 func egg_group_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -418,7 +412,7 @@ func egg_group_retrieve(
 
 
 func egg_group_retrieve_threaded(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -519,7 +513,7 @@ func gender_list_threaded(
 #
 # Genders were introduced in Generation II for the purposes of breeding Pokémon but can also result in visual differences or even different evolutionary lines. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Gender) for greater detail.
 func gender_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -559,7 +553,7 @@ func gender_retrieve(
 
 
 func gender_retrieve_threaded(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -660,7 +654,7 @@ func growth_rate_list_threaded(
 #
 # Growth rates are the speed with which Pokémon gain levels through experience. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Experience) for greater detail.
 func growth_rate_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -700,7 +694,7 @@ func growth_rate_retrieve(
 
 
 func growth_rate_retrieve_threaded(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -801,7 +795,7 @@ func move_damage_class_list_threaded(
 #
 # Damage classes moves can have, e.g. physical, special, or non-damaging.
 func move_damage_class_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -841,7 +835,7 @@ func move_damage_class_retrieve(
 
 
 func move_damage_class_retrieve_threaded(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -942,7 +936,7 @@ func nature_list_threaded(
 #
 # Natures influence how a Pokémon's stats grow. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Nature) for greater detail.
 func nature_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -982,7 +976,7 @@ func nature_retrieve(
 
 
 func nature_retrieve_threaded(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -1083,7 +1077,7 @@ func pokeathlon_stat_list_threaded(
 #
 # Pokeathlon Stats are different attributes of a Pokémon's performance in Pokéathlons. In Pokéathlons, competitions happen on different courses; one for each of the different Pokéathlon stats. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9athlon) for greater detail.
 func pokeathlon_stat_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -1123,7 +1117,7 @@ func pokeathlon_stat_retrieve(
 
 
 func pokeathlon_stat_retrieve_threaded(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -1224,7 +1218,7 @@ func pokemon_color_list_threaded(
 #
 # Colors used for sorting Pokémon in a Pokédex. The color listed in the Pokédex is usually the color most apparent or covering each Pokémon's body. No orange category exists; Pokémon that are primarily orange are listed as red or brown.
 func pokemon_color_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -1264,7 +1258,7 @@ func pokemon_color_retrieve(
 
 
 func pokemon_color_retrieve_threaded(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -1365,7 +1359,7 @@ func pokemon_form_list_threaded(
 #
 # Some Pokémon may appear in one of multiple, visually different forms. These differences are purely cosmetic. For variations within a Pokémon species, which do differ in more than just visuals, the 'Pokémon' entity is used to represent such a variety.
 func pokemon_form_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -1405,7 +1399,7 @@ func pokemon_form_retrieve(
 
 
 func pokemon_form_retrieve_threaded(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -1506,7 +1500,7 @@ func pokemon_habitat_list_threaded(
 #
 # Habitats are generally different terrain Pokémon can be found in but can also be areas designated for rare or legendary Pokémon.
 func pokemon_habitat_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -1546,7 +1540,7 @@ func pokemon_habitat_retrieve(
 
 
 func pokemon_habitat_retrieve_threaded(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -1647,7 +1641,7 @@ func pokemon_list_threaded(
 #
 # Pokémon are the creatures that inhabit the world of the Pokémon games. They can be caught using Pokéballs and trained by battling with other Pokémon. Each Pokémon belongs to a specific species but may take on a variant which makes it differ from other Pokémon of the same species, such as base stats, available abilities and typings. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_(species)) for greater detail.
 func pokemon_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -1687,7 +1681,7 @@ func pokemon_retrieve(
 
 
 func pokemon_retrieve_threaded(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -1788,7 +1782,7 @@ func pokemon_shape_list_threaded(
 #
 # Shapes used for sorting Pokémon in a Pokédex.
 func pokemon_shape_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -1828,7 +1822,7 @@ func pokemon_shape_retrieve(
 
 
 func pokemon_shape_retrieve_threaded(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -1929,7 +1923,7 @@ func pokemon_species_list_threaded(
 #
 # A Pokémon Species forms the basis for at least one Pokémon. Attributes of a Pokémon species are shared across all varieties of Pokémon within the species. A good example is Wormadam; Wormadam is the species which can be found in three different varieties, Wormadam-Trash, Wormadam-Sandy and Wormadam-Plant.
 func pokemon_species_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -1969,7 +1963,7 @@ func pokemon_species_retrieve(
 
 
 func pokemon_species_retrieve_threaded(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -2070,7 +2064,7 @@ func stat_list_threaded(
 #
 # Stats determine certain aspects of battles. Each Pokémon has a value for each stat which grows as they gain levels and can be altered momentarily by effects in battles.
 func stat_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -2110,7 +2104,7 @@ func stat_retrieve(
 
 
 func stat_retrieve_threaded(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -2211,7 +2205,7 @@ func type_list_threaded(
 #
 # Types are properties for Pokémon and their moves. Each type has three properties: which types of Pokémon it is super effective against, which types of Pokémon it is not very effective against, and which types of Pokémon it is completely ineffective against.
 func type_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -2251,7 +2245,7 @@ func type_retrieve(
 
 
 func type_retrieve_threaded(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)

@@ -19,12 +19,16 @@ class EncounterConditionValueDetail {
     this.names = const [],
   });
 
+  /// The identifier for this resource.
   int id;
 
+  /// The name for this resource.
   String name;
 
+  /// The condition this encounter condition value pertains to.
   EncounterConditionSummary condition;
 
+  /// The name of this resource listed in different languages.
   List<EncounterConditionValueName> names;
 
   @override

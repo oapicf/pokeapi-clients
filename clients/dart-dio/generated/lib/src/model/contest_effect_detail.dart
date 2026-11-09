@@ -14,25 +14,30 @@ part 'contest_effect_detail.g.dart';
 /// ContestEffectDetail
 ///
 /// Properties:
-/// * [id] 
-/// * [appeal] 
-/// * [jam] 
-/// * [effectEntries] 
-/// * [flavorTextEntries] 
+/// * [id] - The identifier for this resource.
+/// * [appeal] - The base number of hearts the user of this move gets.
+/// * [jam] - The base number of hearts the user's opponent loses.
+/// * [effectEntries] - The result of this contest effect listed in different languages.
+/// * [flavorTextEntries] - The flavor text of this contest effect listed in different languages.
 @BuiltValue()
 abstract class ContestEffectDetail implements Built<ContestEffectDetail, ContestEffectDetailBuilder> {
+  /// The identifier for this resource.
   @BuiltValueField(wireName: r'id')
   int get id;
 
+  /// The base number of hearts the user of this move gets.
   @BuiltValueField(wireName: r'appeal')
   int get appeal;
 
+  /// The base number of hearts the user's opponent loses.
   @BuiltValueField(wireName: r'jam')
   int get jam;
 
+  /// The result of this contest effect listed in different languages.
   @BuiltValueField(wireName: r'effect_entries')
   BuiltList<ContestEffectEffectText> get effectEntries;
 
+  /// The flavor text of this contest effect listed in different languages.
   @BuiltValueField(wireName: r'flavor_text_entries')
   BuiltList<ContestEffectFlavorText> get flavorTextEntries;
 

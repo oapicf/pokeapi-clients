@@ -8,7 +8,6 @@
 
 // System headers
 #include <httplib.h>
-#include <memory>
 #include <variant>
 
 // Project headers
@@ -20,7 +19,6 @@
 #include "models/PaginatedEncounterMethodSummaryList.h"
 
 namespace Api {
-    class AuthenticationManager;
 class Encounters {
 public:
     Encounters() = default;
@@ -28,9 +26,8 @@ public:
     /**
      * @brief Register all routes for this API
      * @param svr The httplib::Server instance to register routes on
-     * @param auth The AuthenticationManager for authentication (optional, defaults to nullptr)
      */
-    void registerRoutes(httplib::Server& svr, std::shared_ptr<AuthenticationManager> auth = nullptr);
+    void registerRoutes(httplib::Server& svr);
     // =========================
     // ===== Request types =====
     // =========================
@@ -172,27 +169,23 @@ private:
     // ===== Helper function declarations =====
     // ========================================
     static bool parseApiv2encounterConditionGetParams(const httplib::Request& req, Apiv2encounterConditionGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2encounterConditionGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2encounterConditionGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2encounterConditionGetResponse(const Apiv2encounterConditionGetResponse& result, httplib::Response& res);
     static bool parseApiv2encounterConditionidGetParams(const httplib::Request& req, Apiv2encounterConditionidGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2encounterConditionidGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2encounterConditionidGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2encounterConditionidGetResponse(const Apiv2encounterConditionidGetResponse& result, httplib::Response& res);
     static bool parseApiv2encounterConditionValueGetParams(const httplib::Request& req, Apiv2encounterConditionValueGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2encounterConditionValueGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2encounterConditionValueGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2encounterConditionValueGetResponse(const Apiv2encounterConditionValueGetResponse& result, httplib::Response& res);
     static bool parseApiv2encounterConditionValueidGetParams(const httplib::Request& req, Apiv2encounterConditionValueidGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2encounterConditionValueidGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2encounterConditionValueidGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2encounterConditionValueidGetResponse(const Apiv2encounterConditionValueidGetResponse& result, httplib::Response& res);
     static bool parseApiv2encounterMethodGetParams(const httplib::Request& req, Apiv2encounterMethodGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2encounterMethodGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2encounterMethodGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2encounterMethodGetResponse(const Apiv2encounterMethodGetResponse& result, httplib::Response& res);
     static bool parseApiv2encounterMethodidGetParams(const httplib::Request& req, Apiv2encounterMethodidGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2encounterMethodidGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2encounterMethodidGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2encounterMethodidGetResponse(const Apiv2encounterMethodidGetResponse& result, httplib::Response& res);
-    static bool performAuthentication(
-        const httplib::Request& req,
-        std::shared_ptr<AuthenticationManager> auth,
-        httplib::Response& res);
 };
 
 } // namespace Api

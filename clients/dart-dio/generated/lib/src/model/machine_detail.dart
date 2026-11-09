@@ -14,21 +14,25 @@ part 'machine_detail.g.dart';
 /// MachineDetail
 ///
 /// Properties:
-/// * [id] 
-/// * [item] 
-/// * [versionGroup] 
-/// * [move] 
+/// * [id] - The identifier for this resource.
+/// * [item] - The TM or HM item that corresponds to this machine.
+/// * [versionGroup] - The version group that this machine applies to.
+/// * [move] - The move that is taught by this machine.
 @BuiltValue()
 abstract class MachineDetail implements Built<MachineDetail, MachineDetailBuilder> {
+  /// The identifier for this resource.
   @BuiltValueField(wireName: r'id')
   int get id;
 
+  /// The TM or HM item that corresponds to this machine.
   @BuiltValueField(wireName: r'item')
   ItemSummary get item;
 
+  /// The version group that this machine applies to.
   @BuiltValueField(wireName: r'version_group')
   VersionGroupSummary get versionGroup;
 
+  /// The move that is taught by this machine.
   @BuiltValueField(wireName: r'move')
   MoveSummary get move;
 

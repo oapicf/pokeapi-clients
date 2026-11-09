@@ -10,6 +10,7 @@ import {SecurityAuthentication} from '../auth/auth';
 
 import { LanguageDetail } from '../models/LanguageDetail';
 import { PaginatedLanguageSummaryList } from '../models/PaginatedLanguageSummaryList';
+import { PokeapiMetaResponse } from '../models/PokeapiMetaResponse';
 
 /**
  * no description
@@ -52,17 +53,6 @@ export class UtilityApiRequestFactory extends BaseAPIRequestFactory {
         }
 
 
-        let authMethod: SecurityAuthentication | undefined;
-        // Apply auth methods
-        authMethod = _config.authMethods["basicAuth"]
-        if (authMethod?.applySecurityAuthentication) {
-            await authMethod?.applySecurityAuthentication(requestContext);
-        }
-        // Apply auth methods
-        authMethod = _config.authMethods["cookieAuth"]
-        if (authMethod?.applySecurityAuthentication) {
-            await authMethod?.applySecurityAuthentication(requestContext);
-        }
         
         const defaultAuth: SecurityAuthentication | undefined = _config?.authMethods?.default
         if (defaultAuth?.applySecurityAuthentication) {
@@ -95,17 +85,30 @@ export class UtilityApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
 
-        let authMethod: SecurityAuthentication | undefined;
-        // Apply auth methods
-        authMethod = _config.authMethods["basicAuth"]
-        if (authMethod?.applySecurityAuthentication) {
-            await authMethod?.applySecurityAuthentication(requestContext);
+        
+        const defaultAuth: SecurityAuthentication | undefined = _config?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
         }
-        // Apply auth methods
-        authMethod = _config.authMethods["cookieAuth"]
-        if (authMethod?.applySecurityAuthentication) {
-            await authMethod?.applySecurityAuthentication(requestContext);
-        }
+
+        return requestContext;
+    }
+
+    /**
+     * Returns metadata about the current deployed version of the API, including the git commit hash, deploy date, and tag (if any).
+     * Get API metadata
+     */
+    public async metaRetrieve(_options?: Configuration): Promise<RequestContext> {
+        let _config = _options || this.configuration;
+
+        // Path Params
+        const localVarPath = '/api/v2/meta/';
+
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+
         
         const defaultAuth: SecurityAuthentication | undefined = _config?.authMethods?.default
         if (defaultAuth?.applySecurityAuthentication) {
@@ -171,6 +174,35 @@ export class UtilityApiResponseProcessor {
                 ObjectSerializer.parse(await response.body.text(), contentType),
                 "LanguageDetail", ""
             ) as LanguageDetail;
+            return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+
+        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to metaRetrieve
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+     public async metaRetrieveWithHttpInfo(response: ResponseContext): Promise<HttpInfo<PokeapiMetaResponse >> {
+        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if (isCodeInRange("200", response.httpStatusCode)) {
+            const body: PokeapiMetaResponse = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "PokeapiMetaResponse", ""
+            ) as PokeapiMetaResponse;
+            return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body: PokeapiMetaResponse = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "PokeapiMetaResponse", ""
+            ) as PokeapiMetaResponse;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 

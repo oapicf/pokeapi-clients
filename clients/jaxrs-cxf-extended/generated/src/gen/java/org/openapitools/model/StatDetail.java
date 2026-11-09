@@ -4,9 +4,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.model.CharacteristicSummary;
+import org.openapitools.model.ItemSummary;
 import org.openapitools.model.MoveDamageClassSummary;
-import org.openapitools.model.StatDetailAffectingMoves;
-import org.openapitools.model.StatDetailAffectingNatures;
+import org.openapitools.model.StatAffectingMoves;
+import org.openapitools.model.StatAffectingNatures;
 import org.openapitools.model.StatName;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
@@ -18,37 +19,70 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class StatDetail  {
   
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The identifier for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   private Integer id;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The name for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   private String name;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * ID the games use for this stat.
+  */
+  @ApiModelProperty(required = true, value = "ID the games use for this stat.")
   private Integer gameIndex;
 
-  @ApiModelProperty(value = "")
+ /**
+  * Whether this stat only exists within a battle.
+  */
+  @ApiModelProperty(value = "Whether this stat only exists within a battle.")
   private Boolean isBattleOnly;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * A detail of moves which affect this stat positively or negatively.
+  */
+  @ApiModelProperty(required = true, value = "A detail of moves which affect this stat positively or negatively.")
   @Valid
-  private StatDetailAffectingMoves affectingMoves;
+  private StatAffectingMoves affectingMoves;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * A detail of natures which affect this stat positively or negatively.
+  */
+  @ApiModelProperty(required = true, value = "A detail of natures which affect this stat positively or negatively.")
   @Valid
-  private StatDetailAffectingNatures affectingNatures;
+  private StatAffectingNatures affectingNatures;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * Items that affect this stat, such as vitamins and battle items.
+  */
+  @ApiModelProperty(required = true, value = "Items that affect this stat, such as vitamins and battle items.")
+  private List<@Valid ItemSummary> affectingItems = new ArrayList<>();
+
+ /**
+  * A list of characteristics that are set on a Pokémon when its highest base stat is this stat.
+  */
+  @ApiModelProperty(required = true, value = "A list of characteristics that are set on a Pokémon when its highest base stat is this stat.")
   private List<@Valid CharacteristicSummary> characteristics = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The class of damage this stat is directly related to.
+  */
+  @ApiModelProperty(required = true, value = "The class of damage this stat is directly related to.")
   @Valid
   private MoveDamageClassSummary moveDamageClass;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The name of this resource listed in different languages.
+  */
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
   private List<@Valid StatName> names = new ArrayList<>();
  /**
-  * Get id
+  * The identifier for this resource.
   * @return id
   */
   @JsonProperty("id")
@@ -75,12 +109,12 @@ public class StatDetail  {
   }
 
  /**
-  * Get name
+  * The name for this resource.
   * @return name
   */
   @JsonProperty("name")
   @NotNull
- @Size(max=100)  public String getName() {
+ @Size(max=200)  public String getName() {
     return name;
   }
 
@@ -100,12 +134,14 @@ public class StatDetail  {
   }
 
  /**
-  * Get gameIndex
+  * ID the games use for this stat.
+  * minimum: -2147483648
+  * maximum: 2147483647
   * @return gameIndex
   */
   @JsonProperty("game_index")
   @NotNull
-  public Integer getGameIndex() {
+ @Min(-2147483648) @Max(2147483647)  public Integer getGameIndex() {
     return gameIndex;
   }
 
@@ -125,7 +161,7 @@ public class StatDetail  {
   }
 
  /**
-  * Get isBattleOnly
+  * Whether this stat only exists within a battle.
   * @return isBattleOnly
   */
   @JsonProperty("is_battle_only")
@@ -149,57 +185,97 @@ public class StatDetail  {
   }
 
  /**
-  * Get affectingMoves
+  * A detail of moves which affect this stat positively or negatively.
   * @return affectingMoves
   */
   @JsonProperty("affecting_moves")
   @NotNull
-  public StatDetailAffectingMoves getAffectingMoves() {
+  public StatAffectingMoves getAffectingMoves() {
     return affectingMoves;
   }
 
   /**
    * Sets the <code>affectingMoves</code> property.
+   * <br><em>N.B. <code>affectingMoves</code> is <b>read only</b>; client code should not call this method</em>.
    */
- public void setAffectingMoves(StatDetailAffectingMoves affectingMoves) {
+ public void setAffectingMoves(StatAffectingMoves affectingMoves) {
     this.affectingMoves = affectingMoves;
   }
 
   /**
    * Sets the <code>affectingMoves</code> property.
+   * <br><em>N.B. <code>affectingMoves</code> is <b>read only</b>; client code should not call this method</em>.
    */
-  public StatDetail affectingMoves(StatDetailAffectingMoves affectingMoves) {
+  public StatDetail affectingMoves(StatAffectingMoves affectingMoves) {
     this.affectingMoves = affectingMoves;
     return this;
   }
 
  /**
-  * Get affectingNatures
+  * A detail of natures which affect this stat positively or negatively.
   * @return affectingNatures
   */
   @JsonProperty("affecting_natures")
   @NotNull
-  public StatDetailAffectingNatures getAffectingNatures() {
+  public StatAffectingNatures getAffectingNatures() {
     return affectingNatures;
   }
 
   /**
    * Sets the <code>affectingNatures</code> property.
+   * <br><em>N.B. <code>affectingNatures</code> is <b>read only</b>; client code should not call this method</em>.
    */
- public void setAffectingNatures(StatDetailAffectingNatures affectingNatures) {
+ public void setAffectingNatures(StatAffectingNatures affectingNatures) {
     this.affectingNatures = affectingNatures;
   }
 
   /**
    * Sets the <code>affectingNatures</code> property.
+   * <br><em>N.B. <code>affectingNatures</code> is <b>read only</b>; client code should not call this method</em>.
    */
-  public StatDetail affectingNatures(StatDetailAffectingNatures affectingNatures) {
+  public StatDetail affectingNatures(StatAffectingNatures affectingNatures) {
     this.affectingNatures = affectingNatures;
     return this;
   }
 
  /**
-  * Get characteristics
+  * Items that affect this stat, such as vitamins and battle items.
+  * @return affectingItems
+  */
+  @JsonProperty("affecting_items")
+  @NotNull
+  public List<@Valid ItemSummary> getAffectingItems() {
+    return affectingItems;
+  }
+
+  /**
+   * Sets the <code>affectingItems</code> property.
+   * <br><em>N.B. <code>affectingItems</code> is <b>read only</b>; client code should not call this method</em>.
+   */
+ public void setAffectingItems(List<@Valid ItemSummary> affectingItems) {
+    this.affectingItems = affectingItems;
+  }
+
+  /**
+   * Sets the <code>affectingItems</code> property.
+   * <br><em>N.B. <code>affectingItems</code> is <b>read only</b>; client code should not call this method</em>.
+   */
+  public StatDetail affectingItems(List<@Valid ItemSummary> affectingItems) {
+    this.affectingItems = affectingItems;
+    return this;
+  }
+
+  /**
+   * Adds a new item to the <code>affectingItems</code> list.
+   * <br><em>N.B. <code>affectingItems</code> is <b>read only</b>; client code should not call this method</em>.
+   */
+  public StatDetail addAffectingItemsItem(ItemSummary affectingItemsItem) {
+    this.affectingItems.add(affectingItemsItem);
+    return this;
+  }
+
+ /**
+  * A list of characteristics that are set on a Pokémon when its highest base stat is this stat.
   * @return characteristics
   */
   @JsonProperty("characteristics")
@@ -235,7 +311,7 @@ public class StatDetail  {
   }
 
  /**
-  * Get moveDamageClass
+  * The class of damage this stat is directly related to.
   * @return moveDamageClass
   */
   @JsonProperty("move_damage_class")
@@ -260,7 +336,7 @@ public class StatDetail  {
   }
 
  /**
-  * Get names
+  * The name of this resource listed in different languages.
   * @return names
   */
   @JsonProperty("names")
@@ -311,6 +387,7 @@ public class StatDetail  {
         Objects.equals(this.isBattleOnly, statDetail.isBattleOnly) &&
         Objects.equals(this.affectingMoves, statDetail.affectingMoves) &&
         Objects.equals(this.affectingNatures, statDetail.affectingNatures) &&
+        Objects.equals(this.affectingItems, statDetail.affectingItems) &&
         Objects.equals(this.characteristics, statDetail.characteristics) &&
         Objects.equals(this.moveDamageClass, statDetail.moveDamageClass) &&
         Objects.equals(this.names, statDetail.names);
@@ -318,7 +395,7 @@ public class StatDetail  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, gameIndex, isBattleOnly, affectingMoves, affectingNatures, characteristics, moveDamageClass, names);
+    return Objects.hash(id, name, gameIndex, isBattleOnly, affectingMoves, affectingNatures, affectingItems, characteristics, moveDamageClass, names);
   }
 
   @Override
@@ -332,6 +409,7 @@ public class StatDetail  {
     sb.append("    isBattleOnly: ").append(toIndentedString(isBattleOnly)).append("\n");
     sb.append("    affectingMoves: ").append(toIndentedString(affectingMoves)).append("\n");
     sb.append("    affectingNatures: ").append(toIndentedString(affectingNatures)).append("\n");
+    sb.append("    affectingItems: ").append(toIndentedString(affectingItems)).append("\n");
     sb.append("    characteristics: ").append(toIndentedString(characteristics)).append("\n");
     sb.append("    moveDamageClass: ").append(toIndentedString(moveDamageClass)).append("\n");
     sb.append("    names: ").append(toIndentedString(names)).append("\n");

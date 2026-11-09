@@ -11,7 +11,6 @@
 
 // Project headers
 #include "GamesApi.h"
-#include "AuthenticationManager.h"
 
 constexpr int HTTP_RESPONSE_CODE_PAGINATED_GENERATION_SUMMARY_LIST = 200;
 constexpr int HTTP_RESPONSE_CODE_GENERATION_DETAIL = 200;
@@ -22,7 +21,6 @@ constexpr int HTTP_RESPONSE_CODE_VERSION_GROUP_DETAIL = 200;
 constexpr int HTTP_RESPONSE_CODE_PAGINATED_VERSION_SUMMARY_LIST = 200;
 constexpr int HTTP_RESPONSE_CODE_VERSION_DETAIL = 200;
 constexpr int HTTP_RESPONSE_CODE_BAD_REQUEST = 400;
-constexpr int HTTP_RESPONSE_CODE_UNAUTHORIZED = 401;
 constexpr int HTTP_RESPONSE_CODE_INTERNAL_SERVER_ERROR = 500;
 
 namespace Api {
@@ -438,61 +436,11 @@ void Games::handleApiv2versionidGetResponse(const Apiv2versionidGetResponse& res
     res.set_content(responseJson.dump(), "application/json");
 }
 
-bool Games::performAuthentication(
-    const httplib::Request& req,
-    std::shared_ptr<AuthenticationManager> auth,
-    httplib::Response& res)
-{
-    if (!auth)
-    {
-        nlohmann::json errorJson = nlohmann::json::object();
-        errorJson["message"] = "AuthenticationManager not configured";
-        res.status = HTTP_RESPONSE_CODE_INTERNAL_SERVER_ERROR;
-        res.set_content(errorJson.dump(), "application/json");
-        return false;
-    }
 
-    {
-        auto cookieHeader = req.get_header_value("Cookie");
-        std::string key = "sessionid=";
-        size_t start = cookieHeader.find(key);
-        if (start != std::string::npos)
-        {
-            start += key.length();
-            size_t end = cookieHeader.find(";", start);
-            if (end == std::string::npos) end = cookieHeader.length();
-            std::string cookieValue = cookieHeader.substr(start, end - start);
-            if (auth->validateApiKey(cookieValue)) return true;
-        }
-    }
-
-    if (req.has_header("Authorization"))
-    {
-        auto authHeader = req.get_header_value("Authorization");
-        if (authHeader.find("Basic ") == 0)
-        {
-            std::string credentials = authHeader.substr(6);
-            if (auth->validateBasicAuth(credentials, "")) return true;
-        }
-    }
-
-
-
-    return false;
-}
-
-void Games::handleApiv2generationGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Games::handleApiv2generationGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2generationGetRequest params;
         std::vector<std::string> paramErrors;
@@ -518,18 +466,10 @@ void Games::handleApiv2generationGetRequest([[maybe_unused]] const httplib::Requ
     }
 }
 
-void Games::handleApiv2generationidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Games::handleApiv2generationidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2generationidGetRequest params;
         std::vector<std::string> paramErrors;
@@ -555,18 +495,10 @@ void Games::handleApiv2generationidGetRequest([[maybe_unused]] const httplib::Re
     }
 }
 
-void Games::handleApiv2pokedexGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Games::handleApiv2pokedexGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2pokedexGetRequest params;
         std::vector<std::string> paramErrors;
@@ -592,18 +524,10 @@ void Games::handleApiv2pokedexGetRequest([[maybe_unused]] const httplib::Request
     }
 }
 
-void Games::handleApiv2pokedexidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Games::handleApiv2pokedexidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2pokedexidGetRequest params;
         std::vector<std::string> paramErrors;
@@ -629,18 +553,10 @@ void Games::handleApiv2pokedexidGetRequest([[maybe_unused]] const httplib::Reque
     }
 }
 
-void Games::handleApiv2versionGroupGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Games::handleApiv2versionGroupGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2versionGroupGetRequest params;
         std::vector<std::string> paramErrors;
@@ -666,18 +582,10 @@ void Games::handleApiv2versionGroupGetRequest([[maybe_unused]] const httplib::Re
     }
 }
 
-void Games::handleApiv2versionGroupidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Games::handleApiv2versionGroupidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2versionGroupidGetRequest params;
         std::vector<std::string> paramErrors;
@@ -703,18 +611,10 @@ void Games::handleApiv2versionGroupidGetRequest([[maybe_unused]] const httplib::
     }
 }
 
-void Games::handleApiv2versionGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Games::handleApiv2versionGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2versionGetRequest params;
         std::vector<std::string> paramErrors;
@@ -740,18 +640,10 @@ void Games::handleApiv2versionGetRequest([[maybe_unused]] const httplib::Request
     }
 }
 
-void Games::handleApiv2versionidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Games::handleApiv2versionidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2versionidGetRequest params;
         std::vector<std::string> paramErrors;
@@ -778,39 +670,39 @@ void Games::handleApiv2versionidGetRequest([[maybe_unused]] const httplib::Reque
 }
 
 
-void Games::registerRoutes(httplib::Server& svr, std::shared_ptr<AuthenticationManager> auth)
+void Games::registerRoutes(httplib::Server& svr)
 {
-    svr.Get("/api/v2/generation/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/generation/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2generationGetRequest(req, res, auth);
+        handleApiv2generationGetRequest(req, res);
     });
-    svr.Get("/api/v2/generation/{id}/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/generation/{id}/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2generationidGetRequest(req, res, auth);
+        handleApiv2generationidGetRequest(req, res);
     });
-    svr.Get("/api/v2/pokedex/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/pokedex/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2pokedexGetRequest(req, res, auth);
+        handleApiv2pokedexGetRequest(req, res);
     });
-    svr.Get("/api/v2/pokedex/{id}/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/pokedex/{id}/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2pokedexidGetRequest(req, res, auth);
+        handleApiv2pokedexidGetRequest(req, res);
     });
-    svr.Get("/api/v2/version-group/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/version-group/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2versionGroupGetRequest(req, res, auth);
+        handleApiv2versionGroupGetRequest(req, res);
     });
-    svr.Get("/api/v2/version-group/{id}/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/version-group/{id}/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2versionGroupidGetRequest(req, res, auth);
+        handleApiv2versionGroupidGetRequest(req, res);
     });
-    svr.Get("/api/v2/version/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/version/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2versionGetRequest(req, res, auth);
+        handleApiv2versionGetRequest(req, res);
     });
-    svr.Get("/api/v2/version/{id}/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/version/{id}/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2versionidGetRequest(req, res, auth);
+        handleApiv2versionidGetRequest(req, res);
     });
 }
 

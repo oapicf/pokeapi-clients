@@ -11,19 +11,17 @@ namespace models {
 ItemDetail::ItemDetail()
 : id(0)
 , name("")
-, cost(0)
 , flingPower(0)
-, flingEffect(ItemFlingEffectSummary())
-, attributes(std::vector<ItemDetail_attributes_inner>())
-, category(ItemCategorySummary())
+, flingEffect(std::nullopt)
+, attributes(std::vector<ItemAttributeSummary>())
 , effectEntries(std::vector<ItemEffectText>())
 , flavorTextEntries(std::vector<ItemFlavorText>())
 , gameIndices(std::vector<ItemGameIndex>())
+, prices(std::vector<ItemPrice>())
 , names(std::vector<ItemName>())
-, heldByPokemon(std::vector<ItemDetail_held_by_pokemon_inner>())
-, sprites(ItemDetailSprites())
-, babyTriggerFor(ItemDetailBabyTriggerFor())
-, machines(std::vector<ItemDetail_machines_inner>())
+, heldByPokemon(std::vector<PokemonHeldItem>())
+, babyTriggerFor(std::nullopt)
+, machines(std::vector<ItemMachine>())
 {
 }
 // =========================================
@@ -40,10 +38,6 @@ std::string ItemDetail::getName() const
 {
     return name;
 }
-int ItemDetail::getCost() const
-{
-    return cost;
-}
 int ItemDetail::getFlingPower() const
 {
     return flingPower;
@@ -52,7 +46,7 @@ ItemFlingEffectSummary ItemDetail::getFlingEffect() const
 {
     return flingEffect;
 }
-std::vector<ItemDetail_attributes_inner> ItemDetail::getAttributes() const
+std::vector<ItemAttributeSummary> ItemDetail::getAttributes() const
 {
     return attributes;
 }
@@ -72,23 +66,27 @@ std::vector<ItemGameIndex> ItemDetail::getGameIndices() const
 {
     return gameIndices;
 }
+std::vector<ItemPrice> ItemDetail::getPrices() const
+{
+    return prices;
+}
 std::vector<ItemName> ItemDetail::getNames() const
 {
     return names;
 }
-std::vector<ItemDetail_held_by_pokemon_inner> ItemDetail::getHeldByPokemon() const
+std::vector<PokemonHeldItem> ItemDetail::getHeldByPokemon() const
 {
     return heldByPokemon;
 }
-ItemDetailSprites ItemDetail::getSprites() const
+ItemSprites ItemDetail::getSprites() const
 {
     return sprites;
 }
-ItemDetailBabyTriggerFor ItemDetail::getBabyTriggerFor() const
+EvolutionChainSummary ItemDetail::getBabyTriggerFor() const
 {
     return babyTriggerFor;
 }
-std::vector<ItemDetail_machines_inner> ItemDetail::getMachines() const
+std::vector<ItemMachine> ItemDetail::getMachines() const
 {
     return machines;
 }
@@ -104,10 +102,6 @@ void ItemDetail::setName(const std::string& nameObj)
 {
     name = nameObj;
 }
-void ItemDetail::setCost(const int& costObj)
-{
-    cost = costObj;
-}
 void ItemDetail::setFlingPower(const int& flingPowerObj)
 {
     flingPower = flingPowerObj;
@@ -116,7 +110,7 @@ void ItemDetail::setFlingEffect(const ItemFlingEffectSummary& flingEffectObj)
 {
     flingEffect = flingEffectObj;
 }
-void ItemDetail::setAttributes(const std::vector<ItemDetail_attributes_inner>& attributesObj)
+void ItemDetail::setAttributes(const std::vector<ItemAttributeSummary>& attributesObj)
 {
     attributes = attributesObj;
 }
@@ -136,23 +130,27 @@ void ItemDetail::setGameIndices(const std::vector<ItemGameIndex>& gameIndicesObj
 {
     gameIndices = gameIndicesObj;
 }
+void ItemDetail::setPrices(const std::vector<ItemPrice>& pricesObj)
+{
+    prices = pricesObj;
+}
 void ItemDetail::setNames(const std::vector<ItemName>& namesObj)
 {
     names = namesObj;
 }
-void ItemDetail::setHeldByPokemon(const std::vector<ItemDetail_held_by_pokemon_inner>& heldByPokemonObj)
+void ItemDetail::setHeldByPokemon(const std::vector<PokemonHeldItem>& heldByPokemonObj)
 {
     heldByPokemon = heldByPokemonObj;
 }
-void ItemDetail::setSprites(const ItemDetailSprites& spritesObj)
+void ItemDetail::setSprites(const ItemSprites& spritesObj)
 {
     sprites = spritesObj;
 }
-void ItemDetail::setBabyTriggerFor(const ItemDetailBabyTriggerFor& babyTriggerForObj)
+void ItemDetail::setBabyTriggerFor(const EvolutionChainSummary& babyTriggerForObj)
 {
     babyTriggerFor = babyTriggerForObj;
 }
-void ItemDetail::setMachines(const std::vector<ItemDetail_machines_inner>& machinesObj)
+void ItemDetail::setMachines(const std::vector<ItemMachine>& machinesObj)
 {
     machines = machinesObj;
 }

@@ -26,7 +26,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("GenerationDetail")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-11-09T13:50:06.168269698Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class GenerationDetail   {
   private Integer id;
   private String name;
@@ -65,6 +65,7 @@ public class GenerationDetail   {
   }
 
   /**
+   * The identifier for this resource.
    **/
   public GenerationDetail id(Integer id) {
     this.id = id;
@@ -72,7 +73,7 @@ public class GenerationDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   @JsonProperty(required = true, value = "id")
   public Integer getId() {
     return id;
@@ -84,6 +85,7 @@ public class GenerationDetail   {
   }
 
   /**
+   * The name for this resource.
    **/
   public GenerationDetail name(String name) {
     this.name = name;
@@ -91,9 +93,9 @@ public class GenerationDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   @JsonProperty(required = true, value = "name")
-  @NotNull  @Size(max=100)public String getName() {
+  @NotNull  @Size(max=200)public String getName() {
     return name;
   }
 
@@ -103,6 +105,7 @@ public class GenerationDetail   {
   }
 
   /**
+   * A list of abilities that were introduced in this generation.
    **/
   public GenerationDetail abilities(List<@Valid AbilitySummary> abilities) {
     this.abilities = abilities;
@@ -110,7 +113,7 @@ public class GenerationDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of abilities that were introduced in this generation.")
   @JsonProperty(required = true, value = "abilities")
   public List<@Valid AbilitySummary> getAbilities() {
     return abilities;
@@ -138,6 +141,7 @@ public class GenerationDetail   {
     return this;
   }
   /**
+   * The main region travelled in this generation.
    **/
   public GenerationDetail mainRegion(RegionSummary mainRegion) {
     this.mainRegion = mainRegion;
@@ -145,7 +149,7 @@ public class GenerationDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The main region travelled in this generation.")
   @JsonProperty(required = true, value = "main_region")
   @NotNull @Valid public RegionSummary getMainRegion() {
     return mainRegion;
@@ -157,6 +161,7 @@ public class GenerationDetail   {
   }
 
   /**
+   * A list of moves that were introduced in this generation.
    **/
   public GenerationDetail moves(List<@Valid MoveSummary> moves) {
     this.moves = moves;
@@ -164,7 +169,7 @@ public class GenerationDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of moves that were introduced in this generation.")
   @JsonProperty(required = true, value = "moves")
   public List<@Valid MoveSummary> getMoves() {
     return moves;
@@ -192,6 +197,7 @@ public class GenerationDetail   {
     return this;
   }
   /**
+   * The name of this resource listed in different languages.
    **/
   public GenerationDetail names(List<@Valid GenerationName> names) {
     this.names = names;
@@ -199,7 +205,7 @@ public class GenerationDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
   @JsonProperty(required = true, value = "names")
   public List<@Valid GenerationName> getNames() {
     return names;
@@ -227,6 +233,7 @@ public class GenerationDetail   {
     return this;
   }
   /**
+   * A list of Pokémon species that were introduced in this generation.
    **/
   public GenerationDetail pokemonSpecies(List<@Valid PokemonSpeciesSummary> pokemonSpecies) {
     this.pokemonSpecies = pokemonSpecies;
@@ -234,7 +241,7 @@ public class GenerationDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of Pokémon species that were introduced in this generation.")
   @JsonProperty(required = true, value = "pokemon_species")
   public List<@Valid PokemonSpeciesSummary> getPokemonSpecies() {
     return pokemonSpecies;
@@ -262,6 +269,7 @@ public class GenerationDetail   {
     return this;
   }
   /**
+   * A list of types that were introduced in this generation.
    **/
   public GenerationDetail types(List<@Valid TypeSummary> types) {
     this.types = types;
@@ -269,7 +277,7 @@ public class GenerationDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of types that were introduced in this generation.")
   @JsonProperty(required = true, value = "types")
   public List<@Valid TypeSummary> getTypes() {
     return types;
@@ -297,6 +305,7 @@ public class GenerationDetail   {
     return this;
   }
   /**
+   * A list of version groups that were introduced in this generation.
    **/
   public GenerationDetail versionGroups(List<@Valid VersionGroupSummary> versionGroups) {
     this.versionGroups = versionGroups;
@@ -304,7 +313,7 @@ public class GenerationDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of version groups that were introduced in this generation.")
   @JsonProperty(required = true, value = "version_groups")
   public List<@Valid VersionGroupSummary> getVersionGroups() {
     return versionGroups;

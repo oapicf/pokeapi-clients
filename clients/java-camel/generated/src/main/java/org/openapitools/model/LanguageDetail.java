@@ -22,7 +22,7 @@ import jakarta.annotation.Generated;
  * LanguageDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-10-25T05:48:25.711080506Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-11-09T13:49:41.168612095Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class LanguageDetail {
 
   private Integer id;
@@ -58,11 +58,11 @@ public class LanguageDetail {
   }
 
   /**
-   * Get id
+   * The identifier for this resource.
    * @return id
    */
   
-  @Schema(name = "id", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "id", accessMode = Schema.AccessMode.READ_ONLY, description = "The identifier for this resource.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("id")
   public Integer getId() {
     return id;
@@ -78,11 +78,11 @@ public class LanguageDetail {
   }
 
   /**
-   * Get name
+   * The name for this resource.
    * @return name
    */
-  @NotNull @Size(max = 100) 
-  @Schema(name = "name", requiredMode = Schema.RequiredMode.REQUIRED)
+  @NotNull @Size(max = 200) 
+  @Schema(name = "name", description = "The name for this resource.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("name")
   public String getName() {
     return name;
@@ -98,11 +98,11 @@ public class LanguageDetail {
   }
 
   /**
-   * Get official
+   * Whether or not the games are published in this language.
    * @return official
    */
   
-  @Schema(name = "official", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Schema(name = "official", description = "Whether or not the games are published in this language.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("official")
   public Boolean getOfficial() {
     return official;
@@ -118,11 +118,11 @@ public class LanguageDetail {
   }
 
   /**
-   * Get iso639
+   * The two-letter ISO 639-1 language code. Multiple PokéAPI language records may share this code.
    * @return iso639
    */
   @NotNull @Size(max = 10) 
-  @Schema(name = "iso639", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "iso639", description = "The two-letter ISO 639-1 language code. Multiple PokéAPI language records may share this code.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("iso639")
   public String getIso639() {
     return iso639;
@@ -138,11 +138,11 @@ public class LanguageDetail {
   }
 
   /**
-   * Get iso3166
+   * The two-letter ISO 3166-1 alpha-2 code of the country or region associated with this language record. Multiple PokéAPI language records may share this code.
    * @return iso3166
    */
   @NotNull @Size(max = 2) 
-  @Schema(name = "iso3166", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "iso3166", description = "The two-letter ISO 3166-1 alpha-2 code of the country or region associated with this language record. Multiple PokéAPI language records may share this code.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("iso3166")
   public String getIso3166() {
     return iso3166;
@@ -166,11 +166,11 @@ public class LanguageDetail {
   }
 
   /**
-   * Get names
+   * The name of this resource listed in different languages.
    * @return names
    */
   
-  @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, description = "The name of this resource listed in different languages.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("names")
   public List<@Valid LanguageName> getNames() {
     return names;

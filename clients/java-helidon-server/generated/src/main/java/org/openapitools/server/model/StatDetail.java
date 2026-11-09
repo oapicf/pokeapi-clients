@@ -4,9 +4,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.server.model.CharacteristicSummary;
+import org.openapitools.server.model.ItemSummary;
 import org.openapitools.server.model.MoveDamageClassSummary;
-import org.openapitools.server.model.StatDetailAffectingMoves;
-import org.openapitools.server.model.StatDetailAffectingNatures;
+import org.openapitools.server.model.StatAffectingMoves;
+import org.openapitools.server.model.StatAffectingNatures;
 import org.openapitools.server.model.StatName;
 import jakarta.validation.constraints.*;
 import jakarta.validation.Valid;
@@ -19,8 +20,9 @@ public class StatDetail   {
     private String name;
     private Integer gameIndex;
     private Boolean isBattleOnly;
-    private StatDetailAffectingMoves affectingMoves;
-    private StatDetailAffectingNatures affectingNatures;
+    private StatAffectingMoves affectingMoves;
+    private StatAffectingNatures affectingNatures;
+    private List<@Valid ItemSummary> affectingItems = new ArrayList<>();
     private List<@Valid CharacteristicSummary> characteristics = new ArrayList<>();
     private MoveDamageClassSummary moveDamageClass;
     private List<@Valid StatName> names = new ArrayList<>();
@@ -35,23 +37,25 @@ public class StatDetail   {
     /**
      * Create StatDetail.
      *
-     * @param id id
-     * @param name name
-     * @param gameIndex gameIndex
-     * @param isBattleOnly isBattleOnly
-     * @param affectingMoves affectingMoves
-     * @param affectingNatures affectingNatures
-     * @param characteristics characteristics
-     * @param moveDamageClass moveDamageClass
-     * @param names names
+     * @param id The identifier for this resource.
+     * @param name The name for this resource.
+     * @param gameIndex ID the games use for this stat.
+     * @param isBattleOnly Whether this stat only exists within a battle.
+     * @param affectingMoves A detail of moves which affect this stat positively or negatively.
+     * @param affectingNatures A detail of natures which affect this stat positively or negatively.
+     * @param affectingItems Items that affect this stat, such as vitamins and battle items.
+     * @param characteristics A list of characteristics that are set on a Pokémon when its highest base stat is this stat.
+     * @param moveDamageClass The class of damage this stat is directly related to.
+     * @param names The name of this resource listed in different languages.
      */
     public StatDetail(
         Integer id, 
         String name, 
         Integer gameIndex, 
         Boolean isBattleOnly, 
-        StatDetailAffectingMoves affectingMoves, 
-        StatDetailAffectingNatures affectingNatures, 
+        StatAffectingMoves affectingMoves, 
+        StatAffectingNatures affectingNatures, 
+        List<@Valid ItemSummary> affectingItems, 
         List<@Valid CharacteristicSummary> characteristics, 
         MoveDamageClassSummary moveDamageClass, 
         List<@Valid StatName> names
@@ -62,6 +66,7 @@ public class StatDetail   {
         this.isBattleOnly = isBattleOnly;
         this.affectingMoves = affectingMoves;
         this.affectingNatures = affectingNatures;
+        this.affectingItems = affectingItems;
         this.characteristics = characteristics;
         this.moveDamageClass = moveDamageClass;
         this.names = names;
@@ -70,7 +75,7 @@ public class StatDetail   {
 
 
     /**
-     * Get id
+     * The identifier for this resource.
      * @return id
      */
     public Integer getId() {
@@ -82,7 +87,7 @@ public class StatDetail   {
     }
 
     /**
-     * Get name
+     * The name for this resource.
      * @return name
      */
     public String getName() {
@@ -94,7 +99,9 @@ public class StatDetail   {
     }
 
     /**
-     * Get gameIndex
+     * ID the games use for this stat.
+     * minimum: -2147483648
+     * maximum: 2147483647
      * @return gameIndex
      */
     public Integer getGameIndex() {
@@ -106,7 +113,7 @@ public class StatDetail   {
     }
 
     /**
-     * Get isBattleOnly
+     * Whether this stat only exists within a battle.
      * @return isBattleOnly
      */
     public Boolean getIsBattleOnly() {
@@ -118,31 +125,43 @@ public class StatDetail   {
     }
 
     /**
-     * Get affectingMoves
+     * A detail of moves which affect this stat positively or negatively.
      * @return affectingMoves
      */
-    public StatDetailAffectingMoves getAffectingMoves() {
+    public StatAffectingMoves getAffectingMoves() {
         return affectingMoves;
     }
 
-    public void setAffectingMoves(StatDetailAffectingMoves affectingMoves) {
+    public void setAffectingMoves(StatAffectingMoves affectingMoves) {
         this.affectingMoves = affectingMoves;
     }
 
     /**
-     * Get affectingNatures
+     * A detail of natures which affect this stat positively or negatively.
      * @return affectingNatures
      */
-    public StatDetailAffectingNatures getAffectingNatures() {
+    public StatAffectingNatures getAffectingNatures() {
         return affectingNatures;
     }
 
-    public void setAffectingNatures(StatDetailAffectingNatures affectingNatures) {
+    public void setAffectingNatures(StatAffectingNatures affectingNatures) {
         this.affectingNatures = affectingNatures;
     }
 
     /**
-     * Get characteristics
+     * Items that affect this stat, such as vitamins and battle items.
+     * @return affectingItems
+     */
+    public List<@Valid ItemSummary> getAffectingItems() {
+        return affectingItems;
+    }
+
+    public void setAffectingItems(List<@Valid ItemSummary> affectingItems) {
+        this.affectingItems = affectingItems;
+    }
+
+    /**
+     * A list of characteristics that are set on a Pokémon when its highest base stat is this stat.
      * @return characteristics
      */
     public List<@Valid CharacteristicSummary> getCharacteristics() {
@@ -154,7 +173,7 @@ public class StatDetail   {
     }
 
     /**
-     * Get moveDamageClass
+     * The class of damage this stat is directly related to.
      * @return moveDamageClass
      */
     public MoveDamageClassSummary getMoveDamageClass() {
@@ -166,7 +185,7 @@ public class StatDetail   {
     }
 
     /**
-     * Get names
+     * The name of this resource listed in different languages.
      * @return names
      */
     public List<@Valid StatName> getNames() {
@@ -191,6 +210,7 @@ public class StatDetail   {
         sb.append("    isBattleOnly: ").append(toIndentedString(isBattleOnly)).append("\n");
         sb.append("    affectingMoves: ").append(toIndentedString(affectingMoves)).append("\n");
         sb.append("    affectingNatures: ").append(toIndentedString(affectingNatures)).append("\n");
+        sb.append("    affectingItems: ").append(toIndentedString(affectingItems)).append("\n");
         sb.append("    characteristics: ").append(toIndentedString(characteristics)).append("\n");
         sb.append("    moveDamageClass: ").append(toIndentedString(moveDamageClass)).append("\n");
         sb.append("    names: ").append(toIndentedString(names)).append("\n");

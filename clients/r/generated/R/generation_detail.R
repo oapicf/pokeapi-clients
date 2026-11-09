@@ -7,15 +7,15 @@
 #' @title GenerationDetail
 #' @description GenerationDetail Class
 #' @format An \code{R6Class} generator object
-#' @field id  integer
-#' @field name  character
-#' @field abilities  list(\link{AbilitySummary})
-#' @field main_region  \link{RegionSummary}
-#' @field moves  list(\link{MoveSummary})
-#' @field names  list(\link{GenerationName})
-#' @field pokemon_species  list(\link{PokemonSpeciesSummary})
-#' @field types  list(\link{TypeSummary})
-#' @field version_groups  list(\link{VersionGroupSummary})
+#' @field id The identifier for this resource. integer
+#' @field name The name for this resource. character
+#' @field abilities A list of abilities that were introduced in this generation. list(\link{AbilitySummary})
+#' @field main_region The main region travelled in this generation. \link{RegionSummary}
+#' @field moves A list of moves that were introduced in this generation. list(\link{MoveSummary})
+#' @field names The name of this resource listed in different languages. list(\link{GenerationName})
+#' @field pokemon_species A list of Pokémon species that were introduced in this generation. list(\link{PokemonSpeciesSummary})
+#' @field types A list of types that were introduced in this generation. list(\link{TypeSummary})
+#' @field version_groups A list of version groups that were introduced in this generation. list(\link{VersionGroupSummary})
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -35,15 +35,15 @@ GenerationDetail <- R6::R6Class(
     #' @description
     #' Initialize a new GenerationDetail class.
     #'
-    #' @param id id
-    #' @param name name
-    #' @param abilities abilities
-    #' @param main_region main_region
-    #' @param moves moves
-    #' @param names names
-    #' @param pokemon_species pokemon_species
-    #' @param types types
-    #' @param version_groups version_groups
+    #' @param id The identifier for this resource.
+    #' @param name The name for this resource.
+    #' @param abilities A list of abilities that were introduced in this generation.
+    #' @param main_region The main region travelled in this generation.
+    #' @param moves A list of moves that were introduced in this generation.
+    #' @param names The name of this resource listed in different languages.
+    #' @param pokemon_species A list of Pokémon species that were introduced in this generation.
+    #' @param types A list of types that were introduced in this generation.
+    #' @param version_groups A list of version groups that were introduced in this generation.
     #' @param ... Other optional arguments.
     initialize = function(`id`, `name`, `abilities`, `main_region`, `moves`, `names`, `pokemon_species`, `types`, `version_groups`, ...) {
       if (!missing(`id`)) {
@@ -351,7 +351,7 @@ GenerationDetail <- R6::R6Class(
         return(FALSE)
       }
 
-      if (nchar(self$`name`) > 100) {
+      if (nchar(self$`name`) > 200) {
         return(FALSE)
       }
 
@@ -409,8 +409,8 @@ GenerationDetail <- R6::R6Class(
         invalid_fields["name"] <- "Non-nullable required field `name` cannot be null."
       }
 
-      if (nchar(self$`name`) > 100) {
-        invalid_fields["name"] <- "Invalid length for `name`, must be smaller than or equal to 100."
+      if (nchar(self$`name`) > 200) {
+        invalid_fields["name"] <- "Invalid length for `name`, must be smaller than or equal to 200."
       }
 
       # check if the required `abilities` is null

@@ -7,9 +7,9 @@ authors     = ["F. Bar (foo@bar.baz)"]
 
 imports {
   Root = tosca.resourceTypes.Root
-  AbilityDetailPokemonInnerPokemon = openapi_server.resourceTypes.AbilityDetailPokemonInnerPokemon
   MoveLearnMethodDescription = openapi_server.resourceTypes.MoveLearnMethodDescription
   MoveLearnMethodName = openapi_server.resourceTypes.MoveLearnMethodName
+  VersionGroupSummary = openapi_server.resourceTypes.VersionGroupSummary
 }
 resourceTypes {
 
@@ -20,30 +20,30 @@ resourceTypes {
     properties {
         id {
           type =  integer
-          description = ""
+          description = "The identifier for this resource."
           optional = true
         }
         name {
           type =  string
-          description = ""
+          description = "The name for this resource."
           optional = true
         }
         names {
           type = array
           items.type = MoveLearnMethodName
-          description = ""
+          description = "The name of this resource listed in different languages."
           optional = true
         }
         descriptions {
           type = array
           items.type = MoveLearnMethodDescription
-          description = ""
+          description = "The description of this resource listed in different languages."
           optional = true
         }
         version_groups {
           type = array
-          items.type = AbilityDetailPokemonInnerPokemon
-          description = ""
+          items.type = VersionGroupSummary
+          description = "A list of version groups where moves can be learned through this method."
           optional = true
         }
     }

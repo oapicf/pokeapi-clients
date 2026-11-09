@@ -7,9 +7,9 @@
 #' @title PokemonSpeciesFlavorText
 #' @description PokemonSpeciesFlavorText Class
 #' @format An \code{R6Class} generator object
-#' @field flavor_text  character
-#' @field language  \link{LanguageSummary}
-#' @field version  \link{VersionSummary}
+#' @field flavor_text The localized flavor text for an API resource in a specific language. Note that this text is left unprocessed as it is found in game files. This means that it contains special characters that one might want to replace with their visible decodable version. Please check out this <a href='https://github.com/veekun/pokedex/issues/218#issuecomment-339841781' >issue</a> to find out more. character
+#' @field language The language this name is in. \link{LanguageSummary}
+#' @field version The game version this flavor text is extracted from. \link{VersionSummary}
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -23,9 +23,9 @@ PokemonSpeciesFlavorText <- R6::R6Class(
     #' @description
     #' Initialize a new PokemonSpeciesFlavorText class.
     #'
-    #' @param flavor_text flavor_text
-    #' @param language language
-    #' @param version version
+    #' @param flavor_text The localized flavor text for an API resource in a specific language. Note that this text is left unprocessed as it is found in game files. This means that it contains special characters that one might want to replace with their visible decodable version. Please check out this <a href='https://github.com/veekun/pokedex/issues/218#issuecomment-339841781' >issue</a> to find out more.
+    #' @param language The language this name is in.
+    #' @param version The game version this flavor text is extracted from.
     #' @param ... Other optional arguments.
     initialize = function(`flavor_text`, `language`, `version`, ...) {
       if (!missing(`flavor_text`)) {

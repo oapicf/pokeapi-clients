@@ -4,17 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int32** |  | [readonly] 
-**Name** | **string** |  | 
-**Descriptions** | [**[]ItemAttributeDescription**](ItemAttributeDescription.md) |  | [readonly] 
-**Items** | [**[]AbilityDetailPokemonInnerPokemon**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] 
-**Names** | [**[]ItemAttributeName**](ItemAttributeName.md) |  | [readonly] 
+**Id** | **int32** | The identifier for this resource. | [readonly] 
+**Name** | **string** | The name for this resource. | 
+**Descriptions** | [**[]ItemAttributeDescription**](ItemAttributeDescription.md) | The description of this item attribute listed in different languages. | [readonly] 
+**Items** | [**[]ItemSummary**](ItemSummary.md) | A list of items that have this attribute. | [readonly] 
+**Names** | [**[]ItemAttributeName**](ItemAttributeName.md) | The name of this item attribute listed in different languages. | [readonly] 
 
 ## Methods
 
 ### NewItemAttributeDetail
 
-`func NewItemAttributeDetail(id int32, name string, descriptions []ItemAttributeDescription, items []AbilityDetailPokemonInnerPokemon, names []ItemAttributeName, ) *ItemAttributeDetail`
+`func NewItemAttributeDetail(id int32, name string, descriptions []ItemAttributeDescription, items []ItemSummary, names []ItemAttributeName, ) *ItemAttributeDetail`
 
 NewItemAttributeDetail instantiates a new ItemAttributeDetail object
 This constructor will assign default values to properties that have it defined,
@@ -91,20 +91,20 @@ SetDescriptions sets Descriptions field to given value.
 
 ### GetItems
 
-`func (o *ItemAttributeDetail) GetItems() []AbilityDetailPokemonInnerPokemon`
+`func (o *ItemAttributeDetail) GetItems() []ItemSummary`
 
 GetItems returns the Items field if non-nil, zero value otherwise.
 
 ### GetItemsOk
 
-`func (o *ItemAttributeDetail) GetItemsOk() (*[]AbilityDetailPokemonInnerPokemon, bool)`
+`func (o *ItemAttributeDetail) GetItemsOk() (*[]ItemSummary, bool)`
 
 GetItemsOk returns a tuple with the Items field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetItems
 
-`func (o *ItemAttributeDetail) SetItems(v []AbilityDetailPokemonInnerPokemon)`
+`func (o *ItemAttributeDetail) SetItems(v []ItemSummary)`
 
 SetItems sets Items field to given value.
 

@@ -15,7 +15,7 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 import io.swagger.annotations.*;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2026-10-25T05:48:49.952264473Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2026-11-09T13:50:00.159999817Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class CharacteristicDetail   {
   
   private Integer id;
@@ -25,9 +25,10 @@ public class CharacteristicDetail   {
   private List<@Valid CharacteristicDescription> descriptions = new ArrayList<>();
 
   /**
+   * The identifier for this resource.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   @JsonProperty("id")
   @NotNull
   public Integer getId() {
@@ -38,9 +39,10 @@ public class CharacteristicDetail   {
   }
 
   /**
+   * The remainder of the highest stat/IV divided by 5.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The remainder of the highest stat/IV divided by 5.")
   @JsonProperty("gene_modulo")
   @NotNull
   public Integer getGeneModulo() {
@@ -51,9 +53,10 @@ public class CharacteristicDetail   {
   }
 
   /**
+   * The possible values of the highest stat that would result in a Pokémon recieving this characteristic when divided by 5.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The possible values of the highest stat that would result in a Pokémon recieving this characteristic when divided by 5.")
   @JsonProperty("possible_values")
   @NotNull
   public List<Integer> getPossibleValues() {
@@ -64,9 +67,10 @@ public class CharacteristicDetail   {
   }
 
   /**
+   * The stat which results in this characteristic.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The stat which results in this characteristic.")
   @JsonProperty("highest_stat")
   @NotNull
   @Valid
@@ -78,9 +82,10 @@ public class CharacteristicDetail   {
   }
 
   /**
+   * The descriptions of this characteristic listed in different languages.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The descriptions of this characteristic listed in different languages.")
   @JsonProperty("descriptions")
   @NotNull
   public List<@Valid CharacteristicDescription> getDescriptions() {

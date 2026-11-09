@@ -9,10 +9,14 @@ import Foundation
 
 public struct ContestTypeDetail: Sendable, Codable, Hashable {
 
-    public static let nameRule = StringRule(minLength: nil, maxLength: 100, pattern: nil)
+    public static let nameRule = StringRule(minLength: nil, maxLength: 200, pattern: nil)
+    /** The identifier for this resource. */
     public var id: Int
+    /** The name for this resource. */
     public var name: String
+    /** The berry flavor that correlates with this contest type. */
     public var berryFlavor: BerryFlavorSummary
+    /** The name of this contest type listed in different languages. */
     public var names: [ContestTypeName]
 
     public init(id: Int, name: String, berryFlavor: BerryFlavorSummary, names: [ContestTypeName]) {

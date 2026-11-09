@@ -55,6 +55,7 @@ class NatureBattleStylePreference(Model):
     def low_hp_preference(self) -> int:
         """Gets the low_hp_preference of this NatureBattleStylePreference.
 
+        Chance of using the move, in percent, if HP is under one half.  # noqa: E501
 
         :return: The low_hp_preference of this NatureBattleStylePreference.
         :rtype: int
@@ -65,12 +66,17 @@ class NatureBattleStylePreference(Model):
     def low_hp_preference(self, low_hp_preference: int):
         """Sets the low_hp_preference of this NatureBattleStylePreference.
 
+        Chance of using the move, in percent, if HP is under one half.  # noqa: E501
 
         :param low_hp_preference: The low_hp_preference of this NatureBattleStylePreference.
         :type low_hp_preference: int
         """
         if low_hp_preference is None:
             raise ValueError("Invalid value for `low_hp_preference`, must not be `None`")  # noqa: E501
+        if low_hp_preference is not None and low_hp_preference > 2147483647:  # noqa: E501
+            raise ValueError("Invalid value for `low_hp_preference`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if low_hp_preference is not None and low_hp_preference < -2147483648:  # noqa: E501
+            raise ValueError("Invalid value for `low_hp_preference`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._low_hp_preference = low_hp_preference
 
@@ -78,6 +84,7 @@ class NatureBattleStylePreference(Model):
     def high_hp_preference(self) -> int:
         """Gets the high_hp_preference of this NatureBattleStylePreference.
 
+        Chance of using the move, in percent, if HP is over one half.  # noqa: E501
 
         :return: The high_hp_preference of this NatureBattleStylePreference.
         :rtype: int
@@ -88,12 +95,17 @@ class NatureBattleStylePreference(Model):
     def high_hp_preference(self, high_hp_preference: int):
         """Sets the high_hp_preference of this NatureBattleStylePreference.
 
+        Chance of using the move, in percent, if HP is over one half.  # noqa: E501
 
         :param high_hp_preference: The high_hp_preference of this NatureBattleStylePreference.
         :type high_hp_preference: int
         """
         if high_hp_preference is None:
             raise ValueError("Invalid value for `high_hp_preference`, must not be `None`")  # noqa: E501
+        if high_hp_preference is not None and high_hp_preference > 2147483647:  # noqa: E501
+            raise ValueError("Invalid value for `high_hp_preference`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if high_hp_preference is not None and high_hp_preference < -2147483648:  # noqa: E501
+            raise ValueError("Invalid value for `high_hp_preference`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._high_hp_preference = high_hp_preference
 
@@ -101,6 +113,7 @@ class NatureBattleStylePreference(Model):
     def move_battle_style(self) -> MoveBattleStyleSummary:
         """Gets the move_battle_style of this NatureBattleStylePreference.
 
+        The move battle style.  # noqa: E501
 
         :return: The move_battle_style of this NatureBattleStylePreference.
         :rtype: MoveBattleStyleSummary
@@ -111,6 +124,7 @@ class NatureBattleStylePreference(Model):
     def move_battle_style(self, move_battle_style: MoveBattleStyleSummary):
         """Sets the move_battle_style of this NatureBattleStylePreference.
 
+        The move battle style.  # noqa: E501
 
         :param move_battle_style: The move_battle_style of this NatureBattleStylePreference.
         :type move_battle_style: MoveBattleStyleSummary

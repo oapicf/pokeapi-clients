@@ -29,15 +29,6 @@ Berries can be soft or hard. Check out [Bulbapedia](http://bulbapedia.bulbagarde
 use Data::Dumper;
 use WWW::OpenAPIClient::BerriesApi;
 my $api_instance = WWW::OpenAPIClient::BerriesApi->new(
-
-    # Configure HTTP basic authorization: basicAuth
-    username => 'YOUR_USERNAME',
-    password => 'YOUR_PASSWORD',
-    
-    # Configure API key authorization: cookieAuth
-    api_key => {'sessionid' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'sessionid' => 'Bearer'},
 );
 
 my $limit = 56; # int | Number of results to return per page.
@@ -67,7 +58,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -88,18 +79,9 @@ Berries can be soft or hard. Check out [Bulbapedia](http://bulbapedia.bulbagarde
 use Data::Dumper;
 use WWW::OpenAPIClient::BerriesApi;
 my $api_instance = WWW::OpenAPIClient::BerriesApi->new(
-
-    # Configure HTTP basic authorization: basicAuth
-    username => 'YOUR_USERNAME',
-    password => 'YOUR_PASSWORD',
-    
-    # Configure API key authorization: cookieAuth
-    api_key => {'sessionid' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'sessionid' => 'Bearer'},
 );
 
-my $id = "id_example"; # string | This parameter can be a string or an integer.
+my $id = 1; # string | This parameter can be a string or an integer.
 
 eval {
     my $result = $api_instance->berry_firmness_retrieve(id => $id);
@@ -122,7 +104,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -143,15 +125,6 @@ Flavors determine whether a Pokémon will benefit or suffer from eating a berry 
 use Data::Dumper;
 use WWW::OpenAPIClient::BerriesApi;
 my $api_instance = WWW::OpenAPIClient::BerriesApi->new(
-
-    # Configure HTTP basic authorization: basicAuth
-    username => 'YOUR_USERNAME',
-    password => 'YOUR_PASSWORD',
-    
-    # Configure API key authorization: cookieAuth
-    api_key => {'sessionid' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'sessionid' => 'Bearer'},
 );
 
 my $limit = 56; # int | Number of results to return per page.
@@ -181,7 +154,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -202,18 +175,9 @@ Flavors determine whether a Pokémon will benefit or suffer from eating a berry 
 use Data::Dumper;
 use WWW::OpenAPIClient::BerriesApi;
 my $api_instance = WWW::OpenAPIClient::BerriesApi->new(
-
-    # Configure HTTP basic authorization: basicAuth
-    username => 'YOUR_USERNAME',
-    password => 'YOUR_PASSWORD',
-    
-    # Configure API key authorization: cookieAuth
-    api_key => {'sessionid' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'sessionid' => 'Bearer'},
 );
 
-my $id = "id_example"; # string | This parameter can be a string or an integer.
+my $id = 1; # string | This parameter can be a string or an integer.
 
 eval {
     my $result = $api_instance->berry_flavor_retrieve(id => $id);
@@ -236,7 +200,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -257,15 +221,6 @@ Berries are small fruits that can provide HP and status condition restoration, s
 use Data::Dumper;
 use WWW::OpenAPIClient::BerriesApi;
 my $api_instance = WWW::OpenAPIClient::BerriesApi->new(
-
-    # Configure HTTP basic authorization: basicAuth
-    username => 'YOUR_USERNAME',
-    password => 'YOUR_PASSWORD',
-    
-    # Configure API key authorization: cookieAuth
-    api_key => {'sessionid' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'sessionid' => 'Bearer'},
 );
 
 my $limit = 56; # int | Number of results to return per page.
@@ -295,7 +250,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -316,18 +271,9 @@ Berries are small fruits that can provide HP and status condition restoration, s
 use Data::Dumper;
 use WWW::OpenAPIClient::BerriesApi;
 my $api_instance = WWW::OpenAPIClient::BerriesApi->new(
-
-    # Configure HTTP basic authorization: basicAuth
-    username => 'YOUR_USERNAME',
-    password => 'YOUR_PASSWORD',
-    
-    # Configure API key authorization: cookieAuth
-    api_key => {'sessionid' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'sessionid' => 'Bearer'},
 );
 
-my $id = "id_example"; # string | This parameter can be a string or an integer.
+my $id = 1; # string | This parameter can be a string or an integer.
 
 eval {
     my $result = $api_instance->berry_retrieve(id => $id);
@@ -350,7 +296,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

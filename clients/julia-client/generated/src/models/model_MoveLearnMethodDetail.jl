@@ -12,18 +12,18 @@
         version_groups=nothing,
     )
 
-    - id::Int64
-    - name::String
-    - names::Vector{MoveLearnMethodName}
-    - descriptions::Vector{MoveLearnMethodDescription}
-    - version_groups::Vector{AbilityDetailPokemonInnerPokemon}
+    - id::Int64 : The identifier for this resource.
+    - name::String : The name for this resource.
+    - names::Vector{MoveLearnMethodName} : The name of this resource listed in different languages.
+    - descriptions::Vector{MoveLearnMethodDescription} : The description of this resource listed in different languages.
+    - version_groups::Vector{VersionGroupSummary} : A list of version groups where moves can be learned through this method.
 """
 Base.@kwdef mutable struct MoveLearnMethodDetail <: OpenAPI.APIModel
     id::Union{Nothing, Int64} = nothing
     name::Union{Nothing, String} = nothing
     names::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{MoveLearnMethodName} }
     descriptions::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{MoveLearnMethodDescription} }
-    version_groups::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{AbilityDetailPokemonInnerPokemon} }
+    version_groups::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{VersionGroupSummary} }
 
     function MoveLearnMethodDetail(id, name, names, descriptions, version_groups, )
         o = new(id, name, names, descriptions, version_groups, )
@@ -32,7 +32,7 @@ Base.@kwdef mutable struct MoveLearnMethodDetail <: OpenAPI.APIModel
     end
 end # type MoveLearnMethodDetail
 
-const _property_types_MoveLearnMethodDetail = Dict{Symbol,String}(Symbol("id")=>"Int64", Symbol("name")=>"String", Symbol("names")=>"Vector{MoveLearnMethodName}", Symbol("descriptions")=>"Vector{MoveLearnMethodDescription}", Symbol("version_groups")=>"Vector{AbilityDetailPokemonInnerPokemon}", )
+const _property_types_MoveLearnMethodDetail = Dict{Symbol,String}(Symbol("id")=>"Int64", Symbol("name")=>"String", Symbol("names")=>"Vector{MoveLearnMethodName}", Symbol("descriptions")=>"Vector{MoveLearnMethodDescription}", Symbol("version_groups")=>"Vector{VersionGroupSummary}", )
 OpenAPI.property_type(::Type{ MoveLearnMethodDetail }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_MoveLearnMethodDetail[name]))}
 
 function OpenAPI.check_required(o::MoveLearnMethodDetail)
@@ -56,7 +56,7 @@ function OpenAPI.validate_property(::Type{ MoveLearnMethodDetail }, name::Symbol
 
 
     if name === Symbol("name")
-        OpenAPI.validate_param(name, "MoveLearnMethodDetail", :maxLength, val, 100)
+        OpenAPI.validate_param(name, "MoveLearnMethodDetail", :maxLength, val, 200)
     end
 
 

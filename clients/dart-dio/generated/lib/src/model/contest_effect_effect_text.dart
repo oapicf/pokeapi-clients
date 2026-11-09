@@ -12,13 +12,15 @@ part 'contest_effect_effect_text.g.dart';
 /// ContestEffectEffectText
 ///
 /// Properties:
-/// * [effect] 
-/// * [language] 
+/// * [effect] - The localized effect text for an API resource in a specific language.
+/// * [language] - The language this effect is in.
 @BuiltValue()
 abstract class ContestEffectEffectText implements Built<ContestEffectEffectText, ContestEffectEffectTextBuilder> {
+  /// The localized effect text for an API resource in a specific language.
   @BuiltValueField(wireName: r'effect')
   String get effect;
 
+  /// The language this effect is in.
   @BuiltValueField(wireName: r'language')
   LanguageSummary get language;
 

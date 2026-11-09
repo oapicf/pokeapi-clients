@@ -9,17 +9,17 @@
 --
 -- SELECT template for table 'pokemon_form_detail'
 --
-SELECT "id", "name", "order", form_order, is_default, is_battle_only, is_mega, form_name, pokemon, sprites, version_group, form_names, "names", "types" FROM pokemon_form_detail WHERE 1=1;
+SELECT "id", "name", "order", form_order, is_default, is_battle_only, is_mega, form_name, pokemon, sprites, version_group, form_names, "names", "types", trigger_conditions, flavor_text_entries FROM pokemon_form_detail WHERE 1=1;
 
 --
 -- INSERT template for table 'pokemon_form_detail'
 --
-INSERT INTO pokemon_form_detail ("id", "name", "order", form_order, is_default, is_battle_only, is_mega, form_name, pokemon, sprites, version_group, form_names, "names", "types") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+INSERT INTO pokemon_form_detail ("id", "name", "order", form_order, is_default, is_battle_only, is_mega, form_name, pokemon, sprites, version_group, form_names, "names", "types", trigger_conditions, flavor_text_entries) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
 
 --
 -- UPDATE template for table 'pokemon_form_detail'
 --
-UPDATE pokemon_form_detail SET "id" = ?, "name" = ?, "order" = ?, form_order = ?, is_default = ?, is_battle_only = ?, is_mega = ?, form_name = ?, pokemon = ?, sprites = ?, version_group = ?, form_names = ?, "names" = ?, "types" = ? WHERE 1=2;
+UPDATE pokemon_form_detail SET "id" = ?, "name" = ?, "order" = ?, form_order = ?, is_default = ?, is_battle_only = ?, is_mega = ?, form_name = ?, pokemon = ?, sprites = ?, version_group = ?, form_names = ?, "names" = ?, "types" = ?, trigger_conditions = ?, flavor_text_entries = ? WHERE 1=2;
 
 --
 -- DELETE template for table 'pokemon_form_detail'

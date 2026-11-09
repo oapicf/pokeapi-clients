@@ -2,6 +2,7 @@ namespace OpenAPI
 
 open OpenAPI.Model.LanguageDetail
 open OpenAPI.Model.PaginatedLanguageSummaryList
+open OpenAPI.Model.PokeapiMetaResponse
 open System.Collections.Generic
 open System
 
@@ -49,3 +50,11 @@ module UtilityApiHandlerParams =
     type LanguageRetrieveArgs = {
       pathParams:LanguageRetrievePathParams;
     }
+
+
+    type MetaRetrieveStatusCode200Response = {
+      content:PokeapiMetaResponse;
+      
+    }
+    type MetaRetrieveResult = MetaRetrieveStatusCode200 of MetaRetrieveStatusCode200Response
+

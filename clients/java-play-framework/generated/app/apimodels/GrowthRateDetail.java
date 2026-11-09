@@ -15,7 +15,7 @@ import javax.validation.Valid;
 /**
  * GrowthRateDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-10-25T05:48:13.486809836Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-11-09T13:49:31.462302702Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class GrowthRateDetail   {
   @JsonProperty("id")
@@ -25,7 +25,7 @@ public class GrowthRateDetail   {
 
   @JsonProperty("name")
   @NotNull
-@Size(max=100)
+@Size(max=200)
 
   private String name;
 
@@ -59,7 +59,7 @@ public class GrowthRateDetail   {
   }
 
    /**
-   * Get id
+   * The identifier for this resource.
    * @return id
   **/
   public Integer getId() {
@@ -76,7 +76,7 @@ public class GrowthRateDetail   {
   }
 
    /**
-   * Get name
+   * The name for this resource.
    * @return name
   **/
   public String getName() {
@@ -93,7 +93,7 @@ public class GrowthRateDetail   {
   }
 
    /**
-   * Get formula
+   * The formula used to calculate the rate at which the Pokémon species gains level.
    * @return formula
   **/
   public String getFormula() {
@@ -118,7 +118,7 @@ public class GrowthRateDetail   {
   }
 
    /**
-   * Get descriptions
+   * The descriptions of this characteristic listed in different languages.
    * @return descriptions
   **/
   public List<@Valid GrowthRateDescription> getDescriptions() {
@@ -143,7 +143,7 @@ public class GrowthRateDetail   {
   }
 
    /**
-   * Get levels
+   * A list of levels and the amount of experienced needed to atain them based on this growth rate.
    * @return levels
   **/
   public List<@Valid Experience> getLevels() {
@@ -168,7 +168,7 @@ public class GrowthRateDetail   {
   }
 
    /**
-   * Get pokemonSpecies
+   * A list of Pokémon species that gain levels at this growth rate.
    * @return pokemonSpecies
   **/
   public List<@Valid PokemonSpeciesSummary> getPokemonSpecies() {

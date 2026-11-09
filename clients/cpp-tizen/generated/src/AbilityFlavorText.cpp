@@ -24,8 +24,8 @@ void
 AbilityFlavorText::__init()
 {
 	//flavor_text = std::string();
-	//language = new LanguageSummary();
-	//version_group = new VersionGroupSummary();
+	//language = null;
+	//version_group = null;
 }
 
 void

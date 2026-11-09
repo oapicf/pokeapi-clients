@@ -44,8 +44,7 @@ class MachinesApiAction @Inject constructor(
     @LogRequestResponse(bodySampling = 1.0, errorBodySampling = 1.0)
     fun machineList(
          @QueryParam(value = "limit") limit: kotlin.Int?, 
-         @QueryParam(value = "offset") offset: kotlin.Int?, 
-         @QueryParam(value = "q") q: kotlin.String?
+         @QueryParam(value = "offset") offset: kotlin.Int?
     ): PaginatedMachineSummaryList {
         TODO()
     }

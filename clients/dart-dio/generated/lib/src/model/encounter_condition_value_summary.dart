@@ -11,13 +11,15 @@ part 'encounter_condition_value_summary.g.dart';
 /// EncounterConditionValueSummary
 ///
 /// Properties:
-/// * [name] 
-/// * [url] 
+/// * [name] - The name of the referenced resource.
+/// * [url] - The URL of the referenced resource.
 @BuiltValue()
 abstract class EncounterConditionValueSummary implements Built<EncounterConditionValueSummary, EncounterConditionValueSummaryBuilder> {
+  /// The name of the referenced resource.
   @BuiltValueField(wireName: r'name')
   String get name;
 
+  /// The URL of the referenced resource.
   @BuiltValueField(wireName: r'url')
   String get url;
 

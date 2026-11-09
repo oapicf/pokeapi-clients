@@ -22,59 +22,59 @@ import io.swagger.v3.oas.annotations.media.Schema
 
 /**
  * 
- * @param id 
- * @param name 
- * @param abilities 
- * @param mainRegion 
- * @param moves 
- * @param names 
- * @param pokemonSpecies 
- * @param types 
- * @param versionGroups 
+ * @param id The identifier for this resource.
+ * @param name The name for this resource.
+ * @param abilities A list of abilities that were introduced in this generation.
+ * @param mainRegion The main region travelled in this generation.
+ * @param moves A list of moves that were introduced in this generation.
+ * @param names The name of this resource listed in different languages.
+ * @param pokemonSpecies A list of Pokémon species that were introduced in this generation.
+ * @param types A list of types that were introduced in this generation.
+ * @param versionGroups A list of version groups that were introduced in this generation.
  */
 data class GenerationDetail(
 
-    @Schema(required = true, readOnly = true, description = "")
+    @Schema(required = true, readOnly = true, description = "The identifier for this resource.")
     @param:JsonProperty("id", required = true)
     @get:JsonProperty("id", required = true) val id: kotlin.Int,
 
-    @get:Size(max=100)
-    @Schema(required = true, description = "")
+    @get:Size(max=200)
+    @Schema(required = true, description = "The name for this resource.")
     @param:JsonProperty("name", required = true)
     @get:JsonProperty("name", required = true) val name: kotlin.String,
 
     @field:Valid
-    @Schema(required = true, readOnly = true, description = "")
+    @Schema(required = true, readOnly = true, description = "A list of abilities that were introduced in this generation.")
     @param:JsonProperty("abilities", required = true)
     @get:JsonProperty("abilities", required = true) val abilities: kotlin.collections.List<AbilitySummary>,
 
     @field:Valid
-    @Schema(required = true, description = "")
+    @Schema(required = true, description = "The main region travelled in this generation.")
     @param:JsonProperty("main_region", required = true)
     @get:JsonProperty("main_region", required = true) val mainRegion: RegionSummary,
 
     @field:Valid
-    @Schema(required = true, readOnly = true, description = "")
+    @Schema(required = true, readOnly = true, description = "A list of moves that were introduced in this generation.")
     @param:JsonProperty("moves", required = true)
     @get:JsonProperty("moves", required = true) val moves: kotlin.collections.List<MoveSummary>,
 
     @field:Valid
-    @Schema(required = true, readOnly = true, description = "")
+    @Schema(required = true, readOnly = true, description = "The name of this resource listed in different languages.")
     @param:JsonProperty("names", required = true)
     @get:JsonProperty("names", required = true) val names: kotlin.collections.List<GenerationName>,
 
     @field:Valid
-    @Schema(required = true, readOnly = true, description = "")
+    @Schema(required = true, readOnly = true, description = "A list of Pokémon species that were introduced in this generation.")
     @param:JsonProperty("pokemon_species", required = true)
     @get:JsonProperty("pokemon_species", required = true) val pokemonSpecies: kotlin.collections.List<PokemonSpeciesSummary>,
 
     @field:Valid
-    @Schema(required = true, readOnly = true, description = "")
+    @Schema(required = true, readOnly = true, description = "A list of types that were introduced in this generation.")
     @param:JsonProperty("types", required = true)
     @get:JsonProperty("types", required = true) val types: kotlin.collections.List<TypeSummary>,
 
     @field:Valid
-    @Schema(required = true, readOnly = true, description = "")
+    @Schema(required = true, readOnly = true, description = "A list of version groups that were introduced in this generation.")
     @param:JsonProperty("version_groups", required = true)
     @get:JsonProperty("version_groups", required = true) val versionGroups: kotlin.collections.List<VersionGroupSummary>
 ) {

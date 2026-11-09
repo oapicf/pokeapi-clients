@@ -10,6 +10,7 @@ class_name ItemCategoryName
 # ItemCategoryName Model
 
 
+# The localized name for an API resource in a specific language.
 # Required: True
 # isArray: false
 @export var name: String:
@@ -18,6 +19,7 @@ class_name ItemCategoryName
 		name = value
 var __name__was__set := false
 
+# The language this name is in.
 # Required: True
 # isArray: false
 @export var language: LanguageSummary:

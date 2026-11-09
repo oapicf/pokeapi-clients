@@ -3,8 +3,8 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:openapi/src/model/move_summary.dart';
 import 'package:built_collection/built_collection.dart';
-import 'package:openapi/src/model/ability_detail_pokemon_inner_pokemon.dart';
 import 'package:openapi/src/model/move_meta_ailment_name.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -14,21 +14,25 @@ part 'move_meta_ailment_detail.g.dart';
 /// MoveMetaAilmentDetail
 ///
 /// Properties:
-/// * [id] 
-/// * [name] 
-/// * [moves] 
-/// * [names] 
+/// * [id] - The identifier for this resource.
+/// * [name] - The name for this resource.
+/// * [moves] - A list of moves that cause this ailment.
+/// * [names] - The name of this resource listed in different languages.
 @BuiltValue()
 abstract class MoveMetaAilmentDetail implements Built<MoveMetaAilmentDetail, MoveMetaAilmentDetailBuilder> {
+  /// The identifier for this resource.
   @BuiltValueField(wireName: r'id')
   int get id;
 
+  /// The name for this resource.
   @BuiltValueField(wireName: r'name')
   String get name;
 
+  /// A list of moves that cause this ailment.
   @BuiltValueField(wireName: r'moves')
-  BuiltList<AbilityDetailPokemonInnerPokemon> get moves;
+  BuiltList<MoveSummary> get moves;
 
+  /// The name of this resource listed in different languages.
   @BuiltValueField(wireName: r'names')
   BuiltList<MoveMetaAilmentName> get names;
 
@@ -68,7 +72,7 @@ class _$MoveMetaAilmentDetailSerializer implements PrimitiveSerializer<MoveMetaA
     yield r'moves';
     yield serializers.serialize(
       object.moves,
-      specifiedType: const FullType(BuiltList, [FullType(AbilityDetailPokemonInnerPokemon)]),
+      specifiedType: const FullType(BuiltList, [FullType(MoveSummary)]),
     );
     yield r'names';
     yield serializers.serialize(
@@ -115,8 +119,8 @@ class _$MoveMetaAilmentDetailSerializer implements PrimitiveSerializer<MoveMetaA
         case r'moves':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(AbilityDetailPokemonInnerPokemon)]),
-          ) as BuiltList<AbilityDetailPokemonInnerPokemon>;
+            specifiedType: const FullType(BuiltList, [FullType(MoveSummary)]),
+          ) as BuiltList<MoveSummary>;
           result.moves.replace(valueDes);
           break;
         case r'names':

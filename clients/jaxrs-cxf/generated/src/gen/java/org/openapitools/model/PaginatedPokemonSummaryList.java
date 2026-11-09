@@ -4,6 +4,7 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.openapitools.jackson.nullable.JsonNullable;
 import org.openapitools.model.PokemonSummary;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
@@ -15,26 +16,39 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class PaginatedPokemonSummaryList  {
   
-  @ApiModelProperty(example = "123", value = "")
+ /**
+  * The total number of resources available from this API.
+  */
+  @ApiModelProperty(example = "100", required = true, value = "The total number of resources available from this API.")
 
   private Integer count;
 
-  @ApiModelProperty(example = "http://api.example.org/accounts/?offset=400&limit=100", value = "")
+ /**
+  * The URL for the next page in the list, or null if there is no next page.
+  */
+  @ApiModelProperty(example = "https://pokeapi.co/api/v2/pokemon/?offset=40&limit=20", value = "The URL for the next page in the list, or null if there is no next page.")
 
   private URI next;
 
-  @ApiModelProperty(example = "http://api.example.org/accounts/?offset=200&limit=100", value = "")
+ /**
+  * The URL for the previous page in the list, or null if there is no previous page.
+  */
+  @ApiModelProperty(example = "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=20", value = "The URL for the previous page in the list, or null if there is no previous page.")
 
   private URI previous;
 
-  @ApiModelProperty(value = "")
+ /**
+  * A list of API resources on this page.
+  */
+  @ApiModelProperty(required = true, value = "A list of API resources on this page.")
 
   private List<@Valid PokemonSummary> results = new ArrayList<>();
  /**
-   * Get count
+   * The total number of resources available from this API.
    * @return count
   **/
   @JsonProperty("count")
+  @NotNull
   public Integer getCount() {
     return count;
   }
@@ -49,7 +63,7 @@ public class PaginatedPokemonSummaryList  {
   }
 
  /**
-   * Get next
+   * The URL for the next page in the list, or null if there is no next page.
    * @return next
   **/
   @JsonProperty("next")
@@ -67,7 +81,7 @@ public class PaginatedPokemonSummaryList  {
   }
 
  /**
-   * Get previous
+   * The URL for the previous page in the list, or null if there is no previous page.
    * @return previous
   **/
   @JsonProperty("previous")
@@ -85,10 +99,11 @@ public class PaginatedPokemonSummaryList  {
   }
 
  /**
-   * Get results
+   * A list of API resources on this page.
    * @return results
   **/
   @JsonProperty("results")
+  @NotNull
   public List<@Valid PokemonSummary> getResults() {
     return results;
   }

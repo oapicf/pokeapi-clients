@@ -3,9 +3,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**flavorText** | **NSString*** |  | 
-**language** | [**OAILanguageSummary***](OAILanguageSummary.md) |  | 
-**versionGroup** | [**OAIVersionGroupSummary***](OAIVersionGroupSummary.md) |  | 
+**flavorText** | **NSString*** | The localized name for an API resource in a specific language. | 
+**language** | [**OAILanguageSummary***](OAILanguageSummary.md) | The language this text resource is in. | 
+**versionGroup** | [**OAIVersionGroupSummary***](OAIVersionGroupSummary.md) | The version group that uses this flavor text. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

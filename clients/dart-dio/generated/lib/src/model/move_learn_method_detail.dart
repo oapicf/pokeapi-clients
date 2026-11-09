@@ -5,7 +5,7 @@
 // ignore_for_file: unused_element
 import 'package:openapi/src/model/move_learn_method_description.dart';
 import 'package:built_collection/built_collection.dart';
-import 'package:openapi/src/model/ability_detail_pokemon_inner_pokemon.dart';
+import 'package:openapi/src/model/version_group_summary.dart';
 import 'package:openapi/src/model/move_learn_method_name.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -15,27 +15,32 @@ part 'move_learn_method_detail.g.dart';
 /// MoveLearnMethodDetail
 ///
 /// Properties:
-/// * [id] 
-/// * [name] 
-/// * [names] 
-/// * [descriptions] 
-/// * [versionGroups] 
+/// * [id] - The identifier for this resource.
+/// * [name] - The name for this resource.
+/// * [names] - The name of this resource listed in different languages.
+/// * [descriptions] - The description of this resource listed in different languages.
+/// * [versionGroups] - A list of version groups where moves can be learned through this method.
 @BuiltValue()
 abstract class MoveLearnMethodDetail implements Built<MoveLearnMethodDetail, MoveLearnMethodDetailBuilder> {
+  /// The identifier for this resource.
   @BuiltValueField(wireName: r'id')
   int get id;
 
+  /// The name for this resource.
   @BuiltValueField(wireName: r'name')
   String get name;
 
+  /// The name of this resource listed in different languages.
   @BuiltValueField(wireName: r'names')
   BuiltList<MoveLearnMethodName> get names;
 
+  /// The description of this resource listed in different languages.
   @BuiltValueField(wireName: r'descriptions')
   BuiltList<MoveLearnMethodDescription> get descriptions;
 
+  /// A list of version groups where moves can be learned through this method.
   @BuiltValueField(wireName: r'version_groups')
-  BuiltList<AbilityDetailPokemonInnerPokemon> get versionGroups;
+  BuiltList<VersionGroupSummary> get versionGroups;
 
   MoveLearnMethodDetail._();
 
@@ -83,7 +88,7 @@ class _$MoveLearnMethodDetailSerializer implements PrimitiveSerializer<MoveLearn
     yield r'version_groups';
     yield serializers.serialize(
       object.versionGroups,
-      specifiedType: const FullType(BuiltList, [FullType(AbilityDetailPokemonInnerPokemon)]),
+      specifiedType: const FullType(BuiltList, [FullType(VersionGroupSummary)]),
     );
   }
 
@@ -139,8 +144,8 @@ class _$MoveLearnMethodDetailSerializer implements PrimitiveSerializer<MoveLearn
         case r'version_groups':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(AbilityDetailPokemonInnerPokemon)]),
-          ) as BuiltList<AbilityDetailPokemonInnerPokemon>;
+            specifiedType: const FullType(BuiltList, [FullType(VersionGroupSummary)]),
+          ) as BuiltList<VersionGroupSummary>;
           result.versionGroups.replace(valueDes);
           break;
         default:

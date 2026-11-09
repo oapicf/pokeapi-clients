@@ -51,6 +51,7 @@ class ItemEffectText(Model):
     def effect(self):
         """Gets the effect of this ItemEffectText.
 
+        The localized effect text for an API resource in a specific language.
 
         :return: The effect of this ItemEffectText.
         :rtype: str
@@ -61,6 +62,7 @@ class ItemEffectText(Model):
     def effect(self, effect):
         """Sets the effect of this ItemEffectText.
 
+        The localized effect text for an API resource in a specific language.
 
         :param effect: The effect of this ItemEffectText.
         :type effect: str
@@ -76,6 +78,7 @@ class ItemEffectText(Model):
     def short_effect(self):
         """Gets the short_effect of this ItemEffectText.
 
+        The localized effect text in brief.
 
         :return: The short_effect of this ItemEffectText.
         :rtype: str
@@ -86,6 +89,7 @@ class ItemEffectText(Model):
     def short_effect(self, short_effect):
         """Sets the short_effect of this ItemEffectText.
 
+        The localized effect text in brief.
 
         :param short_effect: The short_effect of this ItemEffectText.
         :type short_effect: str
@@ -101,6 +105,7 @@ class ItemEffectText(Model):
     def language(self):
         """Gets the language of this ItemEffectText.
 
+        The language this effect is in.
 
         :return: The language of this ItemEffectText.
         :rtype: LanguageSummary
@@ -111,6 +116,7 @@ class ItemEffectText(Model):
     def language(self, language):
         """Sets the language of this ItemEffectText.
 
+        The language this effect is in.
 
         :param language: The language of this ItemEffectText.
         :type language: LanguageSummary

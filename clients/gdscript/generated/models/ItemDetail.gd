@@ -10,6 +10,7 @@ class_name ItemDetail
 # ItemDetail Model
 
 
+# The identifier for this resource.
 # Required: True
 # isArray: false
 @export var id: int:
@@ -18,6 +19,7 @@ class_name ItemDetail
 		id = value
 var __id__was__set := false
 
+# The name for this resource.
 # Required: True
 # isArray: false
 @export var name: String:
@@ -26,14 +28,7 @@ var __id__was__set := false
 		name = value
 var __name__was__set := false
 
-# Required: False
-# isArray: false
-@export var cost: int:
-	set(value):
-		__cost__was__set = true
-		cost = value
-var __cost__was__set := false
-
+# The power of the move Fling when used with this item.
 # Required: False
 # isArray: false
 @export var flingUnderscorepower: int:
@@ -42,6 +37,7 @@ var __cost__was__set := false
 		flingUnderscorepower = value
 var __flingUnderscorepower__was__set := false
 
+# The effect of the move Fling when used with this item.
 # Required: True
 # isArray: false
 @export var flingUnderscoreeffect: ItemFlingEffectSummary:
@@ -50,6 +46,7 @@ var __flingUnderscorepower__was__set := false
 		flingUnderscoreeffect = value
 var __flingUnderscoreeffect__was__set := false
 
+# A list of attributes this item has.
 # Required: True
 # isArray: true
 @export var attributes: Array:
@@ -58,6 +55,7 @@ var __flingUnderscoreeffect__was__set := false
 		attributes = value
 var __attributes__was__set := false
 
+# The category of items this item falls into.
 # Required: True
 # isArray: false
 @export var category: ItemCategorySummary:
@@ -66,6 +64,7 @@ var __attributes__was__set := false
 		category = value
 var __category__was__set := false
 
+# The effect of this ability listed in different languages.
 # Required: True
 # isArray: true
 @export var effectUnderscoreentries: Array:
@@ -74,6 +73,7 @@ var __category__was__set := false
 		effectUnderscoreentries = value
 var __effectUnderscoreentries__was__set := false
 
+# The flavor text of this ability listed in different languages.
 # Required: True
 # isArray: true
 @export var flavorUnderscoretextUnderscoreentries: Array:
@@ -82,6 +82,7 @@ var __effectUnderscoreentries__was__set := false
 		flavorUnderscoretextUnderscoreentries = value
 var __flavorUnderscoretextUnderscoreentries__was__set := false
 
+# A list of game indices relevent to this item by generation.
 # Required: True
 # isArray: true
 @export var gameUnderscoreindices: Array:
@@ -90,6 +91,16 @@ var __flavorUnderscoretextUnderscoreentries__was__set := false
 		gameUnderscoreindices = value
 var __gameUnderscoreindices__was__set := false
 
+# Purchase and sell prices by currency and version group. Prices may be null when the item cannot be bought or sold.
+# Required: True
+# isArray: true
+@export var prices: Array:
+	set(value):
+		__prices__was__set = true
+		prices = value
+var __prices__was__set := false
+
+# The name of this item listed in different languages.
 # Required: True
 # isArray: true
 @export var names: Array:
@@ -98,6 +109,7 @@ var __gameUnderscoreindices__was__set := false
 		names = value
 var __names__was__set := false
 
+# A list of Pokémon that might be found in the wild holding this item.
 # Required: True
 # isArray: true
 @export var heldUnderscorebyUnderscorepokemon: Array:
@@ -106,22 +118,25 @@ var __names__was__set := false
 		heldUnderscorebyUnderscorepokemon = value
 var __heldUnderscorebyUnderscorepokemon__was__set := false
 
+# A set of sprites used to depict this item in the game.
 # Required: True
 # isArray: false
-@export var sprites: ItemDetailSprites:
+@export var sprites: ItemSprites:
 	set(value):
 		__sprites__was__set = true
 		sprites = value
 var __sprites__was__set := false
 
+# An evolution chain this item requires to produce a bay during mating.
 # Required: True
 # isArray: false
-@export var babyUnderscoretriggerUnderscorefor: ItemDetailBabyTriggerFor:
+@export var babyUnderscoretriggerUnderscorefor: EvolutionChainSummary:
 	set(value):
 		__babyUnderscoretriggerUnderscorefor__was__set = true
 		babyUnderscoretriggerUnderscorefor = value
 var __babyUnderscoretriggerUnderscorefor__was__set := false
 
+# A list of the machines related to this item.
 # Required: True
 # isArray: true
 @export var machines: Array:
@@ -149,6 +164,8 @@ func bzz_collect_missing_properties() -> Array:
 		bzz_missing_properties.append("flavorUnderscoretextUnderscoreentries")
 	if not self.__gameUnderscoreindices__was__set:
 		bzz_missing_properties.append("gameUnderscoreindices")
+	if not self.__prices__was__set:
+		bzz_missing_properties.append("prices")
 	if not self.__names__was__set:
 		bzz_missing_properties.append("names")
 	if not self.__heldUnderscorebyUnderscorepokemon__was__set:
@@ -168,8 +185,6 @@ func bzz_normalize() -> Dictionary:
 		bzz_dictionary["id"] = self.id
 	if self.__name__was__set:
 		bzz_dictionary["name"] = self.name
-	if self.__cost__was__set:
-		bzz_dictionary["cost"] = self.cost
 	if self.__flingUnderscorepower__was__set:
 		bzz_dictionary["flingUnderscorepower"] = self.flingUnderscorepower
 	if self.__flingUnderscoreeffect__was__set:
@@ -184,6 +199,8 @@ func bzz_normalize() -> Dictionary:
 		bzz_dictionary["flavorUnderscoretextUnderscoreentries"] = self.flavorUnderscoretextUnderscoreentries
 	if self.__gameUnderscoreindices__was__set:
 		bzz_dictionary["gameUnderscoreindices"] = self.gameUnderscoreindices
+	if self.__prices__was__set:
+		bzz_dictionary["prices"] = self.prices
 	if self.__names__was__set:
 		bzz_dictionary["names"] = self.names
 	if self.__heldUnderscorebyUnderscorepokemon__was__set:
@@ -204,14 +221,12 @@ static func bzz_denormalize_single(from_dict: Dictionary):
 		me.id = from_dict["id"]
 	if from_dict.has("name"):
 		me.name = from_dict["name"]
-	if from_dict.has("cost"):
-		me.cost = from_dict["cost"]
 	if from_dict.has("flingUnderscorepower"):
 		me.flingUnderscorepower = from_dict["flingUnderscorepower"]
 	if from_dict.has("flingUnderscoreeffect"):
 		me.flingUnderscoreeffect = ItemFlingEffectSummary.bzz_denormalize_single(from_dict["flingUnderscoreeffect"])
 	if from_dict.has("attributes"):
-		me.attributes = AbilityDetail_pokemon_inner_pokemon.bzz_denormalize_multiple(from_dict["attributes"])
+		me.attributes = ItemAttributeSummary.bzz_denormalize_multiple(from_dict["attributes"])
 	if from_dict.has("category"):
 		me.category = ItemCategorySummary.bzz_denormalize_single(from_dict["category"])
 	if from_dict.has("effectUnderscoreentries"):
@@ -220,16 +235,18 @@ static func bzz_denormalize_single(from_dict: Dictionary):
 		me.flavorUnderscoretextUnderscoreentries = ItemFlavorText.bzz_denormalize_multiple(from_dict["flavorUnderscoretextUnderscoreentries"])
 	if from_dict.has("gameUnderscoreindices"):
 		me.gameUnderscoreindices = ItemGameIndex.bzz_denormalize_multiple(from_dict["gameUnderscoreindices"])
+	if from_dict.has("prices"):
+		me.prices = ItemPrice.bzz_denormalize_multiple(from_dict["prices"])
 	if from_dict.has("names"):
 		me.names = ItemName.bzz_denormalize_multiple(from_dict["names"])
 	if from_dict.has("heldUnderscorebyUnderscorepokemon"):
-		me.heldUnderscorebyUnderscorepokemon = ItemDetail_held_by_pokemon_inner.bzz_denormalize_multiple(from_dict["heldUnderscorebyUnderscorepokemon"])
+		me.heldUnderscorebyUnderscorepokemon = PokemonHeldItem.bzz_denormalize_multiple(from_dict["heldUnderscorebyUnderscorepokemon"])
 	if from_dict.has("sprites"):
-		me.sprites = ItemDetail_sprites.bzz_denormalize_single(from_dict["sprites"])
+		me.sprites = ItemSprites.bzz_denormalize_single(from_dict["sprites"])
 	if from_dict.has("babyUnderscoretriggerUnderscorefor"):
-		me.babyUnderscoretriggerUnderscorefor = ItemDetail_baby_trigger_for.bzz_denormalize_single(from_dict["babyUnderscoretriggerUnderscorefor"])
+		me.babyUnderscoretriggerUnderscorefor = EvolutionChainSummary.bzz_denormalize_single(from_dict["babyUnderscoretriggerUnderscorefor"])
 	if from_dict.has("machines"):
-		me.machines = ItemDetail_machines_inner.bzz_denormalize_multiple(from_dict["machines"])
+		me.machines = ItemMachine.bzz_denormalize_multiple(from_dict["machines"])
 	return me
 
 

@@ -20,7 +20,7 @@ import jakarta.annotation.Generated;
  * ItemEffectText
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-10-25T05:53:37.479908528Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-11-09T13:53:47.069318184Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class ItemEffectText {
 
   private String effect;
@@ -48,11 +48,11 @@ public class ItemEffectText {
   }
 
   /**
-   * Get effect
+   * The localized effect text for an API resource in a specific language.
    * @return effect
    */
   @NotNull @Size(max = 6000) 
-  @Schema(name = "effect", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "effect", description = "The localized effect text for an API resource in a specific language.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("effect")
   public String getEffect() {
     return effect;
@@ -69,11 +69,11 @@ public class ItemEffectText {
   }
 
   /**
-   * Get shortEffect
+   * The localized effect text in brief.
    * @return shortEffect
    */
   @NotNull @Size(max = 300) 
-  @Schema(name = "short_effect", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "short_effect", description = "The localized effect text in brief.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("short_effect")
   public String getShortEffect() {
     return shortEffect;
@@ -90,11 +90,11 @@ public class ItemEffectText {
   }
 
   /**
-   * Get language
+   * The language this effect is in.
    * @return language
    */
   @NotNull @Valid 
-  @Schema(name = "language", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "language", description = "The language this effect is in.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("language")
   public LanguageSummary getLanguage() {
     return language;

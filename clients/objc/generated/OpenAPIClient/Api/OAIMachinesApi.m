@@ -57,13 +57,10 @@ NSInteger kOAIMachinesApiMissingParamErrorCode = 234513;
 ///
 ///  @param offset The initial index from which to return the results. (optional)
 ///
-///  @param q > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
-///
 ///  @returns OAIPaginatedMachineSummaryList*
 ///
 -(NSURLSessionTask*) machineListWithLimit: (NSNumber*) limit
     offset: (NSNumber*) offset
-    q: (NSString*) q
     completionHandler: (void (^)(OAIPaginatedMachineSummaryList* output, NSError* error)) handler {
     NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/v2/machine/"];
 
@@ -75,9 +72,6 @@ NSInteger kOAIMachinesApiMissingParamErrorCode = 234513;
     }
     if (offset != nil) {
         queryParams[@"offset"] = offset;
-    }
-    if (q != nil) {
-        queryParams[@"q"] = q;
     }
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
     [headerParams addEntriesFromDictionary:self.defaultHeaders];
@@ -94,7 +88,7 @@ NSInteger kOAIMachinesApiMissingParamErrorCode = 234513;
     NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
-    NSArray *authSettings = @[@"basicAuth", @"cookieAuth"];
+    NSArray *authSettings = @[];
 
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
@@ -162,7 +156,7 @@ NSInteger kOAIMachinesApiMissingParamErrorCode = 234513;
     NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
 
     // Authentication setting
-    NSArray *authSettings = @[@"basicAuth", @"cookieAuth"];
+    NSArray *authSettings = @[];
 
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];

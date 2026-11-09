@@ -9,14 +9,19 @@ import Foundation
 
 public struct BerryFlavorDetail: Sendable, Codable, Hashable {
 
-    public static let nameRule = StringRule(minLength: nil, maxLength: 100, pattern: nil)
+    public static let nameRule = StringRule(minLength: nil, maxLength: 200, pattern: nil)
+    /** The identifier for this resource. */
     public var id: Int
+    /** The name for this resource. */
     public var name: String
-    public var berries: [BerryFlavorDetailBerriesInner]
+    /** A list of the berries with this flavor. */
+    public var berries: [BerryFlavorBerryMap]
+    /** The contest type that correlates with this berry flavor. */
     public var contestType: ContestTypeSummary
+    /** The name of this resource listed in different languages. */
     public var names: [BerryFlavorName]
 
-    public init(id: Int, name: String, berries: [BerryFlavorDetailBerriesInner], contestType: ContestTypeSummary, names: [BerryFlavorName]) {
+    public init(id: Int, name: String, berries: [BerryFlavorBerryMap], contestType: ContestTypeSummary, names: [BerryFlavorName]) {
         self.id = id
         self.name = name
         self.berries = berries

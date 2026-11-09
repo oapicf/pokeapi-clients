@@ -10,6 +10,7 @@ class_name LanguageDetail
 # LanguageDetail Model
 
 
+# The identifier for this resource.
 # Required: True
 # isArray: false
 @export var id: int:
@@ -18,6 +19,7 @@ class_name LanguageDetail
 		id = value
 var __id__was__set := false
 
+# The name for this resource.
 # Required: True
 # isArray: false
 @export var name: String:
@@ -26,6 +28,7 @@ var __id__was__set := false
 		name = value
 var __name__was__set := false
 
+# Whether or not the games are published in this language.
 # Required: False
 # isArray: false
 @export var official: bool:
@@ -34,6 +37,7 @@ var __name__was__set := false
 		official = value
 var __official__was__set := false
 
+# The two-letter ISO 639-1 language code. Multiple PokéAPI language records may share this code.
 # Required: True
 # isArray: false
 @export var iso639: String:
@@ -42,6 +46,7 @@ var __official__was__set := false
 		iso639 = value
 var __iso639__was__set := false
 
+# The two-letter ISO 3166-1 alpha-2 code of the country or region associated with this language record. Multiple PokéAPI language records may share this code.
 # Required: True
 # isArray: false
 @export var iso3166: String:
@@ -50,6 +55,7 @@ var __iso639__was__set := false
 		iso3166 = value
 var __iso3166__was__set := false
 
+# The name of this resource listed in different languages.
 # Required: True
 # isArray: true
 @export var names: Array:

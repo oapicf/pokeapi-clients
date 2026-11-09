@@ -3,12 +3,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **Int32** |  | [readonly] 
-**Name** | **String** |  | 
-**Official** | **Boolean** |  | [optional] 
-**Iso639** | **String** |  | 
-**Iso3166** | **String** |  | 
-**Names** | [**LanguageName[]**](LanguageName.md) |  | [readonly] 
+**Id** | **Int32** | The identifier for this resource. | [readonly] 
+**Name** | **String** | The name for this resource. | 
+**Official** | **Boolean** | Whether or not the games are published in this language. | [optional] 
+**Iso639** | **String** | The two-letter ISO 639-1 language code. Multiple PokéAPI language records may share this code. | 
+**Iso3166** | **String** | The two-letter ISO 3166-1 alpha-2 code of the country or region associated with this language record. Multiple PokéAPI language records may share this code. | 
+**Names** | [**LanguageName[]**](LanguageName.md) | The name of this resource listed in different languages. | [readonly] 
 
 ## Examples
 

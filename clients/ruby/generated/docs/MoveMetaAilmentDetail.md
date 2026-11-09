@@ -4,10 +4,10 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **Integer** |  | [readonly] |
-| **name** | **String** |  |  |
-| **moves** | [**Array&lt;AbilityDetailPokemonInnerPokemon&gt;**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] |
-| **names** | [**Array&lt;MoveMetaAilmentName&gt;**](MoveMetaAilmentName.md) |  | [readonly] |
+| **id** | **Integer** | The identifier for this resource. | [readonly] |
+| **name** | **String** | The name for this resource. |  |
+| **moves** | [**Array&lt;MoveSummary&gt;**](MoveSummary.md) | A list of moves that cause this ailment. | [readonly] |
+| **names** | [**Array&lt;MoveMetaAilmentName&gt;**](MoveMetaAilmentName.md) | The name of this resource listed in different languages. | [readonly] |
 
 ## Example
 

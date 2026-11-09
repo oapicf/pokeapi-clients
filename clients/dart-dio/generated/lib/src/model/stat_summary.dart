@@ -11,13 +11,15 @@ part 'stat_summary.g.dart';
 /// StatSummary
 ///
 /// Properties:
-/// * [name] 
-/// * [url] 
+/// * [name] - The name of the referenced resource.
+/// * [url] - The URL of the referenced resource.
 @BuiltValue()
 abstract class StatSummary implements Built<StatSummary, StatSummaryBuilder> {
+  /// The name of the referenced resource.
   @BuiltValueField(wireName: r'name')
   String get name;
 
+  /// The URL of the referenced resource.
   @BuiltValueField(wireName: r'url')
   String get url;
 

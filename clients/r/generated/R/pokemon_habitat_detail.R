@@ -7,10 +7,10 @@
 #' @title PokemonHabitatDetail
 #' @description PokemonHabitatDetail Class
 #' @format An \code{R6Class} generator object
-#' @field id  integer
-#' @field name  character
-#' @field names  list(\link{PokemonHabitatName})
-#' @field pokemon_species  list(\link{PokemonSpeciesSummary})
+#' @field id The identifier for this resource. integer
+#' @field name The name for this resource. character
+#' @field names The name of this resource listed in different languages. list(\link{PokemonHabitatName})
+#' @field pokemon_species A list of the Pokémon species that can be found in this habitat. list(\link{PokemonSpeciesSummary})
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -25,10 +25,10 @@ PokemonHabitatDetail <- R6::R6Class(
     #' @description
     #' Initialize a new PokemonHabitatDetail class.
     #'
-    #' @param id id
-    #' @param name name
-    #' @param names names
-    #' @param pokemon_species pokemon_species
+    #' @param id The identifier for this resource.
+    #' @param name The name for this resource.
+    #' @param names The name of this resource listed in different languages.
+    #' @param pokemon_species A list of the Pokémon species that can be found in this habitat.
     #' @param ... Other optional arguments.
     initialize = function(`id`, `name`, `names`, `pokemon_species`, ...) {
       if (!missing(`id`)) {
@@ -236,7 +236,7 @@ PokemonHabitatDetail <- R6::R6Class(
         return(FALSE)
       }
 
-      if (nchar(self$`name`) > 100) {
+      if (nchar(self$`name`) > 200) {
         return(FALSE)
       }
 
@@ -269,8 +269,8 @@ PokemonHabitatDetail <- R6::R6Class(
         invalid_fields["name"] <- "Non-nullable required field `name` cannot be null."
       }
 
-      if (nchar(self$`name`) > 100) {
-        invalid_fields["name"] <- "Invalid length for `name`, must be smaller than or equal to 100."
+      if (nchar(self$`name`) > 200) {
+        invalid_fields["name"] <- "Invalid length for `name`, must be smaller than or equal to 200."
       }
 
       # check if the required `names` is null

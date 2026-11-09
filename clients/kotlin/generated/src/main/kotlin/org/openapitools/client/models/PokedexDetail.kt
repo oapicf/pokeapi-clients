@@ -23,11 +23,11 @@
 
 package org.openapitools.client.models
 
-import org.openapitools.client.models.AbilityDetailPokemonInnerPokemon
 import org.openapitools.client.models.PokedexDescription
-import org.openapitools.client.models.PokedexDetailPokemonEntriesInner
 import org.openapitools.client.models.PokedexName
+import org.openapitools.client.models.PokemonDexNumber
 import org.openapitools.client.models.RegionSummary
+import org.openapitools.client.models.VersionGroupSummary
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -35,40 +35,48 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param id 
- * @param name 
- * @param descriptions 
- * @param names 
- * @param pokemonEntries 
- * @param region 
- * @param versionGroups 
- * @param isMainSeries 
+ * @param id The identifier for this resource.
+ * @param name The name for this resource.
+ * @param descriptions The description of this resource listed in different languages.
+ * @param names The name of this resource listed in different languages.
+ * @param pokemonEntries A list of Pokémon catalogued in this Pokédex and their indexes.
+ * @param region The region this Pokédex catalogues Pokémon for.
+ * @param versionGroups A list of version groups this Pokédex is relevant to.
+ * @param isMainSeries Whether or not this Pokédex originated in the main series of the video games.
  */
 
 
 data class PokedexDetail (
 
+    /* The identifier for this resource. */
     @Json(name = "id")
     val id: kotlin.Int,
 
+    /* The name for this resource. */
     @Json(name = "name")
     val name: kotlin.String,
 
+    /* The description of this resource listed in different languages. */
     @Json(name = "descriptions")
     val descriptions: kotlin.collections.List<PokedexDescription>,
 
+    /* The name of this resource listed in different languages. */
     @Json(name = "names")
     val names: kotlin.collections.List<PokedexName>,
 
+    /* A list of Pokémon catalogued in this Pokédex and their indexes. */
     @Json(name = "pokemon_entries")
-    val pokemonEntries: kotlin.collections.List<PokedexDetailPokemonEntriesInner>,
+    val pokemonEntries: kotlin.collections.List<PokemonDexNumber>,
 
+    /* The region this Pokédex catalogues Pokémon for. */
     @Json(name = "region")
-    val region: RegionSummary,
+    val region: RegionSummary?,
 
+    /* A list of version groups this Pokédex is relevant to. */
     @Json(name = "version_groups")
-    val versionGroups: kotlin.collections.List<AbilityDetailPokemonInnerPokemon>,
+    val versionGroups: kotlin.collections.List<VersionGroupSummary>,
 
+    /* Whether or not this Pokédex originated in the main series of the video games. */
     @Json(name = "is_main_series")
     val isMainSeries: kotlin.Boolean? = null
 

@@ -16,6 +16,8 @@ class PokemonApi {
 
   final ApiClient apiClient;
 
+  /// List abilities
+  ///
   /// Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
   ///
   /// Note: This method returns the HTTP [Response].
@@ -66,6 +68,8 @@ class PokemonApi {
     );
   }
 
+  /// List abilities
+  ///
   /// Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
   ///
   /// Parameters:
@@ -93,6 +97,8 @@ class PokemonApi {
     return null;
   }
 
+  /// Get ability
+  ///
   /// Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
   ///
   /// Note: This method returns the HTTP [Response].
@@ -128,6 +134,8 @@ class PokemonApi {
     );
   }
 
+  /// Get ability
+  ///
   /// Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
   ///
   /// Parameters:
@@ -149,7 +157,7 @@ class PokemonApi {
     return null;
   }
 
-  /// List charecterictics
+  /// List characteristics
   ///
   /// Characteristics indicate which stat contains a Pokémon's highest IV. A Pokémon's Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail.
   ///
@@ -162,10 +170,7 @@ class PokemonApi {
   ///
   /// * [int] offset:
   ///   The initial index from which to return the results.
-  ///
-  /// * [String] q:
-  ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<Response> characteristicListWithHttpInfo({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
+  Future<Response> characteristicListWithHttpInfo({ int? limit, int? offset, Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/characteristic/';
 
@@ -181,9 +186,6 @@ class PokemonApi {
     }
     if (offset != null) {
       queryParams.addAll(_queryParams('', 'offset', offset));
-    }
-    if (q != null) {
-      queryParams.addAll(_queryParams('', 'q', q));
     }
 
     const contentTypes = <String>[];
@@ -201,7 +203,7 @@ class PokemonApi {
     );
   }
 
-  /// List charecterictics
+  /// List characteristics
   ///
   /// Characteristics indicate which stat contains a Pokémon's highest IV. A Pokémon's Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail.
   ///
@@ -212,11 +214,8 @@ class PokemonApi {
   ///
   /// * [int] offset:
   ///   The initial index from which to return the results.
-  ///
-  /// * [String] q:
-  ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<PaginatedCharacteristicSummaryList?> characteristicList({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
-    final response = await characteristicListWithHttpInfo(limit: limit, offset: offset, q: q, abortTrigger: abortTrigger,);
+  Future<PaginatedCharacteristicSummaryList?> characteristicList({ int? limit, int? offset, Future<void>? abortTrigger, }) async {
+    final response = await characteristicListWithHttpInfo(limit: limit, offset: offset, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

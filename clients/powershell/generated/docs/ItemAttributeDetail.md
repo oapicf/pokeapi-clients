@@ -3,11 +3,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **Int32** |  | [readonly] 
-**Name** | **String** |  | 
-**Descriptions** | [**ItemAttributeDescription[]**](ItemAttributeDescription.md) |  | [readonly] 
-**Items** | [**AbilityDetailPokemonInnerPokemon[]**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] 
-**Names** | [**ItemAttributeName[]**](ItemAttributeName.md) |  | [readonly] 
+**Id** | **Int32** | The identifier for this resource. | [readonly] 
+**Name** | **String** | The name for this resource. | 
+**Descriptions** | [**ItemAttributeDescription[]**](ItemAttributeDescription.md) | The description of this item attribute listed in different languages. | [readonly] 
+**Items** | [**ItemSummary[]**](ItemSummary.md) | A list of items that have this attribute. | [readonly] 
+**Names** | [**ItemAttributeName[]**](ItemAttributeName.md) | The name of this item attribute listed in different languages. | [readonly] 
 
 ## Examples
 

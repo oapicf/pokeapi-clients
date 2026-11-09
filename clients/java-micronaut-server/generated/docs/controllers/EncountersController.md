@@ -33,9 +33,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**PaginatedEncounterConditionSummaryList**](../../docs/models/PaginatedEncounterConditionSummaryList.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -59,9 +56,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**EncounterConditionDetail**](../../docs/models/EncounterConditionDetail.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -87,9 +81,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**PaginatedEncounterConditionValueSummaryList**](../../docs/models/PaginatedEncounterConditionValueSummaryList.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -113,9 +104,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**EncounterConditionValueDetail**](../../docs/models/EncounterConditionValueDetail.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -141,9 +129,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**PaginatedEncounterMethodSummaryList**](../../docs/models/PaginatedEncounterMethodSummaryList.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -167,9 +152,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**EncounterMethodDetail**](../../docs/models/EncounterMethodDetail.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined

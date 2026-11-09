@@ -26,27 +26,38 @@ class TypeDetail {
     this.sprites = const {},
   });
 
+  /// The identifier for this resource.
   int id;
 
+  /// The name for this resource.
   String name;
 
-  TypeDetailDamageRelations damageRelations;
+  /// A detail of how effective this type is toward others and vice versa.
+  TypeRelationships damageRelations;
 
-  List<TypeDetailPastDamageRelationsInner> pastDamageRelations;
+  /// A list of details of how effective this type was toward others and vice versa in previous generations
+  List<TypePastRelationships> pastDamageRelations;
 
+  /// A list of game indices relevent to this item by generation.
   List<TypeGameIndex> gameIndices;
 
+  /// The generation this type was introduced in.
   GenerationSummary generation;
 
-  MoveDamageClassSummary moveDamageClass;
+  /// The class of damage inflicted by this type.
+  MoveDamageClassSummary? moveDamageClass;
 
-  List<AbilityName> names;
+  /// The name of this resource listed in different languages.
+  List<TypeName> names;
 
-  List<TypeDetailPokemonInner> pokemon;
+  /// A list of details of Pokémon that have this type.
+  List<TypePokemon> pokemon;
 
+  /// A list of moves that have this type.
   List<MoveSummary> moves;
 
-  Map<String, Map<String, TypeDetailSpritesValueValue>> sprites;
+  /// Type icons grouped by generation and game, with name_icon and symbol_icon URLs. Unavailable icons are null.
+  Map<String, Map<String, TypeGameSprite>> sprites;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is TypeDetail &&
@@ -71,7 +82,7 @@ class TypeDetail {
     (pastDamageRelations.hashCode) +
     (gameIndices.hashCode) +
     (generation.hashCode) +
-    (moveDamageClass.hashCode) +
+    (moveDamageClass == null ? 0 : moveDamageClass!.hashCode) +
     (names.hashCode) +
     (pokemon.hashCode) +
     (moves.hashCode) +
@@ -88,7 +99,11 @@ class TypeDetail {
       json[r'past_damage_relations'] = this.pastDamageRelations;
       json[r'game_indices'] = this.gameIndices;
       json[r'generation'] = this.generation;
+    if (this.moveDamageClass != null) {
       json[r'move_damage_class'] = this.moveDamageClass;
+    } else {
+      json[r'move_damage_class'] = null;
+    }
       json[r'names'] = this.names;
       json[r'pokemon'] = this.pokemon;
       json[r'moves'] = this.moves;
@@ -120,7 +135,6 @@ class TypeDetail {
         assert(json.containsKey(r'generation'), 'Required key "TypeDetail[generation]" is missing from JSON.');
         assert(json[r'generation'] != null, 'Required key "TypeDetail[generation]" has a null value in JSON.');
         assert(json.containsKey(r'move_damage_class'), 'Required key "TypeDetail[move_damage_class]" is missing from JSON.');
-        assert(json[r'move_damage_class'] != null, 'Required key "TypeDetail[move_damage_class]" has a null value in JSON.');
         assert(json.containsKey(r'names'), 'Required key "TypeDetail[names]" is missing from JSON.');
         assert(json[r'names'] != null, 'Required key "TypeDetail[names]" has a null value in JSON.');
         assert(json.containsKey(r'pokemon'), 'Required key "TypeDetail[pokemon]" is missing from JSON.');
@@ -135,15 +149,15 @@ class TypeDetail {
       return TypeDetail(
         id: mapValueOfType<int>(json, r'id')!,
         name: mapValueOfType<String>(json, r'name')!,
-        damageRelations: TypeDetailDamageRelations.fromJson(json[r'damage_relations'])!,
-        pastDamageRelations: TypeDetailPastDamageRelationsInner.listFromJson(json[r'past_damage_relations']),
+        damageRelations: TypeRelationships.fromJson(json[r'damage_relations'])!,
+        pastDamageRelations: TypePastRelationships.listFromJson(json[r'past_damage_relations']),
         gameIndices: TypeGameIndex.listFromJson(json[r'game_indices']),
         generation: GenerationSummary.fromJson(json[r'generation'])!,
-        moveDamageClass: MoveDamageClassSummary.fromJson(json[r'move_damage_class'])!,
-        names: AbilityName.listFromJson(json[r'names']),
-        pokemon: TypeDetailPokemonInner.listFromJson(json[r'pokemon']),
+        moveDamageClass: MoveDamageClassSummary.fromJson(json[r'move_damage_class']),
+        names: TypeName.listFromJson(json[r'names']),
+        pokemon: TypePokemon.listFromJson(json[r'pokemon']),
         moves: MoveSummary.listFromJson(json[r'moves']),
-        sprites: TypeDetailSpritesValueValue.mapFromJson(json[r'sprites']),
+        sprites: TypeGameSprite.mapFromJson(json[r'sprites']),
       );
     }
     return null;

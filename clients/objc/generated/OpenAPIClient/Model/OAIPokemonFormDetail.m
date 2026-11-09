@@ -17,7 +17,7 @@
  * This method is used by `JSONModel`.
  */
 + (JSONKeyMapper *)keyMapper {
-  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{ @"_id": @"id", @"name": @"name", @"order": @"order", @"formOrder": @"form_order", @"isDefault": @"is_default", @"isBattleOnly": @"is_battle_only", @"isMega": @"is_mega", @"formName": @"form_name", @"pokemon": @"pokemon", @"sprites": @"sprites", @"versionGroup": @"version_group", @"formNames": @"form_names", @"names": @"names", @"types": @"types" }];
+  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{ @"_id": @"id", @"name": @"name", @"order": @"order", @"formOrder": @"form_order", @"isDefault": @"is_default", @"isBattleOnly": @"is_battle_only", @"isMega": @"is_mega", @"formName": @"form_name", @"pokemon": @"pokemon", @"sprites": @"sprites", @"versionGroup": @"version_group", @"formNames": @"form_names", @"names": @"names", @"types": @"types", @"triggerConditions": @"trigger_conditions", @"flavorTextEntries": @"flavor_text_entries" }];
 }
 
 /**

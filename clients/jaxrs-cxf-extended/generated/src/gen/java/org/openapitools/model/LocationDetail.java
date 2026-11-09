@@ -17,26 +17,44 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class LocationDetail  {
   
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The identifier for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   private Integer id;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The name for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   private String name;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The region this location can be found in.
+  */
+  @ApiModelProperty(required = true, value = "The region this location can be found in.")
   @Valid
   private RegionSummary region;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The name of this resource listed in different languages.
+  */
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
   private List<@Valid LocationName> names = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * A list of game indices relevent to this location by generation.
+  */
+  @ApiModelProperty(required = true, value = "A list of game indices relevent to this location by generation.")
   private List<@Valid LocationGameIndex> gameIndices = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * Areas that can be found within this location.
+  */
+  @ApiModelProperty(required = true, value = "Areas that can be found within this location.")
   private List<@Valid LocationAreaSummary> areas = new ArrayList<>();
  /**
-  * Get id
+  * The identifier for this resource.
   * @return id
   */
   @JsonProperty("id")
@@ -63,12 +81,12 @@ public class LocationDetail  {
   }
 
  /**
-  * Get name
+  * The name for this resource.
   * @return name
   */
   @JsonProperty("name")
   @NotNull
- @Size(max=100)  public String getName() {
+ @Size(max=200)  public String getName() {
     return name;
   }
 
@@ -88,7 +106,7 @@ public class LocationDetail  {
   }
 
  /**
-  * Get region
+  * The region this location can be found in.
   * @return region
   */
   @JsonProperty("region")
@@ -113,7 +131,7 @@ public class LocationDetail  {
   }
 
  /**
-  * Get names
+  * The name of this resource listed in different languages.
   * @return names
   */
   @JsonProperty("names")
@@ -149,7 +167,7 @@ public class LocationDetail  {
   }
 
  /**
-  * Get gameIndices
+  * A list of game indices relevent to this location by generation.
   * @return gameIndices
   */
   @JsonProperty("game_indices")
@@ -185,7 +203,7 @@ public class LocationDetail  {
   }
 
  /**
-  * Get areas
+  * Areas that can be found within this location.
   * @return areas
   */
   @JsonProperty("areas")

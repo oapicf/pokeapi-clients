@@ -13,10 +13,14 @@ import java.net.URI
 import PaginatedStatSummaryList._
 
 case class PaginatedStatSummaryList (
-  count: Option[Integer],
-next: Option[URI],
-previous: Option[URI],
-results: Option[List[StatSummary]])
+  /* The total number of resources available from this API. */
+  count: Integer,
+/* The URL for the next page in the list, or null if there is no next page. */
+  next: Option[URI],
+/* The URL for the previous page in the list, or null if there is no previous page. */
+  previous: Option[URI],
+/* A list of API resources on this page. */
+  results: List[StatSummary])
 
 object PaginatedStatSummaryList {
   import DateTimeCodecs._

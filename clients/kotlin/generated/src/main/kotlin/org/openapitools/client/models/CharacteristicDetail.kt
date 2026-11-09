@@ -32,28 +32,33 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param id 
- * @param geneModulo 
- * @param possibleValues 
- * @param highestStat 
- * @param descriptions 
+ * @param id The identifier for this resource.
+ * @param geneModulo The remainder of the highest stat/IV divided by 5.
+ * @param possibleValues The possible values of the highest stat that would result in a Pokémon recieving this characteristic when divided by 5.
+ * @param highestStat The stat which results in this characteristic.
+ * @param descriptions The descriptions of this characteristic listed in different languages.
  */
 
 
 data class CharacteristicDetail (
 
+    /* The identifier for this resource. */
     @Json(name = "id")
     val id: kotlin.Int,
 
+    /* The remainder of the highest stat/IV divided by 5. */
     @Json(name = "gene_modulo")
     val geneModulo: kotlin.Int,
 
+    /* The possible values of the highest stat that would result in a Pokémon recieving this characteristic when divided by 5. */
     @Json(name = "possible_values")
     val possibleValues: kotlin.collections.List<kotlin.Int>,
 
+    /* The stat which results in this characteristic. */
     @Json(name = "highest_stat")
     val highestStat: StatSummary,
 
+    /* The descriptions of this characteristic listed in different languages. */
     @Json(name = "descriptions")
     val descriptions: kotlin.collections.List<CharacteristicDescription>
 

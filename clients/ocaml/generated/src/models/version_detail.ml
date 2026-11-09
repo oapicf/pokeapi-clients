@@ -16,23 +16,27 @@
                 
                 
                 ; [@key "id"]
-                                              name: string
+                    (** The identifier for this resource. *)
+                                      name: string
                   
                   
                 
                 
                 ; [@key "name"]
-                                              names: Version_name.t list
+                    (** The name for this resource. *)
+                                      names: Version_name.t list
                 
                 
                 ; [@key "names"]
-                                              version_group: Version_group_summary.t
+                    (** The name of this resource listed in different languages. *)
+                                      version_group: Version_group_summary.t
                   
                   
                 
                 
                 ; [@key "version_group"]
-                        } [@@deriving yojson { strict = false }, show, eq ];;
+                    (** The version group this version belongs to. *)
+                } [@@deriving yojson { strict = false }, show, eq ];;
         
         (** Should have a link to Version Group info but the Circular dependency and compilation order fight eachother and I'm not sure how to add anything other than a hyperlink *)
         let create (id : int32) (name : string) (names : Version_name.t list) (version_group : Version_group_summary.t) : t = {

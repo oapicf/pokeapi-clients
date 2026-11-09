@@ -9,9 +9,9 @@
 
 
 #include <string>
-#include "LocationAreaDetail_encounter_method_rates_inner.h"
-#include "LocationAreaDetail_pokemon_encounters_inner.h"
+#include "LocationAreaEncounterRate.h"
 #include "LocationAreaName.h"
+#include "LocationAreaPokemonEncounter.h"
 #include "LocationSummary.h"
 #include <list>
 #include "Object.h"
@@ -50,64 +50,64 @@ public:
 	 */
 	void fromJson(char* jsonStr);
 
-	/*! \brief Get 
+	/*! \brief Get The identifier for this resource.
 	 */
 	int getId();
 
-	/*! \brief Set 
+	/*! \brief Set The identifier for this resource.
 	 */
 	void setId(int  id);
-	/*! \brief Get 
+	/*! \brief Get The name for this resource.
 	 */
 	std::string getName();
 
-	/*! \brief Set 
+	/*! \brief Set The name for this resource.
 	 */
 	void setName(std::string  name);
-	/*! \brief Get 
+	/*! \brief Get The internal id of an API resource within game data.
 	 */
 	int getGameIndex();
 
-	/*! \brief Set 
+	/*! \brief Set The internal id of an API resource within game data.
 	 */
 	void setGameIndex(int  game_index);
-	/*! \brief Get 
+	/*! \brief Get A list of methods in which Pokémon may be encountered in this area and how likely the method will occur depending on the version of the game.
 	 */
-	std::list<LocationAreaDetail_encounter_method_rates_inner> getEncounterMethodRates();
+	std::list<LocationAreaEncounterRate> getEncounterMethodRates();
 
-	/*! \brief Set 
+	/*! \brief Set A list of methods in which Pokémon may be encountered in this area and how likely the method will occur depending on the version of the game.
 	 */
-	void setEncounterMethodRates(std::list <LocationAreaDetail_encounter_method_rates_inner> encounter_method_rates);
-	/*! \brief Get 
+	void setEncounterMethodRates(std::list <LocationAreaEncounterRate> encounter_method_rates);
+	/*! \brief Get The region this location area can be found in.
 	 */
 	LocationSummary getLocation();
 
-	/*! \brief Set 
+	/*! \brief Set The region this location area can be found in.
 	 */
 	void setLocation(LocationSummary  location);
-	/*! \brief Get 
+	/*! \brief Get The name of this resource listed in different languages.
 	 */
 	std::list<LocationAreaName> getNames();
 
-	/*! \brief Set 
+	/*! \brief Set The name of this resource listed in different languages.
 	 */
 	void setNames(std::list <LocationAreaName> names);
-	/*! \brief Get 
+	/*! \brief Get A list of Pokémon that can be encountered in this area along with version specific details about the encounter.
 	 */
-	std::list<LocationAreaDetail_pokemon_encounters_inner> getPokemonEncounters();
+	std::list<LocationAreaPokemonEncounter> getPokemonEncounters();
 
-	/*! \brief Set 
+	/*! \brief Set A list of Pokémon that can be encountered in this area along with version specific details about the encounter.
 	 */
-	void setPokemonEncounters(std::list <LocationAreaDetail_pokemon_encounters_inner> pokemon_encounters);
+	void setPokemonEncounters(std::list <LocationAreaPokemonEncounter> pokemon_encounters);
 
 private:
 	int id;
 	std::string name;
 	int game_index;
-	std::list <LocationAreaDetail_encounter_method_rates_inner>encounter_method_rates;
+	std::list <LocationAreaEncounterRate>encounter_method_rates;
 	LocationSummary location;
 	std::list <LocationAreaName>names;
-	std::list <LocationAreaDetail_pokemon_encounters_inner>pokemon_encounters;
+	std::list <LocationAreaPokemonEncounter>pokemon_encounters;
 	void __init();
 	void __cleanup();
 

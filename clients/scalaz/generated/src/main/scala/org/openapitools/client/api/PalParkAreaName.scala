@@ -12,8 +12,10 @@ import org.joda.time.DateTime
 import PalParkAreaName._
 
 case class PalParkAreaName (
+  /* The localized name for an API resource in a specific language. */
   name: String,
-language: LanguageSummary)
+/* The language this name is in. */
+  language: LanguageSummary)
 
 object PalParkAreaName {
   import DateTimeCodecs._

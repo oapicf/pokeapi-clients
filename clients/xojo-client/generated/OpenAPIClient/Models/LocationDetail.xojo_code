@@ -2,31 +2,49 @@
 Protected Class LocationDetail
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The identifier for this resource.
+		#tag EndNote
 		id As Integer
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The name for this resource.
+		#tag EndNote
 		name As String
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The region this location can be found in.
+		#tag EndNote
 		region As OpenAPIClient.Models.RegionSummary
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The name of this resource listed in different languages.
+		#tag EndNote
 		names() As OpenAPIClient.Models.LocationName
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			A list of game indices relevent to this location by generation.
+		#tag EndNote
 		game_indices() As OpenAPIClient.Models.LocationGameIndex
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			Areas that can be found within this location.
+		#tag EndNote
 		areas() As OpenAPIClient.Models.LocationAreaSummary
 	#tag EndProperty
 

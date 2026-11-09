@@ -3,9 +3,9 @@
 //> using lib "com.lihaoyi::scalatags:0.12.0"
 /**
  * PokéAPI
- * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+ * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
  *
- * OpenAPI spec version: 2.7.0
+ * OpenAPI spec version: 2.10.0
  *
  * Contact: blah+oapicf@cliffano.com
  *
@@ -20,6 +20,7 @@ package org.openapitools.server.api
 
 import _root_.org.openapitools.server.model.LanguageDetail
 import _root_.org.openapitools.server.model.PaginatedLanguageSummaryList
+import _root_.org.openapitools.server.model.PokeapiMetaResponse
 import scala.util.Failure
 import scala.util.Try
 import _root_.org.openapitools.server.model.*
@@ -38,7 +39,8 @@ object UtilityService {
    */
   case class Handler[F[_]](
         languageListHandler : (limit : Option[Int], offset : Option[Int], q : Option[String]) => F[PaginatedLanguageSummaryList], 
-        languageRetrieveHandler : (id : String) => F[LanguageDetail]
+        languageRetrieveHandler : (id : String) => F[LanguageDetail], 
+        metaRetrieveHandler : () => F[PokeapiMetaResponse]
   ) extends UtilityService[F] {
 
         override def languageList(limit : Option[Int], offset : Option[Int], q : Option[String]) : F[PaginatedLanguageSummaryList] = {
@@ -48,11 +50,16 @@ object UtilityService {
         override def languageRetrieve(id : String) : F[LanguageDetail] = {
           languageRetrieveHandler(id)
         }
+
+        override def metaRetrieve() : F[PokeapiMetaResponse] = {
+          metaRetrieveHandler()
+        }
   }
 
   def apply() : UtilityService[Try] = UtilityService.Handler[Try](
         (_, _, _) => notImplemented("languageList"), 
-        (_) => notImplemented("languageRetrieve")
+        (_) => notImplemented("languageRetrieve"), 
+        () => notImplemented("metaRetrieve")
   )
 
   private def notImplemented(name : String) = Failure(new Exception(s"TODO: $name not implemented"))
@@ -95,6 +102,19 @@ trait UtilityService[F[_]] {
   final def onLanguageRetrieve(handler : (id : String) => F[LanguageDetail]) : UtilityService[F] = {
     asHandler.copy(languageRetrieveHandler = handler)
   }
+  /** Get API metadata
+   * 
+   * @return PokeapiMetaResponse
+   */
+  def metaRetrieve() : F[PokeapiMetaResponse]
+
+  /**
+   * override metaRetrieve with the given handler
+   * @return a new implementation of UtilityService[F] with metaRetrieve overridden using the given handler
+   */
+  final def onMetaRetrieve(handler : () => F[PokeapiMetaResponse]) : UtilityService[F] = {
+    asHandler.copy(metaRetrieveHandler = handler)
+  }
 
   /**
    * @return a Handler implementation of this service
@@ -104,7 +124,8 @@ trait UtilityService[F[_]] {
       case _ =>
         UtilityService.Handler[F](
               (limit, offset, q) => languageList(limit, offset, q), 
-              (id) => languageRetrieve(id)
+              (id) => languageRetrieve(id), 
+              () => metaRetrieve()
         )
   }
 
@@ -135,6 +156,9 @@ trait UtilityService[F[_]] {
         }
         override def languageRetrieve(id : String) : G[LanguageDetail] = changeEffect {
           self.languageRetrieve(id)
+        }
+        override def metaRetrieve() : G[PokeapiMetaResponse] = changeEffect {
+          self.metaRetrieve()
         }
     }
   }

@@ -48,8 +48,7 @@ class ContestsApiAction @Inject constructor(
     @LogRequestResponse(bodySampling = 1.0, errorBodySampling = 1.0)
     fun contestEffectList(
          @QueryParam(value = "limit") limit: kotlin.Int?, 
-         @QueryParam(value = "offset") offset: kotlin.Int?, 
-         @QueryParam(value = "q") q: kotlin.String?
+         @QueryParam(value = "offset") offset: kotlin.Int?
     ): PaginatedContestEffectSummaryList {
         TODO()
     }
@@ -92,8 +91,7 @@ class ContestsApiAction @Inject constructor(
     @LogRequestResponse(bodySampling = 1.0, errorBodySampling = 1.0)
     fun superContestEffectList(
          @QueryParam(value = "limit") limit: kotlin.Int?, 
-         @QueryParam(value = "offset") offset: kotlin.Int?, 
-         @QueryParam(value = "q") q: kotlin.String?
+         @QueryParam(value = "offset") offset: kotlin.Int?
     ): PaginatedSuperContestEffectSummaryList {
         TODO()
     }

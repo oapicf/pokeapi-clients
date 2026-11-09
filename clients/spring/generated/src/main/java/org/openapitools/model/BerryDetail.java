@@ -7,11 +7,13 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.model.BerryDetailFlavorsInner;
+import org.openapitools.jackson.nullable.JsonNullable;
 import org.openapitools.model.BerryFirmnessSummary;
+import org.openapitools.model.BerryFlavorMap;
 import org.openapitools.model.ItemSummary;
 import org.openapitools.model.TypeSummary;
 import org.springframework.lang.Nullable;
+import java.util.NoSuchElementException;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
@@ -26,32 +28,32 @@ import jakarta.annotation.Generated;
  * BerryDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-10-25T05:53:37.479908528Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-11-09T13:53:47.069318184Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class BerryDetail {
 
   private Integer id;
 
   private String name;
 
-  private Integer growthTime;
+  private JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> growthTime = JsonNullable.<Integer>undefined();
 
-  private Integer maxHarvest;
+  private JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> maxHarvest = JsonNullable.<Integer>undefined();
 
-  private Integer naturalGiftPower;
+  private JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> naturalGiftPower = JsonNullable.<Integer>undefined();
 
-  private Integer size;
+  private JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> size = JsonNullable.<Integer>undefined();
 
-  private Integer smoothness;
+  private JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> smoothness = JsonNullable.<Integer>undefined();
 
-  private Integer soilDryness;
+  private JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> soilDryness = JsonNullable.<Integer>undefined();
 
-  private BerryFirmnessSummary firmness;
+  private JsonNullable<BerryFirmnessSummary> firmness = JsonNullable.<BerryFirmnessSummary>undefined();
 
-  private List<@Valid BerryDetailFlavorsInner> flavors = new ArrayList<>();
+  private List<@Valid BerryFlavorMap> flavors = new ArrayList<>();
 
   private ItemSummary item;
 
-  private TypeSummary naturalGiftType;
+  private JsonNullable<TypeSummary> naturalGiftType = JsonNullable.<TypeSummary>undefined();
 
   public BerryDetail() {
     super();
@@ -60,19 +62,13 @@ public class BerryDetail {
   /**
    * Constructor with only required parameters
    */
-  public BerryDetail(Integer id, String name, Integer growthTime, Integer maxHarvest, Integer naturalGiftPower, Integer size, Integer smoothness, Integer soilDryness, BerryFirmnessSummary firmness, List<@Valid BerryDetailFlavorsInner> flavors, ItemSummary item, TypeSummary naturalGiftType) {
+  public BerryDetail(Integer id, String name, BerryFirmnessSummary firmness, List<@Valid BerryFlavorMap> flavors, ItemSummary item, TypeSummary naturalGiftType) {
     this.id = id;
     this.name = name;
-    this.growthTime = growthTime;
-    this.maxHarvest = maxHarvest;
-    this.naturalGiftPower = naturalGiftPower;
-    this.size = size;
-    this.smoothness = smoothness;
-    this.soilDryness = soilDryness;
-    this.firmness = firmness;
+    this.firmness = JsonNullable.of(firmness);
     this.flavors = flavors;
     this.item = item;
-    this.naturalGiftType = naturalGiftType;
+    this.naturalGiftType = JsonNullable.of(naturalGiftType);
   }
 
   public BerryDetail id(Integer id) {
@@ -81,11 +77,11 @@ public class BerryDetail {
   }
 
   /**
-   * Get id
+   * The identifier for this resource.
    * @return id
    */
   
-  @Schema(name = "id", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "id", accessMode = Schema.AccessMode.READ_ONLY, description = "The identifier for this resource.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("id")
   public Integer getId() {
     return id;
@@ -102,11 +98,11 @@ public class BerryDetail {
   }
 
   /**
-   * Get name
+   * The name for this resource.
    * @return name
    */
-  @NotNull @Size(max = 100) 
-  @Schema(name = "name", requiredMode = Schema.RequiredMode.REQUIRED)
+  @NotNull @Size(max = 200) 
+  @Schema(name = "name", description = "The name for this resource.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("name")
   public String getName() {
     return name;
@@ -118,158 +114,164 @@ public class BerryDetail {
   }
 
   public BerryDetail growthTime(Integer growthTime) {
-    this.growthTime = growthTime;
+    this.growthTime = JsonNullable.of(growthTime);
     return this;
   }
 
   /**
-   * Get growthTime
+   * Time it takes the tree to grow one stage, in hours. Berry trees go through four of these growth stages before they can be picked.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return growthTime
    */
-  @NotNull 
-  @Schema(name = "growth_time", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Min(value = -2147483648) @Max(value = 2147483647) 
+  @Schema(name = "growth_time", description = "Time it takes the tree to grow one stage, in hours. Berry trees go through four of these growth stages before they can be picked.", requiredMode = Schema.RequiredMode.NOT_REQUIRED, nullable = true)
   @JsonProperty("growth_time")
-  public Integer getGrowthTime() {
+  public JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> getGrowthTime() {
     return growthTime;
   }
 
-  @JsonProperty("growth_time")
-  public void setGrowthTime(Integer growthTime) {
+  public void setGrowthTime(JsonNullable<Integer> growthTime) {
     this.growthTime = growthTime;
   }
 
   public BerryDetail maxHarvest(Integer maxHarvest) {
-    this.maxHarvest = maxHarvest;
+    this.maxHarvest = JsonNullable.of(maxHarvest);
     return this;
   }
 
   /**
-   * Get maxHarvest
+   * The maximum number of these berries that can grow on one tree in Generation IV.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return maxHarvest
    */
-  @NotNull 
-  @Schema(name = "max_harvest", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Min(value = -2147483648) @Max(value = 2147483647) 
+  @Schema(name = "max_harvest", description = "The maximum number of these berries that can grow on one tree in Generation IV.", requiredMode = Schema.RequiredMode.NOT_REQUIRED, nullable = true)
   @JsonProperty("max_harvest")
-  public Integer getMaxHarvest() {
+  public JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> getMaxHarvest() {
     return maxHarvest;
   }
 
-  @JsonProperty("max_harvest")
-  public void setMaxHarvest(Integer maxHarvest) {
+  public void setMaxHarvest(JsonNullable<Integer> maxHarvest) {
     this.maxHarvest = maxHarvest;
   }
 
   public BerryDetail naturalGiftPower(Integer naturalGiftPower) {
-    this.naturalGiftPower = naturalGiftPower;
+    this.naturalGiftPower = JsonNullable.of(naturalGiftPower);
     return this;
   }
 
   /**
-   * Get naturalGiftPower
+   * The power of the move \"Natural Gift\" when used with this Berry.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return naturalGiftPower
    */
-  @NotNull 
-  @Schema(name = "natural_gift_power", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Min(value = -2147483648) @Max(value = 2147483647) 
+  @Schema(name = "natural_gift_power", description = "The power of the move \"Natural Gift\" when used with this Berry.", requiredMode = Schema.RequiredMode.NOT_REQUIRED, nullable = true)
   @JsonProperty("natural_gift_power")
-  public Integer getNaturalGiftPower() {
+  public JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> getNaturalGiftPower() {
     return naturalGiftPower;
   }
 
-  @JsonProperty("natural_gift_power")
-  public void setNaturalGiftPower(Integer naturalGiftPower) {
+  public void setNaturalGiftPower(JsonNullable<Integer> naturalGiftPower) {
     this.naturalGiftPower = naturalGiftPower;
   }
 
   public BerryDetail size(Integer size) {
-    this.size = size;
+    this.size = JsonNullable.of(size);
     return this;
   }
 
   /**
-   * Get size
+   * The size of this Berry, in millimeters.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return size
    */
-  @NotNull 
-  @Schema(name = "size", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Min(value = -2147483648) @Max(value = 2147483647) 
+  @Schema(name = "size", description = "The size of this Berry, in millimeters.", requiredMode = Schema.RequiredMode.NOT_REQUIRED, nullable = true)
   @JsonProperty("size")
-  public Integer getSize() {
+  public JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> getSize() {
     return size;
   }
 
-  @JsonProperty("size")
-  public void setSize(Integer size) {
+  public void setSize(JsonNullable<Integer> size) {
     this.size = size;
   }
 
   public BerryDetail smoothness(Integer smoothness) {
-    this.smoothness = smoothness;
+    this.smoothness = JsonNullable.of(smoothness);
     return this;
   }
 
   /**
-   * Get smoothness
+   * The smoothness of this Berry, used in making Pokéblocks or Poffins.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return smoothness
    */
-  @NotNull 
-  @Schema(name = "smoothness", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Min(value = -2147483648) @Max(value = 2147483647) 
+  @Schema(name = "smoothness", description = "The smoothness of this Berry, used in making Pokéblocks or Poffins.", requiredMode = Schema.RequiredMode.NOT_REQUIRED, nullable = true)
   @JsonProperty("smoothness")
-  public Integer getSmoothness() {
+  public JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> getSmoothness() {
     return smoothness;
   }
 
-  @JsonProperty("smoothness")
-  public void setSmoothness(Integer smoothness) {
+  public void setSmoothness(JsonNullable<Integer> smoothness) {
     this.smoothness = smoothness;
   }
 
   public BerryDetail soilDryness(Integer soilDryness) {
-    this.soilDryness = soilDryness;
+    this.soilDryness = JsonNullable.of(soilDryness);
     return this;
   }
 
   /**
-   * Get soilDryness
+   * The speed at which this Berry dries out the soil as it grows. A higher rate means the soil dries more quickly.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return soilDryness
    */
-  @NotNull 
-  @Schema(name = "soil_dryness", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Min(value = -2147483648) @Max(value = 2147483647) 
+  @Schema(name = "soil_dryness", description = "The speed at which this Berry dries out the soil as it grows. A higher rate means the soil dries more quickly.", requiredMode = Schema.RequiredMode.NOT_REQUIRED, nullable = true)
   @JsonProperty("soil_dryness")
-  public Integer getSoilDryness() {
+  public JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> getSoilDryness() {
     return soilDryness;
   }
 
-  @JsonProperty("soil_dryness")
-  public void setSoilDryness(Integer soilDryness) {
+  public void setSoilDryness(JsonNullable<Integer> soilDryness) {
     this.soilDryness = soilDryness;
   }
 
   public BerryDetail firmness(BerryFirmnessSummary firmness) {
-    this.firmness = firmness;
+    this.firmness = JsonNullable.of(firmness);
     return this;
   }
 
   /**
-   * Get firmness
+   * The firmness of this berry, used in making Pokéblocks or Poffins.
    * @return firmness
    */
-  @NotNull @Valid 
-  @Schema(name = "firmness", requiredMode = Schema.RequiredMode.REQUIRED)
+  /* @Present */ @Valid 
+  @Schema(name = "firmness", description = "The firmness of this berry, used in making Pokéblocks or Poffins.", requiredMode = Schema.RequiredMode.REQUIRED, nullable = true)
   @JsonProperty("firmness")
-  public BerryFirmnessSummary getFirmness() {
+  public JsonNullable<BerryFirmnessSummary> getFirmness() {
     return firmness;
   }
 
   @JsonProperty("firmness")
-  public void setFirmness(BerryFirmnessSummary firmness) {
+  public void setFirmness(JsonNullable<BerryFirmnessSummary> firmness) {
     this.firmness = firmness;
   }
 
-  public BerryDetail flavors(List<@Valid BerryDetailFlavorsInner> flavors) {
+  public BerryDetail flavors(List<@Valid BerryFlavorMap> flavors) {
     this.flavors = flavors;
     return this;
   }
 
-  public BerryDetail addFlavorsItem(BerryDetailFlavorsInner flavorsItem) {
+  public BerryDetail addFlavorsItem(BerryFlavorMap flavorsItem) {
     if (this.flavors == null) {
       this.flavors = new ArrayList<>();
     }
@@ -278,18 +280,18 @@ public class BerryDetail {
   }
 
   /**
-   * Get flavors
+   * A list of references to each flavor a berry can have and the potency of each of those flavors in regard to this berry.
    * @return flavors
    */
   
-  @Schema(name = "flavors", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "flavors", accessMode = Schema.AccessMode.READ_ONLY, description = "A list of references to each flavor a berry can have and the potency of each of those flavors in regard to this berry.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("flavors")
-  public List<@Valid BerryDetailFlavorsInner> getFlavors() {
+  public List<@Valid BerryFlavorMap> getFlavors() {
     return flavors;
   }
 
   @JsonProperty("flavors")
-  public void setFlavors(List<@Valid BerryDetailFlavorsInner> flavors) {
+  public void setFlavors(List<@Valid BerryFlavorMap> flavors) {
     this.flavors = flavors;
   }
 
@@ -299,11 +301,11 @@ public class BerryDetail {
   }
 
   /**
-   * Get item
+   * Berries are actually items. This is a reference to the item specific data for this berry.
    * @return item
    */
   @NotNull @Valid 
-  @Schema(name = "item", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "item", description = "Berries are actually items. This is a reference to the item specific data for this berry.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("item")
   public ItemSummary getItem() {
     return item;
@@ -315,23 +317,23 @@ public class BerryDetail {
   }
 
   public BerryDetail naturalGiftType(TypeSummary naturalGiftType) {
-    this.naturalGiftType = naturalGiftType;
+    this.naturalGiftType = JsonNullable.of(naturalGiftType);
     return this;
   }
 
   /**
-   * Get naturalGiftType
+   * The type inherited by \"Natural Gift\" when used with this Berry.
    * @return naturalGiftType
    */
-  @NotNull @Valid 
-  @Schema(name = "natural_gift_type", requiredMode = Schema.RequiredMode.REQUIRED)
+  /* @Present */ @Valid 
+  @Schema(name = "natural_gift_type", description = "The type inherited by \"Natural Gift\" when used with this Berry.", requiredMode = Schema.RequiredMode.REQUIRED, nullable = true)
   @JsonProperty("natural_gift_type")
-  public TypeSummary getNaturalGiftType() {
+  public JsonNullable<TypeSummary> getNaturalGiftType() {
     return naturalGiftType;
   }
 
   @JsonProperty("natural_gift_type")
-  public void setNaturalGiftType(TypeSummary naturalGiftType) {
+  public void setNaturalGiftType(JsonNullable<TypeSummary> naturalGiftType) {
     this.naturalGiftType = naturalGiftType;
   }
 
@@ -346,21 +348,32 @@ public class BerryDetail {
     BerryDetail berryDetail = (BerryDetail) o;
     return Objects.equals(this.id, berryDetail.id) &&
         Objects.equals(this.name, berryDetail.name) &&
-        Objects.equals(this.growthTime, berryDetail.growthTime) &&
-        Objects.equals(this.maxHarvest, berryDetail.maxHarvest) &&
-        Objects.equals(this.naturalGiftPower, berryDetail.naturalGiftPower) &&
-        Objects.equals(this.size, berryDetail.size) &&
-        Objects.equals(this.smoothness, berryDetail.smoothness) &&
-        Objects.equals(this.soilDryness, berryDetail.soilDryness) &&
+        equalsNullable(this.growthTime, berryDetail.growthTime) &&
+        equalsNullable(this.maxHarvest, berryDetail.maxHarvest) &&
+        equalsNullable(this.naturalGiftPower, berryDetail.naturalGiftPower) &&
+        equalsNullable(this.size, berryDetail.size) &&
+        equalsNullable(this.smoothness, berryDetail.smoothness) &&
+        equalsNullable(this.soilDryness, berryDetail.soilDryness) &&
         Objects.equals(this.firmness, berryDetail.firmness) &&
         Objects.equals(this.flavors, berryDetail.flavors) &&
         Objects.equals(this.item, berryDetail.item) &&
         Objects.equals(this.naturalGiftType, berryDetail.naturalGiftType);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, growthTime, maxHarvest, naturalGiftPower, size, smoothness, soilDryness, firmness, flavors, item, naturalGiftType);
+    return Objects.hash(id, name, hashCodeNullable(growthTime), hashCodeNullable(maxHarvest), hashCodeNullable(naturalGiftPower), hashCodeNullable(size), hashCodeNullable(smoothness), hashCodeNullable(soilDryness), firmness, flavors, item, naturalGiftType);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

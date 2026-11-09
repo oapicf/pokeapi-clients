@@ -3,9 +3,13 @@ package org.openapitools.client.model
 
 
 case class MoveMetaAilmentDetail (
+    /* The identifier for this resource. */
     _id: Integer,
+    /* The name for this resource. */
     _name: String,
-    _moves: List[AbilityDetailPokemonInnerPokemon],
+    /* A list of moves that cause this ailment. */
+    _moves: List[MoveSummary],
+    /* The name of this resource listed in different languages. */
     _names: List[MoveMetaAilmentName]
 )
 object MoveMetaAilmentDetail {

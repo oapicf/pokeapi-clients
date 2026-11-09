@@ -9,14 +9,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
-import org.openapitools.model.MoveChangeEffectEntriesInner;
+import org.openapitools.model.MoveEffectEffectText;
 import org.openapitools.model.TypeSummary;
 import org.openapitools.model.VersionGroupSummary;
 
 /**
  * MoveChange
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-10-25T05:48:05.787850114Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-11-09T13:49:25.341948748Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class MoveChange   {
   @JsonProperty("accuracy")
   private Integer accuracy;
@@ -31,7 +31,7 @@ public class MoveChange   {
   private Integer effectChance;
 
   @JsonProperty("effect_entries")
-  private List<@Valid MoveChangeEffectEntriesInner> effectEntries = new ArrayList<>();
+  private List<@Valid MoveEffectEffectText> effectEntries = new ArrayList<>();
 
   @JsonProperty("type")
   private TypeSummary type;
@@ -45,10 +45,12 @@ public class MoveChange   {
   }
 
    /**
-   * Get accuracy
+   * The percent value of how likely this move is to be successful.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return accuracy
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The percent value of how likely this move is to be successful.")
   public Integer getAccuracy() {
     return accuracy;
   }
@@ -63,10 +65,12 @@ public class MoveChange   {
   }
 
    /**
-   * Get power
+   * The base power before the listed version group, or null if power did not change.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return power
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The base power before the listed version group, or null if power did not change.")
   public Integer getPower() {
     return power;
   }
@@ -81,10 +85,12 @@ public class MoveChange   {
   }
 
    /**
-   * Get pp
+   * Power points. The number of times this move can be used.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return pp
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Power points. The number of times this move can be used.")
   public Integer getPp() {
     return pp;
   }
@@ -99,10 +105,10 @@ public class MoveChange   {
   }
 
    /**
-   * Get effectChance
+   * The percent value of how likely it is this moves effect will take effect.
    * @return effectChance
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The percent value of how likely it is this moves effect will take effect.")
   public Integer getEffectChance() {
     return effectChance;
   }
@@ -112,11 +118,11 @@ public class MoveChange   {
   }
 
    /**
-   * Get effectEntries
+   * The effect of this move listed in different languages.
    * @return effectEntries
   **/
-  @ApiModelProperty(required = true, value = "")
-  public List<@Valid MoveChangeEffectEntriesInner> getEffectEntries() {
+  @ApiModelProperty(required = true, value = "The effect of this move listed in different languages.")
+  public List<@Valid MoveEffectEffectText> getEffectEntries() {
     return effectEntries;
   }
 
@@ -126,10 +132,10 @@ public class MoveChange   {
   }
 
    /**
-   * Get type
+   * The elemental type of this move.
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The elemental type of this move.")
   public TypeSummary getType() {
     return type;
   }
@@ -144,10 +150,10 @@ public class MoveChange   {
   }
 
    /**
-   * Get versionGroup
+   * The version group in which these move stat values were in effect.
    * @return versionGroup
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The version group in which these move stat values were in effect.")
   public VersionGroupSummary getVersionGroup() {
     return versionGroup;
   }

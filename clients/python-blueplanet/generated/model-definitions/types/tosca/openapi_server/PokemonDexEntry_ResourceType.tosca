@@ -18,12 +18,12 @@ resourceTypes {
     properties {
         entry_number {
           type =  integer
-          description = ""
+          description = "The index number within the Pokédex."
           optional = true
         }
         pokedex {
           type = PokedexSummary
-          description = ""
+          description = "The Pokédex the referenced Pokémon species can be found in."
           optional = true
         }
     }

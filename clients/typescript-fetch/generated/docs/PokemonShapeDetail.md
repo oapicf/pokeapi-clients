@@ -8,8 +8,8 @@ Name | Type
 ------------ | -------------
 `id` | number
 `name` | string
-`awesomeNames` | [Array&lt;PokemonShapeDetailAwesomeNamesInner&gt;](PokemonShapeDetailAwesomeNamesInner.md)
-`names` | [Array&lt;PokemonShapeDetailNamesInner&gt;](PokemonShapeDetailNamesInner.md)
+`awesomeNames` | [Array&lt;PokemonShapeAwesomeName&gt;](PokemonShapeAwesomeName.md)
+`names` | [Array&lt;PokemonShapeName&gt;](PokemonShapeName.md)
 `pokemonSpecies` | [Array&lt;PokemonSpeciesSummary&gt;](PokemonSpeciesSummary.md)
 
 ## Example

@@ -5,11 +5,11 @@ from datetime import date, datetime
 from typing import List, Dict, Type
 
 from openapi_server.models.base_model import Model
-from openapi_server.models.ability_detail_pokemon_inner_pokemon import AbilityDetailPokemonInnerPokemon
 from openapi_server.models.pokedex_description import PokedexDescription
-from openapi_server.models.pokedex_detail_pokemon_entries_inner import PokedexDetailPokemonEntriesInner
 from openapi_server.models.pokedex_name import PokedexName
+from openapi_server.models.pokemon_dex_number import PokemonDexNumber
 from openapi_server.models.region_summary import RegionSummary
+from openapi_server.models.version_group_summary import VersionGroupSummary
 from openapi_server import util
 
 
@@ -19,7 +19,7 @@ class PokedexDetail(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, id: int=None, name: str=None, is_main_series: bool=None, descriptions: List[PokedexDescription]=None, names: List[PokedexName]=None, pokemon_entries: List[PokedexDetailPokemonEntriesInner]=None, region: RegionSummary=None, version_groups: List[AbilityDetailPokemonInnerPokemon]=None):
+    def __init__(self, id: int=None, name: str=None, is_main_series: bool=None, descriptions: List[PokedexDescription]=None, names: List[PokedexName]=None, pokemon_entries: List[PokemonDexNumber]=None, region: RegionSummary=None, version_groups: List[VersionGroupSummary]=None):
         """PokedexDetail - a model defined in OpenAPI
 
         :param id: The id of this PokedexDetail.
@@ -37,9 +37,9 @@ class PokedexDetail(Model):
             'is_main_series': bool,
             'descriptions': List[PokedexDescription],
             'names': List[PokedexName],
-            'pokemon_entries': List[PokedexDetailPokemonEntriesInner],
+            'pokemon_entries': List[PokemonDexNumber],
             'region': RegionSummary,
-            'version_groups': List[AbilityDetailPokemonInnerPokemon]
+            'version_groups': List[VersionGroupSummary]
         }
 
         self.attribute_map = {
@@ -75,6 +75,7 @@ class PokedexDetail(Model):
     def id(self):
         """Gets the id of this PokedexDetail.
 
+        The identifier for this resource.
 
         :return: The id of this PokedexDetail.
         :rtype: int
@@ -85,6 +86,7 @@ class PokedexDetail(Model):
     def id(self, id):
         """Sets the id of this PokedexDetail.
 
+        The identifier for this resource.
 
         :param id: The id of this PokedexDetail.
         :type id: int
@@ -98,6 +100,7 @@ class PokedexDetail(Model):
     def name(self):
         """Gets the name of this PokedexDetail.
 
+        The name for this resource.
 
         :return: The name of this PokedexDetail.
         :rtype: str
@@ -108,14 +111,15 @@ class PokedexDetail(Model):
     def name(self, name):
         """Sets the name of this PokedexDetail.
 
+        The name for this resource.
 
         :param name: The name of this PokedexDetail.
         :type name: str
         """
         if name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")
-        if name is not None and len(name) > 100:
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `100`")
+        if name is not None and len(name) > 200:
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `200`")
 
         self._name = name
 
@@ -123,6 +127,7 @@ class PokedexDetail(Model):
     def is_main_series(self):
         """Gets the is_main_series of this PokedexDetail.
 
+        Whether or not this Pokédex originated in the main series of the video games.
 
         :return: The is_main_series of this PokedexDetail.
         :rtype: bool
@@ -133,6 +138,7 @@ class PokedexDetail(Model):
     def is_main_series(self, is_main_series):
         """Sets the is_main_series of this PokedexDetail.
 
+        Whether or not this Pokédex originated in the main series of the video games.
 
         :param is_main_series: The is_main_series of this PokedexDetail.
         :type is_main_series: bool
@@ -144,6 +150,7 @@ class PokedexDetail(Model):
     def descriptions(self):
         """Gets the descriptions of this PokedexDetail.
 
+        The description of this resource listed in different languages.
 
         :return: The descriptions of this PokedexDetail.
         :rtype: List[PokedexDescription]
@@ -154,6 +161,7 @@ class PokedexDetail(Model):
     def descriptions(self, descriptions):
         """Sets the descriptions of this PokedexDetail.
 
+        The description of this resource listed in different languages.
 
         :param descriptions: The descriptions of this PokedexDetail.
         :type descriptions: List[PokedexDescription]
@@ -167,6 +175,7 @@ class PokedexDetail(Model):
     def names(self):
         """Gets the names of this PokedexDetail.
 
+        The name of this resource listed in different languages.
 
         :return: The names of this PokedexDetail.
         :rtype: List[PokedexName]
@@ -177,6 +186,7 @@ class PokedexDetail(Model):
     def names(self, names):
         """Sets the names of this PokedexDetail.
 
+        The name of this resource listed in different languages.
 
         :param names: The names of this PokedexDetail.
         :type names: List[PokedexName]
@@ -190,9 +200,10 @@ class PokedexDetail(Model):
     def pokemon_entries(self):
         """Gets the pokemon_entries of this PokedexDetail.
 
+        A list of Pokémon catalogued in this Pokédex and their indexes.
 
         :return: The pokemon_entries of this PokedexDetail.
-        :rtype: List[PokedexDetailPokemonEntriesInner]
+        :rtype: List[PokemonDexNumber]
         """
         return self._pokemon_entries
 
@@ -200,9 +211,10 @@ class PokedexDetail(Model):
     def pokemon_entries(self, pokemon_entries):
         """Sets the pokemon_entries of this PokedexDetail.
 
+        A list of Pokémon catalogued in this Pokédex and their indexes.
 
         :param pokemon_entries: The pokemon_entries of this PokedexDetail.
-        :type pokemon_entries: List[PokedexDetailPokemonEntriesInner]
+        :type pokemon_entries: List[PokemonDexNumber]
         """
         if pokemon_entries is None:
             raise ValueError("Invalid value for `pokemon_entries`, must not be `None`")
@@ -213,6 +225,7 @@ class PokedexDetail(Model):
     def region(self):
         """Gets the region of this PokedexDetail.
 
+        The region this Pokédex catalogues Pokémon for.
 
         :return: The region of this PokedexDetail.
         :rtype: RegionSummary
@@ -223,6 +236,7 @@ class PokedexDetail(Model):
     def region(self, region):
         """Sets the region of this PokedexDetail.
 
+        The region this Pokédex catalogues Pokémon for.
 
         :param region: The region of this PokedexDetail.
         :type region: RegionSummary
@@ -236,9 +250,10 @@ class PokedexDetail(Model):
     def version_groups(self):
         """Gets the version_groups of this PokedexDetail.
 
+        A list of version groups this Pokédex is relevant to.
 
         :return: The version_groups of this PokedexDetail.
-        :rtype: List[AbilityDetailPokemonInnerPokemon]
+        :rtype: List[VersionGroupSummary]
         """
         return self._version_groups
 
@@ -246,9 +261,10 @@ class PokedexDetail(Model):
     def version_groups(self, version_groups):
         """Sets the version_groups of this PokedexDetail.
 
+        A list of version groups this Pokédex is relevant to.
 
         :param version_groups: The version_groups of this PokedexDetail.
-        :type version_groups: List[AbilityDetailPokemonInnerPokemon]
+        :type version_groups: List[VersionGroupSummary]
         """
         if version_groups is None:
             raise ValueError("Invalid value for `version_groups`, must not be `None`")

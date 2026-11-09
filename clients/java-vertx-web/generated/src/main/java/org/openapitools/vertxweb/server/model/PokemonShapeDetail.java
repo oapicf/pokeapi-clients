@@ -6,8 +6,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.vertxweb.server.model.PokemonShapeDetailAwesomeNamesInner;
-import org.openapitools.vertxweb.server.model.PokemonShapeDetailNamesInner;
+import org.openapitools.vertxweb.server.model.PokemonShapeAwesomeName;
+import org.openapitools.vertxweb.server.model.PokemonShapeName;
 import org.openapitools.vertxweb.server.model.PokemonSpeciesSummary;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -15,15 +15,15 @@ public class PokemonShapeDetail   {
   
   private Integer id;
   private String name;
-  private List<PokemonShapeDetailAwesomeNamesInner> awesomeNames = new ArrayList<>();
-  private List<PokemonShapeDetailNamesInner> names = new ArrayList<>();
+  private List<PokemonShapeAwesomeName> awesomeNames = new ArrayList<>();
+  private List<PokemonShapeName> names = new ArrayList<>();
   private List<PokemonSpeciesSummary> pokemonSpecies = new ArrayList<>();
 
   public PokemonShapeDetail () {
 
   }
 
-  public PokemonShapeDetail (Integer id, String name, List<PokemonShapeDetailAwesomeNamesInner> awesomeNames, List<PokemonShapeDetailNamesInner> names, List<PokemonSpeciesSummary> pokemonSpecies) {
+  public PokemonShapeDetail (Integer id, String name, List<PokemonShapeAwesomeName> awesomeNames, List<PokemonShapeName> names, List<PokemonSpeciesSummary> pokemonSpecies) {
     this.id = id;
     this.name = name;
     this.awesomeNames = awesomeNames;
@@ -51,19 +51,19 @@ public class PokemonShapeDetail   {
 
     
   @JsonProperty("awesome_names")
-  public List<PokemonShapeDetailAwesomeNamesInner> getAwesomeNames() {
+  public List<PokemonShapeAwesomeName> getAwesomeNames() {
     return awesomeNames;
   }
-  public void setAwesomeNames(List<PokemonShapeDetailAwesomeNamesInner> awesomeNames) {
+  public void setAwesomeNames(List<PokemonShapeAwesomeName> awesomeNames) {
     this.awesomeNames = awesomeNames;
   }
 
     
   @JsonProperty("names")
-  public List<PokemonShapeDetailNamesInner> getNames() {
+  public List<PokemonShapeName> getNames() {
     return names;
   }
-  public void setNames(List<PokemonShapeDetailNamesInner> names) {
+  public void setNames(List<PokemonShapeName> names) {
     this.names = names;
   }
 

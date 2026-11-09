@@ -7,13 +7,13 @@
 #' @title RegionDetail
 #' @description RegionDetail Class
 #' @format An \code{R6Class} generator object
-#' @field id  integer
-#' @field name  character
-#' @field locations  list(\link{LocationSummary})
-#' @field main_generation  \link{GenerationSummary}
-#' @field names  list(\link{RegionName})
-#' @field pokedexes  list(\link{PokedexSummary})
-#' @field version_groups  list(\link{AbilityDetailPokemonInnerPokemon})
+#' @field id The identifier for this resource. integer
+#' @field name The name for this resource. character
+#' @field locations A list of locations that can be found in this region. list(\link{LocationSummary})
+#' @field main_generation The generation this region was introduced in. \link{GenerationSummary}
+#' @field names The name of this resource listed in different languages. list(\link{RegionName})
+#' @field pokedexes A list of pokédexes that catalogue Pokémon in this region. list(\link{PokedexSummary})
+#' @field version_groups A list of version groups where this region can be visited. list(\link{VersionGroupSummary})
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -31,13 +31,13 @@ RegionDetail <- R6::R6Class(
     #' @description
     #' Initialize a new RegionDetail class.
     #'
-    #' @param id id
-    #' @param name name
-    #' @param locations locations
-    #' @param main_generation main_generation
-    #' @param names names
-    #' @param pokedexes pokedexes
-    #' @param version_groups version_groups
+    #' @param id The identifier for this resource.
+    #' @param name The name for this resource.
+    #' @param locations A list of locations that can be found in this region.
+    #' @param main_generation The generation this region was introduced in.
+    #' @param names The name of this resource listed in different languages.
+    #' @param pokedexes A list of pokédexes that catalogue Pokémon in this region.
+    #' @param version_groups A list of version groups where this region can be visited.
     #' @param ... Other optional arguments.
     initialize = function(`id`, `name`, `locations`, `main_generation`, `names`, `pokedexes`, `version_groups`, ...) {
       if (!missing(`id`)) {
@@ -191,7 +191,7 @@ RegionDetail <- R6::R6Class(
         self$`pokedexes` <- ApiClient$new()$deserializeObj(this_object$`pokedexes`, "array[PokedexSummary]", loadNamespace("openapi"))
       }
       if (!is.null(this_object$`version_groups`)) {
-        self$`version_groups` <- ApiClient$new()$deserializeObj(this_object$`version_groups`, "array[AbilityDetailPokemonInnerPokemon]", loadNamespace("openapi"))
+        self$`version_groups` <- ApiClient$new()$deserializeObj(this_object$`version_groups`, "array[VersionGroupSummary]", loadNamespace("openapi"))
       }
       self
     },
@@ -220,7 +220,7 @@ RegionDetail <- R6::R6Class(
       self$`main_generation` <- GenerationSummary$new()$fromJSON(jsonlite::toJSON(this_object$`main_generation`, auto_unbox = TRUE, digits = NA))
       self$`names` <- ApiClient$new()$deserializeObj(this_object$`names`, "array[RegionName]", loadNamespace("openapi"))
       self$`pokedexes` <- ApiClient$new()$deserializeObj(this_object$`pokedexes`, "array[PokedexSummary]", loadNamespace("openapi"))
-      self$`version_groups` <- ApiClient$new()$deserializeObj(this_object$`version_groups`, "array[AbilityDetailPokemonInnerPokemon]", loadNamespace("openapi"))
+      self$`version_groups` <- ApiClient$new()$deserializeObj(this_object$`version_groups`, "array[VersionGroupSummary]", loadNamespace("openapi"))
       self
     },
 
@@ -305,17 +305,12 @@ RegionDetail <- R6::R6Class(
         return(FALSE)
       }
 
-      if (nchar(self$`name`) > 100) {
+      if (nchar(self$`name`) > 200) {
         return(FALSE)
       }
 
       # check if the required `locations` is null
       if (is.null(self$`locations`)) {
-        return(FALSE)
-      }
-
-      # check if the required `main_generation` is null
-      if (is.null(self$`main_generation`)) {
         return(FALSE)
       }
 
@@ -353,18 +348,13 @@ RegionDetail <- R6::R6Class(
         invalid_fields["name"] <- "Non-nullable required field `name` cannot be null."
       }
 
-      if (nchar(self$`name`) > 100) {
-        invalid_fields["name"] <- "Invalid length for `name`, must be smaller than or equal to 100."
+      if (nchar(self$`name`) > 200) {
+        invalid_fields["name"] <- "Invalid length for `name`, must be smaller than or equal to 200."
       }
 
       # check if the required `locations` is null
       if (is.null(self$`locations`)) {
         invalid_fields["locations"] <- "Non-nullable required field `locations` cannot be null."
-      }
-
-      # check if the required `main_generation` is null
-      if (is.null(self$`main_generation`)) {
-        invalid_fields["main_generation"] <- "Non-nullable required field `main_generation` cannot be null."
       }
 
       # check if the required `names` is null

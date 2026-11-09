@@ -1,9 +1,9 @@
 /*
  * PokéAPI
  *
- * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+ * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
  *
- * OpenAPI document version: 2.7.0
+ * OpenAPI document version: 2.10.0
  * Maintained by: blah+oapicf@cliffano.com
  *
  * AUTO-GENERATED FILE, DO NOT MODIFY!
@@ -226,6 +226,18 @@ abstract public class PathHandlerProvider implements HandlerProvider, PathHandle
                     evolutionTriggerRetrieve().handleRequest(exchange);
                 }
             })
+            .add(Methods.GET, basePath + "/api/v2/evolution-variable/", new HttpHandler() {
+                @Override
+                public void handleRequest(HttpServerExchange exchange) throws Exception {
+                    evolutionVariableList().handleRequest(exchange);
+                }
+            })
+            .add(Methods.GET, basePath + "/api/v2/evolution-variable/{id}/", new HttpHandler() {
+                @Override
+                public void handleRequest(HttpServerExchange exchange) throws Exception {
+                    evolutionVariableRetrieve().handleRequest(exchange);
+                }
+            })
             .add(Methods.GET, basePath + "/api/v2/generation/", new HttpHandler() {
                 @Override
                 public void handleRequest(HttpServerExchange exchange) throws Exception {
@@ -272,6 +284,18 @@ abstract public class PathHandlerProvider implements HandlerProvider, PathHandle
                 @Override
                 public void handleRequest(HttpServerExchange exchange) throws Exception {
                     versionRetrieve().handleRequest(exchange);
+                }
+            })
+            .add(Methods.GET, basePath + "/api/v2/currency/", new HttpHandler() {
+                @Override
+                public void handleRequest(HttpServerExchange exchange) throws Exception {
+                    currencyList().handleRequest(exchange);
+                }
+            })
+            .add(Methods.GET, basePath + "/api/v2/currency/{id}/", new HttpHandler() {
+                @Override
+                public void handleRequest(HttpServerExchange exchange) throws Exception {
+                    currencyRetrieve().handleRequest(exchange);
                 }
             })
             .add(Methods.GET, basePath + "/api/v2/item-attribute/", new HttpHandler() {
@@ -670,6 +694,12 @@ abstract public class PathHandlerProvider implements HandlerProvider, PathHandle
                     languageRetrieve().handleRequest(exchange);
                 }
             })
+            .add(Methods.GET, basePath + "/api/v2/meta/", new HttpHandler() {
+                @Override
+                public void handleRequest(HttpServerExchange exchange) throws Exception {
+                    metaRetrieve().handleRequest(exchange);
+                }
+            })
             ;
     }
 
@@ -740,6 +770,8 @@ abstract public class PathHandlerProvider implements HandlerProvider, PathHandle
             .add(Methods.GET, basePath + "/api/v2/evolution-chain/{id}/", evolutionChainRetrieve())
             .add(Methods.GET, basePath + "/api/v2/evolution-trigger/", evolutionTriggerList())
             .add(Methods.GET, basePath + "/api/v2/evolution-trigger/{id}/", evolutionTriggerRetrieve())
+            .add(Methods.GET, basePath + "/api/v2/evolution-variable/", evolutionVariableList())
+            .add(Methods.GET, basePath + "/api/v2/evolution-variable/{id}/", evolutionVariableRetrieve())
             .add(Methods.GET, basePath + "/api/v2/generation/", generationList())
             .add(Methods.GET, basePath + "/api/v2/generation/{id}/", generationRetrieve())
             .add(Methods.GET, basePath + "/api/v2/pokedex/", pokedexList())
@@ -748,6 +780,8 @@ abstract public class PathHandlerProvider implements HandlerProvider, PathHandle
             .add(Methods.GET, basePath + "/api/v2/version-group/{id}/", versionGroupRetrieve())
             .add(Methods.GET, basePath + "/api/v2/version/", versionList())
             .add(Methods.GET, basePath + "/api/v2/version/{id}/", versionRetrieve())
+            .add(Methods.GET, basePath + "/api/v2/currency/", currencyList())
+            .add(Methods.GET, basePath + "/api/v2/currency/{id}/", currencyRetrieve())
             .add(Methods.GET, basePath + "/api/v2/item-attribute/", itemAttributeList())
             .add(Methods.GET, basePath + "/api/v2/item-attribute/{id}/", itemAttributeRetrieve())
             .add(Methods.GET, basePath + "/api/v2/item-category/", itemCategoryList())
@@ -814,6 +848,7 @@ abstract public class PathHandlerProvider implements HandlerProvider, PathHandle
             .add(Methods.GET, basePath + "/api/v2/type/{id}/", typeRetrieve())
             .add(Methods.GET, basePath + "/api/v2/language/", languageList())
             .add(Methods.GET, basePath + "/api/v2/language/{id}/", languageRetrieve())
+            .add(Methods.GET, basePath + "/api/v2/meta/", metaRetrieve())
             ;
     }
 }

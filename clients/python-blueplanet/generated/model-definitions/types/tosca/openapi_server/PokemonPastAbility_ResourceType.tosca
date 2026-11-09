@@ -1,0 +1,43 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server PokemonPastAbility"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a PokemonPastAbility"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  GenerationSummary = openapi_server.resourceTypes.GenerationSummary
+  PokemonAbilityPast = openapi_server.resourceTypes.PokemonAbilityPast
+}
+resourceTypes {
+
+  PokemonPastAbility {
+    title = PokemonPastAbility
+    description = PokemonPastAbility
+    derivedFrom = Root
+    properties {
+        abilities {
+          type = array
+          items.type = PokemonAbilityPast
+          description = "The abilities the referenced pokémon had up to and including the listed generation. If null, the slot was previously empty."
+          optional = true
+        }
+        generation {
+          type = GenerationSummary
+          description = "The last generation in which the referenced pokémon had the listed abilities."
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  PokemonPastAbility {
+    title = PokemonPastAbility
+    description = PokemonPastAbility
+    implements = openapi_server.resourceTypes.PokemonPastAbility
+
+  }
+}

@@ -19,7 +19,7 @@ import java.util.List;
  * CharacteristicDetail
  */
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-10-25T05:48:09.645019047Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-11-09T13:49:28.343088631Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class CharacteristicDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -44,10 +44,10 @@ public class CharacteristicDetail   {
   }
 
   /**
-   * Get id
+   * The identifier for this resource.
    * @return id
    */
-  @ApiModelProperty(required = true, readOnly = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "The identifier for this resource.")
   public Integer getId() {
     return id;
   }
@@ -62,10 +62,10 @@ public class CharacteristicDetail   {
   }
 
   /**
-   * Get geneModulo
+   * The remainder of the highest stat/IV divided by 5.
    * @return geneModulo
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The remainder of the highest stat/IV divided by 5.")
   public Integer getGeneModulo() {
     return geneModulo;
   }
@@ -88,10 +88,10 @@ public class CharacteristicDetail   {
   }
 
   /**
-   * Get possibleValues
+   * The possible values of the highest stat that would result in a Pokémon recieving this characteristic when divided by 5.
    * @return possibleValues
    */
-  @ApiModelProperty(required = true, readOnly = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "The possible values of the highest stat that would result in a Pokémon recieving this characteristic when divided by 5.")
   public List<Integer> getPossibleValues() {
     return possibleValues;
   }
@@ -106,10 +106,10 @@ public class CharacteristicDetail   {
   }
 
   /**
-   * Get highestStat
+   * The stat which results in this characteristic.
    * @return highestStat
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The stat which results in this characteristic.")
   public StatSummary getHighestStat() {
     return highestStat;
   }
@@ -132,10 +132,10 @@ public class CharacteristicDetail   {
   }
 
   /**
-   * Get descriptions
+   * The descriptions of this characteristic listed in different languages.
    * @return descriptions
    */
-  @ApiModelProperty(required = true, readOnly = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "The descriptions of this characteristic listed in different languages.")
   public List<CharacteristicDescription> getDescriptions() {
     return descriptions;
   }

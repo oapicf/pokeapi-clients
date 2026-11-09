@@ -8,7 +8,6 @@
 
 // System headers
 #include <httplib.h>
-#include <memory>
 #include <variant>
 
 // Project headers
@@ -46,7 +45,6 @@
 #include "models/TypeDetail.h"
 
 namespace Api {
-    class AuthenticationManager;
 class Pokemon {
 public:
     Pokemon() = default;
@@ -54,9 +52,8 @@ public:
     /**
      * @brief Register all routes for this API
      * @param svr The httplib::Server instance to register routes on
-     * @param auth The AuthenticationManager for authentication (optional, defaults to nullptr)
      */
-    void registerRoutes(httplib::Server& svr, std::shared_ptr<AuthenticationManager> auth = nullptr);
+    void registerRoutes(httplib::Server& svr);
     // =========================
     // ===== Request types =====
     // =========================
@@ -89,7 +86,6 @@ public:
 
         std::optional<int> m_limit; //Query Params (optional)
         std::optional<int> m_offset; //Query Params (optional)
-        std::optional<std::string> m_q; //Query Params (optional)
     };
 
     /**
@@ -744,105 +740,101 @@ private:
     // ===== Helper function declarations =====
     // ========================================
     static bool parseApiv2abilityGetParams(const httplib::Request& req, Apiv2abilityGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2abilityGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2abilityGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2abilityGetResponse(const Apiv2abilityGetResponse& result, httplib::Response& res);
     static bool parseApiv2abilityidGetParams(const httplib::Request& req, Apiv2abilityidGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2abilityidGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2abilityidGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2abilityidGetResponse(const Apiv2abilityidGetResponse& result, httplib::Response& res);
     static bool parseApiv2characteristicGetParams(const httplib::Request& req, Apiv2characteristicGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2characteristicGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2characteristicGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2characteristicGetResponse(const Apiv2characteristicGetResponse& result, httplib::Response& res);
     static bool parseApiv2characteristicidGetParams(const httplib::Request& req, Apiv2characteristicidGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2characteristicidGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2characteristicidGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2characteristicidGetResponse(const Apiv2characteristicidGetResponse& result, httplib::Response& res);
     static bool parseApiv2eggGroupGetParams(const httplib::Request& req, Apiv2eggGroupGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2eggGroupGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2eggGroupGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2eggGroupGetResponse(const Apiv2eggGroupGetResponse& result, httplib::Response& res);
     static bool parseApiv2eggGroupidGetParams(const httplib::Request& req, Apiv2eggGroupidGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2eggGroupidGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2eggGroupidGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2eggGroupidGetResponse(const Apiv2eggGroupidGetResponse& result, httplib::Response& res);
     static bool parseApiv2genderGetParams(const httplib::Request& req, Apiv2genderGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2genderGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2genderGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2genderGetResponse(const Apiv2genderGetResponse& result, httplib::Response& res);
     static bool parseApiv2genderidGetParams(const httplib::Request& req, Apiv2genderidGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2genderidGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2genderidGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2genderidGetResponse(const Apiv2genderidGetResponse& result, httplib::Response& res);
     static bool parseApiv2growthRateGetParams(const httplib::Request& req, Apiv2growthRateGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2growthRateGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2growthRateGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2growthRateGetResponse(const Apiv2growthRateGetResponse& result, httplib::Response& res);
     static bool parseApiv2growthRateidGetParams(const httplib::Request& req, Apiv2growthRateidGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2growthRateidGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2growthRateidGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2growthRateidGetResponse(const Apiv2growthRateidGetResponse& result, httplib::Response& res);
     static bool parseApiv2moveDamageClassGetParams(const httplib::Request& req, Apiv2moveDamageClassGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2moveDamageClassGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2moveDamageClassGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2moveDamageClassGetResponse(const Apiv2moveDamageClassGetResponse& result, httplib::Response& res);
     static bool parseApiv2moveDamageClassidGetParams(const httplib::Request& req, Apiv2moveDamageClassidGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2moveDamageClassidGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2moveDamageClassidGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2moveDamageClassidGetResponse(const Apiv2moveDamageClassidGetResponse& result, httplib::Response& res);
     static bool parseApiv2natureGetParams(const httplib::Request& req, Apiv2natureGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2natureGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2natureGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2natureGetResponse(const Apiv2natureGetResponse& result, httplib::Response& res);
     static bool parseApiv2natureidGetParams(const httplib::Request& req, Apiv2natureidGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2natureidGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2natureidGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2natureidGetResponse(const Apiv2natureidGetResponse& result, httplib::Response& res);
     static bool parseApiv2pokeathlonStatGetParams(const httplib::Request& req, Apiv2pokeathlonStatGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2pokeathlonStatGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2pokeathlonStatGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2pokeathlonStatGetResponse(const Apiv2pokeathlonStatGetResponse& result, httplib::Response& res);
     static bool parseApiv2pokeathlonStatidGetParams(const httplib::Request& req, Apiv2pokeathlonStatidGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2pokeathlonStatidGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2pokeathlonStatidGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2pokeathlonStatidGetResponse(const Apiv2pokeathlonStatidGetResponse& result, httplib::Response& res);
     static bool parseApiv2pokemonColorGetParams(const httplib::Request& req, Apiv2pokemonColorGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2pokemonColorGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2pokemonColorGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2pokemonColorGetResponse(const Apiv2pokemonColorGetResponse& result, httplib::Response& res);
     static bool parseApiv2pokemonColoridGetParams(const httplib::Request& req, Apiv2pokemonColoridGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2pokemonColoridGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2pokemonColoridGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2pokemonColoridGetResponse(const Apiv2pokemonColoridGetResponse& result, httplib::Response& res);
     static bool parseApiv2pokemonFormGetParams(const httplib::Request& req, Apiv2pokemonFormGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2pokemonFormGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2pokemonFormGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2pokemonFormGetResponse(const Apiv2pokemonFormGetResponse& result, httplib::Response& res);
     static bool parseApiv2pokemonFormidGetParams(const httplib::Request& req, Apiv2pokemonFormidGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2pokemonFormidGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2pokemonFormidGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2pokemonFormidGetResponse(const Apiv2pokemonFormidGetResponse& result, httplib::Response& res);
     static bool parseApiv2pokemonHabitatGetParams(const httplib::Request& req, Apiv2pokemonHabitatGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2pokemonHabitatGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2pokemonHabitatGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2pokemonHabitatGetResponse(const Apiv2pokemonHabitatGetResponse& result, httplib::Response& res);
     static bool parseApiv2pokemonHabitatidGetParams(const httplib::Request& req, Apiv2pokemonHabitatidGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2pokemonHabitatidGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2pokemonHabitatidGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2pokemonHabitatidGetResponse(const Apiv2pokemonHabitatidGetResponse& result, httplib::Response& res);
     static bool parseApiv2pokemonGetParams(const httplib::Request& req, Apiv2pokemonGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2pokemonGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2pokemonGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2pokemonGetResponse(const Apiv2pokemonGetResponse& result, httplib::Response& res);
     static bool parseApiv2pokemonidGetParams(const httplib::Request& req, Apiv2pokemonidGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2pokemonidGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2pokemonidGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2pokemonidGetResponse(const Apiv2pokemonidGetResponse& result, httplib::Response& res);
     static bool parseApiv2pokemonShapeGetParams(const httplib::Request& req, Apiv2pokemonShapeGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2pokemonShapeGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2pokemonShapeGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2pokemonShapeGetResponse(const Apiv2pokemonShapeGetResponse& result, httplib::Response& res);
     static bool parseApiv2pokemonShapeidGetParams(const httplib::Request& req, Apiv2pokemonShapeidGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2pokemonShapeidGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2pokemonShapeidGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2pokemonShapeidGetResponse(const Apiv2pokemonShapeidGetResponse& result, httplib::Response& res);
     static bool parseApiv2pokemonSpeciesGetParams(const httplib::Request& req, Apiv2pokemonSpeciesGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2pokemonSpeciesGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2pokemonSpeciesGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2pokemonSpeciesGetResponse(const Apiv2pokemonSpeciesGetResponse& result, httplib::Response& res);
     static bool parseApiv2pokemonSpeciesidGetParams(const httplib::Request& req, Apiv2pokemonSpeciesidGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2pokemonSpeciesidGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2pokemonSpeciesidGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2pokemonSpeciesidGetResponse(const Apiv2pokemonSpeciesidGetResponse& result, httplib::Response& res);
     static bool parseApiv2statGetParams(const httplib::Request& req, Apiv2statGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2statGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2statGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2statGetResponse(const Apiv2statGetResponse& result, httplib::Response& res);
     static bool parseApiv2statidGetParams(const httplib::Request& req, Apiv2statidGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2statidGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2statidGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2statidGetResponse(const Apiv2statidGetResponse& result, httplib::Response& res);
     static bool parseApiv2typeGetParams(const httplib::Request& req, Apiv2typeGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2typeGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2typeGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2typeGetResponse(const Apiv2typeGetResponse& result, httplib::Response& res);
     static bool parseApiv2typeidGetParams(const httplib::Request& req, Apiv2typeidGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2typeidGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2typeidGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2typeidGetResponse(const Apiv2typeidGetResponse& result, httplib::Response& res);
-    static bool performAuthentication(
-        const httplib::Request& req,
-        std::shared_ptr<AuthenticationManager> auth,
-        httplib::Response& res);
 };
 
 } // namespace Api

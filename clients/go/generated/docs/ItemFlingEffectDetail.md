@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int32** |  | [readonly] 
-**Name** | **string** |  | 
-**EffectEntries** | [**[]ItemFlingEffectEffectText**](ItemFlingEffectEffectText.md) |  | [readonly] 
-**Items** | [**[]ItemSummary**](ItemSummary.md) |  | [readonly] 
+**Id** | **int32** | The identifier for this resource. | [readonly] 
+**Name** | **string** | The name for this resource. | 
+**EffectEntries** | [**[]ItemFlingEffectEffectText**](ItemFlingEffectEffectText.md) | The result of this fling effect listed in different languages. | [readonly] 
+**Items** | [**[]ItemSummary**](ItemSummary.md) | A list of items that have this fling effect. | [readonly] 
 
 ## Methods
 

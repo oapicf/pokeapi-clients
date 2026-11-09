@@ -5,7 +5,7 @@ from datetime import date, datetime
 from typing import List, Dict, Type
 
 from openapi_server.models.base_model import Model
-from openapi_server.models.pokeathlon_stat_detail_affecting_natures import PokeathlonStatDetailAffectingNatures
+from openapi_server.models.pokeathlon_stat_affecting_natures import PokeathlonStatAffectingNatures
 from openapi_server.models.pokeathlon_stat_name import PokeathlonStatName
 from openapi_server import util
 
@@ -16,7 +16,7 @@ class PokeathlonStatDetail(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, id: int=None, name: str=None, affecting_natures: PokeathlonStatDetailAffectingNatures=None, names: List[PokeathlonStatName]=None):
+    def __init__(self, id: int=None, name: str=None, affecting_natures: PokeathlonStatAffectingNatures=None, names: List[PokeathlonStatName]=None):
         """PokeathlonStatDetail - a model defined in OpenAPI
 
         :param id: The id of this PokeathlonStatDetail.
@@ -27,7 +27,7 @@ class PokeathlonStatDetail(Model):
         self.openapi_types = {
             'id': int,
             'name': str,
-            'affecting_natures': PokeathlonStatDetailAffectingNatures,
+            'affecting_natures': PokeathlonStatAffectingNatures,
             'names': List[PokeathlonStatName]
         }
 
@@ -56,6 +56,7 @@ class PokeathlonStatDetail(Model):
     def id(self):
         """Gets the id of this PokeathlonStatDetail.
 
+        The identifier for this resource.
 
         :return: The id of this PokeathlonStatDetail.
         :rtype: int
@@ -66,6 +67,7 @@ class PokeathlonStatDetail(Model):
     def id(self, id):
         """Sets the id of this PokeathlonStatDetail.
 
+        The identifier for this resource.
 
         :param id: The id of this PokeathlonStatDetail.
         :type id: int
@@ -79,6 +81,7 @@ class PokeathlonStatDetail(Model):
     def name(self):
         """Gets the name of this PokeathlonStatDetail.
 
+        The name for this resource.
 
         :return: The name of this PokeathlonStatDetail.
         :rtype: str
@@ -89,14 +92,15 @@ class PokeathlonStatDetail(Model):
     def name(self, name):
         """Sets the name of this PokeathlonStatDetail.
 
+        The name for this resource.
 
         :param name: The name of this PokeathlonStatDetail.
         :type name: str
         """
         if name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")
-        if name is not None and len(name) > 100:
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `100`")
+        if name is not None and len(name) > 200:
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `200`")
 
         self._name = name
 
@@ -104,9 +108,10 @@ class PokeathlonStatDetail(Model):
     def affecting_natures(self):
         """Gets the affecting_natures of this PokeathlonStatDetail.
 
+        A detail of natures which affect this Pokéathlon stat positively or negatively.
 
         :return: The affecting_natures of this PokeathlonStatDetail.
-        :rtype: PokeathlonStatDetailAffectingNatures
+        :rtype: PokeathlonStatAffectingNatures
         """
         return self._affecting_natures
 
@@ -114,9 +119,10 @@ class PokeathlonStatDetail(Model):
     def affecting_natures(self, affecting_natures):
         """Sets the affecting_natures of this PokeathlonStatDetail.
 
+        A detail of natures which affect this Pokéathlon stat positively or negatively.
 
         :param affecting_natures: The affecting_natures of this PokeathlonStatDetail.
-        :type affecting_natures: PokeathlonStatDetailAffectingNatures
+        :type affecting_natures: PokeathlonStatAffectingNatures
         """
         if affecting_natures is None:
             raise ValueError("Invalid value for `affecting_natures`, must not be `None`")
@@ -127,6 +133,7 @@ class PokeathlonStatDetail(Model):
     def names(self):
         """Gets the names of this PokeathlonStatDetail.
 
+        The name of this resource listed in different languages.
 
         :return: The names of this PokeathlonStatDetail.
         :rtype: List[PokeathlonStatName]
@@ -137,6 +144,7 @@ class PokeathlonStatDetail(Model):
     def names(self, names):
         """Sets the names of this PokeathlonStatDetail.
 
+        The name of this resource listed in different languages.
 
         :param names: The names of this PokeathlonStatDetail.
         :type names: List[PokeathlonStatName]

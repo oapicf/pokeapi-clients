@@ -3,9 +3,9 @@
 /*
  * PokéAPI
  *
- * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+ * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
  *
- * API version: 2.7.0
+ * API version: 2.10.0
  * Contact: blah+oapicf@cliffano.com
  */
 
@@ -75,6 +75,18 @@ func (c *EvolutionAPIController) Routes() Routes {
 			"/api/v2/evolution-trigger/{id}/",
 			c.EvolutionTriggerRetrieve,
 		},
+		"EvolutionVariableList": Route{
+			"EvolutionVariableList",
+			strings.ToUpper("Get"),
+			"/api/v2/evolution-variable/",
+			c.EvolutionVariableList,
+		},
+		"EvolutionVariableRetrieve": Route{
+			"EvolutionVariableRetrieve",
+			strings.ToUpper("Get"),
+			"/api/v2/evolution-variable/{id}/",
+			c.EvolutionVariableRetrieve,
+		},
 	}
 }
 
@@ -104,6 +116,18 @@ func (c *EvolutionAPIController) OrderedRoutes() []Route {
 			strings.ToUpper("Get"),
 			"/api/v2/evolution-trigger/{id}/",
 			c.EvolutionTriggerRetrieve,
+		},
+		Route{
+			"EvolutionVariableList",
+			strings.ToUpper("Get"),
+			"/api/v2/evolution-variable/",
+			c.EvolutionVariableList,
+		},
+		Route{
+			"EvolutionVariableRetrieve",
+			strings.ToUpper("Get"),
+			"/api/v2/evolution-variable/{id}/",
+			c.EvolutionVariableRetrieve,
 		},
 	}
 }
@@ -145,14 +169,7 @@ func (c *EvolutionAPIController) EvolutionChainList(w http.ResponseWriter, r *ht
 		offsetParam = param
 	} else {
 	}
-	var qParam string
-	if query.Has("q") {
-		param := query.Get("q")
-
-		qParam = param
-	} else {
-	}
-	result, err := c.service.EvolutionChainList(r.Context(), limitParam, offsetParam, qParam)
+	result, err := c.service.EvolutionChainList(r.Context(), limitParam, offsetParam)
 	// If an error occurred, encode the error with the status code
 	if err != nil {
 		c.errorHandler(w, r, err, &result)
@@ -241,6 +258,76 @@ func (c *EvolutionAPIController) EvolutionTriggerRetrieve(w http.ResponseWriter,
 		return
 	}
 	result, err := c.service.EvolutionTriggerRetrieve(r.Context(), idParam)
+	// If an error occurred, encode the error with the status code
+	if err != nil {
+		c.errorHandler(w, r, err, &result)
+		return
+	}
+	// If no error, encode the body and the result code
+	_ = EncodeJSONResponse(result.Body, &result.Code, w)
+}
+
+// EvolutionVariableList - List evolution variables
+func (c *EvolutionAPIController) EvolutionVariableList(w http.ResponseWriter, r *http.Request) {
+	query, err := parseQuery(r.URL.RawQuery)
+	if err != nil {
+		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+		return
+	}
+	var limitParam int32
+	if query.Has("limit") {
+		param, err := parseNumericParameter[int32](
+			query.Get("limit"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Param: "limit", Err: err}, nil)
+			return
+		}
+
+		limitParam = param
+	} else {
+	}
+	var offsetParam int32
+	if query.Has("offset") {
+		param, err := parseNumericParameter[int32](
+			query.Get("offset"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Param: "offset", Err: err}, nil)
+			return
+		}
+
+		offsetParam = param
+	} else {
+	}
+	var qParam string
+	if query.Has("q") {
+		param := query.Get("q")
+
+		qParam = param
+	} else {
+	}
+	result, err := c.service.EvolutionVariableList(r.Context(), limitParam, offsetParam, qParam)
+	// If an error occurred, encode the error with the status code
+	if err != nil {
+		c.errorHandler(w, r, err, &result)
+		return
+	}
+	// If no error, encode the body and the result code
+	_ = EncodeJSONResponse(result.Body, &result.Code, w)
+}
+
+// EvolutionVariableRetrieve - Get evolution variable
+func (c *EvolutionAPIController) EvolutionVariableRetrieve(w http.ResponseWriter, r *http.Request) {
+	params := mux.Vars(r)
+	idParam := params["id"]
+	if idParam == "" {
+		c.errorHandler(w, r, &RequiredError{"id"}, nil)
+		return
+	}
+	result, err := c.service.EvolutionVariableRetrieve(r.Context(), idParam)
 	// If an error occurred, encode the error with the status code
 	if err != nil {
 		c.errorHandler(w, r, err, &result)

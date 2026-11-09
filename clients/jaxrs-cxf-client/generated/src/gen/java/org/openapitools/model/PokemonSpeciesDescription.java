@@ -9,15 +9,21 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class PokemonSpeciesDescription  {
   
-  @ApiModelProperty(value = "")
+ /**
+  * The localized description for an API resource in a specific language.
+  */
+  @ApiModelProperty(value = "The localized description for an API resource in a specific language.")
 
   private String description;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The language this name is in.
+  */
+  @ApiModelProperty(required = true, value = "The language this name is in.")
 
   private LanguageSummary language;
  /**
-   * Get description
+   * The localized description for an API resource in a specific language.
    * @return description
   **/
   @JsonProperty("description")
@@ -35,7 +41,7 @@ public class PokemonSpeciesDescription  {
   }
 
  /**
-   * Get language
+   * The language this name is in.
    * @return language
   **/
   @JsonProperty("language")

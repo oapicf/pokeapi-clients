@@ -10,19 +10,22 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 import io.swagger.annotations.*;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2026-10-25T05:48:53.778376553Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2026-11-09T13:50:03.149615362Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class Experience   {
   
   private Integer level;
   private Integer experience;
 
   /**
+   * The level gained.
+   * minimum: -2147483648
+   * maximum: 2147483647
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The level gained.")
   @JsonProperty("level")
   @NotNull
-  public Integer getLevel() {
+ @Min(-2147483648) @Max(2147483647)  public Integer getLevel() {
     return level;
   }
   public void setLevel(Integer level) {
@@ -30,12 +33,15 @@ public class Experience   {
   }
 
   /**
+   * The amount of experience required to reach the referenced level.
+   * minimum: -2147483648
+   * maximum: 2147483647
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The amount of experience required to reach the referenced level.")
   @JsonProperty("experience")
   @NotNull
-  public Integer getExperience() {
+ @Min(-2147483648) @Max(2147483647)  public Integer getExperience() {
     return experience;
   }
   public void setExperience(Integer experience) {

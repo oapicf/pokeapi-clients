@@ -8,6 +8,7 @@ use Articus\DataTransfer\Annotation as DTA;
 class ItemEffectText
 {
     /**
+     * The localized effect text for an API resource in a specific language.
      * @DTA\Data(field="effect")
      * @DTA\Validator(name="Scalar", options={"type":"string"})
      * @DTA\Validator(name="Length", options={"max":6000})
@@ -15,6 +16,7 @@ class ItemEffectText
     public ?string $effect = null;
 
     /**
+     * The localized effect text in brief.
      * @DTA\Data(field="short_effect")
      * @DTA\Validator(name="Scalar", options={"type":"string"})
      * @DTA\Validator(name="Length", options={"max":300})
@@ -22,6 +24,7 @@ class ItemEffectText
     public ?string $short_effect = null;
 
     /**
+     * The language this effect is in.
      * @DTA\Data(field="language")
      * @DTA\Strategy(name="Object", options={"type":\App\DTO\LanguageSummary::class})
      * @DTA\Validator(name="TypeCompliant", options={"type":\App\DTO\LanguageSummary::class})

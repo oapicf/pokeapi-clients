@@ -1,10 +1,12 @@
 package controllers;
 
+import apimodels.CurrencyDetail;
 import apimodels.ItemAttributeDetail;
 import apimodels.ItemCategoryDetail;
 import apimodels.ItemDetail;
 import apimodels.ItemFlingEffectDetail;
 import apimodels.ItemPocketDetail;
+import apimodels.PaginatedCurrencySummaryList;
 import apimodels.PaginatedItemAttributeSummaryList;
 import apimodels.PaginatedItemCategorySummaryList;
 import apimodels.PaginatedItemFlingEffectSummaryList;
@@ -20,8 +22,20 @@ import java.io.FileInputStream;
 import play.libs.Files.TemporaryFile;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-10-25T05:48:13.486809836Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-11-09T13:49:31.462302702Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class ItemsApiControllerImp extends ItemsApiControllerImpInterface {
+    @Override
+    public PaginatedCurrencySummaryList currencyList(Http.Request request, Integer limit, Integer offset, String q) throws Exception {
+        //Do your magic!!!
+        return new PaginatedCurrencySummaryList();
+    }
+
+    @Override
+    public CurrencyDetail currencyRetrieve(Http.Request request, String id) throws Exception {
+        //Do your magic!!!
+        return new CurrencyDetail();
+    }
+
     @Override
     public PaginatedItemAttributeSummaryList itemAttributeList(Http.Request request, Integer limit, Integer offset, String q) throws Exception {
         //Do your magic!!!

@@ -12,7 +12,7 @@ import org.openapitools.model.VersionGroupSummary;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-10-25T05:47:53.227411880Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-11-09T13:49:15.621225368Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class AbilityFlavorText   {
   @JsonProperty("flavor_text")
   private String flavorText;
@@ -24,6 +24,7 @@ public class AbilityFlavorText   {
   private VersionGroupSummary versionGroup;
 
   /**
+   * The localized name for an API resource in a specific language.
    **/
   public AbilityFlavorText flavorText(String flavorText) {
     this.flavorText = flavorText;
@@ -31,7 +32,7 @@ public class AbilityFlavorText   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The localized name for an API resource in a specific language.")
   @JsonProperty("flavor_text")
   public String getFlavorText() {
     return flavorText;
@@ -41,6 +42,7 @@ public class AbilityFlavorText   {
   }
 
   /**
+   * The language this text resource is in.
    **/
   public AbilityFlavorText language(LanguageSummary language) {
     this.language = language;
@@ -48,7 +50,7 @@ public class AbilityFlavorText   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The language this text resource is in.")
   @JsonProperty("language")
   public LanguageSummary getLanguage() {
     return language;
@@ -58,6 +60,7 @@ public class AbilityFlavorText   {
   }
 
   /**
+   * The version group that uses this flavor text.
    **/
   public AbilityFlavorText versionGroup(VersionGroupSummary versionGroup) {
     this.versionGroup = versionGroup;
@@ -65,7 +68,7 @@ public class AbilityFlavorText   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The version group that uses this flavor text.")
   @JsonProperty("version_group")
   public VersionGroupSummary getVersionGroup() {
     return versionGroup;

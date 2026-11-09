@@ -24,7 +24,7 @@ import jakarta.annotation.Generated;
  * CharacteristicDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-10-25T05:53:37.479908528Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-11-09T13:53:47.069318184Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class CharacteristicDetail {
 
   private Integer id;
@@ -58,11 +58,11 @@ public class CharacteristicDetail {
   }
 
   /**
-   * Get id
+   * The identifier for this resource.
    * @return id
    */
   
-  @Schema(name = "id", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "id", accessMode = Schema.AccessMode.READ_ONLY, description = "The identifier for this resource.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("id")
   public Integer getId() {
     return id;
@@ -79,11 +79,11 @@ public class CharacteristicDetail {
   }
 
   /**
-   * Get geneModulo
+   * The remainder of the highest stat/IV divided by 5.
    * @return geneModulo
    */
   @NotNull 
-  @Schema(name = "gene_modulo", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "gene_modulo", description = "The remainder of the highest stat/IV divided by 5.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("gene_modulo")
   public Integer getGeneModulo() {
     return geneModulo;
@@ -108,11 +108,11 @@ public class CharacteristicDetail {
   }
 
   /**
-   * Get possibleValues
+   * The possible values of the highest stat that would result in a Pokémon recieving this characteristic when divided by 5.
    * @return possibleValues
    */
   
-  @Schema(name = "possible_values", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "possible_values", accessMode = Schema.AccessMode.READ_ONLY, description = "The possible values of the highest stat that would result in a Pokémon recieving this characteristic when divided by 5.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("possible_values")
   public List<Integer> getPossibleValues() {
     return possibleValues;
@@ -129,11 +129,11 @@ public class CharacteristicDetail {
   }
 
   /**
-   * Get highestStat
+   * The stat which results in this characteristic.
    * @return highestStat
    */
   @NotNull @Valid 
-  @Schema(name = "highest_stat", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "highest_stat", description = "The stat which results in this characteristic.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("highest_stat")
   public StatSummary getHighestStat() {
     return highestStat;
@@ -158,11 +158,11 @@ public class CharacteristicDetail {
   }
 
   /**
-   * Get descriptions
+   * The descriptions of this characteristic listed in different languages.
    * @return descriptions
    */
   
-  @Schema(name = "descriptions", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "descriptions", accessMode = Schema.AccessMode.READ_ONLY, description = "The descriptions of this characteristic listed in different languages.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("descriptions")
   public List<@Valid CharacteristicDescription> getDescriptions() {
     return descriptions;

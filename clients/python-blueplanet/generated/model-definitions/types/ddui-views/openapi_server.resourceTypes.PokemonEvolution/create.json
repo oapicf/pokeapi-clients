@@ -1,0 +1,47 @@
+{
+  "type": "form",
+  "version": "2.0",
+  "cells": [{
+    "label": "General",
+    "children": [
+      {"model": "label"},
+      {"model": "description"}
+    ]
+  },{
+    "label": "Details",
+    "model": "properties",
+    "children": [
+      {"model": "version_group" },
+      {"model": "is_default" },
+      {"model": "item" },
+      {"model": "trigger" },
+      {"model": "gender" },
+      {"model": "held_item" },
+      {"model": "known_move" },
+      {"model": "known_move_type" },
+      {"model": "location" },
+      {"model": "min_level" },
+      {"model": "min_happiness" },
+      {"model": "min_beauty" },
+      {"model": "min_affection" },
+      {"model": "near_special_rock" },
+      {"model": "needs_multiplayer" },
+      {"model": "needs_overworld_rain" },
+      {"model": "party_species" },
+      {"model": "party_type" },
+      {"model": "relative_physical_stats" },
+      {"model": "time_of_day" },
+      {"model": "trade_species" },
+      {"model": "turn_upside_down" },
+      {"model": "region" },
+      {"model": "required_pokemon_form" },
+      {"model": "evolved_pokemon_form" },
+      {"model": "used_move" },
+      {"model": "min_move_count" },
+      {"model": "min_steps" },
+      {"model": "min_damage_taken" },
+      {"model": "allowed_natures" },
+      {"model": "condition_expression" },
+    ]
+  }]
+}

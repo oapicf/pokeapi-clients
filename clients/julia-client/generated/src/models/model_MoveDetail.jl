@@ -31,30 +31,30 @@
         learned_by_pokemon=nothing,
     )
 
-    - id::Int64
-    - name::String
-    - accuracy::Int64
-    - effect_chance::Int64
-    - pp::Int64
-    - priority::Int64
-    - power::Int64
-    - contest_combos::MoveDetailContestCombos
-    - contest_type::ContestTypeSummary
-    - contest_effect::ContestEffectSummary
-    - damage_class::MoveDamageClassSummary
-    - effect_entries::Vector{MoveChangeEffectEntriesInner}
-    - effect_changes::Vector{MoveDetailEffectChangesInner}
-    - generation::GenerationSummary
-    - meta::MoveMeta
-    - names::Vector{MoveName}
-    - past_values::Vector{MoveChange}
-    - stat_changes::Vector{MoveDetailStatChangesInner}
-    - super_contest_effect::SuperContestEffectSummary
-    - target::MoveTargetSummary
-    - type::TypeSummary
-    - machines::Vector{MoveDetailMachinesInner}
-    - flavor_text_entries::Vector{MoveFlavorText}
-    - learned_by_pokemon::Vector{AbilityDetailPokemonInnerPokemon}
+    - id::Int64 : The identifier for this resource.
+    - name::String : The name for this resource.
+    - accuracy::Int64 : The percent value of how likely this move is to be successful.
+    - effect_chance::Int64 : The percent value of how likely it is this moves effect will happen.
+    - pp::Int64 : Power points. The number of times this move can be used.
+    - priority::Int64 : A value between -8 and 8. Sets the order in which moves are executed during battle. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Priority) for greater detail.
+    - power::Int64 : The base power of this move, or null if it has no fixed base power.
+    - contest_combos::MoveCombos : A detail of normal and super contest combos that require this move.
+    - contest_type::ContestTypeSummary : The type of appeal this move gives a Pokémon when used in a contest.
+    - contest_effect::ContestEffectSummary : The effect the move has when used in a contest.
+    - damage_class::MoveDamageClassSummary : The type of damage the move inflicts on the target, e.g. physical.
+    - effect_entries::Vector{MoveEffectEffectText} : The effect of this move listed in different languages.
+    - effect_changes::Vector{MoveEffectChange} : The list of previous effects this move has had across version groups of the games.
+    - generation::GenerationSummary : The generation in which this move was introduced.
+    - meta::MoveMeta : Metadata about this move
+    - names::Vector{MoveName} : The name of this resource listed in different languages.
+    - past_values::Vector{MoveChange} : A list of move resource value changes across version groups of the game.
+    - stat_changes::Vector{MoveMetaStatChange} : A list of stats this moves effects and how much it effects them.
+    - super_contest_effect::SuperContestEffectSummary : The effect the move has when used in a super contest.
+    - target::MoveTargetSummary : The type of target that will receive the effects of the attack.
+    - type::TypeSummary : The elemental type of this move.
+    - machines::Vector{ItemMachine} : A list of the machines that teach this move.
+    - flavor_text_entries::Vector{MoveFlavorText} : The flavor text of this move listed in different languages.
+    - learned_by_pokemon::Vector{PokemonSummary} : List of Pokemon that can learn the move
 """
 Base.@kwdef mutable struct MoveDetail <: OpenAPI.APIModel
     id::Union{Nothing, Int64} = nothing
@@ -64,23 +64,23 @@ Base.@kwdef mutable struct MoveDetail <: OpenAPI.APIModel
     pp::Union{Nothing, Int64} = nothing
     priority::Union{Nothing, Int64} = nothing
     power::Union{Nothing, Int64} = nothing
-    contest_combos = nothing # spec type: Union{ Nothing, MoveDetailContestCombos }
+    contest_combos = nothing # spec type: Union{ Nothing, MoveCombos }
     contest_type = nothing # spec type: Union{ Nothing, ContestTypeSummary }
     contest_effect = nothing # spec type: Union{ Nothing, ContestEffectSummary }
     damage_class = nothing # spec type: Union{ Nothing, MoveDamageClassSummary }
-    effect_entries::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{MoveChangeEffectEntriesInner} }
-    effect_changes::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{MoveDetailEffectChangesInner} }
+    effect_entries::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{MoveEffectEffectText} }
+    effect_changes::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{MoveEffectChange} }
     generation = nothing # spec type: Union{ Nothing, GenerationSummary }
     meta = nothing # spec type: Union{ Nothing, MoveMeta }
     names::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{MoveName} }
     past_values::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{MoveChange} }
-    stat_changes::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{MoveDetailStatChangesInner} }
+    stat_changes::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{MoveMetaStatChange} }
     super_contest_effect = nothing # spec type: Union{ Nothing, SuperContestEffectSummary }
     target = nothing # spec type: Union{ Nothing, MoveTargetSummary }
     type = nothing # spec type: Union{ Nothing, TypeSummary }
-    machines::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{MoveDetailMachinesInner} }
+    machines::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{ItemMachine} }
     flavor_text_entries::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{MoveFlavorText} }
-    learned_by_pokemon::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{AbilityDetailPokemonInnerPokemon} }
+    learned_by_pokemon::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{PokemonSummary} }
 
     function MoveDetail(id, name, accuracy, effect_chance, pp, priority, power, contest_combos, contest_type, contest_effect, damage_class, effect_entries, effect_changes, generation, meta, names, past_values, stat_changes, super_contest_effect, target, type, machines, flavor_text_entries, learned_by_pokemon, )
         o = new(id, name, accuracy, effect_chance, pp, priority, power, contest_combos, contest_type, contest_effect, damage_class, effect_entries, effect_changes, generation, meta, names, past_values, stat_changes, super_contest_effect, target, type, machines, flavor_text_entries, learned_by_pokemon, )
@@ -89,7 +89,7 @@ Base.@kwdef mutable struct MoveDetail <: OpenAPI.APIModel
     end
 end # type MoveDetail
 
-const _property_types_MoveDetail = Dict{Symbol,String}(Symbol("id")=>"Int64", Symbol("name")=>"String", Symbol("accuracy")=>"Int64", Symbol("effect_chance")=>"Int64", Symbol("pp")=>"Int64", Symbol("priority")=>"Int64", Symbol("power")=>"Int64", Symbol("contest_combos")=>"MoveDetailContestCombos", Symbol("contest_type")=>"ContestTypeSummary", Symbol("contest_effect")=>"ContestEffectSummary", Symbol("damage_class")=>"MoveDamageClassSummary", Symbol("effect_entries")=>"Vector{MoveChangeEffectEntriesInner}", Symbol("effect_changes")=>"Vector{MoveDetailEffectChangesInner}", Symbol("generation")=>"GenerationSummary", Symbol("meta")=>"MoveMeta", Symbol("names")=>"Vector{MoveName}", Symbol("past_values")=>"Vector{MoveChange}", Symbol("stat_changes")=>"Vector{MoveDetailStatChangesInner}", Symbol("super_contest_effect")=>"SuperContestEffectSummary", Symbol("target")=>"MoveTargetSummary", Symbol("type")=>"TypeSummary", Symbol("machines")=>"Vector{MoveDetailMachinesInner}", Symbol("flavor_text_entries")=>"Vector{MoveFlavorText}", Symbol("learned_by_pokemon")=>"Vector{AbilityDetailPokemonInnerPokemon}", )
+const _property_types_MoveDetail = Dict{Symbol,String}(Symbol("id")=>"Int64", Symbol("name")=>"String", Symbol("accuracy")=>"Int64", Symbol("effect_chance")=>"Int64", Symbol("pp")=>"Int64", Symbol("priority")=>"Int64", Symbol("power")=>"Int64", Symbol("contest_combos")=>"MoveCombos", Symbol("contest_type")=>"ContestTypeSummary", Symbol("contest_effect")=>"ContestEffectSummary", Symbol("damage_class")=>"MoveDamageClassSummary", Symbol("effect_entries")=>"Vector{MoveEffectEffectText}", Symbol("effect_changes")=>"Vector{MoveEffectChange}", Symbol("generation")=>"GenerationSummary", Symbol("meta")=>"MoveMeta", Symbol("names")=>"Vector{MoveName}", Symbol("past_values")=>"Vector{MoveChange}", Symbol("stat_changes")=>"Vector{MoveMetaStatChange}", Symbol("super_contest_effect")=>"SuperContestEffectSummary", Symbol("target")=>"MoveTargetSummary", Symbol("type")=>"TypeSummary", Symbol("machines")=>"Vector{ItemMachine}", Symbol("flavor_text_entries")=>"Vector{MoveFlavorText}", Symbol("learned_by_pokemon")=>"Vector{PokemonSummary}", )
 OpenAPI.property_type(::Type{ MoveDetail }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_MoveDetail[name]))}
 
 function OpenAPI.check_required(o::MoveDetail)
@@ -147,13 +147,29 @@ function OpenAPI.validate_property(::Type{ MoveDetail }, name::Symbol, val)
 
 
     if name === Symbol("name")
-        OpenAPI.validate_param(name, "MoveDetail", :maxLength, val, 100)
+        OpenAPI.validate_param(name, "MoveDetail", :maxLength, val, 200)
+    end
+
+    if name === Symbol("accuracy")
+        OpenAPI.validate_param(name, "MoveDetail", :maximum, val, 2147483647, false)
+        OpenAPI.validate_param(name, "MoveDetail", :minimum, val, -2147483648, false)
     end
 
 
+    if name === Symbol("pp")
+        OpenAPI.validate_param(name, "MoveDetail", :maximum, val, 2147483647, false)
+        OpenAPI.validate_param(name, "MoveDetail", :minimum, val, -2147483648, false)
+    end
 
+    if name === Symbol("priority")
+        OpenAPI.validate_param(name, "MoveDetail", :maximum, val, 2147483647, false)
+        OpenAPI.validate_param(name, "MoveDetail", :minimum, val, -2147483648, false)
+    end
 
-
+    if name === Symbol("power")
+        OpenAPI.validate_param(name, "MoveDetail", :maximum, val, 2147483647, false)
+        OpenAPI.validate_param(name, "MoveDetail", :minimum, val, -2147483648, false)
+    end
 
 
 

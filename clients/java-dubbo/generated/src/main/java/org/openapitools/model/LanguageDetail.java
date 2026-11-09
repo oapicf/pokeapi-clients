@@ -13,26 +13,44 @@ import java.math.*;
 public class LanguageDetail implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * The identifier for this resource.
+   */
   @JsonProperty("id")
   private Integer id;
 
+  /**
+   * The name for this resource.
+   */
   @JsonProperty("name")
   private String name;
 
+  /**
+   * Whether or not the games are published in this language.
+   */
   @JsonProperty("official")
   private Boolean official;
 
+  /**
+   * The two-letter ISO 639-1 language code. Multiple PokéAPI language records may share this code.
+   */
   @JsonProperty("iso639")
   private String iso639;
 
+  /**
+   * The two-letter ISO 3166-1 alpha-2 code of the country or region associated with this language record. Multiple PokéAPI language records may share this code.
+   */
   @JsonProperty("iso3166")
   private String iso3166;
 
+  /**
+   * The name of this resource listed in different languages.
+   */
   @JsonProperty("names")
   private List<LanguageName> names = new ArrayList<>();
 
   /**
-   * 
+   * The identifier for this resource.
    * @return id
    */
   public Integer getId() {
@@ -44,7 +62,7 @@ public class LanguageDetail implements Serializable {
   }
 
   /**
-   * 
+   * The name for this resource.
    * @return name
    */
   public String getName() {
@@ -56,7 +74,7 @@ public class LanguageDetail implements Serializable {
   }
 
   /**
-   * 
+   * Whether or not the games are published in this language.
    * @return official
    */
   public Boolean getOfficial() {
@@ -68,7 +86,7 @@ public class LanguageDetail implements Serializable {
   }
 
   /**
-   * 
+   * The two-letter ISO 639-1 language code. Multiple PokéAPI language records may share this code.
    * @return iso639
    */
   public String getIso639() {
@@ -80,7 +98,7 @@ public class LanguageDetail implements Serializable {
   }
 
   /**
-   * 
+   * The two-letter ISO 3166-1 alpha-2 code of the country or region associated with this language record. Multiple PokéAPI language records may share this code.
    * @return iso3166
    */
   public String getIso3166() {
@@ -92,7 +110,7 @@ public class LanguageDetail implements Serializable {
   }
 
   /**
-   * 
+   * The name of this resource listed in different languages.
    * @return names
    */
   public List<LanguageName> getNames() {

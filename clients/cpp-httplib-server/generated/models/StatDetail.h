@@ -7,13 +7,15 @@
 #pragma once
 // System headers
 #include <nlohmann/json.hpp>
+#include <optional>
 #include <cstdint>
 #include <string>
 #include <vector>
 #include "CharacteristicSummary.h"
+#include "ItemSummary.h"
 #include "MoveDamageClassSummary.h"
-#include "StatDetailAffectingMoves.h"
-#include "StatDetailAffectingNatures.h"
+#include "StatAffectingMoves.h"
+#include "StatAffectingNatures.h"
 #include "StatName.h"
 
 
@@ -37,10 +39,12 @@ public:
     void setGameIndex(const int& gameIndex);
     [[nodiscard]] bool isIsBattleOnly() const;
     void setIsBattleOnly(const bool& isBattleOnly);
-    [[nodiscard]] StatDetailAffectingMoves getAffectingMoves() const;
-    void setAffectingMoves(const StatDetailAffectingMoves& affectingMoves);
-    [[nodiscard]] StatDetailAffectingNatures getAffectingNatures() const;
-    void setAffectingNatures(const StatDetailAffectingNatures& affectingNatures);
+    [[nodiscard]] StatAffectingMoves getAffectingMoves() const;
+    void setAffectingMoves(const StatAffectingMoves& affectingMoves);
+    [[nodiscard]] StatAffectingNatures getAffectingNatures() const;
+    void setAffectingNatures(const StatAffectingNatures& affectingNatures);
+    [[nodiscard]] std::vector<ItemSummary> getAffectingItems() const;
+    void setAffectingItems(const std::vector<ItemSummary>& affectingItems);
     [[nodiscard]] std::vector<CharacteristicSummary> getCharacteristics() const;
     void setCharacteristics(const std::vector<CharacteristicSummary>& characteristics);
     [[nodiscard]] MoveDamageClassSummary getMoveDamageClass() const;
@@ -51,15 +55,16 @@ public:
 
     // JSON serialization using NLOHMANN INTRUSIVE macro (must be inside class to access private members)
     NLOHMANN_DEFINE_TYPE_INTRUSIVE(StatDetail,
-         id, name, gameIndex, isBattleOnly, affectingMoves, affectingNatures, characteristics, moveDamageClass, names)
+         id, name, gameIndex, isBattleOnly, affectingMoves, affectingNatures, affectingItems, characteristics, moveDamageClass, names)
 
 private:
     int id;
     std::string name;
     int gameIndex;
     bool isBattleOnly;
-    StatDetailAffectingMoves affectingMoves;
-    StatDetailAffectingNatures affectingNatures;
+    StatAffectingMoves affectingMoves;
+    StatAffectingNatures affectingNatures;
+    std::vector<ItemSummary> affectingItems;
     std::vector<CharacteristicSummary> characteristics;
     MoveDamageClassSummary moveDamageClass;
     std::vector<StatName> names;

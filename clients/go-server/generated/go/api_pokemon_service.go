@@ -3,9 +3,9 @@
 /*
  * PokéAPI
  *
- * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+ * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
  *
- * API version: 2.7.0
+ * API version: 2.10.0
  * Contact: blah+oapicf@cliffano.com
  */
 
@@ -28,7 +28,7 @@ func NewPokemonAPIService() *PokemonAPIService {
 	return &PokemonAPIService{}
 }
 
-// AbilityList - 
+// AbilityList - List abilities
 func (s *PokemonAPIService) AbilityList(ctx context.Context, limit int32, offset int32, q string) (ImplResponse, error) {
 	// TODO - update AbilityList with the required logic for this service method.
 	// Add api_pokemon_service.go to the .openapi-generator-ignore to avoid overwriting this service implementation when updating open api generation.
@@ -39,7 +39,7 @@ func (s *PokemonAPIService) AbilityList(ctx context.Context, limit int32, offset
 	return Response(http.StatusNotImplemented, nil), errors.New("AbilityList method not implemented")
 }
 
-// AbilityRetrieve - 
+// AbilityRetrieve - Get ability
 func (s *PokemonAPIService) AbilityRetrieve(ctx context.Context, id string) (ImplResponse, error) {
 	// TODO - update AbilityRetrieve with the required logic for this service method.
 	// Add api_pokemon_service.go to the .openapi-generator-ignore to avoid overwriting this service implementation when updating open api generation.
@@ -50,8 +50,8 @@ func (s *PokemonAPIService) AbilityRetrieve(ctx context.Context, id string) (Imp
 	return Response(http.StatusNotImplemented, nil), errors.New("AbilityRetrieve method not implemented")
 }
 
-// CharacteristicList - List charecterictics
-func (s *PokemonAPIService) CharacteristicList(ctx context.Context, limit int32, offset int32, q string) (ImplResponse, error) {
+// CharacteristicList - List characteristics
+func (s *PokemonAPIService) CharacteristicList(ctx context.Context, limit int32, offset int32) (ImplResponse, error) {
 	// TODO - update CharacteristicList with the required logic for this service method.
 	// Add api_pokemon_service.go to the .openapi-generator-ignore to avoid overwriting this service implementation when updating open api generation.
 

@@ -28,8 +28,8 @@ import org.http4s.dsl.Http4sDsl
 import org.http4s.circe.CirceEntityEncoder._
 
 final case class MovesApiRoutes[
-  F[_]: JsonDecoder: Monad, basicAuth, cookieAuth
-](delegate: MovesApiDelegate[F, basicAuth, cookieAuth]) extends Http4sDsl[F] {
+  F[_]: JsonDecoder: Monad
+](delegate: MovesApiDelegate[F]) extends Http4sDsl[F] {
   object moveAilmentList {
     import MovesApiDelegate.moveAilmentListResponses
 
@@ -37,16 +37,12 @@ final case class MovesApiRoutes[
     object offsetQueryParam extends OptionalQueryParamDecoderMatcher[Int]("offset")
     object qQueryParam extends OptionalQueryParamDecoderMatcher[String]("q")
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "move-ailment" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q)) as auth =>
-        delegate.moveAilmentList.handle_basicAuth(auth, req, limit, offset, q, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "move-ailment" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q) =>
+        delegate.moveAilmentList.handle(req, limit, offset, q, responses)
 
     }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "move-ailment" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q)) as auth =>
-        delegate.moveAilmentList.handle_cookieAuth(auth, req, limit, offset, q, responses)
 
-    }
 
     val responses: moveAilmentListResponses[F] = new moveAilmentListResponses[F] {
       def resp200(value: PaginatedMoveMetaAilmentSummaryList): F[Response[F]] = Ok(value)
@@ -56,16 +52,12 @@ final case class MovesApiRoutes[
     import MovesApiDelegate.moveAilmentRetrieveResponses
 
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "move-ailment" / id) as auth =>
-        delegate.moveAilmentRetrieve.handle_basicAuth(auth, req, id, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "move-ailment" / id =>
+        delegate.moveAilmentRetrieve.handle(req, id, responses)
 
     }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "move-ailment" / id) as auth =>
-        delegate.moveAilmentRetrieve.handle_cookieAuth(auth, req, id, responses)
 
-    }
 
     val responses: moveAilmentRetrieveResponses[F] = new moveAilmentRetrieveResponses[F] {
       def resp200(value: MoveMetaAilmentDetail): F[Response[F]] = Ok(value)
@@ -78,16 +70,12 @@ final case class MovesApiRoutes[
     object offsetQueryParam extends OptionalQueryParamDecoderMatcher[Int]("offset")
     object qQueryParam extends OptionalQueryParamDecoderMatcher[String]("q")
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "move-battle-style" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q)) as auth =>
-        delegate.moveBattleStyleList.handle_basicAuth(auth, req, limit, offset, q, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "move-battle-style" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q) =>
+        delegate.moveBattleStyleList.handle(req, limit, offset, q, responses)
 
     }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "move-battle-style" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q)) as auth =>
-        delegate.moveBattleStyleList.handle_cookieAuth(auth, req, limit, offset, q, responses)
 
-    }
 
     val responses: moveBattleStyleListResponses[F] = new moveBattleStyleListResponses[F] {
       def resp200(value: PaginatedMoveBattleStyleSummaryList): F[Response[F]] = Ok(value)
@@ -97,16 +85,12 @@ final case class MovesApiRoutes[
     import MovesApiDelegate.moveBattleStyleRetrieveResponses
 
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "move-battle-style" / id) as auth =>
-        delegate.moveBattleStyleRetrieve.handle_basicAuth(auth, req, id, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "move-battle-style" / id =>
+        delegate.moveBattleStyleRetrieve.handle(req, id, responses)
 
     }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "move-battle-style" / id) as auth =>
-        delegate.moveBattleStyleRetrieve.handle_cookieAuth(auth, req, id, responses)
 
-    }
 
     val responses: moveBattleStyleRetrieveResponses[F] = new moveBattleStyleRetrieveResponses[F] {
       def resp200(value: MoveBattleStyleDetail): F[Response[F]] = Ok(value)
@@ -119,16 +103,12 @@ final case class MovesApiRoutes[
     object offsetQueryParam extends OptionalQueryParamDecoderMatcher[Int]("offset")
     object qQueryParam extends OptionalQueryParamDecoderMatcher[String]("q")
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "move-category" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q)) as auth =>
-        delegate.moveCategoryList.handle_basicAuth(auth, req, limit, offset, q, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "move-category" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q) =>
+        delegate.moveCategoryList.handle(req, limit, offset, q, responses)
 
     }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "move-category" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q)) as auth =>
-        delegate.moveCategoryList.handle_cookieAuth(auth, req, limit, offset, q, responses)
 
-    }
 
     val responses: moveCategoryListResponses[F] = new moveCategoryListResponses[F] {
       def resp200(value: PaginatedMoveMetaCategorySummaryList): F[Response[F]] = Ok(value)
@@ -138,16 +118,12 @@ final case class MovesApiRoutes[
     import MovesApiDelegate.moveCategoryRetrieveResponses
 
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "move-category" / id) as auth =>
-        delegate.moveCategoryRetrieve.handle_basicAuth(auth, req, id, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "move-category" / id =>
+        delegate.moveCategoryRetrieve.handle(req, id, responses)
 
     }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "move-category" / id) as auth =>
-        delegate.moveCategoryRetrieve.handle_cookieAuth(auth, req, id, responses)
 
-    }
 
     val responses: moveCategoryRetrieveResponses[F] = new moveCategoryRetrieveResponses[F] {
       def resp200(value: MoveMetaCategoryDetail): F[Response[F]] = Ok(value)
@@ -160,16 +136,12 @@ final case class MovesApiRoutes[
     object offsetQueryParam extends OptionalQueryParamDecoderMatcher[Int]("offset")
     object qQueryParam extends OptionalQueryParamDecoderMatcher[String]("q")
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "move-learn-method" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q)) as auth =>
-        delegate.moveLearnMethodList.handle_basicAuth(auth, req, limit, offset, q, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "move-learn-method" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q) =>
+        delegate.moveLearnMethodList.handle(req, limit, offset, q, responses)
 
     }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "move-learn-method" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q)) as auth =>
-        delegate.moveLearnMethodList.handle_cookieAuth(auth, req, limit, offset, q, responses)
 
-    }
 
     val responses: moveLearnMethodListResponses[F] = new moveLearnMethodListResponses[F] {
       def resp200(value: PaginatedMoveLearnMethodSummaryList): F[Response[F]] = Ok(value)
@@ -179,16 +151,12 @@ final case class MovesApiRoutes[
     import MovesApiDelegate.moveLearnMethodRetrieveResponses
 
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "move-learn-method" / id) as auth =>
-        delegate.moveLearnMethodRetrieve.handle_basicAuth(auth, req, id, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "move-learn-method" / id =>
+        delegate.moveLearnMethodRetrieve.handle(req, id, responses)
 
     }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "move-learn-method" / id) as auth =>
-        delegate.moveLearnMethodRetrieve.handle_cookieAuth(auth, req, id, responses)
 
-    }
 
     val responses: moveLearnMethodRetrieveResponses[F] = new moveLearnMethodRetrieveResponses[F] {
       def resp200(value: MoveLearnMethodDetail): F[Response[F]] = Ok(value)
@@ -201,16 +169,12 @@ final case class MovesApiRoutes[
     object offsetQueryParam extends OptionalQueryParamDecoderMatcher[Int]("offset")
     object qQueryParam extends OptionalQueryParamDecoderMatcher[String]("q")
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "move" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q)) as auth =>
-        delegate.moveList.handle_basicAuth(auth, req, limit, offset, q, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "move" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q) =>
+        delegate.moveList.handle(req, limit, offset, q, responses)
 
     }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "move" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q)) as auth =>
-        delegate.moveList.handle_cookieAuth(auth, req, limit, offset, q, responses)
 
-    }
 
     val responses: moveListResponses[F] = new moveListResponses[F] {
       def resp200(value: PaginatedMoveSummaryList): F[Response[F]] = Ok(value)
@@ -220,16 +184,12 @@ final case class MovesApiRoutes[
     import MovesApiDelegate.moveRetrieveResponses
 
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "move" / id) as auth =>
-        delegate.moveRetrieve.handle_basicAuth(auth, req, id, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "move" / id =>
+        delegate.moveRetrieve.handle(req, id, responses)
 
     }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "move" / id) as auth =>
-        delegate.moveRetrieve.handle_cookieAuth(auth, req, id, responses)
 
-    }
 
     val responses: moveRetrieveResponses[F] = new moveRetrieveResponses[F] {
       def resp200(value: MoveDetail): F[Response[F]] = Ok(value)
@@ -242,16 +202,12 @@ final case class MovesApiRoutes[
     object offsetQueryParam extends OptionalQueryParamDecoderMatcher[Int]("offset")
     object qQueryParam extends OptionalQueryParamDecoderMatcher[String]("q")
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "move-target" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q)) as auth =>
-        delegate.moveTargetList.handle_basicAuth(auth, req, limit, offset, q, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "move-target" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q) =>
+        delegate.moveTargetList.handle(req, limit, offset, q, responses)
 
     }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "move-target" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q)) as auth =>
-        delegate.moveTargetList.handle_cookieAuth(auth, req, limit, offset, q, responses)
 
-    }
 
     val responses: moveTargetListResponses[F] = new moveTargetListResponses[F] {
       def resp200(value: PaginatedMoveTargetSummaryList): F[Response[F]] = Ok(value)
@@ -261,48 +217,31 @@ final case class MovesApiRoutes[
     import MovesApiDelegate.moveTargetRetrieveResponses
 
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "move-target" / id) as auth =>
-        delegate.moveTargetRetrieve.handle_basicAuth(auth, req, id, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "move-target" / id =>
+        delegate.moveTargetRetrieve.handle(req, id, responses)
 
     }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "move-target" / id) as auth =>
-        delegate.moveTargetRetrieve.handle_cookieAuth(auth, req, id, responses)
 
-    }
 
     val responses: moveTargetRetrieveResponses[F] = new moveTargetRetrieveResponses[F] {
       def resp200(value: MoveTargetDetail): F[Response[F]] = Ok(value)
     }
   }
 
-  val routesbasicAuth =
-    moveAilmentList.routebasicAuth <+>
-    moveAilmentRetrieve.routebasicAuth <+>
-    moveBattleStyleList.routebasicAuth <+>
-    moveBattleStyleRetrieve.routebasicAuth <+>
-    moveCategoryList.routebasicAuth <+>
-    moveCategoryRetrieve.routebasicAuth <+>
-    moveLearnMethodList.routebasicAuth <+>
-    moveLearnMethodRetrieve.routebasicAuth <+>
-    moveList.routebasicAuth <+>
-    moveRetrieve.routebasicAuth <+>
-    moveTargetList.routebasicAuth <+>
-    moveTargetRetrieve.routebasicAuth
-  val routescookieAuth =
-    moveAilmentList.routecookieAuth <+>
-    moveAilmentRetrieve.routecookieAuth <+>
-    moveBattleStyleList.routecookieAuth <+>
-    moveBattleStyleRetrieve.routecookieAuth <+>
-    moveCategoryList.routecookieAuth <+>
-    moveCategoryRetrieve.routecookieAuth <+>
-    moveLearnMethodList.routecookieAuth <+>
-    moveLearnMethodRetrieve.routecookieAuth <+>
-    moveList.routecookieAuth <+>
-    moveRetrieve.routecookieAuth <+>
-    moveTargetList.routecookieAuth <+>
-    moveTargetRetrieve.routecookieAuth
+  val routes =
+    moveAilmentList.route <+>
+    moveAilmentRetrieve.route <+>
+    moveBattleStyleList.route <+>
+    moveBattleStyleRetrieve.route <+>
+    moveCategoryList.route <+>
+    moveCategoryRetrieve.route <+>
+    moveLearnMethodList.route <+>
+    moveLearnMethodRetrieve.route <+>
+    moveList.route <+>
+    moveRetrieve.route <+>
+    moveTargetList.route <+>
+    moveTargetRetrieve.route
 }
 
 object MovesApiDelegate {
@@ -356,23 +295,12 @@ object MovesApiDelegate {
 
 }
 
-trait MovesApiDelegate[F[_], basicAuth, cookieAuth] {
+trait MovesApiDelegate[F[_]] {
 
   trait moveAilmentList {
     import MovesApiDelegate.moveAilmentListResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
-      req: Request[F],
-      limit: Option[Int],
-      offset: Option[Int],
-      q: Option[String],
-      responses: moveAilmentListResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
+    def handle(
       req: Request[F],
       limit: Option[Int],
       offset: Option[Int],
@@ -387,16 +315,7 @@ trait MovesApiDelegate[F[_], basicAuth, cookieAuth] {
   trait moveAilmentRetrieve {
     import MovesApiDelegate.moveAilmentRetrieveResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
-      req: Request[F],
-      id: String,
-      responses: moveAilmentRetrieveResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
+    def handle(
       req: Request[F],
       id: String,
       responses: moveAilmentRetrieveResponses[F]
@@ -409,18 +328,7 @@ trait MovesApiDelegate[F[_], basicAuth, cookieAuth] {
   trait moveBattleStyleList {
     import MovesApiDelegate.moveBattleStyleListResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
-      req: Request[F],
-      limit: Option[Int],
-      offset: Option[Int],
-      q: Option[String],
-      responses: moveBattleStyleListResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
+    def handle(
       req: Request[F],
       limit: Option[Int],
       offset: Option[Int],
@@ -435,16 +343,7 @@ trait MovesApiDelegate[F[_], basicAuth, cookieAuth] {
   trait moveBattleStyleRetrieve {
     import MovesApiDelegate.moveBattleStyleRetrieveResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
-      req: Request[F],
-      id: String,
-      responses: moveBattleStyleRetrieveResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
+    def handle(
       req: Request[F],
       id: String,
       responses: moveBattleStyleRetrieveResponses[F]
@@ -457,18 +356,7 @@ trait MovesApiDelegate[F[_], basicAuth, cookieAuth] {
   trait moveCategoryList {
     import MovesApiDelegate.moveCategoryListResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
-      req: Request[F],
-      limit: Option[Int],
-      offset: Option[Int],
-      q: Option[String],
-      responses: moveCategoryListResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
+    def handle(
       req: Request[F],
       limit: Option[Int],
       offset: Option[Int],
@@ -483,16 +371,7 @@ trait MovesApiDelegate[F[_], basicAuth, cookieAuth] {
   trait moveCategoryRetrieve {
     import MovesApiDelegate.moveCategoryRetrieveResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
-      req: Request[F],
-      id: String,
-      responses: moveCategoryRetrieveResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
+    def handle(
       req: Request[F],
       id: String,
       responses: moveCategoryRetrieveResponses[F]
@@ -505,18 +384,7 @@ trait MovesApiDelegate[F[_], basicAuth, cookieAuth] {
   trait moveLearnMethodList {
     import MovesApiDelegate.moveLearnMethodListResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
-      req: Request[F],
-      limit: Option[Int],
-      offset: Option[Int],
-      q: Option[String],
-      responses: moveLearnMethodListResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
+    def handle(
       req: Request[F],
       limit: Option[Int],
       offset: Option[Int],
@@ -531,16 +399,7 @@ trait MovesApiDelegate[F[_], basicAuth, cookieAuth] {
   trait moveLearnMethodRetrieve {
     import MovesApiDelegate.moveLearnMethodRetrieveResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
-      req: Request[F],
-      id: String,
-      responses: moveLearnMethodRetrieveResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
+    def handle(
       req: Request[F],
       id: String,
       responses: moveLearnMethodRetrieveResponses[F]
@@ -553,18 +412,7 @@ trait MovesApiDelegate[F[_], basicAuth, cookieAuth] {
   trait moveList {
     import MovesApiDelegate.moveListResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
-      req: Request[F],
-      limit: Option[Int],
-      offset: Option[Int],
-      q: Option[String],
-      responses: moveListResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
+    def handle(
       req: Request[F],
       limit: Option[Int],
       offset: Option[Int],
@@ -579,16 +427,7 @@ trait MovesApiDelegate[F[_], basicAuth, cookieAuth] {
   trait moveRetrieve {
     import MovesApiDelegate.moveRetrieveResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
-      req: Request[F],
-      id: String,
-      responses: moveRetrieveResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
+    def handle(
       req: Request[F],
       id: String,
       responses: moveRetrieveResponses[F]
@@ -601,18 +440,7 @@ trait MovesApiDelegate[F[_], basicAuth, cookieAuth] {
   trait moveTargetList {
     import MovesApiDelegate.moveTargetListResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
-      req: Request[F],
-      limit: Option[Int],
-      offset: Option[Int],
-      q: Option[String],
-      responses: moveTargetListResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
+    def handle(
       req: Request[F],
       limit: Option[Int],
       offset: Option[Int],
@@ -627,16 +455,7 @@ trait MovesApiDelegate[F[_], basicAuth, cookieAuth] {
   trait moveTargetRetrieve {
     import MovesApiDelegate.moveTargetRetrieveResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
-      req: Request[F],
-      id: String,
-      responses: moveTargetRetrieveResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
+    def handle(
       req: Request[F],
       id: String,
       responses: moveTargetRetrieveResponses[F]

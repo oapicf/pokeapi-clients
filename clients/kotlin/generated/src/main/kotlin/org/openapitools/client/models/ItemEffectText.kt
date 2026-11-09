@@ -31,20 +31,23 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param effect 
- * @param shortEffect 
- * @param language 
+ * @param effect The localized effect text for an API resource in a specific language.
+ * @param shortEffect The localized effect text in brief.
+ * @param language The language this effect is in.
  */
 
 
 data class ItemEffectText (
 
+    /* The localized effect text for an API resource in a specific language. */
     @Json(name = "effect")
     val effect: kotlin.String,
 
+    /* The localized effect text in brief. */
     @Json(name = "short_effect")
     val shortEffect: kotlin.String,
 
+    /* The language this effect is in. */
     @Json(name = "language")
     val language: LanguageSummary
 

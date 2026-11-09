@@ -12,8 +12,8 @@
 #include <string>
 #include "bourne/json.hpp"
 #include "Helpers.h"
-#include "AbilityDetail_pokemon_inner_pokemon.h"
 #include "MoveMetaCategoryDescription.h"
+#include "MoveSummary.h"
 #include <list>
 
 namespace Tiny {
@@ -48,41 +48,41 @@ public:
 	 */
     void fromJson(std::string jsonObj);
 
-	/*! \brief Get 
+	/*! \brief Get The identifier for this resource.
 	 */
 	int getId();
 
-	/*! \brief Set 
+	/*! \brief Set The identifier for this resource.
 	 */
 	void setId(int id);
-	/*! \brief Get 
+	/*! \brief Get The name for this resource.
 	 */
 	std::string getName();
 
-	/*! \brief Set 
+	/*! \brief Set The name for this resource.
 	 */
 	void setName(std::string name);
-	/*! \brief Get 
+	/*! \brief Get The description of this resource listed in different languages.
 	 */
 	std::list<MoveMetaCategoryDescription> getDescriptions();
 
-	/*! \brief Set 
+	/*! \brief Set The description of this resource listed in different languages.
 	 */
 	void setDescriptions(std::list<MoveMetaCategoryDescription> descriptions);
-	/*! \brief Get 
+	/*! \brief Get A list of moves that fall into this category.
 	 */
-	std::list<AbilityDetail_pokemon_inner_pokemon> getMoves();
+	std::list<MoveSummary> getMoves();
 
-	/*! \brief Set 
+	/*! \brief Set A list of moves that fall into this category.
 	 */
-	void setMoves(std::list<AbilityDetail_pokemon_inner_pokemon> moves);
+	void setMoves(std::list<MoveSummary> moves);
 
 
     private:
     int id{};
     std::string name{};
     std::list<MoveMetaCategoryDescription> descriptions;
-    std::list<AbilityDetail_pokemon_inner_pokemon> moves;
+    std::list<MoveSummary> moves;
 };
 }
 

@@ -5,9 +5,9 @@ from datetime import date, datetime
 from typing import List, Dict, Type
 
 from openapi_server.models.base_model import Model
-from openapi_server.models.location_area_detail_encounter_method_rates_inner import LocationAreaDetailEncounterMethodRatesInner
-from openapi_server.models.location_area_detail_pokemon_encounters_inner import LocationAreaDetailPokemonEncountersInner
+from openapi_server.models.location_area_encounter_rate import LocationAreaEncounterRate
 from openapi_server.models.location_area_name import LocationAreaName
+from openapi_server.models.location_area_pokemon_encounter import LocationAreaPokemonEncounter
 from openapi_server.models.location_summary import LocationSummary
 from openapi_server import util
 
@@ -18,7 +18,7 @@ class LocationAreaDetail(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, id: int=None, name: str=None, game_index: int=None, encounter_method_rates: List[LocationAreaDetailEncounterMethodRatesInner]=None, location: LocationSummary=None, names: List[LocationAreaName]=None, pokemon_encounters: List[LocationAreaDetailPokemonEncountersInner]=None):
+    def __init__(self, id: int=None, name: str=None, game_index: int=None, encounter_method_rates: List[LocationAreaEncounterRate]=None, location: LocationSummary=None, names: List[LocationAreaName]=None, pokemon_encounters: List[LocationAreaPokemonEncounter]=None):
         """LocationAreaDetail - a model defined in OpenAPI
 
         :param id: The id of this LocationAreaDetail.
@@ -33,10 +33,10 @@ class LocationAreaDetail(Model):
             'id': int,
             'name': str,
             'game_index': int,
-            'encounter_method_rates': List[LocationAreaDetailEncounterMethodRatesInner],
+            'encounter_method_rates': List[LocationAreaEncounterRate],
             'location': LocationSummary,
             'names': List[LocationAreaName],
-            'pokemon_encounters': List[LocationAreaDetailPokemonEncountersInner]
+            'pokemon_encounters': List[LocationAreaPokemonEncounter]
         }
 
         self.attribute_map = {
@@ -70,6 +70,7 @@ class LocationAreaDetail(Model):
     def id(self):
         """Gets the id of this LocationAreaDetail.
 
+        The identifier for this resource.
 
         :return: The id of this LocationAreaDetail.
         :rtype: int
@@ -80,6 +81,7 @@ class LocationAreaDetail(Model):
     def id(self, id):
         """Sets the id of this LocationAreaDetail.
 
+        The identifier for this resource.
 
         :param id: The id of this LocationAreaDetail.
         :type id: int
@@ -93,6 +95,7 @@ class LocationAreaDetail(Model):
     def name(self):
         """Gets the name of this LocationAreaDetail.
 
+        The name for this resource.
 
         :return: The name of this LocationAreaDetail.
         :rtype: str
@@ -103,14 +106,15 @@ class LocationAreaDetail(Model):
     def name(self, name):
         """Sets the name of this LocationAreaDetail.
 
+        The name for this resource.
 
         :param name: The name of this LocationAreaDetail.
         :type name: str
         """
         if name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")
-        if name is not None and len(name) > 100:
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `100`")
+        if name is not None and len(name) > 200:
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `200`")
 
         self._name = name
 
@@ -118,6 +122,7 @@ class LocationAreaDetail(Model):
     def game_index(self):
         """Gets the game_index of this LocationAreaDetail.
 
+        The internal id of an API resource within game data.
 
         :return: The game_index of this LocationAreaDetail.
         :rtype: int
@@ -128,12 +133,17 @@ class LocationAreaDetail(Model):
     def game_index(self, game_index):
         """Sets the game_index of this LocationAreaDetail.
 
+        The internal id of an API resource within game data.
 
         :param game_index: The game_index of this LocationAreaDetail.
         :type game_index: int
         """
         if game_index is None:
             raise ValueError("Invalid value for `game_index`, must not be `None`")
+        if game_index is not None and game_index > 2147483647:
+            raise ValueError("Invalid value for `game_index`, must be a value less than or equal to `2147483647`")
+        if game_index is not None and game_index < -2147483648:
+            raise ValueError("Invalid value for `game_index`, must be a value greater than or equal to `-2147483648`")
 
         self._game_index = game_index
 
@@ -141,9 +151,10 @@ class LocationAreaDetail(Model):
     def encounter_method_rates(self):
         """Gets the encounter_method_rates of this LocationAreaDetail.
 
+        A list of methods in which Pokémon may be encountered in this area and how likely the method will occur depending on the version of the game.
 
         :return: The encounter_method_rates of this LocationAreaDetail.
-        :rtype: List[LocationAreaDetailEncounterMethodRatesInner]
+        :rtype: List[LocationAreaEncounterRate]
         """
         return self._encounter_method_rates
 
@@ -151,9 +162,10 @@ class LocationAreaDetail(Model):
     def encounter_method_rates(self, encounter_method_rates):
         """Sets the encounter_method_rates of this LocationAreaDetail.
 
+        A list of methods in which Pokémon may be encountered in this area and how likely the method will occur depending on the version of the game.
 
         :param encounter_method_rates: The encounter_method_rates of this LocationAreaDetail.
-        :type encounter_method_rates: List[LocationAreaDetailEncounterMethodRatesInner]
+        :type encounter_method_rates: List[LocationAreaEncounterRate]
         """
         if encounter_method_rates is None:
             raise ValueError("Invalid value for `encounter_method_rates`, must not be `None`")
@@ -164,6 +176,7 @@ class LocationAreaDetail(Model):
     def location(self):
         """Gets the location of this LocationAreaDetail.
 
+        The region this location area can be found in.
 
         :return: The location of this LocationAreaDetail.
         :rtype: LocationSummary
@@ -174,6 +187,7 @@ class LocationAreaDetail(Model):
     def location(self, location):
         """Sets the location of this LocationAreaDetail.
 
+        The region this location area can be found in.
 
         :param location: The location of this LocationAreaDetail.
         :type location: LocationSummary
@@ -187,6 +201,7 @@ class LocationAreaDetail(Model):
     def names(self):
         """Gets the names of this LocationAreaDetail.
 
+        The name of this resource listed in different languages.
 
         :return: The names of this LocationAreaDetail.
         :rtype: List[LocationAreaName]
@@ -197,6 +212,7 @@ class LocationAreaDetail(Model):
     def names(self, names):
         """Sets the names of this LocationAreaDetail.
 
+        The name of this resource listed in different languages.
 
         :param names: The names of this LocationAreaDetail.
         :type names: List[LocationAreaName]
@@ -210,9 +226,10 @@ class LocationAreaDetail(Model):
     def pokemon_encounters(self):
         """Gets the pokemon_encounters of this LocationAreaDetail.
 
+        A list of Pokémon that can be encountered in this area along with version specific details about the encounter.
 
         :return: The pokemon_encounters of this LocationAreaDetail.
-        :rtype: List[LocationAreaDetailPokemonEncountersInner]
+        :rtype: List[LocationAreaPokemonEncounter]
         """
         return self._pokemon_encounters
 
@@ -220,9 +237,10 @@ class LocationAreaDetail(Model):
     def pokemon_encounters(self, pokemon_encounters):
         """Sets the pokemon_encounters of this LocationAreaDetail.
 
+        A list of Pokémon that can be encountered in this area along with version specific details about the encounter.
 
         :param pokemon_encounters: The pokemon_encounters of this LocationAreaDetail.
-        :type pokemon_encounters: List[LocationAreaDetailPokemonEncountersInner]
+        :type pokemon_encounters: List[LocationAreaPokemonEncounter]
         """
         if pokemon_encounters is None:
             raise ValueError("Invalid value for `pokemon_encounters`, must not be `None`")

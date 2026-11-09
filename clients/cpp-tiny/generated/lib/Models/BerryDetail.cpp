@@ -14,10 +14,10 @@ BerryDetail::BerryDetail()
 	size = int(0);
 	smoothness = int(0);
 	soil_dryness = int(0);
-	firmness = BerryFirmnessSummary();
-	flavors = std::list<BerryDetail_flavors_inner>();
-	item = ItemSummary();
-	natural_gift_type = TypeSummary();
+	firmness = null;
+	flavors = std::list<BerryFlavorMap>();
+	item = null;
+	natural_gift_type = null;
 }
 
 BerryDetail::BerryDetail(std::string jsonString)
@@ -160,8 +160,8 @@ BerryDetail::fromJson(std::string jsonObj)
         bourne::json value = object[flavorsKey];
 
 
-        std::list<BerryDetail_flavors_inner> flavors_list;
-        BerryDetail_flavors_inner element;
+        std::list<BerryFlavorMap> flavors_list;
+        BerryFlavorMap element;
         for(auto& var : value.array_range())
         {
 
@@ -277,12 +277,12 @@ BerryDetail::toJson()
 
 
 
-    std::list<BerryDetail_flavors_inner> flavors_list = getFlavors();
+    std::list<BerryFlavorMap> flavors_list = getFlavors();
     bourne::json flavors_arr = bourne::json::array();
 
     for(auto& var : flavors_list)
     {
-        BerryDetail_flavors_inner obj = var;
+        BerryFlavorMap obj = var;
         flavors_arr.append(obj.toJson());
     }
     object["flavors"] = flavors_arr;
@@ -416,14 +416,14 @@ BerryDetail::setFirmness(BerryFirmnessSummary firmness)
 	this->firmness = firmness;
 }
 
-std::list<BerryDetail_flavors_inner>
+std::list<BerryFlavorMap>
 BerryDetail::getFlavors()
 {
 	return flavors;
 }
 
 void
-BerryDetail::setFlavors(std::list<BerryDetail_flavors_inner> flavors)
+BerryDetail::setFlavors(std::list<BerryFlavorMap> flavors)
 {
 	this->flavors = flavors;
 }

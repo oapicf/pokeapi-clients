@@ -24,7 +24,7 @@ void
 PokemonGameIndex::__init()
 {
 	//game_index = int(0);
-	//version = new VersionSummary();
+	//version = null;
 }
 
 void

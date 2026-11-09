@@ -5,7 +5,7 @@ from datetime import date, datetime
 from typing import List, Dict, Type
 
 from openapi_server.models.base_model import Model
-from openapi_server.models.evolution_chain_detail_chain import EvolutionChainDetailChain
+from openapi_server.models.evolution_chain_link import EvolutionChainLink
 from openapi_server.models.item_summary import ItemSummary
 from openapi_server import util
 
@@ -16,7 +16,7 @@ class EvolutionChainDetail(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, id: int=None, baby_trigger_item: ItemSummary=None, chain: EvolutionChainDetailChain=None):
+    def __init__(self, id: int=None, baby_trigger_item: ItemSummary=None, chain: EvolutionChainLink=None):
         """EvolutionChainDetail - a model defined in OpenAPI
 
         :param id: The id of this EvolutionChainDetail.
@@ -26,7 +26,7 @@ class EvolutionChainDetail(Model):
         self.openapi_types = {
             'id': int,
             'baby_trigger_item': ItemSummary,
-            'chain': EvolutionChainDetailChain
+            'chain': EvolutionChainLink
         }
 
         self.attribute_map = {
@@ -52,6 +52,7 @@ class EvolutionChainDetail(Model):
     def id(self):
         """Gets the id of this EvolutionChainDetail.
 
+        The identifier for this resource.
 
         :return: The id of this EvolutionChainDetail.
         :rtype: int
@@ -62,6 +63,7 @@ class EvolutionChainDetail(Model):
     def id(self, id):
         """Sets the id of this EvolutionChainDetail.
 
+        The identifier for this resource.
 
         :param id: The id of this EvolutionChainDetail.
         :type id: int
@@ -75,6 +77,7 @@ class EvolutionChainDetail(Model):
     def baby_trigger_item(self):
         """Gets the baby_trigger_item of this EvolutionChainDetail.
 
+        The item that a Pokémon would be holding when mating that would trigger the egg hatching a baby Pokémon rather than a basic Pokémon.
 
         :return: The baby_trigger_item of this EvolutionChainDetail.
         :rtype: ItemSummary
@@ -85,6 +88,7 @@ class EvolutionChainDetail(Model):
     def baby_trigger_item(self, baby_trigger_item):
         """Sets the baby_trigger_item of this EvolutionChainDetail.
 
+        The item that a Pokémon would be holding when mating that would trigger the egg hatching a baby Pokémon rather than a basic Pokémon.
 
         :param baby_trigger_item: The baby_trigger_item of this EvolutionChainDetail.
         :type baby_trigger_item: ItemSummary
@@ -98,9 +102,10 @@ class EvolutionChainDetail(Model):
     def chain(self):
         """Gets the chain of this EvolutionChainDetail.
 
+        The base chain link object. Each link contains evolution details for a Pokémon in the chain. Each link references the next Pokémon in the natural evolution order.
 
         :return: The chain of this EvolutionChainDetail.
-        :rtype: EvolutionChainDetailChain
+        :rtype: EvolutionChainLink
         """
         return self._chain
 
@@ -108,9 +113,10 @@ class EvolutionChainDetail(Model):
     def chain(self, chain):
         """Sets the chain of this EvolutionChainDetail.
 
+        The base chain link object. Each link contains evolution details for a Pokémon in the chain. Each link references the next Pokémon in the natural evolution order.
 
         :param chain: The chain of this EvolutionChainDetail.
-        :type chain: EvolutionChainDetailChain
+        :type chain: EvolutionChainLink
         """
         if chain is None:
             raise ValueError("Invalid value for `chain`, must not be `None`")

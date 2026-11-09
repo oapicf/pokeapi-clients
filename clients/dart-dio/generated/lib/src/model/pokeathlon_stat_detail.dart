@@ -5,7 +5,7 @@
 // ignore_for_file: unused_element
 import 'package:openapi/src/model/pokeathlon_stat_name.dart';
 import 'package:built_collection/built_collection.dart';
-import 'package:openapi/src/model/pokeathlon_stat_detail_affecting_natures.dart';
+import 'package:openapi/src/model/pokeathlon_stat_affecting_natures.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -14,21 +14,25 @@ part 'pokeathlon_stat_detail.g.dart';
 /// PokeathlonStatDetail
 ///
 /// Properties:
-/// * [id] 
-/// * [name] 
-/// * [affectingNatures] 
-/// * [names] 
+/// * [id] - The identifier for this resource.
+/// * [name] - The name for this resource.
+/// * [affectingNatures] - A detail of natures which affect this Pokéathlon stat positively or negatively.
+/// * [names] - The name of this resource listed in different languages.
 @BuiltValue()
 abstract class PokeathlonStatDetail implements Built<PokeathlonStatDetail, PokeathlonStatDetailBuilder> {
+  /// The identifier for this resource.
   @BuiltValueField(wireName: r'id')
   int get id;
 
+  /// The name for this resource.
   @BuiltValueField(wireName: r'name')
   String get name;
 
+  /// A detail of natures which affect this Pokéathlon stat positively or negatively.
   @BuiltValueField(wireName: r'affecting_natures')
-  PokeathlonStatDetailAffectingNatures get affectingNatures;
+  PokeathlonStatAffectingNatures get affectingNatures;
 
+  /// The name of this resource listed in different languages.
   @BuiltValueField(wireName: r'names')
   BuiltList<PokeathlonStatName> get names;
 
@@ -68,7 +72,7 @@ class _$PokeathlonStatDetailSerializer implements PrimitiveSerializer<Pokeathlon
     yield r'affecting_natures';
     yield serializers.serialize(
       object.affectingNatures,
-      specifiedType: const FullType(PokeathlonStatDetailAffectingNatures),
+      specifiedType: const FullType(PokeathlonStatAffectingNatures),
     );
     yield r'names';
     yield serializers.serialize(
@@ -115,8 +119,8 @@ class _$PokeathlonStatDetailSerializer implements PrimitiveSerializer<Pokeathlon
         case r'affecting_natures':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(PokeathlonStatDetailAffectingNatures),
-          ) as PokeathlonStatDetailAffectingNatures;
+            specifiedType: const FullType(PokeathlonStatAffectingNatures),
+          ) as PokeathlonStatAffectingNatures;
           result.affectingNatures.replace(valueDes);
           break;
         case r'names':

@@ -7,12 +7,12 @@
     {
       "name": "id",
       "type": "int",
-      "doc": ""
+      "doc": "The identifier for this resource."
     },
     {
       "name": "name",
       "type": "string",
-      "doc": ""
+      "doc": "The name for this resource."
     },
     {
       "name": "names",
@@ -20,12 +20,12 @@
         "type": "array",
         "items": "model.VersionName"
       },
-      "doc": ""
+      "doc": "The name of this resource listed in different languages."
     },
     {
       "name": "version_group",
       "type": "model.VersionGroupSummary",
-      "doc": ""
+      "doc": "The version group this version belongs to."
     }
   ]
 

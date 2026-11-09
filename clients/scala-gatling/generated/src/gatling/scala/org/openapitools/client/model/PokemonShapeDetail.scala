@@ -3,10 +3,15 @@ package org.openapitools.client.model
 
 
 case class PokemonShapeDetail (
+    /* The identifier for this resource. */
     _id: Integer,
+    /* The name for this resource. */
     _name: String,
-    _awesomeNames: List[PokemonShapeDetailAwesomeNamesInner],
-    _names: List[PokemonShapeDetailNamesInner],
+    /* The \"scientific\" name of this Pokémon shape listed in different languages. */
+    _awesomeNames: List[PokemonShapeAwesomeName],
+    /* The name of this resource listed in different languages. */
+    _names: List[PokemonShapeName],
+    /* A list of the Pokémon species that have this shape. */
     _pokemonSpecies: List[PokemonSpeciesSummary]
 )
 object PokemonShapeDetail {

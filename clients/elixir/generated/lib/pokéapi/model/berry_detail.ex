@@ -25,16 +25,16 @@ defmodule PokéAPI.Model.BerryDetail do
   @type t :: %__MODULE__{
     :id => integer(),
     :name => String.t,
-    :growth_time => integer(),
-    :max_harvest => integer(),
-    :natural_gift_power => integer(),
-    :size => integer(),
-    :smoothness => integer(),
-    :soil_dryness => integer(),
-    :firmness => PokéAPI.Model.BerryFirmnessSummary.t,
-    :flavors => [PokéAPI.Model.BerryDetailFlavorsInner.t],
+    :growth_time => integer() | nil,
+    :max_harvest => integer() | nil,
+    :natural_gift_power => integer() | nil,
+    :size => integer() | nil,
+    :smoothness => integer() | nil,
+    :soil_dryness => integer() | nil,
+    :firmness => PokéAPI.Model.BerryFirmnessSummary.t | nil,
+    :flavors => [PokéAPI.Model.BerryFlavorMap.t],
     :item => PokéAPI.Model.ItemSummary.t,
-    :natural_gift_type => PokéAPI.Model.TypeSummary.t
+    :natural_gift_type => PokéAPI.Model.TypeSummary.t | nil
   }
 
   alias PokéAPI.Deserializer
@@ -42,7 +42,7 @@ defmodule PokéAPI.Model.BerryDetail do
   def decode(value) do
     value
      |> Deserializer.deserialize(:firmness, :struct, PokéAPI.Model.BerryFirmnessSummary)
-     |> Deserializer.deserialize(:flavors, :list, PokéAPI.Model.BerryDetailFlavorsInner)
+     |> Deserializer.deserialize(:flavors, :list, PokéAPI.Model.BerryFlavorMap)
      |> Deserializer.deserialize(:item, :struct, PokéAPI.Model.ItemSummary)
      |> Deserializer.deserialize(:natural_gift_type, :struct, PokéAPI.Model.TypeSummary)
   end

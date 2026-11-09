@@ -29,14 +29,10 @@ defmodule PokéAPI.Connection do
 
   - `base_url`: Overrides the base URL on a per-client basis.
   - `user_agent`: Overrides the User-Agent header.
-  - `username`: A username for basic authentication.
-  - `password`: A password for basic authentication.
   """
   @type options :: [
           {:base_url, String.t()},
           {:user_agent, String.t()},
-          {:username, String.t() | nil},
-          {:password, String.t() | nil},
         ]
 
   @doc "Forward requests to Tesla."
@@ -88,14 +84,6 @@ defmodule PokéAPI.Connection do
         )
       )
 
-    username = Keyword.get(options, :username)
-    password = Keyword.get(options, :password)
-    middleware =
-      if username || password do
-        [{Tesla.Middleware.BasicAuth, %{username: username, password: password}} | middleware]
-      else
-        middleware
-      end
 
 
 

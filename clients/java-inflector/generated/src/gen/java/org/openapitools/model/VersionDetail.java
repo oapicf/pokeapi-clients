@@ -18,7 +18,7 @@ import org.openapitools.model.VersionName;
  **/
 
 @ApiModel(description = "Should have a link to Version Group info but the Circular dependency and compilation order fight eachother and I'm not sure how to add anything other than a hyperlink")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-10-25T05:47:53.227411880Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-11-09T13:49:15.621225368Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class VersionDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -33,6 +33,7 @@ public class VersionDetail   {
   private VersionGroupSummary versionGroup;
 
   /**
+   * The identifier for this resource.
    **/
   public VersionDetail id(Integer id) {
     this.id = id;
@@ -40,7 +41,7 @@ public class VersionDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   @JsonProperty("id")
   public Integer getId() {
     return id;
@@ -50,6 +51,7 @@ public class VersionDetail   {
   }
 
   /**
+   * The name for this resource.
    **/
   public VersionDetail name(String name) {
     this.name = name;
@@ -57,7 +59,7 @@ public class VersionDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   @JsonProperty("name")
   public String getName() {
     return name;
@@ -67,6 +69,7 @@ public class VersionDetail   {
   }
 
   /**
+   * The name of this resource listed in different languages.
    **/
   public VersionDetail names(List<VersionName> names) {
     this.names = names;
@@ -74,7 +77,7 @@ public class VersionDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
   @JsonProperty("names")
   public List<VersionName> getNames() {
     return names;
@@ -84,6 +87,7 @@ public class VersionDetail   {
   }
 
   /**
+   * The version group this version belongs to.
    **/
   public VersionDetail versionGroup(VersionGroupSummary versionGroup) {
     this.versionGroup = versionGroup;
@@ -91,7 +95,7 @@ public class VersionDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The version group this version belongs to.")
   @JsonProperty("version_group")
   public VersionGroupSummary getVersionGroup() {
     return versionGroup;

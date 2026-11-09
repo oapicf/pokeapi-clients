@@ -7,7 +7,7 @@ using namespace Tiny;
 BerryFirmnessName::BerryFirmnessName()
 {
 	name = std::string();
-	language = LanguageSummary();
+	language = null;
 }
 
 BerryFirmnessName::BerryFirmnessName(std::string jsonString)

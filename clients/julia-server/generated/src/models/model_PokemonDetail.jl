@@ -23,30 +23,32 @@
         sprites=nothing,
         cries=nothing,
         stats=nothing,
+        past_stats=nothing,
         types=nothing,
         past_types=nothing,
     )
 
-    - id::Int64
-    - name::String
-    - base_experience::Int64
-    - height::Int64
-    - is_default::Bool
-    - order::Int64
-    - weight::Int64
-    - abilities::Vector{PokemonDetailAbilitiesInner}
-    - past_abilities::Vector{PokemonDetailPastAbilitiesInner}
-    - forms::Vector{PokemonFormSummary}
-    - game_indices::Vector{PokemonGameIndex}
-    - held_items::PokemonDetailHeldItems
-    - location_area_encounters::String
-    - moves::Vector{PokemonDetailMovesInner}
-    - species::PokemonSpeciesSummary
-    - sprites::PokemonDetailSprites
-    - cries::PokemonDetailCries
-    - stats::Vector{PokemonStat}
-    - types::Vector{PokemonDetailTypesInner}
-    - past_types::Vector{PokemonDetailPastTypesInner}
+    - id::Int64 : The identifier for this resource.
+    - name::String : The name for this resource.
+    - base_experience::Int64 : The base experience gained for defeating this Pokémon.
+    - height::Int64 : The height of this Pokémon in decimetres.
+    - is_default::Bool : Set for exactly one Pokémon used as the default for each species.
+    - order::Int64 : Order for sorting. Almost national order, except families are grouped together.
+    - weight::Int64 : The weight of this Pokémon in hectograms.
+    - abilities::Vector{PokemonAbility} : A list of abilities this Pokémon could potentially have.
+    - past_abilities::Vector{PokemonPastAbility} : A list of details showing abilities this pokémon had in previous generations
+    - forms::Vector{PokemonFormSummary} : A list of forms this Pokémon can take on.
+    - game_indices::Vector{PokemonGameIndex} : A list of game indices relevent to Pokémon item by generation.
+    - held_items::Vector{PokemonHeldItemSummary} : A list of items this Pokémon may be holding when encountered.
+    - location_area_encounters::String : A link to a list of location areas, as well as encounter details pertaining to specific versions.
+    - moves::Vector{PokemonMove} : A list of moves along with learn methods and level details pertaining to specific version groups.
+    - species::PokemonSpeciesSummary : The species this Pokémon belongs to.
+    - sprites::PokemonSprites : A set of sprites used to depict this Pokémon in the game. A visual representation of the various sprites can be found at &lt;a href&#x3D;&#39;https://github.com/PokeAPI/sprites#sprites&#39;&gt;PokeAPI/sprites&lt;/a&gt;
+    - cries::PokemonCries : A set of cries used to depict this Pokémon in the game. A visual representation of the various cries can be found at &lt;a href&#x3D;&#39;https://github.com/PokeAPI/cries#cries&#39;&gt;PokeAPI/cries&lt;/a&gt;
+    - stats::Vector{PokemonStat} : A list of base stat values for this Pokémon.
+    - past_stats::Vector{PokemonPastStat} : A list of details showing stats this pokémon had in previous generations
+    - types::Vector{PokemonType} : A list of details showing types this Pokémon has.
+    - past_types::Vector{PokemonPastType} : A list of details showing types this pokémon had in previous generations
 """
 Base.@kwdef mutable struct PokemonDetail <: OpenAPI.APIModel
     id::Union{Nothing, Int64} = nothing
@@ -56,28 +58,29 @@ Base.@kwdef mutable struct PokemonDetail <: OpenAPI.APIModel
     is_default::Union{Nothing, Bool} = nothing
     order::Union{Nothing, Int64} = nothing
     weight::Union{Nothing, Int64} = nothing
-    abilities::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{PokemonDetailAbilitiesInner} }
-    past_abilities::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{PokemonDetailPastAbilitiesInner} }
+    abilities::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{PokemonAbility} }
+    past_abilities::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{PokemonPastAbility} }
     forms::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{PokemonFormSummary} }
     game_indices::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{PokemonGameIndex} }
-    held_items = nothing # spec type: Union{ Nothing, PokemonDetailHeldItems }
+    held_items::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{PokemonHeldItemSummary} }
     location_area_encounters::Union{Nothing, String} = nothing
-    moves::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{PokemonDetailMovesInner} }
+    moves::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{PokemonMove} }
     species = nothing # spec type: Union{ Nothing, PokemonSpeciesSummary }
-    sprites = nothing # spec type: Union{ Nothing, PokemonDetailSprites }
-    cries = nothing # spec type: Union{ Nothing, PokemonDetailCries }
+    sprites = nothing # spec type: Union{ Nothing, PokemonSprites }
+    cries = nothing # spec type: Union{ Nothing, PokemonCries }
     stats::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{PokemonStat} }
-    types::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{PokemonDetailTypesInner} }
-    past_types::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{PokemonDetailPastTypesInner} }
+    past_stats::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{PokemonPastStat} }
+    types::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{PokemonType} }
+    past_types::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{PokemonPastType} }
 
-    function PokemonDetail(id, name, base_experience, height, is_default, order, weight, abilities, past_abilities, forms, game_indices, held_items, location_area_encounters, moves, species, sprites, cries, stats, types, past_types, )
-        o = new(id, name, base_experience, height, is_default, order, weight, abilities, past_abilities, forms, game_indices, held_items, location_area_encounters, moves, species, sprites, cries, stats, types, past_types, )
+    function PokemonDetail(id, name, base_experience, height, is_default, order, weight, abilities, past_abilities, forms, game_indices, held_items, location_area_encounters, moves, species, sprites, cries, stats, past_stats, types, past_types, )
+        o = new(id, name, base_experience, height, is_default, order, weight, abilities, past_abilities, forms, game_indices, held_items, location_area_encounters, moves, species, sprites, cries, stats, past_stats, types, past_types, )
         OpenAPI.validate_properties(o)
         return o
     end
 end # type PokemonDetail
 
-const _property_types_PokemonDetail = Dict{Symbol,String}(Symbol("id")=>"Int64", Symbol("name")=>"String", Symbol("base_experience")=>"Int64", Symbol("height")=>"Int64", Symbol("is_default")=>"Bool", Symbol("order")=>"Int64", Symbol("weight")=>"Int64", Symbol("abilities")=>"Vector{PokemonDetailAbilitiesInner}", Symbol("past_abilities")=>"Vector{PokemonDetailPastAbilitiesInner}", Symbol("forms")=>"Vector{PokemonFormSummary}", Symbol("game_indices")=>"Vector{PokemonGameIndex}", Symbol("held_items")=>"PokemonDetailHeldItems", Symbol("location_area_encounters")=>"String", Symbol("moves")=>"Vector{PokemonDetailMovesInner}", Symbol("species")=>"PokemonSpeciesSummary", Symbol("sprites")=>"PokemonDetailSprites", Symbol("cries")=>"PokemonDetailCries", Symbol("stats")=>"Vector{PokemonStat}", Symbol("types")=>"Vector{PokemonDetailTypesInner}", Symbol("past_types")=>"Vector{PokemonDetailPastTypesInner}", )
+const _property_types_PokemonDetail = Dict{Symbol,String}(Symbol("id")=>"Int64", Symbol("name")=>"String", Symbol("base_experience")=>"Int64", Symbol("height")=>"Int64", Symbol("is_default")=>"Bool", Symbol("order")=>"Int64", Symbol("weight")=>"Int64", Symbol("abilities")=>"Vector{PokemonAbility}", Symbol("past_abilities")=>"Vector{PokemonPastAbility}", Symbol("forms")=>"Vector{PokemonFormSummary}", Symbol("game_indices")=>"Vector{PokemonGameIndex}", Symbol("held_items")=>"Vector{PokemonHeldItemSummary}", Symbol("location_area_encounters")=>"String", Symbol("moves")=>"Vector{PokemonMove}", Symbol("species")=>"PokemonSpeciesSummary", Symbol("sprites")=>"PokemonSprites", Symbol("cries")=>"PokemonCries", Symbol("stats")=>"Vector{PokemonStat}", Symbol("past_stats")=>"Vector{PokemonPastStat}", Symbol("types")=>"Vector{PokemonType}", Symbol("past_types")=>"Vector{PokemonPastType}", )
 OpenAPI.property_type(::Type{ PokemonDetail }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_PokemonDetail[name]))}
 
 function OpenAPI.check_required(o::PokemonDetail)
@@ -94,6 +97,7 @@ function OpenAPI.check_required(o::PokemonDetail)
     o.sprites === nothing && (return false)
     o.cries === nothing && (return false)
     o.stats === nothing && (return false)
+    o.past_stats === nothing && (return false)
     o.types === nothing && (return false)
     o.past_types === nothing && (return false)
     true
@@ -118,6 +122,7 @@ function OpenAPI.validate_properties(o::PokemonDetail)
     OpenAPI.validate_property(PokemonDetail, Symbol("sprites"), o.sprites)
     OpenAPI.validate_property(PokemonDetail, Symbol("cries"), o.cries)
     OpenAPI.validate_property(PokemonDetail, Symbol("stats"), o.stats)
+    OpenAPI.validate_property(PokemonDetail, Symbol("past_stats"), o.past_stats)
     OpenAPI.validate_property(PokemonDetail, Symbol("types"), o.types)
     OpenAPI.validate_property(PokemonDetail, Symbol("past_types"), o.past_types)
 end
@@ -126,12 +131,29 @@ function OpenAPI.validate_property(::Type{ PokemonDetail }, name::Symbol, val)
 
 
     if name === Symbol("name")
-        OpenAPI.validate_param(name, "PokemonDetail", :maxLength, val, 100)
+        OpenAPI.validate_param(name, "PokemonDetail", :maxLength, val, 200)
+    end
+
+    if name === Symbol("base_experience")
+        OpenAPI.validate_param(name, "PokemonDetail", :maximum, val, 2147483647, false)
+        OpenAPI.validate_param(name, "PokemonDetail", :minimum, val, -2147483648, false)
+    end
+
+    if name === Symbol("height")
+        OpenAPI.validate_param(name, "PokemonDetail", :maximum, val, 2147483647, false)
+        OpenAPI.validate_param(name, "PokemonDetail", :minimum, val, -2147483648, false)
     end
 
 
+    if name === Symbol("order")
+        OpenAPI.validate_param(name, "PokemonDetail", :maximum, val, 2147483647, false)
+        OpenAPI.validate_param(name, "PokemonDetail", :minimum, val, -2147483648, false)
+    end
 
-
+    if name === Symbol("weight")
+        OpenAPI.validate_param(name, "PokemonDetail", :maximum, val, 2147483647, false)
+        OpenAPI.validate_param(name, "PokemonDetail", :minimum, val, -2147483648, false)
+    end
 
 
 

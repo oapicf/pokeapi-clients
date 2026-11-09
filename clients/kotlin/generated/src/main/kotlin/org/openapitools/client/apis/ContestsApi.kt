@@ -64,7 +64,6 @@ open class ContestsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * Contest effects refer to the effects of moves when used in contests.
      * @param limit Number of results to return per page. (optional)
      * @param offset The initial index from which to return the results. (optional)
-     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
      * @return PaginatedContestEffectSummaryList
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -74,8 +73,8 @@ open class ContestsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun contestEffectList(limit: kotlin.Int? = null, offset: kotlin.Int? = null, q: kotlin.String? = null) : PaginatedContestEffectSummaryList {
-        val localVarResponse = contestEffectListWithHttpInfo(limit = limit, offset = offset, q = q)
+    fun contestEffectList(limit: kotlin.Int? = null, offset: kotlin.Int? = null) : PaginatedContestEffectSummaryList {
+        val localVarResponse = contestEffectListWithHttpInfo(limit = limit, offset = offset)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as PaginatedContestEffectSummaryList
@@ -98,15 +97,14 @@ open class ContestsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * Contest effects refer to the effects of moves when used in contests.
      * @param limit Number of results to return per page. (optional)
      * @param offset The initial index from which to return the results. (optional)
-     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
      * @return ApiResponse<PaginatedContestEffectSummaryList?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun contestEffectListWithHttpInfo(limit: kotlin.Int?, offset: kotlin.Int?, q: kotlin.String?) : ApiResponse<PaginatedContestEffectSummaryList?> {
-        val localVariableConfig = contestEffectListRequestConfig(limit = limit, offset = offset, q = q)
+    fun contestEffectListWithHttpInfo(limit: kotlin.Int?, offset: kotlin.Int?) : ApiResponse<PaginatedContestEffectSummaryList?> {
+        val localVariableConfig = contestEffectListRequestConfig(limit = limit, offset = offset)
 
         return request<Unit, PaginatedContestEffectSummaryList>(
             localVariableConfig
@@ -118,10 +116,9 @@ open class ContestsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      *
      * @param limit Number of results to return per page. (optional)
      * @param offset The initial index from which to return the results. (optional)
-     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
      * @return RequestConfig
      */
-    fun contestEffectListRequestConfig(limit: kotlin.Int?, offset: kotlin.Int?, q: kotlin.String?) : RequestConfig<Unit> {
+    fun contestEffectListRequestConfig(limit: kotlin.Int?, offset: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -130,9 +127,6 @@ open class ContestsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
                 }
                 if (offset != null) {
                     put("offset", listOf(offset.toString()))
-                }
-                if (q != null) {
-                    put("q", listOf(q.toString()))
                 }
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
@@ -143,7 +137,7 @@ open class ContestsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
             path = "/api/v2/contest-effect/",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -216,7 +210,7 @@ open class ContestsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
             path = "/api/v2/contest-effect/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -306,7 +300,7 @@ open class ContestsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
             path = "/api/v2/contest-type/",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -379,7 +373,7 @@ open class ContestsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
             path = "/api/v2/contest-type/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -390,7 +384,6 @@ open class ContestsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * Super contest effects refer to the effects of moves when used in super contests.
      * @param limit Number of results to return per page. (optional)
      * @param offset The initial index from which to return the results. (optional)
-     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
      * @return PaginatedSuperContestEffectSummaryList
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -400,8 +393,8 @@ open class ContestsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun superContestEffectList(limit: kotlin.Int? = null, offset: kotlin.Int? = null, q: kotlin.String? = null) : PaginatedSuperContestEffectSummaryList {
-        val localVarResponse = superContestEffectListWithHttpInfo(limit = limit, offset = offset, q = q)
+    fun superContestEffectList(limit: kotlin.Int? = null, offset: kotlin.Int? = null) : PaginatedSuperContestEffectSummaryList {
+        val localVarResponse = superContestEffectListWithHttpInfo(limit = limit, offset = offset)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as PaginatedSuperContestEffectSummaryList
@@ -424,15 +417,14 @@ open class ContestsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * Super contest effects refer to the effects of moves when used in super contests.
      * @param limit Number of results to return per page. (optional)
      * @param offset The initial index from which to return the results. (optional)
-     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
      * @return ApiResponse<PaginatedSuperContestEffectSummaryList?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun superContestEffectListWithHttpInfo(limit: kotlin.Int?, offset: kotlin.Int?, q: kotlin.String?) : ApiResponse<PaginatedSuperContestEffectSummaryList?> {
-        val localVariableConfig = superContestEffectListRequestConfig(limit = limit, offset = offset, q = q)
+    fun superContestEffectListWithHttpInfo(limit: kotlin.Int?, offset: kotlin.Int?) : ApiResponse<PaginatedSuperContestEffectSummaryList?> {
+        val localVariableConfig = superContestEffectListRequestConfig(limit = limit, offset = offset)
 
         return request<Unit, PaginatedSuperContestEffectSummaryList>(
             localVariableConfig
@@ -444,10 +436,9 @@ open class ContestsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      *
      * @param limit Number of results to return per page. (optional)
      * @param offset The initial index from which to return the results. (optional)
-     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
      * @return RequestConfig
      */
-    fun superContestEffectListRequestConfig(limit: kotlin.Int?, offset: kotlin.Int?, q: kotlin.String?) : RequestConfig<Unit> {
+    fun superContestEffectListRequestConfig(limit: kotlin.Int?, offset: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -456,9 +447,6 @@ open class ContestsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
                 }
                 if (offset != null) {
                     put("offset", listOf(offset.toString()))
-                }
-                if (q != null) {
-                    put("q", listOf(q.toString()))
                 }
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
@@ -469,7 +457,7 @@ open class ContestsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
             path = "/api/v2/super-contest-effect/",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -542,7 +530,7 @@ open class ContestsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
             path = "/api/v2/super-contest-effect/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }

@@ -9,8 +9,8 @@
         effect_entries=nothing,
     )
 
-    - version_group::VersionGroupSummary
-    - effect_entries::Vector{AbilityChangeEffectText}
+    - version_group::VersionGroupSummary : The version group in which the previous effect of this ability originated.
+    - effect_entries::Vector{AbilityChangeEffectText} : The previous effect of this ability listed in different languages.
 """
 Base.@kwdef mutable struct AbilityChange <: OpenAPI.APIModel
     version_group = nothing # spec type: Union{ Nothing, VersionGroupSummary }

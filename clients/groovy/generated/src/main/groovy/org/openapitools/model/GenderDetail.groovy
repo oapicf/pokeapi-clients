@@ -5,17 +5,17 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.Arrays;
-import org.openapitools.model.AbilityDetailPokemonInnerPokemon;
-import org.openapitools.model.GenderDetailPokemonSpeciesDetailsInner;
+import org.openapitools.model.GenderPokemonSpecies;
+import org.openapitools.model.PokemonSpeciesSummary;
 
 @Canonical
 class GenderDetail {
-    
+    /* The identifier for this resource. */
     Integer id
-    
+    /* The name for this resource. */
     String name
-    
-    List<GenderDetailPokemonSpeciesDetailsInner> pokemonSpeciesDetails = new ArrayList<>()
-    
-    List<AbilityDetailPokemonInnerPokemon> requiredForEvolution = new ArrayList<>()
+    /* A list of Pokémon species that can be this gender and how likely it is that they will be. */
+    List<GenderPokemonSpecies> pokemonSpeciesDetails = new ArrayList<>()
+    /* A list of Pokémon species that required this gender in order for a Pokémon to evolve into them. */
+    List<PokemonSpeciesSummary> requiredForEvolution = new ArrayList<>()
 }

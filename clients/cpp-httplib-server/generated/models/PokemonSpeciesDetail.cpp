@@ -21,21 +21,16 @@ PokemonSpeciesDetail::PokemonSpeciesDetail()
 , hatchCounter(0)
 , hasGenderDifferences(false)
 , formsSwitchable(false)
-, growthRate(GrowthRateSummary())
 , pokedexNumbers(std::vector<PokemonDexEntry>())
-, eggGroups(std::vector<PokemonSpeciesDetail_egg_groups_inner>())
-, color(PokemonColorSummary())
-, shape(PokemonShapeSummary())
-, evolvesFromSpecies(PokemonSpeciesSummary())
-, evolutionChain(EvolutionChainSummary())
-, habitat(PokemonHabitatSummary())
-, generation(GenerationSummary())
-, names(std::vector<PokemonSpeciesDetail_names_inner>())
-, palParkEncounters(std::vector<PokemonSpeciesDetail_pal_park_encounters_inner>())
+, eggGroups(std::vector<EggGroupSummary>())
+, evolvesFromSpecies(std::nullopt)
+, habitat(std::nullopt)
+, names(std::vector<PokemonSpeciesName>())
+, palParkEncounters(std::vector<PokemonSpeciesPalParkEncounter>())
 , formDescriptions(std::vector<PokemonSpeciesDescription>())
 , flavorTextEntries(std::vector<PokemonSpeciesFlavorText>())
-, genera(std::vector<PokemonSpeciesDetail_genera_inner>())
-, varieties(std::vector<PokemonSpeciesDetail_varieties_inner>())
+, genera(std::vector<PokemonSpeciesGenus>())
+, varieties(std::vector<PokemonSpeciesVariety>())
 {
 }
 // =========================================
@@ -100,7 +95,7 @@ std::vector<PokemonDexEntry> PokemonSpeciesDetail::getPokedexNumbers() const
 {
     return pokedexNumbers;
 }
-std::vector<PokemonSpeciesDetail_egg_groups_inner> PokemonSpeciesDetail::getEggGroups() const
+std::vector<EggGroupSummary> PokemonSpeciesDetail::getEggGroups() const
 {
     return eggGroups;
 }
@@ -128,11 +123,11 @@ GenerationSummary PokemonSpeciesDetail::getGeneration() const
 {
     return generation;
 }
-std::vector<PokemonSpeciesDetail_names_inner> PokemonSpeciesDetail::getNames() const
+std::vector<PokemonSpeciesName> PokemonSpeciesDetail::getNames() const
 {
     return names;
 }
-std::vector<PokemonSpeciesDetail_pal_park_encounters_inner> PokemonSpeciesDetail::getPalParkEncounters() const
+std::vector<PokemonSpeciesPalParkEncounter> PokemonSpeciesDetail::getPalParkEncounters() const
 {
     return palParkEncounters;
 }
@@ -144,11 +139,11 @@ std::vector<PokemonSpeciesFlavorText> PokemonSpeciesDetail::getFlavorTextEntries
 {
     return flavorTextEntries;
 }
-std::vector<PokemonSpeciesDetail_genera_inner> PokemonSpeciesDetail::getGenera() const
+std::vector<PokemonSpeciesGenus> PokemonSpeciesDetail::getGenera() const
 {
     return genera;
 }
-std::vector<PokemonSpeciesDetail_varieties_inner> PokemonSpeciesDetail::getVarieties() const
+std::vector<PokemonSpeciesVariety> PokemonSpeciesDetail::getVarieties() const
 {
     return varieties;
 }
@@ -212,7 +207,7 @@ void PokemonSpeciesDetail::setPokedexNumbers(const std::vector<PokemonDexEntry>&
 {
     pokedexNumbers = pokedexNumbersObj;
 }
-void PokemonSpeciesDetail::setEggGroups(const std::vector<PokemonSpeciesDetail_egg_groups_inner>& eggGroupsObj)
+void PokemonSpeciesDetail::setEggGroups(const std::vector<EggGroupSummary>& eggGroupsObj)
 {
     eggGroups = eggGroupsObj;
 }
@@ -240,11 +235,11 @@ void PokemonSpeciesDetail::setGeneration(const GenerationSummary& generationObj)
 {
     generation = generationObj;
 }
-void PokemonSpeciesDetail::setNames(const std::vector<PokemonSpeciesDetail_names_inner>& namesObj)
+void PokemonSpeciesDetail::setNames(const std::vector<PokemonSpeciesName>& namesObj)
 {
     names = namesObj;
 }
-void PokemonSpeciesDetail::setPalParkEncounters(const std::vector<PokemonSpeciesDetail_pal_park_encounters_inner>& palParkEncountersObj)
+void PokemonSpeciesDetail::setPalParkEncounters(const std::vector<PokemonSpeciesPalParkEncounter>& palParkEncountersObj)
 {
     palParkEncounters = palParkEncountersObj;
 }
@@ -256,11 +251,11 @@ void PokemonSpeciesDetail::setFlavorTextEntries(const std::vector<PokemonSpecies
 {
     flavorTextEntries = flavorTextEntriesObj;
 }
-void PokemonSpeciesDetail::setGenera(const std::vector<PokemonSpeciesDetail_genera_inner>& generaObj)
+void PokemonSpeciesDetail::setGenera(const std::vector<PokemonSpeciesGenus>& generaObj)
 {
     genera = generaObj;
 }
-void PokemonSpeciesDetail::setVarieties(const std::vector<PokemonSpeciesDetail_varieties_inner>& varietiesObj)
+void PokemonSpeciesDetail::setVarieties(const std::vector<PokemonSpeciesVariety>& varietiesObj)
 {
     varieties = varietiesObj;
 }

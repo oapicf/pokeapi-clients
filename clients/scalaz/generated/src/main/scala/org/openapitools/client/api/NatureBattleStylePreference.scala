@@ -12,9 +12,12 @@ import org.joda.time.DateTime
 import NatureBattleStylePreference._
 
 case class NatureBattleStylePreference (
+  /* Chance of using the move, in percent, if HP is under one half. */
   lowHpPreference: Integer,
-highHpPreference: Integer,
-moveBattleStyle: MoveBattleStyleSummary)
+/* Chance of using the move, in percent, if HP is over one half. */
+  highHpPreference: Integer,
+/* The move battle style. */
+  moveBattleStyle: MoveBattleStyleSummary)
 
 object NatureBattleStylePreference {
   import DateTimeCodecs._

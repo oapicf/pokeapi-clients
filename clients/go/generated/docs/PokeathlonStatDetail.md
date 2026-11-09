@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int32** |  | [readonly] 
-**Name** | **string** |  | 
-**AffectingNatures** | [**PokeathlonStatDetailAffectingNatures**](PokeathlonStatDetailAffectingNatures.md) |  | 
-**Names** | [**[]PokeathlonStatName**](PokeathlonStatName.md) |  | [readonly] 
+**Id** | **int32** | The identifier for this resource. | [readonly] 
+**Name** | **string** | The name for this resource. | 
+**AffectingNatures** | [**PokeathlonStatAffectingNatures**](PokeathlonStatAffectingNatures.md) | A detail of natures which affect this Pokéathlon stat positively or negatively. | [readonly] 
+**Names** | [**[]PokeathlonStatName**](PokeathlonStatName.md) | The name of this resource listed in different languages. | [readonly] 
 
 ## Methods
 
 ### NewPokeathlonStatDetail
 
-`func NewPokeathlonStatDetail(id int32, name string, affectingNatures PokeathlonStatDetailAffectingNatures, names []PokeathlonStatName, ) *PokeathlonStatDetail`
+`func NewPokeathlonStatDetail(id int32, name string, affectingNatures PokeathlonStatAffectingNatures, names []PokeathlonStatName, ) *PokeathlonStatDetail`
 
 NewPokeathlonStatDetail instantiates a new PokeathlonStatDetail object
 This constructor will assign default values to properties that have it defined,
@@ -70,20 +70,20 @@ SetName sets Name field to given value.
 
 ### GetAffectingNatures
 
-`func (o *PokeathlonStatDetail) GetAffectingNatures() PokeathlonStatDetailAffectingNatures`
+`func (o *PokeathlonStatDetail) GetAffectingNatures() PokeathlonStatAffectingNatures`
 
 GetAffectingNatures returns the AffectingNatures field if non-nil, zero value otherwise.
 
 ### GetAffectingNaturesOk
 
-`func (o *PokeathlonStatDetail) GetAffectingNaturesOk() (*PokeathlonStatDetailAffectingNatures, bool)`
+`func (o *PokeathlonStatDetail) GetAffectingNaturesOk() (*PokeathlonStatAffectingNatures, bool)`
 
 GetAffectingNaturesOk returns a tuple with the AffectingNatures field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAffectingNatures
 
-`func (o *PokeathlonStatDetail) SetAffectingNatures(v PokeathlonStatDetailAffectingNatures)`
+`func (o *PokeathlonStatDetail) SetAffectingNatures(v PokeathlonStatAffectingNatures)`
 
 SetAffectingNatures sets AffectingNatures field to given value.
 

@@ -7,17 +7,17 @@
     {
       "name": "low_hp_preference",
       "type": "int",
-      "doc": ""
+      "doc": "Chance of using the move, in percent, if HP is under one half."
     },
     {
       "name": "high_hp_preference",
       "type": "int",
-      "doc": ""
+      "doc": "Chance of using the move, in percent, if HP is over one half."
     },
     {
       "name": "move_battle_style",
       "type": "model.MoveBattleStyleSummary",
-      "doc": ""
+      "doc": "The move battle style."
     }
   ]
 

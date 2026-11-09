@@ -25,9 +25,9 @@ public class MoveBattleStyleDetail   {
     /**
      * Create MoveBattleStyleDetail.
      *
-     * @param id id
-     * @param name name
-     * @param names names
+     * @param id The identifier for this resource.
+     * @param name The name for this resource.
+     * @param names The name of this resource listed in different languages.
      */
     public MoveBattleStyleDetail(
         Integer id, 
@@ -42,7 +42,7 @@ public class MoveBattleStyleDetail   {
 
 
     /**
-     * Get id
+     * The identifier for this resource.
      * @return id
      */
     public Integer getId() {
@@ -54,7 +54,7 @@ public class MoveBattleStyleDetail   {
     }
 
     /**
-     * Get name
+     * The name for this resource.
      * @return name
      */
     public String getName() {
@@ -66,7 +66,7 @@ public class MoveBattleStyleDetail   {
     }
 
     /**
-     * Get names
+     * The name of this resource listed in different languages.
      * @return names
      */
     public List<@Valid MoveBattleStyleName> getNames() {

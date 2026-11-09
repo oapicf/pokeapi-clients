@@ -8,14 +8,14 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.model.AbilityDetailPokemonInnerPokemon;
-import org.openapitools.model.GenderDetailPokemonSpeciesDetailsInner;
+import org.openapitools.model.GenderPokemonSpecies;
+import org.openapitools.model.PokemonSpeciesSummary;
 
 
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-10-25T05:47:53.227411880Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-11-09T13:49:15.621225368Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class GenderDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -24,12 +24,13 @@ public class GenderDetail   {
   private String name;
 
   @JsonProperty("pokemon_species_details")
-  private List<GenderDetailPokemonSpeciesDetailsInner> pokemonSpeciesDetails = new ArrayList<>();
+  private List<GenderPokemonSpecies> pokemonSpeciesDetails = new ArrayList<>();
 
   @JsonProperty("required_for_evolution")
-  private List<AbilityDetailPokemonInnerPokemon> requiredForEvolution = new ArrayList<>();
+  private List<PokemonSpeciesSummary> requiredForEvolution = new ArrayList<>();
 
   /**
+   * The identifier for this resource.
    **/
   public GenderDetail id(Integer id) {
     this.id = id;
@@ -37,7 +38,7 @@ public class GenderDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   @JsonProperty("id")
   public Integer getId() {
     return id;
@@ -47,6 +48,7 @@ public class GenderDetail   {
   }
 
   /**
+   * The name for this resource.
    **/
   public GenderDetail name(String name) {
     this.name = name;
@@ -54,7 +56,7 @@ public class GenderDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   @JsonProperty("name")
   public String getName() {
     return name;
@@ -64,36 +66,38 @@ public class GenderDetail   {
   }
 
   /**
+   * A list of Pokémon species that can be this gender and how likely it is that they will be.
    **/
-  public GenderDetail pokemonSpeciesDetails(List<GenderDetailPokemonSpeciesDetailsInner> pokemonSpeciesDetails) {
+  public GenderDetail pokemonSpeciesDetails(List<GenderPokemonSpecies> pokemonSpeciesDetails) {
     this.pokemonSpeciesDetails = pokemonSpeciesDetails;
     return this;
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of Pokémon species that can be this gender and how likely it is that they will be.")
   @JsonProperty("pokemon_species_details")
-  public List<GenderDetailPokemonSpeciesDetailsInner> getPokemonSpeciesDetails() {
+  public List<GenderPokemonSpecies> getPokemonSpeciesDetails() {
     return pokemonSpeciesDetails;
   }
-  public void setPokemonSpeciesDetails(List<GenderDetailPokemonSpeciesDetailsInner> pokemonSpeciesDetails) {
+  public void setPokemonSpeciesDetails(List<GenderPokemonSpecies> pokemonSpeciesDetails) {
     this.pokemonSpeciesDetails = pokemonSpeciesDetails;
   }
 
   /**
+   * A list of Pokémon species that required this gender in order for a Pokémon to evolve into them.
    **/
-  public GenderDetail requiredForEvolution(List<AbilityDetailPokemonInnerPokemon> requiredForEvolution) {
+  public GenderDetail requiredForEvolution(List<PokemonSpeciesSummary> requiredForEvolution) {
     this.requiredForEvolution = requiredForEvolution;
     return this;
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of Pokémon species that required this gender in order for a Pokémon to evolve into them.")
   @JsonProperty("required_for_evolution")
-  public List<AbilityDetailPokemonInnerPokemon> getRequiredForEvolution() {
+  public List<PokemonSpeciesSummary> getRequiredForEvolution() {
     return requiredForEvolution;
   }
-  public void setRequiredForEvolution(List<AbilityDetailPokemonInnerPokemon> requiredForEvolution) {
+  public void setRequiredForEvolution(List<PokemonSpeciesSummary> requiredForEvolution) {
     this.requiredForEvolution = requiredForEvolution;
   }
 

@@ -111,10 +111,6 @@
               <stringProp name="Header.name">accept</stringProp>
               <stringProp name="Header.value">application/json</stringProp>
             </elementProp>
-            <elementProp name="" elementType="Header">
-              <stringProp name="Header.name">Authorization</stringProp>
-              <stringProp name="Header.value">Basic ${__P(basicBasicToken,token)}</stringProp>
-            </elementProp>
           </collectionProp>
         </HeaderManager>
         <hashTree/>
@@ -135,13 +131,6 @@
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 <stringProp name="Argument.name">offset</stringProp>
-              </elementProp>
-              <elementProp name="q" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">${q}</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-                <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                <stringProp name="Argument.name">q</stringProp>
               </elementProp>
             </collectionProp>
           </elementProp>
@@ -206,10 +195,6 @@
             <elementProp name="" elementType="Header">
               <stringProp name="Header.name">accept</stringProp>
               <stringProp name="Header.value">application/json</stringProp>
-            </elementProp>
-            <elementProp name="" elementType="Header">
-              <stringProp name="Header.name">Authorization</stringProp>
-              <stringProp name="Header.value">Basic ${__P(basicBasicToken,token)}</stringProp>
             </elementProp>
           </collectionProp>
         </HeaderManager>
@@ -281,10 +266,6 @@
             <elementProp name="" elementType="Header">
               <stringProp name="Header.name">accept</stringProp>
               <stringProp name="Header.value">application/json</stringProp>
-            </elementProp>
-            <elementProp name="" elementType="Header">
-              <stringProp name="Header.name">Authorization</stringProp>
-              <stringProp name="Header.value">Basic ${__P(basicBasicToken,token)}</stringProp>
             </elementProp>
           </collectionProp>
         </HeaderManager>
@@ -378,10 +359,6 @@
               <stringProp name="Header.name">accept</stringProp>
               <stringProp name="Header.value">application/json</stringProp>
             </elementProp>
-            <elementProp name="" elementType="Header">
-              <stringProp name="Header.name">Authorization</stringProp>
-              <stringProp name="Header.value">Basic ${__P(basicBasicToken,token)}</stringProp>
-            </elementProp>
           </collectionProp>
         </HeaderManager>
         <hashTree/>
@@ -453,10 +430,6 @@
               <stringProp name="Header.name">accept</stringProp>
               <stringProp name="Header.value">application/json</stringProp>
             </elementProp>
-            <elementProp name="" elementType="Header">
-              <stringProp name="Header.name">Authorization</stringProp>
-              <stringProp name="Header.value">Basic ${__P(basicBasicToken,token)}</stringProp>
-            </elementProp>
           </collectionProp>
         </HeaderManager>
         <hashTree/>
@@ -477,13 +450,6 @@
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 <stringProp name="Argument.name">offset</stringProp>
-              </elementProp>
-              <elementProp name="q" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">${q}</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-                <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                <stringProp name="Argument.name">q</stringProp>
               </elementProp>
             </collectionProp>
           </elementProp>
@@ -548,10 +514,6 @@
             <elementProp name="" elementType="Header">
               <stringProp name="Header.name">accept</stringProp>
               <stringProp name="Header.value">application/json</stringProp>
-            </elementProp>
-            <elementProp name="" elementType="Header">
-              <stringProp name="Header.name">Authorization</stringProp>
-              <stringProp name="Header.value">Basic ${__P(basicBasicToken,token)}</stringProp>
             </elementProp>
           </collectionProp>
         </HeaderManager>

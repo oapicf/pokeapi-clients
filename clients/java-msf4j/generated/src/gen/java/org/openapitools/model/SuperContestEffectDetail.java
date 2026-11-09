@@ -14,7 +14,7 @@ import org.openapitools.model.SuperContestEffectFlavorText;
 /**
  * SuperContestEffectDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-10-25T05:48:05.787850114Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-11-09T13:49:25.341948748Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class SuperContestEffectDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -29,10 +29,10 @@ public class SuperContestEffectDetail   {
   private List<@Valid MoveSummary> moves = new ArrayList<>();
 
    /**
-   * Get id
+   * The identifier for this resource.
    * @return id
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   public Integer getId() {
     return id;
   }
@@ -43,10 +43,12 @@ public class SuperContestEffectDetail   {
   }
 
    /**
-   * Get appeal
+   * The level of appeal this super contest effect has.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return appeal
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The level of appeal this super contest effect has.")
   public Integer getAppeal() {
     return appeal;
   }
@@ -56,19 +58,19 @@ public class SuperContestEffectDetail   {
   }
 
    /**
-   * Get flavorTextEntries
+   * The flavor text of this super contest effect listed in different languages.
    * @return flavorTextEntries
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The flavor text of this super contest effect listed in different languages.")
   public List<@Valid SuperContestEffectFlavorText> getFlavorTextEntries() {
     return flavorTextEntries;
   }
 
    /**
-   * Get moves
+   * A list of moves that have the effect when used in super contests.
    * @return moves
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of moves that have the effect when used in super contests.")
   public List<@Valid MoveSummary> getMoves() {
     return moves;
   }

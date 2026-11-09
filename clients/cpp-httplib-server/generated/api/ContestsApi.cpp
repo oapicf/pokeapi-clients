@@ -11,7 +11,6 @@
 
 // Project headers
 #include "ContestsApi.h"
-#include "AuthenticationManager.h"
 
 constexpr int HTTP_RESPONSE_CODE_PAGINATED_CONTEST_EFFECT_SUMMARY_LIST = 200;
 constexpr int HTTP_RESPONSE_CODE_CONTEST_EFFECT_DETAIL = 200;
@@ -20,7 +19,6 @@ constexpr int HTTP_RESPONSE_CODE_CONTEST_TYPE_DETAIL = 200;
 constexpr int HTTP_RESPONSE_CODE_PAGINATED_SUPER_CONTEST_EFFECT_SUMMARY_LIST = 200;
 constexpr int HTTP_RESPONSE_CODE_SUPER_CONTEST_EFFECT_DETAIL = 200;
 constexpr int HTTP_RESPONSE_CODE_BAD_REQUEST = 400;
-constexpr int HTTP_RESPONSE_CODE_UNAUTHORIZED = 401;
 constexpr int HTTP_RESPONSE_CODE_INTERNAL_SERVER_ERROR = 500;
 
 namespace Api {
@@ -64,16 +62,6 @@ bool Contests::parseApiv2contestEffectGetParams(const httplib::Request& req, Con
     {
         // Use default value for optional parameter
         params.m_offset = 0;
-    }
-    // Query Parameters - q
-    if (req.has_param("q"))
-    {
-        params.m_q = req.get_param_value("q");
-    }
-    else
-    {
-        // Use default value for optional parameter
-        params.m_q = "";
     }
 
     // Return errors via out-parameter, return false if any errors
@@ -269,16 +257,6 @@ bool Contests::parseApiv2superContestEffectGetParams(const httplib::Request& req
         // Use default value for optional parameter
         params.m_offset = 0;
     }
-    // Query Parameters - q
-    if (req.has_param("q"))
-    {
-        params.m_q = req.get_param_value("q");
-    }
-    else
-    {
-        // Use default value for optional parameter
-        params.m_q = "";
-    }
 
     // Return errors via out-parameter, return false if any errors
     if (!errors.empty())
@@ -334,61 +312,11 @@ void Contests::handleApiv2superContestEffectidGetResponse(const Apiv2superContes
     res.set_content(responseJson.dump(), "application/json");
 }
 
-bool Contests::performAuthentication(
-    const httplib::Request& req,
-    std::shared_ptr<AuthenticationManager> auth,
-    httplib::Response& res)
-{
-    if (!auth)
-    {
-        nlohmann::json errorJson = nlohmann::json::object();
-        errorJson["message"] = "AuthenticationManager not configured";
-        res.status = HTTP_RESPONSE_CODE_INTERNAL_SERVER_ERROR;
-        res.set_content(errorJson.dump(), "application/json");
-        return false;
-    }
 
-    {
-        auto cookieHeader = req.get_header_value("Cookie");
-        std::string key = "sessionid=";
-        size_t start = cookieHeader.find(key);
-        if (start != std::string::npos)
-        {
-            start += key.length();
-            size_t end = cookieHeader.find(";", start);
-            if (end == std::string::npos) end = cookieHeader.length();
-            std::string cookieValue = cookieHeader.substr(start, end - start);
-            if (auth->validateApiKey(cookieValue)) return true;
-        }
-    }
-
-    if (req.has_header("Authorization"))
-    {
-        auto authHeader = req.get_header_value("Authorization");
-        if (authHeader.find("Basic ") == 0)
-        {
-            std::string credentials = authHeader.substr(6);
-            if (auth->validateBasicAuth(credentials, "")) return true;
-        }
-    }
-
-
-
-    return false;
-}
-
-void Contests::handleApiv2contestEffectGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Contests::handleApiv2contestEffectGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2contestEffectGetRequest params;
         std::vector<std::string> paramErrors;
@@ -414,18 +342,10 @@ void Contests::handleApiv2contestEffectGetRequest([[maybe_unused]] const httplib
     }
 }
 
-void Contests::handleApiv2contestEffectidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Contests::handleApiv2contestEffectidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2contestEffectidGetRequest params;
         std::vector<std::string> paramErrors;
@@ -451,18 +371,10 @@ void Contests::handleApiv2contestEffectidGetRequest([[maybe_unused]] const httpl
     }
 }
 
-void Contests::handleApiv2contestTypeGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Contests::handleApiv2contestTypeGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2contestTypeGetRequest params;
         std::vector<std::string> paramErrors;
@@ -488,18 +400,10 @@ void Contests::handleApiv2contestTypeGetRequest([[maybe_unused]] const httplib::
     }
 }
 
-void Contests::handleApiv2contestTypeidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Contests::handleApiv2contestTypeidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2contestTypeidGetRequest params;
         std::vector<std::string> paramErrors;
@@ -525,18 +429,10 @@ void Contests::handleApiv2contestTypeidGetRequest([[maybe_unused]] const httplib
     }
 }
 
-void Contests::handleApiv2superContestEffectGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Contests::handleApiv2superContestEffectGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2superContestEffectGetRequest params;
         std::vector<std::string> paramErrors;
@@ -562,18 +458,10 @@ void Contests::handleApiv2superContestEffectGetRequest([[maybe_unused]] const ht
     }
 }
 
-void Contests::handleApiv2superContestEffectidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Contests::handleApiv2superContestEffectidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2superContestEffectidGetRequest params;
         std::vector<std::string> paramErrors;
@@ -600,31 +488,31 @@ void Contests::handleApiv2superContestEffectidGetRequest([[maybe_unused]] const 
 }
 
 
-void Contests::registerRoutes(httplib::Server& svr, std::shared_ptr<AuthenticationManager> auth)
+void Contests::registerRoutes(httplib::Server& svr)
 {
-    svr.Get("/api/v2/contest-effect/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/contest-effect/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2contestEffectGetRequest(req, res, auth);
+        handleApiv2contestEffectGetRequest(req, res);
     });
-    svr.Get("/api/v2/contest-effect/{id}/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/contest-effect/{id}/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2contestEffectidGetRequest(req, res, auth);
+        handleApiv2contestEffectidGetRequest(req, res);
     });
-    svr.Get("/api/v2/contest-type/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/contest-type/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2contestTypeGetRequest(req, res, auth);
+        handleApiv2contestTypeGetRequest(req, res);
     });
-    svr.Get("/api/v2/contest-type/{id}/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/contest-type/{id}/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2contestTypeidGetRequest(req, res, auth);
+        handleApiv2contestTypeidGetRequest(req, res);
     });
-    svr.Get("/api/v2/super-contest-effect/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/super-contest-effect/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2superContestEffectGetRequest(req, res, auth);
+        handleApiv2superContestEffectGetRequest(req, res);
     });
-    svr.Get("/api/v2/super-contest-effect/{id}/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/super-contest-effect/{id}/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2superContestEffectidGetRequest(req, res, auth);
+        handleApiv2superContestEffectidGetRequest(req, res);
     });
 }
 

@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**language_list**](UtilityApi.md#language_list) | **GET** /api/v2/language/ | List languages
 [**language_retrieve**](UtilityApi.md#language_retrieve) | **GET** /api/v2/language/{id}/ | Get language
+[**meta_retrieve**](UtilityApi.md#meta_retrieve) | **GET** /api/v2/meta/ | Get API metadata
 
 
 # **language_list**
@@ -17,8 +18,6 @@ Languages for translations of API resource information.
 
 ### Example
 
-* Basic Authentication (basicAuth):
-* Api Key Authentication (cookieAuth):
 
 ```python
 import pokeapiclient
@@ -32,22 +31,6 @@ configuration = pokeapiclient.Configuration(
     host = "https://pokeapi.co"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure HTTP basic authorization: basicAuth
-configuration = pokeapiclient.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
-)
-
-# Configure API key authorization: cookieAuth
-configuration.api_key['cookieAuth'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['cookieAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with pokeapiclient.ApiClient(configuration) as api_client:
@@ -83,7 +66,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -107,8 +90,6 @@ Languages for translations of API resource information.
 
 ### Example
 
-* Basic Authentication (basicAuth):
-* Api Key Authentication (cookieAuth):
 
 ```python
 import pokeapiclient
@@ -122,28 +103,12 @@ configuration = pokeapiclient.Configuration(
     host = "https://pokeapi.co"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure HTTP basic authorization: basicAuth
-configuration = pokeapiclient.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
-)
-
-# Configure API key authorization: cookieAuth
-configuration.api_key['cookieAuth'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['cookieAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with pokeapiclient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pokeapiclient.UtilityApi(api_client)
-    id = 'id_example' # str | This parameter can be a string or an integer.
+    id = '1' # str | This parameter can be a string or an integer.
 
     try:
         # Get language
@@ -169,7 +134,71 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **meta_retrieve**
+> PokeapiMetaResponse meta_retrieve()
+
+Get API metadata
+
+Returns metadata about the current deployed version of the API, including the git commit hash, deploy date, and tag (if any).
+
+### Example
+
+
+```python
+import pokeapiclient
+from pokeapiclient.models.pokeapi_meta_response import PokeapiMetaResponse
+from pokeapiclient.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://pokeapi.co
+# See configuration.py for a list of all supported configuration parameters.
+configuration = pokeapiclient.Configuration(
+    host = "https://pokeapi.co"
+)
+
+
+# Enter a context with an instance of the API client
+with pokeapiclient.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pokeapiclient.UtilityApi(api_client)
+
+    try:
+        # Get API metadata
+        api_response = api_instance.meta_retrieve()
+        print("The response of UtilityApi->meta_retrieve:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling UtilityApi->meta_retrieve: %s\n" % e)
+```
+
+
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**PokeapiMetaResponse**](PokeapiMetaResponse.md)
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 

@@ -37,7 +37,7 @@ from openapi_server import util
 
 
 async def ability_list(request: web.Request, limit=None, offset=None, q=None) -> web.Response:
-    """ability_list
+    """List abilities
 
     Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
 
@@ -53,7 +53,7 @@ async def ability_list(request: web.Request, limit=None, offset=None, q=None) ->
 
 
 async def ability_retrieve(request: web.Request, id) -> web.Response:
-    """ability_retrieve
+    """Get ability
 
     Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
 
@@ -64,8 +64,8 @@ async def ability_retrieve(request: web.Request, id) -> web.Response:
     return web.Response(status=200)
 
 
-async def characteristic_list(request: web.Request, limit=None, offset=None, q=None) -> web.Response:
-    """List charecterictics
+async def characteristic_list(request: web.Request, limit=None, offset=None) -> web.Response:
+    """List characteristics
 
     Characteristics indicate which stat contains a Pokémon&#39;s highest IV. A Pokémon&#39;s Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail.
 
@@ -73,8 +73,6 @@ async def characteristic_list(request: web.Request, limit=None, offset=None, q=N
     :type limit: int
     :param offset: The initial index from which to return the results.
     :type offset: int
-    :param q: &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. 
-    :type q: str
 
     """
     return web.Response(status=200)

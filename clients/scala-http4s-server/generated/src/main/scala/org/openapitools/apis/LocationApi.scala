@@ -24,24 +24,20 @@ import org.http4s.dsl.Http4sDsl
 import org.http4s.circe.CirceEntityEncoder._
 
 final case class LocationApiRoutes[
-  F[_]: JsonDecoder: Monad, basicAuth, cookieAuth
-](delegate: LocationApiDelegate[F, basicAuth, cookieAuth]) extends Http4sDsl[F] {
+  F[_]: JsonDecoder: Monad
+](delegate: LocationApiDelegate[F]) extends Http4sDsl[F] {
   object locationAreaList {
     import LocationApiDelegate.locationAreaListResponses
 
     object limitQueryParam extends OptionalQueryParamDecoderMatcher[Int]("limit")
     object offsetQueryParam extends OptionalQueryParamDecoderMatcher[Int]("offset")
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "location-area" :? limitQueryParam(limit) +& offsetQueryParam(offset)) as auth =>
-        delegate.locationAreaList.handle_basicAuth(auth, req, limit, offset, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "location-area" :? limitQueryParam(limit) +& offsetQueryParam(offset) =>
+        delegate.locationAreaList.handle(req, limit, offset, responses)
 
     }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "location-area" :? limitQueryParam(limit) +& offsetQueryParam(offset)) as auth =>
-        delegate.locationAreaList.handle_cookieAuth(auth, req, limit, offset, responses)
 
-    }
 
     val responses: locationAreaListResponses[F] = new locationAreaListResponses[F] {
       def resp200(value: PaginatedLocationAreaSummaryList): F[Response[F]] = Ok(value)
@@ -51,16 +47,12 @@ final case class LocationApiRoutes[
     import LocationApiDelegate.locationAreaRetrieveResponses
 
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "location-area" / IntVarr(id)) as auth =>
-        delegate.locationAreaRetrieve.handle_basicAuth(auth, req, id, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "location-area" / IntVarr(id) =>
+        delegate.locationAreaRetrieve.handle(req, id, responses)
 
     }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "location-area" / IntVarr(id)) as auth =>
-        delegate.locationAreaRetrieve.handle_cookieAuth(auth, req, id, responses)
 
-    }
 
     val responses: locationAreaRetrieveResponses[F] = new locationAreaRetrieveResponses[F] {
       def resp200(value: LocationAreaDetail): F[Response[F]] = Ok(value)
@@ -73,16 +65,12 @@ final case class LocationApiRoutes[
     object offsetQueryParam extends OptionalQueryParamDecoderMatcher[Int]("offset")
     object qQueryParam extends OptionalQueryParamDecoderMatcher[String]("q")
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "location" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q)) as auth =>
-        delegate.locationList.handle_basicAuth(auth, req, limit, offset, q, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "location" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q) =>
+        delegate.locationList.handle(req, limit, offset, q, responses)
 
     }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "location" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q)) as auth =>
-        delegate.locationList.handle_cookieAuth(auth, req, limit, offset, q, responses)
 
-    }
 
     val responses: locationListResponses[F] = new locationListResponses[F] {
       def resp200(value: PaginatedLocationSummaryList): F[Response[F]] = Ok(value)
@@ -92,16 +80,12 @@ final case class LocationApiRoutes[
     import LocationApiDelegate.locationRetrieveResponses
 
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "location" / id) as auth =>
-        delegate.locationRetrieve.handle_basicAuth(auth, req, id, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "location" / id =>
+        delegate.locationRetrieve.handle(req, id, responses)
 
     }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "location" / id) as auth =>
-        delegate.locationRetrieve.handle_cookieAuth(auth, req, id, responses)
 
-    }
 
     val responses: locationRetrieveResponses[F] = new locationRetrieveResponses[F] {
       def resp200(value: LocationDetail): F[Response[F]] = Ok(value)
@@ -114,16 +98,12 @@ final case class LocationApiRoutes[
     object offsetQueryParam extends OptionalQueryParamDecoderMatcher[Int]("offset")
     object qQueryParam extends OptionalQueryParamDecoderMatcher[String]("q")
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "pal-park-area" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q)) as auth =>
-        delegate.palParkAreaList.handle_basicAuth(auth, req, limit, offset, q, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "pal-park-area" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q) =>
+        delegate.palParkAreaList.handle(req, limit, offset, q, responses)
 
     }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "pal-park-area" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q)) as auth =>
-        delegate.palParkAreaList.handle_cookieAuth(auth, req, limit, offset, q, responses)
 
-    }
 
     val responses: palParkAreaListResponses[F] = new palParkAreaListResponses[F] {
       def resp200(value: PaginatedPalParkAreaSummaryList): F[Response[F]] = Ok(value)
@@ -133,16 +113,12 @@ final case class LocationApiRoutes[
     import LocationApiDelegate.palParkAreaRetrieveResponses
 
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "pal-park-area" / id) as auth =>
-        delegate.palParkAreaRetrieve.handle_basicAuth(auth, req, id, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "pal-park-area" / id =>
+        delegate.palParkAreaRetrieve.handle(req, id, responses)
 
     }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "pal-park-area" / id) as auth =>
-        delegate.palParkAreaRetrieve.handle_cookieAuth(auth, req, id, responses)
 
-    }
 
     val responses: palParkAreaRetrieveResponses[F] = new palParkAreaRetrieveResponses[F] {
       def resp200(value: PalParkAreaDetail): F[Response[F]] = Ok(value)
@@ -155,16 +131,12 @@ final case class LocationApiRoutes[
     object offsetQueryParam extends OptionalQueryParamDecoderMatcher[Int]("offset")
     object qQueryParam extends OptionalQueryParamDecoderMatcher[String]("q")
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "region" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q)) as auth =>
-        delegate.regionList.handle_basicAuth(auth, req, limit, offset, q, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "region" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q) =>
+        delegate.regionList.handle(req, limit, offset, q, responses)
 
     }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "region" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q)) as auth =>
-        delegate.regionList.handle_cookieAuth(auth, req, limit, offset, q, responses)
 
-    }
 
     val responses: regionListResponses[F] = new regionListResponses[F] {
       def resp200(value: PaginatedRegionSummaryList): F[Response[F]] = Ok(value)
@@ -174,40 +146,27 @@ final case class LocationApiRoutes[
     import LocationApiDelegate.regionRetrieveResponses
 
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "region" / id) as auth =>
-        delegate.regionRetrieve.handle_basicAuth(auth, req, id, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "region" / id =>
+        delegate.regionRetrieve.handle(req, id, responses)
 
     }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "region" / id) as auth =>
-        delegate.regionRetrieve.handle_cookieAuth(auth, req, id, responses)
 
-    }
 
     val responses: regionRetrieveResponses[F] = new regionRetrieveResponses[F] {
       def resp200(value: RegionDetail): F[Response[F]] = Ok(value)
     }
   }
 
-  val routesbasicAuth =
-    locationAreaList.routebasicAuth <+>
-    locationAreaRetrieve.routebasicAuth <+>
-    locationList.routebasicAuth <+>
-    locationRetrieve.routebasicAuth <+>
-    palParkAreaList.routebasicAuth <+>
-    palParkAreaRetrieve.routebasicAuth <+>
-    regionList.routebasicAuth <+>
-    regionRetrieve.routebasicAuth
-  val routescookieAuth =
-    locationAreaList.routecookieAuth <+>
-    locationAreaRetrieve.routecookieAuth <+>
-    locationList.routecookieAuth <+>
-    locationRetrieve.routecookieAuth <+>
-    palParkAreaList.routecookieAuth <+>
-    palParkAreaRetrieve.routecookieAuth <+>
-    regionList.routecookieAuth <+>
-    regionRetrieve.routecookieAuth
+  val routes =
+    locationAreaList.route <+>
+    locationAreaRetrieve.route <+>
+    locationList.route <+>
+    locationRetrieve.route <+>
+    palParkAreaList.route <+>
+    palParkAreaRetrieve.route <+>
+    regionList.route <+>
+    regionRetrieve.route
 }
 
 object LocationApiDelegate {
@@ -245,22 +204,12 @@ object LocationApiDelegate {
 
 }
 
-trait LocationApiDelegate[F[_], basicAuth, cookieAuth] {
+trait LocationApiDelegate[F[_]] {
 
   trait locationAreaList {
     import LocationApiDelegate.locationAreaListResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
-      req: Request[F],
-      limit: Option[Int],
-      offset: Option[Int],
-      responses: locationAreaListResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
+    def handle(
       req: Request[F],
       limit: Option[Int],
       offset: Option[Int],
@@ -274,16 +223,7 @@ trait LocationApiDelegate[F[_], basicAuth, cookieAuth] {
   trait locationAreaRetrieve {
     import LocationApiDelegate.locationAreaRetrieveResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
-      req: Request[F],
-      id: Int,
-      responses: locationAreaRetrieveResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
+    def handle(
       req: Request[F],
       id: Int,
       responses: locationAreaRetrieveResponses[F]
@@ -296,18 +236,7 @@ trait LocationApiDelegate[F[_], basicAuth, cookieAuth] {
   trait locationList {
     import LocationApiDelegate.locationListResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
-      req: Request[F],
-      limit: Option[Int],
-      offset: Option[Int],
-      q: Option[String],
-      responses: locationListResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
+    def handle(
       req: Request[F],
       limit: Option[Int],
       offset: Option[Int],
@@ -322,16 +251,7 @@ trait LocationApiDelegate[F[_], basicAuth, cookieAuth] {
   trait locationRetrieve {
     import LocationApiDelegate.locationRetrieveResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
-      req: Request[F],
-      id: String,
-      responses: locationRetrieveResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
+    def handle(
       req: Request[F],
       id: String,
       responses: locationRetrieveResponses[F]
@@ -344,18 +264,7 @@ trait LocationApiDelegate[F[_], basicAuth, cookieAuth] {
   trait palParkAreaList {
     import LocationApiDelegate.palParkAreaListResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
-      req: Request[F],
-      limit: Option[Int],
-      offset: Option[Int],
-      q: Option[String],
-      responses: palParkAreaListResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
+    def handle(
       req: Request[F],
       limit: Option[Int],
       offset: Option[Int],
@@ -370,16 +279,7 @@ trait LocationApiDelegate[F[_], basicAuth, cookieAuth] {
   trait palParkAreaRetrieve {
     import LocationApiDelegate.palParkAreaRetrieveResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
-      req: Request[F],
-      id: String,
-      responses: palParkAreaRetrieveResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
+    def handle(
       req: Request[F],
       id: String,
       responses: palParkAreaRetrieveResponses[F]
@@ -392,18 +292,7 @@ trait LocationApiDelegate[F[_], basicAuth, cookieAuth] {
   trait regionList {
     import LocationApiDelegate.regionListResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
-      req: Request[F],
-      limit: Option[Int],
-      offset: Option[Int],
-      q: Option[String],
-      responses: regionListResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
+    def handle(
       req: Request[F],
       limit: Option[Int],
       offset: Option[Int],
@@ -418,16 +307,7 @@ trait LocationApiDelegate[F[_], basicAuth, cookieAuth] {
   trait regionRetrieve {
     import LocationApiDelegate.regionRetrieveResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
-      req: Request[F],
-      id: String,
-      responses: regionRetrieveResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
+    def handle(
       req: Request[F],
       id: String,
       responses: regionRetrieveResponses[F]

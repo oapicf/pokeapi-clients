@@ -8,10 +8,10 @@
 
 (def paginated-growth-rate-summary-list-data
   {
-   (ds/opt :count) int?
+   (ds/req :count) int?
    (ds/opt :next) string?
    (ds/opt :previous) string?
-   (ds/opt :results) (s/coll-of growth-rate-summary-spec)
+   (ds/req :results) (s/coll-of growth-rate-summary-spec)
    })
 
 (def paginated-growth-rate-summary-list-spec

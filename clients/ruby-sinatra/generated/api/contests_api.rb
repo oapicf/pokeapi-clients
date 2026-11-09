@@ -23,13 +23,6 @@ MyApp.add_route('GET', '/api/v2/contest-effect/', {
       "allowableValues" => "",
       "paramType" => "query",
     },
-    {
-      "name" => "q",
-      "description" => "&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ",
-      "dataType" => "String",
-      "allowableValues" => "",
-      "paramType" => "query",
-    },
     ]}) do
   cross_origin
   # the guts live here
@@ -138,13 +131,6 @@ MyApp.add_route('GET', '/api/v2/super-contest-effect/', {
       "name" => "offset",
       "description" => "The initial index from which to return the results.",
       "dataType" => "Integer",
-      "allowableValues" => "",
-      "paramType" => "query",
-    },
-    {
-      "name" => "q",
-      "description" => "&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ",
-      "dataType" => "String",
       "allowableValues" => "",
       "paramType" => "query",
     },

@@ -3,9 +3,9 @@
 /*
  * PokéAPI
  *
- * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+ * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
  *
- * API version: 2.7.0
+ * API version: 2.10.0
  * Contact: blah+oapicf@cliffano.com
  */
 
@@ -13,6 +13,7 @@ package openapi
 
 
 import (
+	"errors"
 	"encoding/json"
 	"fmt"
 )
@@ -21,45 +22,68 @@ import (
 
 type PokemonDetail struct {
 
+	// The identifier for this resource.
 	Id int32 `json:"id"`
 
+	// The name for this resource.
 	Name string `json:"name"`
 
+	// The base experience gained for defeating this Pokémon.
 	BaseExperience *int32 `json:"base_experience,omitempty"`
 
+	// The height of this Pokémon in decimetres.
 	Height *int32 `json:"height,omitempty"`
 
+	// Set for exactly one Pokémon used as the default for each species.
 	IsDefault bool `json:"is_default,omitempty"`
 
+	// Order for sorting. Almost national order, except families are grouped together.
 	Order *int32 `json:"order,omitempty"`
 
+	// The weight of this Pokémon in hectograms.
 	Weight *int32 `json:"weight,omitempty"`
 
-	Abilities []PokemonDetailAbilitiesInner `json:"abilities"`
+	// A list of abilities this Pokémon could potentially have.
+	Abilities []PokemonAbility `json:"abilities"`
 
-	PastAbilities []PokemonDetailPastAbilitiesInner `json:"past_abilities"`
+	// A list of details showing abilities this pokémon had in previous generations
+	PastAbilities []PokemonPastAbility `json:"past_abilities"`
 
+	// A list of forms this Pokémon can take on.
 	Forms []PokemonFormSummary `json:"forms"`
 
+	// A list of game indices relevent to Pokémon item by generation.
 	GameIndices []PokemonGameIndex `json:"game_indices"`
 
-	HeldItems PokemonDetailHeldItems `json:"held_items"`
+	// A list of items this Pokémon may be holding when encountered.
+	HeldItems []PokemonHeldItemSummary `json:"held_items"`
 
+	// A link to a list of location areas, as well as encounter details pertaining to specific versions.
 	LocationAreaEncounters string `json:"location_area_encounters"`
 
-	Moves []PokemonDetailMovesInner `json:"moves"`
+	// A list of moves along with learn methods and level details pertaining to specific version groups.
+	Moves []PokemonMove `json:"moves"`
 
+	// The species this Pokémon belongs to.
 	Species PokemonSpeciesSummary `json:"species"`
 
-	Sprites PokemonDetailSprites `json:"sprites"`
+	// A set of sprites used to depict this Pokémon in the game. A visual representation of the various sprites can be found at <a href='https://github.com/PokeAPI/sprites#sprites'>PokeAPI/sprites</a>
+	Sprites PokemonSprites `json:"sprites"`
 
-	Cries PokemonDetailCries `json:"cries"`
+	// A set of cries used to depict this Pokémon in the game. A visual representation of the various cries can be found at <a href='https://github.com/PokeAPI/cries#cries'>PokeAPI/cries</a>
+	Cries PokemonCries `json:"cries"`
 
+	// A list of base stat values for this Pokémon.
 	Stats []PokemonStat `json:"stats"`
 
-	Types []PokemonDetailTypesInner `json:"types"`
+	// A list of details showing stats this pokémon had in previous generations
+	PastStats []PokemonPastStat `json:"past_stats"`
 
-	PastTypes []PokemonDetailPastTypesInner `json:"past_types"`
+	// A list of details showing types this Pokémon has.
+	Types []PokemonType `json:"types"`
+
+	// A list of details showing types this pokémon had in previous generations
+	PastTypes []PokemonPastType `json:"past_types"`
 }
 // UnmarshalJSON validates required property keys then unmarshals into PokemonDetail
 func (o *PokemonDetail) UnmarshalJSON(data []byte) (err error) {
@@ -67,18 +91,12 @@ func (o *PokemonDetail) UnmarshalJSON(data []byte) (err error) {
 	// including fields promoted from embedded allOf parents.
 	requiredProperties := []string{
 		"name",
-		"held_items",
 		"species",
-		"sprites",
-		"cries",
 	}
 
 	requiredNullableProperties := map[string]bool{
 		"name": false,
-		"held_items": false,
 		"species": false,
-		"sprites": false,
-		"cries": false,
 	}
 
 	allowedJsonKeys := map[string]struct{}{
@@ -100,6 +118,7 @@ func (o *PokemonDetail) UnmarshalJSON(data []byte) (err error) {
 		"sprites": {},
 		"cries": {},
 		"stats": {},
+		"past_stats": {},
 		"types": {},
 		"past_types": {},
 	}
@@ -220,6 +239,11 @@ func (o *PokemonDetail) UnmarshalJSON(data []byte) (err error) {
 			return err
 		}
 	}
+	if value, exists := allProperties["past_stats"]; exists {
+		if err = json.Unmarshal(value, &decoded.PastStats); err != nil {
+			return err
+		}
+	}
 	if value, exists := allProperties["types"]; exists {
 		if err = json.Unmarshal(value, &decoded.Types); err != nil {
 			return err
@@ -240,9 +264,7 @@ func (o *PokemonDetail) UnmarshalJSON(data []byte) (err error) {
 // Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertPokemonDetailRequired(obj PokemonDetail) error {
 	elements := map[string]interface{}{
-		"held_items": obj.HeldItems,
 		"species": obj.Species,
-		"cries": obj.Cries,
 	}
 	for name, el := range elements {
 		if isZero := IsZeroValue(el); isZero {
@@ -250,13 +272,7 @@ func AssertPokemonDetailRequired(obj PokemonDetail) error {
 		}
 	}
 
-	if err := AssertPokemonDetailHeldItemsRequired(obj.HeldItems); err != nil {
-		return err
-	}
 	if err := AssertPokemonSpeciesSummaryRequired(obj.Species); err != nil {
-		return err
-	}
-	if err := AssertPokemonDetailCriesRequired(obj.Cries); err != nil {
 		return err
 	}
 	return nil
@@ -264,13 +280,31 @@ func AssertPokemonDetailRequired(obj PokemonDetail) error {
 
 // AssertPokemonDetailConstraints checks if the values respects the defined constraints
 func AssertPokemonDetailConstraints(obj PokemonDetail) error {
-	if err := AssertPokemonDetailHeldItemsConstraints(obj.HeldItems); err != nil {
-		return err
+	if obj.BaseExperience != nil && *obj.BaseExperience < -2147483648 {
+		return &ParsingError{Param: "BaseExperience", Err: errors.New(errMsgMinValueConstraint)}
+	}
+	if obj.BaseExperience != nil && *obj.BaseExperience > 2147483647 {
+		return &ParsingError{Param: "BaseExperience", Err: errors.New(errMsgMaxValueConstraint)}
+	}
+	if obj.Height != nil && *obj.Height < -2147483648 {
+		return &ParsingError{Param: "Height", Err: errors.New(errMsgMinValueConstraint)}
+	}
+	if obj.Height != nil && *obj.Height > 2147483647 {
+		return &ParsingError{Param: "Height", Err: errors.New(errMsgMaxValueConstraint)}
+	}
+	if obj.Order != nil && *obj.Order < -2147483648 {
+		return &ParsingError{Param: "Order", Err: errors.New(errMsgMinValueConstraint)}
+	}
+	if obj.Order != nil && *obj.Order > 2147483647 {
+		return &ParsingError{Param: "Order", Err: errors.New(errMsgMaxValueConstraint)}
+	}
+	if obj.Weight != nil && *obj.Weight < -2147483648 {
+		return &ParsingError{Param: "Weight", Err: errors.New(errMsgMinValueConstraint)}
+	}
+	if obj.Weight != nil && *obj.Weight > 2147483647 {
+		return &ParsingError{Param: "Weight", Err: errors.New(errMsgMaxValueConstraint)}
 	}
 	if err := AssertPokemonSpeciesSummaryConstraints(obj.Species); err != nil {
-		return err
-	}
-	if err := AssertPokemonDetailCriesConstraints(obj.Cries); err != nil {
 		return err
 	}
 	return nil

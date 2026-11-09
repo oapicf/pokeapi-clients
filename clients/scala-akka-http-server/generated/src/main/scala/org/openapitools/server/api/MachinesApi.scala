@@ -22,8 +22,8 @@ class MachinesApi(
   lazy val route: Route =
     path("api" / "v2" / "machine") { 
       get { 
-        parameters("limit".as[Int].?, "offset".as[Int].?, "q".as[String].?) { (limit, offset, q) => 
-            machinesService.machineList(limit = limit, offset = offset, q = q)
+        parameters("limit".as[Int].?, "offset".as[Int].?) { (limit, offset) => 
+            machinesService.machineList(limit = limit, offset = offset)
         }
       }
     } ~
@@ -42,7 +42,7 @@ trait MachinesApiService {
   /**
    * Code: 200, Message: , DataType: PaginatedMachineSummaryList
    */
-  def machineList(limit: Option[Int], offset: Option[Int], q: Option[String])
+  def machineList(limit: Option[Int], offset: Option[Int])
       (implicit toEntityMarshallerPaginatedMachineSummaryList: ToEntityMarshaller[PaginatedMachineSummaryList]): Route
 
   def machineRetrieve200(responseMachineDetail: MachineDetail)(implicit toEntityMarshallerMachineDetail: ToEntityMarshaller[MachineDetail]): Route =

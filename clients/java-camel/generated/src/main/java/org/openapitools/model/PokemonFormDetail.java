@@ -8,9 +8,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
-import org.openapitools.model.PokemonDetailTypesInner;
-import org.openapitools.model.PokemonFormDetailFormNamesInner;
-import org.openapitools.model.PokemonFormDetailSprites;
+import org.openapitools.model.PokemonFormFlavorText;
+import org.openapitools.model.PokemonFormName;
+import org.openapitools.model.PokemonFormSprites;
+import org.openapitools.model.PokemonFormTriggerCondition;
+import org.openapitools.model.PokemonFormType;
 import org.openapitools.model.PokemonSummary;
 import org.openapitools.model.VersionGroupSummary;
 import java.util.NoSuchElementException;
@@ -28,16 +30,16 @@ import jakarta.annotation.Generated;
  * PokemonFormDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-10-25T05:48:25.711080506Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-11-09T13:49:41.168612095Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PokemonFormDetail {
 
   private Integer id;
 
   private String name;
 
-  private JsonNullable<Integer> order = JsonNullable.<Integer>undefined();
+  private JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> order = JsonNullable.<Integer>undefined();
 
-  private JsonNullable<Integer> formOrder = JsonNullable.<Integer>undefined();
+  private JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> formOrder = JsonNullable.<Integer>undefined();
 
   private Boolean isDefault;
 
@@ -49,15 +51,19 @@ public class PokemonFormDetail {
 
   private PokemonSummary pokemon;
 
-  private PokemonFormDetailSprites sprites;
+  private PokemonFormSprites sprites;
 
   private VersionGroupSummary versionGroup;
 
-  private List<@Valid PokemonFormDetailFormNamesInner> formNames = new ArrayList<>();
+  private List<@Valid PokemonFormName> formNames = new ArrayList<>();
 
-  private List<@Valid PokemonFormDetailFormNamesInner> names = new ArrayList<>();
+  private List<@Valid PokemonFormName> names = new ArrayList<>();
 
-  private List<@Valid PokemonDetailTypesInner> types = new ArrayList<>();
+  private List<@Valid PokemonFormType> types = new ArrayList<>();
+
+  private List<@Valid PokemonFormTriggerCondition> triggerConditions = new ArrayList<>();
+
+  private List<@Valid PokemonFormFlavorText> flavorTextEntries = new ArrayList<>();
 
   public PokemonFormDetail() {
     super();
@@ -66,7 +72,7 @@ public class PokemonFormDetail {
   /**
    * Constructor with only required parameters
    */
-  public PokemonFormDetail(Integer id, String name, String formName, PokemonSummary pokemon, PokemonFormDetailSprites sprites, VersionGroupSummary versionGroup, List<@Valid PokemonFormDetailFormNamesInner> formNames, List<@Valid PokemonFormDetailFormNamesInner> names, List<@Valid PokemonDetailTypesInner> types) {
+  public PokemonFormDetail(Integer id, String name, String formName, PokemonSummary pokemon, PokemonFormSprites sprites, VersionGroupSummary versionGroup, List<@Valid PokemonFormName> formNames, List<@Valid PokemonFormName> names, List<@Valid PokemonFormType> types, List<@Valid PokemonFormTriggerCondition> triggerConditions, List<@Valid PokemonFormFlavorText> flavorTextEntries) {
     this.id = id;
     this.name = name;
     this.formName = formName;
@@ -76,6 +82,8 @@ public class PokemonFormDetail {
     this.formNames = formNames;
     this.names = names;
     this.types = types;
+    this.triggerConditions = triggerConditions;
+    this.flavorTextEntries = flavorTextEntries;
   }
 
   public PokemonFormDetail id(Integer id) {
@@ -84,11 +92,11 @@ public class PokemonFormDetail {
   }
 
   /**
-   * Get id
+   * The identifier for this resource.
    * @return id
    */
   
-  @Schema(name = "id", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "id", accessMode = Schema.AccessMode.READ_ONLY, description = "The identifier for this resource.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("id")
   public Integer getId() {
     return id;
@@ -104,11 +112,11 @@ public class PokemonFormDetail {
   }
 
   /**
-   * Get name
+   * The name for this resource.
    * @return name
    */
-  @NotNull @Size(max = 100) 
-  @Schema(name = "name", requiredMode = Schema.RequiredMode.REQUIRED)
+  @NotNull @Size(max = 200) 
+  @Schema(name = "name", description = "The name for this resource.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("name")
   public String getName() {
     return name;
@@ -124,13 +132,15 @@ public class PokemonFormDetail {
   }
 
   /**
-   * Get order
+   * The order in which forms should be sorted within all forms. Multiple forms may have equal order, in which case they should fall back on sorting by name.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return order
    */
-  
-  @Schema(name = "order", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Min(value = -2147483648) @Max(value = 2147483647) 
+  @Schema(name = "order", description = "The order in which forms should be sorted within all forms. Multiple forms may have equal order, in which case they should fall back on sorting by name.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("order")
-  public JsonNullable<Integer> getOrder() {
+  public JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> getOrder() {
     return order;
   }
 
@@ -144,13 +154,15 @@ public class PokemonFormDetail {
   }
 
   /**
-   * Get formOrder
+   * The order in which forms should be sorted within a species' forms.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return formOrder
    */
-  
-  @Schema(name = "form_order", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Min(value = -2147483648) @Max(value = 2147483647) 
+  @Schema(name = "form_order", description = "The order in which forms should be sorted within a species' forms.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("form_order")
-  public JsonNullable<Integer> getFormOrder() {
+  public JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> getFormOrder() {
     return formOrder;
   }
 
@@ -164,11 +176,11 @@ public class PokemonFormDetail {
   }
 
   /**
-   * Get isDefault
+   * True for exactly one form used as the default for each Pokémon.
    * @return isDefault
    */
   
-  @Schema(name = "is_default", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Schema(name = "is_default", description = "True for exactly one form used as the default for each Pokémon.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("is_default")
   public Boolean getIsDefault() {
     return isDefault;
@@ -184,11 +196,11 @@ public class PokemonFormDetail {
   }
 
   /**
-   * Get isBattleOnly
+   * Whether or not this form can only happen during battle.
    * @return isBattleOnly
    */
   
-  @Schema(name = "is_battle_only", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Schema(name = "is_battle_only", description = "Whether or not this form can only happen during battle.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("is_battle_only")
   public Boolean getIsBattleOnly() {
     return isBattleOnly;
@@ -204,11 +216,11 @@ public class PokemonFormDetail {
   }
 
   /**
-   * Get isMega
+   * Whether or not this form requires mega evolution.
    * @return isMega
    */
   
-  @Schema(name = "is_mega", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Schema(name = "is_mega", description = "Whether or not this form requires mega evolution.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("is_mega")
   public Boolean getIsMega() {
     return isMega;
@@ -224,11 +236,11 @@ public class PokemonFormDetail {
   }
 
   /**
-   * Get formName
+   * The name of this form.
    * @return formName
    */
   @NotNull @Size(max = 30) 
-  @Schema(name = "form_name", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "form_name", description = "The name of this form.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("form_name")
   public String getFormName() {
     return formName;
@@ -244,11 +256,11 @@ public class PokemonFormDetail {
   }
 
   /**
-   * Get pokemon
+   * The Pokémon that can take on this form.
    * @return pokemon
    */
   @NotNull @Valid 
-  @Schema(name = "pokemon", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "pokemon", description = "The Pokémon that can take on this form.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("pokemon")
   public PokemonSummary getPokemon() {
     return pokemon;
@@ -258,23 +270,23 @@ public class PokemonFormDetail {
     this.pokemon = pokemon;
   }
 
-  public PokemonFormDetail sprites(PokemonFormDetailSprites sprites) {
+  public PokemonFormDetail sprites(PokemonFormSprites sprites) {
     this.sprites = sprites;
     return this;
   }
 
   /**
-   * Get sprites
+   * A set of sprites used to depict this Pokémon form in the game.
    * @return sprites
    */
-  @NotNull @Valid 
-  @Schema(name = "sprites", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "sprites", accessMode = Schema.AccessMode.READ_ONLY, description = "A set of sprites used to depict this Pokémon form in the game.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("sprites")
-  public PokemonFormDetailSprites getSprites() {
+  public PokemonFormSprites getSprites() {
     return sprites;
   }
 
-  public void setSprites(PokemonFormDetailSprites sprites) {
+  public void setSprites(PokemonFormSprites sprites) {
     this.sprites = sprites;
   }
 
@@ -284,11 +296,11 @@ public class PokemonFormDetail {
   }
 
   /**
-   * Get versionGroup
+   * The version group this Pokémon form was introduced in.
    * @return versionGroup
    */
   @NotNull @Valid 
-  @Schema(name = "version_group", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "version_group", description = "The version group this Pokémon form was introduced in.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("version_group")
   public VersionGroupSummary getVersionGroup() {
     return versionGroup;
@@ -298,12 +310,12 @@ public class PokemonFormDetail {
     this.versionGroup = versionGroup;
   }
 
-  public PokemonFormDetail formNames(List<@Valid PokemonFormDetailFormNamesInner> formNames) {
+  public PokemonFormDetail formNames(List<@Valid PokemonFormName> formNames) {
     this.formNames = formNames;
     return this;
   }
 
-  public PokemonFormDetail addFormNamesItem(PokemonFormDetailFormNamesInner formNamesItem) {
+  public PokemonFormDetail addFormNamesItem(PokemonFormName formNamesItem) {
     if (this.formNames == null) {
       this.formNames = new ArrayList<>();
     }
@@ -312,26 +324,26 @@ public class PokemonFormDetail {
   }
 
   /**
-   * Get formNames
+   * The form specific form name of this Pokémon form, or empty if the form does not have a specific name.
    * @return formNames
    */
   
-  @Schema(name = "form_names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "form_names", accessMode = Schema.AccessMode.READ_ONLY, description = "The form specific form name of this Pokémon form, or empty if the form does not have a specific name.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("form_names")
-  public List<@Valid PokemonFormDetailFormNamesInner> getFormNames() {
+  public List<@Valid PokemonFormName> getFormNames() {
     return formNames;
   }
 
-  public void setFormNames(List<@Valid PokemonFormDetailFormNamesInner> formNames) {
+  public void setFormNames(List<@Valid PokemonFormName> formNames) {
     this.formNames = formNames;
   }
 
-  public PokemonFormDetail names(List<@Valid PokemonFormDetailFormNamesInner> names) {
+  public PokemonFormDetail names(List<@Valid PokemonFormName> names) {
     this.names = names;
     return this;
   }
 
-  public PokemonFormDetail addNamesItem(PokemonFormDetailFormNamesInner namesItem) {
+  public PokemonFormDetail addNamesItem(PokemonFormName namesItem) {
     if (this.names == null) {
       this.names = new ArrayList<>();
     }
@@ -340,26 +352,26 @@ public class PokemonFormDetail {
   }
 
   /**
-   * Get names
+   * The form specific full name of this Pokémon form, or empty if the form does not have a specific name.
    * @return names
    */
   
-  @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, description = "The form specific full name of this Pokémon form, or empty if the form does not have a specific name.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("names")
-  public List<@Valid PokemonFormDetailFormNamesInner> getNames() {
+  public List<@Valid PokemonFormName> getNames() {
     return names;
   }
 
-  public void setNames(List<@Valid PokemonFormDetailFormNamesInner> names) {
+  public void setNames(List<@Valid PokemonFormName> names) {
     this.names = names;
   }
 
-  public PokemonFormDetail types(List<@Valid PokemonDetailTypesInner> types) {
+  public PokemonFormDetail types(List<@Valid PokemonFormType> types) {
     this.types = types;
     return this;
   }
 
-  public PokemonFormDetail addTypesItem(PokemonDetailTypesInner typesItem) {
+  public PokemonFormDetail addTypesItem(PokemonFormType typesItem) {
     if (this.types == null) {
       this.types = new ArrayList<>();
     }
@@ -368,18 +380,74 @@ public class PokemonFormDetail {
   }
 
   /**
-   * Get types
+   * A list of details showing types this Pokémon form has.
    * @return types
    */
   
-  @Schema(name = "types", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "types", accessMode = Schema.AccessMode.READ_ONLY, description = "A list of details showing types this Pokémon form has.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("types")
-  public List<@Valid PokemonDetailTypesInner> getTypes() {
+  public List<@Valid PokemonFormType> getTypes() {
     return types;
   }
 
-  public void setTypes(List<@Valid PokemonDetailTypesInner> types) {
+  public void setTypes(List<@Valid PokemonFormType> types) {
     this.types = types;
+  }
+
+  public PokemonFormDetail triggerConditions(List<@Valid PokemonFormTriggerCondition> triggerConditions) {
+    this.triggerConditions = triggerConditions;
+    return this;
+  }
+
+  public PokemonFormDetail addTriggerConditionsItem(PokemonFormTriggerCondition triggerConditionsItem) {
+    if (this.triggerConditions == null) {
+      this.triggerConditions = new ArrayList<>();
+    }
+    this.triggerConditions.add(triggerConditionsItem);
+    return this;
+  }
+
+  /**
+   * The conditions that trigger this form. Resource names and URLs are included when the trigger requires a resource.
+   * @return triggerConditions
+   */
+  
+  @Schema(name = "trigger_conditions", accessMode = Schema.AccessMode.READ_ONLY, description = "The conditions that trigger this form. Resource names and URLs are included when the trigger requires a resource.", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("trigger_conditions")
+  public List<@Valid PokemonFormTriggerCondition> getTriggerConditions() {
+    return triggerConditions;
+  }
+
+  public void setTriggerConditions(List<@Valid PokemonFormTriggerCondition> triggerConditions) {
+    this.triggerConditions = triggerConditions;
+  }
+
+  public PokemonFormDetail flavorTextEntries(List<@Valid PokemonFormFlavorText> flavorTextEntries) {
+    this.flavorTextEntries = flavorTextEntries;
+    return this;
+  }
+
+  public PokemonFormDetail addFlavorTextEntriesItem(PokemonFormFlavorText flavorTextEntriesItem) {
+    if (this.flavorTextEntries == null) {
+      this.flavorTextEntries = new ArrayList<>();
+    }
+    this.flavorTextEntries.add(flavorTextEntriesItem);
+    return this;
+  }
+
+  /**
+   * The flavor text of this form listed in different languages and versions.
+   * @return flavorTextEntries
+   */
+  
+  @Schema(name = "flavor_text_entries", accessMode = Schema.AccessMode.READ_ONLY, description = "The flavor text of this form listed in different languages and versions.", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("flavor_text_entries")
+  public List<@Valid PokemonFormFlavorText> getFlavorTextEntries() {
+    return flavorTextEntries;
+  }
+
+  public void setFlavorTextEntries(List<@Valid PokemonFormFlavorText> flavorTextEntries) {
+    this.flavorTextEntries = flavorTextEntries;
   }
 
   @Override
@@ -404,7 +472,9 @@ public class PokemonFormDetail {
         Objects.equals(this.versionGroup, pokemonFormDetail.versionGroup) &&
         Objects.equals(this.formNames, pokemonFormDetail.formNames) &&
         Objects.equals(this.names, pokemonFormDetail.names) &&
-        Objects.equals(this.types, pokemonFormDetail.types);
+        Objects.equals(this.types, pokemonFormDetail.types) &&
+        Objects.equals(this.triggerConditions, pokemonFormDetail.triggerConditions) &&
+        Objects.equals(this.flavorTextEntries, pokemonFormDetail.flavorTextEntries);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -413,7 +483,7 @@ public class PokemonFormDetail {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, hashCodeNullable(order), hashCodeNullable(formOrder), isDefault, isBattleOnly, isMega, formName, pokemon, sprites, versionGroup, formNames, names, types);
+    return Objects.hash(id, name, hashCodeNullable(order), hashCodeNullable(formOrder), isDefault, isBattleOnly, isMega, formName, pokemon, sprites, versionGroup, formNames, names, types, triggerConditions, flavorTextEntries);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -441,6 +511,8 @@ public class PokemonFormDetail {
     sb.append("    formNames: ").append(toIndentedString(formNames)).append("\n");
     sb.append("    names: ").append(toIndentedString(names)).append("\n");
     sb.append("    types: ").append(toIndentedString(types)).append("\n");
+    sb.append("    triggerConditions: ").append(toIndentedString(triggerConditions)).append("\n");
+    sb.append("    flavorTextEntries: ").append(toIndentedString(flavorTextEntries)).append("\n");
     sb.append("}");
     return sb.toString();
   }

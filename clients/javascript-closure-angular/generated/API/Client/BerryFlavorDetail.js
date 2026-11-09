@@ -6,30 +6,35 @@ goog.provide('API.Client.BerryFlavorDetail');
 API.Client.BerryFlavorDetail = function() {}
 
 /**
+ * The identifier for this resource.
  * @type {!number}
  * @export
  */
 API.Client.BerryFlavorDetail.prototype.id;
 
 /**
+ * The name for this resource.
  * @type {!string}
  * @export
  */
 API.Client.BerryFlavorDetail.prototype.name;
 
 /**
- * @type {!Array<!API.Client.BerryFlavorDetail_berries_inner>}
+ * A list of the berries with this flavor.
+ * @type {!Array<!API.Client.BerryFlavorBerryMap>}
  * @export
  */
 API.Client.BerryFlavorDetail.prototype.berries;
 
 /**
+ * The contest type that correlates with this berry flavor.
  * @type {!API.Client.ContestTypeSummary}
  * @export
  */
 API.Client.BerryFlavorDetail.prototype.contestType;
 
 /**
+ * The name of this resource listed in different languages.
  * @type {!Array<!API.Client.BerryFlavorName>}
  * @export
  */

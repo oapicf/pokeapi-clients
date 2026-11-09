@@ -5,7 +5,7 @@
 --
 
 CREATE TABLE IF NOT EXISTS `AbilityChange` (
-  `version_group` long NOT NULL,
+  `version_group` long NOT NULL /*The version group in which the previous effect of this ability originated.*/,
 ); 
 
 -- --------------------------------------------------------------------------
@@ -22,8 +22,8 @@ CREATE TABLE IF NOT EXISTS `AbilityChangeAbilityChangeEffectText` (
 --
 
 CREATE TABLE IF NOT EXISTS `AbilityChangeEffectText` (
-  `effect` text NOT NULL,
-  `language` long NOT NULL
+  `effect` text NOT NULL /*The localized effect text for an API resource in a specific language.*/,
+  `language` long NOT NULL /*The language this effect is in.*/
 ); 
 
 
@@ -32,10 +32,10 @@ CREATE TABLE IF NOT EXISTS `AbilityChangeEffectText` (
 --
 
 CREATE TABLE IF NOT EXISTS `AbilityDetail` (
-  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT,
-  `name` text NOT NULL,
-  `generation` long NOT NULL,
-  `is_main_series` boolean
+  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT /*The identifier for this resource.*/,
+  `name` text NOT NULL /*The name for this resource.*/,
+  `generation` long NOT NULL /*The generation this ability originated in.*/,
+  `is_main_series` boolean /*Whether or not this ability originated in the main series of the video games.*/
 ); 
 
 -- --------------------------------------------------------------------------
@@ -71,33 +71,12 @@ CREATE TABLE IF NOT EXISTS `AbilityDetailAbilityFlavorText` (
 );
 
 -- --------------------------------------------------------------------------
--- Table structure for table `AbilityDetailAbilityDetailPokemonInner` generated from model 'AbilityDetailAbilityDetailPokemonInner'
+-- Table structure for table `AbilityDetailAbilityPokemonDetail` generated from model 'AbilityDetailAbilityPokemonDetail'
 
-CREATE TABLE IF NOT EXISTS `AbilityDetailAbilityDetailPokemonInner` (
+CREATE TABLE IF NOT EXISTS `AbilityDetailAbilityPokemonDetail` (
   `abilityDetail` long NOT NULL
-  `abilityDetailPokemonInner` long NOT NULL
+  `abilityPokemonDetail` long NOT NULL
 );
-
-
--- --------------------------------------------------------------------------
--- Table structure for table `AbilityDetail_pokemon_inner` generated from model 'abilityDetailPokemonInner'
---
-
-CREATE TABLE IF NOT EXISTS `AbilityDetail_pokemon_inner` (
-  `is_hidden` boolean NOT NULL,
-  `slot` int NOT NULL,
-  `pokemon` long NOT NULL
-); 
-
-
--- --------------------------------------------------------------------------
--- Table structure for table `AbilityDetail_pokemon_inner_pokemon` generated from model 'abilityDetailPokemonInnerPokemon'
---
-
-CREATE TABLE IF NOT EXISTS `AbilityDetail_pokemon_inner_pokemon` (
-  `name` text NOT NULL,
-  `url` text NOT NULL
-); 
 
 
 -- --------------------------------------------------------------------------
@@ -105,9 +84,9 @@ CREATE TABLE IF NOT EXISTS `AbilityDetail_pokemon_inner_pokemon` (
 --
 
 CREATE TABLE IF NOT EXISTS `AbilityEffectText` (
-  `effect` text NOT NULL,
-  `short_effect` text NOT NULL,
-  `language` long NOT NULL
+  `effect` text NOT NULL /*The localized effect text for an API resource in a specific language.*/,
+  `short_effect` text NOT NULL /*The localized effect text in brief.*/,
+  `language` long NOT NULL /*The language this effect is in.*/
 ); 
 
 
@@ -116,9 +95,9 @@ CREATE TABLE IF NOT EXISTS `AbilityEffectText` (
 --
 
 CREATE TABLE IF NOT EXISTS `AbilityFlavorText` (
-  `flavor_text` text NOT NULL,
-  `language` long NOT NULL,
-  `version_group` long NOT NULL
+  `flavor_text` text NOT NULL /*The localized name for an API resource in a specific language.*/,
+  `language` long NOT NULL /*The language this text resource is in.*/,
+  `version_group` long NOT NULL /*The version group that uses this flavor text.*/
 ); 
 
 
@@ -127,8 +106,19 @@ CREATE TABLE IF NOT EXISTS `AbilityFlavorText` (
 --
 
 CREATE TABLE IF NOT EXISTS `AbilityName` (
-  `name` text NOT NULL,
-  `language` long NOT NULL
+  `name` text NOT NULL /*The localized name for an API resource in a specific language.*/,
+  `language` long NOT NULL /*The language this name is in.*/
+); 
+
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `AbilityPokemonDetail` generated from model 'abilityPokemonDetail'
+--
+
+CREATE TABLE IF NOT EXISTS `AbilityPokemonDetail` (
+  `slot` int NOT NULL /*Pokémon have 3 ability &#39;slots&#39; which hold references to possible abilities they could have. This is the slot of this ability for the referenced pokemon.*/,
+  `pokemon` long NOT NULL /*The Pokémon this ability could belong to.*/,
+  `is_hidden` boolean /*Whether or not this a hidden ability for the referenced Pokémon.*/
 ); 
 
 
@@ -137,8 +127,8 @@ CREATE TABLE IF NOT EXISTS `AbilityName` (
 --
 
 CREATE TABLE IF NOT EXISTS `AbilitySummary` (
-  `name` text NOT NULL,
-  `url` text NOT NULL
+  `name` text NOT NULL /*The name of the referenced resource.*/,
+  `url` text NOT NULL /*The URL of the referenced resource.*/
 ); 
 
 
@@ -147,46 +137,26 @@ CREATE TABLE IF NOT EXISTS `AbilitySummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `BerryDetail` (
-  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT,
-  `name` text NOT NULL,
-  `growth_time` int NOT NULL,
-  `max_harvest` int NOT NULL,
-  `natural_gift_power` int NOT NULL,
-  `size` int NOT NULL,
-  `smoothness` int NOT NULL,
-  `soil_dryness` int NOT NULL,
-  `firmness` long NOT NULL,
-  `item` long NOT NULL,
-  `natural_gift_type` long NOT NULL
+  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT /*The identifier for this resource.*/,
+  `name` text NOT NULL /*The name for this resource.*/,
+  `firmness` long NOT NULL /*The firmness of this berry, used in making Pokéblocks or Poffins.*/,
+  `item` long NOT NULL /*Berries are actually items. This is a reference to the item specific data for this berry.*/,
+  `natural_gift_type` long NOT NULL /*The type inherited by \&quot;Natural Gift\&quot; when used with this Berry.*/,
+  `growth_time` int /*Time it takes the tree to grow one stage, in hours. Berry trees go through four of these growth stages before they can be picked.*/,
+  `max_harvest` int /*The maximum number of these berries that can grow on one tree in Generation IV.*/,
+  `natural_gift_power` int /*The power of the move \&quot;Natural Gift\&quot; when used with this Berry.*/,
+  `size` int /*The size of this Berry, in millimeters.*/,
+  `smoothness` int /*The smoothness of this Berry, used in making Pokéblocks or Poffins.*/,
+  `soil_dryness` int /*The speed at which this Berry dries out the soil as it grows. A higher rate means the soil dries more quickly.*/
 ); 
 
 -- --------------------------------------------------------------------------
--- Table structure for table `BerryDetailBerryDetailFlavorsInner` generated from model 'BerryDetailBerryDetailFlavorsInner'
+-- Table structure for table `BerryDetailBerryFlavorMap` generated from model 'BerryDetailBerryFlavorMap'
 
-CREATE TABLE IF NOT EXISTS `BerryDetailBerryDetailFlavorsInner` (
+CREATE TABLE IF NOT EXISTS `BerryDetailBerryFlavorMap` (
   `berryDetail` long NOT NULL
-  `berryDetailFlavorsInner` long NOT NULL
+  `berryFlavorMap` long NOT NULL
 );
-
-
--- --------------------------------------------------------------------------
--- Table structure for table `BerryDetail_flavors_inner` generated from model 'berryDetailFlavorsInner'
---
-
-CREATE TABLE IF NOT EXISTS `BerryDetail_flavors_inner` (
-  `potency` int NOT NULL,
-  `flavor` long NOT NULL
-); 
-
-
--- --------------------------------------------------------------------------
--- Table structure for table `BerryDetail_flavors_inner_flavor` generated from model 'berryDetailFlavorsInnerFlavor'
---
-
-CREATE TABLE IF NOT EXISTS `BerryDetail_flavors_inner_flavor` (
-  `name` text /*The name of the flavor*/,
-  `url` text /*The URL to get more information about the flavor*/
-); 
 
 
 -- --------------------------------------------------------------------------
@@ -194,8 +164,8 @@ CREATE TABLE IF NOT EXISTS `BerryDetail_flavors_inner_flavor` (
 --
 
 CREATE TABLE IF NOT EXISTS `BerryFirmnessDetail` (
-  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT,
-  `name` text NOT NULL,
+  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT /*The identifier for this resource.*/,
+  `name` text NOT NULL /*The name for this resource.*/,
 ); 
 
 -- --------------------------------------------------------------------------
@@ -220,8 +190,8 @@ CREATE TABLE IF NOT EXISTS `BerryFirmnessDetailBerryFirmnessName` (
 --
 
 CREATE TABLE IF NOT EXISTS `BerryFirmnessName` (
-  `name` text NOT NULL,
-  `language` long NOT NULL
+  `name` text NOT NULL /*The localized name for an API resource in a specific language.*/,
+  `language` long NOT NULL /*The language this name is in.*/
 ); 
 
 
@@ -230,8 +200,18 @@ CREATE TABLE IF NOT EXISTS `BerryFirmnessName` (
 --
 
 CREATE TABLE IF NOT EXISTS `BerryFirmnessSummary` (
-  `name` text NOT NULL,
-  `url` text NOT NULL
+  `name` text NOT NULL /*The name of the referenced resource.*/,
+  `url` text NOT NULL /*The URL of the referenced resource.*/
+); 
+
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `BerryFlavorBerryMap` generated from model 'berryFlavorBerryMap'
+--
+
+CREATE TABLE IF NOT EXISTS `BerryFlavorBerryMap` (
+  `potency` int NOT NULL /*How powerful the referenced flavor is for this berry.*/,
+  `berry` long NOT NULL /*The berry with the referenced flavor.*/
 ); 
 
 
@@ -240,17 +220,17 @@ CREATE TABLE IF NOT EXISTS `BerryFirmnessSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `BerryFlavorDetail` (
-  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT,
-  `name` text NOT NULL,
-  `contest_type` long NOT NULL,
+  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT /*The identifier for this resource.*/,
+  `name` text NOT NULL /*The name for this resource.*/,
+  `contest_type` long NOT NULL /*The contest type that correlates with this berry flavor.*/,
 ); 
 
 -- --------------------------------------------------------------------------
--- Table structure for table `BerryFlavorDetailBerryFlavorDetailBerriesInner` generated from model 'BerryFlavorDetailBerryFlavorDetailBerriesInner'
+-- Table structure for table `BerryFlavorDetailBerryFlavorBerryMap` generated from model 'BerryFlavorDetailBerryFlavorBerryMap'
 
-CREATE TABLE IF NOT EXISTS `BerryFlavorDetailBerryFlavorDetailBerriesInner` (
+CREATE TABLE IF NOT EXISTS `BerryFlavorDetailBerryFlavorBerryMap` (
   `berryFlavorDetail` long NOT NULL
-  `berryFlavorDetailBerriesInner` long NOT NULL
+  `berryFlavorBerryMap` long NOT NULL
 );
 
 -- --------------------------------------------------------------------------
@@ -263,22 +243,12 @@ CREATE TABLE IF NOT EXISTS `BerryFlavorDetailBerryFlavorName` (
 
 
 -- --------------------------------------------------------------------------
--- Table structure for table `BerryFlavorDetail_berries_inner` generated from model 'berryFlavorDetailBerriesInner'
+-- Table structure for table `BerryFlavorMap` generated from model 'berryFlavorMap'
 --
 
-CREATE TABLE IF NOT EXISTS `BerryFlavorDetail_berries_inner` (
-  `potency` int NOT NULL,
-  `berry` long NOT NULL
-); 
-
-
--- --------------------------------------------------------------------------
--- Table structure for table `BerryFlavorDetail_berries_inner_berry` generated from model 'berryFlavorDetailBerriesInnerBerry'
---
-
-CREATE TABLE IF NOT EXISTS `BerryFlavorDetail_berries_inner_berry` (
-  `name` text /*The name of the berry*/,
-  `url` text /*The URL to get more information about the berry*/
+CREATE TABLE IF NOT EXISTS `BerryFlavorMap` (
+  `potency` int NOT NULL /*How powerful the referenced flavor is for this berry.*/,
+  `flavor` long NOT NULL /*The referenced berry flavor.*/
 ); 
 
 
@@ -287,8 +257,8 @@ CREATE TABLE IF NOT EXISTS `BerryFlavorDetail_berries_inner_berry` (
 --
 
 CREATE TABLE IF NOT EXISTS `BerryFlavorName` (
-  `name` text NOT NULL,
-  `language` long NOT NULL
+  `name` text NOT NULL /*The localized name for an API resource in a specific language.*/,
+  `language` long NOT NULL /*The language this name is in.*/
 ); 
 
 
@@ -297,8 +267,8 @@ CREATE TABLE IF NOT EXISTS `BerryFlavorName` (
 --
 
 CREATE TABLE IF NOT EXISTS `BerryFlavorSummary` (
-  `name` text NOT NULL,
-  `url` text NOT NULL
+  `name` text NOT NULL /*The name of the referenced resource.*/,
+  `url` text NOT NULL /*The URL of the referenced resource.*/
 ); 
 
 
@@ -307,8 +277,8 @@ CREATE TABLE IF NOT EXISTS `BerryFlavorSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `BerrySummary` (
-  `name` text NOT NULL,
-  `url` text NOT NULL
+  `name` text NOT NULL /*The name of the referenced resource.*/,
+  `url` text NOT NULL /*The URL of the referenced resource.*/
 ); 
 
 
@@ -317,8 +287,8 @@ CREATE TABLE IF NOT EXISTS `BerrySummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `CharacteristicDescription` (
-  `language` long NOT NULL,
-  `description` text
+  `language` long NOT NULL /*The language this name is in.*/,
+  `description` text /*The localized description for an API resource in a specific language.*/
 ); 
 
 
@@ -327,9 +297,9 @@ CREATE TABLE IF NOT EXISTS `CharacteristicDescription` (
 --
 
 CREATE TABLE IF NOT EXISTS `CharacteristicDetail` (
-  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT,
-  `gene_modulo` int NOT NULL,
-  `highest_stat` long NOT NULL,
+  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT /*The identifier for this resource.*/,
+  `gene_modulo` int NOT NULL /*The remainder of the highest stat/IV divided by 5.*/,
+  `highest_stat` long NOT NULL /*The stat which results in this characteristic.*/,
 ); 
 
 -- --------------------------------------------------------------------------
@@ -354,7 +324,7 @@ CREATE TABLE IF NOT EXISTS `CharacteristicDetailCharacteristicDescription` (
 --
 
 CREATE TABLE IF NOT EXISTS `CharacteristicSummary` (
-  `url` text NOT NULL
+  `url` text NOT NULL /*The URL of the referenced resource.*/
 ); 
 
 
@@ -363,9 +333,9 @@ CREATE TABLE IF NOT EXISTS `CharacteristicSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `ContestEffectDetail` (
-  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT,
-  `appeal` int NOT NULL,
-  `jam` int NOT NULL,
+  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT /*The identifier for this resource.*/,
+  `appeal` int NOT NULL /*The base number of hearts the user of this move gets.*/,
+  `jam` int NOT NULL /*The base number of hearts the user&#39;s opponent loses.*/,
 ); 
 
 -- --------------------------------------------------------------------------
@@ -390,8 +360,8 @@ CREATE TABLE IF NOT EXISTS `ContestEffectDetailContestEffectFlavorText` (
 --
 
 CREATE TABLE IF NOT EXISTS `ContestEffectEffectText` (
-  `effect` text NOT NULL,
-  `language` long NOT NULL
+  `effect` text NOT NULL /*The localized effect text for an API resource in a specific language.*/,
+  `language` long NOT NULL /*The language this effect is in.*/
 ); 
 
 
@@ -400,8 +370,8 @@ CREATE TABLE IF NOT EXISTS `ContestEffectEffectText` (
 --
 
 CREATE TABLE IF NOT EXISTS `ContestEffectFlavorText` (
-  `flavor_text` text NOT NULL,
-  `language` long NOT NULL
+  `flavor_text` text NOT NULL /*The localized flavor text for an API resource in a specific language.*/,
+  `language` long NOT NULL /*The language this name is in.*/
 ); 
 
 
@@ -410,7 +380,7 @@ CREATE TABLE IF NOT EXISTS `ContestEffectFlavorText` (
 --
 
 CREATE TABLE IF NOT EXISTS `ContestEffectSummary` (
-  `url` text NOT NULL
+  `url` text NOT NULL /*The URL of the referenced resource.*/
 ); 
 
 
@@ -419,9 +389,9 @@ CREATE TABLE IF NOT EXISTS `ContestEffectSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `ContestTypeDetail` (
-  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT,
-  `name` text NOT NULL,
-  `berry_flavor` long NOT NULL,
+  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT /*The identifier for this resource.*/,
+  `name` text NOT NULL /*The name for this resource.*/,
+  `berry_flavor` long NOT NULL /*The berry flavor that correlates with this contest type.*/,
 ); 
 
 -- --------------------------------------------------------------------------
@@ -438,9 +408,9 @@ CREATE TABLE IF NOT EXISTS `ContestTypeDetailContestTypeName` (
 --
 
 CREATE TABLE IF NOT EXISTS `ContestTypeName` (
-  `name` text NOT NULL,
-  `color` text NOT NULL,
-  `language` long NOT NULL
+  `name` text NOT NULL /*The name for this contest.*/,
+  `color` text NOT NULL /*The color associated with this contest&#39;s name.*/,
+  `language` long NOT NULL /*The language that this name is in.*/
 ); 
 
 
@@ -449,8 +419,46 @@ CREATE TABLE IF NOT EXISTS `ContestTypeName` (
 --
 
 CREATE TABLE IF NOT EXISTS `ContestTypeSummary` (
-  `name` text NOT NULL,
-  `url` text NOT NULL
+  `name` text NOT NULL /*The name of the referenced resource.*/,
+  `url` text NOT NULL /*The URL of the referenced resource.*/
+); 
+
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `CurrencyDetail` generated from model 'currencyDetail'
+--
+
+CREATE TABLE IF NOT EXISTS `CurrencyDetail` (
+  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT /*The identifier for this resource.*/,
+  `name` text NOT NULL /*The name for this resource.*/,
+); 
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `CurrencyDetailCurrencyName` generated from model 'CurrencyDetailCurrencyName'
+
+CREATE TABLE IF NOT EXISTS `CurrencyDetailCurrencyName` (
+  `currencyDetail` long NOT NULL
+  `currencyName` long NOT NULL
+);
+
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `CurrencyName` generated from model 'currencyName'
+--
+
+CREATE TABLE IF NOT EXISTS `CurrencyName` (
+  `name` text NOT NULL /*The localized name for an API resource in a specific language.*/,
+  `language` long NOT NULL /*The language this name is in.*/
+); 
+
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `CurrencySummary` generated from model 'currencySummary'
+--
+
+CREATE TABLE IF NOT EXISTS `CurrencySummary` (
+  `name` text NOT NULL /*The name of the referenced resource.*/,
+  `url` text NOT NULL /*The URL of the referenced resource.*/
 ); 
 
 
@@ -459,8 +467,8 @@ CREATE TABLE IF NOT EXISTS `ContestTypeSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `EggGroupDetail` (
-  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT,
-  `name` text NOT NULL,
+  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT /*The identifier for this resource.*/,
+  `name` text NOT NULL /*The name for this resource.*/,
 ); 
 
 -- --------------------------------------------------------------------------
@@ -472,22 +480,12 @@ CREATE TABLE IF NOT EXISTS `EggGroupDetailEggGroupName` (
 );
 
 -- --------------------------------------------------------------------------
--- Table structure for table `EggGroupDetailEggGroupDetailPokemonSpeciesInner` generated from model 'EggGroupDetailEggGroupDetailPokemonSpeciesInner'
+-- Table structure for table `EggGroupDetailPokemonSpeciesSummary` generated from model 'EggGroupDetailPokemonSpeciesSummary'
 
-CREATE TABLE IF NOT EXISTS `EggGroupDetailEggGroupDetailPokemonSpeciesInner` (
+CREATE TABLE IF NOT EXISTS `EggGroupDetailPokemonSpeciesSummary` (
   `eggGroupDetail` long NOT NULL
-  `eggGroupDetailPokemonSpeciesInner` long NOT NULL
+  `pokemonSpeciesSummary` long NOT NULL
 );
-
-
--- --------------------------------------------------------------------------
--- Table structure for table `EggGroupDetail_pokemon_species_inner` generated from model 'eggGroupDetailPokemonSpeciesInner'
---
-
-CREATE TABLE IF NOT EXISTS `EggGroupDetail_pokemon_species_inner` (
-  `name` text /*Pokemon species name.*/,
-  `url` text /*The URL to get more information about the species*/
-); 
 
 
 -- --------------------------------------------------------------------------
@@ -495,8 +493,8 @@ CREATE TABLE IF NOT EXISTS `EggGroupDetail_pokemon_species_inner` (
 --
 
 CREATE TABLE IF NOT EXISTS `EggGroupName` (
-  `name` text NOT NULL,
-  `language` long NOT NULL
+  `name` text NOT NULL /*The localized name for an API resource in a specific language.*/,
+  `language` long NOT NULL /*The language this name is in.*/
 ); 
 
 
@@ -505,8 +503,8 @@ CREATE TABLE IF NOT EXISTS `EggGroupName` (
 --
 
 CREATE TABLE IF NOT EXISTS `EggGroupSummary` (
-  `name` text NOT NULL,
-  `url` text NOT NULL
+  `name` text NOT NULL /*The name of the referenced resource.*/,
+  `url` text NOT NULL /*The URL of the referenced resource.*/
 ); 
 
 
@@ -515,8 +513,8 @@ CREATE TABLE IF NOT EXISTS `EggGroupSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `EncounterConditionDetail` (
-  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT,
-  `name` text NOT NULL,
+  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT /*The identifier for this resource.*/,
+  `name` text NOT NULL /*The name for this resource.*/,
 ); 
 
 -- --------------------------------------------------------------------------
@@ -541,8 +539,8 @@ CREATE TABLE IF NOT EXISTS `EncounterConditionDetailEncounterConditionName` (
 --
 
 CREATE TABLE IF NOT EXISTS `EncounterConditionName` (
-  `name` text NOT NULL,
-  `language` long NOT NULL
+  `name` text NOT NULL /*The localized name for an API resource in a specific language.*/,
+  `language` long NOT NULL /*The language this name is in.*/
 ); 
 
 
@@ -551,8 +549,8 @@ CREATE TABLE IF NOT EXISTS `EncounterConditionName` (
 --
 
 CREATE TABLE IF NOT EXISTS `EncounterConditionSummary` (
-  `name` text NOT NULL,
-  `url` text NOT NULL
+  `name` text NOT NULL /*The name of the referenced resource.*/,
+  `url` text NOT NULL /*The URL of the referenced resource.*/
 ); 
 
 
@@ -561,9 +559,9 @@ CREATE TABLE IF NOT EXISTS `EncounterConditionSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `EncounterConditionValueDetail` (
-  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT,
-  `name` text NOT NULL,
-  `condition` long NOT NULL,
+  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT /*The identifier for this resource.*/,
+  `name` text NOT NULL /*The name for this resource.*/,
+  `condition` long NOT NULL /*The condition this encounter condition value pertains to.*/,
 ); 
 
 -- --------------------------------------------------------------------------
@@ -580,8 +578,8 @@ CREATE TABLE IF NOT EXISTS `EncounterConditionValueDetailEncounterConditionValue
 --
 
 CREATE TABLE IF NOT EXISTS `EncounterConditionValueName` (
-  `name` text NOT NULL,
-  `language` long NOT NULL
+  `name` text NOT NULL /*The localized name for an API resource in a specific language.*/,
+  `language` long NOT NULL /*The language this name is in.*/
 ); 
 
 
@@ -590,8 +588,8 @@ CREATE TABLE IF NOT EXISTS `EncounterConditionValueName` (
 --
 
 CREATE TABLE IF NOT EXISTS `EncounterConditionValueSummary` (
-  `name` text NOT NULL,
-  `url` text NOT NULL
+  `name` text NOT NULL /*The name of the referenced resource.*/,
+  `url` text NOT NULL /*The URL of the referenced resource.*/
 ); 
 
 
@@ -600,9 +598,9 @@ CREATE TABLE IF NOT EXISTS `EncounterConditionValueSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `EncounterMethodDetail` (
-  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT,
-  `name` text NOT NULL,
-  `order` int
+  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT /*The identifier for this resource.*/,
+  `name` text NOT NULL /*The name for this resource.*/,
+  `order` int /*A good value for sorting.*/
 ); 
 
 -- --------------------------------------------------------------------------
@@ -619,8 +617,8 @@ CREATE TABLE IF NOT EXISTS `EncounterMethodDetailEncounterMethodName` (
 --
 
 CREATE TABLE IF NOT EXISTS `EncounterMethodName` (
-  `name` text NOT NULL,
-  `language` long NOT NULL
+  `name` text NOT NULL /*The localized name for an API resource in a specific language.*/,
+  `language` long NOT NULL /*The language this name is in.*/
 ); 
 
 
@@ -629,8 +627,20 @@ CREATE TABLE IF NOT EXISTS `EncounterMethodName` (
 --
 
 CREATE TABLE IF NOT EXISTS `EncounterMethodSummary` (
-  `name` text NOT NULL,
-  `url` text NOT NULL
+  `name` text NOT NULL /*The name of the referenced resource.*/,
+  `url` text NOT NULL /*The URL of the referenced resource.*/
+); 
+
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `EncounterPokemonDetail` generated from model 'encounterPokemonDetail'
+--
+
+CREATE TABLE IF NOT EXISTS `EncounterPokemonDetail` (
+  `min_perfect_ivs` int /*The minimum number of perfect IVs, or null if unspecified.*/,
+  `always_shiny` boolean /*Whether the encountered Pokémon is always shiny.*/,
+  `never_shiny` boolean /*Whether the encountered Pokémon can never be shiny.*/,
+  `is_alpha` boolean /*Whether the encountered Pokémon is an alpha Pokémon.*/
 ); 
 
 
@@ -639,90 +649,36 @@ CREATE TABLE IF NOT EXISTS `EncounterMethodSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `EvolutionChainDetail` (
-  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT,
-  `baby_trigger_item` long NOT NULL,
-  `chain` long NOT NULL
+  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT /*The identifier for this resource.*/,
+  `baby_trigger_item` long NOT NULL /*The item that a Pokémon would be holding when mating that would trigger the egg hatching a baby Pokémon rather than a basic Pokémon.*/,
+  `chain` long NOT NULL /*The base chain link object. Each link contains evolution details for a Pokémon in the chain. Each link references the next Pokémon in the natural evolution order.*/
 ); 
 
 
 -- --------------------------------------------------------------------------
--- Table structure for table `EvolutionChainDetail_chain` generated from model 'evolutionChainDetailChain'
+-- Table structure for table `EvolutionChainLink` generated from model 'evolutionChainLink'
 --
 
-CREATE TABLE IF NOT EXISTS `EvolutionChainDetail_chain` (
-  `is_baby` boolean NOT NULL,
-  `species` long NOT NULL
+CREATE TABLE IF NOT EXISTS `EvolutionChainLink` (
+  `is_baby` boolean NOT NULL /*Whether or not this link is for a baby Pokémon. This would only ever be true on the base link.*/,
+  `species` long NOT NULL /*The Pokémon species at this point in the evolution chain.*/,
 ); 
 
 -- --------------------------------------------------------------------------
--- Table structure for table `EvolutionChainDetailChainEvolutionDetails` generated from model 'EvolutionChainDetailChainEvolutionDetails'
+-- Table structure for table `EvolutionChainLinkPokemonEvolution` generated from model 'EvolutionChainLinkPokemonEvolution'
 
-CREATE TABLE IF NOT EXISTS `EvolutionChainDetailChainEvolutionDetails` (
-  `evolutionChainDetailChain` long NOT NULL
-  `evolutionDetails` blob NOT NULL
+CREATE TABLE IF NOT EXISTS `EvolutionChainLinkPokemonEvolution` (
+  `evolutionChainLink` long NOT NULL
+  `pokemonEvolution` long NOT NULL
 );
 
 -- --------------------------------------------------------------------------
--- Table structure for table `EvolutionChainDetailChainEvolutionChainDetailChainEvolvesToInner` generated from model 'EvolutionChainDetailChainEvolutionChainDetailChainEvolvesToInner'
+-- Table structure for table `EvolutionChainLinkEvolutionChainLink` generated from model 'EvolutionChainLinkEvolutionChainLink'
 
-CREATE TABLE IF NOT EXISTS `EvolutionChainDetailChainEvolutionChainDetailChainEvolvesToInner` (
-  `evolutionChainDetailChain` long NOT NULL
-  `evolutionChainDetailChainEvolvesToInner` long NOT NULL
+CREATE TABLE IF NOT EXISTS `EvolutionChainLinkEvolutionChainLink` (
+  `evolutionChainLink` long NOT NULL
+  `evolutionChainLink` long NOT NULL
 );
-
-
--- --------------------------------------------------------------------------
--- Table structure for table `EvolutionChainDetail_chain_evolves_to_inner` generated from model 'evolutionChainDetailChainEvolvesToInner'
---
-
-CREATE TABLE IF NOT EXISTS `EvolutionChainDetail_chain_evolves_to_inner` (
-  `is_baby` boolean NOT NULL,
-  `species` long NOT NULL
-); 
-
--- --------------------------------------------------------------------------
--- Table structure for table `EvolutionChainDetailChainEvolvesToInnerEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner` generated from model 'EvolutionChainDetailChainEvolvesToInnerEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner'
-
-CREATE TABLE IF NOT EXISTS `EvolutionChainDetailChainEvolvesToInnerEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner` (
-  `evolutionChainDetailChainEvolvesToInner` long NOT NULL
-  `evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner` long NOT NULL
-);
-
-
--- --------------------------------------------------------------------------
--- Table structure for table `EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner` generated from model 'evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner'
---
-
-CREATE TABLE IF NOT EXISTS `EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner` (
-  `gender` long NOT NULL,
-  `held_item` long NOT NULL,
-  `item` long NOT NULL,
-  `known_move` long NOT NULL,
-  `known_move_type` long NOT NULL,
-  `location` long NOT NULL,
-  `min_affection` int NOT NULL,
-  `min_beauty` int NOT NULL,
-  `min_happiness` int NOT NULL,
-  `min_level` int NOT NULL,
-  `needs_overworld_rain` boolean NOT NULL,
-  `party_species` text NOT NULL,
-  `party_type` text NOT NULL,
-  `relative_physical_stats` text NOT NULL,
-  `time_of_day` text NOT NULL,
-  `trade_species` text NOT NULL,
-  `trigger` long NOT NULL,
-  `turn_upside_down` boolean NOT NULL
-); 
-
-
--- --------------------------------------------------------------------------
--- Table structure for table `EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender` generated from model 'evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender'
---
-
-CREATE TABLE IF NOT EXISTS `EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender` (
-  `name` text NOT NULL,
-  `url` text NOT NULL
-); 
 
 
 -- --------------------------------------------------------------------------
@@ -730,8 +686,26 @@ CREATE TABLE IF NOT EXISTS `EvolutionChainDetail_chain_evolves_to_inner_evolutio
 --
 
 CREATE TABLE IF NOT EXISTS `EvolutionChainSummary` (
-  `url` text NOT NULL
+  `url` text NOT NULL /*The URL of the referenced resource.*/
 ); 
+
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `EvolutionConditionExpression` generated from model 'evolutionConditionExpression'
+--
+
+CREATE TABLE IF NOT EXISTS `EvolutionConditionExpression` (
+  `expression` text NOT NULL /*Evaluatable RPN condition expression using evolution variables (e.g. &#39;EC 100 % 0 &#x3D;&#x3D;&#39;)*/,
+  `percentage_chance` double NOT NULL /*Percentage chance of evolution under this condition (0-100)*/,
+); 
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `EvolutionConditionExpressionEvolutionVariableSummary` generated from model 'EvolutionConditionExpressionEvolutionVariableSummary'
+
+CREATE TABLE IF NOT EXISTS `EvolutionConditionExpressionEvolutionVariableSummary` (
+  `evolutionConditionExpression` long NOT NULL
+  `evolutionVariableSummary` long NOT NULL
+);
 
 
 -- --------------------------------------------------------------------------
@@ -739,8 +713,8 @@ CREATE TABLE IF NOT EXISTS `EvolutionChainSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `EvolutionTriggerDetail` (
-  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT,
-  `name` text NOT NULL,
+  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT /*The identifier for this resource.*/,
+  `name` text NOT NULL /*The name for this resource.*/,
 ); 
 
 -- --------------------------------------------------------------------------
@@ -752,11 +726,11 @@ CREATE TABLE IF NOT EXISTS `EvolutionTriggerDetailEvolutionTriggerName` (
 );
 
 -- --------------------------------------------------------------------------
--- Table structure for table `EvolutionTriggerDetailAbilityDetailPokemonInnerPokemon` generated from model 'EvolutionTriggerDetailAbilityDetailPokemonInnerPokemon'
+-- Table structure for table `EvolutionTriggerDetailPokemonSpeciesSummary` generated from model 'EvolutionTriggerDetailPokemonSpeciesSummary'
 
-CREATE TABLE IF NOT EXISTS `EvolutionTriggerDetailAbilityDetailPokemonInnerPokemon` (
+CREATE TABLE IF NOT EXISTS `EvolutionTriggerDetailPokemonSpeciesSummary` (
   `evolutionTriggerDetail` long NOT NULL
-  `abilityDetailPokemonInnerPokemon` long NOT NULL
+  `pokemonSpeciesSummary` long NOT NULL
 );
 
 
@@ -765,8 +739,8 @@ CREATE TABLE IF NOT EXISTS `EvolutionTriggerDetailAbilityDetailPokemonInnerPokem
 --
 
 CREATE TABLE IF NOT EXISTS `EvolutionTriggerName` (
-  `name` text NOT NULL,
-  `language` long NOT NULL
+  `name` text NOT NULL /*The localized name for an API resource in a specific language.*/,
+  `language` long NOT NULL /*The language this name is in.*/
 ); 
 
 
@@ -775,8 +749,68 @@ CREATE TABLE IF NOT EXISTS `EvolutionTriggerName` (
 --
 
 CREATE TABLE IF NOT EXISTS `EvolutionTriggerSummary` (
-  `name` text NOT NULL,
-  `url` text NOT NULL
+  `name` text NOT NULL /*The name of the referenced resource.*/,
+  `url` text NOT NULL /*The URL of the referenced resource.*/
+); 
+
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `EvolutionVariableDescription` generated from model 'evolutionVariableDescription'
+--
+
+CREATE TABLE IF NOT EXISTS `EvolutionVariableDescription` (
+  `language` long NOT NULL /*The language this name is in.*/,
+  `description` text /*The localized description for an API resource in a specific language.*/
+); 
+
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `EvolutionVariableDetail` generated from model 'evolutionVariableDetail'
+--
+
+CREATE TABLE IF NOT EXISTS `EvolutionVariableDetail` (
+  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT /*The identifier for this resource.*/,
+  `name` text NOT NULL /*The name for this resource.*/,
+  `symbol` text NOT NULL /*The symbol used for this variable in evolution condition expressions.*/,
+  `version_group` long NOT NULL /*The version group in which this variable was introduced.*/,
+  `data_type` text /*The data type of this variable.*/,
+  `source` text /*The source of the variable value.*/
+); 
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `EvolutionVariableDetailEvolutionVariableName` generated from model 'EvolutionVariableDetailEvolutionVariableName'
+
+CREATE TABLE IF NOT EXISTS `EvolutionVariableDetailEvolutionVariableName` (
+  `evolutionVariableDetail` long NOT NULL
+  `evolutionVariableName` long NOT NULL
+);
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `EvolutionVariableDetailEvolutionVariableDescription` generated from model 'EvolutionVariableDetailEvolutionVariableDescription'
+
+CREATE TABLE IF NOT EXISTS `EvolutionVariableDetailEvolutionVariableDescription` (
+  `evolutionVariableDetail` long NOT NULL
+  `evolutionVariableDescription` long NOT NULL
+);
+
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `EvolutionVariableName` generated from model 'evolutionVariableName'
+--
+
+CREATE TABLE IF NOT EXISTS `EvolutionVariableName` (
+  `name` text NOT NULL /*The localized name for an API resource in a specific language.*/,
+  `language` long NOT NULL /*The language this name is in.*/
+); 
+
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `EvolutionVariableSummary` generated from model 'evolutionVariableSummary'
+--
+
+CREATE TABLE IF NOT EXISTS `EvolutionVariableSummary` (
+  `name` text NOT NULL /*The name of the referenced resource.*/,
+  `url` text NOT NULL /*The URL of the referenced resource.*/
 ); 
 
 
@@ -785,8 +819,8 @@ CREATE TABLE IF NOT EXISTS `EvolutionTriggerSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `Experience` (
-  `level` int NOT NULL,
-  `experience` int NOT NULL
+  `level` int NOT NULL /*The level gained.*/,
+  `experience` int NOT NULL /*The amount of experience required to reach the referenced level.*/
 ); 
 
 
@@ -795,34 +829,34 @@ CREATE TABLE IF NOT EXISTS `Experience` (
 --
 
 CREATE TABLE IF NOT EXISTS `GenderDetail` (
-  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT,
-  `name` text NOT NULL,
+  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT /*The identifier for this resource.*/,
+  `name` text NOT NULL /*The name for this resource.*/,
 ); 
 
 -- --------------------------------------------------------------------------
--- Table structure for table `GenderDetailGenderDetailPokemonSpeciesDetailsInner` generated from model 'GenderDetailGenderDetailPokemonSpeciesDetailsInner'
+-- Table structure for table `GenderDetailGenderPokemonSpecies` generated from model 'GenderDetailGenderPokemonSpecies'
 
-CREATE TABLE IF NOT EXISTS `GenderDetailGenderDetailPokemonSpeciesDetailsInner` (
+CREATE TABLE IF NOT EXISTS `GenderDetailGenderPokemonSpecies` (
   `genderDetail` long NOT NULL
-  `genderDetailPokemonSpeciesDetailsInner` long NOT NULL
+  `genderPokemonSpecies` long NOT NULL
 );
 
 -- --------------------------------------------------------------------------
--- Table structure for table `GenderDetailAbilityDetailPokemonInnerPokemon` generated from model 'GenderDetailAbilityDetailPokemonInnerPokemon'
+-- Table structure for table `GenderDetailPokemonSpeciesSummary` generated from model 'GenderDetailPokemonSpeciesSummary'
 
-CREATE TABLE IF NOT EXISTS `GenderDetailAbilityDetailPokemonInnerPokemon` (
+CREATE TABLE IF NOT EXISTS `GenderDetailPokemonSpeciesSummary` (
   `genderDetail` long NOT NULL
-  `abilityDetailPokemonInnerPokemon` long NOT NULL
+  `pokemonSpeciesSummary` long NOT NULL
 );
 
 
 -- --------------------------------------------------------------------------
--- Table structure for table `GenderDetail_pokemon_species_details_inner` generated from model 'genderDetailPokemonSpeciesDetailsInner'
+-- Table structure for table `GenderPokemonSpecies` generated from model 'genderPokemonSpecies'
 --
 
-CREATE TABLE IF NOT EXISTS `GenderDetail_pokemon_species_details_inner` (
-  `rate` int NOT NULL,
-  `pokemon_species` long NOT NULL
+CREATE TABLE IF NOT EXISTS `GenderPokemonSpecies` (
+  `rate` int NOT NULL /*The chance of this Pokémon being female, in eighths; or -1 for genderless.*/,
+  `pokemon_species` long NOT NULL /*A Pokémon species that can be the referenced gender.*/
 ); 
 
 
@@ -831,8 +865,8 @@ CREATE TABLE IF NOT EXISTS `GenderDetail_pokemon_species_details_inner` (
 --
 
 CREATE TABLE IF NOT EXISTS `GenderSummary` (
-  `name` text NOT NULL,
-  `url` text NOT NULL
+  `name` text NOT NULL /*The name of the referenced resource.*/,
+  `url` text NOT NULL /*The URL of the referenced resource.*/
 ); 
 
 
@@ -841,9 +875,9 @@ CREATE TABLE IF NOT EXISTS `GenderSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `GenerationDetail` (
-  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT,
-  `name` text NOT NULL,
-  `main_region` long NOT NULL,
+  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT /*The identifier for this resource.*/,
+  `name` text NOT NULL /*The name for this resource.*/,
+  `main_region` long NOT NULL /*The main region travelled in this generation.*/,
 ); 
 
 -- --------------------------------------------------------------------------
@@ -900,8 +934,8 @@ CREATE TABLE IF NOT EXISTS `GenerationDetailVersionGroupSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `GenerationName` (
-  `name` text NOT NULL,
-  `language` long NOT NULL
+  `name` text NOT NULL /*The localized name for an API resource in a specific language.*/,
+  `language` long NOT NULL /*The language this name is in.*/
 ); 
 
 
@@ -910,8 +944,8 @@ CREATE TABLE IF NOT EXISTS `GenerationName` (
 --
 
 CREATE TABLE IF NOT EXISTS `GenerationSummary` (
-  `name` text NOT NULL,
-  `url` text NOT NULL
+  `name` text NOT NULL /*The name of the referenced resource.*/,
+  `url` text NOT NULL /*The URL of the referenced resource.*/
 ); 
 
 
@@ -920,8 +954,8 @@ CREATE TABLE IF NOT EXISTS `GenerationSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `GrowthRateDescription` (
-  `language` long NOT NULL,
-  `description` text
+  `language` long NOT NULL /*The language this name is in.*/,
+  `description` text /*The localized description for an API resource in a specific language.*/
 ); 
 
 
@@ -930,9 +964,9 @@ CREATE TABLE IF NOT EXISTS `GrowthRateDescription` (
 --
 
 CREATE TABLE IF NOT EXISTS `GrowthRateDetail` (
-  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT,
-  `name` text NOT NULL,
-  `formula` text NOT NULL,
+  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT /*The identifier for this resource.*/,
+  `name` text NOT NULL /*The name for this resource.*/,
+  `formula` text NOT NULL /*The formula used to calculate the rate at which the Pokémon species gains level.*/,
 ); 
 
 -- --------------------------------------------------------------------------
@@ -965,8 +999,8 @@ CREATE TABLE IF NOT EXISTS `GrowthRateDetailPokemonSpeciesSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `GrowthRateSummary` (
-  `name` text NOT NULL,
-  `url` text NOT NULL
+  `name` text NOT NULL /*The name of the referenced resource.*/,
+  `url` text NOT NULL /*The URL of the referenced resource.*/
 ); 
 
 
@@ -975,8 +1009,8 @@ CREATE TABLE IF NOT EXISTS `GrowthRateSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `ItemAttributeDescription` (
-  `language` long NOT NULL,
-  `description` text
+  `language` long NOT NULL /*The language this name is in.*/,
+  `description` text /*The localized description for an API resource in a specific language.*/
 ); 
 
 
@@ -985,8 +1019,8 @@ CREATE TABLE IF NOT EXISTS `ItemAttributeDescription` (
 --
 
 CREATE TABLE IF NOT EXISTS `ItemAttributeDetail` (
-  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT,
-  `name` text NOT NULL,
+  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT /*The identifier for this resource.*/,
+  `name` text NOT NULL /*The name for this resource.*/,
 ); 
 
 -- --------------------------------------------------------------------------
@@ -998,11 +1032,11 @@ CREATE TABLE IF NOT EXISTS `ItemAttributeDetailItemAttributeDescription` (
 );
 
 -- --------------------------------------------------------------------------
--- Table structure for table `ItemAttributeDetailAbilityDetailPokemonInnerPokemon` generated from model 'ItemAttributeDetailAbilityDetailPokemonInnerPokemon'
+-- Table structure for table `ItemAttributeDetailItemSummary` generated from model 'ItemAttributeDetailItemSummary'
 
-CREATE TABLE IF NOT EXISTS `ItemAttributeDetailAbilityDetailPokemonInnerPokemon` (
+CREATE TABLE IF NOT EXISTS `ItemAttributeDetailItemSummary` (
   `itemAttributeDetail` long NOT NULL
-  `abilityDetailPokemonInnerPokemon` long NOT NULL
+  `itemSummary` long NOT NULL
 );
 
 -- --------------------------------------------------------------------------
@@ -1019,8 +1053,8 @@ CREATE TABLE IF NOT EXISTS `ItemAttributeDetailItemAttributeName` (
 --
 
 CREATE TABLE IF NOT EXISTS `ItemAttributeName` (
-  `name` text NOT NULL,
-  `language` long NOT NULL
+  `name` text NOT NULL /*The localized name for an API resource in a specific language.*/,
+  `language` long NOT NULL /*The language this name is in.*/
 ); 
 
 
@@ -1029,8 +1063,8 @@ CREATE TABLE IF NOT EXISTS `ItemAttributeName` (
 --
 
 CREATE TABLE IF NOT EXISTS `ItemAttributeSummary` (
-  `name` text NOT NULL,
-  `url` text NOT NULL
+  `name` text NOT NULL /*The name of the referenced resource.*/,
+  `url` text NOT NULL /*The URL of the referenced resource.*/
 ); 
 
 
@@ -1039,9 +1073,9 @@ CREATE TABLE IF NOT EXISTS `ItemAttributeSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `ItemCategoryDetail` (
-  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT,
-  `name` text NOT NULL,
-  `pocket` long NOT NULL
+  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT /*The identifier for this resource.*/,
+  `name` text NOT NULL /*The name for this resource.*/,
+  `pocket` long NOT NULL /*The pocket items in this category would be put in.*/
 ); 
 
 -- --------------------------------------------------------------------------
@@ -1066,8 +1100,8 @@ CREATE TABLE IF NOT EXISTS `ItemCategoryDetailItemCategoryName` (
 --
 
 CREATE TABLE IF NOT EXISTS `ItemCategoryName` (
-  `name` text NOT NULL,
-  `language` long NOT NULL
+  `name` text NOT NULL /*The localized name for an API resource in a specific language.*/,
+  `language` long NOT NULL /*The language this name is in.*/
 ); 
 
 
@@ -1076,8 +1110,8 @@ CREATE TABLE IF NOT EXISTS `ItemCategoryName` (
 --
 
 CREATE TABLE IF NOT EXISTS `ItemCategorySummary` (
-  `name` text NOT NULL,
-  `url` text NOT NULL
+  `name` text NOT NULL /*The name of the referenced resource.*/,
+  `url` text NOT NULL /*The URL of the referenced resource.*/
 ); 
 
 
@@ -1086,22 +1120,21 @@ CREATE TABLE IF NOT EXISTS `ItemCategorySummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `ItemDetail` (
-  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT,
-  `name` text NOT NULL,
-  `fling_effect` long NOT NULL,
-  `category` long NOT NULL,
-  `sprites` long NOT NULL,
-  `baby_trigger_for` long NOT NULL,
-  `cost` int,
-  `fling_power` int
+  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT /*The identifier for this resource.*/,
+  `name` text NOT NULL /*The name for this resource.*/,
+  `fling_effect` long NOT NULL /*The effect of the move Fling when used with this item.*/,
+  `category` long NOT NULL /*The category of items this item falls into.*/,
+  `sprites` long NOT NULL /*A set of sprites used to depict this item in the game.*/,
+  `baby_trigger_for` long NOT NULL /*An evolution chain this item requires to produce a bay during mating.*/,
+  `fling_power` int /*The power of the move Fling when used with this item.*/
 ); 
 
 -- --------------------------------------------------------------------------
--- Table structure for table `ItemDetailAbilityDetailPokemonInnerPokemon` generated from model 'ItemDetailAbilityDetailPokemonInnerPokemon'
+-- Table structure for table `ItemDetailItemAttributeSummary` generated from model 'ItemDetailItemAttributeSummary'
 
-CREATE TABLE IF NOT EXISTS `ItemDetailAbilityDetailPokemonInnerPokemon` (
+CREATE TABLE IF NOT EXISTS `ItemDetailItemAttributeSummary` (
   `itemDetail` long NOT NULL
-  `abilityDetailPokemonInnerPokemon` long NOT NULL
+  `itemAttributeSummary` long NOT NULL
 );
 
 -- --------------------------------------------------------------------------
@@ -1129,6 +1162,14 @@ CREATE TABLE IF NOT EXISTS `ItemDetailItemGameIndex` (
 );
 
 -- --------------------------------------------------------------------------
+-- Table structure for table `ItemDetailItemPrice` generated from model 'ItemDetailItemPrice'
+
+CREATE TABLE IF NOT EXISTS `ItemDetailItemPrice` (
+  `itemDetail` long NOT NULL
+  `itemPrice` long NOT NULL
+);
+
+-- --------------------------------------------------------------------------
 -- Table structure for table `ItemDetailItemName` generated from model 'ItemDetailItemName'
 
 CREATE TABLE IF NOT EXISTS `ItemDetailItemName` (
@@ -1137,75 +1178,20 @@ CREATE TABLE IF NOT EXISTS `ItemDetailItemName` (
 );
 
 -- --------------------------------------------------------------------------
--- Table structure for table `ItemDetailItemDetailHeldByPokemonInner` generated from model 'ItemDetailItemDetailHeldByPokemonInner'
+-- Table structure for table `ItemDetailPokemonHeldItem` generated from model 'ItemDetailPokemonHeldItem'
 
-CREATE TABLE IF NOT EXISTS `ItemDetailItemDetailHeldByPokemonInner` (
+CREATE TABLE IF NOT EXISTS `ItemDetailPokemonHeldItem` (
   `itemDetail` long NOT NULL
-  `itemDetailHeldByPokemonInner` long NOT NULL
+  `pokemonHeldItem` long NOT NULL
 );
 
 -- --------------------------------------------------------------------------
--- Table structure for table `ItemDetailItemDetailMachinesInner` generated from model 'ItemDetailItemDetailMachinesInner'
+-- Table structure for table `ItemDetailItemMachine` generated from model 'ItemDetailItemMachine'
 
-CREATE TABLE IF NOT EXISTS `ItemDetailItemDetailMachinesInner` (
+CREATE TABLE IF NOT EXISTS `ItemDetailItemMachine` (
   `itemDetail` long NOT NULL
-  `itemDetailMachinesInner` long NOT NULL
+  `itemMachine` long NOT NULL
 );
-
-
--- --------------------------------------------------------------------------
--- Table structure for table `ItemDetail_baby_trigger_for` generated from model 'itemDetailBabyTriggerFor'
---
-
-CREATE TABLE IF NOT EXISTS `ItemDetail_baby_trigger_for` (
-  `url` text NOT NULL
-); 
-
-
--- --------------------------------------------------------------------------
--- Table structure for table `ItemDetail_held_by_pokemon_inner` generated from model 'itemDetailHeldByPokemonInner'
---
-
-CREATE TABLE IF NOT EXISTS `ItemDetail_held_by_pokemon_inner` (
-  `pokemon` long NOT NULL,
-); 
-
--- --------------------------------------------------------------------------
--- Table structure for table `ItemDetailHeldByPokemonInnerItemDetailHeldByPokemonInnerVersionDetailsInner` generated from model 'ItemDetailHeldByPokemonInnerItemDetailHeldByPokemonInnerVersionDetailsInner'
-
-CREATE TABLE IF NOT EXISTS `ItemDetailHeldByPokemonInnerItemDetailHeldByPokemonInnerVersionDetailsInner` (
-  `itemDetailHeldByPokemonInner` long NOT NULL
-  `itemDetailHeldByPokemonInnerVersionDetailsInner` long NOT NULL
-);
-
-
--- --------------------------------------------------------------------------
--- Table structure for table `ItemDetail_held_by_pokemon_inner_version_details_inner` generated from model 'itemDetailHeldByPokemonInnerVersionDetailsInner'
---
-
-CREATE TABLE IF NOT EXISTS `ItemDetail_held_by_pokemon_inner_version_details_inner` (
-  `rarity` int NOT NULL,
-  `version` long NOT NULL
-); 
-
-
--- --------------------------------------------------------------------------
--- Table structure for table `ItemDetail_machines_inner` generated from model 'itemDetailMachinesInner'
---
-
-CREATE TABLE IF NOT EXISTS `ItemDetail_machines_inner` (
-  `machine` text NOT NULL,
-  `version_group` long NOT NULL
-); 
-
-
--- --------------------------------------------------------------------------
--- Table structure for table `ItemDetail_sprites` generated from model 'itemDetailSprites'
---
-
-CREATE TABLE IF NOT EXISTS `ItemDetail_sprites` (
-  `default` text NOT NULL
-); 
 
 
 -- --------------------------------------------------------------------------
@@ -1213,9 +1199,9 @@ CREATE TABLE IF NOT EXISTS `ItemDetail_sprites` (
 --
 
 CREATE TABLE IF NOT EXISTS `ItemEffectText` (
-  `effect` text NOT NULL,
-  `short_effect` text NOT NULL,
-  `language` long NOT NULL
+  `effect` text NOT NULL /*The localized effect text for an API resource in a specific language.*/,
+  `short_effect` text NOT NULL /*The localized effect text in brief.*/,
+  `language` long NOT NULL /*The language this effect is in.*/
 ); 
 
 
@@ -1224,9 +1210,9 @@ CREATE TABLE IF NOT EXISTS `ItemEffectText` (
 --
 
 CREATE TABLE IF NOT EXISTS `ItemFlavorText` (
-  `text` text NOT NULL,
-  `version_group` long NOT NULL,
-  `language` long NOT NULL
+  `text` text NOT NULL /*The localized flavor text for an API resource in a specific language.*/,
+  `version_group` long NOT NULL /*The version group which uses this flavor text.*/,
+  `language` long NOT NULL /*The language this name is in.*/
 ); 
 
 
@@ -1235,8 +1221,8 @@ CREATE TABLE IF NOT EXISTS `ItemFlavorText` (
 --
 
 CREATE TABLE IF NOT EXISTS `ItemFlingEffectDetail` (
-  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT,
-  `name` text NOT NULL,
+  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT /*The identifier for this resource.*/,
+  `name` text NOT NULL /*The name for this resource.*/,
 ); 
 
 -- --------------------------------------------------------------------------
@@ -1261,8 +1247,8 @@ CREATE TABLE IF NOT EXISTS `ItemFlingEffectDetailItemSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `ItemFlingEffectEffectText` (
-  `effect` text NOT NULL,
-  `language` long NOT NULL
+  `effect` text NOT NULL /*The localized effect text for an API resource in a specific language.*/,
+  `language` long NOT NULL /*The language this effect is in.*/
 ); 
 
 
@@ -1271,8 +1257,8 @@ CREATE TABLE IF NOT EXISTS `ItemFlingEffectEffectText` (
 --
 
 CREATE TABLE IF NOT EXISTS `ItemFlingEffectSummary` (
-  `name` text NOT NULL,
-  `url` text NOT NULL
+  `name` text NOT NULL /*The name of the referenced resource.*/,
+  `url` text NOT NULL /*The URL of the referenced resource.*/
 ); 
 
 
@@ -1281,8 +1267,18 @@ CREATE TABLE IF NOT EXISTS `ItemFlingEffectSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `ItemGameIndex` (
-  `game_index` int NOT NULL,
-  `generation` long NOT NULL
+  `game_index` int NOT NULL /*The internal id of an API resource within game data.*/,
+  `generation` long NOT NULL /*The generation relevent to this game index.*/
+); 
+
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `ItemMachine` generated from model 'itemMachine'
+--
+
+CREATE TABLE IF NOT EXISTS `ItemMachine` (
+  `machine` long NOT NULL /*The machine that teaches a move from an item.*/,
+  `version_group` long NOT NULL /*The version group of this specific machine.*/
 ); 
 
 
@@ -1291,8 +1287,8 @@ CREATE TABLE IF NOT EXISTS `ItemGameIndex` (
 --
 
 CREATE TABLE IF NOT EXISTS `ItemName` (
-  `name` text NOT NULL,
-  `language` long NOT NULL
+  `name` text NOT NULL /*The localized name for an API resource in a specific language.*/,
+  `language` long NOT NULL /*The language this name is in.*/
 ); 
 
 
@@ -1301,8 +1297,8 @@ CREATE TABLE IF NOT EXISTS `ItemName` (
 --
 
 CREATE TABLE IF NOT EXISTS `ItemPocketDetail` (
-  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT,
-  `name` text NOT NULL,
+  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT /*The identifier for this resource.*/,
+  `name` text NOT NULL /*The name for this resource.*/,
 ); 
 
 -- --------------------------------------------------------------------------
@@ -1327,8 +1323,8 @@ CREATE TABLE IF NOT EXISTS `ItemPocketDetailItemPocketName` (
 --
 
 CREATE TABLE IF NOT EXISTS `ItemPocketName` (
-  `name` text NOT NULL,
-  `language` long NOT NULL
+  `name` text NOT NULL /*The localized name for an API resource in a specific language.*/,
+  `language` long NOT NULL /*The language this name is in.*/
 ); 
 
 
@@ -1337,8 +1333,29 @@ CREATE TABLE IF NOT EXISTS `ItemPocketName` (
 --
 
 CREATE TABLE IF NOT EXISTS `ItemPocketSummary` (
-  `name` text NOT NULL,
-  `url` text NOT NULL
+  `name` text NOT NULL /*The name of the referenced resource.*/,
+  `url` text NOT NULL /*The URL of the referenced resource.*/
+); 
+
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `ItemPrice` generated from model 'itemPrice'
+--
+
+CREATE TABLE IF NOT EXISTS `ItemPrice` (
+  `currency` long NOT NULL /*The currency used for this price.*/,
+  `version_group` long NOT NULL /*The version group to which this price applies.*/,
+  `purchase_price` int /*The purchase price in this currency and version group, or null if unavailable.*/,
+  `sell_price` int /*The sell price in this currency and version group, or null if unavailable.*/
+); 
+
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `ItemSprites` generated from model 'itemSprites'
+--
+
+CREATE TABLE IF NOT EXISTS `ItemSprites` (
+  `default` text NOT NULL /*The default depiction of this item.*/
 ); 
 
 
@@ -1347,8 +1364,8 @@ CREATE TABLE IF NOT EXISTS `ItemPocketSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `ItemSummary` (
-  `name` text NOT NULL,
-  `url` text NOT NULL
+  `name` text NOT NULL /*The name of the referenced resource.*/,
+  `url` text NOT NULL /*The URL of the referenced resource.*/
 ); 
 
 
@@ -1357,11 +1374,11 @@ CREATE TABLE IF NOT EXISTS `ItemSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `LanguageDetail` (
-  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT,
-  `name` text NOT NULL,
-  `iso639` text NOT NULL,
-  `iso3166` text NOT NULL,
-  `official` boolean
+  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT /*The identifier for this resource.*/,
+  `name` text NOT NULL /*The name for this resource.*/,
+  `iso639` text NOT NULL /*The two-letter ISO 639-1 language code. Multiple PokéAPI language records may share this code.*/,
+  `iso3166` text NOT NULL /*The two-letter ISO 3166-1 alpha-2 code of the country or region associated with this language record. Multiple PokéAPI language records may share this code.*/,
+  `official` boolean /*Whether or not the games are published in this language.*/
 ); 
 
 -- --------------------------------------------------------------------------
@@ -1378,8 +1395,8 @@ CREATE TABLE IF NOT EXISTS `LanguageDetailLanguageName` (
 --
 
 CREATE TABLE IF NOT EXISTS `LanguageName` (
-  `name` text NOT NULL,
-  `language` long NOT NULL
+  `name` text NOT NULL /*The localized name for an API resource in a specific language.*/,
+  `language` long NOT NULL /*The language this name is in.*/
 ); 
 
 
@@ -1388,8 +1405,8 @@ CREATE TABLE IF NOT EXISTS `LanguageName` (
 --
 
 CREATE TABLE IF NOT EXISTS `LanguageSummary` (
-  `name` text NOT NULL,
-  `url` text NOT NULL
+  `name` text NOT NULL /*The name of the referenced resource.*/,
+  `url` text NOT NULL /*The URL of the referenced resource.*/
 ); 
 
 
@@ -1398,18 +1415,18 @@ CREATE TABLE IF NOT EXISTS `LanguageSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `LocationAreaDetail` (
-  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT,
-  `name` text NOT NULL,
-  `game_index` int NOT NULL,
-  `location` long NOT NULL,
+  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT /*The identifier for this resource.*/,
+  `name` text NOT NULL /*The name for this resource.*/,
+  `game_index` int NOT NULL /*The internal id of an API resource within game data.*/,
+  `location` long NOT NULL /*The region this location area can be found in.*/,
 ); 
 
 -- --------------------------------------------------------------------------
--- Table structure for table `LocationAreaDetailLocationAreaDetailEncounterMethodRatesInner` generated from model 'LocationAreaDetailLocationAreaDetailEncounterMethodRatesInner'
+-- Table structure for table `LocationAreaDetailLocationAreaEncounterRate` generated from model 'LocationAreaDetailLocationAreaEncounterRate'
 
-CREATE TABLE IF NOT EXISTS `LocationAreaDetailLocationAreaDetailEncounterMethodRatesInner` (
+CREATE TABLE IF NOT EXISTS `LocationAreaDetailLocationAreaEncounterRate` (
   `locationAreaDetail` long NOT NULL
-  `locationAreaDetailEncounterMethodRatesInner` long NOT NULL
+  `locationAreaEncounterRate` long NOT NULL
 );
 
 -- --------------------------------------------------------------------------
@@ -1421,79 +1438,59 @@ CREATE TABLE IF NOT EXISTS `LocationAreaDetailLocationAreaName` (
 );
 
 -- --------------------------------------------------------------------------
--- Table structure for table `LocationAreaDetailLocationAreaDetailPokemonEncountersInner` generated from model 'LocationAreaDetailLocationAreaDetailPokemonEncountersInner'
+-- Table structure for table `LocationAreaDetailLocationAreaPokemonEncounter` generated from model 'LocationAreaDetailLocationAreaPokemonEncounter'
 
-CREATE TABLE IF NOT EXISTS `LocationAreaDetailLocationAreaDetailPokemonEncountersInner` (
+CREATE TABLE IF NOT EXISTS `LocationAreaDetailLocationAreaPokemonEncounter` (
   `locationAreaDetail` long NOT NULL
-  `locationAreaDetailPokemonEncountersInner` long NOT NULL
+  `locationAreaPokemonEncounter` long NOT NULL
 );
 
 
 -- --------------------------------------------------------------------------
--- Table structure for table `LocationAreaDetail_encounter_method_rates_inner` generated from model 'locationAreaDetailEncounterMethodRatesInner'
+-- Table structure for table `LocationAreaEncounterDetail` generated from model 'locationAreaEncounterDetail'
 --
 
-CREATE TABLE IF NOT EXISTS `LocationAreaDetail_encounter_method_rates_inner` (
-  `encounter_method` long NOT NULL,
+CREATE TABLE IF NOT EXISTS `LocationAreaEncounterDetail` (
+  `min_level` int NOT NULL /*The lowest level the Pokémon could be encountered at.*/,
+  `max_level` int NOT NULL /*The highest level the Pokémon could be encountered at.*/,
+  `pokemon_details` long NOT NULL /*Additional properties of the encountered Pokémon, or null if unspecified.*/,
+  `chance` int /*Percent chance that this encounter will occur.*/,
+  `method` long /*The method by which this encounter happens.*/
 ); 
 
 -- --------------------------------------------------------------------------
--- Table structure for table `LocationAreaDetailEncounterMethodRatesInnerLocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner` generated from model 'LocationAreaDetailEncounterMethodRatesInnerLocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner'
+-- Table structure for table `LocationAreaEncounterDetailEncounterConditionValueSummary` generated from model 'LocationAreaEncounterDetailEncounterConditionValueSummary'
 
-CREATE TABLE IF NOT EXISTS `LocationAreaDetailEncounterMethodRatesInnerLocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner` (
-  `locationAreaDetailEncounterMethodRatesInner` long NOT NULL
-  `locationAreaDetailEncounterMethodRatesInnerVersionDetailsInner` long NOT NULL
+CREATE TABLE IF NOT EXISTS `LocationAreaEncounterDetailEncounterConditionValueSummary` (
+  `locationAreaEncounterDetail` long NOT NULL
+  `encounterConditionValueSummary` long NOT NULL
 );
 
 
 -- --------------------------------------------------------------------------
--- Table structure for table `LocationAreaDetail_encounter_method_rates_inner_version_details_inner` generated from model 'locationAreaDetailEncounterMethodRatesInnerVersionDetailsInner'
+-- Table structure for table `LocationAreaEncounterRate` generated from model 'locationAreaEncounterRate'
 --
 
-CREATE TABLE IF NOT EXISTS `LocationAreaDetail_encounter_method_rates_inner_version_details_inner` (
-  `rate` int NOT NULL,
-  `version` long NOT NULL
-); 
-
-
--- --------------------------------------------------------------------------
--- Table structure for table `LocationAreaDetail_pokemon_encounters_inner` generated from model 'locationAreaDetailPokemonEncountersInner'
---
-
-CREATE TABLE IF NOT EXISTS `LocationAreaDetail_pokemon_encounters_inner` (
-  `pokemon` long NOT NULL,
+CREATE TABLE IF NOT EXISTS `LocationAreaEncounterRate` (
+  `encounter_method` long NOT NULL /*The method in which Pokémon may be encountered in an area..*/,
 ); 
 
 -- --------------------------------------------------------------------------
--- Table structure for table `LocationAreaDetailPokemonEncountersInnerLocationAreaDetailPokemonEncountersInnerVersionDetailsInner` generated from model 'LocationAreaDetailPokemonEncountersInnerLocationAreaDetailPokemonEncountersInnerVersionDetailsInner'
+-- Table structure for table `LocationAreaEncounterRateLocationAreaEncounterVersionDetail` generated from model 'LocationAreaEncounterRateLocationAreaEncounterVersionDetail'
 
-CREATE TABLE IF NOT EXISTS `LocationAreaDetailPokemonEncountersInnerLocationAreaDetailPokemonEncountersInnerVersionDetailsInner` (
-  `locationAreaDetailPokemonEncountersInner` long NOT NULL
-  `locationAreaDetailPokemonEncountersInnerVersionDetailsInner` long NOT NULL
+CREATE TABLE IF NOT EXISTS `LocationAreaEncounterRateLocationAreaEncounterVersionDetail` (
+  `locationAreaEncounterRate` long NOT NULL
+  `locationAreaEncounterVersionDetail` long NOT NULL
 );
 
 
 -- --------------------------------------------------------------------------
--- Table structure for table `LocationAreaDetail_pokemon_encounters_inner_version_details_inner` generated from model 'locationAreaDetailPokemonEncountersInnerVersionDetailsInner'
+-- Table structure for table `LocationAreaEncounterVersionDetail` generated from model 'locationAreaEncounterVersionDetail'
 --
 
-CREATE TABLE IF NOT EXISTS `LocationAreaDetail_pokemon_encounters_inner_version_details_inner` (
-  `version` long NOT NULL,
-  `max_chance` int NOT NULL,
-  `encounter_details` long NOT NULL
-); 
-
-
--- --------------------------------------------------------------------------
--- Table structure for table `LocationAreaDetail_pokemon_encounters_inner_version_details_inner_encounter_details` generated from model 'locationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails'
---
-
-CREATE TABLE IF NOT EXISTS `LocationAreaDetail_pokemon_encounters_inner_version_details_inner_encounter_details` (
-  `min_level` int NOT NULL,
-  `max_level` int NOT NULL,
-  `chance` int NOT NULL,
-  `method` long NOT NULL,
-  `condition_values` long
+CREATE TABLE IF NOT EXISTS `LocationAreaEncounterVersionDetail` (
+  `rate` int NOT NULL /*The chance of an encounter to occur.*/,
+  `version` long NOT NULL /*The version of the game in which the encounter can occur with the given chance.*/
 ); 
 
 
@@ -1502,9 +1499,44 @@ CREATE TABLE IF NOT EXISTS `LocationAreaDetail_pokemon_encounters_inner_version_
 --
 
 CREATE TABLE IF NOT EXISTS `LocationAreaName` (
-  `name` text NOT NULL,
-  `language` long NOT NULL
+  `name` text NOT NULL /*The localized name for an API resource in a specific language.*/,
+  `language` long NOT NULL /*The language this name is in.*/
 ); 
+
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `LocationAreaPokemonEncounter` generated from model 'locationAreaPokemonEncounter'
+--
+
+CREATE TABLE IF NOT EXISTS `LocationAreaPokemonEncounter` (
+  `pokemon` long NOT NULL /*The Pokémon being encountered.*/,
+); 
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `LocationAreaPokemonEncounterLocationAreaPokemonEncounterVersion` generated from model 'LocationAreaPokemonEncounterLocationAreaPokemonEncounterVersion'
+
+CREATE TABLE IF NOT EXISTS `LocationAreaPokemonEncounterLocationAreaPokemonEncounterVersion` (
+  `locationAreaPokemonEncounter` long NOT NULL
+  `locationAreaPokemonEncounterVersion` long NOT NULL
+);
+
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `LocationAreaPokemonEncounterVersion` generated from model 'locationAreaPokemonEncounterVersion'
+--
+
+CREATE TABLE IF NOT EXISTS `LocationAreaPokemonEncounterVersion` (
+  `version` long NOT NULL /*The game version this encounter happens in.*/,
+  `max_chance` int NOT NULL /*The total percentage of all encounter potential.*/,
+); 
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `LocationAreaPokemonEncounterVersionLocationAreaEncounterDetail` generated from model 'LocationAreaPokemonEncounterVersionLocationAreaEncounterDetail'
+
+CREATE TABLE IF NOT EXISTS `LocationAreaPokemonEncounterVersionLocationAreaEncounterDetail` (
+  `locationAreaPokemonEncounterVersion` long NOT NULL
+  `locationAreaEncounterDetail` long NOT NULL
+);
 
 
 -- --------------------------------------------------------------------------
@@ -1512,8 +1544,8 @@ CREATE TABLE IF NOT EXISTS `LocationAreaName` (
 --
 
 CREATE TABLE IF NOT EXISTS `LocationAreaSummary` (
-  `name` text NOT NULL,
-  `url` text NOT NULL
+  `name` text NOT NULL /*The name of the referenced resource.*/,
+  `url` text NOT NULL /*The URL of the referenced resource.*/
 ); 
 
 
@@ -1522,9 +1554,9 @@ CREATE TABLE IF NOT EXISTS `LocationAreaSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `LocationDetail` (
-  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT,
-  `name` text NOT NULL,
-  `region` long NOT NULL,
+  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT /*The identifier for this resource.*/,
+  `name` text NOT NULL /*The name for this resource.*/,
+  `region` long NOT NULL /*The region this location can be found in.*/,
 ); 
 
 -- --------------------------------------------------------------------------
@@ -1557,8 +1589,8 @@ CREATE TABLE IF NOT EXISTS `LocationDetailLocationAreaSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `LocationGameIndex` (
-  `game_index` int NOT NULL,
-  `generation` long NOT NULL
+  `game_index` int NOT NULL /*The internal id of an API resource within game data.*/,
+  `generation` long NOT NULL /*The generation relevent to this game index.*/
 ); 
 
 
@@ -1567,8 +1599,8 @@ CREATE TABLE IF NOT EXISTS `LocationGameIndex` (
 --
 
 CREATE TABLE IF NOT EXISTS `LocationName` (
-  `name` text NOT NULL,
-  `language` long NOT NULL
+  `name` text NOT NULL /*The localized name for an API resource in a specific language.*/,
+  `language` long NOT NULL /*The language this name is in.*/
 ); 
 
 
@@ -1577,8 +1609,8 @@ CREATE TABLE IF NOT EXISTS `LocationName` (
 --
 
 CREATE TABLE IF NOT EXISTS `LocationSummary` (
-  `name` text NOT NULL,
-  `url` text NOT NULL
+  `name` text NOT NULL /*The name of the referenced resource.*/,
+  `url` text NOT NULL /*The URL of the referenced resource.*/
 ); 
 
 
@@ -1587,10 +1619,10 @@ CREATE TABLE IF NOT EXISTS `LocationSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `MachineDetail` (
-  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT,
-  `item` long NOT NULL,
-  `version_group` long NOT NULL,
-  `move` long NOT NULL
+  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT /*The identifier for this resource.*/,
+  `item` long NOT NULL /*The TM or HM item that corresponds to this machine.*/,
+  `version_group` long NOT NULL /*The version group that this machine applies to.*/,
+  `move` long NOT NULL /*The move that is taught by this machine.*/
 ); 
 
 
@@ -1599,7 +1631,7 @@ CREATE TABLE IF NOT EXISTS `MachineDetail` (
 --
 
 CREATE TABLE IF NOT EXISTS `MachineSummary` (
-  `url` text NOT NULL
+  `url` text NOT NULL /*The URL of the referenced resource.*/
 ); 
 
 
@@ -1608,8 +1640,8 @@ CREATE TABLE IF NOT EXISTS `MachineSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `MoveBattleStyleDetail` (
-  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT,
-  `name` text NOT NULL,
+  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT /*The identifier for this resource.*/,
+  `name` text NOT NULL /*The name for this resource.*/,
 ); 
 
 -- --------------------------------------------------------------------------
@@ -1626,8 +1658,8 @@ CREATE TABLE IF NOT EXISTS `MoveBattleStyleDetailMoveBattleStyleName` (
 --
 
 CREATE TABLE IF NOT EXISTS `MoveBattleStyleName` (
-  `name` text NOT NULL,
-  `language` long NOT NULL
+  `name` text NOT NULL /*The localized name for an API resource in a specific language.*/,
+  `language` long NOT NULL /*The language this name is in.*/
 ); 
 
 
@@ -1636,8 +1668,8 @@ CREATE TABLE IF NOT EXISTS `MoveBattleStyleName` (
 --
 
 CREATE TABLE IF NOT EXISTS `MoveBattleStyleSummary` (
-  `name` text NOT NULL,
-  `url` text NOT NULL
+  `name` text NOT NULL /*The name of the referenced resource.*/,
+  `url` text NOT NULL /*The URL of the referenced resource.*/
 ); 
 
 
@@ -1646,31 +1678,54 @@ CREATE TABLE IF NOT EXISTS `MoveBattleStyleSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `MoveChange` (
-  `effect_chance` int NOT NULL,
-  `type` long NOT NULL,
-  `version_group` long NOT NULL,
-  `accuracy` int,
-  `power` int,
-  `pp` int
+  `effect_chance` int NOT NULL /*The percent value of how likely it is this moves effect will take effect.*/,
+  `type` long NOT NULL /*The elemental type of this move.*/,
+  `version_group` long NOT NULL /*The version group in which these move stat values were in effect.*/,
+  `accuracy` int /*The percent value of how likely this move is to be successful.*/,
+  `power` int /*The base power before the listed version group, or null if power did not change.*/,
+  `pp` int /*Power points. The number of times this move can be used.*/
 ); 
 
 -- --------------------------------------------------------------------------
--- Table structure for table `MoveChangeMoveChangeEffectEntriesInner` generated from model 'MoveChangeMoveChangeEffectEntriesInner'
+-- Table structure for table `MoveChangeMoveEffectEffectText` generated from model 'MoveChangeMoveEffectEffectText'
 
-CREATE TABLE IF NOT EXISTS `MoveChangeMoveChangeEffectEntriesInner` (
+CREATE TABLE IF NOT EXISTS `MoveChangeMoveEffectEffectText` (
   `moveChange` long NOT NULL
-  `moveChangeEffectEntriesInner` long NOT NULL
+  `moveEffectEffectText` long NOT NULL
 );
 
 
 -- --------------------------------------------------------------------------
--- Table structure for table `MoveChange_effect_entries_inner` generated from model 'moveChangeEffectEntriesInner'
+-- Table structure for table `MoveComboUsage` generated from model 'moveComboUsage'
 --
 
-CREATE TABLE IF NOT EXISTS `MoveChange_effect_entries_inner` (
-  `effect` text NOT NULL,
-  `short_effect` text NOT NULL,
-  `language` long NOT NULL
+CREATE TABLE IF NOT EXISTS `MoveComboUsage` (
+); 
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `MoveComboUsageMoveSummary` generated from model 'MoveComboUsageMoveSummary'
+
+CREATE TABLE IF NOT EXISTS `MoveComboUsageMoveSummary` (
+  `moveComboUsage` long NOT NULL
+  `moveSummary` long NOT NULL
+);
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `MoveComboUsageMoveSummary` generated from model 'MoveComboUsageMoveSummary'
+
+CREATE TABLE IF NOT EXISTS `MoveComboUsageMoveSummary` (
+  `moveComboUsage` long NOT NULL
+  `moveSummary` long NOT NULL
+);
+
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `MoveCombos` generated from model 'moveCombos'
+--
+
+CREATE TABLE IF NOT EXISTS `MoveCombos` (
+  `normal` long NOT NULL /*A detail of moves this move can be used before or after, granting additional appeal points in contests.*/,
+  `super` long NOT NULL /*A detail of moves this move can be used before or after, granting additional appeal points in super contests.*/
 ); 
 
 
@@ -1679,8 +1734,8 @@ CREATE TABLE IF NOT EXISTS `MoveChange_effect_entries_inner` (
 --
 
 CREATE TABLE IF NOT EXISTS `MoveDamageClassDescription` (
-  `language` long NOT NULL,
-  `description` text
+  `language` long NOT NULL /*The language this name is in.*/,
+  `description` text /*The localized description for an API resource in a specific language.*/
 ); 
 
 
@@ -1689,8 +1744,8 @@ CREATE TABLE IF NOT EXISTS `MoveDamageClassDescription` (
 --
 
 CREATE TABLE IF NOT EXISTS `MoveDamageClassDetail` (
-  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT,
-  `name` text NOT NULL,
+  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT /*The identifier for this resource.*/,
+  `name` text NOT NULL /*The name for this resource.*/,
 ); 
 
 -- --------------------------------------------------------------------------
@@ -1723,8 +1778,8 @@ CREATE TABLE IF NOT EXISTS `MoveDamageClassDetailMoveDamageClassName` (
 --
 
 CREATE TABLE IF NOT EXISTS `MoveDamageClassName` (
-  `name` text NOT NULL,
-  `language` long NOT NULL
+  `name` text NOT NULL /*The localized name for an API resource in a specific language.*/,
+  `language` long NOT NULL /*The language this name is in.*/
 ); 
 
 
@@ -1733,8 +1788,8 @@ CREATE TABLE IF NOT EXISTS `MoveDamageClassName` (
 --
 
 CREATE TABLE IF NOT EXISTS `MoveDamageClassSummary` (
-  `name` text NOT NULL,
-  `url` text NOT NULL
+  `name` text NOT NULL /*The name of the referenced resource.*/,
+  `url` text NOT NULL /*The URL of the referenced resource.*/
 ); 
 
 
@@ -1743,38 +1798,38 @@ CREATE TABLE IF NOT EXISTS `MoveDamageClassSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `MoveDetail` (
-  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT,
-  `name` text NOT NULL,
-  `effect_chance` int NOT NULL,
-  `contest_combos` long NOT NULL,
-  `contest_type` long NOT NULL,
-  `contest_effect` long NOT NULL,
-  `damage_class` long NOT NULL,
-  `generation` long NOT NULL,
-  `meta` long NOT NULL,
-  `super_contest_effect` long NOT NULL,
-  `target` long NOT NULL,
-  `type` long NOT NULL,
-  `accuracy` int,
-  `pp` int,
-  `priority` int,
-  `power` int
+  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT /*The identifier for this resource.*/,
+  `name` text NOT NULL /*The name for this resource.*/,
+  `effect_chance` int NOT NULL /*The percent value of how likely it is this moves effect will happen.*/,
+  `contest_combos` long NOT NULL /*A detail of normal and super contest combos that require this move.*/,
+  `contest_type` long NOT NULL /*The type of appeal this move gives a Pokémon when used in a contest.*/,
+  `contest_effect` long NOT NULL /*The effect the move has when used in a contest.*/,
+  `damage_class` long NOT NULL /*The type of damage the move inflicts on the target, e.g. physical.*/,
+  `generation` long NOT NULL /*The generation in which this move was introduced.*/,
+  `meta` long NOT NULL /*Metadata about this move*/,
+  `super_contest_effect` long NOT NULL /*The effect the move has when used in a super contest.*/,
+  `target` long NOT NULL /*The type of target that will receive the effects of the attack.*/,
+  `type` long NOT NULL /*The elemental type of this move.*/,
+  `accuracy` int /*The percent value of how likely this move is to be successful.*/,
+  `pp` int /*Power points. The number of times this move can be used.*/,
+  `priority` int /*A value between -8 and 8. Sets the order in which moves are executed during battle. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Priority) for greater detail.*/,
+  `power` int /*The base power of this move, or null if it has no fixed base power.*/
 ); 
 
 -- --------------------------------------------------------------------------
--- Table structure for table `MoveDetailMoveChangeEffectEntriesInner` generated from model 'MoveDetailMoveChangeEffectEntriesInner'
+-- Table structure for table `MoveDetailMoveEffectEffectText` generated from model 'MoveDetailMoveEffectEffectText'
 
-CREATE TABLE IF NOT EXISTS `MoveDetailMoveChangeEffectEntriesInner` (
+CREATE TABLE IF NOT EXISTS `MoveDetailMoveEffectEffectText` (
   `moveDetail` long NOT NULL
-  `moveChangeEffectEntriesInner` long NOT NULL
+  `moveEffectEffectText` long NOT NULL
 );
 
 -- --------------------------------------------------------------------------
--- Table structure for table `MoveDetailMoveDetailEffectChangesInner` generated from model 'MoveDetailMoveDetailEffectChangesInner'
+-- Table structure for table `MoveDetailMoveEffectChange` generated from model 'MoveDetailMoveEffectChange'
 
-CREATE TABLE IF NOT EXISTS `MoveDetailMoveDetailEffectChangesInner` (
+CREATE TABLE IF NOT EXISTS `MoveDetailMoveEffectChange` (
   `moveDetail` long NOT NULL
-  `moveDetailEffectChangesInner` long NOT NULL
+  `moveEffectChange` long NOT NULL
 );
 
 -- --------------------------------------------------------------------------
@@ -1794,19 +1849,19 @@ CREATE TABLE IF NOT EXISTS `MoveDetailMoveChange` (
 );
 
 -- --------------------------------------------------------------------------
--- Table structure for table `MoveDetailMoveDetailStatChangesInner` generated from model 'MoveDetailMoveDetailStatChangesInner'
+-- Table structure for table `MoveDetailMoveMetaStatChange` generated from model 'MoveDetailMoveMetaStatChange'
 
-CREATE TABLE IF NOT EXISTS `MoveDetailMoveDetailStatChangesInner` (
+CREATE TABLE IF NOT EXISTS `MoveDetailMoveMetaStatChange` (
   `moveDetail` long NOT NULL
-  `moveDetailStatChangesInner` long NOT NULL
+  `moveMetaStatChange` long NOT NULL
 );
 
 -- --------------------------------------------------------------------------
--- Table structure for table `MoveDetailMoveDetailMachinesInner` generated from model 'MoveDetailMoveDetailMachinesInner'
+-- Table structure for table `MoveDetailItemMachine` generated from model 'MoveDetailItemMachine'
 
-CREATE TABLE IF NOT EXISTS `MoveDetailMoveDetailMachinesInner` (
+CREATE TABLE IF NOT EXISTS `MoveDetailItemMachine` (
   `moveDetail` long NOT NULL
-  `moveDetailMachinesInner` long NOT NULL
+  `itemMachine` long NOT NULL
 );
 
 -- --------------------------------------------------------------------------
@@ -1818,101 +1873,49 @@ CREATE TABLE IF NOT EXISTS `MoveDetailMoveFlavorText` (
 );
 
 -- --------------------------------------------------------------------------
--- Table structure for table `MoveDetailAbilityDetailPokemonInnerPokemon` generated from model 'MoveDetailAbilityDetailPokemonInnerPokemon'
+-- Table structure for table `MoveDetailPokemonSummary` generated from model 'MoveDetailPokemonSummary'
 
-CREATE TABLE IF NOT EXISTS `MoveDetailAbilityDetailPokemonInnerPokemon` (
+CREATE TABLE IF NOT EXISTS `MoveDetailPokemonSummary` (
   `moveDetail` long NOT NULL
-  `abilityDetailPokemonInnerPokemon` long NOT NULL
+  `pokemonSummary` long NOT NULL
 );
 
 
 -- --------------------------------------------------------------------------
--- Table structure for table `MoveDetail_contest_combos` generated from model 'moveDetailContestCombos'
+-- Table structure for table `MoveEffectChange` generated from model 'moveEffectChange'
 --
 
-CREATE TABLE IF NOT EXISTS `MoveDetail_contest_combos` (
-  `normal` long NOT NULL,
-  `super` long NOT NULL
-); 
-
-
--- --------------------------------------------------------------------------
--- Table structure for table `MoveDetail_contest_combos_normal` generated from model 'moveDetailContestCombosNormal'
---
-
-CREATE TABLE IF NOT EXISTS `MoveDetail_contest_combos_normal` (
+CREATE TABLE IF NOT EXISTS `MoveEffectChange` (
+  `version_group` long NOT NULL /*The version group in which the previous effect of this ability originated.*/,
 ); 
 
 -- --------------------------------------------------------------------------
--- Table structure for table `MoveDetailContestCombosNormalAbilityDetailPokemonInnerPokemon` generated from model 'MoveDetailContestCombosNormalAbilityDetailPokemonInnerPokemon'
+-- Table structure for table `MoveEffectChangeMoveEffectChangeEffectText` generated from model 'MoveEffectChangeMoveEffectChangeEffectText'
 
-CREATE TABLE IF NOT EXISTS `MoveDetailContestCombosNormalAbilityDetailPokemonInnerPokemon` (
-  `moveDetailContestCombosNormal` long NOT NULL
-  `abilityDetailPokemonInnerPokemon` long NOT NULL
-);
-
--- --------------------------------------------------------------------------
--- Table structure for table `MoveDetailContestCombosNormalAbilityDetailPokemonInnerPokemon` generated from model 'MoveDetailContestCombosNormalAbilityDetailPokemonInnerPokemon'
-
-CREATE TABLE IF NOT EXISTS `MoveDetailContestCombosNormalAbilityDetailPokemonInnerPokemon` (
-  `moveDetailContestCombosNormal` long NOT NULL
-  `abilityDetailPokemonInnerPokemon` long NOT NULL
+CREATE TABLE IF NOT EXISTS `MoveEffectChangeMoveEffectChangeEffectText` (
+  `moveEffectChange` long NOT NULL
+  `moveEffectChangeEffectText` long NOT NULL
 );
 
 
 -- --------------------------------------------------------------------------
--- Table structure for table `MoveDetail_effect_changes_inner` generated from model 'moveDetailEffectChangesInner'
+-- Table structure for table `MoveEffectChangeEffectText` generated from model 'moveEffectChangeEffectText'
 --
 
-CREATE TABLE IF NOT EXISTS `MoveDetail_effect_changes_inner` (
-  `version_group` long NOT NULL
-); 
-
--- --------------------------------------------------------------------------
--- Table structure for table `MoveDetailEffectChangesInnerMoveDetailEffectChangesInnerEffectEntriesInner` generated from model 'MoveDetailEffectChangesInnerMoveDetailEffectChangesInnerEffectEntriesInner'
-
-CREATE TABLE IF NOT EXISTS `MoveDetailEffectChangesInnerMoveDetailEffectChangesInnerEffectEntriesInner` (
-  `moveDetailEffectChangesInner` long NOT NULL
-  `moveDetailEffectChangesInnerEffectEntriesInner` long NOT NULL
-);
-
-
--- --------------------------------------------------------------------------
--- Table structure for table `MoveDetail_effect_changes_inner_effect_entries_inner` generated from model 'moveDetailEffectChangesInnerEffectEntriesInner'
---
-
-CREATE TABLE IF NOT EXISTS `MoveDetail_effect_changes_inner_effect_entries_inner` (
-  `effect` text NOT NULL,
-  `language` long NOT NULL
+CREATE TABLE IF NOT EXISTS `MoveEffectChangeEffectText` (
+  `effect` text NOT NULL /*The localized effect text for an API resource in a specific language.*/,
+  `language` long NOT NULL /*The language this effect is in.*/
 ); 
 
 
 -- --------------------------------------------------------------------------
--- Table structure for table `MoveDetail_machines_inner` generated from model 'moveDetailMachinesInner'
+-- Table structure for table `MoveEffectEffectText` generated from model 'moveEffectEffectText'
 --
 
-CREATE TABLE IF NOT EXISTS `MoveDetail_machines_inner` (
-  `machine` long NOT NULL,
-  `version_group` long NOT NULL
-); 
-
-
--- --------------------------------------------------------------------------
--- Table structure for table `MoveDetail_machines_inner_machine` generated from model 'moveDetailMachinesInnerMachine'
---
-
-CREATE TABLE IF NOT EXISTS `MoveDetail_machines_inner_machine` (
-  `url` text NOT NULL
-); 
-
-
--- --------------------------------------------------------------------------
--- Table structure for table `MoveDetail_stat_changes_inner` generated from model 'moveDetailStatChangesInner'
---
-
-CREATE TABLE IF NOT EXISTS `MoveDetail_stat_changes_inner` (
-  `change` int NOT NULL,
-  `stat` long NOT NULL
+CREATE TABLE IF NOT EXISTS `MoveEffectEffectText` (
+  `effect` text NOT NULL /*The localized effect text for an API resource in a specific language.*/,
+  `short_effect` text NOT NULL /*The localized effect text in brief.*/,
+  `language` long NOT NULL /*The language this effect is in.*/
 ); 
 
 
@@ -1921,9 +1924,9 @@ CREATE TABLE IF NOT EXISTS `MoveDetail_stat_changes_inner` (
 --
 
 CREATE TABLE IF NOT EXISTS `MoveFlavorText` (
-  `flavor_text` text NOT NULL,
-  `language` long NOT NULL,
-  `version_group` long NOT NULL
+  `flavor_text` text NOT NULL /*The localized flavor text for an api resource in a specific language.*/,
+  `language` long NOT NULL /*The language this name is in.*/,
+  `version_group` long NOT NULL /*The version group that uses this flavor text.*/
 ); 
 
 
@@ -1932,8 +1935,8 @@ CREATE TABLE IF NOT EXISTS `MoveFlavorText` (
 --
 
 CREATE TABLE IF NOT EXISTS `MoveLearnMethodDescription` (
-  `language` long NOT NULL,
-  `description` text
+  `language` long NOT NULL /*The language this name is in.*/,
+  `description` text /*The localized description for an API resource in a specific language.*/
 ); 
 
 
@@ -1942,8 +1945,8 @@ CREATE TABLE IF NOT EXISTS `MoveLearnMethodDescription` (
 --
 
 CREATE TABLE IF NOT EXISTS `MoveLearnMethodDetail` (
-  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT,
-  `name` text NOT NULL,
+  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT /*The identifier for this resource.*/,
+  `name` text NOT NULL /*The name for this resource.*/,
 ); 
 
 -- --------------------------------------------------------------------------
@@ -1963,11 +1966,11 @@ CREATE TABLE IF NOT EXISTS `MoveLearnMethodDetailMoveLearnMethodDescription` (
 );
 
 -- --------------------------------------------------------------------------
--- Table structure for table `MoveLearnMethodDetailAbilityDetailPokemonInnerPokemon` generated from model 'MoveLearnMethodDetailAbilityDetailPokemonInnerPokemon'
+-- Table structure for table `MoveLearnMethodDetailVersionGroupSummary` generated from model 'MoveLearnMethodDetailVersionGroupSummary'
 
-CREATE TABLE IF NOT EXISTS `MoveLearnMethodDetailAbilityDetailPokemonInnerPokemon` (
+CREATE TABLE IF NOT EXISTS `MoveLearnMethodDetailVersionGroupSummary` (
   `moveLearnMethodDetail` long NOT NULL
-  `abilityDetailPokemonInnerPokemon` long NOT NULL
+  `versionGroupSummary` long NOT NULL
 );
 
 
@@ -1976,8 +1979,8 @@ CREATE TABLE IF NOT EXISTS `MoveLearnMethodDetailAbilityDetailPokemonInnerPokemo
 --
 
 CREATE TABLE IF NOT EXISTS `MoveLearnMethodName` (
-  `name` text NOT NULL,
-  `language` long NOT NULL
+  `name` text NOT NULL /*The localized name for an API resource in a specific language.*/,
+  `language` long NOT NULL /*The language this name is in.*/
 ); 
 
 
@@ -1986,8 +1989,8 @@ CREATE TABLE IF NOT EXISTS `MoveLearnMethodName` (
 --
 
 CREATE TABLE IF NOT EXISTS `MoveLearnMethodSummary` (
-  `name` text NOT NULL,
-  `url` text NOT NULL
+  `name` text NOT NULL /*The name of the referenced resource.*/,
+  `url` text NOT NULL /*The URL of the referenced resource.*/
 ); 
 
 
@@ -1996,18 +1999,18 @@ CREATE TABLE IF NOT EXISTS `MoveLearnMethodSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `MoveMeta` (
-  `ailment` long NOT NULL,
-  `category` long NOT NULL,
-  `min_hits` int,
-  `max_hits` int,
-  `min_turns` int,
-  `max_turns` int,
-  `drain` int,
-  `healing` int,
-  `crit_rate` int,
-  `ailment_chance` int,
-  `flinch_chance` int,
-  `stat_chance` int
+  `ailment` long NOT NULL /*The status ailment this move inflicts on its target.*/,
+  `category` long NOT NULL /*The category of move this move falls under, e.g. damage or ailment.*/,
+  `min_hits` int /*The minimum number of times this move hits. Null if it always only hits once.*/,
+  `max_hits` int /*The maximum number of times this move hits. Null if it always only hits once.*/,
+  `min_turns` int /*The minimum number of turns this move continues to take effect. Null if it always only lasts one turn.*/,
+  `max_turns` int /*The maximum number of turns this move continues to take effect. Null if it always only lasts one turn.*/,
+  `drain` int /*HP drain (if positive) or Recoil damage (if negative), in percent of damage done.*/,
+  `healing` int /*The amount of hp gained by the attacking Pokemon, in percent of it&#39;s maximum HP.*/,
+  `crit_rate` int /*Critical hit rate bonus.*/,
+  `ailment_chance` int /*The likelihood this attack will cause an ailment.*/,
+  `flinch_chance` int /*The likelihood this attack will cause the target Pokémon to flinch.*/,
+  `stat_chance` int /*The likelihood this attack will cause a stat change in the target Pokémon.*/
 ); 
 
 
@@ -2016,16 +2019,16 @@ CREATE TABLE IF NOT EXISTS `MoveMeta` (
 --
 
 CREATE TABLE IF NOT EXISTS `MoveMetaAilmentDetail` (
-  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT,
-  `name` text NOT NULL,
+  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT /*The identifier for this resource.*/,
+  `name` text NOT NULL /*The name for this resource.*/,
 ); 
 
 -- --------------------------------------------------------------------------
--- Table structure for table `MoveMetaAilmentDetailAbilityDetailPokemonInnerPokemon` generated from model 'MoveMetaAilmentDetailAbilityDetailPokemonInnerPokemon'
+-- Table structure for table `MoveMetaAilmentDetailMoveSummary` generated from model 'MoveMetaAilmentDetailMoveSummary'
 
-CREATE TABLE IF NOT EXISTS `MoveMetaAilmentDetailAbilityDetailPokemonInnerPokemon` (
+CREATE TABLE IF NOT EXISTS `MoveMetaAilmentDetailMoveSummary` (
   `moveMetaAilmentDetail` long NOT NULL
-  `abilityDetailPokemonInnerPokemon` long NOT NULL
+  `moveSummary` long NOT NULL
 );
 
 -- --------------------------------------------------------------------------
@@ -2042,8 +2045,8 @@ CREATE TABLE IF NOT EXISTS `MoveMetaAilmentDetailMoveMetaAilmentName` (
 --
 
 CREATE TABLE IF NOT EXISTS `MoveMetaAilmentName` (
-  `name` text NOT NULL,
-  `language` long NOT NULL
+  `name` text NOT NULL /*The localized name for an API resource in a specific language.*/,
+  `language` long NOT NULL /*The language this name is in.*/
 ); 
 
 
@@ -2052,8 +2055,8 @@ CREATE TABLE IF NOT EXISTS `MoveMetaAilmentName` (
 --
 
 CREATE TABLE IF NOT EXISTS `MoveMetaAilmentSummary` (
-  `name` text NOT NULL,
-  `url` text NOT NULL
+  `name` text NOT NULL /*The name of the referenced resource.*/,
+  `url` text NOT NULL /*The URL of the referenced resource.*/
 ); 
 
 
@@ -2062,8 +2065,8 @@ CREATE TABLE IF NOT EXISTS `MoveMetaAilmentSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `MoveMetaCategoryDescription` (
-  `language` long NOT NULL,
-  `description` text
+  `language` long NOT NULL /*The language this name is in.*/,
+  `description` text /*The localized description for an API resource in a specific language.*/
 ); 
 
 
@@ -2072,8 +2075,8 @@ CREATE TABLE IF NOT EXISTS `MoveMetaCategoryDescription` (
 --
 
 CREATE TABLE IF NOT EXISTS `MoveMetaCategoryDetail` (
-  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT,
-  `name` text NOT NULL,
+  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT /*The identifier for this resource.*/,
+  `name` text NOT NULL /*The name for this resource.*/,
 ); 
 
 -- --------------------------------------------------------------------------
@@ -2085,11 +2088,11 @@ CREATE TABLE IF NOT EXISTS `MoveMetaCategoryDetailMoveMetaCategoryDescription` (
 );
 
 -- --------------------------------------------------------------------------
--- Table structure for table `MoveMetaCategoryDetailAbilityDetailPokemonInnerPokemon` generated from model 'MoveMetaCategoryDetailAbilityDetailPokemonInnerPokemon'
+-- Table structure for table `MoveMetaCategoryDetailMoveSummary` generated from model 'MoveMetaCategoryDetailMoveSummary'
 
-CREATE TABLE IF NOT EXISTS `MoveMetaCategoryDetailAbilityDetailPokemonInnerPokemon` (
+CREATE TABLE IF NOT EXISTS `MoveMetaCategoryDetailMoveSummary` (
   `moveMetaCategoryDetail` long NOT NULL
-  `abilityDetailPokemonInnerPokemon` long NOT NULL
+  `moveSummary` long NOT NULL
 );
 
 
@@ -2098,8 +2101,18 @@ CREATE TABLE IF NOT EXISTS `MoveMetaCategoryDetailAbilityDetailPokemonInnerPokem
 --
 
 CREATE TABLE IF NOT EXISTS `MoveMetaCategorySummary` (
-  `name` text NOT NULL,
-  `url` text NOT NULL
+  `name` text NOT NULL /*The name of the referenced resource.*/,
+  `url` text NOT NULL /*The URL of the referenced resource.*/
+); 
+
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `MoveMetaStatChange` generated from model 'moveMetaStatChange'
+--
+
+CREATE TABLE IF NOT EXISTS `MoveMetaStatChange` (
+  `change` int NOT NULL /*The amount of change.*/,
+  `stat` long NOT NULL /*The stat being affected.*/
 ); 
 
 
@@ -2108,8 +2121,18 @@ CREATE TABLE IF NOT EXISTS `MoveMetaCategorySummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `MoveName` (
-  `name` text NOT NULL,
-  `language` long NOT NULL
+  `name` text NOT NULL /*The localized name for an API resource in a specific language.*/,
+  `language` long NOT NULL /*The language this name is in.*/
+); 
+
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `MoveStatChange` generated from model 'moveStatChange'
+--
+
+CREATE TABLE IF NOT EXISTS `MoveStatChange` (
+  `change` int NOT NULL /*The maximum amount of change to the referenced stat.*/,
+  `move` long NOT NULL /*The move causing the change.*/
 ); 
 
 
@@ -2118,8 +2141,8 @@ CREATE TABLE IF NOT EXISTS `MoveName` (
 --
 
 CREATE TABLE IF NOT EXISTS `MoveSummary` (
-  `name` text NOT NULL,
-  `url` text NOT NULL
+  `name` text NOT NULL /*The name of the referenced resource.*/,
+  `url` text NOT NULL /*The URL of the referenced resource.*/
 ); 
 
 
@@ -2128,8 +2151,8 @@ CREATE TABLE IF NOT EXISTS `MoveSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `MoveTargetDescription` (
-  `language` long NOT NULL,
-  `description` text
+  `language` long NOT NULL /*The language this name is in.*/,
+  `description` text /*The localized description for an API resource in a specific language.*/
 ); 
 
 
@@ -2138,8 +2161,8 @@ CREATE TABLE IF NOT EXISTS `MoveTargetDescription` (
 --
 
 CREATE TABLE IF NOT EXISTS `MoveTargetDetail` (
-  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT,
-  `name` text NOT NULL,
+  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT /*The identifier for this resource.*/,
+  `name` text NOT NULL /*The name for this resource.*/,
 ); 
 
 -- --------------------------------------------------------------------------
@@ -2172,8 +2195,8 @@ CREATE TABLE IF NOT EXISTS `MoveTargetDetailMoveTargetName` (
 --
 
 CREATE TABLE IF NOT EXISTS `MoveTargetName` (
-  `name` text NOT NULL,
-  `language` long NOT NULL
+  `name` text NOT NULL /*The localized name for an API resource in a specific language.*/,
+  `language` long NOT NULL /*The language this name is in.*/
 ); 
 
 
@@ -2182,8 +2205,8 @@ CREATE TABLE IF NOT EXISTS `MoveTargetName` (
 --
 
 CREATE TABLE IF NOT EXISTS `MoveTargetSummary` (
-  `name` text NOT NULL,
-  `url` text NOT NULL
+  `name` text NOT NULL /*The name of the referenced resource.*/,
+  `url` text NOT NULL /*The URL of the referenced resource.*/
 ); 
 
 
@@ -2192,9 +2215,9 @@ CREATE TABLE IF NOT EXISTS `MoveTargetSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `NatureBattleStylePreference` (
-  `low_hp_preference` int NOT NULL,
-  `high_hp_preference` int NOT NULL,
-  `move_battle_style` long NOT NULL
+  `low_hp_preference` int NOT NULL /*Chance of using the move, in percent, if HP is under one half.*/,
+  `high_hp_preference` int NOT NULL /*Chance of using the move, in percent, if HP is over one half.*/,
+  `move_battle_style` long NOT NULL /*The move battle style.*/
 ); 
 
 
@@ -2203,28 +2226,20 @@ CREATE TABLE IF NOT EXISTS `NatureBattleStylePreference` (
 --
 
 CREATE TABLE IF NOT EXISTS `NatureDetail` (
-  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT,
-  `name` text NOT NULL,
-  `decreased_stat` long NOT NULL,
-  `increased_stat` long NOT NULL,
-  `likes_flavor` long NOT NULL,
-  `hates_flavor` long NOT NULL,
+  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT /*The identifier for this resource.*/,
+  `name` text NOT NULL /*The name for this resource.*/,
+  `decreased_stat` long NOT NULL /*The stat decreased by 10% in Pokémon with this nature.*/,
+  `increased_stat` long NOT NULL /*The stat increased by 10% in Pokémon with this nature.*/,
+  `likes_flavor` long NOT NULL /*The flavor liked by Pokémon with this nature.*/,
+  `hates_flavor` long NOT NULL /*The flavor hated by Pokémon with this nature.*/,
 ); 
 
 -- --------------------------------------------------------------------------
--- Table structure for table `NatureDetailBerrySummary` generated from model 'NatureDetailBerrySummary'
+-- Table structure for table `NatureDetailNaturePokeathlonStat` generated from model 'NatureDetailNaturePokeathlonStat'
 
-CREATE TABLE IF NOT EXISTS `NatureDetailBerrySummary` (
+CREATE TABLE IF NOT EXISTS `NatureDetailNaturePokeathlonStat` (
   `natureDetail` long NOT NULL
-  `berrySummary` long NOT NULL
-);
-
--- --------------------------------------------------------------------------
--- Table structure for table `NatureDetailNatureDetailPokeathlonStatChangesInner` generated from model 'NatureDetailNatureDetailPokeathlonStatChangesInner'
-
-CREATE TABLE IF NOT EXISTS `NatureDetailNatureDetailPokeathlonStatChangesInner` (
-  `natureDetail` long NOT NULL
-  `natureDetailPokeathlonStatChangesInner` long NOT NULL
+  `naturePokeathlonStat` long NOT NULL
 );
 
 -- --------------------------------------------------------------------------
@@ -2245,22 +2260,22 @@ CREATE TABLE IF NOT EXISTS `NatureDetailNatureName` (
 
 
 -- --------------------------------------------------------------------------
--- Table structure for table `NatureDetail_pokeathlon_stat_changes_inner` generated from model 'natureDetailPokeathlonStatChangesInner'
---
-
-CREATE TABLE IF NOT EXISTS `NatureDetail_pokeathlon_stat_changes_inner` (
-  `max_change` int NOT NULL,
-  `pokeathlon_stat` long NOT NULL
-); 
-
-
--- --------------------------------------------------------------------------
 -- Table structure for table `NatureName` generated from model 'natureName'
 --
 
 CREATE TABLE IF NOT EXISTS `NatureName` (
-  `name` text NOT NULL,
-  `language` long NOT NULL
+  `name` text NOT NULL /*The localized name for an API resource in a specific language.*/,
+  `language` long NOT NULL /*The language this name is in.*/
+); 
+
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `NaturePokeathlonStat` generated from model 'naturePokeathlonStat'
+--
+
+CREATE TABLE IF NOT EXISTS `NaturePokeathlonStat` (
+  `max_change` int NOT NULL /*The amount of change.*/,
+  `pokeathlon_stat` long NOT NULL /*The stat being affected.*/
 ); 
 
 
@@ -2269,8 +2284,8 @@ CREATE TABLE IF NOT EXISTS `NatureName` (
 --
 
 CREATE TABLE IF NOT EXISTS `NatureSummary` (
-  `name` text NOT NULL,
-  `url` text NOT NULL
+  `name` text NOT NULL /*The name of the referenced resource.*/,
+  `url` text NOT NULL /*The URL of the referenced resource.*/
 ); 
 
 
@@ -2279,9 +2294,9 @@ CREATE TABLE IF NOT EXISTS `NatureSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `PaginatedAbilitySummaryList` (
-  `count` int,
-  `next` text,
-  `previous` text,
+  `count` int NOT NULL /*The total number of resources available from this API.*/,
+  `next` text /*The URL for the next page in the list, or null if there is no next page.*/,
+  `previous` text /*The URL for the previous page in the list, or null if there is no previous page.*/
 ); 
 
 -- --------------------------------------------------------------------------
@@ -2298,9 +2313,9 @@ CREATE TABLE IF NOT EXISTS `PaginatedAbilitySummaryListAbilitySummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `PaginatedBerryFirmnessSummaryList` (
-  `count` int,
-  `next` text,
-  `previous` text,
+  `count` int NOT NULL /*The total number of resources available from this API.*/,
+  `next` text /*The URL for the next page in the list, or null if there is no next page.*/,
+  `previous` text /*The URL for the previous page in the list, or null if there is no previous page.*/
 ); 
 
 -- --------------------------------------------------------------------------
@@ -2317,9 +2332,9 @@ CREATE TABLE IF NOT EXISTS `PaginatedBerryFirmnessSummaryListBerryFirmnessSummar
 --
 
 CREATE TABLE IF NOT EXISTS `PaginatedBerryFlavorSummaryList` (
-  `count` int,
-  `next` text,
-  `previous` text,
+  `count` int NOT NULL /*The total number of resources available from this API.*/,
+  `next` text /*The URL for the next page in the list, or null if there is no next page.*/,
+  `previous` text /*The URL for the previous page in the list, or null if there is no previous page.*/
 ); 
 
 -- --------------------------------------------------------------------------
@@ -2336,9 +2351,9 @@ CREATE TABLE IF NOT EXISTS `PaginatedBerryFlavorSummaryListBerryFlavorSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `PaginatedBerrySummaryList` (
-  `count` int,
-  `next` text,
-  `previous` text,
+  `count` int NOT NULL /*The total number of resources available from this API.*/,
+  `next` text /*The URL for the next page in the list, or null if there is no next page.*/,
+  `previous` text /*The URL for the previous page in the list, or null if there is no previous page.*/
 ); 
 
 -- --------------------------------------------------------------------------
@@ -2355,9 +2370,9 @@ CREATE TABLE IF NOT EXISTS `PaginatedBerrySummaryListBerrySummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `PaginatedCharacteristicSummaryList` (
-  `count` int,
-  `next` text,
-  `previous` text,
+  `count` int NOT NULL /*The total number of resources available from this API.*/,
+  `next` text /*The URL for the next page in the list, or null if there is no next page.*/,
+  `previous` text /*The URL for the previous page in the list, or null if there is no previous page.*/
 ); 
 
 -- --------------------------------------------------------------------------
@@ -2374,9 +2389,9 @@ CREATE TABLE IF NOT EXISTS `PaginatedCharacteristicSummaryListCharacteristicSumm
 --
 
 CREATE TABLE IF NOT EXISTS `PaginatedContestEffectSummaryList` (
-  `count` int,
-  `next` text,
-  `previous` text,
+  `count` int NOT NULL /*The total number of resources available from this API.*/,
+  `next` text /*The URL for the next page in the list, or null if there is no next page.*/,
+  `previous` text /*The URL for the previous page in the list, or null if there is no previous page.*/
 ); 
 
 -- --------------------------------------------------------------------------
@@ -2393,9 +2408,9 @@ CREATE TABLE IF NOT EXISTS `PaginatedContestEffectSummaryListContestEffectSummar
 --
 
 CREATE TABLE IF NOT EXISTS `PaginatedContestTypeSummaryList` (
-  `count` int,
-  `next` text,
-  `previous` text,
+  `count` int NOT NULL /*The total number of resources available from this API.*/,
+  `next` text /*The URL for the next page in the list, or null if there is no next page.*/,
+  `previous` text /*The URL for the previous page in the list, or null if there is no previous page.*/
 ); 
 
 -- --------------------------------------------------------------------------
@@ -2408,13 +2423,32 @@ CREATE TABLE IF NOT EXISTS `PaginatedContestTypeSummaryListContestTypeSummary` (
 
 
 -- --------------------------------------------------------------------------
+-- Table structure for table `PaginatedCurrencySummaryList` generated from model 'paginatedCurrencySummaryList'
+--
+
+CREATE TABLE IF NOT EXISTS `PaginatedCurrencySummaryList` (
+  `count` int NOT NULL /*The total number of resources available from this API.*/,
+  `next` text /*The URL for the next page in the list, or null if there is no next page.*/,
+  `previous` text /*The URL for the previous page in the list, or null if there is no previous page.*/
+); 
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `PaginatedCurrencySummaryListCurrencySummary` generated from model 'PaginatedCurrencySummaryListCurrencySummary'
+
+CREATE TABLE IF NOT EXISTS `PaginatedCurrencySummaryListCurrencySummary` (
+  `paginatedCurrencySummaryList` long NOT NULL
+  `currencySummary` long NOT NULL
+);
+
+
+-- --------------------------------------------------------------------------
 -- Table structure for table `PaginatedEggGroupSummaryList` generated from model 'paginatedEggGroupSummaryList'
 --
 
 CREATE TABLE IF NOT EXISTS `PaginatedEggGroupSummaryList` (
-  `count` int,
-  `next` text,
-  `previous` text,
+  `count` int NOT NULL /*The total number of resources available from this API.*/,
+  `next` text /*The URL for the next page in the list, or null if there is no next page.*/,
+  `previous` text /*The URL for the previous page in the list, or null if there is no previous page.*/
 ); 
 
 -- --------------------------------------------------------------------------
@@ -2431,9 +2465,9 @@ CREATE TABLE IF NOT EXISTS `PaginatedEggGroupSummaryListEggGroupSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `PaginatedEncounterConditionSummaryList` (
-  `count` int,
-  `next` text,
-  `previous` text,
+  `count` int NOT NULL /*The total number of resources available from this API.*/,
+  `next` text /*The URL for the next page in the list, or null if there is no next page.*/,
+  `previous` text /*The URL for the previous page in the list, or null if there is no previous page.*/
 ); 
 
 -- --------------------------------------------------------------------------
@@ -2450,9 +2484,9 @@ CREATE TABLE IF NOT EXISTS `PaginatedEncounterConditionSummaryListEncounterCondi
 --
 
 CREATE TABLE IF NOT EXISTS `PaginatedEncounterConditionValueSummaryList` (
-  `count` int,
-  `next` text,
-  `previous` text,
+  `count` int NOT NULL /*The total number of resources available from this API.*/,
+  `next` text /*The URL for the next page in the list, or null if there is no next page.*/,
+  `previous` text /*The URL for the previous page in the list, or null if there is no previous page.*/
 ); 
 
 -- --------------------------------------------------------------------------
@@ -2469,9 +2503,9 @@ CREATE TABLE IF NOT EXISTS `PaginatedEncounterConditionValueSummaryListEncounter
 --
 
 CREATE TABLE IF NOT EXISTS `PaginatedEncounterMethodSummaryList` (
-  `count` int,
-  `next` text,
-  `previous` text,
+  `count` int NOT NULL /*The total number of resources available from this API.*/,
+  `next` text /*The URL for the next page in the list, or null if there is no next page.*/,
+  `previous` text /*The URL for the previous page in the list, or null if there is no previous page.*/
 ); 
 
 -- --------------------------------------------------------------------------
@@ -2488,9 +2522,9 @@ CREATE TABLE IF NOT EXISTS `PaginatedEncounterMethodSummaryListEncounterMethodSu
 --
 
 CREATE TABLE IF NOT EXISTS `PaginatedEvolutionChainSummaryList` (
-  `count` int,
-  `next` text,
-  `previous` text,
+  `count` int NOT NULL /*The total number of resources available from this API.*/,
+  `next` text /*The URL for the next page in the list, or null if there is no next page.*/,
+  `previous` text /*The URL for the previous page in the list, or null if there is no previous page.*/
 ); 
 
 -- --------------------------------------------------------------------------
@@ -2507,9 +2541,9 @@ CREATE TABLE IF NOT EXISTS `PaginatedEvolutionChainSummaryListEvolutionChainSumm
 --
 
 CREATE TABLE IF NOT EXISTS `PaginatedEvolutionTriggerSummaryList` (
-  `count` int,
-  `next` text,
-  `previous` text,
+  `count` int NOT NULL /*The total number of resources available from this API.*/,
+  `next` text /*The URL for the next page in the list, or null if there is no next page.*/,
+  `previous` text /*The URL for the previous page in the list, or null if there is no previous page.*/
 ); 
 
 -- --------------------------------------------------------------------------
@@ -2522,13 +2556,32 @@ CREATE TABLE IF NOT EXISTS `PaginatedEvolutionTriggerSummaryListEvolutionTrigger
 
 
 -- --------------------------------------------------------------------------
+-- Table structure for table `PaginatedEvolutionVariableSummaryList` generated from model 'paginatedEvolutionVariableSummaryList'
+--
+
+CREATE TABLE IF NOT EXISTS `PaginatedEvolutionVariableSummaryList` (
+  `count` int NOT NULL /*The total number of resources available from this API.*/,
+  `next` text /*The URL for the next page in the list, or null if there is no next page.*/,
+  `previous` text /*The URL for the previous page in the list, or null if there is no previous page.*/
+); 
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `PaginatedEvolutionVariableSummaryListEvolutionVariableSummary` generated from model 'PaginatedEvolutionVariableSummaryListEvolutionVariableSummary'
+
+CREATE TABLE IF NOT EXISTS `PaginatedEvolutionVariableSummaryListEvolutionVariableSummary` (
+  `paginatedEvolutionVariableSummaryList` long NOT NULL
+  `evolutionVariableSummary` long NOT NULL
+);
+
+
+-- --------------------------------------------------------------------------
 -- Table structure for table `PaginatedGenderSummaryList` generated from model 'paginatedGenderSummaryList'
 --
 
 CREATE TABLE IF NOT EXISTS `PaginatedGenderSummaryList` (
-  `count` int,
-  `next` text,
-  `previous` text,
+  `count` int NOT NULL /*The total number of resources available from this API.*/,
+  `next` text /*The URL for the next page in the list, or null if there is no next page.*/,
+  `previous` text /*The URL for the previous page in the list, or null if there is no previous page.*/
 ); 
 
 -- --------------------------------------------------------------------------
@@ -2545,9 +2598,9 @@ CREATE TABLE IF NOT EXISTS `PaginatedGenderSummaryListGenderSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `PaginatedGenerationSummaryList` (
-  `count` int,
-  `next` text,
-  `previous` text,
+  `count` int NOT NULL /*The total number of resources available from this API.*/,
+  `next` text /*The URL for the next page in the list, or null if there is no next page.*/,
+  `previous` text /*The URL for the previous page in the list, or null if there is no previous page.*/
 ); 
 
 -- --------------------------------------------------------------------------
@@ -2564,9 +2617,9 @@ CREATE TABLE IF NOT EXISTS `PaginatedGenerationSummaryListGenerationSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `PaginatedGrowthRateSummaryList` (
-  `count` int,
-  `next` text,
-  `previous` text,
+  `count` int NOT NULL /*The total number of resources available from this API.*/,
+  `next` text /*The URL for the next page in the list, or null if there is no next page.*/,
+  `previous` text /*The URL for the previous page in the list, or null if there is no previous page.*/
 ); 
 
 -- --------------------------------------------------------------------------
@@ -2583,9 +2636,9 @@ CREATE TABLE IF NOT EXISTS `PaginatedGrowthRateSummaryListGrowthRateSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `PaginatedItemAttributeSummaryList` (
-  `count` int,
-  `next` text,
-  `previous` text,
+  `count` int NOT NULL /*The total number of resources available from this API.*/,
+  `next` text /*The URL for the next page in the list, or null if there is no next page.*/,
+  `previous` text /*The URL for the previous page in the list, or null if there is no previous page.*/
 ); 
 
 -- --------------------------------------------------------------------------
@@ -2602,9 +2655,9 @@ CREATE TABLE IF NOT EXISTS `PaginatedItemAttributeSummaryListItemAttributeSummar
 --
 
 CREATE TABLE IF NOT EXISTS `PaginatedItemCategorySummaryList` (
-  `count` int,
-  `next` text,
-  `previous` text,
+  `count` int NOT NULL /*The total number of resources available from this API.*/,
+  `next` text /*The URL for the next page in the list, or null if there is no next page.*/,
+  `previous` text /*The URL for the previous page in the list, or null if there is no previous page.*/
 ); 
 
 -- --------------------------------------------------------------------------
@@ -2621,9 +2674,9 @@ CREATE TABLE IF NOT EXISTS `PaginatedItemCategorySummaryListItemCategorySummary`
 --
 
 CREATE TABLE IF NOT EXISTS `PaginatedItemFlingEffectSummaryList` (
-  `count` int,
-  `next` text,
-  `previous` text,
+  `count` int NOT NULL /*The total number of resources available from this API.*/,
+  `next` text /*The URL for the next page in the list, or null if there is no next page.*/,
+  `previous` text /*The URL for the previous page in the list, or null if there is no previous page.*/
 ); 
 
 -- --------------------------------------------------------------------------
@@ -2640,9 +2693,9 @@ CREATE TABLE IF NOT EXISTS `PaginatedItemFlingEffectSummaryListItemFlingEffectSu
 --
 
 CREATE TABLE IF NOT EXISTS `PaginatedItemPocketSummaryList` (
-  `count` int,
-  `next` text,
-  `previous` text,
+  `count` int NOT NULL /*The total number of resources available from this API.*/,
+  `next` text /*The URL for the next page in the list, or null if there is no next page.*/,
+  `previous` text /*The URL for the previous page in the list, or null if there is no previous page.*/
 ); 
 
 -- --------------------------------------------------------------------------
@@ -2659,9 +2712,9 @@ CREATE TABLE IF NOT EXISTS `PaginatedItemPocketSummaryListItemPocketSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `PaginatedItemSummaryList` (
-  `count` int,
-  `next` text,
-  `previous` text,
+  `count` int NOT NULL /*The total number of resources available from this API.*/,
+  `next` text /*The URL for the next page in the list, or null if there is no next page.*/,
+  `previous` text /*The URL for the previous page in the list, or null if there is no previous page.*/
 ); 
 
 -- --------------------------------------------------------------------------
@@ -2678,9 +2731,9 @@ CREATE TABLE IF NOT EXISTS `PaginatedItemSummaryListItemSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `PaginatedLanguageSummaryList` (
-  `count` int,
-  `next` text,
-  `previous` text,
+  `count` int NOT NULL /*The total number of resources available from this API.*/,
+  `next` text /*The URL for the next page in the list, or null if there is no next page.*/,
+  `previous` text /*The URL for the previous page in the list, or null if there is no previous page.*/
 ); 
 
 -- --------------------------------------------------------------------------
@@ -2697,9 +2750,9 @@ CREATE TABLE IF NOT EXISTS `PaginatedLanguageSummaryListLanguageSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `PaginatedLocationAreaSummaryList` (
-  `count` int,
-  `next` text,
-  `previous` text,
+  `count` int NOT NULL /*The total number of resources available from this API.*/,
+  `next` text /*The URL for the next page in the list, or null if there is no next page.*/,
+  `previous` text /*The URL for the previous page in the list, or null if there is no previous page.*/
 ); 
 
 -- --------------------------------------------------------------------------
@@ -2716,9 +2769,9 @@ CREATE TABLE IF NOT EXISTS `PaginatedLocationAreaSummaryListLocationAreaSummary`
 --
 
 CREATE TABLE IF NOT EXISTS `PaginatedLocationSummaryList` (
-  `count` int,
-  `next` text,
-  `previous` text,
+  `count` int NOT NULL /*The total number of resources available from this API.*/,
+  `next` text /*The URL for the next page in the list, or null if there is no next page.*/,
+  `previous` text /*The URL for the previous page in the list, or null if there is no previous page.*/
 ); 
 
 -- --------------------------------------------------------------------------
@@ -2735,9 +2788,9 @@ CREATE TABLE IF NOT EXISTS `PaginatedLocationSummaryListLocationSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `PaginatedMachineSummaryList` (
-  `count` int,
-  `next` text,
-  `previous` text,
+  `count` int NOT NULL /*The total number of resources available from this API.*/,
+  `next` text /*The URL for the next page in the list, or null if there is no next page.*/,
+  `previous` text /*The URL for the previous page in the list, or null if there is no previous page.*/
 ); 
 
 -- --------------------------------------------------------------------------
@@ -2754,9 +2807,9 @@ CREATE TABLE IF NOT EXISTS `PaginatedMachineSummaryListMachineSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `PaginatedMoveBattleStyleSummaryList` (
-  `count` int,
-  `next` text,
-  `previous` text,
+  `count` int NOT NULL /*The total number of resources available from this API.*/,
+  `next` text /*The URL for the next page in the list, or null if there is no next page.*/,
+  `previous` text /*The URL for the previous page in the list, or null if there is no previous page.*/
 ); 
 
 -- --------------------------------------------------------------------------
@@ -2773,9 +2826,9 @@ CREATE TABLE IF NOT EXISTS `PaginatedMoveBattleStyleSummaryListMoveBattleStyleSu
 --
 
 CREATE TABLE IF NOT EXISTS `PaginatedMoveDamageClassSummaryList` (
-  `count` int,
-  `next` text,
-  `previous` text,
+  `count` int NOT NULL /*The total number of resources available from this API.*/,
+  `next` text /*The URL for the next page in the list, or null if there is no next page.*/,
+  `previous` text /*The URL for the previous page in the list, or null if there is no previous page.*/
 ); 
 
 -- --------------------------------------------------------------------------
@@ -2792,9 +2845,9 @@ CREATE TABLE IF NOT EXISTS `PaginatedMoveDamageClassSummaryListMoveDamageClassSu
 --
 
 CREATE TABLE IF NOT EXISTS `PaginatedMoveLearnMethodSummaryList` (
-  `count` int,
-  `next` text,
-  `previous` text,
+  `count` int NOT NULL /*The total number of resources available from this API.*/,
+  `next` text /*The URL for the next page in the list, or null if there is no next page.*/,
+  `previous` text /*The URL for the previous page in the list, or null if there is no previous page.*/
 ); 
 
 -- --------------------------------------------------------------------------
@@ -2811,9 +2864,9 @@ CREATE TABLE IF NOT EXISTS `PaginatedMoveLearnMethodSummaryListMoveLearnMethodSu
 --
 
 CREATE TABLE IF NOT EXISTS `PaginatedMoveMetaAilmentSummaryList` (
-  `count` int,
-  `next` text,
-  `previous` text,
+  `count` int NOT NULL /*The total number of resources available from this API.*/,
+  `next` text /*The URL for the next page in the list, or null if there is no next page.*/,
+  `previous` text /*The URL for the previous page in the list, or null if there is no previous page.*/
 ); 
 
 -- --------------------------------------------------------------------------
@@ -2830,9 +2883,9 @@ CREATE TABLE IF NOT EXISTS `PaginatedMoveMetaAilmentSummaryListMoveMetaAilmentSu
 --
 
 CREATE TABLE IF NOT EXISTS `PaginatedMoveMetaCategorySummaryList` (
-  `count` int,
-  `next` text,
-  `previous` text,
+  `count` int NOT NULL /*The total number of resources available from this API.*/,
+  `next` text /*The URL for the next page in the list, or null if there is no next page.*/,
+  `previous` text /*The URL for the previous page in the list, or null if there is no previous page.*/
 ); 
 
 -- --------------------------------------------------------------------------
@@ -2849,9 +2902,9 @@ CREATE TABLE IF NOT EXISTS `PaginatedMoveMetaCategorySummaryListMoveMetaCategory
 --
 
 CREATE TABLE IF NOT EXISTS `PaginatedMoveSummaryList` (
-  `count` int,
-  `next` text,
-  `previous` text,
+  `count` int NOT NULL /*The total number of resources available from this API.*/,
+  `next` text /*The URL for the next page in the list, or null if there is no next page.*/,
+  `previous` text /*The URL for the previous page in the list, or null if there is no previous page.*/
 ); 
 
 -- --------------------------------------------------------------------------
@@ -2868,9 +2921,9 @@ CREATE TABLE IF NOT EXISTS `PaginatedMoveSummaryListMoveSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `PaginatedMoveTargetSummaryList` (
-  `count` int,
-  `next` text,
-  `previous` text,
+  `count` int NOT NULL /*The total number of resources available from this API.*/,
+  `next` text /*The URL for the next page in the list, or null if there is no next page.*/,
+  `previous` text /*The URL for the previous page in the list, or null if there is no previous page.*/
 ); 
 
 -- --------------------------------------------------------------------------
@@ -2887,9 +2940,9 @@ CREATE TABLE IF NOT EXISTS `PaginatedMoveTargetSummaryListMoveTargetSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `PaginatedNatureSummaryList` (
-  `count` int,
-  `next` text,
-  `previous` text,
+  `count` int NOT NULL /*The total number of resources available from this API.*/,
+  `next` text /*The URL for the next page in the list, or null if there is no next page.*/,
+  `previous` text /*The URL for the previous page in the list, or null if there is no previous page.*/
 ); 
 
 -- --------------------------------------------------------------------------
@@ -2906,9 +2959,9 @@ CREATE TABLE IF NOT EXISTS `PaginatedNatureSummaryListNatureSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `PaginatedPalParkAreaSummaryList` (
-  `count` int,
-  `next` text,
-  `previous` text,
+  `count` int NOT NULL /*The total number of resources available from this API.*/,
+  `next` text /*The URL for the next page in the list, or null if there is no next page.*/,
+  `previous` text /*The URL for the previous page in the list, or null if there is no previous page.*/
 ); 
 
 -- --------------------------------------------------------------------------
@@ -2925,9 +2978,9 @@ CREATE TABLE IF NOT EXISTS `PaginatedPalParkAreaSummaryListPalParkAreaSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `PaginatedPokeathlonStatSummaryList` (
-  `count` int,
-  `next` text,
-  `previous` text,
+  `count` int NOT NULL /*The total number of resources available from this API.*/,
+  `next` text /*The URL for the next page in the list, or null if there is no next page.*/,
+  `previous` text /*The URL for the previous page in the list, or null if there is no previous page.*/
 ); 
 
 -- --------------------------------------------------------------------------
@@ -2944,9 +2997,9 @@ CREATE TABLE IF NOT EXISTS `PaginatedPokeathlonStatSummaryListPokeathlonStatSumm
 --
 
 CREATE TABLE IF NOT EXISTS `PaginatedPokedexSummaryList` (
-  `count` int,
-  `next` text,
-  `previous` text,
+  `count` int NOT NULL /*The total number of resources available from this API.*/,
+  `next` text /*The URL for the next page in the list, or null if there is no next page.*/,
+  `previous` text /*The URL for the previous page in the list, or null if there is no previous page.*/
 ); 
 
 -- --------------------------------------------------------------------------
@@ -2963,9 +3016,9 @@ CREATE TABLE IF NOT EXISTS `PaginatedPokedexSummaryListPokedexSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `PaginatedPokemonColorSummaryList` (
-  `count` int,
-  `next` text,
-  `previous` text,
+  `count` int NOT NULL /*The total number of resources available from this API.*/,
+  `next` text /*The URL for the next page in the list, or null if there is no next page.*/,
+  `previous` text /*The URL for the previous page in the list, or null if there is no previous page.*/
 ); 
 
 -- --------------------------------------------------------------------------
@@ -2982,9 +3035,9 @@ CREATE TABLE IF NOT EXISTS `PaginatedPokemonColorSummaryListPokemonColorSummary`
 --
 
 CREATE TABLE IF NOT EXISTS `PaginatedPokemonFormSummaryList` (
-  `count` int,
-  `next` text,
-  `previous` text,
+  `count` int NOT NULL /*The total number of resources available from this API.*/,
+  `next` text /*The URL for the next page in the list, or null if there is no next page.*/,
+  `previous` text /*The URL for the previous page in the list, or null if there is no previous page.*/
 ); 
 
 -- --------------------------------------------------------------------------
@@ -3001,9 +3054,9 @@ CREATE TABLE IF NOT EXISTS `PaginatedPokemonFormSummaryListPokemonFormSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `PaginatedPokemonHabitatSummaryList` (
-  `count` int,
-  `next` text,
-  `previous` text,
+  `count` int NOT NULL /*The total number of resources available from this API.*/,
+  `next` text /*The URL for the next page in the list, or null if there is no next page.*/,
+  `previous` text /*The URL for the previous page in the list, or null if there is no previous page.*/
 ); 
 
 -- --------------------------------------------------------------------------
@@ -3020,9 +3073,9 @@ CREATE TABLE IF NOT EXISTS `PaginatedPokemonHabitatSummaryListPokemonHabitatSumm
 --
 
 CREATE TABLE IF NOT EXISTS `PaginatedPokemonShapeSummaryList` (
-  `count` int,
-  `next` text,
-  `previous` text,
+  `count` int NOT NULL /*The total number of resources available from this API.*/,
+  `next` text /*The URL for the next page in the list, or null if there is no next page.*/,
+  `previous` text /*The URL for the previous page in the list, or null if there is no previous page.*/
 ); 
 
 -- --------------------------------------------------------------------------
@@ -3039,9 +3092,9 @@ CREATE TABLE IF NOT EXISTS `PaginatedPokemonShapeSummaryListPokemonShapeSummary`
 --
 
 CREATE TABLE IF NOT EXISTS `PaginatedPokemonSpeciesSummaryList` (
-  `count` int,
-  `next` text,
-  `previous` text,
+  `count` int NOT NULL /*The total number of resources available from this API.*/,
+  `next` text /*The URL for the next page in the list, or null if there is no next page.*/,
+  `previous` text /*The URL for the previous page in the list, or null if there is no previous page.*/
 ); 
 
 -- --------------------------------------------------------------------------
@@ -3058,9 +3111,9 @@ CREATE TABLE IF NOT EXISTS `PaginatedPokemonSpeciesSummaryListPokemonSpeciesSumm
 --
 
 CREATE TABLE IF NOT EXISTS `PaginatedPokemonSummaryList` (
-  `count` int,
-  `next` text,
-  `previous` text,
+  `count` int NOT NULL /*The total number of resources available from this API.*/,
+  `next` text /*The URL for the next page in the list, or null if there is no next page.*/,
+  `previous` text /*The URL for the previous page in the list, or null if there is no previous page.*/
 ); 
 
 -- --------------------------------------------------------------------------
@@ -3077,9 +3130,9 @@ CREATE TABLE IF NOT EXISTS `PaginatedPokemonSummaryListPokemonSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `PaginatedRegionSummaryList` (
-  `count` int,
-  `next` text,
-  `previous` text,
+  `count` int NOT NULL /*The total number of resources available from this API.*/,
+  `next` text /*The URL for the next page in the list, or null if there is no next page.*/,
+  `previous` text /*The URL for the previous page in the list, or null if there is no previous page.*/
 ); 
 
 -- --------------------------------------------------------------------------
@@ -3096,9 +3149,9 @@ CREATE TABLE IF NOT EXISTS `PaginatedRegionSummaryListRegionSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `PaginatedStatSummaryList` (
-  `count` int,
-  `next` text,
-  `previous` text,
+  `count` int NOT NULL /*The total number of resources available from this API.*/,
+  `next` text /*The URL for the next page in the list, or null if there is no next page.*/,
+  `previous` text /*The URL for the previous page in the list, or null if there is no previous page.*/
 ); 
 
 -- --------------------------------------------------------------------------
@@ -3115,9 +3168,9 @@ CREATE TABLE IF NOT EXISTS `PaginatedStatSummaryListStatSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `PaginatedSuperContestEffectSummaryList` (
-  `count` int,
-  `next` text,
-  `previous` text,
+  `count` int NOT NULL /*The total number of resources available from this API.*/,
+  `next` text /*The URL for the next page in the list, or null if there is no next page.*/,
+  `previous` text /*The URL for the previous page in the list, or null if there is no previous page.*/
 ); 
 
 -- --------------------------------------------------------------------------
@@ -3134,9 +3187,9 @@ CREATE TABLE IF NOT EXISTS `PaginatedSuperContestEffectSummaryListSuperContestEf
 --
 
 CREATE TABLE IF NOT EXISTS `PaginatedTypeSummaryList` (
-  `count` int,
-  `next` text,
-  `previous` text,
+  `count` int NOT NULL /*The total number of resources available from this API.*/,
+  `next` text /*The URL for the next page in the list, or null if there is no next page.*/,
+  `previous` text /*The URL for the previous page in the list, or null if there is no previous page.*/
 ); 
 
 -- --------------------------------------------------------------------------
@@ -3153,9 +3206,9 @@ CREATE TABLE IF NOT EXISTS `PaginatedTypeSummaryListTypeSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `PaginatedVersionGroupSummaryList` (
-  `count` int,
-  `next` text,
-  `previous` text,
+  `count` int NOT NULL /*The total number of resources available from this API.*/,
+  `next` text /*The URL for the next page in the list, or null if there is no next page.*/,
+  `previous` text /*The URL for the previous page in the list, or null if there is no previous page.*/
 ); 
 
 -- --------------------------------------------------------------------------
@@ -3172,9 +3225,9 @@ CREATE TABLE IF NOT EXISTS `PaginatedVersionGroupSummaryListVersionGroupSummary`
 --
 
 CREATE TABLE IF NOT EXISTS `PaginatedVersionSummaryList` (
-  `count` int,
-  `next` text,
-  `previous` text,
+  `count` int NOT NULL /*The total number of resources available from this API.*/,
+  `next` text /*The URL for the next page in the list, or null if there is no next page.*/,
+  `previous` text /*The URL for the previous page in the list, or null if there is no previous page.*/
 ); 
 
 -- --------------------------------------------------------------------------
@@ -3191,8 +3244,8 @@ CREATE TABLE IF NOT EXISTS `PaginatedVersionSummaryListVersionSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `PalParkAreaDetail` (
-  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT,
-  `name` text NOT NULL,
+  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT /*The identifier for this resource.*/,
+  `name` text NOT NULL /*The name for this resource.*/,
 ); 
 
 -- --------------------------------------------------------------------------
@@ -3204,23 +3257,12 @@ CREATE TABLE IF NOT EXISTS `PalParkAreaDetailPalParkAreaName` (
 );
 
 -- --------------------------------------------------------------------------
--- Table structure for table `PalParkAreaDetailPalParkAreaDetailPokemonEncountersInner` generated from model 'PalParkAreaDetailPalParkAreaDetailPokemonEncountersInner'
+-- Table structure for table `PalParkAreaDetailPalParkEncounter` generated from model 'PalParkAreaDetailPalParkEncounter'
 
-CREATE TABLE IF NOT EXISTS `PalParkAreaDetailPalParkAreaDetailPokemonEncountersInner` (
+CREATE TABLE IF NOT EXISTS `PalParkAreaDetailPalParkEncounter` (
   `palParkAreaDetail` long NOT NULL
-  `palParkAreaDetailPokemonEncountersInner` long NOT NULL
+  `palParkEncounter` long NOT NULL
 );
-
-
--- --------------------------------------------------------------------------
--- Table structure for table `PalParkAreaDetail_pokemon_encounters_inner` generated from model 'palParkAreaDetailPokemonEncountersInner'
---
-
-CREATE TABLE IF NOT EXISTS `PalParkAreaDetail_pokemon_encounters_inner` (
-  `base_score` int NOT NULL,
-  `pokemonspecies` long NOT NULL,
-  `rate` int NOT NULL
-); 
 
 
 -- --------------------------------------------------------------------------
@@ -3228,8 +3270,8 @@ CREATE TABLE IF NOT EXISTS `PalParkAreaDetail_pokemon_encounters_inner` (
 --
 
 CREATE TABLE IF NOT EXISTS `PalParkAreaName` (
-  `name` text NOT NULL,
-  `language` long NOT NULL
+  `name` text NOT NULL /*The localized name for an API resource in a specific language.*/,
+  `language` long NOT NULL /*The language this name is in.*/
 ); 
 
 
@@ -3238,9 +3280,65 @@ CREATE TABLE IF NOT EXISTS `PalParkAreaName` (
 --
 
 CREATE TABLE IF NOT EXISTS `PalParkAreaSummary` (
-  `name` text NOT NULL,
-  `url` text NOT NULL
+  `name` text NOT NULL /*The name of the referenced resource.*/,
+  `url` text NOT NULL /*The URL of the referenced resource.*/
 ); 
+
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `PalParkEncounter` generated from model 'palParkEncounter'
+--
+
+CREATE TABLE IF NOT EXISTS `PalParkEncounter` (
+  `rate` int NOT NULL /*The base rate for encountering this Pokémon in this pal park area.*/,
+  `pokemon_species` long NOT NULL /*The Pokémon species being encountered.*/,
+  `base_score` int /*The base score given to the player when this Pokémon is caught during a pal park run.*/
+); 
+
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `PokeapiMetaResponse` generated from model 'pokeapiMetaResponse'
+--
+
+CREATE TABLE IF NOT EXISTS `PokeapiMetaResponse` (
+  `deploy_date` text NOT NULL /*The deployment time as a Unix timestamp string.*/,
+  `hash` text NOT NULL /*The source commit hash used for this deployment.*/,
+  `tag` text NOT NULL /*The deployment tag, or null if the deployment has no tag.*/
+); 
+
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `PokeathlonStatAffectingNature` generated from model 'pokeathlonStatAffectingNature'
+--
+
+CREATE TABLE IF NOT EXISTS `PokeathlonStatAffectingNature` (
+  `max_change` int NOT NULL /*The maximum amount of change to the referenced Pokéathlon stat.*/,
+  `nature` long NOT NULL /*The nature causing the change.*/
+); 
+
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `PokeathlonStatAffectingNatures` generated from model 'pokeathlonStatAffectingNatures'
+--
+
+CREATE TABLE IF NOT EXISTS `PokeathlonStatAffectingNatures` (
+); 
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `PokeathlonStatAffectingNaturesPokeathlonStatAffectingNature` generated from model 'PokeathlonStatAffectingNaturesPokeathlonStatAffectingNature'
+
+CREATE TABLE IF NOT EXISTS `PokeathlonStatAffectingNaturesPokeathlonStatAffectingNature` (
+  `pokeathlonStatAffectingNatures` long NOT NULL
+  `pokeathlonStatAffectingNature` long NOT NULL
+);
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `PokeathlonStatAffectingNaturesPokeathlonStatAffectingNature` generated from model 'PokeathlonStatAffectingNaturesPokeathlonStatAffectingNature'
+
+CREATE TABLE IF NOT EXISTS `PokeathlonStatAffectingNaturesPokeathlonStatAffectingNature` (
+  `pokeathlonStatAffectingNatures` long NOT NULL
+  `pokeathlonStatAffectingNature` long NOT NULL
+);
 
 
 -- --------------------------------------------------------------------------
@@ -3248,9 +3346,9 @@ CREATE TABLE IF NOT EXISTS `PalParkAreaSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `PokeathlonStatDetail` (
-  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT,
-  `name` text NOT NULL,
-  `affecting_natures` long NOT NULL,
+  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT /*The identifier for this resource.*/,
+  `name` text NOT NULL /*The name for this resource.*/,
+  `affecting_natures` long NOT NULL /*A detail of natures which affect this Pokéathlon stat positively or negatively.*/,
 ); 
 
 -- --------------------------------------------------------------------------
@@ -3263,56 +3361,12 @@ CREATE TABLE IF NOT EXISTS `PokeathlonStatDetailPokeathlonStatName` (
 
 
 -- --------------------------------------------------------------------------
--- Table structure for table `PokeathlonStatDetail_affecting_natures` generated from model 'pokeathlonStatDetailAffectingNatures'
---
-
-CREATE TABLE IF NOT EXISTS `PokeathlonStatDetail_affecting_natures` (
-); 
-
--- --------------------------------------------------------------------------
--- Table structure for table `PokeathlonStatDetailAffectingNaturesPokeathlonStatDetailAffectingNaturesDecreaseInner` generated from model 'PokeathlonStatDetailAffectingNaturesPokeathlonStatDetailAffectingNaturesDecreaseInner'
-
-CREATE TABLE IF NOT EXISTS `PokeathlonStatDetailAffectingNaturesPokeathlonStatDetailAffectingNaturesDecreaseInner` (
-  `pokeathlonStatDetailAffectingNatures` long NOT NULL
-  `pokeathlonStatDetailAffectingNaturesDecreaseInner` long NOT NULL
-);
-
--- --------------------------------------------------------------------------
--- Table structure for table `PokeathlonStatDetailAffectingNaturesPokeathlonStatDetailAffectingNaturesIncreaseInner` generated from model 'PokeathlonStatDetailAffectingNaturesPokeathlonStatDetailAffectingNaturesIncreaseInner'
-
-CREATE TABLE IF NOT EXISTS `PokeathlonStatDetailAffectingNaturesPokeathlonStatDetailAffectingNaturesIncreaseInner` (
-  `pokeathlonStatDetailAffectingNatures` long NOT NULL
-  `pokeathlonStatDetailAffectingNaturesIncreaseInner` long NOT NULL
-);
-
-
--- --------------------------------------------------------------------------
--- Table structure for table `PokeathlonStatDetail_affecting_natures_decrease_inner` generated from model 'pokeathlonStatDetailAffectingNaturesDecreaseInner'
---
-
-CREATE TABLE IF NOT EXISTS `PokeathlonStatDetail_affecting_natures_decrease_inner` (
-  `max_change` int NOT NULL,
-  `nature` long NOT NULL
-); 
-
-
--- --------------------------------------------------------------------------
--- Table structure for table `PokeathlonStatDetail_affecting_natures_increase_inner` generated from model 'pokeathlonStatDetailAffectingNaturesIncreaseInner'
---
-
-CREATE TABLE IF NOT EXISTS `PokeathlonStatDetail_affecting_natures_increase_inner` (
-  `max_change` int UNSIGNED NOT NULL,
-  `nature` long NOT NULL
-); 
-
-
--- --------------------------------------------------------------------------
 -- Table structure for table `PokeathlonStatName` generated from model 'pokeathlonStatName'
 --
 
 CREATE TABLE IF NOT EXISTS `PokeathlonStatName` (
-  `name` text NOT NULL,
-  `language` long NOT NULL
+  `name` text NOT NULL /*The localized name for an API resource in a specific language.*/,
+  `language` long NOT NULL /*The language this name is in.*/
 ); 
 
 
@@ -3321,8 +3375,8 @@ CREATE TABLE IF NOT EXISTS `PokeathlonStatName` (
 --
 
 CREATE TABLE IF NOT EXISTS `PokeathlonStatSummary` (
-  `name` text NOT NULL,
-  `url` text NOT NULL
+  `name` text NOT NULL /*The name of the referenced resource.*/,
+  `url` text NOT NULL /*The URL of the referenced resource.*/
 ); 
 
 
@@ -3331,8 +3385,8 @@ CREATE TABLE IF NOT EXISTS `PokeathlonStatSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `PokedexDescription` (
-  `language` long NOT NULL,
-  `description` text
+  `language` long NOT NULL /*The language this name is in.*/,
+  `description` text /*The localized description for an API resource in a specific language.*/
 ); 
 
 
@@ -3341,10 +3395,10 @@ CREATE TABLE IF NOT EXISTS `PokedexDescription` (
 --
 
 CREATE TABLE IF NOT EXISTS `PokedexDetail` (
-  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT,
-  `name` text NOT NULL,
-  `region` long NOT NULL,
-  `is_main_series` boolean
+  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT /*The identifier for this resource.*/,
+  `name` text NOT NULL /*The name for this resource.*/,
+  `region` long NOT NULL /*The region this Pokédex catalogues Pokémon for.*/,
+  `is_main_series` boolean /*Whether or not this Pokédex originated in the main series of the video games.*/
 ); 
 
 -- --------------------------------------------------------------------------
@@ -3364,30 +3418,20 @@ CREATE TABLE IF NOT EXISTS `PokedexDetailPokedexName` (
 );
 
 -- --------------------------------------------------------------------------
--- Table structure for table `PokedexDetailPokedexDetailPokemonEntriesInner` generated from model 'PokedexDetailPokedexDetailPokemonEntriesInner'
+-- Table structure for table `PokedexDetailPokemonDexNumber` generated from model 'PokedexDetailPokemonDexNumber'
 
-CREATE TABLE IF NOT EXISTS `PokedexDetailPokedexDetailPokemonEntriesInner` (
+CREATE TABLE IF NOT EXISTS `PokedexDetailPokemonDexNumber` (
   `pokedexDetail` long NOT NULL
-  `pokedexDetailPokemonEntriesInner` long NOT NULL
+  `pokemonDexNumber` long NOT NULL
 );
 
 -- --------------------------------------------------------------------------
--- Table structure for table `PokedexDetailAbilityDetailPokemonInnerPokemon` generated from model 'PokedexDetailAbilityDetailPokemonInnerPokemon'
+-- Table structure for table `PokedexDetailVersionGroupSummary` generated from model 'PokedexDetailVersionGroupSummary'
 
-CREATE TABLE IF NOT EXISTS `PokedexDetailAbilityDetailPokemonInnerPokemon` (
+CREATE TABLE IF NOT EXISTS `PokedexDetailVersionGroupSummary` (
   `pokedexDetail` long NOT NULL
-  `abilityDetailPokemonInnerPokemon` long NOT NULL
+  `versionGroupSummary` long NOT NULL
 );
-
-
--- --------------------------------------------------------------------------
--- Table structure for table `PokedexDetail_pokemon_entries_inner` generated from model 'pokedexDetailPokemonEntriesInner'
---
-
-CREATE TABLE IF NOT EXISTS `PokedexDetail_pokemon_entries_inner` (
-  `entry_number` int NOT NULL,
-  `pokemon_species` long NOT NULL
-); 
 
 
 -- --------------------------------------------------------------------------
@@ -3395,8 +3439,8 @@ CREATE TABLE IF NOT EXISTS `PokedexDetail_pokemon_entries_inner` (
 --
 
 CREATE TABLE IF NOT EXISTS `PokedexName` (
-  `name` text NOT NULL,
-  `language` long NOT NULL
+  `name` text NOT NULL /*The localized name for an API resource in a specific language.*/,
+  `language` long NOT NULL /*The language this name is in.*/
 ); 
 
 
@@ -3405,8 +3449,30 @@ CREATE TABLE IF NOT EXISTS `PokedexName` (
 --
 
 CREATE TABLE IF NOT EXISTS `PokedexSummary` (
-  `name` text NOT NULL,
-  `url` text NOT NULL
+  `name` text NOT NULL /*The name of the referenced resource.*/,
+  `url` text NOT NULL /*The URL of the referenced resource.*/
+); 
+
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `PokemonAbility` generated from model 'pokemonAbility'
+--
+
+CREATE TABLE IF NOT EXISTS `PokemonAbility` (
+  `slot` int NOT NULL /*The slot this ability occupies in this Pokémon species.*/,
+  `ability` long NOT NULL /*The ability the Pokémon may have.*/,
+  `is_hidden` boolean /*Whether or not this is a hidden ability.*/
+); 
+
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `PokemonAbilityPast` generated from model 'pokemonAbilityPast'
+--
+
+CREATE TABLE IF NOT EXISTS `PokemonAbilityPast` (
+  `slot` int NOT NULL /*The slot this ability occupies in this Pokémon species.*/,
+  `ability` long NOT NULL /*The ability the Pokémon may have.*/,
+  `is_hidden` boolean /*Whether or not this is a hidden ability.*/
 ); 
 
 
@@ -3415,8 +3481,8 @@ CREATE TABLE IF NOT EXISTS `PokedexSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `PokemonColorDetail` (
-  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT,
-  `name` text NOT NULL,
+  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT /*The identifier for this resource.*/,
+  `name` text NOT NULL /*The name for this resource.*/,
 ); 
 
 -- --------------------------------------------------------------------------
@@ -3441,8 +3507,8 @@ CREATE TABLE IF NOT EXISTS `PokemonColorDetailPokemonSpeciesSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `PokemonColorName` (
-  `name` text NOT NULL,
-  `language` long NOT NULL
+  `name` text NOT NULL /*The localized name for an API resource in a specific language.*/,
+  `language` long NOT NULL /*The language this name is in.*/
 ); 
 
 
@@ -3451,8 +3517,18 @@ CREATE TABLE IF NOT EXISTS `PokemonColorName` (
 --
 
 CREATE TABLE IF NOT EXISTS `PokemonColorSummary` (
-  `name` text NOT NULL,
-  `url` text NOT NULL
+  `name` text NOT NULL /*The name of the referenced resource.*/,
+  `url` text NOT NULL /*The URL of the referenced resource.*/
+); 
+
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `PokemonCries` generated from model 'pokemonCries'
+--
+
+CREATE TABLE IF NOT EXISTS `PokemonCries` (
+  `latest` text NOT NULL /*The latest depiction of this Pokémon&#39;s cry.*/,
+  `legacy` text NOT NULL /*The legacy depiction of this Pokémon&#39;s cry.*/
 ); 
 
 
@@ -3461,34 +3537,33 @@ CREATE TABLE IF NOT EXISTS `PokemonColorSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `PokemonDetail` (
-  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT,
-  `name` text NOT NULL,
-  `held_items` long NOT NULL,
-  `location_area_encounters` text NOT NULL,
-  `species` long NOT NULL,
-  `sprites` long NOT NULL,
-  `cries` long NOT NULL,
-  `base_experience` int,
-  `height` int,
-  `is_default` boolean,
-  `order` int,
-  `weight` int
+  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT /*The identifier for this resource.*/,
+  `name` text NOT NULL /*The name for this resource.*/,
+  `location_area_encounters` text NOT NULL /*A link to a list of location areas, as well as encounter details pertaining to specific versions.*/,
+  `species` long NOT NULL /*The species this Pokémon belongs to.*/,
+  `sprites` long NOT NULL /*A set of sprites used to depict this Pokémon in the game. A visual representation of the various sprites can be found at &lt;a href&#x3D;&#39;https://github.com/PokeAPI/sprites#sprites&#39;&gt;PokeAPI/sprites&lt;/a&gt;*/,
+  `cries` long NOT NULL /*A set of cries used to depict this Pokémon in the game. A visual representation of the various cries can be found at &lt;a href&#x3D;&#39;https://github.com/PokeAPI/cries#cries&#39;&gt;PokeAPI/cries&lt;/a&gt;*/,
+  `base_experience` int /*The base experience gained for defeating this Pokémon.*/,
+  `height` int /*The height of this Pokémon in decimetres.*/,
+  `is_default` boolean /*Set for exactly one Pokémon used as the default for each species.*/,
+  `order` int /*Order for sorting. Almost national order, except families are grouped together.*/,
+  `weight` int /*The weight of this Pokémon in hectograms.*/
 ); 
 
 -- --------------------------------------------------------------------------
--- Table structure for table `PokemonDetailPokemonDetailAbilitiesInner` generated from model 'PokemonDetailPokemonDetailAbilitiesInner'
+-- Table structure for table `PokemonDetailPokemonAbility` generated from model 'PokemonDetailPokemonAbility'
 
-CREATE TABLE IF NOT EXISTS `PokemonDetailPokemonDetailAbilitiesInner` (
+CREATE TABLE IF NOT EXISTS `PokemonDetailPokemonAbility` (
   `pokemonDetail` long NOT NULL
-  `pokemonDetailAbilitiesInner` long NOT NULL
+  `pokemonAbility` long NOT NULL
 );
 
 -- --------------------------------------------------------------------------
--- Table structure for table `PokemonDetailPokemonDetailPastAbilitiesInner` generated from model 'PokemonDetailPokemonDetailPastAbilitiesInner'
+-- Table structure for table `PokemonDetailPokemonPastAbility` generated from model 'PokemonDetailPokemonPastAbility'
 
-CREATE TABLE IF NOT EXISTS `PokemonDetailPokemonDetailPastAbilitiesInner` (
+CREATE TABLE IF NOT EXISTS `PokemonDetailPokemonPastAbility` (
   `pokemonDetail` long NOT NULL
-  `pokemonDetailPastAbilitiesInner` long NOT NULL
+  `pokemonPastAbility` long NOT NULL
 );
 
 -- --------------------------------------------------------------------------
@@ -3508,11 +3583,19 @@ CREATE TABLE IF NOT EXISTS `PokemonDetailPokemonGameIndex` (
 );
 
 -- --------------------------------------------------------------------------
--- Table structure for table `PokemonDetailPokemonDetailMovesInner` generated from model 'PokemonDetailPokemonDetailMovesInner'
+-- Table structure for table `PokemonDetailPokemonHeldItemSummary` generated from model 'PokemonDetailPokemonHeldItemSummary'
 
-CREATE TABLE IF NOT EXISTS `PokemonDetailPokemonDetailMovesInner` (
+CREATE TABLE IF NOT EXISTS `PokemonDetailPokemonHeldItemSummary` (
   `pokemonDetail` long NOT NULL
-  `pokemonDetailMovesInner` long NOT NULL
+  `pokemonHeldItemSummary` long NOT NULL
+);
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `PokemonDetailPokemonMove` generated from model 'PokemonDetailPokemonMove'
+
+CREATE TABLE IF NOT EXISTS `PokemonDetailPokemonMove` (
+  `pokemonDetail` long NOT NULL
+  `pokemonMove` long NOT NULL
 );
 
 -- --------------------------------------------------------------------------
@@ -3524,139 +3607,28 @@ CREATE TABLE IF NOT EXISTS `PokemonDetailPokemonStat` (
 );
 
 -- --------------------------------------------------------------------------
--- Table structure for table `PokemonDetailPokemonDetailTypesInner` generated from model 'PokemonDetailPokemonDetailTypesInner'
+-- Table structure for table `PokemonDetailPokemonPastStat` generated from model 'PokemonDetailPokemonPastStat'
 
-CREATE TABLE IF NOT EXISTS `PokemonDetailPokemonDetailTypesInner` (
+CREATE TABLE IF NOT EXISTS `PokemonDetailPokemonPastStat` (
   `pokemonDetail` long NOT NULL
-  `pokemonDetailTypesInner` long NOT NULL
+  `pokemonPastStat` long NOT NULL
 );
 
 -- --------------------------------------------------------------------------
--- Table structure for table `PokemonDetailPokemonDetailPastTypesInner` generated from model 'PokemonDetailPokemonDetailPastTypesInner'
+-- Table structure for table `PokemonDetailPokemonType` generated from model 'PokemonDetailPokemonType'
 
-CREATE TABLE IF NOT EXISTS `PokemonDetailPokemonDetailPastTypesInner` (
+CREATE TABLE IF NOT EXISTS `PokemonDetailPokemonType` (
   `pokemonDetail` long NOT NULL
-  `pokemonDetailPastTypesInner` long NOT NULL
+  `pokemonType` long NOT NULL
 );
 
-
 -- --------------------------------------------------------------------------
--- Table structure for table `PokemonDetail_abilities_inner` generated from model 'pokemonDetailAbilitiesInner'
---
+-- Table structure for table `PokemonDetailPokemonPastType` generated from model 'PokemonDetailPokemonPastType'
 
-CREATE TABLE IF NOT EXISTS `PokemonDetail_abilities_inner` (
-  `ability` long NOT NULL,
-  `is_hidden` boolean NOT NULL,
-  `slot` int NOT NULL
-); 
-
-
--- --------------------------------------------------------------------------
--- Table structure for table `PokemonDetail_cries` generated from model 'pokemonDetailCries'
---
-
-CREATE TABLE IF NOT EXISTS `PokemonDetail_cries` (
-  `latest` text NOT NULL,
-  `legacy` text NOT NULL
-); 
-
-
--- --------------------------------------------------------------------------
--- Table structure for table `PokemonDetail_held_items` generated from model 'pokemonDetailHeldItems'
---
-
-CREATE TABLE IF NOT EXISTS `PokemonDetail_held_items` (
-  `item` long NOT NULL,
-); 
-
--- --------------------------------------------------------------------------
--- Table structure for table `PokemonDetailHeldItemsItemDetailHeldByPokemonInnerVersionDetailsInner` generated from model 'PokemonDetailHeldItemsItemDetailHeldByPokemonInnerVersionDetailsInner'
-
-CREATE TABLE IF NOT EXISTS `PokemonDetailHeldItemsItemDetailHeldByPokemonInnerVersionDetailsInner` (
-  `pokemonDetailHeldItems` long NOT NULL
-  `itemDetailHeldByPokemonInnerVersionDetailsInner` long NOT NULL
+CREATE TABLE IF NOT EXISTS `PokemonDetailPokemonPastType` (
+  `pokemonDetail` long NOT NULL
+  `pokemonPastType` long NOT NULL
 );
-
-
--- --------------------------------------------------------------------------
--- Table structure for table `PokemonDetail_moves_inner` generated from model 'pokemonDetailMovesInner'
---
-
-CREATE TABLE IF NOT EXISTS `PokemonDetail_moves_inner` (
-  `move` long NOT NULL,
-); 
-
--- --------------------------------------------------------------------------
--- Table structure for table `PokemonDetailMovesInnerPokemonDetailMovesInnerVersionGroupDetailsInner` generated from model 'PokemonDetailMovesInnerPokemonDetailMovesInnerVersionGroupDetailsInner'
-
-CREATE TABLE IF NOT EXISTS `PokemonDetailMovesInnerPokemonDetailMovesInnerVersionGroupDetailsInner` (
-  `pokemonDetailMovesInner` long NOT NULL
-  `pokemonDetailMovesInnerVersionGroupDetailsInner` long NOT NULL
-);
-
-
--- --------------------------------------------------------------------------
--- Table structure for table `PokemonDetail_moves_inner_version_group_details_inner` generated from model 'pokemonDetailMovesInnerVersionGroupDetailsInner'
---
-
-CREATE TABLE IF NOT EXISTS `PokemonDetail_moves_inner_version_group_details_inner` (
-  `level_learned_at` int NOT NULL,
-  `move_learn_method` long NOT NULL,
-  `version_group` long NOT NULL
-); 
-
-
--- --------------------------------------------------------------------------
--- Table structure for table `PokemonDetail_past_abilities_inner` generated from model 'pokemonDetailPastAbilitiesInner'
---
-
-CREATE TABLE IF NOT EXISTS `PokemonDetail_past_abilities_inner` (
-  `generation` long NOT NULL
-); 
-
--- --------------------------------------------------------------------------
--- Table structure for table `PokemonDetailPastAbilitiesInnerPokemonDetailAbilitiesInner` generated from model 'PokemonDetailPastAbilitiesInnerPokemonDetailAbilitiesInner'
-
-CREATE TABLE IF NOT EXISTS `PokemonDetailPastAbilitiesInnerPokemonDetailAbilitiesInner` (
-  `pokemonDetailPastAbilitiesInner` long NOT NULL
-  `pokemonDetailAbilitiesInner` long NOT NULL
-);
-
-
--- --------------------------------------------------------------------------
--- Table structure for table `PokemonDetail_past_types_inner` generated from model 'pokemonDetailPastTypesInner'
---
-
-CREATE TABLE IF NOT EXISTS `PokemonDetail_past_types_inner` (
-  `generation` long NOT NULL,
-); 
-
--- --------------------------------------------------------------------------
--- Table structure for table `PokemonDetailPastTypesInnerPokemonDetailTypesInner` generated from model 'PokemonDetailPastTypesInnerPokemonDetailTypesInner'
-
-CREATE TABLE IF NOT EXISTS `PokemonDetailPastTypesInnerPokemonDetailTypesInner` (
-  `pokemonDetailPastTypesInner` long NOT NULL
-  `pokemonDetailTypesInner` long NOT NULL
-);
-
-
--- --------------------------------------------------------------------------
--- Table structure for table `PokemonDetail_sprites` generated from model 'pokemonDetailSprites'
---
-
-CREATE TABLE IF NOT EXISTS `PokemonDetail_sprites` (
-  `front_default` text
-); 
-
-
--- --------------------------------------------------------------------------
--- Table structure for table `PokemonDetail_types_inner` generated from model 'pokemonDetailTypesInner'
---
-
-CREATE TABLE IF NOT EXISTS `PokemonDetail_types_inner` (
-  `slot` int NOT NULL,
-  `type` long NOT NULL
-); 
 
 
 -- --------------------------------------------------------------------------
@@ -3664,8 +3636,129 @@ CREATE TABLE IF NOT EXISTS `PokemonDetail_types_inner` (
 --
 
 CREATE TABLE IF NOT EXISTS `PokemonDexEntry` (
-  `entry_number` int NOT NULL,
-  `pokedex` long NOT NULL
+  `entry_number` int NOT NULL /*The index number within the Pokédex.*/,
+  `pokedex` long NOT NULL /*The Pokédex the referenced Pokémon species can be found in.*/
+); 
+
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `PokemonDexNumber` generated from model 'pokemonDexNumber'
+--
+
+CREATE TABLE IF NOT EXISTS `PokemonDexNumber` (
+  `entry_number` int NOT NULL /*The index of this Pokémon species entry within the Pokédex.*/,
+  `pokemon_species` long NOT NULL /*The Pokémon species being encountered.*/
+); 
+
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `PokemonEncounterDetailResponse` generated from model 'pokemonEncounterDetailResponse'
+--
+
+CREATE TABLE IF NOT EXISTS `PokemonEncounterDetailResponse` (
+  `chance` int NOT NULL /*Percent chance that this encounter will occur.*/,
+  `max_level` int NOT NULL /*The highest level the Pokémon could be encountered at.*/,
+  `method` long NOT NULL /*The method by which this encounter happens.*/,
+  `min_level` int NOT NULL /*The lowest level the Pokémon could be encountered at.*/
+); 
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `PokemonEncounterDetailResponseEncounterConditionValueSummary` generated from model 'PokemonEncounterDetailResponseEncounterConditionValueSummary'
+
+CREATE TABLE IF NOT EXISTS `PokemonEncounterDetailResponseEncounterConditionValueSummary` (
+  `pokemonEncounterDetailResponse` long NOT NULL
+  `encounterConditionValueSummary` long NOT NULL
+);
+
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `PokemonEncounterResponse` generated from model 'pokemonEncounterResponse'
+--
+
+CREATE TABLE IF NOT EXISTS `PokemonEncounterResponse` (
+  `location_area` long NOT NULL /*The location area the referenced Pokémon can be encountered in.*/,
+); 
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `PokemonEncounterResponsePokemonEncounterVersionDetailResponse` generated from model 'PokemonEncounterResponsePokemonEncounterVersionDetailResponse'
+
+CREATE TABLE IF NOT EXISTS `PokemonEncounterResponsePokemonEncounterVersionDetailResponse` (
+  `pokemonEncounterResponse` long NOT NULL
+  `pokemonEncounterVersionDetailResponse` long NOT NULL
+);
+
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `PokemonEncounterVersionDetailResponse` generated from model 'pokemonEncounterVersionDetailResponse'
+--
+
+CREATE TABLE IF NOT EXISTS `PokemonEncounterVersionDetailResponse` (
+  `version` long NOT NULL /*The game version this encounter happens in.*/,
+  `max_chance` int NOT NULL /*The total percentage of all encounter potential.*/,
+); 
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `PokemonEncounterVersionDetailResponsePokemonEncounterDetailResponse` generated from model 'PokemonEncounterVersionDetailResponsePokemonEncounterDetailResponse'
+
+CREATE TABLE IF NOT EXISTS `PokemonEncounterVersionDetailResponsePokemonEncounterDetailResponse` (
+  `pokemonEncounterVersionDetailResponse` long NOT NULL
+  `pokemonEncounterDetailResponse` long NOT NULL
+);
+
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `PokemonEvolution` generated from model 'pokemonEvolution'
+--
+
+CREATE TABLE IF NOT EXISTS `PokemonEvolution` (
+  `version_group` long NOT NULL /*The version group in which these evolution requirements apply.*/,
+  `item` long NOT NULL /*The item required to cause evolution this into Pokémon species.*/,
+  `trigger` long NOT NULL /*The type of event that triggers evolution into this Pokémon species.*/,
+  `held_item` long NOT NULL /*The item the evolving Pokémon species must be holding during the evolution trigger event to evolve into this Pokémon species.*/,
+  `known_move` long NOT NULL,
+  `known_move_type` long NOT NULL,
+  `location` long NOT NULL /*The location the evolution must be triggered at.*/,
+  `party_species` long NOT NULL /*The Pokémon species that must be in the players party in order for the evolving Pokémon species to evolve into this Pokémon species.*/,
+  `party_type` long NOT NULL /*The player must have a Pokémon of this type in their party during the evolution trigger event in order for the evolving Pokémon species to evolve into this Pokémon species.*/,
+  `trade_species` long NOT NULL /*Pokémon species for which this one must be traded.*/,
+  `region` long NOT NULL /*The required region in which this evolution can occur.*/,
+  `required_pokemon_form` long NOT NULL /*The Pokémon form required before evolving, or null if unrestricted.*/,
+  `evolved_pokemon_form` long NOT NULL /*The Pokémon form produced by this evolution, or null if unspecified.*/,
+  `used_move` long NOT NULL /*The move that must be used by the evolving Pokémon species during the evolution trigger event in order to evolve into this Pokémon species.*/,
+  `condition_expression` long NOT NULL /*An additional evolution condition expressed in reverse Polish notation, or null if none.*/,
+  `is_default` boolean /*Whether the evolution is considered as the expected evolution in a main series game. Each unique Pokémon variety of a line capable of evolution should have exactly one &#39;default&#39; evolution. For example, the Meowth species has three default evolutions as there are three distinct varieties it can evolve into: Persian, Alolan Persian, and Perrserker.*/,
+  `gender` int /*The id of the gender of the evolving Pokémon species must be in order to evolve into this Pokémon species.*/,
+  `min_level` int /*The minimum required level of the evolving Pokémon species to evolve into this Pokémon species.*/,
+  `min_happiness` int /*The minimum required level of happiness the evolving Pokémon species to evolve into this Pokémon species.*/,
+  `min_beauty` int /*The minimum required level of beauty the evolving Pokémon species to evolve into this Pokémon species.*/,
+  `min_affection` int /*The minimum required level of affection the evolving Pokémon species to evolve into this Pokémon species.*/,
+  `near_special_rock` boolean /*Whether or not you need to be near a Moss Rock or Icy Rock to evolve into this Pokémon species.*/,
+  `needs_multiplayer` boolean /*Whether or not multiplayer link play is needed to evolve into this Pokémon species (e.g. Union Circle).*/,
+  `needs_overworld_rain` boolean /*Whether or not it must be raining in the overworld to cause evolution this Pokémon species.*/,
+  `relative_physical_stats` int /*The required relation between the Pokémon&#39;s Attack and Defense stats. 1 means Attack &gt; Defense. 0 means Attack &#x3D; Defense. -1 means Attack &lt; Defense.*/,
+  `time_of_day` text /*The required time of day. Day or night.*/,
+  `turn_upside_down` boolean /*Whether or not the 3DS needs to be turned upside-down as this Pokémon levels up.*/,
+  `min_move_count` int /*The minimum number of times a move must be used in order to evolve into this Pokémon species.*/,
+  `min_steps` int /*The minimum number of steps that must be taken in order to evolve into this Pokémon species.*/,
+  `min_damage_taken` int /*The minimum amount of damage taken during the evolution trigger event in order to evolve into this Pokémon species.*/
+); 
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `PokemonEvolutionNatureSummary` generated from model 'PokemonEvolutionNatureSummary'
+
+CREATE TABLE IF NOT EXISTS `PokemonEvolutionNatureSummary` (
+  `pokemonEvolution` long NOT NULL
+  `natureSummary` long NOT NULL
+);
+
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `PokemonEvolution_known_move` generated from model 'pokemonEvolutionKnownMove'
+--
+
+CREATE TABLE IF NOT EXISTS `PokemonEvolution_known_move` (
+  `name` text NOT NULL,
+  `url` text NOT NULL
 ); 
 
 
@@ -3674,60 +3767,96 @@ CREATE TABLE IF NOT EXISTS `PokemonDexEntry` (
 --
 
 CREATE TABLE IF NOT EXISTS `PokemonFormDetail` (
-  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT,
-  `name` text NOT NULL,
-  `form_name` text NOT NULL,
-  `pokemon` long NOT NULL,
-  `sprites` long NOT NULL,
-  `version_group` long NOT NULL,
-  `order` int,
-  `form_order` int,
-  `is_default` boolean,
-  `is_battle_only` boolean,
-  `is_mega` boolean
+  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT /*The identifier for this resource.*/,
+  `name` text NOT NULL /*The name for this resource.*/,
+  `form_name` text NOT NULL /*The name of this form.*/,
+  `pokemon` long NOT NULL /*The Pokémon that can take on this form.*/,
+  `sprites` long NOT NULL /*A set of sprites used to depict this Pokémon form in the game.*/,
+  `version_group` long NOT NULL /*The version group this Pokémon form was introduced in.*/,
+  `order` int /*The order in which forms should be sorted within all forms. Multiple forms may have equal order, in which case they should fall back on sorting by name.*/,
+  `form_order` int /*The order in which forms should be sorted within a species&#39; forms.*/,
+  `is_default` boolean /*True for exactly one form used as the default for each Pokémon.*/,
+  `is_battle_only` boolean /*Whether or not this form can only happen during battle.*/,
+  `is_mega` boolean /*Whether or not this form requires mega evolution.*/
 ); 
 
 -- --------------------------------------------------------------------------
--- Table structure for table `PokemonFormDetailPokemonFormDetailFormNamesInner` generated from model 'PokemonFormDetailPokemonFormDetailFormNamesInner'
+-- Table structure for table `PokemonFormDetailPokemonFormName` generated from model 'PokemonFormDetailPokemonFormName'
 
-CREATE TABLE IF NOT EXISTS `PokemonFormDetailPokemonFormDetailFormNamesInner` (
+CREATE TABLE IF NOT EXISTS `PokemonFormDetailPokemonFormName` (
   `pokemonFormDetail` long NOT NULL
-  `pokemonFormDetailFormNamesInner` long NOT NULL
+  `pokemonFormName` long NOT NULL
 );
 
 -- --------------------------------------------------------------------------
--- Table structure for table `PokemonFormDetailPokemonFormDetailFormNamesInner` generated from model 'PokemonFormDetailPokemonFormDetailFormNamesInner'
+-- Table structure for table `PokemonFormDetailPokemonFormName` generated from model 'PokemonFormDetailPokemonFormName'
 
-CREATE TABLE IF NOT EXISTS `PokemonFormDetailPokemonFormDetailFormNamesInner` (
+CREATE TABLE IF NOT EXISTS `PokemonFormDetailPokemonFormName` (
   `pokemonFormDetail` long NOT NULL
-  `pokemonFormDetailFormNamesInner` long NOT NULL
+  `pokemonFormName` long NOT NULL
 );
 
 -- --------------------------------------------------------------------------
--- Table structure for table `PokemonFormDetailPokemonDetailTypesInner` generated from model 'PokemonFormDetailPokemonDetailTypesInner'
+-- Table structure for table `PokemonFormDetailPokemonFormType` generated from model 'PokemonFormDetailPokemonFormType'
 
-CREATE TABLE IF NOT EXISTS `PokemonFormDetailPokemonDetailTypesInner` (
+CREATE TABLE IF NOT EXISTS `PokemonFormDetailPokemonFormType` (
   `pokemonFormDetail` long NOT NULL
-  `pokemonDetailTypesInner` long NOT NULL
+  `pokemonFormType` long NOT NULL
+);
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `PokemonFormDetailPokemonFormTriggerCondition` generated from model 'PokemonFormDetailPokemonFormTriggerCondition'
+
+CREATE TABLE IF NOT EXISTS `PokemonFormDetailPokemonFormTriggerCondition` (
+  `pokemonFormDetail` long NOT NULL
+  `pokemonFormTriggerCondition` long NOT NULL
+);
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `PokemonFormDetailPokemonFormFlavorText` generated from model 'PokemonFormDetailPokemonFormFlavorText'
+
+CREATE TABLE IF NOT EXISTS `PokemonFormDetailPokemonFormFlavorText` (
+  `pokemonFormDetail` long NOT NULL
+  `pokemonFormFlavorText` long NOT NULL
 );
 
 
 -- --------------------------------------------------------------------------
--- Table structure for table `PokemonFormDetail_form_names_inner` generated from model 'pokemonFormDetailFormNamesInner'
+-- Table structure for table `PokemonFormFlavorText` generated from model 'pokemonFormFlavorText'
 --
 
-CREATE TABLE IF NOT EXISTS `PokemonFormDetail_form_names_inner` (
-  `language` long NOT NULL,
-  `name` text NOT NULL
+CREATE TABLE IF NOT EXISTS `PokemonFormFlavorText` (
+  `flavor_text` text NOT NULL /*The localized flavor text for an API resource in a specific language. Note that this text is left unprocessed as it is found in game files. This means that it contains special characters that one might want to replace with their visible decodable version. Please check out this &lt;a href&#x3D;&#39;https://github.com/veekun/pokedex/issues/218#issuecomment-339841781&#39; &gt;issue&lt;/a&gt; to find out more. */,
+  `language` long NOT NULL /*The language this name is in.*/,
+  `version` long NOT NULL /*The game version this flavor text is extracted from.*/
 ); 
 
 
 -- --------------------------------------------------------------------------
--- Table structure for table `PokemonFormDetail_sprites` generated from model 'pokemonFormDetailSprites'
+-- Table structure for table `PokemonFormName` generated from model 'pokemonFormName'
 --
 
-CREATE TABLE IF NOT EXISTS `PokemonFormDetail_sprites` (
-  `default` text
+CREATE TABLE IF NOT EXISTS `PokemonFormName` (
+  `name` text NOT NULL /*The localized name for an API resource in a specific language.*/,
+  `language` long NOT NULL /*The language this name is in.*/
+); 
+
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `PokemonFormSprites` generated from model 'pokemonFormSprites'
+--
+
+CREATE TABLE IF NOT EXISTS `PokemonFormSprites` (
+  `front_default` text NOT NULL /*The default depiction of this Pokémon from the front in battle.*/,
+  `front_shiny` text NOT NULL /*The shiny depiction of this Pokémon from the front in battle.*/,
+  `front_female` text NOT NULL /*The female depiction of this Pokémon from the front in battle.*/,
+  `front_shiny_female` text NOT NULL /*The shiny female depiction of this Pokémon from the front in battle.*/,
+  `back_default` text NOT NULL /*The default depiction of this Pokémon from the back in battle.*/,
+  `back_shiny` text NOT NULL /*The shiny depiction of this Pokémon from the back in battle.*/,
+  `back_female` text NOT NULL /*The female depiction of this Pokémon from the back in battle.*/,
+  `back_shiny_female` text NOT NULL /*The shiny female depiction of this Pokémon from the back in battle.*/,
+  `other` long /*Additional sprites grouped by source, such as official artwork, HOME, and Showdown. Available keys vary by resource.*/,
+  `versions` blob /*Sprites grouped by generation and game. Available keys vary by resource.*/
 ); 
 
 
@@ -3736,8 +3865,30 @@ CREATE TABLE IF NOT EXISTS `PokemonFormDetail_sprites` (
 --
 
 CREATE TABLE IF NOT EXISTS `PokemonFormSummary` (
-  `name` text NOT NULL,
-  `url` text NOT NULL
+  `name` text NOT NULL /*The name of the referenced resource.*/,
+  `url` text NOT NULL /*The URL of the referenced resource.*/
+); 
+
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `PokemonFormTriggerCondition` generated from model 'pokemonFormTriggerCondition'
+--
+
+CREATE TABLE IF NOT EXISTS `PokemonFormTriggerCondition` (
+  `trigger` text NOT NULL /*The trigger for this form change.*/,
+  `name` text /*The name of the required item, ability, or move. Only present for a resource-based trigger.*/,
+  `url` text /*The URL of the required item, ability, or move. Only present for a resource-based trigger.*/,
+  `base_form` long /*The required base form. Only present when the trigger specifies one.*/
+); 
+
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `PokemonFormType` generated from model 'pokemonFormType'
+--
+
+CREATE TABLE IF NOT EXISTS `PokemonFormType` (
+  `slot` int NOT NULL /*The order the Pokémon&#39;s types are listed in.*/,
+  `type` long NOT NULL /*The type the referenced Form has.*/
 ); 
 
 
@@ -3746,8 +3897,8 @@ CREATE TABLE IF NOT EXISTS `PokemonFormSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `PokemonGameIndex` (
-  `game_index` int NOT NULL,
-  `version` long NOT NULL
+  `game_index` int NOT NULL /*The internal id of an API resource within game data.*/,
+  `version` long NOT NULL /*The version relevent to this game index.*/
 ); 
 
 
@@ -3756,8 +3907,8 @@ CREATE TABLE IF NOT EXISTS `PokemonGameIndex` (
 --
 
 CREATE TABLE IF NOT EXISTS `PokemonHabitatDetail` (
-  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT,
-  `name` text NOT NULL,
+  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT /*The identifier for this resource.*/,
+  `name` text NOT NULL /*The name for this resource.*/,
 ); 
 
 -- --------------------------------------------------------------------------
@@ -3782,8 +3933,8 @@ CREATE TABLE IF NOT EXISTS `PokemonHabitatDetailPokemonSpeciesSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `PokemonHabitatName` (
-  `name` text NOT NULL,
-  `language` long NOT NULL
+  `name` text NOT NULL /*The localized name for an API resource in a specific language.*/,
+  `language` long NOT NULL /*The language this name is in.*/
 ); 
 
 
@@ -3792,8 +3943,142 @@ CREATE TABLE IF NOT EXISTS `PokemonHabitatName` (
 --
 
 CREATE TABLE IF NOT EXISTS `PokemonHabitatSummary` (
-  `name` text NOT NULL,
-  `url` text NOT NULL
+  `name` text NOT NULL /*The name of the referenced resource.*/,
+  `url` text NOT NULL /*The URL of the referenced resource.*/
+); 
+
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `PokemonHeldItem` generated from model 'pokemonHeldItem'
+--
+
+CREATE TABLE IF NOT EXISTS `PokemonHeldItem` (
+  `pokemon` long NOT NULL /*The Pokémon that holds this item.*/,
+); 
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `PokemonHeldItemPokemonHeldItemVersion` generated from model 'PokemonHeldItemPokemonHeldItemVersion'
+
+CREATE TABLE IF NOT EXISTS `PokemonHeldItemPokemonHeldItemVersion` (
+  `pokemonHeldItem` long NOT NULL
+  `pokemonHeldItemVersion` long NOT NULL
+);
+
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `PokemonHeldItemSummary` generated from model 'pokemonHeldItemSummary'
+--
+
+CREATE TABLE IF NOT EXISTS `PokemonHeldItemSummary` (
+  `item` long NOT NULL /*The item the referenced Pokémon holds.*/,
+); 
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `PokemonHeldItemSummaryPokemonHeldItemVersion` generated from model 'PokemonHeldItemSummaryPokemonHeldItemVersion'
+
+CREATE TABLE IF NOT EXISTS `PokemonHeldItemSummaryPokemonHeldItemVersion` (
+  `pokemonHeldItemSummary` long NOT NULL
+  `pokemonHeldItemVersion` long NOT NULL
+);
+
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `PokemonHeldItemVersion` generated from model 'pokemonHeldItemVersion'
+--
+
+CREATE TABLE IF NOT EXISTS `PokemonHeldItemVersion` (
+  `rarity` int NOT NULL /*How often the item is held.*/,
+  `version` long NOT NULL /*The version in which the item is held.*/
+); 
+
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `PokemonMove` generated from model 'pokemonMove'
+--
+
+CREATE TABLE IF NOT EXISTS `PokemonMove` (
+  `move` long NOT NULL /*The move the Pokémon can learn.*/,
+); 
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `PokemonMovePokemonMoveVersionGroup` generated from model 'PokemonMovePokemonMoveVersionGroup'
+
+CREATE TABLE IF NOT EXISTS `PokemonMovePokemonMoveVersionGroup` (
+  `pokemonMove` long NOT NULL
+  `pokemonMoveVersionGroup` long NOT NULL
+);
+
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `PokemonMoveVersionGroup` generated from model 'pokemonMoveVersionGroup'
+--
+
+CREATE TABLE IF NOT EXISTS `PokemonMoveVersionGroup` (
+  `level_learned_at` int NOT NULL /*The minimum level to learn the move.*/,
+  `move_learn_method` long NOT NULL /*The method by which the move is learned.*/,
+  `version_group` long NOT NULL /*The version group in which the move is learned.*/,
+  `order` int /*Order by which the pokemon will learn the move. A newly learnt move will replace the move with lowest order.*/
+); 
+
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `PokemonPastAbility` generated from model 'pokemonPastAbility'
+--
+
+CREATE TABLE IF NOT EXISTS `PokemonPastAbility` (
+  `generation` long NOT NULL /*The last generation in which the referenced pokémon had the listed abilities.*/
+); 
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `PokemonPastAbilityPokemonAbilityPast` generated from model 'PokemonPastAbilityPokemonAbilityPast'
+
+CREATE TABLE IF NOT EXISTS `PokemonPastAbilityPokemonAbilityPast` (
+  `pokemonPastAbility` long NOT NULL
+  `pokemonAbilityPast` long NOT NULL
+);
+
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `PokemonPastStat` generated from model 'pokemonPastStat'
+--
+
+CREATE TABLE IF NOT EXISTS `PokemonPastStat` (
+  `generation` long NOT NULL /*The last generation in which the referenced pokémon had the listed stats.*/,
+); 
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `PokemonPastStatPokemonStat` generated from model 'PokemonPastStatPokemonStat'
+
+CREATE TABLE IF NOT EXISTS `PokemonPastStatPokemonStat` (
+  `pokemonPastStat` long NOT NULL
+  `pokemonStat` long NOT NULL
+);
+
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `PokemonPastType` generated from model 'pokemonPastType'
+--
+
+CREATE TABLE IF NOT EXISTS `PokemonPastType` (
+  `generation` long NOT NULL /*The last generation in which the referenced pokémon had the listed types.*/,
+); 
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `PokemonPastTypePokemonType` generated from model 'PokemonPastTypePokemonType'
+
+CREATE TABLE IF NOT EXISTS `PokemonPastTypePokemonType` (
+  `pokemonPastType` long NOT NULL
+  `pokemonType` long NOT NULL
+);
+
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `PokemonShapeAwesomeName` generated from model 'pokemonShapeAwesomeName'
+--
+
+CREATE TABLE IF NOT EXISTS `PokemonShapeAwesomeName` (
+  `awesome_name` text NOT NULL /*The localized \&quot;scientific\&quot; name for an API resource in a specific language.*/,
+  `language` long NOT NULL /*The language this \&quot;scientific\&quot; name is in.*/
 ); 
 
 
@@ -3802,24 +4087,24 @@ CREATE TABLE IF NOT EXISTS `PokemonHabitatSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `PokemonShapeDetail` (
-  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT,
-  `name` text NOT NULL,
+  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT /*The identifier for this resource.*/,
+  `name` text NOT NULL /*The name for this resource.*/,
 ); 
 
 -- --------------------------------------------------------------------------
--- Table structure for table `PokemonShapeDetailPokemonShapeDetailAwesomeNamesInner` generated from model 'PokemonShapeDetailPokemonShapeDetailAwesomeNamesInner'
+-- Table structure for table `PokemonShapeDetailPokemonShapeAwesomeName` generated from model 'PokemonShapeDetailPokemonShapeAwesomeName'
 
-CREATE TABLE IF NOT EXISTS `PokemonShapeDetailPokemonShapeDetailAwesomeNamesInner` (
+CREATE TABLE IF NOT EXISTS `PokemonShapeDetailPokemonShapeAwesomeName` (
   `pokemonShapeDetail` long NOT NULL
-  `pokemonShapeDetailAwesomeNamesInner` long NOT NULL
+  `pokemonShapeAwesomeName` long NOT NULL
 );
 
 -- --------------------------------------------------------------------------
--- Table structure for table `PokemonShapeDetailPokemonShapeDetailNamesInner` generated from model 'PokemonShapeDetailPokemonShapeDetailNamesInner'
+-- Table structure for table `PokemonShapeDetailPokemonShapeName` generated from model 'PokemonShapeDetailPokemonShapeName'
 
-CREATE TABLE IF NOT EXISTS `PokemonShapeDetailPokemonShapeDetailNamesInner` (
+CREATE TABLE IF NOT EXISTS `PokemonShapeDetailPokemonShapeName` (
   `pokemonShapeDetail` long NOT NULL
-  `pokemonShapeDetailNamesInner` long NOT NULL
+  `pokemonShapeName` long NOT NULL
 );
 
 -- --------------------------------------------------------------------------
@@ -3832,22 +4117,12 @@ CREATE TABLE IF NOT EXISTS `PokemonShapeDetailPokemonSpeciesSummary` (
 
 
 -- --------------------------------------------------------------------------
--- Table structure for table `PokemonShapeDetail_awesome_names_inner` generated from model 'pokemonShapeDetailAwesomeNamesInner'
+-- Table structure for table `PokemonShapeName` generated from model 'pokemonShapeName'
 --
 
-CREATE TABLE IF NOT EXISTS `PokemonShapeDetail_awesome_names_inner` (
-  `awesome_name` text NOT NULL,
-  `language` long NOT NULL
-); 
-
-
--- --------------------------------------------------------------------------
--- Table structure for table `PokemonShapeDetail_names_inner` generated from model 'pokemonShapeDetailNamesInner'
---
-
-CREATE TABLE IF NOT EXISTS `PokemonShapeDetail_names_inner` (
-  `url` text NOT NULL,
-  `name` text NOT NULL
+CREATE TABLE IF NOT EXISTS `PokemonShapeName` (
+  `name` text NOT NULL /*The localized name for an API resource in a specific language.*/,
+  `language` long NOT NULL /*The language this name is in.*/
 ); 
 
 
@@ -3856,8 +4131,8 @@ CREATE TABLE IF NOT EXISTS `PokemonShapeDetail_names_inner` (
 --
 
 CREATE TABLE IF NOT EXISTS `PokemonShapeSummary` (
-  `name` text NOT NULL,
-  `url` text NOT NULL
+  `name` text NOT NULL /*The name of the referenced resource.*/,
+  `url` text NOT NULL /*The URL of the referenced resource.*/
 ); 
 
 
@@ -3866,8 +4141,8 @@ CREATE TABLE IF NOT EXISTS `PokemonShapeSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `PokemonSpeciesDescription` (
-  `language` long NOT NULL,
-  `description` text
+  `language` long NOT NULL /*The language this name is in.*/,
+  `description` text /*The localized description for an API resource in a specific language.*/
 ); 
 
 
@@ -3876,25 +4151,25 @@ CREATE TABLE IF NOT EXISTS `PokemonSpeciesDescription` (
 --
 
 CREATE TABLE IF NOT EXISTS `PokemonSpeciesDetail` (
-  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT,
-  `name` text NOT NULL,
-  `growth_rate` long NOT NULL,
-  `color` long NOT NULL,
-  `shape` long NOT NULL,
-  `evolves_from_species` long NOT NULL,
-  `evolution_chain` long NOT NULL,
-  `habitat` long NOT NULL,
-  `generation` long NOT NULL,
-  `order` int,
-  `gender_rate` int,
-  `capture_rate` int,
-  `base_happiness` int,
-  `is_baby` boolean,
-  `is_legendary` boolean,
-  `is_mythical` boolean,
-  `hatch_counter` int,
-  `has_gender_differences` boolean,
-  `forms_switchable` boolean
+  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT /*The identifier for this resource.*/,
+  `name` text NOT NULL /*The name for this resource.*/,
+  `growth_rate` long NOT NULL /*The rate at which this Pokémon species gains levels.*/,
+  `color` long NOT NULL /*The color of this Pokémon for Pokédex search.*/,
+  `shape` long NOT NULL /*The shape of this Pokémon for Pokédex search.*/,
+  `evolves_from_species` long NOT NULL /*The Pokémon species that evolves into this Pokemon_species.*/,
+  `evolution_chain` long NOT NULL /*The evolution chain this Pokémon species is a member of.*/,
+  `habitat` long NOT NULL /*The habitat this Pokémon species can be encountered in.*/,
+  `generation` long NOT NULL /*The generation this Pokémon species was introduced in.*/,
+  `order` int /*The order in which species should be sorted. Based on National Dex order, except families are grouped together and sorted by stage.*/,
+  `gender_rate` int /*The chance of this Pokémon being female, in eighths; or -1 for genderless.*/,
+  `capture_rate` int /*The base capture rate; up to 255. The higher the number, the easier the catch.*/,
+  `base_happiness` int /*The happiness when caught by a normal Pokéball; up to 255. The higher the number, the happier the Pokémon.*/,
+  `is_baby` boolean /*Whether or not this is a baby Pokémon.*/,
+  `is_legendary` boolean /*Whether or not this is a legendary Pokémon.*/,
+  `is_mythical` boolean /*Whether or not this is a mythical Pokémon.*/,
+  `hatch_counter` int /*Initial hatch counter: one must walk Y × (hatch_counter + 1) steps before this Pokémon&#39;s egg hatches, unless utilizing bonuses like Flame Body&#39;s. Y varies per generation. In Generations II, III, and VII, Egg cycles are 256 steps long. In Generation IV, Egg cycles are 255 steps long. In Pokémon Brilliant Diamond and Shining Pearl, Egg cycles are also 255 steps long, but are shorter on special dates. In Generations V and VI, Egg cycles are 257 steps long. In Pokémon Sword and Shield, and in Pokémon Scarlet and Violet, Egg cycles are 128 steps long.*/,
+  `has_gender_differences` boolean /*Whether or not this Pokémon has visual gender differences.*/,
+  `forms_switchable` boolean /*Whether or not this Pokémon has multiple forms and can switch between them.*/
 ); 
 
 -- --------------------------------------------------------------------------
@@ -3906,27 +4181,27 @@ CREATE TABLE IF NOT EXISTS `PokemonSpeciesDetailPokemonDexEntry` (
 );
 
 -- --------------------------------------------------------------------------
--- Table structure for table `PokemonSpeciesDetailAbilityDetailPokemonInnerPokemon` generated from model 'PokemonSpeciesDetailAbilityDetailPokemonInnerPokemon'
+-- Table structure for table `PokemonSpeciesDetailEggGroupSummary` generated from model 'PokemonSpeciesDetailEggGroupSummary'
 
-CREATE TABLE IF NOT EXISTS `PokemonSpeciesDetailAbilityDetailPokemonInnerPokemon` (
+CREATE TABLE IF NOT EXISTS `PokemonSpeciesDetailEggGroupSummary` (
   `pokemonSpeciesDetail` long NOT NULL
-  `abilityDetailPokemonInnerPokemon` long NOT NULL
+  `eggGroupSummary` long NOT NULL
 );
 
 -- --------------------------------------------------------------------------
--- Table structure for table `PokemonSpeciesDetailPokemonFormDetailFormNamesInner` generated from model 'PokemonSpeciesDetailPokemonFormDetailFormNamesInner'
+-- Table structure for table `PokemonSpeciesDetailPokemonSpeciesName` generated from model 'PokemonSpeciesDetailPokemonSpeciesName'
 
-CREATE TABLE IF NOT EXISTS `PokemonSpeciesDetailPokemonFormDetailFormNamesInner` (
+CREATE TABLE IF NOT EXISTS `PokemonSpeciesDetailPokemonSpeciesName` (
   `pokemonSpeciesDetail` long NOT NULL
-  `pokemonFormDetailFormNamesInner` long NOT NULL
+  `pokemonSpeciesName` long NOT NULL
 );
 
 -- --------------------------------------------------------------------------
--- Table structure for table `PokemonSpeciesDetailPokemonSpeciesDetailPalParkEncountersInner` generated from model 'PokemonSpeciesDetailPokemonSpeciesDetailPalParkEncountersInner'
+-- Table structure for table `PokemonSpeciesDetailPokemonSpeciesPalParkEncounter` generated from model 'PokemonSpeciesDetailPokemonSpeciesPalParkEncounter'
 
-CREATE TABLE IF NOT EXISTS `PokemonSpeciesDetailPokemonSpeciesDetailPalParkEncountersInner` (
+CREATE TABLE IF NOT EXISTS `PokemonSpeciesDetailPokemonSpeciesPalParkEncounter` (
   `pokemonSpeciesDetail` long NOT NULL
-  `pokemonSpeciesDetailPalParkEncountersInner` long NOT NULL
+  `pokemonSpeciesPalParkEncounter` long NOT NULL
 );
 
 -- --------------------------------------------------------------------------
@@ -3946,51 +4221,20 @@ CREATE TABLE IF NOT EXISTS `PokemonSpeciesDetailPokemonSpeciesFlavorText` (
 );
 
 -- --------------------------------------------------------------------------
--- Table structure for table `PokemonSpeciesDetailPokemonSpeciesDetailGeneraInner` generated from model 'PokemonSpeciesDetailPokemonSpeciesDetailGeneraInner'
+-- Table structure for table `PokemonSpeciesDetailPokemonSpeciesGenus` generated from model 'PokemonSpeciesDetailPokemonSpeciesGenus'
 
-CREATE TABLE IF NOT EXISTS `PokemonSpeciesDetailPokemonSpeciesDetailGeneraInner` (
+CREATE TABLE IF NOT EXISTS `PokemonSpeciesDetailPokemonSpeciesGenus` (
   `pokemonSpeciesDetail` long NOT NULL
-  `pokemonSpeciesDetailGeneraInner` long NOT NULL
+  `pokemonSpeciesGenus` long NOT NULL
 );
 
 -- --------------------------------------------------------------------------
--- Table structure for table `PokemonSpeciesDetailPokemonSpeciesDetailVarietiesInner` generated from model 'PokemonSpeciesDetailPokemonSpeciesDetailVarietiesInner'
+-- Table structure for table `PokemonSpeciesDetailPokemonSpeciesVariety` generated from model 'PokemonSpeciesDetailPokemonSpeciesVariety'
 
-CREATE TABLE IF NOT EXISTS `PokemonSpeciesDetailPokemonSpeciesDetailVarietiesInner` (
+CREATE TABLE IF NOT EXISTS `PokemonSpeciesDetailPokemonSpeciesVariety` (
   `pokemonSpeciesDetail` long NOT NULL
-  `pokemonSpeciesDetailVarietiesInner` long NOT NULL
+  `pokemonSpeciesVariety` long NOT NULL
 );
-
-
--- --------------------------------------------------------------------------
--- Table structure for table `PokemonSpeciesDetail_genera_inner` generated from model 'pokemonSpeciesDetailGeneraInner'
---
-
-CREATE TABLE IF NOT EXISTS `PokemonSpeciesDetail_genera_inner` (
-  `genus` text NOT NULL,
-  `language` long NOT NULL
-); 
-
-
--- --------------------------------------------------------------------------
--- Table structure for table `PokemonSpeciesDetail_pal_park_encounters_inner` generated from model 'pokemonSpeciesDetailPalParkEncountersInner'
---
-
-CREATE TABLE IF NOT EXISTS `PokemonSpeciesDetail_pal_park_encounters_inner` (
-  `area` long NOT NULL,
-  `base_score` int NOT NULL,
-  `rate` int NOT NULL
-); 
-
-
--- --------------------------------------------------------------------------
--- Table structure for table `PokemonSpeciesDetail_varieties_inner` generated from model 'pokemonSpeciesDetailVarietiesInner'
---
-
-CREATE TABLE IF NOT EXISTS `PokemonSpeciesDetail_varieties_inner` (
-  `is_default` boolean NOT NULL,
-  `pokemon` long NOT NULL
-); 
 
 
 -- --------------------------------------------------------------------------
@@ -3998,9 +4242,40 @@ CREATE TABLE IF NOT EXISTS `PokemonSpeciesDetail_varieties_inner` (
 --
 
 CREATE TABLE IF NOT EXISTS `PokemonSpeciesFlavorText` (
-  `flavor_text` text NOT NULL,
-  `language` long NOT NULL,
-  `version` long NOT NULL
+  `flavor_text` text NOT NULL /*The localized flavor text for an API resource in a specific language. Note that this text is left unprocessed as it is found in game files. This means that it contains special characters that one might want to replace with their visible decodable version. Please check out this &lt;a href&#x3D;&#39;https://github.com/veekun/pokedex/issues/218#issuecomment-339841781&#39; &gt;issue&lt;/a&gt; to find out more. */,
+  `language` long NOT NULL /*The language this name is in.*/,
+  `version` long NOT NULL /*The game version this flavor text is extracted from.*/
+); 
+
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `PokemonSpeciesGenus` generated from model 'pokemonSpeciesGenus'
+--
+
+CREATE TABLE IF NOT EXISTS `PokemonSpeciesGenus` (
+  `genus` text NOT NULL /*The localized genus for the referenced Pokémon species*/,
+  `language` long NOT NULL /*The language this genus is in.*/
+); 
+
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `PokemonSpeciesName` generated from model 'pokemonSpeciesName'
+--
+
+CREATE TABLE IF NOT EXISTS `PokemonSpeciesName` (
+  `name` text NOT NULL /*The localized name for an API resource in a specific language.*/,
+  `language` long NOT NULL /*The language this name is in.*/
+); 
+
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `PokemonSpeciesPalParkEncounter` generated from model 'pokemonSpeciesPalParkEncounter'
+--
+
+CREATE TABLE IF NOT EXISTS `PokemonSpeciesPalParkEncounter` (
+  `rate` int NOT NULL /*The base rate for encountering the referenced Pokémon in this pal park area.*/,
+  `area` long NOT NULL /*The pal park area where this encounter happens.*/,
+  `base_score` int /*The base score given to the player when the referenced Pokémon is caught during a pal park run.*/
 ); 
 
 
@@ -4009,8 +4284,97 @@ CREATE TABLE IF NOT EXISTS `PokemonSpeciesFlavorText` (
 --
 
 CREATE TABLE IF NOT EXISTS `PokemonSpeciesSummary` (
-  `name` text NOT NULL,
-  `url` text NOT NULL
+  `name` text NOT NULL /*The name of the referenced resource.*/,
+  `url` text NOT NULL /*The URL of the referenced resource.*/
+); 
+
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `PokemonSpeciesVariety` generated from model 'pokemonSpeciesVariety'
+--
+
+CREATE TABLE IF NOT EXISTS `PokemonSpeciesVariety` (
+  `is_default` boolean NOT NULL /*Whether this variety is the default variety.*/,
+  `pokemon` long NOT NULL /*The Pokémon variety.*/
+); 
+
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `PokemonSprites` generated from model 'pokemonSprites'
+--
+
+CREATE TABLE IF NOT EXISTS `PokemonSprites` (
+  `front_default` text NOT NULL /*The default depiction of this Pokémon from the front in battle.*/,
+  `front_shiny` text NOT NULL /*The shiny depiction of this Pokémon from the front in battle.*/,
+  `front_female` text NOT NULL /*The female depiction of this Pokémon from the front in battle.*/,
+  `front_shiny_female` text NOT NULL /*The shiny female depiction of this Pokémon from the front in battle.*/,
+  `back_default` text NOT NULL /*The default depiction of this Pokémon from the back in battle.*/,
+  `back_shiny` text NOT NULL /*The shiny depiction of this Pokémon from the back in battle.*/,
+  `back_female` text NOT NULL /*The female depiction of this Pokémon from the back in battle.*/,
+  `back_shiny_female` text NOT NULL /*The shiny female depiction of this Pokémon from the back in battle.*/,
+  `other` long /*Additional sprites grouped by source, such as official artwork, HOME, and Showdown. Available keys vary by resource.*/,
+  `versions` blob /*Sprites grouped by generation and game. Available keys vary by resource.*/
+); 
+
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `PokemonSpritesOther` generated from model 'pokemonSpritesOther'
+--
+
+CREATE TABLE IF NOT EXISTS `PokemonSpritesOther` (
+  `dream_world` long /*Pokémon Dream World artwork URLs.*/,
+  `home` long /*Pokémon HOME sprite URLs.*/,
+  `showdown` long /*Pokémon Showdown sprite URLs.*/,
+  `officialartwork` long /*Official Pokémon artwork URLs, including shiny artwork and version-specific variants.*/
+); 
+
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `PokemonSpritesOtherDreamWorld` generated from model 'pokemonSpritesOtherDreamWorld'
+--
+
+CREATE TABLE IF NOT EXISTS `PokemonSpritesOtherDreamWorld` (
+  `front_default` text NOT NULL /*The URL of the default Pokémon Dream World front image, or null if unavailable.*/,
+  `front_female` text NOT NULL /*The URL of the female Pokémon Dream World front image, or null if unavailable.*/
+); 
+
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `PokemonSpritesOtherHome` generated from model 'pokemonSpritesOtherHome'
+--
+
+CREATE TABLE IF NOT EXISTS `PokemonSpritesOtherHome` (
+  `front_default` text NOT NULL /*The URL of the default Pokémon HOME front image, or null if unavailable.*/,
+  `front_female` text NOT NULL /*The URL of the female Pokémon HOME front image, or null if unavailable.*/,
+  `front_shiny` text NOT NULL /*The URL of the shiny Pokémon HOME front image, or null if unavailable.*/,
+  `front_shiny_female` text NOT NULL /*The URL of the shiny female Pokémon HOME front image, or null if unavailable.*/
+); 
+
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `PokemonSpritesOtherOfficialArtwork` generated from model 'pokemonSpritesOtherOfficialArtwork'
+--
+
+CREATE TABLE IF NOT EXISTS `PokemonSpritesOtherOfficialArtwork` (
+  `front_default` text NOT NULL /*The URL of the default front official artwork, or null if unavailable.*/,
+  `front_shiny` text NOT NULL /*The URL of the shiny front official artwork, or null if unavailable.*/,
+  `versions` blob /*Additional official artwork grouped by version. Available keys vary by resource.*/
+); 
+
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `PokemonSpritesOtherShowdown` generated from model 'pokemonSpritesOtherShowdown'
+--
+
+CREATE TABLE IF NOT EXISTS `PokemonSpritesOtherShowdown` (
+  `front_default` text NOT NULL /*The URL of the default Pokémon Showdown front image, or null if unavailable.*/,
+  `front_female` text NOT NULL /*The URL of the female Pokémon Showdown front image, or null if unavailable.*/,
+  `front_shiny` text NOT NULL /*The URL of the shiny Pokémon Showdown front image, or null if unavailable.*/,
+  `front_shiny_female` text NOT NULL /*The URL of the shiny female Pokémon Showdown front image, or null if unavailable.*/,
+  `back_default` text NOT NULL /*The URL of the default Pokémon Showdown back image, or null if unavailable.*/,
+  `back_female` text NOT NULL /*The URL of the female Pokémon Showdown back image, or null if unavailable.*/,
+  `back_shiny` text NOT NULL /*The URL of the shiny Pokémon Showdown back image, or null if unavailable.*/,
+  `back_shiny_female` text NOT NULL /*The URL of the shiny female Pokémon Showdown back image, or null if unavailable.*/
 ); 
 
 
@@ -4019,9 +4383,9 @@ CREATE TABLE IF NOT EXISTS `PokemonSpeciesSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `PokemonStat` (
-  `base_stat` int NOT NULL,
-  `effort` int NOT NULL,
-  `stat` long NOT NULL
+  `base_stat` int NOT NULL /*The base value of the stat.*/,
+  `effort` int NOT NULL /*The effort points (EV) the Pokémon has in the stat.*/,
+  `stat` long NOT NULL /*The stat the Pokémon has.*/
 ); 
 
 
@@ -4030,8 +4394,18 @@ CREATE TABLE IF NOT EXISTS `PokemonStat` (
 --
 
 CREATE TABLE IF NOT EXISTS `PokemonSummary` (
-  `name` text NOT NULL,
-  `url` text NOT NULL
+  `name` text NOT NULL /*The name of the referenced resource.*/,
+  `url` text NOT NULL /*The URL of the referenced resource.*/
+); 
+
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `PokemonType` generated from model 'pokemonType'
+--
+
+CREATE TABLE IF NOT EXISTS `PokemonType` (
+  `slot` int NOT NULL /*The order the Pokémon&#39;s types are listed in.*/,
+  `type` long NOT NULL /*The type the referenced Pokémon has.*/
 ); 
 
 
@@ -4040,9 +4414,9 @@ CREATE TABLE IF NOT EXISTS `PokemonSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `RegionDetail` (
-  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT,
-  `name` text NOT NULL,
-  `main_generation` long NOT NULL,
+  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT /*The identifier for this resource.*/,
+  `name` text NOT NULL /*The name for this resource.*/,
+  `main_generation` long NOT NULL /*The generation this region was introduced in.*/,
 ); 
 
 -- --------------------------------------------------------------------------
@@ -4070,11 +4444,11 @@ CREATE TABLE IF NOT EXISTS `RegionDetailPokedexSummary` (
 );
 
 -- --------------------------------------------------------------------------
--- Table structure for table `RegionDetailAbilityDetailPokemonInnerPokemon` generated from model 'RegionDetailAbilityDetailPokemonInnerPokemon'
+-- Table structure for table `RegionDetailVersionGroupSummary` generated from model 'RegionDetailVersionGroupSummary'
 
-CREATE TABLE IF NOT EXISTS `RegionDetailAbilityDetailPokemonInnerPokemon` (
+CREATE TABLE IF NOT EXISTS `RegionDetailVersionGroupSummary` (
   `regionDetail` long NOT NULL
-  `abilityDetailPokemonInnerPokemon` long NOT NULL
+  `versionGroupSummary` long NOT NULL
 );
 
 
@@ -4083,8 +4457,8 @@ CREATE TABLE IF NOT EXISTS `RegionDetailAbilityDetailPokemonInnerPokemon` (
 --
 
 CREATE TABLE IF NOT EXISTS `RegionName` (
-  `name` text NOT NULL,
-  `language` long NOT NULL
+  `name` text NOT NULL /*The localized name for an API resource in a specific language.*/,
+  `language` long NOT NULL /*The language this name is in.*/
 ); 
 
 
@@ -4093,9 +4467,57 @@ CREATE TABLE IF NOT EXISTS `RegionName` (
 --
 
 CREATE TABLE IF NOT EXISTS `RegionSummary` (
-  `name` text NOT NULL,
-  `url` text NOT NULL
+  `name` text NOT NULL /*The name of the referenced resource.*/,
+  `url` text NOT NULL /*The URL of the referenced resource.*/
 ); 
+
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `StatAffectingMoves` generated from model 'statAffectingMoves'
+--
+
+CREATE TABLE IF NOT EXISTS `StatAffectingMoves` (
+); 
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `StatAffectingMovesMoveStatChange` generated from model 'StatAffectingMovesMoveStatChange'
+
+CREATE TABLE IF NOT EXISTS `StatAffectingMovesMoveStatChange` (
+  `statAffectingMoves` long NOT NULL
+  `moveStatChange` long NOT NULL
+);
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `StatAffectingMovesMoveStatChange` generated from model 'StatAffectingMovesMoveStatChange'
+
+CREATE TABLE IF NOT EXISTS `StatAffectingMovesMoveStatChange` (
+  `statAffectingMoves` long NOT NULL
+  `moveStatChange` long NOT NULL
+);
+
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `StatAffectingNatures` generated from model 'statAffectingNatures'
+--
+
+CREATE TABLE IF NOT EXISTS `StatAffectingNatures` (
+); 
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `StatAffectingNaturesNatureSummary` generated from model 'StatAffectingNaturesNatureSummary'
+
+CREATE TABLE IF NOT EXISTS `StatAffectingNaturesNatureSummary` (
+  `statAffectingNatures` long NOT NULL
+  `natureSummary` long NOT NULL
+);
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `StatAffectingNaturesNatureSummary` generated from model 'StatAffectingNaturesNatureSummary'
+
+CREATE TABLE IF NOT EXISTS `StatAffectingNaturesNatureSummary` (
+  `statAffectingNatures` long NOT NULL
+  `natureSummary` long NOT NULL
+);
 
 
 -- --------------------------------------------------------------------------
@@ -4103,14 +4525,22 @@ CREATE TABLE IF NOT EXISTS `RegionSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `StatDetail` (
-  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT,
-  `name` text NOT NULL,
-  `game_index` int NOT NULL,
-  `affecting_moves` long NOT NULL,
-  `affecting_natures` long NOT NULL,
-  `move_damage_class` long NOT NULL,
-  `is_battle_only` boolean
+  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT /*The identifier for this resource.*/,
+  `name` text NOT NULL /*The name for this resource.*/,
+  `game_index` int NOT NULL /*ID the games use for this stat.*/,
+  `affecting_moves` long NOT NULL /*A detail of moves which affect this stat positively or negatively.*/,
+  `affecting_natures` long NOT NULL /*A detail of natures which affect this stat positively or negatively.*/,
+  `move_damage_class` long NOT NULL /*The class of damage this stat is directly related to.*/,
+  `is_battle_only` boolean /*Whether this stat only exists within a battle.*/
 ); 
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `StatDetailItemSummary` generated from model 'StatDetailItemSummary'
+
+CREATE TABLE IF NOT EXISTS `StatDetailItemSummary` (
+  `statDetail` long NOT NULL
+  `itemSummary` long NOT NULL
+);
 
 -- --------------------------------------------------------------------------
 -- Table structure for table `StatDetailCharacteristicSummary` generated from model 'StatDetailCharacteristicSummary'
@@ -4130,70 +4560,12 @@ CREATE TABLE IF NOT EXISTS `StatDetailStatName` (
 
 
 -- --------------------------------------------------------------------------
--- Table structure for table `StatDetail_affecting_moves` generated from model 'statDetailAffectingMoves'
---
-
-CREATE TABLE IF NOT EXISTS `StatDetail_affecting_moves` (
-); 
-
--- --------------------------------------------------------------------------
--- Table structure for table `StatDetailAffectingMovesStatDetailAffectingMovesIncreaseInner` generated from model 'StatDetailAffectingMovesStatDetailAffectingMovesIncreaseInner'
-
-CREATE TABLE IF NOT EXISTS `StatDetailAffectingMovesStatDetailAffectingMovesIncreaseInner` (
-  `statDetailAffectingMoves` long NOT NULL
-  `statDetailAffectingMovesIncreaseInner` long NOT NULL
-);
-
--- --------------------------------------------------------------------------
--- Table structure for table `StatDetailAffectingMovesStatDetailAffectingMovesIncreaseInner` generated from model 'StatDetailAffectingMovesStatDetailAffectingMovesIncreaseInner'
-
-CREATE TABLE IF NOT EXISTS `StatDetailAffectingMovesStatDetailAffectingMovesIncreaseInner` (
-  `statDetailAffectingMoves` long NOT NULL
-  `statDetailAffectingMovesIncreaseInner` long NOT NULL
-);
-
-
--- --------------------------------------------------------------------------
--- Table structure for table `StatDetail_affecting_moves_increase_inner` generated from model 'statDetailAffectingMovesIncreaseInner'
---
-
-CREATE TABLE IF NOT EXISTS `StatDetail_affecting_moves_increase_inner` (
-  `change` int NOT NULL,
-  `move` long NOT NULL
-); 
-
-
--- --------------------------------------------------------------------------
--- Table structure for table `StatDetail_affecting_natures` generated from model 'statDetailAffectingNatures'
---
-
-CREATE TABLE IF NOT EXISTS `StatDetail_affecting_natures` (
-); 
-
--- --------------------------------------------------------------------------
--- Table structure for table `StatDetailAffectingNaturesAbilityDetailPokemonInnerPokemon` generated from model 'StatDetailAffectingNaturesAbilityDetailPokemonInnerPokemon'
-
-CREATE TABLE IF NOT EXISTS `StatDetailAffectingNaturesAbilityDetailPokemonInnerPokemon` (
-  `statDetailAffectingNatures` long NOT NULL
-  `abilityDetailPokemonInnerPokemon` long NOT NULL
-);
-
--- --------------------------------------------------------------------------
--- Table structure for table `StatDetailAffectingNaturesAbilityDetailPokemonInnerPokemon` generated from model 'StatDetailAffectingNaturesAbilityDetailPokemonInnerPokemon'
-
-CREATE TABLE IF NOT EXISTS `StatDetailAffectingNaturesAbilityDetailPokemonInnerPokemon` (
-  `statDetailAffectingNatures` long NOT NULL
-  `abilityDetailPokemonInnerPokemon` long NOT NULL
-);
-
-
--- --------------------------------------------------------------------------
 -- Table structure for table `StatName` generated from model 'statName'
 --
 
 CREATE TABLE IF NOT EXISTS `StatName` (
-  `name` text NOT NULL,
-  `language` long NOT NULL
+  `name` text NOT NULL /*The localized name for an API resource in a specific language.*/,
+  `language` long NOT NULL /*The language this name is in.*/
 ); 
 
 
@@ -4202,8 +4574,8 @@ CREATE TABLE IF NOT EXISTS `StatName` (
 --
 
 CREATE TABLE IF NOT EXISTS `StatSummary` (
-  `name` text NOT NULL,
-  `url` text NOT NULL
+  `name` text NOT NULL /*The name of the referenced resource.*/,
+  `url` text NOT NULL /*The URL of the referenced resource.*/
 ); 
 
 
@@ -4212,8 +4584,8 @@ CREATE TABLE IF NOT EXISTS `StatSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `SuperContestEffectDetail` (
-  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT,
-  `appeal` int NOT NULL,
+  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT /*The identifier for this resource.*/,
+  `appeal` int NOT NULL /*The level of appeal this super contest effect has.*/,
 ); 
 
 -- --------------------------------------------------------------------------
@@ -4238,8 +4610,8 @@ CREATE TABLE IF NOT EXISTS `SuperContestEffectDetailMoveSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `SuperContestEffectFlavorText` (
-  `flavor_text` text NOT NULL,
-  `language` long NOT NULL
+  `flavor_text` text NOT NULL /*The localized flavor text for an API resource in a specific language.*/,
+  `language` long NOT NULL /*The language this name is in.*/
 ); 
 
 
@@ -4248,7 +4620,7 @@ CREATE TABLE IF NOT EXISTS `SuperContestEffectFlavorText` (
 --
 
 CREATE TABLE IF NOT EXISTS `SuperContestEffectSummary` (
-  `url` text NOT NULL
+  `url` text NOT NULL /*The URL of the referenced resource.*/
 ); 
 
 
@@ -4258,20 +4630,20 @@ CREATE TABLE IF NOT EXISTS `SuperContestEffectSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `TypeDetail` (
-  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT,
-  `name` text NOT NULL,
-  `damage_relations` long NOT NULL,
-  `generation` long NOT NULL,
-  `move_damage_class` long NOT NULL,
-  `sprites` blob NOT NULL
+  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT /*The identifier for this resource.*/,
+  `name` text NOT NULL /*The name for this resource.*/,
+  `damage_relations` long NOT NULL /*A detail of how effective this type is toward others and vice versa.*/,
+  `generation` long NOT NULL /*The generation this type was introduced in.*/,
+  `move_damage_class` long NOT NULL /*The class of damage inflicted by this type.*/,
+  `sprites` blob NOT NULL /*Type icons grouped by generation and game, with name_icon and symbol_icon URLs. Unavailable icons are null.*/
 );  /*Serializer for the Type resource*/
 
 -- --------------------------------------------------------------------------
--- Table structure for table `TypeDetailTypeDetailPastDamageRelationsInner` generated from model 'TypeDetailTypeDetailPastDamageRelationsInner'
+-- Table structure for table `TypeDetailTypePastRelationships` generated from model 'TypeDetailTypePastRelationships'
 
-CREATE TABLE IF NOT EXISTS `TypeDetailTypeDetailPastDamageRelationsInner` (
+CREATE TABLE IF NOT EXISTS `TypeDetailTypePastRelationships` (
   `typeDetail` long NOT NULL
-  `typeDetailPastDamageRelationsInner` long NOT NULL
+  `typePastRelationships` long NOT NULL
 );
 
 -- --------------------------------------------------------------------------
@@ -4283,19 +4655,19 @@ CREATE TABLE IF NOT EXISTS `TypeDetailTypeGameIndex` (
 );
 
 -- --------------------------------------------------------------------------
--- Table structure for table `TypeDetailAbilityName` generated from model 'TypeDetailAbilityName'
+-- Table structure for table `TypeDetailTypeName` generated from model 'TypeDetailTypeName'
 
-CREATE TABLE IF NOT EXISTS `TypeDetailAbilityName` (
+CREATE TABLE IF NOT EXISTS `TypeDetailTypeName` (
   `typeDetail` long NOT NULL
-  `abilityName` long NOT NULL
+  `typeName` long NOT NULL
 );
 
 -- --------------------------------------------------------------------------
--- Table structure for table `TypeDetailTypeDetailPokemonInner` generated from model 'TypeDetailTypeDetailPokemonInner'
+-- Table structure for table `TypeDetailTypePokemon` generated from model 'TypeDetailTypePokemon'
 
-CREATE TABLE IF NOT EXISTS `TypeDetailTypeDetailPokemonInner` (
+CREATE TABLE IF NOT EXISTS `TypeDetailTypePokemon` (
   `typeDetail` long NOT NULL
-  `typeDetailPokemonInner` long NOT NULL
+  `typePokemon` long NOT NULL
 );
 
 -- --------------------------------------------------------------------------
@@ -4308,164 +4680,109 @@ CREATE TABLE IF NOT EXISTS `TypeDetailMoveSummary` (
 
 
 -- --------------------------------------------------------------------------
--- Table structure for table `TypeDetail_damage_relations` generated from model 'typeDetailDamageRelations'
---
-
-CREATE TABLE IF NOT EXISTS `TypeDetail_damage_relations` (
-); 
-
--- --------------------------------------------------------------------------
--- Table structure for table `TypeDetailDamageRelationsAbilityDetailPokemonInnerPokemon` generated from model 'TypeDetailDamageRelationsAbilityDetailPokemonInnerPokemon'
-
-CREATE TABLE IF NOT EXISTS `TypeDetailDamageRelationsAbilityDetailPokemonInnerPokemon` (
-  `typeDetailDamageRelations` long NOT NULL
-  `abilityDetailPokemonInnerPokemon` long NOT NULL
-);
-
--- --------------------------------------------------------------------------
--- Table structure for table `TypeDetailDamageRelationsAbilityDetailPokemonInnerPokemon` generated from model 'TypeDetailDamageRelationsAbilityDetailPokemonInnerPokemon'
-
-CREATE TABLE IF NOT EXISTS `TypeDetailDamageRelationsAbilityDetailPokemonInnerPokemon` (
-  `typeDetailDamageRelations` long NOT NULL
-  `abilityDetailPokemonInnerPokemon` long NOT NULL
-);
-
--- --------------------------------------------------------------------------
--- Table structure for table `TypeDetailDamageRelationsAbilityDetailPokemonInnerPokemon` generated from model 'TypeDetailDamageRelationsAbilityDetailPokemonInnerPokemon'
-
-CREATE TABLE IF NOT EXISTS `TypeDetailDamageRelationsAbilityDetailPokemonInnerPokemon` (
-  `typeDetailDamageRelations` long NOT NULL
-  `abilityDetailPokemonInnerPokemon` long NOT NULL
-);
-
--- --------------------------------------------------------------------------
--- Table structure for table `TypeDetailDamageRelationsAbilityDetailPokemonInnerPokemon` generated from model 'TypeDetailDamageRelationsAbilityDetailPokemonInnerPokemon'
-
-CREATE TABLE IF NOT EXISTS `TypeDetailDamageRelationsAbilityDetailPokemonInnerPokemon` (
-  `typeDetailDamageRelations` long NOT NULL
-  `abilityDetailPokemonInnerPokemon` long NOT NULL
-);
-
--- --------------------------------------------------------------------------
--- Table structure for table `TypeDetailDamageRelationsAbilityDetailPokemonInnerPokemon` generated from model 'TypeDetailDamageRelationsAbilityDetailPokemonInnerPokemon'
-
-CREATE TABLE IF NOT EXISTS `TypeDetailDamageRelationsAbilityDetailPokemonInnerPokemon` (
-  `typeDetailDamageRelations` long NOT NULL
-  `abilityDetailPokemonInnerPokemon` long NOT NULL
-);
-
--- --------------------------------------------------------------------------
--- Table structure for table `TypeDetailDamageRelationsAbilityDetailPokemonInnerPokemon` generated from model 'TypeDetailDamageRelationsAbilityDetailPokemonInnerPokemon'
-
-CREATE TABLE IF NOT EXISTS `TypeDetailDamageRelationsAbilityDetailPokemonInnerPokemon` (
-  `typeDetailDamageRelations` long NOT NULL
-  `abilityDetailPokemonInnerPokemon` long NOT NULL
-);
-
-
--- --------------------------------------------------------------------------
--- Table structure for table `TypeDetail_past_damage_relations_inner` generated from model 'typeDetailPastDamageRelationsInner'
---
-
-CREATE TABLE IF NOT EXISTS `TypeDetail_past_damage_relations_inner` (
-  `generation` long NOT NULL,
-  `damage_relations` long NOT NULL
-); 
-
-
--- --------------------------------------------------------------------------
--- Table structure for table `TypeDetail_past_damage_relations_inner_damage_relations` generated from model 'typeDetailPastDamageRelationsInnerDamageRelations'
---
-
-CREATE TABLE IF NOT EXISTS `TypeDetail_past_damage_relations_inner_damage_relations` (
-); 
-
--- --------------------------------------------------------------------------
--- Table structure for table `TypeDetailPastDamageRelationsInnerDamageRelationsAbilityDetailPokemonInnerPokemon` generated from model 'TypeDetailPastDamageRelationsInnerDamageRelationsAbilityDetailPokemonInnerPokemon'
-
-CREATE TABLE IF NOT EXISTS `TypeDetailPastDamageRelationsInnerDamageRelationsAbilityDetailPokemonInnerPokemon` (
-  `typeDetailPastDamageRelationsInnerDamageRelations` long NOT NULL
-  `abilityDetailPokemonInnerPokemon` long NOT NULL
-);
-
--- --------------------------------------------------------------------------
--- Table structure for table `TypeDetailPastDamageRelationsInnerDamageRelationsAbilityDetailPokemonInnerPokemon` generated from model 'TypeDetailPastDamageRelationsInnerDamageRelationsAbilityDetailPokemonInnerPokemon'
-
-CREATE TABLE IF NOT EXISTS `TypeDetailPastDamageRelationsInnerDamageRelationsAbilityDetailPokemonInnerPokemon` (
-  `typeDetailPastDamageRelationsInnerDamageRelations` long NOT NULL
-  `abilityDetailPokemonInnerPokemon` long NOT NULL
-);
-
--- --------------------------------------------------------------------------
--- Table structure for table `TypeDetailPastDamageRelationsInnerDamageRelationsAbilityDetailPokemonInnerPokemon` generated from model 'TypeDetailPastDamageRelationsInnerDamageRelationsAbilityDetailPokemonInnerPokemon'
-
-CREATE TABLE IF NOT EXISTS `TypeDetailPastDamageRelationsInnerDamageRelationsAbilityDetailPokemonInnerPokemon` (
-  `typeDetailPastDamageRelationsInnerDamageRelations` long NOT NULL
-  `abilityDetailPokemonInnerPokemon` long NOT NULL
-);
-
--- --------------------------------------------------------------------------
--- Table structure for table `TypeDetailPastDamageRelationsInnerDamageRelationsAbilityDetailPokemonInnerPokemon` generated from model 'TypeDetailPastDamageRelationsInnerDamageRelationsAbilityDetailPokemonInnerPokemon'
-
-CREATE TABLE IF NOT EXISTS `TypeDetailPastDamageRelationsInnerDamageRelationsAbilityDetailPokemonInnerPokemon` (
-  `typeDetailPastDamageRelationsInnerDamageRelations` long NOT NULL
-  `abilityDetailPokemonInnerPokemon` long NOT NULL
-);
-
--- --------------------------------------------------------------------------
--- Table structure for table `TypeDetailPastDamageRelationsInnerDamageRelationsAbilityDetailPokemonInnerPokemon` generated from model 'TypeDetailPastDamageRelationsInnerDamageRelationsAbilityDetailPokemonInnerPokemon'
-
-CREATE TABLE IF NOT EXISTS `TypeDetailPastDamageRelationsInnerDamageRelationsAbilityDetailPokemonInnerPokemon` (
-  `typeDetailPastDamageRelationsInnerDamageRelations` long NOT NULL
-  `abilityDetailPokemonInnerPokemon` long NOT NULL
-);
-
--- --------------------------------------------------------------------------
--- Table structure for table `TypeDetailPastDamageRelationsInnerDamageRelationsAbilityDetailPokemonInnerPokemon` generated from model 'TypeDetailPastDamageRelationsInnerDamageRelationsAbilityDetailPokemonInnerPokemon'
-
-CREATE TABLE IF NOT EXISTS `TypeDetailPastDamageRelationsInnerDamageRelationsAbilityDetailPokemonInnerPokemon` (
-  `typeDetailPastDamageRelationsInnerDamageRelations` long NOT NULL
-  `abilityDetailPokemonInnerPokemon` long NOT NULL
-);
-
-
--- --------------------------------------------------------------------------
--- Table structure for table `TypeDetail_pokemon_inner` generated from model 'typeDetailPokemonInner'
---
-
-CREATE TABLE IF NOT EXISTS `TypeDetail_pokemon_inner` (
-  `slot` int,
-  `pokemon` long
-); 
-
-
--- --------------------------------------------------------------------------
--- Table structure for table `TypeDetail_pokemon_inner_pokemon` generated from model 'typeDetailPokemonInnerPokemon'
---
-
-CREATE TABLE IF NOT EXISTS `TypeDetail_pokemon_inner_pokemon` (
-  `name` text /*The name of the pokemon*/,
-  `url` text /*The URL to get more information about the pokemon*/
-); 
-
-
--- --------------------------------------------------------------------------
--- Table structure for table `TypeDetail_sprites_value_value` generated from model 'typeDetailSpritesValueValue'
---
-
-CREATE TABLE IF NOT EXISTS `TypeDetail_sprites_value_value` (
-  `nameicon` text
-); 
-
-
--- --------------------------------------------------------------------------
 -- Table structure for table `TypeGameIndex` generated from model 'typeGameIndex'
 --
 
 CREATE TABLE IF NOT EXISTS `TypeGameIndex` (
-  `game_index` int NOT NULL,
-  `generation` long NOT NULL
+  `game_index` int NOT NULL /*The internal id of an API resource within game data.*/,
+  `generation` long NOT NULL /*The generation relevent to this game index.*/
 ); 
+
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `TypeGameSprite` generated from model 'typeGameSprite'
+--
+
+CREATE TABLE IF NOT EXISTS `TypeGameSprite` (
+  `name_icon` text /*The URL of the icon displaying the type name in this game, or null if unavailable.*/,
+  `symbol_icon` text /*The URL of the type symbol icon in this game, or null if unavailable.*/
+); 
+
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `TypeName` generated from model 'typeName'
+--
+
+CREATE TABLE IF NOT EXISTS `TypeName` (
+  `name` text NOT NULL /*The localized name for an API resource in a specific language.*/,
+  `language` long NOT NULL /*The language this name is in.*/
+); 
+
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `TypePastRelationships` generated from model 'typePastRelationships'
+--
+
+CREATE TABLE IF NOT EXISTS `TypePastRelationships` (
+  `generation` long NOT NULL /*The last generation in which the referenced type had the listed damage relations*/,
+  `damage_relations` long NOT NULL /*The damage relations the referenced type had up to and including the listed generation*/
+); 
+
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `TypePokemon` generated from model 'typePokemon'
+--
+
+CREATE TABLE IF NOT EXISTS `TypePokemon` (
+  `slot` int NOT NULL /*The order the Pokémon&#39;s types are listed in.*/,
+  `pokemon` long NOT NULL /*The Pokémon that has the referenced type.*/
+); 
+
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `TypeRelationships` generated from model 'typeRelationships'
+--
+
+CREATE TABLE IF NOT EXISTS `TypeRelationships` (
+); 
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `TypeRelationshipsTypeSummary` generated from model 'TypeRelationshipsTypeSummary'
+
+CREATE TABLE IF NOT EXISTS `TypeRelationshipsTypeSummary` (
+  `typeRelationships` long NOT NULL
+  `typeSummary` long NOT NULL
+);
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `TypeRelationshipsTypeSummary` generated from model 'TypeRelationshipsTypeSummary'
+
+CREATE TABLE IF NOT EXISTS `TypeRelationshipsTypeSummary` (
+  `typeRelationships` long NOT NULL
+  `typeSummary` long NOT NULL
+);
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `TypeRelationshipsTypeSummary` generated from model 'TypeRelationshipsTypeSummary'
+
+CREATE TABLE IF NOT EXISTS `TypeRelationshipsTypeSummary` (
+  `typeRelationships` long NOT NULL
+  `typeSummary` long NOT NULL
+);
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `TypeRelationshipsTypeSummary` generated from model 'TypeRelationshipsTypeSummary'
+
+CREATE TABLE IF NOT EXISTS `TypeRelationshipsTypeSummary` (
+  `typeRelationships` long NOT NULL
+  `typeSummary` long NOT NULL
+);
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `TypeRelationshipsTypeSummary` generated from model 'TypeRelationshipsTypeSummary'
+
+CREATE TABLE IF NOT EXISTS `TypeRelationshipsTypeSummary` (
+  `typeRelationships` long NOT NULL
+  `typeSummary` long NOT NULL
+);
+
+-- --------------------------------------------------------------------------
+-- Table structure for table `TypeRelationshipsTypeSummary` generated from model 'TypeRelationshipsTypeSummary'
+
+CREATE TABLE IF NOT EXISTS `TypeRelationshipsTypeSummary` (
+  `typeRelationships` long NOT NULL
+  `typeSummary` long NOT NULL
+);
 
 
 -- --------------------------------------------------------------------------
@@ -4473,8 +4790,8 @@ CREATE TABLE IF NOT EXISTS `TypeGameIndex` (
 --
 
 CREATE TABLE IF NOT EXISTS `TypeSummary` (
-  `name` text NOT NULL,
-  `url` text NOT NULL
+  `name` text NOT NULL /*The name of the referenced resource.*/,
+  `url` text NOT NULL /*The URL of the referenced resource.*/
 ); 
 
 
@@ -4484,9 +4801,9 @@ CREATE TABLE IF NOT EXISTS `TypeSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `VersionDetail` (
-  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT,
-  `name` text NOT NULL,
-  `version_group` long NOT NULL
+  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT /*The identifier for this resource.*/,
+  `name` text NOT NULL /*The name for this resource.*/,
+  `version_group` long NOT NULL /*The version group this version belongs to.*/
 );  /*Should have a link to Version Group info but the Circular dependency and compilation order fight eachother and I&#39;m not sure how to add anything other than a hyperlink*/
 
 -- --------------------------------------------------------------------------
@@ -4503,34 +4820,34 @@ CREATE TABLE IF NOT EXISTS `VersionDetailVersionName` (
 --
 
 CREATE TABLE IF NOT EXISTS `VersionGroupDetail` (
-  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT,
-  `name` text NOT NULL,
-  `generation` long NOT NULL,
-  `order` int
+  `id` int NOT NULL PRIMARY KEY AUTOINCREMENT /*The identifier for this resource.*/,
+  `name` text NOT NULL /*The name for this resource.*/,
+  `generation` long NOT NULL /*The generation this version was introduced in.*/,
+  `order` int /*Order for sorting. Almost by date of release, except similar versions are grouped together.*/
 ); 
 
 -- --------------------------------------------------------------------------
--- Table structure for table `VersionGroupDetailAbilityDetailPokemonInnerPokemon` generated from model 'VersionGroupDetailAbilityDetailPokemonInnerPokemon'
+-- Table structure for table `VersionGroupDetailMoveLearnMethodSummary` generated from model 'VersionGroupDetailMoveLearnMethodSummary'
 
-CREATE TABLE IF NOT EXISTS `VersionGroupDetailAbilityDetailPokemonInnerPokemon` (
+CREATE TABLE IF NOT EXISTS `VersionGroupDetailMoveLearnMethodSummary` (
   `versionGroupDetail` long NOT NULL
-  `abilityDetailPokemonInnerPokemon` long NOT NULL
+  `moveLearnMethodSummary` long NOT NULL
 );
 
 -- --------------------------------------------------------------------------
--- Table structure for table `VersionGroupDetailAbilityDetailPokemonInnerPokemon` generated from model 'VersionGroupDetailAbilityDetailPokemonInnerPokemon'
+-- Table structure for table `VersionGroupDetailPokedexSummary` generated from model 'VersionGroupDetailPokedexSummary'
 
-CREATE TABLE IF NOT EXISTS `VersionGroupDetailAbilityDetailPokemonInnerPokemon` (
+CREATE TABLE IF NOT EXISTS `VersionGroupDetailPokedexSummary` (
   `versionGroupDetail` long NOT NULL
-  `abilityDetailPokemonInnerPokemon` long NOT NULL
+  `pokedexSummary` long NOT NULL
 );
 
 -- --------------------------------------------------------------------------
--- Table structure for table `VersionGroupDetailAbilityDetailPokemonInnerPokemon` generated from model 'VersionGroupDetailAbilityDetailPokemonInnerPokemon'
+-- Table structure for table `VersionGroupDetailRegionSummary` generated from model 'VersionGroupDetailRegionSummary'
 
-CREATE TABLE IF NOT EXISTS `VersionGroupDetailAbilityDetailPokemonInnerPokemon` (
+CREATE TABLE IF NOT EXISTS `VersionGroupDetailRegionSummary` (
   `versionGroupDetail` long NOT NULL
-  `abilityDetailPokemonInnerPokemon` long NOT NULL
+  `regionSummary` long NOT NULL
 );
 
 -- --------------------------------------------------------------------------
@@ -4547,8 +4864,8 @@ CREATE TABLE IF NOT EXISTS `VersionGroupDetailVersionSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `VersionGroupSummary` (
-  `name` text NOT NULL,
-  `url` text NOT NULL
+  `name` text NOT NULL /*The name of the referenced resource.*/,
+  `url` text NOT NULL /*The URL of the referenced resource.*/
 ); 
 
 
@@ -4557,8 +4874,8 @@ CREATE TABLE IF NOT EXISTS `VersionGroupSummary` (
 --
 
 CREATE TABLE IF NOT EXISTS `VersionName` (
-  `name` text NOT NULL,
-  `language` long NOT NULL
+  `name` text NOT NULL /*The localized name for an API resource in a specific language.*/,
+  `language` long NOT NULL /*The language this name is in.*/
 ); 
 
 
@@ -4567,8 +4884,8 @@ CREATE TABLE IF NOT EXISTS `VersionName` (
 --
 
 CREATE TABLE IF NOT EXISTS `VersionSummary` (
-  `name` text NOT NULL,
-  `url` text NOT NULL
+  `name` text NOT NULL /*The name of the referenced resource.*/,
+  `url` text NOT NULL /*The URL of the referenced resource.*/
 ); 
 
 

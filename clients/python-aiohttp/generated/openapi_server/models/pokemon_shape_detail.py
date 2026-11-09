@@ -5,8 +5,8 @@ from datetime import date, datetime
 from typing import List, Dict, Type
 
 from openapi_server.models.base_model import Model
-from openapi_server.models.pokemon_shape_detail_awesome_names_inner import PokemonShapeDetailAwesomeNamesInner
-from openapi_server.models.pokemon_shape_detail_names_inner import PokemonShapeDetailNamesInner
+from openapi_server.models.pokemon_shape_awesome_name import PokemonShapeAwesomeName
+from openapi_server.models.pokemon_shape_name import PokemonShapeName
 from openapi_server.models.pokemon_species_summary import PokemonSpeciesSummary
 from openapi_server import util
 
@@ -17,7 +17,7 @@ class PokemonShapeDetail(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, id: int=None, name: str=None, awesome_names: List[PokemonShapeDetailAwesomeNamesInner]=None, names: List[PokemonShapeDetailNamesInner]=None, pokemon_species: List[PokemonSpeciesSummary]=None):
+    def __init__(self, id: int=None, name: str=None, awesome_names: List[PokemonShapeAwesomeName]=None, names: List[PokemonShapeName]=None, pokemon_species: List[PokemonSpeciesSummary]=None):
         """PokemonShapeDetail - a model defined in OpenAPI
 
         :param id: The id of this PokemonShapeDetail.
@@ -29,8 +29,8 @@ class PokemonShapeDetail(Model):
         self.openapi_types = {
             'id': int,
             'name': str,
-            'awesome_names': List[PokemonShapeDetailAwesomeNamesInner],
-            'names': List[PokemonShapeDetailNamesInner],
+            'awesome_names': List[PokemonShapeAwesomeName],
+            'names': List[PokemonShapeName],
             'pokemon_species': List[PokemonSpeciesSummary]
         }
 
@@ -61,6 +61,7 @@ class PokemonShapeDetail(Model):
     def id(self):
         """Gets the id of this PokemonShapeDetail.
 
+        The identifier for this resource.
 
         :return: The id of this PokemonShapeDetail.
         :rtype: int
@@ -71,6 +72,7 @@ class PokemonShapeDetail(Model):
     def id(self, id):
         """Sets the id of this PokemonShapeDetail.
 
+        The identifier for this resource.
 
         :param id: The id of this PokemonShapeDetail.
         :type id: int
@@ -84,6 +86,7 @@ class PokemonShapeDetail(Model):
     def name(self):
         """Gets the name of this PokemonShapeDetail.
 
+        The name for this resource.
 
         :return: The name of this PokemonShapeDetail.
         :rtype: str
@@ -94,14 +97,15 @@ class PokemonShapeDetail(Model):
     def name(self, name):
         """Sets the name of this PokemonShapeDetail.
 
+        The name for this resource.
 
         :param name: The name of this PokemonShapeDetail.
         :type name: str
         """
         if name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")
-        if name is not None and len(name) > 100:
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `100`")
+        if name is not None and len(name) > 200:
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `200`")
 
         self._name = name
 
@@ -109,9 +113,10 @@ class PokemonShapeDetail(Model):
     def awesome_names(self):
         """Gets the awesome_names of this PokemonShapeDetail.
 
+        The \"scientific\" name of this Pokémon shape listed in different languages.
 
         :return: The awesome_names of this PokemonShapeDetail.
-        :rtype: List[PokemonShapeDetailAwesomeNamesInner]
+        :rtype: List[PokemonShapeAwesomeName]
         """
         return self._awesome_names
 
@@ -119,9 +124,10 @@ class PokemonShapeDetail(Model):
     def awesome_names(self, awesome_names):
         """Sets the awesome_names of this PokemonShapeDetail.
 
+        The \"scientific\" name of this Pokémon shape listed in different languages.
 
         :param awesome_names: The awesome_names of this PokemonShapeDetail.
-        :type awesome_names: List[PokemonShapeDetailAwesomeNamesInner]
+        :type awesome_names: List[PokemonShapeAwesomeName]
         """
         if awesome_names is None:
             raise ValueError("Invalid value for `awesome_names`, must not be `None`")
@@ -132,9 +138,10 @@ class PokemonShapeDetail(Model):
     def names(self):
         """Gets the names of this PokemonShapeDetail.
 
+        The name of this resource listed in different languages.
 
         :return: The names of this PokemonShapeDetail.
-        :rtype: List[PokemonShapeDetailNamesInner]
+        :rtype: List[PokemonShapeName]
         """
         return self._names
 
@@ -142,9 +149,10 @@ class PokemonShapeDetail(Model):
     def names(self, names):
         """Sets the names of this PokemonShapeDetail.
 
+        The name of this resource listed in different languages.
 
         :param names: The names of this PokemonShapeDetail.
-        :type names: List[PokemonShapeDetailNamesInner]
+        :type names: List[PokemonShapeName]
         """
         if names is None:
             raise ValueError("Invalid value for `names`, must not be `None`")
@@ -155,6 +163,7 @@ class PokemonShapeDetail(Model):
     def pokemon_species(self):
         """Gets the pokemon_species of this PokemonShapeDetail.
 
+        A list of the Pokémon species that have this shape.
 
         :return: The pokemon_species of this PokemonShapeDetail.
         :rtype: List[PokemonSpeciesSummary]
@@ -165,6 +174,7 @@ class PokemonShapeDetail(Model):
     def pokemon_species(self, pokemon_species):
         """Sets the pokemon_species of this PokemonShapeDetail.
 
+        A list of the Pokémon species that have this shape.
 
         :param pokemon_species: The pokemon_species of this PokemonShapeDetail.
         :type pokemon_species: List[PokemonSpeciesSummary]

@@ -34,9 +34,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**PaginatedLocationAreaSummaryList**](../../docs/models/PaginatedLocationAreaSummaryList.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -60,9 +57,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**LocationAreaDetail**](../../docs/models/LocationAreaDetail.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -88,9 +82,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**PaginatedLocationSummaryList**](../../docs/models/PaginatedLocationSummaryList.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -114,9 +105,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**LocationDetail**](../../docs/models/LocationDetail.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -142,9 +130,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**PaginatedPalParkAreaSummaryList**](../../docs/models/PaginatedPalParkAreaSummaryList.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -168,9 +153,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**PalParkAreaDetail**](../../docs/models/PalParkAreaDetail.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -196,9 +178,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**PaginatedRegionSummaryList**](../../docs/models/PaginatedRegionSummaryList.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -222,9 +201,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**RegionDetail**](../../docs/models/RegionDetail.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined

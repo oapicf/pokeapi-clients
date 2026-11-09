@@ -15,9 +15,9 @@ data class GenderDetail(
     val name: kotlin.String,
 
     @field:JsonProperty("pokemon_species_details")
-    val pokemonSpeciesDetails: kotlin.collections.List<GenderDetailPokemonSpeciesDetailsInner>,
+    val pokemonSpeciesDetails: kotlin.collections.List<GenderPokemonSpecies>,
 
     @field:JsonProperty("required_for_evolution")
-    val requiredForEvolution: kotlin.collections.List<AbilityDetailPokemonInnerPokemon>,
+    val requiredForEvolution: kotlin.collections.List<PokemonSpeciesSummary>,
 
 )

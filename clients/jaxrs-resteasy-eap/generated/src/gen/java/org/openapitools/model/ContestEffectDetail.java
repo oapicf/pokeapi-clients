@@ -15,7 +15,7 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 import io.swagger.annotations.*;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2026-10-25T05:48:53.778376553Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2026-11-09T13:50:03.149615362Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class ContestEffectDetail   {
   
   private Integer id;
@@ -25,9 +25,10 @@ public class ContestEffectDetail   {
   private List<@Valid ContestEffectFlavorText> flavorTextEntries = new ArrayList<>();
 
   /**
+   * The identifier for this resource.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   @JsonProperty("id")
   @NotNull
   public Integer getId() {
@@ -38,12 +39,15 @@ public class ContestEffectDetail   {
   }
 
   /**
+   * The base number of hearts the user of this move gets.
+   * minimum: -2147483648
+   * maximum: 2147483647
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The base number of hearts the user of this move gets.")
   @JsonProperty("appeal")
   @NotNull
-  public Integer getAppeal() {
+ @Min(-2147483648) @Max(2147483647)  public Integer getAppeal() {
     return appeal;
   }
   public void setAppeal(Integer appeal) {
@@ -51,12 +55,15 @@ public class ContestEffectDetail   {
   }
 
   /**
+   * The base number of hearts the user&#39;s opponent loses.
+   * minimum: -2147483648
+   * maximum: 2147483647
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The base number of hearts the user's opponent loses.")
   @JsonProperty("jam")
   @NotNull
-  public Integer getJam() {
+ @Min(-2147483648) @Max(2147483647)  public Integer getJam() {
     return jam;
   }
   public void setJam(Integer jam) {
@@ -64,9 +71,10 @@ public class ContestEffectDetail   {
   }
 
   /**
+   * The result of this contest effect listed in different languages.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The result of this contest effect listed in different languages.")
   @JsonProperty("effect_entries")
   @NotNull
   public List<@Valid ContestEffectEffectText> getEffectEntries() {
@@ -77,9 +85,10 @@ public class ContestEffectDetail   {
   }
 
   /**
+   * The flavor text of this contest effect listed in different languages.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The flavor text of this contest effect listed in different languages.")
   @JsonProperty("flavor_text_entries")
   @NotNull
   public List<@Valid ContestEffectFlavorText> getFlavorTextEntries() {

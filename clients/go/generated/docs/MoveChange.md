@@ -4,19 +4,19 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Accuracy** | Pointer to **NullableInt32** |  | [optional] 
-**Power** | Pointer to **NullableInt32** |  | [optional] 
-**Pp** | Pointer to **NullableInt32** |  | [optional] 
-**EffectChance** | **int32** |  | 
-**EffectEntries** | [**[]MoveChangeEffectEntriesInner**](MoveChangeEffectEntriesInner.md) |  | [readonly] 
-**Type** | [**TypeSummary**](TypeSummary.md) |  | 
-**VersionGroup** | [**VersionGroupSummary**](VersionGroupSummary.md) |  | 
+**Accuracy** | Pointer to **NullableInt32** | The percent value of how likely this move is to be successful. | [optional] 
+**Power** | Pointer to **NullableInt32** | The base power before the listed version group, or null if power did not change. | [optional] 
+**Pp** | Pointer to **NullableInt32** | Power points. The number of times this move can be used. | [optional] 
+**EffectChance** | **NullableInt32** | The percent value of how likely it is this moves effect will take effect. | 
+**EffectEntries** | [**[]MoveEffectEffectText**](MoveEffectEffectText.md) | The effect of this move listed in different languages. | [readonly] 
+**Type** | [**NullableTypeSummary**](TypeSummary.md) | The elemental type of this move. | 
+**VersionGroup** | [**VersionGroupSummary**](VersionGroupSummary.md) | The version group in which these move stat values were in effect. | 
 
 ## Methods
 
 ### NewMoveChange
 
-`func NewMoveChange(effectChance int32, effectEntries []MoveChangeEffectEntriesInner, type_ TypeSummary, versionGroup VersionGroupSummary, ) *MoveChange`
+`func NewMoveChange(effectChance NullableInt32, effectEntries []MoveEffectEffectText, type_ NullableTypeSummary, versionGroup VersionGroupSummary, ) *MoveChange`
 
 NewMoveChange instantiates a new MoveChange object
 This constructor will assign default values to properties that have it defined,
@@ -156,22 +156,32 @@ and a boolean to check if the value has been set.
 SetEffectChance sets EffectChance field to given value.
 
 
+### SetEffectChanceNil
+
+`func (o *MoveChange) SetEffectChanceNil(b bool)`
+
+ SetEffectChanceNil sets the value for EffectChance to be an explicit nil
+
+### UnsetEffectChance
+`func (o *MoveChange) UnsetEffectChance()`
+
+UnsetEffectChance ensures that no value is present for EffectChance, not even an explicit nil
 ### GetEffectEntries
 
-`func (o *MoveChange) GetEffectEntries() []MoveChangeEffectEntriesInner`
+`func (o *MoveChange) GetEffectEntries() []MoveEffectEffectText`
 
 GetEffectEntries returns the EffectEntries field if non-nil, zero value otherwise.
 
 ### GetEffectEntriesOk
 
-`func (o *MoveChange) GetEffectEntriesOk() (*[]MoveChangeEffectEntriesInner, bool)`
+`func (o *MoveChange) GetEffectEntriesOk() (*[]MoveEffectEffectText, bool)`
 
 GetEffectEntriesOk returns a tuple with the EffectEntries field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEffectEntries
 
-`func (o *MoveChange) SetEffectEntries(v []MoveChangeEffectEntriesInner)`
+`func (o *MoveChange) SetEffectEntries(v []MoveEffectEffectText)`
 
 SetEffectEntries sets EffectEntries field to given value.
 
@@ -196,6 +206,16 @@ and a boolean to check if the value has been set.
 SetType sets Type field to given value.
 
 
+### SetTypeNil
+
+`func (o *MoveChange) SetTypeNil(b bool)`
+
+ SetTypeNil sets the value for Type to be an explicit nil
+
+### UnsetType
+`func (o *MoveChange) UnsetType()`
+
+UnsetType ensures that no value is present for Type, not even an explicit nil
 ### GetVersionGroup
 
 `func (o *MoveChange) GetVersionGroup() VersionGroupSummary`

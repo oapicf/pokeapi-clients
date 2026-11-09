@@ -1,26 +1,20 @@
 #tag Class
 Protected Class ItemsApi
 	#tag Method, Flags = &h0
-		Sub ItemAttributeList(, Optional limit As Xoson.O.OptionalInteger, Optional offset As Xoson.O.OptionalInteger, Optional q As Xoson.O.OptionalString)
-		  // Operation item_attribute_list
-		  // List item attributes
+		Sub CurrencyList(, Optional limit As Xoson.O.OptionalInteger, Optional offset As Xoson.O.OptionalInteger, Optional q As Xoson.O.OptionalString)
+		  // Operation currency_list
+		  // List currencies
 		  // - 
 		  // - parameter limit: (query) Number of results to return per page. (optional, default to 0)
 		  // - parameter offset: (query) The initial index from which to return the results. (optional, default to 0)
 		  // - parameter q: (query) &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional, default to Sample)
 		  //
-		  // Invokes ItemsApiCallbackHandler.ItemAttributeListCallback(PaginatedItemAttributeSummaryList) on completion. 
+		  // Invokes ItemsApiCallbackHandler.CurrencyListCallback(PaginatedCurrencySummaryList) on completion. 
 		  //
-		  // - GET /api/v2/item-attribute/
-		  // - Item attributes define particular aspects of items, e.g."usable in battle" or "consumable".
+		  // - GET /api/v2/currency/
+		  // - Currencies used to buy items.
 		  // - defaultResponse: Nil
 		  //
-		  // - BASIC:
-		  //   - type: http
-		  //   - name: basicAuth
-		  // - API Key:
-		  //   - type: apiKey sessionid 
-		  //   - name: cookieAuth
 		  //
 		  
 		  Dim localVarHTTPSocket As New HTTPSecureSocket
@@ -35,9 +29,267 @@ Protected Class ItemsApi
 		  
 
 		  
-		  AddHandler localVarHTTPSocket.AuthenticationRequired, addressof Me.AuthenticationRequiredIf me.ApiKeycookieAuth = "" Then Raise New OpenAPIClient.OpenAPIClientException(kErrorCannotAuthenticate, "API key is unset. Please assign a value to `ItemsApi.ApiKeycookieAuth` before invoking `ItemsApi.ItemAttributeList()`.")
+
+
+		  Dim localVarPath As String = "/api/v2/currency/"
 		  
 		  
+		  
+		  AddHandler localVarHTTPSocket.PageReceived, addressof me.CurrencyList_handler
+		  AddHandler localVarHTTPSocket.Error, addressof Me.CurrencyList_error
+		  
+		  
+		  localVarHTTPSocket.SendRequest("GET", Me.BasePath + localVarPath + localVarQueryParams)
+		  if localVarHTTPSocket.LastErrorCode <> 0 then
+		    Dim localVarException As New OpenAPIClient.OpenAPIClientException(localVarHTTPSocket.LastErrorCode)
+			Raise localVarException
+		  end if
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Function CurrencyListPrivateFuncDeserializeResponse(HTTPStatus As Integer, Headers As InternetHeaders, error As OpenAPIClient.OpenAPIClientException, Content As String, ByRef outData As OpenAPIClient.Models.PaginatedCurrencySummaryList) As Boolean
+		  Dim contentType As String = Headers.Value("Content-Type")
+		  Dim contentEncoding As TextEncoding = OpenAPIClient.EncodingFromContentType(contentType)
+		  Content = DefineEncoding(Content, contentEncoding)
+		  
+		  If HTTPStatus > 199 and HTTPStatus < 300 then
+		    If contentType.LeftB(16) = "application/json" then
+		      
+			  outData = New OpenAPIClient.Models.PaginatedCurrencySummaryList
+			  Try
+		        Xoson.fromJSON(outData, Content.toText())
+
+		      Catch e As JSONException
+		        error.Message = error.Message + " with JSON parse exception: " + e.Message
+		        error.ErrorNumber = kErrorInvalidJSON
+		        Return False
+		        
+		      Catch e As Xojo.Data.InvalidJSONException
+		        error.Message = error.Message + " with Xojo.Data.JSON parse exception: " + e.Message
+		        error.ErrorNumber = kErrorInvalidJSON
+		        Return False
+		        
+		      Catch e As Xoson.XosonException
+		        error.Message = error.Message + " with Xoson parse exception: " + e.Message
+		        error.ErrorNumber = kErrorXosonProblem
+		        Return False
+
+		      End Try
+		      
+		      
+		    ElseIf contentType.LeftB(19) = "multipart/form-data" then
+		      error.Message = "Unsupported media type: " + contentType
+		      error.ErrorNumber = kErrorUnsupportedMediaType
+		      Return False
+
+		    ElseIf contentType.LeftB(33) = "application/x-www-form-urlencoded" then
+		      error.Message = "Unsupported media type: " + contentType
+		      error.ErrorNumber = kErrorUnsupportedMediaType
+		      Return False
+
+		    Else
+		      error.Message = "Unsupported media type: " + contentType
+		      error.ErrorNumber = kErrorUnsupportedMediaType
+		      Return False
+
+		    End If
+		  Else
+		    error.Message = error.Message + ". " + Content
+			error.ErrorNumber = kErrorHTTPFail
+		    Return False
+		  End If
+		  
+		  Return True
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Sub CurrencyList_error(sender As HTTPSecureSocket, Code As Integer)
+		  If sender <> nil Then sender.Close()
+
+		  Dim error As New OpenAPIClient.OpenAPIClientException(Code)
+		  Dim data As OpenAPIClient.Models.PaginatedCurrencySummaryList
+		  CallbackHandler.CurrencyListCallback(error, data)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Sub CurrencyList_handler(sender As HTTPSecureSocket, URL As String, HTTPStatus As Integer, Headers As InternetHeaders, Content As String)
+		  #Pragma Unused URL
+		  
+
+		  If sender <> nil Then sender.Close()
+		  
+		  Dim error As New OpenAPIClient.OpenAPIClientException(HTTPStatus, "", Content)
+		  
+		  Dim data As OpenAPIClient.Models.PaginatedCurrencySummaryList
+		  Call CurrencyListPrivateFuncDeserializeResponse(HTTPStatus, Headers, error, Content, data)
+		  
+		  CallbackHandler.CurrencyListCallback(error, data)
+		End Sub
+	#tag EndMethod
+
+
+
+
+	#tag Method, Flags = &h0
+		Sub CurrencyRetrieve(, id As String)
+		  // Operation currency_retrieve
+		  // Get currency
+		  // - 
+		  // - parameter id: (path) This parameter can be a string or an integer. 
+		  //
+		  // Invokes ItemsApiCallbackHandler.CurrencyRetrieveCallback(CurrencyDetail) on completion. 
+		  //
+		  // - GET /api/v2/currency/{id}/
+		  // - Currencies used to buy items.
+		  // - defaultResponse: Nil
+		  //
+		  //
+		  
+		  Dim localVarHTTPSocket As New HTTPSecureSocket
+		  Me.PrivateFuncPrepareSocket(localVarHTTPSocket)
+		  
+		  
+		  
+
+
+		  Dim localVarPath As String = "/api/v2/currency/{id}/"
+		  
+		  Dim localVarPathStringid As String = id
+		  
+		  localVarPath = localVarPath.ReplaceAllB("{id}", localVarPathStringid)
+		  
+		  
+		  AddHandler localVarHTTPSocket.PageReceived, addressof me.CurrencyRetrieve_handler
+		  AddHandler localVarHTTPSocket.Error, addressof Me.CurrencyRetrieve_error
+		  
+		  
+		  localVarHTTPSocket.SendRequest("GET", Me.BasePath + localVarPath)
+		  if localVarHTTPSocket.LastErrorCode <> 0 then
+		    Dim localVarException As New OpenAPIClient.OpenAPIClientException(localVarHTTPSocket.LastErrorCode)
+			Raise localVarException
+		  end if
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Function CurrencyRetrievePrivateFuncDeserializeResponse(HTTPStatus As Integer, Headers As InternetHeaders, error As OpenAPIClient.OpenAPIClientException, Content As String, ByRef outData As OpenAPIClient.Models.CurrencyDetail) As Boolean
+		  Dim contentType As String = Headers.Value("Content-Type")
+		  Dim contentEncoding As TextEncoding = OpenAPIClient.EncodingFromContentType(contentType)
+		  Content = DefineEncoding(Content, contentEncoding)
+		  
+		  If HTTPStatus > 199 and HTTPStatus < 300 then
+		    If contentType.LeftB(16) = "application/json" then
+		      
+			  outData = New OpenAPIClient.Models.CurrencyDetail
+			  Try
+		        Xoson.fromJSON(outData, Content.toText())
+
+		      Catch e As JSONException
+		        error.Message = error.Message + " with JSON parse exception: " + e.Message
+		        error.ErrorNumber = kErrorInvalidJSON
+		        Return False
+		        
+		      Catch e As Xojo.Data.InvalidJSONException
+		        error.Message = error.Message + " with Xojo.Data.JSON parse exception: " + e.Message
+		        error.ErrorNumber = kErrorInvalidJSON
+		        Return False
+		        
+		      Catch e As Xoson.XosonException
+		        error.Message = error.Message + " with Xoson parse exception: " + e.Message
+		        error.ErrorNumber = kErrorXosonProblem
+		        Return False
+
+		      End Try
+		      
+		      
+		    ElseIf contentType.LeftB(19) = "multipart/form-data" then
+		      error.Message = "Unsupported media type: " + contentType
+		      error.ErrorNumber = kErrorUnsupportedMediaType
+		      Return False
+
+		    ElseIf contentType.LeftB(33) = "application/x-www-form-urlencoded" then
+		      error.Message = "Unsupported media type: " + contentType
+		      error.ErrorNumber = kErrorUnsupportedMediaType
+		      Return False
+
+		    Else
+		      error.Message = "Unsupported media type: " + contentType
+		      error.ErrorNumber = kErrorUnsupportedMediaType
+		      Return False
+
+		    End If
+		  Else
+		    error.Message = error.Message + ". " + Content
+			error.ErrorNumber = kErrorHTTPFail
+		    Return False
+		  End If
+		  
+		  Return True
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Sub CurrencyRetrieve_error(sender As HTTPSecureSocket, Code As Integer)
+		  If sender <> nil Then sender.Close()
+
+		  Dim error As New OpenAPIClient.OpenAPIClientException(Code)
+		  Dim data As OpenAPIClient.Models.CurrencyDetail
+		  CallbackHandler.CurrencyRetrieveCallback(error, data)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Sub CurrencyRetrieve_handler(sender As HTTPSecureSocket, URL As String, HTTPStatus As Integer, Headers As InternetHeaders, Content As String)
+		  #Pragma Unused URL
+		  
+
+		  If sender <> nil Then sender.Close()
+		  
+		  Dim error As New OpenAPIClient.OpenAPIClientException(HTTPStatus, "", Content)
+		  
+		  Dim data As OpenAPIClient.Models.CurrencyDetail
+		  Call CurrencyRetrievePrivateFuncDeserializeResponse(HTTPStatus, Headers, error, Content, data)
+		  
+		  CallbackHandler.CurrencyRetrieveCallback(error, data)
+		End Sub
+	#tag EndMethod
+
+
+
+
+	#tag Method, Flags = &h0
+		Sub ItemAttributeList(, Optional limit As Xoson.O.OptionalInteger, Optional offset As Xoson.O.OptionalInteger, Optional q As Xoson.O.OptionalString)
+		  // Operation item_attribute_list
+		  // List item attributes
+		  // - 
+		  // - parameter limit: (query) Number of results to return per page. (optional, default to 0)
+		  // - parameter offset: (query) The initial index from which to return the results. (optional, default to 0)
+		  // - parameter q: (query) &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional, default to Sample)
+		  //
+		  // Invokes ItemsApiCallbackHandler.ItemAttributeListCallback(PaginatedItemAttributeSummaryList) on completion. 
+		  //
+		  // - GET /api/v2/item-attribute/
+		  // - Item attributes define particular aspects of items, e.g."usable in battle" or "consumable".
+		  // - defaultResponse: Nil
+		  //
+		  //
+		  
+		  Dim localVarHTTPSocket As New HTTPSecureSocket
+		  Me.PrivateFuncPrepareSocket(localVarHTTPSocket)
+		  
+		  Dim localVarQueryParams As String = "?"
+		  If limit <> nil Then localVarQueryParams = localVarQueryParams + EncodeURLComponent("limit") + "=" + EncodeURLComponent(limit.ToString)
+		  
+		  If offset <> nil Then localVarQueryParams = localVarQueryParams + "&" + EncodeURLComponent("offset") + "=" + EncodeURLComponent(offset.ToString)
+		  
+		  If q <> nil Then localVarQueryParams = localVarQueryParams + "&" + EncodeURLComponent("q") + "=" + EncodeURLComponent(q)
+		  
+
 		  
 
 
@@ -157,20 +409,10 @@ Protected Class ItemsApi
 		  // - Item attributes define particular aspects of items, e.g."usable in battle" or "consumable".
 		  // - defaultResponse: Nil
 		  //
-		  // - BASIC:
-		  //   - type: http
-		  //   - name: basicAuth
-		  // - API Key:
-		  //   - type: apiKey sessionid 
-		  //   - name: cookieAuth
 		  //
 		  
 		  Dim localVarHTTPSocket As New HTTPSecureSocket
 		  Me.PrivateFuncPrepareSocket(localVarHTTPSocket)
-		  
-		  
-		  
-		  AddHandler localVarHTTPSocket.AuthenticationRequired, addressof Me.AuthenticationRequiredIf me.ApiKeycookieAuth = "" Then Raise New OpenAPIClient.OpenAPIClientException(kErrorCannotAuthenticate, "API key is unset. Please assign a value to `ItemsApi.ApiKeycookieAuth` before invoking `ItemsApi.ItemAttributeRetrieve()`.")
 		  
 		  
 		  
@@ -297,12 +539,6 @@ Protected Class ItemsApi
 		  // - Item categories determine where items will be placed in the players bag.
 		  // - defaultResponse: Nil
 		  //
-		  // - BASIC:
-		  //   - type: http
-		  //   - name: basicAuth
-		  // - API Key:
-		  //   - type: apiKey sessionid 
-		  //   - name: cookieAuth
 		  //
 		  
 		  Dim localVarHTTPSocket As New HTTPSecureSocket
@@ -316,10 +552,6 @@ Protected Class ItemsApi
 		  If q <> nil Then localVarQueryParams = localVarQueryParams + "&" + EncodeURLComponent("q") + "=" + EncodeURLComponent(q)
 		  
 
-		  
-		  AddHandler localVarHTTPSocket.AuthenticationRequired, addressof Me.AuthenticationRequiredIf me.ApiKeycookieAuth = "" Then Raise New OpenAPIClient.OpenAPIClientException(kErrorCannotAuthenticate, "API key is unset. Please assign a value to `ItemsApi.ApiKeycookieAuth` before invoking `ItemsApi.ItemCategoryList()`.")
-		  
-		  
 		  
 
 
@@ -439,20 +671,10 @@ Protected Class ItemsApi
 		  // - Item categories determine where items will be placed in the players bag.
 		  // - defaultResponse: Nil
 		  //
-		  // - BASIC:
-		  //   - type: http
-		  //   - name: basicAuth
-		  // - API Key:
-		  //   - type: apiKey sessionid 
-		  //   - name: cookieAuth
 		  //
 		  
 		  Dim localVarHTTPSocket As New HTTPSecureSocket
 		  Me.PrivateFuncPrepareSocket(localVarHTTPSocket)
-		  
-		  
-		  
-		  AddHandler localVarHTTPSocket.AuthenticationRequired, addressof Me.AuthenticationRequiredIf me.ApiKeycookieAuth = "" Then Raise New OpenAPIClient.OpenAPIClientException(kErrorCannotAuthenticate, "API key is unset. Please assign a value to `ItemsApi.ApiKeycookieAuth` before invoking `ItemsApi.ItemCategoryRetrieve()`.")
 		  
 		  
 		  
@@ -579,12 +801,6 @@ Protected Class ItemsApi
 		  // - The various effects of the move"Fling" when used with different items.
 		  // - defaultResponse: Nil
 		  //
-		  // - BASIC:
-		  //   - type: http
-		  //   - name: basicAuth
-		  // - API Key:
-		  //   - type: apiKey sessionid 
-		  //   - name: cookieAuth
 		  //
 		  
 		  Dim localVarHTTPSocket As New HTTPSecureSocket
@@ -598,10 +814,6 @@ Protected Class ItemsApi
 		  If q <> nil Then localVarQueryParams = localVarQueryParams + "&" + EncodeURLComponent("q") + "=" + EncodeURLComponent(q)
 		  
 
-		  
-		  AddHandler localVarHTTPSocket.AuthenticationRequired, addressof Me.AuthenticationRequiredIf me.ApiKeycookieAuth = "" Then Raise New OpenAPIClient.OpenAPIClientException(kErrorCannotAuthenticate, "API key is unset. Please assign a value to `ItemsApi.ApiKeycookieAuth` before invoking `ItemsApi.ItemFlingEffectList()`.")
-		  
-		  
 		  
 
 
@@ -721,20 +933,10 @@ Protected Class ItemsApi
 		  // - The various effects of the move"Fling" when used with different items.
 		  // - defaultResponse: Nil
 		  //
-		  // - BASIC:
-		  //   - type: http
-		  //   - name: basicAuth
-		  // - API Key:
-		  //   - type: apiKey sessionid 
-		  //   - name: cookieAuth
 		  //
 		  
 		  Dim localVarHTTPSocket As New HTTPSecureSocket
 		  Me.PrivateFuncPrepareSocket(localVarHTTPSocket)
-		  
-		  
-		  
-		  AddHandler localVarHTTPSocket.AuthenticationRequired, addressof Me.AuthenticationRequiredIf me.ApiKeycookieAuth = "" Then Raise New OpenAPIClient.OpenAPIClientException(kErrorCannotAuthenticate, "API key is unset. Please assign a value to `ItemsApi.ApiKeycookieAuth` before invoking `ItemsApi.ItemFlingEffectRetrieve()`.")
 		  
 		  
 		  
@@ -861,12 +1063,6 @@ Protected Class ItemsApi
 		  // - An item is an object in the games which the player can pick up, keep in their bag, and use in some manner. They have various uses, including healing, powering up, helping catch Pokémon, or to access a new area.
 		  // - defaultResponse: Nil
 		  //
-		  // - BASIC:
-		  //   - type: http
-		  //   - name: basicAuth
-		  // - API Key:
-		  //   - type: apiKey sessionid 
-		  //   - name: cookieAuth
 		  //
 		  
 		  Dim localVarHTTPSocket As New HTTPSecureSocket
@@ -880,10 +1076,6 @@ Protected Class ItemsApi
 		  If q <> nil Then localVarQueryParams = localVarQueryParams + "&" + EncodeURLComponent("q") + "=" + EncodeURLComponent(q)
 		  
 
-		  
-		  AddHandler localVarHTTPSocket.AuthenticationRequired, addressof Me.AuthenticationRequiredIf me.ApiKeycookieAuth = "" Then Raise New OpenAPIClient.OpenAPIClientException(kErrorCannotAuthenticate, "API key is unset. Please assign a value to `ItemsApi.ApiKeycookieAuth` before invoking `ItemsApi.ItemList()`.")
-		  
-		  
 		  
 
 
@@ -1005,12 +1197,6 @@ Protected Class ItemsApi
 		  // - Pockets within the players bag used for storing items by category.
 		  // - defaultResponse: Nil
 		  //
-		  // - BASIC:
-		  //   - type: http
-		  //   - name: basicAuth
-		  // - API Key:
-		  //   - type: apiKey sessionid 
-		  //   - name: cookieAuth
 		  //
 		  
 		  Dim localVarHTTPSocket As New HTTPSecureSocket
@@ -1024,10 +1210,6 @@ Protected Class ItemsApi
 		  If q <> nil Then localVarQueryParams = localVarQueryParams + "&" + EncodeURLComponent("q") + "=" + EncodeURLComponent(q)
 		  
 
-		  
-		  AddHandler localVarHTTPSocket.AuthenticationRequired, addressof Me.AuthenticationRequiredIf me.ApiKeycookieAuth = "" Then Raise New OpenAPIClient.OpenAPIClientException(kErrorCannotAuthenticate, "API key is unset. Please assign a value to `ItemsApi.ApiKeycookieAuth` before invoking `ItemsApi.ItemPocketList()`.")
-		  
-		  
 		  
 
 
@@ -1147,20 +1329,10 @@ Protected Class ItemsApi
 		  // - Pockets within the players bag used for storing items by category.
 		  // - defaultResponse: Nil
 		  //
-		  // - BASIC:
-		  //   - type: http
-		  //   - name: basicAuth
-		  // - API Key:
-		  //   - type: apiKey sessionid 
-		  //   - name: cookieAuth
 		  //
 		  
 		  Dim localVarHTTPSocket As New HTTPSecureSocket
 		  Me.PrivateFuncPrepareSocket(localVarHTTPSocket)
-		  
-		  
-		  
-		  AddHandler localVarHTTPSocket.AuthenticationRequired, addressof Me.AuthenticationRequiredIf me.ApiKeycookieAuth = "" Then Raise New OpenAPIClient.OpenAPIClientException(kErrorCannotAuthenticate, "API key is unset. Please assign a value to `ItemsApi.ApiKeycookieAuth` before invoking `ItemsApi.ItemPocketRetrieve()`.")
 		  
 		  
 		  
@@ -1285,20 +1457,10 @@ Protected Class ItemsApi
 		  // - An item is an object in the games which the player can pick up, keep in their bag, and use in some manner. They have various uses, including healing, powering up, helping catch Pokémon, or to access a new area.
 		  // - defaultResponse: Nil
 		  //
-		  // - BASIC:
-		  //   - type: http
-		  //   - name: basicAuth
-		  // - API Key:
-		  //   - type: apiKey sessionid 
-		  //   - name: cookieAuth
 		  //
 		  
 		  Dim localVarHTTPSocket As New HTTPSecureSocket
 		  Me.PrivateFuncPrepareSocket(localVarHTTPSocket)
-		  
-		  
-		  
-		  AddHandler localVarHTTPSocket.AuthenticationRequired, addressof Me.AuthenticationRequiredIf me.ApiKeycookieAuth = "" Then Raise New OpenAPIClient.OpenAPIClientException(kErrorCannotAuthenticate, "API key is unset. Please assign a value to `ItemsApi.ApiKeycookieAuth` before invoking `ItemsApi.ItemRetrieve()`.")
 		  
 		  
 		  
@@ -1456,10 +1618,6 @@ Protected Class ItemsApi
 
 	#tag Property, Flags = &h0
 		AdditionalHeaders As Dictionary
-	#tag EndProperty
-
-	#tag Property, Flags = &h0
-		ApiKeycookieAuth As String
 	#tag EndProperty
 
 	#tag Property, Flags = &h0

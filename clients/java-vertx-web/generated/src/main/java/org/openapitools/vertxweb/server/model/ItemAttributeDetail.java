@@ -6,9 +6,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.vertxweb.server.model.AbilityDetailPokemonInnerPokemon;
 import org.openapitools.vertxweb.server.model.ItemAttributeDescription;
 import org.openapitools.vertxweb.server.model.ItemAttributeName;
+import org.openapitools.vertxweb.server.model.ItemSummary;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ItemAttributeDetail   {
@@ -16,14 +16,14 @@ public class ItemAttributeDetail   {
   private Integer id;
   private String name;
   private List<ItemAttributeDescription> descriptions = new ArrayList<>();
-  private List<AbilityDetailPokemonInnerPokemon> items = new ArrayList<>();
+  private List<ItemSummary> items = new ArrayList<>();
   private List<ItemAttributeName> names = new ArrayList<>();
 
   public ItemAttributeDetail () {
 
   }
 
-  public ItemAttributeDetail (Integer id, String name, List<ItemAttributeDescription> descriptions, List<AbilityDetailPokemonInnerPokemon> items, List<ItemAttributeName> names) {
+  public ItemAttributeDetail (Integer id, String name, List<ItemAttributeDescription> descriptions, List<ItemSummary> items, List<ItemAttributeName> names) {
     this.id = id;
     this.name = name;
     this.descriptions = descriptions;
@@ -60,10 +60,10 @@ public class ItemAttributeDetail   {
 
     
   @JsonProperty("items")
-  public List<AbilityDetailPokemonInnerPokemon> getItems() {
+  public List<ItemSummary> getItems() {
     return items;
   }
-  public void setItems(List<AbilityDetailPokemonInnerPokemon> items) {
+  public void setItems(List<ItemSummary> items) {
     this.items = items;
   }
 

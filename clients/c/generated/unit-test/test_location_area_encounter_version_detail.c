@@ -1,0 +1,62 @@
+#ifndef location_area_encounter_version_detail_TEST
+#define location_area_encounter_version_detail_TEST
+
+// the following is to include only the main from the first c file
+#ifndef TEST_MAIN
+#define TEST_MAIN
+#define location_area_encounter_version_detail_MAIN
+#endif // TEST_MAIN
+
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <stdbool.h>
+#include "../external/cJSON.h"
+
+#include "../model/location_area_encounter_version_detail.h"
+location_area_encounter_version_detail_t* instantiate_location_area_encounter_version_detail(int include_optional);
+
+#include "test_version_summary.c"
+
+
+location_area_encounter_version_detail_t* instantiate_location_area_encounter_version_detail(int include_optional) {
+  location_area_encounter_version_detail_t* location_area_encounter_version_detail = NULL;
+  if (include_optional) {
+    location_area_encounter_version_detail = location_area_encounter_version_detail_create(
+      56,
+       // false, not to have infinite recursion
+      instantiate_version_summary(0)
+    );
+  } else {
+    location_area_encounter_version_detail = location_area_encounter_version_detail_create(
+      56,
+      NULL
+    );
+  }
+
+  return location_area_encounter_version_detail;
+}
+
+
+#ifdef location_area_encounter_version_detail_MAIN
+
+void test_location_area_encounter_version_detail(int include_optional) {
+    location_area_encounter_version_detail_t* location_area_encounter_version_detail_1 = instantiate_location_area_encounter_version_detail(include_optional);
+
+	cJSON* jsonlocation_area_encounter_version_detail_1 = location_area_encounter_version_detail_convertToJSON(location_area_encounter_version_detail_1);
+	printf("location_area_encounter_version_detail :\n%s\n", cJSON_Print(jsonlocation_area_encounter_version_detail_1));
+	location_area_encounter_version_detail_t* location_area_encounter_version_detail_2 = location_area_encounter_version_detail_parseFromJSON(jsonlocation_area_encounter_version_detail_1);
+	cJSON* jsonlocation_area_encounter_version_detail_2 = location_area_encounter_version_detail_convertToJSON(location_area_encounter_version_detail_2);
+	printf("repeating location_area_encounter_version_detail:\n%s\n", cJSON_Print(jsonlocation_area_encounter_version_detail_2));
+}
+
+int main() {
+  test_location_area_encounter_version_detail(1);
+  test_location_area_encounter_version_detail(0);
+
+  printf("Hello world \n");
+  return 0;
+}
+
+#endif // location_area_encounter_version_detail_MAIN
+#endif // location_area_encounter_version_detail_TEST

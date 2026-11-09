@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **ContestEffectList**
-> PaginatedContestEffectSummaryList ContestEffectList(limit = var.limit, offset = var.offset, q = var.q)
+> PaginatedContestEffectSummaryList ContestEffectList(limit = var.limit, offset = var.offset)
 
 List contest effects
 
@@ -28,17 +28,11 @@ library(openapi)
 # prepare function argument(s)
 var_limit <- 56 # integer | Number of results to return per page. (Optional)
 var_offset <- 56 # integer | The initial index from which to return the results. (Optional)
-var_q <- "q_example" # character | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (Optional)
 
 api_instance <- ContestsApi$new()
-# Configure HTTP basic authorization: basicAuth
-api_instance$api_client$username <- Sys.getenv("USERNAME")
-api_instance$api_client$password <- Sys.getenv("PASSWORD")
-# Configure API key authorization: cookieAuth
-# api_instance$api_client$api_keys["sessionid"] <- Sys.getenv("API_KEY")
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-# result <- api_instance$ContestEffectList(limit = var_limit, offset = var_offset, q = var_qdata_file = "result.txt")
-result <- api_instance$ContestEffectList(limit = var_limit, offset = var_offset, q = var_q)
+# result <- api_instance$ContestEffectList(limit = var_limit, offset = var_offsetdata_file = "result.txt")
+result <- api_instance$ContestEffectList(limit = var_limit, offset = var_offset)
 dput(result)
 ```
 
@@ -48,7 +42,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **integer**| Number of results to return per page. | [optional] 
  **offset** | **integer**| The initial index from which to return the results. | [optional] 
- **q** | **character**| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional] 
 
 ### Return type
 
@@ -56,7 +49,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -82,14 +75,9 @@ library(openapi)
 # Get contest effect
 #
 # prepare function argument(s)
-var_id <- "id_example" # character | This parameter can be a string or an integer.
+var_id <- "1" # character | This parameter can be a string or an integer.
 
 api_instance <- ContestsApi$new()
-# Configure HTTP basic authorization: basicAuth
-api_instance$api_client$username <- Sys.getenv("USERNAME")
-api_instance$api_client$password <- Sys.getenv("PASSWORD")
-# Configure API key authorization: cookieAuth
-# api_instance$api_client$api_keys["sessionid"] <- Sys.getenv("API_KEY")
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
 # result <- api_instance$ContestEffectRetrieve(var_iddata_file = "result.txt")
 result <- api_instance$ContestEffectRetrieve(var_id)
@@ -108,7 +96,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -139,11 +127,6 @@ var_offset <- 56 # integer | The initial index from which to return the results.
 var_q <- "q_example" # character | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (Optional)
 
 api_instance <- ContestsApi$new()
-# Configure HTTP basic authorization: basicAuth
-api_instance$api_client$username <- Sys.getenv("USERNAME")
-api_instance$api_client$password <- Sys.getenv("PASSWORD")
-# Configure API key authorization: cookieAuth
-# api_instance$api_client$api_keys["sessionid"] <- Sys.getenv("API_KEY")
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
 # result <- api_instance$ContestTypeList(limit = var_limit, offset = var_offset, q = var_qdata_file = "result.txt")
 result <- api_instance$ContestTypeList(limit = var_limit, offset = var_offset, q = var_q)
@@ -164,7 +147,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -190,14 +173,9 @@ library(openapi)
 # Get contest type
 #
 # prepare function argument(s)
-var_id <- "id_example" # character | This parameter can be a string or an integer.
+var_id <- "1" # character | This parameter can be a string or an integer.
 
 api_instance <- ContestsApi$new()
-# Configure HTTP basic authorization: basicAuth
-api_instance$api_client$username <- Sys.getenv("USERNAME")
-api_instance$api_client$password <- Sys.getenv("PASSWORD")
-# Configure API key authorization: cookieAuth
-# api_instance$api_client$api_keys["sessionid"] <- Sys.getenv("API_KEY")
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
 # result <- api_instance$ContestTypeRetrieve(var_iddata_file = "result.txt")
 result <- api_instance$ContestTypeRetrieve(var_id)
@@ -216,7 +194,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -229,7 +207,7 @@ Name | Type | Description  | Notes
 | **200** |  |  -  |
 
 # **SuperContestEffectList**
-> PaginatedSuperContestEffectSummaryList SuperContestEffectList(limit = var.limit, offset = var.offset, q = var.q)
+> PaginatedSuperContestEffectSummaryList SuperContestEffectList(limit = var.limit, offset = var.offset)
 
 List super contest effects
 
@@ -244,17 +222,11 @@ library(openapi)
 # prepare function argument(s)
 var_limit <- 56 # integer | Number of results to return per page. (Optional)
 var_offset <- 56 # integer | The initial index from which to return the results. (Optional)
-var_q <- "q_example" # character | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (Optional)
 
 api_instance <- ContestsApi$new()
-# Configure HTTP basic authorization: basicAuth
-api_instance$api_client$username <- Sys.getenv("USERNAME")
-api_instance$api_client$password <- Sys.getenv("PASSWORD")
-# Configure API key authorization: cookieAuth
-# api_instance$api_client$api_keys["sessionid"] <- Sys.getenv("API_KEY")
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-# result <- api_instance$SuperContestEffectList(limit = var_limit, offset = var_offset, q = var_qdata_file = "result.txt")
-result <- api_instance$SuperContestEffectList(limit = var_limit, offset = var_offset, q = var_q)
+# result <- api_instance$SuperContestEffectList(limit = var_limit, offset = var_offsetdata_file = "result.txt")
+result <- api_instance$SuperContestEffectList(limit = var_limit, offset = var_offset)
 dput(result)
 ```
 
@@ -264,7 +236,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **integer**| Number of results to return per page. | [optional] 
  **offset** | **integer**| The initial index from which to return the results. | [optional] 
- **q** | **character**| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional] 
 
 ### Return type
 
@@ -272,7 +243,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -298,14 +269,9 @@ library(openapi)
 # Get super contest effect
 #
 # prepare function argument(s)
-var_id <- "id_example" # character | This parameter can be a string or an integer.
+var_id <- "1" # character | This parameter can be a string or an integer.
 
 api_instance <- ContestsApi$new()
-# Configure HTTP basic authorization: basicAuth
-api_instance$api_client$username <- Sys.getenv("USERNAME")
-api_instance$api_client$password <- Sys.getenv("PASSWORD")
-# Configure API key authorization: cookieAuth
-# api_instance$api_client$api_keys["sessionid"] <- Sys.getenv("API_KEY")
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
 # result <- api_instance$SuperContestEffectRetrieve(var_iddata_file = "result.txt")
 result <- api_instance$SuperContestEffectRetrieve(var_id)
@@ -324,7 +290,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

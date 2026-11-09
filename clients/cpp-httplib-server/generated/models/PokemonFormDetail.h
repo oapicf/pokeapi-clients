@@ -11,10 +11,11 @@
 #include <cstdint>
 #include <string>
 #include <vector>
-#include "PokemonFormDetailFormNamesInner.h"
-#include "PokemonFormDetailNamesInner.h"
-#include "PokemonFormDetailSprites.h"
-#include "PokemonFormDetailTypesInner.h"
+#include "PokemonFormFlavorText.h"
+#include "PokemonFormName.h"
+#include "PokemonFormSprites.h"
+#include "PokemonFormTriggerCondition.h"
+#include "PokemonFormType.h"
 #include "PokemonSummary.h"
 #include "VersionGroupSummary.h"
 
@@ -49,21 +50,25 @@ public:
     void setFormName(const std::string& formName);
     [[nodiscard]] PokemonSummary getPokemon() const;
     void setPokemon(const PokemonSummary& pokemon);
-    [[nodiscard]] PokemonFormDetailSprites getSprites() const;
-    void setSprites(const PokemonFormDetailSprites& sprites);
+    [[nodiscard]] PokemonFormSprites getSprites() const;
+    void setSprites(const PokemonFormSprites& sprites);
     [[nodiscard]] VersionGroupSummary getVersionGroup() const;
     void setVersionGroup(const VersionGroupSummary& versionGroup);
-    [[nodiscard]] std::vector<PokemonFormDetail_form_names_inner> getFormNames() const;
-    void setFormNames(const std::vector<PokemonFormDetail_form_names_inner>& formNames);
-    [[nodiscard]] std::vector<PokemonFormDetail_names_inner> getNames() const;
-    void setNames(const std::vector<PokemonFormDetail_names_inner>& names);
-    [[nodiscard]] std::vector<PokemonFormDetail_types_inner> getTypes() const;
-    void setTypes(const std::vector<PokemonFormDetail_types_inner>& types);
+    [[nodiscard]] std::vector<PokemonFormName> getFormNames() const;
+    void setFormNames(const std::vector<PokemonFormName>& formNames);
+    [[nodiscard]] std::vector<PokemonFormName> getNames() const;
+    void setNames(const std::vector<PokemonFormName>& names);
+    [[nodiscard]] std::vector<PokemonFormType> getTypes() const;
+    void setTypes(const std::vector<PokemonFormType>& types);
+    [[nodiscard]] std::vector<PokemonFormTriggerCondition> getTriggerConditions() const;
+    void setTriggerConditions(const std::vector<PokemonFormTriggerCondition>& triggerConditions);
+    [[nodiscard]] std::vector<PokemonFormFlavorText> getFlavorTextEntries() const;
+    void setFlavorTextEntries(const std::vector<PokemonFormFlavorText>& flavorTextEntries);
 
 
     // JSON serialization using NLOHMANN INTRUSIVE macro (must be inside class to access private members)
     NLOHMANN_DEFINE_TYPE_INTRUSIVE(PokemonFormDetail,
-         id, name, order, formOrder, isDefault, isBattleOnly, isMega, formName, pokemon, sprites, versionGroup, formNames, names, types)
+         id, name, order, formOrder, isDefault, isBattleOnly, isMega, formName, pokemon, sprites, versionGroup, formNames, names, types, triggerConditions, flavorTextEntries)
 
 private:
     int id;
@@ -75,11 +80,13 @@ private:
     bool isMega;
     std::string formName;
     PokemonSummary pokemon;
-    PokemonFormDetailSprites sprites;
+    PokemonFormSprites sprites;
     VersionGroupSummary versionGroup;
-    std::vector<PokemonFormDetail_form_names_inner> formNames;
-    std::vector<PokemonFormDetail_names_inner> names;
-    std::vector<PokemonFormDetail_types_inner> types;
+    std::vector<PokemonFormName> formNames;
+    std::vector<PokemonFormName> names;
+    std::vector<PokemonFormType> types;
+    std::vector<PokemonFormTriggerCondition> triggerConditions;
+    std::vector<PokemonFormFlavorText> flavorTextEntries;
 };
 
 

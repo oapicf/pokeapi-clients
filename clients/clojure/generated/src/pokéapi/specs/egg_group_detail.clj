@@ -2,7 +2,7 @@
   (:require [clojure.spec.alpha :as s]
             [spec-tools.data-spec :as ds]
             [pokéapi.specs.egg-group-name :refer :all]
-            [pokéapi.specs.egg-group-detail-pokemon-species-inner :refer :all]
+            [pokéapi.specs.pokemon-species-summary :refer :all]
             )
   (:import (java.io File)))
 
@@ -12,7 +12,7 @@
    (ds/req :id) int?
    (ds/req :name) string?
    (ds/req :names) (s/coll-of egg-group-name-spec)
-   (ds/req :pokemon_species) (s/coll-of egg-group-detail-pokemon-species-inner-spec)
+   (ds/req :pokemon_species) (s/coll-of pokemon-species-summary-spec)
    })
 
 (def egg-group-detail-spec

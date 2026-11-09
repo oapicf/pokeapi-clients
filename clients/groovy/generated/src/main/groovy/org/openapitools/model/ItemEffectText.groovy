@@ -7,10 +7,10 @@ import org.openapitools.model.LanguageSummary;
 
 @Canonical
 class ItemEffectText {
-    
+    /* The localized effect text for an API resource in a specific language. */
     String effect
-    
+    /* The localized effect text in brief. */
     String shortEffect
-    
+    /* The language this effect is in. */
     LanguageSummary language
 }

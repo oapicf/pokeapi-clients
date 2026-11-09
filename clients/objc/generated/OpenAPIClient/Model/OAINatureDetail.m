@@ -17,7 +17,7 @@
  * This method is used by `JSONModel`.
  */
 + (JSONKeyMapper *)keyMapper {
-  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{ @"_id": @"id", @"name": @"name", @"decreasedStat": @"decreased_stat", @"increasedStat": @"increased_stat", @"likesFlavor": @"likes_flavor", @"hatesFlavor": @"hates_flavor", @"berries": @"berries", @"pokeathlonStatChanges": @"pokeathlon_stat_changes", @"moveBattleStylePreferences": @"move_battle_style_preferences", @"names": @"names" }];
+  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{ @"_id": @"id", @"name": @"name", @"decreasedStat": @"decreased_stat", @"increasedStat": @"increased_stat", @"likesFlavor": @"likes_flavor", @"hatesFlavor": @"hates_flavor", @"pokeathlonStatChanges": @"pokeathlon_stat_changes", @"moveBattleStylePreferences": @"move_battle_style_preferences", @"names": @"names" }];
 }
 
 /**

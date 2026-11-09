@@ -16,11 +16,13 @@ import io.vertx.core.json.Json
 import io.vertx.core.json.JsonArray
 import com.google.gson.reflect.TypeToken
 import com.google.gson.Gson
+import org.openapitools.server.api.model.CurrencyDetail
 import org.openapitools.server.api.model.ItemAttributeDetail
 import org.openapitools.server.api.model.ItemCategoryDetail
 import org.openapitools.server.api.model.ItemDetail
 import org.openapitools.server.api.model.ItemFlingEffectDetail
 import org.openapitools.server.api.model.ItemPocketDetail
+import org.openapitools.server.api.model.PaginatedCurrencySummaryList
 import org.openapitools.server.api.model.PaginatedItemAttributeSummaryList
 import org.openapitools.server.api.model.PaginatedItemCategorySummaryList
 import org.openapitools.server.api.model.PaginatedItemFlingEffectSummaryList
@@ -72,6 +74,37 @@ class ItemsApiVertxProxyHandler(private val vertx: Vertx, private val service: I
             val contextSerialized = json.getJsonObject("context") ?: throw IllegalStateException("Received action $action without OperationRequest \"context\"")
             val context = OperationRequest(contextSerialized)
             when (action) {
+        
+                "currencyList" -> {
+                    val params = context.params
+                    val limit = ApiHandlerUtils.searchIntegerInJson(params,"limit")
+                    val offset = ApiHandlerUtils.searchIntegerInJson(params,"offset")
+                    val q = ApiHandlerUtils.searchStringInJson(params,"q")
+                    GlobalScope.launch(vertx.dispatcher()){
+                        val result = service.currencyList(limit,offset,q,context)
+                        val payload = JsonObject(Json.encode(result.payload)).toBuffer()
+                        val res = OperationResponse(result.statusCode,result.statusMessage,payload,result.headers)
+                        msg.reply(res.toJson())
+                    }.invokeOnCompletion{
+                        it?.let{ throw it }
+                    }
+                }
+        
+                "currencyRetrieve" -> {
+                    val params = context.params
+                    val id = ApiHandlerUtils.searchStringInJson(params,"id")
+                    if(id == null){
+                        throw IllegalArgumentException("id is required")
+                    }
+                    GlobalScope.launch(vertx.dispatcher()){
+                        val result = service.currencyRetrieve(id,context)
+                        val payload = JsonObject(Json.encode(result.payload)).toBuffer()
+                        val res = OperationResponse(result.statusCode,result.statusMessage,payload,result.headers)
+                        msg.reply(res.toJson())
+                    }.invokeOnCompletion{
+                        it?.let{ throw it }
+                    }
+                }
         
                 "itemAttributeList" -> {
                     val params = context.params

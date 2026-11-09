@@ -9,8 +9,10 @@ import Foundation
 
 public struct PalParkAreaSummary: Sendable, Codable, Hashable {
 
-    public static let nameRule = StringRule(minLength: nil, maxLength: 100, pattern: nil)
+    public static let nameRule = StringRule(minLength: nil, maxLength: 200, pattern: nil)
+    /** The name of the referenced resource. */
     public var name: String
+    /** The URL of the referenced resource. */
     public var url: String
 
     public init(name: String, url: String) {

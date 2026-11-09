@@ -15,8 +15,8 @@
 
 typedef struct move_meta_ailment_detail_t move_meta_ailment_detail_t;
 
-#include "ability_detail_pokemon_inner_pokemon.h"
 #include "move_meta_ailment_name.h"
+#include "move_summary.h"
 
 
 

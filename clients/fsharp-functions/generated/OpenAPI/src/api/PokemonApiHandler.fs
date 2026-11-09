@@ -16,7 +16,7 @@ module PokemonApiHandlers =
 
     //#region AbilityList
     /// <summary>
-    /// 
+    /// List abilities
     /// </summary>
    [<FunctionName("AbilityList")>]
     let AbilityList
@@ -32,7 +32,7 @@ module PokemonApiHandlers =
 
     //#region AbilityRetrieve
     /// <summary>
-    /// 
+    /// Get ability
     /// </summary>
    [<FunctionName("AbilityRetrieve")>]
     let AbilityRetrieve
@@ -48,7 +48,7 @@ module PokemonApiHandlers =
 
     //#region CharacteristicList
     /// <summary>
-    /// List charecterictics
+    /// List characteristics
     /// </summary>
    [<FunctionName("CharacteristicList")>]
     let CharacteristicList

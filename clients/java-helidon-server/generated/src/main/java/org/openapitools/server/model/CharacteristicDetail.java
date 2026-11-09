@@ -28,11 +28,11 @@ public class CharacteristicDetail   {
     /**
      * Create CharacteristicDetail.
      *
-     * @param id id
-     * @param geneModulo geneModulo
-     * @param possibleValues possibleValues
-     * @param highestStat highestStat
-     * @param descriptions descriptions
+     * @param id The identifier for this resource.
+     * @param geneModulo The remainder of the highest stat/IV divided by 5.
+     * @param possibleValues The possible values of the highest stat that would result in a Pokémon recieving this characteristic when divided by 5.
+     * @param highestStat The stat which results in this characteristic.
+     * @param descriptions The descriptions of this characteristic listed in different languages.
      */
     public CharacteristicDetail(
         Integer id, 
@@ -51,7 +51,7 @@ public class CharacteristicDetail   {
 
 
     /**
-     * Get id
+     * The identifier for this resource.
      * @return id
      */
     public Integer getId() {
@@ -63,7 +63,7 @@ public class CharacteristicDetail   {
     }
 
     /**
-     * Get geneModulo
+     * The remainder of the highest stat/IV divided by 5.
      * @return geneModulo
      */
     public Integer getGeneModulo() {
@@ -75,7 +75,7 @@ public class CharacteristicDetail   {
     }
 
     /**
-     * Get possibleValues
+     * The possible values of the highest stat that would result in a Pokémon recieving this characteristic when divided by 5.
      * @return possibleValues
      */
     public List<Integer> getPossibleValues() {
@@ -87,7 +87,7 @@ public class CharacteristicDetail   {
     }
 
     /**
-     * Get highestStat
+     * The stat which results in this characteristic.
      * @return highestStat
      */
     public StatSummary getHighestStat() {
@@ -99,7 +99,7 @@ public class CharacteristicDetail   {
     }
 
     /**
-     * Get descriptions
+     * The descriptions of this characteristic listed in different languages.
      * @return descriptions
      */
     public List<@Valid CharacteristicDescription> getDescriptions() {

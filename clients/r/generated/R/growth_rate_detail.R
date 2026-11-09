@@ -7,12 +7,12 @@
 #' @title GrowthRateDetail
 #' @description GrowthRateDetail Class
 #' @format An \code{R6Class} generator object
-#' @field id  integer
-#' @field name  character
-#' @field formula  character
-#' @field descriptions  list(\link{GrowthRateDescription})
-#' @field levels  list(\link{Experience})
-#' @field pokemon_species  list(\link{PokemonSpeciesSummary})
+#' @field id The identifier for this resource. integer
+#' @field name The name for this resource. character
+#' @field formula The formula used to calculate the rate at which the Pokémon species gains level. character
+#' @field descriptions The descriptions of this characteristic listed in different languages. list(\link{GrowthRateDescription})
+#' @field levels A list of levels and the amount of experienced needed to atain them based on this growth rate. list(\link{Experience})
+#' @field pokemon_species A list of Pokémon species that gain levels at this growth rate. list(\link{PokemonSpeciesSummary})
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -29,12 +29,12 @@ GrowthRateDetail <- R6::R6Class(
     #' @description
     #' Initialize a new GrowthRateDetail class.
     #'
-    #' @param id id
-    #' @param name name
-    #' @param formula formula
-    #' @param descriptions descriptions
-    #' @param levels levels
-    #' @param pokemon_species pokemon_species
+    #' @param id The identifier for this resource.
+    #' @param name The name for this resource.
+    #' @param formula The formula used to calculate the rate at which the Pokémon species gains level.
+    #' @param descriptions The descriptions of this characteristic listed in different languages.
+    #' @param levels A list of levels and the amount of experienced needed to atain them based on this growth rate.
+    #' @param pokemon_species A list of Pokémon species that gain levels at this growth rate.
     #' @param ... Other optional arguments.
     initialize = function(`id`, `name`, `formula`, `descriptions`, `levels`, `pokemon_species`, ...) {
       if (!missing(`id`)) {
@@ -284,7 +284,7 @@ GrowthRateDetail <- R6::R6Class(
         return(FALSE)
       }
 
-      if (nchar(self$`name`) > 100) {
+      if (nchar(self$`name`) > 200) {
         return(FALSE)
       }
 
@@ -331,8 +331,8 @@ GrowthRateDetail <- R6::R6Class(
         invalid_fields["name"] <- "Non-nullable required field `name` cannot be null."
       }
 
-      if (nchar(self$`name`) > 100) {
-        invalid_fields["name"] <- "Invalid length for `name`, must be smaller than or equal to 100."
+      if (nchar(self$`name`) > 200) {
+        invalid_fields["name"] <- "Invalid length for `name`, must be smaller than or equal to 200."
       }
 
       # check if the required `formula` is null

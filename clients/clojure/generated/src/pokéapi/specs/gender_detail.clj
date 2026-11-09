@@ -1,8 +1,8 @@
 (ns pokéapi.specs.gender-detail
   (:require [clojure.spec.alpha :as s]
             [spec-tools.data-spec :as ds]
-            [pokéapi.specs.gender-detail-pokemon-species-details-inner :refer :all]
-            [pokéapi.specs.ability-detail-pokemon-inner-pokemon :refer :all]
+            [pokéapi.specs.gender-pokemon-species :refer :all]
+            [pokéapi.specs.pokemon-species-summary :refer :all]
             )
   (:import (java.io File)))
 
@@ -11,8 +11,8 @@
   {
    (ds/req :id) int?
    (ds/req :name) string?
-   (ds/req :pokemon_species_details) (s/coll-of gender-detail-pokemon-species-details-inner-spec)
-   (ds/req :required_for_evolution) (s/coll-of ability-detail-pokemon-inner-pokemon-spec)
+   (ds/req :pokemon_species_details) (s/coll-of gender-pokemon-species-spec)
+   (ds/req :required_for_evolution) (s/coll-of pokemon-species-summary-spec)
    })
 
 (def gender-detail-spec

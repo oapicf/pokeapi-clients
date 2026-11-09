@@ -33,8 +33,6 @@ from openapi_server.models.paginated_pal_park_area_summary_list import Paginated
 from openapi_server.models.paginated_region_summary_list import PaginatedRegionSummaryList
 from openapi_server.models.pal_park_area_detail import PalParkAreaDetail
 from openapi_server.models.region_detail import RegionDetail
-from openapi_server.models.extra_models import TokenModel  # noqa: F401
-from openapi_server.security_api import get_token_basicAuth, get_token_cookieAuth
 
 router = APIRouter()
 
@@ -56,12 +54,6 @@ async def location_list(
     limit: Annotated[Optional[int], Field(description="Number of results to return per page.")] = Query(None, description="Number of results to return per page.", alias="limit"),
     offset: Annotated[Optional[int], Field(description="The initial index from which to return the results.")] = Query(None, description="The initial index from which to return the results.", alias="offset"),
     q: Annotated[Optional[str], Field(description="> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")] = Query(None, description="&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ", alias="q"),
-    token_basicAuth: TokenModel = Security(
-        get_token_basicAuth
-    ),
-    token_cookieAuth: TokenModel = Security(
-        get_token_cookieAuth
-    ),
 ) -> PaginatedLocationSummaryList:
     """Locations that can be visited within the games. Locations make up sizable portions of regions, like cities or routes."""
     if not BaseLocationApi.subclasses:
@@ -79,13 +71,7 @@ async def location_list(
     response_model_by_alias=True,
 )
 async def location_retrieve(
-    id: Annotated[str, Field(description="This parameter can be a string or an integer.")] = Path(..., description="This parameter can be a string or an integer."),
-    token_basicAuth: TokenModel = Security(
-        get_token_basicAuth
-    ),
-    token_cookieAuth: TokenModel = Security(
-        get_token_cookieAuth
-    ),
+    id: Annotated[str, Field(description="This parameter can be a string or an integer.")] = Path(..., description="This parameter can be a string or an integer.", examples=["1"]),
 ) -> LocationDetail:
     """Locations that can be visited within the games. Locations make up sizable portions of regions, like cities or routes."""
     if not BaseLocationApi.subclasses:
@@ -105,12 +91,6 @@ async def location_retrieve(
 async def location_area_list(
     limit: Annotated[Optional[int], Field(description="Number of results to return per page.")] = Query(None, description="Number of results to return per page.", alias="limit"),
     offset: Annotated[Optional[int], Field(description="The initial index from which to return the results.")] = Query(None, description="The initial index from which to return the results.", alias="offset"),
-    token_basicAuth: TokenModel = Security(
-        get_token_basicAuth
-    ),
-    token_cookieAuth: TokenModel = Security(
-        get_token_cookieAuth
-    ),
 ) -> PaginatedLocationAreaSummaryList:
     """Location areas are sections of areas, such as floors in a building or cave. Each area has its own set of possible Pokémon encounters."""
     if not BaseLocationApi.subclasses:
@@ -128,13 +108,7 @@ async def location_area_list(
     response_model_by_alias=True,
 )
 async def location_area_retrieve(
-    id: Annotated[int, Field(description="A unique integer value identifying this location area.")] = Path(..., description="A unique integer value identifying this location area."),
-    token_basicAuth: TokenModel = Security(
-        get_token_basicAuth
-    ),
-    token_cookieAuth: TokenModel = Security(
-        get_token_cookieAuth
-    ),
+    id: Annotated[int, Field(description="A unique integer value identifying this location area.")] = Path(..., description="A unique integer value identifying this location area.", examples=[1]),
 ) -> LocationAreaDetail:
     """Location areas are sections of areas, such as floors in a building or cave. Each area has its own set of possible Pokémon encounters."""
     if not BaseLocationApi.subclasses:
@@ -155,12 +129,6 @@ async def pal_park_area_list(
     limit: Annotated[Optional[int], Field(description="Number of results to return per page.")] = Query(None, description="Number of results to return per page.", alias="limit"),
     offset: Annotated[Optional[int], Field(description="The initial index from which to return the results.")] = Query(None, description="The initial index from which to return the results.", alias="offset"),
     q: Annotated[Optional[str], Field(description="> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")] = Query(None, description="&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ", alias="q"),
-    token_basicAuth: TokenModel = Security(
-        get_token_basicAuth
-    ),
-    token_cookieAuth: TokenModel = Security(
-        get_token_cookieAuth
-    ),
 ) -> PaginatedPalParkAreaSummaryList:
     """Areas used for grouping Pokémon encounters in Pal Park. They&#39;re like habitats that are specific to Pal Park."""
     if not BaseLocationApi.subclasses:
@@ -178,13 +146,7 @@ async def pal_park_area_list(
     response_model_by_alias=True,
 )
 async def pal_park_area_retrieve(
-    id: Annotated[str, Field(description="This parameter can be a string or an integer.")] = Path(..., description="This parameter can be a string or an integer."),
-    token_basicAuth: TokenModel = Security(
-        get_token_basicAuth
-    ),
-    token_cookieAuth: TokenModel = Security(
-        get_token_cookieAuth
-    ),
+    id: Annotated[str, Field(description="This parameter can be a string or an integer.")] = Path(..., description="This parameter can be a string or an integer.", examples=["1"]),
 ) -> PalParkAreaDetail:
     """Areas used for grouping Pokémon encounters in Pal Park. They&#39;re like habitats that are specific to Pal Park."""
     if not BaseLocationApi.subclasses:
@@ -205,12 +167,6 @@ async def region_list(
     limit: Annotated[Optional[int], Field(description="Number of results to return per page.")] = Query(None, description="Number of results to return per page.", alias="limit"),
     offset: Annotated[Optional[int], Field(description="The initial index from which to return the results.")] = Query(None, description="The initial index from which to return the results.", alias="offset"),
     q: Annotated[Optional[str], Field(description="> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")] = Query(None, description="&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ", alias="q"),
-    token_basicAuth: TokenModel = Security(
-        get_token_basicAuth
-    ),
-    token_cookieAuth: TokenModel = Security(
-        get_token_cookieAuth
-    ),
 ) -> PaginatedRegionSummaryList:
     """A region is an organized area of the Pokémon world. Most often, the main difference between regions is the species of Pokémon that can be encountered within them."""
     if not BaseLocationApi.subclasses:
@@ -228,13 +184,7 @@ async def region_list(
     response_model_by_alias=True,
 )
 async def region_retrieve(
-    id: Annotated[str, Field(description="This parameter can be a string or an integer.")] = Path(..., description="This parameter can be a string or an integer."),
-    token_basicAuth: TokenModel = Security(
-        get_token_basicAuth
-    ),
-    token_cookieAuth: TokenModel = Security(
-        get_token_cookieAuth
-    ),
+    id: Annotated[str, Field(description="This parameter can be a string or an integer.")] = Path(..., description="This parameter can be a string or an integer.", examples=["1"]),
 ) -> RegionDetail:
     """A region is an organized area of the Pokémon world. Most often, the main difference between regions is the species of Pokémon that can be encountered within them."""
     if not BaseLocationApi.subclasses:

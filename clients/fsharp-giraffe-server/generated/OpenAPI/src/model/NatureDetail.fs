@@ -3,10 +3,9 @@ namespace OpenAPI.Model
 open System
 open System.Collections.Generic
 open OpenAPI.Model.BerryFlavorSummary
-open OpenAPI.Model.BerrySummary
 open OpenAPI.Model.NatureBattleStylePreference
-open OpenAPI.Model.NatureDetailPokeathlonStatChangesInner
 open OpenAPI.Model.NatureName
+open OpenAPI.Model.NaturePokeathlonStat
 open OpenAPI.Model.StatSummary
 
 module NatureDetail =
@@ -21,8 +20,7 @@ module NatureDetail =
     IncreasedStat : StatSummary;
     LikesFlavor : BerryFlavorSummary;
     HatesFlavor : BerryFlavorSummary;
-    Berries : BerrySummary[];
-    PokeathlonStatChanges : NatureDetailPokeathlonStatChangesInner[];
+    PokeathlonStatChanges : NaturePokeathlonStat[];
     MoveBattleStylePreferences : NatureBattleStylePreference[];
     Names : NatureName[];
   }

@@ -3,9 +3,9 @@
 //> using lib "com.lihaoyi::scalatags:0.12.0"
 /**
  * PokéAPI
- * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+ * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
  *
- * OpenAPI spec version: 2.7.0
+ * OpenAPI spec version: 2.10.0
  *
  * Contact: blah+oapicf@cliffano.com
  *
@@ -20,8 +20,10 @@ package org.openapitools.server.api
 
 import _root_.org.openapitools.server.model.EvolutionChainDetail
 import _root_.org.openapitools.server.model.EvolutionTriggerDetail
+import _root_.org.openapitools.server.model.EvolutionVariableDetail
 import _root_.org.openapitools.server.model.PaginatedEvolutionChainSummaryList
 import _root_.org.openapitools.server.model.PaginatedEvolutionTriggerSummaryList
+import _root_.org.openapitools.server.model.PaginatedEvolutionVariableSummaryList
 import scala.util.Failure
 import scala.util.Try
 import _root_.org.openapitools.server.model.*
@@ -39,14 +41,16 @@ object EvolutionService {
    * The 'Handler' is an implementation of EvolutionService convenient for delegating or overriding individual functions
    */
   case class Handler[F[_]](
-        evolutionChainListHandler : (limit : Option[Int], offset : Option[Int], q : Option[String]) => F[PaginatedEvolutionChainSummaryList], 
+        evolutionChainListHandler : (limit : Option[Int], offset : Option[Int]) => F[PaginatedEvolutionChainSummaryList], 
         evolutionChainRetrieveHandler : (id : String) => F[EvolutionChainDetail], 
         evolutionTriggerListHandler : (limit : Option[Int], offset : Option[Int], q : Option[String]) => F[PaginatedEvolutionTriggerSummaryList], 
-        evolutionTriggerRetrieveHandler : (id : String) => F[EvolutionTriggerDetail]
+        evolutionTriggerRetrieveHandler : (id : String) => F[EvolutionTriggerDetail], 
+        evolutionVariableListHandler : (limit : Option[Int], offset : Option[Int], q : Option[String]) => F[PaginatedEvolutionVariableSummaryList], 
+        evolutionVariableRetrieveHandler : (id : String) => F[EvolutionVariableDetail]
   ) extends EvolutionService[F] {
 
-        override def evolutionChainList(limit : Option[Int], offset : Option[Int], q : Option[String]) : F[PaginatedEvolutionChainSummaryList] = {
-          evolutionChainListHandler(limit, offset, q)
+        override def evolutionChainList(limit : Option[Int], offset : Option[Int]) : F[PaginatedEvolutionChainSummaryList] = {
+          evolutionChainListHandler(limit, offset)
         }
 
         override def evolutionChainRetrieve(id : String) : F[EvolutionChainDetail] = {
@@ -60,13 +64,23 @@ object EvolutionService {
         override def evolutionTriggerRetrieve(id : String) : F[EvolutionTriggerDetail] = {
           evolutionTriggerRetrieveHandler(id)
         }
+
+        override def evolutionVariableList(limit : Option[Int], offset : Option[Int], q : Option[String]) : F[PaginatedEvolutionVariableSummaryList] = {
+          evolutionVariableListHandler(limit, offset, q)
+        }
+
+        override def evolutionVariableRetrieve(id : String) : F[EvolutionVariableDetail] = {
+          evolutionVariableRetrieveHandler(id)
+        }
   }
 
   def apply() : EvolutionService[Try] = EvolutionService.Handler[Try](
-        (_, _, _) => notImplemented("evolutionChainList"), 
+        (_, _) => notImplemented("evolutionChainList"), 
         (_) => notImplemented("evolutionChainRetrieve"), 
         (_, _, _) => notImplemented("evolutionTriggerList"), 
-        (_) => notImplemented("evolutionTriggerRetrieve")
+        (_) => notImplemented("evolutionTriggerRetrieve"), 
+        (_, _, _) => notImplemented("evolutionVariableList"), 
+        (_) => notImplemented("evolutionVariableRetrieve")
   )
 
   private def notImplemented(name : String) = Failure(new Exception(s"TODO: $name not implemented"))
@@ -87,13 +101,13 @@ trait EvolutionService[F[_]] {
    * 
    * @return PaginatedEvolutionChainSummaryList
    */
-  def evolutionChainList(limit : Option[Int], offset : Option[Int], q : Option[String]) : F[PaginatedEvolutionChainSummaryList]
+  def evolutionChainList(limit : Option[Int], offset : Option[Int]) : F[PaginatedEvolutionChainSummaryList]
 
   /**
    * override evolutionChainList with the given handler
    * @return a new implementation of EvolutionService[F] with evolutionChainList overridden using the given handler
    */
-  final def onEvolutionChainList(handler : (limit : Option[Int], offset : Option[Int], q : Option[String]) => F[PaginatedEvolutionChainSummaryList]) : EvolutionService[F] = {
+  final def onEvolutionChainList(handler : (limit : Option[Int], offset : Option[Int]) => F[PaginatedEvolutionChainSummaryList]) : EvolutionService[F] = {
     asHandler.copy(evolutionChainListHandler = handler)
   }
   /** Get evolution chain
@@ -135,6 +149,32 @@ trait EvolutionService[F[_]] {
   final def onEvolutionTriggerRetrieve(handler : (id : String) => F[EvolutionTriggerDetail]) : EvolutionService[F] = {
     asHandler.copy(evolutionTriggerRetrieveHandler = handler)
   }
+  /** List evolution variables
+   * 
+   * @return PaginatedEvolutionVariableSummaryList
+   */
+  def evolutionVariableList(limit : Option[Int], offset : Option[Int], q : Option[String]) : F[PaginatedEvolutionVariableSummaryList]
+
+  /**
+   * override evolutionVariableList with the given handler
+   * @return a new implementation of EvolutionService[F] with evolutionVariableList overridden using the given handler
+   */
+  final def onEvolutionVariableList(handler : (limit : Option[Int], offset : Option[Int], q : Option[String]) => F[PaginatedEvolutionVariableSummaryList]) : EvolutionService[F] = {
+    asHandler.copy(evolutionVariableListHandler = handler)
+  }
+  /** Get evolution variable
+   * 
+   * @return EvolutionVariableDetail
+   */
+  def evolutionVariableRetrieve(id : String) : F[EvolutionVariableDetail]
+
+  /**
+   * override evolutionVariableRetrieve with the given handler
+   * @return a new implementation of EvolutionService[F] with evolutionVariableRetrieve overridden using the given handler
+   */
+  final def onEvolutionVariableRetrieve(handler : (id : String) => F[EvolutionVariableDetail]) : EvolutionService[F] = {
+    asHandler.copy(evolutionVariableRetrieveHandler = handler)
+  }
 
   /**
    * @return a Handler implementation of this service
@@ -143,10 +183,12 @@ trait EvolutionService[F[_]] {
       case h : EvolutionService.Handler[F] => h
       case _ =>
         EvolutionService.Handler[F](
-              (limit, offset, q) => evolutionChainList(limit, offset, q), 
+              (limit, offset) => evolutionChainList(limit, offset), 
               (id) => evolutionChainRetrieve(id), 
               (limit, offset, q) => evolutionTriggerList(limit, offset, q), 
-              (id) => evolutionTriggerRetrieve(id)
+              (id) => evolutionTriggerRetrieve(id), 
+              (limit, offset, q) => evolutionVariableList(limit, offset, q), 
+              (id) => evolutionVariableRetrieve(id)
         )
   }
 
@@ -172,8 +214,8 @@ trait EvolutionService[F[_]] {
     val self = this
 
     new EvolutionService[G] {
-        override def evolutionChainList(limit : Option[Int], offset : Option[Int], q : Option[String]) : G[PaginatedEvolutionChainSummaryList] = changeEffect {
-          self.evolutionChainList(limit, offset, q)
+        override def evolutionChainList(limit : Option[Int], offset : Option[Int]) : G[PaginatedEvolutionChainSummaryList] = changeEffect {
+          self.evolutionChainList(limit, offset)
         }
         override def evolutionChainRetrieve(id : String) : G[EvolutionChainDetail] = changeEffect {
           self.evolutionChainRetrieve(id)
@@ -183,6 +225,12 @@ trait EvolutionService[F[_]] {
         }
         override def evolutionTriggerRetrieve(id : String) : G[EvolutionTriggerDetail] = changeEffect {
           self.evolutionTriggerRetrieve(id)
+        }
+        override def evolutionVariableList(limit : Option[Int], offset : Option[Int], q : Option[String]) : G[PaginatedEvolutionVariableSummaryList] = changeEffect {
+          self.evolutionVariableList(limit, offset, q)
+        }
+        override def evolutionVariableRetrieve(id : String) : G[EvolutionVariableDetail] = changeEffect {
+          self.evolutionVariableRetrieve(id)
         }
     }
   }

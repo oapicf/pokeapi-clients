@@ -3,18 +3,19 @@ namespace OpenAPI.Model
 open System
 open System.Collections.Generic
 open Newtonsoft.Json
-open OpenAPI.Model.PokemonDetailAbilitiesInner
-open OpenAPI.Model.PokemonDetailCries
-open OpenAPI.Model.PokemonDetailHeldItems
-open OpenAPI.Model.PokemonDetailMovesInner
-open OpenAPI.Model.PokemonDetailPastAbilitiesInner
-open OpenAPI.Model.PokemonDetailPastTypesInner
-open OpenAPI.Model.PokemonDetailSprites
-open OpenAPI.Model.PokemonDetailTypesInner
+open OpenAPI.Model.PokemonAbility
+open OpenAPI.Model.PokemonCries
 open OpenAPI.Model.PokemonFormSummary
 open OpenAPI.Model.PokemonGameIndex
+open OpenAPI.Model.PokemonHeldItemSummary
+open OpenAPI.Model.PokemonMove
+open OpenAPI.Model.PokemonPastAbility
+open OpenAPI.Model.PokemonPastStat
+open OpenAPI.Model.PokemonPastType
 open OpenAPI.Model.PokemonSpeciesSummary
+open OpenAPI.Model.PokemonSprites
 open OpenAPI.Model.PokemonStat
+open OpenAPI.Model.PokemonType
 open OpenAPI.Model.int option
 
 module PokemonDetail =
@@ -38,31 +39,33 @@ module PokemonDetail =
     [<JsonProperty(PropertyName = "weight")>]
     Weight : int option;
     [<JsonProperty(PropertyName = "abilities")>]
-    Abilities : PokemonDetailAbilitiesInner[];
+    Abilities : PokemonAbility[];
     [<JsonProperty(PropertyName = "past_abilities")>]
-    PastAbilities : PokemonDetailPastAbilitiesInner[];
+    PastAbilities : PokemonPastAbility[];
     [<JsonProperty(PropertyName = "forms")>]
     Forms : PokemonFormSummary[];
     [<JsonProperty(PropertyName = "game_indices")>]
     GameIndices : PokemonGameIndex[];
     [<JsonProperty(PropertyName = "held_items")>]
-    HeldItems : PokemonDetailHeldItems;
+    HeldItems : PokemonHeldItemSummary[];
     [<JsonProperty(PropertyName = "location_area_encounters")>]
     LocationAreaEncounters : string;
     [<JsonProperty(PropertyName = "moves")>]
-    Moves : PokemonDetailMovesInner[];
+    Moves : PokemonMove[];
     [<JsonProperty(PropertyName = "species")>]
     Species : PokemonSpeciesSummary;
     [<JsonProperty(PropertyName = "sprites")>]
-    Sprites : PokemonDetailSprites;
+    Sprites : PokemonSprites;
     [<JsonProperty(PropertyName = "cries")>]
-    Cries : PokemonDetailCries;
+    Cries : PokemonCries;
     [<JsonProperty(PropertyName = "stats")>]
     Stats : PokemonStat[];
+    [<JsonProperty(PropertyName = "past_stats")>]
+    PastStats : PokemonPastStat[];
     [<JsonProperty(PropertyName = "types")>]
-    Types : PokemonDetailTypesInner[];
+    Types : PokemonType[];
     [<JsonProperty(PropertyName = "past_types")>]
-    PastTypes : PokemonDetailPastTypesInner[];
+    PastTypes : PokemonPastType[];
   }
 
   //#endregion

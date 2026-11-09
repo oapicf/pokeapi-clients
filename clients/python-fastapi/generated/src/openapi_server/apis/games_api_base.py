@@ -13,7 +13,7 @@ from openapi_server.models.paginated_version_summary_list import PaginatedVersio
 from openapi_server.models.pokedex_detail import PokedexDetail
 from openapi_server.models.version_detail import VersionDetail
 from openapi_server.models.version_group_detail import VersionGroupDetail
-from openapi_server.security_api import get_token_basicAuth, get_token_cookieAuth
+
 
 class BaseGamesApi:
     subclasses: ClassVar[Tuple] = ()

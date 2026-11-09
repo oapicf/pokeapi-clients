@@ -7,11 +7,12 @@
 #pragma once
 // System headers
 #include <nlohmann/json.hpp>
+#include <optional>
 #include <cstdint>
 #include <string>
 #include <vector>
-#include "BerryDetailFlavorsInner.h"
 #include "BerryFirmnessSummary.h"
+#include "BerryFlavorMap.h"
 #include "ItemSummary.h"
 #include "TypeSummary.h"
 
@@ -46,8 +47,8 @@ public:
     void setSoilDryness(const int& soilDryness);
     [[nodiscard]] BerryFirmnessSummary getFirmness() const;
     void setFirmness(const BerryFirmnessSummary& firmness);
-    [[nodiscard]] std::vector<BerryDetail_flavors_inner> getFlavors() const;
-    void setFlavors(const std::vector<BerryDetail_flavors_inner>& flavors);
+    [[nodiscard]] std::vector<BerryFlavorMap> getFlavors() const;
+    void setFlavors(const std::vector<BerryFlavorMap>& flavors);
     [[nodiscard]] ItemSummary getItem() const;
     void setItem(const ItemSummary& item);
     [[nodiscard]] TypeSummary getNaturalGiftType() const;
@@ -68,7 +69,7 @@ private:
     int smoothness;
     int soilDryness;
     BerryFirmnessSummary firmness;
-    std::vector<BerryDetail_flavors_inner> flavors;
+    std::vector<BerryFlavorMap> flavors;
     ItemSummary item;
     TypeSummary naturalGiftType;
 };

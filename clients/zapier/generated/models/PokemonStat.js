@@ -7,13 +7,13 @@ module.exports = {
         return [
             {
                 key: `${keyPrefix}base_stat`,
-                label: `[${labelPrefix}base_stat]`,
+                label: `The base value of the stat. - [${labelPrefix}base_stat]`,
                 required: true,
                 type: 'integer',
             },
             {
                 key: `${keyPrefix}effort`,
-                label: `[${labelPrefix}effort]`,
+                label: `The effort points (EV) the Pokémon has in the stat. - [${labelPrefix}effort]`,
                 required: true,
                 type: 'integer',
             },

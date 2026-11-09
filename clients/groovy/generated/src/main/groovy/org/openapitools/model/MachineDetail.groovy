@@ -9,12 +9,12 @@ import org.openapitools.model.VersionGroupSummary;
 
 @Canonical
 class MachineDetail {
-    
+    /* The identifier for this resource. */
     Integer id
-    
+    /* The TM or HM item that corresponds to this machine. */
     ItemSummary item
-    
+    /* The version group that this machine applies to. */
     VersionGroupSummary versionGroup
-    
+    /* The move that is taught by this machine. */
     MoveSummary move
 }

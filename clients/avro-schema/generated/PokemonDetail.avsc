@@ -7,58 +7,58 @@
     {
       "name": "id",
       "type": "int",
-      "doc": ""
+      "doc": "The identifier for this resource."
     },
     {
       "name": "name",
       "type": "string",
-      "doc": ""
+      "doc": "The name for this resource."
     },
     {
       "name": "base_experience",
       "type": ["null", "int"],
-      "doc": "",
+      "doc": "The base experience gained for defeating this Pokémon.",
       "default": null
     },
     {
       "name": "height",
       "type": ["null", "int"],
-      "doc": "",
+      "doc": "The height of this Pokémon in decimetres.",
       "default": null
     },
     {
       "name": "is_default",
       "type": ["null", "boolean"],
-      "doc": "",
+      "doc": "Set for exactly one Pokémon used as the default for each species.",
       "default": null
     },
     {
       "name": "order",
       "type": ["null", "int"],
-      "doc": "",
+      "doc": "Order for sorting. Almost national order, except families are grouped together.",
       "default": null
     },
     {
       "name": "weight",
       "type": ["null", "int"],
-      "doc": "",
+      "doc": "The weight of this Pokémon in hectograms.",
       "default": null
     },
     {
       "name": "abilities",
       "type": {
         "type": "array",
-        "items": "model.PokemonDetailAbilitiesInner"
+        "items": "model.PokemonAbility"
       },
-      "doc": ""
+      "doc": "A list of abilities this Pokémon could potentially have."
     },
     {
       "name": "past_abilities",
       "type": {
         "type": "array",
-        "items": "model.PokemonDetailPastAbilitiesInner"
+        "items": "model.PokemonPastAbility"
       },
-      "doc": ""
+      "doc": "A list of details showing abilities this pokémon had in previous generations"
     },
     {
       "name": "forms",
@@ -66,7 +66,7 @@
         "type": "array",
         "items": "model.PokemonFormSummary"
       },
-      "doc": ""
+      "doc": "A list of forms this Pokémon can take on."
     },
     {
       "name": "game_indices",
@@ -74,40 +74,43 @@
         "type": "array",
         "items": "model.PokemonGameIndex"
       },
-      "doc": ""
+      "doc": "A list of game indices relevent to Pokémon item by generation."
     },
     {
       "name": "held_items",
-      "type": "model.PokemonDetailHeldItems",
-      "doc": ""
+      "type": {
+        "type": "array",
+        "items": "model.PokemonHeldItemSummary"
+      },
+      "doc": "A list of items this Pokémon may be holding when encountered."
     },
     {
       "name": "location_area_encounters",
       "type": "string",
-      "doc": ""
+      "doc": "A link to a list of location areas, as well as encounter details pertaining to specific versions."
     },
     {
       "name": "moves",
       "type": {
         "type": "array",
-        "items": "model.PokemonDetailMovesInner"
+        "items": "model.PokemonMove"
       },
-      "doc": ""
+      "doc": "A list of moves along with learn methods and level details pertaining to specific version groups."
     },
     {
       "name": "species",
       "type": "model.PokemonSpeciesSummary",
-      "doc": ""
+      "doc": "The species this Pokémon belongs to."
     },
     {
       "name": "sprites",
-      "type": "model.PokemonDetailSprites",
-      "doc": ""
+      "type": "model.PokemonSprites",
+      "doc": "A set of sprites used to depict this Pokémon in the game. A visual representation of the various sprites can be found at <a href='https://github.com/PokeAPI/sprites#sprites'>PokeAPI/sprites</a>"
     },
     {
       "name": "cries",
-      "type": "model.PokemonDetailCries",
-      "doc": ""
+      "type": "model.PokemonCries",
+      "doc": "A set of cries used to depict this Pokémon in the game. A visual representation of the various cries can be found at <a href='https://github.com/PokeAPI/cries#cries'>PokeAPI/cries</a>"
     },
     {
       "name": "stats",
@@ -115,23 +118,31 @@
         "type": "array",
         "items": "model.PokemonStat"
       },
-      "doc": ""
+      "doc": "A list of base stat values for this Pokémon."
+    },
+    {
+      "name": "past_stats",
+      "type": {
+        "type": "array",
+        "items": "model.PokemonPastStat"
+      },
+      "doc": "A list of details showing stats this pokémon had in previous generations"
     },
     {
       "name": "types",
       "type": {
         "type": "array",
-        "items": "model.PokemonDetailTypesInner"
+        "items": "model.PokemonType"
       },
-      "doc": ""
+      "doc": "A list of details showing types this Pokémon has."
     },
     {
       "name": "past_types",
       "type": {
         "type": "array",
-        "items": "model.PokemonDetailPastTypesInner"
+        "items": "model.PokemonPastType"
       },
-      "doc": ""
+      "doc": "A list of details showing types this pokémon had in previous generations"
     }
   ]
 

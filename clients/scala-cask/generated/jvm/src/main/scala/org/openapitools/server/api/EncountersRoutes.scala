@@ -3,9 +3,9 @@
 //> using lib "com.lihaoyi::scalatags:0.12.0"
 /**
  * PokéAPI
- * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+ * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
  *
- * OpenAPI spec version: 2.7.0
+ * OpenAPI spec version: 2.10.0
  *
  * Contact: blah+oapicf@cliffano.com
  *
@@ -68,8 +68,6 @@ class EncountersRoutes(service : EncountersService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/encounter-condition/{id}/, /api/v2/encounter-condition/, /api/v2/encounter-condition-value/, /api/v2/encounter-condition-value/{id}/] after/api/v2/encounter-condition, ignoring @cask.get("/api/v2/encounter-condition/")
         def encounterConditionList(request: cask.Request, limit : Option[Int], offset : Option[Int], q : Option[String]) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
@@ -91,8 +89,6 @@ class EncountersRoutes(service : EncountersService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/encounter-condition/{id}/, /api/v2/encounter-condition/, /api/v2/encounter-condition-value/, /api/v2/encounter-condition-value/{id}/] after/api/v2/encounter-condition, ignoring @cask.get("/api/v2/encounter-condition/:id/")
         def encounterConditionRetrieve(id : String, request: cask.Request) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
@@ -115,8 +111,6 @@ class EncountersRoutes(service : EncountersService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/encounter-condition/{id}/, /api/v2/encounter-condition/, /api/v2/encounter-condition-value/, /api/v2/encounter-condition-value/{id}/] after/api/v2/encounter-condition, ignoring // conflicts with [/api/v2/encounter-condition-value/{id}/, /api/v2/encounter-condition-value/] after/api/v2/encounter-condition-value, ignoring @cask.get("/api/v2/encounter-condition-value/")
         def encounterConditionValueList(request: cask.Request, limit : Option[Int], offset : Option[Int], q : Option[String]) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
@@ -138,8 +132,6 @@ class EncountersRoutes(service : EncountersService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/encounter-condition/{id}/, /api/v2/encounter-condition/, /api/v2/encounter-condition-value/, /api/v2/encounter-condition-value/{id}/] after/api/v2/encounter-condition, ignoring // conflicts with [/api/v2/encounter-condition-value/{id}/, /api/v2/encounter-condition-value/] after/api/v2/encounter-condition-value, ignoring @cask.get("/api/v2/encounter-condition-value/:id/")
         def encounterConditionValueRetrieve(id : String, request: cask.Request) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
@@ -162,8 +154,6 @@ class EncountersRoutes(service : EncountersService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/encounter-method/{id}/, /api/v2/encounter-method/] after/api/v2/encounter-method, ignoring @cask.get("/api/v2/encounter-method/")
         def encounterMethodList(request: cask.Request, limit : Option[Int], offset : Option[Int], q : Option[String]) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
@@ -185,8 +175,6 @@ class EncountersRoutes(service : EncountersService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/encounter-method/{id}/, /api/v2/encounter-method/] after/api/v2/encounter-method, ignoring @cask.get("/api/v2/encounter-method/:id/")
         def encounterMethodRetrieve(id : String, request: cask.Request) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 

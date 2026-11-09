@@ -1,6 +1,18 @@
 #tag Interface
 Protected Interface ItemsApiCallbackHandler
 	#tag Method, Flags = &h0
+		Sub CurrencyListCallback(status As OpenAPIClient.OpenAPIClientException, Optional data As OpenAPIClient.Models.PaginatedCurrencySummaryList)
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub CurrencyRetrieveCallback(status As OpenAPIClient.OpenAPIClientException, Optional data As OpenAPIClient.Models.CurrencyDetail)
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub ItemAttributeListCallback(status As OpenAPIClient.OpenAPIClientException, Optional data As OpenAPIClient.Models.PaginatedItemAttributeSummaryList)
 		  
 		End Sub

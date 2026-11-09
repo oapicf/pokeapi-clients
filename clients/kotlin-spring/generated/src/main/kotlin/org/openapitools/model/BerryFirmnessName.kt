@@ -16,18 +16,18 @@ import io.swagger.v3.oas.annotations.media.Schema
 
 /**
  * 
- * @param name 
- * @param language 
+ * @param name The localized name for an API resource in a specific language.
+ * @param language The language this name is in.
  */
 data class BerryFirmnessName(
 
-    @get:Size(max=100)
-    @Schema(required = true, description = "")
+    @get:Size(max=200)
+    @Schema(required = true, description = "The localized name for an API resource in a specific language.")
     @param:JsonProperty("name", required = true)
     @get:JsonProperty("name", required = true) val name: kotlin.String,
 
     @field:Valid
-    @Schema(required = true, description = "")
+    @Schema(required = true, description = "The language this name is in.")
     @param:JsonProperty("language", required = true)
     @get:JsonProperty("language", required = true) val language: LanguageSummary
 ) {

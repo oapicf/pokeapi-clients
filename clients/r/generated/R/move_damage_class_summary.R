@@ -7,8 +7,8 @@
 #' @title MoveDamageClassSummary
 #' @description MoveDamageClassSummary Class
 #' @format An \code{R6Class} generator object
-#' @field name  character
-#' @field url  character
+#' @field name The name of the referenced resource. character
+#' @field url The URL of the referenced resource. character
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -21,8 +21,8 @@ MoveDamageClassSummary <- R6::R6Class(
     #' @description
     #' Initialize a new MoveDamageClassSummary class.
     #'
-    #' @param name name
-    #' @param url url
+    #' @param name The name of the referenced resource.
+    #' @param url The URL of the referenced resource.
     #' @param ... Other optional arguments.
     initialize = function(`name`, `url`, ...) {
       if (!missing(`name`)) {
@@ -178,7 +178,7 @@ MoveDamageClassSummary <- R6::R6Class(
         return(FALSE)
       }
 
-      if (nchar(self$`name`) > 100) {
+      if (nchar(self$`name`) > 200) {
         return(FALSE)
       }
 
@@ -201,8 +201,8 @@ MoveDamageClassSummary <- R6::R6Class(
         invalid_fields["name"] <- "Non-nullable required field `name` cannot be null."
       }
 
-      if (nchar(self$`name`) > 100) {
-        invalid_fields["name"] <- "Invalid length for `name`, must be smaller than or equal to 100."
+      if (nchar(self$`name`) > 200) {
+        invalid_fields["name"] <- "Invalid length for `name`, must be smaller than or equal to 200."
       }
 
       # check if the required `url` is null

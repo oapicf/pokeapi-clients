@@ -21,9 +21,9 @@ defmodule PokéAPI.Model.MoveChange do
     :accuracy => integer() | nil,
     :power => integer() | nil,
     :pp => integer() | nil,
-    :effect_chance => integer(),
-    :effect_entries => [PokéAPI.Model.MoveChangeEffectEntriesInner.t],
-    :type => PokéAPI.Model.TypeSummary.t,
+    :effect_chance => integer() | nil,
+    :effect_entries => [PokéAPI.Model.MoveEffectEffectText.t],
+    :type => PokéAPI.Model.TypeSummary.t | nil,
     :version_group => PokéAPI.Model.VersionGroupSummary.t
   }
 
@@ -31,7 +31,7 @@ defmodule PokéAPI.Model.MoveChange do
 
   def decode(value) do
     value
-     |> Deserializer.deserialize(:effect_entries, :list, PokéAPI.Model.MoveChangeEffectEntriesInner)
+     |> Deserializer.deserialize(:effect_entries, :list, PokéAPI.Model.MoveEffectEffectText)
      |> Deserializer.deserialize(:type, :struct, PokéAPI.Model.TypeSummary)
      |> Deserializer.deserialize(:version_group, :struct, PokéAPI.Model.VersionGroupSummary)
   end

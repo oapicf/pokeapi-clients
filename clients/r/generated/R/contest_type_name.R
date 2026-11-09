@@ -7,9 +7,9 @@
 #' @title ContestTypeName
 #' @description ContestTypeName Class
 #' @format An \code{R6Class} generator object
-#' @field name  character
-#' @field color  character
-#' @field language  \link{LanguageSummary}
+#' @field name The name for this contest. character
+#' @field color The color associated with this contest's name. character
+#' @field language The language that this name is in. \link{LanguageSummary}
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -23,9 +23,9 @@ ContestTypeName <- R6::R6Class(
     #' @description
     #' Initialize a new ContestTypeName class.
     #'
-    #' @param name name
-    #' @param color color
-    #' @param language language
+    #' @param name The name for this contest.
+    #' @param color The color associated with this contest's name.
+    #' @param language The language that this name is in.
     #' @param ... Other optional arguments.
     initialize = function(`name`, `color`, `language`, ...) {
       if (!missing(`name`)) {
@@ -208,7 +208,7 @@ ContestTypeName <- R6::R6Class(
         return(FALSE)
       }
 
-      if (nchar(self$`name`) > 100) {
+      if (nchar(self$`name`) > 200) {
         return(FALSE)
       }
 
@@ -240,8 +240,8 @@ ContestTypeName <- R6::R6Class(
         invalid_fields["name"] <- "Non-nullable required field `name` cannot be null."
       }
 
-      if (nchar(self$`name`) > 100) {
-        invalid_fields["name"] <- "Invalid length for `name`, must be smaller than or equal to 100."
+      if (nchar(self$`name`) > 200) {
+        invalid_fields["name"] <- "Invalid length for `name`, must be smaller than or equal to 200."
       }
 
       # check if the required `color` is null

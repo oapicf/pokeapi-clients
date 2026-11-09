@@ -3,9 +3,9 @@
 //> using lib "com.lihaoyi::scalatags:0.12.0"
 /**
  * PokéAPI
- * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+ * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
  *
- * OpenAPI spec version: 2.7.0
+ * OpenAPI spec version: 2.10.0
  *
  * Contact: blah+oapicf@cliffano.com
  *
@@ -26,8 +26,10 @@ import scala.util.Try
 
 import org.openapitools.server.model.EvolutionChainDetail
 import org.openapitools.server.model.EvolutionTriggerDetail
+import org.openapitools.server.model.EvolutionVariableDetail
 import org.openapitools.server.model.PaginatedEvolutionChainSummaryList
 import org.openapitools.server.model.PaginatedEvolutionTriggerSummaryList
+import org.openapitools.server.model.PaginatedEvolutionVariableSummaryList
 
 class EvolutionRoutes(service : EvolutionService[Try]) extends cask.Routes {
 
@@ -42,10 +44,19 @@ class EvolutionRoutes(service : EvolutionService[Try]) extends cask.Routes {
     }
     // route group for routeWorkAroundForGETApiV2Evolutionchain
     @cask.get("/api/v2/evolution-chain", true)
-    def routeWorkAroundForGETApiV2Evolutionchain(request: cask.Request,limit : Option[Int] = None,offset : Option[Int] = None,q : Option[String] = None) = {
+    def routeWorkAroundForGETApiV2Evolutionchain(request: cask.Request,limit : Option[Int] = None,offset : Option[Int] = None) = {
         request.remainingPathSegments match {
-            case Seq() => evolutionChainList(request,limit, offset, q)
+            case Seq() => evolutionChainList(request,limit, offset)
             case Seq(id) => evolutionChainRetrieve(id,request)
+            case _          => cask.Response("Not Found", statusCode = 404)
+        }
+    }
+    // route group for routeWorkAroundForGETApiV2Evolutionvariable
+    @cask.get("/api/v2/evolution-variable", true)
+    def routeWorkAroundForGETApiV2Evolutionvariable(request: cask.Request,limit : Option[Int] = None,offset : Option[Int] = None,q : Option[String] = None) = {
+        request.remainingPathSegments match {
+            case Seq() => evolutionVariableList(request,limit, offset, q)
+            case Seq(id) => evolutionVariableRetrieve(id,request)
             case _          => cask.Response("Not Found", statusCode = 404)
         }
     }
@@ -54,14 +65,12 @@ class EvolutionRoutes(service : EvolutionService[Try]) extends cask.Routes {
          * 
          */
         // conflicts with [/api/v2/evolution-chain/{id}/, /api/v2/evolution-chain/] after/api/v2/evolution-chain, ignoring @cask.get("/api/v2/evolution-chain/")
-        def evolutionChainList(request: cask.Request, limit : Option[Int], offset : Option[Int], q : Option[String]) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
+        def evolutionChainList(request: cask.Request, limit : Option[Int], offset : Option[Int]) = {
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
         val result =         for {
-            resultTry <- Parsed.eval(service.evolutionChainList(limit, offset, q))
+            resultTry <- Parsed.eval(service.evolutionChainList(limit, offset))
             result <- Parsed.fromTry(resultTry)
         } yield result
 
@@ -78,8 +87,6 @@ class EvolutionRoutes(service : EvolutionService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/evolution-chain/{id}/, /api/v2/evolution-chain/] after/api/v2/evolution-chain, ignoring @cask.get("/api/v2/evolution-chain/:id/")
         def evolutionChainRetrieve(id : String, request: cask.Request) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
@@ -102,8 +109,6 @@ class EvolutionRoutes(service : EvolutionService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/evolution-trigger/{id}/, /api/v2/evolution-trigger/] after/api/v2/evolution-trigger, ignoring @cask.get("/api/v2/evolution-trigger/")
         def evolutionTriggerList(request: cask.Request, limit : Option[Int], offset : Option[Int], q : Option[String]) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
@@ -125,8 +130,6 @@ class EvolutionRoutes(service : EvolutionService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/evolution-trigger/{id}/, /api/v2/evolution-trigger/] after/api/v2/evolution-trigger, ignoring @cask.get("/api/v2/evolution-trigger/:id/")
         def evolutionTriggerRetrieve(id : String, request: cask.Request) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
@@ -141,6 +144,49 @@ class EvolutionRoutes(service : EvolutionService[Try]) extends cask.Routes {
         (result : @unchecked) match {
           case Left(error) => cask.Response(error, 500)
           case Right(value : EvolutionTriggerDetail) => cask.Response(data = write(value), 200, headers = Seq("Content-Type" -> "application/json"))
+          case Right(other) => cask.Response(s"$other", 200)
+        }
+      }
+        /** List evolution variables
+         * 
+         */
+        // conflicts with [/api/v2/evolution-variable/{id}/, /api/v2/evolution-variable/] after/api/v2/evolution-variable, ignoring @cask.get("/api/v2/evolution-variable/")
+        def evolutionVariableList(request: cask.Request, limit : Option[Int], offset : Option[Int], q : Option[String]) = {
+
+        def failFast = request.queryParams.keySet.contains("failFast")
+
+        val result =         for {
+            resultTry <- Parsed.eval(service.evolutionVariableList(limit, offset, q))
+            result <- Parsed.fromTry(resultTry)
+        } yield result
+
+        import PaginatedEvolutionVariableSummaryList.{given, *} // this brings in upickle in the case of union (oneOf) types
+
+        (result : @unchecked) match {
+          case Left(error) => cask.Response(error, 500)
+          case Right(value : PaginatedEvolutionVariableSummaryList) => cask.Response(data = write(value), 200, headers = Seq("Content-Type" -> "application/json"))
+          case Right(other) => cask.Response(s"$other", 200)
+        }
+      }
+        /** Get evolution variable
+         * 
+         */
+        // conflicts with [/api/v2/evolution-variable/{id}/, /api/v2/evolution-variable/] after/api/v2/evolution-variable, ignoring @cask.get("/api/v2/evolution-variable/:id/")
+        def evolutionVariableRetrieve(id : String, request: cask.Request) = {
+
+        def failFast = request.queryParams.keySet.contains("failFast")
+
+        val result =         for {
+            id <- Parsed(id)
+            resultTry <- Parsed.eval(service.evolutionVariableRetrieve(id))
+            result <- Parsed.fromTry(resultTry)
+        } yield result
+
+        import EvolutionVariableDetail.{given, *} // this brings in upickle in the case of union (oneOf) types
+
+        (result : @unchecked) match {
+          case Left(error) => cask.Response(error, 500)
+          case Right(value : EvolutionVariableDetail) => cask.Response(data = write(value), 200, headers = Seq("Content-Type" -> "application/json"))
           case Right(other) => cask.Response(s"$other", 200)
         }
       }

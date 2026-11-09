@@ -15,27 +15,32 @@
                 
                 
                 ; [@key "id"]
-                                              name: string
+                    (** The identifier for this resource. *)
+                                      name: string
                   
                   
                 
                 
                 ; [@key "name"]
-                                              awesome_names: Pokemon_shape_detail_awesome_names_inner.t list
+                    (** The name for this resource. *)
+                                      awesome_names: Pokemon_shape_awesome_name.t list
                 
                 
                 ; [@key "awesome_names"]
-                                              names: Pokemon_shape_detail_names_inner.t list
+                    (** The \''scientific\'' name of this Pokémon shape listed in different languages. *)
+                                      names: Pokemon_shape_name.t list
                 
                 
                 ; [@key "names"]
-                                              pokemon_species: Pokemon_species_summary.t list
+                    (** The name of this resource listed in different languages. *)
+                                      pokemon_species: Pokemon_species_summary.t list
                 
                 
                 ; [@key "pokemon_species"]
-                        } [@@deriving yojson { strict = false }, show, eq ];;
+                    (** A list of the Pokémon species that have this shape. *)
+                } [@@deriving yojson { strict = false }, show, eq ];;
         
-        let create (id : int32) (name : string) (awesome_names : Pokemon_shape_detail_awesome_names_inner.t list) (names : Pokemon_shape_detail_names_inner.t list) (pokemon_species : Pokemon_species_summary.t list) : t = {
+        let create (id : int32) (name : string) (awesome_names : Pokemon_shape_awesome_name.t list) (names : Pokemon_shape_name.t list) (pokemon_species : Pokemon_species_summary.t list) : t = {
             id = id;
             name = name;
             awesome_names = awesome_names;

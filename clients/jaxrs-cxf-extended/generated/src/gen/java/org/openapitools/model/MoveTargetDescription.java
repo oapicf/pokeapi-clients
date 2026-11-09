@@ -11,18 +11,24 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class MoveTargetDescription  {
   
-  @ApiModelProperty(value = "")
+ /**
+  * The localized description for an API resource in a specific language.
+  */
+  @ApiModelProperty(value = "The localized description for an API resource in a specific language.")
   private String description;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The language this name is in.
+  */
+  @ApiModelProperty(required = true, value = "The language this name is in.")
   @Valid
   private LanguageSummary language;
  /**
-  * Get description
+  * The localized description for an API resource in a specific language.
   * @return description
   */
   @JsonProperty("description")
- @Size(max=1000)  public String getDescription() {
+ @Size(max=2000)  public String getDescription() {
     return description;
   }
 
@@ -42,7 +48,7 @@ public class MoveTargetDescription  {
   }
 
  /**
-  * Get language
+  * The language this name is in.
   * @return language
   */
   @JsonProperty("language")

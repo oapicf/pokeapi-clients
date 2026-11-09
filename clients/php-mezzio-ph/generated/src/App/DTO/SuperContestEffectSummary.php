@@ -10,6 +10,7 @@ use Articus\DataTransfer\Annotation as DTA;
 class SuperContestEffectSummary
 {
     /**
+     * The URL of the referenced resource.
      * @DTA\Data(field="url")
      * @DTA\Validator(name="Scalar", options={"type":"string"})
      * @var string|null

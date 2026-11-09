@@ -8,6 +8,8 @@ All URIs are relative to *https://pokeapi.co*
 | [**evolutionChainRetrieve**](EvolutionApi.md#evolutionChainRetrieve) | **GET** /api/v2/evolution-chain/{id}/ | Get evolution chain |
 | [**evolutionTriggerList**](EvolutionApi.md#evolutionTriggerList) | **GET** /api/v2/evolution-trigger/ | List evolution triggers |
 | [**evolutionTriggerRetrieve**](EvolutionApi.md#evolutionTriggerRetrieve) | **GET** /api/v2/evolution-trigger/{id}/ | Get evolution trigger |
+| [**evolutionVariableList**](EvolutionApi.md#evolutionVariableList) | **GET** /api/v2/evolution-variable/ | List evolution variables |
+| [**evolutionVariableRetrieve**](EvolutionApi.md#evolutionVariableRetrieve) | **GET** /api/v2/evolution-variable/{id}/ | Get evolution variable |
 
 
 ## Creating EvolutionApi
@@ -41,7 +43,7 @@ More information can be found inside [Inversion of Control guide section](https:
 <a id="evolutionChainList"></a>
 # **evolutionChainList**
 ```java
-Mono<PaginatedEvolutionChainSummaryList> EvolutionApi.evolutionChainList(limitoffsetq)
+Mono<PaginatedEvolutionChainSummaryList> EvolutionApi.evolutionChainList(limitoffset)
 ```
 
 List evolution chains
@@ -53,15 +55,12 @@ Evolution chains are essentially family trees. They start with the lowest stage 
 |------------- | ------------- | ------------- | -------------|
 | **limit** | `Integer`| Number of results to return per page. | [optional parameter] |
 | **offset** | `Integer`| The initial index from which to return the results. | [optional parameter] |
-| **q** | `String`| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional parameter] |
 
 
 ### Return type
 [**PaginatedEvolutionChainSummaryList**](PaginatedEvolutionChainSummaryList.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -86,9 +85,7 @@ Evolution chains are essentially family trees. They start with the lowest stage 
 ### Return type
 [**EvolutionChainDetail**](EvolutionChainDetail.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -115,9 +112,7 @@ Evolution triggers are the events and conditions that cause a Pokémon to evolve
 ### Return type
 [**PaginatedEvolutionTriggerSummaryList**](PaginatedEvolutionTriggerSummaryList.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -142,9 +137,59 @@ Evolution triggers are the events and conditions that cause a Pokémon to evolve
 ### Return type
 [**EvolutionTriggerDetail**](EvolutionTriggerDetail.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
+
+### HTTP request headers
+ - **Content-Type**: Not defined
+ - **Accept**: `application/json`
+
+<a id="evolutionVariableList"></a>
+# **evolutionVariableList**
+```java
+Mono<PaginatedEvolutionVariableSummaryList> EvolutionApi.evolutionVariableList(limitoffsetq)
+```
+
+List evolution variables
+
+Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+
+### Parameters
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **limit** | `Integer`| Number of results to return per page. | [optional parameter] |
+| **offset** | `Integer`| The initial index from which to return the results. | [optional parameter] |
+| **q** | `String`| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional parameter] |
+
+
+### Return type
+[**PaginatedEvolutionVariableSummaryList**](PaginatedEvolutionVariableSummaryList.md)
+
+
+
+### HTTP request headers
+ - **Content-Type**: Not defined
+ - **Accept**: `application/json`
+
+<a id="evolutionVariableRetrieve"></a>
+# **evolutionVariableRetrieve**
+```java
+Mono<EvolutionVariableDetail> EvolutionApi.evolutionVariableRetrieve(id)
+```
+
+Get evolution variable
+
+Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+
+### Parameters
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `String`| This parameter can be a string or an integer. | |
+
+
+### Return type
+[**EvolutionVariableDetail**](EvolutionVariableDetail.md)
+
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined

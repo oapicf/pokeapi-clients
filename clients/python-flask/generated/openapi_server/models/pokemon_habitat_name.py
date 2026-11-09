@@ -50,6 +50,7 @@ class PokemonHabitatName(Model):
     def name(self) -> str:
         """Gets the name of this PokemonHabitatName.
 
+        The localized name for an API resource in a specific language.  # noqa: E501
 
         :return: The name of this PokemonHabitatName.
         :rtype: str
@@ -60,14 +61,15 @@ class PokemonHabitatName(Model):
     def name(self, name: str):
         """Sets the name of this PokemonHabitatName.
 
+        The localized name for an API resource in a specific language.  # noqa: E501
 
         :param name: The name of this PokemonHabitatName.
         :type name: str
         """
         if name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
-        if name is not None and len(name) > 100:
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `100`")  # noqa: E501
+        if name is not None and len(name) > 200:
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `200`")  # noqa: E501
 
         self._name = name
 
@@ -75,6 +77,7 @@ class PokemonHabitatName(Model):
     def language(self) -> LanguageSummary:
         """Gets the language of this PokemonHabitatName.
 
+        The language this name is in.  # noqa: E501
 
         :return: The language of this PokemonHabitatName.
         :rtype: LanguageSummary
@@ -85,6 +88,7 @@ class PokemonHabitatName(Model):
     def language(self, language: LanguageSummary):
         """Sets the language of this PokemonHabitatName.
 
+        The language this name is in.  # noqa: E501
 
         :param language: The language of this PokemonHabitatName.
         :type language: LanguageSummary

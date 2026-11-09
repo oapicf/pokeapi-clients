@@ -3,11 +3,13 @@ package org.openapitools.apis
 import org.openapitools.apis.path._
 import org.openapitools.apis.query._
 
+import org.openapitools.models.CurrencyDetail
 import org.openapitools.models.ItemAttributeDetail
 import org.openapitools.models.ItemCategoryDetail
 import org.openapitools.models.ItemDetail
 import org.openapitools.models.ItemFlingEffectDetail
 import org.openapitools.models.ItemPocketDetail
+import org.openapitools.models.PaginatedCurrencySummaryList
 import org.openapitools.models.PaginatedItemAttributeSummaryList
 import org.openapitools.models.PaginatedItemCategorySummaryList
 import org.openapitools.models.PaginatedItemFlingEffectSummaryList
@@ -26,8 +28,41 @@ import org.http4s.dsl.Http4sDsl
 import org.http4s.circe.CirceEntityEncoder._
 
 final case class ItemsApiRoutes[
-  F[_]: JsonDecoder: Monad, basicAuth, cookieAuth
-](delegate: ItemsApiDelegate[F, basicAuth, cookieAuth]) extends Http4sDsl[F] {
+  F[_]: JsonDecoder: Monad
+](delegate: ItemsApiDelegate[F]) extends Http4sDsl[F] {
+  object currencyList {
+    import ItemsApiDelegate.currencyListResponses
+
+    object limitQueryParam extends OptionalQueryParamDecoderMatcher[Int]("limit")
+    object offsetQueryParam extends OptionalQueryParamDecoderMatcher[Int]("offset")
+    object qQueryParam extends OptionalQueryParamDecoderMatcher[String]("q")
+
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "currency" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q) =>
+        delegate.currencyList.handle(req, limit, offset, q, responses)
+
+    }
+
+
+    val responses: currencyListResponses[F] = new currencyListResponses[F] {
+      def resp200(value: PaginatedCurrencySummaryList): F[Response[F]] = Ok(value)
+    }
+  }
+  object currencyRetrieve {
+    import ItemsApiDelegate.currencyRetrieveResponses
+
+
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "currency" / id =>
+        delegate.currencyRetrieve.handle(req, id, responses)
+
+    }
+
+
+    val responses: currencyRetrieveResponses[F] = new currencyRetrieveResponses[F] {
+      def resp200(value: CurrencyDetail): F[Response[F]] = Ok(value)
+    }
+  }
   object itemAttributeList {
     import ItemsApiDelegate.itemAttributeListResponses
 
@@ -35,16 +70,12 @@ final case class ItemsApiRoutes[
     object offsetQueryParam extends OptionalQueryParamDecoderMatcher[Int]("offset")
     object qQueryParam extends OptionalQueryParamDecoderMatcher[String]("q")
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "item-attribute" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q)) as auth =>
-        delegate.itemAttributeList.handle_basicAuth(auth, req, limit, offset, q, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "item-attribute" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q) =>
+        delegate.itemAttributeList.handle(req, limit, offset, q, responses)
 
     }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "item-attribute" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q)) as auth =>
-        delegate.itemAttributeList.handle_cookieAuth(auth, req, limit, offset, q, responses)
 
-    }
 
     val responses: itemAttributeListResponses[F] = new itemAttributeListResponses[F] {
       def resp200(value: PaginatedItemAttributeSummaryList): F[Response[F]] = Ok(value)
@@ -54,16 +85,12 @@ final case class ItemsApiRoutes[
     import ItemsApiDelegate.itemAttributeRetrieveResponses
 
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "item-attribute" / id) as auth =>
-        delegate.itemAttributeRetrieve.handle_basicAuth(auth, req, id, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "item-attribute" / id =>
+        delegate.itemAttributeRetrieve.handle(req, id, responses)
 
     }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "item-attribute" / id) as auth =>
-        delegate.itemAttributeRetrieve.handle_cookieAuth(auth, req, id, responses)
 
-    }
 
     val responses: itemAttributeRetrieveResponses[F] = new itemAttributeRetrieveResponses[F] {
       def resp200(value: ItemAttributeDetail): F[Response[F]] = Ok(value)
@@ -76,16 +103,12 @@ final case class ItemsApiRoutes[
     object offsetQueryParam extends OptionalQueryParamDecoderMatcher[Int]("offset")
     object qQueryParam extends OptionalQueryParamDecoderMatcher[String]("q")
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "item-category" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q)) as auth =>
-        delegate.itemCategoryList.handle_basicAuth(auth, req, limit, offset, q, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "item-category" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q) =>
+        delegate.itemCategoryList.handle(req, limit, offset, q, responses)
 
     }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "item-category" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q)) as auth =>
-        delegate.itemCategoryList.handle_cookieAuth(auth, req, limit, offset, q, responses)
 
-    }
 
     val responses: itemCategoryListResponses[F] = new itemCategoryListResponses[F] {
       def resp200(value: PaginatedItemCategorySummaryList): F[Response[F]] = Ok(value)
@@ -95,16 +118,12 @@ final case class ItemsApiRoutes[
     import ItemsApiDelegate.itemCategoryRetrieveResponses
 
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "item-category" / id) as auth =>
-        delegate.itemCategoryRetrieve.handle_basicAuth(auth, req, id, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "item-category" / id =>
+        delegate.itemCategoryRetrieve.handle(req, id, responses)
 
     }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "item-category" / id) as auth =>
-        delegate.itemCategoryRetrieve.handle_cookieAuth(auth, req, id, responses)
 
-    }
 
     val responses: itemCategoryRetrieveResponses[F] = new itemCategoryRetrieveResponses[F] {
       def resp200(value: ItemCategoryDetail): F[Response[F]] = Ok(value)
@@ -117,16 +136,12 @@ final case class ItemsApiRoutes[
     object offsetQueryParam extends OptionalQueryParamDecoderMatcher[Int]("offset")
     object qQueryParam extends OptionalQueryParamDecoderMatcher[String]("q")
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "item-fling-effect" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q)) as auth =>
-        delegate.itemFlingEffectList.handle_basicAuth(auth, req, limit, offset, q, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "item-fling-effect" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q) =>
+        delegate.itemFlingEffectList.handle(req, limit, offset, q, responses)
 
     }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "item-fling-effect" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q)) as auth =>
-        delegate.itemFlingEffectList.handle_cookieAuth(auth, req, limit, offset, q, responses)
 
-    }
 
     val responses: itemFlingEffectListResponses[F] = new itemFlingEffectListResponses[F] {
       def resp200(value: PaginatedItemFlingEffectSummaryList): F[Response[F]] = Ok(value)
@@ -136,16 +151,12 @@ final case class ItemsApiRoutes[
     import ItemsApiDelegate.itemFlingEffectRetrieveResponses
 
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "item-fling-effect" / id) as auth =>
-        delegate.itemFlingEffectRetrieve.handle_basicAuth(auth, req, id, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "item-fling-effect" / id =>
+        delegate.itemFlingEffectRetrieve.handle(req, id, responses)
 
     }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "item-fling-effect" / id) as auth =>
-        delegate.itemFlingEffectRetrieve.handle_cookieAuth(auth, req, id, responses)
 
-    }
 
     val responses: itemFlingEffectRetrieveResponses[F] = new itemFlingEffectRetrieveResponses[F] {
       def resp200(value: ItemFlingEffectDetail): F[Response[F]] = Ok(value)
@@ -158,16 +169,12 @@ final case class ItemsApiRoutes[
     object offsetQueryParam extends OptionalQueryParamDecoderMatcher[Int]("offset")
     object qQueryParam extends OptionalQueryParamDecoderMatcher[String]("q")
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "item" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q)) as auth =>
-        delegate.itemList.handle_basicAuth(auth, req, limit, offset, q, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "item" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q) =>
+        delegate.itemList.handle(req, limit, offset, q, responses)
 
     }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "item" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q)) as auth =>
-        delegate.itemList.handle_cookieAuth(auth, req, limit, offset, q, responses)
 
-    }
 
     val responses: itemListResponses[F] = new itemListResponses[F] {
       def resp200(value: PaginatedItemSummaryList): F[Response[F]] = Ok(value)
@@ -180,16 +187,12 @@ final case class ItemsApiRoutes[
     object offsetQueryParam extends OptionalQueryParamDecoderMatcher[Int]("offset")
     object qQueryParam extends OptionalQueryParamDecoderMatcher[String]("q")
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "item-pocket" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q)) as auth =>
-        delegate.itemPocketList.handle_basicAuth(auth, req, limit, offset, q, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "item-pocket" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q) =>
+        delegate.itemPocketList.handle(req, limit, offset, q, responses)
 
     }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "item-pocket" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q)) as auth =>
-        delegate.itemPocketList.handle_cookieAuth(auth, req, limit, offset, q, responses)
 
-    }
 
     val responses: itemPocketListResponses[F] = new itemPocketListResponses[F] {
       def resp200(value: PaginatedItemPocketSummaryList): F[Response[F]] = Ok(value)
@@ -199,16 +202,12 @@ final case class ItemsApiRoutes[
     import ItemsApiDelegate.itemPocketRetrieveResponses
 
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "item-pocket" / id) as auth =>
-        delegate.itemPocketRetrieve.handle_basicAuth(auth, req, id, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "item-pocket" / id =>
+        delegate.itemPocketRetrieve.handle(req, id, responses)
 
     }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "item-pocket" / id) as auth =>
-        delegate.itemPocketRetrieve.handle_cookieAuth(auth, req, id, responses)
 
-    }
 
     val responses: itemPocketRetrieveResponses[F] = new itemPocketRetrieveResponses[F] {
       def resp200(value: ItemPocketDetail): F[Response[F]] = Ok(value)
@@ -218,47 +217,42 @@ final case class ItemsApiRoutes[
     import ItemsApiDelegate.itemRetrieveResponses
 
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "item" / id) as auth =>
-        delegate.itemRetrieve.handle_basicAuth(auth, req, id, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "item" / id =>
+        delegate.itemRetrieve.handle(req, id, responses)
 
     }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "item" / id) as auth =>
-        delegate.itemRetrieve.handle_cookieAuth(auth, req, id, responses)
 
-    }
 
     val responses: itemRetrieveResponses[F] = new itemRetrieveResponses[F] {
       def resp200(value: ItemDetail): F[Response[F]] = Ok(value)
     }
   }
 
-  val routesbasicAuth =
-    itemAttributeList.routebasicAuth <+>
-    itemAttributeRetrieve.routebasicAuth <+>
-    itemCategoryList.routebasicAuth <+>
-    itemCategoryRetrieve.routebasicAuth <+>
-    itemFlingEffectList.routebasicAuth <+>
-    itemFlingEffectRetrieve.routebasicAuth <+>
-    itemList.routebasicAuth <+>
-    itemPocketList.routebasicAuth <+>
-    itemPocketRetrieve.routebasicAuth <+>
-    itemRetrieve.routebasicAuth
-  val routescookieAuth =
-    itemAttributeList.routecookieAuth <+>
-    itemAttributeRetrieve.routecookieAuth <+>
-    itemCategoryList.routecookieAuth <+>
-    itemCategoryRetrieve.routecookieAuth <+>
-    itemFlingEffectList.routecookieAuth <+>
-    itemFlingEffectRetrieve.routecookieAuth <+>
-    itemList.routecookieAuth <+>
-    itemPocketList.routecookieAuth <+>
-    itemPocketRetrieve.routecookieAuth <+>
-    itemRetrieve.routecookieAuth
+  val routes =
+    currencyList.route <+>
+    currencyRetrieve.route <+>
+    itemAttributeList.route <+>
+    itemAttributeRetrieve.route <+>
+    itemCategoryList.route <+>
+    itemCategoryRetrieve.route <+>
+    itemFlingEffectList.route <+>
+    itemFlingEffectRetrieve.route <+>
+    itemList.route <+>
+    itemPocketList.route <+>
+    itemPocketRetrieve.route <+>
+    itemRetrieve.route
 }
 
 object ItemsApiDelegate {
+  trait currencyListResponses[F[_]] {
+    def resp200(value: PaginatedCurrencySummaryList): F[Response[F]]
+  }
+
+  trait currencyRetrieveResponses[F[_]] {
+    def resp200(value: CurrencyDetail): F[Response[F]]
+  }
+
   trait itemAttributeListResponses[F[_]] {
     def resp200(value: PaginatedItemAttributeSummaryList): F[Response[F]]
   }
@@ -301,23 +295,40 @@ object ItemsApiDelegate {
 
 }
 
-trait ItemsApiDelegate[F[_], basicAuth, cookieAuth] {
+trait ItemsApiDelegate[F[_]] {
 
-  trait itemAttributeList {
-    import ItemsApiDelegate.itemAttributeListResponses
+  trait currencyList {
+    import ItemsApiDelegate.currencyListResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
+    def handle(
       req: Request[F],
       limit: Option[Int],
       offset: Option[Int],
       q: Option[String],
-      responses: itemAttributeListResponses[F]
+      responses: currencyListResponses[F]
     ): F[Response[F]]
 
-    def handle_cookieAuth(
-      auth: cookieAuth,
+  }
+  def currencyList: currencyList
+
+
+  trait currencyRetrieve {
+    import ItemsApiDelegate.currencyRetrieveResponses
+
+    def handle(
+      req: Request[F],
+      id: String,
+      responses: currencyRetrieveResponses[F]
+    ): F[Response[F]]
+
+  }
+  def currencyRetrieve: currencyRetrieve
+
+
+  trait itemAttributeList {
+    import ItemsApiDelegate.itemAttributeListResponses
+
+    def handle(
       req: Request[F],
       limit: Option[Int],
       offset: Option[Int],
@@ -332,16 +343,7 @@ trait ItemsApiDelegate[F[_], basicAuth, cookieAuth] {
   trait itemAttributeRetrieve {
     import ItemsApiDelegate.itemAttributeRetrieveResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
-      req: Request[F],
-      id: String,
-      responses: itemAttributeRetrieveResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
+    def handle(
       req: Request[F],
       id: String,
       responses: itemAttributeRetrieveResponses[F]
@@ -354,18 +356,7 @@ trait ItemsApiDelegate[F[_], basicAuth, cookieAuth] {
   trait itemCategoryList {
     import ItemsApiDelegate.itemCategoryListResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
-      req: Request[F],
-      limit: Option[Int],
-      offset: Option[Int],
-      q: Option[String],
-      responses: itemCategoryListResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
+    def handle(
       req: Request[F],
       limit: Option[Int],
       offset: Option[Int],
@@ -380,16 +371,7 @@ trait ItemsApiDelegate[F[_], basicAuth, cookieAuth] {
   trait itemCategoryRetrieve {
     import ItemsApiDelegate.itemCategoryRetrieveResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
-      req: Request[F],
-      id: String,
-      responses: itemCategoryRetrieveResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
+    def handle(
       req: Request[F],
       id: String,
       responses: itemCategoryRetrieveResponses[F]
@@ -402,18 +384,7 @@ trait ItemsApiDelegate[F[_], basicAuth, cookieAuth] {
   trait itemFlingEffectList {
     import ItemsApiDelegate.itemFlingEffectListResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
-      req: Request[F],
-      limit: Option[Int],
-      offset: Option[Int],
-      q: Option[String],
-      responses: itemFlingEffectListResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
+    def handle(
       req: Request[F],
       limit: Option[Int],
       offset: Option[Int],
@@ -428,16 +399,7 @@ trait ItemsApiDelegate[F[_], basicAuth, cookieAuth] {
   trait itemFlingEffectRetrieve {
     import ItemsApiDelegate.itemFlingEffectRetrieveResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
-      req: Request[F],
-      id: String,
-      responses: itemFlingEffectRetrieveResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
+    def handle(
       req: Request[F],
       id: String,
       responses: itemFlingEffectRetrieveResponses[F]
@@ -450,18 +412,7 @@ trait ItemsApiDelegate[F[_], basicAuth, cookieAuth] {
   trait itemList {
     import ItemsApiDelegate.itemListResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
-      req: Request[F],
-      limit: Option[Int],
-      offset: Option[Int],
-      q: Option[String],
-      responses: itemListResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
+    def handle(
       req: Request[F],
       limit: Option[Int],
       offset: Option[Int],
@@ -476,18 +427,7 @@ trait ItemsApiDelegate[F[_], basicAuth, cookieAuth] {
   trait itemPocketList {
     import ItemsApiDelegate.itemPocketListResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
-      req: Request[F],
-      limit: Option[Int],
-      offset: Option[Int],
-      q: Option[String],
-      responses: itemPocketListResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
+    def handle(
       req: Request[F],
       limit: Option[Int],
       offset: Option[Int],
@@ -502,16 +442,7 @@ trait ItemsApiDelegate[F[_], basicAuth, cookieAuth] {
   trait itemPocketRetrieve {
     import ItemsApiDelegate.itemPocketRetrieveResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
-      req: Request[F],
-      id: String,
-      responses: itemPocketRetrieveResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
+    def handle(
       req: Request[F],
       id: String,
       responses: itemPocketRetrieveResponses[F]
@@ -524,16 +455,7 @@ trait ItemsApiDelegate[F[_], basicAuth, cookieAuth] {
   trait itemRetrieve {
     import ItemsApiDelegate.itemRetrieveResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
-      req: Request[F],
-      id: String,
-      responses: itemRetrieveResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
+    def handle(
       req: Request[F],
       id: String,
       responses: itemRetrieveResponses[F]

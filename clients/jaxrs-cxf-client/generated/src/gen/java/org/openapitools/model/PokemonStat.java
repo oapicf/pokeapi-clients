@@ -9,19 +9,30 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class PokemonStat  {
   
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The base value of the stat.
+  */
+  @ApiModelProperty(required = true, value = "The base value of the stat.")
 
   private Integer baseStat;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The effort points (EV) the Pokémon has in the stat.
+  */
+  @ApiModelProperty(required = true, value = "The effort points (EV) the Pokémon has in the stat.")
 
   private Integer effort;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The stat the Pokémon has.
+  */
+  @ApiModelProperty(required = true, value = "The stat the Pokémon has.")
 
   private StatSummary stat;
  /**
-   * Get baseStat
+   * The base value of the stat.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return baseStat
   **/
   @JsonProperty("base_stat")
@@ -39,7 +50,9 @@ public class PokemonStat  {
   }
 
  /**
-   * Get effort
+   * The effort points (EV) the Pokémon has in the stat.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return effort
   **/
   @JsonProperty("effort")
@@ -57,7 +70,7 @@ public class PokemonStat  {
   }
 
  /**
-   * Get stat
+   * The stat the Pokémon has.
    * @return stat
   **/
   @JsonProperty("stat")

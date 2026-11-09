@@ -18,7 +18,7 @@ data class ItemDetail(
     val flingEffect: ItemFlingEffectSummary,
 
     @field:JsonProperty("attributes")
-    val attributes: kotlin.collections.List<AbilityDetailPokemonInnerPokemon>,
+    val attributes: kotlin.collections.List<ItemAttributeSummary>,
 
     @field:JsonProperty("category")
     val category: ItemCategorySummary,
@@ -32,23 +32,23 @@ data class ItemDetail(
     @field:JsonProperty("game_indices")
     val gameIndices: kotlin.collections.List<ItemGameIndex>,
 
+    @field:JsonProperty("prices")
+    val prices: kotlin.collections.List<ItemPrice>,
+
     @field:JsonProperty("names")
     val names: kotlin.collections.List<ItemName>,
 
     @field:JsonProperty("held_by_pokemon")
-    val heldByPokemon: kotlin.collections.List<ItemDetailHeldByPokemonInner>,
+    val heldByPokemon: kotlin.collections.List<PokemonHeldItem>,
 
     @field:JsonProperty("sprites")
-    val sprites: ItemDetailSprites,
+    val sprites: ItemSprites,
 
     @field:JsonProperty("baby_trigger_for")
-    val babyTriggerFor: ItemDetailBabyTriggerFor,
+    val babyTriggerFor: EvolutionChainSummary,
 
     @field:JsonProperty("machines")
-    val machines: kotlin.collections.List<ItemDetailMachinesInner>,
-
-    @field:JsonProperty("cost")
-    val cost: kotlin.Int? = null,
+    val machines: kotlin.collections.List<ItemMachine>,
 
     @field:JsonProperty("fling_power")
     val flingPower: kotlin.Int? = null,

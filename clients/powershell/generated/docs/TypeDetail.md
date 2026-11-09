@@ -3,17 +3,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **Int32** |  | [readonly] 
-**Name** | **String** |  | 
-**DamageRelations** | [**TypeDetailDamageRelations**](TypeDetailDamageRelations.md) |  | 
-**PastDamageRelations** | [**TypeDetailPastDamageRelationsInner[]**](TypeDetailPastDamageRelationsInner.md) |  | [readonly] 
-**GameIndices** | [**TypeGameIndex[]**](TypeGameIndex.md) |  | [readonly] 
-**Generation** | [**GenerationSummary**](GenerationSummary.md) |  | 
-**MoveDamageClass** | [**MoveDamageClassSummary**](MoveDamageClassSummary.md) |  | 
-**Names** | [**AbilityName[]**](AbilityName.md) |  | [readonly] 
-**Pokemon** | [**TypeDetailPokemonInner[]**](TypeDetailPokemonInner.md) |  | [readonly] 
-**Moves** | [**MoveSummary[]**](MoveSummary.md) |  | [readonly] 
-**Sprites** | [**System.Collections.Hashtable**](Map.md) |  | [readonly] 
+**Id** | **Int32** | The identifier for this resource. | [readonly] 
+**Name** | **String** | The name for this resource. | 
+**DamageRelations** | [**TypeRelationships**](TypeRelationships.md) | A detail of how effective this type is toward others and vice versa. | [readonly] 
+**PastDamageRelations** | [**TypePastRelationships[]**](TypePastRelationships.md) | A list of details of how effective this type was toward others and vice versa in previous generations | [readonly] 
+**GameIndices** | [**TypeGameIndex[]**](TypeGameIndex.md) | A list of game indices relevent to this item by generation. | [readonly] 
+**Generation** | [**GenerationSummary**](GenerationSummary.md) | The generation this type was introduced in. | 
+**MoveDamageClass** | [**MoveDamageClassSummary**](MoveDamageClassSummary.md) | The class of damage inflicted by this type. | 
+**Names** | [**TypeName[]**](TypeName.md) | The name of this resource listed in different languages. | [readonly] 
+**Pokemon** | [**TypePokemon[]**](TypePokemon.md) | A list of details of Pokémon that have this type. | [readonly] 
+**Moves** | [**MoveSummary[]**](MoveSummary.md) | A list of moves that have this type. | [readonly] 
+**Sprites** | [**System.Collections.Hashtable**](Map.md) | Type icons grouped by generation and game, with name_icon and symbol_icon URLs. Unavailable icons are null. | [readonly] 
 
 ## Examples
 

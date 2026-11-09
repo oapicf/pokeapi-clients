@@ -7,6 +7,6 @@ import java.net.URI;
 
 @Canonical
 class ContestEffectSummary {
-    
+    /* The URL of the referenced resource. */
     URI url
 }

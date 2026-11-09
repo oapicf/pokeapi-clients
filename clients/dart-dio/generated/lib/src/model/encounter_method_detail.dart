@@ -13,21 +13,25 @@ part 'encounter_method_detail.g.dart';
 /// EncounterMethodDetail
 ///
 /// Properties:
-/// * [id] 
-/// * [name] 
-/// * [order] 
-/// * [names] 
+/// * [id] - The identifier for this resource.
+/// * [name] - The name for this resource.
+/// * [order] - A good value for sorting.
+/// * [names] - The name of this resource listed in different languages.
 @BuiltValue()
 abstract class EncounterMethodDetail implements Built<EncounterMethodDetail, EncounterMethodDetailBuilder> {
+  /// The identifier for this resource.
   @BuiltValueField(wireName: r'id')
   int get id;
 
+  /// The name for this resource.
   @BuiltValueField(wireName: r'name')
   String get name;
 
+  /// A good value for sorting.
   @BuiltValueField(wireName: r'order')
   int? get order;
 
+  /// The name of this resource listed in different languages.
   @BuiltValueField(wireName: r'names')
   BuiltList<EncounterMethodName> get names;
 

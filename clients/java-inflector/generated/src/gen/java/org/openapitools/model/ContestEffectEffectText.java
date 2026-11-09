@@ -11,7 +11,7 @@ import org.openapitools.model.LanguageSummary;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-10-25T05:47:53.227411880Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-11-09T13:49:15.621225368Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class ContestEffectEffectText   {
   @JsonProperty("effect")
   private String effect;
@@ -20,6 +20,7 @@ public class ContestEffectEffectText   {
   private LanguageSummary language;
 
   /**
+   * The localized effect text for an API resource in a specific language.
    **/
   public ContestEffectEffectText effect(String effect) {
     this.effect = effect;
@@ -27,7 +28,7 @@ public class ContestEffectEffectText   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The localized effect text for an API resource in a specific language.")
   @JsonProperty("effect")
   public String getEffect() {
     return effect;
@@ -37,6 +38,7 @@ public class ContestEffectEffectText   {
   }
 
   /**
+   * The language this effect is in.
    **/
   public ContestEffectEffectText language(LanguageSummary language) {
     this.language = language;
@@ -44,7 +46,7 @@ public class ContestEffectEffectText   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The language this effect is in.")
   @JsonProperty("language")
   public LanguageSummary getLanguage() {
     return language;

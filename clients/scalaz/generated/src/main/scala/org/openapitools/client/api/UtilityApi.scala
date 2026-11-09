@@ -23,6 +23,7 @@ import HelperCodecs._
 
 import org.openapitools.client.api.LanguageDetail
 import org.openapitools.client.api.PaginatedLanguageSummaryList
+import org.openapitools.client.api.PokeapiMetaResponse
 
 object UtilityApi {
 
@@ -72,6 +73,27 @@ object UtilityApi {
     } yield resp
   }
 
+  def metaRetrieve(host: String): Task[PokeapiMetaResponse] = {
+    implicit val returnTypeDecoder: EntityDecoder[PokeapiMetaResponse] = jsonOf[PokeapiMetaResponse]
+
+    val path = "/api/v2/meta/"
+
+    val httpMethod = Method.GET
+    val contentType = `Content-Type`(MediaType.`application/json`)
+    val headers = Headers(
+      )
+    val queryParams = Query(
+      )
+
+    for {
+      uri           <- Task.fromDisjunction(Uri.fromString(host + path))
+      uriWithParams =  uri.copy(query = queryParams)
+      req           =  Request(method = httpMethod, uri = uriWithParams, headers = headers.put(contentType))
+      resp          <- client.expect[PokeapiMetaResponse](req)
+
+    } yield resp
+  }
+
 }
 
 class HttpServiceUtilityApi(service: HttpService) {
@@ -117,6 +139,27 @@ class HttpServiceUtilityApi(service: HttpService) {
       uriWithParams =  uri.copy(query = queryParams)
       req           =  Request(method = httpMethod, uri = uriWithParams, headers = headers.put(contentType))
       resp          <- client.expect[LanguageDetail](req)
+
+    } yield resp
+  }
+
+  def metaRetrieve(): Task[PokeapiMetaResponse] = {
+    implicit val returnTypeDecoder: EntityDecoder[PokeapiMetaResponse] = jsonOf[PokeapiMetaResponse]
+
+    val path = "/api/v2/meta/"
+
+    val httpMethod = Method.GET
+    val contentType = `Content-Type`(MediaType.`application/json`)
+    val headers = Headers(
+      )
+    val queryParams = Query(
+      )
+
+    for {
+      uri           <- Task.fromDisjunction(Uri.fromString(path))
+      uriWithParams =  uri.copy(query = queryParams)
+      req           =  Request(method = httpMethod, uri = uriWithParams, headers = headers.put(contentType))
+      resp          <- client.expect[PokeapiMetaResponse](req)
 
     } yield resp
   }

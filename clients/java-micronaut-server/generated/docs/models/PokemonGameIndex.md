@@ -8,8 +8,8 @@ The class is defined in **[PokemonGameIndex.java](../../src/main/java/org/openap
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**gameIndex** | `Integer` |  | 
-**version** | [`VersionSummary`](VersionSummary.md) |  | 
+**gameIndex** | `Integer` | The internal id of an API resource within game data. | 
+**version** | [`VersionSummary`](VersionSummary.md) | The version relevent to this game index. | 
 
 
 

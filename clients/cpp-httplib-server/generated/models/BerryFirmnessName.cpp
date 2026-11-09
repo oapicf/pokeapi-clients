@@ -10,7 +10,6 @@ namespace models {
 
 BerryFirmnessName::BerryFirmnessName()
 : name("")
-, language(LanguageSummary())
 {
 }
 // =========================================

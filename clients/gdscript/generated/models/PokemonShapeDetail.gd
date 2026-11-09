@@ -10,6 +10,7 @@ class_name PokemonShapeDetail
 # PokemonShapeDetail Model
 
 
+# The identifier for this resource.
 # Required: True
 # isArray: false
 @export var id: int:
@@ -18,6 +19,7 @@ class_name PokemonShapeDetail
 		id = value
 var __id__was__set := false
 
+# The name for this resource.
 # Required: True
 # isArray: false
 @export var name: String:
@@ -26,6 +28,7 @@ var __id__was__set := false
 		name = value
 var __name__was__set := false
 
+# The \"scientific\" name of this Pokémon shape listed in different languages.
 # Required: True
 # isArray: true
 @export var awesomeUnderscorenames: Array:
@@ -34,6 +37,7 @@ var __name__was__set := false
 		awesomeUnderscorenames = value
 var __awesomeUnderscorenames__was__set := false
 
+# The name of this resource listed in different languages.
 # Required: True
 # isArray: true
 @export var names: Array:
@@ -42,6 +46,7 @@ var __awesomeUnderscorenames__was__set := false
 		names = value
 var __names__was__set := false
 
+# A list of the Pokémon species that have this shape.
 # Required: True
 # isArray: true
 @export var pokemonUnderscorespecies: Array:
@@ -89,9 +94,9 @@ static func bzz_denormalize_single(from_dict: Dictionary):
 	if from_dict.has("name"):
 		me.name = from_dict["name"]
 	if from_dict.has("awesomeUnderscorenames"):
-		me.awesomeUnderscorenames = PokemonShapeDetail_awesome_names_inner.bzz_denormalize_multiple(from_dict["awesomeUnderscorenames"])
+		me.awesomeUnderscorenames = PokemonShapeAwesomeName.bzz_denormalize_multiple(from_dict["awesomeUnderscorenames"])
 	if from_dict.has("names"):
-		me.names = PokemonShapeDetail_names_inner.bzz_denormalize_multiple(from_dict["names"])
+		me.names = PokemonShapeName.bzz_denormalize_multiple(from_dict["names"])
 	if from_dict.has("pokemonUnderscorespecies"):
 		me.pokemonUnderscorespecies = PokemonSpeciesSummary.bzz_denormalize_multiple(from_dict["pokemonUnderscorespecies"])
 	return me

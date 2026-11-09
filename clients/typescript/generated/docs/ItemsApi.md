@@ -4,6 +4,8 @@ All URIs are relative to *https://pokeapi.co*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**currencyList**](ItemsApi.md#currencyList) | **GET** /api/v2/currency/ | List currencies
+[**currencyRetrieve**](ItemsApi.md#currencyRetrieve) | **GET** /api/v2/currency/{id}/ | Get currency
 [**itemAttributeList**](ItemsApi.md#itemAttributeList) | **GET** /api/v2/item-attribute/ | List item attributes
 [**itemAttributeRetrieve**](ItemsApi.md#itemAttributeRetrieve) | **GET** /api/v2/item-attribute/{id}/ | Get item attribute
 [**itemCategoryList**](ItemsApi.md#itemCategoryList) | **GET** /api/v2/item-category/ | List item categories
@@ -15,6 +17,118 @@ Method | HTTP request | Description
 [**itemPocketRetrieve**](ItemsApi.md#itemPocketRetrieve) | **GET** /api/v2/item-pocket/{id}/ | Get item pocket
 [**itemRetrieve**](ItemsApi.md#itemRetrieve) | **GET** /api/v2/item/{id}/ | Get item
 
+
+# **currencyList**
+> PaginatedCurrencySummaryList currencyList()
+
+Currencies used to buy items.
+
+### Example
+
+
+```typescript
+import { createConfiguration, ItemsApi } from '';
+import type { ItemsApiCurrencyListRequest } from '';
+
+const configuration = createConfiguration();
+const apiInstance = new ItemsApi(configuration);
+
+const request: ItemsApiCurrencyListRequest = {
+    // Number of results to return per page. (optional)
+  limit: 1,
+    // The initial index from which to return the results. (optional)
+  offset: 1,
+    // > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
+  q: "q_example",
+};
+
+const data = await apiInstance.currencyList(request);
+console.log('API called successfully. Returned data:', data);
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | [**number**] | Number of results to return per page. | (optional) defaults to undefined
+ **offset** | [**number**] | The initial index from which to return the results. | (optional) defaults to undefined
+ **q** | [**string**] | &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | (optional) defaults to undefined
+
+
+### Return type
+
+**PaginatedCurrencySummaryList**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **currencyRetrieve**
+> CurrencyDetail currencyRetrieve()
+
+Currencies used to buy items.
+
+### Example
+
+
+```typescript
+import { createConfiguration, ItemsApi } from '';
+import type { ItemsApiCurrencyRetrieveRequest } from '';
+
+const configuration = createConfiguration();
+const apiInstance = new ItemsApi(configuration);
+
+const request: ItemsApiCurrencyRetrieveRequest = {
+    // This parameter can be a string or an integer.
+  id: "1",
+};
+
+const data = await apiInstance.currencyRetrieve(request);
+console.log('API called successfully. Returned data:', data);
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | [**string**] | This parameter can be a string or an integer. | defaults to undefined
+
+
+### Return type
+
+**CurrencyDetail**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **itemAttributeList**
 > PaginatedItemAttributeSummaryList itemAttributeList()
@@ -60,7 +174,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](README.md#basicAuth), [cookieAuth](README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -92,7 +206,7 @@ const apiInstance = new ItemsApi(configuration);
 
 const request: ItemsApiItemAttributeRetrieveRequest = {
     // This parameter can be a string or an integer.
-  id: "id_example",
+  id: "1",
 };
 
 const data = await apiInstance.itemAttributeRetrieve(request);
@@ -113,7 +227,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](README.md#basicAuth), [cookieAuth](README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -172,7 +286,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](README.md#basicAuth), [cookieAuth](README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -204,7 +318,7 @@ const apiInstance = new ItemsApi(configuration);
 
 const request: ItemsApiItemCategoryRetrieveRequest = {
     // This parameter can be a string or an integer.
-  id: "id_example",
+  id: "1",
 };
 
 const data = await apiInstance.itemCategoryRetrieve(request);
@@ -225,7 +339,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](README.md#basicAuth), [cookieAuth](README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -284,7 +398,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](README.md#basicAuth), [cookieAuth](README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -316,7 +430,7 @@ const apiInstance = new ItemsApi(configuration);
 
 const request: ItemsApiItemFlingEffectRetrieveRequest = {
     // This parameter can be a string or an integer.
-  id: "id_example",
+  id: "1",
 };
 
 const data = await apiInstance.itemFlingEffectRetrieve(request);
@@ -337,7 +451,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](README.md#basicAuth), [cookieAuth](README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -396,7 +510,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](README.md#basicAuth), [cookieAuth](README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -455,7 +569,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](README.md#basicAuth), [cookieAuth](README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -487,7 +601,7 @@ const apiInstance = new ItemsApi(configuration);
 
 const request: ItemsApiItemPocketRetrieveRequest = {
     // This parameter can be a string or an integer.
-  id: "id_example",
+  id: "1",
 };
 
 const data = await apiInstance.itemPocketRetrieve(request);
@@ -508,7 +622,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](README.md#basicAuth), [cookieAuth](README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -540,7 +654,7 @@ const apiInstance = new ItemsApi(configuration);
 
 const request: ItemsApiItemRetrieveRequest = {
     // This parameter can be a string or an integer.
-  id: "id_example",
+  id: "1",
 };
 
 const data = await apiInstance.itemRetrieve(request);
@@ -561,7 +675,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](README.md#basicAuth), [cookieAuth](README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

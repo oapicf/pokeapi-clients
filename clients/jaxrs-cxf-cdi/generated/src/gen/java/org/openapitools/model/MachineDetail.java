@@ -27,6 +27,7 @@ public class MachineDetail   {
   private MoveSummary move;
 
   /**
+   * The identifier for this resource.
    **/
   public MachineDetail id(Integer id) {
     this.id = id;
@@ -34,7 +35,7 @@ public class MachineDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   @JsonProperty("id")
   @NotNull
   public Integer getId() {
@@ -46,6 +47,7 @@ public class MachineDetail   {
 
 
   /**
+   * The TM or HM item that corresponds to this machine.
    **/
   public MachineDetail item(ItemSummary item) {
     this.item = item;
@@ -53,7 +55,7 @@ public class MachineDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The TM or HM item that corresponds to this machine.")
   @JsonProperty("item")
   @NotNull
   public ItemSummary getItem() {
@@ -65,6 +67,7 @@ public class MachineDetail   {
 
 
   /**
+   * The version group that this machine applies to.
    **/
   public MachineDetail versionGroup(VersionGroupSummary versionGroup) {
     this.versionGroup = versionGroup;
@@ -72,7 +75,7 @@ public class MachineDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The version group that this machine applies to.")
   @JsonProperty("version_group")
   @NotNull
   public VersionGroupSummary getVersionGroup() {
@@ -84,6 +87,7 @@ public class MachineDetail   {
 
 
   /**
+   * The move that is taught by this machine.
    **/
   public MachineDetail move(MoveSummary move) {
     this.move = move;
@@ -91,7 +95,7 @@ public class MachineDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The move that is taught by this machine.")
   @JsonProperty("move")
   @NotNull
   public MoveSummary getMove() {

@@ -10,6 +10,7 @@ class_name MachineDetail
 # MachineDetail Model
 
 
+# The identifier for this resource.
 # Required: True
 # isArray: false
 @export var id: int:
@@ -18,6 +19,7 @@ class_name MachineDetail
 		id = value
 var __id__was__set := false
 
+# The TM or HM item that corresponds to this machine.
 # Required: True
 # isArray: false
 @export var item: ItemSummary:
@@ -26,6 +28,7 @@ var __id__was__set := false
 		item = value
 var __item__was__set := false
 
+# The version group that this machine applies to.
 # Required: True
 # isArray: false
 @export var versionUnderscoregroup: VersionGroupSummary:
@@ -34,6 +37,7 @@ var __item__was__set := false
 		versionUnderscoregroup = value
 var __versionUnderscoregroup__was__set := false
 
+# The move that is taught by this machine.
 # Required: True
 # isArray: false
 @export var move: MoveSummary:

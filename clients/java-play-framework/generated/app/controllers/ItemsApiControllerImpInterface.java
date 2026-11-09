@@ -1,10 +1,12 @@
 package controllers;
 
+import apimodels.CurrencyDetail;
 import apimodels.ItemAttributeDetail;
 import apimodels.ItemCategoryDetail;
 import apimodels.ItemDetail;
 import apimodels.ItemFlingEffectDetail;
 import apimodels.ItemPocketDetail;
+import apimodels.PaginatedCurrencySummaryList;
 import apimodels.PaginatedItemAttributeSummaryList;
 import apimodels.PaginatedItemCategorySummaryList;
 import apimodels.PaginatedItemFlingEffectSummaryList;
@@ -35,6 +37,36 @@ public abstract class ItemsApiControllerImpInterface {
     @Inject private Config configuration;
     @Inject private SecurityAPIUtils securityAPIUtils;
     private ObjectMapper mapper = new ObjectMapper();
+
+    public Result currencyListHttp(Http.Request request, Integer limit, Integer offset, String q) throws Exception {
+        PaginatedCurrencySummaryList obj = currencyList(request, limit, offset, q);
+
+        if (configuration.getBoolean("useOutputBeanValidation")) {
+            OpenAPIUtils.validate(obj);
+        }
+
+        JsonNode result = mapper.valueToTree(obj);
+
+        return ok(result);
+
+    }
+
+    public abstract PaginatedCurrencySummaryList currencyList(Http.Request request, Integer limit, Integer offset, String q) throws Exception;
+
+    public Result currencyRetrieveHttp(Http.Request request, String id) throws Exception {
+        CurrencyDetail obj = currencyRetrieve(request, id);
+
+        if (configuration.getBoolean("useOutputBeanValidation")) {
+            OpenAPIUtils.validate(obj);
+        }
+
+        JsonNode result = mapper.valueToTree(obj);
+
+        return ok(result);
+
+    }
+
+    public abstract CurrencyDetail currencyRetrieve(Http.Request request, String id) throws Exception;
 
     public Result itemAttributeListHttp(Http.Request request, Integer limit, Integer offset, String q) throws Exception {
         PaginatedItemAttributeSummaryList obj = itemAttributeList(request, limit, offset, q);

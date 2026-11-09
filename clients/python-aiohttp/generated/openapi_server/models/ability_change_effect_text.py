@@ -47,6 +47,7 @@ class AbilityChangeEffectText(Model):
     def effect(self):
         """Gets the effect of this AbilityChangeEffectText.
 
+        The localized effect text for an API resource in a specific language.
 
         :return: The effect of this AbilityChangeEffectText.
         :rtype: str
@@ -57,6 +58,7 @@ class AbilityChangeEffectText(Model):
     def effect(self, effect):
         """Sets the effect of this AbilityChangeEffectText.
 
+        The localized effect text for an API resource in a specific language.
 
         :param effect: The effect of this AbilityChangeEffectText.
         :type effect: str
@@ -72,6 +74,7 @@ class AbilityChangeEffectText(Model):
     def language(self):
         """Gets the language of this AbilityChangeEffectText.
 
+        The language this effect is in.
 
         :return: The language of this AbilityChangeEffectText.
         :rtype: LanguageSummary
@@ -82,6 +85,7 @@ class AbilityChangeEffectText(Model):
     def language(self, language):
         """Sets the language of this AbilityChangeEffectText.
 
+        The language this effect is in.
 
         :param language: The language of this AbilityChangeEffectText.
         :type language: LanguageSummary

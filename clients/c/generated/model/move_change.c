@@ -104,7 +104,7 @@ void move_change_free(move_change_t *move_change) {
     }
     if (move_change->effect_entries) {
         list_ForEach(listEntry, move_change->effect_entries) {
-            move_change_effect_entries_inner_free(listEntry->data);
+            move_effect_effect_text_free(listEntry->data);
         }
         list_freeList(move_change->effect_entries);
         move_change->effect_entries = NULL;
@@ -168,7 +168,7 @@ cJSON *move_change_convertToJSON(move_change_t *move_change) {
     listEntry_t *effect_entriesListEntry;
     if (move_change->effect_entries) {
     list_ForEach(effect_entriesListEntry, move_change->effect_entries) {
-    cJSON *itemLocal = move_change_effect_entries_inner_convertToJSON(effect_entriesListEntry->data);
+    cJSON *itemLocal = move_effect_effect_text_convertToJSON(effect_entriesListEntry->data);
     if(itemLocal == NULL) {
     goto fail;
     }
@@ -334,7 +334,7 @@ move_change_t *move_change_parseFromJSON(cJSON *move_changeJSON){
         if(!cJSON_IsObject(effect_entries_local_nonprimitive)){
             goto end;
         }
-        move_change_effect_entries_inner_t *effect_entriesItem = move_change_effect_entries_inner_parseFromJSON(effect_entries_local_nonprimitive);
+        move_effect_effect_text_t *effect_entriesItem = move_effect_effect_text_parseFromJSON(effect_entries_local_nonprimitive);
 
         list_addElement(effect_entriesList, effect_entriesItem);
     }
@@ -400,7 +400,7 @@ end:
     if (effect_entriesList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, effect_entriesList) {
-            move_change_effect_entries_inner_free(listEntry->data);
+            move_effect_effect_text_free(listEntry->data);
             listEntry->data = NULL;
         }
         list_freeList(effect_entriesList);

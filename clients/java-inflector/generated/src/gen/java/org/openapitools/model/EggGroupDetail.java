@@ -8,14 +8,14 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.model.EggGroupDetailPokemonSpeciesInner;
 import org.openapitools.model.EggGroupName;
+import org.openapitools.model.PokemonSpeciesSummary;
 
 
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-10-25T05:47:53.227411880Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-11-09T13:49:15.621225368Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class EggGroupDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -27,9 +27,10 @@ public class EggGroupDetail   {
   private List<EggGroupName> names = new ArrayList<>();
 
   @JsonProperty("pokemon_species")
-  private List<EggGroupDetailPokemonSpeciesInner> pokemonSpecies = new ArrayList<>();
+  private List<PokemonSpeciesSummary> pokemonSpecies = new ArrayList<>();
 
   /**
+   * The identifier for this resource.
    **/
   public EggGroupDetail id(Integer id) {
     this.id = id;
@@ -37,7 +38,7 @@ public class EggGroupDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   @JsonProperty("id")
   public Integer getId() {
     return id;
@@ -47,6 +48,7 @@ public class EggGroupDetail   {
   }
 
   /**
+   * The name for this resource.
    **/
   public EggGroupDetail name(String name) {
     this.name = name;
@@ -54,7 +56,7 @@ public class EggGroupDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   @JsonProperty("name")
   public String getName() {
     return name;
@@ -64,6 +66,7 @@ public class EggGroupDetail   {
   }
 
   /**
+   * The name of this resource listed in different languages.
    **/
   public EggGroupDetail names(List<EggGroupName> names) {
     this.names = names;
@@ -71,7 +74,7 @@ public class EggGroupDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
   @JsonProperty("names")
   public List<EggGroupName> getNames() {
     return names;
@@ -81,19 +84,20 @@ public class EggGroupDetail   {
   }
 
   /**
+   * A list of all Pokémon species that are members of this egg group.
    **/
-  public EggGroupDetail pokemonSpecies(List<EggGroupDetailPokemonSpeciesInner> pokemonSpecies) {
+  public EggGroupDetail pokemonSpecies(List<PokemonSpeciesSummary> pokemonSpecies) {
     this.pokemonSpecies = pokemonSpecies;
     return this;
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of all Pokémon species that are members of this egg group.")
   @JsonProperty("pokemon_species")
-  public List<EggGroupDetailPokemonSpeciesInner> getPokemonSpecies() {
+  public List<PokemonSpeciesSummary> getPokemonSpecies() {
     return pokemonSpecies;
   }
-  public void setPokemonSpecies(List<EggGroupDetailPokemonSpeciesInner> pokemonSpecies) {
+  public void setPokemonSpecies(List<PokemonSpeciesSummary> pokemonSpecies) {
     this.pokemonSpecies = pokemonSpecies;
   }
 

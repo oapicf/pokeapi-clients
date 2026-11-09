@@ -1,7 +1,7 @@
 # PokéAPI API Client
 
 
-All the Pokémon data you\'ll ever need in one place, easily accessible through a modern free open-source RESTful API.\n\n## What is this?\n\nThis is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.\n\nWe\'ve covered everything from Pokémon to Berry Flavors.\n\n## Where do I start?\n\nWe have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.\n\nThis API will always be publicly available and will never require any extensive setup process to consume.\n\nCreated by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.\n    
+All the Pokémon data you\'ll ever need in one place, easily accessible through a modern free open-source RESTful API.\n\n## What is this?\n\nThis is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.\n\nWe\'ve covered everything from Pokémon to Berry Flavors.\n\n## Where do I start?\n\nWe have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.\n\nThis API will always be publicly available and will never require any extensive setup process to consume.\n\nCreated by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
 
 ## Requirements
 
@@ -43,8 +43,6 @@ Please follow the [installation](#installation) instruction and execute the foll
 
 ```java
 OASBerriesApi api = new OASBerriesApi();
-OASClient client = api.getClient();
-
 
 Map<String, Object> params = new Map<String, Object>{
     'r_limit' => '',
@@ -89,6 +87,8 @@ Class | Method | HTTP request | Description
 *OASEvolutionApi* | [**evolutionChainRetrieve**](OASEvolutionApi.md#evolutionChainRetrieve) | **GET** /api/v2/evolution-chain/{id}/ | Get evolution chain
 *OASEvolutionApi* | [**evolutionTriggerList**](OASEvolutionApi.md#evolutionTriggerList) | **GET** /api/v2/evolution-trigger/ | List evolution triggers
 *OASEvolutionApi* | [**evolutionTriggerRetrieve**](OASEvolutionApi.md#evolutionTriggerRetrieve) | **GET** /api/v2/evolution-trigger/{id}/ | Get evolution trigger
+*OASEvolutionApi* | [**evolutionVariableList**](OASEvolutionApi.md#evolutionVariableList) | **GET** /api/v2/evolution-variable/ | List evolution variables
+*OASEvolutionApi* | [**evolutionVariableRetrieve**](OASEvolutionApi.md#evolutionVariableRetrieve) | **GET** /api/v2/evolution-variable/{id}/ | Get evolution variable
 *OASGamesApi* | [**generationList**](OASGamesApi.md#generationList) | **GET** /api/v2/generation/ | List genrations
 *OASGamesApi* | [**generationRetrieve**](OASGamesApi.md#generationRetrieve) | **GET** /api/v2/generation/{id}/ | Get genration
 *OASGamesApi* | [**pokedexList**](OASGamesApi.md#pokedexList) | **GET** /api/v2/pokedex/ | List pokedex
@@ -97,6 +97,8 @@ Class | Method | HTTP request | Description
 *OASGamesApi* | [**versionGroupRetrieve**](OASGamesApi.md#versionGroupRetrieve) | **GET** /api/v2/version-group/{id}/ | Get version group
 *OASGamesApi* | [**versionList**](OASGamesApi.md#versionList) | **GET** /api/v2/version/ | List versions
 *OASGamesApi* | [**versionRetrieve**](OASGamesApi.md#versionRetrieve) | **GET** /api/v2/version/{id}/ | Get version
+*OASItemsApi* | [**currencyList**](OASItemsApi.md#currencyList) | **GET** /api/v2/currency/ | List currencies
+*OASItemsApi* | [**currencyRetrieve**](OASItemsApi.md#currencyRetrieve) | **GET** /api/v2/currency/{id}/ | Get currency
 *OASItemsApi* | [**itemAttributeList**](OASItemsApi.md#itemAttributeList) | **GET** /api/v2/item-attribute/ | List item attributes
 *OASItemsApi* | [**itemAttributeRetrieve**](OASItemsApi.md#itemAttributeRetrieve) | **GET** /api/v2/item-attribute/{id}/ | Get item attribute
 *OASItemsApi* | [**itemCategoryList**](OASItemsApi.md#itemCategoryList) | **GET** /api/v2/item-category/ | List item categories
@@ -129,9 +131,9 @@ Class | Method | HTTP request | Description
 *OASMovesApi* | [**moveRetrieve**](OASMovesApi.md#moveRetrieve) | **GET** /api/v2/move/{id}/ | Get move
 *OASMovesApi* | [**moveTargetList**](OASMovesApi.md#moveTargetList) | **GET** /api/v2/move-target/ | List move targets
 *OASMovesApi* | [**moveTargetRetrieve**](OASMovesApi.md#moveTargetRetrieve) | **GET** /api/v2/move-target/{id}/ | Get move target
-*OASPokemonApi* | [**abilityList**](OASPokemonApi.md#abilityList) | **GET** /api/v2/ability/ | 
-*OASPokemonApi* | [**abilityRetrieve**](OASPokemonApi.md#abilityRetrieve) | **GET** /api/v2/ability/{id}/ | 
-*OASPokemonApi* | [**characteristicList**](OASPokemonApi.md#characteristicList) | **GET** /api/v2/characteristic/ | List charecterictics
+*OASPokemonApi* | [**abilityList**](OASPokemonApi.md#abilityList) | **GET** /api/v2/ability/ | List abilities
+*OASPokemonApi* | [**abilityRetrieve**](OASPokemonApi.md#abilityRetrieve) | **GET** /api/v2/ability/{id}/ | Get ability
+*OASPokemonApi* | [**characteristicList**](OASPokemonApi.md#characteristicList) | **GET** /api/v2/characteristic/ | List characteristics
 *OASPokemonApi* | [**characteristicRetrieve**](OASPokemonApi.md#characteristicRetrieve) | **GET** /api/v2/characteristic/{id}/ | Get characteristic
 *OASPokemonApi* | [**eggGroupList**](OASPokemonApi.md#eggGroupList) | **GET** /api/v2/egg-group/ | List egg groups
 *OASPokemonApi* | [**eggGroupRetrieve**](OASPokemonApi.md#eggGroupRetrieve) | **GET** /api/v2/egg-group/{id}/ | Get egg group
@@ -163,6 +165,7 @@ Class | Method | HTTP request | Description
 *OASPokemonApi* | [**typeRetrieve**](OASPokemonApi.md#typeRetrieve) | **GET** /api/v2/type/{id}/ | Get types
 *OASUtilityApi* | [**languageList**](OASUtilityApi.md#languageList) | **GET** /api/v2/language/ | List languages
 *OASUtilityApi* | [**languageRetrieve**](OASUtilityApi.md#languageRetrieve) | **GET** /api/v2/language/{id}/ | Get language
+*OASUtilityApi* | [**metaRetrieve**](OASUtilityApi.md#metaRetrieve) | **GET** /api/v2/meta/ | Get API metadata
 
 
 ## Documentation for Models
@@ -170,21 +173,18 @@ Class | Method | HTTP request | Description
  - [OASAbilityChange](OASAbilityChange.md)
  - [OASAbilityChangeEffectText](OASAbilityChangeEffectText.md)
  - [OASAbilityDetail](OASAbilityDetail.md)
- - [OASAbilityDetailPokemonInner](OASAbilityDetailPokemonInner.md)
- - [OASAbilityDetailPokemonInnerPokemon](OASAbilityDetailPokemonInnerPokemon.md)
  - [OASAbilityEffectText](OASAbilityEffectText.md)
  - [OASAbilityFlavorText](OASAbilityFlavorText.md)
  - [OASAbilityName](OASAbilityName.md)
+ - [OASAbilityPokemonDetail](OASAbilityPokemonDetail.md)
  - [OASAbilitySummary](OASAbilitySummary.md)
  - [OASBerryDetail](OASBerryDetail.md)
- - [OASBerryDetailFlavorsInner](OASBerryDetailFlavorsInner.md)
- - [OASBerryDetailFlavorsInnerFlavor](OASBerryDetailFlavorsInnerFlavor.md)
  - [OASBerryFirmnessDetail](OASBerryFirmnessDetail.md)
  - [OASBerryFirmnessName](OASBerryFirmnessName.md)
  - [OASBerryFirmnessSummary](OASBerryFirmnessSummary.md)
+ - [OASBerryFlavorBerryMap](OASBerryFlavorBerryMap.md)
  - [OASBerryFlavorDetail](OASBerryFlavorDetail.md)
- - [OASBerryFlavorDetailBerriesInner](OASBerryFlavorDetailBerriesInner.md)
- - [OASBerryFlavorDetailBerriesInnerBerr](OASBerryFlavorDetailBerriesInnerBerr.md)
+ - [OASBerryFlavorMap](OASBerryFlavorMap.md)
  - [OASBerryFlavorName](OASBerryFlavorName.md)
  - [OASBerryFlavorSummary](OASBerryFlavorSummary.md)
  - [OASBerrySummary](OASBerrySummary.md)
@@ -198,8 +198,10 @@ Class | Method | HTTP request | Description
  - [OASContestTypeDetail](OASContestTypeDetail.md)
  - [OASContestTypeName](OASContestTypeName.md)
  - [OASContestTypeSummary](OASContestTypeSummary.md)
+ - [OASCurrencyDetail](OASCurrencyDetail.md)
+ - [OASCurrencyName](OASCurrencyName.md)
+ - [OASCurrencySummary](OASCurrencySummary.md)
  - [OASEggGroupDetail](OASEggGroupDetail.md)
- - [OASEggGroupDetailPokemonSpeciesInner](OASEggGroupDetailPokemonSpeciesInner.md)
  - [OASEggGroupName](OASEggGroupName.md)
  - [OASEggGroupSummary](OASEggGroupSummary.md)
  - [OASEncounterConditionDetail](OASEncounterConditionDetail.md)
@@ -211,16 +213,21 @@ Class | Method | HTTP request | Description
  - [OASEncounterMethodDetail](OASEncounterMethodDetail.md)
  - [OASEncounterMethodName](OASEncounterMethodName.md)
  - [OASEncounterMethodSummary](OASEncounterMethodSummary.md)
+ - [OASEncounterPokemonDetail](OASEncounterPokemonDetail.md)
  - [OASEvolutionChainDetail](OASEvolutionChainDetail.md)
- - [OASEvolutionChainDetailChain](OASEvolutionChainDetailChain.md)
- - [OASEvolutionChainDetailChainEvolvesT](OASEvolutionChainDetailChainEvolvesT.md)
+ - [OASEvolutionChainLink](OASEvolutionChainLink.md)
  - [OASEvolutionChainSummary](OASEvolutionChainSummary.md)
+ - [OASEvolutionConditionExpression](OASEvolutionConditionExpression.md)
  - [OASEvolutionTriggerDetail](OASEvolutionTriggerDetail.md)
  - [OASEvolutionTriggerName](OASEvolutionTriggerName.md)
  - [OASEvolutionTriggerSummary](OASEvolutionTriggerSummary.md)
+ - [OASEvolutionVariableDescription](OASEvolutionVariableDescription.md)
+ - [OASEvolutionVariableDetail](OASEvolutionVariableDetail.md)
+ - [OASEvolutionVariableName](OASEvolutionVariableName.md)
+ - [OASEvolutionVariableSummary](OASEvolutionVariableSummary.md)
  - [OASExperience](OASExperience.md)
  - [OASGenderDetail](OASGenderDetail.md)
- - [OASGenderDetailPokemonSpeciesDetails](OASGenderDetailPokemonSpeciesDetails.md)
+ - [OASGenderPokemonSpecies](OASGenderPokemonSpecies.md)
  - [OASGenderSummary](OASGenderSummary.md)
  - [OASGenerationDetail](OASGenerationDetail.md)
  - [OASGenerationName](OASGenerationName.md)
@@ -236,29 +243,30 @@ Class | Method | HTTP request | Description
  - [OASItemCategoryName](OASItemCategoryName.md)
  - [OASItemCategorySummary](OASItemCategorySummary.md)
  - [OASItemDetail](OASItemDetail.md)
- - [OASItemDetailBabyTriggerFor](OASItemDetailBabyTriggerFor.md)
- - [OASItemDetailHeldByPokemonInner](OASItemDetailHeldByPokemonInner.md)
- - [OASItemDetailHeldByPokemonInnerVersi](OASItemDetailHeldByPokemonInnerVersi.md)
- - [OASItemDetailMachinesInner](OASItemDetailMachinesInner.md)
- - [OASItemDetailSprites](OASItemDetailSprites.md)
  - [OASItemEffectText](OASItemEffectText.md)
  - [OASItemFlavorText](OASItemFlavorText.md)
  - [OASItemFlingEffectDetail](OASItemFlingEffectDetail.md)
  - [OASItemFlingEffectEffectText](OASItemFlingEffectEffectText.md)
  - [OASItemFlingEffectSummary](OASItemFlingEffectSummary.md)
  - [OASItemGameIndex](OASItemGameIndex.md)
+ - [OASItemMachine](OASItemMachine.md)
  - [OASItemName](OASItemName.md)
  - [OASItemPocketDetail](OASItemPocketDetail.md)
  - [OASItemPocketName](OASItemPocketName.md)
  - [OASItemPocketSummary](OASItemPocketSummary.md)
+ - [OASItemPrice](OASItemPrice.md)
+ - [OASItemSprites](OASItemSprites.md)
  - [OASItemSummary](OASItemSummary.md)
  - [OASLanguageDetail](OASLanguageDetail.md)
  - [OASLanguageName](OASLanguageName.md)
  - [OASLanguageSummary](OASLanguageSummary.md)
  - [OASLocationAreaDetail](OASLocationAreaDetail.md)
- - [OASLocationAreaDetailEncounterMethod](OASLocationAreaDetailEncounterMethod.md)
- - [OASLocationAreaDetailPokemonEncounte](OASLocationAreaDetailPokemonEncounte.md)
+ - [OASLocationAreaEncounterDetail](OASLocationAreaEncounterDetail.md)
+ - [OASLocationAreaEncounterRate](OASLocationAreaEncounterRate.md)
+ - [OASLocationAreaEncounterVersionDetai](OASLocationAreaEncounterVersionDetai.md)
  - [OASLocationAreaName](OASLocationAreaName.md)
+ - [OASLocationAreaPokemonEncounter](OASLocationAreaPokemonEncounter.md)
+ - [OASLocationAreaPokemonEncounterVersi](OASLocationAreaPokemonEncounterVersi.md)
  - [OASLocationAreaSummary](OASLocationAreaSummary.md)
  - [OASLocationDetail](OASLocationDetail.md)
  - [OASLocationGameIndex](OASLocationGameIndex.md)
@@ -270,19 +278,16 @@ Class | Method | HTTP request | Description
  - [OASMoveBattleStyleName](OASMoveBattleStyleName.md)
  - [OASMoveBattleStyleSummary](OASMoveBattleStyleSummary.md)
  - [OASMoveChange](OASMoveChange.md)
- - [OASMoveChangeEffectEntriesInner](OASMoveChangeEffectEntriesInner.md)
+ - [OASMoveComboUsage](OASMoveComboUsage.md)
+ - [OASMoveCombos](OASMoveCombos.md)
  - [OASMoveDamageClassDescription](OASMoveDamageClassDescription.md)
  - [OASMoveDamageClassDetail](OASMoveDamageClassDetail.md)
  - [OASMoveDamageClassName](OASMoveDamageClassName.md)
  - [OASMoveDamageClassSummary](OASMoveDamageClassSummary.md)
  - [OASMoveDetail](OASMoveDetail.md)
- - [OASMoveDetailContestCombos](OASMoveDetailContestCombos.md)
- - [OASMoveDetailContestCombosNormal](OASMoveDetailContestCombosNormal.md)
- - [OASMoveDetailEffectChangesInner](OASMoveDetailEffectChangesInner.md)
- - [OASMoveDetailEffectChangesInnerEffec](OASMoveDetailEffectChangesInnerEffec.md)
- - [OASMoveDetailMachinesInner](OASMoveDetailMachinesInner.md)
- - [OASMoveDetailMachinesInnerMachine](OASMoveDetailMachinesInnerMachine.md)
- - [OASMoveDetailStatChangesInner](OASMoveDetailStatChangesInner.md)
+ - [OASMoveEffectChange](OASMoveEffectChange.md)
+ - [OASMoveEffectChangeEffectText](OASMoveEffectChangeEffectText.md)
+ - [OASMoveEffectEffectText](OASMoveEffectEffectText.md)
  - [OASMoveFlavorText](OASMoveFlavorText.md)
  - [OASMoveLearnMethodDescription](OASMoveLearnMethodDescription.md)
  - [OASMoveLearnMethodDetail](OASMoveLearnMethodDetail.md)
@@ -295,7 +300,9 @@ Class | Method | HTTP request | Description
  - [OASMoveMetaCategoryDescription](OASMoveMetaCategoryDescription.md)
  - [OASMoveMetaCategoryDetail](OASMoveMetaCategoryDetail.md)
  - [OASMoveMetaCategorySummary](OASMoveMetaCategorySummary.md)
+ - [OASMoveMetaStatChange](OASMoveMetaStatChange.md)
  - [OASMoveName](OASMoveName.md)
+ - [OASMoveStatChange](OASMoveStatChange.md)
  - [OASMoveSummary](OASMoveSummary.md)
  - [OASMoveTargetDescription](OASMoveTargetDescription.md)
  - [OASMoveTargetDetail](OASMoveTargetDetail.md)
@@ -303,8 +310,8 @@ Class | Method | HTTP request | Description
  - [OASMoveTargetSummary](OASMoveTargetSummary.md)
  - [OASNatureBattleStylePreference](OASNatureBattleStylePreference.md)
  - [OASNatureDetail](OASNatureDetail.md)
- - [OASNatureDetailPokeathlonStatChanges](OASNatureDetailPokeathlonStatChanges.md)
  - [OASNatureName](OASNatureName.md)
+ - [OASNaturePokeathlonStat](OASNaturePokeathlonStat.md)
  - [OASNatureSummary](OASNatureSummary.md)
  - [OASPaginatedAbilitySummaryList](OASPaginatedAbilitySummaryList.md)
  - [OASPaginatedBerryFirmnessSummaryList](OASPaginatedBerryFirmnessSummaryList.md)
@@ -313,12 +320,14 @@ Class | Method | HTTP request | Description
  - [OASPaginatedCharacteristicSummaryLis](OASPaginatedCharacteristicSummaryLis.md)
  - [OASPaginatedContestEffectSummaryList](OASPaginatedContestEffectSummaryList.md)
  - [OASPaginatedContestTypeSummaryList](OASPaginatedContestTypeSummaryList.md)
+ - [OASPaginatedCurrencySummaryList](OASPaginatedCurrencySummaryList.md)
  - [OASPaginatedEggGroupSummaryList](OASPaginatedEggGroupSummaryList.md)
  - [OASPaginatedEncounterConditionSummar](OASPaginatedEncounterConditionSummar.md)
  - [OASPaginatedEncounterConditionValueS](OASPaginatedEncounterConditionValueS.md)
  - [OASPaginatedEncounterMethodSummaryLi](OASPaginatedEncounterMethodSummaryLi.md)
  - [OASPaginatedEvolutionChainSummaryLis](OASPaginatedEvolutionChainSummaryLis.md)
  - [OASPaginatedEvolutionTriggerSummaryL](OASPaginatedEvolutionTriggerSummaryL.md)
+ - [OASPaginatedEvolutionVariableSummary](OASPaginatedEvolutionVariableSummary.md)
  - [OASPaginatedGenderSummaryList](OASPaginatedGenderSummaryList.md)
  - [OASPaginatedGenerationSummaryList](OASPaginatedGenerationSummaryList.md)
  - [OASPaginatedGrowthRateSummaryList](OASPaginatedGrowthRateSummaryList.md)
@@ -355,72 +364,91 @@ Class | Method | HTTP request | Description
  - [OASPaginatedVersionGroupSummaryList](OASPaginatedVersionGroupSummaryList.md)
  - [OASPaginatedVersionSummaryList](OASPaginatedVersionSummaryList.md)
  - [OASPalParkAreaDetail](OASPalParkAreaDetail.md)
- - [OASPalParkAreaDetailPokemonEncounter](OASPalParkAreaDetailPokemonEncounter.md)
  - [OASPalParkAreaName](OASPalParkAreaName.md)
  - [OASPalParkAreaSummary](OASPalParkAreaSummary.md)
+ - [OASPalParkEncounter](OASPalParkEncounter.md)
+ - [OASPokeapiMetaResponse](OASPokeapiMetaResponse.md)
+ - [OASPokeathlonStatAffectingNature](OASPokeathlonStatAffectingNature.md)
+ - [OASPokeathlonStatAffectingNatures](OASPokeathlonStatAffectingNatures.md)
  - [OASPokeathlonStatDetail](OASPokeathlonStatDetail.md)
- - [OASPokeathlonStatDetailAffectingNatu](OASPokeathlonStatDetailAffectingNatu.md)
  - [OASPokeathlonStatName](OASPokeathlonStatName.md)
  - [OASPokeathlonStatSummary](OASPokeathlonStatSummary.md)
  - [OASPokedexDescription](OASPokedexDescription.md)
  - [OASPokedexDetail](OASPokedexDetail.md)
- - [OASPokedexDetailPokemonEntriesInner](OASPokedexDetailPokemonEntriesInner.md)
  - [OASPokedexName](OASPokedexName.md)
  - [OASPokedexSummary](OASPokedexSummary.md)
+ - [OASPokemonAbility](OASPokemonAbility.md)
+ - [OASPokemonAbilityPast](OASPokemonAbilityPast.md)
  - [OASPokemonColorDetail](OASPokemonColorDetail.md)
  - [OASPokemonColorName](OASPokemonColorName.md)
  - [OASPokemonColorSummary](OASPokemonColorSummary.md)
+ - [OASPokemonCries](OASPokemonCries.md)
  - [OASPokemonDetail](OASPokemonDetail.md)
- - [OASPokemonDetailAbilitiesInner](OASPokemonDetailAbilitiesInner.md)
- - [OASPokemonDetailCries](OASPokemonDetailCries.md)
- - [OASPokemonDetailHeldItems](OASPokemonDetailHeldItems.md)
- - [OASPokemonDetailMovesInner](OASPokemonDetailMovesInner.md)
- - [OASPokemonDetailMovesInnerVersionGro](OASPokemonDetailMovesInnerVersionGro.md)
- - [OASPokemonDetailPastAbilitiesInner](OASPokemonDetailPastAbilitiesInner.md)
- - [OASPokemonDetailPastTypesInner](OASPokemonDetailPastTypesInner.md)
- - [OASPokemonDetailSprites](OASPokemonDetailSprites.md)
- - [OASPokemonDetailTypesInner](OASPokemonDetailTypesInner.md)
  - [OASPokemonDexEntry](OASPokemonDexEntry.md)
+ - [OASPokemonDexNumber](OASPokemonDexNumber.md)
+ - [OASPokemonEncounterDetailResponse](OASPokemonEncounterDetailResponse.md)
+ - [OASPokemonEncounterResponse](OASPokemonEncounterResponse.md)
+ - [OASPokemonEncounterVersionDetailResp](OASPokemonEncounterVersionDetailResp.md)
+ - [OASPokemonEvolution](OASPokemonEvolution.md)
+ - [OASPokemonEvolutionKnownMove](OASPokemonEvolutionKnownMove.md)
  - [OASPokemonFormDetail](OASPokemonFormDetail.md)
- - [OASPokemonFormDetailFormNamesInner](OASPokemonFormDetailFormNamesInner.md)
- - [OASPokemonFormDetailSprites](OASPokemonFormDetailSprites.md)
+ - [OASPokemonFormFlavorText](OASPokemonFormFlavorText.md)
+ - [OASPokemonFormName](OASPokemonFormName.md)
+ - [OASPokemonFormSprites](OASPokemonFormSprites.md)
  - [OASPokemonFormSummary](OASPokemonFormSummary.md)
+ - [OASPokemonFormTriggerCondition](OASPokemonFormTriggerCondition.md)
+ - [OASPokemonFormType](OASPokemonFormType.md)
  - [OASPokemonGameIndex](OASPokemonGameIndex.md)
  - [OASPokemonHabitatDetail](OASPokemonHabitatDetail.md)
  - [OASPokemonHabitatName](OASPokemonHabitatName.md)
  - [OASPokemonHabitatSummary](OASPokemonHabitatSummary.md)
+ - [OASPokemonHeldItem](OASPokemonHeldItem.md)
+ - [OASPokemonHeldItemSummary](OASPokemonHeldItemSummary.md)
+ - [OASPokemonHeldItemVersion](OASPokemonHeldItemVersion.md)
+ - [OASPokemonMove](OASPokemonMove.md)
+ - [OASPokemonMoveVersionGroup](OASPokemonMoveVersionGroup.md)
+ - [OASPokemonPastAbility](OASPokemonPastAbility.md)
+ - [OASPokemonPastStat](OASPokemonPastStat.md)
+ - [OASPokemonPastType](OASPokemonPastType.md)
+ - [OASPokemonShapeAwesomeName](OASPokemonShapeAwesomeName.md)
  - [OASPokemonShapeDetail](OASPokemonShapeDetail.md)
- - [OASPokemonShapeDetailAwesomeNamesInn](OASPokemonShapeDetailAwesomeNamesInn.md)
- - [OASPokemonShapeDetailNamesInner](OASPokemonShapeDetailNamesInner.md)
+ - [OASPokemonShapeName](OASPokemonShapeName.md)
  - [OASPokemonShapeSummary](OASPokemonShapeSummary.md)
  - [OASPokemonSpeciesDescription](OASPokemonSpeciesDescription.md)
  - [OASPokemonSpeciesDetail](OASPokemonSpeciesDetail.md)
- - [OASPokemonSpeciesDetailGeneraInner](OASPokemonSpeciesDetailGeneraInner.md)
- - [OASPokemonSpeciesDetailPalParkEncoun](OASPokemonSpeciesDetailPalParkEncoun.md)
- - [OASPokemonSpeciesDetailVarietiesInne](OASPokemonSpeciesDetailVarietiesInne.md)
  - [OASPokemonSpeciesFlavorText](OASPokemonSpeciesFlavorText.md)
+ - [OASPokemonSpeciesGenus](OASPokemonSpeciesGenus.md)
+ - [OASPokemonSpeciesName](OASPokemonSpeciesName.md)
+ - [OASPokemonSpeciesPalParkEncounter](OASPokemonSpeciesPalParkEncounter.md)
  - [OASPokemonSpeciesSummary](OASPokemonSpeciesSummary.md)
+ - [OASPokemonSpeciesVariety](OASPokemonSpeciesVariety.md)
+ - [OASPokemonSprites](OASPokemonSprites.md)
+ - [OASPokemonSpritesOther](OASPokemonSpritesOther.md)
+ - [OASPokemonSpritesOtherDreamWorld](OASPokemonSpritesOtherDreamWorld.md)
+ - [OASPokemonSpritesOtherHome](OASPokemonSpritesOtherHome.md)
+ - [OASPokemonSpritesOtherOfficialArtwor](OASPokemonSpritesOtherOfficialArtwor.md)
+ - [OASPokemonSpritesOtherShowdown](OASPokemonSpritesOtherShowdown.md)
  - [OASPokemonStat](OASPokemonStat.md)
  - [OASPokemonSummary](OASPokemonSummary.md)
+ - [OASPokemonType](OASPokemonType.md)
  - [OASRegionDetail](OASRegionDetail.md)
  - [OASRegionName](OASRegionName.md)
  - [OASRegionSummary](OASRegionSummary.md)
+ - [OASStatAffectingMoves](OASStatAffectingMoves.md)
+ - [OASStatAffectingNatures](OASStatAffectingNatures.md)
  - [OASStatDetail](OASStatDetail.md)
- - [OASStatDetailAffectingMoves](OASStatDetailAffectingMoves.md)
- - [OASStatDetailAffectingMovesIncreaseI](OASStatDetailAffectingMovesIncreaseI.md)
- - [OASStatDetailAffectingNatures](OASStatDetailAffectingNatures.md)
  - [OASStatName](OASStatName.md)
  - [OASStatSummary](OASStatSummary.md)
  - [OASSuperContestEffectDetail](OASSuperContestEffectDetail.md)
  - [OASSuperContestEffectFlavorText](OASSuperContestEffectFlavorText.md)
  - [OASSuperContestEffectSummary](OASSuperContestEffectSummary.md)
  - [OASTypeDetail](OASTypeDetail.md)
- - [OASTypeDetailDamageRelations](OASTypeDetailDamageRelations.md)
- - [OASTypeDetailPastDamageRelationsInne](OASTypeDetailPastDamageRelationsInne.md)
- - [OASTypeDetailPokemonInner](OASTypeDetailPokemonInner.md)
- - [OASTypeDetailPokemonInnerPokemon](OASTypeDetailPokemonInnerPokemon.md)
- - [OASTypeDetailSpritesValueValue](OASTypeDetailSpritesValueValue.md)
  - [OASTypeGameIndex](OASTypeGameIndex.md)
+ - [OASTypeGameSprite](OASTypeGameSprite.md)
+ - [OASTypeName](OASTypeName.md)
+ - [OASTypePastRelationships](OASTypePastRelationships.md)
+ - [OASTypePokemon](OASTypePokemon.md)
+ - [OASTypeRelationships](OASTypeRelationships.md)
  - [OASTypeSummary](OASTypeSummary.md)
  - [OASVersionDetail](OASVersionDetail.md)
  - [OASVersionGroupDetail](OASVersionGroupDetail.md)
@@ -431,17 +459,7 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Authorization
 
-
-Authentication schemes defined for the API:
-### basicAuth
-
-- **Type**: HTTP basic authentication
-
-### cookieAuth
-
-- **Type**: API key
-- **API key parameter name**: sessionid
-- **Location**: 
+Endpoints do not require authorization.
 
 
 ## Author

@@ -3,8 +3,8 @@ package com.prokarma.pkmst.model;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.prokarma.pkmst.model.PalParkAreaDetailPokemonEncountersInner;
 import com.prokarma.pkmst.model.PalParkAreaName;
+import com.prokarma.pkmst.model.PalParkEncounter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
@@ -19,7 +19,7 @@ import java.util.List;
  * PalParkAreaDetail
  */
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-10-25T05:48:09.645019047Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-11-09T13:49:28.343088631Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PalParkAreaDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -33,7 +33,7 @@ public class PalParkAreaDetail   {
 
   @JsonProperty("pokemon_encounters")
   
-  private List<PalParkAreaDetailPokemonEncountersInner> pokemonEncounters = new ArrayList<>();
+  private List<PalParkEncounter> pokemonEncounters = new ArrayList<>();
 
   public PalParkAreaDetail id(Integer id) {
     this.id = id;
@@ -41,10 +41,10 @@ public class PalParkAreaDetail   {
   }
 
   /**
-   * Get id
+   * The identifier for this resource.
    * @return id
    */
-  @ApiModelProperty(required = true, readOnly = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "The identifier for this resource.")
   public Integer getId() {
     return id;
   }
@@ -59,10 +59,10 @@ public class PalParkAreaDetail   {
   }
 
   /**
-   * Get name
+   * The name for this resource.
    * @return name
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   public String getName() {
     return name;
   }
@@ -85,10 +85,10 @@ public class PalParkAreaDetail   {
   }
 
   /**
-   * Get names
+   * The name of this resource listed in different languages.
    * @return names
    */
-  @ApiModelProperty(required = true, readOnly = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "The name of this resource listed in different languages.")
   public List<PalParkAreaName> getNames() {
     return names;
   }
@@ -97,12 +97,12 @@ public class PalParkAreaDetail   {
     this.names = names;
   }
 
-  public PalParkAreaDetail pokemonEncounters(List<PalParkAreaDetailPokemonEncountersInner> pokemonEncounters) {
+  public PalParkAreaDetail pokemonEncounters(List<PalParkEncounter> pokemonEncounters) {
     this.pokemonEncounters = pokemonEncounters;
     return this;
   }
 
-  public PalParkAreaDetail addPokemonEncountersItem(PalParkAreaDetailPokemonEncountersInner pokemonEncountersItem) {
+  public PalParkAreaDetail addPokemonEncountersItem(PalParkEncounter pokemonEncountersItem) {
     if (this.pokemonEncounters == null) {
       this.pokemonEncounters = new ArrayList<>();
     }
@@ -111,15 +111,15 @@ public class PalParkAreaDetail   {
   }
 
   /**
-   * Get pokemonEncounters
+   * A list of Pokémon encountered in thi pal park area along with details.
    * @return pokemonEncounters
    */
-  @ApiModelProperty(required = true, readOnly = true, value = "")
-  public List<PalParkAreaDetailPokemonEncountersInner> getPokemonEncounters() {
+  @ApiModelProperty(required = true, readOnly = true, value = "A list of Pokémon encountered in thi pal park area along with details.")
+  public List<PalParkEncounter> getPokemonEncounters() {
     return pokemonEncounters;
   }
 
-  public void setPokemonEncounters(List<PalParkAreaDetailPokemonEncountersInner> pokemonEncounters) {
+  public void setPokemonEncounters(List<PalParkEncounter> pokemonEncounters) {
     this.pokemonEncounters = pokemonEncounters;
   }
 

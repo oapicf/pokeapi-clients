@@ -8,10 +8,10 @@ The class is defined in **[PalParkAreaDetail.java](../../src/main/java/org/opena
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | `Integer` |  |  [readonly property]
-**name** | `String` |  | 
-**names** | [`List&lt;PalParkAreaName&gt;`](PalParkAreaName.md) |  |  [readonly property]
-**pokemonEncounters** | [`List&lt;PalParkAreaDetailPokemonEncountersInner&gt;`](PalParkAreaDetailPokemonEncountersInner.md) |  |  [readonly property]
+**id** | `Integer` | The identifier for this resource. |  [readonly property]
+**name** | `String` | The name for this resource. | 
+**names** | [`List&lt;PalParkAreaName&gt;`](PalParkAreaName.md) | The name of this resource listed in different languages. |  [readonly property]
+**pokemonEncounters** | [`List&lt;PalParkEncounter&gt;`](PalParkEncounter.md) | A list of Pokémon encountered in thi pal park area along with details. |  [readonly property]
 
 
 

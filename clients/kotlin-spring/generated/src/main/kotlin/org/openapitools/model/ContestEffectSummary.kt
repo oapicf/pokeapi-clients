@@ -15,12 +15,12 @@ import io.swagger.v3.oas.annotations.media.Schema
 
 /**
  * 
- * @param url 
+ * @param url The URL of the referenced resource.
  */
 data class ContestEffectSummary(
 
     @field:Valid
-    @Schema(required = true, readOnly = true, description = "")
+    @Schema(required = true, readOnly = true, description = "The URL of the referenced resource.")
     @param:JsonProperty("url", required = true)
     @get:JsonProperty("url", required = true) val url: java.net.URI
 ) {

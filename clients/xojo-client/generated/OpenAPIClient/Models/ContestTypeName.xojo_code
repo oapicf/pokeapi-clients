@@ -2,16 +2,25 @@
 Protected Class ContestTypeName
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The name for this contest.
+		#tag EndNote
 		name As String
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The color associated with this contest's name.
+		#tag EndNote
 		color As String
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The language that this name is in.
+		#tag EndNote
 		language As OpenAPIClient.Models.LanguageSummary
 	#tag EndProperty
 

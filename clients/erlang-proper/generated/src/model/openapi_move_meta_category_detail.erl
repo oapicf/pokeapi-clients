@@ -12,7 +12,7 @@
   [ {'id', integer() }
   | {'name', binary() }
   | {'descriptions', list(openapi_move_meta_category_description:openapi_move_meta_category_description()) }
-  | {'moves', list(openapi_ability_detail_pokemon_inner_pokemon:openapi_ability_detail_pokemon_inner_pokemon()) }
+  | {'moves', list(openapi_move_summary:openapi_move_summary()) }
   ].
 
 
@@ -23,7 +23,7 @@ openapi_move_meta_category_detail(Fields) ->
   Default = [ {'id', integer() }
             , {'name', binary() }
             , {'descriptions', list(openapi_move_meta_category_description:openapi_move_meta_category_description()) }
-            , {'moves', list(openapi_ability_detail_pokemon_inner_pokemon:openapi_ability_detail_pokemon_inner_pokemon()) }
+            , {'moves', list(openapi_move_summary:openapi_move_summary()) }
             ],
   lists:ukeymerge(1, lists:sort(Fields), lists:sort(Default)).
 

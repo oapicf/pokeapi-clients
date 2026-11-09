@@ -23,8 +23,8 @@
 
 package org.openapitools.client.models
 
-import org.openapitools.client.models.AbilityDetailPokemonInnerPokemon
-import org.openapitools.client.models.GenderDetailPokemonSpeciesDetailsInner
+import org.openapitools.client.models.GenderPokemonSpecies
+import org.openapitools.client.models.PokemonSpeciesSummary
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -32,26 +32,30 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param id 
- * @param name 
- * @param pokemonSpeciesDetails 
- * @param requiredForEvolution 
+ * @param id The identifier for this resource.
+ * @param name The name for this resource.
+ * @param pokemonSpeciesDetails A list of Pokémon species that can be this gender and how likely it is that they will be.
+ * @param requiredForEvolution A list of Pokémon species that required this gender in order for a Pokémon to evolve into them.
  */
 
 
 data class GenderDetail (
 
+    /* The identifier for this resource. */
     @Json(name = "id")
     val id: kotlin.Int,
 
+    /* The name for this resource. */
     @Json(name = "name")
     val name: kotlin.String,
 
+    /* A list of Pokémon species that can be this gender and how likely it is that they will be. */
     @Json(name = "pokemon_species_details")
-    val pokemonSpeciesDetails: kotlin.collections.List<GenderDetailPokemonSpeciesDetailsInner>,
+    val pokemonSpeciesDetails: kotlin.collections.List<GenderPokemonSpecies>,
 
+    /* A list of Pokémon species that required this gender in order for a Pokémon to evolve into them. */
     @Json(name = "required_for_evolution")
-    val requiredForEvolution: kotlin.collections.List<AbilityDetailPokemonInnerPokemon>
+    val requiredForEvolution: kotlin.collections.List<PokemonSpeciesSummary>
 
 ) {
 

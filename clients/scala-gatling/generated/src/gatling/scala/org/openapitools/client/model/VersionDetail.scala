@@ -3,9 +3,13 @@ package org.openapitools.client.model
 
 
 case class VersionDetail (
+    /* The identifier for this resource. */
     _id: Integer,
+    /* The name for this resource. */
     _name: String,
+    /* The name of this resource listed in different languages. */
     _names: List[VersionName],
+    /* The version group this version belongs to. */
     _versionGroup: VersionGroupSummary
 )
 object VersionDetail {

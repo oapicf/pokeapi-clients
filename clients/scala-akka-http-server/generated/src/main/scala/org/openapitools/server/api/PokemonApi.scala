@@ -64,8 +64,8 @@ class PokemonApi(
     } ~
     path("api" / "v2" / "characteristic") { 
       get { 
-        parameters("limit".as[Int].?, "offset".as[Int].?, "q".as[String].?) { (limit, offset, q) => 
-            pokemonService.characteristicList(limit = limit, offset = offset, q = q)
+        parameters("limit".as[Int].?, "offset".as[Int].?) { (limit, offset) => 
+            pokemonService.characteristicList(limit = limit, offset = offset)
         }
       }
     } ~
@@ -268,7 +268,7 @@ trait PokemonApiService {
   /**
    * Code: 200, Message: , DataType: PaginatedCharacteristicSummaryList
    */
-  def characteristicList(limit: Option[Int], offset: Option[Int], q: Option[String])
+  def characteristicList(limit: Option[Int], offset: Option[Int])
       (implicit toEntityMarshallerPaginatedCharacteristicSummaryList: ToEntityMarshaller[PaginatedCharacteristicSummaryList]): Route
 
   def characteristicRetrieve200(responseCharacteristicDetail: CharacteristicDetail)(implicit toEntityMarshallerCharacteristicDetail: ToEntityMarshaller[CharacteristicDetail]): Route =

@@ -3,8 +3,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Level** | **Int32** |  | 
-**Experience** | **Int32** |  | 
+**Level** | **Int32** | The level gained. | 
+**Experience** | **Int32** | The amount of experience required to reach the referenced level. | 
 
 ## Examples
 

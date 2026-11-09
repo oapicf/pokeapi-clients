@@ -5,34 +5,34 @@
 ## Properties
 Name | Mapping | SQL Type | Default | Type | Description | Notes
 ---- | ------- | -------- | ------- | ---- | ----------- | -----
-**id** | id | int NOT NULL PRIMARY KEY AUTOINCREMENT |  | **kotlin.Int** |  |  [readonly]
-**name** | name | text NOT NULL |  | **kotlin.String** |  | 
-**awesomeNames** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;PokemonShapeDetailAwesomeNamesInner&gt;**](PokemonShapeDetailAwesomeNamesInner.md) |  |  [readonly]
-**names** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;PokemonShapeDetailNamesInner&gt;**](PokemonShapeDetailNamesInner.md) |  |  [readonly]
-**pokemonSpecies** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;PokemonSpeciesSummary&gt;**](PokemonSpeciesSummary.md) |  |  [readonly]
+**id** | id | int NOT NULL PRIMARY KEY AUTOINCREMENT |  | **kotlin.Int** | The identifier for this resource. |  [readonly]
+**name** | name | text NOT NULL |  | **kotlin.String** | The name for this resource. | 
+**awesomeNames** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;PokemonShapeAwesomeName&gt;**](PokemonShapeAwesomeName.md) | The \&quot;scientific\&quot; name of this Pokémon shape listed in different languages. |  [readonly]
+**names** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;PokemonShapeName&gt;**](PokemonShapeName.md) | The name of this resource listed in different languages. |  [readonly]
+**pokemonSpecies** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;PokemonSpeciesSummary&gt;**](PokemonSpeciesSummary.md) | A list of the Pokémon species that have this shape. |  [readonly]
 
 
 
 
-# **Table `PokemonShapeDetailPokemonShapeDetailAwesomeNamesInner`**
-(mapped from: PokemonShapeDetailPokemonShapeDetailAwesomeNamesInner)
-
-## Properties
-Name | Mapping | SQL Type | Default | Type | Description | Notes
----- | ------- | -------- | ------- | ---- | ----------- | -----
-pokemonShapeDetail | pokemonShapeDetail | long | | kotlin.Long | Primary Key | *one*
-pokemonShapeDetailAwesomeNamesInner | pokemonShapeDetailAwesomeNamesInner | long | | kotlin.Long | Foreign Key | *many*
-
-
-
-# **Table `PokemonShapeDetailPokemonShapeDetailNamesInner`**
-(mapped from: PokemonShapeDetailPokemonShapeDetailNamesInner)
+# **Table `PokemonShapeDetailPokemonShapeAwesomeName`**
+(mapped from: PokemonShapeDetailPokemonShapeAwesomeName)
 
 ## Properties
 Name | Mapping | SQL Type | Default | Type | Description | Notes
 ---- | ------- | -------- | ------- | ---- | ----------- | -----
 pokemonShapeDetail | pokemonShapeDetail | long | | kotlin.Long | Primary Key | *one*
-pokemonShapeDetailNamesInner | pokemonShapeDetailNamesInner | long | | kotlin.Long | Foreign Key | *many*
+pokemonShapeAwesomeName | pokemonShapeAwesomeName | long | | kotlin.Long | Foreign Key | *many*
+
+
+
+# **Table `PokemonShapeDetailPokemonShapeName`**
+(mapped from: PokemonShapeDetailPokemonShapeName)
+
+## Properties
+Name | Mapping | SQL Type | Default | Type | Description | Notes
+---- | ------- | -------- | ------- | ---- | ----------- | -----
+pokemonShapeDetail | pokemonShapeDetail | long | | kotlin.Long | Primary Key | *one*
+pokemonShapeName | pokemonShapeName | long | | kotlin.Long | Foreign Key | *many*
 
 
 

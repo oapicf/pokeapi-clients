@@ -12,7 +12,6 @@ CharacteristicDetail::CharacteristicDetail()
 : id(0)
 , geneModulo(0)
 , possibleValues(std::vector<int>())
-, highestStat(StatSummary())
 , descriptions(std::vector<CharacteristicDescription>())
 {
 }

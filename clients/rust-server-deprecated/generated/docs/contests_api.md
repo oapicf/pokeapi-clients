@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **contest_effect_list**
-> models::PaginatedContestEffectSummaryList contest_effect_list(ctx, ctx, optional)
+> models::PaginatedContestEffectSummaryList contest_effect_list(optional)
 List contest effects
 
 Contest effects refer to the effects of moves when used in contests.
@@ -22,8 +22,6 @@ Contest effects refer to the effects of moves when used in contests.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -33,7 +31,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **i32**| Number of results to return per page. | 
  **offset** | **i32**| The initial index from which to return the results. | 
- **q** | **String**| > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  | 
 
 ### Return type
 
@@ -41,7 +38,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -51,7 +48,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **contest_type_list**
-> models::PaginatedContestTypeSummaryList contest_type_list(ctx, ctx, optional)
+> models::PaginatedContestTypeSummaryList contest_type_list(optional)
 List contest types
 
 Contest types are categories judges used to weigh a Pokémon's condition in Pokémon contests. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Contest_condition) for greater detail.
@@ -60,8 +57,6 @@ Contest types are categories judges used to weigh a Pokémon's condition in Pok�
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -79,7 +74,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -89,7 +84,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **super_contest_effect_list**
-> models::PaginatedSuperContestEffectSummaryList super_contest_effect_list(ctx, ctx, optional)
+> models::PaginatedSuperContestEffectSummaryList super_contest_effect_list(optional)
 List super contest effects
 
 Super contest effects refer to the effects of moves when used in super contests.
@@ -98,8 +93,6 @@ Super contest effects refer to the effects of moves when used in super contests.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -109,7 +102,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **i32**| Number of results to return per page. | 
  **offset** | **i32**| The initial index from which to return the results. | 
- **q** | **String**| > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  | 
 
 ### Return type
 
@@ -117,7 +109,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -127,7 +119,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **contest_effect_retrieve**
-> models::ContestEffectDetail contest_effect_retrieve(ctx, ctx, id)
+> models::ContestEffectDetail contest_effect_retrieve(id)
 Get contest effect
 
 Contest effects refer to the effects of moves when used in contests.
@@ -136,8 +128,6 @@ Contest effects refer to the effects of moves when used in contests.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **String**| This parameter can be a string or an integer. | 
 
 ### Return type
@@ -146,7 +136,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -156,7 +146,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **contest_type_retrieve**
-> models::ContestTypeDetail contest_type_retrieve(ctx, ctx, id)
+> models::ContestTypeDetail contest_type_retrieve(id)
 Get contest type
 
 Contest types are categories judges used to weigh a Pokémon's condition in Pokémon contests. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Contest_condition) for greater detail.
@@ -165,8 +155,6 @@ Contest types are categories judges used to weigh a Pokémon's condition in Pok�
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **String**| This parameter can be a string or an integer. | 
 
 ### Return type
@@ -175,7 +163,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -185,7 +173,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **super_contest_effect_retrieve**
-> models::SuperContestEffectDetail super_contest_effect_retrieve(ctx, ctx, id)
+> models::SuperContestEffectDetail super_contest_effect_retrieve(id)
 Get super contest effect
 
 Super contest effects refer to the effects of moves when used in super contests.
@@ -194,8 +182,6 @@ Super contest effects refer to the effects of moves when used in super contests.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **String**| This parameter can be a string or an integer. | 
 
 ### Return type
@@ -204,7 +190,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

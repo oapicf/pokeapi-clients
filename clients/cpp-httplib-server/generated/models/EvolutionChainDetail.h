@@ -7,8 +7,9 @@
 #pragma once
 // System headers
 #include <nlohmann/json.hpp>
+#include <optional>
 #include <cstdint>
-#include "EvolutionChainDetailChain.h"
+#include "EvolutionChainLink.h"
 #include "ItemSummary.h"
 
 
@@ -28,8 +29,8 @@ public:
     void setId(const int& id);
     [[nodiscard]] ItemSummary getBabyTriggerItem() const;
     void setBabyTriggerItem(const ItemSummary& babyTriggerItem);
-    [[nodiscard]] EvolutionChainDetailChain getChain() const;
-    void setChain(const EvolutionChainDetailChain& chain);
+    [[nodiscard]] EvolutionChainLink getChain() const;
+    void setChain(const EvolutionChainLink& chain);
 
 
     // JSON serialization using NLOHMANN INTRUSIVE macro (must be inside class to access private members)
@@ -39,7 +40,7 @@ public:
 private:
     int id;
     ItemSummary babyTriggerItem;
-    EvolutionChainDetailChain chain;
+    EvolutionChainLink chain;
 };
 
 

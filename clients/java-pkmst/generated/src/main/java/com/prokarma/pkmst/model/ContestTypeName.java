@@ -15,7 +15,7 @@ import io.swagger.annotations.ApiModelProperty;
  * ContestTypeName
  */
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-10-25T05:48:09.645019047Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-11-09T13:49:28.343088631Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class ContestTypeName   {
   @JsonProperty("name")
   private String name;
@@ -32,10 +32,10 @@ public class ContestTypeName   {
   }
 
   /**
-   * Get name
+   * The name for this contest.
    * @return name
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this contest.")
   public String getName() {
     return name;
   }
@@ -50,10 +50,10 @@ public class ContestTypeName   {
   }
 
   /**
-   * Get color
+   * The color associated with this contest's name.
    * @return color
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The color associated with this contest's name.")
   public String getColor() {
     return color;
   }
@@ -68,10 +68,10 @@ public class ContestTypeName   {
   }
 
   /**
-   * Get language
+   * The language that this name is in.
    * @return language
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The language that this name is in.")
   public LanguageSummary getLanguage() {
     return language;
   }

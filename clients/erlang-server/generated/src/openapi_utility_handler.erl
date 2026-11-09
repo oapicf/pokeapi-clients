@@ -10,6 +10,10 @@ Languages for translations of API resource information.
 Get language.
 Languages for translations of API resource information.
 
+- `GET` to `/api/v2/meta/`, OperationId: `meta_retrieve`:
+Get API metadata.
+Returns metadata about the current deployed version of the API, including the git commit hash, deploy date, and tag (if any).
+
 """.
 
 -behaviour(cowboy_rest).
@@ -34,7 +38,8 @@ Languages for translations of API resource information.
 
 -type operation_id() ::
     'language_list' %% List languages
-    | 'language_retrieve'. %% Get language
+    | 'language_retrieve' %% Get language
+    | 'meta_retrieve'. %% Get API metadata
 
 
 -record(state,
@@ -66,29 +71,13 @@ allowed_methods(Req, #state{operation_id = 'language_list'} = State) ->
     {[<<"GET">>], Req, State};
 allowed_methods(Req, #state{operation_id = 'language_retrieve'} = State) ->
     {[<<"GET">>], Req, State};
+allowed_methods(Req, #state{operation_id = 'meta_retrieve'} = State) ->
+    {[<<"GET">>], Req, State};
 allowed_methods(Req, State) ->
     {[], Req, State}.
 
 -spec is_authorized(cowboy_req:req(), state()) ->
     {true | {false, iodata()}, cowboy_req:req(), state()}.
-is_authorized(Req0,
-              #state{operation_id = 'language_list' = OperationID,
-                     api_key_callback = Handler} = State) ->
-    case openapi_auth:authorize_api_key(Handler, OperationID, header, <<"authorization">>, Req0) of
-        {true, Context, Req} ->
-            {true, Req, State#state{context = Context}};
-        {false, AuthHeader, Req} ->
-            {{false, AuthHeader}, Req, State}
-    end;
-is_authorized(Req0,
-              #state{operation_id = 'language_retrieve' = OperationID,
-                     api_key_callback = Handler} = State) ->
-    case openapi_auth:authorize_api_key(Handler, OperationID, header, <<"authorization">>, Req0) of
-        {true, Context, Req} ->
-            {true, Req, State#state{context = Context}};
-        {false, AuthHeader, Req} ->
-            {{false, AuthHeader}, Req, State}
-    end;
 is_authorized(Req, State) ->
     {true, Req, State}.
 
@@ -98,6 +87,8 @@ content_types_accepted(Req, #state{operation_id = 'language_list'} = State) ->
     {[], Req, State};
 content_types_accepted(Req, #state{operation_id = 'language_retrieve'} = State) ->
     {[], Req, State};
+content_types_accepted(Req, #state{operation_id = 'meta_retrieve'} = State) ->
+    {[], Req, State};
 content_types_accepted(Req, State) ->
     {[], Req, State}.
 
@@ -106,6 +97,8 @@ content_types_accepted(Req, State) ->
 valid_content_headers(Req, #state{operation_id = 'language_list'} = State) ->
     {true, Req, State};
 valid_content_headers(Req, #state{operation_id = 'language_retrieve'} = State) ->
+    {true, Req, State};
+valid_content_headers(Req, #state{operation_id = 'meta_retrieve'} = State) ->
     {true, Req, State};
 valid_content_headers(Req, State) ->
     {false, Req, State}.
@@ -117,6 +110,10 @@ content_types_provided(Req, #state{operation_id = 'language_list'} = State) ->
       {<<"application/json">>, handle_type_provided}
      ], Req, State};
 content_types_provided(Req, #state{operation_id = 'language_retrieve'} = State) ->
+    {[
+      {<<"application/json">>, handle_type_provided}
+     ], Req, State};
+content_types_provided(Req, #state{operation_id = 'meta_retrieve'} = State) ->
     {[
       {<<"application/json">>, handle_type_provided}
      ], Req, State};

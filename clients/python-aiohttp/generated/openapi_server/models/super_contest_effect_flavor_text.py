@@ -47,6 +47,7 @@ class SuperContestEffectFlavorText(Model):
     def flavor_text(self):
         """Gets the flavor_text of this SuperContestEffectFlavorText.
 
+        The localized flavor text for an API resource in a specific language.
 
         :return: The flavor_text of this SuperContestEffectFlavorText.
         :rtype: str
@@ -57,6 +58,7 @@ class SuperContestEffectFlavorText(Model):
     def flavor_text(self, flavor_text):
         """Sets the flavor_text of this SuperContestEffectFlavorText.
 
+        The localized flavor text for an API resource in a specific language.
 
         :param flavor_text: The flavor_text of this SuperContestEffectFlavorText.
         :type flavor_text: str
@@ -72,6 +74,7 @@ class SuperContestEffectFlavorText(Model):
     def language(self):
         """Gets the language of this SuperContestEffectFlavorText.
 
+        The language this name is in.
 
         :return: The language of this SuperContestEffectFlavorText.
         :rtype: LanguageSummary
@@ -82,6 +85,7 @@ class SuperContestEffectFlavorText(Model):
     def language(self, language):
         """Sets the language of this SuperContestEffectFlavorText.
 
+        The language this name is in.
 
         :param language: The language of this SuperContestEffectFlavorText.
         :type language: LanguageSummary

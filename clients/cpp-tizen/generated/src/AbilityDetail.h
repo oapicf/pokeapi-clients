@@ -10,10 +10,10 @@
 
 #include <string>
 #include "AbilityChange.h"
-#include "AbilityDetail_pokemon_inner.h"
 #include "AbilityEffectText.h"
 #include "AbilityFlavorText.h"
 #include "AbilityName.h"
+#include "AbilityPokemonDetail.h"
 #include "GenerationSummary.h"
 #include <list>
 #include "Object.h"
@@ -52,69 +52,69 @@ public:
 	 */
 	void fromJson(char* jsonStr);
 
-	/*! \brief Get 
+	/*! \brief Get The identifier for this resource.
 	 */
 	int getId();
 
-	/*! \brief Set 
+	/*! \brief Set The identifier for this resource.
 	 */
 	void setId(int  id);
-	/*! \brief Get 
+	/*! \brief Get The name for this resource.
 	 */
 	std::string getName();
 
-	/*! \brief Set 
+	/*! \brief Set The name for this resource.
 	 */
 	void setName(std::string  name);
-	/*! \brief Get 
+	/*! \brief Get Whether or not this ability originated in the main series of the video games.
 	 */
 	bool getIsMainSeries();
 
-	/*! \brief Set 
+	/*! \brief Set Whether or not this ability originated in the main series of the video games.
 	 */
 	void setIsMainSeries(bool  is_main_series);
-	/*! \brief Get 
+	/*! \brief Get The generation this ability originated in.
 	 */
 	GenerationSummary getGeneration();
 
-	/*! \brief Set 
+	/*! \brief Set The generation this ability originated in.
 	 */
 	void setGeneration(GenerationSummary  generation);
-	/*! \brief Get 
+	/*! \brief Get The name of this resource listed in different languages.
 	 */
 	std::list<AbilityName> getNames();
 
-	/*! \brief Set 
+	/*! \brief Set The name of this resource listed in different languages.
 	 */
 	void setNames(std::list <AbilityName> names);
-	/*! \brief Get 
+	/*! \brief Get The effect of this ability listed in different languages.
 	 */
 	std::list<AbilityEffectText> getEffectEntries();
 
-	/*! \brief Set 
+	/*! \brief Set The effect of this ability listed in different languages.
 	 */
 	void setEffectEntries(std::list <AbilityEffectText> effect_entries);
-	/*! \brief Get 
+	/*! \brief Get The list of previous effects this ability has had across version groups.
 	 */
 	std::list<AbilityChange> getEffectChanges();
 
-	/*! \brief Set 
+	/*! \brief Set The list of previous effects this ability has had across version groups.
 	 */
 	void setEffectChanges(std::list <AbilityChange> effect_changes);
-	/*! \brief Get 
+	/*! \brief Get The flavor text of this ability listed in different languages.
 	 */
 	std::list<AbilityFlavorText> getFlavorTextEntries();
 
-	/*! \brief Set 
+	/*! \brief Set The flavor text of this ability listed in different languages.
 	 */
 	void setFlavorTextEntries(std::list <AbilityFlavorText> flavor_text_entries);
-	/*! \brief Get 
+	/*! \brief Get A list of Pokémon that could potentially have this ability.
 	 */
-	std::list<AbilityDetail_pokemon_inner> getPokemon();
+	std::list<AbilityPokemonDetail> getPokemon();
 
-	/*! \brief Set 
+	/*! \brief Set A list of Pokémon that could potentially have this ability.
 	 */
-	void setPokemon(std::list <AbilityDetail_pokemon_inner> pokemon);
+	void setPokemon(std::list <AbilityPokemonDetail> pokemon);
 
 private:
 	int id;
@@ -125,7 +125,7 @@ private:
 	std::list <AbilityEffectText>effect_entries;
 	std::list <AbilityChange>effect_changes;
 	std::list <AbilityFlavorText>flavor_text_entries;
-	std::list <AbilityDetail_pokemon_inner>pokemon;
+	std::list <AbilityPokemonDetail>pokemon;
 	void __init();
 	void __cleanup();
 

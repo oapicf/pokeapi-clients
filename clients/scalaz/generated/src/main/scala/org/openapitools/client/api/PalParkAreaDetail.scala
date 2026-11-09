@@ -12,10 +12,14 @@ import org.joda.time.DateTime
 import PalParkAreaDetail._
 
 case class PalParkAreaDetail (
+  /* The identifier for this resource. */
   id: Integer,
-name: String,
-names: List[PalParkAreaName],
-pokemonEncounters: List[PalParkAreaDetailPokemonEncountersInner])
+/* The name for this resource. */
+  name: String,
+/* The name of this resource listed in different languages. */
+  names: List[PalParkAreaName],
+/* A list of Pokémon encountered in thi pal park area along with details. */
+  pokemonEncounters: List[PalParkEncounter])
 
 object PalParkAreaDetail {
   import DateTimeCodecs._

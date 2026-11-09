@@ -55,7 +55,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](README.md#basicAuth), [cookieAuth](README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -108,7 +108,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](README.md#basicAuth), [cookieAuth](README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -167,7 +167,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](README.md#basicAuth), [cookieAuth](README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -199,7 +199,7 @@ const apiInstance = new LocationApi(configuration);
 
 const request: LocationApiLocationRetrieveRequest = {
     // This parameter can be a string or an integer.
-  id: "id_example",
+  id: "1",
 };
 
 const data = await apiInstance.locationRetrieve(request);
@@ -220,7 +220,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](README.md#basicAuth), [cookieAuth](README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -279,7 +279,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](README.md#basicAuth), [cookieAuth](README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -311,7 +311,7 @@ const apiInstance = new LocationApi(configuration);
 
 const request: LocationApiPalParkAreaRetrieveRequest = {
     // This parameter can be a string or an integer.
-  id: "id_example",
+  id: "1",
 };
 
 const data = await apiInstance.palParkAreaRetrieve(request);
@@ -332,7 +332,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](README.md#basicAuth), [cookieAuth](README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -391,7 +391,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](README.md#basicAuth), [cookieAuth](README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -423,7 +423,7 @@ const apiInstance = new LocationApi(configuration);
 
 const request: LocationApiRegionRetrieveRequest = {
     // This parameter can be a string or an integer.
-  id: "id_example",
+  id: "1",
 };
 
 const data = await apiInstance.regionRetrieve(request);
@@ -444,7 +444,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](README.md#basicAuth), [cookieAuth](README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

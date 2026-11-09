@@ -12,10 +12,14 @@ import org.joda.time.DateTime
 import EncounterMethodDetail._
 
 case class EncounterMethodDetail (
+  /* The identifier for this resource. */
   id: Integer,
-name: String,
-order: Option[Integer],
-names: List[EncounterMethodName])
+/* The name for this resource. */
+  name: String,
+/* A good value for sorting. */
+  order: Option[Integer],
+/* The name of this resource listed in different languages. */
+  names: List[EncounterMethodName])
 
 object EncounterMethodDetail {
   import DateTimeCodecs._

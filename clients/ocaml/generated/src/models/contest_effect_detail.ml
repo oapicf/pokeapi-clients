@@ -15,27 +15,32 @@
                 
                 
                 ; [@key "id"]
-                                              appeal: int32
+                    (** The identifier for this resource. *)
+                                      appeal: int32
                   
                   
                 
                 
                 ; [@key "appeal"]
-                                              jam: int32
+                    (** The base number of hearts the user of this move gets. *)
+                                      jam: int32
                   
                   
                 
                 
                 ; [@key "jam"]
-                                              effect_entries: Contest_effect_effect_text.t list
+                    (** The base number of hearts the user's opponent loses. *)
+                                      effect_entries: Contest_effect_effect_text.t list
                 
                 
                 ; [@key "effect_entries"]
-                                              flavor_text_entries: Contest_effect_flavor_text.t list
+                    (** The result of this contest effect listed in different languages. *)
+                                      flavor_text_entries: Contest_effect_flavor_text.t list
                 
                 
                 ; [@key "flavor_text_entries"]
-                        } [@@deriving yojson { strict = false }, show, eq ];;
+                    (** The flavor text of this contest effect listed in different languages. *)
+                } [@@deriving yojson { strict = false }, show, eq ];;
         
         let create (id : int32) (appeal : int32) (jam : int32) (effect_entries : Contest_effect_effect_text.t list) (flavor_text_entries : Contest_effect_flavor_text.t list) : t = {
             id = id;

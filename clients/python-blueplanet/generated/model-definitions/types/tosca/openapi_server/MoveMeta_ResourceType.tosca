@@ -19,62 +19,62 @@ resourceTypes {
     properties {
         ailment {
           type = MoveMetaAilmentSummary
-          description = ""
+          description = "The status ailment this move inflicts on its target."
           optional = true
         }
         category {
           type = MoveMetaCategorySummary
-          description = ""
+          description = "The category of move this move falls under, e.g. damage or ailment."
           optional = true
         }
         min_hits {
           type =  integer
-          description = ""
+          description = "The minimum number of times this move hits. Null if it always only hits once."
           optional = false
         }
         max_hits {
           type =  integer
-          description = ""
+          description = "The maximum number of times this move hits. Null if it always only hits once."
           optional = false
         }
         min_turns {
           type =  integer
-          description = ""
+          description = "The minimum number of turns this move continues to take effect. Null if it always only lasts one turn."
           optional = false
         }
         max_turns {
           type =  integer
-          description = ""
+          description = "The maximum number of turns this move continues to take effect. Null if it always only lasts one turn."
           optional = false
         }
         drain {
           type =  integer
-          description = ""
+          description = "HP drain (if positive) or Recoil damage (if negative), in percent of damage done."
           optional = false
         }
         healing {
           type =  integer
-          description = ""
+          description = "The amount of hp gained by the attacking Pokemon, in percent of it&#39;s maximum HP."
           optional = false
         }
         crit_rate {
           type =  integer
-          description = ""
+          description = "Critical hit rate bonus."
           optional = false
         }
         ailment_chance {
           type =  integer
-          description = ""
+          description = "The likelihood this attack will cause an ailment."
           optional = false
         }
         flinch_chance {
           type =  integer
-          description = ""
+          description = "The likelihood this attack will cause the target Pokémon to flinch."
           optional = false
         }
         stat_chance {
           type =  integer
-          description = ""
+          description = "The likelihood this attack will cause a stat change in the target Pokémon."
           optional = false
         }
     }

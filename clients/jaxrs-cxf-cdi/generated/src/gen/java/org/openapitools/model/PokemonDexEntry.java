@@ -21,6 +21,7 @@ public class PokemonDexEntry   {
   private PokedexSummary pokedex;
 
   /**
+   * The index number within the Pokédex.
    **/
   public PokemonDexEntry entryNumber(Integer entryNumber) {
     this.entryNumber = entryNumber;
@@ -28,7 +29,7 @@ public class PokemonDexEntry   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The index number within the Pokédex.")
   @JsonProperty("entry_number")
   @NotNull
   public Integer getEntryNumber() {
@@ -40,6 +41,7 @@ public class PokemonDexEntry   {
 
 
   /**
+   * The Pokédex the referenced Pokémon species can be found in.
    **/
   public PokemonDexEntry pokedex(PokedexSummary pokedex) {
     this.pokedex = pokedex;
@@ -47,7 +49,7 @@ public class PokemonDexEntry   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The Pokédex the referenced Pokémon species can be found in.")
   @JsonProperty("pokedex")
   @NotNull
   public PokedexSummary getPokedex() {

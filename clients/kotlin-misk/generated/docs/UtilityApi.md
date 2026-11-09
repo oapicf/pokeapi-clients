@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**languageList**](UtilityApi.md#languageList) | **Get** /api/v2/language/ | List languages
 [**languageRetrieve**](UtilityApi.md#languageRetrieve) | **Get** /api/v2/language/{id}/ | Get language
+[**metaRetrieve**](UtilityApi.md#metaRetrieve) | **Get** /api/v2/meta/ | Get API metadata
 
 
 <a name="languageList"></a>
@@ -52,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -74,7 +75,7 @@ Languages for translations of API resource information.
 //import org.openapitools.server.api.model.*
 
 val apiInstance = UtilityApi()
-val id : kotlin.String = id_example // kotlin.String | This parameter can be a string or an integer.
+val id : kotlin.String = 1 // kotlin.String | This parameter can be a string or an integer.
 try {
     val result : LanguageDetail = apiInstance.languageRetrieve(id)
     println(result)
@@ -99,7 +100,50 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: APPLICATION_JSON
+
+<a name="metaRetrieve"></a>
+# **metaRetrieve**
+> PokeapiMetaResponse metaRetrieve()
+
+Get API metadata
+
+Returns metadata about the current deployed version of the API, including the git commit hash, deploy date, and tag (if any).
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.infrastructure.*
+//import org.openapitools.server.api.model.*
+
+val apiInstance = UtilityApi()
+try {
+    val result : PokeapiMetaResponse = apiInstance.metaRetrieve()
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling UtilityApi#metaRetrieve")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling UtilityApi#metaRetrieve")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**PokeapiMetaResponse**](PokeapiMetaResponse.md)
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 

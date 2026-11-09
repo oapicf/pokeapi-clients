@@ -1,0 +1,25 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "PokemonAbilityPast",
+  "fields": [
+    {
+      "name": "is_hidden",
+      "type": ["null", "boolean"],
+      "doc": "Whether or not this is a hidden ability.",
+      "default": null
+    },
+    {
+      "name": "slot",
+      "type": "int",
+      "doc": "The slot this ability occupies in this Pokémon species."
+    },
+    {
+      "name": "ability",
+      "type": "model.AbilitySummary",
+      "doc": "The ability the Pokémon may have."
+    }
+  ]
+
+}

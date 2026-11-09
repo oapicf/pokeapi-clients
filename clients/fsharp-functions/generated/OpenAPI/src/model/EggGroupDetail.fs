@@ -3,8 +3,8 @@ namespace OpenAPI.Model
 open System
 open System.Collections.Generic
 open Newtonsoft.Json
-open OpenAPI.Model.EggGroupDetailPokemonSpeciesInner
 open OpenAPI.Model.EggGroupName
+open OpenAPI.Model.PokemonSpeciesSummary
 
 module EggGroupDetail =
 
@@ -19,7 +19,7 @@ module EggGroupDetail =
     [<JsonProperty(PropertyName = "names")>]
     Names : EggGroupName[];
     [<JsonProperty(PropertyName = "pokemon_species")>]
-    PokemonSpecies : EggGroupDetailPokemonSpeciesInner[];
+    PokemonSpecies : PokemonSpeciesSummary[];
   }
 
   //#endregion

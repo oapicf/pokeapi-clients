@@ -5,11 +5,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** |  | [readonly] 
-**name** | **str** |  | 
-**berries** | [**List[BerryFlavorDetailBerriesInner]**](BerryFlavorDetailBerriesInner.md) |  | [readonly] 
-**contest_type** | [**ContestTypeSummary**](ContestTypeSummary.md) |  | 
-**names** | [**List[BerryFlavorName]**](BerryFlavorName.md) |  | [readonly] 
+**id** | **int** | The identifier for this resource. | [readonly] 
+**name** | **str** | The name for this resource. | 
+**berries** | [**List[BerryFlavorBerryMap]**](BerryFlavorBerryMap.md) | A list of the berries with this flavor. | [readonly] 
+**contest_type** | [**ContestTypeSummary**](ContestTypeSummary.md) | The contest type that correlates with this berry flavor. | 
+**names** | [**List[BerryFlavorName]**](BerryFlavorName.md) | The name of this resource listed in different languages. | [readonly] 
 
 ## Example
 

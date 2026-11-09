@@ -32,24 +32,28 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param id 
- * @param name 
- * @param effectEntries 
- * @param items 
+ * @param id The identifier for this resource.
+ * @param name The name for this resource.
+ * @param effectEntries The result of this fling effect listed in different languages.
+ * @param items A list of items that have this fling effect.
  */
 
 
 data class ItemFlingEffectDetail (
 
+    /* The identifier for this resource. */
     @Json(name = "id")
     val id: kotlin.Int,
 
+    /* The name for this resource. */
     @Json(name = "name")
     val name: kotlin.String,
 
+    /* The result of this fling effect listed in different languages. */
     @Json(name = "effect_entries")
     val effectEntries: kotlin.collections.List<ItemFlingEffectEffectText>,
 
+    /* A list of items that have this fling effect. */
     @Json(name = "items")
     val items: kotlin.collections.List<ItemSummary>
 

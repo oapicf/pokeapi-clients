@@ -12,12 +12,18 @@ import org.joda.time.DateTime
 import LanguageDetail._
 
 case class LanguageDetail (
+  /* The identifier for this resource. */
   id: Integer,
-name: String,
-official: Option[Boolean],
-iso639: String,
-iso3166: String,
-names: List[LanguageName])
+/* The name for this resource. */
+  name: String,
+/* Whether or not the games are published in this language. */
+  official: Option[Boolean],
+/* The two-letter ISO 639-1 language code. Multiple PokéAPI language records may share this code. */
+  iso639: String,
+/* The two-letter ISO 3166-1 alpha-2 code of the country or region associated with this language record. Multiple PokéAPI language records may share this code. */
+  iso3166: String,
+/* The name of this resource listed in different languages. */
+  names: List[LanguageName])
 
 object LanguageDetail {
   import DateTimeCodecs._

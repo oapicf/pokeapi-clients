@@ -13,4 +13,6 @@ module EvolutionApiServiceInterface =
       abstract member EvolutionChainRetrieve:HttpContext -> EvolutionChainRetrieveArgs->EvolutionChainRetrieveResult
       abstract member EvolutionTriggerList:HttpContext -> EvolutionTriggerListArgs->EvolutionTriggerListResult
       abstract member EvolutionTriggerRetrieve:HttpContext -> EvolutionTriggerRetrieveArgs->EvolutionTriggerRetrieveResult
+      abstract member EvolutionVariableList:HttpContext -> EvolutionVariableListArgs->EvolutionVariableListResult
+      abstract member EvolutionVariableRetrieve:HttpContext -> EvolutionVariableRetrieveArgs->EvolutionVariableRetrieveResult
     //#endregion

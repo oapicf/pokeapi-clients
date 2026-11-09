@@ -13,53 +13,65 @@ part 'move_meta.g.dart';
 /// MoveMeta
 ///
 /// Properties:
-/// * [ailment] 
-/// * [category] 
-/// * [minHits] 
-/// * [maxHits] 
-/// * [minTurns] 
-/// * [maxTurns] 
-/// * [drain] 
-/// * [healing] 
-/// * [critRate] 
-/// * [ailmentChance] 
-/// * [flinchChance] 
-/// * [statChance] 
+/// * [ailment] - The status ailment this move inflicts on its target.
+/// * [category] - The category of move this move falls under, e.g. damage or ailment.
+/// * [minHits] - The minimum number of times this move hits. Null if it always only hits once.
+/// * [maxHits] - The maximum number of times this move hits. Null if it always only hits once.
+/// * [minTurns] - The minimum number of turns this move continues to take effect. Null if it always only lasts one turn.
+/// * [maxTurns] - The maximum number of turns this move continues to take effect. Null if it always only lasts one turn.
+/// * [drain] - HP drain (if positive) or Recoil damage (if negative), in percent of damage done.
+/// * [healing] - The amount of hp gained by the attacking Pokemon, in percent of it's maximum HP.
+/// * [critRate] - Critical hit rate bonus.
+/// * [ailmentChance] - The likelihood this attack will cause an ailment.
+/// * [flinchChance] - The likelihood this attack will cause the target Pokémon to flinch.
+/// * [statChance] - The likelihood this attack will cause a stat change in the target Pokémon.
 @BuiltValue()
 abstract class MoveMeta implements Built<MoveMeta, MoveMetaBuilder> {
+  /// The status ailment this move inflicts on its target.
   @BuiltValueField(wireName: r'ailment')
   MoveMetaAilmentSummary get ailment;
 
+  /// The category of move this move falls under, e.g. damage or ailment.
   @BuiltValueField(wireName: r'category')
   MoveMetaCategorySummary get category;
 
+  /// The minimum number of times this move hits. Null if it always only hits once.
   @BuiltValueField(wireName: r'min_hits')
   int? get minHits;
 
+  /// The maximum number of times this move hits. Null if it always only hits once.
   @BuiltValueField(wireName: r'max_hits')
   int? get maxHits;
 
+  /// The minimum number of turns this move continues to take effect. Null if it always only lasts one turn.
   @BuiltValueField(wireName: r'min_turns')
   int? get minTurns;
 
+  /// The maximum number of turns this move continues to take effect. Null if it always only lasts one turn.
   @BuiltValueField(wireName: r'max_turns')
   int? get maxTurns;
 
+  /// HP drain (if positive) or Recoil damage (if negative), in percent of damage done.
   @BuiltValueField(wireName: r'drain')
   int? get drain;
 
+  /// The amount of hp gained by the attacking Pokemon, in percent of it's maximum HP.
   @BuiltValueField(wireName: r'healing')
   int? get healing;
 
+  /// Critical hit rate bonus.
   @BuiltValueField(wireName: r'crit_rate')
   int? get critRate;
 
+  /// The likelihood this attack will cause an ailment.
   @BuiltValueField(wireName: r'ailment_chance')
   int? get ailmentChance;
 
+  /// The likelihood this attack will cause the target Pokémon to flinch.
   @BuiltValueField(wireName: r'flinch_chance')
   int? get flinchChance;
 
+  /// The likelihood this attack will cause a stat change in the target Pokémon.
   @BuiltValueField(wireName: r'stat_chance')
   int? get statChance;
 

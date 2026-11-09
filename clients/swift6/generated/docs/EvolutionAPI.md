@@ -8,11 +8,13 @@ Method | HTTP request | Description
 [**evolutionChainRetrieve**](EvolutionAPI.md#evolutionchainretrieve) | **GET** /api/v2/evolution-chain/{id}/ | Get evolution chain
 [**evolutionTriggerList**](EvolutionAPI.md#evolutiontriggerlist) | **GET** /api/v2/evolution-trigger/ | List evolution triggers
 [**evolutionTriggerRetrieve**](EvolutionAPI.md#evolutiontriggerretrieve) | **GET** /api/v2/evolution-trigger/{id}/ | Get evolution trigger
+[**evolutionVariableList**](EvolutionAPI.md#evolutionvariablelist) | **GET** /api/v2/evolution-variable/ | List evolution variables
+[**evolutionVariableRetrieve**](EvolutionAPI.md#evolutionvariableretrieve) | **GET** /api/v2/evolution-variable/{id}/ | Get evolution variable
 
 
 # **evolutionChainList**
 ```swift
-    open class func evolutionChainList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedEvolutionChainSummaryList
+    open class func evolutionChainList(limit: Int? = nil, offset: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedEvolutionChainSummaryList
 ```
 
 List evolution chains
@@ -26,11 +28,10 @@ import OpenAPIClient
 
 let limit = 987 // Int | Number of results to return per page. (optional)
 let offset = 987 // Int | The initial index from which to return the results. (optional)
-let q = "q_example" // String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
 
 // List evolution chains
 do {
-    let response = try await EvolutionAPI.evolutionChainList(limit: limit, offset: offset, q: q)
+    let response = try await EvolutionAPI.evolutionChainList(limit: limit, offset: offset)
     dump(response)
 } catch {
     print(error)
@@ -43,7 +44,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **Int** | Number of results to return per page. | [optional] 
  **offset** | **Int** | The initial index from which to return the results. | [optional] 
- **q** | **String** | &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional] 
 
 ### Return type
 
@@ -51,7 +51,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -97,7 +97,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -147,7 +147,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -193,7 +193,103 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **evolutionVariableList**
+```swift
+    open class func evolutionVariableList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedEvolutionVariableSummaryList
+```
+
+List evolution variables
+
+Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let limit = 987 // Int | Number of results to return per page. (optional)
+let offset = 987 // Int | The initial index from which to return the results. (optional)
+let q = "q_example" // String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
+
+// List evolution variables
+do {
+    let response = try await EvolutionAPI.evolutionVariableList(limit: limit, offset: offset, q: q)
+    dump(response)
+} catch {
+    print(error)
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | **Int** | Number of results to return per page. | [optional] 
+ **offset** | **Int** | The initial index from which to return the results. | [optional] 
+ **q** | **String** | &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional] 
+
+### Return type
+
+[**PaginatedEvolutionVariableSummaryList**](PaginatedEvolutionVariableSummaryList.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **evolutionVariableRetrieve**
+```swift
+    open class func evolutionVariableRetrieve(id: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> EvolutionVariableDetail
+```
+
+Get evolution variable
+
+Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let id = "id_example" // String | This parameter can be a string or an integer.
+
+// Get evolution variable
+do {
+    let response = try await EvolutionAPI.evolutionVariableRetrieve(id: id)
+    dump(response)
+} catch {
+    print(error)
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String** | This parameter can be a string or an integer. | 
+
+### Return type
+
+[**EvolutionVariableDetail**](EvolutionVariableDetail.md)
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 

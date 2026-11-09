@@ -1,0 +1,41 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server MoveCombos"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a MoveCombos"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  MoveComboUsage = openapi_server.resourceTypes.MoveComboUsage
+}
+resourceTypes {
+
+  MoveCombos {
+    title = MoveCombos
+    description = MoveCombos
+    derivedFrom = Root
+    properties {
+        normal {
+          type = MoveComboUsage
+          description = "A detail of moves this move can be used before or after, granting additional appeal points in contests."
+          optional = true
+        }
+        super {
+          type = MoveComboUsage
+          description = "A detail of moves this move can be used before or after, granting additional appeal points in super contests."
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  MoveCombos {
+    title = MoveCombos
+    description = MoveCombos
+    implements = openapi_server.resourceTypes.MoveCombos
+
+  }
+}

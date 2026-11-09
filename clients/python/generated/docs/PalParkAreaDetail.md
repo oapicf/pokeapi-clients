@@ -5,10 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** |  | [readonly] 
-**name** | **str** |  | 
-**names** | [**List[PalParkAreaName]**](PalParkAreaName.md) |  | [readonly] 
-**pokemon_encounters** | [**List[PalParkAreaDetailPokemonEncountersInner]**](PalParkAreaDetailPokemonEncountersInner.md) |  | [readonly] 
+**id** | **int** | The identifier for this resource. | [readonly] 
+**name** | **str** | The name for this resource. | 
+**names** | [**List[PalParkAreaName]**](PalParkAreaName.md) | The name of this resource listed in different languages. | [readonly] 
+**pokemon_encounters** | [**List[PalParkEncounter]**](PalParkEncounter.md) | A list of Pokémon encountered in thi pal park area along with details. | [readonly] 
 
 ## Example
 

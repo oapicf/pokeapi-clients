@@ -10,7 +10,6 @@ namespace models {
 
 MoveDamageClassDescription::MoveDamageClassDescription()
 : description("")
-, language(LanguageSummary())
 {
 }
 // =========================================

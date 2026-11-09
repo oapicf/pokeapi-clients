@@ -16,7 +16,7 @@ import io.swagger.annotations.ApiModelProperty;
  * MoveFlavorText
  */
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-10-25T05:48:09.645019047Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-11-09T13:49:28.343088631Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class MoveFlavorText   {
   @JsonProperty("flavor_text")
   private String flavorText;
@@ -33,10 +33,10 @@ public class MoveFlavorText   {
   }
 
   /**
-   * Get flavorText
+   * The localized flavor text for an api resource in a specific language.
    * @return flavorText
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The localized flavor text for an api resource in a specific language.")
   public String getFlavorText() {
     return flavorText;
   }
@@ -51,10 +51,10 @@ public class MoveFlavorText   {
   }
 
   /**
-   * Get language
+   * The language this name is in.
    * @return language
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The language this name is in.")
   public LanguageSummary getLanguage() {
     return language;
   }
@@ -69,10 +69,10 @@ public class MoveFlavorText   {
   }
 
   /**
-   * Get versionGroup
+   * The version group that uses this flavor text.
    * @return versionGroup
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The version group that uses this flavor text.")
   public VersionGroupSummary getVersionGroup() {
     return versionGroup;
   }

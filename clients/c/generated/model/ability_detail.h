@@ -16,10 +16,10 @@
 typedef struct ability_detail_t ability_detail_t;
 
 #include "ability_change.h"
-#include "ability_detail_pokemon_inner.h"
 #include "ability_effect_text.h"
 #include "ability_flavor_text.h"
 #include "ability_name.h"
+#include "ability_pokemon_detail.h"
 #include "generation_summary.h"
 
 

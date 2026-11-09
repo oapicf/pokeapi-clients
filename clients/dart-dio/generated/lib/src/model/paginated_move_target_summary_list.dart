@@ -13,23 +13,27 @@ part 'paginated_move_target_summary_list.g.dart';
 /// PaginatedMoveTargetSummaryList
 ///
 /// Properties:
-/// * [count] 
-/// * [next] 
-/// * [previous] 
-/// * [results] 
+/// * [count] - The total number of resources available from this API.
+/// * [next] - The URL for the next page in the list, or null if there is no next page.
+/// * [previous] - The URL for the previous page in the list, or null if there is no previous page.
+/// * [results] - A list of API resources on this page.
 @BuiltValue()
 abstract class PaginatedMoveTargetSummaryList implements Built<PaginatedMoveTargetSummaryList, PaginatedMoveTargetSummaryListBuilder> {
+  /// The total number of resources available from this API.
   @BuiltValueField(wireName: r'count')
-  int? get count;
+  int get count;
 
+  /// The URL for the next page in the list, or null if there is no next page.
   @BuiltValueField(wireName: r'next')
   String? get next;
 
+  /// The URL for the previous page in the list, or null if there is no previous page.
   @BuiltValueField(wireName: r'previous')
   String? get previous;
 
+  /// A list of API resources on this page.
   @BuiltValueField(wireName: r'results')
-  BuiltList<MoveTargetSummary>? get results;
+  BuiltList<MoveTargetSummary> get results;
 
   PaginatedMoveTargetSummaryList._();
 
@@ -54,34 +58,30 @@ class _$PaginatedMoveTargetSummaryListSerializer implements PrimitiveSerializer<
     PaginatedMoveTargetSummaryList object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    if (object.count != null) {
-      yield r'count';
-      yield serializers.serialize(
-        object.count,
-        specifiedType: const FullType(int),
-      );
-    }
+    yield r'count';
+    yield serializers.serialize(
+      object.count,
+      specifiedType: const FullType(int),
+    );
     if (object.next != null) {
       yield r'next';
       yield serializers.serialize(
         object.next,
-        specifiedType: const FullType(String),
+        specifiedType: const FullType.nullable(String),
       );
     }
     if (object.previous != null) {
       yield r'previous';
       yield serializers.serialize(
         object.previous,
-        specifiedType: const FullType(String),
+        specifiedType: const FullType.nullable(String),
       );
     }
-    if (object.results != null) {
-      yield r'results';
-      yield serializers.serialize(
-        object.results,
-        specifiedType: const FullType(BuiltList, [FullType(MoveTargetSummary)]),
-      );
-    }
+    yield r'results';
+    yield serializers.serialize(
+      object.results,
+      specifiedType: const FullType(BuiltList, [FullType(MoveTargetSummary)]),
+    );
   }
 
   @override
@@ -108,9 +108,8 @@ class _$PaginatedMoveTargetSummaryListSerializer implements PrimitiveSerializer<
         case r'count':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(int),
-          ) as int?;
-          if (valueDes == null) continue;
+            specifiedType: const FullType(int),
+          ) as int;
           result.count = valueDes;
           break;
         case r'next':
@@ -132,9 +131,8 @@ class _$PaginatedMoveTargetSummaryListSerializer implements PrimitiveSerializer<
         case r'results':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(MoveTargetSummary)]),
-          ) as BuiltList<MoveTargetSummary>?;
-          if (valueDes == null) continue;
+            specifiedType: const FullType(BuiltList, [FullType(MoveTargetSummary)]),
+          ) as BuiltList<MoveTargetSummary>;
           result.results.replace(valueDes);
           break;
         default:

@@ -8,7 +8,7 @@
         url=nothing,
     )
 
-    - url::String
+    - url::String : The URL of the referenced resource.
 """
 Base.@kwdef mutable struct EvolutionChainSummary <: OpenAPI.APIModel
     url::Union{Nothing, String} = nothing

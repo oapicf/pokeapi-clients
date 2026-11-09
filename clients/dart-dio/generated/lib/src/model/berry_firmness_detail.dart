@@ -14,21 +14,25 @@ part 'berry_firmness_detail.g.dart';
 /// BerryFirmnessDetail
 ///
 /// Properties:
-/// * [id] 
-/// * [name] 
-/// * [berries] 
-/// * [names] 
+/// * [id] - The identifier for this resource.
+/// * [name] - The name for this resource.
+/// * [berries] - A list of the berries with this firmness.
+/// * [names] - The name of this resource listed in different languages.
 @BuiltValue()
 abstract class BerryFirmnessDetail implements Built<BerryFirmnessDetail, BerryFirmnessDetailBuilder> {
+  /// The identifier for this resource.
   @BuiltValueField(wireName: r'id')
   int get id;
 
+  /// The name for this resource.
   @BuiltValueField(wireName: r'name')
   String get name;
 
+  /// A list of the berries with this firmness.
   @BuiltValueField(wireName: r'berries')
   BuiltList<BerrySummary> get berries;
 
+  /// The name of this resource listed in different languages.
   @BuiltValueField(wireName: r'names')
   BuiltList<BerryFirmnessName> get names;
 

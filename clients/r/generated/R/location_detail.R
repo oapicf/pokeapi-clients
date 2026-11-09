@@ -7,12 +7,12 @@
 #' @title LocationDetail
 #' @description LocationDetail Class
 #' @format An \code{R6Class} generator object
-#' @field id  integer
-#' @field name  character
-#' @field region  \link{RegionSummary}
-#' @field names  list(\link{LocationName})
-#' @field game_indices  list(\link{LocationGameIndex})
-#' @field areas  list(\link{LocationAreaSummary})
+#' @field id The identifier for this resource. integer
+#' @field name The name for this resource. character
+#' @field region The region this location can be found in. \link{RegionSummary}
+#' @field names The name of this resource listed in different languages. list(\link{LocationName})
+#' @field game_indices A list of game indices relevent to this location by generation. list(\link{LocationGameIndex})
+#' @field areas Areas that can be found within this location. list(\link{LocationAreaSummary})
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -29,12 +29,12 @@ LocationDetail <- R6::R6Class(
     #' @description
     #' Initialize a new LocationDetail class.
     #'
-    #' @param id id
-    #' @param name name
-    #' @param region region
-    #' @param names names
-    #' @param game_indices game_indices
-    #' @param areas areas
+    #' @param id The identifier for this resource.
+    #' @param name The name for this resource.
+    #' @param region The region this location can be found in.
+    #' @param names The name of this resource listed in different languages.
+    #' @param game_indices A list of game indices relevent to this location by generation.
+    #' @param areas Areas that can be found within this location.
     #' @param ... Other optional arguments.
     initialize = function(`id`, `name`, `region`, `names`, `game_indices`, `areas`, ...) {
       if (!missing(`id`)) {
@@ -282,12 +282,7 @@ LocationDetail <- R6::R6Class(
         return(FALSE)
       }
 
-      if (nchar(self$`name`) > 100) {
-        return(FALSE)
-      }
-
-      # check if the required `region` is null
-      if (is.null(self$`region`)) {
+      if (nchar(self$`name`) > 200) {
         return(FALSE)
       }
 
@@ -325,13 +320,8 @@ LocationDetail <- R6::R6Class(
         invalid_fields["name"] <- "Non-nullable required field `name` cannot be null."
       }
 
-      if (nchar(self$`name`) > 100) {
-        invalid_fields["name"] <- "Invalid length for `name`, must be smaller than or equal to 100."
-      }
-
-      # check if the required `region` is null
-      if (is.null(self$`region`)) {
-        invalid_fields["region"] <- "Non-nullable required field `region` cannot be null."
+      if (nchar(self$`name`) > 200) {
+        invalid_fields["name"] <- "Invalid length for `name`, must be smaller than or equal to 200."
       }
 
       # check if the required `names` is null

@@ -13,19 +13,20 @@ public class PokemonDetail
     public bool IsDefault { get; set; }
     public int Order { get; set; }
     public int Weight { get; set; }
-    public List<PokemonDetailAbilitiesInner> Abilities { get; set; }
-    public List<PokemonDetailPastAbilitiesInner> PastAbilities { get; set; }
+    public List<PokemonAbility> Abilities { get; set; }
+    public List<PokemonPastAbility> PastAbilities { get; set; }
     public List<PokemonFormSummary> Forms { get; set; }
     public List<PokemonGameIndex> GameIndices { get; set; }
-    public PokemonDetailHeldItems HeldItems { get; set; }
+    public List<PokemonHeldItemSummary> HeldItems { get; set; }
     public string LocationAreaEncounters { get; set; }
-    public List<PokemonDetailMovesInner> Moves { get; set; }
+    public List<PokemonMove> Moves { get; set; }
     public PokemonSpeciesSummary Species { get; set; }
-    public PokemonDetailSprites Sprites { get; set; }
-    public PokemonDetailCries Cries { get; set; }
+    public PokemonSprites Sprites { get; set; }
+    public PokemonCries Cries { get; set; }
     public List<PokemonStat> Stats { get; set; }
-    public List<PokemonDetailTypesInner> Types { get; set; }
-    public List<PokemonDetailPastTypesInner> PastTypes { get; set; }
+    public List<PokemonPastStat> PastStats { get; set; }
+    public List<PokemonType> Types { get; set; }
+    public List<PokemonPastType> PastTypes { get; set; }
 }
 
 

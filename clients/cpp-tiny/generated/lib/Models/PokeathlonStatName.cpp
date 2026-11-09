@@ -7,7 +7,7 @@ using namespace Tiny;
 PokeathlonStatName::PokeathlonStatName()
 {
 	name = std::string();
-	language = LanguageSummary();
+	language = null;
 }
 
 PokeathlonStatName::PokeathlonStatName(std::string jsonString)

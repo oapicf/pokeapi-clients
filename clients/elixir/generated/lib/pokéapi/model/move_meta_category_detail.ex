@@ -18,7 +18,7 @@ defmodule PokéAPI.Model.MoveMetaCategoryDetail do
     :id => integer(),
     :name => String.t,
     :descriptions => [PokéAPI.Model.MoveMetaCategoryDescription.t],
-    :moves => [PokéAPI.Model.AbilityDetailPokemonInnerPokemon.t]
+    :moves => [PokéAPI.Model.MoveSummary.t]
   }
 
   alias PokéAPI.Deserializer
@@ -26,7 +26,7 @@ defmodule PokéAPI.Model.MoveMetaCategoryDetail do
   def decode(value) do
     value
      |> Deserializer.deserialize(:descriptions, :list, PokéAPI.Model.MoveMetaCategoryDescription)
-     |> Deserializer.deserialize(:moves, :list, PokéAPI.Model.AbilityDetailPokemonInnerPokemon)
+     |> Deserializer.deserialize(:moves, :list, PokéAPI.Model.MoveSummary)
   end
 end
 

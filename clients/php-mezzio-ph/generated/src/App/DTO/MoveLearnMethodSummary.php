@@ -10,14 +10,16 @@ use Articus\DataTransfer\Annotation as DTA;
 class MoveLearnMethodSummary
 {
     /**
+     * The name of the referenced resource.
      * @DTA\Data(field="name")
      * @DTA\Validator(name="Scalar", options={"type":"string"})
-     * @DTA\Validator(name="StringLength", options={"max":100})
+     * @DTA\Validator(name="StringLength", options={"max":200})
      * @var string|null
      */
     public $name;
 
     /**
+     * The URL of the referenced resource.
      * @DTA\Data(field="url")
      * @DTA\Validator(name="Scalar", options={"type":"string"})
      * @var string|null

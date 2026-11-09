@@ -7,7 +7,7 @@ using namespace Tiny;
 StatName::StatName()
 {
 	name = std::string();
-	language = LanguageSummary();
+	language = null;
 }
 
 StatName::StatName(std::string jsonString)

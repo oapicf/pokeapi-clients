@@ -1,0 +1,30 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "PokemonMoveVersionGroup",
+  "fields": [
+    {
+      "name": "level_learned_at",
+      "type": "int",
+      "doc": "The minimum level to learn the move."
+    },
+    {
+      "name": "move_learn_method",
+      "type": "model.MoveLearnMethodSummary",
+      "doc": "The method by which the move is learned."
+    },
+    {
+      "name": "version_group",
+      "type": "model.VersionGroupSummary",
+      "doc": "The version group in which the move is learned."
+    },
+    {
+      "name": "order",
+      "type": ["null", "int"],
+      "doc": "Order by which the pokemon will learn the move. A newly learnt move will replace the move with lowest order.",
+      "default": null
+    }
+  ]
+
+}

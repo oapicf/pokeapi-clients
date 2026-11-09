@@ -15,21 +15,25 @@
                 
                 
                 ; [@key "id"]
-                                              name: string
+                    (** The identifier for this resource. *)
+                                      name: string
                   
                   
                 
                 
                 ; [@key "name"]
-                                              values: Encounter_condition_value_summary.t list
+                    (** The name for this resource. *)
+                                      values: Encounter_condition_value_summary.t list
                 
                 
                 ; [@key "values"]
-                                              names: Encounter_condition_name.t list
+                    (** A list of possible values for this encounter condition. *)
+                                      names: Encounter_condition_name.t list
                 
                 
                 ; [@key "names"]
-                        } [@@deriving yojson { strict = false }, show, eq ];;
+                    (** The name of this resource listed in different languages. *)
+                } [@@deriving yojson { strict = false }, show, eq ];;
         
         let create (id : int32) (name : string) (values : Encounter_condition_value_summary.t list) (names : Encounter_condition_name.t list) : t = {
             id = id;

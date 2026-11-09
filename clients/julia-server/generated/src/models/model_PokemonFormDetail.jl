@@ -19,22 +19,26 @@
         form_names=nothing,
         names=nothing,
         types=nothing,
+        trigger_conditions=nothing,
+        flavor_text_entries=nothing,
     )
 
-    - id::Int64
-    - name::String
-    - order::Int64
-    - form_order::Int64
-    - is_default::Bool
-    - is_battle_only::Bool
-    - is_mega::Bool
-    - form_name::String
-    - pokemon::PokemonSummary
-    - sprites::PokemonFormDetailSprites
-    - version_group::VersionGroupSummary
-    - form_names::Vector{PokemonFormDetailFormNamesInner}
-    - names::Vector{PokemonFormDetailFormNamesInner}
-    - types::Vector{PokemonDetailTypesInner}
+    - id::Int64 : The identifier for this resource.
+    - name::String : The name for this resource.
+    - order::Int64 : The order in which forms should be sorted within all forms. Multiple forms may have equal order, in which case they should fall back on sorting by name.
+    - form_order::Int64 : The order in which forms should be sorted within a species&#39; forms.
+    - is_default::Bool : True for exactly one form used as the default for each Pokémon.
+    - is_battle_only::Bool : Whether or not this form can only happen during battle.
+    - is_mega::Bool : Whether or not this form requires mega evolution.
+    - form_name::String : The name of this form.
+    - pokemon::PokemonSummary : The Pokémon that can take on this form.
+    - sprites::PokemonFormSprites : A set of sprites used to depict this Pokémon form in the game.
+    - version_group::VersionGroupSummary : The version group this Pokémon form was introduced in.
+    - form_names::Vector{PokemonFormName} : The form specific form name of this Pokémon form, or empty if the form does not have a specific name.
+    - names::Vector{PokemonFormName} : The form specific full name of this Pokémon form, or empty if the form does not have a specific name.
+    - types::Vector{PokemonFormType} : A list of details showing types this Pokémon form has.
+    - trigger_conditions::Vector{PokemonFormTriggerCondition} : The conditions that trigger this form. Resource names and URLs are included when the trigger requires a resource.
+    - flavor_text_entries::Vector{PokemonFormFlavorText} : The flavor text of this form listed in different languages and versions.
 """
 Base.@kwdef mutable struct PokemonFormDetail <: OpenAPI.APIModel
     id::Union{Nothing, Int64} = nothing
@@ -46,20 +50,22 @@ Base.@kwdef mutable struct PokemonFormDetail <: OpenAPI.APIModel
     is_mega::Union{Nothing, Bool} = nothing
     form_name::Union{Nothing, String} = nothing
     pokemon = nothing # spec type: Union{ Nothing, PokemonSummary }
-    sprites = nothing # spec type: Union{ Nothing, PokemonFormDetailSprites }
+    sprites = nothing # spec type: Union{ Nothing, PokemonFormSprites }
     version_group = nothing # spec type: Union{ Nothing, VersionGroupSummary }
-    form_names::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{PokemonFormDetailFormNamesInner} }
-    names::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{PokemonFormDetailFormNamesInner} }
-    types::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{PokemonDetailTypesInner} }
+    form_names::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{PokemonFormName} }
+    names::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{PokemonFormName} }
+    types::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{PokemonFormType} }
+    trigger_conditions::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{PokemonFormTriggerCondition} }
+    flavor_text_entries::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{PokemonFormFlavorText} }
 
-    function PokemonFormDetail(id, name, order, form_order, is_default, is_battle_only, is_mega, form_name, pokemon, sprites, version_group, form_names, names, types, )
-        o = new(id, name, order, form_order, is_default, is_battle_only, is_mega, form_name, pokemon, sprites, version_group, form_names, names, types, )
+    function PokemonFormDetail(id, name, order, form_order, is_default, is_battle_only, is_mega, form_name, pokemon, sprites, version_group, form_names, names, types, trigger_conditions, flavor_text_entries, )
+        o = new(id, name, order, form_order, is_default, is_battle_only, is_mega, form_name, pokemon, sprites, version_group, form_names, names, types, trigger_conditions, flavor_text_entries, )
         OpenAPI.validate_properties(o)
         return o
     end
 end # type PokemonFormDetail
 
-const _property_types_PokemonFormDetail = Dict{Symbol,String}(Symbol("id")=>"Int64", Symbol("name")=>"String", Symbol("order")=>"Int64", Symbol("form_order")=>"Int64", Symbol("is_default")=>"Bool", Symbol("is_battle_only")=>"Bool", Symbol("is_mega")=>"Bool", Symbol("form_name")=>"String", Symbol("pokemon")=>"PokemonSummary", Symbol("sprites")=>"PokemonFormDetailSprites", Symbol("version_group")=>"VersionGroupSummary", Symbol("form_names")=>"Vector{PokemonFormDetailFormNamesInner}", Symbol("names")=>"Vector{PokemonFormDetailFormNamesInner}", Symbol("types")=>"Vector{PokemonDetailTypesInner}", )
+const _property_types_PokemonFormDetail = Dict{Symbol,String}(Symbol("id")=>"Int64", Symbol("name")=>"String", Symbol("order")=>"Int64", Symbol("form_order")=>"Int64", Symbol("is_default")=>"Bool", Symbol("is_battle_only")=>"Bool", Symbol("is_mega")=>"Bool", Symbol("form_name")=>"String", Symbol("pokemon")=>"PokemonSummary", Symbol("sprites")=>"PokemonFormSprites", Symbol("version_group")=>"VersionGroupSummary", Symbol("form_names")=>"Vector{PokemonFormName}", Symbol("names")=>"Vector{PokemonFormName}", Symbol("types")=>"Vector{PokemonFormType}", Symbol("trigger_conditions")=>"Vector{PokemonFormTriggerCondition}", Symbol("flavor_text_entries")=>"Vector{PokemonFormFlavorText}", )
 OpenAPI.property_type(::Type{ PokemonFormDetail }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_PokemonFormDetail[name]))}
 
 function OpenAPI.check_required(o::PokemonFormDetail)
@@ -72,6 +78,8 @@ function OpenAPI.check_required(o::PokemonFormDetail)
     o.form_names === nothing && (return false)
     o.names === nothing && (return false)
     o.types === nothing && (return false)
+    o.trigger_conditions === nothing && (return false)
+    o.flavor_text_entries === nothing && (return false)
     true
 end
 
@@ -90,16 +98,26 @@ function OpenAPI.validate_properties(o::PokemonFormDetail)
     OpenAPI.validate_property(PokemonFormDetail, Symbol("form_names"), o.form_names)
     OpenAPI.validate_property(PokemonFormDetail, Symbol("names"), o.names)
     OpenAPI.validate_property(PokemonFormDetail, Symbol("types"), o.types)
+    OpenAPI.validate_property(PokemonFormDetail, Symbol("trigger_conditions"), o.trigger_conditions)
+    OpenAPI.validate_property(PokemonFormDetail, Symbol("flavor_text_entries"), o.flavor_text_entries)
 end
 
 function OpenAPI.validate_property(::Type{ PokemonFormDetail }, name::Symbol, val)
 
 
     if name === Symbol("name")
-        OpenAPI.validate_param(name, "PokemonFormDetail", :maxLength, val, 100)
+        OpenAPI.validate_param(name, "PokemonFormDetail", :maxLength, val, 200)
     end
 
+    if name === Symbol("order")
+        OpenAPI.validate_param(name, "PokemonFormDetail", :maximum, val, 2147483647, false)
+        OpenAPI.validate_param(name, "PokemonFormDetail", :minimum, val, -2147483648, false)
+    end
 
+    if name === Symbol("form_order")
+        OpenAPI.validate_param(name, "PokemonFormDetail", :maximum, val, 2147483647, false)
+        OpenAPI.validate_param(name, "PokemonFormDetail", :minimum, val, -2147483648, false)
+    end
 
 
 
@@ -107,6 +125,8 @@ function OpenAPI.validate_property(::Type{ PokemonFormDetail }, name::Symbol, va
     if name === Symbol("form_name")
         OpenAPI.validate_param(name, "PokemonFormDetail", :maxLength, val, 30)
     end
+
+
 
 
 

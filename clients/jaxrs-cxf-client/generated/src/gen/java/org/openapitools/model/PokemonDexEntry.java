@@ -9,15 +9,21 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class PokemonDexEntry  {
   
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The index number within the Pokédex.
+  */
+  @ApiModelProperty(required = true, value = "The index number within the Pokédex.")
 
   private Integer entryNumber;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The Pokédex the referenced Pokémon species can be found in.
+  */
+  @ApiModelProperty(required = true, value = "The Pokédex the referenced Pokémon species can be found in.")
 
   private PokedexSummary pokedex;
  /**
-   * Get entryNumber
+   * The index number within the Pokédex.
    * @return entryNumber
   **/
   @JsonProperty("entry_number")
@@ -35,7 +41,7 @@ public class PokemonDexEntry  {
   }
 
  /**
-   * Get pokedex
+   * The Pokédex the referenced Pokémon species can be found in.
    * @return pokedex
   **/
   @JsonProperty("pokedex")

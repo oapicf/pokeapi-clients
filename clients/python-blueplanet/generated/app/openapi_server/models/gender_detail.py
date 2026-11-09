@@ -6,8 +6,8 @@ from datetime import date, datetime  # noqa: F401
 from typing import List, Dict  # noqa: F401
 
 from app.openapi_server.models.base_model import Model
-from app.openapi_server.models.ability_detail_pokemon_inner_pokemon import AbilityDetailPokemonInnerPokemon  # noqa: F401,E501
-from app.openapi_server.models.gender_detail_pokemon_species_details_inner import GenderDetailPokemonSpeciesDetailsInner  # noqa: F401,E501
+from app.openapi_server.models.gender_pokemon_species import GenderPokemonSpecies  # noqa: F401,E501
+from app.openapi_server.models.pokemon_species_summary import PokemonSpeciesSummary  # noqa: F401,E501
 from openapi_server import util
 
 
@@ -17,7 +17,7 @@ class GenderDetail(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, id: int=None, name: str=None, pokemon_species_details: List[GenderDetailPokemonSpeciesDetailsInner]=None, required_for_evolution: List[AbilityDetailPokemonInnerPokemon]=None):  # noqa: E501
+    def __init__(self, id: int=None, name: str=None, pokemon_species_details: List[GenderPokemonSpecies]=None, required_for_evolution: List[PokemonSpeciesSummary]=None):  # noqa: E501
         """GenderDetail - a model defined in Swagger
 
         :param id: The id of this GenderDetail.  # noqa: E501
@@ -25,15 +25,15 @@ class GenderDetail(Model):
         :param name: The name of this GenderDetail.  # noqa: E501
         :type name: str
         :param pokemon_species_details: The pokemon_species_details of this GenderDetail.  # noqa: E501
-        :type pokemon_species_details: List[GenderDetailPokemonSpeciesDetailsInner]
+        :type pokemon_species_details: List[GenderPokemonSpecies]
         :param required_for_evolution: The required_for_evolution of this GenderDetail.  # noqa: E501
-        :type required_for_evolution: List[AbilityDetailPokemonInnerPokemon]
+        :type required_for_evolution: List[PokemonSpeciesSummary]
         """
         self.swagger_types = {
             'id': int,
             'name': str,
-            'pokemon_species_details': List[GenderDetailPokemonSpeciesDetailsInner],
-            'required_for_evolution': List[AbilityDetailPokemonInnerPokemon]
+            'pokemon_species_details': List[GenderPokemonSpecies],
+            'required_for_evolution': List[PokemonSpeciesSummary]
         }
 
         self.attribute_map = {
@@ -63,6 +63,7 @@ class GenderDetail(Model):
     def id(self) -> int:
         """Gets the id of this GenderDetail.
 
+        The identifier for this resource.  # noqa: E501
 
         :return: The id of this GenderDetail.
         :rtype: int
@@ -73,6 +74,7 @@ class GenderDetail(Model):
     def id(self, id: int):
         """Sets the id of this GenderDetail.
 
+        The identifier for this resource.  # noqa: E501
 
         :param id: The id of this GenderDetail.
         :type id: int
@@ -86,6 +88,7 @@ class GenderDetail(Model):
     def name(self) -> str:
         """Gets the name of this GenderDetail.
 
+        The name for this resource.  # noqa: E501
 
         :return: The name of this GenderDetail.
         :rtype: str
@@ -96,34 +99,37 @@ class GenderDetail(Model):
     def name(self, name: str):
         """Sets the name of this GenderDetail.
 
+        The name for this resource.  # noqa: E501
 
         :param name: The name of this GenderDetail.
         :type name: str
         """
         if name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
-        if name is not None and len(name) > 100:
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `100`")  # noqa: E501
+        if name is not None and len(name) > 200:
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `200`")  # noqa: E501
 
         self._name = name
 
     @property
-    def pokemon_species_details(self) -> List[GenderDetailPokemonSpeciesDetailsInner]:
+    def pokemon_species_details(self) -> List[GenderPokemonSpecies]:
         """Gets the pokemon_species_details of this GenderDetail.
 
+        A list of Pokémon species that can be this gender and how likely it is that they will be.  # noqa: E501
 
         :return: The pokemon_species_details of this GenderDetail.
-        :rtype: List[GenderDetailPokemonSpeciesDetailsInner]
+        :rtype: List[GenderPokemonSpecies]
         """
         return self._pokemon_species_details
 
     @pokemon_species_details.setter
-    def pokemon_species_details(self, pokemon_species_details: List[GenderDetailPokemonSpeciesDetailsInner]):
+    def pokemon_species_details(self, pokemon_species_details: List[GenderPokemonSpecies]):
         """Sets the pokemon_species_details of this GenderDetail.
 
+        A list of Pokémon species that can be this gender and how likely it is that they will be.  # noqa: E501
 
         :param pokemon_species_details: The pokemon_species_details of this GenderDetail.
-        :type pokemon_species_details: List[GenderDetailPokemonSpeciesDetailsInner]
+        :type pokemon_species_details: List[GenderPokemonSpecies]
         """
         if pokemon_species_details is None:
             raise ValueError("Invalid value for `pokemon_species_details`, must not be `None`")  # noqa: E501
@@ -131,22 +137,24 @@ class GenderDetail(Model):
         self._pokemon_species_details = pokemon_species_details
 
     @property
-    def required_for_evolution(self) -> List[AbilityDetailPokemonInnerPokemon]:
+    def required_for_evolution(self) -> List[PokemonSpeciesSummary]:
         """Gets the required_for_evolution of this GenderDetail.
 
+        A list of Pokémon species that required this gender in order for a Pokémon to evolve into them.  # noqa: E501
 
         :return: The required_for_evolution of this GenderDetail.
-        :rtype: List[AbilityDetailPokemonInnerPokemon]
+        :rtype: List[PokemonSpeciesSummary]
         """
         return self._required_for_evolution
 
     @required_for_evolution.setter
-    def required_for_evolution(self, required_for_evolution: List[AbilityDetailPokemonInnerPokemon]):
+    def required_for_evolution(self, required_for_evolution: List[PokemonSpeciesSummary]):
         """Sets the required_for_evolution of this GenderDetail.
 
+        A list of Pokémon species that required this gender in order for a Pokémon to evolve into them.  # noqa: E501
 
         :param required_for_evolution: The required_for_evolution of this GenderDetail.
-        :type required_for_evolution: List[AbilityDetailPokemonInnerPokemon]
+        :type required_for_evolution: List[PokemonSpeciesSummary]
         """
         if required_for_evolution is None:
             raise ValueError("Invalid value for `required_for_evolution`, must not be `None`")  # noqa: E501

@@ -6,8 +6,8 @@ using namespace Tiny;
 
 MoveMeta::MoveMeta()
 {
-	ailment = MoveMetaAilmentSummary();
-	category = MoveMetaCategorySummary();
+	ailment = null;
+	category = null;
 	min_hits = int(0);
 	max_hits = int(0);
 	min_turns = int(0);

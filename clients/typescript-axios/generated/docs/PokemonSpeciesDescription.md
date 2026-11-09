@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**description** | **string** |  | [optional] [default to undefined]
-**language** | [**LanguageSummary**](LanguageSummary.md) |  | [default to undefined]
+**description** | **string** | The localized description for an API resource in a specific language. | [optional] [default to undefined]
+**language** | [**LanguageSummary**](LanguageSummary.md) | The language this name is in. | [default to undefined]
 
 ## Example
 

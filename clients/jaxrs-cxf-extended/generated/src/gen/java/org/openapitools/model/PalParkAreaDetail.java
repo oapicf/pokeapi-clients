@@ -3,8 +3,8 @@ package org.openapitools.model;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.model.PalParkAreaDetailPokemonEncountersInner;
 import org.openapitools.model.PalParkAreaName;
+import org.openapitools.model.PalParkEncounter;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
@@ -15,19 +15,31 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class PalParkAreaDetail  {
   
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The identifier for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   private Integer id;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The name for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   private String name;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The name of this resource listed in different languages.
+  */
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
   private List<@Valid PalParkAreaName> names = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
-  private List<@Valid PalParkAreaDetailPokemonEncountersInner> pokemonEncounters = new ArrayList<>();
  /**
-  * Get id
+  * A list of Pokémon encountered in thi pal park area along with details.
+  */
+  @ApiModelProperty(required = true, value = "A list of Pokémon encountered in thi pal park area along with details.")
+  private List<@Valid PalParkEncounter> pokemonEncounters = new ArrayList<>();
+ /**
+  * The identifier for this resource.
   * @return id
   */
   @JsonProperty("id")
@@ -54,12 +66,12 @@ public class PalParkAreaDetail  {
   }
 
  /**
-  * Get name
+  * The name for this resource.
   * @return name
   */
   @JsonProperty("name")
   @NotNull
- @Size(max=100)  public String getName() {
+ @Size(max=200)  public String getName() {
     return name;
   }
 
@@ -79,7 +91,7 @@ public class PalParkAreaDetail  {
   }
 
  /**
-  * Get names
+  * The name of this resource listed in different languages.
   * @return names
   */
   @JsonProperty("names")
@@ -115,12 +127,12 @@ public class PalParkAreaDetail  {
   }
 
  /**
-  * Get pokemonEncounters
+  * A list of Pokémon encountered in thi pal park area along with details.
   * @return pokemonEncounters
   */
   @JsonProperty("pokemon_encounters")
   @NotNull
-  public List<@Valid PalParkAreaDetailPokemonEncountersInner> getPokemonEncounters() {
+  public List<@Valid PalParkEncounter> getPokemonEncounters() {
     return pokemonEncounters;
   }
 
@@ -128,7 +140,7 @@ public class PalParkAreaDetail  {
    * Sets the <code>pokemonEncounters</code> property.
    * <br><em>N.B. <code>pokemonEncounters</code> is <b>read only</b>; client code should not call this method</em>.
    */
- public void setPokemonEncounters(List<@Valid PalParkAreaDetailPokemonEncountersInner> pokemonEncounters) {
+ public void setPokemonEncounters(List<@Valid PalParkEncounter> pokemonEncounters) {
     this.pokemonEncounters = pokemonEncounters;
   }
 
@@ -136,7 +148,7 @@ public class PalParkAreaDetail  {
    * Sets the <code>pokemonEncounters</code> property.
    * <br><em>N.B. <code>pokemonEncounters</code> is <b>read only</b>; client code should not call this method</em>.
    */
-  public PalParkAreaDetail pokemonEncounters(List<@Valid PalParkAreaDetailPokemonEncountersInner> pokemonEncounters) {
+  public PalParkAreaDetail pokemonEncounters(List<@Valid PalParkEncounter> pokemonEncounters) {
     this.pokemonEncounters = pokemonEncounters;
     return this;
   }
@@ -145,7 +157,7 @@ public class PalParkAreaDetail  {
    * Adds a new item to the <code>pokemonEncounters</code> list.
    * <br><em>N.B. <code>pokemonEncounters</code> is <b>read only</b>; client code should not call this method</em>.
    */
-  public PalParkAreaDetail addPokemonEncountersItem(PalParkAreaDetailPokemonEncountersInner pokemonEncountersItem) {
+  public PalParkAreaDetail addPokemonEncountersItem(PalParkEncounter pokemonEncountersItem) {
     this.pokemonEncounters.add(pokemonEncountersItem);
     return this;
   }

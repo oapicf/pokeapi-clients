@@ -27,14 +27,30 @@ from typing import Optional
 from typing_extensions import Annotated
 from openapi_server.models.language_detail import LanguageDetail
 from openapi_server.models.paginated_language_summary_list import PaginatedLanguageSummaryList
-from openapi_server.models.extra_models import TokenModel  # noqa: F401
-from openapi_server.security_api import get_token_basicAuth, get_token_cookieAuth
+from openapi_server.models.pokeapi_meta_response import PokeapiMetaResponse
 
 router = APIRouter()
 
 ns_pkg = openapi_server.impl
 for _, name, _ in pkgutil.iter_modules(ns_pkg.__path__, ns_pkg.__name__ + "."):
     importlib.import_module(name)
+
+
+@router.get(
+    "/api/v2/meta/",
+    responses={
+        200: {"model": PokeapiMetaResponse, "description": ""},
+    },
+    tags=["utility"],
+    summary="Get API metadata",
+    response_model_by_alias=True,
+)
+async def meta_retrieve(
+) -> PokeapiMetaResponse:
+    """Returns metadata about the current deployed version of the API, including the git commit hash, deploy date, and tag (if any)."""
+    if not BaseUtilityApi.subclasses:
+        raise HTTPException(status_code=500, detail="Not implemented")
+    return await BaseUtilityApi.subclasses[0]().meta_retrieve()
 
 
 @router.get(
@@ -50,12 +66,6 @@ async def language_list(
     limit: Annotated[Optional[int], Field(description="Number of results to return per page.")] = Query(None, description="Number of results to return per page.", alias="limit"),
     offset: Annotated[Optional[int], Field(description="The initial index from which to return the results.")] = Query(None, description="The initial index from which to return the results.", alias="offset"),
     q: Annotated[Optional[str], Field(description="> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")] = Query(None, description="&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ", alias="q"),
-    token_basicAuth: TokenModel = Security(
-        get_token_basicAuth
-    ),
-    token_cookieAuth: TokenModel = Security(
-        get_token_cookieAuth
-    ),
 ) -> PaginatedLanguageSummaryList:
     """Languages for translations of API resource information."""
     if not BaseUtilityApi.subclasses:
@@ -73,13 +83,7 @@ async def language_list(
     response_model_by_alias=True,
 )
 async def language_retrieve(
-    id: Annotated[str, Field(description="This parameter can be a string or an integer.")] = Path(..., description="This parameter can be a string or an integer."),
-    token_basicAuth: TokenModel = Security(
-        get_token_basicAuth
-    ),
-    token_cookieAuth: TokenModel = Security(
-        get_token_cookieAuth
-    ),
+    id: Annotated[str, Field(description="This parameter can be a string or an integer.")] = Path(..., description="This parameter can be a string or an integer.", examples=["1"]),
 ) -> LanguageDetail:
     """Languages for translations of API resource information."""
     if not BaseUtilityApi.subclasses:

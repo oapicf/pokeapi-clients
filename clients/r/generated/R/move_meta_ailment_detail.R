@@ -7,10 +7,10 @@
 #' @title MoveMetaAilmentDetail
 #' @description MoveMetaAilmentDetail Class
 #' @format An \code{R6Class} generator object
-#' @field id  integer
-#' @field name  character
-#' @field moves  list(\link{AbilityDetailPokemonInnerPokemon})
-#' @field names  list(\link{MoveMetaAilmentName})
+#' @field id The identifier for this resource. integer
+#' @field name The name for this resource. character
+#' @field moves A list of moves that cause this ailment. list(\link{MoveSummary})
+#' @field names The name of this resource listed in different languages. list(\link{MoveMetaAilmentName})
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -25,10 +25,10 @@ MoveMetaAilmentDetail <- R6::R6Class(
     #' @description
     #' Initialize a new MoveMetaAilmentDetail class.
     #'
-    #' @param id id
-    #' @param name name
-    #' @param moves moves
-    #' @param names names
+    #' @param id The identifier for this resource.
+    #' @param name The name for this resource.
+    #' @param moves A list of moves that cause this ailment.
+    #' @param names The name of this resource listed in different languages.
     #' @param ... Other optional arguments.
     initialize = function(`id`, `name`, `moves`, `names`, ...) {
       if (!missing(`id`)) {
@@ -142,7 +142,7 @@ MoveMetaAilmentDetail <- R6::R6Class(
         self$`name` <- this_object$`name`
       }
       if (!is.null(this_object$`moves`)) {
-        self$`moves` <- ApiClient$new()$deserializeObj(this_object$`moves`, "array[AbilityDetailPokemonInnerPokemon]", loadNamespace("openapi"))
+        self$`moves` <- ApiClient$new()$deserializeObj(this_object$`moves`, "array[MoveSummary]", loadNamespace("openapi"))
       }
       if (!is.null(this_object$`names`)) {
         self$`names` <- ApiClient$new()$deserializeObj(this_object$`names`, "array[MoveMetaAilmentName]", loadNamespace("openapi"))
@@ -170,7 +170,7 @@ MoveMetaAilmentDetail <- R6::R6Class(
       this_object <- jsonlite::fromJSON(input_json)
       self$`id` <- this_object$`id`
       self$`name` <- this_object$`name`
-      self$`moves` <- ApiClient$new()$deserializeObj(this_object$`moves`, "array[AbilityDetailPokemonInnerPokemon]", loadNamespace("openapi"))
+      self$`moves` <- ApiClient$new()$deserializeObj(this_object$`moves`, "array[MoveSummary]", loadNamespace("openapi"))
       self$`names` <- ApiClient$new()$deserializeObj(this_object$`names`, "array[MoveMetaAilmentName]", loadNamespace("openapi"))
       self
     },
@@ -236,7 +236,7 @@ MoveMetaAilmentDetail <- R6::R6Class(
         return(FALSE)
       }
 
-      if (nchar(self$`name`) > 100) {
+      if (nchar(self$`name`) > 200) {
         return(FALSE)
       }
 
@@ -269,8 +269,8 @@ MoveMetaAilmentDetail <- R6::R6Class(
         invalid_fields["name"] <- "Non-nullable required field `name` cannot be null."
       }
 
-      if (nchar(self$`name`) > 100) {
-        invalid_fields["name"] <- "Invalid length for `name`, must be smaller than or equal to 100."
+      if (nchar(self$`name`) > 200) {
+        invalid_fields["name"] <- "Invalid length for `name`, must be smaller than or equal to 200."
       }
 
       # check if the required `moves` is null

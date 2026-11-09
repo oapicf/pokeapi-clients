@@ -10,8 +10,8 @@ import org.openapitools.model.VersionGroupSummary;
 
 @Canonical
 class AbilityChange {
-    
+    /* The version group in which the previous effect of this ability originated. */
     VersionGroupSummary versionGroup
-    
+    /* The previous effect of this ability listed in different languages. */
     List<AbilityChangeEffectText> effectEntries = new ArrayList<>()
 }

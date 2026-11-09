@@ -6,9 +6,9 @@ The controller class is defined in **[PokemonController.java](../../src/main/jav
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**abilityList**](#abilityList) | **GET** /api/v2/ability/ | 
-[**abilityRetrieve**](#abilityRetrieve) | **GET** /api/v2/ability/{id}/ | 
-[**characteristicList**](#characteristicList) | **GET** /api/v2/characteristic/ | List charecterictics
+[**abilityList**](#abilityList) | **GET** /api/v2/ability/ | List abilities
+[**abilityRetrieve**](#abilityRetrieve) | **GET** /api/v2/ability/{id}/ | Get ability
+[**characteristicList**](#characteristicList) | **GET** /api/v2/characteristic/ | List characteristics
 [**characteristicRetrieve**](#characteristicRetrieve) | **GET** /api/v2/characteristic/{id}/ | Get characteristic
 [**eggGroupList**](#eggGroupList) | **GET** /api/v2/egg-group/ | List egg groups
 [**eggGroupRetrieve**](#eggGroupRetrieve) | **GET** /api/v2/egg-group/{id}/ | Get egg group
@@ -45,7 +45,7 @@ Method | HTTP request | Description
 Mono<PaginatedAbilitySummaryList> PokemonController.abilityList(limitoffsetq)
 ```
 
-
+List abilities
 
 Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
 
@@ -59,9 +59,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**PaginatedAbilitySummaryList**](../../docs/models/PaginatedAbilitySummaryList.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -73,7 +70,7 @@ Name | Type | Description  | Notes
 Mono<AbilityDetail> PokemonController.abilityRetrieve(id)
 ```
 
-
+Get ability
 
 Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
 
@@ -85,9 +82,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**AbilityDetail**](../../docs/models/AbilityDetail.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -96,10 +90,10 @@ Name | Type | Description  | Notes
 <a id="characteristicList"></a>
 # **characteristicList**
 ```java
-Mono<PaginatedCharacteristicSummaryList> PokemonController.characteristicList(limitoffsetq)
+Mono<PaginatedCharacteristicSummaryList> PokemonController.characteristicList(limitoffset)
 ```
 
-List charecterictics
+List characteristics
 
 Characteristics indicate which stat contains a Pokémon&#39;s highest IV. A Pokémon&#39;s Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail.
 
@@ -108,14 +102,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **limit** | `Integer` | Number of results to return per page. | [optional parameter]
 **offset** | `Integer` | The initial index from which to return the results. | [optional parameter]
-**q** | `String` | &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional parameter]
 
 ### Return type
 [**PaginatedCharacteristicSummaryList**](../../docs/models/PaginatedCharacteristicSummaryList.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -139,9 +129,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**CharacteristicDetail**](../../docs/models/CharacteristicDetail.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -167,9 +154,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**PaginatedEggGroupSummaryList**](../../docs/models/PaginatedEggGroupSummaryList.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -193,9 +177,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**EggGroupDetail**](../../docs/models/EggGroupDetail.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -221,9 +202,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**PaginatedGenderSummaryList**](../../docs/models/PaginatedGenderSummaryList.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -247,9 +225,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**GenderDetail**](../../docs/models/GenderDetail.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -275,9 +250,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**PaginatedGrowthRateSummaryList**](../../docs/models/PaginatedGrowthRateSummaryList.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -301,9 +273,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**GrowthRateDetail**](../../docs/models/GrowthRateDetail.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -329,9 +298,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**PaginatedMoveDamageClassSummaryList**](../../docs/models/PaginatedMoveDamageClassSummaryList.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -355,9 +321,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**MoveDamageClassDetail**](../../docs/models/MoveDamageClassDetail.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -383,9 +346,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**PaginatedNatureSummaryList**](../../docs/models/PaginatedNatureSummaryList.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -409,9 +369,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**NatureDetail**](../../docs/models/NatureDetail.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -437,9 +394,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**PaginatedPokeathlonStatSummaryList**](../../docs/models/PaginatedPokeathlonStatSummaryList.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -463,9 +417,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**PokeathlonStatDetail**](../../docs/models/PokeathlonStatDetail.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -491,9 +442,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**PaginatedPokemonColorSummaryList**](../../docs/models/PaginatedPokemonColorSummaryList.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -517,9 +465,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**PokemonColorDetail**](../../docs/models/PokemonColorDetail.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -545,9 +490,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**PaginatedPokemonFormSummaryList**](../../docs/models/PaginatedPokemonFormSummaryList.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -571,9 +513,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**PokemonFormDetail**](../../docs/models/PokemonFormDetail.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -599,9 +538,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**PaginatedPokemonHabitatSummaryList**](../../docs/models/PaginatedPokemonHabitatSummaryList.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -625,9 +561,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**PokemonHabitatDetail**](../../docs/models/PokemonHabitatDetail.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -653,9 +586,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**PaginatedPokemonSummaryList**](../../docs/models/PaginatedPokemonSummaryList.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -679,9 +609,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**PokemonDetail**](../../docs/models/PokemonDetail.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -707,9 +634,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**PaginatedPokemonShapeSummaryList**](../../docs/models/PaginatedPokemonShapeSummaryList.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -733,9 +657,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**PokemonShapeDetail**](../../docs/models/PokemonShapeDetail.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -761,9 +682,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**PaginatedPokemonSpeciesSummaryList**](../../docs/models/PaginatedPokemonSpeciesSummaryList.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -787,9 +705,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**PokemonSpeciesDetail**](../../docs/models/PokemonSpeciesDetail.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -815,9 +730,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**PaginatedStatSummaryList**](../../docs/models/PaginatedStatSummaryList.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -841,9 +753,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**StatDetail**](../../docs/models/StatDetail.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -869,9 +778,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**PaginatedTypeSummaryList**](../../docs/models/PaginatedTypeSummaryList.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -895,9 +801,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**TypeDetail**](../../docs/models/TypeDetail.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined

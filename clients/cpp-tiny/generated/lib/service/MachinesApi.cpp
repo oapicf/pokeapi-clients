@@ -14,9 +14,6 @@ using namespace Tiny;
             , 
             
             int offset
-            , 
-            
-            std::string q
             
         )
         {
@@ -25,10 +22,9 @@ using namespace Tiny;
 
             // Headers  | 
 
-            // Query    | limit offset q 
+            // Query    | limit offset 
             addQueryParam("limit",limit);
             addQueryParam("offset",offset);
-            addQueryParam("q",q);
 
             // Form     | 
 

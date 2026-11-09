@@ -18,7 +18,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("MoveFlavorText")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-11-09T13:50:06.168269698Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class MoveFlavorText   {
   private String flavorText;
   private LanguageSummary language;
@@ -39,6 +39,7 @@ public class MoveFlavorText   {
   }
 
   /**
+   * The localized flavor text for an api resource in a specific language.
    **/
   public MoveFlavorText flavorText(String flavorText) {
     this.flavorText = flavorText;
@@ -46,7 +47,7 @@ public class MoveFlavorText   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The localized flavor text for an api resource in a specific language.")
   @JsonProperty(required = true, value = "flavor_text")
   @NotNull public String getFlavorText() {
     return flavorText;
@@ -58,6 +59,7 @@ public class MoveFlavorText   {
   }
 
   /**
+   * The language this name is in.
    **/
   public MoveFlavorText language(LanguageSummary language) {
     this.language = language;
@@ -65,7 +67,7 @@ public class MoveFlavorText   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The language this name is in.")
   @JsonProperty(required = true, value = "language")
   @NotNull @Valid public LanguageSummary getLanguage() {
     return language;
@@ -77,6 +79,7 @@ public class MoveFlavorText   {
   }
 
   /**
+   * The version group that uses this flavor text.
    **/
   public MoveFlavorText versionGroup(VersionGroupSummary versionGroup) {
     this.versionGroup = versionGroup;
@@ -84,7 +87,7 @@ public class MoveFlavorText   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The version group that uses this flavor text.")
   @JsonProperty(required = true, value = "version_group")
   @NotNull @Valid public VersionGroupSummary getVersionGroup() {
     return versionGroup;

@@ -6,6 +6,8 @@ All URIs are relative to https://pokeapi.co, except if the operation defines ano
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
+| [**currencyList()**](ItemsApi.md#currencyList) | **GET** /api/v2/currency/ | List currencies |
+| [**currencyRetrieve()**](ItemsApi.md#currencyRetrieve) | **GET** /api/v2/currency/{id}/ | Get currency |
 | [**itemAttributeList()**](ItemsApi.md#itemAttributeList) | **GET** /api/v2/item-attribute/ | List item attributes |
 | [**itemAttributeRetrieve()**](ItemsApi.md#itemAttributeRetrieve) | **GET** /api/v2/item-attribute/{id}/ | Get item attribute |
 | [**itemCategoryList()**](ItemsApi.md#itemCategoryList) | **GET** /api/v2/item-category/ | List item categories |
@@ -17,6 +19,122 @@ All URIs are relative to https://pokeapi.co, except if the operation defines ano
 | [**itemPocketRetrieve()**](ItemsApi.md#itemPocketRetrieve) | **GET** /api/v2/item-pocket/{id}/ | Get item pocket |
 | [**itemRetrieve()**](ItemsApi.md#itemRetrieve) | **GET** /api/v2/item/{id}/ | Get item |
 
+
+## `currencyList()`
+
+```php
+currencyList($limit, $offset, $q): \OpenAPI\Client\Model\PaginatedCurrencySummaryList
+```
+
+List currencies
+
+Currencies used to buy items.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\ItemsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$limit = 56; // int | Number of results to return per page.
+$offset = 56; // int | The initial index from which to return the results.
+$q = 'q_example'; // string | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.
+
+try {
+    $result = $apiInstance->currencyList($limit, $offset, $q);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ItemsApi->currencyList: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **limit** | **int**| Number of results to return per page. | [optional] |
+| **offset** | **int**| The initial index from which to return the results. | [optional] |
+| **q** | **string**| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\PaginatedCurrencySummaryList**](../Model/PaginatedCurrencySummaryList.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `currencyRetrieve()`
+
+```php
+currencyRetrieve($id): \OpenAPI\Client\Model\CurrencyDetail
+```
+
+Get currency
+
+Currencies used to buy items.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\ItemsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$id = 1; // string | This parameter can be a string or an integer.
+
+try {
+    $result = $apiInstance->currencyRetrieve($id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ItemsApi->currencyRetrieve: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| This parameter can be a string or an integer. | |
+
+### Return type
+
+[**\OpenAPI\Client\Model\CurrencyDetail**](../Model/CurrencyDetail.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
 ## `itemAttributeList()`
 
@@ -35,22 +153,11 @@ Item attributes define particular aspects of items, e.g.\"usable in battle\" or 
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure HTTP basic authorization: basicAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure API key authorization: cookieAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\ItemsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $limit = 56; // int | Number of results to return per page.
 $offset = 56; // int | The initial index from which to return the results.
@@ -78,7 +185,7 @@ try {
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -106,24 +213,13 @@ Item attributes define particular aspects of items, e.g.\"usable in battle\" or 
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure HTTP basic authorization: basicAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure API key authorization: cookieAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\ItemsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
-$id = 'id_example'; // string | This parameter can be a string or an integer.
+$id = 1; // string | This parameter can be a string or an integer.
 
 try {
     $result = $apiInstance->itemAttributeRetrieve($id);
@@ -145,7 +241,7 @@ try {
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -173,22 +269,11 @@ Item categories determine where items will be placed in the players bag.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure HTTP basic authorization: basicAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure API key authorization: cookieAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\ItemsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $limit = 56; // int | Number of results to return per page.
 $offset = 56; // int | The initial index from which to return the results.
@@ -216,7 +301,7 @@ try {
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -244,24 +329,13 @@ Item categories determine where items will be placed in the players bag.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure HTTP basic authorization: basicAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure API key authorization: cookieAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\ItemsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
-$id = 'id_example'; // string | This parameter can be a string or an integer.
+$id = 1; // string | This parameter can be a string or an integer.
 
 try {
     $result = $apiInstance->itemCategoryRetrieve($id);
@@ -283,7 +357,7 @@ try {
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -311,22 +385,11 @@ The various effects of the move\"Fling\" when used with different items.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure HTTP basic authorization: basicAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure API key authorization: cookieAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\ItemsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $limit = 56; // int | Number of results to return per page.
 $offset = 56; // int | The initial index from which to return the results.
@@ -354,7 +417,7 @@ try {
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -382,24 +445,13 @@ The various effects of the move\"Fling\" when used with different items.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure HTTP basic authorization: basicAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure API key authorization: cookieAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\ItemsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
-$id = 'id_example'; // string | This parameter can be a string or an integer.
+$id = 1; // string | This parameter can be a string or an integer.
 
 try {
     $result = $apiInstance->itemFlingEffectRetrieve($id);
@@ -421,7 +473,7 @@ try {
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -449,22 +501,11 @@ An item is an object in the games which the player can pick up, keep in their ba
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure HTTP basic authorization: basicAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure API key authorization: cookieAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\ItemsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $limit = 56; // int | Number of results to return per page.
 $offset = 56; // int | The initial index from which to return the results.
@@ -492,7 +533,7 @@ try {
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -520,22 +561,11 @@ Pockets within the players bag used for storing items by category.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure HTTP basic authorization: basicAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure API key authorization: cookieAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\ItemsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $limit = 56; // int | Number of results to return per page.
 $offset = 56; // int | The initial index from which to return the results.
@@ -563,7 +593,7 @@ try {
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -591,24 +621,13 @@ Pockets within the players bag used for storing items by category.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure HTTP basic authorization: basicAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure API key authorization: cookieAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\ItemsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
-$id = 'id_example'; // string | This parameter can be a string or an integer.
+$id = 1; // string | This parameter can be a string or an integer.
 
 try {
     $result = $apiInstance->itemPocketRetrieve($id);
@@ -630,7 +649,7 @@ try {
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -658,24 +677,13 @@ An item is an object in the games which the player can pick up, keep in their ba
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure HTTP basic authorization: basicAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure API key authorization: cookieAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\ItemsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
-$id = 'id_example'; // string | This parameter can be a string or an integer.
+$id = 1; // string | This parameter can be a string or an integer.
 
 try {
     $result = $apiInstance->itemRetrieve($id);
@@ -697,7 +705,7 @@ try {
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

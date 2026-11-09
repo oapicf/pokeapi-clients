@@ -15,10 +15,10 @@ defmodule PokéAPI.Model.PaginatedMoveTargetSummaryList do
   ]
 
   @type t :: %__MODULE__{
-    :count => integer() | nil,
+    :count => integer(),
     :next => Uri | nil,
     :previous => Uri | nil,
-    :results => [PokéAPI.Model.MoveTargetSummary.t] | nil
+    :results => [PokéAPI.Model.MoveTargetSummary.t]
   }
 
   alias PokéAPI.Deserializer

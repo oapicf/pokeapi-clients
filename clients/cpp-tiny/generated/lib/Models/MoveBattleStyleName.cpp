@@ -7,7 +7,7 @@ using namespace Tiny;
 MoveBattleStyleName::MoveBattleStyleName()
 {
 	name = std::string();
-	language = LanguageSummary();
+	language = null;
 }
 
 MoveBattleStyleName::MoveBattleStyleName(std::string jsonString)

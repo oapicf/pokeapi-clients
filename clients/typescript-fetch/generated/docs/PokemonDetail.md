@@ -13,19 +13,20 @@ Name | Type
 `isDefault` | boolean
 `order` | number
 `weight` | number
-`abilities` | [Array&lt;PokemonDetailAbilitiesInner&gt;](PokemonDetailAbilitiesInner.md)
-`pastAbilities` | [Array&lt;PokemonDetailPastAbilitiesInner&gt;](PokemonDetailPastAbilitiesInner.md)
+`abilities` | [Array&lt;PokemonAbility&gt;](PokemonAbility.md)
+`pastAbilities` | [Array&lt;PokemonPastAbility&gt;](PokemonPastAbility.md)
 `forms` | [Array&lt;PokemonFormSummary&gt;](PokemonFormSummary.md)
 `gameIndices` | [Array&lt;PokemonGameIndex&gt;](PokemonGameIndex.md)
-`heldItems` | [PokemonDetailHeldItems](PokemonDetailHeldItems.md)
+`heldItems` | [Array&lt;PokemonHeldItemSummary&gt;](PokemonHeldItemSummary.md)
 `locationAreaEncounters` | string
-`moves` | [Array&lt;PokemonDetailMovesInner&gt;](PokemonDetailMovesInner.md)
+`moves` | [Array&lt;PokemonMove&gt;](PokemonMove.md)
 `species` | [PokemonSpeciesSummary](PokemonSpeciesSummary.md)
-`sprites` | [PokemonDetailSprites](PokemonDetailSprites.md)
-`cries` | [PokemonDetailCries](PokemonDetailCries.md)
+`sprites` | [PokemonSprites](PokemonSprites.md)
+`cries` | [PokemonCries](PokemonCries.md)
 `stats` | [Array&lt;PokemonStat&gt;](PokemonStat.md)
-`types` | [Array&lt;PokemonDetailTypesInner&gt;](PokemonDetailTypesInner.md)
-`pastTypes` | [Array&lt;PokemonDetailPastTypesInner&gt;](PokemonDetailPastTypesInner.md)
+`pastStats` | [Array&lt;PokemonPastStat&gt;](PokemonPastStat.md)
+`types` | [Array&lt;PokemonType&gt;](PokemonType.md)
+`pastTypes` | [Array&lt;PokemonPastType&gt;](PokemonPastType.md)
 
 ## Example
 
@@ -52,6 +53,7 @@ const example = {
   "sprites": null,
   "cries": null,
   "stats": null,
+  "pastStats": null,
   "types": null,
   "pastTypes": null,
 } satisfies PokemonDetail

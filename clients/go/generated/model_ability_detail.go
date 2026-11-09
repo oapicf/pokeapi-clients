@@ -1,9 +1,9 @@
 /*
 PokéAPI
 
-All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
 
-API version: 2.7.0
+API version: 2.10.0
 Contact: blah+oapicf@cliffano.com
 */
 
@@ -22,15 +22,24 @@ var _ MappedNullable = &AbilityDetail{}
 
 // AbilityDetail struct for AbilityDetail
 type AbilityDetail struct {
+	// The identifier for this resource.
 	Id int32 `json:"id"`
+	// The name for this resource.
 	Name string `json:"name"`
+	// Whether or not this ability originated in the main series of the video games.
 	IsMainSeries *bool `json:"is_main_series,omitempty"`
+	// The generation this ability originated in.
 	Generation GenerationSummary `json:"generation"`
+	// The name of this resource listed in different languages.
 	Names []AbilityName `json:"names"`
+	// The effect of this ability listed in different languages.
 	EffectEntries []AbilityEffectText `json:"effect_entries"`
+	// The list of previous effects this ability has had across version groups.
 	EffectChanges []AbilityChange `json:"effect_changes"`
+	// The flavor text of this ability listed in different languages.
 	FlavorTextEntries []AbilityFlavorText `json:"flavor_text_entries"`
-	Pokemon []AbilityDetailPokemonInner `json:"pokemon"`
+	// A list of Pokémon that could potentially have this ability.
+	Pokemon []AbilityPokemonDetail `json:"pokemon"`
 }
 
 type _AbilityDetail AbilityDetail
@@ -39,7 +48,7 @@ type _AbilityDetail AbilityDetail
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAbilityDetail(id int32, name string, generation GenerationSummary, names []AbilityName, effectEntries []AbilityEffectText, effectChanges []AbilityChange, flavorTextEntries []AbilityFlavorText, pokemon []AbilityDetailPokemonInner) *AbilityDetail {
+func NewAbilityDetail(id int32, name string, generation GenerationSummary, names []AbilityName, effectEntries []AbilityEffectText, effectChanges []AbilityChange, flavorTextEntries []AbilityFlavorText, pokemon []AbilityPokemonDetail) *AbilityDetail {
 	this := AbilityDetail{}
 	this.Id = id
 	this.Name = name
@@ -261,9 +270,9 @@ func (o *AbilityDetail) SetFlavorTextEntries(v []AbilityFlavorText) {
 }
 
 // GetPokemon returns the Pokemon field value
-func (o *AbilityDetail) GetPokemon() []AbilityDetailPokemonInner {
+func (o *AbilityDetail) GetPokemon() []AbilityPokemonDetail {
 	if o == nil {
-		var ret []AbilityDetailPokemonInner
+		var ret []AbilityPokemonDetail
 		return ret
 	}
 
@@ -272,7 +281,7 @@ func (o *AbilityDetail) GetPokemon() []AbilityDetailPokemonInner {
 
 // GetPokemonOk returns a tuple with the Pokemon field value
 // and a boolean to check if the value has been set.
-func (o *AbilityDetail) GetPokemonOk() ([]AbilityDetailPokemonInner, bool) {
+func (o *AbilityDetail) GetPokemonOk() ([]AbilityPokemonDetail, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -280,7 +289,7 @@ func (o *AbilityDetail) GetPokemonOk() ([]AbilityDetailPokemonInner, bool) {
 }
 
 // SetPokemon sets field value
-func (o *AbilityDetail) SetPokemon(v []AbilityDetailPokemonInner) {
+func (o *AbilityDetail) SetPokemon(v []AbilityPokemonDetail) {
 	o.Pokemon = v
 }
 

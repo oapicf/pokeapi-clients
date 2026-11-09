@@ -5,23 +5,17 @@
 
 #include "AbilityDetailTest.cpp"
 
-#include "AbilityDetail_pokemon_innerTest.cpp"
-
-#include "AbilityDetail_pokemon_inner_pokemonTest.cpp"
-
 #include "AbilityEffectTextTest.cpp"
 
 #include "AbilityFlavorTextTest.cpp"
 
 #include "AbilityNameTest.cpp"
 
+#include "AbilityPokemonDetailTest.cpp"
+
 #include "AbilitySummaryTest.cpp"
 
 #include "BerryDetailTest.cpp"
-
-#include "BerryDetail_flavors_innerTest.cpp"
-
-#include "BerryDetail_flavors_inner_flavorTest.cpp"
 
 #include "BerryFirmnessDetailTest.cpp"
 
@@ -29,11 +23,11 @@
 
 #include "BerryFirmnessSummaryTest.cpp"
 
+#include "BerryFlavorBerryMapTest.cpp"
+
 #include "BerryFlavorDetailTest.cpp"
 
-#include "BerryFlavorDetail_berries_innerTest.cpp"
-
-#include "BerryFlavorDetail_berries_inner_berryTest.cpp"
+#include "BerryFlavorMapTest.cpp"
 
 #include "BerryFlavorNameTest.cpp"
 
@@ -61,9 +55,13 @@
 
 #include "ContestTypeSummaryTest.cpp"
 
-#include "EggGroupDetailTest.cpp"
+#include "CurrencyDetailTest.cpp"
 
-#include "EggGroupDetail_pokemon_species_innerTest.cpp"
+#include "CurrencyNameTest.cpp"
+
+#include "CurrencySummaryTest.cpp"
+
+#include "EggGroupDetailTest.cpp"
 
 #include "EggGroupNameTest.cpp"
 
@@ -87,17 +85,15 @@
 
 #include "EncounterMethodSummaryTest.cpp"
 
+#include "EncounterPokemonDetailTest.cpp"
+
 #include "EvolutionChainDetailTest.cpp"
 
-#include "EvolutionChainDetail_chainTest.cpp"
-
-#include "EvolutionChainDetail_chain_evolves_to_innerTest.cpp"
-
-#include "EvolutionChainDetail_chain_evolves_to_inner_evolution_details_innerTest.cpp"
-
-#include "EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_genderTest.cpp"
+#include "EvolutionChainLinkTest.cpp"
 
 #include "EvolutionChainSummaryTest.cpp"
+
+#include "EvolutionConditionExpressionTest.cpp"
 
 #include "EvolutionTriggerDetailTest.cpp"
 
@@ -105,11 +101,19 @@
 
 #include "EvolutionTriggerSummaryTest.cpp"
 
+#include "EvolutionVariableDescriptionTest.cpp"
+
+#include "EvolutionVariableDetailTest.cpp"
+
+#include "EvolutionVariableNameTest.cpp"
+
+#include "EvolutionVariableSummaryTest.cpp"
+
 #include "ExperienceTest.cpp"
 
 #include "GenderDetailTest.cpp"
 
-#include "GenderDetail_pokemon_species_details_innerTest.cpp"
+#include "GenderPokemonSpeciesTest.cpp"
 
 #include "GenderSummaryTest.cpp"
 
@@ -141,16 +145,6 @@
 
 #include "ItemDetailTest.cpp"
 
-#include "ItemDetail_baby_trigger_forTest.cpp"
-
-#include "ItemDetail_held_by_pokemon_innerTest.cpp"
-
-#include "ItemDetail_held_by_pokemon_inner_version_details_innerTest.cpp"
-
-#include "ItemDetail_machines_innerTest.cpp"
-
-#include "ItemDetail_spritesTest.cpp"
-
 #include "ItemEffectTextTest.cpp"
 
 #include "ItemFlavorTextTest.cpp"
@@ -163,6 +157,8 @@
 
 #include "ItemGameIndexTest.cpp"
 
+#include "ItemMachineTest.cpp"
+
 #include "ItemNameTest.cpp"
 
 #include "ItemPocketDetailTest.cpp"
@@ -170,6 +166,10 @@
 #include "ItemPocketNameTest.cpp"
 
 #include "ItemPocketSummaryTest.cpp"
+
+#include "ItemPriceTest.cpp"
+
+#include "ItemSpritesTest.cpp"
 
 #include "ItemSummaryTest.cpp"
 
@@ -181,17 +181,17 @@
 
 #include "LocationAreaDetailTest.cpp"
 
-#include "LocationAreaDetail_encounter_method_rates_innerTest.cpp"
+#include "LocationAreaEncounterDetailTest.cpp"
 
-#include "LocationAreaDetail_encounter_method_rates_inner_version_details_innerTest.cpp"
+#include "LocationAreaEncounterRateTest.cpp"
 
-#include "LocationAreaDetail_pokemon_encounters_innerTest.cpp"
-
-#include "LocationAreaDetail_pokemon_encounters_inner_version_details_innerTest.cpp"
-
-#include "LocationAreaDetail_pokemon_encounters_inner_version_details_inner_encounter_detailsTest.cpp"
+#include "LocationAreaEncounterVersionDetailTest.cpp"
 
 #include "LocationAreaNameTest.cpp"
+
+#include "LocationAreaPokemonEncounterTest.cpp"
+
+#include "LocationAreaPokemonEncounterVersionTest.cpp"
 
 #include "LocationAreaSummaryTest.cpp"
 
@@ -215,7 +215,9 @@
 
 #include "MoveChangeTest.cpp"
 
-#include "MoveChange_effect_entries_innerTest.cpp"
+#include "MoveComboUsageTest.cpp"
+
+#include "MoveCombosTest.cpp"
 
 #include "MoveDamageClassDescriptionTest.cpp"
 
@@ -227,19 +229,11 @@
 
 #include "MoveDetailTest.cpp"
 
-#include "MoveDetail_contest_combosTest.cpp"
+#include "MoveEffectChangeTest.cpp"
 
-#include "MoveDetail_contest_combos_normalTest.cpp"
+#include "MoveEffectChangeEffectTextTest.cpp"
 
-#include "MoveDetail_effect_changes_innerTest.cpp"
-
-#include "MoveDetail_effect_changes_inner_effect_entries_innerTest.cpp"
-
-#include "MoveDetail_machines_innerTest.cpp"
-
-#include "MoveDetail_machines_inner_machineTest.cpp"
-
-#include "MoveDetail_stat_changes_innerTest.cpp"
+#include "MoveEffectEffectTextTest.cpp"
 
 #include "MoveFlavorTextTest.cpp"
 
@@ -265,7 +259,11 @@
 
 #include "MoveMetaCategorySummaryTest.cpp"
 
+#include "MoveMetaStatChangeTest.cpp"
+
 #include "MoveNameTest.cpp"
+
+#include "MoveStatChangeTest.cpp"
 
 #include "MoveSummaryTest.cpp"
 
@@ -281,9 +279,9 @@
 
 #include "NatureDetailTest.cpp"
 
-#include "NatureDetail_pokeathlon_stat_changes_innerTest.cpp"
-
 #include "NatureNameTest.cpp"
+
+#include "NaturePokeathlonStatTest.cpp"
 
 #include "NatureSummaryTest.cpp"
 
@@ -301,6 +299,8 @@
 
 #include "PaginatedContestTypeSummaryListTest.cpp"
 
+#include "PaginatedCurrencySummaryListTest.cpp"
+
 #include "PaginatedEggGroupSummaryListTest.cpp"
 
 #include "PaginatedEncounterConditionSummaryListTest.cpp"
@@ -312,6 +312,8 @@
 #include "PaginatedEvolutionChainSummaryListTest.cpp"
 
 #include "PaginatedEvolutionTriggerSummaryListTest.cpp"
+
+#include "PaginatedEvolutionVariableSummaryListTest.cpp"
 
 #include "PaginatedGenderSummaryListTest.cpp"
 
@@ -385,19 +387,19 @@
 
 #include "PalParkAreaDetailTest.cpp"
 
-#include "PalParkAreaDetail_pokemon_encounters_innerTest.cpp"
-
 #include "PalParkAreaNameTest.cpp"
 
 #include "PalParkAreaSummaryTest.cpp"
 
+#include "PalParkEncounterTest.cpp"
+
+#include "PokeapiMetaResponseTest.cpp"
+
+#include "PokeathlonStatAffectingNatureTest.cpp"
+
+#include "PokeathlonStatAffectingNaturesTest.cpp"
+
 #include "PokeathlonStatDetailTest.cpp"
-
-#include "PokeathlonStatDetail_affecting_naturesTest.cpp"
-
-#include "PokeathlonStatDetail_affecting_natures_decrease_innerTest.cpp"
-
-#include "PokeathlonStatDetail_affecting_natures_increase_innerTest.cpp"
 
 #include "PokeathlonStatNameTest.cpp"
 
@@ -407,11 +409,13 @@
 
 #include "PokedexDetailTest.cpp"
 
-#include "PokedexDetail_pokemon_entries_innerTest.cpp"
-
 #include "PokedexNameTest.cpp"
 
 #include "PokedexSummaryTest.cpp"
+
+#include "PokemonAbilityTest.cpp"
+
+#include "PokemonAbilityPastTest.cpp"
 
 #include "PokemonColorDetailTest.cpp"
 
@@ -419,35 +423,37 @@
 
 #include "PokemonColorSummaryTest.cpp"
 
+#include "PokemonCriesTest.cpp"
+
 #include "PokemonDetailTest.cpp"
-
-#include "PokemonDetail_abilities_innerTest.cpp"
-
-#include "PokemonDetail_criesTest.cpp"
-
-#include "PokemonDetail_held_itemsTest.cpp"
-
-#include "PokemonDetail_moves_innerTest.cpp"
-
-#include "PokemonDetail_moves_inner_version_group_details_innerTest.cpp"
-
-#include "PokemonDetail_past_abilities_innerTest.cpp"
-
-#include "PokemonDetail_past_types_innerTest.cpp"
-
-#include "PokemonDetail_spritesTest.cpp"
-
-#include "PokemonDetail_types_innerTest.cpp"
 
 #include "PokemonDexEntryTest.cpp"
 
+#include "PokemonDexNumberTest.cpp"
+
+#include "PokemonEncounterDetailResponseTest.cpp"
+
+#include "PokemonEncounterResponseTest.cpp"
+
+#include "PokemonEncounterVersionDetailResponseTest.cpp"
+
+#include "PokemonEvolutionTest.cpp"
+
+#include "PokemonEvolution_known_moveTest.cpp"
+
 #include "PokemonFormDetailTest.cpp"
 
-#include "PokemonFormDetail_form_names_innerTest.cpp"
+#include "PokemonFormFlavorTextTest.cpp"
 
-#include "PokemonFormDetail_spritesTest.cpp"
+#include "PokemonFormNameTest.cpp"
+
+#include "PokemonFormSpritesTest.cpp"
 
 #include "PokemonFormSummaryTest.cpp"
+
+#include "PokemonFormTriggerConditionTest.cpp"
+
+#include "PokemonFormTypeTest.cpp"
 
 #include "PokemonGameIndexTest.cpp"
 
@@ -457,11 +463,27 @@
 
 #include "PokemonHabitatSummaryTest.cpp"
 
+#include "PokemonHeldItemTest.cpp"
+
+#include "PokemonHeldItemSummaryTest.cpp"
+
+#include "PokemonHeldItemVersionTest.cpp"
+
+#include "PokemonMoveTest.cpp"
+
+#include "PokemonMoveVersionGroupTest.cpp"
+
+#include "PokemonPastAbilityTest.cpp"
+
+#include "PokemonPastStatTest.cpp"
+
+#include "PokemonPastTypeTest.cpp"
+
+#include "PokemonShapeAwesomeNameTest.cpp"
+
 #include "PokemonShapeDetailTest.cpp"
 
-#include "PokemonShapeDetail_awesome_names_innerTest.cpp"
-
-#include "PokemonShapeDetail_names_innerTest.cpp"
+#include "PokemonShapeNameTest.cpp"
 
 #include "PokemonShapeSummaryTest.cpp"
 
@@ -469,19 +491,35 @@
 
 #include "PokemonSpeciesDetailTest.cpp"
 
-#include "PokemonSpeciesDetail_genera_innerTest.cpp"
-
-#include "PokemonSpeciesDetail_pal_park_encounters_innerTest.cpp"
-
-#include "PokemonSpeciesDetail_varieties_innerTest.cpp"
-
 #include "PokemonSpeciesFlavorTextTest.cpp"
 
+#include "PokemonSpeciesGenusTest.cpp"
+
+#include "PokemonSpeciesNameTest.cpp"
+
+#include "PokemonSpeciesPalParkEncounterTest.cpp"
+
 #include "PokemonSpeciesSummaryTest.cpp"
+
+#include "PokemonSpeciesVarietyTest.cpp"
+
+#include "PokemonSpritesTest.cpp"
+
+#include "PokemonSpritesOtherTest.cpp"
+
+#include "PokemonSpritesOtherDreamWorldTest.cpp"
+
+#include "PokemonSpritesOtherHomeTest.cpp"
+
+#include "PokemonSpritesOtherOfficialArtworkTest.cpp"
+
+#include "PokemonSpritesOtherShowdownTest.cpp"
 
 #include "PokemonStatTest.cpp"
 
 #include "PokemonSummaryTest.cpp"
+
+#include "PokemonTypeTest.cpp"
 
 #include "RegionDetailTest.cpp"
 
@@ -489,13 +527,11 @@
 
 #include "RegionSummaryTest.cpp"
 
+#include "StatAffectingMovesTest.cpp"
+
+#include "StatAffectingNaturesTest.cpp"
+
 #include "StatDetailTest.cpp"
-
-#include "StatDetail_affecting_movesTest.cpp"
-
-#include "StatDetail_affecting_moves_increase_innerTest.cpp"
-
-#include "StatDetail_affecting_naturesTest.cpp"
 
 #include "StatNameTest.cpp"
 
@@ -509,19 +545,17 @@
 
 #include "TypeDetailTest.cpp"
 
-#include "TypeDetail_damage_relationsTest.cpp"
-
-#include "TypeDetail_past_damage_relations_innerTest.cpp"
-
-#include "TypeDetail_past_damage_relations_inner_damage_relationsTest.cpp"
-
-#include "TypeDetail_pokemon_innerTest.cpp"
-
-#include "TypeDetail_pokemon_inner_pokemonTest.cpp"
-
-#include "TypeDetail_sprites_value_valueTest.cpp"
-
 #include "TypeGameIndexTest.cpp"
+
+#include "TypeGameSpriteTest.cpp"
+
+#include "TypeNameTest.cpp"
+
+#include "TypePastRelationshipsTest.cpp"
+
+#include "TypePokemonTest.cpp"
+
+#include "TypeRelationshipsTest.cpp"
 
 #include "TypeSummaryTest.cpp"
 
@@ -568,21 +602,6 @@ void runTests(){
     
     
     
-    RUN_TEST(test_AbilityDetail_pokemon_inner_is_hidden_is_assigned_from_json);
-    
-    
-    RUN_TEST(test_AbilityDetail_pokemon_inner_slot_is_assigned_from_json);
-    
-    
-    
-    
-    RUN_TEST(test_AbilityDetail_pokemon_inner_pokemon_name_is_assigned_from_json);
-    
-    
-    RUN_TEST(test_AbilityDetail_pokemon_inner_pokemon_url_is_assigned_from_json);
-    
-    
-    
     RUN_TEST(test_AbilityEffectText_effect_is_assigned_from_json);
     
     
@@ -598,6 +617,14 @@ void runTests(){
     
     
     RUN_TEST(test_AbilityName_name_is_assigned_from_json);
+    
+    
+    
+    
+    RUN_TEST(test_AbilityPokemonDetail_is_hidden_is_assigned_from_json);
+    
+    
+    RUN_TEST(test_AbilityPokemonDetail_slot_is_assigned_from_json);
     
     
     
@@ -638,18 +665,6 @@ void runTests(){
     
     
     
-    RUN_TEST(test_BerryDetail_flavors_inner_potency_is_assigned_from_json);
-    
-    
-    
-    
-    RUN_TEST(test_BerryDetail_flavors_inner_flavor_name_is_assigned_from_json);
-    
-    
-    RUN_TEST(test_BerryDetail_flavors_inner_flavor_url_is_assigned_from_json);
-    
-    
-    
     RUN_TEST(test_BerryFirmnessDetail_id_is_assigned_from_json);
     
     
@@ -671,6 +686,11 @@ void runTests(){
     
     
     
+    RUN_TEST(test_BerryFlavorBerryMap_potency_is_assigned_from_json);
+    
+    
+    
+    
     RUN_TEST(test_BerryFlavorDetail_id_is_assigned_from_json);
     
     
@@ -681,15 +701,8 @@ void runTests(){
     
     
     
-    RUN_TEST(test_BerryFlavorDetail_berries_inner_potency_is_assigned_from_json);
+    RUN_TEST(test_BerryFlavorMap_potency_is_assigned_from_json);
     
-    
-    
-    
-    RUN_TEST(test_BerryFlavorDetail_berries_inner_berry_name_is_assigned_from_json);
-    
-    
-    RUN_TEST(test_BerryFlavorDetail_berries_inner_berry_url_is_assigned_from_json);
     
     
     
@@ -781,19 +794,32 @@ void runTests(){
     
     
     
+    RUN_TEST(test_CurrencyDetail_id_is_assigned_from_json);
+    
+    
+    RUN_TEST(test_CurrencyDetail_name_is_assigned_from_json);
+    
+    
+    
+    
+    RUN_TEST(test_CurrencyName_name_is_assigned_from_json);
+    
+    
+    
+    
+    RUN_TEST(test_CurrencySummary_name_is_assigned_from_json);
+    
+    
+    RUN_TEST(test_CurrencySummary_url_is_assigned_from_json);
+    
+    
+    
     RUN_TEST(test_EggGroupDetail_id_is_assigned_from_json);
     
     
     RUN_TEST(test_EggGroupDetail_name_is_assigned_from_json);
     
     
-    
-    
-    
-    RUN_TEST(test_EggGroupDetail_pokemon_species_inner_name_is_assigned_from_json);
-    
-    
-    RUN_TEST(test_EggGroupDetail_pokemon_species_inner_url_is_assigned_from_json);
     
     
     
@@ -874,74 +900,41 @@ void runTests(){
     
     
     
+    RUN_TEST(test_EncounterPokemonDetail_min_perfect_ivs_is_assigned_from_json);
+    
+    
+    RUN_TEST(test_EncounterPokemonDetail_always_shiny_is_assigned_from_json);
+    
+    
+    RUN_TEST(test_EncounterPokemonDetail_never_shiny_is_assigned_from_json);
+    
+    
+    RUN_TEST(test_EncounterPokemonDetail_is_alpha_is_assigned_from_json);
+    
+    
+    
     RUN_TEST(test_EvolutionChainDetail_id_is_assigned_from_json);
     
     
     
     
     
-    
-    
-    RUN_TEST(test_EvolutionChainDetail_chain_is_baby_is_assigned_from_json);
-    
+    RUN_TEST(test_EvolutionChainLink_is_baby_is_assigned_from_json);
     
     
     
-    
-    RUN_TEST(test_EvolutionChainDetail_chain_evolves_to_inner_is_baby_is_assigned_from_json);
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    RUN_TEST(test_EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_min_affection_is_assigned_from_json);
-    
-    
-    RUN_TEST(test_EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_min_beauty_is_assigned_from_json);
-    
-    
-    RUN_TEST(test_EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_min_happiness_is_assigned_from_json);
-    
-    
-    RUN_TEST(test_EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_min_level_is_assigned_from_json);
-    
-    
-    RUN_TEST(test_EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_needs_overworld_rain_is_assigned_from_json);
-    
-    
-    RUN_TEST(test_EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_party_species_is_assigned_from_json);
-    
-    
-    RUN_TEST(test_EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_party_type_is_assigned_from_json);
-    
-    
-    RUN_TEST(test_EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_relative_physical_stats_is_assigned_from_json);
-    
-    
-    RUN_TEST(test_EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_time_of_day_is_assigned_from_json);
-    
-    
-    RUN_TEST(test_EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_trade_species_is_assigned_from_json);
-    
-    
-    
-    RUN_TEST(test_EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_turn_upside_down_is_assigned_from_json);
-    
-    
-    
-    RUN_TEST(test_EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender_name_is_assigned_from_json);
-    
-    
-    RUN_TEST(test_EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender_url_is_assigned_from_json);
     
     
     
     RUN_TEST(test_EvolutionChainSummary_url_is_assigned_from_json);
+    
+    
+    
+    RUN_TEST(test_EvolutionConditionExpression_expression_is_assigned_from_json);
+    
+    
+    RUN_TEST(test_EvolutionConditionExpression_percentage_chance_is_assigned_from_json);
+    
     
     
     
@@ -966,6 +959,42 @@ void runTests(){
     
     
     
+    RUN_TEST(test_EvolutionVariableDescription_description_is_assigned_from_json);
+    
+    
+    
+    
+    RUN_TEST(test_EvolutionVariableDetail_id_is_assigned_from_json);
+    
+    
+    RUN_TEST(test_EvolutionVariableDetail_name_is_assigned_from_json);
+    
+    
+    RUN_TEST(test_EvolutionVariableDetail_symbol_is_assigned_from_json);
+    
+    
+    RUN_TEST(test_EvolutionVariableDetail_data_type_is_assigned_from_json);
+    
+    
+    RUN_TEST(test_EvolutionVariableDetail_source_is_assigned_from_json);
+    
+    
+    
+    
+    
+    
+    RUN_TEST(test_EvolutionVariableName_name_is_assigned_from_json);
+    
+    
+    
+    
+    RUN_TEST(test_EvolutionVariableSummary_name_is_assigned_from_json);
+    
+    
+    RUN_TEST(test_EvolutionVariableSummary_url_is_assigned_from_json);
+    
+    
+    
     RUN_TEST(test_Experience_level_is_assigned_from_json);
     
     
@@ -982,7 +1011,7 @@ void runTests(){
     
     
     
-    RUN_TEST(test_GenderDetail_pokemon_species_details_inner_rate_is_assigned_from_json);
+    RUN_TEST(test_GenderPokemonSpecies_rate_is_assigned_from_json);
     
     
     
@@ -1100,9 +1129,6 @@ void runTests(){
     RUN_TEST(test_ItemDetail_name_is_assigned_from_json);
     
     
-    RUN_TEST(test_ItemDetail_cost_is_assigned_from_json);
-    
-    
     RUN_TEST(test_ItemDetail_fling_power_is_assigned_from_json);
     
     
@@ -1116,26 +1142,6 @@ void runTests(){
     
     
     
-    
-    
-    RUN_TEST(test_ItemDetail_baby_trigger_for_url_is_assigned_from_json);
-    
-    
-    
-    
-    
-    
-    RUN_TEST(test_ItemDetail_held_by_pokemon_inner_version_details_inner_rarity_is_assigned_from_json);
-    
-    
-    
-    
-    RUN_TEST(test_ItemDetail_machines_inner_machine_is_assigned_from_json);
-    
-    
-    
-    
-    RUN_TEST(test_ItemDetail_sprites_r_default_is_assigned_from_json);
     
     
     
@@ -1179,6 +1185,9 @@ void runTests(){
     
     
     
+    
+    
+    
     RUN_TEST(test_ItemName_name_is_assigned_from_json);
     
     
@@ -1202,6 +1211,19 @@ void runTests(){
     
     
     RUN_TEST(test_ItemPocketSummary_url_is_assigned_from_json);
+    
+    
+    
+    RUN_TEST(test_ItemPrice_purchase_price_is_assigned_from_json);
+    
+    
+    RUN_TEST(test_ItemPrice_sell_price_is_assigned_from_json);
+    
+    
+    
+    
+    
+    RUN_TEST(test_ItemSprites_r_default_is_assigned_from_json);
     
     
     
@@ -1255,36 +1277,37 @@ void runTests(){
     
     
     
+    RUN_TEST(test_LocationAreaEncounterDetail_min_level_is_assigned_from_json);
     
     
-    
-    RUN_TEST(test_LocationAreaDetail_encounter_method_rates_inner_version_details_inner_rate_is_assigned_from_json);
-    
+    RUN_TEST(test_LocationAreaEncounterDetail_max_level_is_assigned_from_json);
     
     
-    
-    
-    
-    
-    
-    RUN_TEST(test_LocationAreaDetail_pokemon_encounters_inner_version_details_inner_max_chance_is_assigned_from_json);
+    RUN_TEST(test_LocationAreaEncounterDetail_chance_is_assigned_from_json);
     
     
     
     
-    RUN_TEST(test_LocationAreaDetail_pokemon_encounters_inner_version_details_inner_encounter_details_min_level_is_assigned_from_json);
-    
-    
-    RUN_TEST(test_LocationAreaDetail_pokemon_encounters_inner_version_details_inner_encounter_details_max_level_is_assigned_from_json);
     
     
     
-    RUN_TEST(test_LocationAreaDetail_pokemon_encounters_inner_version_details_inner_encounter_details_chance_is_assigned_from_json);
+    
+    
+    RUN_TEST(test_LocationAreaEncounterVersionDetail_rate_is_assigned_from_json);
     
     
     
     
     RUN_TEST(test_LocationAreaName_name_is_assigned_from_json);
+    
+    
+    
+    
+    
+    
+    
+    
+    RUN_TEST(test_LocationAreaPokemonEncounterVersion_max_chance_is_assigned_from_json);
     
     
     
@@ -1371,10 +1394,8 @@ void runTests(){
     
     
     
-    RUN_TEST(test_MoveChange_effect_entries_inner_effect_is_assigned_from_json);
     
     
-    RUN_TEST(test_MoveChange_effect_entries_inner_short_effect_is_assigned_from_json);
     
     
     
@@ -1448,25 +1469,15 @@ void runTests(){
     
     
     
+    RUN_TEST(test_MoveEffectChangeEffectText_effect_is_assigned_from_json);
     
     
     
     
+    RUN_TEST(test_MoveEffectEffectText_effect_is_assigned_from_json);
     
     
-    RUN_TEST(test_MoveDetail_effect_changes_inner_effect_entries_inner_effect_is_assigned_from_json);
-    
-    
-    
-    
-    
-    
-    
-    RUN_TEST(test_MoveDetail_machines_inner_machine_url_is_assigned_from_json);
-    
-    
-    
-    RUN_TEST(test_MoveDetail_stat_changes_inner_change_is_assigned_from_json);
+    RUN_TEST(test_MoveEffectEffectText_short_effect_is_assigned_from_json);
     
     
     
@@ -1579,7 +1590,17 @@ void runTests(){
     
     
     
+    RUN_TEST(test_MoveMetaStatChange_change_is_assigned_from_json);
+    
+    
+    
+    
     RUN_TEST(test_MoveName_name_is_assigned_from_json);
+    
+    
+    
+    
+    RUN_TEST(test_MoveStatChange_change_is_assigned_from_json);
     
     
     
@@ -1640,13 +1661,12 @@ void runTests(){
     
     
     
-    
-    RUN_TEST(test_NatureDetail_pokeathlon_stat_changes_inner_max_change_is_assigned_from_json);
-    
-    
-    
-    
     RUN_TEST(test_NatureName_name_is_assigned_from_json);
+    
+    
+    
+    
+    RUN_TEST(test_NaturePokeathlonStat_max_change_is_assigned_from_json);
     
     
     
@@ -1735,6 +1755,17 @@ void runTests(){
     
     
     
+    RUN_TEST(test_PaginatedCurrencySummaryList_count_is_assigned_from_json);
+    
+    
+    RUN_TEST(test_PaginatedCurrencySummaryList_next_is_assigned_from_json);
+    
+    
+    RUN_TEST(test_PaginatedCurrencySummaryList_previous_is_assigned_from_json);
+    
+    
+    
+    
     RUN_TEST(test_PaginatedEggGroupSummaryList_count_is_assigned_from_json);
     
     
@@ -1797,6 +1828,17 @@ void runTests(){
     
     
     RUN_TEST(test_PaginatedEvolutionTriggerSummaryList_previous_is_assigned_from_json);
+    
+    
+    
+    
+    RUN_TEST(test_PaginatedEvolutionVariableSummaryList_count_is_assigned_from_json);
+    
+    
+    RUN_TEST(test_PaginatedEvolutionVariableSummaryList_next_is_assigned_from_json);
+    
+    
+    RUN_TEST(test_PaginatedEvolutionVariableSummaryList_previous_is_assigned_from_json);
     
     
     
@@ -2195,14 +2237,6 @@ void runTests(){
     
     
     
-    RUN_TEST(test_PalParkAreaDetail_pokemon_encounters_inner_base_score_is_assigned_from_json);
-    
-    
-    
-    RUN_TEST(test_PalParkAreaDetail_pokemon_encounters_inner_rate_is_assigned_from_json);
-    
-    
-    
     RUN_TEST(test_PalParkAreaName_name_is_assigned_from_json);
     
     
@@ -2215,24 +2249,37 @@ void runTests(){
     
     
     
+    RUN_TEST(test_PalParkEncounter_base_score_is_assigned_from_json);
+    
+    
+    RUN_TEST(test_PalParkEncounter_rate_is_assigned_from_json);
+    
+    
+    
+    
+    RUN_TEST(test_PokeapiMetaResponse_deploy_date_is_assigned_from_json);
+    
+    
+    RUN_TEST(test_PokeapiMetaResponse_hash_is_assigned_from_json);
+    
+    
+    RUN_TEST(test_PokeapiMetaResponse_tag_is_assigned_from_json);
+    
+    
+    
+    RUN_TEST(test_PokeathlonStatAffectingNature_max_change_is_assigned_from_json);
+    
+    
+    
+    
+    
+    
+    
     RUN_TEST(test_PokeathlonStatDetail_id_is_assigned_from_json);
     
     
     RUN_TEST(test_PokeathlonStatDetail_name_is_assigned_from_json);
     
-    
-    
-    
-    
-    
-    
-    
-    RUN_TEST(test_PokeathlonStatDetail_affecting_natures_decrease_inner_max_change_is_assigned_from_json);
-    
-    
-    
-    
-    RUN_TEST(test_PokeathlonStatDetail_affecting_natures_increase_inner_max_change_is_assigned_from_json);
     
     
     
@@ -2269,11 +2316,6 @@ void runTests(){
     
     
     
-    RUN_TEST(test_PokedexDetail_pokemon_entries_inner_entry_number_is_assigned_from_json);
-    
-    
-    
-    
     RUN_TEST(test_PokedexName_name_is_assigned_from_json);
     
     
@@ -2283,6 +2325,22 @@ void runTests(){
     
     
     RUN_TEST(test_PokedexSummary_url_is_assigned_from_json);
+    
+    
+    
+    RUN_TEST(test_PokemonAbility_is_hidden_is_assigned_from_json);
+    
+    
+    RUN_TEST(test_PokemonAbility_slot_is_assigned_from_json);
+    
+    
+    
+    
+    RUN_TEST(test_PokemonAbilityPast_is_hidden_is_assigned_from_json);
+    
+    
+    RUN_TEST(test_PokemonAbilityPast_slot_is_assigned_from_json);
+    
     
     
     
@@ -2304,6 +2362,13 @@ void runTests(){
     
     
     RUN_TEST(test_PokemonColorSummary_url_is_assigned_from_json);
+    
+    
+    
+    RUN_TEST(test_PokemonCries_latest_is_assigned_from_json);
+    
+    
+    RUN_TEST(test_PokemonCries_legacy_is_assigned_from_json);
     
     
     
@@ -2345,49 +2410,103 @@ void runTests(){
     
     
     
-    RUN_TEST(test_PokemonDetail_abilities_inner_is_hidden_is_assigned_from_json);
-    
-    
-    RUN_TEST(test_PokemonDetail_abilities_inner_slot_is_assigned_from_json);
-    
-    
-    
-    RUN_TEST(test_PokemonDetail_cries_latest_is_assigned_from_json);
-    
-    
-    RUN_TEST(test_PokemonDetail_cries_legacy_is_assigned_from_json);
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    RUN_TEST(test_PokemonDetail_moves_inner_version_group_details_inner_level_learned_at_is_assigned_from_json);
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    RUN_TEST(test_PokemonDetail_sprites_front_default_is_assigned_from_json);
-    
-    
-    
-    RUN_TEST(test_PokemonDetail_types_inner_slot_is_assigned_from_json);
-    
-    
-    
-    
     RUN_TEST(test_PokemonDexEntry_entry_number_is_assigned_from_json);
     
+    
+    
+    
+    RUN_TEST(test_PokemonDexNumber_entry_number_is_assigned_from_json);
+    
+    
+    
+    
+    RUN_TEST(test_PokemonEncounterDetailResponse_chance_is_assigned_from_json);
+    
+    
+    
+    RUN_TEST(test_PokemonEncounterDetailResponse_max_level_is_assigned_from_json);
+    
+    
+    
+    RUN_TEST(test_PokemonEncounterDetailResponse_min_level_is_assigned_from_json);
+    
+    
+    
+    
+    
+    
+    
+    RUN_TEST(test_PokemonEncounterVersionDetailResponse_max_chance_is_assigned_from_json);
+    
+    
+    
+    
+    
+    RUN_TEST(test_PokemonEvolution_is_default_is_assigned_from_json);
+    
+    
+    
+    
+    RUN_TEST(test_PokemonEvolution_gender_is_assigned_from_json);
+    
+    
+    
+    
+    
+    
+    RUN_TEST(test_PokemonEvolution_min_level_is_assigned_from_json);
+    
+    
+    RUN_TEST(test_PokemonEvolution_min_happiness_is_assigned_from_json);
+    
+    
+    RUN_TEST(test_PokemonEvolution_min_beauty_is_assigned_from_json);
+    
+    
+    RUN_TEST(test_PokemonEvolution_min_affection_is_assigned_from_json);
+    
+    
+    RUN_TEST(test_PokemonEvolution_near_special_rock_is_assigned_from_json);
+    
+    
+    RUN_TEST(test_PokemonEvolution_needs_multiplayer_is_assigned_from_json);
+    
+    
+    RUN_TEST(test_PokemonEvolution_needs_overworld_rain_is_assigned_from_json);
+    
+    
+    
+    
+    RUN_TEST(test_PokemonEvolution_relative_physical_stats_is_assigned_from_json);
+    
+    
+    RUN_TEST(test_PokemonEvolution_time_of_day_is_assigned_from_json);
+    
+    
+    
+    RUN_TEST(test_PokemonEvolution_turn_upside_down_is_assigned_from_json);
+    
+    
+    
+    
+    
+    
+    RUN_TEST(test_PokemonEvolution_min_move_count_is_assigned_from_json);
+    
+    
+    RUN_TEST(test_PokemonEvolution_min_steps_is_assigned_from_json);
+    
+    
+    RUN_TEST(test_PokemonEvolution_min_damage_taken_is_assigned_from_json);
+    
+    
+    
+    
+    
+    RUN_TEST(test_PokemonEvolution_known_move_name_is_assigned_from_json);
+    
+    
+    RUN_TEST(test_PokemonEvolution_known_move_url_is_assigned_from_json);
     
     
     
@@ -2423,11 +2542,42 @@ void runTests(){
     
     
     
-    RUN_TEST(test_PokemonFormDetail_form_names_inner_name_is_assigned_from_json);
+    
+    RUN_TEST(test_PokemonFormFlavorText_flavor_text_is_assigned_from_json);
     
     
     
-    RUN_TEST(test_PokemonFormDetail_sprites_r_default_is_assigned_from_json);
+    
+    
+    RUN_TEST(test_PokemonFormName_name_is_assigned_from_json);
+    
+    
+    
+    
+    RUN_TEST(test_PokemonFormSprites_front_default_is_assigned_from_json);
+    
+    
+    RUN_TEST(test_PokemonFormSprites_front_shiny_is_assigned_from_json);
+    
+    
+    RUN_TEST(test_PokemonFormSprites_front_female_is_assigned_from_json);
+    
+    
+    RUN_TEST(test_PokemonFormSprites_front_shiny_female_is_assigned_from_json);
+    
+    
+    RUN_TEST(test_PokemonFormSprites_back_default_is_assigned_from_json);
+    
+    
+    RUN_TEST(test_PokemonFormSprites_back_shiny_is_assigned_from_json);
+    
+    
+    RUN_TEST(test_PokemonFormSprites_back_female_is_assigned_from_json);
+    
+    
+    RUN_TEST(test_PokemonFormSprites_back_shiny_female_is_assigned_from_json);
+    
+    
     
     
     
@@ -2435,6 +2585,22 @@ void runTests(){
     
     
     RUN_TEST(test_PokemonFormSummary_url_is_assigned_from_json);
+    
+    
+    
+    RUN_TEST(test_PokemonFormTriggerCondition_trigger_is_assigned_from_json);
+    
+    
+    RUN_TEST(test_PokemonFormTriggerCondition_name_is_assigned_from_json);
+    
+    
+    RUN_TEST(test_PokemonFormTriggerCondition_url_is_assigned_from_json);
+    
+    
+    
+    
+    RUN_TEST(test_PokemonFormType_slot_is_assigned_from_json);
+    
     
     
     
@@ -2464,6 +2630,43 @@ void runTests(){
     
     
     
+    
+    
+    
+    
+    
+    
+    RUN_TEST(test_PokemonHeldItemVersion_rarity_is_assigned_from_json);
+    
+    
+    
+    
+    
+    
+    
+    RUN_TEST(test_PokemonMoveVersionGroup_level_learned_at_is_assigned_from_json);
+    
+    
+    
+    
+    RUN_TEST(test_PokemonMoveVersionGroup_order_is_assigned_from_json);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    RUN_TEST(test_PokemonShapeAwesomeName_awesome_name_is_assigned_from_json);
+    
+    
+    
+    
     RUN_TEST(test_PokemonShapeDetail_id_is_assigned_from_json);
     
     
@@ -2474,15 +2677,8 @@ void runTests(){
     
     
     
-    RUN_TEST(test_PokemonShapeDetail_awesome_names_inner_awesome_name_is_assigned_from_json);
+    RUN_TEST(test_PokemonShapeName_name_is_assigned_from_json);
     
-    
-    
-    
-    RUN_TEST(test_PokemonShapeDetail_names_inner_url_is_assigned_from_json);
-    
-    
-    RUN_TEST(test_PokemonShapeDetail_names_inner_name_is_assigned_from_json);
     
     
     
@@ -2550,26 +2746,26 @@ void runTests(){
     
     
     
-    RUN_TEST(test_PokemonSpeciesDetail_genera_inner_genus_is_assigned_from_json);
-    
-    
-    
-    
-    
-    RUN_TEST(test_PokemonSpeciesDetail_pal_park_encounters_inner_base_score_is_assigned_from_json);
-    
-    
-    RUN_TEST(test_PokemonSpeciesDetail_pal_park_encounters_inner_rate_is_assigned_from_json);
-    
-    
-    
-    RUN_TEST(test_PokemonSpeciesDetail_varieties_inner_is_default_is_assigned_from_json);
-    
-    
-    
-    
     RUN_TEST(test_PokemonSpeciesFlavorText_flavor_text_is_assigned_from_json);
     
+    
+    
+    
+    
+    RUN_TEST(test_PokemonSpeciesGenus_genus_is_assigned_from_json);
+    
+    
+    
+    
+    RUN_TEST(test_PokemonSpeciesName_name_is_assigned_from_json);
+    
+    
+    
+    
+    RUN_TEST(test_PokemonSpeciesPalParkEncounter_base_score_is_assigned_from_json);
+    
+    
+    RUN_TEST(test_PokemonSpeciesPalParkEncounter_rate_is_assigned_from_json);
     
     
     
@@ -2578,6 +2774,96 @@ void runTests(){
     
     
     RUN_TEST(test_PokemonSpeciesSummary_url_is_assigned_from_json);
+    
+    
+    
+    RUN_TEST(test_PokemonSpeciesVariety_is_default_is_assigned_from_json);
+    
+    
+    
+    
+    RUN_TEST(test_PokemonSprites_front_default_is_assigned_from_json);
+    
+    
+    RUN_TEST(test_PokemonSprites_front_shiny_is_assigned_from_json);
+    
+    
+    RUN_TEST(test_PokemonSprites_front_female_is_assigned_from_json);
+    
+    
+    RUN_TEST(test_PokemonSprites_front_shiny_female_is_assigned_from_json);
+    
+    
+    RUN_TEST(test_PokemonSprites_back_default_is_assigned_from_json);
+    
+    
+    RUN_TEST(test_PokemonSprites_back_shiny_is_assigned_from_json);
+    
+    
+    RUN_TEST(test_PokemonSprites_back_female_is_assigned_from_json);
+    
+    
+    RUN_TEST(test_PokemonSprites_back_shiny_female_is_assigned_from_json);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    RUN_TEST(test_PokemonSpritesOtherDreamWorld_front_default_is_assigned_from_json);
+    
+    
+    RUN_TEST(test_PokemonSpritesOtherDreamWorld_front_female_is_assigned_from_json);
+    
+    
+    
+    RUN_TEST(test_PokemonSpritesOtherHome_front_default_is_assigned_from_json);
+    
+    
+    RUN_TEST(test_PokemonSpritesOtherHome_front_female_is_assigned_from_json);
+    
+    
+    RUN_TEST(test_PokemonSpritesOtherHome_front_shiny_is_assigned_from_json);
+    
+    
+    RUN_TEST(test_PokemonSpritesOtherHome_front_shiny_female_is_assigned_from_json);
+    
+    
+    
+    RUN_TEST(test_PokemonSpritesOtherOfficialArtwork_front_default_is_assigned_from_json);
+    
+    
+    RUN_TEST(test_PokemonSpritesOtherOfficialArtwork_front_shiny_is_assigned_from_json);
+    
+    
+    
+    
+    RUN_TEST(test_PokemonSpritesOtherShowdown_front_default_is_assigned_from_json);
+    
+    
+    RUN_TEST(test_PokemonSpritesOtherShowdown_front_female_is_assigned_from_json);
+    
+    
+    RUN_TEST(test_PokemonSpritesOtherShowdown_front_shiny_is_assigned_from_json);
+    
+    
+    RUN_TEST(test_PokemonSpritesOtherShowdown_front_shiny_female_is_assigned_from_json);
+    
+    
+    RUN_TEST(test_PokemonSpritesOtherShowdown_back_default_is_assigned_from_json);
+    
+    
+    RUN_TEST(test_PokemonSpritesOtherShowdown_back_female_is_assigned_from_json);
+    
+    
+    RUN_TEST(test_PokemonSpritesOtherShowdown_back_shiny_is_assigned_from_json);
+    
+    
+    RUN_TEST(test_PokemonSpritesOtherShowdown_back_shiny_female_is_assigned_from_json);
     
     
     
@@ -2593,6 +2879,11 @@ void runTests(){
     
     
     RUN_TEST(test_PokemonSummary_url_is_assigned_from_json);
+    
+    
+    
+    RUN_TEST(test_PokemonType_slot_is_assigned_from_json);
+    
     
     
     
@@ -2620,6 +2911,12 @@ void runTests(){
     
     
     
+    
+    
+    
+    
+    
+    
     RUN_TEST(test_StatDetail_id_is_assigned_from_json);
     
     
@@ -2632,16 +2929,6 @@ void runTests(){
     RUN_TEST(test_StatDetail_is_battle_only_is_assigned_from_json);
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    RUN_TEST(test_StatDetail_affecting_moves_increase_inner_change_is_assigned_from_json);
     
     
     
@@ -2695,40 +2982,34 @@ void runTests(){
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    RUN_TEST(test_TypeDetail_pokemon_inner_slot_is_assigned_from_json);
-    
-    
-    
-    
-    RUN_TEST(test_TypeDetail_pokemon_inner_pokemon_name_is_assigned_from_json);
-    
-    
-    RUN_TEST(test_TypeDetail_pokemon_inner_pokemon_url_is_assigned_from_json);
-    
-    
-    
-    RUN_TEST(test_TypeDetail_sprites_value_value_nameicon_is_assigned_from_json);
-    
-    
-    
     RUN_TEST(test_TypeGameIndex_game_index_is_assigned_from_json);
+    
+    
+    
+    
+    RUN_TEST(test_TypeGameSprite_name_icon_is_assigned_from_json);
+    
+    
+    RUN_TEST(test_TypeGameSprite_symbol_icon_is_assigned_from_json);
+    
+    
+    
+    RUN_TEST(test_TypeName_name_is_assigned_from_json);
+    
+    
+    
+    
+    
+    
+    
+    RUN_TEST(test_TypePokemon_slot_is_assigned_from_json);
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -2809,21 +3090,6 @@ void runTests(){
     
     
     
-    RUN_TEST(test_AbilityDetail_pokemon_inner_is_hidden_is_converted_to_json);
-    
-    
-    RUN_TEST(test_AbilityDetail_pokemon_inner_slot_is_converted_to_json);
-    
-    
-    
-    
-    RUN_TEST(test_AbilityDetail_pokemon_inner_pokemon_name_is_converted_to_json);
-    
-    
-    RUN_TEST(test_AbilityDetail_pokemon_inner_pokemon_url_is_converted_to_json);
-    
-    
-    
     RUN_TEST(test_AbilityEffectText_effect_is_converted_to_json);
     
     
@@ -2839,6 +3105,14 @@ void runTests(){
     
     
     RUN_TEST(test_AbilityName_name_is_converted_to_json);
+    
+    
+    
+    
+    RUN_TEST(test_AbilityPokemonDetail_is_hidden_is_converted_to_json);
+    
+    
+    RUN_TEST(test_AbilityPokemonDetail_slot_is_converted_to_json);
     
     
     
@@ -2879,18 +3153,6 @@ void runTests(){
     
     
     
-    RUN_TEST(test_BerryDetail_flavors_inner_potency_is_converted_to_json);
-    
-    
-    
-    
-    RUN_TEST(test_BerryDetail_flavors_inner_flavor_name_is_converted_to_json);
-    
-    
-    RUN_TEST(test_BerryDetail_flavors_inner_flavor_url_is_converted_to_json);
-    
-    
-    
     RUN_TEST(test_BerryFirmnessDetail_id_is_converted_to_json);
     
     
@@ -2912,6 +3174,11 @@ void runTests(){
     
     
     
+    RUN_TEST(test_BerryFlavorBerryMap_potency_is_converted_to_json);
+    
+    
+    
+    
     RUN_TEST(test_BerryFlavorDetail_id_is_converted_to_json);
     
     
@@ -2922,15 +3189,8 @@ void runTests(){
     
     
     
-    RUN_TEST(test_BerryFlavorDetail_berries_inner_potency_is_converted_to_json);
+    RUN_TEST(test_BerryFlavorMap_potency_is_converted_to_json);
     
-    
-    
-    
-    RUN_TEST(test_BerryFlavorDetail_berries_inner_berry_name_is_converted_to_json);
-    
-    
-    RUN_TEST(test_BerryFlavorDetail_berries_inner_berry_url_is_converted_to_json);
     
     
     
@@ -3022,19 +3282,32 @@ void runTests(){
     
     
     
+    RUN_TEST(test_CurrencyDetail_id_is_converted_to_json);
+    
+    
+    RUN_TEST(test_CurrencyDetail_name_is_converted_to_json);
+    
+    
+    
+    
+    RUN_TEST(test_CurrencyName_name_is_converted_to_json);
+    
+    
+    
+    
+    RUN_TEST(test_CurrencySummary_name_is_converted_to_json);
+    
+    
+    RUN_TEST(test_CurrencySummary_url_is_converted_to_json);
+    
+    
+    
     RUN_TEST(test_EggGroupDetail_id_is_converted_to_json);
     
     
     RUN_TEST(test_EggGroupDetail_name_is_converted_to_json);
     
     
-    
-    
-    
-    RUN_TEST(test_EggGroupDetail_pokemon_species_inner_name_is_converted_to_json);
-    
-    
-    RUN_TEST(test_EggGroupDetail_pokemon_species_inner_url_is_converted_to_json);
     
     
     
@@ -3115,74 +3388,41 @@ void runTests(){
     
     
     
+    RUN_TEST(test_EncounterPokemonDetail_min_perfect_ivs_is_converted_to_json);
+    
+    
+    RUN_TEST(test_EncounterPokemonDetail_always_shiny_is_converted_to_json);
+    
+    
+    RUN_TEST(test_EncounterPokemonDetail_never_shiny_is_converted_to_json);
+    
+    
+    RUN_TEST(test_EncounterPokemonDetail_is_alpha_is_converted_to_json);
+    
+    
+    
     RUN_TEST(test_EvolutionChainDetail_id_is_converted_to_json);
     
     
     
     
     
-    
-    
-    RUN_TEST(test_EvolutionChainDetail_chain_is_baby_is_converted_to_json);
-    
+    RUN_TEST(test_EvolutionChainLink_is_baby_is_converted_to_json);
     
     
     
-    
-    RUN_TEST(test_EvolutionChainDetail_chain_evolves_to_inner_is_baby_is_converted_to_json);
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    RUN_TEST(test_EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_min_affection_is_converted_to_json);
-    
-    
-    RUN_TEST(test_EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_min_beauty_is_converted_to_json);
-    
-    
-    RUN_TEST(test_EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_min_happiness_is_converted_to_json);
-    
-    
-    RUN_TEST(test_EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_min_level_is_converted_to_json);
-    
-    
-    RUN_TEST(test_EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_needs_overworld_rain_is_converted_to_json);
-    
-    
-    RUN_TEST(test_EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_party_species_is_converted_to_json);
-    
-    
-    RUN_TEST(test_EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_party_type_is_converted_to_json);
-    
-    
-    RUN_TEST(test_EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_relative_physical_stats_is_converted_to_json);
-    
-    
-    RUN_TEST(test_EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_time_of_day_is_converted_to_json);
-    
-    
-    RUN_TEST(test_EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_trade_species_is_converted_to_json);
-    
-    
-    
-    RUN_TEST(test_EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_turn_upside_down_is_converted_to_json);
-    
-    
-    
-    RUN_TEST(test_EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender_name_is_converted_to_json);
-    
-    
-    RUN_TEST(test_EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender_url_is_converted_to_json);
     
     
     
     RUN_TEST(test_EvolutionChainSummary_url_is_converted_to_json);
+    
+    
+    
+    RUN_TEST(test_EvolutionConditionExpression_expression_is_converted_to_json);
+    
+    
+    RUN_TEST(test_EvolutionConditionExpression_percentage_chance_is_converted_to_json);
+    
     
     
     
@@ -3207,6 +3447,42 @@ void runTests(){
     
     
     
+    RUN_TEST(test_EvolutionVariableDescription_description_is_converted_to_json);
+    
+    
+    
+    
+    RUN_TEST(test_EvolutionVariableDetail_id_is_converted_to_json);
+    
+    
+    RUN_TEST(test_EvolutionVariableDetail_name_is_converted_to_json);
+    
+    
+    RUN_TEST(test_EvolutionVariableDetail_symbol_is_converted_to_json);
+    
+    
+    RUN_TEST(test_EvolutionVariableDetail_data_type_is_converted_to_json);
+    
+    
+    RUN_TEST(test_EvolutionVariableDetail_source_is_converted_to_json);
+    
+    
+    
+    
+    
+    
+    RUN_TEST(test_EvolutionVariableName_name_is_converted_to_json);
+    
+    
+    
+    
+    RUN_TEST(test_EvolutionVariableSummary_name_is_converted_to_json);
+    
+    
+    RUN_TEST(test_EvolutionVariableSummary_url_is_converted_to_json);
+    
+    
+    
     RUN_TEST(test_Experience_level_is_converted_to_json);
     
     
@@ -3223,7 +3499,7 @@ void runTests(){
     
     
     
-    RUN_TEST(test_GenderDetail_pokemon_species_details_inner_rate_is_converted_to_json);
+    RUN_TEST(test_GenderPokemonSpecies_rate_is_converted_to_json);
     
     
     
@@ -3341,9 +3617,6 @@ void runTests(){
     RUN_TEST(test_ItemDetail_name_is_converted_to_json);
     
     
-    RUN_TEST(test_ItemDetail_cost_is_converted_to_json);
-    
-    
     RUN_TEST(test_ItemDetail_fling_power_is_converted_to_json);
     
     
@@ -3357,26 +3630,6 @@ void runTests(){
     
     
     
-    
-    
-    RUN_TEST(test_ItemDetail_baby_trigger_for_url_is_converted_to_json);
-    
-    
-    
-    
-    
-    
-    RUN_TEST(test_ItemDetail_held_by_pokemon_inner_version_details_inner_rarity_is_converted_to_json);
-    
-    
-    
-    
-    RUN_TEST(test_ItemDetail_machines_inner_machine_is_converted_to_json);
-    
-    
-    
-    
-    RUN_TEST(test_ItemDetail_sprites_r_default_is_converted_to_json);
     
     
     
@@ -3420,6 +3673,9 @@ void runTests(){
     
     
     
+    
+    
+    
     RUN_TEST(test_ItemName_name_is_converted_to_json);
     
     
@@ -3443,6 +3699,19 @@ void runTests(){
     
     
     RUN_TEST(test_ItemPocketSummary_url_is_converted_to_json);
+    
+    
+    
+    RUN_TEST(test_ItemPrice_purchase_price_is_converted_to_json);
+    
+    
+    RUN_TEST(test_ItemPrice_sell_price_is_converted_to_json);
+    
+    
+    
+    
+    
+    RUN_TEST(test_ItemSprites_r_default_is_converted_to_json);
     
     
     
@@ -3496,36 +3765,37 @@ void runTests(){
     
     
     
+    RUN_TEST(test_LocationAreaEncounterDetail_min_level_is_converted_to_json);
     
     
-    
-    RUN_TEST(test_LocationAreaDetail_encounter_method_rates_inner_version_details_inner_rate_is_converted_to_json);
-    
+    RUN_TEST(test_LocationAreaEncounterDetail_max_level_is_converted_to_json);
     
     
-    
-    
-    
-    
-    
-    RUN_TEST(test_LocationAreaDetail_pokemon_encounters_inner_version_details_inner_max_chance_is_converted_to_json);
+    RUN_TEST(test_LocationAreaEncounterDetail_chance_is_converted_to_json);
     
     
     
     
-    RUN_TEST(test_LocationAreaDetail_pokemon_encounters_inner_version_details_inner_encounter_details_min_level_is_converted_to_json);
-    
-    
-    RUN_TEST(test_LocationAreaDetail_pokemon_encounters_inner_version_details_inner_encounter_details_max_level_is_converted_to_json);
     
     
     
-    RUN_TEST(test_LocationAreaDetail_pokemon_encounters_inner_version_details_inner_encounter_details_chance_is_converted_to_json);
+    
+    
+    RUN_TEST(test_LocationAreaEncounterVersionDetail_rate_is_converted_to_json);
     
     
     
     
     RUN_TEST(test_LocationAreaName_name_is_converted_to_json);
+    
+    
+    
+    
+    
+    
+    
+    
+    RUN_TEST(test_LocationAreaPokemonEncounterVersion_max_chance_is_converted_to_json);
     
     
     
@@ -3612,10 +3882,8 @@ void runTests(){
     
     
     
-    RUN_TEST(test_MoveChange_effect_entries_inner_effect_is_converted_to_json);
     
     
-    RUN_TEST(test_MoveChange_effect_entries_inner_short_effect_is_converted_to_json);
     
     
     
@@ -3689,25 +3957,15 @@ void runTests(){
     
     
     
+    RUN_TEST(test_MoveEffectChangeEffectText_effect_is_converted_to_json);
     
     
     
     
+    RUN_TEST(test_MoveEffectEffectText_effect_is_converted_to_json);
     
     
-    RUN_TEST(test_MoveDetail_effect_changes_inner_effect_entries_inner_effect_is_converted_to_json);
-    
-    
-    
-    
-    
-    
-    
-    RUN_TEST(test_MoveDetail_machines_inner_machine_url_is_converted_to_json);
-    
-    
-    
-    RUN_TEST(test_MoveDetail_stat_changes_inner_change_is_converted_to_json);
+    RUN_TEST(test_MoveEffectEffectText_short_effect_is_converted_to_json);
     
     
     
@@ -3820,7 +4078,17 @@ void runTests(){
     
     
     
+    RUN_TEST(test_MoveMetaStatChange_change_is_converted_to_json);
+    
+    
+    
+    
     RUN_TEST(test_MoveName_name_is_converted_to_json);
+    
+    
+    
+    
+    RUN_TEST(test_MoveStatChange_change_is_converted_to_json);
     
     
     
@@ -3881,13 +4149,12 @@ void runTests(){
     
     
     
-    
-    RUN_TEST(test_NatureDetail_pokeathlon_stat_changes_inner_max_change_is_converted_to_json);
-    
-    
-    
-    
     RUN_TEST(test_NatureName_name_is_converted_to_json);
+    
+    
+    
+    
+    RUN_TEST(test_NaturePokeathlonStat_max_change_is_converted_to_json);
     
     
     
@@ -3976,6 +4243,17 @@ void runTests(){
     
     
     
+    RUN_TEST(test_PaginatedCurrencySummaryList_count_is_converted_to_json);
+    
+    
+    RUN_TEST(test_PaginatedCurrencySummaryList_next_is_converted_to_json);
+    
+    
+    RUN_TEST(test_PaginatedCurrencySummaryList_previous_is_converted_to_json);
+    
+    
+    
+    
     RUN_TEST(test_PaginatedEggGroupSummaryList_count_is_converted_to_json);
     
     
@@ -4038,6 +4316,17 @@ void runTests(){
     
     
     RUN_TEST(test_PaginatedEvolutionTriggerSummaryList_previous_is_converted_to_json);
+    
+    
+    
+    
+    RUN_TEST(test_PaginatedEvolutionVariableSummaryList_count_is_converted_to_json);
+    
+    
+    RUN_TEST(test_PaginatedEvolutionVariableSummaryList_next_is_converted_to_json);
+    
+    
+    RUN_TEST(test_PaginatedEvolutionVariableSummaryList_previous_is_converted_to_json);
     
     
     
@@ -4436,14 +4725,6 @@ void runTests(){
     
     
     
-    RUN_TEST(test_PalParkAreaDetail_pokemon_encounters_inner_base_score_is_converted_to_json);
-    
-    
-    
-    RUN_TEST(test_PalParkAreaDetail_pokemon_encounters_inner_rate_is_converted_to_json);
-    
-    
-    
     RUN_TEST(test_PalParkAreaName_name_is_converted_to_json);
     
     
@@ -4456,24 +4737,37 @@ void runTests(){
     
     
     
+    RUN_TEST(test_PalParkEncounter_base_score_is_converted_to_json);
+    
+    
+    RUN_TEST(test_PalParkEncounter_rate_is_converted_to_json);
+    
+    
+    
+    
+    RUN_TEST(test_PokeapiMetaResponse_deploy_date_is_converted_to_json);
+    
+    
+    RUN_TEST(test_PokeapiMetaResponse_hash_is_converted_to_json);
+    
+    
+    RUN_TEST(test_PokeapiMetaResponse_tag_is_converted_to_json);
+    
+    
+    
+    RUN_TEST(test_PokeathlonStatAffectingNature_max_change_is_converted_to_json);
+    
+    
+    
+    
+    
+    
+    
     RUN_TEST(test_PokeathlonStatDetail_id_is_converted_to_json);
     
     
     RUN_TEST(test_PokeathlonStatDetail_name_is_converted_to_json);
     
-    
-    
-    
-    
-    
-    
-    
-    RUN_TEST(test_PokeathlonStatDetail_affecting_natures_decrease_inner_max_change_is_converted_to_json);
-    
-    
-    
-    
-    RUN_TEST(test_PokeathlonStatDetail_affecting_natures_increase_inner_max_change_is_converted_to_json);
     
     
     
@@ -4510,11 +4804,6 @@ void runTests(){
     
     
     
-    RUN_TEST(test_PokedexDetail_pokemon_entries_inner_entry_number_is_converted_to_json);
-    
-    
-    
-    
     RUN_TEST(test_PokedexName_name_is_converted_to_json);
     
     
@@ -4524,6 +4813,22 @@ void runTests(){
     
     
     RUN_TEST(test_PokedexSummary_url_is_converted_to_json);
+    
+    
+    
+    RUN_TEST(test_PokemonAbility_is_hidden_is_converted_to_json);
+    
+    
+    RUN_TEST(test_PokemonAbility_slot_is_converted_to_json);
+    
+    
+    
+    
+    RUN_TEST(test_PokemonAbilityPast_is_hidden_is_converted_to_json);
+    
+    
+    RUN_TEST(test_PokemonAbilityPast_slot_is_converted_to_json);
+    
     
     
     
@@ -4545,6 +4850,13 @@ void runTests(){
     
     
     RUN_TEST(test_PokemonColorSummary_url_is_converted_to_json);
+    
+    
+    
+    RUN_TEST(test_PokemonCries_latest_is_converted_to_json);
+    
+    
+    RUN_TEST(test_PokemonCries_legacy_is_converted_to_json);
     
     
     
@@ -4586,49 +4898,103 @@ void runTests(){
     
     
     
-    RUN_TEST(test_PokemonDetail_abilities_inner_is_hidden_is_converted_to_json);
-    
-    
-    RUN_TEST(test_PokemonDetail_abilities_inner_slot_is_converted_to_json);
-    
-    
-    
-    RUN_TEST(test_PokemonDetail_cries_latest_is_converted_to_json);
-    
-    
-    RUN_TEST(test_PokemonDetail_cries_legacy_is_converted_to_json);
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    RUN_TEST(test_PokemonDetail_moves_inner_version_group_details_inner_level_learned_at_is_converted_to_json);
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    RUN_TEST(test_PokemonDetail_sprites_front_default_is_converted_to_json);
-    
-    
-    
-    RUN_TEST(test_PokemonDetail_types_inner_slot_is_converted_to_json);
-    
-    
-    
-    
     RUN_TEST(test_PokemonDexEntry_entry_number_is_converted_to_json);
     
+    
+    
+    
+    RUN_TEST(test_PokemonDexNumber_entry_number_is_converted_to_json);
+    
+    
+    
+    
+    RUN_TEST(test_PokemonEncounterDetailResponse_chance_is_converted_to_json);
+    
+    
+    
+    RUN_TEST(test_PokemonEncounterDetailResponse_max_level_is_converted_to_json);
+    
+    
+    
+    RUN_TEST(test_PokemonEncounterDetailResponse_min_level_is_converted_to_json);
+    
+    
+    
+    
+    
+    
+    
+    RUN_TEST(test_PokemonEncounterVersionDetailResponse_max_chance_is_converted_to_json);
+    
+    
+    
+    
+    
+    RUN_TEST(test_PokemonEvolution_is_default_is_converted_to_json);
+    
+    
+    
+    
+    RUN_TEST(test_PokemonEvolution_gender_is_converted_to_json);
+    
+    
+    
+    
+    
+    
+    RUN_TEST(test_PokemonEvolution_min_level_is_converted_to_json);
+    
+    
+    RUN_TEST(test_PokemonEvolution_min_happiness_is_converted_to_json);
+    
+    
+    RUN_TEST(test_PokemonEvolution_min_beauty_is_converted_to_json);
+    
+    
+    RUN_TEST(test_PokemonEvolution_min_affection_is_converted_to_json);
+    
+    
+    RUN_TEST(test_PokemonEvolution_near_special_rock_is_converted_to_json);
+    
+    
+    RUN_TEST(test_PokemonEvolution_needs_multiplayer_is_converted_to_json);
+    
+    
+    RUN_TEST(test_PokemonEvolution_needs_overworld_rain_is_converted_to_json);
+    
+    
+    
+    
+    RUN_TEST(test_PokemonEvolution_relative_physical_stats_is_converted_to_json);
+    
+    
+    RUN_TEST(test_PokemonEvolution_time_of_day_is_converted_to_json);
+    
+    
+    
+    RUN_TEST(test_PokemonEvolution_turn_upside_down_is_converted_to_json);
+    
+    
+    
+    
+    
+    
+    RUN_TEST(test_PokemonEvolution_min_move_count_is_converted_to_json);
+    
+    
+    RUN_TEST(test_PokemonEvolution_min_steps_is_converted_to_json);
+    
+    
+    RUN_TEST(test_PokemonEvolution_min_damage_taken_is_converted_to_json);
+    
+    
+    
+    
+    
+    RUN_TEST(test_PokemonEvolution_known_move_name_is_converted_to_json);
+    
+    
+    RUN_TEST(test_PokemonEvolution_known_move_url_is_converted_to_json);
     
     
     
@@ -4664,11 +5030,42 @@ void runTests(){
     
     
     
-    RUN_TEST(test_PokemonFormDetail_form_names_inner_name_is_converted_to_json);
+    
+    RUN_TEST(test_PokemonFormFlavorText_flavor_text_is_converted_to_json);
     
     
     
-    RUN_TEST(test_PokemonFormDetail_sprites_r_default_is_converted_to_json);
+    
+    
+    RUN_TEST(test_PokemonFormName_name_is_converted_to_json);
+    
+    
+    
+    
+    RUN_TEST(test_PokemonFormSprites_front_default_is_converted_to_json);
+    
+    
+    RUN_TEST(test_PokemonFormSprites_front_shiny_is_converted_to_json);
+    
+    
+    RUN_TEST(test_PokemonFormSprites_front_female_is_converted_to_json);
+    
+    
+    RUN_TEST(test_PokemonFormSprites_front_shiny_female_is_converted_to_json);
+    
+    
+    RUN_TEST(test_PokemonFormSprites_back_default_is_converted_to_json);
+    
+    
+    RUN_TEST(test_PokemonFormSprites_back_shiny_is_converted_to_json);
+    
+    
+    RUN_TEST(test_PokemonFormSprites_back_female_is_converted_to_json);
+    
+    
+    RUN_TEST(test_PokemonFormSprites_back_shiny_female_is_converted_to_json);
+    
+    
     
     
     
@@ -4676,6 +5073,22 @@ void runTests(){
     
     
     RUN_TEST(test_PokemonFormSummary_url_is_converted_to_json);
+    
+    
+    
+    RUN_TEST(test_PokemonFormTriggerCondition_trigger_is_converted_to_json);
+    
+    
+    RUN_TEST(test_PokemonFormTriggerCondition_name_is_converted_to_json);
+    
+    
+    RUN_TEST(test_PokemonFormTriggerCondition_url_is_converted_to_json);
+    
+    
+    
+    
+    RUN_TEST(test_PokemonFormType_slot_is_converted_to_json);
+    
     
     
     
@@ -4705,6 +5118,43 @@ void runTests(){
     
     
     
+    
+    
+    
+    
+    
+    
+    RUN_TEST(test_PokemonHeldItemVersion_rarity_is_converted_to_json);
+    
+    
+    
+    
+    
+    
+    
+    RUN_TEST(test_PokemonMoveVersionGroup_level_learned_at_is_converted_to_json);
+    
+    
+    
+    
+    RUN_TEST(test_PokemonMoveVersionGroup_order_is_converted_to_json);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    RUN_TEST(test_PokemonShapeAwesomeName_awesome_name_is_converted_to_json);
+    
+    
+    
+    
     RUN_TEST(test_PokemonShapeDetail_id_is_converted_to_json);
     
     
@@ -4715,15 +5165,8 @@ void runTests(){
     
     
     
-    RUN_TEST(test_PokemonShapeDetail_awesome_names_inner_awesome_name_is_converted_to_json);
+    RUN_TEST(test_PokemonShapeName_name_is_converted_to_json);
     
-    
-    
-    
-    RUN_TEST(test_PokemonShapeDetail_names_inner_url_is_converted_to_json);
-    
-    
-    RUN_TEST(test_PokemonShapeDetail_names_inner_name_is_converted_to_json);
     
     
     
@@ -4791,26 +5234,26 @@ void runTests(){
     
     
     
-    RUN_TEST(test_PokemonSpeciesDetail_genera_inner_genus_is_converted_to_json);
-    
-    
-    
-    
-    
-    RUN_TEST(test_PokemonSpeciesDetail_pal_park_encounters_inner_base_score_is_converted_to_json);
-    
-    
-    RUN_TEST(test_PokemonSpeciesDetail_pal_park_encounters_inner_rate_is_converted_to_json);
-    
-    
-    
-    RUN_TEST(test_PokemonSpeciesDetail_varieties_inner_is_default_is_converted_to_json);
-    
-    
-    
-    
     RUN_TEST(test_PokemonSpeciesFlavorText_flavor_text_is_converted_to_json);
     
+    
+    
+    
+    
+    RUN_TEST(test_PokemonSpeciesGenus_genus_is_converted_to_json);
+    
+    
+    
+    
+    RUN_TEST(test_PokemonSpeciesName_name_is_converted_to_json);
+    
+    
+    
+    
+    RUN_TEST(test_PokemonSpeciesPalParkEncounter_base_score_is_converted_to_json);
+    
+    
+    RUN_TEST(test_PokemonSpeciesPalParkEncounter_rate_is_converted_to_json);
     
     
     
@@ -4819,6 +5262,96 @@ void runTests(){
     
     
     RUN_TEST(test_PokemonSpeciesSummary_url_is_converted_to_json);
+    
+    
+    
+    RUN_TEST(test_PokemonSpeciesVariety_is_default_is_converted_to_json);
+    
+    
+    
+    
+    RUN_TEST(test_PokemonSprites_front_default_is_converted_to_json);
+    
+    
+    RUN_TEST(test_PokemonSprites_front_shiny_is_converted_to_json);
+    
+    
+    RUN_TEST(test_PokemonSprites_front_female_is_converted_to_json);
+    
+    
+    RUN_TEST(test_PokemonSprites_front_shiny_female_is_converted_to_json);
+    
+    
+    RUN_TEST(test_PokemonSprites_back_default_is_converted_to_json);
+    
+    
+    RUN_TEST(test_PokemonSprites_back_shiny_is_converted_to_json);
+    
+    
+    RUN_TEST(test_PokemonSprites_back_female_is_converted_to_json);
+    
+    
+    RUN_TEST(test_PokemonSprites_back_shiny_female_is_converted_to_json);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    RUN_TEST(test_PokemonSpritesOtherDreamWorld_front_default_is_converted_to_json);
+    
+    
+    RUN_TEST(test_PokemonSpritesOtherDreamWorld_front_female_is_converted_to_json);
+    
+    
+    
+    RUN_TEST(test_PokemonSpritesOtherHome_front_default_is_converted_to_json);
+    
+    
+    RUN_TEST(test_PokemonSpritesOtherHome_front_female_is_converted_to_json);
+    
+    
+    RUN_TEST(test_PokemonSpritesOtherHome_front_shiny_is_converted_to_json);
+    
+    
+    RUN_TEST(test_PokemonSpritesOtherHome_front_shiny_female_is_converted_to_json);
+    
+    
+    
+    RUN_TEST(test_PokemonSpritesOtherOfficialArtwork_front_default_is_converted_to_json);
+    
+    
+    RUN_TEST(test_PokemonSpritesOtherOfficialArtwork_front_shiny_is_converted_to_json);
+    
+    
+    
+    
+    RUN_TEST(test_PokemonSpritesOtherShowdown_front_default_is_converted_to_json);
+    
+    
+    RUN_TEST(test_PokemonSpritesOtherShowdown_front_female_is_converted_to_json);
+    
+    
+    RUN_TEST(test_PokemonSpritesOtherShowdown_front_shiny_is_converted_to_json);
+    
+    
+    RUN_TEST(test_PokemonSpritesOtherShowdown_front_shiny_female_is_converted_to_json);
+    
+    
+    RUN_TEST(test_PokemonSpritesOtherShowdown_back_default_is_converted_to_json);
+    
+    
+    RUN_TEST(test_PokemonSpritesOtherShowdown_back_female_is_converted_to_json);
+    
+    
+    RUN_TEST(test_PokemonSpritesOtherShowdown_back_shiny_is_converted_to_json);
+    
+    
+    RUN_TEST(test_PokemonSpritesOtherShowdown_back_shiny_female_is_converted_to_json);
     
     
     
@@ -4834,6 +5367,11 @@ void runTests(){
     
     
     RUN_TEST(test_PokemonSummary_url_is_converted_to_json);
+    
+    
+    
+    RUN_TEST(test_PokemonType_slot_is_converted_to_json);
+    
     
     
     
@@ -4861,6 +5399,12 @@ void runTests(){
     
     
     
+    
+    
+    
+    
+    
+    
     RUN_TEST(test_StatDetail_id_is_converted_to_json);
     
     
@@ -4873,16 +5417,6 @@ void runTests(){
     RUN_TEST(test_StatDetail_is_battle_only_is_converted_to_json);
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    RUN_TEST(test_StatDetail_affecting_moves_increase_inner_change_is_converted_to_json);
     
     
     
@@ -4936,40 +5470,34 @@ void runTests(){
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    RUN_TEST(test_TypeDetail_pokemon_inner_slot_is_converted_to_json);
-    
-    
-    
-    
-    RUN_TEST(test_TypeDetail_pokemon_inner_pokemon_name_is_converted_to_json);
-    
-    
-    RUN_TEST(test_TypeDetail_pokemon_inner_pokemon_url_is_converted_to_json);
-    
-    
-    
-    RUN_TEST(test_TypeDetail_sprites_value_value_nameicon_is_converted_to_json);
-    
-    
-    
     RUN_TEST(test_TypeGameIndex_game_index_is_converted_to_json);
+    
+    
+    
+    
+    RUN_TEST(test_TypeGameSprite_name_icon_is_converted_to_json);
+    
+    
+    RUN_TEST(test_TypeGameSprite_symbol_icon_is_converted_to_json);
+    
+    
+    
+    RUN_TEST(test_TypeName_name_is_converted_to_json);
+    
+    
+    
+    
+    
+    
+    
+    RUN_TEST(test_TypePokemon_slot_is_converted_to_json);
+    
+    
+    
+    
+    
+    
+    
     
     
     

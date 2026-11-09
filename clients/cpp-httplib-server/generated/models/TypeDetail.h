@@ -7,18 +7,19 @@
 #pragma once
 // System headers
 #include <nlohmann/json.hpp>
+#include <optional>
 #include <cstdint>
 #include <string>
 #include <vector>
-#include "AbilityName.h"
 #include "GenerationSummary.h"
 #include "MoveDamageClassSummary.h"
 #include "MoveSummary.h"
-#include "TypeDetailDamageRelations.h"
-#include "TypeDetailPastDamageRelationsInner.h"
-#include "TypeDetailPokemonInner.h"
-#include "TypeDetailSpritesValueValue.h"
 #include "TypeGameIndex.h"
+#include "TypeGameSprite.h"
+#include "TypeName.h"
+#include "TypePastRelationships.h"
+#include "TypePokemon.h"
+#include "TypeRelationships.h"
 
 
 
@@ -37,24 +38,24 @@ public:
     void setId(const int& id);
     [[nodiscard]] std::string getName() const;
     void setName(const std::string& name);
-    [[nodiscard]] TypeDetailDamageRelations getDamageRelations() const;
-    void setDamageRelations(const TypeDetailDamageRelations& damageRelations);
-    [[nodiscard]] std::vector<TypeDetail_past_damage_relations_inner> getPastDamageRelations() const;
-    void setPastDamageRelations(const std::vector<TypeDetail_past_damage_relations_inner>& pastDamageRelations);
+    [[nodiscard]] TypeRelationships getDamageRelations() const;
+    void setDamageRelations(const TypeRelationships& damageRelations);
+    [[nodiscard]] std::vector<TypePastRelationships> getPastDamageRelations() const;
+    void setPastDamageRelations(const std::vector<TypePastRelationships>& pastDamageRelations);
     [[nodiscard]] std::vector<TypeGameIndex> getGameIndices() const;
     void setGameIndices(const std::vector<TypeGameIndex>& gameIndices);
     [[nodiscard]] GenerationSummary getGeneration() const;
     void setGeneration(const GenerationSummary& generation);
     [[nodiscard]] MoveDamageClassSummary getMoveDamageClass() const;
     void setMoveDamageClass(const MoveDamageClassSummary& moveDamageClass);
-    [[nodiscard]] std::vector<AbilityName> getNames() const;
-    void setNames(const std::vector<AbilityName>& names);
-    [[nodiscard]] std::vector<TypeDetail_pokemon_inner> getPokemon() const;
-    void setPokemon(const std::vector<TypeDetail_pokemon_inner>& pokemon);
+    [[nodiscard]] std::vector<TypeName> getNames() const;
+    void setNames(const std::vector<TypeName>& names);
+    [[nodiscard]] std::vector<TypePokemon> getPokemon() const;
+    void setPokemon(const std::vector<TypePokemon>& pokemon);
     [[nodiscard]] std::vector<MoveSummary> getMoves() const;
     void setMoves(const std::vector<MoveSummary>& moves);
-    [[nodiscard]] std::map<std::string, std::map<std::string, TypeDetail_sprites_value_value>> getSprites() const;
-    void setSprites(const std::map<std::string, std::map<std::string, TypeDetail_sprites_value_value>>& sprites);
+    [[nodiscard]] std::map<std::string, std::map<std::string, TypeGameSprite>> getSprites() const;
+    void setSprites(const std::map<std::string, std::map<std::string, TypeGameSprite>>& sprites);
 
 
     // JSON serialization using NLOHMANN INTRUSIVE macro (must be inside class to access private members)
@@ -64,15 +65,15 @@ public:
 private:
     int id;
     std::string name;
-    TypeDetailDamageRelations damageRelations;
-    std::vector<TypeDetail_past_damage_relations_inner> pastDamageRelations;
+    TypeRelationships damageRelations;
+    std::vector<TypePastRelationships> pastDamageRelations;
     std::vector<TypeGameIndex> gameIndices;
     GenerationSummary generation;
     MoveDamageClassSummary moveDamageClass;
-    std::vector<AbilityName> names;
-    std::vector<TypeDetail_pokemon_inner> pokemon;
+    std::vector<TypeName> names;
+    std::vector<TypePokemon> pokemon;
     std::vector<MoveSummary> moves;
-    std::map<std::string, std::map<std::string, TypeDetail_sprites_value_value>> sprites;
+    std::map<std::string, std::map<std::string, TypeGameSprite>> sprites;
 };
 
 

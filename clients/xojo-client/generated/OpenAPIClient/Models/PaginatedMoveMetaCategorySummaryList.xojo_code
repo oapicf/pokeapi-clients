@@ -2,21 +2,33 @@
 Protected Class PaginatedMoveMetaCategorySummaryList
 
 	#tag Property, Flags = &h0
-		count As Xoson.O.OptionalInteger
+		#tag Note
+			The total number of resources available from this API.
+		#tag EndNote
+		count As Integer
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The URL for the next page in the list, or null if there is no next page.
+		#tag EndNote
 		Escapednext As Xoson.O.OptionalString
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The URL for the previous page in the list, or null if there is no previous page.
+		#tag EndNote
 		previous As Xoson.O.OptionalString
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			A list of API resources on this page.
+		#tag EndNote
 		results() As OpenAPIClient.Models.MoveMetaCategorySummary
 	#tag EndProperty
 

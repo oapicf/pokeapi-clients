@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**version_group** | [**VersionGroupSummary**](VersionGroupSummary.md) |  | [default to undefined]
-**effect_entries** | [**Array&lt;AbilityChangeEffectText&gt;**](AbilityChangeEffectText.md) |  | [readonly] [default to undefined]
+**version_group** | [**VersionGroupSummary**](VersionGroupSummary.md) | The version group in which the previous effect of this ability originated. | [default to undefined]
+**effect_entries** | [**Array&lt;AbilityChangeEffectText&gt;**](AbilityChangeEffectText.md) | The previous effect of this ability listed in different languages. | [readonly] [default to undefined]
 
 ## Example
 

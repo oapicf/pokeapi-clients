@@ -15,7 +15,7 @@ import io.swagger.annotations.ApiModelProperty;
  * AbilityEffectText
  */
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-10-25T05:48:09.645019047Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-11-09T13:49:28.343088631Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class AbilityEffectText   {
   @JsonProperty("effect")
   private String effect;
@@ -32,10 +32,10 @@ public class AbilityEffectText   {
   }
 
   /**
-   * Get effect
+   * The localized effect text for an API resource in a specific language.
    * @return effect
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The localized effect text for an API resource in a specific language.")
   public String getEffect() {
     return effect;
   }
@@ -50,10 +50,10 @@ public class AbilityEffectText   {
   }
 
   /**
-   * Get shortEffect
+   * The localized effect text in brief.
    * @return shortEffect
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The localized effect text in brief.")
   public String getShortEffect() {
     return shortEffect;
   }
@@ -68,10 +68,10 @@ public class AbilityEffectText   {
   }
 
   /**
-   * Get language
+   * The language this effect is in.
    * @return language
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The language this effect is in.")
   public LanguageSummary getLanguage() {
     return language;
   }

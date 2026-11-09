@@ -10,6 +10,7 @@ class_name PokemonGameIndex
 # PokemonGameIndex Model
 
 
+# The internal id of an API resource within game data.
 # Required: True
 # isArray: false
 @export var gameUnderscoreindex: int:
@@ -18,6 +19,7 @@ class_name PokemonGameIndex
 		gameUnderscoreindex = value
 var __gameUnderscoreindex__was__set := false
 
+# The version relevent to this game index.
 # Required: True
 # isArray: false
 @export var version: VersionSummary:

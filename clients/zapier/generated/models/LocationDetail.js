@@ -10,13 +10,13 @@ module.exports = {
         return [
             {
                 key: `${keyPrefix}id`,
-                label: `[${labelPrefix}id]`,
+                label: `The identifier for this resource. - [${labelPrefix}id]`,
                 required: true,
                 type: 'integer',
             },
             {
                 key: `${keyPrefix}name`,
-                label: `[${labelPrefix}name]`,
+                label: `The name for this resource. - [${labelPrefix}name]`,
                 required: true,
                 type: 'string',
             },

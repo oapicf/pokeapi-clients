@@ -19,13 +19,17 @@ class PalParkAreaDetail {
     this.pokemonEncounters = const [],
   });
 
+  /// The identifier for this resource.
   int id;
 
+  /// The name for this resource.
   String name;
 
+  /// The name of this resource listed in different languages.
   List<PalParkAreaName> names;
 
-  List<PalParkAreaDetailPokemonEncountersInner> pokemonEncounters;
+  /// A list of Pokémon encountered in thi pal park area along with details.
+  List<PalParkEncounter> pokemonEncounters;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is PalParkAreaDetail &&
@@ -80,7 +84,7 @@ class PalParkAreaDetail {
         id: mapValueOfType<int>(json, r'id')!,
         name: mapValueOfType<String>(json, r'name')!,
         names: PalParkAreaName.listFromJson(json[r'names']),
-        pokemonEncounters: PalParkAreaDetailPokemonEncountersInner.listFromJson(json[r'pokemon_encounters']),
+        pokemonEncounters: PalParkEncounter.listFromJson(json[r'pokemon_encounters']),
       );
     }
     return null;

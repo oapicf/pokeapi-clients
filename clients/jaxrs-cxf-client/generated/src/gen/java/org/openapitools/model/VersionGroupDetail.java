@@ -4,8 +4,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
-import org.openapitools.model.AbilityDetailPokemonInnerPokemon;
 import org.openapitools.model.GenerationSummary;
+import org.openapitools.model.MoveLearnMethodSummary;
+import org.openapitools.model.PokedexSummary;
+import org.openapitools.model.RegionSummary;
 import org.openapitools.model.VersionSummary;
 
 import io.swagger.annotations.ApiModelProperty;
@@ -15,39 +17,63 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class VersionGroupDetail  {
   
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The identifier for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
 
   private Integer id;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The name for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The name for this resource.")
 
   private String name;
 
-  @ApiModelProperty(value = "")
+ /**
+  * Order for sorting. Almost by date of release, except similar versions are grouped together.
+  */
+  @ApiModelProperty(value = "Order for sorting. Almost by date of release, except similar versions are grouped together.")
 
   private Integer order;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The generation this version was introduced in.
+  */
+  @ApiModelProperty(required = true, value = "The generation this version was introduced in.")
 
   private GenerationSummary generation;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * A list of methods in which Pokémon can learn moves in this version group.
+  */
+  @ApiModelProperty(required = true, value = "A list of methods in which Pokémon can learn moves in this version group.")
 
-  private List<AbilityDetailPokemonInnerPokemon> moveLearnMethods = new ArrayList<>();
+  private List<MoveLearnMethodSummary> moveLearnMethods = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * A list of Pokédexes introduces in this version group.
+  */
+  @ApiModelProperty(required = true, value = "A list of Pokédexes introduces in this version group.")
 
-  private List<AbilityDetailPokemonInnerPokemon> pokedexes = new ArrayList<>();
+  private List<PokedexSummary> pokedexes = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * A list of regions that can be visited in this version group.
+  */
+  @ApiModelProperty(required = true, value = "A list of regions that can be visited in this version group.")
 
-  private List<AbilityDetailPokemonInnerPokemon> regions = new ArrayList<>();
+  private List<RegionSummary> regions = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The versions this version group owns.
+  */
+  @ApiModelProperty(required = true, value = "The versions this version group owns.")
 
   private List<VersionSummary> versions = new ArrayList<>();
  /**
-   * Get id
+   * The identifier for this resource.
    * @return id
   **/
   @JsonProperty("id")
@@ -57,7 +83,7 @@ public class VersionGroupDetail  {
 
 
  /**
-   * Get name
+   * The name for this resource.
    * @return name
   **/
   @JsonProperty("name")
@@ -75,7 +101,9 @@ public class VersionGroupDetail  {
   }
 
  /**
-   * Get order
+   * Order for sorting. Almost by date of release, except similar versions are grouped together.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return order
   **/
   @JsonProperty("order")
@@ -93,7 +121,7 @@ public class VersionGroupDetail  {
   }
 
  /**
-   * Get generation
+   * The generation this version was introduced in.
    * @return generation
   **/
   @JsonProperty("generation")
@@ -111,37 +139,37 @@ public class VersionGroupDetail  {
   }
 
  /**
-   * Get moveLearnMethods
+   * A list of methods in which Pokémon can learn moves in this version group.
    * @return moveLearnMethods
   **/
   @JsonProperty("move_learn_methods")
-  public List<AbilityDetailPokemonInnerPokemon> getMoveLearnMethods() {
+  public List<MoveLearnMethodSummary> getMoveLearnMethods() {
     return moveLearnMethods;
   }
 
 
  /**
-   * Get pokedexes
+   * A list of Pokédexes introduces in this version group.
    * @return pokedexes
   **/
   @JsonProperty("pokedexes")
-  public List<AbilityDetailPokemonInnerPokemon> getPokedexes() {
+  public List<PokedexSummary> getPokedexes() {
     return pokedexes;
   }
 
 
  /**
-   * Get regions
+   * A list of regions that can be visited in this version group.
    * @return regions
   **/
   @JsonProperty("regions")
-  public List<AbilityDetailPokemonInnerPokemon> getRegions() {
+  public List<RegionSummary> getRegions() {
     return regions;
   }
 
 
  /**
-   * Get versions
+   * The versions this version group owns.
    * @return versions
   **/
   @JsonProperty("versions")

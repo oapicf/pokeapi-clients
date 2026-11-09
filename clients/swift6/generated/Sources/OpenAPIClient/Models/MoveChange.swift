@@ -9,15 +9,25 @@ import Foundation
 
 public struct MoveChange: Sendable, Codable, Hashable {
 
+    public static let accuracyRule = NumericRule<Int>(minimum: -2147483648, exclusiveMinimum: false, maximum: 2147483647, exclusiveMaximum: false, multipleOf: nil)
+    public static let powerRule = NumericRule<Int>(minimum: -2147483648, exclusiveMinimum: false, maximum: 2147483647, exclusiveMaximum: false, multipleOf: nil)
+    public static let ppRule = NumericRule<Int>(minimum: -2147483648, exclusiveMinimum: false, maximum: 2147483647, exclusiveMaximum: false, multipleOf: nil)
+    /** The percent value of how likely this move is to be successful. */
     public var accuracy: Int?
+    /** The base power before the listed version group, or null if power did not change. */
     public var power: Int?
+    /** Power points. The number of times this move can be used. */
     public var pp: Int?
-    public var effectChance: Int
-    public var effectEntries: [MoveChangeEffectEntriesInner]
-    public var type: TypeSummary
+    /** The percent value of how likely it is this moves effect will take effect. */
+    public var effectChance: Int?
+    /** The effect of this move listed in different languages. */
+    public var effectEntries: [MoveEffectEffectText]
+    /** The elemental type of this move. */
+    public var type: TypeSummary?
+    /** The version group in which these move stat values were in effect. */
     public var versionGroup: VersionGroupSummary
 
-    public init(accuracy: Int? = nil, power: Int? = nil, pp: Int? = nil, effectChance: Int, effectEntries: [MoveChangeEffectEntriesInner], type: TypeSummary, versionGroup: VersionGroupSummary) {
+    public init(accuracy: Int? = nil, power: Int? = nil, pp: Int? = nil, effectChance: Int?, effectEntries: [MoveEffectEffectText], type: TypeSummary?, versionGroup: VersionGroupSummary) {
         self.accuracy = accuracy
         self.power = power
         self.pp = pp

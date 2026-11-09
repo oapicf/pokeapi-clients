@@ -12,11 +12,16 @@ import org.joda.time.DateTime
 import MoveTargetDetail._
 
 case class MoveTargetDetail (
+  /* The identifier for this resource. */
   id: Integer,
-name: String,
-descriptions: List[MoveTargetDescription],
-moves: List[MoveSummary],
-names: List[MoveTargetName])
+/* The name for this resource. */
+  name: String,
+/* The description of this resource listed in different languages. */
+  descriptions: List[MoveTargetDescription],
+/* A list of moves that that are directed at this target. */
+  moves: List[MoveSummary],
+/* The name of this resource listed in different languages. */
+  names: List[MoveTargetName])
 
 object MoveTargetDetail {
   import DateTimeCodecs._

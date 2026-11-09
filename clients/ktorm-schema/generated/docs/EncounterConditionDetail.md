@@ -5,10 +5,10 @@
 ## Properties
 Name | Mapping | SQL Type | Default | Type | Description | Notes
 ---- | ------- | -------- | ------- | ---- | ----------- | -----
-**id** | id | int NOT NULL PRIMARY KEY AUTOINCREMENT |  | **kotlin.Int** |  |  [readonly]
-**name** | name | text NOT NULL |  | **kotlin.String** |  | 
-**propertyValues** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;EncounterConditionValueSummary&gt;**](EncounterConditionValueSummary.md) |  |  [readonly]
-**names** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;EncounterConditionName&gt;**](EncounterConditionName.md) |  |  [readonly]
+**id** | id | int NOT NULL PRIMARY KEY AUTOINCREMENT |  | **kotlin.Int** | The identifier for this resource. |  [readonly]
+**name** | name | text NOT NULL |  | **kotlin.String** | The name for this resource. | 
+**propertyValues** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;EncounterConditionValueSummary&gt;**](EncounterConditionValueSummary.md) | A list of possible values for this encounter condition. |  [readonly]
+**names** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;EncounterConditionName&gt;**](EncounterConditionName.md) | The name of this resource listed in different languages. |  [readonly]
 
 
 

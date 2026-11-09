@@ -6,10 +6,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.model.AbilityChange;
-import org.openapitools.model.AbilityDetailPokemonInner;
 import org.openapitools.model.AbilityEffectText;
 import org.openapitools.model.AbilityFlavorText;
 import org.openapitools.model.AbilityName;
+import org.openapitools.model.AbilityPokemonDetail;
 import org.openapitools.model.GenerationSummary;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
@@ -25,7 +25,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("AbilityDetail")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-11-09T13:50:06.168269698Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class AbilityDetail   {
   private Integer id;
   private String name;
@@ -35,7 +35,7 @@ public class AbilityDetail   {
   private List<@Valid AbilityEffectText> effectEntries = new ArrayList<>();
   private List<@Valid AbilityChange> effectChanges = new ArrayList<>();
   private List<@Valid AbilityFlavorText> flavorTextEntries = new ArrayList<>();
-  private List<@Valid AbilityDetailPokemonInner> pokemon = new ArrayList<>();
+  private List<@Valid AbilityPokemonDetail> pokemon = new ArrayList<>();
 
   public AbilityDetail() {
   }
@@ -49,7 +49,7 @@ public class AbilityDetail   {
     @JsonProperty(required = true, value = "effect_entries") List<@Valid AbilityEffectText> effectEntries,
     @JsonProperty(required = true, value = "effect_changes") List<@Valid AbilityChange> effectChanges,
     @JsonProperty(required = true, value = "flavor_text_entries") List<@Valid AbilityFlavorText> flavorTextEntries,
-    @JsonProperty(required = true, value = "pokemon") List<@Valid AbilityDetailPokemonInner> pokemon
+    @JsonProperty(required = true, value = "pokemon") List<@Valid AbilityPokemonDetail> pokemon
   ) {
     this.id = id;
     this.name = name;
@@ -62,6 +62,7 @@ public class AbilityDetail   {
   }
 
   /**
+   * The identifier for this resource.
    **/
   public AbilityDetail id(Integer id) {
     this.id = id;
@@ -69,7 +70,7 @@ public class AbilityDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   @JsonProperty(required = true, value = "id")
   public Integer getId() {
     return id;
@@ -81,6 +82,7 @@ public class AbilityDetail   {
   }
 
   /**
+   * The name for this resource.
    **/
   public AbilityDetail name(String name) {
     this.name = name;
@@ -88,9 +90,9 @@ public class AbilityDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   @JsonProperty(required = true, value = "name")
-  @NotNull  @Size(max=100)public String getName() {
+  @NotNull  @Size(max=200)public String getName() {
     return name;
   }
 
@@ -100,6 +102,7 @@ public class AbilityDetail   {
   }
 
   /**
+   * Whether or not this ability originated in the main series of the video games.
    **/
   public AbilityDetail isMainSeries(Boolean isMainSeries) {
     this.isMainSeries = isMainSeries;
@@ -107,7 +110,7 @@ public class AbilityDetail   {
   }
 
   
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Whether or not this ability originated in the main series of the video games.")
   @JsonProperty("is_main_series")
   public Boolean getIsMainSeries() {
     return isMainSeries;
@@ -119,6 +122,7 @@ public class AbilityDetail   {
   }
 
   /**
+   * The generation this ability originated in.
    **/
   public AbilityDetail generation(GenerationSummary generation) {
     this.generation = generation;
@@ -126,7 +130,7 @@ public class AbilityDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The generation this ability originated in.")
   @JsonProperty(required = true, value = "generation")
   @NotNull @Valid public GenerationSummary getGeneration() {
     return generation;
@@ -138,6 +142,7 @@ public class AbilityDetail   {
   }
 
   /**
+   * The name of this resource listed in different languages.
    **/
   public AbilityDetail names(List<@Valid AbilityName> names) {
     this.names = names;
@@ -145,7 +150,7 @@ public class AbilityDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
   @JsonProperty(required = true, value = "names")
   public List<@Valid AbilityName> getNames() {
     return names;
@@ -173,6 +178,7 @@ public class AbilityDetail   {
     return this;
   }
   /**
+   * The effect of this ability listed in different languages.
    **/
   public AbilityDetail effectEntries(List<@Valid AbilityEffectText> effectEntries) {
     this.effectEntries = effectEntries;
@@ -180,7 +186,7 @@ public class AbilityDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The effect of this ability listed in different languages.")
   @JsonProperty(required = true, value = "effect_entries")
   public List<@Valid AbilityEffectText> getEffectEntries() {
     return effectEntries;
@@ -208,6 +214,7 @@ public class AbilityDetail   {
     return this;
   }
   /**
+   * The list of previous effects this ability has had across version groups.
    **/
   public AbilityDetail effectChanges(List<@Valid AbilityChange> effectChanges) {
     this.effectChanges = effectChanges;
@@ -215,7 +222,7 @@ public class AbilityDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The list of previous effects this ability has had across version groups.")
   @JsonProperty(required = true, value = "effect_changes")
   public List<@Valid AbilityChange> getEffectChanges() {
     return effectChanges;
@@ -243,6 +250,7 @@ public class AbilityDetail   {
     return this;
   }
   /**
+   * The flavor text of this ability listed in different languages.
    **/
   public AbilityDetail flavorTextEntries(List<@Valid AbilityFlavorText> flavorTextEntries) {
     this.flavorTextEntries = flavorTextEntries;
@@ -250,7 +258,7 @@ public class AbilityDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The flavor text of this ability listed in different languages.")
   @JsonProperty(required = true, value = "flavor_text_entries")
   public List<@Valid AbilityFlavorText> getFlavorTextEntries() {
     return flavorTextEntries;
@@ -278,25 +286,26 @@ public class AbilityDetail   {
     return this;
   }
   /**
+   * A list of Pokémon that could potentially have this ability.
    **/
-  public AbilityDetail pokemon(List<@Valid AbilityDetailPokemonInner> pokemon) {
+  public AbilityDetail pokemon(List<@Valid AbilityPokemonDetail> pokemon) {
     this.pokemon = pokemon;
     return this;
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of Pokémon that could potentially have this ability.")
   @JsonProperty(required = true, value = "pokemon")
-  public List<@Valid AbilityDetailPokemonInner> getPokemon() {
+  public List<@Valid AbilityPokemonDetail> getPokemon() {
     return pokemon;
   }
 
   @JsonProperty(required = true, value = "pokemon")
-  public void setPokemon(List<@Valid AbilityDetailPokemonInner> pokemon) {
+  public void setPokemon(List<@Valid AbilityPokemonDetail> pokemon) {
     this.pokemon = pokemon;
   }
 
-  public AbilityDetail addPokemonItem(AbilityDetailPokemonInner pokemonItem) {
+  public AbilityDetail addPokemonItem(AbilityPokemonDetail pokemonItem) {
     if (this.pokemon == null) {
       this.pokemon = new ArrayList<>();
     }
@@ -305,7 +314,7 @@ public class AbilityDetail   {
     return this;
   }
 
-  public AbilityDetail removePokemonItem(AbilityDetailPokemonInner pokemonItem) {
+  public AbilityDetail removePokemonItem(AbilityPokemonDetail pokemonItem) {
     if (pokemonItem != null && this.pokemon != null) {
       this.pokemon.remove(pokemonItem);
     }

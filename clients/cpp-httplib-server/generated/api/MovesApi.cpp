@@ -11,7 +11,6 @@
 
 // Project headers
 #include "MovesApi.h"
-#include "AuthenticationManager.h"
 
 constexpr int HTTP_RESPONSE_CODE_PAGINATED_MOVE_META_AILMENT_SUMMARY_LIST = 200;
 constexpr int HTTP_RESPONSE_CODE_MOVE_META_AILMENT_DETAIL = 200;
@@ -26,7 +25,6 @@ constexpr int HTTP_RESPONSE_CODE_MOVE_DETAIL = 200;
 constexpr int HTTP_RESPONSE_CODE_PAGINATED_MOVE_TARGET_SUMMARY_LIST = 200;
 constexpr int HTTP_RESPONSE_CODE_MOVE_TARGET_DETAIL = 200;
 constexpr int HTTP_RESPONSE_CODE_BAD_REQUEST = 400;
-constexpr int HTTP_RESPONSE_CODE_UNAUTHORIZED = 401;
 constexpr int HTTP_RESPONSE_CODE_INTERNAL_SERVER_ERROR = 500;
 
 namespace Api {
@@ -646,61 +644,11 @@ void Moves::handleApiv2moveTargetidGetResponse(const Apiv2moveTargetidGetRespons
     res.set_content(responseJson.dump(), "application/json");
 }
 
-bool Moves::performAuthentication(
-    const httplib::Request& req,
-    std::shared_ptr<AuthenticationManager> auth,
-    httplib::Response& res)
-{
-    if (!auth)
-    {
-        nlohmann::json errorJson = nlohmann::json::object();
-        errorJson["message"] = "AuthenticationManager not configured";
-        res.status = HTTP_RESPONSE_CODE_INTERNAL_SERVER_ERROR;
-        res.set_content(errorJson.dump(), "application/json");
-        return false;
-    }
 
-    {
-        auto cookieHeader = req.get_header_value("Cookie");
-        std::string key = "sessionid=";
-        size_t start = cookieHeader.find(key);
-        if (start != std::string::npos)
-        {
-            start += key.length();
-            size_t end = cookieHeader.find(";", start);
-            if (end == std::string::npos) end = cookieHeader.length();
-            std::string cookieValue = cookieHeader.substr(start, end - start);
-            if (auth->validateApiKey(cookieValue)) return true;
-        }
-    }
-
-    if (req.has_header("Authorization"))
-    {
-        auto authHeader = req.get_header_value("Authorization");
-        if (authHeader.find("Basic ") == 0)
-        {
-            std::string credentials = authHeader.substr(6);
-            if (auth->validateBasicAuth(credentials, "")) return true;
-        }
-    }
-
-
-
-    return false;
-}
-
-void Moves::handleApiv2moveAilmentGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Moves::handleApiv2moveAilmentGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2moveAilmentGetRequest params;
         std::vector<std::string> paramErrors;
@@ -726,18 +674,10 @@ void Moves::handleApiv2moveAilmentGetRequest([[maybe_unused]] const httplib::Req
     }
 }
 
-void Moves::handleApiv2moveAilmentidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Moves::handleApiv2moveAilmentidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2moveAilmentidGetRequest params;
         std::vector<std::string> paramErrors;
@@ -763,18 +703,10 @@ void Moves::handleApiv2moveAilmentidGetRequest([[maybe_unused]] const httplib::R
     }
 }
 
-void Moves::handleApiv2moveBattleStyleGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Moves::handleApiv2moveBattleStyleGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2moveBattleStyleGetRequest params;
         std::vector<std::string> paramErrors;
@@ -800,18 +732,10 @@ void Moves::handleApiv2moveBattleStyleGetRequest([[maybe_unused]] const httplib:
     }
 }
 
-void Moves::handleApiv2moveBattleStyleidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Moves::handleApiv2moveBattleStyleidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2moveBattleStyleidGetRequest params;
         std::vector<std::string> paramErrors;
@@ -837,18 +761,10 @@ void Moves::handleApiv2moveBattleStyleidGetRequest([[maybe_unused]] const httpli
     }
 }
 
-void Moves::handleApiv2moveCategoryGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Moves::handleApiv2moveCategoryGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2moveCategoryGetRequest params;
         std::vector<std::string> paramErrors;
@@ -874,18 +790,10 @@ void Moves::handleApiv2moveCategoryGetRequest([[maybe_unused]] const httplib::Re
     }
 }
 
-void Moves::handleApiv2moveCategoryidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Moves::handleApiv2moveCategoryidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2moveCategoryidGetRequest params;
         std::vector<std::string> paramErrors;
@@ -911,18 +819,10 @@ void Moves::handleApiv2moveCategoryidGetRequest([[maybe_unused]] const httplib::
     }
 }
 
-void Moves::handleApiv2moveLearnMethodGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Moves::handleApiv2moveLearnMethodGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2moveLearnMethodGetRequest params;
         std::vector<std::string> paramErrors;
@@ -948,18 +848,10 @@ void Moves::handleApiv2moveLearnMethodGetRequest([[maybe_unused]] const httplib:
     }
 }
 
-void Moves::handleApiv2moveLearnMethodidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Moves::handleApiv2moveLearnMethodidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2moveLearnMethodidGetRequest params;
         std::vector<std::string> paramErrors;
@@ -985,18 +877,10 @@ void Moves::handleApiv2moveLearnMethodidGetRequest([[maybe_unused]] const httpli
     }
 }
 
-void Moves::handleApiv2moveGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Moves::handleApiv2moveGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2moveGetRequest params;
         std::vector<std::string> paramErrors;
@@ -1022,18 +906,10 @@ void Moves::handleApiv2moveGetRequest([[maybe_unused]] const httplib::Request& r
     }
 }
 
-void Moves::handleApiv2moveidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Moves::handleApiv2moveidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2moveidGetRequest params;
         std::vector<std::string> paramErrors;
@@ -1059,18 +935,10 @@ void Moves::handleApiv2moveidGetRequest([[maybe_unused]] const httplib::Request&
     }
 }
 
-void Moves::handleApiv2moveTargetGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Moves::handleApiv2moveTargetGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2moveTargetGetRequest params;
         std::vector<std::string> paramErrors;
@@ -1096,18 +964,10 @@ void Moves::handleApiv2moveTargetGetRequest([[maybe_unused]] const httplib::Requ
     }
 }
 
-void Moves::handleApiv2moveTargetidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Moves::handleApiv2moveTargetidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2moveTargetidGetRequest params;
         std::vector<std::string> paramErrors;
@@ -1134,55 +994,55 @@ void Moves::handleApiv2moveTargetidGetRequest([[maybe_unused]] const httplib::Re
 }
 
 
-void Moves::registerRoutes(httplib::Server& svr, std::shared_ptr<AuthenticationManager> auth)
+void Moves::registerRoutes(httplib::Server& svr)
 {
-    svr.Get("/api/v2/move-ailment/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/move-ailment/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2moveAilmentGetRequest(req, res, auth);
+        handleApiv2moveAilmentGetRequest(req, res);
     });
-    svr.Get("/api/v2/move-ailment/{id}/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/move-ailment/{id}/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2moveAilmentidGetRequest(req, res, auth);
+        handleApiv2moveAilmentidGetRequest(req, res);
     });
-    svr.Get("/api/v2/move-battle-style/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/move-battle-style/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2moveBattleStyleGetRequest(req, res, auth);
+        handleApiv2moveBattleStyleGetRequest(req, res);
     });
-    svr.Get("/api/v2/move-battle-style/{id}/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/move-battle-style/{id}/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2moveBattleStyleidGetRequest(req, res, auth);
+        handleApiv2moveBattleStyleidGetRequest(req, res);
     });
-    svr.Get("/api/v2/move-category/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/move-category/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2moveCategoryGetRequest(req, res, auth);
+        handleApiv2moveCategoryGetRequest(req, res);
     });
-    svr.Get("/api/v2/move-category/{id}/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/move-category/{id}/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2moveCategoryidGetRequest(req, res, auth);
+        handleApiv2moveCategoryidGetRequest(req, res);
     });
-    svr.Get("/api/v2/move-learn-method/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/move-learn-method/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2moveLearnMethodGetRequest(req, res, auth);
+        handleApiv2moveLearnMethodGetRequest(req, res);
     });
-    svr.Get("/api/v2/move-learn-method/{id}/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/move-learn-method/{id}/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2moveLearnMethodidGetRequest(req, res, auth);
+        handleApiv2moveLearnMethodidGetRequest(req, res);
     });
-    svr.Get("/api/v2/move/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/move/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2moveGetRequest(req, res, auth);
+        handleApiv2moveGetRequest(req, res);
     });
-    svr.Get("/api/v2/move/{id}/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/move/{id}/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2moveidGetRequest(req, res, auth);
+        handleApiv2moveidGetRequest(req, res);
     });
-    svr.Get("/api/v2/move-target/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/move-target/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2moveTargetGetRequest(req, res, auth);
+        handleApiv2moveTargetGetRequest(req, res);
     });
-    svr.Get("/api/v2/move-target/{id}/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/move-target/{id}/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2moveTargetidGetRequest(req, res, auth);
+        handleApiv2moveTargetidGetRequest(req, res);
     });
 }
 

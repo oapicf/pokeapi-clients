@@ -13,6 +13,7 @@ import java.net.URI
 import MachineSummary._
 
 case class MachineSummary (
+  /* The URL of the referenced resource. */
   url: URI)
 
 object MachineSummary {

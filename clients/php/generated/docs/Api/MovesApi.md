@@ -37,22 +37,11 @@ Move Ailments are status conditions caused by moves used during battle. See [Bul
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure HTTP basic authorization: basicAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure API key authorization: cookieAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\MovesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $limit = 56; // int | Number of results to return per page.
 $offset = 56; // int | The initial index from which to return the results.
@@ -80,7 +69,7 @@ try {
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -108,24 +97,13 @@ Move Ailments are status conditions caused by moves used during battle. See [Bul
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure HTTP basic authorization: basicAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure API key authorization: cookieAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\MovesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
-$id = 'id_example'; // string | This parameter can be a string or an integer.
+$id = 1; // string | This parameter can be a string or an integer.
 
 try {
     $result = $apiInstance->moveAilmentRetrieve($id);
@@ -147,7 +125,7 @@ try {
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -175,22 +153,11 @@ Styles of moves when used in the Battle Palace. See [Bulbapedia](http://bulbaped
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure HTTP basic authorization: basicAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure API key authorization: cookieAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\MovesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $limit = 56; // int | Number of results to return per page.
 $offset = 56; // int | The initial index from which to return the results.
@@ -218,7 +185,7 @@ try {
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -246,24 +213,13 @@ Styles of moves when used in the Battle Palace. See [Bulbapedia](http://bulbaped
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure HTTP basic authorization: basicAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure API key authorization: cookieAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\MovesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
-$id = 'id_example'; // string | This parameter can be a string or an integer.
+$id = 1; // string | This parameter can be a string or an integer.
 
 try {
     $result = $apiInstance->moveBattleStyleRetrieve($id);
@@ -285,7 +241,7 @@ try {
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -313,22 +269,11 @@ Very general categories that loosely group move effects.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure HTTP basic authorization: basicAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure API key authorization: cookieAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\MovesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $limit = 56; // int | Number of results to return per page.
 $offset = 56; // int | The initial index from which to return the results.
@@ -356,7 +301,7 @@ try {
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -384,24 +329,13 @@ Very general categories that loosely group move effects.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure HTTP basic authorization: basicAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure API key authorization: cookieAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\MovesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
-$id = 'id_example'; // string | This parameter can be a string or an integer.
+$id = 1; // string | This parameter can be a string or an integer.
 
 try {
     $result = $apiInstance->moveCategoryRetrieve($id);
@@ -423,7 +357,7 @@ try {
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -451,22 +385,11 @@ Methods by which Pokémon can learn moves.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure HTTP basic authorization: basicAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure API key authorization: cookieAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\MovesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $limit = 56; // int | Number of results to return per page.
 $offset = 56; // int | The initial index from which to return the results.
@@ -494,7 +417,7 @@ try {
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -522,24 +445,13 @@ Methods by which Pokémon can learn moves.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure HTTP basic authorization: basicAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure API key authorization: cookieAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\MovesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
-$id = 'id_example'; // string | This parameter can be a string or an integer.
+$id = 1; // string | This parameter can be a string or an integer.
 
 try {
     $result = $apiInstance->moveLearnMethodRetrieve($id);
@@ -561,7 +473,7 @@ try {
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -589,22 +501,11 @@ Moves are the skills of Pokémon in battle. In battle, a Pokémon uses one move 
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure HTTP basic authorization: basicAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure API key authorization: cookieAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\MovesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $limit = 56; // int | Number of results to return per page.
 $offset = 56; // int | The initial index from which to return the results.
@@ -632,7 +533,7 @@ try {
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -660,24 +561,13 @@ Moves are the skills of Pokémon in battle. In battle, a Pokémon uses one move 
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure HTTP basic authorization: basicAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure API key authorization: cookieAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\MovesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
-$id = 'id_example'; // string | This parameter can be a string or an integer.
+$id = 1; // string | This parameter can be a string or an integer.
 
 try {
     $result = $apiInstance->moveRetrieve($id);
@@ -699,7 +589,7 @@ try {
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -727,22 +617,11 @@ Targets moves can be directed at during battle. Targets can be Pokémon, environ
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure HTTP basic authorization: basicAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure API key authorization: cookieAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\MovesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $limit = 56; // int | Number of results to return per page.
 $offset = 56; // int | The initial index from which to return the results.
@@ -770,7 +649,7 @@ try {
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -798,24 +677,13 @@ Targets moves can be directed at during battle. Targets can be Pokémon, environ
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure HTTP basic authorization: basicAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure API key authorization: cookieAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\MovesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
-$id = 'id_example'; // string | This parameter can be a string or an integer.
+$id = 1; // string | This parameter can be a string or an integer.
 
 try {
     $result = $apiInstance->moveTargetRetrieve($id);
@@ -837,7 +705,7 @@ try {
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

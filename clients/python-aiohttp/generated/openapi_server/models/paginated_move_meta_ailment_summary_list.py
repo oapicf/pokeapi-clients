@@ -55,6 +55,7 @@ class PaginatedMoveMetaAilmentSummaryList(Model):
     def count(self):
         """Gets the count of this PaginatedMoveMetaAilmentSummaryList.
 
+        The total number of resources available from this API.
 
         :return: The count of this PaginatedMoveMetaAilmentSummaryList.
         :rtype: int
@@ -65,10 +66,13 @@ class PaginatedMoveMetaAilmentSummaryList(Model):
     def count(self, count):
         """Sets the count of this PaginatedMoveMetaAilmentSummaryList.
 
+        The total number of resources available from this API.
 
         :param count: The count of this PaginatedMoveMetaAilmentSummaryList.
         :type count: int
         """
+        if count is None:
+            raise ValueError("Invalid value for `count`, must not be `None`")
 
         self._count = count
 
@@ -76,6 +80,7 @@ class PaginatedMoveMetaAilmentSummaryList(Model):
     def next(self):
         """Gets the next of this PaginatedMoveMetaAilmentSummaryList.
 
+        The URL for the next page in the list, or null if there is no next page.
 
         :return: The next of this PaginatedMoveMetaAilmentSummaryList.
         :rtype: str
@@ -86,6 +91,7 @@ class PaginatedMoveMetaAilmentSummaryList(Model):
     def next(self, next):
         """Sets the next of this PaginatedMoveMetaAilmentSummaryList.
 
+        The URL for the next page in the list, or null if there is no next page.
 
         :param next: The next of this PaginatedMoveMetaAilmentSummaryList.
         :type next: str
@@ -97,6 +103,7 @@ class PaginatedMoveMetaAilmentSummaryList(Model):
     def previous(self):
         """Gets the previous of this PaginatedMoveMetaAilmentSummaryList.
 
+        The URL for the previous page in the list, or null if there is no previous page.
 
         :return: The previous of this PaginatedMoveMetaAilmentSummaryList.
         :rtype: str
@@ -107,6 +114,7 @@ class PaginatedMoveMetaAilmentSummaryList(Model):
     def previous(self, previous):
         """Sets the previous of this PaginatedMoveMetaAilmentSummaryList.
 
+        The URL for the previous page in the list, or null if there is no previous page.
 
         :param previous: The previous of this PaginatedMoveMetaAilmentSummaryList.
         :type previous: str
@@ -118,6 +126,7 @@ class PaginatedMoveMetaAilmentSummaryList(Model):
     def results(self):
         """Gets the results of this PaginatedMoveMetaAilmentSummaryList.
 
+        A list of API resources on this page.
 
         :return: The results of this PaginatedMoveMetaAilmentSummaryList.
         :rtype: List[MoveMetaAilmentSummary]
@@ -128,9 +137,12 @@ class PaginatedMoveMetaAilmentSummaryList(Model):
     def results(self, results):
         """Sets the results of this PaginatedMoveMetaAilmentSummaryList.
 
+        A list of API resources on this page.
 
         :param results: The results of this PaginatedMoveMetaAilmentSummaryList.
         :type results: List[MoveMetaAilmentSummary]
         """
+        if results is None:
+            raise ValueError("Invalid value for `results`, must not be `None`")
 
         self._results = results

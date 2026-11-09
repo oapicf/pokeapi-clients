@@ -9,8 +9,8 @@ export class ContestsApiController {
   constructor(private readonly contestsApi: ContestsApi) {}
 
   @Get('/api/v2/contest-effect/')
-  contestEffectList(@Query('limit') limit: number | undefined, @Query('offset') offset: number | undefined, @Query('q') q: string | undefined, @Req() request: Request): PaginatedContestEffectSummaryList | Promise<PaginatedContestEffectSummaryList> | Observable<PaginatedContestEffectSummaryList> {
-    return this.contestsApi.contestEffectList(limit, offset, q, request);
+  contestEffectList(@Query('limit') limit: number | undefined, @Query('offset') offset: number | undefined, @Req() request: Request): PaginatedContestEffectSummaryList | Promise<PaginatedContestEffectSummaryList> | Observable<PaginatedContestEffectSummaryList> {
+    return this.contestsApi.contestEffectList(limit, offset, request);
   }
 
   @Get('/api/v2/contest-effect/:id/')
@@ -29,8 +29,8 @@ export class ContestsApiController {
   }
 
   @Get('/api/v2/super-contest-effect/')
-  superContestEffectList(@Query('limit') limit: number | undefined, @Query('offset') offset: number | undefined, @Query('q') q: string | undefined, @Req() request: Request): PaginatedSuperContestEffectSummaryList | Promise<PaginatedSuperContestEffectSummaryList> | Observable<PaginatedSuperContestEffectSummaryList> {
-    return this.contestsApi.superContestEffectList(limit, offset, q, request);
+  superContestEffectList(@Query('limit') limit: number | undefined, @Query('offset') offset: number | undefined, @Req() request: Request): PaginatedSuperContestEffectSummaryList | Promise<PaginatedSuperContestEffectSummaryList> | Observable<PaginatedSuperContestEffectSummaryList> {
+    return this.contestsApi.superContestEffectList(limit, offset, request);
   }
 
   @Get('/api/v2/super-contest-effect/:id/')

@@ -1,8 +1,8 @@
 /**
  * PokéAPI
- * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+ * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
  *
- * OpenAPI spec version: 2.7.0
+ * OpenAPI spec version: 2.10.0
  *
  * Contact: blah+oapicf@cliffano.com
  *
@@ -25,13 +25,20 @@ import upickle.default.*
   * It has no validation - there may be nulls, values out of range, etc
   */
 case class LocationAreaDetailData(
+/* The identifier for this resource. */
   id: Int,
+/* The name for this resource. */
   name: String,
+/* The internal id of an API resource within game data. */
   gameIndex: Int,
-  encounterMethodRates: Seq[LocationAreaDetailEncounterMethodRatesInnerData],
+/* A list of methods in which Pokémon may be encountered in this area and how likely the method will occur depending on the version of the game. */
+  encounterMethodRates: Seq[LocationAreaEncounterRateData],
+/* The region this location area can be found in. */
   location: LocationSummaryData,
+/* The name of this resource listed in different languages. */
   names: Seq[LocationAreaNameData],
-  pokemonEncounters: Seq[LocationAreaDetailPokemonEncountersInnerData]
+/* A list of Pokémon that can be encountered in this area along with version specific details about the encounter. */
+  pokemonEncounters: Seq[LocationAreaPokemonEncounterData]
   
 
 ) derives RW {
@@ -52,11 +59,11 @@ case class LocationAreaDetailData(
         
 
         // ================== name validation ==================
-        // validate max length 100
+        // validate max length 200
         if (_allValidationErrors.isEmpty || !failFast)  {
           val len = if name == null then 0 else name.length
-            if (len < 100) {
-               _allValidationErrors += ValidationError(path :+ LocationAreaDetail.Fields.name, s"length $len is longer than the max length 100")
+            if (len < 200) {
+               _allValidationErrors += ValidationError(path :+ LocationAreaDetail.Fields.name, s"length $len is longer than the max length 200")
             }
         }
         
@@ -65,6 +72,16 @@ case class LocationAreaDetailData(
         
 
         // ================== gameIndex validation ==================
+        // validate against minimum -2147483648
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if !(gameIndex >= -2147483648) then
+            _allValidationErrors += ValidationError(path :+ LocationAreaDetail.Fields.gameIndex, s"value '$gameIndex' is not greater than the minimum value -2147483648")
+        }
+        // validate against maximum 2147483647
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if !(gameIndex <= 2147483647) then
+            _allValidationErrors += ValidationError(path :+ LocationAreaDetail.Fields.gameIndex, s"value '$gameIndex' is not greater than the maximum value 2147483647")
+        }
         
         
         

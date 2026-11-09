@@ -3,10 +3,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **Int32** |  | [readonly] 
-**Name** | **String** |  | 
-**Categories** | [**ItemCategorySummary[]**](ItemCategorySummary.md) |  | [readonly] 
-**Names** | [**ItemPocketName[]**](ItemPocketName.md) |  | [readonly] 
+**Id** | **Int32** | The identifier for this resource. | [readonly] 
+**Name** | **String** | The name for this resource. | 
+**Categories** | [**ItemCategorySummary[]**](ItemCategorySummary.md) | A list of item categories that are relevant to this item pocket. | [readonly] 
+**Names** | [**ItemPocketName[]**](ItemPocketName.md) | The name of this resource listed in different languages. | [readonly] 
 
 ## Examples
 

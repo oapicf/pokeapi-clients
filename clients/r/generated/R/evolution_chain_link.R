@@ -1,0 +1,299 @@
+#' Create a new EvolutionChainLink
+#'
+#' @description
+#' EvolutionChainLink Class
+#'
+#' @docType class
+#' @title EvolutionChainLink
+#' @description EvolutionChainLink Class
+#' @format An \code{R6Class} generator object
+#' @field is_baby Whether or not this link is for a baby Pokémon. This would only ever be true on the base link. character
+#' @field species The Pokémon species at this point in the evolution chain. \link{PokemonSpeciesSummary}
+#' @field evolution_details All details regarding the specific details of the referenced Pokémon species evolution. list(\link{PokemonEvolution})
+#' @field evolves_to A List of chain objects. list(\link{EvolutionChainLink})
+#' @importFrom R6 R6Class
+#' @importFrom jsonlite fromJSON toJSON
+#' @export
+EvolutionChainLink <- R6::R6Class(
+  "EvolutionChainLink",
+  public = list(
+    `is_baby` = NULL,
+    `species` = NULL,
+    `evolution_details` = NULL,
+    `evolves_to` = NULL,
+
+    #' @description
+    #' Initialize a new EvolutionChainLink class.
+    #'
+    #' @param is_baby Whether or not this link is for a baby Pokémon. This would only ever be true on the base link.
+    #' @param species The Pokémon species at this point in the evolution chain.
+    #' @param evolution_details All details regarding the specific details of the referenced Pokémon species evolution.
+    #' @param evolves_to A List of chain objects.
+    #' @param ... Other optional arguments.
+    initialize = function(`is_baby`, `species`, `evolution_details`, `evolves_to`, ...) {
+      if (!missing(`is_baby`)) {
+        if (!(is.logical(`is_baby`) && length(`is_baby`) == 1)) {
+          stop(paste("Error! Invalid data for `is_baby`. Must be a boolean:", `is_baby`))
+        }
+        self$`is_baby` <- `is_baby`
+      }
+      if (!missing(`species`)) {
+        stopifnot(R6::is.R6(`species`))
+        self$`species` <- `species`
+      }
+      if (!missing(`evolution_details`)) {
+        stopifnot(is.vector(`evolution_details`), length(`evolution_details`) != 0)
+        sapply(`evolution_details`, function(x) stopifnot(R6::is.R6(x)))
+        self$`evolution_details` <- `evolution_details`
+      }
+      if (!missing(`evolves_to`)) {
+        stopifnot(is.vector(`evolves_to`), length(`evolves_to`) != 0)
+        sapply(`evolves_to`, function(x) stopifnot(R6::is.R6(x)))
+        self$`evolves_to` <- `evolves_to`
+      }
+    },
+
+    #' @description
+    #' Convert to an R object. This method is deprecated. Use `toSimpleType()` instead.
+    toJSON = function() {
+      .Deprecated(new = "toSimpleType", msg = "Use the '$toSimpleType()' method instead since that is more clearly named. Use '$toJSONString()' to get a JSON string")
+      return(self$toSimpleType())
+    },
+
+    #' @description
+    #' Convert to a List
+    #'
+    #' Convert the R6 object to a list to work more easily with other tooling.
+    #'
+    #' @return EvolutionChainLink as a base R list.
+    #' @examples
+    #' # convert array of EvolutionChainLink (x) to a data frame
+    #' \dontrun{
+    #' library(purrr)
+    #' library(tibble)
+    #' df <- x |> map(\(y)y$toList()) |> map(as_tibble) |> list_rbind()
+    #' df
+    #' }
+    toList = function() {
+      return(self$toSimpleType())
+    },
+
+    #' @description
+    #' Convert EvolutionChainLink to a base R type
+    #'
+    #' @return A base R type, e.g. a list or numeric/character array.
+    toSimpleType = function() {
+      EvolutionChainLinkObject <- list()
+      if (!is.null(self$`is_baby`)) {
+        EvolutionChainLinkObject[["is_baby"]] <-
+          self$`is_baby`
+      }
+      if (!is.null(self$`species`)) {
+        EvolutionChainLinkObject[["species"]] <-
+          self$extractSimpleType(self$`species`)
+      }
+      if (!is.null(self$`evolution_details`)) {
+        EvolutionChainLinkObject[["evolution_details"]] <-
+          self$extractSimpleType(self$`evolution_details`)
+      }
+      if (!is.null(self$`evolves_to`)) {
+        EvolutionChainLinkObject[["evolves_to"]] <-
+          self$extractSimpleType(self$`evolves_to`)
+      }
+      return(EvolutionChainLinkObject)
+    },
+
+    extractSimpleType = function(x) {
+      if (R6::is.R6(x)) {
+        return(x$toSimpleType())
+      } else if (!self$hasNestedR6(x)) {
+        return(x)
+      }
+      lapply(x, self$extractSimpleType)
+    },
+
+    hasNestedR6 = function(x) {
+      if (R6::is.R6(x)) {
+        return(TRUE)
+      }
+      if (is.list(x)) {
+        for (item in x) {
+          if (self$hasNestedR6(item)) {
+            return(TRUE)
+          }
+        }
+      }
+      FALSE
+    },
+
+    #' @description
+    #' Deserialize JSON string into an instance of EvolutionChainLink
+    #'
+    #' @param input_json the JSON input
+    #' @return the instance of EvolutionChainLink
+    fromJSON = function(input_json) {
+      this_object <- jsonlite::fromJSON(input_json)
+      if (!is.null(this_object$`is_baby`)) {
+        self$`is_baby` <- this_object$`is_baby`
+      }
+      if (!is.null(this_object$`species`)) {
+        `species_object` <- PokemonSpeciesSummary$new()
+        `species_object`$fromJSON(jsonlite::toJSON(this_object$`species`, auto_unbox = TRUE, digits = NA))
+        self$`species` <- `species_object`
+      }
+      if (!is.null(this_object$`evolution_details`)) {
+        self$`evolution_details` <- ApiClient$new()$deserializeObj(this_object$`evolution_details`, "array[PokemonEvolution]", loadNamespace("openapi"))
+      }
+      if (!is.null(this_object$`evolves_to`)) {
+        self$`evolves_to` <- ApiClient$new()$deserializeObj(this_object$`evolves_to`, "array[EvolutionChainLink]", loadNamespace("openapi"))
+      }
+      self
+    },
+
+    #' @description
+    #' To JSON String
+    #' 
+    #' @param ... Parameters passed to `jsonlite::toJSON`
+    #' @return EvolutionChainLink in JSON format
+    toJSONString = function(...) {
+      simple <- self$toSimpleType()
+      json <- jsonlite::toJSON(simple, auto_unbox = TRUE, digits = NA, ...)
+      return(as.character(jsonlite::minify(json)))
+    },
+
+    #' @description
+    #' Deserialize JSON string into an instance of EvolutionChainLink
+    #'
+    #' @param input_json the JSON input
+    #' @return the instance of EvolutionChainLink
+    fromJSONString = function(input_json) {
+      this_object <- jsonlite::fromJSON(input_json)
+      self$`is_baby` <- this_object$`is_baby`
+      self$`species` <- PokemonSpeciesSummary$new()$fromJSON(jsonlite::toJSON(this_object$`species`, auto_unbox = TRUE, digits = NA))
+      self$`evolution_details` <- ApiClient$new()$deserializeObj(this_object$`evolution_details`, "array[PokemonEvolution]", loadNamespace("openapi"))
+      self$`evolves_to` <- ApiClient$new()$deserializeObj(this_object$`evolves_to`, "array[EvolutionChainLink]", loadNamespace("openapi"))
+      self
+    },
+
+    #' @description
+    #' Validate JSON input with respect to EvolutionChainLink and throw an exception if invalid
+    #'
+    #' @param input the JSON input
+    validateJSON = function(input) {
+      input_json <- jsonlite::fromJSON(input)
+      # check the required field `is_baby`
+      if (!is.null(input_json$`is_baby`)) {
+        if (!(is.logical(input_json$`is_baby`) && length(input_json$`is_baby`) == 1)) {
+          stop(paste("Error! Invalid data for `is_baby`. Must be a boolean:", input_json$`is_baby`))
+        }
+      } else {
+        stop(paste("The JSON input `", input, "` is invalid for EvolutionChainLink: the required field `is_baby` is missing."))
+      }
+      # check the required field `species`
+      if (!is.null(input_json$`species`)) {
+        stopifnot(R6::is.R6(input_json$`species`))
+      } else {
+        stop(paste("The JSON input `", input, "` is invalid for EvolutionChainLink: the required field `species` is missing."))
+      }
+      # check the required field `evolution_details`
+      if (!is.null(input_json$`evolution_details`)) {
+        stopifnot(is.vector(input_json$`evolution_details`), length(input_json$`evolution_details`) != 0)
+        tmp <- sapply(input_json$`evolution_details`, function(x) stopifnot(R6::is.R6(x)))
+      } else {
+        stop(paste("The JSON input `", input, "` is invalid for EvolutionChainLink: the required field `evolution_details` is missing."))
+      }
+      # check the required field `evolves_to`
+      if (!is.null(input_json$`evolves_to`)) {
+        stopifnot(is.vector(input_json$`evolves_to`), length(input_json$`evolves_to`) != 0)
+        tmp <- sapply(input_json$`evolves_to`, function(x) stopifnot(R6::is.R6(x)))
+      } else {
+        stop(paste("The JSON input `", input, "` is invalid for EvolutionChainLink: the required field `evolves_to` is missing."))
+      }
+    },
+
+    #' @description
+    #' To string (JSON format)
+    #'
+    #' @return String representation of EvolutionChainLink
+    toString = function() {
+      self$toJSONString()
+    },
+
+    #' @description
+    #' Return true if the values in all fields are valid.
+    #'
+    #' @return true if the values in all fields are valid.
+    isValid = function() {
+      # check if the required `is_baby` is null
+      if (is.null(self$`is_baby`)) {
+        return(FALSE)
+      }
+
+      # check if the required `species` is null
+      if (is.null(self$`species`)) {
+        return(FALSE)
+      }
+
+      # check if the required `evolution_details` is null
+      if (is.null(self$`evolution_details`)) {
+        return(FALSE)
+      }
+
+      # check if the required `evolves_to` is null
+      if (is.null(self$`evolves_to`)) {
+        return(FALSE)
+      }
+
+      TRUE
+    },
+
+    #' @description
+    #' Return a list of invalid fields (if any).
+    #'
+    #' @return A list of invalid fields (if any).
+    getInvalidFields = function() {
+      invalid_fields <- list()
+      # check if the required `is_baby` is null
+      if (is.null(self$`is_baby`)) {
+        invalid_fields["is_baby"] <- "Non-nullable required field `is_baby` cannot be null."
+      }
+
+      # check if the required `species` is null
+      if (is.null(self$`species`)) {
+        invalid_fields["species"] <- "Non-nullable required field `species` cannot be null."
+      }
+
+      # check if the required `evolution_details` is null
+      if (is.null(self$`evolution_details`)) {
+        invalid_fields["evolution_details"] <- "Non-nullable required field `evolution_details` cannot be null."
+      }
+
+      # check if the required `evolves_to` is null
+      if (is.null(self$`evolves_to`)) {
+        invalid_fields["evolves_to"] <- "Non-nullable required field `evolves_to` cannot be null."
+      }
+
+      invalid_fields
+    },
+
+    #' @description
+    #' Print the object
+    print = function() {
+      print(jsonlite::prettify(self$toJSONString()))
+      invisible(self)
+    }
+  ),
+  # Lock the class to prevent modifications to the method or field
+  lock_class = TRUE
+)
+## Uncomment below to unlock the class to allow modifications of the method or field
+# EvolutionChainLink$unlock()
+#
+## Below is an example to define the print function
+# EvolutionChainLink$set("public", "print", function(...) {
+#   print(jsonlite::prettify(self$toJSONString()))
+#   invisible(self)
+# })
+## Uncomment below to lock the class to prevent modifications to the method or field
+# EvolutionChainLink$lock()
+

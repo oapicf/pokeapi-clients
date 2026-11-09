@@ -15,10 +15,10 @@ data class TypeDetail(
     val name: kotlin.String,
 
     @field:JsonProperty("damage_relations")
-    val damageRelations: TypeDetailDamageRelations,
+    val damageRelations: TypeRelationships,
 
     @field:JsonProperty("past_damage_relations")
-    val pastDamageRelations: kotlin.collections.List<TypeDetailPastDamageRelationsInner>,
+    val pastDamageRelations: kotlin.collections.List<TypePastRelationships>,
 
     @field:JsonProperty("game_indices")
     val gameIndices: kotlin.collections.List<TypeGameIndex>,
@@ -30,15 +30,15 @@ data class TypeDetail(
     val moveDamageClass: MoveDamageClassSummary,
 
     @field:JsonProperty("names")
-    val names: kotlin.collections.List<AbilityName>,
+    val names: kotlin.collections.List<TypeName>,
 
     @field:JsonProperty("pokemon")
-    val pokemon: kotlin.collections.List<TypeDetailPokemonInner>,
+    val pokemon: kotlin.collections.List<TypePokemon>,
 
     @field:JsonProperty("moves")
     val moves: kotlin.collections.List<MoveSummary>,
 
     @field:JsonProperty("sprites")
-    val sprites: kotlin.collections.Map<kotlin.String, kotlin.collections.Map<kotlin.String, TypeDetailSpritesValueValue>>,
+    val sprites: kotlin.collections.Map<kotlin.String, kotlin.collections.Map<kotlin.String, TypeGameSprite>>,
 
 )

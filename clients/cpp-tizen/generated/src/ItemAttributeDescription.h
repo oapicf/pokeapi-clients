@@ -46,18 +46,18 @@ public:
 	 */
 	void fromJson(char* jsonStr);
 
-	/*! \brief Get 
+	/*! \brief Get The localized description for an API resource in a specific language.
 	 */
 	std::string getDescription();
 
-	/*! \brief Set 
+	/*! \brief Set The localized description for an API resource in a specific language.
 	 */
 	void setDescription(std::string  description);
-	/*! \brief Get 
+	/*! \brief Get The language this name is in.
 	 */
 	LanguageSummary getLanguage();
 
-	/*! \brief Set 
+	/*! \brief Set The language this name is in.
 	 */
 	void setLanguage(LanguageSummary  language);
 

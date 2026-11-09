@@ -57,6 +57,7 @@ class MoveBattleStyleDetail(Model):
     def id(self) -> int:
         """Gets the id of this MoveBattleStyleDetail.
 
+        The identifier for this resource.  # noqa: E501
 
         :return: The id of this MoveBattleStyleDetail.
         :rtype: int
@@ -67,6 +68,7 @@ class MoveBattleStyleDetail(Model):
     def id(self, id: int):
         """Sets the id of this MoveBattleStyleDetail.
 
+        The identifier for this resource.  # noqa: E501
 
         :param id: The id of this MoveBattleStyleDetail.
         :type id: int
@@ -80,6 +82,7 @@ class MoveBattleStyleDetail(Model):
     def name(self) -> str:
         """Gets the name of this MoveBattleStyleDetail.
 
+        The name for this resource.  # noqa: E501
 
         :return: The name of this MoveBattleStyleDetail.
         :rtype: str
@@ -90,14 +93,15 @@ class MoveBattleStyleDetail(Model):
     def name(self, name: str):
         """Sets the name of this MoveBattleStyleDetail.
 
+        The name for this resource.  # noqa: E501
 
         :param name: The name of this MoveBattleStyleDetail.
         :type name: str
         """
         if name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
-        if name is not None and len(name) > 100:
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `100`")  # noqa: E501
+        if name is not None and len(name) > 200:
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `200`")  # noqa: E501
 
         self._name = name
 
@@ -105,6 +109,7 @@ class MoveBattleStyleDetail(Model):
     def names(self) -> List[MoveBattleStyleName]:
         """Gets the names of this MoveBattleStyleDetail.
 
+        The name of this resource listed in different languages.  # noqa: E501
 
         :return: The names of this MoveBattleStyleDetail.
         :rtype: List[MoveBattleStyleName]
@@ -115,6 +120,7 @@ class MoveBattleStyleDetail(Model):
     def names(self, names: List[MoveBattleStyleName]):
         """Sets the names of this MoveBattleStyleDetail.
 
+        The name of this resource listed in different languages.  # noqa: E501
 
         :param names: The names of this MoveBattleStyleDetail.
         :type names: List[MoveBattleStyleName]

@@ -2,7 +2,7 @@
   (:require [clojure.spec.alpha :as s]
             [spec-tools.data-spec :as ds]
             [pokéapi.specs.item-summary :refer :all]
-            [pokéapi.specs.evolution-chain-detail-chain :refer :all]
+            [pokéapi.specs.evolution-chain-link :refer :all]
             )
   (:import (java.io File)))
 
@@ -11,7 +11,7 @@
   {
    (ds/req :id) int?
    (ds/req :baby_trigger_item) item-summary-spec
-   (ds/req :chain) evolution-chain-detail-chain-spec
+   (ds/req :chain) evolution-chain-link-spec
    })
 
 (def evolution-chain-detail-spec

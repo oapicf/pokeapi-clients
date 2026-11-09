@@ -7,10 +7,10 @@
 #' @title ItemFlingEffectDetail
 #' @description ItemFlingEffectDetail Class
 #' @format An \code{R6Class} generator object
-#' @field id  integer
-#' @field name  character
-#' @field effect_entries  list(\link{ItemFlingEffectEffectText})
-#' @field items  list(\link{ItemSummary})
+#' @field id The identifier for this resource. integer
+#' @field name The name for this resource. character
+#' @field effect_entries The result of this fling effect listed in different languages. list(\link{ItemFlingEffectEffectText})
+#' @field items A list of items that have this fling effect. list(\link{ItemSummary})
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -25,10 +25,10 @@ ItemFlingEffectDetail <- R6::R6Class(
     #' @description
     #' Initialize a new ItemFlingEffectDetail class.
     #'
-    #' @param id id
-    #' @param name name
-    #' @param effect_entries effect_entries
-    #' @param items items
+    #' @param id The identifier for this resource.
+    #' @param name The name for this resource.
+    #' @param effect_entries The result of this fling effect listed in different languages.
+    #' @param items A list of items that have this fling effect.
     #' @param ... Other optional arguments.
     initialize = function(`id`, `name`, `effect_entries`, `items`, ...) {
       if (!missing(`id`)) {
@@ -236,7 +236,7 @@ ItemFlingEffectDetail <- R6::R6Class(
         return(FALSE)
       }
 
-      if (nchar(self$`name`) > 100) {
+      if (nchar(self$`name`) > 200) {
         return(FALSE)
       }
 
@@ -269,8 +269,8 @@ ItemFlingEffectDetail <- R6::R6Class(
         invalid_fields["name"] <- "Non-nullable required field `name` cannot be null."
       }
 
-      if (nchar(self$`name`) > 100) {
-        invalid_fields["name"] <- "Invalid length for `name`, must be smaller than or equal to 100."
+      if (nchar(self$`name`) > 200) {
+        invalid_fields["name"] <- "Invalid length for `name`, must be smaller than or equal to 200."
       }
 
       # check if the required `effect_entries` is null

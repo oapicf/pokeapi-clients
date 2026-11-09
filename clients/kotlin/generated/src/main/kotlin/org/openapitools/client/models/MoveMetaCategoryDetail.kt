@@ -23,8 +23,8 @@
 
 package org.openapitools.client.models
 
-import org.openapitools.client.models.AbilityDetailPokemonInnerPokemon
 import org.openapitools.client.models.MoveMetaCategoryDescription
+import org.openapitools.client.models.MoveSummary
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -32,26 +32,30 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param id 
- * @param name 
- * @param descriptions 
- * @param moves 
+ * @param id The identifier for this resource.
+ * @param name The name for this resource.
+ * @param descriptions The description of this resource listed in different languages.
+ * @param moves A list of moves that fall into this category.
  */
 
 
 data class MoveMetaCategoryDetail (
 
+    /* The identifier for this resource. */
     @Json(name = "id")
     val id: kotlin.Int,
 
+    /* The name for this resource. */
     @Json(name = "name")
     val name: kotlin.String,
 
+    /* The description of this resource listed in different languages. */
     @Json(name = "descriptions")
     val descriptions: kotlin.collections.List<MoveMetaCategoryDescription>,
 
+    /* A list of moves that fall into this category. */
     @Json(name = "moves")
-    val moves: kotlin.collections.List<AbilityDetailPokemonInnerPokemon>
+    val moves: kotlin.collections.List<MoveSummary>
 
 ) {
 

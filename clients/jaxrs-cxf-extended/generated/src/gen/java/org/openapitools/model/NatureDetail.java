@@ -4,10 +4,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.model.BerryFlavorSummary;
-import org.openapitools.model.BerrySummary;
 import org.openapitools.model.NatureBattleStylePreference;
-import org.openapitools.model.NatureDetailPokeathlonStatChangesInner;
 import org.openapitools.model.NatureName;
+import org.openapitools.model.NaturePokeathlonStat;
 import org.openapitools.model.StatSummary;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
@@ -19,41 +18,65 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class NatureDetail  {
   
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The identifier for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   private Integer id;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The name for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   private String name;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The stat decreased by 10% in Pokémon with this nature.
+  */
+  @ApiModelProperty(required = true, value = "The stat decreased by 10% in Pokémon with this nature.")
   @Valid
   private StatSummary decreasedStat;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The stat increased by 10% in Pokémon with this nature.
+  */
+  @ApiModelProperty(required = true, value = "The stat increased by 10% in Pokémon with this nature.")
   @Valid
   private StatSummary increasedStat;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The flavor liked by Pokémon with this nature.
+  */
+  @ApiModelProperty(required = true, value = "The flavor liked by Pokémon with this nature.")
   @Valid
   private BerryFlavorSummary likesFlavor;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The flavor hated by Pokémon with this nature.
+  */
+  @ApiModelProperty(required = true, value = "The flavor hated by Pokémon with this nature.")
   @Valid
   private BerryFlavorSummary hatesFlavor;
 
-  @ApiModelProperty(required = true, value = "")
-  private List<@Valid BerrySummary> berries = new ArrayList<>();
+ /**
+  * A list of Pokéathlon stats this nature effects and how much it effects them.
+  */
+  @ApiModelProperty(required = true, value = "A list of Pokéathlon stats this nature effects and how much it effects them.")
+  private List<@Valid NaturePokeathlonStat> pokeathlonStatChanges = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
-  private List<@Valid NatureDetailPokeathlonStatChangesInner> pokeathlonStatChanges = new ArrayList<>();
-
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * A list of battle styles and how likely a Pokémon with this nature is to use them in the Battle Palace or Battle Tent.
+  */
+  @ApiModelProperty(required = true, value = "A list of battle styles and how likely a Pokémon with this nature is to use them in the Battle Palace or Battle Tent.")
   private List<@Valid NatureBattleStylePreference> moveBattleStylePreferences = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The name of this resource listed in different languages.
+  */
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
   private List<@Valid NatureName> names = new ArrayList<>();
  /**
-  * Get id
+  * The identifier for this resource.
   * @return id
   */
   @JsonProperty("id")
@@ -80,12 +103,12 @@ public class NatureDetail  {
   }
 
  /**
-  * Get name
+  * The name for this resource.
   * @return name
   */
   @JsonProperty("name")
   @NotNull
- @Size(max=100)  public String getName() {
+ @Size(max=200)  public String getName() {
     return name;
   }
 
@@ -105,7 +128,7 @@ public class NatureDetail  {
   }
 
  /**
-  * Get decreasedStat
+  * The stat decreased by 10% in Pokémon with this nature.
   * @return decreasedStat
   */
   @JsonProperty("decreased_stat")
@@ -130,7 +153,7 @@ public class NatureDetail  {
   }
 
  /**
-  * Get increasedStat
+  * The stat increased by 10% in Pokémon with this nature.
   * @return increasedStat
   */
   @JsonProperty("increased_stat")
@@ -155,7 +178,7 @@ public class NatureDetail  {
   }
 
  /**
-  * Get likesFlavor
+  * The flavor liked by Pokémon with this nature.
   * @return likesFlavor
   */
   @JsonProperty("likes_flavor")
@@ -180,7 +203,7 @@ public class NatureDetail  {
   }
 
  /**
-  * Get hatesFlavor
+  * The flavor hated by Pokémon with this nature.
   * @return hatesFlavor
   */
   @JsonProperty("hates_flavor")
@@ -205,48 +228,12 @@ public class NatureDetail  {
   }
 
  /**
-  * Get berries
-  * @return berries
-  */
-  @JsonProperty("berries")
-  @NotNull
-  public List<@Valid BerrySummary> getBerries() {
-    return berries;
-  }
-
-  /**
-   * Sets the <code>berries</code> property.
-   * <br><em>N.B. <code>berries</code> is <b>read only</b>; client code should not call this method</em>.
-   */
- public void setBerries(List<@Valid BerrySummary> berries) {
-    this.berries = berries;
-  }
-
-  /**
-   * Sets the <code>berries</code> property.
-   * <br><em>N.B. <code>berries</code> is <b>read only</b>; client code should not call this method</em>.
-   */
-  public NatureDetail berries(List<@Valid BerrySummary> berries) {
-    this.berries = berries;
-    return this;
-  }
-
-  /**
-   * Adds a new item to the <code>berries</code> list.
-   * <br><em>N.B. <code>berries</code> is <b>read only</b>; client code should not call this method</em>.
-   */
-  public NatureDetail addBerriesItem(BerrySummary berriesItem) {
-    this.berries.add(berriesItem);
-    return this;
-  }
-
- /**
-  * Get pokeathlonStatChanges
+  * A list of Pokéathlon stats this nature effects and how much it effects them.
   * @return pokeathlonStatChanges
   */
   @JsonProperty("pokeathlon_stat_changes")
   @NotNull
-  public List<@Valid NatureDetailPokeathlonStatChangesInner> getPokeathlonStatChanges() {
+  public List<@Valid NaturePokeathlonStat> getPokeathlonStatChanges() {
     return pokeathlonStatChanges;
   }
 
@@ -254,7 +241,7 @@ public class NatureDetail  {
    * Sets the <code>pokeathlonStatChanges</code> property.
    * <br><em>N.B. <code>pokeathlonStatChanges</code> is <b>read only</b>; client code should not call this method</em>.
    */
- public void setPokeathlonStatChanges(List<@Valid NatureDetailPokeathlonStatChangesInner> pokeathlonStatChanges) {
+ public void setPokeathlonStatChanges(List<@Valid NaturePokeathlonStat> pokeathlonStatChanges) {
     this.pokeathlonStatChanges = pokeathlonStatChanges;
   }
 
@@ -262,7 +249,7 @@ public class NatureDetail  {
    * Sets the <code>pokeathlonStatChanges</code> property.
    * <br><em>N.B. <code>pokeathlonStatChanges</code> is <b>read only</b>; client code should not call this method</em>.
    */
-  public NatureDetail pokeathlonStatChanges(List<@Valid NatureDetailPokeathlonStatChangesInner> pokeathlonStatChanges) {
+  public NatureDetail pokeathlonStatChanges(List<@Valid NaturePokeathlonStat> pokeathlonStatChanges) {
     this.pokeathlonStatChanges = pokeathlonStatChanges;
     return this;
   }
@@ -271,13 +258,13 @@ public class NatureDetail  {
    * Adds a new item to the <code>pokeathlonStatChanges</code> list.
    * <br><em>N.B. <code>pokeathlonStatChanges</code> is <b>read only</b>; client code should not call this method</em>.
    */
-  public NatureDetail addPokeathlonStatChangesItem(NatureDetailPokeathlonStatChangesInner pokeathlonStatChangesItem) {
+  public NatureDetail addPokeathlonStatChangesItem(NaturePokeathlonStat pokeathlonStatChangesItem) {
     this.pokeathlonStatChanges.add(pokeathlonStatChangesItem);
     return this;
   }
 
  /**
-  * Get moveBattleStylePreferences
+  * A list of battle styles and how likely a Pokémon with this nature is to use them in the Battle Palace or Battle Tent.
   * @return moveBattleStylePreferences
   */
   @JsonProperty("move_battle_style_preferences")
@@ -313,7 +300,7 @@ public class NatureDetail  {
   }
 
  /**
-  * Get names
+  * The name of this resource listed in different languages.
   * @return names
   */
   @JsonProperty("names")
@@ -364,7 +351,6 @@ public class NatureDetail  {
         Objects.equals(this.increasedStat, natureDetail.increasedStat) &&
         Objects.equals(this.likesFlavor, natureDetail.likesFlavor) &&
         Objects.equals(this.hatesFlavor, natureDetail.hatesFlavor) &&
-        Objects.equals(this.berries, natureDetail.berries) &&
         Objects.equals(this.pokeathlonStatChanges, natureDetail.pokeathlonStatChanges) &&
         Objects.equals(this.moveBattleStylePreferences, natureDetail.moveBattleStylePreferences) &&
         Objects.equals(this.names, natureDetail.names);
@@ -372,7 +358,7 @@ public class NatureDetail  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, decreasedStat, increasedStat, likesFlavor, hatesFlavor, berries, pokeathlonStatChanges, moveBattleStylePreferences, names);
+    return Objects.hash(id, name, decreasedStat, increasedStat, likesFlavor, hatesFlavor, pokeathlonStatChanges, moveBattleStylePreferences, names);
   }
 
   @Override
@@ -386,7 +372,6 @@ public class NatureDetail  {
     sb.append("    increasedStat: ").append(toIndentedString(increasedStat)).append("\n");
     sb.append("    likesFlavor: ").append(toIndentedString(likesFlavor)).append("\n");
     sb.append("    hatesFlavor: ").append(toIndentedString(hatesFlavor)).append("\n");
-    sb.append("    berries: ").append(toIndentedString(berries)).append("\n");
     sb.append("    pokeathlonStatChanges: ").append(toIndentedString(pokeathlonStatChanges)).append("\n");
     sb.append("    moveBattleStylePreferences: ").append(toIndentedString(moveBattleStylePreferences)).append("\n");
     sb.append("    names: ").append(toIndentedString(names)).append("\n");

@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 ## contestEffectList
 
-> PaginatedContestEffectSummaryList contestEffectList(limit, offset, q)
+> PaginatedContestEffectSummaryList contestEffectList(limit, offset)
 
 List contest effects
 
@@ -30,9 +30,8 @@ Contest effects refer to the effects of moves when used in contests.
 ContestsApi apiInstance = new ContestsApi();
 Integer limit = null; // Integer | Number of results to return per page.
 Integer offset = null; // Integer | The initial index from which to return the results.
-String q = null; // String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
 try {
-    PaginatedContestEffectSummaryList result = apiInstance.contestEffectList(limit, offset, q);
+    PaginatedContestEffectSummaryList result = apiInstance.contestEffectList(limit, offset);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ContestsApi#contestEffectList");
@@ -47,7 +46,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **Integer**| Number of results to return per page. | [optional] [default to null]
  **offset** | **Integer**| The initial index from which to return the results. | [optional] [default to null]
- **q** | **String**| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional] [default to null]
 
 ### Return type
 
@@ -55,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -78,7 +76,7 @@ Contest effects refer to the effects of moves when used in contests.
 //import org.openapitools.client.api.ContestsApi;
 
 ContestsApi apiInstance = new ContestsApi();
-String id = null; // String | This parameter can be a string or an integer.
+String id = 1; // String | This parameter can be a string or an integer.
 try {
     ContestEffectDetail result = apiInstance.contestEffectRetrieve(id);
     System.out.println(result);
@@ -101,7 +99,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -151,7 +149,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -174,7 +172,7 @@ Contest types are categories judges used to weigh a Pokémon&#39;s condition in 
 //import org.openapitools.client.api.ContestsApi;
 
 ContestsApi apiInstance = new ContestsApi();
-String id = null; // String | This parameter can be a string or an integer.
+String id = 1; // String | This parameter can be a string or an integer.
 try {
     ContestTypeDetail result = apiInstance.contestTypeRetrieve(id);
     System.out.println(result);
@@ -197,7 +195,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -207,7 +205,7 @@ Name | Type | Description  | Notes
 
 ## superContestEffectList
 
-> PaginatedSuperContestEffectSummaryList superContestEffectList(limit, offset, q)
+> PaginatedSuperContestEffectSummaryList superContestEffectList(limit, offset)
 
 List super contest effects
 
@@ -222,9 +220,8 @@ Super contest effects refer to the effects of moves when used in super contests.
 ContestsApi apiInstance = new ContestsApi();
 Integer limit = null; // Integer | Number of results to return per page.
 Integer offset = null; // Integer | The initial index from which to return the results.
-String q = null; // String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
 try {
-    PaginatedSuperContestEffectSummaryList result = apiInstance.superContestEffectList(limit, offset, q);
+    PaginatedSuperContestEffectSummaryList result = apiInstance.superContestEffectList(limit, offset);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ContestsApi#superContestEffectList");
@@ -239,7 +236,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **Integer**| Number of results to return per page. | [optional] [default to null]
  **offset** | **Integer**| The initial index from which to return the results. | [optional] [default to null]
- **q** | **String**| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional] [default to null]
 
 ### Return type
 
@@ -247,7 +243,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -270,7 +266,7 @@ Super contest effects refer to the effects of moves when used in super contests.
 //import org.openapitools.client.api.ContestsApi;
 
 ContestsApi apiInstance = new ContestsApi();
-String id = null; // String | This parameter can be a string or an integer.
+String id = 1; // String | This parameter can be a string or an integer.
 try {
     SuperContestEffectDetail result = apiInstance.superContestEffectRetrieve(id);
     System.out.println(result);
@@ -293,7 +289,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

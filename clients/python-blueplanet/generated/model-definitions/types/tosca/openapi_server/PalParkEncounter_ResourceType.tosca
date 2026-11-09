@@ -1,0 +1,46 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server PalParkEncounter"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a PalParkEncounter"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  PokemonSpeciesSummary = openapi_server.resourceTypes.PokemonSpeciesSummary
+}
+resourceTypes {
+
+  PalParkEncounter {
+    title = PalParkEncounter
+    description = PalParkEncounter
+    derivedFrom = Root
+    properties {
+        base_score {
+          type =  integer
+          description = "The base score given to the player when this Pokémon is caught during a pal park run."
+          optional = false
+        }
+        rate {
+          type =  integer
+          description = "The base rate for encountering this Pokémon in this pal park area."
+          optional = true
+        }
+        pokemon_species {
+          type = PokemonSpeciesSummary
+          description = "The Pokémon species being encountered."
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  PalParkEncounter {
+    title = PalParkEncounter
+    description = PalParkEncounter
+    implements = openapi_server.resourceTypes.PalParkEncounter
+
+  }
+}

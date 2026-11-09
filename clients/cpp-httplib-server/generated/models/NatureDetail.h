@@ -7,14 +7,14 @@
 #pragma once
 // System headers
 #include <nlohmann/json.hpp>
+#include <optional>
 #include <cstdint>
 #include <string>
 #include <vector>
 #include "BerryFlavorSummary.h"
-#include "BerrySummary.h"
 #include "NatureBattleStylePreference.h"
-#include "NatureDetailPokeathlonStatChangesInner.h"
 #include "NatureName.h"
+#include "NaturePokeathlonStat.h"
 #include "StatSummary.h"
 
 
@@ -42,10 +42,8 @@ public:
     void setLikesFlavor(const BerryFlavorSummary& likesFlavor);
     [[nodiscard]] BerryFlavorSummary getHatesFlavor() const;
     void setHatesFlavor(const BerryFlavorSummary& hatesFlavor);
-    [[nodiscard]] std::vector<BerrySummary> getBerries() const;
-    void setBerries(const std::vector<BerrySummary>& berries);
-    [[nodiscard]] std::vector<NatureDetail_pokeathlon_stat_changes_inner> getPokeathlonStatChanges() const;
-    void setPokeathlonStatChanges(const std::vector<NatureDetail_pokeathlon_stat_changes_inner>& pokeathlonStatChanges);
+    [[nodiscard]] std::vector<NaturePokeathlonStat> getPokeathlonStatChanges() const;
+    void setPokeathlonStatChanges(const std::vector<NaturePokeathlonStat>& pokeathlonStatChanges);
     [[nodiscard]] std::vector<NatureBattleStylePreference> getMoveBattleStylePreferences() const;
     void setMoveBattleStylePreferences(const std::vector<NatureBattleStylePreference>& moveBattleStylePreferences);
     [[nodiscard]] std::vector<NatureName> getNames() const;
@@ -54,7 +52,7 @@ public:
 
     // JSON serialization using NLOHMANN INTRUSIVE macro (must be inside class to access private members)
     NLOHMANN_DEFINE_TYPE_INTRUSIVE(NatureDetail,
-         id, name, decreasedStat, increasedStat, likesFlavor, hatesFlavor, berries, pokeathlonStatChanges, moveBattleStylePreferences, names)
+         id, name, decreasedStat, increasedStat, likesFlavor, hatesFlavor, pokeathlonStatChanges, moveBattleStylePreferences, names)
 
 private:
     int id;
@@ -63,8 +61,7 @@ private:
     StatSummary increasedStat;
     BerryFlavorSummary likesFlavor;
     BerryFlavorSummary hatesFlavor;
-    std::vector<BerrySummary> berries;
-    std::vector<NatureDetail_pokeathlon_stat_changes_inner> pokeathlonStatChanges;
+    std::vector<NaturePokeathlonStat> pokeathlonStatChanges;
     std::vector<NatureBattleStylePreference> moveBattleStylePreferences;
     std::vector<NatureName> names;
 };

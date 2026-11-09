@@ -17,7 +17,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("SuperContestEffectSummary")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-11-09T13:50:06.168269698Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class SuperContestEffectSummary   {
   private URI url;
 
@@ -32,6 +32,7 @@ public class SuperContestEffectSummary   {
   }
 
   /**
+   * The URL of the referenced resource.
    **/
   public SuperContestEffectSummary url(URI url) {
     this.url = url;
@@ -39,7 +40,7 @@ public class SuperContestEffectSummary   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The URL of the referenced resource.")
   @JsonProperty(required = true, value = "url")
   public URI getUrl() {
     return url;

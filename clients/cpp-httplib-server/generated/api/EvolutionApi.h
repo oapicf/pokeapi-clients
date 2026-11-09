@@ -8,17 +8,17 @@
 
 // System headers
 #include <httplib.h>
-#include <memory>
 #include <variant>
 
 // Project headers
 #include "models/EvolutionChainDetail.h"
 #include "models/EvolutionTriggerDetail.h"
+#include "models/EvolutionVariableDetail.h"
 #include "models/PaginatedEvolutionChainSummaryList.h"
 #include "models/PaginatedEvolutionTriggerSummaryList.h"
+#include "models/PaginatedEvolutionVariableSummaryList.h"
 
 namespace Api {
-    class AuthenticationManager;
 class Evolution {
 public:
     Evolution() = default;
@@ -26,9 +26,8 @@ public:
     /**
      * @brief Register all routes for this API
      * @param svr The httplib::Server instance to register routes on
-     * @param auth The AuthenticationManager for authentication (optional, defaults to nullptr)
      */
-    void registerRoutes(httplib::Server& svr, std::shared_ptr<AuthenticationManager> auth = nullptr);
+    void registerRoutes(httplib::Server& svr);
     // =========================
     // ===== Request types =====
     // =========================
@@ -41,7 +40,6 @@ public:
 
         std::optional<int> m_limit; //Query Params (optional)
         std::optional<int> m_offset; //Query Params (optional)
-        std::optional<std::string> m_q; //Query Params (optional)
     };
 
     /**
@@ -73,6 +71,26 @@ public:
         std::string m_id; //PathParams (always required)
     };
 
+    /**
+    * @brief Request type for handleGetForApiv2evolutionVariable.
+    */
+    struct Apiv2evolutionVariableGetRequest
+    {
+
+        std::optional<int> m_limit; //Query Params (optional)
+        std::optional<int> m_offset; //Query Params (optional)
+        std::optional<std::string> m_q; //Query Params (optional)
+    };
+
+    /**
+    * @brief Request type for handleGetForApiv2evolutionVariableid.
+    */
+    struct Apiv2evolutionVariableidGetRequest
+    {
+
+        std::string m_id; //PathParams (always required)
+    };
+
     // ==========================
     // ===== Response types =====
     // ==========================
@@ -96,6 +114,16 @@ public:
     * @brief Response type for handleGetForApiv2evolutionTriggerid.
     */
     using Apiv2evolutionTriggeridGetResponse = models::EvolutionTriggerDetail;
+
+    /**
+    * @brief Response type for handleGetForApiv2evolutionVariable.
+    */
+    using Apiv2evolutionVariableGetResponse = models::PaginatedEvolutionVariableSummaryList;
+
+    /**
+    * @brief Response type for handleGetForApiv2evolutionVariableid.
+    */
+    using Apiv2evolutionVariableidGetResponse = models::EvolutionVariableDetail;
     // ============================================================
     // ===== Pure virtual functions to be handled by the user =====
     // ============================================================
@@ -123,26 +151,40 @@ public:
      */
     virtual Apiv2evolutionTriggeridGetResponse handleGetForApiv2evolutionTriggerid(const Apiv2evolutionTriggeridGetRequest& params)=0;
 
+    /**
+     * Apiv2evolutionVariableGetRequest - struct containing all the query parameters and headers and schemas as available.
+     * @return Apiv2evolutionVariableGetResponse The response type returned by the handler.
+     */
+    virtual Apiv2evolutionVariableGetResponse handleGetForApiv2evolutionVariable(const Apiv2evolutionVariableGetRequest& params)=0;
+
+    /**
+     * Apiv2evolutionVariableidGetRequest - struct containing all the query parameters and headers and schemas as available.
+     * @return Apiv2evolutionVariableidGetResponse The response type returned by the handler.
+     */
+    virtual Apiv2evolutionVariableidGetResponse handleGetForApiv2evolutionVariableid(const Apiv2evolutionVariableidGetRequest& params)=0;
+
 private:
     // ========================================
     // ===== Helper function declarations =====
     // ========================================
     static bool parseApiv2evolutionChainGetParams(const httplib::Request& req, Apiv2evolutionChainGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2evolutionChainGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2evolutionChainGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2evolutionChainGetResponse(const Apiv2evolutionChainGetResponse& result, httplib::Response& res);
     static bool parseApiv2evolutionChainidGetParams(const httplib::Request& req, Apiv2evolutionChainidGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2evolutionChainidGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2evolutionChainidGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2evolutionChainidGetResponse(const Apiv2evolutionChainidGetResponse& result, httplib::Response& res);
     static bool parseApiv2evolutionTriggerGetParams(const httplib::Request& req, Apiv2evolutionTriggerGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2evolutionTriggerGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2evolutionTriggerGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2evolutionTriggerGetResponse(const Apiv2evolutionTriggerGetResponse& result, httplib::Response& res);
     static bool parseApiv2evolutionTriggeridGetParams(const httplib::Request& req, Apiv2evolutionTriggeridGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2evolutionTriggeridGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2evolutionTriggeridGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2evolutionTriggeridGetResponse(const Apiv2evolutionTriggeridGetResponse& result, httplib::Response& res);
-    static bool performAuthentication(
-        const httplib::Request& req,
-        std::shared_ptr<AuthenticationManager> auth,
-        httplib::Response& res);
+    static bool parseApiv2evolutionVariableGetParams(const httplib::Request& req, Apiv2evolutionVariableGetRequest& params, std::vector<std::string>& paramErrors);
+    void handleApiv2evolutionVariableGetRequest(const httplib::Request& req, httplib::Response& res);
+    static void handleApiv2evolutionVariableGetResponse(const Apiv2evolutionVariableGetResponse& result, httplib::Response& res);
+    static bool parseApiv2evolutionVariableidGetParams(const httplib::Request& req, Apiv2evolutionVariableidGetRequest& params, std::vector<std::string>& paramErrors);
+    void handleApiv2evolutionVariableidGetRequest(const httplib::Request& req, httplib::Response& res);
+    static void handleApiv2evolutionVariableidGetResponse(const Apiv2evolutionVariableidGetResponse& result, httplib::Response& res);
 };
 
 } // namespace Api

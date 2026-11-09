@@ -8,19 +8,19 @@ module.exports = {
         return [
             {
                 key: `${keyPrefix}id`,
-                label: `[${labelPrefix}id]`,
+                label: `The identifier for this resource. - [${labelPrefix}id]`,
                 required: true,
                 type: 'integer',
             },
             {
                 key: `${keyPrefix}appeal`,
-                label: `[${labelPrefix}appeal]`,
+                label: `The base number of hearts the user of this move gets. - [${labelPrefix}appeal]`,
                 required: true,
                 type: 'integer',
             },
             {
                 key: `${keyPrefix}jam`,
-                label: `[${labelPrefix}jam]`,
+                label: `The base number of hearts the user's opponent loses. - [${labelPrefix}jam]`,
                 required: true,
                 type: 'integer',
             },

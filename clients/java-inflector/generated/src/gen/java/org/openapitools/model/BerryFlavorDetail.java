@@ -8,7 +8,7 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.model.BerryFlavorDetailBerriesInner;
+import org.openapitools.model.BerryFlavorBerryMap;
 import org.openapitools.model.BerryFlavorName;
 import org.openapitools.model.ContestTypeSummary;
 
@@ -16,7 +16,7 @@ import org.openapitools.model.ContestTypeSummary;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-10-25T05:47:53.227411880Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-11-09T13:49:15.621225368Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class BerryFlavorDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -25,7 +25,7 @@ public class BerryFlavorDetail   {
   private String name;
 
   @JsonProperty("berries")
-  private List<BerryFlavorDetailBerriesInner> berries = new ArrayList<>();
+  private List<BerryFlavorBerryMap> berries = new ArrayList<>();
 
   @JsonProperty("contest_type")
   private ContestTypeSummary contestType;
@@ -34,6 +34,7 @@ public class BerryFlavorDetail   {
   private List<BerryFlavorName> names = new ArrayList<>();
 
   /**
+   * The identifier for this resource.
    **/
   public BerryFlavorDetail id(Integer id) {
     this.id = id;
@@ -41,7 +42,7 @@ public class BerryFlavorDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   @JsonProperty("id")
   public Integer getId() {
     return id;
@@ -51,6 +52,7 @@ public class BerryFlavorDetail   {
   }
 
   /**
+   * The name for this resource.
    **/
   public BerryFlavorDetail name(String name) {
     this.name = name;
@@ -58,7 +60,7 @@ public class BerryFlavorDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   @JsonProperty("name")
   public String getName() {
     return name;
@@ -68,23 +70,25 @@ public class BerryFlavorDetail   {
   }
 
   /**
+   * A list of the berries with this flavor.
    **/
-  public BerryFlavorDetail berries(List<BerryFlavorDetailBerriesInner> berries) {
+  public BerryFlavorDetail berries(List<BerryFlavorBerryMap> berries) {
     this.berries = berries;
     return this;
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of the berries with this flavor.")
   @JsonProperty("berries")
-  public List<BerryFlavorDetailBerriesInner> getBerries() {
+  public List<BerryFlavorBerryMap> getBerries() {
     return berries;
   }
-  public void setBerries(List<BerryFlavorDetailBerriesInner> berries) {
+  public void setBerries(List<BerryFlavorBerryMap> berries) {
     this.berries = berries;
   }
 
   /**
+   * The contest type that correlates with this berry flavor.
    **/
   public BerryFlavorDetail contestType(ContestTypeSummary contestType) {
     this.contestType = contestType;
@@ -92,7 +96,7 @@ public class BerryFlavorDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The contest type that correlates with this berry flavor.")
   @JsonProperty("contest_type")
   public ContestTypeSummary getContestType() {
     return contestType;
@@ -102,6 +106,7 @@ public class BerryFlavorDetail   {
   }
 
   /**
+   * The name of this resource listed in different languages.
    **/
   public BerryFlavorDetail names(List<BerryFlavorName> names) {
     this.names = names;
@@ -109,7 +114,7 @@ public class BerryFlavorDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
   @JsonProperty("names")
   public List<BerryFlavorName> getNames() {
     return names;

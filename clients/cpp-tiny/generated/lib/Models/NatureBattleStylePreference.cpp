@@ -8,7 +8,7 @@ NatureBattleStylePreference::NatureBattleStylePreference()
 {
 	low_hp_preference = int(0);
 	high_hp_preference = int(0);
-	move_battle_style = MoveBattleStyleSummary();
+	move_battle_style = null;
 }
 
 NatureBattleStylePreference::NatureBattleStylePreference(std::string jsonString)

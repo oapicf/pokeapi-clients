@@ -4,6 +4,8 @@ All URIs are relative to *https://pokeapi.co*
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
+| [**currencyList**](ItemsApi.md#currencyList) | **GET** /api/v2/currency/ | List currencies |
+| [**currencyRetrieve**](ItemsApi.md#currencyRetrieve) | **GET** /api/v2/currency/{id}/ | Get currency |
 | [**itemAttributeList**](ItemsApi.md#itemAttributeList) | **GET** /api/v2/item-attribute/ | List item attributes |
 | [**itemAttributeRetrieve**](ItemsApi.md#itemAttributeRetrieve) | **GET** /api/v2/item-attribute/{id}/ | Get item attribute |
 | [**itemCategoryList**](ItemsApi.md#itemCategoryList) | **GET** /api/v2/item-category/ | List item categories |
@@ -15,6 +17,102 @@ All URIs are relative to *https://pokeapi.co*
 | [**itemPocketRetrieve**](ItemsApi.md#itemPocketRetrieve) | **GET** /api/v2/item-pocket/{id}/ | Get item pocket |
 | [**itemRetrieve**](ItemsApi.md#itemRetrieve) | **GET** /api/v2/item/{id}/ | Get item |
 
+
+<a id="currencyList"></a>
+# **currencyList**
+> PaginatedCurrencySummaryList currencyList(limit, offset, q)
+
+List currencies
+
+Currencies used to buy items.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = ItemsApi()
+val limit : kotlin.Int = 56 // kotlin.Int | Number of results to return per page.
+val offset : kotlin.Int = 56 // kotlin.Int | The initial index from which to return the results.
+val q : kotlin.String = q_example // kotlin.String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+try {
+    val result : PaginatedCurrencySummaryList = apiInstance.currencyList(limit, offset, q)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling ItemsApi#currencyList")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling ItemsApi#currencyList")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **limit** | **kotlin.Int**| Number of results to return per page. | [optional] |
+| **offset** | **kotlin.Int**| The initial index from which to return the results. | [optional] |
+| **q** | **kotlin.String**| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional] |
+
+### Return type
+
+[**PaginatedCurrencySummaryList**](PaginatedCurrencySummaryList.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="currencyRetrieve"></a>
+# **currencyRetrieve**
+> CurrencyDetail currencyRetrieve(id)
+
+Get currency
+
+Currencies used to buy items.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = ItemsApi()
+val id : kotlin.String = 1 // kotlin.String | This parameter can be a string or an integer.
+try {
+    val result : CurrencyDetail = apiInstance.currencyRetrieve(id)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling ItemsApi#currencyRetrieve")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling ItemsApi#currencyRetrieve")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **kotlin.String**| This parameter can be a string or an integer. | |
+
+### Return type
+
+[**CurrencyDetail**](CurrencyDetail.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 <a id="itemAttributeList"></a>
 # **itemAttributeList**
@@ -59,19 +157,7 @@ try {
 
 ### Authorization
 
-
-Configure basicAuth statically:
-```kotlin
-ApiClient.username = ""
-ApiClient.password = ""
-```
-Configure basicAuth dynamically:
-```kotlin
-apiInstance.userCredentialProvider = { "user" to "pass" }
-```
-Configure cookieAuth:
-    ApiClient.apiKey["sessionid"] = ""
-    ApiClient.apiKeyPrefix["sessionid"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -93,7 +179,7 @@ Item attributes define particular aspects of items, e.g.\&quot;usable in battle\
 //import org.openapitools.client.models.*
 
 val apiInstance = ItemsApi()
-val id : kotlin.String = id_example // kotlin.String | This parameter can be a string or an integer.
+val id : kotlin.String = 1 // kotlin.String | This parameter can be a string or an integer.
 try {
     val result : ItemAttributeDetail = apiInstance.itemAttributeRetrieve(id)
     println(result)
@@ -117,19 +203,7 @@ try {
 
 ### Authorization
 
-
-Configure basicAuth statically:
-```kotlin
-ApiClient.username = ""
-ApiClient.password = ""
-```
-Configure basicAuth dynamically:
-```kotlin
-apiInstance.userCredentialProvider = { "user" to "pass" }
-```
-Configure cookieAuth:
-    ApiClient.apiKey["sessionid"] = ""
-    ApiClient.apiKeyPrefix["sessionid"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -179,19 +253,7 @@ try {
 
 ### Authorization
 
-
-Configure basicAuth statically:
-```kotlin
-ApiClient.username = ""
-ApiClient.password = ""
-```
-Configure basicAuth dynamically:
-```kotlin
-apiInstance.userCredentialProvider = { "user" to "pass" }
-```
-Configure cookieAuth:
-    ApiClient.apiKey["sessionid"] = ""
-    ApiClient.apiKeyPrefix["sessionid"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -213,7 +275,7 @@ Item categories determine where items will be placed in the players bag.
 //import org.openapitools.client.models.*
 
 val apiInstance = ItemsApi()
-val id : kotlin.String = id_example // kotlin.String | This parameter can be a string or an integer.
+val id : kotlin.String = 1 // kotlin.String | This parameter can be a string or an integer.
 try {
     val result : ItemCategoryDetail = apiInstance.itemCategoryRetrieve(id)
     println(result)
@@ -237,19 +299,7 @@ try {
 
 ### Authorization
 
-
-Configure basicAuth statically:
-```kotlin
-ApiClient.username = ""
-ApiClient.password = ""
-```
-Configure basicAuth dynamically:
-```kotlin
-apiInstance.userCredentialProvider = { "user" to "pass" }
-```
-Configure cookieAuth:
-    ApiClient.apiKey["sessionid"] = ""
-    ApiClient.apiKeyPrefix["sessionid"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -299,19 +349,7 @@ try {
 
 ### Authorization
 
-
-Configure basicAuth statically:
-```kotlin
-ApiClient.username = ""
-ApiClient.password = ""
-```
-Configure basicAuth dynamically:
-```kotlin
-apiInstance.userCredentialProvider = { "user" to "pass" }
-```
-Configure cookieAuth:
-    ApiClient.apiKey["sessionid"] = ""
-    ApiClient.apiKeyPrefix["sessionid"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -333,7 +371,7 @@ The various effects of the move\&quot;Fling\&quot; when used with different item
 //import org.openapitools.client.models.*
 
 val apiInstance = ItemsApi()
-val id : kotlin.String = id_example // kotlin.String | This parameter can be a string or an integer.
+val id : kotlin.String = 1 // kotlin.String | This parameter can be a string or an integer.
 try {
     val result : ItemFlingEffectDetail = apiInstance.itemFlingEffectRetrieve(id)
     println(result)
@@ -357,19 +395,7 @@ try {
 
 ### Authorization
 
-
-Configure basicAuth statically:
-```kotlin
-ApiClient.username = ""
-ApiClient.password = ""
-```
-Configure basicAuth dynamically:
-```kotlin
-apiInstance.userCredentialProvider = { "user" to "pass" }
-```
-Configure cookieAuth:
-    ApiClient.apiKey["sessionid"] = ""
-    ApiClient.apiKeyPrefix["sessionid"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -419,19 +445,7 @@ try {
 
 ### Authorization
 
-
-Configure basicAuth statically:
-```kotlin
-ApiClient.username = ""
-ApiClient.password = ""
-```
-Configure basicAuth dynamically:
-```kotlin
-apiInstance.userCredentialProvider = { "user" to "pass" }
-```
-Configure cookieAuth:
-    ApiClient.apiKey["sessionid"] = ""
-    ApiClient.apiKeyPrefix["sessionid"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -481,19 +495,7 @@ try {
 
 ### Authorization
 
-
-Configure basicAuth statically:
-```kotlin
-ApiClient.username = ""
-ApiClient.password = ""
-```
-Configure basicAuth dynamically:
-```kotlin
-apiInstance.userCredentialProvider = { "user" to "pass" }
-```
-Configure cookieAuth:
-    ApiClient.apiKey["sessionid"] = ""
-    ApiClient.apiKeyPrefix["sessionid"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -515,7 +517,7 @@ Pockets within the players bag used for storing items by category.
 //import org.openapitools.client.models.*
 
 val apiInstance = ItemsApi()
-val id : kotlin.String = id_example // kotlin.String | This parameter can be a string or an integer.
+val id : kotlin.String = 1 // kotlin.String | This parameter can be a string or an integer.
 try {
     val result : ItemPocketDetail = apiInstance.itemPocketRetrieve(id)
     println(result)
@@ -539,19 +541,7 @@ try {
 
 ### Authorization
 
-
-Configure basicAuth statically:
-```kotlin
-ApiClient.username = ""
-ApiClient.password = ""
-```
-Configure basicAuth dynamically:
-```kotlin
-apiInstance.userCredentialProvider = { "user" to "pass" }
-```
-Configure cookieAuth:
-    ApiClient.apiKey["sessionid"] = ""
-    ApiClient.apiKeyPrefix["sessionid"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -573,7 +563,7 @@ An item is an object in the games which the player can pick up, keep in their ba
 //import org.openapitools.client.models.*
 
 val apiInstance = ItemsApi()
-val id : kotlin.String = id_example // kotlin.String | This parameter can be a string or an integer.
+val id : kotlin.String = 1 // kotlin.String | This parameter can be a string or an integer.
 try {
     val result : ItemDetail = apiInstance.itemRetrieve(id)
     println(result)
@@ -597,19 +587,7 @@ try {
 
 ### Authorization
 
-
-Configure basicAuth statically:
-```kotlin
-ApiClient.username = ""
-ApiClient.password = ""
-```
-Configure basicAuth dynamically:
-```kotlin
-apiInstance.userCredentialProvider = { "user" to "pass" }
-```
-Configure cookieAuth:
-    ApiClient.apiKey["sessionid"] = ""
-    ApiClient.apiKeyPrefix["sessionid"] = ""
+No authorization required
 
 ### HTTP request headers
 

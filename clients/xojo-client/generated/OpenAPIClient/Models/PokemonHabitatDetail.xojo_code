@@ -2,21 +2,33 @@
 Protected Class PokemonHabitatDetail
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The identifier for this resource.
+		#tag EndNote
 		id As Integer
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The name for this resource.
+		#tag EndNote
 		name As String
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The name of this resource listed in different languages.
+		#tag EndNote
 		names() As OpenAPIClient.Models.PokemonHabitatName
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			A list of the Pokémon species that can be found in this habitat.
+		#tag EndNote
 		pokemon_species() As OpenAPIClient.Models.PokemonSpeciesSummary
 	#tag EndProperty
 

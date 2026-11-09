@@ -42,18 +42,37 @@ class PokemonSpeciesDetail {
     this.varieties = const [],
   });
 
+  /// The identifier for this resource.
   int id;
 
+  /// The name for this resource.
   String name;
 
+  /// The order in which species should be sorted. Based on National Dex order, except families are grouped together and sorted by stage.
+  ///
+  /// Minimum value: -2147483648
+  /// Maximum value: 2147483647
   int? order;
 
+  /// The chance of this Pokémon being female, in eighths; or -1 for genderless.
+  ///
+  /// Minimum value: -2147483648
+  /// Maximum value: 2147483647
   int? genderRate;
 
+  /// The base capture rate; up to 255. The higher the number, the easier the catch.
+  ///
+  /// Minimum value: -2147483648
+  /// Maximum value: 2147483647
   int? captureRate;
 
+  /// The happiness when caught by a normal Pokéball; up to 255. The higher the number, the happier the Pokémon.
+  ///
+  /// Minimum value: -2147483648
+  /// Maximum value: 2147483647
   int? baseHappiness;
 
+  /// Whether or not this is a baby Pokémon.
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated
@@ -62,6 +81,7 @@ class PokemonSpeciesDetail {
   ///
   bool? isBaby;
 
+  /// Whether or not this is a legendary Pokémon.
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated
@@ -70,6 +90,7 @@ class PokemonSpeciesDetail {
   ///
   bool? isLegendary;
 
+  /// Whether or not this is a mythical Pokémon.
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated
@@ -78,8 +99,13 @@ class PokemonSpeciesDetail {
   ///
   bool? isMythical;
 
+  /// Initial hatch counter: one must walk Y × (hatch_counter + 1) steps before this Pokémon's egg hatches, unless utilizing bonuses like Flame Body's. Y varies per generation. In Generations II, III, and VII, Egg cycles are 256 steps long. In Generation IV, Egg cycles are 255 steps long. In Pokémon Brilliant Diamond and Shining Pearl, Egg cycles are also 255 steps long, but are shorter on special dates. In Generations V and VI, Egg cycles are 257 steps long. In Pokémon Sword and Shield, and in Pokémon Scarlet and Violet, Egg cycles are 128 steps long.
+  ///
+  /// Minimum value: -2147483648
+  /// Maximum value: 2147483647
   int? hatchCounter;
 
+  /// Whether or not this Pokémon has visual gender differences.
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated
@@ -88,6 +114,7 @@ class PokemonSpeciesDetail {
   ///
   bool? hasGenderDifferences;
 
+  /// Whether or not this Pokémon has multiple forms and can switch between them.
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated
@@ -96,35 +123,50 @@ class PokemonSpeciesDetail {
   ///
   bool? formsSwitchable;
 
+  /// The rate at which this Pokémon species gains levels.
   GrowthRateSummary growthRate;
 
+  /// A list of Pokedexes and the indexes reserved within them for this Pokémon species.
   List<PokemonDexEntry> pokedexNumbers;
 
-  List<AbilityDetailPokemonInnerPokemon> eggGroups;
+  /// A list of egg groups this Pokémon species is a member of.
+  List<EggGroupSummary> eggGroups;
 
+  /// The color of this Pokémon for Pokédex search.
   PokemonColorSummary color;
 
+  /// The shape of this Pokémon for Pokédex search.
   PokemonShapeSummary shape;
 
-  PokemonSpeciesSummary evolvesFromSpecies;
+  /// The Pokémon species that evolves into this Pokemon_species.
+  PokemonSpeciesSummary? evolvesFromSpecies;
 
+  /// The evolution chain this Pokémon species is a member of.
   EvolutionChainSummary evolutionChain;
 
-  PokemonHabitatSummary habitat;
+  /// The habitat this Pokémon species can be encountered in.
+  PokemonHabitatSummary? habitat;
 
+  /// The generation this Pokémon species was introduced in.
   GenerationSummary generation;
 
-  List<PokemonFormDetailFormNamesInner> names;
+  /// The name of this resource listed in different languages.
+  List<PokemonSpeciesName> names;
 
-  List<PokemonSpeciesDetailPalParkEncountersInner> palParkEncounters;
+  /// A list of encounters that can be had with this Pokémon species in pal park.
+  List<PokemonSpeciesPalParkEncounter> palParkEncounters;
 
+  /// Descriptions of different forms Pokémon take on within the Pokémon species.
   List<PokemonSpeciesDescription> formDescriptions;
 
+  /// A list of flavor text entries for this Pokémon species.
   List<PokemonSpeciesFlavorText> flavorTextEntries;
 
-  List<PokemonSpeciesDetailGeneraInner> genera;
+  /// The genus of this Pokémon species listed in multiple languages.
+  List<PokemonSpeciesGenus> genera;
 
-  List<PokemonSpeciesDetailVarietiesInner> varieties;
+  /// A list of the Pokémon that exist within this Pokémon species.
+  List<PokemonSpeciesVariety> varieties;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is PokemonSpeciesDetail &&
@@ -176,9 +218,9 @@ class PokemonSpeciesDetail {
     (eggGroups.hashCode) +
     (color.hashCode) +
     (shape.hashCode) +
-    (evolvesFromSpecies.hashCode) +
+    (evolvesFromSpecies == null ? 0 : evolvesFromSpecies!.hashCode) +
     (evolutionChain.hashCode) +
-    (habitat.hashCode) +
+    (habitat == null ? 0 : habitat!.hashCode) +
     (generation.hashCode) +
     (names.hashCode) +
     (palParkEncounters.hashCode) +
@@ -249,9 +291,17 @@ class PokemonSpeciesDetail {
       json[r'egg_groups'] = this.eggGroups;
       json[r'color'] = this.color;
       json[r'shape'] = this.shape;
+    if (this.evolvesFromSpecies != null) {
       json[r'evolves_from_species'] = this.evolvesFromSpecies;
+    } else {
+      json[r'evolves_from_species'] = null;
+    }
       json[r'evolution_chain'] = this.evolutionChain;
+    if (this.habitat != null) {
       json[r'habitat'] = this.habitat;
+    } else {
+      json[r'habitat'] = null;
+    }
       json[r'generation'] = this.generation;
       json[r'names'] = this.names;
       json[r'pal_park_encounters'] = this.palParkEncounters;
@@ -288,11 +338,9 @@ class PokemonSpeciesDetail {
         assert(json.containsKey(r'shape'), 'Required key "PokemonSpeciesDetail[shape]" is missing from JSON.');
         assert(json[r'shape'] != null, 'Required key "PokemonSpeciesDetail[shape]" has a null value in JSON.');
         assert(json.containsKey(r'evolves_from_species'), 'Required key "PokemonSpeciesDetail[evolves_from_species]" is missing from JSON.');
-        assert(json[r'evolves_from_species'] != null, 'Required key "PokemonSpeciesDetail[evolves_from_species]" has a null value in JSON.');
         assert(json.containsKey(r'evolution_chain'), 'Required key "PokemonSpeciesDetail[evolution_chain]" is missing from JSON.');
         assert(json[r'evolution_chain'] != null, 'Required key "PokemonSpeciesDetail[evolution_chain]" has a null value in JSON.');
         assert(json.containsKey(r'habitat'), 'Required key "PokemonSpeciesDetail[habitat]" is missing from JSON.');
-        assert(json[r'habitat'] != null, 'Required key "PokemonSpeciesDetail[habitat]" has a null value in JSON.');
         assert(json.containsKey(r'generation'), 'Required key "PokemonSpeciesDetail[generation]" is missing from JSON.');
         assert(json[r'generation'] != null, 'Required key "PokemonSpeciesDetail[generation]" has a null value in JSON.');
         assert(json.containsKey(r'names'), 'Required key "PokemonSpeciesDetail[names]" is missing from JSON.');
@@ -325,19 +373,19 @@ class PokemonSpeciesDetail {
         formsSwitchable: mapValueOfType<bool>(json, r'forms_switchable'),
         growthRate: GrowthRateSummary.fromJson(json[r'growth_rate'])!,
         pokedexNumbers: PokemonDexEntry.listFromJson(json[r'pokedex_numbers']),
-        eggGroups: AbilityDetailPokemonInnerPokemon.listFromJson(json[r'egg_groups']),
+        eggGroups: EggGroupSummary.listFromJson(json[r'egg_groups']),
         color: PokemonColorSummary.fromJson(json[r'color'])!,
         shape: PokemonShapeSummary.fromJson(json[r'shape'])!,
-        evolvesFromSpecies: PokemonSpeciesSummary.fromJson(json[r'evolves_from_species'])!,
+        evolvesFromSpecies: PokemonSpeciesSummary.fromJson(json[r'evolves_from_species']),
         evolutionChain: EvolutionChainSummary.fromJson(json[r'evolution_chain'])!,
-        habitat: PokemonHabitatSummary.fromJson(json[r'habitat'])!,
+        habitat: PokemonHabitatSummary.fromJson(json[r'habitat']),
         generation: GenerationSummary.fromJson(json[r'generation'])!,
-        names: PokemonFormDetailFormNamesInner.listFromJson(json[r'names']),
-        palParkEncounters: PokemonSpeciesDetailPalParkEncountersInner.listFromJson(json[r'pal_park_encounters']),
+        names: PokemonSpeciesName.listFromJson(json[r'names']),
+        palParkEncounters: PokemonSpeciesPalParkEncounter.listFromJson(json[r'pal_park_encounters']),
         formDescriptions: PokemonSpeciesDescription.listFromJson(json[r'form_descriptions']),
         flavorTextEntries: PokemonSpeciesFlavorText.listFromJson(json[r'flavor_text_entries']),
-        genera: PokemonSpeciesDetailGeneraInner.listFromJson(json[r'genera']),
-        varieties: PokemonSpeciesDetailVarietiesInner.listFromJson(json[r'varieties']),
+        genera: PokemonSpeciesGenus.listFromJson(json[r'genera']),
+        varieties: PokemonSpeciesVariety.listFromJson(json[r'varieties']),
       );
     }
     return null;

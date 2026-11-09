@@ -86,7 +86,7 @@ open class PokemonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
 
     /**
      * GET /api/v2/ability/
-     * 
+     * List abilities
      * Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
      * @param limit Number of results to return per page. (optional)
      * @param offset The initial index from which to return the results. (optional)
@@ -120,7 +120,7 @@ open class PokemonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
 
     /**
      * GET /api/v2/ability/
-     * 
+     * List abilities
      * Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
      * @param limit Number of results to return per page. (optional)
      * @param offset The initial index from which to return the results. (optional)
@@ -169,14 +169,14 @@ open class PokemonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             path = "/api/v2/ability/",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
      * GET /api/v2/ability/{id}/
-     * 
+     * Get ability
      * Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
      * @param id This parameter can be a string or an integer.
      * @return AbilityDetail
@@ -208,7 +208,7 @@ open class PokemonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
 
     /**
      * GET /api/v2/ability/{id}/
-     * 
+     * Get ability
      * Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
      * @param id This parameter can be a string or an integer.
      * @return ApiResponse<AbilityDetail?>
@@ -242,18 +242,17 @@ open class PokemonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             path = "/api/v2/ability/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
 
     /**
      * GET /api/v2/characteristic/
-     * List charecterictics
+     * List characteristics
      * Characteristics indicate which stat contains a Pokémon&#39;s highest IV. A Pokémon&#39;s Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail.
      * @param limit Number of results to return per page. (optional)
      * @param offset The initial index from which to return the results. (optional)
-     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
      * @return PaginatedCharacteristicSummaryList
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -263,8 +262,8 @@ open class PokemonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun characteristicList(limit: kotlin.Int? = null, offset: kotlin.Int? = null, q: kotlin.String? = null) : PaginatedCharacteristicSummaryList {
-        val localVarResponse = characteristicListWithHttpInfo(limit = limit, offset = offset, q = q)
+    fun characteristicList(limit: kotlin.Int? = null, offset: kotlin.Int? = null) : PaginatedCharacteristicSummaryList {
+        val localVarResponse = characteristicListWithHttpInfo(limit = limit, offset = offset)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as PaginatedCharacteristicSummaryList
@@ -283,19 +282,18 @@ open class PokemonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
 
     /**
      * GET /api/v2/characteristic/
-     * List charecterictics
+     * List characteristics
      * Characteristics indicate which stat contains a Pokémon&#39;s highest IV. A Pokémon&#39;s Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail.
      * @param limit Number of results to return per page. (optional)
      * @param offset The initial index from which to return the results. (optional)
-     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
      * @return ApiResponse<PaginatedCharacteristicSummaryList?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun characteristicListWithHttpInfo(limit: kotlin.Int?, offset: kotlin.Int?, q: kotlin.String?) : ApiResponse<PaginatedCharacteristicSummaryList?> {
-        val localVariableConfig = characteristicListRequestConfig(limit = limit, offset = offset, q = q)
+    fun characteristicListWithHttpInfo(limit: kotlin.Int?, offset: kotlin.Int?) : ApiResponse<PaginatedCharacteristicSummaryList?> {
+        val localVariableConfig = characteristicListRequestConfig(limit = limit, offset = offset)
 
         return request<Unit, PaginatedCharacteristicSummaryList>(
             localVariableConfig
@@ -307,10 +305,9 @@ open class PokemonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      *
      * @param limit Number of results to return per page. (optional)
      * @param offset The initial index from which to return the results. (optional)
-     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
      * @return RequestConfig
      */
-    fun characteristicListRequestConfig(limit: kotlin.Int?, offset: kotlin.Int?, q: kotlin.String?) : RequestConfig<Unit> {
+    fun characteristicListRequestConfig(limit: kotlin.Int?, offset: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -319,9 +316,6 @@ open class PokemonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
                 }
                 if (offset != null) {
                     put("offset", listOf(offset.toString()))
-                }
-                if (q != null) {
-                    put("q", listOf(q.toString()))
                 }
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
@@ -332,7 +326,7 @@ open class PokemonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             path = "/api/v2/characteristic/",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -405,7 +399,7 @@ open class PokemonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             path = "/api/v2/characteristic/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -495,7 +489,7 @@ open class PokemonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             path = "/api/v2/egg-group/",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -568,7 +562,7 @@ open class PokemonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             path = "/api/v2/egg-group/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -658,7 +652,7 @@ open class PokemonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             path = "/api/v2/gender/",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -731,7 +725,7 @@ open class PokemonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             path = "/api/v2/gender/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -821,7 +815,7 @@ open class PokemonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             path = "/api/v2/growth-rate/",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -894,7 +888,7 @@ open class PokemonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             path = "/api/v2/growth-rate/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -984,7 +978,7 @@ open class PokemonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             path = "/api/v2/move-damage-class/",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -1057,7 +1051,7 @@ open class PokemonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             path = "/api/v2/move-damage-class/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -1147,7 +1141,7 @@ open class PokemonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             path = "/api/v2/nature/",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -1220,7 +1214,7 @@ open class PokemonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             path = "/api/v2/nature/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -1310,7 +1304,7 @@ open class PokemonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             path = "/api/v2/pokeathlon-stat/",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -1383,7 +1377,7 @@ open class PokemonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             path = "/api/v2/pokeathlon-stat/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -1473,7 +1467,7 @@ open class PokemonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             path = "/api/v2/pokemon-color/",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -1546,7 +1540,7 @@ open class PokemonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             path = "/api/v2/pokemon-color/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -1636,7 +1630,7 @@ open class PokemonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             path = "/api/v2/pokemon-form/",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -1709,7 +1703,7 @@ open class PokemonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             path = "/api/v2/pokemon-form/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -1799,7 +1793,7 @@ open class PokemonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             path = "/api/v2/pokemon-habitat/",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -1872,7 +1866,7 @@ open class PokemonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             path = "/api/v2/pokemon-habitat/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -1962,7 +1956,7 @@ open class PokemonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             path = "/api/v2/pokemon/",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -2035,7 +2029,7 @@ open class PokemonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             path = "/api/v2/pokemon/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -2125,7 +2119,7 @@ open class PokemonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             path = "/api/v2/pokemon-shape/",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -2198,7 +2192,7 @@ open class PokemonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             path = "/api/v2/pokemon-shape/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -2288,7 +2282,7 @@ open class PokemonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             path = "/api/v2/pokemon-species/",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -2361,7 +2355,7 @@ open class PokemonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             path = "/api/v2/pokemon-species/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -2451,7 +2445,7 @@ open class PokemonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             path = "/api/v2/stat/",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -2524,7 +2518,7 @@ open class PokemonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             path = "/api/v2/stat/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -2614,7 +2608,7 @@ open class PokemonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             path = "/api/v2/type/",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -2687,7 +2681,7 @@ open class PokemonApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             path = "/api/v2/type/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }

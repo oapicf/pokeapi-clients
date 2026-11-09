@@ -91,6 +91,8 @@ _()
     operations["evolutionChainRetrieve"]=1
     operations["evolutionTriggerList"]=1
     operations["evolutionTriggerRetrieve"]=1
+    operations["evolutionVariableList"]=1
+    operations["evolutionVariableRetrieve"]=1
     operations["generationList"]=1
     operations["generationRetrieve"]=1
     operations["pokedexList"]=1
@@ -99,6 +101,8 @@ _()
     operations["versionGroupRetrieve"]=1
     operations["versionList"]=1
     operations["versionRetrieve"]=1
+    operations["currencyList"]=1
+    operations["currencyRetrieve"]=1
     operations["itemAttributeList"]=1
     operations["itemAttributeRetrieve"]=1
     operations["itemCategoryList"]=1
@@ -165,6 +169,7 @@ _()
     operations["typeRetrieve"]=1
     operations["languageList"]=1
     operations["languageRetrieve"]=1
+    operations["metaRetrieve"]=1
 
     # An associative array of operations to their parameters
     # Only include path, query and header parameters
@@ -175,11 +180,11 @@ _()
     operation_parameters["berryFlavorRetrieve"]="id= "
     operation_parameters["berryList"]="limit= offset= q= "
     operation_parameters["berryRetrieve"]="id= "
-    operation_parameters["contestEffectList"]="limit= offset= q= "
+    operation_parameters["contestEffectList"]="limit= offset= "
     operation_parameters["contestEffectRetrieve"]="id= "
     operation_parameters["contestTypeList"]="limit= offset= q= "
     operation_parameters["contestTypeRetrieve"]="id= "
-    operation_parameters["superContestEffectList"]="limit= offset= q= "
+    operation_parameters["superContestEffectList"]="limit= offset= "
     operation_parameters["superContestEffectRetrieve"]="id= "
     operation_parameters["encounterConditionList"]="limit= offset= q= "
     operation_parameters["encounterConditionRetrieve"]="id= "
@@ -187,10 +192,12 @@ _()
     operation_parameters["encounterConditionValueRetrieve"]="id= "
     operation_parameters["encounterMethodList"]="limit= offset= q= "
     operation_parameters["encounterMethodRetrieve"]="id= "
-    operation_parameters["evolutionChainList"]="limit= offset= q= "
+    operation_parameters["evolutionChainList"]="limit= offset= "
     operation_parameters["evolutionChainRetrieve"]="id= "
     operation_parameters["evolutionTriggerList"]="limit= offset= q= "
     operation_parameters["evolutionTriggerRetrieve"]="id= "
+    operation_parameters["evolutionVariableList"]="limit= offset= q= "
+    operation_parameters["evolutionVariableRetrieve"]="id= "
     operation_parameters["generationList"]="limit= offset= q= "
     operation_parameters["generationRetrieve"]="id= "
     operation_parameters["pokedexList"]="limit= offset= q= "
@@ -199,6 +206,8 @@ _()
     operation_parameters["versionGroupRetrieve"]="id= "
     operation_parameters["versionList"]="limit= offset= q= "
     operation_parameters["versionRetrieve"]="id= "
+    operation_parameters["currencyList"]="limit= offset= q= "
+    operation_parameters["currencyRetrieve"]="id= "
     operation_parameters["itemAttributeList"]="limit= offset= q= "
     operation_parameters["itemAttributeRetrieve"]="id= "
     operation_parameters["itemCategoryList"]="limit= offset= q= "
@@ -217,7 +226,7 @@ _()
     operation_parameters["palParkAreaRetrieve"]="id= "
     operation_parameters["regionList"]="limit= offset= q= "
     operation_parameters["regionRetrieve"]="id= "
-    operation_parameters["machineList"]="limit= offset= q= "
+    operation_parameters["machineList"]="limit= offset= "
     operation_parameters["machineRetrieve"]="id= "
     operation_parameters["moveAilmentList"]="limit= offset= q= "
     operation_parameters["moveAilmentRetrieve"]="id= "
@@ -233,7 +242,7 @@ _()
     operation_parameters["moveTargetRetrieve"]="id= "
     operation_parameters["abilityList"]="limit= offset= q= "
     operation_parameters["abilityRetrieve"]="id= "
-    operation_parameters["characteristicList"]="limit= offset= q= "
+    operation_parameters["characteristicList"]="limit= offset= "
     operation_parameters["characteristicRetrieve"]="id= "
     operation_parameters["eggGroupList"]="limit= offset= q= "
     operation_parameters["eggGroupRetrieve"]="id= "
@@ -265,6 +274,7 @@ _()
     operation_parameters["typeRetrieve"]="id= "
     operation_parameters["languageList"]="limit= offset= q= "
     operation_parameters["languageRetrieve"]="id= "
+    operation_parameters["metaRetrieve"]=""
 
     # An associative array of possible values for enum parameters
     declare -A operation_parameters_enum_values

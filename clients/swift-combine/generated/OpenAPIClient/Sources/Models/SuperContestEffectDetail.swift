@@ -8,9 +8,13 @@
 import Foundation
 
 public struct SuperContestEffectDetail: Codable {
+    /// The identifier for this resource.
     public var id: Int
+    /// The level of appeal this super contest effect has.
     public var appeal: Int
+    /// The flavor text of this super contest effect listed in different languages.
     public var flavorTextEntries: [SuperContestEffectFlavorText]
+    /// A list of moves that have the effect when used in super contests.
     public var moves: [MoveSummary]
 
     public init(id: Int, appeal: Int, flavorTextEntries: [SuperContestEffectFlavorText], moves: [MoveSummary]) {

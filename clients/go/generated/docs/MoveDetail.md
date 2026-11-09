@@ -4,36 +4,36 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int32** |  | [readonly] 
-**Name** | **string** |  | 
-**Accuracy** | Pointer to **NullableInt32** |  | [optional] 
-**EffectChance** | **int32** |  | 
-**Pp** | Pointer to **NullableInt32** |  | [optional] 
-**Priority** | Pointer to **NullableInt32** |  | [optional] 
-**Power** | Pointer to **NullableInt32** |  | [optional] 
-**ContestCombos** | [**MoveDetailContestCombos**](MoveDetailContestCombos.md) |  | 
-**ContestType** | [**ContestTypeSummary**](ContestTypeSummary.md) |  | 
-**ContestEffect** | [**ContestEffectSummary**](ContestEffectSummary.md) |  | 
-**DamageClass** | [**MoveDamageClassSummary**](MoveDamageClassSummary.md) |  | 
-**EffectEntries** | [**[]MoveChangeEffectEntriesInner**](MoveChangeEffectEntriesInner.md) |  | [readonly] 
-**EffectChanges** | [**[]MoveDetailEffectChangesInner**](MoveDetailEffectChangesInner.md) |  | [readonly] 
-**Generation** | [**GenerationSummary**](GenerationSummary.md) |  | 
-**Meta** | [**MoveMeta**](MoveMeta.md) |  | [readonly] 
-**Names** | [**[]MoveName**](MoveName.md) |  | [readonly] 
-**PastValues** | [**[]MoveChange**](MoveChange.md) |  | [readonly] 
-**StatChanges** | [**[]MoveDetailStatChangesInner**](MoveDetailStatChangesInner.md) |  | [readonly] 
-**SuperContestEffect** | [**SuperContestEffectSummary**](SuperContestEffectSummary.md) |  | 
-**Target** | [**MoveTargetSummary**](MoveTargetSummary.md) |  | 
-**Type** | [**TypeSummary**](TypeSummary.md) |  | 
-**Machines** | [**[]MoveDetailMachinesInner**](MoveDetailMachinesInner.md) |  | [readonly] 
-**FlavorTextEntries** | [**[]MoveFlavorText**](MoveFlavorText.md) |  | [readonly] 
-**LearnedByPokemon** | [**[]AbilityDetailPokemonInnerPokemon**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] 
+**Id** | **int32** | The identifier for this resource. | [readonly] 
+**Name** | **string** | The name for this resource. | 
+**Accuracy** | Pointer to **NullableInt32** | The percent value of how likely this move is to be successful. | [optional] 
+**EffectChance** | **NullableInt32** | The percent value of how likely it is this moves effect will happen. | 
+**Pp** | Pointer to **NullableInt32** | Power points. The number of times this move can be used. | [optional] 
+**Priority** | Pointer to **NullableInt32** | A value between -8 and 8. Sets the order in which moves are executed during battle. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Priority) for greater detail. | [optional] 
+**Power** | Pointer to **NullableInt32** | The base power of this move, or null if it has no fixed base power. | [optional] 
+**ContestCombos** | [**NullableMoveCombos**](MoveCombos.md) | A detail of normal and super contest combos that require this move. | [readonly] 
+**ContestType** | [**NullableContestTypeSummary**](ContestTypeSummary.md) | The type of appeal this move gives a Pokémon when used in a contest. | 
+**ContestEffect** | [**NullableContestEffectSummary**](ContestEffectSummary.md) | The effect the move has when used in a contest. | 
+**DamageClass** | [**MoveDamageClassSummary**](MoveDamageClassSummary.md) | The type of damage the move inflicts on the target, e.g. physical. | 
+**EffectEntries** | [**[]MoveEffectEffectText**](MoveEffectEffectText.md) | The effect of this move listed in different languages. | [readonly] 
+**EffectChanges** | [**[]MoveEffectChange**](MoveEffectChange.md) | The list of previous effects this move has had across version groups of the games. | [readonly] 
+**Generation** | [**GenerationSummary**](GenerationSummary.md) | The generation in which this move was introduced. | 
+**Meta** | [**NullableMoveMeta**](MoveMeta.md) | Metadata about this move | [readonly] 
+**Names** | [**[]MoveName**](MoveName.md) | The name of this resource listed in different languages. | [readonly] 
+**PastValues** | [**[]MoveChange**](MoveChange.md) | A list of move resource value changes across version groups of the game. | [readonly] 
+**StatChanges** | [**[]MoveMetaStatChange**](MoveMetaStatChange.md) | A list of stats this moves effects and how much it effects them. | [readonly] 
+**SuperContestEffect** | [**NullableSuperContestEffectSummary**](SuperContestEffectSummary.md) | The effect the move has when used in a super contest. | 
+**Target** | [**MoveTargetSummary**](MoveTargetSummary.md) | The type of target that will receive the effects of the attack. | 
+**Type** | [**TypeSummary**](TypeSummary.md) | The elemental type of this move. | 
+**Machines** | [**[]ItemMachine**](ItemMachine.md) | A list of the machines that teach this move. | [readonly] 
+**FlavorTextEntries** | [**[]MoveFlavorText**](MoveFlavorText.md) | The flavor text of this move listed in different languages. | [readonly] 
+**LearnedByPokemon** | [**[]PokemonSummary**](PokemonSummary.md) | List of Pokemon that can learn the move | [readonly] 
 
 ## Methods
 
 ### NewMoveDetail
 
-`func NewMoveDetail(id int32, name string, effectChance int32, contestCombos MoveDetailContestCombos, contestType ContestTypeSummary, contestEffect ContestEffectSummary, damageClass MoveDamageClassSummary, effectEntries []MoveChangeEffectEntriesInner, effectChanges []MoveDetailEffectChangesInner, generation GenerationSummary, meta MoveMeta, names []MoveName, pastValues []MoveChange, statChanges []MoveDetailStatChangesInner, superContestEffect SuperContestEffectSummary, target MoveTargetSummary, type_ TypeSummary, machines []MoveDetailMachinesInner, flavorTextEntries []MoveFlavorText, learnedByPokemon []AbilityDetailPokemonInnerPokemon, ) *MoveDetail`
+`func NewMoveDetail(id int32, name string, effectChance NullableInt32, contestCombos NullableMoveCombos, contestType NullableContestTypeSummary, contestEffect NullableContestEffectSummary, damageClass MoveDamageClassSummary, effectEntries []MoveEffectEffectText, effectChanges []MoveEffectChange, generation GenerationSummary, meta NullableMoveMeta, names []MoveName, pastValues []MoveChange, statChanges []MoveMetaStatChange, superContestEffect NullableSuperContestEffectSummary, target MoveTargetSummary, type_ TypeSummary, machines []ItemMachine, flavorTextEntries []MoveFlavorText, learnedByPokemon []PokemonSummary, ) *MoveDetail`
 
 NewMoveDetail instantiates a new MoveDetail object
 This constructor will assign default values to properties that have it defined,
@@ -143,6 +143,16 @@ and a boolean to check if the value has been set.
 SetEffectChance sets EffectChance field to given value.
 
 
+### SetEffectChanceNil
+
+`func (o *MoveDetail) SetEffectChanceNil(b bool)`
+
+ SetEffectChanceNil sets the value for EffectChance to be an explicit nil
+
+### UnsetEffectChance
+`func (o *MoveDetail) UnsetEffectChance()`
+
+UnsetEffectChance ensures that no value is present for EffectChance, not even an explicit nil
 ### GetPp
 
 `func (o *MoveDetail) GetPp() int32`
@@ -250,24 +260,34 @@ HasPower returns a boolean if a field has been set.
 UnsetPower ensures that no value is present for Power, not even an explicit nil
 ### GetContestCombos
 
-`func (o *MoveDetail) GetContestCombos() MoveDetailContestCombos`
+`func (o *MoveDetail) GetContestCombos() MoveCombos`
 
 GetContestCombos returns the ContestCombos field if non-nil, zero value otherwise.
 
 ### GetContestCombosOk
 
-`func (o *MoveDetail) GetContestCombosOk() (*MoveDetailContestCombos, bool)`
+`func (o *MoveDetail) GetContestCombosOk() (*MoveCombos, bool)`
 
 GetContestCombosOk returns a tuple with the ContestCombos field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetContestCombos
 
-`func (o *MoveDetail) SetContestCombos(v MoveDetailContestCombos)`
+`func (o *MoveDetail) SetContestCombos(v MoveCombos)`
 
 SetContestCombos sets ContestCombos field to given value.
 
 
+### SetContestCombosNil
+
+`func (o *MoveDetail) SetContestCombosNil(b bool)`
+
+ SetContestCombosNil sets the value for ContestCombos to be an explicit nil
+
+### UnsetContestCombos
+`func (o *MoveDetail) UnsetContestCombos()`
+
+UnsetContestCombos ensures that no value is present for ContestCombos, not even an explicit nil
 ### GetContestType
 
 `func (o *MoveDetail) GetContestType() ContestTypeSummary`
@@ -288,6 +308,16 @@ and a boolean to check if the value has been set.
 SetContestType sets ContestType field to given value.
 
 
+### SetContestTypeNil
+
+`func (o *MoveDetail) SetContestTypeNil(b bool)`
+
+ SetContestTypeNil sets the value for ContestType to be an explicit nil
+
+### UnsetContestType
+`func (o *MoveDetail) UnsetContestType()`
+
+UnsetContestType ensures that no value is present for ContestType, not even an explicit nil
 ### GetContestEffect
 
 `func (o *MoveDetail) GetContestEffect() ContestEffectSummary`
@@ -308,6 +338,16 @@ and a boolean to check if the value has been set.
 SetContestEffect sets ContestEffect field to given value.
 
 
+### SetContestEffectNil
+
+`func (o *MoveDetail) SetContestEffectNil(b bool)`
+
+ SetContestEffectNil sets the value for ContestEffect to be an explicit nil
+
+### UnsetContestEffect
+`func (o *MoveDetail) UnsetContestEffect()`
+
+UnsetContestEffect ensures that no value is present for ContestEffect, not even an explicit nil
 ### GetDamageClass
 
 `func (o *MoveDetail) GetDamageClass() MoveDamageClassSummary`
@@ -330,40 +370,40 @@ SetDamageClass sets DamageClass field to given value.
 
 ### GetEffectEntries
 
-`func (o *MoveDetail) GetEffectEntries() []MoveChangeEffectEntriesInner`
+`func (o *MoveDetail) GetEffectEntries() []MoveEffectEffectText`
 
 GetEffectEntries returns the EffectEntries field if non-nil, zero value otherwise.
 
 ### GetEffectEntriesOk
 
-`func (o *MoveDetail) GetEffectEntriesOk() (*[]MoveChangeEffectEntriesInner, bool)`
+`func (o *MoveDetail) GetEffectEntriesOk() (*[]MoveEffectEffectText, bool)`
 
 GetEffectEntriesOk returns a tuple with the EffectEntries field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEffectEntries
 
-`func (o *MoveDetail) SetEffectEntries(v []MoveChangeEffectEntriesInner)`
+`func (o *MoveDetail) SetEffectEntries(v []MoveEffectEffectText)`
 
 SetEffectEntries sets EffectEntries field to given value.
 
 
 ### GetEffectChanges
 
-`func (o *MoveDetail) GetEffectChanges() []MoveDetailEffectChangesInner`
+`func (o *MoveDetail) GetEffectChanges() []MoveEffectChange`
 
 GetEffectChanges returns the EffectChanges field if non-nil, zero value otherwise.
 
 ### GetEffectChangesOk
 
-`func (o *MoveDetail) GetEffectChangesOk() (*[]MoveDetailEffectChangesInner, bool)`
+`func (o *MoveDetail) GetEffectChangesOk() (*[]MoveEffectChange, bool)`
 
 GetEffectChangesOk returns a tuple with the EffectChanges field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEffectChanges
 
-`func (o *MoveDetail) SetEffectChanges(v []MoveDetailEffectChangesInner)`
+`func (o *MoveDetail) SetEffectChanges(v []MoveEffectChange)`
 
 SetEffectChanges sets EffectChanges field to given value.
 
@@ -408,6 +448,16 @@ and a boolean to check if the value has been set.
 SetMeta sets Meta field to given value.
 
 
+### SetMetaNil
+
+`func (o *MoveDetail) SetMetaNil(b bool)`
+
+ SetMetaNil sets the value for Meta to be an explicit nil
+
+### UnsetMeta
+`func (o *MoveDetail) UnsetMeta()`
+
+UnsetMeta ensures that no value is present for Meta, not even an explicit nil
 ### GetNames
 
 `func (o *MoveDetail) GetNames() []MoveName`
@@ -450,20 +500,20 @@ SetPastValues sets PastValues field to given value.
 
 ### GetStatChanges
 
-`func (o *MoveDetail) GetStatChanges() []MoveDetailStatChangesInner`
+`func (o *MoveDetail) GetStatChanges() []MoveMetaStatChange`
 
 GetStatChanges returns the StatChanges field if non-nil, zero value otherwise.
 
 ### GetStatChangesOk
 
-`func (o *MoveDetail) GetStatChangesOk() (*[]MoveDetailStatChangesInner, bool)`
+`func (o *MoveDetail) GetStatChangesOk() (*[]MoveMetaStatChange, bool)`
 
 GetStatChangesOk returns a tuple with the StatChanges field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatChanges
 
-`func (o *MoveDetail) SetStatChanges(v []MoveDetailStatChangesInner)`
+`func (o *MoveDetail) SetStatChanges(v []MoveMetaStatChange)`
 
 SetStatChanges sets StatChanges field to given value.
 
@@ -488,6 +538,16 @@ and a boolean to check if the value has been set.
 SetSuperContestEffect sets SuperContestEffect field to given value.
 
 
+### SetSuperContestEffectNil
+
+`func (o *MoveDetail) SetSuperContestEffectNil(b bool)`
+
+ SetSuperContestEffectNil sets the value for SuperContestEffect to be an explicit nil
+
+### UnsetSuperContestEffect
+`func (o *MoveDetail) UnsetSuperContestEffect()`
+
+UnsetSuperContestEffect ensures that no value is present for SuperContestEffect, not even an explicit nil
 ### GetTarget
 
 `func (o *MoveDetail) GetTarget() MoveTargetSummary`
@@ -530,20 +590,20 @@ SetType sets Type field to given value.
 
 ### GetMachines
 
-`func (o *MoveDetail) GetMachines() []MoveDetailMachinesInner`
+`func (o *MoveDetail) GetMachines() []ItemMachine`
 
 GetMachines returns the Machines field if non-nil, zero value otherwise.
 
 ### GetMachinesOk
 
-`func (o *MoveDetail) GetMachinesOk() (*[]MoveDetailMachinesInner, bool)`
+`func (o *MoveDetail) GetMachinesOk() (*[]ItemMachine, bool)`
 
 GetMachinesOk returns a tuple with the Machines field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMachines
 
-`func (o *MoveDetail) SetMachines(v []MoveDetailMachinesInner)`
+`func (o *MoveDetail) SetMachines(v []ItemMachine)`
 
 SetMachines sets Machines field to given value.
 
@@ -570,20 +630,20 @@ SetFlavorTextEntries sets FlavorTextEntries field to given value.
 
 ### GetLearnedByPokemon
 
-`func (o *MoveDetail) GetLearnedByPokemon() []AbilityDetailPokemonInnerPokemon`
+`func (o *MoveDetail) GetLearnedByPokemon() []PokemonSummary`
 
 GetLearnedByPokemon returns the LearnedByPokemon field if non-nil, zero value otherwise.
 
 ### GetLearnedByPokemonOk
 
-`func (o *MoveDetail) GetLearnedByPokemonOk() (*[]AbilityDetailPokemonInnerPokemon, bool)`
+`func (o *MoveDetail) GetLearnedByPokemonOk() (*[]PokemonSummary, bool)`
 
 GetLearnedByPokemonOk returns a tuple with the LearnedByPokemon field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLearnedByPokemon
 
-`func (o *MoveDetail) SetLearnedByPokemon(v []AbilityDetailPokemonInnerPokemon)`
+`func (o *MoveDetail) SetLearnedByPokemon(v []PokemonSummary)`
 
 SetLearnedByPokemon sets LearnedByPokemon field to given value.
 

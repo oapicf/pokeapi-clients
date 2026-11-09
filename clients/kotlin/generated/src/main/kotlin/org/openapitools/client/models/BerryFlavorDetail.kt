@@ -23,7 +23,7 @@
 
 package org.openapitools.client.models
 
-import org.openapitools.client.models.BerryFlavorDetailBerriesInner
+import org.openapitools.client.models.BerryFlavorBerryMap
 import org.openapitools.client.models.BerryFlavorName
 import org.openapitools.client.models.ContestTypeSummary
 
@@ -33,28 +33,33 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param id 
- * @param name 
- * @param berries 
- * @param contestType 
- * @param names 
+ * @param id The identifier for this resource.
+ * @param name The name for this resource.
+ * @param berries A list of the berries with this flavor.
+ * @param contestType The contest type that correlates with this berry flavor.
+ * @param names The name of this resource listed in different languages.
  */
 
 
 data class BerryFlavorDetail (
 
+    /* The identifier for this resource. */
     @Json(name = "id")
     val id: kotlin.Int,
 
+    /* The name for this resource. */
     @Json(name = "name")
     val name: kotlin.String,
 
+    /* A list of the berries with this flavor. */
     @Json(name = "berries")
-    val berries: kotlin.collections.List<BerryFlavorDetailBerriesInner>,
+    val berries: kotlin.collections.List<BerryFlavorBerryMap>,
 
+    /* The contest type that correlates with this berry flavor. */
     @Json(name = "contest_type")
     val contestType: ContestTypeSummary,
 
+    /* The name of this resource listed in different languages. */
     @Json(name = "names")
     val names: kotlin.collections.List<BerryFlavorName>
 

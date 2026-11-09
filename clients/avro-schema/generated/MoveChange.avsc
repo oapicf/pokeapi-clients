@@ -7,43 +7,43 @@
     {
       "name": "accuracy",
       "type": ["null", "int"],
-      "doc": "",
+      "doc": "The percent value of how likely this move is to be successful.",
       "default": null
     },
     {
       "name": "power",
       "type": ["null", "int"],
-      "doc": "",
+      "doc": "The base power before the listed version group, or null if power did not change.",
       "default": null
     },
     {
       "name": "pp",
       "type": ["null", "int"],
-      "doc": "",
+      "doc": "Power points. The number of times this move can be used.",
       "default": null
     },
     {
       "name": "effect_chance",
       "type": "int",
-      "doc": ""
+      "doc": "The percent value of how likely it is this moves effect will take effect."
     },
     {
       "name": "effect_entries",
       "type": {
         "type": "array",
-        "items": "model.MoveChangeEffectEntriesInner"
+        "items": "model.MoveEffectEffectText"
       },
-      "doc": ""
+      "doc": "The effect of this move listed in different languages."
     },
     {
       "name": "type",
       "type": "model.TypeSummary",
-      "doc": ""
+      "doc": "The elemental type of this move."
     },
     {
       "name": "version_group",
       "type": "model.VersionGroupSummary",
-      "doc": ""
+      "doc": "The version group in which these move stat values were in effect."
     }
   ]
 

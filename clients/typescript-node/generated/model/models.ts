@@ -3,21 +3,18 @@ import localVarRequest from 'request';
 export * from './abilityChange';
 export * from './abilityChangeEffectText';
 export * from './abilityDetail';
-export * from './abilityDetailPokemonInner';
-export * from './abilityDetailPokemonInnerPokemon';
 export * from './abilityEffectText';
 export * from './abilityFlavorText';
 export * from './abilityName';
+export * from './abilityPokemonDetail';
 export * from './abilitySummary';
 export * from './berryDetail';
-export * from './berryDetailFlavorsInner';
-export * from './berryDetailFlavorsInnerFlavor';
 export * from './berryFirmnessDetail';
 export * from './berryFirmnessName';
 export * from './berryFirmnessSummary';
+export * from './berryFlavorBerryMap';
 export * from './berryFlavorDetail';
-export * from './berryFlavorDetailBerriesInner';
-export * from './berryFlavorDetailBerriesInnerBerry';
+export * from './berryFlavorMap';
 export * from './berryFlavorName';
 export * from './berryFlavorSummary';
 export * from './berrySummary';
@@ -31,8 +28,10 @@ export * from './contestEffectSummary';
 export * from './contestTypeDetail';
 export * from './contestTypeName';
 export * from './contestTypeSummary';
+export * from './currencyDetail';
+export * from './currencyName';
+export * from './currencySummary';
 export * from './eggGroupDetail';
-export * from './eggGroupDetailPokemonSpeciesInner';
 export * from './eggGroupName';
 export * from './eggGroupSummary';
 export * from './encounterConditionDetail';
@@ -44,18 +43,21 @@ export * from './encounterConditionValueSummary';
 export * from './encounterMethodDetail';
 export * from './encounterMethodName';
 export * from './encounterMethodSummary';
+export * from './encounterPokemonDetail';
 export * from './evolutionChainDetail';
-export * from './evolutionChainDetailChain';
-export * from './evolutionChainDetailChainEvolvesToInner';
-export * from './evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner';
-export * from './evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender';
+export * from './evolutionChainLink';
 export * from './evolutionChainSummary';
+export * from './evolutionConditionExpression';
 export * from './evolutionTriggerDetail';
 export * from './evolutionTriggerName';
 export * from './evolutionTriggerSummary';
+export * from './evolutionVariableDescription';
+export * from './evolutionVariableDetail';
+export * from './evolutionVariableName';
+export * from './evolutionVariableSummary';
 export * from './experience';
 export * from './genderDetail';
-export * from './genderDetailPokemonSpeciesDetailsInner';
+export * from './genderPokemonSpecies';
 export * from './genderSummary';
 export * from './generationDetail';
 export * from './generationName';
@@ -71,32 +73,30 @@ export * from './itemCategoryDetail';
 export * from './itemCategoryName';
 export * from './itemCategorySummary';
 export * from './itemDetail';
-export * from './itemDetailBabyTriggerFor';
-export * from './itemDetailHeldByPokemonInner';
-export * from './itemDetailHeldByPokemonInnerVersionDetailsInner';
-export * from './itemDetailMachinesInner';
-export * from './itemDetailSprites';
 export * from './itemEffectText';
 export * from './itemFlavorText';
 export * from './itemFlingEffectDetail';
 export * from './itemFlingEffectEffectText';
 export * from './itemFlingEffectSummary';
 export * from './itemGameIndex';
+export * from './itemMachine';
 export * from './itemName';
 export * from './itemPocketDetail';
 export * from './itemPocketName';
 export * from './itemPocketSummary';
+export * from './itemPrice';
+export * from './itemSprites';
 export * from './itemSummary';
 export * from './languageDetail';
 export * from './languageName';
 export * from './languageSummary';
 export * from './locationAreaDetail';
-export * from './locationAreaDetailEncounterMethodRatesInner';
-export * from './locationAreaDetailEncounterMethodRatesInnerVersionDetailsInner';
-export * from './locationAreaDetailPokemonEncountersInner';
-export * from './locationAreaDetailPokemonEncountersInnerVersionDetailsInner';
-export * from './locationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails';
+export * from './locationAreaEncounterDetail';
+export * from './locationAreaEncounterRate';
+export * from './locationAreaEncounterVersionDetail';
 export * from './locationAreaName';
+export * from './locationAreaPokemonEncounter';
+export * from './locationAreaPokemonEncounterVersion';
 export * from './locationAreaSummary';
 export * from './locationDetail';
 export * from './locationGameIndex';
@@ -108,19 +108,16 @@ export * from './moveBattleStyleDetail';
 export * from './moveBattleStyleName';
 export * from './moveBattleStyleSummary';
 export * from './moveChange';
-export * from './moveChangeEffectEntriesInner';
+export * from './moveComboUsage';
+export * from './moveCombos';
 export * from './moveDamageClassDescription';
 export * from './moveDamageClassDetail';
 export * from './moveDamageClassName';
 export * from './moveDamageClassSummary';
 export * from './moveDetail';
-export * from './moveDetailContestCombos';
-export * from './moveDetailContestCombosNormal';
-export * from './moveDetailEffectChangesInner';
-export * from './moveDetailEffectChangesInnerEffectEntriesInner';
-export * from './moveDetailMachinesInner';
-export * from './moveDetailMachinesInnerMachine';
-export * from './moveDetailStatChangesInner';
+export * from './moveEffectChange';
+export * from './moveEffectChangeEffectText';
+export * from './moveEffectEffectText';
 export * from './moveFlavorText';
 export * from './moveLearnMethodDescription';
 export * from './moveLearnMethodDetail';
@@ -133,7 +130,9 @@ export * from './moveMetaAilmentSummary';
 export * from './moveMetaCategoryDescription';
 export * from './moveMetaCategoryDetail';
 export * from './moveMetaCategorySummary';
+export * from './moveMetaStatChange';
 export * from './moveName';
+export * from './moveStatChange';
 export * from './moveSummary';
 export * from './moveTargetDescription';
 export * from './moveTargetDetail';
@@ -141,8 +140,8 @@ export * from './moveTargetName';
 export * from './moveTargetSummary';
 export * from './natureBattleStylePreference';
 export * from './natureDetail';
-export * from './natureDetailPokeathlonStatChangesInner';
 export * from './natureName';
+export * from './naturePokeathlonStat';
 export * from './natureSummary';
 export * from './paginatedAbilitySummaryList';
 export * from './paginatedBerryFirmnessSummaryList';
@@ -151,12 +150,14 @@ export * from './paginatedBerrySummaryList';
 export * from './paginatedCharacteristicSummaryList';
 export * from './paginatedContestEffectSummaryList';
 export * from './paginatedContestTypeSummaryList';
+export * from './paginatedCurrencySummaryList';
 export * from './paginatedEggGroupSummaryList';
 export * from './paginatedEncounterConditionSummaryList';
 export * from './paginatedEncounterConditionValueSummaryList';
 export * from './paginatedEncounterMethodSummaryList';
 export * from './paginatedEvolutionChainSummaryList';
 export * from './paginatedEvolutionTriggerSummaryList';
+export * from './paginatedEvolutionVariableSummaryList';
 export * from './paginatedGenderSummaryList';
 export * from './paginatedGenerationSummaryList';
 export * from './paginatedGrowthRateSummaryList';
@@ -193,75 +194,91 @@ export * from './paginatedTypeSummaryList';
 export * from './paginatedVersionGroupSummaryList';
 export * from './paginatedVersionSummaryList';
 export * from './palParkAreaDetail';
-export * from './palParkAreaDetailPokemonEncountersInner';
 export * from './palParkAreaName';
 export * from './palParkAreaSummary';
+export * from './palParkEncounter';
+export * from './pokeapiMetaResponse';
+export * from './pokeathlonStatAffectingNature';
+export * from './pokeathlonStatAffectingNatures';
 export * from './pokeathlonStatDetail';
-export * from './pokeathlonStatDetailAffectingNatures';
-export * from './pokeathlonStatDetailAffectingNaturesDecreaseInner';
-export * from './pokeathlonStatDetailAffectingNaturesIncreaseInner';
 export * from './pokeathlonStatName';
 export * from './pokeathlonStatSummary';
 export * from './pokedexDescription';
 export * from './pokedexDetail';
-export * from './pokedexDetailPokemonEntriesInner';
 export * from './pokedexName';
 export * from './pokedexSummary';
+export * from './pokemonAbility';
+export * from './pokemonAbilityPast';
 export * from './pokemonColorDetail';
 export * from './pokemonColorName';
 export * from './pokemonColorSummary';
+export * from './pokemonCries';
 export * from './pokemonDetail';
-export * from './pokemonDetailAbilitiesInner';
-export * from './pokemonDetailCries';
-export * from './pokemonDetailHeldItems';
-export * from './pokemonDetailMovesInner';
-export * from './pokemonDetailMovesInnerVersionGroupDetailsInner';
-export * from './pokemonDetailPastAbilitiesInner';
-export * from './pokemonDetailPastTypesInner';
-export * from './pokemonDetailSprites';
-export * from './pokemonDetailTypesInner';
 export * from './pokemonDexEntry';
+export * from './pokemonDexNumber';
+export * from './pokemonEncounterDetailResponse';
+export * from './pokemonEncounterResponse';
+export * from './pokemonEncounterVersionDetailResponse';
+export * from './pokemonEvolution';
+export * from './pokemonEvolutionKnownMove';
 export * from './pokemonFormDetail';
-export * from './pokemonFormDetailFormNamesInner';
-export * from './pokemonFormDetailSprites';
+export * from './pokemonFormFlavorText';
+export * from './pokemonFormName';
+export * from './pokemonFormSprites';
 export * from './pokemonFormSummary';
+export * from './pokemonFormTriggerCondition';
+export * from './pokemonFormType';
 export * from './pokemonGameIndex';
 export * from './pokemonHabitatDetail';
 export * from './pokemonHabitatName';
 export * from './pokemonHabitatSummary';
+export * from './pokemonHeldItem';
+export * from './pokemonHeldItemSummary';
+export * from './pokemonHeldItemVersion';
+export * from './pokemonMove';
+export * from './pokemonMoveVersionGroup';
+export * from './pokemonPastAbility';
+export * from './pokemonPastStat';
+export * from './pokemonPastType';
+export * from './pokemonShapeAwesomeName';
 export * from './pokemonShapeDetail';
-export * from './pokemonShapeDetailAwesomeNamesInner';
-export * from './pokemonShapeDetailNamesInner';
+export * from './pokemonShapeName';
 export * from './pokemonShapeSummary';
 export * from './pokemonSpeciesDescription';
 export * from './pokemonSpeciesDetail';
-export * from './pokemonSpeciesDetailGeneraInner';
-export * from './pokemonSpeciesDetailPalParkEncountersInner';
-export * from './pokemonSpeciesDetailVarietiesInner';
 export * from './pokemonSpeciesFlavorText';
+export * from './pokemonSpeciesGenus';
+export * from './pokemonSpeciesName';
+export * from './pokemonSpeciesPalParkEncounter';
 export * from './pokemonSpeciesSummary';
+export * from './pokemonSpeciesVariety';
+export * from './pokemonSprites';
+export * from './pokemonSpritesOther';
+export * from './pokemonSpritesOtherDreamWorld';
+export * from './pokemonSpritesOtherHome';
+export * from './pokemonSpritesOtherOfficialArtwork';
+export * from './pokemonSpritesOtherShowdown';
 export * from './pokemonStat';
 export * from './pokemonSummary';
+export * from './pokemonType';
 export * from './regionDetail';
 export * from './regionName';
 export * from './regionSummary';
+export * from './statAffectingMoves';
+export * from './statAffectingNatures';
 export * from './statDetail';
-export * from './statDetailAffectingMoves';
-export * from './statDetailAffectingMovesIncreaseInner';
-export * from './statDetailAffectingNatures';
 export * from './statName';
 export * from './statSummary';
 export * from './superContestEffectDetail';
 export * from './superContestEffectFlavorText';
 export * from './superContestEffectSummary';
 export * from './typeDetail';
-export * from './typeDetailDamageRelations';
-export * from './typeDetailPastDamageRelationsInner';
-export * from './typeDetailPastDamageRelationsInnerDamageRelations';
-export * from './typeDetailPokemonInner';
-export * from './typeDetailPokemonInnerPokemon';
-export * from './typeDetailSpritesValueValue';
 export * from './typeGameIndex';
+export * from './typeGameSprite';
+export * from './typeName';
+export * from './typePastRelationships';
+export * from './typePokemon';
+export * from './typeRelationships';
 export * from './typeSummary';
 export * from './versionDetail';
 export * from './versionGroupDetail';
@@ -285,21 +302,18 @@ export type RequestFile = string | Buffer | fs.ReadStream | RequestDetailedFile;
 import { AbilityChange } from './abilityChange';
 import { AbilityChangeEffectText } from './abilityChangeEffectText';
 import { AbilityDetail } from './abilityDetail';
-import { AbilityDetailPokemonInner } from './abilityDetailPokemonInner';
-import { AbilityDetailPokemonInnerPokemon } from './abilityDetailPokemonInnerPokemon';
 import { AbilityEffectText } from './abilityEffectText';
 import { AbilityFlavorText } from './abilityFlavorText';
 import { AbilityName } from './abilityName';
+import { AbilityPokemonDetail } from './abilityPokemonDetail';
 import { AbilitySummary } from './abilitySummary';
 import { BerryDetail } from './berryDetail';
-import { BerryDetailFlavorsInner } from './berryDetailFlavorsInner';
-import { BerryDetailFlavorsInnerFlavor } from './berryDetailFlavorsInnerFlavor';
 import { BerryFirmnessDetail } from './berryFirmnessDetail';
 import { BerryFirmnessName } from './berryFirmnessName';
 import { BerryFirmnessSummary } from './berryFirmnessSummary';
+import { BerryFlavorBerryMap } from './berryFlavorBerryMap';
 import { BerryFlavorDetail } from './berryFlavorDetail';
-import { BerryFlavorDetailBerriesInner } from './berryFlavorDetailBerriesInner';
-import { BerryFlavorDetailBerriesInnerBerry } from './berryFlavorDetailBerriesInnerBerry';
+import { BerryFlavorMap } from './berryFlavorMap';
 import { BerryFlavorName } from './berryFlavorName';
 import { BerryFlavorSummary } from './berryFlavorSummary';
 import { BerrySummary } from './berrySummary';
@@ -313,8 +327,10 @@ import { ContestEffectSummary } from './contestEffectSummary';
 import { ContestTypeDetail } from './contestTypeDetail';
 import { ContestTypeName } from './contestTypeName';
 import { ContestTypeSummary } from './contestTypeSummary';
+import { CurrencyDetail } from './currencyDetail';
+import { CurrencyName } from './currencyName';
+import { CurrencySummary } from './currencySummary';
 import { EggGroupDetail } from './eggGroupDetail';
-import { EggGroupDetailPokemonSpeciesInner } from './eggGroupDetailPokemonSpeciesInner';
 import { EggGroupName } from './eggGroupName';
 import { EggGroupSummary } from './eggGroupSummary';
 import { EncounterConditionDetail } from './encounterConditionDetail';
@@ -326,18 +342,21 @@ import { EncounterConditionValueSummary } from './encounterConditionValueSummary
 import { EncounterMethodDetail } from './encounterMethodDetail';
 import { EncounterMethodName } from './encounterMethodName';
 import { EncounterMethodSummary } from './encounterMethodSummary';
+import { EncounterPokemonDetail } from './encounterPokemonDetail';
 import { EvolutionChainDetail } from './evolutionChainDetail';
-import { EvolutionChainDetailChain } from './evolutionChainDetailChain';
-import { EvolutionChainDetailChainEvolvesToInner } from './evolutionChainDetailChainEvolvesToInner';
-import { EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner } from './evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner';
-import { EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender } from './evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender';
+import { EvolutionChainLink } from './evolutionChainLink';
 import { EvolutionChainSummary } from './evolutionChainSummary';
+import { EvolutionConditionExpression } from './evolutionConditionExpression';
 import { EvolutionTriggerDetail } from './evolutionTriggerDetail';
 import { EvolutionTriggerName } from './evolutionTriggerName';
 import { EvolutionTriggerSummary } from './evolutionTriggerSummary';
+import { EvolutionVariableDescription } from './evolutionVariableDescription';
+import { EvolutionVariableDetail } from './evolutionVariableDetail';
+import { EvolutionVariableName } from './evolutionVariableName';
+import { EvolutionVariableSummary } from './evolutionVariableSummary';
 import { Experience } from './experience';
 import { GenderDetail } from './genderDetail';
-import { GenderDetailPokemonSpeciesDetailsInner } from './genderDetailPokemonSpeciesDetailsInner';
+import { GenderPokemonSpecies } from './genderPokemonSpecies';
 import { GenderSummary } from './genderSummary';
 import { GenerationDetail } from './generationDetail';
 import { GenerationName } from './generationName';
@@ -353,32 +372,30 @@ import { ItemCategoryDetail } from './itemCategoryDetail';
 import { ItemCategoryName } from './itemCategoryName';
 import { ItemCategorySummary } from './itemCategorySummary';
 import { ItemDetail } from './itemDetail';
-import { ItemDetailBabyTriggerFor } from './itemDetailBabyTriggerFor';
-import { ItemDetailHeldByPokemonInner } from './itemDetailHeldByPokemonInner';
-import { ItemDetailHeldByPokemonInnerVersionDetailsInner } from './itemDetailHeldByPokemonInnerVersionDetailsInner';
-import { ItemDetailMachinesInner } from './itemDetailMachinesInner';
-import { ItemDetailSprites } from './itemDetailSprites';
 import { ItemEffectText } from './itemEffectText';
 import { ItemFlavorText } from './itemFlavorText';
 import { ItemFlingEffectDetail } from './itemFlingEffectDetail';
 import { ItemFlingEffectEffectText } from './itemFlingEffectEffectText';
 import { ItemFlingEffectSummary } from './itemFlingEffectSummary';
 import { ItemGameIndex } from './itemGameIndex';
+import { ItemMachine } from './itemMachine';
 import { ItemName } from './itemName';
 import { ItemPocketDetail } from './itemPocketDetail';
 import { ItemPocketName } from './itemPocketName';
 import { ItemPocketSummary } from './itemPocketSummary';
+import { ItemPrice } from './itemPrice';
+import { ItemSprites } from './itemSprites';
 import { ItemSummary } from './itemSummary';
 import { LanguageDetail } from './languageDetail';
 import { LanguageName } from './languageName';
 import { LanguageSummary } from './languageSummary';
 import { LocationAreaDetail } from './locationAreaDetail';
-import { LocationAreaDetailEncounterMethodRatesInner } from './locationAreaDetailEncounterMethodRatesInner';
-import { LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner } from './locationAreaDetailEncounterMethodRatesInnerVersionDetailsInner';
-import { LocationAreaDetailPokemonEncountersInner } from './locationAreaDetailPokemonEncountersInner';
-import { LocationAreaDetailPokemonEncountersInnerVersionDetailsInner } from './locationAreaDetailPokemonEncountersInnerVersionDetailsInner';
-import { LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails } from './locationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails';
+import { LocationAreaEncounterDetail } from './locationAreaEncounterDetail';
+import { LocationAreaEncounterRate } from './locationAreaEncounterRate';
+import { LocationAreaEncounterVersionDetail } from './locationAreaEncounterVersionDetail';
 import { LocationAreaName } from './locationAreaName';
+import { LocationAreaPokemonEncounter } from './locationAreaPokemonEncounter';
+import { LocationAreaPokemonEncounterVersion } from './locationAreaPokemonEncounterVersion';
 import { LocationAreaSummary } from './locationAreaSummary';
 import { LocationDetail } from './locationDetail';
 import { LocationGameIndex } from './locationGameIndex';
@@ -390,19 +407,16 @@ import { MoveBattleStyleDetail } from './moveBattleStyleDetail';
 import { MoveBattleStyleName } from './moveBattleStyleName';
 import { MoveBattleStyleSummary } from './moveBattleStyleSummary';
 import { MoveChange } from './moveChange';
-import { MoveChangeEffectEntriesInner } from './moveChangeEffectEntriesInner';
+import { MoveComboUsage } from './moveComboUsage';
+import { MoveCombos } from './moveCombos';
 import { MoveDamageClassDescription } from './moveDamageClassDescription';
 import { MoveDamageClassDetail } from './moveDamageClassDetail';
 import { MoveDamageClassName } from './moveDamageClassName';
 import { MoveDamageClassSummary } from './moveDamageClassSummary';
 import { MoveDetail } from './moveDetail';
-import { MoveDetailContestCombos } from './moveDetailContestCombos';
-import { MoveDetailContestCombosNormal } from './moveDetailContestCombosNormal';
-import { MoveDetailEffectChangesInner } from './moveDetailEffectChangesInner';
-import { MoveDetailEffectChangesInnerEffectEntriesInner } from './moveDetailEffectChangesInnerEffectEntriesInner';
-import { MoveDetailMachinesInner } from './moveDetailMachinesInner';
-import { MoveDetailMachinesInnerMachine } from './moveDetailMachinesInnerMachine';
-import { MoveDetailStatChangesInner } from './moveDetailStatChangesInner';
+import { MoveEffectChange } from './moveEffectChange';
+import { MoveEffectChangeEffectText } from './moveEffectChangeEffectText';
+import { MoveEffectEffectText } from './moveEffectEffectText';
 import { MoveFlavorText } from './moveFlavorText';
 import { MoveLearnMethodDescription } from './moveLearnMethodDescription';
 import { MoveLearnMethodDetail } from './moveLearnMethodDetail';
@@ -415,7 +429,9 @@ import { MoveMetaAilmentSummary } from './moveMetaAilmentSummary';
 import { MoveMetaCategoryDescription } from './moveMetaCategoryDescription';
 import { MoveMetaCategoryDetail } from './moveMetaCategoryDetail';
 import { MoveMetaCategorySummary } from './moveMetaCategorySummary';
+import { MoveMetaStatChange } from './moveMetaStatChange';
 import { MoveName } from './moveName';
+import { MoveStatChange } from './moveStatChange';
 import { MoveSummary } from './moveSummary';
 import { MoveTargetDescription } from './moveTargetDescription';
 import { MoveTargetDetail } from './moveTargetDetail';
@@ -423,8 +439,8 @@ import { MoveTargetName } from './moveTargetName';
 import { MoveTargetSummary } from './moveTargetSummary';
 import { NatureBattleStylePreference } from './natureBattleStylePreference';
 import { NatureDetail } from './natureDetail';
-import { NatureDetailPokeathlonStatChangesInner } from './natureDetailPokeathlonStatChangesInner';
 import { NatureName } from './natureName';
+import { NaturePokeathlonStat } from './naturePokeathlonStat';
 import { NatureSummary } from './natureSummary';
 import { PaginatedAbilitySummaryList } from './paginatedAbilitySummaryList';
 import { PaginatedBerryFirmnessSummaryList } from './paginatedBerryFirmnessSummaryList';
@@ -433,12 +449,14 @@ import { PaginatedBerrySummaryList } from './paginatedBerrySummaryList';
 import { PaginatedCharacteristicSummaryList } from './paginatedCharacteristicSummaryList';
 import { PaginatedContestEffectSummaryList } from './paginatedContestEffectSummaryList';
 import { PaginatedContestTypeSummaryList } from './paginatedContestTypeSummaryList';
+import { PaginatedCurrencySummaryList } from './paginatedCurrencySummaryList';
 import { PaginatedEggGroupSummaryList } from './paginatedEggGroupSummaryList';
 import { PaginatedEncounterConditionSummaryList } from './paginatedEncounterConditionSummaryList';
 import { PaginatedEncounterConditionValueSummaryList } from './paginatedEncounterConditionValueSummaryList';
 import { PaginatedEncounterMethodSummaryList } from './paginatedEncounterMethodSummaryList';
 import { PaginatedEvolutionChainSummaryList } from './paginatedEvolutionChainSummaryList';
 import { PaginatedEvolutionTriggerSummaryList } from './paginatedEvolutionTriggerSummaryList';
+import { PaginatedEvolutionVariableSummaryList } from './paginatedEvolutionVariableSummaryList';
 import { PaginatedGenderSummaryList } from './paginatedGenderSummaryList';
 import { PaginatedGenerationSummaryList } from './paginatedGenerationSummaryList';
 import { PaginatedGrowthRateSummaryList } from './paginatedGrowthRateSummaryList';
@@ -475,75 +493,91 @@ import { PaginatedTypeSummaryList } from './paginatedTypeSummaryList';
 import { PaginatedVersionGroupSummaryList } from './paginatedVersionGroupSummaryList';
 import { PaginatedVersionSummaryList } from './paginatedVersionSummaryList';
 import { PalParkAreaDetail } from './palParkAreaDetail';
-import { PalParkAreaDetailPokemonEncountersInner } from './palParkAreaDetailPokemonEncountersInner';
 import { PalParkAreaName } from './palParkAreaName';
 import { PalParkAreaSummary } from './palParkAreaSummary';
+import { PalParkEncounter } from './palParkEncounter';
+import { PokeapiMetaResponse } from './pokeapiMetaResponse';
+import { PokeathlonStatAffectingNature } from './pokeathlonStatAffectingNature';
+import { PokeathlonStatAffectingNatures } from './pokeathlonStatAffectingNatures';
 import { PokeathlonStatDetail } from './pokeathlonStatDetail';
-import { PokeathlonStatDetailAffectingNatures } from './pokeathlonStatDetailAffectingNatures';
-import { PokeathlonStatDetailAffectingNaturesDecreaseInner } from './pokeathlonStatDetailAffectingNaturesDecreaseInner';
-import { PokeathlonStatDetailAffectingNaturesIncreaseInner } from './pokeathlonStatDetailAffectingNaturesIncreaseInner';
 import { PokeathlonStatName } from './pokeathlonStatName';
 import { PokeathlonStatSummary } from './pokeathlonStatSummary';
 import { PokedexDescription } from './pokedexDescription';
 import { PokedexDetail } from './pokedexDetail';
-import { PokedexDetailPokemonEntriesInner } from './pokedexDetailPokemonEntriesInner';
 import { PokedexName } from './pokedexName';
 import { PokedexSummary } from './pokedexSummary';
+import { PokemonAbility } from './pokemonAbility';
+import { PokemonAbilityPast } from './pokemonAbilityPast';
 import { PokemonColorDetail } from './pokemonColorDetail';
 import { PokemonColorName } from './pokemonColorName';
 import { PokemonColorSummary } from './pokemonColorSummary';
+import { PokemonCries } from './pokemonCries';
 import { PokemonDetail } from './pokemonDetail';
-import { PokemonDetailAbilitiesInner } from './pokemonDetailAbilitiesInner';
-import { PokemonDetailCries } from './pokemonDetailCries';
-import { PokemonDetailHeldItems } from './pokemonDetailHeldItems';
-import { PokemonDetailMovesInner } from './pokemonDetailMovesInner';
-import { PokemonDetailMovesInnerVersionGroupDetailsInner } from './pokemonDetailMovesInnerVersionGroupDetailsInner';
-import { PokemonDetailPastAbilitiesInner } from './pokemonDetailPastAbilitiesInner';
-import { PokemonDetailPastTypesInner } from './pokemonDetailPastTypesInner';
-import { PokemonDetailSprites } from './pokemonDetailSprites';
-import { PokemonDetailTypesInner } from './pokemonDetailTypesInner';
 import { PokemonDexEntry } from './pokemonDexEntry';
+import { PokemonDexNumber } from './pokemonDexNumber';
+import { PokemonEncounterDetailResponse } from './pokemonEncounterDetailResponse';
+import { PokemonEncounterResponse } from './pokemonEncounterResponse';
+import { PokemonEncounterVersionDetailResponse } from './pokemonEncounterVersionDetailResponse';
+import { PokemonEvolution } from './pokemonEvolution';
+import { PokemonEvolutionKnownMove } from './pokemonEvolutionKnownMove';
 import { PokemonFormDetail } from './pokemonFormDetail';
-import { PokemonFormDetailFormNamesInner } from './pokemonFormDetailFormNamesInner';
-import { PokemonFormDetailSprites } from './pokemonFormDetailSprites';
+import { PokemonFormFlavorText } from './pokemonFormFlavorText';
+import { PokemonFormName } from './pokemonFormName';
+import { PokemonFormSprites } from './pokemonFormSprites';
 import { PokemonFormSummary } from './pokemonFormSummary';
+import { PokemonFormTriggerCondition } from './pokemonFormTriggerCondition';
+import { PokemonFormType } from './pokemonFormType';
 import { PokemonGameIndex } from './pokemonGameIndex';
 import { PokemonHabitatDetail } from './pokemonHabitatDetail';
 import { PokemonHabitatName } from './pokemonHabitatName';
 import { PokemonHabitatSummary } from './pokemonHabitatSummary';
+import { PokemonHeldItem } from './pokemonHeldItem';
+import { PokemonHeldItemSummary } from './pokemonHeldItemSummary';
+import { PokemonHeldItemVersion } from './pokemonHeldItemVersion';
+import { PokemonMove } from './pokemonMove';
+import { PokemonMoveVersionGroup } from './pokemonMoveVersionGroup';
+import { PokemonPastAbility } from './pokemonPastAbility';
+import { PokemonPastStat } from './pokemonPastStat';
+import { PokemonPastType } from './pokemonPastType';
+import { PokemonShapeAwesomeName } from './pokemonShapeAwesomeName';
 import { PokemonShapeDetail } from './pokemonShapeDetail';
-import { PokemonShapeDetailAwesomeNamesInner } from './pokemonShapeDetailAwesomeNamesInner';
-import { PokemonShapeDetailNamesInner } from './pokemonShapeDetailNamesInner';
+import { PokemonShapeName } from './pokemonShapeName';
 import { PokemonShapeSummary } from './pokemonShapeSummary';
 import { PokemonSpeciesDescription } from './pokemonSpeciesDescription';
 import { PokemonSpeciesDetail } from './pokemonSpeciesDetail';
-import { PokemonSpeciesDetailGeneraInner } from './pokemonSpeciesDetailGeneraInner';
-import { PokemonSpeciesDetailPalParkEncountersInner } from './pokemonSpeciesDetailPalParkEncountersInner';
-import { PokemonSpeciesDetailVarietiesInner } from './pokemonSpeciesDetailVarietiesInner';
 import { PokemonSpeciesFlavorText } from './pokemonSpeciesFlavorText';
+import { PokemonSpeciesGenus } from './pokemonSpeciesGenus';
+import { PokemonSpeciesName } from './pokemonSpeciesName';
+import { PokemonSpeciesPalParkEncounter } from './pokemonSpeciesPalParkEncounter';
 import { PokemonSpeciesSummary } from './pokemonSpeciesSummary';
+import { PokemonSpeciesVariety } from './pokemonSpeciesVariety';
+import { PokemonSprites } from './pokemonSprites';
+import { PokemonSpritesOther } from './pokemonSpritesOther';
+import { PokemonSpritesOtherDreamWorld } from './pokemonSpritesOtherDreamWorld';
+import { PokemonSpritesOtherHome } from './pokemonSpritesOtherHome';
+import { PokemonSpritesOtherOfficialArtwork } from './pokemonSpritesOtherOfficialArtwork';
+import { PokemonSpritesOtherShowdown } from './pokemonSpritesOtherShowdown';
 import { PokemonStat } from './pokemonStat';
 import { PokemonSummary } from './pokemonSummary';
+import { PokemonType } from './pokemonType';
 import { RegionDetail } from './regionDetail';
 import { RegionName } from './regionName';
 import { RegionSummary } from './regionSummary';
+import { StatAffectingMoves } from './statAffectingMoves';
+import { StatAffectingNatures } from './statAffectingNatures';
 import { StatDetail } from './statDetail';
-import { StatDetailAffectingMoves } from './statDetailAffectingMoves';
-import { StatDetailAffectingMovesIncreaseInner } from './statDetailAffectingMovesIncreaseInner';
-import { StatDetailAffectingNatures } from './statDetailAffectingNatures';
 import { StatName } from './statName';
 import { StatSummary } from './statSummary';
 import { SuperContestEffectDetail } from './superContestEffectDetail';
 import { SuperContestEffectFlavorText } from './superContestEffectFlavorText';
 import { SuperContestEffectSummary } from './superContestEffectSummary';
 import { TypeDetail } from './typeDetail';
-import { TypeDetailDamageRelations } from './typeDetailDamageRelations';
-import { TypeDetailPastDamageRelationsInner } from './typeDetailPastDamageRelationsInner';
-import { TypeDetailPastDamageRelationsInnerDamageRelations } from './typeDetailPastDamageRelationsInnerDamageRelations';
-import { TypeDetailPokemonInner } from './typeDetailPokemonInner';
-import { TypeDetailPokemonInnerPokemon } from './typeDetailPokemonInnerPokemon';
-import { TypeDetailSpritesValueValue } from './typeDetailSpritesValueValue';
 import { TypeGameIndex } from './typeGameIndex';
+import { TypeGameSprite } from './typeGameSprite';
+import { TypeName } from './typeName';
+import { TypePastRelationships } from './typePastRelationships';
+import { TypePokemon } from './typePokemon';
+import { TypeRelationships } from './typeRelationships';
 import { TypeSummary } from './typeSummary';
 import { VersionDetail } from './versionDetail';
 import { VersionGroupDetail } from './versionGroupDetail';
@@ -570,21 +604,18 @@ let typeMap: {[index: string]: any} = {
     "AbilityChange": AbilityChange,
     "AbilityChangeEffectText": AbilityChangeEffectText,
     "AbilityDetail": AbilityDetail,
-    "AbilityDetailPokemonInner": AbilityDetailPokemonInner,
-    "AbilityDetailPokemonInnerPokemon": AbilityDetailPokemonInnerPokemon,
     "AbilityEffectText": AbilityEffectText,
     "AbilityFlavorText": AbilityFlavorText,
     "AbilityName": AbilityName,
+    "AbilityPokemonDetail": AbilityPokemonDetail,
     "AbilitySummary": AbilitySummary,
     "BerryDetail": BerryDetail,
-    "BerryDetailFlavorsInner": BerryDetailFlavorsInner,
-    "BerryDetailFlavorsInnerFlavor": BerryDetailFlavorsInnerFlavor,
     "BerryFirmnessDetail": BerryFirmnessDetail,
     "BerryFirmnessName": BerryFirmnessName,
     "BerryFirmnessSummary": BerryFirmnessSummary,
+    "BerryFlavorBerryMap": BerryFlavorBerryMap,
     "BerryFlavorDetail": BerryFlavorDetail,
-    "BerryFlavorDetailBerriesInner": BerryFlavorDetailBerriesInner,
-    "BerryFlavorDetailBerriesInnerBerry": BerryFlavorDetailBerriesInnerBerry,
+    "BerryFlavorMap": BerryFlavorMap,
     "BerryFlavorName": BerryFlavorName,
     "BerryFlavorSummary": BerryFlavorSummary,
     "BerrySummary": BerrySummary,
@@ -598,8 +629,10 @@ let typeMap: {[index: string]: any} = {
     "ContestTypeDetail": ContestTypeDetail,
     "ContestTypeName": ContestTypeName,
     "ContestTypeSummary": ContestTypeSummary,
+    "CurrencyDetail": CurrencyDetail,
+    "CurrencyName": CurrencyName,
+    "CurrencySummary": CurrencySummary,
     "EggGroupDetail": EggGroupDetail,
-    "EggGroupDetailPokemonSpeciesInner": EggGroupDetailPokemonSpeciesInner,
     "EggGroupName": EggGroupName,
     "EggGroupSummary": EggGroupSummary,
     "EncounterConditionDetail": EncounterConditionDetail,
@@ -611,18 +644,21 @@ let typeMap: {[index: string]: any} = {
     "EncounterMethodDetail": EncounterMethodDetail,
     "EncounterMethodName": EncounterMethodName,
     "EncounterMethodSummary": EncounterMethodSummary,
+    "EncounterPokemonDetail": EncounterPokemonDetail,
     "EvolutionChainDetail": EvolutionChainDetail,
-    "EvolutionChainDetailChain": EvolutionChainDetailChain,
-    "EvolutionChainDetailChainEvolvesToInner": EvolutionChainDetailChainEvolvesToInner,
-    "EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner": EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner,
-    "EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender": EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender,
+    "EvolutionChainLink": EvolutionChainLink,
     "EvolutionChainSummary": EvolutionChainSummary,
+    "EvolutionConditionExpression": EvolutionConditionExpression,
     "EvolutionTriggerDetail": EvolutionTriggerDetail,
     "EvolutionTriggerName": EvolutionTriggerName,
     "EvolutionTriggerSummary": EvolutionTriggerSummary,
+    "EvolutionVariableDescription": EvolutionVariableDescription,
+    "EvolutionVariableDetail": EvolutionVariableDetail,
+    "EvolutionVariableName": EvolutionVariableName,
+    "EvolutionVariableSummary": EvolutionVariableSummary,
     "Experience": Experience,
     "GenderDetail": GenderDetail,
-    "GenderDetailPokemonSpeciesDetailsInner": GenderDetailPokemonSpeciesDetailsInner,
+    "GenderPokemonSpecies": GenderPokemonSpecies,
     "GenderSummary": GenderSummary,
     "GenerationDetail": GenerationDetail,
     "GenerationName": GenerationName,
@@ -638,32 +674,30 @@ let typeMap: {[index: string]: any} = {
     "ItemCategoryName": ItemCategoryName,
     "ItemCategorySummary": ItemCategorySummary,
     "ItemDetail": ItemDetail,
-    "ItemDetailBabyTriggerFor": ItemDetailBabyTriggerFor,
-    "ItemDetailHeldByPokemonInner": ItemDetailHeldByPokemonInner,
-    "ItemDetailHeldByPokemonInnerVersionDetailsInner": ItemDetailHeldByPokemonInnerVersionDetailsInner,
-    "ItemDetailMachinesInner": ItemDetailMachinesInner,
-    "ItemDetailSprites": ItemDetailSprites,
     "ItemEffectText": ItemEffectText,
     "ItemFlavorText": ItemFlavorText,
     "ItemFlingEffectDetail": ItemFlingEffectDetail,
     "ItemFlingEffectEffectText": ItemFlingEffectEffectText,
     "ItemFlingEffectSummary": ItemFlingEffectSummary,
     "ItemGameIndex": ItemGameIndex,
+    "ItemMachine": ItemMachine,
     "ItemName": ItemName,
     "ItemPocketDetail": ItemPocketDetail,
     "ItemPocketName": ItemPocketName,
     "ItemPocketSummary": ItemPocketSummary,
+    "ItemPrice": ItemPrice,
+    "ItemSprites": ItemSprites,
     "ItemSummary": ItemSummary,
     "LanguageDetail": LanguageDetail,
     "LanguageName": LanguageName,
     "LanguageSummary": LanguageSummary,
     "LocationAreaDetail": LocationAreaDetail,
-    "LocationAreaDetailEncounterMethodRatesInner": LocationAreaDetailEncounterMethodRatesInner,
-    "LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner": LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner,
-    "LocationAreaDetailPokemonEncountersInner": LocationAreaDetailPokemonEncountersInner,
-    "LocationAreaDetailPokemonEncountersInnerVersionDetailsInner": LocationAreaDetailPokemonEncountersInnerVersionDetailsInner,
-    "LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails": LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails,
+    "LocationAreaEncounterDetail": LocationAreaEncounterDetail,
+    "LocationAreaEncounterRate": LocationAreaEncounterRate,
+    "LocationAreaEncounterVersionDetail": LocationAreaEncounterVersionDetail,
     "LocationAreaName": LocationAreaName,
+    "LocationAreaPokemonEncounter": LocationAreaPokemonEncounter,
+    "LocationAreaPokemonEncounterVersion": LocationAreaPokemonEncounterVersion,
     "LocationAreaSummary": LocationAreaSummary,
     "LocationDetail": LocationDetail,
     "LocationGameIndex": LocationGameIndex,
@@ -675,19 +709,16 @@ let typeMap: {[index: string]: any} = {
     "MoveBattleStyleName": MoveBattleStyleName,
     "MoveBattleStyleSummary": MoveBattleStyleSummary,
     "MoveChange": MoveChange,
-    "MoveChangeEffectEntriesInner": MoveChangeEffectEntriesInner,
+    "MoveComboUsage": MoveComboUsage,
+    "MoveCombos": MoveCombos,
     "MoveDamageClassDescription": MoveDamageClassDescription,
     "MoveDamageClassDetail": MoveDamageClassDetail,
     "MoveDamageClassName": MoveDamageClassName,
     "MoveDamageClassSummary": MoveDamageClassSummary,
     "MoveDetail": MoveDetail,
-    "MoveDetailContestCombos": MoveDetailContestCombos,
-    "MoveDetailContestCombosNormal": MoveDetailContestCombosNormal,
-    "MoveDetailEffectChangesInner": MoveDetailEffectChangesInner,
-    "MoveDetailEffectChangesInnerEffectEntriesInner": MoveDetailEffectChangesInnerEffectEntriesInner,
-    "MoveDetailMachinesInner": MoveDetailMachinesInner,
-    "MoveDetailMachinesInnerMachine": MoveDetailMachinesInnerMachine,
-    "MoveDetailStatChangesInner": MoveDetailStatChangesInner,
+    "MoveEffectChange": MoveEffectChange,
+    "MoveEffectChangeEffectText": MoveEffectChangeEffectText,
+    "MoveEffectEffectText": MoveEffectEffectText,
     "MoveFlavorText": MoveFlavorText,
     "MoveLearnMethodDescription": MoveLearnMethodDescription,
     "MoveLearnMethodDetail": MoveLearnMethodDetail,
@@ -700,7 +731,9 @@ let typeMap: {[index: string]: any} = {
     "MoveMetaCategoryDescription": MoveMetaCategoryDescription,
     "MoveMetaCategoryDetail": MoveMetaCategoryDetail,
     "MoveMetaCategorySummary": MoveMetaCategorySummary,
+    "MoveMetaStatChange": MoveMetaStatChange,
     "MoveName": MoveName,
+    "MoveStatChange": MoveStatChange,
     "MoveSummary": MoveSummary,
     "MoveTargetDescription": MoveTargetDescription,
     "MoveTargetDetail": MoveTargetDetail,
@@ -708,8 +741,8 @@ let typeMap: {[index: string]: any} = {
     "MoveTargetSummary": MoveTargetSummary,
     "NatureBattleStylePreference": NatureBattleStylePreference,
     "NatureDetail": NatureDetail,
-    "NatureDetailPokeathlonStatChangesInner": NatureDetailPokeathlonStatChangesInner,
     "NatureName": NatureName,
+    "NaturePokeathlonStat": NaturePokeathlonStat,
     "NatureSummary": NatureSummary,
     "PaginatedAbilitySummaryList": PaginatedAbilitySummaryList,
     "PaginatedBerryFirmnessSummaryList": PaginatedBerryFirmnessSummaryList,
@@ -718,12 +751,14 @@ let typeMap: {[index: string]: any} = {
     "PaginatedCharacteristicSummaryList": PaginatedCharacteristicSummaryList,
     "PaginatedContestEffectSummaryList": PaginatedContestEffectSummaryList,
     "PaginatedContestTypeSummaryList": PaginatedContestTypeSummaryList,
+    "PaginatedCurrencySummaryList": PaginatedCurrencySummaryList,
     "PaginatedEggGroupSummaryList": PaginatedEggGroupSummaryList,
     "PaginatedEncounterConditionSummaryList": PaginatedEncounterConditionSummaryList,
     "PaginatedEncounterConditionValueSummaryList": PaginatedEncounterConditionValueSummaryList,
     "PaginatedEncounterMethodSummaryList": PaginatedEncounterMethodSummaryList,
     "PaginatedEvolutionChainSummaryList": PaginatedEvolutionChainSummaryList,
     "PaginatedEvolutionTriggerSummaryList": PaginatedEvolutionTriggerSummaryList,
+    "PaginatedEvolutionVariableSummaryList": PaginatedEvolutionVariableSummaryList,
     "PaginatedGenderSummaryList": PaginatedGenderSummaryList,
     "PaginatedGenerationSummaryList": PaginatedGenerationSummaryList,
     "PaginatedGrowthRateSummaryList": PaginatedGrowthRateSummaryList,
@@ -760,75 +795,91 @@ let typeMap: {[index: string]: any} = {
     "PaginatedVersionGroupSummaryList": PaginatedVersionGroupSummaryList,
     "PaginatedVersionSummaryList": PaginatedVersionSummaryList,
     "PalParkAreaDetail": PalParkAreaDetail,
-    "PalParkAreaDetailPokemonEncountersInner": PalParkAreaDetailPokemonEncountersInner,
     "PalParkAreaName": PalParkAreaName,
     "PalParkAreaSummary": PalParkAreaSummary,
+    "PalParkEncounter": PalParkEncounter,
+    "PokeapiMetaResponse": PokeapiMetaResponse,
+    "PokeathlonStatAffectingNature": PokeathlonStatAffectingNature,
+    "PokeathlonStatAffectingNatures": PokeathlonStatAffectingNatures,
     "PokeathlonStatDetail": PokeathlonStatDetail,
-    "PokeathlonStatDetailAffectingNatures": PokeathlonStatDetailAffectingNatures,
-    "PokeathlonStatDetailAffectingNaturesDecreaseInner": PokeathlonStatDetailAffectingNaturesDecreaseInner,
-    "PokeathlonStatDetailAffectingNaturesIncreaseInner": PokeathlonStatDetailAffectingNaturesIncreaseInner,
     "PokeathlonStatName": PokeathlonStatName,
     "PokeathlonStatSummary": PokeathlonStatSummary,
     "PokedexDescription": PokedexDescription,
     "PokedexDetail": PokedexDetail,
-    "PokedexDetailPokemonEntriesInner": PokedexDetailPokemonEntriesInner,
     "PokedexName": PokedexName,
     "PokedexSummary": PokedexSummary,
+    "PokemonAbility": PokemonAbility,
+    "PokemonAbilityPast": PokemonAbilityPast,
     "PokemonColorDetail": PokemonColorDetail,
     "PokemonColorName": PokemonColorName,
     "PokemonColorSummary": PokemonColorSummary,
+    "PokemonCries": PokemonCries,
     "PokemonDetail": PokemonDetail,
-    "PokemonDetailAbilitiesInner": PokemonDetailAbilitiesInner,
-    "PokemonDetailCries": PokemonDetailCries,
-    "PokemonDetailHeldItems": PokemonDetailHeldItems,
-    "PokemonDetailMovesInner": PokemonDetailMovesInner,
-    "PokemonDetailMovesInnerVersionGroupDetailsInner": PokemonDetailMovesInnerVersionGroupDetailsInner,
-    "PokemonDetailPastAbilitiesInner": PokemonDetailPastAbilitiesInner,
-    "PokemonDetailPastTypesInner": PokemonDetailPastTypesInner,
-    "PokemonDetailSprites": PokemonDetailSprites,
-    "PokemonDetailTypesInner": PokemonDetailTypesInner,
     "PokemonDexEntry": PokemonDexEntry,
+    "PokemonDexNumber": PokemonDexNumber,
+    "PokemonEncounterDetailResponse": PokemonEncounterDetailResponse,
+    "PokemonEncounterResponse": PokemonEncounterResponse,
+    "PokemonEncounterVersionDetailResponse": PokemonEncounterVersionDetailResponse,
+    "PokemonEvolution": PokemonEvolution,
+    "PokemonEvolutionKnownMove": PokemonEvolutionKnownMove,
     "PokemonFormDetail": PokemonFormDetail,
-    "PokemonFormDetailFormNamesInner": PokemonFormDetailFormNamesInner,
-    "PokemonFormDetailSprites": PokemonFormDetailSprites,
+    "PokemonFormFlavorText": PokemonFormFlavorText,
+    "PokemonFormName": PokemonFormName,
+    "PokemonFormSprites": PokemonFormSprites,
     "PokemonFormSummary": PokemonFormSummary,
+    "PokemonFormTriggerCondition": PokemonFormTriggerCondition,
+    "PokemonFormType": PokemonFormType,
     "PokemonGameIndex": PokemonGameIndex,
     "PokemonHabitatDetail": PokemonHabitatDetail,
     "PokemonHabitatName": PokemonHabitatName,
     "PokemonHabitatSummary": PokemonHabitatSummary,
+    "PokemonHeldItem": PokemonHeldItem,
+    "PokemonHeldItemSummary": PokemonHeldItemSummary,
+    "PokemonHeldItemVersion": PokemonHeldItemVersion,
+    "PokemonMove": PokemonMove,
+    "PokemonMoveVersionGroup": PokemonMoveVersionGroup,
+    "PokemonPastAbility": PokemonPastAbility,
+    "PokemonPastStat": PokemonPastStat,
+    "PokemonPastType": PokemonPastType,
+    "PokemonShapeAwesomeName": PokemonShapeAwesomeName,
     "PokemonShapeDetail": PokemonShapeDetail,
-    "PokemonShapeDetailAwesomeNamesInner": PokemonShapeDetailAwesomeNamesInner,
-    "PokemonShapeDetailNamesInner": PokemonShapeDetailNamesInner,
+    "PokemonShapeName": PokemonShapeName,
     "PokemonShapeSummary": PokemonShapeSummary,
     "PokemonSpeciesDescription": PokemonSpeciesDescription,
     "PokemonSpeciesDetail": PokemonSpeciesDetail,
-    "PokemonSpeciesDetailGeneraInner": PokemonSpeciesDetailGeneraInner,
-    "PokemonSpeciesDetailPalParkEncountersInner": PokemonSpeciesDetailPalParkEncountersInner,
-    "PokemonSpeciesDetailVarietiesInner": PokemonSpeciesDetailVarietiesInner,
     "PokemonSpeciesFlavorText": PokemonSpeciesFlavorText,
+    "PokemonSpeciesGenus": PokemonSpeciesGenus,
+    "PokemonSpeciesName": PokemonSpeciesName,
+    "PokemonSpeciesPalParkEncounter": PokemonSpeciesPalParkEncounter,
     "PokemonSpeciesSummary": PokemonSpeciesSummary,
+    "PokemonSpeciesVariety": PokemonSpeciesVariety,
+    "PokemonSprites": PokemonSprites,
+    "PokemonSpritesOther": PokemonSpritesOther,
+    "PokemonSpritesOtherDreamWorld": PokemonSpritesOtherDreamWorld,
+    "PokemonSpritesOtherHome": PokemonSpritesOtherHome,
+    "PokemonSpritesOtherOfficialArtwork": PokemonSpritesOtherOfficialArtwork,
+    "PokemonSpritesOtherShowdown": PokemonSpritesOtherShowdown,
     "PokemonStat": PokemonStat,
     "PokemonSummary": PokemonSummary,
+    "PokemonType": PokemonType,
     "RegionDetail": RegionDetail,
     "RegionName": RegionName,
     "RegionSummary": RegionSummary,
+    "StatAffectingMoves": StatAffectingMoves,
+    "StatAffectingNatures": StatAffectingNatures,
     "StatDetail": StatDetail,
-    "StatDetailAffectingMoves": StatDetailAffectingMoves,
-    "StatDetailAffectingMovesIncreaseInner": StatDetailAffectingMovesIncreaseInner,
-    "StatDetailAffectingNatures": StatDetailAffectingNatures,
     "StatName": StatName,
     "StatSummary": StatSummary,
     "SuperContestEffectDetail": SuperContestEffectDetail,
     "SuperContestEffectFlavorText": SuperContestEffectFlavorText,
     "SuperContestEffectSummary": SuperContestEffectSummary,
     "TypeDetail": TypeDetail,
-    "TypeDetailDamageRelations": TypeDetailDamageRelations,
-    "TypeDetailPastDamageRelationsInner": TypeDetailPastDamageRelationsInner,
-    "TypeDetailPastDamageRelationsInnerDamageRelations": TypeDetailPastDamageRelationsInnerDamageRelations,
-    "TypeDetailPokemonInner": TypeDetailPokemonInner,
-    "TypeDetailPokemonInnerPokemon": TypeDetailPokemonInnerPokemon,
-    "TypeDetailSpritesValueValue": TypeDetailSpritesValueValue,
     "TypeGameIndex": TypeGameIndex,
+    "TypeGameSprite": TypeGameSprite,
+    "TypeName": TypeName,
+    "TypePastRelationships": TypePastRelationships,
+    "TypePokemon": TypePokemon,
+    "TypeRelationships": TypeRelationships,
     "TypeSummary": TypeSummary,
     "VersionDetail": VersionDetail,
     "VersionGroupDetail": VersionGroupDetail,

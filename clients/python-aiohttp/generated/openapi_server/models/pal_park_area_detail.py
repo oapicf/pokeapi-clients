@@ -5,8 +5,8 @@ from datetime import date, datetime
 from typing import List, Dict, Type
 
 from openapi_server.models.base_model import Model
-from openapi_server.models.pal_park_area_detail_pokemon_encounters_inner import PalParkAreaDetailPokemonEncountersInner
 from openapi_server.models.pal_park_area_name import PalParkAreaName
+from openapi_server.models.pal_park_encounter import PalParkEncounter
 from openapi_server import util
 
 
@@ -16,7 +16,7 @@ class PalParkAreaDetail(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, id: int=None, name: str=None, names: List[PalParkAreaName]=None, pokemon_encounters: List[PalParkAreaDetailPokemonEncountersInner]=None):
+    def __init__(self, id: int=None, name: str=None, names: List[PalParkAreaName]=None, pokemon_encounters: List[PalParkEncounter]=None):
         """PalParkAreaDetail - a model defined in OpenAPI
 
         :param id: The id of this PalParkAreaDetail.
@@ -28,7 +28,7 @@ class PalParkAreaDetail(Model):
             'id': int,
             'name': str,
             'names': List[PalParkAreaName],
-            'pokemon_encounters': List[PalParkAreaDetailPokemonEncountersInner]
+            'pokemon_encounters': List[PalParkEncounter]
         }
 
         self.attribute_map = {
@@ -56,6 +56,7 @@ class PalParkAreaDetail(Model):
     def id(self):
         """Gets the id of this PalParkAreaDetail.
 
+        The identifier for this resource.
 
         :return: The id of this PalParkAreaDetail.
         :rtype: int
@@ -66,6 +67,7 @@ class PalParkAreaDetail(Model):
     def id(self, id):
         """Sets the id of this PalParkAreaDetail.
 
+        The identifier for this resource.
 
         :param id: The id of this PalParkAreaDetail.
         :type id: int
@@ -79,6 +81,7 @@ class PalParkAreaDetail(Model):
     def name(self):
         """Gets the name of this PalParkAreaDetail.
 
+        The name for this resource.
 
         :return: The name of this PalParkAreaDetail.
         :rtype: str
@@ -89,14 +92,15 @@ class PalParkAreaDetail(Model):
     def name(self, name):
         """Sets the name of this PalParkAreaDetail.
 
+        The name for this resource.
 
         :param name: The name of this PalParkAreaDetail.
         :type name: str
         """
         if name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")
-        if name is not None and len(name) > 100:
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `100`")
+        if name is not None and len(name) > 200:
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `200`")
 
         self._name = name
 
@@ -104,6 +108,7 @@ class PalParkAreaDetail(Model):
     def names(self):
         """Gets the names of this PalParkAreaDetail.
 
+        The name of this resource listed in different languages.
 
         :return: The names of this PalParkAreaDetail.
         :rtype: List[PalParkAreaName]
@@ -114,6 +119,7 @@ class PalParkAreaDetail(Model):
     def names(self, names):
         """Sets the names of this PalParkAreaDetail.
 
+        The name of this resource listed in different languages.
 
         :param names: The names of this PalParkAreaDetail.
         :type names: List[PalParkAreaName]
@@ -127,9 +133,10 @@ class PalParkAreaDetail(Model):
     def pokemon_encounters(self):
         """Gets the pokemon_encounters of this PalParkAreaDetail.
 
+        A list of Pokémon encountered in thi pal park area along with details.
 
         :return: The pokemon_encounters of this PalParkAreaDetail.
-        :rtype: List[PalParkAreaDetailPokemonEncountersInner]
+        :rtype: List[PalParkEncounter]
         """
         return self._pokemon_encounters
 
@@ -137,9 +144,10 @@ class PalParkAreaDetail(Model):
     def pokemon_encounters(self, pokemon_encounters):
         """Sets the pokemon_encounters of this PalParkAreaDetail.
 
+        A list of Pokémon encountered in thi pal park area along with details.
 
         :param pokemon_encounters: The pokemon_encounters of this PalParkAreaDetail.
-        :type pokemon_encounters: List[PalParkAreaDetailPokemonEncountersInner]
+        :type pokemon_encounters: List[PalParkEncounter]
         """
         if pokemon_encounters is None:
             raise ValueError("Invalid value for `pokemon_encounters`, must not be `None`")

@@ -4,8 +4,8 @@ package client
 
 // PaginatedRegionSummaryList - PaginatedRegionSummaryList struct
 type PaginatedRegionSummaryList struct {
-	Count int32 `json:"count,omitempty"`
+	Count int32 `json:"count"`
 	Next string `json:"next,omitempty"`
 	Previous string `json:"previous,omitempty"`
-	Results []RegionSummary `json:"results,omitempty"`
+	Results []RegionSummary `json:"results"`
 }

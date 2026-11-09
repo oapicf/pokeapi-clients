@@ -1,10 +1,9 @@
 package org.openapitools.model;
 
 import org.openapitools.model.BerryFlavorSummary;
-import org.openapitools.model.BerrySummary;
 import org.openapitools.model.NatureBattleStylePreference;
-import org.openapitools.model.NatureDetailPokeathlonStatChangesInner;
 import org.openapitools.model.NatureName;
+import org.openapitools.model.NaturePokeathlonStat;
 import org.openapitools.model.StatSummary;
 import java.util.*;
 import java.util.Objects;
@@ -18,38 +17,62 @@ import java.math.*;
 public class NatureDetail implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * The identifier for this resource.
+   */
   @JsonProperty("id")
   private Integer id;
 
+  /**
+   * The name for this resource.
+   */
   @JsonProperty("name")
   private String name;
 
+  /**
+   * The stat decreased by 10% in Pokémon with this nature.
+   */
   @JsonProperty("decreased_stat")
   private StatSummary decreasedStat;
 
+  /**
+   * The stat increased by 10% in Pokémon with this nature.
+   */
   @JsonProperty("increased_stat")
   private StatSummary increasedStat;
 
+  /**
+   * The flavor liked by Pokémon with this nature.
+   */
   @JsonProperty("likes_flavor")
   private BerryFlavorSummary likesFlavor;
 
+  /**
+   * The flavor hated by Pokémon with this nature.
+   */
   @JsonProperty("hates_flavor")
   private BerryFlavorSummary hatesFlavor;
 
-  @JsonProperty("berries")
-  private List<BerrySummary> berries = new ArrayList<>();
-
+  /**
+   * A list of Pokéathlon stats this nature effects and how much it effects them.
+   */
   @JsonProperty("pokeathlon_stat_changes")
-  private List<NatureDetailPokeathlonStatChangesInner> pokeathlonStatChanges = new ArrayList<>();
+  private List<NaturePokeathlonStat> pokeathlonStatChanges = new ArrayList<>();
 
+  /**
+   * A list of battle styles and how likely a Pokémon with this nature is to use them in the Battle Palace or Battle Tent.
+   */
   @JsonProperty("move_battle_style_preferences")
   private List<NatureBattleStylePreference> moveBattleStylePreferences = new ArrayList<>();
 
+  /**
+   * The name of this resource listed in different languages.
+   */
   @JsonProperty("names")
   private List<NatureName> names = new ArrayList<>();
 
   /**
-   * 
+   * The identifier for this resource.
    * @return id
    */
   public Integer getId() {
@@ -61,7 +84,7 @@ public class NatureDetail implements Serializable {
   }
 
   /**
-   * 
+   * The name for this resource.
    * @return name
    */
   public String getName() {
@@ -73,7 +96,7 @@ public class NatureDetail implements Serializable {
   }
 
   /**
-   * 
+   * The stat decreased by 10% in Pokémon with this nature.
    * @return decreasedStat
    */
   public StatSummary getDecreasedStat() {
@@ -85,7 +108,7 @@ public class NatureDetail implements Serializable {
   }
 
   /**
-   * 
+   * The stat increased by 10% in Pokémon with this nature.
    * @return increasedStat
    */
   public StatSummary getIncreasedStat() {
@@ -97,7 +120,7 @@ public class NatureDetail implements Serializable {
   }
 
   /**
-   * 
+   * The flavor liked by Pokémon with this nature.
    * @return likesFlavor
    */
   public BerryFlavorSummary getLikesFlavor() {
@@ -109,7 +132,7 @@ public class NatureDetail implements Serializable {
   }
 
   /**
-   * 
+   * The flavor hated by Pokémon with this nature.
    * @return hatesFlavor
    */
   public BerryFlavorSummary getHatesFlavor() {
@@ -121,31 +144,19 @@ public class NatureDetail implements Serializable {
   }
 
   /**
-   * 
-   * @return berries
-   */
-  public List<BerrySummary> getBerries() {
-    return berries;
-  }
-
-  public void setBerries(List<BerrySummary> berries) {
-    this.berries = berries;
-  }
-
-  /**
-   * 
+   * A list of Pokéathlon stats this nature effects and how much it effects them.
    * @return pokeathlonStatChanges
    */
-  public List<NatureDetailPokeathlonStatChangesInner> getPokeathlonStatChanges() {
+  public List<NaturePokeathlonStat> getPokeathlonStatChanges() {
     return pokeathlonStatChanges;
   }
 
-  public void setPokeathlonStatChanges(List<NatureDetailPokeathlonStatChangesInner> pokeathlonStatChanges) {
+  public void setPokeathlonStatChanges(List<NaturePokeathlonStat> pokeathlonStatChanges) {
     this.pokeathlonStatChanges = pokeathlonStatChanges;
   }
 
   /**
-   * 
+   * A list of battle styles and how likely a Pokémon with this nature is to use them in the Battle Palace or Battle Tent.
    * @return moveBattleStylePreferences
    */
   public List<NatureBattleStylePreference> getMoveBattleStylePreferences() {
@@ -157,7 +168,7 @@ public class NatureDetail implements Serializable {
   }
 
   /**
-   * 
+   * The name of this resource listed in different languages.
    * @return names
    */
   public List<NatureName> getNames() {
@@ -184,7 +195,6 @@ public class NatureDetail implements Serializable {
         Objects.equals(this.increasedStat, natureDetail.increasedStat) &&
         Objects.equals(this.likesFlavor, natureDetail.likesFlavor) &&
         Objects.equals(this.hatesFlavor, natureDetail.hatesFlavor) &&
-        Objects.equals(this.berries, natureDetail.berries) &&
         Objects.equals(this.pokeathlonStatChanges, natureDetail.pokeathlonStatChanges) &&
         Objects.equals(this.moveBattleStylePreferences, natureDetail.moveBattleStylePreferences) &&
         Objects.equals(this.names, natureDetail.names);
@@ -192,7 +202,7 @@ public class NatureDetail implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, decreasedStat, increasedStat, likesFlavor, hatesFlavor, berries, pokeathlonStatChanges, moveBattleStylePreferences, names);
+    return Objects.hash(id, name, decreasedStat, increasedStat, likesFlavor, hatesFlavor, pokeathlonStatChanges, moveBattleStylePreferences, names);
   }
 
   @Override
@@ -206,7 +216,6 @@ public class NatureDetail implements Serializable {
     sb.append("    increasedStat: ").append(toIndentedString(increasedStat)).append("\n");
     sb.append("    likesFlavor: ").append(toIndentedString(likesFlavor)).append("\n");
     sb.append("    hatesFlavor: ").append(toIndentedString(hatesFlavor)).append("\n");
-    sb.append("    berries: ").append(toIndentedString(berries)).append("\n");
     sb.append("    pokeathlonStatChanges: ").append(toIndentedString(pokeathlonStatChanges)).append("\n");
     sb.append("    moveBattleStylePreferences: ").append(toIndentedString(moveBattleStylePreferences)).append("\n");
     sb.append("    names: ").append(toIndentedString(names)).append("\n");

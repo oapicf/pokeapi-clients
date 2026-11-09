@@ -12,6 +12,6 @@ import java.util.List;
 import java.util.Map;
 
 public interface MachinesApi  {
-    Future<ApiResponse<PaginatedMachineSummaryList>> machineList(Integer limit, Integer offset, String q);
+    Future<ApiResponse<PaginatedMachineSummaryList>> machineList(Integer limit, Integer offset);
     Future<ApiResponse<MachineDetail>> machineRetrieve(String id);
 }

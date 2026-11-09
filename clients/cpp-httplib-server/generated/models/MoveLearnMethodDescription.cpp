@@ -10,7 +10,6 @@ namespace models {
 
 MoveLearnMethodDescription::MoveLearnMethodDescription()
 : description("")
-, language(LanguageSummary())
 {
 }
 // =========================================

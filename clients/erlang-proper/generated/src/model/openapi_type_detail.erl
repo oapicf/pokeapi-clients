@@ -11,13 +11,13 @@
 -type openapi_type_detail() ::
   [ {'id', integer() }
   | {'name', binary() }
-  | {'damage_relations', openapi_type_detail_damage_relations:openapi_type_detail_damage_relations() }
-  | {'past_damage_relations', list(openapi_type_detail_past_damage_relations_inner:openapi_type_detail_past_damage_relations_inner()) }
+  | {'damage_relations', openapi_type_relationships:openapi_type_relationships() }
+  | {'past_damage_relations', list(openapi_type_past_relationships:openapi_type_past_relationships()) }
   | {'game_indices', list(openapi_type_game_index:openapi_type_game_index()) }
   | {'generation', openapi_generation_summary:openapi_generation_summary() }
   | {'move_damage_class', openapi_move_damage_class_summary:openapi_move_damage_class_summary() }
-  | {'names', list(openapi_ability_name:openapi_ability_name()) }
-  | {'pokemon', list(openapi_type_detail_pokemon_inner:openapi_type_detail_pokemon_inner()) }
+  | {'names', list(openapi_type_name:openapi_type_name()) }
+  | {'pokemon', list(openapi_type_pokemon:openapi_type_pokemon()) }
   | {'moves', list(openapi_move_summary:openapi_move_summary()) }
   | {'sprites', map() }
   ].
@@ -29,13 +29,13 @@ openapi_type_detail() ->
 openapi_type_detail(Fields) ->
   Default = [ {'id', integer() }
             , {'name', binary() }
-            , {'damage_relations', openapi_type_detail_damage_relations:openapi_type_detail_damage_relations() }
-            , {'past_damage_relations', list(openapi_type_detail_past_damage_relations_inner:openapi_type_detail_past_damage_relations_inner()) }
+            , {'damage_relations', openapi_type_relationships:openapi_type_relationships() }
+            , {'past_damage_relations', list(openapi_type_past_relationships:openapi_type_past_relationships()) }
             , {'game_indices', list(openapi_type_game_index:openapi_type_game_index()) }
             , {'generation', openapi_generation_summary:openapi_generation_summary() }
             , {'move_damage_class', openapi_move_damage_class_summary:openapi_move_damage_class_summary() }
-            , {'names', list(openapi_ability_name:openapi_ability_name()) }
-            , {'pokemon', list(openapi_type_detail_pokemon_inner:openapi_type_detail_pokemon_inner()) }
+            , {'names', list(openapi_type_name:openapi_type_name()) }
+            , {'pokemon', list(openapi_type_pokemon:openapi_type_pokemon()) }
             , {'moves', list(openapi_move_summary:openapi_move_summary()) }
             , {'sprites', map() }
             ],

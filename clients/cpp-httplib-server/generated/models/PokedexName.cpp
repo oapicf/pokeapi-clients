@@ -10,7 +10,6 @@ namespace models {
 
 PokedexName::PokedexName()
 : name("")
-, language(LanguageSummary())
 {
 }
 // =========================================

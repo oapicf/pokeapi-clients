@@ -1,0 +1,22 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "PokemonPastAbility",
+  "fields": [
+    {
+      "name": "abilities",
+      "type": {
+        "type": "array",
+        "items": "model.PokemonAbilityPast"
+      },
+      "doc": "The abilities the referenced pokémon had up to and including the listed generation. If null, the slot was previously empty."
+    },
+    {
+      "name": "generation",
+      "type": "model.GenerationSummary",
+      "doc": "The last generation in which the referenced pokémon had the listed abilities."
+    }
+  ]
+
+}

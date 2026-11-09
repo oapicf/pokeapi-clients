@@ -14,9 +14,9 @@
   | {'is_main_series', boolean() }
   | {'descriptions', list(openapi_pokedex_description:openapi_pokedex_description()) }
   | {'names', list(openapi_pokedex_name:openapi_pokedex_name()) }
-  | {'pokemon_entries', list(openapi_pokedex_detail_pokemon_entries_inner:openapi_pokedex_detail_pokemon_entries_inner()) }
+  | {'pokemon_entries', list(openapi_pokemon_dex_number:openapi_pokemon_dex_number()) }
   | {'region', openapi_region_summary:openapi_region_summary() }
-  | {'version_groups', list(openapi_ability_detail_pokemon_inner_pokemon:openapi_ability_detail_pokemon_inner_pokemon()) }
+  | {'version_groups', list(openapi_version_group_summary:openapi_version_group_summary()) }
   ].
 
 
@@ -29,9 +29,9 @@ openapi_pokedex_detail(Fields) ->
             , {'is_main_series', boolean() }
             , {'descriptions', list(openapi_pokedex_description:openapi_pokedex_description()) }
             , {'names', list(openapi_pokedex_name:openapi_pokedex_name()) }
-            , {'pokemon_entries', list(openapi_pokedex_detail_pokemon_entries_inner:openapi_pokedex_detail_pokemon_entries_inner()) }
+            , {'pokemon_entries', list(openapi_pokemon_dex_number:openapi_pokemon_dex_number()) }
             , {'region', openapi_region_summary:openapi_region_summary() }
-            , {'version_groups', list(openapi_ability_detail_pokemon_inner_pokemon:openapi_ability_detail_pokemon_inner_pokemon()) }
+            , {'version_groups', list(openapi_version_group_summary:openapi_version_group_summary()) }
             ],
   lists:ukeymerge(1, lists:sort(Fields), lists:sort(Default)).
 

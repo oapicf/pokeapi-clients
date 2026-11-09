@@ -14,7 +14,7 @@ import javax.validation.Valid;
 /**
  * ItemFlingEffectDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-10-25T05:48:13.486809836Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-11-09T13:49:31.462302702Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class ItemFlingEffectDetail   {
   @JsonProperty("id")
@@ -24,7 +24,7 @@ public class ItemFlingEffectDetail   {
 
   @JsonProperty("name")
   @NotNull
-@Size(max=100)
+@Size(max=200)
 
   private String name;
 
@@ -46,7 +46,7 @@ public class ItemFlingEffectDetail   {
   }
 
    /**
-   * Get id
+   * The identifier for this resource.
    * @return id
   **/
   public Integer getId() {
@@ -63,7 +63,7 @@ public class ItemFlingEffectDetail   {
   }
 
    /**
-   * Get name
+   * The name for this resource.
    * @return name
   **/
   public String getName() {
@@ -88,7 +88,7 @@ public class ItemFlingEffectDetail   {
   }
 
    /**
-   * Get effectEntries
+   * The result of this fling effect listed in different languages.
    * @return effectEntries
   **/
   public List<@Valid ItemFlingEffectEffectText> getEffectEntries() {
@@ -113,7 +113,7 @@ public class ItemFlingEffectDetail   {
   }
 
    /**
-   * Get items
+   * A list of items that have this fling effect.
    * @return items
   **/
   public List<@Valid ItemSummary> getItems() {

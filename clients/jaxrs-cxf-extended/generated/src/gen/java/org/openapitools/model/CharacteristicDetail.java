@@ -15,23 +15,38 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class CharacteristicDetail  {
   
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The identifier for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   private Integer id;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The remainder of the highest stat/IV divided by 5.
+  */
+  @ApiModelProperty(required = true, value = "The remainder of the highest stat/IV divided by 5.")
   private Integer geneModulo;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The possible values of the highest stat that would result in a Pokémon recieving this characteristic when divided by 5.
+  */
+  @ApiModelProperty(required = true, value = "The possible values of the highest stat that would result in a Pokémon recieving this characteristic when divided by 5.")
   private List<Integer> possibleValues = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The stat which results in this characteristic.
+  */
+  @ApiModelProperty(required = true, value = "The stat which results in this characteristic.")
   @Valid
   private StatSummary highestStat;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The descriptions of this characteristic listed in different languages.
+  */
+  @ApiModelProperty(required = true, value = "The descriptions of this characteristic listed in different languages.")
   private List<@Valid CharacteristicDescription> descriptions = new ArrayList<>();
  /**
-  * Get id
+  * The identifier for this resource.
   * @return id
   */
   @JsonProperty("id")
@@ -58,7 +73,7 @@ public class CharacteristicDetail  {
   }
 
  /**
-  * Get geneModulo
+  * The remainder of the highest stat/IV divided by 5.
   * @return geneModulo
   */
   @JsonProperty("gene_modulo")
@@ -83,7 +98,7 @@ public class CharacteristicDetail  {
   }
 
  /**
-  * Get possibleValues
+  * The possible values of the highest stat that would result in a Pokémon recieving this characteristic when divided by 5.
   * @return possibleValues
   */
   @JsonProperty("possible_values")
@@ -119,7 +134,7 @@ public class CharacteristicDetail  {
   }
 
  /**
-  * Get highestStat
+  * The stat which results in this characteristic.
   * @return highestStat
   */
   @JsonProperty("highest_stat")
@@ -144,7 +159,7 @@ public class CharacteristicDetail  {
   }
 
  /**
-  * Get descriptions
+  * The descriptions of this characteristic listed in different languages.
   * @return descriptions
   */
   @JsonProperty("descriptions")

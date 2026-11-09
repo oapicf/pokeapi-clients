@@ -32,24 +32,28 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param id 
- * @param name 
- * @param condition 
- * @param names 
+ * @param id The identifier for this resource.
+ * @param name The name for this resource.
+ * @param condition The condition this encounter condition value pertains to.
+ * @param names The name of this resource listed in different languages.
  */
 
 
 data class EncounterConditionValueDetail (
 
+    /* The identifier for this resource. */
     @Json(name = "id")
     val id: kotlin.Int,
 
+    /* The name for this resource. */
     @Json(name = "name")
     val name: kotlin.String,
 
+    /* The condition this encounter condition value pertains to. */
     @Json(name = "condition")
     val condition: EncounterConditionSummary,
 
+    /* The name of this resource listed in different languages. */
     @Json(name = "names")
     val names: kotlin.collections.List<EncounterConditionValueName>
 

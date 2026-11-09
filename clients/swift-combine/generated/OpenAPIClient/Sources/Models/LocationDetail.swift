@@ -8,14 +8,20 @@
 import Foundation
 
 public struct LocationDetail: Codable {
+    /// The identifier for this resource.
     public var id: Int
+    /// The name for this resource.
     public var name: String
-    public var region: RegionSummary
+    /// The region this location can be found in.
+    public var region: RegionSummary?
+    /// The name of this resource listed in different languages.
     public var names: [LocationName]
+    /// A list of game indices relevent to this location by generation.
     public var gameIndices: [LocationGameIndex]
+    /// Areas that can be found within this location.
     public var areas: [LocationAreaSummary]
 
-    public init(id: Int, name: String, region: RegionSummary, names: [LocationName], gameIndices: [LocationGameIndex], areas: [LocationAreaSummary]) {
+    public init(id: Int, name: String, region: RegionSummary?, names: [LocationName], gameIndices: [LocationGameIndex], areas: [LocationAreaSummary]) {
         self.id = id
         self.name = name
         self.region = region

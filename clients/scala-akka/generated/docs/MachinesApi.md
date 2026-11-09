@@ -36,22 +36,14 @@ object Example extends App {
     
     implicit val system: ActorSystem = ActorSystem()
     import system.dispatcher
-    
-    // Configure HTTP basic authorization: basicAuth
-    implicit val basicAuth: BasicCredentials = BasicCredentials("YOUR USERNAME", "YOUR PASSWORD")
-
-    // Configure API key authorization: cookieAuth
-    implicit val cookieAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
     val apiInstance = MachinesApi("https://pokeapi.co")
     val limit: Int = 56 // Int | Number of results to return per page.
 
     val offset: Int = 56 // Int | The initial index from which to return the results.
-
-    val `q`: String = `q`_example // String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
     
-    val request = apiInstance.machineList(limit, offset, `q`)
+    val request = apiInstance.machineList(limit, offset)
     val response = apiInvoker.execute(request)
 
     response.onComplete {
@@ -81,7 +73,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **Int**| Number of results to return per page. | [optional]
  **offset** | **Int**| The initial index from which to return the results. | [optional]
- **`q`** | **String**| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional]
 
 ### Return type
 
@@ -90,7 +81,7 @@ ApiRequest[[**PaginatedMachineSummaryList**](PaginatedMachineSummaryList.md)]
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -128,16 +119,10 @@ object Example extends App {
     
     implicit val system: ActorSystem = ActorSystem()
     import system.dispatcher
-    
-    // Configure HTTP basic authorization: basicAuth
-    implicit val basicAuth: BasicCredentials = BasicCredentials("YOUR USERNAME", "YOUR PASSWORD")
-
-    // Configure API key authorization: cookieAuth
-    implicit val cookieAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
     val apiInstance = MachinesApi("https://pokeapi.co")
-    val id: String = id_example // String | This parameter can be a string or an integer.
+    val id: String = 1 // String | This parameter can be a string or an integer.
     
     val request = apiInstance.machineRetrieve(id)
     val response = apiInvoker.execute(request)
@@ -176,7 +161,7 @@ ApiRequest[[**MachineDetail**](MachineDetail.md)]
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

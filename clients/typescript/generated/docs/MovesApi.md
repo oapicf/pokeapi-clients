@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](README.md#basicAuth), [cookieAuth](README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -94,7 +94,7 @@ const apiInstance = new MovesApi(configuration);
 
 const request: MovesApiMoveAilmentRetrieveRequest = {
     // This parameter can be a string or an integer.
-  id: "id_example",
+  id: "1",
 };
 
 const data = await apiInstance.moveAilmentRetrieve(request);
@@ -115,7 +115,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](README.md#basicAuth), [cookieAuth](README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -174,7 +174,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](README.md#basicAuth), [cookieAuth](README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -206,7 +206,7 @@ const apiInstance = new MovesApi(configuration);
 
 const request: MovesApiMoveBattleStyleRetrieveRequest = {
     // This parameter can be a string or an integer.
-  id: "id_example",
+  id: "1",
 };
 
 const data = await apiInstance.moveBattleStyleRetrieve(request);
@@ -227,7 +227,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](README.md#basicAuth), [cookieAuth](README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -286,7 +286,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](README.md#basicAuth), [cookieAuth](README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -318,7 +318,7 @@ const apiInstance = new MovesApi(configuration);
 
 const request: MovesApiMoveCategoryRetrieveRequest = {
     // This parameter can be a string or an integer.
-  id: "id_example",
+  id: "1",
 };
 
 const data = await apiInstance.moveCategoryRetrieve(request);
@@ -339,7 +339,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](README.md#basicAuth), [cookieAuth](README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -398,7 +398,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](README.md#basicAuth), [cookieAuth](README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -430,7 +430,7 @@ const apiInstance = new MovesApi(configuration);
 
 const request: MovesApiMoveLearnMethodRetrieveRequest = {
     // This parameter can be a string or an integer.
-  id: "id_example",
+  id: "1",
 };
 
 const data = await apiInstance.moveLearnMethodRetrieve(request);
@@ -451,7 +451,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](README.md#basicAuth), [cookieAuth](README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -510,7 +510,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](README.md#basicAuth), [cookieAuth](README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -542,7 +542,7 @@ const apiInstance = new MovesApi(configuration);
 
 const request: MovesApiMoveRetrieveRequest = {
     // This parameter can be a string or an integer.
-  id: "id_example",
+  id: "1",
 };
 
 const data = await apiInstance.moveRetrieve(request);
@@ -563,7 +563,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](README.md#basicAuth), [cookieAuth](README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -622,7 +622,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](README.md#basicAuth), [cookieAuth](README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -654,7 +654,7 @@ const apiInstance = new MovesApi(configuration);
 
 const request: MovesApiMoveTargetRetrieveRequest = {
     // This parameter can be a string or an integer.
-  id: "id_example",
+  id: "1",
 };
 
 const data = await apiInstance.moveTargetRetrieve(request);
@@ -675,7 +675,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](README.md#basicAuth), [cookieAuth](README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

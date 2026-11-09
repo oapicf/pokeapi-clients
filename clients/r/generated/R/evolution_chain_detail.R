@@ -7,9 +7,9 @@
 #' @title EvolutionChainDetail
 #' @description EvolutionChainDetail Class
 #' @format An \code{R6Class} generator object
-#' @field id  integer
-#' @field baby_trigger_item  \link{ItemSummary}
-#' @field chain  \link{EvolutionChainDetailChain}
+#' @field id The identifier for this resource. integer
+#' @field baby_trigger_item The item that a Pokémon would be holding when mating that would trigger the egg hatching a baby Pokémon rather than a basic Pokémon. \link{ItemSummary}
+#' @field chain The base chain link object. Each link contains evolution details for a Pokémon in the chain. Each link references the next Pokémon in the natural evolution order. \link{EvolutionChainLink}
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -23,9 +23,9 @@ EvolutionChainDetail <- R6::R6Class(
     #' @description
     #' Initialize a new EvolutionChainDetail class.
     #'
-    #' @param id id
-    #' @param baby_trigger_item baby_trigger_item
-    #' @param chain chain
+    #' @param id The identifier for this resource.
+    #' @param baby_trigger_item The item that a Pokémon would be holding when mating that would trigger the egg hatching a baby Pokémon rather than a basic Pokémon.
+    #' @param chain The base chain link object. Each link contains evolution details for a Pokémon in the chain. Each link references the next Pokémon in the natural evolution order.
     #' @param ... Other optional arguments.
     initialize = function(`id`, `baby_trigger_item`, `chain`, ...) {
       if (!missing(`id`)) {
@@ -129,7 +129,7 @@ EvolutionChainDetail <- R6::R6Class(
         self$`baby_trigger_item` <- `baby_trigger_item_object`
       }
       if (!is.null(this_object$`chain`)) {
-        `chain_object` <- EvolutionChainDetailChain$new()
+        `chain_object` <- EvolutionChainLink$new()
         `chain_object`$fromJSON(jsonlite::toJSON(this_object$`chain`, auto_unbox = TRUE, digits = NA))
         self$`chain` <- `chain_object`
       }
@@ -156,7 +156,7 @@ EvolutionChainDetail <- R6::R6Class(
       this_object <- jsonlite::fromJSON(input_json)
       self$`id` <- this_object$`id`
       self$`baby_trigger_item` <- ItemSummary$new()$fromJSON(jsonlite::toJSON(this_object$`baby_trigger_item`, auto_unbox = TRUE, digits = NA))
-      self$`chain` <- EvolutionChainDetailChain$new()$fromJSON(jsonlite::toJSON(this_object$`chain`, auto_unbox = TRUE, digits = NA))
+      self$`chain` <- EvolutionChainLink$new()$fromJSON(jsonlite::toJSON(this_object$`chain`, auto_unbox = TRUE, digits = NA))
       self
     },
 
@@ -206,11 +206,6 @@ EvolutionChainDetail <- R6::R6Class(
         return(FALSE)
       }
 
-      # check if the required `baby_trigger_item` is null
-      if (is.null(self$`baby_trigger_item`)) {
-        return(FALSE)
-      }
-
       # check if the required `chain` is null
       if (is.null(self$`chain`)) {
         return(FALSE)
@@ -228,11 +223,6 @@ EvolutionChainDetail <- R6::R6Class(
       # check if the required `id` is null
       if (is.null(self$`id`)) {
         invalid_fields["id"] <- "Non-nullable required field `id` cannot be null."
-      }
-
-      # check if the required `baby_trigger_item` is null
-      if (is.null(self$`baby_trigger_item`)) {
-        invalid_fields["baby_trigger_item"] <- "Non-nullable required field `baby_trigger_item` cannot be null."
       }
 
       # check if the required `chain` is null

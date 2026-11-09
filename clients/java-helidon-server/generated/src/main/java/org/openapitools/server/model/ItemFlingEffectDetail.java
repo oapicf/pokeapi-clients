@@ -27,10 +27,10 @@ public class ItemFlingEffectDetail   {
     /**
      * Create ItemFlingEffectDetail.
      *
-     * @param id id
-     * @param name name
-     * @param effectEntries effectEntries
-     * @param items items
+     * @param id The identifier for this resource.
+     * @param name The name for this resource.
+     * @param effectEntries The result of this fling effect listed in different languages.
+     * @param items A list of items that have this fling effect.
      */
     public ItemFlingEffectDetail(
         Integer id, 
@@ -47,7 +47,7 @@ public class ItemFlingEffectDetail   {
 
 
     /**
-     * Get id
+     * The identifier for this resource.
      * @return id
      */
     public Integer getId() {
@@ -59,7 +59,7 @@ public class ItemFlingEffectDetail   {
     }
 
     /**
-     * Get name
+     * The name for this resource.
      * @return name
      */
     public String getName() {
@@ -71,7 +71,7 @@ public class ItemFlingEffectDetail   {
     }
 
     /**
-     * Get effectEntries
+     * The result of this fling effect listed in different languages.
      * @return effectEntries
      */
     public List<@Valid ItemFlingEffectEffectText> getEffectEntries() {
@@ -83,7 +83,7 @@ public class ItemFlingEffectDetail   {
     }
 
     /**
-     * Get items
+     * A list of items that have this fling effect.
      * @return items
      */
     public List<@Valid ItemSummary> getItems() {

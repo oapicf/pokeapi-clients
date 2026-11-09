@@ -2,37 +2,58 @@
 Protected Class LocationAreaDetail
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The identifier for this resource.
+		#tag EndNote
 		id As Integer
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The name for this resource.
+		#tag EndNote
 		name As String
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The internal id of an API resource within game data.
+		#tag EndNote
 		game_index As Integer
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
-		encounter_method_rates() As OpenAPIClient.Models.LocationAreaDetailEncounterMethodRatesInner
+		#tag Note
+			A list of methods in which Pokémon may be encountered in this area and how likely the method will occur depending on the version of the game.
+		#tag EndNote
+		encounter_method_rates() As OpenAPIClient.Models.LocationAreaEncounterRate
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The region this location area can be found in.
+		#tag EndNote
 		location As OpenAPIClient.Models.LocationSummary
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The name of this resource listed in different languages.
+		#tag EndNote
 		names() As OpenAPIClient.Models.LocationAreaName
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
-		pokemon_encounters() As OpenAPIClient.Models.LocationAreaDetailPokemonEncountersInner
+		#tag Note
+			A list of Pokémon that can be encountered in this area along with version specific details about the encounter.
+		#tag EndNote
+		pokemon_encounters() As OpenAPIClient.Models.LocationAreaPokemonEncounter
 	#tag EndProperty
 
 
@@ -101,7 +122,7 @@ Protected Class LocationAreaDetail
 			Visible=false
 			Group="Behavior"
 			InitialValue=""
-			Type="LocationAreaDetailEncounterMethodRatesInner"
+			Type="LocationAreaEncounterRate"
 			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
@@ -125,7 +146,7 @@ Protected Class LocationAreaDetail
 			Visible=false
 			Group="Behavior"
 			InitialValue=""
-			Type="LocationAreaDetailPokemonEncountersInner"
+			Type="LocationAreaPokemonEncounter"
 			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior

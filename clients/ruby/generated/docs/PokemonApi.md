@@ -4,9 +4,9 @@ All URIs are relative to *https://pokeapi.co*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**ability_list**](PokemonApi.md#ability_list) | **GET** /api/v2/ability/ |  |
-| [**ability_retrieve**](PokemonApi.md#ability_retrieve) | **GET** /api/v2/ability/{id}/ |  |
-| [**characteristic_list**](PokemonApi.md#characteristic_list) | **GET** /api/v2/characteristic/ | List charecterictics |
+| [**ability_list**](PokemonApi.md#ability_list) | **GET** /api/v2/ability/ | List abilities |
+| [**ability_retrieve**](PokemonApi.md#ability_retrieve) | **GET** /api/v2/ability/{id}/ | Get ability |
+| [**characteristic_list**](PokemonApi.md#characteristic_list) | **GET** /api/v2/characteristic/ | List characteristics |
 | [**characteristic_retrieve**](PokemonApi.md#characteristic_retrieve) | **GET** /api/v2/characteristic/{id}/ | Get characteristic |
 | [**egg_group_list**](PokemonApi.md#egg_group_list) | **GET** /api/v2/egg-group/ | List egg groups |
 | [**egg_group_retrieve**](PokemonApi.md#egg_group_retrieve) | **GET** /api/v2/egg-group/{id}/ | Get egg group |
@@ -42,7 +42,7 @@ All URIs are relative to *https://pokeapi.co*
 
 > <PaginatedAbilitySummaryList> ability_list(opts)
 
-
+List abilities
 
 Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
 
@@ -51,17 +51,6 @@ Abilities provide passive effects for Pokémon in battle or in the overworld. Po
 ```ruby
 require 'time'
 require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
 
 api_instance = PokeApiClient::PokemonApi.new
 opts = {
@@ -71,7 +60,7 @@ opts = {
 }
 
 begin
-  
+  # List abilities
   result = api_instance.ability_list(opts)
   p result
 rescue PokeApiClient::ApiError => e
@@ -87,7 +76,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  
+  # List abilities
   data, status_code, headers = api_instance.ability_list_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -111,7 +100,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -123,7 +112,7 @@ end
 
 > <AbilityDetail> ability_retrieve(id)
 
-
+Get ability
 
 Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
 
@@ -132,23 +121,12 @@ Abilities provide passive effects for Pokémon in battle or in the overworld. Po
 ```ruby
 require 'time'
 require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
 
 api_instance = PokeApiClient::PokemonApi.new
-id = 'id_example' # String | This parameter can be a string or an integer.
+id = '1' # String | This parameter can be a string or an integer.
 
 begin
-  
+  # Get ability
   result = api_instance.ability_retrieve(id)
   p result
 rescue PokeApiClient::ApiError => e
@@ -164,7 +142,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  
+  # Get ability
   data, status_code, headers = api_instance.ability_retrieve_with_http_info(id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -186,7 +164,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -198,7 +176,7 @@ end
 
 > <PaginatedCharacteristicSummaryList> characteristic_list(opts)
 
-List charecterictics
+List characteristics
 
 Characteristics indicate which stat contains a Pokémon's highest IV. A Pokémon's Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail.
 
@@ -207,27 +185,15 @@ Characteristics indicate which stat contains a Pokémon's highest IV. A Pokémon
 ```ruby
 require 'time'
 require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
 
 api_instance = PokeApiClient::PokemonApi.new
 opts = {
   limit: 56, # Integer | Number of results to return per page.
-  offset: 56, # Integer | The initial index from which to return the results.
-  q: 'q_example' # String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+  offset: 56 # Integer | The initial index from which to return the results.
 }
 
 begin
-  # List charecterictics
+  # List characteristics
   result = api_instance.characteristic_list(opts)
   p result
 rescue PokeApiClient::ApiError => e
@@ -243,7 +209,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # List charecterictics
+  # List characteristics
   data, status_code, headers = api_instance.characteristic_list_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -259,7 +225,6 @@ end
 | ---- | ---- | ----------- | ----- |
 | **limit** | **Integer** | Number of results to return per page. | [optional] |
 | **offset** | **Integer** | The initial index from which to return the results. | [optional] |
-| **q** | **String** | &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional] |
 
 ### Return type
 
@@ -267,7 +232,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -288,20 +253,9 @@ Characteristics indicate which stat contains a Pokémon's highest IV. A Pokémon
 ```ruby
 require 'time'
 require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
 
 api_instance = PokeApiClient::PokemonApi.new
-id = 'id_example' # String | This parameter can be a string or an integer.
+id = '1' # String | This parameter can be a string or an integer.
 
 begin
   # Get characteristic
@@ -342,7 +296,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -363,17 +317,6 @@ Egg Groups are categories which determine which Pokémon are able to interbreed.
 ```ruby
 require 'time'
 require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
 
 api_instance = PokeApiClient::PokemonApi.new
 opts = {
@@ -423,7 +366,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -444,20 +387,9 @@ Egg Groups are categories which determine which Pokémon are able to interbreed.
 ```ruby
 require 'time'
 require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
 
 api_instance = PokeApiClient::PokemonApi.new
-id = 'id_example' # String | This parameter can be a string or an integer.
+id = '1' # String | This parameter can be a string or an integer.
 
 begin
   # Get egg group
@@ -498,7 +430,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -519,17 +451,6 @@ Genders were introduced in Generation II for the purposes of breeding Pokémon b
 ```ruby
 require 'time'
 require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
 
 api_instance = PokeApiClient::PokemonApi.new
 opts = {
@@ -579,7 +500,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -600,20 +521,9 @@ Genders were introduced in Generation II for the purposes of breeding Pokémon b
 ```ruby
 require 'time'
 require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
 
 api_instance = PokeApiClient::PokemonApi.new
-id = 'id_example' # String | This parameter can be a string or an integer.
+id = '1' # String | This parameter can be a string or an integer.
 
 begin
   # Get gender
@@ -654,7 +564,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -675,17 +585,6 @@ Growth rates are the speed with which Pokémon gain levels through experience. C
 ```ruby
 require 'time'
 require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
 
 api_instance = PokeApiClient::PokemonApi.new
 opts = {
@@ -735,7 +634,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -756,20 +655,9 @@ Growth rates are the speed with which Pokémon gain levels through experience. C
 ```ruby
 require 'time'
 require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
 
 api_instance = PokeApiClient::PokemonApi.new
-id = 'id_example' # String | This parameter can be a string or an integer.
+id = '1' # String | This parameter can be a string or an integer.
 
 begin
   # Get growth rate
@@ -810,7 +698,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -831,17 +719,6 @@ Damage classes moves can have, e.g. physical, special, or non-damaging.
 ```ruby
 require 'time'
 require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
 
 api_instance = PokeApiClient::PokemonApi.new
 opts = {
@@ -891,7 +768,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -912,20 +789,9 @@ Damage classes moves can have, e.g. physical, special, or non-damaging.
 ```ruby
 require 'time'
 require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
 
 api_instance = PokeApiClient::PokemonApi.new
-id = 'id_example' # String | This parameter can be a string or an integer.
+id = '1' # String | This parameter can be a string or an integer.
 
 begin
   # Get move damage class
@@ -966,7 +832,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -987,17 +853,6 @@ Natures influence how a Pokémon's stats grow. See [Bulbapedia](http://bulbapedi
 ```ruby
 require 'time'
 require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
 
 api_instance = PokeApiClient::PokemonApi.new
 opts = {
@@ -1047,7 +902,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1068,20 +923,9 @@ Natures influence how a Pokémon's stats grow. See [Bulbapedia](http://bulbapedi
 ```ruby
 require 'time'
 require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
 
 api_instance = PokeApiClient::PokemonApi.new
-id = 'id_example' # String | This parameter can be a string or an integer.
+id = '1' # String | This parameter can be a string or an integer.
 
 begin
   # Get nature
@@ -1122,7 +966,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1143,17 +987,6 @@ Pokeathlon Stats are different attributes of a Pokémon's performance in Pokéat
 ```ruby
 require 'time'
 require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
 
 api_instance = PokeApiClient::PokemonApi.new
 opts = {
@@ -1203,7 +1036,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1224,20 +1057,9 @@ Pokeathlon Stats are different attributes of a Pokémon's performance in Pokéat
 ```ruby
 require 'time'
 require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
 
 api_instance = PokeApiClient::PokemonApi.new
-id = 'id_example' # String | This parameter can be a string or an integer.
+id = '1' # String | This parameter can be a string or an integer.
 
 begin
   # Get pokeathlon stat
@@ -1278,7 +1100,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1299,17 +1121,6 @@ Colors used for sorting Pokémon in a Pokédex. The color listed in the Pokédex
 ```ruby
 require 'time'
 require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
 
 api_instance = PokeApiClient::PokemonApi.new
 opts = {
@@ -1359,7 +1170,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1380,20 +1191,9 @@ Colors used for sorting Pokémon in a Pokédex. The color listed in the Pokédex
 ```ruby
 require 'time'
 require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
 
 api_instance = PokeApiClient::PokemonApi.new
-id = 'id_example' # String | This parameter can be a string or an integer.
+id = '1' # String | This parameter can be a string or an integer.
 
 begin
   # Get pokemon color
@@ -1434,7 +1234,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1455,17 +1255,6 @@ Some Pokémon may appear in one of multiple, visually different forms. These dif
 ```ruby
 require 'time'
 require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
 
 api_instance = PokeApiClient::PokemonApi.new
 opts = {
@@ -1515,7 +1304,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1536,20 +1325,9 @@ Some Pokémon may appear in one of multiple, visually different forms. These dif
 ```ruby
 require 'time'
 require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
 
 api_instance = PokeApiClient::PokemonApi.new
-id = 'id_example' # String | This parameter can be a string or an integer.
+id = '1' # String | This parameter can be a string or an integer.
 
 begin
   # Get pokemon form
@@ -1590,7 +1368,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1611,17 +1389,6 @@ Habitats are generally different terrain Pokémon can be found in but can also b
 ```ruby
 require 'time'
 require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
 
 api_instance = PokeApiClient::PokemonApi.new
 opts = {
@@ -1671,7 +1438,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1692,20 +1459,9 @@ Habitats are generally different terrain Pokémon can be found in but can also b
 ```ruby
 require 'time'
 require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
 
 api_instance = PokeApiClient::PokemonApi.new
-id = 'id_example' # String | This parameter can be a string or an integer.
+id = '1' # String | This parameter can be a string or an integer.
 
 begin
   # Get pokemom habita
@@ -1746,7 +1502,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1767,17 +1523,6 @@ Pokémon are the creatures that inhabit the world of the Pokémon games. They ca
 ```ruby
 require 'time'
 require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
 
 api_instance = PokeApiClient::PokemonApi.new
 opts = {
@@ -1827,7 +1572,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1848,20 +1593,9 @@ Pokémon are the creatures that inhabit the world of the Pokémon games. They ca
 ```ruby
 require 'time'
 require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
 
 api_instance = PokeApiClient::PokemonApi.new
-id = 'id_example' # String | This parameter can be a string or an integer.
+id = '1' # String | This parameter can be a string or an integer.
 
 begin
   # Get pokemon
@@ -1902,7 +1636,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1923,17 +1657,6 @@ Shapes used for sorting Pokémon in a Pokédex.
 ```ruby
 require 'time'
 require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
 
 api_instance = PokeApiClient::PokemonApi.new
 opts = {
@@ -1983,7 +1706,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -2004,20 +1727,9 @@ Shapes used for sorting Pokémon in a Pokédex.
 ```ruby
 require 'time'
 require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
 
 api_instance = PokeApiClient::PokemonApi.new
-id = 'id_example' # String | This parameter can be a string or an integer.
+id = '1' # String | This parameter can be a string or an integer.
 
 begin
   # Get pokemon shape
@@ -2058,7 +1770,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -2079,17 +1791,6 @@ A Pokémon Species forms the basis for at least one Pokémon. Attributes of a Po
 ```ruby
 require 'time'
 require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
 
 api_instance = PokeApiClient::PokemonApi.new
 opts = {
@@ -2139,7 +1840,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -2160,20 +1861,9 @@ A Pokémon Species forms the basis for at least one Pokémon. Attributes of a Po
 ```ruby
 require 'time'
 require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
 
 api_instance = PokeApiClient::PokemonApi.new
-id = 'id_example' # String | This parameter can be a string or an integer.
+id = '1' # String | This parameter can be a string or an integer.
 
 begin
   # Get pokemon species
@@ -2214,7 +1904,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -2235,17 +1925,6 @@ Stats determine certain aspects of battles. Each Pokémon has a value for each s
 ```ruby
 require 'time'
 require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
 
 api_instance = PokeApiClient::PokemonApi.new
 opts = {
@@ -2295,7 +1974,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -2316,20 +1995,9 @@ Stats determine certain aspects of battles. Each Pokémon has a value for each s
 ```ruby
 require 'time'
 require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
 
 api_instance = PokeApiClient::PokemonApi.new
-id = 'id_example' # String | This parameter can be a string or an integer.
+id = '1' # String | This parameter can be a string or an integer.
 
 begin
   # Get stat
@@ -2370,7 +2038,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -2391,17 +2059,6 @@ Types are properties for Pokémon and their moves. Each type has three propertie
 ```ruby
 require 'time'
 require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
 
 api_instance = PokeApiClient::PokemonApi.new
 opts = {
@@ -2451,7 +2108,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -2472,20 +2129,9 @@ Types are properties for Pokémon and their moves. Each type has three propertie
 ```ruby
 require 'time'
 require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
 
 api_instance = PokeApiClient::PokemonApi.new
-id = 'id_example' # String | This parameter can be a string or an integer.
+id = '1' # String | This parameter can be a string or an integer.
 
 begin
   # Get types
@@ -2526,7 +2172,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

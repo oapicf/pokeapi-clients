@@ -2,6 +2,111 @@
 # Do not modify this file directly. Modify the OpenAPI specification instead.
 
 
+function currency_list_read(handler)
+    function currency_list_read_handler(req::HTTP.Request)
+        openapi_params = Dict{String,Any}()
+        query_params = HTTP.queryparams(URIs.URI(req.target))
+        openapi_params["limit"] = OpenAPI.Servers.to_param(Int64, query_params, "limit", style="form", is_explode=true)
+        openapi_params["offset"] = OpenAPI.Servers.to_param(Int64, query_params, "offset", style="form", is_explode=true)
+        openapi_params["q"] = OpenAPI.Servers.to_param(String, query_params, "q", style="form", is_explode=true)
+        req.context[:openapi_params] = openapi_params
+
+        return handler(req)
+    end
+end
+
+function currency_list_validate(handler)
+    function currency_list_validate_handler(req::HTTP.Request)
+        openapi_params = req.context[:openapi_params]
+        op = "currency_list"
+        
+        n = "limit"
+        v = get(openapi_params, n, nothing)
+        if !isnothing(v)
+            if isa(v, OpenAPI.APIModel)
+                OpenAPI.validate_properties(v)
+                if !OpenAPI.check_required(v)
+                    throw(OpenAPI.ValidationException(;reason="$n is missing required properties", operation_or_model=op))
+                end
+            end
+        end
+        
+        n = "offset"
+        v = get(openapi_params, n, nothing)
+        if !isnothing(v)
+            if isa(v, OpenAPI.APIModel)
+                OpenAPI.validate_properties(v)
+                if !OpenAPI.check_required(v)
+                    throw(OpenAPI.ValidationException(;reason="$n is missing required properties", operation_or_model=op))
+                end
+            end
+        end
+        
+        n = "q"
+        v = get(openapi_params, n, nothing)
+        if !isnothing(v)
+            if isa(v, OpenAPI.APIModel)
+                OpenAPI.validate_properties(v)
+                if !OpenAPI.check_required(v)
+                    throw(OpenAPI.ValidationException(;reason="$n is missing required properties", operation_or_model=op))
+                end
+            end
+        end
+
+        return handler(req)
+    end
+end
+
+function currency_list_invoke(impl; post_invoke=nothing)
+    function currency_list_invoke_handler(req::HTTP.Request)
+        openapi_params = req.context[:openapi_params]
+        ret = impl.currency_list(req::HTTP.Request; limit=get(openapi_params, "limit", nothing), offset=get(openapi_params, "offset", nothing), q=get(openapi_params, "q", nothing),)
+        resp = OpenAPI.Servers.server_response(ret)
+        return (post_invoke === nothing) ? resp : post_invoke(req, resp)
+    end
+end
+
+function currency_retrieve_read(handler)
+    function currency_retrieve_read_handler(req::HTTP.Request)
+        openapi_params = Dict{String,Any}()
+        path_params = HTTP.getparams(req)
+        openapi_params["id"] = OpenAPI.Servers.to_param(String, path_params, "id", required=true, )
+        req.context[:openapi_params] = openapi_params
+
+        return handler(req)
+    end
+end
+
+function currency_retrieve_validate(handler)
+    function currency_retrieve_validate_handler(req::HTTP.Request)
+        openapi_params = req.context[:openapi_params]
+        op = "currency_retrieve"
+        
+        n = "id"
+        v = get(openapi_params, n, nothing)
+        isnothing(v) && throw(OpenAPI.ValidationException(;reason="missing parameter $n", operation_or_model=op))
+        if !isnothing(v)
+            if isa(v, OpenAPI.APIModel)
+                OpenAPI.validate_properties(v)
+                if !OpenAPI.check_required(v)
+                    throw(OpenAPI.ValidationException(;reason="$n is missing required properties", operation_or_model=op))
+                end
+            end
+        end
+
+        return handler(req)
+    end
+end
+
+function currency_retrieve_invoke(impl; post_invoke=nothing)
+    function currency_retrieve_invoke_handler(req::HTTP.Request)
+        openapi_params = req.context[:openapi_params]
+        ret = impl.currency_retrieve(req::HTTP.Request, openapi_params["id"];)
+        resp = OpenAPI.Servers.server_response(ret)
+        return (post_invoke === nothing) ? resp : post_invoke(req, resp)
+    end
+end
+
 function item_attribute_list_read(handler)
     function item_attribute_list_read_handler(req::HTTP.Request)
         openapi_params = Dict{String,Any}()
@@ -529,6 +634,8 @@ end
 
 
 function registerItemsApi(router::HTTP.Router, impl; path_prefix::String="", optional_middlewares...)
+    HTTP.register!(router, "GET", path_prefix * "/api/v2/currency/", OpenAPI.Servers.middleware(impl, currency_list_read, currency_list_validate, currency_list_invoke; optional_middlewares...))
+    HTTP.register!(router, "GET", path_prefix * "/api/v2/currency/{id}/", OpenAPI.Servers.middleware(impl, currency_retrieve_read, currency_retrieve_validate, currency_retrieve_invoke; optional_middlewares...))
     HTTP.register!(router, "GET", path_prefix * "/api/v2/item-attribute/", OpenAPI.Servers.middleware(impl, item_attribute_list_read, item_attribute_list_validate, item_attribute_list_invoke; optional_middlewares...))
     HTTP.register!(router, "GET", path_prefix * "/api/v2/item-attribute/{id}/", OpenAPI.Servers.middleware(impl, item_attribute_retrieve_read, item_attribute_retrieve_validate, item_attribute_retrieve_invoke; optional_middlewares...))
     HTTP.register!(router, "GET", path_prefix * "/api/v2/item-category/", OpenAPI.Servers.middleware(impl, item_category_list_read, item_category_list_validate, item_category_list_invoke; optional_middlewares...))

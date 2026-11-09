@@ -18,7 +18,7 @@ Machines are the representation of items that teach moves to Pokémon. They vary
 ### Example
 
 ```bash
- machineList  limit=value  offset=value  q=value
+ machineList  limit=value  offset=value
 ```
 
 ### Parameters
@@ -28,8 +28,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **integer** | Number of results to return per page. | [optional] [default to null]
  **offset** | **integer** | The initial index from which to return the results. | [optional] [default to null]
- **q** | **string** | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
-Case-insensitive query applied on the 'name' property. | [optional] [default to null]
 
 ### Return type
 
@@ -37,7 +35,7 @@ Case-insensitive query applied on the 'name' property. | [optional] [default to 
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -72,7 +70,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

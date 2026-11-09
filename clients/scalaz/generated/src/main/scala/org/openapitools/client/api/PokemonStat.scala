@@ -12,9 +12,12 @@ import org.joda.time.DateTime
 import PokemonStat._
 
 case class PokemonStat (
+  /* The base value of the stat. */
   baseStat: Integer,
-effort: Integer,
-stat: StatSummary)
+/* The effort points (EV) the Pokémon has in the stat. */
+  effort: Integer,
+/* The stat the Pokémon has. */
+  stat: StatSummary)
 
 object PokemonStat {
   import DateTimeCodecs._

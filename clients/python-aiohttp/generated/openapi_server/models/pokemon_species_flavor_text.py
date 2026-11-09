@@ -52,6 +52,7 @@ class PokemonSpeciesFlavorText(Model):
     def flavor_text(self):
         """Gets the flavor_text of this PokemonSpeciesFlavorText.
 
+        The localized flavor text for an API resource in a specific language. Note that this text is left unprocessed as it is found in game files. This means that it contains special characters that one might want to replace with their visible decodable version. Please check out this <a href='https://github.com/veekun/pokedex/issues/218#issuecomment-339841781' >issue</a> to find out more. 
 
         :return: The flavor_text of this PokemonSpeciesFlavorText.
         :rtype: str
@@ -62,6 +63,7 @@ class PokemonSpeciesFlavorText(Model):
     def flavor_text(self, flavor_text):
         """Sets the flavor_text of this PokemonSpeciesFlavorText.
 
+        The localized flavor text for an API resource in a specific language. Note that this text is left unprocessed as it is found in game files. This means that it contains special characters that one might want to replace with their visible decodable version. Please check out this <a href='https://github.com/veekun/pokedex/issues/218#issuecomment-339841781' >issue</a> to find out more. 
 
         :param flavor_text: The flavor_text of this PokemonSpeciesFlavorText.
         :type flavor_text: str
@@ -75,6 +77,7 @@ class PokemonSpeciesFlavorText(Model):
     def language(self):
         """Gets the language of this PokemonSpeciesFlavorText.
 
+        The language this name is in.
 
         :return: The language of this PokemonSpeciesFlavorText.
         :rtype: LanguageSummary
@@ -85,6 +88,7 @@ class PokemonSpeciesFlavorText(Model):
     def language(self, language):
         """Sets the language of this PokemonSpeciesFlavorText.
 
+        The language this name is in.
 
         :param language: The language of this PokemonSpeciesFlavorText.
         :type language: LanguageSummary
@@ -98,6 +102,7 @@ class PokemonSpeciesFlavorText(Model):
     def version(self):
         """Gets the version of this PokemonSpeciesFlavorText.
 
+        The game version this flavor text is extracted from.
 
         :return: The version of this PokemonSpeciesFlavorText.
         :rtype: VersionSummary
@@ -108,6 +113,7 @@ class PokemonSpeciesFlavorText(Model):
     def version(self, version):
         """Sets the version of this PokemonSpeciesFlavorText.
 
+        The game version this flavor text is extracted from.
 
         :param version: The version of this PokemonSpeciesFlavorText.
         :type version: VersionSummary

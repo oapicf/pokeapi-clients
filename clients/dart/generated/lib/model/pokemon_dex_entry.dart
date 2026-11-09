@@ -17,8 +17,10 @@ class PokemonDexEntry {
     required this.pokedex,
   });
 
+  /// The index number within the Pokédex.
   int entryNumber;
 
+  /// The Pokédex the referenced Pokémon species can be found in.
   PokedexSummary pokedex;
 
   @override

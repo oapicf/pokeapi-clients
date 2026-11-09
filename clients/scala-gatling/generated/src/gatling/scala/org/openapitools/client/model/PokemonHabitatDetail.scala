@@ -3,9 +3,13 @@ package org.openapitools.client.model
 
 
 case class PokemonHabitatDetail (
+    /* The identifier for this resource. */
     _id: Integer,
+    /* The name for this resource. */
     _name: String,
+    /* The name of this resource listed in different languages. */
     _names: List[PokemonHabitatName],
+    /* A list of the Pokémon species that can be found in this habitat. */
     _pokemonSpecies: List[PokemonSpeciesSummary]
 )
 object PokemonHabitatDetail {

@@ -7,9 +7,9 @@ authors     = ["F. Bar (foo@bar.baz)"]
 
 imports {
   Root = tosca.resourceTypes.Root
-  LocationAreaDetailEncounterMethodRatesInner = openapi_server.resourceTypes.LocationAreaDetailEncounterMethodRatesInner
-  LocationAreaDetailPokemonEncountersInner = openapi_server.resourceTypes.LocationAreaDetailPokemonEncountersInner
+  LocationAreaEncounterRate = openapi_server.resourceTypes.LocationAreaEncounterRate
   LocationAreaName = openapi_server.resourceTypes.LocationAreaName
+  LocationAreaPokemonEncounter = openapi_server.resourceTypes.LocationAreaPokemonEncounter
   LocationSummary = openapi_server.resourceTypes.LocationSummary
 }
 resourceTypes {
@@ -21,40 +21,40 @@ resourceTypes {
     properties {
         id {
           type =  integer
-          description = ""
+          description = "The identifier for this resource."
           optional = true
         }
         name {
           type =  string
-          description = ""
+          description = "The name for this resource."
           optional = true
         }
         game_index {
           type =  integer
-          description = ""
+          description = "The internal id of an API resource within game data."
           optional = true
         }
         encounter_method_rates {
           type = array
-          items.type = LocationAreaDetailEncounterMethodRatesInner
-          description = ""
+          items.type = LocationAreaEncounterRate
+          description = "A list of methods in which Pokémon may be encountered in this area and how likely the method will occur depending on the version of the game."
           optional = true
         }
         location {
           type = LocationSummary
-          description = ""
+          description = "The region this location area can be found in."
           optional = true
         }
         names {
           type = array
           items.type = LocationAreaName
-          description = ""
+          description = "The name of this resource listed in different languages."
           optional = true
         }
         pokemon_encounters {
           type = array
-          items.type = LocationAreaDetailPokemonEncountersInner
-          description = ""
+          items.type = LocationAreaPokemonEncounter
+          description = "A list of Pokémon that can be encountered in this area along with version specific details about the encounter."
           optional = true
         }
     }

@@ -7,18 +7,19 @@ authors     = ["F. Bar (foo@bar.baz)"]
 
 imports {
   Root = tosca.resourceTypes.Root
-  PokemonDetailAbilitiesInner = openapi_server.resourceTypes.PokemonDetailAbilitiesInner
-  PokemonDetailCries = openapi_server.resourceTypes.PokemonDetailCries
-  PokemonDetailHeldItems = openapi_server.resourceTypes.PokemonDetailHeldItems
-  PokemonDetailMovesInner = openapi_server.resourceTypes.PokemonDetailMovesInner
-  PokemonDetailPastAbilitiesInner = openapi_server.resourceTypes.PokemonDetailPastAbilitiesInner
-  PokemonDetailPastTypesInner = openapi_server.resourceTypes.PokemonDetailPastTypesInner
-  PokemonDetailSprites = openapi_server.resourceTypes.PokemonDetailSprites
-  PokemonDetailTypesInner = openapi_server.resourceTypes.PokemonDetailTypesInner
+  PokemonAbility = openapi_server.resourceTypes.PokemonAbility
+  PokemonCries = openapi_server.resourceTypes.PokemonCries
   PokemonFormSummary = openapi_server.resourceTypes.PokemonFormSummary
   PokemonGameIndex = openapi_server.resourceTypes.PokemonGameIndex
+  PokemonHeldItemSummary = openapi_server.resourceTypes.PokemonHeldItemSummary
+  PokemonMove = openapi_server.resourceTypes.PokemonMove
+  PokemonPastAbility = openapi_server.resourceTypes.PokemonPastAbility
+  PokemonPastStat = openapi_server.resourceTypes.PokemonPastStat
+  PokemonPastType = openapi_server.resourceTypes.PokemonPastType
   PokemonSpeciesSummary = openapi_server.resourceTypes.PokemonSpeciesSummary
+  PokemonSprites = openapi_server.resourceTypes.PokemonSprites
   PokemonStat = openapi_server.resourceTypes.PokemonStat
+  PokemonType = openapi_server.resourceTypes.PokemonType
 }
 resourceTypes {
 
@@ -29,110 +30,117 @@ resourceTypes {
     properties {
         id {
           type =  integer
-          description = ""
+          description = "The identifier for this resource."
           optional = true
         }
         name {
           type =  string
-          description = ""
+          description = "The name for this resource."
           optional = true
         }
         base_experience {
           type =  integer
-          description = ""
+          description = "The base experience gained for defeating this Pokémon."
           optional = false
         }
         height {
           type =  integer
-          description = ""
+          description = "The height of this Pokémon in decimetres."
           optional = false
         }
         is_default {
           type =  boolean
-          description = ""
+          description = "Set for exactly one Pokémon used as the default for each species."
           optional = false
         }
         order {
           type =  integer
-          description = ""
+          description = "Order for sorting. Almost national order, except families are grouped together."
           optional = false
         }
         weight {
           type =  integer
-          description = ""
+          description = "The weight of this Pokémon in hectograms."
           optional = false
         }
         abilities {
           type = array
-          items.type = PokemonDetailAbilitiesInner
-          description = ""
+          items.type = PokemonAbility
+          description = "A list of abilities this Pokémon could potentially have."
           optional = true
         }
         past_abilities {
           type = array
-          items.type = PokemonDetailPastAbilitiesInner
-          description = ""
+          items.type = PokemonPastAbility
+          description = "A list of details showing abilities this pokémon had in previous generations"
           optional = true
         }
         forms {
           type = array
           items.type = PokemonFormSummary
-          description = ""
+          description = "A list of forms this Pokémon can take on."
           optional = true
         }
         game_indices {
           type = array
           items.type = PokemonGameIndex
-          description = ""
+          description = "A list of game indices relevent to Pokémon item by generation."
           optional = true
         }
         held_items {
-          type = PokemonDetailHeldItems
-          description = ""
+          type = array
+          items.type = PokemonHeldItemSummary
+          description = "A list of items this Pokémon may be holding when encountered."
           optional = true
         }
         location_area_encounters {
           type =  string
-          description = ""
+          description = "A link to a list of location areas, as well as encounter details pertaining to specific versions."
           optional = true
         }
         moves {
           type = array
-          items.type = PokemonDetailMovesInner
-          description = ""
+          items.type = PokemonMove
+          description = "A list of moves along with learn methods and level details pertaining to specific version groups."
           optional = true
         }
         species {
           type = PokemonSpeciesSummary
-          description = ""
+          description = "The species this Pokémon belongs to."
           optional = true
         }
         sprites {
-          type = PokemonDetailSprites
-          description = ""
+          type = PokemonSprites
+          description = "A set of sprites used to depict this Pokémon in the game. A visual representation of the various sprites can be found at &lt;a href&#x3D;&#39;https://github.com/PokeAPI/sprites#sprites&#39;&gt;PokeAPI/sprites&lt;/a&gt;"
           optional = true
         }
         cries {
-          type = PokemonDetailCries
-          description = ""
+          type = PokemonCries
+          description = "A set of cries used to depict this Pokémon in the game. A visual representation of the various cries can be found at &lt;a href&#x3D;&#39;https://github.com/PokeAPI/cries#cries&#39;&gt;PokeAPI/cries&lt;/a&gt;"
           optional = true
         }
         stats {
           type = array
           items.type = PokemonStat
-          description = ""
+          description = "A list of base stat values for this Pokémon."
+          optional = true
+        }
+        past_stats {
+          type = array
+          items.type = PokemonPastStat
+          description = "A list of details showing stats this pokémon had in previous generations"
           optional = true
         }
         types {
           type = array
-          items.type = PokemonDetailTypesInner
-          description = ""
+          items.type = PokemonType
+          description = "A list of details showing types this Pokémon has."
           optional = true
         }
         past_types {
           type = array
-          items.type = PokemonDetailPastTypesInner
-          description = ""
+          items.type = PokemonPastType
+          description = "A list of details showing types this pokémon had in previous generations"
           optional = true
         }
     }

@@ -9,8 +9,8 @@
         pokedex=nothing,
     )
 
-    - entry_number::Int64
-    - pokedex::PokedexSummary
+    - entry_number::Int64 : The index number within the Pokédex.
+    - pokedex::PokedexSummary : The Pokédex the referenced Pokémon species can be found in.
 """
 Base.@kwdef mutable struct PokemonDexEntry <: OpenAPI.APIModel
     entry_number::Union{Nothing, Int64} = nothing

@@ -31,20 +31,23 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param name 
- * @param color 
- * @param language 
+ * @param name The name for this contest.
+ * @param color The color associated with this contest's name.
+ * @param language The language that this name is in.
  */
 
 
 data class ContestTypeName (
 
+    /* The name for this contest. */
     @Json(name = "name")
     val name: kotlin.String,
 
+    /* The color associated with this contest's name. */
     @Json(name = "color")
     val color: kotlin.String,
 
+    /* The language that this name is in. */
     @Json(name = "language")
     val language: LanguageSummary
 

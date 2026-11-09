@@ -3,10 +3,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** |  | [readonly] 
-**name** | **string** |  | 
-**names** | [**OpenAPI\Server\Model\PalParkAreaName**](PalParkAreaName.md) |  | [readonly] 
-**pokemonEncounters** | [**OpenAPI\Server\Model\PalParkAreaDetailPokemonEncountersInner**](PalParkAreaDetailPokemonEncountersInner.md) |  | [readonly] 
+**id** | **int** | The identifier for this resource. | [readonly] 
+**name** | **string** | The name for this resource. | 
+**names** | [**OpenAPI\Server\Model\PalParkAreaName**](PalParkAreaName.md) | The name of this resource listed in different languages. | [readonly] 
+**pokemonEncounters** | [**OpenAPI\Server\Model\PalParkEncounter**](PalParkEncounter.md) | A list of Pokémon encountered in thi pal park area along with details. | [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

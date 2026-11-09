@@ -31,20 +31,23 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param id 
- * @param name 
- * @param names 
+ * @param id The identifier for this resource.
+ * @param name The name for this resource.
+ * @param names The name of this resource listed in different languages.
  */
 
 
 data class MoveBattleStyleDetail (
 
+    /* The identifier for this resource. */
     @Json(name = "id")
     val id: kotlin.Int,
 
+    /* The name for this resource. */
     @Json(name = "name")
     val name: kotlin.String,
 
+    /* The name of this resource listed in different languages. */
     @Json(name = "names")
     val names: kotlin.collections.List<MoveBattleStyleName>
 

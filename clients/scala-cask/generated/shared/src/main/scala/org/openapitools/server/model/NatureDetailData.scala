@@ -1,8 +1,8 @@
 /**
  * PokéAPI
- * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+ * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
  *
- * OpenAPI spec version: 2.7.0
+ * OpenAPI spec version: 2.10.0
  *
  * Contact: blah+oapicf@cliffano.com
  *
@@ -25,15 +25,23 @@ import upickle.default.*
   * It has no validation - there may be nulls, values out of range, etc
   */
 case class NatureDetailData(
+/* The identifier for this resource. */
   id: Int,
+/* The name for this resource. */
   name: String,
+/* The stat decreased by 10% in Pokémon with this nature. */
   decreasedStat: StatSummaryData,
+/* The stat increased by 10% in Pokémon with this nature. */
   increasedStat: StatSummaryData,
+/* The flavor liked by Pokémon with this nature. */
   likesFlavor: BerryFlavorSummaryData,
+/* The flavor hated by Pokémon with this nature. */
   hatesFlavor: BerryFlavorSummaryData,
-  berries: Seq[BerrySummaryData],
-  pokeathlonStatChanges: Seq[NatureDetailPokeathlonStatChangesInnerData],
+/* A list of Pokéathlon stats this nature effects and how much it effects them. */
+  pokeathlonStatChanges: Seq[NaturePokeathlonStatData],
+/* A list of battle styles and how likely a Pokémon with this nature is to use them in the Battle Palace or Battle Tent. */
   moveBattleStylePreferences: Seq[NatureBattleStylePreferenceData],
+/* The name of this resource listed in different languages. */
   names: Seq[NatureNameData]
   
 
@@ -55,11 +63,11 @@ case class NatureDetailData(
         
 
         // ================== name validation ==================
-        // validate max length 100
+        // validate max length 200
         if (_allValidationErrors.isEmpty || !failFast)  {
           val len = if name == null then 0 else name.length
-            if (len < 100) {
-               _allValidationErrors += ValidationError(path :+ NatureDetail.Fields.name, s"length $len is longer than the max length 100")
+            if (len < 200) {
+               _allValidationErrors += ValidationError(path :+ NatureDetail.Fields.name, s"length $len is longer than the max length 200")
             }
         }
         
@@ -130,30 +138,6 @@ case class NatureDetailData(
         if (_allValidationErrors.isEmpty || !failFast) {
             if hatesFlavor != null then _allValidationErrors ++= hatesFlavor.validationErrors(path :+ NatureDetail.Fields.hatesFlavor, failFast)
         }
-
-        // ================== berries validation ==================
-        
-        if (_allValidationErrors.isEmpty || !failFast) {
-            if (berries == null) {
-            _allValidationErrors += ValidationError(path :+ NatureDetail.Fields.berries, "berries is a required field and cannot be null")
-            }
-        }
-        
-        
-        
-        
-        if (_allValidationErrors.isEmpty || !failFast) {
-            if (berries != null) {
-                berries.zipWithIndex.foreach {
-                    case (value, i) if _allValidationErrors.isEmpty || !failFast =>
-                      _allValidationErrors ++= value.validationErrors(
-                        path :+ NatureDetail.Fields.berries :+ Field(i.toString),
-                        failFast)
-                    case (value, i) =>
-                }
-            }
-        }
-        
 
         // ================== pokeathlonStatChanges validation ==================
         
@@ -249,7 +233,6 @@ case class NatureDetailData(
         increasedStat = increasedStat.asModel /* 6 */,
         likesFlavor = likesFlavor.asModel /* 6 */,
         hatesFlavor = hatesFlavor.asModel /* 6 */,
-        berries = berries.map(_.asModel) /* 5 */,
         pokeathlonStatChanges = pokeathlonStatChanges.map(_.asModel) /* 5 */,
         moveBattleStylePreferences = moveBattleStylePreferences.map(_.asModel) /* 5 */,
         names = names.map(_.asModel) /* 5 */

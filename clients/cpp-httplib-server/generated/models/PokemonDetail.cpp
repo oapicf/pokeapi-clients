@@ -16,19 +16,17 @@ PokemonDetail::PokemonDetail()
 , isDefault(false)
 , order(0)
 , weight(0)
-, abilities(std::vector<PokemonDetail_abilities_inner>())
-, pastAbilities(std::vector<PokemonDetail_past_abilities_inner>())
+, abilities(std::vector<PokemonAbility>())
+, pastAbilities(std::vector<PokemonPastAbility>())
 , forms(std::vector<PokemonFormSummary>())
 , gameIndices(std::vector<PokemonGameIndex>())
-, heldItems(PokemonDetailHeldItems())
+, heldItems(std::vector<PokemonHeldItemSummary>())
 , locationAreaEncounters("")
-, moves(std::vector<PokemonDetail_moves_inner>())
-, species(PokemonSpeciesSummary())
-, sprites(std::make_shared<PokemonDetailSprites>())
-, cries(PokemonDetailCries())
+, moves(std::vector<PokemonMove>())
 , stats(std::vector<PokemonStat>())
-, types(std::vector<PokemonDetail_types_inner>())
-, pastTypes(std::vector<PokemonDetail_past_types_inner>())
+, pastStats(std::vector<PokemonPastStat>())
+, types(std::vector<PokemonType>())
+, pastTypes(std::vector<PokemonPastType>())
 {
 }
 // =========================================
@@ -65,11 +63,11 @@ int PokemonDetail::getWeight() const
 {
     return weight;
 }
-std::vector<PokemonDetail_abilities_inner> PokemonDetail::getAbilities() const
+std::vector<PokemonAbility> PokemonDetail::getAbilities() const
 {
     return abilities;
 }
-std::vector<PokemonDetail_past_abilities_inner> PokemonDetail::getPastAbilities() const
+std::vector<PokemonPastAbility> PokemonDetail::getPastAbilities() const
 {
     return pastAbilities;
 }
@@ -81,7 +79,7 @@ std::vector<PokemonGameIndex> PokemonDetail::getGameIndices() const
 {
     return gameIndices;
 }
-PokemonDetailHeldItems PokemonDetail::getHeldItems() const
+std::vector<PokemonHeldItemSummary> PokemonDetail::getHeldItems() const
 {
     return heldItems;
 }
@@ -89,7 +87,7 @@ std::string PokemonDetail::getLocationAreaEncounters() const
 {
     return locationAreaEncounters;
 }
-std::vector<PokemonDetail_moves_inner> PokemonDetail::getMoves() const
+std::vector<PokemonMove> PokemonDetail::getMoves() const
 {
     return moves;
 }
@@ -97,11 +95,11 @@ PokemonSpeciesSummary PokemonDetail::getSpecies() const
 {
     return species;
 }
-PokemonDetailSprites PokemonDetail::getSprites() const
+PokemonSprites PokemonDetail::getSprites() const
 {
     return sprites;
 }
-PokemonDetailCries PokemonDetail::getCries() const
+PokemonCries PokemonDetail::getCries() const
 {
     return cries;
 }
@@ -109,11 +107,15 @@ std::vector<PokemonStat> PokemonDetail::getStats() const
 {
     return stats;
 }
-std::vector<PokemonDetail_types_inner> PokemonDetail::getTypes() const
+std::vector<PokemonPastStat> PokemonDetail::getPastStats() const
+{
+    return pastStats;
+}
+std::vector<PokemonType> PokemonDetail::getTypes() const
 {
     return types;
 }
-std::vector<PokemonDetail_past_types_inner> PokemonDetail::getPastTypes() const
+std::vector<PokemonPastType> PokemonDetail::getPastTypes() const
 {
     return pastTypes;
 }
@@ -149,11 +151,11 @@ void PokemonDetail::setWeight(const int& weightObj)
 {
     weight = weightObj;
 }
-void PokemonDetail::setAbilities(const std::vector<PokemonDetail_abilities_inner>& abilitiesObj)
+void PokemonDetail::setAbilities(const std::vector<PokemonAbility>& abilitiesObj)
 {
     abilities = abilitiesObj;
 }
-void PokemonDetail::setPastAbilities(const std::vector<PokemonDetail_past_abilities_inner>& pastAbilitiesObj)
+void PokemonDetail::setPastAbilities(const std::vector<PokemonPastAbility>& pastAbilitiesObj)
 {
     pastAbilities = pastAbilitiesObj;
 }
@@ -165,7 +167,7 @@ void PokemonDetail::setGameIndices(const std::vector<PokemonGameIndex>& gameIndi
 {
     gameIndices = gameIndicesObj;
 }
-void PokemonDetail::setHeldItems(const PokemonDetailHeldItems& heldItemsObj)
+void PokemonDetail::setHeldItems(const std::vector<PokemonHeldItemSummary>& heldItemsObj)
 {
     heldItems = heldItemsObj;
 }
@@ -173,7 +175,7 @@ void PokemonDetail::setLocationAreaEncounters(const std::string& locationAreaEnc
 {
     locationAreaEncounters = locationAreaEncountersObj;
 }
-void PokemonDetail::setMoves(const std::vector<PokemonDetail_moves_inner>& movesObj)
+void PokemonDetail::setMoves(const std::vector<PokemonMove>& movesObj)
 {
     moves = movesObj;
 }
@@ -181,11 +183,11 @@ void PokemonDetail::setSpecies(const PokemonSpeciesSummary& speciesObj)
 {
     species = speciesObj;
 }
-void PokemonDetail::setSprites(const PokemonDetailSprites& spritesObj)
+void PokemonDetail::setSprites(const PokemonSprites& spritesObj)
 {
     sprites = spritesObj;
 }
-void PokemonDetail::setCries(const PokemonDetailCries& criesObj)
+void PokemonDetail::setCries(const PokemonCries& criesObj)
 {
     cries = criesObj;
 }
@@ -193,11 +195,15 @@ void PokemonDetail::setStats(const std::vector<PokemonStat>& statsObj)
 {
     stats = statsObj;
 }
-void PokemonDetail::setTypes(const std::vector<PokemonDetail_types_inner>& typesObj)
+void PokemonDetail::setPastStats(const std::vector<PokemonPastStat>& pastStatsObj)
+{
+    pastStats = pastStatsObj;
+}
+void PokemonDetail::setTypes(const std::vector<PokemonType>& typesObj)
 {
     types = typesObj;
 }
-void PokemonDetail::setPastTypes(const std::vector<PokemonDetail_past_types_inner>& pastTypesObj)
+void PokemonDetail::setPastTypes(const std::vector<PokemonPastType>& pastTypesObj)
 {
     pastTypes = pastTypesObj;
 }

@@ -10,7 +10,7 @@ import javax.validation.Valid;
 /**
  * PokemonDexEntry
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-10-25T05:48:13.486809836Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-11-09T13:49:31.462302702Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class PokemonDexEntry   {
   @JsonProperty("entry_number")
@@ -30,7 +30,7 @@ public class PokemonDexEntry   {
   }
 
    /**
-   * Get entryNumber
+   * The index number within the Pokédex.
    * @return entryNumber
   **/
   public Integer getEntryNumber() {
@@ -47,7 +47,7 @@ public class PokemonDexEntry   {
   }
 
    /**
-   * Get pokedex
+   * The Pokédex the referenced Pokémon species can be found in.
    * @return pokedex
   **/
   public PokedexSummary getPokedex() {

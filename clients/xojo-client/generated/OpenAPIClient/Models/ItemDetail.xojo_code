@@ -2,77 +2,122 @@
 Protected Class ItemDetail
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The identifier for this resource.
+		#tag EndNote
 		id As Integer
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The name for this resource.
+		#tag EndNote
 		name As String
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
-		cost As Xoson.O.OptionalInteger
-	#tag EndProperty
-
-
-	#tag Property, Flags = &h0
+		#tag Note
+			The power of the move Fling when used with this item.
+		#tag EndNote
 		fling_power As Xoson.O.OptionalInteger
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The effect of the move Fling when used with this item.
+		#tag EndNote
 		fling_effect As OpenAPIClient.Models.ItemFlingEffectSummary
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
-		Escapedattributes() As OpenAPIClient.Models.AbilityDetailPokemonInnerPokemon
+		#tag Note
+			A list of attributes this item has.
+		#tag EndNote
+		Escapedattributes() As OpenAPIClient.Models.ItemAttributeSummary
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The category of items this item falls into.
+		#tag EndNote
 		category As OpenAPIClient.Models.ItemCategorySummary
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The effect of this ability listed in different languages.
+		#tag EndNote
 		effect_entries() As OpenAPIClient.Models.ItemEffectText
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The flavor text of this ability listed in different languages.
+		#tag EndNote
 		flavor_text_entries() As OpenAPIClient.Models.ItemFlavorText
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			A list of game indices relevent to this item by generation.
+		#tag EndNote
 		game_indices() As OpenAPIClient.Models.ItemGameIndex
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			Purchase and sell prices by currency and version group. Prices may be null when the item cannot be bought or sold.
+		#tag EndNote
+		prices() As OpenAPIClient.Models.ItemPrice
+	#tag EndProperty
+
+
+	#tag Property, Flags = &h0
+		#tag Note
+			The name of this item listed in different languages.
+		#tag EndNote
 		names() As OpenAPIClient.Models.ItemName
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
-		held_by_pokemon() As OpenAPIClient.Models.ItemDetailHeldByPokemonInner
+		#tag Note
+			A list of Pokémon that might be found in the wild holding this item.
+		#tag EndNote
+		held_by_pokemon() As OpenAPIClient.Models.PokemonHeldItem
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
-		sprites As OpenAPIClient.Models.ItemDetailSprites
+		#tag Note
+			A set of sprites used to depict this item in the game.
+		#tag EndNote
+		sprites As OpenAPIClient.Models.ItemSprites
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
-		baby_trigger_for As OpenAPIClient.Models.ItemDetailBabyTriggerFor
+		#tag Note
+			An evolution chain this item requires to produce a bay during mating.
+		#tag EndNote
+		baby_trigger_for As OpenAPIClient.Models.EvolutionChainSummary
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
-		machines() As OpenAPIClient.Models.ItemDetailMachinesInner
+		#tag Note
+			A list of the machines related to this item.
+		#tag EndNote
+		machines() As OpenAPIClient.Models.ItemMachine
 	#tag EndProperty
 
 
@@ -129,14 +174,6 @@ Protected Class ItemDetail
 			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="cost"
-			Visible=false
-			Group="Behavior"
-			InitialValue=""
-			Type="Integer"
-			EditorType=""
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="fling_power"
 			Visible=false
 			Group="Behavior"
@@ -157,7 +194,7 @@ Protected Class ItemDetail
 			Visible=false
 			Group="Behavior"
 			InitialValue=""
-			Type="AbilityDetailPokemonInnerPokemon"
+			Type="ItemAttributeSummary"
 			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
@@ -193,6 +230,14 @@ Protected Class ItemDetail
 			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="prices"
+			Visible=false
+			Group="Behavior"
+			InitialValue=""
+			Type="ItemPrice"
+			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="names"
 			Visible=false
 			Group="Behavior"
@@ -205,7 +250,7 @@ Protected Class ItemDetail
 			Visible=false
 			Group="Behavior"
 			InitialValue=""
-			Type="ItemDetailHeldByPokemonInner"
+			Type="PokemonHeldItem"
 			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
@@ -213,7 +258,7 @@ Protected Class ItemDetail
 			Visible=false
 			Group="Behavior"
 			InitialValue=""
-			Type="ItemDetailSprites"
+			Type="ItemSprites"
 			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
@@ -221,7 +266,7 @@ Protected Class ItemDetail
 			Visible=false
 			Group="Behavior"
 			InitialValue=""
-			Type="ItemDetailBabyTriggerFor"
+			Type="EvolutionChainSummary"
 			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
@@ -229,7 +274,7 @@ Protected Class ItemDetail
 			Visible=false
 			Group="Behavior"
 			InitialValue=""
-			Type="ItemDetailMachinesInner"
+			Type="ItemMachine"
 			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior

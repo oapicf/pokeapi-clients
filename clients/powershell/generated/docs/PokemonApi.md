@@ -4,9 +4,9 @@ All URIs are relative to *https://pokeapi.co*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Invoke-AbilityList**](PokemonApi.md#Invoke-AbilityList) | **GET** /api/v2/ability/ | 
-[**Invoke-AbilityRetrieve**](PokemonApi.md#Invoke-AbilityRetrieve) | **GET** /api/v2/ability/{id}/ | 
-[**Invoke-CharacteristicList**](PokemonApi.md#Invoke-CharacteristicList) | **GET** /api/v2/characteristic/ | List charecterictics
+[**Invoke-AbilityList**](PokemonApi.md#Invoke-AbilityList) | **GET** /api/v2/ability/ | List abilities
+[**Invoke-AbilityRetrieve**](PokemonApi.md#Invoke-AbilityRetrieve) | **GET** /api/v2/ability/{id}/ | Get ability
+[**Invoke-CharacteristicList**](PokemonApi.md#Invoke-CharacteristicList) | **GET** /api/v2/characteristic/ | List characteristics
 [**Invoke-CharacteristicRetrieve**](PokemonApi.md#Invoke-CharacteristicRetrieve) | **GET** /api/v2/characteristic/{id}/ | Get characteristic
 [**Invoke-EggGroupList**](PokemonApi.md#Invoke-EggGroupList) | **GET** /api/v2/egg-group/ | List egg groups
 [**Invoke-EggGroupRetrieve**](PokemonApi.md#Invoke-EggGroupRetrieve) | **GET** /api/v2/egg-group/{id}/ | Get egg group
@@ -45,27 +45,17 @@ Method | HTTP request | Description
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Q] <String><br>
 
-
+List abilities
 
 Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure HTTP basic authorization: basicAuth
-$Configuration.Username = "YOUR_USERNAME"
-$Configuration.Password = "YOUR_PASSWORD"
-
-# Configure API key authorization: cookieAuth
-$Configuration.ApiKey.sessionid = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.sessionid = "Bearer"
-
 $Limit = 56 # Int32 | Number of results to return per page. (optional)
 $Offset = 56 # Int32 | The initial index from which to return the results. (optional)
 $Q = "MyQ" # String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
 
+# List abilities
 try {
     $Result = Invoke-AbilityList -Limit $Limit -Offset $Offset -Q $Q
 } catch {
@@ -88,7 +78,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -102,25 +92,15 @@ Name | Type | Description  | Notes
 > AbilityDetail Invoke-AbilityRetrieve<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
 
-
+Get ability
 
 Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure HTTP basic authorization: basicAuth
-$Configuration.Username = "YOUR_USERNAME"
-$Configuration.Password = "YOUR_PASSWORD"
+$Id = "1" # String | This parameter can be a string or an integer.
 
-# Configure API key authorization: cookieAuth
-$Configuration.ApiKey.sessionid = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.sessionid = "Bearer"
-
-$Id = "MyId" # String | This parameter can be a string or an integer.
-
+# Get ability
 try {
     $Result = Invoke-AbilityRetrieve -Id $Id
 } catch {
@@ -141,7 +121,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -155,32 +135,19 @@ Name | Type | Description  | Notes
 > PaginatedCharacteristicSummaryList Invoke-CharacteristicList<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Q] <String><br>
 
-List charecterictics
+List characteristics
 
 Characteristics indicate which stat contains a Pokémon's highest IV. A Pokémon's Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure HTTP basic authorization: basicAuth
-$Configuration.Username = "YOUR_USERNAME"
-$Configuration.Password = "YOUR_PASSWORD"
-
-# Configure API key authorization: cookieAuth
-$Configuration.ApiKey.sessionid = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.sessionid = "Bearer"
-
 $Limit = 56 # Int32 | Number of results to return per page. (optional)
 $Offset = 56 # Int32 | The initial index from which to return the results. (optional)
-$Q = "MyQ" # String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
 
-# List charecterictics
+# List characteristics
 try {
-    $Result = Invoke-CharacteristicList -Limit $Limit -Offset $Offset -Q $Q
+    $Result = Invoke-CharacteristicList -Limit $Limit -Offset $Offset
 } catch {
     Write-Host ("Exception occurred when calling Invoke-CharacteristicList: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -193,7 +160,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **Limit** | **Int32**| Number of results to return per page. | [optional] 
  **Offset** | **Int32**| The initial index from which to return the results. | [optional] 
- **Q** | **String**| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional] 
 
 ### Return type
 
@@ -201,7 +167,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -221,18 +187,7 @@ Characteristics indicate which stat contains a Pokémon's highest IV. A Pokémon
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure HTTP basic authorization: basicAuth
-$Configuration.Username = "YOUR_USERNAME"
-$Configuration.Password = "YOUR_PASSWORD"
-
-# Configure API key authorization: cookieAuth
-$Configuration.ApiKey.sessionid = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.sessionid = "Bearer"
-
-$Id = "MyId" # String | This parameter can be a string or an integer.
+$Id = "1" # String | This parameter can be a string or an integer.
 
 # Get characteristic
 try {
@@ -255,7 +210,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -277,17 +232,6 @@ Egg Groups are categories which determine which Pokémon are able to interbreed.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure HTTP basic authorization: basicAuth
-$Configuration.Username = "YOUR_USERNAME"
-$Configuration.Password = "YOUR_PASSWORD"
-
-# Configure API key authorization: cookieAuth
-$Configuration.ApiKey.sessionid = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.sessionid = "Bearer"
-
 $Limit = 56 # Int32 | Number of results to return per page. (optional)
 $Offset = 56 # Int32 | The initial index from which to return the results. (optional)
 $Q = "MyQ" # String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
@@ -315,7 +259,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -335,18 +279,7 @@ Egg Groups are categories which determine which Pokémon are able to interbreed.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure HTTP basic authorization: basicAuth
-$Configuration.Username = "YOUR_USERNAME"
-$Configuration.Password = "YOUR_PASSWORD"
-
-# Configure API key authorization: cookieAuth
-$Configuration.ApiKey.sessionid = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.sessionid = "Bearer"
-
-$Id = "MyId" # String | This parameter can be a string or an integer.
+$Id = "1" # String | This parameter can be a string or an integer.
 
 # Get egg group
 try {
@@ -369,7 +302,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -391,17 +324,6 @@ Genders were introduced in Generation II for the purposes of breeding Pokémon b
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure HTTP basic authorization: basicAuth
-$Configuration.Username = "YOUR_USERNAME"
-$Configuration.Password = "YOUR_PASSWORD"
-
-# Configure API key authorization: cookieAuth
-$Configuration.ApiKey.sessionid = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.sessionid = "Bearer"
-
 $Limit = 56 # Int32 | Number of results to return per page. (optional)
 $Offset = 56 # Int32 | The initial index from which to return the results. (optional)
 $Q = "MyQ" # String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
@@ -429,7 +351,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -449,18 +371,7 @@ Genders were introduced in Generation II for the purposes of breeding Pokémon b
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure HTTP basic authorization: basicAuth
-$Configuration.Username = "YOUR_USERNAME"
-$Configuration.Password = "YOUR_PASSWORD"
-
-# Configure API key authorization: cookieAuth
-$Configuration.ApiKey.sessionid = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.sessionid = "Bearer"
-
-$Id = "MyId" # String | This parameter can be a string or an integer.
+$Id = "1" # String | This parameter can be a string or an integer.
 
 # Get gender
 try {
@@ -483,7 +394,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -505,17 +416,6 @@ Growth rates are the speed with which Pokémon gain levels through experience. C
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure HTTP basic authorization: basicAuth
-$Configuration.Username = "YOUR_USERNAME"
-$Configuration.Password = "YOUR_PASSWORD"
-
-# Configure API key authorization: cookieAuth
-$Configuration.ApiKey.sessionid = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.sessionid = "Bearer"
-
 $Limit = 56 # Int32 | Number of results to return per page. (optional)
 $Offset = 56 # Int32 | The initial index from which to return the results. (optional)
 $Q = "MyQ" # String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
@@ -543,7 +443,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -563,18 +463,7 @@ Growth rates are the speed with which Pokémon gain levels through experience. C
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure HTTP basic authorization: basicAuth
-$Configuration.Username = "YOUR_USERNAME"
-$Configuration.Password = "YOUR_PASSWORD"
-
-# Configure API key authorization: cookieAuth
-$Configuration.ApiKey.sessionid = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.sessionid = "Bearer"
-
-$Id = "MyId" # String | This parameter can be a string or an integer.
+$Id = "1" # String | This parameter can be a string or an integer.
 
 # Get growth rate
 try {
@@ -597,7 +486,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -619,17 +508,6 @@ Damage classes moves can have, e.g. physical, special, or non-damaging.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure HTTP basic authorization: basicAuth
-$Configuration.Username = "YOUR_USERNAME"
-$Configuration.Password = "YOUR_PASSWORD"
-
-# Configure API key authorization: cookieAuth
-$Configuration.ApiKey.sessionid = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.sessionid = "Bearer"
-
 $Limit = 56 # Int32 | Number of results to return per page. (optional)
 $Offset = 56 # Int32 | The initial index from which to return the results. (optional)
 $Q = "MyQ" # String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
@@ -657,7 +535,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -677,18 +555,7 @@ Damage classes moves can have, e.g. physical, special, or non-damaging.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure HTTP basic authorization: basicAuth
-$Configuration.Username = "YOUR_USERNAME"
-$Configuration.Password = "YOUR_PASSWORD"
-
-# Configure API key authorization: cookieAuth
-$Configuration.ApiKey.sessionid = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.sessionid = "Bearer"
-
-$Id = "MyId" # String | This parameter can be a string or an integer.
+$Id = "1" # String | This parameter can be a string or an integer.
 
 # Get move damage class
 try {
@@ -711,7 +578,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -733,17 +600,6 @@ Natures influence how a Pokémon's stats grow. See [Bulbapedia](http://bulbapedi
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure HTTP basic authorization: basicAuth
-$Configuration.Username = "YOUR_USERNAME"
-$Configuration.Password = "YOUR_PASSWORD"
-
-# Configure API key authorization: cookieAuth
-$Configuration.ApiKey.sessionid = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.sessionid = "Bearer"
-
 $Limit = 56 # Int32 | Number of results to return per page. (optional)
 $Offset = 56 # Int32 | The initial index from which to return the results. (optional)
 $Q = "MyQ" # String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
@@ -771,7 +627,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -791,18 +647,7 @@ Natures influence how a Pokémon's stats grow. See [Bulbapedia](http://bulbapedi
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure HTTP basic authorization: basicAuth
-$Configuration.Username = "YOUR_USERNAME"
-$Configuration.Password = "YOUR_PASSWORD"
-
-# Configure API key authorization: cookieAuth
-$Configuration.ApiKey.sessionid = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.sessionid = "Bearer"
-
-$Id = "MyId" # String | This parameter can be a string or an integer.
+$Id = "1" # String | This parameter can be a string or an integer.
 
 # Get nature
 try {
@@ -825,7 +670,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -847,17 +692,6 @@ Pokeathlon Stats are different attributes of a Pokémon's performance in Pokéat
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure HTTP basic authorization: basicAuth
-$Configuration.Username = "YOUR_USERNAME"
-$Configuration.Password = "YOUR_PASSWORD"
-
-# Configure API key authorization: cookieAuth
-$Configuration.ApiKey.sessionid = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.sessionid = "Bearer"
-
 $Limit = 56 # Int32 | Number of results to return per page. (optional)
 $Offset = 56 # Int32 | The initial index from which to return the results. (optional)
 $Q = "MyQ" # String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
@@ -885,7 +719,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -905,18 +739,7 @@ Pokeathlon Stats are different attributes of a Pokémon's performance in Pokéat
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure HTTP basic authorization: basicAuth
-$Configuration.Username = "YOUR_USERNAME"
-$Configuration.Password = "YOUR_PASSWORD"
-
-# Configure API key authorization: cookieAuth
-$Configuration.ApiKey.sessionid = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.sessionid = "Bearer"
-
-$Id = "MyId" # String | This parameter can be a string or an integer.
+$Id = "1" # String | This parameter can be a string or an integer.
 
 # Get pokeathlon stat
 try {
@@ -939,7 +762,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -961,17 +784,6 @@ Colors used for sorting Pokémon in a Pokédex. The color listed in the Pokédex
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure HTTP basic authorization: basicAuth
-$Configuration.Username = "YOUR_USERNAME"
-$Configuration.Password = "YOUR_PASSWORD"
-
-# Configure API key authorization: cookieAuth
-$Configuration.ApiKey.sessionid = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.sessionid = "Bearer"
-
 $Limit = 56 # Int32 | Number of results to return per page. (optional)
 $Offset = 56 # Int32 | The initial index from which to return the results. (optional)
 $Q = "MyQ" # String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
@@ -999,7 +811,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1019,18 +831,7 @@ Colors used for sorting Pokémon in a Pokédex. The color listed in the Pokédex
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure HTTP basic authorization: basicAuth
-$Configuration.Username = "YOUR_USERNAME"
-$Configuration.Password = "YOUR_PASSWORD"
-
-# Configure API key authorization: cookieAuth
-$Configuration.ApiKey.sessionid = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.sessionid = "Bearer"
-
-$Id = "MyId" # String | This parameter can be a string or an integer.
+$Id = "1" # String | This parameter can be a string or an integer.
 
 # Get pokemon color
 try {
@@ -1053,7 +854,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1075,17 +876,6 @@ Some Pokémon may appear in one of multiple, visually different forms. These dif
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure HTTP basic authorization: basicAuth
-$Configuration.Username = "YOUR_USERNAME"
-$Configuration.Password = "YOUR_PASSWORD"
-
-# Configure API key authorization: cookieAuth
-$Configuration.ApiKey.sessionid = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.sessionid = "Bearer"
-
 $Limit = 56 # Int32 | Number of results to return per page. (optional)
 $Offset = 56 # Int32 | The initial index from which to return the results. (optional)
 $Q = "MyQ" # String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
@@ -1113,7 +903,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1133,18 +923,7 @@ Some Pokémon may appear in one of multiple, visually different forms. These dif
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure HTTP basic authorization: basicAuth
-$Configuration.Username = "YOUR_USERNAME"
-$Configuration.Password = "YOUR_PASSWORD"
-
-# Configure API key authorization: cookieAuth
-$Configuration.ApiKey.sessionid = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.sessionid = "Bearer"
-
-$Id = "MyId" # String | This parameter can be a string or an integer.
+$Id = "1" # String | This parameter can be a string or an integer.
 
 # Get pokemon form
 try {
@@ -1167,7 +946,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1189,17 +968,6 @@ Habitats are generally different terrain Pokémon can be found in but can also b
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure HTTP basic authorization: basicAuth
-$Configuration.Username = "YOUR_USERNAME"
-$Configuration.Password = "YOUR_PASSWORD"
-
-# Configure API key authorization: cookieAuth
-$Configuration.ApiKey.sessionid = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.sessionid = "Bearer"
-
 $Limit = 56 # Int32 | Number of results to return per page. (optional)
 $Offset = 56 # Int32 | The initial index from which to return the results. (optional)
 $Q = "MyQ" # String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
@@ -1227,7 +995,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1247,18 +1015,7 @@ Habitats are generally different terrain Pokémon can be found in but can also b
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure HTTP basic authorization: basicAuth
-$Configuration.Username = "YOUR_USERNAME"
-$Configuration.Password = "YOUR_PASSWORD"
-
-# Configure API key authorization: cookieAuth
-$Configuration.ApiKey.sessionid = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.sessionid = "Bearer"
-
-$Id = "MyId" # String | This parameter can be a string or an integer.
+$Id = "1" # String | This parameter can be a string or an integer.
 
 # Get pokemom habita
 try {
@@ -1281,7 +1038,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1303,17 +1060,6 @@ Pokémon are the creatures that inhabit the world of the Pokémon games. They ca
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure HTTP basic authorization: basicAuth
-$Configuration.Username = "YOUR_USERNAME"
-$Configuration.Password = "YOUR_PASSWORD"
-
-# Configure API key authorization: cookieAuth
-$Configuration.ApiKey.sessionid = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.sessionid = "Bearer"
-
 $Limit = 56 # Int32 | Number of results to return per page. (optional)
 $Offset = 56 # Int32 | The initial index from which to return the results. (optional)
 $Q = "MyQ" # String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
@@ -1341,7 +1087,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1361,18 +1107,7 @@ Pokémon are the creatures that inhabit the world of the Pokémon games. They ca
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure HTTP basic authorization: basicAuth
-$Configuration.Username = "YOUR_USERNAME"
-$Configuration.Password = "YOUR_PASSWORD"
-
-# Configure API key authorization: cookieAuth
-$Configuration.ApiKey.sessionid = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.sessionid = "Bearer"
-
-$Id = "MyId" # String | This parameter can be a string or an integer.
+$Id = "1" # String | This parameter can be a string or an integer.
 
 # Get pokemon
 try {
@@ -1395,7 +1130,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1417,17 +1152,6 @@ Shapes used for sorting Pokémon in a Pokédex.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure HTTP basic authorization: basicAuth
-$Configuration.Username = "YOUR_USERNAME"
-$Configuration.Password = "YOUR_PASSWORD"
-
-# Configure API key authorization: cookieAuth
-$Configuration.ApiKey.sessionid = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.sessionid = "Bearer"
-
 $Limit = 56 # Int32 | Number of results to return per page. (optional)
 $Offset = 56 # Int32 | The initial index from which to return the results. (optional)
 $Q = "MyQ" # String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
@@ -1455,7 +1179,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1475,18 +1199,7 @@ Shapes used for sorting Pokémon in a Pokédex.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure HTTP basic authorization: basicAuth
-$Configuration.Username = "YOUR_USERNAME"
-$Configuration.Password = "YOUR_PASSWORD"
-
-# Configure API key authorization: cookieAuth
-$Configuration.ApiKey.sessionid = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.sessionid = "Bearer"
-
-$Id = "MyId" # String | This parameter can be a string or an integer.
+$Id = "1" # String | This parameter can be a string or an integer.
 
 # Get pokemon shape
 try {
@@ -1509,7 +1222,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1531,17 +1244,6 @@ A Pokémon Species forms the basis for at least one Pokémon. Attributes of a Po
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure HTTP basic authorization: basicAuth
-$Configuration.Username = "YOUR_USERNAME"
-$Configuration.Password = "YOUR_PASSWORD"
-
-# Configure API key authorization: cookieAuth
-$Configuration.ApiKey.sessionid = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.sessionid = "Bearer"
-
 $Limit = 56 # Int32 | Number of results to return per page. (optional)
 $Offset = 56 # Int32 | The initial index from which to return the results. (optional)
 $Q = "MyQ" # String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
@@ -1569,7 +1271,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1589,18 +1291,7 @@ A Pokémon Species forms the basis for at least one Pokémon. Attributes of a Po
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure HTTP basic authorization: basicAuth
-$Configuration.Username = "YOUR_USERNAME"
-$Configuration.Password = "YOUR_PASSWORD"
-
-# Configure API key authorization: cookieAuth
-$Configuration.ApiKey.sessionid = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.sessionid = "Bearer"
-
-$Id = "MyId" # String | This parameter can be a string or an integer.
+$Id = "1" # String | This parameter can be a string or an integer.
 
 # Get pokemon species
 try {
@@ -1623,7 +1314,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1645,17 +1336,6 @@ Stats determine certain aspects of battles. Each Pokémon has a value for each s
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure HTTP basic authorization: basicAuth
-$Configuration.Username = "YOUR_USERNAME"
-$Configuration.Password = "YOUR_PASSWORD"
-
-# Configure API key authorization: cookieAuth
-$Configuration.ApiKey.sessionid = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.sessionid = "Bearer"
-
 $Limit = 56 # Int32 | Number of results to return per page. (optional)
 $Offset = 56 # Int32 | The initial index from which to return the results. (optional)
 $Q = "MyQ" # String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
@@ -1683,7 +1363,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1703,18 +1383,7 @@ Stats determine certain aspects of battles. Each Pokémon has a value for each s
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure HTTP basic authorization: basicAuth
-$Configuration.Username = "YOUR_USERNAME"
-$Configuration.Password = "YOUR_PASSWORD"
-
-# Configure API key authorization: cookieAuth
-$Configuration.ApiKey.sessionid = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.sessionid = "Bearer"
-
-$Id = "MyId" # String | This parameter can be a string or an integer.
+$Id = "1" # String | This parameter can be a string or an integer.
 
 # Get stat
 try {
@@ -1737,7 +1406,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1759,17 +1428,6 @@ Types are properties for Pokémon and their moves. Each type has three propertie
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure HTTP basic authorization: basicAuth
-$Configuration.Username = "YOUR_USERNAME"
-$Configuration.Password = "YOUR_PASSWORD"
-
-# Configure API key authorization: cookieAuth
-$Configuration.ApiKey.sessionid = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.sessionid = "Bearer"
-
 $Limit = 56 # Int32 | Number of results to return per page. (optional)
 $Offset = 56 # Int32 | The initial index from which to return the results. (optional)
 $Q = "MyQ" # String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
@@ -1797,7 +1455,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1817,18 +1475,7 @@ Types are properties for Pokémon and their moves. Each type has three propertie
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure HTTP basic authorization: basicAuth
-$Configuration.Username = "YOUR_USERNAME"
-$Configuration.Password = "YOUR_PASSWORD"
-
-# Configure API key authorization: cookieAuth
-$Configuration.ApiKey.sessionid = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.sessionid = "Bearer"
-
-$Id = "MyId" # String | This parameter can be a string or an integer.
+$Id = "1" # String | This parameter can be a string or an integer.
 
 # Get types
 try {
@@ -1851,7 +1498,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

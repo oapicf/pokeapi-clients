@@ -21,7 +21,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("ContestTypeDetail")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-11-09T13:50:06.168269698Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class ContestTypeDetail   {
   private Integer id;
   private String name;
@@ -45,6 +45,7 @@ public class ContestTypeDetail   {
   }
 
   /**
+   * The identifier for this resource.
    **/
   public ContestTypeDetail id(Integer id) {
     this.id = id;
@@ -52,7 +53,7 @@ public class ContestTypeDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   @JsonProperty(required = true, value = "id")
   public Integer getId() {
     return id;
@@ -64,6 +65,7 @@ public class ContestTypeDetail   {
   }
 
   /**
+   * The name for this resource.
    **/
   public ContestTypeDetail name(String name) {
     this.name = name;
@@ -71,9 +73,9 @@ public class ContestTypeDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   @JsonProperty(required = true, value = "name")
-  @NotNull  @Size(max=100)public String getName() {
+  @NotNull  @Size(max=200)public String getName() {
     return name;
   }
 
@@ -83,6 +85,7 @@ public class ContestTypeDetail   {
   }
 
   /**
+   * The berry flavor that correlates with this contest type.
    **/
   public ContestTypeDetail berryFlavor(BerryFlavorSummary berryFlavor) {
     this.berryFlavor = berryFlavor;
@@ -90,7 +93,7 @@ public class ContestTypeDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The berry flavor that correlates with this contest type.")
   @JsonProperty(required = true, value = "berry_flavor")
   @Valid public BerryFlavorSummary getBerryFlavor() {
     return berryFlavor;
@@ -102,6 +105,7 @@ public class ContestTypeDetail   {
   }
 
   /**
+   * The name of this contest type listed in different languages.
    **/
   public ContestTypeDetail names(List<@Valid ContestTypeName> names) {
     this.names = names;
@@ -109,7 +113,7 @@ public class ContestTypeDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name of this contest type listed in different languages.")
   @JsonProperty(required = true, value = "names")
   public List<@Valid ContestTypeName> getNames() {
     return names;

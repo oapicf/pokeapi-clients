@@ -5,10 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **number** |  | [readonly] [default to undefined]
-**name** | **string** |  | [default to undefined]
-**order** | **number** |  | [optional] [default to undefined]
-**names** | [**Array&lt;EncounterMethodName&gt;**](EncounterMethodName.md) |  | [readonly] [default to undefined]
+**id** | **number** | The identifier for this resource. | [readonly] [default to undefined]
+**name** | **string** | The name for this resource. | [default to undefined]
+**order** | **number** | A good value for sorting. | [optional] [default to undefined]
+**names** | [**Array&lt;EncounterMethodName&gt;**](EncounterMethodName.md) | The name of this resource listed in different languages. | [readonly] [default to undefined]
 
 ## Example
 

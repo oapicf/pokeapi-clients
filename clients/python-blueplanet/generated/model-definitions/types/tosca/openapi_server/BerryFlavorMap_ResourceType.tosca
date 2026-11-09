@@ -1,0 +1,41 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server BerryFlavorMap"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a BerryFlavorMap"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  BerryFlavorSummary = openapi_server.resourceTypes.BerryFlavorSummary
+}
+resourceTypes {
+
+  BerryFlavorMap {
+    title = BerryFlavorMap
+    description = BerryFlavorMap
+    derivedFrom = Root
+    properties {
+        potency {
+          type =  integer
+          description = "How powerful the referenced flavor is for this berry."
+          optional = true
+        }
+        flavor {
+          type = BerryFlavorSummary
+          description = "The referenced berry flavor."
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  BerryFlavorMap {
+    title = BerryFlavorMap
+    description = BerryFlavorMap
+    implements = openapi_server.resourceTypes.BerryFlavorMap
+
+  }
+}

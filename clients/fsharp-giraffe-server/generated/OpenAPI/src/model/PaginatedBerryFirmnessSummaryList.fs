@@ -3,6 +3,7 @@ namespace OpenAPI.Model
 open System
 open System.Collections.Generic
 open OpenAPI.Model.BerryFirmnessSummary
+open OpenAPI.Model.string option
 
 module PaginatedBerryFirmnessSummaryList =
 
@@ -11,8 +12,8 @@ module PaginatedBerryFirmnessSummaryList =
 
   type PaginatedBerryFirmnessSummaryList = {
     Count : int;
-    Next : string;
-    Previous : string;
+    Next : string option;
+    Previous : string option;
     Results : BerryFirmnessSummary[];
   }
   //#endregion

@@ -21,8 +21,8 @@ public class ItemAttributeDescription   {
     /**
      * Create ItemAttributeDescription.
      *
-     * @param description description
-     * @param language language
+     * @param description The localized description for an API resource in a specific language.
+     * @param language The language this name is in.
      */
     public ItemAttributeDescription(
         String description, 
@@ -35,7 +35,7 @@ public class ItemAttributeDescription   {
 
 
     /**
-     * Get description
+     * The localized description for an API resource in a specific language.
      * @return description
      */
     public String getDescription() {
@@ -47,7 +47,7 @@ public class ItemAttributeDescription   {
     }
 
     /**
-     * Get language
+     * The language this name is in.
      * @return language
      */
     public LanguageSummary getLanguage() {

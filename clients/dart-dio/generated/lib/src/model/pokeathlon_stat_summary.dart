@@ -11,13 +11,15 @@ part 'pokeathlon_stat_summary.g.dart';
 /// PokeathlonStatSummary
 ///
 /// Properties:
-/// * [name] 
-/// * [url] 
+/// * [name] - The name of the referenced resource.
+/// * [url] - The URL of the referenced resource.
 @BuiltValue()
 abstract class PokeathlonStatSummary implements Built<PokeathlonStatSummary, PokeathlonStatSummaryBuilder> {
+  /// The name of the referenced resource.
   @BuiltValueField(wireName: r'name')
   String get name;
 
+  /// The URL of the referenced resource.
   @BuiltValueField(wireName: r'url')
   String get url;
 

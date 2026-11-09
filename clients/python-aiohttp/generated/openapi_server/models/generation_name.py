@@ -47,6 +47,7 @@ class GenerationName(Model):
     def name(self):
         """Gets the name of this GenerationName.
 
+        The localized name for an API resource in a specific language.
 
         :return: The name of this GenerationName.
         :rtype: str
@@ -57,14 +58,15 @@ class GenerationName(Model):
     def name(self, name):
         """Sets the name of this GenerationName.
 
+        The localized name for an API resource in a specific language.
 
         :param name: The name of this GenerationName.
         :type name: str
         """
         if name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")
-        if name is not None and len(name) > 100:
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `100`")
+        if name is not None and len(name) > 200:
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `200`")
 
         self._name = name
 
@@ -72,6 +74,7 @@ class GenerationName(Model):
     def language(self):
         """Gets the language of this GenerationName.
 
+        The language this name is in.
 
         :return: The language of this GenerationName.
         :rtype: LanguageSummary
@@ -82,6 +85,7 @@ class GenerationName(Model):
     def language(self, language):
         """Sets the language of this GenerationName.
 
+        The language this name is in.
 
         :param language: The language of this GenerationName.
         :type language: LanguageSummary

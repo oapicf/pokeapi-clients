@@ -23,7 +23,7 @@
 
 package org.openapitools.client.models
 
-import org.openapitools.client.models.PokeathlonStatDetailAffectingNatures
+import org.openapitools.client.models.PokeathlonStatAffectingNatures
 import org.openapitools.client.models.PokeathlonStatName
 
 import com.squareup.moshi.Json
@@ -32,24 +32,28 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param id 
- * @param name 
- * @param affectingNatures 
- * @param names 
+ * @param id The identifier for this resource.
+ * @param name The name for this resource.
+ * @param affectingNatures A detail of natures which affect this Pokéathlon stat positively or negatively.
+ * @param names The name of this resource listed in different languages.
  */
 
 
 data class PokeathlonStatDetail (
 
+    /* The identifier for this resource. */
     @Json(name = "id")
     val id: kotlin.Int,
 
+    /* The name for this resource. */
     @Json(name = "name")
     val name: kotlin.String,
 
+    /* A detail of natures which affect this Pokéathlon stat positively or negatively. */
     @Json(name = "affecting_natures")
-    val affectingNatures: PokeathlonStatDetailAffectingNatures,
+    val affectingNatures: PokeathlonStatAffectingNatures,
 
+    /* The name of this resource listed in different languages. */
     @Json(name = "names")
     val names: kotlin.collections.List<PokeathlonStatName>
 

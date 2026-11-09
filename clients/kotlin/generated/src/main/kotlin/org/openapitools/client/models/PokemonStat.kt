@@ -31,20 +31,23 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param baseStat 
- * @param effort 
- * @param stat 
+ * @param baseStat The base value of the stat.
+ * @param effort The effort points (EV) the Pokémon has in the stat.
+ * @param stat The stat the Pokémon has.
  */
 
 
 data class PokemonStat (
 
+    /* The base value of the stat. */
     @Json(name = "base_stat")
     val baseStat: kotlin.Int,
 
+    /* The effort points (EV) the Pokémon has in the stat. */
     @Json(name = "effort")
     val effort: kotlin.Int,
 
+    /* The stat the Pokémon has. */
     @Json(name = "stat")
     val stat: StatSummary
 

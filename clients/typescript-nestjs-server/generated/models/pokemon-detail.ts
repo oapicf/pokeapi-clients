@@ -1,37 +1,102 @@
-import { PokemonDetailPastAbilitiesInner } from './pokemon-detail-past-abilities-inner';
+import { PokemonMove } from './pokemon-move';
 import { PokemonStat } from './pokemon-stat';
-import { PokemonDetailCries } from './pokemon-detail-cries';
+import { PokemonAbility } from './pokemon-ability';
+import { PokemonHeldItemSummary } from './pokemon-held-item-summary';
+import { PokemonType } from './pokemon-type';
+import { PokemonPastType } from './pokemon-past-type';
+import { PokemonPastStat } from './pokemon-past-stat';
 import { PokemonGameIndex } from './pokemon-game-index';
-import { PokemonDetailHeldItems } from './pokemon-detail-held-items';
-import { PokemonDetailPastTypesInner } from './pokemon-detail-past-types-inner';
-import { PokemonDetailTypesInner } from './pokemon-detail-types-inner';
-import { PokemonDetailMovesInner } from './pokemon-detail-moves-inner';
-import { PokemonDetailSprites } from './pokemon-detail-sprites';
+import { PokemonPastAbility } from './pokemon-past-ability';
+import { PokemonCries } from './pokemon-cries';
 import { PokemonFormSummary } from './pokemon-form-summary';
+import { PokemonSprites } from './pokemon-sprites';
 import { PokemonSpeciesSummary } from './pokemon-species-summary';
-import { PokemonDetailAbilitiesInner } from './pokemon-detail-abilities-inner';
 
 
 export interface PokemonDetail { 
+  /**
+   * The identifier for this resource.
+   */
   readonly id: number;
+  /**
+   * The name for this resource.
+   */
   name: string;
+  /**
+   * The base experience gained for defeating this Pokémon.
+   */
   base_experience?: number | null;
+  /**
+   * The height of this Pokémon in decimetres.
+   */
   height?: number | null;
+  /**
+   * Set for exactly one Pokémon used as the default for each species.
+   */
   is_default?: boolean;
+  /**
+   * Order for sorting. Almost national order, except families are grouped together.
+   */
   order?: number | null;
+  /**
+   * The weight of this Pokémon in hectograms.
+   */
   weight?: number | null;
-  readonly abilities: Array<PokemonDetailAbilitiesInner>;
-  readonly past_abilities: Array<PokemonDetailPastAbilitiesInner>;
+  /**
+   * A list of abilities this Pokémon could potentially have.
+   */
+  readonly abilities: Array<PokemonAbility>;
+  /**
+   * A list of details showing abilities this pokémon had in previous generations
+   */
+  readonly past_abilities: Array<PokemonPastAbility>;
+  /**
+   * A list of forms this Pokémon can take on.
+   */
   readonly forms: Array<PokemonFormSummary>;
+  /**
+   * A list of game indices relevent to Pokémon item by generation.
+   */
   readonly game_indices: Array<PokemonGameIndex>;
-  held_items: PokemonDetailHeldItems;
+  /**
+   * A list of items this Pokémon may be holding when encountered.
+   */
+  readonly held_items: Array<PokemonHeldItemSummary>;
+  /**
+   * A link to a list of location areas, as well as encounter details pertaining to specific versions.
+   */
   readonly location_area_encounters: string;
-  readonly moves: Array<PokemonDetailMovesInner>;
+  /**
+   * A list of moves along with learn methods and level details pertaining to specific version groups.
+   */
+  readonly moves: Array<PokemonMove>;
+  /**
+   * The species this Pokémon belongs to.
+   */
   species: PokemonSpeciesSummary;
-  sprites: PokemonDetailSprites;
-  cries: PokemonDetailCries;
+  /**
+   * A set of sprites used to depict this Pokémon in the game. A visual representation of the various sprites can be found at <a href=\'https://github.com/PokeAPI/sprites#sprites\'>PokeAPI/sprites</a>
+   */
+  readonly sprites: PokemonSprites;
+  /**
+   * A set of cries used to depict this Pokémon in the game. A visual representation of the various cries can be found at <a href=\'https://github.com/PokeAPI/cries#cries\'>PokeAPI/cries</a>
+   */
+  readonly cries: PokemonCries;
+  /**
+   * A list of base stat values for this Pokémon.
+   */
   readonly stats: Array<PokemonStat>;
-  readonly types: Array<PokemonDetailTypesInner>;
-  readonly past_types: Array<PokemonDetailPastTypesInner>;
+  /**
+   * A list of details showing stats this pokémon had in previous generations
+   */
+  readonly past_stats: Array<PokemonPastStat>;
+  /**
+   * A list of details showing types this Pokémon has.
+   */
+  readonly types: Array<PokemonType>;
+  /**
+   * A list of details showing types this pokémon had in previous generations
+   */
+  readonly past_types: Array<PokemonPastType>;
 }
 

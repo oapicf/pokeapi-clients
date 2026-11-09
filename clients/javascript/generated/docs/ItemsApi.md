@@ -4,6 +4,8 @@ All URIs are relative to *https://pokeapi.co*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**currencyList**](ItemsApi.md#currencyList) | **GET** /api/v2/currency/ | List currencies
+[**currencyRetrieve**](ItemsApi.md#currencyRetrieve) | **GET** /api/v2/currency/{id}/ | Get currency
 [**itemAttributeList**](ItemsApi.md#itemAttributeList) | **GET** /api/v2/item-attribute/ | List item attributes
 [**itemAttributeRetrieve**](ItemsApi.md#itemAttributeRetrieve) | **GET** /api/v2/item-attribute/{id}/ | Get item attribute
 [**itemCategoryList**](ItemsApi.md#itemCategoryList) | **GET** /api/v2/item-category/ | List item categories
@@ -15,6 +17,102 @@ Method | HTTP request | Description
 [**itemPocketRetrieve**](ItemsApi.md#itemPocketRetrieve) | **GET** /api/v2/item-pocket/{id}/ | Get item pocket
 [**itemRetrieve**](ItemsApi.md#itemRetrieve) | **GET** /api/v2/item/{id}/ | Get item
 
+
+
+## currencyList
+
+> PaginatedCurrencySummaryList currencyList(opts)
+
+List currencies
+
+Currencies used to buy items.
+
+### Example
+
+```javascript
+import PokeapiClient from 'pokeapi-client';
+
+let apiInstance = new PokeapiClient.ItemsApi();
+let opts = {
+  'limit': 56, // Number | Number of results to return per page.
+  'offset': 56, // Number | The initial index from which to return the results.
+  'q': "q_example" // String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+};
+apiInstance.currencyList(opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | **Number**| Number of results to return per page. | [optional] 
+ **offset** | **Number**| The initial index from which to return the results. | [optional] 
+ **q** | **String**| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional] 
+
+### Return type
+
+[**PaginatedCurrencySummaryList**](PaginatedCurrencySummaryList.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## currencyRetrieve
+
+> CurrencyDetail currencyRetrieve(id)
+
+Get currency
+
+Currencies used to buy items.
+
+### Example
+
+```javascript
+import PokeapiClient from 'pokeapi-client';
+
+let apiInstance = new PokeapiClient.ItemsApi();
+let id = "1"; // String | This parameter can be a string or an integer.
+apiInstance.currencyRetrieve(id, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| This parameter can be a string or an integer. | 
+
+### Return type
+
+[**CurrencyDetail**](CurrencyDetail.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
 ## itemAttributeList
@@ -29,16 +127,6 @@ Item attributes define particular aspects of items, e.g.\&quot;usable in battle\
 
 ```javascript
 import PokeapiClient from 'pokeapi-client';
-let defaultClient = PokeapiClient.ApiClient.instance;
-// Configure HTTP basic authorization: basicAuth
-let basicAuth = defaultClient.authentications['basicAuth'];
-basicAuth.username = 'YOUR USERNAME';
-basicAuth.password = 'YOUR PASSWORD';
-// Configure API key authorization: cookieAuth
-let cookieAuth = defaultClient.authentications['cookieAuth'];
-cookieAuth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//cookieAuth.apiKeyPrefix = 'Token';
 
 let apiInstance = new PokeapiClient.ItemsApi();
 let opts = {
@@ -70,7 +158,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -90,19 +178,9 @@ Item attributes define particular aspects of items, e.g.\&quot;usable in battle\
 
 ```javascript
 import PokeapiClient from 'pokeapi-client';
-let defaultClient = PokeapiClient.ApiClient.instance;
-// Configure HTTP basic authorization: basicAuth
-let basicAuth = defaultClient.authentications['basicAuth'];
-basicAuth.username = 'YOUR USERNAME';
-basicAuth.password = 'YOUR PASSWORD';
-// Configure API key authorization: cookieAuth
-let cookieAuth = defaultClient.authentications['cookieAuth'];
-cookieAuth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//cookieAuth.apiKeyPrefix = 'Token';
 
 let apiInstance = new PokeapiClient.ItemsApi();
-let id = "id_example"; // String | This parameter can be a string or an integer.
+let id = "1"; // String | This parameter can be a string or an integer.
 apiInstance.itemAttributeRetrieve(id, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -125,7 +203,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -145,16 +223,6 @@ Item categories determine where items will be placed in the players bag.
 
 ```javascript
 import PokeapiClient from 'pokeapi-client';
-let defaultClient = PokeapiClient.ApiClient.instance;
-// Configure HTTP basic authorization: basicAuth
-let basicAuth = defaultClient.authentications['basicAuth'];
-basicAuth.username = 'YOUR USERNAME';
-basicAuth.password = 'YOUR PASSWORD';
-// Configure API key authorization: cookieAuth
-let cookieAuth = defaultClient.authentications['cookieAuth'];
-cookieAuth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//cookieAuth.apiKeyPrefix = 'Token';
 
 let apiInstance = new PokeapiClient.ItemsApi();
 let opts = {
@@ -186,7 +254,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -206,19 +274,9 @@ Item categories determine where items will be placed in the players bag.
 
 ```javascript
 import PokeapiClient from 'pokeapi-client';
-let defaultClient = PokeapiClient.ApiClient.instance;
-// Configure HTTP basic authorization: basicAuth
-let basicAuth = defaultClient.authentications['basicAuth'];
-basicAuth.username = 'YOUR USERNAME';
-basicAuth.password = 'YOUR PASSWORD';
-// Configure API key authorization: cookieAuth
-let cookieAuth = defaultClient.authentications['cookieAuth'];
-cookieAuth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//cookieAuth.apiKeyPrefix = 'Token';
 
 let apiInstance = new PokeapiClient.ItemsApi();
-let id = "id_example"; // String | This parameter can be a string or an integer.
+let id = "1"; // String | This parameter can be a string or an integer.
 apiInstance.itemCategoryRetrieve(id, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -241,7 +299,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -261,16 +319,6 @@ The various effects of the move\&quot;Fling\&quot; when used with different item
 
 ```javascript
 import PokeapiClient from 'pokeapi-client';
-let defaultClient = PokeapiClient.ApiClient.instance;
-// Configure HTTP basic authorization: basicAuth
-let basicAuth = defaultClient.authentications['basicAuth'];
-basicAuth.username = 'YOUR USERNAME';
-basicAuth.password = 'YOUR PASSWORD';
-// Configure API key authorization: cookieAuth
-let cookieAuth = defaultClient.authentications['cookieAuth'];
-cookieAuth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//cookieAuth.apiKeyPrefix = 'Token';
 
 let apiInstance = new PokeapiClient.ItemsApi();
 let opts = {
@@ -302,7 +350,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -322,19 +370,9 @@ The various effects of the move\&quot;Fling\&quot; when used with different item
 
 ```javascript
 import PokeapiClient from 'pokeapi-client';
-let defaultClient = PokeapiClient.ApiClient.instance;
-// Configure HTTP basic authorization: basicAuth
-let basicAuth = defaultClient.authentications['basicAuth'];
-basicAuth.username = 'YOUR USERNAME';
-basicAuth.password = 'YOUR PASSWORD';
-// Configure API key authorization: cookieAuth
-let cookieAuth = defaultClient.authentications['cookieAuth'];
-cookieAuth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//cookieAuth.apiKeyPrefix = 'Token';
 
 let apiInstance = new PokeapiClient.ItemsApi();
-let id = "id_example"; // String | This parameter can be a string or an integer.
+let id = "1"; // String | This parameter can be a string or an integer.
 apiInstance.itemFlingEffectRetrieve(id, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -357,7 +395,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -377,16 +415,6 @@ An item is an object in the games which the player can pick up, keep in their ba
 
 ```javascript
 import PokeapiClient from 'pokeapi-client';
-let defaultClient = PokeapiClient.ApiClient.instance;
-// Configure HTTP basic authorization: basicAuth
-let basicAuth = defaultClient.authentications['basicAuth'];
-basicAuth.username = 'YOUR USERNAME';
-basicAuth.password = 'YOUR PASSWORD';
-// Configure API key authorization: cookieAuth
-let cookieAuth = defaultClient.authentications['cookieAuth'];
-cookieAuth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//cookieAuth.apiKeyPrefix = 'Token';
 
 let apiInstance = new PokeapiClient.ItemsApi();
 let opts = {
@@ -418,7 +446,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -438,16 +466,6 @@ Pockets within the players bag used for storing items by category.
 
 ```javascript
 import PokeapiClient from 'pokeapi-client';
-let defaultClient = PokeapiClient.ApiClient.instance;
-// Configure HTTP basic authorization: basicAuth
-let basicAuth = defaultClient.authentications['basicAuth'];
-basicAuth.username = 'YOUR USERNAME';
-basicAuth.password = 'YOUR PASSWORD';
-// Configure API key authorization: cookieAuth
-let cookieAuth = defaultClient.authentications['cookieAuth'];
-cookieAuth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//cookieAuth.apiKeyPrefix = 'Token';
 
 let apiInstance = new PokeapiClient.ItemsApi();
 let opts = {
@@ -479,7 +497,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -499,19 +517,9 @@ Pockets within the players bag used for storing items by category.
 
 ```javascript
 import PokeapiClient from 'pokeapi-client';
-let defaultClient = PokeapiClient.ApiClient.instance;
-// Configure HTTP basic authorization: basicAuth
-let basicAuth = defaultClient.authentications['basicAuth'];
-basicAuth.username = 'YOUR USERNAME';
-basicAuth.password = 'YOUR PASSWORD';
-// Configure API key authorization: cookieAuth
-let cookieAuth = defaultClient.authentications['cookieAuth'];
-cookieAuth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//cookieAuth.apiKeyPrefix = 'Token';
 
 let apiInstance = new PokeapiClient.ItemsApi();
-let id = "id_example"; // String | This parameter can be a string or an integer.
+let id = "1"; // String | This parameter can be a string or an integer.
 apiInstance.itemPocketRetrieve(id, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -534,7 +542,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -554,19 +562,9 @@ An item is an object in the games which the player can pick up, keep in their ba
 
 ```javascript
 import PokeapiClient from 'pokeapi-client';
-let defaultClient = PokeapiClient.ApiClient.instance;
-// Configure HTTP basic authorization: basicAuth
-let basicAuth = defaultClient.authentications['basicAuth'];
-basicAuth.username = 'YOUR USERNAME';
-basicAuth.password = 'YOUR PASSWORD';
-// Configure API key authorization: cookieAuth
-let cookieAuth = defaultClient.authentications['cookieAuth'];
-cookieAuth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//cookieAuth.apiKeyPrefix = 'Token';
 
 let apiInstance = new PokeapiClient.ItemsApi();
-let id = "id_example"; // String | This parameter can be a string or an integer.
+let id = "1"; // String | This parameter can be a string or an integer.
 apiInstance.itemRetrieve(id, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -589,7 +587,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

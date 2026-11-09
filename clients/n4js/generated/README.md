@@ -1,6 +1,6 @@
 # Documentation for PokéAPI
 
-- API version: 2.7.0
+- API version: 2.10.0
 
 - Generator version: 7.26.0
 
@@ -18,7 +18,7 @@ All the Pokémon data you'll ever need in one place, easily accessible through a
  * 
  * This API will always be publicly available and will never require any extensive setup process to consume.
  * 
- * Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
+ * Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
 
   For more information, please visit [https://github.com/oapicf/pokeapi-clients](https://github.com/oapicf/pokeapi-clients)
 

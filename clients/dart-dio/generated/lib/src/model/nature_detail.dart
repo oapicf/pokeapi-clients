@@ -3,11 +3,10 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:openapi/src/model/nature_detail_pokeathlon_stat_changes_inner.dart';
-import 'package:openapi/src/model/berry_summary.dart';
 import 'package:openapi/src/model/berry_flavor_summary.dart';
 import 'package:openapi/src/model/nature_name.dart';
 import 'package:built_collection/built_collection.dart';
+import 'package:openapi/src/model/nature_pokeathlon_stat.dart';
 import 'package:openapi/src/model/stat_summary.dart';
 import 'package:openapi/src/model/nature_battle_style_preference.dart';
 import 'package:built_value/built_value.dart';
@@ -18,45 +17,50 @@ part 'nature_detail.g.dart';
 /// NatureDetail
 ///
 /// Properties:
-/// * [id] 
-/// * [name] 
-/// * [decreasedStat] 
-/// * [increasedStat] 
-/// * [likesFlavor] 
-/// * [hatesFlavor] 
-/// * [berries] 
-/// * [pokeathlonStatChanges] 
-/// * [moveBattleStylePreferences] 
-/// * [names] 
+/// * [id] - The identifier for this resource.
+/// * [name] - The name for this resource.
+/// * [decreasedStat] - The stat decreased by 10% in Pokémon with this nature.
+/// * [increasedStat] - The stat increased by 10% in Pokémon with this nature.
+/// * [likesFlavor] - The flavor liked by Pokémon with this nature.
+/// * [hatesFlavor] - The flavor hated by Pokémon with this nature.
+/// * [pokeathlonStatChanges] - A list of Pokéathlon stats this nature effects and how much it effects them.
+/// * [moveBattleStylePreferences] - A list of battle styles and how likely a Pokémon with this nature is to use them in the Battle Palace or Battle Tent.
+/// * [names] - The name of this resource listed in different languages.
 @BuiltValue()
 abstract class NatureDetail implements Built<NatureDetail, NatureDetailBuilder> {
+  /// The identifier for this resource.
   @BuiltValueField(wireName: r'id')
   int get id;
 
+  /// The name for this resource.
   @BuiltValueField(wireName: r'name')
   String get name;
 
+  /// The stat decreased by 10% in Pokémon with this nature.
   @BuiltValueField(wireName: r'decreased_stat')
-  StatSummary get decreasedStat;
+  StatSummary? get decreasedStat;
 
+  /// The stat increased by 10% in Pokémon with this nature.
   @BuiltValueField(wireName: r'increased_stat')
-  StatSummary get increasedStat;
+  StatSummary? get increasedStat;
 
+  /// The flavor liked by Pokémon with this nature.
   @BuiltValueField(wireName: r'likes_flavor')
-  BerryFlavorSummary get likesFlavor;
+  BerryFlavorSummary? get likesFlavor;
 
+  /// The flavor hated by Pokémon with this nature.
   @BuiltValueField(wireName: r'hates_flavor')
-  BerryFlavorSummary get hatesFlavor;
+  BerryFlavorSummary? get hatesFlavor;
 
-  @BuiltValueField(wireName: r'berries')
-  BuiltList<BerrySummary> get berries;
-
+  /// A list of Pokéathlon stats this nature effects and how much it effects them.
   @BuiltValueField(wireName: r'pokeathlon_stat_changes')
-  BuiltList<NatureDetailPokeathlonStatChangesInner> get pokeathlonStatChanges;
+  BuiltList<NaturePokeathlonStat> get pokeathlonStatChanges;
 
+  /// A list of battle styles and how likely a Pokémon with this nature is to use them in the Battle Palace or Battle Tent.
   @BuiltValueField(wireName: r'move_battle_style_preferences')
   BuiltList<NatureBattleStylePreference> get moveBattleStylePreferences;
 
+  /// The name of this resource listed in different languages.
   @BuiltValueField(wireName: r'names')
   BuiltList<NatureName> get names;
 
@@ -94,34 +98,29 @@ class _$NatureDetailSerializer implements PrimitiveSerializer<NatureDetail> {
       specifiedType: const FullType(String),
     );
     yield r'decreased_stat';
-    yield serializers.serialize(
+    yield object.decreasedStat == null ? null : serializers.serialize(
       object.decreasedStat,
-      specifiedType: const FullType(StatSummary),
+      specifiedType: const FullType.nullable(StatSummary),
     );
     yield r'increased_stat';
-    yield serializers.serialize(
+    yield object.increasedStat == null ? null : serializers.serialize(
       object.increasedStat,
-      specifiedType: const FullType(StatSummary),
+      specifiedType: const FullType.nullable(StatSummary),
     );
     yield r'likes_flavor';
-    yield serializers.serialize(
+    yield object.likesFlavor == null ? null : serializers.serialize(
       object.likesFlavor,
-      specifiedType: const FullType(BerryFlavorSummary),
+      specifiedType: const FullType.nullable(BerryFlavorSummary),
     );
     yield r'hates_flavor';
-    yield serializers.serialize(
+    yield object.hatesFlavor == null ? null : serializers.serialize(
       object.hatesFlavor,
-      specifiedType: const FullType(BerryFlavorSummary),
-    );
-    yield r'berries';
-    yield serializers.serialize(
-      object.berries,
-      specifiedType: const FullType(BuiltList, [FullType(BerrySummary)]),
+      specifiedType: const FullType.nullable(BerryFlavorSummary),
     );
     yield r'pokeathlon_stat_changes';
     yield serializers.serialize(
       object.pokeathlonStatChanges,
-      specifiedType: const FullType(BuiltList, [FullType(NatureDetailPokeathlonStatChangesInner)]),
+      specifiedType: const FullType(BuiltList, [FullType(NaturePokeathlonStat)]),
     );
     yield r'move_battle_style_preferences';
     yield serializers.serialize(
@@ -173,43 +172,40 @@ class _$NatureDetailSerializer implements PrimitiveSerializer<NatureDetail> {
         case r'decreased_stat':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(StatSummary),
-          ) as StatSummary;
+            specifiedType: const FullType.nullable(StatSummary),
+          ) as StatSummary?;
+          if (valueDes == null) continue;
           result.decreasedStat.replace(valueDes);
           break;
         case r'increased_stat':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(StatSummary),
-          ) as StatSummary;
+            specifiedType: const FullType.nullable(StatSummary),
+          ) as StatSummary?;
+          if (valueDes == null) continue;
           result.increasedStat.replace(valueDes);
           break;
         case r'likes_flavor':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BerryFlavorSummary),
-          ) as BerryFlavorSummary;
+            specifiedType: const FullType.nullable(BerryFlavorSummary),
+          ) as BerryFlavorSummary?;
+          if (valueDes == null) continue;
           result.likesFlavor.replace(valueDes);
           break;
         case r'hates_flavor':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BerryFlavorSummary),
-          ) as BerryFlavorSummary;
+            specifiedType: const FullType.nullable(BerryFlavorSummary),
+          ) as BerryFlavorSummary?;
+          if (valueDes == null) continue;
           result.hatesFlavor.replace(valueDes);
-          break;
-        case r'berries':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(BuiltList, [FullType(BerrySummary)]),
-          ) as BuiltList<BerrySummary>;
-          result.berries.replace(valueDes);
           break;
         case r'pokeathlon_stat_changes':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(NatureDetailPokeathlonStatChangesInner)]),
-          ) as BuiltList<NatureDetailPokeathlonStatChangesInner>;
+            specifiedType: const FullType(BuiltList, [FullType(NaturePokeathlonStat)]),
+          ) as BuiltList<NaturePokeathlonStat>;
           result.pokeathlonStatChanges.replace(valueDes);
           break;
         case r'move_battle_style_preferences':

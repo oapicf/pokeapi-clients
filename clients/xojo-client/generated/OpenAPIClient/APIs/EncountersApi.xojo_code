@@ -15,12 +15,6 @@ Protected Class EncountersApi
 		  // - Conditions which affect what pokemon might appear in the wild, e.g., day or night.
 		  // - defaultResponse: Nil
 		  //
-		  // - BASIC:
-		  //   - type: http
-		  //   - name: basicAuth
-		  // - API Key:
-		  //   - type: apiKey sessionid 
-		  //   - name: cookieAuth
 		  //
 		  
 		  Dim localVarHTTPSocket As New HTTPSecureSocket
@@ -34,10 +28,6 @@ Protected Class EncountersApi
 		  If q <> nil Then localVarQueryParams = localVarQueryParams + "&" + EncodeURLComponent("q") + "=" + EncodeURLComponent(q)
 		  
 
-		  
-		  AddHandler localVarHTTPSocket.AuthenticationRequired, addressof Me.AuthenticationRequiredIf me.ApiKeycookieAuth = "" Then Raise New OpenAPIClient.OpenAPIClientException(kErrorCannotAuthenticate, "API key is unset. Please assign a value to `EncountersApi.ApiKeycookieAuth` before invoking `EncountersApi.EncounterConditionList()`.")
-		  
-		  
 		  
 
 
@@ -157,20 +147,10 @@ Protected Class EncountersApi
 		  // - Conditions which affect what pokemon might appear in the wild, e.g., day or night.
 		  // - defaultResponse: Nil
 		  //
-		  // - BASIC:
-		  //   - type: http
-		  //   - name: basicAuth
-		  // - API Key:
-		  //   - type: apiKey sessionid 
-		  //   - name: cookieAuth
 		  //
 		  
 		  Dim localVarHTTPSocket As New HTTPSecureSocket
 		  Me.PrivateFuncPrepareSocket(localVarHTTPSocket)
-		  
-		  
-		  
-		  AddHandler localVarHTTPSocket.AuthenticationRequired, addressof Me.AuthenticationRequiredIf me.ApiKeycookieAuth = "" Then Raise New OpenAPIClient.OpenAPIClientException(kErrorCannotAuthenticate, "API key is unset. Please assign a value to `EncountersApi.ApiKeycookieAuth` before invoking `EncountersApi.EncounterConditionRetrieve()`.")
 		  
 		  
 		  
@@ -297,12 +277,6 @@ Protected Class EncountersApi
 		  // - Encounter condition values are the various states that an encounter condition can have, i.e., time of day can be either day or night.
 		  // - defaultResponse: Nil
 		  //
-		  // - BASIC:
-		  //   - type: http
-		  //   - name: basicAuth
-		  // - API Key:
-		  //   - type: apiKey sessionid 
-		  //   - name: cookieAuth
 		  //
 		  
 		  Dim localVarHTTPSocket As New HTTPSecureSocket
@@ -316,10 +290,6 @@ Protected Class EncountersApi
 		  If q <> nil Then localVarQueryParams = localVarQueryParams + "&" + EncodeURLComponent("q") + "=" + EncodeURLComponent(q)
 		  
 
-		  
-		  AddHandler localVarHTTPSocket.AuthenticationRequired, addressof Me.AuthenticationRequiredIf me.ApiKeycookieAuth = "" Then Raise New OpenAPIClient.OpenAPIClientException(kErrorCannotAuthenticate, "API key is unset. Please assign a value to `EncountersApi.ApiKeycookieAuth` before invoking `EncountersApi.EncounterConditionValueList()`.")
-		  
-		  
 		  
 
 
@@ -439,20 +409,10 @@ Protected Class EncountersApi
 		  // - Encounter condition values are the various states that an encounter condition can have, i.e., time of day can be either day or night.
 		  // - defaultResponse: Nil
 		  //
-		  // - BASIC:
-		  //   - type: http
-		  //   - name: basicAuth
-		  // - API Key:
-		  //   - type: apiKey sessionid 
-		  //   - name: cookieAuth
 		  //
 		  
 		  Dim localVarHTTPSocket As New HTTPSecureSocket
 		  Me.PrivateFuncPrepareSocket(localVarHTTPSocket)
-		  
-		  
-		  
-		  AddHandler localVarHTTPSocket.AuthenticationRequired, addressof Me.AuthenticationRequiredIf me.ApiKeycookieAuth = "" Then Raise New OpenAPIClient.OpenAPIClientException(kErrorCannotAuthenticate, "API key is unset. Please assign a value to `EncountersApi.ApiKeycookieAuth` before invoking `EncountersApi.EncounterConditionValueRetrieve()`.")
 		  
 		  
 		  
@@ -579,12 +539,6 @@ Protected Class EncountersApi
 		  // - Methods by which the player might can encounter Pokémon in the wild, e.g., walking in tall grass. Check out Bulbapedia for greater detail.
 		  // - defaultResponse: Nil
 		  //
-		  // - BASIC:
-		  //   - type: http
-		  //   - name: basicAuth
-		  // - API Key:
-		  //   - type: apiKey sessionid 
-		  //   - name: cookieAuth
 		  //
 		  
 		  Dim localVarHTTPSocket As New HTTPSecureSocket
@@ -598,10 +552,6 @@ Protected Class EncountersApi
 		  If q <> nil Then localVarQueryParams = localVarQueryParams + "&" + EncodeURLComponent("q") + "=" + EncodeURLComponent(q)
 		  
 
-		  
-		  AddHandler localVarHTTPSocket.AuthenticationRequired, addressof Me.AuthenticationRequiredIf me.ApiKeycookieAuth = "" Then Raise New OpenAPIClient.OpenAPIClientException(kErrorCannotAuthenticate, "API key is unset. Please assign a value to `EncountersApi.ApiKeycookieAuth` before invoking `EncountersApi.EncounterMethodList()`.")
-		  
-		  
 		  
 
 
@@ -721,20 +671,10 @@ Protected Class EncountersApi
 		  // - Methods by which the player might can encounter Pokémon in the wild, e.g., walking in tall grass. Check out Bulbapedia for greater detail.
 		  // - defaultResponse: Nil
 		  //
-		  // - BASIC:
-		  //   - type: http
-		  //   - name: basicAuth
-		  // - API Key:
-		  //   - type: apiKey sessionid 
-		  //   - name: cookieAuth
 		  //
 		  
 		  Dim localVarHTTPSocket As New HTTPSecureSocket
 		  Me.PrivateFuncPrepareSocket(localVarHTTPSocket)
-		  
-		  
-		  
-		  AddHandler localVarHTTPSocket.AuthenticationRequired, addressof Me.AuthenticationRequiredIf me.ApiKeycookieAuth = "" Then Raise New OpenAPIClient.OpenAPIClientException(kErrorCannotAuthenticate, "API key is unset. Please assign a value to `EncountersApi.ApiKeycookieAuth` before invoking `EncountersApi.EncounterMethodRetrieve()`.")
 		  
 		  
 		  
@@ -892,10 +832,6 @@ Protected Class EncountersApi
 
 	#tag Property, Flags = &h0
 		AdditionalHeaders As Dictionary
-	#tag EndProperty
-
-	#tag Property, Flags = &h0
-		ApiKeycookieAuth As String
 	#tag EndProperty
 
 	#tag Property, Flags = &h0

@@ -5,11 +5,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** |  | [readonly] 
-**name** | **str** |  | 
-**awesome_names** | [**List[PokemonShapeDetailAwesomeNamesInner]**](PokemonShapeDetailAwesomeNamesInner.md) |  | [readonly] 
-**names** | [**List[PokemonShapeDetailNamesInner]**](PokemonShapeDetailNamesInner.md) |  | [readonly] 
-**pokemon_species** | [**List[PokemonSpeciesSummary]**](PokemonSpeciesSummary.md) |  | [readonly] 
+**id** | **int** | The identifier for this resource. | [readonly] 
+**name** | **str** | The name for this resource. | 
+**awesome_names** | [**List[PokemonShapeAwesomeName]**](PokemonShapeAwesomeName.md) | The \&quot;scientific\&quot; name of this Pokémon shape listed in different languages. | [readonly] 
+**names** | [**List[PokemonShapeName]**](PokemonShapeName.md) | The name of this resource listed in different languages. | [readonly] 
+**pokemon_species** | [**List[PokemonSpeciesSummary]**](PokemonSpeciesSummary.md) | A list of the Pokémon species that have this shape. | [readonly] 
 
 ## Example
 

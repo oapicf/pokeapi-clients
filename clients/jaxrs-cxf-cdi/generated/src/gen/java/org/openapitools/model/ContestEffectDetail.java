@@ -31,6 +31,7 @@ public class ContestEffectDetail   {
   private List<@Valid ContestEffectFlavorText> flavorTextEntries = new ArrayList<>();
 
   /**
+   * The identifier for this resource.
    **/
   public ContestEffectDetail id(Integer id) {
     this.id = id;
@@ -38,7 +39,7 @@ public class ContestEffectDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   @JsonProperty("id")
   @NotNull
   public Integer getId() {
@@ -50,6 +51,9 @@ public class ContestEffectDetail   {
 
 
   /**
+   * The base number of hearts the user of this move gets.
+   * minimum: -2147483648
+   * maximum: 2147483647
    **/
   public ContestEffectDetail appeal(Integer appeal) {
     this.appeal = appeal;
@@ -57,10 +61,10 @@ public class ContestEffectDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The base number of hearts the user of this move gets.")
   @JsonProperty("appeal")
   @NotNull
-  public Integer getAppeal() {
+ @Min(-2147483648) @Max(2147483647)  public Integer getAppeal() {
     return appeal;
   }
   public void setAppeal(Integer appeal) {
@@ -69,6 +73,9 @@ public class ContestEffectDetail   {
 
 
   /**
+   * The base number of hearts the user&#39;s opponent loses.
+   * minimum: -2147483648
+   * maximum: 2147483647
    **/
   public ContestEffectDetail jam(Integer jam) {
     this.jam = jam;
@@ -76,10 +83,10 @@ public class ContestEffectDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The base number of hearts the user's opponent loses.")
   @JsonProperty("jam")
   @NotNull
-  public Integer getJam() {
+ @Min(-2147483648) @Max(2147483647)  public Integer getJam() {
     return jam;
   }
   public void setJam(Integer jam) {
@@ -88,6 +95,7 @@ public class ContestEffectDetail   {
 
 
   /**
+   * The result of this contest effect listed in different languages.
    **/
   public ContestEffectDetail effectEntries(List<@Valid ContestEffectEffectText> effectEntries) {
     this.effectEntries = effectEntries;
@@ -95,7 +103,7 @@ public class ContestEffectDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The result of this contest effect listed in different languages.")
   @JsonProperty("effect_entries")
   @NotNull
   public List<@Valid ContestEffectEffectText> getEffectEntries() {
@@ -115,6 +123,7 @@ public class ContestEffectDetail   {
 
 
   /**
+   * The flavor text of this contest effect listed in different languages.
    **/
   public ContestEffectDetail flavorTextEntries(List<@Valid ContestEffectFlavorText> flavorTextEntries) {
     this.flavorTextEntries = flavorTextEntries;
@@ -122,7 +131,7 @@ public class ContestEffectDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The flavor text of this contest effect listed in different languages.")
   @JsonProperty("flavor_text_entries")
   @NotNull
   public List<@Valid ContestEffectFlavorText> getFlavorTextEntries() {

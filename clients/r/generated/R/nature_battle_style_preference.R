@@ -7,9 +7,9 @@
 #' @title NatureBattleStylePreference
 #' @description NatureBattleStylePreference Class
 #' @format An \code{R6Class} generator object
-#' @field low_hp_preference  integer
-#' @field high_hp_preference  integer
-#' @field move_battle_style  \link{MoveBattleStyleSummary}
+#' @field low_hp_preference Chance of using the move, in percent, if HP is under one half. integer
+#' @field high_hp_preference Chance of using the move, in percent, if HP is over one half. integer
+#' @field move_battle_style The move battle style. \link{MoveBattleStyleSummary}
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -23,9 +23,9 @@ NatureBattleStylePreference <- R6::R6Class(
     #' @description
     #' Initialize a new NatureBattleStylePreference class.
     #'
-    #' @param low_hp_preference low_hp_preference
-    #' @param high_hp_preference high_hp_preference
-    #' @param move_battle_style move_battle_style
+    #' @param low_hp_preference Chance of using the move, in percent, if HP is under one half.
+    #' @param high_hp_preference Chance of using the move, in percent, if HP is over one half.
+    #' @param move_battle_style The move battle style.
     #' @param ... Other optional arguments.
     initialize = function(`low_hp_preference`, `high_hp_preference`, `move_battle_style`, ...) {
       if (!missing(`low_hp_preference`)) {
@@ -208,8 +208,22 @@ NatureBattleStylePreference <- R6::R6Class(
         return(FALSE)
       }
 
+      if (self$`low_hp_preference` > 2147483647) {
+        return(FALSE)
+      }
+      if (self$`low_hp_preference` < -2147483648) {
+        return(FALSE)
+      }
+
       # check if the required `high_hp_preference` is null
       if (is.null(self$`high_hp_preference`)) {
+        return(FALSE)
+      }
+
+      if (self$`high_hp_preference` > 2147483647) {
+        return(FALSE)
+      }
+      if (self$`high_hp_preference` < -2147483648) {
         return(FALSE)
       }
 
@@ -232,9 +246,23 @@ NatureBattleStylePreference <- R6::R6Class(
         invalid_fields["low_hp_preference"] <- "Non-nullable required field `low_hp_preference` cannot be null."
       }
 
+      if (self$`low_hp_preference` > 2147483647) {
+        invalid_fields["low_hp_preference"] <- "Invalid value for `low_hp_preference`, must be smaller than or equal to 2147483647."
+      }
+      if (self$`low_hp_preference` < -2147483648) {
+        invalid_fields["low_hp_preference"] <- "Invalid value for `low_hp_preference`, must be bigger than or equal to -2147483648."
+      }
+
       # check if the required `high_hp_preference` is null
       if (is.null(self$`high_hp_preference`)) {
         invalid_fields["high_hp_preference"] <- "Non-nullable required field `high_hp_preference` cannot be null."
+      }
+
+      if (self$`high_hp_preference` > 2147483647) {
+        invalid_fields["high_hp_preference"] <- "Invalid value for `high_hp_preference`, must be smaller than or equal to 2147483647."
+      }
+      if (self$`high_hp_preference` < -2147483648) {
+        invalid_fields["high_hp_preference"] <- "Invalid value for `high_hp_preference`, must be bigger than or equal to -2147483648."
       }
 
       # check if the required `move_battle_style` is null

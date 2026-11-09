@@ -14,20 +14,32 @@ import java.math.*;
 public class PokemonHabitatDetail implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * The identifier for this resource.
+   */
   @JsonProperty("id")
   private Integer id;
 
+  /**
+   * The name for this resource.
+   */
   @JsonProperty("name")
   private String name;
 
+  /**
+   * The name of this resource listed in different languages.
+   */
   @JsonProperty("names")
   private List<PokemonHabitatName> names = new ArrayList<>();
 
+  /**
+   * A list of the Pokémon species that can be found in this habitat.
+   */
   @JsonProperty("pokemon_species")
   private List<PokemonSpeciesSummary> pokemonSpecies = new ArrayList<>();
 
   /**
-   * 
+   * The identifier for this resource.
    * @return id
    */
   public Integer getId() {
@@ -39,7 +51,7 @@ public class PokemonHabitatDetail implements Serializable {
   }
 
   /**
-   * 
+   * The name for this resource.
    * @return name
    */
   public String getName() {
@@ -51,7 +63,7 @@ public class PokemonHabitatDetail implements Serializable {
   }
 
   /**
-   * 
+   * The name of this resource listed in different languages.
    * @return names
    */
   public List<PokemonHabitatName> getNames() {
@@ -63,7 +75,7 @@ public class PokemonHabitatDetail implements Serializable {
   }
 
   /**
-   * 
+   * A list of the Pokémon species that can be found in this habitat.
    * @return pokemonSpecies
    */
   public List<PokemonSpeciesSummary> getPokemonSpecies() {

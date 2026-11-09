@@ -7,25 +7,25 @@
     {
       "name": "id",
       "type": "int",
-      "doc": ""
+      "doc": "The identifier for this resource."
     },
     {
       "name": "name",
       "type": "string",
-      "doc": ""
+      "doc": "The name for this resource."
     },
     {
       "name": "damage_relations",
-      "type": "model.TypeDetailDamageRelations",
-      "doc": ""
+      "type": "model.TypeRelationships",
+      "doc": "A detail of how effective this type is toward others and vice versa."
     },
     {
       "name": "past_damage_relations",
       "type": {
         "type": "array",
-        "items": "model.TypeDetailPastDamageRelationsInner"
+        "items": "model.TypePastRelationships"
       },
-      "doc": ""
+      "doc": "A list of details of how effective this type was toward others and vice versa in previous generations"
     },
     {
       "name": "game_indices",
@@ -33,33 +33,33 @@
         "type": "array",
         "items": "model.TypeGameIndex"
       },
-      "doc": ""
+      "doc": "A list of game indices relevent to this item by generation."
     },
     {
       "name": "generation",
       "type": "model.GenerationSummary",
-      "doc": ""
+      "doc": "The generation this type was introduced in."
     },
     {
       "name": "move_damage_class",
       "type": "model.MoveDamageClassSummary",
-      "doc": ""
+      "doc": "The class of damage inflicted by this type."
     },
     {
       "name": "names",
       "type": {
         "type": "array",
-        "items": "model.AbilityName"
+        "items": "model.TypeName"
       },
-      "doc": ""
+      "doc": "The name of this resource listed in different languages."
     },
     {
       "name": "pokemon",
       "type": {
         "type": "array",
-        "items": "model.TypeDetailPokemonInner"
+        "items": "model.TypePokemon"
       },
-      "doc": ""
+      "doc": "A list of details of Pokémon that have this type."
     },
     {
       "name": "moves",
@@ -67,7 +67,7 @@
         "type": "array",
         "items": "model.MoveSummary"
       },
-      "doc": ""
+      "doc": "A list of moves that have this type."
     },
     {
       "name": "sprites",
@@ -75,7 +75,7 @@
         "type": "map",
         "items": "model.map"
       },
-      "doc": ""
+      "doc": "Type icons grouped by generation and game, with name_icon and symbol_icon URLs. Unavailable icons are null."
     }
   ]
 

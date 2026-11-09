@@ -8,7 +8,7 @@
 static pokeathlon_stat_detail_t *pokeathlon_stat_detail_create_internal(
     int *id,
     char *name,
-    pokeathlon_stat_detail_affecting_natures_t *affecting_natures,
+    pokeathlon_stat_affecting_natures_t *affecting_natures,
     list_t *names
     ) {
     pokeathlon_stat_detail_t *pokeathlon_stat_detail_local_var = malloc(sizeof(pokeathlon_stat_detail_t));
@@ -27,7 +27,7 @@ static pokeathlon_stat_detail_t *pokeathlon_stat_detail_create_internal(
 __attribute__((deprecated)) pokeathlon_stat_detail_t *pokeathlon_stat_detail_create(
     int *id,
     char *name,
-    pokeathlon_stat_detail_affecting_natures_t *affecting_natures,
+    pokeathlon_stat_affecting_natures_t *affecting_natures,
     list_t *names
     ) {
     int *id_copy = NULL;
@@ -65,7 +65,7 @@ void pokeathlon_stat_detail_free(pokeathlon_stat_detail_t *pokeathlon_stat_detai
         pokeathlon_stat_detail->name = NULL;
     }
     if (pokeathlon_stat_detail->affecting_natures) {
-        pokeathlon_stat_detail_affecting_natures_free(pokeathlon_stat_detail->affecting_natures);
+        pokeathlon_stat_affecting_natures_free(pokeathlon_stat_detail->affecting_natures);
         pokeathlon_stat_detail->affecting_natures = NULL;
     }
     if (pokeathlon_stat_detail->names) {
@@ -103,7 +103,7 @@ cJSON *pokeathlon_stat_detail_convertToJSON(pokeathlon_stat_detail_t *pokeathlon
     if (!pokeathlon_stat_detail->affecting_natures) {
         goto fail;
     }
-    cJSON *affecting_natures_local_JSON = pokeathlon_stat_detail_affecting_natures_convertToJSON(pokeathlon_stat_detail->affecting_natures);
+    cJSON *affecting_natures_local_JSON = pokeathlon_stat_affecting_natures_convertToJSON(pokeathlon_stat_detail->affecting_natures);
     if(affecting_natures_local_JSON == NULL) {
     goto fail; //model
     }
@@ -151,7 +151,7 @@ pokeathlon_stat_detail_t *pokeathlon_stat_detail_parseFromJSON(cJSON *pokeathlon
     char *name_local_str = NULL;
 
     // define the local variable for pokeathlon_stat_detail->affecting_natures
-    pokeathlon_stat_detail_affecting_natures_t *affecting_natures_local_nonprim = NULL;
+    pokeathlon_stat_affecting_natures_t *affecting_natures_local_nonprim = NULL;
 
     // define the local list for pokeathlon_stat_detail->names
     list_t *namesList = NULL;
@@ -202,7 +202,7 @@ pokeathlon_stat_detail_t *pokeathlon_stat_detail_parseFromJSON(cJSON *pokeathlon
     }
 
     
-    affecting_natures_local_nonprim = pokeathlon_stat_detail_affecting_natures_parseFromJSON(affecting_natures); //nonprimitive
+    affecting_natures_local_nonprim = pokeathlon_stat_affecting_natures_parseFromJSON(affecting_natures); //nonprimitive
 
     // pokeathlon_stat_detail->names
     cJSON *names = cJSON_GetObjectItemCaseSensitive(pokeathlon_stat_detailJSON, "names");
@@ -256,7 +256,7 @@ end:
         name_local_str = NULL;
     }
     if (affecting_natures_local_nonprim) {
-        pokeathlon_stat_detail_affecting_natures_free(affecting_natures_local_nonprim);
+        pokeathlon_stat_affecting_natures_free(affecting_natures_local_nonprim);
         affecting_natures_local_nonprim = NULL;
     }
     if (namesList) {

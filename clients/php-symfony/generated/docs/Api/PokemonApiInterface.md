@@ -4,9 +4,9 @@ All URIs are relative to *https://pokeapi.co*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**abilityList**](PokemonApiInterface.md#abilityList) | **GET** /api/v2/ability/ | 
-[**abilityRetrieve**](PokemonApiInterface.md#abilityRetrieve) | **GET** /api/v2/ability/{id}/ | 
-[**characteristicList**](PokemonApiInterface.md#characteristicList) | **GET** /api/v2/characteristic/ | List charecterictics
+[**abilityList**](PokemonApiInterface.md#abilityList) | **GET** /api/v2/ability/ | List abilities
+[**abilityRetrieve**](PokemonApiInterface.md#abilityRetrieve) | **GET** /api/v2/ability/{id}/ | Get ability
+[**characteristicList**](PokemonApiInterface.md#characteristicList) | **GET** /api/v2/characteristic/ | List characteristics
 [**characteristicRetrieve**](PokemonApiInterface.md#characteristicRetrieve) | **GET** /api/v2/characteristic/{id}/ | Get characteristic
 [**eggGroupList**](PokemonApiInterface.md#eggGroupList) | **GET** /api/v2/egg-group/ | List egg groups
 [**eggGroupRetrieve**](PokemonApiInterface.md#eggGroupRetrieve) | **GET** /api/v2/egg-group/{id}/ | Get egg group
@@ -52,7 +52,7 @@ services:
 ## **abilityList**
 > OpenAPI\Server\Model\PaginatedAbilitySummaryList abilityList($limit, $offset, $q)
 
-
+List abilities
 
 Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
 
@@ -67,14 +67,6 @@ use OpenAPI\Server\Api\PokemonApiInterface;
 
 class PokemonApi implements PokemonApiInterface
 {
-
-    /**
-     * Configure API key authorization: cookieAuth
-     */
-    public function setcookieAuth($apiKey)
-    {
-        // Retrieve logged in user from $apiKey ...
-    }
 
     // ...
 
@@ -104,7 +96,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -116,7 +108,7 @@ Name | Type | Description  | Notes
 ## **abilityRetrieve**
 > OpenAPI\Server\Model\AbilityDetail abilityRetrieve($id)
 
-
+Get ability
 
 Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
 
@@ -131,14 +123,6 @@ use OpenAPI\Server\Api\PokemonApiInterface;
 
 class PokemonApi implements PokemonApiInterface
 {
-
-    /**
-     * Configure API key authorization: cookieAuth
-     */
-    public function setcookieAuth($apiKey)
-    {
-        // Retrieve logged in user from $apiKey ...
-    }
 
     // ...
 
@@ -166,7 +150,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -176,9 +160,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 ## **characteristicList**
-> OpenAPI\Server\Model\PaginatedCharacteristicSummaryList characteristicList($limit, $offset, $q)
+> OpenAPI\Server\Model\PaginatedCharacteristicSummaryList characteristicList($limit, $offset)
 
-List charecterictics
+List characteristics
 
 Characteristics indicate which stat contains a Pokémon's highest IV. A Pokémon's Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail.
 
@@ -194,20 +178,12 @@ use OpenAPI\Server\Api\PokemonApiInterface;
 class PokemonApi implements PokemonApiInterface
 {
 
-    /**
-     * Configure API key authorization: cookieAuth
-     */
-    public function setcookieAuth($apiKey)
-    {
-        // Retrieve logged in user from $apiKey ...
-    }
-
     // ...
 
     /**
      * Implementation of PokemonApiInterface#characteristicList
      */
-    public function characteristicList(?int $limit, ?int $offset, ?string $q, int &$responseCode, array &$responseHeaders): array|object|null
+    public function characteristicList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }
@@ -222,7 +198,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
- **q** | **string**| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. | [optional]
 
 ### Return type
 
@@ -230,7 +205,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -258,14 +233,6 @@ use OpenAPI\Server\Api\PokemonApiInterface;
 class PokemonApi implements PokemonApiInterface
 {
 
-    /**
-     * Configure API key authorization: cookieAuth
-     */
-    public function setcookieAuth($apiKey)
-    {
-        // Retrieve logged in user from $apiKey ...
-    }
-
     // ...
 
     /**
@@ -292,7 +259,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -319,14 +286,6 @@ use OpenAPI\Server\Api\PokemonApiInterface;
 
 class PokemonApi implements PokemonApiInterface
 {
-
-    /**
-     * Configure API key authorization: cookieAuth
-     */
-    public function setcookieAuth($apiKey)
-    {
-        // Retrieve logged in user from $apiKey ...
-    }
 
     // ...
 
@@ -356,7 +315,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -384,14 +343,6 @@ use OpenAPI\Server\Api\PokemonApiInterface;
 class PokemonApi implements PokemonApiInterface
 {
 
-    /**
-     * Configure API key authorization: cookieAuth
-     */
-    public function setcookieAuth($apiKey)
-    {
-        // Retrieve logged in user from $apiKey ...
-    }
-
     // ...
 
     /**
@@ -418,7 +369,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -445,14 +396,6 @@ use OpenAPI\Server\Api\PokemonApiInterface;
 
 class PokemonApi implements PokemonApiInterface
 {
-
-    /**
-     * Configure API key authorization: cookieAuth
-     */
-    public function setcookieAuth($apiKey)
-    {
-        // Retrieve logged in user from $apiKey ...
-    }
 
     // ...
 
@@ -482,7 +425,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -510,14 +453,6 @@ use OpenAPI\Server\Api\PokemonApiInterface;
 class PokemonApi implements PokemonApiInterface
 {
 
-    /**
-     * Configure API key authorization: cookieAuth
-     */
-    public function setcookieAuth($apiKey)
-    {
-        // Retrieve logged in user from $apiKey ...
-    }
-
     // ...
 
     /**
@@ -544,7 +479,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -571,14 +506,6 @@ use OpenAPI\Server\Api\PokemonApiInterface;
 
 class PokemonApi implements PokemonApiInterface
 {
-
-    /**
-     * Configure API key authorization: cookieAuth
-     */
-    public function setcookieAuth($apiKey)
-    {
-        // Retrieve logged in user from $apiKey ...
-    }
 
     // ...
 
@@ -608,7 +535,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -636,14 +563,6 @@ use OpenAPI\Server\Api\PokemonApiInterface;
 class PokemonApi implements PokemonApiInterface
 {
 
-    /**
-     * Configure API key authorization: cookieAuth
-     */
-    public function setcookieAuth($apiKey)
-    {
-        // Retrieve logged in user from $apiKey ...
-    }
-
     // ...
 
     /**
@@ -670,7 +589,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -697,14 +616,6 @@ use OpenAPI\Server\Api\PokemonApiInterface;
 
 class PokemonApi implements PokemonApiInterface
 {
-
-    /**
-     * Configure API key authorization: cookieAuth
-     */
-    public function setcookieAuth($apiKey)
-    {
-        // Retrieve logged in user from $apiKey ...
-    }
 
     // ...
 
@@ -734,7 +645,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -762,14 +673,6 @@ use OpenAPI\Server\Api\PokemonApiInterface;
 class PokemonApi implements PokemonApiInterface
 {
 
-    /**
-     * Configure API key authorization: cookieAuth
-     */
-    public function setcookieAuth($apiKey)
-    {
-        // Retrieve logged in user from $apiKey ...
-    }
-
     // ...
 
     /**
@@ -796,7 +699,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -823,14 +726,6 @@ use OpenAPI\Server\Api\PokemonApiInterface;
 
 class PokemonApi implements PokemonApiInterface
 {
-
-    /**
-     * Configure API key authorization: cookieAuth
-     */
-    public function setcookieAuth($apiKey)
-    {
-        // Retrieve logged in user from $apiKey ...
-    }
 
     // ...
 
@@ -860,7 +755,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -888,14 +783,6 @@ use OpenAPI\Server\Api\PokemonApiInterface;
 class PokemonApi implements PokemonApiInterface
 {
 
-    /**
-     * Configure API key authorization: cookieAuth
-     */
-    public function setcookieAuth($apiKey)
-    {
-        // Retrieve logged in user from $apiKey ...
-    }
-
     // ...
 
     /**
@@ -922,7 +809,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -949,14 +836,6 @@ use OpenAPI\Server\Api\PokemonApiInterface;
 
 class PokemonApi implements PokemonApiInterface
 {
-
-    /**
-     * Configure API key authorization: cookieAuth
-     */
-    public function setcookieAuth($apiKey)
-    {
-        // Retrieve logged in user from $apiKey ...
-    }
 
     // ...
 
@@ -986,7 +865,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1014,14 +893,6 @@ use OpenAPI\Server\Api\PokemonApiInterface;
 class PokemonApi implements PokemonApiInterface
 {
 
-    /**
-     * Configure API key authorization: cookieAuth
-     */
-    public function setcookieAuth($apiKey)
-    {
-        // Retrieve logged in user from $apiKey ...
-    }
-
     // ...
 
     /**
@@ -1048,7 +919,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1075,14 +946,6 @@ use OpenAPI\Server\Api\PokemonApiInterface;
 
 class PokemonApi implements PokemonApiInterface
 {
-
-    /**
-     * Configure API key authorization: cookieAuth
-     */
-    public function setcookieAuth($apiKey)
-    {
-        // Retrieve logged in user from $apiKey ...
-    }
 
     // ...
 
@@ -1112,7 +975,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1140,14 +1003,6 @@ use OpenAPI\Server\Api\PokemonApiInterface;
 class PokemonApi implements PokemonApiInterface
 {
 
-    /**
-     * Configure API key authorization: cookieAuth
-     */
-    public function setcookieAuth($apiKey)
-    {
-        // Retrieve logged in user from $apiKey ...
-    }
-
     // ...
 
     /**
@@ -1174,7 +1029,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1201,14 +1056,6 @@ use OpenAPI\Server\Api\PokemonApiInterface;
 
 class PokemonApi implements PokemonApiInterface
 {
-
-    /**
-     * Configure API key authorization: cookieAuth
-     */
-    public function setcookieAuth($apiKey)
-    {
-        // Retrieve logged in user from $apiKey ...
-    }
 
     // ...
 
@@ -1238,7 +1085,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1266,14 +1113,6 @@ use OpenAPI\Server\Api\PokemonApiInterface;
 class PokemonApi implements PokemonApiInterface
 {
 
-    /**
-     * Configure API key authorization: cookieAuth
-     */
-    public function setcookieAuth($apiKey)
-    {
-        // Retrieve logged in user from $apiKey ...
-    }
-
     // ...
 
     /**
@@ -1300,7 +1139,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1327,14 +1166,6 @@ use OpenAPI\Server\Api\PokemonApiInterface;
 
 class PokemonApi implements PokemonApiInterface
 {
-
-    /**
-     * Configure API key authorization: cookieAuth
-     */
-    public function setcookieAuth($apiKey)
-    {
-        // Retrieve logged in user from $apiKey ...
-    }
 
     // ...
 
@@ -1364,7 +1195,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1392,14 +1223,6 @@ use OpenAPI\Server\Api\PokemonApiInterface;
 class PokemonApi implements PokemonApiInterface
 {
 
-    /**
-     * Configure API key authorization: cookieAuth
-     */
-    public function setcookieAuth($apiKey)
-    {
-        // Retrieve logged in user from $apiKey ...
-    }
-
     // ...
 
     /**
@@ -1426,7 +1249,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1453,14 +1276,6 @@ use OpenAPI\Server\Api\PokemonApiInterface;
 
 class PokemonApi implements PokemonApiInterface
 {
-
-    /**
-     * Configure API key authorization: cookieAuth
-     */
-    public function setcookieAuth($apiKey)
-    {
-        // Retrieve logged in user from $apiKey ...
-    }
 
     // ...
 
@@ -1490,7 +1305,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1518,14 +1333,6 @@ use OpenAPI\Server\Api\PokemonApiInterface;
 class PokemonApi implements PokemonApiInterface
 {
 
-    /**
-     * Configure API key authorization: cookieAuth
-     */
-    public function setcookieAuth($apiKey)
-    {
-        // Retrieve logged in user from $apiKey ...
-    }
-
     // ...
 
     /**
@@ -1552,7 +1359,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1579,14 +1386,6 @@ use OpenAPI\Server\Api\PokemonApiInterface;
 
 class PokemonApi implements PokemonApiInterface
 {
-
-    /**
-     * Configure API key authorization: cookieAuth
-     */
-    public function setcookieAuth($apiKey)
-    {
-        // Retrieve logged in user from $apiKey ...
-    }
 
     // ...
 
@@ -1616,7 +1415,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1644,14 +1443,6 @@ use OpenAPI\Server\Api\PokemonApiInterface;
 class PokemonApi implements PokemonApiInterface
 {
 
-    /**
-     * Configure API key authorization: cookieAuth
-     */
-    public function setcookieAuth($apiKey)
-    {
-        // Retrieve logged in user from $apiKey ...
-    }
-
     // ...
 
     /**
@@ -1678,7 +1469,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1705,14 +1496,6 @@ use OpenAPI\Server\Api\PokemonApiInterface;
 
 class PokemonApi implements PokemonApiInterface
 {
-
-    /**
-     * Configure API key authorization: cookieAuth
-     */
-    public function setcookieAuth($apiKey)
-    {
-        // Retrieve logged in user from $apiKey ...
-    }
 
     // ...
 
@@ -1742,7 +1525,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1770,14 +1553,6 @@ use OpenAPI\Server\Api\PokemonApiInterface;
 class PokemonApi implements PokemonApiInterface
 {
 
-    /**
-     * Configure API key authorization: cookieAuth
-     */
-    public function setcookieAuth($apiKey)
-    {
-        // Retrieve logged in user from $apiKey ...
-    }
-
     // ...
 
     /**
@@ -1804,7 +1579,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1831,14 +1606,6 @@ use OpenAPI\Server\Api\PokemonApiInterface;
 
 class PokemonApi implements PokemonApiInterface
 {
-
-    /**
-     * Configure API key authorization: cookieAuth
-     */
-    public function setcookieAuth($apiKey)
-    {
-        // Retrieve logged in user from $apiKey ...
-    }
 
     // ...
 
@@ -1868,7 +1635,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1896,14 +1663,6 @@ use OpenAPI\Server\Api\PokemonApiInterface;
 class PokemonApi implements PokemonApiInterface
 {
 
-    /**
-     * Configure API key authorization: cookieAuth
-     */
-    public function setcookieAuth($apiKey)
-    {
-        // Retrieve logged in user from $apiKey ...
-    }
-
     // ...
 
     /**
@@ -1930,7 +1689,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1957,14 +1716,6 @@ use OpenAPI\Server\Api\PokemonApiInterface;
 
 class PokemonApi implements PokemonApiInterface
 {
-
-    /**
-     * Configure API key authorization: cookieAuth
-     */
-    public function setcookieAuth($apiKey)
-    {
-        // Retrieve logged in user from $apiKey ...
-    }
 
     // ...
 
@@ -1994,7 +1745,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -2022,14 +1773,6 @@ use OpenAPI\Server\Api\PokemonApiInterface;
 class PokemonApi implements PokemonApiInterface
 {
 
-    /**
-     * Configure API key authorization: cookieAuth
-     */
-    public function setcookieAuth($apiKey)
-    {
-        // Retrieve logged in user from $apiKey ...
-    }
-
     // ...
 
     /**
@@ -2056,7 +1799,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

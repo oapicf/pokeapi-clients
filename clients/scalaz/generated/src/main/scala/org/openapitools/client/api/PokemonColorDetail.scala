@@ -12,10 +12,14 @@ import org.joda.time.DateTime
 import PokemonColorDetail._
 
 case class PokemonColorDetail (
+  /* The identifier for this resource. */
   id: Integer,
-name: String,
-names: List[PokemonColorName],
-pokemonSpecies: List[PokemonSpeciesSummary])
+/* The name for this resource. */
+  name: String,
+/* The name of this resource listed in different languages. */
+  names: List[PokemonColorName],
+/* A list of the Pokémon species that have this color. */
+  pokemonSpecies: List[PokemonSpeciesSummary])
 
 object PokemonColorDetail {
   import DateTimeCodecs._

@@ -12,7 +12,7 @@ EggGroupDetail::EggGroupDetail()
 : id(0)
 , name("")
 , names(std::vector<EggGroupName>())
-, pokemonSpecies(std::vector<EggGroupDetail_pokemon_species_inner>())
+, pokemonSpecies(std::vector<PokemonSpeciesSummary>())
 {
 }
 // =========================================
@@ -33,7 +33,7 @@ std::vector<EggGroupName> EggGroupDetail::getNames() const
 {
     return names;
 }
-std::vector<EggGroupDetail_pokemon_species_inner> EggGroupDetail::getPokemonSpecies() const
+std::vector<PokemonSpeciesSummary> EggGroupDetail::getPokemonSpecies() const
 {
     return pokemonSpecies;
 }
@@ -53,7 +53,7 @@ void EggGroupDetail::setNames(const std::vector<EggGroupName>& namesObj)
 {
     names = namesObj;
 }
-void EggGroupDetail::setPokemonSpecies(const std::vector<EggGroupDetail_pokemon_species_inner>& pokemonSpeciesObj)
+void EggGroupDetail::setPokemonSpecies(const std::vector<PokemonSpeciesSummary>& pokemonSpeciesObj)
 {
     pokemonSpecies = pokemonSpeciesObj;
 }

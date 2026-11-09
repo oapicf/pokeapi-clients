@@ -46,18 +46,18 @@ public:
 	 */
 	void fromJson(char* jsonStr);
 
-	/*! \brief Get 
+	/*! \brief Get The localized flavor text for an API resource in a specific language.
 	 */
 	std::string getFlavorText();
 
-	/*! \brief Set 
+	/*! \brief Set The localized flavor text for an API resource in a specific language.
 	 */
 	void setFlavorText(std::string  flavor_text);
-	/*! \brief Get 
+	/*! \brief Get The language this name is in.
 	 */
 	LanguageSummary getLanguage();
 
-	/*! \brief Set 
+	/*! \brief Set The language this name is in.
 	 */
 	void setLanguage(LanguageSummary  language);
 

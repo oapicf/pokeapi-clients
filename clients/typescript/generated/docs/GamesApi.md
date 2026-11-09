@@ -58,7 +58,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](README.md#basicAuth), [cookieAuth](README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -90,7 +90,7 @@ const apiInstance = new GamesApi(configuration);
 
 const request: GamesApiGenerationRetrieveRequest = {
     // This parameter can be a string or an integer.
-  id: "id_example",
+  id: "1",
 };
 
 const data = await apiInstance.generationRetrieve(request);
@@ -111,7 +111,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](README.md#basicAuth), [cookieAuth](README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -170,7 +170,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](README.md#basicAuth), [cookieAuth](README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -202,7 +202,7 @@ const apiInstance = new GamesApi(configuration);
 
 const request: GamesApiPokedexRetrieveRequest = {
     // This parameter can be a string or an integer.
-  id: "id_example",
+  id: "1",
 };
 
 const data = await apiInstance.pokedexRetrieve(request);
@@ -223,7 +223,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](README.md#basicAuth), [cookieAuth](README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -282,7 +282,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](README.md#basicAuth), [cookieAuth](README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -314,7 +314,7 @@ const apiInstance = new GamesApi(configuration);
 
 const request: GamesApiVersionGroupRetrieveRequest = {
     // This parameter can be a string or an integer.
-  id: "id_example",
+  id: "1",
 };
 
 const data = await apiInstance.versionGroupRetrieve(request);
@@ -335,7 +335,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](README.md#basicAuth), [cookieAuth](README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -394,7 +394,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](README.md#basicAuth), [cookieAuth](README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -426,7 +426,7 @@ const apiInstance = new GamesApi(configuration);
 
 const request: GamesApiVersionRetrieveRequest = {
     // This parameter can be a string or an integer.
-  id: "id_example",
+  id: "1",
 };
 
 const data = await apiInstance.versionRetrieve(request);
@@ -447,7 +447,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](README.md#basicAuth), [cookieAuth](README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

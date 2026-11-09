@@ -64,18 +64,7 @@ class MovesApi {
         ...?headers,
       },
       extra: <String, dynamic>{
-        'secure': <Map<String, String>>[
-          {
-            'type': 'http',
-            'scheme': 'basic',
-            'name': 'basicAuth',
-          },{
-            'type': 'apiKey',
-            'name': 'cookieAuth',
-            'keyName': 'sessionid',
-            'where': '',
-          },
-        ],
+        'secure': <Map<String, String>>[],
         ...?extra,
       },
       validateStatus: validateStatus,
@@ -157,18 +146,7 @@ class MovesApi {
         ...?headers,
       },
       extra: <String, dynamic>{
-        'secure': <Map<String, String>>[
-          {
-            'type': 'http',
-            'scheme': 'basic',
-            'name': 'basicAuth',
-          },{
-            'type': 'apiKey',
-            'name': 'cookieAuth',
-            'keyName': 'sessionid',
-            'where': '',
-          },
-        ],
+        'secure': <Map<String, String>>[],
         ...?extra,
       },
       validateStatus: validateStatus,
@@ -247,18 +225,7 @@ class MovesApi {
         ...?headers,
       },
       extra: <String, dynamic>{
-        'secure': <Map<String, String>>[
-          {
-            'type': 'http',
-            'scheme': 'basic',
-            'name': 'basicAuth',
-          },{
-            'type': 'apiKey',
-            'name': 'cookieAuth',
-            'keyName': 'sessionid',
-            'where': '',
-          },
-        ],
+        'secure': <Map<String, String>>[],
         ...?extra,
       },
       validateStatus: validateStatus,
@@ -340,18 +307,7 @@ class MovesApi {
         ...?headers,
       },
       extra: <String, dynamic>{
-        'secure': <Map<String, String>>[
-          {
-            'type': 'http',
-            'scheme': 'basic',
-            'name': 'basicAuth',
-          },{
-            'type': 'apiKey',
-            'name': 'cookieAuth',
-            'keyName': 'sessionid',
-            'where': '',
-          },
-        ],
+        'secure': <Map<String, String>>[],
         ...?extra,
       },
       validateStatus: validateStatus,
@@ -430,18 +386,7 @@ class MovesApi {
         ...?headers,
       },
       extra: <String, dynamic>{
-        'secure': <Map<String, String>>[
-          {
-            'type': 'http',
-            'scheme': 'basic',
-            'name': 'basicAuth',
-          },{
-            'type': 'apiKey',
-            'name': 'cookieAuth',
-            'keyName': 'sessionid',
-            'where': '',
-          },
-        ],
+        'secure': <Map<String, String>>[],
         ...?extra,
       },
       validateStatus: validateStatus,
@@ -523,18 +468,7 @@ class MovesApi {
         ...?headers,
       },
       extra: <String, dynamic>{
-        'secure': <Map<String, String>>[
-          {
-            'type': 'http',
-            'scheme': 'basic',
-            'name': 'basicAuth',
-          },{
-            'type': 'apiKey',
-            'name': 'cookieAuth',
-            'keyName': 'sessionid',
-            'where': '',
-          },
-        ],
+        'secure': <Map<String, String>>[],
         ...?extra,
       },
       validateStatus: validateStatus,
@@ -613,18 +547,7 @@ class MovesApi {
         ...?headers,
       },
       extra: <String, dynamic>{
-        'secure': <Map<String, String>>[
-          {
-            'type': 'http',
-            'scheme': 'basic',
-            'name': 'basicAuth',
-          },{
-            'type': 'apiKey',
-            'name': 'cookieAuth',
-            'keyName': 'sessionid',
-            'where': '',
-          },
-        ],
+        'secure': <Map<String, String>>[],
         ...?extra,
       },
       validateStatus: validateStatus,
@@ -706,18 +629,7 @@ class MovesApi {
         ...?headers,
       },
       extra: <String, dynamic>{
-        'secure': <Map<String, String>>[
-          {
-            'type': 'http',
-            'scheme': 'basic',
-            'name': 'basicAuth',
-          },{
-            'type': 'apiKey',
-            'name': 'cookieAuth',
-            'keyName': 'sessionid',
-            'where': '',
-          },
-        ],
+        'secure': <Map<String, String>>[],
         ...?extra,
       },
       validateStatus: validateStatus,
@@ -796,18 +708,7 @@ class MovesApi {
         ...?headers,
       },
       extra: <String, dynamic>{
-        'secure': <Map<String, String>>[
-          {
-            'type': 'http',
-            'scheme': 'basic',
-            'name': 'basicAuth',
-          },{
-            'type': 'apiKey',
-            'name': 'cookieAuth',
-            'keyName': 'sessionid',
-            'where': '',
-          },
-        ],
+        'secure': <Map<String, String>>[],
         ...?extra,
       },
       validateStatus: validateStatus,
@@ -889,18 +790,7 @@ class MovesApi {
         ...?headers,
       },
       extra: <String, dynamic>{
-        'secure': <Map<String, String>>[
-          {
-            'type': 'http',
-            'scheme': 'basic',
-            'name': 'basicAuth',
-          },{
-            'type': 'apiKey',
-            'name': 'cookieAuth',
-            'keyName': 'sessionid',
-            'where': '',
-          },
-        ],
+        'secure': <Map<String, String>>[],
         ...?extra,
       },
       validateStatus: validateStatus,
@@ -979,18 +869,7 @@ class MovesApi {
         ...?headers,
       },
       extra: <String, dynamic>{
-        'secure': <Map<String, String>>[
-          {
-            'type': 'http',
-            'scheme': 'basic',
-            'name': 'basicAuth',
-          },{
-            'type': 'apiKey',
-            'name': 'cookieAuth',
-            'keyName': 'sessionid',
-            'where': '',
-          },
-        ],
+        'secure': <Map<String, String>>[],
         ...?extra,
       },
       validateStatus: validateStatus,
@@ -1072,18 +951,7 @@ class MovesApi {
         ...?headers,
       },
       extra: <String, dynamic>{
-        'secure': <Map<String, String>>[
-          {
-            'type': 'http',
-            'scheme': 'basic',
-            'name': 'basicAuth',
-          },{
-            'type': 'apiKey',
-            'name': 'cookieAuth',
-            'keyName': 'sessionid',
-            'where': '',
-          },
-        ],
+        'secure': <Map<String, String>>[],
         ...?extra,
       },
       validateStatus: validateStatus,

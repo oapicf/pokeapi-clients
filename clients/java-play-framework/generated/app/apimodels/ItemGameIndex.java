@@ -10,11 +10,13 @@ import javax.validation.Valid;
 /**
  * ItemGameIndex
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-10-25T05:48:13.486809836Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-11-09T13:49:31.462302702Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class ItemGameIndex   {
   @JsonProperty("game_index")
   @NotNull
+@Min(-2147483648)
+@Max(2147483647)
 
   private Integer gameIndex;
 
@@ -30,7 +32,9 @@ public class ItemGameIndex   {
   }
 
    /**
-   * Get gameIndex
+   * The internal id of an API resource within game data.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return gameIndex
   **/
   public Integer getGameIndex() {
@@ -47,7 +51,7 @@ public class ItemGameIndex   {
   }
 
    /**
-   * Get generation
+   * The generation relevent to this game index.
    * @return generation
   **/
   public GenerationSummary getGeneration() {

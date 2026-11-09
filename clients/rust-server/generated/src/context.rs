@@ -102,13 +102,6 @@ impl<T, A, B, C, ReqBody> Service<Request<ReqBody>> for AddContext<T, A>
         let context = A::default().push(XSpanIdString::get_or_generate(&request));
         let headers = request.headers();
 
-        {
-            if let Some(auth @ AuthData::Basic(..)) = swagger::auth::from_headers(headers) {
-                let context = context.push(Some(auth));
-
-                return self.inner.call((request, context))
-            }
-        }
 
         let context = context.push(None::<AuthData>);
 

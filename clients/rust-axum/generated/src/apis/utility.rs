@@ -26,6 +26,15 @@ pub enum LanguageRetrieveResponse {
     (models::LanguageDetail)
 }
 
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+#[must_use]
+#[allow(clippy::large_enum_variant)]
+pub enum MetaRetrieveResponse {
+
+    Status200
+    (models::PokeapiMetaResponse)
+}
+
 
 
 
@@ -33,8 +42,6 @@ pub enum LanguageRetrieveResponse {
 #[async_trait]
 #[allow(clippy::ptr_arg)]
 pub trait Utility<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorHandler<E> {
-    type Claims;
-
     /// List languages.
     ///
     /// LanguageList - GET /api/v2/language/
@@ -44,7 +51,6 @@ pub trait Utility<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Error
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       query_params: &models::LanguageListQueryParams,
     ) -> Result<LanguageListResponse, E>;
 
@@ -57,7 +63,17 @@ pub trait Utility<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Error
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       path_params: &models::LanguageRetrievePathParams,
     ) -> Result<LanguageRetrieveResponse, E>;
+
+    /// Get API metadata.
+    ///
+    /// MetaRetrieve - GET /api/v2/meta/
+    async fn meta_retrieve(
+    &self,
+    
+    method: &Method,
+    host: &Host,
+    cookies: &CookieJar,
+    ) -> Result<MetaRetrieveResponse, E>;
 }

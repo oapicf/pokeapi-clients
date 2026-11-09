@@ -3,10 +3,10 @@ namespace OpenAPI.Model
 open System
 open System.Collections.Generic
 open OpenAPI.Model.AbilityChange
-open OpenAPI.Model.AbilityDetailPokemonInner
 open OpenAPI.Model.AbilityEffectText
 open OpenAPI.Model.AbilityFlavorText
 open OpenAPI.Model.AbilityName
+open OpenAPI.Model.AbilityPokemonDetail
 open OpenAPI.Model.GenerationSummary
 
 module AbilityDetail =
@@ -23,6 +23,6 @@ module AbilityDetail =
     EffectEntries : AbilityEffectText[];
     EffectChanges : AbilityChange[];
     FlavorTextEntries : AbilityFlavorText[];
-    Pokemon : AbilityDetailPokemonInner[];
+    Pokemon : AbilityPokemonDetail[];
   }
   //#endregion

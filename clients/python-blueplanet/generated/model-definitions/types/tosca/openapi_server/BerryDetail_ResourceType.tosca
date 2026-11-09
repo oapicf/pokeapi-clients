@@ -7,8 +7,8 @@ authors     = ["F. Bar (foo@bar.baz)"]
 
 imports {
   Root = tosca.resourceTypes.Root
-  BerryDetailFlavorsInner = openapi_server.resourceTypes.BerryDetailFlavorsInner
   BerryFirmnessSummary = openapi_server.resourceTypes.BerryFirmnessSummary
+  BerryFlavorMap = openapi_server.resourceTypes.BerryFlavorMap
   ItemSummary = openapi_server.resourceTypes.ItemSummary
   TypeSummary = openapi_server.resourceTypes.TypeSummary
 }
@@ -21,63 +21,63 @@ resourceTypes {
     properties {
         id {
           type =  integer
-          description = ""
+          description = "The identifier for this resource."
           optional = true
         }
         name {
           type =  string
-          description = ""
+          description = "The name for this resource."
           optional = true
         }
         growth_time {
           type =  integer
-          description = ""
-          optional = true
+          description = "Time it takes the tree to grow one stage, in hours. Berry trees go through four of these growth stages before they can be picked."
+          optional = false
         }
         max_harvest {
           type =  integer
-          description = ""
-          optional = true
+          description = "The maximum number of these berries that can grow on one tree in Generation IV."
+          optional = false
         }
         natural_gift_power {
           type =  integer
-          description = ""
-          optional = true
+          description = "The power of the move \&quot;Natural Gift\&quot; when used with this Berry."
+          optional = false
         }
         size {
           type =  integer
-          description = ""
-          optional = true
+          description = "The size of this Berry, in millimeters."
+          optional = false
         }
         smoothness {
           type =  integer
-          description = ""
-          optional = true
+          description = "The smoothness of this Berry, used in making Pokéblocks or Poffins."
+          optional = false
         }
         soil_dryness {
           type =  integer
-          description = ""
-          optional = true
+          description = "The speed at which this Berry dries out the soil as it grows. A higher rate means the soil dries more quickly."
+          optional = false
         }
         firmness {
           type = BerryFirmnessSummary
-          description = ""
+          description = "The firmness of this berry, used in making Pokéblocks or Poffins."
           optional = true
         }
         flavors {
           type = array
-          items.type = BerryDetailFlavorsInner
-          description = ""
+          items.type = BerryFlavorMap
+          description = "A list of references to each flavor a berry can have and the potency of each of those flavors in regard to this berry."
           optional = true
         }
         item {
           type = ItemSummary
-          description = ""
+          description = "Berries are actually items. This is a reference to the item specific data for this berry."
           optional = true
         }
         natural_gift_type {
           type = TypeSummary
-          description = ""
+          description = "The type inherited by \&quot;Natural Gift\&quot; when used with this Berry."
           optional = true
         }
     }

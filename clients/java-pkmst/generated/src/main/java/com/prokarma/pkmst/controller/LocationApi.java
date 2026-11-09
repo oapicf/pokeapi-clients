@@ -26,16 +26,11 @@ import java.util.List;
  * @author pkmst
  *
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-10-25T05:48:09.645019047Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-11-09T13:49:28.343088631Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 @Api(value = "Location", description = "the Location API")
 public interface LocationApi {
 
-    @ApiOperation(value = "List location areas", notes = "Location areas are sections of areas, such as floors in a building or cave. Each area has its own set of possible Pokémon encounters.", response = PaginatedLocationAreaSummaryList.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "location", })
+    @ApiOperation(value = "List location areas", notes = "Location areas are sections of areas, such as floors in a building or cave. Each area has its own set of possible Pokémon encounters.", response = PaginatedLocationAreaSummaryList.class, tags={ "location", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedLocationAreaSummaryList.class) })
     @RequestMapping(
@@ -46,12 +41,7 @@ public interface LocationApi {
     ResponseEntity<PaginatedLocationAreaSummaryList> locationAreaList(@ApiParam(value = "Number of results to return per page.")  @RequestParam(value = "limit", required = false) Integer limit,@ApiParam(value = "The initial index from which to return the results.")  @RequestParam(value = "offset", required = false) Integer offset, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "Get location area", notes = "Location areas are sections of areas, such as floors in a building or cave. Each area has its own set of possible Pokémon encounters.", response = LocationAreaDetail.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "location", })
+    @ApiOperation(value = "Get location area", notes = "Location areas are sections of areas, such as floors in a building or cave. Each area has its own set of possible Pokémon encounters.", response = LocationAreaDetail.class, tags={ "location", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = LocationAreaDetail.class) })
     @RequestMapping(
@@ -62,12 +52,7 @@ public interface LocationApi {
     ResponseEntity<LocationAreaDetail> locationAreaRetrieve(@ApiParam(value = "A unique integer value identifying this location area.",required=true ) @PathVariable("id") Integer id, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "List locations", notes = "Locations that can be visited within the games. Locations make up sizable portions of regions, like cities or routes.", response = PaginatedLocationSummaryList.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "location", })
+    @ApiOperation(value = "List locations", notes = "Locations that can be visited within the games. Locations make up sizable portions of regions, like cities or routes.", response = PaginatedLocationSummaryList.class, tags={ "location", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedLocationSummaryList.class) })
     @RequestMapping(
@@ -78,12 +63,7 @@ public interface LocationApi {
     ResponseEntity<PaginatedLocationSummaryList> locationList(@ApiParam(value = "Number of results to return per page.")  @RequestParam(value = "limit", required = false) Integer limit,@ApiParam(value = "The initial index from which to return the results.")  @RequestParam(value = "offset", required = false) Integer offset,@ApiParam(value = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")  @RequestParam(value = "q", required = false) String q, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "Get location", notes = "Locations that can be visited within the games. Locations make up sizable portions of regions, like cities or routes.", response = LocationDetail.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "location", })
+    @ApiOperation(value = "Get location", notes = "Locations that can be visited within the games. Locations make up sizable portions of regions, like cities or routes.", response = LocationDetail.class, tags={ "location", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = LocationDetail.class) })
     @RequestMapping(
@@ -94,12 +74,7 @@ public interface LocationApi {
     ResponseEntity<LocationDetail> locationRetrieve(@ApiParam(value = "This parameter can be a string or an integer.",required=true ) @PathVariable("id") String id, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "List pal park areas", notes = "Areas used for grouping Pokémon encounters in Pal Park. They're like habitats that are specific to Pal Park.", response = PaginatedPalParkAreaSummaryList.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "location", })
+    @ApiOperation(value = "List pal park areas", notes = "Areas used for grouping Pokémon encounters in Pal Park. They're like habitats that are specific to Pal Park.", response = PaginatedPalParkAreaSummaryList.class, tags={ "location", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedPalParkAreaSummaryList.class) })
     @RequestMapping(
@@ -110,12 +85,7 @@ public interface LocationApi {
     ResponseEntity<PaginatedPalParkAreaSummaryList> palParkAreaList(@ApiParam(value = "Number of results to return per page.")  @RequestParam(value = "limit", required = false) Integer limit,@ApiParam(value = "The initial index from which to return the results.")  @RequestParam(value = "offset", required = false) Integer offset,@ApiParam(value = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")  @RequestParam(value = "q", required = false) String q, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "Get pal park area", notes = "Areas used for grouping Pokémon encounters in Pal Park. They're like habitats that are specific to Pal Park.", response = PalParkAreaDetail.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "location", })
+    @ApiOperation(value = "Get pal park area", notes = "Areas used for grouping Pokémon encounters in Pal Park. They're like habitats that are specific to Pal Park.", response = PalParkAreaDetail.class, tags={ "location", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PalParkAreaDetail.class) })
     @RequestMapping(
@@ -126,12 +96,7 @@ public interface LocationApi {
     ResponseEntity<PalParkAreaDetail> palParkAreaRetrieve(@ApiParam(value = "This parameter can be a string or an integer.",required=true ) @PathVariable("id") String id, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "List regions", notes = "A region is an organized area of the Pokémon world. Most often, the main difference between regions is the species of Pokémon that can be encountered within them.", response = PaginatedRegionSummaryList.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "location", })
+    @ApiOperation(value = "List regions", notes = "A region is an organized area of the Pokémon world. Most often, the main difference between regions is the species of Pokémon that can be encountered within them.", response = PaginatedRegionSummaryList.class, tags={ "location", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedRegionSummaryList.class) })
     @RequestMapping(
@@ -142,12 +107,7 @@ public interface LocationApi {
     ResponseEntity<PaginatedRegionSummaryList> regionList(@ApiParam(value = "Number of results to return per page.")  @RequestParam(value = "limit", required = false) Integer limit,@ApiParam(value = "The initial index from which to return the results.")  @RequestParam(value = "offset", required = false) Integer offset,@ApiParam(value = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")  @RequestParam(value = "q", required = false) String q, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "Get region", notes = "A region is an organized area of the Pokémon world. Most often, the main difference between regions is the species of Pokémon that can be encountered within them.", response = RegionDetail.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "location", })
+    @ApiOperation(value = "Get region", notes = "A region is an organized area of the Pokémon world. Most often, the main difference between regions is the species of Pokémon that can be encountered within them.", response = RegionDetail.class, tags={ "location", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = RegionDetail.class) })
     @RequestMapping(

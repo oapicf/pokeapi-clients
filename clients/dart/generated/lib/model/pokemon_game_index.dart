@@ -17,8 +17,13 @@ class PokemonGameIndex {
     required this.version,
   });
 
+  /// The internal id of an API resource within game data.
+  ///
+  /// Minimum value: -2147483648
+  /// Maximum value: 2147483647
   int gameIndex;
 
+  /// The version relevent to this game index.
   VersionSummary version;
 
   @override

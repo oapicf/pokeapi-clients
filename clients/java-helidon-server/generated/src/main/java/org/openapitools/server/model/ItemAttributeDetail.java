@@ -3,9 +3,9 @@ package org.openapitools.server.model;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.server.model.AbilityDetailPokemonInnerPokemon;
 import org.openapitools.server.model.ItemAttributeDescription;
 import org.openapitools.server.model.ItemAttributeName;
+import org.openapitools.server.model.ItemSummary;
 import jakarta.validation.constraints.*;
 import jakarta.validation.Valid;
 
@@ -16,7 +16,7 @@ public class ItemAttributeDetail   {
     private Integer id;
     private String name;
     private List<@Valid ItemAttributeDescription> descriptions = new ArrayList<>();
-    private List<@Valid AbilityDetailPokemonInnerPokemon> items = new ArrayList<>();
+    private List<@Valid ItemSummary> items = new ArrayList<>();
     private List<@Valid ItemAttributeName> names = new ArrayList<>();
 
     /**
@@ -29,17 +29,17 @@ public class ItemAttributeDetail   {
     /**
      * Create ItemAttributeDetail.
      *
-     * @param id id
-     * @param name name
-     * @param descriptions descriptions
-     * @param items items
-     * @param names names
+     * @param id The identifier for this resource.
+     * @param name The name for this resource.
+     * @param descriptions The description of this item attribute listed in different languages.
+     * @param items A list of items that have this attribute.
+     * @param names The name of this item attribute listed in different languages.
      */
     public ItemAttributeDetail(
         Integer id, 
         String name, 
         List<@Valid ItemAttributeDescription> descriptions, 
-        List<@Valid AbilityDetailPokemonInnerPokemon> items, 
+        List<@Valid ItemSummary> items, 
         List<@Valid ItemAttributeName> names
     ) {
         this.id = id;
@@ -52,7 +52,7 @@ public class ItemAttributeDetail   {
 
 
     /**
-     * Get id
+     * The identifier for this resource.
      * @return id
      */
     public Integer getId() {
@@ -64,7 +64,7 @@ public class ItemAttributeDetail   {
     }
 
     /**
-     * Get name
+     * The name for this resource.
      * @return name
      */
     public String getName() {
@@ -76,7 +76,7 @@ public class ItemAttributeDetail   {
     }
 
     /**
-     * Get descriptions
+     * The description of this item attribute listed in different languages.
      * @return descriptions
      */
     public List<@Valid ItemAttributeDescription> getDescriptions() {
@@ -88,19 +88,19 @@ public class ItemAttributeDetail   {
     }
 
     /**
-     * Get items
+     * A list of items that have this attribute.
      * @return items
      */
-    public List<@Valid AbilityDetailPokemonInnerPokemon> getItems() {
+    public List<@Valid ItemSummary> getItems() {
         return items;
     }
 
-    public void setItems(List<@Valid AbilityDetailPokemonInnerPokemon> items) {
+    public void setItems(List<@Valid ItemSummary> items) {
         this.items = items;
     }
 
     /**
-     * Get names
+     * The name of this item attribute listed in different languages.
      * @return names
      */
     public List<@Valid ItemAttributeName> getNames() {

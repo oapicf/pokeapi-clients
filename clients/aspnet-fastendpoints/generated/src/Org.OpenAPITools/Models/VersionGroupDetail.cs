@@ -10,9 +10,9 @@ public class VersionGroupDetail
     public string Name { get; set; }
     public int Order { get; set; }
     public GenerationSummary Generation { get; set; }
-    public List<AbilityDetailPokemonInnerPokemon> MoveLearnMethods { get; set; }
-    public List<AbilityDetailPokemonInnerPokemon> Pokedexes { get; set; }
-    public List<AbilityDetailPokemonInnerPokemon> Regions { get; set; }
+    public List<MoveLearnMethodSummary> MoveLearnMethods { get; set; }
+    public List<PokedexSummary> Pokedexes { get; set; }
+    public List<RegionSummary> Regions { get; set; }
     public List<VersionSummary> Versions { get; set; }
 }
 

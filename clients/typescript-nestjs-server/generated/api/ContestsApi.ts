@@ -6,7 +6,7 @@ import { ContestEffectDetail, ContestTypeDetail, PaginatedContestEffectSummaryLi
 @Injectable()
 export abstract class ContestsApi {
 
-  abstract contestEffectList(limit: number | undefined, offset: number | undefined, q: string | undefined,  request: Request): PaginatedContestEffectSummaryList | Promise<PaginatedContestEffectSummaryList> | Observable<PaginatedContestEffectSummaryList>;
+  abstract contestEffectList(limit: number | undefined, offset: number | undefined,  request: Request): PaginatedContestEffectSummaryList | Promise<PaginatedContestEffectSummaryList> | Observable<PaginatedContestEffectSummaryList>;
 
 
   abstract contestEffectRetrieve(id: string,  request: Request): ContestEffectDetail | Promise<ContestEffectDetail> | Observable<ContestEffectDetail>;
@@ -18,7 +18,7 @@ export abstract class ContestsApi {
   abstract contestTypeRetrieve(id: string,  request: Request): ContestTypeDetail | Promise<ContestTypeDetail> | Observable<ContestTypeDetail>;
 
 
-  abstract superContestEffectList(limit: number | undefined, offset: number | undefined, q: string | undefined,  request: Request): PaginatedSuperContestEffectSummaryList | Promise<PaginatedSuperContestEffectSummaryList> | Observable<PaginatedSuperContestEffectSummaryList>;
+  abstract superContestEffectList(limit: number | undefined, offset: number | undefined,  request: Request): PaginatedSuperContestEffectSummaryList | Promise<PaginatedSuperContestEffectSummaryList> | Observable<PaginatedSuperContestEffectSummaryList>;
 
 
   abstract superContestEffectRetrieve(id: string,  request: Request): SuperContestEffectDetail | Promise<SuperContestEffectDetail> | Observable<SuperContestEffectDetail>;

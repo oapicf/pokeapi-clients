@@ -12,8 +12,10 @@ import org.joda.time.DateTime
 import ItemName._
 
 case class ItemName (
+  /* The localized name for an API resource in a specific language. */
   name: String,
-language: LanguageSummary)
+/* The language this name is in. */
+  language: LanguageSummary)
 
 object ItemName {
   import DateTimeCodecs._

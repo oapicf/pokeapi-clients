@@ -15,43 +15,52 @@
                 
                 
                 ; [@key "id"]
-                                              name: string
+                    (** The identifier for this resource. *)
+                                      name: string
                   
                   
                 
                 
                 ; [@key "name"]
-                                              abilities: Ability_summary.t list
+                    (** The name for this resource. *)
+                                      abilities: Ability_summary.t list
                 
                 
                 ; [@key "abilities"]
-                                              main_region: Region_summary.t
+                    (** A list of abilities that were introduced in this generation. *)
+                                      main_region: Region_summary.t
                   
                   
                 
                 
                 ; [@key "main_region"]
-                                              moves: Move_summary.t list
+                    (** The main region travelled in this generation. *)
+                                      moves: Move_summary.t list
                 
                 
                 ; [@key "moves"]
-                                              names: Generation_name.t list
+                    (** A list of moves that were introduced in this generation. *)
+                                      names: Generation_name.t list
                 
                 
                 ; [@key "names"]
-                                              pokemon_species: Pokemon_species_summary.t list
+                    (** The name of this resource listed in different languages. *)
+                                      pokemon_species: Pokemon_species_summary.t list
                 
                 
                 ; [@key "pokemon_species"]
-                                              types: Type_summary.t list
+                    (** A list of Pokémon species that were introduced in this generation. *)
+                                      types: Type_summary.t list
                 
                 
                 ; [@key "types"]
-                                              version_groups: Version_group_summary.t list
+                    (** A list of types that were introduced in this generation. *)
+                                      version_groups: Version_group_summary.t list
                 
                 
                 ; [@key "version_groups"]
-                        } [@@deriving yojson { strict = false }, show, eq ];;
+                    (** A list of version groups that were introduced in this generation. *)
+                } [@@deriving yojson { strict = false }, show, eq ];;
         
         let create (id : int32) (name : string) (abilities : Ability_summary.t list) (main_region : Region_summary.t) (moves : Move_summary.t list) (names : Generation_name.t list) (pokemon_species : Pokemon_species_summary.t list) (types : Type_summary.t list) (version_groups : Version_group_summary.t list) : t = {
             id = id;

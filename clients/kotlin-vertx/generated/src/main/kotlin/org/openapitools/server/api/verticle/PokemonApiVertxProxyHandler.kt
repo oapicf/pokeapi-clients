@@ -130,9 +130,8 @@ class PokemonApiVertxProxyHandler(private val vertx: Vertx, private val service:
                     val params = context.params
                     val limit = ApiHandlerUtils.searchIntegerInJson(params,"limit")
                     val offset = ApiHandlerUtils.searchIntegerInJson(params,"offset")
-                    val q = ApiHandlerUtils.searchStringInJson(params,"q")
                     GlobalScope.launch(vertx.dispatcher()){
-                        val result = service.characteristicList(limit,offset,q,context)
+                        val result = service.characteristicList(limit,offset,context)
                         val payload = JsonObject(Json.encode(result.payload)).toBuffer()
                         val res = OperationResponse(result.statusCode,result.statusMessage,payload,result.headers)
                         msg.reply(res.toJson())

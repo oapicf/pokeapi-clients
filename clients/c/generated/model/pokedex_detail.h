@@ -15,11 +15,11 @@
 
 typedef struct pokedex_detail_t pokedex_detail_t;
 
-#include "ability_detail_pokemon_inner_pokemon.h"
 #include "pokedex_description.h"
-#include "pokedex_detail_pokemon_entries_inner.h"
 #include "pokedex_name.h"
+#include "pokemon_dex_number.h"
 #include "region_summary.h"
+#include "version_group_summary.h"
 
 
 

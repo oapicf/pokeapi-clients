@@ -16,7 +16,7 @@ const _returntypes_berry_firmness_list_BerriesApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_berry_firmness_list(_api::BerriesApi; limit=nothing, offset=nothing, q=nothing, _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_berry_firmness_list_BerriesApi, "/api/v2/berry-firmness/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_berry_firmness_list_BerriesApi, "/api/v2/berry-firmness/", [])
     OpenAPI.Clients.set_param(_ctx.query, "limit", limit; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "offset", offset; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "q", q; style="form", is_explode=true)  # type String
@@ -51,7 +51,7 @@ const _returntypes_berry_firmness_retrieve_BerriesApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_berry_firmness_retrieve(_api::BerriesApi, id::String; _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_berry_firmness_retrieve_BerriesApi, "/api/v2/berry-firmness/{id}/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_berry_firmness_retrieve_BerriesApi, "/api/v2/berry-firmness/{id}/", [])
     OpenAPI.Clients.set_param(_ctx.path, "id", id)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
@@ -82,7 +82,7 @@ const _returntypes_berry_flavor_list_BerriesApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_berry_flavor_list(_api::BerriesApi; limit=nothing, offset=nothing, q=nothing, _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_berry_flavor_list_BerriesApi, "/api/v2/berry-flavor/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_berry_flavor_list_BerriesApi, "/api/v2/berry-flavor/", [])
     OpenAPI.Clients.set_param(_ctx.query, "limit", limit; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "offset", offset; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "q", q; style="form", is_explode=true)  # type String
@@ -117,7 +117,7 @@ const _returntypes_berry_flavor_retrieve_BerriesApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_berry_flavor_retrieve(_api::BerriesApi, id::String; _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_berry_flavor_retrieve_BerriesApi, "/api/v2/berry-flavor/{id}/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_berry_flavor_retrieve_BerriesApi, "/api/v2/berry-flavor/{id}/", [])
     OpenAPI.Clients.set_param(_ctx.path, "id", id)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
@@ -148,7 +148,7 @@ const _returntypes_berry_list_BerriesApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_berry_list(_api::BerriesApi; limit=nothing, offset=nothing, q=nothing, _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_berry_list_BerriesApi, "/api/v2/berry/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_berry_list_BerriesApi, "/api/v2/berry/", [])
     OpenAPI.Clients.set_param(_ctx.query, "limit", limit; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "offset", offset; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "q", q; style="form", is_explode=true)  # type String
@@ -183,7 +183,7 @@ const _returntypes_berry_retrieve_BerriesApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_berry_retrieve(_api::BerriesApi, id::String; _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_berry_retrieve_BerriesApi, "/api/v2/berry/{id}/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_berry_retrieve_BerriesApi, "/api/v2/berry/{id}/", [])
     OpenAPI.Clients.set_param(_ctx.path, "id", id)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])

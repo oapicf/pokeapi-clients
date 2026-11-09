@@ -21,8 +21,8 @@ public class LanguageSummary   {
     /**
      * Create LanguageSummary.
      *
-     * @param name name
-     * @param url url
+     * @param name The name of the referenced resource.
+     * @param url The URL of the referenced resource.
      */
     public LanguageSummary(
         String name, 
@@ -35,7 +35,7 @@ public class LanguageSummary   {
 
 
     /**
-     * Get name
+     * The name of the referenced resource.
      * @return name
      */
     public String getName() {
@@ -47,7 +47,7 @@ public class LanguageSummary   {
     }
 
     /**
-     * Get url
+     * The URL of the referenced resource.
      * @return url
      */
     public URI getUrl() {

@@ -7,7 +7,7 @@ using namespace Tiny;
 MoveLearnMethodName::MoveLearnMethodName()
 {
 	name = std::string();
-	language = LanguageSummary();
+	language = null;
 }
 
 MoveLearnMethodName::MoveLearnMethodName(std::string jsonString)

@@ -17,7 +17,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
     public void configure() throws Exception {
         
         /**
-        GET /api/v2/ability/
+        GET /api/v2/ability/ : List abilities
         **/
         from("direct:abilityList")
             .id("abilityList")
@@ -26,10 +26,10 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
+            .setBody(constant("{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/ability/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/ability/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, PaginatedAbilitySummaryList.class);
         /**
-        GET /api/v2/ability/{id}/
+        GET /api/v2/ability/{id}/ : Get ability
         **/
         from("direct:abilityRetrieve")
             .id("abilityRetrieve")
@@ -38,7 +38,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"is_main_series\" : true, \"generation\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"effect_entries\" : [ { \"effect\" : \"effect\", \"short_effect\" : \"short_effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"effect\" : \"effect\", \"short_effect\" : \"short_effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"effect_changes\" : [ { \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"effect_entries\" : [ { \"effect\" : \"effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"effect\" : \"effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }, { \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"effect_entries\" : [ { \"effect\" : \"effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"effect\" : \"effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] } ], \"flavor_text_entries\" : [ { \"flavor_text\" : \"flavor_text\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"flavor_text\" : \"flavor_text\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"pokemon\" : [ { \"is_hidden\" : true, \"slot\" : 6, \"pokemon\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"is_hidden\" : true, \"slot\" : 6, \"pokemon\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }"))
+            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"is_main_series\" : true, \"generation\" : \"\", \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ], \"effect_entries\" : [ { \"effect\" : \"effect\", \"short_effect\" : \"short_effect\", \"language\" : \"\" }, { \"effect\" : \"effect\", \"short_effect\" : \"short_effect\", \"language\" : \"\" } ], \"effect_changes\" : [ { \"version_group\" : \"\", \"effect_entries\" : [ { \"effect\" : \"effect\", \"language\" : \"\" }, { \"effect\" : \"effect\", \"language\" : \"\" } ] }, { \"version_group\" : \"\", \"effect_entries\" : [ { \"effect\" : \"effect\", \"language\" : \"\" }, { \"effect\" : \"effect\", \"language\" : \"\" } ] } ], \"flavor_text_entries\" : [ { \"flavor_text\" : \"flavor_text\", \"language\" : \"\", \"version_group\" : \"\" }, { \"flavor_text\" : \"flavor_text\", \"language\" : \"\", \"version_group\" : \"\" } ], \"pokemon\" : [ { \"is_hidden\" : true, \"slot\" : 441289069, \"pokemon\" : \"\" }, { \"is_hidden\" : true, \"slot\" : 441289069, \"pokemon\" : \"\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, AbilityDetail.class);
         /**
         GET /api/v2/berry-firmness/ : List berry firmness
@@ -50,7 +50,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
+            .setBody(constant("{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/berry-firmness/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/berry-firmness/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, PaginatedBerryFirmnessSummaryList.class);
         /**
         GET /api/v2/berry-firmness/{id}/ : Get berry by firmness
@@ -62,7 +62,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"berries\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }"))
+            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"berries\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, BerryFirmnessDetail.class);
         /**
         GET /api/v2/berry-flavor/ : List berry flavors
@@ -74,7 +74,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
+            .setBody(constant("{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/berry-flavor/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/berry-flavor/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, PaginatedBerryFlavorSummaryList.class);
         /**
         GET /api/v2/berry-flavor/{id}/ : Get berries by flavor
@@ -86,7 +86,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"berries\" : [ { \"potency\" : 6, \"berry\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"potency\" : 6, \"berry\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"contest_type\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }"))
+            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"berries\" : [ { \"potency\" : 441289069, \"berry\" : \"\" }, { \"potency\" : 441289069, \"berry\" : \"\" } ], \"contest_type\" : \"\", \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, BerryFlavorDetail.class);
         /**
         GET /api/v2/berry/ : List berries
@@ -98,7 +98,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
+            .setBody(constant("{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/berry/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/berry/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, PaginatedBerrySummaryList.class);
         /**
         GET /api/v2/berry/{id}/ : Get a berry
@@ -110,10 +110,10 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"growth_time\" : 6, \"max_harvest\" : 1, \"natural_gift_power\" : 5, \"size\" : 5, \"smoothness\" : 2, \"soil_dryness\" : 7, \"firmness\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"flavors\" : [ { \"potency\" : 9, \"flavor\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"potency\" : 9, \"flavor\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"item\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"natural_gift_type\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }"))
+            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"growth_time\" : 441289069, \"max_harvest\" : -1517921766, \"natural_gift_power\" : 413233370, \"size\" : 273751188, \"smoothness\" : -1158723813, \"soil_dryness\" : 885365090, \"firmness\" : \"\", \"flavors\" : [ { \"potency\" : 1847456234, \"flavor\" : \"\" }, { \"potency\" : 1847456234, \"flavor\" : \"\" } ], \"item\" : \"\", \"natural_gift_type\" : \"\" }"))
             .unmarshal().json(JsonLibrary.Jackson, BerryDetail.class);
         /**
-        GET /api/v2/characteristic/ : List charecterictics
+        GET /api/v2/characteristic/ : List characteristics
         **/
         from("direct:characteristicList")
             .id("characteristicList")
@@ -122,7 +122,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"url\" : \"https://openapi-generator.tech\" }, { \"url\" : \"https://openapi-generator.tech\" } ] }"))
+            .setBody(constant("{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/characteristic/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/characteristic/?offset=0&limit=20\", \"results\" : [ { \"url\" : \"https://openapi-generator.tech\" }, { \"url\" : \"https://openapi-generator.tech\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, PaginatedCharacteristicSummaryList.class);
         /**
         GET /api/v2/characteristic/{id}/ : Get characteristic
@@ -134,7 +134,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"id\" : 0, \"gene_modulo\" : 6, \"possible_values\" : [ 1, 1 ], \"highest_stat\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"descriptions\" : [ { \"description\" : \"description\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"description\" : \"description\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }"))
+            .setBody(constant("{ \"id\" : 0, \"gene_modulo\" : 6, \"possible_values\" : [ 1, 1 ], \"highest_stat\" : \"\", \"descriptions\" : [ { \"description\" : \"description\", \"language\" : \"\" }, { \"description\" : \"description\", \"language\" : \"\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, CharacteristicDetail.class);
         /**
         GET /api/v2/contest-effect/ : List contest effects
@@ -146,7 +146,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"url\" : \"https://openapi-generator.tech\" }, { \"url\" : \"https://openapi-generator.tech\" } ] }"))
+            .setBody(constant("{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/contest-effect/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/contest-effect/?offset=0&limit=20\", \"results\" : [ { \"url\" : \"https://openapi-generator.tech\" }, { \"url\" : \"https://openapi-generator.tech\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, PaginatedContestEffectSummaryList.class);
         /**
         GET /api/v2/contest-effect/{id}/ : Get contest effect
@@ -158,7 +158,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"id\" : 0, \"appeal\" : 6, \"jam\" : 1, \"effect_entries\" : [ { \"effect\" : \"effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"effect\" : \"effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"flavor_text_entries\" : [ { \"flavor_text\" : \"flavor_text\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"flavor_text\" : \"flavor_text\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }"))
+            .setBody(constant("{ \"id\" : 0, \"appeal\" : 441289069, \"jam\" : -1517921766, \"effect_entries\" : [ { \"effect\" : \"effect\", \"language\" : \"\" }, { \"effect\" : \"effect\", \"language\" : \"\" } ], \"flavor_text_entries\" : [ { \"flavor_text\" : \"flavor_text\", \"language\" : \"\" }, { \"flavor_text\" : \"flavor_text\", \"language\" : \"\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, ContestEffectDetail.class);
         /**
         GET /api/v2/contest-type/ : List contest types
@@ -170,7 +170,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
+            .setBody(constant("{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/contest-type/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/contest-type/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, PaginatedContestTypeSummaryList.class);
         /**
         GET /api/v2/contest-type/{id}/ : Get contest type
@@ -182,8 +182,32 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"berry_flavor\" : \"\", \"names\" : [ { \"name\" : \"name\", \"color\" : \"color\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"color\" : \"color\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }"))
+            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"berry_flavor\" : \"\", \"names\" : [ { \"name\" : \"name\", \"color\" : \"color\", \"language\" : \"\" }, { \"name\" : \"name\", \"color\" : \"color\", \"language\" : \"\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, ContestTypeDetail.class);
+        /**
+        GET /api/v2/currency/ : List currencies
+        **/
+        from("direct:currencyList")
+            .id("currencyList")
+            .choice()
+                .when(simple("${body} != null"))
+                    .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
+            .end()
+            .log(LoggingLevel.INFO, "HEADERS: ${headers}")
+            .setBody(constant("{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/currency/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/currency/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
+            .unmarshal().json(JsonLibrary.Jackson, PaginatedCurrencySummaryList.class);
+        /**
+        GET /api/v2/currency/{id}/ : Get currency
+        **/
+        from("direct:currencyRetrieve")
+            .id("currencyRetrieve")
+            .choice()
+                .when(simple("${body} != null"))
+                    .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
+            .end()
+            .log(LoggingLevel.INFO, "HEADERS: ${headers}")
+            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ] }"))
+            .unmarshal().json(JsonLibrary.Jackson, CurrencyDetail.class);
         /**
         GET /api/v2/egg-group/ : List egg groups
         **/
@@ -194,7 +218,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
+            .setBody(constant("{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/egg-group/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/egg-group/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, PaginatedEggGroupSummaryList.class);
         /**
         GET /api/v2/egg-group/{id}/ : Get egg group
@@ -206,7 +230,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"pokemon_species\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
+            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ], \"pokemon_species\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, EggGroupDetail.class);
         /**
         GET /api/v2/encounter-condition/ : List encounter conditions
@@ -218,7 +242,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
+            .setBody(constant("{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/encounter-condition/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/encounter-condition/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, PaginatedEncounterConditionSummaryList.class);
         /**
         GET /api/v2/encounter-condition/{id}/ : Get encounter condition
@@ -230,7 +254,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"values\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }"))
+            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"values\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, EncounterConditionDetail.class);
         /**
         GET /api/v2/encounter-condition-value/ : List encounter condition values
@@ -242,7 +266,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
+            .setBody(constant("{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/encounter-condition-value/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/encounter-condition-value/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, PaginatedEncounterConditionValueSummaryList.class);
         /**
         GET /api/v2/encounter-condition-value/{id}/ : Get encounter condition value
@@ -254,7 +278,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"condition\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }"))
+            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"condition\" : \"\", \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, EncounterConditionValueDetail.class);
         /**
         GET /api/v2/encounter-method/ : List encounter methods
@@ -266,7 +290,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
+            .setBody(constant("{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/encounter-method/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/encounter-method/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, PaginatedEncounterMethodSummaryList.class);
         /**
         GET /api/v2/encounter-method/{id}/ : Get encounter method
@@ -278,7 +302,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"order\" : 6, \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }"))
+            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"order\" : 441289069, \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, EncounterMethodDetail.class);
         /**
         GET /api/v2/evolution-chain/ : List evolution chains
@@ -290,7 +314,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"url\" : \"https://openapi-generator.tech\" }, { \"url\" : \"https://openapi-generator.tech\" } ] }"))
+            .setBody(constant("{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/evolution-chain/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/evolution-chain/?offset=0&limit=20\", \"results\" : [ { \"url\" : \"https://openapi-generator.tech\" }, { \"url\" : \"https://openapi-generator.tech\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, PaginatedEvolutionChainSummaryList.class);
         /**
         GET /api/v2/evolution-chain/{id}/ : Get evolution chain
@@ -302,7 +326,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"id\" : 0, \"baby_trigger_item\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"chain\" : { \"evolution_details\" : [ \"\", \"\" ], \"evolves_to\" : [ { \"evolution_details\" : [ { \"gender\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"held_item\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"item\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"known_move\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"known_move_type\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"location\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"min_affection\" : 6, \"min_beauty\" : 1, \"min_happiness\" : 5, \"min_level\" : 5, \"needs_overworld_rain\" : true, \"party_species\" : \"party_species\", \"party_type\" : \"party_type\", \"relative_physical_stats\" : \"relative_physical_stats\", \"time_of_day\" : \"time_of_day\", \"trade_species\" : \"trade_species\", \"trigger\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"turn_upside_down\" : true }, { \"gender\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"held_item\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"item\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"known_move\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"known_move_type\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"location\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"min_affection\" : 6, \"min_beauty\" : 1, \"min_happiness\" : 5, \"min_level\" : 5, \"needs_overworld_rain\" : true, \"party_species\" : \"party_species\", \"party_type\" : \"party_type\", \"relative_physical_stats\" : \"relative_physical_stats\", \"time_of_day\" : \"time_of_day\", \"trade_species\" : \"trade_species\", \"trigger\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"turn_upside_down\" : true } ], \"is_baby\" : true, \"species\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"evolution_details\" : [ { \"gender\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"held_item\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"item\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"known_move\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"known_move_type\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"location\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"min_affection\" : 6, \"min_beauty\" : 1, \"min_happiness\" : 5, \"min_level\" : 5, \"needs_overworld_rain\" : true, \"party_species\" : \"party_species\", \"party_type\" : \"party_type\", \"relative_physical_stats\" : \"relative_physical_stats\", \"time_of_day\" : \"time_of_day\", \"trade_species\" : \"trade_species\", \"trigger\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"turn_upside_down\" : true }, { \"gender\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"held_item\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"item\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"known_move\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"known_move_type\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"location\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"min_affection\" : 6, \"min_beauty\" : 1, \"min_happiness\" : 5, \"min_level\" : 5, \"needs_overworld_rain\" : true, \"party_species\" : \"party_species\", \"party_type\" : \"party_type\", \"relative_physical_stats\" : \"relative_physical_stats\", \"time_of_day\" : \"time_of_day\", \"trade_species\" : \"trade_species\", \"trigger\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"turn_upside_down\" : true } ], \"is_baby\" : true, \"species\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"is_baby\" : true, \"species\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } }"))
+            .setBody(constant("{ \"id\" : 0, \"baby_trigger_item\" : \"\", \"chain\" : \"\" }"))
             .unmarshal().json(JsonLibrary.Jackson, EvolutionChainDetail.class);
         /**
         GET /api/v2/evolution-trigger/ : List evolution triggers
@@ -314,7 +338,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
+            .setBody(constant("{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/evolution-trigger/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/evolution-trigger/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, PaginatedEvolutionTriggerSummaryList.class);
         /**
         GET /api/v2/evolution-trigger/{id}/ : Get evolution trigger
@@ -326,8 +350,32 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"pokemon_species\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
+            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ], \"pokemon_species\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, EvolutionTriggerDetail.class);
+        /**
+        GET /api/v2/evolution-variable/ : List evolution variables
+        **/
+        from("direct:evolutionVariableList")
+            .id("evolutionVariableList")
+            .choice()
+                .when(simple("${body} != null"))
+                    .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
+            .end()
+            .log(LoggingLevel.INFO, "HEADERS: ${headers}")
+            .setBody(constant("{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/evolution-variable/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/evolution-variable/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
+            .unmarshal().json(JsonLibrary.Jackson, PaginatedEvolutionVariableSummaryList.class);
+        /**
+        GET /api/v2/evolution-variable/{id}/ : Get evolution variable
+        **/
+        from("direct:evolutionVariableRetrieve")
+            .id("evolutionVariableRetrieve")
+            .choice()
+                .when(simple("${body} != null"))
+                    .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
+            .end()
+            .log(LoggingLevel.INFO, "HEADERS: ${headers}")
+            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"symbol\" : \"symbol\", \"data_type\" : \"data_type\", \"source\" : \"source\", \"version_group\" : \"\", \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ], \"descriptions\" : [ { \"description\" : \"description\", \"language\" : \"\" }, { \"description\" : \"description\", \"language\" : \"\" } ] }"))
+            .unmarshal().json(JsonLibrary.Jackson, EvolutionVariableDetail.class);
         /**
         GET /api/v2/gender/ : List genders
         **/
@@ -338,7 +386,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
+            .setBody(constant("{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/gender/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/gender/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, PaginatedGenderSummaryList.class);
         /**
         GET /api/v2/gender/{id}/ : Get gender
@@ -350,7 +398,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"pokemon_species_details\" : [ { \"rate\" : 6, \"pokemon_species\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"rate\" : 6, \"pokemon_species\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"required_for_evolution\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
+            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"pokemon_species_details\" : [ { \"rate\" : 6, \"pokemon_species\" : \"\" }, { \"rate\" : 6, \"pokemon_species\" : \"\" } ], \"required_for_evolution\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, GenderDetail.class);
         /**
         GET /api/v2/generation/ : List genrations
@@ -362,7 +410,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
+            .setBody(constant("{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/generation/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/generation/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, PaginatedGenerationSummaryList.class);
         /**
         GET /api/v2/generation/{id}/ : Get genration
@@ -374,7 +422,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"abilities\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"main_region\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"moves\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"pokemon_species\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"types\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"version_groups\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
+            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"abilities\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"main_region\" : \"\", \"moves\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ], \"pokemon_species\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"types\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"version_groups\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, GenerationDetail.class);
         /**
         GET /api/v2/growth-rate/ : List growth rates
@@ -386,7 +434,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
+            .setBody(constant("{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/growth-rate/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/growth-rate/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, PaginatedGrowthRateSummaryList.class);
         /**
         GET /api/v2/growth-rate/{id}/ : Get growth rate
@@ -398,7 +446,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"formula\" : \"formula\", \"descriptions\" : [ { \"description\" : \"description\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"description\" : \"description\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"levels\" : [ { \"level\" : 6, \"experience\" : 1 }, { \"level\" : 6, \"experience\" : 1 } ], \"pokemon_species\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
+            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"formula\" : \"formula\", \"descriptions\" : [ { \"description\" : \"description\", \"language\" : \"\" }, { \"description\" : \"description\", \"language\" : \"\" } ], \"levels\" : [ { \"level\" : 441289069, \"experience\" : -1517921766 }, { \"level\" : 441289069, \"experience\" : -1517921766 } ], \"pokemon_species\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, GrowthRateDetail.class);
         /**
         GET /api/v2/item-attribute/ : List item attributes
@@ -410,7 +458,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
+            .setBody(constant("{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/item-attribute/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/item-attribute/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, PaginatedItemAttributeSummaryList.class);
         /**
         GET /api/v2/item-attribute/{id}/ : Get item attribute
@@ -422,7 +470,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"descriptions\" : [ { \"description\" : \"description\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"description\" : \"description\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"items\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }"))
+            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"descriptions\" : [ { \"description\" : \"description\", \"language\" : \"\" }, { \"description\" : \"description\", \"language\" : \"\" } ], \"items\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, ItemAttributeDetail.class);
         /**
         GET /api/v2/item-category/ : List item categories
@@ -434,7 +482,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
+            .setBody(constant("{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/item-category/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/item-category/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, PaginatedItemCategorySummaryList.class);
         /**
         GET /api/v2/item-category/{id}/ : Get item category
@@ -446,7 +494,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"items\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"pocket\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }"))
+            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"items\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ], \"pocket\" : \"\" }"))
             .unmarshal().json(JsonLibrary.Jackson, ItemCategoryDetail.class);
         /**
         GET /api/v2/item-fling-effect/ : List item fling effects
@@ -458,7 +506,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
+            .setBody(constant("{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/item-fling-effect/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/item-fling-effect/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, PaginatedItemFlingEffectSummaryList.class);
         /**
         GET /api/v2/item-fling-effect/{id}/ : Get item fling effect
@@ -470,7 +518,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"effect_entries\" : [ { \"effect\" : \"effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"effect\" : \"effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"items\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
+            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"effect_entries\" : [ { \"effect\" : \"effect\", \"language\" : \"\" }, { \"effect\" : \"effect\", \"language\" : \"\" } ], \"items\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, ItemFlingEffectDetail.class);
         /**
         GET /api/v2/item/ : List items
@@ -482,7 +530,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
+            .setBody(constant("{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/item/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/item/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, PaginatedItemSummaryList.class);
         /**
         GET /api/v2/item-pocket/ : List item pockets
@@ -494,7 +542,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
+            .setBody(constant("{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/item-pocket/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/item-pocket/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, PaginatedItemPocketSummaryList.class);
         /**
         GET /api/v2/item-pocket/{id}/ : Get item pocket
@@ -506,7 +554,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"categories\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }"))
+            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"categories\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, ItemPocketDetail.class);
         /**
         GET /api/v2/item/{id}/ : Get item
@@ -518,7 +566,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"cost\" : 6, \"fling_power\" : 1, \"fling_effect\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"attributes\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"category\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"effect_entries\" : [ { \"effect\" : \"effect\", \"short_effect\" : \"short_effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"effect\" : \"effect\", \"short_effect\" : \"short_effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"flavor_text_entries\" : [ { \"text\" : \"text\", \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"text\" : \"text\", \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"game_indices\" : [ { \"game_index\" : 5, \"generation\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"game_index\" : 5, \"generation\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"held_by_pokemon\" : [ { \"pokemon\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"version-details\" : [ { \"rarity\" : 5, \"version\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"rarity\" : 5, \"version\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }, { \"pokemon\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"version-details\" : [ { \"rarity\" : 5, \"version\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"rarity\" : 5, \"version\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] } ], \"sprites\" : { \"default\" : \"https://openapi-generator.tech\" }, \"baby_trigger_for\" : { \"url\" : \"https://openapi-generator.tech\" }, \"machines\" : [ { \"machine\" : \"https://openapi-generator.tech\", \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"machine\" : \"https://openapi-generator.tech\", \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }"))
+            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"fling_power\" : 441289069, \"fling_effect\" : \"\", \"attributes\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"category\" : \"\", \"effect_entries\" : [ { \"effect\" : \"effect\", \"short_effect\" : \"short_effect\", \"language\" : \"\" }, { \"effect\" : \"effect\", \"short_effect\" : \"short_effect\", \"language\" : \"\" } ], \"flavor_text_entries\" : [ { \"text\" : \"text\", \"version_group\" : \"\", \"language\" : \"\" }, { \"text\" : \"text\", \"version_group\" : \"\", \"language\" : \"\" } ], \"game_indices\" : [ { \"game_index\" : -1517921766, \"generation\" : \"\" }, { \"game_index\" : -1517921766, \"generation\" : \"\" } ], \"prices\" : [ { \"purchase_price\" : 413233370, \"sell_price\" : 273751188, \"currency\" : \"\", \"version_group\" : \"\" }, { \"purchase_price\" : 413233370, \"sell_price\" : 273751188, \"currency\" : \"\", \"version_group\" : \"\" } ], \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ], \"held_by_pokemon\" : [ { \"pokemon\" : \"\", \"version_details\" : [ { \"rarity\" : 2, \"version\" : \"\" }, { \"rarity\" : 2, \"version\" : \"\" } ] }, { \"pokemon\" : \"\", \"version_details\" : [ { \"rarity\" : 2, \"version\" : \"\" }, { \"rarity\" : 2, \"version\" : \"\" } ] } ], \"sprites\" : \"\", \"baby_trigger_for\" : \"\", \"machines\" : [ { \"machine\" : \"\", \"version_group\" : \"\" }, { \"machine\" : \"\", \"version_group\" : \"\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, ItemDetail.class);
         /**
         GET /api/v2/language/ : List languages
@@ -530,7 +578,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
+            .setBody(constant("{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/language/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/language/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, PaginatedLanguageSummaryList.class);
         /**
         GET /api/v2/language/{id}/ : Get language
@@ -542,7 +590,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"official\" : true, \"iso639\" : \"iso639\", \"iso3166\" : \"iso3166\", \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }"))
+            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"official\" : true, \"iso639\" : \"iso639\", \"iso3166\" : \"iso3166\", \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, LanguageDetail.class);
         /**
         GET /api/v2/location-area/ : List location areas
@@ -554,7 +602,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
+            .setBody(constant("{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/location-area/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/location-area/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, PaginatedLocationAreaSummaryList.class);
         /**
         GET /api/v2/location-area/{id}/ : Get location area
@@ -566,7 +614,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"game_index\" : 6, \"encounter_method_rates\" : [ { \"encounter_method\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"version_details\" : [ { \"rate\" : 1, \"version\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"rate\" : 1, \"version\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }, { \"encounter_method\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"version_details\" : [ { \"rate\" : 1, \"version\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"rate\" : 1, \"version\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] } ], \"location\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"pokemon_encounters\" : [ { \"pokemon\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"version_details\" : [ { \"version\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"max_chance\" : 5, \"encounter_details\" : { \"min_level\" : 5, \"max_level\" : 2, \"condition_values\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"chance\" : 7, \"method\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } }, { \"version\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"max_chance\" : 5, \"encounter_details\" : { \"min_level\" : 5, \"max_level\" : 2, \"condition_values\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"chance\" : 7, \"method\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } } ] }, { \"pokemon\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"version_details\" : [ { \"version\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"max_chance\" : 5, \"encounter_details\" : { \"min_level\" : 5, \"max_level\" : 2, \"condition_values\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"chance\" : 7, \"method\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } }, { \"version\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"max_chance\" : 5, \"encounter_details\" : { \"min_level\" : 5, \"max_level\" : 2, \"condition_values\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"chance\" : 7, \"method\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } } ] } ] }"))
+            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"game_index\" : 441289069, \"encounter_method_rates\" : [ { \"encounter_method\" : \"\", \"version_details\" : [ { \"rate\" : 1, \"version\" : \"\" }, { \"rate\" : 1, \"version\" : \"\" } ] }, { \"encounter_method\" : \"\", \"version_details\" : [ { \"rate\" : 1, \"version\" : \"\" }, { \"rate\" : 1, \"version\" : \"\" } ] } ], \"location\" : \"\", \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ], \"pokemon_encounters\" : [ { \"pokemon\" : \"\", \"version_details\" : [ { \"version\" : \"\", \"max_chance\" : 5, \"encounter_details\" : [ { \"min_level\" : 5, \"max_level\" : 2, \"chance\" : 7, \"method\" : \"\", \"condition_values\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"pokemon_details\" : \"\" }, { \"min_level\" : 5, \"max_level\" : 2, \"chance\" : 7, \"method\" : \"\", \"condition_values\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"pokemon_details\" : \"\" } ] }, { \"version\" : \"\", \"max_chance\" : 5, \"encounter_details\" : [ { \"min_level\" : 5, \"max_level\" : 2, \"chance\" : 7, \"method\" : \"\", \"condition_values\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"pokemon_details\" : \"\" }, { \"min_level\" : 5, \"max_level\" : 2, \"chance\" : 7, \"method\" : \"\", \"condition_values\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"pokemon_details\" : \"\" } ] } ] }, { \"pokemon\" : \"\", \"version_details\" : [ { \"version\" : \"\", \"max_chance\" : 5, \"encounter_details\" : [ { \"min_level\" : 5, \"max_level\" : 2, \"chance\" : 7, \"method\" : \"\", \"condition_values\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"pokemon_details\" : \"\" }, { \"min_level\" : 5, \"max_level\" : 2, \"chance\" : 7, \"method\" : \"\", \"condition_values\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"pokemon_details\" : \"\" } ] }, { \"version\" : \"\", \"max_chance\" : 5, \"encounter_details\" : [ { \"min_level\" : 5, \"max_level\" : 2, \"chance\" : 7, \"method\" : \"\", \"condition_values\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"pokemon_details\" : \"\" }, { \"min_level\" : 5, \"max_level\" : 2, \"chance\" : 7, \"method\" : \"\", \"condition_values\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"pokemon_details\" : \"\" } ] } ] } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, LocationAreaDetail.class);
         /**
         GET /api/v2/location/ : List locations
@@ -578,7 +626,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
+            .setBody(constant("{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/location/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/location/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, PaginatedLocationSummaryList.class);
         /**
         GET /api/v2/location/{id}/ : Get location
@@ -590,7 +638,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"region\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"game_indices\" : [ { \"game_index\" : 5, \"generation\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"game_index\" : 5, \"generation\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"areas\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
+            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"region\" : \"\", \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ], \"game_indices\" : [ { \"game_index\" : -1517921766, \"generation\" : \"\" }, { \"game_index\" : -1517921766, \"generation\" : \"\" } ], \"areas\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, LocationDetail.class);
         /**
         GET /api/v2/machine/ : List machines
@@ -602,7 +650,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"url\" : \"https://openapi-generator.tech\" }, { \"url\" : \"https://openapi-generator.tech\" } ] }"))
+            .setBody(constant("{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/machine/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/machine/?offset=0&limit=20\", \"results\" : [ { \"url\" : \"https://openapi-generator.tech\" }, { \"url\" : \"https://openapi-generator.tech\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, PaginatedMachineSummaryList.class);
         /**
         GET /api/v2/machine/{id}/ : Get machine
@@ -614,8 +662,20 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"id\" : 0, \"item\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"move\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }"))
+            .setBody(constant("{ \"id\" : 0, \"item\" : \"\", \"version_group\" : \"\", \"move\" : \"\" }"))
             .unmarshal().json(JsonLibrary.Jackson, MachineDetail.class);
+        /**
+        GET /api/v2/meta/ : Get API metadata
+        **/
+        from("direct:metaRetrieve")
+            .id("metaRetrieve")
+            .choice()
+                .when(simple("${body} != null"))
+                    .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
+            .end()
+            .log(LoggingLevel.INFO, "HEADERS: ${headers}")
+            .setBody(constant("{ \"deploy_date\" : \"deploy_date\", \"hash\" : \"hash\", \"tag\" : \"tag\" }"))
+            .unmarshal().json(JsonLibrary.Jackson, PokeapiMetaResponse.class);
         /**
         GET /api/v2/move-ailment/ : List move meta ailments
         **/
@@ -626,7 +686,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
+            .setBody(constant("{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/move-ailment/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/move-ailment/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, PaginatedMoveMetaAilmentSummaryList.class);
         /**
         GET /api/v2/move-ailment/{id}/ : Get move meta ailment
@@ -638,7 +698,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"moves\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }"))
+            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"moves\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, MoveMetaAilmentDetail.class);
         /**
         GET /api/v2/move-battle-style/ : List move battle styles
@@ -650,7 +710,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
+            .setBody(constant("{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/move-battle-style/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/move-battle-style/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, PaginatedMoveBattleStyleSummaryList.class);
         /**
         GET /api/v2/move-battle-style/{id}/ : Get move battle style
@@ -662,7 +722,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }"))
+            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, MoveBattleStyleDetail.class);
         /**
         GET /api/v2/move-category/ : List move meta categories
@@ -674,7 +734,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
+            .setBody(constant("{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/move-category/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/move-category/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, PaginatedMoveMetaCategorySummaryList.class);
         /**
         GET /api/v2/move-category/{id}/ : Get move meta category
@@ -686,7 +746,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"descriptions\" : [ { \"description\" : \"description\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"description\" : \"description\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"moves\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
+            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"descriptions\" : [ { \"description\" : \"description\", \"language\" : \"\" }, { \"description\" : \"description\", \"language\" : \"\" } ], \"moves\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, MoveMetaCategoryDetail.class);
         /**
         GET /api/v2/move-damage-class/ : List move damage classes
@@ -698,7 +758,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
+            .setBody(constant("{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/move-damage-class/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/move-damage-class/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, PaginatedMoveDamageClassSummaryList.class);
         /**
         GET /api/v2/move-damage-class/{id}/ : Get move damage class
@@ -710,7 +770,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"descriptions\" : [ { \"description\" : \"description\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"description\" : \"description\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"moves\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }"))
+            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"descriptions\" : [ { \"description\" : \"description\", \"language\" : \"\" }, { \"description\" : \"description\", \"language\" : \"\" } ], \"moves\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, MoveDamageClassDetail.class);
         /**
         GET /api/v2/move-learn-method/ : List move learn methods
@@ -722,7 +782,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
+            .setBody(constant("{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/move-learn-method/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/move-learn-method/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, PaginatedMoveLearnMethodSummaryList.class);
         /**
         GET /api/v2/move-learn-method/{id}/ : Get move learn method
@@ -734,7 +794,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"descriptions\" : [ { \"description\" : \"description\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"description\" : \"description\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"version_groups\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
+            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ], \"descriptions\" : [ { \"description\" : \"description\", \"language\" : \"\" }, { \"description\" : \"description\", \"language\" : \"\" } ], \"version_groups\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, MoveLearnMethodDetail.class);
         /**
         GET /api/v2/move/ : List moves
@@ -746,7 +806,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
+            .setBody(constant("{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/move/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/move/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, PaginatedMoveSummaryList.class);
         /**
         GET /api/v2/move/{id}/ : Get move
@@ -758,7 +818,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"accuracy\" : 6, \"effect_chance\" : 1, \"pp\" : 5, \"priority\" : 5, \"power\" : 2, \"contest_combos\" : { \"normal\" : { \"use_before\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"use_after\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }, \"super\" : { \"use_before\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"use_after\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] } }, \"contest_type\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"contest_effect\" : { \"url\" : \"https://openapi-generator.tech\" }, \"damage_class\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"effect_entries\" : [ { \"effect\" : \"effect\", \"short_effect\" : \"short_effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"effect\" : \"effect\", \"short_effect\" : \"short_effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"effect_changes\" : [ { \"effect_entries\" : [ { \"effect\" : \"effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"effect\" : \"effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"effect_entries\" : [ { \"effect\" : \"effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"effect\" : \"effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"generation\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"meta\" : \"\", \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"past_values\" : [ { \"accuracy\" : 7, \"power\" : 9, \"pp\" : 3, \"effect_chance\" : 2, \"effect_entries\" : [ { \"effect\" : \"effect\", \"short_effect\" : \"short_effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"effect\" : \"effect\", \"short_effect\" : \"short_effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"type\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"accuracy\" : 7, \"power\" : 9, \"pp\" : 3, \"effect_chance\" : 2, \"effect_entries\" : [ { \"effect\" : \"effect\", \"short_effect\" : \"short_effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"effect\" : \"effect\", \"short_effect\" : \"short_effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"type\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"stat_changes\" : [ { \"change\" : 4, \"stat\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"change\" : 4, \"stat\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"super_contest_effect\" : { \"url\" : \"https://openapi-generator.tech\" }, \"target\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"type\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"machines\" : [ { \"machine\" : { \"url\" : \"https://openapi-generator.tech\" }, \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"machine\" : { \"url\" : \"https://openapi-generator.tech\" }, \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"flavor_text_entries\" : [ { \"flavor_text\" : \"flavor_text\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"flavor_text\" : \"flavor_text\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"learned_by_pokemon\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
+            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"accuracy\" : 441289069, \"effect_chance\" : 1, \"pp\" : 413233370, \"priority\" : 273751188, \"power\" : -1158723813, \"contest_combos\" : \"\", \"contest_type\" : \"\", \"contest_effect\" : \"\", \"damage_class\" : \"\", \"effect_entries\" : [ { \"effect\" : \"effect\", \"short_effect\" : \"short_effect\", \"language\" : \"\" }, { \"effect\" : \"effect\", \"short_effect\" : \"short_effect\", \"language\" : \"\" } ], \"effect_changes\" : [ { \"version_group\" : \"\", \"effect_entries\" : [ { \"effect\" : \"effect\", \"language\" : \"\" }, { \"effect\" : \"effect\", \"language\" : \"\" } ] }, { \"version_group\" : \"\", \"effect_entries\" : [ { \"effect\" : \"effect\", \"language\" : \"\" }, { \"effect\" : \"effect\", \"language\" : \"\" } ] } ], \"generation\" : \"\", \"meta\" : \"\", \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ], \"past_values\" : [ { \"accuracy\" : 885365090, \"power\" : 1847456234, \"pp\" : -594390510, \"effect_chance\" : 2, \"effect_entries\" : [ { \"effect\" : \"effect\", \"short_effect\" : \"short_effect\", \"language\" : \"\" }, { \"effect\" : \"effect\", \"short_effect\" : \"short_effect\", \"language\" : \"\" } ], \"type\" : \"\", \"version_group\" : \"\" }, { \"accuracy\" : 885365090, \"power\" : 1847456234, \"pp\" : -594390510, \"effect_chance\" : 2, \"effect_entries\" : [ { \"effect\" : \"effect\", \"short_effect\" : \"short_effect\", \"language\" : \"\" }, { \"effect\" : \"effect\", \"short_effect\" : \"short_effect\", \"language\" : \"\" } ], \"type\" : \"\", \"version_group\" : \"\" } ], \"stat_changes\" : [ { \"change\" : -366958557, \"stat\" : \"\" }, { \"change\" : -366958557, \"stat\" : \"\" } ], \"super_contest_effect\" : \"\", \"target\" : \"\", \"type\" : \"\", \"machines\" : [ { \"machine\" : \"\", \"version_group\" : \"\" }, { \"machine\" : \"\", \"version_group\" : \"\" } ], \"flavor_text_entries\" : [ { \"flavor_text\" : \"flavor_text\", \"language\" : \"\", \"version_group\" : \"\" }, { \"flavor_text\" : \"flavor_text\", \"language\" : \"\", \"version_group\" : \"\" } ], \"learned_by_pokemon\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, MoveDetail.class);
         /**
         GET /api/v2/move-target/ : List move targets
@@ -770,7 +830,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
+            .setBody(constant("{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/move-target/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/move-target/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, PaginatedMoveTargetSummaryList.class);
         /**
         GET /api/v2/move-target/{id}/ : Get move target
@@ -782,7 +842,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"descriptions\" : [ { \"description\" : \"description\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"description\" : \"description\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"moves\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }"))
+            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"descriptions\" : [ { \"description\" : \"description\", \"language\" : \"\" }, { \"description\" : \"description\", \"language\" : \"\" } ], \"moves\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, MoveTargetDetail.class);
         /**
         GET /api/v2/nature/ : List natures
@@ -794,7 +854,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
+            .setBody(constant("{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/nature/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/nature/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, PaginatedNatureSummaryList.class);
         /**
         GET /api/v2/nature/{id}/ : Get nature
@@ -806,7 +866,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"decreased_stat\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"increased_stat\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"likes_flavor\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"hates_flavor\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"berries\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"pokeathlon_stat_changes\" : [ { \"max_change\" : 6, \"pokeathlon_stat\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"max_change\" : 6, \"pokeathlon_stat\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"move_battle_style_preferences\" : [ { \"low_hp_preference\" : 1, \"high_hp_preference\" : 5, \"move_battle_style\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"low_hp_preference\" : 1, \"high_hp_preference\" : 5, \"move_battle_style\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }"))
+            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"decreased_stat\" : \"\", \"increased_stat\" : \"\", \"likes_flavor\" : \"\", \"hates_flavor\" : \"\", \"pokeathlon_stat_changes\" : [ { \"max_change\" : 441289069, \"pokeathlon_stat\" : \"\" }, { \"max_change\" : 441289069, \"pokeathlon_stat\" : \"\" } ], \"move_battle_style_preferences\" : [ { \"low_hp_preference\" : -1517921766, \"high_hp_preference\" : 413233370, \"move_battle_style\" : \"\" }, { \"low_hp_preference\" : -1517921766, \"high_hp_preference\" : 413233370, \"move_battle_style\" : \"\" } ], \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, NatureDetail.class);
         /**
         GET /api/v2/pal-park-area/ : List pal park areas
@@ -818,7 +878,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
+            .setBody(constant("{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/pal-park-area/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/pal-park-area/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, PaginatedPalParkAreaSummaryList.class);
         /**
         GET /api/v2/pal-park-area/{id}/ : Get pal park area
@@ -830,7 +890,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"pokemon_encounters\" : [ { \"base_score\" : 6, \"pokemon-species\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"rate\" : 1 }, { \"base_score\" : 6, \"pokemon-species\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"rate\" : 1 } ] }"))
+            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ], \"pokemon_encounters\" : [ { \"base_score\" : 441289069, \"rate\" : -1517921766, \"pokemon_species\" : \"\" }, { \"base_score\" : 441289069, \"rate\" : -1517921766, \"pokemon_species\" : \"\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, PalParkAreaDetail.class);
         /**
         GET /api/v2/pokeathlon-stat/ : List pokeathlon stats
@@ -842,7 +902,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
+            .setBody(constant("{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/pokeathlon-stat/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/pokeathlon-stat/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, PaginatedPokeathlonStatSummaryList.class);
         /**
         GET /api/v2/pokeathlon-stat/{id}/ : Get pokeathlon stat
@@ -854,7 +914,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"affecting_natures\" : { \"decrease\" : [ { \"max_change\" : 0, \"nature\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"max_change\" : 0, \"nature\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"increase\" : [ { \"max_change\" : 1, \"nature\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"max_change\" : 1, \"nature\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }, \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }"))
+            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"affecting_natures\" : \"\", \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, PokeathlonStatDetail.class);
         /**
         GET /api/v2/pokedex/ : List pokedex
@@ -866,7 +926,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
+            .setBody(constant("{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/pokedex/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/pokedex/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, PaginatedPokedexSummaryList.class);
         /**
         GET /api/v2/pokedex/{id}/ : Get pokedex
@@ -878,7 +938,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"is_main_series\" : true, \"descriptions\" : [ { \"description\" : \"description\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"description\" : \"description\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"pokemon_entries\" : [ { \"entry_number\" : 6, \"pokemon_species\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"entry_number\" : 6, \"pokemon_species\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"region\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"version_groups\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
+            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"is_main_series\" : true, \"descriptions\" : [ { \"description\" : \"description\", \"language\" : \"\" }, { \"description\" : \"description\", \"language\" : \"\" } ], \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ], \"pokemon_entries\" : [ { \"entry_number\" : 6, \"pokemon_species\" : \"\" }, { \"entry_number\" : 6, \"pokemon_species\" : \"\" } ], \"region\" : \"\", \"version_groups\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, PokedexDetail.class);
         /**
         GET /api/v2/pokemon-color/ : List pokemon colors
@@ -890,7 +950,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
+            .setBody(constant("{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/pokemon-color/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/pokemon-color/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, PaginatedPokemonColorSummaryList.class);
         /**
         GET /api/v2/pokemon-color/{id}/ : Get pokemon color
@@ -902,7 +962,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"pokemon_species\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
+            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ], \"pokemon_species\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, PokemonColorDetail.class);
         /**
         GET /api/v2/pokemon-form/ : List pokemon forms
@@ -914,7 +974,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
+            .setBody(constant("{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/pokemon-form/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/pokemon-form/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, PaginatedPokemonFormSummaryList.class);
         /**
         GET /api/v2/pokemon-form/{id}/ : Get pokemon form
@@ -926,7 +986,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"order\" : 6, \"form_order\" : 1, \"is_default\" : true, \"is_battle_only\" : true, \"is_mega\" : true, \"form_name\" : \"form_name\", \"pokemon\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"sprites\" : { \"default\" : \"https://openapi-generator.tech\" }, \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"form_names\" : [ { \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"name\" : \"name\" }, { \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"name\" : \"name\" } ], \"names\" : [ { \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"name\" : \"name\" }, { \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"name\" : \"name\" } ], \"types\" : [ { \"slot\" : 4, \"type\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"slot\" : 4, \"type\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }"))
+            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"order\" : 441289069, \"form_order\" : -1517921766, \"is_default\" : true, \"is_battle_only\" : true, \"is_mega\" : true, \"form_name\" : \"form_name\", \"pokemon\" : \"\", \"sprites\" : \"\", \"version_group\" : \"\", \"form_names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ], \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ], \"types\" : [ { \"slot\" : 413233370, \"type\" : \"\" }, { \"slot\" : 413233370, \"type\" : \"\" } ], \"trigger_conditions\" : [ { \"trigger\" : \"trigger\", \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\", \"base_form\" : \"\" }, { \"trigger\" : \"trigger\", \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\", \"base_form\" : \"\" } ], \"flavor_text_entries\" : [ { \"flavor_text\" : \"flavor_text\", \"language\" : \"\", \"version\" : \"\" }, { \"flavor_text\" : \"flavor_text\", \"language\" : \"\", \"version\" : \"\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, PokemonFormDetail.class);
         /**
         GET /api/v2/pokemon-habitat/ : List pokemom habitas
@@ -938,7 +998,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
+            .setBody(constant("{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/pokemon-habitat/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/pokemon-habitat/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, PaginatedPokemonHabitatSummaryList.class);
         /**
         GET /api/v2/pokemon-habitat/{id}/ : Get pokemom habita
@@ -950,7 +1010,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"pokemon_species\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
+            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ], \"pokemon_species\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, PokemonHabitatDetail.class);
         /**
         GET /api/v2/pokemon/ : List pokemon
@@ -962,7 +1022,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
+            .setBody(constant("{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/pokemon/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/pokemon/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, PaginatedPokemonSummaryList.class);
         /**
         GET /api/v2/pokemon/{id}/ : Get pokemon
@@ -974,7 +1034,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"base_experience\" : 6, \"height\" : 1, \"is_default\" : true, \"order\" : 5, \"weight\" : 5, \"abilities\" : [ { \"ability\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"is_hidden\" : true, \"slot\" : 2 }, { \"ability\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"is_hidden\" : true, \"slot\" : 2 } ], \"past_abilities\" : [ { \"abilities\" : [ { \"ability\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"is_hidden\" : true, \"slot\" : 2 }, { \"ability\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"is_hidden\" : true, \"slot\" : 2 } ], \"generation\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"abilities\" : [ { \"ability\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"is_hidden\" : true, \"slot\" : 2 }, { \"ability\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"is_hidden\" : true, \"slot\" : 2 } ], \"generation\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"forms\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"game_indices\" : [ { \"game_index\" : 7, \"version\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"game_index\" : 7, \"version\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"held_items\" : { \"item\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"version_details\" : [ { \"rarity\" : 5, \"version\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"rarity\" : 5, \"version\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }, \"location_area_encounters\" : \"location_area_encounters\", \"moves\" : [ { \"move\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"version_group_details\" : [ { \"level_learned_at\" : 9, \"move_learn_method\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"level_learned_at\" : 9, \"move_learn_method\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }, { \"move\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"version_group_details\" : [ { \"level_learned_at\" : 9, \"move_learn_method\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"level_learned_at\" : 9, \"move_learn_method\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] } ], \"species\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"sprites\" : { \"front_default\" : \"https://openapi-generator.tech\" }, \"cries\" : { \"latest\" : \"https://openapi-generator.tech\", \"legacy\" : \"https://openapi-generator.tech\" }, \"stats\" : [ { \"base_stat\" : 3, \"effort\" : 2, \"stat\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"base_stat\" : 3, \"effort\" : 2, \"stat\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"types\" : [ { \"slot\" : 4, \"type\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"slot\" : 4, \"type\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"past_types\" : [ { \"generation\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"types\" : [ { \"slot\" : 4, \"type\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"slot\" : 4, \"type\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }, { \"generation\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"types\" : [ { \"slot\" : 4, \"type\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"slot\" : 4, \"type\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] } ] }"))
+            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"base_experience\" : 441289069, \"height\" : -1517921766, \"is_default\" : true, \"order\" : 413233370, \"weight\" : 273751188, \"abilities\" : [ { \"is_hidden\" : true, \"slot\" : -1158723813, \"ability\" : \"\" }, { \"is_hidden\" : true, \"slot\" : -1158723813, \"ability\" : \"\" } ], \"past_abilities\" : [ { \"abilities\" : [ { \"is_hidden\" : true, \"slot\" : 885365090, \"ability\" : \"\" }, { \"is_hidden\" : true, \"slot\" : 885365090, \"ability\" : \"\" } ], \"generation\" : \"\" }, { \"abilities\" : [ { \"is_hidden\" : true, \"slot\" : 885365090, \"ability\" : \"\" }, { \"is_hidden\" : true, \"slot\" : 885365090, \"ability\" : \"\" } ], \"generation\" : \"\" } ], \"forms\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"game_indices\" : [ { \"game_index\" : 1847456234, \"version\" : \"\" }, { \"game_index\" : 1847456234, \"version\" : \"\" } ], \"held_items\" : [ { \"item\" : \"\", \"version_details\" : [ { \"rarity\" : 2, \"version\" : \"\" }, { \"rarity\" : 2, \"version\" : \"\" } ] }, { \"item\" : \"\", \"version_details\" : [ { \"rarity\" : 2, \"version\" : \"\" }, { \"rarity\" : 2, \"version\" : \"\" } ] } ], \"location_area_encounters\" : \"location_area_encounters\", \"moves\" : [ { \"move\" : \"\", \"version_group_details\" : [ { \"level_learned_at\" : 3, \"move_learn_method\" : \"\", \"version_group\" : \"\", \"order\" : 2 }, { \"level_learned_at\" : 3, \"move_learn_method\" : \"\", \"version_group\" : \"\", \"order\" : 2 } ] }, { \"move\" : \"\", \"version_group_details\" : [ { \"level_learned_at\" : 3, \"move_learn_method\" : \"\", \"version_group\" : \"\", \"order\" : 2 }, { \"level_learned_at\" : 3, \"move_learn_method\" : \"\", \"version_group\" : \"\", \"order\" : 2 } ] } ], \"species\" : \"\", \"sprites\" : \"\", \"cries\" : \"\", \"stats\" : [ { \"base_stat\" : -366958557, \"effort\" : 1024900291, \"stat\" : \"\" }, { \"base_stat\" : -366958557, \"effort\" : 1024900291, \"stat\" : \"\" } ], \"past_stats\" : [ { \"generation\" : \"\", \"stats\" : [ { \"base_stat\" : -366958557, \"effort\" : 1024900291, \"stat\" : \"\" }, { \"base_stat\" : -366958557, \"effort\" : 1024900291, \"stat\" : \"\" } ] }, { \"generation\" : \"\", \"stats\" : [ { \"base_stat\" : -366958557, \"effort\" : 1024900291, \"stat\" : \"\" }, { \"base_stat\" : -366958557, \"effort\" : 1024900291, \"stat\" : \"\" } ] } ], \"types\" : [ { \"slot\" : -1618552611, \"type\" : \"\" }, { \"slot\" : -1618552611, \"type\" : \"\" } ], \"past_types\" : [ { \"generation\" : \"\", \"types\" : [ { \"slot\" : -1618552611, \"type\" : \"\" }, { \"slot\" : -1618552611, \"type\" : \"\" } ] }, { \"generation\" : \"\", \"types\" : [ { \"slot\" : -1618552611, \"type\" : \"\" }, { \"slot\" : -1618552611, \"type\" : \"\" } ] } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, PokemonDetail.class);
         /**
         GET /api/v2/pokemon-shape/ : List pokemon shapes
@@ -986,7 +1046,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
+            .setBody(constant("{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/pokemon-shape/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/pokemon-shape/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, PaginatedPokemonShapeSummaryList.class);
         /**
         GET /api/v2/pokemon-shape/{id}/ : Get pokemon shape
@@ -998,7 +1058,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"awesome_names\" : [ { \"awesome_name\" : \"awesome_name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"awesome_name\" : \"awesome_name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"names\" : [ { \"url\" : \"https://openapi-generator.tech\", \"name\" : \"name\" }, { \"url\" : \"https://openapi-generator.tech\", \"name\" : \"name\" } ], \"pokemon_species\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
+            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"awesome_names\" : [ { \"awesome_name\" : \"awesome_name\", \"language\" : \"\" }, { \"awesome_name\" : \"awesome_name\", \"language\" : \"\" } ], \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ], \"pokemon_species\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, PokemonShapeDetail.class);
         /**
         GET /api/v2/pokemon-species/ : List pokemon species
@@ -1010,7 +1070,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
+            .setBody(constant("{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/pokemon-species/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/pokemon-species/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, PaginatedPokemonSpeciesSummaryList.class);
         /**
         GET /api/v2/pokemon-species/{id}/ : Get pokemon species
@@ -1022,7 +1082,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"order\" : 6, \"gender_rate\" : 1, \"capture_rate\" : 5, \"base_happiness\" : 5, \"is_baby\" : true, \"is_legendary\" : true, \"is_mythical\" : true, \"hatch_counter\" : 2, \"has_gender_differences\" : true, \"forms_switchable\" : true, \"growth_rate\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"pokedex_numbers\" : [ { \"entry_number\" : 7, \"pokedex\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"entry_number\" : 7, \"pokedex\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"egg_groups\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"color\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"shape\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"evolves_from_species\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"evolution_chain\" : { \"url\" : \"https://openapi-generator.tech\" }, \"habitat\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"generation\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"names\" : [ { \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"name\" : \"name\" }, { \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"name\" : \"name\" } ], \"pal_park_encounters\" : [ { \"area\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"base_score\" : 9, \"rate\" : 3 }, { \"area\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"base_score\" : 9, \"rate\" : 3 } ], \"form_descriptions\" : [ { \"description\" : \"description\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"description\" : \"description\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"flavor_text_entries\" : [ { \"flavor_text\" : \"flavor_text\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"version\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"flavor_text\" : \"flavor_text\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"version\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"genera\" : [ { \"genus\" : \"genus\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"genus\" : \"genus\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"varieties\" : [ { \"is_default\" : true, \"pokemon\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"is_default\" : true, \"pokemon\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }"))
+            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"order\" : 441289069, \"gender_rate\" : -1517921766, \"capture_rate\" : 413233370, \"base_happiness\" : 273751188, \"is_baby\" : true, \"is_legendary\" : true, \"is_mythical\" : true, \"hatch_counter\" : -1158723813, \"has_gender_differences\" : true, \"forms_switchable\" : true, \"growth_rate\" : \"\", \"pokedex_numbers\" : [ { \"entry_number\" : 7, \"pokedex\" : \"\" }, { \"entry_number\" : 7, \"pokedex\" : \"\" } ], \"egg_groups\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"color\" : \"\", \"shape\" : \"\", \"evolves_from_species\" : \"\", \"evolution_chain\" : \"\", \"habitat\" : \"\", \"generation\" : \"\", \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ], \"pal_park_encounters\" : [ { \"base_score\" : 1847456234, \"rate\" : -594390510, \"area\" : \"\" }, { \"base_score\" : 1847456234, \"rate\" : -594390510, \"area\" : \"\" } ], \"form_descriptions\" : [ { \"description\" : \"description\", \"language\" : \"\" }, { \"description\" : \"description\", \"language\" : \"\" } ], \"flavor_text_entries\" : [ { \"flavor_text\" : \"flavor_text\", \"language\" : \"\", \"version\" : \"\" }, { \"flavor_text\" : \"flavor_text\", \"language\" : \"\", \"version\" : \"\" } ], \"genera\" : [ { \"genus\" : \"genus\", \"language\" : \"\" }, { \"genus\" : \"genus\", \"language\" : \"\" } ], \"varieties\" : [ { \"is_default\" : true, \"pokemon\" : \"\" }, { \"is_default\" : true, \"pokemon\" : \"\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, PokemonSpeciesDetail.class);
         /**
         GET /api/v2/region/ : List regions
@@ -1034,7 +1094,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
+            .setBody(constant("{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/region/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/region/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, PaginatedRegionSummaryList.class);
         /**
         GET /api/v2/region/{id}/ : Get region
@@ -1046,7 +1106,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"locations\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"main_generation\" : \"\", \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"pokedexes\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"version_groups\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
+            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"locations\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"main_generation\" : \"\", \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ], \"pokedexes\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"version_groups\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, RegionDetail.class);
         /**
         GET /api/v2/stat/ : List stats
@@ -1058,7 +1118,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
+            .setBody(constant("{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/stat/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/stat/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, PaginatedStatSummaryList.class);
         /**
         GET /api/v2/stat/{id}/ : Get stat
@@ -1070,7 +1130,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"game_index\" : 6, \"is_battle_only\" : true, \"affecting_moves\" : { \"increase\" : [ { \"change\" : 1, \"move\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"change\" : 1, \"move\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"decrease\" : [ { \"change\" : 1, \"move\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"change\" : 1, \"move\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }, \"affecting_natures\" : { \"increase\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"decrease\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }, \"characteristics\" : [ { \"url\" : \"https://openapi-generator.tech\" }, { \"url\" : \"https://openapi-generator.tech\" } ], \"move_damage_class\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }"))
+            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"game_index\" : 441289069, \"is_battle_only\" : true, \"affecting_moves\" : \"\", \"affecting_natures\" : \"\", \"affecting_items\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"characteristics\" : [ { \"url\" : \"https://openapi-generator.tech\" }, { \"url\" : \"https://openapi-generator.tech\" } ], \"move_damage_class\" : \"\", \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, StatDetail.class);
         /**
         GET /api/v2/super-contest-effect/ : List super contest effects
@@ -1082,7 +1142,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"url\" : \"https://openapi-generator.tech\" }, { \"url\" : \"https://openapi-generator.tech\" } ] }"))
+            .setBody(constant("{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/super-contest-effect/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/super-contest-effect/?offset=0&limit=20\", \"results\" : [ { \"url\" : \"https://openapi-generator.tech\" }, { \"url\" : \"https://openapi-generator.tech\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, PaginatedSuperContestEffectSummaryList.class);
         /**
         GET /api/v2/super-contest-effect/{id}/ : Get super contest effect
@@ -1094,7 +1154,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"id\" : 0, \"appeal\" : 6, \"flavor_text_entries\" : [ { \"flavor_text\" : \"flavor_text\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"flavor_text\" : \"flavor_text\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"moves\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
+            .setBody(constant("{ \"id\" : 0, \"appeal\" : 441289069, \"flavor_text_entries\" : [ { \"flavor_text\" : \"flavor_text\", \"language\" : \"\" }, { \"flavor_text\" : \"flavor_text\", \"language\" : \"\" } ], \"moves\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, SuperContestEffectDetail.class);
         /**
         GET /api/v2/type/ : List types
@@ -1106,7 +1166,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
+            .setBody(constant("{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/type/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/type/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, PaginatedTypeSummaryList.class);
         /**
         GET /api/v2/type/{id}/ : Get types
@@ -1118,7 +1178,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"damage_relations\" : { \"no_damage_to\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"half_damage_to\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"double_damage_to\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"no_damage_from\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"half_damage_from\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"double_damage_from\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }, \"past_damage_relations\" : [ { \"generation\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"damage_relations\" : { \"no_damage_to\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"half_damage_to\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"double_damage_to\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"no_damage_from\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"half_damage_from\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"double_damage_from\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] } }, { \"generation\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"damage_relations\" : { \"no_damage_to\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"half_damage_to\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"double_damage_to\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"no_damage_from\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"half_damage_from\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"double_damage_from\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] } } ], \"game_indices\" : [ { \"game_index\" : 5, \"generation\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"game_index\" : 5, \"generation\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"generation\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"move_damage_class\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"pokemon\" : [ { \"slot\" : 6, \"pokemon\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"slot\" : 6, \"pokemon\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"moves\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"sprites\" : { \"key\" : { \"key\" : { \"name-icon\" : \"https://openapi-generator.tech\" } } } }"))
+            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"damage_relations\" : \"\", \"past_damage_relations\" : [ { \"generation\" : \"\", \"damage_relations\" : \"\" }, { \"generation\" : \"\", \"damage_relations\" : \"\" } ], \"game_indices\" : [ { \"game_index\" : -1517921766, \"generation\" : \"\" }, { \"game_index\" : -1517921766, \"generation\" : \"\" } ], \"generation\" : \"\", \"move_damage_class\" : \"\", \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ], \"pokemon\" : [ { \"slot\" : 441289069, \"pokemon\" : \"\" }, { \"slot\" : 441289069, \"pokemon\" : \"\" } ], \"moves\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"sprites\" : { \"key\" : { \"key\" : { \"name_icon\" : \"name_icon\", \"symbol_icon\" : \"symbol_icon\" } } } }"))
             .unmarshal().json(JsonLibrary.Jackson, TypeDetail.class);
         /**
         GET /api/v2/version-group/ : List version groups
@@ -1130,7 +1190,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
+            .setBody(constant("{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/version-group/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/version-group/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, PaginatedVersionGroupSummaryList.class);
         /**
         GET /api/v2/version-group/{id}/ : Get version group
@@ -1142,7 +1202,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"order\" : 6, \"generation\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"move_learn_methods\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"pokedexes\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"regions\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"versions\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
+            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"order\" : 441289069, \"generation\" : \"\", \"move_learn_methods\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"pokedexes\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"regions\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"versions\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, VersionGroupDetail.class);
         /**
         GET /api/v2/version/ : List versions
@@ -1154,7 +1214,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
+            .setBody(constant("{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/version/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/version/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }"))
             .unmarshal().json(JsonLibrary.Jackson, PaginatedVersionSummaryList.class);
         /**
         GET /api/v2/version/{id}/ : Get version
@@ -1166,7 +1226,7 @@ public class ApiApiRoutesImpl extends RouteBuilder {
                     .log(LoggingLevel.INFO, "BODY TYPE: ${body.getClass().getName()}")
             .end()
             .log(LoggingLevel.INFO, "HEADERS: ${headers}")
-            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }"))
+            .setBody(constant("{ \"id\" : 0, \"name\" : \"name\", \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ], \"version_group\" : \"\" }"))
             .unmarshal().json(JsonLibrary.Jackson, VersionDetail.class);
     }
 }

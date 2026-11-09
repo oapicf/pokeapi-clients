@@ -7,6 +7,7 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.openapitools.jackson.nullable.JsonNullable;
 import org.openapitools.vertxweb.server.model.ContestTypeSummary;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)

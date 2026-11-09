@@ -49,46 +49,46 @@ public:
 	 */
 	void fromJson(char* jsonStr);
 
-	/*! \brief Get 
+	/*! \brief Get The identifier for this resource.
 	 */
 	int getId();
 
-	/*! \brief Set 
+	/*! \brief Set The identifier for this resource.
 	 */
 	void setId(int  id);
-	/*! \brief Get 
+	/*! \brief Get The name for this resource.
 	 */
 	std::string getName();
 
-	/*! \brief Set 
+	/*! \brief Set The name for this resource.
 	 */
 	void setName(std::string  name);
-	/*! \brief Get 
+	/*! \brief Get The formula used to calculate the rate at which the Pokémon species gains level.
 	 */
 	std::string getFormula();
 
-	/*! \brief Set 
+	/*! \brief Set The formula used to calculate the rate at which the Pokémon species gains level.
 	 */
 	void setFormula(std::string  formula);
-	/*! \brief Get 
+	/*! \brief Get The descriptions of this characteristic listed in different languages.
 	 */
 	std::list<GrowthRateDescription> getDescriptions();
 
-	/*! \brief Set 
+	/*! \brief Set The descriptions of this characteristic listed in different languages.
 	 */
 	void setDescriptions(std::list <GrowthRateDescription> descriptions);
-	/*! \brief Get 
+	/*! \brief Get A list of levels and the amount of experienced needed to atain them based on this growth rate.
 	 */
 	std::list<Experience> getLevels();
 
-	/*! \brief Set 
+	/*! \brief Set A list of levels and the amount of experienced needed to atain them based on this growth rate.
 	 */
 	void setLevels(std::list <Experience> levels);
-	/*! \brief Get 
+	/*! \brief Get A list of Pokémon species that gain levels at this growth rate.
 	 */
 	std::list<PokemonSpeciesSummary> getPokemonSpecies();
 
-	/*! \brief Set 
+	/*! \brief Set A list of Pokémon species that gain levels at this growth rate.
 	 */
 	void setPokemonSpecies(std::list <PokemonSpeciesSummary> pokemon_species);
 

@@ -4,8 +4,8 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **flavor_text** | **String** |  |  |
-| **language** | [**LanguageSummary**](LanguageSummary.md) |  |  |
+| **flavor_text** | **String** | The localized flavor text for an API resource in a specific language. |  |
+| **language** | [**LanguageSummary**](LanguageSummary.md) | The language this name is in. |  |
 
 ## Example
 

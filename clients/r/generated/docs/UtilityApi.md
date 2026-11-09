@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**LanguageList**](UtilityApi.md#LanguageList) | **GET** /api/v2/language/ | List languages
 [**LanguageRetrieve**](UtilityApi.md#LanguageRetrieve) | **GET** /api/v2/language/{id}/ | Get language
+[**MetaRetrieve**](UtilityApi.md#MetaRetrieve) | **GET** /api/v2/meta/ | Get API metadata
 
 
 # **LanguageList**
@@ -27,11 +28,6 @@ var_offset <- 56 # integer | The initial index from which to return the results.
 var_q <- "q_example" # character | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (Optional)
 
 api_instance <- UtilityApi$new()
-# Configure HTTP basic authorization: basicAuth
-api_instance$api_client$username <- Sys.getenv("USERNAME")
-api_instance$api_client$password <- Sys.getenv("PASSWORD")
-# Configure API key authorization: cookieAuth
-# api_instance$api_client$api_keys["sessionid"] <- Sys.getenv("API_KEY")
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
 # result <- api_instance$LanguageList(limit = var_limit, offset = var_offset, q = var_qdata_file = "result.txt")
 result <- api_instance$LanguageList(limit = var_limit, offset = var_offset, q = var_q)
@@ -52,7 +48,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -78,14 +74,9 @@ library(openapi)
 # Get language
 #
 # prepare function argument(s)
-var_id <- "id_example" # character | This parameter can be a string or an integer.
+var_id <- "1" # character | This parameter can be a string or an integer.
 
 api_instance <- UtilityApi$new()
-# Configure HTTP basic authorization: basicAuth
-api_instance$api_client$username <- Sys.getenv("USERNAME")
-api_instance$api_client$password <- Sys.getenv("PASSWORD")
-# Configure API key authorization: cookieAuth
-# api_instance$api_client$api_keys["sessionid"] <- Sys.getenv("API_KEY")
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
 # result <- api_instance$LanguageRetrieve(var_iddata_file = "result.txt")
 result <- api_instance$LanguageRetrieve(var_id)
@@ -104,7 +95,49 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** |  |  -  |
+
+# **MetaRetrieve**
+> PokeapiMetaResponse MetaRetrieve()
+
+Get API metadata
+
+Returns metadata about the current deployed version of the API, including the git commit hash, deploy date, and tag (if any).
+
+### Example
+```R
+library(openapi)
+
+# Get API metadata
+#
+
+api_instance <- UtilityApi$new()
+# to save the result into a file, simply add the optional `data_file` parameter, e.g.
+# result <- api_instance$MetaRetrieve(data_file = "result.txt")
+result <- api_instance$MetaRetrieve()
+dput(result)
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**PokeapiMetaResponse**](PokeapiMetaResponse.md)
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 

@@ -24,6 +24,7 @@ public class MoveFlavorText   {
   private VersionGroupSummary versionGroup;
 
   /**
+   * The localized flavor text for an api resource in a specific language.
    **/
   public MoveFlavorText flavorText(String flavorText) {
     this.flavorText = flavorText;
@@ -31,7 +32,7 @@ public class MoveFlavorText   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The localized flavor text for an api resource in a specific language.")
   @JsonProperty("flavor_text")
   @NotNull
   public String getFlavorText() {
@@ -43,6 +44,7 @@ public class MoveFlavorText   {
 
 
   /**
+   * The language this name is in.
    **/
   public MoveFlavorText language(LanguageSummary language) {
     this.language = language;
@@ -50,7 +52,7 @@ public class MoveFlavorText   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The language this name is in.")
   @JsonProperty("language")
   @NotNull
   public LanguageSummary getLanguage() {
@@ -62,6 +64,7 @@ public class MoveFlavorText   {
 
 
   /**
+   * The version group that uses this flavor text.
    **/
   public MoveFlavorText versionGroup(VersionGroupSummary versionGroup) {
     this.versionGroup = versionGroup;
@@ -69,7 +72,7 @@ public class MoveFlavorText   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The version group that uses this flavor text.")
   @JsonProperty("version_group")
   @NotNull
   public VersionGroupSummary getVersionGroup() {

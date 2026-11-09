@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int32** |  | [readonly] 
-**Name** | **string** |  | 
-**Names** | [**[]PokemonHabitatName**](PokemonHabitatName.md) |  | [readonly] 
-**PokemonSpecies** | [**[]PokemonSpeciesSummary**](PokemonSpeciesSummary.md) |  | [readonly] 
+**Id** | **int32** | The identifier for this resource. | [readonly] 
+**Name** | **string** | The name for this resource. | 
+**Names** | [**[]PokemonHabitatName**](PokemonHabitatName.md) | The name of this resource listed in different languages. | [readonly] 
+**PokemonSpecies** | [**[]PokemonSpeciesSummary**](PokemonSpeciesSummary.md) | A list of the Pokémon species that can be found in this habitat. | [readonly] 
 
 ## Methods
 

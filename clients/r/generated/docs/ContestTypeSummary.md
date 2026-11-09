@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **character** |  | [Max. length: 100] 
-**url** | **character** |  | [readonly] 
+**name** | **character** | The name of the referenced resource. | [Max. length: 200] 
+**url** | **character** | The URL of the referenced resource. | [readonly] 
 
 

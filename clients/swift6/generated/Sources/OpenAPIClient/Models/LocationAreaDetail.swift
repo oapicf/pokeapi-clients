@@ -9,16 +9,24 @@ import Foundation
 
 public struct LocationAreaDetail: Sendable, Codable, Hashable {
 
-    public static let nameRule = StringRule(minLength: nil, maxLength: 100, pattern: nil)
+    public static let nameRule = StringRule(minLength: nil, maxLength: 200, pattern: nil)
+    public static let gameIndexRule = NumericRule<Int>(minimum: -2147483648, exclusiveMinimum: false, maximum: 2147483647, exclusiveMaximum: false, multipleOf: nil)
+    /** The identifier for this resource. */
     public var id: Int
+    /** The name for this resource. */
     public var name: String
+    /** The internal id of an API resource within game data. */
     public var gameIndex: Int
-    public var encounterMethodRates: [LocationAreaDetailEncounterMethodRatesInner]
+    /** A list of methods in which Pokémon may be encountered in this area and how likely the method will occur depending on the version of the game. */
+    public var encounterMethodRates: [LocationAreaEncounterRate]
+    /** The region this location area can be found in. */
     public var location: LocationSummary
+    /** The name of this resource listed in different languages. */
     public var names: [LocationAreaName]
-    public var pokemonEncounters: [LocationAreaDetailPokemonEncountersInner]
+    /** A list of Pokémon that can be encountered in this area along with version specific details about the encounter. */
+    public var pokemonEncounters: [LocationAreaPokemonEncounter]
 
-    public init(id: Int, name: String, gameIndex: Int, encounterMethodRates: [LocationAreaDetailEncounterMethodRatesInner], location: LocationSummary, names: [LocationAreaName], pokemonEncounters: [LocationAreaDetailPokemonEncountersInner]) {
+    public init(id: Int, name: String, gameIndex: Int, encounterMethodRates: [LocationAreaEncounterRate], location: LocationSummary, names: [LocationAreaName], pokemonEncounters: [LocationAreaPokemonEncounter]) {
         self.id = id
         self.name = name
         self.gameIndex = gameIndex

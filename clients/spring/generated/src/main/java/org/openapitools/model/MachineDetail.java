@@ -22,7 +22,7 @@ import jakarta.annotation.Generated;
  * MachineDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-10-25T05:53:37.479908528Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-11-09T13:53:47.069318184Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class MachineDetail {
 
   private Integer id;
@@ -53,11 +53,11 @@ public class MachineDetail {
   }
 
   /**
-   * Get id
+   * The identifier for this resource.
    * @return id
    */
   
-  @Schema(name = "id", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "id", accessMode = Schema.AccessMode.READ_ONLY, description = "The identifier for this resource.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("id")
   public Integer getId() {
     return id;
@@ -74,11 +74,11 @@ public class MachineDetail {
   }
 
   /**
-   * Get item
+   * The TM or HM item that corresponds to this machine.
    * @return item
    */
   @NotNull @Valid 
-  @Schema(name = "item", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "item", description = "The TM or HM item that corresponds to this machine.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("item")
   public ItemSummary getItem() {
     return item;
@@ -95,11 +95,11 @@ public class MachineDetail {
   }
 
   /**
-   * Get versionGroup
+   * The version group that this machine applies to.
    * @return versionGroup
    */
   @NotNull @Valid 
-  @Schema(name = "version_group", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "version_group", description = "The version group that this machine applies to.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("version_group")
   public VersionGroupSummary getVersionGroup() {
     return versionGroup;
@@ -116,11 +116,11 @@ public class MachineDetail {
   }
 
   /**
-   * Get move
+   * The move that is taught by this machine.
    * @return move
    */
   @NotNull @Valid 
-  @Schema(name = "move", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "move", description = "The move that is taught by this machine.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("move")
   public MoveSummary getMove() {
     return move;

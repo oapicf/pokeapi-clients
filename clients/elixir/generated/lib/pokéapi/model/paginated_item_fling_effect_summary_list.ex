@@ -15,10 +15,10 @@ defmodule PokéAPI.Model.PaginatedItemFlingEffectSummaryList do
   ]
 
   @type t :: %__MODULE__{
-    :count => integer() | nil,
+    :count => integer(),
     :next => Uri | nil,
     :previous => Uri | nil,
-    :results => [PokéAPI.Model.ItemFlingEffectSummary.t] | nil
+    :results => [PokéAPI.Model.ItemFlingEffectSummary.t]
   }
 
   alias PokéAPI.Deserializer

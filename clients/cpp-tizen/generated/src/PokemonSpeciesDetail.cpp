@@ -35,15 +35,15 @@ PokemonSpeciesDetail::__init()
 	//hatch_counter = int(0);
 	//has_gender_differences = bool(false);
 	//forms_switchable = bool(false);
-	//growth_rate = new GrowthRateSummary();
+	//growth_rate = null;
 	//new std::list()std::list> pokedex_numbers;
 	//new std::list()std::list> egg_groups;
-	//color = new PokemonColorSummary();
-	//shape = new PokemonShapeSummary();
-	//evolves_from_species = new PokemonSpeciesSummary();
-	//evolution_chain = new EvolutionChainSummary();
-	//habitat = new PokemonHabitatSummary();
-	//generation = new GenerationSummary();
+	//color = null;
+	//shape = null;
+	//evolves_from_species = null;
+	//evolution_chain = null;
+	//habitat = null;
+	//generation = null;
 	//new std::list()std::list> names;
 	//new std::list()std::list> pal_park_encounters;
 	//new std::list()std::list> form_descriptions;
@@ -375,12 +375,12 @@ PokemonSpeciesDetail::fromJson(char* jsonStr)
 		{
 			JsonArray* arr = json_node_get_array(node);
 			JsonNode*  temp_json;
-			list<AbilityDetail_pokemon_inner_pokemon> new_list;
-			AbilityDetail_pokemon_inner_pokemon inst;
+			list<EggGroupSummary> new_list;
+			EggGroupSummary inst;
 			for (guint i=0;i<json_array_get_length(arr);i++) {
 				temp_json = json_array_get_element(arr,i);
-				if (isprimitive("AbilityDetail_pokemon_inner_pokemon")) {
-					jsonToValue(&inst, temp_json, "AbilityDetail_pokemon_inner_pokemon", "");
+				if (isprimitive("EggGroupSummary")) {
+					jsonToValue(&inst, temp_json, "EggGroupSummary", "");
 				} else {
 					
 					inst.fromJson(json_to_string(temp_json, false));
@@ -483,12 +483,12 @@ PokemonSpeciesDetail::fromJson(char* jsonStr)
 		{
 			JsonArray* arr = json_node_get_array(node);
 			JsonNode*  temp_json;
-			list<PokemonFormDetail_form_names_inner> new_list;
-			PokemonFormDetail_form_names_inner inst;
+			list<PokemonSpeciesName> new_list;
+			PokemonSpeciesName inst;
 			for (guint i=0;i<json_array_get_length(arr);i++) {
 				temp_json = json_array_get_element(arr,i);
-				if (isprimitive("PokemonFormDetail_form_names_inner")) {
-					jsonToValue(&inst, temp_json, "PokemonFormDetail_form_names_inner", "");
+				if (isprimitive("PokemonSpeciesName")) {
+					jsonToValue(&inst, temp_json, "PokemonSpeciesName", "");
 				} else {
 					
 					inst.fromJson(json_to_string(temp_json, false));
@@ -507,12 +507,12 @@ PokemonSpeciesDetail::fromJson(char* jsonStr)
 		{
 			JsonArray* arr = json_node_get_array(node);
 			JsonNode*  temp_json;
-			list<PokemonSpeciesDetail_pal_park_encounters_inner> new_list;
-			PokemonSpeciesDetail_pal_park_encounters_inner inst;
+			list<PokemonSpeciesPalParkEncounter> new_list;
+			PokemonSpeciesPalParkEncounter inst;
 			for (guint i=0;i<json_array_get_length(arr);i++) {
 				temp_json = json_array_get_element(arr,i);
-				if (isprimitive("PokemonSpeciesDetail_pal_park_encounters_inner")) {
-					jsonToValue(&inst, temp_json, "PokemonSpeciesDetail_pal_park_encounters_inner", "");
+				if (isprimitive("PokemonSpeciesPalParkEncounter")) {
+					jsonToValue(&inst, temp_json, "PokemonSpeciesPalParkEncounter", "");
 				} else {
 					
 					inst.fromJson(json_to_string(temp_json, false));
@@ -579,12 +579,12 @@ PokemonSpeciesDetail::fromJson(char* jsonStr)
 		{
 			JsonArray* arr = json_node_get_array(node);
 			JsonNode*  temp_json;
-			list<PokemonSpeciesDetail_genera_inner> new_list;
-			PokemonSpeciesDetail_genera_inner inst;
+			list<PokemonSpeciesGenus> new_list;
+			PokemonSpeciesGenus inst;
 			for (guint i=0;i<json_array_get_length(arr);i++) {
 				temp_json = json_array_get_element(arr,i);
-				if (isprimitive("PokemonSpeciesDetail_genera_inner")) {
-					jsonToValue(&inst, temp_json, "PokemonSpeciesDetail_genera_inner", "");
+				if (isprimitive("PokemonSpeciesGenus")) {
+					jsonToValue(&inst, temp_json, "PokemonSpeciesGenus", "");
 				} else {
 					
 					inst.fromJson(json_to_string(temp_json, false));
@@ -603,12 +603,12 @@ PokemonSpeciesDetail::fromJson(char* jsonStr)
 		{
 			JsonArray* arr = json_node_get_array(node);
 			JsonNode*  temp_json;
-			list<PokemonSpeciesDetail_varieties_inner> new_list;
-			PokemonSpeciesDetail_varieties_inner inst;
+			list<PokemonSpeciesVariety> new_list;
+			PokemonSpeciesVariety inst;
 			for (guint i=0;i<json_array_get_length(arr);i++) {
 				temp_json = json_array_get_element(arr,i);
-				if (isprimitive("PokemonSpeciesDetail_varieties_inner")) {
-					jsonToValue(&inst, temp_json, "PokemonSpeciesDetail_varieties_inner", "");
+				if (isprimitive("PokemonSpeciesVariety")) {
+					jsonToValue(&inst, temp_json, "PokemonSpeciesVariety", "");
 				} else {
 					
 					inst.fromJson(json_to_string(temp_json, false));
@@ -779,18 +779,18 @@ PokemonSpeciesDetail::toJson()
 	
 	const gchar *pokedex_numbersKey = "pokedex_numbers";
 	json_object_set_member(pJsonObject, pokedex_numbersKey, node);
-	if (isprimitive("AbilityDetail_pokemon_inner_pokemon")) {
-		list<AbilityDetail_pokemon_inner_pokemon> new_list = static_cast<list <AbilityDetail_pokemon_inner_pokemon> > (getEggGroups());
-		node = converttoJson(&new_list, "AbilityDetail_pokemon_inner_pokemon", "array");
+	if (isprimitive("EggGroupSummary")) {
+		list<EggGroupSummary> new_list = static_cast<list <EggGroupSummary> > (getEggGroups());
+		node = converttoJson(&new_list, "EggGroupSummary", "array");
 	} else {
 		node = json_node_alloc();
-		list<AbilityDetail_pokemon_inner_pokemon> new_list = static_cast<list <AbilityDetail_pokemon_inner_pokemon> > (getEggGroups());
+		list<EggGroupSummary> new_list = static_cast<list <EggGroupSummary> > (getEggGroups());
 		JsonArray* json_array = json_array_new();
 		GError *mygerror;
 		
-		for (list<AbilityDetail_pokemon_inner_pokemon>::iterator it = new_list.begin(); it != new_list.end(); it++) {
+		for (list<EggGroupSummary>::iterator it = new_list.begin(); it != new_list.end(); it++) {
 			mygerror = NULL;
-			AbilityDetail_pokemon_inner_pokemon obj = *it;
+			EggGroupSummary obj = *it;
 			JsonNode *node_temp = json_from_string(obj.toJson(), &mygerror);
 			json_array_add_element(json_array, node_temp);
 			g_clear_error(&mygerror);
@@ -888,18 +888,18 @@ PokemonSpeciesDetail::toJson()
 	}
 	const gchar *generationKey = "generation";
 	json_object_set_member(pJsonObject, generationKey, node);
-	if (isprimitive("PokemonFormDetail_form_names_inner")) {
-		list<PokemonFormDetail_form_names_inner> new_list = static_cast<list <PokemonFormDetail_form_names_inner> > (getNames());
-		node = converttoJson(&new_list, "PokemonFormDetail_form_names_inner", "array");
+	if (isprimitive("PokemonSpeciesName")) {
+		list<PokemonSpeciesName> new_list = static_cast<list <PokemonSpeciesName> > (getNames());
+		node = converttoJson(&new_list, "PokemonSpeciesName", "array");
 	} else {
 		node = json_node_alloc();
-		list<PokemonFormDetail_form_names_inner> new_list = static_cast<list <PokemonFormDetail_form_names_inner> > (getNames());
+		list<PokemonSpeciesName> new_list = static_cast<list <PokemonSpeciesName> > (getNames());
 		JsonArray* json_array = json_array_new();
 		GError *mygerror;
 		
-		for (list<PokemonFormDetail_form_names_inner>::iterator it = new_list.begin(); it != new_list.end(); it++) {
+		for (list<PokemonSpeciesName>::iterator it = new_list.begin(); it != new_list.end(); it++) {
 			mygerror = NULL;
-			PokemonFormDetail_form_names_inner obj = *it;
+			PokemonSpeciesName obj = *it;
 			JsonNode *node_temp = json_from_string(obj.toJson(), &mygerror);
 			json_array_add_element(json_array, node_temp);
 			g_clear_error(&mygerror);
@@ -913,18 +913,18 @@ PokemonSpeciesDetail::toJson()
 	
 	const gchar *namesKey = "names";
 	json_object_set_member(pJsonObject, namesKey, node);
-	if (isprimitive("PokemonSpeciesDetail_pal_park_encounters_inner")) {
-		list<PokemonSpeciesDetail_pal_park_encounters_inner> new_list = static_cast<list <PokemonSpeciesDetail_pal_park_encounters_inner> > (getPalParkEncounters());
-		node = converttoJson(&new_list, "PokemonSpeciesDetail_pal_park_encounters_inner", "array");
+	if (isprimitive("PokemonSpeciesPalParkEncounter")) {
+		list<PokemonSpeciesPalParkEncounter> new_list = static_cast<list <PokemonSpeciesPalParkEncounter> > (getPalParkEncounters());
+		node = converttoJson(&new_list, "PokemonSpeciesPalParkEncounter", "array");
 	} else {
 		node = json_node_alloc();
-		list<PokemonSpeciesDetail_pal_park_encounters_inner> new_list = static_cast<list <PokemonSpeciesDetail_pal_park_encounters_inner> > (getPalParkEncounters());
+		list<PokemonSpeciesPalParkEncounter> new_list = static_cast<list <PokemonSpeciesPalParkEncounter> > (getPalParkEncounters());
 		JsonArray* json_array = json_array_new();
 		GError *mygerror;
 		
-		for (list<PokemonSpeciesDetail_pal_park_encounters_inner>::iterator it = new_list.begin(); it != new_list.end(); it++) {
+		for (list<PokemonSpeciesPalParkEncounter>::iterator it = new_list.begin(); it != new_list.end(); it++) {
 			mygerror = NULL;
-			PokemonSpeciesDetail_pal_park_encounters_inner obj = *it;
+			PokemonSpeciesPalParkEncounter obj = *it;
 			JsonNode *node_temp = json_from_string(obj.toJson(), &mygerror);
 			json_array_add_element(json_array, node_temp);
 			g_clear_error(&mygerror);
@@ -988,18 +988,18 @@ PokemonSpeciesDetail::toJson()
 	
 	const gchar *flavor_text_entriesKey = "flavor_text_entries";
 	json_object_set_member(pJsonObject, flavor_text_entriesKey, node);
-	if (isprimitive("PokemonSpeciesDetail_genera_inner")) {
-		list<PokemonSpeciesDetail_genera_inner> new_list = static_cast<list <PokemonSpeciesDetail_genera_inner> > (getGenera());
-		node = converttoJson(&new_list, "PokemonSpeciesDetail_genera_inner", "array");
+	if (isprimitive("PokemonSpeciesGenus")) {
+		list<PokemonSpeciesGenus> new_list = static_cast<list <PokemonSpeciesGenus> > (getGenera());
+		node = converttoJson(&new_list, "PokemonSpeciesGenus", "array");
 	} else {
 		node = json_node_alloc();
-		list<PokemonSpeciesDetail_genera_inner> new_list = static_cast<list <PokemonSpeciesDetail_genera_inner> > (getGenera());
+		list<PokemonSpeciesGenus> new_list = static_cast<list <PokemonSpeciesGenus> > (getGenera());
 		JsonArray* json_array = json_array_new();
 		GError *mygerror;
 		
-		for (list<PokemonSpeciesDetail_genera_inner>::iterator it = new_list.begin(); it != new_list.end(); it++) {
+		for (list<PokemonSpeciesGenus>::iterator it = new_list.begin(); it != new_list.end(); it++) {
 			mygerror = NULL;
-			PokemonSpeciesDetail_genera_inner obj = *it;
+			PokemonSpeciesGenus obj = *it;
 			JsonNode *node_temp = json_from_string(obj.toJson(), &mygerror);
 			json_array_add_element(json_array, node_temp);
 			g_clear_error(&mygerror);
@@ -1013,18 +1013,18 @@ PokemonSpeciesDetail::toJson()
 	
 	const gchar *generaKey = "genera";
 	json_object_set_member(pJsonObject, generaKey, node);
-	if (isprimitive("PokemonSpeciesDetail_varieties_inner")) {
-		list<PokemonSpeciesDetail_varieties_inner> new_list = static_cast<list <PokemonSpeciesDetail_varieties_inner> > (getVarieties());
-		node = converttoJson(&new_list, "PokemonSpeciesDetail_varieties_inner", "array");
+	if (isprimitive("PokemonSpeciesVariety")) {
+		list<PokemonSpeciesVariety> new_list = static_cast<list <PokemonSpeciesVariety> > (getVarieties());
+		node = converttoJson(&new_list, "PokemonSpeciesVariety", "array");
 	} else {
 		node = json_node_alloc();
-		list<PokemonSpeciesDetail_varieties_inner> new_list = static_cast<list <PokemonSpeciesDetail_varieties_inner> > (getVarieties());
+		list<PokemonSpeciesVariety> new_list = static_cast<list <PokemonSpeciesVariety> > (getVarieties());
 		JsonArray* json_array = json_array_new();
 		GError *mygerror;
 		
-		for (list<PokemonSpeciesDetail_varieties_inner>::iterator it = new_list.begin(); it != new_list.end(); it++) {
+		for (list<PokemonSpeciesVariety>::iterator it = new_list.begin(); it != new_list.end(); it++) {
 			mygerror = NULL;
-			PokemonSpeciesDetail_varieties_inner obj = *it;
+			PokemonSpeciesVariety obj = *it;
 			JsonNode *node_temp = json_from_string(obj.toJson(), &mygerror);
 			json_array_add_element(json_array, node_temp);
 			g_clear_error(&mygerror);
@@ -1214,14 +1214,14 @@ PokemonSpeciesDetail::setPokedexNumbers(std::list <PokemonDexEntry> pokedex_numb
 	this->pokedex_numbers = pokedex_numbers;
 }
 
-std::list<AbilityDetail_pokemon_inner_pokemon>
+std::list<EggGroupSummary>
 PokemonSpeciesDetail::getEggGroups()
 {
 	return egg_groups;
 }
 
 void
-PokemonSpeciesDetail::setEggGroups(std::list <AbilityDetail_pokemon_inner_pokemon> egg_groups)
+PokemonSpeciesDetail::setEggGroups(std::list <EggGroupSummary> egg_groups)
 {
 	this->egg_groups = egg_groups;
 }
@@ -1298,26 +1298,26 @@ PokemonSpeciesDetail::setGeneration(GenerationSummary  generation)
 	this->generation = generation;
 }
 
-std::list<PokemonFormDetail_form_names_inner>
+std::list<PokemonSpeciesName>
 PokemonSpeciesDetail::getNames()
 {
 	return names;
 }
 
 void
-PokemonSpeciesDetail::setNames(std::list <PokemonFormDetail_form_names_inner> names)
+PokemonSpeciesDetail::setNames(std::list <PokemonSpeciesName> names)
 {
 	this->names = names;
 }
 
-std::list<PokemonSpeciesDetail_pal_park_encounters_inner>
+std::list<PokemonSpeciesPalParkEncounter>
 PokemonSpeciesDetail::getPalParkEncounters()
 {
 	return pal_park_encounters;
 }
 
 void
-PokemonSpeciesDetail::setPalParkEncounters(std::list <PokemonSpeciesDetail_pal_park_encounters_inner> pal_park_encounters)
+PokemonSpeciesDetail::setPalParkEncounters(std::list <PokemonSpeciesPalParkEncounter> pal_park_encounters)
 {
 	this->pal_park_encounters = pal_park_encounters;
 }
@@ -1346,26 +1346,26 @@ PokemonSpeciesDetail::setFlavorTextEntries(std::list <PokemonSpeciesFlavorText> 
 	this->flavor_text_entries = flavor_text_entries;
 }
 
-std::list<PokemonSpeciesDetail_genera_inner>
+std::list<PokemonSpeciesGenus>
 PokemonSpeciesDetail::getGenera()
 {
 	return genera;
 }
 
 void
-PokemonSpeciesDetail::setGenera(std::list <PokemonSpeciesDetail_genera_inner> genera)
+PokemonSpeciesDetail::setGenera(std::list <PokemonSpeciesGenus> genera)
 {
 	this->genera = genera;
 }
 
-std::list<PokemonSpeciesDetail_varieties_inner>
+std::list<PokemonSpeciesVariety>
 PokemonSpeciesDetail::getVarieties()
 {
 	return varieties;
 }
 
 void
-PokemonSpeciesDetail::setVarieties(std::list <PokemonSpeciesDetail_varieties_inner> varieties)
+PokemonSpeciesDetail::setVarieties(std::list <PokemonSpeciesVariety> varieties)
 {
 	this->varieties = varieties;
 }

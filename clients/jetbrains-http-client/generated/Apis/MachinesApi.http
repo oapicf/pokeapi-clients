@@ -2,14 +2,10 @@
 
 ### List machines
 ## List machines
-GET https://pokeapi.co/api/v2/machine/?limit={{limit}}&offset={{offset}}&q={{q}}
+GET https://pokeapi.co/api/v2/machine/?limit={{limit}}&offset={{offset}}
 Accept: application/json
-Authorization: Basic: {{username-password}}
-Cookie: sessionid={{cookieKey}}
 
 ### Get machine
 ## Get machine
 GET https://pokeapi.co/api/v2/machine/{{id}}/
 Accept: application/json
-Authorization: Basic: {{username-password}}
-Cookie: sessionid={{cookieKey}}

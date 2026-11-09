@@ -8,10 +8,10 @@
 
 (def paginated-item-fling-effect-summary-list-data
   {
-   (ds/opt :count) int?
+   (ds/req :count) int?
    (ds/opt :next) string?
    (ds/opt :previous) string?
-   (ds/opt :results) (s/coll-of item-fling-effect-summary-spec)
+   (ds/req :results) (s/coll-of item-fling-effect-summary-spec)
    })
 
 (def paginated-item-fling-effect-summary-list-spec

@@ -1,0 +1,54 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server PokemonSpritesOther"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a PokemonSpritesOther"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  PokemonSpritesOtherDreamWorld = openapi_server.resourceTypes.PokemonSpritesOtherDreamWorld
+  PokemonSpritesOtherHome = openapi_server.resourceTypes.PokemonSpritesOtherHome
+  PokemonSpritesOtherOfficialArtwork = openapi_server.resourceTypes.PokemonSpritesOtherOfficialArtwork
+  PokemonSpritesOtherShowdown = openapi_server.resourceTypes.PokemonSpritesOtherShowdown
+}
+resourceTypes {
+
+  PokemonSpritesOther {
+    title = PokemonSpritesOther
+    description = PokemonSpritesOther
+    derivedFrom = Root
+    properties {
+        dream_world {
+          type = PokemonSpritesOtherDreamWorld
+          description = "Pokémon Dream World artwork URLs."
+          optional = false
+        }
+        home {
+          type = PokemonSpritesOtherHome
+          description = "Pokémon HOME sprite URLs."
+          optional = false
+        }
+        showdown {
+          type = PokemonSpritesOtherShowdown
+          description = "Pokémon Showdown sprite URLs."
+          optional = false
+        }
+        official_artwork {
+          type = PokemonSpritesOtherOfficialArtwork
+          description = "Official Pokémon artwork URLs, including shiny artwork and version-specific variants."
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  PokemonSpritesOther {
+    title = PokemonSpritesOther
+    description = PokemonSpritesOther
+    implements = openapi_server.resourceTypes.PokemonSpritesOther
+
+  }
+}

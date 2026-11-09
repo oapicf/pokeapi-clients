@@ -4,9 +4,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **integer** |  | [readonly] 
-**name** | **character** |  | [Max. length: 100] 
-**names** | [**array[PokemonHabitatName]**](PokemonHabitatName.md) |  | [readonly] 
-**pokemon_species** | [**array[PokemonSpeciesSummary]**](PokemonSpeciesSummary.md) |  | [readonly] 
+**id** | **integer** | The identifier for this resource. | [readonly] 
+**name** | **character** | The name for this resource. | [Max. length: 200] 
+**names** | [**array[PokemonHabitatName]**](PokemonHabitatName.md) | The name of this resource listed in different languages. | [readonly] 
+**pokemon_species** | [**array[PokemonSpeciesSummary]**](PokemonSpeciesSummary.md) | A list of the Pokémon species that can be found in this habitat. | [readonly] 
 
 

@@ -27,8 +27,6 @@ Move Ailments are status conditions caused by moves used during battle. See [Bul
 
 ### Example
 
-* Basic Authentication (basicAuth):
-* Api Key Authentication (cookieAuth):
 
 ```python
 import pokeapiclient
@@ -42,22 +40,6 @@ configuration = pokeapiclient.Configuration(
     host = "https://pokeapi.co"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure HTTP basic authorization: basicAuth
-configuration = pokeapiclient.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
-)
-
-# Configure API key authorization: cookieAuth
-configuration.api_key['cookieAuth'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['cookieAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with pokeapiclient.ApiClient(configuration) as api_client:
@@ -93,7 +75,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -117,8 +99,6 @@ Move Ailments are status conditions caused by moves used during battle. See [Bul
 
 ### Example
 
-* Basic Authentication (basicAuth):
-* Api Key Authentication (cookieAuth):
 
 ```python
 import pokeapiclient
@@ -132,28 +112,12 @@ configuration = pokeapiclient.Configuration(
     host = "https://pokeapi.co"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure HTTP basic authorization: basicAuth
-configuration = pokeapiclient.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
-)
-
-# Configure API key authorization: cookieAuth
-configuration.api_key['cookieAuth'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['cookieAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with pokeapiclient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pokeapiclient.MovesApi(api_client)
-    id = 'id_example' # str | This parameter can be a string or an integer.
+    id = '1' # str | This parameter can be a string or an integer.
 
     try:
         # Get move meta ailment
@@ -179,7 +143,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -203,8 +167,6 @@ Styles of moves when used in the Battle Palace. See [Bulbapedia](http://bulbaped
 
 ### Example
 
-* Basic Authentication (basicAuth):
-* Api Key Authentication (cookieAuth):
 
 ```python
 import pokeapiclient
@@ -218,22 +180,6 @@ configuration = pokeapiclient.Configuration(
     host = "https://pokeapi.co"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure HTTP basic authorization: basicAuth
-configuration = pokeapiclient.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
-)
-
-# Configure API key authorization: cookieAuth
-configuration.api_key['cookieAuth'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['cookieAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with pokeapiclient.ApiClient(configuration) as api_client:
@@ -269,7 +215,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -293,8 +239,6 @@ Styles of moves when used in the Battle Palace. See [Bulbapedia](http://bulbaped
 
 ### Example
 
-* Basic Authentication (basicAuth):
-* Api Key Authentication (cookieAuth):
 
 ```python
 import pokeapiclient
@@ -308,28 +252,12 @@ configuration = pokeapiclient.Configuration(
     host = "https://pokeapi.co"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure HTTP basic authorization: basicAuth
-configuration = pokeapiclient.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
-)
-
-# Configure API key authorization: cookieAuth
-configuration.api_key['cookieAuth'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['cookieAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with pokeapiclient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pokeapiclient.MovesApi(api_client)
-    id = 'id_example' # str | This parameter can be a string or an integer.
+    id = '1' # str | This parameter can be a string or an integer.
 
     try:
         # Get move battle style
@@ -355,7 +283,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -379,8 +307,6 @@ Very general categories that loosely group move effects.
 
 ### Example
 
-* Basic Authentication (basicAuth):
-* Api Key Authentication (cookieAuth):
 
 ```python
 import pokeapiclient
@@ -394,22 +320,6 @@ configuration = pokeapiclient.Configuration(
     host = "https://pokeapi.co"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure HTTP basic authorization: basicAuth
-configuration = pokeapiclient.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
-)
-
-# Configure API key authorization: cookieAuth
-configuration.api_key['cookieAuth'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['cookieAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with pokeapiclient.ApiClient(configuration) as api_client:
@@ -445,7 +355,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -469,8 +379,6 @@ Very general categories that loosely group move effects.
 
 ### Example
 
-* Basic Authentication (basicAuth):
-* Api Key Authentication (cookieAuth):
 
 ```python
 import pokeapiclient
@@ -484,28 +392,12 @@ configuration = pokeapiclient.Configuration(
     host = "https://pokeapi.co"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure HTTP basic authorization: basicAuth
-configuration = pokeapiclient.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
-)
-
-# Configure API key authorization: cookieAuth
-configuration.api_key['cookieAuth'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['cookieAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with pokeapiclient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pokeapiclient.MovesApi(api_client)
-    id = 'id_example' # str | This parameter can be a string or an integer.
+    id = '1' # str | This parameter can be a string or an integer.
 
     try:
         # Get move meta category
@@ -531,7 +423,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -555,8 +447,6 @@ Methods by which Pokémon can learn moves.
 
 ### Example
 
-* Basic Authentication (basicAuth):
-* Api Key Authentication (cookieAuth):
 
 ```python
 import pokeapiclient
@@ -570,22 +460,6 @@ configuration = pokeapiclient.Configuration(
     host = "https://pokeapi.co"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure HTTP basic authorization: basicAuth
-configuration = pokeapiclient.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
-)
-
-# Configure API key authorization: cookieAuth
-configuration.api_key['cookieAuth'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['cookieAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with pokeapiclient.ApiClient(configuration) as api_client:
@@ -621,7 +495,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -645,8 +519,6 @@ Methods by which Pokémon can learn moves.
 
 ### Example
 
-* Basic Authentication (basicAuth):
-* Api Key Authentication (cookieAuth):
 
 ```python
 import pokeapiclient
@@ -660,28 +532,12 @@ configuration = pokeapiclient.Configuration(
     host = "https://pokeapi.co"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure HTTP basic authorization: basicAuth
-configuration = pokeapiclient.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
-)
-
-# Configure API key authorization: cookieAuth
-configuration.api_key['cookieAuth'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['cookieAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with pokeapiclient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pokeapiclient.MovesApi(api_client)
-    id = 'id_example' # str | This parameter can be a string or an integer.
+    id = '1' # str | This parameter can be a string or an integer.
 
     try:
         # Get move learn method
@@ -707,7 +563,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -731,8 +587,6 @@ Moves are the skills of Pokémon in battle. In battle, a Pokémon uses one move 
 
 ### Example
 
-* Basic Authentication (basicAuth):
-* Api Key Authentication (cookieAuth):
 
 ```python
 import pokeapiclient
@@ -746,22 +600,6 @@ configuration = pokeapiclient.Configuration(
     host = "https://pokeapi.co"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure HTTP basic authorization: basicAuth
-configuration = pokeapiclient.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
-)
-
-# Configure API key authorization: cookieAuth
-configuration.api_key['cookieAuth'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['cookieAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with pokeapiclient.ApiClient(configuration) as api_client:
@@ -797,7 +635,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -821,8 +659,6 @@ Moves are the skills of Pokémon in battle. In battle, a Pokémon uses one move 
 
 ### Example
 
-* Basic Authentication (basicAuth):
-* Api Key Authentication (cookieAuth):
 
 ```python
 import pokeapiclient
@@ -836,28 +672,12 @@ configuration = pokeapiclient.Configuration(
     host = "https://pokeapi.co"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure HTTP basic authorization: basicAuth
-configuration = pokeapiclient.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
-)
-
-# Configure API key authorization: cookieAuth
-configuration.api_key['cookieAuth'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['cookieAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with pokeapiclient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pokeapiclient.MovesApi(api_client)
-    id = 'id_example' # str | This parameter can be a string or an integer.
+    id = '1' # str | This parameter can be a string or an integer.
 
     try:
         # Get move
@@ -883,7 +703,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -907,8 +727,6 @@ Targets moves can be directed at during battle. Targets can be Pokémon, environ
 
 ### Example
 
-* Basic Authentication (basicAuth):
-* Api Key Authentication (cookieAuth):
 
 ```python
 import pokeapiclient
@@ -922,22 +740,6 @@ configuration = pokeapiclient.Configuration(
     host = "https://pokeapi.co"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure HTTP basic authorization: basicAuth
-configuration = pokeapiclient.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
-)
-
-# Configure API key authorization: cookieAuth
-configuration.api_key['cookieAuth'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['cookieAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with pokeapiclient.ApiClient(configuration) as api_client:
@@ -973,7 +775,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -997,8 +799,6 @@ Targets moves can be directed at during battle. Targets can be Pokémon, environ
 
 ### Example
 
-* Basic Authentication (basicAuth):
-* Api Key Authentication (cookieAuth):
 
 ```python
 import pokeapiclient
@@ -1012,28 +812,12 @@ configuration = pokeapiclient.Configuration(
     host = "https://pokeapi.co"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure HTTP basic authorization: basicAuth
-configuration = pokeapiclient.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
-)
-
-# Configure API key authorization: cookieAuth
-configuration.api_key['cookieAuth'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['cookieAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with pokeapiclient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pokeapiclient.MovesApi(api_client)
-    id = 'id_example' # str | This parameter can be a string or an integer.
+    id = '1' # str | This parameter can be a string or an integer.
 
     try:
         # Get move target
@@ -1059,7 +843,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

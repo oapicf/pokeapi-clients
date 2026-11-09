@@ -4,21 +4,21 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
-import org.openapitools.server.model.AbilityDetailPokemonInnerPokemon;
 import org.openapitools.server.model.ContestEffectSummary;
 import org.openapitools.server.model.ContestTypeSummary;
 import org.openapitools.server.model.GenerationSummary;
+import org.openapitools.server.model.ItemMachine;
 import org.openapitools.server.model.MoveChange;
-import org.openapitools.server.model.MoveChangeEffectEntriesInner;
+import org.openapitools.server.model.MoveCombos;
 import org.openapitools.server.model.MoveDamageClassSummary;
-import org.openapitools.server.model.MoveDetailContestCombos;
-import org.openapitools.server.model.MoveDetailEffectChangesInner;
-import org.openapitools.server.model.MoveDetailMachinesInner;
-import org.openapitools.server.model.MoveDetailStatChangesInner;
+import org.openapitools.server.model.MoveEffectChange;
+import org.openapitools.server.model.MoveEffectEffectText;
 import org.openapitools.server.model.MoveFlavorText;
 import org.openapitools.server.model.MoveMeta;
+import org.openapitools.server.model.MoveMetaStatChange;
 import org.openapitools.server.model.MoveName;
 import org.openapitools.server.model.MoveTargetSummary;
+import org.openapitools.server.model.PokemonSummary;
 import org.openapitools.server.model.SuperContestEffectSummary;
 import org.openapitools.server.model.TypeSummary;
 import jakarta.validation.constraints.*;
@@ -35,23 +35,23 @@ public class MoveDetail   {
     private Integer pp;
     private Integer priority;
     private Integer power;
-    private MoveDetailContestCombos contestCombos;
+    private MoveCombos contestCombos;
     private ContestTypeSummary contestType;
     private ContestEffectSummary contestEffect;
     private MoveDamageClassSummary damageClass;
-    private List<@Valid MoveChangeEffectEntriesInner> effectEntries = new ArrayList<>();
-    private List<@Valid MoveDetailEffectChangesInner> effectChanges = new ArrayList<>();
+    private List<@Valid MoveEffectEffectText> effectEntries = new ArrayList<>();
+    private List<@Valid MoveEffectChange> effectChanges = new ArrayList<>();
     private GenerationSummary generation;
     private MoveMeta meta;
     private List<@Valid MoveName> names = new ArrayList<>();
     private List<@Valid MoveChange> pastValues = new ArrayList<>();
-    private List<@Valid MoveDetailStatChangesInner> statChanges = new ArrayList<>();
+    private List<@Valid MoveMetaStatChange> statChanges = new ArrayList<>();
     private SuperContestEffectSummary superContestEffect;
     private MoveTargetSummary target;
     private TypeSummary type;
-    private List<@Valid MoveDetailMachinesInner> machines = new ArrayList<>();
+    private List<@Valid ItemMachine> machines = new ArrayList<>();
     private List<@Valid MoveFlavorText> flavorTextEntries = new ArrayList<>();
-    private List<@Valid AbilityDetailPokemonInnerPokemon> learnedByPokemon = new ArrayList<>();
+    private List<@Valid PokemonSummary> learnedByPokemon = new ArrayList<>();
 
     /**
      * Default constructor.
@@ -63,30 +63,30 @@ public class MoveDetail   {
     /**
      * Create MoveDetail.
      *
-     * @param id id
-     * @param name name
-     * @param accuracy accuracy
-     * @param effectChance effectChance
-     * @param pp pp
-     * @param priority priority
-     * @param power power
-     * @param contestCombos contestCombos
-     * @param contestType contestType
-     * @param contestEffect contestEffect
-     * @param damageClass damageClass
-     * @param effectEntries effectEntries
-     * @param effectChanges effectChanges
-     * @param generation generation
-     * @param meta meta
-     * @param names names
-     * @param pastValues pastValues
-     * @param statChanges statChanges
-     * @param superContestEffect superContestEffect
-     * @param target target
-     * @param type type
-     * @param machines machines
-     * @param flavorTextEntries flavorTextEntries
-     * @param learnedByPokemon learnedByPokemon
+     * @param id The identifier for this resource.
+     * @param name The name for this resource.
+     * @param accuracy The percent value of how likely this move is to be successful.
+     * @param effectChance The percent value of how likely it is this moves effect will happen.
+     * @param pp Power points. The number of times this move can be used.
+     * @param priority A value between -8 and 8. Sets the order in which moves are executed during battle. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Priority) for greater detail.
+     * @param power The base power of this move, or null if it has no fixed base power.
+     * @param contestCombos A detail of normal and super contest combos that require this move.
+     * @param contestType The type of appeal this move gives a Pokémon when used in a contest.
+     * @param contestEffect The effect the move has when used in a contest.
+     * @param damageClass The type of damage the move inflicts on the target, e.g. physical.
+     * @param effectEntries The effect of this move listed in different languages.
+     * @param effectChanges The list of previous effects this move has had across version groups of the games.
+     * @param generation The generation in which this move was introduced.
+     * @param meta Metadata about this move
+     * @param names The name of this resource listed in different languages.
+     * @param pastValues A list of move resource value changes across version groups of the game.
+     * @param statChanges A list of stats this moves effects and how much it effects them.
+     * @param superContestEffect The effect the move has when used in a super contest.
+     * @param target The type of target that will receive the effects of the attack.
+     * @param type The elemental type of this move.
+     * @param machines A list of the machines that teach this move.
+     * @param flavorTextEntries The flavor text of this move listed in different languages.
+     * @param learnedByPokemon List of Pokemon that can learn the move
      */
     public MoveDetail(
         Integer id, 
@@ -96,23 +96,23 @@ public class MoveDetail   {
         Integer pp, 
         Integer priority, 
         Integer power, 
-        MoveDetailContestCombos contestCombos, 
+        MoveCombos contestCombos, 
         ContestTypeSummary contestType, 
         ContestEffectSummary contestEffect, 
         MoveDamageClassSummary damageClass, 
-        List<@Valid MoveChangeEffectEntriesInner> effectEntries, 
-        List<@Valid MoveDetailEffectChangesInner> effectChanges, 
+        List<@Valid MoveEffectEffectText> effectEntries, 
+        List<@Valid MoveEffectChange> effectChanges, 
         GenerationSummary generation, 
         MoveMeta meta, 
         List<@Valid MoveName> names, 
         List<@Valid MoveChange> pastValues, 
-        List<@Valid MoveDetailStatChangesInner> statChanges, 
+        List<@Valid MoveMetaStatChange> statChanges, 
         SuperContestEffectSummary superContestEffect, 
         MoveTargetSummary target, 
         TypeSummary type, 
-        List<@Valid MoveDetailMachinesInner> machines, 
+        List<@Valid ItemMachine> machines, 
         List<@Valid MoveFlavorText> flavorTextEntries, 
-        List<@Valid AbilityDetailPokemonInnerPokemon> learnedByPokemon
+        List<@Valid PokemonSummary> learnedByPokemon
     ) {
         this.id = id;
         this.name = name;
@@ -143,7 +143,7 @@ public class MoveDetail   {
 
 
     /**
-     * Get id
+     * The identifier for this resource.
      * @return id
      */
     public Integer getId() {
@@ -155,7 +155,7 @@ public class MoveDetail   {
     }
 
     /**
-     * Get name
+     * The name for this resource.
      * @return name
      */
     public String getName() {
@@ -167,7 +167,9 @@ public class MoveDetail   {
     }
 
     /**
-     * Get accuracy
+     * The percent value of how likely this move is to be successful.
+     * minimum: -2147483648
+     * maximum: 2147483647
      * @return accuracy
      */
     public Integer getAccuracy() {
@@ -179,7 +181,7 @@ public class MoveDetail   {
     }
 
     /**
-     * Get effectChance
+     * The percent value of how likely it is this moves effect will happen.
      * @return effectChance
      */
     public Integer getEffectChance() {
@@ -191,7 +193,9 @@ public class MoveDetail   {
     }
 
     /**
-     * Get pp
+     * Power points. The number of times this move can be used.
+     * minimum: -2147483648
+     * maximum: 2147483647
      * @return pp
      */
     public Integer getPp() {
@@ -203,7 +207,9 @@ public class MoveDetail   {
     }
 
     /**
-     * Get priority
+     * A value between -8 and 8. Sets the order in which moves are executed during battle. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Priority) for greater detail.
+     * minimum: -2147483648
+     * maximum: 2147483647
      * @return priority
      */
     public Integer getPriority() {
@@ -215,7 +221,9 @@ public class MoveDetail   {
     }
 
     /**
-     * Get power
+     * The base power of this move, or null if it has no fixed base power.
+     * minimum: -2147483648
+     * maximum: 2147483647
      * @return power
      */
     public Integer getPower() {
@@ -227,19 +235,19 @@ public class MoveDetail   {
     }
 
     /**
-     * Get contestCombos
+     * A detail of normal and super contest combos that require this move.
      * @return contestCombos
      */
-    public MoveDetailContestCombos getContestCombos() {
+    public MoveCombos getContestCombos() {
         return contestCombos;
     }
 
-    public void setContestCombos(MoveDetailContestCombos contestCombos) {
+    public void setContestCombos(MoveCombos contestCombos) {
         this.contestCombos = contestCombos;
     }
 
     /**
-     * Get contestType
+     * The type of appeal this move gives a Pokémon when used in a contest.
      * @return contestType
      */
     public ContestTypeSummary getContestType() {
@@ -251,7 +259,7 @@ public class MoveDetail   {
     }
 
     /**
-     * Get contestEffect
+     * The effect the move has when used in a contest.
      * @return contestEffect
      */
     public ContestEffectSummary getContestEffect() {
@@ -263,7 +271,7 @@ public class MoveDetail   {
     }
 
     /**
-     * Get damageClass
+     * The type of damage the move inflicts on the target, e.g. physical.
      * @return damageClass
      */
     public MoveDamageClassSummary getDamageClass() {
@@ -275,31 +283,31 @@ public class MoveDetail   {
     }
 
     /**
-     * Get effectEntries
+     * The effect of this move listed in different languages.
      * @return effectEntries
      */
-    public List<@Valid MoveChangeEffectEntriesInner> getEffectEntries() {
+    public List<@Valid MoveEffectEffectText> getEffectEntries() {
         return effectEntries;
     }
 
-    public void setEffectEntries(List<@Valid MoveChangeEffectEntriesInner> effectEntries) {
+    public void setEffectEntries(List<@Valid MoveEffectEffectText> effectEntries) {
         this.effectEntries = effectEntries;
     }
 
     /**
-     * Get effectChanges
+     * The list of previous effects this move has had across version groups of the games.
      * @return effectChanges
      */
-    public List<@Valid MoveDetailEffectChangesInner> getEffectChanges() {
+    public List<@Valid MoveEffectChange> getEffectChanges() {
         return effectChanges;
     }
 
-    public void setEffectChanges(List<@Valid MoveDetailEffectChangesInner> effectChanges) {
+    public void setEffectChanges(List<@Valid MoveEffectChange> effectChanges) {
         this.effectChanges = effectChanges;
     }
 
     /**
-     * Get generation
+     * The generation in which this move was introduced.
      * @return generation
      */
     public GenerationSummary getGeneration() {
@@ -311,7 +319,7 @@ public class MoveDetail   {
     }
 
     /**
-     * Get meta
+     * Metadata about this move
      * @return meta
      */
     public MoveMeta getMeta() {
@@ -323,7 +331,7 @@ public class MoveDetail   {
     }
 
     /**
-     * Get names
+     * The name of this resource listed in different languages.
      * @return names
      */
     public List<@Valid MoveName> getNames() {
@@ -335,7 +343,7 @@ public class MoveDetail   {
     }
 
     /**
-     * Get pastValues
+     * A list of move resource value changes across version groups of the game.
      * @return pastValues
      */
     public List<@Valid MoveChange> getPastValues() {
@@ -347,19 +355,19 @@ public class MoveDetail   {
     }
 
     /**
-     * Get statChanges
+     * A list of stats this moves effects and how much it effects them.
      * @return statChanges
      */
-    public List<@Valid MoveDetailStatChangesInner> getStatChanges() {
+    public List<@Valid MoveMetaStatChange> getStatChanges() {
         return statChanges;
     }
 
-    public void setStatChanges(List<@Valid MoveDetailStatChangesInner> statChanges) {
+    public void setStatChanges(List<@Valid MoveMetaStatChange> statChanges) {
         this.statChanges = statChanges;
     }
 
     /**
-     * Get superContestEffect
+     * The effect the move has when used in a super contest.
      * @return superContestEffect
      */
     public SuperContestEffectSummary getSuperContestEffect() {
@@ -371,7 +379,7 @@ public class MoveDetail   {
     }
 
     /**
-     * Get target
+     * The type of target that will receive the effects of the attack.
      * @return target
      */
     public MoveTargetSummary getTarget() {
@@ -383,7 +391,7 @@ public class MoveDetail   {
     }
 
     /**
-     * Get type
+     * The elemental type of this move.
      * @return type
      */
     public TypeSummary getType() {
@@ -395,19 +403,19 @@ public class MoveDetail   {
     }
 
     /**
-     * Get machines
+     * A list of the machines that teach this move.
      * @return machines
      */
-    public List<@Valid MoveDetailMachinesInner> getMachines() {
+    public List<@Valid ItemMachine> getMachines() {
         return machines;
     }
 
-    public void setMachines(List<@Valid MoveDetailMachinesInner> machines) {
+    public void setMachines(List<@Valid ItemMachine> machines) {
         this.machines = machines;
     }
 
     /**
-     * Get flavorTextEntries
+     * The flavor text of this move listed in different languages.
      * @return flavorTextEntries
      */
     public List<@Valid MoveFlavorText> getFlavorTextEntries() {
@@ -419,14 +427,14 @@ public class MoveDetail   {
     }
 
     /**
-     * Get learnedByPokemon
+     * List of Pokemon that can learn the move
      * @return learnedByPokemon
      */
-    public List<@Valid AbilityDetailPokemonInnerPokemon> getLearnedByPokemon() {
+    public List<@Valid PokemonSummary> getLearnedByPokemon() {
         return learnedByPokemon;
     }
 
-    public void setLearnedByPokemon(List<@Valid AbilityDetailPokemonInnerPokemon> learnedByPokemon) {
+    public void setLearnedByPokemon(List<@Valid PokemonSummary> learnedByPokemon) {
         this.learnedByPokemon = learnedByPokemon;
     }
 

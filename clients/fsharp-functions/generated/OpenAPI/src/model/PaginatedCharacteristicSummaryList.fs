@@ -4,6 +4,7 @@ open System
 open System.Collections.Generic
 open Newtonsoft.Json
 open OpenAPI.Model.CharacteristicSummary
+open OpenAPI.Model.string option
 
 module PaginatedCharacteristicSummaryList =
 
@@ -14,9 +15,9 @@ module PaginatedCharacteristicSummaryList =
     [<JsonProperty(PropertyName = "count")>]
     Count : int;
     [<JsonProperty(PropertyName = "next")>]
-    Next : string;
+    Next : string option;
     [<JsonProperty(PropertyName = "previous")>]
-    Previous : string;
+    Previous : string option;
     [<JsonProperty(PropertyName = "results")>]
     Results : CharacteristicSummary[];
   }

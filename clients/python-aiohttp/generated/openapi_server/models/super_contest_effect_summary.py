@@ -42,6 +42,7 @@ class SuperContestEffectSummary(Model):
     def url(self):
         """Gets the url of this SuperContestEffectSummary.
 
+        The URL of the referenced resource.
 
         :return: The url of this SuperContestEffectSummary.
         :rtype: str
@@ -52,6 +53,7 @@ class SuperContestEffectSummary(Model):
     def url(self, url):
         """Sets the url of this SuperContestEffectSummary.
 
+        The URL of the referenced resource.
 
         :param url: The url of this SuperContestEffectSummary.
         :type url: str

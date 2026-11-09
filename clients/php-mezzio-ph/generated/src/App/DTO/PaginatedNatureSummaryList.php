@@ -10,13 +10,15 @@ use Articus\DataTransfer\Annotation as DTA;
 class PaginatedNatureSummaryList
 {
     /**
-     * @DTA\Data(field="count", nullable=true)
+     * The total number of resources available from this API.
+     * @DTA\Data(field="count")
      * @DTA\Validator(name="Scalar", options={"type":"int"})
      * @var int|null
      */
     public $count;
 
     /**
+     * The URL for the next page in the list, or null if there is no next page.
      * @DTA\Data(field="next", nullable=true)
      * @DTA\Validator(name="Scalar", options={"type":"string"})
      * @var string|null
@@ -24,6 +26,7 @@ class PaginatedNatureSummaryList
     public $next;
 
     /**
+     * The URL for the previous page in the list, or null if there is no previous page.
      * @DTA\Data(field="previous", nullable=true)
      * @DTA\Validator(name="Scalar", options={"type":"string"})
      * @var string|null
@@ -31,10 +34,11 @@ class PaginatedNatureSummaryList
     public $previous;
 
     /**
-     * @DTA\Data(field="results", nullable=true)
-     * @DTA\Strategy(name="Object", options={"type":\App\DTO\Collection122::class})
-     * @DTA\Validator(name="TypeCompliant", options={"type":\App\DTO\Collection122::class})
-     * @var \App\DTO\Collection122|null
+     * A list of API resources on this page.
+     * @DTA\Data(field="results")
+     * @DTA\Strategy(name="Object", options={"type":\App\DTO\Collection125::class})
+     * @DTA\Validator(name="TypeCompliant", options={"type":\App\DTO\Collection125::class})
+     * @var \App\DTO\Collection125|null
      */
     public $results;
 

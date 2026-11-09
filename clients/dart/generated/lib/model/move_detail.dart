@@ -39,53 +39,89 @@ class MoveDetail {
     this.learnedByPokemon = const [],
   });
 
+  /// The identifier for this resource.
   int id;
 
+  /// The name for this resource.
   String name;
 
+  /// The percent value of how likely this move is to be successful.
+  ///
+  /// Minimum value: -2147483648
+  /// Maximum value: 2147483647
   int? accuracy;
 
-  int effectChance;
+  /// The percent value of how likely it is this moves effect will happen.
+  int? effectChance;
 
+  /// Power points. The number of times this move can be used.
+  ///
+  /// Minimum value: -2147483648
+  /// Maximum value: 2147483647
   int? pp;
 
+  /// A value between -8 and 8. Sets the order in which moves are executed during battle. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Priority) for greater detail.
+  ///
+  /// Minimum value: -2147483648
+  /// Maximum value: 2147483647
   int? priority;
 
+  /// The base power of this move, or null if it has no fixed base power.
+  ///
+  /// Minimum value: -2147483648
+  /// Maximum value: 2147483647
   int? power;
 
-  MoveDetailContestCombos contestCombos;
+  /// A detail of normal and super contest combos that require this move.
+  MoveCombos? contestCombos;
 
-  ContestTypeSummary contestType;
+  /// The type of appeal this move gives a Pokémon when used in a contest.
+  ContestTypeSummary? contestType;
 
-  ContestEffectSummary contestEffect;
+  /// The effect the move has when used in a contest.
+  ContestEffectSummary? contestEffect;
 
+  /// The type of damage the move inflicts on the target, e.g. physical.
   MoveDamageClassSummary damageClass;
 
-  List<MoveChangeEffectEntriesInner> effectEntries;
+  /// The effect of this move listed in different languages.
+  List<MoveEffectEffectText> effectEntries;
 
-  List<MoveDetailEffectChangesInner> effectChanges;
+  /// The list of previous effects this move has had across version groups of the games.
+  List<MoveEffectChange> effectChanges;
 
+  /// The generation in which this move was introduced.
   GenerationSummary generation;
 
-  MoveMeta meta;
+  /// Metadata about this move
+  MoveMeta? meta;
 
+  /// The name of this resource listed in different languages.
   List<MoveName> names;
 
+  /// A list of move resource value changes across version groups of the game.
   List<MoveChange> pastValues;
 
-  List<MoveDetailStatChangesInner> statChanges;
+  /// A list of stats this moves effects and how much it effects them.
+  List<MoveMetaStatChange> statChanges;
 
-  SuperContestEffectSummary superContestEffect;
+  /// The effect the move has when used in a super contest.
+  SuperContestEffectSummary? superContestEffect;
 
+  /// The type of target that will receive the effects of the attack.
   MoveTargetSummary target;
 
+  /// The elemental type of this move.
   TypeSummary type;
 
-  List<MoveDetailMachinesInner> machines;
+  /// A list of the machines that teach this move.
+  List<ItemMachine> machines;
 
+  /// The flavor text of this move listed in different languages.
   List<MoveFlavorText> flavorTextEntries;
 
-  List<AbilityDetailPokemonInnerPokemon> learnedByPokemon;
+  /// List of Pokemon that can learn the move
+  List<PokemonSummary> learnedByPokemon;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is MoveDetail &&
@@ -120,22 +156,22 @@ class MoveDetail {
     (id.hashCode) +
     (name.hashCode) +
     (accuracy == null ? 0 : accuracy!.hashCode) +
-    (effectChance.hashCode) +
+    (effectChance == null ? 0 : effectChance!.hashCode) +
     (pp == null ? 0 : pp!.hashCode) +
     (priority == null ? 0 : priority!.hashCode) +
     (power == null ? 0 : power!.hashCode) +
-    (contestCombos.hashCode) +
-    (contestType.hashCode) +
-    (contestEffect.hashCode) +
+    (contestCombos == null ? 0 : contestCombos!.hashCode) +
+    (contestType == null ? 0 : contestType!.hashCode) +
+    (contestEffect == null ? 0 : contestEffect!.hashCode) +
     (damageClass.hashCode) +
     (effectEntries.hashCode) +
     (effectChanges.hashCode) +
     (generation.hashCode) +
-    (meta.hashCode) +
+    (meta == null ? 0 : meta!.hashCode) +
     (names.hashCode) +
     (pastValues.hashCode) +
     (statChanges.hashCode) +
-    (superContestEffect.hashCode) +
+    (superContestEffect == null ? 0 : superContestEffect!.hashCode) +
     (target.hashCode) +
     (type.hashCode) +
     (machines.hashCode) +
@@ -154,7 +190,11 @@ class MoveDetail {
     } else {
       json[r'accuracy'] = null;
     }
+    if (this.effectChance != null) {
       json[r'effect_chance'] = this.effectChance;
+    } else {
+      json[r'effect_chance'] = null;
+    }
     if (this.pp != null) {
       json[r'pp'] = this.pp;
     } else {
@@ -170,18 +210,38 @@ class MoveDetail {
     } else {
       json[r'power'] = null;
     }
+    if (this.contestCombos != null) {
       json[r'contest_combos'] = this.contestCombos;
+    } else {
+      json[r'contest_combos'] = null;
+    }
+    if (this.contestType != null) {
       json[r'contest_type'] = this.contestType;
+    } else {
+      json[r'contest_type'] = null;
+    }
+    if (this.contestEffect != null) {
       json[r'contest_effect'] = this.contestEffect;
+    } else {
+      json[r'contest_effect'] = null;
+    }
       json[r'damage_class'] = this.damageClass;
       json[r'effect_entries'] = this.effectEntries;
       json[r'effect_changes'] = this.effectChanges;
       json[r'generation'] = this.generation;
+    if (this.meta != null) {
       json[r'meta'] = this.meta;
+    } else {
+      json[r'meta'] = null;
+    }
       json[r'names'] = this.names;
       json[r'past_values'] = this.pastValues;
       json[r'stat_changes'] = this.statChanges;
+    if (this.superContestEffect != null) {
       json[r'super_contest_effect'] = this.superContestEffect;
+    } else {
+      json[r'super_contest_effect'] = null;
+    }
       json[r'target'] = this.target;
       json[r'type'] = this.type;
       json[r'machines'] = this.machines;
@@ -206,13 +266,9 @@ class MoveDetail {
         assert(json.containsKey(r'name'), 'Required key "MoveDetail[name]" is missing from JSON.');
         assert(json[r'name'] != null, 'Required key "MoveDetail[name]" has a null value in JSON.');
         assert(json.containsKey(r'effect_chance'), 'Required key "MoveDetail[effect_chance]" is missing from JSON.');
-        assert(json[r'effect_chance'] != null, 'Required key "MoveDetail[effect_chance]" has a null value in JSON.');
         assert(json.containsKey(r'contest_combos'), 'Required key "MoveDetail[contest_combos]" is missing from JSON.');
-        assert(json[r'contest_combos'] != null, 'Required key "MoveDetail[contest_combos]" has a null value in JSON.');
         assert(json.containsKey(r'contest_type'), 'Required key "MoveDetail[contest_type]" is missing from JSON.');
-        assert(json[r'contest_type'] != null, 'Required key "MoveDetail[contest_type]" has a null value in JSON.');
         assert(json.containsKey(r'contest_effect'), 'Required key "MoveDetail[contest_effect]" is missing from JSON.');
-        assert(json[r'contest_effect'] != null, 'Required key "MoveDetail[contest_effect]" has a null value in JSON.');
         assert(json.containsKey(r'damage_class'), 'Required key "MoveDetail[damage_class]" is missing from JSON.');
         assert(json[r'damage_class'] != null, 'Required key "MoveDetail[damage_class]" has a null value in JSON.');
         assert(json.containsKey(r'effect_entries'), 'Required key "MoveDetail[effect_entries]" is missing from JSON.');
@@ -222,7 +278,6 @@ class MoveDetail {
         assert(json.containsKey(r'generation'), 'Required key "MoveDetail[generation]" is missing from JSON.');
         assert(json[r'generation'] != null, 'Required key "MoveDetail[generation]" has a null value in JSON.');
         assert(json.containsKey(r'meta'), 'Required key "MoveDetail[meta]" is missing from JSON.');
-        assert(json[r'meta'] != null, 'Required key "MoveDetail[meta]" has a null value in JSON.');
         assert(json.containsKey(r'names'), 'Required key "MoveDetail[names]" is missing from JSON.');
         assert(json[r'names'] != null, 'Required key "MoveDetail[names]" has a null value in JSON.');
         assert(json.containsKey(r'past_values'), 'Required key "MoveDetail[past_values]" is missing from JSON.');
@@ -230,7 +285,6 @@ class MoveDetail {
         assert(json.containsKey(r'stat_changes'), 'Required key "MoveDetail[stat_changes]" is missing from JSON.');
         assert(json[r'stat_changes'] != null, 'Required key "MoveDetail[stat_changes]" has a null value in JSON.');
         assert(json.containsKey(r'super_contest_effect'), 'Required key "MoveDetail[super_contest_effect]" is missing from JSON.');
-        assert(json[r'super_contest_effect'] != null, 'Required key "MoveDetail[super_contest_effect]" has a null value in JSON.');
         assert(json.containsKey(r'target'), 'Required key "MoveDetail[target]" is missing from JSON.');
         assert(json[r'target'] != null, 'Required key "MoveDetail[target]" has a null value in JSON.');
         assert(json.containsKey(r'type'), 'Required key "MoveDetail[type]" is missing from JSON.');
@@ -248,27 +302,27 @@ class MoveDetail {
         id: mapValueOfType<int>(json, r'id')!,
         name: mapValueOfType<String>(json, r'name')!,
         accuracy: mapValueOfType<int>(json, r'accuracy'),
-        effectChance: mapValueOfType<int>(json, r'effect_chance')!,
+        effectChance: mapValueOfType<int>(json, r'effect_chance'),
         pp: mapValueOfType<int>(json, r'pp'),
         priority: mapValueOfType<int>(json, r'priority'),
         power: mapValueOfType<int>(json, r'power'),
-        contestCombos: MoveDetailContestCombos.fromJson(json[r'contest_combos'])!,
-        contestType: ContestTypeSummary.fromJson(json[r'contest_type'])!,
-        contestEffect: ContestEffectSummary.fromJson(json[r'contest_effect'])!,
+        contestCombos: MoveCombos.fromJson(json[r'contest_combos']),
+        contestType: ContestTypeSummary.fromJson(json[r'contest_type']),
+        contestEffect: ContestEffectSummary.fromJson(json[r'contest_effect']),
         damageClass: MoveDamageClassSummary.fromJson(json[r'damage_class'])!,
-        effectEntries: MoveChangeEffectEntriesInner.listFromJson(json[r'effect_entries']),
-        effectChanges: MoveDetailEffectChangesInner.listFromJson(json[r'effect_changes']),
+        effectEntries: MoveEffectEffectText.listFromJson(json[r'effect_entries']),
+        effectChanges: MoveEffectChange.listFromJson(json[r'effect_changes']),
         generation: GenerationSummary.fromJson(json[r'generation'])!,
-        meta: MoveMeta.fromJson(json[r'meta'])!,
+        meta: MoveMeta.fromJson(json[r'meta']),
         names: MoveName.listFromJson(json[r'names']),
         pastValues: MoveChange.listFromJson(json[r'past_values']),
-        statChanges: MoveDetailStatChangesInner.listFromJson(json[r'stat_changes']),
-        superContestEffect: SuperContestEffectSummary.fromJson(json[r'super_contest_effect'])!,
+        statChanges: MoveMetaStatChange.listFromJson(json[r'stat_changes']),
+        superContestEffect: SuperContestEffectSummary.fromJson(json[r'super_contest_effect']),
         target: MoveTargetSummary.fromJson(json[r'target'])!,
         type: TypeSummary.fromJson(json[r'type'])!,
-        machines: MoveDetailMachinesInner.listFromJson(json[r'machines']),
+        machines: ItemMachine.listFromJson(json[r'machines']),
         flavorTextEntries: MoveFlavorText.listFromJson(json[r'flavor_text_entries']),
-        learnedByPokemon: AbilityDetailPokemonInnerPokemon.listFromJson(json[r'learned_by_pokemon']),
+        learnedByPokemon: PokemonSummary.listFromJson(json[r'learned_by_pokemon']),
       );
     }
     return null;

@@ -69,7 +69,7 @@ class PokemonApiAction @Inject constructor(
 ) : WebAction {
 
     @Get("/api/v2/ability/")
-    @Description("")
+    @Description("List abilities")
     @ResponseContentType(MediaTypes.APPLICATION_JSON)
     @LogRequestResponse(bodySampling = 1.0, errorBodySampling = 1.0)
     fun abilityList(
@@ -81,7 +81,7 @@ class PokemonApiAction @Inject constructor(
     }
 
     @Get("/api/v2/ability/{id}/")
-    @Description("")
+    @Description("Get ability")
     @ResponseContentType(MediaTypes.APPLICATION_JSON)
     @LogRequestResponse(bodySampling = 1.0, errorBodySampling = 1.0)
     fun abilityRetrieve(
@@ -91,13 +91,12 @@ class PokemonApiAction @Inject constructor(
     }
 
     @Get("/api/v2/characteristic/")
-    @Description("List charecterictics")
+    @Description("List characteristics")
     @ResponseContentType(MediaTypes.APPLICATION_JSON)
     @LogRequestResponse(bodySampling = 1.0, errorBodySampling = 1.0)
     fun characteristicList(
          @QueryParam(value = "limit") limit: kotlin.Int?, 
-         @QueryParam(value = "offset") offset: kotlin.Int?, 
-         @QueryParam(value = "q") q: kotlin.String?
+         @QueryParam(value = "offset") offset: kotlin.Int?
     ): PaginatedCharacteristicSummaryList {
         TODO()
     }

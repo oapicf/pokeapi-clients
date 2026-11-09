@@ -24,7 +24,7 @@ void
 ContestEffectEffectText::__init()
 {
 	//effect = std::string();
-	//language = new LanguageSummary();
+	//language = null;
 }
 
 void

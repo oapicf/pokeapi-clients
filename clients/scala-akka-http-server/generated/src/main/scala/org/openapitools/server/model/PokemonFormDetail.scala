@@ -2,20 +2,22 @@ package org.openapitools.server.model
 
 
 /**
- * @param id  for example: ''null''
- * @param name  for example: ''null''
- * @param order  for example: ''null''
- * @param formOrder  for example: ''null''
- * @param isDefault  for example: ''null''
- * @param isBattleOnly  for example: ''null''
- * @param isMega  for example: ''null''
- * @param formName  for example: ''null''
- * @param pokemon  for example: ''null''
- * @param sprites  for example: ''null''
- * @param versionGroup  for example: ''null''
- * @param formNames  for example: ''null''
- * @param names  for example: ''null''
- * @param types  for example: ''null''
+ * @param id The identifier for this resource. for example: ''null''
+ * @param name The name for this resource. for example: ''null''
+ * @param order The order in which forms should be sorted within all forms. Multiple forms may have equal order, in which case they should fall back on sorting by name. for example: ''null''
+ * @param formOrder The order in which forms should be sorted within a species' forms. for example: ''null''
+ * @param isDefault True for exactly one form used as the default for each Pokémon. for example: ''null''
+ * @param isBattleOnly Whether or not this form can only happen during battle. for example: ''null''
+ * @param isMega Whether or not this form requires mega evolution. for example: ''null''
+ * @param formName The name of this form. for example: ''null''
+ * @param pokemon The Pokémon that can take on this form. for example: ''null''
+ * @param sprites A set of sprites used to depict this Pokémon form in the game. for example: ''null''
+ * @param versionGroup The version group this Pokémon form was introduced in. for example: ''null''
+ * @param formNames The form specific form name of this Pokémon form, or empty if the form does not have a specific name. for example: ''null''
+ * @param names The form specific full name of this Pokémon form, or empty if the form does not have a specific name. for example: ''null''
+ * @param types A list of details showing types this Pokémon form has. for example: ''null''
+ * @param triggerConditions The conditions that trigger this form. Resource names and URLs are included when the trigger requires a resource. for example: ''null''
+ * @param flavorTextEntries The flavor text of this form listed in different languages and versions. for example: ''null''
 */
 final case class PokemonFormDetail (
   id: Int,
@@ -27,10 +29,12 @@ final case class PokemonFormDetail (
   isMega: Option[Boolean] = None,
   formName: String,
   pokemon: PokemonSummary,
-  sprites: PokemonFormDetailSprites,
+  sprites: PokemonFormSprites,
   versionGroup: VersionGroupSummary,
-  formNames: Seq[PokemonFormDetailFormNamesInner],
-  names: Seq[PokemonFormDetailFormNamesInner],
-  types: Seq[PokemonDetailTypesInner]
+  formNames: Seq[PokemonFormName],
+  names: Seq[PokemonFormName],
+  types: Seq[PokemonFormType],
+  triggerConditions: Seq[PokemonFormTriggerCondition],
+  flavorTextEntries: Seq[PokemonFormFlavorText]
 )
 

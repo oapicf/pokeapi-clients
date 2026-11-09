@@ -12,10 +12,14 @@ import org.joda.time.DateTime
 import ItemPocketDetail._
 
 case class ItemPocketDetail (
+  /* The identifier for this resource. */
   id: Integer,
-name: String,
-categories: List[ItemCategorySummary],
-names: List[ItemPocketName])
+/* The name for this resource. */
+  name: String,
+/* A list of item categories that are relevant to this item pocket. */
+  categories: List[ItemCategorySummary],
+/* The name of this resource listed in different languages. */
+  names: List[ItemPocketName])
 
 object ItemPocketDetail {
   import DateTimeCodecs._

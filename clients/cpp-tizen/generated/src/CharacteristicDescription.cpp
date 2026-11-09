@@ -24,7 +24,7 @@ void
 CharacteristicDescription::__init()
 {
 	//description = std::string();
-	//language = new LanguageSummary();
+	//language = null;
 }
 
 void

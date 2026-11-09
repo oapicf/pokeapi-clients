@@ -32,8 +32,8 @@ public abstract class ContestsApiControllerImpInterface {
     @Inject private SecurityAPIUtils securityAPIUtils;
     private ObjectMapper mapper = new ObjectMapper();
 
-    public Result contestEffectListHttp(Http.Request request, Integer limit, Integer offset, String q) throws Exception {
-        PaginatedContestEffectSummaryList obj = contestEffectList(request, limit, offset, q);
+    public Result contestEffectListHttp(Http.Request request, Integer limit, Integer offset) throws Exception {
+        PaginatedContestEffectSummaryList obj = contestEffectList(request, limit, offset);
 
         if (configuration.getBoolean("useOutputBeanValidation")) {
             OpenAPIUtils.validate(obj);
@@ -45,7 +45,7 @@ public abstract class ContestsApiControllerImpInterface {
 
     }
 
-    public abstract PaginatedContestEffectSummaryList contestEffectList(Http.Request request, Integer limit, Integer offset, String q) throws Exception;
+    public abstract PaginatedContestEffectSummaryList contestEffectList(Http.Request request, Integer limit, Integer offset) throws Exception;
 
     public Result contestEffectRetrieveHttp(Http.Request request, String id) throws Exception {
         ContestEffectDetail obj = contestEffectRetrieve(request, id);
@@ -92,8 +92,8 @@ public abstract class ContestsApiControllerImpInterface {
 
     public abstract ContestTypeDetail contestTypeRetrieve(Http.Request request, String id) throws Exception;
 
-    public Result superContestEffectListHttp(Http.Request request, Integer limit, Integer offset, String q) throws Exception {
-        PaginatedSuperContestEffectSummaryList obj = superContestEffectList(request, limit, offset, q);
+    public Result superContestEffectListHttp(Http.Request request, Integer limit, Integer offset) throws Exception {
+        PaginatedSuperContestEffectSummaryList obj = superContestEffectList(request, limit, offset);
 
         if (configuration.getBoolean("useOutputBeanValidation")) {
             OpenAPIUtils.validate(obj);
@@ -105,7 +105,7 @@ public abstract class ContestsApiControllerImpInterface {
 
     }
 
-    public abstract PaginatedSuperContestEffectSummaryList superContestEffectList(Http.Request request, Integer limit, Integer offset, String q) throws Exception;
+    public abstract PaginatedSuperContestEffectSummaryList superContestEffectList(Http.Request request, Integer limit, Integer offset) throws Exception;
 
     public Result superContestEffectRetrieveHttp(Http.Request request, String id) throws Exception {
         SuperContestEffectDetail obj = superContestEffectRetrieve(request, id);

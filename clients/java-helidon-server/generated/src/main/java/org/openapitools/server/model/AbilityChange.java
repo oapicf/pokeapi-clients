@@ -25,8 +25,8 @@ public class AbilityChange   {
     /**
      * Create AbilityChange.
      *
-     * @param versionGroup versionGroup
-     * @param effectEntries effectEntries
+     * @param versionGroup The version group in which the previous effect of this ability originated.
+     * @param effectEntries The previous effect of this ability listed in different languages.
      */
     public AbilityChange(
         VersionGroupSummary versionGroup, 
@@ -39,7 +39,7 @@ public class AbilityChange   {
 
 
     /**
-     * Get versionGroup
+     * The version group in which the previous effect of this ability originated.
      * @return versionGroup
      */
     public VersionGroupSummary getVersionGroup() {
@@ -51,7 +51,7 @@ public class AbilityChange   {
     }
 
     /**
-     * Get effectEntries
+     * The previous effect of this ability listed in different languages.
      * @return effectEntries
      */
     public List<@Valid AbilityChangeEffectText> getEffectEntries() {

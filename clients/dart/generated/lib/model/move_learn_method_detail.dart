@@ -20,15 +20,20 @@ class MoveLearnMethodDetail {
     this.versionGroups = const [],
   });
 
+  /// The identifier for this resource.
   int id;
 
+  /// The name for this resource.
   String name;
 
+  /// The name of this resource listed in different languages.
   List<MoveLearnMethodName> names;
 
+  /// The description of this resource listed in different languages.
   List<MoveLearnMethodDescription> descriptions;
 
-  List<AbilityDetailPokemonInnerPokemon> versionGroups;
+  /// A list of version groups where moves can be learned through this method.
+  List<VersionGroupSummary> versionGroups;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is MoveLearnMethodDetail &&
@@ -89,7 +94,7 @@ class MoveLearnMethodDetail {
         name: mapValueOfType<String>(json, r'name')!,
         names: MoveLearnMethodName.listFromJson(json[r'names']),
         descriptions: MoveLearnMethodDescription.listFromJson(json[r'descriptions']),
-        versionGroups: AbilityDetailPokemonInnerPokemon.listFromJson(json[r'version_groups']),
+        versionGroups: VersionGroupSummary.listFromJson(json[r'version_groups']),
       );
     }
     return null;

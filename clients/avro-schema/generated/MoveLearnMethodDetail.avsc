@@ -7,12 +7,12 @@
     {
       "name": "id",
       "type": "int",
-      "doc": ""
+      "doc": "The identifier for this resource."
     },
     {
       "name": "name",
       "type": "string",
-      "doc": ""
+      "doc": "The name for this resource."
     },
     {
       "name": "names",
@@ -20,7 +20,7 @@
         "type": "array",
         "items": "model.MoveLearnMethodName"
       },
-      "doc": ""
+      "doc": "The name of this resource listed in different languages."
     },
     {
       "name": "descriptions",
@@ -28,15 +28,15 @@
         "type": "array",
         "items": "model.MoveLearnMethodDescription"
       },
-      "doc": ""
+      "doc": "The description of this resource listed in different languages."
     },
     {
       "name": "version_groups",
       "type": {
         "type": "array",
-        "items": "model.AbilityDetailPokemonInnerPokemon"
+        "items": "model.VersionGroupSummary"
       },
-      "doc": ""
+      "doc": "A list of version groups where moves can be learned through this method."
     }
   ]
 

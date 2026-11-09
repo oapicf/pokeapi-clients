@@ -13,8 +13,10 @@ import java.net.URI
 import EncounterConditionValueSummary._
 
 case class EncounterConditionValueSummary (
+  /* The name of the referenced resource. */
   name: String,
-url: URI)
+/* The URL of the referenced resource. */
+  url: URI)
 
 object EncounterConditionValueSummary {
   import DateTimeCodecs._

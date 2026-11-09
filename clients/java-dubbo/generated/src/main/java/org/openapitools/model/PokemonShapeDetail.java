@@ -1,7 +1,7 @@
 package org.openapitools.model;
 
-import org.openapitools.model.PokemonShapeDetailAwesomeNamesInner;
-import org.openapitools.model.PokemonShapeDetailNamesInner;
+import org.openapitools.model.PokemonShapeAwesomeName;
+import org.openapitools.model.PokemonShapeName;
 import org.openapitools.model.PokemonSpeciesSummary;
 import java.util.*;
 import java.util.Objects;
@@ -15,23 +15,38 @@ import java.math.*;
 public class PokemonShapeDetail implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * The identifier for this resource.
+   */
   @JsonProperty("id")
   private Integer id;
 
+  /**
+   * The name for this resource.
+   */
   @JsonProperty("name")
   private String name;
 
+  /**
+   * The \&quot;scientific\&quot; name of this Pokémon shape listed in different languages.
+   */
   @JsonProperty("awesome_names")
-  private List<PokemonShapeDetailAwesomeNamesInner> awesomeNames = new ArrayList<>();
+  private List<PokemonShapeAwesomeName> awesomeNames = new ArrayList<>();
 
+  /**
+   * The name of this resource listed in different languages.
+   */
   @JsonProperty("names")
-  private List<PokemonShapeDetailNamesInner> names = new ArrayList<>();
+  private List<PokemonShapeName> names = new ArrayList<>();
 
+  /**
+   * A list of the Pokémon species that have this shape.
+   */
   @JsonProperty("pokemon_species")
   private List<PokemonSpeciesSummary> pokemonSpecies = new ArrayList<>();
 
   /**
-   * 
+   * The identifier for this resource.
    * @return id
    */
   public Integer getId() {
@@ -43,7 +58,7 @@ public class PokemonShapeDetail implements Serializable {
   }
 
   /**
-   * 
+   * The name for this resource.
    * @return name
    */
   public String getName() {
@@ -55,31 +70,31 @@ public class PokemonShapeDetail implements Serializable {
   }
 
   /**
-   * 
+   * The \&quot;scientific\&quot; name of this Pokémon shape listed in different languages.
    * @return awesomeNames
    */
-  public List<PokemonShapeDetailAwesomeNamesInner> getAwesomeNames() {
+  public List<PokemonShapeAwesomeName> getAwesomeNames() {
     return awesomeNames;
   }
 
-  public void setAwesomeNames(List<PokemonShapeDetailAwesomeNamesInner> awesomeNames) {
+  public void setAwesomeNames(List<PokemonShapeAwesomeName> awesomeNames) {
     this.awesomeNames = awesomeNames;
   }
 
   /**
-   * 
+   * The name of this resource listed in different languages.
    * @return names
    */
-  public List<PokemonShapeDetailNamesInner> getNames() {
+  public List<PokemonShapeName> getNames() {
     return names;
   }
 
-  public void setNames(List<PokemonShapeDetailNamesInner> names) {
+  public void setNames(List<PokemonShapeName> names) {
     this.names = names;
   }
 
   /**
-   * 
+   * A list of the Pokémon species that have this shape.
    * @return pokemonSpecies
    */
   public List<PokemonSpeciesSummary> getPokemonSpecies() {

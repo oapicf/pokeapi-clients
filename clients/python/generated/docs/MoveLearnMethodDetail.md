@@ -5,11 +5,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** |  | [readonly] 
-**name** | **str** |  | 
-**names** | [**List[MoveLearnMethodName]**](MoveLearnMethodName.md) |  | [readonly] 
-**descriptions** | [**List[MoveLearnMethodDescription]**](MoveLearnMethodDescription.md) |  | [readonly] 
-**version_groups** | [**List[AbilityDetailPokemonInnerPokemon]**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] 
+**id** | **int** | The identifier for this resource. | [readonly] 
+**name** | **str** | The name for this resource. | 
+**names** | [**List[MoveLearnMethodName]**](MoveLearnMethodName.md) | The name of this resource listed in different languages. | [readonly] 
+**descriptions** | [**List[MoveLearnMethodDescription]**](MoveLearnMethodDescription.md) | The description of this resource listed in different languages. | [readonly] 
+**version_groups** | [**List[VersionGroupSummary]**](VersionGroupSummary.md) | A list of version groups where moves can be learned through this method. | [readonly] 
 
 ## Example
 

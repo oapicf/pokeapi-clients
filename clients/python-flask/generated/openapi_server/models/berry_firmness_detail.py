@@ -62,6 +62,7 @@ class BerryFirmnessDetail(Model):
     def id(self) -> int:
         """Gets the id of this BerryFirmnessDetail.
 
+        The identifier for this resource.  # noqa: E501
 
         :return: The id of this BerryFirmnessDetail.
         :rtype: int
@@ -72,6 +73,7 @@ class BerryFirmnessDetail(Model):
     def id(self, id: int):
         """Sets the id of this BerryFirmnessDetail.
 
+        The identifier for this resource.  # noqa: E501
 
         :param id: The id of this BerryFirmnessDetail.
         :type id: int
@@ -85,6 +87,7 @@ class BerryFirmnessDetail(Model):
     def name(self) -> str:
         """Gets the name of this BerryFirmnessDetail.
 
+        The name for this resource.  # noqa: E501
 
         :return: The name of this BerryFirmnessDetail.
         :rtype: str
@@ -95,14 +98,15 @@ class BerryFirmnessDetail(Model):
     def name(self, name: str):
         """Sets the name of this BerryFirmnessDetail.
 
+        The name for this resource.  # noqa: E501
 
         :param name: The name of this BerryFirmnessDetail.
         :type name: str
         """
         if name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
-        if name is not None and len(name) > 100:
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `100`")  # noqa: E501
+        if name is not None and len(name) > 200:
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `200`")  # noqa: E501
 
         self._name = name
 
@@ -110,6 +114,7 @@ class BerryFirmnessDetail(Model):
     def berries(self) -> List[BerrySummary]:
         """Gets the berries of this BerryFirmnessDetail.
 
+        A list of the berries with this firmness.  # noqa: E501
 
         :return: The berries of this BerryFirmnessDetail.
         :rtype: List[BerrySummary]
@@ -120,6 +125,7 @@ class BerryFirmnessDetail(Model):
     def berries(self, berries: List[BerrySummary]):
         """Sets the berries of this BerryFirmnessDetail.
 
+        A list of the berries with this firmness.  # noqa: E501
 
         :param berries: The berries of this BerryFirmnessDetail.
         :type berries: List[BerrySummary]
@@ -133,6 +139,7 @@ class BerryFirmnessDetail(Model):
     def names(self) -> List[BerryFirmnessName]:
         """Gets the names of this BerryFirmnessDetail.
 
+        The name of this resource listed in different languages.  # noqa: E501
 
         :return: The names of this BerryFirmnessDetail.
         :rtype: List[BerryFirmnessName]
@@ -143,6 +150,7 @@ class BerryFirmnessDetail(Model):
     def names(self, names: List[BerryFirmnessName]):
         """Sets the names of this BerryFirmnessDetail.
 
+        The name of this resource listed in different languages.  # noqa: E501
 
         :param names: The names of this BerryFirmnessDetail.
         :type names: List[BerryFirmnessName]

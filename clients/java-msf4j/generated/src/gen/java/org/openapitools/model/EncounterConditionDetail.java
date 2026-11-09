@@ -14,7 +14,7 @@ import org.openapitools.model.EncounterConditionValueSummary;
 /**
  * EncounterConditionDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-10-25T05:48:05.787850114Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-11-09T13:49:25.341948748Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class EncounterConditionDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -29,10 +29,10 @@ public class EncounterConditionDetail   {
   private List<@Valid EncounterConditionName> names = new ArrayList<>();
 
    /**
-   * Get id
+   * The identifier for this resource.
    * @return id
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   public Integer getId() {
     return id;
   }
@@ -43,10 +43,10 @@ public class EncounterConditionDetail   {
   }
 
    /**
-   * Get name
+   * The name for this resource.
    * @return name
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   public String getName() {
     return name;
   }
@@ -56,19 +56,19 @@ public class EncounterConditionDetail   {
   }
 
    /**
-   * Get values
+   * A list of possible values for this encounter condition.
    * @return values
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of possible values for this encounter condition.")
   public List<@Valid EncounterConditionValueSummary> getValues() {
     return values;
   }
 
    /**
-   * Get names
+   * The name of this resource listed in different languages.
    * @return names
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
   public List<@Valid EncounterConditionName> getNames() {
     return names;
   }

@@ -1,9 +1,9 @@
 /*
  * PokéAPI
  *
- * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+ * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
  *
- * OpenAPI document version: 2.7.0
+ * OpenAPI document version: 2.10.0
  * Maintained by: blah+oapicf@cliffano.com
  *
  * AUTO-GENERATED FILE, DO NOT MODIFY!
@@ -19,17 +19,17 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.model.AbilityChange;
-import org.openapitools.model.AbilityDetailPokemonInner;
 import org.openapitools.model.AbilityEffectText;
 import org.openapitools.model.AbilityFlavorText;
 import org.openapitools.model.AbilityName;
+import org.openapitools.model.AbilityPokemonDetail;
 import org.openapitools.model.GenerationSummary;
 
 
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2026-10-25T05:48:17.483504027Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2026-11-09T13:49:34.675912514Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class AbilityDetail   {
   
   private Integer id;
@@ -40,9 +40,10 @@ public class AbilityDetail   {
   private List<AbilityEffectText> effectEntries = new ArrayList<>();
   private List<AbilityChange> effectChanges = new ArrayList<>();
   private List<AbilityFlavorText> flavorTextEntries = new ArrayList<>();
-  private List<AbilityDetailPokemonInner> pokemon = new ArrayList<>();
+  private List<AbilityPokemonDetail> pokemon = new ArrayList<>();
 
   /**
+   * The identifier for this resource.
    */
   public AbilityDetail id(Integer id) {
     this.id = id;
@@ -50,7 +51,7 @@ public class AbilityDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   @JsonProperty("id")
   public Integer getId() {
     return id;
@@ -60,6 +61,7 @@ public class AbilityDetail   {
   }
 
   /**
+   * The name for this resource.
    */
   public AbilityDetail name(String name) {
     this.name = name;
@@ -67,7 +69,7 @@ public class AbilityDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   @JsonProperty("name")
   public String getName() {
     return name;
@@ -77,6 +79,7 @@ public class AbilityDetail   {
   }
 
   /**
+   * Whether or not this ability originated in the main series of the video games.
    */
   public AbilityDetail isMainSeries(Boolean isMainSeries) {
     this.isMainSeries = isMainSeries;
@@ -84,7 +87,7 @@ public class AbilityDetail   {
   }
 
   
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Whether or not this ability originated in the main series of the video games.")
   @JsonProperty("is_main_series")
   public Boolean getIsMainSeries() {
     return isMainSeries;
@@ -94,6 +97,7 @@ public class AbilityDetail   {
   }
 
   /**
+   * The generation this ability originated in.
    */
   public AbilityDetail generation(GenerationSummary generation) {
     this.generation = generation;
@@ -101,7 +105,7 @@ public class AbilityDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The generation this ability originated in.")
   @JsonProperty("generation")
   public GenerationSummary getGeneration() {
     return generation;
@@ -111,6 +115,7 @@ public class AbilityDetail   {
   }
 
   /**
+   * The name of this resource listed in different languages.
    */
   public AbilityDetail names(List<AbilityName> names) {
     this.names = names;
@@ -118,7 +123,7 @@ public class AbilityDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
   @JsonProperty("names")
   public List<AbilityName> getNames() {
     return names;
@@ -128,6 +133,7 @@ public class AbilityDetail   {
   }
 
   /**
+   * The effect of this ability listed in different languages.
    */
   public AbilityDetail effectEntries(List<AbilityEffectText> effectEntries) {
     this.effectEntries = effectEntries;
@@ -135,7 +141,7 @@ public class AbilityDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The effect of this ability listed in different languages.")
   @JsonProperty("effect_entries")
   public List<AbilityEffectText> getEffectEntries() {
     return effectEntries;
@@ -145,6 +151,7 @@ public class AbilityDetail   {
   }
 
   /**
+   * The list of previous effects this ability has had across version groups.
    */
   public AbilityDetail effectChanges(List<AbilityChange> effectChanges) {
     this.effectChanges = effectChanges;
@@ -152,7 +159,7 @@ public class AbilityDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The list of previous effects this ability has had across version groups.")
   @JsonProperty("effect_changes")
   public List<AbilityChange> getEffectChanges() {
     return effectChanges;
@@ -162,6 +169,7 @@ public class AbilityDetail   {
   }
 
   /**
+   * The flavor text of this ability listed in different languages.
    */
   public AbilityDetail flavorTextEntries(List<AbilityFlavorText> flavorTextEntries) {
     this.flavorTextEntries = flavorTextEntries;
@@ -169,7 +177,7 @@ public class AbilityDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The flavor text of this ability listed in different languages.")
   @JsonProperty("flavor_text_entries")
   public List<AbilityFlavorText> getFlavorTextEntries() {
     return flavorTextEntries;
@@ -179,19 +187,20 @@ public class AbilityDetail   {
   }
 
   /**
+   * A list of Pokémon that could potentially have this ability.
    */
-  public AbilityDetail pokemon(List<AbilityDetailPokemonInner> pokemon) {
+  public AbilityDetail pokemon(List<AbilityPokemonDetail> pokemon) {
     this.pokemon = pokemon;
     return this;
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of Pokémon that could potentially have this ability.")
   @JsonProperty("pokemon")
-  public List<AbilityDetailPokemonInner> getPokemon() {
+  public List<AbilityPokemonDetail> getPokemon() {
     return pokemon;
   }
-  public void setPokemon(List<AbilityDetailPokemonInner> pokemon) {
+  public void setPokemon(List<AbilityPokemonDetail> pokemon) {
     this.pokemon = pokemon;
   }
 

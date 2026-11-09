@@ -60,6 +60,7 @@ class PaginatedNatureSummaryList(Model):
     def count(self) -> int:
         """Gets the count of this PaginatedNatureSummaryList.
 
+        The total number of resources available from this API.  # noqa: E501
 
         :return: The count of this PaginatedNatureSummaryList.
         :rtype: int
@@ -70,10 +71,13 @@ class PaginatedNatureSummaryList(Model):
     def count(self, count: int):
         """Sets the count of this PaginatedNatureSummaryList.
 
+        The total number of resources available from this API.  # noqa: E501
 
         :param count: The count of this PaginatedNatureSummaryList.
         :type count: int
         """
+        if count is None:
+            raise ValueError("Invalid value for `count`, must not be `None`")  # noqa: E501
 
         self._count = count
 
@@ -81,6 +85,7 @@ class PaginatedNatureSummaryList(Model):
     def next(self) -> str:
         """Gets the next of this PaginatedNatureSummaryList.
 
+        The URL for the next page in the list, or null if there is no next page.  # noqa: E501
 
         :return: The next of this PaginatedNatureSummaryList.
         :rtype: str
@@ -91,6 +96,7 @@ class PaginatedNatureSummaryList(Model):
     def next(self, next: str):
         """Sets the next of this PaginatedNatureSummaryList.
 
+        The URL for the next page in the list, or null if there is no next page.  # noqa: E501
 
         :param next: The next of this PaginatedNatureSummaryList.
         :type next: str
@@ -102,6 +108,7 @@ class PaginatedNatureSummaryList(Model):
     def previous(self) -> str:
         """Gets the previous of this PaginatedNatureSummaryList.
 
+        The URL for the previous page in the list, or null if there is no previous page.  # noqa: E501
 
         :return: The previous of this PaginatedNatureSummaryList.
         :rtype: str
@@ -112,6 +119,7 @@ class PaginatedNatureSummaryList(Model):
     def previous(self, previous: str):
         """Sets the previous of this PaginatedNatureSummaryList.
 
+        The URL for the previous page in the list, or null if there is no previous page.  # noqa: E501
 
         :param previous: The previous of this PaginatedNatureSummaryList.
         :type previous: str
@@ -123,6 +131,7 @@ class PaginatedNatureSummaryList(Model):
     def results(self) -> List[NatureSummary]:
         """Gets the results of this PaginatedNatureSummaryList.
 
+        A list of API resources on this page.  # noqa: E501
 
         :return: The results of this PaginatedNatureSummaryList.
         :rtype: List[NatureSummary]
@@ -133,9 +142,12 @@ class PaginatedNatureSummaryList(Model):
     def results(self, results: List[NatureSummary]):
         """Sets the results of this PaginatedNatureSummaryList.
 
+        A list of API resources on this page.  # noqa: E501
 
         :param results: The results of this PaginatedNatureSummaryList.
         :type results: List[NatureSummary]
         """
+        if results is None:
+            raise ValueError("Invalid value for `results`, must not be `None`")  # noqa: E501
 
         self._results = results

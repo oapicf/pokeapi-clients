@@ -22,9 +22,9 @@ public class AbilityEffectText   {
     /**
      * Create AbilityEffectText.
      *
-     * @param effect effect
-     * @param shortEffect shortEffect
-     * @param language language
+     * @param effect The localized effect text for an API resource in a specific language.
+     * @param shortEffect The localized effect text in brief.
+     * @param language The language this effect is in.
      */
     public AbilityEffectText(
         String effect, 
@@ -39,7 +39,7 @@ public class AbilityEffectText   {
 
 
     /**
-     * Get effect
+     * The localized effect text for an API resource in a specific language.
      * @return effect
      */
     public String getEffect() {
@@ -51,7 +51,7 @@ public class AbilityEffectText   {
     }
 
     /**
-     * Get shortEffect
+     * The localized effect text in brief.
      * @return shortEffect
      */
     public String getShortEffect() {
@@ -63,7 +63,7 @@ public class AbilityEffectText   {
     }
 
     /**
-     * Get language
+     * The language this effect is in.
      * @return language
      */
     public LanguageSummary getLanguage() {

@@ -4,8 +4,8 @@
 
 // ignore_for_file: unused_element
 import 'package:built_collection/built_collection.dart';
-import 'package:openapi/src/model/ability_detail_pokemon_inner_pokemon.dart';
-import 'package:openapi/src/model/gender_detail_pokemon_species_details_inner.dart';
+import 'package:openapi/src/model/gender_pokemon_species.dart';
+import 'package:openapi/src/model/pokemon_species_summary.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -14,23 +14,27 @@ part 'gender_detail.g.dart';
 /// GenderDetail
 ///
 /// Properties:
-/// * [id] 
-/// * [name] 
-/// * [pokemonSpeciesDetails] 
-/// * [requiredForEvolution] 
+/// * [id] - The identifier for this resource.
+/// * [name] - The name for this resource.
+/// * [pokemonSpeciesDetails] - A list of Pokémon species that can be this gender and how likely it is that they will be.
+/// * [requiredForEvolution] - A list of Pokémon species that required this gender in order for a Pokémon to evolve into them.
 @BuiltValue()
 abstract class GenderDetail implements Built<GenderDetail, GenderDetailBuilder> {
+  /// The identifier for this resource.
   @BuiltValueField(wireName: r'id')
   int get id;
 
+  /// The name for this resource.
   @BuiltValueField(wireName: r'name')
   String get name;
 
+  /// A list of Pokémon species that can be this gender and how likely it is that they will be.
   @BuiltValueField(wireName: r'pokemon_species_details')
-  BuiltList<GenderDetailPokemonSpeciesDetailsInner> get pokemonSpeciesDetails;
+  BuiltList<GenderPokemonSpecies> get pokemonSpeciesDetails;
 
+  /// A list of Pokémon species that required this gender in order for a Pokémon to evolve into them.
   @BuiltValueField(wireName: r'required_for_evolution')
-  BuiltList<AbilityDetailPokemonInnerPokemon> get requiredForEvolution;
+  BuiltList<PokemonSpeciesSummary> get requiredForEvolution;
 
   GenderDetail._();
 
@@ -68,12 +72,12 @@ class _$GenderDetailSerializer implements PrimitiveSerializer<GenderDetail> {
     yield r'pokemon_species_details';
     yield serializers.serialize(
       object.pokemonSpeciesDetails,
-      specifiedType: const FullType(BuiltList, [FullType(GenderDetailPokemonSpeciesDetailsInner)]),
+      specifiedType: const FullType(BuiltList, [FullType(GenderPokemonSpecies)]),
     );
     yield r'required_for_evolution';
     yield serializers.serialize(
       object.requiredForEvolution,
-      specifiedType: const FullType(BuiltList, [FullType(AbilityDetailPokemonInnerPokemon)]),
+      specifiedType: const FullType(BuiltList, [FullType(PokemonSpeciesSummary)]),
     );
   }
 
@@ -115,15 +119,15 @@ class _$GenderDetailSerializer implements PrimitiveSerializer<GenderDetail> {
         case r'pokemon_species_details':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(GenderDetailPokemonSpeciesDetailsInner)]),
-          ) as BuiltList<GenderDetailPokemonSpeciesDetailsInner>;
+            specifiedType: const FullType(BuiltList, [FullType(GenderPokemonSpecies)]),
+          ) as BuiltList<GenderPokemonSpecies>;
           result.pokemonSpeciesDetails.replace(valueDes);
           break;
         case r'required_for_evolution':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(AbilityDetailPokemonInnerPokemon)]),
-          ) as BuiltList<AbilityDetailPokemonInnerPokemon>;
+            specifiedType: const FullType(BuiltList, [FullType(PokemonSpeciesSummary)]),
+          ) as BuiltList<PokemonSpeciesSummary>;
           result.requiredForEvolution.replace(valueDes);
           break;
         default:

@@ -27,10 +27,11 @@ StatDetail::__init()
 	//name = std::string();
 	//game_index = int(0);
 	//is_battle_only = bool(false);
-	//affecting_moves = new StatDetail_affecting_moves();
-	//affecting_natures = new StatDetail_affecting_natures();
+	//affecting_moves = null;
+	//affecting_natures = null;
+	//new std::list()std::list> affecting_items;
 	//new std::list()std::list> characteristics;
-	//move_damage_class = new MoveDamageClassSummary();
+	//move_damage_class = null;
 	//new std::list()std::list> names;
 }
 
@@ -66,6 +67,11 @@ StatDetail::__cleanup()
 	//
 	//delete affecting_natures;
 	//affecting_natures = NULL;
+	//}
+	//if(affecting_items != NULL) {
+	//affecting_items.RemoveAll(true);
+	//delete affecting_items;
+	//affecting_items = NULL;
 	//}
 	//if(characteristics != NULL) {
 	//characteristics.RemoveAll(true);
@@ -139,11 +145,11 @@ StatDetail::fromJson(char* jsonStr)
 	if (node !=NULL) {
 	
 
-		if (isprimitive("StatDetail_affecting_moves")) {
-			jsonToValue(&affecting_moves, node, "StatDetail_affecting_moves", "StatDetail_affecting_moves");
+		if (isprimitive("StatAffectingMoves")) {
+			jsonToValue(&affecting_moves, node, "StatAffectingMoves", "StatAffectingMoves");
 		} else {
 			
-			StatDetail_affecting_moves* obj = static_cast<StatDetail_affecting_moves*> (&affecting_moves);
+			StatAffectingMoves* obj = static_cast<StatAffectingMoves*> (&affecting_moves);
 			obj->fromJson(json_to_string(node, false));
 			
 		}
@@ -153,14 +159,38 @@ StatDetail::fromJson(char* jsonStr)
 	if (node !=NULL) {
 	
 
-		if (isprimitive("StatDetail_affecting_natures")) {
-			jsonToValue(&affecting_natures, node, "StatDetail_affecting_natures", "StatDetail_affecting_natures");
+		if (isprimitive("StatAffectingNatures")) {
+			jsonToValue(&affecting_natures, node, "StatAffectingNatures", "StatAffectingNatures");
 		} else {
 			
-			StatDetail_affecting_natures* obj = static_cast<StatDetail_affecting_natures*> (&affecting_natures);
+			StatAffectingNatures* obj = static_cast<StatAffectingNatures*> (&affecting_natures);
 			obj->fromJson(json_to_string(node, false));
 			
 		}
+	}
+	const gchar *affecting_itemsKey = "affecting_items";
+	node = json_object_get_member(pJsonObject, affecting_itemsKey);
+	if (node !=NULL) {
+	
+		{
+			JsonArray* arr = json_node_get_array(node);
+			JsonNode*  temp_json;
+			list<ItemSummary> new_list;
+			ItemSummary inst;
+			for (guint i=0;i<json_array_get_length(arr);i++) {
+				temp_json = json_array_get_element(arr,i);
+				if (isprimitive("ItemSummary")) {
+					jsonToValue(&inst, temp_json, "ItemSummary", "");
+				} else {
+					
+					inst.fromJson(json_to_string(temp_json, false));
+					
+				}
+				new_list.push_back(inst);
+			}
+			affecting_items = new_list;
+		}
+		
 	}
 	const gchar *characteristicsKey = "characteristics";
 	node = json_object_get_member(pJsonObject, characteristicsKey);
@@ -272,13 +302,13 @@ StatDetail::toJson()
 	}
 	const gchar *is_battle_onlyKey = "is_battle_only";
 	json_object_set_member(pJsonObject, is_battle_onlyKey, node);
-	if (isprimitive("StatDetail_affecting_moves")) {
-		StatDetail_affecting_moves obj = getAffectingMoves();
-		node = converttoJson(&obj, "StatDetail_affecting_moves", "");
+	if (isprimitive("StatAffectingMoves")) {
+		StatAffectingMoves obj = getAffectingMoves();
+		node = converttoJson(&obj, "StatAffectingMoves", "");
 	}
 	else {
 		
-		StatDetail_affecting_moves obj = static_cast<StatDetail_affecting_moves> (getAffectingMoves());
+		StatAffectingMoves obj = static_cast<StatAffectingMoves> (getAffectingMoves());
 		GError *mygerror;
 		mygerror = NULL;
 		node = json_from_string(obj.toJson(), &mygerror);
@@ -286,13 +316,13 @@ StatDetail::toJson()
 	}
 	const gchar *affecting_movesKey = "affecting_moves";
 	json_object_set_member(pJsonObject, affecting_movesKey, node);
-	if (isprimitive("StatDetail_affecting_natures")) {
-		StatDetail_affecting_natures obj = getAffectingNatures();
-		node = converttoJson(&obj, "StatDetail_affecting_natures", "");
+	if (isprimitive("StatAffectingNatures")) {
+		StatAffectingNatures obj = getAffectingNatures();
+		node = converttoJson(&obj, "StatAffectingNatures", "");
 	}
 	else {
 		
-		StatDetail_affecting_natures obj = static_cast<StatDetail_affecting_natures> (getAffectingNatures());
+		StatAffectingNatures obj = static_cast<StatAffectingNatures> (getAffectingNatures());
 		GError *mygerror;
 		mygerror = NULL;
 		node = json_from_string(obj.toJson(), &mygerror);
@@ -300,6 +330,31 @@ StatDetail::toJson()
 	}
 	const gchar *affecting_naturesKey = "affecting_natures";
 	json_object_set_member(pJsonObject, affecting_naturesKey, node);
+	if (isprimitive("ItemSummary")) {
+		list<ItemSummary> new_list = static_cast<list <ItemSummary> > (getAffectingItems());
+		node = converttoJson(&new_list, "ItemSummary", "array");
+	} else {
+		node = json_node_alloc();
+		list<ItemSummary> new_list = static_cast<list <ItemSummary> > (getAffectingItems());
+		JsonArray* json_array = json_array_new();
+		GError *mygerror;
+		
+		for (list<ItemSummary>::iterator it = new_list.begin(); it != new_list.end(); it++) {
+			mygerror = NULL;
+			ItemSummary obj = *it;
+			JsonNode *node_temp = json_from_string(obj.toJson(), &mygerror);
+			json_array_add_element(json_array, node_temp);
+			g_clear_error(&mygerror);
+		}
+		json_node_init_array(node, json_array);
+		json_array_unref(json_array);
+		
+	}
+
+
+	
+	const gchar *affecting_itemsKey = "affecting_items";
+	json_object_set_member(pJsonObject, affecting_itemsKey, node);
 	if (isprimitive("CharacteristicSummary")) {
 		list<CharacteristicSummary> new_list = static_cast<list <CharacteristicSummary> > (getCharacteristics());
 		node = converttoJson(&new_list, "CharacteristicSummary", "array");
@@ -420,28 +475,40 @@ StatDetail::setIsBattleOnly(bool  is_battle_only)
 	this->is_battle_only = is_battle_only;
 }
 
-StatDetail_affecting_moves
+StatAffectingMoves
 StatDetail::getAffectingMoves()
 {
 	return affecting_moves;
 }
 
 void
-StatDetail::setAffectingMoves(StatDetail_affecting_moves  affecting_moves)
+StatDetail::setAffectingMoves(StatAffectingMoves  affecting_moves)
 {
 	this->affecting_moves = affecting_moves;
 }
 
-StatDetail_affecting_natures
+StatAffectingNatures
 StatDetail::getAffectingNatures()
 {
 	return affecting_natures;
 }
 
 void
-StatDetail::setAffectingNatures(StatDetail_affecting_natures  affecting_natures)
+StatDetail::setAffectingNatures(StatAffectingNatures  affecting_natures)
 {
 	this->affecting_natures = affecting_natures;
+}
+
+std::list<ItemSummary>
+StatDetail::getAffectingItems()
+{
+	return affecting_items;
+}
+
+void
+StatDetail::setAffectingItems(std::list <ItemSummary> affecting_items)
+{
+	this->affecting_items = affecting_items;
 }
 
 std::list<CharacteristicSummary>

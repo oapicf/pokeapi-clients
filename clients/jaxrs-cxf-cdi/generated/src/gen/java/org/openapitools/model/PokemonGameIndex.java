@@ -21,6 +21,9 @@ public class PokemonGameIndex   {
   private VersionSummary version;
 
   /**
+   * The internal id of an API resource within game data.
+   * minimum: -2147483648
+   * maximum: 2147483647
    **/
   public PokemonGameIndex gameIndex(Integer gameIndex) {
     this.gameIndex = gameIndex;
@@ -28,10 +31,10 @@ public class PokemonGameIndex   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The internal id of an API resource within game data.")
   @JsonProperty("game_index")
   @NotNull
-  public Integer getGameIndex() {
+ @Min(-2147483648) @Max(2147483647)  public Integer getGameIndex() {
     return gameIndex;
   }
   public void setGameIndex(Integer gameIndex) {
@@ -40,6 +43,7 @@ public class PokemonGameIndex   {
 
 
   /**
+   * The version relevent to this game index.
    **/
   public PokemonGameIndex version(VersionSummary version) {
     this.version = version;
@@ -47,7 +51,7 @@ public class PokemonGameIndex   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The version relevent to this game index.")
   @JsonProperty("version")
   @NotNull
   public VersionSummary getVersion() {

@@ -7,7 +7,7 @@ using namespace Tiny;
 ItemGameIndex::ItemGameIndex()
 {
 	game_index = int(0);
-	generation = GenerationSummary();
+	generation = null;
 }
 
 ItemGameIndex::ItemGameIndex(std::string jsonString)

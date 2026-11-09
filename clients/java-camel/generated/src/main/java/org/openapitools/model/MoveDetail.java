@@ -8,21 +8,21 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
-import org.openapitools.model.AbilityDetailPokemonInnerPokemon;
 import org.openapitools.model.ContestEffectSummary;
 import org.openapitools.model.ContestTypeSummary;
 import org.openapitools.model.GenerationSummary;
+import org.openapitools.model.ItemMachine;
 import org.openapitools.model.MoveChange;
-import org.openapitools.model.MoveChangeEffectEntriesInner;
+import org.openapitools.model.MoveCombos;
 import org.openapitools.model.MoveDamageClassSummary;
-import org.openapitools.model.MoveDetailContestCombos;
-import org.openapitools.model.MoveDetailEffectChangesInner;
-import org.openapitools.model.MoveDetailMachinesInner;
-import org.openapitools.model.MoveDetailStatChangesInner;
+import org.openapitools.model.MoveEffectChange;
+import org.openapitools.model.MoveEffectEffectText;
 import org.openapitools.model.MoveFlavorText;
 import org.openapitools.model.MoveMeta;
+import org.openapitools.model.MoveMetaStatChange;
 import org.openapitools.model.MoveName;
 import org.openapitools.model.MoveTargetSummary;
+import org.openapitools.model.PokemonSummary;
 import org.openapitools.model.SuperContestEffectSummary;
 import org.openapitools.model.TypeSummary;
 import java.util.NoSuchElementException;
@@ -40,56 +40,56 @@ import jakarta.annotation.Generated;
  * MoveDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-10-25T05:48:25.711080506Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-11-09T13:49:41.168612095Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class MoveDetail {
 
   private Integer id;
 
   private String name;
 
-  private JsonNullable<Integer> accuracy = JsonNullable.<Integer>undefined();
+  private JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> accuracy = JsonNullable.<Integer>undefined();
 
-  private Integer effectChance;
+  private JsonNullable<Integer> effectChance = JsonNullable.<Integer>undefined();
 
-  private JsonNullable<Integer> pp = JsonNullable.<Integer>undefined();
+  private JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> pp = JsonNullable.<Integer>undefined();
 
-  private JsonNullable<Integer> priority = JsonNullable.<Integer>undefined();
+  private JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> priority = JsonNullable.<Integer>undefined();
 
-  private JsonNullable<Integer> power = JsonNullable.<Integer>undefined();
+  private JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> power = JsonNullable.<Integer>undefined();
 
-  private MoveDetailContestCombos contestCombos;
+  private JsonNullable<MoveCombos> contestCombos = JsonNullable.<MoveCombos>undefined();
 
-  private ContestTypeSummary contestType;
+  private JsonNullable<ContestTypeSummary> contestType = JsonNullable.<ContestTypeSummary>undefined();
 
-  private ContestEffectSummary contestEffect;
+  private JsonNullable<ContestEffectSummary> contestEffect = JsonNullable.<ContestEffectSummary>undefined();
 
   private MoveDamageClassSummary damageClass;
 
-  private List<@Valid MoveChangeEffectEntriesInner> effectEntries = new ArrayList<>();
+  private List<@Valid MoveEffectEffectText> effectEntries = new ArrayList<>();
 
-  private List<@Valid MoveDetailEffectChangesInner> effectChanges = new ArrayList<>();
+  private List<@Valid MoveEffectChange> effectChanges = new ArrayList<>();
 
   private GenerationSummary generation;
 
-  private MoveMeta meta;
+  private JsonNullable<MoveMeta> meta = JsonNullable.<MoveMeta>undefined();
 
   private List<@Valid MoveName> names = new ArrayList<>();
 
   private List<@Valid MoveChange> pastValues = new ArrayList<>();
 
-  private List<@Valid MoveDetailStatChangesInner> statChanges = new ArrayList<>();
+  private List<@Valid MoveMetaStatChange> statChanges = new ArrayList<>();
 
-  private SuperContestEffectSummary superContestEffect;
+  private JsonNullable<SuperContestEffectSummary> superContestEffect = JsonNullable.<SuperContestEffectSummary>undefined();
 
   private MoveTargetSummary target;
 
   private TypeSummary type;
 
-  private List<@Valid MoveDetailMachinesInner> machines = new ArrayList<>();
+  private List<@Valid ItemMachine> machines = new ArrayList<>();
 
   private List<@Valid MoveFlavorText> flavorTextEntries = new ArrayList<>();
 
-  private List<@Valid AbilityDetailPokemonInnerPokemon> learnedByPokemon = new ArrayList<>();
+  private List<@Valid PokemonSummary> learnedByPokemon = new ArrayList<>();
 
   public MoveDetail() {
     super();
@@ -98,22 +98,22 @@ public class MoveDetail {
   /**
    * Constructor with only required parameters
    */
-  public MoveDetail(Integer id, String name, Integer effectChance, MoveDetailContestCombos contestCombos, ContestTypeSummary contestType, ContestEffectSummary contestEffect, MoveDamageClassSummary damageClass, List<@Valid MoveChangeEffectEntriesInner> effectEntries, List<@Valid MoveDetailEffectChangesInner> effectChanges, GenerationSummary generation, MoveMeta meta, List<@Valid MoveName> names, List<@Valid MoveChange> pastValues, List<@Valid MoveDetailStatChangesInner> statChanges, SuperContestEffectSummary superContestEffect, MoveTargetSummary target, TypeSummary type, List<@Valid MoveDetailMachinesInner> machines, List<@Valid MoveFlavorText> flavorTextEntries, List<@Valid AbilityDetailPokemonInnerPokemon> learnedByPokemon) {
+  public MoveDetail(Integer id, String name, Integer effectChance, MoveCombos contestCombos, ContestTypeSummary contestType, ContestEffectSummary contestEffect, MoveDamageClassSummary damageClass, List<@Valid MoveEffectEffectText> effectEntries, List<@Valid MoveEffectChange> effectChanges, GenerationSummary generation, MoveMeta meta, List<@Valid MoveName> names, List<@Valid MoveChange> pastValues, List<@Valid MoveMetaStatChange> statChanges, SuperContestEffectSummary superContestEffect, MoveTargetSummary target, TypeSummary type, List<@Valid ItemMachine> machines, List<@Valid MoveFlavorText> flavorTextEntries, List<@Valid PokemonSummary> learnedByPokemon) {
     this.id = id;
     this.name = name;
-    this.effectChance = effectChance;
-    this.contestCombos = contestCombos;
-    this.contestType = contestType;
-    this.contestEffect = contestEffect;
+    this.effectChance = JsonNullable.of(effectChance);
+    this.contestCombos = JsonNullable.of(contestCombos);
+    this.contestType = JsonNullable.of(contestType);
+    this.contestEffect = JsonNullable.of(contestEffect);
     this.damageClass = damageClass;
     this.effectEntries = effectEntries;
     this.effectChanges = effectChanges;
     this.generation = generation;
-    this.meta = meta;
+    this.meta = JsonNullable.of(meta);
     this.names = names;
     this.pastValues = pastValues;
     this.statChanges = statChanges;
-    this.superContestEffect = superContestEffect;
+    this.superContestEffect = JsonNullable.of(superContestEffect);
     this.target = target;
     this.type = type;
     this.machines = machines;
@@ -127,11 +127,11 @@ public class MoveDetail {
   }
 
   /**
-   * Get id
+   * The identifier for this resource.
    * @return id
    */
   
-  @Schema(name = "id", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "id", accessMode = Schema.AccessMode.READ_ONLY, description = "The identifier for this resource.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("id")
   public Integer getId() {
     return id;
@@ -147,11 +147,11 @@ public class MoveDetail {
   }
 
   /**
-   * Get name
+   * The name for this resource.
    * @return name
    */
-  @NotNull @Size(max = 100) 
-  @Schema(name = "name", requiredMode = Schema.RequiredMode.REQUIRED)
+  @NotNull @Size(max = 200) 
+  @Schema(name = "name", description = "The name for this resource.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("name")
   public String getName() {
     return name;
@@ -167,13 +167,15 @@ public class MoveDetail {
   }
 
   /**
-   * Get accuracy
+   * The percent value of how likely this move is to be successful.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return accuracy
    */
-  
-  @Schema(name = "accuracy", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Min(value = -2147483648) @Max(value = 2147483647) 
+  @Schema(name = "accuracy", description = "The percent value of how likely this move is to be successful.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("accuracy")
-  public JsonNullable<Integer> getAccuracy() {
+  public JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> getAccuracy() {
     return accuracy;
   }
 
@@ -182,22 +184,22 @@ public class MoveDetail {
   }
 
   public MoveDetail effectChance(Integer effectChance) {
-    this.effectChance = effectChance;
+    this.effectChance = JsonNullable.of(effectChance);
     return this;
   }
 
   /**
-   * Get effectChance
+   * The percent value of how likely it is this moves effect will happen.
    * @return effectChance
    */
-  @NotNull 
-  @Schema(name = "effect_chance", requiredMode = Schema.RequiredMode.REQUIRED)
+  /* @Present */ 
+  @Schema(name = "effect_chance", description = "The percent value of how likely it is this moves effect will happen.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("effect_chance")
-  public Integer getEffectChance() {
+  public JsonNullable<Integer> getEffectChance() {
     return effectChance;
   }
 
-  public void setEffectChance(Integer effectChance) {
+  public void setEffectChance(JsonNullable<Integer> effectChance) {
     this.effectChance = effectChance;
   }
 
@@ -207,13 +209,15 @@ public class MoveDetail {
   }
 
   /**
-   * Get pp
+   * Power points. The number of times this move can be used.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return pp
    */
-  
-  @Schema(name = "pp", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Min(value = -2147483648) @Max(value = 2147483647) 
+  @Schema(name = "pp", description = "Power points. The number of times this move can be used.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("pp")
-  public JsonNullable<Integer> getPp() {
+  public JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> getPp() {
     return pp;
   }
 
@@ -227,13 +231,15 @@ public class MoveDetail {
   }
 
   /**
-   * Get priority
+   * A value between -8 and 8. Sets the order in which moves are executed during battle. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Priority) for greater detail.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return priority
    */
-  
-  @Schema(name = "priority", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Min(value = -2147483648) @Max(value = 2147483647) 
+  @Schema(name = "priority", description = "A value between -8 and 8. Sets the order in which moves are executed during battle. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Priority) for greater detail.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("priority")
-  public JsonNullable<Integer> getPriority() {
+  public JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> getPriority() {
     return priority;
   }
 
@@ -247,13 +253,15 @@ public class MoveDetail {
   }
 
   /**
-   * Get power
+   * The base power of this move, or null if it has no fixed base power.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return power
    */
-  
-  @Schema(name = "power", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Min(value = -2147483648) @Max(value = 2147483647) 
+  @Schema(name = "power", description = "The base power of this move, or null if it has no fixed base power.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("power")
-  public JsonNullable<Integer> getPower() {
+  public JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> getPower() {
     return power;
   }
 
@@ -261,63 +269,63 @@ public class MoveDetail {
     this.power = power;
   }
 
-  public MoveDetail contestCombos(MoveDetailContestCombos contestCombos) {
-    this.contestCombos = contestCombos;
+  public MoveDetail contestCombos(MoveCombos contestCombos) {
+    this.contestCombos = JsonNullable.of(contestCombos);
     return this;
   }
 
   /**
-   * Get contestCombos
+   * A detail of normal and super contest combos that require this move.
    * @return contestCombos
    */
-  @NotNull @Valid 
-  @Schema(name = "contest_combos", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "contest_combos", accessMode = Schema.AccessMode.READ_ONLY, description = "A detail of normal and super contest combos that require this move.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("contest_combos")
-  public MoveDetailContestCombos getContestCombos() {
+  public JsonNullable<MoveCombos> getContestCombos() {
     return contestCombos;
   }
 
-  public void setContestCombos(MoveDetailContestCombos contestCombos) {
+  public void setContestCombos(JsonNullable<MoveCombos> contestCombos) {
     this.contestCombos = contestCombos;
   }
 
   public MoveDetail contestType(ContestTypeSummary contestType) {
-    this.contestType = contestType;
+    this.contestType = JsonNullable.of(contestType);
     return this;
   }
 
   /**
-   * Get contestType
+   * The type of appeal this move gives a Pokémon when used in a contest.
    * @return contestType
    */
-  @NotNull @Valid 
-  @Schema(name = "contest_type", requiredMode = Schema.RequiredMode.REQUIRED)
+  /* @Present */ @Valid 
+  @Schema(name = "contest_type", description = "The type of appeal this move gives a Pokémon when used in a contest.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("contest_type")
-  public ContestTypeSummary getContestType() {
+  public JsonNullable<ContestTypeSummary> getContestType() {
     return contestType;
   }
 
-  public void setContestType(ContestTypeSummary contestType) {
+  public void setContestType(JsonNullable<ContestTypeSummary> contestType) {
     this.contestType = contestType;
   }
 
   public MoveDetail contestEffect(ContestEffectSummary contestEffect) {
-    this.contestEffect = contestEffect;
+    this.contestEffect = JsonNullable.of(contestEffect);
     return this;
   }
 
   /**
-   * Get contestEffect
+   * The effect the move has when used in a contest.
    * @return contestEffect
    */
-  @NotNull @Valid 
-  @Schema(name = "contest_effect", requiredMode = Schema.RequiredMode.REQUIRED)
+  /* @Present */ @Valid 
+  @Schema(name = "contest_effect", description = "The effect the move has when used in a contest.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("contest_effect")
-  public ContestEffectSummary getContestEffect() {
+  public JsonNullable<ContestEffectSummary> getContestEffect() {
     return contestEffect;
   }
 
-  public void setContestEffect(ContestEffectSummary contestEffect) {
+  public void setContestEffect(JsonNullable<ContestEffectSummary> contestEffect) {
     this.contestEffect = contestEffect;
   }
 
@@ -327,11 +335,11 @@ public class MoveDetail {
   }
 
   /**
-   * Get damageClass
+   * The type of damage the move inflicts on the target, e.g. physical.
    * @return damageClass
    */
   @NotNull @Valid 
-  @Schema(name = "damage_class", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "damage_class", description = "The type of damage the move inflicts on the target, e.g. physical.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("damage_class")
   public MoveDamageClassSummary getDamageClass() {
     return damageClass;
@@ -341,12 +349,12 @@ public class MoveDetail {
     this.damageClass = damageClass;
   }
 
-  public MoveDetail effectEntries(List<@Valid MoveChangeEffectEntriesInner> effectEntries) {
+  public MoveDetail effectEntries(List<@Valid MoveEffectEffectText> effectEntries) {
     this.effectEntries = effectEntries;
     return this;
   }
 
-  public MoveDetail addEffectEntriesItem(MoveChangeEffectEntriesInner effectEntriesItem) {
+  public MoveDetail addEffectEntriesItem(MoveEffectEffectText effectEntriesItem) {
     if (this.effectEntries == null) {
       this.effectEntries = new ArrayList<>();
     }
@@ -355,26 +363,26 @@ public class MoveDetail {
   }
 
   /**
-   * Get effectEntries
+   * The effect of this move listed in different languages.
    * @return effectEntries
    */
   
-  @Schema(name = "effect_entries", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "effect_entries", accessMode = Schema.AccessMode.READ_ONLY, description = "The effect of this move listed in different languages.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("effect_entries")
-  public List<@Valid MoveChangeEffectEntriesInner> getEffectEntries() {
+  public List<@Valid MoveEffectEffectText> getEffectEntries() {
     return effectEntries;
   }
 
-  public void setEffectEntries(List<@Valid MoveChangeEffectEntriesInner> effectEntries) {
+  public void setEffectEntries(List<@Valid MoveEffectEffectText> effectEntries) {
     this.effectEntries = effectEntries;
   }
 
-  public MoveDetail effectChanges(List<@Valid MoveDetailEffectChangesInner> effectChanges) {
+  public MoveDetail effectChanges(List<@Valid MoveEffectChange> effectChanges) {
     this.effectChanges = effectChanges;
     return this;
   }
 
-  public MoveDetail addEffectChangesItem(MoveDetailEffectChangesInner effectChangesItem) {
+  public MoveDetail addEffectChangesItem(MoveEffectChange effectChangesItem) {
     if (this.effectChanges == null) {
       this.effectChanges = new ArrayList<>();
     }
@@ -383,17 +391,17 @@ public class MoveDetail {
   }
 
   /**
-   * Get effectChanges
+   * The list of previous effects this move has had across version groups of the games.
    * @return effectChanges
    */
   
-  @Schema(name = "effect_changes", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "effect_changes", accessMode = Schema.AccessMode.READ_ONLY, description = "The list of previous effects this move has had across version groups of the games.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("effect_changes")
-  public List<@Valid MoveDetailEffectChangesInner> getEffectChanges() {
+  public List<@Valid MoveEffectChange> getEffectChanges() {
     return effectChanges;
   }
 
-  public void setEffectChanges(List<@Valid MoveDetailEffectChangesInner> effectChanges) {
+  public void setEffectChanges(List<@Valid MoveEffectChange> effectChanges) {
     this.effectChanges = effectChanges;
   }
 
@@ -403,11 +411,11 @@ public class MoveDetail {
   }
 
   /**
-   * Get generation
+   * The generation in which this move was introduced.
    * @return generation
    */
   @NotNull @Valid 
-  @Schema(name = "generation", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "generation", description = "The generation in which this move was introduced.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("generation")
   public GenerationSummary getGeneration() {
     return generation;
@@ -418,22 +426,22 @@ public class MoveDetail {
   }
 
   public MoveDetail meta(MoveMeta meta) {
-    this.meta = meta;
+    this.meta = JsonNullable.of(meta);
     return this;
   }
 
   /**
-   * Get meta
+   * Metadata about this move
    * @return meta
    */
   @Valid 
-  @Schema(name = "meta", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "meta", accessMode = Schema.AccessMode.READ_ONLY, description = "Metadata about this move", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("meta")
-  public MoveMeta getMeta() {
+  public JsonNullable<MoveMeta> getMeta() {
     return meta;
   }
 
-  public void setMeta(MoveMeta meta) {
+  public void setMeta(JsonNullable<MoveMeta> meta) {
     this.meta = meta;
   }
 
@@ -451,11 +459,11 @@ public class MoveDetail {
   }
 
   /**
-   * Get names
+   * The name of this resource listed in different languages.
    * @return names
    */
   
-  @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, description = "The name of this resource listed in different languages.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("names")
   public List<@Valid MoveName> getNames() {
     return names;
@@ -479,11 +487,11 @@ public class MoveDetail {
   }
 
   /**
-   * Get pastValues
+   * A list of move resource value changes across version groups of the game.
    * @return pastValues
    */
   
-  @Schema(name = "past_values", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "past_values", accessMode = Schema.AccessMode.READ_ONLY, description = "A list of move resource value changes across version groups of the game.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("past_values")
   public List<@Valid MoveChange> getPastValues() {
     return pastValues;
@@ -493,12 +501,12 @@ public class MoveDetail {
     this.pastValues = pastValues;
   }
 
-  public MoveDetail statChanges(List<@Valid MoveDetailStatChangesInner> statChanges) {
+  public MoveDetail statChanges(List<@Valid MoveMetaStatChange> statChanges) {
     this.statChanges = statChanges;
     return this;
   }
 
-  public MoveDetail addStatChangesItem(MoveDetailStatChangesInner statChangesItem) {
+  public MoveDetail addStatChangesItem(MoveMetaStatChange statChangesItem) {
     if (this.statChanges == null) {
       this.statChanges = new ArrayList<>();
     }
@@ -507,37 +515,37 @@ public class MoveDetail {
   }
 
   /**
-   * Get statChanges
+   * A list of stats this moves effects and how much it effects them.
    * @return statChanges
    */
   
-  @Schema(name = "stat_changes", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "stat_changes", accessMode = Schema.AccessMode.READ_ONLY, description = "A list of stats this moves effects and how much it effects them.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("stat_changes")
-  public List<@Valid MoveDetailStatChangesInner> getStatChanges() {
+  public List<@Valid MoveMetaStatChange> getStatChanges() {
     return statChanges;
   }
 
-  public void setStatChanges(List<@Valid MoveDetailStatChangesInner> statChanges) {
+  public void setStatChanges(List<@Valid MoveMetaStatChange> statChanges) {
     this.statChanges = statChanges;
   }
 
   public MoveDetail superContestEffect(SuperContestEffectSummary superContestEffect) {
-    this.superContestEffect = superContestEffect;
+    this.superContestEffect = JsonNullable.of(superContestEffect);
     return this;
   }
 
   /**
-   * Get superContestEffect
+   * The effect the move has when used in a super contest.
    * @return superContestEffect
    */
-  @NotNull @Valid 
-  @Schema(name = "super_contest_effect", requiredMode = Schema.RequiredMode.REQUIRED)
+  /* @Present */ @Valid 
+  @Schema(name = "super_contest_effect", description = "The effect the move has when used in a super contest.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("super_contest_effect")
-  public SuperContestEffectSummary getSuperContestEffect() {
+  public JsonNullable<SuperContestEffectSummary> getSuperContestEffect() {
     return superContestEffect;
   }
 
-  public void setSuperContestEffect(SuperContestEffectSummary superContestEffect) {
+  public void setSuperContestEffect(JsonNullable<SuperContestEffectSummary> superContestEffect) {
     this.superContestEffect = superContestEffect;
   }
 
@@ -547,11 +555,11 @@ public class MoveDetail {
   }
 
   /**
-   * Get target
+   * The type of target that will receive the effects of the attack.
    * @return target
    */
   @NotNull @Valid 
-  @Schema(name = "target", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "target", description = "The type of target that will receive the effects of the attack.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("target")
   public MoveTargetSummary getTarget() {
     return target;
@@ -567,11 +575,11 @@ public class MoveDetail {
   }
 
   /**
-   * Get type
+   * The elemental type of this move.
    * @return type
    */
   @NotNull @Valid 
-  @Schema(name = "type", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "type", description = "The elemental type of this move.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("type")
   public TypeSummary getType() {
     return type;
@@ -581,12 +589,12 @@ public class MoveDetail {
     this.type = type;
   }
 
-  public MoveDetail machines(List<@Valid MoveDetailMachinesInner> machines) {
+  public MoveDetail machines(List<@Valid ItemMachine> machines) {
     this.machines = machines;
     return this;
   }
 
-  public MoveDetail addMachinesItem(MoveDetailMachinesInner machinesItem) {
+  public MoveDetail addMachinesItem(ItemMachine machinesItem) {
     if (this.machines == null) {
       this.machines = new ArrayList<>();
     }
@@ -595,17 +603,17 @@ public class MoveDetail {
   }
 
   /**
-   * Get machines
+   * A list of the machines that teach this move.
    * @return machines
    */
   
-  @Schema(name = "machines", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "machines", accessMode = Schema.AccessMode.READ_ONLY, description = "A list of the machines that teach this move.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("machines")
-  public List<@Valid MoveDetailMachinesInner> getMachines() {
+  public List<@Valid ItemMachine> getMachines() {
     return machines;
   }
 
-  public void setMachines(List<@Valid MoveDetailMachinesInner> machines) {
+  public void setMachines(List<@Valid ItemMachine> machines) {
     this.machines = machines;
   }
 
@@ -623,11 +631,11 @@ public class MoveDetail {
   }
 
   /**
-   * Get flavorTextEntries
+   * The flavor text of this move listed in different languages.
    * @return flavorTextEntries
    */
   
-  @Schema(name = "flavor_text_entries", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "flavor_text_entries", accessMode = Schema.AccessMode.READ_ONLY, description = "The flavor text of this move listed in different languages.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("flavor_text_entries")
   public List<@Valid MoveFlavorText> getFlavorTextEntries() {
     return flavorTextEntries;
@@ -637,12 +645,12 @@ public class MoveDetail {
     this.flavorTextEntries = flavorTextEntries;
   }
 
-  public MoveDetail learnedByPokemon(List<@Valid AbilityDetailPokemonInnerPokemon> learnedByPokemon) {
+  public MoveDetail learnedByPokemon(List<@Valid PokemonSummary> learnedByPokemon) {
     this.learnedByPokemon = learnedByPokemon;
     return this;
   }
 
-  public MoveDetail addLearnedByPokemonItem(AbilityDetailPokemonInnerPokemon learnedByPokemonItem) {
+  public MoveDetail addLearnedByPokemonItem(PokemonSummary learnedByPokemonItem) {
     if (this.learnedByPokemon == null) {
       this.learnedByPokemon = new ArrayList<>();
     }
@@ -651,17 +659,17 @@ public class MoveDetail {
   }
 
   /**
-   * Get learnedByPokemon
+   * List of Pokemon that can learn the move
    * @return learnedByPokemon
    */
   
-  @Schema(name = "learned_by_pokemon", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "learned_by_pokemon", accessMode = Schema.AccessMode.READ_ONLY, description = "List of Pokemon that can learn the move", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("learned_by_pokemon")
-  public List<@Valid AbilityDetailPokemonInnerPokemon> getLearnedByPokemon() {
+  public List<@Valid PokemonSummary> getLearnedByPokemon() {
     return learnedByPokemon;
   }
 
-  public void setLearnedByPokemon(List<@Valid AbilityDetailPokemonInnerPokemon> learnedByPokemon) {
+  public void setLearnedByPokemon(List<@Valid PokemonSummary> learnedByPokemon) {
     this.learnedByPokemon = learnedByPokemon;
   }
 

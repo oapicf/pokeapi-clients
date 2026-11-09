@@ -61,9 +61,7 @@ Conditions which affect what pokemon might appear in the wild, e.g., day or nigh
 ### Return type
 [**PaginatedEncounterConditionSummaryList**](PaginatedEncounterConditionSummaryList.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -88,9 +86,7 @@ Conditions which affect what pokemon might appear in the wild, e.g., day or nigh
 ### Return type
 [**EncounterConditionDetail**](EncounterConditionDetail.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -117,9 +113,7 @@ Encounter condition values are the various states that an encounter condition ca
 ### Return type
 [**PaginatedEncounterConditionValueSummaryList**](PaginatedEncounterConditionValueSummaryList.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -144,9 +138,7 @@ Encounter condition values are the various states that an encounter condition ca
 ### Return type
 [**EncounterConditionValueDetail**](EncounterConditionValueDetail.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -173,9 +165,7 @@ Methods by which the player might can encounter Pokémon in the wild, e.g., walk
 ### Return type
 [**PaginatedEncounterMethodSummaryList**](PaginatedEncounterMethodSummaryList.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -200,9 +190,7 @@ Methods by which the player might can encounter Pokémon in the wild, e.g., walk
 ### Return type
 [**EncounterMethodDetail**](EncounterMethodDetail.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined

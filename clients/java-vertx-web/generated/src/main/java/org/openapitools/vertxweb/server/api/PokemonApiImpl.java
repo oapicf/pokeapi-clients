@@ -53,7 +53,7 @@ public class PokemonApiImpl implements PokemonApi {
         return Future.failedFuture(new HttpException(501));
     }
 
-    public Future<ApiResponse<PaginatedCharacteristicSummaryList>> characteristicList(Integer limit, Integer offset, String q) {
+    public Future<ApiResponse<PaginatedCharacteristicSummaryList>> characteristicList(Integer limit, Integer offset) {
         return Future.failedFuture(new HttpException(501));
     }
 

@@ -7,7 +7,7 @@ using namespace Tiny;
 ContestEffectFlavorText::ContestEffectFlavorText()
 {
 	flavor_text = std::string();
-	language = LanguageSummary();
+	language = null;
 }
 
 ContestEffectFlavorText::ContestEffectFlavorText(std::string jsonString)

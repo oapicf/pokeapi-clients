@@ -3,8 +3,8 @@ package com.prokarma.pkmst.model;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.prokarma.pkmst.model.AbilityDetailPokemonInnerPokemon;
 import com.prokarma.pkmst.model.EvolutionTriggerName;
+import com.prokarma.pkmst.model.PokemonSpeciesSummary;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
@@ -19,7 +19,7 @@ import java.util.List;
  * EvolutionTriggerDetail
  */
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-10-25T05:48:09.645019047Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-11-09T13:49:28.343088631Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class EvolutionTriggerDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -33,7 +33,7 @@ public class EvolutionTriggerDetail   {
 
   @JsonProperty("pokemon_species")
   
-  private List<AbilityDetailPokemonInnerPokemon> pokemonSpecies = new ArrayList<>();
+  private List<PokemonSpeciesSummary> pokemonSpecies = new ArrayList<>();
 
   public EvolutionTriggerDetail id(Integer id) {
     this.id = id;
@@ -41,10 +41,10 @@ public class EvolutionTriggerDetail   {
   }
 
   /**
-   * Get id
+   * The identifier for this resource.
    * @return id
    */
-  @ApiModelProperty(required = true, readOnly = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "The identifier for this resource.")
   public Integer getId() {
     return id;
   }
@@ -59,10 +59,10 @@ public class EvolutionTriggerDetail   {
   }
 
   /**
-   * Get name
+   * The name for this resource.
    * @return name
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   public String getName() {
     return name;
   }
@@ -85,10 +85,10 @@ public class EvolutionTriggerDetail   {
   }
 
   /**
-   * Get names
+   * The name of this resource listed in different languages.
    * @return names
    */
-  @ApiModelProperty(required = true, readOnly = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "The name of this resource listed in different languages.")
   public List<EvolutionTriggerName> getNames() {
     return names;
   }
@@ -97,12 +97,12 @@ public class EvolutionTriggerDetail   {
     this.names = names;
   }
 
-  public EvolutionTriggerDetail pokemonSpecies(List<AbilityDetailPokemonInnerPokemon> pokemonSpecies) {
+  public EvolutionTriggerDetail pokemonSpecies(List<PokemonSpeciesSummary> pokemonSpecies) {
     this.pokemonSpecies = pokemonSpecies;
     return this;
   }
 
-  public EvolutionTriggerDetail addPokemonSpeciesItem(AbilityDetailPokemonInnerPokemon pokemonSpeciesItem) {
+  public EvolutionTriggerDetail addPokemonSpeciesItem(PokemonSpeciesSummary pokemonSpeciesItem) {
     if (this.pokemonSpecies == null) {
       this.pokemonSpecies = new ArrayList<>();
     }
@@ -111,15 +111,15 @@ public class EvolutionTriggerDetail   {
   }
 
   /**
-   * Get pokemonSpecies
+   * A list of pokemon species that result from this evolution trigger.
    * @return pokemonSpecies
    */
-  @ApiModelProperty(required = true, readOnly = true, value = "")
-  public List<AbilityDetailPokemonInnerPokemon> getPokemonSpecies() {
+  @ApiModelProperty(required = true, readOnly = true, value = "A list of pokemon species that result from this evolution trigger.")
+  public List<PokemonSpeciesSummary> getPokemonSpecies() {
     return pokemonSpecies;
   }
 
-  public void setPokemonSpecies(List<AbilityDetailPokemonInnerPokemon> pokemonSpecies) {
+  public void setPokemonSpecies(List<PokemonSpeciesSummary> pokemonSpecies) {
     this.pokemonSpecies = pokemonSpecies;
   }
 

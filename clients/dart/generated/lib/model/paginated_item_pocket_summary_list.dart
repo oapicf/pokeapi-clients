@@ -13,36 +13,22 @@ part of openapi.api;
 class PaginatedItemPocketSummaryList {
   /// Returns a new [PaginatedItemPocketSummaryList] instance.
   PaginatedItemPocketSummaryList({
-    this.count,
+    required this.count,
     this.next,
     this.previous,
     this.results = const [],
   });
 
-  ///
-  /// Please note: This property should have been non-nullable! Since the specification file
-  /// does not include a default value (using the "default:" property), however, the generated
-  /// source code must fall back to having a nullable type.
-  /// Consider adding a "default:" property in the specification file to hide this note.
-  ///
-  int? count;
+  /// The total number of resources available from this API.
+  int count;
 
-  ///
-  /// Please note: This property should have been non-nullable! Since the specification file
-  /// does not include a default value (using the "default:" property), however, the generated
-  /// source code must fall back to having a nullable type.
-  /// Consider adding a "default:" property in the specification file to hide this note.
-  ///
+  /// The URL for the next page in the list, or null if there is no next page.
   String? next;
 
-  ///
-  /// Please note: This property should have been non-nullable! Since the specification file
-  /// does not include a default value (using the "default:" property), however, the generated
-  /// source code must fall back to having a nullable type.
-  /// Consider adding a "default:" property in the specification file to hide this note.
-  ///
+  /// The URL for the previous page in the list, or null if there is no previous page.
   String? previous;
 
+  /// A list of API resources on this page.
   List<ItemPocketSummary> results;
 
   @override
@@ -55,7 +41,7 @@ class PaginatedItemPocketSummaryList {
   @override
   int get hashCode =>
     // ignore: unnecessary_parenthesis
-    (count == null ? 0 : count!.hashCode) +
+    (count.hashCode) +
     (next == null ? 0 : next!.hashCode) +
     (previous == null ? 0 : previous!.hashCode) +
     (results.hashCode);
@@ -65,11 +51,7 @@ class PaginatedItemPocketSummaryList {
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    if (this.count != null) {
       json[r'count'] = this.count;
-    } else {
-      json[r'count'] = null;
-    }
     if (this.next != null) {
       json[r'next'] = this.next;
     } else {
@@ -95,11 +77,15 @@ class PaginatedItemPocketSummaryList {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
+        assert(json.containsKey(r'count'), 'Required key "PaginatedItemPocketSummaryList[count]" is missing from JSON.');
+        assert(json[r'count'] != null, 'Required key "PaginatedItemPocketSummaryList[count]" has a null value in JSON.');
+        assert(json.containsKey(r'results'), 'Required key "PaginatedItemPocketSummaryList[results]" is missing from JSON.');
+        assert(json[r'results'] != null, 'Required key "PaginatedItemPocketSummaryList[results]" has a null value in JSON.');
         return true;
       }());
 
       return PaginatedItemPocketSummaryList(
-        count: mapValueOfType<int>(json, r'count'),
+        count: mapValueOfType<int>(json, r'count')!,
         next: mapValueOfType<String>(json, r'next'),
         previous: mapValueOfType<String>(json, r'previous'),
         results: ItemPocketSummary.listFromJson(json[r'results']),
@@ -150,6 +136,8 @@ class PaginatedItemPocketSummaryList {
 
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
+    'count',
+    'results',
   };
 }
 

@@ -8,7 +8,6 @@
 
 // System headers
 #include <httplib.h>
-#include <memory>
 #include <variant>
 
 // Project headers
@@ -16,7 +15,6 @@
 #include "models/PaginatedMachineSummaryList.h"
 
 namespace Api {
-    class AuthenticationManager;
 class Machines {
 public:
     Machines() = default;
@@ -24,9 +22,8 @@ public:
     /**
      * @brief Register all routes for this API
      * @param svr The httplib::Server instance to register routes on
-     * @param auth The AuthenticationManager for authentication (optional, defaults to nullptr)
      */
-    void registerRoutes(httplib::Server& svr, std::shared_ptr<AuthenticationManager> auth = nullptr);
+    void registerRoutes(httplib::Server& svr);
     // =========================
     // ===== Request types =====
     // =========================
@@ -39,7 +36,6 @@ public:
 
         std::optional<int> m_limit; //Query Params (optional)
         std::optional<int> m_offset; //Query Params (optional)
-        std::optional<std::string> m_q; //Query Params (optional)
     };
 
     /**
@@ -84,15 +80,11 @@ private:
     // ===== Helper function declarations =====
     // ========================================
     static bool parseApiv2machineGetParams(const httplib::Request& req, Apiv2machineGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2machineGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2machineGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2machineGetResponse(const Apiv2machineGetResponse& result, httplib::Response& res);
     static bool parseApiv2machineidGetParams(const httplib::Request& req, Apiv2machineidGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2machineidGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2machineidGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2machineidGetResponse(const Apiv2machineidGetResponse& result, httplib::Response& res);
-    static bool performAuthentication(
-        const httplib::Request& req,
-        std::shared_ptr<AuthenticationManager> auth,
-        httplib::Response& res);
 };
 
 } // namespace Api

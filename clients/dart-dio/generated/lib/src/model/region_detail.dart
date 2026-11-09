@@ -4,9 +4,9 @@
 
 // ignore_for_file: unused_element
 import 'package:built_collection/built_collection.dart';
+import 'package:openapi/src/model/version_group_summary.dart';
 import 'package:openapi/src/model/region_name.dart';
 import 'package:openapi/src/model/pokedex_summary.dart';
-import 'package:openapi/src/model/ability_detail_pokemon_inner_pokemon.dart';
 import 'package:openapi/src/model/generation_summary.dart';
 import 'package:openapi/src/model/location_summary.dart';
 import 'package:built_value/built_value.dart';
@@ -17,35 +17,42 @@ part 'region_detail.g.dart';
 /// RegionDetail
 ///
 /// Properties:
-/// * [id] 
-/// * [name] 
-/// * [locations] 
-/// * [mainGeneration] 
-/// * [names] 
-/// * [pokedexes] 
-/// * [versionGroups] 
+/// * [id] - The identifier for this resource.
+/// * [name] - The name for this resource.
+/// * [locations] - A list of locations that can be found in this region.
+/// * [mainGeneration] - The generation this region was introduced in.
+/// * [names] - The name of this resource listed in different languages.
+/// * [pokedexes] - A list of pokédexes that catalogue Pokémon in this region.
+/// * [versionGroups] - A list of version groups where this region can be visited.
 @BuiltValue()
 abstract class RegionDetail implements Built<RegionDetail, RegionDetailBuilder> {
+  /// The identifier for this resource.
   @BuiltValueField(wireName: r'id')
   int get id;
 
+  /// The name for this resource.
   @BuiltValueField(wireName: r'name')
   String get name;
 
+  /// A list of locations that can be found in this region.
   @BuiltValueField(wireName: r'locations')
   BuiltList<LocationSummary> get locations;
 
+  /// The generation this region was introduced in.
   @BuiltValueField(wireName: r'main_generation')
-  GenerationSummary get mainGeneration;
+  GenerationSummary? get mainGeneration;
 
+  /// The name of this resource listed in different languages.
   @BuiltValueField(wireName: r'names')
   BuiltList<RegionName> get names;
 
+  /// A list of pokédexes that catalogue Pokémon in this region.
   @BuiltValueField(wireName: r'pokedexes')
   BuiltList<PokedexSummary> get pokedexes;
 
+  /// A list of version groups where this region can be visited.
   @BuiltValueField(wireName: r'version_groups')
-  BuiltList<AbilityDetailPokemonInnerPokemon> get versionGroups;
+  BuiltList<VersionGroupSummary> get versionGroups;
 
   RegionDetail._();
 
@@ -86,9 +93,9 @@ class _$RegionDetailSerializer implements PrimitiveSerializer<RegionDetail> {
       specifiedType: const FullType(BuiltList, [FullType(LocationSummary)]),
     );
     yield r'main_generation';
-    yield serializers.serialize(
+    yield object.mainGeneration == null ? null : serializers.serialize(
       object.mainGeneration,
-      specifiedType: const FullType(GenerationSummary),
+      specifiedType: const FullType.nullable(GenerationSummary),
     );
     yield r'names';
     yield serializers.serialize(
@@ -103,7 +110,7 @@ class _$RegionDetailSerializer implements PrimitiveSerializer<RegionDetail> {
     yield r'version_groups';
     yield serializers.serialize(
       object.versionGroups,
-      specifiedType: const FullType(BuiltList, [FullType(AbilityDetailPokemonInnerPokemon)]),
+      specifiedType: const FullType(BuiltList, [FullType(VersionGroupSummary)]),
     );
   }
 
@@ -152,8 +159,9 @@ class _$RegionDetailSerializer implements PrimitiveSerializer<RegionDetail> {
         case r'main_generation':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(GenerationSummary),
-          ) as GenerationSummary;
+            specifiedType: const FullType.nullable(GenerationSummary),
+          ) as GenerationSummary?;
+          if (valueDes == null) continue;
           result.mainGeneration.replace(valueDes);
           break;
         case r'names':
@@ -173,8 +181,8 @@ class _$RegionDetailSerializer implements PrimitiveSerializer<RegionDetail> {
         case r'version_groups':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(AbilityDetailPokemonInnerPokemon)]),
-          ) as BuiltList<AbilityDetailPokemonInnerPokemon>;
+            specifiedType: const FullType(BuiltList, [FullType(VersionGroupSummary)]),
+          ) as BuiltList<VersionGroupSummary>;
           result.versionGroups.replace(valueDes);
           break;
         default:

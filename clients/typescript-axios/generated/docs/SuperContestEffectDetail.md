@@ -5,10 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **number** |  | [readonly] [default to undefined]
-**appeal** | **number** |  | [default to undefined]
-**flavor_text_entries** | [**Array&lt;SuperContestEffectFlavorText&gt;**](SuperContestEffectFlavorText.md) |  | [readonly] [default to undefined]
-**moves** | [**Array&lt;MoveSummary&gt;**](MoveSummary.md) |  | [readonly] [default to undefined]
+**id** | **number** | The identifier for this resource. | [readonly] [default to undefined]
+**appeal** | **number** | The level of appeal this super contest effect has. | [default to undefined]
+**flavor_text_entries** | [**Array&lt;SuperContestEffectFlavorText&gt;**](SuperContestEffectFlavorText.md) | The flavor text of this super contest effect listed in different languages. | [readonly] [default to undefined]
+**moves** | [**Array&lt;MoveSummary&gt;**](MoveSummary.md) | A list of moves that have the effect when used in super contests. | [readonly] [default to undefined]
 
 ## Example
 

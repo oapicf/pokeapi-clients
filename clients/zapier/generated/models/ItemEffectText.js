@@ -7,13 +7,13 @@ module.exports = {
         return [
             {
                 key: `${keyPrefix}effect`,
-                label: `[${labelPrefix}effect]`,
+                label: `The localized effect text for an API resource in a specific language. - [${labelPrefix}effect]`,
                 required: true,
                 type: 'string',
             },
             {
                 key: `${keyPrefix}short_effect`,
-                label: `[${labelPrefix}short_effect]`,
+                label: `The localized effect text in brief. - [${labelPrefix}short_effect]`,
                 required: true,
                 type: 'string',
             },

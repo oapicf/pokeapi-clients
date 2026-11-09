@@ -4,24 +4,24 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int32** |  | [readonly] 
-**Name** | **string** |  | 
-**GrowthTime** | **int32** |  | 
-**MaxHarvest** | **int32** |  | 
-**NaturalGiftPower** | **int32** |  | 
-**Size** | **int32** |  | 
-**Smoothness** | **int32** |  | 
-**SoilDryness** | **int32** |  | 
-**Firmness** | [**BerryFirmnessSummary**](BerryFirmnessSummary.md) |  | 
-**Flavors** | [**[]BerryDetailFlavorsInner**](BerryDetailFlavorsInner.md) |  | [readonly] 
-**Item** | [**ItemSummary**](ItemSummary.md) |  | 
-**NaturalGiftType** | [**TypeSummary**](TypeSummary.md) |  | 
+**Id** | **int32** | The identifier for this resource. | [readonly] 
+**Name** | **string** | The name for this resource. | 
+**GrowthTime** | Pointer to **NullableInt32** | Time it takes the tree to grow one stage, in hours. Berry trees go through four of these growth stages before they can be picked. | [optional] 
+**MaxHarvest** | Pointer to **NullableInt32** | The maximum number of these berries that can grow on one tree in Generation IV. | [optional] 
+**NaturalGiftPower** | Pointer to **NullableInt32** | The power of the move \&quot;Natural Gift\&quot; when used with this Berry. | [optional] 
+**Size** | Pointer to **NullableInt32** | The size of this Berry, in millimeters. | [optional] 
+**Smoothness** | Pointer to **NullableInt32** | The smoothness of this Berry, used in making Pokéblocks or Poffins. | [optional] 
+**SoilDryness** | Pointer to **NullableInt32** | The speed at which this Berry dries out the soil as it grows. A higher rate means the soil dries more quickly. | [optional] 
+**Firmness** | [**NullableBerryFirmnessSummary**](BerryFirmnessSummary.md) | The firmness of this berry, used in making Pokéblocks or Poffins. | 
+**Flavors** | [**[]BerryFlavorMap**](BerryFlavorMap.md) | A list of references to each flavor a berry can have and the potency of each of those flavors in regard to this berry. | [readonly] 
+**Item** | [**ItemSummary**](ItemSummary.md) | Berries are actually items. This is a reference to the item specific data for this berry. | 
+**NaturalGiftType** | [**NullableTypeSummary**](TypeSummary.md) | The type inherited by \&quot;Natural Gift\&quot; when used with this Berry. | 
 
 ## Methods
 
 ### NewBerryDetail
 
-`func NewBerryDetail(id int32, name string, growthTime int32, maxHarvest int32, naturalGiftPower int32, size int32, smoothness int32, soilDryness int32, firmness BerryFirmnessSummary, flavors []BerryDetailFlavorsInner, item ItemSummary, naturalGiftType TypeSummary, ) *BerryDetail`
+`func NewBerryDetail(id int32, name string, firmness NullableBerryFirmnessSummary, flavors []BerryFlavorMap, item ItemSummary, naturalGiftType NullableTypeSummary, ) *BerryDetail`
 
 NewBerryDetail instantiates a new BerryDetail object
 This constructor will assign default values to properties that have it defined,
@@ -95,7 +95,22 @@ and a boolean to check if the value has been set.
 
 SetGrowthTime sets GrowthTime field to given value.
 
+### HasGrowthTime
 
+`func (o *BerryDetail) HasGrowthTime() bool`
+
+HasGrowthTime returns a boolean if a field has been set.
+
+### SetGrowthTimeNil
+
+`func (o *BerryDetail) SetGrowthTimeNil(b bool)`
+
+ SetGrowthTimeNil sets the value for GrowthTime to be an explicit nil
+
+### UnsetGrowthTime
+`func (o *BerryDetail) UnsetGrowthTime()`
+
+UnsetGrowthTime ensures that no value is present for GrowthTime, not even an explicit nil
 ### GetMaxHarvest
 
 `func (o *BerryDetail) GetMaxHarvest() int32`
@@ -115,7 +130,22 @@ and a boolean to check if the value has been set.
 
 SetMaxHarvest sets MaxHarvest field to given value.
 
+### HasMaxHarvest
 
+`func (o *BerryDetail) HasMaxHarvest() bool`
+
+HasMaxHarvest returns a boolean if a field has been set.
+
+### SetMaxHarvestNil
+
+`func (o *BerryDetail) SetMaxHarvestNil(b bool)`
+
+ SetMaxHarvestNil sets the value for MaxHarvest to be an explicit nil
+
+### UnsetMaxHarvest
+`func (o *BerryDetail) UnsetMaxHarvest()`
+
+UnsetMaxHarvest ensures that no value is present for MaxHarvest, not even an explicit nil
 ### GetNaturalGiftPower
 
 `func (o *BerryDetail) GetNaturalGiftPower() int32`
@@ -135,7 +165,22 @@ and a boolean to check if the value has been set.
 
 SetNaturalGiftPower sets NaturalGiftPower field to given value.
 
+### HasNaturalGiftPower
 
+`func (o *BerryDetail) HasNaturalGiftPower() bool`
+
+HasNaturalGiftPower returns a boolean if a field has been set.
+
+### SetNaturalGiftPowerNil
+
+`func (o *BerryDetail) SetNaturalGiftPowerNil(b bool)`
+
+ SetNaturalGiftPowerNil sets the value for NaturalGiftPower to be an explicit nil
+
+### UnsetNaturalGiftPower
+`func (o *BerryDetail) UnsetNaturalGiftPower()`
+
+UnsetNaturalGiftPower ensures that no value is present for NaturalGiftPower, not even an explicit nil
 ### GetSize
 
 `func (o *BerryDetail) GetSize() int32`
@@ -155,7 +200,22 @@ and a boolean to check if the value has been set.
 
 SetSize sets Size field to given value.
 
+### HasSize
 
+`func (o *BerryDetail) HasSize() bool`
+
+HasSize returns a boolean if a field has been set.
+
+### SetSizeNil
+
+`func (o *BerryDetail) SetSizeNil(b bool)`
+
+ SetSizeNil sets the value for Size to be an explicit nil
+
+### UnsetSize
+`func (o *BerryDetail) UnsetSize()`
+
+UnsetSize ensures that no value is present for Size, not even an explicit nil
 ### GetSmoothness
 
 `func (o *BerryDetail) GetSmoothness() int32`
@@ -175,7 +235,22 @@ and a boolean to check if the value has been set.
 
 SetSmoothness sets Smoothness field to given value.
 
+### HasSmoothness
 
+`func (o *BerryDetail) HasSmoothness() bool`
+
+HasSmoothness returns a boolean if a field has been set.
+
+### SetSmoothnessNil
+
+`func (o *BerryDetail) SetSmoothnessNil(b bool)`
+
+ SetSmoothnessNil sets the value for Smoothness to be an explicit nil
+
+### UnsetSmoothness
+`func (o *BerryDetail) UnsetSmoothness()`
+
+UnsetSmoothness ensures that no value is present for Smoothness, not even an explicit nil
 ### GetSoilDryness
 
 `func (o *BerryDetail) GetSoilDryness() int32`
@@ -195,7 +270,22 @@ and a boolean to check if the value has been set.
 
 SetSoilDryness sets SoilDryness field to given value.
 
+### HasSoilDryness
 
+`func (o *BerryDetail) HasSoilDryness() bool`
+
+HasSoilDryness returns a boolean if a field has been set.
+
+### SetSoilDrynessNil
+
+`func (o *BerryDetail) SetSoilDrynessNil(b bool)`
+
+ SetSoilDrynessNil sets the value for SoilDryness to be an explicit nil
+
+### UnsetSoilDryness
+`func (o *BerryDetail) UnsetSoilDryness()`
+
+UnsetSoilDryness ensures that no value is present for SoilDryness, not even an explicit nil
 ### GetFirmness
 
 `func (o *BerryDetail) GetFirmness() BerryFirmnessSummary`
@@ -216,22 +306,32 @@ and a boolean to check if the value has been set.
 SetFirmness sets Firmness field to given value.
 
 
+### SetFirmnessNil
+
+`func (o *BerryDetail) SetFirmnessNil(b bool)`
+
+ SetFirmnessNil sets the value for Firmness to be an explicit nil
+
+### UnsetFirmness
+`func (o *BerryDetail) UnsetFirmness()`
+
+UnsetFirmness ensures that no value is present for Firmness, not even an explicit nil
 ### GetFlavors
 
-`func (o *BerryDetail) GetFlavors() []BerryDetailFlavorsInner`
+`func (o *BerryDetail) GetFlavors() []BerryFlavorMap`
 
 GetFlavors returns the Flavors field if non-nil, zero value otherwise.
 
 ### GetFlavorsOk
 
-`func (o *BerryDetail) GetFlavorsOk() (*[]BerryDetailFlavorsInner, bool)`
+`func (o *BerryDetail) GetFlavorsOk() (*[]BerryFlavorMap, bool)`
 
 GetFlavorsOk returns a tuple with the Flavors field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFlavors
 
-`func (o *BerryDetail) SetFlavors(v []BerryDetailFlavorsInner)`
+`func (o *BerryDetail) SetFlavors(v []BerryFlavorMap)`
 
 SetFlavors sets Flavors field to given value.
 
@@ -276,6 +376,16 @@ and a boolean to check if the value has been set.
 SetNaturalGiftType sets NaturalGiftType field to given value.
 
 
+### SetNaturalGiftTypeNil
+
+`func (o *BerryDetail) SetNaturalGiftTypeNil(b bool)`
+
+ SetNaturalGiftTypeNil sets the value for NaturalGiftType to be an explicit nil
+
+### UnsetNaturalGiftType
+`func (o *BerryDetail) UnsetNaturalGiftType()`
+
+UnsetNaturalGiftType ensures that no value is present for NaturalGiftType, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

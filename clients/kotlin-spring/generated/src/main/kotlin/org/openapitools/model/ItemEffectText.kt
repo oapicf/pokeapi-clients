@@ -16,24 +16,24 @@ import io.swagger.v3.oas.annotations.media.Schema
 
 /**
  * 
- * @param effect 
- * @param shortEffect 
- * @param language 
+ * @param effect The localized effect text for an API resource in a specific language.
+ * @param shortEffect The localized effect text in brief.
+ * @param language The language this effect is in.
  */
 data class ItemEffectText(
 
     @get:Size(max=6000)
-    @Schema(required = true, description = "")
+    @Schema(required = true, description = "The localized effect text for an API resource in a specific language.")
     @param:JsonProperty("effect", required = true)
     @get:JsonProperty("effect", required = true) val effect: kotlin.String,
 
     @get:Size(max=300)
-    @Schema(required = true, description = "")
+    @Schema(required = true, description = "The localized effect text in brief.")
     @param:JsonProperty("short_effect", required = true)
     @get:JsonProperty("short_effect", required = true) val shortEffect: kotlin.String,
 
     @field:Valid
-    @Schema(required = true, description = "")
+    @Schema(required = true, description = "The language this effect is in.")
     @param:JsonProperty("language", required = true)
     @get:JsonProperty("language", required = true) val language: LanguageSummary
 ) {

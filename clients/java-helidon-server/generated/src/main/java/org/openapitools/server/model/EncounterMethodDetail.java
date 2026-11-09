@@ -27,10 +27,10 @@ public class EncounterMethodDetail   {
     /**
      * Create EncounterMethodDetail.
      *
-     * @param id id
-     * @param name name
-     * @param order order
-     * @param names names
+     * @param id The identifier for this resource.
+     * @param name The name for this resource.
+     * @param order A good value for sorting.
+     * @param names The name of this resource listed in different languages.
      */
     public EncounterMethodDetail(
         Integer id, 
@@ -47,7 +47,7 @@ public class EncounterMethodDetail   {
 
 
     /**
-     * Get id
+     * The identifier for this resource.
      * @return id
      */
     public Integer getId() {
@@ -59,7 +59,7 @@ public class EncounterMethodDetail   {
     }
 
     /**
-     * Get name
+     * The name for this resource.
      * @return name
      */
     public String getName() {
@@ -71,7 +71,9 @@ public class EncounterMethodDetail   {
     }
 
     /**
-     * Get order
+     * A good value for sorting.
+     * minimum: -2147483648
+     * maximum: 2147483647
      * @return order
      */
     public Integer getOrder() {
@@ -83,7 +85,7 @@ public class EncounterMethodDetail   {
     }
 
     /**
-     * Get names
+     * The name of this resource listed in different languages.
      * @return names
      */
     public List<@Valid EncounterMethodName> getNames() {

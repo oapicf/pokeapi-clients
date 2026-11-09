@@ -15,21 +15,21 @@
 
 typedef struct move_detail_t move_detail_t;
 
-#include "ability_detail_pokemon_inner_pokemon.h"
 #include "contest_effect_summary.h"
 #include "contest_type_summary.h"
 #include "generation_summary.h"
+#include "item_machine.h"
 #include "move_change.h"
-#include "move_change_effect_entries_inner.h"
+#include "move_combos.h"
 #include "move_damage_class_summary.h"
-#include "move_detail_contest_combos.h"
-#include "move_detail_effect_changes_inner.h"
-#include "move_detail_machines_inner.h"
-#include "move_detail_stat_changes_inner.h"
+#include "move_effect_change.h"
+#include "move_effect_effect_text.h"
 #include "move_flavor_text.h"
 #include "move_meta.h"
+#include "move_meta_stat_change.h"
 #include "move_name.h"
 #include "move_target_summary.h"
+#include "pokemon_summary.h"
 #include "super_contest_effect_summary.h"
 #include "type_summary.h"
 
@@ -43,7 +43,7 @@ typedef struct move_detail_t {
     int *pp; //numeric
     int *priority; //numeric
     int *power; //numeric
-    struct move_detail_contest_combos_t *contest_combos; //model
+    struct move_combos_t *contest_combos; //model
     struct contest_type_summary_t *contest_type; //model
     struct contest_effect_summary_t *contest_effect; //model
     struct move_damage_class_summary_t *damage_class; //model
@@ -72,7 +72,7 @@ __attribute__((deprecated)) move_detail_t *move_detail_create(
     int *pp,
     int *priority,
     int *power,
-    move_detail_contest_combos_t *contest_combos,
+    move_combos_t *contest_combos,
     contest_type_summary_t *contest_type,
     contest_effect_summary_t *contest_effect,
     move_damage_class_summary_t *damage_class,

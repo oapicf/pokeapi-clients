@@ -3,15 +3,15 @@ package com.prokarma.pkmst.model;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.prokarma.pkmst.model.AbilityName;
 import com.prokarma.pkmst.model.GenerationSummary;
 import com.prokarma.pkmst.model.MoveDamageClassSummary;
 import com.prokarma.pkmst.model.MoveSummary;
-import com.prokarma.pkmst.model.TypeDetailDamageRelations;
-import com.prokarma.pkmst.model.TypeDetailPastDamageRelationsInner;
-import com.prokarma.pkmst.model.TypeDetailPokemonInner;
-import com.prokarma.pkmst.model.TypeDetailSpritesValueValue;
 import com.prokarma.pkmst.model.TypeGameIndex;
+import com.prokarma.pkmst.model.TypeGameSprite;
+import com.prokarma.pkmst.model.TypeName;
+import com.prokarma.pkmst.model.TypePastRelationships;
+import com.prokarma.pkmst.model.TypePokemon;
+import com.prokarma.pkmst.model.TypeRelationships;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
@@ -29,7 +29,7 @@ import java.util.Map;
  */
 @ApiModel(description = "Serializer for the Type resource")
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-10-25T05:48:09.645019047Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-11-09T13:49:28.343088631Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class TypeDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -38,11 +38,11 @@ public class TypeDetail   {
   private String name;
 
   @JsonProperty("damage_relations")
-  private TypeDetailDamageRelations damageRelations;
+  private TypeRelationships damageRelations;
 
   @JsonProperty("past_damage_relations")
   
-  private List<TypeDetailPastDamageRelationsInner> pastDamageRelations = new ArrayList<>();
+  private List<TypePastRelationships> pastDamageRelations = new ArrayList<>();
 
   @JsonProperty("game_indices")
   
@@ -56,11 +56,11 @@ public class TypeDetail   {
 
   @JsonProperty("names")
   
-  private List<AbilityName> names = new ArrayList<>();
+  private List<TypeName> names = new ArrayList<>();
 
   @JsonProperty("pokemon")
   
-  private List<TypeDetailPokemonInner> pokemon = new ArrayList<>();
+  private List<TypePokemon> pokemon = new ArrayList<>();
 
   @JsonProperty("moves")
   
@@ -68,7 +68,7 @@ public class TypeDetail   {
 
   @JsonProperty("sprites")
   
-  private Map<String, Map<String, TypeDetailSpritesValueValue>> sprites = new HashMap<>();
+  private Map<String, Map<String, TypeGameSprite>> sprites = new HashMap<>();
 
   public TypeDetail id(Integer id) {
     this.id = id;
@@ -76,10 +76,10 @@ public class TypeDetail   {
   }
 
   /**
-   * Get id
+   * The identifier for this resource.
    * @return id
    */
-  @ApiModelProperty(required = true, readOnly = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "The identifier for this resource.")
   public Integer getId() {
     return id;
   }
@@ -94,10 +94,10 @@ public class TypeDetail   {
   }
 
   /**
-   * Get name
+   * The name for this resource.
    * @return name
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   public String getName() {
     return name;
   }
@@ -106,30 +106,30 @@ public class TypeDetail   {
     this.name = name;
   }
 
-  public TypeDetail damageRelations(TypeDetailDamageRelations damageRelations) {
+  public TypeDetail damageRelations(TypeRelationships damageRelations) {
     this.damageRelations = damageRelations;
     return this;
   }
 
   /**
-   * Get damageRelations
+   * A detail of how effective this type is toward others and vice versa.
    * @return damageRelations
    */
-  @ApiModelProperty(required = true, value = "")
-  public TypeDetailDamageRelations getDamageRelations() {
+  @ApiModelProperty(required = true, readOnly = true, value = "A detail of how effective this type is toward others and vice versa.")
+  public TypeRelationships getDamageRelations() {
     return damageRelations;
   }
 
-  public void setDamageRelations(TypeDetailDamageRelations damageRelations) {
+  public void setDamageRelations(TypeRelationships damageRelations) {
     this.damageRelations = damageRelations;
   }
 
-  public TypeDetail pastDamageRelations(List<TypeDetailPastDamageRelationsInner> pastDamageRelations) {
+  public TypeDetail pastDamageRelations(List<TypePastRelationships> pastDamageRelations) {
     this.pastDamageRelations = pastDamageRelations;
     return this;
   }
 
-  public TypeDetail addPastDamageRelationsItem(TypeDetailPastDamageRelationsInner pastDamageRelationsItem) {
+  public TypeDetail addPastDamageRelationsItem(TypePastRelationships pastDamageRelationsItem) {
     if (this.pastDamageRelations == null) {
       this.pastDamageRelations = new ArrayList<>();
     }
@@ -138,15 +138,15 @@ public class TypeDetail   {
   }
 
   /**
-   * Get pastDamageRelations
+   * A list of details of how effective this type was toward others and vice versa in previous generations
    * @return pastDamageRelations
    */
-  @ApiModelProperty(required = true, readOnly = true, value = "")
-  public List<TypeDetailPastDamageRelationsInner> getPastDamageRelations() {
+  @ApiModelProperty(required = true, readOnly = true, value = "A list of details of how effective this type was toward others and vice versa in previous generations")
+  public List<TypePastRelationships> getPastDamageRelations() {
     return pastDamageRelations;
   }
 
-  public void setPastDamageRelations(List<TypeDetailPastDamageRelationsInner> pastDamageRelations) {
+  public void setPastDamageRelations(List<TypePastRelationships> pastDamageRelations) {
     this.pastDamageRelations = pastDamageRelations;
   }
 
@@ -164,10 +164,10 @@ public class TypeDetail   {
   }
 
   /**
-   * Get gameIndices
+   * A list of game indices relevent to this item by generation.
    * @return gameIndices
    */
-  @ApiModelProperty(required = true, readOnly = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "A list of game indices relevent to this item by generation.")
   public List<TypeGameIndex> getGameIndices() {
     return gameIndices;
   }
@@ -182,10 +182,10 @@ public class TypeDetail   {
   }
 
   /**
-   * Get generation
+   * The generation this type was introduced in.
    * @return generation
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The generation this type was introduced in.")
   public GenerationSummary getGeneration() {
     return generation;
   }
@@ -200,10 +200,10 @@ public class TypeDetail   {
   }
 
   /**
-   * Get moveDamageClass
+   * The class of damage inflicted by this type.
    * @return moveDamageClass
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The class of damage inflicted by this type.")
   public MoveDamageClassSummary getMoveDamageClass() {
     return moveDamageClass;
   }
@@ -212,12 +212,12 @@ public class TypeDetail   {
     this.moveDamageClass = moveDamageClass;
   }
 
-  public TypeDetail names(List<AbilityName> names) {
+  public TypeDetail names(List<TypeName> names) {
     this.names = names;
     return this;
   }
 
-  public TypeDetail addNamesItem(AbilityName namesItem) {
+  public TypeDetail addNamesItem(TypeName namesItem) {
     if (this.names == null) {
       this.names = new ArrayList<>();
     }
@@ -226,24 +226,24 @@ public class TypeDetail   {
   }
 
   /**
-   * Get names
+   * The name of this resource listed in different languages.
    * @return names
    */
-  @ApiModelProperty(required = true, readOnly = true, value = "")
-  public List<AbilityName> getNames() {
+  @ApiModelProperty(required = true, readOnly = true, value = "The name of this resource listed in different languages.")
+  public List<TypeName> getNames() {
     return names;
   }
 
-  public void setNames(List<AbilityName> names) {
+  public void setNames(List<TypeName> names) {
     this.names = names;
   }
 
-  public TypeDetail pokemon(List<TypeDetailPokemonInner> pokemon) {
+  public TypeDetail pokemon(List<TypePokemon> pokemon) {
     this.pokemon = pokemon;
     return this;
   }
 
-  public TypeDetail addPokemonItem(TypeDetailPokemonInner pokemonItem) {
+  public TypeDetail addPokemonItem(TypePokemon pokemonItem) {
     if (this.pokemon == null) {
       this.pokemon = new ArrayList<>();
     }
@@ -252,15 +252,15 @@ public class TypeDetail   {
   }
 
   /**
-   * Get pokemon
+   * A list of details of Pokémon that have this type.
    * @return pokemon
    */
-  @ApiModelProperty(required = true, readOnly = true, value = "")
-  public List<TypeDetailPokemonInner> getPokemon() {
+  @ApiModelProperty(required = true, readOnly = true, value = "A list of details of Pokémon that have this type.")
+  public List<TypePokemon> getPokemon() {
     return pokemon;
   }
 
-  public void setPokemon(List<TypeDetailPokemonInner> pokemon) {
+  public void setPokemon(List<TypePokemon> pokemon) {
     this.pokemon = pokemon;
   }
 
@@ -278,10 +278,10 @@ public class TypeDetail   {
   }
 
   /**
-   * Get moves
+   * A list of moves that have this type.
    * @return moves
    */
-  @ApiModelProperty(required = true, readOnly = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "A list of moves that have this type.")
   public List<MoveSummary> getMoves() {
     return moves;
   }
@@ -290,12 +290,12 @@ public class TypeDetail   {
     this.moves = moves;
   }
 
-  public TypeDetail sprites(Map<String, Map<String, TypeDetailSpritesValueValue>> sprites) {
+  public TypeDetail sprites(Map<String, Map<String, TypeGameSprite>> sprites) {
     this.sprites = sprites;
     return this;
   }
 
-  public TypeDetail putSpritesItem(String key, Map<String, TypeDetailSpritesValueValue> spritesItem) {
+  public TypeDetail putSpritesItem(String key, Map<String, TypeGameSprite> spritesItem) {
     if (this.sprites == null) {
       this.sprites = new HashMap<>();
     }
@@ -304,15 +304,15 @@ public class TypeDetail   {
   }
 
   /**
-   * Get sprites
+   * Type icons grouped by generation and game, with name_icon and symbol_icon URLs. Unavailable icons are null.
    * @return sprites
    */
-  @ApiModelProperty(required = true, readOnly = true, value = "")
-  public Map<String, Map<String, TypeDetailSpritesValueValue>> getSprites() {
+  @ApiModelProperty(required = true, readOnly = true, value = "Type icons grouped by generation and game, with name_icon and symbol_icon URLs. Unavailable icons are null.")
+  public Map<String, Map<String, TypeGameSprite>> getSprites() {
     return sprites;
   }
 
-  public void setSprites(Map<String, Map<String, TypeDetailSpritesValueValue>> sprites) {
+  public void setSprites(Map<String, Map<String, TypeGameSprite>> sprites) {
     this.sprites = sprites;
   }
 

@@ -15,8 +15,8 @@
 
 typedef struct pokemon_shape_detail_t pokemon_shape_detail_t;
 
-#include "pokemon_shape_detail_awesome_names_inner.h"
-#include "pokemon_shape_detail_names_inner.h"
+#include "pokemon_shape_awesome_name.h"
+#include "pokemon_shape_name.h"
 #include "pokemon_species_summary.h"
 
 

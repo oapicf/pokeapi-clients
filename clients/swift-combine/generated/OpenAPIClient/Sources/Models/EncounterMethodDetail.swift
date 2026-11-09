@@ -8,9 +8,13 @@
 import Foundation
 
 public struct EncounterMethodDetail: Codable {
+    /// The identifier for this resource.
     public var id: Int
+    /// The name for this resource.
     public var name: String
+    /// A good value for sorting.
     public var order: Int?
+    /// The name of this resource listed in different languages.
     public var names: [EncounterMethodName]
 
     public init(id: Int, name: String, order: Int? = nil, names: [EncounterMethodName]) {

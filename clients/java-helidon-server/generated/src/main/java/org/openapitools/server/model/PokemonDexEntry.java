@@ -21,8 +21,8 @@ public class PokemonDexEntry   {
     /**
      * Create PokemonDexEntry.
      *
-     * @param entryNumber entryNumber
-     * @param pokedex pokedex
+     * @param entryNumber The index number within the Pokédex.
+     * @param pokedex The Pokédex the referenced Pokémon species can be found in.
      */
     public PokemonDexEntry(
         Integer entryNumber, 
@@ -35,7 +35,7 @@ public class PokemonDexEntry   {
 
 
     /**
-     * Get entryNumber
+     * The index number within the Pokédex.
      * @return entryNumber
      */
     public Integer getEntryNumber() {
@@ -47,7 +47,7 @@ public class PokemonDexEntry   {
     }
 
     /**
-     * Get pokedex
+     * The Pokédex the referenced Pokémon species can be found in.
      * @return pokedex
      */
     public PokedexSummary getPokedex() {

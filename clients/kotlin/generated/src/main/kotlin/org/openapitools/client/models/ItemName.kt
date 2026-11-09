@@ -31,16 +31,18 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param name 
- * @param language 
+ * @param name The localized name for an API resource in a specific language.
+ * @param language The language this name is in.
  */
 
 
 data class ItemName (
 
+    /* The localized name for an API resource in a specific language. */
     @Json(name = "name")
     val name: kotlin.String,
 
+    /* The language this name is in. */
     @Json(name = "language")
     val language: LanguageSummary
 

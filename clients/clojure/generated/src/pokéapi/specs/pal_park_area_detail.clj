@@ -2,7 +2,7 @@
   (:require [clojure.spec.alpha :as s]
             [spec-tools.data-spec :as ds]
             [pokéapi.specs.pal-park-area-name :refer :all]
-            [pokéapi.specs.pal-park-area-detail-pokemon-encounters-inner :refer :all]
+            [pokéapi.specs.pal-park-encounter :refer :all]
             )
   (:import (java.io File)))
 
@@ -12,7 +12,7 @@
    (ds/req :id) int?
    (ds/req :name) string?
    (ds/req :names) (s/coll-of pal-park-area-name-spec)
-   (ds/req :pokemon_encounters) (s/coll-of pal-park-area-detail-pokemon-encounters-inner-spec)
+   (ds/req :pokemon_encounters) (s/coll-of pal-park-encounter-spec)
    })
 
 (def pal-park-area-detail-spec

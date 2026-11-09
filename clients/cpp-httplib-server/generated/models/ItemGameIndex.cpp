@@ -10,7 +10,6 @@ namespace models {
 
 ItemGameIndex::ItemGameIndex()
 : gameIndex(0)
-, generation(GenerationSummary())
 {
 }
 // =========================================

@@ -6,6 +6,7 @@ goog.provide('API.Client.ContestEffectSummary');
 API.Client.ContestEffectSummary = function() {}
 
 /**
+ * The URL of the referenced resource.
  * @type {!API.Client.URI}
  * @export
  */

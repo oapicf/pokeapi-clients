@@ -16,31 +16,31 @@ import io.swagger.v3.oas.annotations.media.Schema
 
 /**
  * 
- * @param count 
- * @param next 
- * @param previous 
- * @param results 
+ * @param count The total number of resources available from this API.
+ * @param results A list of API resources on this page.
+ * @param next The URL for the next page in the list, or null if there is no next page.
+ * @param previous The URL for the previous page in the list, or null if there is no previous page.
  */
 data class PaginatedPokemonFormSummaryList(
 
-    @Schema(example = "123", description = "")
-    @param:JsonProperty("count")
-    @get:JsonProperty("count") val count: kotlin.Int? = null,
+    @Schema(example = "100", required = true, description = "The total number of resources available from this API.")
+    @param:JsonProperty("count", required = true)
+    @get:JsonProperty("count", required = true) val count: kotlin.Int,
 
     @field:Valid
-    @Schema(example = "http://api.example.org/accounts/?offset=400&limit=100", description = "")
+    @Schema(required = true, description = "A list of API resources on this page.")
+    @param:JsonProperty("results", required = true)
+    @get:JsonProperty("results", required = true) val results: kotlin.collections.List<PokemonFormSummary>,
+
+    @field:Valid
+    @Schema(example = "https://pokeapi.co/api/v2/pokemon-form/?offset=40&limit=20", description = "The URL for the next page in the list, or null if there is no next page.")
     @param:JsonProperty("next")
     @get:JsonProperty("next") val next: java.net.URI? = null,
 
     @field:Valid
-    @Schema(example = "http://api.example.org/accounts/?offset=200&limit=100", description = "")
+    @Schema(example = "https://pokeapi.co/api/v2/pokemon-form/?offset=0&limit=20", description = "The URL for the previous page in the list, or null if there is no previous page.")
     @param:JsonProperty("previous")
-    @get:JsonProperty("previous") val previous: java.net.URI? = null,
-
-    @field:Valid
-    @Schema(description = "")
-    @param:JsonProperty("results")
-    @get:JsonProperty("results") val results: kotlin.collections.List<PokemonFormSummary>? = null
+    @get:JsonProperty("previous") val previous: java.net.URI? = null
 ) {
 
 }

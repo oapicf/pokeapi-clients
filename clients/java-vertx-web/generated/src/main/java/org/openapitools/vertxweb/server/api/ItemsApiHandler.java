@@ -1,10 +1,12 @@
 package org.openapitools.vertxweb.server.api;
 
+import org.openapitools.vertxweb.server.model.CurrencyDetail;
 import org.openapitools.vertxweb.server.model.ItemAttributeDetail;
 import org.openapitools.vertxweb.server.model.ItemCategoryDetail;
 import org.openapitools.vertxweb.server.model.ItemDetail;
 import org.openapitools.vertxweb.server.model.ItemFlingEffectDetail;
 import org.openapitools.vertxweb.server.model.ItemPocketDetail;
+import org.openapitools.vertxweb.server.model.PaginatedCurrencySummaryList;
 import org.openapitools.vertxweb.server.model.PaginatedItemAttributeSummaryList;
 import org.openapitools.vertxweb.server.model.PaginatedItemCategorySummaryList;
 import org.openapitools.vertxweb.server.model.PaginatedItemFlingEffectSummaryList;
@@ -41,6 +43,8 @@ public class ItemsApiHandler {
     }
 
     public void mount(RouterBuilder builder) {
+        builder.operation("currencyList").handler(this::currencyList);
+        builder.operation("currencyRetrieve").handler(this::currencyRetrieve);
         builder.operation("itemAttributeList").handler(this::itemAttributeList);
         builder.operation("itemAttributeRetrieve").handler(this::itemAttributeRetrieve);
         builder.operation("itemCategoryList").handler(this::itemCategoryList);
@@ -51,6 +55,54 @@ public class ItemsApiHandler {
         builder.operation("itemPocketList").handler(this::itemPocketList);
         builder.operation("itemPocketRetrieve").handler(this::itemPocketRetrieve);
         builder.operation("itemRetrieve").handler(this::itemRetrieve);
+    }
+
+    private void currencyList(RoutingContext routingContext) {
+        logger.info("currencyList()");
+
+        // Param extraction
+        RequestParameters requestParameters = routingContext.get(ValidationHandler.REQUEST_CONTEXT_KEY);
+
+        Integer limit = requestParameters.queryParameter("limit") != null ? requestParameters.queryParameter("limit").getInteger() : null;
+        Integer offset = requestParameters.queryParameter("offset") != null ? requestParameters.queryParameter("offset").getInteger() : null;
+        String q = requestParameters.queryParameter("q") != null ? requestParameters.queryParameter("q").getString() : null;
+
+        logger.debug("Parameter limit is {}", limit);
+        logger.debug("Parameter offset is {}", offset);
+        logger.debug("Parameter q is {}", q);
+
+        api.currencyList(limit, offset, q)
+            .onSuccess(apiResponse -> {
+                routingContext.response().setStatusCode(apiResponse.getStatusCode());
+                if (apiResponse.hasData()) {
+                    routingContext.json(apiResponse.getData());
+                } else {
+                    routingContext.response().end();
+                }
+            })
+            .onFailure(routingContext::fail);
+    }
+
+    private void currencyRetrieve(RoutingContext routingContext) {
+        logger.info("currencyRetrieve()");
+
+        // Param extraction
+        RequestParameters requestParameters = routingContext.get(ValidationHandler.REQUEST_CONTEXT_KEY);
+
+        String id = requestParameters.pathParameter("id") != null ? requestParameters.pathParameter("id").getString() : null;
+
+        logger.debug("Parameter id is {}", id);
+
+        api.currencyRetrieve(id)
+            .onSuccess(apiResponse -> {
+                routingContext.response().setStatusCode(apiResponse.getStatusCode());
+                if (apiResponse.hasData()) {
+                    routingContext.json(apiResponse.getData());
+                } else {
+                    routingContext.response().end();
+                }
+            })
+            .onFailure(routingContext::fail);
     }
 
     private void itemAttributeList(RoutingContext routingContext) {

@@ -30,16 +30,18 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param name 
- * @param url 
+ * @param name The name of the referenced resource.
+ * @param url The URL of the referenced resource.
  */
 
 
 data class LocationSummary (
 
+    /* The name of the referenced resource. */
     @Json(name = "name")
     val name: kotlin.String,
 
+    /* The URL of the referenced resource. */
     @Json(name = "url")
     val url: java.net.URI
 

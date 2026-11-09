@@ -28,12 +28,12 @@ public class LanguageDetail   {
     /**
      * Create LanguageDetail.
      *
-     * @param id id
-     * @param name name
-     * @param official official
-     * @param iso639 iso639
-     * @param iso3166 iso3166
-     * @param names names
+     * @param id The identifier for this resource.
+     * @param name The name for this resource.
+     * @param official Whether or not the games are published in this language.
+     * @param iso639 The two-letter ISO 639-1 language code. Multiple PokéAPI language records may share this code.
+     * @param iso3166 The two-letter ISO 3166-1 alpha-2 code of the country or region associated with this language record. Multiple PokéAPI language records may share this code.
+     * @param names The name of this resource listed in different languages.
      */
     public LanguageDetail(
         Integer id, 
@@ -54,7 +54,7 @@ public class LanguageDetail   {
 
 
     /**
-     * Get id
+     * The identifier for this resource.
      * @return id
      */
     public Integer getId() {
@@ -66,7 +66,7 @@ public class LanguageDetail   {
     }
 
     /**
-     * Get name
+     * The name for this resource.
      * @return name
      */
     public String getName() {
@@ -78,7 +78,7 @@ public class LanguageDetail   {
     }
 
     /**
-     * Get official
+     * Whether or not the games are published in this language.
      * @return official
      */
     public Boolean getOfficial() {
@@ -90,7 +90,7 @@ public class LanguageDetail   {
     }
 
     /**
-     * Get iso639
+     * The two-letter ISO 639-1 language code. Multiple PokéAPI language records may share this code.
      * @return iso639
      */
     public String getIso639() {
@@ -102,7 +102,7 @@ public class LanguageDetail   {
     }
 
     /**
-     * Get iso3166
+     * The two-letter ISO 3166-1 alpha-2 code of the country or region associated with this language record. Multiple PokéAPI language records may share this code.
      * @return iso3166
      */
     public String getIso3166() {
@@ -114,7 +114,7 @@ public class LanguageDetail   {
     }
 
     /**
-     * Get names
+     * The name of this resource listed in different languages.
      * @return names
      */
     public List<@Valid LanguageName> getNames() {

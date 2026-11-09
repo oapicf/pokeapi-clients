@@ -3,8 +3,8 @@ package org.openapitools.model;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.model.AbilityDetailPokemonInnerPokemon;
 import org.openapitools.model.MoveMetaCategoryDescription;
+import org.openapitools.model.MoveSummary;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
@@ -15,19 +15,31 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class MoveMetaCategoryDetail  {
   
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The identifier for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   private Integer id;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The name for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   private String name;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The description of this resource listed in different languages.
+  */
+  @ApiModelProperty(required = true, value = "The description of this resource listed in different languages.")
   private List<@Valid MoveMetaCategoryDescription> descriptions = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
-  private List<@Valid AbilityDetailPokemonInnerPokemon> moves = new ArrayList<>();
  /**
-  * Get id
+  * A list of moves that fall into this category.
+  */
+  @ApiModelProperty(required = true, value = "A list of moves that fall into this category.")
+  private List<@Valid MoveSummary> moves = new ArrayList<>();
+ /**
+  * The identifier for this resource.
   * @return id
   */
   @JsonProperty("id")
@@ -54,12 +66,12 @@ public class MoveMetaCategoryDetail  {
   }
 
  /**
-  * Get name
+  * The name for this resource.
   * @return name
   */
   @JsonProperty("name")
   @NotNull
- @Size(max=100)  public String getName() {
+ @Size(max=200)  public String getName() {
     return name;
   }
 
@@ -79,7 +91,7 @@ public class MoveMetaCategoryDetail  {
   }
 
  /**
-  * Get descriptions
+  * The description of this resource listed in different languages.
   * @return descriptions
   */
   @JsonProperty("descriptions")
@@ -115,12 +127,12 @@ public class MoveMetaCategoryDetail  {
   }
 
  /**
-  * Get moves
+  * A list of moves that fall into this category.
   * @return moves
   */
   @JsonProperty("moves")
   @NotNull
-  public List<@Valid AbilityDetailPokemonInnerPokemon> getMoves() {
+  public List<@Valid MoveSummary> getMoves() {
     return moves;
   }
 
@@ -128,7 +140,7 @@ public class MoveMetaCategoryDetail  {
    * Sets the <code>moves</code> property.
    * <br><em>N.B. <code>moves</code> is <b>read only</b>; client code should not call this method</em>.
    */
- public void setMoves(List<@Valid AbilityDetailPokemonInnerPokemon> moves) {
+ public void setMoves(List<@Valid MoveSummary> moves) {
     this.moves = moves;
   }
 
@@ -136,7 +148,7 @@ public class MoveMetaCategoryDetail  {
    * Sets the <code>moves</code> property.
    * <br><em>N.B. <code>moves</code> is <b>read only</b>; client code should not call this method</em>.
    */
-  public MoveMetaCategoryDetail moves(List<@Valid AbilityDetailPokemonInnerPokemon> moves) {
+  public MoveMetaCategoryDetail moves(List<@Valid MoveSummary> moves) {
     this.moves = moves;
     return this;
   }
@@ -145,7 +157,7 @@ public class MoveMetaCategoryDetail  {
    * Adds a new item to the <code>moves</code> list.
    * <br><em>N.B. <code>moves</code> is <b>read only</b>; client code should not call this method</em>.
    */
-  public MoveMetaCategoryDetail addMovesItem(AbilityDetailPokemonInnerPokemon movesItem) {
+  public MoveMetaCategoryDetail addMovesItem(MoveSummary movesItem) {
     this.moves.add(movesItem);
     return this;
   }

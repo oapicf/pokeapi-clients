@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Url** | **string** |  | [readonly] 
+**Url** | **string** | The URL of the referenced resource. | [readonly] 
 
 ## Methods
 

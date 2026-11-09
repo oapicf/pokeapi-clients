@@ -24,7 +24,7 @@ void
 LocationGameIndex::__init()
 {
 	//game_index = int(0);
-	//generation = new GenerationSummary();
+	//generation = null;
 }
 
 void

@@ -7,8 +7,8 @@
 #' @title StatName
 #' @description StatName Class
 #' @format An \code{R6Class} generator object
-#' @field name  character
-#' @field language  \link{LanguageSummary}
+#' @field name The localized name for an API resource in a specific language. character
+#' @field language The language this name is in. \link{LanguageSummary}
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -21,8 +21,8 @@ StatName <- R6::R6Class(
     #' @description
     #' Initialize a new StatName class.
     #'
-    #' @param name name
-    #' @param language language
+    #' @param name The localized name for an API resource in a specific language.
+    #' @param language The language this name is in.
     #' @param ... Other optional arguments.
     initialize = function(`name`, `language`, ...) {
       if (!missing(`name`)) {
@@ -183,7 +183,7 @@ StatName <- R6::R6Class(
         return(FALSE)
       }
 
-      if (nchar(self$`name`) > 100) {
+      if (nchar(self$`name`) > 200) {
         return(FALSE)
       }
 
@@ -206,8 +206,8 @@ StatName <- R6::R6Class(
         invalid_fields["name"] <- "Non-nullable required field `name` cannot be null."
       }
 
-      if (nchar(self$`name`) > 100) {
-        invalid_fields["name"] <- "Invalid length for `name`, must be smaller than or equal to 100."
+      if (nchar(self$`name`) > 200) {
+        invalid_fields["name"] <- "Invalid length for `name`, must be smaller than or equal to 200."
       }
 
       # check if the required `language` is null

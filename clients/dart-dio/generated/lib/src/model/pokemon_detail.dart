@@ -3,19 +3,20 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:openapi/src/model/pokemon_detail_cries.dart';
+import 'package:openapi/src/model/pokemon_past_stat.dart';
+import 'package:openapi/src/model/pokemon_cries.dart';
+import 'package:openapi/src/model/pokemon_held_item_summary.dart';
+import 'package:openapi/src/model/pokemon_move.dart';
+import 'package:openapi/src/model/pokemon_sprites.dart';
 import 'package:openapi/src/model/pokemon_game_index.dart';
-import 'package:openapi/src/model/pokemon_detail_held_items.dart';
-import 'package:openapi/src/model/pokemon_detail_moves_inner.dart';
+import 'package:openapi/src/model/pokemon_type.dart';
+import 'package:openapi/src/model/pokemon_past_ability.dart';
 import 'package:openapi/src/model/pokemon_stat.dart';
 import 'package:built_collection/built_collection.dart';
-import 'package:openapi/src/model/pokemon_detail_sprites.dart';
-import 'package:openapi/src/model/pokemon_detail_abilities_inner.dart';
-import 'package:openapi/src/model/pokemon_detail_types_inner.dart';
+import 'package:openapi/src/model/pokemon_past_type.dart';
 import 'package:openapi/src/model/pokemon_form_summary.dart';
+import 'package:openapi/src/model/pokemon_ability.dart';
 import 'package:openapi/src/model/pokemon_species_summary.dart';
-import 'package:openapi/src/model/pokemon_detail_past_abilities_inner.dart';
-import 'package:openapi/src/model/pokemon_detail_past_types_inner.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -24,87 +25,112 @@ part 'pokemon_detail.g.dart';
 /// PokemonDetail
 ///
 /// Properties:
-/// * [id] 
-/// * [name] 
-/// * [baseExperience] 
-/// * [height] 
-/// * [isDefault] 
-/// * [order] 
-/// * [weight] 
-/// * [abilities] 
-/// * [pastAbilities] 
-/// * [forms] 
-/// * [gameIndices] 
-/// * [heldItems] 
-/// * [locationAreaEncounters] 
-/// * [moves] 
-/// * [species] 
-/// * [sprites] 
-/// * [cries] 
-/// * [stats] 
-/// * [types] 
-/// * [pastTypes] 
+/// * [id] - The identifier for this resource.
+/// * [name] - The name for this resource.
+/// * [baseExperience] - The base experience gained for defeating this Pokémon.
+/// * [height] - The height of this Pokémon in decimetres.
+/// * [isDefault] - Set for exactly one Pokémon used as the default for each species.
+/// * [order] - Order for sorting. Almost national order, except families are grouped together.
+/// * [weight] - The weight of this Pokémon in hectograms.
+/// * [abilities] - A list of abilities this Pokémon could potentially have.
+/// * [pastAbilities] - A list of details showing abilities this pokémon had in previous generations
+/// * [forms] - A list of forms this Pokémon can take on.
+/// * [gameIndices] - A list of game indices relevent to Pokémon item by generation.
+/// * [heldItems] - A list of items this Pokémon may be holding when encountered.
+/// * [locationAreaEncounters] - A link to a list of location areas, as well as encounter details pertaining to specific versions.
+/// * [moves] - A list of moves along with learn methods and level details pertaining to specific version groups.
+/// * [species] - The species this Pokémon belongs to.
+/// * [sprites] - A set of sprites used to depict this Pokémon in the game. A visual representation of the various sprites can be found at <a href='https://github.com/PokeAPI/sprites#sprites'>PokeAPI/sprites</a>
+/// * [cries] - A set of cries used to depict this Pokémon in the game. A visual representation of the various cries can be found at <a href='https://github.com/PokeAPI/cries#cries'>PokeAPI/cries</a>
+/// * [stats] - A list of base stat values for this Pokémon.
+/// * [pastStats] - A list of details showing stats this pokémon had in previous generations
+/// * [types] - A list of details showing types this Pokémon has.
+/// * [pastTypes] - A list of details showing types this pokémon had in previous generations
 @BuiltValue()
 abstract class PokemonDetail implements Built<PokemonDetail, PokemonDetailBuilder> {
+  /// The identifier for this resource.
   @BuiltValueField(wireName: r'id')
   int get id;
 
+  /// The name for this resource.
   @BuiltValueField(wireName: r'name')
   String get name;
 
+  /// The base experience gained for defeating this Pokémon.
   @BuiltValueField(wireName: r'base_experience')
   int? get baseExperience;
 
+  /// The height of this Pokémon in decimetres.
   @BuiltValueField(wireName: r'height')
   int? get height;
 
+  /// Set for exactly one Pokémon used as the default for each species.
   @BuiltValueField(wireName: r'is_default')
   bool? get isDefault;
 
+  /// Order for sorting. Almost national order, except families are grouped together.
   @BuiltValueField(wireName: r'order')
   int? get order;
 
+  /// The weight of this Pokémon in hectograms.
   @BuiltValueField(wireName: r'weight')
   int? get weight;
 
+  /// A list of abilities this Pokémon could potentially have.
   @BuiltValueField(wireName: r'abilities')
-  BuiltList<PokemonDetailAbilitiesInner> get abilities;
+  BuiltList<PokemonAbility> get abilities;
 
+  /// A list of details showing abilities this pokémon had in previous generations
   @BuiltValueField(wireName: r'past_abilities')
-  BuiltList<PokemonDetailPastAbilitiesInner> get pastAbilities;
+  BuiltList<PokemonPastAbility> get pastAbilities;
 
+  /// A list of forms this Pokémon can take on.
   @BuiltValueField(wireName: r'forms')
   BuiltList<PokemonFormSummary> get forms;
 
+  /// A list of game indices relevent to Pokémon item by generation.
   @BuiltValueField(wireName: r'game_indices')
   BuiltList<PokemonGameIndex> get gameIndices;
 
+  /// A list of items this Pokémon may be holding when encountered.
   @BuiltValueField(wireName: r'held_items')
-  PokemonDetailHeldItems get heldItems;
+  BuiltList<PokemonHeldItemSummary> get heldItems;
 
+  /// A link to a list of location areas, as well as encounter details pertaining to specific versions.
   @BuiltValueField(wireName: r'location_area_encounters')
   String get locationAreaEncounters;
 
+  /// A list of moves along with learn methods and level details pertaining to specific version groups.
   @BuiltValueField(wireName: r'moves')
-  BuiltList<PokemonDetailMovesInner> get moves;
+  BuiltList<PokemonMove> get moves;
 
+  /// The species this Pokémon belongs to.
   @BuiltValueField(wireName: r'species')
   PokemonSpeciesSummary get species;
 
+  /// A set of sprites used to depict this Pokémon in the game. A visual representation of the various sprites can be found at <a href='https://github.com/PokeAPI/sprites#sprites'>PokeAPI/sprites</a>
   @BuiltValueField(wireName: r'sprites')
-  PokemonDetailSprites get sprites;
+  PokemonSprites get sprites;
 
+  /// A set of cries used to depict this Pokémon in the game. A visual representation of the various cries can be found at <a href='https://github.com/PokeAPI/cries#cries'>PokeAPI/cries</a>
   @BuiltValueField(wireName: r'cries')
-  PokemonDetailCries get cries;
+  PokemonCries get cries;
 
+  /// A list of base stat values for this Pokémon.
   @BuiltValueField(wireName: r'stats')
   BuiltList<PokemonStat> get stats;
 
-  @BuiltValueField(wireName: r'types')
-  BuiltList<PokemonDetailTypesInner> get types;
+  /// A list of details showing stats this pokémon had in previous generations
+  @BuiltValueField(wireName: r'past_stats')
+  BuiltList<PokemonPastStat> get pastStats;
 
+  /// A list of details showing types this Pokémon has.
+  @BuiltValueField(wireName: r'types')
+  BuiltList<PokemonType> get types;
+
+  /// A list of details showing types this pokémon had in previous generations
   @BuiltValueField(wireName: r'past_types')
-  BuiltList<PokemonDetailPastTypesInner> get pastTypes;
+  BuiltList<PokemonPastType> get pastTypes;
 
   PokemonDetail._();
 
@@ -177,12 +203,12 @@ class _$PokemonDetailSerializer implements PrimitiveSerializer<PokemonDetail> {
     yield r'abilities';
     yield serializers.serialize(
       object.abilities,
-      specifiedType: const FullType(BuiltList, [FullType(PokemonDetailAbilitiesInner)]),
+      specifiedType: const FullType(BuiltList, [FullType(PokemonAbility)]),
     );
     yield r'past_abilities';
     yield serializers.serialize(
       object.pastAbilities,
-      specifiedType: const FullType(BuiltList, [FullType(PokemonDetailPastAbilitiesInner)]),
+      specifiedType: const FullType(BuiltList, [FullType(PokemonPastAbility)]),
     );
     yield r'forms';
     yield serializers.serialize(
@@ -197,7 +223,7 @@ class _$PokemonDetailSerializer implements PrimitiveSerializer<PokemonDetail> {
     yield r'held_items';
     yield serializers.serialize(
       object.heldItems,
-      specifiedType: const FullType(PokemonDetailHeldItems),
+      specifiedType: const FullType(BuiltList, [FullType(PokemonHeldItemSummary)]),
     );
     yield r'location_area_encounters';
     yield serializers.serialize(
@@ -207,7 +233,7 @@ class _$PokemonDetailSerializer implements PrimitiveSerializer<PokemonDetail> {
     yield r'moves';
     yield serializers.serialize(
       object.moves,
-      specifiedType: const FullType(BuiltList, [FullType(PokemonDetailMovesInner)]),
+      specifiedType: const FullType(BuiltList, [FullType(PokemonMove)]),
     );
     yield r'species';
     yield serializers.serialize(
@@ -217,27 +243,32 @@ class _$PokemonDetailSerializer implements PrimitiveSerializer<PokemonDetail> {
     yield r'sprites';
     yield serializers.serialize(
       object.sprites,
-      specifiedType: const FullType(PokemonDetailSprites),
+      specifiedType: const FullType(PokemonSprites),
     );
     yield r'cries';
     yield serializers.serialize(
       object.cries,
-      specifiedType: const FullType(PokemonDetailCries),
+      specifiedType: const FullType(PokemonCries),
     );
     yield r'stats';
     yield serializers.serialize(
       object.stats,
       specifiedType: const FullType(BuiltList, [FullType(PokemonStat)]),
     );
+    yield r'past_stats';
+    yield serializers.serialize(
+      object.pastStats,
+      specifiedType: const FullType(BuiltList, [FullType(PokemonPastStat)]),
+    );
     yield r'types';
     yield serializers.serialize(
       object.types,
-      specifiedType: const FullType(BuiltList, [FullType(PokemonDetailTypesInner)]),
+      specifiedType: const FullType(BuiltList, [FullType(PokemonType)]),
     );
     yield r'past_types';
     yield serializers.serialize(
       object.pastTypes,
-      specifiedType: const FullType(BuiltList, [FullType(PokemonDetailPastTypesInner)]),
+      specifiedType: const FullType(BuiltList, [FullType(PokemonPastType)]),
     );
   }
 
@@ -319,15 +350,15 @@ class _$PokemonDetailSerializer implements PrimitiveSerializer<PokemonDetail> {
         case r'abilities':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(PokemonDetailAbilitiesInner)]),
-          ) as BuiltList<PokemonDetailAbilitiesInner>;
+            specifiedType: const FullType(BuiltList, [FullType(PokemonAbility)]),
+          ) as BuiltList<PokemonAbility>;
           result.abilities.replace(valueDes);
           break;
         case r'past_abilities':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(PokemonDetailPastAbilitiesInner)]),
-          ) as BuiltList<PokemonDetailPastAbilitiesInner>;
+            specifiedType: const FullType(BuiltList, [FullType(PokemonPastAbility)]),
+          ) as BuiltList<PokemonPastAbility>;
           result.pastAbilities.replace(valueDes);
           break;
         case r'forms':
@@ -347,8 +378,8 @@ class _$PokemonDetailSerializer implements PrimitiveSerializer<PokemonDetail> {
         case r'held_items':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(PokemonDetailHeldItems),
-          ) as PokemonDetailHeldItems;
+            specifiedType: const FullType(BuiltList, [FullType(PokemonHeldItemSummary)]),
+          ) as BuiltList<PokemonHeldItemSummary>;
           result.heldItems.replace(valueDes);
           break;
         case r'location_area_encounters':
@@ -361,8 +392,8 @@ class _$PokemonDetailSerializer implements PrimitiveSerializer<PokemonDetail> {
         case r'moves':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(PokemonDetailMovesInner)]),
-          ) as BuiltList<PokemonDetailMovesInner>;
+            specifiedType: const FullType(BuiltList, [FullType(PokemonMove)]),
+          ) as BuiltList<PokemonMove>;
           result.moves.replace(valueDes);
           break;
         case r'species':
@@ -375,15 +406,15 @@ class _$PokemonDetailSerializer implements PrimitiveSerializer<PokemonDetail> {
         case r'sprites':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(PokemonDetailSprites),
-          ) as PokemonDetailSprites;
-          result.sprites = valueDes;
+            specifiedType: const FullType(PokemonSprites),
+          ) as PokemonSprites;
+          result.sprites.replace(valueDes);
           break;
         case r'cries':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(PokemonDetailCries),
-          ) as PokemonDetailCries;
+            specifiedType: const FullType(PokemonCries),
+          ) as PokemonCries;
           result.cries.replace(valueDes);
           break;
         case r'stats':
@@ -393,18 +424,25 @@ class _$PokemonDetailSerializer implements PrimitiveSerializer<PokemonDetail> {
           ) as BuiltList<PokemonStat>;
           result.stats.replace(valueDes);
           break;
+        case r'past_stats':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(BuiltList, [FullType(PokemonPastStat)]),
+          ) as BuiltList<PokemonPastStat>;
+          result.pastStats.replace(valueDes);
+          break;
         case r'types':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(PokemonDetailTypesInner)]),
-          ) as BuiltList<PokemonDetailTypesInner>;
+            specifiedType: const FullType(BuiltList, [FullType(PokemonType)]),
+          ) as BuiltList<PokemonType>;
           result.types.replace(valueDes);
           break;
         case r'past_types':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(PokemonDetailPastTypesInner)]),
-          ) as BuiltList<PokemonDetailPastTypesInner>;
+            specifiedType: const FullType(BuiltList, [FullType(PokemonPastType)]),
+          ) as BuiltList<PokemonPastType>;
           result.pastTypes.replace(valueDes);
           break;
         default:

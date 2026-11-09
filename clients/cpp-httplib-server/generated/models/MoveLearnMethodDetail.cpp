@@ -13,7 +13,7 @@ MoveLearnMethodDetail::MoveLearnMethodDetail()
 , name("")
 , names(std::vector<MoveLearnMethodName>())
 , descriptions(std::vector<MoveLearnMethodDescription>())
-, versionGroups(std::vector<MoveLearnMethodDetail_version_groups_inner>())
+, versionGroups(std::vector<VersionGroupSummary>())
 {
 }
 // =========================================
@@ -38,7 +38,7 @@ std::vector<MoveLearnMethodDescription> MoveLearnMethodDetail::getDescriptions()
 {
     return descriptions;
 }
-std::vector<MoveLearnMethodDetail_version_groups_inner> MoveLearnMethodDetail::getVersionGroups() const
+std::vector<VersionGroupSummary> MoveLearnMethodDetail::getVersionGroups() const
 {
     return versionGroups;
 }
@@ -62,7 +62,7 @@ void MoveLearnMethodDetail::setDescriptions(const std::vector<MoveLearnMethodDes
 {
     descriptions = descriptionsObj;
 }
-void MoveLearnMethodDetail::setVersionGroups(const std::vector<MoveLearnMethodDetail_version_groups_inner>& versionGroupsObj)
+void MoveLearnMethodDetail::setVersionGroups(const std::vector<VersionGroupSummary>& versionGroupsObj)
 {
     versionGroups = versionGroupsObj;
 }

@@ -23,7 +23,7 @@
 
 package org.openapitools.client.models
 
-import org.openapitools.client.models.MoveChangeEffectEntriesInner
+import org.openapitools.client.models.MoveEffectEffectText
 import org.openapitools.client.models.TypeSummary
 import org.openapitools.client.models.VersionGroupSummary
 
@@ -33,36 +33,43 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param effectChance 
- * @param effectEntries 
- * @param type 
- * @param versionGroup 
- * @param accuracy 
- * @param power 
- * @param pp 
+ * @param effectChance The percent value of how likely it is this moves effect will take effect.
+ * @param effectEntries The effect of this move listed in different languages.
+ * @param type The elemental type of this move.
+ * @param versionGroup The version group in which these move stat values were in effect.
+ * @param accuracy The percent value of how likely this move is to be successful.
+ * @param power The base power before the listed version group, or null if power did not change.
+ * @param pp Power points. The number of times this move can be used.
  */
 
 
 data class MoveChange (
 
+    /* The percent value of how likely it is this moves effect will take effect. */
     @Json(name = "effect_chance")
-    val effectChance: kotlin.Int,
+    val effectChance: kotlin.Int?,
 
+    /* The effect of this move listed in different languages. */
     @Json(name = "effect_entries")
-    val effectEntries: kotlin.collections.List<MoveChangeEffectEntriesInner>,
+    val effectEntries: kotlin.collections.List<MoveEffectEffectText>,
 
+    /* The elemental type of this move. */
     @Json(name = "type")
-    val type: TypeSummary,
+    val type: TypeSummary?,
 
+    /* The version group in which these move stat values were in effect. */
     @Json(name = "version_group")
     val versionGroup: VersionGroupSummary,
 
+    /* The percent value of how likely this move is to be successful. */
     @Json(name = "accuracy")
     val accuracy: kotlin.Int? = null,
 
+    /* The base power before the listed version group, or null if power did not change. */
     @Json(name = "power")
     val power: kotlin.Int? = null,
 
+    /* Power points. The number of times this move can be used. */
     @Json(name = "pp")
     val pp: kotlin.Int? = null
 

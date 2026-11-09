@@ -4,10 +4,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** |  | [readonly] 
-**appeal** | **int** |  | 
-**flavor_text_entries** | [**List[SuperContestEffectFlavorText]**](SuperContestEffectFlavorText.md) |  | [readonly] 
-**moves** | [**List[MoveSummary]**](MoveSummary.md) |  | [readonly] 
+**id** | **int** | The identifier for this resource. | [readonly] 
+**appeal** | **int** | The level of appeal this super contest effect has. | 
+**flavor_text_entries** | [**List[SuperContestEffectFlavorText]**](SuperContestEffectFlavorText.md) | The flavor text of this super contest effect listed in different languages. | [readonly] 
+**moves** | [**List[MoveSummary]**](MoveSummary.md) | A list of moves that have the effect when used in super contests. | [readonly] 
 
 ## Example
 

@@ -7,8 +7,8 @@
 #' @title PokemonGameIndex
 #' @description PokemonGameIndex Class
 #' @format An \code{R6Class} generator object
-#' @field game_index  integer
-#' @field version  \link{VersionSummary}
+#' @field game_index The internal id of an API resource within game data. integer
+#' @field version The version relevent to this game index. \link{VersionSummary}
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -21,8 +21,8 @@ PokemonGameIndex <- R6::R6Class(
     #' @description
     #' Initialize a new PokemonGameIndex class.
     #'
-    #' @param game_index game_index
-    #' @param version version
+    #' @param game_index The internal id of an API resource within game data.
+    #' @param version The version relevent to this game index.
     #' @param ... Other optional arguments.
     initialize = function(`game_index`, `version`, ...) {
       if (!missing(`game_index`)) {
@@ -183,6 +183,13 @@ PokemonGameIndex <- R6::R6Class(
         return(FALSE)
       }
 
+      if (self$`game_index` > 2147483647) {
+        return(FALSE)
+      }
+      if (self$`game_index` < -2147483648) {
+        return(FALSE)
+      }
+
       # check if the required `version` is null
       if (is.null(self$`version`)) {
         return(FALSE)
@@ -200,6 +207,13 @@ PokemonGameIndex <- R6::R6Class(
       # check if the required `game_index` is null
       if (is.null(self$`game_index`)) {
         invalid_fields["game_index"] <- "Non-nullable required field `game_index` cannot be null."
+      }
+
+      if (self$`game_index` > 2147483647) {
+        invalid_fields["game_index"] <- "Invalid value for `game_index`, must be smaller than or equal to 2147483647."
+      }
+      if (self$`game_index` < -2147483648) {
+        invalid_fields["game_index"] <- "Invalid value for `game_index`, must be bigger than or equal to -2147483648."
       }
 
       # check if the required `version` is null

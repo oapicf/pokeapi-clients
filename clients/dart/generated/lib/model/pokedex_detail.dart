@@ -23,10 +23,13 @@ class PokedexDetail {
     this.versionGroups = const [],
   });
 
+  /// The identifier for this resource.
   int id;
 
+  /// The name for this resource.
   String name;
 
+  /// Whether or not this Pokédex originated in the main series of the video games.
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated
@@ -35,15 +38,20 @@ class PokedexDetail {
   ///
   bool? isMainSeries;
 
+  /// The description of this resource listed in different languages.
   List<PokedexDescription> descriptions;
 
+  /// The name of this resource listed in different languages.
   List<PokedexName> names;
 
-  List<PokedexDetailPokemonEntriesInner> pokemonEntries;
+  /// A list of Pokémon catalogued in this Pokédex and their indexes.
+  List<PokemonDexNumber> pokemonEntries;
 
-  RegionSummary region;
+  /// The region this Pokédex catalogues Pokémon for.
+  RegionSummary? region;
 
-  List<AbilityDetailPokemonInnerPokemon> versionGroups;
+  /// A list of version groups this Pokédex is relevant to.
+  List<VersionGroupSummary> versionGroups;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is PokedexDetail &&
@@ -65,7 +73,7 @@ class PokedexDetail {
     (descriptions.hashCode) +
     (names.hashCode) +
     (pokemonEntries.hashCode) +
-    (region.hashCode) +
+    (region == null ? 0 : region!.hashCode) +
     (versionGroups.hashCode);
 
   @override
@@ -83,7 +91,11 @@ class PokedexDetail {
       json[r'descriptions'] = this.descriptions;
       json[r'names'] = this.names;
       json[r'pokemon_entries'] = this.pokemonEntries;
+    if (this.region != null) {
       json[r'region'] = this.region;
+    } else {
+      json[r'region'] = null;
+    }
       json[r'version_groups'] = this.versionGroups;
     return json;
   }
@@ -110,7 +122,6 @@ class PokedexDetail {
         assert(json.containsKey(r'pokemon_entries'), 'Required key "PokedexDetail[pokemon_entries]" is missing from JSON.');
         assert(json[r'pokemon_entries'] != null, 'Required key "PokedexDetail[pokemon_entries]" has a null value in JSON.');
         assert(json.containsKey(r'region'), 'Required key "PokedexDetail[region]" is missing from JSON.');
-        assert(json[r'region'] != null, 'Required key "PokedexDetail[region]" has a null value in JSON.');
         assert(json.containsKey(r'version_groups'), 'Required key "PokedexDetail[version_groups]" is missing from JSON.');
         assert(json[r'version_groups'] != null, 'Required key "PokedexDetail[version_groups]" has a null value in JSON.');
         return true;
@@ -122,9 +133,9 @@ class PokedexDetail {
         isMainSeries: mapValueOfType<bool>(json, r'is_main_series'),
         descriptions: PokedexDescription.listFromJson(json[r'descriptions']),
         names: PokedexName.listFromJson(json[r'names']),
-        pokemonEntries: PokedexDetailPokemonEntriesInner.listFromJson(json[r'pokemon_entries']),
-        region: RegionSummary.fromJson(json[r'region'])!,
-        versionGroups: AbilityDetailPokemonInnerPokemon.listFromJson(json[r'version_groups']),
+        pokemonEntries: PokemonDexNumber.listFromJson(json[r'pokemon_entries']),
+        region: RegionSummary.fromJson(json[r'region']),
+        versionGroups: VersionGroupSummary.listFromJson(json[r'version_groups']),
       );
     }
     return null;

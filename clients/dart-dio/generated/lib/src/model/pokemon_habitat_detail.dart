@@ -14,21 +14,25 @@ part 'pokemon_habitat_detail.g.dart';
 /// PokemonHabitatDetail
 ///
 /// Properties:
-/// * [id] 
-/// * [name] 
-/// * [names] 
-/// * [pokemonSpecies] 
+/// * [id] - The identifier for this resource.
+/// * [name] - The name for this resource.
+/// * [names] - The name of this resource listed in different languages.
+/// * [pokemonSpecies] - A list of the Pokémon species that can be found in this habitat.
 @BuiltValue()
 abstract class PokemonHabitatDetail implements Built<PokemonHabitatDetail, PokemonHabitatDetailBuilder> {
+  /// The identifier for this resource.
   @BuiltValueField(wireName: r'id')
   int get id;
 
+  /// The name for this resource.
   @BuiltValueField(wireName: r'name')
   String get name;
 
+  /// The name of this resource listed in different languages.
   @BuiltValueField(wireName: r'names')
   BuiltList<PokemonHabitatName> get names;
 
+  /// A list of the Pokémon species that can be found in this habitat.
   @BuiltValueField(wireName: r'pokemon_species')
   BuiltList<PokemonSpeciesSummary> get pokemonSpecies;
 

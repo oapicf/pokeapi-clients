@@ -19,7 +19,7 @@ import jakarta.annotation.Generated;
  * PokemonGameIndex
  */
 
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-10-25T05:48:25.711080506Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-11-09T13:49:41.168612095Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PokemonGameIndex {
 
   private Integer gameIndex;
@@ -44,11 +44,13 @@ public class PokemonGameIndex {
   }
 
   /**
-   * Get gameIndex
+   * The internal id of an API resource within game data.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return gameIndex
    */
-  @NotNull 
-  @Schema(name = "game_index", requiredMode = Schema.RequiredMode.REQUIRED)
+  @NotNull @Min(value = -2147483648) @Max(value = 2147483647) 
+  @Schema(name = "game_index", description = "The internal id of an API resource within game data.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("game_index")
   public Integer getGameIndex() {
     return gameIndex;
@@ -64,11 +66,11 @@ public class PokemonGameIndex {
   }
 
   /**
-   * Get version
+   * The version relevent to this game index.
    * @return version
    */
   @NotNull @Valid 
-  @Schema(name = "version", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "version", description = "The version relevent to this game index.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("version")
   public VersionSummary getVersion() {
     return version;

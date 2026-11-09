@@ -59,7 +59,7 @@ const { status, data } = await apiInstance.moveAilmentList(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -110,7 +110,7 @@ const { status, data } = await apiInstance.moveAilmentRetrieve(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -167,7 +167,7 @@ const { status, data } = await apiInstance.moveBattleStyleList(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -218,7 +218,7 @@ const { status, data } = await apiInstance.moveBattleStyleRetrieve(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -275,7 +275,7 @@ const { status, data } = await apiInstance.moveCategoryList(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -326,7 +326,7 @@ const { status, data } = await apiInstance.moveCategoryRetrieve(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -383,7 +383,7 @@ const { status, data } = await apiInstance.moveLearnMethodList(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -434,7 +434,7 @@ const { status, data } = await apiInstance.moveLearnMethodRetrieve(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -491,7 +491,7 @@ const { status, data } = await apiInstance.moveList(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -542,7 +542,7 @@ const { status, data } = await apiInstance.moveRetrieve(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -599,7 +599,7 @@ const { status, data } = await apiInstance.moveTargetList(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -650,7 +650,7 @@ const { status, data } = await apiInstance.moveTargetRetrieve(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

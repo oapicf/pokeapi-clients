@@ -4,21 +4,22 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int32** |  | [readonly] 
-**Name** | **string** |  | 
-**GameIndex** | **int32** |  | 
-**IsBattleOnly** | Pointer to **bool** |  | [optional] 
-**AffectingMoves** | [**StatDetailAffectingMoves**](StatDetailAffectingMoves.md) |  | 
-**AffectingNatures** | [**StatDetailAffectingNatures**](StatDetailAffectingNatures.md) |  | 
-**Characteristics** | [**[]CharacteristicSummary**](CharacteristicSummary.md) |  | [readonly] 
-**MoveDamageClass** | [**MoveDamageClassSummary**](MoveDamageClassSummary.md) |  | 
-**Names** | [**[]StatName**](StatName.md) |  | [readonly] 
+**Id** | **int32** | The identifier for this resource. | [readonly] 
+**Name** | **string** | The name for this resource. | 
+**GameIndex** | **int32** | ID the games use for this stat. | 
+**IsBattleOnly** | Pointer to **bool** | Whether this stat only exists within a battle. | [optional] 
+**AffectingMoves** | [**StatAffectingMoves**](StatAffectingMoves.md) | A detail of moves which affect this stat positively or negatively. | [readonly] 
+**AffectingNatures** | [**StatAffectingNatures**](StatAffectingNatures.md) | A detail of natures which affect this stat positively or negatively. | [readonly] 
+**AffectingItems** | [**[]ItemSummary**](ItemSummary.md) | Items that affect this stat, such as vitamins and battle items. | [readonly] 
+**Characteristics** | [**[]CharacteristicSummary**](CharacteristicSummary.md) | A list of characteristics that are set on a Pokémon when its highest base stat is this stat. | [readonly] 
+**MoveDamageClass** | [**NullableMoveDamageClassSummary**](MoveDamageClassSummary.md) | The class of damage this stat is directly related to. | 
+**Names** | [**[]StatName**](StatName.md) | The name of this resource listed in different languages. | [readonly] 
 
 ## Methods
 
 ### NewStatDetail
 
-`func NewStatDetail(id int32, name string, gameIndex int32, affectingMoves StatDetailAffectingMoves, affectingNatures StatDetailAffectingNatures, characteristics []CharacteristicSummary, moveDamageClass MoveDamageClassSummary, names []StatName, ) *StatDetail`
+`func NewStatDetail(id int32, name string, gameIndex int32, affectingMoves StatAffectingMoves, affectingNatures StatAffectingNatures, affectingItems []ItemSummary, characteristics []CharacteristicSummary, moveDamageClass NullableMoveDamageClassSummary, names []StatName, ) *StatDetail`
 
 NewStatDetail instantiates a new StatDetail object
 This constructor will assign default values to properties that have it defined,
@@ -120,42 +121,62 @@ HasIsBattleOnly returns a boolean if a field has been set.
 
 ### GetAffectingMoves
 
-`func (o *StatDetail) GetAffectingMoves() StatDetailAffectingMoves`
+`func (o *StatDetail) GetAffectingMoves() StatAffectingMoves`
 
 GetAffectingMoves returns the AffectingMoves field if non-nil, zero value otherwise.
 
 ### GetAffectingMovesOk
 
-`func (o *StatDetail) GetAffectingMovesOk() (*StatDetailAffectingMoves, bool)`
+`func (o *StatDetail) GetAffectingMovesOk() (*StatAffectingMoves, bool)`
 
 GetAffectingMovesOk returns a tuple with the AffectingMoves field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAffectingMoves
 
-`func (o *StatDetail) SetAffectingMoves(v StatDetailAffectingMoves)`
+`func (o *StatDetail) SetAffectingMoves(v StatAffectingMoves)`
 
 SetAffectingMoves sets AffectingMoves field to given value.
 
 
 ### GetAffectingNatures
 
-`func (o *StatDetail) GetAffectingNatures() StatDetailAffectingNatures`
+`func (o *StatDetail) GetAffectingNatures() StatAffectingNatures`
 
 GetAffectingNatures returns the AffectingNatures field if non-nil, zero value otherwise.
 
 ### GetAffectingNaturesOk
 
-`func (o *StatDetail) GetAffectingNaturesOk() (*StatDetailAffectingNatures, bool)`
+`func (o *StatDetail) GetAffectingNaturesOk() (*StatAffectingNatures, bool)`
 
 GetAffectingNaturesOk returns a tuple with the AffectingNatures field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAffectingNatures
 
-`func (o *StatDetail) SetAffectingNatures(v StatDetailAffectingNatures)`
+`func (o *StatDetail) SetAffectingNatures(v StatAffectingNatures)`
 
 SetAffectingNatures sets AffectingNatures field to given value.
+
+
+### GetAffectingItems
+
+`func (o *StatDetail) GetAffectingItems() []ItemSummary`
+
+GetAffectingItems returns the AffectingItems field if non-nil, zero value otherwise.
+
+### GetAffectingItemsOk
+
+`func (o *StatDetail) GetAffectingItemsOk() (*[]ItemSummary, bool)`
+
+GetAffectingItemsOk returns a tuple with the AffectingItems field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAffectingItems
+
+`func (o *StatDetail) SetAffectingItems(v []ItemSummary)`
+
+SetAffectingItems sets AffectingItems field to given value.
 
 
 ### GetCharacteristics
@@ -198,6 +219,16 @@ and a boolean to check if the value has been set.
 SetMoveDamageClass sets MoveDamageClass field to given value.
 
 
+### SetMoveDamageClassNil
+
+`func (o *StatDetail) SetMoveDamageClassNil(b bool)`
+
+ SetMoveDamageClassNil sets the value for MoveDamageClass to be an explicit nil
+
+### UnsetMoveDamageClass
+`func (o *StatDetail) UnsetMoveDamageClass()`
+
+UnsetMoveDamageClass ensures that no value is present for MoveDamageClass, not even an explicit nil
 ### GetNames
 
 `func (o *StatDetail) GetNames() []StatName`

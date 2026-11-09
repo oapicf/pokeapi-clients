@@ -20,7 +20,7 @@ import java.util.List;
  * GrowthRateDetail
  */
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-10-25T05:48:09.645019047Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-11-09T13:49:28.343088631Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class GrowthRateDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -49,10 +49,10 @@ public class GrowthRateDetail   {
   }
 
   /**
-   * Get id
+   * The identifier for this resource.
    * @return id
    */
-  @ApiModelProperty(required = true, readOnly = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "The identifier for this resource.")
   public Integer getId() {
     return id;
   }
@@ -67,10 +67,10 @@ public class GrowthRateDetail   {
   }
 
   /**
-   * Get name
+   * The name for this resource.
    * @return name
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   public String getName() {
     return name;
   }
@@ -85,10 +85,10 @@ public class GrowthRateDetail   {
   }
 
   /**
-   * Get formula
+   * The formula used to calculate the rate at which the Pokémon species gains level.
    * @return formula
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The formula used to calculate the rate at which the Pokémon species gains level.")
   public String getFormula() {
     return formula;
   }
@@ -111,10 +111,10 @@ public class GrowthRateDetail   {
   }
 
   /**
-   * Get descriptions
+   * The descriptions of this characteristic listed in different languages.
    * @return descriptions
    */
-  @ApiModelProperty(required = true, readOnly = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "The descriptions of this characteristic listed in different languages.")
   public List<GrowthRateDescription> getDescriptions() {
     return descriptions;
   }
@@ -137,10 +137,10 @@ public class GrowthRateDetail   {
   }
 
   /**
-   * Get levels
+   * A list of levels and the amount of experienced needed to atain them based on this growth rate.
    * @return levels
    */
-  @ApiModelProperty(required = true, readOnly = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "A list of levels and the amount of experienced needed to atain them based on this growth rate.")
   public List<Experience> getLevels() {
     return levels;
   }
@@ -163,10 +163,10 @@ public class GrowthRateDetail   {
   }
 
   /**
-   * Get pokemonSpecies
+   * A list of Pokémon species that gain levels at this growth rate.
    * @return pokemonSpecies
    */
-  @ApiModelProperty(required = true, readOnly = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "A list of Pokémon species that gain levels at this growth rate.")
   public List<PokemonSpeciesSummary> getPokemonSpecies() {
     return pokemonSpecies;
   }

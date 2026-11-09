@@ -1,0 +1,43 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server PokemonHeldItem"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a PokemonHeldItem"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  PokemonHeldItemVersion = openapi_server.resourceTypes.PokemonHeldItemVersion
+  PokemonSummary = openapi_server.resourceTypes.PokemonSummary
+}
+resourceTypes {
+
+  PokemonHeldItem {
+    title = PokemonHeldItem
+    description = PokemonHeldItem
+    derivedFrom = Root
+    properties {
+        pokemon {
+          type = PokemonSummary
+          description = "The Pokémon that holds this item."
+          optional = true
+        }
+        version_details {
+          type = array
+          items.type = PokemonHeldItemVersion
+          description = "The details for the version that this item is held in by the Pokémon."
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  PokemonHeldItem {
+    title = PokemonHeldItem
+    description = PokemonHeldItem
+    implements = openapi_server.resourceTypes.PokemonHeldItem
+
+  }
+}

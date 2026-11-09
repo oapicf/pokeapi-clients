@@ -20,6 +20,9 @@ public class Experience   {
   private Integer experience;
 
   /**
+   * The level gained.
+   * minimum: -2147483648
+   * maximum: 2147483647
    **/
   public Experience level(Integer level) {
     this.level = level;
@@ -27,10 +30,10 @@ public class Experience   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The level gained.")
   @JsonProperty("level")
   @NotNull
-  public Integer getLevel() {
+ @Min(-2147483648) @Max(2147483647)  public Integer getLevel() {
     return level;
   }
   public void setLevel(Integer level) {
@@ -39,6 +42,9 @@ public class Experience   {
 
 
   /**
+   * The amount of experience required to reach the referenced level.
+   * minimum: -2147483648
+   * maximum: 2147483647
    **/
   public Experience experience(Integer experience) {
     this.experience = experience;
@@ -46,10 +52,10 @@ public class Experience   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The amount of experience required to reach the referenced level.")
   @JsonProperty("experience")
   @NotNull
-  public Integer getExperience() {
+ @Min(-2147483648) @Max(2147483647)  public Integer getExperience() {
     return experience;
   }
   public void setExperience(Integer experience) {

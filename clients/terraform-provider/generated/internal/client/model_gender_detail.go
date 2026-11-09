@@ -6,6 +6,6 @@ package client
 type GenderDetail struct {
 	Id int32 `json:"id"`
 	Name string `json:"name"`
-	PokemonSpeciesDetails []GenderDetailPokemonSpeciesDetailsInner `json:"pokemon_species_details"`
-	RequiredForEvolution []AbilityDetailPokemonInnerPokemon `json:"required_for_evolution"`
+	PokemonSpeciesDetails []GenderPokemonSpecies `json:"pokemon_species_details"`
+	RequiredForEvolution []PokemonSpeciesSummary `json:"required_for_evolution"`
 }

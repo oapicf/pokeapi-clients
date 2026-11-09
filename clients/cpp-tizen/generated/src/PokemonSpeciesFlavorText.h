@@ -47,25 +47,25 @@ public:
 	 */
 	void fromJson(char* jsonStr);
 
-	/*! \brief Get 
+	/*! \brief Get The localized flavor text for an API resource in a specific language. Note that this text is left unprocessed as it is found in game files. This means that it contains special characters that one might want to replace with their visible decodable version. Please check out this <a href='https://github.com/veekun/pokedex/issues/218#issuecomment-339841781' >issue</a> to find out more. 
 	 */
 	std::string getFlavorText();
 
-	/*! \brief Set 
+	/*! \brief Set The localized flavor text for an API resource in a specific language. Note that this text is left unprocessed as it is found in game files. This means that it contains special characters that one might want to replace with their visible decodable version. Please check out this <a href='https://github.com/veekun/pokedex/issues/218#issuecomment-339841781' >issue</a> to find out more. 
 	 */
 	void setFlavorText(std::string  flavor_text);
-	/*! \brief Get 
+	/*! \brief Get The language this name is in.
 	 */
 	LanguageSummary getLanguage();
 
-	/*! \brief Set 
+	/*! \brief Set The language this name is in.
 	 */
 	void setLanguage(LanguageSummary  language);
-	/*! \brief Get 
+	/*! \brief Get The game version this flavor text is extracted from.
 	 */
 	VersionSummary getVersion();
 
-	/*! \brief Set 
+	/*! \brief Set The game version this flavor text is extracted from.
 	 */
 	void setVersion(VersionSummary  version);
 

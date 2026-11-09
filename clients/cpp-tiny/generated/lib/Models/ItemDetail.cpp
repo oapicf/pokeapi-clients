@@ -8,19 +8,19 @@ ItemDetail::ItemDetail()
 {
 	id = int(0);
 	name = std::string();
-	cost = int(0);
 	fling_power = int(0);
-	fling_effect = ItemFlingEffectSummary();
-	attributes = std::list<AbilityDetail_pokemon_inner_pokemon>();
-	category = ItemCategorySummary();
+	fling_effect = null;
+	attributes = std::list<ItemAttributeSummary>();
+	category = null;
 	effect_entries = std::list<ItemEffectText>();
 	flavor_text_entries = std::list<ItemFlavorText>();
 	game_indices = std::list<ItemGameIndex>();
+	prices = std::list<ItemPrice>();
 	names = std::list<ItemName>();
-	held_by_pokemon = std::list<ItemDetail_held_by_pokemon_inner>();
-	sprites = ItemDetail_sprites();
-	baby_trigger_for = ItemDetail_baby_trigger_for();
-	machines = std::list<ItemDetail_machines_inner>();
+	held_by_pokemon = std::list<PokemonHeldItem>();
+	sprites = null;
+	baby_trigger_for = null;
+	machines = std::list<ItemMachine>();
 }
 
 ItemDetail::ItemDetail(std::string jsonString)
@@ -64,19 +64,6 @@ ItemDetail::fromJson(std::string jsonObj)
 
     }
 
-    const char *costKey = "cost";
-
-    if(object.has_key(costKey))
-    {
-        bourne::json value = object[costKey];
-
-
-
-        jsonToValue(&cost, value, "int");
-
-
-    }
-
     const char *fling_powerKey = "fling_power";
 
     if(object.has_key(fling_powerKey))
@@ -111,8 +98,8 @@ ItemDetail::fromJson(std::string jsonObj)
         bourne::json value = object[attributesKey];
 
 
-        std::list<AbilityDetail_pokemon_inner_pokemon> attributes_list;
-        AbilityDetail_pokemon_inner_pokemon element;
+        std::list<ItemAttributeSummary> attributes_list;
+        ItemAttributeSummary element;
         for(auto& var : value.array_range())
         {
 
@@ -206,6 +193,28 @@ ItemDetail::fromJson(std::string jsonObj)
 
     }
 
+    const char *pricesKey = "prices";
+
+    if(object.has_key(pricesKey))
+    {
+        bourne::json value = object[pricesKey];
+
+
+        std::list<ItemPrice> prices_list;
+        ItemPrice element;
+        for(auto& var : value.array_range())
+        {
+
+
+            element.fromJson(var.dump());
+
+            prices_list.push_back(element);
+        }
+        prices = prices_list;
+
+
+    }
+
     const char *namesKey = "names";
 
     if(object.has_key(namesKey))
@@ -235,8 +244,8 @@ ItemDetail::fromJson(std::string jsonObj)
         bourne::json value = object[held_by_pokemonKey];
 
 
-        std::list<ItemDetail_held_by_pokemon_inner> held_by_pokemon_list;
-        ItemDetail_held_by_pokemon_inner element;
+        std::list<PokemonHeldItem> held_by_pokemon_list;
+        PokemonHeldItem element;
         for(auto& var : value.array_range())
         {
 
@@ -259,7 +268,7 @@ ItemDetail::fromJson(std::string jsonObj)
 
 
 
-        ItemDetail_sprites* obj = &sprites;
+        ItemSprites* obj = &sprites;
 		obj->fromJson(value.dump());
 
     }
@@ -273,7 +282,7 @@ ItemDetail::fromJson(std::string jsonObj)
 
 
 
-        ItemDetail_baby_trigger_for* obj = &baby_trigger_for;
+        EvolutionChainSummary* obj = &baby_trigger_for;
 		obj->fromJson(value.dump());
 
     }
@@ -285,8 +294,8 @@ ItemDetail::fromJson(std::string jsonObj)
         bourne::json value = object[machinesKey];
 
 
-        std::list<ItemDetail_machines_inner> machines_list;
-        ItemDetail_machines_inner element;
+        std::list<ItemMachine> machines_list;
+        ItemMachine element;
         for(auto& var : value.array_range())
         {
 
@@ -326,13 +335,6 @@ ItemDetail::toJson()
 
 
 
-    object["cost"] = getCost();
-
-
-
-
-
-
     object["fling_power"] = getFlingPower();
 
 
@@ -346,12 +348,12 @@ ItemDetail::toJson()
 
 
 
-    std::list<AbilityDetail_pokemon_inner_pokemon> attributes_list = getAttributes();
+    std::list<ItemAttributeSummary> attributes_list = getAttributes();
     bourne::json attributes_arr = bourne::json::array();
 
     for(auto& var : attributes_list)
     {
-        AbilityDetail_pokemon_inner_pokemon obj = var;
+        ItemAttributeSummary obj = var;
         attributes_arr.append(obj.toJson());
     }
     object["attributes"] = attributes_arr;
@@ -413,6 +415,21 @@ ItemDetail::toJson()
 
 
 
+    std::list<ItemPrice> prices_list = getPrices();
+    bourne::json prices_arr = bourne::json::array();
+
+    for(auto& var : prices_list)
+    {
+        ItemPrice obj = var;
+        prices_arr.append(obj.toJson());
+    }
+    object["prices"] = prices_arr;
+
+
+
+
+
+
     std::list<ItemName> names_list = getNames();
     bourne::json names_arr = bourne::json::array();
 
@@ -428,12 +445,12 @@ ItemDetail::toJson()
 
 
 
-    std::list<ItemDetail_held_by_pokemon_inner> held_by_pokemon_list = getHeldByPokemon();
+    std::list<PokemonHeldItem> held_by_pokemon_list = getHeldByPokemon();
     bourne::json held_by_pokemon_arr = bourne::json::array();
 
     for(auto& var : held_by_pokemon_list)
     {
-        ItemDetail_held_by_pokemon_inner obj = var;
+        PokemonHeldItem obj = var;
         held_by_pokemon_arr.append(obj.toJson());
     }
     object["held_by_pokemon"] = held_by_pokemon_arr;
@@ -457,12 +474,12 @@ ItemDetail::toJson()
 
 
 
-    std::list<ItemDetail_machines_inner> machines_list = getMachines();
+    std::list<ItemMachine> machines_list = getMachines();
     bourne::json machines_arr = bourne::json::array();
 
     for(auto& var : machines_list)
     {
-        ItemDetail_machines_inner obj = var;
+        ItemMachine obj = var;
         machines_arr.append(obj.toJson());
     }
     object["machines"] = machines_arr;
@@ -499,18 +516,6 @@ ItemDetail::setName(std::string name)
 }
 
 int
-ItemDetail::getCost()
-{
-	return cost;
-}
-
-void
-ItemDetail::setCost(int cost)
-{
-	this->cost = cost;
-}
-
-int
 ItemDetail::getFlingPower()
 {
 	return fling_power;
@@ -534,14 +539,14 @@ ItemDetail::setFlingEffect(ItemFlingEffectSummary fling_effect)
 	this->fling_effect = fling_effect;
 }
 
-std::list<AbilityDetail_pokemon_inner_pokemon>
+std::list<ItemAttributeSummary>
 ItemDetail::getAttributes()
 {
 	return attributes;
 }
 
 void
-ItemDetail::setAttributes(std::list<AbilityDetail_pokemon_inner_pokemon> attributes)
+ItemDetail::setAttributes(std::list<ItemAttributeSummary> attributes)
 {
 	this->attributes = attributes;
 }
@@ -594,6 +599,18 @@ ItemDetail::setGameIndices(std::list<ItemGameIndex> game_indices)
 	this->game_indices = game_indices;
 }
 
+std::list<ItemPrice>
+ItemDetail::getPrices()
+{
+	return prices;
+}
+
+void
+ItemDetail::setPrices(std::list<ItemPrice> prices)
+{
+	this->prices = prices;
+}
+
 std::list<ItemName>
 ItemDetail::getNames()
 {
@@ -606,50 +623,50 @@ ItemDetail::setNames(std::list<ItemName> names)
 	this->names = names;
 }
 
-std::list<ItemDetail_held_by_pokemon_inner>
+std::list<PokemonHeldItem>
 ItemDetail::getHeldByPokemon()
 {
 	return held_by_pokemon;
 }
 
 void
-ItemDetail::setHeldByPokemon(std::list<ItemDetail_held_by_pokemon_inner> held_by_pokemon)
+ItemDetail::setHeldByPokemon(std::list<PokemonHeldItem> held_by_pokemon)
 {
 	this->held_by_pokemon = held_by_pokemon;
 }
 
-ItemDetail_sprites
+ItemSprites
 ItemDetail::getSprites()
 {
 	return sprites;
 }
 
 void
-ItemDetail::setSprites(ItemDetail_sprites sprites)
+ItemDetail::setSprites(ItemSprites sprites)
 {
 	this->sprites = sprites;
 }
 
-ItemDetail_baby_trigger_for
+EvolutionChainSummary
 ItemDetail::getBabyTriggerFor()
 {
 	return baby_trigger_for;
 }
 
 void
-ItemDetail::setBabyTriggerFor(ItemDetail_baby_trigger_for baby_trigger_for)
+ItemDetail::setBabyTriggerFor(EvolutionChainSummary baby_trigger_for)
 {
 	this->baby_trigger_for = baby_trigger_for;
 }
 
-std::list<ItemDetail_machines_inner>
+std::list<ItemMachine>
 ItemDetail::getMachines()
 {
 	return machines;
 }
 
 void
-ItemDetail::setMachines(std::list<ItemDetail_machines_inner> machines)
+ItemDetail::setMachines(std::list<ItemMachine> machines)
 {
 	this->machines = machines;
 }

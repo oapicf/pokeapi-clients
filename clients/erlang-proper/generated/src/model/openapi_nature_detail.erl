@@ -15,8 +15,7 @@
   | {'increased_stat', openapi_stat_summary:openapi_stat_summary() }
   | {'likes_flavor', openapi_berry_flavor_summary:openapi_berry_flavor_summary() }
   | {'hates_flavor', openapi_berry_flavor_summary:openapi_berry_flavor_summary() }
-  | {'berries', list(openapi_berry_summary:openapi_berry_summary()) }
-  | {'pokeathlon_stat_changes', list(openapi_nature_detail_pokeathlon_stat_changes_inner:openapi_nature_detail_pokeathlon_stat_changes_inner()) }
+  | {'pokeathlon_stat_changes', list(openapi_nature_pokeathlon_stat:openapi_nature_pokeathlon_stat()) }
   | {'move_battle_style_preferences', list(openapi_nature_battle_style_preference:openapi_nature_battle_style_preference()) }
   | {'names', list(openapi_nature_name:openapi_nature_name()) }
   ].
@@ -32,8 +31,7 @@ openapi_nature_detail(Fields) ->
             , {'increased_stat', openapi_stat_summary:openapi_stat_summary() }
             , {'likes_flavor', openapi_berry_flavor_summary:openapi_berry_flavor_summary() }
             , {'hates_flavor', openapi_berry_flavor_summary:openapi_berry_flavor_summary() }
-            , {'berries', list(openapi_berry_summary:openapi_berry_summary()) }
-            , {'pokeathlon_stat_changes', list(openapi_nature_detail_pokeathlon_stat_changes_inner:openapi_nature_detail_pokeathlon_stat_changes_inner()) }
+            , {'pokeathlon_stat_changes', list(openapi_nature_pokeathlon_stat:openapi_nature_pokeathlon_stat()) }
             , {'move_battle_style_preferences', list(openapi_nature_battle_style_preference:openapi_nature_battle_style_preference()) }
             , {'names', list(openapi_nature_name:openapi_nature_name()) }
             ],

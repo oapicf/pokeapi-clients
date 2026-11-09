@@ -1,8 +1,10 @@
 package org.openapitools.model;
 
 import org.openapitools.jackson.nullable.JsonNullable;
-import org.openapitools.model.AbilityDetailPokemonInnerPokemon;
 import org.openapitools.model.GenerationSummary;
+import org.openapitools.model.MoveLearnMethodSummary;
+import org.openapitools.model.PokedexSummary;
+import org.openapitools.model.RegionSummary;
 import org.openapitools.model.VersionSummary;
 import java.util.*;
 import java.util.Objects;
@@ -16,32 +18,56 @@ import java.math.*;
 public class VersionGroupDetail implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * The identifier for this resource.
+   */
   @JsonProperty("id")
   private Integer id;
 
+  /**
+   * The name for this resource.
+   */
   @JsonProperty("name")
   private String name;
 
+  /**
+   * Order for sorting. Almost by date of release, except similar versions are grouped together.
+   */
   @JsonProperty("order")
   private Integer order;
 
+  /**
+   * The generation this version was introduced in.
+   */
   @JsonProperty("generation")
   private GenerationSummary generation;
 
+  /**
+   * A list of methods in which Pokémon can learn moves in this version group.
+   */
   @JsonProperty("move_learn_methods")
-  private List<AbilityDetailPokemonInnerPokemon> moveLearnMethods = new ArrayList<>();
+  private List<MoveLearnMethodSummary> moveLearnMethods = new ArrayList<>();
 
+  /**
+   * A list of Pokédexes introduces in this version group.
+   */
   @JsonProperty("pokedexes")
-  private List<AbilityDetailPokemonInnerPokemon> pokedexes = new ArrayList<>();
+  private List<PokedexSummary> pokedexes = new ArrayList<>();
 
+  /**
+   * A list of regions that can be visited in this version group.
+   */
   @JsonProperty("regions")
-  private List<AbilityDetailPokemonInnerPokemon> regions = new ArrayList<>();
+  private List<RegionSummary> regions = new ArrayList<>();
 
+  /**
+   * The versions this version group owns.
+   */
   @JsonProperty("versions")
   private List<VersionSummary> versions = new ArrayList<>();
 
   /**
-   * 
+   * The identifier for this resource.
    * @return id
    */
   public Integer getId() {
@@ -53,7 +79,7 @@ public class VersionGroupDetail implements Serializable {
   }
 
   /**
-   * 
+   * The name for this resource.
    * @return name
    */
   public String getName() {
@@ -65,7 +91,7 @@ public class VersionGroupDetail implements Serializable {
   }
 
   /**
-   * 
+   * Order for sorting. Almost by date of release, except similar versions are grouped together.
    * @return order
    */
   public Integer getOrder() {
@@ -77,7 +103,7 @@ public class VersionGroupDetail implements Serializable {
   }
 
   /**
-   * 
+   * The generation this version was introduced in.
    * @return generation
    */
   public GenerationSummary getGeneration() {
@@ -89,43 +115,43 @@ public class VersionGroupDetail implements Serializable {
   }
 
   /**
-   * 
+   * A list of methods in which Pokémon can learn moves in this version group.
    * @return moveLearnMethods
    */
-  public List<AbilityDetailPokemonInnerPokemon> getMoveLearnMethods() {
+  public List<MoveLearnMethodSummary> getMoveLearnMethods() {
     return moveLearnMethods;
   }
 
-  public void setMoveLearnMethods(List<AbilityDetailPokemonInnerPokemon> moveLearnMethods) {
+  public void setMoveLearnMethods(List<MoveLearnMethodSummary> moveLearnMethods) {
     this.moveLearnMethods = moveLearnMethods;
   }
 
   /**
-   * 
+   * A list of Pokédexes introduces in this version group.
    * @return pokedexes
    */
-  public List<AbilityDetailPokemonInnerPokemon> getPokedexes() {
+  public List<PokedexSummary> getPokedexes() {
     return pokedexes;
   }
 
-  public void setPokedexes(List<AbilityDetailPokemonInnerPokemon> pokedexes) {
+  public void setPokedexes(List<PokedexSummary> pokedexes) {
     this.pokedexes = pokedexes;
   }
 
   /**
-   * 
+   * A list of regions that can be visited in this version group.
    * @return regions
    */
-  public List<AbilityDetailPokemonInnerPokemon> getRegions() {
+  public List<RegionSummary> getRegions() {
     return regions;
   }
 
-  public void setRegions(List<AbilityDetailPokemonInnerPokemon> regions) {
+  public void setRegions(List<RegionSummary> regions) {
     this.regions = regions;
   }
 
   /**
-   * 
+   * The versions this version group owns.
    * @return versions
    */
   public List<VersionSummary> getVersions() {

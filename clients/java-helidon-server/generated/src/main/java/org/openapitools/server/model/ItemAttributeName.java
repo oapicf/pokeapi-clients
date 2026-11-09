@@ -21,8 +21,8 @@ public class ItemAttributeName   {
     /**
      * Create ItemAttributeName.
      *
-     * @param name name
-     * @param language language
+     * @param name The localized name for an API resource in a specific language.
+     * @param language The language this name is in.
      */
     public ItemAttributeName(
         String name, 
@@ -35,7 +35,7 @@ public class ItemAttributeName   {
 
 
     /**
-     * Get name
+     * The localized name for an API resource in a specific language.
      * @return name
      */
     public String getName() {
@@ -47,7 +47,7 @@ public class ItemAttributeName   {
     }
 
     /**
-     * Get language
+     * The language this name is in.
      * @return language
      */
     public LanguageSummary getLanguage() {

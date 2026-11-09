@@ -56,6 +56,7 @@ class ItemFlingEffectDetail(Model):
     def id(self):
         """Gets the id of this ItemFlingEffectDetail.
 
+        The identifier for this resource.
 
         :return: The id of this ItemFlingEffectDetail.
         :rtype: int
@@ -66,6 +67,7 @@ class ItemFlingEffectDetail(Model):
     def id(self, id):
         """Sets the id of this ItemFlingEffectDetail.
 
+        The identifier for this resource.
 
         :param id: The id of this ItemFlingEffectDetail.
         :type id: int
@@ -79,6 +81,7 @@ class ItemFlingEffectDetail(Model):
     def name(self):
         """Gets the name of this ItemFlingEffectDetail.
 
+        The name for this resource.
 
         :return: The name of this ItemFlingEffectDetail.
         :rtype: str
@@ -89,14 +92,15 @@ class ItemFlingEffectDetail(Model):
     def name(self, name):
         """Sets the name of this ItemFlingEffectDetail.
 
+        The name for this resource.
 
         :param name: The name of this ItemFlingEffectDetail.
         :type name: str
         """
         if name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")
-        if name is not None and len(name) > 100:
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `100`")
+        if name is not None and len(name) > 200:
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `200`")
 
         self._name = name
 
@@ -104,6 +108,7 @@ class ItemFlingEffectDetail(Model):
     def effect_entries(self):
         """Gets the effect_entries of this ItemFlingEffectDetail.
 
+        The result of this fling effect listed in different languages.
 
         :return: The effect_entries of this ItemFlingEffectDetail.
         :rtype: List[ItemFlingEffectEffectText]
@@ -114,6 +119,7 @@ class ItemFlingEffectDetail(Model):
     def effect_entries(self, effect_entries):
         """Sets the effect_entries of this ItemFlingEffectDetail.
 
+        The result of this fling effect listed in different languages.
 
         :param effect_entries: The effect_entries of this ItemFlingEffectDetail.
         :type effect_entries: List[ItemFlingEffectEffectText]
@@ -127,6 +133,7 @@ class ItemFlingEffectDetail(Model):
     def items(self):
         """Gets the items of this ItemFlingEffectDetail.
 
+        A list of items that have this fling effect.
 
         :return: The items of this ItemFlingEffectDetail.
         :rtype: List[ItemSummary]
@@ -137,6 +144,7 @@ class ItemFlingEffectDetail(Model):
     def items(self, items):
         """Sets the items of this ItemFlingEffectDetail.
 
+        A list of items that have this fling effect.
 
         :param items: The items of this ItemFlingEffectDetail.
         :type items: List[ItemSummary]

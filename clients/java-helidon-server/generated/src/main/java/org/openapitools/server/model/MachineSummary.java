@@ -20,7 +20,7 @@ public class MachineSummary   {
     /**
      * Create MachineSummary.
      *
-     * @param url url
+     * @param url The URL of the referenced resource.
      */
     public MachineSummary(
         URI url
@@ -31,7 +31,7 @@ public class MachineSummary   {
 
 
     /**
-     * Get url
+     * The URL of the referenced resource.
      * @return url
      */
     public URI getUrl() {

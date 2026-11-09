@@ -19,7 +19,7 @@ import java.util.List;
  * ContestTypeDetail
  */
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-10-25T05:48:09.645019047Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-11-09T13:49:28.343088631Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class ContestTypeDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -40,10 +40,10 @@ public class ContestTypeDetail   {
   }
 
   /**
-   * Get id
+   * The identifier for this resource.
    * @return id
    */
-  @ApiModelProperty(required = true, readOnly = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "The identifier for this resource.")
   public Integer getId() {
     return id;
   }
@@ -58,10 +58,10 @@ public class ContestTypeDetail   {
   }
 
   /**
-   * Get name
+   * The name for this resource.
    * @return name
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   public String getName() {
     return name;
   }
@@ -76,10 +76,10 @@ public class ContestTypeDetail   {
   }
 
   /**
-   * Get berryFlavor
+   * The berry flavor that correlates with this contest type.
    * @return berryFlavor
    */
-  @ApiModelProperty(required = true, readOnly = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "The berry flavor that correlates with this contest type.")
   public BerryFlavorSummary getBerryFlavor() {
     return berryFlavor;
   }
@@ -102,10 +102,10 @@ public class ContestTypeDetail   {
   }
 
   /**
-   * Get names
+   * The name of this contest type listed in different languages.
    * @return names
    */
-  @ApiModelProperty(required = true, readOnly = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "The name of this contest type listed in different languages.")
   public List<ContestTypeName> getNames() {
     return names;
   }

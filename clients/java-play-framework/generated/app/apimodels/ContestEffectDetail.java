@@ -14,7 +14,7 @@ import javax.validation.Valid;
 /**
  * ContestEffectDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-10-25T05:48:13.486809836Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-11-09T13:49:31.462302702Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class ContestEffectDetail   {
   @JsonProperty("id")
@@ -24,11 +24,15 @@ public class ContestEffectDetail   {
 
   @JsonProperty("appeal")
   @NotNull
+@Min(-2147483648)
+@Max(2147483647)
 
   private Integer appeal;
 
   @JsonProperty("jam")
   @NotNull
+@Min(-2147483648)
+@Max(2147483647)
 
   private Integer jam;
 
@@ -50,7 +54,7 @@ public class ContestEffectDetail   {
   }
 
    /**
-   * Get id
+   * The identifier for this resource.
    * @return id
   **/
   public Integer getId() {
@@ -67,7 +71,9 @@ public class ContestEffectDetail   {
   }
 
    /**
-   * Get appeal
+   * The base number of hearts the user of this move gets.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return appeal
   **/
   public Integer getAppeal() {
@@ -84,7 +90,9 @@ public class ContestEffectDetail   {
   }
 
    /**
-   * Get jam
+   * The base number of hearts the user's opponent loses.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return jam
   **/
   public Integer getJam() {
@@ -109,7 +117,7 @@ public class ContestEffectDetail   {
   }
 
    /**
-   * Get effectEntries
+   * The result of this contest effect listed in different languages.
    * @return effectEntries
   **/
   public List<@Valid ContestEffectEffectText> getEffectEntries() {
@@ -134,7 +142,7 @@ public class ContestEffectDetail   {
   }
 
    /**
-   * Get flavorTextEntries
+   * The flavor text of this contest effect listed in different languages.
    * @return flavorTextEntries
   **/
   public List<@Valid ContestEffectFlavorText> getFlavorTextEntries() {

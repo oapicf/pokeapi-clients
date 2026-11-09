@@ -5,8 +5,8 @@ from datetime import date, datetime
 from typing import List, Dict, Type
 
 from openapi_server.models.base_model import Model
-from openapi_server.models.egg_group_detail_pokemon_species_inner import EggGroupDetailPokemonSpeciesInner
 from openapi_server.models.egg_group_name import EggGroupName
+from openapi_server.models.pokemon_species_summary import PokemonSpeciesSummary
 from openapi_server import util
 
 
@@ -16,7 +16,7 @@ class EggGroupDetail(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, id: int=None, name: str=None, names: List[EggGroupName]=None, pokemon_species: List[EggGroupDetailPokemonSpeciesInner]=None):
+    def __init__(self, id: int=None, name: str=None, names: List[EggGroupName]=None, pokemon_species: List[PokemonSpeciesSummary]=None):
         """EggGroupDetail - a model defined in OpenAPI
 
         :param id: The id of this EggGroupDetail.
@@ -28,7 +28,7 @@ class EggGroupDetail(Model):
             'id': int,
             'name': str,
             'names': List[EggGroupName],
-            'pokemon_species': List[EggGroupDetailPokemonSpeciesInner]
+            'pokemon_species': List[PokemonSpeciesSummary]
         }
 
         self.attribute_map = {
@@ -56,6 +56,7 @@ class EggGroupDetail(Model):
     def id(self):
         """Gets the id of this EggGroupDetail.
 
+        The identifier for this resource.
 
         :return: The id of this EggGroupDetail.
         :rtype: int
@@ -66,6 +67,7 @@ class EggGroupDetail(Model):
     def id(self, id):
         """Sets the id of this EggGroupDetail.
 
+        The identifier for this resource.
 
         :param id: The id of this EggGroupDetail.
         :type id: int
@@ -79,6 +81,7 @@ class EggGroupDetail(Model):
     def name(self):
         """Gets the name of this EggGroupDetail.
 
+        The name for this resource.
 
         :return: The name of this EggGroupDetail.
         :rtype: str
@@ -89,14 +92,15 @@ class EggGroupDetail(Model):
     def name(self, name):
         """Sets the name of this EggGroupDetail.
 
+        The name for this resource.
 
         :param name: The name of this EggGroupDetail.
         :type name: str
         """
         if name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")
-        if name is not None and len(name) > 100:
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `100`")
+        if name is not None and len(name) > 200:
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `200`")
 
         self._name = name
 
@@ -104,6 +108,7 @@ class EggGroupDetail(Model):
     def names(self):
         """Gets the names of this EggGroupDetail.
 
+        The name of this resource listed in different languages.
 
         :return: The names of this EggGroupDetail.
         :rtype: List[EggGroupName]
@@ -114,6 +119,7 @@ class EggGroupDetail(Model):
     def names(self, names):
         """Sets the names of this EggGroupDetail.
 
+        The name of this resource listed in different languages.
 
         :param names: The names of this EggGroupDetail.
         :type names: List[EggGroupName]
@@ -127,9 +133,10 @@ class EggGroupDetail(Model):
     def pokemon_species(self):
         """Gets the pokemon_species of this EggGroupDetail.
 
+        A list of all Pokémon species that are members of this egg group.
 
         :return: The pokemon_species of this EggGroupDetail.
-        :rtype: List[EggGroupDetailPokemonSpeciesInner]
+        :rtype: List[PokemonSpeciesSummary]
         """
         return self._pokemon_species
 
@@ -137,9 +144,10 @@ class EggGroupDetail(Model):
     def pokemon_species(self, pokemon_species):
         """Sets the pokemon_species of this EggGroupDetail.
 
+        A list of all Pokémon species that are members of this egg group.
 
         :param pokemon_species: The pokemon_species of this EggGroupDetail.
-        :type pokemon_species: List[EggGroupDetailPokemonSpeciesInner]
+        :type pokemon_species: List[PokemonSpeciesSummary]
         """
         if pokemon_species is None:
             raise ValueError("Invalid value for `pokemon_species`, must not be `None`")

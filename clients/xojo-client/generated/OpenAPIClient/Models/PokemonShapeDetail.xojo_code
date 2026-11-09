@@ -2,26 +2,41 @@
 Protected Class PokemonShapeDetail
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The identifier for this resource.
+		#tag EndNote
 		id As Integer
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The name for this resource.
+		#tag EndNote
 		name As String
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
-		awesome_names() As OpenAPIClient.Models.PokemonShapeDetailAwesomeNamesInner
+		#tag Note
+			The "scientific" name of this Pokémon shape listed in different languages.
+		#tag EndNote
+		awesome_names() As OpenAPIClient.Models.PokemonShapeAwesomeName
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
-		names() As OpenAPIClient.Models.PokemonShapeDetailNamesInner
+		#tag Note
+			The name of this resource listed in different languages.
+		#tag EndNote
+		names() As OpenAPIClient.Models.PokemonShapeName
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			A list of the Pokémon species that have this shape.
+		#tag EndNote
 		pokemon_species() As OpenAPIClient.Models.PokemonSpeciesSummary
 	#tag EndProperty
 
@@ -83,7 +98,7 @@ Protected Class PokemonShapeDetail
 			Visible=false
 			Group="Behavior"
 			InitialValue=""
-			Type="PokemonShapeDetailAwesomeNamesInner"
+			Type="PokemonShapeAwesomeName"
 			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
@@ -91,7 +106,7 @@ Protected Class PokemonShapeDetail
 			Visible=false
 			Group="Behavior"
 			InitialValue=""
-			Type="PokemonShapeDetailNamesInner"
+			Type="PokemonShapeName"
 			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty

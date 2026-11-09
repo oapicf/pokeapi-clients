@@ -14,7 +14,7 @@ import javax.validation.Valid;
 /**
  * Should have a link to Version Group info but the Circular dependency and compilation order fight eachother and I&#39;m not sure how to add anything other than a hyperlink
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-10-25T05:48:13.486809836Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-11-09T13:49:31.462302702Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class VersionDetail   {
   @JsonProperty("id")
@@ -24,7 +24,7 @@ public class VersionDetail   {
 
   @JsonProperty("name")
   @NotNull
-@Size(max=100)
+@Size(max=200)
 
   private String name;
 
@@ -46,7 +46,7 @@ public class VersionDetail   {
   }
 
    /**
-   * Get id
+   * The identifier for this resource.
    * @return id
   **/
   public Integer getId() {
@@ -63,7 +63,7 @@ public class VersionDetail   {
   }
 
    /**
-   * Get name
+   * The name for this resource.
    * @return name
   **/
   public String getName() {
@@ -88,7 +88,7 @@ public class VersionDetail   {
   }
 
    /**
-   * Get names
+   * The name of this resource listed in different languages.
    * @return names
   **/
   public List<@Valid VersionName> getNames() {
@@ -105,7 +105,7 @@ public class VersionDetail   {
   }
 
    /**
-   * Get versionGroup
+   * The version group this version belongs to.
    * @return versionGroup
   **/
   public VersionGroupSummary getVersionGroup() {

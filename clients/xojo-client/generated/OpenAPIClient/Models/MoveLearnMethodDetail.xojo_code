@@ -2,27 +2,42 @@
 Protected Class MoveLearnMethodDetail
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The identifier for this resource.
+		#tag EndNote
 		id As Integer
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The name for this resource.
+		#tag EndNote
 		name As String
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The name of this resource listed in different languages.
+		#tag EndNote
 		names() As OpenAPIClient.Models.MoveLearnMethodName
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The description of this resource listed in different languages.
+		#tag EndNote
 		descriptions() As OpenAPIClient.Models.MoveLearnMethodDescription
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
-		version_groups() As OpenAPIClient.Models.AbilityDetailPokemonInnerPokemon
+		#tag Note
+			A list of version groups where moves can be learned through this method.
+		#tag EndNote
+		version_groups() As OpenAPIClient.Models.VersionGroupSummary
 	#tag EndProperty
 
 
@@ -99,7 +114,7 @@ Protected Class MoveLearnMethodDetail
 			Visible=false
 			Group="Behavior"
 			InitialValue=""
-			Type="AbilityDetailPokemonInnerPokemon"
+			Type="VersionGroupSummary"
 			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior

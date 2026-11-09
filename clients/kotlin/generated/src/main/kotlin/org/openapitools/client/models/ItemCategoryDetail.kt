@@ -33,28 +33,33 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param id 
- * @param name 
- * @param items 
- * @param names 
- * @param pocket 
+ * @param id The identifier for this resource.
+ * @param name The name for this resource.
+ * @param items A list of items that are a part of this category.
+ * @param names The name of this item category listed in different languages.
+ * @param pocket The pocket items in this category would be put in.
  */
 
 
 data class ItemCategoryDetail (
 
+    /* The identifier for this resource. */
     @Json(name = "id")
     val id: kotlin.Int,
 
+    /* The name for this resource. */
     @Json(name = "name")
     val name: kotlin.String,
 
+    /* A list of items that are a part of this category. */
     @Json(name = "items")
     val items: kotlin.collections.List<ItemSummary>,
 
+    /* The name of this item category listed in different languages. */
     @Json(name = "names")
     val names: kotlin.collections.List<ItemCategoryName>,
 
+    /* The pocket items in this category would be put in. */
     @Json(name = "pocket")
     val pocket: ItemPocketSummary
 

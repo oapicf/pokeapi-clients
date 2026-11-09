@@ -5,16 +5,34 @@
 #include "../external/cJSON.h"
 #include "../include/keyValuePair.h"
 #include "../include/binary.h"
+#include "../model/currency_detail.h"
 #include "../model/item_attribute_detail.h"
 #include "../model/item_category_detail.h"
 #include "../model/item_detail.h"
 #include "../model/item_fling_effect_detail.h"
 #include "../model/item_pocket_detail.h"
+#include "../model/paginated_currency_summary_list.h"
 #include "../model/paginated_item_attribute_summary_list.h"
 #include "../model/paginated_item_category_summary_list.h"
 #include "../model/paginated_item_fling_effect_summary_list.h"
 #include "../model/paginated_item_pocket_summary_list.h"
 #include "../model/paginated_item_summary_list.h"
+
+
+// List currencies
+//
+// Currencies used to buy items.
+//
+paginated_currency_summary_list_t*
+ItemsAPI_currencyList(apiClient_t *apiClient, int *limit, int *offset, char *q);
+
+
+// Get currency
+//
+// Currencies used to buy items.
+//
+currency_detail_t*
+ItemsAPI_currencyRetrieve(apiClient_t *apiClient, char *id);
 
 
 // List item attributes

@@ -16,22 +16,26 @@ import io.swagger.v3.oas.annotations.media.Schema
 
 /**
  * 
- * @param baseStat 
- * @param effort 
- * @param stat 
+ * @param baseStat The base value of the stat.
+ * @param effort The effort points (EV) the Pokémon has in the stat.
+ * @param stat The stat the Pokémon has.
  */
 data class PokemonStat(
 
-    @Schema(required = true, description = "")
+    @get:Min(value=-2147483648)
+    @get:Max(value=2147483647)
+    @Schema(required = true, description = "The base value of the stat.")
     @param:JsonProperty("base_stat", required = true)
     @get:JsonProperty("base_stat", required = true) val baseStat: kotlin.Int,
 
-    @Schema(required = true, description = "")
+    @get:Min(value=-2147483648)
+    @get:Max(value=2147483647)
+    @Schema(required = true, description = "The effort points (EV) the Pokémon has in the stat.")
     @param:JsonProperty("effort", required = true)
     @get:JsonProperty("effort", required = true) val effort: kotlin.Int,
 
     @field:Valid
-    @Schema(required = true, description = "")
+    @Schema(required = true, description = "The stat the Pokémon has.")
     @param:JsonProperty("stat", required = true)
     @get:JsonProperty("stat", required = true) val stat: StatSummary
 ) {

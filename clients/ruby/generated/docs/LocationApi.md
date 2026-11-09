@@ -27,17 +27,6 @@ Location areas are sections of areas, such as floors in a building or cave. Each
 ```ruby
 require 'time'
 require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
 
 api_instance = PokeApiClient::LocationApi.new
 opts = {
@@ -85,7 +74,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -106,20 +95,9 @@ Location areas are sections of areas, such as floors in a building or cave. Each
 ```ruby
 require 'time'
 require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
 
 api_instance = PokeApiClient::LocationApi.new
-id = 56 # Integer | A unique integer value identifying this location area.
+id = 1 # Integer | A unique integer value identifying this location area.
 
 begin
   # Get location area
@@ -160,7 +138,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -181,17 +159,6 @@ Locations that can be visited within the games. Locations make up sizable portio
 ```ruby
 require 'time'
 require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
 
 api_instance = PokeApiClient::LocationApi.new
 opts = {
@@ -241,7 +208,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -262,20 +229,9 @@ Locations that can be visited within the games. Locations make up sizable portio
 ```ruby
 require 'time'
 require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
 
 api_instance = PokeApiClient::LocationApi.new
-id = 'id_example' # String | This parameter can be a string or an integer.
+id = '1' # String | This parameter can be a string or an integer.
 
 begin
   # Get location
@@ -316,7 +272,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -337,17 +293,6 @@ Areas used for grouping Pokémon encounters in Pal Park. They're like habitats t
 ```ruby
 require 'time'
 require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
 
 api_instance = PokeApiClient::LocationApi.new
 opts = {
@@ -397,7 +342,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -418,20 +363,9 @@ Areas used for grouping Pokémon encounters in Pal Park. They're like habitats t
 ```ruby
 require 'time'
 require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
 
 api_instance = PokeApiClient::LocationApi.new
-id = 'id_example' # String | This parameter can be a string or an integer.
+id = '1' # String | This parameter can be a string or an integer.
 
 begin
   # Get pal park area
@@ -472,7 +406,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -493,17 +427,6 @@ A region is an organized area of the Pokémon world. Most often, the main differ
 ```ruby
 require 'time'
 require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
 
 api_instance = PokeApiClient::LocationApi.new
 opts = {
@@ -553,7 +476,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -574,20 +497,9 @@ A region is an organized area of the Pokémon world. Most often, the main differ
 ```ruby
 require 'time'
 require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
 
 api_instance = PokeApiClient::LocationApi.new
-id = 'id_example' # String | This parameter can be a string or an integer.
+id = '1' # String | This parameter can be a string or an integer.
 
 begin
   # Get region
@@ -628,7 +540,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

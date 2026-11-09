@@ -15,7 +15,7 @@ import org.openapitools.model.SuperContestEffectFlavorText;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-10-25T05:47:53.227411880Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-11-09T13:49:15.621225368Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class SuperContestEffectDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -30,6 +30,7 @@ public class SuperContestEffectDetail   {
   private List<MoveSummary> moves = new ArrayList<>();
 
   /**
+   * The identifier for this resource.
    **/
   public SuperContestEffectDetail id(Integer id) {
     this.id = id;
@@ -37,7 +38,7 @@ public class SuperContestEffectDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   @JsonProperty("id")
   public Integer getId() {
     return id;
@@ -47,6 +48,9 @@ public class SuperContestEffectDetail   {
   }
 
   /**
+   * The level of appeal this super contest effect has.
+   * minimum: -2147483648
+   * maximum: 2147483647
    **/
   public SuperContestEffectDetail appeal(Integer appeal) {
     this.appeal = appeal;
@@ -54,7 +58,7 @@ public class SuperContestEffectDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The level of appeal this super contest effect has.")
   @JsonProperty("appeal")
   public Integer getAppeal() {
     return appeal;
@@ -64,6 +68,7 @@ public class SuperContestEffectDetail   {
   }
 
   /**
+   * The flavor text of this super contest effect listed in different languages.
    **/
   public SuperContestEffectDetail flavorTextEntries(List<SuperContestEffectFlavorText> flavorTextEntries) {
     this.flavorTextEntries = flavorTextEntries;
@@ -71,7 +76,7 @@ public class SuperContestEffectDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The flavor text of this super contest effect listed in different languages.")
   @JsonProperty("flavor_text_entries")
   public List<SuperContestEffectFlavorText> getFlavorTextEntries() {
     return flavorTextEntries;
@@ -81,6 +86,7 @@ public class SuperContestEffectDetail   {
   }
 
   /**
+   * A list of moves that have the effect when used in super contests.
    **/
   public SuperContestEffectDetail moves(List<MoveSummary> moves) {
     this.moves = moves;
@@ -88,7 +94,7 @@ public class SuperContestEffectDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of moves that have the effect when used in super contests.")
   @JsonProperty("moves")
   public List<MoveSummary> getMoves() {
     return moves;

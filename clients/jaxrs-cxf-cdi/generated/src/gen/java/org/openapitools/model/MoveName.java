@@ -21,6 +21,7 @@ public class MoveName   {
   private LanguageSummary language;
 
   /**
+   * The localized name for an API resource in a specific language.
    **/
   public MoveName name(String name) {
     this.name = name;
@@ -28,10 +29,10 @@ public class MoveName   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The localized name for an API resource in a specific language.")
   @JsonProperty("name")
   @NotNull
- @Size(max=100)  public String getName() {
+ @Size(max=200)  public String getName() {
     return name;
   }
   public void setName(String name) {
@@ -40,6 +41,7 @@ public class MoveName   {
 
 
   /**
+   * The language this name is in.
    **/
   public MoveName language(LanguageSummary language) {
     this.language = language;
@@ -47,7 +49,7 @@ public class MoveName   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The language this name is in.")
   @JsonProperty("language")
   @NotNull
   public LanguageSummary getLanguage() {

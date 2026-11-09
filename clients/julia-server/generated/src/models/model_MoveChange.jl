@@ -14,20 +14,20 @@
         version_group=nothing,
     )
 
-    - accuracy::Int64
-    - power::Int64
-    - pp::Int64
-    - effect_chance::Int64
-    - effect_entries::Vector{MoveChangeEffectEntriesInner}
-    - type::TypeSummary
-    - version_group::VersionGroupSummary
+    - accuracy::Int64 : The percent value of how likely this move is to be successful.
+    - power::Int64 : The base power before the listed version group, or null if power did not change.
+    - pp::Int64 : Power points. The number of times this move can be used.
+    - effect_chance::Int64 : The percent value of how likely it is this moves effect will take effect.
+    - effect_entries::Vector{MoveEffectEffectText} : The effect of this move listed in different languages.
+    - type::TypeSummary : The elemental type of this move.
+    - version_group::VersionGroupSummary : The version group in which these move stat values were in effect.
 """
 Base.@kwdef mutable struct MoveChange <: OpenAPI.APIModel
     accuracy::Union{Nothing, Int64} = nothing
     power::Union{Nothing, Int64} = nothing
     pp::Union{Nothing, Int64} = nothing
     effect_chance::Union{Nothing, Int64} = nothing
-    effect_entries::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{MoveChangeEffectEntriesInner} }
+    effect_entries::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{MoveEffectEffectText} }
     type = nothing # spec type: Union{ Nothing, TypeSummary }
     version_group = nothing # spec type: Union{ Nothing, VersionGroupSummary }
 
@@ -38,7 +38,7 @@ Base.@kwdef mutable struct MoveChange <: OpenAPI.APIModel
     end
 end # type MoveChange
 
-const _property_types_MoveChange = Dict{Symbol,String}(Symbol("accuracy")=>"Int64", Symbol("power")=>"Int64", Symbol("pp")=>"Int64", Symbol("effect_chance")=>"Int64", Symbol("effect_entries")=>"Vector{MoveChangeEffectEntriesInner}", Symbol("type")=>"TypeSummary", Symbol("version_group")=>"VersionGroupSummary", )
+const _property_types_MoveChange = Dict{Symbol,String}(Symbol("accuracy")=>"Int64", Symbol("power")=>"Int64", Symbol("pp")=>"Int64", Symbol("effect_chance")=>"Int64", Symbol("effect_entries")=>"Vector{MoveEffectEffectText}", Symbol("type")=>"TypeSummary", Symbol("version_group")=>"VersionGroupSummary", )
 OpenAPI.property_type(::Type{ MoveChange }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_MoveChange[name]))}
 
 function OpenAPI.check_required(o::MoveChange)
@@ -61,8 +61,20 @@ end
 
 function OpenAPI.validate_property(::Type{ MoveChange }, name::Symbol, val)
 
+    if name === Symbol("accuracy")
+        OpenAPI.validate_param(name, "MoveChange", :maximum, val, 2147483647, false)
+        OpenAPI.validate_param(name, "MoveChange", :minimum, val, -2147483648, false)
+    end
 
+    if name === Symbol("power")
+        OpenAPI.validate_param(name, "MoveChange", :maximum, val, 2147483647, false)
+        OpenAPI.validate_param(name, "MoveChange", :minimum, val, -2147483648, false)
+    end
 
+    if name === Symbol("pp")
+        OpenAPI.validate_param(name, "MoveChange", :maximum, val, 2147483647, false)
+        OpenAPI.validate_param(name, "MoveChange", :minimum, val, -2147483648, false)
+    end
 
 
 

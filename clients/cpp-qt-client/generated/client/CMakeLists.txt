@@ -14,21 +14,18 @@ add_library(${PROJECT_NAME}
   OAIAbilityChange.h
   OAIAbilityChangeEffectText.h
   OAIAbilityDetail.h
-  OAIAbilityDetail_pokemon_inner.h
-  OAIAbilityDetail_pokemon_inner_pokemon.h
   OAIAbilityEffectText.h
   OAIAbilityFlavorText.h
   OAIAbilityName.h
+  OAIAbilityPokemonDetail.h
   OAIAbilitySummary.h
   OAIBerryDetail.h
-  OAIBerryDetail_flavors_inner.h
-  OAIBerryDetail_flavors_inner_flavor.h
   OAIBerryFirmnessDetail.h
   OAIBerryFirmnessName.h
   OAIBerryFirmnessSummary.h
+  OAIBerryFlavorBerryMap.h
   OAIBerryFlavorDetail.h
-  OAIBerryFlavorDetail_berries_inner.h
-  OAIBerryFlavorDetail_berries_inner_berry.h
+  OAIBerryFlavorMap.h
   OAIBerryFlavorName.h
   OAIBerryFlavorSummary.h
   OAIBerrySummary.h
@@ -42,8 +39,10 @@ add_library(${PROJECT_NAME}
   OAIContestTypeDetail.h
   OAIContestTypeName.h
   OAIContestTypeSummary.h
+  OAICurrencyDetail.h
+  OAICurrencyName.h
+  OAICurrencySummary.h
   OAIEggGroupDetail.h
-  OAIEggGroupDetail_pokemon_species_inner.h
   OAIEggGroupName.h
   OAIEggGroupSummary.h
   OAIEncounterConditionDetail.h
@@ -55,18 +54,21 @@ add_library(${PROJECT_NAME}
   OAIEncounterMethodDetail.h
   OAIEncounterMethodName.h
   OAIEncounterMethodSummary.h
+  OAIEncounterPokemonDetail.h
   OAIEvolutionChainDetail.h
-  OAIEvolutionChainDetail_chain.h
-  OAIEvolutionChainDetail_chain_evolves_to_inner.h
-  OAIEvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner.h
-  OAIEvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender.h
+  OAIEvolutionChainLink.h
   OAIEvolutionChainSummary.h
+  OAIEvolutionConditionExpression.h
   OAIEvolutionTriggerDetail.h
   OAIEvolutionTriggerName.h
   OAIEvolutionTriggerSummary.h
+  OAIEvolutionVariableDescription.h
+  OAIEvolutionVariableDetail.h
+  OAIEvolutionVariableName.h
+  OAIEvolutionVariableSummary.h
   OAIExperience.h
   OAIGenderDetail.h
-  OAIGenderDetail_pokemon_species_details_inner.h
+  OAIGenderPokemonSpecies.h
   OAIGenderSummary.h
   OAIGenerationDetail.h
   OAIGenerationName.h
@@ -82,32 +84,30 @@ add_library(${PROJECT_NAME}
   OAIItemCategoryName.h
   OAIItemCategorySummary.h
   OAIItemDetail.h
-  OAIItemDetail_baby_trigger_for.h
-  OAIItemDetail_held_by_pokemon_inner.h
-  OAIItemDetail_held_by_pokemon_inner_version_details_inner.h
-  OAIItemDetail_machines_inner.h
-  OAIItemDetail_sprites.h
   OAIItemEffectText.h
   OAIItemFlavorText.h
   OAIItemFlingEffectDetail.h
   OAIItemFlingEffectEffectText.h
   OAIItemFlingEffectSummary.h
   OAIItemGameIndex.h
+  OAIItemMachine.h
   OAIItemName.h
   OAIItemPocketDetail.h
   OAIItemPocketName.h
   OAIItemPocketSummary.h
+  OAIItemPrice.h
+  OAIItemSprites.h
   OAIItemSummary.h
   OAILanguageDetail.h
   OAILanguageName.h
   OAILanguageSummary.h
   OAILocationAreaDetail.h
-  OAILocationAreaDetail_encounter_method_rates_inner.h
-  OAILocationAreaDetail_encounter_method_rates_inner_version_details_inner.h
-  OAILocationAreaDetail_pokemon_encounters_inner.h
-  OAILocationAreaDetail_pokemon_encounters_inner_version_details_inner.h
-  OAILocationAreaDetail_pokemon_encounters_inner_version_details_inner_encounter_details.h
+  OAILocationAreaEncounterDetail.h
+  OAILocationAreaEncounterRate.h
+  OAILocationAreaEncounterVersionDetail.h
   OAILocationAreaName.h
+  OAILocationAreaPokemonEncounter.h
+  OAILocationAreaPokemonEncounterVersion.h
   OAILocationAreaSummary.h
   OAILocationDetail.h
   OAILocationGameIndex.h
@@ -119,19 +119,16 @@ add_library(${PROJECT_NAME}
   OAIMoveBattleStyleName.h
   OAIMoveBattleStyleSummary.h
   OAIMoveChange.h
-  OAIMoveChange_effect_entries_inner.h
+  OAIMoveComboUsage.h
+  OAIMoveCombos.h
   OAIMoveDamageClassDescription.h
   OAIMoveDamageClassDetail.h
   OAIMoveDamageClassName.h
   OAIMoveDamageClassSummary.h
   OAIMoveDetail.h
-  OAIMoveDetail_contest_combos.h
-  OAIMoveDetail_contest_combos_normal.h
-  OAIMoveDetail_effect_changes_inner.h
-  OAIMoveDetail_effect_changes_inner_effect_entries_inner.h
-  OAIMoveDetail_machines_inner.h
-  OAIMoveDetail_machines_inner_machine.h
-  OAIMoveDetail_stat_changes_inner.h
+  OAIMoveEffectChange.h
+  OAIMoveEffectChangeEffectText.h
+  OAIMoveEffectEffectText.h
   OAIMoveFlavorText.h
   OAIMoveLearnMethodDescription.h
   OAIMoveLearnMethodDetail.h
@@ -144,7 +141,9 @@ add_library(${PROJECT_NAME}
   OAIMoveMetaCategoryDescription.h
   OAIMoveMetaCategoryDetail.h
   OAIMoveMetaCategorySummary.h
+  OAIMoveMetaStatChange.h
   OAIMoveName.h
+  OAIMoveStatChange.h
   OAIMoveSummary.h
   OAIMoveTargetDescription.h
   OAIMoveTargetDetail.h
@@ -152,8 +151,8 @@ add_library(${PROJECT_NAME}
   OAIMoveTargetSummary.h
   OAINatureBattleStylePreference.h
   OAINatureDetail.h
-  OAINatureDetail_pokeathlon_stat_changes_inner.h
   OAINatureName.h
+  OAINaturePokeathlonStat.h
   OAINatureSummary.h
   OAIPaginatedAbilitySummaryList.h
   OAIPaginatedBerryFirmnessSummaryList.h
@@ -162,12 +161,14 @@ add_library(${PROJECT_NAME}
   OAIPaginatedCharacteristicSummaryList.h
   OAIPaginatedContestEffectSummaryList.h
   OAIPaginatedContestTypeSummaryList.h
+  OAIPaginatedCurrencySummaryList.h
   OAIPaginatedEggGroupSummaryList.h
   OAIPaginatedEncounterConditionSummaryList.h
   OAIPaginatedEncounterConditionValueSummaryList.h
   OAIPaginatedEncounterMethodSummaryList.h
   OAIPaginatedEvolutionChainSummaryList.h
   OAIPaginatedEvolutionTriggerSummaryList.h
+  OAIPaginatedEvolutionVariableSummaryList.h
   OAIPaginatedGenderSummaryList.h
   OAIPaginatedGenerationSummaryList.h
   OAIPaginatedGrowthRateSummaryList.h
@@ -204,75 +205,91 @@ add_library(${PROJECT_NAME}
   OAIPaginatedVersionGroupSummaryList.h
   OAIPaginatedVersionSummaryList.h
   OAIPalParkAreaDetail.h
-  OAIPalParkAreaDetail_pokemon_encounters_inner.h
   OAIPalParkAreaName.h
   OAIPalParkAreaSummary.h
+  OAIPalParkEncounter.h
+  OAIPokeapiMetaResponse.h
+  OAIPokeathlonStatAffectingNature.h
+  OAIPokeathlonStatAffectingNatures.h
   OAIPokeathlonStatDetail.h
-  OAIPokeathlonStatDetail_affecting_natures.h
-  OAIPokeathlonStatDetail_affecting_natures_decrease_inner.h
-  OAIPokeathlonStatDetail_affecting_natures_increase_inner.h
   OAIPokeathlonStatName.h
   OAIPokeathlonStatSummary.h
   OAIPokedexDescription.h
   OAIPokedexDetail.h
-  OAIPokedexDetail_pokemon_entries_inner.h
   OAIPokedexName.h
   OAIPokedexSummary.h
+  OAIPokemonAbility.h
+  OAIPokemonAbilityPast.h
   OAIPokemonColorDetail.h
   OAIPokemonColorName.h
   OAIPokemonColorSummary.h
+  OAIPokemonCries.h
   OAIPokemonDetail.h
-  OAIPokemonDetail_abilities_inner.h
-  OAIPokemonDetail_cries.h
-  OAIPokemonDetail_held_items.h
-  OAIPokemonDetail_moves_inner.h
-  OAIPokemonDetail_moves_inner_version_group_details_inner.h
-  OAIPokemonDetail_past_abilities_inner.h
-  OAIPokemonDetail_past_types_inner.h
-  OAIPokemonDetail_sprites.h
-  OAIPokemonDetail_types_inner.h
   OAIPokemonDexEntry.h
+  OAIPokemonDexNumber.h
+  OAIPokemonEncounterDetailResponse.h
+  OAIPokemonEncounterResponse.h
+  OAIPokemonEncounterVersionDetailResponse.h
+  OAIPokemonEvolution.h
+  OAIPokemonEvolution_known_move.h
   OAIPokemonFormDetail.h
-  OAIPokemonFormDetail_form_names_inner.h
-  OAIPokemonFormDetail_sprites.h
+  OAIPokemonFormFlavorText.h
+  OAIPokemonFormName.h
+  OAIPokemonFormSprites.h
   OAIPokemonFormSummary.h
+  OAIPokemonFormTriggerCondition.h
+  OAIPokemonFormType.h
   OAIPokemonGameIndex.h
   OAIPokemonHabitatDetail.h
   OAIPokemonHabitatName.h
   OAIPokemonHabitatSummary.h
+  OAIPokemonHeldItem.h
+  OAIPokemonHeldItemSummary.h
+  OAIPokemonHeldItemVersion.h
+  OAIPokemonMove.h
+  OAIPokemonMoveVersionGroup.h
+  OAIPokemonPastAbility.h
+  OAIPokemonPastStat.h
+  OAIPokemonPastType.h
+  OAIPokemonShapeAwesomeName.h
   OAIPokemonShapeDetail.h
-  OAIPokemonShapeDetail_awesome_names_inner.h
-  OAIPokemonShapeDetail_names_inner.h
+  OAIPokemonShapeName.h
   OAIPokemonShapeSummary.h
   OAIPokemonSpeciesDescription.h
   OAIPokemonSpeciesDetail.h
-  OAIPokemonSpeciesDetail_genera_inner.h
-  OAIPokemonSpeciesDetail_pal_park_encounters_inner.h
-  OAIPokemonSpeciesDetail_varieties_inner.h
   OAIPokemonSpeciesFlavorText.h
+  OAIPokemonSpeciesGenus.h
+  OAIPokemonSpeciesName.h
+  OAIPokemonSpeciesPalParkEncounter.h
   OAIPokemonSpeciesSummary.h
+  OAIPokemonSpeciesVariety.h
+  OAIPokemonSprites.h
+  OAIPokemonSpritesOther.h
+  OAIPokemonSpritesOtherDreamWorld.h
+  OAIPokemonSpritesOtherHome.h
+  OAIPokemonSpritesOtherOfficialArtwork.h
+  OAIPokemonSpritesOtherShowdown.h
   OAIPokemonStat.h
   OAIPokemonSummary.h
+  OAIPokemonType.h
   OAIRegionDetail.h
   OAIRegionName.h
   OAIRegionSummary.h
+  OAIStatAffectingMoves.h
+  OAIStatAffectingNatures.h
   OAIStatDetail.h
-  OAIStatDetail_affecting_moves.h
-  OAIStatDetail_affecting_moves_increase_inner.h
-  OAIStatDetail_affecting_natures.h
   OAIStatName.h
   OAIStatSummary.h
   OAISuperContestEffectDetail.h
   OAISuperContestEffectFlavorText.h
   OAISuperContestEffectSummary.h
   OAITypeDetail.h
-  OAITypeDetail_damage_relations.h
-  OAITypeDetail_past_damage_relations_inner.h
-  OAITypeDetail_past_damage_relations_inner_damage_relations.h
-  OAITypeDetail_pokemon_inner.h
-  OAITypeDetail_pokemon_inner_pokemon.h
-  OAITypeDetail_sprites_value_value.h
   OAITypeGameIndex.h
+  OAITypeGameSprite.h
+  OAITypeName.h
+  OAITypePastRelationships.h
+  OAITypePokemon.h
+  OAITypeRelationships.h
   OAITypeSummary.h
   OAIVersionDetail.h
   OAIVersionGroupDetail.h
@@ -301,21 +318,18 @@ add_library(${PROJECT_NAME}
   OAIAbilityChange.cpp
   OAIAbilityChangeEffectText.cpp
   OAIAbilityDetail.cpp
-  OAIAbilityDetail_pokemon_inner.cpp
-  OAIAbilityDetail_pokemon_inner_pokemon.cpp
   OAIAbilityEffectText.cpp
   OAIAbilityFlavorText.cpp
   OAIAbilityName.cpp
+  OAIAbilityPokemonDetail.cpp
   OAIAbilitySummary.cpp
   OAIBerryDetail.cpp
-  OAIBerryDetail_flavors_inner.cpp
-  OAIBerryDetail_flavors_inner_flavor.cpp
   OAIBerryFirmnessDetail.cpp
   OAIBerryFirmnessName.cpp
   OAIBerryFirmnessSummary.cpp
+  OAIBerryFlavorBerryMap.cpp
   OAIBerryFlavorDetail.cpp
-  OAIBerryFlavorDetail_berries_inner.cpp
-  OAIBerryFlavorDetail_berries_inner_berry.cpp
+  OAIBerryFlavorMap.cpp
   OAIBerryFlavorName.cpp
   OAIBerryFlavorSummary.cpp
   OAIBerrySummary.cpp
@@ -329,8 +343,10 @@ add_library(${PROJECT_NAME}
   OAIContestTypeDetail.cpp
   OAIContestTypeName.cpp
   OAIContestTypeSummary.cpp
+  OAICurrencyDetail.cpp
+  OAICurrencyName.cpp
+  OAICurrencySummary.cpp
   OAIEggGroupDetail.cpp
-  OAIEggGroupDetail_pokemon_species_inner.cpp
   OAIEggGroupName.cpp
   OAIEggGroupSummary.cpp
   OAIEncounterConditionDetail.cpp
@@ -342,18 +358,21 @@ add_library(${PROJECT_NAME}
   OAIEncounterMethodDetail.cpp
   OAIEncounterMethodName.cpp
   OAIEncounterMethodSummary.cpp
+  OAIEncounterPokemonDetail.cpp
   OAIEvolutionChainDetail.cpp
-  OAIEvolutionChainDetail_chain.cpp
-  OAIEvolutionChainDetail_chain_evolves_to_inner.cpp
-  OAIEvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner.cpp
-  OAIEvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender.cpp
+  OAIEvolutionChainLink.cpp
   OAIEvolutionChainSummary.cpp
+  OAIEvolutionConditionExpression.cpp
   OAIEvolutionTriggerDetail.cpp
   OAIEvolutionTriggerName.cpp
   OAIEvolutionTriggerSummary.cpp
+  OAIEvolutionVariableDescription.cpp
+  OAIEvolutionVariableDetail.cpp
+  OAIEvolutionVariableName.cpp
+  OAIEvolutionVariableSummary.cpp
   OAIExperience.cpp
   OAIGenderDetail.cpp
-  OAIGenderDetail_pokemon_species_details_inner.cpp
+  OAIGenderPokemonSpecies.cpp
   OAIGenderSummary.cpp
   OAIGenerationDetail.cpp
   OAIGenerationName.cpp
@@ -369,32 +388,30 @@ add_library(${PROJECT_NAME}
   OAIItemCategoryName.cpp
   OAIItemCategorySummary.cpp
   OAIItemDetail.cpp
-  OAIItemDetail_baby_trigger_for.cpp
-  OAIItemDetail_held_by_pokemon_inner.cpp
-  OAIItemDetail_held_by_pokemon_inner_version_details_inner.cpp
-  OAIItemDetail_machines_inner.cpp
-  OAIItemDetail_sprites.cpp
   OAIItemEffectText.cpp
   OAIItemFlavorText.cpp
   OAIItemFlingEffectDetail.cpp
   OAIItemFlingEffectEffectText.cpp
   OAIItemFlingEffectSummary.cpp
   OAIItemGameIndex.cpp
+  OAIItemMachine.cpp
   OAIItemName.cpp
   OAIItemPocketDetail.cpp
   OAIItemPocketName.cpp
   OAIItemPocketSummary.cpp
+  OAIItemPrice.cpp
+  OAIItemSprites.cpp
   OAIItemSummary.cpp
   OAILanguageDetail.cpp
   OAILanguageName.cpp
   OAILanguageSummary.cpp
   OAILocationAreaDetail.cpp
-  OAILocationAreaDetail_encounter_method_rates_inner.cpp
-  OAILocationAreaDetail_encounter_method_rates_inner_version_details_inner.cpp
-  OAILocationAreaDetail_pokemon_encounters_inner.cpp
-  OAILocationAreaDetail_pokemon_encounters_inner_version_details_inner.cpp
-  OAILocationAreaDetail_pokemon_encounters_inner_version_details_inner_encounter_details.cpp
+  OAILocationAreaEncounterDetail.cpp
+  OAILocationAreaEncounterRate.cpp
+  OAILocationAreaEncounterVersionDetail.cpp
   OAILocationAreaName.cpp
+  OAILocationAreaPokemonEncounter.cpp
+  OAILocationAreaPokemonEncounterVersion.cpp
   OAILocationAreaSummary.cpp
   OAILocationDetail.cpp
   OAILocationGameIndex.cpp
@@ -406,19 +423,16 @@ add_library(${PROJECT_NAME}
   OAIMoveBattleStyleName.cpp
   OAIMoveBattleStyleSummary.cpp
   OAIMoveChange.cpp
-  OAIMoveChange_effect_entries_inner.cpp
+  OAIMoveComboUsage.cpp
+  OAIMoveCombos.cpp
   OAIMoveDamageClassDescription.cpp
   OAIMoveDamageClassDetail.cpp
   OAIMoveDamageClassName.cpp
   OAIMoveDamageClassSummary.cpp
   OAIMoveDetail.cpp
-  OAIMoveDetail_contest_combos.cpp
-  OAIMoveDetail_contest_combos_normal.cpp
-  OAIMoveDetail_effect_changes_inner.cpp
-  OAIMoveDetail_effect_changes_inner_effect_entries_inner.cpp
-  OAIMoveDetail_machines_inner.cpp
-  OAIMoveDetail_machines_inner_machine.cpp
-  OAIMoveDetail_stat_changes_inner.cpp
+  OAIMoveEffectChange.cpp
+  OAIMoveEffectChangeEffectText.cpp
+  OAIMoveEffectEffectText.cpp
   OAIMoveFlavorText.cpp
   OAIMoveLearnMethodDescription.cpp
   OAIMoveLearnMethodDetail.cpp
@@ -431,7 +445,9 @@ add_library(${PROJECT_NAME}
   OAIMoveMetaCategoryDescription.cpp
   OAIMoveMetaCategoryDetail.cpp
   OAIMoveMetaCategorySummary.cpp
+  OAIMoveMetaStatChange.cpp
   OAIMoveName.cpp
+  OAIMoveStatChange.cpp
   OAIMoveSummary.cpp
   OAIMoveTargetDescription.cpp
   OAIMoveTargetDetail.cpp
@@ -439,8 +455,8 @@ add_library(${PROJECT_NAME}
   OAIMoveTargetSummary.cpp
   OAINatureBattleStylePreference.cpp
   OAINatureDetail.cpp
-  OAINatureDetail_pokeathlon_stat_changes_inner.cpp
   OAINatureName.cpp
+  OAINaturePokeathlonStat.cpp
   OAINatureSummary.cpp
   OAIPaginatedAbilitySummaryList.cpp
   OAIPaginatedBerryFirmnessSummaryList.cpp
@@ -449,12 +465,14 @@ add_library(${PROJECT_NAME}
   OAIPaginatedCharacteristicSummaryList.cpp
   OAIPaginatedContestEffectSummaryList.cpp
   OAIPaginatedContestTypeSummaryList.cpp
+  OAIPaginatedCurrencySummaryList.cpp
   OAIPaginatedEggGroupSummaryList.cpp
   OAIPaginatedEncounterConditionSummaryList.cpp
   OAIPaginatedEncounterConditionValueSummaryList.cpp
   OAIPaginatedEncounterMethodSummaryList.cpp
   OAIPaginatedEvolutionChainSummaryList.cpp
   OAIPaginatedEvolutionTriggerSummaryList.cpp
+  OAIPaginatedEvolutionVariableSummaryList.cpp
   OAIPaginatedGenderSummaryList.cpp
   OAIPaginatedGenerationSummaryList.cpp
   OAIPaginatedGrowthRateSummaryList.cpp
@@ -491,75 +509,91 @@ add_library(${PROJECT_NAME}
   OAIPaginatedVersionGroupSummaryList.cpp
   OAIPaginatedVersionSummaryList.cpp
   OAIPalParkAreaDetail.cpp
-  OAIPalParkAreaDetail_pokemon_encounters_inner.cpp
   OAIPalParkAreaName.cpp
   OAIPalParkAreaSummary.cpp
+  OAIPalParkEncounter.cpp
+  OAIPokeapiMetaResponse.cpp
+  OAIPokeathlonStatAffectingNature.cpp
+  OAIPokeathlonStatAffectingNatures.cpp
   OAIPokeathlonStatDetail.cpp
-  OAIPokeathlonStatDetail_affecting_natures.cpp
-  OAIPokeathlonStatDetail_affecting_natures_decrease_inner.cpp
-  OAIPokeathlonStatDetail_affecting_natures_increase_inner.cpp
   OAIPokeathlonStatName.cpp
   OAIPokeathlonStatSummary.cpp
   OAIPokedexDescription.cpp
   OAIPokedexDetail.cpp
-  OAIPokedexDetail_pokemon_entries_inner.cpp
   OAIPokedexName.cpp
   OAIPokedexSummary.cpp
+  OAIPokemonAbility.cpp
+  OAIPokemonAbilityPast.cpp
   OAIPokemonColorDetail.cpp
   OAIPokemonColorName.cpp
   OAIPokemonColorSummary.cpp
+  OAIPokemonCries.cpp
   OAIPokemonDetail.cpp
-  OAIPokemonDetail_abilities_inner.cpp
-  OAIPokemonDetail_cries.cpp
-  OAIPokemonDetail_held_items.cpp
-  OAIPokemonDetail_moves_inner.cpp
-  OAIPokemonDetail_moves_inner_version_group_details_inner.cpp
-  OAIPokemonDetail_past_abilities_inner.cpp
-  OAIPokemonDetail_past_types_inner.cpp
-  OAIPokemonDetail_sprites.cpp
-  OAIPokemonDetail_types_inner.cpp
   OAIPokemonDexEntry.cpp
+  OAIPokemonDexNumber.cpp
+  OAIPokemonEncounterDetailResponse.cpp
+  OAIPokemonEncounterResponse.cpp
+  OAIPokemonEncounterVersionDetailResponse.cpp
+  OAIPokemonEvolution.cpp
+  OAIPokemonEvolution_known_move.cpp
   OAIPokemonFormDetail.cpp
-  OAIPokemonFormDetail_form_names_inner.cpp
-  OAIPokemonFormDetail_sprites.cpp
+  OAIPokemonFormFlavorText.cpp
+  OAIPokemonFormName.cpp
+  OAIPokemonFormSprites.cpp
   OAIPokemonFormSummary.cpp
+  OAIPokemonFormTriggerCondition.cpp
+  OAIPokemonFormType.cpp
   OAIPokemonGameIndex.cpp
   OAIPokemonHabitatDetail.cpp
   OAIPokemonHabitatName.cpp
   OAIPokemonHabitatSummary.cpp
+  OAIPokemonHeldItem.cpp
+  OAIPokemonHeldItemSummary.cpp
+  OAIPokemonHeldItemVersion.cpp
+  OAIPokemonMove.cpp
+  OAIPokemonMoveVersionGroup.cpp
+  OAIPokemonPastAbility.cpp
+  OAIPokemonPastStat.cpp
+  OAIPokemonPastType.cpp
+  OAIPokemonShapeAwesomeName.cpp
   OAIPokemonShapeDetail.cpp
-  OAIPokemonShapeDetail_awesome_names_inner.cpp
-  OAIPokemonShapeDetail_names_inner.cpp
+  OAIPokemonShapeName.cpp
   OAIPokemonShapeSummary.cpp
   OAIPokemonSpeciesDescription.cpp
   OAIPokemonSpeciesDetail.cpp
-  OAIPokemonSpeciesDetail_genera_inner.cpp
-  OAIPokemonSpeciesDetail_pal_park_encounters_inner.cpp
-  OAIPokemonSpeciesDetail_varieties_inner.cpp
   OAIPokemonSpeciesFlavorText.cpp
+  OAIPokemonSpeciesGenus.cpp
+  OAIPokemonSpeciesName.cpp
+  OAIPokemonSpeciesPalParkEncounter.cpp
   OAIPokemonSpeciesSummary.cpp
+  OAIPokemonSpeciesVariety.cpp
+  OAIPokemonSprites.cpp
+  OAIPokemonSpritesOther.cpp
+  OAIPokemonSpritesOtherDreamWorld.cpp
+  OAIPokemonSpritesOtherHome.cpp
+  OAIPokemonSpritesOtherOfficialArtwork.cpp
+  OAIPokemonSpritesOtherShowdown.cpp
   OAIPokemonStat.cpp
   OAIPokemonSummary.cpp
+  OAIPokemonType.cpp
   OAIRegionDetail.cpp
   OAIRegionName.cpp
   OAIRegionSummary.cpp
+  OAIStatAffectingMoves.cpp
+  OAIStatAffectingNatures.cpp
   OAIStatDetail.cpp
-  OAIStatDetail_affecting_moves.cpp
-  OAIStatDetail_affecting_moves_increase_inner.cpp
-  OAIStatDetail_affecting_natures.cpp
   OAIStatName.cpp
   OAIStatSummary.cpp
   OAISuperContestEffectDetail.cpp
   OAISuperContestEffectFlavorText.cpp
   OAISuperContestEffectSummary.cpp
   OAITypeDetail.cpp
-  OAITypeDetail_damage_relations.cpp
-  OAITypeDetail_past_damage_relations_inner.cpp
-  OAITypeDetail_past_damage_relations_inner_damage_relations.cpp
-  OAITypeDetail_pokemon_inner.cpp
-  OAITypeDetail_pokemon_inner_pokemon.cpp
-  OAITypeDetail_sprites_value_value.cpp
   OAITypeGameIndex.cpp
+  OAITypeGameSprite.cpp
+  OAITypeName.cpp
+  OAITypePastRelationships.cpp
+  OAITypePokemon.cpp
+  OAITypeRelationships.cpp
   OAITypeSummary.cpp
   OAIVersionDetail.cpp
   OAIVersionGroupDetail.cpp

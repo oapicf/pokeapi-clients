@@ -2,16 +2,25 @@
 Protected Class ItemEffectText
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The localized effect text for an API resource in a specific language.
+		#tag EndNote
 		effect As String
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The localized effect text in brief.
+		#tag EndNote
 		short_effect As String
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The language this effect is in.
+		#tag EndNote
 		language As OpenAPIClient.Models.LanguageSummary
 	#tag EndProperty
 

@@ -145,7 +145,7 @@ open class GamesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
             path = "/api/v2/generation/",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -218,7 +218,7 @@ open class GamesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
             path = "/api/v2/generation/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -308,7 +308,7 @@ open class GamesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
             path = "/api/v2/pokedex/",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -381,7 +381,7 @@ open class GamesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
             path = "/api/v2/pokedex/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -471,7 +471,7 @@ open class GamesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
             path = "/api/v2/version-group/",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -544,7 +544,7 @@ open class GamesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
             path = "/api/v2/version-group/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -634,7 +634,7 @@ open class GamesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
             path = "/api/v2/version/",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -707,7 +707,7 @@ open class GamesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
             path = "/api/v2/version/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }

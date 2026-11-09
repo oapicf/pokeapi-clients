@@ -37,8 +37,6 @@ from openapi_server.models.paginated_move_meta_ailment_summary_list import Pagin
 from openapi_server.models.paginated_move_meta_category_summary_list import PaginatedMoveMetaCategorySummaryList
 from openapi_server.models.paginated_move_summary_list import PaginatedMoveSummaryList
 from openapi_server.models.paginated_move_target_summary_list import PaginatedMoveTargetSummaryList
-from openapi_server.models.extra_models import TokenModel  # noqa: F401
-from openapi_server.security_api import get_token_basicAuth, get_token_cookieAuth
 
 router = APIRouter()
 
@@ -60,12 +58,6 @@ async def move_list(
     limit: Annotated[Optional[int], Field(description="Number of results to return per page.")] = Query(None, description="Number of results to return per page.", alias="limit"),
     offset: Annotated[Optional[int], Field(description="The initial index from which to return the results.")] = Query(None, description="The initial index from which to return the results.", alias="offset"),
     q: Annotated[Optional[str], Field(description="> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")] = Query(None, description="&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ", alias="q"),
-    token_basicAuth: TokenModel = Security(
-        get_token_basicAuth
-    ),
-    token_cookieAuth: TokenModel = Security(
-        get_token_cookieAuth
-    ),
 ) -> PaginatedMoveSummaryList:
     """Moves are the skills of Pokémon in battle. In battle, a Pokémon uses one move each turn. Some moves (including those learned by Hidden Machine) can be used outside of battle as well, usually for the purpose of removing obstacles or exploring new areas."""
     if not BaseMovesApi.subclasses:
@@ -83,13 +75,7 @@ async def move_list(
     response_model_by_alias=True,
 )
 async def move_retrieve(
-    id: Annotated[str, Field(description="This parameter can be a string or an integer.")] = Path(..., description="This parameter can be a string or an integer."),
-    token_basicAuth: TokenModel = Security(
-        get_token_basicAuth
-    ),
-    token_cookieAuth: TokenModel = Security(
-        get_token_cookieAuth
-    ),
+    id: Annotated[str, Field(description="This parameter can be a string or an integer.")] = Path(..., description="This parameter can be a string or an integer.", examples=["1"]),
 ) -> MoveDetail:
     """Moves are the skills of Pokémon in battle. In battle, a Pokémon uses one move each turn. Some moves (including those learned by Hidden Machine) can be used outside of battle as well, usually for the purpose of removing obstacles or exploring new areas."""
     if not BaseMovesApi.subclasses:
@@ -110,12 +96,6 @@ async def move_ailment_list(
     limit: Annotated[Optional[int], Field(description="Number of results to return per page.")] = Query(None, description="Number of results to return per page.", alias="limit"),
     offset: Annotated[Optional[int], Field(description="The initial index from which to return the results.")] = Query(None, description="The initial index from which to return the results.", alias="offset"),
     q: Annotated[Optional[str], Field(description="> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")] = Query(None, description="&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ", alias="q"),
-    token_basicAuth: TokenModel = Security(
-        get_token_basicAuth
-    ),
-    token_cookieAuth: TokenModel = Security(
-        get_token_cookieAuth
-    ),
 ) -> PaginatedMoveMetaAilmentSummaryList:
     """Move Ailments are status conditions caused by moves used during battle. See [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Status_condition) for greater detail."""
     if not BaseMovesApi.subclasses:
@@ -133,13 +113,7 @@ async def move_ailment_list(
     response_model_by_alias=True,
 )
 async def move_ailment_retrieve(
-    id: Annotated[str, Field(description="This parameter can be a string or an integer.")] = Path(..., description="This parameter can be a string or an integer."),
-    token_basicAuth: TokenModel = Security(
-        get_token_basicAuth
-    ),
-    token_cookieAuth: TokenModel = Security(
-        get_token_cookieAuth
-    ),
+    id: Annotated[str, Field(description="This parameter can be a string or an integer.")] = Path(..., description="This parameter can be a string or an integer.", examples=["1"]),
 ) -> MoveMetaAilmentDetail:
     """Move Ailments are status conditions caused by moves used during battle. See [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Status_condition) for greater detail."""
     if not BaseMovesApi.subclasses:
@@ -160,12 +134,6 @@ async def move_battle_style_list(
     limit: Annotated[Optional[int], Field(description="Number of results to return per page.")] = Query(None, description="Number of results to return per page.", alias="limit"),
     offset: Annotated[Optional[int], Field(description="The initial index from which to return the results.")] = Query(None, description="The initial index from which to return the results.", alias="offset"),
     q: Annotated[Optional[str], Field(description="> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")] = Query(None, description="&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ", alias="q"),
-    token_basicAuth: TokenModel = Security(
-        get_token_basicAuth
-    ),
-    token_cookieAuth: TokenModel = Security(
-        get_token_cookieAuth
-    ),
 ) -> PaginatedMoveBattleStyleSummaryList:
     """Styles of moves when used in the Battle Palace. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Battle_Frontier_(Generation_III)) for greater detail."""
     if not BaseMovesApi.subclasses:
@@ -183,13 +151,7 @@ async def move_battle_style_list(
     response_model_by_alias=True,
 )
 async def move_battle_style_retrieve(
-    id: Annotated[str, Field(description="This parameter can be a string or an integer.")] = Path(..., description="This parameter can be a string or an integer."),
-    token_basicAuth: TokenModel = Security(
-        get_token_basicAuth
-    ),
-    token_cookieAuth: TokenModel = Security(
-        get_token_cookieAuth
-    ),
+    id: Annotated[str, Field(description="This parameter can be a string or an integer.")] = Path(..., description="This parameter can be a string or an integer.", examples=["1"]),
 ) -> MoveBattleStyleDetail:
     """Styles of moves when used in the Battle Palace. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Battle_Frontier_(Generation_III)) for greater detail."""
     if not BaseMovesApi.subclasses:
@@ -210,12 +172,6 @@ async def move_category_list(
     limit: Annotated[Optional[int], Field(description="Number of results to return per page.")] = Query(None, description="Number of results to return per page.", alias="limit"),
     offset: Annotated[Optional[int], Field(description="The initial index from which to return the results.")] = Query(None, description="The initial index from which to return the results.", alias="offset"),
     q: Annotated[Optional[str], Field(description="> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")] = Query(None, description="&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ", alias="q"),
-    token_basicAuth: TokenModel = Security(
-        get_token_basicAuth
-    ),
-    token_cookieAuth: TokenModel = Security(
-        get_token_cookieAuth
-    ),
 ) -> PaginatedMoveMetaCategorySummaryList:
     """Very general categories that loosely group move effects."""
     if not BaseMovesApi.subclasses:
@@ -233,13 +189,7 @@ async def move_category_list(
     response_model_by_alias=True,
 )
 async def move_category_retrieve(
-    id: Annotated[str, Field(description="This parameter can be a string or an integer.")] = Path(..., description="This parameter can be a string or an integer."),
-    token_basicAuth: TokenModel = Security(
-        get_token_basicAuth
-    ),
-    token_cookieAuth: TokenModel = Security(
-        get_token_cookieAuth
-    ),
+    id: Annotated[str, Field(description="This parameter can be a string or an integer.")] = Path(..., description="This parameter can be a string or an integer.", examples=["1"]),
 ) -> MoveMetaCategoryDetail:
     """Very general categories that loosely group move effects."""
     if not BaseMovesApi.subclasses:
@@ -260,12 +210,6 @@ async def move_learn_method_list(
     limit: Annotated[Optional[int], Field(description="Number of results to return per page.")] = Query(None, description="Number of results to return per page.", alias="limit"),
     offset: Annotated[Optional[int], Field(description="The initial index from which to return the results.")] = Query(None, description="The initial index from which to return the results.", alias="offset"),
     q: Annotated[Optional[str], Field(description="> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")] = Query(None, description="&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ", alias="q"),
-    token_basicAuth: TokenModel = Security(
-        get_token_basicAuth
-    ),
-    token_cookieAuth: TokenModel = Security(
-        get_token_cookieAuth
-    ),
 ) -> PaginatedMoveLearnMethodSummaryList:
     """Methods by which Pokémon can learn moves."""
     if not BaseMovesApi.subclasses:
@@ -283,13 +227,7 @@ async def move_learn_method_list(
     response_model_by_alias=True,
 )
 async def move_learn_method_retrieve(
-    id: Annotated[str, Field(description="This parameter can be a string or an integer.")] = Path(..., description="This parameter can be a string or an integer."),
-    token_basicAuth: TokenModel = Security(
-        get_token_basicAuth
-    ),
-    token_cookieAuth: TokenModel = Security(
-        get_token_cookieAuth
-    ),
+    id: Annotated[str, Field(description="This parameter can be a string or an integer.")] = Path(..., description="This parameter can be a string or an integer.", examples=["1"]),
 ) -> MoveLearnMethodDetail:
     """Methods by which Pokémon can learn moves."""
     if not BaseMovesApi.subclasses:
@@ -310,12 +248,6 @@ async def move_target_list(
     limit: Annotated[Optional[int], Field(description="Number of results to return per page.")] = Query(None, description="Number of results to return per page.", alias="limit"),
     offset: Annotated[Optional[int], Field(description="The initial index from which to return the results.")] = Query(None, description="The initial index from which to return the results.", alias="offset"),
     q: Annotated[Optional[str], Field(description="> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")] = Query(None, description="&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ", alias="q"),
-    token_basicAuth: TokenModel = Security(
-        get_token_basicAuth
-    ),
-    token_cookieAuth: TokenModel = Security(
-        get_token_cookieAuth
-    ),
 ) -> PaginatedMoveTargetSummaryList:
     """Targets moves can be directed at during battle. Targets can be Pokémon, environments or even other moves."""
     if not BaseMovesApi.subclasses:
@@ -333,13 +265,7 @@ async def move_target_list(
     response_model_by_alias=True,
 )
 async def move_target_retrieve(
-    id: Annotated[str, Field(description="This parameter can be a string or an integer.")] = Path(..., description="This parameter can be a string or an integer."),
-    token_basicAuth: TokenModel = Security(
-        get_token_basicAuth
-    ),
-    token_cookieAuth: TokenModel = Security(
-        get_token_cookieAuth
-    ),
+    id: Annotated[str, Field(description="This parameter can be a string or an integer.")] = Path(..., description="This parameter can be a string or an integer.", examples=["1"]),
 ) -> MoveTargetDetail:
     """Targets moves can be directed at during battle. Targets can be Pokémon, environments or even other moves."""
     if not BaseMovesApi.subclasses:

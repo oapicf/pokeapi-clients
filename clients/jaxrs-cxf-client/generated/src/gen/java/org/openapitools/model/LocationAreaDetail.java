@@ -3,9 +3,9 @@ package org.openapitools.model;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.model.LocationAreaDetailEncounterMethodRatesInner;
-import org.openapitools.model.LocationAreaDetailPokemonEncountersInner;
+import org.openapitools.model.LocationAreaEncounterRate;
 import org.openapitools.model.LocationAreaName;
+import org.openapitools.model.LocationAreaPokemonEncounter;
 import org.openapitools.model.LocationSummary;
 
 import io.swagger.annotations.ApiModelProperty;
@@ -15,35 +15,56 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class LocationAreaDetail  {
   
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The identifier for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
 
   private Integer id;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The name for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The name for this resource.")
 
   private String name;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The internal id of an API resource within game data.
+  */
+  @ApiModelProperty(required = true, value = "The internal id of an API resource within game data.")
 
   private Integer gameIndex;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * A list of methods in which Pokémon may be encountered in this area and how likely the method will occur depending on the version of the game.
+  */
+  @ApiModelProperty(required = true, value = "A list of methods in which Pokémon may be encountered in this area and how likely the method will occur depending on the version of the game.")
 
-  private List<LocationAreaDetailEncounterMethodRatesInner> encounterMethodRates = new ArrayList<>();
+  private List<LocationAreaEncounterRate> encounterMethodRates = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The region this location area can be found in.
+  */
+  @ApiModelProperty(required = true, value = "The region this location area can be found in.")
 
   private LocationSummary location;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The name of this resource listed in different languages.
+  */
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
 
   private List<LocationAreaName> names = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
-
-  private List<LocationAreaDetailPokemonEncountersInner> pokemonEncounters = new ArrayList<>();
  /**
-   * Get id
+  * A list of Pokémon that can be encountered in this area along with version specific details about the encounter.
+  */
+  @ApiModelProperty(required = true, value = "A list of Pokémon that can be encountered in this area along with version specific details about the encounter.")
+
+  private List<LocationAreaPokemonEncounter> pokemonEncounters = new ArrayList<>();
+ /**
+   * The identifier for this resource.
    * @return id
   **/
   @JsonProperty("id")
@@ -53,7 +74,7 @@ public class LocationAreaDetail  {
 
 
  /**
-   * Get name
+   * The name for this resource.
    * @return name
   **/
   @JsonProperty("name")
@@ -71,7 +92,9 @@ public class LocationAreaDetail  {
   }
 
  /**
-   * Get gameIndex
+   * The internal id of an API resource within game data.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return gameIndex
   **/
   @JsonProperty("game_index")
@@ -89,17 +112,17 @@ public class LocationAreaDetail  {
   }
 
  /**
-   * Get encounterMethodRates
+   * A list of methods in which Pokémon may be encountered in this area and how likely the method will occur depending on the version of the game.
    * @return encounterMethodRates
   **/
   @JsonProperty("encounter_method_rates")
-  public List<LocationAreaDetailEncounterMethodRatesInner> getEncounterMethodRates() {
+  public List<LocationAreaEncounterRate> getEncounterMethodRates() {
     return encounterMethodRates;
   }
 
 
  /**
-   * Get location
+   * The region this location area can be found in.
    * @return location
   **/
   @JsonProperty("location")
@@ -117,7 +140,7 @@ public class LocationAreaDetail  {
   }
 
  /**
-   * Get names
+   * The name of this resource listed in different languages.
    * @return names
   **/
   @JsonProperty("names")
@@ -127,11 +150,11 @@ public class LocationAreaDetail  {
 
 
  /**
-   * Get pokemonEncounters
+   * A list of Pokémon that can be encountered in this area along with version specific details about the encounter.
    * @return pokemonEncounters
   **/
   @JsonProperty("pokemon_encounters")
-  public List<LocationAreaDetailPokemonEncountersInner> getPokemonEncounters() {
+  public List<LocationAreaPokemonEncounter> getPokemonEncounters() {
     return pokemonEncounters;
   }
 

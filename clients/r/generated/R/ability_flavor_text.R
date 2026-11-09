@@ -7,9 +7,9 @@
 #' @title AbilityFlavorText
 #' @description AbilityFlavorText Class
 #' @format An \code{R6Class} generator object
-#' @field flavor_text  character
-#' @field language  \link{LanguageSummary}
-#' @field version_group  \link{VersionGroupSummary}
+#' @field flavor_text The localized name for an API resource in a specific language. character
+#' @field language The language this text resource is in. \link{LanguageSummary}
+#' @field version_group The version group that uses this flavor text. \link{VersionGroupSummary}
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -23,9 +23,9 @@ AbilityFlavorText <- R6::R6Class(
     #' @description
     #' Initialize a new AbilityFlavorText class.
     #'
-    #' @param flavor_text flavor_text
-    #' @param language language
-    #' @param version_group version_group
+    #' @param flavor_text The localized name for an API resource in a specific language.
+    #' @param language The language this text resource is in.
+    #' @param version_group The version group that uses this flavor text.
     #' @param ... Other optional arguments.
     initialize = function(`flavor_text`, `language`, `version_group`, ...) {
       if (!missing(`flavor_text`)) {

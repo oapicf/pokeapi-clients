@@ -17,7 +17,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("PokemonStat")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-11-09T13:50:06.168269698Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PokemonStat   {
   private Integer baseStat;
   private Integer effort;
@@ -38,6 +38,9 @@ public class PokemonStat   {
   }
 
   /**
+   * The base value of the stat.
+   * minimum: -2147483648
+   * maximum: 2147483647
    **/
   public PokemonStat baseStat(Integer baseStat) {
     this.baseStat = baseStat;
@@ -45,9 +48,9 @@ public class PokemonStat   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The base value of the stat.")
   @JsonProperty(required = true, value = "base_stat")
-  @NotNull public Integer getBaseStat() {
+  @NotNull  @Min(-2147483648) @Max(2147483647)public Integer getBaseStat() {
     return baseStat;
   }
 
@@ -57,6 +60,9 @@ public class PokemonStat   {
   }
 
   /**
+   * The effort points (EV) the Pokémon has in the stat.
+   * minimum: -2147483648
+   * maximum: 2147483647
    **/
   public PokemonStat effort(Integer effort) {
     this.effort = effort;
@@ -64,9 +70,9 @@ public class PokemonStat   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The effort points (EV) the Pokémon has in the stat.")
   @JsonProperty(required = true, value = "effort")
-  @NotNull public Integer getEffort() {
+  @NotNull  @Min(-2147483648) @Max(2147483647)public Integer getEffort() {
     return effort;
   }
 
@@ -76,6 +82,7 @@ public class PokemonStat   {
   }
 
   /**
+   * The stat the Pokémon has.
    **/
   public PokemonStat stat(StatSummary stat) {
     this.stat = stat;
@@ -83,7 +90,7 @@ public class PokemonStat   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The stat the Pokémon has.")
   @JsonProperty(required = true, value = "stat")
   @NotNull @Valid public StatSummary getStat() {
     return stat;

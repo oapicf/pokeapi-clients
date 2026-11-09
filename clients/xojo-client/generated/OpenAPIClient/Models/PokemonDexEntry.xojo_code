@@ -2,11 +2,17 @@
 Protected Class PokemonDexEntry
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The index number within the Pokédex.
+		#tag EndNote
 		entry_number As Integer
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The Pokédex the referenced Pokémon species can be found in.
+		#tag EndNote
 		pokedex As OpenAPIClient.Models.PokedexSummary
 	#tag EndProperty
 

@@ -29,10 +29,7 @@ class EvolutionApi {
   ///
   /// * [int] offset:
   ///   The initial index from which to return the results.
-  ///
-  /// * [String] q:
-  ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<Response> evolutionChainListWithHttpInfo({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
+  Future<Response> evolutionChainListWithHttpInfo({ int? limit, int? offset, Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/evolution-chain/';
 
@@ -48,9 +45,6 @@ class EvolutionApi {
     }
     if (offset != null) {
       queryParams.addAll(_queryParams('', 'offset', offset));
-    }
-    if (q != null) {
-      queryParams.addAll(_queryParams('', 'q', q));
     }
 
     const contentTypes = <String>[];
@@ -79,11 +73,8 @@ class EvolutionApi {
   ///
   /// * [int] offset:
   ///   The initial index from which to return the results.
-  ///
-  /// * [String] q:
-  ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<PaginatedEvolutionChainSummaryList?> evolutionChainList({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
-    final response = await evolutionChainListWithHttpInfo(limit: limit, offset: offset, q: q, abortTrigger: abortTrigger,);
+  Future<PaginatedEvolutionChainSummaryList?> evolutionChainList({ int? limit, int? offset, Future<void>? abortTrigger, }) async {
+    final response = await evolutionChainListWithHttpInfo(limit: limit, offset: offset, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -293,6 +284,147 @@ class EvolutionApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'EvolutionTriggerDetail',) as EvolutionTriggerDetail;
+    
+    }
+    return null;
+  }
+
+  /// List evolution variables
+  ///
+  /// Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [int] limit:
+  ///   Number of results to return per page.
+  ///
+  /// * [int] offset:
+  ///   The initial index from which to return the results.
+  ///
+  /// * [String] q:
+  ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+  Future<Response> evolutionVariableListWithHttpInfo({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
+    // ignore: prefer_const_declarations
+    final path = r'/api/v2/evolution-variable/';
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    if (limit != null) {
+      queryParams.addAll(_queryParams('', 'limit', limit));
+    }
+    if (offset != null) {
+      queryParams.addAll(_queryParams('', 'offset', offset));
+    }
+    if (q != null) {
+      queryParams.addAll(_queryParams('', 'q', q));
+    }
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
+    );
+  }
+
+  /// List evolution variables
+  ///
+  /// Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+  ///
+  /// Parameters:
+  ///
+  /// * [int] limit:
+  ///   Number of results to return per page.
+  ///
+  /// * [int] offset:
+  ///   The initial index from which to return the results.
+  ///
+  /// * [String] q:
+  ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+  Future<PaginatedEvolutionVariableSummaryList?> evolutionVariableList({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
+    final response = await evolutionVariableListWithHttpInfo(limit: limit, offset: offset, q: q, abortTrigger: abortTrigger,);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedEvolutionVariableSummaryList',) as PaginatedEvolutionVariableSummaryList;
+    
+    }
+    return null;
+  }
+
+  /// Get evolution variable
+  ///
+  /// Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] id (required):
+  ///   This parameter can be a string or an integer.
+  Future<Response> evolutionVariableRetrieveWithHttpInfo(String id, { Future<void>? abortTrigger, }) async {
+    // ignore: prefer_const_declarations
+    final path = r'/api/v2/evolution-variable/{id}/'
+      .replaceAll('{id}', id);
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
+    );
+  }
+
+  /// Get evolution variable
+  ///
+  /// Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] id (required):
+  ///   This parameter can be a string or an integer.
+  Future<EvolutionVariableDetail?> evolutionVariableRetrieve(String id, { Future<void>? abortTrigger, }) async {
+    final response = await evolutionVariableRetrieveWithHttpInfo(id, abortTrigger: abortTrigger,);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'EvolutionVariableDetail',) as EvolutionVariableDetail;
     
     }
     return null;

@@ -7,14 +7,14 @@
 #' @title PokedexDetail
 #' @description PokedexDetail Class
 #' @format An \code{R6Class} generator object
-#' @field id  integer
-#' @field name  character
-#' @field is_main_series  character [optional]
-#' @field descriptions  list(\link{PokedexDescription})
-#' @field names  list(\link{PokedexName})
-#' @field pokemon_entries  list(\link{PokedexDetailPokemonEntriesInner})
-#' @field region  \link{RegionSummary}
-#' @field version_groups  list(\link{AbilityDetailPokemonInnerPokemon})
+#' @field id The identifier for this resource. integer
+#' @field name The name for this resource. character
+#' @field is_main_series Whether or not this Pokédex originated in the main series of the video games. character [optional]
+#' @field descriptions The description of this resource listed in different languages. list(\link{PokedexDescription})
+#' @field names The name of this resource listed in different languages. list(\link{PokedexName})
+#' @field pokemon_entries A list of Pokémon catalogued in this Pokédex and their indexes. list(\link{PokemonDexNumber})
+#' @field region The region this Pokédex catalogues Pokémon for. \link{RegionSummary}
+#' @field version_groups A list of version groups this Pokédex is relevant to. list(\link{VersionGroupSummary})
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -33,14 +33,14 @@ PokedexDetail <- R6::R6Class(
     #' @description
     #' Initialize a new PokedexDetail class.
     #'
-    #' @param id id
-    #' @param name name
-    #' @param descriptions descriptions
-    #' @param names names
-    #' @param pokemon_entries pokemon_entries
-    #' @param region region
-    #' @param version_groups version_groups
-    #' @param is_main_series is_main_series
+    #' @param id The identifier for this resource.
+    #' @param name The name for this resource.
+    #' @param descriptions The description of this resource listed in different languages.
+    #' @param names The name of this resource listed in different languages.
+    #' @param pokemon_entries A list of Pokémon catalogued in this Pokédex and their indexes.
+    #' @param region The region this Pokédex catalogues Pokémon for.
+    #' @param version_groups A list of version groups this Pokédex is relevant to.
+    #' @param is_main_series Whether or not this Pokédex originated in the main series of the video games.
     #' @param ... Other optional arguments.
     initialize = function(`id`, `name`, `descriptions`, `names`, `pokemon_entries`, `region`, `version_groups`, `is_main_series` = NULL, ...) {
       if (!missing(`id`)) {
@@ -199,7 +199,7 @@ PokedexDetail <- R6::R6Class(
         self$`names` <- ApiClient$new()$deserializeObj(this_object$`names`, "array[PokedexName]", loadNamespace("openapi"))
       }
       if (!is.null(this_object$`pokemon_entries`)) {
-        self$`pokemon_entries` <- ApiClient$new()$deserializeObj(this_object$`pokemon_entries`, "array[PokedexDetailPokemonEntriesInner]", loadNamespace("openapi"))
+        self$`pokemon_entries` <- ApiClient$new()$deserializeObj(this_object$`pokemon_entries`, "array[PokemonDexNumber]", loadNamespace("openapi"))
       }
       if (!is.null(this_object$`region`)) {
         `region_object` <- RegionSummary$new()
@@ -207,7 +207,7 @@ PokedexDetail <- R6::R6Class(
         self$`region` <- `region_object`
       }
       if (!is.null(this_object$`version_groups`)) {
-        self$`version_groups` <- ApiClient$new()$deserializeObj(this_object$`version_groups`, "array[AbilityDetailPokemonInnerPokemon]", loadNamespace("openapi"))
+        self$`version_groups` <- ApiClient$new()$deserializeObj(this_object$`version_groups`, "array[VersionGroupSummary]", loadNamespace("openapi"))
       }
       self
     },
@@ -235,9 +235,9 @@ PokedexDetail <- R6::R6Class(
       self$`is_main_series` <- this_object$`is_main_series`
       self$`descriptions` <- ApiClient$new()$deserializeObj(this_object$`descriptions`, "array[PokedexDescription]", loadNamespace("openapi"))
       self$`names` <- ApiClient$new()$deserializeObj(this_object$`names`, "array[PokedexName]", loadNamespace("openapi"))
-      self$`pokemon_entries` <- ApiClient$new()$deserializeObj(this_object$`pokemon_entries`, "array[PokedexDetailPokemonEntriesInner]", loadNamespace("openapi"))
+      self$`pokemon_entries` <- ApiClient$new()$deserializeObj(this_object$`pokemon_entries`, "array[PokemonDexNumber]", loadNamespace("openapi"))
       self$`region` <- RegionSummary$new()$fromJSON(jsonlite::toJSON(this_object$`region`, auto_unbox = TRUE, digits = NA))
-      self$`version_groups` <- ApiClient$new()$deserializeObj(this_object$`version_groups`, "array[AbilityDetailPokemonInnerPokemon]", loadNamespace("openapi"))
+      self$`version_groups` <- ApiClient$new()$deserializeObj(this_object$`version_groups`, "array[VersionGroupSummary]", loadNamespace("openapi"))
       self
     },
 
@@ -322,7 +322,7 @@ PokedexDetail <- R6::R6Class(
         return(FALSE)
       }
 
-      if (nchar(self$`name`) > 100) {
+      if (nchar(self$`name`) > 200) {
         return(FALSE)
       }
 
@@ -338,11 +338,6 @@ PokedexDetail <- R6::R6Class(
 
       # check if the required `pokemon_entries` is null
       if (is.null(self$`pokemon_entries`)) {
-        return(FALSE)
-      }
-
-      # check if the required `region` is null
-      if (is.null(self$`region`)) {
         return(FALSE)
       }
 
@@ -370,8 +365,8 @@ PokedexDetail <- R6::R6Class(
         invalid_fields["name"] <- "Non-nullable required field `name` cannot be null."
       }
 
-      if (nchar(self$`name`) > 100) {
-        invalid_fields["name"] <- "Invalid length for `name`, must be smaller than or equal to 100."
+      if (nchar(self$`name`) > 200) {
+        invalid_fields["name"] <- "Invalid length for `name`, must be smaller than or equal to 200."
       }
 
       # check if the required `descriptions` is null
@@ -387,11 +382,6 @@ PokedexDetail <- R6::R6Class(
       # check if the required `pokemon_entries` is null
       if (is.null(self$`pokemon_entries`)) {
         invalid_fields["pokemon_entries"] <- "Non-nullable required field `pokemon_entries` cannot be null."
-      }
-
-      # check if the required `region` is null
-      if (is.null(self$`region`)) {
-        invalid_fields["region"] <- "Non-nullable required field `region` cannot be null."
       }
 
       # check if the required `version_groups` is null

@@ -2,11 +2,17 @@
 Protected Class TypeGameIndex
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The internal id of an API resource within game data.
+		#tag EndNote
 		game_index As Integer
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The generation relevent to this game index.
+		#tag EndNote
 		generation As OpenAPIClient.Models.GenerationSummary
 	#tag EndProperty
 

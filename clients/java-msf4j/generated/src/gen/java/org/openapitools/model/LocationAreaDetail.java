@@ -8,15 +8,15 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.model.LocationAreaDetailEncounterMethodRatesInner;
-import org.openapitools.model.LocationAreaDetailPokemonEncountersInner;
+import org.openapitools.model.LocationAreaEncounterRate;
 import org.openapitools.model.LocationAreaName;
+import org.openapitools.model.LocationAreaPokemonEncounter;
 import org.openapitools.model.LocationSummary;
 
 /**
  * LocationAreaDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-10-25T05:48:05.787850114Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-11-09T13:49:25.341948748Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class LocationAreaDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -28,7 +28,7 @@ public class LocationAreaDetail   {
   private Integer gameIndex;
 
   @JsonProperty("encounter_method_rates")
-  private List<@Valid LocationAreaDetailEncounterMethodRatesInner> encounterMethodRates = new ArrayList<>();
+  private List<@Valid LocationAreaEncounterRate> encounterMethodRates = new ArrayList<>();
 
   @JsonProperty("location")
   private LocationSummary location;
@@ -37,13 +37,13 @@ public class LocationAreaDetail   {
   private List<@Valid LocationAreaName> names = new ArrayList<>();
 
   @JsonProperty("pokemon_encounters")
-  private List<@Valid LocationAreaDetailPokemonEncountersInner> pokemonEncounters = new ArrayList<>();
+  private List<@Valid LocationAreaPokemonEncounter> pokemonEncounters = new ArrayList<>();
 
    /**
-   * Get id
+   * The identifier for this resource.
    * @return id
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   public Integer getId() {
     return id;
   }
@@ -54,10 +54,10 @@ public class LocationAreaDetail   {
   }
 
    /**
-   * Get name
+   * The name for this resource.
    * @return name
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   public String getName() {
     return name;
   }
@@ -72,10 +72,12 @@ public class LocationAreaDetail   {
   }
 
    /**
-   * Get gameIndex
+   * The internal id of an API resource within game data.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return gameIndex
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The internal id of an API resource within game data.")
   public Integer getGameIndex() {
     return gameIndex;
   }
@@ -85,11 +87,11 @@ public class LocationAreaDetail   {
   }
 
    /**
-   * Get encounterMethodRates
+   * A list of methods in which Pokémon may be encountered in this area and how likely the method will occur depending on the version of the game.
    * @return encounterMethodRates
   **/
-  @ApiModelProperty(required = true, value = "")
-  public List<@Valid LocationAreaDetailEncounterMethodRatesInner> getEncounterMethodRates() {
+  @ApiModelProperty(required = true, value = "A list of methods in which Pokémon may be encountered in this area and how likely the method will occur depending on the version of the game.")
+  public List<@Valid LocationAreaEncounterRate> getEncounterMethodRates() {
     return encounterMethodRates;
   }
 
@@ -99,10 +101,10 @@ public class LocationAreaDetail   {
   }
 
    /**
-   * Get location
+   * The region this location area can be found in.
    * @return location
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The region this location area can be found in.")
   public LocationSummary getLocation() {
     return location;
   }
@@ -112,20 +114,20 @@ public class LocationAreaDetail   {
   }
 
    /**
-   * Get names
+   * The name of this resource listed in different languages.
    * @return names
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
   public List<@Valid LocationAreaName> getNames() {
     return names;
   }
 
    /**
-   * Get pokemonEncounters
+   * A list of Pokémon that can be encountered in this area along with version specific details about the encounter.
    * @return pokemonEncounters
   **/
-  @ApiModelProperty(required = true, value = "")
-  public List<@Valid LocationAreaDetailPokemonEncountersInner> getPokemonEncounters() {
+  @ApiModelProperty(required = true, value = "A list of Pokémon that can be encountered in this area along with version specific details about the encounter.")
+  public List<@Valid LocationAreaPokemonEncounter> getPokemonEncounters() {
     return pokemonEncounters;
   }
 

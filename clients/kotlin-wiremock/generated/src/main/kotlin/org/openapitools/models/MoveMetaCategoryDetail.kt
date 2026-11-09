@@ -18,6 +18,6 @@ data class MoveMetaCategoryDetail(
     val descriptions: kotlin.collections.List<MoveMetaCategoryDescription>,
 
     @field:JsonProperty("moves")
-    val moves: kotlin.collections.List<AbilityDetailPokemonInnerPokemon>,
+    val moves: kotlin.collections.List<MoveSummary>,
 
 )

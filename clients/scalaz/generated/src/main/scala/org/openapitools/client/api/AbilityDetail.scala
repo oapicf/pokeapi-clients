@@ -12,15 +12,24 @@ import org.joda.time.DateTime
 import AbilityDetail._
 
 case class AbilityDetail (
+  /* The identifier for this resource. */
   id: Integer,
-name: String,
-isMainSeries: Option[Boolean],
-generation: GenerationSummary,
-names: List[AbilityName],
-effectEntries: List[AbilityEffectText],
-effectChanges: List[AbilityChange],
-flavorTextEntries: List[AbilityFlavorText],
-pokemon: List[AbilityDetailPokemonInner])
+/* The name for this resource. */
+  name: String,
+/* Whether or not this ability originated in the main series of the video games. */
+  isMainSeries: Option[Boolean],
+/* The generation this ability originated in. */
+  generation: GenerationSummary,
+/* The name of this resource listed in different languages. */
+  names: List[AbilityName],
+/* The effect of this ability listed in different languages. */
+  effectEntries: List[AbilityEffectText],
+/* The list of previous effects this ability has had across version groups. */
+  effectChanges: List[AbilityChange],
+/* The flavor text of this ability listed in different languages. */
+  flavorTextEntries: List[AbilityFlavorText],
+/* A list of Pokémon that could potentially have this ability. */
+  pokemon: List[AbilityPokemonDetail])
 
 object AbilityDetail {
   import DateTimeCodecs._

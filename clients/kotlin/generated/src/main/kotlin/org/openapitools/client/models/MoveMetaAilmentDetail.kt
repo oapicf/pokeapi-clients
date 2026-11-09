@@ -23,8 +23,8 @@
 
 package org.openapitools.client.models
 
-import org.openapitools.client.models.AbilityDetailPokemonInnerPokemon
 import org.openapitools.client.models.MoveMetaAilmentName
+import org.openapitools.client.models.MoveSummary
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -32,24 +32,28 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param id 
- * @param name 
- * @param moves 
- * @param names 
+ * @param id The identifier for this resource.
+ * @param name The name for this resource.
+ * @param moves A list of moves that cause this ailment.
+ * @param names The name of this resource listed in different languages.
  */
 
 
 data class MoveMetaAilmentDetail (
 
+    /* The identifier for this resource. */
     @Json(name = "id")
     val id: kotlin.Int,
 
+    /* The name for this resource. */
     @Json(name = "name")
     val name: kotlin.String,
 
+    /* A list of moves that cause this ailment. */
     @Json(name = "moves")
-    val moves: kotlin.collections.List<AbilityDetailPokemonInnerPokemon>,
+    val moves: kotlin.collections.List<MoveSummary>,
 
+    /* The name of this resource listed in different languages. */
     @Json(name = "names")
     val names: kotlin.collections.List<MoveMetaAilmentName>
 

@@ -2,10 +2,10 @@
 
 ## General API description
 
-All the Pokémon data you&#39;ll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We&#39;ve covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+All the Pokémon data you&#39;ll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We&#39;ve covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
 
 * API basepath : [https://pokeapi.co](https://pokeapi.co)
-* Version : 2.7.0
+* Version : 2.10.0
 
 ## Documentation for API Endpoints
 
@@ -36,6 +36,8 @@ Class | Method | HTTP request | Description
 *EvolutionApi* | [**evolutionChainRetrieve**](Apis/EvolutionApi.http#evolutionchainretrieve) | **GET** /api/v2/evolution-chain/{id}/ | Get evolution chain
 *EvolutionApi* | [**evolutionTriggerList**](Apis/EvolutionApi.http#evolutiontriggerlist) | **GET** /api/v2/evolution-trigger/ | List evolution triggers
 *EvolutionApi* | [**evolutionTriggerRetrieve**](Apis/EvolutionApi.http#evolutiontriggerretrieve) | **GET** /api/v2/evolution-trigger/{id}/ | Get evolution trigger
+*EvolutionApi* | [**evolutionVariableList**](Apis/EvolutionApi.http#evolutionvariablelist) | **GET** /api/v2/evolution-variable/ | List evolution variables
+*EvolutionApi* | [**evolutionVariableRetrieve**](Apis/EvolutionApi.http#evolutionvariableretrieve) | **GET** /api/v2/evolution-variable/{id}/ | Get evolution variable
 *GamesApi* | [**generationList**](Apis/GamesApi.http#generationlist) | **GET** /api/v2/generation/ | List genrations
 *GamesApi* | [**generationRetrieve**](Apis/GamesApi.http#generationretrieve) | **GET** /api/v2/generation/{id}/ | Get genration
 *GamesApi* | [**pokedexList**](Apis/GamesApi.http#pokedexlist) | **GET** /api/v2/pokedex/ | List pokedex
@@ -44,6 +46,8 @@ Class | Method | HTTP request | Description
 *GamesApi* | [**versionGroupRetrieve**](Apis/GamesApi.http#versiongroupretrieve) | **GET** /api/v2/version-group/{id}/ | Get version group
 *GamesApi* | [**versionList**](Apis/GamesApi.http#versionlist) | **GET** /api/v2/version/ | List versions
 *GamesApi* | [**versionRetrieve**](Apis/GamesApi.http#versionretrieve) | **GET** /api/v2/version/{id}/ | Get version
+*ItemsApi* | [**currencyList**](Apis/ItemsApi.http#currencylist) | **GET** /api/v2/currency/ | List currencies
+*ItemsApi* | [**currencyRetrieve**](Apis/ItemsApi.http#currencyretrieve) | **GET** /api/v2/currency/{id}/ | Get currency
 *ItemsApi* | [**itemAttributeList**](Apis/ItemsApi.http#itemattributelist) | **GET** /api/v2/item-attribute/ | List item attributes
 *ItemsApi* | [**itemAttributeRetrieve**](Apis/ItemsApi.http#itemattributeretrieve) | **GET** /api/v2/item-attribute/{id}/ | Get item attribute
 *ItemsApi* | [**itemCategoryList**](Apis/ItemsApi.http#itemcategorylist) | **GET** /api/v2/item-category/ | List item categories
@@ -76,9 +80,9 @@ Class | Method | HTTP request | Description
 *MovesApi* | [**moveRetrieve**](Apis/MovesApi.http#moveretrieve) | **GET** /api/v2/move/{id}/ | Get move
 *MovesApi* | [**moveTargetList**](Apis/MovesApi.http#movetargetlist) | **GET** /api/v2/move-target/ | List move targets
 *MovesApi* | [**moveTargetRetrieve**](Apis/MovesApi.http#movetargetretrieve) | **GET** /api/v2/move-target/{id}/ | Get move target
-*PokemonApi* | [**abilityList**](Apis/PokemonApi.http#abilitylist) | **GET** /api/v2/ability/ | 
-*PokemonApi* | [**abilityRetrieve**](Apis/PokemonApi.http#abilityretrieve) | **GET** /api/v2/ability/{id}/ | 
-*PokemonApi* | [**characteristicList**](Apis/PokemonApi.http#characteristiclist) | **GET** /api/v2/characteristic/ | List charecterictics
+*PokemonApi* | [**abilityList**](Apis/PokemonApi.http#abilitylist) | **GET** /api/v2/ability/ | List abilities
+*PokemonApi* | [**abilityRetrieve**](Apis/PokemonApi.http#abilityretrieve) | **GET** /api/v2/ability/{id}/ | Get ability
+*PokemonApi* | [**characteristicList**](Apis/PokemonApi.http#characteristiclist) | **GET** /api/v2/characteristic/ | List characteristics
 *PokemonApi* | [**characteristicRetrieve**](Apis/PokemonApi.http#characteristicretrieve) | **GET** /api/v2/characteristic/{id}/ | Get characteristic
 *PokemonApi* | [**eggGroupList**](Apis/PokemonApi.http#egggrouplist) | **GET** /api/v2/egg-group/ | List egg groups
 *PokemonApi* | [**eggGroupRetrieve**](Apis/PokemonApi.http#egggroupretrieve) | **GET** /api/v2/egg-group/{id}/ | Get egg group
@@ -110,6 +114,7 @@ Class | Method | HTTP request | Description
 *PokemonApi* | [**typeRetrieve**](Apis/PokemonApi.http#typeretrieve) | **GET** /api/v2/type/{id}/ | Get types
 *UtilityApi* | [**languageList**](Apis/UtilityApi.http#languagelist) | **GET** /api/v2/language/ | List languages
 *UtilityApi* | [**languageRetrieve**](Apis/UtilityApi.http#languageretrieve) | **GET** /api/v2/language/{id}/ | Get language
+*UtilityApi* | [**metaRetrieve**](Apis/UtilityApi.http#metaretrieve) | **GET** /api/v2/meta/ | Get API metadata
 
 
 ## Usage

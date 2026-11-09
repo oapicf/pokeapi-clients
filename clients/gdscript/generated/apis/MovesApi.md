@@ -30,8 +30,6 @@ Move Ailments are status conditions caused by moves used during battle. See [Bul
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -84,8 +82,6 @@ Move Ailments are status conditions caused by moves used during battle. See [Bul
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -104,7 +100,7 @@ var api = MovesApi.new(config)
 
 # Invoke an endpoint
 api.move_ailment_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id,
 	# On Success
@@ -132,8 +128,6 @@ Styles of moves when used in the Battle Palace. See [Bulbapedia](http://bulbaped
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -186,8 +180,6 @@ Styles of moves when used in the Battle Palace. See [Bulbapedia](http://bulbaped
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -206,7 +198,7 @@ var api = MovesApi.new(config)
 
 # Invoke an endpoint
 api.move_battle_style_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id,
 	# On Success
@@ -234,8 +226,6 @@ Very general categories that loosely group move effects.
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -288,8 +278,6 @@ Very general categories that loosely group move effects.
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -308,7 +296,7 @@ var api = MovesApi.new(config)
 
 # Invoke an endpoint
 api.move_category_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id,
 	# On Success
@@ -336,8 +324,6 @@ Methods by which Pokémon can learn moves.
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -390,8 +376,6 @@ Methods by which Pokémon can learn moves.
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -410,7 +394,7 @@ var api = MovesApi.new(config)
 
 # Invoke an endpoint
 api.move_learn_method_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id,
 	# On Success
@@ -438,8 +422,6 @@ Moves are the skills of Pokémon in battle. In battle, a Pokémon uses one move 
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -492,8 +474,6 @@ Moves are the skills of Pokémon in battle. In battle, a Pokémon uses one move 
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -512,7 +492,7 @@ var api = MovesApi.new(config)
 
 # Invoke an endpoint
 api.move_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id,
 	# On Success
@@ -540,8 +520,6 @@ Targets moves can be directed at during battle. Targets can be Pokémon, environ
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -594,8 +572,6 @@ Targets moves can be directed at during battle. Targets can be Pokémon, environ
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -614,7 +590,7 @@ var api = MovesApi.new(config)
 
 # Invoke an endpoint
 api.move_target_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id,
 	# On Success
@@ -634,8 +610,7 @@ api.move_target_retrieve(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), 
-[cookieAuth](../README.md#cookieAuth)
+No authorization required.
 
 [[Back to top]](#__pageTop) \
 [[Back to API list]](../README.md#documentation-for-api-endpoints) \

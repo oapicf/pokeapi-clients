@@ -7,8 +7,8 @@
 #' @title MoveMetaCategoryDescription
 #' @description MoveMetaCategoryDescription Class
 #' @format An \code{R6Class} generator object
-#' @field description  character [optional]
-#' @field language  \link{LanguageSummary}
+#' @field description The localized description for an API resource in a specific language. character [optional]
+#' @field language The language this name is in. \link{LanguageSummary}
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -21,8 +21,8 @@ MoveMetaCategoryDescription <- R6::R6Class(
     #' @description
     #' Initialize a new MoveMetaCategoryDescription class.
     #'
-    #' @param language language
-    #' @param description description
+    #' @param language The language this name is in.
+    #' @param description The localized description for an API resource in a specific language.
     #' @param ... Other optional arguments.
     initialize = function(`language`, `description` = NULL, ...) {
       if (!missing(`language`)) {
@@ -170,7 +170,7 @@ MoveMetaCategoryDescription <- R6::R6Class(
     #'
     #' @return true if the values in all fields are valid.
     isValid = function() {
-      if (nchar(self$`description`) > 1000) {
+      if (nchar(self$`description`) > 2000) {
         return(FALSE)
       }
 
@@ -188,8 +188,8 @@ MoveMetaCategoryDescription <- R6::R6Class(
     #' @return A list of invalid fields (if any).
     getInvalidFields = function() {
       invalid_fields <- list()
-      if (nchar(self$`description`) > 1000) {
-        invalid_fields["description"] <- "Invalid length for `description`, must be smaller than or equal to 1000."
+      if (nchar(self$`description`) > 2000) {
+        invalid_fields["description"] <- "Invalid length for `description`, must be smaller than or equal to 2000."
       }
 
       # check if the required `language` is null

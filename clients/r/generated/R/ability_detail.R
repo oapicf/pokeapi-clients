@@ -7,15 +7,15 @@
 #' @title AbilityDetail
 #' @description AbilityDetail Class
 #' @format An \code{R6Class} generator object
-#' @field id  integer
-#' @field name  character
-#' @field is_main_series  character [optional]
-#' @field generation  \link{GenerationSummary}
-#' @field names  list(\link{AbilityName})
-#' @field effect_entries  list(\link{AbilityEffectText})
-#' @field effect_changes  list(\link{AbilityChange})
-#' @field flavor_text_entries  list(\link{AbilityFlavorText})
-#' @field pokemon  list(\link{AbilityDetailPokemonInner})
+#' @field id The identifier for this resource. integer
+#' @field name The name for this resource. character
+#' @field is_main_series Whether or not this ability originated in the main series of the video games. character [optional]
+#' @field generation The generation this ability originated in. \link{GenerationSummary}
+#' @field names The name of this resource listed in different languages. list(\link{AbilityName})
+#' @field effect_entries The effect of this ability listed in different languages. list(\link{AbilityEffectText})
+#' @field effect_changes The list of previous effects this ability has had across version groups. list(\link{AbilityChange})
+#' @field flavor_text_entries The flavor text of this ability listed in different languages. list(\link{AbilityFlavorText})
+#' @field pokemon A list of Pokémon that could potentially have this ability. list(\link{AbilityPokemonDetail})
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -35,15 +35,15 @@ AbilityDetail <- R6::R6Class(
     #' @description
     #' Initialize a new AbilityDetail class.
     #'
-    #' @param id id
-    #' @param name name
-    #' @param generation generation
-    #' @param names names
-    #' @param effect_entries effect_entries
-    #' @param effect_changes effect_changes
-    #' @param flavor_text_entries flavor_text_entries
-    #' @param pokemon pokemon
-    #' @param is_main_series is_main_series
+    #' @param id The identifier for this resource.
+    #' @param name The name for this resource.
+    #' @param generation The generation this ability originated in.
+    #' @param names The name of this resource listed in different languages.
+    #' @param effect_entries The effect of this ability listed in different languages.
+    #' @param effect_changes The list of previous effects this ability has had across version groups.
+    #' @param flavor_text_entries The flavor text of this ability listed in different languages.
+    #' @param pokemon A list of Pokémon that could potentially have this ability.
+    #' @param is_main_series Whether or not this ability originated in the main series of the video games.
     #' @param ... Other optional arguments.
     initialize = function(`id`, `name`, `generation`, `names`, `effect_entries`, `effect_changes`, `flavor_text_entries`, `pokemon`, `is_main_series` = NULL, ...) {
       if (!missing(`id`)) {
@@ -222,7 +222,7 @@ AbilityDetail <- R6::R6Class(
         self$`flavor_text_entries` <- ApiClient$new()$deserializeObj(this_object$`flavor_text_entries`, "array[AbilityFlavorText]", loadNamespace("openapi"))
       }
       if (!is.null(this_object$`pokemon`)) {
-        self$`pokemon` <- ApiClient$new()$deserializeObj(this_object$`pokemon`, "array[AbilityDetailPokemonInner]", loadNamespace("openapi"))
+        self$`pokemon` <- ApiClient$new()$deserializeObj(this_object$`pokemon`, "array[AbilityPokemonDetail]", loadNamespace("openapi"))
       }
       self
     },
@@ -253,7 +253,7 @@ AbilityDetail <- R6::R6Class(
       self$`effect_entries` <- ApiClient$new()$deserializeObj(this_object$`effect_entries`, "array[AbilityEffectText]", loadNamespace("openapi"))
       self$`effect_changes` <- ApiClient$new()$deserializeObj(this_object$`effect_changes`, "array[AbilityChange]", loadNamespace("openapi"))
       self$`flavor_text_entries` <- ApiClient$new()$deserializeObj(this_object$`flavor_text_entries`, "array[AbilityFlavorText]", loadNamespace("openapi"))
-      self$`pokemon` <- ApiClient$new()$deserializeObj(this_object$`pokemon`, "array[AbilityDetailPokemonInner]", loadNamespace("openapi"))
+      self$`pokemon` <- ApiClient$new()$deserializeObj(this_object$`pokemon`, "array[AbilityPokemonDetail]", loadNamespace("openapi"))
       self
     },
 
@@ -345,7 +345,7 @@ AbilityDetail <- R6::R6Class(
         return(FALSE)
       }
 
-      if (nchar(self$`name`) > 100) {
+      if (nchar(self$`name`) > 200) {
         return(FALSE)
       }
 
@@ -398,8 +398,8 @@ AbilityDetail <- R6::R6Class(
         invalid_fields["name"] <- "Non-nullable required field `name` cannot be null."
       }
 
-      if (nchar(self$`name`) > 100) {
-        invalid_fields["name"] <- "Invalid length for `name`, must be smaller than or equal to 100."
+      if (nchar(self$`name`) > 200) {
+        invalid_fields["name"] <- "Invalid length for `name`, must be smaller than or equal to 200."
       }
 
       # check if the required `generation` is null

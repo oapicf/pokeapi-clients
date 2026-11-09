@@ -34,9 +34,10 @@ import model.PokemonSpeciesDetail
 import model.StatDetail
 import model.TypeDetail
 
-@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2026-10-25T05:53:17.467323765Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2026-11-09T13:53:31.572745352Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 trait PokemonApi {
   /**
+    * List abilities
     * Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
     * @param limit Number of results to return per page.
     * @param offset The initial index from which to return the results.
@@ -45,19 +46,19 @@ trait PokemonApi {
   def abilityList(limit: Option[Int], offset: Option[Int], q: Option[String]): PaginatedAbilitySummaryList
 
   /**
+    * Get ability
     * Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
     * @param id This parameter can be a string or an integer.
     */
   def abilityRetrieve(id: String): AbilityDetail
 
   /**
-    * List charecterictics
+    * List characteristics
     * Characteristics indicate which stat contains a Pokémon&#39;s highest IV. A Pokémon&#39;s Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail.
     * @param limit Number of results to return per page.
     * @param offset The initial index from which to return the results.
-    * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. 
     */
-  def characteristicList(limit: Option[Int], offset: Option[Int], q: Option[String]): PaginatedCharacteristicSummaryList
+  def characteristicList(limit: Option[Int], offset: Option[Int]): PaginatedCharacteristicSummaryList
 
   /**
     * Get characteristic

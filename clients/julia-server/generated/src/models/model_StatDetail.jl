@@ -11,40 +11,43 @@
         is_battle_only=nothing,
         affecting_moves=nothing,
         affecting_natures=nothing,
+        affecting_items=nothing,
         characteristics=nothing,
         move_damage_class=nothing,
         names=nothing,
     )
 
-    - id::Int64
-    - name::String
-    - game_index::Int64
-    - is_battle_only::Bool
-    - affecting_moves::StatDetailAffectingMoves
-    - affecting_natures::StatDetailAffectingNatures
-    - characteristics::Vector{CharacteristicSummary}
-    - move_damage_class::MoveDamageClassSummary
-    - names::Vector{StatName}
+    - id::Int64 : The identifier for this resource.
+    - name::String : The name for this resource.
+    - game_index::Int64 : ID the games use for this stat.
+    - is_battle_only::Bool : Whether this stat only exists within a battle.
+    - affecting_moves::StatAffectingMoves : A detail of moves which affect this stat positively or negatively.
+    - affecting_natures::StatAffectingNatures : A detail of natures which affect this stat positively or negatively.
+    - affecting_items::Vector{ItemSummary} : Items that affect this stat, such as vitamins and battle items.
+    - characteristics::Vector{CharacteristicSummary} : A list of characteristics that are set on a Pokémon when its highest base stat is this stat.
+    - move_damage_class::MoveDamageClassSummary : The class of damage this stat is directly related to.
+    - names::Vector{StatName} : The name of this resource listed in different languages.
 """
 Base.@kwdef mutable struct StatDetail <: OpenAPI.APIModel
     id::Union{Nothing, Int64} = nothing
     name::Union{Nothing, String} = nothing
     game_index::Union{Nothing, Int64} = nothing
     is_battle_only::Union{Nothing, Bool} = nothing
-    affecting_moves = nothing # spec type: Union{ Nothing, StatDetailAffectingMoves }
-    affecting_natures = nothing # spec type: Union{ Nothing, StatDetailAffectingNatures }
+    affecting_moves = nothing # spec type: Union{ Nothing, StatAffectingMoves }
+    affecting_natures = nothing # spec type: Union{ Nothing, StatAffectingNatures }
+    affecting_items::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{ItemSummary} }
     characteristics::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{CharacteristicSummary} }
     move_damage_class = nothing # spec type: Union{ Nothing, MoveDamageClassSummary }
     names::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{StatName} }
 
-    function StatDetail(id, name, game_index, is_battle_only, affecting_moves, affecting_natures, characteristics, move_damage_class, names, )
-        o = new(id, name, game_index, is_battle_only, affecting_moves, affecting_natures, characteristics, move_damage_class, names, )
+    function StatDetail(id, name, game_index, is_battle_only, affecting_moves, affecting_natures, affecting_items, characteristics, move_damage_class, names, )
+        o = new(id, name, game_index, is_battle_only, affecting_moves, affecting_natures, affecting_items, characteristics, move_damage_class, names, )
         OpenAPI.validate_properties(o)
         return o
     end
 end # type StatDetail
 
-const _property_types_StatDetail = Dict{Symbol,String}(Symbol("id")=>"Int64", Symbol("name")=>"String", Symbol("game_index")=>"Int64", Symbol("is_battle_only")=>"Bool", Symbol("affecting_moves")=>"StatDetailAffectingMoves", Symbol("affecting_natures")=>"StatDetailAffectingNatures", Symbol("characteristics")=>"Vector{CharacteristicSummary}", Symbol("move_damage_class")=>"MoveDamageClassSummary", Symbol("names")=>"Vector{StatName}", )
+const _property_types_StatDetail = Dict{Symbol,String}(Symbol("id")=>"Int64", Symbol("name")=>"String", Symbol("game_index")=>"Int64", Symbol("is_battle_only")=>"Bool", Symbol("affecting_moves")=>"StatAffectingMoves", Symbol("affecting_natures")=>"StatAffectingNatures", Symbol("affecting_items")=>"Vector{ItemSummary}", Symbol("characteristics")=>"Vector{CharacteristicSummary}", Symbol("move_damage_class")=>"MoveDamageClassSummary", Symbol("names")=>"Vector{StatName}", )
 OpenAPI.property_type(::Type{ StatDetail }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_StatDetail[name]))}
 
 function OpenAPI.check_required(o::StatDetail)
@@ -53,6 +56,7 @@ function OpenAPI.check_required(o::StatDetail)
     o.game_index === nothing && (return false)
     o.affecting_moves === nothing && (return false)
     o.affecting_natures === nothing && (return false)
+    o.affecting_items === nothing && (return false)
     o.characteristics === nothing && (return false)
     o.move_damage_class === nothing && (return false)
     o.names === nothing && (return false)
@@ -66,6 +70,7 @@ function OpenAPI.validate_properties(o::StatDetail)
     OpenAPI.validate_property(StatDetail, Symbol("is_battle_only"), o.is_battle_only)
     OpenAPI.validate_property(StatDetail, Symbol("affecting_moves"), o.affecting_moves)
     OpenAPI.validate_property(StatDetail, Symbol("affecting_natures"), o.affecting_natures)
+    OpenAPI.validate_property(StatDetail, Symbol("affecting_items"), o.affecting_items)
     OpenAPI.validate_property(StatDetail, Symbol("characteristics"), o.characteristics)
     OpenAPI.validate_property(StatDetail, Symbol("move_damage_class"), o.move_damage_class)
     OpenAPI.validate_property(StatDetail, Symbol("names"), o.names)
@@ -75,7 +80,12 @@ function OpenAPI.validate_property(::Type{ StatDetail }, name::Symbol, val)
 
 
     if name === Symbol("name")
-        OpenAPI.validate_param(name, "StatDetail", :maxLength, val, 100)
+        OpenAPI.validate_param(name, "StatDetail", :maxLength, val, 200)
+    end
+
+    if name === Symbol("game_index")
+        OpenAPI.validate_param(name, "StatDetail", :maximum, val, 2147483647, false)
+        OpenAPI.validate_param(name, "StatDetail", :minimum, val, -2147483648, false)
     end
 
 

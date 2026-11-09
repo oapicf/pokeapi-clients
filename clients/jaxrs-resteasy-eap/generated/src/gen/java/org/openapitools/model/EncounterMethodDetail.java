@@ -15,7 +15,7 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 import io.swagger.annotations.*;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2026-10-25T05:48:53.778376553Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2026-11-09T13:50:03.149615362Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class EncounterMethodDetail   {
   
   private Integer id;
@@ -24,9 +24,10 @@ public class EncounterMethodDetail   {
   private List<@Valid EncounterMethodName> names = new ArrayList<>();
 
   /**
+   * The identifier for this resource.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   @JsonProperty("id")
   @NotNull
   public Integer getId() {
@@ -37,12 +38,13 @@ public class EncounterMethodDetail   {
   }
 
   /**
+   * The name for this resource.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   @JsonProperty("name")
   @NotNull
- @Size(max=100)  public String getName() {
+ @Size(max=200)  public String getName() {
     return name;
   }
   public void setName(String name) {
@@ -50,11 +52,14 @@ public class EncounterMethodDetail   {
   }
 
   /**
+   * A good value for sorting.
+   * minimum: -2147483648
+   * maximum: 2147483647
    **/
   
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A good value for sorting.")
   @JsonProperty("order")
-  public Integer getOrder() {
+ @Min(-2147483648) @Max(2147483647)  public Integer getOrder() {
     return order;
   }
   public void setOrder(Integer order) {
@@ -62,9 +67,10 @@ public class EncounterMethodDetail   {
   }
 
   /**
+   * The name of this resource listed in different languages.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
   @JsonProperty("names")
   @NotNull
   public List<@Valid EncounterMethodName> getNames() {

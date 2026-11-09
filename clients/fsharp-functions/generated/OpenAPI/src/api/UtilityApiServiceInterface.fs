@@ -10,4 +10,5 @@ module UtilityApiServiceInterface =
     type IUtilityApiService =
       abstract member LanguageList : unit -> LanguageListResult
       abstract member LanguageRetrieve : unit -> LanguageRetrieveResult
+      abstract member MetaRetrieve : unit -> MetaRetrieveResult
     //#endregion

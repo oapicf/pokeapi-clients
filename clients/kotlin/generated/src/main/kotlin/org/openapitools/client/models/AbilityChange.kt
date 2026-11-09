@@ -32,16 +32,18 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param versionGroup 
- * @param effectEntries 
+ * @param versionGroup The version group in which the previous effect of this ability originated.
+ * @param effectEntries The previous effect of this ability listed in different languages.
  */
 
 
 data class AbilityChange (
 
+    /* The version group in which the previous effect of this ability originated. */
     @Json(name = "version_group")
     val versionGroup: VersionGroupSummary,
 
+    /* The previous effect of this ability listed in different languages. */
     @Json(name = "effect_entries")
     val effectEntries: kotlin.collections.List<AbilityChangeEffectText>
 

@@ -27,10 +27,10 @@ from typing import Optional
 from typing_extensions import Annotated
 from openapi_server.models.evolution_chain_detail import EvolutionChainDetail
 from openapi_server.models.evolution_trigger_detail import EvolutionTriggerDetail
+from openapi_server.models.evolution_variable_detail import EvolutionVariableDetail
 from openapi_server.models.paginated_evolution_chain_summary_list import PaginatedEvolutionChainSummaryList
 from openapi_server.models.paginated_evolution_trigger_summary_list import PaginatedEvolutionTriggerSummaryList
-from openapi_server.models.extra_models import TokenModel  # noqa: F401
-from openapi_server.security_api import get_token_basicAuth, get_token_cookieAuth
+from openapi_server.models.paginated_evolution_variable_summary_list import PaginatedEvolutionVariableSummaryList
 
 router = APIRouter()
 
@@ -51,18 +51,11 @@ for _, name, _ in pkgutil.iter_modules(ns_pkg.__path__, ns_pkg.__name__ + "."):
 async def evolution_chain_list(
     limit: Annotated[Optional[int], Field(description="Number of results to return per page.")] = Query(None, description="Number of results to return per page.", alias="limit"),
     offset: Annotated[Optional[int], Field(description="The initial index from which to return the results.")] = Query(None, description="The initial index from which to return the results.", alias="offset"),
-    q: Annotated[Optional[str], Field(description="> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")] = Query(None, description="&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ", alias="q"),
-    token_basicAuth: TokenModel = Security(
-        get_token_basicAuth
-    ),
-    token_cookieAuth: TokenModel = Security(
-        get_token_cookieAuth
-    ),
 ) -> PaginatedEvolutionChainSummaryList:
     """Evolution chains are essentially family trees. They start with the lowest stage within a family and detail evolution conditions for each as well as Pokémon they can evolve into up through the hierarchy."""
     if not BaseEvolutionApi.subclasses:
         raise HTTPException(status_code=500, detail="Not implemented")
-    return await BaseEvolutionApi.subclasses[0]().evolution_chain_list(limit, offset, q)
+    return await BaseEvolutionApi.subclasses[0]().evolution_chain_list(limit, offset)
 
 
 @router.get(
@@ -75,13 +68,7 @@ async def evolution_chain_list(
     response_model_by_alias=True,
 )
 async def evolution_chain_retrieve(
-    id: Annotated[str, Field(description="This parameter can be a string or an integer.")] = Path(..., description="This parameter can be a string or an integer."),
-    token_basicAuth: TokenModel = Security(
-        get_token_basicAuth
-    ),
-    token_cookieAuth: TokenModel = Security(
-        get_token_cookieAuth
-    ),
+    id: Annotated[str, Field(description="This parameter can be a string or an integer.")] = Path(..., description="This parameter can be a string or an integer.", examples=["1"]),
 ) -> EvolutionChainDetail:
     """Evolution chains are essentially family trees. They start with the lowest stage within a family and detail evolution conditions for each as well as Pokémon they can evolve into up through the hierarchy."""
     if not BaseEvolutionApi.subclasses:
@@ -102,12 +89,6 @@ async def evolution_trigger_list(
     limit: Annotated[Optional[int], Field(description="Number of results to return per page.")] = Query(None, description="Number of results to return per page.", alias="limit"),
     offset: Annotated[Optional[int], Field(description="The initial index from which to return the results.")] = Query(None, description="The initial index from which to return the results.", alias="offset"),
     q: Annotated[Optional[str], Field(description="> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")] = Query(None, description="&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ", alias="q"),
-    token_basicAuth: TokenModel = Security(
-        get_token_basicAuth
-    ),
-    token_cookieAuth: TokenModel = Security(
-        get_token_cookieAuth
-    ),
 ) -> PaginatedEvolutionTriggerSummaryList:
     """Evolution triggers are the events and conditions that cause a Pokémon to evolve. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Methods_of_evolution) for greater detail."""
     if not BaseEvolutionApi.subclasses:
@@ -125,15 +106,47 @@ async def evolution_trigger_list(
     response_model_by_alias=True,
 )
 async def evolution_trigger_retrieve(
-    id: Annotated[str, Field(description="This parameter can be a string or an integer.")] = Path(..., description="This parameter can be a string or an integer."),
-    token_basicAuth: TokenModel = Security(
-        get_token_basicAuth
-    ),
-    token_cookieAuth: TokenModel = Security(
-        get_token_cookieAuth
-    ),
+    id: Annotated[str, Field(description="This parameter can be a string or an integer.")] = Path(..., description="This parameter can be a string or an integer.", examples=["1"]),
 ) -> EvolutionTriggerDetail:
     """Evolution triggers are the events and conditions that cause a Pokémon to evolve. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Methods_of_evolution) for greater detail."""
     if not BaseEvolutionApi.subclasses:
         raise HTTPException(status_code=500, detail="Not implemented")
     return await BaseEvolutionApi.subclasses[0]().evolution_trigger_retrieve(id)
+
+
+@router.get(
+    "/api/v2/evolution-variable/",
+    responses={
+        200: {"model": PaginatedEvolutionVariableSummaryList, "description": ""},
+    },
+    tags=["evolution"],
+    summary="List evolution variables",
+    response_model_by_alias=True,
+)
+async def evolution_variable_list(
+    limit: Annotated[Optional[int], Field(description="Number of results to return per page.")] = Query(None, description="Number of results to return per page.", alias="limit"),
+    offset: Annotated[Optional[int], Field(description="The initial index from which to return the results.")] = Query(None, description="The initial index from which to return the results.", alias="offset"),
+    q: Annotated[Optional[str], Field(description="> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")] = Query(None, description="&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ", alias="q"),
+) -> PaginatedEvolutionVariableSummaryList:
+    """Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail."""
+    if not BaseEvolutionApi.subclasses:
+        raise HTTPException(status_code=500, detail="Not implemented")
+    return await BaseEvolutionApi.subclasses[0]().evolution_variable_list(limit, offset, q)
+
+
+@router.get(
+    "/api/v2/evolution-variable/{id}/",
+    responses={
+        200: {"model": EvolutionVariableDetail, "description": ""},
+    },
+    tags=["evolution"],
+    summary="Get evolution variable",
+    response_model_by_alias=True,
+)
+async def evolution_variable_retrieve(
+    id: Annotated[str, Field(description="This parameter can be a string or an integer.")] = Path(..., description="This parameter can be a string or an integer.", examples=["1"]),
+) -> EvolutionVariableDetail:
+    """Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail."""
+    if not BaseEvolutionApi.subclasses:
+        raise HTTPException(status_code=500, detail="Not implemented")
+    return await BaseEvolutionApi.subclasses[0]().evolution_variable_retrieve(id)

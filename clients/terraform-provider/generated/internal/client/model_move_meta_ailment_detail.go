@@ -6,6 +6,6 @@ package client
 type MoveMetaAilmentDetail struct {
 	Id int32 `json:"id"`
 	Name string `json:"name"`
-	Moves []AbilityDetailPokemonInnerPokemon `json:"moves"`
+	Moves []MoveSummary `json:"moves"`
 	Names []MoveMetaAilmentName `json:"names"`
 }

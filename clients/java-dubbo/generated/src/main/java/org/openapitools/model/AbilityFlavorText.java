@@ -13,17 +13,26 @@ import java.math.*;
 public class AbilityFlavorText implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * The localized name for an API resource in a specific language.
+   */
   @JsonProperty("flavor_text")
   private String flavorText;
 
+  /**
+   * The language this text resource is in.
+   */
   @JsonProperty("language")
   private LanguageSummary language;
 
+  /**
+   * The version group that uses this flavor text.
+   */
   @JsonProperty("version_group")
   private VersionGroupSummary versionGroup;
 
   /**
-   * 
+   * The localized name for an API resource in a specific language.
    * @return flavorText
    */
   public String getFlavorText() {
@@ -35,7 +44,7 @@ public class AbilityFlavorText implements Serializable {
   }
 
   /**
-   * 
+   * The language this text resource is in.
    * @return language
    */
   public LanguageSummary getLanguage() {
@@ -47,7 +56,7 @@ public class AbilityFlavorText implements Serializable {
   }
 
   /**
-   * 
+   * The version group that uses this flavor text.
    * @return versionGroup
    */
   public VersionGroupSummary getVersionGroup() {

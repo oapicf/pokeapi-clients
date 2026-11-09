@@ -6,9 +6,9 @@ namespace App\DTO;
 use Articus\DataTransfer\Annotation as DTA;
 
 /**
- * @DTA\Strategy(name="ObjectList", options={"type":\App\DTO\PokedexDescription::class})
+ * @DTA\Strategy(name="ObjectList", options={"type":\App\DTO\PalParkEncounter::class})
  * @DTA\Validator(name="Collection", options={"validators":{
- *     {"name":"TypeCompliant", "options":{"type":\App\DTO\PokedexDescription::class}}
+ *     {"name":"TypeCompliant", "options":{"type":\App\DTO\PalParkEncounter::class}}
  * }})
  */
 class Collection131 extends \ArrayObject

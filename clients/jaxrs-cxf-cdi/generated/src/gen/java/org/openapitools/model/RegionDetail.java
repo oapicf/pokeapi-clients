@@ -7,11 +7,11 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.model.AbilityDetailPokemonInnerPokemon;
 import org.openapitools.model.GenerationSummary;
 import org.openapitools.model.LocationSummary;
 import org.openapitools.model.PokedexSummary;
 import org.openapitools.model.RegionName;
+import org.openapitools.model.VersionGroupSummary;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
@@ -35,9 +35,10 @@ public class RegionDetail   {
 
   private List<@Valid PokedexSummary> pokedexes = new ArrayList<>();
 
-  private List<@Valid AbilityDetailPokemonInnerPokemon> versionGroups = new ArrayList<>();
+  private List<@Valid VersionGroupSummary> versionGroups = new ArrayList<>();
 
   /**
+   * The identifier for this resource.
    **/
   public RegionDetail id(Integer id) {
     this.id = id;
@@ -45,7 +46,7 @@ public class RegionDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   @JsonProperty("id")
   @NotNull
   public Integer getId() {
@@ -57,6 +58,7 @@ public class RegionDetail   {
 
 
   /**
+   * The name for this resource.
    **/
   public RegionDetail name(String name) {
     this.name = name;
@@ -64,10 +66,10 @@ public class RegionDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   @JsonProperty("name")
   @NotNull
- @Size(max=100)  public String getName() {
+ @Size(max=200)  public String getName() {
     return name;
   }
   public void setName(String name) {
@@ -76,6 +78,7 @@ public class RegionDetail   {
 
 
   /**
+   * A list of locations that can be found in this region.
    **/
   public RegionDetail locations(List<@Valid LocationSummary> locations) {
     this.locations = locations;
@@ -83,7 +86,7 @@ public class RegionDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of locations that can be found in this region.")
   @JsonProperty("locations")
   @NotNull
   public List<@Valid LocationSummary> getLocations() {
@@ -103,6 +106,7 @@ public class RegionDetail   {
 
 
   /**
+   * The generation this region was introduced in.
    **/
   public RegionDetail mainGeneration(GenerationSummary mainGeneration) {
     this.mainGeneration = mainGeneration;
@@ -110,7 +114,7 @@ public class RegionDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The generation this region was introduced in.")
   @JsonProperty("main_generation")
   @NotNull
   public GenerationSummary getMainGeneration() {
@@ -122,6 +126,7 @@ public class RegionDetail   {
 
 
   /**
+   * The name of this resource listed in different languages.
    **/
   public RegionDetail names(List<@Valid RegionName> names) {
     this.names = names;
@@ -129,7 +134,7 @@ public class RegionDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
   @JsonProperty("names")
   @NotNull
   public List<@Valid RegionName> getNames() {
@@ -149,6 +154,7 @@ public class RegionDetail   {
 
 
   /**
+   * A list of pokédexes that catalogue Pokémon in this region.
    **/
   public RegionDetail pokedexes(List<@Valid PokedexSummary> pokedexes) {
     this.pokedexes = pokedexes;
@@ -156,7 +162,7 @@ public class RegionDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of pokédexes that catalogue Pokémon in this region.")
   @JsonProperty("pokedexes")
   @NotNull
   public List<@Valid PokedexSummary> getPokedexes() {
@@ -176,24 +182,25 @@ public class RegionDetail   {
 
 
   /**
+   * A list of version groups where this region can be visited.
    **/
-  public RegionDetail versionGroups(List<@Valid AbilityDetailPokemonInnerPokemon> versionGroups) {
+  public RegionDetail versionGroups(List<@Valid VersionGroupSummary> versionGroups) {
     this.versionGroups = versionGroups;
     return this;
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of version groups where this region can be visited.")
   @JsonProperty("version_groups")
   @NotNull
-  public List<@Valid AbilityDetailPokemonInnerPokemon> getVersionGroups() {
+  public List<@Valid VersionGroupSummary> getVersionGroups() {
     return versionGroups;
   }
-  public void setVersionGroups(List<@Valid AbilityDetailPokemonInnerPokemon> versionGroups) {
+  public void setVersionGroups(List<@Valid VersionGroupSummary> versionGroups) {
     this.versionGroups = versionGroups;
   }
 
-  public RegionDetail addVersionGroupsItem(AbilityDetailPokemonInnerPokemon versionGroupsItem) {
+  public RegionDetail addVersionGroupsItem(VersionGroupSummary versionGroupsItem) {
     if (this.versionGroups == null) {
       this.versionGroups = new ArrayList<>();
     }

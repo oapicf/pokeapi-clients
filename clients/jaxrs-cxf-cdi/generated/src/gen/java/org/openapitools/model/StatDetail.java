@@ -8,9 +8,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.model.CharacteristicSummary;
+import org.openapitools.model.ItemSummary;
 import org.openapitools.model.MoveDamageClassSummary;
-import org.openapitools.model.StatDetailAffectingMoves;
-import org.openapitools.model.StatDetailAffectingNatures;
+import org.openapitools.model.StatAffectingMoves;
+import org.openapitools.model.StatAffectingNatures;
 import org.openapitools.model.StatName;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
@@ -31,9 +32,11 @@ public class StatDetail   {
 
   private Boolean isBattleOnly;
 
-  private StatDetailAffectingMoves affectingMoves;
+  private StatAffectingMoves affectingMoves;
 
-  private StatDetailAffectingNatures affectingNatures;
+  private StatAffectingNatures affectingNatures;
+
+  private List<@Valid ItemSummary> affectingItems = new ArrayList<>();
 
   private List<@Valid CharacteristicSummary> characteristics = new ArrayList<>();
 
@@ -42,6 +45,7 @@ public class StatDetail   {
   private List<@Valid StatName> names = new ArrayList<>();
 
   /**
+   * The identifier for this resource.
    **/
   public StatDetail id(Integer id) {
     this.id = id;
@@ -49,7 +53,7 @@ public class StatDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   @JsonProperty("id")
   @NotNull
   public Integer getId() {
@@ -61,6 +65,7 @@ public class StatDetail   {
 
 
   /**
+   * The name for this resource.
    **/
   public StatDetail name(String name) {
     this.name = name;
@@ -68,10 +73,10 @@ public class StatDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   @JsonProperty("name")
   @NotNull
- @Size(max=100)  public String getName() {
+ @Size(max=200)  public String getName() {
     return name;
   }
   public void setName(String name) {
@@ -80,6 +85,9 @@ public class StatDetail   {
 
 
   /**
+   * ID the games use for this stat.
+   * minimum: -2147483648
+   * maximum: 2147483647
    **/
   public StatDetail gameIndex(Integer gameIndex) {
     this.gameIndex = gameIndex;
@@ -87,10 +95,10 @@ public class StatDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "ID the games use for this stat.")
   @JsonProperty("game_index")
   @NotNull
-  public Integer getGameIndex() {
+ @Min(-2147483648) @Max(2147483647)  public Integer getGameIndex() {
     return gameIndex;
   }
   public void setGameIndex(Integer gameIndex) {
@@ -99,6 +107,7 @@ public class StatDetail   {
 
 
   /**
+   * Whether this stat only exists within a battle.
    **/
   public StatDetail isBattleOnly(Boolean isBattleOnly) {
     this.isBattleOnly = isBattleOnly;
@@ -106,7 +115,7 @@ public class StatDetail   {
   }
 
   
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Whether this stat only exists within a battle.")
   @JsonProperty("is_battle_only")
   public Boolean getIsBattleOnly() {
     return isBattleOnly;
@@ -117,44 +126,75 @@ public class StatDetail   {
 
 
   /**
+   * A detail of moves which affect this stat positively or negatively.
    **/
-  public StatDetail affectingMoves(StatDetailAffectingMoves affectingMoves) {
+  public StatDetail affectingMoves(StatAffectingMoves affectingMoves) {
     this.affectingMoves = affectingMoves;
     return this;
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A detail of moves which affect this stat positively or negatively.")
   @JsonProperty("affecting_moves")
   @NotNull
-  public StatDetailAffectingMoves getAffectingMoves() {
+  public StatAffectingMoves getAffectingMoves() {
     return affectingMoves;
   }
-  public void setAffectingMoves(StatDetailAffectingMoves affectingMoves) {
+  public void setAffectingMoves(StatAffectingMoves affectingMoves) {
     this.affectingMoves = affectingMoves;
   }
 
 
   /**
+   * A detail of natures which affect this stat positively or negatively.
    **/
-  public StatDetail affectingNatures(StatDetailAffectingNatures affectingNatures) {
+  public StatDetail affectingNatures(StatAffectingNatures affectingNatures) {
     this.affectingNatures = affectingNatures;
     return this;
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A detail of natures which affect this stat positively or negatively.")
   @JsonProperty("affecting_natures")
   @NotNull
-  public StatDetailAffectingNatures getAffectingNatures() {
+  public StatAffectingNatures getAffectingNatures() {
     return affectingNatures;
   }
-  public void setAffectingNatures(StatDetailAffectingNatures affectingNatures) {
+  public void setAffectingNatures(StatAffectingNatures affectingNatures) {
     this.affectingNatures = affectingNatures;
   }
 
 
   /**
+   * Items that affect this stat, such as vitamins and battle items.
+   **/
+  public StatDetail affectingItems(List<@Valid ItemSummary> affectingItems) {
+    this.affectingItems = affectingItems;
+    return this;
+  }
+
+  
+  @ApiModelProperty(required = true, value = "Items that affect this stat, such as vitamins and battle items.")
+  @JsonProperty("affecting_items")
+  @NotNull
+  public List<@Valid ItemSummary> getAffectingItems() {
+    return affectingItems;
+  }
+  public void setAffectingItems(List<@Valid ItemSummary> affectingItems) {
+    this.affectingItems = affectingItems;
+  }
+
+  public StatDetail addAffectingItemsItem(ItemSummary affectingItemsItem) {
+    if (this.affectingItems == null) {
+      this.affectingItems = new ArrayList<>();
+    }
+    this.affectingItems.add(affectingItemsItem);
+    return this;
+  }
+
+
+  /**
+   * A list of characteristics that are set on a Pokémon when its highest base stat is this stat.
    **/
   public StatDetail characteristics(List<@Valid CharacteristicSummary> characteristics) {
     this.characteristics = characteristics;
@@ -162,7 +202,7 @@ public class StatDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of characteristics that are set on a Pokémon when its highest base stat is this stat.")
   @JsonProperty("characteristics")
   @NotNull
   public List<@Valid CharacteristicSummary> getCharacteristics() {
@@ -182,6 +222,7 @@ public class StatDetail   {
 
 
   /**
+   * The class of damage this stat is directly related to.
    **/
   public StatDetail moveDamageClass(MoveDamageClassSummary moveDamageClass) {
     this.moveDamageClass = moveDamageClass;
@@ -189,7 +230,7 @@ public class StatDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The class of damage this stat is directly related to.")
   @JsonProperty("move_damage_class")
   @NotNull
   public MoveDamageClassSummary getMoveDamageClass() {
@@ -201,6 +242,7 @@ public class StatDetail   {
 
 
   /**
+   * The name of this resource listed in different languages.
    **/
   public StatDetail names(List<@Valid StatName> names) {
     this.names = names;
@@ -208,7 +250,7 @@ public class StatDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
   @JsonProperty("names")
   @NotNull
   public List<@Valid StatName> getNames() {
@@ -243,6 +285,7 @@ public class StatDetail   {
         Objects.equals(this.isBattleOnly, statDetail.isBattleOnly) &&
         Objects.equals(this.affectingMoves, statDetail.affectingMoves) &&
         Objects.equals(this.affectingNatures, statDetail.affectingNatures) &&
+        Objects.equals(this.affectingItems, statDetail.affectingItems) &&
         Objects.equals(this.characteristics, statDetail.characteristics) &&
         Objects.equals(this.moveDamageClass, statDetail.moveDamageClass) &&
         Objects.equals(this.names, statDetail.names);
@@ -250,7 +293,7 @@ public class StatDetail   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, gameIndex, isBattleOnly, affectingMoves, affectingNatures, characteristics, moveDamageClass, names);
+    return Objects.hash(id, name, gameIndex, isBattleOnly, affectingMoves, affectingNatures, affectingItems, characteristics, moveDamageClass, names);
   }
 
   @Override
@@ -264,6 +307,7 @@ public class StatDetail   {
     sb.append("    isBattleOnly: ").append(toIndentedString(isBattleOnly)).append("\n");
     sb.append("    affectingMoves: ").append(toIndentedString(affectingMoves)).append("\n");
     sb.append("    affectingNatures: ").append(toIndentedString(affectingNatures)).append("\n");
+    sb.append("    affectingItems: ").append(toIndentedString(affectingItems)).append("\n");
     sb.append("    characteristics: ").append(toIndentedString(characteristics)).append("\n");
     sb.append("    moveDamageClass: ").append(toIndentedString(moveDamageClass)).append("\n");
     sb.append("    names: ").append(toIndentedString(names)).append("\n");

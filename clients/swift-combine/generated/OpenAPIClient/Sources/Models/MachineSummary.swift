@@ -8,6 +8,7 @@
 import Foundation
 
 public struct MachineSummary: Codable {
+    /// The URL of the referenced resource.
     public var url: String
 
     public init(url: String) {

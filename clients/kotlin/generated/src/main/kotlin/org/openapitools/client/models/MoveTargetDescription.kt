@@ -31,16 +31,18 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param language 
- * @param description 
+ * @param language The language this name is in.
+ * @param description The localized description for an API resource in a specific language.
  */
 
 
 data class MoveTargetDescription (
 
+    /* The language this name is in. */
     @Json(name = "language")
     val language: LanguageSummary,
 
+    /* The localized description for an API resource in a specific language. */
     @Json(name = "description")
     val description: kotlin.String? = null
 

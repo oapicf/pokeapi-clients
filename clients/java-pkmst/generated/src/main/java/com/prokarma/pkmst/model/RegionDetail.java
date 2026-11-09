@@ -3,11 +3,11 @@ package com.prokarma.pkmst.model;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.prokarma.pkmst.model.AbilityDetailPokemonInnerPokemon;
 import com.prokarma.pkmst.model.GenerationSummary;
 import com.prokarma.pkmst.model.LocationSummary;
 import com.prokarma.pkmst.model.PokedexSummary;
 import com.prokarma.pkmst.model.RegionName;
+import com.prokarma.pkmst.model.VersionGroupSummary;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
@@ -22,7 +22,7 @@ import java.util.List;
  * RegionDetail
  */
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-10-25T05:48:09.645019047Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-11-09T13:49:28.343088631Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class RegionDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -47,7 +47,7 @@ public class RegionDetail   {
 
   @JsonProperty("version_groups")
   
-  private List<AbilityDetailPokemonInnerPokemon> versionGroups = new ArrayList<>();
+  private List<VersionGroupSummary> versionGroups = new ArrayList<>();
 
   public RegionDetail id(Integer id) {
     this.id = id;
@@ -55,10 +55,10 @@ public class RegionDetail   {
   }
 
   /**
-   * Get id
+   * The identifier for this resource.
    * @return id
    */
-  @ApiModelProperty(required = true, readOnly = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "The identifier for this resource.")
   public Integer getId() {
     return id;
   }
@@ -73,10 +73,10 @@ public class RegionDetail   {
   }
 
   /**
-   * Get name
+   * The name for this resource.
    * @return name
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   public String getName() {
     return name;
   }
@@ -99,10 +99,10 @@ public class RegionDetail   {
   }
 
   /**
-   * Get locations
+   * A list of locations that can be found in this region.
    * @return locations
    */
-  @ApiModelProperty(required = true, readOnly = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "A list of locations that can be found in this region.")
   public List<LocationSummary> getLocations() {
     return locations;
   }
@@ -117,10 +117,10 @@ public class RegionDetail   {
   }
 
   /**
-   * Get mainGeneration
+   * The generation this region was introduced in.
    * @return mainGeneration
    */
-  @ApiModelProperty(required = true, readOnly = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "The generation this region was introduced in.")
   public GenerationSummary getMainGeneration() {
     return mainGeneration;
   }
@@ -143,10 +143,10 @@ public class RegionDetail   {
   }
 
   /**
-   * Get names
+   * The name of this resource listed in different languages.
    * @return names
    */
-  @ApiModelProperty(required = true, readOnly = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "The name of this resource listed in different languages.")
   public List<RegionName> getNames() {
     return names;
   }
@@ -169,10 +169,10 @@ public class RegionDetail   {
   }
 
   /**
-   * Get pokedexes
+   * A list of pokédexes that catalogue Pokémon in this region.
    * @return pokedexes
    */
-  @ApiModelProperty(required = true, readOnly = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "A list of pokédexes that catalogue Pokémon in this region.")
   public List<PokedexSummary> getPokedexes() {
     return pokedexes;
   }
@@ -181,12 +181,12 @@ public class RegionDetail   {
     this.pokedexes = pokedexes;
   }
 
-  public RegionDetail versionGroups(List<AbilityDetailPokemonInnerPokemon> versionGroups) {
+  public RegionDetail versionGroups(List<VersionGroupSummary> versionGroups) {
     this.versionGroups = versionGroups;
     return this;
   }
 
-  public RegionDetail addVersionGroupsItem(AbilityDetailPokemonInnerPokemon versionGroupsItem) {
+  public RegionDetail addVersionGroupsItem(VersionGroupSummary versionGroupsItem) {
     if (this.versionGroups == null) {
       this.versionGroups = new ArrayList<>();
     }
@@ -195,15 +195,15 @@ public class RegionDetail   {
   }
 
   /**
-   * Get versionGroups
+   * A list of version groups where this region can be visited.
    * @return versionGroups
    */
-  @ApiModelProperty(required = true, readOnly = true, value = "")
-  public List<AbilityDetailPokemonInnerPokemon> getVersionGroups() {
+  @ApiModelProperty(required = true, readOnly = true, value = "A list of version groups where this region can be visited.")
+  public List<VersionGroupSummary> getVersionGroups() {
     return versionGroups;
   }
 
-  public void setVersionGroups(List<AbilityDetailPokemonInnerPokemon> versionGroups) {
+  public void setVersionGroups(List<VersionGroupSummary> versionGroups) {
     this.versionGroups = versionGroups;
   }
 

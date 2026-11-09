@@ -11,7 +11,7 @@ import java.net.URI;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-10-25T05:47:53.227411880Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-11-09T13:49:15.621225368Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class VersionSummary   {
   @JsonProperty("name")
   private String name;
@@ -20,6 +20,7 @@ public class VersionSummary   {
   private URI url;
 
   /**
+   * The name of the referenced resource.
    **/
   public VersionSummary name(String name) {
     this.name = name;
@@ -27,7 +28,7 @@ public class VersionSummary   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name of the referenced resource.")
   @JsonProperty("name")
   public String getName() {
     return name;
@@ -37,6 +38,7 @@ public class VersionSummary   {
   }
 
   /**
+   * The URL of the referenced resource.
    **/
   public VersionSummary url(URI url) {
     this.url = url;
@@ -44,7 +46,7 @@ public class VersionSummary   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The URL of the referenced resource.")
   @JsonProperty("url")
   public URI getUrl() {
     return url;

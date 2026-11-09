@@ -56,6 +56,7 @@ class BerryFirmnessDetail(Model):
     def id(self):
         """Gets the id of this BerryFirmnessDetail.
 
+        The identifier for this resource.
 
         :return: The id of this BerryFirmnessDetail.
         :rtype: int
@@ -66,6 +67,7 @@ class BerryFirmnessDetail(Model):
     def id(self, id):
         """Sets the id of this BerryFirmnessDetail.
 
+        The identifier for this resource.
 
         :param id: The id of this BerryFirmnessDetail.
         :type id: int
@@ -79,6 +81,7 @@ class BerryFirmnessDetail(Model):
     def name(self):
         """Gets the name of this BerryFirmnessDetail.
 
+        The name for this resource.
 
         :return: The name of this BerryFirmnessDetail.
         :rtype: str
@@ -89,14 +92,15 @@ class BerryFirmnessDetail(Model):
     def name(self, name):
         """Sets the name of this BerryFirmnessDetail.
 
+        The name for this resource.
 
         :param name: The name of this BerryFirmnessDetail.
         :type name: str
         """
         if name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")
-        if name is not None and len(name) > 100:
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `100`")
+        if name is not None and len(name) > 200:
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `200`")
 
         self._name = name
 
@@ -104,6 +108,7 @@ class BerryFirmnessDetail(Model):
     def berries(self):
         """Gets the berries of this BerryFirmnessDetail.
 
+        A list of the berries with this firmness.
 
         :return: The berries of this BerryFirmnessDetail.
         :rtype: List[BerrySummary]
@@ -114,6 +119,7 @@ class BerryFirmnessDetail(Model):
     def berries(self, berries):
         """Sets the berries of this BerryFirmnessDetail.
 
+        A list of the berries with this firmness.
 
         :param berries: The berries of this BerryFirmnessDetail.
         :type berries: List[BerrySummary]
@@ -127,6 +133,7 @@ class BerryFirmnessDetail(Model):
     def names(self):
         """Gets the names of this BerryFirmnessDetail.
 
+        The name of this resource listed in different languages.
 
         :return: The names of this BerryFirmnessDetail.
         :rtype: List[BerryFirmnessName]
@@ -137,6 +144,7 @@ class BerryFirmnessDetail(Model):
     def names(self, names):
         """Sets the names of this BerryFirmnessDetail.
 
+        The name of this resource listed in different languages.
 
         :param names: The names of this BerryFirmnessDetail.
         :type names: List[BerryFirmnessName]

@@ -17,8 +17,13 @@ class ItemGameIndex {
     required this.generation,
   });
 
+  /// The internal id of an API resource within game data.
+  ///
+  /// Minimum value: -2147483648
+  /// Maximum value: 2147483647
   int gameIndex;
 
+  /// The generation relevent to this game index.
   GenerationSummary generation;
 
   @override

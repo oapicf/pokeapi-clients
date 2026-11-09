@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int32** |  | [readonly] 
-**Name** | **string** |  | 
-**Descriptions** | [**[]MoveDamageClassDescription**](MoveDamageClassDescription.md) |  | [readonly] 
-**Moves** | [**[]MoveSummary**](MoveSummary.md) |  | [readonly] 
-**Names** | [**[]MoveDamageClassName**](MoveDamageClassName.md) |  | [readonly] 
+**Id** | **int32** | The identifier for this resource. | [readonly] 
+**Name** | **string** | The name for this resource. | 
+**Descriptions** | [**[]MoveDamageClassDescription**](MoveDamageClassDescription.md) | The description of this resource listed in different languages. | [readonly] 
+**Moves** | [**[]MoveSummary**](MoveSummary.md) | A list of moves that fall into this damage class. | [readonly] 
+**Names** | [**[]MoveDamageClassName**](MoveDamageClassName.md) | The name of this resource listed in different languages. | [readonly] 
 
 ## Methods
 

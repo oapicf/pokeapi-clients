@@ -12,4 +12,6 @@ module EvolutionApiServiceInterface =
       abstract member EvolutionChainRetrieve : unit -> EvolutionChainRetrieveResult
       abstract member EvolutionTriggerList : unit -> EvolutionTriggerListResult
       abstract member EvolutionTriggerRetrieve : unit -> EvolutionTriggerRetrieveResult
+      abstract member EvolutionVariableList : unit -> EvolutionVariableListResult
+      abstract member EvolutionVariableRetrieve : unit -> EvolutionVariableRetrieveResult
     //#endregion

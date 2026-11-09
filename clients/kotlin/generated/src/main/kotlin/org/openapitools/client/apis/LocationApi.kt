@@ -139,7 +139,7 @@ open class LocationApi(basePath: kotlin.String = defaultBasePath, client: Call.F
             path = "/api/v2/location-area/",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -212,7 +212,7 @@ open class LocationApi(basePath: kotlin.String = defaultBasePath, client: Call.F
             path = "/api/v2/location-area/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -302,7 +302,7 @@ open class LocationApi(basePath: kotlin.String = defaultBasePath, client: Call.F
             path = "/api/v2/location/",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -375,7 +375,7 @@ open class LocationApi(basePath: kotlin.String = defaultBasePath, client: Call.F
             path = "/api/v2/location/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -465,7 +465,7 @@ open class LocationApi(basePath: kotlin.String = defaultBasePath, client: Call.F
             path = "/api/v2/pal-park-area/",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -538,7 +538,7 @@ open class LocationApi(basePath: kotlin.String = defaultBasePath, client: Call.F
             path = "/api/v2/pal-park-area/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -628,7 +628,7 @@ open class LocationApi(basePath: kotlin.String = defaultBasePath, client: Call.F
             path = "/api/v2/region/",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -701,7 +701,7 @@ open class LocationApi(basePath: kotlin.String = defaultBasePath, client: Call.F
             path = "/api/v2/region/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }

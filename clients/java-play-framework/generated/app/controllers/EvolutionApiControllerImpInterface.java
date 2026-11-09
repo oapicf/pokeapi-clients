@@ -2,8 +2,10 @@ package controllers;
 
 import apimodels.EvolutionChainDetail;
 import apimodels.EvolutionTriggerDetail;
+import apimodels.EvolutionVariableDetail;
 import apimodels.PaginatedEvolutionChainSummaryList;
 import apimodels.PaginatedEvolutionTriggerSummaryList;
+import apimodels.PaginatedEvolutionVariableSummaryList;
 
 import com.google.inject.Inject;
 import com.typesafe.config.Config;
@@ -30,8 +32,8 @@ public abstract class EvolutionApiControllerImpInterface {
     @Inject private SecurityAPIUtils securityAPIUtils;
     private ObjectMapper mapper = new ObjectMapper();
 
-    public Result evolutionChainListHttp(Http.Request request, Integer limit, Integer offset, String q) throws Exception {
-        PaginatedEvolutionChainSummaryList obj = evolutionChainList(request, limit, offset, q);
+    public Result evolutionChainListHttp(Http.Request request, Integer limit, Integer offset) throws Exception {
+        PaginatedEvolutionChainSummaryList obj = evolutionChainList(request, limit, offset);
 
         if (configuration.getBoolean("useOutputBeanValidation")) {
             OpenAPIUtils.validate(obj);
@@ -43,7 +45,7 @@ public abstract class EvolutionApiControllerImpInterface {
 
     }
 
-    public abstract PaginatedEvolutionChainSummaryList evolutionChainList(Http.Request request, Integer limit, Integer offset, String q) throws Exception;
+    public abstract PaginatedEvolutionChainSummaryList evolutionChainList(Http.Request request, Integer limit, Integer offset) throws Exception;
 
     public Result evolutionChainRetrieveHttp(Http.Request request, String id) throws Exception {
         EvolutionChainDetail obj = evolutionChainRetrieve(request, id);
@@ -89,5 +91,35 @@ public abstract class EvolutionApiControllerImpInterface {
     }
 
     public abstract EvolutionTriggerDetail evolutionTriggerRetrieve(Http.Request request, String id) throws Exception;
+
+    public Result evolutionVariableListHttp(Http.Request request, Integer limit, Integer offset, String q) throws Exception {
+        PaginatedEvolutionVariableSummaryList obj = evolutionVariableList(request, limit, offset, q);
+
+        if (configuration.getBoolean("useOutputBeanValidation")) {
+            OpenAPIUtils.validate(obj);
+        }
+
+        JsonNode result = mapper.valueToTree(obj);
+
+        return ok(result);
+
+    }
+
+    public abstract PaginatedEvolutionVariableSummaryList evolutionVariableList(Http.Request request, Integer limit, Integer offset, String q) throws Exception;
+
+    public Result evolutionVariableRetrieveHttp(Http.Request request, String id) throws Exception {
+        EvolutionVariableDetail obj = evolutionVariableRetrieve(request, id);
+
+        if (configuration.getBoolean("useOutputBeanValidation")) {
+            OpenAPIUtils.validate(obj);
+        }
+
+        JsonNode result = mapper.valueToTree(obj);
+
+        return ok(result);
+
+    }
+
+    public abstract EvolutionVariableDetail evolutionVariableRetrieve(Http.Request request, String id) throws Exception;
 
 }

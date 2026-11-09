@@ -4,10 +4,10 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **Integer** |  | [readonly] |
-| **name** | **String** |  |  |
-| **berries** | [**Array&lt;BerrySummary&gt;**](BerrySummary.md) |  | [readonly] |
-| **names** | [**Array&lt;BerryFirmnessName&gt;**](BerryFirmnessName.md) |  | [readonly] |
+| **id** | **Integer** | The identifier for this resource. | [readonly] |
+| **name** | **String** | The name for this resource. |  |
+| **berries** | [**Array&lt;BerrySummary&gt;**](BerrySummary.md) | A list of the berries with this firmness. | [readonly] |
+| **names** | [**Array&lt;BerryFirmnessName&gt;**](BerryFirmnessName.md) | The name of this resource listed in different languages. | [readonly] |
 
 ## Example
 

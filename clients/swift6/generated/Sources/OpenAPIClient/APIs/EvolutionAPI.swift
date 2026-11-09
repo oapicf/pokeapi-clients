@@ -14,31 +14,23 @@ open class EvolutionAPI {
      
      - parameter limit: (query) Number of results to return per page. (optional)
      - parameter offset: (query) The initial index from which to return the results. (optional)
-     - parameter q: (query) &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: PaginatedEvolutionChainSummaryList
      */
-    open class func evolutionChainList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedEvolutionChainSummaryList {
-        return try await evolutionChainListWithRequestBuilder(limit: limit, offset: offset, q: q, apiConfiguration: apiConfiguration).execute().body
+    open class func evolutionChainList(limit: Int? = nil, offset: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedEvolutionChainSummaryList {
+        return try await evolutionChainListWithRequestBuilder(limit: limit, offset: offset, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      List evolution chains
      - GET /api/v2/evolution-chain/
      - Evolution chains are essentially family trees. They start with the lowest stage within a family and detail evolution conditions for each as well as Pokémon they can evolve into up through the hierarchy.
-     - BASIC:
-       - type: http
-       - name: basicAuth
-     - API Key:
-       - type: apiKey sessionid 
-       - name: cookieAuth
      - parameter limit: (query) Number of results to return per page. (optional)
      - parameter offset: (query) The initial index from which to return the results. (optional)
-     - parameter q: (query) &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<PaginatedEvolutionChainSummaryList> 
      */
-    open class func evolutionChainListWithRequestBuilder(limit: Int? = nil, offset: Int? = nil, q: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<PaginatedEvolutionChainSummaryList> {
+    open class func evolutionChainListWithRequestBuilder(limit: Int? = nil, offset: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<PaginatedEvolutionChainSummaryList> {
         let localVariablePath = "/api/v2/evolution-chain/"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
@@ -47,7 +39,6 @@ open class EvolutionAPI {
         let localVariableQueryParameters: [String: (wrappedValue: (any Sendable)?, isExplode: Bool)] = [
             "limit": (wrappedValue: limit?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "offset": (wrappedValue: offset?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "q": (wrappedValue: q?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
         ]
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems(localVariableQueryParameters)
 
@@ -59,7 +50,7 @@ open class EvolutionAPI {
 
         let localVariableRequestBuilder: RequestBuilder<PaginatedEvolutionChainSummaryList>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: false, apiConfiguration: apiConfiguration)
     }
 
     /**
@@ -77,12 +68,6 @@ open class EvolutionAPI {
      Get evolution chain
      - GET /api/v2/evolution-chain/{id}/
      - Evolution chains are essentially family trees. They start with the lowest stage within a family and detail evolution conditions for each as well as Pokémon they can evolve into up through the hierarchy.
-     - BASIC:
-       - type: http
-       - name: basicAuth
-     - API Key:
-       - type: apiKey sessionid 
-       - name: cookieAuth
      - parameter id: (path) This parameter can be a string or an integer. 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<EvolutionChainDetail> 
@@ -105,7 +90,7 @@ open class EvolutionAPI {
 
         let localVariableRequestBuilder: RequestBuilder<EvolutionChainDetail>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: false, apiConfiguration: apiConfiguration)
     }
 
     /**
@@ -125,12 +110,6 @@ open class EvolutionAPI {
      List evolution triggers
      - GET /api/v2/evolution-trigger/
      - Evolution triggers are the events and conditions that cause a Pokémon to evolve. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Methods_of_evolution) for greater detail.
-     - BASIC:
-       - type: http
-       - name: basicAuth
-     - API Key:
-       - type: apiKey sessionid 
-       - name: cookieAuth
      - parameter limit: (query) Number of results to return per page. (optional)
      - parameter offset: (query) The initial index from which to return the results. (optional)
      - parameter q: (query) &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
@@ -158,7 +137,7 @@ open class EvolutionAPI {
 
         let localVariableRequestBuilder: RequestBuilder<PaginatedEvolutionTriggerSummaryList>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: false, apiConfiguration: apiConfiguration)
     }
 
     /**
@@ -176,12 +155,6 @@ open class EvolutionAPI {
      Get evolution trigger
      - GET /api/v2/evolution-trigger/{id}/
      - Evolution triggers are the events and conditions that cause a Pokémon to evolve. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Methods_of_evolution) for greater detail.
-     - BASIC:
-       - type: http
-       - name: basicAuth
-     - API Key:
-       - type: apiKey sessionid 
-       - name: cookieAuth
      - parameter id: (path) This parameter can be a string or an integer. 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<EvolutionTriggerDetail> 
@@ -204,6 +177,93 @@ open class EvolutionAPI {
 
         let localVariableRequestBuilder: RequestBuilder<EvolutionTriggerDetail>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: false, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+     List evolution variables
+     
+     - parameter limit: (query) Number of results to return per page. (optional)
+     - parameter offset: (query) The initial index from which to return the results. (optional)
+     - parameter q: (query) &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: PaginatedEvolutionVariableSummaryList
+     */
+    open class func evolutionVariableList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedEvolutionVariableSummaryList {
+        return try await evolutionVariableListWithRequestBuilder(limit: limit, offset: offset, q: q, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     List evolution variables
+     - GET /api/v2/evolution-variable/
+     - Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+     - parameter limit: (query) Number of results to return per page. (optional)
+     - parameter offset: (query) The initial index from which to return the results. (optional)
+     - parameter q: (query) &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<PaginatedEvolutionVariableSummaryList> 
+     */
+    open class func evolutionVariableListWithRequestBuilder(limit: Int? = nil, offset: Int? = nil, q: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<PaginatedEvolutionVariableSummaryList> {
+        let localVariablePath = "/api/v2/evolution-variable/"
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
+        let localVariableQueryParameters: [String: (wrappedValue: (any Sendable)?, isExplode: Bool)] = [
+            "limit": (wrappedValue: limit?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "offset": (wrappedValue: offset?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+            "q": (wrappedValue: q?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
+        ]
+        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems(localVariableQueryParameters)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<PaginatedEvolutionVariableSummaryList>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: false, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+     Get evolution variable
+     
+     - parameter id: (path) This parameter can be a string or an integer. 
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: EvolutionVariableDetail
+     */
+    open class func evolutionVariableRetrieve(id: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> EvolutionVariableDetail {
+        return try await evolutionVariableRetrieveWithRequestBuilder(id: id, apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     Get evolution variable
+     - GET /api/v2/evolution-variable/{id}/
+     - Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+     - parameter id: (path) This parameter can be a string or an integer. 
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<EvolutionVariableDetail> 
+     */
+    open class func evolutionVariableRetrieveWithRequestBuilder(id: String, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<EvolutionVariableDetail> {
+        var localVariablePath = "/api/v2/evolution-variable/{id}/"
+        let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
+        let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<EvolutionVariableDetail>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: false, apiConfiguration: apiConfiguration)
     }
 }

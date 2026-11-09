@@ -15,25 +15,29 @@
                 
                 
                 ; [@key "id"]
-                                              item: Item_summary.t
+                    (** The identifier for this resource. *)
+                                      item: Item_summary.t
                   
                   
                 
                 
                 ; [@key "item"]
-                                              version_group: Version_group_summary.t
+                    (** The TM or HM item that corresponds to this machine. *)
+                                      version_group: Version_group_summary.t
                   
                   
                 
                 
                 ; [@key "version_group"]
-                                              move: Move_summary.t
+                    (** The version group that this machine applies to. *)
+                                      move: Move_summary.t
                   
                   
                 
                 
                 ; [@key "move"]
-                        } [@@deriving yojson { strict = false }, show, eq ];;
+                    (** The move that is taught by this machine. *)
+                } [@@deriving yojson { strict = false }, show, eq ];;
         
         let create (id : int32) (item : Item_summary.t) (version_group : Version_group_summary.t) (move : Move_summary.t) : t = {
             id = id;

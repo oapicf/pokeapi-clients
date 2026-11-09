@@ -1,0 +1,42 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server ItemMachine"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a ItemMachine"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  MachineSummary = openapi_server.resourceTypes.MachineSummary
+  VersionGroupSummary = openapi_server.resourceTypes.VersionGroupSummary
+}
+resourceTypes {
+
+  ItemMachine {
+    title = ItemMachine
+    description = ItemMachine
+    derivedFrom = Root
+    properties {
+        machine {
+          type = MachineSummary
+          description = "The machine that teaches a move from an item."
+          optional = true
+        }
+        version_group {
+          type = VersionGroupSummary
+          description = "The version group of this specific machine."
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  ItemMachine {
+    title = ItemMachine
+    description = ItemMachine
+    implements = openapi_server.resourceTypes.ItemMachine
+
+  }
+}

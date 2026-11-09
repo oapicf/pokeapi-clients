@@ -2,21 +2,33 @@
 Protected Class ContestTypeDetail
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The identifier for this resource.
+		#tag EndNote
 		id As Integer
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The name for this resource.
+		#tag EndNote
 		name As String
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The berry flavor that correlates with this contest type.
+		#tag EndNote
 		berry_flavor As OpenAPIClient.Models.BerryFlavorSummary
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The name of this contest type listed in different languages.
+		#tag EndNote
 		names() As OpenAPIClient.Models.ContestTypeName
 	#tag EndProperty
 

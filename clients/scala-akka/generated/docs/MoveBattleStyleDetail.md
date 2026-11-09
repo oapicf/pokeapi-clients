@@ -7,9 +7,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Int** |  |  [readonly]
-**name** | **String** |  | 
-**names** | [**Seq&lt;MoveBattleStyleName&gt;**](MoveBattleStyleName.md) |  |  [readonly]
+**id** | **Int** | The identifier for this resource. |  [readonly]
+**name** | **String** | The name for this resource. | 
+**names** | [**Seq&lt;MoveBattleStyleName&gt;**](MoveBattleStyleName.md) | The name of this resource listed in different languages. |  [readonly]
 
 
 

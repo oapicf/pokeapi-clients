@@ -10,7 +10,7 @@ from openapi_server.models.super_contest_effect_detail import SuperContestEffect
 from openapi_server import util
 
 
-async def contest_effect_list(request: web.Request, limit=None, offset=None, q=None) -> web.Response:
+async def contest_effect_list(request: web.Request, limit=None, offset=None) -> web.Response:
     """List contest effects
 
     Contest effects refer to the effects of moves when used in contests.
@@ -19,8 +19,6 @@ async def contest_effect_list(request: web.Request, limit=None, offset=None, q=N
     :type limit: int
     :param offset: The initial index from which to return the results.
     :type offset: int
-    :param q: &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. 
-    :type q: str
 
     """
     return web.Response(status=200)
@@ -66,7 +64,7 @@ async def contest_type_retrieve(request: web.Request, id) -> web.Response:
     return web.Response(status=200)
 
 
-async def super_contest_effect_list(request: web.Request, limit=None, offset=None, q=None) -> web.Response:
+async def super_contest_effect_list(request: web.Request, limit=None, offset=None) -> web.Response:
     """List super contest effects
 
     Super contest effects refer to the effects of moves when used in super contests.
@@ -75,8 +73,6 @@ async def super_contest_effect_list(request: web.Request, limit=None, offset=Non
     :type limit: int
     :param offset: The initial index from which to return the results.
     :type offset: int
-    :param q: &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. 
-    :type q: str
 
     """
     return web.Response(status=200)

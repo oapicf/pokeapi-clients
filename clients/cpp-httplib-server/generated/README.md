@@ -113,37 +113,6 @@ std::string jsonString = json.dump();
 // Deserialize from JSON
 auto parsedModel = models::AbilityDetail::fromJson(nlohmann::json::parse(jsonString));
 ```
-#### models::AbilityDetailPokemonInner
-
-```cpp
-// Create a model
-auto model = models::AbilityDetailPokemonInner();
-model.setIsHidden(/* value */);  // Set is_hidden
-model.setSlot(/* value */);  // Set slot
-model.setPokemon(/* value */);  // Set pokemon
-
-// Serialize to JSON
-nlohmann::json json = models::AbilityDetailPokemonInner::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::AbilityDetailPokemonInner::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::AbilityDetailPokemonInnerPokemon
-
-```cpp
-// Create a model
-auto model = models::AbilityDetailPokemonInnerPokemon();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::AbilityDetailPokemonInnerPokemon::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::AbilityDetailPokemonInnerPokemon::fromJson(nlohmann::json::parse(jsonString));
-```
 #### models::AbilityEffectText
 
 ```cpp
@@ -191,6 +160,22 @@ std::string jsonString = json.dump();
 // Deserialize from JSON
 auto parsedModel = models::AbilityName::fromJson(nlohmann::json::parse(jsonString));
 ```
+#### models::AbilityPokemonDetail
+
+```cpp
+// Create a model
+auto model = models::AbilityPokemonDetail();
+model.setIsHidden(/* value */);  // Set is_hidden
+model.setSlot(/* value */);  // Set slot
+model.setPokemon(/* value */);  // Set pokemon
+
+// Serialize to JSON
+nlohmann::json json = models::AbilityPokemonDetail::toJson(model);
+std::string jsonString = json.dump();
+
+// Deserialize from JSON
+auto parsedModel = models::AbilityPokemonDetail::fromJson(nlohmann::json::parse(jsonString));
+```
 #### models::AbilitySummary
 
 ```cpp
@@ -230,36 +215,6 @@ std::string jsonString = json.dump();
 
 // Deserialize from JSON
 auto parsedModel = models::BerryDetail::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::BerryDetailFlavorsInner
-
-```cpp
-// Create a model
-auto model = models::BerryDetailFlavorsInner();
-model.setPotency(/* value */);  // Set potency
-model.setFlavor(/* value */);  // Set flavor
-
-// Serialize to JSON
-nlohmann::json json = models::BerryDetailFlavorsInner::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::BerryDetailFlavorsInner::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::BerryDetailFlavorsInnerFlavor
-
-```cpp
-// Create a model
-auto model = models::BerryDetailFlavorsInnerFlavor();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::BerryDetailFlavorsInnerFlavor::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::BerryDetailFlavorsInnerFlavor::fromJson(nlohmann::json::parse(jsonString));
 ```
 #### models::BerryFirmnessDetail
 
@@ -308,6 +263,21 @@ std::string jsonString = json.dump();
 // Deserialize from JSON
 auto parsedModel = models::BerryFirmnessSummary::fromJson(nlohmann::json::parse(jsonString));
 ```
+#### models::BerryFlavorBerryMap
+
+```cpp
+// Create a model
+auto model = models::BerryFlavorBerryMap();
+model.setPotency(/* value */);  // Set potency
+model.setBerry(/* value */);  // Set berry
+
+// Serialize to JSON
+nlohmann::json json = models::BerryFlavorBerryMap::toJson(model);
+std::string jsonString = json.dump();
+
+// Deserialize from JSON
+auto parsedModel = models::BerryFlavorBerryMap::fromJson(nlohmann::json::parse(jsonString));
+```
 #### models::BerryFlavorDetail
 
 ```cpp
@@ -326,35 +296,20 @@ std::string jsonString = json.dump();
 // Deserialize from JSON
 auto parsedModel = models::BerryFlavorDetail::fromJson(nlohmann::json::parse(jsonString));
 ```
-#### models::BerryFlavorDetailBerriesInner
+#### models::BerryFlavorMap
 
 ```cpp
 // Create a model
-auto model = models::BerryFlavorDetailBerriesInner();
+auto model = models::BerryFlavorMap();
 model.setPotency(/* value */);  // Set potency
-model.setBerry(/* value */);  // Set berry
+model.setFlavor(/* value */);  // Set flavor
 
 // Serialize to JSON
-nlohmann::json json = models::BerryFlavorDetailBerriesInner::toJson(model);
+nlohmann::json json = models::BerryFlavorMap::toJson(model);
 std::string jsonString = json.dump();
 
 // Deserialize from JSON
-auto parsedModel = models::BerryFlavorDetailBerriesInner::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::BerryFlavorDetailBerriesInnerBerry
-
-```cpp
-// Create a model
-auto model = models::BerryFlavorDetailBerriesInnerBerry();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::BerryFlavorDetailBerriesInnerBerry::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::BerryFlavorDetailBerriesInnerBerry::fromJson(nlohmann::json::parse(jsonString));
+auto parsedModel = models::BerryFlavorMap::fromJson(nlohmann::json::parse(jsonString));
 ```
 #### models::BerryFlavorName
 
@@ -558,6 +513,52 @@ std::string jsonString = json.dump();
 // Deserialize from JSON
 auto parsedModel = models::ContestTypeSummary::fromJson(nlohmann::json::parse(jsonString));
 ```
+#### models::CurrencyDetail
+
+```cpp
+// Create a model
+auto model = models::CurrencyDetail();
+model.setId(/* value */);  // Set id
+model.setName(/* value */);  // Set name
+model.setNames(/* value */);  // Set names
+
+// Serialize to JSON
+nlohmann::json json = models::CurrencyDetail::toJson(model);
+std::string jsonString = json.dump();
+
+// Deserialize from JSON
+auto parsedModel = models::CurrencyDetail::fromJson(nlohmann::json::parse(jsonString));
+```
+#### models::CurrencyName
+
+```cpp
+// Create a model
+auto model = models::CurrencyName();
+model.setName(/* value */);  // Set name
+model.setLanguage(/* value */);  // Set language
+
+// Serialize to JSON
+nlohmann::json json = models::CurrencyName::toJson(model);
+std::string jsonString = json.dump();
+
+// Deserialize from JSON
+auto parsedModel = models::CurrencyName::fromJson(nlohmann::json::parse(jsonString));
+```
+#### models::CurrencySummary
+
+```cpp
+// Create a model
+auto model = models::CurrencySummary();
+model.setName(/* value */);  // Set name
+model.setUrl(/* value */);  // Set url
+
+// Serialize to JSON
+nlohmann::json json = models::CurrencySummary::toJson(model);
+std::string jsonString = json.dump();
+
+// Deserialize from JSON
+auto parsedModel = models::CurrencySummary::fromJson(nlohmann::json::parse(jsonString));
+```
 #### models::EggGroupDetail
 
 ```cpp
@@ -574,21 +575,6 @@ std::string jsonString = json.dump();
 
 // Deserialize from JSON
 auto parsedModel = models::EggGroupDetail::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::EggGroupDetailPokemonSpeciesInner
-
-```cpp
-// Create a model
-auto model = models::EggGroupDetailPokemonSpeciesInner();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::EggGroupDetailPokemonSpeciesInner::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::EggGroupDetailPokemonSpeciesInner::fromJson(nlohmann::json::parse(jsonString));
 ```
 #### models::EggGroupName
 
@@ -761,6 +747,23 @@ std::string jsonString = json.dump();
 // Deserialize from JSON
 auto parsedModel = models::EncounterMethodSummary::fromJson(nlohmann::json::parse(jsonString));
 ```
+#### models::EncounterPokemonDetail
+
+```cpp
+// Create a model
+auto model = models::EncounterPokemonDetail();
+model.setMinPerfectIvs(/* value */);  // Set min_perfect_ivs
+model.setAlwaysShiny(/* value */);  // Set always_shiny
+model.setNeverShiny(/* value */);  // Set never_shiny
+model.setIsAlpha(/* value */);  // Set is_alpha
+
+// Serialize to JSON
+nlohmann::json json = models::EncounterPokemonDetail::toJson(model);
+std::string jsonString = json.dump();
+
+// Deserialize from JSON
+auto parsedModel = models::EncounterPokemonDetail::fromJson(nlohmann::json::parse(jsonString));
+```
 #### models::EvolutionChainDetail
 
 ```cpp
@@ -777,204 +780,22 @@ std::string jsonString = json.dump();
 // Deserialize from JSON
 auto parsedModel = models::EvolutionChainDetail::fromJson(nlohmann::json::parse(jsonString));
 ```
-#### models::EvolutionChainDetailChain
+#### models::EvolutionChainLink
 
 ```cpp
 // Create a model
-auto model = models::EvolutionChainDetailChain();
+auto model = models::EvolutionChainLink();
+model.setIsBaby(/* value */);  // Set is_baby
+model.setSpecies(/* value */);  // Set species
 model.setEvolutionDetails(/* value */);  // Set evolution_details
 model.setEvolvesTo(/* value */);  // Set evolves_to
-model.setIsBaby(/* value */);  // Set is_baby
-model.setSpecies(/* value */);  // Set species
 
 // Serialize to JSON
-nlohmann::json json = models::EvolutionChainDetailChain::toJson(model);
+nlohmann::json json = models::EvolutionChainLink::toJson(model);
 std::string jsonString = json.dump();
 
 // Deserialize from JSON
-auto parsedModel = models::EvolutionChainDetailChain::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::EvolutionChainDetailChainEvolvesToInner
-
-```cpp
-// Create a model
-auto model = models::EvolutionChainDetailChainEvolvesToInner();
-model.setEvolutionDetails(/* value */);  // Set evolution_details
-model.setIsBaby(/* value */);  // Set is_baby
-model.setSpecies(/* value */);  // Set species
-
-// Serialize to JSON
-nlohmann::json json = models::EvolutionChainDetailChainEvolvesToInner::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::EvolutionChainDetailChainEvolvesToInner::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
-
-```cpp
-// Create a model
-auto model = models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner();
-model.setGender(/* value */);  // Set gender
-model.setHeldItem(/* value */);  // Set held_item
-model.setItem(/* value */);  // Set item
-model.setKnownMove(/* value */);  // Set known_move
-model.setKnownMoveType(/* value */);  // Set known_move_type
-model.setLocation(/* value */);  // Set location
-model.setMinAffection(/* value */);  // Set min_affection
-model.setMinBeauty(/* value */);  // Set min_beauty
-model.setMinHappiness(/* value */);  // Set min_happiness
-model.setMinLevel(/* value */);  // Set min_level
-model.setNeedsOverworldRain(/* value */);  // Set needs_overworld_rain
-model.setPartySpecies(/* value */);  // Set party_species
-model.setPartyType(/* value */);  // Set party_type
-model.setRelativePhysicalStats(/* value */);  // Set relative_physical_stats
-model.setTimeOfDay(/* value */);  // Set time_of_day
-model.setTradeSpecies(/* value */);  // Set trade_species
-model.setTrigger(/* value */);  // Set trigger
-model.setTurnUpsideDown(/* value */);  // Set turn_upside_down
-
-// Serialize to JSON
-nlohmann::json json = models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
-
-```cpp
-// Create a model
-auto model = models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerHeldItem
-
-```cpp
-// Create a model
-auto model = models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerHeldItem();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerHeldItem::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerHeldItem::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerItem
-
-```cpp
-// Create a model
-auto model = models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerItem();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerItem::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerItem::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerKnownMove
-
-```cpp
-// Create a model
-auto model = models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerKnownMove();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerKnownMove::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerKnownMove::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerKnownMoveType
-
-```cpp
-// Create a model
-auto model = models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerKnownMoveType();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerKnownMoveType::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerKnownMoveType::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerLocation
-
-```cpp
-// Create a model
-auto model = models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerLocation();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerLocation::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerLocation::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerTrigger
-
-```cpp
-// Create a model
-auto model = models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerTrigger();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerTrigger::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerTrigger::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::EvolutionChainDetailChainEvolvesToInnerSpecies
-
-```cpp
-// Create a model
-auto model = models::EvolutionChainDetailChainEvolvesToInnerSpecies();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::EvolutionChainDetailChainEvolvesToInnerSpecies::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::EvolutionChainDetailChainEvolvesToInnerSpecies::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::EvolutionChainDetailChainSpecies
-
-```cpp
-// Create a model
-auto model = models::EvolutionChainDetailChainSpecies();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::EvolutionChainDetailChainSpecies::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::EvolutionChainDetailChainSpecies::fromJson(nlohmann::json::parse(jsonString));
+auto parsedModel = models::EvolutionChainLink::fromJson(nlohmann::json::parse(jsonString));
 ```
 #### models::EvolutionChainSummary
 
@@ -989,6 +810,22 @@ std::string jsonString = json.dump();
 
 // Deserialize from JSON
 auto parsedModel = models::EvolutionChainSummary::fromJson(nlohmann::json::parse(jsonString));
+```
+#### models::EvolutionConditionExpression
+
+```cpp
+// Create a model
+auto model = models::EvolutionConditionExpression();
+model.setExpression(/* value */);  // Set expression
+model.setPercentageChance(/* value */);  // Set percentage_chance
+model.setVariables(/* value */);  // Set variables
+
+// Serialize to JSON
+nlohmann::json json = models::EvolutionConditionExpression::toJson(model);
+std::string jsonString = json.dump();
+
+// Deserialize from JSON
+auto parsedModel = models::EvolutionConditionExpression::fromJson(nlohmann::json::parse(jsonString));
 ```
 #### models::EvolutionTriggerDetail
 
@@ -1006,21 +843,6 @@ std::string jsonString = json.dump();
 
 // Deserialize from JSON
 auto parsedModel = models::EvolutionTriggerDetail::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::EvolutionTriggerDetailPokemonSpeciesInner
-
-```cpp
-// Create a model
-auto model = models::EvolutionTriggerDetailPokemonSpeciesInner();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::EvolutionTriggerDetailPokemonSpeciesInner::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::EvolutionTriggerDetailPokemonSpeciesInner::fromJson(nlohmann::json::parse(jsonString));
 ```
 #### models::EvolutionTriggerName
 
@@ -1051,6 +873,72 @@ std::string jsonString = json.dump();
 
 // Deserialize from JSON
 auto parsedModel = models::EvolutionTriggerSummary::fromJson(nlohmann::json::parse(jsonString));
+```
+#### models::EvolutionVariableDescription
+
+```cpp
+// Create a model
+auto model = models::EvolutionVariableDescription();
+model.setDescription(/* value */);  // Set description
+model.setLanguage(/* value */);  // Set language
+
+// Serialize to JSON
+nlohmann::json json = models::EvolutionVariableDescription::toJson(model);
+std::string jsonString = json.dump();
+
+// Deserialize from JSON
+auto parsedModel = models::EvolutionVariableDescription::fromJson(nlohmann::json::parse(jsonString));
+```
+#### models::EvolutionVariableDetail
+
+```cpp
+// Create a model
+auto model = models::EvolutionVariableDetail();
+model.setId(/* value */);  // Set id
+model.setName(/* value */);  // Set name
+model.setSymbol(/* value */);  // Set symbol
+model.setDataType(/* value */);  // Set data_type
+model.setSource(/* value */);  // Set source
+model.setVersionGroup(/* value */);  // Set version_group
+model.setNames(/* value */);  // Set names
+model.setDescriptions(/* value */);  // Set descriptions
+
+// Serialize to JSON
+nlohmann::json json = models::EvolutionVariableDetail::toJson(model);
+std::string jsonString = json.dump();
+
+// Deserialize from JSON
+auto parsedModel = models::EvolutionVariableDetail::fromJson(nlohmann::json::parse(jsonString));
+```
+#### models::EvolutionVariableName
+
+```cpp
+// Create a model
+auto model = models::EvolutionVariableName();
+model.setName(/* value */);  // Set name
+model.setLanguage(/* value */);  // Set language
+
+// Serialize to JSON
+nlohmann::json json = models::EvolutionVariableName::toJson(model);
+std::string jsonString = json.dump();
+
+// Deserialize from JSON
+auto parsedModel = models::EvolutionVariableName::fromJson(nlohmann::json::parse(jsonString));
+```
+#### models::EvolutionVariableSummary
+
+```cpp
+// Create a model
+auto model = models::EvolutionVariableSummary();
+model.setName(/* value */);  // Set name
+model.setUrl(/* value */);  // Set url
+
+// Serialize to JSON
+nlohmann::json json = models::EvolutionVariableSummary::toJson(model);
+std::string jsonString = json.dump();
+
+// Deserialize from JSON
+auto parsedModel = models::EvolutionVariableSummary::fromJson(nlohmann::json::parse(jsonString));
 ```
 #### models::Experience
 
@@ -1084,50 +972,20 @@ std::string jsonString = json.dump();
 // Deserialize from JSON
 auto parsedModel = models::GenderDetail::fromJson(nlohmann::json::parse(jsonString));
 ```
-#### models::GenderDetailPokemonSpeciesDetailsInner
+#### models::GenderPokemonSpecies
 
 ```cpp
 // Create a model
-auto model = models::GenderDetailPokemonSpeciesDetailsInner();
+auto model = models::GenderPokemonSpecies();
 model.setRate(/* value */);  // Set rate
 model.setPokemonSpecies(/* value */);  // Set pokemon_species
 
 // Serialize to JSON
-nlohmann::json json = models::GenderDetailPokemonSpeciesDetailsInner::toJson(model);
+nlohmann::json json = models::GenderPokemonSpecies::toJson(model);
 std::string jsonString = json.dump();
 
 // Deserialize from JSON
-auto parsedModel = models::GenderDetailPokemonSpeciesDetailsInner::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::GenderDetailPokemonSpeciesDetailsInnerPokemonSpecies
-
-```cpp
-// Create a model
-auto model = models::GenderDetailPokemonSpeciesDetailsInnerPokemonSpecies();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::GenderDetailPokemonSpeciesDetailsInnerPokemonSpecies::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::GenderDetailPokemonSpeciesDetailsInnerPokemonSpecies::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::GenderDetailRequiredForEvolutionInner
-
-```cpp
-// Create a model
-auto model = models::GenderDetailRequiredForEvolutionInner();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::GenderDetailRequiredForEvolutionInner::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::GenderDetailRequiredForEvolutionInner::fromJson(nlohmann::json::parse(jsonString));
+auto parsedModel = models::GenderPokemonSpecies::fromJson(nlohmann::json::parse(jsonString));
 ```
 #### models::GenderSummary
 
@@ -1278,21 +1136,6 @@ std::string jsonString = json.dump();
 // Deserialize from JSON
 auto parsedModel = models::ItemAttributeDetail::fromJson(nlohmann::json::parse(jsonString));
 ```
-#### models::ItemAttributeDetailItemsInner
-
-```cpp
-// Create a model
-auto model = models::ItemAttributeDetailItemsInner();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::ItemAttributeDetailItemsInner::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::ItemAttributeDetailItemsInner::fromJson(nlohmann::json::parse(jsonString));
-```
 #### models::ItemAttributeName
 
 ```cpp
@@ -1378,7 +1221,6 @@ auto parsedModel = models::ItemCategorySummary::fromJson(nlohmann::json::parse(j
 auto model = models::ItemDetail();
 model.setId(/* value */);  // Set id
 model.setName(/* value */);  // Set name
-model.setCost(/* value */);  // Set cost
 model.setFlingPower(/* value */);  // Set fling_power
 model.setFlingEffect(/* value */);  // Set fling_effect
 model.setAttributes(/* value */);  // Set attributes
@@ -1386,6 +1228,7 @@ model.setCategory(/* value */);  // Set category
 model.setEffectEntries(/* value */);  // Set effect_entries
 model.setFlavorTextEntries(/* value */);  // Set flavor_text_entries
 model.setGameIndices(/* value */);  // Set game_indices
+model.setPrices(/* value */);  // Set prices
 model.setNames(/* value */);  // Set names
 model.setHeldByPokemon(/* value */);  // Set held_by_pokemon
 model.setSprites(/* value */);  // Set sprites
@@ -1398,139 +1241,6 @@ std::string jsonString = json.dump();
 
 // Deserialize from JSON
 auto parsedModel = models::ItemDetail::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::ItemDetailAttributesInner
-
-```cpp
-// Create a model
-auto model = models::ItemDetailAttributesInner();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::ItemDetailAttributesInner::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::ItemDetailAttributesInner::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::ItemDetailBabyTriggerFor
-
-```cpp
-// Create a model
-auto model = models::ItemDetailBabyTriggerFor();
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::ItemDetailBabyTriggerFor::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::ItemDetailBabyTriggerFor::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::ItemDetailHeldByPokemonInner
-
-```cpp
-// Create a model
-auto model = models::ItemDetailHeldByPokemonInner();
-model.setPokemon(/* value */);  // Set pokemon
-model.setVersionDetails(/* value */);  // Set version-details
-
-// Serialize to JSON
-nlohmann::json json = models::ItemDetailHeldByPokemonInner::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::ItemDetailHeldByPokemonInner::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::ItemDetailHeldByPokemonInnerPokemon
-
-```cpp
-// Create a model
-auto model = models::ItemDetailHeldByPokemonInnerPokemon();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::ItemDetailHeldByPokemonInnerPokemon::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::ItemDetailHeldByPokemonInnerPokemon::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::ItemDetailHeldByPokemonInnerVersionDetailsInner
-
-```cpp
-// Create a model
-auto model = models::ItemDetailHeldByPokemonInnerVersionDetailsInner();
-model.setRarity(/* value */);  // Set rarity
-model.setVersion(/* value */);  // Set version
-
-// Serialize to JSON
-nlohmann::json json = models::ItemDetailHeldByPokemonInnerVersionDetailsInner::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::ItemDetailHeldByPokemonInnerVersionDetailsInner::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::ItemDetailHeldByPokemonInnerVersionDetailsInnerVersion
-
-```cpp
-// Create a model
-auto model = models::ItemDetailHeldByPokemonInnerVersionDetailsInnerVersion();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::ItemDetailHeldByPokemonInnerVersionDetailsInnerVersion::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::ItemDetailHeldByPokemonInnerVersionDetailsInnerVersion::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::ItemDetailMachinesInner
-
-```cpp
-// Create a model
-auto model = models::ItemDetailMachinesInner();
-model.setMachine(/* value */);  // Set machine
-model.setVersionGroup(/* value */);  // Set version_group
-
-// Serialize to JSON
-nlohmann::json json = models::ItemDetailMachinesInner::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::ItemDetailMachinesInner::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::ItemDetailMachinesInnerVersionGroup
-
-```cpp
-// Create a model
-auto model = models::ItemDetailMachinesInnerVersionGroup();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::ItemDetailMachinesInnerVersionGroup::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::ItemDetailMachinesInnerVersionGroup::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::ItemDetailSprites
-
-```cpp
-// Create a model
-auto model = models::ItemDetailSprites();
-model.setRDefault(/* value */);  // Set default
-
-// Serialize to JSON
-nlohmann::json json = models::ItemDetailSprites::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::ItemDetailSprites::fromJson(nlohmann::json::parse(jsonString));
 ```
 #### models::ItemEffectText
 
@@ -1626,6 +1336,21 @@ std::string jsonString = json.dump();
 // Deserialize from JSON
 auto parsedModel = models::ItemGameIndex::fromJson(nlohmann::json::parse(jsonString));
 ```
+#### models::ItemMachine
+
+```cpp
+// Create a model
+auto model = models::ItemMachine();
+model.setMachine(/* value */);  // Set machine
+model.setVersionGroup(/* value */);  // Set version_group
+
+// Serialize to JSON
+nlohmann::json json = models::ItemMachine::toJson(model);
+std::string jsonString = json.dump();
+
+// Deserialize from JSON
+auto parsedModel = models::ItemMachine::fromJson(nlohmann::json::parse(jsonString));
+```
 #### models::ItemName
 
 ```cpp
@@ -1687,6 +1412,37 @@ std::string jsonString = json.dump();
 
 // Deserialize from JSON
 auto parsedModel = models::ItemPocketSummary::fromJson(nlohmann::json::parse(jsonString));
+```
+#### models::ItemPrice
+
+```cpp
+// Create a model
+auto model = models::ItemPrice();
+model.setPurchasePrice(/* value */);  // Set purchase_price
+model.setSellPrice(/* value */);  // Set sell_price
+model.setCurrency(/* value */);  // Set currency
+model.setVersionGroup(/* value */);  // Set version_group
+
+// Serialize to JSON
+nlohmann::json json = models::ItemPrice::toJson(model);
+std::string jsonString = json.dump();
+
+// Deserialize from JSON
+auto parsedModel = models::ItemPrice::fromJson(nlohmann::json::parse(jsonString));
+```
+#### models::ItemSprites
+
+```cpp
+// Create a model
+auto model = models::ItemSprites();
+model.setRDefault(/* value */);  // Set default
+
+// Serialize to JSON
+nlohmann::json json = models::ItemSprites::toJson(model);
+std::string jsonString = json.dump();
+
+// Deserialize from JSON
+auto parsedModel = models::ItemSprites::fromJson(nlohmann::json::parse(jsonString));
 ```
 #### models::ItemSummary
 
@@ -1772,174 +1528,54 @@ std::string jsonString = json.dump();
 // Deserialize from JSON
 auto parsedModel = models::LocationAreaDetail::fromJson(nlohmann::json::parse(jsonString));
 ```
-#### models::LocationAreaDetailEncounterMethodRatesInner
+#### models::LocationAreaEncounterDetail
 
 ```cpp
 // Create a model
-auto model = models::LocationAreaDetailEncounterMethodRatesInner();
+auto model = models::LocationAreaEncounterDetail();
+model.setMinLevel(/* value */);  // Set min_level
+model.setMaxLevel(/* value */);  // Set max_level
+model.setChance(/* value */);  // Set chance
+model.setMethod(/* value */);  // Set method
+model.setConditionValues(/* value */);  // Set condition_values
+model.setPokemonDetails(/* value */);  // Set pokemon_details
+
+// Serialize to JSON
+nlohmann::json json = models::LocationAreaEncounterDetail::toJson(model);
+std::string jsonString = json.dump();
+
+// Deserialize from JSON
+auto parsedModel = models::LocationAreaEncounterDetail::fromJson(nlohmann::json::parse(jsonString));
+```
+#### models::LocationAreaEncounterRate
+
+```cpp
+// Create a model
+auto model = models::LocationAreaEncounterRate();
 model.setEncounterMethod(/* value */);  // Set encounter_method
 model.setVersionDetails(/* value */);  // Set version_details
 
 // Serialize to JSON
-nlohmann::json json = models::LocationAreaDetailEncounterMethodRatesInner::toJson(model);
+nlohmann::json json = models::LocationAreaEncounterRate::toJson(model);
 std::string jsonString = json.dump();
 
 // Deserialize from JSON
-auto parsedModel = models::LocationAreaDetailEncounterMethodRatesInner::fromJson(nlohmann::json::parse(jsonString));
+auto parsedModel = models::LocationAreaEncounterRate::fromJson(nlohmann::json::parse(jsonString));
 ```
-#### models::LocationAreaDetailEncounterMethodRatesInnerEncounterMethod
+#### models::LocationAreaEncounterVersionDetail
 
 ```cpp
 // Create a model
-auto model = models::LocationAreaDetailEncounterMethodRatesInnerEncounterMethod();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::LocationAreaDetailEncounterMethodRatesInnerEncounterMethod::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::LocationAreaDetailEncounterMethodRatesInnerEncounterMethod::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner
-
-```cpp
-// Create a model
-auto model = models::LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner();
+auto model = models::LocationAreaEncounterVersionDetail();
 model.setRate(/* value */);  // Set rate
 model.setVersion(/* value */);  // Set version
 
 // Serialize to JSON
-nlohmann::json json = models::LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner::toJson(model);
+nlohmann::json json = models::LocationAreaEncounterVersionDetail::toJson(model);
 std::string jsonString = json.dump();
 
 // Deserialize from JSON
-auto parsedModel = models::LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInnerVersion
-
-```cpp
-// Create a model
-auto model = models::LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInnerVersion();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInnerVersion::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInnerVersion::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::LocationAreaDetailPokemonEncountersInner
-
-```cpp
-// Create a model
-auto model = models::LocationAreaDetailPokemonEncountersInner();
-model.setPokemon(/* value */);  // Set pokemon
-model.setVersionDetails(/* value */);  // Set version_details
-
-// Serialize to JSON
-nlohmann::json json = models::LocationAreaDetailPokemonEncountersInner::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::LocationAreaDetailPokemonEncountersInner::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::LocationAreaDetailPokemonEncountersInnerPokemon
-
-```cpp
-// Create a model
-auto model = models::LocationAreaDetailPokemonEncountersInnerPokemon();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::LocationAreaDetailPokemonEncountersInnerPokemon::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::LocationAreaDetailPokemonEncountersInnerPokemon::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::LocationAreaDetailPokemonEncountersInnerVersionDetailsInner
-
-```cpp
-// Create a model
-auto model = models::LocationAreaDetailPokemonEncountersInnerVersionDetailsInner();
-model.setVersion(/* value */);  // Set version
-model.setMaxChance(/* value */);  // Set max_chance
-model.setEncounterDetails(/* value */);  // Set encounter_details
-
-// Serialize to JSON
-nlohmann::json json = models::LocationAreaDetailPokemonEncountersInnerVersionDetailsInner::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::LocationAreaDetailPokemonEncountersInnerVersionDetailsInner::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails
-
-```cpp
-// Create a model
-auto model = models::LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails();
-model.setMinLevel(/* value */);  // Set min_level
-model.setMaxLevel(/* value */);  // Set max_level
-model.setConditionValues(/* value */);  // Set condition_values
-model.setChance(/* value */);  // Set chance
-model.setMethod(/* value */);  // Set method
-
-// Serialize to JSON
-nlohmann::json json = models::LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetailsConditionValues
-
-```cpp
-// Create a model
-auto model = models::LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetailsConditionValues();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetailsConditionValues::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetailsConditionValues::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetailsMethod
-
-```cpp
-// Create a model
-auto model = models::LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetailsMethod();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetailsMethod::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetailsMethod::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerVersion
-
-```cpp
-// Create a model
-auto model = models::LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerVersion();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerVersion::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerVersion::fromJson(nlohmann::json::parse(jsonString));
+auto parsedModel = models::LocationAreaEncounterVersionDetail::fromJson(nlohmann::json::parse(jsonString));
 ```
 #### models::LocationAreaName
 
@@ -1955,6 +1591,37 @@ std::string jsonString = json.dump();
 
 // Deserialize from JSON
 auto parsedModel = models::LocationAreaName::fromJson(nlohmann::json::parse(jsonString));
+```
+#### models::LocationAreaPokemonEncounter
+
+```cpp
+// Create a model
+auto model = models::LocationAreaPokemonEncounter();
+model.setPokemon(/* value */);  // Set pokemon
+model.setVersionDetails(/* value */);  // Set version_details
+
+// Serialize to JSON
+nlohmann::json json = models::LocationAreaPokemonEncounter::toJson(model);
+std::string jsonString = json.dump();
+
+// Deserialize from JSON
+auto parsedModel = models::LocationAreaPokemonEncounter::fromJson(nlohmann::json::parse(jsonString));
+```
+#### models::LocationAreaPokemonEncounterVersion
+
+```cpp
+// Create a model
+auto model = models::LocationAreaPokemonEncounterVersion();
+model.setVersion(/* value */);  // Set version
+model.setMaxChance(/* value */);  // Set max_chance
+model.setEncounterDetails(/* value */);  // Set encounter_details
+
+// Serialize to JSON
+nlohmann::json json = models::LocationAreaPokemonEncounterVersion::toJson(model);
+std::string jsonString = json.dump();
+
+// Deserialize from JSON
+auto parsedModel = models::LocationAreaPokemonEncounterVersion::fromJson(nlohmann::json::parse(jsonString));
 ```
 #### models::LocationAreaSummary
 
@@ -2132,36 +1799,35 @@ std::string jsonString = json.dump();
 // Deserialize from JSON
 auto parsedModel = models::MoveChange::fromJson(nlohmann::json::parse(jsonString));
 ```
-#### models::MoveChangeEffectEntriesInner
+#### models::MoveComboUsage
 
 ```cpp
 // Create a model
-auto model = models::MoveChangeEffectEntriesInner();
-model.setEffect(/* value */);  // Set effect
-model.setShortEffect(/* value */);  // Set short_effect
-model.setLanguage(/* value */);  // Set language
+auto model = models::MoveComboUsage();
+model.setUseBefore(/* value */);  // Set use_before
+model.setUseAfter(/* value */);  // Set use_after
 
 // Serialize to JSON
-nlohmann::json json = models::MoveChangeEffectEntriesInner::toJson(model);
+nlohmann::json json = models::MoveComboUsage::toJson(model);
 std::string jsonString = json.dump();
 
 // Deserialize from JSON
-auto parsedModel = models::MoveChangeEffectEntriesInner::fromJson(nlohmann::json::parse(jsonString));
+auto parsedModel = models::MoveComboUsage::fromJson(nlohmann::json::parse(jsonString));
 ```
-#### models::MoveChangeEffectEntriesInnerLanguage
+#### models::MoveCombos
 
 ```cpp
 // Create a model
-auto model = models::MoveChangeEffectEntriesInnerLanguage();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
+auto model = models::MoveCombos();
+model.setNormal(/* value */);  // Set normal
+model.setSuper(/* value */);  // Set super
 
 // Serialize to JSON
-nlohmann::json json = models::MoveChangeEffectEntriesInnerLanguage::toJson(model);
+nlohmann::json json = models::MoveCombos::toJson(model);
 std::string jsonString = json.dump();
 
 // Deserialize from JSON
-auto parsedModel = models::MoveChangeEffectEntriesInnerLanguage::fromJson(nlohmann::json::parse(jsonString));
+auto parsedModel = models::MoveCombos::fromJson(nlohmann::json::parse(jsonString));
 ```
 #### models::MoveDamageClassDescription
 
@@ -2263,290 +1929,51 @@ std::string jsonString = json.dump();
 // Deserialize from JSON
 auto parsedModel = models::MoveDetail::fromJson(nlohmann::json::parse(jsonString));
 ```
-#### models::MoveDetailContestCombos
+#### models::MoveEffectChange
 
 ```cpp
 // Create a model
-auto model = models::MoveDetailContestCombos();
-model.setNormal(/* value */);  // Set normal
-model.setSuper(/* value */);  // Set super
-
-// Serialize to JSON
-nlohmann::json json = models::MoveDetailContestCombos::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::MoveDetailContestCombos::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::MoveDetailContestCombosNormal
-
-```cpp
-// Create a model
-auto model = models::MoveDetailContestCombosNormal();
-model.setUseBefore(/* value */);  // Set use_before
-model.setUseAfter(/* value */);  // Set use_after
-
-// Serialize to JSON
-nlohmann::json json = models::MoveDetailContestCombosNormal::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::MoveDetailContestCombosNormal::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::MoveDetailContestCombosNormalUseAfterInner
-
-```cpp
-// Create a model
-auto model = models::MoveDetailContestCombosNormalUseAfterInner();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::MoveDetailContestCombosNormalUseAfterInner::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::MoveDetailContestCombosNormalUseAfterInner::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::MoveDetailContestCombosNormalUseBeforeInner
-
-```cpp
-// Create a model
-auto model = models::MoveDetailContestCombosNormalUseBeforeInner();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::MoveDetailContestCombosNormalUseBeforeInner::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::MoveDetailContestCombosNormalUseBeforeInner::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::MoveDetailContestCombosSuper
-
-```cpp
-// Create a model
-auto model = models::MoveDetailContestCombosSuper();
-model.setUseBefore(/* value */);  // Set use_before
-model.setUseAfter(/* value */);  // Set use_after
-
-// Serialize to JSON
-nlohmann::json json = models::MoveDetailContestCombosSuper::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::MoveDetailContestCombosSuper::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::MoveDetailContestCombosSuperUseAfterInner
-
-```cpp
-// Create a model
-auto model = models::MoveDetailContestCombosSuperUseAfterInner();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::MoveDetailContestCombosSuperUseAfterInner::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::MoveDetailContestCombosSuperUseAfterInner::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::MoveDetailContestCombosSuperUseBeforeInner
-
-```cpp
-// Create a model
-auto model = models::MoveDetailContestCombosSuperUseBeforeInner();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::MoveDetailContestCombosSuperUseBeforeInner::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::MoveDetailContestCombosSuperUseBeforeInner::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::MoveDetailEffectChangesInner
-
-```cpp
-// Create a model
-auto model = models::MoveDetailEffectChangesInner();
-model.setEffectEntries(/* value */);  // Set effect_entries
+auto model = models::MoveEffectChange();
 model.setVersionGroup(/* value */);  // Set version_group
+model.setEffectEntries(/* value */);  // Set effect_entries
 
 // Serialize to JSON
-nlohmann::json json = models::MoveDetailEffectChangesInner::toJson(model);
+nlohmann::json json = models::MoveEffectChange::toJson(model);
 std::string jsonString = json.dump();
 
 // Deserialize from JSON
-auto parsedModel = models::MoveDetailEffectChangesInner::fromJson(nlohmann::json::parse(jsonString));
+auto parsedModel = models::MoveEffectChange::fromJson(nlohmann::json::parse(jsonString));
 ```
-#### models::MoveDetailEffectChangesInnerEffectEntriesInner
+#### models::MoveEffectChangeEffectText
 
 ```cpp
 // Create a model
-auto model = models::MoveDetailEffectChangesInnerEffectEntriesInner();
+auto model = models::MoveEffectChangeEffectText();
 model.setEffect(/* value */);  // Set effect
 model.setLanguage(/* value */);  // Set language
 
 // Serialize to JSON
-nlohmann::json json = models::MoveDetailEffectChangesInnerEffectEntriesInner::toJson(model);
+nlohmann::json json = models::MoveEffectChangeEffectText::toJson(model);
 std::string jsonString = json.dump();
 
 // Deserialize from JSON
-auto parsedModel = models::MoveDetailEffectChangesInnerEffectEntriesInner::fromJson(nlohmann::json::parse(jsonString));
+auto parsedModel = models::MoveEffectChangeEffectText::fromJson(nlohmann::json::parse(jsonString));
 ```
-#### models::MoveDetailEffectChangesInnerEffectEntriesInnerLanguage
+#### models::MoveEffectEffectText
 
 ```cpp
 // Create a model
-auto model = models::MoveDetailEffectChangesInnerEffectEntriesInnerLanguage();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::MoveDetailEffectChangesInnerEffectEntriesInnerLanguage::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::MoveDetailEffectChangesInnerEffectEntriesInnerLanguage::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::MoveDetailEffectChangesInnerVersionGroup
-
-```cpp
-// Create a model
-auto model = models::MoveDetailEffectChangesInnerVersionGroup();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::MoveDetailEffectChangesInnerVersionGroup::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::MoveDetailEffectChangesInnerVersionGroup::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::MoveDetailEffectEntriesInner
-
-```cpp
-// Create a model
-auto model = models::MoveDetailEffectEntriesInner();
+auto model = models::MoveEffectEffectText();
 model.setEffect(/* value */);  // Set effect
 model.setShortEffect(/* value */);  // Set short_effect
 model.setLanguage(/* value */);  // Set language
 
 // Serialize to JSON
-nlohmann::json json = models::MoveDetailEffectEntriesInner::toJson(model);
+nlohmann::json json = models::MoveEffectEffectText::toJson(model);
 std::string jsonString = json.dump();
 
 // Deserialize from JSON
-auto parsedModel = models::MoveDetailEffectEntriesInner::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::MoveDetailEffectEntriesInnerLanguage
-
-```cpp
-// Create a model
-auto model = models::MoveDetailEffectEntriesInnerLanguage();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::MoveDetailEffectEntriesInnerLanguage::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::MoveDetailEffectEntriesInnerLanguage::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::MoveDetailLearnedByPokemonInner
-
-```cpp
-// Create a model
-auto model = models::MoveDetailLearnedByPokemonInner();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::MoveDetailLearnedByPokemonInner::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::MoveDetailLearnedByPokemonInner::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::MoveDetailMachinesInner
-
-```cpp
-// Create a model
-auto model = models::MoveDetailMachinesInner();
-model.setMachine(/* value */);  // Set machine
-model.setVersionGroup(/* value */);  // Set version_group
-
-// Serialize to JSON
-nlohmann::json json = models::MoveDetailMachinesInner::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::MoveDetailMachinesInner::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::MoveDetailMachinesInnerMachine
-
-```cpp
-// Create a model
-auto model = models::MoveDetailMachinesInnerMachine();
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::MoveDetailMachinesInnerMachine::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::MoveDetailMachinesInnerMachine::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::MoveDetailMachinesInnerVersionGroup
-
-```cpp
-// Create a model
-auto model = models::MoveDetailMachinesInnerVersionGroup();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::MoveDetailMachinesInnerVersionGroup::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::MoveDetailMachinesInnerVersionGroup::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::MoveDetailStatChangesInner
-
-```cpp
-// Create a model
-auto model = models::MoveDetailStatChangesInner();
-model.setChange(/* value */);  // Set change
-model.setStat(/* value */);  // Set stat
-
-// Serialize to JSON
-nlohmann::json json = models::MoveDetailStatChangesInner::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::MoveDetailStatChangesInner::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::MoveDetailStatChangesInnerStat
-
-```cpp
-// Create a model
-auto model = models::MoveDetailStatChangesInnerStat();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::MoveDetailStatChangesInnerStat::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::MoveDetailStatChangesInnerStat::fromJson(nlohmann::json::parse(jsonString));
+auto parsedModel = models::MoveEffectEffectText::fromJson(nlohmann::json::parse(jsonString));
 ```
 #### models::MoveFlavorText
 
@@ -2596,21 +2023,6 @@ std::string jsonString = json.dump();
 
 // Deserialize from JSON
 auto parsedModel = models::MoveLearnMethodDetail::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::MoveLearnMethodDetailVersionGroupsInner
-
-```cpp
-// Create a model
-auto model = models::MoveLearnMethodDetailVersionGroupsInner();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::MoveLearnMethodDetailVersionGroupsInner::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::MoveLearnMethodDetailVersionGroupsInner::fromJson(nlohmann::json::parse(jsonString));
 ```
 #### models::MoveLearnMethodName
 
@@ -2684,21 +2096,6 @@ std::string jsonString = json.dump();
 // Deserialize from JSON
 auto parsedModel = models::MoveMetaAilmentDetail::fromJson(nlohmann::json::parse(jsonString));
 ```
-#### models::MoveMetaAilmentDetailMovesInner
-
-```cpp
-// Create a model
-auto model = models::MoveMetaAilmentDetailMovesInner();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::MoveMetaAilmentDetailMovesInner::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::MoveMetaAilmentDetailMovesInner::fromJson(nlohmann::json::parse(jsonString));
-```
 #### models::MoveMetaAilmentName
 
 ```cpp
@@ -2761,21 +2158,6 @@ std::string jsonString = json.dump();
 // Deserialize from JSON
 auto parsedModel = models::MoveMetaCategoryDetail::fromJson(nlohmann::json::parse(jsonString));
 ```
-#### models::MoveMetaCategoryDetailMovesInner
-
-```cpp
-// Create a model
-auto model = models::MoveMetaCategoryDetailMovesInner();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::MoveMetaCategoryDetailMovesInner::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::MoveMetaCategoryDetailMovesInner::fromJson(nlohmann::json::parse(jsonString));
-```
 #### models::MoveMetaCategorySummary
 
 ```cpp
@@ -2791,6 +2173,21 @@ std::string jsonString = json.dump();
 // Deserialize from JSON
 auto parsedModel = models::MoveMetaCategorySummary::fromJson(nlohmann::json::parse(jsonString));
 ```
+#### models::MoveMetaStatChange
+
+```cpp
+// Create a model
+auto model = models::MoveMetaStatChange();
+model.setChange(/* value */);  // Set change
+model.setStat(/* value */);  // Set stat
+
+// Serialize to JSON
+nlohmann::json json = models::MoveMetaStatChange::toJson(model);
+std::string jsonString = json.dump();
+
+// Deserialize from JSON
+auto parsedModel = models::MoveMetaStatChange::fromJson(nlohmann::json::parse(jsonString));
+```
 #### models::MoveName
 
 ```cpp
@@ -2805,6 +2202,21 @@ std::string jsonString = json.dump();
 
 // Deserialize from JSON
 auto parsedModel = models::MoveName::fromJson(nlohmann::json::parse(jsonString));
+```
+#### models::MoveStatChange
+
+```cpp
+// Create a model
+auto model = models::MoveStatChange();
+model.setChange(/* value */);  // Set change
+model.setMove(/* value */);  // Set move
+
+// Serialize to JSON
+nlohmann::json json = models::MoveStatChange::toJson(model);
+std::string jsonString = json.dump();
+
+// Deserialize from JSON
+auto parsedModel = models::MoveStatChange::fromJson(nlohmann::json::parse(jsonString));
 ```
 #### models::MoveSummary
 
@@ -2911,7 +2323,6 @@ model.setDecreasedStat(/* value */);  // Set decreased_stat
 model.setIncreasedStat(/* value */);  // Set increased_stat
 model.setLikesFlavor(/* value */);  // Set likes_flavor
 model.setHatesFlavor(/* value */);  // Set hates_flavor
-model.setBerries(/* value */);  // Set berries
 model.setPokeathlonStatChanges(/* value */);  // Set pokeathlon_stat_changes
 model.setMoveBattleStylePreferences(/* value */);  // Set move_battle_style_preferences
 model.setNames(/* value */);  // Set names
@@ -2922,36 +2333,6 @@ std::string jsonString = json.dump();
 
 // Deserialize from JSON
 auto parsedModel = models::NatureDetail::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::NatureDetailPokeathlonStatChangesInner
-
-```cpp
-// Create a model
-auto model = models::NatureDetailPokeathlonStatChangesInner();
-model.setMaxChange(/* value */);  // Set max_change
-model.setPokeathlonStat(/* value */);  // Set pokeathlon_stat
-
-// Serialize to JSON
-nlohmann::json json = models::NatureDetailPokeathlonStatChangesInner::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::NatureDetailPokeathlonStatChangesInner::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::NatureDetailPokeathlonStatChangesInnerPokeathlonStat
-
-```cpp
-// Create a model
-auto model = models::NatureDetailPokeathlonStatChangesInnerPokeathlonStat();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::NatureDetailPokeathlonStatChangesInnerPokeathlonStat::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::NatureDetailPokeathlonStatChangesInnerPokeathlonStat::fromJson(nlohmann::json::parse(jsonString));
 ```
 #### models::NatureName
 
@@ -2967,6 +2348,21 @@ std::string jsonString = json.dump();
 
 // Deserialize from JSON
 auto parsedModel = models::NatureName::fromJson(nlohmann::json::parse(jsonString));
+```
+#### models::NaturePokeathlonStat
+
+```cpp
+// Create a model
+auto model = models::NaturePokeathlonStat();
+model.setMaxChange(/* value */);  // Set max_change
+model.setPokeathlonStat(/* value */);  // Set pokeathlon_stat
+
+// Serialize to JSON
+nlohmann::json json = models::NaturePokeathlonStat::toJson(model);
+std::string jsonString = json.dump();
+
+// Deserialize from JSON
+auto parsedModel = models::NaturePokeathlonStat::fromJson(nlohmann::json::parse(jsonString));
 ```
 #### models::NatureSummary
 
@@ -3102,6 +2498,23 @@ std::string jsonString = json.dump();
 // Deserialize from JSON
 auto parsedModel = models::PaginatedContestTypeSummaryList::fromJson(nlohmann::json::parse(jsonString));
 ```
+#### models::PaginatedCurrencySummaryList
+
+```cpp
+// Create a model
+auto model = models::PaginatedCurrencySummaryList();
+model.setCount(/* value */);  // Set count
+model.setNext(/* value */);  // Set next
+model.setPrevious(/* value */);  // Set previous
+model.setResults(/* value */);  // Set results
+
+// Serialize to JSON
+nlohmann::json json = models::PaginatedCurrencySummaryList::toJson(model);
+std::string jsonString = json.dump();
+
+// Deserialize from JSON
+auto parsedModel = models::PaginatedCurrencySummaryList::fromJson(nlohmann::json::parse(jsonString));
+```
 #### models::PaginatedEggGroupSummaryList
 
 ```cpp
@@ -3203,6 +2616,23 @@ std::string jsonString = json.dump();
 
 // Deserialize from JSON
 auto parsedModel = models::PaginatedEvolutionTriggerSummaryList::fromJson(nlohmann::json::parse(jsonString));
+```
+#### models::PaginatedEvolutionVariableSummaryList
+
+```cpp
+// Create a model
+auto model = models::PaginatedEvolutionVariableSummaryList();
+model.setCount(/* value */);  // Set count
+model.setNext(/* value */);  // Set next
+model.setPrevious(/* value */);  // Set previous
+model.setResults(/* value */);  // Set results
+
+// Serialize to JSON
+nlohmann::json json = models::PaginatedEvolutionVariableSummaryList::toJson(model);
+std::string jsonString = json.dump();
+
+// Deserialize from JSON
+auto parsedModel = models::PaginatedEvolutionVariableSummaryList::fromJson(nlohmann::json::parse(jsonString));
 ```
 #### models::PaginatedGenderSummaryList
 
@@ -3816,37 +3246,6 @@ std::string jsonString = json.dump();
 // Deserialize from JSON
 auto parsedModel = models::PalParkAreaDetail::fromJson(nlohmann::json::parse(jsonString));
 ```
-#### models::PalParkAreaDetailPokemonEncountersInner
-
-```cpp
-// Create a model
-auto model = models::PalParkAreaDetailPokemonEncountersInner();
-model.setBaseScore(/* value */);  // Set base_score
-model.setPokemonSpecies(/* value */);  // Set pokemon-species
-model.setRate(/* value */);  // Set rate
-
-// Serialize to JSON
-nlohmann::json json = models::PalParkAreaDetailPokemonEncountersInner::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::PalParkAreaDetailPokemonEncountersInner::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::PalParkAreaDetailPokemonEncountersInnerPokemonSpecies
-
-```cpp
-// Create a model
-auto model = models::PalParkAreaDetailPokemonEncountersInnerPokemonSpecies();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::PalParkAreaDetailPokemonEncountersInnerPokemonSpecies::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::PalParkAreaDetailPokemonEncountersInnerPokemonSpecies::fromJson(nlohmann::json::parse(jsonString));
-```
 #### models::PalParkAreaName
 
 ```cpp
@@ -3877,6 +3276,68 @@ std::string jsonString = json.dump();
 // Deserialize from JSON
 auto parsedModel = models::PalParkAreaSummary::fromJson(nlohmann::json::parse(jsonString));
 ```
+#### models::PalParkEncounter
+
+```cpp
+// Create a model
+auto model = models::PalParkEncounter();
+model.setBaseScore(/* value */);  // Set base_score
+model.setRate(/* value */);  // Set rate
+model.setPokemonSpecies(/* value */);  // Set pokemon_species
+
+// Serialize to JSON
+nlohmann::json json = models::PalParkEncounter::toJson(model);
+std::string jsonString = json.dump();
+
+// Deserialize from JSON
+auto parsedModel = models::PalParkEncounter::fromJson(nlohmann::json::parse(jsonString));
+```
+#### models::PokeapiMetaResponse
+
+```cpp
+// Create a model
+auto model = models::PokeapiMetaResponse();
+model.setDeployDate(/* value */);  // Set deploy_date
+model.setHash(/* value */);  // Set hash
+model.setTag(/* value */);  // Set tag
+
+// Serialize to JSON
+nlohmann::json json = models::PokeapiMetaResponse::toJson(model);
+std::string jsonString = json.dump();
+
+// Deserialize from JSON
+auto parsedModel = models::PokeapiMetaResponse::fromJson(nlohmann::json::parse(jsonString));
+```
+#### models::PokeathlonStatAffectingNature
+
+```cpp
+// Create a model
+auto model = models::PokeathlonStatAffectingNature();
+model.setMaxChange(/* value */);  // Set max_change
+model.setNature(/* value */);  // Set nature
+
+// Serialize to JSON
+nlohmann::json json = models::PokeathlonStatAffectingNature::toJson(model);
+std::string jsonString = json.dump();
+
+// Deserialize from JSON
+auto parsedModel = models::PokeathlonStatAffectingNature::fromJson(nlohmann::json::parse(jsonString));
+```
+#### models::PokeathlonStatAffectingNatures
+
+```cpp
+// Create a model
+auto model = models::PokeathlonStatAffectingNatures();
+model.setIncrease(/* value */);  // Set increase
+model.setDecrease(/* value */);  // Set decrease
+
+// Serialize to JSON
+nlohmann::json json = models::PokeathlonStatAffectingNatures::toJson(model);
+std::string jsonString = json.dump();
+
+// Deserialize from JSON
+auto parsedModel = models::PokeathlonStatAffectingNatures::fromJson(nlohmann::json::parse(jsonString));
+```
 #### models::PokeathlonStatDetail
 
 ```cpp
@@ -3893,81 +3354,6 @@ std::string jsonString = json.dump();
 
 // Deserialize from JSON
 auto parsedModel = models::PokeathlonStatDetail::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::PokeathlonStatDetailAffectingNatures
-
-```cpp
-// Create a model
-auto model = models::PokeathlonStatDetailAffectingNatures();
-model.setDecrease(/* value */);  // Set decrease
-model.setIncrease(/* value */);  // Set increase
-
-// Serialize to JSON
-nlohmann::json json = models::PokeathlonStatDetailAffectingNatures::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::PokeathlonStatDetailAffectingNatures::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::PokeathlonStatDetailAffectingNaturesDecreaseInner
-
-```cpp
-// Create a model
-auto model = models::PokeathlonStatDetailAffectingNaturesDecreaseInner();
-model.setMaxChange(/* value */);  // Set max_change
-model.setNature(/* value */);  // Set nature
-
-// Serialize to JSON
-nlohmann::json json = models::PokeathlonStatDetailAffectingNaturesDecreaseInner::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::PokeathlonStatDetailAffectingNaturesDecreaseInner::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::PokeathlonStatDetailAffectingNaturesDecreaseInnerNature
-
-```cpp
-// Create a model
-auto model = models::PokeathlonStatDetailAffectingNaturesDecreaseInnerNature();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::PokeathlonStatDetailAffectingNaturesDecreaseInnerNature::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::PokeathlonStatDetailAffectingNaturesDecreaseInnerNature::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::PokeathlonStatDetailAffectingNaturesIncreaseInner
-
-```cpp
-// Create a model
-auto model = models::PokeathlonStatDetailAffectingNaturesIncreaseInner();
-model.setMaxChange(/* value */);  // Set max_change
-model.setNature(/* value */);  // Set nature
-
-// Serialize to JSON
-nlohmann::json json = models::PokeathlonStatDetailAffectingNaturesIncreaseInner::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::PokeathlonStatDetailAffectingNaturesIncreaseInner::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::PokeathlonStatDetailAffectingNaturesIncreaseInnerNature
-
-```cpp
-// Create a model
-auto model = models::PokeathlonStatDetailAffectingNaturesIncreaseInnerNature();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::PokeathlonStatDetailAffectingNaturesIncreaseInnerNature::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::PokeathlonStatDetailAffectingNaturesIncreaseInnerNature::fromJson(nlohmann::json::parse(jsonString));
 ```
 #### models::PokeathlonStatName
 
@@ -4035,51 +3421,6 @@ std::string jsonString = json.dump();
 // Deserialize from JSON
 auto parsedModel = models::PokedexDetail::fromJson(nlohmann::json::parse(jsonString));
 ```
-#### models::PokedexDetailPokemonEntriesInner
-
-```cpp
-// Create a model
-auto model = models::PokedexDetailPokemonEntriesInner();
-model.setEntryNumber(/* value */);  // Set entry_number
-model.setPokemonSpecies(/* value */);  // Set pokemon_species
-
-// Serialize to JSON
-nlohmann::json json = models::PokedexDetailPokemonEntriesInner::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::PokedexDetailPokemonEntriesInner::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::PokedexDetailPokemonEntriesInnerPokemonSpecies
-
-```cpp
-// Create a model
-auto model = models::PokedexDetailPokemonEntriesInnerPokemonSpecies();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::PokedexDetailPokemonEntriesInnerPokemonSpecies::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::PokedexDetailPokemonEntriesInnerPokemonSpecies::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::PokedexDetailVersionGroupsInner
-
-```cpp
-// Create a model
-auto model = models::PokedexDetailVersionGroupsInner();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::PokedexDetailVersionGroupsInner::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::PokedexDetailVersionGroupsInner::fromJson(nlohmann::json::parse(jsonString));
-```
 #### models::PokedexName
 
 ```cpp
@@ -4109,6 +3450,38 @@ std::string jsonString = json.dump();
 
 // Deserialize from JSON
 auto parsedModel = models::PokedexSummary::fromJson(nlohmann::json::parse(jsonString));
+```
+#### models::PokemonAbility
+
+```cpp
+// Create a model
+auto model = models::PokemonAbility();
+model.setIsHidden(/* value */);  // Set is_hidden
+model.setSlot(/* value */);  // Set slot
+model.setAbility(/* value */);  // Set ability
+
+// Serialize to JSON
+nlohmann::json json = models::PokemonAbility::toJson(model);
+std::string jsonString = json.dump();
+
+// Deserialize from JSON
+auto parsedModel = models::PokemonAbility::fromJson(nlohmann::json::parse(jsonString));
+```
+#### models::PokemonAbilityPast
+
+```cpp
+// Create a model
+auto model = models::PokemonAbilityPast();
+model.setIsHidden(/* value */);  // Set is_hidden
+model.setSlot(/* value */);  // Set slot
+model.setAbility(/* value */);  // Set ability
+
+// Serialize to JSON
+nlohmann::json json = models::PokemonAbilityPast::toJson(model);
+std::string jsonString = json.dump();
+
+// Deserialize from JSON
+auto parsedModel = models::PokemonAbilityPast::fromJson(nlohmann::json::parse(jsonString));
 ```
 #### models::PokemonColorDetail
 
@@ -4157,6 +3530,21 @@ std::string jsonString = json.dump();
 // Deserialize from JSON
 auto parsedModel = models::PokemonColorSummary::fromJson(nlohmann::json::parse(jsonString));
 ```
+#### models::PokemonCries
+
+```cpp
+// Create a model
+auto model = models::PokemonCries();
+model.setLatest(/* value */);  // Set latest
+model.setLegacy(/* value */);  // Set legacy
+
+// Serialize to JSON
+nlohmann::json json = models::PokemonCries::toJson(model);
+std::string jsonString = json.dump();
+
+// Deserialize from JSON
+auto parsedModel = models::PokemonCries::fromJson(nlohmann::json::parse(jsonString));
+```
 #### models::PokemonDetail
 
 ```cpp
@@ -4180,6 +3568,7 @@ model.setSpecies(/* value */);  // Set species
 model.setSprites(/* value */);  // Set sprites
 model.setCries(/* value */);  // Set cries
 model.setStats(/* value */);  // Set stats
+model.setPastStats(/* value */);  // Set past_stats
 model.setTypes(/* value */);  // Set types
 model.setPastTypes(/* value */);  // Set past_types
 
@@ -4189,353 +3578,6 @@ std::string jsonString = json.dump();
 
 // Deserialize from JSON
 auto parsedModel = models::PokemonDetail::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::PokemonDetailAbilitiesInner
-
-```cpp
-// Create a model
-auto model = models::PokemonDetailAbilitiesInner();
-model.setAbility(/* value */);  // Set ability
-model.setIsHidden(/* value */);  // Set is_hidden
-model.setSlot(/* value */);  // Set slot
-
-// Serialize to JSON
-nlohmann::json json = models::PokemonDetailAbilitiesInner::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::PokemonDetailAbilitiesInner::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::PokemonDetailAbilitiesInnerAbility
-
-```cpp
-// Create a model
-auto model = models::PokemonDetailAbilitiesInnerAbility();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::PokemonDetailAbilitiesInnerAbility::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::PokemonDetailAbilitiesInnerAbility::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::PokemonDetailCries
-
-```cpp
-// Create a model
-auto model = models::PokemonDetailCries();
-model.setLatest(/* value */);  // Set latest
-model.setLegacy(/* value */);  // Set legacy
-
-// Serialize to JSON
-nlohmann::json json = models::PokemonDetailCries::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::PokemonDetailCries::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::PokemonDetailHeldItems
-
-```cpp
-// Create a model
-auto model = models::PokemonDetailHeldItems();
-model.setItem(/* value */);  // Set item
-model.setVersionDetails(/* value */);  // Set version_details
-
-// Serialize to JSON
-nlohmann::json json = models::PokemonDetailHeldItems::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::PokemonDetailHeldItems::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::PokemonDetailHeldItemsItem
-
-```cpp
-// Create a model
-auto model = models::PokemonDetailHeldItemsItem();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::PokemonDetailHeldItemsItem::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::PokemonDetailHeldItemsItem::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::PokemonDetailHeldItemsVersionDetailsInner
-
-```cpp
-// Create a model
-auto model = models::PokemonDetailHeldItemsVersionDetailsInner();
-model.setRarity(/* value */);  // Set rarity
-model.setVersion(/* value */);  // Set version
-
-// Serialize to JSON
-nlohmann::json json = models::PokemonDetailHeldItemsVersionDetailsInner::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::PokemonDetailHeldItemsVersionDetailsInner::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::PokemonDetailHeldItemsVersionDetailsInnerVersion
-
-```cpp
-// Create a model
-auto model = models::PokemonDetailHeldItemsVersionDetailsInnerVersion();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::PokemonDetailHeldItemsVersionDetailsInnerVersion::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::PokemonDetailHeldItemsVersionDetailsInnerVersion::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::PokemonDetailMovesInner
-
-```cpp
-// Create a model
-auto model = models::PokemonDetailMovesInner();
-model.setMove(/* value */);  // Set move
-model.setVersionGroupDetails(/* value */);  // Set version_group_details
-
-// Serialize to JSON
-nlohmann::json json = models::PokemonDetailMovesInner::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::PokemonDetailMovesInner::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::PokemonDetailMovesInnerMove
-
-```cpp
-// Create a model
-auto model = models::PokemonDetailMovesInnerMove();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::PokemonDetailMovesInnerMove::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::PokemonDetailMovesInnerMove::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::PokemonDetailMovesInnerVersionGroupDetailsInner
-
-```cpp
-// Create a model
-auto model = models::PokemonDetailMovesInnerVersionGroupDetailsInner();
-model.setLevelLearnedAt(/* value */);  // Set level_learned_at
-model.setMoveLearnMethod(/* value */);  // Set move_learn_method
-model.setVersionGroup(/* value */);  // Set version_group
-
-// Serialize to JSON
-nlohmann::json json = models::PokemonDetailMovesInnerVersionGroupDetailsInner::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::PokemonDetailMovesInnerVersionGroupDetailsInner::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::PokemonDetailMovesInnerVersionGroupDetailsInnerMoveLearnMethod
-
-```cpp
-// Create a model
-auto model = models::PokemonDetailMovesInnerVersionGroupDetailsInnerMoveLearnMethod();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::PokemonDetailMovesInnerVersionGroupDetailsInnerMoveLearnMethod::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::PokemonDetailMovesInnerVersionGroupDetailsInnerMoveLearnMethod::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::PokemonDetailMovesInnerVersionGroupDetailsInnerVersionGroup
-
-```cpp
-// Create a model
-auto model = models::PokemonDetailMovesInnerVersionGroupDetailsInnerVersionGroup();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::PokemonDetailMovesInnerVersionGroupDetailsInnerVersionGroup::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::PokemonDetailMovesInnerVersionGroupDetailsInnerVersionGroup::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::PokemonDetailPastAbilitiesInner
-
-```cpp
-// Create a model
-auto model = models::PokemonDetailPastAbilitiesInner();
-model.setAbilities(/* value */);  // Set abilities
-model.setGeneration(/* value */);  // Set generation
-
-// Serialize to JSON
-nlohmann::json json = models::PokemonDetailPastAbilitiesInner::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::PokemonDetailPastAbilitiesInner::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::PokemonDetailPastAbilitiesInnerAbilitiesInner
-
-```cpp
-// Create a model
-auto model = models::PokemonDetailPastAbilitiesInnerAbilitiesInner();
-model.setAbility(/* value */);  // Set ability
-model.setIsHidden(/* value */);  // Set is_hidden
-model.setSlot(/* value */);  // Set slot
-
-// Serialize to JSON
-nlohmann::json json = models::PokemonDetailPastAbilitiesInnerAbilitiesInner::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::PokemonDetailPastAbilitiesInnerAbilitiesInner::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::PokemonDetailPastAbilitiesInnerAbilitiesInnerAbility
-
-```cpp
-// Create a model
-auto model = models::PokemonDetailPastAbilitiesInnerAbilitiesInnerAbility();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::PokemonDetailPastAbilitiesInnerAbilitiesInnerAbility::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::PokemonDetailPastAbilitiesInnerAbilitiesInnerAbility::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::PokemonDetailPastAbilitiesInnerGeneration
-
-```cpp
-// Create a model
-auto model = models::PokemonDetailPastAbilitiesInnerGeneration();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::PokemonDetailPastAbilitiesInnerGeneration::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::PokemonDetailPastAbilitiesInnerGeneration::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::PokemonDetailPastTypesInner
-
-```cpp
-// Create a model
-auto model = models::PokemonDetailPastTypesInner();
-model.setGeneration(/* value */);  // Set generation
-model.setTypes(/* value */);  // Set types
-
-// Serialize to JSON
-nlohmann::json json = models::PokemonDetailPastTypesInner::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::PokemonDetailPastTypesInner::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::PokemonDetailPastTypesInnerGeneration
-
-```cpp
-// Create a model
-auto model = models::PokemonDetailPastTypesInnerGeneration();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::PokemonDetailPastTypesInnerGeneration::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::PokemonDetailPastTypesInnerGeneration::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::PokemonDetailPastTypesInnerTypesInner
-
-```cpp
-// Create a model
-auto model = models::PokemonDetailPastTypesInnerTypesInner();
-model.setSlot(/* value */);  // Set slot
-model.setType(/* value */);  // Set type
-
-// Serialize to JSON
-nlohmann::json json = models::PokemonDetailPastTypesInnerTypesInner::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::PokemonDetailPastTypesInnerTypesInner::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::PokemonDetailPastTypesInnerTypesInnerType
-
-```cpp
-// Create a model
-auto model = models::PokemonDetailPastTypesInnerTypesInnerType();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::PokemonDetailPastTypesInnerTypesInnerType::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::PokemonDetailPastTypesInnerTypesInnerType::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::PokemonDetailSprites
-
-```cpp
-// Create a model
-auto model = models::PokemonDetailSprites();
-model.setFrontDefault(/* value */);  // Set front_default
-
-// Serialize to JSON
-nlohmann::json json = models::PokemonDetailSprites::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::PokemonDetailSprites::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::PokemonDetailTypesInner
-
-```cpp
-// Create a model
-auto model = models::PokemonDetailTypesInner();
-model.setSlot(/* value */);  // Set slot
-model.setType(/* value */);  // Set type
-
-// Serialize to JSON
-nlohmann::json json = models::PokemonDetailTypesInner::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::PokemonDetailTypesInner::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::PokemonDetailTypesInnerType
-
-```cpp
-// Create a model
-auto model = models::PokemonDetailTypesInnerType();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::PokemonDetailTypesInnerType::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::PokemonDetailTypesInnerType::fromJson(nlohmann::json::parse(jsonString));
 ```
 #### models::PokemonDexEntry
 
@@ -4551,6 +3593,144 @@ std::string jsonString = json.dump();
 
 // Deserialize from JSON
 auto parsedModel = models::PokemonDexEntry::fromJson(nlohmann::json::parse(jsonString));
+```
+#### models::PokemonDexNumber
+
+```cpp
+// Create a model
+auto model = models::PokemonDexNumber();
+model.setEntryNumber(/* value */);  // Set entry_number
+model.setPokemonSpecies(/* value */);  // Set pokemon_species
+
+// Serialize to JSON
+nlohmann::json json = models::PokemonDexNumber::toJson(model);
+std::string jsonString = json.dump();
+
+// Deserialize from JSON
+auto parsedModel = models::PokemonDexNumber::fromJson(nlohmann::json::parse(jsonString));
+```
+#### models::PokemonEncounterDetailResponse
+
+```cpp
+// Create a model
+auto model = models::PokemonEncounterDetailResponse();
+model.setChance(/* value */);  // Set chance
+model.setConditionValues(/* value */);  // Set condition_values
+model.setMaxLevel(/* value */);  // Set max_level
+model.setMethod(/* value */);  // Set method
+model.setMinLevel(/* value */);  // Set min_level
+
+// Serialize to JSON
+nlohmann::json json = models::PokemonEncounterDetailResponse::toJson(model);
+std::string jsonString = json.dump();
+
+// Deserialize from JSON
+auto parsedModel = models::PokemonEncounterDetailResponse::fromJson(nlohmann::json::parse(jsonString));
+```
+#### models::PokemonEncounterResponse
+
+```cpp
+// Create a model
+auto model = models::PokemonEncounterResponse();
+model.setLocationArea(/* value */);  // Set location_area
+model.setVersionDetails(/* value */);  // Set version_details
+
+// Serialize to JSON
+nlohmann::json json = models::PokemonEncounterResponse::toJson(model);
+std::string jsonString = json.dump();
+
+// Deserialize from JSON
+auto parsedModel = models::PokemonEncounterResponse::fromJson(nlohmann::json::parse(jsonString));
+```
+#### models::PokemonEncounterVersionDetailResponse
+
+```cpp
+// Create a model
+auto model = models::PokemonEncounterVersionDetailResponse();
+model.setVersion(/* value */);  // Set version
+model.setMaxChance(/* value */);  // Set max_chance
+model.setEncounterDetails(/* value */);  // Set encounter_details
+
+// Serialize to JSON
+nlohmann::json json = models::PokemonEncounterVersionDetailResponse::toJson(model);
+std::string jsonString = json.dump();
+
+// Deserialize from JSON
+auto parsedModel = models::PokemonEncounterVersionDetailResponse::fromJson(nlohmann::json::parse(jsonString));
+```
+#### models::PokemonEvolution
+
+```cpp
+// Create a model
+auto model = models::PokemonEvolution();
+model.setVersionGroup(/* value */);  // Set version_group
+model.setIsDefault(/* value */);  // Set is_default
+model.setItem(/* value */);  // Set item
+model.setTrigger(/* value */);  // Set trigger
+model.setGender(/* value */);  // Set gender
+model.setHeldItem(/* value */);  // Set held_item
+model.setKnownMove(/* value */);  // Set known_move
+model.setKnownMoveType(/* value */);  // Set known_move_type
+model.setLocation(/* value */);  // Set location
+model.setMinLevel(/* value */);  // Set min_level
+model.setMinHappiness(/* value */);  // Set min_happiness
+model.setMinBeauty(/* value */);  // Set min_beauty
+model.setMinAffection(/* value */);  // Set min_affection
+model.setNearSpecialRock(/* value */);  // Set near_special_rock
+model.setNeedsMultiplayer(/* value */);  // Set needs_multiplayer
+model.setNeedsOverworldRain(/* value */);  // Set needs_overworld_rain
+model.setPartySpecies(/* value */);  // Set party_species
+model.setPartyType(/* value */);  // Set party_type
+model.setRelativePhysicalStats(/* value */);  // Set relative_physical_stats
+model.setTimeOfDay(/* value */);  // Set time_of_day
+model.setTradeSpecies(/* value */);  // Set trade_species
+model.setTurnUpsideDown(/* value */);  // Set turn_upside_down
+model.setRegion(/* value */);  // Set region
+model.setRequiredPokemonForm(/* value */);  // Set required_pokemon_form
+model.setEvolvedPokemonForm(/* value */);  // Set evolved_pokemon_form
+model.setUsedMove(/* value */);  // Set used_move
+model.setMinMoveCount(/* value */);  // Set min_move_count
+model.setMinSteps(/* value */);  // Set min_steps
+model.setMinDamageTaken(/* value */);  // Set min_damage_taken
+model.setAllowedNatures(/* value */);  // Set allowed_natures
+model.setConditionExpression(/* value */);  // Set condition_expression
+
+// Serialize to JSON
+nlohmann::json json = models::PokemonEvolution::toJson(model);
+std::string jsonString = json.dump();
+
+// Deserialize from JSON
+auto parsedModel = models::PokemonEvolution::fromJson(nlohmann::json::parse(jsonString));
+```
+#### models::PokemonEvolutionKnownMove
+
+```cpp
+// Create a model
+auto model = models::PokemonEvolutionKnownMove();
+model.setName(/* value */);  // Set name
+model.setUrl(/* value */);  // Set url
+
+// Serialize to JSON
+nlohmann::json json = models::PokemonEvolutionKnownMove::toJson(model);
+std::string jsonString = json.dump();
+
+// Deserialize from JSON
+auto parsedModel = models::PokemonEvolutionKnownMove::fromJson(nlohmann::json::parse(jsonString));
+```
+#### models::PokemonEvolutionKnownMoveType
+
+```cpp
+// Create a model
+auto model = models::PokemonEvolutionKnownMoveType();
+model.setName(/* value */);  // Set name
+model.setUrl(/* value */);  // Set url
+
+// Serialize to JSON
+nlohmann::json json = models::PokemonEvolutionKnownMoveType::toJson(model);
+std::string jsonString = json.dump();
+
+// Deserialize from JSON
+auto parsedModel = models::PokemonEvolutionKnownMoveType::fromJson(nlohmann::json::parse(jsonString));
 ```
 #### models::PokemonFormDetail
 
@@ -4571,6 +3751,8 @@ model.setVersionGroup(/* value */);  // Set version_group
 model.setFormNames(/* value */);  // Set form_names
 model.setNames(/* value */);  // Set names
 model.setTypes(/* value */);  // Set types
+model.setTriggerConditions(/* value */);  // Set trigger_conditions
+model.setFlavorTextEntries(/* value */);  // Set flavor_text_entries
 
 // Serialize to JSON
 nlohmann::json json = models::PokemonFormDetail::toJson(model);
@@ -4579,109 +3761,59 @@ std::string jsonString = json.dump();
 // Deserialize from JSON
 auto parsedModel = models::PokemonFormDetail::fromJson(nlohmann::json::parse(jsonString));
 ```
-#### models::PokemonFormDetailFormNamesInner
+#### models::PokemonFormFlavorText
 
 ```cpp
 // Create a model
-auto model = models::PokemonFormDetailFormNamesInner();
+auto model = models::PokemonFormFlavorText();
+model.setFlavorText(/* value */);  // Set flavor_text
 model.setLanguage(/* value */);  // Set language
-model.setName(/* value */);  // Set name
+model.setVersion(/* value */);  // Set version
 
 // Serialize to JSON
-nlohmann::json json = models::PokemonFormDetailFormNamesInner::toJson(model);
+nlohmann::json json = models::PokemonFormFlavorText::toJson(model);
 std::string jsonString = json.dump();
 
 // Deserialize from JSON
-auto parsedModel = models::PokemonFormDetailFormNamesInner::fromJson(nlohmann::json::parse(jsonString));
+auto parsedModel = models::PokemonFormFlavorText::fromJson(nlohmann::json::parse(jsonString));
 ```
-#### models::PokemonFormDetailFormNamesInnerLanguage
+#### models::PokemonFormName
 
 ```cpp
 // Create a model
-auto model = models::PokemonFormDetailFormNamesInnerLanguage();
+auto model = models::PokemonFormName();
 model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::PokemonFormDetailFormNamesInnerLanguage::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::PokemonFormDetailFormNamesInnerLanguage::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::PokemonFormDetailNamesInner
-
-```cpp
-// Create a model
-auto model = models::PokemonFormDetailNamesInner();
 model.setLanguage(/* value */);  // Set language
-model.setName(/* value */);  // Set name
 
 // Serialize to JSON
-nlohmann::json json = models::PokemonFormDetailNamesInner::toJson(model);
+nlohmann::json json = models::PokemonFormName::toJson(model);
 std::string jsonString = json.dump();
 
 // Deserialize from JSON
-auto parsedModel = models::PokemonFormDetailNamesInner::fromJson(nlohmann::json::parse(jsonString));
+auto parsedModel = models::PokemonFormName::fromJson(nlohmann::json::parse(jsonString));
 ```
-#### models::PokemonFormDetailNamesInnerLanguage
+#### models::PokemonFormSprites
 
 ```cpp
 // Create a model
-auto model = models::PokemonFormDetailNamesInnerLanguage();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
+auto model = models::PokemonFormSprites();
+model.setFrontDefault(/* value */);  // Set front_default
+model.setFrontShiny(/* value */);  // Set front_shiny
+model.setFrontFemale(/* value */);  // Set front_female
+model.setFrontShinyFemale(/* value */);  // Set front_shiny_female
+model.setBackDefault(/* value */);  // Set back_default
+model.setBackShiny(/* value */);  // Set back_shiny
+model.setBackFemale(/* value */);  // Set back_female
+model.setBackShinyFemale(/* value */);  // Set back_shiny_female
+model.setOther(/* value */);  // Set other
+model.setVersions(/* value */);  // Set versions
 
 // Serialize to JSON
-nlohmann::json json = models::PokemonFormDetailNamesInnerLanguage::toJson(model);
+nlohmann::json json = models::PokemonFormSprites::toJson(model);
 std::string jsonString = json.dump();
 
 // Deserialize from JSON
-auto parsedModel = models::PokemonFormDetailNamesInnerLanguage::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::PokemonFormDetailSprites
-
-```cpp
-// Create a model
-auto model = models::PokemonFormDetailSprites();
-model.setRDefault(/* value */);  // Set default
-
-// Serialize to JSON
-nlohmann::json json = models::PokemonFormDetailSprites::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::PokemonFormDetailSprites::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::PokemonFormDetailTypesInner
-
-```cpp
-// Create a model
-auto model = models::PokemonFormDetailTypesInner();
-model.setSlot(/* value */);  // Set slot
-model.setType(/* value */);  // Set type
-
-// Serialize to JSON
-nlohmann::json json = models::PokemonFormDetailTypesInner::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::PokemonFormDetailTypesInner::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::PokemonFormDetailTypesInnerType
-
-```cpp
-// Create a model
-auto model = models::PokemonFormDetailTypesInnerType();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::PokemonFormDetailTypesInnerType::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::PokemonFormDetailTypesInnerType::fromJson(nlohmann::json::parse(jsonString));
+auto parsedModel = models::PokemonFormSprites::fromJson(nlohmann::json::parse(jsonString));
 ```
 #### models::PokemonFormSummary
 
@@ -4697,6 +3829,38 @@ std::string jsonString = json.dump();
 
 // Deserialize from JSON
 auto parsedModel = models::PokemonFormSummary::fromJson(nlohmann::json::parse(jsonString));
+```
+#### models::PokemonFormTriggerCondition
+
+```cpp
+// Create a model
+auto model = models::PokemonFormTriggerCondition();
+model.setTrigger(/* value */);  // Set trigger
+model.setName(/* value */);  // Set name
+model.setUrl(/* value */);  // Set url
+model.setBaseForm(/* value */);  // Set base_form
+
+// Serialize to JSON
+nlohmann::json json = models::PokemonFormTriggerCondition::toJson(model);
+std::string jsonString = json.dump();
+
+// Deserialize from JSON
+auto parsedModel = models::PokemonFormTriggerCondition::fromJson(nlohmann::json::parse(jsonString));
+```
+#### models::PokemonFormType
+
+```cpp
+// Create a model
+auto model = models::PokemonFormType();
+model.setSlot(/* value */);  // Set slot
+model.setType(/* value */);  // Set type
+
+// Serialize to JSON
+nlohmann::json json = models::PokemonFormType::toJson(model);
+std::string jsonString = json.dump();
+
+// Deserialize from JSON
+auto parsedModel = models::PokemonFormType::fromJson(nlohmann::json::parse(jsonString));
 ```
 #### models::PokemonGameIndex
 
@@ -4760,6 +3924,143 @@ std::string jsonString = json.dump();
 // Deserialize from JSON
 auto parsedModel = models::PokemonHabitatSummary::fromJson(nlohmann::json::parse(jsonString));
 ```
+#### models::PokemonHeldItem
+
+```cpp
+// Create a model
+auto model = models::PokemonHeldItem();
+model.setPokemon(/* value */);  // Set pokemon
+model.setVersionDetails(/* value */);  // Set version_details
+
+// Serialize to JSON
+nlohmann::json json = models::PokemonHeldItem::toJson(model);
+std::string jsonString = json.dump();
+
+// Deserialize from JSON
+auto parsedModel = models::PokemonHeldItem::fromJson(nlohmann::json::parse(jsonString));
+```
+#### models::PokemonHeldItemSummary
+
+```cpp
+// Create a model
+auto model = models::PokemonHeldItemSummary();
+model.setItem(/* value */);  // Set item
+model.setVersionDetails(/* value */);  // Set version_details
+
+// Serialize to JSON
+nlohmann::json json = models::PokemonHeldItemSummary::toJson(model);
+std::string jsonString = json.dump();
+
+// Deserialize from JSON
+auto parsedModel = models::PokemonHeldItemSummary::fromJson(nlohmann::json::parse(jsonString));
+```
+#### models::PokemonHeldItemVersion
+
+```cpp
+// Create a model
+auto model = models::PokemonHeldItemVersion();
+model.setRarity(/* value */);  // Set rarity
+model.setVersion(/* value */);  // Set version
+
+// Serialize to JSON
+nlohmann::json json = models::PokemonHeldItemVersion::toJson(model);
+std::string jsonString = json.dump();
+
+// Deserialize from JSON
+auto parsedModel = models::PokemonHeldItemVersion::fromJson(nlohmann::json::parse(jsonString));
+```
+#### models::PokemonMove
+
+```cpp
+// Create a model
+auto model = models::PokemonMove();
+model.setMove(/* value */);  // Set move
+model.setVersionGroupDetails(/* value */);  // Set version_group_details
+
+// Serialize to JSON
+nlohmann::json json = models::PokemonMove::toJson(model);
+std::string jsonString = json.dump();
+
+// Deserialize from JSON
+auto parsedModel = models::PokemonMove::fromJson(nlohmann::json::parse(jsonString));
+```
+#### models::PokemonMoveVersionGroup
+
+```cpp
+// Create a model
+auto model = models::PokemonMoveVersionGroup();
+model.setLevelLearnedAt(/* value */);  // Set level_learned_at
+model.setMoveLearnMethod(/* value */);  // Set move_learn_method
+model.setVersionGroup(/* value */);  // Set version_group
+model.setOrder(/* value */);  // Set order
+
+// Serialize to JSON
+nlohmann::json json = models::PokemonMoveVersionGroup::toJson(model);
+std::string jsonString = json.dump();
+
+// Deserialize from JSON
+auto parsedModel = models::PokemonMoveVersionGroup::fromJson(nlohmann::json::parse(jsonString));
+```
+#### models::PokemonPastAbility
+
+```cpp
+// Create a model
+auto model = models::PokemonPastAbility();
+model.setAbilities(/* value */);  // Set abilities
+model.setGeneration(/* value */);  // Set generation
+
+// Serialize to JSON
+nlohmann::json json = models::PokemonPastAbility::toJson(model);
+std::string jsonString = json.dump();
+
+// Deserialize from JSON
+auto parsedModel = models::PokemonPastAbility::fromJson(nlohmann::json::parse(jsonString));
+```
+#### models::PokemonPastStat
+
+```cpp
+// Create a model
+auto model = models::PokemonPastStat();
+model.setGeneration(/* value */);  // Set generation
+model.setStats(/* value */);  // Set stats
+
+// Serialize to JSON
+nlohmann::json json = models::PokemonPastStat::toJson(model);
+std::string jsonString = json.dump();
+
+// Deserialize from JSON
+auto parsedModel = models::PokemonPastStat::fromJson(nlohmann::json::parse(jsonString));
+```
+#### models::PokemonPastType
+
+```cpp
+// Create a model
+auto model = models::PokemonPastType();
+model.setGeneration(/* value */);  // Set generation
+model.setTypes(/* value */);  // Set types
+
+// Serialize to JSON
+nlohmann::json json = models::PokemonPastType::toJson(model);
+std::string jsonString = json.dump();
+
+// Deserialize from JSON
+auto parsedModel = models::PokemonPastType::fromJson(nlohmann::json::parse(jsonString));
+```
+#### models::PokemonShapeAwesomeName
+
+```cpp
+// Create a model
+auto model = models::PokemonShapeAwesomeName();
+model.setAwesomeName(/* value */);  // Set awesome_name
+model.setLanguage(/* value */);  // Set language
+
+// Serialize to JSON
+nlohmann::json json = models::PokemonShapeAwesomeName::toJson(model);
+std::string jsonString = json.dump();
+
+// Deserialize from JSON
+auto parsedModel = models::PokemonShapeAwesomeName::fromJson(nlohmann::json::parse(jsonString));
+```
 #### models::PokemonShapeDetail
 
 ```cpp
@@ -4778,50 +4079,20 @@ std::string jsonString = json.dump();
 // Deserialize from JSON
 auto parsedModel = models::PokemonShapeDetail::fromJson(nlohmann::json::parse(jsonString));
 ```
-#### models::PokemonShapeDetailAwesomeNamesInner
+#### models::PokemonShapeName
 
 ```cpp
 // Create a model
-auto model = models::PokemonShapeDetailAwesomeNamesInner();
-model.setAwesomeName(/* value */);  // Set awesome_name
+auto model = models::PokemonShapeName();
+model.setName(/* value */);  // Set name
 model.setLanguage(/* value */);  // Set language
 
 // Serialize to JSON
-nlohmann::json json = models::PokemonShapeDetailAwesomeNamesInner::toJson(model);
+nlohmann::json json = models::PokemonShapeName::toJson(model);
 std::string jsonString = json.dump();
 
 // Deserialize from JSON
-auto parsedModel = models::PokemonShapeDetailAwesomeNamesInner::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::PokemonShapeDetailAwesomeNamesInnerLanguage
-
-```cpp
-// Create a model
-auto model = models::PokemonShapeDetailAwesomeNamesInnerLanguage();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::PokemonShapeDetailAwesomeNamesInnerLanguage::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::PokemonShapeDetailAwesomeNamesInnerLanguage::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::PokemonShapeDetailNamesInner
-
-```cpp
-// Create a model
-auto model = models::PokemonShapeDetailNamesInner();
-model.setUrl(/* value */);  // Set url
-model.setName(/* value */);  // Set name
-
-// Serialize to JSON
-nlohmann::json json = models::PokemonShapeDetailNamesInner::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::PokemonShapeDetailNamesInner::fromJson(nlohmann::json::parse(jsonString));
+auto parsedModel = models::PokemonShapeName::fromJson(nlohmann::json::parse(jsonString));
 ```
 #### models::PokemonShapeSummary
 
@@ -4893,142 +4164,6 @@ std::string jsonString = json.dump();
 // Deserialize from JSON
 auto parsedModel = models::PokemonSpeciesDetail::fromJson(nlohmann::json::parse(jsonString));
 ```
-#### models::PokemonSpeciesDetailEggGroupsInner
-
-```cpp
-// Create a model
-auto model = models::PokemonSpeciesDetailEggGroupsInner();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::PokemonSpeciesDetailEggGroupsInner::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::PokemonSpeciesDetailEggGroupsInner::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::PokemonSpeciesDetailGeneraInner
-
-```cpp
-// Create a model
-auto model = models::PokemonSpeciesDetailGeneraInner();
-model.setGenus(/* value */);  // Set genus
-model.setLanguage(/* value */);  // Set language
-
-// Serialize to JSON
-nlohmann::json json = models::PokemonSpeciesDetailGeneraInner::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::PokemonSpeciesDetailGeneraInner::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::PokemonSpeciesDetailGeneraInnerLanguage
-
-```cpp
-// Create a model
-auto model = models::PokemonSpeciesDetailGeneraInnerLanguage();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::PokemonSpeciesDetailGeneraInnerLanguage::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::PokemonSpeciesDetailGeneraInnerLanguage::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::PokemonSpeciesDetailNamesInner
-
-```cpp
-// Create a model
-auto model = models::PokemonSpeciesDetailNamesInner();
-model.setLanguage(/* value */);  // Set language
-model.setName(/* value */);  // Set name
-
-// Serialize to JSON
-nlohmann::json json = models::PokemonSpeciesDetailNamesInner::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::PokemonSpeciesDetailNamesInner::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::PokemonSpeciesDetailNamesInnerLanguage
-
-```cpp
-// Create a model
-auto model = models::PokemonSpeciesDetailNamesInnerLanguage();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::PokemonSpeciesDetailNamesInnerLanguage::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::PokemonSpeciesDetailNamesInnerLanguage::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::PokemonSpeciesDetailPalParkEncountersInner
-
-```cpp
-// Create a model
-auto model = models::PokemonSpeciesDetailPalParkEncountersInner();
-model.setArea(/* value */);  // Set area
-model.setBaseScore(/* value */);  // Set base_score
-model.setRate(/* value */);  // Set rate
-
-// Serialize to JSON
-nlohmann::json json = models::PokemonSpeciesDetailPalParkEncountersInner::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::PokemonSpeciesDetailPalParkEncountersInner::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::PokemonSpeciesDetailPalParkEncountersInnerArea
-
-```cpp
-// Create a model
-auto model = models::PokemonSpeciesDetailPalParkEncountersInnerArea();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::PokemonSpeciesDetailPalParkEncountersInnerArea::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::PokemonSpeciesDetailPalParkEncountersInnerArea::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::PokemonSpeciesDetailVarietiesInner
-
-```cpp
-// Create a model
-auto model = models::PokemonSpeciesDetailVarietiesInner();
-model.setIsDefault(/* value */);  // Set is_default
-model.setPokemon(/* value */);  // Set pokemon
-
-// Serialize to JSON
-nlohmann::json json = models::PokemonSpeciesDetailVarietiesInner::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::PokemonSpeciesDetailVarietiesInner::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::PokemonSpeciesDetailVarietiesInnerPokemon
-
-```cpp
-// Create a model
-auto model = models::PokemonSpeciesDetailVarietiesInnerPokemon();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::PokemonSpeciesDetailVarietiesInnerPokemon::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::PokemonSpeciesDetailVarietiesInnerPokemon::fromJson(nlohmann::json::parse(jsonString));
-```
 #### models::PokemonSpeciesFlavorText
 
 ```cpp
@@ -5045,6 +4180,52 @@ std::string jsonString = json.dump();
 // Deserialize from JSON
 auto parsedModel = models::PokemonSpeciesFlavorText::fromJson(nlohmann::json::parse(jsonString));
 ```
+#### models::PokemonSpeciesGenus
+
+```cpp
+// Create a model
+auto model = models::PokemonSpeciesGenus();
+model.setGenus(/* value */);  // Set genus
+model.setLanguage(/* value */);  // Set language
+
+// Serialize to JSON
+nlohmann::json json = models::PokemonSpeciesGenus::toJson(model);
+std::string jsonString = json.dump();
+
+// Deserialize from JSON
+auto parsedModel = models::PokemonSpeciesGenus::fromJson(nlohmann::json::parse(jsonString));
+```
+#### models::PokemonSpeciesName
+
+```cpp
+// Create a model
+auto model = models::PokemonSpeciesName();
+model.setName(/* value */);  // Set name
+model.setLanguage(/* value */);  // Set language
+
+// Serialize to JSON
+nlohmann::json json = models::PokemonSpeciesName::toJson(model);
+std::string jsonString = json.dump();
+
+// Deserialize from JSON
+auto parsedModel = models::PokemonSpeciesName::fromJson(nlohmann::json::parse(jsonString));
+```
+#### models::PokemonSpeciesPalParkEncounter
+
+```cpp
+// Create a model
+auto model = models::PokemonSpeciesPalParkEncounter();
+model.setBaseScore(/* value */);  // Set base_score
+model.setRate(/* value */);  // Set rate
+model.setArea(/* value */);  // Set area
+
+// Serialize to JSON
+nlohmann::json json = models::PokemonSpeciesPalParkEncounter::toJson(model);
+std::string jsonString = json.dump();
+
+// Deserialize from JSON
+auto parsedModel = models::PokemonSpeciesPalParkEncounter::fromJson(nlohmann::json::parse(jsonString));
+```
 #### models::PokemonSpeciesSummary
 
 ```cpp
@@ -5059,6 +4240,130 @@ std::string jsonString = json.dump();
 
 // Deserialize from JSON
 auto parsedModel = models::PokemonSpeciesSummary::fromJson(nlohmann::json::parse(jsonString));
+```
+#### models::PokemonSpeciesVariety
+
+```cpp
+// Create a model
+auto model = models::PokemonSpeciesVariety();
+model.setIsDefault(/* value */);  // Set is_default
+model.setPokemon(/* value */);  // Set pokemon
+
+// Serialize to JSON
+nlohmann::json json = models::PokemonSpeciesVariety::toJson(model);
+std::string jsonString = json.dump();
+
+// Deserialize from JSON
+auto parsedModel = models::PokemonSpeciesVariety::fromJson(nlohmann::json::parse(jsonString));
+```
+#### models::PokemonSprites
+
+```cpp
+// Create a model
+auto model = models::PokemonSprites();
+model.setFrontDefault(/* value */);  // Set front_default
+model.setFrontShiny(/* value */);  // Set front_shiny
+model.setFrontFemale(/* value */);  // Set front_female
+model.setFrontShinyFemale(/* value */);  // Set front_shiny_female
+model.setBackDefault(/* value */);  // Set back_default
+model.setBackShiny(/* value */);  // Set back_shiny
+model.setBackFemale(/* value */);  // Set back_female
+model.setBackShinyFemale(/* value */);  // Set back_shiny_female
+model.setOther(/* value */);  // Set other
+model.setVersions(/* value */);  // Set versions
+
+// Serialize to JSON
+nlohmann::json json = models::PokemonSprites::toJson(model);
+std::string jsonString = json.dump();
+
+// Deserialize from JSON
+auto parsedModel = models::PokemonSprites::fromJson(nlohmann::json::parse(jsonString));
+```
+#### models::PokemonSpritesOther
+
+```cpp
+// Create a model
+auto model = models::PokemonSpritesOther();
+model.setDreamWorld(/* value */);  // Set dream_world
+model.setHome(/* value */);  // Set home
+model.setShowdown(/* value */);  // Set showdown
+model.setOfficialArtwork(/* value */);  // Set official-artwork
+
+// Serialize to JSON
+nlohmann::json json = models::PokemonSpritesOther::toJson(model);
+std::string jsonString = json.dump();
+
+// Deserialize from JSON
+auto parsedModel = models::PokemonSpritesOther::fromJson(nlohmann::json::parse(jsonString));
+```
+#### models::PokemonSpritesOtherDreamWorld
+
+```cpp
+// Create a model
+auto model = models::PokemonSpritesOtherDreamWorld();
+model.setFrontDefault(/* value */);  // Set front_default
+model.setFrontFemale(/* value */);  // Set front_female
+
+// Serialize to JSON
+nlohmann::json json = models::PokemonSpritesOtherDreamWorld::toJson(model);
+std::string jsonString = json.dump();
+
+// Deserialize from JSON
+auto parsedModel = models::PokemonSpritesOtherDreamWorld::fromJson(nlohmann::json::parse(jsonString));
+```
+#### models::PokemonSpritesOtherHome
+
+```cpp
+// Create a model
+auto model = models::PokemonSpritesOtherHome();
+model.setFrontDefault(/* value */);  // Set front_default
+model.setFrontFemale(/* value */);  // Set front_female
+model.setFrontShiny(/* value */);  // Set front_shiny
+model.setFrontShinyFemale(/* value */);  // Set front_shiny_female
+
+// Serialize to JSON
+nlohmann::json json = models::PokemonSpritesOtherHome::toJson(model);
+std::string jsonString = json.dump();
+
+// Deserialize from JSON
+auto parsedModel = models::PokemonSpritesOtherHome::fromJson(nlohmann::json::parse(jsonString));
+```
+#### models::PokemonSpritesOtherOfficialArtwork
+
+```cpp
+// Create a model
+auto model = models::PokemonSpritesOtherOfficialArtwork();
+model.setFrontDefault(/* value */);  // Set front_default
+model.setFrontShiny(/* value */);  // Set front_shiny
+model.setVersions(/* value */);  // Set versions
+
+// Serialize to JSON
+nlohmann::json json = models::PokemonSpritesOtherOfficialArtwork::toJson(model);
+std::string jsonString = json.dump();
+
+// Deserialize from JSON
+auto parsedModel = models::PokemonSpritesOtherOfficialArtwork::fromJson(nlohmann::json::parse(jsonString));
+```
+#### models::PokemonSpritesOtherShowdown
+
+```cpp
+// Create a model
+auto model = models::PokemonSpritesOtherShowdown();
+model.setFrontDefault(/* value */);  // Set front_default
+model.setFrontFemale(/* value */);  // Set front_female
+model.setFrontShiny(/* value */);  // Set front_shiny
+model.setFrontShinyFemale(/* value */);  // Set front_shiny_female
+model.setBackDefault(/* value */);  // Set back_default
+model.setBackFemale(/* value */);  // Set back_female
+model.setBackShiny(/* value */);  // Set back_shiny
+model.setBackShinyFemale(/* value */);  // Set back_shiny_female
+
+// Serialize to JSON
+nlohmann::json json = models::PokemonSpritesOtherShowdown::toJson(model);
+std::string jsonString = json.dump();
+
+// Deserialize from JSON
+auto parsedModel = models::PokemonSpritesOtherShowdown::fromJson(nlohmann::json::parse(jsonString));
 ```
 #### models::PokemonStat
 
@@ -5091,6 +4396,21 @@ std::string jsonString = json.dump();
 // Deserialize from JSON
 auto parsedModel = models::PokemonSummary::fromJson(nlohmann::json::parse(jsonString));
 ```
+#### models::PokemonType
+
+```cpp
+// Create a model
+auto model = models::PokemonType();
+model.setSlot(/* value */);  // Set slot
+model.setType(/* value */);  // Set type
+
+// Serialize to JSON
+nlohmann::json json = models::PokemonType::toJson(model);
+std::string jsonString = json.dump();
+
+// Deserialize from JSON
+auto parsedModel = models::PokemonType::fromJson(nlohmann::json::parse(jsonString));
+```
 #### models::RegionDetail
 
 ```cpp
@@ -5110,21 +4430,6 @@ std::string jsonString = json.dump();
 
 // Deserialize from JSON
 auto parsedModel = models::RegionDetail::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::RegionDetailVersionGroupsInner
-
-```cpp
-// Create a model
-auto model = models::RegionDetailVersionGroupsInner();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::RegionDetailVersionGroupsInner::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::RegionDetailVersionGroupsInner::fromJson(nlohmann::json::parse(jsonString));
 ```
 #### models::RegionName
 
@@ -5156,6 +4461,36 @@ std::string jsonString = json.dump();
 // Deserialize from JSON
 auto parsedModel = models::RegionSummary::fromJson(nlohmann::json::parse(jsonString));
 ```
+#### models::StatAffectingMoves
+
+```cpp
+// Create a model
+auto model = models::StatAffectingMoves();
+model.setIncrease(/* value */);  // Set increase
+model.setDecrease(/* value */);  // Set decrease
+
+// Serialize to JSON
+nlohmann::json json = models::StatAffectingMoves::toJson(model);
+std::string jsonString = json.dump();
+
+// Deserialize from JSON
+auto parsedModel = models::StatAffectingMoves::fromJson(nlohmann::json::parse(jsonString));
+```
+#### models::StatAffectingNatures
+
+```cpp
+// Create a model
+auto model = models::StatAffectingNatures();
+model.setIncrease(/* value */);  // Set increase
+model.setDecrease(/* value */);  // Set decrease
+
+// Serialize to JSON
+nlohmann::json json = models::StatAffectingNatures::toJson(model);
+std::string jsonString = json.dump();
+
+// Deserialize from JSON
+auto parsedModel = models::StatAffectingNatures::fromJson(nlohmann::json::parse(jsonString));
+```
 #### models::StatDetail
 
 ```cpp
@@ -5167,6 +4502,7 @@ model.setGameIndex(/* value */);  // Set game_index
 model.setIsBattleOnly(/* value */);  // Set is_battle_only
 model.setAffectingMoves(/* value */);  // Set affecting_moves
 model.setAffectingNatures(/* value */);  // Set affecting_natures
+model.setAffectingItems(/* value */);  // Set affecting_items
 model.setCharacteristics(/* value */);  // Set characteristics
 model.setMoveDamageClass(/* value */);  // Set move_damage_class
 model.setNames(/* value */);  // Set names
@@ -5177,126 +4513,6 @@ std::string jsonString = json.dump();
 
 // Deserialize from JSON
 auto parsedModel = models::StatDetail::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::StatDetailAffectingMoves
-
-```cpp
-// Create a model
-auto model = models::StatDetailAffectingMoves();
-model.setIncrease(/* value */);  // Set increase
-model.setDecrease(/* value */);  // Set decrease
-
-// Serialize to JSON
-nlohmann::json json = models::StatDetailAffectingMoves::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::StatDetailAffectingMoves::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::StatDetailAffectingMovesDecreaseInner
-
-```cpp
-// Create a model
-auto model = models::StatDetailAffectingMovesDecreaseInner();
-model.setChange(/* value */);  // Set change
-model.setMove(/* value */);  // Set move
-
-// Serialize to JSON
-nlohmann::json json = models::StatDetailAffectingMovesDecreaseInner::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::StatDetailAffectingMovesDecreaseInner::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::StatDetailAffectingMovesDecreaseInnerMove
-
-```cpp
-// Create a model
-auto model = models::StatDetailAffectingMovesDecreaseInnerMove();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::StatDetailAffectingMovesDecreaseInnerMove::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::StatDetailAffectingMovesDecreaseInnerMove::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::StatDetailAffectingMovesIncreaseInner
-
-```cpp
-// Create a model
-auto model = models::StatDetailAffectingMovesIncreaseInner();
-model.setChange(/* value */);  // Set change
-model.setMove(/* value */);  // Set move
-
-// Serialize to JSON
-nlohmann::json json = models::StatDetailAffectingMovesIncreaseInner::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::StatDetailAffectingMovesIncreaseInner::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::StatDetailAffectingMovesIncreaseInnerMove
-
-```cpp
-// Create a model
-auto model = models::StatDetailAffectingMovesIncreaseInnerMove();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::StatDetailAffectingMovesIncreaseInnerMove::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::StatDetailAffectingMovesIncreaseInnerMove::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::StatDetailAffectingNatures
-
-```cpp
-// Create a model
-auto model = models::StatDetailAffectingNatures();
-model.setIncrease(/* value */);  // Set increase
-model.setDecrease(/* value */);  // Set decrease
-
-// Serialize to JSON
-nlohmann::json json = models::StatDetailAffectingNatures::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::StatDetailAffectingNatures::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::StatDetailAffectingNaturesDecreaseInner
-
-```cpp
-// Create a model
-auto model = models::StatDetailAffectingNaturesDecreaseInner();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::StatDetailAffectingNaturesDecreaseInner::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::StatDetailAffectingNaturesDecreaseInner::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::StatDetailAffectingNaturesIncreaseInner
-
-```cpp
-// Create a model
-auto model = models::StatDetailAffectingNaturesIncreaseInner();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::StatDetailAffectingNaturesIncreaseInner::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::StatDetailAffectingNaturesIncreaseInner::fromJson(nlohmann::json::parse(jsonString));
 ```
 #### models::StatName
 
@@ -5398,298 +4614,6 @@ std::string jsonString = json.dump();
 // Deserialize from JSON
 auto parsedModel = models::TypeDetail::fromJson(nlohmann::json::parse(jsonString));
 ```
-#### models::TypeDetailDamageRelations
-
-```cpp
-// Create a model
-auto model = models::TypeDetailDamageRelations();
-model.setNoDamageTo(/* value */);  // Set no_damage_to
-model.setHalfDamageTo(/* value */);  // Set half_damage_to
-model.setDoubleDamageTo(/* value */);  // Set double_damage_to
-model.setNoDamageFrom(/* value */);  // Set no_damage_from
-model.setHalfDamageFrom(/* value */);  // Set half_damage_from
-model.setDoubleDamageFrom(/* value */);  // Set double_damage_from
-
-// Serialize to JSON
-nlohmann::json json = models::TypeDetailDamageRelations::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::TypeDetailDamageRelations::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::TypeDetailDamageRelationsDoubleDamageFromInner
-
-```cpp
-// Create a model
-auto model = models::TypeDetailDamageRelationsDoubleDamageFromInner();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::TypeDetailDamageRelationsDoubleDamageFromInner::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::TypeDetailDamageRelationsDoubleDamageFromInner::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::TypeDetailDamageRelationsDoubleDamageToInner
-
-```cpp
-// Create a model
-auto model = models::TypeDetailDamageRelationsDoubleDamageToInner();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::TypeDetailDamageRelationsDoubleDamageToInner::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::TypeDetailDamageRelationsDoubleDamageToInner::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::TypeDetailDamageRelationsHalfDamageFromInner
-
-```cpp
-// Create a model
-auto model = models::TypeDetailDamageRelationsHalfDamageFromInner();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::TypeDetailDamageRelationsHalfDamageFromInner::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::TypeDetailDamageRelationsHalfDamageFromInner::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::TypeDetailDamageRelationsHalfDamageToInner
-
-```cpp
-// Create a model
-auto model = models::TypeDetailDamageRelationsHalfDamageToInner();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::TypeDetailDamageRelationsHalfDamageToInner::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::TypeDetailDamageRelationsHalfDamageToInner::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::TypeDetailDamageRelationsNoDamageFromInner
-
-```cpp
-// Create a model
-auto model = models::TypeDetailDamageRelationsNoDamageFromInner();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::TypeDetailDamageRelationsNoDamageFromInner::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::TypeDetailDamageRelationsNoDamageFromInner::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::TypeDetailDamageRelationsNoDamageToInner
-
-```cpp
-// Create a model
-auto model = models::TypeDetailDamageRelationsNoDamageToInner();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::TypeDetailDamageRelationsNoDamageToInner::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::TypeDetailDamageRelationsNoDamageToInner::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::TypeDetailPastDamageRelationsInner
-
-```cpp
-// Create a model
-auto model = models::TypeDetailPastDamageRelationsInner();
-model.setGeneration(/* value */);  // Set generation
-model.setDamageRelations(/* value */);  // Set damage_relations
-
-// Serialize to JSON
-nlohmann::json json = models::TypeDetailPastDamageRelationsInner::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::TypeDetailPastDamageRelationsInner::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::TypeDetailPastDamageRelationsInnerDamageRelations
-
-```cpp
-// Create a model
-auto model = models::TypeDetailPastDamageRelationsInnerDamageRelations();
-model.setNoDamageTo(/* value */);  // Set no_damage_to
-model.setHalfDamageTo(/* value */);  // Set half_damage_to
-model.setDoubleDamageTo(/* value */);  // Set double_damage_to
-model.setNoDamageFrom(/* value */);  // Set no_damage_from
-model.setHalfDamageFrom(/* value */);  // Set half_damage_from
-model.setDoubleDamageFrom(/* value */);  // Set double_damage_from
-
-// Serialize to JSON
-nlohmann::json json = models::TypeDetailPastDamageRelationsInnerDamageRelations::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::TypeDetailPastDamageRelationsInnerDamageRelations::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::TypeDetailPastDamageRelationsInnerDamageRelationsDoubleDamageFromInner
-
-```cpp
-// Create a model
-auto model = models::TypeDetailPastDamageRelationsInnerDamageRelationsDoubleDamageFromInner();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::TypeDetailPastDamageRelationsInnerDamageRelationsDoubleDamageFromInner::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::TypeDetailPastDamageRelationsInnerDamageRelationsDoubleDamageFromInner::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::TypeDetailPastDamageRelationsInnerDamageRelationsDoubleDamageToInner
-
-```cpp
-// Create a model
-auto model = models::TypeDetailPastDamageRelationsInnerDamageRelationsDoubleDamageToInner();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::TypeDetailPastDamageRelationsInnerDamageRelationsDoubleDamageToInner::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::TypeDetailPastDamageRelationsInnerDamageRelationsDoubleDamageToInner::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::TypeDetailPastDamageRelationsInnerDamageRelationsHalfDamageFromInner
-
-```cpp
-// Create a model
-auto model = models::TypeDetailPastDamageRelationsInnerDamageRelationsHalfDamageFromInner();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::TypeDetailPastDamageRelationsInnerDamageRelationsHalfDamageFromInner::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::TypeDetailPastDamageRelationsInnerDamageRelationsHalfDamageFromInner::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::TypeDetailPastDamageRelationsInnerDamageRelationsHalfDamageToInner
-
-```cpp
-// Create a model
-auto model = models::TypeDetailPastDamageRelationsInnerDamageRelationsHalfDamageToInner();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::TypeDetailPastDamageRelationsInnerDamageRelationsHalfDamageToInner::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::TypeDetailPastDamageRelationsInnerDamageRelationsHalfDamageToInner::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::TypeDetailPastDamageRelationsInnerDamageRelationsNoDamageFromInner
-
-```cpp
-// Create a model
-auto model = models::TypeDetailPastDamageRelationsInnerDamageRelationsNoDamageFromInner();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::TypeDetailPastDamageRelationsInnerDamageRelationsNoDamageFromInner::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::TypeDetailPastDamageRelationsInnerDamageRelationsNoDamageFromInner::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::TypeDetailPastDamageRelationsInnerDamageRelationsNoDamageToInner
-
-```cpp
-// Create a model
-auto model = models::TypeDetailPastDamageRelationsInnerDamageRelationsNoDamageToInner();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::TypeDetailPastDamageRelationsInnerDamageRelationsNoDamageToInner::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::TypeDetailPastDamageRelationsInnerDamageRelationsNoDamageToInner::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::TypeDetailPastDamageRelationsInnerGeneration
-
-```cpp
-// Create a model
-auto model = models::TypeDetailPastDamageRelationsInnerGeneration();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::TypeDetailPastDamageRelationsInnerGeneration::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::TypeDetailPastDamageRelationsInnerGeneration::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::TypeDetailPokemonInner
-
-```cpp
-// Create a model
-auto model = models::TypeDetailPokemonInner();
-model.setSlot(/* value */);  // Set slot
-model.setPokemon(/* value */);  // Set pokemon
-
-// Serialize to JSON
-nlohmann::json json = models::TypeDetailPokemonInner::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::TypeDetailPokemonInner::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::TypeDetailPokemonInnerPokemon
-
-```cpp
-// Create a model
-auto model = models::TypeDetailPokemonInnerPokemon();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::TypeDetailPokemonInnerPokemon::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::TypeDetailPokemonInnerPokemon::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::TypeDetailSpritesValueValue
-
-```cpp
-// Create a model
-auto model = models::TypeDetailSpritesValueValue();
-model.setNameIcon(/* value */);  // Set name-icon
-
-// Serialize to JSON
-nlohmann::json json = models::TypeDetailSpritesValueValue::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::TypeDetailSpritesValueValue::fromJson(nlohmann::json::parse(jsonString));
-```
 #### models::TypeGameIndex
 
 ```cpp
@@ -5704,6 +4628,85 @@ std::string jsonString = json.dump();
 
 // Deserialize from JSON
 auto parsedModel = models::TypeGameIndex::fromJson(nlohmann::json::parse(jsonString));
+```
+#### models::TypeGameSprite
+
+```cpp
+// Create a model
+auto model = models::TypeGameSprite();
+model.setNameIcon(/* value */);  // Set name_icon
+model.setSymbolIcon(/* value */);  // Set symbol_icon
+
+// Serialize to JSON
+nlohmann::json json = models::TypeGameSprite::toJson(model);
+std::string jsonString = json.dump();
+
+// Deserialize from JSON
+auto parsedModel = models::TypeGameSprite::fromJson(nlohmann::json::parse(jsonString));
+```
+#### models::TypeName
+
+```cpp
+// Create a model
+auto model = models::TypeName();
+model.setName(/* value */);  // Set name
+model.setLanguage(/* value */);  // Set language
+
+// Serialize to JSON
+nlohmann::json json = models::TypeName::toJson(model);
+std::string jsonString = json.dump();
+
+// Deserialize from JSON
+auto parsedModel = models::TypeName::fromJson(nlohmann::json::parse(jsonString));
+```
+#### models::TypePastRelationships
+
+```cpp
+// Create a model
+auto model = models::TypePastRelationships();
+model.setGeneration(/* value */);  // Set generation
+model.setDamageRelations(/* value */);  // Set damage_relations
+
+// Serialize to JSON
+nlohmann::json json = models::TypePastRelationships::toJson(model);
+std::string jsonString = json.dump();
+
+// Deserialize from JSON
+auto parsedModel = models::TypePastRelationships::fromJson(nlohmann::json::parse(jsonString));
+```
+#### models::TypePokemon
+
+```cpp
+// Create a model
+auto model = models::TypePokemon();
+model.setSlot(/* value */);  // Set slot
+model.setPokemon(/* value */);  // Set pokemon
+
+// Serialize to JSON
+nlohmann::json json = models::TypePokemon::toJson(model);
+std::string jsonString = json.dump();
+
+// Deserialize from JSON
+auto parsedModel = models::TypePokemon::fromJson(nlohmann::json::parse(jsonString));
+```
+#### models::TypeRelationships
+
+```cpp
+// Create a model
+auto model = models::TypeRelationships();
+model.setNoDamageTo(/* value */);  // Set no_damage_to
+model.setHalfDamageTo(/* value */);  // Set half_damage_to
+model.setDoubleDamageTo(/* value */);  // Set double_damage_to
+model.setNoDamageFrom(/* value */);  // Set no_damage_from
+model.setHalfDamageFrom(/* value */);  // Set half_damage_from
+model.setDoubleDamageFrom(/* value */);  // Set double_damage_from
+
+// Serialize to JSON
+nlohmann::json json = models::TypeRelationships::toJson(model);
+std::string jsonString = json.dump();
+
+// Deserialize from JSON
+auto parsedModel = models::TypeRelationships::fromJson(nlohmann::json::parse(jsonString));
 ```
 #### models::TypeSummary
 
@@ -5757,51 +4760,6 @@ std::string jsonString = json.dump();
 
 // Deserialize from JSON
 auto parsedModel = models::VersionGroupDetail::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::VersionGroupDetailMoveLearnMethodsInner
-
-```cpp
-// Create a model
-auto model = models::VersionGroupDetailMoveLearnMethodsInner();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::VersionGroupDetailMoveLearnMethodsInner::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::VersionGroupDetailMoveLearnMethodsInner::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::VersionGroupDetailPokedexesInner
-
-```cpp
-// Create a model
-auto model = models::VersionGroupDetailPokedexesInner();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::VersionGroupDetailPokedexesInner::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::VersionGroupDetailPokedexesInner::fromJson(nlohmann::json::parse(jsonString));
-```
-#### models::VersionGroupDetailRegionsInner
-
-```cpp
-// Create a model
-auto model = models::VersionGroupDetailRegionsInner();
-model.setName(/* value */);  // Set name
-model.setUrl(/* value */);  // Set url
-
-// Serialize to JSON
-nlohmann::json json = models::VersionGroupDetailRegionsInner::toJson(model);
-std::string jsonString = json.dump();
-
-// Deserialize from JSON
-auto parsedModel = models::VersionGroupDetailRegionsInner::fromJson(nlohmann::json::parse(jsonString));
 ```
 #### models::VersionGroupSummary
 
@@ -5957,7 +4915,6 @@ public:
         // Access request parameters:
         // Query: params.m_limit (optional)
         // Query: params.m_offset (optional)
-        // Query: params.m_q (optional)
 
         // Implement your business logic here
 
@@ -6009,7 +4966,6 @@ public:
         // Access request parameters:
         // Query: params.m_limit (optional)
         // Query: params.m_offset (optional)
-        // Query: params.m_q (optional)
 
         // Implement your business logic here
 
@@ -6135,7 +5091,6 @@ public:
         // Access request parameters:
         // Query: params.m_limit (optional)
         // Query: params.m_offset (optional)
-        // Query: params.m_q (optional)
 
         // Implement your business logic here
 
@@ -6179,6 +5134,32 @@ public:
 
         // Return success response (HTTP HTTP_RESPONSE_CODE_EVOLUTION_TRIGGER_DETAIL):
         models::EvolutionTriggerDetail successResponse;
+        // ... populate response ...
+        return successResponse;
+    }
+
+    Apiv2evolutionVariableGetResponse handleGetForApiv2evolutionVariable(const Apiv2evolutionVariableGetRequest& params) override {
+        // Access request parameters:
+        // Query: params.m_limit (optional)
+        // Query: params.m_offset (optional)
+        // Query: params.m_q (optional)
+
+        // Implement your business logic here
+
+        // Return success response (HTTP HTTP_RESPONSE_CODE_PAGINATED_EVOLUTION_VARIABLE_SUMMARY_LIST):
+        models::PaginatedEvolutionVariableSummaryList successResponse;
+        // ... populate response ...
+        return successResponse;
+    }
+
+    Apiv2evolutionVariableidGetResponse handleGetForApiv2evolutionVariableid(const Apiv2evolutionVariableidGetRequest& params) override {
+        // Access request parameters:
+        // Path: params.m_id
+
+        // Implement your business logic here
+
+        // Return success response (HTTP HTTP_RESPONSE_CODE_EVOLUTION_VARIABLE_DETAIL):
+        models::EvolutionVariableDetail successResponse;
         // ... populate response ...
         return successResponse;
     }
@@ -6309,6 +5290,32 @@ Create a class that inherits from the generated base class:
 
 class ItemsImpl : public Api::Items {
 public:
+    Apiv2currencyGetResponse handleGetForApiv2currency(const Apiv2currencyGetRequest& params) override {
+        // Access request parameters:
+        // Query: params.m_limit (optional)
+        // Query: params.m_offset (optional)
+        // Query: params.m_q (optional)
+
+        // Implement your business logic here
+
+        // Return success response (HTTP HTTP_RESPONSE_CODE_PAGINATED_CURRENCY_SUMMARY_LIST):
+        models::PaginatedCurrencySummaryList successResponse;
+        // ... populate response ...
+        return successResponse;
+    }
+
+    Apiv2currencyidGetResponse handleGetForApiv2currencyid(const Apiv2currencyidGetRequest& params) override {
+        // Access request parameters:
+        // Path: params.m_id
+
+        // Implement your business logic here
+
+        // Return success response (HTTP HTTP_RESPONSE_CODE_CURRENCY_DETAIL):
+        models::CurrencyDetail successResponse;
+        // ... populate response ...
+        return successResponse;
+    }
+
     Apiv2itemAttributeGetResponse handleGetForApiv2itemAttribute(const Apiv2itemAttributeGetRequest& params) override {
         // Access request parameters:
         // Query: params.m_limit (optional)
@@ -6568,7 +5575,6 @@ public:
         // Access request parameters:
         // Query: params.m_limit (optional)
         // Query: params.m_offset (optional)
-        // Query: params.m_q (optional)
 
         // Implement your business logic here
 
@@ -6798,7 +5804,6 @@ public:
         // Access request parameters:
         // Query: params.m_limit (optional)
         // Query: params.m_offset (optional)
-        // Query: params.m_q (optional)
 
         // Implement your business logic here
 
@@ -7221,6 +6226,16 @@ public:
         return successResponse;
     }
 
+    Apiv2metaGetResponse handleGetForApiv2meta() override {
+
+        // Implement your business logic here
+
+        // Return success response (HTTP HTTP_RESPONSE_CODE_POKEAPI_META_RESPONSE):
+        models::PokeapiMetaResponse successResponse;
+        // ... populate response ...
+        return successResponse;
+    }
+
 };
 ```
 
@@ -7254,13 +6269,9 @@ Here's a complete example of setting up and running the server:
 
 #include "api/UtilityApi.h"
 
-#include "api/AuthenticationManager.h"
 
 int main() {
     httplib::Server server;
-
-    // Create authentication manager (required for this API)
-    auto authMgr = std::make_shared<MyAuthManager>();
 
     // Create API implementations
 
@@ -7289,27 +6300,27 @@ int main() {
 
     // Register routes
 
-    berries.registerRoutes(server, authMgr);
+    berries.registerRoutes(server);
 
-    contests.registerRoutes(server, authMgr);
+    contests.registerRoutes(server);
 
-    encounters.registerRoutes(server, authMgr);
+    encounters.registerRoutes(server);
 
-    evolution.registerRoutes(server, authMgr);
+    evolution.registerRoutes(server);
 
-    games.registerRoutes(server, authMgr);
+    games.registerRoutes(server);
 
-    items.registerRoutes(server, authMgr);
+    items.registerRoutes(server);
 
-    location.registerRoutes(server, authMgr);
+    location.registerRoutes(server);
 
-    machines.registerRoutes(server, authMgr);
+    machines.registerRoutes(server);
 
-    moves.registerRoutes(server, authMgr);
+    moves.registerRoutes(server);
 
-    pokemon.registerRoutes(server, authMgr);
+    pokemon.registerRoutes(server);
 
-    utility.registerRoutes(server, authMgr);
+    utility.registerRoutes(server);
 
 
     // Start server
@@ -7320,64 +6331,14 @@ int main() {
 }
 ```
 
-### With Authentication
+### Without Authentication
 
-When authentication is required, you must:
-1. Implement the `AuthenticationManager` interface (see Authentication section below)
-2. Pass the authentication manager to `registerRoutes()`
+This API does not require authentication. Simply create your API implementations and register them with the server.
 
 
 ## Authentication
 
-This API requires authentication. Implement the `AuthenticationManager` interface to provide your authentication logic:
-
-```cpp
-#include "api/AuthenticationManager.h"
-
-class MyAuthManager : public Api::AuthenticationManager {
-public:
-    bool validateApiKey(const std::string& key) override {
-        // Validate API key from header, query, or cookie
-        // Example: check against database or cache
-        return checkApiKeyInDatabase(key);
-    }
-
-    bool validateBearerToken(const std::string& token) override {
-        // Validate JWT or other bearer tokens
-        // Example: verify signature and expiration
-        return jwt::verify(token, secret_key);
-    }
-
-    bool validateBasicAuth(const std::string& username, const std::string& password) override {
-        // Validate username/password credentials
-        // Example: check against user database with hashed passwords
-        auto user = findUser(username);
-        return user && bcrypt::verify(password, user->passwordHash);
-    }
-
-    bool validateOAuth2(const std::string& token, const std::vector<std::string>& scopes) override {
-        // Validate OAuth2 token and check required scopes
-        // Example: introspect token and verify scopes
-        auto introspection = oauthProvider.introspect(token);
-        return introspection.active && hasAllScopes(introspection.scopes, scopes);
-    }
-};
-```
-
-### Authentication Flow
-
-1. The server automatically extracts credentials from requests (headers, query params, cookies)
-2. Before calling your handler, it validates credentials using your `AuthenticationManager`
-3. If validation fails, the server returns HTTP 401 Unauthorized automatically
-4. If validation succeeds, your handler is called
-
-### Security Schemes
-
-The generated code supports:
-- **API Key**: Header, query parameter, or cookie-based authentication
-- **Bearer Token**: Authorization header with "Bearer" scheme (e.g., JWT)
-- **Basic Auth**: HTTP Basic authentication (username:password)
-- **OAuth2**: OAuth 2.0 token-based authentication with scope validation
+This API does not require authentication.
 
 
 ## Error Handling

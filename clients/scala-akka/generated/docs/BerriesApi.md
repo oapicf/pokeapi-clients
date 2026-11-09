@@ -44,12 +44,6 @@ object Example extends App {
     
     implicit val system: ActorSystem = ActorSystem()
     import system.dispatcher
-    
-    // Configure HTTP basic authorization: basicAuth
-    implicit val basicAuth: BasicCredentials = BasicCredentials("YOUR USERNAME", "YOUR PASSWORD")
-
-    // Configure API key authorization: cookieAuth
-    implicit val cookieAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
     val apiInstance = BerriesApi("https://pokeapi.co")
@@ -98,7 +92,7 @@ ApiRequest[[**PaginatedBerryFirmnessSummaryList**](PaginatedBerryFirmnessSummary
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -136,16 +130,10 @@ object Example extends App {
     
     implicit val system: ActorSystem = ActorSystem()
     import system.dispatcher
-    
-    // Configure HTTP basic authorization: basicAuth
-    implicit val basicAuth: BasicCredentials = BasicCredentials("YOUR USERNAME", "YOUR PASSWORD")
-
-    // Configure API key authorization: cookieAuth
-    implicit val cookieAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
     val apiInstance = BerriesApi("https://pokeapi.co")
-    val id: String = id_example // String | This parameter can be a string or an integer.
+    val id: String = 1 // String | This parameter can be a string or an integer.
     
     val request = apiInstance.berryFirmnessRetrieve(id)
     val response = apiInvoker.execute(request)
@@ -184,7 +172,7 @@ ApiRequest[[**BerryFirmnessDetail**](BerryFirmnessDetail.md)]
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -222,12 +210,6 @@ object Example extends App {
     
     implicit val system: ActorSystem = ActorSystem()
     import system.dispatcher
-    
-    // Configure HTTP basic authorization: basicAuth
-    implicit val basicAuth: BasicCredentials = BasicCredentials("YOUR USERNAME", "YOUR PASSWORD")
-
-    // Configure API key authorization: cookieAuth
-    implicit val cookieAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
     val apiInstance = BerriesApi("https://pokeapi.co")
@@ -276,7 +258,7 @@ ApiRequest[[**PaginatedBerryFlavorSummaryList**](PaginatedBerryFlavorSummaryList
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -314,16 +296,10 @@ object Example extends App {
     
     implicit val system: ActorSystem = ActorSystem()
     import system.dispatcher
-    
-    // Configure HTTP basic authorization: basicAuth
-    implicit val basicAuth: BasicCredentials = BasicCredentials("YOUR USERNAME", "YOUR PASSWORD")
-
-    // Configure API key authorization: cookieAuth
-    implicit val cookieAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
     val apiInstance = BerriesApi("https://pokeapi.co")
-    val id: String = id_example // String | This parameter can be a string or an integer.
+    val id: String = 1 // String | This parameter can be a string or an integer.
     
     val request = apiInstance.berryFlavorRetrieve(id)
     val response = apiInvoker.execute(request)
@@ -362,7 +338,7 @@ ApiRequest[[**BerryFlavorDetail**](BerryFlavorDetail.md)]
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -400,12 +376,6 @@ object Example extends App {
     
     implicit val system: ActorSystem = ActorSystem()
     import system.dispatcher
-    
-    // Configure HTTP basic authorization: basicAuth
-    implicit val basicAuth: BasicCredentials = BasicCredentials("YOUR USERNAME", "YOUR PASSWORD")
-
-    // Configure API key authorization: cookieAuth
-    implicit val cookieAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
     val apiInstance = BerriesApi("https://pokeapi.co")
@@ -454,7 +424,7 @@ ApiRequest[[**PaginatedBerrySummaryList**](PaginatedBerrySummaryList.md)]
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -492,16 +462,10 @@ object Example extends App {
     
     implicit val system: ActorSystem = ActorSystem()
     import system.dispatcher
-    
-    // Configure HTTP basic authorization: basicAuth
-    implicit val basicAuth: BasicCredentials = BasicCredentials("YOUR USERNAME", "YOUR PASSWORD")
-
-    // Configure API key authorization: cookieAuth
-    implicit val cookieAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
 
     val apiInvoker = ApiInvoker()
     val apiInstance = BerriesApi("https://pokeapi.co")
-    val id: String = id_example // String | This parameter can be a string or an integer.
+    val id: String = 1 // String | This parameter can be a string or an integer.
     
     val request = apiInstance.berryRetrieve(id)
     val response = apiInvoker.execute(request)
@@ -540,7 +504,7 @@ ApiRequest[[**BerryDetail**](BerryDetail.md)]
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

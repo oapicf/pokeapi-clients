@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**languageList**](UtilityApiInterface.md#languageList) | **GET** /api/v2/language/ | List languages
 [**languageRetrieve**](UtilityApiInterface.md#languageRetrieve) | **GET** /api/v2/language/{id}/ | Get language
+[**metaRetrieve**](UtilityApiInterface.md#metaRetrieve) | **GET** /api/v2/meta/ | Get API metadata
 
 
 ## Service Declaration
@@ -38,14 +39,6 @@ use OpenAPI\Server\Api\UtilityApiInterface;
 class UtilityApi implements UtilityApiInterface
 {
 
-    /**
-     * Configure API key authorization: cookieAuth
-     */
-    public function setcookieAuth($apiKey)
-    {
-        // Retrieve logged in user from $apiKey ...
-    }
-
     // ...
 
     /**
@@ -74,7 +67,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -102,14 +95,6 @@ use OpenAPI\Server\Api\UtilityApiInterface;
 class UtilityApi implements UtilityApiInterface
 {
 
-    /**
-     * Configure API key authorization: cookieAuth
-     */
-    public function setcookieAuth($apiKey)
-    {
-        // Retrieve logged in user from $apiKey ...
-    }
-
     // ...
 
     /**
@@ -136,7 +121,58 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+## **metaRetrieve**
+> OpenAPI\Server\Model\PokeapiMetaResponse metaRetrieve()
+
+Get API metadata
+
+Returns metadata about the current deployed version of the API, including the git commit hash, deploy date, and tag (if any).
+
+### Example Implementation
+```php
+<?php
+// src/Acme/MyBundle/Api/UtilityApiInterface.php
+
+namespace Acme\MyBundle\Api;
+
+use OpenAPI\Server\Api\UtilityApiInterface;
+
+class UtilityApi implements UtilityApiInterface
+{
+
+    // ...
+
+    /**
+     * Implementation of UtilityApiInterface#metaRetrieve
+     */
+    public function metaRetrieve(int &$responseCode, array &$responseHeaders): array|object|null
+    {
+        // Implement the operation ...
+    }
+
+    // ...
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**OpenAPI\Server\Model\PokeapiMetaResponse**](../Model/PokeapiMetaResponse.md)
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 

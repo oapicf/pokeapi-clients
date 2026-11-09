@@ -2,7 +2,7 @@ import { Body, Controller, DefaultValuePipe, Get, Param, ParseIntPipe, ParseFloa
 import { Observable } from 'rxjs';
 import { Cookies, Headers } from '../decorators';
 import { UtilityApi } from '../api';
-import { LanguageDetail, PaginatedLanguageSummaryList,  } from '../models';
+import { LanguageDetail, PaginatedLanguageSummaryList, PokeapiMetaResponse,  } from '../models';
 
 @Controller()
 export class UtilityApiController {
@@ -16,6 +16,11 @@ export class UtilityApiController {
   @Get('/api/v2/language/:id/')
   languageRetrieve(@Param('id') id: string, @Req() request: Request): LanguageDetail | Promise<LanguageDetail> | Observable<LanguageDetail> {
     return this.utilityApi.languageRetrieve(id, request);
+  }
+
+  @Get('/api/v2/meta/')
+  metaRetrieve(@Req() request: Request): PokeapiMetaResponse | Promise<PokeapiMetaResponse> | Observable<PokeapiMetaResponse> {
+    return this.utilityApi.metaRetrieve(request);
   }
 
 } 

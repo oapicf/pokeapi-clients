@@ -15,7 +15,7 @@ public class BerryDetail
     public int Smoothness { get; set; }
     public int SoilDryness { get; set; }
     public BerryFirmnessSummary Firmness { get; set; }
-    public List<BerryDetailFlavorsInner> Flavors { get; set; }
+    public List<BerryFlavorMap> Flavors { get; set; }
     public ItemSummary Item { get; set; }
     public TypeSummary NaturalGiftType { get; set; }
 }

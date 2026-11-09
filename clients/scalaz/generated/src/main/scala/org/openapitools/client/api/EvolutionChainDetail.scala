@@ -12,9 +12,12 @@ import org.joda.time.DateTime
 import EvolutionChainDetail._
 
 case class EvolutionChainDetail (
+  /* The identifier for this resource. */
   id: Integer,
-babyTriggerItem: ItemSummary,
-chain: EvolutionChainDetailChain)
+/* The item that a Pokémon would be holding when mating that would trigger the egg hatching a baby Pokémon rather than a basic Pokémon. */
+  babyTriggerItem: ItemSummary,
+/* The base chain link object. Each link contains evolution details for a Pokémon in the chain. Each link references the next Pokémon in the natural evolution order. */
+  chain: EvolutionChainLink)
 
 object EvolutionChainDetail {
   import DateTimeCodecs._

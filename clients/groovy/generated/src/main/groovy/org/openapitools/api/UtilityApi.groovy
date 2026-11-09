@@ -3,6 +3,7 @@ package org.openapitools.api;
 import org.openapitools.api.ApiUtils
 import org.openapitools.model.LanguageDetail
 import org.openapitools.model.PaginatedLanguageSummaryList
+import org.openapitools.model.PokeapiMetaResponse
 
 class UtilityApi {
     String basePath = "https://pokeapi.co"
@@ -65,6 +66,29 @@ class UtilityApi {
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, accept, contentType,
                     "GET", "",
                     LanguageDetail.class )
+
+    }
+
+    def metaRetrieve ( Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/api/v2/meta/"
+
+        // params
+        def queryParams = [:]
+        def headerParams = [:]
+        def bodyParams
+        def accept
+        def contentType
+
+
+
+
+
+
+        accept = apiUtils.selectHeaderAccept(["application/json"])
+
+        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, accept, contentType,
+                    "GET", "",
+                    PokeapiMetaResponse.class )
 
     }
 

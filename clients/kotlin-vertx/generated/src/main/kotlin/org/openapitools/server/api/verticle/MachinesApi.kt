@@ -20,7 +20,7 @@ interface MachinesApi  {
     fun init(vertx:Vertx,config:JsonObject)
     /* machineList
      * List machines */
-    suspend fun machineList(limit:kotlin.Int?,offset:kotlin.Int?,q:kotlin.String?,context:OperationRequest):Response<PaginatedMachineSummaryList>
+    suspend fun machineList(limit:kotlin.Int?,offset:kotlin.Int?,context:OperationRequest):Response<PaginatedMachineSummaryList>
     /* machineRetrieve
      * Get machine */
     suspend fun machineRetrieve(id:kotlin.String?,context:OperationRequest):Response<MachineDetail>

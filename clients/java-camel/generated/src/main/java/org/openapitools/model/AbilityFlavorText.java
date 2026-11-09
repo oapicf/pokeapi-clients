@@ -20,7 +20,7 @@ import jakarta.annotation.Generated;
  * AbilityFlavorText
  */
 
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-10-25T05:48:25.711080506Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-11-09T13:49:41.168612095Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class AbilityFlavorText {
 
   private String flavorText;
@@ -48,11 +48,11 @@ public class AbilityFlavorText {
   }
 
   /**
-   * Get flavorText
+   * The localized name for an API resource in a specific language.
    * @return flavorText
    */
   @NotNull 
-  @Schema(name = "flavor_text", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "flavor_text", description = "The localized name for an API resource in a specific language.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("flavor_text")
   public String getFlavorText() {
     return flavorText;
@@ -68,11 +68,11 @@ public class AbilityFlavorText {
   }
 
   /**
-   * Get language
+   * The language this text resource is in.
    * @return language
    */
   @NotNull @Valid 
-  @Schema(name = "language", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "language", description = "The language this text resource is in.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("language")
   public LanguageSummary getLanguage() {
     return language;
@@ -88,11 +88,11 @@ public class AbilityFlavorText {
   }
 
   /**
-   * Get versionGroup
+   * The version group that uses this flavor text.
    * @return versionGroup
    */
   @NotNull @Valid 
-  @Schema(name = "version_group", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "version_group", description = "The version group that uses this flavor text.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("version_group")
   public VersionGroupSummary getVersionGroup() {
     return versionGroup;

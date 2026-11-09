@@ -8,7 +8,9 @@
 import Foundation
 
 public struct TypeGameIndex: Codable {
+    /// The internal id of an API resource within game data.
     public var gameIndex: Int
+    /// The generation relevent to this game index.
     public var generation: GenerationSummary
 
     public init(gameIndex: Int, generation: GenerationSummary) {

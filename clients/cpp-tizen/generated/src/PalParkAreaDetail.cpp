@@ -113,12 +113,12 @@ PalParkAreaDetail::fromJson(char* jsonStr)
 		{
 			JsonArray* arr = json_node_get_array(node);
 			JsonNode*  temp_json;
-			list<PalParkAreaDetail_pokemon_encounters_inner> new_list;
-			PalParkAreaDetail_pokemon_encounters_inner inst;
+			list<PalParkEncounter> new_list;
+			PalParkEncounter inst;
 			for (guint i=0;i<json_array_get_length(arr);i++) {
 				temp_json = json_array_get_element(arr,i);
-				if (isprimitive("PalParkAreaDetail_pokemon_encounters_inner")) {
-					jsonToValue(&inst, temp_json, "PalParkAreaDetail_pokemon_encounters_inner", "");
+				if (isprimitive("PalParkEncounter")) {
+					jsonToValue(&inst, temp_json, "PalParkEncounter", "");
 				} else {
 					
 					inst.fromJson(json_to_string(temp_json, false));
@@ -185,18 +185,18 @@ PalParkAreaDetail::toJson()
 	
 	const gchar *namesKey = "names";
 	json_object_set_member(pJsonObject, namesKey, node);
-	if (isprimitive("PalParkAreaDetail_pokemon_encounters_inner")) {
-		list<PalParkAreaDetail_pokemon_encounters_inner> new_list = static_cast<list <PalParkAreaDetail_pokemon_encounters_inner> > (getPokemonEncounters());
-		node = converttoJson(&new_list, "PalParkAreaDetail_pokemon_encounters_inner", "array");
+	if (isprimitive("PalParkEncounter")) {
+		list<PalParkEncounter> new_list = static_cast<list <PalParkEncounter> > (getPokemonEncounters());
+		node = converttoJson(&new_list, "PalParkEncounter", "array");
 	} else {
 		node = json_node_alloc();
-		list<PalParkAreaDetail_pokemon_encounters_inner> new_list = static_cast<list <PalParkAreaDetail_pokemon_encounters_inner> > (getPokemonEncounters());
+		list<PalParkEncounter> new_list = static_cast<list <PalParkEncounter> > (getPokemonEncounters());
 		JsonArray* json_array = json_array_new();
 		GError *mygerror;
 		
-		for (list<PalParkAreaDetail_pokemon_encounters_inner>::iterator it = new_list.begin(); it != new_list.end(); it++) {
+		for (list<PalParkEncounter>::iterator it = new_list.begin(); it != new_list.end(); it++) {
 			mygerror = NULL;
-			PalParkAreaDetail_pokemon_encounters_inner obj = *it;
+			PalParkEncounter obj = *it;
 			JsonNode *node_temp = json_from_string(obj.toJson(), &mygerror);
 			json_array_add_element(json_array, node_temp);
 			g_clear_error(&mygerror);
@@ -254,14 +254,14 @@ PalParkAreaDetail::setNames(std::list <PalParkAreaName> names)
 	this->names = names;
 }
 
-std::list<PalParkAreaDetail_pokemon_encounters_inner>
+std::list<PalParkEncounter>
 PalParkAreaDetail::getPokemonEncounters()
 {
 	return pokemon_encounters;
 }
 
 void
-PalParkAreaDetail::setPokemonEncounters(std::list <PalParkAreaDetail_pokemon_encounters_inner> pokemon_encounters)
+PalParkAreaDetail::setPokemonEncounters(std::list <PalParkEncounter> pokemon_encounters)
 {
 	this->pokemon_encounters = pokemon_encounters;
 }

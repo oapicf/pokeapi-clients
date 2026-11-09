@@ -2,8 +2,10 @@ package org.openapitools.server.api.verticle
 
 import org.openapitools.server.api.model.EvolutionChainDetail
 import org.openapitools.server.api.model.EvolutionTriggerDetail
+import org.openapitools.server.api.model.EvolutionVariableDetail
 import org.openapitools.server.api.model.PaginatedEvolutionChainSummaryList
 import org.openapitools.server.api.model.PaginatedEvolutionTriggerSummaryList
+import org.openapitools.server.api.model.PaginatedEvolutionVariableSummaryList
 import io.vertx.core.Vertx
 import io.vertx.core.json.JsonObject
 import io.vertx.core.json.JsonArray
@@ -22,7 +24,7 @@ interface EvolutionApi  {
     fun init(vertx:Vertx,config:JsonObject)
     /* evolutionChainList
      * List evolution chains */
-    suspend fun evolutionChainList(limit:kotlin.Int?,offset:kotlin.Int?,q:kotlin.String?,context:OperationRequest):Response<PaginatedEvolutionChainSummaryList>
+    suspend fun evolutionChainList(limit:kotlin.Int?,offset:kotlin.Int?,context:OperationRequest):Response<PaginatedEvolutionChainSummaryList>
     /* evolutionChainRetrieve
      * Get evolution chain */
     suspend fun evolutionChainRetrieve(id:kotlin.String?,context:OperationRequest):Response<EvolutionChainDetail>
@@ -32,6 +34,12 @@ interface EvolutionApi  {
     /* evolutionTriggerRetrieve
      * Get evolution trigger */
     suspend fun evolutionTriggerRetrieve(id:kotlin.String?,context:OperationRequest):Response<EvolutionTriggerDetail>
+    /* evolutionVariableList
+     * List evolution variables */
+    suspend fun evolutionVariableList(limit:kotlin.Int?,offset:kotlin.Int?,q:kotlin.String?,context:OperationRequest):Response<PaginatedEvolutionVariableSummaryList>
+    /* evolutionVariableRetrieve
+     * Get evolution variable */
+    suspend fun evolutionVariableRetrieve(id:kotlin.String?,context:OperationRequest):Response<EvolutionVariableDetail>
     companion object {
         const val address = "EvolutionApi-service"
         suspend fun createRouterFactory(vertx: Vertx,path:String): io.vertx.ext.web.api.contract.openapi3.OpenAPI3RouterFactory {

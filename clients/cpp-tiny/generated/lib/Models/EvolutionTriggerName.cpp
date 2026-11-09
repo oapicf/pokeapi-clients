@@ -7,7 +7,7 @@ using namespace Tiny;
 EvolutionTriggerName::EvolutionTriggerName()
 {
 	name = std::string();
-	language = LanguageSummary();
+	language = null;
 }
 
 EvolutionTriggerName::EvolutionTriggerName(std::string jsonString)

@@ -3,8 +3,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Description** | **String** |  | [optional] 
-**Language** | [**LanguageSummary**](LanguageSummary.md) |  | 
+**Description** | **String** | The localized description for an API resource in a specific language. | [optional] 
+**Language** | [**LanguageSummary**](LanguageSummary.md) | The language this name is in. | 
 
 ## Examples
 

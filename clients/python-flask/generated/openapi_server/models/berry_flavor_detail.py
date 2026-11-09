@@ -3,12 +3,12 @@ from datetime import date, datetime  # noqa: F401
 from typing import List, Dict  # noqa: F401
 
 from openapi_server.models.base_model import Model
-from openapi_server.models.berry_flavor_detail_berries_inner import BerryFlavorDetailBerriesInner
+from openapi_server.models.berry_flavor_berry_map import BerryFlavorBerryMap
 from openapi_server.models.berry_flavor_name import BerryFlavorName
 from openapi_server.models.contest_type_summary import ContestTypeSummary
 from openapi_server import util
 
-from openapi_server.models.berry_flavor_detail_berries_inner import BerryFlavorDetailBerriesInner  # noqa: E501
+from openapi_server.models.berry_flavor_berry_map import BerryFlavorBerryMap  # noqa: E501
 from openapi_server.models.berry_flavor_name import BerryFlavorName  # noqa: E501
 from openapi_server.models.contest_type_summary import ContestTypeSummary  # noqa: E501
 
@@ -26,7 +26,7 @@ class BerryFlavorDetail(Model):
         :param name: The name of this BerryFlavorDetail.  # noqa: E501
         :type name: str
         :param berries: The berries of this BerryFlavorDetail.  # noqa: E501
-        :type berries: List[BerryFlavorDetailBerriesInner]
+        :type berries: List[BerryFlavorBerryMap]
         :param contest_type: The contest_type of this BerryFlavorDetail.  # noqa: E501
         :type contest_type: ContestTypeSummary
         :param names: The names of this BerryFlavorDetail.  # noqa: E501
@@ -35,7 +35,7 @@ class BerryFlavorDetail(Model):
         self.openapi_types = {
             'id': int,
             'name': str,
-            'berries': List[BerryFlavorDetailBerriesInner],
+            'berries': List[BerryFlavorBerryMap],
             'contest_type': ContestTypeSummary,
             'names': List[BerryFlavorName]
         }
@@ -69,6 +69,7 @@ class BerryFlavorDetail(Model):
     def id(self) -> int:
         """Gets the id of this BerryFlavorDetail.
 
+        The identifier for this resource.  # noqa: E501
 
         :return: The id of this BerryFlavorDetail.
         :rtype: int
@@ -79,6 +80,7 @@ class BerryFlavorDetail(Model):
     def id(self, id: int):
         """Sets the id of this BerryFlavorDetail.
 
+        The identifier for this resource.  # noqa: E501
 
         :param id: The id of this BerryFlavorDetail.
         :type id: int
@@ -92,6 +94,7 @@ class BerryFlavorDetail(Model):
     def name(self) -> str:
         """Gets the name of this BerryFlavorDetail.
 
+        The name for this resource.  # noqa: E501
 
         :return: The name of this BerryFlavorDetail.
         :rtype: str
@@ -102,34 +105,37 @@ class BerryFlavorDetail(Model):
     def name(self, name: str):
         """Sets the name of this BerryFlavorDetail.
 
+        The name for this resource.  # noqa: E501
 
         :param name: The name of this BerryFlavorDetail.
         :type name: str
         """
         if name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
-        if name is not None and len(name) > 100:
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `100`")  # noqa: E501
+        if name is not None and len(name) > 200:
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `200`")  # noqa: E501
 
         self._name = name
 
     @property
-    def berries(self) -> List[BerryFlavorDetailBerriesInner]:
+    def berries(self) -> List[BerryFlavorBerryMap]:
         """Gets the berries of this BerryFlavorDetail.
 
+        A list of the berries with this flavor.  # noqa: E501
 
         :return: The berries of this BerryFlavorDetail.
-        :rtype: List[BerryFlavorDetailBerriesInner]
+        :rtype: List[BerryFlavorBerryMap]
         """
         return self._berries
 
     @berries.setter
-    def berries(self, berries: List[BerryFlavorDetailBerriesInner]):
+    def berries(self, berries: List[BerryFlavorBerryMap]):
         """Sets the berries of this BerryFlavorDetail.
 
+        A list of the berries with this flavor.  # noqa: E501
 
         :param berries: The berries of this BerryFlavorDetail.
-        :type berries: List[BerryFlavorDetailBerriesInner]
+        :type berries: List[BerryFlavorBerryMap]
         """
         if berries is None:
             raise ValueError("Invalid value for `berries`, must not be `None`")  # noqa: E501
@@ -140,6 +146,7 @@ class BerryFlavorDetail(Model):
     def contest_type(self) -> ContestTypeSummary:
         """Gets the contest_type of this BerryFlavorDetail.
 
+        The contest type that correlates with this berry flavor.  # noqa: E501
 
         :return: The contest_type of this BerryFlavorDetail.
         :rtype: ContestTypeSummary
@@ -150,6 +157,7 @@ class BerryFlavorDetail(Model):
     def contest_type(self, contest_type: ContestTypeSummary):
         """Sets the contest_type of this BerryFlavorDetail.
 
+        The contest type that correlates with this berry flavor.  # noqa: E501
 
         :param contest_type: The contest_type of this BerryFlavorDetail.
         :type contest_type: ContestTypeSummary
@@ -163,6 +171,7 @@ class BerryFlavorDetail(Model):
     def names(self) -> List[BerryFlavorName]:
         """Gets the names of this BerryFlavorDetail.
 
+        The name of this resource listed in different languages.  # noqa: E501
 
         :return: The names of this BerryFlavorDetail.
         :rtype: List[BerryFlavorName]
@@ -173,6 +182,7 @@ class BerryFlavorDetail(Model):
     def names(self, names: List[BerryFlavorName]):
         """Sets the names of this BerryFlavorDetail.
 
+        The name of this resource listed in different languages.  # noqa: E501
 
         :param names: The names of this BerryFlavorDetail.
         :type names: List[BerryFlavorName]

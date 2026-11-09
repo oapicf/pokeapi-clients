@@ -7,28 +7,28 @@
     {
       "name": "id",
       "type": "int",
-      "doc": ""
+      "doc": "The identifier for this resource."
     },
     {
       "name": "name",
       "type": "string",
-      "doc": ""
+      "doc": "The name for this resource."
     },
     {
       "name": "official",
       "type": ["null", "boolean"],
-      "doc": "",
+      "doc": "Whether or not the games are published in this language.",
       "default": null
     },
     {
       "name": "iso639",
       "type": "string",
-      "doc": ""
+      "doc": "The two-letter ISO 639-1 language code. Multiple PokéAPI language records may share this code."
     },
     {
       "name": "iso3166",
       "type": "string",
-      "doc": ""
+      "doc": "The two-letter ISO 3166-1 alpha-2 code of the country or region associated with this language record. Multiple PokéAPI language records may share this code."
     },
     {
       "name": "names",
@@ -36,7 +36,7 @@
         "type": "array",
         "items": "model.LanguageName"
       },
-      "doc": ""
+      "doc": "The name of this resource listed in different languages."
     }
   ]
 

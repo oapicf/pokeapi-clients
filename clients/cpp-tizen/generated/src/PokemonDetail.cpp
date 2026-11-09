@@ -34,13 +34,14 @@ PokemonDetail::__init()
 	//new std::list()std::list> past_abilities;
 	//new std::list()std::list> forms;
 	//new std::list()std::list> game_indices;
-	//held_items = new PokemonDetail_held_items();
+	//new std::list()std::list> held_items;
 	//location_area_encounters = std::string();
 	//new std::list()std::list> moves;
-	//species = new PokemonSpeciesSummary();
-	//sprites = new PokemonDetail_sprites();
-	//cries = new PokemonDetail_cries();
+	//species = null;
+	//sprites = null;
+	//cries = null;
 	//new std::list()std::list> stats;
+	//new std::list()std::list> past_stats;
 	//new std::list()std::list> types;
 	//new std::list()std::list> past_types;
 }
@@ -104,7 +105,7 @@ PokemonDetail::__cleanup()
 	//game_indices = NULL;
 	//}
 	//if(held_items != NULL) {
-	//
+	//held_items.RemoveAll(true);
 	//delete held_items;
 	//held_items = NULL;
 	//}
@@ -137,6 +138,11 @@ PokemonDetail::__cleanup()
 	//stats.RemoveAll(true);
 	//delete stats;
 	//stats = NULL;
+	//}
+	//if(past_stats != NULL) {
+	//past_stats.RemoveAll(true);
+	//delete past_stats;
+	//past_stats = NULL;
 	//}
 	//if(types != NULL) {
 	//types.RemoveAll(true);
@@ -240,12 +246,12 @@ PokemonDetail::fromJson(char* jsonStr)
 		{
 			JsonArray* arr = json_node_get_array(node);
 			JsonNode*  temp_json;
-			list<PokemonDetail_abilities_inner> new_list;
-			PokemonDetail_abilities_inner inst;
+			list<PokemonAbility> new_list;
+			PokemonAbility inst;
 			for (guint i=0;i<json_array_get_length(arr);i++) {
 				temp_json = json_array_get_element(arr,i);
-				if (isprimitive("PokemonDetail_abilities_inner")) {
-					jsonToValue(&inst, temp_json, "PokemonDetail_abilities_inner", "");
+				if (isprimitive("PokemonAbility")) {
+					jsonToValue(&inst, temp_json, "PokemonAbility", "");
 				} else {
 					
 					inst.fromJson(json_to_string(temp_json, false));
@@ -264,12 +270,12 @@ PokemonDetail::fromJson(char* jsonStr)
 		{
 			JsonArray* arr = json_node_get_array(node);
 			JsonNode*  temp_json;
-			list<PokemonDetail_past_abilities_inner> new_list;
-			PokemonDetail_past_abilities_inner inst;
+			list<PokemonPastAbility> new_list;
+			PokemonPastAbility inst;
 			for (guint i=0;i<json_array_get_length(arr);i++) {
 				temp_json = json_array_get_element(arr,i);
-				if (isprimitive("PokemonDetail_past_abilities_inner")) {
-					jsonToValue(&inst, temp_json, "PokemonDetail_past_abilities_inner", "");
+				if (isprimitive("PokemonPastAbility")) {
+					jsonToValue(&inst, temp_json, "PokemonPastAbility", "");
 				} else {
 					
 					inst.fromJson(json_to_string(temp_json, false));
@@ -333,15 +339,25 @@ PokemonDetail::fromJson(char* jsonStr)
 	node = json_object_get_member(pJsonObject, held_itemsKey);
 	if (node !=NULL) {
 	
-
-		if (isprimitive("PokemonDetail_held_items")) {
-			jsonToValue(&held_items, node, "PokemonDetail_held_items", "PokemonDetail_held_items");
-		} else {
-			
-			PokemonDetail_held_items* obj = static_cast<PokemonDetail_held_items*> (&held_items);
-			obj->fromJson(json_to_string(node, false));
-			
+		{
+			JsonArray* arr = json_node_get_array(node);
+			JsonNode*  temp_json;
+			list<PokemonHeldItemSummary> new_list;
+			PokemonHeldItemSummary inst;
+			for (guint i=0;i<json_array_get_length(arr);i++) {
+				temp_json = json_array_get_element(arr,i);
+				if (isprimitive("PokemonHeldItemSummary")) {
+					jsonToValue(&inst, temp_json, "PokemonHeldItemSummary", "");
+				} else {
+					
+					inst.fromJson(json_to_string(temp_json, false));
+					
+				}
+				new_list.push_back(inst);
+			}
+			held_items = new_list;
 		}
+		
 	}
 	const gchar *location_area_encountersKey = "location_area_encounters";
 	node = json_object_get_member(pJsonObject, location_area_encountersKey);
@@ -361,12 +377,12 @@ PokemonDetail::fromJson(char* jsonStr)
 		{
 			JsonArray* arr = json_node_get_array(node);
 			JsonNode*  temp_json;
-			list<PokemonDetail_moves_inner> new_list;
-			PokemonDetail_moves_inner inst;
+			list<PokemonMove> new_list;
+			PokemonMove inst;
 			for (guint i=0;i<json_array_get_length(arr);i++) {
 				temp_json = json_array_get_element(arr,i);
-				if (isprimitive("PokemonDetail_moves_inner")) {
-					jsonToValue(&inst, temp_json, "PokemonDetail_moves_inner", "");
+				if (isprimitive("PokemonMove")) {
+					jsonToValue(&inst, temp_json, "PokemonMove", "");
 				} else {
 					
 					inst.fromJson(json_to_string(temp_json, false));
@@ -397,11 +413,11 @@ PokemonDetail::fromJson(char* jsonStr)
 	if (node !=NULL) {
 	
 
-		if (isprimitive("PokemonDetail_sprites")) {
-			jsonToValue(&sprites, node, "PokemonDetail_sprites", "PokemonDetail_sprites");
+		if (isprimitive("PokemonSprites")) {
+			jsonToValue(&sprites, node, "PokemonSprites", "PokemonSprites");
 		} else {
 			
-			PokemonDetail_sprites* obj = static_cast<PokemonDetail_sprites*> (&sprites);
+			PokemonSprites* obj = static_cast<PokemonSprites*> (&sprites);
 			obj->fromJson(json_to_string(node, false));
 			
 		}
@@ -411,11 +427,11 @@ PokemonDetail::fromJson(char* jsonStr)
 	if (node !=NULL) {
 	
 
-		if (isprimitive("PokemonDetail_cries")) {
-			jsonToValue(&cries, node, "PokemonDetail_cries", "PokemonDetail_cries");
+		if (isprimitive("PokemonCries")) {
+			jsonToValue(&cries, node, "PokemonCries", "PokemonCries");
 		} else {
 			
-			PokemonDetail_cries* obj = static_cast<PokemonDetail_cries*> (&cries);
+			PokemonCries* obj = static_cast<PokemonCries*> (&cries);
 			obj->fromJson(json_to_string(node, false));
 			
 		}
@@ -444,6 +460,30 @@ PokemonDetail::fromJson(char* jsonStr)
 		}
 		
 	}
+	const gchar *past_statsKey = "past_stats";
+	node = json_object_get_member(pJsonObject, past_statsKey);
+	if (node !=NULL) {
+	
+		{
+			JsonArray* arr = json_node_get_array(node);
+			JsonNode*  temp_json;
+			list<PokemonPastStat> new_list;
+			PokemonPastStat inst;
+			for (guint i=0;i<json_array_get_length(arr);i++) {
+				temp_json = json_array_get_element(arr,i);
+				if (isprimitive("PokemonPastStat")) {
+					jsonToValue(&inst, temp_json, "PokemonPastStat", "");
+				} else {
+					
+					inst.fromJson(json_to_string(temp_json, false));
+					
+				}
+				new_list.push_back(inst);
+			}
+			past_stats = new_list;
+		}
+		
+	}
 	const gchar *typesKey = "types";
 	node = json_object_get_member(pJsonObject, typesKey);
 	if (node !=NULL) {
@@ -451,12 +491,12 @@ PokemonDetail::fromJson(char* jsonStr)
 		{
 			JsonArray* arr = json_node_get_array(node);
 			JsonNode*  temp_json;
-			list<PokemonDetail_types_inner> new_list;
-			PokemonDetail_types_inner inst;
+			list<PokemonType> new_list;
+			PokemonType inst;
 			for (guint i=0;i<json_array_get_length(arr);i++) {
 				temp_json = json_array_get_element(arr,i);
-				if (isprimitive("PokemonDetail_types_inner")) {
-					jsonToValue(&inst, temp_json, "PokemonDetail_types_inner", "");
+				if (isprimitive("PokemonType")) {
+					jsonToValue(&inst, temp_json, "PokemonType", "");
 				} else {
 					
 					inst.fromJson(json_to_string(temp_json, false));
@@ -475,12 +515,12 @@ PokemonDetail::fromJson(char* jsonStr)
 		{
 			JsonArray* arr = json_node_get_array(node);
 			JsonNode*  temp_json;
-			list<PokemonDetail_past_types_inner> new_list;
-			PokemonDetail_past_types_inner inst;
+			list<PokemonPastType> new_list;
+			PokemonPastType inst;
 			for (guint i=0;i<json_array_get_length(arr);i++) {
 				temp_json = json_array_get_element(arr,i);
-				if (isprimitive("PokemonDetail_past_types_inner")) {
-					jsonToValue(&inst, temp_json, "PokemonDetail_past_types_inner", "");
+				if (isprimitive("PokemonPastType")) {
+					jsonToValue(&inst, temp_json, "PokemonPastType", "");
 				} else {
 					
 					inst.fromJson(json_to_string(temp_json, false));
@@ -567,18 +607,18 @@ PokemonDetail::toJson()
 	}
 	const gchar *weightKey = "weight";
 	json_object_set_member(pJsonObject, weightKey, node);
-	if (isprimitive("PokemonDetail_abilities_inner")) {
-		list<PokemonDetail_abilities_inner> new_list = static_cast<list <PokemonDetail_abilities_inner> > (getAbilities());
-		node = converttoJson(&new_list, "PokemonDetail_abilities_inner", "array");
+	if (isprimitive("PokemonAbility")) {
+		list<PokemonAbility> new_list = static_cast<list <PokemonAbility> > (getAbilities());
+		node = converttoJson(&new_list, "PokemonAbility", "array");
 	} else {
 		node = json_node_alloc();
-		list<PokemonDetail_abilities_inner> new_list = static_cast<list <PokemonDetail_abilities_inner> > (getAbilities());
+		list<PokemonAbility> new_list = static_cast<list <PokemonAbility> > (getAbilities());
 		JsonArray* json_array = json_array_new();
 		GError *mygerror;
 		
-		for (list<PokemonDetail_abilities_inner>::iterator it = new_list.begin(); it != new_list.end(); it++) {
+		for (list<PokemonAbility>::iterator it = new_list.begin(); it != new_list.end(); it++) {
 			mygerror = NULL;
-			PokemonDetail_abilities_inner obj = *it;
+			PokemonAbility obj = *it;
 			JsonNode *node_temp = json_from_string(obj.toJson(), &mygerror);
 			json_array_add_element(json_array, node_temp);
 			g_clear_error(&mygerror);
@@ -592,18 +632,18 @@ PokemonDetail::toJson()
 	
 	const gchar *abilitiesKey = "abilities";
 	json_object_set_member(pJsonObject, abilitiesKey, node);
-	if (isprimitive("PokemonDetail_past_abilities_inner")) {
-		list<PokemonDetail_past_abilities_inner> new_list = static_cast<list <PokemonDetail_past_abilities_inner> > (getPastAbilities());
-		node = converttoJson(&new_list, "PokemonDetail_past_abilities_inner", "array");
+	if (isprimitive("PokemonPastAbility")) {
+		list<PokemonPastAbility> new_list = static_cast<list <PokemonPastAbility> > (getPastAbilities());
+		node = converttoJson(&new_list, "PokemonPastAbility", "array");
 	} else {
 		node = json_node_alloc();
-		list<PokemonDetail_past_abilities_inner> new_list = static_cast<list <PokemonDetail_past_abilities_inner> > (getPastAbilities());
+		list<PokemonPastAbility> new_list = static_cast<list <PokemonPastAbility> > (getPastAbilities());
 		JsonArray* json_array = json_array_new();
 		GError *mygerror;
 		
-		for (list<PokemonDetail_past_abilities_inner>::iterator it = new_list.begin(); it != new_list.end(); it++) {
+		for (list<PokemonPastAbility>::iterator it = new_list.begin(); it != new_list.end(); it++) {
 			mygerror = NULL;
-			PokemonDetail_past_abilities_inner obj = *it;
+			PokemonPastAbility obj = *it;
 			JsonNode *node_temp = json_from_string(obj.toJson(), &mygerror);
 			json_array_add_element(json_array, node_temp);
 			g_clear_error(&mygerror);
@@ -667,18 +707,29 @@ PokemonDetail::toJson()
 	
 	const gchar *game_indicesKey = "game_indices";
 	json_object_set_member(pJsonObject, game_indicesKey, node);
-	if (isprimitive("PokemonDetail_held_items")) {
-		PokemonDetail_held_items obj = getHeldItems();
-		node = converttoJson(&obj, "PokemonDetail_held_items", "");
-	}
-	else {
-		
-		PokemonDetail_held_items obj = static_cast<PokemonDetail_held_items> (getHeldItems());
+	if (isprimitive("PokemonHeldItemSummary")) {
+		list<PokemonHeldItemSummary> new_list = static_cast<list <PokemonHeldItemSummary> > (getHeldItems());
+		node = converttoJson(&new_list, "PokemonHeldItemSummary", "array");
+	} else {
+		node = json_node_alloc();
+		list<PokemonHeldItemSummary> new_list = static_cast<list <PokemonHeldItemSummary> > (getHeldItems());
+		JsonArray* json_array = json_array_new();
 		GError *mygerror;
-		mygerror = NULL;
-		node = json_from_string(obj.toJson(), &mygerror);
+		
+		for (list<PokemonHeldItemSummary>::iterator it = new_list.begin(); it != new_list.end(); it++) {
+			mygerror = NULL;
+			PokemonHeldItemSummary obj = *it;
+			JsonNode *node_temp = json_from_string(obj.toJson(), &mygerror);
+			json_array_add_element(json_array, node_temp);
+			g_clear_error(&mygerror);
+		}
+		json_node_init_array(node, json_array);
+		json_array_unref(json_array);
 		
 	}
+
+
+	
 	const gchar *held_itemsKey = "held_items";
 	json_object_set_member(pJsonObject, held_itemsKey, node);
 	if (isprimitive("std::string")) {
@@ -690,18 +741,18 @@ PokemonDetail::toJson()
 	}
 	const gchar *location_area_encountersKey = "location_area_encounters";
 	json_object_set_member(pJsonObject, location_area_encountersKey, node);
-	if (isprimitive("PokemonDetail_moves_inner")) {
-		list<PokemonDetail_moves_inner> new_list = static_cast<list <PokemonDetail_moves_inner> > (getMoves());
-		node = converttoJson(&new_list, "PokemonDetail_moves_inner", "array");
+	if (isprimitive("PokemonMove")) {
+		list<PokemonMove> new_list = static_cast<list <PokemonMove> > (getMoves());
+		node = converttoJson(&new_list, "PokemonMove", "array");
 	} else {
 		node = json_node_alloc();
-		list<PokemonDetail_moves_inner> new_list = static_cast<list <PokemonDetail_moves_inner> > (getMoves());
+		list<PokemonMove> new_list = static_cast<list <PokemonMove> > (getMoves());
 		JsonArray* json_array = json_array_new();
 		GError *mygerror;
 		
-		for (list<PokemonDetail_moves_inner>::iterator it = new_list.begin(); it != new_list.end(); it++) {
+		for (list<PokemonMove>::iterator it = new_list.begin(); it != new_list.end(); it++) {
 			mygerror = NULL;
-			PokemonDetail_moves_inner obj = *it;
+			PokemonMove obj = *it;
 			JsonNode *node_temp = json_from_string(obj.toJson(), &mygerror);
 			json_array_add_element(json_array, node_temp);
 			g_clear_error(&mygerror);
@@ -729,13 +780,13 @@ PokemonDetail::toJson()
 	}
 	const gchar *speciesKey = "species";
 	json_object_set_member(pJsonObject, speciesKey, node);
-	if (isprimitive("PokemonDetail_sprites")) {
-		PokemonDetail_sprites obj = getSprites();
-		node = converttoJson(&obj, "PokemonDetail_sprites", "");
+	if (isprimitive("PokemonSprites")) {
+		PokemonSprites obj = getSprites();
+		node = converttoJson(&obj, "PokemonSprites", "");
 	}
 	else {
 		
-		PokemonDetail_sprites obj = static_cast<PokemonDetail_sprites> (getSprites());
+		PokemonSprites obj = static_cast<PokemonSprites> (getSprites());
 		GError *mygerror;
 		mygerror = NULL;
 		node = json_from_string(obj.toJson(), &mygerror);
@@ -743,13 +794,13 @@ PokemonDetail::toJson()
 	}
 	const gchar *spritesKey = "sprites";
 	json_object_set_member(pJsonObject, spritesKey, node);
-	if (isprimitive("PokemonDetail_cries")) {
-		PokemonDetail_cries obj = getCries();
-		node = converttoJson(&obj, "PokemonDetail_cries", "");
+	if (isprimitive("PokemonCries")) {
+		PokemonCries obj = getCries();
+		node = converttoJson(&obj, "PokemonCries", "");
 	}
 	else {
 		
-		PokemonDetail_cries obj = static_cast<PokemonDetail_cries> (getCries());
+		PokemonCries obj = static_cast<PokemonCries> (getCries());
 		GError *mygerror;
 		mygerror = NULL;
 		node = json_from_string(obj.toJson(), &mygerror);
@@ -782,18 +833,43 @@ PokemonDetail::toJson()
 	
 	const gchar *statsKey = "stats";
 	json_object_set_member(pJsonObject, statsKey, node);
-	if (isprimitive("PokemonDetail_types_inner")) {
-		list<PokemonDetail_types_inner> new_list = static_cast<list <PokemonDetail_types_inner> > (getTypes());
-		node = converttoJson(&new_list, "PokemonDetail_types_inner", "array");
+	if (isprimitive("PokemonPastStat")) {
+		list<PokemonPastStat> new_list = static_cast<list <PokemonPastStat> > (getPastStats());
+		node = converttoJson(&new_list, "PokemonPastStat", "array");
 	} else {
 		node = json_node_alloc();
-		list<PokemonDetail_types_inner> new_list = static_cast<list <PokemonDetail_types_inner> > (getTypes());
+		list<PokemonPastStat> new_list = static_cast<list <PokemonPastStat> > (getPastStats());
 		JsonArray* json_array = json_array_new();
 		GError *mygerror;
 		
-		for (list<PokemonDetail_types_inner>::iterator it = new_list.begin(); it != new_list.end(); it++) {
+		for (list<PokemonPastStat>::iterator it = new_list.begin(); it != new_list.end(); it++) {
 			mygerror = NULL;
-			PokemonDetail_types_inner obj = *it;
+			PokemonPastStat obj = *it;
+			JsonNode *node_temp = json_from_string(obj.toJson(), &mygerror);
+			json_array_add_element(json_array, node_temp);
+			g_clear_error(&mygerror);
+		}
+		json_node_init_array(node, json_array);
+		json_array_unref(json_array);
+		
+	}
+
+
+	
+	const gchar *past_statsKey = "past_stats";
+	json_object_set_member(pJsonObject, past_statsKey, node);
+	if (isprimitive("PokemonType")) {
+		list<PokemonType> new_list = static_cast<list <PokemonType> > (getTypes());
+		node = converttoJson(&new_list, "PokemonType", "array");
+	} else {
+		node = json_node_alloc();
+		list<PokemonType> new_list = static_cast<list <PokemonType> > (getTypes());
+		JsonArray* json_array = json_array_new();
+		GError *mygerror;
+		
+		for (list<PokemonType>::iterator it = new_list.begin(); it != new_list.end(); it++) {
+			mygerror = NULL;
+			PokemonType obj = *it;
 			JsonNode *node_temp = json_from_string(obj.toJson(), &mygerror);
 			json_array_add_element(json_array, node_temp);
 			g_clear_error(&mygerror);
@@ -807,18 +883,18 @@ PokemonDetail::toJson()
 	
 	const gchar *typesKey = "types";
 	json_object_set_member(pJsonObject, typesKey, node);
-	if (isprimitive("PokemonDetail_past_types_inner")) {
-		list<PokemonDetail_past_types_inner> new_list = static_cast<list <PokemonDetail_past_types_inner> > (getPastTypes());
-		node = converttoJson(&new_list, "PokemonDetail_past_types_inner", "array");
+	if (isprimitive("PokemonPastType")) {
+		list<PokemonPastType> new_list = static_cast<list <PokemonPastType> > (getPastTypes());
+		node = converttoJson(&new_list, "PokemonPastType", "array");
 	} else {
 		node = json_node_alloc();
-		list<PokemonDetail_past_types_inner> new_list = static_cast<list <PokemonDetail_past_types_inner> > (getPastTypes());
+		list<PokemonPastType> new_list = static_cast<list <PokemonPastType> > (getPastTypes());
 		JsonArray* json_array = json_array_new();
 		GError *mygerror;
 		
-		for (list<PokemonDetail_past_types_inner>::iterator it = new_list.begin(); it != new_list.end(); it++) {
+		for (list<PokemonPastType>::iterator it = new_list.begin(); it != new_list.end(); it++) {
 			mygerror = NULL;
-			PokemonDetail_past_types_inner obj = *it;
+			PokemonPastType obj = *it;
 			JsonNode *node_temp = json_from_string(obj.toJson(), &mygerror);
 			json_array_add_element(json_array, node_temp);
 			g_clear_error(&mygerror);
@@ -924,26 +1000,26 @@ PokemonDetail::setWeight(int  weight)
 	this->weight = weight;
 }
 
-std::list<PokemonDetail_abilities_inner>
+std::list<PokemonAbility>
 PokemonDetail::getAbilities()
 {
 	return abilities;
 }
 
 void
-PokemonDetail::setAbilities(std::list <PokemonDetail_abilities_inner> abilities)
+PokemonDetail::setAbilities(std::list <PokemonAbility> abilities)
 {
 	this->abilities = abilities;
 }
 
-std::list<PokemonDetail_past_abilities_inner>
+std::list<PokemonPastAbility>
 PokemonDetail::getPastAbilities()
 {
 	return past_abilities;
 }
 
 void
-PokemonDetail::setPastAbilities(std::list <PokemonDetail_past_abilities_inner> past_abilities)
+PokemonDetail::setPastAbilities(std::list <PokemonPastAbility> past_abilities)
 {
 	this->past_abilities = past_abilities;
 }
@@ -972,14 +1048,14 @@ PokemonDetail::setGameIndices(std::list <PokemonGameIndex> game_indices)
 	this->game_indices = game_indices;
 }
 
-PokemonDetail_held_items
+std::list<PokemonHeldItemSummary>
 PokemonDetail::getHeldItems()
 {
 	return held_items;
 }
 
 void
-PokemonDetail::setHeldItems(PokemonDetail_held_items  held_items)
+PokemonDetail::setHeldItems(std::list <PokemonHeldItemSummary> held_items)
 {
 	this->held_items = held_items;
 }
@@ -996,14 +1072,14 @@ PokemonDetail::setLocationAreaEncounters(std::string  location_area_encounters)
 	this->location_area_encounters = location_area_encounters;
 }
 
-std::list<PokemonDetail_moves_inner>
+std::list<PokemonMove>
 PokemonDetail::getMoves()
 {
 	return moves;
 }
 
 void
-PokemonDetail::setMoves(std::list <PokemonDetail_moves_inner> moves)
+PokemonDetail::setMoves(std::list <PokemonMove> moves)
 {
 	this->moves = moves;
 }
@@ -1020,26 +1096,26 @@ PokemonDetail::setSpecies(PokemonSpeciesSummary  species)
 	this->species = species;
 }
 
-PokemonDetail_sprites
+PokemonSprites
 PokemonDetail::getSprites()
 {
 	return sprites;
 }
 
 void
-PokemonDetail::setSprites(PokemonDetail_sprites  sprites)
+PokemonDetail::setSprites(PokemonSprites  sprites)
 {
 	this->sprites = sprites;
 }
 
-PokemonDetail_cries
+PokemonCries
 PokemonDetail::getCries()
 {
 	return cries;
 }
 
 void
-PokemonDetail::setCries(PokemonDetail_cries  cries)
+PokemonDetail::setCries(PokemonCries  cries)
 {
 	this->cries = cries;
 }
@@ -1056,26 +1132,38 @@ PokemonDetail::setStats(std::list <PokemonStat> stats)
 	this->stats = stats;
 }
 
-std::list<PokemonDetail_types_inner>
+std::list<PokemonPastStat>
+PokemonDetail::getPastStats()
+{
+	return past_stats;
+}
+
+void
+PokemonDetail::setPastStats(std::list <PokemonPastStat> past_stats)
+{
+	this->past_stats = past_stats;
+}
+
+std::list<PokemonType>
 PokemonDetail::getTypes()
 {
 	return types;
 }
 
 void
-PokemonDetail::setTypes(std::list <PokemonDetail_types_inner> types)
+PokemonDetail::setTypes(std::list <PokemonType> types)
 {
 	this->types = types;
 }
 
-std::list<PokemonDetail_past_types_inner>
+std::list<PokemonPastType>
 PokemonDetail::getPastTypes()
 {
 	return past_types;
 }
 
 void
-PokemonDetail::setPastTypes(std::list <PokemonDetail_past_types_inner> past_types)
+PokemonDetail::setPastTypes(std::list <PokemonPastType> past_types)
 {
 	this->past_types = past_types;
 }

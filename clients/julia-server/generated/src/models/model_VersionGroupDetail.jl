@@ -15,23 +15,23 @@
         versions=nothing,
     )
 
-    - id::Int64
-    - name::String
-    - order::Int64
-    - generation::GenerationSummary
-    - move_learn_methods::Vector{AbilityDetailPokemonInnerPokemon}
-    - pokedexes::Vector{AbilityDetailPokemonInnerPokemon}
-    - regions::Vector{AbilityDetailPokemonInnerPokemon}
-    - versions::Vector{VersionSummary}
+    - id::Int64 : The identifier for this resource.
+    - name::String : The name for this resource.
+    - order::Int64 : Order for sorting. Almost by date of release, except similar versions are grouped together.
+    - generation::GenerationSummary : The generation this version was introduced in.
+    - move_learn_methods::Vector{MoveLearnMethodSummary} : A list of methods in which Pokémon can learn moves in this version group.
+    - pokedexes::Vector{PokedexSummary} : A list of Pokédexes introduces in this version group.
+    - regions::Vector{RegionSummary} : A list of regions that can be visited in this version group.
+    - versions::Vector{VersionSummary} : The versions this version group owns.
 """
 Base.@kwdef mutable struct VersionGroupDetail <: OpenAPI.APIModel
     id::Union{Nothing, Int64} = nothing
     name::Union{Nothing, String} = nothing
     order::Union{Nothing, Int64} = nothing
     generation = nothing # spec type: Union{ Nothing, GenerationSummary }
-    move_learn_methods::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{AbilityDetailPokemonInnerPokemon} }
-    pokedexes::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{AbilityDetailPokemonInnerPokemon} }
-    regions::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{AbilityDetailPokemonInnerPokemon} }
+    move_learn_methods::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{MoveLearnMethodSummary} }
+    pokedexes::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{PokedexSummary} }
+    regions::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{RegionSummary} }
     versions::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{VersionSummary} }
 
     function VersionGroupDetail(id, name, order, generation, move_learn_methods, pokedexes, regions, versions, )
@@ -41,7 +41,7 @@ Base.@kwdef mutable struct VersionGroupDetail <: OpenAPI.APIModel
     end
 end # type VersionGroupDetail
 
-const _property_types_VersionGroupDetail = Dict{Symbol,String}(Symbol("id")=>"Int64", Symbol("name")=>"String", Symbol("order")=>"Int64", Symbol("generation")=>"GenerationSummary", Symbol("move_learn_methods")=>"Vector{AbilityDetailPokemonInnerPokemon}", Symbol("pokedexes")=>"Vector{AbilityDetailPokemonInnerPokemon}", Symbol("regions")=>"Vector{AbilityDetailPokemonInnerPokemon}", Symbol("versions")=>"Vector{VersionSummary}", )
+const _property_types_VersionGroupDetail = Dict{Symbol,String}(Symbol("id")=>"Int64", Symbol("name")=>"String", Symbol("order")=>"Int64", Symbol("generation")=>"GenerationSummary", Symbol("move_learn_methods")=>"Vector{MoveLearnMethodSummary}", Symbol("pokedexes")=>"Vector{PokedexSummary}", Symbol("regions")=>"Vector{RegionSummary}", Symbol("versions")=>"Vector{VersionSummary}", )
 OpenAPI.property_type(::Type{ VersionGroupDetail }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_VersionGroupDetail[name]))}
 
 function OpenAPI.check_required(o::VersionGroupDetail)
@@ -70,9 +70,13 @@ function OpenAPI.validate_property(::Type{ VersionGroupDetail }, name::Symbol, v
 
 
     if name === Symbol("name")
-        OpenAPI.validate_param(name, "VersionGroupDetail", :maxLength, val, 100)
+        OpenAPI.validate_param(name, "VersionGroupDetail", :maxLength, val, 200)
     end
 
+    if name === Symbol("order")
+        OpenAPI.validate_param(name, "VersionGroupDetail", :maximum, val, 2147483647, false)
+        OpenAPI.validate_param(name, "VersionGroupDetail", :minimum, val, -2147483648, false)
+    end
 
 
 

@@ -3,10 +3,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **Int32** |  | [readonly] 
-**Name** | **String** |  | 
-**Names** | [**EvolutionTriggerName[]**](EvolutionTriggerName.md) |  | [readonly] 
-**PokemonSpecies** | [**AbilityDetailPokemonInnerPokemon[]**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] 
+**Id** | **Int32** | The identifier for this resource. | [readonly] 
+**Name** | **String** | The name for this resource. | 
+**Names** | [**EvolutionTriggerName[]**](EvolutionTriggerName.md) | The name of this resource listed in different languages. | [readonly] 
+**PokemonSpecies** | [**PokemonSpeciesSummary[]**](PokemonSpeciesSummary.md) | A list of pokemon species that result from this evolution trigger. | [readonly] 
 
 ## Examples
 

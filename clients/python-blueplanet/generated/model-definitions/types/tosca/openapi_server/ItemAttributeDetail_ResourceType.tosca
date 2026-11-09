@@ -7,9 +7,9 @@ authors     = ["F. Bar (foo@bar.baz)"]
 
 imports {
   Root = tosca.resourceTypes.Root
-  AbilityDetailPokemonInnerPokemon = openapi_server.resourceTypes.AbilityDetailPokemonInnerPokemon
   ItemAttributeDescription = openapi_server.resourceTypes.ItemAttributeDescription
   ItemAttributeName = openapi_server.resourceTypes.ItemAttributeName
+  ItemSummary = openapi_server.resourceTypes.ItemSummary
 }
 resourceTypes {
 
@@ -20,30 +20,30 @@ resourceTypes {
     properties {
         id {
           type =  integer
-          description = ""
+          description = "The identifier for this resource."
           optional = true
         }
         name {
           type =  string
-          description = ""
+          description = "The name for this resource."
           optional = true
         }
         descriptions {
           type = array
           items.type = ItemAttributeDescription
-          description = ""
+          description = "The description of this item attribute listed in different languages."
           optional = true
         }
         items {
           type = array
-          items.type = AbilityDetailPokemonInnerPokemon
-          description = ""
+          items.type = ItemSummary
+          description = "A list of items that have this attribute."
           optional = true
         }
         names {
           type = array
           items.type = ItemAttributeName
-          description = ""
+          description = "The name of this item attribute listed in different languages."
           optional = true
         }
     }

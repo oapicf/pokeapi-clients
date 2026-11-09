@@ -7,15 +7,16 @@
 #' @title StatDetail
 #' @description StatDetail Class
 #' @format An \code{R6Class} generator object
-#' @field id  integer
-#' @field name  character
-#' @field game_index  integer
-#' @field is_battle_only  character [optional]
-#' @field affecting_moves  \link{StatDetailAffectingMoves}
-#' @field affecting_natures  \link{StatDetailAffectingNatures}
-#' @field characteristics  list(\link{CharacteristicSummary})
-#' @field move_damage_class  \link{MoveDamageClassSummary}
-#' @field names  list(\link{StatName})
+#' @field id The identifier for this resource. integer
+#' @field name The name for this resource. character
+#' @field game_index ID the games use for this stat. integer
+#' @field is_battle_only Whether this stat only exists within a battle. character [optional]
+#' @field affecting_moves A detail of moves which affect this stat positively or negatively. \link{StatAffectingMoves}
+#' @field affecting_natures A detail of natures which affect this stat positively or negatively. \link{StatAffectingNatures}
+#' @field affecting_items Items that affect this stat, such as vitamins and battle items. list(\link{ItemSummary})
+#' @field characteristics A list of characteristics that are set on a Pokémon when its highest base stat is this stat. list(\link{CharacteristicSummary})
+#' @field move_damage_class The class of damage this stat is directly related to. \link{MoveDamageClassSummary}
+#' @field names The name of this resource listed in different languages. list(\link{StatName})
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -28,6 +29,7 @@ StatDetail <- R6::R6Class(
     `is_battle_only` = NULL,
     `affecting_moves` = NULL,
     `affecting_natures` = NULL,
+    `affecting_items` = NULL,
     `characteristics` = NULL,
     `move_damage_class` = NULL,
     `names` = NULL,
@@ -35,17 +37,18 @@ StatDetail <- R6::R6Class(
     #' @description
     #' Initialize a new StatDetail class.
     #'
-    #' @param id id
-    #' @param name name
-    #' @param game_index game_index
-    #' @param affecting_moves affecting_moves
-    #' @param affecting_natures affecting_natures
-    #' @param characteristics characteristics
-    #' @param move_damage_class move_damage_class
-    #' @param names names
-    #' @param is_battle_only is_battle_only
+    #' @param id The identifier for this resource.
+    #' @param name The name for this resource.
+    #' @param game_index ID the games use for this stat.
+    #' @param affecting_moves A detail of moves which affect this stat positively or negatively.
+    #' @param affecting_natures A detail of natures which affect this stat positively or negatively.
+    #' @param affecting_items Items that affect this stat, such as vitamins and battle items.
+    #' @param characteristics A list of characteristics that are set on a Pokémon when its highest base stat is this stat.
+    #' @param move_damage_class The class of damage this stat is directly related to.
+    #' @param names The name of this resource listed in different languages.
+    #' @param is_battle_only Whether this stat only exists within a battle.
     #' @param ... Other optional arguments.
-    initialize = function(`id`, `name`, `game_index`, `affecting_moves`, `affecting_natures`, `characteristics`, `move_damage_class`, `names`, `is_battle_only` = NULL, ...) {
+    initialize = function(`id`, `name`, `game_index`, `affecting_moves`, `affecting_natures`, `affecting_items`, `characteristics`, `move_damage_class`, `names`, `is_battle_only` = NULL, ...) {
       if (!missing(`id`)) {
         if (!(is.numeric(`id`) && length(`id`) == 1)) {
           stop(paste("Error! Invalid data for `id`. Must be an integer:", `id`))
@@ -71,6 +74,11 @@ StatDetail <- R6::R6Class(
       if (!missing(`affecting_natures`)) {
         stopifnot(R6::is.R6(`affecting_natures`))
         self$`affecting_natures` <- `affecting_natures`
+      }
+      if (!missing(`affecting_items`)) {
+        stopifnot(is.vector(`affecting_items`), length(`affecting_items`) != 0)
+        sapply(`affecting_items`, function(x) stopifnot(R6::is.R6(x)))
+        self$`affecting_items` <- `affecting_items`
       }
       if (!missing(`characteristics`)) {
         stopifnot(is.vector(`characteristics`), length(`characteristics`) != 0)
@@ -149,6 +157,10 @@ StatDetail <- R6::R6Class(
         StatDetailObject[["affecting_natures"]] <-
           self$extractSimpleType(self$`affecting_natures`)
       }
+      if (!is.null(self$`affecting_items`)) {
+        StatDetailObject[["affecting_items"]] <-
+          self$extractSimpleType(self$`affecting_items`)
+      }
       if (!is.null(self$`characteristics`)) {
         StatDetailObject[["characteristics"]] <-
           self$extractSimpleType(self$`characteristics`)
@@ -207,14 +219,17 @@ StatDetail <- R6::R6Class(
         self$`is_battle_only` <- this_object$`is_battle_only`
       }
       if (!is.null(this_object$`affecting_moves`)) {
-        `affecting_moves_object` <- StatDetailAffectingMoves$new()
+        `affecting_moves_object` <- StatAffectingMoves$new()
         `affecting_moves_object`$fromJSON(jsonlite::toJSON(this_object$`affecting_moves`, auto_unbox = TRUE, digits = NA))
         self$`affecting_moves` <- `affecting_moves_object`
       }
       if (!is.null(this_object$`affecting_natures`)) {
-        `affecting_natures_object` <- StatDetailAffectingNatures$new()
+        `affecting_natures_object` <- StatAffectingNatures$new()
         `affecting_natures_object`$fromJSON(jsonlite::toJSON(this_object$`affecting_natures`, auto_unbox = TRUE, digits = NA))
         self$`affecting_natures` <- `affecting_natures_object`
+      }
+      if (!is.null(this_object$`affecting_items`)) {
+        self$`affecting_items` <- ApiClient$new()$deserializeObj(this_object$`affecting_items`, "array[ItemSummary]", loadNamespace("openapi"))
       }
       if (!is.null(this_object$`characteristics`)) {
         self$`characteristics` <- ApiClient$new()$deserializeObj(this_object$`characteristics`, "array[CharacteristicSummary]", loadNamespace("openapi"))
@@ -252,8 +267,9 @@ StatDetail <- R6::R6Class(
       self$`name` <- this_object$`name`
       self$`game_index` <- this_object$`game_index`
       self$`is_battle_only` <- this_object$`is_battle_only`
-      self$`affecting_moves` <- StatDetailAffectingMoves$new()$fromJSON(jsonlite::toJSON(this_object$`affecting_moves`, auto_unbox = TRUE, digits = NA))
-      self$`affecting_natures` <- StatDetailAffectingNatures$new()$fromJSON(jsonlite::toJSON(this_object$`affecting_natures`, auto_unbox = TRUE, digits = NA))
+      self$`affecting_moves` <- StatAffectingMoves$new()$fromJSON(jsonlite::toJSON(this_object$`affecting_moves`, auto_unbox = TRUE, digits = NA))
+      self$`affecting_natures` <- StatAffectingNatures$new()$fromJSON(jsonlite::toJSON(this_object$`affecting_natures`, auto_unbox = TRUE, digits = NA))
+      self$`affecting_items` <- ApiClient$new()$deserializeObj(this_object$`affecting_items`, "array[ItemSummary]", loadNamespace("openapi"))
       self$`characteristics` <- ApiClient$new()$deserializeObj(this_object$`characteristics`, "array[CharacteristicSummary]", loadNamespace("openapi"))
       self$`move_damage_class` <- MoveDamageClassSummary$new()$fromJSON(jsonlite::toJSON(this_object$`move_damage_class`, auto_unbox = TRUE, digits = NA))
       self$`names` <- ApiClient$new()$deserializeObj(this_object$`names`, "array[StatName]", loadNamespace("openapi"))
@@ -302,6 +318,13 @@ StatDetail <- R6::R6Class(
       } else {
         stop(paste("The JSON input `", input, "` is invalid for StatDetail: the required field `affecting_natures` is missing."))
       }
+      # check the required field `affecting_items`
+      if (!is.null(input_json$`affecting_items`)) {
+        stopifnot(is.vector(input_json$`affecting_items`), length(input_json$`affecting_items`) != 0)
+        tmp <- sapply(input_json$`affecting_items`, function(x) stopifnot(R6::is.R6(x)))
+      } else {
+        stop(paste("The JSON input `", input, "` is invalid for StatDetail: the required field `affecting_items` is missing."))
+      }
       # check the required field `characteristics`
       if (!is.null(input_json$`characteristics`)) {
         stopifnot(is.vector(input_json$`characteristics`), length(input_json$`characteristics`) != 0)
@@ -347,12 +370,19 @@ StatDetail <- R6::R6Class(
         return(FALSE)
       }
 
-      if (nchar(self$`name`) > 100) {
+      if (nchar(self$`name`) > 200) {
         return(FALSE)
       }
 
       # check if the required `game_index` is null
       if (is.null(self$`game_index`)) {
+        return(FALSE)
+      }
+
+      if (self$`game_index` > 2147483647) {
+        return(FALSE)
+      }
+      if (self$`game_index` < -2147483648) {
         return(FALSE)
       }
 
@@ -366,13 +396,13 @@ StatDetail <- R6::R6Class(
         return(FALSE)
       }
 
-      # check if the required `characteristics` is null
-      if (is.null(self$`characteristics`)) {
+      # check if the required `affecting_items` is null
+      if (is.null(self$`affecting_items`)) {
         return(FALSE)
       }
 
-      # check if the required `move_damage_class` is null
-      if (is.null(self$`move_damage_class`)) {
+      # check if the required `characteristics` is null
+      if (is.null(self$`characteristics`)) {
         return(FALSE)
       }
 
@@ -400,13 +430,20 @@ StatDetail <- R6::R6Class(
         invalid_fields["name"] <- "Non-nullable required field `name` cannot be null."
       }
 
-      if (nchar(self$`name`) > 100) {
-        invalid_fields["name"] <- "Invalid length for `name`, must be smaller than or equal to 100."
+      if (nchar(self$`name`) > 200) {
+        invalid_fields["name"] <- "Invalid length for `name`, must be smaller than or equal to 200."
       }
 
       # check if the required `game_index` is null
       if (is.null(self$`game_index`)) {
         invalid_fields["game_index"] <- "Non-nullable required field `game_index` cannot be null."
+      }
+
+      if (self$`game_index` > 2147483647) {
+        invalid_fields["game_index"] <- "Invalid value for `game_index`, must be smaller than or equal to 2147483647."
+      }
+      if (self$`game_index` < -2147483648) {
+        invalid_fields["game_index"] <- "Invalid value for `game_index`, must be bigger than or equal to -2147483648."
       }
 
       # check if the required `affecting_moves` is null
@@ -419,14 +456,14 @@ StatDetail <- R6::R6Class(
         invalid_fields["affecting_natures"] <- "Non-nullable required field `affecting_natures` cannot be null."
       }
 
+      # check if the required `affecting_items` is null
+      if (is.null(self$`affecting_items`)) {
+        invalid_fields["affecting_items"] <- "Non-nullable required field `affecting_items` cannot be null."
+      }
+
       # check if the required `characteristics` is null
       if (is.null(self$`characteristics`)) {
         invalid_fields["characteristics"] <- "Non-nullable required field `characteristics` cannot be null."
-      }
-
-      # check if the required `move_damage_class` is null
-      if (is.null(self$`move_damage_class`)) {
-        invalid_fields["move_damage_class"] <- "Non-nullable required field `move_damage_class` cannot be null."
       }
 
       # check if the required `names` is null

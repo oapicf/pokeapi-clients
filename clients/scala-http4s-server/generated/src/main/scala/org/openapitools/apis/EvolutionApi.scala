@@ -5,8 +5,10 @@ import org.openapitools.apis.query._
 
 import org.openapitools.models.EvolutionChainDetail
 import org.openapitools.models.EvolutionTriggerDetail
+import org.openapitools.models.EvolutionVariableDetail
 import org.openapitools.models.PaginatedEvolutionChainSummaryList
 import org.openapitools.models.PaginatedEvolutionTriggerSummaryList
+import org.openapitools.models.PaginatedEvolutionVariableSummaryList
 
 
 import cats.Monad
@@ -20,25 +22,20 @@ import org.http4s.dsl.Http4sDsl
 import org.http4s.circe.CirceEntityEncoder._
 
 final case class EvolutionApiRoutes[
-  F[_]: JsonDecoder: Monad, basicAuth, cookieAuth
-](delegate: EvolutionApiDelegate[F, basicAuth, cookieAuth]) extends Http4sDsl[F] {
+  F[_]: JsonDecoder: Monad
+](delegate: EvolutionApiDelegate[F]) extends Http4sDsl[F] {
   object evolutionChainList {
     import EvolutionApiDelegate.evolutionChainListResponses
 
     object limitQueryParam extends OptionalQueryParamDecoderMatcher[Int]("limit")
     object offsetQueryParam extends OptionalQueryParamDecoderMatcher[Int]("offset")
-    object qQueryParam extends OptionalQueryParamDecoderMatcher[String]("q")
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "evolution-chain" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q)) as auth =>
-        delegate.evolutionChainList.handle_basicAuth(auth, req, limit, offset, q, responses)
-
-    }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "evolution-chain" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q)) as auth =>
-        delegate.evolutionChainList.handle_cookieAuth(auth, req, limit, offset, q, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "evolution-chain" :? limitQueryParam(limit) +& offsetQueryParam(offset) =>
+        delegate.evolutionChainList.handle(req, limit, offset, responses)
 
     }
+
 
     val responses: evolutionChainListResponses[F] = new evolutionChainListResponses[F] {
       def resp200(value: PaginatedEvolutionChainSummaryList): F[Response[F]] = Ok(value)
@@ -48,16 +45,12 @@ final case class EvolutionApiRoutes[
     import EvolutionApiDelegate.evolutionChainRetrieveResponses
 
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "evolution-chain" / id) as auth =>
-        delegate.evolutionChainRetrieve.handle_basicAuth(auth, req, id, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "evolution-chain" / id =>
+        delegate.evolutionChainRetrieve.handle(req, id, responses)
 
     }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "evolution-chain" / id) as auth =>
-        delegate.evolutionChainRetrieve.handle_cookieAuth(auth, req, id, responses)
 
-    }
 
     val responses: evolutionChainRetrieveResponses[F] = new evolutionChainRetrieveResponses[F] {
       def resp200(value: EvolutionChainDetail): F[Response[F]] = Ok(value)
@@ -70,16 +63,12 @@ final case class EvolutionApiRoutes[
     object offsetQueryParam extends OptionalQueryParamDecoderMatcher[Int]("offset")
     object qQueryParam extends OptionalQueryParamDecoderMatcher[String]("q")
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "evolution-trigger" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q)) as auth =>
-        delegate.evolutionTriggerList.handle_basicAuth(auth, req, limit, offset, q, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "evolution-trigger" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q) =>
+        delegate.evolutionTriggerList.handle(req, limit, offset, q, responses)
 
     }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "evolution-trigger" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q)) as auth =>
-        delegate.evolutionTriggerList.handle_cookieAuth(auth, req, limit, offset, q, responses)
 
-    }
 
     val responses: evolutionTriggerListResponses[F] = new evolutionTriggerListResponses[F] {
       def resp200(value: PaginatedEvolutionTriggerSummaryList): F[Response[F]] = Ok(value)
@@ -89,32 +78,58 @@ final case class EvolutionApiRoutes[
     import EvolutionApiDelegate.evolutionTriggerRetrieveResponses
 
 
-    val routebasicAuth = AuthedRoutes.of[basicAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "evolution-trigger" / id) as auth =>
-        delegate.evolutionTriggerRetrieve.handle_basicAuth(auth, req, id, responses)
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "evolution-trigger" / id =>
+        delegate.evolutionTriggerRetrieve.handle(req, id, responses)
 
     }
-    val routecookieAuth = AuthedRoutes.of[cookieAuth, F] {
-      case (req @ GET -> Root / "api" / "v2" / "evolution-trigger" / id) as auth =>
-        delegate.evolutionTriggerRetrieve.handle_cookieAuth(auth, req, id, responses)
 
-    }
 
     val responses: evolutionTriggerRetrieveResponses[F] = new evolutionTriggerRetrieveResponses[F] {
       def resp200(value: EvolutionTriggerDetail): F[Response[F]] = Ok(value)
     }
   }
+  object evolutionVariableList {
+    import EvolutionApiDelegate.evolutionVariableListResponses
 
-  val routesbasicAuth =
-    evolutionChainList.routebasicAuth <+>
-    evolutionChainRetrieve.routebasicAuth <+>
-    evolutionTriggerList.routebasicAuth <+>
-    evolutionTriggerRetrieve.routebasicAuth
-  val routescookieAuth =
-    evolutionChainList.routecookieAuth <+>
-    evolutionChainRetrieve.routecookieAuth <+>
-    evolutionTriggerList.routecookieAuth <+>
-    evolutionTriggerRetrieve.routecookieAuth
+    object limitQueryParam extends OptionalQueryParamDecoderMatcher[Int]("limit")
+    object offsetQueryParam extends OptionalQueryParamDecoderMatcher[Int]("offset")
+    object qQueryParam extends OptionalQueryParamDecoderMatcher[String]("q")
+
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "evolution-variable" :? limitQueryParam(limit) +& offsetQueryParam(offset) +& qQueryParam(q) =>
+        delegate.evolutionVariableList.handle(req, limit, offset, q, responses)
+
+    }
+
+
+    val responses: evolutionVariableListResponses[F] = new evolutionVariableListResponses[F] {
+      def resp200(value: PaginatedEvolutionVariableSummaryList): F[Response[F]] = Ok(value)
+    }
+  }
+  object evolutionVariableRetrieve {
+    import EvolutionApiDelegate.evolutionVariableRetrieveResponses
+
+
+    val route = HttpRoutes.of[F] {
+      case req @ GET -> Root / "api" / "v2" / "evolution-variable" / id =>
+        delegate.evolutionVariableRetrieve.handle(req, id, responses)
+
+    }
+
+
+    val responses: evolutionVariableRetrieveResponses[F] = new evolutionVariableRetrieveResponses[F] {
+      def resp200(value: EvolutionVariableDetail): F[Response[F]] = Ok(value)
+    }
+  }
+
+  val routes =
+    evolutionChainList.route <+>
+    evolutionChainRetrieve.route <+>
+    evolutionTriggerList.route <+>
+    evolutionTriggerRetrieve.route <+>
+    evolutionVariableList.route <+>
+    evolutionVariableRetrieve.route
 }
 
 object EvolutionApiDelegate {
@@ -134,29 +149,25 @@ object EvolutionApiDelegate {
     def resp200(value: EvolutionTriggerDetail): F[Response[F]]
   }
 
+  trait evolutionVariableListResponses[F[_]] {
+    def resp200(value: PaginatedEvolutionVariableSummaryList): F[Response[F]]
+  }
+
+  trait evolutionVariableRetrieveResponses[F[_]] {
+    def resp200(value: EvolutionVariableDetail): F[Response[F]]
+  }
+
 }
 
-trait EvolutionApiDelegate[F[_], basicAuth, cookieAuth] {
+trait EvolutionApiDelegate[F[_]] {
 
   trait evolutionChainList {
     import EvolutionApiDelegate.evolutionChainListResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
+    def handle(
       req: Request[F],
       limit: Option[Int],
       offset: Option[Int],
-      q: Option[String],
-      responses: evolutionChainListResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
-      req: Request[F],
-      limit: Option[Int],
-      offset: Option[Int],
-      q: Option[String],
       responses: evolutionChainListResponses[F]
     ): F[Response[F]]
 
@@ -167,16 +178,7 @@ trait EvolutionApiDelegate[F[_], basicAuth, cookieAuth] {
   trait evolutionChainRetrieve {
     import EvolutionApiDelegate.evolutionChainRetrieveResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
-      req: Request[F],
-      id: String,
-      responses: evolutionChainRetrieveResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
+    def handle(
       req: Request[F],
       id: String,
       responses: evolutionChainRetrieveResponses[F]
@@ -189,18 +191,7 @@ trait EvolutionApiDelegate[F[_], basicAuth, cookieAuth] {
   trait evolutionTriggerList {
     import EvolutionApiDelegate.evolutionTriggerListResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
-      req: Request[F],
-      limit: Option[Int],
-      offset: Option[Int],
-      q: Option[String],
-      responses: evolutionTriggerListResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
+    def handle(
       req: Request[F],
       limit: Option[Int],
       offset: Option[Int],
@@ -215,16 +206,7 @@ trait EvolutionApiDelegate[F[_], basicAuth, cookieAuth] {
   trait evolutionTriggerRetrieve {
     import EvolutionApiDelegate.evolutionTriggerRetrieveResponses
 
-
-    def handle_basicAuth(
-      auth: basicAuth,
-      req: Request[F],
-      id: String,
-      responses: evolutionTriggerRetrieveResponses[F]
-    ): F[Response[F]]
-
-    def handle_cookieAuth(
-      auth: cookieAuth,
+    def handle(
       req: Request[F],
       id: String,
       responses: evolutionTriggerRetrieveResponses[F]
@@ -232,5 +214,33 @@ trait EvolutionApiDelegate[F[_], basicAuth, cookieAuth] {
 
   }
   def evolutionTriggerRetrieve: evolutionTriggerRetrieve
+
+
+  trait evolutionVariableList {
+    import EvolutionApiDelegate.evolutionVariableListResponses
+
+    def handle(
+      req: Request[F],
+      limit: Option[Int],
+      offset: Option[Int],
+      q: Option[String],
+      responses: evolutionVariableListResponses[F]
+    ): F[Response[F]]
+
+  }
+  def evolutionVariableList: evolutionVariableList
+
+
+  trait evolutionVariableRetrieve {
+    import EvolutionApiDelegate.evolutionVariableRetrieveResponses
+
+    def handle(
+      req: Request[F],
+      id: String,
+      responses: evolutionVariableRetrieveResponses[F]
+    ): F[Response[F]]
+
+  }
+  def evolutionVariableRetrieve: evolutionVariableRetrieve
 
 }

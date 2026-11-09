@@ -23,8 +23,10 @@
 
 package org.openapitools.client.models
 
-import org.openapitools.client.models.AbilityDetailPokemonInnerPokemon
 import org.openapitools.client.models.GenerationSummary
+import org.openapitools.client.models.MoveLearnMethodSummary
+import org.openapitools.client.models.PokedexSummary
+import org.openapitools.client.models.RegionSummary
 import org.openapitools.client.models.VersionSummary
 
 import com.squareup.moshi.Json
@@ -33,40 +35,48 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param id 
- * @param name 
- * @param generation 
- * @param moveLearnMethods 
- * @param pokedexes 
- * @param regions 
- * @param versions 
- * @param order 
+ * @param id The identifier for this resource.
+ * @param name The name for this resource.
+ * @param generation The generation this version was introduced in.
+ * @param moveLearnMethods A list of methods in which Pokémon can learn moves in this version group.
+ * @param pokedexes A list of Pokédexes introduces in this version group.
+ * @param regions A list of regions that can be visited in this version group.
+ * @param versions The versions this version group owns.
+ * @param order Order for sorting. Almost by date of release, except similar versions are grouped together.
  */
 
 
 data class VersionGroupDetail (
 
+    /* The identifier for this resource. */
     @Json(name = "id")
     val id: kotlin.Int,
 
+    /* The name for this resource. */
     @Json(name = "name")
     val name: kotlin.String,
 
+    /* The generation this version was introduced in. */
     @Json(name = "generation")
     val generation: GenerationSummary,
 
+    /* A list of methods in which Pokémon can learn moves in this version group. */
     @Json(name = "move_learn_methods")
-    val moveLearnMethods: kotlin.collections.List<AbilityDetailPokemonInnerPokemon>,
+    val moveLearnMethods: kotlin.collections.List<MoveLearnMethodSummary>,
 
+    /* A list of Pokédexes introduces in this version group. */
     @Json(name = "pokedexes")
-    val pokedexes: kotlin.collections.List<AbilityDetailPokemonInnerPokemon>,
+    val pokedexes: kotlin.collections.List<PokedexSummary>,
 
+    /* A list of regions that can be visited in this version group. */
     @Json(name = "regions")
-    val regions: kotlin.collections.List<AbilityDetailPokemonInnerPokemon>,
+    val regions: kotlin.collections.List<RegionSummary>,
 
+    /* The versions this version group owns. */
     @Json(name = "versions")
     val versions: kotlin.collections.List<VersionSummary>,
 
+    /* Order for sorting. Almost by date of release, except similar versions are grouped together. */
     @Json(name = "order")
     val order: kotlin.Int? = null
 

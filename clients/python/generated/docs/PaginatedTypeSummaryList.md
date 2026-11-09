@@ -5,10 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**count** | **int** |  | [optional] 
-**next** | **str** |  | [optional] 
-**previous** | **str** |  | [optional] 
-**results** | [**List[TypeSummary]**](TypeSummary.md) |  | [optional] 
+**count** | **int** | The total number of resources available from this API. | 
+**next** | **str** | The URL for the next page in the list, or null if there is no next page. | [optional] 
+**previous** | **str** | The URL for the previous page in the list, or null if there is no previous page. | [optional] 
+**results** | [**List[TypeSummary]**](TypeSummary.md) | A list of API resources on this page. | 
 
 ## Example
 

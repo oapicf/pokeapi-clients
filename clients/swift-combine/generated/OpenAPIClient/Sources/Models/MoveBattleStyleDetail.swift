@@ -8,8 +8,11 @@
 import Foundation
 
 public struct MoveBattleStyleDetail: Codable {
+    /// The identifier for this resource.
     public var id: Int
+    /// The name for this resource.
     public var name: String
+    /// The name of this resource listed in different languages.
     public var names: [MoveBattleStyleName]
 
     public init(id: Int, name: String, names: [MoveBattleStyleName]) {

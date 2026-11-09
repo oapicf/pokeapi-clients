@@ -6,8 +6,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**versionGroup** | [**VersionGroupSummary**](VersionGroupSummary.md) |  | 
-**effectEntries** | [**List&lt;AbilityChangeEffectText&gt;**](AbilityChangeEffectText.md) |  |  [readonly]
+**versionGroup** | [**VersionGroupSummary**](VersionGroupSummary.md) | The version group in which the previous effect of this ability originated. | 
+**effectEntries** | [**List&lt;AbilityChangeEffectText&gt;**](AbilityChangeEffectText.md) | The previous effect of this ability listed in different languages. |  [readonly]
 
 
 

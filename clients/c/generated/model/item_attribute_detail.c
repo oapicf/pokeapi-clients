@@ -77,7 +77,7 @@ void item_attribute_detail_free(item_attribute_detail_t *item_attribute_detail) 
     }
     if (item_attribute_detail->items) {
         list_ForEach(listEntry, item_attribute_detail->items) {
-            ability_detail_pokemon_inner_pokemon_free(listEntry->data);
+            item_summary_free(listEntry->data);
         }
         list_freeList(item_attribute_detail->items);
         item_attribute_detail->items = NULL;
@@ -146,7 +146,7 @@ cJSON *item_attribute_detail_convertToJSON(item_attribute_detail_t *item_attribu
     listEntry_t *itemsListEntry;
     if (item_attribute_detail->items) {
     list_ForEach(itemsListEntry, item_attribute_detail->items) {
-    cJSON *itemLocal = ability_detail_pokemon_inner_pokemon_convertToJSON(itemsListEntry->data);
+    cJSON *itemLocal = item_summary_convertToJSON(itemsListEntry->data);
     if(itemLocal == NULL) {
     goto fail;
     }
@@ -286,7 +286,7 @@ item_attribute_detail_t *item_attribute_detail_parseFromJSON(cJSON *item_attribu
         if(!cJSON_IsObject(items_local_nonprimitive)){
             goto end;
         }
-        ability_detail_pokemon_inner_pokemon_t *itemsItem = ability_detail_pokemon_inner_pokemon_parseFromJSON(items_local_nonprimitive);
+        item_summary_t *itemsItem = item_summary_parseFromJSON(items_local_nonprimitive);
 
         list_addElement(itemsList, itemsItem);
     }
@@ -355,7 +355,7 @@ end:
     if (itemsList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, itemsList) {
-            ability_detail_pokemon_inner_pokemon_free(listEntry->data);
+            item_summary_free(listEntry->data);
             listEntry->data = NULL;
         }
         list_freeList(itemsList);

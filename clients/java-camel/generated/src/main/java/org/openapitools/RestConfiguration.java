@@ -20,6 +20,6 @@ public class RestConfiguration extends RouteBuilder {
             .bindingMode(RestBindingMode.auto)
             .clientRequestValidation(false)
             .apiProperty("api.title", "PokéAPI")
-            .apiProperty("api.version", "2.7.0");
+            .apiProperty("api.version", "2.10.0");
     }
 }

@@ -9,13 +9,17 @@ import Foundation
 
 public struct GenderDetail: Sendable, Codable, Hashable {
 
-    public static let nameRule = StringRule(minLength: nil, maxLength: 100, pattern: nil)
+    public static let nameRule = StringRule(minLength: nil, maxLength: 200, pattern: nil)
+    /** The identifier for this resource. */
     public var id: Int
+    /** The name for this resource. */
     public var name: String
-    public var pokemonSpeciesDetails: [GenderDetailPokemonSpeciesDetailsInner]
-    public var requiredForEvolution: [AbilityDetailPokemonInnerPokemon]
+    /** A list of Pokémon species that can be this gender and how likely it is that they will be. */
+    public var pokemonSpeciesDetails: [GenderPokemonSpecies]
+    /** A list of Pokémon species that required this gender in order for a Pokémon to evolve into them. */
+    public var requiredForEvolution: [PokemonSpeciesSummary]
 
-    public init(id: Int, name: String, pokemonSpeciesDetails: [GenderDetailPokemonSpeciesDetailsInner], requiredForEvolution: [AbilityDetailPokemonInnerPokemon]) {
+    public init(id: Int, name: String, pokemonSpeciesDetails: [GenderPokemonSpecies], requiredForEvolution: [PokemonSpeciesSummary]) {
         self.id = id
         self.name = name
         self.pokemonSpeciesDetails = pokemonSpeciesDetails

@@ -7,8 +7,8 @@
 #' @title ItemFlingEffectEffectText
 #' @description ItemFlingEffectEffectText Class
 #' @format An \code{R6Class} generator object
-#' @field effect  character
-#' @field language  \link{LanguageSummary}
+#' @field effect The localized effect text for an API resource in a specific language. character
+#' @field language The language this effect is in. \link{LanguageSummary}
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -21,8 +21,8 @@ ItemFlingEffectEffectText <- R6::R6Class(
     #' @description
     #' Initialize a new ItemFlingEffectEffectText class.
     #'
-    #' @param effect effect
-    #' @param language language
+    #' @param effect The localized effect text for an API resource in a specific language.
+    #' @param language The language this effect is in.
     #' @param ... Other optional arguments.
     initialize = function(`effect`, `language`, ...) {
       if (!missing(`effect`)) {

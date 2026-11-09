@@ -1,0 +1,19 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "PokemonCries",
+  "fields": [
+    {
+      "name": "latest",
+      "type": "string",
+      "doc": "The latest depiction of this Pokémon's cry."
+    },
+    {
+      "name": "legacy",
+      "type": "string",
+      "doc": "The legacy depiction of this Pokémon's cry."
+    }
+  ]
+
+}

@@ -14,31 +14,23 @@ open class MachinesAPI {
      
      - parameter limit: (query) Number of results to return per page. (optional)
      - parameter offset: (query) The initial index from which to return the results. (optional)
-     - parameter q: (query) &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: PaginatedMachineSummaryList
      */
-    open class func machineList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedMachineSummaryList {
-        return try await machineListWithRequestBuilder(limit: limit, offset: offset, q: q, apiConfiguration: apiConfiguration).execute().body
+    open class func machineList(limit: Int? = nil, offset: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PaginatedMachineSummaryList {
+        return try await machineListWithRequestBuilder(limit: limit, offset: offset, apiConfiguration: apiConfiguration).execute().body
     }
 
     /**
      List machines
      - GET /api/v2/machine/
      - Machines are the representation of items that teach moves to Pokémon. They vary from version to version, so it is not certain that one specific TM or HM corresponds to a single Machine.
-     - BASIC:
-       - type: http
-       - name: basicAuth
-     - API Key:
-       - type: apiKey sessionid 
-       - name: cookieAuth
      - parameter limit: (query) Number of results to return per page. (optional)
      - parameter offset: (query) The initial index from which to return the results. (optional)
-     - parameter q: (query) &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<PaginatedMachineSummaryList> 
      */
-    open class func machineListWithRequestBuilder(limit: Int? = nil, offset: Int? = nil, q: String? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<PaginatedMachineSummaryList> {
+    open class func machineListWithRequestBuilder(limit: Int? = nil, offset: Int? = nil, apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<PaginatedMachineSummaryList> {
         let localVariablePath = "/api/v2/machine/"
         let localVariableURLString = apiConfiguration.basePath + localVariablePath
         let localVariableParameters: [String: any Sendable]? = nil
@@ -47,7 +39,6 @@ open class MachinesAPI {
         let localVariableQueryParameters: [String: (wrappedValue: (any Sendable)?, isExplode: Bool)] = [
             "limit": (wrappedValue: limit?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
             "offset": (wrappedValue: offset?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
-            "q": (wrappedValue: q?.asParameter(codableHelper: apiConfiguration.codableHelper), isExplode: true),
         ]
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems(localVariableQueryParameters)
 
@@ -59,7 +50,7 @@ open class MachinesAPI {
 
         let localVariableRequestBuilder: RequestBuilder<PaginatedMachineSummaryList>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: false, apiConfiguration: apiConfiguration)
     }
 
     /**
@@ -77,12 +68,6 @@ open class MachinesAPI {
      Get machine
      - GET /api/v2/machine/{id}/
      - Machines are the representation of items that teach moves to Pokémon. They vary from version to version, so it is not certain that one specific TM or HM corresponds to a single Machine.
-     - BASIC:
-       - type: http
-       - name: basicAuth
-     - API Key:
-       - type: apiKey sessionid 
-       - name: cookieAuth
      - parameter id: (path) This parameter can be a string or an integer. 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<MachineDetail> 
@@ -105,6 +90,6 @@ open class MachinesAPI {
 
         let localVariableRequestBuilder: RequestBuilder<MachineDetail>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: false, apiConfiguration: apiConfiguration)
     }
 }

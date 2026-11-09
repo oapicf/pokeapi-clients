@@ -33,18 +33,18 @@ public class MoveMeta   {
     /**
      * Create MoveMeta.
      *
-     * @param ailment ailment
-     * @param category category
-     * @param minHits minHits
-     * @param maxHits maxHits
-     * @param minTurns minTurns
-     * @param maxTurns maxTurns
-     * @param drain drain
-     * @param healing healing
-     * @param critRate critRate
-     * @param ailmentChance ailmentChance
-     * @param flinchChance flinchChance
-     * @param statChance statChance
+     * @param ailment The status ailment this move inflicts on its target.
+     * @param category The category of move this move falls under, e.g. damage or ailment.
+     * @param minHits The minimum number of times this move hits. Null if it always only hits once.
+     * @param maxHits The maximum number of times this move hits. Null if it always only hits once.
+     * @param minTurns The minimum number of turns this move continues to take effect. Null if it always only lasts one turn.
+     * @param maxTurns The maximum number of turns this move continues to take effect. Null if it always only lasts one turn.
+     * @param drain HP drain (if positive) or Recoil damage (if negative), in percent of damage done.
+     * @param healing The amount of hp gained by the attacking Pokemon, in percent of it&#39;s maximum HP.
+     * @param critRate Critical hit rate bonus.
+     * @param ailmentChance The likelihood this attack will cause an ailment.
+     * @param flinchChance The likelihood this attack will cause the target Pokémon to flinch.
+     * @param statChance The likelihood this attack will cause a stat change in the target Pokémon.
      */
     public MoveMeta(
         MoveMetaAilmentSummary ailment, 
@@ -77,7 +77,7 @@ public class MoveMeta   {
 
 
     /**
-     * Get ailment
+     * The status ailment this move inflicts on its target.
      * @return ailment
      */
     public MoveMetaAilmentSummary getAilment() {
@@ -89,7 +89,7 @@ public class MoveMeta   {
     }
 
     /**
-     * Get category
+     * The category of move this move falls under, e.g. damage or ailment.
      * @return category
      */
     public MoveMetaCategorySummary getCategory() {
@@ -101,7 +101,9 @@ public class MoveMeta   {
     }
 
     /**
-     * Get minHits
+     * The minimum number of times this move hits. Null if it always only hits once.
+     * minimum: -2147483648
+     * maximum: 2147483647
      * @return minHits
      */
     public Integer getMinHits() {
@@ -113,7 +115,9 @@ public class MoveMeta   {
     }
 
     /**
-     * Get maxHits
+     * The maximum number of times this move hits. Null if it always only hits once.
+     * minimum: -2147483648
+     * maximum: 2147483647
      * @return maxHits
      */
     public Integer getMaxHits() {
@@ -125,7 +129,9 @@ public class MoveMeta   {
     }
 
     /**
-     * Get minTurns
+     * The minimum number of turns this move continues to take effect. Null if it always only lasts one turn.
+     * minimum: -2147483648
+     * maximum: 2147483647
      * @return minTurns
      */
     public Integer getMinTurns() {
@@ -137,7 +143,9 @@ public class MoveMeta   {
     }
 
     /**
-     * Get maxTurns
+     * The maximum number of turns this move continues to take effect. Null if it always only lasts one turn.
+     * minimum: -2147483648
+     * maximum: 2147483647
      * @return maxTurns
      */
     public Integer getMaxTurns() {
@@ -149,7 +157,9 @@ public class MoveMeta   {
     }
 
     /**
-     * Get drain
+     * HP drain (if positive) or Recoil damage (if negative), in percent of damage done.
+     * minimum: -2147483648
+     * maximum: 2147483647
      * @return drain
      */
     public Integer getDrain() {
@@ -161,7 +171,9 @@ public class MoveMeta   {
     }
 
     /**
-     * Get healing
+     * The amount of hp gained by the attacking Pokemon, in percent of it's maximum HP.
+     * minimum: -2147483648
+     * maximum: 2147483647
      * @return healing
      */
     public Integer getHealing() {
@@ -173,7 +185,9 @@ public class MoveMeta   {
     }
 
     /**
-     * Get critRate
+     * Critical hit rate bonus.
+     * minimum: -2147483648
+     * maximum: 2147483647
      * @return critRate
      */
     public Integer getCritRate() {
@@ -185,7 +199,9 @@ public class MoveMeta   {
     }
 
     /**
-     * Get ailmentChance
+     * The likelihood this attack will cause an ailment.
+     * minimum: -2147483648
+     * maximum: 2147483647
      * @return ailmentChance
      */
     public Integer getAilmentChance() {
@@ -197,7 +213,9 @@ public class MoveMeta   {
     }
 
     /**
-     * Get flinchChance
+     * The likelihood this attack will cause the target Pokémon to flinch.
+     * minimum: -2147483648
+     * maximum: 2147483647
      * @return flinchChance
      */
     public Integer getFlinchChance() {
@@ -209,7 +227,9 @@ public class MoveMeta   {
     }
 
     /**
-     * Get statChance
+     * The likelihood this attack will cause a stat change in the target Pokémon.
+     * minimum: -2147483648
+     * maximum: 2147483647
      * @return statChance
      */
     public Integer getStatChance() {

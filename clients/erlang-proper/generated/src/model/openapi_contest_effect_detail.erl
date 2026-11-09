@@ -22,8 +22,8 @@ openapi_contest_effect_detail() ->
 
 openapi_contest_effect_detail(Fields) ->
   Default = [ {'id', integer() }
-            , {'appeal', integer() }
-            , {'jam', integer() }
+            , {'appeal', integer(-2147483648, 2147483647) }
+            , {'jam', integer(-2147483648, 2147483647) }
             , {'effect_entries', list(openapi_contest_effect_effect_text:openapi_contest_effect_effect_text()) }
             , {'flavor_text_entries', list(openapi_contest_effect_flavor_text:openapi_contest_effect_flavor_text()) }
             ],

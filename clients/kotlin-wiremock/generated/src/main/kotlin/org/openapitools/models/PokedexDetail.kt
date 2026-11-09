@@ -21,13 +21,13 @@ data class PokedexDetail(
     val names: kotlin.collections.List<PokedexName>,
 
     @field:JsonProperty("pokemon_entries")
-    val pokemonEntries: kotlin.collections.List<PokedexDetailPokemonEntriesInner>,
+    val pokemonEntries: kotlin.collections.List<PokemonDexNumber>,
 
     @field:JsonProperty("region")
     val region: RegionSummary,
 
     @field:JsonProperty("version_groups")
-    val versionGroups: kotlin.collections.List<AbilityDetailPokemonInnerPokemon>,
+    val versionGroups: kotlin.collections.List<VersionGroupSummary>,
 
     @field:JsonProperty("is_main_series")
     val isMainSeries: kotlin.Boolean? = null,

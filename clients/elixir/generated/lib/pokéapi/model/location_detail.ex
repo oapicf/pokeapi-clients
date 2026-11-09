@@ -19,7 +19,7 @@ defmodule PokéAPI.Model.LocationDetail do
   @type t :: %__MODULE__{
     :id => integer(),
     :name => String.t,
-    :region => PokéAPI.Model.RegionSummary.t,
+    :region => PokéAPI.Model.RegionSummary.t | nil,
     :names => [PokéAPI.Model.LocationName.t],
     :game_indices => [PokéAPI.Model.LocationGameIndex.t],
     :areas => [PokéAPI.Model.LocationAreaSummary.t]

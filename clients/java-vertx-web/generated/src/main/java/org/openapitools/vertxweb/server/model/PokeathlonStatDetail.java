@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.vertxweb.server.model.PokeathlonStatDetailAffectingNatures;
+import org.openapitools.vertxweb.server.model.PokeathlonStatAffectingNatures;
 import org.openapitools.vertxweb.server.model.PokeathlonStatName;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -14,14 +14,14 @@ public class PokeathlonStatDetail   {
   
   private Integer id;
   private String name;
-  private PokeathlonStatDetailAffectingNatures affectingNatures;
+  private PokeathlonStatAffectingNatures affectingNatures;
   private List<PokeathlonStatName> names = new ArrayList<>();
 
   public PokeathlonStatDetail () {
 
   }
 
-  public PokeathlonStatDetail (Integer id, String name, PokeathlonStatDetailAffectingNatures affectingNatures, List<PokeathlonStatName> names) {
+  public PokeathlonStatDetail (Integer id, String name, PokeathlonStatAffectingNatures affectingNatures, List<PokeathlonStatName> names) {
     this.id = id;
     this.name = name;
     this.affectingNatures = affectingNatures;
@@ -48,10 +48,10 @@ public class PokeathlonStatDetail   {
 
     
   @JsonProperty("affecting_natures")
-  public PokeathlonStatDetailAffectingNatures getAffectingNatures() {
+  public PokeathlonStatAffectingNatures getAffectingNatures() {
     return affectingNatures;
   }
-  public void setAffectingNatures(PokeathlonStatDetailAffectingNatures affectingNatures) {
+  public void setAffectingNatures(PokeathlonStatAffectingNatures affectingNatures) {
     this.affectingNatures = affectingNatures;
   }
 

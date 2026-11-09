@@ -46,25 +46,25 @@ public:
 	 */
     void fromJson(std::string jsonObj);
 
-	/*! \brief Get 
+	/*! \brief Get Chance of using the move, in percent, if HP is under one half.
 	 */
 	int getLowHpPreference();
 
-	/*! \brief Set 
+	/*! \brief Set Chance of using the move, in percent, if HP is under one half.
 	 */
 	void setLowHpPreference(int low_hp_preference);
-	/*! \brief Get 
+	/*! \brief Get Chance of using the move, in percent, if HP is over one half.
 	 */
 	int getHighHpPreference();
 
-	/*! \brief Set 
+	/*! \brief Set Chance of using the move, in percent, if HP is over one half.
 	 */
 	void setHighHpPreference(int high_hp_preference);
-	/*! \brief Get 
+	/*! \brief Get The move battle style.
 	 */
 	MoveBattleStyleSummary getMoveBattleStyle();
 
-	/*! \brief Set 
+	/*! \brief Set The move battle style.
 	 */
 	void setMoveBattleStyle(MoveBattleStyleSummary move_battle_style);
 

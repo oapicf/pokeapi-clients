@@ -7,8 +7,8 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.model.PokemonShapeDetailAwesomeNamesInner;
-import org.openapitools.model.PokemonShapeDetailNamesInner;
+import org.openapitools.model.PokemonShapeAwesomeName;
+import org.openapitools.model.PokemonShapeName;
 import org.openapitools.model.PokemonSpeciesSummary;
 import org.springframework.lang.Nullable;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -25,16 +25,16 @@ import jakarta.annotation.Generated;
  * PokemonShapeDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-10-25T05:53:37.479908528Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-11-09T13:53:47.069318184Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PokemonShapeDetail {
 
   private Integer id;
 
   private String name;
 
-  private List<@Valid PokemonShapeDetailAwesomeNamesInner> awesomeNames = new ArrayList<>();
+  private List<@Valid PokemonShapeAwesomeName> awesomeNames = new ArrayList<>();
 
-  private List<@Valid PokemonShapeDetailNamesInner> names = new ArrayList<>();
+  private List<@Valid PokemonShapeName> names = new ArrayList<>();
 
   private List<@Valid PokemonSpeciesSummary> pokemonSpecies = new ArrayList<>();
 
@@ -45,7 +45,7 @@ public class PokemonShapeDetail {
   /**
    * Constructor with only required parameters
    */
-  public PokemonShapeDetail(Integer id, String name, List<@Valid PokemonShapeDetailAwesomeNamesInner> awesomeNames, List<@Valid PokemonShapeDetailNamesInner> names, List<@Valid PokemonSpeciesSummary> pokemonSpecies) {
+  public PokemonShapeDetail(Integer id, String name, List<@Valid PokemonShapeAwesomeName> awesomeNames, List<@Valid PokemonShapeName> names, List<@Valid PokemonSpeciesSummary> pokemonSpecies) {
     this.id = id;
     this.name = name;
     this.awesomeNames = awesomeNames;
@@ -59,11 +59,11 @@ public class PokemonShapeDetail {
   }
 
   /**
-   * Get id
+   * The identifier for this resource.
    * @return id
    */
   
-  @Schema(name = "id", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "id", accessMode = Schema.AccessMode.READ_ONLY, description = "The identifier for this resource.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("id")
   public Integer getId() {
     return id;
@@ -80,11 +80,11 @@ public class PokemonShapeDetail {
   }
 
   /**
-   * Get name
+   * The name for this resource.
    * @return name
    */
-  @NotNull @Size(max = 100) 
-  @Schema(name = "name", requiredMode = Schema.RequiredMode.REQUIRED)
+  @NotNull @Size(max = 200) 
+  @Schema(name = "name", description = "The name for this resource.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("name")
   public String getName() {
     return name;
@@ -95,12 +95,12 @@ public class PokemonShapeDetail {
     this.name = name;
   }
 
-  public PokemonShapeDetail awesomeNames(List<@Valid PokemonShapeDetailAwesomeNamesInner> awesomeNames) {
+  public PokemonShapeDetail awesomeNames(List<@Valid PokemonShapeAwesomeName> awesomeNames) {
     this.awesomeNames = awesomeNames;
     return this;
   }
 
-  public PokemonShapeDetail addAwesomeNamesItem(PokemonShapeDetailAwesomeNamesInner awesomeNamesItem) {
+  public PokemonShapeDetail addAwesomeNamesItem(PokemonShapeAwesomeName awesomeNamesItem) {
     if (this.awesomeNames == null) {
       this.awesomeNames = new ArrayList<>();
     }
@@ -109,27 +109,27 @@ public class PokemonShapeDetail {
   }
 
   /**
-   * Get awesomeNames
+   * The \"scientific\" name of this Pokémon shape listed in different languages.
    * @return awesomeNames
    */
   
-  @Schema(name = "awesome_names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "awesome_names", accessMode = Schema.AccessMode.READ_ONLY, description = "The \"scientific\" name of this Pokémon shape listed in different languages.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("awesome_names")
-  public List<@Valid PokemonShapeDetailAwesomeNamesInner> getAwesomeNames() {
+  public List<@Valid PokemonShapeAwesomeName> getAwesomeNames() {
     return awesomeNames;
   }
 
   @JsonProperty("awesome_names")
-  public void setAwesomeNames(List<@Valid PokemonShapeDetailAwesomeNamesInner> awesomeNames) {
+  public void setAwesomeNames(List<@Valid PokemonShapeAwesomeName> awesomeNames) {
     this.awesomeNames = awesomeNames;
   }
 
-  public PokemonShapeDetail names(List<@Valid PokemonShapeDetailNamesInner> names) {
+  public PokemonShapeDetail names(List<@Valid PokemonShapeName> names) {
     this.names = names;
     return this;
   }
 
-  public PokemonShapeDetail addNamesItem(PokemonShapeDetailNamesInner namesItem) {
+  public PokemonShapeDetail addNamesItem(PokemonShapeName namesItem) {
     if (this.names == null) {
       this.names = new ArrayList<>();
     }
@@ -138,18 +138,18 @@ public class PokemonShapeDetail {
   }
 
   /**
-   * Get names
+   * The name of this resource listed in different languages.
    * @return names
    */
   
-  @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, description = "The name of this resource listed in different languages.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("names")
-  public List<@Valid PokemonShapeDetailNamesInner> getNames() {
+  public List<@Valid PokemonShapeName> getNames() {
     return names;
   }
 
   @JsonProperty("names")
-  public void setNames(List<@Valid PokemonShapeDetailNamesInner> names) {
+  public void setNames(List<@Valid PokemonShapeName> names) {
     this.names = names;
   }
 
@@ -167,11 +167,11 @@ public class PokemonShapeDetail {
   }
 
   /**
-   * Get pokemonSpecies
+   * A list of the Pokémon species that have this shape.
    * @return pokemonSpecies
    */
   
-  @Schema(name = "pokemon_species", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "pokemon_species", accessMode = Schema.AccessMode.READ_ONLY, description = "A list of the Pokémon species that have this shape.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("pokemon_species")
   public List<@Valid PokemonSpeciesSummary> getPokemonSpecies() {
     return pokemonSpecies;

@@ -57,8 +57,6 @@ from openapi_server.models.pokemon_shape_detail import PokemonShapeDetail
 from openapi_server.models.pokemon_species_detail import PokemonSpeciesDetail
 from openapi_server.models.stat_detail import StatDetail
 from openapi_server.models.type_detail import TypeDetail
-from openapi_server.models.extra_models import TokenModel  # noqa: F401
-from openapi_server.security_api import get_token_basicAuth, get_token_cookieAuth
 
 router = APIRouter()
 
@@ -73,18 +71,13 @@ for _, name, _ in pkgutil.iter_modules(ns_pkg.__path__, ns_pkg.__name__ + "."):
         200: {"model": PaginatedAbilitySummaryList, "description": ""},
     },
     tags=["pokemon"],
+    summary="List abilities",
     response_model_by_alias=True,
 )
 async def ability_list(
     limit: Annotated[Optional[int], Field(description="Number of results to return per page.")] = Query(None, description="Number of results to return per page.", alias="limit"),
     offset: Annotated[Optional[int], Field(description="The initial index from which to return the results.")] = Query(None, description="The initial index from which to return the results.", alias="offset"),
     q: Annotated[Optional[str], Field(description="> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")] = Query(None, description="&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ", alias="q"),
-    token_basicAuth: TokenModel = Security(
-        get_token_basicAuth
-    ),
-    token_cookieAuth: TokenModel = Security(
-        get_token_cookieAuth
-    ),
 ) -> PaginatedAbilitySummaryList:
     """Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail."""
     if not BasePokemonApi.subclasses:
@@ -98,16 +91,11 @@ async def ability_list(
         200: {"model": AbilityDetail, "description": ""},
     },
     tags=["pokemon"],
+    summary="Get ability",
     response_model_by_alias=True,
 )
 async def ability_retrieve(
-    id: Annotated[str, Field(description="This parameter can be a string or an integer.")] = Path(..., description="This parameter can be a string or an integer."),
-    token_basicAuth: TokenModel = Security(
-        get_token_basicAuth
-    ),
-    token_cookieAuth: TokenModel = Security(
-        get_token_cookieAuth
-    ),
+    id: Annotated[str, Field(description="This parameter can be a string or an integer.")] = Path(..., description="This parameter can be a string or an integer.", examples=["1"]),
 ) -> AbilityDetail:
     """Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail."""
     if not BasePokemonApi.subclasses:
@@ -121,24 +109,17 @@ async def ability_retrieve(
         200: {"model": PaginatedCharacteristicSummaryList, "description": ""},
     },
     tags=["pokemon"],
-    summary="List charecterictics",
+    summary="List characteristics",
     response_model_by_alias=True,
 )
 async def characteristic_list(
     limit: Annotated[Optional[int], Field(description="Number of results to return per page.")] = Query(None, description="Number of results to return per page.", alias="limit"),
     offset: Annotated[Optional[int], Field(description="The initial index from which to return the results.")] = Query(None, description="The initial index from which to return the results.", alias="offset"),
-    q: Annotated[Optional[str], Field(description="> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")] = Query(None, description="&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ", alias="q"),
-    token_basicAuth: TokenModel = Security(
-        get_token_basicAuth
-    ),
-    token_cookieAuth: TokenModel = Security(
-        get_token_cookieAuth
-    ),
 ) -> PaginatedCharacteristicSummaryList:
     """Characteristics indicate which stat contains a Pokémon&#39;s highest IV. A Pokémon&#39;s Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail."""
     if not BasePokemonApi.subclasses:
         raise HTTPException(status_code=500, detail="Not implemented")
-    return await BasePokemonApi.subclasses[0]().characteristic_list(limit, offset, q)
+    return await BasePokemonApi.subclasses[0]().characteristic_list(limit, offset)
 
 
 @router.get(
@@ -151,13 +132,7 @@ async def characteristic_list(
     response_model_by_alias=True,
 )
 async def characteristic_retrieve(
-    id: Annotated[str, Field(description="This parameter can be a string or an integer.")] = Path(..., description="This parameter can be a string or an integer."),
-    token_basicAuth: TokenModel = Security(
-        get_token_basicAuth
-    ),
-    token_cookieAuth: TokenModel = Security(
-        get_token_cookieAuth
-    ),
+    id: Annotated[str, Field(description="This parameter can be a string or an integer.")] = Path(..., description="This parameter can be a string or an integer.", examples=["1"]),
 ) -> CharacteristicDetail:
     """Characteristics indicate which stat contains a Pokémon&#39;s highest IV. A Pokémon&#39;s Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail."""
     if not BasePokemonApi.subclasses:
@@ -178,12 +153,6 @@ async def egg_group_list(
     limit: Annotated[Optional[int], Field(description="Number of results to return per page.")] = Query(None, description="Number of results to return per page.", alias="limit"),
     offset: Annotated[Optional[int], Field(description="The initial index from which to return the results.")] = Query(None, description="The initial index from which to return the results.", alias="offset"),
     q: Annotated[Optional[str], Field(description="> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")] = Query(None, description="&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ", alias="q"),
-    token_basicAuth: TokenModel = Security(
-        get_token_basicAuth
-    ),
-    token_cookieAuth: TokenModel = Security(
-        get_token_cookieAuth
-    ),
 ) -> PaginatedEggGroupSummaryList:
     """Egg Groups are categories which determine which Pokémon are able to interbreed. Pokémon may belong to either one or two Egg Groups. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Egg_Group) for greater detail."""
     if not BasePokemonApi.subclasses:
@@ -201,13 +170,7 @@ async def egg_group_list(
     response_model_by_alias=True,
 )
 async def egg_group_retrieve(
-    id: Annotated[str, Field(description="This parameter can be a string or an integer.")] = Path(..., description="This parameter can be a string or an integer."),
-    token_basicAuth: TokenModel = Security(
-        get_token_basicAuth
-    ),
-    token_cookieAuth: TokenModel = Security(
-        get_token_cookieAuth
-    ),
+    id: Annotated[str, Field(description="This parameter can be a string or an integer.")] = Path(..., description="This parameter can be a string or an integer.", examples=["1"]),
 ) -> EggGroupDetail:
     """Egg Groups are categories which determine which Pokémon are able to interbreed. Pokémon may belong to either one or two Egg Groups. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Egg_Group) for greater detail."""
     if not BasePokemonApi.subclasses:
@@ -228,12 +191,6 @@ async def gender_list(
     limit: Annotated[Optional[int], Field(description="Number of results to return per page.")] = Query(None, description="Number of results to return per page.", alias="limit"),
     offset: Annotated[Optional[int], Field(description="The initial index from which to return the results.")] = Query(None, description="The initial index from which to return the results.", alias="offset"),
     q: Annotated[Optional[str], Field(description="> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")] = Query(None, description="&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ", alias="q"),
-    token_basicAuth: TokenModel = Security(
-        get_token_basicAuth
-    ),
-    token_cookieAuth: TokenModel = Security(
-        get_token_cookieAuth
-    ),
 ) -> PaginatedGenderSummaryList:
     """Genders were introduced in Generation II for the purposes of breeding Pokémon but can also result in visual differences or even different evolutionary lines. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Gender) for greater detail."""
     if not BasePokemonApi.subclasses:
@@ -251,13 +208,7 @@ async def gender_list(
     response_model_by_alias=True,
 )
 async def gender_retrieve(
-    id: Annotated[str, Field(description="This parameter can be a string or an integer.")] = Path(..., description="This parameter can be a string or an integer."),
-    token_basicAuth: TokenModel = Security(
-        get_token_basicAuth
-    ),
-    token_cookieAuth: TokenModel = Security(
-        get_token_cookieAuth
-    ),
+    id: Annotated[str, Field(description="This parameter can be a string or an integer.")] = Path(..., description="This parameter can be a string or an integer.", examples=["1"]),
 ) -> GenderDetail:
     """Genders were introduced in Generation II for the purposes of breeding Pokémon but can also result in visual differences or even different evolutionary lines. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Gender) for greater detail."""
     if not BasePokemonApi.subclasses:
@@ -278,12 +229,6 @@ async def growth_rate_list(
     limit: Annotated[Optional[int], Field(description="Number of results to return per page.")] = Query(None, description="Number of results to return per page.", alias="limit"),
     offset: Annotated[Optional[int], Field(description="The initial index from which to return the results.")] = Query(None, description="The initial index from which to return the results.", alias="offset"),
     q: Annotated[Optional[str], Field(description="> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")] = Query(None, description="&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ", alias="q"),
-    token_basicAuth: TokenModel = Security(
-        get_token_basicAuth
-    ),
-    token_cookieAuth: TokenModel = Security(
-        get_token_cookieAuth
-    ),
 ) -> PaginatedGrowthRateSummaryList:
     """Growth rates are the speed with which Pokémon gain levels through experience. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Experience) for greater detail."""
     if not BasePokemonApi.subclasses:
@@ -301,13 +246,7 @@ async def growth_rate_list(
     response_model_by_alias=True,
 )
 async def growth_rate_retrieve(
-    id: Annotated[str, Field(description="This parameter can be a string or an integer.")] = Path(..., description="This parameter can be a string or an integer."),
-    token_basicAuth: TokenModel = Security(
-        get_token_basicAuth
-    ),
-    token_cookieAuth: TokenModel = Security(
-        get_token_cookieAuth
-    ),
+    id: Annotated[str, Field(description="This parameter can be a string or an integer.")] = Path(..., description="This parameter can be a string or an integer.", examples=["1"]),
 ) -> GrowthRateDetail:
     """Growth rates are the speed with which Pokémon gain levels through experience. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Experience) for greater detail."""
     if not BasePokemonApi.subclasses:
@@ -328,12 +267,6 @@ async def move_damage_class_list(
     limit: Annotated[Optional[int], Field(description="Number of results to return per page.")] = Query(None, description="Number of results to return per page.", alias="limit"),
     offset: Annotated[Optional[int], Field(description="The initial index from which to return the results.")] = Query(None, description="The initial index from which to return the results.", alias="offset"),
     q: Annotated[Optional[str], Field(description="> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")] = Query(None, description="&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ", alias="q"),
-    token_basicAuth: TokenModel = Security(
-        get_token_basicAuth
-    ),
-    token_cookieAuth: TokenModel = Security(
-        get_token_cookieAuth
-    ),
 ) -> PaginatedMoveDamageClassSummaryList:
     """Damage classes moves can have, e.g. physical, special, or non-damaging."""
     if not BasePokemonApi.subclasses:
@@ -351,13 +284,7 @@ async def move_damage_class_list(
     response_model_by_alias=True,
 )
 async def move_damage_class_retrieve(
-    id: Annotated[str, Field(description="This parameter can be a string or an integer.")] = Path(..., description="This parameter can be a string or an integer."),
-    token_basicAuth: TokenModel = Security(
-        get_token_basicAuth
-    ),
-    token_cookieAuth: TokenModel = Security(
-        get_token_cookieAuth
-    ),
+    id: Annotated[str, Field(description="This parameter can be a string or an integer.")] = Path(..., description="This parameter can be a string or an integer.", examples=["1"]),
 ) -> MoveDamageClassDetail:
     """Damage classes moves can have, e.g. physical, special, or non-damaging."""
     if not BasePokemonApi.subclasses:
@@ -378,12 +305,6 @@ async def nature_list(
     limit: Annotated[Optional[int], Field(description="Number of results to return per page.")] = Query(None, description="Number of results to return per page.", alias="limit"),
     offset: Annotated[Optional[int], Field(description="The initial index from which to return the results.")] = Query(None, description="The initial index from which to return the results.", alias="offset"),
     q: Annotated[Optional[str], Field(description="> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")] = Query(None, description="&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ", alias="q"),
-    token_basicAuth: TokenModel = Security(
-        get_token_basicAuth
-    ),
-    token_cookieAuth: TokenModel = Security(
-        get_token_cookieAuth
-    ),
 ) -> PaginatedNatureSummaryList:
     """Natures influence how a Pokémon&#39;s stats grow. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Nature) for greater detail."""
     if not BasePokemonApi.subclasses:
@@ -401,13 +322,7 @@ async def nature_list(
     response_model_by_alias=True,
 )
 async def nature_retrieve(
-    id: Annotated[str, Field(description="This parameter can be a string or an integer.")] = Path(..., description="This parameter can be a string or an integer."),
-    token_basicAuth: TokenModel = Security(
-        get_token_basicAuth
-    ),
-    token_cookieAuth: TokenModel = Security(
-        get_token_cookieAuth
-    ),
+    id: Annotated[str, Field(description="This parameter can be a string or an integer.")] = Path(..., description="This parameter can be a string or an integer.", examples=["1"]),
 ) -> NatureDetail:
     """Natures influence how a Pokémon&#39;s stats grow. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Nature) for greater detail."""
     if not BasePokemonApi.subclasses:
@@ -428,12 +343,6 @@ async def pokemon_list(
     limit: Annotated[Optional[int], Field(description="Number of results to return per page.")] = Query(None, description="Number of results to return per page.", alias="limit"),
     offset: Annotated[Optional[int], Field(description="The initial index from which to return the results.")] = Query(None, description="The initial index from which to return the results.", alias="offset"),
     q: Annotated[Optional[str], Field(description="> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")] = Query(None, description="&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ", alias="q"),
-    token_basicAuth: TokenModel = Security(
-        get_token_basicAuth
-    ),
-    token_cookieAuth: TokenModel = Security(
-        get_token_cookieAuth
-    ),
 ) -> PaginatedPokemonSummaryList:
     """Pokémon are the creatures that inhabit the world of the Pokémon games. They can be caught using Pokéballs and trained by battling with other Pokémon. Each Pokémon belongs to a specific species but may take on a variant which makes it differ from other Pokémon of the same species, such as base stats, available abilities and typings. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_(species)) for greater detail."""
     if not BasePokemonApi.subclasses:
@@ -451,13 +360,7 @@ async def pokemon_list(
     response_model_by_alias=True,
 )
 async def pokemon_retrieve(
-    id: Annotated[str, Field(description="This parameter can be a string or an integer.")] = Path(..., description="This parameter can be a string or an integer."),
-    token_basicAuth: TokenModel = Security(
-        get_token_basicAuth
-    ),
-    token_cookieAuth: TokenModel = Security(
-        get_token_cookieAuth
-    ),
+    id: Annotated[str, Field(description="This parameter can be a string or an integer.")] = Path(..., description="This parameter can be a string or an integer.", examples=["1"]),
 ) -> PokemonDetail:
     """Pokémon are the creatures that inhabit the world of the Pokémon games. They can be caught using Pokéballs and trained by battling with other Pokémon. Each Pokémon belongs to a specific species but may take on a variant which makes it differ from other Pokémon of the same species, such as base stats, available abilities and typings. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_(species)) for greater detail."""
     if not BasePokemonApi.subclasses:
@@ -478,12 +381,6 @@ async def pokemon_color_list(
     limit: Annotated[Optional[int], Field(description="Number of results to return per page.")] = Query(None, description="Number of results to return per page.", alias="limit"),
     offset: Annotated[Optional[int], Field(description="The initial index from which to return the results.")] = Query(None, description="The initial index from which to return the results.", alias="offset"),
     q: Annotated[Optional[str], Field(description="> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")] = Query(None, description="&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ", alias="q"),
-    token_basicAuth: TokenModel = Security(
-        get_token_basicAuth
-    ),
-    token_cookieAuth: TokenModel = Security(
-        get_token_cookieAuth
-    ),
 ) -> PaginatedPokemonColorSummaryList:
     """Colors used for sorting Pokémon in a Pokédex. The color listed in the Pokédex is usually the color most apparent or covering each Pokémon&#39;s body. No orange category exists; Pokémon that are primarily orange are listed as red or brown."""
     if not BasePokemonApi.subclasses:
@@ -501,13 +398,7 @@ async def pokemon_color_list(
     response_model_by_alias=True,
 )
 async def pokemon_color_retrieve(
-    id: Annotated[str, Field(description="This parameter can be a string or an integer.")] = Path(..., description="This parameter can be a string or an integer."),
-    token_basicAuth: TokenModel = Security(
-        get_token_basicAuth
-    ),
-    token_cookieAuth: TokenModel = Security(
-        get_token_cookieAuth
-    ),
+    id: Annotated[str, Field(description="This parameter can be a string or an integer.")] = Path(..., description="This parameter can be a string or an integer.", examples=["1"]),
 ) -> PokemonColorDetail:
     """Colors used for sorting Pokémon in a Pokédex. The color listed in the Pokédex is usually the color most apparent or covering each Pokémon&#39;s body. No orange category exists; Pokémon that are primarily orange are listed as red or brown."""
     if not BasePokemonApi.subclasses:
@@ -528,12 +419,6 @@ async def pokemon_form_list(
     limit: Annotated[Optional[int], Field(description="Number of results to return per page.")] = Query(None, description="Number of results to return per page.", alias="limit"),
     offset: Annotated[Optional[int], Field(description="The initial index from which to return the results.")] = Query(None, description="The initial index from which to return the results.", alias="offset"),
     q: Annotated[Optional[str], Field(description="> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")] = Query(None, description="&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ", alias="q"),
-    token_basicAuth: TokenModel = Security(
-        get_token_basicAuth
-    ),
-    token_cookieAuth: TokenModel = Security(
-        get_token_cookieAuth
-    ),
 ) -> PaginatedPokemonFormSummaryList:
     """Some Pokémon may appear in one of multiple, visually different forms. These differences are purely cosmetic. For variations within a Pokémon species, which do differ in more than just visuals, the &#39;Pokémon&#39; entity is used to represent such a variety."""
     if not BasePokemonApi.subclasses:
@@ -551,13 +436,7 @@ async def pokemon_form_list(
     response_model_by_alias=True,
 )
 async def pokemon_form_retrieve(
-    id: Annotated[str, Field(description="This parameter can be a string or an integer.")] = Path(..., description="This parameter can be a string or an integer."),
-    token_basicAuth: TokenModel = Security(
-        get_token_basicAuth
-    ),
-    token_cookieAuth: TokenModel = Security(
-        get_token_cookieAuth
-    ),
+    id: Annotated[str, Field(description="This parameter can be a string or an integer.")] = Path(..., description="This parameter can be a string or an integer.", examples=["1"]),
 ) -> PokemonFormDetail:
     """Some Pokémon may appear in one of multiple, visually different forms. These differences are purely cosmetic. For variations within a Pokémon species, which do differ in more than just visuals, the &#39;Pokémon&#39; entity is used to represent such a variety."""
     if not BasePokemonApi.subclasses:
@@ -578,12 +457,6 @@ async def pokemon_habitat_list(
     limit: Annotated[Optional[int], Field(description="Number of results to return per page.")] = Query(None, description="Number of results to return per page.", alias="limit"),
     offset: Annotated[Optional[int], Field(description="The initial index from which to return the results.")] = Query(None, description="The initial index from which to return the results.", alias="offset"),
     q: Annotated[Optional[str], Field(description="> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")] = Query(None, description="&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ", alias="q"),
-    token_basicAuth: TokenModel = Security(
-        get_token_basicAuth
-    ),
-    token_cookieAuth: TokenModel = Security(
-        get_token_cookieAuth
-    ),
 ) -> PaginatedPokemonHabitatSummaryList:
     """Habitats are generally different terrain Pokémon can be found in but can also be areas designated for rare or legendary Pokémon."""
     if not BasePokemonApi.subclasses:
@@ -601,13 +474,7 @@ async def pokemon_habitat_list(
     response_model_by_alias=True,
 )
 async def pokemon_habitat_retrieve(
-    id: Annotated[str, Field(description="This parameter can be a string or an integer.")] = Path(..., description="This parameter can be a string or an integer."),
-    token_basicAuth: TokenModel = Security(
-        get_token_basicAuth
-    ),
-    token_cookieAuth: TokenModel = Security(
-        get_token_cookieAuth
-    ),
+    id: Annotated[str, Field(description="This parameter can be a string or an integer.")] = Path(..., description="This parameter can be a string or an integer.", examples=["1"]),
 ) -> PokemonHabitatDetail:
     """Habitats are generally different terrain Pokémon can be found in but can also be areas designated for rare or legendary Pokémon."""
     if not BasePokemonApi.subclasses:
@@ -628,12 +495,6 @@ async def pokemon_shape_list(
     limit: Annotated[Optional[int], Field(description="Number of results to return per page.")] = Query(None, description="Number of results to return per page.", alias="limit"),
     offset: Annotated[Optional[int], Field(description="The initial index from which to return the results.")] = Query(None, description="The initial index from which to return the results.", alias="offset"),
     q: Annotated[Optional[str], Field(description="> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")] = Query(None, description="&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ", alias="q"),
-    token_basicAuth: TokenModel = Security(
-        get_token_basicAuth
-    ),
-    token_cookieAuth: TokenModel = Security(
-        get_token_cookieAuth
-    ),
 ) -> PaginatedPokemonShapeSummaryList:
     """Shapes used for sorting Pokémon in a Pokédex."""
     if not BasePokemonApi.subclasses:
@@ -651,13 +512,7 @@ async def pokemon_shape_list(
     response_model_by_alias=True,
 )
 async def pokemon_shape_retrieve(
-    id: Annotated[str, Field(description="This parameter can be a string or an integer.")] = Path(..., description="This parameter can be a string or an integer."),
-    token_basicAuth: TokenModel = Security(
-        get_token_basicAuth
-    ),
-    token_cookieAuth: TokenModel = Security(
-        get_token_cookieAuth
-    ),
+    id: Annotated[str, Field(description="This parameter can be a string or an integer.")] = Path(..., description="This parameter can be a string or an integer.", examples=["1"]),
 ) -> PokemonShapeDetail:
     """Shapes used for sorting Pokémon in a Pokédex."""
     if not BasePokemonApi.subclasses:
@@ -678,12 +533,6 @@ async def pokemon_species_list(
     limit: Annotated[Optional[int], Field(description="Number of results to return per page.")] = Query(None, description="Number of results to return per page.", alias="limit"),
     offset: Annotated[Optional[int], Field(description="The initial index from which to return the results.")] = Query(None, description="The initial index from which to return the results.", alias="offset"),
     q: Annotated[Optional[str], Field(description="> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")] = Query(None, description="&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ", alias="q"),
-    token_basicAuth: TokenModel = Security(
-        get_token_basicAuth
-    ),
-    token_cookieAuth: TokenModel = Security(
-        get_token_cookieAuth
-    ),
 ) -> PaginatedPokemonSpeciesSummaryList:
     """A Pokémon Species forms the basis for at least one Pokémon. Attributes of a Pokémon species are shared across all varieties of Pokémon within the species. A good example is Wormadam; Wormadam is the species which can be found in three different varieties, Wormadam-Trash, Wormadam-Sandy and Wormadam-Plant."""
     if not BasePokemonApi.subclasses:
@@ -701,13 +550,7 @@ async def pokemon_species_list(
     response_model_by_alias=True,
 )
 async def pokemon_species_retrieve(
-    id: Annotated[str, Field(description="This parameter can be a string or an integer.")] = Path(..., description="This parameter can be a string or an integer."),
-    token_basicAuth: TokenModel = Security(
-        get_token_basicAuth
-    ),
-    token_cookieAuth: TokenModel = Security(
-        get_token_cookieAuth
-    ),
+    id: Annotated[str, Field(description="This parameter can be a string or an integer.")] = Path(..., description="This parameter can be a string or an integer.", examples=["1"]),
 ) -> PokemonSpeciesDetail:
     """A Pokémon Species forms the basis for at least one Pokémon. Attributes of a Pokémon species are shared across all varieties of Pokémon within the species. A good example is Wormadam; Wormadam is the species which can be found in three different varieties, Wormadam-Trash, Wormadam-Sandy and Wormadam-Plant."""
     if not BasePokemonApi.subclasses:
@@ -728,12 +571,6 @@ async def pokeathlon_stat_list(
     limit: Annotated[Optional[int], Field(description="Number of results to return per page.")] = Query(None, description="Number of results to return per page.", alias="limit"),
     offset: Annotated[Optional[int], Field(description="The initial index from which to return the results.")] = Query(None, description="The initial index from which to return the results.", alias="offset"),
     q: Annotated[Optional[str], Field(description="> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")] = Query(None, description="&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ", alias="q"),
-    token_basicAuth: TokenModel = Security(
-        get_token_basicAuth
-    ),
-    token_cookieAuth: TokenModel = Security(
-        get_token_cookieAuth
-    ),
 ) -> PaginatedPokeathlonStatSummaryList:
     """Pokeathlon Stats are different attributes of a Pokémon&#39;s performance in Pokéathlons. In Pokéathlons, competitions happen on different courses; one for each of the different Pokéathlon stats. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9athlon) for greater detail."""
     if not BasePokemonApi.subclasses:
@@ -751,13 +588,7 @@ async def pokeathlon_stat_list(
     response_model_by_alias=True,
 )
 async def pokeathlon_stat_retrieve(
-    id: Annotated[str, Field(description="This parameter can be a string or an integer.")] = Path(..., description="This parameter can be a string or an integer."),
-    token_basicAuth: TokenModel = Security(
-        get_token_basicAuth
-    ),
-    token_cookieAuth: TokenModel = Security(
-        get_token_cookieAuth
-    ),
+    id: Annotated[str, Field(description="This parameter can be a string or an integer.")] = Path(..., description="This parameter can be a string or an integer.", examples=["1"]),
 ) -> PokeathlonStatDetail:
     """Pokeathlon Stats are different attributes of a Pokémon&#39;s performance in Pokéathlons. In Pokéathlons, competitions happen on different courses; one for each of the different Pokéathlon stats. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9athlon) for greater detail."""
     if not BasePokemonApi.subclasses:
@@ -778,12 +609,6 @@ async def stat_list(
     limit: Annotated[Optional[int], Field(description="Number of results to return per page.")] = Query(None, description="Number of results to return per page.", alias="limit"),
     offset: Annotated[Optional[int], Field(description="The initial index from which to return the results.")] = Query(None, description="The initial index from which to return the results.", alias="offset"),
     q: Annotated[Optional[str], Field(description="> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")] = Query(None, description="&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ", alias="q"),
-    token_basicAuth: TokenModel = Security(
-        get_token_basicAuth
-    ),
-    token_cookieAuth: TokenModel = Security(
-        get_token_cookieAuth
-    ),
 ) -> PaginatedStatSummaryList:
     """Stats determine certain aspects of battles. Each Pokémon has a value for each stat which grows as they gain levels and can be altered momentarily by effects in battles."""
     if not BasePokemonApi.subclasses:
@@ -801,13 +626,7 @@ async def stat_list(
     response_model_by_alias=True,
 )
 async def stat_retrieve(
-    id: Annotated[str, Field(description="This parameter can be a string or an integer.")] = Path(..., description="This parameter can be a string or an integer."),
-    token_basicAuth: TokenModel = Security(
-        get_token_basicAuth
-    ),
-    token_cookieAuth: TokenModel = Security(
-        get_token_cookieAuth
-    ),
+    id: Annotated[str, Field(description="This parameter can be a string or an integer.")] = Path(..., description="This parameter can be a string or an integer.", examples=["1"]),
 ) -> StatDetail:
     """Stats determine certain aspects of battles. Each Pokémon has a value for each stat which grows as they gain levels and can be altered momentarily by effects in battles."""
     if not BasePokemonApi.subclasses:
@@ -828,12 +647,6 @@ async def type_list(
     limit: Annotated[Optional[int], Field(description="Number of results to return per page.")] = Query(None, description="Number of results to return per page.", alias="limit"),
     offset: Annotated[Optional[int], Field(description="The initial index from which to return the results.")] = Query(None, description="The initial index from which to return the results.", alias="offset"),
     q: Annotated[Optional[str], Field(description="> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")] = Query(None, description="&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ", alias="q"),
-    token_basicAuth: TokenModel = Security(
-        get_token_basicAuth
-    ),
-    token_cookieAuth: TokenModel = Security(
-        get_token_cookieAuth
-    ),
 ) -> PaginatedTypeSummaryList:
     """Types are properties for Pokémon and their moves. Each type has three properties: which types of Pokémon it is super effective against, which types of Pokémon it is not very effective against, and which types of Pokémon it is completely ineffective against."""
     if not BasePokemonApi.subclasses:
@@ -851,13 +664,7 @@ async def type_list(
     response_model_by_alias=True,
 )
 async def type_retrieve(
-    id: Annotated[str, Field(description="This parameter can be a string or an integer.")] = Path(..., description="This parameter can be a string or an integer."),
-    token_basicAuth: TokenModel = Security(
-        get_token_basicAuth
-    ),
-    token_cookieAuth: TokenModel = Security(
-        get_token_cookieAuth
-    ),
+    id: Annotated[str, Field(description="This parameter can be a string or an integer.")] = Path(..., description="This parameter can be a string or an integer.", examples=["1"]),
 ) -> TypeDetail:
     """Types are properties for Pokémon and their moves. Each type has three properties: which types of Pokémon it is super effective against, which types of Pokémon it is not very effective against, and which types of Pokémon it is completely ineffective against."""
     if not BasePokemonApi.subclasses:

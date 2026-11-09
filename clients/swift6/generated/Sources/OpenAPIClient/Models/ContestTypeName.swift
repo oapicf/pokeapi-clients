@@ -9,10 +9,13 @@ import Foundation
 
 public struct ContestTypeName: Sendable, Codable, Hashable {
 
-    public static let nameRule = StringRule(minLength: nil, maxLength: 100, pattern: nil)
+    public static let nameRule = StringRule(minLength: nil, maxLength: 200, pattern: nil)
     public static let colorRule = StringRule(minLength: nil, maxLength: 10, pattern: nil)
+    /** The name for this contest. */
     public var name: String
+    /** The color associated with this contest's name. */
     public var color: String
+    /** The language that this name is in. */
     public var language: LanguageSummary
 
     public init(name: String, color: String, language: LanguageSummary) {

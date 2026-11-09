@@ -62,6 +62,7 @@ class ItemPocketDetail(Model):
     def id(self) -> int:
         """Gets the id of this ItemPocketDetail.
 
+        The identifier for this resource.  # noqa: E501
 
         :return: The id of this ItemPocketDetail.
         :rtype: int
@@ -72,6 +73,7 @@ class ItemPocketDetail(Model):
     def id(self, id: int):
         """Sets the id of this ItemPocketDetail.
 
+        The identifier for this resource.  # noqa: E501
 
         :param id: The id of this ItemPocketDetail.
         :type id: int
@@ -85,6 +87,7 @@ class ItemPocketDetail(Model):
     def name(self) -> str:
         """Gets the name of this ItemPocketDetail.
 
+        The name for this resource.  # noqa: E501
 
         :return: The name of this ItemPocketDetail.
         :rtype: str
@@ -95,14 +98,15 @@ class ItemPocketDetail(Model):
     def name(self, name: str):
         """Sets the name of this ItemPocketDetail.
 
+        The name for this resource.  # noqa: E501
 
         :param name: The name of this ItemPocketDetail.
         :type name: str
         """
         if name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
-        if name is not None and len(name) > 100:
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `100`")  # noqa: E501
+        if name is not None and len(name) > 200:
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `200`")  # noqa: E501
 
         self._name = name
 
@@ -110,6 +114,7 @@ class ItemPocketDetail(Model):
     def categories(self) -> List[ItemCategorySummary]:
         """Gets the categories of this ItemPocketDetail.
 
+        A list of item categories that are relevant to this item pocket.  # noqa: E501
 
         :return: The categories of this ItemPocketDetail.
         :rtype: List[ItemCategorySummary]
@@ -120,6 +125,7 @@ class ItemPocketDetail(Model):
     def categories(self, categories: List[ItemCategorySummary]):
         """Sets the categories of this ItemPocketDetail.
 
+        A list of item categories that are relevant to this item pocket.  # noqa: E501
 
         :param categories: The categories of this ItemPocketDetail.
         :type categories: List[ItemCategorySummary]
@@ -133,6 +139,7 @@ class ItemPocketDetail(Model):
     def names(self) -> List[ItemPocketName]:
         """Gets the names of this ItemPocketDetail.
 
+        The name of this resource listed in different languages.  # noqa: E501
 
         :return: The names of this ItemPocketDetail.
         :rtype: List[ItemPocketName]
@@ -143,6 +150,7 @@ class ItemPocketDetail(Model):
     def names(self, names: List[ItemPocketName]):
         """Sets the names of this ItemPocketDetail.
 
+        The name of this resource listed in different languages.  # noqa: E501
 
         :param names: The names of this ItemPocketDetail.
         :type names: List[ItemPocketName]

@@ -22,18 +22,34 @@ class MoveChange {
     required this.versionGroup,
   });
 
+  /// The percent value of how likely this move is to be successful.
+  ///
+  /// Minimum value: -2147483648
+  /// Maximum value: 2147483647
   int? accuracy;
 
+  /// The base power before the listed version group, or null if power did not change.
+  ///
+  /// Minimum value: -2147483648
+  /// Maximum value: 2147483647
   int? power;
 
+  /// Power points. The number of times this move can be used.
+  ///
+  /// Minimum value: -2147483648
+  /// Maximum value: 2147483647
   int? pp;
 
-  int effectChance;
+  /// The percent value of how likely it is this moves effect will take effect.
+  int? effectChance;
 
-  List<MoveChangeEffectEntriesInner> effectEntries;
+  /// The effect of this move listed in different languages.
+  List<MoveEffectEffectText> effectEntries;
 
-  TypeSummary type;
+  /// The elemental type of this move.
+  TypeSummary? type;
 
+  /// The version group in which these move stat values were in effect.
   VersionGroupSummary versionGroup;
 
   @override
@@ -52,9 +68,9 @@ class MoveChange {
     (accuracy == null ? 0 : accuracy!.hashCode) +
     (power == null ? 0 : power!.hashCode) +
     (pp == null ? 0 : pp!.hashCode) +
-    (effectChance.hashCode) +
+    (effectChance == null ? 0 : effectChance!.hashCode) +
     (effectEntries.hashCode) +
-    (type.hashCode) +
+    (type == null ? 0 : type!.hashCode) +
     (versionGroup.hashCode);
 
   @override
@@ -77,9 +93,17 @@ class MoveChange {
     } else {
       json[r'pp'] = null;
     }
+    if (this.effectChance != null) {
       json[r'effect_chance'] = this.effectChance;
+    } else {
+      json[r'effect_chance'] = null;
+    }
       json[r'effect_entries'] = this.effectEntries;
+    if (this.type != null) {
       json[r'type'] = this.type;
+    } else {
+      json[r'type'] = null;
+    }
       json[r'version_group'] = this.versionGroup;
     return json;
   }
@@ -96,11 +120,9 @@ class MoveChange {
       // Note 2: this code is stripped in release mode!
       assert(() {
         assert(json.containsKey(r'effect_chance'), 'Required key "MoveChange[effect_chance]" is missing from JSON.');
-        assert(json[r'effect_chance'] != null, 'Required key "MoveChange[effect_chance]" has a null value in JSON.');
         assert(json.containsKey(r'effect_entries'), 'Required key "MoveChange[effect_entries]" is missing from JSON.');
         assert(json[r'effect_entries'] != null, 'Required key "MoveChange[effect_entries]" has a null value in JSON.');
         assert(json.containsKey(r'type'), 'Required key "MoveChange[type]" is missing from JSON.');
-        assert(json[r'type'] != null, 'Required key "MoveChange[type]" has a null value in JSON.');
         assert(json.containsKey(r'version_group'), 'Required key "MoveChange[version_group]" is missing from JSON.');
         assert(json[r'version_group'] != null, 'Required key "MoveChange[version_group]" has a null value in JSON.');
         return true;
@@ -110,9 +132,9 @@ class MoveChange {
         accuracy: mapValueOfType<int>(json, r'accuracy'),
         power: mapValueOfType<int>(json, r'power'),
         pp: mapValueOfType<int>(json, r'pp'),
-        effectChance: mapValueOfType<int>(json, r'effect_chance')!,
-        effectEntries: MoveChangeEffectEntriesInner.listFromJson(json[r'effect_entries']),
-        type: TypeSummary.fromJson(json[r'type'])!,
+        effectChance: mapValueOfType<int>(json, r'effect_chance'),
+        effectEntries: MoveEffectEffectText.listFromJson(json[r'effect_entries']),
+        type: TypeSummary.fromJson(json[r'type']),
         versionGroup: VersionGroupSummary.fromJson(json[r'version_group'])!,
       );
     }

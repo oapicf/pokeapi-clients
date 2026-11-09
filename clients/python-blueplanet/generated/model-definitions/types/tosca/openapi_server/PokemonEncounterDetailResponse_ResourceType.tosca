@@ -1,0 +1,58 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server PokemonEncounterDetailResponse"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a PokemonEncounterDetailResponse"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  EncounterConditionValueSummary = openapi_server.resourceTypes.EncounterConditionValueSummary
+  EncounterMethodSummary = openapi_server.resourceTypes.EncounterMethodSummary
+}
+resourceTypes {
+
+  PokemonEncounterDetailResponse {
+    title = PokemonEncounterDetailResponse
+    description = PokemonEncounterDetailResponse
+    derivedFrom = Root
+    properties {
+        chance {
+          type =  integer
+          description = "Percent chance that this encounter will occur."
+          optional = true
+        }
+        condition_values {
+          type = array
+          items.type = EncounterConditionValueSummary
+          description = "A list of condition values that must be in effect for this encounter to occur."
+          optional = true
+        }
+        max_level {
+          type =  integer
+          description = "The highest level the Pokémon could be encountered at."
+          optional = true
+        }
+        method {
+          type = EncounterMethodSummary
+          description = "The method by which this encounter happens."
+          optional = true
+        }
+        min_level {
+          type =  integer
+          description = "The lowest level the Pokémon could be encountered at."
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  PokemonEncounterDetailResponse {
+    title = PokemonEncounterDetailResponse
+    description = PokemonEncounterDetailResponse
+    implements = openapi_server.resourceTypes.PokemonEncounterDetailResponse
+
+  }
+}

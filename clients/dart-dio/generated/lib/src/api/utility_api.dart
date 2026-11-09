@@ -11,6 +11,7 @@ import 'package:dio/dio.dart';
 import 'package:openapi/src/api_util.dart';
 import 'package:openapi/src/model/language_detail.dart';
 import 'package:openapi/src/model/paginated_language_summary_list.dart';
+import 'package:openapi/src/model/pokeapi_meta_response.dart';
 
 class UtilityApi {
 
@@ -54,18 +55,7 @@ class UtilityApi {
         ...?headers,
       },
       extra: <String, dynamic>{
-        'secure': <Map<String, String>>[
-          {
-            'type': 'http',
-            'scheme': 'basic',
-            'name': 'basicAuth',
-          },{
-            'type': 'apiKey',
-            'name': 'cookieAuth',
-            'keyName': 'sessionid',
-            'where': '',
-          },
-        ],
+        'secure': <Map<String, String>>[],
         ...?extra,
       },
       validateStatus: validateStatus,
@@ -147,18 +137,7 @@ class UtilityApi {
         ...?headers,
       },
       extra: <String, dynamic>{
-        'secure': <Map<String, String>>[
-          {
-            'type': 'http',
-            'scheme': 'basic',
-            'name': 'basicAuth',
-          },{
-            'type': 'apiKey',
-            'name': 'cookieAuth',
-            'keyName': 'sessionid',
-            'where': '',
-          },
-        ],
+        'secure': <Map<String, String>>[],
         ...?extra,
       },
       validateStatus: validateStatus,
@@ -192,6 +171,79 @@ class UtilityApi {
     }
 
     return Response<LanguageDetail>(
+      data: _responseData,
+      headers: _response.headers,
+      isRedirect: _response.isRedirect,
+      requestOptions: _response.requestOptions,
+      redirects: _response.redirects,
+      statusCode: _response.statusCode,
+      statusMessage: _response.statusMessage,
+      extra: _response.extra,
+    );
+  }
+
+  /// Get API metadata
+  /// Returns metadata about the current deployed version of the API, including the git commit hash, deploy date, and tag (if any).
+  ///
+  /// Parameters:
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
+  ///
+  /// Returns a [Future] containing a [Response] with a [PokeapiMetaResponse] as data
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<PokeapiMetaResponse>> metaRetrieve({ 
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
+  }) async {
+    final _path = r'/api/v2/meta/';
+    final _options = Options(
+      method: r'GET',
+      headers: <String, dynamic>{
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[],
+        ...?extra,
+      },
+      validateStatus: validateStatus,
+    );
+
+    final _response = await _dio.request<Object>(
+      _path,
+      options: _options,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
+
+    PokeapiMetaResponse? _responseData;
+
+    try {
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(PokeapiMetaResponse),
+      ) as PokeapiMetaResponse;
+
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _response.requestOptions,
+        response: _response,
+        type: DioExceptionType.unknown,
+        error: error,
+        stackTrace: stackTrace,
+      );
+    }
+
+    return Response<PokeapiMetaResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,

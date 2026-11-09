@@ -7,11 +7,11 @@ import play.api.mvc._
 import model.MachineDetail
 import model.PaginatedMachineSummaryList
 
-@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2026-10-25T05:53:17.467323765Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2026-11-09T13:53:31.572745352Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 @Singleton
 class MachinesApiController @Inject()(cc: ControllerComponents, api: MachinesApi) extends AbstractController(cc) {
   /**
-    * GET /api/v2/machine/?limit=[value]&offset=[value]&q=[value]
+    * GET /api/v2/machine/?limit=[value]&offset=[value]
     */
   def machineList(): Action[AnyContent] = Action { request =>
     def executeApi(): PaginatedMachineSummaryList = {
@@ -21,9 +21,7 @@ class MachinesApiController @Inject()(cc: ControllerComponents, api: MachinesApi
       val offset = request.getQueryString("offset")
         .map(value => value.toInt)
         
-      val q = request.getQueryString("q")
-        
-      api.machineList(limit, offset, q)
+      api.machineList(limit, offset)
     }
 
     val result = executeApi()

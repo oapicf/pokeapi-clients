@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**effect** | **str** |  | 
-**language** | [**LanguageSummary**](LanguageSummary.md) |  | 
+**effect** | **str** | The localized effect text for an API resource in a specific language. | 
+**language** | [**LanguageSummary**](LanguageSummary.md) | The language this effect is in. | 
 
 ## Example
 

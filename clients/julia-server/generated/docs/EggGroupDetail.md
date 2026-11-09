@@ -4,10 +4,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**`id`** | **`Int64`** |  | [readonly] [default to nothing]
-**`name`** | **`String`** |  | [default to nothing]
-**`names`** | [**`Vector{EggGroupName}`**](EggGroupName.md) |  | [readonly] [default to nothing]
-**`pokemon_species`** | [**`Vector{EggGroupDetailPokemonSpeciesInner}`**](EggGroupDetailPokemonSpeciesInner.md) |  | [readonly] [default to nothing]
+**`id`** | **`Int64`** | The identifier for this resource. | [readonly] [default to nothing]
+**`name`** | **`String`** | The name for this resource. | [default to nothing]
+**`names`** | [**`Vector{EggGroupName}`**](EggGroupName.md) | The name of this resource listed in different languages. | [readonly] [default to nothing]
+**`pokemon_species`** | [**`Vector{PokemonSpeciesSummary}`**](PokemonSpeciesSummary.md) | A list of all Pokémon species that are members of this egg group. | [readonly] [default to nothing]
 
 
 [[Back to Model list]](../README.md#models) [[Back to API list]](../README.md#api-endpoints) [[Back to README]](../README.md)

@@ -13,23 +13,23 @@ MoveDetail::MoveDetail()
 	pp = int(0);
 	priority = int(0);
 	power = int(0);
-	contest_combos = MoveDetail_contest_combos();
-	contest_type = ContestTypeSummary();
-	contest_effect = ContestEffectSummary();
-	damage_class = MoveDamageClassSummary();
-	effect_entries = std::list<MoveChange_effect_entries_inner>();
-	effect_changes = std::list<MoveDetail_effect_changes_inner>();
-	generation = GenerationSummary();
+	contest_combos = null;
+	contest_type = null;
+	contest_effect = null;
+	damage_class = null;
+	effect_entries = std::list<MoveEffectEffectText>();
+	effect_changes = std::list<MoveEffectChange>();
+	generation = null;
 	meta = null;
 	names = std::list<MoveName>();
 	past_values = std::list<MoveChange>();
-	stat_changes = std::list<MoveDetail_stat_changes_inner>();
-	super_contest_effect = SuperContestEffectSummary();
-	target = MoveTargetSummary();
-	type = TypeSummary();
-	machines = std::list<MoveDetail_machines_inner>();
+	stat_changes = std::list<MoveMetaStatChange>();
+	super_contest_effect = null;
+	target = null;
+	type = null;
+	machines = std::list<ItemMachine>();
 	flavor_text_entries = std::list<MoveFlavorText>();
-	learned_by_pokemon = std::list<AbilityDetail_pokemon_inner_pokemon>();
+	learned_by_pokemon = std::list<PokemonSummary>();
 }
 
 MoveDetail::MoveDetail(std::string jsonString)
@@ -147,7 +147,7 @@ MoveDetail::fromJson(std::string jsonObj)
 
 
 
-        MoveDetail_contest_combos* obj = &contest_combos;
+        MoveCombos* obj = &contest_combos;
 		obj->fromJson(value.dump());
 
     }
@@ -201,8 +201,8 @@ MoveDetail::fromJson(std::string jsonObj)
         bourne::json value = object[effect_entriesKey];
 
 
-        std::list<MoveChange_effect_entries_inner> effect_entries_list;
-        MoveChange_effect_entries_inner element;
+        std::list<MoveEffectEffectText> effect_entries_list;
+        MoveEffectEffectText element;
         for(auto& var : value.array_range())
         {
 
@@ -223,8 +223,8 @@ MoveDetail::fromJson(std::string jsonObj)
         bourne::json value = object[effect_changesKey];
 
 
-        std::list<MoveDetail_effect_changes_inner> effect_changes_list;
-        MoveDetail_effect_changes_inner element;
+        std::list<MoveEffectChange> effect_changes_list;
+        MoveEffectChange element;
         for(auto& var : value.array_range())
         {
 
@@ -317,8 +317,8 @@ MoveDetail::fromJson(std::string jsonObj)
         bourne::json value = object[stat_changesKey];
 
 
-        std::list<MoveDetail_stat_changes_inner> stat_changes_list;
-        MoveDetail_stat_changes_inner element;
+        std::list<MoveMetaStatChange> stat_changes_list;
+        MoveMetaStatChange element;
         for(auto& var : value.array_range())
         {
 
@@ -381,8 +381,8 @@ MoveDetail::fromJson(std::string jsonObj)
         bourne::json value = object[machinesKey];
 
 
-        std::list<MoveDetail_machines_inner> machines_list;
-        MoveDetail_machines_inner element;
+        std::list<ItemMachine> machines_list;
+        ItemMachine element;
         for(auto& var : value.array_range())
         {
 
@@ -425,8 +425,8 @@ MoveDetail::fromJson(std::string jsonObj)
         bourne::json value = object[learned_by_pokemonKey];
 
 
-        std::list<AbilityDetail_pokemon_inner_pokemon> learned_by_pokemon_list;
-        AbilityDetail_pokemon_inner_pokemon element;
+        std::list<PokemonSummary> learned_by_pokemon_list;
+        PokemonSummary element;
         for(auto& var : value.array_range())
         {
 
@@ -528,12 +528,12 @@ MoveDetail::toJson()
 
 
 
-    std::list<MoveChange_effect_entries_inner> effect_entries_list = getEffectEntries();
+    std::list<MoveEffectEffectText> effect_entries_list = getEffectEntries();
     bourne::json effect_entries_arr = bourne::json::array();
 
     for(auto& var : effect_entries_list)
     {
-        MoveChange_effect_entries_inner obj = var;
+        MoveEffectEffectText obj = var;
         effect_entries_arr.append(obj.toJson());
     }
     object["effect_entries"] = effect_entries_arr;
@@ -543,12 +543,12 @@ MoveDetail::toJson()
 
 
 
-    std::list<MoveDetail_effect_changes_inner> effect_changes_list = getEffectChanges();
+    std::list<MoveEffectChange> effect_changes_list = getEffectChanges();
     bourne::json effect_changes_arr = bourne::json::array();
 
     for(auto& var : effect_changes_list)
     {
-        MoveDetail_effect_changes_inner obj = var;
+        MoveEffectChange obj = var;
         effect_changes_arr.append(obj.toJson());
     }
     object["effect_changes"] = effect_changes_arr;
@@ -602,12 +602,12 @@ MoveDetail::toJson()
 
 
 
-    std::list<MoveDetail_stat_changes_inner> stat_changes_list = getStatChanges();
+    std::list<MoveMetaStatChange> stat_changes_list = getStatChanges();
     bourne::json stat_changes_arr = bourne::json::array();
 
     for(auto& var : stat_changes_list)
     {
-        MoveDetail_stat_changes_inner obj = var;
+        MoveMetaStatChange obj = var;
         stat_changes_arr.append(obj.toJson());
     }
     object["stat_changes"] = stat_changes_arr;
@@ -638,12 +638,12 @@ MoveDetail::toJson()
 
 
 
-    std::list<MoveDetail_machines_inner> machines_list = getMachines();
+    std::list<ItemMachine> machines_list = getMachines();
     bourne::json machines_arr = bourne::json::array();
 
     for(auto& var : machines_list)
     {
-        MoveDetail_machines_inner obj = var;
+        ItemMachine obj = var;
         machines_arr.append(obj.toJson());
     }
     object["machines"] = machines_arr;
@@ -668,12 +668,12 @@ MoveDetail::toJson()
 
 
 
-    std::list<AbilityDetail_pokemon_inner_pokemon> learned_by_pokemon_list = getLearnedByPokemon();
+    std::list<PokemonSummary> learned_by_pokemon_list = getLearnedByPokemon();
     bourne::json learned_by_pokemon_arr = bourne::json::array();
 
     for(auto& var : learned_by_pokemon_list)
     {
-        AbilityDetail_pokemon_inner_pokemon obj = var;
+        PokemonSummary obj = var;
         learned_by_pokemon_arr.append(obj.toJson());
     }
     object["learned_by_pokemon"] = learned_by_pokemon_arr;
@@ -769,14 +769,14 @@ MoveDetail::setPower(int power)
 	this->power = power;
 }
 
-MoveDetail_contest_combos
+MoveCombos
 MoveDetail::getContestCombos()
 {
 	return contest_combos;
 }
 
 void
-MoveDetail::setContestCombos(MoveDetail_contest_combos contest_combos)
+MoveDetail::setContestCombos(MoveCombos contest_combos)
 {
 	this->contest_combos = contest_combos;
 }
@@ -817,26 +817,26 @@ MoveDetail::setDamageClass(MoveDamageClassSummary damage_class)
 	this->damage_class = damage_class;
 }
 
-std::list<MoveChange_effect_entries_inner>
+std::list<MoveEffectEffectText>
 MoveDetail::getEffectEntries()
 {
 	return effect_entries;
 }
 
 void
-MoveDetail::setEffectEntries(std::list<MoveChange_effect_entries_inner> effect_entries)
+MoveDetail::setEffectEntries(std::list<MoveEffectEffectText> effect_entries)
 {
 	this->effect_entries = effect_entries;
 }
 
-std::list<MoveDetail_effect_changes_inner>
+std::list<MoveEffectChange>
 MoveDetail::getEffectChanges()
 {
 	return effect_changes;
 }
 
 void
-MoveDetail::setEffectChanges(std::list<MoveDetail_effect_changes_inner> effect_changes)
+MoveDetail::setEffectChanges(std::list<MoveEffectChange> effect_changes)
 {
 	this->effect_changes = effect_changes;
 }
@@ -889,14 +889,14 @@ MoveDetail::setPastValues(std::list<MoveChange> past_values)
 	this->past_values = past_values;
 }
 
-std::list<MoveDetail_stat_changes_inner>
+std::list<MoveMetaStatChange>
 MoveDetail::getStatChanges()
 {
 	return stat_changes;
 }
 
 void
-MoveDetail::setStatChanges(std::list<MoveDetail_stat_changes_inner> stat_changes)
+MoveDetail::setStatChanges(std::list<MoveMetaStatChange> stat_changes)
 {
 	this->stat_changes = stat_changes;
 }
@@ -937,14 +937,14 @@ MoveDetail::setType(TypeSummary type)
 	this->type = type;
 }
 
-std::list<MoveDetail_machines_inner>
+std::list<ItemMachine>
 MoveDetail::getMachines()
 {
 	return machines;
 }
 
 void
-MoveDetail::setMachines(std::list<MoveDetail_machines_inner> machines)
+MoveDetail::setMachines(std::list<ItemMachine> machines)
 {
 	this->machines = machines;
 }
@@ -961,14 +961,14 @@ MoveDetail::setFlavorTextEntries(std::list<MoveFlavorText> flavor_text_entries)
 	this->flavor_text_entries = flavor_text_entries;
 }
 
-std::list<AbilityDetail_pokemon_inner_pokemon>
+std::list<PokemonSummary>
 MoveDetail::getLearnedByPokemon()
 {
 	return learned_by_pokemon;
 }
 
 void
-MoveDetail::setLearnedByPokemon(std::list<AbilityDetail_pokemon_inner_pokemon> learned_by_pokemon)
+MoveDetail::setLearnedByPokemon(std::list<PokemonSummary> learned_by_pokemon)
 {
 	this->learned_by_pokemon = learned_by_pokemon;
 }

@@ -2,6 +2,14 @@
 -moduledoc """
 Exposes the following operation IDs:
 
+- `GET` to `/api/v2/currency/`, OperationId: `currency_list`:
+List currencies.
+Currencies used to buy items.
+
+- `GET` to `/api/v2/currency/:id/`, OperationId: `currency_retrieve`:
+Get currency.
+Currencies used to buy items.
+
 - `GET` to `/api/v2/item-attribute/`, OperationId: `item_attribute_list`:
 List item attributes.
 Item attributes define particular aspects of items, e.g.\&quot;usable in battle\&quot; or \&quot;consumable\&quot;.
@@ -65,7 +73,9 @@ An item is an object in the games which the player can pick up, keep in their ba
 -type class() :: 'items'.
 
 -type operation_id() ::
-    'item_attribute_list' %% List item attributes
+    'currency_list' %% List currencies
+    | 'currency_retrieve' %% Get currency
+    | 'item_attribute_list' %% List item attributes
     | 'item_attribute_retrieve' %% Get item attribute
     | 'item_category_list' %% List item categories
     | 'item_category_retrieve' %% Get item category
@@ -102,6 +112,10 @@ init(Req, {Operations, Module}) ->
 
 -spec allowed_methods(cowboy_req:req(), state()) ->
     {[binary()], cowboy_req:req(), state()}.
+allowed_methods(Req, #state{operation_id = 'currency_list'} = State) ->
+    {[<<"GET">>], Req, State};
+allowed_methods(Req, #state{operation_id = 'currency_retrieve'} = State) ->
+    {[<<"GET">>], Req, State};
 allowed_methods(Req, #state{operation_id = 'item_attribute_list'} = State) ->
     {[<<"GET">>], Req, State};
 allowed_methods(Req, #state{operation_id = 'item_attribute_retrieve'} = State) ->
@@ -127,101 +141,15 @@ allowed_methods(Req, State) ->
 
 -spec is_authorized(cowboy_req:req(), state()) ->
     {true | {false, iodata()}, cowboy_req:req(), state()}.
-is_authorized(Req0,
-              #state{operation_id = 'item_attribute_list' = OperationID,
-                     api_key_callback = Handler} = State) ->
-    case openapi_auth:authorize_api_key(Handler, OperationID, header, <<"authorization">>, Req0) of
-        {true, Context, Req} ->
-            {true, Req, State#state{context = Context}};
-        {false, AuthHeader, Req} ->
-            {{false, AuthHeader}, Req, State}
-    end;
-is_authorized(Req0,
-              #state{operation_id = 'item_attribute_retrieve' = OperationID,
-                     api_key_callback = Handler} = State) ->
-    case openapi_auth:authorize_api_key(Handler, OperationID, header, <<"authorization">>, Req0) of
-        {true, Context, Req} ->
-            {true, Req, State#state{context = Context}};
-        {false, AuthHeader, Req} ->
-            {{false, AuthHeader}, Req, State}
-    end;
-is_authorized(Req0,
-              #state{operation_id = 'item_category_list' = OperationID,
-                     api_key_callback = Handler} = State) ->
-    case openapi_auth:authorize_api_key(Handler, OperationID, header, <<"authorization">>, Req0) of
-        {true, Context, Req} ->
-            {true, Req, State#state{context = Context}};
-        {false, AuthHeader, Req} ->
-            {{false, AuthHeader}, Req, State}
-    end;
-is_authorized(Req0,
-              #state{operation_id = 'item_category_retrieve' = OperationID,
-                     api_key_callback = Handler} = State) ->
-    case openapi_auth:authorize_api_key(Handler, OperationID, header, <<"authorization">>, Req0) of
-        {true, Context, Req} ->
-            {true, Req, State#state{context = Context}};
-        {false, AuthHeader, Req} ->
-            {{false, AuthHeader}, Req, State}
-    end;
-is_authorized(Req0,
-              #state{operation_id = 'item_fling_effect_list' = OperationID,
-                     api_key_callback = Handler} = State) ->
-    case openapi_auth:authorize_api_key(Handler, OperationID, header, <<"authorization">>, Req0) of
-        {true, Context, Req} ->
-            {true, Req, State#state{context = Context}};
-        {false, AuthHeader, Req} ->
-            {{false, AuthHeader}, Req, State}
-    end;
-is_authorized(Req0,
-              #state{operation_id = 'item_fling_effect_retrieve' = OperationID,
-                     api_key_callback = Handler} = State) ->
-    case openapi_auth:authorize_api_key(Handler, OperationID, header, <<"authorization">>, Req0) of
-        {true, Context, Req} ->
-            {true, Req, State#state{context = Context}};
-        {false, AuthHeader, Req} ->
-            {{false, AuthHeader}, Req, State}
-    end;
-is_authorized(Req0,
-              #state{operation_id = 'item_list' = OperationID,
-                     api_key_callback = Handler} = State) ->
-    case openapi_auth:authorize_api_key(Handler, OperationID, header, <<"authorization">>, Req0) of
-        {true, Context, Req} ->
-            {true, Req, State#state{context = Context}};
-        {false, AuthHeader, Req} ->
-            {{false, AuthHeader}, Req, State}
-    end;
-is_authorized(Req0,
-              #state{operation_id = 'item_pocket_list' = OperationID,
-                     api_key_callback = Handler} = State) ->
-    case openapi_auth:authorize_api_key(Handler, OperationID, header, <<"authorization">>, Req0) of
-        {true, Context, Req} ->
-            {true, Req, State#state{context = Context}};
-        {false, AuthHeader, Req} ->
-            {{false, AuthHeader}, Req, State}
-    end;
-is_authorized(Req0,
-              #state{operation_id = 'item_pocket_retrieve' = OperationID,
-                     api_key_callback = Handler} = State) ->
-    case openapi_auth:authorize_api_key(Handler, OperationID, header, <<"authorization">>, Req0) of
-        {true, Context, Req} ->
-            {true, Req, State#state{context = Context}};
-        {false, AuthHeader, Req} ->
-            {{false, AuthHeader}, Req, State}
-    end;
-is_authorized(Req0,
-              #state{operation_id = 'item_retrieve' = OperationID,
-                     api_key_callback = Handler} = State) ->
-    case openapi_auth:authorize_api_key(Handler, OperationID, header, <<"authorization">>, Req0) of
-        {true, Context, Req} ->
-            {true, Req, State#state{context = Context}};
-        {false, AuthHeader, Req} ->
-            {{false, AuthHeader}, Req, State}
-    end;
 is_authorized(Req, State) ->
     {true, Req, State}.
 
 -spec content_types_accepted(cowboy_req:req(), state()) ->
     {[{binary(), atom()}], cowboy_req:req(), state()}.
+content_types_accepted(Req, #state{operation_id = 'currency_list'} = State) ->
+    {[], Req, State};
+content_types_accepted(Req, #state{operation_id = 'currency_retrieve'} = State) ->
+    {[], Req, State};
 content_types_accepted(Req, #state{operation_id = 'item_attribute_list'} = State) ->
     {[], Req, State};
 content_types_accepted(Req, #state{operation_id = 'item_attribute_retrieve'} = State) ->
@@ -247,6 +175,10 @@ content_types_accepted(Req, State) ->
 
 -spec valid_content_headers(cowboy_req:req(), state()) ->
     {boolean(), cowboy_req:req(), state()}.
+valid_content_headers(Req, #state{operation_id = 'currency_list'} = State) ->
+    {true, Req, State};
+valid_content_headers(Req, #state{operation_id = 'currency_retrieve'} = State) ->
+    {true, Req, State};
 valid_content_headers(Req, #state{operation_id = 'item_attribute_list'} = State) ->
     {true, Req, State};
 valid_content_headers(Req, #state{operation_id = 'item_attribute_retrieve'} = State) ->
@@ -272,6 +204,14 @@ valid_content_headers(Req, State) ->
 
 -spec content_types_provided(cowboy_req:req(), state()) ->
     {[{binary(), atom()}], cowboy_req:req(), state()}.
+content_types_provided(Req, #state{operation_id = 'currency_list'} = State) ->
+    {[
+      {<<"application/json">>, handle_type_provided}
+     ], Req, State};
+content_types_provided(Req, #state{operation_id = 'currency_retrieve'} = State) ->
+    {[
+      {<<"application/json">>, handle_type_provided}
+     ], Req, State};
 content_types_provided(Req, #state{operation_id = 'item_attribute_list'} = State) ->
     {[
       {<<"application/json">>, handle_type_provided}

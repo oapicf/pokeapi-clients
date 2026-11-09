@@ -32,16 +32,6 @@ Move Ailments are status conditions caused by moves used during battle. See [Bul
 
 ### Example
 ```objc
-OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
-// Configure HTTP basic authorization (authentication scheme: basicAuth)
-[apiConfig setUsername:@"YOUR_USERNAME"];
-[apiConfig setPassword:@"YOUR_PASSWORD"];
-
-// Configure API key authorization: (authentication scheme: cookieAuth)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"sessionid"];
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"sessionid"];
-
 
 NSNumber* limit = @56; // Number of results to return per page. (optional)
 NSNumber* offset = @56; // The initial index from which to return the results. (optional)
@@ -77,7 +67,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -98,18 +88,8 @@ Move Ailments are status conditions caused by moves used during battle. See [Bul
 
 ### Example
 ```objc
-OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
-// Configure HTTP basic authorization (authentication scheme: basicAuth)
-[apiConfig setUsername:@"YOUR_USERNAME"];
-[apiConfig setPassword:@"YOUR_PASSWORD"];
 
-// Configure API key authorization: (authentication scheme: cookieAuth)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"sessionid"];
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"sessionid"];
-
-
-NSString* _id = @"_id_example"; // This parameter can be a string or an integer.
+NSString* _id = 1; // This parameter can be a string or an integer.
 
 OAIMovesApi*apiInstance = [[OAIMovesApi alloc] init];
 
@@ -137,7 +117,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -160,16 +140,6 @@ Styles of moves when used in the Battle Palace. See [Bulbapedia](http://bulbaped
 
 ### Example
 ```objc
-OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
-// Configure HTTP basic authorization (authentication scheme: basicAuth)
-[apiConfig setUsername:@"YOUR_USERNAME"];
-[apiConfig setPassword:@"YOUR_PASSWORD"];
-
-// Configure API key authorization: (authentication scheme: cookieAuth)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"sessionid"];
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"sessionid"];
-
 
 NSNumber* limit = @56; // Number of results to return per page. (optional)
 NSNumber* offset = @56; // The initial index from which to return the results. (optional)
@@ -205,7 +175,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -226,18 +196,8 @@ Styles of moves when used in the Battle Palace. See [Bulbapedia](http://bulbaped
 
 ### Example
 ```objc
-OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
-// Configure HTTP basic authorization (authentication scheme: basicAuth)
-[apiConfig setUsername:@"YOUR_USERNAME"];
-[apiConfig setPassword:@"YOUR_PASSWORD"];
 
-// Configure API key authorization: (authentication scheme: cookieAuth)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"sessionid"];
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"sessionid"];
-
-
-NSString* _id = @"_id_example"; // This parameter can be a string or an integer.
+NSString* _id = 1; // This parameter can be a string or an integer.
 
 OAIMovesApi*apiInstance = [[OAIMovesApi alloc] init];
 
@@ -265,7 +225,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -288,16 +248,6 @@ Very general categories that loosely group move effects.
 
 ### Example
 ```objc
-OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
-// Configure HTTP basic authorization (authentication scheme: basicAuth)
-[apiConfig setUsername:@"YOUR_USERNAME"];
-[apiConfig setPassword:@"YOUR_PASSWORD"];
-
-// Configure API key authorization: (authentication scheme: cookieAuth)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"sessionid"];
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"sessionid"];
-
 
 NSNumber* limit = @56; // Number of results to return per page. (optional)
 NSNumber* offset = @56; // The initial index from which to return the results. (optional)
@@ -333,7 +283,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -354,18 +304,8 @@ Very general categories that loosely group move effects.
 
 ### Example
 ```objc
-OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
-// Configure HTTP basic authorization (authentication scheme: basicAuth)
-[apiConfig setUsername:@"YOUR_USERNAME"];
-[apiConfig setPassword:@"YOUR_PASSWORD"];
 
-// Configure API key authorization: (authentication scheme: cookieAuth)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"sessionid"];
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"sessionid"];
-
-
-NSString* _id = @"_id_example"; // This parameter can be a string or an integer.
+NSString* _id = 1; // This parameter can be a string or an integer.
 
 OAIMovesApi*apiInstance = [[OAIMovesApi alloc] init];
 
@@ -393,7 +333,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -416,16 +356,6 @@ Methods by which Pokémon can learn moves.
 
 ### Example
 ```objc
-OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
-// Configure HTTP basic authorization (authentication scheme: basicAuth)
-[apiConfig setUsername:@"YOUR_USERNAME"];
-[apiConfig setPassword:@"YOUR_PASSWORD"];
-
-// Configure API key authorization: (authentication scheme: cookieAuth)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"sessionid"];
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"sessionid"];
-
 
 NSNumber* limit = @56; // Number of results to return per page. (optional)
 NSNumber* offset = @56; // The initial index from which to return the results. (optional)
@@ -461,7 +391,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -482,18 +412,8 @@ Methods by which Pokémon can learn moves.
 
 ### Example
 ```objc
-OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
-// Configure HTTP basic authorization (authentication scheme: basicAuth)
-[apiConfig setUsername:@"YOUR_USERNAME"];
-[apiConfig setPassword:@"YOUR_PASSWORD"];
 
-// Configure API key authorization: (authentication scheme: cookieAuth)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"sessionid"];
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"sessionid"];
-
-
-NSString* _id = @"_id_example"; // This parameter can be a string or an integer.
+NSString* _id = 1; // This parameter can be a string or an integer.
 
 OAIMovesApi*apiInstance = [[OAIMovesApi alloc] init];
 
@@ -521,7 +441,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -544,16 +464,6 @@ Moves are the skills of Pokémon in battle. In battle, a Pokémon uses one move 
 
 ### Example
 ```objc
-OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
-// Configure HTTP basic authorization (authentication scheme: basicAuth)
-[apiConfig setUsername:@"YOUR_USERNAME"];
-[apiConfig setPassword:@"YOUR_PASSWORD"];
-
-// Configure API key authorization: (authentication scheme: cookieAuth)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"sessionid"];
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"sessionid"];
-
 
 NSNumber* limit = @56; // Number of results to return per page. (optional)
 NSNumber* offset = @56; // The initial index from which to return the results. (optional)
@@ -589,7 +499,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -610,18 +520,8 @@ Moves are the skills of Pokémon in battle. In battle, a Pokémon uses one move 
 
 ### Example
 ```objc
-OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
-// Configure HTTP basic authorization (authentication scheme: basicAuth)
-[apiConfig setUsername:@"YOUR_USERNAME"];
-[apiConfig setPassword:@"YOUR_PASSWORD"];
 
-// Configure API key authorization: (authentication scheme: cookieAuth)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"sessionid"];
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"sessionid"];
-
-
-NSString* _id = @"_id_example"; // This parameter can be a string or an integer.
+NSString* _id = 1; // This parameter can be a string or an integer.
 
 OAIMovesApi*apiInstance = [[OAIMovesApi alloc] init];
 
@@ -649,7 +549,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -672,16 +572,6 @@ Targets moves can be directed at during battle. Targets can be Pokémon, environ
 
 ### Example
 ```objc
-OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
-// Configure HTTP basic authorization (authentication scheme: basicAuth)
-[apiConfig setUsername:@"YOUR_USERNAME"];
-[apiConfig setPassword:@"YOUR_PASSWORD"];
-
-// Configure API key authorization: (authentication scheme: cookieAuth)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"sessionid"];
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"sessionid"];
-
 
 NSNumber* limit = @56; // Number of results to return per page. (optional)
 NSNumber* offset = @56; // The initial index from which to return the results. (optional)
@@ -717,7 +607,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -738,18 +628,8 @@ Targets moves can be directed at during battle. Targets can be Pokémon, environ
 
 ### Example
 ```objc
-OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
-// Configure HTTP basic authorization (authentication scheme: basicAuth)
-[apiConfig setUsername:@"YOUR_USERNAME"];
-[apiConfig setPassword:@"YOUR_PASSWORD"];
 
-// Configure API key authorization: (authentication scheme: cookieAuth)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"sessionid"];
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"sessionid"];
-
-
-NSString* _id = @"_id_example"; // This parameter can be a string or an integer.
+NSString* _id = 1; // This parameter can be a string or an integer.
 
 OAIMovesApi*apiInstance = [[OAIMovesApi alloc] init];
 
@@ -777,7 +657,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

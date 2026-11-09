@@ -19,12 +19,16 @@ class ItemFlingEffectDetail {
     this.items = const [],
   });
 
+  /// The identifier for this resource.
   int id;
 
+  /// The name for this resource.
   String name;
 
+  /// The result of this fling effect listed in different languages.
   List<ItemFlingEffectEffectText> effectEntries;
 
+  /// A list of items that have this fling effect.
   List<ItemSummary> items;
 
   @override

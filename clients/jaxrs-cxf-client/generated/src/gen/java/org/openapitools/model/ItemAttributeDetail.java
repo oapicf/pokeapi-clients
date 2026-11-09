@@ -3,9 +3,9 @@ package org.openapitools.model;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.model.AbilityDetailPokemonInnerPokemon;
 import org.openapitools.model.ItemAttributeDescription;
 import org.openapitools.model.ItemAttributeName;
+import org.openapitools.model.ItemSummary;
 
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
@@ -14,27 +14,42 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class ItemAttributeDetail  {
   
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The identifier for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
 
   private Integer id;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The name for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The name for this resource.")
 
   private String name;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The description of this item attribute listed in different languages.
+  */
+  @ApiModelProperty(required = true, value = "The description of this item attribute listed in different languages.")
 
   private List<ItemAttributeDescription> descriptions = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * A list of items that have this attribute.
+  */
+  @ApiModelProperty(required = true, value = "A list of items that have this attribute.")
 
-  private List<AbilityDetailPokemonInnerPokemon> items = new ArrayList<>();
+  private List<ItemSummary> items = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The name of this item attribute listed in different languages.
+  */
+  @ApiModelProperty(required = true, value = "The name of this item attribute listed in different languages.")
 
   private List<ItemAttributeName> names = new ArrayList<>();
  /**
-   * Get id
+   * The identifier for this resource.
    * @return id
   **/
   @JsonProperty("id")
@@ -44,7 +59,7 @@ public class ItemAttributeDetail  {
 
 
  /**
-   * Get name
+   * The name for this resource.
    * @return name
   **/
   @JsonProperty("name")
@@ -62,7 +77,7 @@ public class ItemAttributeDetail  {
   }
 
  /**
-   * Get descriptions
+   * The description of this item attribute listed in different languages.
    * @return descriptions
   **/
   @JsonProperty("descriptions")
@@ -72,17 +87,17 @@ public class ItemAttributeDetail  {
 
 
  /**
-   * Get items
+   * A list of items that have this attribute.
    * @return items
   **/
   @JsonProperty("items")
-  public List<AbilityDetailPokemonInnerPokemon> getItems() {
+  public List<ItemSummary> getItems() {
     return items;
   }
 
 
  /**
-   * Get names
+   * The name of this item attribute listed in different languages.
    * @return names
   **/
   @JsonProperty("names")

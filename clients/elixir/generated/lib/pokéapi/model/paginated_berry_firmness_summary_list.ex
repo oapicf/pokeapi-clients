@@ -15,10 +15,10 @@ defmodule PokéAPI.Model.PaginatedBerryFirmnessSummaryList do
   ]
 
   @type t :: %__MODULE__{
-    :count => integer() | nil,
+    :count => integer(),
     :next => Uri | nil,
     :previous => Uri | nil,
-    :results => [PokéAPI.Model.BerryFirmnessSummary.t] | nil
+    :results => [PokéAPI.Model.BerryFirmnessSummary.t]
   }
 
   alias PokéAPI.Deserializer

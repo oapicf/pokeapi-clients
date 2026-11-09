@@ -4,8 +4,8 @@ package client
 
 // PaginatedEncounterConditionValueSummaryList - PaginatedEncounterConditionValueSummaryList struct
 type PaginatedEncounterConditionValueSummaryList struct {
-	Count int32 `json:"count,omitempty"`
+	Count int32 `json:"count"`
 	Next string `json:"next,omitempty"`
 	Previous string `json:"previous,omitempty"`
-	Results []EncounterConditionValueSummary `json:"results,omitempty"`
+	Results []EncounterConditionValueSummary `json:"results"`
 }

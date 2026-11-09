@@ -7,11 +7,11 @@
 #' @title PokemonShapeDetail
 #' @description PokemonShapeDetail Class
 #' @format An \code{R6Class} generator object
-#' @field id  integer
-#' @field name  character
-#' @field awesome_names  list(\link{PokemonShapeDetailAwesomeNamesInner})
-#' @field names  list(\link{PokemonShapeDetailNamesInner})
-#' @field pokemon_species  list(\link{PokemonSpeciesSummary})
+#' @field id The identifier for this resource. integer
+#' @field name The name for this resource. character
+#' @field awesome_names The \"scientific\" name of this Pokémon shape listed in different languages. list(\link{PokemonShapeAwesomeName})
+#' @field names The name of this resource listed in different languages. list(\link{PokemonShapeName})
+#' @field pokemon_species A list of the Pokémon species that have this shape. list(\link{PokemonSpeciesSummary})
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -27,11 +27,11 @@ PokemonShapeDetail <- R6::R6Class(
     #' @description
     #' Initialize a new PokemonShapeDetail class.
     #'
-    #' @param id id
-    #' @param name name
-    #' @param awesome_names awesome_names
-    #' @param names names
-    #' @param pokemon_species pokemon_species
+    #' @param id The identifier for this resource.
+    #' @param name The name for this resource.
+    #' @param awesome_names The \"scientific\" name of this Pokémon shape listed in different languages.
+    #' @param names The name of this resource listed in different languages.
+    #' @param pokemon_species A list of the Pokémon species that have this shape.
     #' @param ... Other optional arguments.
     initialize = function(`id`, `name`, `awesome_names`, `names`, `pokemon_species`, ...) {
       if (!missing(`id`)) {
@@ -154,10 +154,10 @@ PokemonShapeDetail <- R6::R6Class(
         self$`name` <- this_object$`name`
       }
       if (!is.null(this_object$`awesome_names`)) {
-        self$`awesome_names` <- ApiClient$new()$deserializeObj(this_object$`awesome_names`, "array[PokemonShapeDetailAwesomeNamesInner]", loadNamespace("openapi"))
+        self$`awesome_names` <- ApiClient$new()$deserializeObj(this_object$`awesome_names`, "array[PokemonShapeAwesomeName]", loadNamespace("openapi"))
       }
       if (!is.null(this_object$`names`)) {
-        self$`names` <- ApiClient$new()$deserializeObj(this_object$`names`, "array[PokemonShapeDetailNamesInner]", loadNamespace("openapi"))
+        self$`names` <- ApiClient$new()$deserializeObj(this_object$`names`, "array[PokemonShapeName]", loadNamespace("openapi"))
       }
       if (!is.null(this_object$`pokemon_species`)) {
         self$`pokemon_species` <- ApiClient$new()$deserializeObj(this_object$`pokemon_species`, "array[PokemonSpeciesSummary]", loadNamespace("openapi"))
@@ -185,8 +185,8 @@ PokemonShapeDetail <- R6::R6Class(
       this_object <- jsonlite::fromJSON(input_json)
       self$`id` <- this_object$`id`
       self$`name` <- this_object$`name`
-      self$`awesome_names` <- ApiClient$new()$deserializeObj(this_object$`awesome_names`, "array[PokemonShapeDetailAwesomeNamesInner]", loadNamespace("openapi"))
-      self$`names` <- ApiClient$new()$deserializeObj(this_object$`names`, "array[PokemonShapeDetailNamesInner]", loadNamespace("openapi"))
+      self$`awesome_names` <- ApiClient$new()$deserializeObj(this_object$`awesome_names`, "array[PokemonShapeAwesomeName]", loadNamespace("openapi"))
+      self$`names` <- ApiClient$new()$deserializeObj(this_object$`names`, "array[PokemonShapeName]", loadNamespace("openapi"))
       self$`pokemon_species` <- ApiClient$new()$deserializeObj(this_object$`pokemon_species`, "array[PokemonSpeciesSummary]", loadNamespace("openapi"))
       self
     },
@@ -259,7 +259,7 @@ PokemonShapeDetail <- R6::R6Class(
         return(FALSE)
       }
 
-      if (nchar(self$`name`) > 100) {
+      if (nchar(self$`name`) > 200) {
         return(FALSE)
       }
 
@@ -297,8 +297,8 @@ PokemonShapeDetail <- R6::R6Class(
         invalid_fields["name"] <- "Non-nullable required field `name` cannot be null."
       }
 
-      if (nchar(self$`name`) > 100) {
-        invalid_fields["name"] <- "Invalid length for `name`, must be smaller than or equal to 100."
+      if (nchar(self$`name`) > 200) {
+        invalid_fields["name"] <- "Invalid length for `name`, must be smaller than or equal to 200."
       }
 
       # check if the required `awesome_names` is null

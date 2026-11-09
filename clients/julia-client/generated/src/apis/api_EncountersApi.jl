@@ -16,7 +16,7 @@ const _returntypes_encounter_condition_list_EncountersApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_encounter_condition_list(_api::EncountersApi; limit=nothing, offset=nothing, q=nothing, _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_encounter_condition_list_EncountersApi, "/api/v2/encounter-condition/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_encounter_condition_list_EncountersApi, "/api/v2/encounter-condition/", [])
     OpenAPI.Clients.set_param(_ctx.query, "limit", limit; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "offset", offset; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "q", q; style="form", is_explode=true)  # type String
@@ -51,7 +51,7 @@ const _returntypes_encounter_condition_retrieve_EncountersApi = Dict{Regex,Type}
 )
 
 function _oacinternal_encounter_condition_retrieve(_api::EncountersApi, id::String; _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_encounter_condition_retrieve_EncountersApi, "/api/v2/encounter-condition/{id}/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_encounter_condition_retrieve_EncountersApi, "/api/v2/encounter-condition/{id}/", [])
     OpenAPI.Clients.set_param(_ctx.path, "id", id)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
@@ -82,7 +82,7 @@ const _returntypes_encounter_condition_value_list_EncountersApi = Dict{Regex,Typ
 )
 
 function _oacinternal_encounter_condition_value_list(_api::EncountersApi; limit=nothing, offset=nothing, q=nothing, _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_encounter_condition_value_list_EncountersApi, "/api/v2/encounter-condition-value/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_encounter_condition_value_list_EncountersApi, "/api/v2/encounter-condition-value/", [])
     OpenAPI.Clients.set_param(_ctx.query, "limit", limit; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "offset", offset; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "q", q; style="form", is_explode=true)  # type String
@@ -117,7 +117,7 @@ const _returntypes_encounter_condition_value_retrieve_EncountersApi = Dict{Regex
 )
 
 function _oacinternal_encounter_condition_value_retrieve(_api::EncountersApi, id::String; _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_encounter_condition_value_retrieve_EncountersApi, "/api/v2/encounter-condition-value/{id}/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_encounter_condition_value_retrieve_EncountersApi, "/api/v2/encounter-condition-value/{id}/", [])
     OpenAPI.Clients.set_param(_ctx.path, "id", id)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
@@ -148,7 +148,7 @@ const _returntypes_encounter_method_list_EncountersApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_encounter_method_list(_api::EncountersApi; limit=nothing, offset=nothing, q=nothing, _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_encounter_method_list_EncountersApi, "/api/v2/encounter-method/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_encounter_method_list_EncountersApi, "/api/v2/encounter-method/", [])
     OpenAPI.Clients.set_param(_ctx.query, "limit", limit; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "offset", offset; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "q", q; style="form", is_explode=true)  # type String
@@ -183,7 +183,7 @@ const _returntypes_encounter_method_retrieve_EncountersApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_encounter_method_retrieve(_api::EncountersApi, id::String; _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_encounter_method_retrieve_EncountersApi, "/api/v2/encounter-method/{id}/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_encounter_method_retrieve_EncountersApi, "/api/v2/encounter-method/{id}/", [])
     OpenAPI.Clients.set_param(_ctx.path, "id", id)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])

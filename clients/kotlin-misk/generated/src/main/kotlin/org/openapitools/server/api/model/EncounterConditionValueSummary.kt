@@ -4,6 +4,8 @@ import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
 data class EncounterConditionValueSummary(
+    /** The name of the referenced resource. */
     val name: kotlin.String,
+    /** The URL of the referenced resource. */
     val url: java.net.URI
 )

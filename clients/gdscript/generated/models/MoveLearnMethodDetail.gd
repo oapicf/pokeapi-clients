@@ -10,6 +10,7 @@ class_name MoveLearnMethodDetail
 # MoveLearnMethodDetail Model
 
 
+# The identifier for this resource.
 # Required: True
 # isArray: false
 @export var id: int:
@@ -18,6 +19,7 @@ class_name MoveLearnMethodDetail
 		id = value
 var __id__was__set := false
 
+# The name for this resource.
 # Required: True
 # isArray: false
 @export var name: String:
@@ -26,6 +28,7 @@ var __id__was__set := false
 		name = value
 var __name__was__set := false
 
+# The name of this resource listed in different languages.
 # Required: True
 # isArray: true
 @export var names: Array:
@@ -34,6 +37,7 @@ var __name__was__set := false
 		names = value
 var __names__was__set := false
 
+# The description of this resource listed in different languages.
 # Required: True
 # isArray: true
 @export var descriptions: Array:
@@ -42,6 +46,7 @@ var __names__was__set := false
 		descriptions = value
 var __descriptions__was__set := false
 
+# A list of version groups where moves can be learned through this method.
 # Required: True
 # isArray: true
 @export var versionUnderscoregroups: Array:
@@ -93,7 +98,7 @@ static func bzz_denormalize_single(from_dict: Dictionary):
 	if from_dict.has("descriptions"):
 		me.descriptions = MoveLearnMethodDescription.bzz_denormalize_multiple(from_dict["descriptions"])
 	if from_dict.has("versionUnderscoregroups"):
-		me.versionUnderscoregroups = AbilityDetail_pokemon_inner_pokemon.bzz_denormalize_multiple(from_dict["versionUnderscoregroups"])
+		me.versionUnderscoregroups = VersionGroupSummary.bzz_denormalize_multiple(from_dict["versionUnderscoregroups"])
 	return me
 
 

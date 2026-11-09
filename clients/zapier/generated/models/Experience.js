@@ -6,13 +6,13 @@ module.exports = {
         return [
             {
                 key: `${keyPrefix}level`,
-                label: `[${labelPrefix}level]`,
+                label: `The level gained. - [${labelPrefix}level]`,
                 required: true,
                 type: 'integer',
             },
             {
                 key: `${keyPrefix}experience`,
-                label: `[${labelPrefix}experience]`,
+                label: `The amount of experience required to reach the referenced level. - [${labelPrefix}experience]`,
                 required: true,
                 type: 'integer',
             },

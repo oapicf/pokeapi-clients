@@ -2,76 +2,76 @@
 <h2>ItemDetail</h2>
 <ul class="parameter">
   <li class="param-required-true">id : Integer
-    <br/>
+    <br/>The identifier for this resource.
   </li>
 </ul>
 <ul class="parameter">
   <li class="param-required-true">name : String
-    <br/>
-  </li>
-</ul>
-<ul class="parameter">
-  <li class="param-required-false">cost : Integer
-    <br/>
+    <br/>The name for this resource.
   </li>
 </ul>
 <ul class="parameter">
   <li class="param-required-false">flingUnderscorepower : Integer
-    <br/>
+    <br/>The power of the move Fling when used with this item.
   </li>
 </ul>
 <ul class="parameter">
   <li class="param-required-true">flingUnderscoreeffect : ItemFlingEffectSummary
-    <br/>
+    <br/>The effect of the move Fling when used with this item.
   </li>
 </ul>
 <ul class="parameter">
   <li class="param-required-true">attributes : List
-    <br/>
+    <br/>A list of attributes this item has.
   </li>
 </ul>
 <ul class="parameter">
   <li class="param-required-true">category : ItemCategorySummary
-    <br/>
+    <br/>The category of items this item falls into.
   </li>
 </ul>
 <ul class="parameter">
   <li class="param-required-true">effectUnderscoreentries : List
-    <br/>
+    <br/>The effect of this ability listed in different languages.
   </li>
 </ul>
 <ul class="parameter">
   <li class="param-required-true">flavorUnderscoretextUnderscoreentries : List
-    <br/>
+    <br/>The flavor text of this ability listed in different languages.
   </li>
 </ul>
 <ul class="parameter">
   <li class="param-required-true">gameUnderscoreindices : List
-    <br/>
+    <br/>A list of game indices relevent to this item by generation.
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-true">prices : List
+    <br/>Purchase and sell prices by currency and version group. Prices may be null when the item cannot be bought or sold.
   </li>
 </ul>
 <ul class="parameter">
   <li class="param-required-true">names : List
-    <br/>
+    <br/>The name of this item listed in different languages.
   </li>
 </ul>
 <ul class="parameter">
   <li class="param-required-true">heldUnderscorebyUnderscorepokemon : List
-    <br/>
+    <br/>A list of Pokémon that might be found in the wild holding this item.
   </li>
 </ul>
 <ul class="parameter">
-  <li class="param-required-true">sprites : ItemDetail_sprites
-    <br/>
+  <li class="param-required-true">sprites : ItemSprites
+    <br/>A set of sprites used to depict this item in the game.
   </li>
 </ul>
 <ul class="parameter">
-  <li class="param-required-true">babyUnderscoretriggerUnderscorefor : ItemDetail_baby_trigger_for
-    <br/>
+  <li class="param-required-true">babyUnderscoretriggerUnderscorefor : EvolutionChainSummary
+    <br/>An evolution chain this item requires to produce a bay during mating.
   </li>
 </ul>
 <ul class="parameter">
   <li class="param-required-true">machines : List
-    <br/>
+    <br/>A list of the machines related to this item.
   </li>
 </ul>

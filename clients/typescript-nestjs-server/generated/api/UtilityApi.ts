@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { Observable } from 'rxjs';
-import { LanguageDetail, PaginatedLanguageSummaryList,  } from '../models';
+import { LanguageDetail, PaginatedLanguageSummaryList, PokeapiMetaResponse,  } from '../models';
 
 
 @Injectable()
@@ -10,5 +10,8 @@ export abstract class UtilityApi {
 
 
   abstract languageRetrieve(id: string,  request: Request): LanguageDetail | Promise<LanguageDetail> | Observable<LanguageDetail>;
+
+
+  abstract metaRetrieve( request: Request): PokeapiMetaResponse | Promise<PokeapiMetaResponse> | Observable<PokeapiMetaResponse>;
 
 } 

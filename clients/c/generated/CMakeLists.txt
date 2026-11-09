@@ -48,24 +48,22 @@ set(SRCS
     src/binary.c
     external/cJSON.c
     model/object.c
+    model/model_type_name.c
     model/ability_change.c
     model/ability_change_effect_text.c
     model/ability_detail.c
-    model/ability_detail_pokemon_inner.c
-    model/ability_detail_pokemon_inner_pokemon.c
     model/ability_effect_text.c
     model/ability_flavor_text.c
     model/ability_name.c
+    model/ability_pokemon_detail.c
     model/ability_summary.c
     model/berry_detail.c
-    model/berry_detail_flavors_inner.c
-    model/berry_detail_flavors_inner_flavor.c
     model/berry_firmness_detail.c
     model/berry_firmness_name.c
     model/berry_firmness_summary.c
+    model/berry_flavor_berry_map.c
     model/berry_flavor_detail.c
-    model/berry_flavor_detail_berries_inner.c
-    model/berry_flavor_detail_berries_inner_berry.c
+    model/berry_flavor_map.c
     model/berry_flavor_name.c
     model/berry_flavor_summary.c
     model/berry_summary.c
@@ -79,8 +77,10 @@ set(SRCS
     model/contest_type_detail.c
     model/contest_type_name.c
     model/contest_type_summary.c
+    model/currency_detail.c
+    model/currency_name.c
+    model/currency_summary.c
     model/egg_group_detail.c
-    model/egg_group_detail_pokemon_species_inner.c
     model/egg_group_name.c
     model/egg_group_summary.c
     model/encounter_condition_detail.c
@@ -92,18 +92,21 @@ set(SRCS
     model/encounter_method_detail.c
     model/encounter_method_name.c
     model/encounter_method_summary.c
+    model/encounter_pokemon_detail.c
     model/evolution_chain_detail.c
-    model/evolution_chain_detail_chain.c
-    model/evolution_chain_detail_chain_evolves_to_inner.c
-    model/evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner.c
-    model/evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender.c
+    model/evolution_chain_link.c
     model/evolution_chain_summary.c
+    model/evolution_condition_expression.c
     model/evolution_trigger_detail.c
     model/evolution_trigger_name.c
     model/evolution_trigger_summary.c
+    model/evolution_variable_description.c
+    model/evolution_variable_detail.c
+    model/evolution_variable_name.c
+    model/evolution_variable_summary.c
     model/experience.c
     model/gender_detail.c
-    model/gender_detail_pokemon_species_details_inner.c
+    model/gender_pokemon_species.c
     model/gender_summary.c
     model/generation_detail.c
     model/generation_name.c
@@ -119,32 +122,30 @@ set(SRCS
     model/item_category_name.c
     model/item_category_summary.c
     model/item_detail.c
-    model/item_detail_baby_trigger_for.c
-    model/item_detail_held_by_pokemon_inner.c
-    model/item_detail_held_by_pokemon_inner_version_details_inner.c
-    model/item_detail_machines_inner.c
-    model/item_detail_sprites.c
     model/item_effect_text.c
     model/item_flavor_text.c
     model/item_fling_effect_detail.c
     model/item_fling_effect_effect_text.c
     model/item_fling_effect_summary.c
     model/item_game_index.c
+    model/item_machine.c
     model/item_name.c
     model/item_pocket_detail.c
     model/item_pocket_name.c
     model/item_pocket_summary.c
+    model/item_price.c
+    model/item_sprites.c
     model/item_summary.c
     model/language_detail.c
     model/language_name.c
     model/language_summary.c
     model/location_area_detail.c
-    model/location_area_detail_encounter_method_rates_inner.c
-    model/location_area_detail_encounter_method_rates_inner_version_details_inner.c
-    model/location_area_detail_pokemon_encounters_inner.c
-    model/location_area_detail_pokemon_encounters_inner_version_details_inner.c
-    model/location_area_detail_pokemon_encounters_inner_version_details_inner_encounter_details.c
+    model/location_area_encounter_detail.c
+    model/location_area_encounter_rate.c
+    model/location_area_encounter_version_detail.c
     model/location_area_name.c
+    model/location_area_pokemon_encounter.c
+    model/location_area_pokemon_encounter_version.c
     model/location_area_summary.c
     model/location_detail.c
     model/location_game_index.c
@@ -156,19 +157,16 @@ set(SRCS
     model/move_battle_style_name.c
     model/move_battle_style_summary.c
     model/move_change.c
-    model/move_change_effect_entries_inner.c
+    model/move_combo_usage.c
+    model/move_combos.c
     model/move_damage_class_description.c
     model/move_damage_class_detail.c
     model/move_damage_class_name.c
     model/move_damage_class_summary.c
     model/move_detail.c
-    model/move_detail_contest_combos.c
-    model/move_detail_contest_combos_normal.c
-    model/move_detail_effect_changes_inner.c
-    model/move_detail_effect_changes_inner_effect_entries_inner.c
-    model/move_detail_machines_inner.c
-    model/move_detail_machines_inner_machine.c
-    model/move_detail_stat_changes_inner.c
+    model/move_effect_change.c
+    model/move_effect_change_effect_text.c
+    model/move_effect_effect_text.c
     model/move_flavor_text.c
     model/move_learn_method_description.c
     model/move_learn_method_detail.c
@@ -181,7 +179,9 @@ set(SRCS
     model/move_meta_category_description.c
     model/move_meta_category_detail.c
     model/move_meta_category_summary.c
+    model/move_meta_stat_change.c
     model/move_name.c
+    model/move_stat_change.c
     model/move_summary.c
     model/move_target_description.c
     model/move_target_detail.c
@@ -189,8 +189,8 @@ set(SRCS
     model/move_target_summary.c
     model/nature_battle_style_preference.c
     model/nature_detail.c
-    model/nature_detail_pokeathlon_stat_changes_inner.c
     model/nature_name.c
+    model/nature_pokeathlon_stat.c
     model/nature_summary.c
     model/paginated_ability_summary_list.c
     model/paginated_berry_firmness_summary_list.c
@@ -199,12 +199,14 @@ set(SRCS
     model/paginated_characteristic_summary_list.c
     model/paginated_contest_effect_summary_list.c
     model/paginated_contest_type_summary_list.c
+    model/paginated_currency_summary_list.c
     model/paginated_egg_group_summary_list.c
     model/paginated_encounter_condition_summary_list.c
     model/paginated_encounter_condition_value_summary_list.c
     model/paginated_encounter_method_summary_list.c
     model/paginated_evolution_chain_summary_list.c
     model/paginated_evolution_trigger_summary_list.c
+    model/paginated_evolution_variable_summary_list.c
     model/paginated_gender_summary_list.c
     model/paginated_generation_summary_list.c
     model/paginated_growth_rate_summary_list.c
@@ -241,75 +243,90 @@ set(SRCS
     model/paginated_version_group_summary_list.c
     model/paginated_version_summary_list.c
     model/pal_park_area_detail.c
-    model/pal_park_area_detail_pokemon_encounters_inner.c
     model/pal_park_area_name.c
     model/pal_park_area_summary.c
+    model/pal_park_encounter.c
+    model/pokeapi_meta_response.c
+    model/pokeathlon_stat_affecting_nature.c
+    model/pokeathlon_stat_affecting_natures.c
     model/pokeathlon_stat_detail.c
-    model/pokeathlon_stat_detail_affecting_natures.c
-    model/pokeathlon_stat_detail_affecting_natures_decrease_inner.c
-    model/pokeathlon_stat_detail_affecting_natures_increase_inner.c
     model/pokeathlon_stat_name.c
     model/pokeathlon_stat_summary.c
     model/pokedex_description.c
     model/pokedex_detail.c
-    model/pokedex_detail_pokemon_entries_inner.c
     model/pokedex_name.c
     model/pokedex_summary.c
+    model/pokemon_ability.c
+    model/pokemon_ability_past.c
     model/pokemon_color_detail.c
     model/pokemon_color_name.c
     model/pokemon_color_summary.c
+    model/pokemon_cries.c
     model/pokemon_detail.c
-    model/pokemon_detail_abilities_inner.c
-    model/pokemon_detail_cries.c
-    model/pokemon_detail_held_items.c
-    model/pokemon_detail_moves_inner.c
-    model/pokemon_detail_moves_inner_version_group_details_inner.c
-    model/pokemon_detail_past_abilities_inner.c
-    model/pokemon_detail_past_types_inner.c
-    model/pokemon_detail_sprites.c
-    model/pokemon_detail_types_inner.c
     model/pokemon_dex_entry.c
+    model/pokemon_dex_number.c
+    model/pokemon_encounter_detail_response.c
+    model/pokemon_encounter_response.c
+    model/pokemon_encounter_version_detail_response.c
+    model/pokemon_evolution.c
+    model/pokemon_evolution_known_move.c
     model/pokemon_form_detail.c
-    model/pokemon_form_detail_form_names_inner.c
-    model/pokemon_form_detail_sprites.c
+    model/pokemon_form_flavor_text.c
+    model/pokemon_form_name.c
+    model/pokemon_form_sprites.c
     model/pokemon_form_summary.c
+    model/pokemon_form_trigger_condition.c
+    model/pokemon_form_type.c
     model/pokemon_game_index.c
     model/pokemon_habitat_detail.c
     model/pokemon_habitat_name.c
     model/pokemon_habitat_summary.c
+    model/pokemon_held_item.c
+    model/pokemon_held_item_summary.c
+    model/pokemon_held_item_version.c
+    model/pokemon_move.c
+    model/pokemon_move_version_group.c
+    model/pokemon_past_ability.c
+    model/pokemon_past_stat.c
+    model/pokemon_past_type.c
+    model/pokemon_shape_awesome_name.c
     model/pokemon_shape_detail.c
-    model/pokemon_shape_detail_awesome_names_inner.c
-    model/pokemon_shape_detail_names_inner.c
+    model/pokemon_shape_name.c
     model/pokemon_shape_summary.c
     model/pokemon_species_description.c
     model/pokemon_species_detail.c
-    model/pokemon_species_detail_genera_inner.c
-    model/pokemon_species_detail_pal_park_encounters_inner.c
-    model/pokemon_species_detail_varieties_inner.c
     model/pokemon_species_flavor_text.c
+    model/pokemon_species_genus.c
+    model/pokemon_species_name.c
+    model/pokemon_species_pal_park_encounter.c
     model/pokemon_species_summary.c
+    model/pokemon_species_variety.c
+    model/pokemon_sprites.c
+    model/pokemon_sprites_other.c
+    model/pokemon_sprites_other_dream_world.c
+    model/pokemon_sprites_other_home.c
+    model/pokemon_sprites_other_official_artwork.c
+    model/pokemon_sprites_other_showdown.c
     model/pokemon_stat.c
     model/pokemon_summary.c
+    model/pokemon_type.c
     model/region_detail.c
     model/region_name.c
     model/region_summary.c
+    model/stat_affecting_moves.c
+    model/stat_affecting_natures.c
     model/stat_detail.c
-    model/stat_detail_affecting_moves.c
-    model/stat_detail_affecting_moves_increase_inner.c
-    model/stat_detail_affecting_natures.c
     model/stat_name.c
     model/stat_summary.c
     model/super_contest_effect_detail.c
     model/super_contest_effect_flavor_text.c
     model/super_contest_effect_summary.c
     model/type_detail.c
-    model/type_detail_damage_relations.c
-    model/type_detail_past_damage_relations_inner.c
-    model/type_detail_past_damage_relations_inner_damage_relations.c
-    model/type_detail_pokemon_inner.c
-    model/type_detail_pokemon_inner_pokemon.c
-    model/type_detail_sprites_value_value.c
     model/type_game_index.c
+    model/type_game_sprite.c
+    model/type_past_relationships.c
+    model/type_pokemon.c
+    model/type_relationships.c
     model/type_summary.c
     model/version_detail.c
     model/version_group_detail.c
@@ -338,24 +355,22 @@ set(HDRS
     external/cJSON.h
     model/object.h
     model/any_type.h
+    model/model_type_name.h
     model/ability_change.h
     model/ability_change_effect_text.h
     model/ability_detail.h
-    model/ability_detail_pokemon_inner.h
-    model/ability_detail_pokemon_inner_pokemon.h
     model/ability_effect_text.h
     model/ability_flavor_text.h
     model/ability_name.h
+    model/ability_pokemon_detail.h
     model/ability_summary.h
     model/berry_detail.h
-    model/berry_detail_flavors_inner.h
-    model/berry_detail_flavors_inner_flavor.h
     model/berry_firmness_detail.h
     model/berry_firmness_name.h
     model/berry_firmness_summary.h
+    model/berry_flavor_berry_map.h
     model/berry_flavor_detail.h
-    model/berry_flavor_detail_berries_inner.h
-    model/berry_flavor_detail_berries_inner_berry.h
+    model/berry_flavor_map.h
     model/berry_flavor_name.h
     model/berry_flavor_summary.h
     model/berry_summary.h
@@ -369,8 +384,10 @@ set(HDRS
     model/contest_type_detail.h
     model/contest_type_name.h
     model/contest_type_summary.h
+    model/currency_detail.h
+    model/currency_name.h
+    model/currency_summary.h
     model/egg_group_detail.h
-    model/egg_group_detail_pokemon_species_inner.h
     model/egg_group_name.h
     model/egg_group_summary.h
     model/encounter_condition_detail.h
@@ -382,18 +399,21 @@ set(HDRS
     model/encounter_method_detail.h
     model/encounter_method_name.h
     model/encounter_method_summary.h
+    model/encounter_pokemon_detail.h
     model/evolution_chain_detail.h
-    model/evolution_chain_detail_chain.h
-    model/evolution_chain_detail_chain_evolves_to_inner.h
-    model/evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner.h
-    model/evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender.h
+    model/evolution_chain_link.h
     model/evolution_chain_summary.h
+    model/evolution_condition_expression.h
     model/evolution_trigger_detail.h
     model/evolution_trigger_name.h
     model/evolution_trigger_summary.h
+    model/evolution_variable_description.h
+    model/evolution_variable_detail.h
+    model/evolution_variable_name.h
+    model/evolution_variable_summary.h
     model/experience.h
     model/gender_detail.h
-    model/gender_detail_pokemon_species_details_inner.h
+    model/gender_pokemon_species.h
     model/gender_summary.h
     model/generation_detail.h
     model/generation_name.h
@@ -409,32 +429,30 @@ set(HDRS
     model/item_category_name.h
     model/item_category_summary.h
     model/item_detail.h
-    model/item_detail_baby_trigger_for.h
-    model/item_detail_held_by_pokemon_inner.h
-    model/item_detail_held_by_pokemon_inner_version_details_inner.h
-    model/item_detail_machines_inner.h
-    model/item_detail_sprites.h
     model/item_effect_text.h
     model/item_flavor_text.h
     model/item_fling_effect_detail.h
     model/item_fling_effect_effect_text.h
     model/item_fling_effect_summary.h
     model/item_game_index.h
+    model/item_machine.h
     model/item_name.h
     model/item_pocket_detail.h
     model/item_pocket_name.h
     model/item_pocket_summary.h
+    model/item_price.h
+    model/item_sprites.h
     model/item_summary.h
     model/language_detail.h
     model/language_name.h
     model/language_summary.h
     model/location_area_detail.h
-    model/location_area_detail_encounter_method_rates_inner.h
-    model/location_area_detail_encounter_method_rates_inner_version_details_inner.h
-    model/location_area_detail_pokemon_encounters_inner.h
-    model/location_area_detail_pokemon_encounters_inner_version_details_inner.h
-    model/location_area_detail_pokemon_encounters_inner_version_details_inner_encounter_details.h
+    model/location_area_encounter_detail.h
+    model/location_area_encounter_rate.h
+    model/location_area_encounter_version_detail.h
     model/location_area_name.h
+    model/location_area_pokemon_encounter.h
+    model/location_area_pokemon_encounter_version.h
     model/location_area_summary.h
     model/location_detail.h
     model/location_game_index.h
@@ -446,19 +464,16 @@ set(HDRS
     model/move_battle_style_name.h
     model/move_battle_style_summary.h
     model/move_change.h
-    model/move_change_effect_entries_inner.h
+    model/move_combo_usage.h
+    model/move_combos.h
     model/move_damage_class_description.h
     model/move_damage_class_detail.h
     model/move_damage_class_name.h
     model/move_damage_class_summary.h
     model/move_detail.h
-    model/move_detail_contest_combos.h
-    model/move_detail_contest_combos_normal.h
-    model/move_detail_effect_changes_inner.h
-    model/move_detail_effect_changes_inner_effect_entries_inner.h
-    model/move_detail_machines_inner.h
-    model/move_detail_machines_inner_machine.h
-    model/move_detail_stat_changes_inner.h
+    model/move_effect_change.h
+    model/move_effect_change_effect_text.h
+    model/move_effect_effect_text.h
     model/move_flavor_text.h
     model/move_learn_method_description.h
     model/move_learn_method_detail.h
@@ -471,7 +486,9 @@ set(HDRS
     model/move_meta_category_description.h
     model/move_meta_category_detail.h
     model/move_meta_category_summary.h
+    model/move_meta_stat_change.h
     model/move_name.h
+    model/move_stat_change.h
     model/move_summary.h
     model/move_target_description.h
     model/move_target_detail.h
@@ -479,8 +496,8 @@ set(HDRS
     model/move_target_summary.h
     model/nature_battle_style_preference.h
     model/nature_detail.h
-    model/nature_detail_pokeathlon_stat_changes_inner.h
     model/nature_name.h
+    model/nature_pokeathlon_stat.h
     model/nature_summary.h
     model/paginated_ability_summary_list.h
     model/paginated_berry_firmness_summary_list.h
@@ -489,12 +506,14 @@ set(HDRS
     model/paginated_characteristic_summary_list.h
     model/paginated_contest_effect_summary_list.h
     model/paginated_contest_type_summary_list.h
+    model/paginated_currency_summary_list.h
     model/paginated_egg_group_summary_list.h
     model/paginated_encounter_condition_summary_list.h
     model/paginated_encounter_condition_value_summary_list.h
     model/paginated_encounter_method_summary_list.h
     model/paginated_evolution_chain_summary_list.h
     model/paginated_evolution_trigger_summary_list.h
+    model/paginated_evolution_variable_summary_list.h
     model/paginated_gender_summary_list.h
     model/paginated_generation_summary_list.h
     model/paginated_growth_rate_summary_list.h
@@ -531,75 +550,90 @@ set(HDRS
     model/paginated_version_group_summary_list.h
     model/paginated_version_summary_list.h
     model/pal_park_area_detail.h
-    model/pal_park_area_detail_pokemon_encounters_inner.h
     model/pal_park_area_name.h
     model/pal_park_area_summary.h
+    model/pal_park_encounter.h
+    model/pokeapi_meta_response.h
+    model/pokeathlon_stat_affecting_nature.h
+    model/pokeathlon_stat_affecting_natures.h
     model/pokeathlon_stat_detail.h
-    model/pokeathlon_stat_detail_affecting_natures.h
-    model/pokeathlon_stat_detail_affecting_natures_decrease_inner.h
-    model/pokeathlon_stat_detail_affecting_natures_increase_inner.h
     model/pokeathlon_stat_name.h
     model/pokeathlon_stat_summary.h
     model/pokedex_description.h
     model/pokedex_detail.h
-    model/pokedex_detail_pokemon_entries_inner.h
     model/pokedex_name.h
     model/pokedex_summary.h
+    model/pokemon_ability.h
+    model/pokemon_ability_past.h
     model/pokemon_color_detail.h
     model/pokemon_color_name.h
     model/pokemon_color_summary.h
+    model/pokemon_cries.h
     model/pokemon_detail.h
-    model/pokemon_detail_abilities_inner.h
-    model/pokemon_detail_cries.h
-    model/pokemon_detail_held_items.h
-    model/pokemon_detail_moves_inner.h
-    model/pokemon_detail_moves_inner_version_group_details_inner.h
-    model/pokemon_detail_past_abilities_inner.h
-    model/pokemon_detail_past_types_inner.h
-    model/pokemon_detail_sprites.h
-    model/pokemon_detail_types_inner.h
     model/pokemon_dex_entry.h
+    model/pokemon_dex_number.h
+    model/pokemon_encounter_detail_response.h
+    model/pokemon_encounter_response.h
+    model/pokemon_encounter_version_detail_response.h
+    model/pokemon_evolution.h
+    model/pokemon_evolution_known_move.h
     model/pokemon_form_detail.h
-    model/pokemon_form_detail_form_names_inner.h
-    model/pokemon_form_detail_sprites.h
+    model/pokemon_form_flavor_text.h
+    model/pokemon_form_name.h
+    model/pokemon_form_sprites.h
     model/pokemon_form_summary.h
+    model/pokemon_form_trigger_condition.h
+    model/pokemon_form_type.h
     model/pokemon_game_index.h
     model/pokemon_habitat_detail.h
     model/pokemon_habitat_name.h
     model/pokemon_habitat_summary.h
+    model/pokemon_held_item.h
+    model/pokemon_held_item_summary.h
+    model/pokemon_held_item_version.h
+    model/pokemon_move.h
+    model/pokemon_move_version_group.h
+    model/pokemon_past_ability.h
+    model/pokemon_past_stat.h
+    model/pokemon_past_type.h
+    model/pokemon_shape_awesome_name.h
     model/pokemon_shape_detail.h
-    model/pokemon_shape_detail_awesome_names_inner.h
-    model/pokemon_shape_detail_names_inner.h
+    model/pokemon_shape_name.h
     model/pokemon_shape_summary.h
     model/pokemon_species_description.h
     model/pokemon_species_detail.h
-    model/pokemon_species_detail_genera_inner.h
-    model/pokemon_species_detail_pal_park_encounters_inner.h
-    model/pokemon_species_detail_varieties_inner.h
     model/pokemon_species_flavor_text.h
+    model/pokemon_species_genus.h
+    model/pokemon_species_name.h
+    model/pokemon_species_pal_park_encounter.h
     model/pokemon_species_summary.h
+    model/pokemon_species_variety.h
+    model/pokemon_sprites.h
+    model/pokemon_sprites_other.h
+    model/pokemon_sprites_other_dream_world.h
+    model/pokemon_sprites_other_home.h
+    model/pokemon_sprites_other_official_artwork.h
+    model/pokemon_sprites_other_showdown.h
     model/pokemon_stat.h
     model/pokemon_summary.h
+    model/pokemon_type.h
     model/region_detail.h
     model/region_name.h
     model/region_summary.h
+    model/stat_affecting_moves.h
+    model/stat_affecting_natures.h
     model/stat_detail.h
-    model/stat_detail_affecting_moves.h
-    model/stat_detail_affecting_moves_increase_inner.h
-    model/stat_detail_affecting_natures.h
     model/stat_name.h
     model/stat_summary.h
     model/super_contest_effect_detail.h
     model/super_contest_effect_flavor_text.h
     model/super_contest_effect_summary.h
     model/type_detail.h
-    model/type_detail_damage_relations.h
-    model/type_detail_past_damage_relations_inner.h
-    model/type_detail_past_damage_relations_inner_damage_relations.h
-    model/type_detail_pokemon_inner.h
-    model/type_detail_pokemon_inner_pokemon.h
-    model/type_detail_sprites_value_value.h
     model/type_game_index.h
+    model/type_game_sprite.h
+    model/type_past_relationships.h
+    model/type_pokemon.h
+    model/type_relationships.h
     model/type_summary.h
     model/version_detail.h
     model/version_group_detail.h

@@ -15,12 +15,6 @@ Protected Class MovesApi
 		  // - Move Ailments are status conditions caused by moves used during battle. See [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Status_condition) for greater detail.
 		  // - defaultResponse: Nil
 		  //
-		  // - BASIC:
-		  //   - type: http
-		  //   - name: basicAuth
-		  // - API Key:
-		  //   - type: apiKey sessionid 
-		  //   - name: cookieAuth
 		  //
 		  
 		  Dim localVarHTTPSocket As New HTTPSecureSocket
@@ -34,10 +28,6 @@ Protected Class MovesApi
 		  If q <> nil Then localVarQueryParams = localVarQueryParams + "&" + EncodeURLComponent("q") + "=" + EncodeURLComponent(q)
 		  
 
-		  
-		  AddHandler localVarHTTPSocket.AuthenticationRequired, addressof Me.AuthenticationRequiredIf me.ApiKeycookieAuth = "" Then Raise New OpenAPIClient.OpenAPIClientException(kErrorCannotAuthenticate, "API key is unset. Please assign a value to `MovesApi.ApiKeycookieAuth` before invoking `MovesApi.MoveAilmentList()`.")
-		  
-		  
 		  
 
 
@@ -157,20 +147,10 @@ Protected Class MovesApi
 		  // - Move Ailments are status conditions caused by moves used during battle. See [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Status_condition) for greater detail.
 		  // - defaultResponse: Nil
 		  //
-		  // - BASIC:
-		  //   - type: http
-		  //   - name: basicAuth
-		  // - API Key:
-		  //   - type: apiKey sessionid 
-		  //   - name: cookieAuth
 		  //
 		  
 		  Dim localVarHTTPSocket As New HTTPSecureSocket
 		  Me.PrivateFuncPrepareSocket(localVarHTTPSocket)
-		  
-		  
-		  
-		  AddHandler localVarHTTPSocket.AuthenticationRequired, addressof Me.AuthenticationRequiredIf me.ApiKeycookieAuth = "" Then Raise New OpenAPIClient.OpenAPIClientException(kErrorCannotAuthenticate, "API key is unset. Please assign a value to `MovesApi.ApiKeycookieAuth` before invoking `MovesApi.MoveAilmentRetrieve()`.")
 		  
 		  
 		  
@@ -297,12 +277,6 @@ Protected Class MovesApi
 		  // - Styles of moves when used in the Battle Palace. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Battle_Frontier_(Generation_III)) for greater detail.
 		  // - defaultResponse: Nil
 		  //
-		  // - BASIC:
-		  //   - type: http
-		  //   - name: basicAuth
-		  // - API Key:
-		  //   - type: apiKey sessionid 
-		  //   - name: cookieAuth
 		  //
 		  
 		  Dim localVarHTTPSocket As New HTTPSecureSocket
@@ -316,10 +290,6 @@ Protected Class MovesApi
 		  If q <> nil Then localVarQueryParams = localVarQueryParams + "&" + EncodeURLComponent("q") + "=" + EncodeURLComponent(q)
 		  
 
-		  
-		  AddHandler localVarHTTPSocket.AuthenticationRequired, addressof Me.AuthenticationRequiredIf me.ApiKeycookieAuth = "" Then Raise New OpenAPIClient.OpenAPIClientException(kErrorCannotAuthenticate, "API key is unset. Please assign a value to `MovesApi.ApiKeycookieAuth` before invoking `MovesApi.MoveBattleStyleList()`.")
-		  
-		  
 		  
 
 
@@ -439,20 +409,10 @@ Protected Class MovesApi
 		  // - Styles of moves when used in the Battle Palace. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Battle_Frontier_(Generation_III)) for greater detail.
 		  // - defaultResponse: Nil
 		  //
-		  // - BASIC:
-		  //   - type: http
-		  //   - name: basicAuth
-		  // - API Key:
-		  //   - type: apiKey sessionid 
-		  //   - name: cookieAuth
 		  //
 		  
 		  Dim localVarHTTPSocket As New HTTPSecureSocket
 		  Me.PrivateFuncPrepareSocket(localVarHTTPSocket)
-		  
-		  
-		  
-		  AddHandler localVarHTTPSocket.AuthenticationRequired, addressof Me.AuthenticationRequiredIf me.ApiKeycookieAuth = "" Then Raise New OpenAPIClient.OpenAPIClientException(kErrorCannotAuthenticate, "API key is unset. Please assign a value to `MovesApi.ApiKeycookieAuth` before invoking `MovesApi.MoveBattleStyleRetrieve()`.")
 		  
 		  
 		  
@@ -579,12 +539,6 @@ Protected Class MovesApi
 		  // - Very general categories that loosely group move effects.
 		  // - defaultResponse: Nil
 		  //
-		  // - BASIC:
-		  //   - type: http
-		  //   - name: basicAuth
-		  // - API Key:
-		  //   - type: apiKey sessionid 
-		  //   - name: cookieAuth
 		  //
 		  
 		  Dim localVarHTTPSocket As New HTTPSecureSocket
@@ -598,10 +552,6 @@ Protected Class MovesApi
 		  If q <> nil Then localVarQueryParams = localVarQueryParams + "&" + EncodeURLComponent("q") + "=" + EncodeURLComponent(q)
 		  
 
-		  
-		  AddHandler localVarHTTPSocket.AuthenticationRequired, addressof Me.AuthenticationRequiredIf me.ApiKeycookieAuth = "" Then Raise New OpenAPIClient.OpenAPIClientException(kErrorCannotAuthenticate, "API key is unset. Please assign a value to `MovesApi.ApiKeycookieAuth` before invoking `MovesApi.MoveCategoryList()`.")
-		  
-		  
 		  
 
 
@@ -721,20 +671,10 @@ Protected Class MovesApi
 		  // - Very general categories that loosely group move effects.
 		  // - defaultResponse: Nil
 		  //
-		  // - BASIC:
-		  //   - type: http
-		  //   - name: basicAuth
-		  // - API Key:
-		  //   - type: apiKey sessionid 
-		  //   - name: cookieAuth
 		  //
 		  
 		  Dim localVarHTTPSocket As New HTTPSecureSocket
 		  Me.PrivateFuncPrepareSocket(localVarHTTPSocket)
-		  
-		  
-		  
-		  AddHandler localVarHTTPSocket.AuthenticationRequired, addressof Me.AuthenticationRequiredIf me.ApiKeycookieAuth = "" Then Raise New OpenAPIClient.OpenAPIClientException(kErrorCannotAuthenticate, "API key is unset. Please assign a value to `MovesApi.ApiKeycookieAuth` before invoking `MovesApi.MoveCategoryRetrieve()`.")
 		  
 		  
 		  
@@ -861,12 +801,6 @@ Protected Class MovesApi
 		  // - Methods by which Pokémon can learn moves.
 		  // - defaultResponse: Nil
 		  //
-		  // - BASIC:
-		  //   - type: http
-		  //   - name: basicAuth
-		  // - API Key:
-		  //   - type: apiKey sessionid 
-		  //   - name: cookieAuth
 		  //
 		  
 		  Dim localVarHTTPSocket As New HTTPSecureSocket
@@ -880,10 +814,6 @@ Protected Class MovesApi
 		  If q <> nil Then localVarQueryParams = localVarQueryParams + "&" + EncodeURLComponent("q") + "=" + EncodeURLComponent(q)
 		  
 
-		  
-		  AddHandler localVarHTTPSocket.AuthenticationRequired, addressof Me.AuthenticationRequiredIf me.ApiKeycookieAuth = "" Then Raise New OpenAPIClient.OpenAPIClientException(kErrorCannotAuthenticate, "API key is unset. Please assign a value to `MovesApi.ApiKeycookieAuth` before invoking `MovesApi.MoveLearnMethodList()`.")
-		  
-		  
 		  
 
 
@@ -1003,20 +933,10 @@ Protected Class MovesApi
 		  // - Methods by which Pokémon can learn moves.
 		  // - defaultResponse: Nil
 		  //
-		  // - BASIC:
-		  //   - type: http
-		  //   - name: basicAuth
-		  // - API Key:
-		  //   - type: apiKey sessionid 
-		  //   - name: cookieAuth
 		  //
 		  
 		  Dim localVarHTTPSocket As New HTTPSecureSocket
 		  Me.PrivateFuncPrepareSocket(localVarHTTPSocket)
-		  
-		  
-		  
-		  AddHandler localVarHTTPSocket.AuthenticationRequired, addressof Me.AuthenticationRequiredIf me.ApiKeycookieAuth = "" Then Raise New OpenAPIClient.OpenAPIClientException(kErrorCannotAuthenticate, "API key is unset. Please assign a value to `MovesApi.ApiKeycookieAuth` before invoking `MovesApi.MoveLearnMethodRetrieve()`.")
 		  
 		  
 		  
@@ -1143,12 +1063,6 @@ Protected Class MovesApi
 		  // - Moves are the skills of Pokémon in battle. In battle, a Pokémon uses one move each turn. Some moves (including those learned by Hidden Machine) can be used outside of battle as well, usually for the purpose of removing obstacles or exploring new areas.
 		  // - defaultResponse: Nil
 		  //
-		  // - BASIC:
-		  //   - type: http
-		  //   - name: basicAuth
-		  // - API Key:
-		  //   - type: apiKey sessionid 
-		  //   - name: cookieAuth
 		  //
 		  
 		  Dim localVarHTTPSocket As New HTTPSecureSocket
@@ -1162,10 +1076,6 @@ Protected Class MovesApi
 		  If q <> nil Then localVarQueryParams = localVarQueryParams + "&" + EncodeURLComponent("q") + "=" + EncodeURLComponent(q)
 		  
 
-		  
-		  AddHandler localVarHTTPSocket.AuthenticationRequired, addressof Me.AuthenticationRequiredIf me.ApiKeycookieAuth = "" Then Raise New OpenAPIClient.OpenAPIClientException(kErrorCannotAuthenticate, "API key is unset. Please assign a value to `MovesApi.ApiKeycookieAuth` before invoking `MovesApi.MoveList()`.")
-		  
-		  
 		  
 
 
@@ -1285,20 +1195,10 @@ Protected Class MovesApi
 		  // - Moves are the skills of Pokémon in battle. In battle, a Pokémon uses one move each turn. Some moves (including those learned by Hidden Machine) can be used outside of battle as well, usually for the purpose of removing obstacles or exploring new areas.
 		  // - defaultResponse: Nil
 		  //
-		  // - BASIC:
-		  //   - type: http
-		  //   - name: basicAuth
-		  // - API Key:
-		  //   - type: apiKey sessionid 
-		  //   - name: cookieAuth
 		  //
 		  
 		  Dim localVarHTTPSocket As New HTTPSecureSocket
 		  Me.PrivateFuncPrepareSocket(localVarHTTPSocket)
-		  
-		  
-		  
-		  AddHandler localVarHTTPSocket.AuthenticationRequired, addressof Me.AuthenticationRequiredIf me.ApiKeycookieAuth = "" Then Raise New OpenAPIClient.OpenAPIClientException(kErrorCannotAuthenticate, "API key is unset. Please assign a value to `MovesApi.ApiKeycookieAuth` before invoking `MovesApi.MoveRetrieve()`.")
 		  
 		  
 		  
@@ -1425,12 +1325,6 @@ Protected Class MovesApi
 		  // - Targets moves can be directed at during battle. Targets can be Pokémon, environments or even other moves.
 		  // - defaultResponse: Nil
 		  //
-		  // - BASIC:
-		  //   - type: http
-		  //   - name: basicAuth
-		  // - API Key:
-		  //   - type: apiKey sessionid 
-		  //   - name: cookieAuth
 		  //
 		  
 		  Dim localVarHTTPSocket As New HTTPSecureSocket
@@ -1444,10 +1338,6 @@ Protected Class MovesApi
 		  If q <> nil Then localVarQueryParams = localVarQueryParams + "&" + EncodeURLComponent("q") + "=" + EncodeURLComponent(q)
 		  
 
-		  
-		  AddHandler localVarHTTPSocket.AuthenticationRequired, addressof Me.AuthenticationRequiredIf me.ApiKeycookieAuth = "" Then Raise New OpenAPIClient.OpenAPIClientException(kErrorCannotAuthenticate, "API key is unset. Please assign a value to `MovesApi.ApiKeycookieAuth` before invoking `MovesApi.MoveTargetList()`.")
-		  
-		  
 		  
 
 
@@ -1567,20 +1457,10 @@ Protected Class MovesApi
 		  // - Targets moves can be directed at during battle. Targets can be Pokémon, environments or even other moves.
 		  // - defaultResponse: Nil
 		  //
-		  // - BASIC:
-		  //   - type: http
-		  //   - name: basicAuth
-		  // - API Key:
-		  //   - type: apiKey sessionid 
-		  //   - name: cookieAuth
 		  //
 		  
 		  Dim localVarHTTPSocket As New HTTPSecureSocket
 		  Me.PrivateFuncPrepareSocket(localVarHTTPSocket)
-		  
-		  
-		  
-		  AddHandler localVarHTTPSocket.AuthenticationRequired, addressof Me.AuthenticationRequiredIf me.ApiKeycookieAuth = "" Then Raise New OpenAPIClient.OpenAPIClientException(kErrorCannotAuthenticate, "API key is unset. Please assign a value to `MovesApi.ApiKeycookieAuth` before invoking `MovesApi.MoveTargetRetrieve()`.")
 		  
 		  
 		  
@@ -1738,10 +1618,6 @@ Protected Class MovesApi
 
 	#tag Property, Flags = &h0
 		AdditionalHeaders As Dictionary
-	#tag EndProperty
-
-	#tag Property, Flags = &h0
-		ApiKeycookieAuth As String
 	#tag EndProperty
 
 	#tag Property, Flags = &h0

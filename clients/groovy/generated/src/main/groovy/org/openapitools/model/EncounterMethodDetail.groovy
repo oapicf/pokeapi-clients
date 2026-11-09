@@ -10,12 +10,12 @@ import org.openapitools.model.EncounterMethodName;
 
 @Canonical
 class EncounterMethodDetail {
-    
+    /* The identifier for this resource. */
     Integer id
-    
+    /* The name for this resource. */
     String name
-    
+    /* A good value for sorting. */
     Integer order
-    
+    /* The name of this resource listed in different languages. */
     List<EncounterMethodName> names = new ArrayList<>()
 }

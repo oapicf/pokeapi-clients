@@ -7,9 +7,10 @@ from typing import List, Dict  # noqa: F401
 
 from app.openapi_server.models.base_model import Model
 from app.openapi_server.models.characteristic_summary import CharacteristicSummary  # noqa: F401,E501
+from app.openapi_server.models.item_summary import ItemSummary  # noqa: F401,E501
 from app.openapi_server.models.move_damage_class_summary import MoveDamageClassSummary  # noqa: F401,E501
-from app.openapi_server.models.stat_detail_affecting_moves import StatDetailAffectingMoves  # noqa: F401,E501
-from app.openapi_server.models.stat_detail_affecting_natures import StatDetailAffectingNatures  # noqa: F401,E501
+from app.openapi_server.models.stat_affecting_moves import StatAffectingMoves  # noqa: F401,E501
+from app.openapi_server.models.stat_affecting_natures import StatAffectingNatures  # noqa: F401,E501
 from app.openapi_server.models.stat_name import StatName  # noqa: F401,E501
 from openapi_server import util
 
@@ -20,7 +21,7 @@ class StatDetail(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, id: int=None, name: str=None, game_index: int=None, is_battle_only: bool=None, affecting_moves: StatDetailAffectingMoves=None, affecting_natures: StatDetailAffectingNatures=None, characteristics: List[CharacteristicSummary]=None, move_damage_class: MoveDamageClassSummary=None, names: List[StatName]=None):  # noqa: E501
+    def __init__(self, id: int=None, name: str=None, game_index: int=None, is_battle_only: bool=None, affecting_moves: StatAffectingMoves=None, affecting_natures: StatAffectingNatures=None, affecting_items: List[ItemSummary]=None, characteristics: List[CharacteristicSummary]=None, move_damage_class: MoveDamageClassSummary=None, names: List[StatName]=None):  # noqa: E501
         """StatDetail - a model defined in Swagger
 
         :param id: The id of this StatDetail.  # noqa: E501
@@ -32,9 +33,11 @@ class StatDetail(Model):
         :param is_battle_only: The is_battle_only of this StatDetail.  # noqa: E501
         :type is_battle_only: bool
         :param affecting_moves: The affecting_moves of this StatDetail.  # noqa: E501
-        :type affecting_moves: StatDetailAffectingMoves
+        :type affecting_moves: StatAffectingMoves
         :param affecting_natures: The affecting_natures of this StatDetail.  # noqa: E501
-        :type affecting_natures: StatDetailAffectingNatures
+        :type affecting_natures: StatAffectingNatures
+        :param affecting_items: The affecting_items of this StatDetail.  # noqa: E501
+        :type affecting_items: List[ItemSummary]
         :param characteristics: The characteristics of this StatDetail.  # noqa: E501
         :type characteristics: List[CharacteristicSummary]
         :param move_damage_class: The move_damage_class of this StatDetail.  # noqa: E501
@@ -47,8 +50,9 @@ class StatDetail(Model):
             'name': str,
             'game_index': int,
             'is_battle_only': bool,
-            'affecting_moves': StatDetailAffectingMoves,
-            'affecting_natures': StatDetailAffectingNatures,
+            'affecting_moves': StatAffectingMoves,
+            'affecting_natures': StatAffectingNatures,
+            'affecting_items': List[ItemSummary],
             'characteristics': List[CharacteristicSummary],
             'move_damage_class': MoveDamageClassSummary,
             'names': List[StatName]
@@ -61,6 +65,7 @@ class StatDetail(Model):
             'is_battle_only': 'is_battle_only',
             'affecting_moves': 'affecting_moves',
             'affecting_natures': 'affecting_natures',
+            'affecting_items': 'affecting_items',
             'characteristics': 'characteristics',
             'move_damage_class': 'move_damage_class',
             'names': 'names'
@@ -72,6 +77,7 @@ class StatDetail(Model):
         self._is_battle_only = is_battle_only
         self._affecting_moves = affecting_moves
         self._affecting_natures = affecting_natures
+        self._affecting_items = affecting_items
         self._characteristics = characteristics
         self._move_damage_class = move_damage_class
         self._names = names
@@ -91,6 +97,7 @@ class StatDetail(Model):
     def id(self) -> int:
         """Gets the id of this StatDetail.
 
+        The identifier for this resource.  # noqa: E501
 
         :return: The id of this StatDetail.
         :rtype: int
@@ -101,6 +108,7 @@ class StatDetail(Model):
     def id(self, id: int):
         """Sets the id of this StatDetail.
 
+        The identifier for this resource.  # noqa: E501
 
         :param id: The id of this StatDetail.
         :type id: int
@@ -114,6 +122,7 @@ class StatDetail(Model):
     def name(self) -> str:
         """Gets the name of this StatDetail.
 
+        The name for this resource.  # noqa: E501
 
         :return: The name of this StatDetail.
         :rtype: str
@@ -124,14 +133,15 @@ class StatDetail(Model):
     def name(self, name: str):
         """Sets the name of this StatDetail.
 
+        The name for this resource.  # noqa: E501
 
         :param name: The name of this StatDetail.
         :type name: str
         """
         if name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
-        if name is not None and len(name) > 100:
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `100`")  # noqa: E501
+        if name is not None and len(name) > 200:
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `200`")  # noqa: E501
 
         self._name = name
 
@@ -139,6 +149,7 @@ class StatDetail(Model):
     def game_index(self) -> int:
         """Gets the game_index of this StatDetail.
 
+        ID the games use for this stat.  # noqa: E501
 
         :return: The game_index of this StatDetail.
         :rtype: int
@@ -149,12 +160,17 @@ class StatDetail(Model):
     def game_index(self, game_index: int):
         """Sets the game_index of this StatDetail.
 
+        ID the games use for this stat.  # noqa: E501
 
         :param game_index: The game_index of this StatDetail.
         :type game_index: int
         """
         if game_index is None:
             raise ValueError("Invalid value for `game_index`, must not be `None`")  # noqa: E501
+        if game_index is not None and game_index > 2147483647:  # noqa: E501
+            raise ValueError("Invalid value for `game_index`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if game_index is not None and game_index < -2147483648:  # noqa: E501
+            raise ValueError("Invalid value for `game_index`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._game_index = game_index
 
@@ -162,6 +178,7 @@ class StatDetail(Model):
     def is_battle_only(self) -> bool:
         """Gets the is_battle_only of this StatDetail.
 
+        Whether this stat only exists within a battle.  # noqa: E501
 
         :return: The is_battle_only of this StatDetail.
         :rtype: bool
@@ -172,6 +189,7 @@ class StatDetail(Model):
     def is_battle_only(self, is_battle_only: bool):
         """Sets the is_battle_only of this StatDetail.
 
+        Whether this stat only exists within a battle.  # noqa: E501
 
         :param is_battle_only: The is_battle_only of this StatDetail.
         :type is_battle_only: bool
@@ -180,22 +198,24 @@ class StatDetail(Model):
         self._is_battle_only = is_battle_only
 
     @property
-    def affecting_moves(self) -> StatDetailAffectingMoves:
+    def affecting_moves(self) -> StatAffectingMoves:
         """Gets the affecting_moves of this StatDetail.
 
+        A detail of moves which affect this stat positively or negatively.  # noqa: E501
 
         :return: The affecting_moves of this StatDetail.
-        :rtype: StatDetailAffectingMoves
+        :rtype: StatAffectingMoves
         """
         return self._affecting_moves
 
     @affecting_moves.setter
-    def affecting_moves(self, affecting_moves: StatDetailAffectingMoves):
+    def affecting_moves(self, affecting_moves: StatAffectingMoves):
         """Sets the affecting_moves of this StatDetail.
 
+        A detail of moves which affect this stat positively or negatively.  # noqa: E501
 
         :param affecting_moves: The affecting_moves of this StatDetail.
-        :type affecting_moves: StatDetailAffectingMoves
+        :type affecting_moves: StatAffectingMoves
         """
         if affecting_moves is None:
             raise ValueError("Invalid value for `affecting_moves`, must not be `None`")  # noqa: E501
@@ -203,22 +223,24 @@ class StatDetail(Model):
         self._affecting_moves = affecting_moves
 
     @property
-    def affecting_natures(self) -> StatDetailAffectingNatures:
+    def affecting_natures(self) -> StatAffectingNatures:
         """Gets the affecting_natures of this StatDetail.
 
+        A detail of natures which affect this stat positively or negatively.  # noqa: E501
 
         :return: The affecting_natures of this StatDetail.
-        :rtype: StatDetailAffectingNatures
+        :rtype: StatAffectingNatures
         """
         return self._affecting_natures
 
     @affecting_natures.setter
-    def affecting_natures(self, affecting_natures: StatDetailAffectingNatures):
+    def affecting_natures(self, affecting_natures: StatAffectingNatures):
         """Sets the affecting_natures of this StatDetail.
 
+        A detail of natures which affect this stat positively or negatively.  # noqa: E501
 
         :param affecting_natures: The affecting_natures of this StatDetail.
-        :type affecting_natures: StatDetailAffectingNatures
+        :type affecting_natures: StatAffectingNatures
         """
         if affecting_natures is None:
             raise ValueError("Invalid value for `affecting_natures`, must not be `None`")  # noqa: E501
@@ -226,9 +248,35 @@ class StatDetail(Model):
         self._affecting_natures = affecting_natures
 
     @property
+    def affecting_items(self) -> List[ItemSummary]:
+        """Gets the affecting_items of this StatDetail.
+
+        Items that affect this stat, such as vitamins and battle items.  # noqa: E501
+
+        :return: The affecting_items of this StatDetail.
+        :rtype: List[ItemSummary]
+        """
+        return self._affecting_items
+
+    @affecting_items.setter
+    def affecting_items(self, affecting_items: List[ItemSummary]):
+        """Sets the affecting_items of this StatDetail.
+
+        Items that affect this stat, such as vitamins and battle items.  # noqa: E501
+
+        :param affecting_items: The affecting_items of this StatDetail.
+        :type affecting_items: List[ItemSummary]
+        """
+        if affecting_items is None:
+            raise ValueError("Invalid value for `affecting_items`, must not be `None`")  # noqa: E501
+
+        self._affecting_items = affecting_items
+
+    @property
     def characteristics(self) -> List[CharacteristicSummary]:
         """Gets the characteristics of this StatDetail.
 
+        A list of characteristics that are set on a Pokémon when its highest base stat is this stat.  # noqa: E501
 
         :return: The characteristics of this StatDetail.
         :rtype: List[CharacteristicSummary]
@@ -239,6 +287,7 @@ class StatDetail(Model):
     def characteristics(self, characteristics: List[CharacteristicSummary]):
         """Sets the characteristics of this StatDetail.
 
+        A list of characteristics that are set on a Pokémon when its highest base stat is this stat.  # noqa: E501
 
         :param characteristics: The characteristics of this StatDetail.
         :type characteristics: List[CharacteristicSummary]
@@ -252,6 +301,7 @@ class StatDetail(Model):
     def move_damage_class(self) -> MoveDamageClassSummary:
         """Gets the move_damage_class of this StatDetail.
 
+        The class of damage this stat is directly related to.  # noqa: E501
 
         :return: The move_damage_class of this StatDetail.
         :rtype: MoveDamageClassSummary
@@ -262,6 +312,7 @@ class StatDetail(Model):
     def move_damage_class(self, move_damage_class: MoveDamageClassSummary):
         """Sets the move_damage_class of this StatDetail.
 
+        The class of damage this stat is directly related to.  # noqa: E501
 
         :param move_damage_class: The move_damage_class of this StatDetail.
         :type move_damage_class: MoveDamageClassSummary
@@ -275,6 +326,7 @@ class StatDetail(Model):
     def names(self) -> List[StatName]:
         """Gets the names of this StatDetail.
 
+        The name of this resource listed in different languages.  # noqa: E501
 
         :return: The names of this StatDetail.
         :rtype: List[StatName]
@@ -285,6 +337,7 @@ class StatDetail(Model):
     def names(self, names: List[StatName]):
         """Sets the names of this StatDetail.
 
+        The name of this resource listed in different languages.  # noqa: E501
 
         :param names: The names of this StatDetail.
         :type names: List[StatName]

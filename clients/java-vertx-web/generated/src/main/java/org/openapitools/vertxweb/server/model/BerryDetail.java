@@ -6,8 +6,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.vertxweb.server.model.BerryDetailFlavorsInner;
+import org.openapitools.jackson.nullable.JsonNullable;
 import org.openapitools.vertxweb.server.model.BerryFirmnessSummary;
+import org.openapitools.vertxweb.server.model.BerryFlavorMap;
 import org.openapitools.vertxweb.server.model.ItemSummary;
 import org.openapitools.vertxweb.server.model.TypeSummary;
 
@@ -23,7 +24,7 @@ public class BerryDetail   {
   private Integer smoothness;
   private Integer soilDryness;
   private BerryFirmnessSummary firmness;
-  private List<BerryDetailFlavorsInner> flavors = new ArrayList<>();
+  private List<BerryFlavorMap> flavors = new ArrayList<>();
   private ItemSummary item;
   private TypeSummary naturalGiftType;
 
@@ -31,7 +32,7 @@ public class BerryDetail   {
 
   }
 
-  public BerryDetail (Integer id, String name, Integer growthTime, Integer maxHarvest, Integer naturalGiftPower, Integer size, Integer smoothness, Integer soilDryness, BerryFirmnessSummary firmness, List<BerryDetailFlavorsInner> flavors, ItemSummary item, TypeSummary naturalGiftType) {
+  public BerryDetail (Integer id, String name, Integer growthTime, Integer maxHarvest, Integer naturalGiftPower, Integer size, Integer smoothness, Integer soilDryness, BerryFirmnessSummary firmness, List<BerryFlavorMap> flavors, ItemSummary item, TypeSummary naturalGiftType) {
     this.id = id;
     this.name = name;
     this.growthTime = growthTime;
@@ -129,10 +130,10 @@ public class BerryDetail   {
 
     
   @JsonProperty("flavors")
-  public List<BerryDetailFlavorsInner> getFlavors() {
+  public List<BerryFlavorMap> getFlavors() {
     return flavors;
   }
-  public void setFlavors(List<BerryDetailFlavorsInner> flavors) {
+  public void setFlavors(List<BerryFlavorMap> flavors) {
     this.flavors = flavors;
   }
 

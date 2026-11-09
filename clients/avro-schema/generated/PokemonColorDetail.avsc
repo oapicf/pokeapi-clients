@@ -7,12 +7,12 @@
     {
       "name": "id",
       "type": "int",
-      "doc": ""
+      "doc": "The identifier for this resource."
     },
     {
       "name": "name",
       "type": "string",
-      "doc": ""
+      "doc": "The name for this resource."
     },
     {
       "name": "names",
@@ -20,7 +20,7 @@
         "type": "array",
         "items": "model.PokemonColorName"
       },
-      "doc": ""
+      "doc": "The name of this resource listed in different languages."
     },
     {
       "name": "pokemon_species",
@@ -28,7 +28,7 @@
         "type": "array",
         "items": "model.PokemonSpeciesSummary"
       },
-      "doc": ""
+      "doc": "A list of the Pokémon species that have this color."
     }
   ]
 

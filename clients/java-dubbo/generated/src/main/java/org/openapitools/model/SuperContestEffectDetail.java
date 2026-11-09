@@ -14,20 +14,32 @@ import java.math.*;
 public class SuperContestEffectDetail implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * The identifier for this resource.
+   */
   @JsonProperty("id")
   private Integer id;
 
+  /**
+   * The level of appeal this super contest effect has.
+   */
   @JsonProperty("appeal")
   private Integer appeal;
 
+  /**
+   * The flavor text of this super contest effect listed in different languages.
+   */
   @JsonProperty("flavor_text_entries")
   private List<SuperContestEffectFlavorText> flavorTextEntries = new ArrayList<>();
 
+  /**
+   * A list of moves that have the effect when used in super contests.
+   */
   @JsonProperty("moves")
   private List<MoveSummary> moves = new ArrayList<>();
 
   /**
-   * 
+   * The identifier for this resource.
    * @return id
    */
   public Integer getId() {
@@ -39,7 +51,7 @@ public class SuperContestEffectDetail implements Serializable {
   }
 
   /**
-   * 
+   * The level of appeal this super contest effect has.
    * @return appeal
    */
   public Integer getAppeal() {
@@ -51,7 +63,7 @@ public class SuperContestEffectDetail implements Serializable {
   }
 
   /**
-   * 
+   * The flavor text of this super contest effect listed in different languages.
    * @return flavorTextEntries
    */
   public List<SuperContestEffectFlavorText> getFlavorTextEntries() {
@@ -63,7 +75,7 @@ public class SuperContestEffectDetail implements Serializable {
   }
 
   /**
-   * 
+   * A list of moves that have the effect when used in super contests.
    * @return moves
    */
   public List<MoveSummary> getMoves() {

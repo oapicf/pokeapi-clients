@@ -7,22 +7,22 @@
     {
       "name": "id",
       "type": "int",
-      "doc": ""
+      "doc": "The identifier for this resource."
     },
     {
       "name": "item",
       "type": "model.ItemSummary",
-      "doc": ""
+      "doc": "The TM or HM item that corresponds to this machine."
     },
     {
       "name": "version_group",
       "type": "model.VersionGroupSummary",
-      "doc": ""
+      "doc": "The version group that this machine applies to."
     },
     {
       "name": "move",
       "type": "model.MoveSummary",
-      "doc": ""
+      "doc": "The move that is taught by this machine."
     }
   ]
 

@@ -4,6 +4,8 @@ All URIs are relative to *https://pokeapi.co*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
+| [**currencyList**](ItemsApi.md#currencyList) | **GET** /api/v2/currency/ | List currencies |
+| [**currencyRetrieve**](ItemsApi.md#currencyRetrieve) | **GET** /api/v2/currency/{id}/ | Get currency |
 | [**itemAttributeList**](ItemsApi.md#itemAttributeList) | **GET** /api/v2/item-attribute/ | List item attributes |
 | [**itemAttributeRetrieve**](ItemsApi.md#itemAttributeRetrieve) | **GET** /api/v2/item-attribute/{id}/ | Get item attribute |
 | [**itemCategoryList**](ItemsApi.md#itemCategoryList) | **GET** /api/v2/item-category/ | List item categories |
@@ -15,6 +17,62 @@ All URIs are relative to *https://pokeapi.co*
 | [**itemPocketRetrieve**](ItemsApi.md#itemPocketRetrieve) | **GET** /api/v2/item-pocket/{id}/ | Get item pocket |
 | [**itemRetrieve**](ItemsApi.md#itemRetrieve) | **GET** /api/v2/item/{id}/ | Get item |
 
+
+<a name="currencyList"></a>
+# **currencyList**
+> PaginatedCurrencySummaryList currencyList(limit, offset, q)
+
+List currencies
+
+    Currencies used to buy items.
+
+### Parameters
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **limit** | **Integer**| Number of results to return per page. | [optional] [default to null] |
+| **offset** | **Integer**| The initial index from which to return the results. | [optional] [default to null] |
+| **q** | **String**| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional] [default to null] |
+
+### Return type
+
+[**PaginatedCurrencySummaryList**](../Models/PaginatedCurrencySummaryList.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+<a name="currencyRetrieve"></a>
+# **currencyRetrieve**
+> CurrencyDetail currencyRetrieve(id)
+
+Get currency
+
+    Currencies used to buy items.
+
+### Parameters
+
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| This parameter can be a string or an integer. | [default to null] |
+
+### Return type
+
+[**CurrencyDetail**](../Models/CurrencyDetail.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 <a name="itemAttributeList"></a>
 # **itemAttributeList**
@@ -38,7 +96,7 @@ List item attributes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -65,7 +123,7 @@ Get item attribute
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -94,7 +152,7 @@ List item categories
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -121,7 +179,7 @@ Get item category
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -150,7 +208,7 @@ List item fling effects
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -177,7 +235,7 @@ Get item fling effect
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -206,7 +264,7 @@ List items
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -235,7 +293,7 @@ List item pockets
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -262,7 +320,7 @@ Get item pocket
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -289,7 +347,7 @@ Get item
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

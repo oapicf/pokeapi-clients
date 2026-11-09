@@ -6,9 +6,9 @@ All URIs are relative to *https://pokeapi.co*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ability_list**](#ability_list) | **GET** `/api/v2/ability/` | 
-[**ability_retrieve**](#ability_retrieve) | **GET** `/api/v2/ability/{id}/` | 
-[**characteristic_list**](#characteristic_list) | **GET** `/api/v2/characteristic/` | List charecterictics
+[**ability_list**](#ability_list) | **GET** `/api/v2/ability/` | List abilities
+[**ability_retrieve**](#ability_retrieve) | **GET** `/api/v2/ability/{id}/` | Get ability
+[**characteristic_list**](#characteristic_list) | **GET** `/api/v2/characteristic/` | List characteristics
 [**characteristic_retrieve**](#characteristic_retrieve) | **GET** `/api/v2/characteristic/{id}/` | Get characteristic
 [**egg_group_list**](#egg_group_list) | **GET** `/api/v2/egg-group/` | List egg groups
 [**egg_group_retrieve**](#egg_group_retrieve) | **GET** `/api/v2/egg-group/{id}/` | Get egg group
@@ -44,14 +44,12 @@ Method | HTTP request | Description
 
 > `ability_list(limit = null,offset = null,q = null, on_success: Callable, on_failure: Callable)`
 
-
+List abilities
 
 Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -98,14 +96,12 @@ api.ability_list(
 
 > `ability_retrieve(id: String, on_success: Callable, on_failure: Callable)`
 
-
+Get ability
 
 Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -124,7 +120,7 @@ var api = PokemonApi.new(config)
 
 # Invoke an endpoint
 api.ability_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id,
 	# On Success
@@ -144,16 +140,14 @@ api.ability_retrieve(
 # **characteristic_list**   { #characteristic_list }
 <a name="characteristic_list"></a>
 
-> `characteristic_list(limit = null,offset = null,q = null, on_success: Callable, on_failure: Callable)`
+> `characteristic_list(limit = null,offset = null, on_success: Callable, on_failure: Callable)`
 
-List charecterictics
+List characteristics
 
 Characteristics indicate which stat contains a Pokémon's highest IV. A Pokémon's Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail.
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -178,9 +172,6 @@ api.characteristic_list(
 	# offset: int   Eg: 56
 	# The initial index from which to return the results.
 	offset,
-	# q: String   Eg: q_example
-	# > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-	q,
 	# On Success
 	func(response):  # response is ApiResponse
 		prints("Success!", "characteristic_list", response)
@@ -206,8 +197,6 @@ Characteristics indicate which stat contains a Pokémon's highest IV. A Pokémon
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -226,7 +215,7 @@ var api = PokemonApi.new(config)
 
 # Invoke an endpoint
 api.characteristic_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id,
 	# On Success
@@ -254,8 +243,6 @@ Egg Groups are categories which determine which Pokémon are able to interbreed.
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -308,8 +295,6 @@ Egg Groups are categories which determine which Pokémon are able to interbreed.
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -328,7 +313,7 @@ var api = PokemonApi.new(config)
 
 # Invoke an endpoint
 api.egg_group_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id,
 	# On Success
@@ -356,8 +341,6 @@ Genders were introduced in Generation II for the purposes of breeding Pokémon b
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -410,8 +393,6 @@ Genders were introduced in Generation II for the purposes of breeding Pokémon b
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -430,7 +411,7 @@ var api = PokemonApi.new(config)
 
 # Invoke an endpoint
 api.gender_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id,
 	# On Success
@@ -458,8 +439,6 @@ Growth rates are the speed with which Pokémon gain levels through experience. C
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -512,8 +491,6 @@ Growth rates are the speed with which Pokémon gain levels through experience. C
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -532,7 +509,7 @@ var api = PokemonApi.new(config)
 
 # Invoke an endpoint
 api.growth_rate_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id,
 	# On Success
@@ -560,8 +537,6 @@ Damage classes moves can have, e.g. physical, special, or non-damaging.
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -614,8 +589,6 @@ Damage classes moves can have, e.g. physical, special, or non-damaging.
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -634,7 +607,7 @@ var api = PokemonApi.new(config)
 
 # Invoke an endpoint
 api.move_damage_class_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id,
 	# On Success
@@ -662,8 +635,6 @@ Natures influence how a Pokémon's stats grow. See [Bulbapedia](http://bulbapedi
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -716,8 +687,6 @@ Natures influence how a Pokémon's stats grow. See [Bulbapedia](http://bulbapedi
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -736,7 +705,7 @@ var api = PokemonApi.new(config)
 
 # Invoke an endpoint
 api.nature_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id,
 	# On Success
@@ -764,8 +733,6 @@ Pokeathlon Stats are different attributes of a Pokémon's performance in Pokéat
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -818,8 +785,6 @@ Pokeathlon Stats are different attributes of a Pokémon's performance in Pokéat
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -838,7 +803,7 @@ var api = PokemonApi.new(config)
 
 # Invoke an endpoint
 api.pokeathlon_stat_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id,
 	# On Success
@@ -866,8 +831,6 @@ Colors used for sorting Pokémon in a Pokédex. The color listed in the Pokédex
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -920,8 +883,6 @@ Colors used for sorting Pokémon in a Pokédex. The color listed in the Pokédex
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -940,7 +901,7 @@ var api = PokemonApi.new(config)
 
 # Invoke an endpoint
 api.pokemon_color_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id,
 	# On Success
@@ -968,8 +929,6 @@ Some Pokémon may appear in one of multiple, visually different forms. These dif
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -1022,8 +981,6 @@ Some Pokémon may appear in one of multiple, visually different forms. These dif
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -1042,7 +999,7 @@ var api = PokemonApi.new(config)
 
 # Invoke an endpoint
 api.pokemon_form_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id,
 	# On Success
@@ -1070,8 +1027,6 @@ Habitats are generally different terrain Pokémon can be found in but can also b
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -1124,8 +1079,6 @@ Habitats are generally different terrain Pokémon can be found in but can also b
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -1144,7 +1097,7 @@ var api = PokemonApi.new(config)
 
 # Invoke an endpoint
 api.pokemon_habitat_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id,
 	# On Success
@@ -1172,8 +1125,6 @@ Pokémon are the creatures that inhabit the world of the Pokémon games. They ca
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -1226,8 +1177,6 @@ Pokémon are the creatures that inhabit the world of the Pokémon games. They ca
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -1246,7 +1195,7 @@ var api = PokemonApi.new(config)
 
 # Invoke an endpoint
 api.pokemon_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id,
 	# On Success
@@ -1274,8 +1223,6 @@ Shapes used for sorting Pokémon in a Pokédex.
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -1328,8 +1275,6 @@ Shapes used for sorting Pokémon in a Pokédex.
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -1348,7 +1293,7 @@ var api = PokemonApi.new(config)
 
 # Invoke an endpoint
 api.pokemon_shape_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id,
 	# On Success
@@ -1376,8 +1321,6 @@ A Pokémon Species forms the basis for at least one Pokémon. Attributes of a Po
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -1430,8 +1373,6 @@ A Pokémon Species forms the basis for at least one Pokémon. Attributes of a Po
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -1450,7 +1391,7 @@ var api = PokemonApi.new(config)
 
 # Invoke an endpoint
 api.pokemon_species_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id,
 	# On Success
@@ -1478,8 +1419,6 @@ Stats determine certain aspects of battles. Each Pokémon has a value for each s
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -1532,8 +1471,6 @@ Stats determine certain aspects of battles. Each Pokémon has a value for each s
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -1552,7 +1489,7 @@ var api = PokemonApi.new(config)
 
 # Invoke an endpoint
 api.stat_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id,
 	# On Success
@@ -1580,8 +1517,6 @@ Types are properties for Pokémon and their moves. Each type has three propertie
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -1634,8 +1569,6 @@ Types are properties for Pokémon and their moves. Each type has three propertie
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -1654,7 +1587,7 @@ var api = PokemonApi.new(config)
 
 # Invoke an endpoint
 api.type_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id,
 	# On Success
@@ -1674,8 +1607,7 @@ api.type_retrieve(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), 
-[cookieAuth](../README.md#cookieAuth)
+No authorization required.
 
 [[Back to top]](#__pageTop) \
 [[Back to API list]](../README.md#documentation-for-api-endpoints) \

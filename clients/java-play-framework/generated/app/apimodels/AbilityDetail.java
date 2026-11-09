@@ -1,10 +1,10 @@
 package apimodels;
 
 import apimodels.AbilityChange;
-import apimodels.AbilityDetailPokemonInner;
 import apimodels.AbilityEffectText;
 import apimodels.AbilityFlavorText;
 import apimodels.AbilityName;
+import apimodels.AbilityPokemonDetail;
 import apimodels.GenerationSummary;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -18,7 +18,7 @@ import javax.validation.Valid;
 /**
  * AbilityDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-10-25T05:48:13.486809836Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-11-09T13:49:31.462302702Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class AbilityDetail   {
   @JsonProperty("id")
@@ -28,7 +28,7 @@ public class AbilityDetail   {
 
   @JsonProperty("name")
   @NotNull
-@Size(max=100)
+@Size(max=200)
 
   private String name;
 
@@ -70,7 +70,7 @@ public class AbilityDetail   {
   @NotNull
 @Valid
 
-  private List<@Valid AbilityDetailPokemonInner> pokemon = new ArrayList<>();
+  private List<@Valid AbilityPokemonDetail> pokemon = new ArrayList<>();
 
   public AbilityDetail id(Integer id) {
     this.id = id;
@@ -78,7 +78,7 @@ public class AbilityDetail   {
   }
 
    /**
-   * Get id
+   * The identifier for this resource.
    * @return id
   **/
   public Integer getId() {
@@ -95,7 +95,7 @@ public class AbilityDetail   {
   }
 
    /**
-   * Get name
+   * The name for this resource.
    * @return name
   **/
   public String getName() {
@@ -112,7 +112,7 @@ public class AbilityDetail   {
   }
 
    /**
-   * Get isMainSeries
+   * Whether or not this ability originated in the main series of the video games.
    * @return isMainSeries
   **/
   public Boolean getIsMainSeries() {
@@ -129,7 +129,7 @@ public class AbilityDetail   {
   }
 
    /**
-   * Get generation
+   * The generation this ability originated in.
    * @return generation
   **/
   public GenerationSummary getGeneration() {
@@ -154,7 +154,7 @@ public class AbilityDetail   {
   }
 
    /**
-   * Get names
+   * The name of this resource listed in different languages.
    * @return names
   **/
   public List<@Valid AbilityName> getNames() {
@@ -179,7 +179,7 @@ public class AbilityDetail   {
   }
 
    /**
-   * Get effectEntries
+   * The effect of this ability listed in different languages.
    * @return effectEntries
   **/
   public List<@Valid AbilityEffectText> getEffectEntries() {
@@ -204,7 +204,7 @@ public class AbilityDetail   {
   }
 
    /**
-   * Get effectChanges
+   * The list of previous effects this ability has had across version groups.
    * @return effectChanges
   **/
   public List<@Valid AbilityChange> getEffectChanges() {
@@ -229,7 +229,7 @@ public class AbilityDetail   {
   }
 
    /**
-   * Get flavorTextEntries
+   * The flavor text of this ability listed in different languages.
    * @return flavorTextEntries
   **/
   public List<@Valid AbilityFlavorText> getFlavorTextEntries() {
@@ -240,12 +240,12 @@ public class AbilityDetail   {
     this.flavorTextEntries = flavorTextEntries;
   }
 
-  public AbilityDetail pokemon(List<@Valid AbilityDetailPokemonInner> pokemon) {
+  public AbilityDetail pokemon(List<@Valid AbilityPokemonDetail> pokemon) {
     this.pokemon = pokemon;
     return this;
   }
 
-  public AbilityDetail addPokemonItem(AbilityDetailPokemonInner pokemonItem) {
+  public AbilityDetail addPokemonItem(AbilityPokemonDetail pokemonItem) {
     if (this.pokemon == null) {
       this.pokemon = new ArrayList<>();
     }
@@ -254,14 +254,14 @@ public class AbilityDetail   {
   }
 
    /**
-   * Get pokemon
+   * A list of Pokémon that could potentially have this ability.
    * @return pokemon
   **/
-  public List<@Valid AbilityDetailPokemonInner> getPokemon() {
+  public List<@Valid AbilityPokemonDetail> getPokemon() {
     return pokemon;
   }
 
-  public void setPokemon(List<@Valid AbilityDetailPokemonInner> pokemon) {
+  public void setPokemon(List<@Valid AbilityPokemonDetail> pokemon) {
     this.pokemon = pokemon;
   }
 

@@ -26,7 +26,7 @@ CharacteristicDetail::__init()
 	//id = int(0);
 	//gene_modulo = int(0);
 	//new std::list()std::list> possible_values;
-	//highest_stat = new StatSummary();
+	//highest_stat = null;
 	//new std::list()std::list> descriptions;
 }
 

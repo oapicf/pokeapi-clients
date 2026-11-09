@@ -11,7 +11,6 @@ namespace models {
 PokemonStat::PokemonStat()
 : baseStat(0)
 , effort(0)
-, stat(StatSummary())
 {
 }
 // =========================================

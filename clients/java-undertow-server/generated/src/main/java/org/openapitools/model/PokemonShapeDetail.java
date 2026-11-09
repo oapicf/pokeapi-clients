@@ -1,9 +1,9 @@
 /*
  * PokéAPI
  *
- * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+ * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
  *
- * OpenAPI document version: 2.7.0
+ * OpenAPI document version: 2.10.0
  * Maintained by: blah+oapicf@cliffano.com
  *
  * AUTO-GENERATED FILE, DO NOT MODIFY!
@@ -18,24 +18,25 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.model.PokemonShapeDetailAwesomeNamesInner;
-import org.openapitools.model.PokemonShapeDetailNamesInner;
+import org.openapitools.model.PokemonShapeAwesomeName;
+import org.openapitools.model.PokemonShapeName;
 import org.openapitools.model.PokemonSpeciesSummary;
 
 
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2026-10-25T05:48:17.483504027Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2026-11-09T13:49:34.675912514Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PokemonShapeDetail   {
   
   private Integer id;
   private String name;
-  private List<PokemonShapeDetailAwesomeNamesInner> awesomeNames = new ArrayList<>();
-  private List<PokemonShapeDetailNamesInner> names = new ArrayList<>();
+  private List<PokemonShapeAwesomeName> awesomeNames = new ArrayList<>();
+  private List<PokemonShapeName> names = new ArrayList<>();
   private List<PokemonSpeciesSummary> pokemonSpecies = new ArrayList<>();
 
   /**
+   * The identifier for this resource.
    */
   public PokemonShapeDetail id(Integer id) {
     this.id = id;
@@ -43,7 +44,7 @@ public class PokemonShapeDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   @JsonProperty("id")
   public Integer getId() {
     return id;
@@ -53,6 +54,7 @@ public class PokemonShapeDetail   {
   }
 
   /**
+   * The name for this resource.
    */
   public PokemonShapeDetail name(String name) {
     this.name = name;
@@ -60,7 +62,7 @@ public class PokemonShapeDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   @JsonProperty("name")
   public String getName() {
     return name;
@@ -70,40 +72,43 @@ public class PokemonShapeDetail   {
   }
 
   /**
+   * The \"scientific\" name of this Pokémon shape listed in different languages.
    */
-  public PokemonShapeDetail awesomeNames(List<PokemonShapeDetailAwesomeNamesInner> awesomeNames) {
+  public PokemonShapeDetail awesomeNames(List<PokemonShapeAwesomeName> awesomeNames) {
     this.awesomeNames = awesomeNames;
     return this;
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The \"scientific\" name of this Pokémon shape listed in different languages.")
   @JsonProperty("awesome_names")
-  public List<PokemonShapeDetailAwesomeNamesInner> getAwesomeNames() {
+  public List<PokemonShapeAwesomeName> getAwesomeNames() {
     return awesomeNames;
   }
-  public void setAwesomeNames(List<PokemonShapeDetailAwesomeNamesInner> awesomeNames) {
+  public void setAwesomeNames(List<PokemonShapeAwesomeName> awesomeNames) {
     this.awesomeNames = awesomeNames;
   }
 
   /**
+   * The name of this resource listed in different languages.
    */
-  public PokemonShapeDetail names(List<PokemonShapeDetailNamesInner> names) {
+  public PokemonShapeDetail names(List<PokemonShapeName> names) {
     this.names = names;
     return this;
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
   @JsonProperty("names")
-  public List<PokemonShapeDetailNamesInner> getNames() {
+  public List<PokemonShapeName> getNames() {
     return names;
   }
-  public void setNames(List<PokemonShapeDetailNamesInner> names) {
+  public void setNames(List<PokemonShapeName> names) {
     this.names = names;
   }
 
   /**
+   * A list of the Pokémon species that have this shape.
    */
   public PokemonShapeDetail pokemonSpecies(List<PokemonSpeciesSummary> pokemonSpecies) {
     this.pokemonSpecies = pokemonSpecies;
@@ -111,7 +116,7 @@ public class PokemonShapeDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of the Pokémon species that have this shape.")
   @JsonProperty("pokemon_species")
   public List<PokemonSpeciesSummary> getPokemonSpecies() {
     return pokemonSpecies;

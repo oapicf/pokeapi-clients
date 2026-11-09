@@ -3,10 +3,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **Int32** |  | [readonly] 
-**Name** | **String** |  | 
-**Order** | **Int32** |  | [optional] 
-**Names** | [**EncounterMethodName[]**](EncounterMethodName.md) |  | [readonly] 
+**Id** | **Int32** | The identifier for this resource. | [readonly] 
+**Name** | **String** | The name for this resource. | 
+**Order** | **Int32** | A good value for sorting. | [optional] 
+**Names** | [**EncounterMethodName[]**](EncounterMethodName.md) | The name of this resource listed in different languages. | [readonly] 
 
 ## Examples
 

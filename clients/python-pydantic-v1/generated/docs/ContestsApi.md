@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **contest_effect_list**
-> PaginatedContestEffectSummaryList contest_effect_list(limit=limit, offset=offset, q=q)
+> PaginatedContestEffectSummaryList contest_effect_list(limit=limit, offset=offset)
 
 List contest effects
 
@@ -21,8 +21,6 @@ Contest effects refer to the effects of moves when used in contests.
 
 ### Example
 
-* Basic Authentication (basicAuth):
-* Api Key Authentication (cookieAuth):
 ```python
 import time
 import os
@@ -37,22 +35,6 @@ configuration = openapi_client.Configuration(
     host = "https://pokeapi.co"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure HTTP basic authorization: basicAuth
-configuration = openapi_client.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
-)
-
-# Configure API key authorization: cookieAuth
-configuration.api_key['cookieAuth'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['cookieAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
@@ -60,11 +42,10 @@ with openapi_client.ApiClient(configuration) as api_client:
     api_instance = openapi_client.ContestsApi(api_client)
     limit = 56 # int | Number of results to return per page. (optional)
     offset = 56 # int | The initial index from which to return the results. (optional)
-    q = 'q_example' # str | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
 
     try:
         # List contest effects
-        api_response = api_instance.contest_effect_list(limit=limit, offset=offset, q=q)
+        api_response = api_instance.contest_effect_list(limit=limit, offset=offset)
         print("The response of ContestsApi->contest_effect_list:\n")
         pprint(api_response)
     except Exception as e:
@@ -79,7 +60,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **int**| Number of results to return per page. | [optional] 
  **offset** | **int**| The initial index from which to return the results. | [optional] 
- **q** | **str**| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional] 
 
 ### Return type
 
@@ -87,7 +67,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -110,8 +90,6 @@ Contest effects refer to the effects of moves when used in contests.
 
 ### Example
 
-* Basic Authentication (basicAuth):
-* Api Key Authentication (cookieAuth):
 ```python
 import time
 import os
@@ -126,28 +104,12 @@ configuration = openapi_client.Configuration(
     host = "https://pokeapi.co"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure HTTP basic authorization: basicAuth
-configuration = openapi_client.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
-)
-
-# Configure API key authorization: cookieAuth
-configuration.api_key['cookieAuth'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['cookieAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.ContestsApi(api_client)
-    id = 'id_example' # str | This parameter can be a string or an integer.
+    id = '1' # str | This parameter can be a string or an integer.
 
     try:
         # Get contest effect
@@ -172,7 +134,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -195,8 +157,6 @@ Contest types are categories judges used to weigh a PokÃ©mon's condition in PokÃ
 
 ### Example
 
-* Basic Authentication (basicAuth):
-* Api Key Authentication (cookieAuth):
 ```python
 import time
 import os
@@ -211,22 +171,6 @@ configuration = openapi_client.Configuration(
     host = "https://pokeapi.co"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure HTTP basic authorization: basicAuth
-configuration = openapi_client.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
-)
-
-# Configure API key authorization: cookieAuth
-configuration.api_key['cookieAuth'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['cookieAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
@@ -261,7 +205,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -284,8 +228,6 @@ Contest types are categories judges used to weigh a PokÃ©mon's condition in PokÃ
 
 ### Example
 
-* Basic Authentication (basicAuth):
-* Api Key Authentication (cookieAuth):
 ```python
 import time
 import os
@@ -300,28 +242,12 @@ configuration = openapi_client.Configuration(
     host = "https://pokeapi.co"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure HTTP basic authorization: basicAuth
-configuration = openapi_client.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
-)
-
-# Configure API key authorization: cookieAuth
-configuration.api_key['cookieAuth'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['cookieAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.ContestsApi(api_client)
-    id = 'id_example' # str | This parameter can be a string or an integer.
+    id = '1' # str | This parameter can be a string or an integer.
 
     try:
         # Get contest type
@@ -346,7 +272,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -361,7 +287,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **super_contest_effect_list**
-> PaginatedSuperContestEffectSummaryList super_contest_effect_list(limit=limit, offset=offset, q=q)
+> PaginatedSuperContestEffectSummaryList super_contest_effect_list(limit=limit, offset=offset)
 
 List super contest effects
 
@@ -369,8 +295,6 @@ Super contest effects refer to the effects of moves when used in super contests.
 
 ### Example
 
-* Basic Authentication (basicAuth):
-* Api Key Authentication (cookieAuth):
 ```python
 import time
 import os
@@ -385,22 +309,6 @@ configuration = openapi_client.Configuration(
     host = "https://pokeapi.co"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure HTTP basic authorization: basicAuth
-configuration = openapi_client.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
-)
-
-# Configure API key authorization: cookieAuth
-configuration.api_key['cookieAuth'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['cookieAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
@@ -408,11 +316,10 @@ with openapi_client.ApiClient(configuration) as api_client:
     api_instance = openapi_client.ContestsApi(api_client)
     limit = 56 # int | Number of results to return per page. (optional)
     offset = 56 # int | The initial index from which to return the results. (optional)
-    q = 'q_example' # str | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
 
     try:
         # List super contest effects
-        api_response = api_instance.super_contest_effect_list(limit=limit, offset=offset, q=q)
+        api_response = api_instance.super_contest_effect_list(limit=limit, offset=offset)
         print("The response of ContestsApi->super_contest_effect_list:\n")
         pprint(api_response)
     except Exception as e:
@@ -427,7 +334,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **int**| Number of results to return per page. | [optional] 
  **offset** | **int**| The initial index from which to return the results. | [optional] 
- **q** | **str**| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional] 
 
 ### Return type
 
@@ -435,7 +341,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -458,8 +364,6 @@ Super contest effects refer to the effects of moves when used in super contests.
 
 ### Example
 
-* Basic Authentication (basicAuth):
-* Api Key Authentication (cookieAuth):
 ```python
 import time
 import os
@@ -474,28 +378,12 @@ configuration = openapi_client.Configuration(
     host = "https://pokeapi.co"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure HTTP basic authorization: basicAuth
-configuration = openapi_client.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
-)
-
-# Configure API key authorization: cookieAuth
-configuration.api_key['cookieAuth'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['cookieAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.ContestsApi(api_client)
-    id = 'id_example' # str | This parameter can be a string or an integer.
+    id = '1' # str | This parameter can be a string or an integer.
 
     try:
         # Get super contest effect
@@ -520,7 +408,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

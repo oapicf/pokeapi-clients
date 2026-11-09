@@ -4,17 +4,17 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **Integer** |  | [readonly] |
-| **name** | **String** |  |  |
-| **damage_relations** | [**TypeDetailDamageRelations**](TypeDetailDamageRelations.md) |  |  |
-| **past_damage_relations** | [**Array&lt;TypeDetailPastDamageRelationsInner&gt;**](TypeDetailPastDamageRelationsInner.md) |  | [readonly] |
-| **game_indices** | [**Array&lt;TypeGameIndex&gt;**](TypeGameIndex.md) |  | [readonly] |
-| **generation** | [**GenerationSummary**](GenerationSummary.md) |  |  |
-| **move_damage_class** | [**MoveDamageClassSummary**](MoveDamageClassSummary.md) |  |  |
-| **names** | [**Array&lt;AbilityName&gt;**](AbilityName.md) |  | [readonly] |
-| **pokemon** | [**Array&lt;TypeDetailPokemonInner&gt;**](TypeDetailPokemonInner.md) |  | [readonly] |
-| **moves** | [**Array&lt;MoveSummary&gt;**](MoveSummary.md) |  | [readonly] |
-| **sprites** | **Hash&lt;String, Hash&lt;String, TypeDetailSpritesValueValue&gt;&gt;** |  | [readonly] |
+| **id** | **Integer** | The identifier for this resource. | [readonly] |
+| **name** | **String** | The name for this resource. |  |
+| **damage_relations** | [**TypeRelationships**](TypeRelationships.md) | A detail of how effective this type is toward others and vice versa. | [readonly] |
+| **past_damage_relations** | [**Array&lt;TypePastRelationships&gt;**](TypePastRelationships.md) | A list of details of how effective this type was toward others and vice versa in previous generations | [readonly] |
+| **game_indices** | [**Array&lt;TypeGameIndex&gt;**](TypeGameIndex.md) | A list of game indices relevent to this item by generation. | [readonly] |
+| **generation** | [**GenerationSummary**](GenerationSummary.md) | The generation this type was introduced in. |  |
+| **move_damage_class** | [**MoveDamageClassSummary**](MoveDamageClassSummary.md) | The class of damage inflicted by this type. |  |
+| **names** | [**Array&lt;TypeName&gt;**](TypeName.md) | The name of this resource listed in different languages. | [readonly] |
+| **pokemon** | [**Array&lt;TypePokemon&gt;**](TypePokemon.md) | A list of details of Pokémon that have this type. | [readonly] |
+| **moves** | [**Array&lt;MoveSummary&gt;**](MoveSummary.md) | A list of moves that have this type. | [readonly] |
+| **sprites** | **Hash&lt;String, Hash&lt;String, TypeGameSprite&gt;&gt;** | Type icons grouped by generation and game, with name_icon and symbol_icon URLs. Unavailable icons are null. | [readonly] |
 
 ## Example
 

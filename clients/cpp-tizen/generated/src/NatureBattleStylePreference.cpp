@@ -25,7 +25,7 @@ NatureBattleStylePreference::__init()
 {
 	//low_hp_preference = int(0);
 	//high_hp_preference = int(0);
-	//move_battle_style = new MoveBattleStyleSummary();
+	//move_battle_style = null;
 }
 
 void

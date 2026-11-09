@@ -56,6 +56,7 @@ class ItemPocketDetail(Model):
     def id(self):
         """Gets the id of this ItemPocketDetail.
 
+        The identifier for this resource.
 
         :return: The id of this ItemPocketDetail.
         :rtype: int
@@ -66,6 +67,7 @@ class ItemPocketDetail(Model):
     def id(self, id):
         """Sets the id of this ItemPocketDetail.
 
+        The identifier for this resource.
 
         :param id: The id of this ItemPocketDetail.
         :type id: int
@@ -79,6 +81,7 @@ class ItemPocketDetail(Model):
     def name(self):
         """Gets the name of this ItemPocketDetail.
 
+        The name for this resource.
 
         :return: The name of this ItemPocketDetail.
         :rtype: str
@@ -89,14 +92,15 @@ class ItemPocketDetail(Model):
     def name(self, name):
         """Sets the name of this ItemPocketDetail.
 
+        The name for this resource.
 
         :param name: The name of this ItemPocketDetail.
         :type name: str
         """
         if name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")
-        if name is not None and len(name) > 100:
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `100`")
+        if name is not None and len(name) > 200:
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `200`")
 
         self._name = name
 
@@ -104,6 +108,7 @@ class ItemPocketDetail(Model):
     def categories(self):
         """Gets the categories of this ItemPocketDetail.
 
+        A list of item categories that are relevant to this item pocket.
 
         :return: The categories of this ItemPocketDetail.
         :rtype: List[ItemCategorySummary]
@@ -114,6 +119,7 @@ class ItemPocketDetail(Model):
     def categories(self, categories):
         """Sets the categories of this ItemPocketDetail.
 
+        A list of item categories that are relevant to this item pocket.
 
         :param categories: The categories of this ItemPocketDetail.
         :type categories: List[ItemCategorySummary]
@@ -127,6 +133,7 @@ class ItemPocketDetail(Model):
     def names(self):
         """Gets the names of this ItemPocketDetail.
 
+        The name of this resource listed in different languages.
 
         :return: The names of this ItemPocketDetail.
         :rtype: List[ItemPocketName]
@@ -137,6 +144,7 @@ class ItemPocketDetail(Model):
     def names(self, names):
         """Sets the names of this ItemPocketDetail.
 
+        The name of this resource listed in different languages.
 
         :param names: The names of this ItemPocketDetail.
         :type names: List[ItemPocketName]

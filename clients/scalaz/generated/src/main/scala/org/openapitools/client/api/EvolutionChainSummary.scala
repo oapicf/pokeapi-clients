@@ -13,6 +13,7 @@ import java.net.URI
 import EvolutionChainSummary._
 
 case class EvolutionChainSummary (
+  /* The URL of the referenced resource. */
   url: URI)
 
 object EvolutionChainSummary {

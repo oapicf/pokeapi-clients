@@ -1,9 +1,9 @@
 /*
 PokéAPI
 
-All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
 
-API version: 2.7.0
+API version: 2.10.0
 Contact: blah+oapicf@cliffano.com
 */
 
@@ -22,9 +22,13 @@ var _ MappedNullable = &PokeathlonStatDetail{}
 
 // PokeathlonStatDetail struct for PokeathlonStatDetail
 type PokeathlonStatDetail struct {
+	// The identifier for this resource.
 	Id int32 `json:"id"`
+	// The name for this resource.
 	Name string `json:"name"`
-	AffectingNatures PokeathlonStatDetailAffectingNatures `json:"affecting_natures"`
+	// A detail of natures which affect this Pokéathlon stat positively or negatively.
+	AffectingNatures PokeathlonStatAffectingNatures `json:"affecting_natures"`
+	// The name of this resource listed in different languages.
 	Names []PokeathlonStatName `json:"names"`
 }
 
@@ -34,7 +38,7 @@ type _PokeathlonStatDetail PokeathlonStatDetail
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPokeathlonStatDetail(id int32, name string, affectingNatures PokeathlonStatDetailAffectingNatures, names []PokeathlonStatName) *PokeathlonStatDetail {
+func NewPokeathlonStatDetail(id int32, name string, affectingNatures PokeathlonStatAffectingNatures, names []PokeathlonStatName) *PokeathlonStatDetail {
 	this := PokeathlonStatDetail{}
 	this.Id = id
 	this.Name = name
@@ -100,9 +104,9 @@ func (o *PokeathlonStatDetail) SetName(v string) {
 }
 
 // GetAffectingNatures returns the AffectingNatures field value
-func (o *PokeathlonStatDetail) GetAffectingNatures() PokeathlonStatDetailAffectingNatures {
+func (o *PokeathlonStatDetail) GetAffectingNatures() PokeathlonStatAffectingNatures {
 	if o == nil {
-		var ret PokeathlonStatDetailAffectingNatures
+		var ret PokeathlonStatAffectingNatures
 		return ret
 	}
 
@@ -111,7 +115,7 @@ func (o *PokeathlonStatDetail) GetAffectingNatures() PokeathlonStatDetailAffecti
 
 // GetAffectingNaturesOk returns a tuple with the AffectingNatures field value
 // and a boolean to check if the value has been set.
-func (o *PokeathlonStatDetail) GetAffectingNaturesOk() (*PokeathlonStatDetailAffectingNatures, bool) {
+func (o *PokeathlonStatDetail) GetAffectingNaturesOk() (*PokeathlonStatAffectingNatures, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -119,7 +123,7 @@ func (o *PokeathlonStatDetail) GetAffectingNaturesOk() (*PokeathlonStatDetailAff
 }
 
 // SetAffectingNatures sets field value
-func (o *PokeathlonStatDetail) SetAffectingNatures(v PokeathlonStatDetailAffectingNatures) {
+func (o *PokeathlonStatDetail) SetAffectingNatures(v PokeathlonStatAffectingNatures) {
 	o.AffectingNatures = v
 }
 

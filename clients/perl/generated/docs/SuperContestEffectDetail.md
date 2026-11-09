@@ -8,10 +8,10 @@ use WWW::OpenAPIClient::Object::SuperContestEffectDetail;
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** |  | [readonly] 
-**appeal** | **int** |  | 
-**flavor_text_entries** | [**ARRAY[SuperContestEffectFlavorText]**](SuperContestEffectFlavorText.md) |  | [readonly] 
-**moves** | [**ARRAY[MoveSummary]**](MoveSummary.md) |  | [readonly] 
+**id** | **int** | The identifier for this resource. | [readonly] 
+**appeal** | **int** | The level of appeal this super contest effect has. | 
+**flavor_text_entries** | [**ARRAY[SuperContestEffectFlavorText]**](SuperContestEffectFlavorText.md) | The flavor text of this super contest effect listed in different languages. | [readonly] 
+**moves** | [**ARRAY[MoveSummary]**](MoveSummary.md) | A list of moves that have the effect when used in super contests. | [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

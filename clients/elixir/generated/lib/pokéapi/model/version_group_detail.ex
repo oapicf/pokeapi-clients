@@ -23,9 +23,9 @@ defmodule PokéAPI.Model.VersionGroupDetail do
     :name => String.t,
     :order => integer() | nil,
     :generation => PokéAPI.Model.GenerationSummary.t,
-    :move_learn_methods => [PokéAPI.Model.AbilityDetailPokemonInnerPokemon.t],
-    :pokedexes => [PokéAPI.Model.AbilityDetailPokemonInnerPokemon.t],
-    :regions => [PokéAPI.Model.AbilityDetailPokemonInnerPokemon.t],
+    :move_learn_methods => [PokéAPI.Model.MoveLearnMethodSummary.t],
+    :pokedexes => [PokéAPI.Model.PokedexSummary.t],
+    :regions => [PokéAPI.Model.RegionSummary.t],
     :versions => [PokéAPI.Model.VersionSummary.t]
   }
 
@@ -34,9 +34,9 @@ defmodule PokéAPI.Model.VersionGroupDetail do
   def decode(value) do
     value
      |> Deserializer.deserialize(:generation, :struct, PokéAPI.Model.GenerationSummary)
-     |> Deserializer.deserialize(:move_learn_methods, :list, PokéAPI.Model.AbilityDetailPokemonInnerPokemon)
-     |> Deserializer.deserialize(:pokedexes, :list, PokéAPI.Model.AbilityDetailPokemonInnerPokemon)
-     |> Deserializer.deserialize(:regions, :list, PokéAPI.Model.AbilityDetailPokemonInnerPokemon)
+     |> Deserializer.deserialize(:move_learn_methods, :list, PokéAPI.Model.MoveLearnMethodSummary)
+     |> Deserializer.deserialize(:pokedexes, :list, PokéAPI.Model.PokedexSummary)
+     |> Deserializer.deserialize(:regions, :list, PokéAPI.Model.RegionSummary)
      |> Deserializer.deserialize(:versions, :list, PokéAPI.Model.VersionSummary)
   end
 end

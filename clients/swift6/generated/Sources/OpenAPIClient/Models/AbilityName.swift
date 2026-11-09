@@ -9,8 +9,10 @@ import Foundation
 
 public struct AbilityName: Sendable, Codable, Hashable {
 
-    public static let nameRule = StringRule(minLength: nil, maxLength: 100, pattern: nil)
+    public static let nameRule = StringRule(minLength: nil, maxLength: 200, pattern: nil)
+    /** The localized name for an API resource in a specific language. */
     public var name: String
+    /** The language this name is in. */
     public var language: LanguageSummary
 
     public init(name: String, language: LanguageSummary) {

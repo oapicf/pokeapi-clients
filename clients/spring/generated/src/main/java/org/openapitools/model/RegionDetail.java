@@ -7,11 +7,11 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.model.AbilityDetailPokemonInnerPokemon;
 import org.openapitools.model.GenerationSummary;
 import org.openapitools.model.LocationSummary;
 import org.openapitools.model.PokedexSummary;
 import org.openapitools.model.RegionName;
+import org.openapitools.model.VersionGroupSummary;
 import org.springframework.lang.Nullable;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
@@ -27,7 +27,7 @@ import jakarta.annotation.Generated;
  * RegionDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-10-25T05:53:37.479908528Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-11-09T13:53:47.069318184Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class RegionDetail {
 
   private Integer id;
@@ -36,13 +36,13 @@ public class RegionDetail {
 
   private List<@Valid LocationSummary> locations = new ArrayList<>();
 
-  private GenerationSummary mainGeneration;
+  private JsonNullable<GenerationSummary> mainGeneration = JsonNullable.<GenerationSummary>undefined();
 
   private List<@Valid RegionName> names = new ArrayList<>();
 
   private List<@Valid PokedexSummary> pokedexes = new ArrayList<>();
 
-  private List<@Valid AbilityDetailPokemonInnerPokemon> versionGroups = new ArrayList<>();
+  private List<@Valid VersionGroupSummary> versionGroups = new ArrayList<>();
 
   public RegionDetail() {
     super();
@@ -51,11 +51,11 @@ public class RegionDetail {
   /**
    * Constructor with only required parameters
    */
-  public RegionDetail(Integer id, String name, List<@Valid LocationSummary> locations, GenerationSummary mainGeneration, List<@Valid RegionName> names, List<@Valid PokedexSummary> pokedexes, List<@Valid AbilityDetailPokemonInnerPokemon> versionGroups) {
+  public RegionDetail(Integer id, String name, List<@Valid LocationSummary> locations, GenerationSummary mainGeneration, List<@Valid RegionName> names, List<@Valid PokedexSummary> pokedexes, List<@Valid VersionGroupSummary> versionGroups) {
     this.id = id;
     this.name = name;
     this.locations = locations;
-    this.mainGeneration = mainGeneration;
+    this.mainGeneration = JsonNullable.of(mainGeneration);
     this.names = names;
     this.pokedexes = pokedexes;
     this.versionGroups = versionGroups;
@@ -67,11 +67,11 @@ public class RegionDetail {
   }
 
   /**
-   * Get id
+   * The identifier for this resource.
    * @return id
    */
   
-  @Schema(name = "id", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "id", accessMode = Schema.AccessMode.READ_ONLY, description = "The identifier for this resource.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("id")
   public Integer getId() {
     return id;
@@ -88,11 +88,11 @@ public class RegionDetail {
   }
 
   /**
-   * Get name
+   * The name for this resource.
    * @return name
    */
-  @NotNull @Size(max = 100) 
-  @Schema(name = "name", requiredMode = Schema.RequiredMode.REQUIRED)
+  @NotNull @Size(max = 200) 
+  @Schema(name = "name", description = "The name for this resource.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("name")
   public String getName() {
     return name;
@@ -117,11 +117,11 @@ public class RegionDetail {
   }
 
   /**
-   * Get locations
+   * A list of locations that can be found in this region.
    * @return locations
    */
   
-  @Schema(name = "locations", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "locations", accessMode = Schema.AccessMode.READ_ONLY, description = "A list of locations that can be found in this region.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("locations")
   public List<@Valid LocationSummary> getLocations() {
     return locations;
@@ -133,23 +133,23 @@ public class RegionDetail {
   }
 
   public RegionDetail mainGeneration(GenerationSummary mainGeneration) {
-    this.mainGeneration = mainGeneration;
+    this.mainGeneration = JsonNullable.of(mainGeneration);
     return this;
   }
 
   /**
-   * Get mainGeneration
+   * The generation this region was introduced in.
    * @return mainGeneration
    */
   @Valid 
-  @Schema(name = "main_generation", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "main_generation", accessMode = Schema.AccessMode.READ_ONLY, description = "The generation this region was introduced in.", requiredMode = Schema.RequiredMode.REQUIRED, nullable = true)
   @JsonProperty("main_generation")
-  public GenerationSummary getMainGeneration() {
+  public JsonNullable<GenerationSummary> getMainGeneration() {
     return mainGeneration;
   }
 
   @JsonProperty("main_generation")
-  public void setMainGeneration(GenerationSummary mainGeneration) {
+  public void setMainGeneration(JsonNullable<GenerationSummary> mainGeneration) {
     this.mainGeneration = mainGeneration;
   }
 
@@ -167,11 +167,11 @@ public class RegionDetail {
   }
 
   /**
-   * Get names
+   * The name of this resource listed in different languages.
    * @return names
    */
   
-  @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, description = "The name of this resource listed in different languages.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("names")
   public List<@Valid RegionName> getNames() {
     return names;
@@ -196,11 +196,11 @@ public class RegionDetail {
   }
 
   /**
-   * Get pokedexes
+   * A list of pokédexes that catalogue Pokémon in this region.
    * @return pokedexes
    */
   
-  @Schema(name = "pokedexes", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "pokedexes", accessMode = Schema.AccessMode.READ_ONLY, description = "A list of pokédexes that catalogue Pokémon in this region.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("pokedexes")
   public List<@Valid PokedexSummary> getPokedexes() {
     return pokedexes;
@@ -211,12 +211,12 @@ public class RegionDetail {
     this.pokedexes = pokedexes;
   }
 
-  public RegionDetail versionGroups(List<@Valid AbilityDetailPokemonInnerPokemon> versionGroups) {
+  public RegionDetail versionGroups(List<@Valid VersionGroupSummary> versionGroups) {
     this.versionGroups = versionGroups;
     return this;
   }
 
-  public RegionDetail addVersionGroupsItem(AbilityDetailPokemonInnerPokemon versionGroupsItem) {
+  public RegionDetail addVersionGroupsItem(VersionGroupSummary versionGroupsItem) {
     if (this.versionGroups == null) {
       this.versionGroups = new ArrayList<>();
     }
@@ -225,18 +225,18 @@ public class RegionDetail {
   }
 
   /**
-   * Get versionGroups
+   * A list of version groups where this region can be visited.
    * @return versionGroups
    */
   
-  @Schema(name = "version_groups", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "version_groups", accessMode = Schema.AccessMode.READ_ONLY, description = "A list of version groups where this region can be visited.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("version_groups")
-  public List<@Valid AbilityDetailPokemonInnerPokemon> getVersionGroups() {
+  public List<@Valid VersionGroupSummary> getVersionGroups() {
     return versionGroups;
   }
 
   @JsonProperty("version_groups")
-  public void setVersionGroups(List<@Valid AbilityDetailPokemonInnerPokemon> versionGroups) {
+  public void setVersionGroups(List<@Valid VersionGroupSummary> versionGroups) {
     this.versionGroups = versionGroups;
   }
 

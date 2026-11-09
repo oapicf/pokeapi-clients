@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**LanguageList**](utility_api.md#LanguageList) | **GET** /api/v2/language/ | List languages
 [**LanguageRetrieve**](utility_api.md#LanguageRetrieve) | **GET** /api/v2/language/{id}/ | Get language
+[**MetaRetrieve**](utility_api.md#MetaRetrieve) | **GET** /api/v2/meta/ | Get API metadata
 
 
 <a name="LanguageList"></a>
@@ -22,3 +23,10 @@ Languages for translations of API resource information.
 Get language
 
 Languages for translations of API resource information.
+<a name="MetaRetrieve"></a>
+# **MetaRetrieve**
+> PokeapiMetaResponse MetaRetrieve()
+
+Get API metadata
+
+Returns metadata about the current deployed version of the API, including the git commit hash, deploy date, and tag (if any).

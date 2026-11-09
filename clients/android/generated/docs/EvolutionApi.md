@@ -8,12 +8,14 @@ Method | HTTP request | Description
 [**evolutionChainRetrieve**](EvolutionApi.md#evolutionChainRetrieve) | **GET** /api/v2/evolution-chain/{id}/ | Get evolution chain
 [**evolutionTriggerList**](EvolutionApi.md#evolutionTriggerList) | **GET** /api/v2/evolution-trigger/ | List evolution triggers
 [**evolutionTriggerRetrieve**](EvolutionApi.md#evolutionTriggerRetrieve) | **GET** /api/v2/evolution-trigger/{id}/ | Get evolution trigger
+[**evolutionVariableList**](EvolutionApi.md#evolutionVariableList) | **GET** /api/v2/evolution-variable/ | List evolution variables
+[**evolutionVariableRetrieve**](EvolutionApi.md#evolutionVariableRetrieve) | **GET** /api/v2/evolution-variable/{id}/ | Get evolution variable
 
 
 
 ## evolutionChainList
 
-> PaginatedEvolutionChainSummaryList evolutionChainList(limit, offset, q)
+> PaginatedEvolutionChainSummaryList evolutionChainList(limit, offset)
 
 List evolution chains
 
@@ -28,9 +30,8 @@ Evolution chains are essentially family trees. They start with the lowest stage 
 EvolutionApi apiInstance = new EvolutionApi();
 Integer limit = null; // Integer | Number of results to return per page.
 Integer offset = null; // Integer | The initial index from which to return the results.
-String q = null; // String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
 try {
-    PaginatedEvolutionChainSummaryList result = apiInstance.evolutionChainList(limit, offset, q);
+    PaginatedEvolutionChainSummaryList result = apiInstance.evolutionChainList(limit, offset);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling EvolutionApi#evolutionChainList");
@@ -45,7 +46,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **Integer**| Number of results to return per page. | [optional] [default to null]
  **offset** | **Integer**| The initial index from which to return the results. | [optional] [default to null]
- **q** | **String**| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional] [default to null]
 
 ### Return type
 
@@ -53,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -76,7 +76,7 @@ Evolution chains are essentially family trees. They start with the lowest stage 
 //import org.openapitools.client.api.EvolutionApi;
 
 EvolutionApi apiInstance = new EvolutionApi();
-String id = null; // String | This parameter can be a string or an integer.
+String id = 1; // String | This parameter can be a string or an integer.
 try {
     EvolutionChainDetail result = apiInstance.evolutionChainRetrieve(id);
     System.out.println(result);
@@ -99,7 +99,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -149,7 +149,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -172,7 +172,7 @@ Evolution triggers are the events and conditions that cause a Pokémon to evolve
 //import org.openapitools.client.api.EvolutionApi;
 
 EvolutionApi apiInstance = new EvolutionApi();
-String id = null; // String | This parameter can be a string or an integer.
+String id = 1; // String | This parameter can be a string or an integer.
 try {
     EvolutionTriggerDetail result = apiInstance.evolutionTriggerRetrieve(id);
     System.out.println(result);
@@ -195,7 +195,103 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## evolutionVariableList
+
+> PaginatedEvolutionVariableSummaryList evolutionVariableList(limit, offset, q)
+
+List evolution variables
+
+Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+
+### Example
+
+```java
+// Import classes:
+//import org.openapitools.client.api.EvolutionApi;
+
+EvolutionApi apiInstance = new EvolutionApi();
+Integer limit = null; // Integer | Number of results to return per page.
+Integer offset = null; // Integer | The initial index from which to return the results.
+String q = null; // String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+try {
+    PaginatedEvolutionVariableSummaryList result = apiInstance.evolutionVariableList(limit, offset, q);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling EvolutionApi#evolutionVariableList");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | **Integer**| Number of results to return per page. | [optional] [default to null]
+ **offset** | **Integer**| The initial index from which to return the results. | [optional] [default to null]
+ **q** | **String**| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional] [default to null]
+
+### Return type
+
+[**PaginatedEvolutionVariableSummaryList**](PaginatedEvolutionVariableSummaryList.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## evolutionVariableRetrieve
+
+> EvolutionVariableDetail evolutionVariableRetrieve(id)
+
+Get evolution variable
+
+Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+
+### Example
+
+```java
+// Import classes:
+//import org.openapitools.client.api.EvolutionApi;
+
+EvolutionApi apiInstance = new EvolutionApi();
+String id = 1; // String | This parameter can be a string or an integer.
+try {
+    EvolutionVariableDetail result = apiInstance.evolutionVariableRetrieve(id);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling EvolutionApi#evolutionVariableRetrieve");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| This parameter can be a string or an integer. | [default to null]
+
+### Return type
+
+[**EvolutionVariableDetail**](EvolutionVariableDetail.md)
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 

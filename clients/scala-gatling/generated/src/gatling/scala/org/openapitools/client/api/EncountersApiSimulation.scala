@@ -80,8 +80,8 @@ class EncountersApiSimulation extends Simulation {
         .feed(encounter_condition_listQUERYFeeder)
         .exec(http("encounterConditionList")
         .httpRequest("GET","/api/v2/encounter-condition/")
-        .queryParam("q","${q}")
         .queryParam("offset","${offset}")
+        .queryParam("q","${q}")
         .queryParam("limit","${limit}")
 )
 
@@ -111,8 +111,8 @@ class EncountersApiSimulation extends Simulation {
         .feed(encounter_condition_value_listQUERYFeeder)
         .exec(http("encounterConditionValueList")
         .httpRequest("GET","/api/v2/encounter-condition-value/")
-        .queryParam("q","${q}")
         .queryParam("offset","${offset}")
+        .queryParam("q","${q}")
         .queryParam("limit","${limit}")
 )
 
@@ -142,8 +142,8 @@ class EncountersApiSimulation extends Simulation {
         .feed(encounter_method_listQUERYFeeder)
         .exec(http("encounterMethodList")
         .httpRequest("GET","/api/v2/encounter-method/")
-        .queryParam("q","${q}")
         .queryParam("offset","${offset}")
+        .queryParam("q","${q}")
         .queryParam("limit","${limit}")
 )
 

@@ -8,8 +8,8 @@ The class is defined in **[AbilitySummary.java](../../src/main/java/org/openapit
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | `String` |  | 
-**url** | `URI` |  |  [readonly property]
+**name** | `String` | The name of the referenced resource. | 
+**url** | `URI` | The URL of the referenced resource. |  [readonly property]
 
 
 

@@ -5,6 +5,8 @@ import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
 data class TypeGameIndex(
+    /** The internal id of an API resource within game data. */
     val gameIndex: kotlin.Int,
+    /** The generation relevent to this game index. */
     val generation: GenerationSummary
 )

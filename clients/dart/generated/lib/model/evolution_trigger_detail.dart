@@ -19,13 +19,17 @@ class EvolutionTriggerDetail {
     this.pokemonSpecies = const [],
   });
 
+  /// The identifier for this resource.
   int id;
 
+  /// The name for this resource.
   String name;
 
+  /// The name of this resource listed in different languages.
   List<EvolutionTriggerName> names;
 
-  List<AbilityDetailPokemonInnerPokemon> pokemonSpecies;
+  /// A list of pokemon species that result from this evolution trigger.
+  List<PokemonSpeciesSummary> pokemonSpecies;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is EvolutionTriggerDetail &&
@@ -80,7 +84,7 @@ class EvolutionTriggerDetail {
         id: mapValueOfType<int>(json, r'id')!,
         name: mapValueOfType<String>(json, r'name')!,
         names: EvolutionTriggerName.listFromJson(json[r'names']),
-        pokemonSpecies: AbilityDetailPokemonInnerPokemon.listFromJson(json[r'pokemon_species']),
+        pokemonSpecies: PokemonSpeciesSummary.listFromJson(json[r'pokemon_species']),
       );
     }
     return null;

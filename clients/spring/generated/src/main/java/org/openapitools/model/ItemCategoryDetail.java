@@ -25,7 +25,7 @@ import jakarta.annotation.Generated;
  * ItemCategoryDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-10-25T05:53:37.479908528Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-11-09T13:53:47.069318184Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class ItemCategoryDetail {
 
   private Integer id;
@@ -59,11 +59,11 @@ public class ItemCategoryDetail {
   }
 
   /**
-   * Get id
+   * The identifier for this resource.
    * @return id
    */
   
-  @Schema(name = "id", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "id", accessMode = Schema.AccessMode.READ_ONLY, description = "The identifier for this resource.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("id")
   public Integer getId() {
     return id;
@@ -80,11 +80,11 @@ public class ItemCategoryDetail {
   }
 
   /**
-   * Get name
+   * The name for this resource.
    * @return name
    */
-  @NotNull @Size(max = 100) 
-  @Schema(name = "name", requiredMode = Schema.RequiredMode.REQUIRED)
+  @NotNull @Size(max = 200) 
+  @Schema(name = "name", description = "The name for this resource.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("name")
   public String getName() {
     return name;
@@ -109,11 +109,11 @@ public class ItemCategoryDetail {
   }
 
   /**
-   * Get items
+   * A list of items that are a part of this category.
    * @return items
    */
   
-  @Schema(name = "items", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "items", accessMode = Schema.AccessMode.READ_ONLY, description = "A list of items that are a part of this category.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("items")
   public List<@Valid ItemSummary> getItems() {
     return items;
@@ -138,11 +138,11 @@ public class ItemCategoryDetail {
   }
 
   /**
-   * Get names
+   * The name of this item category listed in different languages.
    * @return names
    */
   
-  @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, description = "The name of this item category listed in different languages.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("names")
   public List<@Valid ItemCategoryName> getNames() {
     return names;
@@ -159,11 +159,11 @@ public class ItemCategoryDetail {
   }
 
   /**
-   * Get pocket
+   * The pocket items in this category would be put in.
    * @return pocket
    */
   @NotNull @Valid 
-  @Schema(name = "pocket", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "pocket", description = "The pocket items in this category would be put in.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("pocket")
   public ItemPocketSummary getPocket() {
     return pocket;

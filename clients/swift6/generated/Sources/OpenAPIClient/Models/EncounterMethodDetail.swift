@@ -9,10 +9,15 @@ import Foundation
 
 public struct EncounterMethodDetail: Sendable, Codable, Hashable {
 
-    public static let nameRule = StringRule(minLength: nil, maxLength: 100, pattern: nil)
+    public static let nameRule = StringRule(minLength: nil, maxLength: 200, pattern: nil)
+    public static let orderRule = NumericRule<Int>(minimum: -2147483648, exclusiveMinimum: false, maximum: 2147483647, exclusiveMaximum: false, multipleOf: nil)
+    /** The identifier for this resource. */
     public var id: Int
+    /** The name for this resource. */
     public var name: String
+    /** A good value for sorting. */
     public var order: Int?
+    /** The name of this resource listed in different languages. */
     public var names: [EncounterMethodName]
 
     public init(id: Int, name: String, order: Int? = nil, names: [EncounterMethodName]) {

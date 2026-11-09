@@ -1,0 +1,19 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "PokemonHeldItemVersion",
+  "fields": [
+    {
+      "name": "rarity",
+      "type": "int",
+      "doc": "How often the item is held."
+    },
+    {
+      "name": "version",
+      "type": "model.VersionSummary",
+      "doc": "The version in which the item is held."
+    }
+  ]
+
+}

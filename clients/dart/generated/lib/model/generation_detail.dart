@@ -24,22 +24,31 @@ class GenerationDetail {
     this.versionGroups = const [],
   });
 
+  /// The identifier for this resource.
   int id;
 
+  /// The name for this resource.
   String name;
 
+  /// A list of abilities that were introduced in this generation.
   List<AbilitySummary> abilities;
 
+  /// The main region travelled in this generation.
   RegionSummary mainRegion;
 
+  /// A list of moves that were introduced in this generation.
   List<MoveSummary> moves;
 
+  /// The name of this resource listed in different languages.
   List<GenerationName> names;
 
+  /// A list of Pokémon species that were introduced in this generation.
   List<PokemonSpeciesSummary> pokemonSpecies;
 
+  /// A list of types that were introduced in this generation.
   List<TypeSummary> types;
 
+  /// A list of version groups that were introduced in this generation.
   List<VersionGroupSummary> versionGroups;
 
   @override

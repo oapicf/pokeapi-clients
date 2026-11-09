@@ -15,19 +15,22 @@
                 
                 
                 ; [@key "effect"]
-                                              short_effect: string
+                    (** The localized effect text for an API resource in a specific language. *)
+                                      short_effect: string
                   
                   
                 
                 
                 ; [@key "short_effect"]
-                                              language: Language_summary.t
+                    (** The localized effect text in brief. *)
+                                      language: Language_summary.t
                   
                   
                 
                 
                 ; [@key "language"]
-                        } [@@deriving yojson { strict = false }, show, eq ];;
+                    (** The language this effect is in. *)
+                } [@@deriving yojson { strict = false }, show, eq ];;
         
         let create (effect : string) (short_effect : string) (language : Language_summary.t) : t = {
             effect = effect;

@@ -7,6 +7,7 @@ package com.prokarma.pkmst.controller;
 
 import com.prokarma.pkmst.model.LanguageDetail;
 import com.prokarma.pkmst.model.PaginatedLanguageSummaryList;
+import com.prokarma.pkmst.model.PokeapiMetaResponse;
 
 import io.swagger.annotations.*;
 import org.springframework.http.ResponseEntity;
@@ -20,16 +21,11 @@ import java.util.List;
  * @author pkmst
  *
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-10-25T05:48:09.645019047Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-11-09T13:49:28.343088631Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 @Api(value = "Utility", description = "the Utility API")
 public interface UtilityApi {
 
-    @ApiOperation(value = "List languages", notes = "Languages for translations of API resource information.", response = PaginatedLanguageSummaryList.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "utility", })
+    @ApiOperation(value = "List languages", notes = "Languages for translations of API resource information.", response = PaginatedLanguageSummaryList.class, tags={ "utility", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedLanguageSummaryList.class) })
     @RequestMapping(
@@ -40,12 +36,7 @@ public interface UtilityApi {
     ResponseEntity<PaginatedLanguageSummaryList> languageList(@ApiParam(value = "Number of results to return per page.")  @RequestParam(value = "limit", required = false) Integer limit,@ApiParam(value = "The initial index from which to return the results.")  @RequestParam(value = "offset", required = false) Integer offset,@ApiParam(value = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")  @RequestParam(value = "q", required = false) String q, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "Get language", notes = "Languages for translations of API resource information.", response = LanguageDetail.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "utility", })
+    @ApiOperation(value = "Get language", notes = "Languages for translations of API resource information.", response = LanguageDetail.class, tags={ "utility", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = LanguageDetail.class) })
     @RequestMapping(
@@ -54,5 +45,16 @@ public interface UtilityApi {
         produces = { "application/json" }
     )
     ResponseEntity<LanguageDetail> languageRetrieve(@ApiParam(value = "This parameter can be a string or an integer.",required=true ) @PathVariable("id") String id, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
+
+
+    @ApiOperation(value = "Get API metadata", notes = "Returns metadata about the current deployed version of the API, including the git commit hash, deploy date, and tag (if any).", response = PokeapiMetaResponse.class, tags={ "utility", })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "", response = PokeapiMetaResponse.class) })
+    @RequestMapping(
+        method = RequestMethod.GET,
+        value = "/api/v2/meta/",
+        produces = { "application/json" }
+    )
+    ResponseEntity<PokeapiMetaResponse> metaRetrieve( @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 }

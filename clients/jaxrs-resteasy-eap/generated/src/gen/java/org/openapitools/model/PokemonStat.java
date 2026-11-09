@@ -11,7 +11,7 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 import io.swagger.annotations.*;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2026-10-25T05:48:53.778376553Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2026-11-09T13:50:03.149615362Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PokemonStat   {
   
   private Integer baseStat;
@@ -19,12 +19,15 @@ public class PokemonStat   {
   private StatSummary stat;
 
   /**
+   * The base value of the stat.
+   * minimum: -2147483648
+   * maximum: 2147483647
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The base value of the stat.")
   @JsonProperty("base_stat")
   @NotNull
-  public Integer getBaseStat() {
+ @Min(-2147483648) @Max(2147483647)  public Integer getBaseStat() {
     return baseStat;
   }
   public void setBaseStat(Integer baseStat) {
@@ -32,12 +35,15 @@ public class PokemonStat   {
   }
 
   /**
+   * The effort points (EV) the Pokémon has in the stat.
+   * minimum: -2147483648
+   * maximum: 2147483647
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The effort points (EV) the Pokémon has in the stat.")
   @JsonProperty("effort")
   @NotNull
-  public Integer getEffort() {
+ @Min(-2147483648) @Max(2147483647)  public Integer getEffort() {
     return effort;
   }
   public void setEffort(Integer effort) {
@@ -45,9 +51,10 @@ public class PokemonStat   {
   }
 
   /**
+   * The stat the Pokémon has.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The stat the Pokémon has.")
   @JsonProperty("stat")
   @NotNull
   public StatSummary getStat() {

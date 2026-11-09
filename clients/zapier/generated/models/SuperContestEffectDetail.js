@@ -8,13 +8,13 @@ module.exports = {
         return [
             {
                 key: `${keyPrefix}id`,
-                label: `[${labelPrefix}id]`,
+                label: `The identifier for this resource. - [${labelPrefix}id]`,
                 required: true,
                 type: 'integer',
             },
             {
                 key: `${keyPrefix}appeal`,
-                label: `[${labelPrefix}appeal]`,
+                label: `The level of appeal this super contest effect has. - [${labelPrefix}appeal]`,
                 required: true,
                 type: 'integer',
             },

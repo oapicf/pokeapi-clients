@@ -17,7 +17,7 @@
  * This method is used by `JSONModel`.
  */
 + (JSONKeyMapper *)keyMapper {
-  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{ @"_id": @"id", @"name": @"name", @"gameIndex": @"game_index", @"isBattleOnly": @"is_battle_only", @"affectingMoves": @"affecting_moves", @"affectingNatures": @"affecting_natures", @"characteristics": @"characteristics", @"moveDamageClass": @"move_damage_class", @"names": @"names" }];
+  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{ @"_id": @"id", @"name": @"name", @"gameIndex": @"game_index", @"isBattleOnly": @"is_battle_only", @"affectingMoves": @"affecting_moves", @"affectingNatures": @"affecting_natures", @"affectingItems": @"affecting_items", @"characteristics": @"characteristics", @"moveDamageClass": @"move_damage_class", @"names": @"names" }];
 }
 
 /**

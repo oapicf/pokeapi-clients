@@ -10,6 +10,7 @@ class_name PokeathlonStatDetail
 # PokeathlonStatDetail Model
 
 
+# The identifier for this resource.
 # Required: True
 # isArray: false
 @export var id: int:
@@ -18,6 +19,7 @@ class_name PokeathlonStatDetail
 		id = value
 var __id__was__set := false
 
+# The name for this resource.
 # Required: True
 # isArray: false
 @export var name: String:
@@ -26,14 +28,16 @@ var __id__was__set := false
 		name = value
 var __name__was__set := false
 
+# A detail of natures which affect this Pokéathlon stat positively or negatively.
 # Required: True
 # isArray: false
-@export var affectingUnderscorenatures: PokeathlonStatDetailAffectingNatures:
+@export var affectingUnderscorenatures: PokeathlonStatAffectingNatures:
 	set(value):
 		__affectingUnderscorenatures__was__set = true
 		affectingUnderscorenatures = value
 var __affectingUnderscorenatures__was__set := false
 
+# The name of this resource listed in different languages.
 # Required: True
 # isArray: true
 @export var names: Array:
@@ -77,7 +81,7 @@ static func bzz_denormalize_single(from_dict: Dictionary):
 	if from_dict.has("name"):
 		me.name = from_dict["name"]
 	if from_dict.has("affectingUnderscorenatures"):
-		me.affectingUnderscorenatures = PokeathlonStatDetail_affecting_natures.bzz_denormalize_single(from_dict["affectingUnderscorenatures"])
+		me.affectingUnderscorenatures = PokeathlonStatAffectingNatures.bzz_denormalize_single(from_dict["affectingUnderscorenatures"])
 	if from_dict.has("names"):
 		me.names = PokeathlonStatName.bzz_denormalize_multiple(from_dict["names"])
 	return me

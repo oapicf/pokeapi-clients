@@ -7,15 +7,15 @@ authors     = ["F. Bar (foo@bar.baz)"]
 
 imports {
   Root = tosca.resourceTypes.Root
-  AbilityName = openapi_server.resourceTypes.AbilityName
   GenerationSummary = openapi_server.resourceTypes.GenerationSummary
   MoveDamageClassSummary = openapi_server.resourceTypes.MoveDamageClassSummary
   MoveSummary = openapi_server.resourceTypes.MoveSummary
-  TypeDetailDamageRelations = openapi_server.resourceTypes.TypeDetailDamageRelations
-  TypeDetailPastDamageRelationsInner = openapi_server.resourceTypes.TypeDetailPastDamageRelationsInner
-  TypeDetailPokemonInner = openapi_server.resourceTypes.TypeDetailPokemonInner
-  TypeDetailSpritesValueValue = openapi_server.resourceTypes.TypeDetailSpritesValueValue
   TypeGameIndex = openapi_server.resourceTypes.TypeGameIndex
+  TypeGameSprite = openapi_server.resourceTypes.TypeGameSprite
+  TypeName = openapi_server.resourceTypes.TypeName
+  TypePastRelationships = openapi_server.resourceTypes.TypePastRelationships
+  TypePokemon = openapi_server.resourceTypes.TypePokemon
+  TypeRelationships = openapi_server.resourceTypes.TypeRelationships
 }
 resourceTypes {
 
@@ -26,62 +26,62 @@ resourceTypes {
     properties {
         id {
           type =  integer
-          description = ""
+          description = "The identifier for this resource."
           optional = true
         }
         name {
           type =  string
-          description = ""
+          description = "The name for this resource."
           optional = true
         }
         damage_relations {
-          type = TypeDetailDamageRelations
-          description = ""
+          type = TypeRelationships
+          description = "A detail of how effective this type is toward others and vice versa."
           optional = true
         }
         past_damage_relations {
           type = array
-          items.type = TypeDetailPastDamageRelationsInner
-          description = ""
+          items.type = TypePastRelationships
+          description = "A list of details of how effective this type was toward others and vice versa in previous generations"
           optional = true
         }
         game_indices {
           type = array
           items.type = TypeGameIndex
-          description = ""
+          description = "A list of game indices relevent to this item by generation."
           optional = true
         }
         generation {
           type = GenerationSummary
-          description = ""
+          description = "The generation this type was introduced in."
           optional = true
         }
         move_damage_class {
           type = MoveDamageClassSummary
-          description = ""
+          description = "The class of damage inflicted by this type."
           optional = true
         }
         names {
           type = array
-          items.type = AbilityName
-          description = ""
+          items.type = TypeName
+          description = "The name of this resource listed in different languages."
           optional = true
         }
         pokemon {
           type = array
-          items.type = TypeDetailPokemonInner
-          description = ""
+          items.type = TypePokemon
+          description = "A list of details of Pokémon that have this type."
           optional = true
         }
         moves {
           type = array
           items.type = MoveSummary
-          description = ""
+          description = "A list of moves that have this type."
           optional = true
         }
         sprites {
           # TODO
-          description = ""
+          description = "Type icons grouped by generation and game, with name_icon and symbol_icon URLs. Unavailable icons are null."
           optional = true
         }
     }

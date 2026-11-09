@@ -66,14 +66,14 @@ void gender_detail_free(gender_detail_t *gender_detail) {
     }
     if (gender_detail->pokemon_species_details) {
         list_ForEach(listEntry, gender_detail->pokemon_species_details) {
-            gender_detail_pokemon_species_details_inner_free(listEntry->data);
+            gender_pokemon_species_free(listEntry->data);
         }
         list_freeList(gender_detail->pokemon_species_details);
         gender_detail->pokemon_species_details = NULL;
     }
     if (gender_detail->required_for_evolution) {
         list_ForEach(listEntry, gender_detail->required_for_evolution) {
-            ability_detail_pokemon_inner_pokemon_free(listEntry->data);
+            pokemon_species_summary_free(listEntry->data);
         }
         list_freeList(gender_detail->required_for_evolution);
         gender_detail->required_for_evolution = NULL;
@@ -114,7 +114,7 @@ cJSON *gender_detail_convertToJSON(gender_detail_t *gender_detail) {
     listEntry_t *pokemon_species_detailsListEntry;
     if (gender_detail->pokemon_species_details) {
     list_ForEach(pokemon_species_detailsListEntry, gender_detail->pokemon_species_details) {
-    cJSON *itemLocal = gender_detail_pokemon_species_details_inner_convertToJSON(pokemon_species_detailsListEntry->data);
+    cJSON *itemLocal = gender_pokemon_species_convertToJSON(pokemon_species_detailsListEntry->data);
     if(itemLocal == NULL) {
     goto fail;
     }
@@ -135,7 +135,7 @@ cJSON *gender_detail_convertToJSON(gender_detail_t *gender_detail) {
     listEntry_t *required_for_evolutionListEntry;
     if (gender_detail->required_for_evolution) {
     list_ForEach(required_for_evolutionListEntry, gender_detail->required_for_evolution) {
-    cJSON *itemLocal = ability_detail_pokemon_inner_pokemon_convertToJSON(required_for_evolutionListEntry->data);
+    cJSON *itemLocal = pokemon_species_summary_convertToJSON(required_for_evolutionListEntry->data);
     if(itemLocal == NULL) {
     goto fail;
     }
@@ -224,7 +224,7 @@ gender_detail_t *gender_detail_parseFromJSON(cJSON *gender_detailJSON){
         if(!cJSON_IsObject(pokemon_species_details_local_nonprimitive)){
             goto end;
         }
-        gender_detail_pokemon_species_details_inner_t *pokemon_species_detailsItem = gender_detail_pokemon_species_details_inner_parseFromJSON(pokemon_species_details_local_nonprimitive);
+        gender_pokemon_species_t *pokemon_species_detailsItem = gender_pokemon_species_parseFromJSON(pokemon_species_details_local_nonprimitive);
 
         list_addElement(pokemon_species_detailsList, pokemon_species_detailsItem);
     }
@@ -251,7 +251,7 @@ gender_detail_t *gender_detail_parseFromJSON(cJSON *gender_detailJSON){
         if(!cJSON_IsObject(required_for_evolution_local_nonprimitive)){
             goto end;
         }
-        ability_detail_pokemon_inner_pokemon_t *required_for_evolutionItem = ability_detail_pokemon_inner_pokemon_parseFromJSON(required_for_evolution_local_nonprimitive);
+        pokemon_species_summary_t *required_for_evolutionItem = pokemon_species_summary_parseFromJSON(required_for_evolution_local_nonprimitive);
 
         list_addElement(required_for_evolutionList, required_for_evolutionItem);
     }
@@ -283,7 +283,7 @@ end:
     if (pokemon_species_detailsList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, pokemon_species_detailsList) {
-            gender_detail_pokemon_species_details_inner_free(listEntry->data);
+            gender_pokemon_species_free(listEntry->data);
             listEntry->data = NULL;
         }
         list_freeList(pokemon_species_detailsList);
@@ -292,7 +292,7 @@ end:
     if (required_for_evolutionList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, required_for_evolutionList) {
-            ability_detail_pokemon_inner_pokemon_free(listEntry->data);
+            pokemon_species_summary_free(listEntry->data);
             listEntry->data = NULL;
         }
         list_freeList(required_for_evolutionList);

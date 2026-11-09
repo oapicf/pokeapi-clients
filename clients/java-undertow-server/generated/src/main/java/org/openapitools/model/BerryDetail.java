@@ -1,9 +1,9 @@
 /*
  * PokéAPI
  *
- * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+ * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
  *
- * OpenAPI document version: 2.7.0
+ * OpenAPI document version: 2.10.0
  * Maintained by: blah+oapicf@cliffano.com
  *
  * AUTO-GENERATED FILE, DO NOT MODIFY!
@@ -18,8 +18,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.model.BerryDetailFlavorsInner;
+import org.openapitools.jackson.nullable.JsonNullable;
 import org.openapitools.model.BerryFirmnessSummary;
+import org.openapitools.model.BerryFlavorMap;
 import org.openapitools.model.ItemSummary;
 import org.openapitools.model.TypeSummary;
 
@@ -27,7 +28,7 @@ import org.openapitools.model.TypeSummary;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2026-10-25T05:48:17.483504027Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2026-11-09T13:49:34.675912514Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class BerryDetail   {
   
   private Integer id;
@@ -39,11 +40,12 @@ public class BerryDetail   {
   private Integer smoothness;
   private Integer soilDryness;
   private BerryFirmnessSummary firmness;
-  private List<BerryDetailFlavorsInner> flavors = new ArrayList<>();
+  private List<BerryFlavorMap> flavors = new ArrayList<>();
   private ItemSummary item;
   private TypeSummary naturalGiftType;
 
   /**
+   * The identifier for this resource.
    */
   public BerryDetail id(Integer id) {
     this.id = id;
@@ -51,7 +53,7 @@ public class BerryDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   @JsonProperty("id")
   public Integer getId() {
     return id;
@@ -61,6 +63,7 @@ public class BerryDetail   {
   }
 
   /**
+   * The name for this resource.
    */
   public BerryDetail name(String name) {
     this.name = name;
@@ -68,7 +71,7 @@ public class BerryDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   @JsonProperty("name")
   public String getName() {
     return name;
@@ -78,6 +81,9 @@ public class BerryDetail   {
   }
 
   /**
+   * Time it takes the tree to grow one stage, in hours. Berry trees go through four of these growth stages before they can be picked.
+   * minimum: -2147483648
+   * maximum: 2147483647
    */
   public BerryDetail growthTime(Integer growthTime) {
     this.growthTime = growthTime;
@@ -85,7 +91,7 @@ public class BerryDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "Time it takes the tree to grow one stage, in hours. Berry trees go through four of these growth stages before they can be picked.")
   @JsonProperty("growth_time")
   public Integer getGrowthTime() {
     return growthTime;
@@ -95,6 +101,9 @@ public class BerryDetail   {
   }
 
   /**
+   * The maximum number of these berries that can grow on one tree in Generation IV.
+   * minimum: -2147483648
+   * maximum: 2147483647
    */
   public BerryDetail maxHarvest(Integer maxHarvest) {
     this.maxHarvest = maxHarvest;
@@ -102,7 +111,7 @@ public class BerryDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "The maximum number of these berries that can grow on one tree in Generation IV.")
   @JsonProperty("max_harvest")
   public Integer getMaxHarvest() {
     return maxHarvest;
@@ -112,6 +121,9 @@ public class BerryDetail   {
   }
 
   /**
+   * The power of the move \"Natural Gift\" when used with this Berry.
+   * minimum: -2147483648
+   * maximum: 2147483647
    */
   public BerryDetail naturalGiftPower(Integer naturalGiftPower) {
     this.naturalGiftPower = naturalGiftPower;
@@ -119,7 +131,7 @@ public class BerryDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "The power of the move \"Natural Gift\" when used with this Berry.")
   @JsonProperty("natural_gift_power")
   public Integer getNaturalGiftPower() {
     return naturalGiftPower;
@@ -129,6 +141,9 @@ public class BerryDetail   {
   }
 
   /**
+   * The size of this Berry, in millimeters.
+   * minimum: -2147483648
+   * maximum: 2147483647
    */
   public BerryDetail size(Integer size) {
     this.size = size;
@@ -136,7 +151,7 @@ public class BerryDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "The size of this Berry, in millimeters.")
   @JsonProperty("size")
   public Integer getSize() {
     return size;
@@ -146,6 +161,9 @@ public class BerryDetail   {
   }
 
   /**
+   * The smoothness of this Berry, used in making Pokéblocks or Poffins.
+   * minimum: -2147483648
+   * maximum: 2147483647
    */
   public BerryDetail smoothness(Integer smoothness) {
     this.smoothness = smoothness;
@@ -153,7 +171,7 @@ public class BerryDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "The smoothness of this Berry, used in making Pokéblocks or Poffins.")
   @JsonProperty("smoothness")
   public Integer getSmoothness() {
     return smoothness;
@@ -163,6 +181,9 @@ public class BerryDetail   {
   }
 
   /**
+   * The speed at which this Berry dries out the soil as it grows. A higher rate means the soil dries more quickly.
+   * minimum: -2147483648
+   * maximum: 2147483647
    */
   public BerryDetail soilDryness(Integer soilDryness) {
     this.soilDryness = soilDryness;
@@ -170,7 +191,7 @@ public class BerryDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "The speed at which this Berry dries out the soil as it grows. A higher rate means the soil dries more quickly.")
   @JsonProperty("soil_dryness")
   public Integer getSoilDryness() {
     return soilDryness;
@@ -180,6 +201,7 @@ public class BerryDetail   {
   }
 
   /**
+   * The firmness of this berry, used in making Pokéblocks or Poffins.
    */
   public BerryDetail firmness(BerryFirmnessSummary firmness) {
     this.firmness = firmness;
@@ -187,7 +209,7 @@ public class BerryDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The firmness of this berry, used in making Pokéblocks or Poffins.")
   @JsonProperty("firmness")
   public BerryFirmnessSummary getFirmness() {
     return firmness;
@@ -197,23 +219,25 @@ public class BerryDetail   {
   }
 
   /**
+   * A list of references to each flavor a berry can have and the potency of each of those flavors in regard to this berry.
    */
-  public BerryDetail flavors(List<BerryDetailFlavorsInner> flavors) {
+  public BerryDetail flavors(List<BerryFlavorMap> flavors) {
     this.flavors = flavors;
     return this;
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of references to each flavor a berry can have and the potency of each of those flavors in regard to this berry.")
   @JsonProperty("flavors")
-  public List<BerryDetailFlavorsInner> getFlavors() {
+  public List<BerryFlavorMap> getFlavors() {
     return flavors;
   }
-  public void setFlavors(List<BerryDetailFlavorsInner> flavors) {
+  public void setFlavors(List<BerryFlavorMap> flavors) {
     this.flavors = flavors;
   }
 
   /**
+   * Berries are actually items. This is a reference to the item specific data for this berry.
    */
   public BerryDetail item(ItemSummary item) {
     this.item = item;
@@ -221,7 +245,7 @@ public class BerryDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "Berries are actually items. This is a reference to the item specific data for this berry.")
   @JsonProperty("item")
   public ItemSummary getItem() {
     return item;
@@ -231,6 +255,7 @@ public class BerryDetail   {
   }
 
   /**
+   * The type inherited by \"Natural Gift\" when used with this Berry.
    */
   public BerryDetail naturalGiftType(TypeSummary naturalGiftType) {
     this.naturalGiftType = naturalGiftType;
@@ -238,7 +263,7 @@ public class BerryDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The type inherited by \"Natural Gift\" when used with this Berry.")
   @JsonProperty("natural_gift_type")
   public TypeSummary getNaturalGiftType() {
     return naturalGiftType;

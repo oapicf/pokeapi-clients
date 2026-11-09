@@ -1,10 +1,10 @@
 package org.openapitools.model;
 
 import org.openapitools.model.AbilityChange;
-import org.openapitools.model.AbilityDetailPokemonInner;
 import org.openapitools.model.AbilityEffectText;
 import org.openapitools.model.AbilityFlavorText;
 import org.openapitools.model.AbilityName;
+import org.openapitools.model.AbilityPokemonDetail;
 import org.openapitools.model.GenerationSummary;
 import java.util.*;
 import java.util.Objects;
@@ -18,35 +18,62 @@ import java.math.*;
 public class AbilityDetail implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * The identifier for this resource.
+   */
   @JsonProperty("id")
   private Integer id;
 
+  /**
+   * The name for this resource.
+   */
   @JsonProperty("name")
   private String name;
 
+  /**
+   * Whether or not this ability originated in the main series of the video games.
+   */
   @JsonProperty("is_main_series")
   private Boolean isMainSeries;
 
+  /**
+   * The generation this ability originated in.
+   */
   @JsonProperty("generation")
   private GenerationSummary generation;
 
+  /**
+   * The name of this resource listed in different languages.
+   */
   @JsonProperty("names")
   private List<AbilityName> names = new ArrayList<>();
 
+  /**
+   * The effect of this ability listed in different languages.
+   */
   @JsonProperty("effect_entries")
   private List<AbilityEffectText> effectEntries = new ArrayList<>();
 
+  /**
+   * The list of previous effects this ability has had across version groups.
+   */
   @JsonProperty("effect_changes")
   private List<AbilityChange> effectChanges = new ArrayList<>();
 
+  /**
+   * The flavor text of this ability listed in different languages.
+   */
   @JsonProperty("flavor_text_entries")
   private List<AbilityFlavorText> flavorTextEntries = new ArrayList<>();
 
+  /**
+   * A list of Pokémon that could potentially have this ability.
+   */
   @JsonProperty("pokemon")
-  private List<AbilityDetailPokemonInner> pokemon = new ArrayList<>();
+  private List<AbilityPokemonDetail> pokemon = new ArrayList<>();
 
   /**
-   * 
+   * The identifier for this resource.
    * @return id
    */
   public Integer getId() {
@@ -58,7 +85,7 @@ public class AbilityDetail implements Serializable {
   }
 
   /**
-   * 
+   * The name for this resource.
    * @return name
    */
   public String getName() {
@@ -70,7 +97,7 @@ public class AbilityDetail implements Serializable {
   }
 
   /**
-   * 
+   * Whether or not this ability originated in the main series of the video games.
    * @return isMainSeries
    */
   public Boolean getIsMainSeries() {
@@ -82,7 +109,7 @@ public class AbilityDetail implements Serializable {
   }
 
   /**
-   * 
+   * The generation this ability originated in.
    * @return generation
    */
   public GenerationSummary getGeneration() {
@@ -94,7 +121,7 @@ public class AbilityDetail implements Serializable {
   }
 
   /**
-   * 
+   * The name of this resource listed in different languages.
    * @return names
    */
   public List<AbilityName> getNames() {
@@ -106,7 +133,7 @@ public class AbilityDetail implements Serializable {
   }
 
   /**
-   * 
+   * The effect of this ability listed in different languages.
    * @return effectEntries
    */
   public List<AbilityEffectText> getEffectEntries() {
@@ -118,7 +145,7 @@ public class AbilityDetail implements Serializable {
   }
 
   /**
-   * 
+   * The list of previous effects this ability has had across version groups.
    * @return effectChanges
    */
   public List<AbilityChange> getEffectChanges() {
@@ -130,7 +157,7 @@ public class AbilityDetail implements Serializable {
   }
 
   /**
-   * 
+   * The flavor text of this ability listed in different languages.
    * @return flavorTextEntries
    */
   public List<AbilityFlavorText> getFlavorTextEntries() {
@@ -142,14 +169,14 @@ public class AbilityDetail implements Serializable {
   }
 
   /**
-   * 
+   * A list of Pokémon that could potentially have this ability.
    * @return pokemon
    */
-  public List<AbilityDetailPokemonInner> getPokemon() {
+  public List<AbilityPokemonDetail> getPokemon() {
     return pokemon;
   }
 
-  public void setPokemon(List<AbilityDetailPokemonInner> pokemon) {
+  public void setPokemon(List<AbilityPokemonDetail> pokemon) {
     this.pokemon = pokemon;
   }
 

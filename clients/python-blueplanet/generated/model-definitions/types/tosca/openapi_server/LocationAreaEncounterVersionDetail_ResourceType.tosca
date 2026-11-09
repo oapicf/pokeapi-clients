@@ -1,0 +1,41 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server LocationAreaEncounterVersionDetail"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a LocationAreaEncounterVersionDetail"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  VersionSummary = openapi_server.resourceTypes.VersionSummary
+}
+resourceTypes {
+
+  LocationAreaEncounterVersionDetail {
+    title = LocationAreaEncounterVersionDetail
+    description = LocationAreaEncounterVersionDetail
+    derivedFrom = Root
+    properties {
+        rate {
+          type =  integer
+          description = "The chance of an encounter to occur."
+          optional = true
+        }
+        version {
+          type = VersionSummary
+          description = "The version of the game in which the encounter can occur with the given chance."
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  LocationAreaEncounterVersionDetail {
+    title = LocationAreaEncounterVersionDetail
+    description = LocationAreaEncounterVersionDetail
+    implements = openapi_server.resourceTypes.LocationAreaEncounterVersionDetail
+
+  }
+}

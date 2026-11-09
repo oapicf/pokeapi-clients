@@ -11,7 +11,7 @@ namespace models {
 MoveMetaAilmentDetail::MoveMetaAilmentDetail()
 : id(0)
 , name("")
-, moves(std::vector<MoveMetaAilmentDetail_moves_inner>())
+, moves(std::vector<MoveSummary>())
 , names(std::vector<MoveMetaAilmentName>())
 {
 }
@@ -29,7 +29,7 @@ std::string MoveMetaAilmentDetail::getName() const
 {
     return name;
 }
-std::vector<MoveMetaAilmentDetail_moves_inner> MoveMetaAilmentDetail::getMoves() const
+std::vector<MoveSummary> MoveMetaAilmentDetail::getMoves() const
 {
     return moves;
 }
@@ -49,7 +49,7 @@ void MoveMetaAilmentDetail::setName(const std::string& nameObj)
 {
     name = nameObj;
 }
-void MoveMetaAilmentDetail::setMoves(const std::vector<MoveMetaAilmentDetail_moves_inner>& movesObj)
+void MoveMetaAilmentDetail::setMoves(const std::vector<MoveSummary>& movesObj)
 {
     moves = movesObj;
 }

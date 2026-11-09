@@ -14,7 +14,7 @@
 // Machines are the representation of items that teach moves to Pokémon. They vary from version to version, so it is not certain that one specific TM or HM corresponds to a single Machine.
 //
 paginated_machine_summary_list_t*
-MachinesAPI_machineList(apiClient_t *apiClient, int *limit, int *offset, char *q);
+MachinesAPI_machineList(apiClient_t *apiClient, int *limit, int *offset);
 
 
 // Get machine

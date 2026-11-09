@@ -3,9 +3,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **String** |  | 
-**Color** | **String** |  | 
-**Language** | [**LanguageSummary**](LanguageSummary.md) |  | 
+**Name** | **String** | The name for this contest. | 
+**Color** | **String** | The color associated with this contest&#39;s name. | 
+**Language** | [**LanguageSummary**](LanguageSummary.md) | The language that this name is in. | 
 
 ## Examples
 

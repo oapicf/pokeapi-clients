@@ -8,8 +8,8 @@ GenderDetail::GenderDetail()
 {
 	id = int(0);
 	name = std::string();
-	pokemon_species_details = std::list<GenderDetail_pokemon_species_details_inner>();
-	required_for_evolution = std::list<AbilityDetail_pokemon_inner_pokemon>();
+	pokemon_species_details = std::list<GenderPokemonSpecies>();
+	required_for_evolution = std::list<PokemonSpeciesSummary>();
 }
 
 GenderDetail::GenderDetail(std::string jsonString)
@@ -60,8 +60,8 @@ GenderDetail::fromJson(std::string jsonObj)
         bourne::json value = object[pokemon_species_detailsKey];
 
 
-        std::list<GenderDetail_pokemon_species_details_inner> pokemon_species_details_list;
-        GenderDetail_pokemon_species_details_inner element;
+        std::list<GenderPokemonSpecies> pokemon_species_details_list;
+        GenderPokemonSpecies element;
         for(auto& var : value.array_range())
         {
 
@@ -82,8 +82,8 @@ GenderDetail::fromJson(std::string jsonObj)
         bourne::json value = object[required_for_evolutionKey];
 
 
-        std::list<AbilityDetail_pokemon_inner_pokemon> required_for_evolution_list;
-        AbilityDetail_pokemon_inner_pokemon element;
+        std::list<PokemonSpeciesSummary> required_for_evolution_list;
+        PokemonSpeciesSummary element;
         for(auto& var : value.array_range())
         {
 
@@ -122,12 +122,12 @@ GenderDetail::toJson()
 
 
 
-    std::list<GenderDetail_pokemon_species_details_inner> pokemon_species_details_list = getPokemonSpeciesDetails();
+    std::list<GenderPokemonSpecies> pokemon_species_details_list = getPokemonSpeciesDetails();
     bourne::json pokemon_species_details_arr = bourne::json::array();
 
     for(auto& var : pokemon_species_details_list)
     {
-        GenderDetail_pokemon_species_details_inner obj = var;
+        GenderPokemonSpecies obj = var;
         pokemon_species_details_arr.append(obj.toJson());
     }
     object["pokemon_species_details"] = pokemon_species_details_arr;
@@ -137,12 +137,12 @@ GenderDetail::toJson()
 
 
 
-    std::list<AbilityDetail_pokemon_inner_pokemon> required_for_evolution_list = getRequiredForEvolution();
+    std::list<PokemonSpeciesSummary> required_for_evolution_list = getRequiredForEvolution();
     bourne::json required_for_evolution_arr = bourne::json::array();
 
     for(auto& var : required_for_evolution_list)
     {
-        AbilityDetail_pokemon_inner_pokemon obj = var;
+        PokemonSpeciesSummary obj = var;
         required_for_evolution_arr.append(obj.toJson());
     }
     object["required_for_evolution"] = required_for_evolution_arr;
@@ -178,26 +178,26 @@ GenderDetail::setName(std::string name)
 	this->name = name;
 }
 
-std::list<GenderDetail_pokemon_species_details_inner>
+std::list<GenderPokemonSpecies>
 GenderDetail::getPokemonSpeciesDetails()
 {
 	return pokemon_species_details;
 }
 
 void
-GenderDetail::setPokemonSpeciesDetails(std::list<GenderDetail_pokemon_species_details_inner> pokemon_species_details)
+GenderDetail::setPokemonSpeciesDetails(std::list<GenderPokemonSpecies> pokemon_species_details)
 {
 	this->pokemon_species_details = pokemon_species_details;
 }
 
-std::list<AbilityDetail_pokemon_inner_pokemon>
+std::list<PokemonSpeciesSummary>
 GenderDetail::getRequiredForEvolution()
 {
 	return required_for_evolution;
 }
 
 void
-GenderDetail::setRequiredForEvolution(std::list<AbilityDetail_pokemon_inner_pokemon> required_for_evolution)
+GenderDetail::setRequiredForEvolution(std::list<PokemonSpeciesSummary> required_for_evolution)
 {
 	this->required_for_evolution = required_for_evolution;
 }

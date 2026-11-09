@@ -22,302 +22,317 @@ use crate::{
 
 
 /// Setup API Server.
-pub fn new<I, A, E, C>(api_impl: I) -> Router
+pub fn new<I, A, E>(api_impl: I) -> Router
 where
     I: AsRef<A> + Clone + Send + Sync + 'static,
-    A: apis::berries::Berries<E, Claims = C> + apis::contests::Contests<E, Claims = C> + apis::encounters::Encounters<E, Claims = C> + apis::evolution::Evolution<E, Claims = C> + apis::games::Games<E, Claims = C> + apis::items::Items<E, Claims = C> + apis::location::Location<E, Claims = C> + apis::machines::Machines<E, Claims = C> + apis::moves::Moves<E, Claims = C> + apis::pokemon::Pokemon<E, Claims = C> + apis::utility::Utility<E, Claims = C> + apis::ApiAuthBasic<Claims = C> + apis::CookieAuthentication<Claims = C> + Send + Sync + 'static,
+    A: apis::berries::Berries<E> + apis::contests::Contests<E> + apis::encounters::Encounters<E> + apis::evolution::Evolution<E> + apis::games::Games<E> + apis::items::Items<E> + apis::location::Location<E> + apis::machines::Machines<E> + apis::moves::Moves<E> + apis::pokemon::Pokemon<E> + apis::utility::Utility<E> + Send + Sync + 'static,
     E: std::fmt::Debug + Send + Sync + 'static,
-    C: Send + Sync + 'static,
+    
 {
     // build our application with a route
     Router::new()
         .route("/api/v2/ability/",
-            get(ability_list::<I, A, E, C>)
+            get(ability_list::<I, A, E>)
         )
         .route("/api/v2/ability/{id}/",
-            get(ability_retrieve::<I, A, E, C>)
+            get(ability_retrieve::<I, A, E>)
         )
         .route("/api/v2/berry-firmness/",
-            get(berry_firmness_list::<I, A, E, C>)
+            get(berry_firmness_list::<I, A, E>)
         )
         .route("/api/v2/berry-firmness/{id}/",
-            get(berry_firmness_retrieve::<I, A, E, C>)
+            get(berry_firmness_retrieve::<I, A, E>)
         )
         .route("/api/v2/berry-flavor/",
-            get(berry_flavor_list::<I, A, E, C>)
+            get(berry_flavor_list::<I, A, E>)
         )
         .route("/api/v2/berry-flavor/{id}/",
-            get(berry_flavor_retrieve::<I, A, E, C>)
+            get(berry_flavor_retrieve::<I, A, E>)
         )
         .route("/api/v2/berry/",
-            get(berry_list::<I, A, E, C>)
+            get(berry_list::<I, A, E>)
         )
         .route("/api/v2/berry/{id}/",
-            get(berry_retrieve::<I, A, E, C>)
+            get(berry_retrieve::<I, A, E>)
         )
         .route("/api/v2/characteristic/",
-            get(characteristic_list::<I, A, E, C>)
+            get(characteristic_list::<I, A, E>)
         )
         .route("/api/v2/characteristic/{id}/",
-            get(characteristic_retrieve::<I, A, E, C>)
+            get(characteristic_retrieve::<I, A, E>)
         )
         .route("/api/v2/contest-effect/",
-            get(contest_effect_list::<I, A, E, C>)
+            get(contest_effect_list::<I, A, E>)
         )
         .route("/api/v2/contest-effect/{id}/",
-            get(contest_effect_retrieve::<I, A, E, C>)
+            get(contest_effect_retrieve::<I, A, E>)
         )
         .route("/api/v2/contest-type/",
-            get(contest_type_list::<I, A, E, C>)
+            get(contest_type_list::<I, A, E>)
         )
         .route("/api/v2/contest-type/{id}/",
-            get(contest_type_retrieve::<I, A, E, C>)
+            get(contest_type_retrieve::<I, A, E>)
+        )
+        .route("/api/v2/currency/",
+            get(currency_list::<I, A, E>)
+        )
+        .route("/api/v2/currency/{id}/",
+            get(currency_retrieve::<I, A, E>)
         )
         .route("/api/v2/egg-group/",
-            get(egg_group_list::<I, A, E, C>)
+            get(egg_group_list::<I, A, E>)
         )
         .route("/api/v2/egg-group/{id}/",
-            get(egg_group_retrieve::<I, A, E, C>)
+            get(egg_group_retrieve::<I, A, E>)
         )
         .route("/api/v2/encounter-condition-value/",
-            get(encounter_condition_value_list::<I, A, E, C>)
+            get(encounter_condition_value_list::<I, A, E>)
         )
         .route("/api/v2/encounter-condition-value/{id}/",
-            get(encounter_condition_value_retrieve::<I, A, E, C>)
+            get(encounter_condition_value_retrieve::<I, A, E>)
         )
         .route("/api/v2/encounter-condition/",
-            get(encounter_condition_list::<I, A, E, C>)
+            get(encounter_condition_list::<I, A, E>)
         )
         .route("/api/v2/encounter-condition/{id}/",
-            get(encounter_condition_retrieve::<I, A, E, C>)
+            get(encounter_condition_retrieve::<I, A, E>)
         )
         .route("/api/v2/encounter-method/",
-            get(encounter_method_list::<I, A, E, C>)
+            get(encounter_method_list::<I, A, E>)
         )
         .route("/api/v2/encounter-method/{id}/",
-            get(encounter_method_retrieve::<I, A, E, C>)
+            get(encounter_method_retrieve::<I, A, E>)
         )
         .route("/api/v2/evolution-chain/",
-            get(evolution_chain_list::<I, A, E, C>)
+            get(evolution_chain_list::<I, A, E>)
         )
         .route("/api/v2/evolution-chain/{id}/",
-            get(evolution_chain_retrieve::<I, A, E, C>)
+            get(evolution_chain_retrieve::<I, A, E>)
         )
         .route("/api/v2/evolution-trigger/",
-            get(evolution_trigger_list::<I, A, E, C>)
+            get(evolution_trigger_list::<I, A, E>)
         )
         .route("/api/v2/evolution-trigger/{id}/",
-            get(evolution_trigger_retrieve::<I, A, E, C>)
+            get(evolution_trigger_retrieve::<I, A, E>)
+        )
+        .route("/api/v2/evolution-variable/",
+            get(evolution_variable_list::<I, A, E>)
+        )
+        .route("/api/v2/evolution-variable/{id}/",
+            get(evolution_variable_retrieve::<I, A, E>)
         )
         .route("/api/v2/gender/",
-            get(gender_list::<I, A, E, C>)
+            get(gender_list::<I, A, E>)
         )
         .route("/api/v2/gender/{id}/",
-            get(gender_retrieve::<I, A, E, C>)
+            get(gender_retrieve::<I, A, E>)
         )
         .route("/api/v2/generation/",
-            get(generation_list::<I, A, E, C>)
+            get(generation_list::<I, A, E>)
         )
         .route("/api/v2/generation/{id}/",
-            get(generation_retrieve::<I, A, E, C>)
+            get(generation_retrieve::<I, A, E>)
         )
         .route("/api/v2/growth-rate/",
-            get(growth_rate_list::<I, A, E, C>)
+            get(growth_rate_list::<I, A, E>)
         )
         .route("/api/v2/growth-rate/{id}/",
-            get(growth_rate_retrieve::<I, A, E, C>)
+            get(growth_rate_retrieve::<I, A, E>)
         )
         .route("/api/v2/item-attribute/",
-            get(item_attribute_list::<I, A, E, C>)
+            get(item_attribute_list::<I, A, E>)
         )
         .route("/api/v2/item-attribute/{id}/",
-            get(item_attribute_retrieve::<I, A, E, C>)
+            get(item_attribute_retrieve::<I, A, E>)
         )
         .route("/api/v2/item-category/",
-            get(item_category_list::<I, A, E, C>)
+            get(item_category_list::<I, A, E>)
         )
         .route("/api/v2/item-category/{id}/",
-            get(item_category_retrieve::<I, A, E, C>)
+            get(item_category_retrieve::<I, A, E>)
         )
         .route("/api/v2/item-fling-effect/",
-            get(item_fling_effect_list::<I, A, E, C>)
+            get(item_fling_effect_list::<I, A, E>)
         )
         .route("/api/v2/item-fling-effect/{id}/",
-            get(item_fling_effect_retrieve::<I, A, E, C>)
+            get(item_fling_effect_retrieve::<I, A, E>)
         )
         .route("/api/v2/item-pocket/",
-            get(item_pocket_list::<I, A, E, C>)
+            get(item_pocket_list::<I, A, E>)
         )
         .route("/api/v2/item-pocket/{id}/",
-            get(item_pocket_retrieve::<I, A, E, C>)
+            get(item_pocket_retrieve::<I, A, E>)
         )
         .route("/api/v2/item/",
-            get(item_list::<I, A, E, C>)
+            get(item_list::<I, A, E>)
         )
         .route("/api/v2/item/{id}/",
-            get(item_retrieve::<I, A, E, C>)
+            get(item_retrieve::<I, A, E>)
         )
         .route("/api/v2/language/",
-            get(language_list::<I, A, E, C>)
+            get(language_list::<I, A, E>)
         )
         .route("/api/v2/language/{id}/",
-            get(language_retrieve::<I, A, E, C>)
+            get(language_retrieve::<I, A, E>)
         )
         .route("/api/v2/location-area/",
-            get(location_area_list::<I, A, E, C>)
+            get(location_area_list::<I, A, E>)
         )
         .route("/api/v2/location-area/{id}/",
-            get(location_area_retrieve::<I, A, E, C>)
+            get(location_area_retrieve::<I, A, E>)
         )
         .route("/api/v2/location/",
-            get(location_list::<I, A, E, C>)
+            get(location_list::<I, A, E>)
         )
         .route("/api/v2/location/{id}/",
-            get(location_retrieve::<I, A, E, C>)
+            get(location_retrieve::<I, A, E>)
         )
         .route("/api/v2/machine/",
-            get(machine_list::<I, A, E, C>)
+            get(machine_list::<I, A, E>)
         )
         .route("/api/v2/machine/{id}/",
-            get(machine_retrieve::<I, A, E, C>)
+            get(machine_retrieve::<I, A, E>)
+        )
+        .route("/api/v2/meta/",
+            get(meta_retrieve::<I, A, E>)
         )
         .route("/api/v2/move-ailment/",
-            get(move_ailment_list::<I, A, E, C>)
+            get(move_ailment_list::<I, A, E>)
         )
         .route("/api/v2/move-ailment/{id}/",
-            get(move_ailment_retrieve::<I, A, E, C>)
+            get(move_ailment_retrieve::<I, A, E>)
         )
         .route("/api/v2/move-battle-style/",
-            get(move_battle_style_list::<I, A, E, C>)
+            get(move_battle_style_list::<I, A, E>)
         )
         .route("/api/v2/move-battle-style/{id}/",
-            get(move_battle_style_retrieve::<I, A, E, C>)
+            get(move_battle_style_retrieve::<I, A, E>)
         )
         .route("/api/v2/move-category/",
-            get(move_category_list::<I, A, E, C>)
+            get(move_category_list::<I, A, E>)
         )
         .route("/api/v2/move-category/{id}/",
-            get(move_category_retrieve::<I, A, E, C>)
+            get(move_category_retrieve::<I, A, E>)
         )
         .route("/api/v2/move-damage-class/",
-            get(move_damage_class_list::<I, A, E, C>)
+            get(move_damage_class_list::<I, A, E>)
         )
         .route("/api/v2/move-damage-class/{id}/",
-            get(move_damage_class_retrieve::<I, A, E, C>)
+            get(move_damage_class_retrieve::<I, A, E>)
         )
         .route("/api/v2/move-learn-method/",
-            get(move_learn_method_list::<I, A, E, C>)
+            get(move_learn_method_list::<I, A, E>)
         )
         .route("/api/v2/move-learn-method/{id}/",
-            get(move_learn_method_retrieve::<I, A, E, C>)
+            get(move_learn_method_retrieve::<I, A, E>)
         )
         .route("/api/v2/move-target/",
-            get(move_target_list::<I, A, E, C>)
+            get(move_target_list::<I, A, E>)
         )
         .route("/api/v2/move-target/{id}/",
-            get(move_target_retrieve::<I, A, E, C>)
+            get(move_target_retrieve::<I, A, E>)
         )
         .route("/api/v2/move/",
-            get(move_list::<I, A, E, C>)
+            get(move_list::<I, A, E>)
         )
         .route("/api/v2/move/{id}/",
-            get(move_retrieve::<I, A, E, C>)
+            get(move_retrieve::<I, A, E>)
         )
         .route("/api/v2/nature/",
-            get(nature_list::<I, A, E, C>)
+            get(nature_list::<I, A, E>)
         )
         .route("/api/v2/nature/{id}/",
-            get(nature_retrieve::<I, A, E, C>)
+            get(nature_retrieve::<I, A, E>)
         )
         .route("/api/v2/pal-park-area/",
-            get(pal_park_area_list::<I, A, E, C>)
+            get(pal_park_area_list::<I, A, E>)
         )
         .route("/api/v2/pal-park-area/{id}/",
-            get(pal_park_area_retrieve::<I, A, E, C>)
+            get(pal_park_area_retrieve::<I, A, E>)
         )
         .route("/api/v2/pokeathlon-stat/",
-            get(pokeathlon_stat_list::<I, A, E, C>)
+            get(pokeathlon_stat_list::<I, A, E>)
         )
         .route("/api/v2/pokeathlon-stat/{id}/",
-            get(pokeathlon_stat_retrieve::<I, A, E, C>)
+            get(pokeathlon_stat_retrieve::<I, A, E>)
         )
         .route("/api/v2/pokedex/",
-            get(pokedex_list::<I, A, E, C>)
+            get(pokedex_list::<I, A, E>)
         )
         .route("/api/v2/pokedex/{id}/",
-            get(pokedex_retrieve::<I, A, E, C>)
+            get(pokedex_retrieve::<I, A, E>)
         )
         .route("/api/v2/pokemon-color/",
-            get(pokemon_color_list::<I, A, E, C>)
+            get(pokemon_color_list::<I, A, E>)
         )
         .route("/api/v2/pokemon-color/{id}/",
-            get(pokemon_color_retrieve::<I, A, E, C>)
+            get(pokemon_color_retrieve::<I, A, E>)
         )
         .route("/api/v2/pokemon-form/",
-            get(pokemon_form_list::<I, A, E, C>)
+            get(pokemon_form_list::<I, A, E>)
         )
         .route("/api/v2/pokemon-form/{id}/",
-            get(pokemon_form_retrieve::<I, A, E, C>)
+            get(pokemon_form_retrieve::<I, A, E>)
         )
         .route("/api/v2/pokemon-habitat/",
-            get(pokemon_habitat_list::<I, A, E, C>)
+            get(pokemon_habitat_list::<I, A, E>)
         )
         .route("/api/v2/pokemon-habitat/{id}/",
-            get(pokemon_habitat_retrieve::<I, A, E, C>)
+            get(pokemon_habitat_retrieve::<I, A, E>)
         )
         .route("/api/v2/pokemon-shape/",
-            get(pokemon_shape_list::<I, A, E, C>)
+            get(pokemon_shape_list::<I, A, E>)
         )
         .route("/api/v2/pokemon-shape/{id}/",
-            get(pokemon_shape_retrieve::<I, A, E, C>)
+            get(pokemon_shape_retrieve::<I, A, E>)
         )
         .route("/api/v2/pokemon-species/",
-            get(pokemon_species_list::<I, A, E, C>)
+            get(pokemon_species_list::<I, A, E>)
         )
         .route("/api/v2/pokemon-species/{id}/",
-            get(pokemon_species_retrieve::<I, A, E, C>)
+            get(pokemon_species_retrieve::<I, A, E>)
         )
         .route("/api/v2/pokemon/",
-            get(pokemon_list::<I, A, E, C>)
+            get(pokemon_list::<I, A, E>)
         )
         .route("/api/v2/pokemon/{id}/",
-            get(pokemon_retrieve::<I, A, E, C>)
+            get(pokemon_retrieve::<I, A, E>)
         )
         .route("/api/v2/region/",
-            get(region_list::<I, A, E, C>)
+            get(region_list::<I, A, E>)
         )
         .route("/api/v2/region/{id}/",
-            get(region_retrieve::<I, A, E, C>)
+            get(region_retrieve::<I, A, E>)
         )
         .route("/api/v2/stat/",
-            get(stat_list::<I, A, E, C>)
+            get(stat_list::<I, A, E>)
         )
         .route("/api/v2/stat/{id}/",
-            get(stat_retrieve::<I, A, E, C>)
+            get(stat_retrieve::<I, A, E>)
         )
         .route("/api/v2/super-contest-effect/",
-            get(super_contest_effect_list::<I, A, E, C>)
+            get(super_contest_effect_list::<I, A, E>)
         )
         .route("/api/v2/super-contest-effect/{id}/",
-            get(super_contest_effect_retrieve::<I, A, E, C>)
+            get(super_contest_effect_retrieve::<I, A, E>)
         )
         .route("/api/v2/type/",
-            get(type_list::<I, A, E, C>)
+            get(type_list::<I, A, E>)
         )
         .route("/api/v2/type/{id}/",
-            get(type_retrieve::<I, A, E, C>)
+            get(type_retrieve::<I, A, E>)
         )
         .route("/api/v2/version-group/",
-            get(version_group_list::<I, A, E, C>)
+            get(version_group_list::<I, A, E>)
         )
         .route("/api/v2/version-group/{id}/",
-            get(version_group_retrieve::<I, A, E, C>)
+            get(version_group_retrieve::<I, A, E>)
         )
         .route("/api/v2/version/",
-            get(version_list::<I, A, E, C>)
+            get(version_list::<I, A, E>)
         )
         .route("/api/v2/version/{id}/",
-            get(version_retrieve::<I, A, E, C>)
+            get(version_retrieve::<I, A, E>)
         )
         .with_state(api_impl)
 }
@@ -338,31 +353,20 @@ Ok((
 }
 /// BerryFirmnessList - GET /api/v2/berry-firmness/
 #[tracing::instrument(skip_all)]
-async fn berry_firmness_list<I, A, E, C>(
+async fn berry_firmness_list<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::BerryFirmnessListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::berries::Berries<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::berries::Berries<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -388,7 +392,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &query_params,
   ).await;
 
@@ -441,31 +444,20 @@ Ok((
 }
 /// BerryFirmnessRetrieve - GET /api/v2/berry-firmness/{id}/
 #[tracing::instrument(skip_all)]
-async fn berry_firmness_retrieve<I, A, E, C>(
+async fn berry_firmness_retrieve<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   Path(path_params): Path<models::BerryFirmnessRetrievePathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::berries::Berries<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::berries::Berries<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -491,7 +483,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &path_params,
   ).await;
 
@@ -544,31 +535,20 @@ Ok((
 }
 /// BerryFlavorList - GET /api/v2/berry-flavor/
 #[tracing::instrument(skip_all)]
-async fn berry_flavor_list<I, A, E, C>(
+async fn berry_flavor_list<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::BerryFlavorListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::berries::Berries<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::berries::Berries<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -594,7 +574,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &query_params,
   ).await;
 
@@ -647,31 +626,20 @@ Ok((
 }
 /// BerryFlavorRetrieve - GET /api/v2/berry-flavor/{id}/
 #[tracing::instrument(skip_all)]
-async fn berry_flavor_retrieve<I, A, E, C>(
+async fn berry_flavor_retrieve<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   Path(path_params): Path<models::BerryFlavorRetrievePathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::berries::Berries<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::berries::Berries<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -697,7 +665,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &path_params,
   ).await;
 
@@ -750,31 +717,20 @@ Ok((
 }
 /// BerryList - GET /api/v2/berry/
 #[tracing::instrument(skip_all)]
-async fn berry_list<I, A, E, C>(
+async fn berry_list<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::BerryListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::berries::Berries<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::berries::Berries<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -800,7 +756,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &query_params,
   ).await;
 
@@ -853,31 +808,20 @@ Ok((
 }
 /// BerryRetrieve - GET /api/v2/berry/{id}/
 #[tracing::instrument(skip_all)]
-async fn berry_retrieve<I, A, E, C>(
+async fn berry_retrieve<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   Path(path_params): Path<models::BerryRetrievePathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::berries::Berries<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::berries::Berries<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -903,7 +847,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &path_params,
   ).await;
 
@@ -956,31 +899,20 @@ Ok((
 }
 /// ContestEffectList - GET /api/v2/contest-effect/
 #[tracing::instrument(skip_all)]
-async fn contest_effect_list<I, A, E, C>(
+async fn contest_effect_list<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::ContestEffectListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::contests::Contests<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::contests::Contests<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -1006,7 +938,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &query_params,
   ).await;
 
@@ -1059,31 +990,20 @@ Ok((
 }
 /// ContestEffectRetrieve - GET /api/v2/contest-effect/{id}/
 #[tracing::instrument(skip_all)]
-async fn contest_effect_retrieve<I, A, E, C>(
+async fn contest_effect_retrieve<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   Path(path_params): Path<models::ContestEffectRetrievePathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::contests::Contests<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::contests::Contests<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -1109,7 +1029,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &path_params,
   ).await;
 
@@ -1162,31 +1081,20 @@ Ok((
 }
 /// ContestTypeList - GET /api/v2/contest-type/
 #[tracing::instrument(skip_all)]
-async fn contest_type_list<I, A, E, C>(
+async fn contest_type_list<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::ContestTypeListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::contests::Contests<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::contests::Contests<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -1212,7 +1120,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &query_params,
   ).await;
 
@@ -1265,31 +1172,20 @@ Ok((
 }
 /// ContestTypeRetrieve - GET /api/v2/contest-type/{id}/
 #[tracing::instrument(skip_all)]
-async fn contest_type_retrieve<I, A, E, C>(
+async fn contest_type_retrieve<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   Path(path_params): Path<models::ContestTypeRetrievePathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::contests::Contests<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::contests::Contests<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -1315,7 +1211,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &path_params,
   ).await;
 
@@ -1368,31 +1263,20 @@ Ok((
 }
 /// SuperContestEffectList - GET /api/v2/super-contest-effect/
 #[tracing::instrument(skip_all)]
-async fn super_contest_effect_list<I, A, E, C>(
+async fn super_contest_effect_list<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::SuperContestEffectListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::contests::Contests<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::contests::Contests<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -1418,7 +1302,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &query_params,
   ).await;
 
@@ -1471,31 +1354,20 @@ Ok((
 }
 /// SuperContestEffectRetrieve - GET /api/v2/super-contest-effect/{id}/
 #[tracing::instrument(skip_all)]
-async fn super_contest_effect_retrieve<I, A, E, C>(
+async fn super_contest_effect_retrieve<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   Path(path_params): Path<models::SuperContestEffectRetrievePathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::contests::Contests<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::contests::Contests<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -1521,7 +1393,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &path_params,
   ).await;
 
@@ -1574,31 +1445,20 @@ Ok((
 }
 /// EncounterConditionList - GET /api/v2/encounter-condition/
 #[tracing::instrument(skip_all)]
-async fn encounter_condition_list<I, A, E, C>(
+async fn encounter_condition_list<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::EncounterConditionListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::encounters::Encounters<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::encounters::Encounters<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -1624,7 +1484,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &query_params,
   ).await;
 
@@ -1677,31 +1536,20 @@ Ok((
 }
 /// EncounterConditionRetrieve - GET /api/v2/encounter-condition/{id}/
 #[tracing::instrument(skip_all)]
-async fn encounter_condition_retrieve<I, A, E, C>(
+async fn encounter_condition_retrieve<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   Path(path_params): Path<models::EncounterConditionRetrievePathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::encounters::Encounters<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::encounters::Encounters<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -1727,7 +1575,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &path_params,
   ).await;
 
@@ -1780,31 +1627,20 @@ Ok((
 }
 /// EncounterConditionValueList - GET /api/v2/encounter-condition-value/
 #[tracing::instrument(skip_all)]
-async fn encounter_condition_value_list<I, A, E, C>(
+async fn encounter_condition_value_list<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::EncounterConditionValueListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::encounters::Encounters<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::encounters::Encounters<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -1830,7 +1666,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &query_params,
   ).await;
 
@@ -1883,31 +1718,20 @@ Ok((
 }
 /// EncounterConditionValueRetrieve - GET /api/v2/encounter-condition-value/{id}/
 #[tracing::instrument(skip_all)]
-async fn encounter_condition_value_retrieve<I, A, E, C>(
+async fn encounter_condition_value_retrieve<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   Path(path_params): Path<models::EncounterConditionValueRetrievePathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::encounters::Encounters<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::encounters::Encounters<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -1933,7 +1757,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &path_params,
   ).await;
 
@@ -1986,31 +1809,20 @@ Ok((
 }
 /// EncounterMethodList - GET /api/v2/encounter-method/
 #[tracing::instrument(skip_all)]
-async fn encounter_method_list<I, A, E, C>(
+async fn encounter_method_list<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::EncounterMethodListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::encounters::Encounters<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::encounters::Encounters<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -2036,7 +1848,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &query_params,
   ).await;
 
@@ -2089,31 +1900,20 @@ Ok((
 }
 /// EncounterMethodRetrieve - GET /api/v2/encounter-method/{id}/
 #[tracing::instrument(skip_all)]
-async fn encounter_method_retrieve<I, A, E, C>(
+async fn encounter_method_retrieve<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   Path(path_params): Path<models::EncounterMethodRetrievePathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::encounters::Encounters<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::encounters::Encounters<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -2139,7 +1939,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &path_params,
   ).await;
 
@@ -2192,31 +1991,20 @@ Ok((
 }
 /// EvolutionChainList - GET /api/v2/evolution-chain/
 #[tracing::instrument(skip_all)]
-async fn evolution_chain_list<I, A, E, C>(
+async fn evolution_chain_list<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::EvolutionChainListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::evolution::Evolution<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::evolution::Evolution<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -2242,7 +2030,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &query_params,
   ).await;
 
@@ -2295,31 +2082,20 @@ Ok((
 }
 /// EvolutionChainRetrieve - GET /api/v2/evolution-chain/{id}/
 #[tracing::instrument(skip_all)]
-async fn evolution_chain_retrieve<I, A, E, C>(
+async fn evolution_chain_retrieve<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   Path(path_params): Path<models::EvolutionChainRetrievePathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::evolution::Evolution<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::evolution::Evolution<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -2345,7 +2121,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &path_params,
   ).await;
 
@@ -2398,31 +2173,20 @@ Ok((
 }
 /// EvolutionTriggerList - GET /api/v2/evolution-trigger/
 #[tracing::instrument(skip_all)]
-async fn evolution_trigger_list<I, A, E, C>(
+async fn evolution_trigger_list<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::EvolutionTriggerListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::evolution::Evolution<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::evolution::Evolution<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -2448,7 +2212,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &query_params,
   ).await;
 
@@ -2501,31 +2264,20 @@ Ok((
 }
 /// EvolutionTriggerRetrieve - GET /api/v2/evolution-trigger/{id}/
 #[tracing::instrument(skip_all)]
-async fn evolution_trigger_retrieve<I, A, E, C>(
+async fn evolution_trigger_retrieve<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   Path(path_params): Path<models::EvolutionTriggerRetrievePathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::evolution::Evolution<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::evolution::Evolution<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -2551,13 +2303,194 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &path_params,
   ).await;
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::evolution::EvolutionTriggerRetrieveResponse::Status200
+                                                    (body)
+                                                => {
+                                                let mut response = Response::builder();
+                                                  let mut response = response.status(200);
+                                                  {
+                                                    let mut response_headers = response.headers_mut().unwrap();
+                                                    response_headers.insert(
+                                                        CONTENT_TYPE,
+                                                        HeaderValue::from_static("application/json"));
+                                                  }
+
+                                                  let body_content =  tokio::task::spawn_blocking(move ||
+                                                      serde_json::to_vec(&body).map_err(|e| {
+                                                        error!(error = ?e);
+                                                        StatusCode::INTERNAL_SERVER_ERROR
+                                                      })).await.unwrap()?;
+                                                  response.body(Body::from(body_content))
+                                                },
+                                            },
+                                            Err(why) => {
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                            },
+                                        };
+
+
+                                        resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
+}
+
+
+#[tracing::instrument(skip_all)]
+fn evolution_variable_list_validation(
+  query_params: models::EvolutionVariableListQueryParams,
+) -> std::result::Result<(
+  models::EvolutionVariableListQueryParams,
+), ValidationErrors>
+{
+  query_params.validate()?;
+
+Ok((
+  query_params,
+))
+}
+/// EvolutionVariableList - GET /api/v2/evolution-variable/
+#[tracing::instrument(skip_all)]
+async fn evolution_variable_list<I, A, E>(
+  method: Method,
+  TypedHeader(host): TypedHeader<Host>,
+  cookies: CookieJar,
+  QueryExtra(query_params): QueryExtra<models::EvolutionVariableListQueryParams>,
+ State(api_impl): State<I>,
+) -> Result<Response, StatusCode>
+where
+    I: AsRef<A> + Send + Sync,
+    A: apis::evolution::Evolution<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
+
+
+
+      #[allow(clippy::redundant_closure)]
+      let validation = tokio::task::spawn_blocking(move ||
+    evolution_variable_list_validation(
+        query_params,
+    )
+  ).await.unwrap();
+
+  let Ok((
+    query_params,
+  )) = validation else {
+    return Response::builder()
+            .status(StatusCode::BAD_REQUEST)
+            .body(Body::from(validation.unwrap_err().to_string()))
+            .map_err(|_| StatusCode::BAD_REQUEST);
+  };
+
+
+
+  let result = api_impl.as_ref().evolution_variable_list(
+      
+      &method,
+      &host,
+      &cookies,
+        &query_params,
+  ).await;
+
+  let resp = match result {
+                                            Ok(rsp) => match rsp {
+                                                apis::evolution::EvolutionVariableListResponse::Status200
+                                                    (body)
+                                                => {
+                                                let mut response = Response::builder();
+                                                  let mut response = response.status(200);
+                                                  {
+                                                    let mut response_headers = response.headers_mut().unwrap();
+                                                    response_headers.insert(
+                                                        CONTENT_TYPE,
+                                                        HeaderValue::from_static("application/json"));
+                                                  }
+
+                                                  let body_content =  tokio::task::spawn_blocking(move ||
+                                                      serde_json::to_vec(&body).map_err(|e| {
+                                                        error!(error = ?e);
+                                                        StatusCode::INTERNAL_SERVER_ERROR
+                                                      })).await.unwrap()?;
+                                                  response.body(Body::from(body_content))
+                                                },
+                                            },
+                                            Err(why) => {
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                            },
+                                        };
+
+
+                                        resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
+}
+
+
+#[tracing::instrument(skip_all)]
+fn evolution_variable_retrieve_validation(
+  path_params: models::EvolutionVariableRetrievePathParams,
+) -> std::result::Result<(
+  models::EvolutionVariableRetrievePathParams,
+), ValidationErrors>
+{
+  path_params.validate()?;
+
+Ok((
+  path_params,
+))
+}
+/// EvolutionVariableRetrieve - GET /api/v2/evolution-variable/{id}/
+#[tracing::instrument(skip_all)]
+async fn evolution_variable_retrieve<I, A, E>(
+  method: Method,
+  TypedHeader(host): TypedHeader<Host>,
+  cookies: CookieJar,
+  Path(path_params): Path<models::EvolutionVariableRetrievePathParams>,
+ State(api_impl): State<I>,
+) -> Result<Response, StatusCode>
+where
+    I: AsRef<A> + Send + Sync,
+    A: apis::evolution::Evolution<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
+
+
+
+      #[allow(clippy::redundant_closure)]
+      let validation = tokio::task::spawn_blocking(move ||
+    evolution_variable_retrieve_validation(
+        path_params,
+    )
+  ).await.unwrap();
+
+  let Ok((
+    path_params,
+  )) = validation else {
+    return Response::builder()
+            .status(StatusCode::BAD_REQUEST)
+            .body(Body::from(validation.unwrap_err().to_string()))
+            .map_err(|_| StatusCode::BAD_REQUEST);
+  };
+
+
+
+  let result = api_impl.as_ref().evolution_variable_retrieve(
+      
+      &method,
+      &host,
+      &cookies,
+        &path_params,
+  ).await;
+
+  let resp = match result {
+                                            Ok(rsp) => match rsp {
+                                                apis::evolution::EvolutionVariableRetrieveResponse::Status200
                                                     (body)
                                                 => {
                                                 let mut response = Response::builder();
@@ -2604,31 +2537,20 @@ Ok((
 }
 /// GenerationList - GET /api/v2/generation/
 #[tracing::instrument(skip_all)]
-async fn generation_list<I, A, E, C>(
+async fn generation_list<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::GenerationListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::games::Games<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::games::Games<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -2654,7 +2576,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &query_params,
   ).await;
 
@@ -2707,31 +2628,20 @@ Ok((
 }
 /// GenerationRetrieve - GET /api/v2/generation/{id}/
 #[tracing::instrument(skip_all)]
-async fn generation_retrieve<I, A, E, C>(
+async fn generation_retrieve<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   Path(path_params): Path<models::GenerationRetrievePathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::games::Games<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::games::Games<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -2757,7 +2667,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &path_params,
   ).await;
 
@@ -2810,31 +2719,20 @@ Ok((
 }
 /// PokedexList - GET /api/v2/pokedex/
 #[tracing::instrument(skip_all)]
-async fn pokedex_list<I, A, E, C>(
+async fn pokedex_list<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::PokedexListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::games::Games<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::games::Games<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -2860,7 +2758,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &query_params,
   ).await;
 
@@ -2913,31 +2810,20 @@ Ok((
 }
 /// PokedexRetrieve - GET /api/v2/pokedex/{id}/
 #[tracing::instrument(skip_all)]
-async fn pokedex_retrieve<I, A, E, C>(
+async fn pokedex_retrieve<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   Path(path_params): Path<models::PokedexRetrievePathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::games::Games<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::games::Games<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -2963,7 +2849,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &path_params,
   ).await;
 
@@ -3016,31 +2901,20 @@ Ok((
 }
 /// VersionGroupList - GET /api/v2/version-group/
 #[tracing::instrument(skip_all)]
-async fn version_group_list<I, A, E, C>(
+async fn version_group_list<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::VersionGroupListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::games::Games<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::games::Games<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -3066,7 +2940,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &query_params,
   ).await;
 
@@ -3119,31 +2992,20 @@ Ok((
 }
 /// VersionGroupRetrieve - GET /api/v2/version-group/{id}/
 #[tracing::instrument(skip_all)]
-async fn version_group_retrieve<I, A, E, C>(
+async fn version_group_retrieve<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   Path(path_params): Path<models::VersionGroupRetrievePathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::games::Games<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::games::Games<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -3169,7 +3031,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &path_params,
   ).await;
 
@@ -3222,31 +3083,20 @@ Ok((
 }
 /// VersionList - GET /api/v2/version/
 #[tracing::instrument(skip_all)]
-async fn version_list<I, A, E, C>(
+async fn version_list<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::VersionListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::games::Games<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::games::Games<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -3272,7 +3122,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &query_params,
   ).await;
 
@@ -3325,31 +3174,20 @@ Ok((
 }
 /// VersionRetrieve - GET /api/v2/version/{id}/
 #[tracing::instrument(skip_all)]
-async fn version_retrieve<I, A, E, C>(
+async fn version_retrieve<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   Path(path_params): Path<models::VersionRetrievePathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::games::Games<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::games::Games<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -3375,13 +3213,194 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &path_params,
   ).await;
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::games::VersionRetrieveResponse::Status200
+                                                    (body)
+                                                => {
+                                                let mut response = Response::builder();
+                                                  let mut response = response.status(200);
+                                                  {
+                                                    let mut response_headers = response.headers_mut().unwrap();
+                                                    response_headers.insert(
+                                                        CONTENT_TYPE,
+                                                        HeaderValue::from_static("application/json"));
+                                                  }
+
+                                                  let body_content =  tokio::task::spawn_blocking(move ||
+                                                      serde_json::to_vec(&body).map_err(|e| {
+                                                        error!(error = ?e);
+                                                        StatusCode::INTERNAL_SERVER_ERROR
+                                                      })).await.unwrap()?;
+                                                  response.body(Body::from(body_content))
+                                                },
+                                            },
+                                            Err(why) => {
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                            },
+                                        };
+
+
+                                        resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
+}
+
+
+#[tracing::instrument(skip_all)]
+fn currency_list_validation(
+  query_params: models::CurrencyListQueryParams,
+) -> std::result::Result<(
+  models::CurrencyListQueryParams,
+), ValidationErrors>
+{
+  query_params.validate()?;
+
+Ok((
+  query_params,
+))
+}
+/// CurrencyList - GET /api/v2/currency/
+#[tracing::instrument(skip_all)]
+async fn currency_list<I, A, E>(
+  method: Method,
+  TypedHeader(host): TypedHeader<Host>,
+  cookies: CookieJar,
+  QueryExtra(query_params): QueryExtra<models::CurrencyListQueryParams>,
+ State(api_impl): State<I>,
+) -> Result<Response, StatusCode>
+where
+    I: AsRef<A> + Send + Sync,
+    A: apis::items::Items<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
+
+
+
+      #[allow(clippy::redundant_closure)]
+      let validation = tokio::task::spawn_blocking(move ||
+    currency_list_validation(
+        query_params,
+    )
+  ).await.unwrap();
+
+  let Ok((
+    query_params,
+  )) = validation else {
+    return Response::builder()
+            .status(StatusCode::BAD_REQUEST)
+            .body(Body::from(validation.unwrap_err().to_string()))
+            .map_err(|_| StatusCode::BAD_REQUEST);
+  };
+
+
+
+  let result = api_impl.as_ref().currency_list(
+      
+      &method,
+      &host,
+      &cookies,
+        &query_params,
+  ).await;
+
+  let resp = match result {
+                                            Ok(rsp) => match rsp {
+                                                apis::items::CurrencyListResponse::Status200
+                                                    (body)
+                                                => {
+                                                let mut response = Response::builder();
+                                                  let mut response = response.status(200);
+                                                  {
+                                                    let mut response_headers = response.headers_mut().unwrap();
+                                                    response_headers.insert(
+                                                        CONTENT_TYPE,
+                                                        HeaderValue::from_static("application/json"));
+                                                  }
+
+                                                  let body_content =  tokio::task::spawn_blocking(move ||
+                                                      serde_json::to_vec(&body).map_err(|e| {
+                                                        error!(error = ?e);
+                                                        StatusCode::INTERNAL_SERVER_ERROR
+                                                      })).await.unwrap()?;
+                                                  response.body(Body::from(body_content))
+                                                },
+                                            },
+                                            Err(why) => {
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                            },
+                                        };
+
+
+                                        resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
+}
+
+
+#[tracing::instrument(skip_all)]
+fn currency_retrieve_validation(
+  path_params: models::CurrencyRetrievePathParams,
+) -> std::result::Result<(
+  models::CurrencyRetrievePathParams,
+), ValidationErrors>
+{
+  path_params.validate()?;
+
+Ok((
+  path_params,
+))
+}
+/// CurrencyRetrieve - GET /api/v2/currency/{id}/
+#[tracing::instrument(skip_all)]
+async fn currency_retrieve<I, A, E>(
+  method: Method,
+  TypedHeader(host): TypedHeader<Host>,
+  cookies: CookieJar,
+  Path(path_params): Path<models::CurrencyRetrievePathParams>,
+ State(api_impl): State<I>,
+) -> Result<Response, StatusCode>
+where
+    I: AsRef<A> + Send + Sync,
+    A: apis::items::Items<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
+
+
+
+      #[allow(clippy::redundant_closure)]
+      let validation = tokio::task::spawn_blocking(move ||
+    currency_retrieve_validation(
+        path_params,
+    )
+  ).await.unwrap();
+
+  let Ok((
+    path_params,
+  )) = validation else {
+    return Response::builder()
+            .status(StatusCode::BAD_REQUEST)
+            .body(Body::from(validation.unwrap_err().to_string()))
+            .map_err(|_| StatusCode::BAD_REQUEST);
+  };
+
+
+
+  let result = api_impl.as_ref().currency_retrieve(
+      
+      &method,
+      &host,
+      &cookies,
+        &path_params,
+  ).await;
+
+  let resp = match result {
+                                            Ok(rsp) => match rsp {
+                                                apis::items::CurrencyRetrieveResponse::Status200
                                                     (body)
                                                 => {
                                                 let mut response = Response::builder();
@@ -3428,31 +3447,20 @@ Ok((
 }
 /// ItemAttributeList - GET /api/v2/item-attribute/
 #[tracing::instrument(skip_all)]
-async fn item_attribute_list<I, A, E, C>(
+async fn item_attribute_list<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::ItemAttributeListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::items::Items<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::items::Items<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -3478,7 +3486,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &query_params,
   ).await;
 
@@ -3531,31 +3538,20 @@ Ok((
 }
 /// ItemAttributeRetrieve - GET /api/v2/item-attribute/{id}/
 #[tracing::instrument(skip_all)]
-async fn item_attribute_retrieve<I, A, E, C>(
+async fn item_attribute_retrieve<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   Path(path_params): Path<models::ItemAttributeRetrievePathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::items::Items<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::items::Items<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -3581,7 +3577,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &path_params,
   ).await;
 
@@ -3634,31 +3629,20 @@ Ok((
 }
 /// ItemCategoryList - GET /api/v2/item-category/
 #[tracing::instrument(skip_all)]
-async fn item_category_list<I, A, E, C>(
+async fn item_category_list<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::ItemCategoryListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::items::Items<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::items::Items<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -3684,7 +3668,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &query_params,
   ).await;
 
@@ -3737,31 +3720,20 @@ Ok((
 }
 /// ItemCategoryRetrieve - GET /api/v2/item-category/{id}/
 #[tracing::instrument(skip_all)]
-async fn item_category_retrieve<I, A, E, C>(
+async fn item_category_retrieve<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   Path(path_params): Path<models::ItemCategoryRetrievePathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::items::Items<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::items::Items<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -3787,7 +3759,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &path_params,
   ).await;
 
@@ -3840,31 +3811,20 @@ Ok((
 }
 /// ItemFlingEffectList - GET /api/v2/item-fling-effect/
 #[tracing::instrument(skip_all)]
-async fn item_fling_effect_list<I, A, E, C>(
+async fn item_fling_effect_list<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::ItemFlingEffectListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::items::Items<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::items::Items<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -3890,7 +3850,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &query_params,
   ).await;
 
@@ -3943,31 +3902,20 @@ Ok((
 }
 /// ItemFlingEffectRetrieve - GET /api/v2/item-fling-effect/{id}/
 #[tracing::instrument(skip_all)]
-async fn item_fling_effect_retrieve<I, A, E, C>(
+async fn item_fling_effect_retrieve<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   Path(path_params): Path<models::ItemFlingEffectRetrievePathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::items::Items<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::items::Items<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -3993,7 +3941,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &path_params,
   ).await;
 
@@ -4046,31 +3993,20 @@ Ok((
 }
 /// ItemList - GET /api/v2/item/
 #[tracing::instrument(skip_all)]
-async fn item_list<I, A, E, C>(
+async fn item_list<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::ItemListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::items::Items<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::items::Items<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -4096,7 +4032,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &query_params,
   ).await;
 
@@ -4149,31 +4084,20 @@ Ok((
 }
 /// ItemPocketList - GET /api/v2/item-pocket/
 #[tracing::instrument(skip_all)]
-async fn item_pocket_list<I, A, E, C>(
+async fn item_pocket_list<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::ItemPocketListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::items::Items<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::items::Items<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -4199,7 +4123,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &query_params,
   ).await;
 
@@ -4252,31 +4175,20 @@ Ok((
 }
 /// ItemPocketRetrieve - GET /api/v2/item-pocket/{id}/
 #[tracing::instrument(skip_all)]
-async fn item_pocket_retrieve<I, A, E, C>(
+async fn item_pocket_retrieve<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   Path(path_params): Path<models::ItemPocketRetrievePathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::items::Items<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::items::Items<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -4302,7 +4214,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &path_params,
   ).await;
 
@@ -4355,31 +4266,20 @@ Ok((
 }
 /// ItemRetrieve - GET /api/v2/item/{id}/
 #[tracing::instrument(skip_all)]
-async fn item_retrieve<I, A, E, C>(
+async fn item_retrieve<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   Path(path_params): Path<models::ItemRetrievePathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::items::Items<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::items::Items<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -4405,7 +4305,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &path_params,
   ).await;
 
@@ -4458,31 +4357,20 @@ Ok((
 }
 /// LocationAreaList - GET /api/v2/location-area/
 #[tracing::instrument(skip_all)]
-async fn location_area_list<I, A, E, C>(
+async fn location_area_list<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::LocationAreaListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::location::Location<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::location::Location<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -4508,7 +4396,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &query_params,
   ).await;
 
@@ -4561,31 +4448,20 @@ Ok((
 }
 /// LocationAreaRetrieve - GET /api/v2/location-area/{id}/
 #[tracing::instrument(skip_all)]
-async fn location_area_retrieve<I, A, E, C>(
+async fn location_area_retrieve<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   Path(path_params): Path<models::LocationAreaRetrievePathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::location::Location<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::location::Location<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -4611,7 +4487,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &path_params,
   ).await;
 
@@ -4664,31 +4539,20 @@ Ok((
 }
 /// LocationList - GET /api/v2/location/
 #[tracing::instrument(skip_all)]
-async fn location_list<I, A, E, C>(
+async fn location_list<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::LocationListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::location::Location<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::location::Location<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -4714,7 +4578,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &query_params,
   ).await;
 
@@ -4767,31 +4630,20 @@ Ok((
 }
 /// LocationRetrieve - GET /api/v2/location/{id}/
 #[tracing::instrument(skip_all)]
-async fn location_retrieve<I, A, E, C>(
+async fn location_retrieve<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   Path(path_params): Path<models::LocationRetrievePathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::location::Location<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::location::Location<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -4817,7 +4669,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &path_params,
   ).await;
 
@@ -4870,31 +4721,20 @@ Ok((
 }
 /// PalParkAreaList - GET /api/v2/pal-park-area/
 #[tracing::instrument(skip_all)]
-async fn pal_park_area_list<I, A, E, C>(
+async fn pal_park_area_list<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::PalParkAreaListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::location::Location<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::location::Location<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -4920,7 +4760,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &query_params,
   ).await;
 
@@ -4973,31 +4812,20 @@ Ok((
 }
 /// PalParkAreaRetrieve - GET /api/v2/pal-park-area/{id}/
 #[tracing::instrument(skip_all)]
-async fn pal_park_area_retrieve<I, A, E, C>(
+async fn pal_park_area_retrieve<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   Path(path_params): Path<models::PalParkAreaRetrievePathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::location::Location<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::location::Location<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -5023,7 +4851,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &path_params,
   ).await;
 
@@ -5076,31 +4903,20 @@ Ok((
 }
 /// RegionList - GET /api/v2/region/
 #[tracing::instrument(skip_all)]
-async fn region_list<I, A, E, C>(
+async fn region_list<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::RegionListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::location::Location<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::location::Location<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -5126,7 +4942,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &query_params,
   ).await;
 
@@ -5179,31 +4994,20 @@ Ok((
 }
 /// RegionRetrieve - GET /api/v2/region/{id}/
 #[tracing::instrument(skip_all)]
-async fn region_retrieve<I, A, E, C>(
+async fn region_retrieve<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   Path(path_params): Path<models::RegionRetrievePathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::location::Location<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::location::Location<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -5229,7 +5033,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &path_params,
   ).await;
 
@@ -5282,31 +5085,20 @@ Ok((
 }
 /// MachineList - GET /api/v2/machine/
 #[tracing::instrument(skip_all)]
-async fn machine_list<I, A, E, C>(
+async fn machine_list<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::MachineListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::machines::Machines<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::machines::Machines<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -5332,7 +5124,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &query_params,
   ).await;
 
@@ -5385,31 +5176,20 @@ Ok((
 }
 /// MachineRetrieve - GET /api/v2/machine/{id}/
 #[tracing::instrument(skip_all)]
-async fn machine_retrieve<I, A, E, C>(
+async fn machine_retrieve<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   Path(path_params): Path<models::MachineRetrievePathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::machines::Machines<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::machines::Machines<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -5435,7 +5215,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &path_params,
   ).await;
 
@@ -5488,31 +5267,20 @@ Ok((
 }
 /// MoveAilmentList - GET /api/v2/move-ailment/
 #[tracing::instrument(skip_all)]
-async fn move_ailment_list<I, A, E, C>(
+async fn move_ailment_list<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::MoveAilmentListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::moves::Moves<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::moves::Moves<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -5538,7 +5306,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &query_params,
   ).await;
 
@@ -5591,31 +5358,20 @@ Ok((
 }
 /// MoveAilmentRetrieve - GET /api/v2/move-ailment/{id}/
 #[tracing::instrument(skip_all)]
-async fn move_ailment_retrieve<I, A, E, C>(
+async fn move_ailment_retrieve<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   Path(path_params): Path<models::MoveAilmentRetrievePathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::moves::Moves<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::moves::Moves<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -5641,7 +5397,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &path_params,
   ).await;
 
@@ -5694,31 +5449,20 @@ Ok((
 }
 /// MoveBattleStyleList - GET /api/v2/move-battle-style/
 #[tracing::instrument(skip_all)]
-async fn move_battle_style_list<I, A, E, C>(
+async fn move_battle_style_list<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::MoveBattleStyleListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::moves::Moves<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::moves::Moves<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -5744,7 +5488,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &query_params,
   ).await;
 
@@ -5797,31 +5540,20 @@ Ok((
 }
 /// MoveBattleStyleRetrieve - GET /api/v2/move-battle-style/{id}/
 #[tracing::instrument(skip_all)]
-async fn move_battle_style_retrieve<I, A, E, C>(
+async fn move_battle_style_retrieve<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   Path(path_params): Path<models::MoveBattleStyleRetrievePathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::moves::Moves<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::moves::Moves<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -5847,7 +5579,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &path_params,
   ).await;
 
@@ -5900,31 +5631,20 @@ Ok((
 }
 /// MoveCategoryList - GET /api/v2/move-category/
 #[tracing::instrument(skip_all)]
-async fn move_category_list<I, A, E, C>(
+async fn move_category_list<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::MoveCategoryListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::moves::Moves<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::moves::Moves<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -5950,7 +5670,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &query_params,
   ).await;
 
@@ -6003,31 +5722,20 @@ Ok((
 }
 /// MoveCategoryRetrieve - GET /api/v2/move-category/{id}/
 #[tracing::instrument(skip_all)]
-async fn move_category_retrieve<I, A, E, C>(
+async fn move_category_retrieve<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   Path(path_params): Path<models::MoveCategoryRetrievePathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::moves::Moves<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::moves::Moves<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -6053,7 +5761,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &path_params,
   ).await;
 
@@ -6106,31 +5813,20 @@ Ok((
 }
 /// MoveLearnMethodList - GET /api/v2/move-learn-method/
 #[tracing::instrument(skip_all)]
-async fn move_learn_method_list<I, A, E, C>(
+async fn move_learn_method_list<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::MoveLearnMethodListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::moves::Moves<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::moves::Moves<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -6156,7 +5852,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &query_params,
   ).await;
 
@@ -6209,31 +5904,20 @@ Ok((
 }
 /// MoveLearnMethodRetrieve - GET /api/v2/move-learn-method/{id}/
 #[tracing::instrument(skip_all)]
-async fn move_learn_method_retrieve<I, A, E, C>(
+async fn move_learn_method_retrieve<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   Path(path_params): Path<models::MoveLearnMethodRetrievePathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::moves::Moves<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::moves::Moves<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -6259,7 +5943,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &path_params,
   ).await;
 
@@ -6312,31 +5995,20 @@ Ok((
 }
 /// MoveList - GET /api/v2/move/
 #[tracing::instrument(skip_all)]
-async fn move_list<I, A, E, C>(
+async fn move_list<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::MoveListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::moves::Moves<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::moves::Moves<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -6362,7 +6034,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &query_params,
   ).await;
 
@@ -6415,31 +6086,20 @@ Ok((
 }
 /// MoveRetrieve - GET /api/v2/move/{id}/
 #[tracing::instrument(skip_all)]
-async fn move_retrieve<I, A, E, C>(
+async fn move_retrieve<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   Path(path_params): Path<models::MoveRetrievePathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::moves::Moves<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::moves::Moves<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -6465,7 +6125,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &path_params,
   ).await;
 
@@ -6518,31 +6177,20 @@ Ok((
 }
 /// MoveTargetList - GET /api/v2/move-target/
 #[tracing::instrument(skip_all)]
-async fn move_target_list<I, A, E, C>(
+async fn move_target_list<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::MoveTargetListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::moves::Moves<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::moves::Moves<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -6568,7 +6216,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &query_params,
   ).await;
 
@@ -6621,31 +6268,20 @@ Ok((
 }
 /// MoveTargetRetrieve - GET /api/v2/move-target/{id}/
 #[tracing::instrument(skip_all)]
-async fn move_target_retrieve<I, A, E, C>(
+async fn move_target_retrieve<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   Path(path_params): Path<models::MoveTargetRetrievePathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::moves::Moves<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::moves::Moves<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -6671,7 +6307,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &path_params,
   ).await;
 
@@ -6724,31 +6359,20 @@ Ok((
 }
 /// AbilityList - GET /api/v2/ability/
 #[tracing::instrument(skip_all)]
-async fn ability_list<I, A, E, C>(
+async fn ability_list<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::AbilityListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::pokemon::Pokemon<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::pokemon::Pokemon<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -6774,7 +6398,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &query_params,
   ).await;
 
@@ -6827,31 +6450,20 @@ Ok((
 }
 /// AbilityRetrieve - GET /api/v2/ability/{id}/
 #[tracing::instrument(skip_all)]
-async fn ability_retrieve<I, A, E, C>(
+async fn ability_retrieve<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   Path(path_params): Path<models::AbilityRetrievePathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::pokemon::Pokemon<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::pokemon::Pokemon<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -6877,7 +6489,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &path_params,
   ).await;
 
@@ -6930,31 +6541,20 @@ Ok((
 }
 /// CharacteristicList - GET /api/v2/characteristic/
 #[tracing::instrument(skip_all)]
-async fn characteristic_list<I, A, E, C>(
+async fn characteristic_list<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::CharacteristicListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::pokemon::Pokemon<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::pokemon::Pokemon<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -6980,7 +6580,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &query_params,
   ).await;
 
@@ -7033,31 +6632,20 @@ Ok((
 }
 /// CharacteristicRetrieve - GET /api/v2/characteristic/{id}/
 #[tracing::instrument(skip_all)]
-async fn characteristic_retrieve<I, A, E, C>(
+async fn characteristic_retrieve<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   Path(path_params): Path<models::CharacteristicRetrievePathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::pokemon::Pokemon<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::pokemon::Pokemon<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -7083,7 +6671,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &path_params,
   ).await;
 
@@ -7136,31 +6723,20 @@ Ok((
 }
 /// EggGroupList - GET /api/v2/egg-group/
 #[tracing::instrument(skip_all)]
-async fn egg_group_list<I, A, E, C>(
+async fn egg_group_list<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::EggGroupListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::pokemon::Pokemon<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::pokemon::Pokemon<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -7186,7 +6762,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &query_params,
   ).await;
 
@@ -7239,31 +6814,20 @@ Ok((
 }
 /// EggGroupRetrieve - GET /api/v2/egg-group/{id}/
 #[tracing::instrument(skip_all)]
-async fn egg_group_retrieve<I, A, E, C>(
+async fn egg_group_retrieve<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   Path(path_params): Path<models::EggGroupRetrievePathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::pokemon::Pokemon<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::pokemon::Pokemon<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -7289,7 +6853,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &path_params,
   ).await;
 
@@ -7342,31 +6905,20 @@ Ok((
 }
 /// GenderList - GET /api/v2/gender/
 #[tracing::instrument(skip_all)]
-async fn gender_list<I, A, E, C>(
+async fn gender_list<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::GenderListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::pokemon::Pokemon<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::pokemon::Pokemon<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -7392,7 +6944,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &query_params,
   ).await;
 
@@ -7445,31 +6996,20 @@ Ok((
 }
 /// GenderRetrieve - GET /api/v2/gender/{id}/
 #[tracing::instrument(skip_all)]
-async fn gender_retrieve<I, A, E, C>(
+async fn gender_retrieve<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   Path(path_params): Path<models::GenderRetrievePathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::pokemon::Pokemon<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::pokemon::Pokemon<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -7495,7 +7035,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &path_params,
   ).await;
 
@@ -7548,31 +7087,20 @@ Ok((
 }
 /// GrowthRateList - GET /api/v2/growth-rate/
 #[tracing::instrument(skip_all)]
-async fn growth_rate_list<I, A, E, C>(
+async fn growth_rate_list<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::GrowthRateListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::pokemon::Pokemon<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::pokemon::Pokemon<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -7598,7 +7126,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &query_params,
   ).await;
 
@@ -7651,31 +7178,20 @@ Ok((
 }
 /// GrowthRateRetrieve - GET /api/v2/growth-rate/{id}/
 #[tracing::instrument(skip_all)]
-async fn growth_rate_retrieve<I, A, E, C>(
+async fn growth_rate_retrieve<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   Path(path_params): Path<models::GrowthRateRetrievePathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::pokemon::Pokemon<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::pokemon::Pokemon<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -7701,7 +7217,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &path_params,
   ).await;
 
@@ -7754,31 +7269,20 @@ Ok((
 }
 /// MoveDamageClassList - GET /api/v2/move-damage-class/
 #[tracing::instrument(skip_all)]
-async fn move_damage_class_list<I, A, E, C>(
+async fn move_damage_class_list<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::MoveDamageClassListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::pokemon::Pokemon<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::pokemon::Pokemon<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -7804,7 +7308,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &query_params,
   ).await;
 
@@ -7857,31 +7360,20 @@ Ok((
 }
 /// MoveDamageClassRetrieve - GET /api/v2/move-damage-class/{id}/
 #[tracing::instrument(skip_all)]
-async fn move_damage_class_retrieve<I, A, E, C>(
+async fn move_damage_class_retrieve<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   Path(path_params): Path<models::MoveDamageClassRetrievePathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::pokemon::Pokemon<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::pokemon::Pokemon<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -7907,7 +7399,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &path_params,
   ).await;
 
@@ -7960,31 +7451,20 @@ Ok((
 }
 /// NatureList - GET /api/v2/nature/
 #[tracing::instrument(skip_all)]
-async fn nature_list<I, A, E, C>(
+async fn nature_list<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::NatureListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::pokemon::Pokemon<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::pokemon::Pokemon<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -8010,7 +7490,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &query_params,
   ).await;
 
@@ -8063,31 +7542,20 @@ Ok((
 }
 /// NatureRetrieve - GET /api/v2/nature/{id}/
 #[tracing::instrument(skip_all)]
-async fn nature_retrieve<I, A, E, C>(
+async fn nature_retrieve<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   Path(path_params): Path<models::NatureRetrievePathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::pokemon::Pokemon<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::pokemon::Pokemon<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -8113,7 +7581,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &path_params,
   ).await;
 
@@ -8166,31 +7633,20 @@ Ok((
 }
 /// PokeathlonStatList - GET /api/v2/pokeathlon-stat/
 #[tracing::instrument(skip_all)]
-async fn pokeathlon_stat_list<I, A, E, C>(
+async fn pokeathlon_stat_list<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::PokeathlonStatListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::pokemon::Pokemon<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::pokemon::Pokemon<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -8216,7 +7672,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &query_params,
   ).await;
 
@@ -8269,31 +7724,20 @@ Ok((
 }
 /// PokeathlonStatRetrieve - GET /api/v2/pokeathlon-stat/{id}/
 #[tracing::instrument(skip_all)]
-async fn pokeathlon_stat_retrieve<I, A, E, C>(
+async fn pokeathlon_stat_retrieve<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   Path(path_params): Path<models::PokeathlonStatRetrievePathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::pokemon::Pokemon<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::pokemon::Pokemon<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -8319,7 +7763,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &path_params,
   ).await;
 
@@ -8372,31 +7815,20 @@ Ok((
 }
 /// PokemonColorList - GET /api/v2/pokemon-color/
 #[tracing::instrument(skip_all)]
-async fn pokemon_color_list<I, A, E, C>(
+async fn pokemon_color_list<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::PokemonColorListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::pokemon::Pokemon<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::pokemon::Pokemon<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -8422,7 +7854,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &query_params,
   ).await;
 
@@ -8475,31 +7906,20 @@ Ok((
 }
 /// PokemonColorRetrieve - GET /api/v2/pokemon-color/{id}/
 #[tracing::instrument(skip_all)]
-async fn pokemon_color_retrieve<I, A, E, C>(
+async fn pokemon_color_retrieve<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   Path(path_params): Path<models::PokemonColorRetrievePathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::pokemon::Pokemon<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::pokemon::Pokemon<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -8525,7 +7945,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &path_params,
   ).await;
 
@@ -8578,31 +7997,20 @@ Ok((
 }
 /// PokemonFormList - GET /api/v2/pokemon-form/
 #[tracing::instrument(skip_all)]
-async fn pokemon_form_list<I, A, E, C>(
+async fn pokemon_form_list<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::PokemonFormListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::pokemon::Pokemon<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::pokemon::Pokemon<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -8628,7 +8036,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &query_params,
   ).await;
 
@@ -8681,31 +8088,20 @@ Ok((
 }
 /// PokemonFormRetrieve - GET /api/v2/pokemon-form/{id}/
 #[tracing::instrument(skip_all)]
-async fn pokemon_form_retrieve<I, A, E, C>(
+async fn pokemon_form_retrieve<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   Path(path_params): Path<models::PokemonFormRetrievePathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::pokemon::Pokemon<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::pokemon::Pokemon<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -8731,7 +8127,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &path_params,
   ).await;
 
@@ -8784,31 +8179,20 @@ Ok((
 }
 /// PokemonHabitatList - GET /api/v2/pokemon-habitat/
 #[tracing::instrument(skip_all)]
-async fn pokemon_habitat_list<I, A, E, C>(
+async fn pokemon_habitat_list<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::PokemonHabitatListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::pokemon::Pokemon<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::pokemon::Pokemon<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -8834,7 +8218,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &query_params,
   ).await;
 
@@ -8887,31 +8270,20 @@ Ok((
 }
 /// PokemonHabitatRetrieve - GET /api/v2/pokemon-habitat/{id}/
 #[tracing::instrument(skip_all)]
-async fn pokemon_habitat_retrieve<I, A, E, C>(
+async fn pokemon_habitat_retrieve<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   Path(path_params): Path<models::PokemonHabitatRetrievePathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::pokemon::Pokemon<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::pokemon::Pokemon<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -8937,7 +8309,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &path_params,
   ).await;
 
@@ -8990,31 +8361,20 @@ Ok((
 }
 /// PokemonList - GET /api/v2/pokemon/
 #[tracing::instrument(skip_all)]
-async fn pokemon_list<I, A, E, C>(
+async fn pokemon_list<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::PokemonListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::pokemon::Pokemon<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::pokemon::Pokemon<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -9040,7 +8400,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &query_params,
   ).await;
 
@@ -9093,31 +8452,20 @@ Ok((
 }
 /// PokemonRetrieve - GET /api/v2/pokemon/{id}/
 #[tracing::instrument(skip_all)]
-async fn pokemon_retrieve<I, A, E, C>(
+async fn pokemon_retrieve<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   Path(path_params): Path<models::PokemonRetrievePathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::pokemon::Pokemon<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::pokemon::Pokemon<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -9143,7 +8491,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &path_params,
   ).await;
 
@@ -9196,31 +8543,20 @@ Ok((
 }
 /// PokemonShapeList - GET /api/v2/pokemon-shape/
 #[tracing::instrument(skip_all)]
-async fn pokemon_shape_list<I, A, E, C>(
+async fn pokemon_shape_list<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::PokemonShapeListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::pokemon::Pokemon<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::pokemon::Pokemon<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -9246,7 +8582,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &query_params,
   ).await;
 
@@ -9299,31 +8634,20 @@ Ok((
 }
 /// PokemonShapeRetrieve - GET /api/v2/pokemon-shape/{id}/
 #[tracing::instrument(skip_all)]
-async fn pokemon_shape_retrieve<I, A, E, C>(
+async fn pokemon_shape_retrieve<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   Path(path_params): Path<models::PokemonShapeRetrievePathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::pokemon::Pokemon<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::pokemon::Pokemon<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -9349,7 +8673,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &path_params,
   ).await;
 
@@ -9402,31 +8725,20 @@ Ok((
 }
 /// PokemonSpeciesList - GET /api/v2/pokemon-species/
 #[tracing::instrument(skip_all)]
-async fn pokemon_species_list<I, A, E, C>(
+async fn pokemon_species_list<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::PokemonSpeciesListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::pokemon::Pokemon<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::pokemon::Pokemon<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -9452,7 +8764,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &query_params,
   ).await;
 
@@ -9505,31 +8816,20 @@ Ok((
 }
 /// PokemonSpeciesRetrieve - GET /api/v2/pokemon-species/{id}/
 #[tracing::instrument(skip_all)]
-async fn pokemon_species_retrieve<I, A, E, C>(
+async fn pokemon_species_retrieve<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   Path(path_params): Path<models::PokemonSpeciesRetrievePathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::pokemon::Pokemon<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::pokemon::Pokemon<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -9555,7 +8855,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &path_params,
   ).await;
 
@@ -9608,31 +8907,20 @@ Ok((
 }
 /// StatList - GET /api/v2/stat/
 #[tracing::instrument(skip_all)]
-async fn stat_list<I, A, E, C>(
+async fn stat_list<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::StatListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::pokemon::Pokemon<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::pokemon::Pokemon<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -9658,7 +8946,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &query_params,
   ).await;
 
@@ -9711,31 +8998,20 @@ Ok((
 }
 /// StatRetrieve - GET /api/v2/stat/{id}/
 #[tracing::instrument(skip_all)]
-async fn stat_retrieve<I, A, E, C>(
+async fn stat_retrieve<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   Path(path_params): Path<models::StatRetrievePathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::pokemon::Pokemon<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::pokemon::Pokemon<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -9761,7 +9037,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &path_params,
   ).await;
 
@@ -9814,31 +9089,20 @@ Ok((
 }
 /// TypeList - GET /api/v2/type/
 #[tracing::instrument(skip_all)]
-async fn type_list<I, A, E, C>(
+async fn type_list<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::TypeListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::pokemon::Pokemon<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::pokemon::Pokemon<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -9864,7 +9128,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &query_params,
   ).await;
 
@@ -9917,31 +9180,20 @@ Ok((
 }
 /// TypeRetrieve - GET /api/v2/type/{id}/
 #[tracing::instrument(skip_all)]
-async fn type_retrieve<I, A, E, C>(
+async fn type_retrieve<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   Path(path_params): Path<models::TypeRetrievePathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::pokemon::Pokemon<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::pokemon::Pokemon<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -9967,7 +9219,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &path_params,
   ).await;
 
@@ -10020,31 +9271,20 @@ Ok((
 }
 /// LanguageList - GET /api/v2/language/
 #[tracing::instrument(skip_all)]
-async fn language_list<I, A, E, C>(
+async fn language_list<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   QueryExtra(query_params): QueryExtra<models::LanguageListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::utility::Utility<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::utility::Utility<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -10070,7 +9310,6 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &query_params,
   ).await;
 
@@ -10123,31 +9362,20 @@ Ok((
 }
 /// LanguageRetrieve - GET /api/v2/language/{id}/
 #[tracing::instrument(skip_all)]
-async fn language_retrieve<I, A, E, C>(
+async fn language_retrieve<I, A, E>(
   method: Method,
   TypedHeader(host): TypedHeader<Host>,
   cookies: CookieJar,
-  headers: HeaderMap,
   Path(path_params): Path<models::LanguageRetrievePathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::utility::Utility<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
+    A: apis::utility::Utility<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
 
 
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
 
 
       #[allow(clippy::redundant_closure)]
@@ -10173,13 +9401,95 @@ where
       &method,
       &host,
       &cookies,
-        &claims,
         &path_params,
   ).await;
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::utility::LanguageRetrieveResponse::Status200
+                                                    (body)
+                                                => {
+                                                let mut response = Response::builder();
+                                                  let mut response = response.status(200);
+                                                  {
+                                                    let mut response_headers = response.headers_mut().unwrap();
+                                                    response_headers.insert(
+                                                        CONTENT_TYPE,
+                                                        HeaderValue::from_static("application/json"));
+                                                  }
+
+                                                  let body_content =  tokio::task::spawn_blocking(move ||
+                                                      serde_json::to_vec(&body).map_err(|e| {
+                                                        error!(error = ?e);
+                                                        StatusCode::INTERNAL_SERVER_ERROR
+                                                      })).await.unwrap()?;
+                                                  response.body(Body::from(body_content))
+                                                },
+                                            },
+                                            Err(why) => {
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                            },
+                                        };
+
+
+                                        resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
+}
+
+
+#[tracing::instrument(skip_all)]
+fn meta_retrieve_validation(
+) -> std::result::Result<(
+), ValidationErrors>
+{
+
+Ok((
+))
+}
+/// MetaRetrieve - GET /api/v2/meta/
+#[tracing::instrument(skip_all)]
+async fn meta_retrieve<I, A, E>(
+  method: Method,
+  TypedHeader(host): TypedHeader<Host>,
+  cookies: CookieJar,
+ State(api_impl): State<I>,
+) -> Result<Response, StatusCode>
+where
+    I: AsRef<A> + Send + Sync,
+    A: apis::utility::Utility<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
+
+
+
+      #[allow(clippy::redundant_closure)]
+      let validation = tokio::task::spawn_blocking(move ||
+    meta_retrieve_validation(
+    )
+  ).await.unwrap();
+
+  let Ok((
+  )) = validation else {
+    return Response::builder()
+            .status(StatusCode::BAD_REQUEST)
+            .body(Body::from(validation.unwrap_err().to_string()))
+            .map_err(|_| StatusCode::BAD_REQUEST);
+  };
+
+
+
+  let result = api_impl.as_ref().meta_retrieve(
+      
+      &method,
+      &host,
+      &cookies,
+  ).await;
+
+  let resp = match result {
+                                            Ok(rsp) => match rsp {
+                                                apis::utility::MetaRetrieveResponse::Status200
                                                     (body)
                                                 => {
                                                 let mut response = Response::builder();

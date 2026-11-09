@@ -3,8 +3,9 @@ package api
 import play.api.libs.json._
 import model.LanguageDetail
 import model.PaginatedLanguageSummaryList
+import model.PokeapiMetaResponse
 
-@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2026-10-25T05:53:17.467323765Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2026-11-09T13:53:31.572745352Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 trait UtilityApi {
   /**
     * List languages
@@ -21,4 +22,10 @@ trait UtilityApi {
     * @param id This parameter can be a string or an integer.
     */
   def languageRetrieve(id: String): LanguageDetail
+
+  /**
+    * Get API metadata
+    * Returns metadata about the current deployed version of the API, including the git commit hash, deploy date, and tag (if any).
+    */
+  def metaRetrieve(): PokeapiMetaResponse
 }

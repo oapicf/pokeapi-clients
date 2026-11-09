@@ -1,9 +1,9 @@
 /*
 PokéAPI
 
-All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
 
-API version: 2.7.0
+API version: 2.10.0
 Contact: blah+oapicf@cliffano.com
 */
 
@@ -22,13 +22,20 @@ var _ MappedNullable = &LocationAreaDetail{}
 
 // LocationAreaDetail struct for LocationAreaDetail
 type LocationAreaDetail struct {
+	// The identifier for this resource.
 	Id int32 `json:"id"`
+	// The name for this resource.
 	Name string `json:"name"`
+	// The internal id of an API resource within game data.
 	GameIndex int32 `json:"game_index"`
-	EncounterMethodRates []LocationAreaDetailEncounterMethodRatesInner `json:"encounter_method_rates"`
+	// A list of methods in which Pokémon may be encountered in this area and how likely the method will occur depending on the version of the game.
+	EncounterMethodRates []LocationAreaEncounterRate `json:"encounter_method_rates"`
+	// The region this location area can be found in.
 	Location LocationSummary `json:"location"`
+	// The name of this resource listed in different languages.
 	Names []LocationAreaName `json:"names"`
-	PokemonEncounters []LocationAreaDetailPokemonEncountersInner `json:"pokemon_encounters"`
+	// A list of Pokémon that can be encountered in this area along with version specific details about the encounter.
+	PokemonEncounters []LocationAreaPokemonEncounter `json:"pokemon_encounters"`
 }
 
 type _LocationAreaDetail LocationAreaDetail
@@ -37,7 +44,7 @@ type _LocationAreaDetail LocationAreaDetail
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewLocationAreaDetail(id int32, name string, gameIndex int32, encounterMethodRates []LocationAreaDetailEncounterMethodRatesInner, location LocationSummary, names []LocationAreaName, pokemonEncounters []LocationAreaDetailPokemonEncountersInner) *LocationAreaDetail {
+func NewLocationAreaDetail(id int32, name string, gameIndex int32, encounterMethodRates []LocationAreaEncounterRate, location LocationSummary, names []LocationAreaName, pokemonEncounters []LocationAreaPokemonEncounter) *LocationAreaDetail {
 	this := LocationAreaDetail{}
 	this.Id = id
 	this.Name = name
@@ -130,9 +137,9 @@ func (o *LocationAreaDetail) SetGameIndex(v int32) {
 }
 
 // GetEncounterMethodRates returns the EncounterMethodRates field value
-func (o *LocationAreaDetail) GetEncounterMethodRates() []LocationAreaDetailEncounterMethodRatesInner {
+func (o *LocationAreaDetail) GetEncounterMethodRates() []LocationAreaEncounterRate {
 	if o == nil {
-		var ret []LocationAreaDetailEncounterMethodRatesInner
+		var ret []LocationAreaEncounterRate
 		return ret
 	}
 
@@ -141,7 +148,7 @@ func (o *LocationAreaDetail) GetEncounterMethodRates() []LocationAreaDetailEncou
 
 // GetEncounterMethodRatesOk returns a tuple with the EncounterMethodRates field value
 // and a boolean to check if the value has been set.
-func (o *LocationAreaDetail) GetEncounterMethodRatesOk() ([]LocationAreaDetailEncounterMethodRatesInner, bool) {
+func (o *LocationAreaDetail) GetEncounterMethodRatesOk() ([]LocationAreaEncounterRate, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -149,7 +156,7 @@ func (o *LocationAreaDetail) GetEncounterMethodRatesOk() ([]LocationAreaDetailEn
 }
 
 // SetEncounterMethodRates sets field value
-func (o *LocationAreaDetail) SetEncounterMethodRates(v []LocationAreaDetailEncounterMethodRatesInner) {
+func (o *LocationAreaDetail) SetEncounterMethodRates(v []LocationAreaEncounterRate) {
 	o.EncounterMethodRates = v
 }
 
@@ -202,9 +209,9 @@ func (o *LocationAreaDetail) SetNames(v []LocationAreaName) {
 }
 
 // GetPokemonEncounters returns the PokemonEncounters field value
-func (o *LocationAreaDetail) GetPokemonEncounters() []LocationAreaDetailPokemonEncountersInner {
+func (o *LocationAreaDetail) GetPokemonEncounters() []LocationAreaPokemonEncounter {
 	if o == nil {
-		var ret []LocationAreaDetailPokemonEncountersInner
+		var ret []LocationAreaPokemonEncounter
 		return ret
 	}
 
@@ -213,7 +220,7 @@ func (o *LocationAreaDetail) GetPokemonEncounters() []LocationAreaDetailPokemonE
 
 // GetPokemonEncountersOk returns a tuple with the PokemonEncounters field value
 // and a boolean to check if the value has been set.
-func (o *LocationAreaDetail) GetPokemonEncountersOk() ([]LocationAreaDetailPokemonEncountersInner, bool) {
+func (o *LocationAreaDetail) GetPokemonEncountersOk() ([]LocationAreaPokemonEncounter, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -221,7 +228,7 @@ func (o *LocationAreaDetail) GetPokemonEncountersOk() ([]LocationAreaDetailPokem
 }
 
 // SetPokemonEncounters sets field value
-func (o *LocationAreaDetail) SetPokemonEncounters(v []LocationAreaDetailPokemonEncountersInner) {
+func (o *LocationAreaDetail) SetPokemonEncounters(v []LocationAreaPokemonEncounter) {
 	o.PokemonEncounters = v
 }
 

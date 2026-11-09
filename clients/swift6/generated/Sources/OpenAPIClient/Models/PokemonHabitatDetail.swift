@@ -9,10 +9,14 @@ import Foundation
 
 public struct PokemonHabitatDetail: Sendable, Codable, Hashable {
 
-    public static let nameRule = StringRule(minLength: nil, maxLength: 100, pattern: nil)
+    public static let nameRule = StringRule(minLength: nil, maxLength: 200, pattern: nil)
+    /** The identifier for this resource. */
     public var id: Int
+    /** The name for this resource. */
     public var name: String
+    /** The name of this resource listed in different languages. */
     public var names: [PokemonHabitatName]
+    /** A list of the Pokémon species that can be found in this habitat. */
     public var pokemonSpecies: [PokemonSpeciesSummary]
 
     public init(id: Int, name: String, names: [PokemonHabitatName], pokemonSpecies: [PokemonSpeciesSummary]) {

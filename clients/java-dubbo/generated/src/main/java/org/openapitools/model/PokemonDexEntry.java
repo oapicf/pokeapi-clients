@@ -12,14 +12,20 @@ import java.math.*;
 public class PokemonDexEntry implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * The index number within the Pokédex.
+   */
   @JsonProperty("entry_number")
   private Integer entryNumber;
 
+  /**
+   * The Pokédex the referenced Pokémon species can be found in.
+   */
   @JsonProperty("pokedex")
   private PokedexSummary pokedex;
 
   /**
-   * 
+   * The index number within the Pokédex.
    * @return entryNumber
    */
   public Integer getEntryNumber() {
@@ -31,7 +37,7 @@ public class PokemonDexEntry implements Serializable {
   }
 
   /**
-   * 
+   * The Pokédex the referenced Pokémon species can be found in.
    * @return pokedex
    */
   public PokedexSummary getPokedex() {

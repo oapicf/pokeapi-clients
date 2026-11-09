@@ -11,20 +11,26 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class MoveLearnMethodSummary  {
   
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The name of the referenced resource.
+  */
+  @ApiModelProperty(required = true, value = "The name of the referenced resource.")
 
   private String name;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The URL of the referenced resource.
+  */
+  @ApiModelProperty(required = true, value = "The URL of the referenced resource.")
 
   private URI url;
  /**
-   * Get name
+   * The name of the referenced resource.
    * @return name
   **/
   @JsonProperty("name")
   @NotNull
- @Size(max=100)  public String getName() {
+ @Size(max=200)  public String getName() {
     return name;
   }
 
@@ -38,7 +44,7 @@ public class MoveLearnMethodSummary  {
   }
 
  /**
-   * Get url
+   * The URL of the referenced resource.
    * @return url
   **/
   @JsonProperty("url")

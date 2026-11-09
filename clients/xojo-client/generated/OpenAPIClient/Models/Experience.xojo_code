@@ -2,11 +2,17 @@
 Protected Class Experience
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The level gained.
+		#tag EndNote
 		level As Integer
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The amount of experience required to reach the referenced level.
+		#tag EndNote
 		experience As Integer
 	#tag EndProperty
 

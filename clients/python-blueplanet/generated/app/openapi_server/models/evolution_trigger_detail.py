@@ -6,8 +6,8 @@ from datetime import date, datetime  # noqa: F401
 from typing import List, Dict  # noqa: F401
 
 from app.openapi_server.models.base_model import Model
-from app.openapi_server.models.ability_detail_pokemon_inner_pokemon import AbilityDetailPokemonInnerPokemon  # noqa: F401,E501
 from app.openapi_server.models.evolution_trigger_name import EvolutionTriggerName  # noqa: F401,E501
+from app.openapi_server.models.pokemon_species_summary import PokemonSpeciesSummary  # noqa: F401,E501
 from openapi_server import util
 
 
@@ -17,7 +17,7 @@ class EvolutionTriggerDetail(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, id: int=None, name: str=None, names: List[EvolutionTriggerName]=None, pokemon_species: List[AbilityDetailPokemonInnerPokemon]=None):  # noqa: E501
+    def __init__(self, id: int=None, name: str=None, names: List[EvolutionTriggerName]=None, pokemon_species: List[PokemonSpeciesSummary]=None):  # noqa: E501
         """EvolutionTriggerDetail - a model defined in Swagger
 
         :param id: The id of this EvolutionTriggerDetail.  # noqa: E501
@@ -27,13 +27,13 @@ class EvolutionTriggerDetail(Model):
         :param names: The names of this EvolutionTriggerDetail.  # noqa: E501
         :type names: List[EvolutionTriggerName]
         :param pokemon_species: The pokemon_species of this EvolutionTriggerDetail.  # noqa: E501
-        :type pokemon_species: List[AbilityDetailPokemonInnerPokemon]
+        :type pokemon_species: List[PokemonSpeciesSummary]
         """
         self.swagger_types = {
             'id': int,
             'name': str,
             'names': List[EvolutionTriggerName],
-            'pokemon_species': List[AbilityDetailPokemonInnerPokemon]
+            'pokemon_species': List[PokemonSpeciesSummary]
         }
 
         self.attribute_map = {
@@ -63,6 +63,7 @@ class EvolutionTriggerDetail(Model):
     def id(self) -> int:
         """Gets the id of this EvolutionTriggerDetail.
 
+        The identifier for this resource.  # noqa: E501
 
         :return: The id of this EvolutionTriggerDetail.
         :rtype: int
@@ -73,6 +74,7 @@ class EvolutionTriggerDetail(Model):
     def id(self, id: int):
         """Sets the id of this EvolutionTriggerDetail.
 
+        The identifier for this resource.  # noqa: E501
 
         :param id: The id of this EvolutionTriggerDetail.
         :type id: int
@@ -86,6 +88,7 @@ class EvolutionTriggerDetail(Model):
     def name(self) -> str:
         """Gets the name of this EvolutionTriggerDetail.
 
+        The name for this resource.  # noqa: E501
 
         :return: The name of this EvolutionTriggerDetail.
         :rtype: str
@@ -96,14 +99,15 @@ class EvolutionTriggerDetail(Model):
     def name(self, name: str):
         """Sets the name of this EvolutionTriggerDetail.
 
+        The name for this resource.  # noqa: E501
 
         :param name: The name of this EvolutionTriggerDetail.
         :type name: str
         """
         if name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
-        if name is not None and len(name) > 100:
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `100`")  # noqa: E501
+        if name is not None and len(name) > 200:
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `200`")  # noqa: E501
 
         self._name = name
 
@@ -111,6 +115,7 @@ class EvolutionTriggerDetail(Model):
     def names(self) -> List[EvolutionTriggerName]:
         """Gets the names of this EvolutionTriggerDetail.
 
+        The name of this resource listed in different languages.  # noqa: E501
 
         :return: The names of this EvolutionTriggerDetail.
         :rtype: List[EvolutionTriggerName]
@@ -121,6 +126,7 @@ class EvolutionTriggerDetail(Model):
     def names(self, names: List[EvolutionTriggerName]):
         """Sets the names of this EvolutionTriggerDetail.
 
+        The name of this resource listed in different languages.  # noqa: E501
 
         :param names: The names of this EvolutionTriggerDetail.
         :type names: List[EvolutionTriggerName]
@@ -131,22 +137,24 @@ class EvolutionTriggerDetail(Model):
         self._names = names
 
     @property
-    def pokemon_species(self) -> List[AbilityDetailPokemonInnerPokemon]:
+    def pokemon_species(self) -> List[PokemonSpeciesSummary]:
         """Gets the pokemon_species of this EvolutionTriggerDetail.
 
+        A list of pokemon species that result from this evolution trigger.  # noqa: E501
 
         :return: The pokemon_species of this EvolutionTriggerDetail.
-        :rtype: List[AbilityDetailPokemonInnerPokemon]
+        :rtype: List[PokemonSpeciesSummary]
         """
         return self._pokemon_species
 
     @pokemon_species.setter
-    def pokemon_species(self, pokemon_species: List[AbilityDetailPokemonInnerPokemon]):
+    def pokemon_species(self, pokemon_species: List[PokemonSpeciesSummary]):
         """Sets the pokemon_species of this EvolutionTriggerDetail.
 
+        A list of pokemon species that result from this evolution trigger.  # noqa: E501
 
         :param pokemon_species: The pokemon_species of this EvolutionTriggerDetail.
-        :type pokemon_species: List[AbilityDetailPokemonInnerPokemon]
+        :type pokemon_species: List[PokemonSpeciesSummary]
         """
         if pokemon_species is None:
             raise ValueError("Invalid value for `pokemon_species`, must not be `None`")  # noqa: E501

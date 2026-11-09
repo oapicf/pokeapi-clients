@@ -10,8 +10,6 @@ namespace models {
 
 MoveFlavorText::MoveFlavorText()
 : flavorText("")
-, language(LanguageSummary())
-, versionGroup(VersionGroupSummary())
 {
 }
 // =========================================

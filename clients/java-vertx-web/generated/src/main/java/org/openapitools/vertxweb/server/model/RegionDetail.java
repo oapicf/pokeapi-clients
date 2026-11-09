@@ -6,11 +6,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.vertxweb.server.model.AbilityDetailPokemonInnerPokemon;
 import org.openapitools.vertxweb.server.model.GenerationSummary;
 import org.openapitools.vertxweb.server.model.LocationSummary;
 import org.openapitools.vertxweb.server.model.PokedexSummary;
 import org.openapitools.vertxweb.server.model.RegionName;
+import org.openapitools.vertxweb.server.model.VersionGroupSummary;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class RegionDetail   {
@@ -21,13 +21,13 @@ public class RegionDetail   {
   private GenerationSummary mainGeneration;
   private List<RegionName> names = new ArrayList<>();
   private List<PokedexSummary> pokedexes = new ArrayList<>();
-  private List<AbilityDetailPokemonInnerPokemon> versionGroups = new ArrayList<>();
+  private List<VersionGroupSummary> versionGroups = new ArrayList<>();
 
   public RegionDetail () {
 
   }
 
-  public RegionDetail (Integer id, String name, List<LocationSummary> locations, GenerationSummary mainGeneration, List<RegionName> names, List<PokedexSummary> pokedexes, List<AbilityDetailPokemonInnerPokemon> versionGroups) {
+  public RegionDetail (Integer id, String name, List<LocationSummary> locations, GenerationSummary mainGeneration, List<RegionName> names, List<PokedexSummary> pokedexes, List<VersionGroupSummary> versionGroups) {
     this.id = id;
     this.name = name;
     this.locations = locations;
@@ -93,10 +93,10 @@ public class RegionDetail   {
 
     
   @JsonProperty("version_groups")
-  public List<AbilityDetailPokemonInnerPokemon> getVersionGroups() {
+  public List<VersionGroupSummary> getVersionGroups() {
     return versionGroups;
   }
-  public void setVersionGroups(List<AbilityDetailPokemonInnerPokemon> versionGroups) {
+  public void setVersionGroups(List<VersionGroupSummary> versionGroups) {
     this.versionGroups = versionGroups;
   }
 

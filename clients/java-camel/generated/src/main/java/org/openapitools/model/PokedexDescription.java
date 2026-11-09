@@ -19,7 +19,7 @@ import jakarta.annotation.Generated;
  * PokedexDescription
  */
 
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-10-25T05:48:25.711080506Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-11-09T13:49:41.168612095Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PokedexDescription {
 
   private String description;
@@ -43,11 +43,11 @@ public class PokedexDescription {
   }
 
   /**
-   * Get description
+   * The localized description for an API resource in a specific language.
    * @return description
    */
-  @Size(max = 1000) 
-  @Schema(name = "description", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Size(max = 2000) 
+  @Schema(name = "description", description = "The localized description for an API resource in a specific language.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("description")
   public String getDescription() {
     return description;
@@ -63,11 +63,11 @@ public class PokedexDescription {
   }
 
   /**
-   * Get language
+   * The language this name is in.
    * @return language
    */
   @NotNull @Valid 
-  @Schema(name = "language", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "language", description = "The language this name is in.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("language")
   public LanguageSummary getLanguage() {
     return language;

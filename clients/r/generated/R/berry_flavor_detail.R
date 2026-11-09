@@ -7,11 +7,11 @@
 #' @title BerryFlavorDetail
 #' @description BerryFlavorDetail Class
 #' @format An \code{R6Class} generator object
-#' @field id  integer
-#' @field name  character
-#' @field berries  list(\link{BerryFlavorDetailBerriesInner})
-#' @field contest_type  \link{ContestTypeSummary}
-#' @field names  list(\link{BerryFlavorName})
+#' @field id The identifier for this resource. integer
+#' @field name The name for this resource. character
+#' @field berries A list of the berries with this flavor. list(\link{BerryFlavorBerryMap})
+#' @field contest_type The contest type that correlates with this berry flavor. \link{ContestTypeSummary}
+#' @field names The name of this resource listed in different languages. list(\link{BerryFlavorName})
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -27,11 +27,11 @@ BerryFlavorDetail <- R6::R6Class(
     #' @description
     #' Initialize a new BerryFlavorDetail class.
     #'
-    #' @param id id
-    #' @param name name
-    #' @param berries berries
-    #' @param contest_type contest_type
-    #' @param names names
+    #' @param id The identifier for this resource.
+    #' @param name The name for this resource.
+    #' @param berries A list of the berries with this flavor.
+    #' @param contest_type The contest type that correlates with this berry flavor.
+    #' @param names The name of this resource listed in different languages.
     #' @param ... Other optional arguments.
     initialize = function(`id`, `name`, `berries`, `contest_type`, `names`, ...) {
       if (!missing(`id`)) {
@@ -153,7 +153,7 @@ BerryFlavorDetail <- R6::R6Class(
         self$`name` <- this_object$`name`
       }
       if (!is.null(this_object$`berries`)) {
-        self$`berries` <- ApiClient$new()$deserializeObj(this_object$`berries`, "array[BerryFlavorDetailBerriesInner]", loadNamespace("openapi"))
+        self$`berries` <- ApiClient$new()$deserializeObj(this_object$`berries`, "array[BerryFlavorBerryMap]", loadNamespace("openapi"))
       }
       if (!is.null(this_object$`contest_type`)) {
         `contest_type_object` <- ContestTypeSummary$new()
@@ -186,7 +186,7 @@ BerryFlavorDetail <- R6::R6Class(
       this_object <- jsonlite::fromJSON(input_json)
       self$`id` <- this_object$`id`
       self$`name` <- this_object$`name`
-      self$`berries` <- ApiClient$new()$deserializeObj(this_object$`berries`, "array[BerryFlavorDetailBerriesInner]", loadNamespace("openapi"))
+      self$`berries` <- ApiClient$new()$deserializeObj(this_object$`berries`, "array[BerryFlavorBerryMap]", loadNamespace("openapi"))
       self$`contest_type` <- ContestTypeSummary$new()$fromJSON(jsonlite::toJSON(this_object$`contest_type`, auto_unbox = TRUE, digits = NA))
       self$`names` <- ApiClient$new()$deserializeObj(this_object$`names`, "array[BerryFlavorName]", loadNamespace("openapi"))
       self
@@ -259,7 +259,7 @@ BerryFlavorDetail <- R6::R6Class(
         return(FALSE)
       }
 
-      if (nchar(self$`name`) > 100) {
+      if (nchar(self$`name`) > 200) {
         return(FALSE)
       }
 
@@ -297,8 +297,8 @@ BerryFlavorDetail <- R6::R6Class(
         invalid_fields["name"] <- "Non-nullable required field `name` cannot be null."
       }
 
-      if (nchar(self$`name`) > 100) {
-        invalid_fields["name"] <- "Invalid length for `name`, must be smaller than or equal to 100."
+      if (nchar(self$`name`) > 200) {
+        invalid_fields["name"] <- "Invalid length for `name`, must be smaller than or equal to 200."
       }
 
       # check if the required `berries` is null

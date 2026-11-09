@@ -8,6 +8,7 @@ All URIs are relative to https://pokeapi.co, except if the operation defines ano
 | ------------- | ------------- | ------------- |
 | [**languageList()**](UtilityApi.md#languageList) | **GET** /api/v2/language/ | List languages |
 | [**languageRetrieve()**](UtilityApi.md#languageRetrieve) | **GET** /api/v2/language/{id}/ | Get language |
+| [**metaRetrieve()**](UtilityApi.md#metaRetrieve) | **GET** /api/v2/meta/ | Get API metadata |
 
 
 ## `languageList()`
@@ -27,22 +28,11 @@ Languages for translations of API resource information.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure HTTP basic authorization: basicAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure API key authorization: cookieAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\UtilityApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $limit = 56; // int | Number of results to return per page.
 $offset = 56; // int | The initial index from which to return the results.
@@ -70,7 +60,7 @@ try {
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -98,24 +88,13 @@ Languages for translations of API resource information.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure HTTP basic authorization: basicAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure API key authorization: cookieAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
-
 
 $apiInstance = new OpenAPI\Client\Api\UtilityApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
-$id = 'id_example'; // string | This parameter can be a string or an integer.
+$id = 1; // string | This parameter can be a string or an integer.
 
 try {
     $result = $apiInstance->languageRetrieve($id);
@@ -137,7 +116,60 @@ try {
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `metaRetrieve()`
+
+```php
+metaRetrieve(): \OpenAPI\Client\Model\PokeapiMetaResponse
+```
+
+Get API metadata
+
+Returns metadata about the current deployed version of the API, including the git commit hash, deploy date, and tag (if any).
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\UtilityApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+
+try {
+    $result = $apiInstance->metaRetrieve();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling UtilityApi->metaRetrieve: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**\OpenAPI\Client\Model\PokeapiMetaResponse**](../Model/PokeapiMetaResponse.md)
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 

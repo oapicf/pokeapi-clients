@@ -12,13 +12,15 @@ part 'type_game_index.g.dart';
 /// TypeGameIndex
 ///
 /// Properties:
-/// * [gameIndex] 
-/// * [generation] 
+/// * [gameIndex] - The internal id of an API resource within game data.
+/// * [generation] - The generation relevent to this game index.
 @BuiltValue()
 abstract class TypeGameIndex implements Built<TypeGameIndex, TypeGameIndexBuilder> {
+  /// The internal id of an API resource within game data.
   @BuiltValueField(wireName: r'game_index')
   int get gameIndex;
 
+  /// The generation relevent to this game index.
   @BuiltValueField(wireName: r'generation')
   GenerationSummary get generation;
 

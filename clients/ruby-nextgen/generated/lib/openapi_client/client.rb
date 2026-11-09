@@ -37,6 +37,10 @@ module OpenapiClient
       @contest_type ||= OpenapiClient::Api::ContestType.new(@connection)
     end
 
+    def currency
+      @currency ||= OpenapiClient::Api::Currency.new(@connection)
+    end
+
     def egg_group
       @egg_group ||= OpenapiClient::Api::EggGroup.new(@connection)
     end
@@ -59,6 +63,10 @@ module OpenapiClient
 
     def evolution_trigger
       @evolution_trigger ||= OpenapiClient::Api::EvolutionTrigger.new(@connection)
+    end
+
+    def evolution_variable
+      @evolution_variable ||= OpenapiClient::Api::EvolutionVariable.new(@connection)
     end
 
     def gender
@@ -107,6 +115,10 @@ module OpenapiClient
 
     def machine
       @machine ||= OpenapiClient::Api::Machine.new(@connection)
+    end
+
+    def meta
+      @meta ||= OpenapiClient::Api::Meta.new(@connection)
     end
 
     def move

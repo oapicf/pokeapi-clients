@@ -7,10 +7,10 @@ from typing import List, Dict  # noqa: F401
 
 from app.openapi_server.models.base_model import Model
 from app.openapi_server.models.ability_change import AbilityChange  # noqa: F401,E501
-from app.openapi_server.models.ability_detail_pokemon_inner import AbilityDetailPokemonInner  # noqa: F401,E501
 from app.openapi_server.models.ability_effect_text import AbilityEffectText  # noqa: F401,E501
 from app.openapi_server.models.ability_flavor_text import AbilityFlavorText  # noqa: F401,E501
 from app.openapi_server.models.ability_name import AbilityName  # noqa: F401,E501
+from app.openapi_server.models.ability_pokemon_detail import AbilityPokemonDetail  # noqa: F401,E501
 from app.openapi_server.models.generation_summary import GenerationSummary  # noqa: F401,E501
 from openapi_server import util
 
@@ -21,7 +21,7 @@ class AbilityDetail(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, id: int=None, name: str=None, is_main_series: bool=None, generation: GenerationSummary=None, names: List[AbilityName]=None, effect_entries: List[AbilityEffectText]=None, effect_changes: List[AbilityChange]=None, flavor_text_entries: List[AbilityFlavorText]=None, pokemon: List[AbilityDetailPokemonInner]=None):  # noqa: E501
+    def __init__(self, id: int=None, name: str=None, is_main_series: bool=None, generation: GenerationSummary=None, names: List[AbilityName]=None, effect_entries: List[AbilityEffectText]=None, effect_changes: List[AbilityChange]=None, flavor_text_entries: List[AbilityFlavorText]=None, pokemon: List[AbilityPokemonDetail]=None):  # noqa: E501
         """AbilityDetail - a model defined in Swagger
 
         :param id: The id of this AbilityDetail.  # noqa: E501
@@ -41,7 +41,7 @@ class AbilityDetail(Model):
         :param flavor_text_entries: The flavor_text_entries of this AbilityDetail.  # noqa: E501
         :type flavor_text_entries: List[AbilityFlavorText]
         :param pokemon: The pokemon of this AbilityDetail.  # noqa: E501
-        :type pokemon: List[AbilityDetailPokemonInner]
+        :type pokemon: List[AbilityPokemonDetail]
         """
         self.swagger_types = {
             'id': int,
@@ -52,7 +52,7 @@ class AbilityDetail(Model):
             'effect_entries': List[AbilityEffectText],
             'effect_changes': List[AbilityChange],
             'flavor_text_entries': List[AbilityFlavorText],
-            'pokemon': List[AbilityDetailPokemonInner]
+            'pokemon': List[AbilityPokemonDetail]
         }
 
         self.attribute_map = {
@@ -92,6 +92,7 @@ class AbilityDetail(Model):
     def id(self) -> int:
         """Gets the id of this AbilityDetail.
 
+        The identifier for this resource.  # noqa: E501
 
         :return: The id of this AbilityDetail.
         :rtype: int
@@ -102,6 +103,7 @@ class AbilityDetail(Model):
     def id(self, id: int):
         """Sets the id of this AbilityDetail.
 
+        The identifier for this resource.  # noqa: E501
 
         :param id: The id of this AbilityDetail.
         :type id: int
@@ -115,6 +117,7 @@ class AbilityDetail(Model):
     def name(self) -> str:
         """Gets the name of this AbilityDetail.
 
+        The name for this resource.  # noqa: E501
 
         :return: The name of this AbilityDetail.
         :rtype: str
@@ -125,14 +128,15 @@ class AbilityDetail(Model):
     def name(self, name: str):
         """Sets the name of this AbilityDetail.
 
+        The name for this resource.  # noqa: E501
 
         :param name: The name of this AbilityDetail.
         :type name: str
         """
         if name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
-        if name is not None and len(name) > 100:
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `100`")  # noqa: E501
+        if name is not None and len(name) > 200:
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `200`")  # noqa: E501
 
         self._name = name
 
@@ -140,6 +144,7 @@ class AbilityDetail(Model):
     def is_main_series(self) -> bool:
         """Gets the is_main_series of this AbilityDetail.
 
+        Whether or not this ability originated in the main series of the video games.  # noqa: E501
 
         :return: The is_main_series of this AbilityDetail.
         :rtype: bool
@@ -150,6 +155,7 @@ class AbilityDetail(Model):
     def is_main_series(self, is_main_series: bool):
         """Sets the is_main_series of this AbilityDetail.
 
+        Whether or not this ability originated in the main series of the video games.  # noqa: E501
 
         :param is_main_series: The is_main_series of this AbilityDetail.
         :type is_main_series: bool
@@ -161,6 +167,7 @@ class AbilityDetail(Model):
     def generation(self) -> GenerationSummary:
         """Gets the generation of this AbilityDetail.
 
+        The generation this ability originated in.  # noqa: E501
 
         :return: The generation of this AbilityDetail.
         :rtype: GenerationSummary
@@ -171,6 +178,7 @@ class AbilityDetail(Model):
     def generation(self, generation: GenerationSummary):
         """Sets the generation of this AbilityDetail.
 
+        The generation this ability originated in.  # noqa: E501
 
         :param generation: The generation of this AbilityDetail.
         :type generation: GenerationSummary
@@ -184,6 +192,7 @@ class AbilityDetail(Model):
     def names(self) -> List[AbilityName]:
         """Gets the names of this AbilityDetail.
 
+        The name of this resource listed in different languages.  # noqa: E501
 
         :return: The names of this AbilityDetail.
         :rtype: List[AbilityName]
@@ -194,6 +203,7 @@ class AbilityDetail(Model):
     def names(self, names: List[AbilityName]):
         """Sets the names of this AbilityDetail.
 
+        The name of this resource listed in different languages.  # noqa: E501
 
         :param names: The names of this AbilityDetail.
         :type names: List[AbilityName]
@@ -207,6 +217,7 @@ class AbilityDetail(Model):
     def effect_entries(self) -> List[AbilityEffectText]:
         """Gets the effect_entries of this AbilityDetail.
 
+        The effect of this ability listed in different languages.  # noqa: E501
 
         :return: The effect_entries of this AbilityDetail.
         :rtype: List[AbilityEffectText]
@@ -217,6 +228,7 @@ class AbilityDetail(Model):
     def effect_entries(self, effect_entries: List[AbilityEffectText]):
         """Sets the effect_entries of this AbilityDetail.
 
+        The effect of this ability listed in different languages.  # noqa: E501
 
         :param effect_entries: The effect_entries of this AbilityDetail.
         :type effect_entries: List[AbilityEffectText]
@@ -230,6 +242,7 @@ class AbilityDetail(Model):
     def effect_changes(self) -> List[AbilityChange]:
         """Gets the effect_changes of this AbilityDetail.
 
+        The list of previous effects this ability has had across version groups.  # noqa: E501
 
         :return: The effect_changes of this AbilityDetail.
         :rtype: List[AbilityChange]
@@ -240,6 +253,7 @@ class AbilityDetail(Model):
     def effect_changes(self, effect_changes: List[AbilityChange]):
         """Sets the effect_changes of this AbilityDetail.
 
+        The list of previous effects this ability has had across version groups.  # noqa: E501
 
         :param effect_changes: The effect_changes of this AbilityDetail.
         :type effect_changes: List[AbilityChange]
@@ -253,6 +267,7 @@ class AbilityDetail(Model):
     def flavor_text_entries(self) -> List[AbilityFlavorText]:
         """Gets the flavor_text_entries of this AbilityDetail.
 
+        The flavor text of this ability listed in different languages.  # noqa: E501
 
         :return: The flavor_text_entries of this AbilityDetail.
         :rtype: List[AbilityFlavorText]
@@ -263,6 +278,7 @@ class AbilityDetail(Model):
     def flavor_text_entries(self, flavor_text_entries: List[AbilityFlavorText]):
         """Sets the flavor_text_entries of this AbilityDetail.
 
+        The flavor text of this ability listed in different languages.  # noqa: E501
 
         :param flavor_text_entries: The flavor_text_entries of this AbilityDetail.
         :type flavor_text_entries: List[AbilityFlavorText]
@@ -273,22 +289,24 @@ class AbilityDetail(Model):
         self._flavor_text_entries = flavor_text_entries
 
     @property
-    def pokemon(self) -> List[AbilityDetailPokemonInner]:
+    def pokemon(self) -> List[AbilityPokemonDetail]:
         """Gets the pokemon of this AbilityDetail.
 
+        A list of Pokémon that could potentially have this ability.  # noqa: E501
 
         :return: The pokemon of this AbilityDetail.
-        :rtype: List[AbilityDetailPokemonInner]
+        :rtype: List[AbilityPokemonDetail]
         """
         return self._pokemon
 
     @pokemon.setter
-    def pokemon(self, pokemon: List[AbilityDetailPokemonInner]):
+    def pokemon(self, pokemon: List[AbilityPokemonDetail]):
         """Sets the pokemon of this AbilityDetail.
 
+        A list of Pokémon that could potentially have this ability.  # noqa: E501
 
         :param pokemon: The pokemon of this AbilityDetail.
-        :type pokemon: List[AbilityDetailPokemonInner]
+        :type pokemon: List[AbilityPokemonDetail]
         """
         if pokemon is None:
             raise ValueError("Invalid value for `pokemon`, must not be `None`")  # noqa: E501

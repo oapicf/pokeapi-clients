@@ -1,0 +1,34 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "PaginatedEvolutionVariableSummaryList",
+  "fields": [
+    {
+      "name": "count",
+      "type": "int",
+      "doc": "The total number of resources available from this API."
+    },
+    {
+      "name": "next",
+      "type": ["null", "model.URI"],
+      "doc": "The URL for the next page in the list, or null if there is no next page.",
+      "default": null
+    },
+    {
+      "name": "previous",
+      "type": ["null", "model.URI"],
+      "doc": "The URL for the previous page in the list, or null if there is no previous page.",
+      "default": null
+    },
+    {
+      "name": "results",
+      "type": {
+        "type": "array",
+        "items": "model.EvolutionVariableSummary"
+      },
+      "doc": "A list of API resources on this page."
+    }
+  ]
+
+}

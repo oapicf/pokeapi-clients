@@ -14,13 +14,13 @@
         version_groups=nothing,
     )
 
-    - id::Int64
-    - name::String
-    - locations::Vector{LocationSummary}
-    - main_generation::GenerationSummary
-    - names::Vector{RegionName}
-    - pokedexes::Vector{PokedexSummary}
-    - version_groups::Vector{AbilityDetailPokemonInnerPokemon}
+    - id::Int64 : The identifier for this resource.
+    - name::String : The name for this resource.
+    - locations::Vector{LocationSummary} : A list of locations that can be found in this region.
+    - main_generation::GenerationSummary : The generation this region was introduced in.
+    - names::Vector{RegionName} : The name of this resource listed in different languages.
+    - pokedexes::Vector{PokedexSummary} : A list of pokédexes that catalogue Pokémon in this region.
+    - version_groups::Vector{VersionGroupSummary} : A list of version groups where this region can be visited.
 """
 Base.@kwdef mutable struct RegionDetail <: OpenAPI.APIModel
     id::Union{Nothing, Int64} = nothing
@@ -29,7 +29,7 @@ Base.@kwdef mutable struct RegionDetail <: OpenAPI.APIModel
     main_generation = nothing # spec type: Union{ Nothing, GenerationSummary }
     names::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{RegionName} }
     pokedexes::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{PokedexSummary} }
-    version_groups::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{AbilityDetailPokemonInnerPokemon} }
+    version_groups::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{VersionGroupSummary} }
 
     function RegionDetail(id, name, locations, main_generation, names, pokedexes, version_groups, )
         o = new(id, name, locations, main_generation, names, pokedexes, version_groups, )
@@ -38,7 +38,7 @@ Base.@kwdef mutable struct RegionDetail <: OpenAPI.APIModel
     end
 end # type RegionDetail
 
-const _property_types_RegionDetail = Dict{Symbol,String}(Symbol("id")=>"Int64", Symbol("name")=>"String", Symbol("locations")=>"Vector{LocationSummary}", Symbol("main_generation")=>"GenerationSummary", Symbol("names")=>"Vector{RegionName}", Symbol("pokedexes")=>"Vector{PokedexSummary}", Symbol("version_groups")=>"Vector{AbilityDetailPokemonInnerPokemon}", )
+const _property_types_RegionDetail = Dict{Symbol,String}(Symbol("id")=>"Int64", Symbol("name")=>"String", Symbol("locations")=>"Vector{LocationSummary}", Symbol("main_generation")=>"GenerationSummary", Symbol("names")=>"Vector{RegionName}", Symbol("pokedexes")=>"Vector{PokedexSummary}", Symbol("version_groups")=>"Vector{VersionGroupSummary}", )
 OpenAPI.property_type(::Type{ RegionDetail }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_RegionDetail[name]))}
 
 function OpenAPI.check_required(o::RegionDetail)
@@ -66,7 +66,7 @@ function OpenAPI.validate_property(::Type{ RegionDetail }, name::Symbol, val)
 
 
     if name === Symbol("name")
-        OpenAPI.validate_param(name, "RegionDetail", :maxLength, val, 100)
+        OpenAPI.validate_param(name, "RegionDetail", :maxLength, val, 200)
     end
 
 

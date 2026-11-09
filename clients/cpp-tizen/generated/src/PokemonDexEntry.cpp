@@ -24,7 +24,7 @@ void
 PokemonDexEntry::__init()
 {
 	//entry_number = int(0);
-	//pokedex = new PokedexSummary();
+	//pokedex = null;
 }
 
 void

@@ -1,9 +1,9 @@
 /*
 PokéAPI
 
-All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
 
-API version: 2.7.0
+API version: 2.10.0
 Contact: blah+oapicf@cliffano.com
 */
 
@@ -22,18 +22,30 @@ var _ MappedNullable = &BerryDetail{}
 
 // BerryDetail struct for BerryDetail
 type BerryDetail struct {
+	// The identifier for this resource.
 	Id int32 `json:"id"`
+	// The name for this resource.
 	Name string `json:"name"`
-	GrowthTime int32 `json:"growth_time"`
-	MaxHarvest int32 `json:"max_harvest"`
-	NaturalGiftPower int32 `json:"natural_gift_power"`
-	Size int32 `json:"size"`
-	Smoothness int32 `json:"smoothness"`
-	SoilDryness int32 `json:"soil_dryness"`
-	Firmness BerryFirmnessSummary `json:"firmness"`
-	Flavors []BerryDetailFlavorsInner `json:"flavors"`
+	// Time it takes the tree to grow one stage, in hours. Berry trees go through four of these growth stages before they can be picked.
+	GrowthTime NullableInt32 `json:"growth_time,omitempty"`
+	// The maximum number of these berries that can grow on one tree in Generation IV.
+	MaxHarvest NullableInt32 `json:"max_harvest,omitempty"`
+	// The power of the move \"Natural Gift\" when used with this Berry.
+	NaturalGiftPower NullableInt32 `json:"natural_gift_power,omitempty"`
+	// The size of this Berry, in millimeters.
+	Size NullableInt32 `json:"size,omitempty"`
+	// The smoothness of this Berry, used in making Pokéblocks or Poffins.
+	Smoothness NullableInt32 `json:"smoothness,omitempty"`
+	// The speed at which this Berry dries out the soil as it grows. A higher rate means the soil dries more quickly.
+	SoilDryness NullableInt32 `json:"soil_dryness,omitempty"`
+	// The firmness of this berry, used in making Pokéblocks or Poffins.
+	Firmness NullableBerryFirmnessSummary `json:"firmness"`
+	// A list of references to each flavor a berry can have and the potency of each of those flavors in regard to this berry.
+	Flavors []BerryFlavorMap `json:"flavors"`
+	// Berries are actually items. This is a reference to the item specific data for this berry.
 	Item ItemSummary `json:"item"`
-	NaturalGiftType TypeSummary `json:"natural_gift_type"`
+	// The type inherited by \"Natural Gift\" when used with this Berry.
+	NaturalGiftType NullableTypeSummary `json:"natural_gift_type"`
 }
 
 type _BerryDetail BerryDetail
@@ -42,16 +54,10 @@ type _BerryDetail BerryDetail
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewBerryDetail(id int32, name string, growthTime int32, maxHarvest int32, naturalGiftPower int32, size int32, smoothness int32, soilDryness int32, firmness BerryFirmnessSummary, flavors []BerryDetailFlavorsInner, item ItemSummary, naturalGiftType TypeSummary) *BerryDetail {
+func NewBerryDetail(id int32, name string, firmness NullableBerryFirmnessSummary, flavors []BerryFlavorMap, item ItemSummary, naturalGiftType NullableTypeSummary) *BerryDetail {
 	this := BerryDetail{}
 	this.Id = id
 	this.Name = name
-	this.GrowthTime = growthTime
-	this.MaxHarvest = maxHarvest
-	this.NaturalGiftPower = naturalGiftPower
-	this.Size = size
-	this.Smoothness = smoothness
-	this.SoilDryness = soilDryness
 	this.Firmness = firmness
 	this.Flavors = flavors
 	this.Item = item
@@ -115,178 +121,288 @@ func (o *BerryDetail) SetName(v string) {
 	o.Name = v
 }
 
-// GetGrowthTime returns the GrowthTime field value
+// GetGrowthTime returns the GrowthTime field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *BerryDetail) GetGrowthTime() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.GrowthTime.Get()) {
 		var ret int32
 		return ret
 	}
-
-	return o.GrowthTime
+	return *o.GrowthTime.Get()
 }
 
-// GetGrowthTimeOk returns a tuple with the GrowthTime field value
+// GetGrowthTimeOk returns a tuple with the GrowthTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BerryDetail) GetGrowthTimeOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.GrowthTime, true
+	return o.GrowthTime.Get(), o.GrowthTime.IsSet()
 }
 
-// SetGrowthTime sets field value
+// HasGrowthTime returns a boolean if a field has been set.
+func (o *BerryDetail) HasGrowthTime() bool {
+	if o != nil && o.GrowthTime.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetGrowthTime gets a reference to the given NullableInt32 and assigns it to the GrowthTime field.
 func (o *BerryDetail) SetGrowthTime(v int32) {
-	o.GrowthTime = v
+	o.GrowthTime.Set(&v)
+}
+// SetGrowthTimeNil sets the value for GrowthTime to be an explicit nil
+func (o *BerryDetail) SetGrowthTimeNil() {
+	o.GrowthTime.Set(nil)
 }
 
-// GetMaxHarvest returns the MaxHarvest field value
+// UnsetGrowthTime ensures that no value is present for GrowthTime, not even an explicit nil
+func (o *BerryDetail) UnsetGrowthTime() {
+	o.GrowthTime.Unset()
+}
+
+// GetMaxHarvest returns the MaxHarvest field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *BerryDetail) GetMaxHarvest() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.MaxHarvest.Get()) {
 		var ret int32
 		return ret
 	}
-
-	return o.MaxHarvest
+	return *o.MaxHarvest.Get()
 }
 
-// GetMaxHarvestOk returns a tuple with the MaxHarvest field value
+// GetMaxHarvestOk returns a tuple with the MaxHarvest field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BerryDetail) GetMaxHarvestOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.MaxHarvest, true
+	return o.MaxHarvest.Get(), o.MaxHarvest.IsSet()
 }
 
-// SetMaxHarvest sets field value
+// HasMaxHarvest returns a boolean if a field has been set.
+func (o *BerryDetail) HasMaxHarvest() bool {
+	if o != nil && o.MaxHarvest.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetMaxHarvest gets a reference to the given NullableInt32 and assigns it to the MaxHarvest field.
 func (o *BerryDetail) SetMaxHarvest(v int32) {
-	o.MaxHarvest = v
+	o.MaxHarvest.Set(&v)
+}
+// SetMaxHarvestNil sets the value for MaxHarvest to be an explicit nil
+func (o *BerryDetail) SetMaxHarvestNil() {
+	o.MaxHarvest.Set(nil)
 }
 
-// GetNaturalGiftPower returns the NaturalGiftPower field value
+// UnsetMaxHarvest ensures that no value is present for MaxHarvest, not even an explicit nil
+func (o *BerryDetail) UnsetMaxHarvest() {
+	o.MaxHarvest.Unset()
+}
+
+// GetNaturalGiftPower returns the NaturalGiftPower field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *BerryDetail) GetNaturalGiftPower() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.NaturalGiftPower.Get()) {
 		var ret int32
 		return ret
 	}
-
-	return o.NaturalGiftPower
+	return *o.NaturalGiftPower.Get()
 }
 
-// GetNaturalGiftPowerOk returns a tuple with the NaturalGiftPower field value
+// GetNaturalGiftPowerOk returns a tuple with the NaturalGiftPower field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BerryDetail) GetNaturalGiftPowerOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.NaturalGiftPower, true
+	return o.NaturalGiftPower.Get(), o.NaturalGiftPower.IsSet()
 }
 
-// SetNaturalGiftPower sets field value
+// HasNaturalGiftPower returns a boolean if a field has been set.
+func (o *BerryDetail) HasNaturalGiftPower() bool {
+	if o != nil && o.NaturalGiftPower.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetNaturalGiftPower gets a reference to the given NullableInt32 and assigns it to the NaturalGiftPower field.
 func (o *BerryDetail) SetNaturalGiftPower(v int32) {
-	o.NaturalGiftPower = v
+	o.NaturalGiftPower.Set(&v)
+}
+// SetNaturalGiftPowerNil sets the value for NaturalGiftPower to be an explicit nil
+func (o *BerryDetail) SetNaturalGiftPowerNil() {
+	o.NaturalGiftPower.Set(nil)
 }
 
-// GetSize returns the Size field value
+// UnsetNaturalGiftPower ensures that no value is present for NaturalGiftPower, not even an explicit nil
+func (o *BerryDetail) UnsetNaturalGiftPower() {
+	o.NaturalGiftPower.Unset()
+}
+
+// GetSize returns the Size field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *BerryDetail) GetSize() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Size.Get()) {
 		var ret int32
 		return ret
 	}
-
-	return o.Size
+	return *o.Size.Get()
 }
 
-// GetSizeOk returns a tuple with the Size field value
+// GetSizeOk returns a tuple with the Size field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BerryDetail) GetSizeOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Size, true
+	return o.Size.Get(), o.Size.IsSet()
 }
 
-// SetSize sets field value
+// HasSize returns a boolean if a field has been set.
+func (o *BerryDetail) HasSize() bool {
+	if o != nil && o.Size.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetSize gets a reference to the given NullableInt32 and assigns it to the Size field.
 func (o *BerryDetail) SetSize(v int32) {
-	o.Size = v
+	o.Size.Set(&v)
+}
+// SetSizeNil sets the value for Size to be an explicit nil
+func (o *BerryDetail) SetSizeNil() {
+	o.Size.Set(nil)
 }
 
-// GetSmoothness returns the Smoothness field value
+// UnsetSize ensures that no value is present for Size, not even an explicit nil
+func (o *BerryDetail) UnsetSize() {
+	o.Size.Unset()
+}
+
+// GetSmoothness returns the Smoothness field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *BerryDetail) GetSmoothness() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.Smoothness.Get()) {
 		var ret int32
 		return ret
 	}
-
-	return o.Smoothness
+	return *o.Smoothness.Get()
 }
 
-// GetSmoothnessOk returns a tuple with the Smoothness field value
+// GetSmoothnessOk returns a tuple with the Smoothness field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BerryDetail) GetSmoothnessOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Smoothness, true
+	return o.Smoothness.Get(), o.Smoothness.IsSet()
 }
 
-// SetSmoothness sets field value
+// HasSmoothness returns a boolean if a field has been set.
+func (o *BerryDetail) HasSmoothness() bool {
+	if o != nil && o.Smoothness.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetSmoothness gets a reference to the given NullableInt32 and assigns it to the Smoothness field.
 func (o *BerryDetail) SetSmoothness(v int32) {
-	o.Smoothness = v
+	o.Smoothness.Set(&v)
+}
+// SetSmoothnessNil sets the value for Smoothness to be an explicit nil
+func (o *BerryDetail) SetSmoothnessNil() {
+	o.Smoothness.Set(nil)
 }
 
-// GetSoilDryness returns the SoilDryness field value
+// UnsetSmoothness ensures that no value is present for Smoothness, not even an explicit nil
+func (o *BerryDetail) UnsetSmoothness() {
+	o.Smoothness.Unset()
+}
+
+// GetSoilDryness returns the SoilDryness field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *BerryDetail) GetSoilDryness() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.SoilDryness.Get()) {
 		var ret int32
 		return ret
 	}
-
-	return o.SoilDryness
+	return *o.SoilDryness.Get()
 }
 
-// GetSoilDrynessOk returns a tuple with the SoilDryness field value
+// GetSoilDrynessOk returns a tuple with the SoilDryness field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BerryDetail) GetSoilDrynessOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.SoilDryness, true
+	return o.SoilDryness.Get(), o.SoilDryness.IsSet()
 }
 
-// SetSoilDryness sets field value
+// HasSoilDryness returns a boolean if a field has been set.
+func (o *BerryDetail) HasSoilDryness() bool {
+	if o != nil && o.SoilDryness.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetSoilDryness gets a reference to the given NullableInt32 and assigns it to the SoilDryness field.
 func (o *BerryDetail) SetSoilDryness(v int32) {
-	o.SoilDryness = v
+	o.SoilDryness.Set(&v)
+}
+// SetSoilDrynessNil sets the value for SoilDryness to be an explicit nil
+func (o *BerryDetail) SetSoilDrynessNil() {
+	o.SoilDryness.Set(nil)
+}
+
+// UnsetSoilDryness ensures that no value is present for SoilDryness, not even an explicit nil
+func (o *BerryDetail) UnsetSoilDryness() {
+	o.SoilDryness.Unset()
 }
 
 // GetFirmness returns the Firmness field value
+// If the value is explicit nil, the zero value for BerryFirmnessSummary will be returned
 func (o *BerryDetail) GetFirmness() BerryFirmnessSummary {
-	if o == nil {
+	if o == nil || o.Firmness.Get() == nil {
 		var ret BerryFirmnessSummary
 		return ret
 	}
 
-	return o.Firmness
+	return *o.Firmness.Get()
 }
 
 // GetFirmnessOk returns a tuple with the Firmness field value
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BerryDetail) GetFirmnessOk() (*BerryFirmnessSummary, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Firmness, true
+	return o.Firmness.Get(), o.Firmness.IsSet()
 }
 
 // SetFirmness sets field value
 func (o *BerryDetail) SetFirmness(v BerryFirmnessSummary) {
-	o.Firmness = v
+	o.Firmness.Set(&v)
 }
 
 // GetFlavors returns the Flavors field value
-func (o *BerryDetail) GetFlavors() []BerryDetailFlavorsInner {
+func (o *BerryDetail) GetFlavors() []BerryFlavorMap {
 	if o == nil {
-		var ret []BerryDetailFlavorsInner
+		var ret []BerryFlavorMap
 		return ret
 	}
 
@@ -295,7 +411,7 @@ func (o *BerryDetail) GetFlavors() []BerryDetailFlavorsInner {
 
 // GetFlavorsOk returns a tuple with the Flavors field value
 // and a boolean to check if the value has been set.
-func (o *BerryDetail) GetFlavorsOk() ([]BerryDetailFlavorsInner, bool) {
+func (o *BerryDetail) GetFlavorsOk() ([]BerryFlavorMap, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -303,7 +419,7 @@ func (o *BerryDetail) GetFlavorsOk() ([]BerryDetailFlavorsInner, bool) {
 }
 
 // SetFlavors sets field value
-func (o *BerryDetail) SetFlavors(v []BerryDetailFlavorsInner) {
+func (o *BerryDetail) SetFlavors(v []BerryFlavorMap) {
 	o.Flavors = v
 }
 
@@ -332,27 +448,29 @@ func (o *BerryDetail) SetItem(v ItemSummary) {
 }
 
 // GetNaturalGiftType returns the NaturalGiftType field value
+// If the value is explicit nil, the zero value for TypeSummary will be returned
 func (o *BerryDetail) GetNaturalGiftType() TypeSummary {
-	if o == nil {
+	if o == nil || o.NaturalGiftType.Get() == nil {
 		var ret TypeSummary
 		return ret
 	}
 
-	return o.NaturalGiftType
+	return *o.NaturalGiftType.Get()
 }
 
 // GetNaturalGiftTypeOk returns a tuple with the NaturalGiftType field value
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BerryDetail) GetNaturalGiftTypeOk() (*TypeSummary, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.NaturalGiftType, true
+	return o.NaturalGiftType.Get(), o.NaturalGiftType.IsSet()
 }
 
 // SetNaturalGiftType sets field value
 func (o *BerryDetail) SetNaturalGiftType(v TypeSummary) {
-	o.NaturalGiftType = v
+	o.NaturalGiftType.Set(&v)
 }
 
 func (o BerryDetail) MarshalJSON() ([]byte, error) {
@@ -367,16 +485,28 @@ func (o BerryDetail) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["id"] = o.Id
 	toSerialize["name"] = o.Name
-	toSerialize["growth_time"] = o.GrowthTime
-	toSerialize["max_harvest"] = o.MaxHarvest
-	toSerialize["natural_gift_power"] = o.NaturalGiftPower
-	toSerialize["size"] = o.Size
-	toSerialize["smoothness"] = o.Smoothness
-	toSerialize["soil_dryness"] = o.SoilDryness
-	toSerialize["firmness"] = o.Firmness
+	if o.GrowthTime.IsSet() {
+		toSerialize["growth_time"] = o.GrowthTime.Get()
+	}
+	if o.MaxHarvest.IsSet() {
+		toSerialize["max_harvest"] = o.MaxHarvest.Get()
+	}
+	if o.NaturalGiftPower.IsSet() {
+		toSerialize["natural_gift_power"] = o.NaturalGiftPower.Get()
+	}
+	if o.Size.IsSet() {
+		toSerialize["size"] = o.Size.Get()
+	}
+	if o.Smoothness.IsSet() {
+		toSerialize["smoothness"] = o.Smoothness.Get()
+	}
+	if o.SoilDryness.IsSet() {
+		toSerialize["soil_dryness"] = o.SoilDryness.Get()
+	}
+	toSerialize["firmness"] = o.Firmness.Get()
 	toSerialize["flavors"] = o.Flavors
 	toSerialize["item"] = o.Item
-	toSerialize["natural_gift_type"] = o.NaturalGiftType
+	toSerialize["natural_gift_type"] = o.NaturalGiftType.Get()
 	return toSerialize, nil
 }
 
@@ -387,12 +517,6 @@ func (o *BerryDetail) UnmarshalJSON(data []byte) (err error) {
 	requiredProperties := []string{
 		"id",
 		"name",
-		"growth_time",
-		"max_harvest",
-		"natural_gift_power",
-		"size",
-		"smoothness",
-		"soil_dryness",
 		"firmness",
 		"flavors",
 		"item",

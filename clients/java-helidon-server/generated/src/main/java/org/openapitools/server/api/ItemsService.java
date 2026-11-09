@@ -1,5 +1,6 @@
 package org.openapitools.server.api;
 
+import org.openapitools.server.model.CurrencyDetail;
 import java.util.HexFormat;
 import org.openapitools.server.model.ItemAttributeDetail;
 import org.openapitools.server.model.ItemCategoryDetail;
@@ -8,6 +9,7 @@ import org.openapitools.server.model.ItemFlingEffectDetail;
 import org.openapitools.server.model.ItemPocketDetail;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.Optional;
+import org.openapitools.server.model.PaginatedCurrencySummaryList;
 import org.openapitools.server.model.PaginatedItemAttributeSummaryList;
 import org.openapitools.server.model.PaginatedItemCategorySummaryList;
 import org.openapitools.server.model.PaginatedItemFlingEffectSummaryList;
@@ -31,6 +33,8 @@ public interface ItemsService extends HttpService {
      */
     @Override
     default void routing(HttpRules rules) {
+        rules.get("/currency/", this::currencyList);
+        rules.get("/currency/{id}/", this::currencyRetrieve);
         rules.get("/item-attribute/", this::itemAttributeList);
         rules.get("/item-attribute/{id}/", this::itemAttributeRetrieve);
         rules.get("/item-category/", this::itemCategoryList);
@@ -44,6 +48,20 @@ public interface ItemsService extends HttpService {
     }
 
 
+    /**
+     * GET /api/v2/currency/ : List currencies.
+     *
+     * @param request the server request
+     * @param response the server response
+     */
+    void currencyList(ServerRequest request, ServerResponse response);
+    /**
+     * GET /api/v2/currency/{id}/ : Get currency.
+     *
+     * @param request the server request
+     * @param response the server response
+     */
+    void currencyRetrieve(ServerRequest request, ServerResponse response);
     /**
      * GET /api/v2/item-attribute/ : List item attributes.
      *

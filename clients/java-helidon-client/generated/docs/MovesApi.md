@@ -42,7 +42,7 @@ Move Ailments are status conditions caused by moves used during battle. See [Bul
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -77,7 +77,7 @@ Move Ailments are status conditions caused by moves used during battle. See [Bul
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -114,7 +114,7 @@ Styles of moves when used in the Battle Palace. See [Bulbapedia](http://bulbaped
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -149,7 +149,7 @@ Styles of moves when used in the Battle Palace. See [Bulbapedia](http://bulbaped
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -186,7 +186,7 @@ Very general categories that loosely group move effects.
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -221,7 +221,7 @@ Very general categories that loosely group move effects.
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -258,7 +258,7 @@ Methods by which Pokémon can learn moves.
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -293,7 +293,7 @@ Methods by which Pokémon can learn moves.
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -330,7 +330,7 @@ Moves are the skills of Pokémon in battle. In battle, a Pokémon uses one move 
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -365,7 +365,7 @@ Moves are the skills of Pokémon in battle. In battle, a Pokémon uses one move 
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -402,7 +402,7 @@ Targets moves can be directed at during battle. Targets can be Pokémon, environ
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -437,7 +437,7 @@ Targets moves can be directed at during battle. Targets can be Pokémon, environ
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

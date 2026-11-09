@@ -12,7 +12,6 @@ Method | HTTP request | Description
 ```objc
 -(NSURLSessionTask*) machineListWithLimit: (NSNumber*) limit
     offset: (NSNumber*) offset
-    q: (NSString*) q
         completionHandler: (void (^)(OAIPaginatedMachineSummaryList* output, NSError* error)) handler;
 ```
 
@@ -22,27 +21,15 @@ Machines are the representation of items that teach moves to Pokémon. They vary
 
 ### Example
 ```objc
-OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
-// Configure HTTP basic authorization (authentication scheme: basicAuth)
-[apiConfig setUsername:@"YOUR_USERNAME"];
-[apiConfig setPassword:@"YOUR_PASSWORD"];
-
-// Configure API key authorization: (authentication scheme: cookieAuth)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"sessionid"];
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"sessionid"];
-
 
 NSNumber* limit = @56; // Number of results to return per page. (optional)
 NSNumber* offset = @56; // The initial index from which to return the results. (optional)
-NSString* q = @"q_example"; // > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
 
 OAIMachinesApi*apiInstance = [[OAIMachinesApi alloc] init];
 
 // List machines
 [apiInstance machineListWithLimit:limit
               offset:offset
-              q:q
           completionHandler: ^(OAIPaginatedMachineSummaryList* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
@@ -59,7 +46,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **NSNumber***| Number of results to return per page. | [optional] 
  **offset** | **NSNumber***| The initial index from which to return the results. | [optional] 
- **q** | **NSString***| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional] 
 
 ### Return type
 
@@ -67,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -88,18 +74,8 @@ Machines are the representation of items that teach moves to Pokémon. They vary
 
 ### Example
 ```objc
-OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
-// Configure HTTP basic authorization (authentication scheme: basicAuth)
-[apiConfig setUsername:@"YOUR_USERNAME"];
-[apiConfig setPassword:@"YOUR_PASSWORD"];
 
-// Configure API key authorization: (authentication scheme: cookieAuth)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"sessionid"];
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"sessionid"];
-
-
-NSString* _id = @"_id_example"; // This parameter can be a string or an integer.
+NSString* _id = 1; // This parameter can be a string or an integer.
 
 OAIMachinesApi*apiInstance = [[OAIMachinesApi alloc] init];
 
@@ -127,7 +103,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

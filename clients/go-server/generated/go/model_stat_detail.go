@@ -3,9 +3,9 @@
 /*
  * PokéAPI
  *
- * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+ * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
  *
- * API version: 2.7.0
+ * API version: 2.10.0
  * Contact: blah+oapicf@cliffano.com
  */
 
@@ -13,6 +13,7 @@ package openapi
 
 
 import (
+	"errors"
 	"encoding/json"
 	"fmt"
 )
@@ -21,22 +22,34 @@ import (
 
 type StatDetail struct {
 
+	// The identifier for this resource.
 	Id int32 `json:"id"`
 
+	// The name for this resource.
 	Name string `json:"name"`
 
+	// ID the games use for this stat.
 	GameIndex int32 `json:"game_index"`
 
+	// Whether this stat only exists within a battle.
 	IsBattleOnly bool `json:"is_battle_only,omitempty"`
 
-	AffectingMoves StatDetailAffectingMoves `json:"affecting_moves"`
+	// A detail of moves which affect this stat positively or negatively.
+	AffectingMoves StatAffectingMoves `json:"affecting_moves"`
 
-	AffectingNatures StatDetailAffectingNatures `json:"affecting_natures"`
+	// A detail of natures which affect this stat positively or negatively.
+	AffectingNatures StatAffectingNatures `json:"affecting_natures"`
 
+	// Items that affect this stat, such as vitamins and battle items.
+	AffectingItems []ItemSummary `json:"affecting_items"`
+
+	// A list of characteristics that are set on a Pokémon when its highest base stat is this stat.
 	Characteristics []CharacteristicSummary `json:"characteristics"`
 
-	MoveDamageClass MoveDamageClassSummary `json:"move_damage_class"`
+	// The class of damage this stat is directly related to.
+	MoveDamageClass *MoveDamageClassSummary `json:"move_damage_class"`
 
+	// The name of this resource listed in different languages.
 	Names []StatName `json:"names"`
 }
 // UnmarshalJSON validates required property keys then unmarshals into StatDetail
@@ -46,17 +59,13 @@ func (o *StatDetail) UnmarshalJSON(data []byte) (err error) {
 	requiredProperties := []string{
 		"name",
 		"game_index",
-		"affecting_moves",
-		"affecting_natures",
 		"move_damage_class",
 	}
 
 	requiredNullableProperties := map[string]bool{
 		"name": false,
 		"game_index": false,
-		"affecting_moves": false,
-		"affecting_natures": false,
-		"move_damage_class": false,
+		"move_damage_class": true,
 	}
 
 	allowedJsonKeys := map[string]struct{}{
@@ -66,6 +75,7 @@ func (o *StatDetail) UnmarshalJSON(data []byte) (err error) {
 		"is_battle_only": {},
 		"affecting_moves": {},
 		"affecting_natures": {},
+		"affecting_items": {},
 		"characteristics": {},
 		"move_damage_class": {},
 		"names": {},
@@ -127,6 +137,11 @@ func (o *StatDetail) UnmarshalJSON(data []byte) (err error) {
 			return err
 		}
 	}
+	if value, exists := allProperties["affecting_items"]; exists {
+		if err = json.Unmarshal(value, &decoded.AffectingItems); err != nil {
+			return err
+		}
+	}
 	if value, exists := allProperties["characteristics"]; exists {
 		if err = json.Unmarshal(value, &decoded.Characteristics); err != nil {
 			return err
@@ -151,39 +166,26 @@ func (o *StatDetail) UnmarshalJSON(data []byte) (err error) {
 // AssertStatDetailRequired checks complex required fields (models, arrays, maps) and embedded parents.
 // Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertStatDetailRequired(obj StatDetail) error {
-	elements := map[string]interface{}{
-		"affecting_moves": obj.AffectingMoves,
-		"affecting_natures": obj.AffectingNatures,
-		"move_damage_class": obj.MoveDamageClass,
-	}
-	for name, el := range elements {
-		if isZero := IsZeroValue(el); isZero {
-			return &RequiredError{Field: name}
+	if obj.MoveDamageClass != nil {
+		if err := AssertMoveDamageClassSummaryRequired(*obj.MoveDamageClass); err != nil {
+			return err
 		}
-	}
-
-	if err := AssertStatDetailAffectingMovesRequired(obj.AffectingMoves); err != nil {
-		return err
-	}
-	if err := AssertStatDetailAffectingNaturesRequired(obj.AffectingNatures); err != nil {
-		return err
-	}
-	if err := AssertMoveDamageClassSummaryRequired(obj.MoveDamageClass); err != nil {
-		return err
 	}
 	return nil
 }
 
 // AssertStatDetailConstraints checks if the values respects the defined constraints
 func AssertStatDetailConstraints(obj StatDetail) error {
-	if err := AssertStatDetailAffectingMovesConstraints(obj.AffectingMoves); err != nil {
-		return err
+	if obj.GameIndex < -2147483648 {
+		return &ParsingError{Param: "GameIndex", Err: errors.New(errMsgMinValueConstraint)}
 	}
-	if err := AssertStatDetailAffectingNaturesConstraints(obj.AffectingNatures); err != nil {
-		return err
+	if obj.GameIndex > 2147483647 {
+		return &ParsingError{Param: "GameIndex", Err: errors.New(errMsgMaxValueConstraint)}
 	}
-	if err := AssertMoveDamageClassSummaryConstraints(obj.MoveDamageClass); err != nil {
-		return err
-	}
+    if obj.MoveDamageClass != nil {
+     	if err := AssertMoveDamageClassSummaryConstraints(*obj.MoveDamageClass); err != nil {
+     		return err
+     	}
+    }
 	return nil
 }

@@ -98,7 +98,7 @@ func move_ailment_list_threaded(
 #
 # Move Ailments are status conditions caused by moves used during battle. See [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Status_condition) for greater detail.
 func move_ailment_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -138,7 +138,7 @@ func move_ailment_retrieve(
 
 
 func move_ailment_retrieve_threaded(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -239,7 +239,7 @@ func move_battle_style_list_threaded(
 #
 # Styles of moves when used in the Battle Palace. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Battle_Frontier_(Generation_III)) for greater detail.
 func move_battle_style_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -279,7 +279,7 @@ func move_battle_style_retrieve(
 
 
 func move_battle_style_retrieve_threaded(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -380,7 +380,7 @@ func move_category_list_threaded(
 #
 # Very general categories that loosely group move effects.
 func move_category_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -420,7 +420,7 @@ func move_category_retrieve(
 
 
 func move_category_retrieve_threaded(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -521,7 +521,7 @@ func move_learn_method_list_threaded(
 #
 # Methods by which Pokémon can learn moves.
 func move_learn_method_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -561,7 +561,7 @@ func move_learn_method_retrieve(
 
 
 func move_learn_method_retrieve_threaded(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -662,7 +662,7 @@ func move_list_threaded(
 #
 # Moves are the skills of Pokémon in battle. In battle, a Pokémon uses one move each turn. Some moves (including those learned by Hidden Machine) can be used outside of battle as well, usually for the purpose of removing obstacles or exploring new areas.
 func move_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -702,7 +702,7 @@ func move_retrieve(
 
 
 func move_retrieve_threaded(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -803,7 +803,7 @@ func move_target_list_threaded(
 #
 # Targets moves can be directed at during battle. Targets can be Pokémon, environments or even other moves.
 func move_target_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -843,7 +843,7 @@ func move_target_retrieve(
 
 
 func move_target_retrieve_threaded(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)

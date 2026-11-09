@@ -1,0 +1,22 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "PokemonHeldItemSummary",
+  "fields": [
+    {
+      "name": "item",
+      "type": "model.ItemSummary",
+      "doc": "The item the referenced Pokémon holds."
+    },
+    {
+      "name": "version_details",
+      "type": {
+        "type": "array",
+        "items": "model.PokemonHeldItemVersion"
+      },
+      "doc": "The details of the different versions in which the item is held."
+    }
+  ]
+
+}

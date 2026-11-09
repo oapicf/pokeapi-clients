@@ -11,9 +11,10 @@ part 'characteristic_summary.g.dart';
 /// CharacteristicSummary
 ///
 /// Properties:
-/// * [url] 
+/// * [url] - The URL of the referenced resource.
 @BuiltValue()
 abstract class CharacteristicSummary implements Built<CharacteristicSummary, CharacteristicSummaryBuilder> {
+  /// The URL of the referenced resource.
   @BuiltValueField(wireName: r'url')
   String get url;
 

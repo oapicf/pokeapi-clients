@@ -2,8 +2,8 @@ package org.openapitools.server.model
 
 
 /**
- * @param gameIndex  for example: ''null''
- * @param generation  for example: ''null''
+ * @param gameIndex The internal id of an API resource within game data. for example: ''null''
+ * @param generation The generation relevent to this game index. for example: ''null''
 */
 final case class LocationGameIndex (
   gameIndex: Int,

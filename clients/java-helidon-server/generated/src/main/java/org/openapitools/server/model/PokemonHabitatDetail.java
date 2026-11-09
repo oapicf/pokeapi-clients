@@ -27,10 +27,10 @@ public class PokemonHabitatDetail   {
     /**
      * Create PokemonHabitatDetail.
      *
-     * @param id id
-     * @param name name
-     * @param names names
-     * @param pokemonSpecies pokemonSpecies
+     * @param id The identifier for this resource.
+     * @param name The name for this resource.
+     * @param names The name of this resource listed in different languages.
+     * @param pokemonSpecies A list of the Pokémon species that can be found in this habitat.
      */
     public PokemonHabitatDetail(
         Integer id, 
@@ -47,7 +47,7 @@ public class PokemonHabitatDetail   {
 
 
     /**
-     * Get id
+     * The identifier for this resource.
      * @return id
      */
     public Integer getId() {
@@ -59,7 +59,7 @@ public class PokemonHabitatDetail   {
     }
 
     /**
-     * Get name
+     * The name for this resource.
      * @return name
      */
     public String getName() {
@@ -71,7 +71,7 @@ public class PokemonHabitatDetail   {
     }
 
     /**
-     * Get names
+     * The name of this resource listed in different languages.
      * @return names
      */
     public List<@Valid PokemonHabitatName> getNames() {
@@ -83,7 +83,7 @@ public class PokemonHabitatDetail   {
     }
 
     /**
-     * Get pokemonSpecies
+     * A list of the Pokémon species that can be found in this habitat.
      * @return pokemonSpecies
      */
     public List<@Valid PokemonSpeciesSummary> getPokemonSpecies() {

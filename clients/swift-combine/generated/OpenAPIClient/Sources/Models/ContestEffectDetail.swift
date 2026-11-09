@@ -8,10 +8,15 @@
 import Foundation
 
 public struct ContestEffectDetail: Codable {
+    /// The identifier for this resource.
     public var id: Int
+    /// The base number of hearts the user of this move gets.
     public var appeal: Int
+    /// The base number of hearts the user's opponent loses.
     public var jam: Int
+    /// The result of this contest effect listed in different languages.
     public var effectEntries: [ContestEffectEffectText]
+    /// The flavor text of this contest effect listed in different languages.
     public var flavorTextEntries: [ContestEffectFlavorText]
 
     public init(id: Int, appeal: Int, jam: Int, effectEntries: [ContestEffectEffectText], flavorTextEntries: [ContestEffectFlavorText]) {

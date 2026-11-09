@@ -14,22 +14,22 @@
         pokemon_encounters=nothing,
     )
 
-    - id::Int64
-    - name::String
-    - game_index::Int64
-    - encounter_method_rates::Vector{LocationAreaDetailEncounterMethodRatesInner}
-    - location::LocationSummary
-    - names::Vector{LocationAreaName}
-    - pokemon_encounters::Vector{LocationAreaDetailPokemonEncountersInner}
+    - id::Int64 : The identifier for this resource.
+    - name::String : The name for this resource.
+    - game_index::Int64 : The internal id of an API resource within game data.
+    - encounter_method_rates::Vector{LocationAreaEncounterRate} : A list of methods in which Pokémon may be encountered in this area and how likely the method will occur depending on the version of the game.
+    - location::LocationSummary : The region this location area can be found in.
+    - names::Vector{LocationAreaName} : The name of this resource listed in different languages.
+    - pokemon_encounters::Vector{LocationAreaPokemonEncounter} : A list of Pokémon that can be encountered in this area along with version specific details about the encounter.
 """
 Base.@kwdef mutable struct LocationAreaDetail <: OpenAPI.APIModel
     id::Union{Nothing, Int64} = nothing
     name::Union{Nothing, String} = nothing
     game_index::Union{Nothing, Int64} = nothing
-    encounter_method_rates::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{LocationAreaDetailEncounterMethodRatesInner} }
+    encounter_method_rates::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{LocationAreaEncounterRate} }
     location = nothing # spec type: Union{ Nothing, LocationSummary }
     names::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{LocationAreaName} }
-    pokemon_encounters::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{LocationAreaDetailPokemonEncountersInner} }
+    pokemon_encounters::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{LocationAreaPokemonEncounter} }
 
     function LocationAreaDetail(id, name, game_index, encounter_method_rates, location, names, pokemon_encounters, )
         o = new(id, name, game_index, encounter_method_rates, location, names, pokemon_encounters, )
@@ -38,7 +38,7 @@ Base.@kwdef mutable struct LocationAreaDetail <: OpenAPI.APIModel
     end
 end # type LocationAreaDetail
 
-const _property_types_LocationAreaDetail = Dict{Symbol,String}(Symbol("id")=>"Int64", Symbol("name")=>"String", Symbol("game_index")=>"Int64", Symbol("encounter_method_rates")=>"Vector{LocationAreaDetailEncounterMethodRatesInner}", Symbol("location")=>"LocationSummary", Symbol("names")=>"Vector{LocationAreaName}", Symbol("pokemon_encounters")=>"Vector{LocationAreaDetailPokemonEncountersInner}", )
+const _property_types_LocationAreaDetail = Dict{Symbol,String}(Symbol("id")=>"Int64", Symbol("name")=>"String", Symbol("game_index")=>"Int64", Symbol("encounter_method_rates")=>"Vector{LocationAreaEncounterRate}", Symbol("location")=>"LocationSummary", Symbol("names")=>"Vector{LocationAreaName}", Symbol("pokemon_encounters")=>"Vector{LocationAreaPokemonEncounter}", )
 OpenAPI.property_type(::Type{ LocationAreaDetail }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_LocationAreaDetail[name]))}
 
 function OpenAPI.check_required(o::LocationAreaDetail)
@@ -66,9 +66,13 @@ function OpenAPI.validate_property(::Type{ LocationAreaDetail }, name::Symbol, v
 
 
     if name === Symbol("name")
-        OpenAPI.validate_param(name, "LocationAreaDetail", :maxLength, val, 100)
+        OpenAPI.validate_param(name, "LocationAreaDetail", :maxLength, val, 200)
     end
 
+    if name === Symbol("game_index")
+        OpenAPI.validate_param(name, "LocationAreaDetail", :maximum, val, 2147483647, false)
+        OpenAPI.validate_param(name, "LocationAreaDetail", :minimum, val, -2147483648, false)
+    end
 
 
 

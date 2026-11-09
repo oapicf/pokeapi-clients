@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.model.AbilityChange;
-import org.openapitools.model.AbilityDetailPokemonInner;
 import org.openapitools.model.AbilityEffectText;
 import org.openapitools.model.AbilityFlavorText;
 import org.openapitools.model.AbilityName;
+import org.openapitools.model.AbilityPokemonDetail;
 import org.openapitools.model.GenerationSummary;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
@@ -19,35 +19,62 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class AbilityDetail  {
   
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The identifier for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   private Integer id;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The name for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   private String name;
 
-  @ApiModelProperty(value = "")
+ /**
+  * Whether or not this ability originated in the main series of the video games.
+  */
+  @ApiModelProperty(value = "Whether or not this ability originated in the main series of the video games.")
   private Boolean isMainSeries;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The generation this ability originated in.
+  */
+  @ApiModelProperty(required = true, value = "The generation this ability originated in.")
   @Valid
   private GenerationSummary generation;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The name of this resource listed in different languages.
+  */
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
   private List<@Valid AbilityName> names = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The effect of this ability listed in different languages.
+  */
+  @ApiModelProperty(required = true, value = "The effect of this ability listed in different languages.")
   private List<@Valid AbilityEffectText> effectEntries = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The list of previous effects this ability has had across version groups.
+  */
+  @ApiModelProperty(required = true, value = "The list of previous effects this ability has had across version groups.")
   private List<@Valid AbilityChange> effectChanges = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The flavor text of this ability listed in different languages.
+  */
+  @ApiModelProperty(required = true, value = "The flavor text of this ability listed in different languages.")
   private List<@Valid AbilityFlavorText> flavorTextEntries = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
-  private List<@Valid AbilityDetailPokemonInner> pokemon = new ArrayList<>();
  /**
-  * Get id
+  * A list of Pokémon that could potentially have this ability.
+  */
+  @ApiModelProperty(required = true, value = "A list of Pokémon that could potentially have this ability.")
+  private List<@Valid AbilityPokemonDetail> pokemon = new ArrayList<>();
+ /**
+  * The identifier for this resource.
   * @return id
   */
   @JsonProperty("id")
@@ -74,12 +101,12 @@ public class AbilityDetail  {
   }
 
  /**
-  * Get name
+  * The name for this resource.
   * @return name
   */
   @JsonProperty("name")
   @NotNull
- @Size(max=100)  public String getName() {
+ @Size(max=200)  public String getName() {
     return name;
   }
 
@@ -99,7 +126,7 @@ public class AbilityDetail  {
   }
 
  /**
-  * Get isMainSeries
+  * Whether or not this ability originated in the main series of the video games.
   * @return isMainSeries
   */
   @JsonProperty("is_main_series")
@@ -123,7 +150,7 @@ public class AbilityDetail  {
   }
 
  /**
-  * Get generation
+  * The generation this ability originated in.
   * @return generation
   */
   @JsonProperty("generation")
@@ -148,7 +175,7 @@ public class AbilityDetail  {
   }
 
  /**
-  * Get names
+  * The name of this resource listed in different languages.
   * @return names
   */
   @JsonProperty("names")
@@ -184,7 +211,7 @@ public class AbilityDetail  {
   }
 
  /**
-  * Get effectEntries
+  * The effect of this ability listed in different languages.
   * @return effectEntries
   */
   @JsonProperty("effect_entries")
@@ -220,7 +247,7 @@ public class AbilityDetail  {
   }
 
  /**
-  * Get effectChanges
+  * The list of previous effects this ability has had across version groups.
   * @return effectChanges
   */
   @JsonProperty("effect_changes")
@@ -256,7 +283,7 @@ public class AbilityDetail  {
   }
 
  /**
-  * Get flavorTextEntries
+  * The flavor text of this ability listed in different languages.
   * @return flavorTextEntries
   */
   @JsonProperty("flavor_text_entries")
@@ -292,12 +319,12 @@ public class AbilityDetail  {
   }
 
  /**
-  * Get pokemon
+  * A list of Pokémon that could potentially have this ability.
   * @return pokemon
   */
   @JsonProperty("pokemon")
   @NotNull
-  public List<@Valid AbilityDetailPokemonInner> getPokemon() {
+  public List<@Valid AbilityPokemonDetail> getPokemon() {
     return pokemon;
   }
 
@@ -305,7 +332,7 @@ public class AbilityDetail  {
    * Sets the <code>pokemon</code> property.
    * <br><em>N.B. <code>pokemon</code> is <b>read only</b>; client code should not call this method</em>.
    */
- public void setPokemon(List<@Valid AbilityDetailPokemonInner> pokemon) {
+ public void setPokemon(List<@Valid AbilityPokemonDetail> pokemon) {
     this.pokemon = pokemon;
   }
 
@@ -313,7 +340,7 @@ public class AbilityDetail  {
    * Sets the <code>pokemon</code> property.
    * <br><em>N.B. <code>pokemon</code> is <b>read only</b>; client code should not call this method</em>.
    */
-  public AbilityDetail pokemon(List<@Valid AbilityDetailPokemonInner> pokemon) {
+  public AbilityDetail pokemon(List<@Valid AbilityPokemonDetail> pokemon) {
     this.pokemon = pokemon;
     return this;
   }
@@ -322,7 +349,7 @@ public class AbilityDetail  {
    * Adds a new item to the <code>pokemon</code> list.
    * <br><em>N.B. <code>pokemon</code> is <b>read only</b>; client code should not call this method</em>.
    */
-  public AbilityDetail addPokemonItem(AbilityDetailPokemonInner pokemonItem) {
+  public AbilityDetail addPokemonItem(AbilityPokemonDetail pokemonItem) {
     this.pokemon.add(pokemonItem);
     return this;
   }

@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **name** | **string** |  | [default to null]
 **names** | [**array[MoveLearnMethodName]**](MoveLearnMethodName.md) |  | [readonly] [default to null]
 **descriptions** | [**array[MoveLearnMethodDescription]**](MoveLearnMethodDescription.md) |  | [readonly] [default to null]
-**versionUnderscoregroups** | [**array[AbilityDetailPokemonInnerPokemon]**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] [default to null]
+**versionUnderscoregroups** | [**array[VersionGroupSummary]**](VersionGroupSummary.md) |  | [readonly] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

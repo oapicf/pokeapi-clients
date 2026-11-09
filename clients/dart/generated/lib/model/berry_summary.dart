@@ -17,8 +17,10 @@ class BerrySummary {
     required this.url,
   });
 
+  /// The name of the referenced resource.
   String name;
 
+  /// The URL of the referenced resource.
   String url;
 
   @override

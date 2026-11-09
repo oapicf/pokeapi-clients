@@ -2,6 +2,7 @@ import connexion
 
 from app.openapi_server.models.language_detail import LanguageDetail  # noqa: E501
 from app.openapi_server.models.paginated_language_summary_list import PaginatedLanguageSummaryList  # noqa: E501
+from app.openapi_server.models.pokeapi_meta_response import PokeapiMetaResponse  # noqa: E501
 from openapi_server import util
 
 
@@ -31,5 +32,16 @@ def language_retrieve(id):  # noqa: E501
     :type id: str
 
     :rtype: LanguageDetail
+    """
+    return 'do some magic!'
+
+
+def meta_retrieve():  # noqa: E501
+    """Get API metadata
+
+    Returns metadata about the current deployed version of the API, including the git commit hash, deploy date, and tag (if any). # noqa: E501
+
+
+    :rtype: PokeapiMetaResponse
     """
     return 'do some magic!'

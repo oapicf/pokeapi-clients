@@ -12,17 +12,20 @@ part 'item_effect_text.g.dart';
 /// ItemEffectText
 ///
 /// Properties:
-/// * [effect] 
-/// * [shortEffect] 
-/// * [language] 
+/// * [effect] - The localized effect text for an API resource in a specific language.
+/// * [shortEffect] - The localized effect text in brief.
+/// * [language] - The language this effect is in.
 @BuiltValue()
 abstract class ItemEffectText implements Built<ItemEffectText, ItemEffectTextBuilder> {
+  /// The localized effect text for an API resource in a specific language.
   @BuiltValueField(wireName: r'effect')
   String get effect;
 
+  /// The localized effect text in brief.
   @BuiltValueField(wireName: r'short_effect')
   String get shortEffect;
 
+  /// The language this effect is in.
   @BuiltValueField(wireName: r'language')
   LanguageSummary get language;
 

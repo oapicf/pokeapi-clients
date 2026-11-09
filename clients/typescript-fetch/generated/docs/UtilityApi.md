@@ -6,6 +6,7 @@ All URIs are relative to *https://pokeapi.co*
 |------------- | ------------- | -------------|
 | [**languageList**](UtilityApi.md#languagelist) | **GET** /api/v2/language/ | List languages |
 | [**languageRetrieve**](UtilityApi.md#languageretrieve) | **GET** /api/v2/language/{id}/ | Get language |
+| [**metaRetrieve**](UtilityApi.md#metaretrieve) | **GET** /api/v2/meta/ | Get API metadata |
 
 
 
@@ -28,14 +29,7 @@ import type { LanguageListRequest } from '';
 
 async function example() {
   console.log("🚀 Testing  SDK...");
-  const config = new Configuration({ 
-    // To configure HTTP basic authorization: basicAuth
-    username: "YOUR USERNAME",
-    password: "YOUR PASSWORD",
-    // To configure API key authorization: cookieAuth
-    apiKey: "YOUR API KEY",
-  });
-  const api = new UtilityApi(config);
+  const api = new UtilityApi();
 
   const body = {
     // number | Number of results to return per page. (optional)
@@ -73,7 +67,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -108,18 +102,11 @@ import type { LanguageRetrieveRequest } from '';
 
 async function example() {
   console.log("🚀 Testing  SDK...");
-  const config = new Configuration({ 
-    // To configure HTTP basic authorization: basicAuth
-    username: "YOUR USERNAME",
-    password: "YOUR PASSWORD",
-    // To configure API key authorization: cookieAuth
-    apiKey: "YOUR API KEY",
-  });
-  const api = new UtilityApi(config);
+  const api = new UtilityApi();
 
   const body = {
     // string | This parameter can be a string or an integer.
-    id: id_example,
+    id: 1,
   } satisfies LanguageRetrieveRequest;
 
   try {
@@ -147,7 +134,66 @@ example().catch(console.error);
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## metaRetrieve
+
+> PokeapiMetaResponse metaRetrieve()
+
+Get API metadata
+
+Returns metadata about the current deployed version of the API, including the git commit hash, deploy date, and tag (if any).
+
+### Example
+
+```ts
+import {
+  Configuration,
+  UtilityApi,
+} from '';
+import type { MetaRetrieveRequest } from '';
+
+async function example() {
+  console.log("🚀 Testing  SDK...");
+  const api = new UtilityApi();
+
+  try {
+    const data = await api.metaRetrieve();
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**PokeapiMetaResponse**](PokeapiMetaResponse.md)
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 

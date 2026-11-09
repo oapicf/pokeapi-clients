@@ -7,7 +7,7 @@ using namespace Tiny;
 RegionName::RegionName()
 {
 	name = std::string();
-	language = LanguageSummary();
+	language = null;
 }
 
 RegionName::RegionName(std::string jsonString)

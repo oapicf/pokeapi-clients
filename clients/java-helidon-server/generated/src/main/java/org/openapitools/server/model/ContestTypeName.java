@@ -22,9 +22,9 @@ public class ContestTypeName   {
     /**
      * Create ContestTypeName.
      *
-     * @param name name
-     * @param color color
-     * @param language language
+     * @param name The name for this contest.
+     * @param color The color associated with this contest&#39;s name.
+     * @param language The language that this name is in.
      */
     public ContestTypeName(
         String name, 
@@ -39,7 +39,7 @@ public class ContestTypeName   {
 
 
     /**
-     * Get name
+     * The name for this contest.
      * @return name
      */
     public String getName() {
@@ -51,7 +51,7 @@ public class ContestTypeName   {
     }
 
     /**
-     * Get color
+     * The color associated with this contest's name.
      * @return color
      */
     public String getColor() {
@@ -63,7 +63,7 @@ public class ContestTypeName   {
     }
 
     /**
-     * Get language
+     * The language that this name is in.
      * @return language
      */
     public LanguageSummary getLanguage() {

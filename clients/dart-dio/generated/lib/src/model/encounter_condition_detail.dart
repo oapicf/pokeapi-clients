@@ -14,21 +14,25 @@ part 'encounter_condition_detail.g.dart';
 /// EncounterConditionDetail
 ///
 /// Properties:
-/// * [id] 
-/// * [name] 
-/// * [values] 
-/// * [names] 
+/// * [id] - The identifier for this resource.
+/// * [name] - The name for this resource.
+/// * [values] - A list of possible values for this encounter condition.
+/// * [names] - The name of this resource listed in different languages.
 @BuiltValue()
 abstract class EncounterConditionDetail implements Built<EncounterConditionDetail, EncounterConditionDetailBuilder> {
+  /// The identifier for this resource.
   @BuiltValueField(wireName: r'id')
   int get id;
 
+  /// The name for this resource.
   @BuiltValueField(wireName: r'name')
   String get name;
 
+  /// A list of possible values for this encounter condition.
   @BuiltValueField(wireName: r'values')
   BuiltList<EncounterConditionValueSummary> get values;
 
+  /// The name of this resource listed in different languages.
   @BuiltValueField(wireName: r'names')
   BuiltList<EncounterConditionName> get names;
 

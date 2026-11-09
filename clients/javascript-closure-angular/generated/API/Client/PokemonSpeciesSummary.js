@@ -6,12 +6,14 @@ goog.provide('API.Client.PokemonSpeciesSummary');
 API.Client.PokemonSpeciesSummary = function() {}
 
 /**
+ * The name of the referenced resource.
  * @type {!string}
  * @export
  */
 API.Client.PokemonSpeciesSummary.prototype.name;
 
 /**
+ * The URL of the referenced resource.
  * @type {!API.Client.URI}
  * @export
  */

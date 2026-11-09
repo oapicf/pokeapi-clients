@@ -12,16 +12,24 @@ import org.joda.time.DateTime
 import NatureDetail._
 
 case class NatureDetail (
+  /* The identifier for this resource. */
   id: Integer,
-name: String,
-decreasedStat: StatSummary,
-increasedStat: StatSummary,
-likesFlavor: BerryFlavorSummary,
-hatesFlavor: BerryFlavorSummary,
-berries: List[BerrySummary],
-pokeathlonStatChanges: List[NatureDetailPokeathlonStatChangesInner],
-moveBattleStylePreferences: List[NatureBattleStylePreference],
-names: List[NatureName])
+/* The name for this resource. */
+  name: String,
+/* The stat decreased by 10% in Pokémon with this nature. */
+  decreasedStat: StatSummary,
+/* The stat increased by 10% in Pokémon with this nature. */
+  increasedStat: StatSummary,
+/* The flavor liked by Pokémon with this nature. */
+  likesFlavor: BerryFlavorSummary,
+/* The flavor hated by Pokémon with this nature. */
+  hatesFlavor: BerryFlavorSummary,
+/* A list of Pokéathlon stats this nature effects and how much it effects them. */
+  pokeathlonStatChanges: List[NaturePokeathlonStat],
+/* A list of battle styles and how likely a Pokémon with this nature is to use them in the Battle Palace or Battle Tent. */
+  moveBattleStylePreferences: List[NatureBattleStylePreference],
+/* The name of this resource listed in different languages. */
+  names: List[NatureName])
 
 object NatureDetail {
   import DateTimeCodecs._

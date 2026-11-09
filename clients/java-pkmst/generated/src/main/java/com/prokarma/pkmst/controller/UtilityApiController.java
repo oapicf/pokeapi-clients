@@ -2,6 +2,7 @@ package com.prokarma.pkmst.controller;
 
 import com.prokarma.pkmst.model.LanguageDetail;
 import com.prokarma.pkmst.model.PaginatedLanguageSummaryList;
+import com.prokarma.pkmst.model.PokeapiMetaResponse;
 
 import io.swagger.annotations.*;
 
@@ -24,7 +25,7 @@ import java.io.IOException;
  * @author pkmst
  *
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-10-25T05:48:09.645019047Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-11-09T13:49:28.343088631Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 @Controller
 public class UtilityApiController implements UtilityApi {
     private final ObjectMapper objectMapper;
@@ -55,6 +56,16 @@ public class UtilityApiController implements UtilityApi {
         }
 
         return new ResponseEntity<LanguageDetail>(HttpStatus.OK);
+    }
+
+    public ResponseEntity<PokeapiMetaResponse> metaRetrieve(@RequestHeader(value = "Accept", required = false) String accept) throws Exception {
+        // do some magic!
+
+        if (accept != null && accept.contains("application/json")) {
+            return new ResponseEntity<PokeapiMetaResponse>(objectMapper.readValue("", PokeapiMetaResponse.class), HttpStatus.OK);
+        }
+
+        return new ResponseEntity<PokeapiMetaResponse>(HttpStatus.OK);
     }
 
 }

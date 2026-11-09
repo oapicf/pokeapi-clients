@@ -7,8 +7,8 @@
 #' @title ContestEffectFlavorText
 #' @description ContestEffectFlavorText Class
 #' @format An \code{R6Class} generator object
-#' @field flavor_text  character
-#' @field language  \link{LanguageSummary}
+#' @field flavor_text The localized flavor text for an API resource in a specific language. character
+#' @field language The language this name is in. \link{LanguageSummary}
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -21,8 +21,8 @@ ContestEffectFlavorText <- R6::R6Class(
     #' @description
     #' Initialize a new ContestEffectFlavorText class.
     #'
-    #' @param flavor_text flavor_text
-    #' @param language language
+    #' @param flavor_text The localized flavor text for an API resource in a specific language.
+    #' @param language The language this name is in.
     #' @param ... Other optional arguments.
     initialize = function(`flavor_text`, `language`, ...) {
       if (!missing(`flavor_text`)) {

@@ -8,6 +8,8 @@ Method | HTTP request | Description
 [**EvolutionAPI_evolutionChainRetrieve**](EvolutionAPI.md#EvolutionAPI_evolutionChainRetrieve) | **GET** /api/v2/evolution-chain/{id}/ | Get evolution chain
 [**EvolutionAPI_evolutionTriggerList**](EvolutionAPI.md#EvolutionAPI_evolutionTriggerList) | **GET** /api/v2/evolution-trigger/ | List evolution triggers
 [**EvolutionAPI_evolutionTriggerRetrieve**](EvolutionAPI.md#EvolutionAPI_evolutionTriggerRetrieve) | **GET** /api/v2/evolution-trigger/{id}/ | Get evolution trigger
+[**EvolutionAPI_evolutionVariableList**](EvolutionAPI.md#EvolutionAPI_evolutionVariableList) | **GET** /api/v2/evolution-variable/ | List evolution variables
+[**EvolutionAPI_evolutionVariableRetrieve**](EvolutionAPI.md#EvolutionAPI_evolutionVariableRetrieve) | **GET** /api/v2/evolution-variable/{id}/ | Get evolution variable
 
 
 # **EvolutionAPI_evolutionChainList**
@@ -16,7 +18,7 @@ Method | HTTP request | Description
 //
 // Evolution chains are essentially family trees. They start with the lowest stage within a family and detail evolution conditions for each as well as Pokémon they can evolve into up through the hierarchy.
 //
-paginated_evolution_chain_summary_list_t* EvolutionAPI_evolutionChainList(apiClient_t *apiClient, int *limit, int *offset, char *q);
+paginated_evolution_chain_summary_list_t* EvolutionAPI_evolutionChainList(apiClient_t *apiClient, int *limit, int *offset);
 ```
 
 ### Parameters
@@ -25,7 +27,6 @@ Name | Type | Description  | Notes
 **apiClient** | **apiClient_t \*** | context containing the client configuration |
 **limit** | **int \*** | Number of results to return per page. | [optional] 
 **offset** | **int \*** | The initial index from which to return the results. | [optional] 
-**q** | **char \*** | &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional] 
 
 ### Return type
 
@@ -34,7 +35,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -65,7 +66,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -98,7 +99,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -129,7 +130,71 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **EvolutionAPI_evolutionVariableList**
+```c
+// List evolution variables
+//
+// Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+//
+paginated_evolution_variable_summary_list_t* EvolutionAPI_evolutionVariableList(apiClient_t *apiClient, int *limit, int *offset, char *q);
+```
+
+### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**apiClient** | **apiClient_t \*** | context containing the client configuration |
+**limit** | **int \*** | Number of results to return per page. | [optional] 
+**offset** | **int \*** | The initial index from which to return the results. | [optional] 
+**q** | **char \*** | &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional] 
+
+### Return type
+
+[paginated_evolution_variable_summary_list_t](paginated_evolution_variable_summary_list.md) *
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **EvolutionAPI_evolutionVariableRetrieve**
+```c
+// Get evolution variable
+//
+// Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+//
+evolution_variable_detail_t* EvolutionAPI_evolutionVariableRetrieve(apiClient_t *apiClient, char *id);
+```
+
+### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**apiClient** | **apiClient_t \*** | context containing the client configuration |
+**id** | **char \*** | This parameter can be a string or an integer. | 
+
+### Return type
+
+[evolution_variable_detail_t](evolution_variable_detail.md) *
+
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 

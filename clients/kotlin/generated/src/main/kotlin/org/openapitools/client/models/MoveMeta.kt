@@ -32,56 +32,68 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param ailment 
- * @param category 
- * @param minHits 
- * @param maxHits 
- * @param minTurns 
- * @param maxTurns 
- * @param drain 
- * @param healing 
- * @param critRate 
- * @param ailmentChance 
- * @param flinchChance 
- * @param statChance 
+ * @param ailment The status ailment this move inflicts on its target.
+ * @param category The category of move this move falls under, e.g. damage or ailment.
+ * @param minHits The minimum number of times this move hits. Null if it always only hits once.
+ * @param maxHits The maximum number of times this move hits. Null if it always only hits once.
+ * @param minTurns The minimum number of turns this move continues to take effect. Null if it always only lasts one turn.
+ * @param maxTurns The maximum number of turns this move continues to take effect. Null if it always only lasts one turn.
+ * @param drain HP drain (if positive) or Recoil damage (if negative), in percent of damage done.
+ * @param healing The amount of hp gained by the attacking Pokemon, in percent of it's maximum HP.
+ * @param critRate Critical hit rate bonus.
+ * @param ailmentChance The likelihood this attack will cause an ailment.
+ * @param flinchChance The likelihood this attack will cause the target Pokémon to flinch.
+ * @param statChance The likelihood this attack will cause a stat change in the target Pokémon.
  */
 
 
 data class MoveMeta (
 
+    /* The status ailment this move inflicts on its target. */
     @Json(name = "ailment")
     val ailment: MoveMetaAilmentSummary,
 
+    /* The category of move this move falls under, e.g. damage or ailment. */
     @Json(name = "category")
     val category: MoveMetaCategorySummary,
 
+    /* The minimum number of times this move hits. Null if it always only hits once. */
     @Json(name = "min_hits")
     val minHits: kotlin.Int? = null,
 
+    /* The maximum number of times this move hits. Null if it always only hits once. */
     @Json(name = "max_hits")
     val maxHits: kotlin.Int? = null,
 
+    /* The minimum number of turns this move continues to take effect. Null if it always only lasts one turn. */
     @Json(name = "min_turns")
     val minTurns: kotlin.Int? = null,
 
+    /* The maximum number of turns this move continues to take effect. Null if it always only lasts one turn. */
     @Json(name = "max_turns")
     val maxTurns: kotlin.Int? = null,
 
+    /* HP drain (if positive) or Recoil damage (if negative), in percent of damage done. */
     @Json(name = "drain")
     val drain: kotlin.Int? = null,
 
+    /* The amount of hp gained by the attacking Pokemon, in percent of it's maximum HP. */
     @Json(name = "healing")
     val healing: kotlin.Int? = null,
 
+    /* Critical hit rate bonus. */
     @Json(name = "crit_rate")
     val critRate: kotlin.Int? = null,
 
+    /* The likelihood this attack will cause an ailment. */
     @Json(name = "ailment_chance")
     val ailmentChance: kotlin.Int? = null,
 
+    /* The likelihood this attack will cause the target Pokémon to flinch. */
     @Json(name = "flinch_chance")
     val flinchChance: kotlin.Int? = null,
 
+    /* The likelihood this attack will cause a stat change in the target Pokémon. */
     @Json(name = "stat_chance")
     val statChance: kotlin.Int? = null
 

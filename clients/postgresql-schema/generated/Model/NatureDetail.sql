@@ -9,17 +9,17 @@
 --
 -- SELECT template for table 'nature_detail'
 --
-SELECT "id", "name", decreased_stat, increased_stat, likes_flavor, hates_flavor, berries, pokeathlon_stat_changes, move_battle_style_preferences, "names" FROM nature_detail WHERE 1=1;
+SELECT "id", "name", decreased_stat, increased_stat, likes_flavor, hates_flavor, pokeathlon_stat_changes, move_battle_style_preferences, "names" FROM nature_detail WHERE 1=1;
 
 --
 -- INSERT template for table 'nature_detail'
 --
-INSERT INTO nature_detail ("id", "name", decreased_stat, increased_stat, likes_flavor, hates_flavor, berries, pokeathlon_stat_changes, move_battle_style_preferences, "names") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+INSERT INTO nature_detail ("id", "name", decreased_stat, increased_stat, likes_flavor, hates_flavor, pokeathlon_stat_changes, move_battle_style_preferences, "names") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);
 
 --
 -- UPDATE template for table 'nature_detail'
 --
-UPDATE nature_detail SET "id" = ?, "name" = ?, decreased_stat = ?, increased_stat = ?, likes_flavor = ?, hates_flavor = ?, berries = ?, pokeathlon_stat_changes = ?, move_battle_style_preferences = ?, "names" = ? WHERE 1=2;
+UPDATE nature_detail SET "id" = ?, "name" = ?, decreased_stat = ?, increased_stat = ?, likes_flavor = ?, hates_flavor = ?, pokeathlon_stat_changes = ?, move_battle_style_preferences = ?, "names" = ? WHERE 1=2;
 
 --
 -- DELETE template for table 'nature_detail'

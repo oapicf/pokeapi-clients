@@ -10,7 +10,7 @@ import javax.validation.Valid;
 /**
  * AbilityEffectText
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-10-25T05:48:13.486809836Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-11-09T13:49:31.462302702Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class AbilityEffectText   {
   @JsonProperty("effect")
@@ -37,7 +37,7 @@ public class AbilityEffectText   {
   }
 
    /**
-   * Get effect
+   * The localized effect text for an API resource in a specific language.
    * @return effect
   **/
   public String getEffect() {
@@ -54,7 +54,7 @@ public class AbilityEffectText   {
   }
 
    /**
-   * Get shortEffect
+   * The localized effect text in brief.
    * @return shortEffect
   **/
   public String getShortEffect() {
@@ -71,7 +71,7 @@ public class AbilityEffectText   {
   }
 
    /**
-   * Get language
+   * The language this effect is in.
    * @return language
   **/
   public LanguageSummary getLanguage() {

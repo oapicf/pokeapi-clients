@@ -89,12 +89,12 @@ GenderDetail::fromJson(char* jsonStr)
 		{
 			JsonArray* arr = json_node_get_array(node);
 			JsonNode*  temp_json;
-			list<GenderDetail_pokemon_species_details_inner> new_list;
-			GenderDetail_pokemon_species_details_inner inst;
+			list<GenderPokemonSpecies> new_list;
+			GenderPokemonSpecies inst;
 			for (guint i=0;i<json_array_get_length(arr);i++) {
 				temp_json = json_array_get_element(arr,i);
-				if (isprimitive("GenderDetail_pokemon_species_details_inner")) {
-					jsonToValue(&inst, temp_json, "GenderDetail_pokemon_species_details_inner", "");
+				if (isprimitive("GenderPokemonSpecies")) {
+					jsonToValue(&inst, temp_json, "GenderPokemonSpecies", "");
 				} else {
 					
 					inst.fromJson(json_to_string(temp_json, false));
@@ -113,12 +113,12 @@ GenderDetail::fromJson(char* jsonStr)
 		{
 			JsonArray* arr = json_node_get_array(node);
 			JsonNode*  temp_json;
-			list<AbilityDetail_pokemon_inner_pokemon> new_list;
-			AbilityDetail_pokemon_inner_pokemon inst;
+			list<PokemonSpeciesSummary> new_list;
+			PokemonSpeciesSummary inst;
 			for (guint i=0;i<json_array_get_length(arr);i++) {
 				temp_json = json_array_get_element(arr,i);
-				if (isprimitive("AbilityDetail_pokemon_inner_pokemon")) {
-					jsonToValue(&inst, temp_json, "AbilityDetail_pokemon_inner_pokemon", "");
+				if (isprimitive("PokemonSpeciesSummary")) {
+					jsonToValue(&inst, temp_json, "PokemonSpeciesSummary", "");
 				} else {
 					
 					inst.fromJson(json_to_string(temp_json, false));
@@ -160,18 +160,18 @@ GenderDetail::toJson()
 	}
 	const gchar *nameKey = "name";
 	json_object_set_member(pJsonObject, nameKey, node);
-	if (isprimitive("GenderDetail_pokemon_species_details_inner")) {
-		list<GenderDetail_pokemon_species_details_inner> new_list = static_cast<list <GenderDetail_pokemon_species_details_inner> > (getPokemonSpeciesDetails());
-		node = converttoJson(&new_list, "GenderDetail_pokemon_species_details_inner", "array");
+	if (isprimitive("GenderPokemonSpecies")) {
+		list<GenderPokemonSpecies> new_list = static_cast<list <GenderPokemonSpecies> > (getPokemonSpeciesDetails());
+		node = converttoJson(&new_list, "GenderPokemonSpecies", "array");
 	} else {
 		node = json_node_alloc();
-		list<GenderDetail_pokemon_species_details_inner> new_list = static_cast<list <GenderDetail_pokemon_species_details_inner> > (getPokemonSpeciesDetails());
+		list<GenderPokemonSpecies> new_list = static_cast<list <GenderPokemonSpecies> > (getPokemonSpeciesDetails());
 		JsonArray* json_array = json_array_new();
 		GError *mygerror;
 		
-		for (list<GenderDetail_pokemon_species_details_inner>::iterator it = new_list.begin(); it != new_list.end(); it++) {
+		for (list<GenderPokemonSpecies>::iterator it = new_list.begin(); it != new_list.end(); it++) {
 			mygerror = NULL;
-			GenderDetail_pokemon_species_details_inner obj = *it;
+			GenderPokemonSpecies obj = *it;
 			JsonNode *node_temp = json_from_string(obj.toJson(), &mygerror);
 			json_array_add_element(json_array, node_temp);
 			g_clear_error(&mygerror);
@@ -185,18 +185,18 @@ GenderDetail::toJson()
 	
 	const gchar *pokemon_species_detailsKey = "pokemon_species_details";
 	json_object_set_member(pJsonObject, pokemon_species_detailsKey, node);
-	if (isprimitive("AbilityDetail_pokemon_inner_pokemon")) {
-		list<AbilityDetail_pokemon_inner_pokemon> new_list = static_cast<list <AbilityDetail_pokemon_inner_pokemon> > (getRequiredForEvolution());
-		node = converttoJson(&new_list, "AbilityDetail_pokemon_inner_pokemon", "array");
+	if (isprimitive("PokemonSpeciesSummary")) {
+		list<PokemonSpeciesSummary> new_list = static_cast<list <PokemonSpeciesSummary> > (getRequiredForEvolution());
+		node = converttoJson(&new_list, "PokemonSpeciesSummary", "array");
 	} else {
 		node = json_node_alloc();
-		list<AbilityDetail_pokemon_inner_pokemon> new_list = static_cast<list <AbilityDetail_pokemon_inner_pokemon> > (getRequiredForEvolution());
+		list<PokemonSpeciesSummary> new_list = static_cast<list <PokemonSpeciesSummary> > (getRequiredForEvolution());
 		JsonArray* json_array = json_array_new();
 		GError *mygerror;
 		
-		for (list<AbilityDetail_pokemon_inner_pokemon>::iterator it = new_list.begin(); it != new_list.end(); it++) {
+		for (list<PokemonSpeciesSummary>::iterator it = new_list.begin(); it != new_list.end(); it++) {
 			mygerror = NULL;
-			AbilityDetail_pokemon_inner_pokemon obj = *it;
+			PokemonSpeciesSummary obj = *it;
 			JsonNode *node_temp = json_from_string(obj.toJson(), &mygerror);
 			json_array_add_element(json_array, node_temp);
 			g_clear_error(&mygerror);
@@ -242,26 +242,26 @@ GenderDetail::setName(std::string  name)
 	this->name = name;
 }
 
-std::list<GenderDetail_pokemon_species_details_inner>
+std::list<GenderPokemonSpecies>
 GenderDetail::getPokemonSpeciesDetails()
 {
 	return pokemon_species_details;
 }
 
 void
-GenderDetail::setPokemonSpeciesDetails(std::list <GenderDetail_pokemon_species_details_inner> pokemon_species_details)
+GenderDetail::setPokemonSpeciesDetails(std::list <GenderPokemonSpecies> pokemon_species_details)
 {
 	this->pokemon_species_details = pokemon_species_details;
 }
 
-std::list<AbilityDetail_pokemon_inner_pokemon>
+std::list<PokemonSpeciesSummary>
 GenderDetail::getRequiredForEvolution()
 {
 	return required_for_evolution;
 }
 
 void
-GenderDetail::setRequiredForEvolution(std::list <AbilityDetail_pokemon_inner_pokemon> required_for_evolution)
+GenderDetail::setRequiredForEvolution(std::list <PokemonSpeciesSummary> required_for_evolution)
 {
 	this->required_for_evolution = required_for_evolution;
 }

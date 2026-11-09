@@ -19,7 +19,7 @@ import org.openapitools.model.VersionGroupSummary;
 /**
  * GenerationDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-10-25T05:48:05.787850114Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-11-09T13:49:25.341948748Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class GenerationDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -49,10 +49,10 @@ public class GenerationDetail   {
   private List<@Valid VersionGroupSummary> versionGroups = new ArrayList<>();
 
    /**
-   * Get id
+   * The identifier for this resource.
    * @return id
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   public Integer getId() {
     return id;
   }
@@ -63,10 +63,10 @@ public class GenerationDetail   {
   }
 
    /**
-   * Get name
+   * The name for this resource.
    * @return name
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   public String getName() {
     return name;
   }
@@ -76,10 +76,10 @@ public class GenerationDetail   {
   }
 
    /**
-   * Get abilities
+   * A list of abilities that were introduced in this generation.
    * @return abilities
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of abilities that were introduced in this generation.")
   public List<@Valid AbilitySummary> getAbilities() {
     return abilities;
   }
@@ -90,10 +90,10 @@ public class GenerationDetail   {
   }
 
    /**
-   * Get mainRegion
+   * The main region travelled in this generation.
    * @return mainRegion
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The main region travelled in this generation.")
   public RegionSummary getMainRegion() {
     return mainRegion;
   }
@@ -103,46 +103,46 @@ public class GenerationDetail   {
   }
 
    /**
-   * Get moves
+   * A list of moves that were introduced in this generation.
    * @return moves
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of moves that were introduced in this generation.")
   public List<@Valid MoveSummary> getMoves() {
     return moves;
   }
 
    /**
-   * Get names
+   * The name of this resource listed in different languages.
    * @return names
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
   public List<@Valid GenerationName> getNames() {
     return names;
   }
 
    /**
-   * Get pokemonSpecies
+   * A list of Pokémon species that were introduced in this generation.
    * @return pokemonSpecies
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of Pokémon species that were introduced in this generation.")
   public List<@Valid PokemonSpeciesSummary> getPokemonSpecies() {
     return pokemonSpecies;
   }
 
    /**
-   * Get types
+   * A list of types that were introduced in this generation.
    * @return types
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of types that were introduced in this generation.")
   public List<@Valid TypeSummary> getTypes() {
     return types;
   }
 
    /**
-   * Get versionGroups
+   * A list of version groups that were introduced in this generation.
    * @return versionGroups
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of version groups that were introduced in this generation.")
   public List<@Valid VersionGroupSummary> getVersionGroups() {
     return versionGroups;
   }

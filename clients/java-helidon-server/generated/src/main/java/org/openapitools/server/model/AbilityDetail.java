@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.server.model.AbilityChange;
-import org.openapitools.server.model.AbilityDetailPokemonInner;
 import org.openapitools.server.model.AbilityEffectText;
 import org.openapitools.server.model.AbilityFlavorText;
 import org.openapitools.server.model.AbilityName;
+import org.openapitools.server.model.AbilityPokemonDetail;
 import org.openapitools.server.model.GenerationSummary;
 import jakarta.validation.constraints.*;
 import jakarta.validation.Valid;
@@ -24,7 +24,7 @@ public class AbilityDetail   {
     private List<@Valid AbilityEffectText> effectEntries = new ArrayList<>();
     private List<@Valid AbilityChange> effectChanges = new ArrayList<>();
     private List<@Valid AbilityFlavorText> flavorTextEntries = new ArrayList<>();
-    private List<@Valid AbilityDetailPokemonInner> pokemon = new ArrayList<>();
+    private List<@Valid AbilityPokemonDetail> pokemon = new ArrayList<>();
 
     /**
      * Default constructor.
@@ -36,15 +36,15 @@ public class AbilityDetail   {
     /**
      * Create AbilityDetail.
      *
-     * @param id id
-     * @param name name
-     * @param isMainSeries isMainSeries
-     * @param generation generation
-     * @param names names
-     * @param effectEntries effectEntries
-     * @param effectChanges effectChanges
-     * @param flavorTextEntries flavorTextEntries
-     * @param pokemon pokemon
+     * @param id The identifier for this resource.
+     * @param name The name for this resource.
+     * @param isMainSeries Whether or not this ability originated in the main series of the video games.
+     * @param generation The generation this ability originated in.
+     * @param names The name of this resource listed in different languages.
+     * @param effectEntries The effect of this ability listed in different languages.
+     * @param effectChanges The list of previous effects this ability has had across version groups.
+     * @param flavorTextEntries The flavor text of this ability listed in different languages.
+     * @param pokemon A list of Pokémon that could potentially have this ability.
      */
     public AbilityDetail(
         Integer id, 
@@ -55,7 +55,7 @@ public class AbilityDetail   {
         List<@Valid AbilityEffectText> effectEntries, 
         List<@Valid AbilityChange> effectChanges, 
         List<@Valid AbilityFlavorText> flavorTextEntries, 
-        List<@Valid AbilityDetailPokemonInner> pokemon
+        List<@Valid AbilityPokemonDetail> pokemon
     ) {
         this.id = id;
         this.name = name;
@@ -71,7 +71,7 @@ public class AbilityDetail   {
 
 
     /**
-     * Get id
+     * The identifier for this resource.
      * @return id
      */
     public Integer getId() {
@@ -83,7 +83,7 @@ public class AbilityDetail   {
     }
 
     /**
-     * Get name
+     * The name for this resource.
      * @return name
      */
     public String getName() {
@@ -95,7 +95,7 @@ public class AbilityDetail   {
     }
 
     /**
-     * Get isMainSeries
+     * Whether or not this ability originated in the main series of the video games.
      * @return isMainSeries
      */
     public Boolean getIsMainSeries() {
@@ -107,7 +107,7 @@ public class AbilityDetail   {
     }
 
     /**
-     * Get generation
+     * The generation this ability originated in.
      * @return generation
      */
     public GenerationSummary getGeneration() {
@@ -119,7 +119,7 @@ public class AbilityDetail   {
     }
 
     /**
-     * Get names
+     * The name of this resource listed in different languages.
      * @return names
      */
     public List<@Valid AbilityName> getNames() {
@@ -131,7 +131,7 @@ public class AbilityDetail   {
     }
 
     /**
-     * Get effectEntries
+     * The effect of this ability listed in different languages.
      * @return effectEntries
      */
     public List<@Valid AbilityEffectText> getEffectEntries() {
@@ -143,7 +143,7 @@ public class AbilityDetail   {
     }
 
     /**
-     * Get effectChanges
+     * The list of previous effects this ability has had across version groups.
      * @return effectChanges
      */
     public List<@Valid AbilityChange> getEffectChanges() {
@@ -155,7 +155,7 @@ public class AbilityDetail   {
     }
 
     /**
-     * Get flavorTextEntries
+     * The flavor text of this ability listed in different languages.
      * @return flavorTextEntries
      */
     public List<@Valid AbilityFlavorText> getFlavorTextEntries() {
@@ -167,14 +167,14 @@ public class AbilityDetail   {
     }
 
     /**
-     * Get pokemon
+     * A list of Pokémon that could potentially have this ability.
      * @return pokemon
      */
-    public List<@Valid AbilityDetailPokemonInner> getPokemon() {
+    public List<@Valid AbilityPokemonDetail> getPokemon() {
         return pokemon;
     }
 
-    public void setPokemon(List<@Valid AbilityDetailPokemonInner> pokemon) {
+    public void setPokemon(List<@Valid AbilityPokemonDetail> pokemon) {
         this.pokemon = pokemon;
     }
 

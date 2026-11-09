@@ -15,25 +15,30 @@ part 'move_damage_class_detail.g.dart';
 /// MoveDamageClassDetail
 ///
 /// Properties:
-/// * [id] 
-/// * [name] 
-/// * [descriptions] 
-/// * [moves] 
-/// * [names] 
+/// * [id] - The identifier for this resource.
+/// * [name] - The name for this resource.
+/// * [descriptions] - The description of this resource listed in different languages.
+/// * [moves] - A list of moves that fall into this damage class.
+/// * [names] - The name of this resource listed in different languages.
 @BuiltValue()
 abstract class MoveDamageClassDetail implements Built<MoveDamageClassDetail, MoveDamageClassDetailBuilder> {
+  /// The identifier for this resource.
   @BuiltValueField(wireName: r'id')
   int get id;
 
+  /// The name for this resource.
   @BuiltValueField(wireName: r'name')
   String get name;
 
+  /// The description of this resource listed in different languages.
   @BuiltValueField(wireName: r'descriptions')
   BuiltList<MoveDamageClassDescription> get descriptions;
 
+  /// A list of moves that fall into this damage class.
   @BuiltValueField(wireName: r'moves')
   BuiltList<MoveSummary> get moves;
 
+  /// The name of this resource listed in different languages.
   @BuiltValueField(wireName: r'names')
   BuiltList<MoveDamageClassName> get names;
 

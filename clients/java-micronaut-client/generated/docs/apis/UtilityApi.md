@@ -6,6 +6,7 @@ All URIs are relative to *https://pokeapi.co*
 |------------- | ------------- | -------------|
 | [**languageList**](UtilityApi.md#languageList) | **GET** /api/v2/language/ | List languages |
 | [**languageRetrieve**](UtilityApi.md#languageRetrieve) | **GET** /api/v2/language/{id}/ | Get language |
+| [**metaRetrieve**](UtilityApi.md#metaRetrieve) | **GET** /api/v2/meta/ | Get API metadata |
 
 
 ## Creating UtilityApi
@@ -57,9 +58,7 @@ Languages for translations of API resource information.
 ### Return type
 [**PaginatedLanguageSummaryList**](PaginatedLanguageSummaryList.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -84,9 +83,28 @@ Languages for translations of API resource information.
 ### Return type
 [**LanguageDetail**](LanguageDetail.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
+
+### HTTP request headers
+ - **Content-Type**: Not defined
+ - **Accept**: `application/json`
+
+<a id="metaRetrieve"></a>
+# **metaRetrieve**
+```java
+Mono<PokeapiMetaResponse> UtilityApi.metaRetrieve()
+```
+
+Get API metadata
+
+Returns metadata about the current deployed version of the API, including the git commit hash, deploy date, and tag (if any).
+
+
+
+### Return type
+[**PokeapiMetaResponse**](PokeapiMetaResponse.md)
+
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined

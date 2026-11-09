@@ -57,6 +57,7 @@ class ItemFlavorText(Model):
     def text(self) -> str:
         """Gets the text of this ItemFlavorText.
 
+        The localized flavor text for an API resource in a specific language.  # noqa: E501
 
         :return: The text of this ItemFlavorText.
         :rtype: str
@@ -67,6 +68,7 @@ class ItemFlavorText(Model):
     def text(self, text: str):
         """Sets the text of this ItemFlavorText.
 
+        The localized flavor text for an API resource in a specific language.  # noqa: E501
 
         :param text: The text of this ItemFlavorText.
         :type text: str
@@ -80,6 +82,7 @@ class ItemFlavorText(Model):
     def version_group(self) -> VersionGroupSummary:
         """Gets the version_group of this ItemFlavorText.
 
+        The version group which uses this flavor text.  # noqa: E501
 
         :return: The version_group of this ItemFlavorText.
         :rtype: VersionGroupSummary
@@ -90,6 +93,7 @@ class ItemFlavorText(Model):
     def version_group(self, version_group: VersionGroupSummary):
         """Sets the version_group of this ItemFlavorText.
 
+        The version group which uses this flavor text.  # noqa: E501
 
         :param version_group: The version_group of this ItemFlavorText.
         :type version_group: VersionGroupSummary
@@ -103,6 +107,7 @@ class ItemFlavorText(Model):
     def language(self) -> LanguageSummary:
         """Gets the language of this ItemFlavorText.
 
+        The language this name is in.  # noqa: E501
 
         :return: The language of this ItemFlavorText.
         :rtype: LanguageSummary
@@ -113,6 +118,7 @@ class ItemFlavorText(Model):
     def language(self, language: LanguageSummary):
         """Sets the language of this ItemFlavorText.
 
+        The language this name is in.  # noqa: E501
 
         :param language: The language of this ItemFlavorText.
         :type language: LanguageSummary

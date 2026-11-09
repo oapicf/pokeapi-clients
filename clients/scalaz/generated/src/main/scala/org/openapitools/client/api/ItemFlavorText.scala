@@ -12,9 +12,12 @@ import org.joda.time.DateTime
 import ItemFlavorText._
 
 case class ItemFlavorText (
+  /* The localized flavor text for an API resource in a specific language. */
   text: String,
-versionGroup: VersionGroupSummary,
-language: LanguageSummary)
+/* The version group which uses this flavor text. */
+  versionGroup: VersionGroupSummary,
+/* The language this name is in. */
+  language: LanguageSummary)
 
 object ItemFlavorText {
   import DateTimeCodecs._

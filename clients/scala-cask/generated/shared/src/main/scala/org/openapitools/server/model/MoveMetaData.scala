@@ -1,8 +1,8 @@
 /**
  * PokéAPI
- * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+ * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
  *
- * OpenAPI spec version: 2.7.0
+ * OpenAPI spec version: 2.10.0
  *
  * Contact: blah+oapicf@cliffano.com
  *
@@ -25,17 +25,29 @@ import upickle.default.*
   * It has no validation - there may be nulls, values out of range, etc
   */
 case class MoveMetaData(
+/* The status ailment this move inflicts on its target. */
   ailment: MoveMetaAilmentSummaryData,
+/* The category of move this move falls under, e.g. damage or ailment. */
   category: MoveMetaCategorySummaryData,
+/* The minimum number of times this move hits. Null if it always only hits once. */
   minHits: Int = 0 ,
+/* The maximum number of times this move hits. Null if it always only hits once. */
   maxHits: Int = 0 ,
+/* The minimum number of turns this move continues to take effect. Null if it always only lasts one turn. */
   minTurns: Int = 0 ,
+/* The maximum number of turns this move continues to take effect. Null if it always only lasts one turn. */
   maxTurns: Int = 0 ,
+/* HP drain (if positive) or Recoil damage (if negative), in percent of damage done. */
   drain: Int = 0 ,
+/* The amount of hp gained by the attacking Pokemon, in percent of it's maximum HP. */
   healing: Int = 0 ,
+/* Critical hit rate bonus. */
   critRate: Int = 0 ,
+/* The likelihood this attack will cause an ailment. */
   ailmentChance: Int = 0 ,
+/* The likelihood this attack will cause the target Pokémon to flinch. */
   flinchChance: Int = 0 ,
+/* The likelihood this attack will cause a stat change in the target Pokémon. */
   statChance: Int = 0 
   
 
@@ -83,60 +95,160 @@ case class MoveMetaData(
         }
 
         // ================== minHits validation ==================
+        // validate against minimum -2147483648
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if !(minHits >= -2147483648) then
+            _allValidationErrors += ValidationError(path :+ MoveMeta.Fields.minHits, s"value '$minHits' is not greater than the minimum value -2147483648")
+        }
+        // validate against maximum 2147483647
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if !(minHits <= 2147483647) then
+            _allValidationErrors += ValidationError(path :+ MoveMeta.Fields.minHits, s"value '$minHits' is not greater than the maximum value 2147483647")
+        }
         
         
         
         
 
         // ================== maxHits validation ==================
+        // validate against minimum -2147483648
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if !(maxHits >= -2147483648) then
+            _allValidationErrors += ValidationError(path :+ MoveMeta.Fields.maxHits, s"value '$maxHits' is not greater than the minimum value -2147483648")
+        }
+        // validate against maximum 2147483647
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if !(maxHits <= 2147483647) then
+            _allValidationErrors += ValidationError(path :+ MoveMeta.Fields.maxHits, s"value '$maxHits' is not greater than the maximum value 2147483647")
+        }
         
         
         
         
 
         // ================== minTurns validation ==================
+        // validate against minimum -2147483648
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if !(minTurns >= -2147483648) then
+            _allValidationErrors += ValidationError(path :+ MoveMeta.Fields.minTurns, s"value '$minTurns' is not greater than the minimum value -2147483648")
+        }
+        // validate against maximum 2147483647
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if !(minTurns <= 2147483647) then
+            _allValidationErrors += ValidationError(path :+ MoveMeta.Fields.minTurns, s"value '$minTurns' is not greater than the maximum value 2147483647")
+        }
         
         
         
         
 
         // ================== maxTurns validation ==================
+        // validate against minimum -2147483648
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if !(maxTurns >= -2147483648) then
+            _allValidationErrors += ValidationError(path :+ MoveMeta.Fields.maxTurns, s"value '$maxTurns' is not greater than the minimum value -2147483648")
+        }
+        // validate against maximum 2147483647
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if !(maxTurns <= 2147483647) then
+            _allValidationErrors += ValidationError(path :+ MoveMeta.Fields.maxTurns, s"value '$maxTurns' is not greater than the maximum value 2147483647")
+        }
         
         
         
         
 
         // ================== drain validation ==================
+        // validate against minimum -2147483648
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if !(drain >= -2147483648) then
+            _allValidationErrors += ValidationError(path :+ MoveMeta.Fields.drain, s"value '$drain' is not greater than the minimum value -2147483648")
+        }
+        // validate against maximum 2147483647
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if !(drain <= 2147483647) then
+            _allValidationErrors += ValidationError(path :+ MoveMeta.Fields.drain, s"value '$drain' is not greater than the maximum value 2147483647")
+        }
         
         
         
         
 
         // ================== healing validation ==================
+        // validate against minimum -2147483648
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if !(healing >= -2147483648) then
+            _allValidationErrors += ValidationError(path :+ MoveMeta.Fields.healing, s"value '$healing' is not greater than the minimum value -2147483648")
+        }
+        // validate against maximum 2147483647
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if !(healing <= 2147483647) then
+            _allValidationErrors += ValidationError(path :+ MoveMeta.Fields.healing, s"value '$healing' is not greater than the maximum value 2147483647")
+        }
         
         
         
         
 
         // ================== critRate validation ==================
+        // validate against minimum -2147483648
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if !(critRate >= -2147483648) then
+            _allValidationErrors += ValidationError(path :+ MoveMeta.Fields.critRate, s"value '$critRate' is not greater than the minimum value -2147483648")
+        }
+        // validate against maximum 2147483647
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if !(critRate <= 2147483647) then
+            _allValidationErrors += ValidationError(path :+ MoveMeta.Fields.critRate, s"value '$critRate' is not greater than the maximum value 2147483647")
+        }
         
         
         
         
 
         // ================== ailmentChance validation ==================
+        // validate against minimum -2147483648
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if !(ailmentChance >= -2147483648) then
+            _allValidationErrors += ValidationError(path :+ MoveMeta.Fields.ailmentChance, s"value '$ailmentChance' is not greater than the minimum value -2147483648")
+        }
+        // validate against maximum 2147483647
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if !(ailmentChance <= 2147483647) then
+            _allValidationErrors += ValidationError(path :+ MoveMeta.Fields.ailmentChance, s"value '$ailmentChance' is not greater than the maximum value 2147483647")
+        }
         
         
         
         
 
         // ================== flinchChance validation ==================
+        // validate against minimum -2147483648
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if !(flinchChance >= -2147483648) then
+            _allValidationErrors += ValidationError(path :+ MoveMeta.Fields.flinchChance, s"value '$flinchChance' is not greater than the minimum value -2147483648")
+        }
+        // validate against maximum 2147483647
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if !(flinchChance <= 2147483647) then
+            _allValidationErrors += ValidationError(path :+ MoveMeta.Fields.flinchChance, s"value '$flinchChance' is not greater than the maximum value 2147483647")
+        }
         
         
         
         
 
         // ================== statChance validation ==================
+        // validate against minimum -2147483648
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if !(statChance >= -2147483648) then
+            _allValidationErrors += ValidationError(path :+ MoveMeta.Fields.statChance, s"value '$statChance' is not greater than the minimum value -2147483648")
+        }
+        // validate against maximum 2147483647
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if !(statChance <= 2147483647) then
+            _allValidationErrors += ValidationError(path :+ MoveMeta.Fields.statChance, s"value '$statChance' is not greater than the maximum value 2147483647")
+        }
         
         
         

@@ -98,7 +98,7 @@ func language_list_threaded(
 #
 # Languages for translations of API resource information.
 func language_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -138,7 +138,7 @@ func language_retrieve(
 
 
 func language_retrieve_threaded(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -148,6 +148,61 @@ func language_retrieve_threaded(
 	var bzz_callable := Callable(self, "language_retrieve")
 	bzz_callable.bind(
 		id,
+		on_success,
+		on_failure,
+	)
+	bzz_thread.start(bzz_callable)
+	return bzz_thread
+
+
+# Operation metaRetrieve → GET /api/v2/meta/
+# Get API metadata
+#
+# Returns metadata about the current deployed version of the API, including the git commit hash, deploy date, and tag (if any).
+func meta_retrieve(
+	on_success: Callable = Callable(),  # func(response: ApiResponse)
+	on_failure: Callable = Callable(),  # func(error: ApiError)
+):
+
+	# Convert the String HTTP method to a Constant Godot understands
+	var bzz_method := self._bzz_convert_http_method("GET")
+
+	# Compute the URL path to the API resource
+	var bzz_path := "/api/v2/meta/"
+
+	# Collect the headers
+	var bzz_headers := Dictionary()
+	var bzz_mimes_produced_by_server := ['application/json']
+	for bzz_mime in BZZ_CONSUMABLE_CONTENT_TYPES:
+		if bzz_mime in bzz_mimes_produced_by_server:
+			bzz_headers["Accept"] = bzz_mime
+			break
+
+	# Collect the query parameters
+	# Note: we do not support multiple values for a single param (for now), nor arrays
+	var bzz_query := Dictionary()
+
+	var bzz_body = null
+
+	self._bzz_request(
+		bzz_method, bzz_path, bzz_headers, bzz_query, bzz_body,
+		func(bzz_response):
+			bzz_response.data = PokeapiMetaResponse.bzz_denormalize_single(bzz_response.data)
+			on_success.call(bzz_response)
+			,
+		func(bzz_error):
+			on_failure.call(bzz_error)
+			,  # ざわ‥
+	)
+
+
+func meta_retrieve_threaded(
+	on_success: Callable = Callable(),  # func(response: ApiResponse)
+	on_failure: Callable = Callable(),  # func(error: ApiError)
+) -> Thread:
+	var bzz_thread := Thread.new()
+	var bzz_callable := Callable(self, "meta_retrieve")
+	bzz_callable.bind(
 		on_success,
 		on_failure,
 	)

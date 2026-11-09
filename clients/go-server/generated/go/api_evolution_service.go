@@ -3,9 +3,9 @@
 /*
  * PokéAPI
  *
- * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+ * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
  *
- * API version: 2.7.0
+ * API version: 2.10.0
  * Contact: blah+oapicf@cliffano.com
  */
 
@@ -29,7 +29,7 @@ func NewEvolutionAPIService() *EvolutionAPIService {
 }
 
 // EvolutionChainList - List evolution chains
-func (s *EvolutionAPIService) EvolutionChainList(ctx context.Context, limit int32, offset int32, q string) (ImplResponse, error) {
+func (s *EvolutionAPIService) EvolutionChainList(ctx context.Context, limit int32, offset int32) (ImplResponse, error) {
 	// TODO - update EvolutionChainList with the required logic for this service method.
 	// Add api_evolution_service.go to the .openapi-generator-ignore to avoid overwriting this service implementation when updating open api generation.
 
@@ -70,4 +70,26 @@ func (s *EvolutionAPIService) EvolutionTriggerRetrieve(ctx context.Context, id s
 	// return Response(200, EvolutionTriggerDetail{}), nil
 
 	return Response(http.StatusNotImplemented, nil), errors.New("EvolutionTriggerRetrieve method not implemented")
+}
+
+// EvolutionVariableList - List evolution variables
+func (s *EvolutionAPIService) EvolutionVariableList(ctx context.Context, limit int32, offset int32, q string) (ImplResponse, error) {
+	// TODO - update EvolutionVariableList with the required logic for this service method.
+	// Add api_evolution_service.go to the .openapi-generator-ignore to avoid overwriting this service implementation when updating open api generation.
+
+	// TODO: Uncomment the next line to return response Response(200, PaginatedEvolutionVariableSummaryList{}) or use other options such as http.Ok ...
+	// return Response(200, PaginatedEvolutionVariableSummaryList{}), nil
+
+	return Response(http.StatusNotImplemented, nil), errors.New("EvolutionVariableList method not implemented")
+}
+
+// EvolutionVariableRetrieve - Get evolution variable
+func (s *EvolutionAPIService) EvolutionVariableRetrieve(ctx context.Context, id string) (ImplResponse, error) {
+	// TODO - update EvolutionVariableRetrieve with the required logic for this service method.
+	// Add api_evolution_service.go to the .openapi-generator-ignore to avoid overwriting this service implementation when updating open api generation.
+
+	// TODO: Uncomment the next line to return response Response(200, EvolutionVariableDetail{}) or use other options such as http.Ok ...
+	// return Response(200, EvolutionVariableDetail{}), nil
+
+	return Response(http.StatusNotImplemented, nil), errors.New("EvolutionVariableRetrieve method not implemented")
 }

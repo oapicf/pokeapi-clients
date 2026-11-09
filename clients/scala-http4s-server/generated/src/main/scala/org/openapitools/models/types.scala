@@ -13,12 +13,11 @@ import eu.timepit.refined.collection.MaxSize
 import eu.timepit.refined.numeric.GreaterEqual
 import eu.timepit.refined.numeric.LessEqual
 import java.net.URI
-import scala.collection.immutable.HashMap
 
 /**
 * 
-* @param versionUnderscoregroup 
-* @param effectUnderscoreentries 
+* @param versionUnderscoregroup The version group in which the previous effect of this ability originated.
+* @param effectUnderscoreentries The previous effect of this ability listed in different languages.
 */
 
 case class AbilityChange(
@@ -32,8 +31,8 @@ object AbilityChange {
 
 /**
 * 
-* @param effect 
-* @param language 
+* @param effect The localized effect text for an API resource in a specific language.
+* @param language The language this effect is in.
 */
 
 case class AbilityChangeEffectText(
@@ -47,27 +46,27 @@ object AbilityChangeEffectText {
 
 /**
 * 
-* @param id 
-* @param name 
-* @param isUnderscoremainUnderscoreseries 
-* @param generation 
-* @param names 
-* @param effectUnderscoreentries 
-* @param effectUnderscorechanges 
-* @param flavorUnderscoretextUnderscoreentries 
-* @param pokemon 
+* @param id The identifier for this resource.
+* @param name The name for this resource.
+* @param isUnderscoremainUnderscoreseries Whether or not this ability originated in the main series of the video games.
+* @param generation The generation this ability originated in.
+* @param names The name of this resource listed in different languages.
+* @param effectUnderscoreentries The effect of this ability listed in different languages.
+* @param effectUnderscorechanges The list of previous effects this ability has had across version groups.
+* @param flavorUnderscoretextUnderscoreentries The flavor text of this ability listed in different languages.
+* @param pokemon A list of Pokémon that could potentially have this ability.
 */
 
 case class AbilityDetail(
   id: Int,
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   isUnderscoremainUnderscoreseries: Option[Boolean],
   generation: GenerationSummary,
   names: List[AbilityName],
   effectUnderscoreentries: List[AbilityEffectText],
   effectUnderscorechanges: List[AbilityChange],
   flavorUnderscoretextUnderscoreentries: List[AbilityFlavorText],
-  pokemon: List[AbilityDetailPokemonInner]
+  pokemon: List[AbilityPokemonDetail]
 )
 object AbilityDetail {
   implicit val encoderAbilityDetail: Encoder[AbilityDetail] = deriveEncoder[AbilityDetail].mapJson(_.dropNullValues)
@@ -76,41 +75,9 @@ object AbilityDetail {
 
 /**
 * 
-* @param isUnderscorehidden 
-* @param slot 
-* @param pokemon 
-*/
-
-case class AbilityDetailPokemonInner(
-  isUnderscorehidden: Boolean,
-  slot: Int,
-  pokemon: AbilityDetailPokemonInnerPokemon
-)
-object AbilityDetailPokemonInner {
-  implicit val encoderAbilityDetailPokemonInner: Encoder[AbilityDetailPokemonInner] = deriveEncoder[AbilityDetailPokemonInner].mapJson(_.dropNullValues)
-  implicit val decoderAbilityDetailPokemonInner: Decoder[AbilityDetailPokemonInner] = deriveDecoder[AbilityDetailPokemonInner]
-}
-
-/**
-* 
-* @param name 
-* @param url 
-*/
-
-case class AbilityDetailPokemonInnerPokemon(
-  name: String,
-  url: URI
-)
-object AbilityDetailPokemonInnerPokemon {
-  implicit val encoderAbilityDetailPokemonInnerPokemon: Encoder[AbilityDetailPokemonInnerPokemon] = deriveEncoder[AbilityDetailPokemonInnerPokemon].mapJson(_.dropNullValues)
-  implicit val decoderAbilityDetailPokemonInnerPokemon: Decoder[AbilityDetailPokemonInnerPokemon] = deriveDecoder[AbilityDetailPokemonInnerPokemon]
-}
-
-/**
-* 
-* @param effect 
-* @param shortUnderscoreeffect 
-* @param language 
+* @param effect The localized effect text for an API resource in a specific language.
+* @param shortUnderscoreeffect The localized effect text in brief.
+* @param language The language this effect is in.
 */
 
 case class AbilityEffectText(
@@ -125,9 +92,9 @@ object AbilityEffectText {
 
 /**
 * 
-* @param flavorUnderscoretext 
-* @param language 
-* @param versionUnderscoregroup 
+* @param flavorUnderscoretext The localized name for an API resource in a specific language.
+* @param language The language this text resource is in.
+* @param versionUnderscoregroup The version group that uses this flavor text.
 */
 
 case class AbilityFlavorText(
@@ -142,12 +109,12 @@ object AbilityFlavorText {
 
 /**
 * 
-* @param name 
-* @param language 
+* @param name The localized name for an API resource in a specific language.
+* @param language The language this name is in.
 */
 
 case class AbilityName(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   language: LanguageSummary
 )
 object AbilityName {
@@ -157,12 +124,29 @@ object AbilityName {
 
 /**
 * 
-* @param name 
-* @param url 
+* @param isUnderscorehidden Whether or not this a hidden ability for the referenced Pokémon.
+* @param slot Pokémon have 3 ability 'slots' which hold references to possible abilities they could have. This is the slot of this ability for the referenced pokemon.
+* @param pokemon The Pokémon this ability could belong to.
+*/
+
+case class AbilityPokemonDetail(
+  isUnderscorehidden: Option[Boolean],
+  slot: Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]],
+  pokemon: PokemonSummary
+)
+object AbilityPokemonDetail {
+  implicit val encoderAbilityPokemonDetail: Encoder[AbilityPokemonDetail] = deriveEncoder[AbilityPokemonDetail].mapJson(_.dropNullValues)
+  implicit val decoderAbilityPokemonDetail: Decoder[AbilityPokemonDetail] = deriveDecoder[AbilityPokemonDetail]
+}
+
+/**
+* 
+* @param name The name of the referenced resource.
+* @param url The URL of the referenced resource.
 */
 
 case class AbilitySummary(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   url: URI
 )
 object AbilitySummary {
@@ -172,31 +156,31 @@ object AbilitySummary {
 
 /**
 * 
-* @param id 
-* @param name 
-* @param growthUnderscoretime 
-* @param maxUnderscoreharvest 
-* @param naturalUnderscoregiftUnderscorepower 
-* @param size 
-* @param smoothness 
-* @param soilUnderscoredryness 
-* @param firmness 
-* @param flavors 
-* @param item 
-* @param naturalUnderscoregiftUnderscoretype 
+* @param id The identifier for this resource.
+* @param name The name for this resource.
+* @param growthUnderscoretime Time it takes the tree to grow one stage, in hours. Berry trees go through four of these growth stages before they can be picked.
+* @param maxUnderscoreharvest The maximum number of these berries that can grow on one tree in Generation IV.
+* @param naturalUnderscoregiftUnderscorepower The power of the move \"Natural Gift\" when used with this Berry.
+* @param size The size of this Berry, in millimeters.
+* @param smoothness The smoothness of this Berry, used in making Pokéblocks or Poffins.
+* @param soilUnderscoredryness The speed at which this Berry dries out the soil as it grows. A higher rate means the soil dries more quickly.
+* @param firmness The firmness of this berry, used in making Pokéblocks or Poffins.
+* @param flavors A list of references to each flavor a berry can have and the potency of each of those flavors in regard to this berry.
+* @param item Berries are actually items. This is a reference to the item specific data for this berry.
+* @param naturalUnderscoregiftUnderscoretype The type inherited by \"Natural Gift\" when used with this Berry.
 */
 
 case class BerryDetail(
   id: Int,
-  name: Refined[String, MaxSize[100]],
-  growthUnderscoretime: Int,
-  maxUnderscoreharvest: Int,
-  naturalUnderscoregiftUnderscorepower: Int,
-  size: Int,
-  smoothness: Int,
-  soilUnderscoredryness: Int,
+  name: Refined[String, MaxSize[200]],
+  growthUnderscoretime: Option[Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]]],
+  maxUnderscoreharvest: Option[Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]]],
+  naturalUnderscoregiftUnderscorepower: Option[Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]]],
+  size: Option[Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]]],
+  smoothness: Option[Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]]],
+  soilUnderscoredryness: Option[Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]]],
   firmness: BerryFirmnessSummary,
-  flavors: List[BerryDetailFlavorsInner],
+  flavors: List[BerryFlavorMap],
   item: ItemSummary,
   naturalUnderscoregiftUnderscoretype: TypeSummary
 )
@@ -207,45 +191,15 @@ object BerryDetail {
 
 /**
 * 
-* @param potency 
-* @param flavor 
-*/
-
-case class BerryDetailFlavorsInner(
-  potency: Int,
-  flavor: BerryDetailFlavorsInnerFlavor
-)
-object BerryDetailFlavorsInner {
-  implicit val encoderBerryDetailFlavorsInner: Encoder[BerryDetailFlavorsInner] = deriveEncoder[BerryDetailFlavorsInner].mapJson(_.dropNullValues)
-  implicit val decoderBerryDetailFlavorsInner: Decoder[BerryDetailFlavorsInner] = deriveDecoder[BerryDetailFlavorsInner]
-}
-
-/**
-* 
-* @param name The name of the flavor
-* @param url The URL to get more information about the flavor
-*/
-
-case class BerryDetailFlavorsInnerFlavor(
-  name: Option[String],
-  url: Option[URI]
-)
-object BerryDetailFlavorsInnerFlavor {
-  implicit val encoderBerryDetailFlavorsInnerFlavor: Encoder[BerryDetailFlavorsInnerFlavor] = deriveEncoder[BerryDetailFlavorsInnerFlavor].mapJson(_.dropNullValues)
-  implicit val decoderBerryDetailFlavorsInnerFlavor: Decoder[BerryDetailFlavorsInnerFlavor] = deriveDecoder[BerryDetailFlavorsInnerFlavor]
-}
-
-/**
-* 
-* @param id 
-* @param name 
-* @param berries 
-* @param names 
+* @param id The identifier for this resource.
+* @param name The name for this resource.
+* @param berries A list of the berries with this firmness.
+* @param names The name of this resource listed in different languages.
 */
 
 case class BerryFirmnessDetail(
   id: Int,
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   berries: List[BerrySummary],
   names: List[BerryFirmnessName]
 )
@@ -256,12 +210,12 @@ object BerryFirmnessDetail {
 
 /**
 * 
-* @param name 
-* @param language 
+* @param name The localized name for an API resource in a specific language.
+* @param language The language this name is in.
 */
 
 case class BerryFirmnessName(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   language: LanguageSummary
 )
 object BerryFirmnessName {
@@ -271,12 +225,12 @@ object BerryFirmnessName {
 
 /**
 * 
-* @param name 
-* @param url 
+* @param name The name of the referenced resource.
+* @param url The URL of the referenced resource.
 */
 
 case class BerryFirmnessSummary(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   url: URI
 )
 object BerryFirmnessSummary {
@@ -286,17 +240,32 @@ object BerryFirmnessSummary {
 
 /**
 * 
-* @param id 
-* @param name 
-* @param berries 
-* @param contestUnderscoretype 
-* @param names 
+* @param potency How powerful the referenced flavor is for this berry.
+* @param berry The berry with the referenced flavor.
+*/
+
+case class BerryFlavorBerryMap(
+  potency: Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]],
+  berry: BerrySummary
+)
+object BerryFlavorBerryMap {
+  implicit val encoderBerryFlavorBerryMap: Encoder[BerryFlavorBerryMap] = deriveEncoder[BerryFlavorBerryMap].mapJson(_.dropNullValues)
+  implicit val decoderBerryFlavorBerryMap: Decoder[BerryFlavorBerryMap] = deriveDecoder[BerryFlavorBerryMap]
+}
+
+/**
+* 
+* @param id The identifier for this resource.
+* @param name The name for this resource.
+* @param berries A list of the berries with this flavor.
+* @param contestUnderscoretype The contest type that correlates with this berry flavor.
+* @param names The name of this resource listed in different languages.
 */
 
 case class BerryFlavorDetail(
   id: Int,
-  name: Refined[String, MaxSize[100]],
-  berries: List[BerryFlavorDetailBerriesInner],
+  name: Refined[String, MaxSize[200]],
+  berries: List[BerryFlavorBerryMap],
   contestUnderscoretype: ContestTypeSummary,
   names: List[BerryFlavorName]
 )
@@ -307,42 +276,27 @@ object BerryFlavorDetail {
 
 /**
 * 
-* @param potency 
-* @param berry 
+* @param potency How powerful the referenced flavor is for this berry.
+* @param flavor The referenced berry flavor.
 */
 
-case class BerryFlavorDetailBerriesInner(
-  potency: Int,
-  berry: BerryFlavorDetailBerriesInnerBerry
+case class BerryFlavorMap(
+  potency: Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]],
+  flavor: BerryFlavorSummary
 )
-object BerryFlavorDetailBerriesInner {
-  implicit val encoderBerryFlavorDetailBerriesInner: Encoder[BerryFlavorDetailBerriesInner] = deriveEncoder[BerryFlavorDetailBerriesInner].mapJson(_.dropNullValues)
-  implicit val decoderBerryFlavorDetailBerriesInner: Decoder[BerryFlavorDetailBerriesInner] = deriveDecoder[BerryFlavorDetailBerriesInner]
+object BerryFlavorMap {
+  implicit val encoderBerryFlavorMap: Encoder[BerryFlavorMap] = deriveEncoder[BerryFlavorMap].mapJson(_.dropNullValues)
+  implicit val decoderBerryFlavorMap: Decoder[BerryFlavorMap] = deriveDecoder[BerryFlavorMap]
 }
 
 /**
 * 
-* @param name The name of the berry
-* @param url The URL to get more information about the berry
-*/
-
-case class BerryFlavorDetailBerriesInnerBerry(
-  name: Option[String],
-  url: Option[URI]
-)
-object BerryFlavorDetailBerriesInnerBerry {
-  implicit val encoderBerryFlavorDetailBerriesInnerBerry: Encoder[BerryFlavorDetailBerriesInnerBerry] = deriveEncoder[BerryFlavorDetailBerriesInnerBerry].mapJson(_.dropNullValues)
-  implicit val decoderBerryFlavorDetailBerriesInnerBerry: Decoder[BerryFlavorDetailBerriesInnerBerry] = deriveDecoder[BerryFlavorDetailBerriesInnerBerry]
-}
-
-/**
-* 
-* @param name 
-* @param language 
+* @param name The localized name for an API resource in a specific language.
+* @param language The language this name is in.
 */
 
 case class BerryFlavorName(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   language: LanguageSummary
 )
 object BerryFlavorName {
@@ -352,12 +306,12 @@ object BerryFlavorName {
 
 /**
 * 
-* @param name 
-* @param url 
+* @param name The name of the referenced resource.
+* @param url The URL of the referenced resource.
 */
 
 case class BerryFlavorSummary(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   url: URI
 )
 object BerryFlavorSummary {
@@ -367,12 +321,12 @@ object BerryFlavorSummary {
 
 /**
 * 
-* @param name 
-* @param url 
+* @param name The name of the referenced resource.
+* @param url The URL of the referenced resource.
 */
 
 case class BerrySummary(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   url: URI
 )
 object BerrySummary {
@@ -382,12 +336,12 @@ object BerrySummary {
 
 /**
 * 
-* @param description 
-* @param language 
+* @param description The localized description for an API resource in a specific language.
+* @param language The language this name is in.
 */
 
 case class CharacteristicDescription(
-  description: Option[Refined[String, MaxSize[1000]]],
+  description: Option[Refined[String, MaxSize[2000]]],
   language: LanguageSummary
 )
 object CharacteristicDescription {
@@ -397,11 +351,11 @@ object CharacteristicDescription {
 
 /**
 * 
-* @param id 
-* @param geneUnderscoremodulo 
-* @param possibleUnderscorevalues 
-* @param highestUnderscorestat 
-* @param descriptions 
+* @param id The identifier for this resource.
+* @param geneUnderscoremodulo The remainder of the highest stat/IV divided by 5.
+* @param possibleUnderscorevalues The possible values of the highest stat that would result in a Pokémon recieving this characteristic when divided by 5.
+* @param highestUnderscorestat The stat which results in this characteristic.
+* @param descriptions The descriptions of this characteristic listed in different languages.
 */
 
 case class CharacteristicDetail(
@@ -418,7 +372,7 @@ object CharacteristicDetail {
 
 /**
 * 
-* @param url 
+* @param url The URL of the referenced resource.
 */
 
 case class CharacteristicSummary(
@@ -431,17 +385,17 @@ object CharacteristicSummary {
 
 /**
 * 
-* @param id 
-* @param appeal 
-* @param jam 
-* @param effectUnderscoreentries 
-* @param flavorUnderscoretextUnderscoreentries 
+* @param id The identifier for this resource.
+* @param appeal The base number of hearts the user of this move gets.
+* @param jam The base number of hearts the user's opponent loses.
+* @param effectUnderscoreentries The result of this contest effect listed in different languages.
+* @param flavorUnderscoretextUnderscoreentries The flavor text of this contest effect listed in different languages.
 */
 
 case class ContestEffectDetail(
   id: Int,
-  appeal: Int,
-  jam: Int,
+  appeal: Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]],
+  jam: Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]],
   effectUnderscoreentries: List[ContestEffectEffectText],
   flavorUnderscoretextUnderscoreentries: List[ContestEffectFlavorText]
 )
@@ -452,8 +406,8 @@ object ContestEffectDetail {
 
 /**
 * 
-* @param effect 
-* @param language 
+* @param effect The localized effect text for an API resource in a specific language.
+* @param language The language this effect is in.
 */
 
 case class ContestEffectEffectText(
@@ -467,8 +421,8 @@ object ContestEffectEffectText {
 
 /**
 * 
-* @param flavorUnderscoretext 
-* @param language 
+* @param flavorUnderscoretext The localized flavor text for an API resource in a specific language.
+* @param language The language this name is in.
 */
 
 case class ContestEffectFlavorText(
@@ -482,7 +436,7 @@ object ContestEffectFlavorText {
 
 /**
 * 
-* @param url 
+* @param url The URL of the referenced resource.
 */
 
 case class ContestEffectSummary(
@@ -495,15 +449,15 @@ object ContestEffectSummary {
 
 /**
 * 
-* @param id 
-* @param name 
-* @param berryUnderscoreflavor 
-* @param names 
+* @param id The identifier for this resource.
+* @param name The name for this resource.
+* @param berryUnderscoreflavor The berry flavor that correlates with this contest type.
+* @param names The name of this contest type listed in different languages.
 */
 
 case class ContestTypeDetail(
   id: Int,
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   berryUnderscoreflavor: BerryFlavorSummary,
   names: List[ContestTypeName]
 )
@@ -514,13 +468,13 @@ object ContestTypeDetail {
 
 /**
 * 
-* @param name 
-* @param color 
-* @param language 
+* @param name The name for this contest.
+* @param color The color associated with this contest's name.
+* @param language The language that this name is in.
 */
 
 case class ContestTypeName(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   color: Refined[String, MaxSize[10]],
   language: LanguageSummary
 )
@@ -531,12 +485,12 @@ object ContestTypeName {
 
 /**
 * 
-* @param name 
-* @param url 
+* @param name The name of the referenced resource.
+* @param url The URL of the referenced resource.
 */
 
 case class ContestTypeSummary(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   url: URI
 )
 object ContestTypeSummary {
@@ -546,17 +500,64 @@ object ContestTypeSummary {
 
 /**
 * 
-* @param id 
-* @param name 
-* @param names 
-* @param pokemonUnderscorespecies 
+* @param id The identifier for this resource.
+* @param name The name for this resource.
+* @param names The name of this resource listed in different languages.
+*/
+
+case class CurrencyDetail(
+  id: Int,
+  name: Refined[String, MaxSize[200]],
+  names: List[CurrencyName]
+)
+object CurrencyDetail {
+  implicit val encoderCurrencyDetail: Encoder[CurrencyDetail] = deriveEncoder[CurrencyDetail].mapJson(_.dropNullValues)
+  implicit val decoderCurrencyDetail: Decoder[CurrencyDetail] = deriveDecoder[CurrencyDetail]
+}
+
+/**
+* 
+* @param name The localized name for an API resource in a specific language.
+* @param language The language this name is in.
+*/
+
+case class CurrencyName(
+  name: Refined[String, MaxSize[200]],
+  language: LanguageSummary
+)
+object CurrencyName {
+  implicit val encoderCurrencyName: Encoder[CurrencyName] = deriveEncoder[CurrencyName].mapJson(_.dropNullValues)
+  implicit val decoderCurrencyName: Decoder[CurrencyName] = deriveDecoder[CurrencyName]
+}
+
+/**
+* 
+* @param name The name of the referenced resource.
+* @param url The URL of the referenced resource.
+*/
+
+case class CurrencySummary(
+  name: Refined[String, MaxSize[200]],
+  url: URI
+)
+object CurrencySummary {
+  implicit val encoderCurrencySummary: Encoder[CurrencySummary] = deriveEncoder[CurrencySummary].mapJson(_.dropNullValues)
+  implicit val decoderCurrencySummary: Decoder[CurrencySummary] = deriveDecoder[CurrencySummary]
+}
+
+/**
+* 
+* @param id The identifier for this resource.
+* @param name The name for this resource.
+* @param names The name of this resource listed in different languages.
+* @param pokemonUnderscorespecies A list of all Pokémon species that are members of this egg group.
 */
 
 case class EggGroupDetail(
   id: Int,
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   names: List[EggGroupName],
-  pokemonUnderscorespecies: List[EggGroupDetailPokemonSpeciesInner]
+  pokemonUnderscorespecies: List[PokemonSpeciesSummary]
 )
 object EggGroupDetail {
   implicit val encoderEggGroupDetail: Encoder[EggGroupDetail] = deriveEncoder[EggGroupDetail].mapJson(_.dropNullValues)
@@ -565,27 +566,12 @@ object EggGroupDetail {
 
 /**
 * 
-* @param name Pokemon species name.
-* @param url The URL to get more information about the species
-*/
-
-case class EggGroupDetailPokemonSpeciesInner(
-  name: Option[String],
-  url: Option[URI]
-)
-object EggGroupDetailPokemonSpeciesInner {
-  implicit val encoderEggGroupDetailPokemonSpeciesInner: Encoder[EggGroupDetailPokemonSpeciesInner] = deriveEncoder[EggGroupDetailPokemonSpeciesInner].mapJson(_.dropNullValues)
-  implicit val decoderEggGroupDetailPokemonSpeciesInner: Decoder[EggGroupDetailPokemonSpeciesInner] = deriveDecoder[EggGroupDetailPokemonSpeciesInner]
-}
-
-/**
-* 
-* @param name 
-* @param language 
+* @param name The localized name for an API resource in a specific language.
+* @param language The language this name is in.
 */
 
 case class EggGroupName(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   language: LanguageSummary
 )
 object EggGroupName {
@@ -595,12 +581,12 @@ object EggGroupName {
 
 /**
 * 
-* @param name 
-* @param url 
+* @param name The name of the referenced resource.
+* @param url The URL of the referenced resource.
 */
 
 case class EggGroupSummary(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   url: URI
 )
 object EggGroupSummary {
@@ -610,15 +596,15 @@ object EggGroupSummary {
 
 /**
 * 
-* @param id 
-* @param name 
-* @param values 
-* @param names 
+* @param id The identifier for this resource.
+* @param name The name for this resource.
+* @param values A list of possible values for this encounter condition.
+* @param names The name of this resource listed in different languages.
 */
 
 case class EncounterConditionDetail(
   id: Int,
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   values: List[EncounterConditionValueSummary],
   names: List[EncounterConditionName]
 )
@@ -629,12 +615,12 @@ object EncounterConditionDetail {
 
 /**
 * 
-* @param name 
-* @param language 
+* @param name The localized name for an API resource in a specific language.
+* @param language The language this name is in.
 */
 
 case class EncounterConditionName(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   language: LanguageSummary
 )
 object EncounterConditionName {
@@ -644,12 +630,12 @@ object EncounterConditionName {
 
 /**
 * 
-* @param name 
-* @param url 
+* @param name The name of the referenced resource.
+* @param url The URL of the referenced resource.
 */
 
 case class EncounterConditionSummary(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   url: URI
 )
 object EncounterConditionSummary {
@@ -659,15 +645,15 @@ object EncounterConditionSummary {
 
 /**
 * 
-* @param id 
-* @param name 
-* @param condition 
-* @param names 
+* @param id The identifier for this resource.
+* @param name The name for this resource.
+* @param condition The condition this encounter condition value pertains to.
+* @param names The name of this resource listed in different languages.
 */
 
 case class EncounterConditionValueDetail(
   id: Int,
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   condition: EncounterConditionSummary,
   names: List[EncounterConditionValueName]
 )
@@ -678,12 +664,12 @@ object EncounterConditionValueDetail {
 
 /**
 * 
-* @param name 
-* @param language 
+* @param name The localized name for an API resource in a specific language.
+* @param language The language this name is in.
 */
 
 case class EncounterConditionValueName(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   language: LanguageSummary
 )
 object EncounterConditionValueName {
@@ -693,12 +679,12 @@ object EncounterConditionValueName {
 
 /**
 * 
-* @param name 
-* @param url 
+* @param name The name of the referenced resource.
+* @param url The URL of the referenced resource.
 */
 
 case class EncounterConditionValueSummary(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   url: URI
 )
 object EncounterConditionValueSummary {
@@ -708,16 +694,16 @@ object EncounterConditionValueSummary {
 
 /**
 * 
-* @param id 
-* @param name 
-* @param order 
-* @param names 
+* @param id The identifier for this resource.
+* @param name The name for this resource.
+* @param order A good value for sorting.
+* @param names The name of this resource listed in different languages.
 */
 
 case class EncounterMethodDetail(
   id: Int,
-  name: Refined[String, MaxSize[100]],
-  order: Option[Int],
+  name: Refined[String, MaxSize[200]],
+  order: Option[Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]]],
   names: List[EncounterMethodName]
 )
 object EncounterMethodDetail {
@@ -727,12 +713,12 @@ object EncounterMethodDetail {
 
 /**
 * 
-* @param name 
-* @param language 
+* @param name The localized name for an API resource in a specific language.
+* @param language The language this name is in.
 */
 
 case class EncounterMethodName(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   language: LanguageSummary
 )
 object EncounterMethodName {
@@ -742,12 +728,12 @@ object EncounterMethodName {
 
 /**
 * 
-* @param name 
-* @param url 
+* @param name The name of the referenced resource.
+* @param url The URL of the referenced resource.
 */
 
 case class EncounterMethodSummary(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   url: URI
 )
 object EncounterMethodSummary {
@@ -757,15 +743,34 @@ object EncounterMethodSummary {
 
 /**
 * 
-* @param id 
-* @param babyUnderscoretriggerUnderscoreitem 
-* @param chain 
+* @param minUnderscoreperfectUnderscoreivs The minimum number of perfect IVs, or null if unspecified.
+* @param alwaysUnderscoreshiny Whether the encountered Pokémon is always shiny.
+* @param neverUnderscoreshiny Whether the encountered Pokémon can never be shiny.
+* @param isUnderscorealpha Whether the encountered Pokémon is an alpha Pokémon.
+*/
+
+case class EncounterPokemonDetail(
+  minUnderscoreperfectUnderscoreivs: Option[Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]]],
+  alwaysUnderscoreshiny: Option[Boolean],
+  neverUnderscoreshiny: Option[Boolean],
+  isUnderscorealpha: Option[Boolean]
+)
+object EncounterPokemonDetail {
+  implicit val encoderEncounterPokemonDetail: Encoder[EncounterPokemonDetail] = deriveEncoder[EncounterPokemonDetail].mapJson(_.dropNullValues)
+  implicit val decoderEncounterPokemonDetail: Decoder[EncounterPokemonDetail] = deriveDecoder[EncounterPokemonDetail]
+}
+
+/**
+* 
+* @param id The identifier for this resource.
+* @param babyUnderscoretriggerUnderscoreitem The item that a Pokémon would be holding when mating that would trigger the egg hatching a baby Pokémon rather than a basic Pokémon.
+* @param chain The base chain link object. Each link contains evolution details for a Pokémon in the chain. Each link references the next Pokémon in the natural evolution order.
 */
 
 case class EvolutionChainDetail(
   id: Int,
   babyUnderscoretriggerUnderscoreitem: ItemSummary,
-  chain: EvolutionChainDetailChain
+  chain: EvolutionChainLink
 )
 object EvolutionChainDetail {
   implicit val encoderEvolutionChainDetail: Encoder[EvolutionChainDetail] = deriveEncoder[EvolutionChainDetail].mapJson(_.dropNullValues)
@@ -774,225 +779,26 @@ object EvolutionChainDetail {
 
 /**
 * 
-* @param evolutionUnderscoredetails 
-* @param evolvesUnderscoreto 
-* @param isUnderscorebaby 
-* @param species 
+* @param isUnderscorebaby Whether or not this link is for a baby Pokémon. This would only ever be true on the base link.
+* @param species The Pokémon species at this point in the evolution chain.
+* @param evolutionUnderscoredetails All details regarding the specific details of the referenced Pokémon species evolution.
+* @param evolvesUnderscoreto A List of chain objects.
 */
 
-case class EvolutionChainDetailChain(
-  evolutionUnderscoredetails: List[AnyType],
-  evolvesUnderscoreto: List[EvolutionChainDetailChainEvolvesToInner],
+case class EvolutionChainLink(
   isUnderscorebaby: Boolean,
-  species: EvolutionChainDetailChainSpecies
+  species: PokemonSpeciesSummary,
+  evolutionUnderscoredetails: List[PokemonEvolution],
+  evolvesUnderscoreto: List[EvolutionChainLink]
 )
-object EvolutionChainDetailChain {
-  implicit val encoderEvolutionChainDetailChain: Encoder[EvolutionChainDetailChain] = deriveEncoder[EvolutionChainDetailChain].mapJson(_.dropNullValues)
-  implicit val decoderEvolutionChainDetailChain: Decoder[EvolutionChainDetailChain] = deriveDecoder[EvolutionChainDetailChain]
+object EvolutionChainLink {
+  implicit val encoderEvolutionChainLink: Encoder[EvolutionChainLink] = deriveEncoder[EvolutionChainLink].mapJson(_.dropNullValues)
+  implicit val decoderEvolutionChainLink: Decoder[EvolutionChainLink] = deriveDecoder[EvolutionChainLink]
 }
 
 /**
 * 
-* @param evolutionUnderscoredetails 
-* @param isUnderscorebaby 
-* @param species 
-*/
-
-case class EvolutionChainDetailChainEvolvesToInner(
-  evolutionUnderscoredetails: List[EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner],
-  isUnderscorebaby: Boolean,
-  species: EvolutionChainDetailChainEvolvesToInnerSpecies
-)
-object EvolutionChainDetailChainEvolvesToInner {
-  implicit val encoderEvolutionChainDetailChainEvolvesToInner: Encoder[EvolutionChainDetailChainEvolvesToInner] = deriveEncoder[EvolutionChainDetailChainEvolvesToInner].mapJson(_.dropNullValues)
-  implicit val decoderEvolutionChainDetailChainEvolvesToInner: Decoder[EvolutionChainDetailChainEvolvesToInner] = deriveDecoder[EvolutionChainDetailChainEvolvesToInner]
-}
-
-/**
-* 
-* @param gender 
-* @param heldUnderscoreitem 
-* @param item 
-* @param knownUnderscoremove 
-* @param knownUnderscoremoveUnderscoretype 
-* @param location 
-* @param minUnderscoreaffection 
-* @param minUnderscorebeauty 
-* @param minUnderscorehappiness 
-* @param minUnderscorelevel 
-* @param needsUnderscoreoverworldUnderscorerain 
-* @param partyUnderscorespecies 
-* @param partyUnderscoretype 
-* @param relativeUnderscorephysicalUnderscorestats 
-* @param timeUnderscoreofUnderscoreday 
-* @param tradeUnderscorespecies 
-* @param trigger 
-* @param turnUnderscoreupsideUnderscoredown 
-*/
-
-case class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner(
-  gender: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender,
-  heldUnderscoreitem: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerHeldItem,
-  item: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerItem,
-  knownUnderscoremove: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerKnownMove,
-  knownUnderscoremoveUnderscoretype: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerKnownMoveType,
-  location: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerLocation,
-  minUnderscoreaffection: Int,
-  minUnderscorebeauty: Int,
-  minUnderscorehappiness: Int,
-  minUnderscorelevel: Int,
-  needsUnderscoreoverworldUnderscorerain: Boolean,
-  partyUnderscorespecies: String,
-  partyUnderscoretype: String,
-  relativeUnderscorephysicalUnderscorestats: String,
-  timeUnderscoreofUnderscoreday: String,
-  tradeUnderscorespecies: String,
-  trigger: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerTrigger,
-  turnUnderscoreupsideUnderscoredown: Boolean
-)
-object EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner {
-  implicit val encoderEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner: Encoder[EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner] = deriveEncoder[EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner].mapJson(_.dropNullValues)
-  implicit val decoderEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner: Decoder[EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner] = deriveDecoder[EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner]
-}
-
-/**
-* 
-* @param name 
-* @param url 
-*/
-
-case class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender(
-  name: String,
-  url: URI
-)
-object EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender {
-  implicit val encoderEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender: Encoder[EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender] = deriveEncoder[EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender].mapJson(_.dropNullValues)
-  implicit val decoderEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender: Decoder[EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender] = deriveDecoder[EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender]
-}
-
-/**
-* 
-* @param name 
-* @param url 
-*/
-
-case class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerHeldItem(
-  name: String,
-  url: URI
-)
-object EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerHeldItem {
-  implicit val encoderEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerHeldItem: Encoder[EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerHeldItem] = deriveEncoder[EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerHeldItem].mapJson(_.dropNullValues)
-  implicit val decoderEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerHeldItem: Decoder[EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerHeldItem] = deriveDecoder[EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerHeldItem]
-}
-
-/**
-* 
-* @param name 
-* @param url 
-*/
-
-case class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerItem(
-  name: String,
-  url: URI
-)
-object EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerItem {
-  implicit val encoderEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerItem: Encoder[EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerItem] = deriveEncoder[EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerItem].mapJson(_.dropNullValues)
-  implicit val decoderEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerItem: Decoder[EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerItem] = deriveDecoder[EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerItem]
-}
-
-/**
-* 
-* @param name 
-* @param url 
-*/
-
-case class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerKnownMove(
-  name: String,
-  url: URI
-)
-object EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerKnownMove {
-  implicit val encoderEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerKnownMove: Encoder[EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerKnownMove] = deriveEncoder[EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerKnownMove].mapJson(_.dropNullValues)
-  implicit val decoderEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerKnownMove: Decoder[EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerKnownMove] = deriveDecoder[EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerKnownMove]
-}
-
-/**
-* 
-* @param name 
-* @param url 
-*/
-
-case class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerKnownMoveType(
-  name: String,
-  url: URI
-)
-object EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerKnownMoveType {
-  implicit val encoderEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerKnownMoveType: Encoder[EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerKnownMoveType] = deriveEncoder[EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerKnownMoveType].mapJson(_.dropNullValues)
-  implicit val decoderEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerKnownMoveType: Decoder[EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerKnownMoveType] = deriveDecoder[EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerKnownMoveType]
-}
-
-/**
-* 
-* @param name 
-* @param url 
-*/
-
-case class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerLocation(
-  name: String,
-  url: URI
-)
-object EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerLocation {
-  implicit val encoderEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerLocation: Encoder[EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerLocation] = deriveEncoder[EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerLocation].mapJson(_.dropNullValues)
-  implicit val decoderEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerLocation: Decoder[EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerLocation] = deriveDecoder[EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerLocation]
-}
-
-/**
-* 
-* @param name 
-* @param url 
-*/
-
-case class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerTrigger(
-  name: String,
-  url: URI
-)
-object EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerTrigger {
-  implicit val encoderEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerTrigger: Encoder[EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerTrigger] = deriveEncoder[EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerTrigger].mapJson(_.dropNullValues)
-  implicit val decoderEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerTrigger: Decoder[EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerTrigger] = deriveDecoder[EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerTrigger]
-}
-
-/**
-* 
-* @param name 
-* @param url 
-*/
-
-case class EvolutionChainDetailChainEvolvesToInnerSpecies(
-  name: String,
-  url: URI
-)
-object EvolutionChainDetailChainEvolvesToInnerSpecies {
-  implicit val encoderEvolutionChainDetailChainEvolvesToInnerSpecies: Encoder[EvolutionChainDetailChainEvolvesToInnerSpecies] = deriveEncoder[EvolutionChainDetailChainEvolvesToInnerSpecies].mapJson(_.dropNullValues)
-  implicit val decoderEvolutionChainDetailChainEvolvesToInnerSpecies: Decoder[EvolutionChainDetailChainEvolvesToInnerSpecies] = deriveDecoder[EvolutionChainDetailChainEvolvesToInnerSpecies]
-}
-
-/**
-* 
-* @param name 
-* @param url 
-*/
-
-case class EvolutionChainDetailChainSpecies(
-  name: String,
-  url: URI
-)
-object EvolutionChainDetailChainSpecies {
-  implicit val encoderEvolutionChainDetailChainSpecies: Encoder[EvolutionChainDetailChainSpecies] = deriveEncoder[EvolutionChainDetailChainSpecies].mapJson(_.dropNullValues)
-  implicit val decoderEvolutionChainDetailChainSpecies: Decoder[EvolutionChainDetailChainSpecies] = deriveDecoder[EvolutionChainDetailChainSpecies]
-}
-
-/**
-* 
-* @param url 
+* @param url The URL of the referenced resource.
 */
 
 case class EvolutionChainSummary(
@@ -1005,17 +811,34 @@ object EvolutionChainSummary {
 
 /**
 * 
-* @param id 
-* @param name 
-* @param names 
-* @param pokemonUnderscorespecies 
+* @param expression Evaluatable RPN condition expression using evolution variables (e.g. 'EC 100 % 0 ==')
+* @param percentageUnderscorechance Percentage chance of evolution under this condition (0-100)
+* @param variables Evolution variables referenced in the expression
+*/
+
+case class EvolutionConditionExpression(
+  expression: String,
+  percentageUnderscorechance: Double,
+  variables: List[EvolutionVariableSummary]
+)
+object EvolutionConditionExpression {
+  implicit val encoderEvolutionConditionExpression: Encoder[EvolutionConditionExpression] = deriveEncoder[EvolutionConditionExpression].mapJson(_.dropNullValues)
+  implicit val decoderEvolutionConditionExpression: Decoder[EvolutionConditionExpression] = deriveDecoder[EvolutionConditionExpression]
+}
+
+/**
+* 
+* @param id The identifier for this resource.
+* @param name The name for this resource.
+* @param names The name of this resource listed in different languages.
+* @param pokemonUnderscorespecies A list of pokemon species that result from this evolution trigger.
 */
 
 case class EvolutionTriggerDetail(
   id: Int,
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   names: List[EvolutionTriggerName],
-  pokemonUnderscorespecies: List[EvolutionTriggerDetailPokemonSpeciesInner]
+  pokemonUnderscorespecies: List[PokemonSpeciesSummary]
 )
 object EvolutionTriggerDetail {
   implicit val encoderEvolutionTriggerDetail: Encoder[EvolutionTriggerDetail] = deriveEncoder[EvolutionTriggerDetail].mapJson(_.dropNullValues)
@@ -1024,27 +847,12 @@ object EvolutionTriggerDetail {
 
 /**
 * 
-* @param name 
-* @param url 
-*/
-
-case class EvolutionTriggerDetailPokemonSpeciesInner(
-  name: String,
-  url: URI
-)
-object EvolutionTriggerDetailPokemonSpeciesInner {
-  implicit val encoderEvolutionTriggerDetailPokemonSpeciesInner: Encoder[EvolutionTriggerDetailPokemonSpeciesInner] = deriveEncoder[EvolutionTriggerDetailPokemonSpeciesInner].mapJson(_.dropNullValues)
-  implicit val decoderEvolutionTriggerDetailPokemonSpeciesInner: Decoder[EvolutionTriggerDetailPokemonSpeciesInner] = deriveDecoder[EvolutionTriggerDetailPokemonSpeciesInner]
-}
-
-/**
-* 
-* @param name 
-* @param language 
+* @param name The localized name for an API resource in a specific language.
+* @param language The language this name is in.
 */
 
 case class EvolutionTriggerName(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   language: LanguageSummary
 )
 object EvolutionTriggerName {
@@ -1054,12 +862,12 @@ object EvolutionTriggerName {
 
 /**
 * 
-* @param name 
-* @param url 
+* @param name The name of the referenced resource.
+* @param url The URL of the referenced resource.
 */
 
 case class EvolutionTriggerSummary(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   url: URI
 )
 object EvolutionTriggerSummary {
@@ -1069,13 +877,85 @@ object EvolutionTriggerSummary {
 
 /**
 * 
-* @param level 
-* @param experience 
+* @param description The localized description for an API resource in a specific language.
+* @param language The language this name is in.
+*/
+
+case class EvolutionVariableDescription(
+  description: Option[Refined[String, MaxSize[2000]]],
+  language: LanguageSummary
+)
+object EvolutionVariableDescription {
+  implicit val encoderEvolutionVariableDescription: Encoder[EvolutionVariableDescription] = deriveEncoder[EvolutionVariableDescription].mapJson(_.dropNullValues)
+  implicit val decoderEvolutionVariableDescription: Decoder[EvolutionVariableDescription] = deriveDecoder[EvolutionVariableDescription]
+}
+
+/**
+* 
+* @param id The identifier for this resource.
+* @param name The name for this resource.
+* @param symbol The symbol used for this variable in evolution condition expressions.
+* @param dataUnderscoretype The data type of this variable.
+* @param source The source of the variable value.
+* @param versionUnderscoregroup The version group in which this variable was introduced.
+* @param names The name of this resource listed in different languages.
+* @param descriptions The description of this resource listed in different languages.
+*/
+
+case class EvolutionVariableDetail(
+  id: Int,
+  name: Refined[String, MaxSize[200]],
+  symbol: Refined[String, MaxSize[10]],
+  dataUnderscoretype: Option[Refined[String, MaxSize[20]]],
+  source: Option[Refined[String, MaxSize[20]]],
+  versionUnderscoregroup: VersionGroupSummary,
+  names: List[EvolutionVariableName],
+  descriptions: List[EvolutionVariableDescription]
+)
+object EvolutionVariableDetail {
+  implicit val encoderEvolutionVariableDetail: Encoder[EvolutionVariableDetail] = deriveEncoder[EvolutionVariableDetail].mapJson(_.dropNullValues)
+  implicit val decoderEvolutionVariableDetail: Decoder[EvolutionVariableDetail] = deriveDecoder[EvolutionVariableDetail]
+}
+
+/**
+* 
+* @param name The localized name for an API resource in a specific language.
+* @param language The language this name is in.
+*/
+
+case class EvolutionVariableName(
+  name: Refined[String, MaxSize[200]],
+  language: LanguageSummary
+)
+object EvolutionVariableName {
+  implicit val encoderEvolutionVariableName: Encoder[EvolutionVariableName] = deriveEncoder[EvolutionVariableName].mapJson(_.dropNullValues)
+  implicit val decoderEvolutionVariableName: Decoder[EvolutionVariableName] = deriveDecoder[EvolutionVariableName]
+}
+
+/**
+* 
+* @param name The name of the referenced resource.
+* @param url The URL of the referenced resource.
+*/
+
+case class EvolutionVariableSummary(
+  name: Refined[String, MaxSize[200]],
+  url: URI
+)
+object EvolutionVariableSummary {
+  implicit val encoderEvolutionVariableSummary: Encoder[EvolutionVariableSummary] = deriveEncoder[EvolutionVariableSummary].mapJson(_.dropNullValues)
+  implicit val decoderEvolutionVariableSummary: Decoder[EvolutionVariableSummary] = deriveDecoder[EvolutionVariableSummary]
+}
+
+/**
+* 
+* @param level The level gained.
+* @param experience The amount of experience required to reach the referenced level.
 */
 
 case class Experience(
-  level: Int,
-  experience: Int
+  level: Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]],
+  experience: Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]]
 )
 object Experience {
   implicit val encoderExperience: Encoder[Experience] = deriveEncoder[Experience].mapJson(_.dropNullValues)
@@ -1084,17 +964,17 @@ object Experience {
 
 /**
 * 
-* @param id 
-* @param name 
-* @param pokemonUnderscorespeciesUnderscoredetails 
-* @param requiredUnderscoreforUnderscoreevolution 
+* @param id The identifier for this resource.
+* @param name The name for this resource.
+* @param pokemonUnderscorespeciesUnderscoredetails A list of Pokémon species that can be this gender and how likely it is that they will be.
+* @param requiredUnderscoreforUnderscoreevolution A list of Pokémon species that required this gender in order for a Pokémon to evolve into them.
 */
 
 case class GenderDetail(
   id: Int,
-  name: Refined[String, MaxSize[100]],
-  pokemonUnderscorespeciesUnderscoredetails: List[GenderDetailPokemonSpeciesDetailsInner],
-  requiredUnderscoreforUnderscoreevolution: List[GenderDetailRequiredForEvolutionInner]
+  name: Refined[String, MaxSize[200]],
+  pokemonUnderscorespeciesUnderscoredetails: List[GenderPokemonSpecies],
+  requiredUnderscoreforUnderscoreevolution: List[PokemonSpeciesSummary]
 )
 object GenderDetail {
   implicit val encoderGenderDetail: Encoder[GenderDetail] = deriveEncoder[GenderDetail].mapJson(_.dropNullValues)
@@ -1103,57 +983,27 @@ object GenderDetail {
 
 /**
 * 
-* @param rate 
-* @param pokemonUnderscorespecies 
+* @param rate The chance of this Pokémon being female, in eighths; or -1 for genderless.
+* @param pokemonUnderscorespecies A Pokémon species that can be the referenced gender.
 */
 
-case class GenderDetailPokemonSpeciesDetailsInner(
+case class GenderPokemonSpecies(
   rate: Int,
-  pokemonUnderscorespecies: GenderDetailPokemonSpeciesDetailsInnerPokemonSpecies
+  pokemonUnderscorespecies: PokemonSpeciesSummary
 )
-object GenderDetailPokemonSpeciesDetailsInner {
-  implicit val encoderGenderDetailPokemonSpeciesDetailsInner: Encoder[GenderDetailPokemonSpeciesDetailsInner] = deriveEncoder[GenderDetailPokemonSpeciesDetailsInner].mapJson(_.dropNullValues)
-  implicit val decoderGenderDetailPokemonSpeciesDetailsInner: Decoder[GenderDetailPokemonSpeciesDetailsInner] = deriveDecoder[GenderDetailPokemonSpeciesDetailsInner]
+object GenderPokemonSpecies {
+  implicit val encoderGenderPokemonSpecies: Encoder[GenderPokemonSpecies] = deriveEncoder[GenderPokemonSpecies].mapJson(_.dropNullValues)
+  implicit val decoderGenderPokemonSpecies: Decoder[GenderPokemonSpecies] = deriveDecoder[GenderPokemonSpecies]
 }
 
 /**
 * 
-* @param name 
-* @param url 
-*/
-
-case class GenderDetailPokemonSpeciesDetailsInnerPokemonSpecies(
-  name: String,
-  url: URI
-)
-object GenderDetailPokemonSpeciesDetailsInnerPokemonSpecies {
-  implicit val encoderGenderDetailPokemonSpeciesDetailsInnerPokemonSpecies: Encoder[GenderDetailPokemonSpeciesDetailsInnerPokemonSpecies] = deriveEncoder[GenderDetailPokemonSpeciesDetailsInnerPokemonSpecies].mapJson(_.dropNullValues)
-  implicit val decoderGenderDetailPokemonSpeciesDetailsInnerPokemonSpecies: Decoder[GenderDetailPokemonSpeciesDetailsInnerPokemonSpecies] = deriveDecoder[GenderDetailPokemonSpeciesDetailsInnerPokemonSpecies]
-}
-
-/**
-* 
-* @param name 
-* @param url 
-*/
-
-case class GenderDetailRequiredForEvolutionInner(
-  name: String,
-  url: URI
-)
-object GenderDetailRequiredForEvolutionInner {
-  implicit val encoderGenderDetailRequiredForEvolutionInner: Encoder[GenderDetailRequiredForEvolutionInner] = deriveEncoder[GenderDetailRequiredForEvolutionInner].mapJson(_.dropNullValues)
-  implicit val decoderGenderDetailRequiredForEvolutionInner: Decoder[GenderDetailRequiredForEvolutionInner] = deriveDecoder[GenderDetailRequiredForEvolutionInner]
-}
-
-/**
-* 
-* @param name 
-* @param url 
+* @param name The name of the referenced resource.
+* @param url The URL of the referenced resource.
 */
 
 case class GenderSummary(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   url: URI
 )
 object GenderSummary {
@@ -1163,20 +1013,20 @@ object GenderSummary {
 
 /**
 * 
-* @param id 
-* @param name 
-* @param abilities 
-* @param mainUnderscoreregion 
-* @param moves 
-* @param names 
-* @param pokemonUnderscorespecies 
-* @param types 
-* @param versionUnderscoregroups 
+* @param id The identifier for this resource.
+* @param name The name for this resource.
+* @param abilities A list of abilities that were introduced in this generation.
+* @param mainUnderscoreregion The main region travelled in this generation.
+* @param moves A list of moves that were introduced in this generation.
+* @param names The name of this resource listed in different languages.
+* @param pokemonUnderscorespecies A list of Pokémon species that were introduced in this generation.
+* @param types A list of types that were introduced in this generation.
+* @param versionUnderscoregroups A list of version groups that were introduced in this generation.
 */
 
 case class GenerationDetail(
   id: Int,
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   abilities: List[AbilitySummary],
   mainUnderscoreregion: RegionSummary,
   moves: List[MoveSummary],
@@ -1192,12 +1042,12 @@ object GenerationDetail {
 
 /**
 * 
-* @param name 
-* @param language 
+* @param name The localized name for an API resource in a specific language.
+* @param language The language this name is in.
 */
 
 case class GenerationName(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   language: LanguageSummary
 )
 object GenerationName {
@@ -1207,12 +1057,12 @@ object GenerationName {
 
 /**
 * 
-* @param name 
-* @param url 
+* @param name The name of the referenced resource.
+* @param url The URL of the referenced resource.
 */
 
 case class GenerationSummary(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   url: URI
 )
 object GenerationSummary {
@@ -1222,12 +1072,12 @@ object GenerationSummary {
 
 /**
 * 
-* @param description 
-* @param language 
+* @param description The localized description for an API resource in a specific language.
+* @param language The language this name is in.
 */
 
 case class GrowthRateDescription(
-  description: Option[Refined[String, MaxSize[1000]]],
+  description: Option[Refined[String, MaxSize[2000]]],
   language: LanguageSummary
 )
 object GrowthRateDescription {
@@ -1237,17 +1087,17 @@ object GrowthRateDescription {
 
 /**
 * 
-* @param id 
-* @param name 
-* @param formula 
-* @param descriptions 
-* @param levels 
-* @param pokemonUnderscorespecies 
+* @param id The identifier for this resource.
+* @param name The name for this resource.
+* @param formula The formula used to calculate the rate at which the Pokémon species gains level.
+* @param descriptions The descriptions of this characteristic listed in different languages.
+* @param levels A list of levels and the amount of experienced needed to atain them based on this growth rate.
+* @param pokemonUnderscorespecies A list of Pokémon species that gain levels at this growth rate.
 */
 
 case class GrowthRateDetail(
   id: Int,
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   formula: Refined[String, MaxSize[500]],
   descriptions: List[GrowthRateDescription],
   levels: List[Experience],
@@ -1260,12 +1110,12 @@ object GrowthRateDetail {
 
 /**
 * 
-* @param name 
-* @param url 
+* @param name The name of the referenced resource.
+* @param url The URL of the referenced resource.
 */
 
 case class GrowthRateSummary(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   url: URI
 )
 object GrowthRateSummary {
@@ -1275,12 +1125,12 @@ object GrowthRateSummary {
 
 /**
 * 
-* @param description 
-* @param language 
+* @param description The localized description for an API resource in a specific language.
+* @param language The language this name is in.
 */
 
 case class ItemAttributeDescription(
-  description: Option[Refined[String, MaxSize[1000]]],
+  description: Option[Refined[String, MaxSize[2000]]],
   language: LanguageSummary
 )
 object ItemAttributeDescription {
@@ -1290,18 +1140,18 @@ object ItemAttributeDescription {
 
 /**
 * 
-* @param id 
-* @param name 
-* @param descriptions 
-* @param items 
-* @param names 
+* @param id The identifier for this resource.
+* @param name The name for this resource.
+* @param descriptions The description of this item attribute listed in different languages.
+* @param items A list of items that have this attribute.
+* @param names The name of this item attribute listed in different languages.
 */
 
 case class ItemAttributeDetail(
   id: Int,
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   descriptions: List[ItemAttributeDescription],
-  items: List[ItemAttributeDetailItemsInner],
+  items: List[ItemSummary],
   names: List[ItemAttributeName]
 )
 object ItemAttributeDetail {
@@ -1311,27 +1161,12 @@ object ItemAttributeDetail {
 
 /**
 * 
-* @param name 
-* @param url 
-*/
-
-case class ItemAttributeDetailItemsInner(
-  name: String,
-  url: URI
-)
-object ItemAttributeDetailItemsInner {
-  implicit val encoderItemAttributeDetailItemsInner: Encoder[ItemAttributeDetailItemsInner] = deriveEncoder[ItemAttributeDetailItemsInner].mapJson(_.dropNullValues)
-  implicit val decoderItemAttributeDetailItemsInner: Decoder[ItemAttributeDetailItemsInner] = deriveDecoder[ItemAttributeDetailItemsInner]
-}
-
-/**
-* 
-* @param name 
-* @param language 
+* @param name The localized name for an API resource in a specific language.
+* @param language The language this name is in.
 */
 
 case class ItemAttributeName(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   language: LanguageSummary
 )
 object ItemAttributeName {
@@ -1341,12 +1176,12 @@ object ItemAttributeName {
 
 /**
 * 
-* @param name 
-* @param url 
+* @param name The name of the referenced resource.
+* @param url The URL of the referenced resource.
 */
 
 case class ItemAttributeSummary(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   url: URI
 )
 object ItemAttributeSummary {
@@ -1356,16 +1191,16 @@ object ItemAttributeSummary {
 
 /**
 * 
-* @param id 
-* @param name 
-* @param items 
-* @param names 
-* @param pocket 
+* @param id The identifier for this resource.
+* @param name The name for this resource.
+* @param items A list of items that are a part of this category.
+* @param names The name of this item category listed in different languages.
+* @param pocket The pocket items in this category would be put in.
 */
 
 case class ItemCategoryDetail(
   id: Int,
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   items: List[ItemSummary],
   names: List[ItemCategoryName],
   pocket: ItemPocketSummary
@@ -1377,12 +1212,12 @@ object ItemCategoryDetail {
 
 /**
 * 
-* @param name 
-* @param language 
+* @param name The localized name for an API resource in a specific language.
+* @param language The language this name is in.
 */
 
 case class ItemCategoryName(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   language: LanguageSummary
 )
 object ItemCategoryName {
@@ -1392,12 +1227,12 @@ object ItemCategoryName {
 
 /**
 * 
-* @param name 
-* @param url 
+* @param name The name of the referenced resource.
+* @param url The URL of the referenced resource.
 */
 
 case class ItemCategorySummary(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   url: URI
 )
 object ItemCategorySummary {
@@ -1407,39 +1242,39 @@ object ItemCategorySummary {
 
 /**
 * 
-* @param id 
-* @param name 
-* @param cost 
-* @param flingUnderscorepower 
-* @param flingUnderscoreeffect 
-* @param attributes 
-* @param category 
-* @param effectUnderscoreentries 
-* @param flavorUnderscoretextUnderscoreentries 
-* @param gameUnderscoreindices 
-* @param names 
-* @param heldUnderscorebyUnderscorepokemon 
-* @param sprites 
-* @param babyUnderscoretriggerUnderscorefor 
-* @param machines 
+* @param id The identifier for this resource.
+* @param name The name for this resource.
+* @param flingUnderscorepower The power of the move Fling when used with this item.
+* @param flingUnderscoreeffect The effect of the move Fling when used with this item.
+* @param attributes A list of attributes this item has.
+* @param category The category of items this item falls into.
+* @param effectUnderscoreentries The effect of this ability listed in different languages.
+* @param flavorUnderscoretextUnderscoreentries The flavor text of this ability listed in different languages.
+* @param gameUnderscoreindices A list of game indices relevent to this item by generation.
+* @param prices Purchase and sell prices by currency and version group. Prices may be null when the item cannot be bought or sold.
+* @param names The name of this item listed in different languages.
+* @param heldUnderscorebyUnderscorepokemon A list of Pokémon that might be found in the wild holding this item.
+* @param sprites A set of sprites used to depict this item in the game.
+* @param babyUnderscoretriggerUnderscorefor An evolution chain this item requires to produce a bay during mating.
+* @param machines A list of the machines related to this item.
 */
 
 case class ItemDetail(
   id: Int,
-  name: Refined[String, MaxSize[100]],
-  cost: Option[Int],
-  flingUnderscorepower: Option[Int],
+  name: Refined[String, MaxSize[200]],
+  flingUnderscorepower: Option[Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]]],
   flingUnderscoreeffect: ItemFlingEffectSummary,
-  attributes: List[ItemDetailAttributesInner],
+  attributes: List[ItemAttributeSummary],
   category: ItemCategorySummary,
   effectUnderscoreentries: List[ItemEffectText],
   flavorUnderscoretextUnderscoreentries: List[ItemFlavorText],
   gameUnderscoreindices: List[ItemGameIndex],
+  prices: List[ItemPrice],
   names: List[ItemName],
-  heldUnderscorebyUnderscorepokemon: List[ItemDetailHeldByPokemonInner],
-  sprites: ItemDetailSprites,
-  babyUnderscoretriggerUnderscorefor: ItemDetailBabyTriggerFor,
-  machines: List[ItemDetailMachinesInner]
+  heldUnderscorebyUnderscorepokemon: List[PokemonHeldItem],
+  sprites: ItemSprites,
+  babyUnderscoretriggerUnderscorefor: EvolutionChainSummary,
+  machines: List[ItemMachine]
 )
 object ItemDetail {
   implicit val encoderItemDetail: Encoder[ItemDetail] = deriveEncoder[ItemDetail].mapJson(_.dropNullValues)
@@ -1448,140 +1283,9 @@ object ItemDetail {
 
 /**
 * 
-* @param name 
-* @param url 
-*/
-
-case class ItemDetailAttributesInner(
-  name: String,
-  url: URI
-)
-object ItemDetailAttributesInner {
-  implicit val encoderItemDetailAttributesInner: Encoder[ItemDetailAttributesInner] = deriveEncoder[ItemDetailAttributesInner].mapJson(_.dropNullValues)
-  implicit val decoderItemDetailAttributesInner: Decoder[ItemDetailAttributesInner] = deriveDecoder[ItemDetailAttributesInner]
-}
-
-/**
-* 
-* @param url 
-*/
-
-case class ItemDetailBabyTriggerFor(
-  url: URI
-)
-object ItemDetailBabyTriggerFor {
-  implicit val encoderItemDetailBabyTriggerFor: Encoder[ItemDetailBabyTriggerFor] = deriveEncoder[ItemDetailBabyTriggerFor].mapJson(_.dropNullValues)
-  implicit val decoderItemDetailBabyTriggerFor: Decoder[ItemDetailBabyTriggerFor] = deriveDecoder[ItemDetailBabyTriggerFor]
-}
-
-/**
-* 
-* @param pokemon 
-* @param versionMinusdetails 
-*/
-
-case class ItemDetailHeldByPokemonInner(
-  pokemon: ItemDetailHeldByPokemonInnerPokemon,
-  versionMinusdetails: List[ItemDetailHeldByPokemonInnerVersionDetailsInner]
-)
-object ItemDetailHeldByPokemonInner {
-  implicit val encoderItemDetailHeldByPokemonInner: Encoder[ItemDetailHeldByPokemonInner] = deriveEncoder[ItemDetailHeldByPokemonInner].mapJson(_.dropNullValues)
-  implicit val decoderItemDetailHeldByPokemonInner: Decoder[ItemDetailHeldByPokemonInner] = deriveDecoder[ItemDetailHeldByPokemonInner]
-}
-
-/**
-* 
-* @param name 
-* @param url 
-*/
-
-case class ItemDetailHeldByPokemonInnerPokemon(
-  name: String,
-  url: URI
-)
-object ItemDetailHeldByPokemonInnerPokemon {
-  implicit val encoderItemDetailHeldByPokemonInnerPokemon: Encoder[ItemDetailHeldByPokemonInnerPokemon] = deriveEncoder[ItemDetailHeldByPokemonInnerPokemon].mapJson(_.dropNullValues)
-  implicit val decoderItemDetailHeldByPokemonInnerPokemon: Decoder[ItemDetailHeldByPokemonInnerPokemon] = deriveDecoder[ItemDetailHeldByPokemonInnerPokemon]
-}
-
-/**
-* 
-* @param rarity 
-* @param version 
-*/
-
-case class ItemDetailHeldByPokemonInnerVersionDetailsInner(
-  rarity: Int,
-  version: ItemDetailHeldByPokemonInnerVersionDetailsInnerVersion
-)
-object ItemDetailHeldByPokemonInnerVersionDetailsInner {
-  implicit val encoderItemDetailHeldByPokemonInnerVersionDetailsInner: Encoder[ItemDetailHeldByPokemonInnerVersionDetailsInner] = deriveEncoder[ItemDetailHeldByPokemonInnerVersionDetailsInner].mapJson(_.dropNullValues)
-  implicit val decoderItemDetailHeldByPokemonInnerVersionDetailsInner: Decoder[ItemDetailHeldByPokemonInnerVersionDetailsInner] = deriveDecoder[ItemDetailHeldByPokemonInnerVersionDetailsInner]
-}
-
-/**
-* 
-* @param name 
-* @param url 
-*/
-
-case class ItemDetailHeldByPokemonInnerVersionDetailsInnerVersion(
-  name: String,
-  url: URI
-)
-object ItemDetailHeldByPokemonInnerVersionDetailsInnerVersion {
-  implicit val encoderItemDetailHeldByPokemonInnerVersionDetailsInnerVersion: Encoder[ItemDetailHeldByPokemonInnerVersionDetailsInnerVersion] = deriveEncoder[ItemDetailHeldByPokemonInnerVersionDetailsInnerVersion].mapJson(_.dropNullValues)
-  implicit val decoderItemDetailHeldByPokemonInnerVersionDetailsInnerVersion: Decoder[ItemDetailHeldByPokemonInnerVersionDetailsInnerVersion] = deriveDecoder[ItemDetailHeldByPokemonInnerVersionDetailsInnerVersion]
-}
-
-/**
-* 
-* @param machine 
-* @param versionUnderscoregroup 
-*/
-
-case class ItemDetailMachinesInner(
-  machine: URI,
-  versionUnderscoregroup: ItemDetailMachinesInnerVersionGroup
-)
-object ItemDetailMachinesInner {
-  implicit val encoderItemDetailMachinesInner: Encoder[ItemDetailMachinesInner] = deriveEncoder[ItemDetailMachinesInner].mapJson(_.dropNullValues)
-  implicit val decoderItemDetailMachinesInner: Decoder[ItemDetailMachinesInner] = deriveDecoder[ItemDetailMachinesInner]
-}
-
-/**
-* 
-* @param name 
-* @param url 
-*/
-
-case class ItemDetailMachinesInnerVersionGroup(
-  name: String,
-  url: URI
-)
-object ItemDetailMachinesInnerVersionGroup {
-  implicit val encoderItemDetailMachinesInnerVersionGroup: Encoder[ItemDetailMachinesInnerVersionGroup] = deriveEncoder[ItemDetailMachinesInnerVersionGroup].mapJson(_.dropNullValues)
-  implicit val decoderItemDetailMachinesInnerVersionGroup: Decoder[ItemDetailMachinesInnerVersionGroup] = deriveDecoder[ItemDetailMachinesInnerVersionGroup]
-}
-
-/**
-* 
-* @param `default` 
-*/
-
-case class ItemDetailSprites(
-  `default`: URI
-)
-object ItemDetailSprites {
-  implicit val encoderItemDetailSprites: Encoder[ItemDetailSprites] = deriveEncoder[ItemDetailSprites].mapJson(_.dropNullValues)
-  implicit val decoderItemDetailSprites: Decoder[ItemDetailSprites] = deriveDecoder[ItemDetailSprites]
-}
-
-/**
-* 
-* @param effect 
-* @param shortUnderscoreeffect 
-* @param language 
+* @param effect The localized effect text for an API resource in a specific language.
+* @param shortUnderscoreeffect The localized effect text in brief.
+* @param language The language this effect is in.
 */
 
 case class ItemEffectText(
@@ -1596,9 +1300,9 @@ object ItemEffectText {
 
 /**
 * 
-* @param text 
-* @param versionUnderscoregroup 
-* @param language 
+* @param text The localized flavor text for an API resource in a specific language.
+* @param versionUnderscoregroup The version group which uses this flavor text.
+* @param language The language this name is in.
 */
 
 case class ItemFlavorText(
@@ -1613,15 +1317,15 @@ object ItemFlavorText {
 
 /**
 * 
-* @param id 
-* @param name 
-* @param effectUnderscoreentries 
-* @param items 
+* @param id The identifier for this resource.
+* @param name The name for this resource.
+* @param effectUnderscoreentries The result of this fling effect listed in different languages.
+* @param items A list of items that have this fling effect.
 */
 
 case class ItemFlingEffectDetail(
   id: Int,
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   effectUnderscoreentries: List[ItemFlingEffectEffectText],
   items: List[ItemSummary]
 )
@@ -1632,8 +1336,8 @@ object ItemFlingEffectDetail {
 
 /**
 * 
-* @param effect 
-* @param language 
+* @param effect The localized effect text for an API resource in a specific language.
+* @param language The language this effect is in.
 */
 
 case class ItemFlingEffectEffectText(
@@ -1647,12 +1351,12 @@ object ItemFlingEffectEffectText {
 
 /**
 * 
-* @param name 
-* @param url 
+* @param name The name of the referenced resource.
+* @param url The URL of the referenced resource.
 */
 
 case class ItemFlingEffectSummary(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   url: URI
 )
 object ItemFlingEffectSummary {
@@ -1662,12 +1366,12 @@ object ItemFlingEffectSummary {
 
 /**
 * 
-* @param gameUnderscoreindex 
-* @param generation 
+* @param gameUnderscoreindex The internal id of an API resource within game data.
+* @param generation The generation relevent to this game index.
 */
 
 case class ItemGameIndex(
-  gameUnderscoreindex: Int,
+  gameUnderscoreindex: Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]],
   generation: GenerationSummary
 )
 object ItemGameIndex {
@@ -1677,12 +1381,27 @@ object ItemGameIndex {
 
 /**
 * 
-* @param name 
-* @param language 
+* @param machine The machine that teaches a move from an item.
+* @param versionUnderscoregroup The version group of this specific machine.
+*/
+
+case class ItemMachine(
+  machine: MachineSummary,
+  versionUnderscoregroup: VersionGroupSummary
+)
+object ItemMachine {
+  implicit val encoderItemMachine: Encoder[ItemMachine] = deriveEncoder[ItemMachine].mapJson(_.dropNullValues)
+  implicit val decoderItemMachine: Decoder[ItemMachine] = deriveDecoder[ItemMachine]
+}
+
+/**
+* 
+* @param name The localized name for an API resource in a specific language.
+* @param language The language this name is in.
 */
 
 case class ItemName(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   language: LanguageSummary
 )
 object ItemName {
@@ -1692,15 +1411,15 @@ object ItemName {
 
 /**
 * 
-* @param id 
-* @param name 
-* @param categories 
-* @param names 
+* @param id The identifier for this resource.
+* @param name The name for this resource.
+* @param categories A list of item categories that are relevant to this item pocket.
+* @param names The name of this resource listed in different languages.
 */
 
 case class ItemPocketDetail(
   id: Int,
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   categories: List[ItemCategorySummary],
   names: List[ItemPocketName]
 )
@@ -1711,12 +1430,12 @@ object ItemPocketDetail {
 
 /**
 * 
-* @param name 
-* @param language 
+* @param name The localized name for an API resource in a specific language.
+* @param language The language this name is in.
 */
 
 case class ItemPocketName(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   language: LanguageSummary
 )
 object ItemPocketName {
@@ -1726,12 +1445,12 @@ object ItemPocketName {
 
 /**
 * 
-* @param name 
-* @param url 
+* @param name The name of the referenced resource.
+* @param url The URL of the referenced resource.
 */
 
 case class ItemPocketSummary(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   url: URI
 )
 object ItemPocketSummary {
@@ -1741,12 +1460,44 @@ object ItemPocketSummary {
 
 /**
 * 
-* @param name 
-* @param url 
+* @param purchaseUnderscoreprice The purchase price in this currency and version group, or null if unavailable.
+* @param sellUnderscoreprice The sell price in this currency and version group, or null if unavailable.
+* @param currency The currency used for this price.
+* @param versionUnderscoregroup The version group to which this price applies.
+*/
+
+case class ItemPrice(
+  purchaseUnderscoreprice: Option[Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]]],
+  sellUnderscoreprice: Option[Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]]],
+  currency: CurrencySummary,
+  versionUnderscoregroup: VersionGroupSummary
+)
+object ItemPrice {
+  implicit val encoderItemPrice: Encoder[ItemPrice] = deriveEncoder[ItemPrice].mapJson(_.dropNullValues)
+  implicit val decoderItemPrice: Decoder[ItemPrice] = deriveDecoder[ItemPrice]
+}
+
+/**
+* 
+* @param `default` The default depiction of this item.
+*/
+
+case class ItemSprites(
+  `default`: String
+)
+object ItemSprites {
+  implicit val encoderItemSprites: Encoder[ItemSprites] = deriveEncoder[ItemSprites].mapJson(_.dropNullValues)
+  implicit val decoderItemSprites: Decoder[ItemSprites] = deriveDecoder[ItemSprites]
+}
+
+/**
+* 
+* @param name The name of the referenced resource.
+* @param url The URL of the referenced resource.
 */
 
 case class ItemSummary(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   url: URI
 )
 object ItemSummary {
@@ -1756,17 +1507,17 @@ object ItemSummary {
 
 /**
 * 
-* @param id 
-* @param name 
-* @param official 
-* @param iso639 
-* @param iso3166 
-* @param names 
+* @param id The identifier for this resource.
+* @param name The name for this resource.
+* @param official Whether or not the games are published in this language.
+* @param iso639 The two-letter ISO 639-1 language code. Multiple PokéAPI language records may share this code.
+* @param iso3166 The two-letter ISO 3166-1 alpha-2 code of the country or region associated with this language record. Multiple PokéAPI language records may share this code.
+* @param names The name of this resource listed in different languages.
 */
 
 case class LanguageDetail(
   id: Int,
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   official: Option[Boolean],
   iso639: Refined[String, MaxSize[10]],
   iso3166: Refined[String, MaxSize[2]],
@@ -1779,12 +1530,12 @@ object LanguageDetail {
 
 /**
 * 
-* @param name 
-* @param language 
+* @param name The localized name for an API resource in a specific language.
+* @param language The language this name is in.
 */
 
 case class LanguageName(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   language: LanguageSummary
 )
 object LanguageName {
@@ -1794,12 +1545,12 @@ object LanguageName {
 
 /**
 * 
-* @param name 
-* @param url 
+* @param name The name of the referenced resource.
+* @param url The URL of the referenced resource.
 */
 
 case class LanguageSummary(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   url: URI
 )
 object LanguageSummary {
@@ -1809,23 +1560,23 @@ object LanguageSummary {
 
 /**
 * 
-* @param id 
-* @param name 
-* @param gameUnderscoreindex 
-* @param encounterUnderscoremethodUnderscorerates 
-* @param location 
-* @param names 
-* @param pokemonUnderscoreencounters 
+* @param id The identifier for this resource.
+* @param name The name for this resource.
+* @param gameUnderscoreindex The internal id of an API resource within game data.
+* @param encounterUnderscoremethodUnderscorerates A list of methods in which Pokémon may be encountered in this area and how likely the method will occur depending on the version of the game.
+* @param location The region this location area can be found in.
+* @param names The name of this resource listed in different languages.
+* @param pokemonUnderscoreencounters A list of Pokémon that can be encountered in this area along with version specific details about the encounter.
 */
 
 case class LocationAreaDetail(
   id: Int,
-  name: Refined[String, MaxSize[100]],
-  gameUnderscoreindex: Int,
-  encounterUnderscoremethodUnderscorerates: List[LocationAreaDetailEncounterMethodRatesInner],
+  name: Refined[String, MaxSize[200]],
+  gameUnderscoreindex: Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]],
+  encounterUnderscoremethodUnderscorerates: List[LocationAreaEncounterRate],
   location: LocationSummary,
   names: List[LocationAreaName],
-  pokemonUnderscoreencounters: List[LocationAreaDetailPokemonEncountersInner]
+  pokemonUnderscoreencounters: List[LocationAreaPokemonEncounter]
 )
 object LocationAreaDetail {
   implicit val encoderLocationAreaDetail: Encoder[LocationAreaDetail] = deriveEncoder[LocationAreaDetail].mapJson(_.dropNullValues)
@@ -1834,185 +1585,65 @@ object LocationAreaDetail {
 
 /**
 * 
-* @param encounterUnderscoremethod 
-* @param versionUnderscoredetails 
+* @param minUnderscorelevel The lowest level the Pokémon could be encountered at.
+* @param maxUnderscorelevel The highest level the Pokémon could be encountered at.
+* @param chance Percent chance that this encounter will occur.
+* @param method The method by which this encounter happens.
+* @param conditionUnderscorevalues A list of condition values that must be in effect for this encounter to occur.
+* @param pokemonUnderscoredetails Additional properties of the encountered Pokémon, or null if unspecified.
 */
 
-case class LocationAreaDetailEncounterMethodRatesInner(
-  encounterUnderscoremethod: LocationAreaDetailEncounterMethodRatesInnerEncounterMethod,
-  versionUnderscoredetails: List[LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner]
-)
-object LocationAreaDetailEncounterMethodRatesInner {
-  implicit val encoderLocationAreaDetailEncounterMethodRatesInner: Encoder[LocationAreaDetailEncounterMethodRatesInner] = deriveEncoder[LocationAreaDetailEncounterMethodRatesInner].mapJson(_.dropNullValues)
-  implicit val decoderLocationAreaDetailEncounterMethodRatesInner: Decoder[LocationAreaDetailEncounterMethodRatesInner] = deriveDecoder[LocationAreaDetailEncounterMethodRatesInner]
-}
-
-/**
-* 
-* @param name 
-* @param url 
-*/
-
-case class LocationAreaDetailEncounterMethodRatesInnerEncounterMethod(
-  name: String,
-  url: URI
-)
-object LocationAreaDetailEncounterMethodRatesInnerEncounterMethod {
-  implicit val encoderLocationAreaDetailEncounterMethodRatesInnerEncounterMethod: Encoder[LocationAreaDetailEncounterMethodRatesInnerEncounterMethod] = deriveEncoder[LocationAreaDetailEncounterMethodRatesInnerEncounterMethod].mapJson(_.dropNullValues)
-  implicit val decoderLocationAreaDetailEncounterMethodRatesInnerEncounterMethod: Decoder[LocationAreaDetailEncounterMethodRatesInnerEncounterMethod] = deriveDecoder[LocationAreaDetailEncounterMethodRatesInnerEncounterMethod]
-}
-
-/**
-* 
-* @param rate 
-* @param version 
-*/
-
-case class LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner(
-  rate: Int,
-  version: LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInnerVersion
-)
-object LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner {
-  implicit val encoderLocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner: Encoder[LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner] = deriveEncoder[LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner].mapJson(_.dropNullValues)
-  implicit val decoderLocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner: Decoder[LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner] = deriveDecoder[LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner]
-}
-
-/**
-* 
-* @param name 
-* @param url 
-*/
-
-case class LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInnerVersion(
-  name: String,
-  url: URI
-)
-object LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInnerVersion {
-  implicit val encoderLocationAreaDetailEncounterMethodRatesInnerVersionDetailsInnerVersion: Encoder[LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInnerVersion] = deriveEncoder[LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInnerVersion].mapJson(_.dropNullValues)
-  implicit val decoderLocationAreaDetailEncounterMethodRatesInnerVersionDetailsInnerVersion: Decoder[LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInnerVersion] = deriveDecoder[LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInnerVersion]
-}
-
-/**
-* 
-* @param pokemon 
-* @param versionUnderscoredetails 
-*/
-
-case class LocationAreaDetailPokemonEncountersInner(
-  pokemon: LocationAreaDetailPokemonEncountersInnerPokemon,
-  versionUnderscoredetails: List[LocationAreaDetailPokemonEncountersInnerVersionDetailsInner]
-)
-object LocationAreaDetailPokemonEncountersInner {
-  implicit val encoderLocationAreaDetailPokemonEncountersInner: Encoder[LocationAreaDetailPokemonEncountersInner] = deriveEncoder[LocationAreaDetailPokemonEncountersInner].mapJson(_.dropNullValues)
-  implicit val decoderLocationAreaDetailPokemonEncountersInner: Decoder[LocationAreaDetailPokemonEncountersInner] = deriveDecoder[LocationAreaDetailPokemonEncountersInner]
-}
-
-/**
-* 
-* @param name 
-* @param url 
-*/
-
-case class LocationAreaDetailPokemonEncountersInnerPokemon(
-  name: String,
-  url: URI
-)
-object LocationAreaDetailPokemonEncountersInnerPokemon {
-  implicit val encoderLocationAreaDetailPokemonEncountersInnerPokemon: Encoder[LocationAreaDetailPokemonEncountersInnerPokemon] = deriveEncoder[LocationAreaDetailPokemonEncountersInnerPokemon].mapJson(_.dropNullValues)
-  implicit val decoderLocationAreaDetailPokemonEncountersInnerPokemon: Decoder[LocationAreaDetailPokemonEncountersInnerPokemon] = deriveDecoder[LocationAreaDetailPokemonEncountersInnerPokemon]
-}
-
-/**
-* 
-* @param version 
-* @param maxUnderscorechance 
-* @param encounterUnderscoredetails 
-*/
-
-case class LocationAreaDetailPokemonEncountersInnerVersionDetailsInner(
-  version: LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerVersion,
-  maxUnderscorechance: Int,
-  encounterUnderscoredetails: LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails
-)
-object LocationAreaDetailPokemonEncountersInnerVersionDetailsInner {
-  implicit val encoderLocationAreaDetailPokemonEncountersInnerVersionDetailsInner: Encoder[LocationAreaDetailPokemonEncountersInnerVersionDetailsInner] = deriveEncoder[LocationAreaDetailPokemonEncountersInnerVersionDetailsInner].mapJson(_.dropNullValues)
-  implicit val decoderLocationAreaDetailPokemonEncountersInnerVersionDetailsInner: Decoder[LocationAreaDetailPokemonEncountersInnerVersionDetailsInner] = deriveDecoder[LocationAreaDetailPokemonEncountersInnerVersionDetailsInner]
-}
-
-/**
-* 
-* @param minUnderscorelevel 
-* @param maxUnderscorelevel 
-* @param conditionUnderscorevalues 
-* @param chance 
-* @param method 
-*/
-
-case class LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails(
+case class LocationAreaEncounterDetail(
   minUnderscorelevel: Int,
   maxUnderscorelevel: Int,
-  conditionUnderscorevalues: Option[LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetailsConditionValues],
-  chance: Int,
-  method: LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetailsMethod
+  chance: Option[Int],
+  method: Option[EncounterMethodSummary],
+  conditionUnderscorevalues: List[EncounterConditionValueSummary],
+  pokemonUnderscoredetails: EncounterPokemonDetail
 )
-object LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails {
-  implicit val encoderLocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails: Encoder[LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails] = deriveEncoder[LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails].mapJson(_.dropNullValues)
-  implicit val decoderLocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails: Decoder[LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails] = deriveDecoder[LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails]
+object LocationAreaEncounterDetail {
+  implicit val encoderLocationAreaEncounterDetail: Encoder[LocationAreaEncounterDetail] = deriveEncoder[LocationAreaEncounterDetail].mapJson(_.dropNullValues)
+  implicit val decoderLocationAreaEncounterDetail: Decoder[LocationAreaEncounterDetail] = deriveDecoder[LocationAreaEncounterDetail]
 }
 
 /**
 * 
-* @param name 
-* @param url 
+* @param encounterUnderscoremethod The method in which Pokémon may be encountered in an area..
+* @param versionUnderscoredetails The chance of the encounter to occur on a version of the game.
 */
 
-case class LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetailsConditionValues(
-  name: String,
-  url: URI
+case class LocationAreaEncounterRate(
+  encounterUnderscoremethod: EncounterMethodSummary,
+  versionUnderscoredetails: List[LocationAreaEncounterVersionDetail]
 )
-object LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetailsConditionValues {
-  implicit val encoderLocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetailsConditionValues: Encoder[LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetailsConditionValues] = deriveEncoder[LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetailsConditionValues].mapJson(_.dropNullValues)
-  implicit val decoderLocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetailsConditionValues: Decoder[LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetailsConditionValues] = deriveDecoder[LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetailsConditionValues]
+object LocationAreaEncounterRate {
+  implicit val encoderLocationAreaEncounterRate: Encoder[LocationAreaEncounterRate] = deriveEncoder[LocationAreaEncounterRate].mapJson(_.dropNullValues)
+  implicit val decoderLocationAreaEncounterRate: Decoder[LocationAreaEncounterRate] = deriveDecoder[LocationAreaEncounterRate]
 }
 
 /**
 * 
-* @param name 
-* @param url 
+* @param rate The chance of an encounter to occur.
+* @param version The version of the game in which the encounter can occur with the given chance.
 */
 
-case class LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetailsMethod(
-  name: String,
-  url: URI
+case class LocationAreaEncounterVersionDetail(
+  rate: Int,
+  version: VersionSummary
 )
-object LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetailsMethod {
-  implicit val encoderLocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetailsMethod: Encoder[LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetailsMethod] = deriveEncoder[LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetailsMethod].mapJson(_.dropNullValues)
-  implicit val decoderLocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetailsMethod: Decoder[LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetailsMethod] = deriveDecoder[LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetailsMethod]
+object LocationAreaEncounterVersionDetail {
+  implicit val encoderLocationAreaEncounterVersionDetail: Encoder[LocationAreaEncounterVersionDetail] = deriveEncoder[LocationAreaEncounterVersionDetail].mapJson(_.dropNullValues)
+  implicit val decoderLocationAreaEncounterVersionDetail: Decoder[LocationAreaEncounterVersionDetail] = deriveDecoder[LocationAreaEncounterVersionDetail]
 }
 
 /**
 * 
-* @param name 
-* @param url 
-*/
-
-case class LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerVersion(
-  name: String,
-  url: URI
-)
-object LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerVersion {
-  implicit val encoderLocationAreaDetailPokemonEncountersInnerVersionDetailsInnerVersion: Encoder[LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerVersion] = deriveEncoder[LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerVersion].mapJson(_.dropNullValues)
-  implicit val decoderLocationAreaDetailPokemonEncountersInnerVersionDetailsInnerVersion: Decoder[LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerVersion] = deriveDecoder[LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerVersion]
-}
-
-/**
-* 
-* @param name 
-* @param language 
+* @param name The localized name for an API resource in a specific language.
+* @param language The language this name is in.
 */
 
 case class LocationAreaName(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   language: LanguageSummary
 )
 object LocationAreaName {
@@ -2022,12 +1653,44 @@ object LocationAreaName {
 
 /**
 * 
-* @param name 
-* @param url 
+* @param pokemon The Pokémon being encountered.
+* @param versionUnderscoredetails A list of versions and encounters with Pokémon that might happen in the referenced location area.
+*/
+
+case class LocationAreaPokemonEncounter(
+  pokemon: PokemonSummary,
+  versionUnderscoredetails: List[LocationAreaPokemonEncounterVersion]
+)
+object LocationAreaPokemonEncounter {
+  implicit val encoderLocationAreaPokemonEncounter: Encoder[LocationAreaPokemonEncounter] = deriveEncoder[LocationAreaPokemonEncounter].mapJson(_.dropNullValues)
+  implicit val decoderLocationAreaPokemonEncounter: Decoder[LocationAreaPokemonEncounter] = deriveDecoder[LocationAreaPokemonEncounter]
+}
+
+/**
+* 
+* @param version The game version this encounter happens in.
+* @param maxUnderscorechance The total percentage of all encounter potential.
+* @param encounterUnderscoredetails A list of encounters and their specifics.
+*/
+
+case class LocationAreaPokemonEncounterVersion(
+  version: VersionSummary,
+  maxUnderscorechance: Int,
+  encounterUnderscoredetails: List[LocationAreaEncounterDetail]
+)
+object LocationAreaPokemonEncounterVersion {
+  implicit val encoderLocationAreaPokemonEncounterVersion: Encoder[LocationAreaPokemonEncounterVersion] = deriveEncoder[LocationAreaPokemonEncounterVersion].mapJson(_.dropNullValues)
+  implicit val decoderLocationAreaPokemonEncounterVersion: Decoder[LocationAreaPokemonEncounterVersion] = deriveDecoder[LocationAreaPokemonEncounterVersion]
+}
+
+/**
+* 
+* @param name The name of the referenced resource.
+* @param url The URL of the referenced resource.
 */
 
 case class LocationAreaSummary(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   url: URI
 )
 object LocationAreaSummary {
@@ -2037,17 +1700,17 @@ object LocationAreaSummary {
 
 /**
 * 
-* @param id 
-* @param name 
-* @param region 
-* @param names 
-* @param gameUnderscoreindices 
-* @param areas 
+* @param id The identifier for this resource.
+* @param name The name for this resource.
+* @param region The region this location can be found in.
+* @param names The name of this resource listed in different languages.
+* @param gameUnderscoreindices A list of game indices relevent to this location by generation.
+* @param areas Areas that can be found within this location.
 */
 
 case class LocationDetail(
   id: Int,
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   region: RegionSummary,
   names: List[LocationName],
   gameUnderscoreindices: List[LocationGameIndex],
@@ -2060,12 +1723,12 @@ object LocationDetail {
 
 /**
 * 
-* @param gameUnderscoreindex 
-* @param generation 
+* @param gameUnderscoreindex The internal id of an API resource within game data.
+* @param generation The generation relevent to this game index.
 */
 
 case class LocationGameIndex(
-  gameUnderscoreindex: Int,
+  gameUnderscoreindex: Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]],
   generation: GenerationSummary
 )
 object LocationGameIndex {
@@ -2075,12 +1738,12 @@ object LocationGameIndex {
 
 /**
 * 
-* @param name 
-* @param language 
+* @param name The localized name for an API resource in a specific language.
+* @param language The language this name is in.
 */
 
 case class LocationName(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   language: LanguageSummary
 )
 object LocationName {
@@ -2090,12 +1753,12 @@ object LocationName {
 
 /**
 * 
-* @param name 
-* @param url 
+* @param name The name of the referenced resource.
+* @param url The URL of the referenced resource.
 */
 
 case class LocationSummary(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   url: URI
 )
 object LocationSummary {
@@ -2105,10 +1768,10 @@ object LocationSummary {
 
 /**
 * 
-* @param id 
-* @param item 
-* @param versionUnderscoregroup 
-* @param move 
+* @param id The identifier for this resource.
+* @param item The TM or HM item that corresponds to this machine.
+* @param versionUnderscoregroup The version group that this machine applies to.
+* @param move The move that is taught by this machine.
 */
 
 case class MachineDetail(
@@ -2124,7 +1787,7 @@ object MachineDetail {
 
 /**
 * 
-* @param url 
+* @param url The URL of the referenced resource.
 */
 
 case class MachineSummary(
@@ -2137,14 +1800,14 @@ object MachineSummary {
 
 /**
 * 
-* @param id 
-* @param name 
-* @param names 
+* @param id The identifier for this resource.
+* @param name The name for this resource.
+* @param names The name of this resource listed in different languages.
 */
 
 case class MoveBattleStyleDetail(
   id: Int,
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   names: List[MoveBattleStyleName]
 )
 object MoveBattleStyleDetail {
@@ -2154,12 +1817,12 @@ object MoveBattleStyleDetail {
 
 /**
 * 
-* @param name 
-* @param language 
+* @param name The localized name for an API resource in a specific language.
+* @param language The language this name is in.
 */
 
 case class MoveBattleStyleName(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   language: LanguageSummary
 )
 object MoveBattleStyleName {
@@ -2169,12 +1832,12 @@ object MoveBattleStyleName {
 
 /**
 * 
-* @param name 
-* @param url 
+* @param name The name of the referenced resource.
+* @param url The URL of the referenced resource.
 */
 
 case class MoveBattleStyleSummary(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   url: URI
 )
 object MoveBattleStyleSummary {
@@ -2184,21 +1847,21 @@ object MoveBattleStyleSummary {
 
 /**
 * 
-* @param accuracy 
-* @param power 
-* @param pp 
-* @param effectUnderscorechance 
-* @param effectUnderscoreentries 
-* @param `type` 
-* @param versionUnderscoregroup 
+* @param accuracy The percent value of how likely this move is to be successful.
+* @param power The base power before the listed version group, or null if power did not change.
+* @param pp Power points. The number of times this move can be used.
+* @param effectUnderscorechance The percent value of how likely it is this moves effect will take effect.
+* @param effectUnderscoreentries The effect of this move listed in different languages.
+* @param `type` The elemental type of this move.
+* @param versionUnderscoregroup The version group in which these move stat values were in effect.
 */
 
 case class MoveChange(
-  accuracy: Option[Int],
-  power: Option[Int],
-  pp: Option[Int],
+  accuracy: Option[Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]]],
+  power: Option[Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]]],
+  pp: Option[Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]]],
   effectUnderscorechance: Int,
-  effectUnderscoreentries: List[MoveChangeEffectEntriesInner],
+  effectUnderscoreentries: List[MoveEffectEffectText],
   `type`: TypeSummary,
   versionUnderscoregroup: VersionGroupSummary
 )
@@ -2209,44 +1872,42 @@ object MoveChange {
 
 /**
 * 
-* @param effect 
-* @param shortUnderscoreeffect 
-* @param language 
+* @param useUnderscorebefore A list of moves to use before this move.
+* @param useUnderscoreafter A list of moves to use after this move.
 */
 
-case class MoveChangeEffectEntriesInner(
-  effect: String,
-  shortUnderscoreeffect: String,
-  language: MoveChangeEffectEntriesInnerLanguage
+case class MoveComboUsage(
+  useUnderscorebefore: List[MoveSummary],
+  useUnderscoreafter: List[MoveSummary]
 )
-object MoveChangeEffectEntriesInner {
-  implicit val encoderMoveChangeEffectEntriesInner: Encoder[MoveChangeEffectEntriesInner] = deriveEncoder[MoveChangeEffectEntriesInner].mapJson(_.dropNullValues)
-  implicit val decoderMoveChangeEffectEntriesInner: Decoder[MoveChangeEffectEntriesInner] = deriveDecoder[MoveChangeEffectEntriesInner]
+object MoveComboUsage {
+  implicit val encoderMoveComboUsage: Encoder[MoveComboUsage] = deriveEncoder[MoveComboUsage].mapJson(_.dropNullValues)
+  implicit val decoderMoveComboUsage: Decoder[MoveComboUsage] = deriveDecoder[MoveComboUsage]
 }
 
 /**
 * 
-* @param name 
-* @param url 
+* @param normal A detail of moves this move can be used before or after, granting additional appeal points in contests.
+* @param `super` A detail of moves this move can be used before or after, granting additional appeal points in super contests.
 */
 
-case class MoveChangeEffectEntriesInnerLanguage(
-  name: String,
-  url: URI
+case class MoveCombos(
+  normal: MoveComboUsage,
+  `super`: MoveComboUsage
 )
-object MoveChangeEffectEntriesInnerLanguage {
-  implicit val encoderMoveChangeEffectEntriesInnerLanguage: Encoder[MoveChangeEffectEntriesInnerLanguage] = deriveEncoder[MoveChangeEffectEntriesInnerLanguage].mapJson(_.dropNullValues)
-  implicit val decoderMoveChangeEffectEntriesInnerLanguage: Decoder[MoveChangeEffectEntriesInnerLanguage] = deriveDecoder[MoveChangeEffectEntriesInnerLanguage]
+object MoveCombos {
+  implicit val encoderMoveCombos: Encoder[MoveCombos] = deriveEncoder[MoveCombos].mapJson(_.dropNullValues)
+  implicit val decoderMoveCombos: Decoder[MoveCombos] = deriveDecoder[MoveCombos]
 }
 
 /**
 * 
-* @param description 
-* @param language 
+* @param description The localized description for an API resource in a specific language.
+* @param language The language this name is in.
 */
 
 case class MoveDamageClassDescription(
-  description: Option[Refined[String, MaxSize[1000]]],
+  description: Option[Refined[String, MaxSize[2000]]],
   language: LanguageSummary
 )
 object MoveDamageClassDescription {
@@ -2256,16 +1917,16 @@ object MoveDamageClassDescription {
 
 /**
 * 
-* @param id 
-* @param name 
-* @param descriptions 
-* @param moves 
-* @param names 
+* @param id The identifier for this resource.
+* @param name The name for this resource.
+* @param descriptions The description of this resource listed in different languages.
+* @param moves A list of moves that fall into this damage class.
+* @param names The name of this resource listed in different languages.
 */
 
 case class MoveDamageClassDetail(
   id: Int,
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   descriptions: List[MoveDamageClassDescription],
   moves: List[MoveSummary],
   names: List[MoveDamageClassName]
@@ -2277,12 +1938,12 @@ object MoveDamageClassDetail {
 
 /**
 * 
-* @param name 
-* @param language 
+* @param name The localized name for an API resource in a specific language.
+* @param language The language this name is in.
 */
 
 case class MoveDamageClassName(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   language: LanguageSummary
 )
 object MoveDamageClassName {
@@ -2292,12 +1953,12 @@ object MoveDamageClassName {
 
 /**
 * 
-* @param name 
-* @param url 
+* @param name The name of the referenced resource.
+* @param url The URL of the referenced resource.
 */
 
 case class MoveDamageClassSummary(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   url: URI
 )
 object MoveDamageClassSummary {
@@ -2307,57 +1968,57 @@ object MoveDamageClassSummary {
 
 /**
 * 
-* @param id 
-* @param name 
-* @param accuracy 
-* @param effectUnderscorechance 
-* @param pp 
-* @param priority 
-* @param power 
-* @param contestUnderscorecombos 
-* @param contestUnderscoretype 
-* @param contestUnderscoreeffect 
-* @param damageUnderscoreclass 
-* @param effectUnderscoreentries 
-* @param effectUnderscorechanges 
-* @param generation 
-* @param meta 
-* @param names 
-* @param pastUnderscorevalues 
-* @param statUnderscorechanges 
-* @param superUnderscorecontestUnderscoreeffect 
-* @param target 
-* @param `type` 
-* @param machines 
-* @param flavorUnderscoretextUnderscoreentries 
-* @param learnedUnderscorebyUnderscorepokemon 
+* @param id The identifier for this resource.
+* @param name The name for this resource.
+* @param accuracy The percent value of how likely this move is to be successful.
+* @param effectUnderscorechance The percent value of how likely it is this moves effect will happen.
+* @param pp Power points. The number of times this move can be used.
+* @param priority A value between -8 and 8. Sets the order in which moves are executed during battle. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Priority) for greater detail.
+* @param power The base power of this move, or null if it has no fixed base power.
+* @param contestUnderscorecombos A detail of normal and super contest combos that require this move.
+* @param contestUnderscoretype The type of appeal this move gives a Pokémon when used in a contest.
+* @param contestUnderscoreeffect The effect the move has when used in a contest.
+* @param damageUnderscoreclass The type of damage the move inflicts on the target, e.g. physical.
+* @param effectUnderscoreentries The effect of this move listed in different languages.
+* @param effectUnderscorechanges The list of previous effects this move has had across version groups of the games.
+* @param generation The generation in which this move was introduced.
+* @param meta Metadata about this move
+* @param names The name of this resource listed in different languages.
+* @param pastUnderscorevalues A list of move resource value changes across version groups of the game.
+* @param statUnderscorechanges A list of stats this moves effects and how much it effects them.
+* @param superUnderscorecontestUnderscoreeffect The effect the move has when used in a super contest.
+* @param target The type of target that will receive the effects of the attack.
+* @param `type` The elemental type of this move.
+* @param machines A list of the machines that teach this move.
+* @param flavorUnderscoretextUnderscoreentries The flavor text of this move listed in different languages.
+* @param learnedUnderscorebyUnderscorepokemon List of Pokemon that can learn the move
 */
 
 case class MoveDetail(
   id: Int,
-  name: Refined[String, MaxSize[100]],
-  accuracy: Option[Int],
+  name: Refined[String, MaxSize[200]],
+  accuracy: Option[Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]]],
   effectUnderscorechance: Int,
-  pp: Option[Int],
-  priority: Option[Int],
-  power: Option[Int],
-  contestUnderscorecombos: MoveDetailContestCombos,
+  pp: Option[Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]]],
+  priority: Option[Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]]],
+  power: Option[Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]]],
+  contestUnderscorecombos: MoveCombos,
   contestUnderscoretype: ContestTypeSummary,
   contestUnderscoreeffect: ContestEffectSummary,
   damageUnderscoreclass: MoveDamageClassSummary,
-  effectUnderscoreentries: List[MoveDetailEffectEntriesInner],
-  effectUnderscorechanges: List[MoveDetailEffectChangesInner],
+  effectUnderscoreentries: List[MoveEffectEffectText],
+  effectUnderscorechanges: List[MoveEffectChange],
   generation: GenerationSummary,
   meta: MoveMeta,
   names: List[MoveName],
   pastUnderscorevalues: List[MoveChange],
-  statUnderscorechanges: List[MoveDetailStatChangesInner],
+  statUnderscorechanges: List[MoveMetaStatChange],
   superUnderscorecontestUnderscoreeffect: SuperContestEffectSummary,
   target: MoveTargetSummary,
   `type`: TypeSummary,
-  machines: List[MoveDetailMachinesInner],
+  machines: List[ItemMachine],
   flavorUnderscoretextUnderscoreentries: List[MoveFlavorText],
-  learnedUnderscorebyUnderscorepokemon: List[MoveDetailLearnedByPokemonInner]
+  learnedUnderscorebyUnderscorepokemon: List[PokemonSummary]
 )
 object MoveDetail {
   implicit val encoderMoveDetail: Encoder[MoveDetail] = deriveEncoder[MoveDetail].mapJson(_.dropNullValues)
@@ -2366,294 +2027,56 @@ object MoveDetail {
 
 /**
 * 
-* @param normal 
-* @param `super` 
+* @param versionUnderscoregroup The version group in which the previous effect of this ability originated.
+* @param effectUnderscoreentries The previous effect of this ability listed in different languages.
 */
 
-case class MoveDetailContestCombos(
-  normal: MoveDetailContestCombosNormal,
-  `super`: MoveDetailContestCombosSuper
+case class MoveEffectChange(
+  versionUnderscoregroup: VersionGroupSummary,
+  effectUnderscoreentries: List[MoveEffectChangeEffectText]
 )
-object MoveDetailContestCombos {
-  implicit val encoderMoveDetailContestCombos: Encoder[MoveDetailContestCombos] = deriveEncoder[MoveDetailContestCombos].mapJson(_.dropNullValues)
-  implicit val decoderMoveDetailContestCombos: Decoder[MoveDetailContestCombos] = deriveDecoder[MoveDetailContestCombos]
+object MoveEffectChange {
+  implicit val encoderMoveEffectChange: Encoder[MoveEffectChange] = deriveEncoder[MoveEffectChange].mapJson(_.dropNullValues)
+  implicit val decoderMoveEffectChange: Decoder[MoveEffectChange] = deriveDecoder[MoveEffectChange]
 }
 
 /**
 * 
-* @param useUnderscorebefore 
-* @param useUnderscoreafter 
+* @param effect The localized effect text for an API resource in a specific language.
+* @param language The language this effect is in.
 */
 
-case class MoveDetailContestCombosNormal(
-  useUnderscorebefore: List[MoveDetailContestCombosNormalUseBeforeInner],
-  useUnderscoreafter: List[MoveDetailContestCombosNormalUseAfterInner]
+case class MoveEffectChangeEffectText(
+  effect: Refined[String, MaxSize[6000]],
+  language: LanguageSummary
 )
-object MoveDetailContestCombosNormal {
-  implicit val encoderMoveDetailContestCombosNormal: Encoder[MoveDetailContestCombosNormal] = deriveEncoder[MoveDetailContestCombosNormal].mapJson(_.dropNullValues)
-  implicit val decoderMoveDetailContestCombosNormal: Decoder[MoveDetailContestCombosNormal] = deriveDecoder[MoveDetailContestCombosNormal]
+object MoveEffectChangeEffectText {
+  implicit val encoderMoveEffectChangeEffectText: Encoder[MoveEffectChangeEffectText] = deriveEncoder[MoveEffectChangeEffectText].mapJson(_.dropNullValues)
+  implicit val decoderMoveEffectChangeEffectText: Decoder[MoveEffectChangeEffectText] = deriveDecoder[MoveEffectChangeEffectText]
 }
 
 /**
 * 
-* @param name 
-* @param url 
+* @param effect The localized effect text for an API resource in a specific language.
+* @param shortUnderscoreeffect The localized effect text in brief.
+* @param language The language this effect is in.
 */
 
-case class MoveDetailContestCombosNormalUseAfterInner(
-  name: String,
-  url: URI
+case class MoveEffectEffectText(
+  effect: Refined[String, MaxSize[6000]],
+  shortUnderscoreeffect: Refined[String, MaxSize[300]],
+  language: LanguageSummary
 )
-object MoveDetailContestCombosNormalUseAfterInner {
-  implicit val encoderMoveDetailContestCombosNormalUseAfterInner: Encoder[MoveDetailContestCombosNormalUseAfterInner] = deriveEncoder[MoveDetailContestCombosNormalUseAfterInner].mapJson(_.dropNullValues)
-  implicit val decoderMoveDetailContestCombosNormalUseAfterInner: Decoder[MoveDetailContestCombosNormalUseAfterInner] = deriveDecoder[MoveDetailContestCombosNormalUseAfterInner]
+object MoveEffectEffectText {
+  implicit val encoderMoveEffectEffectText: Encoder[MoveEffectEffectText] = deriveEncoder[MoveEffectEffectText].mapJson(_.dropNullValues)
+  implicit val decoderMoveEffectEffectText: Decoder[MoveEffectEffectText] = deriveDecoder[MoveEffectEffectText]
 }
 
 /**
 * 
-* @param name 
-* @param url 
-*/
-
-case class MoveDetailContestCombosNormalUseBeforeInner(
-  name: String,
-  url: URI
-)
-object MoveDetailContestCombosNormalUseBeforeInner {
-  implicit val encoderMoveDetailContestCombosNormalUseBeforeInner: Encoder[MoveDetailContestCombosNormalUseBeforeInner] = deriveEncoder[MoveDetailContestCombosNormalUseBeforeInner].mapJson(_.dropNullValues)
-  implicit val decoderMoveDetailContestCombosNormalUseBeforeInner: Decoder[MoveDetailContestCombosNormalUseBeforeInner] = deriveDecoder[MoveDetailContestCombosNormalUseBeforeInner]
-}
-
-/**
-* 
-* @param useUnderscorebefore 
-* @param useUnderscoreafter 
-*/
-
-case class MoveDetailContestCombosSuper(
-  useUnderscorebefore: List[MoveDetailContestCombosSuperUseBeforeInner],
-  useUnderscoreafter: List[MoveDetailContestCombosSuperUseAfterInner]
-)
-object MoveDetailContestCombosSuper {
-  implicit val encoderMoveDetailContestCombosSuper: Encoder[MoveDetailContestCombosSuper] = deriveEncoder[MoveDetailContestCombosSuper].mapJson(_.dropNullValues)
-  implicit val decoderMoveDetailContestCombosSuper: Decoder[MoveDetailContestCombosSuper] = deriveDecoder[MoveDetailContestCombosSuper]
-}
-
-/**
-* 
-* @param name 
-* @param url 
-*/
-
-case class MoveDetailContestCombosSuperUseAfterInner(
-  name: String,
-  url: URI
-)
-object MoveDetailContestCombosSuperUseAfterInner {
-  implicit val encoderMoveDetailContestCombosSuperUseAfterInner: Encoder[MoveDetailContestCombosSuperUseAfterInner] = deriveEncoder[MoveDetailContestCombosSuperUseAfterInner].mapJson(_.dropNullValues)
-  implicit val decoderMoveDetailContestCombosSuperUseAfterInner: Decoder[MoveDetailContestCombosSuperUseAfterInner] = deriveDecoder[MoveDetailContestCombosSuperUseAfterInner]
-}
-
-/**
-* 
-* @param name 
-* @param url 
-*/
-
-case class MoveDetailContestCombosSuperUseBeforeInner(
-  name: String,
-  url: URI
-)
-object MoveDetailContestCombosSuperUseBeforeInner {
-  implicit val encoderMoveDetailContestCombosSuperUseBeforeInner: Encoder[MoveDetailContestCombosSuperUseBeforeInner] = deriveEncoder[MoveDetailContestCombosSuperUseBeforeInner].mapJson(_.dropNullValues)
-  implicit val decoderMoveDetailContestCombosSuperUseBeforeInner: Decoder[MoveDetailContestCombosSuperUseBeforeInner] = deriveDecoder[MoveDetailContestCombosSuperUseBeforeInner]
-}
-
-/**
-* 
-* @param effectUnderscoreentries 
-* @param versionUnderscoregroup 
-*/
-
-case class MoveDetailEffectChangesInner(
-  effectUnderscoreentries: List[MoveDetailEffectChangesInnerEffectEntriesInner],
-  versionUnderscoregroup: MoveDetailEffectChangesInnerVersionGroup
-)
-object MoveDetailEffectChangesInner {
-  implicit val encoderMoveDetailEffectChangesInner: Encoder[MoveDetailEffectChangesInner] = deriveEncoder[MoveDetailEffectChangesInner].mapJson(_.dropNullValues)
-  implicit val decoderMoveDetailEffectChangesInner: Decoder[MoveDetailEffectChangesInner] = deriveDecoder[MoveDetailEffectChangesInner]
-}
-
-/**
-* 
-* @param effect 
-* @param language 
-*/
-
-case class MoveDetailEffectChangesInnerEffectEntriesInner(
-  effect: String,
-  language: MoveDetailEffectChangesInnerEffectEntriesInnerLanguage
-)
-object MoveDetailEffectChangesInnerEffectEntriesInner {
-  implicit val encoderMoveDetailEffectChangesInnerEffectEntriesInner: Encoder[MoveDetailEffectChangesInnerEffectEntriesInner] = deriveEncoder[MoveDetailEffectChangesInnerEffectEntriesInner].mapJson(_.dropNullValues)
-  implicit val decoderMoveDetailEffectChangesInnerEffectEntriesInner: Decoder[MoveDetailEffectChangesInnerEffectEntriesInner] = deriveDecoder[MoveDetailEffectChangesInnerEffectEntriesInner]
-}
-
-/**
-* 
-* @param name 
-* @param url 
-*/
-
-case class MoveDetailEffectChangesInnerEffectEntriesInnerLanguage(
-  name: String,
-  url: URI
-)
-object MoveDetailEffectChangesInnerEffectEntriesInnerLanguage {
-  implicit val encoderMoveDetailEffectChangesInnerEffectEntriesInnerLanguage: Encoder[MoveDetailEffectChangesInnerEffectEntriesInnerLanguage] = deriveEncoder[MoveDetailEffectChangesInnerEffectEntriesInnerLanguage].mapJson(_.dropNullValues)
-  implicit val decoderMoveDetailEffectChangesInnerEffectEntriesInnerLanguage: Decoder[MoveDetailEffectChangesInnerEffectEntriesInnerLanguage] = deriveDecoder[MoveDetailEffectChangesInnerEffectEntriesInnerLanguage]
-}
-
-/**
-* 
-* @param name 
-* @param url 
-*/
-
-case class MoveDetailEffectChangesInnerVersionGroup(
-  name: String,
-  url: URI
-)
-object MoveDetailEffectChangesInnerVersionGroup {
-  implicit val encoderMoveDetailEffectChangesInnerVersionGroup: Encoder[MoveDetailEffectChangesInnerVersionGroup] = deriveEncoder[MoveDetailEffectChangesInnerVersionGroup].mapJson(_.dropNullValues)
-  implicit val decoderMoveDetailEffectChangesInnerVersionGroup: Decoder[MoveDetailEffectChangesInnerVersionGroup] = deriveDecoder[MoveDetailEffectChangesInnerVersionGroup]
-}
-
-/**
-* 
-* @param effect 
-* @param shortUnderscoreeffect 
-* @param language 
-*/
-
-case class MoveDetailEffectEntriesInner(
-  effect: String,
-  shortUnderscoreeffect: String,
-  language: MoveDetailEffectEntriesInnerLanguage
-)
-object MoveDetailEffectEntriesInner {
-  implicit val encoderMoveDetailEffectEntriesInner: Encoder[MoveDetailEffectEntriesInner] = deriveEncoder[MoveDetailEffectEntriesInner].mapJson(_.dropNullValues)
-  implicit val decoderMoveDetailEffectEntriesInner: Decoder[MoveDetailEffectEntriesInner] = deriveDecoder[MoveDetailEffectEntriesInner]
-}
-
-/**
-* 
-* @param name 
-* @param url 
-*/
-
-case class MoveDetailEffectEntriesInnerLanguage(
-  name: String,
-  url: URI
-)
-object MoveDetailEffectEntriesInnerLanguage {
-  implicit val encoderMoveDetailEffectEntriesInnerLanguage: Encoder[MoveDetailEffectEntriesInnerLanguage] = deriveEncoder[MoveDetailEffectEntriesInnerLanguage].mapJson(_.dropNullValues)
-  implicit val decoderMoveDetailEffectEntriesInnerLanguage: Decoder[MoveDetailEffectEntriesInnerLanguage] = deriveDecoder[MoveDetailEffectEntriesInnerLanguage]
-}
-
-/**
-* 
-* @param name 
-* @param url 
-*/
-
-case class MoveDetailLearnedByPokemonInner(
-  name: String,
-  url: URI
-)
-object MoveDetailLearnedByPokemonInner {
-  implicit val encoderMoveDetailLearnedByPokemonInner: Encoder[MoveDetailLearnedByPokemonInner] = deriveEncoder[MoveDetailLearnedByPokemonInner].mapJson(_.dropNullValues)
-  implicit val decoderMoveDetailLearnedByPokemonInner: Decoder[MoveDetailLearnedByPokemonInner] = deriveDecoder[MoveDetailLearnedByPokemonInner]
-}
-
-/**
-* 
-* @param machine 
-* @param versionUnderscoregroup 
-*/
-
-case class MoveDetailMachinesInner(
-  machine: MoveDetailMachinesInnerMachine,
-  versionUnderscoregroup: MoveDetailMachinesInnerVersionGroup
-)
-object MoveDetailMachinesInner {
-  implicit val encoderMoveDetailMachinesInner: Encoder[MoveDetailMachinesInner] = deriveEncoder[MoveDetailMachinesInner].mapJson(_.dropNullValues)
-  implicit val decoderMoveDetailMachinesInner: Decoder[MoveDetailMachinesInner] = deriveDecoder[MoveDetailMachinesInner]
-}
-
-/**
-* 
-* @param url 
-*/
-
-case class MoveDetailMachinesInnerMachine(
-  url: URI
-)
-object MoveDetailMachinesInnerMachine {
-  implicit val encoderMoveDetailMachinesInnerMachine: Encoder[MoveDetailMachinesInnerMachine] = deriveEncoder[MoveDetailMachinesInnerMachine].mapJson(_.dropNullValues)
-  implicit val decoderMoveDetailMachinesInnerMachine: Decoder[MoveDetailMachinesInnerMachine] = deriveDecoder[MoveDetailMachinesInnerMachine]
-}
-
-/**
-* 
-* @param name 
-* @param url 
-*/
-
-case class MoveDetailMachinesInnerVersionGroup(
-  name: String,
-  url: URI
-)
-object MoveDetailMachinesInnerVersionGroup {
-  implicit val encoderMoveDetailMachinesInnerVersionGroup: Encoder[MoveDetailMachinesInnerVersionGroup] = deriveEncoder[MoveDetailMachinesInnerVersionGroup].mapJson(_.dropNullValues)
-  implicit val decoderMoveDetailMachinesInnerVersionGroup: Decoder[MoveDetailMachinesInnerVersionGroup] = deriveDecoder[MoveDetailMachinesInnerVersionGroup]
-}
-
-/**
-* 
-* @param change 
-* @param stat 
-*/
-
-case class MoveDetailStatChangesInner(
-  change: Int,
-  stat: MoveDetailStatChangesInnerStat
-)
-object MoveDetailStatChangesInner {
-  implicit val encoderMoveDetailStatChangesInner: Encoder[MoveDetailStatChangesInner] = deriveEncoder[MoveDetailStatChangesInner].mapJson(_.dropNullValues)
-  implicit val decoderMoveDetailStatChangesInner: Decoder[MoveDetailStatChangesInner] = deriveDecoder[MoveDetailStatChangesInner]
-}
-
-/**
-* 
-* @param name 
-* @param url 
-*/
-
-case class MoveDetailStatChangesInnerStat(
-  name: String,
-  url: URI
-)
-object MoveDetailStatChangesInnerStat {
-  implicit val encoderMoveDetailStatChangesInnerStat: Encoder[MoveDetailStatChangesInnerStat] = deriveEncoder[MoveDetailStatChangesInnerStat].mapJson(_.dropNullValues)
-  implicit val decoderMoveDetailStatChangesInnerStat: Decoder[MoveDetailStatChangesInnerStat] = deriveDecoder[MoveDetailStatChangesInnerStat]
-}
-
-/**
-* 
-* @param flavorUnderscoretext 
-* @param language 
-* @param versionUnderscoregroup 
+* @param flavorUnderscoretext The localized flavor text for an api resource in a specific language.
+* @param language The language this name is in.
+* @param versionUnderscoregroup The version group that uses this flavor text.
 */
 
 case class MoveFlavorText(
@@ -2668,12 +2091,12 @@ object MoveFlavorText {
 
 /**
 * 
-* @param description 
-* @param language 
+* @param description The localized description for an API resource in a specific language.
+* @param language The language this name is in.
 */
 
 case class MoveLearnMethodDescription(
-  description: Option[Refined[String, MaxSize[1000]]],
+  description: Option[Refined[String, MaxSize[2000]]],
   language: LanguageSummary
 )
 object MoveLearnMethodDescription {
@@ -2683,19 +2106,19 @@ object MoveLearnMethodDescription {
 
 /**
 * 
-* @param id 
-* @param name 
-* @param names 
-* @param descriptions 
-* @param versionUnderscoregroups 
+* @param id The identifier for this resource.
+* @param name The name for this resource.
+* @param names The name of this resource listed in different languages.
+* @param descriptions The description of this resource listed in different languages.
+* @param versionUnderscoregroups A list of version groups where moves can be learned through this method.
 */
 
 case class MoveLearnMethodDetail(
   id: Int,
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   names: List[MoveLearnMethodName],
   descriptions: List[MoveLearnMethodDescription],
-  versionUnderscoregroups: List[MoveLearnMethodDetailVersionGroupsInner]
+  versionUnderscoregroups: List[VersionGroupSummary]
 )
 object MoveLearnMethodDetail {
   implicit val encoderMoveLearnMethodDetail: Encoder[MoveLearnMethodDetail] = deriveEncoder[MoveLearnMethodDetail].mapJson(_.dropNullValues)
@@ -2704,27 +2127,12 @@ object MoveLearnMethodDetail {
 
 /**
 * 
-* @param name 
-* @param url 
-*/
-
-case class MoveLearnMethodDetailVersionGroupsInner(
-  name: String,
-  url: URI
-)
-object MoveLearnMethodDetailVersionGroupsInner {
-  implicit val encoderMoveLearnMethodDetailVersionGroupsInner: Encoder[MoveLearnMethodDetailVersionGroupsInner] = deriveEncoder[MoveLearnMethodDetailVersionGroupsInner].mapJson(_.dropNullValues)
-  implicit val decoderMoveLearnMethodDetailVersionGroupsInner: Decoder[MoveLearnMethodDetailVersionGroupsInner] = deriveDecoder[MoveLearnMethodDetailVersionGroupsInner]
-}
-
-/**
-* 
-* @param name 
-* @param language 
+* @param name The localized name for an API resource in a specific language.
+* @param language The language this name is in.
 */
 
 case class MoveLearnMethodName(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   language: LanguageSummary
 )
 object MoveLearnMethodName {
@@ -2734,12 +2142,12 @@ object MoveLearnMethodName {
 
 /**
 * 
-* @param name 
-* @param url 
+* @param name The name of the referenced resource.
+* @param url The URL of the referenced resource.
 */
 
 case class MoveLearnMethodSummary(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   url: URI
 )
 object MoveLearnMethodSummary {
@@ -2749,33 +2157,33 @@ object MoveLearnMethodSummary {
 
 /**
 * 
-* @param ailment 
-* @param category 
-* @param minUnderscorehits 
-* @param maxUnderscorehits 
-* @param minUnderscoreturns 
-* @param maxUnderscoreturns 
-* @param drain 
-* @param healing 
-* @param critUnderscorerate 
-* @param ailmentUnderscorechance 
-* @param flinchUnderscorechance 
-* @param statUnderscorechance 
+* @param ailment The status ailment this move inflicts on its target.
+* @param category The category of move this move falls under, e.g. damage or ailment.
+* @param minUnderscorehits The minimum number of times this move hits. Null if it always only hits once.
+* @param maxUnderscorehits The maximum number of times this move hits. Null if it always only hits once.
+* @param minUnderscoreturns The minimum number of turns this move continues to take effect. Null if it always only lasts one turn.
+* @param maxUnderscoreturns The maximum number of turns this move continues to take effect. Null if it always only lasts one turn.
+* @param drain HP drain (if positive) or Recoil damage (if negative), in percent of damage done.
+* @param healing The amount of hp gained by the attacking Pokemon, in percent of it's maximum HP.
+* @param critUnderscorerate Critical hit rate bonus.
+* @param ailmentUnderscorechance The likelihood this attack will cause an ailment.
+* @param flinchUnderscorechance The likelihood this attack will cause the target Pokémon to flinch.
+* @param statUnderscorechance The likelihood this attack will cause a stat change in the target Pokémon.
 */
 
 case class MoveMeta(
   ailment: MoveMetaAilmentSummary,
   category: MoveMetaCategorySummary,
-  minUnderscorehits: Option[Int],
-  maxUnderscorehits: Option[Int],
-  minUnderscoreturns: Option[Int],
-  maxUnderscoreturns: Option[Int],
-  drain: Option[Int],
-  healing: Option[Int],
-  critUnderscorerate: Option[Int],
-  ailmentUnderscorechance: Option[Int],
-  flinchUnderscorechance: Option[Int],
-  statUnderscorechance: Option[Int]
+  minUnderscorehits: Option[Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]]],
+  maxUnderscorehits: Option[Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]]],
+  minUnderscoreturns: Option[Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]]],
+  maxUnderscoreturns: Option[Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]]],
+  drain: Option[Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]]],
+  healing: Option[Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]]],
+  critUnderscorerate: Option[Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]]],
+  ailmentUnderscorechance: Option[Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]]],
+  flinchUnderscorechance: Option[Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]]],
+  statUnderscorechance: Option[Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]]]
 )
 object MoveMeta {
   implicit val encoderMoveMeta: Encoder[MoveMeta] = deriveEncoder[MoveMeta].mapJson(_.dropNullValues)
@@ -2784,16 +2192,16 @@ object MoveMeta {
 
 /**
 * 
-* @param id 
-* @param name 
-* @param moves 
-* @param names 
+* @param id The identifier for this resource.
+* @param name The name for this resource.
+* @param moves A list of moves that cause this ailment.
+* @param names The name of this resource listed in different languages.
 */
 
 case class MoveMetaAilmentDetail(
   id: Int,
-  name: Refined[String, MaxSize[100]],
-  moves: List[MoveMetaAilmentDetailMovesInner],
+  name: Refined[String, MaxSize[200]],
+  moves: List[MoveSummary],
   names: List[MoveMetaAilmentName]
 )
 object MoveMetaAilmentDetail {
@@ -2803,27 +2211,12 @@ object MoveMetaAilmentDetail {
 
 /**
 * 
-* @param name 
-* @param url 
-*/
-
-case class MoveMetaAilmentDetailMovesInner(
-  name: String,
-  url: URI
-)
-object MoveMetaAilmentDetailMovesInner {
-  implicit val encoderMoveMetaAilmentDetailMovesInner: Encoder[MoveMetaAilmentDetailMovesInner] = deriveEncoder[MoveMetaAilmentDetailMovesInner].mapJson(_.dropNullValues)
-  implicit val decoderMoveMetaAilmentDetailMovesInner: Decoder[MoveMetaAilmentDetailMovesInner] = deriveDecoder[MoveMetaAilmentDetailMovesInner]
-}
-
-/**
-* 
-* @param name 
-* @param language 
+* @param name The localized name for an API resource in a specific language.
+* @param language The language this name is in.
 */
 
 case class MoveMetaAilmentName(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   language: LanguageSummary
 )
 object MoveMetaAilmentName {
@@ -2833,12 +2226,12 @@ object MoveMetaAilmentName {
 
 /**
 * 
-* @param name 
-* @param url 
+* @param name The name of the referenced resource.
+* @param url The URL of the referenced resource.
 */
 
 case class MoveMetaAilmentSummary(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   url: URI
 )
 object MoveMetaAilmentSummary {
@@ -2848,12 +2241,12 @@ object MoveMetaAilmentSummary {
 
 /**
 * 
-* @param description 
-* @param language 
+* @param description The localized description for an API resource in a specific language.
+* @param language The language this name is in.
 */
 
 case class MoveMetaCategoryDescription(
-  description: Option[Refined[String, MaxSize[1000]]],
+  description: Option[Refined[String, MaxSize[2000]]],
   language: LanguageSummary
 )
 object MoveMetaCategoryDescription {
@@ -2863,17 +2256,17 @@ object MoveMetaCategoryDescription {
 
 /**
 * 
-* @param id 
-* @param name 
-* @param descriptions 
-* @param moves 
+* @param id The identifier for this resource.
+* @param name The name for this resource.
+* @param descriptions The description of this resource listed in different languages.
+* @param moves A list of moves that fall into this category.
 */
 
 case class MoveMetaCategoryDetail(
   id: Int,
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   descriptions: List[MoveMetaCategoryDescription],
-  moves: List[MoveMetaCategoryDetailMovesInner]
+  moves: List[MoveSummary]
 )
 object MoveMetaCategoryDetail {
   implicit val encoderMoveMetaCategoryDetail: Encoder[MoveMetaCategoryDetail] = deriveEncoder[MoveMetaCategoryDetail].mapJson(_.dropNullValues)
@@ -2882,27 +2275,12 @@ object MoveMetaCategoryDetail {
 
 /**
 * 
-* @param name 
-* @param url 
-*/
-
-case class MoveMetaCategoryDetailMovesInner(
-  name: String,
-  url: URI
-)
-object MoveMetaCategoryDetailMovesInner {
-  implicit val encoderMoveMetaCategoryDetailMovesInner: Encoder[MoveMetaCategoryDetailMovesInner] = deriveEncoder[MoveMetaCategoryDetailMovesInner].mapJson(_.dropNullValues)
-  implicit val decoderMoveMetaCategoryDetailMovesInner: Decoder[MoveMetaCategoryDetailMovesInner] = deriveDecoder[MoveMetaCategoryDetailMovesInner]
-}
-
-/**
-* 
-* @param name 
-* @param url 
+* @param name The name of the referenced resource.
+* @param url The URL of the referenced resource.
 */
 
 case class MoveMetaCategorySummary(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   url: URI
 )
 object MoveMetaCategorySummary {
@@ -2912,12 +2290,27 @@ object MoveMetaCategorySummary {
 
 /**
 * 
-* @param name 
-* @param language 
+* @param change The amount of change.
+* @param stat The stat being affected.
+*/
+
+case class MoveMetaStatChange(
+  change: Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]],
+  stat: StatSummary
+)
+object MoveMetaStatChange {
+  implicit val encoderMoveMetaStatChange: Encoder[MoveMetaStatChange] = deriveEncoder[MoveMetaStatChange].mapJson(_.dropNullValues)
+  implicit val decoderMoveMetaStatChange: Decoder[MoveMetaStatChange] = deriveDecoder[MoveMetaStatChange]
+}
+
+/**
+* 
+* @param name The localized name for an API resource in a specific language.
+* @param language The language this name is in.
 */
 
 case class MoveName(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   language: LanguageSummary
 )
 object MoveName {
@@ -2927,12 +2320,27 @@ object MoveName {
 
 /**
 * 
-* @param name 
-* @param url 
+* @param change The maximum amount of change to the referenced stat.
+* @param move The move causing the change.
+*/
+
+case class MoveStatChange(
+  change: Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]],
+  move: MoveSummary
+)
+object MoveStatChange {
+  implicit val encoderMoveStatChange: Encoder[MoveStatChange] = deriveEncoder[MoveStatChange].mapJson(_.dropNullValues)
+  implicit val decoderMoveStatChange: Decoder[MoveStatChange] = deriveDecoder[MoveStatChange]
+}
+
+/**
+* 
+* @param name The name of the referenced resource.
+* @param url The URL of the referenced resource.
 */
 
 case class MoveSummary(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   url: URI
 )
 object MoveSummary {
@@ -2942,12 +2350,12 @@ object MoveSummary {
 
 /**
 * 
-* @param description 
-* @param language 
+* @param description The localized description for an API resource in a specific language.
+* @param language The language this name is in.
 */
 
 case class MoveTargetDescription(
-  description: Option[Refined[String, MaxSize[1000]]],
+  description: Option[Refined[String, MaxSize[2000]]],
   language: LanguageSummary
 )
 object MoveTargetDescription {
@@ -2957,16 +2365,16 @@ object MoveTargetDescription {
 
 /**
 * 
-* @param id 
-* @param name 
-* @param descriptions 
-* @param moves 
-* @param names 
+* @param id The identifier for this resource.
+* @param name The name for this resource.
+* @param descriptions The description of this resource listed in different languages.
+* @param moves A list of moves that that are directed at this target.
+* @param names The name of this resource listed in different languages.
 */
 
 case class MoveTargetDetail(
   id: Int,
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   descriptions: List[MoveTargetDescription],
   moves: List[MoveSummary],
   names: List[MoveTargetName]
@@ -2978,12 +2386,12 @@ object MoveTargetDetail {
 
 /**
 * 
-* @param name 
-* @param language 
+* @param name The localized name for an API resource in a specific language.
+* @param language The language this name is in.
 */
 
 case class MoveTargetName(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   language: LanguageSummary
 )
 object MoveTargetName {
@@ -2993,12 +2401,12 @@ object MoveTargetName {
 
 /**
 * 
-* @param name 
-* @param url 
+* @param name The name of the referenced resource.
+* @param url The URL of the referenced resource.
 */
 
 case class MoveTargetSummary(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   url: URI
 )
 object MoveTargetSummary {
@@ -3008,14 +2416,14 @@ object MoveTargetSummary {
 
 /**
 * 
-* @param lowUnderscorehpUnderscorepreference 
-* @param highUnderscorehpUnderscorepreference 
-* @param moveUnderscorebattleUnderscorestyle 
+* @param lowUnderscorehpUnderscorepreference Chance of using the move, in percent, if HP is under one half.
+* @param highUnderscorehpUnderscorepreference Chance of using the move, in percent, if HP is over one half.
+* @param moveUnderscorebattleUnderscorestyle The move battle style.
 */
 
 case class NatureBattleStylePreference(
-  lowUnderscorehpUnderscorepreference: Int,
-  highUnderscorehpUnderscorepreference: Int,
+  lowUnderscorehpUnderscorepreference: Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]],
+  highUnderscorehpUnderscorepreference: Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]],
   moveUnderscorebattleUnderscorestyle: MoveBattleStyleSummary
 )
 object NatureBattleStylePreference {
@@ -3025,27 +2433,25 @@ object NatureBattleStylePreference {
 
 /**
 * 
-* @param id 
-* @param name 
-* @param decreasedUnderscorestat 
-* @param increasedUnderscorestat 
-* @param likesUnderscoreflavor 
-* @param hatesUnderscoreflavor 
-* @param berries 
-* @param pokeathlonUnderscorestatUnderscorechanges 
-* @param moveUnderscorebattleUnderscorestyleUnderscorepreferences 
-* @param names 
+* @param id The identifier for this resource.
+* @param name The name for this resource.
+* @param decreasedUnderscorestat The stat decreased by 10% in Pokémon with this nature.
+* @param increasedUnderscorestat The stat increased by 10% in Pokémon with this nature.
+* @param likesUnderscoreflavor The flavor liked by Pokémon with this nature.
+* @param hatesUnderscoreflavor The flavor hated by Pokémon with this nature.
+* @param pokeathlonUnderscorestatUnderscorechanges A list of Pokéathlon stats this nature effects and how much it effects them.
+* @param moveUnderscorebattleUnderscorestyleUnderscorepreferences A list of battle styles and how likely a Pokémon with this nature is to use them in the Battle Palace or Battle Tent.
+* @param names The name of this resource listed in different languages.
 */
 
 case class NatureDetail(
   id: Int,
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   decreasedUnderscorestat: StatSummary,
   increasedUnderscorestat: StatSummary,
   likesUnderscoreflavor: BerryFlavorSummary,
   hatesUnderscoreflavor: BerryFlavorSummary,
-  berries: List[BerrySummary],
-  pokeathlonUnderscorestatUnderscorechanges: List[NatureDetailPokeathlonStatChangesInner],
+  pokeathlonUnderscorestatUnderscorechanges: List[NaturePokeathlonStat],
   moveUnderscorebattleUnderscorestyleUnderscorepreferences: List[NatureBattleStylePreference],
   names: List[NatureName]
 )
@@ -3056,42 +2462,12 @@ object NatureDetail {
 
 /**
 * 
-* @param maxUnderscorechange 
-* @param pokeathlonUnderscorestat 
-*/
-
-case class NatureDetailPokeathlonStatChangesInner(
-  maxUnderscorechange: Int,
-  pokeathlonUnderscorestat: NatureDetailPokeathlonStatChangesInnerPokeathlonStat
-)
-object NatureDetailPokeathlonStatChangesInner {
-  implicit val encoderNatureDetailPokeathlonStatChangesInner: Encoder[NatureDetailPokeathlonStatChangesInner] = deriveEncoder[NatureDetailPokeathlonStatChangesInner].mapJson(_.dropNullValues)
-  implicit val decoderNatureDetailPokeathlonStatChangesInner: Decoder[NatureDetailPokeathlonStatChangesInner] = deriveDecoder[NatureDetailPokeathlonStatChangesInner]
-}
-
-/**
-* 
-* @param name 
-* @param url 
-*/
-
-case class NatureDetailPokeathlonStatChangesInnerPokeathlonStat(
-  name: String,
-  url: URI
-)
-object NatureDetailPokeathlonStatChangesInnerPokeathlonStat {
-  implicit val encoderNatureDetailPokeathlonStatChangesInnerPokeathlonStat: Encoder[NatureDetailPokeathlonStatChangesInnerPokeathlonStat] = deriveEncoder[NatureDetailPokeathlonStatChangesInnerPokeathlonStat].mapJson(_.dropNullValues)
-  implicit val decoderNatureDetailPokeathlonStatChangesInnerPokeathlonStat: Decoder[NatureDetailPokeathlonStatChangesInnerPokeathlonStat] = deriveDecoder[NatureDetailPokeathlonStatChangesInnerPokeathlonStat]
-}
-
-/**
-* 
-* @param name 
-* @param language 
+* @param name The localized name for an API resource in a specific language.
+* @param language The language this name is in.
 */
 
 case class NatureName(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   language: LanguageSummary
 )
 object NatureName {
@@ -3101,12 +2477,27 @@ object NatureName {
 
 /**
 * 
-* @param name 
-* @param url 
+* @param maxUnderscorechange The amount of change.
+* @param pokeathlonUnderscorestat The stat being affected.
+*/
+
+case class NaturePokeathlonStat(
+  maxUnderscorechange: Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]],
+  pokeathlonUnderscorestat: PokeathlonStatSummary
+)
+object NaturePokeathlonStat {
+  implicit val encoderNaturePokeathlonStat: Encoder[NaturePokeathlonStat] = deriveEncoder[NaturePokeathlonStat].mapJson(_.dropNullValues)
+  implicit val decoderNaturePokeathlonStat: Decoder[NaturePokeathlonStat] = deriveDecoder[NaturePokeathlonStat]
+}
+
+/**
+* 
+* @param name The name of the referenced resource.
+* @param url The URL of the referenced resource.
 */
 
 case class NatureSummary(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   url: URI
 )
 object NatureSummary {
@@ -3116,17 +2507,17 @@ object NatureSummary {
 
 /**
 * 
-* @param count 
-* @param next 
-* @param previous 
-* @param results 
+* @param count The total number of resources available from this API.
+* @param next The URL for the next page in the list, or null if there is no next page.
+* @param previous The URL for the previous page in the list, or null if there is no previous page.
+* @param results A list of API resources on this page.
 */
 
 case class PaginatedAbilitySummaryList(
-  count: Option[Int],
+  count: Int,
   next: Option[URI],
   previous: Option[URI],
-  results: Option[List[AbilitySummary]]
+  results: List[AbilitySummary]
 )
 object PaginatedAbilitySummaryList {
   implicit val encoderPaginatedAbilitySummaryList: Encoder[PaginatedAbilitySummaryList] = deriveEncoder[PaginatedAbilitySummaryList].mapJson(_.dropNullValues)
@@ -3135,17 +2526,17 @@ object PaginatedAbilitySummaryList {
 
 /**
 * 
-* @param count 
-* @param next 
-* @param previous 
-* @param results 
+* @param count The total number of resources available from this API.
+* @param next The URL for the next page in the list, or null if there is no next page.
+* @param previous The URL for the previous page in the list, or null if there is no previous page.
+* @param results A list of API resources on this page.
 */
 
 case class PaginatedBerryFirmnessSummaryList(
-  count: Option[Int],
+  count: Int,
   next: Option[URI],
   previous: Option[URI],
-  results: Option[List[BerryFirmnessSummary]]
+  results: List[BerryFirmnessSummary]
 )
 object PaginatedBerryFirmnessSummaryList {
   implicit val encoderPaginatedBerryFirmnessSummaryList: Encoder[PaginatedBerryFirmnessSummaryList] = deriveEncoder[PaginatedBerryFirmnessSummaryList].mapJson(_.dropNullValues)
@@ -3154,17 +2545,17 @@ object PaginatedBerryFirmnessSummaryList {
 
 /**
 * 
-* @param count 
-* @param next 
-* @param previous 
-* @param results 
+* @param count The total number of resources available from this API.
+* @param next The URL for the next page in the list, or null if there is no next page.
+* @param previous The URL for the previous page in the list, or null if there is no previous page.
+* @param results A list of API resources on this page.
 */
 
 case class PaginatedBerryFlavorSummaryList(
-  count: Option[Int],
+  count: Int,
   next: Option[URI],
   previous: Option[URI],
-  results: Option[List[BerryFlavorSummary]]
+  results: List[BerryFlavorSummary]
 )
 object PaginatedBerryFlavorSummaryList {
   implicit val encoderPaginatedBerryFlavorSummaryList: Encoder[PaginatedBerryFlavorSummaryList] = deriveEncoder[PaginatedBerryFlavorSummaryList].mapJson(_.dropNullValues)
@@ -3173,17 +2564,17 @@ object PaginatedBerryFlavorSummaryList {
 
 /**
 * 
-* @param count 
-* @param next 
-* @param previous 
-* @param results 
+* @param count The total number of resources available from this API.
+* @param next The URL for the next page in the list, or null if there is no next page.
+* @param previous The URL for the previous page in the list, or null if there is no previous page.
+* @param results A list of API resources on this page.
 */
 
 case class PaginatedBerrySummaryList(
-  count: Option[Int],
+  count: Int,
   next: Option[URI],
   previous: Option[URI],
-  results: Option[List[BerrySummary]]
+  results: List[BerrySummary]
 )
 object PaginatedBerrySummaryList {
   implicit val encoderPaginatedBerrySummaryList: Encoder[PaginatedBerrySummaryList] = deriveEncoder[PaginatedBerrySummaryList].mapJson(_.dropNullValues)
@@ -3192,17 +2583,17 @@ object PaginatedBerrySummaryList {
 
 /**
 * 
-* @param count 
-* @param next 
-* @param previous 
-* @param results 
+* @param count The total number of resources available from this API.
+* @param next The URL for the next page in the list, or null if there is no next page.
+* @param previous The URL for the previous page in the list, or null if there is no previous page.
+* @param results A list of API resources on this page.
 */
 
 case class PaginatedCharacteristicSummaryList(
-  count: Option[Int],
+  count: Int,
   next: Option[URI],
   previous: Option[URI],
-  results: Option[List[CharacteristicSummary]]
+  results: List[CharacteristicSummary]
 )
 object PaginatedCharacteristicSummaryList {
   implicit val encoderPaginatedCharacteristicSummaryList: Encoder[PaginatedCharacteristicSummaryList] = deriveEncoder[PaginatedCharacteristicSummaryList].mapJson(_.dropNullValues)
@@ -3211,17 +2602,17 @@ object PaginatedCharacteristicSummaryList {
 
 /**
 * 
-* @param count 
-* @param next 
-* @param previous 
-* @param results 
+* @param count The total number of resources available from this API.
+* @param next The URL for the next page in the list, or null if there is no next page.
+* @param previous The URL for the previous page in the list, or null if there is no previous page.
+* @param results A list of API resources on this page.
 */
 
 case class PaginatedContestEffectSummaryList(
-  count: Option[Int],
+  count: Int,
   next: Option[URI],
   previous: Option[URI],
-  results: Option[List[ContestEffectSummary]]
+  results: List[ContestEffectSummary]
 )
 object PaginatedContestEffectSummaryList {
   implicit val encoderPaginatedContestEffectSummaryList: Encoder[PaginatedContestEffectSummaryList] = deriveEncoder[PaginatedContestEffectSummaryList].mapJson(_.dropNullValues)
@@ -3230,17 +2621,17 @@ object PaginatedContestEffectSummaryList {
 
 /**
 * 
-* @param count 
-* @param next 
-* @param previous 
-* @param results 
+* @param count The total number of resources available from this API.
+* @param next The URL for the next page in the list, or null if there is no next page.
+* @param previous The URL for the previous page in the list, or null if there is no previous page.
+* @param results A list of API resources on this page.
 */
 
 case class PaginatedContestTypeSummaryList(
-  count: Option[Int],
+  count: Int,
   next: Option[URI],
   previous: Option[URI],
-  results: Option[List[ContestTypeSummary]]
+  results: List[ContestTypeSummary]
 )
 object PaginatedContestTypeSummaryList {
   implicit val encoderPaginatedContestTypeSummaryList: Encoder[PaginatedContestTypeSummaryList] = deriveEncoder[PaginatedContestTypeSummaryList].mapJson(_.dropNullValues)
@@ -3249,17 +2640,36 @@ object PaginatedContestTypeSummaryList {
 
 /**
 * 
-* @param count 
-* @param next 
-* @param previous 
-* @param results 
+* @param count The total number of resources available from this API.
+* @param next The URL for the next page in the list, or null if there is no next page.
+* @param previous The URL for the previous page in the list, or null if there is no previous page.
+* @param results A list of API resources on this page.
+*/
+
+case class PaginatedCurrencySummaryList(
+  count: Int,
+  next: Option[URI],
+  previous: Option[URI],
+  results: List[CurrencySummary]
+)
+object PaginatedCurrencySummaryList {
+  implicit val encoderPaginatedCurrencySummaryList: Encoder[PaginatedCurrencySummaryList] = deriveEncoder[PaginatedCurrencySummaryList].mapJson(_.dropNullValues)
+  implicit val decoderPaginatedCurrencySummaryList: Decoder[PaginatedCurrencySummaryList] = deriveDecoder[PaginatedCurrencySummaryList]
+}
+
+/**
+* 
+* @param count The total number of resources available from this API.
+* @param next The URL for the next page in the list, or null if there is no next page.
+* @param previous The URL for the previous page in the list, or null if there is no previous page.
+* @param results A list of API resources on this page.
 */
 
 case class PaginatedEggGroupSummaryList(
-  count: Option[Int],
+  count: Int,
   next: Option[URI],
   previous: Option[URI],
-  results: Option[List[EggGroupSummary]]
+  results: List[EggGroupSummary]
 )
 object PaginatedEggGroupSummaryList {
   implicit val encoderPaginatedEggGroupSummaryList: Encoder[PaginatedEggGroupSummaryList] = deriveEncoder[PaginatedEggGroupSummaryList].mapJson(_.dropNullValues)
@@ -3268,17 +2678,17 @@ object PaginatedEggGroupSummaryList {
 
 /**
 * 
-* @param count 
-* @param next 
-* @param previous 
-* @param results 
+* @param count The total number of resources available from this API.
+* @param next The URL for the next page in the list, or null if there is no next page.
+* @param previous The URL for the previous page in the list, or null if there is no previous page.
+* @param results A list of API resources on this page.
 */
 
 case class PaginatedEncounterConditionSummaryList(
-  count: Option[Int],
+  count: Int,
   next: Option[URI],
   previous: Option[URI],
-  results: Option[List[EncounterConditionSummary]]
+  results: List[EncounterConditionSummary]
 )
 object PaginatedEncounterConditionSummaryList {
   implicit val encoderPaginatedEncounterConditionSummaryList: Encoder[PaginatedEncounterConditionSummaryList] = deriveEncoder[PaginatedEncounterConditionSummaryList].mapJson(_.dropNullValues)
@@ -3287,17 +2697,17 @@ object PaginatedEncounterConditionSummaryList {
 
 /**
 * 
-* @param count 
-* @param next 
-* @param previous 
-* @param results 
+* @param count The total number of resources available from this API.
+* @param next The URL for the next page in the list, or null if there is no next page.
+* @param previous The URL for the previous page in the list, or null if there is no previous page.
+* @param results A list of API resources on this page.
 */
 
 case class PaginatedEncounterConditionValueSummaryList(
-  count: Option[Int],
+  count: Int,
   next: Option[URI],
   previous: Option[URI],
-  results: Option[List[EncounterConditionValueSummary]]
+  results: List[EncounterConditionValueSummary]
 )
 object PaginatedEncounterConditionValueSummaryList {
   implicit val encoderPaginatedEncounterConditionValueSummaryList: Encoder[PaginatedEncounterConditionValueSummaryList] = deriveEncoder[PaginatedEncounterConditionValueSummaryList].mapJson(_.dropNullValues)
@@ -3306,17 +2716,17 @@ object PaginatedEncounterConditionValueSummaryList {
 
 /**
 * 
-* @param count 
-* @param next 
-* @param previous 
-* @param results 
+* @param count The total number of resources available from this API.
+* @param next The URL for the next page in the list, or null if there is no next page.
+* @param previous The URL for the previous page in the list, or null if there is no previous page.
+* @param results A list of API resources on this page.
 */
 
 case class PaginatedEncounterMethodSummaryList(
-  count: Option[Int],
+  count: Int,
   next: Option[URI],
   previous: Option[URI],
-  results: Option[List[EncounterMethodSummary]]
+  results: List[EncounterMethodSummary]
 )
 object PaginatedEncounterMethodSummaryList {
   implicit val encoderPaginatedEncounterMethodSummaryList: Encoder[PaginatedEncounterMethodSummaryList] = deriveEncoder[PaginatedEncounterMethodSummaryList].mapJson(_.dropNullValues)
@@ -3325,17 +2735,17 @@ object PaginatedEncounterMethodSummaryList {
 
 /**
 * 
-* @param count 
-* @param next 
-* @param previous 
-* @param results 
+* @param count The total number of resources available from this API.
+* @param next The URL for the next page in the list, or null if there is no next page.
+* @param previous The URL for the previous page in the list, or null if there is no previous page.
+* @param results A list of API resources on this page.
 */
 
 case class PaginatedEvolutionChainSummaryList(
-  count: Option[Int],
+  count: Int,
   next: Option[URI],
   previous: Option[URI],
-  results: Option[List[EvolutionChainSummary]]
+  results: List[EvolutionChainSummary]
 )
 object PaginatedEvolutionChainSummaryList {
   implicit val encoderPaginatedEvolutionChainSummaryList: Encoder[PaginatedEvolutionChainSummaryList] = deriveEncoder[PaginatedEvolutionChainSummaryList].mapJson(_.dropNullValues)
@@ -3344,17 +2754,17 @@ object PaginatedEvolutionChainSummaryList {
 
 /**
 * 
-* @param count 
-* @param next 
-* @param previous 
-* @param results 
+* @param count The total number of resources available from this API.
+* @param next The URL for the next page in the list, or null if there is no next page.
+* @param previous The URL for the previous page in the list, or null if there is no previous page.
+* @param results A list of API resources on this page.
 */
 
 case class PaginatedEvolutionTriggerSummaryList(
-  count: Option[Int],
+  count: Int,
   next: Option[URI],
   previous: Option[URI],
-  results: Option[List[EvolutionTriggerSummary]]
+  results: List[EvolutionTriggerSummary]
 )
 object PaginatedEvolutionTriggerSummaryList {
   implicit val encoderPaginatedEvolutionTriggerSummaryList: Encoder[PaginatedEvolutionTriggerSummaryList] = deriveEncoder[PaginatedEvolutionTriggerSummaryList].mapJson(_.dropNullValues)
@@ -3363,17 +2773,36 @@ object PaginatedEvolutionTriggerSummaryList {
 
 /**
 * 
-* @param count 
-* @param next 
-* @param previous 
-* @param results 
+* @param count The total number of resources available from this API.
+* @param next The URL for the next page in the list, or null if there is no next page.
+* @param previous The URL for the previous page in the list, or null if there is no previous page.
+* @param results A list of API resources on this page.
+*/
+
+case class PaginatedEvolutionVariableSummaryList(
+  count: Int,
+  next: Option[URI],
+  previous: Option[URI],
+  results: List[EvolutionVariableSummary]
+)
+object PaginatedEvolutionVariableSummaryList {
+  implicit val encoderPaginatedEvolutionVariableSummaryList: Encoder[PaginatedEvolutionVariableSummaryList] = deriveEncoder[PaginatedEvolutionVariableSummaryList].mapJson(_.dropNullValues)
+  implicit val decoderPaginatedEvolutionVariableSummaryList: Decoder[PaginatedEvolutionVariableSummaryList] = deriveDecoder[PaginatedEvolutionVariableSummaryList]
+}
+
+/**
+* 
+* @param count The total number of resources available from this API.
+* @param next The URL for the next page in the list, or null if there is no next page.
+* @param previous The URL for the previous page in the list, or null if there is no previous page.
+* @param results A list of API resources on this page.
 */
 
 case class PaginatedGenderSummaryList(
-  count: Option[Int],
+  count: Int,
   next: Option[URI],
   previous: Option[URI],
-  results: Option[List[GenderSummary]]
+  results: List[GenderSummary]
 )
 object PaginatedGenderSummaryList {
   implicit val encoderPaginatedGenderSummaryList: Encoder[PaginatedGenderSummaryList] = deriveEncoder[PaginatedGenderSummaryList].mapJson(_.dropNullValues)
@@ -3382,17 +2811,17 @@ object PaginatedGenderSummaryList {
 
 /**
 * 
-* @param count 
-* @param next 
-* @param previous 
-* @param results 
+* @param count The total number of resources available from this API.
+* @param next The URL for the next page in the list, or null if there is no next page.
+* @param previous The URL for the previous page in the list, or null if there is no previous page.
+* @param results A list of API resources on this page.
 */
 
 case class PaginatedGenerationSummaryList(
-  count: Option[Int],
+  count: Int,
   next: Option[URI],
   previous: Option[URI],
-  results: Option[List[GenerationSummary]]
+  results: List[GenerationSummary]
 )
 object PaginatedGenerationSummaryList {
   implicit val encoderPaginatedGenerationSummaryList: Encoder[PaginatedGenerationSummaryList] = deriveEncoder[PaginatedGenerationSummaryList].mapJson(_.dropNullValues)
@@ -3401,17 +2830,17 @@ object PaginatedGenerationSummaryList {
 
 /**
 * 
-* @param count 
-* @param next 
-* @param previous 
-* @param results 
+* @param count The total number of resources available from this API.
+* @param next The URL for the next page in the list, or null if there is no next page.
+* @param previous The URL for the previous page in the list, or null if there is no previous page.
+* @param results A list of API resources on this page.
 */
 
 case class PaginatedGrowthRateSummaryList(
-  count: Option[Int],
+  count: Int,
   next: Option[URI],
   previous: Option[URI],
-  results: Option[List[GrowthRateSummary]]
+  results: List[GrowthRateSummary]
 )
 object PaginatedGrowthRateSummaryList {
   implicit val encoderPaginatedGrowthRateSummaryList: Encoder[PaginatedGrowthRateSummaryList] = deriveEncoder[PaginatedGrowthRateSummaryList].mapJson(_.dropNullValues)
@@ -3420,17 +2849,17 @@ object PaginatedGrowthRateSummaryList {
 
 /**
 * 
-* @param count 
-* @param next 
-* @param previous 
-* @param results 
+* @param count The total number of resources available from this API.
+* @param next The URL for the next page in the list, or null if there is no next page.
+* @param previous The URL for the previous page in the list, or null if there is no previous page.
+* @param results A list of API resources on this page.
 */
 
 case class PaginatedItemAttributeSummaryList(
-  count: Option[Int],
+  count: Int,
   next: Option[URI],
   previous: Option[URI],
-  results: Option[List[ItemAttributeSummary]]
+  results: List[ItemAttributeSummary]
 )
 object PaginatedItemAttributeSummaryList {
   implicit val encoderPaginatedItemAttributeSummaryList: Encoder[PaginatedItemAttributeSummaryList] = deriveEncoder[PaginatedItemAttributeSummaryList].mapJson(_.dropNullValues)
@@ -3439,17 +2868,17 @@ object PaginatedItemAttributeSummaryList {
 
 /**
 * 
-* @param count 
-* @param next 
-* @param previous 
-* @param results 
+* @param count The total number of resources available from this API.
+* @param next The URL for the next page in the list, or null if there is no next page.
+* @param previous The URL for the previous page in the list, or null if there is no previous page.
+* @param results A list of API resources on this page.
 */
 
 case class PaginatedItemCategorySummaryList(
-  count: Option[Int],
+  count: Int,
   next: Option[URI],
   previous: Option[URI],
-  results: Option[List[ItemCategorySummary]]
+  results: List[ItemCategorySummary]
 )
 object PaginatedItemCategorySummaryList {
   implicit val encoderPaginatedItemCategorySummaryList: Encoder[PaginatedItemCategorySummaryList] = deriveEncoder[PaginatedItemCategorySummaryList].mapJson(_.dropNullValues)
@@ -3458,17 +2887,17 @@ object PaginatedItemCategorySummaryList {
 
 /**
 * 
-* @param count 
-* @param next 
-* @param previous 
-* @param results 
+* @param count The total number of resources available from this API.
+* @param next The URL for the next page in the list, or null if there is no next page.
+* @param previous The URL for the previous page in the list, or null if there is no previous page.
+* @param results A list of API resources on this page.
 */
 
 case class PaginatedItemFlingEffectSummaryList(
-  count: Option[Int],
+  count: Int,
   next: Option[URI],
   previous: Option[URI],
-  results: Option[List[ItemFlingEffectSummary]]
+  results: List[ItemFlingEffectSummary]
 )
 object PaginatedItemFlingEffectSummaryList {
   implicit val encoderPaginatedItemFlingEffectSummaryList: Encoder[PaginatedItemFlingEffectSummaryList] = deriveEncoder[PaginatedItemFlingEffectSummaryList].mapJson(_.dropNullValues)
@@ -3477,17 +2906,17 @@ object PaginatedItemFlingEffectSummaryList {
 
 /**
 * 
-* @param count 
-* @param next 
-* @param previous 
-* @param results 
+* @param count The total number of resources available from this API.
+* @param next The URL for the next page in the list, or null if there is no next page.
+* @param previous The URL for the previous page in the list, or null if there is no previous page.
+* @param results A list of API resources on this page.
 */
 
 case class PaginatedItemPocketSummaryList(
-  count: Option[Int],
+  count: Int,
   next: Option[URI],
   previous: Option[URI],
-  results: Option[List[ItemPocketSummary]]
+  results: List[ItemPocketSummary]
 )
 object PaginatedItemPocketSummaryList {
   implicit val encoderPaginatedItemPocketSummaryList: Encoder[PaginatedItemPocketSummaryList] = deriveEncoder[PaginatedItemPocketSummaryList].mapJson(_.dropNullValues)
@@ -3496,17 +2925,17 @@ object PaginatedItemPocketSummaryList {
 
 /**
 * 
-* @param count 
-* @param next 
-* @param previous 
-* @param results 
+* @param count The total number of resources available from this API.
+* @param next The URL for the next page in the list, or null if there is no next page.
+* @param previous The URL for the previous page in the list, or null if there is no previous page.
+* @param results A list of API resources on this page.
 */
 
 case class PaginatedItemSummaryList(
-  count: Option[Int],
+  count: Int,
   next: Option[URI],
   previous: Option[URI],
-  results: Option[List[ItemSummary]]
+  results: List[ItemSummary]
 )
 object PaginatedItemSummaryList {
   implicit val encoderPaginatedItemSummaryList: Encoder[PaginatedItemSummaryList] = deriveEncoder[PaginatedItemSummaryList].mapJson(_.dropNullValues)
@@ -3515,17 +2944,17 @@ object PaginatedItemSummaryList {
 
 /**
 * 
-* @param count 
-* @param next 
-* @param previous 
-* @param results 
+* @param count The total number of resources available from this API.
+* @param next The URL for the next page in the list, or null if there is no next page.
+* @param previous The URL for the previous page in the list, or null if there is no previous page.
+* @param results A list of API resources on this page.
 */
 
 case class PaginatedLanguageSummaryList(
-  count: Option[Int],
+  count: Int,
   next: Option[URI],
   previous: Option[URI],
-  results: Option[List[LanguageSummary]]
+  results: List[LanguageSummary]
 )
 object PaginatedLanguageSummaryList {
   implicit val encoderPaginatedLanguageSummaryList: Encoder[PaginatedLanguageSummaryList] = deriveEncoder[PaginatedLanguageSummaryList].mapJson(_.dropNullValues)
@@ -3534,17 +2963,17 @@ object PaginatedLanguageSummaryList {
 
 /**
 * 
-* @param count 
-* @param next 
-* @param previous 
-* @param results 
+* @param count The total number of resources available from this API.
+* @param next The URL for the next page in the list, or null if there is no next page.
+* @param previous The URL for the previous page in the list, or null if there is no previous page.
+* @param results A list of API resources on this page.
 */
 
 case class PaginatedLocationAreaSummaryList(
-  count: Option[Int],
+  count: Int,
   next: Option[URI],
   previous: Option[URI],
-  results: Option[List[LocationAreaSummary]]
+  results: List[LocationAreaSummary]
 )
 object PaginatedLocationAreaSummaryList {
   implicit val encoderPaginatedLocationAreaSummaryList: Encoder[PaginatedLocationAreaSummaryList] = deriveEncoder[PaginatedLocationAreaSummaryList].mapJson(_.dropNullValues)
@@ -3553,17 +2982,17 @@ object PaginatedLocationAreaSummaryList {
 
 /**
 * 
-* @param count 
-* @param next 
-* @param previous 
-* @param results 
+* @param count The total number of resources available from this API.
+* @param next The URL for the next page in the list, or null if there is no next page.
+* @param previous The URL for the previous page in the list, or null if there is no previous page.
+* @param results A list of API resources on this page.
 */
 
 case class PaginatedLocationSummaryList(
-  count: Option[Int],
+  count: Int,
   next: Option[URI],
   previous: Option[URI],
-  results: Option[List[LocationSummary]]
+  results: List[LocationSummary]
 )
 object PaginatedLocationSummaryList {
   implicit val encoderPaginatedLocationSummaryList: Encoder[PaginatedLocationSummaryList] = deriveEncoder[PaginatedLocationSummaryList].mapJson(_.dropNullValues)
@@ -3572,17 +3001,17 @@ object PaginatedLocationSummaryList {
 
 /**
 * 
-* @param count 
-* @param next 
-* @param previous 
-* @param results 
+* @param count The total number of resources available from this API.
+* @param next The URL for the next page in the list, or null if there is no next page.
+* @param previous The URL for the previous page in the list, or null if there is no previous page.
+* @param results A list of API resources on this page.
 */
 
 case class PaginatedMachineSummaryList(
-  count: Option[Int],
+  count: Int,
   next: Option[URI],
   previous: Option[URI],
-  results: Option[List[MachineSummary]]
+  results: List[MachineSummary]
 )
 object PaginatedMachineSummaryList {
   implicit val encoderPaginatedMachineSummaryList: Encoder[PaginatedMachineSummaryList] = deriveEncoder[PaginatedMachineSummaryList].mapJson(_.dropNullValues)
@@ -3591,17 +3020,17 @@ object PaginatedMachineSummaryList {
 
 /**
 * 
-* @param count 
-* @param next 
-* @param previous 
-* @param results 
+* @param count The total number of resources available from this API.
+* @param next The URL for the next page in the list, or null if there is no next page.
+* @param previous The URL for the previous page in the list, or null if there is no previous page.
+* @param results A list of API resources on this page.
 */
 
 case class PaginatedMoveBattleStyleSummaryList(
-  count: Option[Int],
+  count: Int,
   next: Option[URI],
   previous: Option[URI],
-  results: Option[List[MoveBattleStyleSummary]]
+  results: List[MoveBattleStyleSummary]
 )
 object PaginatedMoveBattleStyleSummaryList {
   implicit val encoderPaginatedMoveBattleStyleSummaryList: Encoder[PaginatedMoveBattleStyleSummaryList] = deriveEncoder[PaginatedMoveBattleStyleSummaryList].mapJson(_.dropNullValues)
@@ -3610,17 +3039,17 @@ object PaginatedMoveBattleStyleSummaryList {
 
 /**
 * 
-* @param count 
-* @param next 
-* @param previous 
-* @param results 
+* @param count The total number of resources available from this API.
+* @param next The URL for the next page in the list, or null if there is no next page.
+* @param previous The URL for the previous page in the list, or null if there is no previous page.
+* @param results A list of API resources on this page.
 */
 
 case class PaginatedMoveDamageClassSummaryList(
-  count: Option[Int],
+  count: Int,
   next: Option[URI],
   previous: Option[URI],
-  results: Option[List[MoveDamageClassSummary]]
+  results: List[MoveDamageClassSummary]
 )
 object PaginatedMoveDamageClassSummaryList {
   implicit val encoderPaginatedMoveDamageClassSummaryList: Encoder[PaginatedMoveDamageClassSummaryList] = deriveEncoder[PaginatedMoveDamageClassSummaryList].mapJson(_.dropNullValues)
@@ -3629,17 +3058,17 @@ object PaginatedMoveDamageClassSummaryList {
 
 /**
 * 
-* @param count 
-* @param next 
-* @param previous 
-* @param results 
+* @param count The total number of resources available from this API.
+* @param next The URL for the next page in the list, or null if there is no next page.
+* @param previous The URL for the previous page in the list, or null if there is no previous page.
+* @param results A list of API resources on this page.
 */
 
 case class PaginatedMoveLearnMethodSummaryList(
-  count: Option[Int],
+  count: Int,
   next: Option[URI],
   previous: Option[URI],
-  results: Option[List[MoveLearnMethodSummary]]
+  results: List[MoveLearnMethodSummary]
 )
 object PaginatedMoveLearnMethodSummaryList {
   implicit val encoderPaginatedMoveLearnMethodSummaryList: Encoder[PaginatedMoveLearnMethodSummaryList] = deriveEncoder[PaginatedMoveLearnMethodSummaryList].mapJson(_.dropNullValues)
@@ -3648,17 +3077,17 @@ object PaginatedMoveLearnMethodSummaryList {
 
 /**
 * 
-* @param count 
-* @param next 
-* @param previous 
-* @param results 
+* @param count The total number of resources available from this API.
+* @param next The URL for the next page in the list, or null if there is no next page.
+* @param previous The URL for the previous page in the list, or null if there is no previous page.
+* @param results A list of API resources on this page.
 */
 
 case class PaginatedMoveMetaAilmentSummaryList(
-  count: Option[Int],
+  count: Int,
   next: Option[URI],
   previous: Option[URI],
-  results: Option[List[MoveMetaAilmentSummary]]
+  results: List[MoveMetaAilmentSummary]
 )
 object PaginatedMoveMetaAilmentSummaryList {
   implicit val encoderPaginatedMoveMetaAilmentSummaryList: Encoder[PaginatedMoveMetaAilmentSummaryList] = deriveEncoder[PaginatedMoveMetaAilmentSummaryList].mapJson(_.dropNullValues)
@@ -3667,17 +3096,17 @@ object PaginatedMoveMetaAilmentSummaryList {
 
 /**
 * 
-* @param count 
-* @param next 
-* @param previous 
-* @param results 
+* @param count The total number of resources available from this API.
+* @param next The URL for the next page in the list, or null if there is no next page.
+* @param previous The URL for the previous page in the list, or null if there is no previous page.
+* @param results A list of API resources on this page.
 */
 
 case class PaginatedMoveMetaCategorySummaryList(
-  count: Option[Int],
+  count: Int,
   next: Option[URI],
   previous: Option[URI],
-  results: Option[List[MoveMetaCategorySummary]]
+  results: List[MoveMetaCategorySummary]
 )
 object PaginatedMoveMetaCategorySummaryList {
   implicit val encoderPaginatedMoveMetaCategorySummaryList: Encoder[PaginatedMoveMetaCategorySummaryList] = deriveEncoder[PaginatedMoveMetaCategorySummaryList].mapJson(_.dropNullValues)
@@ -3686,17 +3115,17 @@ object PaginatedMoveMetaCategorySummaryList {
 
 /**
 * 
-* @param count 
-* @param next 
-* @param previous 
-* @param results 
+* @param count The total number of resources available from this API.
+* @param next The URL for the next page in the list, or null if there is no next page.
+* @param previous The URL for the previous page in the list, or null if there is no previous page.
+* @param results A list of API resources on this page.
 */
 
 case class PaginatedMoveSummaryList(
-  count: Option[Int],
+  count: Int,
   next: Option[URI],
   previous: Option[URI],
-  results: Option[List[MoveSummary]]
+  results: List[MoveSummary]
 )
 object PaginatedMoveSummaryList {
   implicit val encoderPaginatedMoveSummaryList: Encoder[PaginatedMoveSummaryList] = deriveEncoder[PaginatedMoveSummaryList].mapJson(_.dropNullValues)
@@ -3705,17 +3134,17 @@ object PaginatedMoveSummaryList {
 
 /**
 * 
-* @param count 
-* @param next 
-* @param previous 
-* @param results 
+* @param count The total number of resources available from this API.
+* @param next The URL for the next page in the list, or null if there is no next page.
+* @param previous The URL for the previous page in the list, or null if there is no previous page.
+* @param results A list of API resources on this page.
 */
 
 case class PaginatedMoveTargetSummaryList(
-  count: Option[Int],
+  count: Int,
   next: Option[URI],
   previous: Option[URI],
-  results: Option[List[MoveTargetSummary]]
+  results: List[MoveTargetSummary]
 )
 object PaginatedMoveTargetSummaryList {
   implicit val encoderPaginatedMoveTargetSummaryList: Encoder[PaginatedMoveTargetSummaryList] = deriveEncoder[PaginatedMoveTargetSummaryList].mapJson(_.dropNullValues)
@@ -3724,17 +3153,17 @@ object PaginatedMoveTargetSummaryList {
 
 /**
 * 
-* @param count 
-* @param next 
-* @param previous 
-* @param results 
+* @param count The total number of resources available from this API.
+* @param next The URL for the next page in the list, or null if there is no next page.
+* @param previous The URL for the previous page in the list, or null if there is no previous page.
+* @param results A list of API resources on this page.
 */
 
 case class PaginatedNatureSummaryList(
-  count: Option[Int],
+  count: Int,
   next: Option[URI],
   previous: Option[URI],
-  results: Option[List[NatureSummary]]
+  results: List[NatureSummary]
 )
 object PaginatedNatureSummaryList {
   implicit val encoderPaginatedNatureSummaryList: Encoder[PaginatedNatureSummaryList] = deriveEncoder[PaginatedNatureSummaryList].mapJson(_.dropNullValues)
@@ -3743,17 +3172,17 @@ object PaginatedNatureSummaryList {
 
 /**
 * 
-* @param count 
-* @param next 
-* @param previous 
-* @param results 
+* @param count The total number of resources available from this API.
+* @param next The URL for the next page in the list, or null if there is no next page.
+* @param previous The URL for the previous page in the list, or null if there is no previous page.
+* @param results A list of API resources on this page.
 */
 
 case class PaginatedPalParkAreaSummaryList(
-  count: Option[Int],
+  count: Int,
   next: Option[URI],
   previous: Option[URI],
-  results: Option[List[PalParkAreaSummary]]
+  results: List[PalParkAreaSummary]
 )
 object PaginatedPalParkAreaSummaryList {
   implicit val encoderPaginatedPalParkAreaSummaryList: Encoder[PaginatedPalParkAreaSummaryList] = deriveEncoder[PaginatedPalParkAreaSummaryList].mapJson(_.dropNullValues)
@@ -3762,17 +3191,17 @@ object PaginatedPalParkAreaSummaryList {
 
 /**
 * 
-* @param count 
-* @param next 
-* @param previous 
-* @param results 
+* @param count The total number of resources available from this API.
+* @param next The URL for the next page in the list, or null if there is no next page.
+* @param previous The URL for the previous page in the list, or null if there is no previous page.
+* @param results A list of API resources on this page.
 */
 
 case class PaginatedPokeathlonStatSummaryList(
-  count: Option[Int],
+  count: Int,
   next: Option[URI],
   previous: Option[URI],
-  results: Option[List[PokeathlonStatSummary]]
+  results: List[PokeathlonStatSummary]
 )
 object PaginatedPokeathlonStatSummaryList {
   implicit val encoderPaginatedPokeathlonStatSummaryList: Encoder[PaginatedPokeathlonStatSummaryList] = deriveEncoder[PaginatedPokeathlonStatSummaryList].mapJson(_.dropNullValues)
@@ -3781,17 +3210,17 @@ object PaginatedPokeathlonStatSummaryList {
 
 /**
 * 
-* @param count 
-* @param next 
-* @param previous 
-* @param results 
+* @param count The total number of resources available from this API.
+* @param next The URL for the next page in the list, or null if there is no next page.
+* @param previous The URL for the previous page in the list, or null if there is no previous page.
+* @param results A list of API resources on this page.
 */
 
 case class PaginatedPokedexSummaryList(
-  count: Option[Int],
+  count: Int,
   next: Option[URI],
   previous: Option[URI],
-  results: Option[List[PokedexSummary]]
+  results: List[PokedexSummary]
 )
 object PaginatedPokedexSummaryList {
   implicit val encoderPaginatedPokedexSummaryList: Encoder[PaginatedPokedexSummaryList] = deriveEncoder[PaginatedPokedexSummaryList].mapJson(_.dropNullValues)
@@ -3800,17 +3229,17 @@ object PaginatedPokedexSummaryList {
 
 /**
 * 
-* @param count 
-* @param next 
-* @param previous 
-* @param results 
+* @param count The total number of resources available from this API.
+* @param next The URL for the next page in the list, or null if there is no next page.
+* @param previous The URL for the previous page in the list, or null if there is no previous page.
+* @param results A list of API resources on this page.
 */
 
 case class PaginatedPokemonColorSummaryList(
-  count: Option[Int],
+  count: Int,
   next: Option[URI],
   previous: Option[URI],
-  results: Option[List[PokemonColorSummary]]
+  results: List[PokemonColorSummary]
 )
 object PaginatedPokemonColorSummaryList {
   implicit val encoderPaginatedPokemonColorSummaryList: Encoder[PaginatedPokemonColorSummaryList] = deriveEncoder[PaginatedPokemonColorSummaryList].mapJson(_.dropNullValues)
@@ -3819,17 +3248,17 @@ object PaginatedPokemonColorSummaryList {
 
 /**
 * 
-* @param count 
-* @param next 
-* @param previous 
-* @param results 
+* @param count The total number of resources available from this API.
+* @param next The URL for the next page in the list, or null if there is no next page.
+* @param previous The URL for the previous page in the list, or null if there is no previous page.
+* @param results A list of API resources on this page.
 */
 
 case class PaginatedPokemonFormSummaryList(
-  count: Option[Int],
+  count: Int,
   next: Option[URI],
   previous: Option[URI],
-  results: Option[List[PokemonFormSummary]]
+  results: List[PokemonFormSummary]
 )
 object PaginatedPokemonFormSummaryList {
   implicit val encoderPaginatedPokemonFormSummaryList: Encoder[PaginatedPokemonFormSummaryList] = deriveEncoder[PaginatedPokemonFormSummaryList].mapJson(_.dropNullValues)
@@ -3838,17 +3267,17 @@ object PaginatedPokemonFormSummaryList {
 
 /**
 * 
-* @param count 
-* @param next 
-* @param previous 
-* @param results 
+* @param count The total number of resources available from this API.
+* @param next The URL for the next page in the list, or null if there is no next page.
+* @param previous The URL for the previous page in the list, or null if there is no previous page.
+* @param results A list of API resources on this page.
 */
 
 case class PaginatedPokemonHabitatSummaryList(
-  count: Option[Int],
+  count: Int,
   next: Option[URI],
   previous: Option[URI],
-  results: Option[List[PokemonHabitatSummary]]
+  results: List[PokemonHabitatSummary]
 )
 object PaginatedPokemonHabitatSummaryList {
   implicit val encoderPaginatedPokemonHabitatSummaryList: Encoder[PaginatedPokemonHabitatSummaryList] = deriveEncoder[PaginatedPokemonHabitatSummaryList].mapJson(_.dropNullValues)
@@ -3857,17 +3286,17 @@ object PaginatedPokemonHabitatSummaryList {
 
 /**
 * 
-* @param count 
-* @param next 
-* @param previous 
-* @param results 
+* @param count The total number of resources available from this API.
+* @param next The URL for the next page in the list, or null if there is no next page.
+* @param previous The URL for the previous page in the list, or null if there is no previous page.
+* @param results A list of API resources on this page.
 */
 
 case class PaginatedPokemonShapeSummaryList(
-  count: Option[Int],
+  count: Int,
   next: Option[URI],
   previous: Option[URI],
-  results: Option[List[PokemonShapeSummary]]
+  results: List[PokemonShapeSummary]
 )
 object PaginatedPokemonShapeSummaryList {
   implicit val encoderPaginatedPokemonShapeSummaryList: Encoder[PaginatedPokemonShapeSummaryList] = deriveEncoder[PaginatedPokemonShapeSummaryList].mapJson(_.dropNullValues)
@@ -3876,17 +3305,17 @@ object PaginatedPokemonShapeSummaryList {
 
 /**
 * 
-* @param count 
-* @param next 
-* @param previous 
-* @param results 
+* @param count The total number of resources available from this API.
+* @param next The URL for the next page in the list, or null if there is no next page.
+* @param previous The URL for the previous page in the list, or null if there is no previous page.
+* @param results A list of API resources on this page.
 */
 
 case class PaginatedPokemonSpeciesSummaryList(
-  count: Option[Int],
+  count: Int,
   next: Option[URI],
   previous: Option[URI],
-  results: Option[List[PokemonSpeciesSummary]]
+  results: List[PokemonSpeciesSummary]
 )
 object PaginatedPokemonSpeciesSummaryList {
   implicit val encoderPaginatedPokemonSpeciesSummaryList: Encoder[PaginatedPokemonSpeciesSummaryList] = deriveEncoder[PaginatedPokemonSpeciesSummaryList].mapJson(_.dropNullValues)
@@ -3895,17 +3324,17 @@ object PaginatedPokemonSpeciesSummaryList {
 
 /**
 * 
-* @param count 
-* @param next 
-* @param previous 
-* @param results 
+* @param count The total number of resources available from this API.
+* @param next The URL for the next page in the list, or null if there is no next page.
+* @param previous The URL for the previous page in the list, or null if there is no previous page.
+* @param results A list of API resources on this page.
 */
 
 case class PaginatedPokemonSummaryList(
-  count: Option[Int],
+  count: Int,
   next: Option[URI],
   previous: Option[URI],
-  results: Option[List[PokemonSummary]]
+  results: List[PokemonSummary]
 )
 object PaginatedPokemonSummaryList {
   implicit val encoderPaginatedPokemonSummaryList: Encoder[PaginatedPokemonSummaryList] = deriveEncoder[PaginatedPokemonSummaryList].mapJson(_.dropNullValues)
@@ -3914,17 +3343,17 @@ object PaginatedPokemonSummaryList {
 
 /**
 * 
-* @param count 
-* @param next 
-* @param previous 
-* @param results 
+* @param count The total number of resources available from this API.
+* @param next The URL for the next page in the list, or null if there is no next page.
+* @param previous The URL for the previous page in the list, or null if there is no previous page.
+* @param results A list of API resources on this page.
 */
 
 case class PaginatedRegionSummaryList(
-  count: Option[Int],
+  count: Int,
   next: Option[URI],
   previous: Option[URI],
-  results: Option[List[RegionSummary]]
+  results: List[RegionSummary]
 )
 object PaginatedRegionSummaryList {
   implicit val encoderPaginatedRegionSummaryList: Encoder[PaginatedRegionSummaryList] = deriveEncoder[PaginatedRegionSummaryList].mapJson(_.dropNullValues)
@@ -3933,17 +3362,17 @@ object PaginatedRegionSummaryList {
 
 /**
 * 
-* @param count 
-* @param next 
-* @param previous 
-* @param results 
+* @param count The total number of resources available from this API.
+* @param next The URL for the next page in the list, or null if there is no next page.
+* @param previous The URL for the previous page in the list, or null if there is no previous page.
+* @param results A list of API resources on this page.
 */
 
 case class PaginatedStatSummaryList(
-  count: Option[Int],
+  count: Int,
   next: Option[URI],
   previous: Option[URI],
-  results: Option[List[StatSummary]]
+  results: List[StatSummary]
 )
 object PaginatedStatSummaryList {
   implicit val encoderPaginatedStatSummaryList: Encoder[PaginatedStatSummaryList] = deriveEncoder[PaginatedStatSummaryList].mapJson(_.dropNullValues)
@@ -3952,17 +3381,17 @@ object PaginatedStatSummaryList {
 
 /**
 * 
-* @param count 
-* @param next 
-* @param previous 
-* @param results 
+* @param count The total number of resources available from this API.
+* @param next The URL for the next page in the list, or null if there is no next page.
+* @param previous The URL for the previous page in the list, or null if there is no previous page.
+* @param results A list of API resources on this page.
 */
 
 case class PaginatedSuperContestEffectSummaryList(
-  count: Option[Int],
+  count: Int,
   next: Option[URI],
   previous: Option[URI],
-  results: Option[List[SuperContestEffectSummary]]
+  results: List[SuperContestEffectSummary]
 )
 object PaginatedSuperContestEffectSummaryList {
   implicit val encoderPaginatedSuperContestEffectSummaryList: Encoder[PaginatedSuperContestEffectSummaryList] = deriveEncoder[PaginatedSuperContestEffectSummaryList].mapJson(_.dropNullValues)
@@ -3971,17 +3400,17 @@ object PaginatedSuperContestEffectSummaryList {
 
 /**
 * 
-* @param count 
-* @param next 
-* @param previous 
-* @param results 
+* @param count The total number of resources available from this API.
+* @param next The URL for the next page in the list, or null if there is no next page.
+* @param previous The URL for the previous page in the list, or null if there is no previous page.
+* @param results A list of API resources on this page.
 */
 
 case class PaginatedTypeSummaryList(
-  count: Option[Int],
+  count: Int,
   next: Option[URI],
   previous: Option[URI],
-  results: Option[List[TypeSummary]]
+  results: List[TypeSummary]
 )
 object PaginatedTypeSummaryList {
   implicit val encoderPaginatedTypeSummaryList: Encoder[PaginatedTypeSummaryList] = deriveEncoder[PaginatedTypeSummaryList].mapJson(_.dropNullValues)
@@ -3990,17 +3419,17 @@ object PaginatedTypeSummaryList {
 
 /**
 * 
-* @param count 
-* @param next 
-* @param previous 
-* @param results 
+* @param count The total number of resources available from this API.
+* @param next The URL for the next page in the list, or null if there is no next page.
+* @param previous The URL for the previous page in the list, or null if there is no previous page.
+* @param results A list of API resources on this page.
 */
 
 case class PaginatedVersionGroupSummaryList(
-  count: Option[Int],
+  count: Int,
   next: Option[URI],
   previous: Option[URI],
-  results: Option[List[VersionGroupSummary]]
+  results: List[VersionGroupSummary]
 )
 object PaginatedVersionGroupSummaryList {
   implicit val encoderPaginatedVersionGroupSummaryList: Encoder[PaginatedVersionGroupSummaryList] = deriveEncoder[PaginatedVersionGroupSummaryList].mapJson(_.dropNullValues)
@@ -4009,17 +3438,17 @@ object PaginatedVersionGroupSummaryList {
 
 /**
 * 
-* @param count 
-* @param next 
-* @param previous 
-* @param results 
+* @param count The total number of resources available from this API.
+* @param next The URL for the next page in the list, or null if there is no next page.
+* @param previous The URL for the previous page in the list, or null if there is no previous page.
+* @param results A list of API resources on this page.
 */
 
 case class PaginatedVersionSummaryList(
-  count: Option[Int],
+  count: Int,
   next: Option[URI],
   previous: Option[URI],
-  results: Option[List[VersionSummary]]
+  results: List[VersionSummary]
 )
 object PaginatedVersionSummaryList {
   implicit val encoderPaginatedVersionSummaryList: Encoder[PaginatedVersionSummaryList] = deriveEncoder[PaginatedVersionSummaryList].mapJson(_.dropNullValues)
@@ -4028,17 +3457,17 @@ object PaginatedVersionSummaryList {
 
 /**
 * 
-* @param id 
-* @param name 
-* @param names 
-* @param pokemonUnderscoreencounters 
+* @param id The identifier for this resource.
+* @param name The name for this resource.
+* @param names The name of this resource listed in different languages.
+* @param pokemonUnderscoreencounters A list of Pokémon encountered in thi pal park area along with details.
 */
 
 case class PalParkAreaDetail(
   id: Int,
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   names: List[PalParkAreaName],
-  pokemonUnderscoreencounters: List[PalParkAreaDetailPokemonEncountersInner]
+  pokemonUnderscoreencounters: List[PalParkEncounter]
 )
 object PalParkAreaDetail {
   implicit val encoderPalParkAreaDetail: Encoder[PalParkAreaDetail] = deriveEncoder[PalParkAreaDetail].mapJson(_.dropNullValues)
@@ -4047,44 +3476,12 @@ object PalParkAreaDetail {
 
 /**
 * 
-* @param baseUnderscorescore 
-* @param pokemonMinusspecies 
-* @param rate 
-*/
-
-case class PalParkAreaDetailPokemonEncountersInner(
-  baseUnderscorescore: Int,
-  pokemonMinusspecies: PalParkAreaDetailPokemonEncountersInnerPokemonSpecies,
-  rate: Int
-)
-object PalParkAreaDetailPokemonEncountersInner {
-  implicit val encoderPalParkAreaDetailPokemonEncountersInner: Encoder[PalParkAreaDetailPokemonEncountersInner] = deriveEncoder[PalParkAreaDetailPokemonEncountersInner].mapJson(_.dropNullValues)
-  implicit val decoderPalParkAreaDetailPokemonEncountersInner: Decoder[PalParkAreaDetailPokemonEncountersInner] = deriveDecoder[PalParkAreaDetailPokemonEncountersInner]
-}
-
-/**
-* 
-* @param name 
-* @param url 
-*/
-
-case class PalParkAreaDetailPokemonEncountersInnerPokemonSpecies(
-  name: String,
-  url: URI
-)
-object PalParkAreaDetailPokemonEncountersInnerPokemonSpecies {
-  implicit val encoderPalParkAreaDetailPokemonEncountersInnerPokemonSpecies: Encoder[PalParkAreaDetailPokemonEncountersInnerPokemonSpecies] = deriveEncoder[PalParkAreaDetailPokemonEncountersInnerPokemonSpecies].mapJson(_.dropNullValues)
-  implicit val decoderPalParkAreaDetailPokemonEncountersInnerPokemonSpecies: Decoder[PalParkAreaDetailPokemonEncountersInnerPokemonSpecies] = deriveDecoder[PalParkAreaDetailPokemonEncountersInnerPokemonSpecies]
-}
-
-/**
-* 
-* @param name 
-* @param language 
+* @param name The localized name for an API resource in a specific language.
+* @param language The language this name is in.
 */
 
 case class PalParkAreaName(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   language: LanguageSummary
 )
 object PalParkAreaName {
@@ -4094,12 +3491,12 @@ object PalParkAreaName {
 
 /**
 * 
-* @param name 
-* @param url 
+* @param name The name of the referenced resource.
+* @param url The URL of the referenced resource.
 */
 
 case class PalParkAreaSummary(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   url: URI
 )
 object PalParkAreaSummary {
@@ -4109,16 +3506,80 @@ object PalParkAreaSummary {
 
 /**
 * 
-* @param id 
-* @param name 
-* @param affectingUnderscorenatures 
-* @param names 
+* @param baseUnderscorescore The base score given to the player when this Pokémon is caught during a pal park run.
+* @param rate The base rate for encountering this Pokémon in this pal park area.
+* @param pokemonUnderscorespecies The Pokémon species being encountered.
+*/
+
+case class PalParkEncounter(
+  baseUnderscorescore: Option[Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]]],
+  rate: Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]],
+  pokemonUnderscorespecies: PokemonSpeciesSummary
+)
+object PalParkEncounter {
+  implicit val encoderPalParkEncounter: Encoder[PalParkEncounter] = deriveEncoder[PalParkEncounter].mapJson(_.dropNullValues)
+  implicit val decoderPalParkEncounter: Decoder[PalParkEncounter] = deriveDecoder[PalParkEncounter]
+}
+
+/**
+* 
+* @param deployUnderscoredate The deployment time as a Unix timestamp string.
+* @param hash The source commit hash used for this deployment.
+* @param tag The deployment tag, or null if the deployment has no tag.
+*/
+
+case class PokeapiMetaResponse(
+  deployUnderscoredate: String,
+  hash: String,
+  tag: String
+)
+object PokeapiMetaResponse {
+  implicit val encoderPokeapiMetaResponse: Encoder[PokeapiMetaResponse] = deriveEncoder[PokeapiMetaResponse].mapJson(_.dropNullValues)
+  implicit val decoderPokeapiMetaResponse: Decoder[PokeapiMetaResponse] = deriveDecoder[PokeapiMetaResponse]
+}
+
+/**
+* 
+* @param maxUnderscorechange The maximum amount of change to the referenced Pokéathlon stat.
+* @param nature The nature causing the change.
+*/
+
+case class PokeathlonStatAffectingNature(
+  maxUnderscorechange: Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]],
+  nature: NatureSummary
+)
+object PokeathlonStatAffectingNature {
+  implicit val encoderPokeathlonStatAffectingNature: Encoder[PokeathlonStatAffectingNature] = deriveEncoder[PokeathlonStatAffectingNature].mapJson(_.dropNullValues)
+  implicit val decoderPokeathlonStatAffectingNature: Decoder[PokeathlonStatAffectingNature] = deriveDecoder[PokeathlonStatAffectingNature]
+}
+
+/**
+* 
+* @param increase A list of natures and how they change the referenced Pokéathlon stat.
+* @param decrease A list of natures and how they change the referenced Pokéathlon stat.
+*/
+
+case class PokeathlonStatAffectingNatures(
+  increase: List[PokeathlonStatAffectingNature],
+  decrease: List[PokeathlonStatAffectingNature]
+)
+object PokeathlonStatAffectingNatures {
+  implicit val encoderPokeathlonStatAffectingNatures: Encoder[PokeathlonStatAffectingNatures] = deriveEncoder[PokeathlonStatAffectingNatures].mapJson(_.dropNullValues)
+  implicit val decoderPokeathlonStatAffectingNatures: Decoder[PokeathlonStatAffectingNatures] = deriveDecoder[PokeathlonStatAffectingNatures]
+}
+
+/**
+* 
+* @param id The identifier for this resource.
+* @param name The name for this resource.
+* @param affectingUnderscorenatures A detail of natures which affect this Pokéathlon stat positively or negatively.
+* @param names The name of this resource listed in different languages.
 */
 
 case class PokeathlonStatDetail(
   id: Int,
-  name: Refined[String, MaxSize[100]],
-  affectingUnderscorenatures: PokeathlonStatDetailAffectingNatures,
+  name: Refined[String, MaxSize[200]],
+  affectingUnderscorenatures: PokeathlonStatAffectingNatures,
   names: List[PokeathlonStatName]
 )
 object PokeathlonStatDetail {
@@ -4128,87 +3589,12 @@ object PokeathlonStatDetail {
 
 /**
 * 
-* @param decrease 
-* @param increase 
-*/
-
-case class PokeathlonStatDetailAffectingNatures(
-  decrease: List[PokeathlonStatDetailAffectingNaturesDecreaseInner],
-  increase: List[PokeathlonStatDetailAffectingNaturesIncreaseInner]
-)
-object PokeathlonStatDetailAffectingNatures {
-  implicit val encoderPokeathlonStatDetailAffectingNatures: Encoder[PokeathlonStatDetailAffectingNatures] = deriveEncoder[PokeathlonStatDetailAffectingNatures].mapJson(_.dropNullValues)
-  implicit val decoderPokeathlonStatDetailAffectingNatures: Decoder[PokeathlonStatDetailAffectingNatures] = deriveDecoder[PokeathlonStatDetailAffectingNatures]
-}
-
-/**
-* 
-* @param maxUnderscorechange 
-* @param nature 
-*/
-
-case class PokeathlonStatDetailAffectingNaturesDecreaseInner(
-  maxUnderscorechange: Refined[Int, LessEqual[-1]],
-  nature: PokeathlonStatDetailAffectingNaturesDecreaseInnerNature
-)
-object PokeathlonStatDetailAffectingNaturesDecreaseInner {
-  implicit val encoderPokeathlonStatDetailAffectingNaturesDecreaseInner: Encoder[PokeathlonStatDetailAffectingNaturesDecreaseInner] = deriveEncoder[PokeathlonStatDetailAffectingNaturesDecreaseInner].mapJson(_.dropNullValues)
-  implicit val decoderPokeathlonStatDetailAffectingNaturesDecreaseInner: Decoder[PokeathlonStatDetailAffectingNaturesDecreaseInner] = deriveDecoder[PokeathlonStatDetailAffectingNaturesDecreaseInner]
-}
-
-/**
-* 
-* @param name 
-* @param url 
-*/
-
-case class PokeathlonStatDetailAffectingNaturesDecreaseInnerNature(
-  name: String,
-  url: URI
-)
-object PokeathlonStatDetailAffectingNaturesDecreaseInnerNature {
-  implicit val encoderPokeathlonStatDetailAffectingNaturesDecreaseInnerNature: Encoder[PokeathlonStatDetailAffectingNaturesDecreaseInnerNature] = deriveEncoder[PokeathlonStatDetailAffectingNaturesDecreaseInnerNature].mapJson(_.dropNullValues)
-  implicit val decoderPokeathlonStatDetailAffectingNaturesDecreaseInnerNature: Decoder[PokeathlonStatDetailAffectingNaturesDecreaseInnerNature] = deriveDecoder[PokeathlonStatDetailAffectingNaturesDecreaseInnerNature]
-}
-
-/**
-* 
-* @param maxUnderscorechange 
-* @param nature 
-*/
-
-case class PokeathlonStatDetailAffectingNaturesIncreaseInner(
-  maxUnderscorechange: Refined[Int, GreaterEqual[1]],
-  nature: PokeathlonStatDetailAffectingNaturesIncreaseInnerNature
-)
-object PokeathlonStatDetailAffectingNaturesIncreaseInner {
-  implicit val encoderPokeathlonStatDetailAffectingNaturesIncreaseInner: Encoder[PokeathlonStatDetailAffectingNaturesIncreaseInner] = deriveEncoder[PokeathlonStatDetailAffectingNaturesIncreaseInner].mapJson(_.dropNullValues)
-  implicit val decoderPokeathlonStatDetailAffectingNaturesIncreaseInner: Decoder[PokeathlonStatDetailAffectingNaturesIncreaseInner] = deriveDecoder[PokeathlonStatDetailAffectingNaturesIncreaseInner]
-}
-
-/**
-* 
-* @param name 
-* @param url 
-*/
-
-case class PokeathlonStatDetailAffectingNaturesIncreaseInnerNature(
-  name: String,
-  url: URI
-)
-object PokeathlonStatDetailAffectingNaturesIncreaseInnerNature {
-  implicit val encoderPokeathlonStatDetailAffectingNaturesIncreaseInnerNature: Encoder[PokeathlonStatDetailAffectingNaturesIncreaseInnerNature] = deriveEncoder[PokeathlonStatDetailAffectingNaturesIncreaseInnerNature].mapJson(_.dropNullValues)
-  implicit val decoderPokeathlonStatDetailAffectingNaturesIncreaseInnerNature: Decoder[PokeathlonStatDetailAffectingNaturesIncreaseInnerNature] = deriveDecoder[PokeathlonStatDetailAffectingNaturesIncreaseInnerNature]
-}
-
-/**
-* 
-* @param name 
-* @param language 
+* @param name The localized name for an API resource in a specific language.
+* @param language The language this name is in.
 */
 
 case class PokeathlonStatName(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   language: LanguageSummary
 )
 object PokeathlonStatName {
@@ -4218,12 +3604,12 @@ object PokeathlonStatName {
 
 /**
 * 
-* @param name 
-* @param url 
+* @param name The name of the referenced resource.
+* @param url The URL of the referenced resource.
 */
 
 case class PokeathlonStatSummary(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   url: URI
 )
 object PokeathlonStatSummary {
@@ -4233,12 +3619,12 @@ object PokeathlonStatSummary {
 
 /**
 * 
-* @param description 
-* @param language 
+* @param description The localized description for an API resource in a specific language.
+* @param language The language this name is in.
 */
 
 case class PokedexDescription(
-  description: Option[Refined[String, MaxSize[1000]]],
+  description: Option[Refined[String, MaxSize[2000]]],
   language: LanguageSummary
 )
 object PokedexDescription {
@@ -4248,25 +3634,25 @@ object PokedexDescription {
 
 /**
 * 
-* @param id 
-* @param name 
-* @param isUnderscoremainUnderscoreseries 
-* @param descriptions 
-* @param names 
-* @param pokemonUnderscoreentries 
-* @param region 
-* @param versionUnderscoregroups 
+* @param id The identifier for this resource.
+* @param name The name for this resource.
+* @param isUnderscoremainUnderscoreseries Whether or not this Pokédex originated in the main series of the video games.
+* @param descriptions The description of this resource listed in different languages.
+* @param names The name of this resource listed in different languages.
+* @param pokemonUnderscoreentries A list of Pokémon catalogued in this Pokédex and their indexes.
+* @param region The region this Pokédex catalogues Pokémon for.
+* @param versionUnderscoregroups A list of version groups this Pokédex is relevant to.
 */
 
 case class PokedexDetail(
   id: Int,
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   isUnderscoremainUnderscoreseries: Option[Boolean],
   descriptions: List[PokedexDescription],
   names: List[PokedexName],
-  pokemonUnderscoreentries: List[PokedexDetailPokemonEntriesInner],
+  pokemonUnderscoreentries: List[PokemonDexNumber],
   region: RegionSummary,
-  versionUnderscoregroups: List[PokedexDetailVersionGroupsInner]
+  versionUnderscoregroups: List[VersionGroupSummary]
 )
 object PokedexDetail {
   implicit val encoderPokedexDetail: Encoder[PokedexDetail] = deriveEncoder[PokedexDetail].mapJson(_.dropNullValues)
@@ -4275,57 +3661,12 @@ object PokedexDetail {
 
 /**
 * 
-* @param entryUnderscorenumber 
-* @param pokemonUnderscorespecies 
-*/
-
-case class PokedexDetailPokemonEntriesInner(
-  entryUnderscorenumber: Int,
-  pokemonUnderscorespecies: PokedexDetailPokemonEntriesInnerPokemonSpecies
-)
-object PokedexDetailPokemonEntriesInner {
-  implicit val encoderPokedexDetailPokemonEntriesInner: Encoder[PokedexDetailPokemonEntriesInner] = deriveEncoder[PokedexDetailPokemonEntriesInner].mapJson(_.dropNullValues)
-  implicit val decoderPokedexDetailPokemonEntriesInner: Decoder[PokedexDetailPokemonEntriesInner] = deriveDecoder[PokedexDetailPokemonEntriesInner]
-}
-
-/**
-* 
-* @param name 
-* @param url 
-*/
-
-case class PokedexDetailPokemonEntriesInnerPokemonSpecies(
-  name: String,
-  url: URI
-)
-object PokedexDetailPokemonEntriesInnerPokemonSpecies {
-  implicit val encoderPokedexDetailPokemonEntriesInnerPokemonSpecies: Encoder[PokedexDetailPokemonEntriesInnerPokemonSpecies] = deriveEncoder[PokedexDetailPokemonEntriesInnerPokemonSpecies].mapJson(_.dropNullValues)
-  implicit val decoderPokedexDetailPokemonEntriesInnerPokemonSpecies: Decoder[PokedexDetailPokemonEntriesInnerPokemonSpecies] = deriveDecoder[PokedexDetailPokemonEntriesInnerPokemonSpecies]
-}
-
-/**
-* 
-* @param name 
-* @param url 
-*/
-
-case class PokedexDetailVersionGroupsInner(
-  name: String,
-  url: URI
-)
-object PokedexDetailVersionGroupsInner {
-  implicit val encoderPokedexDetailVersionGroupsInner: Encoder[PokedexDetailVersionGroupsInner] = deriveEncoder[PokedexDetailVersionGroupsInner].mapJson(_.dropNullValues)
-  implicit val decoderPokedexDetailVersionGroupsInner: Decoder[PokedexDetailVersionGroupsInner] = deriveDecoder[PokedexDetailVersionGroupsInner]
-}
-
-/**
-* 
-* @param name 
-* @param language 
+* @param name The localized name for an API resource in a specific language.
+* @param language The language this name is in.
 */
 
 case class PokedexName(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   language: LanguageSummary
 )
 object PokedexName {
@@ -4335,12 +3676,12 @@ object PokedexName {
 
 /**
 * 
-* @param name 
-* @param url 
+* @param name The name of the referenced resource.
+* @param url The URL of the referenced resource.
 */
 
 case class PokedexSummary(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   url: URI
 )
 object PokedexSummary {
@@ -4350,15 +3691,49 @@ object PokedexSummary {
 
 /**
 * 
-* @param id 
-* @param name 
-* @param names 
-* @param pokemonUnderscorespecies 
+* @param isUnderscorehidden Whether or not this is a hidden ability.
+* @param slot The slot this ability occupies in this Pokémon species.
+* @param ability The ability the Pokémon may have.
+*/
+
+case class PokemonAbility(
+  isUnderscorehidden: Option[Boolean],
+  slot: Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]],
+  ability: AbilitySummary
+)
+object PokemonAbility {
+  implicit val encoderPokemonAbility: Encoder[PokemonAbility] = deriveEncoder[PokemonAbility].mapJson(_.dropNullValues)
+  implicit val decoderPokemonAbility: Decoder[PokemonAbility] = deriveDecoder[PokemonAbility]
+}
+
+/**
+* 
+* @param isUnderscorehidden Whether or not this is a hidden ability.
+* @param slot The slot this ability occupies in this Pokémon species.
+* @param ability The ability the Pokémon may have.
+*/
+
+case class PokemonAbilityPast(
+  isUnderscorehidden: Option[Boolean],
+  slot: Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]],
+  ability: AbilitySummary
+)
+object PokemonAbilityPast {
+  implicit val encoderPokemonAbilityPast: Encoder[PokemonAbilityPast] = deriveEncoder[PokemonAbilityPast].mapJson(_.dropNullValues)
+  implicit val decoderPokemonAbilityPast: Decoder[PokemonAbilityPast] = deriveDecoder[PokemonAbilityPast]
+}
+
+/**
+* 
+* @param id The identifier for this resource.
+* @param name The name for this resource.
+* @param names The name of this resource listed in different languages.
+* @param pokemonUnderscorespecies A list of the Pokémon species that have this color.
 */
 
 case class PokemonColorDetail(
   id: Int,
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   names: List[PokemonColorName],
   pokemonUnderscorespecies: List[PokemonSpeciesSummary]
 )
@@ -4369,12 +3744,12 @@ object PokemonColorDetail {
 
 /**
 * 
-* @param name 
-* @param language 
+* @param name The localized name for an API resource in a specific language.
+* @param language The language this name is in.
 */
 
 case class PokemonColorName(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   language: LanguageSummary
 )
 object PokemonColorName {
@@ -4384,12 +3759,12 @@ object PokemonColorName {
 
 /**
 * 
-* @param name 
-* @param url 
+* @param name The name of the referenced resource.
+* @param url The URL of the referenced resource.
 */
 
 case class PokemonColorSummary(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   url: URI
 )
 object PokemonColorSummary {
@@ -4399,49 +3774,66 @@ object PokemonColorSummary {
 
 /**
 * 
-* @param id 
-* @param name 
-* @param baseUnderscoreexperience 
-* @param height 
-* @param isUnderscoredefault 
-* @param order 
-* @param weight 
-* @param abilities 
-* @param pastUnderscoreabilities 
-* @param forms 
-* @param gameUnderscoreindices 
-* @param heldUnderscoreitems 
-* @param locationUnderscoreareaUnderscoreencounters 
-* @param moves 
-* @param species 
-* @param sprites 
-* @param cries 
-* @param stats 
-* @param types 
-* @param pastUnderscoretypes 
+* @param latest The latest depiction of this Pokémon's cry.
+* @param legacy The legacy depiction of this Pokémon's cry.
+*/
+
+case class PokemonCries(
+  latest: String,
+  legacy: String
+)
+object PokemonCries {
+  implicit val encoderPokemonCries: Encoder[PokemonCries] = deriveEncoder[PokemonCries].mapJson(_.dropNullValues)
+  implicit val decoderPokemonCries: Decoder[PokemonCries] = deriveDecoder[PokemonCries]
+}
+
+/**
+* 
+* @param id The identifier for this resource.
+* @param name The name for this resource.
+* @param baseUnderscoreexperience The base experience gained for defeating this Pokémon.
+* @param height The height of this Pokémon in decimetres.
+* @param isUnderscoredefault Set for exactly one Pokémon used as the default for each species.
+* @param order Order for sorting. Almost national order, except families are grouped together.
+* @param weight The weight of this Pokémon in hectograms.
+* @param abilities A list of abilities this Pokémon could potentially have.
+* @param pastUnderscoreabilities A list of details showing abilities this pokémon had in previous generations
+* @param forms A list of forms this Pokémon can take on.
+* @param gameUnderscoreindices A list of game indices relevent to Pokémon item by generation.
+* @param heldUnderscoreitems A list of items this Pokémon may be holding when encountered.
+* @param locationUnderscoreareaUnderscoreencounters A link to a list of location areas, as well as encounter details pertaining to specific versions.
+* @param moves A list of moves along with learn methods and level details pertaining to specific version groups.
+* @param species The species this Pokémon belongs to.
+* @param sprites A set of sprites used to depict this Pokémon in the game. A visual representation of the various sprites can be found at <a href='https://github.com/PokeAPI/sprites#sprites'>PokeAPI/sprites</a>
+* @param cries A set of cries used to depict this Pokémon in the game. A visual representation of the various cries can be found at <a href='https://github.com/PokeAPI/cries#cries'>PokeAPI/cries</a>
+* @param stats A list of base stat values for this Pokémon.
+* @param pastUnderscorestats A list of details showing stats this pokémon had in previous generations
+* @param types A list of details showing types this Pokémon has.
+* @param pastUnderscoretypes A list of details showing types this pokémon had in previous generations
 */
 
 case class PokemonDetail(
   id: Int,
-  name: Refined[String, MaxSize[100]],
-  baseUnderscoreexperience: Option[Int],
-  height: Option[Int],
+  name: Refined[String, MaxSize[200]],
+  baseUnderscoreexperience: Option[Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]]],
+  height: Option[Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]]],
   isUnderscoredefault: Option[Boolean],
-  order: Option[Int],
-  weight: Option[Int],
-  abilities: List[PokemonDetailAbilitiesInner],
-  pastUnderscoreabilities: List[PokemonDetailPastAbilitiesInner],
+  order: Option[Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]]],
+  weight: Option[Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]]],
+  abilities: List[PokemonAbility],
+  pastUnderscoreabilities: List[PokemonPastAbility],
   forms: List[PokemonFormSummary],
   gameUnderscoreindices: List[PokemonGameIndex],
-  heldUnderscoreitems: PokemonDetailHeldItems,
+  heldUnderscoreitems: List[PokemonHeldItemSummary],
   locationUnderscoreareaUnderscoreencounters: String,
-  moves: List[PokemonDetailMovesInner],
+  moves: List[PokemonMove],
   species: PokemonSpeciesSummary,
-  sprites: PokemonDetailSprites,
-  cries: PokemonDetailCries,
+  sprites: PokemonSprites,
+  cries: PokemonCries,
   stats: List[PokemonStat],
-  types: List[PokemonDetailTypesInner],
-  pastUnderscoretypes: List[PokemonDetailPastTypesInner]
+  pastUnderscorestats: List[PokemonPastStat],
+  types: List[PokemonType],
+  pastUnderscoretypes: List[PokemonPastType]
 )
 object PokemonDetail {
   implicit val encoderPokemonDetail: Encoder[PokemonDetail] = deriveEncoder[PokemonDetail].mapJson(_.dropNullValues)
@@ -4450,357 +3842,8 @@ object PokemonDetail {
 
 /**
 * 
-* @param ability 
-* @param isUnderscorehidden 
-* @param slot 
-*/
-
-case class PokemonDetailAbilitiesInner(
-  ability: PokemonDetailAbilitiesInnerAbility,
-  isUnderscorehidden: Boolean,
-  slot: Int
-)
-object PokemonDetailAbilitiesInner {
-  implicit val encoderPokemonDetailAbilitiesInner: Encoder[PokemonDetailAbilitiesInner] = deriveEncoder[PokemonDetailAbilitiesInner].mapJson(_.dropNullValues)
-  implicit val decoderPokemonDetailAbilitiesInner: Decoder[PokemonDetailAbilitiesInner] = deriveDecoder[PokemonDetailAbilitiesInner]
-}
-
-/**
-* 
-* @param name 
-* @param url 
-*/
-
-case class PokemonDetailAbilitiesInnerAbility(
-  name: String,
-  url: URI
-)
-object PokemonDetailAbilitiesInnerAbility {
-  implicit val encoderPokemonDetailAbilitiesInnerAbility: Encoder[PokemonDetailAbilitiesInnerAbility] = deriveEncoder[PokemonDetailAbilitiesInnerAbility].mapJson(_.dropNullValues)
-  implicit val decoderPokemonDetailAbilitiesInnerAbility: Decoder[PokemonDetailAbilitiesInnerAbility] = deriveDecoder[PokemonDetailAbilitiesInnerAbility]
-}
-
-/**
-* 
-* @param latest 
-* @param legacy 
-*/
-
-case class PokemonDetailCries(
-  latest: URI,
-  legacy: URI
-)
-object PokemonDetailCries {
-  implicit val encoderPokemonDetailCries: Encoder[PokemonDetailCries] = deriveEncoder[PokemonDetailCries].mapJson(_.dropNullValues)
-  implicit val decoderPokemonDetailCries: Decoder[PokemonDetailCries] = deriveDecoder[PokemonDetailCries]
-}
-
-/**
-* 
-* @param item 
-* @param versionUnderscoredetails 
-*/
-
-case class PokemonDetailHeldItems(
-  item: PokemonDetailHeldItemsItem,
-  versionUnderscoredetails: List[PokemonDetailHeldItemsVersionDetailsInner]
-)
-object PokemonDetailHeldItems {
-  implicit val encoderPokemonDetailHeldItems: Encoder[PokemonDetailHeldItems] = deriveEncoder[PokemonDetailHeldItems].mapJson(_.dropNullValues)
-  implicit val decoderPokemonDetailHeldItems: Decoder[PokemonDetailHeldItems] = deriveDecoder[PokemonDetailHeldItems]
-}
-
-/**
-* 
-* @param name 
-* @param url 
-*/
-
-case class PokemonDetailHeldItemsItem(
-  name: String,
-  url: URI
-)
-object PokemonDetailHeldItemsItem {
-  implicit val encoderPokemonDetailHeldItemsItem: Encoder[PokemonDetailHeldItemsItem] = deriveEncoder[PokemonDetailHeldItemsItem].mapJson(_.dropNullValues)
-  implicit val decoderPokemonDetailHeldItemsItem: Decoder[PokemonDetailHeldItemsItem] = deriveDecoder[PokemonDetailHeldItemsItem]
-}
-
-/**
-* 
-* @param rarity 
-* @param version 
-*/
-
-case class PokemonDetailHeldItemsVersionDetailsInner(
-  rarity: Int,
-  version: PokemonDetailHeldItemsVersionDetailsInnerVersion
-)
-object PokemonDetailHeldItemsVersionDetailsInner {
-  implicit val encoderPokemonDetailHeldItemsVersionDetailsInner: Encoder[PokemonDetailHeldItemsVersionDetailsInner] = deriveEncoder[PokemonDetailHeldItemsVersionDetailsInner].mapJson(_.dropNullValues)
-  implicit val decoderPokemonDetailHeldItemsVersionDetailsInner: Decoder[PokemonDetailHeldItemsVersionDetailsInner] = deriveDecoder[PokemonDetailHeldItemsVersionDetailsInner]
-}
-
-/**
-* 
-* @param name 
-* @param url 
-*/
-
-case class PokemonDetailHeldItemsVersionDetailsInnerVersion(
-  name: String,
-  url: URI
-)
-object PokemonDetailHeldItemsVersionDetailsInnerVersion {
-  implicit val encoderPokemonDetailHeldItemsVersionDetailsInnerVersion: Encoder[PokemonDetailHeldItemsVersionDetailsInnerVersion] = deriveEncoder[PokemonDetailHeldItemsVersionDetailsInnerVersion].mapJson(_.dropNullValues)
-  implicit val decoderPokemonDetailHeldItemsVersionDetailsInnerVersion: Decoder[PokemonDetailHeldItemsVersionDetailsInnerVersion] = deriveDecoder[PokemonDetailHeldItemsVersionDetailsInnerVersion]
-}
-
-/**
-* 
-* @param move 
-* @param versionUnderscoregroupUnderscoredetails 
-*/
-
-case class PokemonDetailMovesInner(
-  move: PokemonDetailMovesInnerMove,
-  versionUnderscoregroupUnderscoredetails: List[PokemonDetailMovesInnerVersionGroupDetailsInner]
-)
-object PokemonDetailMovesInner {
-  implicit val encoderPokemonDetailMovesInner: Encoder[PokemonDetailMovesInner] = deriveEncoder[PokemonDetailMovesInner].mapJson(_.dropNullValues)
-  implicit val decoderPokemonDetailMovesInner: Decoder[PokemonDetailMovesInner] = deriveDecoder[PokemonDetailMovesInner]
-}
-
-/**
-* 
-* @param name 
-* @param url 
-*/
-
-case class PokemonDetailMovesInnerMove(
-  name: String,
-  url: URI
-)
-object PokemonDetailMovesInnerMove {
-  implicit val encoderPokemonDetailMovesInnerMove: Encoder[PokemonDetailMovesInnerMove] = deriveEncoder[PokemonDetailMovesInnerMove].mapJson(_.dropNullValues)
-  implicit val decoderPokemonDetailMovesInnerMove: Decoder[PokemonDetailMovesInnerMove] = deriveDecoder[PokemonDetailMovesInnerMove]
-}
-
-/**
-* 
-* @param levelUnderscorelearnedUnderscoreat 
-* @param moveUnderscorelearnUnderscoremethod 
-* @param versionUnderscoregroup 
-*/
-
-case class PokemonDetailMovesInnerVersionGroupDetailsInner(
-  levelUnderscorelearnedUnderscoreat: Int,
-  moveUnderscorelearnUnderscoremethod: PokemonDetailMovesInnerVersionGroupDetailsInnerMoveLearnMethod,
-  versionUnderscoregroup: PokemonDetailMovesInnerVersionGroupDetailsInnerVersionGroup
-)
-object PokemonDetailMovesInnerVersionGroupDetailsInner {
-  implicit val encoderPokemonDetailMovesInnerVersionGroupDetailsInner: Encoder[PokemonDetailMovesInnerVersionGroupDetailsInner] = deriveEncoder[PokemonDetailMovesInnerVersionGroupDetailsInner].mapJson(_.dropNullValues)
-  implicit val decoderPokemonDetailMovesInnerVersionGroupDetailsInner: Decoder[PokemonDetailMovesInnerVersionGroupDetailsInner] = deriveDecoder[PokemonDetailMovesInnerVersionGroupDetailsInner]
-}
-
-/**
-* 
-* @param name 
-* @param url 
-*/
-
-case class PokemonDetailMovesInnerVersionGroupDetailsInnerMoveLearnMethod(
-  name: String,
-  url: URI
-)
-object PokemonDetailMovesInnerVersionGroupDetailsInnerMoveLearnMethod {
-  implicit val encoderPokemonDetailMovesInnerVersionGroupDetailsInnerMoveLearnMethod: Encoder[PokemonDetailMovesInnerVersionGroupDetailsInnerMoveLearnMethod] = deriveEncoder[PokemonDetailMovesInnerVersionGroupDetailsInnerMoveLearnMethod].mapJson(_.dropNullValues)
-  implicit val decoderPokemonDetailMovesInnerVersionGroupDetailsInnerMoveLearnMethod: Decoder[PokemonDetailMovesInnerVersionGroupDetailsInnerMoveLearnMethod] = deriveDecoder[PokemonDetailMovesInnerVersionGroupDetailsInnerMoveLearnMethod]
-}
-
-/**
-* 
-* @param name 
-* @param url 
-*/
-
-case class PokemonDetailMovesInnerVersionGroupDetailsInnerVersionGroup(
-  name: String,
-  url: URI
-)
-object PokemonDetailMovesInnerVersionGroupDetailsInnerVersionGroup {
-  implicit val encoderPokemonDetailMovesInnerVersionGroupDetailsInnerVersionGroup: Encoder[PokemonDetailMovesInnerVersionGroupDetailsInnerVersionGroup] = deriveEncoder[PokemonDetailMovesInnerVersionGroupDetailsInnerVersionGroup].mapJson(_.dropNullValues)
-  implicit val decoderPokemonDetailMovesInnerVersionGroupDetailsInnerVersionGroup: Decoder[PokemonDetailMovesInnerVersionGroupDetailsInnerVersionGroup] = deriveDecoder[PokemonDetailMovesInnerVersionGroupDetailsInnerVersionGroup]
-}
-
-/**
-* 
-* @param abilities 
-* @param generation 
-*/
-
-case class PokemonDetailPastAbilitiesInner(
-  abilities: List[PokemonDetailPastAbilitiesInnerAbilitiesInner],
-  generation: PokemonDetailPastAbilitiesInnerGeneration
-)
-object PokemonDetailPastAbilitiesInner {
-  implicit val encoderPokemonDetailPastAbilitiesInner: Encoder[PokemonDetailPastAbilitiesInner] = deriveEncoder[PokemonDetailPastAbilitiesInner].mapJson(_.dropNullValues)
-  implicit val decoderPokemonDetailPastAbilitiesInner: Decoder[PokemonDetailPastAbilitiesInner] = deriveDecoder[PokemonDetailPastAbilitiesInner]
-}
-
-/**
-* 
-* @param ability 
-* @param isUnderscorehidden 
-* @param slot 
-*/
-
-case class PokemonDetailPastAbilitiesInnerAbilitiesInner(
-  ability: PokemonDetailPastAbilitiesInnerAbilitiesInnerAbility,
-  isUnderscorehidden: Boolean,
-  slot: Int
-)
-object PokemonDetailPastAbilitiesInnerAbilitiesInner {
-  implicit val encoderPokemonDetailPastAbilitiesInnerAbilitiesInner: Encoder[PokemonDetailPastAbilitiesInnerAbilitiesInner] = deriveEncoder[PokemonDetailPastAbilitiesInnerAbilitiesInner].mapJson(_.dropNullValues)
-  implicit val decoderPokemonDetailPastAbilitiesInnerAbilitiesInner: Decoder[PokemonDetailPastAbilitiesInnerAbilitiesInner] = deriveDecoder[PokemonDetailPastAbilitiesInnerAbilitiesInner]
-}
-
-/**
-* 
-* @param name 
-* @param url 
-*/
-
-case class PokemonDetailPastAbilitiesInnerAbilitiesInnerAbility(
-  name: String,
-  url: URI
-)
-object PokemonDetailPastAbilitiesInnerAbilitiesInnerAbility {
-  implicit val encoderPokemonDetailPastAbilitiesInnerAbilitiesInnerAbility: Encoder[PokemonDetailPastAbilitiesInnerAbilitiesInnerAbility] = deriveEncoder[PokemonDetailPastAbilitiesInnerAbilitiesInnerAbility].mapJson(_.dropNullValues)
-  implicit val decoderPokemonDetailPastAbilitiesInnerAbilitiesInnerAbility: Decoder[PokemonDetailPastAbilitiesInnerAbilitiesInnerAbility] = deriveDecoder[PokemonDetailPastAbilitiesInnerAbilitiesInnerAbility]
-}
-
-/**
-* 
-* @param name 
-* @param url 
-*/
-
-case class PokemonDetailPastAbilitiesInnerGeneration(
-  name: String,
-  url: URI
-)
-object PokemonDetailPastAbilitiesInnerGeneration {
-  implicit val encoderPokemonDetailPastAbilitiesInnerGeneration: Encoder[PokemonDetailPastAbilitiesInnerGeneration] = deriveEncoder[PokemonDetailPastAbilitiesInnerGeneration].mapJson(_.dropNullValues)
-  implicit val decoderPokemonDetailPastAbilitiesInnerGeneration: Decoder[PokemonDetailPastAbilitiesInnerGeneration] = deriveDecoder[PokemonDetailPastAbilitiesInnerGeneration]
-}
-
-/**
-* 
-* @param generation 
-* @param types 
-*/
-
-case class PokemonDetailPastTypesInner(
-  generation: PokemonDetailPastTypesInnerGeneration,
-  types: List[PokemonDetailPastTypesInnerTypesInner]
-)
-object PokemonDetailPastTypesInner {
-  implicit val encoderPokemonDetailPastTypesInner: Encoder[PokemonDetailPastTypesInner] = deriveEncoder[PokemonDetailPastTypesInner].mapJson(_.dropNullValues)
-  implicit val decoderPokemonDetailPastTypesInner: Decoder[PokemonDetailPastTypesInner] = deriveDecoder[PokemonDetailPastTypesInner]
-}
-
-/**
-* 
-* @param name 
-* @param url 
-*/
-
-case class PokemonDetailPastTypesInnerGeneration(
-  name: String,
-  url: URI
-)
-object PokemonDetailPastTypesInnerGeneration {
-  implicit val encoderPokemonDetailPastTypesInnerGeneration: Encoder[PokemonDetailPastTypesInnerGeneration] = deriveEncoder[PokemonDetailPastTypesInnerGeneration].mapJson(_.dropNullValues)
-  implicit val decoderPokemonDetailPastTypesInnerGeneration: Decoder[PokemonDetailPastTypesInnerGeneration] = deriveDecoder[PokemonDetailPastTypesInnerGeneration]
-}
-
-/**
-* 
-* @param slot 
-* @param `type` 
-*/
-
-case class PokemonDetailPastTypesInnerTypesInner(
-  slot: Int,
-  `type`: PokemonDetailPastTypesInnerTypesInnerType
-)
-object PokemonDetailPastTypesInnerTypesInner {
-  implicit val encoderPokemonDetailPastTypesInnerTypesInner: Encoder[PokemonDetailPastTypesInnerTypesInner] = deriveEncoder[PokemonDetailPastTypesInnerTypesInner].mapJson(_.dropNullValues)
-  implicit val decoderPokemonDetailPastTypesInnerTypesInner: Decoder[PokemonDetailPastTypesInnerTypesInner] = deriveDecoder[PokemonDetailPastTypesInnerTypesInner]
-}
-
-/**
-* 
-* @param name 
-* @param url 
-*/
-
-case class PokemonDetailPastTypesInnerTypesInnerType(
-  name: String,
-  url: URI
-)
-object PokemonDetailPastTypesInnerTypesInnerType {
-  implicit val encoderPokemonDetailPastTypesInnerTypesInnerType: Encoder[PokemonDetailPastTypesInnerTypesInnerType] = deriveEncoder[PokemonDetailPastTypesInnerTypesInnerType].mapJson(_.dropNullValues)
-  implicit val decoderPokemonDetailPastTypesInnerTypesInnerType: Decoder[PokemonDetailPastTypesInnerTypesInnerType] = deriveDecoder[PokemonDetailPastTypesInnerTypesInnerType]
-}
-
-/**
-* 
-* @param frontUnderscoredefault 
-*/
-
-case class PokemonDetailSprites(
-  frontUnderscoredefault: Option[URI]
-)
-object PokemonDetailSprites {
-  implicit val encoderPokemonDetailSprites: Encoder[PokemonDetailSprites] = deriveEncoder[PokemonDetailSprites].mapJson(_.dropNullValues)
-  implicit val decoderPokemonDetailSprites: Decoder[PokemonDetailSprites] = deriveDecoder[PokemonDetailSprites]
-}
-
-/**
-* 
-* @param slot 
-* @param `type` 
-*/
-
-case class PokemonDetailTypesInner(
-  slot: Int,
-  `type`: PokemonDetailTypesInnerType
-)
-object PokemonDetailTypesInner {
-  implicit val encoderPokemonDetailTypesInner: Encoder[PokemonDetailTypesInner] = deriveEncoder[PokemonDetailTypesInner].mapJson(_.dropNullValues)
-  implicit val decoderPokemonDetailTypesInner: Decoder[PokemonDetailTypesInner] = deriveDecoder[PokemonDetailTypesInner]
-}
-
-/**
-* 
-* @param name 
-* @param url 
-*/
-
-case class PokemonDetailTypesInnerType(
-  name: String,
-  url: URI
-)
-object PokemonDetailTypesInnerType {
-  implicit val encoderPokemonDetailTypesInnerType: Encoder[PokemonDetailTypesInnerType] = deriveEncoder[PokemonDetailTypesInnerType].mapJson(_.dropNullValues)
-  implicit val decoderPokemonDetailTypesInnerType: Decoder[PokemonDetailTypesInnerType] = deriveDecoder[PokemonDetailTypesInnerType]
-}
-
-/**
-* 
-* @param entryUnderscorenumber 
-* @param pokedex 
+* @param entryUnderscorenumber The index number within the Pokédex.
+* @param pokedex The Pokédex the referenced Pokémon species can be found in.
 */
 
 case class PokemonDexEntry(
@@ -4814,37 +3857,212 @@ object PokemonDexEntry {
 
 /**
 * 
-* @param id 
+* @param entryUnderscorenumber The index of this Pokémon species entry within the Pokédex.
+* @param pokemonUnderscorespecies The Pokémon species being encountered.
+*/
+
+case class PokemonDexNumber(
+  entryUnderscorenumber: Int,
+  pokemonUnderscorespecies: PokemonSpeciesSummary
+)
+object PokemonDexNumber {
+  implicit val encoderPokemonDexNumber: Encoder[PokemonDexNumber] = deriveEncoder[PokemonDexNumber].mapJson(_.dropNullValues)
+  implicit val decoderPokemonDexNumber: Decoder[PokemonDexNumber] = deriveDecoder[PokemonDexNumber]
+}
+
+/**
+* 
+* @param chance Percent chance that this encounter will occur.
+* @param conditionUnderscorevalues A list of condition values that must be in effect for this encounter to occur.
+* @param maxUnderscorelevel The highest level the Pokémon could be encountered at.
+* @param method The method by which this encounter happens.
+* @param minUnderscorelevel The lowest level the Pokémon could be encountered at.
+*/
+
+case class PokemonEncounterDetailResponse(
+  chance: Int,
+  conditionUnderscorevalues: List[EncounterConditionValueSummary],
+  maxUnderscorelevel: Int,
+  method: EncounterMethodSummary,
+  minUnderscorelevel: Int
+)
+object PokemonEncounterDetailResponse {
+  implicit val encoderPokemonEncounterDetailResponse: Encoder[PokemonEncounterDetailResponse] = deriveEncoder[PokemonEncounterDetailResponse].mapJson(_.dropNullValues)
+  implicit val decoderPokemonEncounterDetailResponse: Decoder[PokemonEncounterDetailResponse] = deriveDecoder[PokemonEncounterDetailResponse]
+}
+
+/**
+* 
+* @param locationUnderscorearea The location area the referenced Pokémon can be encountered in.
+* @param versionUnderscoredetails A list of versions and encounters with the referenced Pokémon that might happen.
+*/
+
+case class PokemonEncounterResponse(
+  locationUnderscorearea: LocationAreaSummary,
+  versionUnderscoredetails: List[PokemonEncounterVersionDetailResponse]
+)
+object PokemonEncounterResponse {
+  implicit val encoderPokemonEncounterResponse: Encoder[PokemonEncounterResponse] = deriveEncoder[PokemonEncounterResponse].mapJson(_.dropNullValues)
+  implicit val decoderPokemonEncounterResponse: Decoder[PokemonEncounterResponse] = deriveDecoder[PokemonEncounterResponse]
+}
+
+/**
+* 
+* @param version The game version this encounter happens in.
+* @param maxUnderscorechance The total percentage of all encounter potential.
+* @param encounterUnderscoredetails A list of encounters and their specifics.
+*/
+
+case class PokemonEncounterVersionDetailResponse(
+  version: VersionSummary,
+  maxUnderscorechance: Int,
+  encounterUnderscoredetails: List[PokemonEncounterDetailResponse]
+)
+object PokemonEncounterVersionDetailResponse {
+  implicit val encoderPokemonEncounterVersionDetailResponse: Encoder[PokemonEncounterVersionDetailResponse] = deriveEncoder[PokemonEncounterVersionDetailResponse].mapJson(_.dropNullValues)
+  implicit val decoderPokemonEncounterVersionDetailResponse: Decoder[PokemonEncounterVersionDetailResponse] = deriveDecoder[PokemonEncounterVersionDetailResponse]
+}
+
+/**
+* 
+* @param versionUnderscoregroup The version group in which these evolution requirements apply.
+* @param isUnderscoredefault Whether the evolution is considered as the expected evolution in a main series game. Each unique Pokémon variety of a line capable of evolution should have exactly one 'default' evolution. For example, the Meowth species has three default evolutions as there are three distinct varieties it can evolve into: Persian, Alolan Persian, and Perrserker.
+* @param item The item required to cause evolution this into Pokémon species.
+* @param trigger The type of event that triggers evolution into this Pokémon species.
+* @param gender The id of the gender of the evolving Pokémon species must be in order to evolve into this Pokémon species.
+* @param heldUnderscoreitem The item the evolving Pokémon species must be holding during the evolution trigger event to evolve into this Pokémon species.
+* @param knownUnderscoremove 
+* @param knownUnderscoremoveUnderscoretype 
+* @param location The location the evolution must be triggered at.
+* @param minUnderscorelevel The minimum required level of the evolving Pokémon species to evolve into this Pokémon species.
+* @param minUnderscorehappiness The minimum required level of happiness the evolving Pokémon species to evolve into this Pokémon species.
+* @param minUnderscorebeauty The minimum required level of beauty the evolving Pokémon species to evolve into this Pokémon species.
+* @param minUnderscoreaffection The minimum required level of affection the evolving Pokémon species to evolve into this Pokémon species.
+* @param nearUnderscorespecialUnderscorerock Whether or not you need to be near a Moss Rock or Icy Rock to evolve into this Pokémon species.
+* @param needsUnderscoremultiplayer Whether or not multiplayer link play is needed to evolve into this Pokémon species (e.g. Union Circle).
+* @param needsUnderscoreoverworldUnderscorerain Whether or not it must be raining in the overworld to cause evolution this Pokémon species.
+* @param partyUnderscorespecies The Pokémon species that must be in the players party in order for the evolving Pokémon species to evolve into this Pokémon species.
+* @param partyUnderscoretype The player must have a Pokémon of this type in their party during the evolution trigger event in order for the evolving Pokémon species to evolve into this Pokémon species.
+* @param relativeUnderscorephysicalUnderscorestats The required relation between the Pokémon's Attack and Defense stats. 1 means Attack > Defense. 0 means Attack = Defense. -1 means Attack < Defense.
+* @param timeUnderscoreofUnderscoreday The required time of day. Day or night.
+* @param tradeUnderscorespecies Pokémon species for which this one must be traded.
+* @param turnUnderscoreupsideUnderscoredown Whether or not the 3DS needs to be turned upside-down as this Pokémon levels up.
+* @param region The required region in which this evolution can occur.
+* @param requiredUnderscorepokemonUnderscoreform The Pokémon form required before evolving, or null if unrestricted.
+* @param evolvedUnderscorepokemonUnderscoreform The Pokémon form produced by this evolution, or null if unspecified.
+* @param usedUnderscoremove The move that must be used by the evolving Pokémon species during the evolution trigger event in order to evolve into this Pokémon species.
+* @param minUnderscoremoveUnderscorecount The minimum number of times a move must be used in order to evolve into this Pokémon species.
+* @param minUnderscoresteps The minimum number of steps that must be taken in order to evolve into this Pokémon species.
+* @param minUnderscoredamageUnderscoretaken The minimum amount of damage taken during the evolution trigger event in order to evolve into this Pokémon species.
+* @param allowedUnderscorenatures The natures that allow this evolution, or null if unrestricted.
+* @param conditionUnderscoreexpression An additional evolution condition expressed in reverse Polish notation, or null if none.
+*/
+
+case class PokemonEvolution(
+  versionUnderscoregroup: VersionGroupSummary,
+  isUnderscoredefault: Option[Boolean],
+  item: ItemSummary,
+  trigger: EvolutionTriggerSummary,
+  gender: Option[Int],
+  heldUnderscoreitem: ItemSummary,
+  knownUnderscoremove: PokemonEvolutionKnownMove,
+  knownUnderscoremoveUnderscoretype: PokemonEvolutionKnownMoveType,
+  location: LocationSummary,
+  minUnderscorelevel: Option[Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]]],
+  minUnderscorehappiness: Option[Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]]],
+  minUnderscorebeauty: Option[Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]]],
+  minUnderscoreaffection: Option[Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]]],
+  nearUnderscorespecialUnderscorerock: Option[Boolean],
+  needsUnderscoremultiplayer: Option[Boolean],
+  needsUnderscoreoverworldUnderscorerain: Option[Boolean],
+  partyUnderscorespecies: PokemonSpeciesSummary,
+  partyUnderscoretype: TypeSummary,
+  relativeUnderscorephysicalUnderscorestats: Option[Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]]],
+  timeUnderscoreofUnderscoreday: Option[Refined[String, MaxSize[10]]],
+  tradeUnderscorespecies: PokemonSpeciesSummary,
+  turnUnderscoreupsideUnderscoredown: Option[Boolean],
+  region: RegionSummary,
+  requiredUnderscorepokemonUnderscoreform: PokemonFormSummary,
+  evolvedUnderscorepokemonUnderscoreform: PokemonFormSummary,
+  usedUnderscoremove: MoveSummary,
+  minUnderscoremoveUnderscorecount: Option[Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]]],
+  minUnderscoresteps: Option[Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]]],
+  minUnderscoredamageUnderscoretaken: Option[Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]]],
+  allowedUnderscorenatures: List[NatureSummary],
+  conditionUnderscoreexpression: EvolutionConditionExpression
+)
+object PokemonEvolution {
+  implicit val encoderPokemonEvolution: Encoder[PokemonEvolution] = deriveEncoder[PokemonEvolution].mapJson(_.dropNullValues)
+  implicit val decoderPokemonEvolution: Decoder[PokemonEvolution] = deriveDecoder[PokemonEvolution]
+}
+
+/**
+* 
 * @param name 
-* @param order 
-* @param formUnderscoreorder 
-* @param isUnderscoredefault 
-* @param isUnderscorebattleUnderscoreonly 
-* @param isUnderscoremega 
-* @param formUnderscorename 
-* @param pokemon 
-* @param sprites 
-* @param versionUnderscoregroup 
-* @param formUnderscorenames 
-* @param names 
-* @param types 
+* @param url 
+*/
+
+case class PokemonEvolutionKnownMove(
+  name: String,
+  url: URI
+)
+object PokemonEvolutionKnownMove {
+  implicit val encoderPokemonEvolutionKnownMove: Encoder[PokemonEvolutionKnownMove] = deriveEncoder[PokemonEvolutionKnownMove].mapJson(_.dropNullValues)
+  implicit val decoderPokemonEvolutionKnownMove: Decoder[PokemonEvolutionKnownMove] = deriveDecoder[PokemonEvolutionKnownMove]
+}
+
+/**
+* 
+* @param name 
+* @param url 
+*/
+
+case class PokemonEvolutionKnownMoveType(
+  name: String,
+  url: URI
+)
+object PokemonEvolutionKnownMoveType {
+  implicit val encoderPokemonEvolutionKnownMoveType: Encoder[PokemonEvolutionKnownMoveType] = deriveEncoder[PokemonEvolutionKnownMoveType].mapJson(_.dropNullValues)
+  implicit val decoderPokemonEvolutionKnownMoveType: Decoder[PokemonEvolutionKnownMoveType] = deriveDecoder[PokemonEvolutionKnownMoveType]
+}
+
+/**
+* 
+* @param id The identifier for this resource.
+* @param name The name for this resource.
+* @param order The order in which forms should be sorted within all forms. Multiple forms may have equal order, in which case they should fall back on sorting by name.
+* @param formUnderscoreorder The order in which forms should be sorted within a species' forms.
+* @param isUnderscoredefault True for exactly one form used as the default for each Pokémon.
+* @param isUnderscorebattleUnderscoreonly Whether or not this form can only happen during battle.
+* @param isUnderscoremega Whether or not this form requires mega evolution.
+* @param formUnderscorename The name of this form.
+* @param pokemon The Pokémon that can take on this form.
+* @param sprites A set of sprites used to depict this Pokémon form in the game.
+* @param versionUnderscoregroup The version group this Pokémon form was introduced in.
+* @param formUnderscorenames The form specific form name of this Pokémon form, or empty if the form does not have a specific name.
+* @param names The form specific full name of this Pokémon form, or empty if the form does not have a specific name.
+* @param types A list of details showing types this Pokémon form has.
+* @param triggerUnderscoreconditions The conditions that trigger this form. Resource names and URLs are included when the trigger requires a resource.
+* @param flavorUnderscoretextUnderscoreentries The flavor text of this form listed in different languages and versions.
 */
 
 case class PokemonFormDetail(
   id: Int,
-  name: Refined[String, MaxSize[100]],
-  order: Option[Int],
-  formUnderscoreorder: Option[Int],
+  name: Refined[String, MaxSize[200]],
+  order: Option[Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]]],
+  formUnderscoreorder: Option[Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]]],
   isUnderscoredefault: Option[Boolean],
   isUnderscorebattleUnderscoreonly: Option[Boolean],
   isUnderscoremega: Option[Boolean],
   formUnderscorename: Refined[String, MaxSize[30]],
   pokemon: PokemonSummary,
-  sprites: PokemonFormDetailSprites,
+  sprites: PokemonFormSprites,
   versionUnderscoregroup: VersionGroupSummary,
-  formUnderscorenames: List[PokemonFormDetailFormNamesInner],
-  names: List[PokemonFormDetailNamesInner],
-  types: List[PokemonFormDetailTypesInner]
+  formUnderscorenames: List[PokemonFormName],
+  names: List[PokemonFormName],
+  types: List[PokemonFormType],
+  triggerUnderscoreconditions: List[PokemonFormTriggerCondition],
+  flavorUnderscoretextUnderscoreentries: List[PokemonFormFlavorText]
 )
 object PokemonFormDetail {
   implicit val encoderPokemonFormDetail: Encoder[PokemonFormDetail] = deriveEncoder[PokemonFormDetail].mapJson(_.dropNullValues)
@@ -4853,115 +4071,75 @@ object PokemonFormDetail {
 
 /**
 * 
-* @param language 
-* @param name 
+* @param flavorUnderscoretext The localized flavor text for an API resource in a specific language. Note that this text is left unprocessed as it is found in game files. This means that it contains special characters that one might want to replace with their visible decodable version. Please check out this <a href='https://github.com/veekun/pokedex/issues/218#issuecomment-339841781' >issue</a> to find out more. 
+* @param language The language this name is in.
+* @param version The game version this flavor text is extracted from.
 */
 
-case class PokemonFormDetailFormNamesInner(
-  language: PokemonFormDetailFormNamesInnerLanguage,
-  name: String
+case class PokemonFormFlavorText(
+  flavorUnderscoretext: String,
+  language: LanguageSummary,
+  version: VersionSummary
 )
-object PokemonFormDetailFormNamesInner {
-  implicit val encoderPokemonFormDetailFormNamesInner: Encoder[PokemonFormDetailFormNamesInner] = deriveEncoder[PokemonFormDetailFormNamesInner].mapJson(_.dropNullValues)
-  implicit val decoderPokemonFormDetailFormNamesInner: Decoder[PokemonFormDetailFormNamesInner] = deriveDecoder[PokemonFormDetailFormNamesInner]
+object PokemonFormFlavorText {
+  implicit val encoderPokemonFormFlavorText: Encoder[PokemonFormFlavorText] = deriveEncoder[PokemonFormFlavorText].mapJson(_.dropNullValues)
+  implicit val decoderPokemonFormFlavorText: Decoder[PokemonFormFlavorText] = deriveDecoder[PokemonFormFlavorText]
 }
 
 /**
 * 
-* @param name 
-* @param url 
+* @param name The localized name for an API resource in a specific language.
+* @param language The language this name is in.
 */
 
-case class PokemonFormDetailFormNamesInnerLanguage(
-  name: String,
-  url: URI
+case class PokemonFormName(
+  name: Refined[String, MaxSize[200]],
+  language: LanguageSummary
 )
-object PokemonFormDetailFormNamesInnerLanguage {
-  implicit val encoderPokemonFormDetailFormNamesInnerLanguage: Encoder[PokemonFormDetailFormNamesInnerLanguage] = deriveEncoder[PokemonFormDetailFormNamesInnerLanguage].mapJson(_.dropNullValues)
-  implicit val decoderPokemonFormDetailFormNamesInnerLanguage: Decoder[PokemonFormDetailFormNamesInnerLanguage] = deriveDecoder[PokemonFormDetailFormNamesInnerLanguage]
+object PokemonFormName {
+  implicit val encoderPokemonFormName: Encoder[PokemonFormName] = deriveEncoder[PokemonFormName].mapJson(_.dropNullValues)
+  implicit val decoderPokemonFormName: Decoder[PokemonFormName] = deriveDecoder[PokemonFormName]
 }
 
 /**
 * 
-* @param language 
-* @param name 
+* @param frontUnderscoredefault The default depiction of this Pokémon from the front in battle.
+* @param frontUnderscoreshiny The shiny depiction of this Pokémon from the front in battle.
+* @param frontUnderscorefemale The female depiction of this Pokémon from the front in battle.
+* @param frontUnderscoreshinyUnderscorefemale The shiny female depiction of this Pokémon from the front in battle.
+* @param backUnderscoredefault The default depiction of this Pokémon from the back in battle.
+* @param backUnderscoreshiny The shiny depiction of this Pokémon from the back in battle.
+* @param backUnderscorefemale The female depiction of this Pokémon from the back in battle.
+* @param backUnderscoreshinyUnderscorefemale The shiny female depiction of this Pokémon from the back in battle.
+* @param other Additional sprites grouped by source, such as official artwork, HOME, and Showdown. Available keys vary by resource.
+* @param versions Sprites grouped by generation and game. Available keys vary by resource.
 */
 
-case class PokemonFormDetailNamesInner(
-  language: PokemonFormDetailNamesInnerLanguage,
-  name: String
+case class PokemonFormSprites(
+  frontUnderscoredefault: String,
+  frontUnderscoreshiny: String,
+  frontUnderscorefemale: String,
+  frontUnderscoreshinyUnderscorefemale: String,
+  backUnderscoredefault: String,
+  backUnderscoreshiny: String,
+  backUnderscorefemale: String,
+  backUnderscoreshinyUnderscorefemale: String,
+  other: Option[PokemonSpritesOther],
+  versions: Option[Map[String, Map[String, AnyType]]]
 )
-object PokemonFormDetailNamesInner {
-  implicit val encoderPokemonFormDetailNamesInner: Encoder[PokemonFormDetailNamesInner] = deriveEncoder[PokemonFormDetailNamesInner].mapJson(_.dropNullValues)
-  implicit val decoderPokemonFormDetailNamesInner: Decoder[PokemonFormDetailNamesInner] = deriveDecoder[PokemonFormDetailNamesInner]
+object PokemonFormSprites {
+  implicit val encoderPokemonFormSprites: Encoder[PokemonFormSprites] = deriveEncoder[PokemonFormSprites].mapJson(_.dropNullValues)
+  implicit val decoderPokemonFormSprites: Decoder[PokemonFormSprites] = deriveDecoder[PokemonFormSprites]
 }
 
 /**
 * 
-* @param name 
-* @param url 
-*/
-
-case class PokemonFormDetailNamesInnerLanguage(
-  name: String,
-  url: URI
-)
-object PokemonFormDetailNamesInnerLanguage {
-  implicit val encoderPokemonFormDetailNamesInnerLanguage: Encoder[PokemonFormDetailNamesInnerLanguage] = deriveEncoder[PokemonFormDetailNamesInnerLanguage].mapJson(_.dropNullValues)
-  implicit val decoderPokemonFormDetailNamesInnerLanguage: Decoder[PokemonFormDetailNamesInnerLanguage] = deriveDecoder[PokemonFormDetailNamesInnerLanguage]
-}
-
-/**
-* 
-* @param `default` 
-*/
-
-case class PokemonFormDetailSprites(
-  `default`: Option[URI]
-)
-object PokemonFormDetailSprites {
-  implicit val encoderPokemonFormDetailSprites: Encoder[PokemonFormDetailSprites] = deriveEncoder[PokemonFormDetailSprites].mapJson(_.dropNullValues)
-  implicit val decoderPokemonFormDetailSprites: Decoder[PokemonFormDetailSprites] = deriveDecoder[PokemonFormDetailSprites]
-}
-
-/**
-* 
-* @param slot 
-* @param `type` 
-*/
-
-case class PokemonFormDetailTypesInner(
-  slot: Int,
-  `type`: PokemonFormDetailTypesInnerType
-)
-object PokemonFormDetailTypesInner {
-  implicit val encoderPokemonFormDetailTypesInner: Encoder[PokemonFormDetailTypesInner] = deriveEncoder[PokemonFormDetailTypesInner].mapJson(_.dropNullValues)
-  implicit val decoderPokemonFormDetailTypesInner: Decoder[PokemonFormDetailTypesInner] = deriveDecoder[PokemonFormDetailTypesInner]
-}
-
-/**
-* 
-* @param name 
-* @param url 
-*/
-
-case class PokemonFormDetailTypesInnerType(
-  name: String,
-  url: URI
-)
-object PokemonFormDetailTypesInnerType {
-  implicit val encoderPokemonFormDetailTypesInnerType: Encoder[PokemonFormDetailTypesInnerType] = deriveEncoder[PokemonFormDetailTypesInnerType].mapJson(_.dropNullValues)
-  implicit val decoderPokemonFormDetailTypesInnerType: Decoder[PokemonFormDetailTypesInnerType] = deriveDecoder[PokemonFormDetailTypesInnerType]
-}
-
-/**
-* 
-* @param name 
-* @param url 
+* @param name The name of the referenced resource.
+* @param url The URL of the referenced resource.
 */
 
 case class PokemonFormSummary(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   url: URI
 )
 object PokemonFormSummary {
@@ -4971,12 +4149,46 @@ object PokemonFormSummary {
 
 /**
 * 
-* @param gameUnderscoreindex 
-* @param version 
+* @param trigger The trigger for this form change.
+* @param name The name of the required item, ability, or move. Only present for a resource-based trigger.
+* @param url The URL of the required item, ability, or move. Only present for a resource-based trigger.
+* @param baseUnderscoreform The required base form. Only present when the trigger specifies one.
+*/
+
+case class PokemonFormTriggerCondition(
+  trigger: String,
+  name: Option[String],
+  url: Option[URI],
+  baseUnderscoreform: Option[PokemonFormSummary]
+)
+object PokemonFormTriggerCondition {
+  implicit val encoderPokemonFormTriggerCondition: Encoder[PokemonFormTriggerCondition] = deriveEncoder[PokemonFormTriggerCondition].mapJson(_.dropNullValues)
+  implicit val decoderPokemonFormTriggerCondition: Decoder[PokemonFormTriggerCondition] = deriveDecoder[PokemonFormTriggerCondition]
+}
+
+/**
+* 
+* @param slot The order the Pokémon's types are listed in.
+* @param `type` The type the referenced Form has.
+*/
+
+case class PokemonFormType(
+  slot: Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]],
+  `type`: TypeSummary
+)
+object PokemonFormType {
+  implicit val encoderPokemonFormType: Encoder[PokemonFormType] = deriveEncoder[PokemonFormType].mapJson(_.dropNullValues)
+  implicit val decoderPokemonFormType: Decoder[PokemonFormType] = deriveDecoder[PokemonFormType]
+}
+
+/**
+* 
+* @param gameUnderscoreindex The internal id of an API resource within game data.
+* @param version The version relevent to this game index.
 */
 
 case class PokemonGameIndex(
-  gameUnderscoreindex: Int,
+  gameUnderscoreindex: Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]],
   version: VersionSummary
 )
 object PokemonGameIndex {
@@ -4986,15 +4198,15 @@ object PokemonGameIndex {
 
 /**
 * 
-* @param id 
-* @param name 
-* @param names 
-* @param pokemonUnderscorespecies 
+* @param id The identifier for this resource.
+* @param name The name for this resource.
+* @param names The name of this resource listed in different languages.
+* @param pokemonUnderscorespecies A list of the Pokémon species that can be found in this habitat.
 */
 
 case class PokemonHabitatDetail(
   id: Int,
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   names: List[PokemonHabitatName],
   pokemonUnderscorespecies: List[PokemonSpeciesSummary]
 )
@@ -5005,12 +4217,12 @@ object PokemonHabitatDetail {
 
 /**
 * 
-* @param name 
-* @param language 
+* @param name The localized name for an API resource in a specific language.
+* @param language The language this name is in.
 */
 
 case class PokemonHabitatName(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   language: LanguageSummary
 )
 object PokemonHabitatName {
@@ -5020,12 +4232,12 @@ object PokemonHabitatName {
 
 /**
 * 
-* @param name 
-* @param url 
+* @param name The name of the referenced resource.
+* @param url The URL of the referenced resource.
 */
 
 case class PokemonHabitatSummary(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   url: URI
 )
 object PokemonHabitatSummary {
@@ -5035,18 +4247,157 @@ object PokemonHabitatSummary {
 
 /**
 * 
-* @param id 
-* @param name 
-* @param awesomeUnderscorenames 
-* @param names 
-* @param pokemonUnderscorespecies 
+* @param pokemon The Pokémon that holds this item.
+* @param versionUnderscoredetails The details for the version that this item is held in by the Pokémon.
+*/
+
+case class PokemonHeldItem(
+  pokemon: PokemonSummary,
+  versionUnderscoredetails: List[PokemonHeldItemVersion]
+)
+object PokemonHeldItem {
+  implicit val encoderPokemonHeldItem: Encoder[PokemonHeldItem] = deriveEncoder[PokemonHeldItem].mapJson(_.dropNullValues)
+  implicit val decoderPokemonHeldItem: Decoder[PokemonHeldItem] = deriveDecoder[PokemonHeldItem]
+}
+
+/**
+* 
+* @param item The item the referenced Pokémon holds.
+* @param versionUnderscoredetails The details of the different versions in which the item is held.
+*/
+
+case class PokemonHeldItemSummary(
+  item: ItemSummary,
+  versionUnderscoredetails: List[PokemonHeldItemVersion]
+)
+object PokemonHeldItemSummary {
+  implicit val encoderPokemonHeldItemSummary: Encoder[PokemonHeldItemSummary] = deriveEncoder[PokemonHeldItemSummary].mapJson(_.dropNullValues)
+  implicit val decoderPokemonHeldItemSummary: Decoder[PokemonHeldItemSummary] = deriveDecoder[PokemonHeldItemSummary]
+}
+
+/**
+* 
+* @param rarity How often the item is held.
+* @param version The version in which the item is held.
+*/
+
+case class PokemonHeldItemVersion(
+  rarity: Int,
+  version: VersionSummary
+)
+object PokemonHeldItemVersion {
+  implicit val encoderPokemonHeldItemVersion: Encoder[PokemonHeldItemVersion] = deriveEncoder[PokemonHeldItemVersion].mapJson(_.dropNullValues)
+  implicit val decoderPokemonHeldItemVersion: Decoder[PokemonHeldItemVersion] = deriveDecoder[PokemonHeldItemVersion]
+}
+
+/**
+* 
+* @param move The move the Pokémon can learn.
+* @param versionUnderscoregroupUnderscoredetails The details of the version in which the Pokémon can learn the move.
+*/
+
+case class PokemonMove(
+  move: MoveSummary,
+  versionUnderscoregroupUnderscoredetails: List[PokemonMoveVersionGroup]
+)
+object PokemonMove {
+  implicit val encoderPokemonMove: Encoder[PokemonMove] = deriveEncoder[PokemonMove].mapJson(_.dropNullValues)
+  implicit val decoderPokemonMove: Decoder[PokemonMove] = deriveDecoder[PokemonMove]
+}
+
+/**
+* 
+* @param levelUnderscorelearnedUnderscoreat The minimum level to learn the move.
+* @param moveUnderscorelearnUnderscoremethod The method by which the move is learned.
+* @param versionUnderscoregroup The version group in which the move is learned.
+* @param order Order by which the pokemon will learn the move. A newly learnt move will replace the move with lowest order.
+*/
+
+case class PokemonMoveVersionGroup(
+  levelUnderscorelearnedUnderscoreat: Int,
+  moveUnderscorelearnUnderscoremethod: MoveLearnMethodSummary,
+  versionUnderscoregroup: VersionGroupSummary,
+  order: Option[Int]
+)
+object PokemonMoveVersionGroup {
+  implicit val encoderPokemonMoveVersionGroup: Encoder[PokemonMoveVersionGroup] = deriveEncoder[PokemonMoveVersionGroup].mapJson(_.dropNullValues)
+  implicit val decoderPokemonMoveVersionGroup: Decoder[PokemonMoveVersionGroup] = deriveDecoder[PokemonMoveVersionGroup]
+}
+
+/**
+* 
+* @param abilities The abilities the referenced pokémon had up to and including the listed generation. If null, the slot was previously empty.
+* @param generation The last generation in which the referenced pokémon had the listed abilities.
+*/
+
+case class PokemonPastAbility(
+  abilities: List[PokemonAbilityPast],
+  generation: GenerationSummary
+)
+object PokemonPastAbility {
+  implicit val encoderPokemonPastAbility: Encoder[PokemonPastAbility] = deriveEncoder[PokemonPastAbility].mapJson(_.dropNullValues)
+  implicit val decoderPokemonPastAbility: Decoder[PokemonPastAbility] = deriveDecoder[PokemonPastAbility]
+}
+
+/**
+* 
+* @param generation The last generation in which the referenced pokémon had the listed stats.
+* @param stats The stat the Pokémon had up to and including the listed generation.
+*/
+
+case class PokemonPastStat(
+  generation: GenerationSummary,
+  stats: List[PokemonStat]
+)
+object PokemonPastStat {
+  implicit val encoderPokemonPastStat: Encoder[PokemonPastStat] = deriveEncoder[PokemonPastStat].mapJson(_.dropNullValues)
+  implicit val decoderPokemonPastStat: Decoder[PokemonPastStat] = deriveDecoder[PokemonPastStat]
+}
+
+/**
+* 
+* @param generation The last generation in which the referenced pokémon had the listed types.
+* @param types The types the referenced pokémon had up to and including the listed generation.
+*/
+
+case class PokemonPastType(
+  generation: GenerationSummary,
+  types: List[PokemonType]
+)
+object PokemonPastType {
+  implicit val encoderPokemonPastType: Encoder[PokemonPastType] = deriveEncoder[PokemonPastType].mapJson(_.dropNullValues)
+  implicit val decoderPokemonPastType: Decoder[PokemonPastType] = deriveDecoder[PokemonPastType]
+}
+
+/**
+* 
+* @param awesomeUnderscorename The localized \"scientific\" name for an API resource in a specific language.
+* @param language The language this \"scientific\" name is in.
+*/
+
+case class PokemonShapeAwesomeName(
+  awesomeUnderscorename: Refined[String, MaxSize[30]],
+  language: LanguageSummary
+)
+object PokemonShapeAwesomeName {
+  implicit val encoderPokemonShapeAwesomeName: Encoder[PokemonShapeAwesomeName] = deriveEncoder[PokemonShapeAwesomeName].mapJson(_.dropNullValues)
+  implicit val decoderPokemonShapeAwesomeName: Decoder[PokemonShapeAwesomeName] = deriveDecoder[PokemonShapeAwesomeName]
+}
+
+/**
+* 
+* @param id The identifier for this resource.
+* @param name The name for this resource.
+* @param awesomeUnderscorenames The \"scientific\" name of this Pokémon shape listed in different languages.
+* @param names The name of this resource listed in different languages.
+* @param pokemonUnderscorespecies A list of the Pokémon species that have this shape.
 */
 
 case class PokemonShapeDetail(
   id: Int,
-  name: Refined[String, MaxSize[100]],
-  awesomeUnderscorenames: List[PokemonShapeDetailAwesomeNamesInner],
-  names: List[PokemonShapeDetailNamesInner],
+  name: Refined[String, MaxSize[200]],
+  awesomeUnderscorenames: List[PokemonShapeAwesomeName],
+  names: List[PokemonShapeName],
   pokemonUnderscorespecies: List[PokemonSpeciesSummary]
 )
 object PokemonShapeDetail {
@@ -5056,57 +4407,27 @@ object PokemonShapeDetail {
 
 /**
 * 
-* @param awesomeUnderscorename 
-* @param language 
+* @param name The localized name for an API resource in a specific language.
+* @param language The language this name is in.
 */
 
-case class PokemonShapeDetailAwesomeNamesInner(
-  awesomeUnderscorename: String,
-  language: PokemonShapeDetailAwesomeNamesInnerLanguage
+case class PokemonShapeName(
+  name: Refined[String, MaxSize[200]],
+  language: LanguageSummary
 )
-object PokemonShapeDetailAwesomeNamesInner {
-  implicit val encoderPokemonShapeDetailAwesomeNamesInner: Encoder[PokemonShapeDetailAwesomeNamesInner] = deriveEncoder[PokemonShapeDetailAwesomeNamesInner].mapJson(_.dropNullValues)
-  implicit val decoderPokemonShapeDetailAwesomeNamesInner: Decoder[PokemonShapeDetailAwesomeNamesInner] = deriveDecoder[PokemonShapeDetailAwesomeNamesInner]
+object PokemonShapeName {
+  implicit val encoderPokemonShapeName: Encoder[PokemonShapeName] = deriveEncoder[PokemonShapeName].mapJson(_.dropNullValues)
+  implicit val decoderPokemonShapeName: Decoder[PokemonShapeName] = deriveDecoder[PokemonShapeName]
 }
 
 /**
 * 
-* @param name 
-* @param url 
-*/
-
-case class PokemonShapeDetailAwesomeNamesInnerLanguage(
-  name: String,
-  url: URI
-)
-object PokemonShapeDetailAwesomeNamesInnerLanguage {
-  implicit val encoderPokemonShapeDetailAwesomeNamesInnerLanguage: Encoder[PokemonShapeDetailAwesomeNamesInnerLanguage] = deriveEncoder[PokemonShapeDetailAwesomeNamesInnerLanguage].mapJson(_.dropNullValues)
-  implicit val decoderPokemonShapeDetailAwesomeNamesInnerLanguage: Decoder[PokemonShapeDetailAwesomeNamesInnerLanguage] = deriveDecoder[PokemonShapeDetailAwesomeNamesInnerLanguage]
-}
-
-/**
-* 
-* @param url 
-* @param name 
-*/
-
-case class PokemonShapeDetailNamesInner(
-  url: URI,
-  name: String
-)
-object PokemonShapeDetailNamesInner {
-  implicit val encoderPokemonShapeDetailNamesInner: Encoder[PokemonShapeDetailNamesInner] = deriveEncoder[PokemonShapeDetailNamesInner].mapJson(_.dropNullValues)
-  implicit val decoderPokemonShapeDetailNamesInner: Decoder[PokemonShapeDetailNamesInner] = deriveDecoder[PokemonShapeDetailNamesInner]
-}
-
-/**
-* 
-* @param name 
-* @param url 
+* @param name The name of the referenced resource.
+* @param url The URL of the referenced resource.
 */
 
 case class PokemonShapeSummary(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   url: URI
 )
 object PokemonShapeSummary {
@@ -5116,12 +4437,12 @@ object PokemonShapeSummary {
 
 /**
 * 
-* @param description 
-* @param language 
+* @param description The localized description for an API resource in a specific language.
+* @param language The language this name is in.
 */
 
 case class PokemonSpeciesDescription(
-  description: Option[Refined[String, MaxSize[1000]]],
+  description: Option[Refined[String, MaxSize[2000]]],
   language: LanguageSummary
 )
 object PokemonSpeciesDescription {
@@ -5131,63 +4452,63 @@ object PokemonSpeciesDescription {
 
 /**
 * 
-* @param id 
-* @param name 
-* @param order 
-* @param genderUnderscorerate 
-* @param captureUnderscorerate 
-* @param baseUnderscorehappiness 
-* @param isUnderscorebaby 
-* @param isUnderscorelegendary 
-* @param isUnderscoremythical 
-* @param hatchUnderscorecounter 
-* @param hasUnderscoregenderUnderscoredifferences 
-* @param formsUnderscoreswitchable 
-* @param growthUnderscorerate 
-* @param pokedexUnderscorenumbers 
-* @param eggUnderscoregroups 
-* @param color 
-* @param shape 
-* @param evolvesUnderscorefromUnderscorespecies 
-* @param evolutionUnderscorechain 
-* @param habitat 
-* @param generation 
-* @param names 
-* @param palUnderscoreparkUnderscoreencounters 
-* @param formUnderscoredescriptions 
-* @param flavorUnderscoretextUnderscoreentries 
-* @param genera 
-* @param varieties 
+* @param id The identifier for this resource.
+* @param name The name for this resource.
+* @param order The order in which species should be sorted. Based on National Dex order, except families are grouped together and sorted by stage.
+* @param genderUnderscorerate The chance of this Pokémon being female, in eighths; or -1 for genderless.
+* @param captureUnderscorerate The base capture rate; up to 255. The higher the number, the easier the catch.
+* @param baseUnderscorehappiness The happiness when caught by a normal Pokéball; up to 255. The higher the number, the happier the Pokémon.
+* @param isUnderscorebaby Whether or not this is a baby Pokémon.
+* @param isUnderscorelegendary Whether or not this is a legendary Pokémon.
+* @param isUnderscoremythical Whether or not this is a mythical Pokémon.
+* @param hatchUnderscorecounter Initial hatch counter: one must walk Y × (hatch_counter + 1) steps before this Pokémon's egg hatches, unless utilizing bonuses like Flame Body's. Y varies per generation. In Generations II, III, and VII, Egg cycles are 256 steps long. In Generation IV, Egg cycles are 255 steps long. In Pokémon Brilliant Diamond and Shining Pearl, Egg cycles are also 255 steps long, but are shorter on special dates. In Generations V and VI, Egg cycles are 257 steps long. In Pokémon Sword and Shield, and in Pokémon Scarlet and Violet, Egg cycles are 128 steps long.
+* @param hasUnderscoregenderUnderscoredifferences Whether or not this Pokémon has visual gender differences.
+* @param formsUnderscoreswitchable Whether or not this Pokémon has multiple forms and can switch between them.
+* @param growthUnderscorerate The rate at which this Pokémon species gains levels.
+* @param pokedexUnderscorenumbers A list of Pokedexes and the indexes reserved within them for this Pokémon species.
+* @param eggUnderscoregroups A list of egg groups this Pokémon species is a member of.
+* @param color The color of this Pokémon for Pokédex search.
+* @param shape The shape of this Pokémon for Pokédex search.
+* @param evolvesUnderscorefromUnderscorespecies The Pokémon species that evolves into this Pokemon_species.
+* @param evolutionUnderscorechain The evolution chain this Pokémon species is a member of.
+* @param habitat The habitat this Pokémon species can be encountered in.
+* @param generation The generation this Pokémon species was introduced in.
+* @param names The name of this resource listed in different languages.
+* @param palUnderscoreparkUnderscoreencounters A list of encounters that can be had with this Pokémon species in pal park.
+* @param formUnderscoredescriptions Descriptions of different forms Pokémon take on within the Pokémon species.
+* @param flavorUnderscoretextUnderscoreentries A list of flavor text entries for this Pokémon species.
+* @param genera The genus of this Pokémon species listed in multiple languages.
+* @param varieties A list of the Pokémon that exist within this Pokémon species.
 */
 
 case class PokemonSpeciesDetail(
   id: Int,
-  name: Refined[String, MaxSize[100]],
-  order: Option[Int],
-  genderUnderscorerate: Option[Int],
-  captureUnderscorerate: Option[Int],
-  baseUnderscorehappiness: Option[Int],
+  name: Refined[String, MaxSize[200]],
+  order: Option[Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]]],
+  genderUnderscorerate: Option[Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]]],
+  captureUnderscorerate: Option[Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]]],
+  baseUnderscorehappiness: Option[Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]]],
   isUnderscorebaby: Option[Boolean],
   isUnderscorelegendary: Option[Boolean],
   isUnderscoremythical: Option[Boolean],
-  hatchUnderscorecounter: Option[Int],
+  hatchUnderscorecounter: Option[Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]]],
   hasUnderscoregenderUnderscoredifferences: Option[Boolean],
   formsUnderscoreswitchable: Option[Boolean],
   growthUnderscorerate: GrowthRateSummary,
   pokedexUnderscorenumbers: List[PokemonDexEntry],
-  eggUnderscoregroups: List[PokemonSpeciesDetailEggGroupsInner],
+  eggUnderscoregroups: List[EggGroupSummary],
   color: PokemonColorSummary,
   shape: PokemonShapeSummary,
   evolvesUnderscorefromUnderscorespecies: PokemonSpeciesSummary,
   evolutionUnderscorechain: EvolutionChainSummary,
   habitat: PokemonHabitatSummary,
   generation: GenerationSummary,
-  names: List[PokemonSpeciesDetailNamesInner],
-  palUnderscoreparkUnderscoreencounters: List[PokemonSpeciesDetailPalParkEncountersInner],
+  names: List[PokemonSpeciesName],
+  palUnderscoreparkUnderscoreencounters: List[PokemonSpeciesPalParkEncounter],
   formUnderscoredescriptions: List[PokemonSpeciesDescription],
   flavorUnderscoretextUnderscoreentries: List[PokemonSpeciesFlavorText],
-  genera: List[PokemonSpeciesDetailGeneraInner],
-  varieties: List[PokemonSpeciesDetailVarietiesInner]
+  genera: List[PokemonSpeciesGenus],
+  varieties: List[PokemonSpeciesVariety]
 )
 object PokemonSpeciesDetail {
   implicit val encoderPokemonSpeciesDetail: Encoder[PokemonSpeciesDetail] = deriveEncoder[PokemonSpeciesDetail].mapJson(_.dropNullValues)
@@ -5196,146 +4517,9 @@ object PokemonSpeciesDetail {
 
 /**
 * 
-* @param name 
-* @param url 
-*/
-
-case class PokemonSpeciesDetailEggGroupsInner(
-  name: String,
-  url: URI
-)
-object PokemonSpeciesDetailEggGroupsInner {
-  implicit val encoderPokemonSpeciesDetailEggGroupsInner: Encoder[PokemonSpeciesDetailEggGroupsInner] = deriveEncoder[PokemonSpeciesDetailEggGroupsInner].mapJson(_.dropNullValues)
-  implicit val decoderPokemonSpeciesDetailEggGroupsInner: Decoder[PokemonSpeciesDetailEggGroupsInner] = deriveDecoder[PokemonSpeciesDetailEggGroupsInner]
-}
-
-/**
-* 
-* @param genus 
-* @param language 
-*/
-
-case class PokemonSpeciesDetailGeneraInner(
-  genus: String,
-  language: PokemonSpeciesDetailGeneraInnerLanguage
-)
-object PokemonSpeciesDetailGeneraInner {
-  implicit val encoderPokemonSpeciesDetailGeneraInner: Encoder[PokemonSpeciesDetailGeneraInner] = deriveEncoder[PokemonSpeciesDetailGeneraInner].mapJson(_.dropNullValues)
-  implicit val decoderPokemonSpeciesDetailGeneraInner: Decoder[PokemonSpeciesDetailGeneraInner] = deriveDecoder[PokemonSpeciesDetailGeneraInner]
-}
-
-/**
-* 
-* @param name 
-* @param url 
-*/
-
-case class PokemonSpeciesDetailGeneraInnerLanguage(
-  name: String,
-  url: URI
-)
-object PokemonSpeciesDetailGeneraInnerLanguage {
-  implicit val encoderPokemonSpeciesDetailGeneraInnerLanguage: Encoder[PokemonSpeciesDetailGeneraInnerLanguage] = deriveEncoder[PokemonSpeciesDetailGeneraInnerLanguage].mapJson(_.dropNullValues)
-  implicit val decoderPokemonSpeciesDetailGeneraInnerLanguage: Decoder[PokemonSpeciesDetailGeneraInnerLanguage] = deriveDecoder[PokemonSpeciesDetailGeneraInnerLanguage]
-}
-
-/**
-* 
-* @param language 
-* @param name 
-*/
-
-case class PokemonSpeciesDetailNamesInner(
-  language: PokemonSpeciesDetailNamesInnerLanguage,
-  name: String
-)
-object PokemonSpeciesDetailNamesInner {
-  implicit val encoderPokemonSpeciesDetailNamesInner: Encoder[PokemonSpeciesDetailNamesInner] = deriveEncoder[PokemonSpeciesDetailNamesInner].mapJson(_.dropNullValues)
-  implicit val decoderPokemonSpeciesDetailNamesInner: Decoder[PokemonSpeciesDetailNamesInner] = deriveDecoder[PokemonSpeciesDetailNamesInner]
-}
-
-/**
-* 
-* @param name 
-* @param url 
-*/
-
-case class PokemonSpeciesDetailNamesInnerLanguage(
-  name: String,
-  url: URI
-)
-object PokemonSpeciesDetailNamesInnerLanguage {
-  implicit val encoderPokemonSpeciesDetailNamesInnerLanguage: Encoder[PokemonSpeciesDetailNamesInnerLanguage] = deriveEncoder[PokemonSpeciesDetailNamesInnerLanguage].mapJson(_.dropNullValues)
-  implicit val decoderPokemonSpeciesDetailNamesInnerLanguage: Decoder[PokemonSpeciesDetailNamesInnerLanguage] = deriveDecoder[PokemonSpeciesDetailNamesInnerLanguage]
-}
-
-/**
-* 
-* @param area 
-* @param baseUnderscorescore 
-* @param rate 
-*/
-
-case class PokemonSpeciesDetailPalParkEncountersInner(
-  area: PokemonSpeciesDetailPalParkEncountersInnerArea,
-  baseUnderscorescore: Int,
-  rate: Int
-)
-object PokemonSpeciesDetailPalParkEncountersInner {
-  implicit val encoderPokemonSpeciesDetailPalParkEncountersInner: Encoder[PokemonSpeciesDetailPalParkEncountersInner] = deriveEncoder[PokemonSpeciesDetailPalParkEncountersInner].mapJson(_.dropNullValues)
-  implicit val decoderPokemonSpeciesDetailPalParkEncountersInner: Decoder[PokemonSpeciesDetailPalParkEncountersInner] = deriveDecoder[PokemonSpeciesDetailPalParkEncountersInner]
-}
-
-/**
-* 
-* @param name 
-* @param url 
-*/
-
-case class PokemonSpeciesDetailPalParkEncountersInnerArea(
-  name: String,
-  url: URI
-)
-object PokemonSpeciesDetailPalParkEncountersInnerArea {
-  implicit val encoderPokemonSpeciesDetailPalParkEncountersInnerArea: Encoder[PokemonSpeciesDetailPalParkEncountersInnerArea] = deriveEncoder[PokemonSpeciesDetailPalParkEncountersInnerArea].mapJson(_.dropNullValues)
-  implicit val decoderPokemonSpeciesDetailPalParkEncountersInnerArea: Decoder[PokemonSpeciesDetailPalParkEncountersInnerArea] = deriveDecoder[PokemonSpeciesDetailPalParkEncountersInnerArea]
-}
-
-/**
-* 
-* @param isUnderscoredefault 
-* @param pokemon 
-*/
-
-case class PokemonSpeciesDetailVarietiesInner(
-  isUnderscoredefault: Boolean,
-  pokemon: PokemonSpeciesDetailVarietiesInnerPokemon
-)
-object PokemonSpeciesDetailVarietiesInner {
-  implicit val encoderPokemonSpeciesDetailVarietiesInner: Encoder[PokemonSpeciesDetailVarietiesInner] = deriveEncoder[PokemonSpeciesDetailVarietiesInner].mapJson(_.dropNullValues)
-  implicit val decoderPokemonSpeciesDetailVarietiesInner: Decoder[PokemonSpeciesDetailVarietiesInner] = deriveDecoder[PokemonSpeciesDetailVarietiesInner]
-}
-
-/**
-* 
-* @param name 
-* @param url 
-*/
-
-case class PokemonSpeciesDetailVarietiesInnerPokemon(
-  name: String,
-  url: URI
-)
-object PokemonSpeciesDetailVarietiesInnerPokemon {
-  implicit val encoderPokemonSpeciesDetailVarietiesInnerPokemon: Encoder[PokemonSpeciesDetailVarietiesInnerPokemon] = deriveEncoder[PokemonSpeciesDetailVarietiesInnerPokemon].mapJson(_.dropNullValues)
-  implicit val decoderPokemonSpeciesDetailVarietiesInnerPokemon: Decoder[PokemonSpeciesDetailVarietiesInnerPokemon] = deriveDecoder[PokemonSpeciesDetailVarietiesInnerPokemon]
-}
-
-/**
-* 
-* @param flavorUnderscoretext 
-* @param language 
-* @param version 
+* @param flavorUnderscoretext The localized flavor text for an API resource in a specific language. Note that this text is left unprocessed as it is found in game files. This means that it contains special characters that one might want to replace with their visible decodable version. Please check out this <a href='https://github.com/veekun/pokedex/issues/218#issuecomment-339841781' >issue</a> to find out more. 
+* @param language The language this name is in.
+* @param version The game version this flavor text is extracted from.
 */
 
 case class PokemonSpeciesFlavorText(
@@ -5350,12 +4534,59 @@ object PokemonSpeciesFlavorText {
 
 /**
 * 
-* @param name 
-* @param url 
+* @param genus The localized genus for the referenced Pokémon species
+* @param language The language this genus is in.
+*/
+
+case class PokemonSpeciesGenus(
+  genus: Refined[String, MaxSize[30]],
+  language: LanguageSummary
+)
+object PokemonSpeciesGenus {
+  implicit val encoderPokemonSpeciesGenus: Encoder[PokemonSpeciesGenus] = deriveEncoder[PokemonSpeciesGenus].mapJson(_.dropNullValues)
+  implicit val decoderPokemonSpeciesGenus: Decoder[PokemonSpeciesGenus] = deriveDecoder[PokemonSpeciesGenus]
+}
+
+/**
+* 
+* @param name The localized name for an API resource in a specific language.
+* @param language The language this name is in.
+*/
+
+case class PokemonSpeciesName(
+  name: Refined[String, MaxSize[200]],
+  language: LanguageSummary
+)
+object PokemonSpeciesName {
+  implicit val encoderPokemonSpeciesName: Encoder[PokemonSpeciesName] = deriveEncoder[PokemonSpeciesName].mapJson(_.dropNullValues)
+  implicit val decoderPokemonSpeciesName: Decoder[PokemonSpeciesName] = deriveDecoder[PokemonSpeciesName]
+}
+
+/**
+* 
+* @param baseUnderscorescore The base score given to the player when the referenced Pokémon is caught during a pal park run.
+* @param rate The base rate for encountering the referenced Pokémon in this pal park area.
+* @param area The pal park area where this encounter happens.
+*/
+
+case class PokemonSpeciesPalParkEncounter(
+  baseUnderscorescore: Option[Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]]],
+  rate: Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]],
+  area: PalParkAreaSummary
+)
+object PokemonSpeciesPalParkEncounter {
+  implicit val encoderPokemonSpeciesPalParkEncounter: Encoder[PokemonSpeciesPalParkEncounter] = deriveEncoder[PokemonSpeciesPalParkEncounter].mapJson(_.dropNullValues)
+  implicit val decoderPokemonSpeciesPalParkEncounter: Decoder[PokemonSpeciesPalParkEncounter] = deriveDecoder[PokemonSpeciesPalParkEncounter]
+}
+
+/**
+* 
+* @param name The name of the referenced resource.
+* @param url The URL of the referenced resource.
 */
 
 case class PokemonSpeciesSummary(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   url: URI
 )
 object PokemonSpeciesSummary {
@@ -5365,14 +4596,157 @@ object PokemonSpeciesSummary {
 
 /**
 * 
-* @param baseUnderscorestat 
-* @param effort 
-* @param stat 
+* @param isUnderscoredefault Whether this variety is the default variety.
+* @param pokemon The Pokémon variety.
+*/
+
+case class PokemonSpeciesVariety(
+  isUnderscoredefault: Boolean,
+  pokemon: PokemonSummary
+)
+object PokemonSpeciesVariety {
+  implicit val encoderPokemonSpeciesVariety: Encoder[PokemonSpeciesVariety] = deriveEncoder[PokemonSpeciesVariety].mapJson(_.dropNullValues)
+  implicit val decoderPokemonSpeciesVariety: Decoder[PokemonSpeciesVariety] = deriveDecoder[PokemonSpeciesVariety]
+}
+
+/**
+* 
+* @param frontUnderscoredefault The default depiction of this Pokémon from the front in battle.
+* @param frontUnderscoreshiny The shiny depiction of this Pokémon from the front in battle.
+* @param frontUnderscorefemale The female depiction of this Pokémon from the front in battle.
+* @param frontUnderscoreshinyUnderscorefemale The shiny female depiction of this Pokémon from the front in battle.
+* @param backUnderscoredefault The default depiction of this Pokémon from the back in battle.
+* @param backUnderscoreshiny The shiny depiction of this Pokémon from the back in battle.
+* @param backUnderscorefemale The female depiction of this Pokémon from the back in battle.
+* @param backUnderscoreshinyUnderscorefemale The shiny female depiction of this Pokémon from the back in battle.
+* @param other Additional sprites grouped by source, such as official artwork, HOME, and Showdown. Available keys vary by resource.
+* @param versions Sprites grouped by generation and game. Available keys vary by resource.
+*/
+
+case class PokemonSprites(
+  frontUnderscoredefault: String,
+  frontUnderscoreshiny: String,
+  frontUnderscorefemale: String,
+  frontUnderscoreshinyUnderscorefemale: String,
+  backUnderscoredefault: String,
+  backUnderscoreshiny: String,
+  backUnderscorefemale: String,
+  backUnderscoreshinyUnderscorefemale: String,
+  other: Option[PokemonSpritesOther],
+  versions: Option[Map[String, Map[String, AnyType]]]
+)
+object PokemonSprites {
+  implicit val encoderPokemonSprites: Encoder[PokemonSprites] = deriveEncoder[PokemonSprites].mapJson(_.dropNullValues)
+  implicit val decoderPokemonSprites: Decoder[PokemonSprites] = deriveDecoder[PokemonSprites]
+}
+
+/**
+* 
+* @param dreamUnderscoreworld Pokémon Dream World artwork URLs.
+* @param home Pokémon HOME sprite URLs.
+* @param showdown Pokémon Showdown sprite URLs.
+* @param officialMinusartwork Official Pokémon artwork URLs, including shiny artwork and version-specific variants.
+*/
+
+case class PokemonSpritesOther(
+  dreamUnderscoreworld: Option[PokemonSpritesOtherDreamWorld],
+  home: Option[PokemonSpritesOtherHome],
+  showdown: Option[PokemonSpritesOtherShowdown],
+  officialMinusartwork: Option[PokemonSpritesOtherOfficialArtwork]
+)
+object PokemonSpritesOther {
+  implicit val encoderPokemonSpritesOther: Encoder[PokemonSpritesOther] = deriveEncoder[PokemonSpritesOther].mapJson(_.dropNullValues)
+  implicit val decoderPokemonSpritesOther: Decoder[PokemonSpritesOther] = deriveDecoder[PokemonSpritesOther]
+}
+
+/**
+* 
+* @param frontUnderscoredefault The URL of the default Pokémon Dream World front image, or null if unavailable.
+* @param frontUnderscorefemale The URL of the female Pokémon Dream World front image, or null if unavailable.
+*/
+
+case class PokemonSpritesOtherDreamWorld(
+  frontUnderscoredefault: String,
+  frontUnderscorefemale: String
+)
+object PokemonSpritesOtherDreamWorld {
+  implicit val encoderPokemonSpritesOtherDreamWorld: Encoder[PokemonSpritesOtherDreamWorld] = deriveEncoder[PokemonSpritesOtherDreamWorld].mapJson(_.dropNullValues)
+  implicit val decoderPokemonSpritesOtherDreamWorld: Decoder[PokemonSpritesOtherDreamWorld] = deriveDecoder[PokemonSpritesOtherDreamWorld]
+}
+
+/**
+* 
+* @param frontUnderscoredefault The URL of the default Pokémon HOME front image, or null if unavailable.
+* @param frontUnderscorefemale The URL of the female Pokémon HOME front image, or null if unavailable.
+* @param frontUnderscoreshiny The URL of the shiny Pokémon HOME front image, or null if unavailable.
+* @param frontUnderscoreshinyUnderscorefemale The URL of the shiny female Pokémon HOME front image, or null if unavailable.
+*/
+
+case class PokemonSpritesOtherHome(
+  frontUnderscoredefault: String,
+  frontUnderscorefemale: String,
+  frontUnderscoreshiny: String,
+  frontUnderscoreshinyUnderscorefemale: String
+)
+object PokemonSpritesOtherHome {
+  implicit val encoderPokemonSpritesOtherHome: Encoder[PokemonSpritesOtherHome] = deriveEncoder[PokemonSpritesOtherHome].mapJson(_.dropNullValues)
+  implicit val decoderPokemonSpritesOtherHome: Decoder[PokemonSpritesOtherHome] = deriveDecoder[PokemonSpritesOtherHome]
+}
+
+/**
+* 
+* @param frontUnderscoredefault The URL of the default front official artwork, or null if unavailable.
+* @param frontUnderscoreshiny The URL of the shiny front official artwork, or null if unavailable.
+* @param versions Additional official artwork grouped by version. Available keys vary by resource.
+*/
+
+case class PokemonSpritesOtherOfficialArtwork(
+  frontUnderscoredefault: String,
+  frontUnderscoreshiny: String,
+  versions: Option[Map[String, Map[String, AnyType]]]
+)
+object PokemonSpritesOtherOfficialArtwork {
+  implicit val encoderPokemonSpritesOtherOfficialArtwork: Encoder[PokemonSpritesOtherOfficialArtwork] = deriveEncoder[PokemonSpritesOtherOfficialArtwork].mapJson(_.dropNullValues)
+  implicit val decoderPokemonSpritesOtherOfficialArtwork: Decoder[PokemonSpritesOtherOfficialArtwork] = deriveDecoder[PokemonSpritesOtherOfficialArtwork]
+}
+
+/**
+* 
+* @param frontUnderscoredefault The URL of the default Pokémon Showdown front image, or null if unavailable.
+* @param frontUnderscorefemale The URL of the female Pokémon Showdown front image, or null if unavailable.
+* @param frontUnderscoreshiny The URL of the shiny Pokémon Showdown front image, or null if unavailable.
+* @param frontUnderscoreshinyUnderscorefemale The URL of the shiny female Pokémon Showdown front image, or null if unavailable.
+* @param backUnderscoredefault The URL of the default Pokémon Showdown back image, or null if unavailable.
+* @param backUnderscorefemale The URL of the female Pokémon Showdown back image, or null if unavailable.
+* @param backUnderscoreshiny The URL of the shiny Pokémon Showdown back image, or null if unavailable.
+* @param backUnderscoreshinyUnderscorefemale The URL of the shiny female Pokémon Showdown back image, or null if unavailable.
+*/
+
+case class PokemonSpritesOtherShowdown(
+  frontUnderscoredefault: String,
+  frontUnderscorefemale: String,
+  frontUnderscoreshiny: String,
+  frontUnderscoreshinyUnderscorefemale: String,
+  backUnderscoredefault: String,
+  backUnderscorefemale: String,
+  backUnderscoreshiny: String,
+  backUnderscoreshinyUnderscorefemale: String
+)
+object PokemonSpritesOtherShowdown {
+  implicit val encoderPokemonSpritesOtherShowdown: Encoder[PokemonSpritesOtherShowdown] = deriveEncoder[PokemonSpritesOtherShowdown].mapJson(_.dropNullValues)
+  implicit val decoderPokemonSpritesOtherShowdown: Decoder[PokemonSpritesOtherShowdown] = deriveDecoder[PokemonSpritesOtherShowdown]
+}
+
+/**
+* 
+* @param baseUnderscorestat The base value of the stat.
+* @param effort The effort points (EV) the Pokémon has in the stat.
+* @param stat The stat the Pokémon has.
 */
 
 case class PokemonStat(
-  baseUnderscorestat: Int,
-  effort: Int,
+  baseUnderscorestat: Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]],
+  effort: Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]],
   stat: StatSummary
 )
 object PokemonStat {
@@ -5382,12 +4756,12 @@ object PokemonStat {
 
 /**
 * 
-* @param name 
-* @param url 
+* @param name The name of the referenced resource.
+* @param url The URL of the referenced resource.
 */
 
 case class PokemonSummary(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   url: URI
 )
 object PokemonSummary {
@@ -5397,23 +4771,38 @@ object PokemonSummary {
 
 /**
 * 
-* @param id 
-* @param name 
-* @param locations 
-* @param mainUnderscoregeneration 
-* @param names 
-* @param pokedexes 
-* @param versionUnderscoregroups 
+* @param slot The order the Pokémon's types are listed in.
+* @param `type` The type the referenced Pokémon has.
+*/
+
+case class PokemonType(
+  slot: Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]],
+  `type`: TypeSummary
+)
+object PokemonType {
+  implicit val encoderPokemonType: Encoder[PokemonType] = deriveEncoder[PokemonType].mapJson(_.dropNullValues)
+  implicit val decoderPokemonType: Decoder[PokemonType] = deriveDecoder[PokemonType]
+}
+
+/**
+* 
+* @param id The identifier for this resource.
+* @param name The name for this resource.
+* @param locations A list of locations that can be found in this region.
+* @param mainUnderscoregeneration The generation this region was introduced in.
+* @param names The name of this resource listed in different languages.
+* @param pokedexes A list of pokédexes that catalogue Pokémon in this region.
+* @param versionUnderscoregroups A list of version groups where this region can be visited.
 */
 
 case class RegionDetail(
   id: Int,
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   locations: List[LocationSummary],
   mainUnderscoregeneration: GenerationSummary,
   names: List[RegionName],
   pokedexes: List[PokedexSummary],
-  versionUnderscoregroups: List[RegionDetailVersionGroupsInner]
+  versionUnderscoregroups: List[VersionGroupSummary]
 )
 object RegionDetail {
   implicit val encoderRegionDetail: Encoder[RegionDetail] = deriveEncoder[RegionDetail].mapJson(_.dropNullValues)
@@ -5422,27 +4811,12 @@ object RegionDetail {
 
 /**
 * 
-* @param name 
-* @param url 
-*/
-
-case class RegionDetailVersionGroupsInner(
-  name: String,
-  url: URI
-)
-object RegionDetailVersionGroupsInner {
-  implicit val encoderRegionDetailVersionGroupsInner: Encoder[RegionDetailVersionGroupsInner] = deriveEncoder[RegionDetailVersionGroupsInner].mapJson(_.dropNullValues)
-  implicit val decoderRegionDetailVersionGroupsInner: Decoder[RegionDetailVersionGroupsInner] = deriveDecoder[RegionDetailVersionGroupsInner]
-}
-
-/**
-* 
-* @param name 
-* @param language 
+* @param name The localized name for an API resource in a specific language.
+* @param language The language this name is in.
 */
 
 case class RegionName(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   language: LanguageSummary
 )
 object RegionName {
@@ -5452,12 +4826,12 @@ object RegionName {
 
 /**
 * 
-* @param name 
-* @param url 
+* @param name The name of the referenced resource.
+* @param url The URL of the referenced resource.
 */
 
 case class RegionSummary(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   url: URI
 )
 object RegionSummary {
@@ -5467,24 +4841,56 @@ object RegionSummary {
 
 /**
 * 
-* @param id 
-* @param name 
-* @param gameUnderscoreindex 
-* @param isUnderscorebattleUnderscoreonly 
-* @param affectingUnderscoremoves 
-* @param affectingUnderscorenatures 
-* @param characteristics 
-* @param moveUnderscoredamageUnderscoreclass 
-* @param names 
+* @param increase A list of moves and how they change the referenced stat.
+* @param decrease A list of moves and how they change the referenced stat.
+*/
+
+case class StatAffectingMoves(
+  increase: List[MoveStatChange],
+  decrease: List[MoveStatChange]
+)
+object StatAffectingMoves {
+  implicit val encoderStatAffectingMoves: Encoder[StatAffectingMoves] = deriveEncoder[StatAffectingMoves].mapJson(_.dropNullValues)
+  implicit val decoderStatAffectingMoves: Decoder[StatAffectingMoves] = deriveDecoder[StatAffectingMoves]
+}
+
+/**
+* 
+* @param increase A list of natures and how they change the referenced stat.
+* @param decrease A list of nature sand how they change the referenced stat.
+*/
+
+case class StatAffectingNatures(
+  increase: List[NatureSummary],
+  decrease: List[NatureSummary]
+)
+object StatAffectingNatures {
+  implicit val encoderStatAffectingNatures: Encoder[StatAffectingNatures] = deriveEncoder[StatAffectingNatures].mapJson(_.dropNullValues)
+  implicit val decoderStatAffectingNatures: Decoder[StatAffectingNatures] = deriveDecoder[StatAffectingNatures]
+}
+
+/**
+* 
+* @param id The identifier for this resource.
+* @param name The name for this resource.
+* @param gameUnderscoreindex ID the games use for this stat.
+* @param isUnderscorebattleUnderscoreonly Whether this stat only exists within a battle.
+* @param affectingUnderscoremoves A detail of moves which affect this stat positively or negatively.
+* @param affectingUnderscorenatures A detail of natures which affect this stat positively or negatively.
+* @param affectingUnderscoreitems Items that affect this stat, such as vitamins and battle items.
+* @param characteristics A list of characteristics that are set on a Pokémon when its highest base stat is this stat.
+* @param moveUnderscoredamageUnderscoreclass The class of damage this stat is directly related to.
+* @param names The name of this resource listed in different languages.
 */
 
 case class StatDetail(
   id: Int,
-  name: Refined[String, MaxSize[100]],
-  gameUnderscoreindex: Int,
+  name: Refined[String, MaxSize[200]],
+  gameUnderscoreindex: Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]],
   isUnderscorebattleUnderscoreonly: Option[Boolean],
-  affectingUnderscoremoves: StatDetailAffectingMoves,
-  affectingUnderscorenatures: StatDetailAffectingNatures,
+  affectingUnderscoremoves: StatAffectingMoves,
+  affectingUnderscorenatures: StatAffectingNatures,
+  affectingUnderscoreitems: List[ItemSummary],
   characteristics: List[CharacteristicSummary],
   moveUnderscoredamageUnderscoreclass: MoveDamageClassSummary,
   names: List[StatName]
@@ -5496,132 +4902,12 @@ object StatDetail {
 
 /**
 * 
-* @param increase 
-* @param decrease 
-*/
-
-case class StatDetailAffectingMoves(
-  increase: List[StatDetailAffectingMovesIncreaseInner],
-  decrease: List[StatDetailAffectingMovesDecreaseInner]
-)
-object StatDetailAffectingMoves {
-  implicit val encoderStatDetailAffectingMoves: Encoder[StatDetailAffectingMoves] = deriveEncoder[StatDetailAffectingMoves].mapJson(_.dropNullValues)
-  implicit val decoderStatDetailAffectingMoves: Decoder[StatDetailAffectingMoves] = deriveDecoder[StatDetailAffectingMoves]
-}
-
-/**
-* 
-* @param change 
-* @param move 
-*/
-
-case class StatDetailAffectingMovesDecreaseInner(
-  change: Int,
-  move: StatDetailAffectingMovesDecreaseInnerMove
-)
-object StatDetailAffectingMovesDecreaseInner {
-  implicit val encoderStatDetailAffectingMovesDecreaseInner: Encoder[StatDetailAffectingMovesDecreaseInner] = deriveEncoder[StatDetailAffectingMovesDecreaseInner].mapJson(_.dropNullValues)
-  implicit val decoderStatDetailAffectingMovesDecreaseInner: Decoder[StatDetailAffectingMovesDecreaseInner] = deriveDecoder[StatDetailAffectingMovesDecreaseInner]
-}
-
-/**
-* 
-* @param name 
-* @param url 
-*/
-
-case class StatDetailAffectingMovesDecreaseInnerMove(
-  name: String,
-  url: URI
-)
-object StatDetailAffectingMovesDecreaseInnerMove {
-  implicit val encoderStatDetailAffectingMovesDecreaseInnerMove: Encoder[StatDetailAffectingMovesDecreaseInnerMove] = deriveEncoder[StatDetailAffectingMovesDecreaseInnerMove].mapJson(_.dropNullValues)
-  implicit val decoderStatDetailAffectingMovesDecreaseInnerMove: Decoder[StatDetailAffectingMovesDecreaseInnerMove] = deriveDecoder[StatDetailAffectingMovesDecreaseInnerMove]
-}
-
-/**
-* 
-* @param change 
-* @param move 
-*/
-
-case class StatDetailAffectingMovesIncreaseInner(
-  change: Int,
-  move: StatDetailAffectingMovesIncreaseInnerMove
-)
-object StatDetailAffectingMovesIncreaseInner {
-  implicit val encoderStatDetailAffectingMovesIncreaseInner: Encoder[StatDetailAffectingMovesIncreaseInner] = deriveEncoder[StatDetailAffectingMovesIncreaseInner].mapJson(_.dropNullValues)
-  implicit val decoderStatDetailAffectingMovesIncreaseInner: Decoder[StatDetailAffectingMovesIncreaseInner] = deriveDecoder[StatDetailAffectingMovesIncreaseInner]
-}
-
-/**
-* 
-* @param name 
-* @param url 
-*/
-
-case class StatDetailAffectingMovesIncreaseInnerMove(
-  name: String,
-  url: URI
-)
-object StatDetailAffectingMovesIncreaseInnerMove {
-  implicit val encoderStatDetailAffectingMovesIncreaseInnerMove: Encoder[StatDetailAffectingMovesIncreaseInnerMove] = deriveEncoder[StatDetailAffectingMovesIncreaseInnerMove].mapJson(_.dropNullValues)
-  implicit val decoderStatDetailAffectingMovesIncreaseInnerMove: Decoder[StatDetailAffectingMovesIncreaseInnerMove] = deriveDecoder[StatDetailAffectingMovesIncreaseInnerMove]
-}
-
-/**
-* 
-* @param increase 
-* @param decrease 
-*/
-
-case class StatDetailAffectingNatures(
-  increase: List[StatDetailAffectingNaturesIncreaseInner],
-  decrease: List[StatDetailAffectingNaturesDecreaseInner]
-)
-object StatDetailAffectingNatures {
-  implicit val encoderStatDetailAffectingNatures: Encoder[StatDetailAffectingNatures] = deriveEncoder[StatDetailAffectingNatures].mapJson(_.dropNullValues)
-  implicit val decoderStatDetailAffectingNatures: Decoder[StatDetailAffectingNatures] = deriveDecoder[StatDetailAffectingNatures]
-}
-
-/**
-* 
-* @param name 
-* @param url 
-*/
-
-case class StatDetailAffectingNaturesDecreaseInner(
-  name: String,
-  url: URI
-)
-object StatDetailAffectingNaturesDecreaseInner {
-  implicit val encoderStatDetailAffectingNaturesDecreaseInner: Encoder[StatDetailAffectingNaturesDecreaseInner] = deriveEncoder[StatDetailAffectingNaturesDecreaseInner].mapJson(_.dropNullValues)
-  implicit val decoderStatDetailAffectingNaturesDecreaseInner: Decoder[StatDetailAffectingNaturesDecreaseInner] = deriveDecoder[StatDetailAffectingNaturesDecreaseInner]
-}
-
-/**
-* 
-* @param name 
-* @param url 
-*/
-
-case class StatDetailAffectingNaturesIncreaseInner(
-  name: String,
-  url: URI
-)
-object StatDetailAffectingNaturesIncreaseInner {
-  implicit val encoderStatDetailAffectingNaturesIncreaseInner: Encoder[StatDetailAffectingNaturesIncreaseInner] = deriveEncoder[StatDetailAffectingNaturesIncreaseInner].mapJson(_.dropNullValues)
-  implicit val decoderStatDetailAffectingNaturesIncreaseInner: Decoder[StatDetailAffectingNaturesIncreaseInner] = deriveDecoder[StatDetailAffectingNaturesIncreaseInner]
-}
-
-/**
-* 
-* @param name 
-* @param language 
+* @param name The localized name for an API resource in a specific language.
+* @param language The language this name is in.
 */
 
 case class StatName(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   language: LanguageSummary
 )
 object StatName {
@@ -5631,12 +4917,12 @@ object StatName {
 
 /**
 * 
-* @param name 
-* @param url 
+* @param name The name of the referenced resource.
+* @param url The URL of the referenced resource.
 */
 
 case class StatSummary(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   url: URI
 )
 object StatSummary {
@@ -5646,15 +4932,15 @@ object StatSummary {
 
 /**
 * 
-* @param id 
-* @param appeal 
-* @param flavorUnderscoretextUnderscoreentries 
-* @param moves 
+* @param id The identifier for this resource.
+* @param appeal The level of appeal this super contest effect has.
+* @param flavorUnderscoretextUnderscoreentries The flavor text of this super contest effect listed in different languages.
+* @param moves A list of moves that have the effect when used in super contests.
 */
 
 case class SuperContestEffectDetail(
   id: Int,
-  appeal: Int,
+  appeal: Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]],
   flavorUnderscoretextUnderscoreentries: List[SuperContestEffectFlavorText],
   moves: List[MoveSummary]
 )
@@ -5665,8 +4951,8 @@ object SuperContestEffectDetail {
 
 /**
 * 
-* @param flavorUnderscoretext 
-* @param language 
+* @param flavorUnderscoretext The localized flavor text for an API resource in a specific language.
+* @param language The language this name is in.
 */
 
 case class SuperContestEffectFlavorText(
@@ -5680,7 +4966,7 @@ object SuperContestEffectFlavorText {
 
 /**
 * 
-* @param url 
+* @param url The URL of the referenced resource.
 */
 
 case class SuperContestEffectSummary(
@@ -5693,31 +4979,31 @@ object SuperContestEffectSummary {
 
 /**
 * Serializer for the Type resource
-* @param id 
-* @param name 
-* @param damageUnderscorerelations 
-* @param pastUnderscoredamageUnderscorerelations 
-* @param gameUnderscoreindices 
-* @param generation 
-* @param moveUnderscoredamageUnderscoreclass 
-* @param names 
-* @param pokemon 
-* @param moves 
-* @param sprites 
+* @param id The identifier for this resource.
+* @param name The name for this resource.
+* @param damageUnderscorerelations A detail of how effective this type is toward others and vice versa.
+* @param pastUnderscoredamageUnderscorerelations A list of details of how effective this type was toward others and vice versa in previous generations
+* @param gameUnderscoreindices A list of game indices relevent to this item by generation.
+* @param generation The generation this type was introduced in.
+* @param moveUnderscoredamageUnderscoreclass The class of damage inflicted by this type.
+* @param names The name of this resource listed in different languages.
+* @param pokemon A list of details of Pokémon that have this type.
+* @param moves A list of moves that have this type.
+* @param sprites Type icons grouped by generation and game, with name_icon and symbol_icon URLs. Unavailable icons are null.
 */
 
 case class TypeDetail(
   id: Int,
-  name: Refined[String, MaxSize[100]],
-  damageUnderscorerelations: TypeDetailDamageRelations,
-  pastUnderscoredamageUnderscorerelations: List[TypeDetailPastDamageRelationsInner],
+  name: Refined[String, MaxSize[200]],
+  damageUnderscorerelations: TypeRelationships,
+  pastUnderscoredamageUnderscorerelations: List[TypePastRelationships],
   gameUnderscoreindices: List[TypeGameIndex],
   generation: GenerationSummary,
   moveUnderscoredamageUnderscoreclass: MoveDamageClassSummary,
-  names: List[AbilityName],
-  pokemon: List[TypeDetailPokemonInner],
+  names: List[TypeName],
+  pokemon: List[TypePokemon],
   moves: List[MoveSummary],
-  sprites: Map[String, Map[String, TypeDetailSpritesValueValue]]
+  sprites: Map[String, Map[String, TypeGameSprite]]
 )
 object TypeDetail {
   implicit val encoderTypeDetail: Encoder[TypeDetail] = deriveEncoder[TypeDetail].mapJson(_.dropNullValues)
@@ -5726,311 +5012,12 @@ object TypeDetail {
 
 /**
 * 
-* @param noUnderscoredamageUnderscoreto 
-* @param halfUnderscoredamageUnderscoreto 
-* @param doubleUnderscoredamageUnderscoreto 
-* @param noUnderscoredamageUnderscorefrom 
-* @param halfUnderscoredamageUnderscorefrom 
-* @param doubleUnderscoredamageUnderscorefrom 
-*/
-
-case class TypeDetailDamageRelations(
-  noUnderscoredamageUnderscoreto: List[TypeDetailDamageRelationsNoDamageToInner],
-  halfUnderscoredamageUnderscoreto: List[TypeDetailDamageRelationsHalfDamageToInner],
-  doubleUnderscoredamageUnderscoreto: List[TypeDetailDamageRelationsDoubleDamageToInner],
-  noUnderscoredamageUnderscorefrom: List[TypeDetailDamageRelationsNoDamageFromInner],
-  halfUnderscoredamageUnderscorefrom: List[TypeDetailDamageRelationsHalfDamageFromInner],
-  doubleUnderscoredamageUnderscorefrom: List[TypeDetailDamageRelationsDoubleDamageFromInner]
-)
-object TypeDetailDamageRelations {
-  implicit val encoderTypeDetailDamageRelations: Encoder[TypeDetailDamageRelations] = deriveEncoder[TypeDetailDamageRelations].mapJson(_.dropNullValues)
-  implicit val decoderTypeDetailDamageRelations: Decoder[TypeDetailDamageRelations] = deriveDecoder[TypeDetailDamageRelations]
-}
-
-/**
-* 
-* @param name 
-* @param url 
-*/
-
-case class TypeDetailDamageRelationsDoubleDamageFromInner(
-  name: String,
-  url: URI
-)
-object TypeDetailDamageRelationsDoubleDamageFromInner {
-  implicit val encoderTypeDetailDamageRelationsDoubleDamageFromInner: Encoder[TypeDetailDamageRelationsDoubleDamageFromInner] = deriveEncoder[TypeDetailDamageRelationsDoubleDamageFromInner].mapJson(_.dropNullValues)
-  implicit val decoderTypeDetailDamageRelationsDoubleDamageFromInner: Decoder[TypeDetailDamageRelationsDoubleDamageFromInner] = deriveDecoder[TypeDetailDamageRelationsDoubleDamageFromInner]
-}
-
-/**
-* 
-* @param name 
-* @param url 
-*/
-
-case class TypeDetailDamageRelationsDoubleDamageToInner(
-  name: String,
-  url: URI
-)
-object TypeDetailDamageRelationsDoubleDamageToInner {
-  implicit val encoderTypeDetailDamageRelationsDoubleDamageToInner: Encoder[TypeDetailDamageRelationsDoubleDamageToInner] = deriveEncoder[TypeDetailDamageRelationsDoubleDamageToInner].mapJson(_.dropNullValues)
-  implicit val decoderTypeDetailDamageRelationsDoubleDamageToInner: Decoder[TypeDetailDamageRelationsDoubleDamageToInner] = deriveDecoder[TypeDetailDamageRelationsDoubleDamageToInner]
-}
-
-/**
-* 
-* @param name 
-* @param url 
-*/
-
-case class TypeDetailDamageRelationsHalfDamageFromInner(
-  name: String,
-  url: URI
-)
-object TypeDetailDamageRelationsHalfDamageFromInner {
-  implicit val encoderTypeDetailDamageRelationsHalfDamageFromInner: Encoder[TypeDetailDamageRelationsHalfDamageFromInner] = deriveEncoder[TypeDetailDamageRelationsHalfDamageFromInner].mapJson(_.dropNullValues)
-  implicit val decoderTypeDetailDamageRelationsHalfDamageFromInner: Decoder[TypeDetailDamageRelationsHalfDamageFromInner] = deriveDecoder[TypeDetailDamageRelationsHalfDamageFromInner]
-}
-
-/**
-* 
-* @param name 
-* @param url 
-*/
-
-case class TypeDetailDamageRelationsHalfDamageToInner(
-  name: String,
-  url: URI
-)
-object TypeDetailDamageRelationsHalfDamageToInner {
-  implicit val encoderTypeDetailDamageRelationsHalfDamageToInner: Encoder[TypeDetailDamageRelationsHalfDamageToInner] = deriveEncoder[TypeDetailDamageRelationsHalfDamageToInner].mapJson(_.dropNullValues)
-  implicit val decoderTypeDetailDamageRelationsHalfDamageToInner: Decoder[TypeDetailDamageRelationsHalfDamageToInner] = deriveDecoder[TypeDetailDamageRelationsHalfDamageToInner]
-}
-
-/**
-* 
-* @param name 
-* @param url 
-*/
-
-case class TypeDetailDamageRelationsNoDamageFromInner(
-  name: String,
-  url: URI
-)
-object TypeDetailDamageRelationsNoDamageFromInner {
-  implicit val encoderTypeDetailDamageRelationsNoDamageFromInner: Encoder[TypeDetailDamageRelationsNoDamageFromInner] = deriveEncoder[TypeDetailDamageRelationsNoDamageFromInner].mapJson(_.dropNullValues)
-  implicit val decoderTypeDetailDamageRelationsNoDamageFromInner: Decoder[TypeDetailDamageRelationsNoDamageFromInner] = deriveDecoder[TypeDetailDamageRelationsNoDamageFromInner]
-}
-
-/**
-* 
-* @param name 
-* @param url 
-*/
-
-case class TypeDetailDamageRelationsNoDamageToInner(
-  name: String,
-  url: URI
-)
-object TypeDetailDamageRelationsNoDamageToInner {
-  implicit val encoderTypeDetailDamageRelationsNoDamageToInner: Encoder[TypeDetailDamageRelationsNoDamageToInner] = deriveEncoder[TypeDetailDamageRelationsNoDamageToInner].mapJson(_.dropNullValues)
-  implicit val decoderTypeDetailDamageRelationsNoDamageToInner: Decoder[TypeDetailDamageRelationsNoDamageToInner] = deriveDecoder[TypeDetailDamageRelationsNoDamageToInner]
-}
-
-/**
-* 
-* @param generation 
-* @param damageUnderscorerelations 
-*/
-
-case class TypeDetailPastDamageRelationsInner(
-  generation: TypeDetailPastDamageRelationsInnerGeneration,
-  damageUnderscorerelations: TypeDetailPastDamageRelationsInnerDamageRelations
-)
-object TypeDetailPastDamageRelationsInner {
-  implicit val encoderTypeDetailPastDamageRelationsInner: Encoder[TypeDetailPastDamageRelationsInner] = deriveEncoder[TypeDetailPastDamageRelationsInner].mapJson(_.dropNullValues)
-  implicit val decoderTypeDetailPastDamageRelationsInner: Decoder[TypeDetailPastDamageRelationsInner] = deriveDecoder[TypeDetailPastDamageRelationsInner]
-}
-
-/**
-* 
-* @param noUnderscoredamageUnderscoreto 
-* @param halfUnderscoredamageUnderscoreto 
-* @param doubleUnderscoredamageUnderscoreto 
-* @param noUnderscoredamageUnderscorefrom 
-* @param halfUnderscoredamageUnderscorefrom 
-* @param doubleUnderscoredamageUnderscorefrom 
-*/
-
-case class TypeDetailPastDamageRelationsInnerDamageRelations(
-  noUnderscoredamageUnderscoreto: List[TypeDetailPastDamageRelationsInnerDamageRelationsNoDamageToInner],
-  halfUnderscoredamageUnderscoreto: List[TypeDetailPastDamageRelationsInnerDamageRelationsHalfDamageToInner],
-  doubleUnderscoredamageUnderscoreto: List[TypeDetailPastDamageRelationsInnerDamageRelationsDoubleDamageToInner],
-  noUnderscoredamageUnderscorefrom: List[TypeDetailPastDamageRelationsInnerDamageRelationsNoDamageFromInner],
-  halfUnderscoredamageUnderscorefrom: List[TypeDetailPastDamageRelationsInnerDamageRelationsHalfDamageFromInner],
-  doubleUnderscoredamageUnderscorefrom: List[TypeDetailPastDamageRelationsInnerDamageRelationsDoubleDamageFromInner]
-)
-object TypeDetailPastDamageRelationsInnerDamageRelations {
-  implicit val encoderTypeDetailPastDamageRelationsInnerDamageRelations: Encoder[TypeDetailPastDamageRelationsInnerDamageRelations] = deriveEncoder[TypeDetailPastDamageRelationsInnerDamageRelations].mapJson(_.dropNullValues)
-  implicit val decoderTypeDetailPastDamageRelationsInnerDamageRelations: Decoder[TypeDetailPastDamageRelationsInnerDamageRelations] = deriveDecoder[TypeDetailPastDamageRelationsInnerDamageRelations]
-}
-
-/**
-* 
-* @param name 
-* @param url 
-*/
-
-case class TypeDetailPastDamageRelationsInnerDamageRelationsDoubleDamageFromInner(
-  name: String,
-  url: URI
-)
-object TypeDetailPastDamageRelationsInnerDamageRelationsDoubleDamageFromInner {
-  implicit val encoderTypeDetailPastDamageRelationsInnerDamageRelationsDoubleDamageFromInner: Encoder[TypeDetailPastDamageRelationsInnerDamageRelationsDoubleDamageFromInner] = deriveEncoder[TypeDetailPastDamageRelationsInnerDamageRelationsDoubleDamageFromInner].mapJson(_.dropNullValues)
-  implicit val decoderTypeDetailPastDamageRelationsInnerDamageRelationsDoubleDamageFromInner: Decoder[TypeDetailPastDamageRelationsInnerDamageRelationsDoubleDamageFromInner] = deriveDecoder[TypeDetailPastDamageRelationsInnerDamageRelationsDoubleDamageFromInner]
-}
-
-/**
-* 
-* @param name 
-* @param url 
-*/
-
-case class TypeDetailPastDamageRelationsInnerDamageRelationsDoubleDamageToInner(
-  name: String,
-  url: URI
-)
-object TypeDetailPastDamageRelationsInnerDamageRelationsDoubleDamageToInner {
-  implicit val encoderTypeDetailPastDamageRelationsInnerDamageRelationsDoubleDamageToInner: Encoder[TypeDetailPastDamageRelationsInnerDamageRelationsDoubleDamageToInner] = deriveEncoder[TypeDetailPastDamageRelationsInnerDamageRelationsDoubleDamageToInner].mapJson(_.dropNullValues)
-  implicit val decoderTypeDetailPastDamageRelationsInnerDamageRelationsDoubleDamageToInner: Decoder[TypeDetailPastDamageRelationsInnerDamageRelationsDoubleDamageToInner] = deriveDecoder[TypeDetailPastDamageRelationsInnerDamageRelationsDoubleDamageToInner]
-}
-
-/**
-* 
-* @param name 
-* @param url 
-*/
-
-case class TypeDetailPastDamageRelationsInnerDamageRelationsHalfDamageFromInner(
-  name: String,
-  url: URI
-)
-object TypeDetailPastDamageRelationsInnerDamageRelationsHalfDamageFromInner {
-  implicit val encoderTypeDetailPastDamageRelationsInnerDamageRelationsHalfDamageFromInner: Encoder[TypeDetailPastDamageRelationsInnerDamageRelationsHalfDamageFromInner] = deriveEncoder[TypeDetailPastDamageRelationsInnerDamageRelationsHalfDamageFromInner].mapJson(_.dropNullValues)
-  implicit val decoderTypeDetailPastDamageRelationsInnerDamageRelationsHalfDamageFromInner: Decoder[TypeDetailPastDamageRelationsInnerDamageRelationsHalfDamageFromInner] = deriveDecoder[TypeDetailPastDamageRelationsInnerDamageRelationsHalfDamageFromInner]
-}
-
-/**
-* 
-* @param name 
-* @param url 
-*/
-
-case class TypeDetailPastDamageRelationsInnerDamageRelationsHalfDamageToInner(
-  name: String,
-  url: URI
-)
-object TypeDetailPastDamageRelationsInnerDamageRelationsHalfDamageToInner {
-  implicit val encoderTypeDetailPastDamageRelationsInnerDamageRelationsHalfDamageToInner: Encoder[TypeDetailPastDamageRelationsInnerDamageRelationsHalfDamageToInner] = deriveEncoder[TypeDetailPastDamageRelationsInnerDamageRelationsHalfDamageToInner].mapJson(_.dropNullValues)
-  implicit val decoderTypeDetailPastDamageRelationsInnerDamageRelationsHalfDamageToInner: Decoder[TypeDetailPastDamageRelationsInnerDamageRelationsHalfDamageToInner] = deriveDecoder[TypeDetailPastDamageRelationsInnerDamageRelationsHalfDamageToInner]
-}
-
-/**
-* 
-* @param name 
-* @param url 
-*/
-
-case class TypeDetailPastDamageRelationsInnerDamageRelationsNoDamageFromInner(
-  name: String,
-  url: URI
-)
-object TypeDetailPastDamageRelationsInnerDamageRelationsNoDamageFromInner {
-  implicit val encoderTypeDetailPastDamageRelationsInnerDamageRelationsNoDamageFromInner: Encoder[TypeDetailPastDamageRelationsInnerDamageRelationsNoDamageFromInner] = deriveEncoder[TypeDetailPastDamageRelationsInnerDamageRelationsNoDamageFromInner].mapJson(_.dropNullValues)
-  implicit val decoderTypeDetailPastDamageRelationsInnerDamageRelationsNoDamageFromInner: Decoder[TypeDetailPastDamageRelationsInnerDamageRelationsNoDamageFromInner] = deriveDecoder[TypeDetailPastDamageRelationsInnerDamageRelationsNoDamageFromInner]
-}
-
-/**
-* 
-* @param name 
-* @param url 
-*/
-
-case class TypeDetailPastDamageRelationsInnerDamageRelationsNoDamageToInner(
-  name: String,
-  url: URI
-)
-object TypeDetailPastDamageRelationsInnerDamageRelationsNoDamageToInner {
-  implicit val encoderTypeDetailPastDamageRelationsInnerDamageRelationsNoDamageToInner: Encoder[TypeDetailPastDamageRelationsInnerDamageRelationsNoDamageToInner] = deriveEncoder[TypeDetailPastDamageRelationsInnerDamageRelationsNoDamageToInner].mapJson(_.dropNullValues)
-  implicit val decoderTypeDetailPastDamageRelationsInnerDamageRelationsNoDamageToInner: Decoder[TypeDetailPastDamageRelationsInnerDamageRelationsNoDamageToInner] = deriveDecoder[TypeDetailPastDamageRelationsInnerDamageRelationsNoDamageToInner]
-}
-
-/**
-* 
-* @param name 
-* @param url 
-*/
-
-case class TypeDetailPastDamageRelationsInnerGeneration(
-  name: String,
-  url: URI
-)
-object TypeDetailPastDamageRelationsInnerGeneration {
-  implicit val encoderTypeDetailPastDamageRelationsInnerGeneration: Encoder[TypeDetailPastDamageRelationsInnerGeneration] = deriveEncoder[TypeDetailPastDamageRelationsInnerGeneration].mapJson(_.dropNullValues)
-  implicit val decoderTypeDetailPastDamageRelationsInnerGeneration: Decoder[TypeDetailPastDamageRelationsInnerGeneration] = deriveDecoder[TypeDetailPastDamageRelationsInnerGeneration]
-}
-
-/**
-* 
-* @param slot 
-* @param pokemon 
-*/
-
-case class TypeDetailPokemonInner(
-  slot: Option[Int],
-  pokemon: Option[TypeDetailPokemonInnerPokemon]
-)
-object TypeDetailPokemonInner {
-  implicit val encoderTypeDetailPokemonInner: Encoder[TypeDetailPokemonInner] = deriveEncoder[TypeDetailPokemonInner].mapJson(_.dropNullValues)
-  implicit val decoderTypeDetailPokemonInner: Decoder[TypeDetailPokemonInner] = deriveDecoder[TypeDetailPokemonInner]
-}
-
-/**
-* 
-* @param name The name of the pokemon
-* @param url The URL to get more information about the pokemon
-*/
-
-case class TypeDetailPokemonInnerPokemon(
-  name: Option[String],
-  url: Option[URI]
-)
-object TypeDetailPokemonInnerPokemon {
-  implicit val encoderTypeDetailPokemonInnerPokemon: Encoder[TypeDetailPokemonInnerPokemon] = deriveEncoder[TypeDetailPokemonInnerPokemon].mapJson(_.dropNullValues)
-  implicit val decoderTypeDetailPokemonInnerPokemon: Decoder[TypeDetailPokemonInnerPokemon] = deriveDecoder[TypeDetailPokemonInnerPokemon]
-}
-
-/**
-* 
-* @param nameMinusicon 
-*/
-
-case class TypeDetailSpritesValueValue(
-  nameMinusicon: Option[URI]
-)
-object TypeDetailSpritesValueValue {
-  implicit val encoderTypeDetailSpritesValueValue: Encoder[TypeDetailSpritesValueValue] = deriveEncoder[TypeDetailSpritesValueValue].mapJson(_.dropNullValues)
-  implicit val decoderTypeDetailSpritesValueValue: Decoder[TypeDetailSpritesValueValue] = deriveDecoder[TypeDetailSpritesValueValue]
-}
-
-/**
-* 
-* @param gameUnderscoreindex 
-* @param generation 
+* @param gameUnderscoreindex The internal id of an API resource within game data.
+* @param generation The generation relevent to this game index.
 */
 
 case class TypeGameIndex(
-  gameUnderscoreindex: Int,
+  gameUnderscoreindex: Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]],
   generation: GenerationSummary
 )
 object TypeGameIndex {
@@ -6040,12 +5027,95 @@ object TypeGameIndex {
 
 /**
 * 
-* @param name 
-* @param url 
+* @param nameUnderscoreicon The URL of the icon displaying the type name in this game, or null if unavailable.
+* @param symbolUnderscoreicon The URL of the type symbol icon in this game, or null if unavailable.
+*/
+
+case class TypeGameSprite(
+  nameUnderscoreicon: Option[String],
+  symbolUnderscoreicon: Option[String]
+)
+object TypeGameSprite {
+  implicit val encoderTypeGameSprite: Encoder[TypeGameSprite] = deriveEncoder[TypeGameSprite].mapJson(_.dropNullValues)
+  implicit val decoderTypeGameSprite: Decoder[TypeGameSprite] = deriveDecoder[TypeGameSprite]
+}
+
+/**
+* 
+* @param name The localized name for an API resource in a specific language.
+* @param language The language this name is in.
+*/
+
+case class TypeName(
+  name: Refined[String, MaxSize[200]],
+  language: LanguageSummary
+)
+object TypeName {
+  implicit val encoderTypeName: Encoder[TypeName] = deriveEncoder[TypeName].mapJson(_.dropNullValues)
+  implicit val decoderTypeName: Decoder[TypeName] = deriveDecoder[TypeName]
+}
+
+/**
+* 
+* @param generation The last generation in which the referenced type had the listed damage relations
+* @param damageUnderscorerelations The damage relations the referenced type had up to and including the listed generation
+*/
+
+case class TypePastRelationships(
+  generation: GenerationSummary,
+  damageUnderscorerelations: TypeRelationships
+)
+object TypePastRelationships {
+  implicit val encoderTypePastRelationships: Encoder[TypePastRelationships] = deriveEncoder[TypePastRelationships].mapJson(_.dropNullValues)
+  implicit val decoderTypePastRelationships: Decoder[TypePastRelationships] = deriveDecoder[TypePastRelationships]
+}
+
+/**
+* 
+* @param slot The order the Pokémon's types are listed in.
+* @param pokemon The Pokémon that has the referenced type.
+*/
+
+case class TypePokemon(
+  slot: Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]],
+  pokemon: PokemonSummary
+)
+object TypePokemon {
+  implicit val encoderTypePokemon: Encoder[TypePokemon] = deriveEncoder[TypePokemon].mapJson(_.dropNullValues)
+  implicit val decoderTypePokemon: Decoder[TypePokemon] = deriveDecoder[TypePokemon]
+}
+
+/**
+* 
+* @param noUnderscoredamageUnderscoreto A list of types this type has no effect on.
+* @param halfUnderscoredamageUnderscoreto A list of types this type is not very effect against.
+* @param doubleUnderscoredamageUnderscoreto A list of types this type is very effect against.
+* @param noUnderscoredamageUnderscorefrom A list of types that have no effect on this type.
+* @param halfUnderscoredamageUnderscorefrom A list of types that are not very effective against this type.
+* @param doubleUnderscoredamageUnderscorefrom A list of types that are very effective against this type.
+*/
+
+case class TypeRelationships(
+  noUnderscoredamageUnderscoreto: List[TypeSummary],
+  halfUnderscoredamageUnderscoreto: List[TypeSummary],
+  doubleUnderscoredamageUnderscoreto: List[TypeSummary],
+  noUnderscoredamageUnderscorefrom: List[TypeSummary],
+  halfUnderscoredamageUnderscorefrom: List[TypeSummary],
+  doubleUnderscoredamageUnderscorefrom: List[TypeSummary]
+)
+object TypeRelationships {
+  implicit val encoderTypeRelationships: Encoder[TypeRelationships] = deriveEncoder[TypeRelationships].mapJson(_.dropNullValues)
+  implicit val decoderTypeRelationships: Decoder[TypeRelationships] = deriveDecoder[TypeRelationships]
+}
+
+/**
+* 
+* @param name The name of the referenced resource.
+* @param url The URL of the referenced resource.
 */
 
 case class TypeSummary(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   url: URI
 )
 object TypeSummary {
@@ -6055,15 +5125,15 @@ object TypeSummary {
 
 /**
 * Should have a link to Version Group info but the Circular dependency and compilation order fight eachother and I'm not sure how to add anything other than a hyperlink
-* @param id 
-* @param name 
-* @param names 
-* @param versionUnderscoregroup 
+* @param id The identifier for this resource.
+* @param name The name for this resource.
+* @param names The name of this resource listed in different languages.
+* @param versionUnderscoregroup The version group this version belongs to.
 */
 
 case class VersionDetail(
   id: Int,
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   names: List[VersionName],
   versionUnderscoregroup: VersionGroupSummary
 )
@@ -6074,24 +5144,24 @@ object VersionDetail {
 
 /**
 * 
-* @param id 
-* @param name 
-* @param order 
-* @param generation 
-* @param moveUnderscorelearnUnderscoremethods 
-* @param pokedexes 
-* @param regions 
-* @param versions 
+* @param id The identifier for this resource.
+* @param name The name for this resource.
+* @param order Order for sorting. Almost by date of release, except similar versions are grouped together.
+* @param generation The generation this version was introduced in.
+* @param moveUnderscorelearnUnderscoremethods A list of methods in which Pokémon can learn moves in this version group.
+* @param pokedexes A list of Pokédexes introduces in this version group.
+* @param regions A list of regions that can be visited in this version group.
+* @param versions The versions this version group owns.
 */
 
 case class VersionGroupDetail(
   id: Int,
-  name: Refined[String, MaxSize[100]],
-  order: Option[Int],
+  name: Refined[String, MaxSize[200]],
+  order: Option[Refined[Int, GreaterEqual[-2147483648] And LessEqual[2147483647]]],
   generation: GenerationSummary,
-  moveUnderscorelearnUnderscoremethods: List[VersionGroupDetailMoveLearnMethodsInner],
-  pokedexes: List[VersionGroupDetailPokedexesInner],
-  regions: List[VersionGroupDetailRegionsInner],
+  moveUnderscorelearnUnderscoremethods: List[MoveLearnMethodSummary],
+  pokedexes: List[PokedexSummary],
+  regions: List[RegionSummary],
   versions: List[VersionSummary]
 )
 object VersionGroupDetail {
@@ -6101,57 +5171,12 @@ object VersionGroupDetail {
 
 /**
 * 
-* @param name 
-* @param url 
-*/
-
-case class VersionGroupDetailMoveLearnMethodsInner(
-  name: String,
-  url: URI
-)
-object VersionGroupDetailMoveLearnMethodsInner {
-  implicit val encoderVersionGroupDetailMoveLearnMethodsInner: Encoder[VersionGroupDetailMoveLearnMethodsInner] = deriveEncoder[VersionGroupDetailMoveLearnMethodsInner].mapJson(_.dropNullValues)
-  implicit val decoderVersionGroupDetailMoveLearnMethodsInner: Decoder[VersionGroupDetailMoveLearnMethodsInner] = deriveDecoder[VersionGroupDetailMoveLearnMethodsInner]
-}
-
-/**
-* 
-* @param name 
-* @param url 
-*/
-
-case class VersionGroupDetailPokedexesInner(
-  name: String,
-  url: URI
-)
-object VersionGroupDetailPokedexesInner {
-  implicit val encoderVersionGroupDetailPokedexesInner: Encoder[VersionGroupDetailPokedexesInner] = deriveEncoder[VersionGroupDetailPokedexesInner].mapJson(_.dropNullValues)
-  implicit val decoderVersionGroupDetailPokedexesInner: Decoder[VersionGroupDetailPokedexesInner] = deriveDecoder[VersionGroupDetailPokedexesInner]
-}
-
-/**
-* 
-* @param name 
-* @param url 
-*/
-
-case class VersionGroupDetailRegionsInner(
-  name: String,
-  url: URI
-)
-object VersionGroupDetailRegionsInner {
-  implicit val encoderVersionGroupDetailRegionsInner: Encoder[VersionGroupDetailRegionsInner] = deriveEncoder[VersionGroupDetailRegionsInner].mapJson(_.dropNullValues)
-  implicit val decoderVersionGroupDetailRegionsInner: Decoder[VersionGroupDetailRegionsInner] = deriveDecoder[VersionGroupDetailRegionsInner]
-}
-
-/**
-* 
-* @param name 
-* @param url 
+* @param name The name of the referenced resource.
+* @param url The URL of the referenced resource.
 */
 
 case class VersionGroupSummary(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   url: URI
 )
 object VersionGroupSummary {
@@ -6161,12 +5186,12 @@ object VersionGroupSummary {
 
 /**
 * 
-* @param name 
-* @param language 
+* @param name The localized name for an API resource in a specific language.
+* @param language The language this name is in.
 */
 
 case class VersionName(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   language: LanguageSummary
 )
 object VersionName {
@@ -6176,12 +5201,12 @@ object VersionName {
 
 /**
 * 
-* @param name 
-* @param url 
+* @param name The name of the referenced resource.
+* @param url The URL of the referenced resource.
 */
 
 case class VersionSummary(
-  name: Refined[String, MaxSize[100]],
+  name: Refined[String, MaxSize[200]],
   url: URI
 )
 object VersionSummary {

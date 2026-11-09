@@ -11,14 +11,14 @@ import org.openapitools.model.MoveTargetName;
 
 @Canonical
 class MoveTargetDetail {
-    
+    /* The identifier for this resource. */
     Integer id
-    
+    /* The name for this resource. */
     String name
-    
+    /* The description of this resource listed in different languages. */
     List<MoveTargetDescription> descriptions = new ArrayList<>()
-    
+    /* A list of moves that that are directed at this target. */
     List<MoveSummary> moves = new ArrayList<>()
-    
+    /* The name of this resource listed in different languages. */
     List<MoveTargetName> names = new ArrayList<>()
 }

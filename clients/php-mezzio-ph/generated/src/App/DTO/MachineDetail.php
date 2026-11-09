@@ -10,6 +10,7 @@ use Articus\DataTransfer\Annotation as DTA;
 class MachineDetail
 {
     /**
+     * The identifier for this resource.
      * @DTA\Data(field="id")
      * @DTA\Validator(name="Scalar", options={"type":"int"})
      * @var int|null
@@ -17,6 +18,7 @@ class MachineDetail
     public $id;
 
     /**
+     * The TM or HM item that corresponds to this machine.
      * @DTA\Data(field="item")
      * @DTA\Strategy(name="Object", options={"type":\App\DTO\ItemSummary::class})
      * @DTA\Validator(name="TypeCompliant", options={"type":\App\DTO\ItemSummary::class})
@@ -25,6 +27,7 @@ class MachineDetail
     public $item;
 
     /**
+     * The version group that this machine applies to.
      * @DTA\Data(field="version_group")
      * @DTA\Strategy(name="Object", options={"type":\App\DTO\VersionGroupSummary::class})
      * @DTA\Validator(name="TypeCompliant", options={"type":\App\DTO\VersionGroupSummary::class})
@@ -33,6 +36,7 @@ class MachineDetail
     public $version_group;
 
     /**
+     * The move that is taught by this machine.
      * @DTA\Data(field="move")
      * @DTA\Strategy(name="Object", options={"type":\App\DTO\MoveSummary::class})
      * @DTA\Validator(name="TypeCompliant", options={"type":\App\DTO\MoveSummary::class})

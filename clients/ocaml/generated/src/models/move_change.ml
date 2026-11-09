@@ -15,43 +15,50 @@
                 
                 
                 ; [@key "accuracy"]
-                                              power: int32
+                    (** The percent value of how likely this move is to be successful. *)
+                                      power: int32
                   
                    option [@default None]
                 
                 
                 ; [@key "power"]
-                                              pp: int32
+                    (** The base power before the listed version group, or null if power did not change. *)
+                                      pp: int32
                   
                    option [@default None]
                 
                 
                 ; [@key "pp"]
-                                              effect_chance: int32
-                  
+                    (** Power points. The number of times this move can be used. *)
+                                      effect_chance: int32
+                   option
                   
                 
                 
                 ; [@key "effect_chance"]
-                                              effect_entries: Move_change_effect_entries_inner.t list
+                    (** The percent value of how likely it is this moves effect will take effect. *)
+                                      effect_entries: Move_effect_effect_text.t list
                 
                 
                 ; [@key "effect_entries"]
-                                              _type: Type_summary.t
-                  
+                    (** The effect of this move listed in different languages. *)
+                                      _type: Type_summary.t
+                   option
                   
                 
                 
                 ; [@key "type"]
-                                              version_group: Version_group_summary.t
+                    (** The elemental type of this move. *)
+                                      version_group: Version_group_summary.t
                   
                   
                 
                 
                 ; [@key "version_group"]
-                        } [@@deriving yojson { strict = false }, show, eq ];;
+                    (** The version group in which these move stat values were in effect. *)
+                } [@@deriving yojson { strict = false }, show, eq ];;
         
-        let create (effect_chance : int32) (effect_entries : Move_change_effect_entries_inner.t list) (_type : Type_summary.t) (version_group : Version_group_summary.t) : t = {
+        let create (effect_chance : int32 option) (effect_entries : Move_effect_effect_text.t list) (_type : Type_summary.t option) (version_group : Version_group_summary.t) : t = {
             accuracy = None;
             power = None;
             pp = None;

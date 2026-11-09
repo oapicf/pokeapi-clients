@@ -3,9 +3,9 @@ package org.openapitools.model;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.model.AbilityDetailPokemonInnerPokemon;
 import org.openapitools.model.MoveLearnMethodDescription;
 import org.openapitools.model.MoveLearnMethodName;
+import org.openapitools.model.VersionGroupSummary;
 
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
@@ -14,27 +14,42 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class MoveLearnMethodDetail  {
   
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The identifier for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
 
   private Integer id;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The name for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The name for this resource.")
 
   private String name;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The name of this resource listed in different languages.
+  */
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
 
   private List<MoveLearnMethodName> names = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The description of this resource listed in different languages.
+  */
+  @ApiModelProperty(required = true, value = "The description of this resource listed in different languages.")
 
   private List<MoveLearnMethodDescription> descriptions = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
-
-  private List<AbilityDetailPokemonInnerPokemon> versionGroups = new ArrayList<>();
  /**
-   * Get id
+  * A list of version groups where moves can be learned through this method.
+  */
+  @ApiModelProperty(required = true, value = "A list of version groups where moves can be learned through this method.")
+
+  private List<VersionGroupSummary> versionGroups = new ArrayList<>();
+ /**
+   * The identifier for this resource.
    * @return id
   **/
   @JsonProperty("id")
@@ -44,7 +59,7 @@ public class MoveLearnMethodDetail  {
 
 
  /**
-   * Get name
+   * The name for this resource.
    * @return name
   **/
   @JsonProperty("name")
@@ -62,7 +77,7 @@ public class MoveLearnMethodDetail  {
   }
 
  /**
-   * Get names
+   * The name of this resource listed in different languages.
    * @return names
   **/
   @JsonProperty("names")
@@ -72,7 +87,7 @@ public class MoveLearnMethodDetail  {
 
 
  /**
-   * Get descriptions
+   * The description of this resource listed in different languages.
    * @return descriptions
   **/
   @JsonProperty("descriptions")
@@ -82,11 +97,11 @@ public class MoveLearnMethodDetail  {
 
 
  /**
-   * Get versionGroups
+   * A list of version groups where moves can be learned through this method.
    * @return versionGroups
   **/
   @JsonProperty("version_groups")
-  public List<AbilityDetailPokemonInnerPokemon> getVersionGroups() {
+  public List<VersionGroupSummary> getVersionGroups() {
     return versionGroups;
   }
 

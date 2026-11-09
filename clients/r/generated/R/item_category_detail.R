@@ -7,11 +7,11 @@
 #' @title ItemCategoryDetail
 #' @description ItemCategoryDetail Class
 #' @format An \code{R6Class} generator object
-#' @field id  integer
-#' @field name  character
-#' @field items  list(\link{ItemSummary})
-#' @field names  list(\link{ItemCategoryName})
-#' @field pocket  \link{ItemPocketSummary}
+#' @field id The identifier for this resource. integer
+#' @field name The name for this resource. character
+#' @field items A list of items that are a part of this category. list(\link{ItemSummary})
+#' @field names The name of this item category listed in different languages. list(\link{ItemCategoryName})
+#' @field pocket The pocket items in this category would be put in. \link{ItemPocketSummary}
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -27,11 +27,11 @@ ItemCategoryDetail <- R6::R6Class(
     #' @description
     #' Initialize a new ItemCategoryDetail class.
     #'
-    #' @param id id
-    #' @param name name
-    #' @param items items
-    #' @param names names
-    #' @param pocket pocket
+    #' @param id The identifier for this resource.
+    #' @param name The name for this resource.
+    #' @param items A list of items that are a part of this category.
+    #' @param names The name of this item category listed in different languages.
+    #' @param pocket The pocket items in this category would be put in.
     #' @param ... Other optional arguments.
     initialize = function(`id`, `name`, `items`, `names`, `pocket`, ...) {
       if (!missing(`id`)) {
@@ -259,7 +259,7 @@ ItemCategoryDetail <- R6::R6Class(
         return(FALSE)
       }
 
-      if (nchar(self$`name`) > 100) {
+      if (nchar(self$`name`) > 200) {
         return(FALSE)
       }
 
@@ -297,8 +297,8 @@ ItemCategoryDetail <- R6::R6Class(
         invalid_fields["name"] <- "Non-nullable required field `name` cannot be null."
       }
 
-      if (nchar(self$`name`) > 100) {
-        invalid_fields["name"] <- "Invalid length for `name`, must be smaller than or equal to 100."
+      if (nchar(self$`name`) > 200) {
+        invalid_fields["name"] <- "Invalid length for `name`, must be smaller than or equal to 200."
       }
 
       # check if the required `items` is null

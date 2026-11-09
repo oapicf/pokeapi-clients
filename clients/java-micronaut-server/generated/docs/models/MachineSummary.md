@@ -8,7 +8,7 @@ The class is defined in **[MachineSummary.java](../../src/main/java/org/openapit
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**url** | `URI` |  |  [readonly property]
+**url** | `URI` | The URL of the referenced resource. |  [readonly property]
 
 
 

@@ -20,14 +20,19 @@ class CharacteristicDetail {
     this.descriptions = const [],
   });
 
+  /// The identifier for this resource.
   int id;
 
+  /// The remainder of the highest stat/IV divided by 5.
   int geneModulo;
 
+  /// The possible values of the highest stat that would result in a Pokémon recieving this characteristic when divided by 5.
   List<int> possibleValues;
 
+  /// The stat which results in this characteristic.
   StatSummary highestStat;
 
+  /// The descriptions of this characteristic listed in different languages.
   List<CharacteristicDescription> descriptions;
 
   @override

@@ -10,9 +10,9 @@ Name | Type
 `name` | string
 `order` | number
 `generation` | [GenerationSummary](GenerationSummary.md)
-`moveLearnMethods` | [Array&lt;AbilityDetailPokemonInnerPokemon&gt;](AbilityDetailPokemonInnerPokemon.md)
-`pokedexes` | [Array&lt;AbilityDetailPokemonInnerPokemon&gt;](AbilityDetailPokemonInnerPokemon.md)
-`regions` | [Array&lt;AbilityDetailPokemonInnerPokemon&gt;](AbilityDetailPokemonInnerPokemon.md)
+`moveLearnMethods` | [Array&lt;MoveLearnMethodSummary&gt;](MoveLearnMethodSummary.md)
+`pokedexes` | [Array&lt;PokedexSummary&gt;](PokedexSummary.md)
+`regions` | [Array&lt;RegionSummary&gt;](RegionSummary.md)
 `versions` | [Array&lt;VersionSummary&gt;](VersionSummary.md)
 
 ## Example

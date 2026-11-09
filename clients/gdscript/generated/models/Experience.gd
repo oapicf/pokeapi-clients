@@ -10,6 +10,7 @@ class_name Experience
 # Experience Model
 
 
+# The level gained.
 # Required: True
 # isArray: false
 @export var level: int:
@@ -18,6 +19,7 @@ class_name Experience
 		level = value
 var __level__was__set := false
 
+# The amount of experience required to reach the referenced level.
 # Required: True
 # isArray: false
 @export var experience: int:

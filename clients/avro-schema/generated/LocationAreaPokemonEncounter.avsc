@@ -1,0 +1,22 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "LocationAreaPokemonEncounter",
+  "fields": [
+    {
+      "name": "pokemon",
+      "type": "model.PokemonSummary",
+      "doc": "The Pokémon being encountered."
+    },
+    {
+      "name": "version_details",
+      "type": {
+        "type": "array",
+        "items": "model.LocationAreaPokemonEncounterVersion"
+      },
+      "doc": "A list of versions and encounters with Pokémon that might happen in the referenced location area."
+    }
+  ]
+
+}

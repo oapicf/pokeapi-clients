@@ -16,7 +16,7 @@ const _returntypes_language_list_UtilityApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_language_list(_api::UtilityApi; limit=nothing, offset=nothing, q=nothing, _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_language_list_UtilityApi, "/api/v2/language/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_language_list_UtilityApi, "/api/v2/language/", [])
     OpenAPI.Clients.set_param(_ctx.query, "limit", limit; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "offset", offset; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "q", q; style="form", is_explode=true)  # type String
@@ -51,7 +51,7 @@ const _returntypes_language_retrieve_UtilityApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_language_retrieve(_api::UtilityApi, id::String; _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_language_retrieve_UtilityApi, "/api/v2/language/{id}/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_language_retrieve_UtilityApi, "/api/v2/language/{id}/", [])
     OpenAPI.Clients.set_param(_ctx.path, "id", id)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
@@ -77,5 +77,35 @@ function language_retrieve(_api::UtilityApi, response_stream::Channel, id::Strin
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
+const _returntypes_meta_retrieve_UtilityApi = Dict{Regex,Type}(
+    Regex("^" * replace("200", "x"=>".") * "\$") => PokeapiMetaResponse,
+)
+
+function _oacinternal_meta_retrieve(_api::UtilityApi; _mediaType=nothing)
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_meta_retrieve_UtilityApi, "/api/v2/meta/", [])
+    OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
+    OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
+    return _ctx
+end
+
+@doc raw"""Get API metadata
+
+Returns metadata about the current deployed version of the API, including the git commit hash, deploy date, and tag (if any).
+
+Params:
+
+Return: `PokeapiMetaResponse`, `OpenAPI.Clients.ApiResponse`
+"""
+function meta_retrieve(_api::UtilityApi; _mediaType=nothing)
+    _ctx = _oacinternal_meta_retrieve(_api; _mediaType=_mediaType)
+    return OpenAPI.Clients.exec(_ctx)
+end
+
+function meta_retrieve(_api::UtilityApi, response_stream::Channel; _mediaType=nothing)
+    _ctx = _oacinternal_meta_retrieve(_api; _mediaType=_mediaType)
+    return OpenAPI.Clients.exec(_ctx, response_stream)
+end
+
 export language_list
 export language_retrieve
+export meta_retrieve

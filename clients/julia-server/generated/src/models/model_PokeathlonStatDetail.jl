@@ -11,15 +11,15 @@
         names=nothing,
     )
 
-    - id::Int64
-    - name::String
-    - affecting_natures::PokeathlonStatDetailAffectingNatures
-    - names::Vector{PokeathlonStatName}
+    - id::Int64 : The identifier for this resource.
+    - name::String : The name for this resource.
+    - affecting_natures::PokeathlonStatAffectingNatures : A detail of natures which affect this Pokéathlon stat positively or negatively.
+    - names::Vector{PokeathlonStatName} : The name of this resource listed in different languages.
 """
 Base.@kwdef mutable struct PokeathlonStatDetail <: OpenAPI.APIModel
     id::Union{Nothing, Int64} = nothing
     name::Union{Nothing, String} = nothing
-    affecting_natures = nothing # spec type: Union{ Nothing, PokeathlonStatDetailAffectingNatures }
+    affecting_natures = nothing # spec type: Union{ Nothing, PokeathlonStatAffectingNatures }
     names::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{PokeathlonStatName} }
 
     function PokeathlonStatDetail(id, name, affecting_natures, names, )
@@ -29,7 +29,7 @@ Base.@kwdef mutable struct PokeathlonStatDetail <: OpenAPI.APIModel
     end
 end # type PokeathlonStatDetail
 
-const _property_types_PokeathlonStatDetail = Dict{Symbol,String}(Symbol("id")=>"Int64", Symbol("name")=>"String", Symbol("affecting_natures")=>"PokeathlonStatDetailAffectingNatures", Symbol("names")=>"Vector{PokeathlonStatName}", )
+const _property_types_PokeathlonStatDetail = Dict{Symbol,String}(Symbol("id")=>"Int64", Symbol("name")=>"String", Symbol("affecting_natures")=>"PokeathlonStatAffectingNatures", Symbol("names")=>"Vector{PokeathlonStatName}", )
 OpenAPI.property_type(::Type{ PokeathlonStatDetail }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_PokeathlonStatDetail[name]))}
 
 function OpenAPI.check_required(o::PokeathlonStatDetail)
@@ -51,7 +51,7 @@ function OpenAPI.validate_property(::Type{ PokeathlonStatDetail }, name::Symbol,
 
 
     if name === Symbol("name")
-        OpenAPI.validate_param(name, "PokeathlonStatDetail", :maxLength, val, 100)
+        OpenAPI.validate_param(name, "PokeathlonStatDetail", :maxLength, val, 200)
     end
 
 

@@ -7,8 +7,8 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.model.AbilityDetailPokemonInnerPokemon;
 import org.openapitools.model.MoveMetaAilmentName;
+import org.openapitools.model.MoveSummary;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
@@ -23,14 +23,14 @@ import jakarta.annotation.Generated;
  * MoveMetaAilmentDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-10-25T05:48:25.711080506Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-11-09T13:49:41.168612095Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class MoveMetaAilmentDetail {
 
   private Integer id;
 
   private String name;
 
-  private List<@Valid AbilityDetailPokemonInnerPokemon> moves = new ArrayList<>();
+  private List<@Valid MoveSummary> moves = new ArrayList<>();
 
   private List<@Valid MoveMetaAilmentName> names = new ArrayList<>();
 
@@ -41,7 +41,7 @@ public class MoveMetaAilmentDetail {
   /**
    * Constructor with only required parameters
    */
-  public MoveMetaAilmentDetail(Integer id, String name, List<@Valid AbilityDetailPokemonInnerPokemon> moves, List<@Valid MoveMetaAilmentName> names) {
+  public MoveMetaAilmentDetail(Integer id, String name, List<@Valid MoveSummary> moves, List<@Valid MoveMetaAilmentName> names) {
     this.id = id;
     this.name = name;
     this.moves = moves;
@@ -54,11 +54,11 @@ public class MoveMetaAilmentDetail {
   }
 
   /**
-   * Get id
+   * The identifier for this resource.
    * @return id
    */
   
-  @Schema(name = "id", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "id", accessMode = Schema.AccessMode.READ_ONLY, description = "The identifier for this resource.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("id")
   public Integer getId() {
     return id;
@@ -74,11 +74,11 @@ public class MoveMetaAilmentDetail {
   }
 
   /**
-   * Get name
+   * The name for this resource.
    * @return name
    */
-  @NotNull @Size(max = 100) 
-  @Schema(name = "name", requiredMode = Schema.RequiredMode.REQUIRED)
+  @NotNull @Size(max = 200) 
+  @Schema(name = "name", description = "The name for this resource.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("name")
   public String getName() {
     return name;
@@ -88,12 +88,12 @@ public class MoveMetaAilmentDetail {
     this.name = name;
   }
 
-  public MoveMetaAilmentDetail moves(List<@Valid AbilityDetailPokemonInnerPokemon> moves) {
+  public MoveMetaAilmentDetail moves(List<@Valid MoveSummary> moves) {
     this.moves = moves;
     return this;
   }
 
-  public MoveMetaAilmentDetail addMovesItem(AbilityDetailPokemonInnerPokemon movesItem) {
+  public MoveMetaAilmentDetail addMovesItem(MoveSummary movesItem) {
     if (this.moves == null) {
       this.moves = new ArrayList<>();
     }
@@ -102,17 +102,17 @@ public class MoveMetaAilmentDetail {
   }
 
   /**
-   * Get moves
+   * A list of moves that cause this ailment.
    * @return moves
    */
   
-  @Schema(name = "moves", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "moves", accessMode = Schema.AccessMode.READ_ONLY, description = "A list of moves that cause this ailment.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("moves")
-  public List<@Valid AbilityDetailPokemonInnerPokemon> getMoves() {
+  public List<@Valid MoveSummary> getMoves() {
     return moves;
   }
 
-  public void setMoves(List<@Valid AbilityDetailPokemonInnerPokemon> moves) {
+  public void setMoves(List<@Valid MoveSummary> moves) {
     this.moves = moves;
   }
 
@@ -130,11 +130,11 @@ public class MoveMetaAilmentDetail {
   }
 
   /**
-   * Get names
+   * The name of this resource listed in different languages.
    * @return names
    */
   
-  @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, description = "The name of this resource listed in different languages.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("names")
   public List<@Valid MoveMetaAilmentName> getNames() {
     return names;

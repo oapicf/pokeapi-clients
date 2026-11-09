@@ -18,33 +18,33 @@ resourceTypes {
     properties {
         id {
           type =  integer
-          description = ""
+          description = "The identifier for this resource."
           optional = true
         }
         name {
           type =  string
-          description = ""
+          description = "The name for this resource."
           optional = true
         }
         official {
           type =  boolean
-          description = ""
+          description = "Whether or not the games are published in this language."
           optional = false
         }
         iso639 {
           type =  string
-          description = ""
+          description = "The two-letter ISO 639-1 language code. Multiple PokéAPI language records may share this code."
           optional = true
         }
         iso3166 {
           type =  string
-          description = ""
+          description = "The two-letter ISO 3166-1 alpha-2 code of the country or region associated with this language record. Multiple PokéAPI language records may share this code."
           optional = true
         }
         names {
           type = array
           items.type = LanguageName
-          description = ""
+          description = "The name of this resource listed in different languages."
           optional = true
         }
     }

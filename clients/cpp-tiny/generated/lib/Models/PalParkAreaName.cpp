@@ -7,7 +7,7 @@ using namespace Tiny;
 PalParkAreaName::PalParkAreaName()
 {
 	name = std::string();
-	language = LanguageSummary();
+	language = null;
 }
 
 PalParkAreaName::PalParkAreaName(std::string jsonString)

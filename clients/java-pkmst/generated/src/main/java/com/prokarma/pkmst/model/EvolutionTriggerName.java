@@ -15,7 +15,7 @@ import io.swagger.annotations.ApiModelProperty;
  * EvolutionTriggerName
  */
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-10-25T05:48:09.645019047Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-11-09T13:49:28.343088631Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class EvolutionTriggerName   {
   @JsonProperty("name")
   private String name;
@@ -29,10 +29,10 @@ public class EvolutionTriggerName   {
   }
 
   /**
-   * Get name
+   * The localized name for an API resource in a specific language.
    * @return name
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The localized name for an API resource in a specific language.")
   public String getName() {
     return name;
   }
@@ -47,10 +47,10 @@ public class EvolutionTriggerName   {
   }
 
   /**
-   * Get language
+   * The language this name is in.
    * @return language
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The language this name is in.")
   public LanguageSummary getLanguage() {
     return language;
   }

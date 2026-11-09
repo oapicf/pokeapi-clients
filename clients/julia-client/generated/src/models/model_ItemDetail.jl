@@ -7,7 +7,6 @@
     ItemDetail(;
         id=nothing,
         name=nothing,
-        cost=nothing,
         fling_power=nothing,
         fling_effect=nothing,
         attributes=nothing,
@@ -15,6 +14,7 @@
         effect_entries=nothing,
         flavor_text_entries=nothing,
         game_indices=nothing,
+        prices=nothing,
         names=nothing,
         held_by_pokemon=nothing,
         sprites=nothing,
@@ -22,47 +22,47 @@
         machines=nothing,
     )
 
-    - id::Int64
-    - name::String
-    - cost::Int64
-    - fling_power::Int64
-    - fling_effect::ItemFlingEffectSummary
-    - attributes::Vector{AbilityDetailPokemonInnerPokemon}
-    - category::ItemCategorySummary
-    - effect_entries::Vector{ItemEffectText}
-    - flavor_text_entries::Vector{ItemFlavorText}
-    - game_indices::Vector{ItemGameIndex}
-    - names::Vector{ItemName}
-    - held_by_pokemon::Vector{ItemDetailHeldByPokemonInner}
-    - sprites::ItemDetailSprites
-    - baby_trigger_for::ItemDetailBabyTriggerFor
-    - machines::Vector{ItemDetailMachinesInner}
+    - id::Int64 : The identifier for this resource.
+    - name::String : The name for this resource.
+    - fling_power::Int64 : The power of the move Fling when used with this item.
+    - fling_effect::ItemFlingEffectSummary : The effect of the move Fling when used with this item.
+    - attributes::Vector{ItemAttributeSummary} : A list of attributes this item has.
+    - category::ItemCategorySummary : The category of items this item falls into.
+    - effect_entries::Vector{ItemEffectText} : The effect of this ability listed in different languages.
+    - flavor_text_entries::Vector{ItemFlavorText} : The flavor text of this ability listed in different languages.
+    - game_indices::Vector{ItemGameIndex} : A list of game indices relevent to this item by generation.
+    - prices::Vector{ItemPrice} : Purchase and sell prices by currency and version group. Prices may be null when the item cannot be bought or sold.
+    - names::Vector{ItemName} : The name of this item listed in different languages.
+    - held_by_pokemon::Vector{PokemonHeldItem} : A list of Pokémon that might be found in the wild holding this item.
+    - sprites::ItemSprites : A set of sprites used to depict this item in the game.
+    - baby_trigger_for::EvolutionChainSummary : An evolution chain this item requires to produce a bay during mating.
+    - machines::Vector{ItemMachine} : A list of the machines related to this item.
 """
 Base.@kwdef mutable struct ItemDetail <: OpenAPI.APIModel
     id::Union{Nothing, Int64} = nothing
     name::Union{Nothing, String} = nothing
-    cost::Union{Nothing, Int64} = nothing
     fling_power::Union{Nothing, Int64} = nothing
     fling_effect = nothing # spec type: Union{ Nothing, ItemFlingEffectSummary }
-    attributes::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{AbilityDetailPokemonInnerPokemon} }
+    attributes::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{ItemAttributeSummary} }
     category = nothing # spec type: Union{ Nothing, ItemCategorySummary }
     effect_entries::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{ItemEffectText} }
     flavor_text_entries::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{ItemFlavorText} }
     game_indices::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{ItemGameIndex} }
+    prices::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{ItemPrice} }
     names::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{ItemName} }
-    held_by_pokemon::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{ItemDetailHeldByPokemonInner} }
-    sprites = nothing # spec type: Union{ Nothing, ItemDetailSprites }
-    baby_trigger_for = nothing # spec type: Union{ Nothing, ItemDetailBabyTriggerFor }
-    machines::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{ItemDetailMachinesInner} }
+    held_by_pokemon::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{PokemonHeldItem} }
+    sprites = nothing # spec type: Union{ Nothing, ItemSprites }
+    baby_trigger_for = nothing # spec type: Union{ Nothing, EvolutionChainSummary }
+    machines::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{ItemMachine} }
 
-    function ItemDetail(id, name, cost, fling_power, fling_effect, attributes, category, effect_entries, flavor_text_entries, game_indices, names, held_by_pokemon, sprites, baby_trigger_for, machines, )
-        o = new(id, name, cost, fling_power, fling_effect, attributes, category, effect_entries, flavor_text_entries, game_indices, names, held_by_pokemon, sprites, baby_trigger_for, machines, )
+    function ItemDetail(id, name, fling_power, fling_effect, attributes, category, effect_entries, flavor_text_entries, game_indices, prices, names, held_by_pokemon, sprites, baby_trigger_for, machines, )
+        o = new(id, name, fling_power, fling_effect, attributes, category, effect_entries, flavor_text_entries, game_indices, prices, names, held_by_pokemon, sprites, baby_trigger_for, machines, )
         OpenAPI.validate_properties(o)
         return o
     end
 end # type ItemDetail
 
-const _property_types_ItemDetail = Dict{Symbol,String}(Symbol("id")=>"Int64", Symbol("name")=>"String", Symbol("cost")=>"Int64", Symbol("fling_power")=>"Int64", Symbol("fling_effect")=>"ItemFlingEffectSummary", Symbol("attributes")=>"Vector{AbilityDetailPokemonInnerPokemon}", Symbol("category")=>"ItemCategorySummary", Symbol("effect_entries")=>"Vector{ItemEffectText}", Symbol("flavor_text_entries")=>"Vector{ItemFlavorText}", Symbol("game_indices")=>"Vector{ItemGameIndex}", Symbol("names")=>"Vector{ItemName}", Symbol("held_by_pokemon")=>"Vector{ItemDetailHeldByPokemonInner}", Symbol("sprites")=>"ItemDetailSprites", Symbol("baby_trigger_for")=>"ItemDetailBabyTriggerFor", Symbol("machines")=>"Vector{ItemDetailMachinesInner}", )
+const _property_types_ItemDetail = Dict{Symbol,String}(Symbol("id")=>"Int64", Symbol("name")=>"String", Symbol("fling_power")=>"Int64", Symbol("fling_effect")=>"ItemFlingEffectSummary", Symbol("attributes")=>"Vector{ItemAttributeSummary}", Symbol("category")=>"ItemCategorySummary", Symbol("effect_entries")=>"Vector{ItemEffectText}", Symbol("flavor_text_entries")=>"Vector{ItemFlavorText}", Symbol("game_indices")=>"Vector{ItemGameIndex}", Symbol("prices")=>"Vector{ItemPrice}", Symbol("names")=>"Vector{ItemName}", Symbol("held_by_pokemon")=>"Vector{PokemonHeldItem}", Symbol("sprites")=>"ItemSprites", Symbol("baby_trigger_for")=>"EvolutionChainSummary", Symbol("machines")=>"Vector{ItemMachine}", )
 OpenAPI.property_type(::Type{ ItemDetail }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_ItemDetail[name]))}
 
 function OpenAPI.check_required(o::ItemDetail)
@@ -74,6 +74,7 @@ function OpenAPI.check_required(o::ItemDetail)
     o.effect_entries === nothing && (return false)
     o.flavor_text_entries === nothing && (return false)
     o.game_indices === nothing && (return false)
+    o.prices === nothing && (return false)
     o.names === nothing && (return false)
     o.held_by_pokemon === nothing && (return false)
     o.sprites === nothing && (return false)
@@ -85,7 +86,6 @@ end
 function OpenAPI.validate_properties(o::ItemDetail)
     OpenAPI.validate_property(ItemDetail, Symbol("id"), o.id)
     OpenAPI.validate_property(ItemDetail, Symbol("name"), o.name)
-    OpenAPI.validate_property(ItemDetail, Symbol("cost"), o.cost)
     OpenAPI.validate_property(ItemDetail, Symbol("fling_power"), o.fling_power)
     OpenAPI.validate_property(ItemDetail, Symbol("fling_effect"), o.fling_effect)
     OpenAPI.validate_property(ItemDetail, Symbol("attributes"), o.attributes)
@@ -93,6 +93,7 @@ function OpenAPI.validate_properties(o::ItemDetail)
     OpenAPI.validate_property(ItemDetail, Symbol("effect_entries"), o.effect_entries)
     OpenAPI.validate_property(ItemDetail, Symbol("flavor_text_entries"), o.flavor_text_entries)
     OpenAPI.validate_property(ItemDetail, Symbol("game_indices"), o.game_indices)
+    OpenAPI.validate_property(ItemDetail, Symbol("prices"), o.prices)
     OpenAPI.validate_property(ItemDetail, Symbol("names"), o.names)
     OpenAPI.validate_property(ItemDetail, Symbol("held_by_pokemon"), o.held_by_pokemon)
     OpenAPI.validate_property(ItemDetail, Symbol("sprites"), o.sprites)
@@ -104,9 +105,13 @@ function OpenAPI.validate_property(::Type{ ItemDetail }, name::Symbol, val)
 
 
     if name === Symbol("name")
-        OpenAPI.validate_param(name, "ItemDetail", :maxLength, val, 100)
+        OpenAPI.validate_param(name, "ItemDetail", :maxLength, val, 200)
     end
 
+    if name === Symbol("fling_power")
+        OpenAPI.validate_param(name, "ItemDetail", :maximum, val, 2147483647, false)
+        OpenAPI.validate_param(name, "ItemDetail", :minimum, val, -2147483648, false)
+    end
 
 
 

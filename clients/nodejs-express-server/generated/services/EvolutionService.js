@@ -7,16 +7,14 @@ const Service = require('./Service');
 *
 * limit Integer Number of results to return per page. (optional)
 * offset Integer The initial index from which to return the results. (optional)
-* q String > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
 * returns PaginatedEvolutionChainSummaryList
 * */
-const evolution_chain_list = ({ limit, offset, q }) => new Promise(
+const evolution_chain_list = ({ limit, offset }) => new Promise(
   async (resolve, reject) => {
     try {
       resolve(Service.successResponse({
         limit,
         offset,
-        q,
       }));
     } catch (e) {
       reject(Service.rejectResponse(
@@ -93,10 +91,58 @@ const evolution_trigger_retrieve = ({ id }) => new Promise(
     }
   },
 );
+/**
+* List evolution variables
+* Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+*
+* limit Integer Number of results to return per page. (optional)
+* offset Integer The initial index from which to return the results. (optional)
+* q String > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
+* returns PaginatedEvolutionVariableSummaryList
+* */
+const evolution_variable_list = ({ limit, offset, q }) => new Promise(
+  async (resolve, reject) => {
+    try {
+      resolve(Service.successResponse({
+        limit,
+        offset,
+        q,
+      }));
+    } catch (e) {
+      reject(Service.rejectResponse(
+        e.message || 'Invalid input',
+        e.status || 405,
+      ));
+    }
+  },
+);
+/**
+* Get evolution variable
+* Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+*
+* id String This parameter can be a string or an integer.
+* returns EvolutionVariableDetail
+* */
+const evolution_variable_retrieve = ({ id }) => new Promise(
+  async (resolve, reject) => {
+    try {
+      resolve(Service.successResponse({
+        id,
+      }));
+    } catch (e) {
+      reject(Service.rejectResponse(
+        e.message || 'Invalid input',
+        e.status || 405,
+      ));
+    }
+  },
+);
 
 module.exports = {
   evolution_chain_list,
   evolution_chain_retrieve,
   evolution_trigger_list,
   evolution_trigger_retrieve,
+  evolution_variable_list,
+  evolution_variable_retrieve,
 };

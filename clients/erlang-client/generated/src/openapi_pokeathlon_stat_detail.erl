@@ -7,7 +7,7 @@
 -type openapi_pokeathlon_stat_detail() ::
     #{ 'id' := integer(),
        'name' := binary(),
-       'affecting_natures' := openapi_pokeathlon_stat_detail_affecting_natures:openapi_pokeathlon_stat_detail_affecting_natures(),
+       'affecting_natures' := openapi_pokeathlon_stat_affecting_natures:openapi_pokeathlon_stat_affecting_natures(),
        'names' := list()
      }.
 

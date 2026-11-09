@@ -8,20 +8,32 @@
 import Foundation
 
 public struct BerryDetail: Codable {
+    /// The identifier for this resource.
     public var id: Int
+    /// The name for this resource.
     public var name: String
-    public var growthTime: Int
-    public var maxHarvest: Int
-    public var naturalGiftPower: Int
-    public var size: Int
-    public var smoothness: Int
-    public var soilDryness: Int
-    public var firmness: BerryFirmnessSummary
-    public var flavors: [BerryDetailFlavorsInner]
+    /// Time it takes the tree to grow one stage, in hours. Berry trees go through four of these growth stages before they can be picked.
+    public var growthTime: Int?
+    /// The maximum number of these berries that can grow on one tree in Generation IV.
+    public var maxHarvest: Int?
+    /// The power of the move \"Natural Gift\" when used with this Berry.
+    public var naturalGiftPower: Int?
+    /// The size of this Berry, in millimeters.
+    public var size: Int?
+    /// The smoothness of this Berry, used in making Pokéblocks or Poffins.
+    public var smoothness: Int?
+    /// The speed at which this Berry dries out the soil as it grows. A higher rate means the soil dries more quickly.
+    public var soilDryness: Int?
+    /// The firmness of this berry, used in making Pokéblocks or Poffins.
+    public var firmness: BerryFirmnessSummary?
+    /// A list of references to each flavor a berry can have and the potency of each of those flavors in regard to this berry.
+    public var flavors: [BerryFlavorMap]
+    /// Berries are actually items. This is a reference to the item specific data for this berry.
     public var item: ItemSummary
-    public var naturalGiftType: TypeSummary
+    /// The type inherited by \"Natural Gift\" when used with this Berry.
+    public var naturalGiftType: TypeSummary?
 
-    public init(id: Int, name: String, growthTime: Int, maxHarvest: Int, naturalGiftPower: Int, size: Int, smoothness: Int, soilDryness: Int, firmness: BerryFirmnessSummary, flavors: [BerryDetailFlavorsInner], item: ItemSummary, naturalGiftType: TypeSummary) {
+    public init(id: Int, name: String, growthTime: Int? = nil, maxHarvest: Int? = nil, naturalGiftPower: Int? = nil, size: Int? = nil, smoothness: Int? = nil, soilDryness: Int? = nil, firmness: BerryFirmnessSummary?, flavors: [BerryFlavorMap], item: ItemSummary, naturalGiftType: TypeSummary?) {
         self.id = id
         self.name = name
         self.growthTime = growthTime
@@ -55,14 +67,14 @@ public struct BerryDetail: Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         id = try container.decode(Int.self, forKey: .id)
         name = try container.decode(String.self, forKey: .name)
-        growthTime = try container.decode(Int.self, forKey: .growthTime)
-        maxHarvest = try container.decode(Int.self, forKey: .maxHarvest)
-        naturalGiftPower = try container.decode(Int.self, forKey: .naturalGiftPower)
-        size = try container.decode(Int.self, forKey: .size)
-        smoothness = try container.decode(Int.self, forKey: .smoothness)
-        soilDryness = try container.decode(Int.self, forKey: .soilDryness)
+        growthTime = try container.decodeIfPresent(Int.self, forKey: .growthTime)
+        maxHarvest = try container.decodeIfPresent(Int.self, forKey: .maxHarvest)
+        naturalGiftPower = try container.decodeIfPresent(Int.self, forKey: .naturalGiftPower)
+        size = try container.decodeIfPresent(Int.self, forKey: .size)
+        smoothness = try container.decodeIfPresent(Int.self, forKey: .smoothness)
+        soilDryness = try container.decodeIfPresent(Int.self, forKey: .soilDryness)
         firmness = try container.decode(BerryFirmnessSummary.self, forKey: .firmness)
-        flavors = try container.decode([BerryDetailFlavorsInner].self, forKey: .flavors)
+        flavors = try container.decode([BerryFlavorMap].self, forKey: .flavors)
         item = try container.decode(ItemSummary.self, forKey: .item)
         naturalGiftType = try container.decode(TypeSummary.self, forKey: .naturalGiftType)
     }
@@ -71,12 +83,12 @@ public struct BerryDetail: Codable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(id, forKey: .id)
         try container.encode(name, forKey: .name)
-        try container.encode(growthTime, forKey: .growthTime)
-        try container.encode(maxHarvest, forKey: .maxHarvest)
-        try container.encode(naturalGiftPower, forKey: .naturalGiftPower)
-        try container.encode(size, forKey: .size)
-        try container.encode(smoothness, forKey: .smoothness)
-        try container.encode(soilDryness, forKey: .soilDryness)
+        try container.encodeIfPresent(growthTime, forKey: .growthTime)
+        try container.encodeIfPresent(maxHarvest, forKey: .maxHarvest)
+        try container.encodeIfPresent(naturalGiftPower, forKey: .naturalGiftPower)
+        try container.encodeIfPresent(size, forKey: .size)
+        try container.encodeIfPresent(smoothness, forKey: .smoothness)
+        try container.encodeIfPresent(soilDryness, forKey: .soilDryness)
         try container.encode(firmness, forKey: .firmness)
         try container.encode(flavors, forKey: .flavors)
         try container.encode(item, forKey: .item)

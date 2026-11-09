@@ -3,8 +3,11 @@ package org.openapitools.client.model
 
 
 case class PokemonStat (
+    /* The base value of the stat. */
     _baseStat: Integer,
+    /* The effort points (EV) the Pokémon has in the stat. */
     _effort: Integer,
+    /* The stat the Pokémon has. */
     _stat: StatSummary
 )
 object PokemonStat {

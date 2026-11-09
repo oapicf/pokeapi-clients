@@ -10,6 +10,7 @@ use Articus\DataTransfer\Annotation as DTA;
 class EvolutionChainDetail
 {
     /**
+     * The identifier for this resource.
      * @DTA\Data(field="id")
      * @DTA\Validator(name="Scalar", options={"type":"int"})
      * @var int|null
@@ -17,6 +18,7 @@ class EvolutionChainDetail
     public $id;
 
     /**
+     * The item that a Pokémon would be holding when mating that would trigger the egg hatching a baby Pokémon rather than a basic Pokémon.
      * @DTA\Data(field="baby_trigger_item")
      * @DTA\Strategy(name="Object", options={"type":\App\DTO\ItemSummary::class})
      * @DTA\Validator(name="TypeCompliant", options={"type":\App\DTO\ItemSummary::class})
@@ -25,10 +27,11 @@ class EvolutionChainDetail
     public $baby_trigger_item;
 
     /**
+     * The base chain link object. Each link contains evolution details for a Pokémon in the chain. Each link references the next Pokémon in the natural evolution order.
      * @DTA\Data(field="chain")
-     * @DTA\Strategy(name="Object", options={"type":\App\DTO\EvolutionChainDetailChain::class})
-     * @DTA\Validator(name="TypeCompliant", options={"type":\App\DTO\EvolutionChainDetailChain::class})
-     * @var \App\DTO\EvolutionChainDetailChain|null
+     * @DTA\Strategy(name="Object", options={"type":\App\DTO\EvolutionChainLink::class})
+     * @DTA\Validator(name="TypeCompliant", options={"type":\App\DTO\EvolutionChainLink::class})
+     * @var \App\DTO\EvolutionChainLink|null
      */
     public $chain;
 

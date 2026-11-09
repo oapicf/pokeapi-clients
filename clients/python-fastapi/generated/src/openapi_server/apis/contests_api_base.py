@@ -11,7 +11,7 @@ from openapi_server.models.paginated_contest_effect_summary_list import Paginate
 from openapi_server.models.paginated_contest_type_summary_list import PaginatedContestTypeSummaryList
 from openapi_server.models.paginated_super_contest_effect_summary_list import PaginatedSuperContestEffectSummaryList
 from openapi_server.models.super_contest_effect_detail import SuperContestEffectDetail
-from openapi_server.security_api import get_token_basicAuth, get_token_cookieAuth
+
 
 class BaseContestsApi:
     subclasses: ClassVar[Tuple] = ()
@@ -41,7 +41,6 @@ class BaseContestsApi:
         self,
         limit: Annotated[Optional[int], Field(description="Number of results to return per page.")],
         offset: Annotated[Optional[int], Field(description="The initial index from which to return the results.")],
-        q: Annotated[Optional[str], Field(description="> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")],
     ) -> PaginatedContestEffectSummaryList:
         """Contest effects refer to the effects of moves when used in contests."""
         ...
@@ -59,7 +58,6 @@ class BaseContestsApi:
         self,
         limit: Annotated[Optional[int], Field(description="Number of results to return per page.")],
         offset: Annotated[Optional[int], Field(description="The initial index from which to return the results.")],
-        q: Annotated[Optional[str], Field(description="> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")],
     ) -> PaginatedSuperContestEffectSummaryList:
         """Super contest effects refer to the effects of moves when used in super contests."""
         ...

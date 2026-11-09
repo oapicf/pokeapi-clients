@@ -1,0 +1,43 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server StatAffectingNatures"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a StatAffectingNatures"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  NatureSummary = openapi_server.resourceTypes.NatureSummary
+}
+resourceTypes {
+
+  StatAffectingNatures {
+    title = StatAffectingNatures
+    description = StatAffectingNatures
+    derivedFrom = Root
+    properties {
+        increase {
+          type = array
+          items.type = NatureSummary
+          description = "A list of natures and how they change the referenced stat."
+          optional = true
+        }
+        decrease {
+          type = array
+          items.type = NatureSummary
+          description = "A list of nature sand how they change the referenced stat."
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  StatAffectingNatures {
+    title = StatAffectingNatures
+    description = StatAffectingNatures
+    implements = openapi_server.resourceTypes.StatAffectingNatures
+
+  }
+}

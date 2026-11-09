@@ -16,6 +16,7 @@ class CharacteristicSummary {
     required this.url,
   });
 
+  /// The URL of the referenced resource.
   String url;
 
   @override

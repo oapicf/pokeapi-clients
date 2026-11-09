@@ -26,7 +26,7 @@ VersionDetail::__init()
 	//id = int(0);
 	//name = std::string();
 	//new std::list()std::list> names;
-	//version_group = new VersionGroupSummary();
+	//version_group = null;
 }
 
 void

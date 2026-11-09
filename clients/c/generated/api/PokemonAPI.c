@@ -9,6 +9,8 @@
 #define MAX_NUMBER_LENGTH_LONG 21
 
 
+// List abilities
+//
 // Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
 //
 paginated_ability_summary_list_t*
@@ -151,6 +153,8 @@ end:
 
 }
 
+// Get ability
+//
 // Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
 //
 ability_detail_t*
@@ -232,12 +236,12 @@ end:
 
 }
 
-// List charecterictics
+// List characteristics
 //
 // Characteristics indicate which stat contains a Pokémon's highest IV. A Pokémon's Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail.
 //
 paginated_characteristic_summary_list_t*
-PokemonAPI_characteristicList(apiClient_t *apiClient, int *limit, int *offset, char *q)
+PokemonAPI_characteristicList(apiClient_t *apiClient, int *limit, int *offset)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -281,18 +285,6 @@ PokemonAPI_characteristicList(apiClient_t *apiClient, int *limit, int *offset, c
         snprintf(valueQuery_offset, MAX_NUMBER_LENGTH, "%d", *offset);
         keyPairQuery_offset = keyValuePair_create(keyQuery_offset, valueQuery_offset);
         list_addElement(localVarQueryParameters,keyPairQuery_offset);
-    }
-
-    // query parameters
-    char *keyQuery_q = NULL;
-    char * valueQuery_q = NULL;
-    keyValuePair_t *keyPairQuery_q = 0;
-    if (q)
-    {
-        keyQuery_q = strdup("q");
-        valueQuery_q = strdup((q));
-        keyPairQuery_q = keyValuePair_create(keyQuery_q, valueQuery_q);
-        list_addElement(localVarQueryParameters,keyPairQuery_q);
     }
     list_addElement(localVarHeaderType,"application/json"); //produces
     apiClient_invoke(apiClient,
@@ -356,18 +348,6 @@ PokemonAPI_characteristicList(apiClient_t *apiClient, int *limit, int *offset, c
     if(keyPairQuery_offset){
         keyValuePair_free(keyPairQuery_offset);
         keyPairQuery_offset = NULL;
-    }
-    if(keyQuery_q){
-        free(keyQuery_q);
-        keyQuery_q = NULL;
-    }
-    if(valueQuery_q){
-        free(valueQuery_q);
-        valueQuery_q = NULL;
-    }
-    if(keyPairQuery_q){
-        keyValuePair_free(keyPairQuery_q);
-        keyPairQuery_q = NULL;
     }
     return elementToReturn;
 end:

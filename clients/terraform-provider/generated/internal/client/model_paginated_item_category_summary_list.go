@@ -4,8 +4,8 @@ package client
 
 // PaginatedItemCategorySummaryList - PaginatedItemCategorySummaryList struct
 type PaginatedItemCategorySummaryList struct {
-	Count int32 `json:"count,omitempty"`
+	Count int32 `json:"count"`
 	Next string `json:"next,omitempty"`
 	Previous string `json:"previous,omitempty"`
-	Results []ItemCategorySummary `json:"results,omitempty"`
+	Results []ItemCategorySummary `json:"results"`
 }

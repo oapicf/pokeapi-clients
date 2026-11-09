@@ -7,12 +7,12 @@
     {
       "name": "id",
       "type": "int",
-      "doc": ""
+      "doc": "The identifier for this resource."
     },
     {
       "name": "name",
       "type": "string",
-      "doc": ""
+      "doc": "The name for this resource."
     },
     {
       "name": "categories",
@@ -20,7 +20,7 @@
         "type": "array",
         "items": "model.ItemCategorySummary"
       },
-      "doc": ""
+      "doc": "A list of item categories that are relevant to this item pocket."
     },
     {
       "name": "names",
@@ -28,7 +28,7 @@
         "type": "array",
         "items": "model.ItemPocketName"
       },
-      "doc": ""
+      "doc": "The name of this resource listed in different languages."
     }
   ]
 

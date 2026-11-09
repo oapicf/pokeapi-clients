@@ -74,6 +74,7 @@ class GrowthRateDetail(Model):
     def id(self) -> int:
         """Gets the id of this GrowthRateDetail.
 
+        The identifier for this resource.  # noqa: E501
 
         :return: The id of this GrowthRateDetail.
         :rtype: int
@@ -84,6 +85,7 @@ class GrowthRateDetail(Model):
     def id(self, id: int):
         """Sets the id of this GrowthRateDetail.
 
+        The identifier for this resource.  # noqa: E501
 
         :param id: The id of this GrowthRateDetail.
         :type id: int
@@ -97,6 +99,7 @@ class GrowthRateDetail(Model):
     def name(self) -> str:
         """Gets the name of this GrowthRateDetail.
 
+        The name for this resource.  # noqa: E501
 
         :return: The name of this GrowthRateDetail.
         :rtype: str
@@ -107,14 +110,15 @@ class GrowthRateDetail(Model):
     def name(self, name: str):
         """Sets the name of this GrowthRateDetail.
 
+        The name for this resource.  # noqa: E501
 
         :param name: The name of this GrowthRateDetail.
         :type name: str
         """
         if name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
-        if name is not None and len(name) > 100:
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `100`")  # noqa: E501
+        if name is not None and len(name) > 200:
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `200`")  # noqa: E501
 
         self._name = name
 
@@ -122,6 +126,7 @@ class GrowthRateDetail(Model):
     def formula(self) -> str:
         """Gets the formula of this GrowthRateDetail.
 
+        The formula used to calculate the rate at which the Pokémon species gains level.  # noqa: E501
 
         :return: The formula of this GrowthRateDetail.
         :rtype: str
@@ -132,6 +137,7 @@ class GrowthRateDetail(Model):
     def formula(self, formula: str):
         """Sets the formula of this GrowthRateDetail.
 
+        The formula used to calculate the rate at which the Pokémon species gains level.  # noqa: E501
 
         :param formula: The formula of this GrowthRateDetail.
         :type formula: str
@@ -147,6 +153,7 @@ class GrowthRateDetail(Model):
     def descriptions(self) -> List[GrowthRateDescription]:
         """Gets the descriptions of this GrowthRateDetail.
 
+        The descriptions of this characteristic listed in different languages.  # noqa: E501
 
         :return: The descriptions of this GrowthRateDetail.
         :rtype: List[GrowthRateDescription]
@@ -157,6 +164,7 @@ class GrowthRateDetail(Model):
     def descriptions(self, descriptions: List[GrowthRateDescription]):
         """Sets the descriptions of this GrowthRateDetail.
 
+        The descriptions of this characteristic listed in different languages.  # noqa: E501
 
         :param descriptions: The descriptions of this GrowthRateDetail.
         :type descriptions: List[GrowthRateDescription]
@@ -170,6 +178,7 @@ class GrowthRateDetail(Model):
     def levels(self) -> List[Experience]:
         """Gets the levels of this GrowthRateDetail.
 
+        A list of levels and the amount of experienced needed to atain them based on this growth rate.  # noqa: E501
 
         :return: The levels of this GrowthRateDetail.
         :rtype: List[Experience]
@@ -180,6 +189,7 @@ class GrowthRateDetail(Model):
     def levels(self, levels: List[Experience]):
         """Sets the levels of this GrowthRateDetail.
 
+        A list of levels and the amount of experienced needed to atain them based on this growth rate.  # noqa: E501
 
         :param levels: The levels of this GrowthRateDetail.
         :type levels: List[Experience]
@@ -193,6 +203,7 @@ class GrowthRateDetail(Model):
     def pokemon_species(self) -> List[PokemonSpeciesSummary]:
         """Gets the pokemon_species of this GrowthRateDetail.
 
+        A list of Pokémon species that gain levels at this growth rate.  # noqa: E501
 
         :return: The pokemon_species of this GrowthRateDetail.
         :rtype: List[PokemonSpeciesSummary]
@@ -203,6 +214,7 @@ class GrowthRateDetail(Model):
     def pokemon_species(self, pokemon_species: List[PokemonSpeciesSummary]):
         """Sets the pokemon_species of this GrowthRateDetail.
 
+        A list of Pokémon species that gain levels at this growth rate.  # noqa: E501
 
         :param pokemon_species: The pokemon_species of this GrowthRateDetail.
         :type pokemon_species: List[PokemonSpeciesSummary]

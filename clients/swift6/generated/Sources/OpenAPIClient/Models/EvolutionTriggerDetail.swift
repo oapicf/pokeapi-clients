@@ -9,13 +9,17 @@ import Foundation
 
 public struct EvolutionTriggerDetail: Sendable, Codable, Hashable {
 
-    public static let nameRule = StringRule(minLength: nil, maxLength: 100, pattern: nil)
+    public static let nameRule = StringRule(minLength: nil, maxLength: 200, pattern: nil)
+    /** The identifier for this resource. */
     public var id: Int
+    /** The name for this resource. */
     public var name: String
+    /** The name of this resource listed in different languages. */
     public var names: [EvolutionTriggerName]
-    public var pokemonSpecies: [AbilityDetailPokemonInnerPokemon]
+    /** A list of pokemon species that result from this evolution trigger. */
+    public var pokemonSpecies: [PokemonSpeciesSummary]
 
-    public init(id: Int, name: String, names: [EvolutionTriggerName], pokemonSpecies: [AbilityDetailPokemonInnerPokemon]) {
+    public init(id: Int, name: String, names: [EvolutionTriggerName], pokemonSpecies: [PokemonSpeciesSummary]) {
         self.id = id
         self.name = name
         self.names = names

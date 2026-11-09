@@ -15,11 +15,11 @@
 
 typedef struct region_detail_t region_detail_t;
 
-#include "ability_detail_pokemon_inner_pokemon.h"
 #include "generation_summary.h"
 #include "location_summary.h"
 #include "pokedex_summary.h"
 #include "region_name.h"
+#include "version_group_summary.h"
 
 
 

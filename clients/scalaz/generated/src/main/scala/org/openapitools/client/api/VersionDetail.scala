@@ -12,10 +12,14 @@ import org.joda.time.DateTime
 import VersionDetail._
 
 case class VersionDetail (
+  /* The identifier for this resource. */
   id: Integer,
-name: String,
-names: List[VersionName],
-versionGroup: VersionGroupSummary)
+/* The name for this resource. */
+  name: String,
+/* The name of this resource listed in different languages. */
+  names: List[VersionName],
+/* The version group this version belongs to. */
+  versionGroup: VersionGroupSummary)
 
 object VersionDetail {
   import DateTimeCodecs._

@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**level** | **int** |  | 
-**experience** | **int** |  | 
+**level** | **int** | The level gained. | 
+**experience** | **int** | The amount of experience required to reach the referenced level. | 
 
 ## Example
 

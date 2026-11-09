@@ -1,8 +1,8 @@
 /**
  * PokéAPI
- * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+ * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
  *
- * OpenAPI spec version: 2.7.0
+ * OpenAPI spec version: 2.10.0
  *
  * Contact: blah+oapicf@cliffano.com
  *
@@ -23,10 +23,14 @@ import upickle.default.*
 
         
 case class PaginatedEncounterConditionValueSummaryList(
-    count: Option[Int] = None ,
+        /* The total number of resources available from this API. */
+    count: Int,
+        /* The URL for the next page in the list, or null if there is no next page. */
     next: Option[URI] = None ,
+        /* The URL for the previous page in the list, or null if there is no previous page. */
     previous: Option[URI] = None ,
-    results: Seq[EncounterConditionValueSummary] = Nil 
+        /* A list of API resources on this page. */
+    results: Seq[EncounterConditionValueSummary]
 
 
 ) {
@@ -36,7 +40,7 @@ def asJson: ujson.Value = asData.asJson
 
 def asData : PaginatedEncounterConditionValueSummaryListData = {
 PaginatedEncounterConditionValueSummaryListData(
-    count = count.getOrElse(0) /*  1 */,
+    count = count /* 2 */,
     next = next.map(_.asData).getOrElse("") /* 4 */,
     previous = previous.map(_.asData).getOrElse("") /* 4 */,
     results = results.map(_.asData) /* 6 */

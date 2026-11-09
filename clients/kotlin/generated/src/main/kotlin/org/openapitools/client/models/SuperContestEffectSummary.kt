@@ -30,12 +30,13 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param url 
+ * @param url The URL of the referenced resource.
  */
 
 
 data class SuperContestEffectSummary (
 
+    /* The URL of the referenced resource. */
     @Json(name = "url")
     val url: java.net.URI
 

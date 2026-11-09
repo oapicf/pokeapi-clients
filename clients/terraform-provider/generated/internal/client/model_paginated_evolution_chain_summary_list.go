@@ -4,8 +4,8 @@ package client
 
 // PaginatedEvolutionChainSummaryList - PaginatedEvolutionChainSummaryList struct
 type PaginatedEvolutionChainSummaryList struct {
-	Count int32 `json:"count,omitempty"`
+	Count int32 `json:"count"`
 	Next string `json:"next,omitempty"`
 	Previous string `json:"previous,omitempty"`
-	Results []EvolutionChainSummary `json:"results,omitempty"`
+	Results []EvolutionChainSummary `json:"results"`
 }

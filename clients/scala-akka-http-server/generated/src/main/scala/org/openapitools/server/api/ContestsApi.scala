@@ -26,8 +26,8 @@ class ContestsApi(
   lazy val route: Route =
     path("api" / "v2" / "contest-effect") { 
       get { 
-        parameters("limit".as[Int].?, "offset".as[Int].?, "q".as[String].?) { (limit, offset, q) => 
-            contestsService.contestEffectList(limit = limit, offset = offset, q = q)
+        parameters("limit".as[Int].?, "offset".as[Int].?) { (limit, offset) => 
+            contestsService.contestEffectList(limit = limit, offset = offset)
         }
       }
     } ~
@@ -50,8 +50,8 @@ class ContestsApi(
     } ~
     path("api" / "v2" / "super-contest-effect") { 
       get { 
-        parameters("limit".as[Int].?, "offset".as[Int].?, "q".as[String].?) { (limit, offset, q) => 
-            contestsService.superContestEffectList(limit = limit, offset = offset, q = q)
+        parameters("limit".as[Int].?, "offset".as[Int].?) { (limit, offset) => 
+            contestsService.superContestEffectList(limit = limit, offset = offset)
         }
       }
     } ~
@@ -70,7 +70,7 @@ trait ContestsApiService {
   /**
    * Code: 200, Message: , DataType: PaginatedContestEffectSummaryList
    */
-  def contestEffectList(limit: Option[Int], offset: Option[Int], q: Option[String])
+  def contestEffectList(limit: Option[Int], offset: Option[Int])
       (implicit toEntityMarshallerPaginatedContestEffectSummaryList: ToEntityMarshaller[PaginatedContestEffectSummaryList]): Route
 
   def contestEffectRetrieve200(responseContestEffectDetail: ContestEffectDetail)(implicit toEntityMarshallerContestEffectDetail: ToEntityMarshaller[ContestEffectDetail]): Route =
@@ -102,7 +102,7 @@ trait ContestsApiService {
   /**
    * Code: 200, Message: , DataType: PaginatedSuperContestEffectSummaryList
    */
-  def superContestEffectList(limit: Option[Int], offset: Option[Int], q: Option[String])
+  def superContestEffectList(limit: Option[Int], offset: Option[Int])
       (implicit toEntityMarshallerPaginatedSuperContestEffectSummaryList: ToEntityMarshaller[PaginatedSuperContestEffectSummaryList]): Route
 
   def superContestEffectRetrieve200(responseSuperContestEffectDetail: SuperContestEffectDetail)(implicit toEntityMarshallerSuperContestEffectDetail: ToEntityMarshaller[SuperContestEffectDetail]): Route =

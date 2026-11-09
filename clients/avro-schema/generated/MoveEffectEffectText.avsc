@@ -1,0 +1,24 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "MoveEffectEffectText",
+  "fields": [
+    {
+      "name": "effect",
+      "type": "string",
+      "doc": "The localized effect text for an API resource in a specific language."
+    },
+    {
+      "name": "short_effect",
+      "type": "string",
+      "doc": "The localized effect text in brief."
+    },
+    {
+      "name": "language",
+      "type": "model.LanguageSummary",
+      "doc": "The language this effect is in."
+    }
+  ]
+
+}

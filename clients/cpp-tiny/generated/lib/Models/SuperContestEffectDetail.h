@@ -48,32 +48,32 @@ public:
 	 */
     void fromJson(std::string jsonObj);
 
-	/*! \brief Get 
+	/*! \brief Get The identifier for this resource.
 	 */
 	int getId();
 
-	/*! \brief Set 
+	/*! \brief Set The identifier for this resource.
 	 */
 	void setId(int id);
-	/*! \brief Get 
+	/*! \brief Get The level of appeal this super contest effect has.
 	 */
 	int getAppeal();
 
-	/*! \brief Set 
+	/*! \brief Set The level of appeal this super contest effect has.
 	 */
 	void setAppeal(int appeal);
-	/*! \brief Get 
+	/*! \brief Get The flavor text of this super contest effect listed in different languages.
 	 */
 	std::list<SuperContestEffectFlavorText> getFlavorTextEntries();
 
-	/*! \brief Set 
+	/*! \brief Set The flavor text of this super contest effect listed in different languages.
 	 */
 	void setFlavorTextEntries(std::list<SuperContestEffectFlavorText> flavor_text_entries);
-	/*! \brief Get 
+	/*! \brief Get A list of moves that have the effect when used in super contests.
 	 */
 	std::list<MoveSummary> getMoves();
 
-	/*! \brief Set 
+	/*! \brief Set A list of moves that have the effect when used in super contests.
 	 */
 	void setMoves(std::list<MoveSummary> moves);
 

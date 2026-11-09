@@ -15,47 +15,56 @@
                 
                 
                 ; [@key "id"]
-                                              name: string
+                    (** The identifier for this resource. *)
+                                      name: string
                   
                   
                 
                 
                 ; [@key "name"]
-                                              is_main_series: bool
+                    (** The name for this resource. *)
+                                      is_main_series: bool
                   
                    option [@default None]
                 
                 
                 ; [@key "is_main_series"]
-                                              generation: Generation_summary.t
+                    (** Whether or not this ability originated in the main series of the video games. *)
+                                      generation: Generation_summary.t
                   
                   
                 
                 
                 ; [@key "generation"]
-                                              names: Ability_name.t list
+                    (** The generation this ability originated in. *)
+                                      names: Ability_name.t list
                 
                 
                 ; [@key "names"]
-                                              effect_entries: Ability_effect_text.t list
+                    (** The name of this resource listed in different languages. *)
+                                      effect_entries: Ability_effect_text.t list
                 
                 
                 ; [@key "effect_entries"]
-                                              effect_changes: Ability_change.t list
+                    (** The effect of this ability listed in different languages. *)
+                                      effect_changes: Ability_change.t list
                 
                 
                 ; [@key "effect_changes"]
-                                              flavor_text_entries: Ability_flavor_text.t list
+                    (** The list of previous effects this ability has had across version groups. *)
+                                      flavor_text_entries: Ability_flavor_text.t list
                 
                 
                 ; [@key "flavor_text_entries"]
-                                              pokemon: Ability_detail_pokemon_inner.t list
+                    (** The flavor text of this ability listed in different languages. *)
+                                      pokemon: Ability_pokemon_detail.t list
                 
                 
                 ; [@key "pokemon"]
-                        } [@@deriving yojson { strict = false }, show, eq ];;
+                    (** A list of Pokémon that could potentially have this ability. *)
+                } [@@deriving yojson { strict = false }, show, eq ];;
         
-        let create (id : int32) (name : string) (generation : Generation_summary.t) (names : Ability_name.t list) (effect_entries : Ability_effect_text.t list) (effect_changes : Ability_change.t list) (flavor_text_entries : Ability_flavor_text.t list) (pokemon : Ability_detail_pokemon_inner.t list) : t = {
+        let create (id : int32) (name : string) (generation : Generation_summary.t) (names : Ability_name.t list) (effect_entries : Ability_effect_text.t list) (effect_changes : Ability_change.t list) (flavor_text_entries : Ability_flavor_text.t list) (pokemon : Ability_pokemon_detail.t list) : t = {
             id = id;
             name = name;
             is_main_series = None;

@@ -10,8 +10,8 @@
 #include <cstdint>
 #include <string>
 #include <vector>
-#include "PokemonShapeDetailAwesomeNamesInner.h"
-#include "PokemonShapeDetailNamesInner.h"
+#include "PokemonShapeAwesomeName.h"
+#include "PokemonShapeName.h"
 #include "PokemonSpeciesSummary.h"
 
 
@@ -31,10 +31,10 @@ public:
     void setId(const int& id);
     [[nodiscard]] std::string getName() const;
     void setName(const std::string& name);
-    [[nodiscard]] std::vector<PokemonShapeDetail_awesome_names_inner> getAwesomeNames() const;
-    void setAwesomeNames(const std::vector<PokemonShapeDetail_awesome_names_inner>& awesomeNames);
-    [[nodiscard]] std::vector<PokemonShapeDetail_names_inner> getNames() const;
-    void setNames(const std::vector<PokemonShapeDetail_names_inner>& names);
+    [[nodiscard]] std::vector<PokemonShapeAwesomeName> getAwesomeNames() const;
+    void setAwesomeNames(const std::vector<PokemonShapeAwesomeName>& awesomeNames);
+    [[nodiscard]] std::vector<PokemonShapeName> getNames() const;
+    void setNames(const std::vector<PokemonShapeName>& names);
     [[nodiscard]] std::vector<PokemonSpeciesSummary> getPokemonSpecies() const;
     void setPokemonSpecies(const std::vector<PokemonSpeciesSummary>& pokemonSpecies);
 
@@ -46,8 +46,8 @@ public:
 private:
     int id;
     std::string name;
-    std::vector<PokemonShapeDetail_awesome_names_inner> awesomeNames;
-    std::vector<PokemonShapeDetail_names_inner> names;
+    std::vector<PokemonShapeAwesomeName> awesomeNames;
+    std::vector<PokemonShapeName> names;
     std::vector<PokemonSpeciesSummary> pokemonSpecies;
 };
 

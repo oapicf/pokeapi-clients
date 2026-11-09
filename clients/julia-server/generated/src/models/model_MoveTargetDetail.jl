@@ -12,11 +12,11 @@
         names=nothing,
     )
 
-    - id::Int64
-    - name::String
-    - descriptions::Vector{MoveTargetDescription}
-    - moves::Vector{MoveSummary}
-    - names::Vector{MoveTargetName}
+    - id::Int64 : The identifier for this resource.
+    - name::String : The name for this resource.
+    - descriptions::Vector{MoveTargetDescription} : The description of this resource listed in different languages.
+    - moves::Vector{MoveSummary} : A list of moves that that are directed at this target.
+    - names::Vector{MoveTargetName} : The name of this resource listed in different languages.
 """
 Base.@kwdef mutable struct MoveTargetDetail <: OpenAPI.APIModel
     id::Union{Nothing, Int64} = nothing
@@ -56,7 +56,7 @@ function OpenAPI.validate_property(::Type{ MoveTargetDetail }, name::Symbol, val
 
 
     if name === Symbol("name")
-        OpenAPI.validate_param(name, "MoveTargetDetail", :maxLength, val, 100)
+        OpenAPI.validate_param(name, "MoveTargetDetail", :maxLength, val, 200)
     end
 
 

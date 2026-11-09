@@ -24,8 +24,8 @@ void
 ItemFlavorText::__init()
 {
 	//text = std::string();
-	//version_group = new VersionGroupSummary();
-	//language = new LanguageSummary();
+	//version_group = null;
+	//language = null;
 }
 
 void

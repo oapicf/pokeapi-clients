@@ -17,23 +17,23 @@ import io.swagger.v3.oas.annotations.media.Schema
 
 /**
  * 
- * @param flavorText 
- * @param language 
- * @param versionGroup 
+ * @param flavorText The localized flavor text for an api resource in a specific language.
+ * @param language The language this name is in.
+ * @param versionGroup The version group that uses this flavor text.
  */
 data class MoveFlavorText(
 
-    @Schema(required = true, description = "")
+    @Schema(required = true, description = "The localized flavor text for an api resource in a specific language.")
     @param:JsonProperty("flavor_text", required = true)
     @get:JsonProperty("flavor_text", required = true) val flavorText: kotlin.String,
 
     @field:Valid
-    @Schema(required = true, description = "")
+    @Schema(required = true, description = "The language this name is in.")
     @param:JsonProperty("language", required = true)
     @get:JsonProperty("language", required = true) val language: LanguageSummary,
 
     @field:Valid
-    @Schema(required = true, description = "")
+    @Schema(required = true, description = "The version group that uses this flavor text.")
     @param:JsonProperty("version_group", required = true)
     @get:JsonProperty("version_group", required = true) val versionGroup: VersionGroupSummary
 ) {

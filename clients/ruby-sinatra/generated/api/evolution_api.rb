@@ -23,13 +23,6 @@ MyApp.add_route('GET', '/api/v2/evolution-chain/', {
       "allowableValues" => "",
       "paramType" => "query",
     },
-    {
-      "name" => "q",
-      "description" => "&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ",
-      "dataType" => "String",
-      "allowableValues" => "",
-      "paramType" => "query",
-    },
     ]}) do
   cross_origin
   # the guts live here
@@ -104,6 +97,65 @@ MyApp.add_route('GET', '/api/v2/evolution-trigger/{id}/', {
   "responseClass" => "EvolutionTriggerDetail",
   "endpoint" => "/api/v2/evolution-trigger/{id}/",
   "notes" => "Evolution triggers are the events and conditions that cause a Pokémon to evolve. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Methods_of_evolution) for greater detail.",
+  "parameters" => [
+    {
+      "name" => "id",
+      "description" => "This parameter can be a string or an integer.",
+      "dataType" => "String",
+      "paramType" => "path",
+    },
+    ]}) do
+  cross_origin
+  # the guts live here
+
+  {"message" => "yes, it worked"}.to_json
+end
+
+
+MyApp.add_route('GET', '/api/v2/evolution-variable/', {
+  "resourcePath" => "/Evolution",
+  "summary" => "List evolution variables",
+  "nickname" => "evolution_variable_list",
+  "responseClass" => "PaginatedEvolutionVariableSummaryList",
+  "endpoint" => "/api/v2/evolution-variable/",
+  "notes" => "Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.",
+  "parameters" => [
+    {
+      "name" => "limit",
+      "description" => "Number of results to return per page.",
+      "dataType" => "Integer",
+      "allowableValues" => "",
+      "paramType" => "query",
+    },
+    {
+      "name" => "offset",
+      "description" => "The initial index from which to return the results.",
+      "dataType" => "Integer",
+      "allowableValues" => "",
+      "paramType" => "query",
+    },
+    {
+      "name" => "q",
+      "description" => "&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ",
+      "dataType" => "String",
+      "allowableValues" => "",
+      "paramType" => "query",
+    },
+    ]}) do
+  cross_origin
+  # the guts live here
+
+  {"message" => "yes, it worked"}.to_json
+end
+
+
+MyApp.add_route('GET', '/api/v2/evolution-variable/{id}/', {
+  "resourcePath" => "/Evolution",
+  "summary" => "Get evolution variable",
+  "nickname" => "evolution_variable_retrieve",
+  "responseClass" => "EvolutionVariableDetail",
+  "endpoint" => "/api/v2/evolution-variable/{id}/",
+  "notes" => "Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.",
   "parameters" => [
     {
       "name" => "id",

@@ -2,8 +2,10 @@ package org.openapitools.api;
 
 import org.openapitools.model.EvolutionChainDetail;
 import org.openapitools.model.EvolutionTriggerDetail;
+import org.openapitools.model.EvolutionVariableDetail;
 import org.openapitools.model.PaginatedEvolutionChainSummaryList;
 import org.openapitools.model.PaginatedEvolutionTriggerSummaryList;
+import org.openapitools.model.PaginatedEvolutionVariableSummaryList;
 
 import java.util.List;
 import java.util.Map;
@@ -19,7 +21,7 @@ import io.swagger.jaxrs.PATCH;
 /**
  * PokéAPI
  *
- * <p>All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+ * <p>All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
  *
  */
 @Path("/api/v2")
@@ -38,7 +40,7 @@ public interface EvolutionApi  {
     @ApiOperation(value = "List evolution chains", tags={  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedEvolutionChainSummaryList.class) })
-    public PaginatedEvolutionChainSummaryList evolutionChainList(@QueryParam("limit") Integer limit, @QueryParam("offset") Integer offset, @QueryParam("q") String q);
+    public PaginatedEvolutionChainSummaryList evolutionChainList(@QueryParam("limit") Integer limit, @QueryParam("offset") Integer offset);
 
     /**
      * Get evolution chain
@@ -81,4 +83,32 @@ public interface EvolutionApi  {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = EvolutionTriggerDetail.class) })
     public EvolutionTriggerDetail evolutionTriggerRetrieve(@PathParam("id") String id);
+
+    /**
+     * List evolution variables
+     *
+     * Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+     *
+     */
+    @GET
+    @Path("/evolution-variable/")
+    @Produces({ "application/json" })
+    @ApiOperation(value = "List evolution variables", tags={  })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "", response = PaginatedEvolutionVariableSummaryList.class) })
+    public PaginatedEvolutionVariableSummaryList evolutionVariableList(@QueryParam("limit") Integer limit, @QueryParam("offset") Integer offset, @QueryParam("q") String q);
+
+    /**
+     * Get evolution variable
+     *
+     * Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+     *
+     */
+    @GET
+    @Path("/evolution-variable/{id}/")
+    @Produces({ "application/json" })
+    @ApiOperation(value = "Get evolution variable", tags={  })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "", response = EvolutionVariableDetail.class) })
+    public EvolutionVariableDetail evolutionVariableRetrieve(@PathParam("id") String id);
 }

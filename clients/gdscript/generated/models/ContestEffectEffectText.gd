@@ -10,6 +10,7 @@ class_name ContestEffectEffectText
 # ContestEffectEffectText Model
 
 
+# The localized effect text for an API resource in a specific language.
 # Required: True
 # isArray: false
 @export var effect: String:
@@ -18,6 +19,7 @@ class_name ContestEffectEffectText
 		effect = value
 var __effect__was__set := false
 
+# The language this effect is in.
 # Required: True
 # isArray: false
 @export var language: LanguageSummary:

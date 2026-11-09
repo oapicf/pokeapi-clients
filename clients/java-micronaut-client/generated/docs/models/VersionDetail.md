@@ -10,10 +10,10 @@ The class is defined in **[VersionDetail.java](../../src/main/java/org/openapito
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | `Integer` |  |  [readonly property]
-**name** | `String` |  | 
-**names** | [`List&lt;VersionName&gt;`](VersionName.md) |  |  [readonly property]
-**versionGroup** | [`VersionGroupSummary`](VersionGroupSummary.md) |  | 
+**id** | `Integer` | The identifier for this resource. |  [readonly property]
+**name** | `String` | The name for this resource. | 
+**names** | [`List&lt;VersionName&gt;`](VersionName.md) | The name of this resource listed in different languages. |  [readonly property]
+**versionGroup** | [`VersionGroupSummary`](VersionGroupSummary.md) | The version group this version belongs to. | 
 
 
 

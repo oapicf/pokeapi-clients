@@ -15,10 +15,10 @@ defmodule PokéAPI.Model.PaginatedAbilitySummaryList do
   ]
 
   @type t :: %__MODULE__{
-    :count => integer() | nil,
+    :count => integer(),
     :next => Uri | nil,
     :previous => Uri | nil,
-    :results => [PokéAPI.Model.AbilitySummary.t] | nil
+    :results => [PokéAPI.Model.AbilitySummary.t]
   }
 
   alias PokéAPI.Deserializer

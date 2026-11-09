@@ -3,8 +3,8 @@ package com.prokarma.pkmst.model;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.prokarma.pkmst.model.AbilityDetailPokemonInnerPokemon;
 import com.prokarma.pkmst.model.MoveMetaCategoryDescription;
+import com.prokarma.pkmst.model.MoveSummary;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
@@ -19,7 +19,7 @@ import java.util.List;
  * MoveMetaCategoryDetail
  */
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-10-25T05:48:09.645019047Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-11-09T13:49:28.343088631Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class MoveMetaCategoryDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -33,7 +33,7 @@ public class MoveMetaCategoryDetail   {
 
   @JsonProperty("moves")
   
-  private List<AbilityDetailPokemonInnerPokemon> moves = new ArrayList<>();
+  private List<MoveSummary> moves = new ArrayList<>();
 
   public MoveMetaCategoryDetail id(Integer id) {
     this.id = id;
@@ -41,10 +41,10 @@ public class MoveMetaCategoryDetail   {
   }
 
   /**
-   * Get id
+   * The identifier for this resource.
    * @return id
    */
-  @ApiModelProperty(required = true, readOnly = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "The identifier for this resource.")
   public Integer getId() {
     return id;
   }
@@ -59,10 +59,10 @@ public class MoveMetaCategoryDetail   {
   }
 
   /**
-   * Get name
+   * The name for this resource.
    * @return name
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   public String getName() {
     return name;
   }
@@ -85,10 +85,10 @@ public class MoveMetaCategoryDetail   {
   }
 
   /**
-   * Get descriptions
+   * The description of this resource listed in different languages.
    * @return descriptions
    */
-  @ApiModelProperty(required = true, readOnly = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "The description of this resource listed in different languages.")
   public List<MoveMetaCategoryDescription> getDescriptions() {
     return descriptions;
   }
@@ -97,12 +97,12 @@ public class MoveMetaCategoryDetail   {
     this.descriptions = descriptions;
   }
 
-  public MoveMetaCategoryDetail moves(List<AbilityDetailPokemonInnerPokemon> moves) {
+  public MoveMetaCategoryDetail moves(List<MoveSummary> moves) {
     this.moves = moves;
     return this;
   }
 
-  public MoveMetaCategoryDetail addMovesItem(AbilityDetailPokemonInnerPokemon movesItem) {
+  public MoveMetaCategoryDetail addMovesItem(MoveSummary movesItem) {
     if (this.moves == null) {
       this.moves = new ArrayList<>();
     }
@@ -111,15 +111,15 @@ public class MoveMetaCategoryDetail   {
   }
 
   /**
-   * Get moves
+   * A list of moves that fall into this category.
    * @return moves
    */
-  @ApiModelProperty(required = true, readOnly = true, value = "")
-  public List<AbilityDetailPokemonInnerPokemon> getMoves() {
+  @ApiModelProperty(required = true, readOnly = true, value = "A list of moves that fall into this category.")
+  public List<MoveSummary> getMoves() {
     return moves;
   }
 
-  public void setMoves(List<AbilityDetailPokemonInnerPokemon> moves) {
+  public void setMoves(List<MoveSummary> moves) {
     this.moves = moves;
   }
 

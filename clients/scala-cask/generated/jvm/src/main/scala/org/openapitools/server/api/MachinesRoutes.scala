@@ -3,9 +3,9 @@
 //> using lib "com.lihaoyi::scalatags:0.12.0"
 /**
  * PokéAPI
- * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+ * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
  *
- * OpenAPI spec version: 2.7.0
+ * OpenAPI spec version: 2.10.0
  *
  * Contact: blah+oapicf@cliffano.com
  *
@@ -31,9 +31,9 @@ class MachinesRoutes(service : MachinesService[Try]) extends cask.Routes {
 
     // route group for routeWorkAroundForGETApiV2Machine
     @cask.get("/api/v2/machine", true)
-    def routeWorkAroundForGETApiV2Machine(request: cask.Request,limit : Option[Int] = None,offset : Option[Int] = None,q : Option[String] = None) = {
+    def routeWorkAroundForGETApiV2Machine(request: cask.Request,limit : Option[Int] = None,offset : Option[Int] = None) = {
         request.remainingPathSegments match {
-            case Seq() => machineList(request,limit, offset, q)
+            case Seq() => machineList(request,limit, offset)
             case Seq(id) => machineRetrieve(id,request)
             case _          => cask.Response("Not Found", statusCode = 404)
         }
@@ -43,14 +43,12 @@ class MachinesRoutes(service : MachinesService[Try]) extends cask.Routes {
          * 
          */
         // conflicts with [/api/v2/machine/{id}/, /api/v2/machine/] after/api/v2/machine, ignoring @cask.get("/api/v2/machine/")
-        def machineList(request: cask.Request, limit : Option[Int], offset : Option[Int], q : Option[String]) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
+        def machineList(request: cask.Request, limit : Option[Int], offset : Option[Int]) = {
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
         val result =         for {
-            resultTry <- Parsed.eval(service.machineList(limit, offset, q))
+            resultTry <- Parsed.eval(service.machineList(limit, offset))
             result <- Parsed.fromTry(resultTry)
         } yield result
 
@@ -67,8 +65,6 @@ class MachinesRoutes(service : MachinesService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/machine/{id}/, /api/v2/machine/] after/api/v2/machine, ignoring @cask.get("/api/v2/machine/:id/")
         def machineRetrieve(id : String, request: cask.Request) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 

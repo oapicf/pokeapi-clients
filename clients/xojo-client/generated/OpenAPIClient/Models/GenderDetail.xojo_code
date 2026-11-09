@@ -2,22 +2,34 @@
 Protected Class GenderDetail
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The identifier for this resource.
+		#tag EndNote
 		id As Integer
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The name for this resource.
+		#tag EndNote
 		name As String
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
-		pokemon_species_details() As OpenAPIClient.Models.GenderDetailPokemonSpeciesDetailsInner
+		#tag Note
+			A list of Pokémon species that can be this gender and how likely it is that they will be.
+		#tag EndNote
+		pokemon_species_details() As OpenAPIClient.Models.GenderPokemonSpecies
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
-		required_for_evolution() As OpenAPIClient.Models.AbilityDetailPokemonInnerPokemon
+		#tag Note
+			A list of Pokémon species that required this gender in order for a Pokémon to evolve into them.
+		#tag EndNote
+		required_for_evolution() As OpenAPIClient.Models.PokemonSpeciesSummary
 	#tag EndProperty
 
 
@@ -78,7 +90,7 @@ Protected Class GenderDetail
 			Visible=false
 			Group="Behavior"
 			InitialValue=""
-			Type="GenderDetailPokemonSpeciesDetailsInner"
+			Type="GenderPokemonSpecies"
 			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
@@ -86,7 +98,7 @@ Protected Class GenderDetail
 			Visible=false
 			Group="Behavior"
 			InitialValue=""
-			Type="AbilityDetailPokemonInnerPokemon"
+			Type="PokemonSpeciesSummary"
 			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior

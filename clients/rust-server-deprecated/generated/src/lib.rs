@@ -15,7 +15,7 @@ use serde::{Serialize, Deserialize};
 type ServiceError = Box<dyn Error + Send + Sync + 'static>;
 
 pub const BASE_PATH: &str = "";
-pub const API_VERSION: &str = "2.7.0";
+pub const API_VERSION: &str = "2.10.0";
 
 mod auth;
 pub use auth::{AuthenticationApi, Claims};
@@ -162,6 +162,13 @@ pub enum EvolutionTriggerListResponse {
 }
 
 #[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum EvolutionVariableListResponse {
+    /// 
+    Status200
+    (models::PaginatedEvolutionVariableSummaryList)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
 pub enum EvolutionChainRetrieveResponse {
     /// 
     Status200
@@ -173,6 +180,13 @@ pub enum EvolutionTriggerRetrieveResponse {
     /// 
     Status200
     (models::EvolutionTriggerDetail)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum EvolutionVariableRetrieveResponse {
+    /// 
+    Status200
+    (models::EvolutionVariableDetail)
 }
 
 #[derive(Debug, PartialEq, Serialize, Deserialize)]
@@ -232,6 +246,13 @@ pub enum VersionRetrieveResponse {
 }
 
 #[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum CurrencyListResponse {
+    /// 
+    Status200
+    (models::PaginatedCurrencySummaryList)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
 pub enum ItemAttributeListResponse {
     /// 
     Status200
@@ -264,6 +285,13 @@ pub enum ItemPocketListResponse {
     /// 
     Status200
     (models::PaginatedItemPocketSummaryList)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum CurrencyRetrieveResponse {
+    /// 
+    Status200
+    (models::CurrencyDetail)
 }
 
 #[derive(Debug, PartialEq, Serialize, Deserialize)]
@@ -687,6 +715,13 @@ pub enum LanguageListResponse {
 }
 
 #[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum MetaRetrieveResponse {
+    /// 
+    Status200
+    (models::PokeapiMetaResponse)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
 pub enum LanguageRetrieveResponse {
     /// 
     Status200
@@ -745,7 +780,6 @@ pub trait Api<C: Send + Sync> {
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
-        q: Option<String>,
         context: &C) -> Result<ContestEffectListResponse, ApiError>;
 
     /// List contest types
@@ -761,7 +795,6 @@ pub trait Api<C: Send + Sync> {
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
-        q: Option<String>,
         context: &C) -> Result<SuperContestEffectListResponse, ApiError>;
 
     /// Get contest effect
@@ -829,7 +862,6 @@ pub trait Api<C: Send + Sync> {
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
-        q: Option<String>,
         context: &C) -> Result<EvolutionChainListResponse, ApiError>;
 
     /// List evolution triggers
@@ -839,6 +871,14 @@ pub trait Api<C: Send + Sync> {
         offset: Option<i32>,
         q: Option<String>,
         context: &C) -> Result<EvolutionTriggerListResponse, ApiError>;
+
+    /// List evolution variables
+    async fn evolution_variable_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        context: &C) -> Result<EvolutionVariableListResponse, ApiError>;
 
     /// Get evolution chain
     async fn evolution_chain_retrieve(
@@ -851,6 +891,12 @@ pub trait Api<C: Send + Sync> {
         &self,
         id: String,
         context: &C) -> Result<EvolutionTriggerRetrieveResponse, ApiError>;
+
+    /// Get evolution variable
+    async fn evolution_variable_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<EvolutionVariableRetrieveResponse, ApiError>;
 
     /// List genrations
     async fn generation_list(
@@ -908,6 +954,14 @@ pub trait Api<C: Send + Sync> {
         id: String,
         context: &C) -> Result<VersionRetrieveResponse, ApiError>;
 
+    /// List currencies
+    async fn currency_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        context: &C) -> Result<CurrencyListResponse, ApiError>;
+
     /// List item attributes
     async fn item_attribute_list(
         &self,
@@ -947,6 +1001,12 @@ pub trait Api<C: Send + Sync> {
         offset: Option<i32>,
         q: Option<String>,
         context: &C) -> Result<ItemPocketListResponse, ApiError>;
+
+    /// Get currency
+    async fn currency_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<CurrencyRetrieveResponse, ApiError>;
 
     /// Get item attribute
     async fn item_attribute_retrieve(
@@ -1038,7 +1098,6 @@ pub trait Api<C: Send + Sync> {
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
-        q: Option<String>,
         context: &C) -> Result<MachineListResponse, ApiError>;
 
     /// Get machine
@@ -1131,6 +1190,7 @@ pub trait Api<C: Send + Sync> {
         id: String,
         context: &C) -> Result<MoveTargetRetrieveResponse, ApiError>;
 
+    /// List abilities
     async fn ability_list(
         &self,
         limit: Option<i32>,
@@ -1138,12 +1198,11 @@ pub trait Api<C: Send + Sync> {
         q: Option<String>,
         context: &C) -> Result<AbilityListResponse, ApiError>;
 
-    /// List charecterictics
+    /// List characteristics
     async fn characteristic_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
-        q: Option<String>,
         context: &C) -> Result<CharacteristicListResponse, ApiError>;
 
     /// List egg groups
@@ -1258,6 +1317,7 @@ pub trait Api<C: Send + Sync> {
         q: Option<String>,
         context: &C) -> Result<TypeListResponse, ApiError>;
 
+    /// Get ability
     async fn ability_retrieve(
         &self,
         id: String,
@@ -1361,6 +1421,11 @@ pub trait Api<C: Send + Sync> {
         q: Option<String>,
         context: &C) -> Result<LanguageListResponse, ApiError>;
 
+    /// Get API metadata
+    async fn meta_retrieve(
+        &self,
+        context: &C) -> Result<MetaRetrieveResponse, ApiError>;
+
     /// Get language
     async fn language_retrieve(
         &self,
@@ -1428,7 +1493,6 @@ pub trait ApiNoContext<C: Send + Sync> {
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
-        q: Option<String>,
         ) -> Result<ContestEffectListResponse, ApiError>;
 
     /// List contest types
@@ -1444,7 +1508,6 @@ pub trait ApiNoContext<C: Send + Sync> {
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
-        q: Option<String>,
         ) -> Result<SuperContestEffectListResponse, ApiError>;
 
     /// Get contest effect
@@ -1512,7 +1575,6 @@ pub trait ApiNoContext<C: Send + Sync> {
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
-        q: Option<String>,
         ) -> Result<EvolutionChainListResponse, ApiError>;
 
     /// List evolution triggers
@@ -1522,6 +1584,14 @@ pub trait ApiNoContext<C: Send + Sync> {
         offset: Option<i32>,
         q: Option<String>,
         ) -> Result<EvolutionTriggerListResponse, ApiError>;
+
+    /// List evolution variables
+    async fn evolution_variable_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        ) -> Result<EvolutionVariableListResponse, ApiError>;
 
     /// Get evolution chain
     async fn evolution_chain_retrieve(
@@ -1534,6 +1604,12 @@ pub trait ApiNoContext<C: Send + Sync> {
         &self,
         id: String,
         ) -> Result<EvolutionTriggerRetrieveResponse, ApiError>;
+
+    /// Get evolution variable
+    async fn evolution_variable_retrieve(
+        &self,
+        id: String,
+        ) -> Result<EvolutionVariableRetrieveResponse, ApiError>;
 
     /// List genrations
     async fn generation_list(
@@ -1591,6 +1667,14 @@ pub trait ApiNoContext<C: Send + Sync> {
         id: String,
         ) -> Result<VersionRetrieveResponse, ApiError>;
 
+    /// List currencies
+    async fn currency_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        ) -> Result<CurrencyListResponse, ApiError>;
+
     /// List item attributes
     async fn item_attribute_list(
         &self,
@@ -1630,6 +1714,12 @@ pub trait ApiNoContext<C: Send + Sync> {
         offset: Option<i32>,
         q: Option<String>,
         ) -> Result<ItemPocketListResponse, ApiError>;
+
+    /// Get currency
+    async fn currency_retrieve(
+        &self,
+        id: String,
+        ) -> Result<CurrencyRetrieveResponse, ApiError>;
 
     /// Get item attribute
     async fn item_attribute_retrieve(
@@ -1721,7 +1811,6 @@ pub trait ApiNoContext<C: Send + Sync> {
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
-        q: Option<String>,
         ) -> Result<MachineListResponse, ApiError>;
 
     /// Get machine
@@ -1814,6 +1903,7 @@ pub trait ApiNoContext<C: Send + Sync> {
         id: String,
         ) -> Result<MoveTargetRetrieveResponse, ApiError>;
 
+    /// List abilities
     async fn ability_list(
         &self,
         limit: Option<i32>,
@@ -1821,12 +1911,11 @@ pub trait ApiNoContext<C: Send + Sync> {
         q: Option<String>,
         ) -> Result<AbilityListResponse, ApiError>;
 
-    /// List charecterictics
+    /// List characteristics
     async fn characteristic_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
-        q: Option<String>,
         ) -> Result<CharacteristicListResponse, ApiError>;
 
     /// List egg groups
@@ -1941,6 +2030,7 @@ pub trait ApiNoContext<C: Send + Sync> {
         q: Option<String>,
         ) -> Result<TypeListResponse, ApiError>;
 
+    /// Get ability
     async fn ability_retrieve(
         &self,
         id: String,
@@ -2044,6 +2134,11 @@ pub trait ApiNoContext<C: Send + Sync> {
         q: Option<String>,
         ) -> Result<LanguageListResponse, ApiError>;
 
+    /// Get API metadata
+    async fn meta_retrieve(
+        &self,
+        ) -> Result<MetaRetrieveResponse, ApiError>;
+
     /// Get language
     async fn language_retrieve(
         &self,
@@ -2142,11 +2237,10 @@ impl<T: Api<C> + Send + Sync, C: Clone + Send + Sync> ApiNoContext<C> for Contex
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
-        q: Option<String>,
         ) -> Result<ContestEffectListResponse, ApiError>
     {
         let context = self.context().clone();
-        self.api().contest_effect_list(limit, offset, q, &context).await
+        self.api().contest_effect_list(limit, offset, &context).await
     }
 
     /// List contest types
@@ -2166,11 +2260,10 @@ impl<T: Api<C> + Send + Sync, C: Clone + Send + Sync> ApiNoContext<C> for Contex
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
-        q: Option<String>,
         ) -> Result<SuperContestEffectListResponse, ApiError>
     {
         let context = self.context().clone();
-        self.api().super_contest_effect_list(limit, offset, q, &context).await
+        self.api().super_contest_effect_list(limit, offset, &context).await
     }
 
     /// Get contest effect
@@ -2274,11 +2367,10 @@ impl<T: Api<C> + Send + Sync, C: Clone + Send + Sync> ApiNoContext<C> for Contex
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
-        q: Option<String>,
         ) -> Result<EvolutionChainListResponse, ApiError>
     {
         let context = self.context().clone();
-        self.api().evolution_chain_list(limit, offset, q, &context).await
+        self.api().evolution_chain_list(limit, offset, &context).await
     }
 
     /// List evolution triggers
@@ -2291,6 +2383,18 @@ impl<T: Api<C> + Send + Sync, C: Clone + Send + Sync> ApiNoContext<C> for Contex
     {
         let context = self.context().clone();
         self.api().evolution_trigger_list(limit, offset, q, &context).await
+    }
+
+    /// List evolution variables
+    async fn evolution_variable_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        ) -> Result<EvolutionVariableListResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().evolution_variable_list(limit, offset, q, &context).await
     }
 
     /// Get evolution chain
@@ -2311,6 +2415,16 @@ impl<T: Api<C> + Send + Sync, C: Clone + Send + Sync> ApiNoContext<C> for Contex
     {
         let context = self.context().clone();
         self.api().evolution_trigger_retrieve(id, &context).await
+    }
+
+    /// Get evolution variable
+    async fn evolution_variable_retrieve(
+        &self,
+        id: String,
+        ) -> Result<EvolutionVariableRetrieveResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().evolution_variable_retrieve(id, &context).await
     }
 
     /// List genrations
@@ -2401,6 +2515,18 @@ impl<T: Api<C> + Send + Sync, C: Clone + Send + Sync> ApiNoContext<C> for Contex
         self.api().version_retrieve(id, &context).await
     }
 
+    /// List currencies
+    async fn currency_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        ) -> Result<CurrencyListResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().currency_list(limit, offset, q, &context).await
+    }
+
     /// List item attributes
     async fn item_attribute_list(
         &self,
@@ -2459,6 +2585,16 @@ impl<T: Api<C> + Send + Sync, C: Clone + Send + Sync> ApiNoContext<C> for Contex
     {
         let context = self.context().clone();
         self.api().item_pocket_list(limit, offset, q, &context).await
+    }
+
+    /// Get currency
+    async fn currency_retrieve(
+        &self,
+        id: String,
+        ) -> Result<CurrencyRetrieveResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().currency_retrieve(id, &context).await
     }
 
     /// Get item attribute
@@ -2603,11 +2739,10 @@ impl<T: Api<C> + Send + Sync, C: Clone + Send + Sync> ApiNoContext<C> for Contex
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
-        q: Option<String>,
         ) -> Result<MachineListResponse, ApiError>
     {
         let context = self.context().clone();
-        self.api().machine_list(limit, offset, q, &context).await
+        self.api().machine_list(limit, offset, &context).await
     }
 
     /// Get machine
@@ -2752,6 +2887,7 @@ impl<T: Api<C> + Send + Sync, C: Clone + Send + Sync> ApiNoContext<C> for Contex
         self.api().move_target_retrieve(id, &context).await
     }
 
+    /// List abilities
     async fn ability_list(
         &self,
         limit: Option<i32>,
@@ -2763,16 +2899,15 @@ impl<T: Api<C> + Send + Sync, C: Clone + Send + Sync> ApiNoContext<C> for Contex
         self.api().ability_list(limit, offset, q, &context).await
     }
 
-    /// List charecterictics
+    /// List characteristics
     async fn characteristic_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
-        q: Option<String>,
         ) -> Result<CharacteristicListResponse, ApiError>
     {
         let context = self.context().clone();
-        self.api().characteristic_list(limit, offset, q, &context).await
+        self.api().characteristic_list(limit, offset, &context).await
     }
 
     /// List egg groups
@@ -2943,6 +3078,7 @@ impl<T: Api<C> + Send + Sync, C: Clone + Send + Sync> ApiNoContext<C> for Contex
         self.api().type_list(limit, offset, q, &context).await
     }
 
+    /// Get ability
     async fn ability_retrieve(
         &self,
         id: String,
@@ -3112,6 +3248,15 @@ impl<T: Api<C> + Send + Sync, C: Clone + Send + Sync> ApiNoContext<C> for Contex
     {
         let context = self.context().clone();
         self.api().language_list(limit, offset, q, &context).await
+    }
+
+    /// Get API metadata
+    async fn meta_retrieve(
+        &self,
+        ) -> Result<MetaRetrieveResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().meta_retrieve(&context).await
     }
 
     /// Get language

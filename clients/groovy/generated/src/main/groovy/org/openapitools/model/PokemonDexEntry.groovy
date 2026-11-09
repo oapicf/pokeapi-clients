@@ -7,8 +7,8 @@ import org.openapitools.model.PokedexSummary;
 
 @Canonical
 class PokemonDexEntry {
-    
+    /* The index number within the Pokédex. */
     Integer entryNumber
-    
+    /* The Pokédex the referenced Pokémon species can be found in. */
     PokedexSummary pokedex
 }

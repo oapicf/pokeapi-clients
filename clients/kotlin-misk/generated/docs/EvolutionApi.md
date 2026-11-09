@@ -8,11 +8,13 @@ Method | HTTP request | Description
 [**evolutionChainRetrieve**](EvolutionApi.md#evolutionChainRetrieve) | **Get** /api/v2/evolution-chain/{id}/ | Get evolution chain
 [**evolutionTriggerList**](EvolutionApi.md#evolutionTriggerList) | **Get** /api/v2/evolution-trigger/ | List evolution triggers
 [**evolutionTriggerRetrieve**](EvolutionApi.md#evolutionTriggerRetrieve) | **Get** /api/v2/evolution-trigger/{id}/ | Get evolution trigger
+[**evolutionVariableList**](EvolutionApi.md#evolutionVariableList) | **Get** /api/v2/evolution-variable/ | List evolution variables
+[**evolutionVariableRetrieve**](EvolutionApi.md#evolutionVariableRetrieve) | **Get** /api/v2/evolution-variable/{id}/ | Get evolution variable
 
 
 <a name="evolutionChainList"></a>
 # **evolutionChainList**
-> PaginatedEvolutionChainSummaryList evolutionChainList(limit, offset, q)
+> PaginatedEvolutionChainSummaryList evolutionChainList(limit, offset)
 
 List evolution chains
 
@@ -27,9 +29,8 @@ Evolution chains are essentially family trees. They start with the lowest stage 
 val apiInstance = EvolutionApi()
 val limit : kotlin.Int = 56 // kotlin.Int | Number of results to return per page.
 val offset : kotlin.Int = 56 // kotlin.Int | The initial index from which to return the results.
-val q : kotlin.String = q_example // kotlin.String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
 try {
-    val result : PaginatedEvolutionChainSummaryList = apiInstance.evolutionChainList(limit, offset, q)
+    val result : PaginatedEvolutionChainSummaryList = apiInstance.evolutionChainList(limit, offset)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling EvolutionApi#evolutionChainList")
@@ -46,7 +47,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **kotlin.Int**| Number of results to return per page. | [optional]
  **offset** | **kotlin.Int**| The initial index from which to return the results. | [optional]
- **q** | **kotlin.String**| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional]
 
 ### Return type
 
@@ -54,7 +54,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -76,7 +76,7 @@ Evolution chains are essentially family trees. They start with the lowest stage 
 //import org.openapitools.server.api.model.*
 
 val apiInstance = EvolutionApi()
-val id : kotlin.String = id_example // kotlin.String | This parameter can be a string or an integer.
+val id : kotlin.String = 1 // kotlin.String | This parameter can be a string or an integer.
 try {
     val result : EvolutionChainDetail = apiInstance.evolutionChainRetrieve(id)
     println(result)
@@ -101,7 +101,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -152,7 +152,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -174,7 +174,7 @@ Evolution triggers are the events and conditions that cause a Pokémon to evolve
 //import org.openapitools.server.api.model.*
 
 val apiInstance = EvolutionApi()
-val id : kotlin.String = id_example // kotlin.String | This parameter can be a string or an integer.
+val id : kotlin.String = 1 // kotlin.String | This parameter can be a string or an integer.
 try {
     val result : EvolutionTriggerDetail = apiInstance.evolutionTriggerRetrieve(id)
     println(result)
@@ -199,7 +199,105 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: APPLICATION_JSON
+
+<a name="evolutionVariableList"></a>
+# **evolutionVariableList**
+> PaginatedEvolutionVariableSummaryList evolutionVariableList(limit, offset, q)
+
+List evolution variables
+
+Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.infrastructure.*
+//import org.openapitools.server.api.model.*
+
+val apiInstance = EvolutionApi()
+val limit : kotlin.Int = 56 // kotlin.Int | Number of results to return per page.
+val offset : kotlin.Int = 56 // kotlin.Int | The initial index from which to return the results.
+val q : kotlin.String = q_example // kotlin.String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+try {
+    val result : PaginatedEvolutionVariableSummaryList = apiInstance.evolutionVariableList(limit, offset, q)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling EvolutionApi#evolutionVariableList")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling EvolutionApi#evolutionVariableList")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | **kotlin.Int**| Number of results to return per page. | [optional]
+ **offset** | **kotlin.Int**| The initial index from which to return the results. | [optional]
+ **q** | **kotlin.String**| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional]
+
+### Return type
+
+[**PaginatedEvolutionVariableSummaryList**](PaginatedEvolutionVariableSummaryList.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: APPLICATION_JSON
+
+<a name="evolutionVariableRetrieve"></a>
+# **evolutionVariableRetrieve**
+> EvolutionVariableDetail evolutionVariableRetrieve(id)
+
+Get evolution variable
+
+Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.infrastructure.*
+//import org.openapitools.server.api.model.*
+
+val apiInstance = EvolutionApi()
+val id : kotlin.String = 1 // kotlin.String | This parameter can be a string or an integer.
+try {
+    val result : EvolutionVariableDetail = apiInstance.evolutionVariableRetrieve(id)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling EvolutionApi#evolutionVariableRetrieve")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling EvolutionApi#evolutionVariableRetrieve")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **kotlin.String**| This parameter can be a string or an integer. |
+
+### Return type
+
+[**EvolutionVariableDetail**](EvolutionVariableDetail.md)
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 

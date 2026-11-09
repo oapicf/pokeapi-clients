@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**level** | **number** |  | [default to undefined]
-**experience** | **number** |  | [default to undefined]
+**level** | **number** | The level gained. | [default to undefined]
+**experience** | **number** | The amount of experience required to reach the referenced level. | [default to undefined]
 
 ## Example
 

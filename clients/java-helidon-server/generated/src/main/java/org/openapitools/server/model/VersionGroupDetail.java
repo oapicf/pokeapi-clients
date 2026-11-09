@@ -4,8 +4,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
-import org.openapitools.server.model.AbilityDetailPokemonInnerPokemon;
 import org.openapitools.server.model.GenerationSummary;
+import org.openapitools.server.model.MoveLearnMethodSummary;
+import org.openapitools.server.model.PokedexSummary;
+import org.openapitools.server.model.RegionSummary;
 import org.openapitools.server.model.VersionSummary;
 import jakarta.validation.constraints.*;
 import jakarta.validation.Valid;
@@ -18,9 +20,9 @@ public class VersionGroupDetail   {
     private String name;
     private Integer order;
     private GenerationSummary generation;
-    private List<@Valid AbilityDetailPokemonInnerPokemon> moveLearnMethods = new ArrayList<>();
-    private List<@Valid AbilityDetailPokemonInnerPokemon> pokedexes = new ArrayList<>();
-    private List<@Valid AbilityDetailPokemonInnerPokemon> regions = new ArrayList<>();
+    private List<@Valid MoveLearnMethodSummary> moveLearnMethods = new ArrayList<>();
+    private List<@Valid PokedexSummary> pokedexes = new ArrayList<>();
+    private List<@Valid RegionSummary> regions = new ArrayList<>();
     private List<@Valid VersionSummary> versions = new ArrayList<>();
 
     /**
@@ -33,23 +35,23 @@ public class VersionGroupDetail   {
     /**
      * Create VersionGroupDetail.
      *
-     * @param id id
-     * @param name name
-     * @param order order
-     * @param generation generation
-     * @param moveLearnMethods moveLearnMethods
-     * @param pokedexes pokedexes
-     * @param regions regions
-     * @param versions versions
+     * @param id The identifier for this resource.
+     * @param name The name for this resource.
+     * @param order Order for sorting. Almost by date of release, except similar versions are grouped together.
+     * @param generation The generation this version was introduced in.
+     * @param moveLearnMethods A list of methods in which Pokémon can learn moves in this version group.
+     * @param pokedexes A list of Pokédexes introduces in this version group.
+     * @param regions A list of regions that can be visited in this version group.
+     * @param versions The versions this version group owns.
      */
     public VersionGroupDetail(
         Integer id, 
         String name, 
         Integer order, 
         GenerationSummary generation, 
-        List<@Valid AbilityDetailPokemonInnerPokemon> moveLearnMethods, 
-        List<@Valid AbilityDetailPokemonInnerPokemon> pokedexes, 
-        List<@Valid AbilityDetailPokemonInnerPokemon> regions, 
+        List<@Valid MoveLearnMethodSummary> moveLearnMethods, 
+        List<@Valid PokedexSummary> pokedexes, 
+        List<@Valid RegionSummary> regions, 
         List<@Valid VersionSummary> versions
     ) {
         this.id = id;
@@ -65,7 +67,7 @@ public class VersionGroupDetail   {
 
 
     /**
-     * Get id
+     * The identifier for this resource.
      * @return id
      */
     public Integer getId() {
@@ -77,7 +79,7 @@ public class VersionGroupDetail   {
     }
 
     /**
-     * Get name
+     * The name for this resource.
      * @return name
      */
     public String getName() {
@@ -89,7 +91,9 @@ public class VersionGroupDetail   {
     }
 
     /**
-     * Get order
+     * Order for sorting. Almost by date of release, except similar versions are grouped together.
+     * minimum: -2147483648
+     * maximum: 2147483647
      * @return order
      */
     public Integer getOrder() {
@@ -101,7 +105,7 @@ public class VersionGroupDetail   {
     }
 
     /**
-     * Get generation
+     * The generation this version was introduced in.
      * @return generation
      */
     public GenerationSummary getGeneration() {
@@ -113,43 +117,43 @@ public class VersionGroupDetail   {
     }
 
     /**
-     * Get moveLearnMethods
+     * A list of methods in which Pokémon can learn moves in this version group.
      * @return moveLearnMethods
      */
-    public List<@Valid AbilityDetailPokemonInnerPokemon> getMoveLearnMethods() {
+    public List<@Valid MoveLearnMethodSummary> getMoveLearnMethods() {
         return moveLearnMethods;
     }
 
-    public void setMoveLearnMethods(List<@Valid AbilityDetailPokemonInnerPokemon> moveLearnMethods) {
+    public void setMoveLearnMethods(List<@Valid MoveLearnMethodSummary> moveLearnMethods) {
         this.moveLearnMethods = moveLearnMethods;
     }
 
     /**
-     * Get pokedexes
+     * A list of Pokédexes introduces in this version group.
      * @return pokedexes
      */
-    public List<@Valid AbilityDetailPokemonInnerPokemon> getPokedexes() {
+    public List<@Valid PokedexSummary> getPokedexes() {
         return pokedexes;
     }
 
-    public void setPokedexes(List<@Valid AbilityDetailPokemonInnerPokemon> pokedexes) {
+    public void setPokedexes(List<@Valid PokedexSummary> pokedexes) {
         this.pokedexes = pokedexes;
     }
 
     /**
-     * Get regions
+     * A list of regions that can be visited in this version group.
      * @return regions
      */
-    public List<@Valid AbilityDetailPokemonInnerPokemon> getRegions() {
+    public List<@Valid RegionSummary> getRegions() {
         return regions;
     }
 
-    public void setRegions(List<@Valid AbilityDetailPokemonInnerPokemon> regions) {
+    public void setRegions(List<@Valid RegionSummary> regions) {
         this.regions = regions;
     }
 
     /**
-     * Get versions
+     * The versions this version group owns.
      * @return versions
      */
     public List<@Valid VersionSummary> getVersions() {

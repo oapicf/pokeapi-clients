@@ -21,7 +21,7 @@ data class PokemonSpeciesDetail(
     val pokedexNumbers: kotlin.collections.List<PokemonDexEntry>,
 
     @field:JsonProperty("egg_groups")
-    val eggGroups: kotlin.collections.List<AbilityDetailPokemonInnerPokemon>,
+    val eggGroups: kotlin.collections.List<EggGroupSummary>,
 
     @field:JsonProperty("color")
     val color: PokemonColorSummary,
@@ -42,10 +42,10 @@ data class PokemonSpeciesDetail(
     val generation: GenerationSummary,
 
     @field:JsonProperty("names")
-    val names: kotlin.collections.List<PokemonFormDetailFormNamesInner>,
+    val names: kotlin.collections.List<PokemonSpeciesName>,
 
     @field:JsonProperty("pal_park_encounters")
-    val palParkEncounters: kotlin.collections.List<PokemonSpeciesDetailPalParkEncountersInner>,
+    val palParkEncounters: kotlin.collections.List<PokemonSpeciesPalParkEncounter>,
 
     @field:JsonProperty("form_descriptions")
     val formDescriptions: kotlin.collections.List<PokemonSpeciesDescription>,
@@ -54,10 +54,10 @@ data class PokemonSpeciesDetail(
     val flavorTextEntries: kotlin.collections.List<PokemonSpeciesFlavorText>,
 
     @field:JsonProperty("genera")
-    val genera: kotlin.collections.List<PokemonSpeciesDetailGeneraInner>,
+    val genera: kotlin.collections.List<PokemonSpeciesGenus>,
 
     @field:JsonProperty("varieties")
-    val varieties: kotlin.collections.List<PokemonSpeciesDetailVarietiesInner>,
+    val varieties: kotlin.collections.List<PokemonSpeciesVariety>,
 
     @field:JsonProperty("order")
     val order: kotlin.Int? = null,

@@ -1,0 +1,33 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "PokemonSpritesOther",
+  "fields": [
+    {
+      "name": "dream_world",
+      "type": ["null", "model.PokemonSpritesOtherDreamWorld"],
+      "doc": "Pokémon Dream World artwork URLs.",
+      "default": null
+    },
+    {
+      "name": "home",
+      "type": ["null", "model.PokemonSpritesOtherHome"],
+      "doc": "Pokémon HOME sprite URLs.",
+      "default": null
+    },
+    {
+      "name": "showdown",
+      "type": ["null", "model.PokemonSpritesOtherShowdown"],
+      "doc": "Pokémon Showdown sprite URLs.",
+      "default": null
+    },
+    {
+      "name": "official-artwork",
+      "type": ["null", "model.PokemonSpritesOtherOfficialArtwork"],
+      "doc": "Official Pokémon artwork URLs, including shiny artwork and version-specific variants.",
+      "default": null
+    }
+  ]
+
+}

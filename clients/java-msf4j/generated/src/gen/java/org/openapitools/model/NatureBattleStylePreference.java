@@ -10,7 +10,7 @@ import org.openapitools.model.MoveBattleStyleSummary;
 /**
  * NatureBattleStylePreference
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-10-25T05:48:05.787850114Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-11-09T13:49:25.341948748Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class NatureBattleStylePreference   {
   @JsonProperty("low_hp_preference")
   private Integer lowHpPreference;
@@ -27,10 +27,12 @@ public class NatureBattleStylePreference   {
   }
 
    /**
-   * Get lowHpPreference
+   * Chance of using the move, in percent, if HP is under one half.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return lowHpPreference
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "Chance of using the move, in percent, if HP is under one half.")
   public Integer getLowHpPreference() {
     return lowHpPreference;
   }
@@ -45,10 +47,12 @@ public class NatureBattleStylePreference   {
   }
 
    /**
-   * Get highHpPreference
+   * Chance of using the move, in percent, if HP is over one half.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return highHpPreference
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "Chance of using the move, in percent, if HP is over one half.")
   public Integer getHighHpPreference() {
     return highHpPreference;
   }
@@ -63,10 +67,10 @@ public class NatureBattleStylePreference   {
   }
 
    /**
-   * Get moveBattleStyle
+   * The move battle style.
    * @return moveBattleStyle
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The move battle style.")
   public MoveBattleStyleSummary getMoveBattleStyle() {
     return moveBattleStyle;
   }

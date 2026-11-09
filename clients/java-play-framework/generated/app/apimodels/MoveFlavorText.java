@@ -11,7 +11,7 @@ import javax.validation.Valid;
 /**
  * MoveFlavorText
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-10-25T05:48:13.486809836Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-11-09T13:49:31.462302702Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class MoveFlavorText   {
   @JsonProperty("flavor_text")
@@ -37,7 +37,7 @@ public class MoveFlavorText   {
   }
 
    /**
-   * Get flavorText
+   * The localized flavor text for an api resource in a specific language.
    * @return flavorText
   **/
   public String getFlavorText() {
@@ -54,7 +54,7 @@ public class MoveFlavorText   {
   }
 
    /**
-   * Get language
+   * The language this name is in.
    * @return language
   **/
   public LanguageSummary getLanguage() {
@@ -71,7 +71,7 @@ public class MoveFlavorText   {
   }
 
    /**
-   * Get versionGroup
+   * The version group that uses this flavor text.
    * @return versionGroup
   **/
   public VersionGroupSummary getVersionGroup() {

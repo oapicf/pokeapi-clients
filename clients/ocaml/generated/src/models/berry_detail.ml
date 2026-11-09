@@ -15,81 +15,93 @@
                 
                 
                 ; [@key "id"]
-                                              name: string
+                    (** The identifier for this resource. *)
+                                      name: string
                   
                   
                 
                 
                 ; [@key "name"]
-                                              growth_time: int32
+                    (** The name for this resource. *)
+                                      growth_time: int32
                   
-                  
+                   option [@default None]
                 
                 
                 ; [@key "growth_time"]
-                                              max_harvest: int32
+                    (** Time it takes the tree to grow one stage, in hours. Berry trees go through four of these growth stages before they can be picked. *)
+                                      max_harvest: int32
                   
-                  
+                   option [@default None]
                 
                 
                 ; [@key "max_harvest"]
-                                              natural_gift_power: int32
+                    (** The maximum number of these berries that can grow on one tree in Generation IV. *)
+                                      natural_gift_power: int32
                   
-                  
+                   option [@default None]
                 
                 
                 ; [@key "natural_gift_power"]
-                                              size: int32
+                    (** The power of the move \''Natural Gift\'' when used with this Berry. *)
+                                      size: int32
                   
-                  
+                   option [@default None]
                 
                 
                 ; [@key "size"]
-                                              smoothness: int32
+                    (** The size of this Berry, in millimeters. *)
+                                      smoothness: int32
                   
-                  
+                   option [@default None]
                 
                 
                 ; [@key "smoothness"]
-                                              soil_dryness: int32
+                    (** The smoothness of this Berry, used in making Pokéblocks or Poffins. *)
+                                      soil_dryness: int32
                   
-                  
+                   option [@default None]
                 
                 
                 ; [@key "soil_dryness"]
-                                              firmness: Berry_firmness_summary.t
-                  
+                    (** The speed at which this Berry dries out the soil as it grows. A higher rate means the soil dries more quickly. *)
+                                      firmness: Berry_firmness_summary.t
+                   option
                   
                 
                 
                 ; [@key "firmness"]
-                                              flavors: Berry_detail_flavors_inner.t list
+                    (** The firmness of this berry, used in making Pokéblocks or Poffins. *)
+                                      flavors: Berry_flavor_map.t list
                 
                 
                 ; [@key "flavors"]
-                                              item: Item_summary.t
+                    (** A list of references to each flavor a berry can have and the potency of each of those flavors in regard to this berry. *)
+                                      item: Item_summary.t
                   
                   
                 
                 
                 ; [@key "item"]
-                                              natural_gift_type: Type_summary.t
-                  
+                    (** Berries are actually items. This is a reference to the item specific data for this berry. *)
+                                      natural_gift_type: Type_summary.t
+                   option
                   
                 
                 
                 ; [@key "natural_gift_type"]
-                        } [@@deriving yojson { strict = false }, show, eq ];;
+                    (** The type inherited by \''Natural Gift\'' when used with this Berry. *)
+                } [@@deriving yojson { strict = false }, show, eq ];;
         
-        let create (id : int32) (name : string) (growth_time : int32) (max_harvest : int32) (natural_gift_power : int32) (size : int32) (smoothness : int32) (soil_dryness : int32) (firmness : Berry_firmness_summary.t) (flavors : Berry_detail_flavors_inner.t list) (item : Item_summary.t) (natural_gift_type : Type_summary.t) : t = {
+        let create (id : int32) (name : string) (firmness : Berry_firmness_summary.t option) (flavors : Berry_flavor_map.t list) (item : Item_summary.t) (natural_gift_type : Type_summary.t option) : t = {
             id = id;
             name = name;
-            growth_time = growth_time;
-            max_harvest = max_harvest;
-            natural_gift_power = natural_gift_power;
-            size = size;
-            smoothness = smoothness;
-            soil_dryness = soil_dryness;
+            growth_time = None;
+            max_harvest = None;
+            natural_gift_power = None;
+            size = None;
+            smoothness = None;
+            soil_dryness = None;
             firmness = firmness;
             flavors = flavors;
             item = item;

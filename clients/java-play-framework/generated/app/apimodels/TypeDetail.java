@@ -1,14 +1,14 @@
 package apimodels;
 
-import apimodels.AbilityName;
 import apimodels.GenerationSummary;
 import apimodels.MoveDamageClassSummary;
 import apimodels.MoveSummary;
-import apimodels.TypeDetailDamageRelations;
-import apimodels.TypeDetailPastDamageRelationsInner;
-import apimodels.TypeDetailPokemonInner;
-import apimodels.TypeDetailSpritesValueValue;
 import apimodels.TypeGameIndex;
+import apimodels.TypeGameSprite;
+import apimodels.TypeName;
+import apimodels.TypePastRelationships;
+import apimodels.TypePokemon;
+import apimodels.TypeRelationships;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -23,7 +23,7 @@ import javax.validation.Valid;
 /**
  * Serializer for the Type resource
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-10-25T05:48:13.486809836Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-11-09T13:49:31.462302702Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class TypeDetail   {
   @JsonProperty("id")
@@ -33,7 +33,7 @@ public class TypeDetail   {
 
   @JsonProperty("name")
   @NotNull
-@Size(max=100)
+@Size(max=200)
 
   private String name;
 
@@ -41,13 +41,13 @@ public class TypeDetail   {
   @NotNull
 @Valid
 
-  private TypeDetailDamageRelations damageRelations;
+  private TypeRelationships damageRelations;
 
   @JsonProperty("past_damage_relations")
   @NotNull
 @Valid
 
-  private List<@Valid TypeDetailPastDamageRelationsInner> pastDamageRelations = new ArrayList<>();
+  private List<@Valid TypePastRelationships> pastDamageRelations = new ArrayList<>();
 
   @JsonProperty("game_indices")
   @NotNull
@@ -71,13 +71,13 @@ public class TypeDetail   {
   @NotNull
 @Valid
 
-  private List<@Valid AbilityName> names = new ArrayList<>();
+  private List<@Valid TypeName> names = new ArrayList<>();
 
   @JsonProperty("pokemon")
   @NotNull
 @Valid
 
-  private List<@Valid TypeDetailPokemonInner> pokemon = new ArrayList<>();
+  private List<@Valid TypePokemon> pokemon = new ArrayList<>();
 
   @JsonProperty("moves")
   @NotNull
@@ -89,7 +89,7 @@ public class TypeDetail   {
   @NotNull
 @Valid
 
-  private Map<String, Map<String, TypeDetailSpritesValueValue>> sprites = new HashMap<>();
+  private Map<String, Map<String, TypeGameSprite>> sprites = new HashMap<>();
 
   public TypeDetail id(Integer id) {
     this.id = id;
@@ -97,7 +97,7 @@ public class TypeDetail   {
   }
 
    /**
-   * Get id
+   * The identifier for this resource.
    * @return id
   **/
   public Integer getId() {
@@ -114,7 +114,7 @@ public class TypeDetail   {
   }
 
    /**
-   * Get name
+   * The name for this resource.
    * @return name
   **/
   public String getName() {
@@ -125,29 +125,29 @@ public class TypeDetail   {
     this.name = name;
   }
 
-  public TypeDetail damageRelations(TypeDetailDamageRelations damageRelations) {
+  public TypeDetail damageRelations(TypeRelationships damageRelations) {
     this.damageRelations = damageRelations;
     return this;
   }
 
    /**
-   * Get damageRelations
+   * A detail of how effective this type is toward others and vice versa.
    * @return damageRelations
   **/
-  public TypeDetailDamageRelations getDamageRelations() {
+  public TypeRelationships getDamageRelations() {
     return damageRelations;
   }
 
-  public void setDamageRelations(TypeDetailDamageRelations damageRelations) {
+  public void setDamageRelations(TypeRelationships damageRelations) {
     this.damageRelations = damageRelations;
   }
 
-  public TypeDetail pastDamageRelations(List<@Valid TypeDetailPastDamageRelationsInner> pastDamageRelations) {
+  public TypeDetail pastDamageRelations(List<@Valid TypePastRelationships> pastDamageRelations) {
     this.pastDamageRelations = pastDamageRelations;
     return this;
   }
 
-  public TypeDetail addPastDamageRelationsItem(TypeDetailPastDamageRelationsInner pastDamageRelationsItem) {
+  public TypeDetail addPastDamageRelationsItem(TypePastRelationships pastDamageRelationsItem) {
     if (this.pastDamageRelations == null) {
       this.pastDamageRelations = new ArrayList<>();
     }
@@ -156,14 +156,14 @@ public class TypeDetail   {
   }
 
    /**
-   * Get pastDamageRelations
+   * A list of details of how effective this type was toward others and vice versa in previous generations
    * @return pastDamageRelations
   **/
-  public List<@Valid TypeDetailPastDamageRelationsInner> getPastDamageRelations() {
+  public List<@Valid TypePastRelationships> getPastDamageRelations() {
     return pastDamageRelations;
   }
 
-  public void setPastDamageRelations(List<@Valid TypeDetailPastDamageRelationsInner> pastDamageRelations) {
+  public void setPastDamageRelations(List<@Valid TypePastRelationships> pastDamageRelations) {
     this.pastDamageRelations = pastDamageRelations;
   }
 
@@ -181,7 +181,7 @@ public class TypeDetail   {
   }
 
    /**
-   * Get gameIndices
+   * A list of game indices relevent to this item by generation.
    * @return gameIndices
   **/
   public List<@Valid TypeGameIndex> getGameIndices() {
@@ -198,7 +198,7 @@ public class TypeDetail   {
   }
 
    /**
-   * Get generation
+   * The generation this type was introduced in.
    * @return generation
   **/
   public GenerationSummary getGeneration() {
@@ -215,7 +215,7 @@ public class TypeDetail   {
   }
 
    /**
-   * Get moveDamageClass
+   * The class of damage inflicted by this type.
    * @return moveDamageClass
   **/
   public MoveDamageClassSummary getMoveDamageClass() {
@@ -226,12 +226,12 @@ public class TypeDetail   {
     this.moveDamageClass = moveDamageClass;
   }
 
-  public TypeDetail names(List<@Valid AbilityName> names) {
+  public TypeDetail names(List<@Valid TypeName> names) {
     this.names = names;
     return this;
   }
 
-  public TypeDetail addNamesItem(AbilityName namesItem) {
+  public TypeDetail addNamesItem(TypeName namesItem) {
     if (this.names == null) {
       this.names = new ArrayList<>();
     }
@@ -240,23 +240,23 @@ public class TypeDetail   {
   }
 
    /**
-   * Get names
+   * The name of this resource listed in different languages.
    * @return names
   **/
-  public List<@Valid AbilityName> getNames() {
+  public List<@Valid TypeName> getNames() {
     return names;
   }
 
-  public void setNames(List<@Valid AbilityName> names) {
+  public void setNames(List<@Valid TypeName> names) {
     this.names = names;
   }
 
-  public TypeDetail pokemon(List<@Valid TypeDetailPokemonInner> pokemon) {
+  public TypeDetail pokemon(List<@Valid TypePokemon> pokemon) {
     this.pokemon = pokemon;
     return this;
   }
 
-  public TypeDetail addPokemonItem(TypeDetailPokemonInner pokemonItem) {
+  public TypeDetail addPokemonItem(TypePokemon pokemonItem) {
     if (this.pokemon == null) {
       this.pokemon = new ArrayList<>();
     }
@@ -265,14 +265,14 @@ public class TypeDetail   {
   }
 
    /**
-   * Get pokemon
+   * A list of details of Pokémon that have this type.
    * @return pokemon
   **/
-  public List<@Valid TypeDetailPokemonInner> getPokemon() {
+  public List<@Valid TypePokemon> getPokemon() {
     return pokemon;
   }
 
-  public void setPokemon(List<@Valid TypeDetailPokemonInner> pokemon) {
+  public void setPokemon(List<@Valid TypePokemon> pokemon) {
     this.pokemon = pokemon;
   }
 
@@ -290,7 +290,7 @@ public class TypeDetail   {
   }
 
    /**
-   * Get moves
+   * A list of moves that have this type.
    * @return moves
   **/
   public List<@Valid MoveSummary> getMoves() {
@@ -301,12 +301,12 @@ public class TypeDetail   {
     this.moves = moves;
   }
 
-  public TypeDetail sprites(Map<String, Map<String, TypeDetailSpritesValueValue>> sprites) {
+  public TypeDetail sprites(Map<String, Map<String, TypeGameSprite>> sprites) {
     this.sprites = sprites;
     return this;
   }
 
-  public TypeDetail putSpritesItem(String key, Map<String, TypeDetailSpritesValueValue> spritesItem) {
+  public TypeDetail putSpritesItem(String key, Map<String, TypeGameSprite> spritesItem) {
     if (this.sprites == null) {
       this.sprites = new HashMap<>();
     }
@@ -315,14 +315,14 @@ public class TypeDetail   {
   }
 
    /**
-   * Get sprites
+   * Type icons grouped by generation and game, with name_icon and symbol_icon URLs. Unavailable icons are null.
    * @return sprites
   **/
-  public Map<String, Map<String, TypeDetailSpritesValueValue>> getSprites() {
+  public Map<String, Map<String, TypeGameSprite>> getSprites() {
     return sprites;
   }
 
-  public void setSprites(Map<String, Map<String, TypeDetailSpritesValueValue>> sprites) {
+  public void setSprites(Map<String, Map<String, TypeGameSprite>> sprites) {
     this.sprites = sprites;
   }
 

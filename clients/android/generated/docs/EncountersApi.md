@@ -55,7 +55,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -78,7 +78,7 @@ Conditions which affect what pokemon might appear in the wild, e.g., day or nigh
 //import org.openapitools.client.api.EncountersApi;
 
 EncountersApi apiInstance = new EncountersApi();
-String id = null; // String | This parameter can be a string or an integer.
+String id = 1; // String | This parameter can be a string or an integer.
 try {
     EncounterConditionDetail result = apiInstance.encounterConditionRetrieve(id);
     System.out.println(result);
@@ -101,7 +101,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -151,7 +151,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -174,7 +174,7 @@ Encounter condition values are the various states that an encounter condition ca
 //import org.openapitools.client.api.EncountersApi;
 
 EncountersApi apiInstance = new EncountersApi();
-String id = null; // String | This parameter can be a string or an integer.
+String id = 1; // String | This parameter can be a string or an integer.
 try {
     EncounterConditionValueDetail result = apiInstance.encounterConditionValueRetrieve(id);
     System.out.println(result);
@@ -197,7 +197,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -247,7 +247,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -270,7 +270,7 @@ Methods by which the player might can encounter Pokémon in the wild, e.g., walk
 //import org.openapitools.client.api.EncountersApi;
 
 EncountersApi apiInstance = new EncountersApi();
-String id = null; // String | This parameter can be a string or an integer.
+String id = 1; // String | This parameter can be a string or an integer.
 try {
     EncounterMethodDetail result = apiInstance.encounterMethodRetrieve(id);
     System.out.println(result);
@@ -293,7 +293,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

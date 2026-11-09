@@ -12,7 +12,7 @@ module OpenapiClient
           :GET,
           '/api/v2/item-attribute/',
           type: OpenapiClient::Models::PaginatedItemAttributeSummaryList,
-          auth: ['basicAuth', 'cookieAuth'],
+          auth: [],
           query: { 'limit' => limit, 'offset' => offset, 'q' => q }
         )
       end
@@ -25,7 +25,7 @@ module OpenapiClient
           '/api/v2/item-attribute/{id}/'
             .gsub('{id}', ERB::Util.url_encode(id.to_s)),
           type: OpenapiClient::Models::ItemAttributeDetail,
-          auth: ['basicAuth', 'cookieAuth']
+          auth: []
         )
       end
     end

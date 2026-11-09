@@ -14,6 +14,147 @@ func _bzz_get_api_name() -> String:
 	return "ItemsApi"
 
 
+# Operation currencyList → GET /api/v2/currency/
+# List currencies
+#
+# Currencies used to buy items.
+func currency_list(
+	# limit: int   Eg: 56
+	# Number of results to return per page.
+	limit = null,
+	# offset: int   Eg: 56
+	# The initial index from which to return the results.
+	offset = null,
+	# q: String   Eg: q_example
+	# > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+	q = null,
+	on_success: Callable = Callable(),  # func(response: ApiResponse)
+	on_failure: Callable = Callable(),  # func(error: ApiError)
+):
+
+	# Convert the String HTTP method to a Constant Godot understands
+	var bzz_method := self._bzz_convert_http_method("GET")
+
+	# Compute the URL path to the API resource
+	var bzz_path := "/api/v2/currency/"
+
+	# Collect the headers
+	var bzz_headers := Dictionary()
+	var bzz_mimes_produced_by_server := ['application/json']
+	for bzz_mime in BZZ_CONSUMABLE_CONTENT_TYPES:
+		if bzz_mime in bzz_mimes_produced_by_server:
+			bzz_headers["Accept"] = bzz_mime
+			break
+
+	# Collect the query parameters
+	# Note: we do not support multiple values for a single param (for now), nor arrays
+	var bzz_query := Dictionary()
+	bzz_query["limit"] = limit
+	bzz_query["offset"] = offset
+	bzz_query["q"] = q
+
+	var bzz_body = null
+
+	self._bzz_request(
+		bzz_method, bzz_path, bzz_headers, bzz_query, bzz_body,
+		func(bzz_response):
+			bzz_response.data = PaginatedCurrencySummaryList.bzz_denormalize_single(bzz_response.data)
+			on_success.call(bzz_response)
+			,
+		func(bzz_error):
+			on_failure.call(bzz_error)
+			,  # ざわ‥
+	)
+
+
+func currency_list_threaded(
+	# limit: int   Eg: 56
+	# Number of results to return per page.
+	limit = null,
+	# offset: int   Eg: 56
+	# The initial index from which to return the results.
+	offset = null,
+	# q: String   Eg: q_example
+	# > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+	q = null,
+	on_success: Callable = Callable(),  # func(response: ApiResponse)
+	on_failure: Callable = Callable(),  # func(error: ApiError)
+) -> Thread:
+	var bzz_thread := Thread.new()
+	var bzz_callable := Callable(self, "currency_list")
+	bzz_callable.bind(
+		limit,
+		offset,
+		q,
+		on_success,
+		on_failure,
+	)
+	bzz_thread.start(bzz_callable)
+	return bzz_thread
+
+
+# Operation currencyRetrieve → GET /api/v2/currency/{id}/
+# Get currency
+#
+# Currencies used to buy items.
+func currency_retrieve(
+	# id: String   Eg: 1
+	# This parameter can be a string or an integer.
+	id: String,
+	on_success: Callable = Callable(),  # func(response: ApiResponse)
+	on_failure: Callable = Callable(),  # func(error: ApiError)
+):
+
+	# Convert the String HTTP method to a Constant Godot understands
+	var bzz_method := self._bzz_convert_http_method("GET")
+
+	# Compute the URL path to the API resource
+	var bzz_path := "/api/v2/currency/{id}/".replace("{" + "id" + "}", _bzz_urlize_path_param(id))
+
+	# Collect the headers
+	var bzz_headers := Dictionary()
+	var bzz_mimes_produced_by_server := ['application/json']
+	for bzz_mime in BZZ_CONSUMABLE_CONTENT_TYPES:
+		if bzz_mime in bzz_mimes_produced_by_server:
+			bzz_headers["Accept"] = bzz_mime
+			break
+
+	# Collect the query parameters
+	# Note: we do not support multiple values for a single param (for now), nor arrays
+	var bzz_query := Dictionary()
+
+	var bzz_body = null
+
+	self._bzz_request(
+		bzz_method, bzz_path, bzz_headers, bzz_query, bzz_body,
+		func(bzz_response):
+			bzz_response.data = CurrencyDetail.bzz_denormalize_single(bzz_response.data)
+			on_success.call(bzz_response)
+			,
+		func(bzz_error):
+			on_failure.call(bzz_error)
+			,  # ざわ‥
+	)
+
+
+func currency_retrieve_threaded(
+	# id: String   Eg: 1
+	# This parameter can be a string or an integer.
+	id: String,
+	on_success: Callable = Callable(),  # func(response: ApiResponse)
+	on_failure: Callable = Callable(),  # func(error: ApiError)
+) -> Thread:
+	var bzz_thread := Thread.new()
+	var bzz_callable := Callable(self, "currency_retrieve")
+	bzz_callable.bind(
+		id,
+		on_success,
+		on_failure,
+	)
+	bzz_thread.start(bzz_callable)
+	return bzz_thread
+
+
 # Operation itemAttributeList → GET /api/v2/item-attribute/
 # List item attributes
 #
@@ -98,7 +239,7 @@ func item_attribute_list_threaded(
 #
 # Item attributes define particular aspects of items, e.g.\"usable in battle\" or \"consumable\".
 func item_attribute_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -138,7 +279,7 @@ func item_attribute_retrieve(
 
 
 func item_attribute_retrieve_threaded(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -239,7 +380,7 @@ func item_category_list_threaded(
 #
 # Item categories determine where items will be placed in the players bag.
 func item_category_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -279,7 +420,7 @@ func item_category_retrieve(
 
 
 func item_category_retrieve_threaded(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -380,7 +521,7 @@ func item_fling_effect_list_threaded(
 #
 # The various effects of the move\"Fling\" when used with different items.
 func item_fling_effect_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -420,7 +561,7 @@ func item_fling_effect_retrieve(
 
 
 func item_fling_effect_retrieve_threaded(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -600,7 +741,7 @@ func item_pocket_list_threaded(
 #
 # Pockets within the players bag used for storing items by category.
 func item_pocket_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -640,7 +781,7 @@ func item_pocket_retrieve(
 
 
 func item_pocket_retrieve_threaded(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -662,7 +803,7 @@ func item_pocket_retrieve_threaded(
 #
 # An item is an object in the games which the player can pick up, keep in their bag, and use in some manner. They have various uses, including healing, powering up, helping catch Pokémon, or to access a new area.
 func item_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -702,7 +843,7 @@ func item_retrieve(
 
 
 func item_retrieve_threaded(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)

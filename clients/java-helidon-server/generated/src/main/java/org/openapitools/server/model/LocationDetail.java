@@ -31,12 +31,12 @@ public class LocationDetail   {
     /**
      * Create LocationDetail.
      *
-     * @param id id
-     * @param name name
-     * @param region region
-     * @param names names
-     * @param gameIndices gameIndices
-     * @param areas areas
+     * @param id The identifier for this resource.
+     * @param name The name for this resource.
+     * @param region The region this location can be found in.
+     * @param names The name of this resource listed in different languages.
+     * @param gameIndices A list of game indices relevent to this location by generation.
+     * @param areas Areas that can be found within this location.
      */
     public LocationDetail(
         Integer id, 
@@ -57,7 +57,7 @@ public class LocationDetail   {
 
 
     /**
-     * Get id
+     * The identifier for this resource.
      * @return id
      */
     public Integer getId() {
@@ -69,7 +69,7 @@ public class LocationDetail   {
     }
 
     /**
-     * Get name
+     * The name for this resource.
      * @return name
      */
     public String getName() {
@@ -81,7 +81,7 @@ public class LocationDetail   {
     }
 
     /**
-     * Get region
+     * The region this location can be found in.
      * @return region
      */
     public RegionSummary getRegion() {
@@ -93,7 +93,7 @@ public class LocationDetail   {
     }
 
     /**
-     * Get names
+     * The name of this resource listed in different languages.
      * @return names
      */
     public List<@Valid LocationName> getNames() {
@@ -105,7 +105,7 @@ public class LocationDetail   {
     }
 
     /**
-     * Get gameIndices
+     * A list of game indices relevent to this location by generation.
      * @return gameIndices
      */
     public List<@Valid LocationGameIndex> getGameIndices() {
@@ -117,7 +117,7 @@ public class LocationDetail   {
     }
 
     /**
-     * Get areas
+     * Areas that can be found within this location.
      * @return areas
      */
     public List<@Valid LocationAreaSummary> getAreas() {

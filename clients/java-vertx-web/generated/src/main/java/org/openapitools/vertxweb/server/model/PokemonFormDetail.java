@@ -7,9 +7,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
-import org.openapitools.vertxweb.server.model.PokemonDetailTypesInner;
-import org.openapitools.vertxweb.server.model.PokemonFormDetailFormNamesInner;
-import org.openapitools.vertxweb.server.model.PokemonFormDetailSprites;
+import org.openapitools.vertxweb.server.model.PokemonFormFlavorText;
+import org.openapitools.vertxweb.server.model.PokemonFormName;
+import org.openapitools.vertxweb.server.model.PokemonFormSprites;
+import org.openapitools.vertxweb.server.model.PokemonFormTriggerCondition;
+import org.openapitools.vertxweb.server.model.PokemonFormType;
 import org.openapitools.vertxweb.server.model.PokemonSummary;
 import org.openapitools.vertxweb.server.model.VersionGroupSummary;
 
@@ -25,17 +27,19 @@ public class PokemonFormDetail   {
   private Boolean isMega;
   private String formName;
   private PokemonSummary pokemon;
-  private PokemonFormDetailSprites sprites;
+  private PokemonFormSprites sprites;
   private VersionGroupSummary versionGroup;
-  private List<PokemonFormDetailFormNamesInner> formNames = new ArrayList<>();
-  private List<PokemonFormDetailFormNamesInner> names = new ArrayList<>();
-  private List<PokemonDetailTypesInner> types = new ArrayList<>();
+  private List<PokemonFormName> formNames = new ArrayList<>();
+  private List<PokemonFormName> names = new ArrayList<>();
+  private List<PokemonFormType> types = new ArrayList<>();
+  private List<PokemonFormTriggerCondition> triggerConditions = new ArrayList<>();
+  private List<PokemonFormFlavorText> flavorTextEntries = new ArrayList<>();
 
   public PokemonFormDetail () {
 
   }
 
-  public PokemonFormDetail (Integer id, String name, Integer order, Integer formOrder, Boolean isDefault, Boolean isBattleOnly, Boolean isMega, String formName, PokemonSummary pokemon, PokemonFormDetailSprites sprites, VersionGroupSummary versionGroup, List<PokemonFormDetailFormNamesInner> formNames, List<PokemonFormDetailFormNamesInner> names, List<PokemonDetailTypesInner> types) {
+  public PokemonFormDetail (Integer id, String name, Integer order, Integer formOrder, Boolean isDefault, Boolean isBattleOnly, Boolean isMega, String formName, PokemonSummary pokemon, PokemonFormSprites sprites, VersionGroupSummary versionGroup, List<PokemonFormName> formNames, List<PokemonFormName> names, List<PokemonFormType> types, List<PokemonFormTriggerCondition> triggerConditions, List<PokemonFormFlavorText> flavorTextEntries) {
     this.id = id;
     this.name = name;
     this.order = order;
@@ -50,6 +54,8 @@ public class PokemonFormDetail   {
     this.formNames = formNames;
     this.names = names;
     this.types = types;
+    this.triggerConditions = triggerConditions;
+    this.flavorTextEntries = flavorTextEntries;
   }
 
     
@@ -135,10 +141,10 @@ public class PokemonFormDetail   {
 
     
   @JsonProperty("sprites")
-  public PokemonFormDetailSprites getSprites() {
+  public PokemonFormSprites getSprites() {
     return sprites;
   }
-  public void setSprites(PokemonFormDetailSprites sprites) {
+  public void setSprites(PokemonFormSprites sprites) {
     this.sprites = sprites;
   }
 
@@ -153,29 +159,47 @@ public class PokemonFormDetail   {
 
     
   @JsonProperty("form_names")
-  public List<PokemonFormDetailFormNamesInner> getFormNames() {
+  public List<PokemonFormName> getFormNames() {
     return formNames;
   }
-  public void setFormNames(List<PokemonFormDetailFormNamesInner> formNames) {
+  public void setFormNames(List<PokemonFormName> formNames) {
     this.formNames = formNames;
   }
 
     
   @JsonProperty("names")
-  public List<PokemonFormDetailFormNamesInner> getNames() {
+  public List<PokemonFormName> getNames() {
     return names;
   }
-  public void setNames(List<PokemonFormDetailFormNamesInner> names) {
+  public void setNames(List<PokemonFormName> names) {
     this.names = names;
   }
 
     
   @JsonProperty("types")
-  public List<PokemonDetailTypesInner> getTypes() {
+  public List<PokemonFormType> getTypes() {
     return types;
   }
-  public void setTypes(List<PokemonDetailTypesInner> types) {
+  public void setTypes(List<PokemonFormType> types) {
     this.types = types;
+  }
+
+    
+  @JsonProperty("trigger_conditions")
+  public List<PokemonFormTriggerCondition> getTriggerConditions() {
+    return triggerConditions;
+  }
+  public void setTriggerConditions(List<PokemonFormTriggerCondition> triggerConditions) {
+    this.triggerConditions = triggerConditions;
+  }
+
+    
+  @JsonProperty("flavor_text_entries")
+  public List<PokemonFormFlavorText> getFlavorTextEntries() {
+    return flavorTextEntries;
+  }
+  public void setFlavorTextEntries(List<PokemonFormFlavorText> flavorTextEntries) {
+    this.flavorTextEntries = flavorTextEntries;
   }
 
 
@@ -201,12 +225,14 @@ public class PokemonFormDetail   {
         Objects.equals(versionGroup, pokemonFormDetail.versionGroup) &&
         Objects.equals(formNames, pokemonFormDetail.formNames) &&
         Objects.equals(names, pokemonFormDetail.names) &&
-        Objects.equals(types, pokemonFormDetail.types);
+        Objects.equals(types, pokemonFormDetail.types) &&
+        Objects.equals(triggerConditions, pokemonFormDetail.triggerConditions) &&
+        Objects.equals(flavorTextEntries, pokemonFormDetail.flavorTextEntries);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, order, formOrder, isDefault, isBattleOnly, isMega, formName, pokemon, sprites, versionGroup, formNames, names, types);
+    return Objects.hash(id, name, order, formOrder, isDefault, isBattleOnly, isMega, formName, pokemon, sprites, versionGroup, formNames, names, types, triggerConditions, flavorTextEntries);
   }
 
   @Override
@@ -228,6 +254,8 @@ public class PokemonFormDetail   {
     sb.append("    formNames: ").append(toIndentedString(formNames)).append("\n");
     sb.append("    names: ").append(toIndentedString(names)).append("\n");
     sb.append("    types: ").append(toIndentedString(types)).append("\n");
+    sb.append("    triggerConditions: ").append(toIndentedString(triggerConditions)).append("\n");
+    sb.append("    flavorTextEntries: ").append(toIndentedString(flavorTextEntries)).append("\n");
     sb.append("}");
     return sb.toString();
   }

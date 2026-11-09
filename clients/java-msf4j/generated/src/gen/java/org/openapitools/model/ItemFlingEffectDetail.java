@@ -14,7 +14,7 @@ import org.openapitools.model.ItemSummary;
 /**
  * ItemFlingEffectDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-10-25T05:48:05.787850114Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-11-09T13:49:25.341948748Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class ItemFlingEffectDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -29,10 +29,10 @@ public class ItemFlingEffectDetail   {
   private List<@Valid ItemSummary> items = new ArrayList<>();
 
    /**
-   * Get id
+   * The identifier for this resource.
    * @return id
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   public Integer getId() {
     return id;
   }
@@ -43,10 +43,10 @@ public class ItemFlingEffectDetail   {
   }
 
    /**
-   * Get name
+   * The name for this resource.
    * @return name
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   public String getName() {
     return name;
   }
@@ -56,19 +56,19 @@ public class ItemFlingEffectDetail   {
   }
 
    /**
-   * Get effectEntries
+   * The result of this fling effect listed in different languages.
    * @return effectEntries
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The result of this fling effect listed in different languages.")
   public List<@Valid ItemFlingEffectEffectText> getEffectEntries() {
     return effectEntries;
   }
 
    /**
-   * Get items
+   * A list of items that have this fling effect.
    * @return items
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of items that have this fling effect.")
   public List<@Valid ItemSummary> getItems() {
     return items;
   }

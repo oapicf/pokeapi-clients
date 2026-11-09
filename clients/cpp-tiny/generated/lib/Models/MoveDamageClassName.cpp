@@ -7,7 +7,7 @@ using namespace Tiny;
 MoveDamageClassName::MoveDamageClassName()
 {
 	name = std::string();
-	language = LanguageSummary();
+	language = null;
 }
 
 MoveDamageClassName::MoveDamageClassName(std::string jsonString)

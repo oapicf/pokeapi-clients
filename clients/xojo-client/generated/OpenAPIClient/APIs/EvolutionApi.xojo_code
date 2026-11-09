@@ -1,13 +1,12 @@
 #tag Class
 Protected Class EvolutionApi
 	#tag Method, Flags = &h0
-		Sub EvolutionChainList(, Optional limit As Xoson.O.OptionalInteger, Optional offset As Xoson.O.OptionalInteger, Optional q As Xoson.O.OptionalString)
+		Sub EvolutionChainList(, Optional limit As Xoson.O.OptionalInteger, Optional offset As Xoson.O.OptionalInteger)
 		  // Operation evolution_chain_list
 		  // List evolution chains
 		  // - 
 		  // - parameter limit: (query) Number of results to return per page. (optional, default to 0)
 		  // - parameter offset: (query) The initial index from which to return the results. (optional, default to 0)
-		  // - parameter q: (query) &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional, default to Sample)
 		  //
 		  // Invokes EvolutionApiCallbackHandler.EvolutionChainListCallback(PaginatedEvolutionChainSummaryList) on completion. 
 		  //
@@ -15,12 +14,6 @@ Protected Class EvolutionApi
 		  // - Evolution chains are essentially family trees. They start with the lowest stage within a family and detail evolution conditions for each as well as Pokémon they can evolve into up through the hierarchy.
 		  // - defaultResponse: Nil
 		  //
-		  // - BASIC:
-		  //   - type: http
-		  //   - name: basicAuth
-		  // - API Key:
-		  //   - type: apiKey sessionid 
-		  //   - name: cookieAuth
 		  //
 		  
 		  Dim localVarHTTPSocket As New HTTPSecureSocket
@@ -31,13 +24,7 @@ Protected Class EvolutionApi
 		  
 		  If offset <> nil Then localVarQueryParams = localVarQueryParams + "&" + EncodeURLComponent("offset") + "=" + EncodeURLComponent(offset.ToString)
 		  
-		  If q <> nil Then localVarQueryParams = localVarQueryParams + "&" + EncodeURLComponent("q") + "=" + EncodeURLComponent(q)
-		  
 
-		  
-		  AddHandler localVarHTTPSocket.AuthenticationRequired, addressof Me.AuthenticationRequiredIf me.ApiKeycookieAuth = "" Then Raise New OpenAPIClient.OpenAPIClientException(kErrorCannotAuthenticate, "API key is unset. Please assign a value to `EvolutionApi.ApiKeycookieAuth` before invoking `EvolutionApi.EvolutionChainList()`.")
-		  
-		  
 		  
 
 
@@ -157,20 +144,10 @@ Protected Class EvolutionApi
 		  // - Evolution chains are essentially family trees. They start with the lowest stage within a family and detail evolution conditions for each as well as Pokémon they can evolve into up through the hierarchy.
 		  // - defaultResponse: Nil
 		  //
-		  // - BASIC:
-		  //   - type: http
-		  //   - name: basicAuth
-		  // - API Key:
-		  //   - type: apiKey sessionid 
-		  //   - name: cookieAuth
 		  //
 		  
 		  Dim localVarHTTPSocket As New HTTPSecureSocket
 		  Me.PrivateFuncPrepareSocket(localVarHTTPSocket)
-		  
-		  
-		  
-		  AddHandler localVarHTTPSocket.AuthenticationRequired, addressof Me.AuthenticationRequiredIf me.ApiKeycookieAuth = "" Then Raise New OpenAPIClient.OpenAPIClientException(kErrorCannotAuthenticate, "API key is unset. Please assign a value to `EvolutionApi.ApiKeycookieAuth` before invoking `EvolutionApi.EvolutionChainRetrieve()`.")
 		  
 		  
 		  
@@ -297,12 +274,6 @@ Protected Class EvolutionApi
 		  // - Evolution triggers are the events and conditions that cause a Pokémon to evolve. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Methods_of_evolution) for greater detail.
 		  // - defaultResponse: Nil
 		  //
-		  // - BASIC:
-		  //   - type: http
-		  //   - name: basicAuth
-		  // - API Key:
-		  //   - type: apiKey sessionid 
-		  //   - name: cookieAuth
 		  //
 		  
 		  Dim localVarHTTPSocket As New HTTPSecureSocket
@@ -316,10 +287,6 @@ Protected Class EvolutionApi
 		  If q <> nil Then localVarQueryParams = localVarQueryParams + "&" + EncodeURLComponent("q") + "=" + EncodeURLComponent(q)
 		  
 
-		  
-		  AddHandler localVarHTTPSocket.AuthenticationRequired, addressof Me.AuthenticationRequiredIf me.ApiKeycookieAuth = "" Then Raise New OpenAPIClient.OpenAPIClientException(kErrorCannotAuthenticate, "API key is unset. Please assign a value to `EvolutionApi.ApiKeycookieAuth` before invoking `EvolutionApi.EvolutionTriggerList()`.")
-		  
-		  
 		  
 
 
@@ -439,20 +406,10 @@ Protected Class EvolutionApi
 		  // - Evolution triggers are the events and conditions that cause a Pokémon to evolve. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Methods_of_evolution) for greater detail.
 		  // - defaultResponse: Nil
 		  //
-		  // - BASIC:
-		  //   - type: http
-		  //   - name: basicAuth
-		  // - API Key:
-		  //   - type: apiKey sessionid 
-		  //   - name: cookieAuth
 		  //
 		  
 		  Dim localVarHTTPSocket As New HTTPSecureSocket
 		  Me.PrivateFuncPrepareSocket(localVarHTTPSocket)
-		  
-		  
-		  
-		  AddHandler localVarHTTPSocket.AuthenticationRequired, addressof Me.AuthenticationRequiredIf me.ApiKeycookieAuth = "" Then Raise New OpenAPIClient.OpenAPIClientException(kErrorCannotAuthenticate, "API key is unset. Please assign a value to `EvolutionApi.ApiKeycookieAuth` before invoking `EvolutionApi.EvolutionTriggerRetrieve()`.")
 		  
 		  
 		  
@@ -564,6 +521,268 @@ Protected Class EvolutionApi
 
 
 
+	#tag Method, Flags = &h0
+		Sub EvolutionVariableList(, Optional limit As Xoson.O.OptionalInteger, Optional offset As Xoson.O.OptionalInteger, Optional q As Xoson.O.OptionalString)
+		  // Operation evolution_variable_list
+		  // List evolution variables
+		  // - 
+		  // - parameter limit: (query) Number of results to return per page. (optional, default to 0)
+		  // - parameter offset: (query) The initial index from which to return the results. (optional, default to 0)
+		  // - parameter q: (query) &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional, default to Sample)
+		  //
+		  // Invokes EvolutionApiCallbackHandler.EvolutionVariableListCallback(PaginatedEvolutionVariableSummaryList) on completion. 
+		  //
+		  // - GET /api/v2/evolution-variable/
+		  // - Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+		  // - defaultResponse: Nil
+		  //
+		  //
+		  
+		  Dim localVarHTTPSocket As New HTTPSecureSocket
+		  Me.PrivateFuncPrepareSocket(localVarHTTPSocket)
+		  
+		  Dim localVarQueryParams As String = "?"
+		  If limit <> nil Then localVarQueryParams = localVarQueryParams + EncodeURLComponent("limit") + "=" + EncodeURLComponent(limit.ToString)
+		  
+		  If offset <> nil Then localVarQueryParams = localVarQueryParams + "&" + EncodeURLComponent("offset") + "=" + EncodeURLComponent(offset.ToString)
+		  
+		  If q <> nil Then localVarQueryParams = localVarQueryParams + "&" + EncodeURLComponent("q") + "=" + EncodeURLComponent(q)
+		  
+
+		  
+
+
+		  Dim localVarPath As String = "/api/v2/evolution-variable/"
+		  
+		  
+		  
+		  AddHandler localVarHTTPSocket.PageReceived, addressof me.EvolutionVariableList_handler
+		  AddHandler localVarHTTPSocket.Error, addressof Me.EvolutionVariableList_error
+		  
+		  
+		  localVarHTTPSocket.SendRequest("GET", Me.BasePath + localVarPath + localVarQueryParams)
+		  if localVarHTTPSocket.LastErrorCode <> 0 then
+		    Dim localVarException As New OpenAPIClient.OpenAPIClientException(localVarHTTPSocket.LastErrorCode)
+			Raise localVarException
+		  end if
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Function EvolutionVariableListPrivateFuncDeserializeResponse(HTTPStatus As Integer, Headers As InternetHeaders, error As OpenAPIClient.OpenAPIClientException, Content As String, ByRef outData As OpenAPIClient.Models.PaginatedEvolutionVariableSummaryList) As Boolean
+		  Dim contentType As String = Headers.Value("Content-Type")
+		  Dim contentEncoding As TextEncoding = OpenAPIClient.EncodingFromContentType(contentType)
+		  Content = DefineEncoding(Content, contentEncoding)
+		  
+		  If HTTPStatus > 199 and HTTPStatus < 300 then
+		    If contentType.LeftB(16) = "application/json" then
+		      
+			  outData = New OpenAPIClient.Models.PaginatedEvolutionVariableSummaryList
+			  Try
+		        Xoson.fromJSON(outData, Content.toText())
+
+		      Catch e As JSONException
+		        error.Message = error.Message + " with JSON parse exception: " + e.Message
+		        error.ErrorNumber = kErrorInvalidJSON
+		        Return False
+		        
+		      Catch e As Xojo.Data.InvalidJSONException
+		        error.Message = error.Message + " with Xojo.Data.JSON parse exception: " + e.Message
+		        error.ErrorNumber = kErrorInvalidJSON
+		        Return False
+		        
+		      Catch e As Xoson.XosonException
+		        error.Message = error.Message + " with Xoson parse exception: " + e.Message
+		        error.ErrorNumber = kErrorXosonProblem
+		        Return False
+
+		      End Try
+		      
+		      
+		    ElseIf contentType.LeftB(19) = "multipart/form-data" then
+		      error.Message = "Unsupported media type: " + contentType
+		      error.ErrorNumber = kErrorUnsupportedMediaType
+		      Return False
+
+		    ElseIf contentType.LeftB(33) = "application/x-www-form-urlencoded" then
+		      error.Message = "Unsupported media type: " + contentType
+		      error.ErrorNumber = kErrorUnsupportedMediaType
+		      Return False
+
+		    Else
+		      error.Message = "Unsupported media type: " + contentType
+		      error.ErrorNumber = kErrorUnsupportedMediaType
+		      Return False
+
+		    End If
+		  Else
+		    error.Message = error.Message + ". " + Content
+			error.ErrorNumber = kErrorHTTPFail
+		    Return False
+		  End If
+		  
+		  Return True
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Sub EvolutionVariableList_error(sender As HTTPSecureSocket, Code As Integer)
+		  If sender <> nil Then sender.Close()
+
+		  Dim error As New OpenAPIClient.OpenAPIClientException(Code)
+		  Dim data As OpenAPIClient.Models.PaginatedEvolutionVariableSummaryList
+		  CallbackHandler.EvolutionVariableListCallback(error, data)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Sub EvolutionVariableList_handler(sender As HTTPSecureSocket, URL As String, HTTPStatus As Integer, Headers As InternetHeaders, Content As String)
+		  #Pragma Unused URL
+		  
+
+		  If sender <> nil Then sender.Close()
+		  
+		  Dim error As New OpenAPIClient.OpenAPIClientException(HTTPStatus, "", Content)
+		  
+		  Dim data As OpenAPIClient.Models.PaginatedEvolutionVariableSummaryList
+		  Call EvolutionVariableListPrivateFuncDeserializeResponse(HTTPStatus, Headers, error, Content, data)
+		  
+		  CallbackHandler.EvolutionVariableListCallback(error, data)
+		End Sub
+	#tag EndMethod
+
+
+
+
+	#tag Method, Flags = &h0
+		Sub EvolutionVariableRetrieve(, id As String)
+		  // Operation evolution_variable_retrieve
+		  // Get evolution variable
+		  // - 
+		  // - parameter id: (path) This parameter can be a string or an integer. 
+		  //
+		  // Invokes EvolutionApiCallbackHandler.EvolutionVariableRetrieveCallback(EvolutionVariableDetail) on completion. 
+		  //
+		  // - GET /api/v2/evolution-variable/{id}/
+		  // - Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+		  // - defaultResponse: Nil
+		  //
+		  //
+		  
+		  Dim localVarHTTPSocket As New HTTPSecureSocket
+		  Me.PrivateFuncPrepareSocket(localVarHTTPSocket)
+		  
+		  
+		  
+
+
+		  Dim localVarPath As String = "/api/v2/evolution-variable/{id}/"
+		  
+		  Dim localVarPathStringid As String = id
+		  
+		  localVarPath = localVarPath.ReplaceAllB("{id}", localVarPathStringid)
+		  
+		  
+		  AddHandler localVarHTTPSocket.PageReceived, addressof me.EvolutionVariableRetrieve_handler
+		  AddHandler localVarHTTPSocket.Error, addressof Me.EvolutionVariableRetrieve_error
+		  
+		  
+		  localVarHTTPSocket.SendRequest("GET", Me.BasePath + localVarPath)
+		  if localVarHTTPSocket.LastErrorCode <> 0 then
+		    Dim localVarException As New OpenAPIClient.OpenAPIClientException(localVarHTTPSocket.LastErrorCode)
+			Raise localVarException
+		  end if
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Function EvolutionVariableRetrievePrivateFuncDeserializeResponse(HTTPStatus As Integer, Headers As InternetHeaders, error As OpenAPIClient.OpenAPIClientException, Content As String, ByRef outData As OpenAPIClient.Models.EvolutionVariableDetail) As Boolean
+		  Dim contentType As String = Headers.Value("Content-Type")
+		  Dim contentEncoding As TextEncoding = OpenAPIClient.EncodingFromContentType(contentType)
+		  Content = DefineEncoding(Content, contentEncoding)
+		  
+		  If HTTPStatus > 199 and HTTPStatus < 300 then
+		    If contentType.LeftB(16) = "application/json" then
+		      
+			  outData = New OpenAPIClient.Models.EvolutionVariableDetail
+			  Try
+		        Xoson.fromJSON(outData, Content.toText())
+
+		      Catch e As JSONException
+		        error.Message = error.Message + " with JSON parse exception: " + e.Message
+		        error.ErrorNumber = kErrorInvalidJSON
+		        Return False
+		        
+		      Catch e As Xojo.Data.InvalidJSONException
+		        error.Message = error.Message + " with Xojo.Data.JSON parse exception: " + e.Message
+		        error.ErrorNumber = kErrorInvalidJSON
+		        Return False
+		        
+		      Catch e As Xoson.XosonException
+		        error.Message = error.Message + " with Xoson parse exception: " + e.Message
+		        error.ErrorNumber = kErrorXosonProblem
+		        Return False
+
+		      End Try
+		      
+		      
+		    ElseIf contentType.LeftB(19) = "multipart/form-data" then
+		      error.Message = "Unsupported media type: " + contentType
+		      error.ErrorNumber = kErrorUnsupportedMediaType
+		      Return False
+
+		    ElseIf contentType.LeftB(33) = "application/x-www-form-urlencoded" then
+		      error.Message = "Unsupported media type: " + contentType
+		      error.ErrorNumber = kErrorUnsupportedMediaType
+		      Return False
+
+		    Else
+		      error.Message = "Unsupported media type: " + contentType
+		      error.ErrorNumber = kErrorUnsupportedMediaType
+		      Return False
+
+		    End If
+		  Else
+		    error.Message = error.Message + ". " + Content
+			error.ErrorNumber = kErrorHTTPFail
+		    Return False
+		  End If
+		  
+		  Return True
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Sub EvolutionVariableRetrieve_error(sender As HTTPSecureSocket, Code As Integer)
+		  If sender <> nil Then sender.Close()
+
+		  Dim error As New OpenAPIClient.OpenAPIClientException(Code)
+		  Dim data As OpenAPIClient.Models.EvolutionVariableDetail
+		  CallbackHandler.EvolutionVariableRetrieveCallback(error, data)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Sub EvolutionVariableRetrieve_handler(sender As HTTPSecureSocket, URL As String, HTTPStatus As Integer, Headers As InternetHeaders, Content As String)
+		  #Pragma Unused URL
+		  
+
+		  If sender <> nil Then sender.Close()
+		  
+		  Dim error As New OpenAPIClient.OpenAPIClientException(HTTPStatus, "", Content)
+		  
+		  Dim data As OpenAPIClient.Models.EvolutionVariableDetail
+		  Call EvolutionVariableRetrievePrivateFuncDeserializeResponse(HTTPStatus, Headers, error, Content, data)
+		  
+		  CallbackHandler.EvolutionVariableRetrieveCallback(error, data)
+		End Sub
+	#tag EndMethod
+
+
+
+
 
 
 	#tag Method, Flags = &h21
@@ -610,10 +829,6 @@ Protected Class EvolutionApi
 
 	#tag Property, Flags = &h0
 		AdditionalHeaders As Dictionary
-	#tag EndProperty
-
-	#tag Property, Flags = &h0
-		ApiKeycookieAuth As String
 	#tag EndProperty
 
 	#tag Property, Flags = &h0

@@ -7,14 +7,14 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**id** | **Integer** |  |  [readonly] |
-|**name** | **String** |  |  |
-|**isMainSeries** | **Boolean** |  |  [optional] |
-|**descriptions** | [**List&lt;PokedexDescription&gt;**](PokedexDescription.md) |  |  [readonly] |
-|**names** | [**List&lt;PokedexName&gt;**](PokedexName.md) |  |  [readonly] |
-|**pokemonEntries** | [**List&lt;PokedexDetailPokemonEntriesInner&gt;**](PokedexDetailPokemonEntriesInner.md) |  |  [readonly] |
-|**region** | [**RegionSummary**](RegionSummary.md) |  |  |
-|**versionGroups** | [**List&lt;AbilityDetailPokemonInnerPokemon&gt;**](AbilityDetailPokemonInnerPokemon.md) |  |  [readonly] |
+|**id** | **Integer** | The identifier for this resource. |  [readonly] |
+|**name** | **String** | The name for this resource. |  |
+|**isMainSeries** | **Boolean** | Whether or not this Pokédex originated in the main series of the video games. |  [optional] |
+|**descriptions** | [**List&lt;PokedexDescription&gt;**](PokedexDescription.md) | The description of this resource listed in different languages. |  [readonly] |
+|**names** | [**List&lt;PokedexName&gt;**](PokedexName.md) | The name of this resource listed in different languages. |  [readonly] |
+|**pokemonEntries** | [**List&lt;PokemonDexNumber&gt;**](PokemonDexNumber.md) | A list of Pokémon catalogued in this Pokédex and their indexes. |  [readonly] |
+|**region** | [**RegionSummary**](RegionSummary.md) | The region this Pokédex catalogues Pokémon for. |  |
+|**versionGroups** | [**List&lt;VersionGroupSummary&gt;**](VersionGroupSummary.md) | A list of version groups this Pokédex is relevant to. |  [readonly] |
 
 
 

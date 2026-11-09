@@ -1,9 +1,9 @@
 /*
   PokéAPI
 
-  All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+  All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
 
-  The version of the OpenAPI document: 2.7.0
+  The version of the OpenAPI document: 2.10.0
 
   Contact: blah+oapicf@cliffano.com
 
@@ -14,29 +14,37 @@ syntax = "proto3";
 
 package openapitools;
 
-import public "models/ability_detail_pokemon_inner_pokemon.proto";
 import public "models/pokedex_description.proto";
-import public "models/pokedex_detail_pokemon_entries_inner.proto";
 import public "models/pokedex_name.proto";
+import public "models/pokemon_dex_number.proto";
 import public "models/region_summary.proto";
+import public "models/version_group_summary.proto";
 
 message PokedexDetail {
 
+  // The identifier for this resource.
   int32 id = 3355;
 
+  // The name for this resource.
   string name = 3373707;
 
+  // Whether or not this Pokédex originated in the main series of the video games.
   bool is_main_series = 389595179;
 
+  // The description of this resource listed in different languages.
   repeated PokedexDescription descriptions = 310707212;
 
+  // The name of this resource listed in different languages.
   repeated PokedexName names = 104585032;
 
-  repeated PokedexDetailPokemonEntriesInner pokemon_entries = 223667493;
+  // A list of Pokémon catalogued in this Pokédex and their indexes.
+  repeated PokemonDexNumber pokemon_entries = 223667493;
 
+  // The region this Pokédex catalogues Pokémon for.
   RegionSummary region = 397924621;
 
-  repeated AbilityDetailPokemonInnerPokemon version_groups = 67168485;
+  // A list of version groups this Pokédex is relevant to.
+  repeated VersionGroupSummary version_groups = 67168485;
 
 }
 

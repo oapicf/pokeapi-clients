@@ -13,6 +13,7 @@ import java.net.URI
 import CharacteristicSummary._
 
 case class CharacteristicSummary (
+  /* The URL of the referenced resource. */
   url: URI)
 
 object CharacteristicSummary {

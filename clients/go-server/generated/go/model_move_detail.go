@@ -3,9 +3,9 @@
 /*
  * PokéAPI
  *
- * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+ * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
  *
- * API version: 2.7.0
+ * API version: 2.10.0
  * Contact: blah+oapicf@cliffano.com
  */
 
@@ -13,6 +13,7 @@ package openapi
 
 
 import (
+	"errors"
 	"encoding/json"
 	"fmt"
 )
@@ -21,53 +22,77 @@ import (
 
 type MoveDetail struct {
 
+	// The identifier for this resource.
 	Id int32 `json:"id"`
 
+	// The name for this resource.
 	Name string `json:"name"`
 
+	// The percent value of how likely this move is to be successful.
 	Accuracy *int32 `json:"accuracy,omitempty"`
 
-	EffectChance int32 `json:"effect_chance"`
+	// The percent value of how likely it is this moves effect will happen.
+	EffectChance *int32 `json:"effect_chance"`
 
+	// Power points. The number of times this move can be used.
 	Pp *int32 `json:"pp,omitempty"`
 
+	// A value between -8 and 8. Sets the order in which moves are executed during battle. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Priority) for greater detail.
 	Priority *int32 `json:"priority,omitempty"`
 
+	// The base power of this move, or null if it has no fixed base power.
 	Power *int32 `json:"power,omitempty"`
 
-	ContestCombos MoveDetailContestCombos `json:"contest_combos"`
+	// A detail of normal and super contest combos that require this move.
+	ContestCombos *MoveCombos `json:"contest_combos"`
 
-	ContestType ContestTypeSummary `json:"contest_type"`
+	// The type of appeal this move gives a Pokémon when used in a contest.
+	ContestType *ContestTypeSummary `json:"contest_type"`
 
-	ContestEffect ContestEffectSummary `json:"contest_effect"`
+	// The effect the move has when used in a contest.
+	ContestEffect *ContestEffectSummary `json:"contest_effect"`
 
+	// The type of damage the move inflicts on the target, e.g. physical.
 	DamageClass MoveDamageClassSummary `json:"damage_class"`
 
-	EffectEntries []MoveChangeEffectEntriesInner `json:"effect_entries"`
+	// The effect of this move listed in different languages.
+	EffectEntries []MoveEffectEffectText `json:"effect_entries"`
 
-	EffectChanges []MoveDetailEffectChangesInner `json:"effect_changes"`
+	// The list of previous effects this move has had across version groups of the games.
+	EffectChanges []MoveEffectChange `json:"effect_changes"`
 
+	// The generation in which this move was introduced.
 	Generation GenerationSummary `json:"generation"`
 
-	Meta MoveMeta `json:"meta"`
+	// Metadata about this move
+	Meta *MoveMeta `json:"meta"`
 
+	// The name of this resource listed in different languages.
 	Names []MoveName `json:"names"`
 
+	// A list of move resource value changes across version groups of the game.
 	PastValues []MoveChange `json:"past_values"`
 
-	StatChanges []MoveDetailStatChangesInner `json:"stat_changes"`
+	// A list of stats this moves effects and how much it effects them.
+	StatChanges []MoveMetaStatChange `json:"stat_changes"`
 
-	SuperContestEffect SuperContestEffectSummary `json:"super_contest_effect"`
+	// The effect the move has when used in a super contest.
+	SuperContestEffect *SuperContestEffectSummary `json:"super_contest_effect"`
 
+	// The type of target that will receive the effects of the attack.
 	Target MoveTargetSummary `json:"target"`
 
+	// The elemental type of this move.
 	Type TypeSummary `json:"type"`
 
-	Machines []MoveDetailMachinesInner `json:"machines"`
+	// A list of the machines that teach this move.
+	Machines []ItemMachine `json:"machines"`
 
+	// The flavor text of this move listed in different languages.
 	FlavorTextEntries []MoveFlavorText `json:"flavor_text_entries"`
 
-	LearnedByPokemon []AbilityDetailPokemonInnerPokemon `json:"learned_by_pokemon"`
+	// List of Pokemon that can learn the move
+	LearnedByPokemon []PokemonSummary `json:"learned_by_pokemon"`
 }
 // UnmarshalJSON validates required property keys then unmarshals into MoveDetail
 func (o *MoveDetail) UnmarshalJSON(data []byte) (err error) {
@@ -76,7 +101,6 @@ func (o *MoveDetail) UnmarshalJSON(data []byte) (err error) {
 	requiredProperties := []string{
 		"name",
 		"effect_chance",
-		"contest_combos",
 		"contest_type",
 		"contest_effect",
 		"damage_class",
@@ -88,13 +112,12 @@ func (o *MoveDetail) UnmarshalJSON(data []byte) (err error) {
 
 	requiredNullableProperties := map[string]bool{
 		"name": false,
-		"effect_chance": false,
-		"contest_combos": false,
-		"contest_type": false,
-		"contest_effect": false,
+		"effect_chance": true,
+		"contest_type": true,
+		"contest_effect": true,
 		"damage_class": false,
 		"generation": false,
-		"super_contest_effect": false,
+		"super_contest_effect": true,
 		"target": false,
 		"type": false,
 	}
@@ -282,12 +305,8 @@ func (o *MoveDetail) UnmarshalJSON(data []byte) (err error) {
 // Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertMoveDetailRequired(obj MoveDetail) error {
 	elements := map[string]interface{}{
-		"contest_combos": obj.ContestCombos,
-		"contest_type": obj.ContestType,
-		"contest_effect": obj.ContestEffect,
 		"damage_class": obj.DamageClass,
 		"generation": obj.Generation,
-		"super_contest_effect": obj.SuperContestEffect,
 		"target": obj.Target,
 		"type": obj.Type,
 	}
@@ -297,14 +316,15 @@ func AssertMoveDetailRequired(obj MoveDetail) error {
 		}
 	}
 
-	if err := AssertMoveDetailContestCombosRequired(obj.ContestCombos); err != nil {
-		return err
+	if obj.ContestType != nil {
+		if err := AssertContestTypeSummaryRequired(*obj.ContestType); err != nil {
+			return err
+		}
 	}
-	if err := AssertContestTypeSummaryRequired(obj.ContestType); err != nil {
-		return err
-	}
-	if err := AssertContestEffectSummaryRequired(obj.ContestEffect); err != nil {
-		return err
+	if obj.ContestEffect != nil {
+		if err := AssertContestEffectSummaryRequired(*obj.ContestEffect); err != nil {
+			return err
+		}
 	}
 	if err := AssertMoveDamageClassSummaryRequired(obj.DamageClass); err != nil {
 		return err
@@ -312,8 +332,10 @@ func AssertMoveDetailRequired(obj MoveDetail) error {
 	if err := AssertGenerationSummaryRequired(obj.Generation); err != nil {
 		return err
 	}
-	if err := AssertSuperContestEffectSummaryRequired(obj.SuperContestEffect); err != nil {
-		return err
+	if obj.SuperContestEffect != nil {
+		if err := AssertSuperContestEffectSummaryRequired(*obj.SuperContestEffect); err != nil {
+			return err
+		}
 	}
 	if err := AssertMoveTargetSummaryRequired(obj.Target); err != nil {
 		return err
@@ -326,24 +348,51 @@ func AssertMoveDetailRequired(obj MoveDetail) error {
 
 // AssertMoveDetailConstraints checks if the values respects the defined constraints
 func AssertMoveDetailConstraints(obj MoveDetail) error {
-	if err := AssertMoveDetailContestCombosConstraints(obj.ContestCombos); err != nil {
-		return err
+	if obj.Accuracy != nil && *obj.Accuracy < -2147483648 {
+		return &ParsingError{Param: "Accuracy", Err: errors.New(errMsgMinValueConstraint)}
 	}
-	if err := AssertContestTypeSummaryConstraints(obj.ContestType); err != nil {
-		return err
+	if obj.Accuracy != nil && *obj.Accuracy > 2147483647 {
+		return &ParsingError{Param: "Accuracy", Err: errors.New(errMsgMaxValueConstraint)}
 	}
-	if err := AssertContestEffectSummaryConstraints(obj.ContestEffect); err != nil {
-		return err
+	if obj.Pp != nil && *obj.Pp < -2147483648 {
+		return &ParsingError{Param: "Pp", Err: errors.New(errMsgMinValueConstraint)}
 	}
+	if obj.Pp != nil && *obj.Pp > 2147483647 {
+		return &ParsingError{Param: "Pp", Err: errors.New(errMsgMaxValueConstraint)}
+	}
+	if obj.Priority != nil && *obj.Priority < -2147483648 {
+		return &ParsingError{Param: "Priority", Err: errors.New(errMsgMinValueConstraint)}
+	}
+	if obj.Priority != nil && *obj.Priority > 2147483647 {
+		return &ParsingError{Param: "Priority", Err: errors.New(errMsgMaxValueConstraint)}
+	}
+	if obj.Power != nil && *obj.Power < -2147483648 {
+		return &ParsingError{Param: "Power", Err: errors.New(errMsgMinValueConstraint)}
+	}
+	if obj.Power != nil && *obj.Power > 2147483647 {
+		return &ParsingError{Param: "Power", Err: errors.New(errMsgMaxValueConstraint)}
+	}
+    if obj.ContestType != nil {
+     	if err := AssertContestTypeSummaryConstraints(*obj.ContestType); err != nil {
+     		return err
+     	}
+    }
+    if obj.ContestEffect != nil {
+     	if err := AssertContestEffectSummaryConstraints(*obj.ContestEffect); err != nil {
+     		return err
+     	}
+    }
 	if err := AssertMoveDamageClassSummaryConstraints(obj.DamageClass); err != nil {
 		return err
 	}
 	if err := AssertGenerationSummaryConstraints(obj.Generation); err != nil {
 		return err
 	}
-	if err := AssertSuperContestEffectSummaryConstraints(obj.SuperContestEffect); err != nil {
-		return err
-	}
+    if obj.SuperContestEffect != nil {
+     	if err := AssertSuperContestEffectSummaryConstraints(*obj.SuperContestEffect); err != nil {
+     		return err
+     	}
+    }
 	if err := AssertMoveTargetSummaryConstraints(obj.Target); err != nil {
 		return err
 	}

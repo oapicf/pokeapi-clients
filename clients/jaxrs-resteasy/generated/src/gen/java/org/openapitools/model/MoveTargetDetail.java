@@ -16,7 +16,7 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 import io.swagger.annotations.*;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2026-10-25T05:48:49.952264473Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2026-11-09T13:50:00.159999817Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class MoveTargetDetail   {
   
   private Integer id;
@@ -26,9 +26,10 @@ public class MoveTargetDetail   {
   private List<@Valid MoveTargetName> names = new ArrayList<>();
 
   /**
+   * The identifier for this resource.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   @JsonProperty("id")
   @NotNull
   public Integer getId() {
@@ -39,12 +40,13 @@ public class MoveTargetDetail   {
   }
 
   /**
+   * The name for this resource.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   @JsonProperty("name")
   @NotNull
- @Size(max=100)  public String getName() {
+ @Size(max=200)  public String getName() {
     return name;
   }
   public void setName(String name) {
@@ -52,9 +54,10 @@ public class MoveTargetDetail   {
   }
 
   /**
+   * The description of this resource listed in different languages.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The description of this resource listed in different languages.")
   @JsonProperty("descriptions")
   @NotNull
   public List<@Valid MoveTargetDescription> getDescriptions() {
@@ -65,9 +68,10 @@ public class MoveTargetDetail   {
   }
 
   /**
+   * A list of moves that that are directed at this target.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of moves that that are directed at this target.")
   @JsonProperty("moves")
   @NotNull
   public List<@Valid MoveSummary> getMoves() {
@@ -78,9 +82,10 @@ public class MoveTargetDetail   {
   }
 
   /**
+   * The name of this resource listed in different languages.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
   @JsonProperty("names")
   @NotNull
   public List<@Valid MoveTargetName> getNames() {

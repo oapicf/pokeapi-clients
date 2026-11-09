@@ -24,7 +24,7 @@ void
 ContestEffectFlavorText::__init()
 {
 	//flavor_text = std::string();
-	//language = new LanguageSummary();
+	//language = null;
 }
 
 void

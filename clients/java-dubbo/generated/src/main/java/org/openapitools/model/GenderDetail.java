@@ -1,7 +1,7 @@
 package org.openapitools.model;
 
-import org.openapitools.model.AbilityDetailPokemonInnerPokemon;
-import org.openapitools.model.GenderDetailPokemonSpeciesDetailsInner;
+import org.openapitools.model.GenderPokemonSpecies;
+import org.openapitools.model.PokemonSpeciesSummary;
 import java.util.*;
 import java.util.Objects;
 import java.io.Serializable;
@@ -14,20 +14,32 @@ import java.math.*;
 public class GenderDetail implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * The identifier for this resource.
+   */
   @JsonProperty("id")
   private Integer id;
 
+  /**
+   * The name for this resource.
+   */
   @JsonProperty("name")
   private String name;
 
+  /**
+   * A list of Pokémon species that can be this gender and how likely it is that they will be.
+   */
   @JsonProperty("pokemon_species_details")
-  private List<GenderDetailPokemonSpeciesDetailsInner> pokemonSpeciesDetails = new ArrayList<>();
-
-  @JsonProperty("required_for_evolution")
-  private List<AbilityDetailPokemonInnerPokemon> requiredForEvolution = new ArrayList<>();
+  private List<GenderPokemonSpecies> pokemonSpeciesDetails = new ArrayList<>();
 
   /**
-   * 
+   * A list of Pokémon species that required this gender in order for a Pokémon to evolve into them.
+   */
+  @JsonProperty("required_for_evolution")
+  private List<PokemonSpeciesSummary> requiredForEvolution = new ArrayList<>();
+
+  /**
+   * The identifier for this resource.
    * @return id
    */
   public Integer getId() {
@@ -39,7 +51,7 @@ public class GenderDetail implements Serializable {
   }
 
   /**
-   * 
+   * The name for this resource.
    * @return name
    */
   public String getName() {
@@ -51,26 +63,26 @@ public class GenderDetail implements Serializable {
   }
 
   /**
-   * 
+   * A list of Pokémon species that can be this gender and how likely it is that they will be.
    * @return pokemonSpeciesDetails
    */
-  public List<GenderDetailPokemonSpeciesDetailsInner> getPokemonSpeciesDetails() {
+  public List<GenderPokemonSpecies> getPokemonSpeciesDetails() {
     return pokemonSpeciesDetails;
   }
 
-  public void setPokemonSpeciesDetails(List<GenderDetailPokemonSpeciesDetailsInner> pokemonSpeciesDetails) {
+  public void setPokemonSpeciesDetails(List<GenderPokemonSpecies> pokemonSpeciesDetails) {
     this.pokemonSpeciesDetails = pokemonSpeciesDetails;
   }
 
   /**
-   * 
+   * A list of Pokémon species that required this gender in order for a Pokémon to evolve into them.
    * @return requiredForEvolution
    */
-  public List<AbilityDetailPokemonInnerPokemon> getRequiredForEvolution() {
+  public List<PokemonSpeciesSummary> getRequiredForEvolution() {
     return requiredForEvolution;
   }
 
-  public void setRequiredForEvolution(List<AbilityDetailPokemonInnerPokemon> requiredForEvolution) {
+  public void setRequiredForEvolution(List<PokemonSpeciesSummary> requiredForEvolution) {
     this.requiredForEvolution = requiredForEvolution;
   }
 

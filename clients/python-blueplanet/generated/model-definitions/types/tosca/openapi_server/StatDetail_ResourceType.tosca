@@ -8,9 +8,10 @@ authors     = ["F. Bar (foo@bar.baz)"]
 imports {
   Root = tosca.resourceTypes.Root
   CharacteristicSummary = openapi_server.resourceTypes.CharacteristicSummary
+  ItemSummary = openapi_server.resourceTypes.ItemSummary
   MoveDamageClassSummary = openapi_server.resourceTypes.MoveDamageClassSummary
-  StatDetailAffectingMoves = openapi_server.resourceTypes.StatDetailAffectingMoves
-  StatDetailAffectingNatures = openapi_server.resourceTypes.StatDetailAffectingNatures
+  StatAffectingMoves = openapi_server.resourceTypes.StatAffectingMoves
+  StatAffectingNatures = openapi_server.resourceTypes.StatAffectingNatures
   StatName = openapi_server.resourceTypes.StatName
 }
 resourceTypes {
@@ -22,49 +23,55 @@ resourceTypes {
     properties {
         id {
           type =  integer
-          description = ""
+          description = "The identifier for this resource."
           optional = true
         }
         name {
           type =  string
-          description = ""
+          description = "The name for this resource."
           optional = true
         }
         game_index {
           type =  integer
-          description = ""
+          description = "ID the games use for this stat."
           optional = true
         }
         is_battle_only {
           type =  boolean
-          description = ""
+          description = "Whether this stat only exists within a battle."
           optional = false
         }
         affecting_moves {
-          type = StatDetailAffectingMoves
-          description = ""
+          type = StatAffectingMoves
+          description = "A detail of moves which affect this stat positively or negatively."
           optional = true
         }
         affecting_natures {
-          type = StatDetailAffectingNatures
-          description = ""
+          type = StatAffectingNatures
+          description = "A detail of natures which affect this stat positively or negatively."
+          optional = true
+        }
+        affecting_items {
+          type = array
+          items.type = ItemSummary
+          description = "Items that affect this stat, such as vitamins and battle items."
           optional = true
         }
         characteristics {
           type = array
           items.type = CharacteristicSummary
-          description = ""
+          description = "A list of characteristics that are set on a Pokémon when its highest base stat is this stat."
           optional = true
         }
         move_damage_class {
           type = MoveDamageClassSummary
-          description = ""
+          description = "The class of damage this stat is directly related to."
           optional = true
         }
         names {
           type = array
           items.type = StatName
-          description = ""
+          description = "The name of this resource listed in different languages."
           optional = true
         }
     }

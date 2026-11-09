@@ -39,24 +39,28 @@
 #include "../model/type_detail.h"
 
 
+// List abilities
+//
 // Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
 //
 paginated_ability_summary_list_t*
 PokemonAPI_abilityList(apiClient_t *apiClient, int *limit, int *offset, char *q);
 
 
+// Get ability
+//
 // Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
 //
 ability_detail_t*
 PokemonAPI_abilityRetrieve(apiClient_t *apiClient, char *id);
 
 
-// List charecterictics
+// List characteristics
 //
 // Characteristics indicate which stat contains a Pokémon's highest IV. A Pokémon's Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail.
 //
 paginated_characteristic_summary_list_t*
-PokemonAPI_characteristicList(apiClient_t *apiClient, int *limit, int *offset, char *q);
+PokemonAPI_characteristicList(apiClient_t *apiClient, int *limit, int *offset);
 
 
 // Get characteristic

@@ -9,20 +9,52 @@
  */
 import { CharacteristicSummary } from './characteristicSummary';
 import { MoveDamageClassSummary } from './moveDamageClassSummary';
+import { StatAffectingNatures } from './statAffectingNatures';
+import { StatAffectingMoves } from './statAffectingMoves';
 import { StatName } from './statName';
-import { StatDetailAffectingNatures } from './statDetailAffectingNatures';
-import { StatDetailAffectingMoves } from './statDetailAffectingMoves';
+import { ItemSummary } from './itemSummary';
 
 
 export interface StatDetail { 
+    /**
+     * The identifier for this resource.
+     */
     readonly id: number;
+    /**
+     * The name for this resource.
+     */
     name: string;
+    /**
+     * ID the games use for this stat.
+     */
     game_index: number;
+    /**
+     * Whether this stat only exists within a battle.
+     */
     is_battle_only?: boolean;
-    affecting_moves: StatDetailAffectingMoves;
-    affecting_natures: StatDetailAffectingNatures;
+    /**
+     * A detail of moves which affect this stat positively or negatively.
+     */
+    readonly affecting_moves: StatAffectingMoves;
+    /**
+     * A detail of natures which affect this stat positively or negatively.
+     */
+    readonly affecting_natures: StatAffectingNatures;
+    /**
+     * Items that affect this stat, such as vitamins and battle items.
+     */
+    readonly affecting_items: Array<ItemSummary>;
+    /**
+     * A list of characteristics that are set on a Pokémon when its highest base stat is this stat.
+     */
     readonly characteristics: Array<CharacteristicSummary>;
-    move_damage_class: MoveDamageClassSummary;
+    /**
+     * The class of damage this stat is directly related to.
+     */
+    move_damage_class: MoveDamageClassSummary | null;
+    /**
+     * The name of this resource listed in different languages.
+     */
     readonly names: Array<StatName>;
 }
 

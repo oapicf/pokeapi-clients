@@ -2,8 +2,10 @@ package controllers;
 
 import apimodels.EvolutionChainDetail;
 import apimodels.EvolutionTriggerDetail;
+import apimodels.EvolutionVariableDetail;
 import apimodels.PaginatedEvolutionChainSummaryList;
 import apimodels.PaginatedEvolutionTriggerSummaryList;
+import apimodels.PaginatedEvolutionVariableSummaryList;
 
 import play.mvc.Http;
 import java.util.List;
@@ -14,10 +16,10 @@ import java.io.FileInputStream;
 import play.libs.Files.TemporaryFile;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-10-25T05:48:13.486809836Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-11-09T13:49:31.462302702Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class EvolutionApiControllerImp extends EvolutionApiControllerImpInterface {
     @Override
-    public PaginatedEvolutionChainSummaryList evolutionChainList(Http.Request request, Integer limit, Integer offset, String q) throws Exception {
+    public PaginatedEvolutionChainSummaryList evolutionChainList(Http.Request request, Integer limit, Integer offset) throws Exception {
         //Do your magic!!!
         return new PaginatedEvolutionChainSummaryList();
     }
@@ -38,6 +40,18 @@ public class EvolutionApiControllerImp extends EvolutionApiControllerImpInterfac
     public EvolutionTriggerDetail evolutionTriggerRetrieve(Http.Request request, String id) throws Exception {
         //Do your magic!!!
         return new EvolutionTriggerDetail();
+    }
+
+    @Override
+    public PaginatedEvolutionVariableSummaryList evolutionVariableList(Http.Request request, Integer limit, Integer offset, String q) throws Exception {
+        //Do your magic!!!
+        return new PaginatedEvolutionVariableSummaryList();
+    }
+
+    @Override
+    public EvolutionVariableDetail evolutionVariableRetrieve(Http.Request request, String id) throws Exception {
+        //Do your magic!!!
+        return new EvolutionVariableDetail();
     }
 
 }

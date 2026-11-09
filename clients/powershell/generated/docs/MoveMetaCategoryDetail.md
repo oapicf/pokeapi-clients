@@ -3,10 +3,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **Int32** |  | [readonly] 
-**Name** | **String** |  | 
-**Descriptions** | [**MoveMetaCategoryDescription[]**](MoveMetaCategoryDescription.md) |  | [readonly] 
-**Moves** | [**AbilityDetailPokemonInnerPokemon[]**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] 
+**Id** | **Int32** | The identifier for this resource. | [readonly] 
+**Name** | **String** | The name for this resource. | 
+**Descriptions** | [**MoveMetaCategoryDescription[]**](MoveMetaCategoryDescription.md) | The description of this resource listed in different languages. | [readonly] 
+**Moves** | [**MoveSummary[]**](MoveSummary.md) | A list of moves that fall into this category. | [readonly] 
 
 ## Examples
 

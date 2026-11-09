@@ -87,8 +87,6 @@ pub enum VersionRetrieveResponse {
 #[async_trait]
 #[allow(clippy::ptr_arg)]
 pub trait Games<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorHandler<E> {
-    type Claims;
-
     /// List genrations.
     ///
     /// GenerationList - GET /api/v2/generation/
@@ -98,7 +96,6 @@ pub trait Games<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorHa
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       query_params: &models::GenerationListQueryParams,
     ) -> Result<GenerationListResponse, E>;
 
@@ -111,7 +108,6 @@ pub trait Games<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorHa
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       path_params: &models::GenerationRetrievePathParams,
     ) -> Result<GenerationRetrieveResponse, E>;
 
@@ -124,7 +120,6 @@ pub trait Games<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorHa
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       query_params: &models::PokedexListQueryParams,
     ) -> Result<PokedexListResponse, E>;
 
@@ -137,7 +132,6 @@ pub trait Games<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorHa
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       path_params: &models::PokedexRetrievePathParams,
     ) -> Result<PokedexRetrieveResponse, E>;
 
@@ -150,7 +144,6 @@ pub trait Games<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorHa
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       query_params: &models::VersionGroupListQueryParams,
     ) -> Result<VersionGroupListResponse, E>;
 
@@ -163,7 +156,6 @@ pub trait Games<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorHa
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       path_params: &models::VersionGroupRetrievePathParams,
     ) -> Result<VersionGroupRetrieveResponse, E>;
 
@@ -176,7 +168,6 @@ pub trait Games<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorHa
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       query_params: &models::VersionListQueryParams,
     ) -> Result<VersionListResponse, E>;
 
@@ -189,7 +180,6 @@ pub trait Games<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorHa
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       path_params: &models::VersionRetrievePathParams,
     ) -> Result<VersionRetrieveResponse, E>;
 }

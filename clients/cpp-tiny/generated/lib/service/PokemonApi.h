@@ -55,7 +55,7 @@ public:
     virtual ~PokemonApi();
 
     /**
-    * .
+    * List abilities.
     *
     * Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
     * \param limit Number of results to return per page.
@@ -77,7 +77,7 @@ public:
             
     );
     /**
-    * .
+    * Get ability.
     *
     * Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
     * \param id This parameter can be a string or an integer. *Required*
@@ -91,12 +91,11 @@ public:
             
     );
     /**
-    * List charecterictics.
+    * List characteristics.
     *
     * Characteristics indicate which stat contains a Pokémon's highest IV. A Pokémon's Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail.
     * \param limit Number of results to return per page.
     * \param offset The initial index from which to return the results.
-    * \param q > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
     */
     Response<
                 PaginatedCharacteristicSummaryList
@@ -107,9 +106,6 @@ public:
             , 
             
             int offset
-            , 
-            
-            std::string q
             
     );
     /**

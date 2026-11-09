@@ -6,11 +6,11 @@ from datetime import date, datetime  # noqa: F401
 from typing import List, Dict  # noqa: F401
 
 from app.openapi_server.models.base_model import Model
-from app.openapi_server.models.ability_detail_pokemon_inner_pokemon import AbilityDetailPokemonInnerPokemon  # noqa: F401,E501
 from app.openapi_server.models.generation_summary import GenerationSummary  # noqa: F401,E501
 from app.openapi_server.models.location_summary import LocationSummary  # noqa: F401,E501
 from app.openapi_server.models.pokedex_summary import PokedexSummary  # noqa: F401,E501
 from app.openapi_server.models.region_name import RegionName  # noqa: F401,E501
+from app.openapi_server.models.version_group_summary import VersionGroupSummary  # noqa: F401,E501
 from openapi_server import util
 
 
@@ -20,7 +20,7 @@ class RegionDetail(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, id: int=None, name: str=None, locations: List[LocationSummary]=None, main_generation: GenerationSummary=None, names: List[RegionName]=None, pokedexes: List[PokedexSummary]=None, version_groups: List[AbilityDetailPokemonInnerPokemon]=None):  # noqa: E501
+    def __init__(self, id: int=None, name: str=None, locations: List[LocationSummary]=None, main_generation: GenerationSummary=None, names: List[RegionName]=None, pokedexes: List[PokedexSummary]=None, version_groups: List[VersionGroupSummary]=None):  # noqa: E501
         """RegionDetail - a model defined in Swagger
 
         :param id: The id of this RegionDetail.  # noqa: E501
@@ -36,7 +36,7 @@ class RegionDetail(Model):
         :param pokedexes: The pokedexes of this RegionDetail.  # noqa: E501
         :type pokedexes: List[PokedexSummary]
         :param version_groups: The version_groups of this RegionDetail.  # noqa: E501
-        :type version_groups: List[AbilityDetailPokemonInnerPokemon]
+        :type version_groups: List[VersionGroupSummary]
         """
         self.swagger_types = {
             'id': int,
@@ -45,7 +45,7 @@ class RegionDetail(Model):
             'main_generation': GenerationSummary,
             'names': List[RegionName],
             'pokedexes': List[PokedexSummary],
-            'version_groups': List[AbilityDetailPokemonInnerPokemon]
+            'version_groups': List[VersionGroupSummary]
         }
 
         self.attribute_map = {
@@ -81,6 +81,7 @@ class RegionDetail(Model):
     def id(self) -> int:
         """Gets the id of this RegionDetail.
 
+        The identifier for this resource.  # noqa: E501
 
         :return: The id of this RegionDetail.
         :rtype: int
@@ -91,6 +92,7 @@ class RegionDetail(Model):
     def id(self, id: int):
         """Sets the id of this RegionDetail.
 
+        The identifier for this resource.  # noqa: E501
 
         :param id: The id of this RegionDetail.
         :type id: int
@@ -104,6 +106,7 @@ class RegionDetail(Model):
     def name(self) -> str:
         """Gets the name of this RegionDetail.
 
+        The name for this resource.  # noqa: E501
 
         :return: The name of this RegionDetail.
         :rtype: str
@@ -114,14 +117,15 @@ class RegionDetail(Model):
     def name(self, name: str):
         """Sets the name of this RegionDetail.
 
+        The name for this resource.  # noqa: E501
 
         :param name: The name of this RegionDetail.
         :type name: str
         """
         if name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
-        if name is not None and len(name) > 100:
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `100`")  # noqa: E501
+        if name is not None and len(name) > 200:
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `200`")  # noqa: E501
 
         self._name = name
 
@@ -129,6 +133,7 @@ class RegionDetail(Model):
     def locations(self) -> List[LocationSummary]:
         """Gets the locations of this RegionDetail.
 
+        A list of locations that can be found in this region.  # noqa: E501
 
         :return: The locations of this RegionDetail.
         :rtype: List[LocationSummary]
@@ -139,6 +144,7 @@ class RegionDetail(Model):
     def locations(self, locations: List[LocationSummary]):
         """Sets the locations of this RegionDetail.
 
+        A list of locations that can be found in this region.  # noqa: E501
 
         :param locations: The locations of this RegionDetail.
         :type locations: List[LocationSummary]
@@ -152,6 +158,7 @@ class RegionDetail(Model):
     def main_generation(self) -> GenerationSummary:
         """Gets the main_generation of this RegionDetail.
 
+        The generation this region was introduced in.  # noqa: E501
 
         :return: The main_generation of this RegionDetail.
         :rtype: GenerationSummary
@@ -162,6 +169,7 @@ class RegionDetail(Model):
     def main_generation(self, main_generation: GenerationSummary):
         """Sets the main_generation of this RegionDetail.
 
+        The generation this region was introduced in.  # noqa: E501
 
         :param main_generation: The main_generation of this RegionDetail.
         :type main_generation: GenerationSummary
@@ -175,6 +183,7 @@ class RegionDetail(Model):
     def names(self) -> List[RegionName]:
         """Gets the names of this RegionDetail.
 
+        The name of this resource listed in different languages.  # noqa: E501
 
         :return: The names of this RegionDetail.
         :rtype: List[RegionName]
@@ -185,6 +194,7 @@ class RegionDetail(Model):
     def names(self, names: List[RegionName]):
         """Sets the names of this RegionDetail.
 
+        The name of this resource listed in different languages.  # noqa: E501
 
         :param names: The names of this RegionDetail.
         :type names: List[RegionName]
@@ -198,6 +208,7 @@ class RegionDetail(Model):
     def pokedexes(self) -> List[PokedexSummary]:
         """Gets the pokedexes of this RegionDetail.
 
+        A list of pokédexes that catalogue Pokémon in this region.  # noqa: E501
 
         :return: The pokedexes of this RegionDetail.
         :rtype: List[PokedexSummary]
@@ -208,6 +219,7 @@ class RegionDetail(Model):
     def pokedexes(self, pokedexes: List[PokedexSummary]):
         """Sets the pokedexes of this RegionDetail.
 
+        A list of pokédexes that catalogue Pokémon in this region.  # noqa: E501
 
         :param pokedexes: The pokedexes of this RegionDetail.
         :type pokedexes: List[PokedexSummary]
@@ -218,22 +230,24 @@ class RegionDetail(Model):
         self._pokedexes = pokedexes
 
     @property
-    def version_groups(self) -> List[AbilityDetailPokemonInnerPokemon]:
+    def version_groups(self) -> List[VersionGroupSummary]:
         """Gets the version_groups of this RegionDetail.
 
+        A list of version groups where this region can be visited.  # noqa: E501
 
         :return: The version_groups of this RegionDetail.
-        :rtype: List[AbilityDetailPokemonInnerPokemon]
+        :rtype: List[VersionGroupSummary]
         """
         return self._version_groups
 
     @version_groups.setter
-    def version_groups(self, version_groups: List[AbilityDetailPokemonInnerPokemon]):
+    def version_groups(self, version_groups: List[VersionGroupSummary]):
         """Sets the version_groups of this RegionDetail.
 
+        A list of version groups where this region can be visited.  # noqa: E501
 
         :param version_groups: The version_groups of this RegionDetail.
-        :type version_groups: List[AbilityDetailPokemonInnerPokemon]
+        :type version_groups: List[VersionGroupSummary]
         """
         if version_groups is None:
             raise ValueError("Invalid value for `version_groups`, must not be `None`")  # noqa: E501

@@ -4,6 +4,8 @@ All URIs are relative to *https://pokeapi.co*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
+| [**currencyList**](ItemsApi.md#currencylist) | **GET** /api/v2/currency/ | List currencies |
+| [**currencyRetrieve**](ItemsApi.md#currencyretrieve) | **GET** /api/v2/currency/{id}/ | Get currency |
 | [**itemAttributeList**](ItemsApi.md#itemattributelist) | **GET** /api/v2/item-attribute/ | List item attributes |
 | [**itemAttributeRetrieve**](ItemsApi.md#itemattributeretrieve) | **GET** /api/v2/item-attribute/{id}/ | Get item attribute |
 | [**itemCategoryList**](ItemsApi.md#itemcategorylist) | **GET** /api/v2/item-category/ | List item categories |
@@ -15,6 +17,146 @@ All URIs are relative to *https://pokeapi.co*
 | [**itemPocketRetrieve**](ItemsApi.md#itempocketretrieve) | **GET** /api/v2/item-pocket/{id}/ | Get item pocket |
 | [**itemRetrieve**](ItemsApi.md#itemretrieve) | **GET** /api/v2/item/{id}/ | Get item |
 
+
+
+## currencyList
+
+> PaginatedCurrencySummaryList currencyList(limit, offset, q)
+
+List currencies
+
+Currencies used to buy items.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  ItemsApi,
+} from '';
+import type { CurrencyListRequest } from '';
+
+async function example() {
+  console.log("🚀 Testing  SDK...");
+  const api = new ItemsApi();
+
+  const body = {
+    // number | Number of results to return per page. (optional)
+    limit: 56,
+    // number | The initial index from which to return the results. (optional)
+    offset: 56,
+    // string | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
+    q: q_example,
+  } satisfies CurrencyListRequest;
+
+  try {
+    const data = await api.currencyList(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **limit** | `number` | Number of results to return per page. | [Optional] [Defaults to `undefined`] |
+| **offset** | `number` | The initial index from which to return the results. | [Optional] [Defaults to `undefined`] |
+| **q** | `string` | &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**PaginatedCurrencySummaryList**](PaginatedCurrencySummaryList.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## currencyRetrieve
+
+> CurrencyDetail currencyRetrieve(id)
+
+Get currency
+
+Currencies used to buy items.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  ItemsApi,
+} from '';
+import type { CurrencyRetrieveRequest } from '';
+
+async function example() {
+  console.log("🚀 Testing  SDK...");
+  const api = new ItemsApi();
+
+  const body = {
+    // string | This parameter can be a string or an integer.
+    id: 1,
+  } satisfies CurrencyRetrieveRequest;
+
+  try {
+    const data = await api.currencyRetrieve(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `string` | This parameter can be a string or an integer. | [Defaults to `undefined`] |
+
+### Return type
+
+[**CurrencyDetail**](CurrencyDetail.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
 ## itemAttributeList
@@ -36,14 +178,7 @@ import type { ItemAttributeListRequest } from '';
 
 async function example() {
   console.log("🚀 Testing  SDK...");
-  const config = new Configuration({ 
-    // To configure HTTP basic authorization: basicAuth
-    username: "YOUR USERNAME",
-    password: "YOUR PASSWORD",
-    // To configure API key authorization: cookieAuth
-    apiKey: "YOUR API KEY",
-  });
-  const api = new ItemsApi(config);
+  const api = new ItemsApi();
 
   const body = {
     // number | Number of results to return per page. (optional)
@@ -81,7 +216,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -116,18 +251,11 @@ import type { ItemAttributeRetrieveRequest } from '';
 
 async function example() {
   console.log("🚀 Testing  SDK...");
-  const config = new Configuration({ 
-    // To configure HTTP basic authorization: basicAuth
-    username: "YOUR USERNAME",
-    password: "YOUR PASSWORD",
-    // To configure API key authorization: cookieAuth
-    apiKey: "YOUR API KEY",
-  });
-  const api = new ItemsApi(config);
+  const api = new ItemsApi();
 
   const body = {
     // string | This parameter can be a string or an integer.
-    id: id_example,
+    id: 1,
   } satisfies ItemAttributeRetrieveRequest;
 
   try {
@@ -155,7 +283,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -190,14 +318,7 @@ import type { ItemCategoryListRequest } from '';
 
 async function example() {
   console.log("🚀 Testing  SDK...");
-  const config = new Configuration({ 
-    // To configure HTTP basic authorization: basicAuth
-    username: "YOUR USERNAME",
-    password: "YOUR PASSWORD",
-    // To configure API key authorization: cookieAuth
-    apiKey: "YOUR API KEY",
-  });
-  const api = new ItemsApi(config);
+  const api = new ItemsApi();
 
   const body = {
     // number | Number of results to return per page. (optional)
@@ -235,7 +356,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -270,18 +391,11 @@ import type { ItemCategoryRetrieveRequest } from '';
 
 async function example() {
   console.log("🚀 Testing  SDK...");
-  const config = new Configuration({ 
-    // To configure HTTP basic authorization: basicAuth
-    username: "YOUR USERNAME",
-    password: "YOUR PASSWORD",
-    // To configure API key authorization: cookieAuth
-    apiKey: "YOUR API KEY",
-  });
-  const api = new ItemsApi(config);
+  const api = new ItemsApi();
 
   const body = {
     // string | This parameter can be a string or an integer.
-    id: id_example,
+    id: 1,
   } satisfies ItemCategoryRetrieveRequest;
 
   try {
@@ -309,7 +423,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -344,14 +458,7 @@ import type { ItemFlingEffectListRequest } from '';
 
 async function example() {
   console.log("🚀 Testing  SDK...");
-  const config = new Configuration({ 
-    // To configure HTTP basic authorization: basicAuth
-    username: "YOUR USERNAME",
-    password: "YOUR PASSWORD",
-    // To configure API key authorization: cookieAuth
-    apiKey: "YOUR API KEY",
-  });
-  const api = new ItemsApi(config);
+  const api = new ItemsApi();
 
   const body = {
     // number | Number of results to return per page. (optional)
@@ -389,7 +496,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -424,18 +531,11 @@ import type { ItemFlingEffectRetrieveRequest } from '';
 
 async function example() {
   console.log("🚀 Testing  SDK...");
-  const config = new Configuration({ 
-    // To configure HTTP basic authorization: basicAuth
-    username: "YOUR USERNAME",
-    password: "YOUR PASSWORD",
-    // To configure API key authorization: cookieAuth
-    apiKey: "YOUR API KEY",
-  });
-  const api = new ItemsApi(config);
+  const api = new ItemsApi();
 
   const body = {
     // string | This parameter can be a string or an integer.
-    id: id_example,
+    id: 1,
   } satisfies ItemFlingEffectRetrieveRequest;
 
   try {
@@ -463,7 +563,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -498,14 +598,7 @@ import type { ItemListRequest } from '';
 
 async function example() {
   console.log("🚀 Testing  SDK...");
-  const config = new Configuration({ 
-    // To configure HTTP basic authorization: basicAuth
-    username: "YOUR USERNAME",
-    password: "YOUR PASSWORD",
-    // To configure API key authorization: cookieAuth
-    apiKey: "YOUR API KEY",
-  });
-  const api = new ItemsApi(config);
+  const api = new ItemsApi();
 
   const body = {
     // number | Number of results to return per page. (optional)
@@ -543,7 +636,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -578,14 +671,7 @@ import type { ItemPocketListRequest } from '';
 
 async function example() {
   console.log("🚀 Testing  SDK...");
-  const config = new Configuration({ 
-    // To configure HTTP basic authorization: basicAuth
-    username: "YOUR USERNAME",
-    password: "YOUR PASSWORD",
-    // To configure API key authorization: cookieAuth
-    apiKey: "YOUR API KEY",
-  });
-  const api = new ItemsApi(config);
+  const api = new ItemsApi();
 
   const body = {
     // number | Number of results to return per page. (optional)
@@ -623,7 +709,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -658,18 +744,11 @@ import type { ItemPocketRetrieveRequest } from '';
 
 async function example() {
   console.log("🚀 Testing  SDK...");
-  const config = new Configuration({ 
-    // To configure HTTP basic authorization: basicAuth
-    username: "YOUR USERNAME",
-    password: "YOUR PASSWORD",
-    // To configure API key authorization: cookieAuth
-    apiKey: "YOUR API KEY",
-  });
-  const api = new ItemsApi(config);
+  const api = new ItemsApi();
 
   const body = {
     // string | This parameter can be a string or an integer.
-    id: id_example,
+    id: 1,
   } satisfies ItemPocketRetrieveRequest;
 
   try {
@@ -697,7 +776,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -732,18 +811,11 @@ import type { ItemRetrieveRequest } from '';
 
 async function example() {
   console.log("🚀 Testing  SDK...");
-  const config = new Configuration({ 
-    // To configure HTTP basic authorization: basicAuth
-    username: "YOUR USERNAME",
-    password: "YOUR PASSWORD",
-    // To configure API key authorization: cookieAuth
-    apiKey: "YOUR API KEY",
-  });
-  const api = new ItemsApi(config);
+  const api = new ItemsApi();
 
   const body = {
     // string | This parameter can be a string or an integer.
-    id: id_example,
+    id: 1,
   } satisfies ItemRetrieveRequest;
 
   try {
@@ -771,7 +843,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

@@ -1,0 +1,32 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "PokemonFormTriggerCondition",
+  "fields": [
+    {
+      "name": "trigger",
+      "type": "string",
+      "doc": "The trigger for this form change."
+    },
+    {
+      "name": "name",
+      "type": ["null", "string"],
+      "doc": "The name of the required item, ability, or move. Only present for a resource-based trigger.",
+      "default": null
+    },
+    {
+      "name": "url",
+      "type": ["null", "model.URI"],
+      "doc": "The URL of the required item, ability, or move. Only present for a resource-based trigger.",
+      "default": null
+    },
+    {
+      "name": "base_form",
+      "type": ["null", "model.PokemonFormSummary"],
+      "doc": "The required base form. Only present when the trigger specifies one.",
+      "default": null
+    }
+  ]
+
+}

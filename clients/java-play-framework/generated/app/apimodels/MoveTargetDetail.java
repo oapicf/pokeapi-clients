@@ -15,7 +15,7 @@ import javax.validation.Valid;
 /**
  * MoveTargetDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-10-25T05:48:13.486809836Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-11-09T13:49:31.462302702Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class MoveTargetDetail   {
   @JsonProperty("id")
@@ -25,7 +25,7 @@ public class MoveTargetDetail   {
 
   @JsonProperty("name")
   @NotNull
-@Size(max=100)
+@Size(max=200)
 
   private String name;
 
@@ -53,7 +53,7 @@ public class MoveTargetDetail   {
   }
 
    /**
-   * Get id
+   * The identifier for this resource.
    * @return id
   **/
   public Integer getId() {
@@ -70,7 +70,7 @@ public class MoveTargetDetail   {
   }
 
    /**
-   * Get name
+   * The name for this resource.
    * @return name
   **/
   public String getName() {
@@ -95,7 +95,7 @@ public class MoveTargetDetail   {
   }
 
    /**
-   * Get descriptions
+   * The description of this resource listed in different languages.
    * @return descriptions
   **/
   public List<@Valid MoveTargetDescription> getDescriptions() {
@@ -120,7 +120,7 @@ public class MoveTargetDetail   {
   }
 
    /**
-   * Get moves
+   * A list of moves that that are directed at this target.
    * @return moves
   **/
   public List<@Valid MoveSummary> getMoves() {
@@ -145,7 +145,7 @@ public class MoveTargetDetail   {
   }
 
    /**
-   * Get names
+   * The name of this resource listed in different languages.
    * @return names
   **/
   public List<@Valid MoveTargetName> getNames() {

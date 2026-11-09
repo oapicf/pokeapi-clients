@@ -19,7 +19,7 @@ defmodule PokéAPI.Model.ItemAttributeDetail do
     :id => integer(),
     :name => String.t,
     :descriptions => [PokéAPI.Model.ItemAttributeDescription.t],
-    :items => [PokéAPI.Model.AbilityDetailPokemonInnerPokemon.t],
+    :items => [PokéAPI.Model.ItemSummary.t],
     :names => [PokéAPI.Model.ItemAttributeName.t]
   }
 
@@ -28,7 +28,7 @@ defmodule PokéAPI.Model.ItemAttributeDetail do
   def decode(value) do
     value
      |> Deserializer.deserialize(:descriptions, :list, PokéAPI.Model.ItemAttributeDescription)
-     |> Deserializer.deserialize(:items, :list, PokéAPI.Model.AbilityDetailPokemonInnerPokemon)
+     |> Deserializer.deserialize(:items, :list, PokéAPI.Model.ItemSummary)
      |> Deserializer.deserialize(:names, :list, PokéAPI.Model.ItemAttributeName)
   end
 end

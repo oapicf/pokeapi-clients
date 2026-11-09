@@ -1,9 +1,9 @@
 /*
 PokéAPI
 
-All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
 
-API version: 2.7.0
+API version: 2.10.0
 Contact: blah+oapicf@cliffano.com
 */
 
@@ -22,10 +22,14 @@ var _ MappedNullable = &EvolutionTriggerDetail{}
 
 // EvolutionTriggerDetail struct for EvolutionTriggerDetail
 type EvolutionTriggerDetail struct {
+	// The identifier for this resource.
 	Id int32 `json:"id"`
+	// The name for this resource.
 	Name string `json:"name"`
+	// The name of this resource listed in different languages.
 	Names []EvolutionTriggerName `json:"names"`
-	PokemonSpecies []AbilityDetailPokemonInnerPokemon `json:"pokemon_species"`
+	// A list of pokemon species that result from this evolution trigger.
+	PokemonSpecies []PokemonSpeciesSummary `json:"pokemon_species"`
 }
 
 type _EvolutionTriggerDetail EvolutionTriggerDetail
@@ -34,7 +38,7 @@ type _EvolutionTriggerDetail EvolutionTriggerDetail
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEvolutionTriggerDetail(id int32, name string, names []EvolutionTriggerName, pokemonSpecies []AbilityDetailPokemonInnerPokemon) *EvolutionTriggerDetail {
+func NewEvolutionTriggerDetail(id int32, name string, names []EvolutionTriggerName, pokemonSpecies []PokemonSpeciesSummary) *EvolutionTriggerDetail {
 	this := EvolutionTriggerDetail{}
 	this.Id = id
 	this.Name = name
@@ -124,9 +128,9 @@ func (o *EvolutionTriggerDetail) SetNames(v []EvolutionTriggerName) {
 }
 
 // GetPokemonSpecies returns the PokemonSpecies field value
-func (o *EvolutionTriggerDetail) GetPokemonSpecies() []AbilityDetailPokemonInnerPokemon {
+func (o *EvolutionTriggerDetail) GetPokemonSpecies() []PokemonSpeciesSummary {
 	if o == nil {
-		var ret []AbilityDetailPokemonInnerPokemon
+		var ret []PokemonSpeciesSummary
 		return ret
 	}
 
@@ -135,7 +139,7 @@ func (o *EvolutionTriggerDetail) GetPokemonSpecies() []AbilityDetailPokemonInner
 
 // GetPokemonSpeciesOk returns a tuple with the PokemonSpecies field value
 // and a boolean to check if the value has been set.
-func (o *EvolutionTriggerDetail) GetPokemonSpeciesOk() ([]AbilityDetailPokemonInnerPokemon, bool) {
+func (o *EvolutionTriggerDetail) GetPokemonSpeciesOk() ([]PokemonSpeciesSummary, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -143,7 +147,7 @@ func (o *EvolutionTriggerDetail) GetPokemonSpeciesOk() ([]AbilityDetailPokemonIn
 }
 
 // SetPokemonSpecies sets field value
-func (o *EvolutionTriggerDetail) SetPokemonSpecies(v []AbilityDetailPokemonInnerPokemon) {
+func (o *EvolutionTriggerDetail) SetPokemonSpecies(v []PokemonSpeciesSummary) {
 	o.PokemonSpecies = v
 }
 

@@ -10,6 +10,7 @@ class_name StatDetail
 # StatDetail Model
 
 
+# The identifier for this resource.
 # Required: True
 # isArray: false
 @export var id: int:
@@ -18,6 +19,7 @@ class_name StatDetail
 		id = value
 var __id__was__set := false
 
+# The name for this resource.
 # Required: True
 # isArray: false
 @export var name: String:
@@ -26,6 +28,7 @@ var __id__was__set := false
 		name = value
 var __name__was__set := false
 
+# ID the games use for this stat.
 # Required: True
 # isArray: false
 @export var gameUnderscoreindex: int:
@@ -34,6 +37,7 @@ var __name__was__set := false
 		gameUnderscoreindex = value
 var __gameUnderscoreindex__was__set := false
 
+# Whether this stat only exists within a battle.
 # Required: False
 # isArray: false
 @export var isUnderscorebattleUnderscoreonly: bool:
@@ -42,22 +46,34 @@ var __gameUnderscoreindex__was__set := false
 		isUnderscorebattleUnderscoreonly = value
 var __isUnderscorebattleUnderscoreonly__was__set := false
 
+# A detail of moves which affect this stat positively or negatively.
 # Required: True
 # isArray: false
-@export var affectingUnderscoremoves: StatDetailAffectingMoves:
+@export var affectingUnderscoremoves: StatAffectingMoves:
 	set(value):
 		__affectingUnderscoremoves__was__set = true
 		affectingUnderscoremoves = value
 var __affectingUnderscoremoves__was__set := false
 
+# A detail of natures which affect this stat positively or negatively.
 # Required: True
 # isArray: false
-@export var affectingUnderscorenatures: StatDetailAffectingNatures:
+@export var affectingUnderscorenatures: StatAffectingNatures:
 	set(value):
 		__affectingUnderscorenatures__was__set = true
 		affectingUnderscorenatures = value
 var __affectingUnderscorenatures__was__set := false
 
+# Items that affect this stat, such as vitamins and battle items.
+# Required: True
+# isArray: true
+@export var affectingUnderscoreitems: Array:
+	set(value):
+		__affectingUnderscoreitems__was__set = true
+		affectingUnderscoreitems = value
+var __affectingUnderscoreitems__was__set := false
+
+# A list of characteristics that are set on a Pokémon when its highest base stat is this stat.
 # Required: True
 # isArray: true
 @export var characteristics: Array:
@@ -66,6 +82,7 @@ var __affectingUnderscorenatures__was__set := false
 		characteristics = value
 var __characteristics__was__set := false
 
+# The class of damage this stat is directly related to.
 # Required: True
 # isArray: false
 @export var moveUnderscoredamageUnderscoreclass: MoveDamageClassSummary:
@@ -74,6 +91,7 @@ var __characteristics__was__set := false
 		moveUnderscoredamageUnderscoreclass = value
 var __moveUnderscoredamageUnderscoreclass__was__set := false
 
+# The name of this resource listed in different languages.
 # Required: True
 # isArray: true
 @export var names: Array:
@@ -95,6 +113,8 @@ func bzz_collect_missing_properties() -> Array:
 		bzz_missing_properties.append("affectingUnderscoremoves")
 	if not self.__affectingUnderscorenatures__was__set:
 		bzz_missing_properties.append("affectingUnderscorenatures")
+	if not self.__affectingUnderscoreitems__was__set:
+		bzz_missing_properties.append("affectingUnderscoreitems")
 	if not self.__characteristics__was__set:
 		bzz_missing_properties.append("characteristics")
 	if not self.__moveUnderscoredamageUnderscoreclass__was__set:
@@ -118,6 +138,8 @@ func bzz_normalize() -> Dictionary:
 		bzz_dictionary["affectingUnderscoremoves"] = self.affectingUnderscoremoves
 	if self.__affectingUnderscorenatures__was__set:
 		bzz_dictionary["affectingUnderscorenatures"] = self.affectingUnderscorenatures
+	if self.__affectingUnderscoreitems__was__set:
+		bzz_dictionary["affectingUnderscoreitems"] = self.affectingUnderscoreitems
 	if self.__characteristics__was__set:
 		bzz_dictionary["characteristics"] = self.characteristics
 	if self.__moveUnderscoredamageUnderscoreclass__was__set:
@@ -139,9 +161,11 @@ static func bzz_denormalize_single(from_dict: Dictionary):
 	if from_dict.has("isUnderscorebattleUnderscoreonly"):
 		me.isUnderscorebattleUnderscoreonly = from_dict["isUnderscorebattleUnderscoreonly"]
 	if from_dict.has("affectingUnderscoremoves"):
-		me.affectingUnderscoremoves = StatDetail_affecting_moves.bzz_denormalize_single(from_dict["affectingUnderscoremoves"])
+		me.affectingUnderscoremoves = StatAffectingMoves.bzz_denormalize_single(from_dict["affectingUnderscoremoves"])
 	if from_dict.has("affectingUnderscorenatures"):
-		me.affectingUnderscorenatures = StatDetail_affecting_natures.bzz_denormalize_single(from_dict["affectingUnderscorenatures"])
+		me.affectingUnderscorenatures = StatAffectingNatures.bzz_denormalize_single(from_dict["affectingUnderscorenatures"])
+	if from_dict.has("affectingUnderscoreitems"):
+		me.affectingUnderscoreitems = ItemSummary.bzz_denormalize_multiple(from_dict["affectingUnderscoreitems"])
 	if from_dict.has("characteristics"):
 		me.characteristics = CharacteristicSummary.bzz_denormalize_multiple(from_dict["characteristics"])
 	if from_dict.has("moveUnderscoredamageUnderscoreclass"):

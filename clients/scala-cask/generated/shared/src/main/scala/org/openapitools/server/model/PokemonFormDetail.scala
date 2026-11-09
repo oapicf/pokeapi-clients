@@ -1,8 +1,8 @@
 /**
  * PokéAPI
- * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+ * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
  *
- * OpenAPI spec version: 2.7.0
+ * OpenAPI spec version: 2.10.0
  *
  * Contact: blah+oapicf@cliffano.com
  *
@@ -23,20 +23,38 @@ import upickle.default.*
 
         
 case class PokemonFormDetail(
+        /* The identifier for this resource. */
     id: Int,
+        /* The name for this resource. */
     name: String,
+        /* The order in which forms should be sorted within all forms. Multiple forms may have equal order, in which case they should fall back on sorting by name. */
     order: Option[Int] = None ,
+        /* The order in which forms should be sorted within a species' forms. */
     formOrder: Option[Int] = None ,
+        /* True for exactly one form used as the default for each Pokémon. */
     isDefault: Option[Boolean] = None ,
+        /* Whether or not this form can only happen during battle. */
     isBattleOnly: Option[Boolean] = None ,
+        /* Whether or not this form requires mega evolution. */
     isMega: Option[Boolean] = None ,
+        /* The name of this form. */
     formName: String,
+        /* The Pokémon that can take on this form. */
     pokemon: PokemonSummary,
-    sprites: PokemonFormDetailSprites,
+        /* A set of sprites used to depict this Pokémon form in the game. */
+    sprites: PokemonFormSprites,
+        /* The version group this Pokémon form was introduced in. */
     versionGroup: VersionGroupSummary,
-    formNames: Seq[PokemonFormDetailFormNamesInner],
-    names: Seq[PokemonFormDetailFormNamesInner],
-    types: Seq[PokemonDetailTypesInner]
+        /* The form specific form name of this Pokémon form, or empty if the form does not have a specific name. */
+    formNames: Seq[PokemonFormName],
+        /* The form specific full name of this Pokémon form, or empty if the form does not have a specific name. */
+    names: Seq[PokemonFormName],
+        /* A list of details showing types this Pokémon form has. */
+    types: Seq[PokemonFormType],
+        /* The conditions that trigger this form. Resource names and URLs are included when the trigger requires a resource. */
+    triggerConditions: Seq[PokemonFormTriggerCondition],
+        /* The flavor text of this form listed in different languages and versions. */
+    flavorTextEntries: Seq[PokemonFormFlavorText]
 
 
 ) {
@@ -59,7 +77,9 @@ PokemonFormDetailData(
     versionGroup = versionGroup.asData /* 8 */,
     formNames = formNames.map(_.asData) /* 6 */,
     names = names.map(_.asData) /* 6 */,
-    types = types.map(_.asData) /* 6 */
+    types = types.map(_.asData) /* 6 */,
+    triggerConditions = triggerConditions.map(_.asData) /* 6 */,
+    flavorTextEntries = flavorTextEntries.map(_.asData) /* 6 */
 
 )
 }
@@ -83,6 +103,8 @@ enum Fields(val fieldName : String) extends Field(fieldName) {
     case formNames extends Fields("formNames")
     case names extends Fields("names")
     case types extends Fields("types")
+    case triggerConditions extends Fields("triggerConditions")
+    case flavorTextEntries extends Fields("flavorTextEntries")
 }
 
 

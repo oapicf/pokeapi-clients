@@ -7,10 +7,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.vertxweb.server.model.BerryFlavorSummary;
-import org.openapitools.vertxweb.server.model.BerrySummary;
 import org.openapitools.vertxweb.server.model.NatureBattleStylePreference;
-import org.openapitools.vertxweb.server.model.NatureDetailPokeathlonStatChangesInner;
 import org.openapitools.vertxweb.server.model.NatureName;
+import org.openapitools.vertxweb.server.model.NaturePokeathlonStat;
 import org.openapitools.vertxweb.server.model.StatSummary;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -22,8 +21,7 @@ public class NatureDetail   {
   private StatSummary increasedStat;
   private BerryFlavorSummary likesFlavor;
   private BerryFlavorSummary hatesFlavor;
-  private List<BerrySummary> berries = new ArrayList<>();
-  private List<NatureDetailPokeathlonStatChangesInner> pokeathlonStatChanges = new ArrayList<>();
+  private List<NaturePokeathlonStat> pokeathlonStatChanges = new ArrayList<>();
   private List<NatureBattleStylePreference> moveBattleStylePreferences = new ArrayList<>();
   private List<NatureName> names = new ArrayList<>();
 
@@ -31,14 +29,13 @@ public class NatureDetail   {
 
   }
 
-  public NatureDetail (Integer id, String name, StatSummary decreasedStat, StatSummary increasedStat, BerryFlavorSummary likesFlavor, BerryFlavorSummary hatesFlavor, List<BerrySummary> berries, List<NatureDetailPokeathlonStatChangesInner> pokeathlonStatChanges, List<NatureBattleStylePreference> moveBattleStylePreferences, List<NatureName> names) {
+  public NatureDetail (Integer id, String name, StatSummary decreasedStat, StatSummary increasedStat, BerryFlavorSummary likesFlavor, BerryFlavorSummary hatesFlavor, List<NaturePokeathlonStat> pokeathlonStatChanges, List<NatureBattleStylePreference> moveBattleStylePreferences, List<NatureName> names) {
     this.id = id;
     this.name = name;
     this.decreasedStat = decreasedStat;
     this.increasedStat = increasedStat;
     this.likesFlavor = likesFlavor;
     this.hatesFlavor = hatesFlavor;
-    this.berries = berries;
     this.pokeathlonStatChanges = pokeathlonStatChanges;
     this.moveBattleStylePreferences = moveBattleStylePreferences;
     this.names = names;
@@ -99,20 +96,11 @@ public class NatureDetail   {
   }
 
     
-  @JsonProperty("berries")
-  public List<BerrySummary> getBerries() {
-    return berries;
-  }
-  public void setBerries(List<BerrySummary> berries) {
-    this.berries = berries;
-  }
-
-    
   @JsonProperty("pokeathlon_stat_changes")
-  public List<NatureDetailPokeathlonStatChangesInner> getPokeathlonStatChanges() {
+  public List<NaturePokeathlonStat> getPokeathlonStatChanges() {
     return pokeathlonStatChanges;
   }
-  public void setPokeathlonStatChanges(List<NatureDetailPokeathlonStatChangesInner> pokeathlonStatChanges) {
+  public void setPokeathlonStatChanges(List<NaturePokeathlonStat> pokeathlonStatChanges) {
     this.pokeathlonStatChanges = pokeathlonStatChanges;
   }
 
@@ -150,7 +138,6 @@ public class NatureDetail   {
         Objects.equals(increasedStat, natureDetail.increasedStat) &&
         Objects.equals(likesFlavor, natureDetail.likesFlavor) &&
         Objects.equals(hatesFlavor, natureDetail.hatesFlavor) &&
-        Objects.equals(berries, natureDetail.berries) &&
         Objects.equals(pokeathlonStatChanges, natureDetail.pokeathlonStatChanges) &&
         Objects.equals(moveBattleStylePreferences, natureDetail.moveBattleStylePreferences) &&
         Objects.equals(names, natureDetail.names);
@@ -158,7 +145,7 @@ public class NatureDetail   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, decreasedStat, increasedStat, likesFlavor, hatesFlavor, berries, pokeathlonStatChanges, moveBattleStylePreferences, names);
+    return Objects.hash(id, name, decreasedStat, increasedStat, likesFlavor, hatesFlavor, pokeathlonStatChanges, moveBattleStylePreferences, names);
   }
 
   @Override
@@ -172,7 +159,6 @@ public class NatureDetail   {
     sb.append("    increasedStat: ").append(toIndentedString(increasedStat)).append("\n");
     sb.append("    likesFlavor: ").append(toIndentedString(likesFlavor)).append("\n");
     sb.append("    hatesFlavor: ").append(toIndentedString(hatesFlavor)).append("\n");
-    sb.append("    berries: ").append(toIndentedString(berries)).append("\n");
     sb.append("    pokeathlonStatChanges: ").append(toIndentedString(pokeathlonStatChanges)).append("\n");
     sb.append("    moveBattleStylePreferences: ").append(toIndentedString(moveBattleStylePreferences)).append("\n");
     sb.append("    names: ").append(toIndentedString(names)).append("\n");

@@ -4,9 +4,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**count** | **integer** |  | [optional] 
-**next** | **character** |  | [optional] 
-**previous** | **character** |  | [optional] 
-**results** | [**array[PokemonColorSummary]**](PokemonColorSummary.md) |  | [optional] 
+**count** | **integer** | The total number of resources available from this API. | 
+**next** | **character** | The URL for the next page in the list, or null if there is no next page. | [optional] 
+**previous** | **character** | The URL for the previous page in the list, or null if there is no previous page. | [optional] 
+**results** | [**array[PokemonColorSummary]**](PokemonColorSummary.md) | A list of API resources on this page. | 
 
 

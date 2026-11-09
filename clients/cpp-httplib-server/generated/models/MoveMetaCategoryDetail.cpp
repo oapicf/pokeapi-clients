@@ -12,7 +12,7 @@ MoveMetaCategoryDetail::MoveMetaCategoryDetail()
 : id(0)
 , name("")
 , descriptions(std::vector<MoveMetaCategoryDescription>())
-, moves(std::vector<MoveMetaCategoryDetail_moves_inner>())
+, moves(std::vector<MoveSummary>())
 {
 }
 // =========================================
@@ -33,7 +33,7 @@ std::vector<MoveMetaCategoryDescription> MoveMetaCategoryDetail::getDescriptions
 {
     return descriptions;
 }
-std::vector<MoveMetaCategoryDetail_moves_inner> MoveMetaCategoryDetail::getMoves() const
+std::vector<MoveSummary> MoveMetaCategoryDetail::getMoves() const
 {
     return moves;
 }
@@ -53,7 +53,7 @@ void MoveMetaCategoryDetail::setDescriptions(const std::vector<MoveMetaCategoryD
 {
     descriptions = descriptionsObj;
 }
-void MoveMetaCategoryDetail::setMoves(const std::vector<MoveMetaCategoryDetail_moves_inner>& movesObj)
+void MoveMetaCategoryDetail::setMoves(const std::vector<MoveSummary>& movesObj)
 {
     moves = movesObj;
 }

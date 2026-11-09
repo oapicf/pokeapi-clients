@@ -4,9 +4,9 @@
 ## Properties
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
-| **id** | **kotlin.Int** |  |  [readonly] |
-| **name** | **kotlin.String** |  |  |
-| **names** | [**kotlin.collections.List&lt;MoveBattleStyleName&gt;**](MoveBattleStyleName.md) |  |  [readonly] |
+| **id** | **kotlin.Int** | The identifier for this resource. |  [readonly] |
+| **name** | **kotlin.String** | The name for this resource. |  |
+| **names** | [**kotlin.collections.List&lt;MoveBattleStyleName&gt;**](MoveBattleStyleName.md) | The name of this resource listed in different languages. |  [readonly] |
 
 
 

@@ -5,13 +5,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.openapitools.model.EvolutionChainDetailChain;
+import org.openapitools.model.EvolutionChainLink;
 import org.openapitools.model.ItemSummary;
 
 /**
  * EvolutionChainDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-10-25T05:48:05.787850114Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-11-09T13:49:25.341948748Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class EvolutionChainDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -20,13 +20,13 @@ public class EvolutionChainDetail   {
   private ItemSummary babyTriggerItem;
 
   @JsonProperty("chain")
-  private EvolutionChainDetailChain chain;
+  private EvolutionChainLink chain;
 
    /**
-   * Get id
+   * The identifier for this resource.
    * @return id
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   public Integer getId() {
     return id;
   }
@@ -37,10 +37,10 @@ public class EvolutionChainDetail   {
   }
 
    /**
-   * Get babyTriggerItem
+   * The item that a Pokémon would be holding when mating that would trigger the egg hatching a baby Pokémon rather than a basic Pokémon.
    * @return babyTriggerItem
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The item that a Pokémon would be holding when mating that would trigger the egg hatching a baby Pokémon rather than a basic Pokémon.")
   public ItemSummary getBabyTriggerItem() {
     return babyTriggerItem;
   }
@@ -49,22 +49,13 @@ public class EvolutionChainDetail   {
     this.babyTriggerItem = babyTriggerItem;
   }
 
-  public EvolutionChainDetail chain(EvolutionChainDetailChain chain) {
-    this.chain = chain;
-    return this;
-  }
-
    /**
-   * Get chain
+   * The base chain link object. Each link contains evolution details for a Pokémon in the chain. Each link references the next Pokémon in the natural evolution order.
    * @return chain
   **/
-  @ApiModelProperty(required = true, value = "")
-  public EvolutionChainDetailChain getChain() {
+  @ApiModelProperty(required = true, value = "The base chain link object. Each link contains evolution details for a Pokémon in the chain. Each link references the next Pokémon in the natural evolution order.")
+  public EvolutionChainLink getChain() {
     return chain;
-  }
-
-  public void setChain(EvolutionChainDetailChain chain) {
-    this.chain = chain;
   }
 
 

@@ -11,10 +11,10 @@
         names=nothing,
     )
 
-    - id::Int64
-    - name::String
-    - berries::Vector{BerrySummary}
-    - names::Vector{BerryFirmnessName}
+    - id::Int64 : The identifier for this resource.
+    - name::String : The name for this resource.
+    - berries::Vector{BerrySummary} : A list of the berries with this firmness.
+    - names::Vector{BerryFirmnessName} : The name of this resource listed in different languages.
 """
 Base.@kwdef mutable struct BerryFirmnessDetail <: OpenAPI.APIModel
     id::Union{Nothing, Int64} = nothing
@@ -51,7 +51,7 @@ function OpenAPI.validate_property(::Type{ BerryFirmnessDetail }, name::Symbol, 
 
 
     if name === Symbol("name")
-        OpenAPI.validate_param(name, "BerryFirmnessDetail", :maxLength, val, 100)
+        OpenAPI.validate_param(name, "BerryFirmnessDetail", :maxLength, val, 200)
     end
 
 

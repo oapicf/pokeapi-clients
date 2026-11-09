@@ -1,0 +1,52 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server PaginatedEvolutionVariableSummaryList"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a PaginatedEvolutionVariableSummaryList"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  EvolutionVariableSummary = openapi_server.resourceTypes.EvolutionVariableSummary
+}
+resourceTypes {
+
+  PaginatedEvolutionVariableSummaryList {
+    title = PaginatedEvolutionVariableSummaryList
+    description = PaginatedEvolutionVariableSummaryList
+    derivedFrom = Root
+    properties {
+        count {
+          type =  integer
+          description = "The total number of resources available from this API."
+          optional = true
+        }
+        next {
+          type =  string
+          description = "The URL for the next page in the list, or null if there is no next page."
+          optional = false
+        }
+        previous {
+          type =  string
+          description = "The URL for the previous page in the list, or null if there is no previous page."
+          optional = false
+        }
+        results {
+          type = array
+          items.type = EvolutionVariableSummary
+          description = "A list of API resources on this page."
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  PaginatedEvolutionVariableSummaryList {
+    title = PaginatedEvolutionVariableSummaryList
+    description = PaginatedEvolutionVariableSummaryList
+    implements = openapi_server.resourceTypes.PaginatedEvolutionVariableSummaryList
+
+  }
+}

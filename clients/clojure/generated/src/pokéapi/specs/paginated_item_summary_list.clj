@@ -8,10 +8,10 @@
 
 (def paginated-item-summary-list-data
   {
-   (ds/opt :count) int?
+   (ds/req :count) int?
    (ds/opt :next) string?
    (ds/opt :previous) string?
-   (ds/opt :results) (s/coll-of item-summary-spec)
+   (ds/req :results) (s/coll-of item-summary-spec)
    })
 
 (def paginated-item-summary-list-spec

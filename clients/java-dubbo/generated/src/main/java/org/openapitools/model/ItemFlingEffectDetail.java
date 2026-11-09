@@ -14,20 +14,32 @@ import java.math.*;
 public class ItemFlingEffectDetail implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * The identifier for this resource.
+   */
   @JsonProperty("id")
   private Integer id;
 
+  /**
+   * The name for this resource.
+   */
   @JsonProperty("name")
   private String name;
 
+  /**
+   * The result of this fling effect listed in different languages.
+   */
   @JsonProperty("effect_entries")
   private List<ItemFlingEffectEffectText> effectEntries = new ArrayList<>();
 
+  /**
+   * A list of items that have this fling effect.
+   */
   @JsonProperty("items")
   private List<ItemSummary> items = new ArrayList<>();
 
   /**
-   * 
+   * The identifier for this resource.
    * @return id
    */
   public Integer getId() {
@@ -39,7 +51,7 @@ public class ItemFlingEffectDetail implements Serializable {
   }
 
   /**
-   * 
+   * The name for this resource.
    * @return name
    */
   public String getName() {
@@ -51,7 +63,7 @@ public class ItemFlingEffectDetail implements Serializable {
   }
 
   /**
-   * 
+   * The result of this fling effect listed in different languages.
    * @return effectEntries
    */
   public List<ItemFlingEffectEffectText> getEffectEntries() {
@@ -63,7 +75,7 @@ public class ItemFlingEffectDetail implements Serializable {
   }
 
   /**
-   * 
+   * A list of items that have this fling effect.
    * @return items
    */
   public List<ItemSummary> getItems() {

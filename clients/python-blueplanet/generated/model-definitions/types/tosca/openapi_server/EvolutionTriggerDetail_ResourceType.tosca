@@ -7,8 +7,8 @@ authors     = ["F. Bar (foo@bar.baz)"]
 
 imports {
   Root = tosca.resourceTypes.Root
-  AbilityDetailPokemonInnerPokemon = openapi_server.resourceTypes.AbilityDetailPokemonInnerPokemon
   EvolutionTriggerName = openapi_server.resourceTypes.EvolutionTriggerName
+  PokemonSpeciesSummary = openapi_server.resourceTypes.PokemonSpeciesSummary
 }
 resourceTypes {
 
@@ -19,24 +19,24 @@ resourceTypes {
     properties {
         id {
           type =  integer
-          description = ""
+          description = "The identifier for this resource."
           optional = true
         }
         name {
           type =  string
-          description = ""
+          description = "The name for this resource."
           optional = true
         }
         names {
           type = array
           items.type = EvolutionTriggerName
-          description = ""
+          description = "The name of this resource listed in different languages."
           optional = true
         }
         pokemon_species {
           type = array
-          items.type = AbilityDetailPokemonInnerPokemon
-          description = ""
+          items.type = PokemonSpeciesSummary
+          description = "A list of pokemon species that result from this evolution trigger."
           optional = true
         }
     }

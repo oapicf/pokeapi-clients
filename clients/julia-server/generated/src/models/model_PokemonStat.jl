@@ -10,9 +10,9 @@
         stat=nothing,
     )
 
-    - base_stat::Int64
-    - effort::Int64
-    - stat::StatSummary
+    - base_stat::Int64 : The base value of the stat.
+    - effort::Int64 : The effort points (EV) the Pokémon has in the stat.
+    - stat::StatSummary : The stat the Pokémon has.
 """
 Base.@kwdef mutable struct PokemonStat <: OpenAPI.APIModel
     base_stat::Union{Nothing, Int64} = nothing
@@ -44,6 +44,14 @@ end
 
 function OpenAPI.validate_property(::Type{ PokemonStat }, name::Symbol, val)
 
+    if name === Symbol("base_stat")
+        OpenAPI.validate_param(name, "PokemonStat", :maximum, val, 2147483647, false)
+        OpenAPI.validate_param(name, "PokemonStat", :minimum, val, -2147483648, false)
+    end
 
+    if name === Symbol("effort")
+        OpenAPI.validate_param(name, "PokemonStat", :maximum, val, 2147483647, false)
+        OpenAPI.validate_param(name, "PokemonStat", :minimum, val, -2147483648, false)
+    end
 
 end

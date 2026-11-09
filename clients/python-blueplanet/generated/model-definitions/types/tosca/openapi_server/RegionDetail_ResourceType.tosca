@@ -7,11 +7,11 @@ authors     = ["F. Bar (foo@bar.baz)"]
 
 imports {
   Root = tosca.resourceTypes.Root
-  AbilityDetailPokemonInnerPokemon = openapi_server.resourceTypes.AbilityDetailPokemonInnerPokemon
   GenerationSummary = openapi_server.resourceTypes.GenerationSummary
   LocationSummary = openapi_server.resourceTypes.LocationSummary
   PokedexSummary = openapi_server.resourceTypes.PokedexSummary
   RegionName = openapi_server.resourceTypes.RegionName
+  VersionGroupSummary = openapi_server.resourceTypes.VersionGroupSummary
 }
 resourceTypes {
 
@@ -22,41 +22,41 @@ resourceTypes {
     properties {
         id {
           type =  integer
-          description = ""
+          description = "The identifier for this resource."
           optional = true
         }
         name {
           type =  string
-          description = ""
+          description = "The name for this resource."
           optional = true
         }
         locations {
           type = array
           items.type = LocationSummary
-          description = ""
+          description = "A list of locations that can be found in this region."
           optional = true
         }
         main_generation {
           type = GenerationSummary
-          description = ""
+          description = "The generation this region was introduced in."
           optional = true
         }
         names {
           type = array
           items.type = RegionName
-          description = ""
+          description = "The name of this resource listed in different languages."
           optional = true
         }
         pokedexes {
           type = array
           items.type = PokedexSummary
-          description = ""
+          description = "A list of pokédexes that catalogue Pokémon in this region."
           optional = true
         }
         version_groups {
           type = array
-          items.type = AbilityDetailPokemonInnerPokemon
-          description = ""
+          items.type = VersionGroupSummary
+          description = "A list of version groups where this region can be visited."
           optional = true
         }
     }

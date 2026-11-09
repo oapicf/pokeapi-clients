@@ -1,0 +1,24 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "PokeapiMetaResponse",
+  "fields": [
+    {
+      "name": "deploy_date",
+      "type": "string",
+      "doc": "The deployment time as a Unix timestamp string."
+    },
+    {
+      "name": "hash",
+      "type": "string",
+      "doc": "The source commit hash used for this deployment."
+    },
+    {
+      "name": "tag",
+      "type": "string",
+      "doc": "The deployment tag, or null if the deployment has no tag."
+    }
+  ]
+
+}

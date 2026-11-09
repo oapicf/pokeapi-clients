@@ -7,28 +7,28 @@
     {
       "name": "id",
       "type": "int",
-      "doc": ""
+      "doc": "The identifier for this resource."
     },
     {
       "name": "name",
       "type": "string",
-      "doc": ""
+      "doc": "The name for this resource."
     },
     {
       "name": "pokemon_species_details",
       "type": {
         "type": "array",
-        "items": "model.GenderDetailPokemonSpeciesDetailsInner"
+        "items": "model.GenderPokemonSpecies"
       },
-      "doc": ""
+      "doc": "A list of Pokémon species that can be this gender and how likely it is that they will be."
     },
     {
       "name": "required_for_evolution",
       "type": {
         "type": "array",
-        "items": "model.AbilityDetailPokemonInnerPokemon"
+        "items": "model.PokemonSpeciesSummary"
       },
-      "doc": ""
+      "doc": "A list of Pokémon species that required this gender in order for a Pokémon to evolve into them."
     }
   ]
 

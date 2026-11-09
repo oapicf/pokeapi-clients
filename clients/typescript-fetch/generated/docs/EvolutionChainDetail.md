@@ -8,7 +8,7 @@ Name | Type
 ------------ | -------------
 `id` | number
 `babyTriggerItem` | [ItemSummary](ItemSummary.md)
-`chain` | [EvolutionChainDetailChain](EvolutionChainDetailChain.md)
+`chain` | [EvolutionChainLink](EvolutionChainLink.md)
 
 ## Example
 

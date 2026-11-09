@@ -10,6 +10,7 @@ class_name EvolutionChainDetail
 # EvolutionChainDetail Model
 
 
+# The identifier for this resource.
 # Required: True
 # isArray: false
 @export var id: int:
@@ -18,6 +19,7 @@ class_name EvolutionChainDetail
 		id = value
 var __id__was__set := false
 
+# The item that a Pokémon would be holding when mating that would trigger the egg hatching a baby Pokémon rather than a basic Pokémon.
 # Required: True
 # isArray: false
 @export var babyUnderscoretriggerUnderscoreitem: ItemSummary:
@@ -26,9 +28,10 @@ var __id__was__set := false
 		babyUnderscoretriggerUnderscoreitem = value
 var __babyUnderscoretriggerUnderscoreitem__was__set := false
 
+# The base chain link object. Each link contains evolution details for a Pokémon in the chain. Each link references the next Pokémon in the natural evolution order.
 # Required: True
 # isArray: false
-@export var chain: EvolutionChainDetailChain:
+@export var chain: EvolutionChainLink:
 	set(value):
 		__chain__was__set = true
 		chain = value
@@ -65,7 +68,7 @@ static func bzz_denormalize_single(from_dict: Dictionary):
 	if from_dict.has("babyUnderscoretriggerUnderscoreitem"):
 		me.babyUnderscoretriggerUnderscoreitem = ItemSummary.bzz_denormalize_single(from_dict["babyUnderscoretriggerUnderscoreitem"])
 	if from_dict.has("chain"):
-		me.chain = EvolutionChainDetail_chain.bzz_denormalize_single(from_dict["chain"])
+		me.chain = EvolutionChainLink.bzz_denormalize_single(from_dict["chain"])
 	return me
 
 

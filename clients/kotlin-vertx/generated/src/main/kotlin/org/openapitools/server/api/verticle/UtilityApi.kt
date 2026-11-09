@@ -2,6 +2,7 @@ package org.openapitools.server.api.verticle
 
 import org.openapitools.server.api.model.LanguageDetail
 import org.openapitools.server.api.model.PaginatedLanguageSummaryList
+import org.openapitools.server.api.model.PokeapiMetaResponse
 import io.vertx.core.Vertx
 import io.vertx.core.json.JsonObject
 import io.vertx.core.json.JsonArray
@@ -24,6 +25,9 @@ interface UtilityApi  {
     /* languageRetrieve
      * Get language */
     suspend fun languageRetrieve(id:kotlin.String?,context:OperationRequest):Response<LanguageDetail>
+    /* metaRetrieve
+     * Get API metadata */
+    suspend fun metaRetrieve(context:OperationRequest):Response<PokeapiMetaResponse>
     companion object {
         const val address = "UtilityApi-service"
         suspend fun createRouterFactory(vertx: Vertx,path:String): io.vertx.ext.web.api.contract.openapi3.OpenAPI3RouterFactory {

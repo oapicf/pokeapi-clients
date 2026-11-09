@@ -15,8 +15,10 @@
 
 typedef struct version_group_detail_t version_group_detail_t;
 
-#include "ability_detail_pokemon_inner_pokemon.h"
 #include "generation_summary.h"
+#include "move_learn_method_summary.h"
+#include "pokedex_summary.h"
+#include "region_summary.h"
 #include "version_summary.h"
 
 

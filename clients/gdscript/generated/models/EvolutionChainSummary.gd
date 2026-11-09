@@ -10,6 +10,7 @@ class_name EvolutionChainSummary
 # EvolutionChainSummary Model
 
 
+# The URL of the referenced resource.
 # Required: True
 # isArray: false
 @export var url: URI:

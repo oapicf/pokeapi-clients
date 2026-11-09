@@ -9,10 +9,10 @@ LocationAreaDetail::LocationAreaDetail()
 	id = int(0);
 	name = std::string();
 	game_index = int(0);
-	encounter_method_rates = std::list<LocationAreaDetail_encounter_method_rates_inner>();
-	location = LocationSummary();
+	encounter_method_rates = std::list<LocationAreaEncounterRate>();
+	location = null;
 	names = std::list<LocationAreaName>();
-	pokemon_encounters = std::list<LocationAreaDetail_pokemon_encounters_inner>();
+	pokemon_encounters = std::list<LocationAreaPokemonEncounter>();
 }
 
 LocationAreaDetail::LocationAreaDetail(std::string jsonString)
@@ -76,8 +76,8 @@ LocationAreaDetail::fromJson(std::string jsonObj)
         bourne::json value = object[encounter_method_ratesKey];
 
 
-        std::list<LocationAreaDetail_encounter_method_rates_inner> encounter_method_rates_list;
-        LocationAreaDetail_encounter_method_rates_inner element;
+        std::list<LocationAreaEncounterRate> encounter_method_rates_list;
+        LocationAreaEncounterRate element;
         for(auto& var : value.array_range())
         {
 
@@ -134,8 +134,8 @@ LocationAreaDetail::fromJson(std::string jsonObj)
         bourne::json value = object[pokemon_encountersKey];
 
 
-        std::list<LocationAreaDetail_pokemon_encounters_inner> pokemon_encounters_list;
-        LocationAreaDetail_pokemon_encounters_inner element;
+        std::list<LocationAreaPokemonEncounter> pokemon_encounters_list;
+        LocationAreaPokemonEncounter element;
         for(auto& var : value.array_range())
         {
 
@@ -181,12 +181,12 @@ LocationAreaDetail::toJson()
 
 
 
-    std::list<LocationAreaDetail_encounter_method_rates_inner> encounter_method_rates_list = getEncounterMethodRates();
+    std::list<LocationAreaEncounterRate> encounter_method_rates_list = getEncounterMethodRates();
     bourne::json encounter_method_rates_arr = bourne::json::array();
 
     for(auto& var : encounter_method_rates_list)
     {
-        LocationAreaDetail_encounter_method_rates_inner obj = var;
+        LocationAreaEncounterRate obj = var;
         encounter_method_rates_arr.append(obj.toJson());
     }
     object["encounter_method_rates"] = encounter_method_rates_arr;
@@ -218,12 +218,12 @@ LocationAreaDetail::toJson()
 
 
 
-    std::list<LocationAreaDetail_pokemon_encounters_inner> pokemon_encounters_list = getPokemonEncounters();
+    std::list<LocationAreaPokemonEncounter> pokemon_encounters_list = getPokemonEncounters();
     bourne::json pokemon_encounters_arr = bourne::json::array();
 
     for(auto& var : pokemon_encounters_list)
     {
-        LocationAreaDetail_pokemon_encounters_inner obj = var;
+        LocationAreaPokemonEncounter obj = var;
         pokemon_encounters_arr.append(obj.toJson());
     }
     object["pokemon_encounters"] = pokemon_encounters_arr;
@@ -271,14 +271,14 @@ LocationAreaDetail::setGameIndex(int game_index)
 	this->game_index = game_index;
 }
 
-std::list<LocationAreaDetail_encounter_method_rates_inner>
+std::list<LocationAreaEncounterRate>
 LocationAreaDetail::getEncounterMethodRates()
 {
 	return encounter_method_rates;
 }
 
 void
-LocationAreaDetail::setEncounterMethodRates(std::list<LocationAreaDetail_encounter_method_rates_inner> encounter_method_rates)
+LocationAreaDetail::setEncounterMethodRates(std::list<LocationAreaEncounterRate> encounter_method_rates)
 {
 	this->encounter_method_rates = encounter_method_rates;
 }
@@ -307,14 +307,14 @@ LocationAreaDetail::setNames(std::list<LocationAreaName> names)
 	this->names = names;
 }
 
-std::list<LocationAreaDetail_pokemon_encounters_inner>
+std::list<LocationAreaPokemonEncounter>
 LocationAreaDetail::getPokemonEncounters()
 {
 	return pokemon_encounters;
 }
 
 void
-LocationAreaDetail::setPokemonEncounters(std::list<LocationAreaDetail_pokemon_encounters_inner> pokemon_encounters)
+LocationAreaDetail::setPokemonEncounters(std::list<LocationAreaPokemonEncounter> pokemon_encounters)
 {
 	this->pokemon_encounters = pokemon_encounters;
 }

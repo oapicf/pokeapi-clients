@@ -15,22 +15,22 @@ import org.openapitools.model.VersionGroupSummary;
 
 @Canonical
 class GenerationDetail {
-    
+    /* The identifier for this resource. */
     Integer id
-    
+    /* The name for this resource. */
     String name
-    
+    /* A list of abilities that were introduced in this generation. */
     List<AbilitySummary> abilities = new ArrayList<>()
-    
+    /* The main region travelled in this generation. */
     RegionSummary mainRegion
-    
+    /* A list of moves that were introduced in this generation. */
     List<MoveSummary> moves = new ArrayList<>()
-    
+    /* The name of this resource listed in different languages. */
     List<GenerationName> names = new ArrayList<>()
-    
+    /* A list of Pokémon species that were introduced in this generation. */
     List<PokemonSpeciesSummary> pokemonSpecies = new ArrayList<>()
-    
+    /* A list of types that were introduced in this generation. */
     List<TypeSummary> types = new ArrayList<>()
-    
+    /* A list of version groups that were introduced in this generation. */
     List<VersionGroupSummary> versionGroups = new ArrayList<>()
 }

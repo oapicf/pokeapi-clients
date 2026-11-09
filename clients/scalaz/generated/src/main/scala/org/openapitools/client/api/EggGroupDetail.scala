@@ -12,10 +12,14 @@ import org.joda.time.DateTime
 import EggGroupDetail._
 
 case class EggGroupDetail (
+  /* The identifier for this resource. */
   id: Integer,
-name: String,
-names: List[EggGroupName],
-pokemonSpecies: List[EggGroupDetailPokemonSpeciesInner])
+/* The name for this resource. */
+  name: String,
+/* The name of this resource listed in different languages. */
+  names: List[EggGroupName],
+/* A list of all Pokémon species that are members of this egg group. */
+  pokemonSpecies: List[PokemonSpeciesSummary])
 
 object EggGroupDetail {
   import DateTimeCodecs._

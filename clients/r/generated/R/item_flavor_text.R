@@ -7,9 +7,9 @@
 #' @title ItemFlavorText
 #' @description ItemFlavorText Class
 #' @format An \code{R6Class} generator object
-#' @field text  character
-#' @field version_group  \link{VersionGroupSummary}
-#' @field language  \link{LanguageSummary}
+#' @field text The localized flavor text for an API resource in a specific language. character
+#' @field version_group The version group which uses this flavor text. \link{VersionGroupSummary}
+#' @field language The language this name is in. \link{LanguageSummary}
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -23,9 +23,9 @@ ItemFlavorText <- R6::R6Class(
     #' @description
     #' Initialize a new ItemFlavorText class.
     #'
-    #' @param text text
-    #' @param version_group version_group
-    #' @param language language
+    #' @param text The localized flavor text for an API resource in a specific language.
+    #' @param version_group The version group which uses this flavor text.
+    #' @param language The language this name is in.
     #' @param ... Other optional arguments.
     initialize = function(`text`, `version_group`, `language`, ...) {
       if (!missing(`text`)) {

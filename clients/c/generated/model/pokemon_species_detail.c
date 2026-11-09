@@ -269,7 +269,7 @@ void pokemon_species_detail_free(pokemon_species_detail_t *pokemon_species_detai
     }
     if (pokemon_species_detail->egg_groups) {
         list_ForEach(listEntry, pokemon_species_detail->egg_groups) {
-            ability_detail_pokemon_inner_pokemon_free(listEntry->data);
+            egg_group_summary_free(listEntry->data);
         }
         list_freeList(pokemon_species_detail->egg_groups);
         pokemon_species_detail->egg_groups = NULL;
@@ -300,14 +300,14 @@ void pokemon_species_detail_free(pokemon_species_detail_t *pokemon_species_detai
     }
     if (pokemon_species_detail->names) {
         list_ForEach(listEntry, pokemon_species_detail->names) {
-            pokemon_form_detail_form_names_inner_free(listEntry->data);
+            pokemon_species_name_free(listEntry->data);
         }
         list_freeList(pokemon_species_detail->names);
         pokemon_species_detail->names = NULL;
     }
     if (pokemon_species_detail->pal_park_encounters) {
         list_ForEach(listEntry, pokemon_species_detail->pal_park_encounters) {
-            pokemon_species_detail_pal_park_encounters_inner_free(listEntry->data);
+            pokemon_species_pal_park_encounter_free(listEntry->data);
         }
         list_freeList(pokemon_species_detail->pal_park_encounters);
         pokemon_species_detail->pal_park_encounters = NULL;
@@ -328,14 +328,14 @@ void pokemon_species_detail_free(pokemon_species_detail_t *pokemon_species_detai
     }
     if (pokemon_species_detail->genera) {
         list_ForEach(listEntry, pokemon_species_detail->genera) {
-            pokemon_species_detail_genera_inner_free(listEntry->data);
+            pokemon_species_genus_free(listEntry->data);
         }
         list_freeList(pokemon_species_detail->genera);
         pokemon_species_detail->genera = NULL;
     }
     if (pokemon_species_detail->varieties) {
         list_ForEach(listEntry, pokemon_species_detail->varieties) {
-            pokemon_species_detail_varieties_inner_free(listEntry->data);
+            pokemon_species_variety_free(listEntry->data);
         }
         list_freeList(pokemon_species_detail->varieties);
         pokemon_species_detail->varieties = NULL;
@@ -491,7 +491,7 @@ cJSON *pokemon_species_detail_convertToJSON(pokemon_species_detail_t *pokemon_sp
     listEntry_t *egg_groupsListEntry;
     if (pokemon_species_detail->egg_groups) {
     list_ForEach(egg_groupsListEntry, pokemon_species_detail->egg_groups) {
-    cJSON *itemLocal = ability_detail_pokemon_inner_pokemon_convertToJSON(egg_groupsListEntry->data);
+    cJSON *itemLocal = egg_group_summary_convertToJSON(egg_groupsListEntry->data);
     if(itemLocal == NULL) {
     goto fail;
     }
@@ -596,7 +596,7 @@ cJSON *pokemon_species_detail_convertToJSON(pokemon_species_detail_t *pokemon_sp
     listEntry_t *namesListEntry;
     if (pokemon_species_detail->names) {
     list_ForEach(namesListEntry, pokemon_species_detail->names) {
-    cJSON *itemLocal = pokemon_form_detail_form_names_inner_convertToJSON(namesListEntry->data);
+    cJSON *itemLocal = pokemon_species_name_convertToJSON(namesListEntry->data);
     if(itemLocal == NULL) {
     goto fail;
     }
@@ -617,7 +617,7 @@ cJSON *pokemon_species_detail_convertToJSON(pokemon_species_detail_t *pokemon_sp
     listEntry_t *pal_park_encountersListEntry;
     if (pokemon_species_detail->pal_park_encounters) {
     list_ForEach(pal_park_encountersListEntry, pokemon_species_detail->pal_park_encounters) {
-    cJSON *itemLocal = pokemon_species_detail_pal_park_encounters_inner_convertToJSON(pal_park_encountersListEntry->data);
+    cJSON *itemLocal = pokemon_species_pal_park_encounter_convertToJSON(pal_park_encountersListEntry->data);
     if(itemLocal == NULL) {
     goto fail;
     }
@@ -680,7 +680,7 @@ cJSON *pokemon_species_detail_convertToJSON(pokemon_species_detail_t *pokemon_sp
     listEntry_t *generaListEntry;
     if (pokemon_species_detail->genera) {
     list_ForEach(generaListEntry, pokemon_species_detail->genera) {
-    cJSON *itemLocal = pokemon_species_detail_genera_inner_convertToJSON(generaListEntry->data);
+    cJSON *itemLocal = pokemon_species_genus_convertToJSON(generaListEntry->data);
     if(itemLocal == NULL) {
     goto fail;
     }
@@ -701,7 +701,7 @@ cJSON *pokemon_species_detail_convertToJSON(pokemon_species_detail_t *pokemon_sp
     listEntry_t *varietiesListEntry;
     if (pokemon_species_detail->varieties) {
     list_ForEach(varietiesListEntry, pokemon_species_detail->varieties) {
-    cJSON *itemLocal = pokemon_species_detail_varieties_inner_convertToJSON(varietiesListEntry->data);
+    cJSON *itemLocal = pokemon_species_variety_convertToJSON(varietiesListEntry->data);
     if(itemLocal == NULL) {
     goto fail;
     }
@@ -1078,7 +1078,7 @@ pokemon_species_detail_t *pokemon_species_detail_parseFromJSON(cJSON *pokemon_sp
         if(!cJSON_IsObject(egg_groups_local_nonprimitive)){
             goto end;
         }
-        ability_detail_pokemon_inner_pokemon_t *egg_groupsItem = ability_detail_pokemon_inner_pokemon_parseFromJSON(egg_groups_local_nonprimitive);
+        egg_group_summary_t *egg_groupsItem = egg_group_summary_parseFromJSON(egg_groups_local_nonprimitive);
 
         list_addElement(egg_groupsList, egg_groupsItem);
     }
@@ -1177,7 +1177,7 @@ pokemon_species_detail_t *pokemon_species_detail_parseFromJSON(cJSON *pokemon_sp
         if(!cJSON_IsObject(names_local_nonprimitive)){
             goto end;
         }
-        pokemon_form_detail_form_names_inner_t *namesItem = pokemon_form_detail_form_names_inner_parseFromJSON(names_local_nonprimitive);
+        pokemon_species_name_t *namesItem = pokemon_species_name_parseFromJSON(names_local_nonprimitive);
 
         list_addElement(namesList, namesItem);
     }
@@ -1204,7 +1204,7 @@ pokemon_species_detail_t *pokemon_species_detail_parseFromJSON(cJSON *pokemon_sp
         if(!cJSON_IsObject(pal_park_encounters_local_nonprimitive)){
             goto end;
         }
-        pokemon_species_detail_pal_park_encounters_inner_t *pal_park_encountersItem = pokemon_species_detail_pal_park_encounters_inner_parseFromJSON(pal_park_encounters_local_nonprimitive);
+        pokemon_species_pal_park_encounter_t *pal_park_encountersItem = pokemon_species_pal_park_encounter_parseFromJSON(pal_park_encounters_local_nonprimitive);
 
         list_addElement(pal_park_encountersList, pal_park_encountersItem);
     }
@@ -1285,7 +1285,7 @@ pokemon_species_detail_t *pokemon_species_detail_parseFromJSON(cJSON *pokemon_sp
         if(!cJSON_IsObject(genera_local_nonprimitive)){
             goto end;
         }
-        pokemon_species_detail_genera_inner_t *generaItem = pokemon_species_detail_genera_inner_parseFromJSON(genera_local_nonprimitive);
+        pokemon_species_genus_t *generaItem = pokemon_species_genus_parseFromJSON(genera_local_nonprimitive);
 
         list_addElement(generaList, generaItem);
     }
@@ -1312,7 +1312,7 @@ pokemon_species_detail_t *pokemon_species_detail_parseFromJSON(cJSON *pokemon_sp
         if(!cJSON_IsObject(varieties_local_nonprimitive)){
             goto end;
         }
-        pokemon_species_detail_varieties_inner_t *varietiesItem = pokemon_species_detail_varieties_inner_parseFromJSON(varieties_local_nonprimitive);
+        pokemon_species_variety_t *varietiesItem = pokemon_species_variety_parseFromJSON(varieties_local_nonprimitive);
 
         list_addElement(varietiesList, varietiesItem);
     }
@@ -1420,7 +1420,7 @@ end:
     if (egg_groupsList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, egg_groupsList) {
-            ability_detail_pokemon_inner_pokemon_free(listEntry->data);
+            egg_group_summary_free(listEntry->data);
             listEntry->data = NULL;
         }
         list_freeList(egg_groupsList);
@@ -1453,7 +1453,7 @@ end:
     if (namesList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, namesList) {
-            pokemon_form_detail_form_names_inner_free(listEntry->data);
+            pokemon_species_name_free(listEntry->data);
             listEntry->data = NULL;
         }
         list_freeList(namesList);
@@ -1462,7 +1462,7 @@ end:
     if (pal_park_encountersList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, pal_park_encountersList) {
-            pokemon_species_detail_pal_park_encounters_inner_free(listEntry->data);
+            pokemon_species_pal_park_encounter_free(listEntry->data);
             listEntry->data = NULL;
         }
         list_freeList(pal_park_encountersList);
@@ -1489,7 +1489,7 @@ end:
     if (generaList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, generaList) {
-            pokemon_species_detail_genera_inner_free(listEntry->data);
+            pokemon_species_genus_free(listEntry->data);
             listEntry->data = NULL;
         }
         list_freeList(generaList);
@@ -1498,7 +1498,7 @@ end:
     if (varietiesList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, varietiesList) {
-            pokemon_species_detail_varieties_inner_free(listEntry->data);
+            pokemon_species_variety_free(listEntry->data);
             listEntry->data = NULL;
         }
         list_freeList(varietiesList);

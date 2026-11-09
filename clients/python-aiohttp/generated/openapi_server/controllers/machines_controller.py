@@ -6,7 +6,7 @@ from openapi_server.models.paginated_machine_summary_list import PaginatedMachin
 from openapi_server import util
 
 
-async def machine_list(request: web.Request, limit=None, offset=None, q=None) -> web.Response:
+async def machine_list(request: web.Request, limit=None, offset=None) -> web.Response:
     """List machines
 
     Machines are the representation of items that teach moves to Pokémon. They vary from version to version, so it is not certain that one specific TM or HM corresponds to a single Machine.
@@ -15,8 +15,6 @@ async def machine_list(request: web.Request, limit=None, offset=None, q=None) ->
     :type limit: int
     :param offset: The initial index from which to return the results.
     :type offset: int
-    :param q: &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. 
-    :type q: str
 
     """
     return web.Response(status=200)

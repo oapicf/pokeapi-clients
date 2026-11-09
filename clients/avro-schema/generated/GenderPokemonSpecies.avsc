@@ -1,0 +1,19 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "GenderPokemonSpecies",
+  "fields": [
+    {
+      "name": "rate",
+      "type": "int",
+      "doc": "The chance of this Pokémon being female, in eighths; or -1 for genderless."
+    },
+    {
+      "name": "pokemon_species",
+      "type": "model.PokemonSpeciesSummary",
+      "doc": "A Pokémon species that can be the referenced gender."
+    }
+  ]
+
+}

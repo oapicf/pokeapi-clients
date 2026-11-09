@@ -25,18 +25,18 @@ ItemDetail::__init()
 {
 	//id = int(0);
 	//name = std::string();
-	//cost = int(0);
 	//fling_power = int(0);
-	//fling_effect = new ItemFlingEffectSummary();
+	//fling_effect = null;
 	//new std::list()std::list> attributes;
-	//category = new ItemCategorySummary();
+	//category = null;
 	//new std::list()std::list> effect_entries;
 	//new std::list()std::list> flavor_text_entries;
 	//new std::list()std::list> game_indices;
+	//new std::list()std::list> prices;
 	//new std::list()std::list> names;
 	//new std::list()std::list> held_by_pokemon;
-	//sprites = new ItemDetail_sprites();
-	//baby_trigger_for = new ItemDetail_baby_trigger_for();
+	//sprites = null;
+	//baby_trigger_for = null;
 	//new std::list()std::list> machines;
 }
 
@@ -52,11 +52,6 @@ ItemDetail::__cleanup()
 	//
 	//delete name;
 	//name = NULL;
-	//}
-	//if(cost != NULL) {
-	//
-	//delete cost;
-	//cost = NULL;
 	//}
 	//if(fling_power != NULL) {
 	//
@@ -92,6 +87,11 @@ ItemDetail::__cleanup()
 	//game_indices.RemoveAll(true);
 	//delete game_indices;
 	//game_indices = NULL;
+	//}
+	//if(prices != NULL) {
+	//prices.RemoveAll(true);
+	//delete prices;
+	//prices = NULL;
 	//}
 	//if(names != NULL) {
 	//names.RemoveAll(true);
@@ -148,17 +148,6 @@ ItemDetail::fromJson(char* jsonStr)
 			
 		}
 	}
-	const gchar *costKey = "cost";
-	node = json_object_get_member(pJsonObject, costKey);
-	if (node !=NULL) {
-	
-
-		if (isprimitive("int")) {
-			jsonToValue(&cost, node, "int", "");
-		} else {
-			
-		}
-	}
 	const gchar *fling_powerKey = "fling_power";
 	node = json_object_get_member(pJsonObject, fling_powerKey);
 	if (node !=NULL) {
@@ -191,12 +180,12 @@ ItemDetail::fromJson(char* jsonStr)
 		{
 			JsonArray* arr = json_node_get_array(node);
 			JsonNode*  temp_json;
-			list<AbilityDetail_pokemon_inner_pokemon> new_list;
-			AbilityDetail_pokemon_inner_pokemon inst;
+			list<ItemAttributeSummary> new_list;
+			ItemAttributeSummary inst;
 			for (guint i=0;i<json_array_get_length(arr);i++) {
 				temp_json = json_array_get_element(arr,i);
-				if (isprimitive("AbilityDetail_pokemon_inner_pokemon")) {
-					jsonToValue(&inst, temp_json, "AbilityDetail_pokemon_inner_pokemon", "");
+				if (isprimitive("ItemAttributeSummary")) {
+					jsonToValue(&inst, temp_json, "ItemAttributeSummary", "");
 				} else {
 					
 					inst.fromJson(json_to_string(temp_json, false));
@@ -294,6 +283,30 @@ ItemDetail::fromJson(char* jsonStr)
 		}
 		
 	}
+	const gchar *pricesKey = "prices";
+	node = json_object_get_member(pJsonObject, pricesKey);
+	if (node !=NULL) {
+	
+		{
+			JsonArray* arr = json_node_get_array(node);
+			JsonNode*  temp_json;
+			list<ItemPrice> new_list;
+			ItemPrice inst;
+			for (guint i=0;i<json_array_get_length(arr);i++) {
+				temp_json = json_array_get_element(arr,i);
+				if (isprimitive("ItemPrice")) {
+					jsonToValue(&inst, temp_json, "ItemPrice", "");
+				} else {
+					
+					inst.fromJson(json_to_string(temp_json, false));
+					
+				}
+				new_list.push_back(inst);
+			}
+			prices = new_list;
+		}
+		
+	}
 	const gchar *namesKey = "names";
 	node = json_object_get_member(pJsonObject, namesKey);
 	if (node !=NULL) {
@@ -325,12 +338,12 @@ ItemDetail::fromJson(char* jsonStr)
 		{
 			JsonArray* arr = json_node_get_array(node);
 			JsonNode*  temp_json;
-			list<ItemDetail_held_by_pokemon_inner> new_list;
-			ItemDetail_held_by_pokemon_inner inst;
+			list<PokemonHeldItem> new_list;
+			PokemonHeldItem inst;
 			for (guint i=0;i<json_array_get_length(arr);i++) {
 				temp_json = json_array_get_element(arr,i);
-				if (isprimitive("ItemDetail_held_by_pokemon_inner")) {
-					jsonToValue(&inst, temp_json, "ItemDetail_held_by_pokemon_inner", "");
+				if (isprimitive("PokemonHeldItem")) {
+					jsonToValue(&inst, temp_json, "PokemonHeldItem", "");
 				} else {
 					
 					inst.fromJson(json_to_string(temp_json, false));
@@ -347,11 +360,11 @@ ItemDetail::fromJson(char* jsonStr)
 	if (node !=NULL) {
 	
 
-		if (isprimitive("ItemDetail_sprites")) {
-			jsonToValue(&sprites, node, "ItemDetail_sprites", "ItemDetail_sprites");
+		if (isprimitive("ItemSprites")) {
+			jsonToValue(&sprites, node, "ItemSprites", "ItemSprites");
 		} else {
 			
-			ItemDetail_sprites* obj = static_cast<ItemDetail_sprites*> (&sprites);
+			ItemSprites* obj = static_cast<ItemSprites*> (&sprites);
 			obj->fromJson(json_to_string(node, false));
 			
 		}
@@ -361,11 +374,11 @@ ItemDetail::fromJson(char* jsonStr)
 	if (node !=NULL) {
 	
 
-		if (isprimitive("ItemDetail_baby_trigger_for")) {
-			jsonToValue(&baby_trigger_for, node, "ItemDetail_baby_trigger_for", "ItemDetail_baby_trigger_for");
+		if (isprimitive("EvolutionChainSummary")) {
+			jsonToValue(&baby_trigger_for, node, "EvolutionChainSummary", "EvolutionChainSummary");
 		} else {
 			
-			ItemDetail_baby_trigger_for* obj = static_cast<ItemDetail_baby_trigger_for*> (&baby_trigger_for);
+			EvolutionChainSummary* obj = static_cast<EvolutionChainSummary*> (&baby_trigger_for);
 			obj->fromJson(json_to_string(node, false));
 			
 		}
@@ -377,12 +390,12 @@ ItemDetail::fromJson(char* jsonStr)
 		{
 			JsonArray* arr = json_node_get_array(node);
 			JsonNode*  temp_json;
-			list<ItemDetail_machines_inner> new_list;
-			ItemDetail_machines_inner inst;
+			list<ItemMachine> new_list;
+			ItemMachine inst;
 			for (guint i=0;i<json_array_get_length(arr);i++) {
 				temp_json = json_array_get_element(arr,i);
-				if (isprimitive("ItemDetail_machines_inner")) {
-					jsonToValue(&inst, temp_json, "ItemDetail_machines_inner", "");
+				if (isprimitive("ItemMachine")) {
+					jsonToValue(&inst, temp_json, "ItemMachine", "");
 				} else {
 					
 					inst.fromJson(json_to_string(temp_json, false));
@@ -425,15 +438,6 @@ ItemDetail::toJson()
 	const gchar *nameKey = "name";
 	json_object_set_member(pJsonObject, nameKey, node);
 	if (isprimitive("int")) {
-		int obj = getCost();
-		node = converttoJson(&obj, "int", "");
-	}
-	else {
-		
-	}
-	const gchar *costKey = "cost";
-	json_object_set_member(pJsonObject, costKey, node);
-	if (isprimitive("int")) {
 		int obj = getFlingPower();
 		node = converttoJson(&obj, "int", "");
 	}
@@ -456,18 +460,18 @@ ItemDetail::toJson()
 	}
 	const gchar *fling_effectKey = "fling_effect";
 	json_object_set_member(pJsonObject, fling_effectKey, node);
-	if (isprimitive("AbilityDetail_pokemon_inner_pokemon")) {
-		list<AbilityDetail_pokemon_inner_pokemon> new_list = static_cast<list <AbilityDetail_pokemon_inner_pokemon> > (getAttributes());
-		node = converttoJson(&new_list, "AbilityDetail_pokemon_inner_pokemon", "array");
+	if (isprimitive("ItemAttributeSummary")) {
+		list<ItemAttributeSummary> new_list = static_cast<list <ItemAttributeSummary> > (getAttributes());
+		node = converttoJson(&new_list, "ItemAttributeSummary", "array");
 	} else {
 		node = json_node_alloc();
-		list<AbilityDetail_pokemon_inner_pokemon> new_list = static_cast<list <AbilityDetail_pokemon_inner_pokemon> > (getAttributes());
+		list<ItemAttributeSummary> new_list = static_cast<list <ItemAttributeSummary> > (getAttributes());
 		JsonArray* json_array = json_array_new();
 		GError *mygerror;
 		
-		for (list<AbilityDetail_pokemon_inner_pokemon>::iterator it = new_list.begin(); it != new_list.end(); it++) {
+		for (list<ItemAttributeSummary>::iterator it = new_list.begin(); it != new_list.end(); it++) {
 			mygerror = NULL;
-			AbilityDetail_pokemon_inner_pokemon obj = *it;
+			ItemAttributeSummary obj = *it;
 			JsonNode *node_temp = json_from_string(obj.toJson(), &mygerror);
 			json_array_add_element(json_array, node_temp);
 			g_clear_error(&mygerror);
@@ -570,6 +574,31 @@ ItemDetail::toJson()
 	
 	const gchar *game_indicesKey = "game_indices";
 	json_object_set_member(pJsonObject, game_indicesKey, node);
+	if (isprimitive("ItemPrice")) {
+		list<ItemPrice> new_list = static_cast<list <ItemPrice> > (getPrices());
+		node = converttoJson(&new_list, "ItemPrice", "array");
+	} else {
+		node = json_node_alloc();
+		list<ItemPrice> new_list = static_cast<list <ItemPrice> > (getPrices());
+		JsonArray* json_array = json_array_new();
+		GError *mygerror;
+		
+		for (list<ItemPrice>::iterator it = new_list.begin(); it != new_list.end(); it++) {
+			mygerror = NULL;
+			ItemPrice obj = *it;
+			JsonNode *node_temp = json_from_string(obj.toJson(), &mygerror);
+			json_array_add_element(json_array, node_temp);
+			g_clear_error(&mygerror);
+		}
+		json_node_init_array(node, json_array);
+		json_array_unref(json_array);
+		
+	}
+
+
+	
+	const gchar *pricesKey = "prices";
+	json_object_set_member(pJsonObject, pricesKey, node);
 	if (isprimitive("ItemName")) {
 		list<ItemName> new_list = static_cast<list <ItemName> > (getNames());
 		node = converttoJson(&new_list, "ItemName", "array");
@@ -595,18 +624,18 @@ ItemDetail::toJson()
 	
 	const gchar *namesKey = "names";
 	json_object_set_member(pJsonObject, namesKey, node);
-	if (isprimitive("ItemDetail_held_by_pokemon_inner")) {
-		list<ItemDetail_held_by_pokemon_inner> new_list = static_cast<list <ItemDetail_held_by_pokemon_inner> > (getHeldByPokemon());
-		node = converttoJson(&new_list, "ItemDetail_held_by_pokemon_inner", "array");
+	if (isprimitive("PokemonHeldItem")) {
+		list<PokemonHeldItem> new_list = static_cast<list <PokemonHeldItem> > (getHeldByPokemon());
+		node = converttoJson(&new_list, "PokemonHeldItem", "array");
 	} else {
 		node = json_node_alloc();
-		list<ItemDetail_held_by_pokemon_inner> new_list = static_cast<list <ItemDetail_held_by_pokemon_inner> > (getHeldByPokemon());
+		list<PokemonHeldItem> new_list = static_cast<list <PokemonHeldItem> > (getHeldByPokemon());
 		JsonArray* json_array = json_array_new();
 		GError *mygerror;
 		
-		for (list<ItemDetail_held_by_pokemon_inner>::iterator it = new_list.begin(); it != new_list.end(); it++) {
+		for (list<PokemonHeldItem>::iterator it = new_list.begin(); it != new_list.end(); it++) {
 			mygerror = NULL;
-			ItemDetail_held_by_pokemon_inner obj = *it;
+			PokemonHeldItem obj = *it;
 			JsonNode *node_temp = json_from_string(obj.toJson(), &mygerror);
 			json_array_add_element(json_array, node_temp);
 			g_clear_error(&mygerror);
@@ -620,13 +649,13 @@ ItemDetail::toJson()
 	
 	const gchar *held_by_pokemonKey = "held_by_pokemon";
 	json_object_set_member(pJsonObject, held_by_pokemonKey, node);
-	if (isprimitive("ItemDetail_sprites")) {
-		ItemDetail_sprites obj = getSprites();
-		node = converttoJson(&obj, "ItemDetail_sprites", "");
+	if (isprimitive("ItemSprites")) {
+		ItemSprites obj = getSprites();
+		node = converttoJson(&obj, "ItemSprites", "");
 	}
 	else {
 		
-		ItemDetail_sprites obj = static_cast<ItemDetail_sprites> (getSprites());
+		ItemSprites obj = static_cast<ItemSprites> (getSprites());
 		GError *mygerror;
 		mygerror = NULL;
 		node = json_from_string(obj.toJson(), &mygerror);
@@ -634,13 +663,13 @@ ItemDetail::toJson()
 	}
 	const gchar *spritesKey = "sprites";
 	json_object_set_member(pJsonObject, spritesKey, node);
-	if (isprimitive("ItemDetail_baby_trigger_for")) {
-		ItemDetail_baby_trigger_for obj = getBabyTriggerFor();
-		node = converttoJson(&obj, "ItemDetail_baby_trigger_for", "");
+	if (isprimitive("EvolutionChainSummary")) {
+		EvolutionChainSummary obj = getBabyTriggerFor();
+		node = converttoJson(&obj, "EvolutionChainSummary", "");
 	}
 	else {
 		
-		ItemDetail_baby_trigger_for obj = static_cast<ItemDetail_baby_trigger_for> (getBabyTriggerFor());
+		EvolutionChainSummary obj = static_cast<EvolutionChainSummary> (getBabyTriggerFor());
 		GError *mygerror;
 		mygerror = NULL;
 		node = json_from_string(obj.toJson(), &mygerror);
@@ -648,18 +677,18 @@ ItemDetail::toJson()
 	}
 	const gchar *baby_trigger_forKey = "baby_trigger_for";
 	json_object_set_member(pJsonObject, baby_trigger_forKey, node);
-	if (isprimitive("ItemDetail_machines_inner")) {
-		list<ItemDetail_machines_inner> new_list = static_cast<list <ItemDetail_machines_inner> > (getMachines());
-		node = converttoJson(&new_list, "ItemDetail_machines_inner", "array");
+	if (isprimitive("ItemMachine")) {
+		list<ItemMachine> new_list = static_cast<list <ItemMachine> > (getMachines());
+		node = converttoJson(&new_list, "ItemMachine", "array");
 	} else {
 		node = json_node_alloc();
-		list<ItemDetail_machines_inner> new_list = static_cast<list <ItemDetail_machines_inner> > (getMachines());
+		list<ItemMachine> new_list = static_cast<list <ItemMachine> > (getMachines());
 		JsonArray* json_array = json_array_new();
 		GError *mygerror;
 		
-		for (list<ItemDetail_machines_inner>::iterator it = new_list.begin(); it != new_list.end(); it++) {
+		for (list<ItemMachine>::iterator it = new_list.begin(); it != new_list.end(); it++) {
 			mygerror = NULL;
-			ItemDetail_machines_inner obj = *it;
+			ItemMachine obj = *it;
 			JsonNode *node_temp = json_from_string(obj.toJson(), &mygerror);
 			json_array_add_element(json_array, node_temp);
 			g_clear_error(&mygerror);
@@ -706,18 +735,6 @@ ItemDetail::setName(std::string  name)
 }
 
 int
-ItemDetail::getCost()
-{
-	return cost;
-}
-
-void
-ItemDetail::setCost(int  cost)
-{
-	this->cost = cost;
-}
-
-int
 ItemDetail::getFlingPower()
 {
 	return fling_power;
@@ -741,14 +758,14 @@ ItemDetail::setFlingEffect(ItemFlingEffectSummary  fling_effect)
 	this->fling_effect = fling_effect;
 }
 
-std::list<AbilityDetail_pokemon_inner_pokemon>
+std::list<ItemAttributeSummary>
 ItemDetail::getAttributes()
 {
 	return attributes;
 }
 
 void
-ItemDetail::setAttributes(std::list <AbilityDetail_pokemon_inner_pokemon> attributes)
+ItemDetail::setAttributes(std::list <ItemAttributeSummary> attributes)
 {
 	this->attributes = attributes;
 }
@@ -801,6 +818,18 @@ ItemDetail::setGameIndices(std::list <ItemGameIndex> game_indices)
 	this->game_indices = game_indices;
 }
 
+std::list<ItemPrice>
+ItemDetail::getPrices()
+{
+	return prices;
+}
+
+void
+ItemDetail::setPrices(std::list <ItemPrice> prices)
+{
+	this->prices = prices;
+}
+
 std::list<ItemName>
 ItemDetail::getNames()
 {
@@ -813,50 +842,50 @@ ItemDetail::setNames(std::list <ItemName> names)
 	this->names = names;
 }
 
-std::list<ItemDetail_held_by_pokemon_inner>
+std::list<PokemonHeldItem>
 ItemDetail::getHeldByPokemon()
 {
 	return held_by_pokemon;
 }
 
 void
-ItemDetail::setHeldByPokemon(std::list <ItemDetail_held_by_pokemon_inner> held_by_pokemon)
+ItemDetail::setHeldByPokemon(std::list <PokemonHeldItem> held_by_pokemon)
 {
 	this->held_by_pokemon = held_by_pokemon;
 }
 
-ItemDetail_sprites
+ItemSprites
 ItemDetail::getSprites()
 {
 	return sprites;
 }
 
 void
-ItemDetail::setSprites(ItemDetail_sprites  sprites)
+ItemDetail::setSprites(ItemSprites  sprites)
 {
 	this->sprites = sprites;
 }
 
-ItemDetail_baby_trigger_for
+EvolutionChainSummary
 ItemDetail::getBabyTriggerFor()
 {
 	return baby_trigger_for;
 }
 
 void
-ItemDetail::setBabyTriggerFor(ItemDetail_baby_trigger_for  baby_trigger_for)
+ItemDetail::setBabyTriggerFor(EvolutionChainSummary  baby_trigger_for)
 {
 	this->baby_trigger_for = baby_trigger_for;
 }
 
-std::list<ItemDetail_machines_inner>
+std::list<ItemMachine>
 ItemDetail::getMachines()
 {
 	return machines;
 }
 
 void
-ItemDetail::setMachines(std::list <ItemDetail_machines_inner> machines)
+ItemDetail::setMachines(std::list <ItemMachine> machines)
 {
 	this->machines = machines;
 }

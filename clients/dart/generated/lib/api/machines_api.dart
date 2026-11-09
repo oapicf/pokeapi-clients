@@ -29,10 +29,7 @@ class MachinesApi {
   ///
   /// * [int] offset:
   ///   The initial index from which to return the results.
-  ///
-  /// * [String] q:
-  ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<Response> machineListWithHttpInfo({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
+  Future<Response> machineListWithHttpInfo({ int? limit, int? offset, Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/machine/';
 
@@ -48,9 +45,6 @@ class MachinesApi {
     }
     if (offset != null) {
       queryParams.addAll(_queryParams('', 'offset', offset));
-    }
-    if (q != null) {
-      queryParams.addAll(_queryParams('', 'q', q));
     }
 
     const contentTypes = <String>[];
@@ -79,11 +73,8 @@ class MachinesApi {
   ///
   /// * [int] offset:
   ///   The initial index from which to return the results.
-  ///
-  /// * [String] q:
-  ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<PaginatedMachineSummaryList?> machineList({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
-    final response = await machineListWithHttpInfo(limit: limit, offset: offset, q: q, abortTrigger: abortTrigger,);
+  Future<PaginatedMachineSummaryList?> machineList({ int? limit, int? offset, Future<void>? abortTrigger, }) async {
+    final response = await machineListWithHttpInfo(limit: limit, offset: offset, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

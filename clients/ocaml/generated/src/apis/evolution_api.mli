@@ -5,7 +5,9 @@
  *
  *)
 
-val evolution_chain_list : ?limit:int32 -> ?offset:int32 -> ?q:string -> unit -> Paginated_evolution_chain_summary_list.t Lwt.t
+val evolution_chain_list : ?limit:int32 -> ?offset:int32 -> unit -> Paginated_evolution_chain_summary_list.t Lwt.t
 val evolution_chain_retrieve : id:string -> Evolution_chain_detail.t Lwt.t
 val evolution_trigger_list : ?limit:int32 -> ?offset:int32 -> ?q:string -> unit -> Paginated_evolution_trigger_summary_list.t Lwt.t
 val evolution_trigger_retrieve : id:string -> Evolution_trigger_detail.t Lwt.t
+val evolution_variable_list : ?limit:int32 -> ?offset:int32 -> ?q:string -> unit -> Paginated_evolution_variable_summary_list.t Lwt.t
+val evolution_variable_retrieve : id:string -> Evolution_variable_detail.t Lwt.t

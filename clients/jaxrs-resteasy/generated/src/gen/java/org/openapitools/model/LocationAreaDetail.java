@@ -9,29 +9,30 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.model.LocationAreaDetailEncounterMethodRatesInner;
-import org.openapitools.model.LocationAreaDetailPokemonEncountersInner;
+import org.openapitools.model.LocationAreaEncounterRate;
 import org.openapitools.model.LocationAreaName;
+import org.openapitools.model.LocationAreaPokemonEncounter;
 import org.openapitools.model.LocationSummary;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 import io.swagger.annotations.*;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2026-10-25T05:48:49.952264473Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2026-11-09T13:50:00.159999817Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class LocationAreaDetail   {
   
   private Integer id;
   private String name;
   private Integer gameIndex;
-  private List<@Valid LocationAreaDetailEncounterMethodRatesInner> encounterMethodRates = new ArrayList<>();
+  private List<@Valid LocationAreaEncounterRate> encounterMethodRates = new ArrayList<>();
   private LocationSummary location;
   private List<@Valid LocationAreaName> names = new ArrayList<>();
-  private List<@Valid LocationAreaDetailPokemonEncountersInner> pokemonEncounters = new ArrayList<>();
+  private List<@Valid LocationAreaPokemonEncounter> pokemonEncounters = new ArrayList<>();
 
   /**
+   * The identifier for this resource.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   @JsonProperty("id")
   @NotNull
   public Integer getId() {
@@ -42,12 +43,13 @@ public class LocationAreaDetail   {
   }
 
   /**
+   * The name for this resource.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   @JsonProperty("name")
   @NotNull
- @Size(max=100)  public String getName() {
+ @Size(max=200)  public String getName() {
     return name;
   }
   public void setName(String name) {
@@ -55,12 +57,15 @@ public class LocationAreaDetail   {
   }
 
   /**
+   * The internal id of an API resource within game data.
+   * minimum: -2147483648
+   * maximum: 2147483647
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The internal id of an API resource within game data.")
   @JsonProperty("game_index")
   @NotNull
-  public Integer getGameIndex() {
+ @Min(-2147483648) @Max(2147483647)  public Integer getGameIndex() {
     return gameIndex;
   }
   public void setGameIndex(Integer gameIndex) {
@@ -68,22 +73,24 @@ public class LocationAreaDetail   {
   }
 
   /**
+   * A list of methods in which Pokémon may be encountered in this area and how likely the method will occur depending on the version of the game.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of methods in which Pokémon may be encountered in this area and how likely the method will occur depending on the version of the game.")
   @JsonProperty("encounter_method_rates")
   @NotNull
-  public List<@Valid LocationAreaDetailEncounterMethodRatesInner> getEncounterMethodRates() {
+  public List<@Valid LocationAreaEncounterRate> getEncounterMethodRates() {
     return encounterMethodRates;
   }
-  public void setEncounterMethodRates(List<@Valid LocationAreaDetailEncounterMethodRatesInner> encounterMethodRates) {
+  public void setEncounterMethodRates(List<@Valid LocationAreaEncounterRate> encounterMethodRates) {
     this.encounterMethodRates = encounterMethodRates;
   }
 
   /**
+   * The region this location area can be found in.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The region this location area can be found in.")
   @JsonProperty("location")
   @NotNull
   @Valid
@@ -95,9 +102,10 @@ public class LocationAreaDetail   {
   }
 
   /**
+   * The name of this resource listed in different languages.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
   @JsonProperty("names")
   @NotNull
   public List<@Valid LocationAreaName> getNames() {
@@ -108,15 +116,16 @@ public class LocationAreaDetail   {
   }
 
   /**
+   * A list of Pokémon that can be encountered in this area along with version specific details about the encounter.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of Pokémon that can be encountered in this area along with version specific details about the encounter.")
   @JsonProperty("pokemon_encounters")
   @NotNull
-  public List<@Valid LocationAreaDetailPokemonEncountersInner> getPokemonEncounters() {
+  public List<@Valid LocationAreaPokemonEncounter> getPokemonEncounters() {
     return pokemonEncounters;
   }
-  public void setPokemonEncounters(List<@Valid LocationAreaDetailPokemonEncountersInner> pokemonEncounters) {
+  public void setPokemonEncounters(List<@Valid LocationAreaPokemonEncounter> pokemonEncounters) {
     this.pokemonEncounters = pokemonEncounters;
   }
 

@@ -10,7 +10,6 @@ namespace models {
 
 GrowthRateDescription::GrowthRateDescription()
 : description("")
-, language(LanguageSummary())
 {
 }
 // =========================================

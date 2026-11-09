@@ -60,6 +60,7 @@ class PaginatedTypeSummaryList(Model):
     def count(self) -> int:
         """Gets the count of this PaginatedTypeSummaryList.
 
+        The total number of resources available from this API.  # noqa: E501
 
         :return: The count of this PaginatedTypeSummaryList.
         :rtype: int
@@ -70,10 +71,13 @@ class PaginatedTypeSummaryList(Model):
     def count(self, count: int):
         """Sets the count of this PaginatedTypeSummaryList.
 
+        The total number of resources available from this API.  # noqa: E501
 
         :param count: The count of this PaginatedTypeSummaryList.
         :type count: int
         """
+        if count is None:
+            raise ValueError("Invalid value for `count`, must not be `None`")  # noqa: E501
 
         self._count = count
 
@@ -81,6 +85,7 @@ class PaginatedTypeSummaryList(Model):
     def next(self) -> str:
         """Gets the next of this PaginatedTypeSummaryList.
 
+        The URL for the next page in the list, or null if there is no next page.  # noqa: E501
 
         :return: The next of this PaginatedTypeSummaryList.
         :rtype: str
@@ -91,6 +96,7 @@ class PaginatedTypeSummaryList(Model):
     def next(self, next: str):
         """Sets the next of this PaginatedTypeSummaryList.
 
+        The URL for the next page in the list, or null if there is no next page.  # noqa: E501
 
         :param next: The next of this PaginatedTypeSummaryList.
         :type next: str
@@ -102,6 +108,7 @@ class PaginatedTypeSummaryList(Model):
     def previous(self) -> str:
         """Gets the previous of this PaginatedTypeSummaryList.
 
+        The URL for the previous page in the list, or null if there is no previous page.  # noqa: E501
 
         :return: The previous of this PaginatedTypeSummaryList.
         :rtype: str
@@ -112,6 +119,7 @@ class PaginatedTypeSummaryList(Model):
     def previous(self, previous: str):
         """Sets the previous of this PaginatedTypeSummaryList.
 
+        The URL for the previous page in the list, or null if there is no previous page.  # noqa: E501
 
         :param previous: The previous of this PaginatedTypeSummaryList.
         :type previous: str
@@ -123,6 +131,7 @@ class PaginatedTypeSummaryList(Model):
     def results(self) -> List[TypeSummary]:
         """Gets the results of this PaginatedTypeSummaryList.
 
+        A list of API resources on this page.  # noqa: E501
 
         :return: The results of this PaginatedTypeSummaryList.
         :rtype: List[TypeSummary]
@@ -133,9 +142,12 @@ class PaginatedTypeSummaryList(Model):
     def results(self, results: List[TypeSummary]):
         """Sets the results of this PaginatedTypeSummaryList.
 
+        A list of API resources on this page.  # noqa: E501
 
         :param results: The results of this PaginatedTypeSummaryList.
         :type results: List[TypeSummary]
         """
+        if results is None:
+            raise ValueError("Invalid value for `results`, must not be `None`")  # noqa: E501
 
         self._results = results

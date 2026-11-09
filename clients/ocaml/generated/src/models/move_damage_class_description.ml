@@ -15,13 +15,15 @@
                 
                 
                 ; [@key "description"]
-                                              language: Language_summary.t
+                    (** The localized description for an API resource in a specific language. *)
+                                      language: Language_summary.t
                   
                   
                 
                 
                 ; [@key "language"]
-                        } [@@deriving yojson { strict = false }, show, eq ];;
+                    (** The language this name is in. *)
+                } [@@deriving yojson { strict = false }, show, eq ];;
         
         let create (language : Language_summary.t) : t = {
             description = None;

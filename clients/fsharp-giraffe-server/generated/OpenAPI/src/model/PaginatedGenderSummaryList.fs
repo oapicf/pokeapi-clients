@@ -3,6 +3,7 @@ namespace OpenAPI.Model
 open System
 open System.Collections.Generic
 open OpenAPI.Model.GenderSummary
+open OpenAPI.Model.string option
 
 module PaginatedGenderSummaryList =
 
@@ -11,8 +12,8 @@ module PaginatedGenderSummaryList =
 
   type PaginatedGenderSummaryList = {
     Count : int;
-    Next : string;
-    Previous : string;
+    Next : string option;
+    Previous : string option;
     Results : GenderSummary[];
   }
   //#endregion

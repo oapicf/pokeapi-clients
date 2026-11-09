@@ -9,18 +9,27 @@ import Foundation
 
 public struct AbilityDetail: Sendable, Codable, Hashable {
 
-    public static let nameRule = StringRule(minLength: nil, maxLength: 100, pattern: nil)
+    public static let nameRule = StringRule(minLength: nil, maxLength: 200, pattern: nil)
+    /** The identifier for this resource. */
     public var id: Int
+    /** The name for this resource. */
     public var name: String
+    /** Whether or not this ability originated in the main series of the video games. */
     public var isMainSeries: Bool?
+    /** The generation this ability originated in. */
     public var generation: GenerationSummary
+    /** The name of this resource listed in different languages. */
     public var names: [AbilityName]
+    /** The effect of this ability listed in different languages. */
     public var effectEntries: [AbilityEffectText]
+    /** The list of previous effects this ability has had across version groups. */
     public var effectChanges: [AbilityChange]
+    /** The flavor text of this ability listed in different languages. */
     public var flavorTextEntries: [AbilityFlavorText]
-    public var pokemon: [AbilityDetailPokemonInner]
+    /** A list of Pokémon that could potentially have this ability. */
+    public var pokemon: [AbilityPokemonDetail]
 
-    public init(id: Int, name: String, isMainSeries: Bool? = nil, generation: GenerationSummary, names: [AbilityName], effectEntries: [AbilityEffectText], effectChanges: [AbilityChange], flavorTextEntries: [AbilityFlavorText], pokemon: [AbilityDetailPokemonInner]) {
+    public init(id: Int, name: String, isMainSeries: Bool? = nil, generation: GenerationSummary, names: [AbilityName], effectEntries: [AbilityEffectText], effectChanges: [AbilityChange], flavorTextEntries: [AbilityFlavorText], pokemon: [AbilityPokemonDetail]) {
         self.id = id
         self.name = name
         self.isMainSeries = isMainSeries

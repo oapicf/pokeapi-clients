@@ -6,8 +6,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.vertxweb.server.model.EggGroupDetailPokemonSpeciesInner;
 import org.openapitools.vertxweb.server.model.EggGroupName;
+import org.openapitools.vertxweb.server.model.PokemonSpeciesSummary;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class EggGroupDetail   {
@@ -15,13 +15,13 @@ public class EggGroupDetail   {
   private Integer id;
   private String name;
   private List<EggGroupName> names = new ArrayList<>();
-  private List<EggGroupDetailPokemonSpeciesInner> pokemonSpecies = new ArrayList<>();
+  private List<PokemonSpeciesSummary> pokemonSpecies = new ArrayList<>();
 
   public EggGroupDetail () {
 
   }
 
-  public EggGroupDetail (Integer id, String name, List<EggGroupName> names, List<EggGroupDetailPokemonSpeciesInner> pokemonSpecies) {
+  public EggGroupDetail (Integer id, String name, List<EggGroupName> names, List<PokemonSpeciesSummary> pokemonSpecies) {
     this.id = id;
     this.name = name;
     this.names = names;
@@ -57,10 +57,10 @@ public class EggGroupDetail   {
 
     
   @JsonProperty("pokemon_species")
-  public List<EggGroupDetailPokemonSpeciesInner> getPokemonSpecies() {
+  public List<PokemonSpeciesSummary> getPokemonSpecies() {
     return pokemonSpecies;
   }
-  public void setPokemonSpecies(List<EggGroupDetailPokemonSpeciesInner> pokemonSpecies) {
+  public void setPokemonSpecies(List<PokemonSpeciesSummary> pokemonSpecies) {
     this.pokemonSpecies = pokemonSpecies;
   }
 

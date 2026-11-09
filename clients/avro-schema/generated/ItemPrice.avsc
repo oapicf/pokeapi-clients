@@ -1,0 +1,31 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "ItemPrice",
+  "fields": [
+    {
+      "name": "purchase_price",
+      "type": ["null", "int"],
+      "doc": "The purchase price in this currency and version group, or null if unavailable.",
+      "default": null
+    },
+    {
+      "name": "sell_price",
+      "type": ["null", "int"],
+      "doc": "The sell price in this currency and version group, or null if unavailable.",
+      "default": null
+    },
+    {
+      "name": "currency",
+      "type": "model.CurrencySummary",
+      "doc": "The currency used for this price."
+    },
+    {
+      "name": "version_group",
+      "type": "model.VersionGroupSummary",
+      "doc": "The version group to which this price applies."
+    }
+  ]
+
+}

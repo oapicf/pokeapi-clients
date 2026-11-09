@@ -50,46 +50,46 @@ public:
 	 */
 	void fromJson(char* jsonStr);
 
-	/*! \brief Get 
+	/*! \brief Get The identifier for this resource.
 	 */
 	int getId();
 
-	/*! \brief Set 
+	/*! \brief Set The identifier for this resource.
 	 */
 	void setId(int  id);
-	/*! \brief Get 
+	/*! \brief Get The name for this resource.
 	 */
 	std::string getName();
 
-	/*! \brief Set 
+	/*! \brief Set The name for this resource.
 	 */
 	void setName(std::string  name);
-	/*! \brief Get 
+	/*! \brief Get The region this location can be found in.
 	 */
 	RegionSummary getRegion();
 
-	/*! \brief Set 
+	/*! \brief Set The region this location can be found in.
 	 */
 	void setRegion(RegionSummary  region);
-	/*! \brief Get 
+	/*! \brief Get The name of this resource listed in different languages.
 	 */
 	std::list<LocationName> getNames();
 
-	/*! \brief Set 
+	/*! \brief Set The name of this resource listed in different languages.
 	 */
 	void setNames(std::list <LocationName> names);
-	/*! \brief Get 
+	/*! \brief Get A list of game indices relevent to this location by generation.
 	 */
 	std::list<LocationGameIndex> getGameIndices();
 
-	/*! \brief Set 
+	/*! \brief Set A list of game indices relevent to this location by generation.
 	 */
 	void setGameIndices(std::list <LocationGameIndex> game_indices);
-	/*! \brief Get 
+	/*! \brief Get Areas that can be found within this location.
 	 */
 	std::list<LocationAreaSummary> getAreas();
 
-	/*! \brief Set 
+	/*! \brief Set Areas that can be found within this location.
 	 */
 	void setAreas(std::list <LocationAreaSummary> areas);
 

@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.model.PokeathlonStatDetailAffectingNatures;
+import org.openapitools.model.PokeathlonStatAffectingNatures;
 import org.openapitools.model.PokeathlonStatName;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
@@ -23,14 +23,14 @@ import jakarta.annotation.Generated;
  * PokeathlonStatDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-10-25T05:48:25.711080506Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-11-09T13:49:41.168612095Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PokeathlonStatDetail {
 
   private Integer id;
 
   private String name;
 
-  private PokeathlonStatDetailAffectingNatures affectingNatures;
+  private PokeathlonStatAffectingNatures affectingNatures;
 
   private List<@Valid PokeathlonStatName> names = new ArrayList<>();
 
@@ -41,7 +41,7 @@ public class PokeathlonStatDetail {
   /**
    * Constructor with only required parameters
    */
-  public PokeathlonStatDetail(Integer id, String name, PokeathlonStatDetailAffectingNatures affectingNatures, List<@Valid PokeathlonStatName> names) {
+  public PokeathlonStatDetail(Integer id, String name, PokeathlonStatAffectingNatures affectingNatures, List<@Valid PokeathlonStatName> names) {
     this.id = id;
     this.name = name;
     this.affectingNatures = affectingNatures;
@@ -54,11 +54,11 @@ public class PokeathlonStatDetail {
   }
 
   /**
-   * Get id
+   * The identifier for this resource.
    * @return id
    */
   
-  @Schema(name = "id", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "id", accessMode = Schema.AccessMode.READ_ONLY, description = "The identifier for this resource.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("id")
   public Integer getId() {
     return id;
@@ -74,11 +74,11 @@ public class PokeathlonStatDetail {
   }
 
   /**
-   * Get name
+   * The name for this resource.
    * @return name
    */
-  @NotNull @Size(max = 100) 
-  @Schema(name = "name", requiredMode = Schema.RequiredMode.REQUIRED)
+  @NotNull @Size(max = 200) 
+  @Schema(name = "name", description = "The name for this resource.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("name")
   public String getName() {
     return name;
@@ -88,23 +88,23 @@ public class PokeathlonStatDetail {
     this.name = name;
   }
 
-  public PokeathlonStatDetail affectingNatures(PokeathlonStatDetailAffectingNatures affectingNatures) {
+  public PokeathlonStatDetail affectingNatures(PokeathlonStatAffectingNatures affectingNatures) {
     this.affectingNatures = affectingNatures;
     return this;
   }
 
   /**
-   * Get affectingNatures
+   * A detail of natures which affect this Pokéathlon stat positively or negatively.
    * @return affectingNatures
    */
-  @NotNull @Valid 
-  @Schema(name = "affecting_natures", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "affecting_natures", accessMode = Schema.AccessMode.READ_ONLY, description = "A detail of natures which affect this Pokéathlon stat positively or negatively.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("affecting_natures")
-  public PokeathlonStatDetailAffectingNatures getAffectingNatures() {
+  public PokeathlonStatAffectingNatures getAffectingNatures() {
     return affectingNatures;
   }
 
-  public void setAffectingNatures(PokeathlonStatDetailAffectingNatures affectingNatures) {
+  public void setAffectingNatures(PokeathlonStatAffectingNatures affectingNatures) {
     this.affectingNatures = affectingNatures;
   }
 
@@ -122,11 +122,11 @@ public class PokeathlonStatDetail {
   }
 
   /**
-   * Get names
+   * The name of this resource listed in different languages.
    * @return names
    */
   
-  @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, description = "The name of this resource listed in different languages.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("names")
   public List<@Valid PokeathlonStatName> getNames() {
     return names;

@@ -10,7 +10,7 @@ import org.openapitools.model.LanguageSummary;
 /**
  * VersionName
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-10-25T05:48:05.787850114Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-11-09T13:49:25.341948748Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class VersionName   {
   @JsonProperty("name")
   private String name;
@@ -24,10 +24,10 @@ public class VersionName   {
   }
 
    /**
-   * Get name
+   * The localized name for an API resource in a specific language.
    * @return name
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The localized name for an API resource in a specific language.")
   public String getName() {
     return name;
   }
@@ -42,10 +42,10 @@ public class VersionName   {
   }
 
    /**
-   * Get language
+   * The language this name is in.
    * @return language
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The language this name is in.")
   public LanguageSummary getLanguage() {
     return language;
   }

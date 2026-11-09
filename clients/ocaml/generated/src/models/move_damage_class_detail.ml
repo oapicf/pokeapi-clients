@@ -15,25 +15,30 @@
                 
                 
                 ; [@key "id"]
-                                              name: string
+                    (** The identifier for this resource. *)
+                                      name: string
                   
                   
                 
                 
                 ; [@key "name"]
-                                              descriptions: Move_damage_class_description.t list
+                    (** The name for this resource. *)
+                                      descriptions: Move_damage_class_description.t list
                 
                 
                 ; [@key "descriptions"]
-                                              moves: Move_summary.t list
+                    (** The description of this resource listed in different languages. *)
+                                      moves: Move_summary.t list
                 
                 
                 ; [@key "moves"]
-                                              names: Move_damage_class_name.t list
+                    (** A list of moves that fall into this damage class. *)
+                                      names: Move_damage_class_name.t list
                 
                 
                 ; [@key "names"]
-                        } [@@deriving yojson { strict = false }, show, eq ];;
+                    (** The name of this resource listed in different languages. *)
+                } [@@deriving yojson { strict = false }, show, eq ];;
         
         let create (id : int32) (name : string) (descriptions : Move_damage_class_description.t list) (moves : Move_summary.t list) (names : Move_damage_class_name.t list) : t = {
             id = id;

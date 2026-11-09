@@ -4,6 +4,8 @@ All URIs are relative to *https://pokeapi.co*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
+| [**currencyList**](ItemsApi.md#currencyList) | **GET** /api/v2/currency/ | List currencies |
+| [**currencyRetrieve**](ItemsApi.md#currencyRetrieve) | **GET** /api/v2/currency/{id}/ | Get currency |
 | [**itemAttributeList**](ItemsApi.md#itemAttributeList) | **GET** /api/v2/item-attribute/ | List item attributes |
 | [**itemAttributeRetrieve**](ItemsApi.md#itemAttributeRetrieve) | **GET** /api/v2/item-attribute/{id}/ | Get item attribute |
 | [**itemCategoryList**](ItemsApi.md#itemCategoryList) | **GET** /api/v2/item-category/ | List item categories |
@@ -44,6 +46,58 @@ Note that the class needs to be annotated with one of Micronaut's [scope annotat
 
 More information can be found inside [Inversion of Control guide section](https://docs.micronaut.io/latest/guide/#ioc).
 
+<a id="currencyList"></a>
+# **currencyList**
+```java
+Mono<PaginatedCurrencySummaryList> ItemsApi.currencyList(limitoffsetq)
+```
+
+List currencies
+
+Currencies used to buy items.
+
+### Parameters
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **limit** | `Integer`| Number of results to return per page. | [optional parameter] |
+| **offset** | `Integer`| The initial index from which to return the results. | [optional parameter] |
+| **q** | `String`| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional parameter] |
+
+
+### Return type
+[**PaginatedCurrencySummaryList**](PaginatedCurrencySummaryList.md)
+
+
+
+### HTTP request headers
+ - **Content-Type**: Not defined
+ - **Accept**: `application/json`
+
+<a id="currencyRetrieve"></a>
+# **currencyRetrieve**
+```java
+Mono<CurrencyDetail> ItemsApi.currencyRetrieve(id)
+```
+
+Get currency
+
+Currencies used to buy items.
+
+### Parameters
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `String`| This parameter can be a string or an integer. | |
+
+
+### Return type
+[**CurrencyDetail**](CurrencyDetail.md)
+
+
+
+### HTTP request headers
+ - **Content-Type**: Not defined
+ - **Accept**: `application/json`
+
 <a id="itemAttributeList"></a>
 # **itemAttributeList**
 ```java
@@ -65,9 +119,7 @@ Item attributes define particular aspects of items, e.g.\&quot;usable in battle\
 ### Return type
 [**PaginatedItemAttributeSummaryList**](PaginatedItemAttributeSummaryList.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -92,9 +144,7 @@ Item attributes define particular aspects of items, e.g.\&quot;usable in battle\
 ### Return type
 [**ItemAttributeDetail**](ItemAttributeDetail.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -121,9 +171,7 @@ Item categories determine where items will be placed in the players bag.
 ### Return type
 [**PaginatedItemCategorySummaryList**](PaginatedItemCategorySummaryList.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -148,9 +196,7 @@ Item categories determine where items will be placed in the players bag.
 ### Return type
 [**ItemCategoryDetail**](ItemCategoryDetail.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -177,9 +223,7 @@ The various effects of the move\&quot;Fling\&quot; when used with different item
 ### Return type
 [**PaginatedItemFlingEffectSummaryList**](PaginatedItemFlingEffectSummaryList.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -204,9 +248,7 @@ The various effects of the move\&quot;Fling\&quot; when used with different item
 ### Return type
 [**ItemFlingEffectDetail**](ItemFlingEffectDetail.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -233,9 +275,7 @@ An item is an object in the games which the player can pick up, keep in their ba
 ### Return type
 [**PaginatedItemSummaryList**](PaginatedItemSummaryList.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -262,9 +302,7 @@ Pockets within the players bag used for storing items by category.
 ### Return type
 [**PaginatedItemPocketSummaryList**](PaginatedItemPocketSummaryList.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -289,9 +327,7 @@ Pockets within the players bag used for storing items by category.
 ### Return type
 [**ItemPocketDetail**](ItemPocketDetail.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -316,9 +352,7 @@ An item is an object in the games which the player can pick up, keep in their ba
 ### Return type
 [**ItemDetail**](ItemDetail.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined

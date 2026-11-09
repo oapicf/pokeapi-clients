@@ -31,12 +31,6 @@ open class EncountersAPI {
     /// List encounter conditions
     /// - GET /api/v2/encounter-condition/
     /// - Conditions which affect what pokemon might appear in the wild, e.g., day or night.
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter limit: (query) Number of results to return per page. (optional)
     /// - parameter offset: (query) The initial index from which to return the results. (optional)
     /// - parameter q: (query) &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
@@ -75,12 +69,6 @@ open class EncountersAPI {
     /// Get encounter condition
     /// - GET /api/v2/encounter-condition/{id}/
     /// - Conditions which affect what pokemon might appear in the wild, e.g., day or night.
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter id: (path) This parameter can be a string or an integer. 
     /// - returns: AnyPublisher<EncounterConditionDetail, Error> 
     open func encounterConditionRetrieve(id: String) -> AnyPublisher<EncounterConditionDetail, Error> {
@@ -113,12 +101,6 @@ open class EncountersAPI {
     /// List encounter condition values
     /// - GET /api/v2/encounter-condition-value/
     /// - Encounter condition values are the various states that an encounter condition can have, i.e., time of day can be either day or night.
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter limit: (query) Number of results to return per page. (optional)
     /// - parameter offset: (query) The initial index from which to return the results. (optional)
     /// - parameter q: (query) &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
@@ -157,12 +139,6 @@ open class EncountersAPI {
     /// Get encounter condition value
     /// - GET /api/v2/encounter-condition-value/{id}/
     /// - Encounter condition values are the various states that an encounter condition can have, i.e., time of day can be either day or night.
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter id: (path) This parameter can be a string or an integer. 
     /// - returns: AnyPublisher<EncounterConditionValueDetail, Error> 
     open func encounterConditionValueRetrieve(id: String) -> AnyPublisher<EncounterConditionValueDetail, Error> {
@@ -195,12 +171,6 @@ open class EncountersAPI {
     /// List encounter methods
     /// - GET /api/v2/encounter-method/
     /// - Methods by which the player might can encounter Pokémon in the wild, e.g., walking in tall grass. Check out Bulbapedia for greater detail.
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter limit: (query) Number of results to return per page. (optional)
     /// - parameter offset: (query) The initial index from which to return the results. (optional)
     /// - parameter q: (query) &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
@@ -239,12 +209,6 @@ open class EncountersAPI {
     /// Get encounter method
     /// - GET /api/v2/encounter-method/{id}/
     /// - Methods by which the player might can encounter Pokémon in the wild, e.g., walking in tall grass. Check out Bulbapedia for greater detail.
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter id: (path) This parameter can be a string or an integer. 
     /// - returns: AnyPublisher<EncounterMethodDetail, Error> 
     open func encounterMethodRetrieve(id: String) -> AnyPublisher<EncounterMethodDetail, Error> {

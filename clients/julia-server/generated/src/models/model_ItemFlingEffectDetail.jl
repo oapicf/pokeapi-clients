@@ -11,10 +11,10 @@
         items=nothing,
     )
 
-    - id::Int64
-    - name::String
-    - effect_entries::Vector{ItemFlingEffectEffectText}
-    - items::Vector{ItemSummary}
+    - id::Int64 : The identifier for this resource.
+    - name::String : The name for this resource.
+    - effect_entries::Vector{ItemFlingEffectEffectText} : The result of this fling effect listed in different languages.
+    - items::Vector{ItemSummary} : A list of items that have this fling effect.
 """
 Base.@kwdef mutable struct ItemFlingEffectDetail <: OpenAPI.APIModel
     id::Union{Nothing, Int64} = nothing
@@ -51,7 +51,7 @@ function OpenAPI.validate_property(::Type{ ItemFlingEffectDetail }, name::Symbol
 
 
     if name === Symbol("name")
-        OpenAPI.validate_param(name, "ItemFlingEffectDetail", :maxLength, val, 100)
+        OpenAPI.validate_param(name, "ItemFlingEffectDetail", :maxLength, val, 200)
     end
 
 

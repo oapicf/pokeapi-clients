@@ -3,8 +3,8 @@ namespace OpenAPI.Model
 open System
 open System.Collections.Generic
 open Newtonsoft.Json
-open OpenAPI.Model.AbilityDetailPokemonInnerPokemon
 open OpenAPI.Model.MoveMetaCategoryDescription
+open OpenAPI.Model.MoveSummary
 
 module MoveMetaCategoryDetail =
 
@@ -19,7 +19,7 @@ module MoveMetaCategoryDetail =
     [<JsonProperty(PropertyName = "descriptions")>]
     Descriptions : MoveMetaCategoryDescription[];
     [<JsonProperty(PropertyName = "moves")>]
-    Moves : AbilityDetailPokemonInnerPokemon[];
+    Moves : MoveSummary[];
   }
 
   //#endregion

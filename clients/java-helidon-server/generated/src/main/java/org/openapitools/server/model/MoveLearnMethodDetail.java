@@ -3,9 +3,9 @@ package org.openapitools.server.model;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.server.model.AbilityDetailPokemonInnerPokemon;
 import org.openapitools.server.model.MoveLearnMethodDescription;
 import org.openapitools.server.model.MoveLearnMethodName;
+import org.openapitools.server.model.VersionGroupSummary;
 import jakarta.validation.constraints.*;
 import jakarta.validation.Valid;
 
@@ -17,7 +17,7 @@ public class MoveLearnMethodDetail   {
     private String name;
     private List<@Valid MoveLearnMethodName> names = new ArrayList<>();
     private List<@Valid MoveLearnMethodDescription> descriptions = new ArrayList<>();
-    private List<@Valid AbilityDetailPokemonInnerPokemon> versionGroups = new ArrayList<>();
+    private List<@Valid VersionGroupSummary> versionGroups = new ArrayList<>();
 
     /**
      * Default constructor.
@@ -29,18 +29,18 @@ public class MoveLearnMethodDetail   {
     /**
      * Create MoveLearnMethodDetail.
      *
-     * @param id id
-     * @param name name
-     * @param names names
-     * @param descriptions descriptions
-     * @param versionGroups versionGroups
+     * @param id The identifier for this resource.
+     * @param name The name for this resource.
+     * @param names The name of this resource listed in different languages.
+     * @param descriptions The description of this resource listed in different languages.
+     * @param versionGroups A list of version groups where moves can be learned through this method.
      */
     public MoveLearnMethodDetail(
         Integer id, 
         String name, 
         List<@Valid MoveLearnMethodName> names, 
         List<@Valid MoveLearnMethodDescription> descriptions, 
-        List<@Valid AbilityDetailPokemonInnerPokemon> versionGroups
+        List<@Valid VersionGroupSummary> versionGroups
     ) {
         this.id = id;
         this.name = name;
@@ -52,7 +52,7 @@ public class MoveLearnMethodDetail   {
 
 
     /**
-     * Get id
+     * The identifier for this resource.
      * @return id
      */
     public Integer getId() {
@@ -64,7 +64,7 @@ public class MoveLearnMethodDetail   {
     }
 
     /**
-     * Get name
+     * The name for this resource.
      * @return name
      */
     public String getName() {
@@ -76,7 +76,7 @@ public class MoveLearnMethodDetail   {
     }
 
     /**
-     * Get names
+     * The name of this resource listed in different languages.
      * @return names
      */
     public List<@Valid MoveLearnMethodName> getNames() {
@@ -88,7 +88,7 @@ public class MoveLearnMethodDetail   {
     }
 
     /**
-     * Get descriptions
+     * The description of this resource listed in different languages.
      * @return descriptions
      */
     public List<@Valid MoveLearnMethodDescription> getDescriptions() {
@@ -100,14 +100,14 @@ public class MoveLearnMethodDetail   {
     }
 
     /**
-     * Get versionGroups
+     * A list of version groups where moves can be learned through this method.
      * @return versionGroups
      */
-    public List<@Valid AbilityDetailPokemonInnerPokemon> getVersionGroups() {
+    public List<@Valid VersionGroupSummary> getVersionGroups() {
         return versionGroups;
     }
 
-    public void setVersionGroups(List<@Valid AbilityDetailPokemonInnerPokemon> versionGroups) {
+    public void setVersionGroups(List<@Valid VersionGroupSummary> versionGroups) {
         this.versionGroups = versionGroups;
     }
 

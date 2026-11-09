@@ -12,7 +12,7 @@ PalParkAreaDetail::PalParkAreaDetail()
 : id(0)
 , name("")
 , names(std::vector<PalParkAreaName>())
-, pokemonEncounters(std::vector<PalParkAreaDetail_pokemon_encounters_inner>())
+, pokemonEncounters(std::vector<PalParkEncounter>())
 {
 }
 // =========================================
@@ -33,7 +33,7 @@ std::vector<PalParkAreaName> PalParkAreaDetail::getNames() const
 {
     return names;
 }
-std::vector<PalParkAreaDetail_pokemon_encounters_inner> PalParkAreaDetail::getPokemonEncounters() const
+std::vector<PalParkEncounter> PalParkAreaDetail::getPokemonEncounters() const
 {
     return pokemonEncounters;
 }
@@ -53,7 +53,7 @@ void PalParkAreaDetail::setNames(const std::vector<PalParkAreaName>& namesObj)
 {
     names = namesObj;
 }
-void PalParkAreaDetail::setPokemonEncounters(const std::vector<PalParkAreaDetail_pokemon_encounters_inner>& pokemonEncountersObj)
+void PalParkAreaDetail::setPokemonEncounters(const std::vector<PalParkEncounter>& pokemonEncountersObj)
 {
     pokemonEncounters = pokemonEncountersObj;
 }

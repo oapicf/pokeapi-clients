@@ -6,7 +6,7 @@ module OpenapiClient
     # whose certificate is issued by a private CA. Such a server is otherwise unreachable — the
     # default trust store holds public authorities only — and no middleware can make up for it:
     # TLS is settled when the connection is built, before any middleware runs.
-    attr_accessor :base_url, :timeout, :logger, :debugging, :query_array_encoding, :ssl, :username, :password, :api_key
+    attr_accessor :base_url, :timeout, :logger, :debugging, :query_array_encoding, :ssl
 
     def initialize(base_url: nil, **options)
       @base_url = base_url || 'https://pokeapi.co'
@@ -49,12 +49,6 @@ module OpenapiClient
     # per-request auth interface (Connection#call); a given generated client may exercise
     # only some of them (e.g. no query-based key, or no auth method at all).
     def apply_auth(headers, query, auth_names)
-      if username && auth_names.include?('basicAuth')
-        headers['Authorization'] = Faraday::Utils.basic_header_from(username, password)
-      end
-      if api_key && auth_names.include?('cookieAuth')
-        headers['Cookie'] = [headers['Cookie'], "sessionid=#{api_key}"].compact.join('; ')
-      end
       nil
     end
     # rubocop:enable Lint/UnusedMethodArgument

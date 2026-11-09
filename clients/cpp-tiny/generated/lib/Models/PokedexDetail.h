@@ -12,11 +12,11 @@
 #include <string>
 #include "bourne/json.hpp"
 #include "Helpers.h"
-#include "AbilityDetail_pokemon_inner_pokemon.h"
 #include "PokedexDescription.h"
-#include "PokedexDetail_pokemon_entries_inner.h"
 #include "PokedexName.h"
+#include "PokemonDexNumber.h"
 #include "RegionSummary.h"
+#include "VersionGroupSummary.h"
 #include <list>
 
 namespace Tiny {
@@ -51,62 +51,62 @@ public:
 	 */
     void fromJson(std::string jsonObj);
 
-	/*! \brief Get 
+	/*! \brief Get The identifier for this resource.
 	 */
 	int getId();
 
-	/*! \brief Set 
+	/*! \brief Set The identifier for this resource.
 	 */
 	void setId(int id);
-	/*! \brief Get 
+	/*! \brief Get The name for this resource.
 	 */
 	std::string getName();
 
-	/*! \brief Set 
+	/*! \brief Set The name for this resource.
 	 */
 	void setName(std::string name);
-	/*! \brief Get 
+	/*! \brief Get Whether or not this Pokédex originated in the main series of the video games.
 	 */
 	bool isIsMainSeries();
 
-	/*! \brief Set 
+	/*! \brief Set Whether or not this Pokédex originated in the main series of the video games.
 	 */
 	void setIsMainSeries(bool is_main_series);
-	/*! \brief Get 
+	/*! \brief Get The description of this resource listed in different languages.
 	 */
 	std::list<PokedexDescription> getDescriptions();
 
-	/*! \brief Set 
+	/*! \brief Set The description of this resource listed in different languages.
 	 */
 	void setDescriptions(std::list<PokedexDescription> descriptions);
-	/*! \brief Get 
+	/*! \brief Get The name of this resource listed in different languages.
 	 */
 	std::list<PokedexName> getNames();
 
-	/*! \brief Set 
+	/*! \brief Set The name of this resource listed in different languages.
 	 */
 	void setNames(std::list<PokedexName> names);
-	/*! \brief Get 
+	/*! \brief Get A list of Pokémon catalogued in this Pokédex and their indexes.
 	 */
-	std::list<PokedexDetail_pokemon_entries_inner> getPokemonEntries();
+	std::list<PokemonDexNumber> getPokemonEntries();
 
-	/*! \brief Set 
+	/*! \brief Set A list of Pokémon catalogued in this Pokédex and their indexes.
 	 */
-	void setPokemonEntries(std::list<PokedexDetail_pokemon_entries_inner> pokemon_entries);
-	/*! \brief Get 
+	void setPokemonEntries(std::list<PokemonDexNumber> pokemon_entries);
+	/*! \brief Get The region this Pokédex catalogues Pokémon for.
 	 */
 	RegionSummary getRegion();
 
-	/*! \brief Set 
+	/*! \brief Set The region this Pokédex catalogues Pokémon for.
 	 */
 	void setRegion(RegionSummary region);
-	/*! \brief Get 
+	/*! \brief Get A list of version groups this Pokédex is relevant to.
 	 */
-	std::list<AbilityDetail_pokemon_inner_pokemon> getVersionGroups();
+	std::list<VersionGroupSummary> getVersionGroups();
 
-	/*! \brief Set 
+	/*! \brief Set A list of version groups this Pokédex is relevant to.
 	 */
-	void setVersionGroups(std::list<AbilityDetail_pokemon_inner_pokemon> version_groups);
+	void setVersionGroups(std::list<VersionGroupSummary> version_groups);
 
 
     private:
@@ -115,9 +115,9 @@ public:
     bool is_main_series{};
     std::list<PokedexDescription> descriptions;
     std::list<PokedexName> names;
-    std::list<PokedexDetail_pokemon_entries_inner> pokemon_entries;
+    std::list<PokemonDexNumber> pokemon_entries;
     RegionSummary region;
-    std::list<AbilityDetail_pokemon_inner_pokemon> version_groups;
+    std::list<VersionGroupSummary> version_groups;
 };
 }
 

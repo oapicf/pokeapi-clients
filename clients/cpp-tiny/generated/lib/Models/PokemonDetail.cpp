@@ -13,19 +13,20 @@ PokemonDetail::PokemonDetail()
 	is_default = bool(false);
 	order = int(0);
 	weight = int(0);
-	abilities = std::list<PokemonDetail_abilities_inner>();
-	past_abilities = std::list<PokemonDetail_past_abilities_inner>();
+	abilities = std::list<PokemonAbility>();
+	past_abilities = std::list<PokemonPastAbility>();
 	forms = std::list<PokemonFormSummary>();
 	game_indices = std::list<PokemonGameIndex>();
-	held_items = PokemonDetail_held_items();
+	held_items = std::list<PokemonHeldItemSummary>();
 	location_area_encounters = std::string();
-	moves = std::list<PokemonDetail_moves_inner>();
-	species = PokemonSpeciesSummary();
-	sprites = PokemonDetail_sprites();
-	cries = PokemonDetail_cries();
+	moves = std::list<PokemonMove>();
+	species = null;
+	sprites = null;
+	cries = null;
 	stats = std::list<PokemonStat>();
-	types = std::list<PokemonDetail_types_inner>();
-	past_types = std::list<PokemonDetail_past_types_inner>();
+	past_stats = std::list<PokemonPastStat>();
+	types = std::list<PokemonType>();
+	past_types = std::list<PokemonPastType>();
 }
 
 PokemonDetail::PokemonDetail(std::string jsonString)
@@ -141,8 +142,8 @@ PokemonDetail::fromJson(std::string jsonObj)
         bourne::json value = object[abilitiesKey];
 
 
-        std::list<PokemonDetail_abilities_inner> abilities_list;
-        PokemonDetail_abilities_inner element;
+        std::list<PokemonAbility> abilities_list;
+        PokemonAbility element;
         for(auto& var : value.array_range())
         {
 
@@ -163,8 +164,8 @@ PokemonDetail::fromJson(std::string jsonObj)
         bourne::json value = object[past_abilitiesKey];
 
 
-        std::list<PokemonDetail_past_abilities_inner> past_abilities_list;
-        PokemonDetail_past_abilities_inner element;
+        std::list<PokemonPastAbility> past_abilities_list;
+        PokemonPastAbility element;
         for(auto& var : value.array_range())
         {
 
@@ -229,10 +230,18 @@ PokemonDetail::fromJson(std::string jsonObj)
         bourne::json value = object[held_itemsKey];
 
 
+        std::list<PokemonHeldItemSummary> held_items_list;
+        PokemonHeldItemSummary element;
+        for(auto& var : value.array_range())
+        {
 
 
-        PokemonDetail_held_items* obj = &held_items;
-		obj->fromJson(value.dump());
+            element.fromJson(var.dump());
+
+            held_items_list.push_back(element);
+        }
+        held_items = held_items_list;
+
 
     }
 
@@ -256,8 +265,8 @@ PokemonDetail::fromJson(std::string jsonObj)
         bourne::json value = object[movesKey];
 
 
-        std::list<PokemonDetail_moves_inner> moves_list;
-        PokemonDetail_moves_inner element;
+        std::list<PokemonMove> moves_list;
+        PokemonMove element;
         for(auto& var : value.array_range())
         {
 
@@ -294,7 +303,7 @@ PokemonDetail::fromJson(std::string jsonObj)
 
 
 
-        PokemonDetail_sprites* obj = &sprites;
+        PokemonSprites* obj = &sprites;
 		obj->fromJson(value.dump());
 
     }
@@ -308,7 +317,7 @@ PokemonDetail::fromJson(std::string jsonObj)
 
 
 
-        PokemonDetail_cries* obj = &cries;
+        PokemonCries* obj = &cries;
 		obj->fromJson(value.dump());
 
     }
@@ -335,6 +344,28 @@ PokemonDetail::fromJson(std::string jsonObj)
 
     }
 
+    const char *past_statsKey = "past_stats";
+
+    if(object.has_key(past_statsKey))
+    {
+        bourne::json value = object[past_statsKey];
+
+
+        std::list<PokemonPastStat> past_stats_list;
+        PokemonPastStat element;
+        for(auto& var : value.array_range())
+        {
+
+
+            element.fromJson(var.dump());
+
+            past_stats_list.push_back(element);
+        }
+        past_stats = past_stats_list;
+
+
+    }
+
     const char *typesKey = "types";
 
     if(object.has_key(typesKey))
@@ -342,8 +373,8 @@ PokemonDetail::fromJson(std::string jsonObj)
         bourne::json value = object[typesKey];
 
 
-        std::list<PokemonDetail_types_inner> types_list;
-        PokemonDetail_types_inner element;
+        std::list<PokemonType> types_list;
+        PokemonType element;
         for(auto& var : value.array_range())
         {
 
@@ -364,8 +395,8 @@ PokemonDetail::fromJson(std::string jsonObj)
         bourne::json value = object[past_typesKey];
 
 
-        std::list<PokemonDetail_past_types_inner> past_types_list;
-        PokemonDetail_past_types_inner element;
+        std::list<PokemonPastType> past_types_list;
+        PokemonPastType element;
         for(auto& var : value.array_range())
         {
 
@@ -439,12 +470,12 @@ PokemonDetail::toJson()
 
 
 
-    std::list<PokemonDetail_abilities_inner> abilities_list = getAbilities();
+    std::list<PokemonAbility> abilities_list = getAbilities();
     bourne::json abilities_arr = bourne::json::array();
 
     for(auto& var : abilities_list)
     {
-        PokemonDetail_abilities_inner obj = var;
+        PokemonAbility obj = var;
         abilities_arr.append(obj.toJson());
     }
     object["abilities"] = abilities_arr;
@@ -454,12 +485,12 @@ PokemonDetail::toJson()
 
 
 
-    std::list<PokemonDetail_past_abilities_inner> past_abilities_list = getPastAbilities();
+    std::list<PokemonPastAbility> past_abilities_list = getPastAbilities();
     bourne::json past_abilities_arr = bourne::json::array();
 
     for(auto& var : past_abilities_list)
     {
-        PokemonDetail_past_abilities_inner obj = var;
+        PokemonPastAbility obj = var;
         past_abilities_arr.append(obj.toJson());
     }
     object["past_abilities"] = past_abilities_arr;
@@ -499,9 +530,17 @@ PokemonDetail::toJson()
 
 
 
+    std::list<PokemonHeldItemSummary> held_items_list = getHeldItems();
+    bourne::json held_items_arr = bourne::json::array();
+
+    for(auto& var : held_items_list)
+    {
+        PokemonHeldItemSummary obj = var;
+        held_items_arr.append(obj.toJson());
+    }
+    object["held_items"] = held_items_arr;
 
 
-	object["held_items"] = getHeldItems().toJson();
 
 
 
@@ -513,12 +552,12 @@ PokemonDetail::toJson()
 
 
 
-    std::list<PokemonDetail_moves_inner> moves_list = getMoves();
+    std::list<PokemonMove> moves_list = getMoves();
     bourne::json moves_arr = bourne::json::array();
 
     for(auto& var : moves_list)
     {
-        PokemonDetail_moves_inner obj = var;
+        PokemonMove obj = var;
         moves_arr.append(obj.toJson());
     }
     object["moves"] = moves_arr;
@@ -564,12 +603,27 @@ PokemonDetail::toJson()
 
 
 
-    std::list<PokemonDetail_types_inner> types_list = getTypes();
+    std::list<PokemonPastStat> past_stats_list = getPastStats();
+    bourne::json past_stats_arr = bourne::json::array();
+
+    for(auto& var : past_stats_list)
+    {
+        PokemonPastStat obj = var;
+        past_stats_arr.append(obj.toJson());
+    }
+    object["past_stats"] = past_stats_arr;
+
+
+
+
+
+
+    std::list<PokemonType> types_list = getTypes();
     bourne::json types_arr = bourne::json::array();
 
     for(auto& var : types_list)
     {
-        PokemonDetail_types_inner obj = var;
+        PokemonType obj = var;
         types_arr.append(obj.toJson());
     }
     object["types"] = types_arr;
@@ -579,12 +633,12 @@ PokemonDetail::toJson()
 
 
 
-    std::list<PokemonDetail_past_types_inner> past_types_list = getPastTypes();
+    std::list<PokemonPastType> past_types_list = getPastTypes();
     bourne::json past_types_arr = bourne::json::array();
 
     for(auto& var : past_types_list)
     {
-        PokemonDetail_past_types_inner obj = var;
+        PokemonPastType obj = var;
         past_types_arr.append(obj.toJson());
     }
     object["past_types"] = past_types_arr;
@@ -680,26 +734,26 @@ PokemonDetail::setWeight(int weight)
 	this->weight = weight;
 }
 
-std::list<PokemonDetail_abilities_inner>
+std::list<PokemonAbility>
 PokemonDetail::getAbilities()
 {
 	return abilities;
 }
 
 void
-PokemonDetail::setAbilities(std::list<PokemonDetail_abilities_inner> abilities)
+PokemonDetail::setAbilities(std::list<PokemonAbility> abilities)
 {
 	this->abilities = abilities;
 }
 
-std::list<PokemonDetail_past_abilities_inner>
+std::list<PokemonPastAbility>
 PokemonDetail::getPastAbilities()
 {
 	return past_abilities;
 }
 
 void
-PokemonDetail::setPastAbilities(std::list<PokemonDetail_past_abilities_inner> past_abilities)
+PokemonDetail::setPastAbilities(std::list<PokemonPastAbility> past_abilities)
 {
 	this->past_abilities = past_abilities;
 }
@@ -728,14 +782,14 @@ PokemonDetail::setGameIndices(std::list<PokemonGameIndex> game_indices)
 	this->game_indices = game_indices;
 }
 
-PokemonDetail_held_items
+std::list<PokemonHeldItemSummary>
 PokemonDetail::getHeldItems()
 {
 	return held_items;
 }
 
 void
-PokemonDetail::setHeldItems(PokemonDetail_held_items held_items)
+PokemonDetail::setHeldItems(std::list<PokemonHeldItemSummary> held_items)
 {
 	this->held_items = held_items;
 }
@@ -752,14 +806,14 @@ PokemonDetail::setLocationAreaEncounters(std::string location_area_encounters)
 	this->location_area_encounters = location_area_encounters;
 }
 
-std::list<PokemonDetail_moves_inner>
+std::list<PokemonMove>
 PokemonDetail::getMoves()
 {
 	return moves;
 }
 
 void
-PokemonDetail::setMoves(std::list<PokemonDetail_moves_inner> moves)
+PokemonDetail::setMoves(std::list<PokemonMove> moves)
 {
 	this->moves = moves;
 }
@@ -776,26 +830,26 @@ PokemonDetail::setSpecies(PokemonSpeciesSummary species)
 	this->species = species;
 }
 
-PokemonDetail_sprites&lt;std::string, std::string&gt;
+PokemonSprites
 PokemonDetail::getSprites()
 {
 	return sprites;
 }
 
 void
-PokemonDetail::setSprites(PokemonDetail_sprites&lt;std::string, std::string&gt; sprites)
+PokemonDetail::setSprites(PokemonSprites sprites)
 {
 	this->sprites = sprites;
 }
 
-PokemonDetail_cries
+PokemonCries
 PokemonDetail::getCries()
 {
 	return cries;
 }
 
 void
-PokemonDetail::setCries(PokemonDetail_cries cries)
+PokemonDetail::setCries(PokemonCries cries)
 {
 	this->cries = cries;
 }
@@ -812,26 +866,38 @@ PokemonDetail::setStats(std::list<PokemonStat> stats)
 	this->stats = stats;
 }
 
-std::list<PokemonDetail_types_inner>
+std::list<PokemonPastStat>
+PokemonDetail::getPastStats()
+{
+	return past_stats;
+}
+
+void
+PokemonDetail::setPastStats(std::list<PokemonPastStat> past_stats)
+{
+	this->past_stats = past_stats;
+}
+
+std::list<PokemonType>
 PokemonDetail::getTypes()
 {
 	return types;
 }
 
 void
-PokemonDetail::setTypes(std::list<PokemonDetail_types_inner> types)
+PokemonDetail::setTypes(std::list<PokemonType> types)
 {
 	this->types = types;
 }
 
-std::list<PokemonDetail_past_types_inner>
+std::list<PokemonPastType>
 PokemonDetail::getPastTypes()
 {
 	return past_types;
 }
 
 void
-PokemonDetail::setPastTypes(std::list<PokemonDetail_past_types_inner> past_types)
+PokemonDetail::setPastTypes(std::list<PokemonPastType> past_types)
 {
 	this->past_types = past_types;
 }

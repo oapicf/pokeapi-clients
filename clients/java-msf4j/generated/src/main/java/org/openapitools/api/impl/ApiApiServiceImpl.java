@@ -10,12 +10,14 @@ import org.openapitools.model.BerryFlavorDetail;
 import org.openapitools.model.CharacteristicDetail;
 import org.openapitools.model.ContestEffectDetail;
 import org.openapitools.model.ContestTypeDetail;
+import org.openapitools.model.CurrencyDetail;
 import org.openapitools.model.EggGroupDetail;
 import org.openapitools.model.EncounterConditionDetail;
 import org.openapitools.model.EncounterConditionValueDetail;
 import org.openapitools.model.EncounterMethodDetail;
 import org.openapitools.model.EvolutionChainDetail;
 import org.openapitools.model.EvolutionTriggerDetail;
+import org.openapitools.model.EvolutionVariableDetail;
 import org.openapitools.model.GenderDetail;
 import org.openapitools.model.GenerationDetail;
 import org.openapitools.model.GrowthRateDetail;
@@ -43,12 +45,14 @@ import org.openapitools.model.PaginatedBerrySummaryList;
 import org.openapitools.model.PaginatedCharacteristicSummaryList;
 import org.openapitools.model.PaginatedContestEffectSummaryList;
 import org.openapitools.model.PaginatedContestTypeSummaryList;
+import org.openapitools.model.PaginatedCurrencySummaryList;
 import org.openapitools.model.PaginatedEggGroupSummaryList;
 import org.openapitools.model.PaginatedEncounterConditionSummaryList;
 import org.openapitools.model.PaginatedEncounterConditionValueSummaryList;
 import org.openapitools.model.PaginatedEncounterMethodSummaryList;
 import org.openapitools.model.PaginatedEvolutionChainSummaryList;
 import org.openapitools.model.PaginatedEvolutionTriggerSummaryList;
+import org.openapitools.model.PaginatedEvolutionVariableSummaryList;
 import org.openapitools.model.PaginatedGenderSummaryList;
 import org.openapitools.model.PaginatedGenerationSummaryList;
 import org.openapitools.model.PaginatedGrowthRateSummaryList;
@@ -85,6 +89,7 @@ import org.openapitools.model.PaginatedTypeSummaryList;
 import org.openapitools.model.PaginatedVersionGroupSummaryList;
 import org.openapitools.model.PaginatedVersionSummaryList;
 import org.openapitools.model.PalParkAreaDetail;
+import org.openapitools.model.PokeapiMetaResponse;
 import org.openapitools.model.PokeathlonStatDetail;
 import org.openapitools.model.PokedexDetail;
 import org.openapitools.model.PokemonColorDetail;
@@ -111,7 +116,7 @@ import org.wso2.msf4j.formparam.FileInfo;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-10-25T05:48:05.787850114Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-11-09T13:49:25.341948748Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class ApiApiServiceImpl extends ApiApiService {
     @Override
     public Response abilityList(Integer limit
@@ -172,7 +177,6 @@ public class ApiApiServiceImpl extends ApiApiService {
     @Override
     public Response characteristicList(Integer limit
 , Integer offset
-, String q
  ) throws NotFoundException {
         // do some magic!
         return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
@@ -186,7 +190,6 @@ public class ApiApiServiceImpl extends ApiApiService {
     @Override
     public Response contestEffectList(Integer limit
 , Integer offset
-, String q
  ) throws NotFoundException {
         // do some magic!
         return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
@@ -207,6 +210,20 @@ public class ApiApiServiceImpl extends ApiApiService {
     }
     @Override
     public Response contestTypeRetrieve(String id
+ ) throws NotFoundException {
+        // do some magic!
+        return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
+    }
+    @Override
+    public Response currencyList(Integer limit
+, Integer offset
+, String q
+ ) throws NotFoundException {
+        // do some magic!
+        return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
+    }
+    @Override
+    public Response currencyRetrieve(String id
  ) throws NotFoundException {
         // do some magic!
         return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
@@ -270,7 +287,6 @@ public class ApiApiServiceImpl extends ApiApiService {
     @Override
     public Response evolutionChainList(Integer limit
 , Integer offset
-, String q
  ) throws NotFoundException {
         // do some magic!
         return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
@@ -291,6 +307,20 @@ public class ApiApiServiceImpl extends ApiApiService {
     }
     @Override
     public Response evolutionTriggerRetrieve(String id
+ ) throws NotFoundException {
+        // do some magic!
+        return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
+    }
+    @Override
+    public Response evolutionVariableList(Integer limit
+, Integer offset
+, String q
+ ) throws NotFoundException {
+        // do some magic!
+        return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
+    }
+    @Override
+    public Response evolutionVariableRetrieve(String id
  ) throws NotFoundException {
         // do some magic!
         return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
@@ -451,7 +481,6 @@ public class ApiApiServiceImpl extends ApiApiService {
     @Override
     public Response machineList(Integer limit
 , Integer offset
-, String q
  ) throws NotFoundException {
         // do some magic!
         return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
@@ -459,6 +488,11 @@ public class ApiApiServiceImpl extends ApiApiService {
     @Override
     public Response machineRetrieve(String id
  ) throws NotFoundException {
+        // do some magic!
+        return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
+    }
+    @Override
+    public Response metaRetrieve() throws NotFoundException {
         // do some magic!
         return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
     }
@@ -731,7 +765,6 @@ public class ApiApiServiceImpl extends ApiApiService {
     @Override
     public Response superContestEffectList(Integer limit
 , Integer offset
-, String q
  ) throws NotFoundException {
         // do some magic!
         return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();

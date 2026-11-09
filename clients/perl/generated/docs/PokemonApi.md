@@ -9,9 +9,9 @@ All URIs are relative to *https://pokeapi.co*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ability_list**](PokemonApi.md#ability_list) | **GET** /api/v2/ability/ | 
-[**ability_retrieve**](PokemonApi.md#ability_retrieve) | **GET** /api/v2/ability/{id}/ | 
-[**characteristic_list**](PokemonApi.md#characteristic_list) | **GET** /api/v2/characteristic/ | List charecterictics
+[**ability_list**](PokemonApi.md#ability_list) | **GET** /api/v2/ability/ | List abilities
+[**ability_retrieve**](PokemonApi.md#ability_retrieve) | **GET** /api/v2/ability/{id}/ | Get ability
+[**characteristic_list**](PokemonApi.md#characteristic_list) | **GET** /api/v2/characteristic/ | List characteristics
 [**characteristic_retrieve**](PokemonApi.md#characteristic_retrieve) | **GET** /api/v2/characteristic/{id}/ | Get characteristic
 [**egg_group_list**](PokemonApi.md#egg_group_list) | **GET** /api/v2/egg-group/ | List egg groups
 [**egg_group_retrieve**](PokemonApi.md#egg_group_retrieve) | **GET** /api/v2/egg-group/{id}/ | Get egg group
@@ -46,7 +46,7 @@ Method | HTTP request | Description
 # **ability_list**
 > PaginatedAbilitySummaryList ability_list(limit => $limit, offset => $offset, q => $q)
 
-
+List abilities
 
 Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
 
@@ -55,15 +55,6 @@ Abilities provide passive effects for Pokémon in battle or in the overworld. Po
 use Data::Dumper;
 use WWW::OpenAPIClient::PokemonApi;
 my $api_instance = WWW::OpenAPIClient::PokemonApi->new(
-
-    # Configure HTTP basic authorization: basicAuth
-    username => 'YOUR_USERNAME',
-    password => 'YOUR_PASSWORD',
-    
-    # Configure API key authorization: cookieAuth
-    api_key => {'sessionid' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'sessionid' => 'Bearer'},
 );
 
 my $limit = 56; # int | Number of results to return per page.
@@ -93,7 +84,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -105,7 +96,7 @@ Name | Type | Description  | Notes
 # **ability_retrieve**
 > AbilityDetail ability_retrieve(id => $id)
 
-
+Get ability
 
 Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
 
@@ -114,18 +105,9 @@ Abilities provide passive effects for Pokémon in battle or in the overworld. Po
 use Data::Dumper;
 use WWW::OpenAPIClient::PokemonApi;
 my $api_instance = WWW::OpenAPIClient::PokemonApi->new(
-
-    # Configure HTTP basic authorization: basicAuth
-    username => 'YOUR_USERNAME',
-    password => 'YOUR_PASSWORD',
-    
-    # Configure API key authorization: cookieAuth
-    api_key => {'sessionid' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'sessionid' => 'Bearer'},
 );
 
-my $id = "id_example"; # string | This parameter can be a string or an integer.
+my $id = 1; # string | This parameter can be a string or an integer.
 
 eval {
     my $result = $api_instance->ability_retrieve(id => $id);
@@ -148,7 +130,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -158,9 +140,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **characteristic_list**
-> PaginatedCharacteristicSummaryList characteristic_list(limit => $limit, offset => $offset, q => $q)
+> PaginatedCharacteristicSummaryList characteristic_list(limit => $limit, offset => $offset)
 
-List charecterictics
+List characteristics
 
 Characteristics indicate which stat contains a Pokémon's highest IV. A Pokémon's Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail.
 
@@ -169,23 +151,13 @@ Characteristics indicate which stat contains a Pokémon's highest IV. A Pokémon
 use Data::Dumper;
 use WWW::OpenAPIClient::PokemonApi;
 my $api_instance = WWW::OpenAPIClient::PokemonApi->new(
-
-    # Configure HTTP basic authorization: basicAuth
-    username => 'YOUR_USERNAME',
-    password => 'YOUR_PASSWORD',
-    
-    # Configure API key authorization: cookieAuth
-    api_key => {'sessionid' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'sessionid' => 'Bearer'},
 );
 
 my $limit = 56; # int | Number of results to return per page.
 my $offset = 56; # int | The initial index from which to return the results.
-my $q = "q_example"; # string | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
 
 eval {
-    my $result = $api_instance->characteristic_list(limit => $limit, offset => $offset, q => $q);
+    my $result = $api_instance->characteristic_list(limit => $limit, offset => $offset);
     print Dumper($result);
 };
 if ($@) {
@@ -199,7 +171,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **int**| Number of results to return per page. | [optional] 
  **offset** | **int**| The initial index from which to return the results. | [optional] 
- **q** | **string**| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional] 
 
 ### Return type
 
@@ -207,7 +178,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -228,18 +199,9 @@ Characteristics indicate which stat contains a Pokémon's highest IV. A Pokémon
 use Data::Dumper;
 use WWW::OpenAPIClient::PokemonApi;
 my $api_instance = WWW::OpenAPIClient::PokemonApi->new(
-
-    # Configure HTTP basic authorization: basicAuth
-    username => 'YOUR_USERNAME',
-    password => 'YOUR_PASSWORD',
-    
-    # Configure API key authorization: cookieAuth
-    api_key => {'sessionid' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'sessionid' => 'Bearer'},
 );
 
-my $id = "id_example"; # string | This parameter can be a string or an integer.
+my $id = 1; # string | This parameter can be a string or an integer.
 
 eval {
     my $result = $api_instance->characteristic_retrieve(id => $id);
@@ -262,7 +224,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -283,15 +245,6 @@ Egg Groups are categories which determine which Pokémon are able to interbreed.
 use Data::Dumper;
 use WWW::OpenAPIClient::PokemonApi;
 my $api_instance = WWW::OpenAPIClient::PokemonApi->new(
-
-    # Configure HTTP basic authorization: basicAuth
-    username => 'YOUR_USERNAME',
-    password => 'YOUR_PASSWORD',
-    
-    # Configure API key authorization: cookieAuth
-    api_key => {'sessionid' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'sessionid' => 'Bearer'},
 );
 
 my $limit = 56; # int | Number of results to return per page.
@@ -321,7 +274,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -342,18 +295,9 @@ Egg Groups are categories which determine which Pokémon are able to interbreed.
 use Data::Dumper;
 use WWW::OpenAPIClient::PokemonApi;
 my $api_instance = WWW::OpenAPIClient::PokemonApi->new(
-
-    # Configure HTTP basic authorization: basicAuth
-    username => 'YOUR_USERNAME',
-    password => 'YOUR_PASSWORD',
-    
-    # Configure API key authorization: cookieAuth
-    api_key => {'sessionid' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'sessionid' => 'Bearer'},
 );
 
-my $id = "id_example"; # string | This parameter can be a string or an integer.
+my $id = 1; # string | This parameter can be a string or an integer.
 
 eval {
     my $result = $api_instance->egg_group_retrieve(id => $id);
@@ -376,7 +320,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -397,15 +341,6 @@ Genders were introduced in Generation II for the purposes of breeding Pokémon b
 use Data::Dumper;
 use WWW::OpenAPIClient::PokemonApi;
 my $api_instance = WWW::OpenAPIClient::PokemonApi->new(
-
-    # Configure HTTP basic authorization: basicAuth
-    username => 'YOUR_USERNAME',
-    password => 'YOUR_PASSWORD',
-    
-    # Configure API key authorization: cookieAuth
-    api_key => {'sessionid' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'sessionid' => 'Bearer'},
 );
 
 my $limit = 56; # int | Number of results to return per page.
@@ -435,7 +370,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -456,18 +391,9 @@ Genders were introduced in Generation II for the purposes of breeding Pokémon b
 use Data::Dumper;
 use WWW::OpenAPIClient::PokemonApi;
 my $api_instance = WWW::OpenAPIClient::PokemonApi->new(
-
-    # Configure HTTP basic authorization: basicAuth
-    username => 'YOUR_USERNAME',
-    password => 'YOUR_PASSWORD',
-    
-    # Configure API key authorization: cookieAuth
-    api_key => {'sessionid' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'sessionid' => 'Bearer'},
 );
 
-my $id = "id_example"; # string | This parameter can be a string or an integer.
+my $id = 1; # string | This parameter can be a string or an integer.
 
 eval {
     my $result = $api_instance->gender_retrieve(id => $id);
@@ -490,7 +416,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -511,15 +437,6 @@ Growth rates are the speed with which Pokémon gain levels through experience. C
 use Data::Dumper;
 use WWW::OpenAPIClient::PokemonApi;
 my $api_instance = WWW::OpenAPIClient::PokemonApi->new(
-
-    # Configure HTTP basic authorization: basicAuth
-    username => 'YOUR_USERNAME',
-    password => 'YOUR_PASSWORD',
-    
-    # Configure API key authorization: cookieAuth
-    api_key => {'sessionid' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'sessionid' => 'Bearer'},
 );
 
 my $limit = 56; # int | Number of results to return per page.
@@ -549,7 +466,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -570,18 +487,9 @@ Growth rates are the speed with which Pokémon gain levels through experience. C
 use Data::Dumper;
 use WWW::OpenAPIClient::PokemonApi;
 my $api_instance = WWW::OpenAPIClient::PokemonApi->new(
-
-    # Configure HTTP basic authorization: basicAuth
-    username => 'YOUR_USERNAME',
-    password => 'YOUR_PASSWORD',
-    
-    # Configure API key authorization: cookieAuth
-    api_key => {'sessionid' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'sessionid' => 'Bearer'},
 );
 
-my $id = "id_example"; # string | This parameter can be a string or an integer.
+my $id = 1; # string | This parameter can be a string or an integer.
 
 eval {
     my $result = $api_instance->growth_rate_retrieve(id => $id);
@@ -604,7 +512,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -625,15 +533,6 @@ Damage classes moves can have, e.g. physical, special, or non-damaging.
 use Data::Dumper;
 use WWW::OpenAPIClient::PokemonApi;
 my $api_instance = WWW::OpenAPIClient::PokemonApi->new(
-
-    # Configure HTTP basic authorization: basicAuth
-    username => 'YOUR_USERNAME',
-    password => 'YOUR_PASSWORD',
-    
-    # Configure API key authorization: cookieAuth
-    api_key => {'sessionid' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'sessionid' => 'Bearer'},
 );
 
 my $limit = 56; # int | Number of results to return per page.
@@ -663,7 +562,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -684,18 +583,9 @@ Damage classes moves can have, e.g. physical, special, or non-damaging.
 use Data::Dumper;
 use WWW::OpenAPIClient::PokemonApi;
 my $api_instance = WWW::OpenAPIClient::PokemonApi->new(
-
-    # Configure HTTP basic authorization: basicAuth
-    username => 'YOUR_USERNAME',
-    password => 'YOUR_PASSWORD',
-    
-    # Configure API key authorization: cookieAuth
-    api_key => {'sessionid' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'sessionid' => 'Bearer'},
 );
 
-my $id = "id_example"; # string | This parameter can be a string or an integer.
+my $id = 1; # string | This parameter can be a string or an integer.
 
 eval {
     my $result = $api_instance->move_damage_class_retrieve(id => $id);
@@ -718,7 +608,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -739,15 +629,6 @@ Natures influence how a Pokémon's stats grow. See [Bulbapedia](http://bulbapedi
 use Data::Dumper;
 use WWW::OpenAPIClient::PokemonApi;
 my $api_instance = WWW::OpenAPIClient::PokemonApi->new(
-
-    # Configure HTTP basic authorization: basicAuth
-    username => 'YOUR_USERNAME',
-    password => 'YOUR_PASSWORD',
-    
-    # Configure API key authorization: cookieAuth
-    api_key => {'sessionid' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'sessionid' => 'Bearer'},
 );
 
 my $limit = 56; # int | Number of results to return per page.
@@ -777,7 +658,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -798,18 +679,9 @@ Natures influence how a Pokémon's stats grow. See [Bulbapedia](http://bulbapedi
 use Data::Dumper;
 use WWW::OpenAPIClient::PokemonApi;
 my $api_instance = WWW::OpenAPIClient::PokemonApi->new(
-
-    # Configure HTTP basic authorization: basicAuth
-    username => 'YOUR_USERNAME',
-    password => 'YOUR_PASSWORD',
-    
-    # Configure API key authorization: cookieAuth
-    api_key => {'sessionid' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'sessionid' => 'Bearer'},
 );
 
-my $id = "id_example"; # string | This parameter can be a string or an integer.
+my $id = 1; # string | This parameter can be a string or an integer.
 
 eval {
     my $result = $api_instance->nature_retrieve(id => $id);
@@ -832,7 +704,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -853,15 +725,6 @@ Pokeathlon Stats are different attributes of a Pokémon's performance in Pokéat
 use Data::Dumper;
 use WWW::OpenAPIClient::PokemonApi;
 my $api_instance = WWW::OpenAPIClient::PokemonApi->new(
-
-    # Configure HTTP basic authorization: basicAuth
-    username => 'YOUR_USERNAME',
-    password => 'YOUR_PASSWORD',
-    
-    # Configure API key authorization: cookieAuth
-    api_key => {'sessionid' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'sessionid' => 'Bearer'},
 );
 
 my $limit = 56; # int | Number of results to return per page.
@@ -891,7 +754,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -912,18 +775,9 @@ Pokeathlon Stats are different attributes of a Pokémon's performance in Pokéat
 use Data::Dumper;
 use WWW::OpenAPIClient::PokemonApi;
 my $api_instance = WWW::OpenAPIClient::PokemonApi->new(
-
-    # Configure HTTP basic authorization: basicAuth
-    username => 'YOUR_USERNAME',
-    password => 'YOUR_PASSWORD',
-    
-    # Configure API key authorization: cookieAuth
-    api_key => {'sessionid' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'sessionid' => 'Bearer'},
 );
 
-my $id = "id_example"; # string | This parameter can be a string or an integer.
+my $id = 1; # string | This parameter can be a string or an integer.
 
 eval {
     my $result = $api_instance->pokeathlon_stat_retrieve(id => $id);
@@ -946,7 +800,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -967,15 +821,6 @@ Colors used for sorting Pokémon in a Pokédex. The color listed in the Pokédex
 use Data::Dumper;
 use WWW::OpenAPIClient::PokemonApi;
 my $api_instance = WWW::OpenAPIClient::PokemonApi->new(
-
-    # Configure HTTP basic authorization: basicAuth
-    username => 'YOUR_USERNAME',
-    password => 'YOUR_PASSWORD',
-    
-    # Configure API key authorization: cookieAuth
-    api_key => {'sessionid' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'sessionid' => 'Bearer'},
 );
 
 my $limit = 56; # int | Number of results to return per page.
@@ -1005,7 +850,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1026,18 +871,9 @@ Colors used for sorting Pokémon in a Pokédex. The color listed in the Pokédex
 use Data::Dumper;
 use WWW::OpenAPIClient::PokemonApi;
 my $api_instance = WWW::OpenAPIClient::PokemonApi->new(
-
-    # Configure HTTP basic authorization: basicAuth
-    username => 'YOUR_USERNAME',
-    password => 'YOUR_PASSWORD',
-    
-    # Configure API key authorization: cookieAuth
-    api_key => {'sessionid' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'sessionid' => 'Bearer'},
 );
 
-my $id = "id_example"; # string | This parameter can be a string or an integer.
+my $id = 1; # string | This parameter can be a string or an integer.
 
 eval {
     my $result = $api_instance->pokemon_color_retrieve(id => $id);
@@ -1060,7 +896,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1081,15 +917,6 @@ Some Pokémon may appear in one of multiple, visually different forms. These dif
 use Data::Dumper;
 use WWW::OpenAPIClient::PokemonApi;
 my $api_instance = WWW::OpenAPIClient::PokemonApi->new(
-
-    # Configure HTTP basic authorization: basicAuth
-    username => 'YOUR_USERNAME',
-    password => 'YOUR_PASSWORD',
-    
-    # Configure API key authorization: cookieAuth
-    api_key => {'sessionid' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'sessionid' => 'Bearer'},
 );
 
 my $limit = 56; # int | Number of results to return per page.
@@ -1119,7 +946,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1140,18 +967,9 @@ Some Pokémon may appear in one of multiple, visually different forms. These dif
 use Data::Dumper;
 use WWW::OpenAPIClient::PokemonApi;
 my $api_instance = WWW::OpenAPIClient::PokemonApi->new(
-
-    # Configure HTTP basic authorization: basicAuth
-    username => 'YOUR_USERNAME',
-    password => 'YOUR_PASSWORD',
-    
-    # Configure API key authorization: cookieAuth
-    api_key => {'sessionid' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'sessionid' => 'Bearer'},
 );
 
-my $id = "id_example"; # string | This parameter can be a string or an integer.
+my $id = 1; # string | This parameter can be a string or an integer.
 
 eval {
     my $result = $api_instance->pokemon_form_retrieve(id => $id);
@@ -1174,7 +992,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1195,15 +1013,6 @@ Habitats are generally different terrain Pokémon can be found in but can also b
 use Data::Dumper;
 use WWW::OpenAPIClient::PokemonApi;
 my $api_instance = WWW::OpenAPIClient::PokemonApi->new(
-
-    # Configure HTTP basic authorization: basicAuth
-    username => 'YOUR_USERNAME',
-    password => 'YOUR_PASSWORD',
-    
-    # Configure API key authorization: cookieAuth
-    api_key => {'sessionid' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'sessionid' => 'Bearer'},
 );
 
 my $limit = 56; # int | Number of results to return per page.
@@ -1233,7 +1042,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1254,18 +1063,9 @@ Habitats are generally different terrain Pokémon can be found in but can also b
 use Data::Dumper;
 use WWW::OpenAPIClient::PokemonApi;
 my $api_instance = WWW::OpenAPIClient::PokemonApi->new(
-
-    # Configure HTTP basic authorization: basicAuth
-    username => 'YOUR_USERNAME',
-    password => 'YOUR_PASSWORD',
-    
-    # Configure API key authorization: cookieAuth
-    api_key => {'sessionid' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'sessionid' => 'Bearer'},
 );
 
-my $id = "id_example"; # string | This parameter can be a string or an integer.
+my $id = 1; # string | This parameter can be a string or an integer.
 
 eval {
     my $result = $api_instance->pokemon_habitat_retrieve(id => $id);
@@ -1288,7 +1088,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1309,15 +1109,6 @@ Pokémon are the creatures that inhabit the world of the Pokémon games. They ca
 use Data::Dumper;
 use WWW::OpenAPIClient::PokemonApi;
 my $api_instance = WWW::OpenAPIClient::PokemonApi->new(
-
-    # Configure HTTP basic authorization: basicAuth
-    username => 'YOUR_USERNAME',
-    password => 'YOUR_PASSWORD',
-    
-    # Configure API key authorization: cookieAuth
-    api_key => {'sessionid' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'sessionid' => 'Bearer'},
 );
 
 my $limit = 56; # int | Number of results to return per page.
@@ -1347,7 +1138,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1368,18 +1159,9 @@ Pokémon are the creatures that inhabit the world of the Pokémon games. They ca
 use Data::Dumper;
 use WWW::OpenAPIClient::PokemonApi;
 my $api_instance = WWW::OpenAPIClient::PokemonApi->new(
-
-    # Configure HTTP basic authorization: basicAuth
-    username => 'YOUR_USERNAME',
-    password => 'YOUR_PASSWORD',
-    
-    # Configure API key authorization: cookieAuth
-    api_key => {'sessionid' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'sessionid' => 'Bearer'},
 );
 
-my $id = "id_example"; # string | This parameter can be a string or an integer.
+my $id = 1; # string | This parameter can be a string or an integer.
 
 eval {
     my $result = $api_instance->pokemon_retrieve(id => $id);
@@ -1402,7 +1184,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1423,15 +1205,6 @@ Shapes used for sorting Pokémon in a Pokédex.
 use Data::Dumper;
 use WWW::OpenAPIClient::PokemonApi;
 my $api_instance = WWW::OpenAPIClient::PokemonApi->new(
-
-    # Configure HTTP basic authorization: basicAuth
-    username => 'YOUR_USERNAME',
-    password => 'YOUR_PASSWORD',
-    
-    # Configure API key authorization: cookieAuth
-    api_key => {'sessionid' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'sessionid' => 'Bearer'},
 );
 
 my $limit = 56; # int | Number of results to return per page.
@@ -1461,7 +1234,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1482,18 +1255,9 @@ Shapes used for sorting Pokémon in a Pokédex.
 use Data::Dumper;
 use WWW::OpenAPIClient::PokemonApi;
 my $api_instance = WWW::OpenAPIClient::PokemonApi->new(
-
-    # Configure HTTP basic authorization: basicAuth
-    username => 'YOUR_USERNAME',
-    password => 'YOUR_PASSWORD',
-    
-    # Configure API key authorization: cookieAuth
-    api_key => {'sessionid' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'sessionid' => 'Bearer'},
 );
 
-my $id = "id_example"; # string | This parameter can be a string or an integer.
+my $id = 1; # string | This parameter can be a string or an integer.
 
 eval {
     my $result = $api_instance->pokemon_shape_retrieve(id => $id);
@@ -1516,7 +1280,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1537,15 +1301,6 @@ A Pokémon Species forms the basis for at least one Pokémon. Attributes of a Po
 use Data::Dumper;
 use WWW::OpenAPIClient::PokemonApi;
 my $api_instance = WWW::OpenAPIClient::PokemonApi->new(
-
-    # Configure HTTP basic authorization: basicAuth
-    username => 'YOUR_USERNAME',
-    password => 'YOUR_PASSWORD',
-    
-    # Configure API key authorization: cookieAuth
-    api_key => {'sessionid' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'sessionid' => 'Bearer'},
 );
 
 my $limit = 56; # int | Number of results to return per page.
@@ -1575,7 +1330,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1596,18 +1351,9 @@ A Pokémon Species forms the basis for at least one Pokémon. Attributes of a Po
 use Data::Dumper;
 use WWW::OpenAPIClient::PokemonApi;
 my $api_instance = WWW::OpenAPIClient::PokemonApi->new(
-
-    # Configure HTTP basic authorization: basicAuth
-    username => 'YOUR_USERNAME',
-    password => 'YOUR_PASSWORD',
-    
-    # Configure API key authorization: cookieAuth
-    api_key => {'sessionid' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'sessionid' => 'Bearer'},
 );
 
-my $id = "id_example"; # string | This parameter can be a string or an integer.
+my $id = 1; # string | This parameter can be a string or an integer.
 
 eval {
     my $result = $api_instance->pokemon_species_retrieve(id => $id);
@@ -1630,7 +1376,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1651,15 +1397,6 @@ Stats determine certain aspects of battles. Each Pokémon has a value for each s
 use Data::Dumper;
 use WWW::OpenAPIClient::PokemonApi;
 my $api_instance = WWW::OpenAPIClient::PokemonApi->new(
-
-    # Configure HTTP basic authorization: basicAuth
-    username => 'YOUR_USERNAME',
-    password => 'YOUR_PASSWORD',
-    
-    # Configure API key authorization: cookieAuth
-    api_key => {'sessionid' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'sessionid' => 'Bearer'},
 );
 
 my $limit = 56; # int | Number of results to return per page.
@@ -1689,7 +1426,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1710,18 +1447,9 @@ Stats determine certain aspects of battles. Each Pokémon has a value for each s
 use Data::Dumper;
 use WWW::OpenAPIClient::PokemonApi;
 my $api_instance = WWW::OpenAPIClient::PokemonApi->new(
-
-    # Configure HTTP basic authorization: basicAuth
-    username => 'YOUR_USERNAME',
-    password => 'YOUR_PASSWORD',
-    
-    # Configure API key authorization: cookieAuth
-    api_key => {'sessionid' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'sessionid' => 'Bearer'},
 );
 
-my $id = "id_example"; # string | This parameter can be a string or an integer.
+my $id = 1; # string | This parameter can be a string or an integer.
 
 eval {
     my $result = $api_instance->stat_retrieve(id => $id);
@@ -1744,7 +1472,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1765,15 +1493,6 @@ Types are properties for Pokémon and their moves. Each type has three propertie
 use Data::Dumper;
 use WWW::OpenAPIClient::PokemonApi;
 my $api_instance = WWW::OpenAPIClient::PokemonApi->new(
-
-    # Configure HTTP basic authorization: basicAuth
-    username => 'YOUR_USERNAME',
-    password => 'YOUR_PASSWORD',
-    
-    # Configure API key authorization: cookieAuth
-    api_key => {'sessionid' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'sessionid' => 'Bearer'},
 );
 
 my $limit = 56; # int | Number of results to return per page.
@@ -1803,7 +1522,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1824,18 +1543,9 @@ Types are properties for Pokémon and their moves. Each type has three propertie
 use Data::Dumper;
 use WWW::OpenAPIClient::PokemonApi;
 my $api_instance = WWW::OpenAPIClient::PokemonApi->new(
-
-    # Configure HTTP basic authorization: basicAuth
-    username => 'YOUR_USERNAME',
-    password => 'YOUR_PASSWORD',
-    
-    # Configure API key authorization: cookieAuth
-    api_key => {'sessionid' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'sessionid' => 'Bearer'},
 );
 
-my $id = "id_example"; # string | This parameter can be a string or an integer.
+my $id = 1; # string | This parameter can be a string or an integer.
 
 eval {
     my $result = $api_instance->type_retrieve(id => $id);
@@ -1858,7 +1568,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

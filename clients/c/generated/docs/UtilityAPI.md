@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**UtilityAPI_languageList**](UtilityAPI.md#UtilityAPI_languageList) | **GET** /api/v2/language/ | List languages
 [**UtilityAPI_languageRetrieve**](UtilityAPI.md#UtilityAPI_languageRetrieve) | **GET** /api/v2/language/{id}/ | Get language
+[**UtilityAPI_metaRetrieve**](UtilityAPI.md#UtilityAPI_metaRetrieve) | **GET** /api/v2/meta/ | Get API metadata
 
 
 # **UtilityAPI_languageList**
@@ -32,7 +33,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -63,7 +64,37 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **UtilityAPI_metaRetrieve**
+```c
+// Get API metadata
+//
+// Returns metadata about the current deployed version of the API, including the git commit hash, deploy date, and tag (if any).
+//
+pokeapi_meta_response_t* UtilityAPI_metaRetrieve(apiClient_t *apiClient);
+```
+
+### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**apiClient** | **apiClient_t \*** | context containing the client configuration |
+
+### Return type
+
+[pokeapi_meta_response_t](pokeapi_meta_response.md) *
+
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 

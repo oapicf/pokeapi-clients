@@ -12,6 +12,12 @@ Protected Interface UtilityApiCallbackHandler
 		End Sub
 	#tag EndMethod
 
+	#tag Method, Flags = &h0
+		Sub MetaRetrieveCallback(status As OpenAPIClient.OpenAPIClientException, Optional data As OpenAPIClient.Models.PokeapiMetaResponse)
+		  
+		End Sub
+	#tag EndMethod
+
 
 
 

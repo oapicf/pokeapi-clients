@@ -21,6 +21,6 @@ data class MoveLearnMethodDetail(
     val descriptions: kotlin.collections.List<MoveLearnMethodDescription>,
 
     @field:JsonProperty("version_groups")
-    val versionGroups: kotlin.collections.List<AbilityDetailPokemonInnerPokemon>,
+    val versionGroups: kotlin.collections.List<VersionGroupSummary>,
 
 )

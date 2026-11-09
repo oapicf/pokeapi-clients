@@ -7,7 +7,7 @@ using namespace Tiny;
 EncounterMethodName::EncounterMethodName()
 {
 	name = std::string();
-	language = LanguageSummary();
+	language = null;
 }
 
 EncounterMethodName::EncounterMethodName(std::string jsonString)

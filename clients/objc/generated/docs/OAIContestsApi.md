@@ -16,7 +16,6 @@ Method | HTTP request | Description
 ```objc
 -(NSURLSessionTask*) contestEffectListWithLimit: (NSNumber*) limit
     offset: (NSNumber*) offset
-    q: (NSString*) q
         completionHandler: (void (^)(OAIPaginatedContestEffectSummaryList* output, NSError* error)) handler;
 ```
 
@@ -26,27 +25,15 @@ Contest effects refer to the effects of moves when used in contests.
 
 ### Example
 ```objc
-OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
-// Configure HTTP basic authorization (authentication scheme: basicAuth)
-[apiConfig setUsername:@"YOUR_USERNAME"];
-[apiConfig setPassword:@"YOUR_PASSWORD"];
-
-// Configure API key authorization: (authentication scheme: cookieAuth)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"sessionid"];
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"sessionid"];
-
 
 NSNumber* limit = @56; // Number of results to return per page. (optional)
 NSNumber* offset = @56; // The initial index from which to return the results. (optional)
-NSString* q = @"q_example"; // > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
 
 OAIContestsApi*apiInstance = [[OAIContestsApi alloc] init];
 
 // List contest effects
 [apiInstance contestEffectListWithLimit:limit
               offset:offset
-              q:q
           completionHandler: ^(OAIPaginatedContestEffectSummaryList* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
@@ -63,7 +50,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **NSNumber***| Number of results to return per page. | [optional] 
  **offset** | **NSNumber***| The initial index from which to return the results. | [optional] 
- **q** | **NSString***| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional] 
 
 ### Return type
 
@@ -71,7 +57,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -92,18 +78,8 @@ Contest effects refer to the effects of moves when used in contests.
 
 ### Example
 ```objc
-OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
-// Configure HTTP basic authorization (authentication scheme: basicAuth)
-[apiConfig setUsername:@"YOUR_USERNAME"];
-[apiConfig setPassword:@"YOUR_PASSWORD"];
 
-// Configure API key authorization: (authentication scheme: cookieAuth)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"sessionid"];
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"sessionid"];
-
-
-NSString* _id = @"_id_example"; // This parameter can be a string or an integer.
+NSString* _id = 1; // This parameter can be a string or an integer.
 
 OAIContestsApi*apiInstance = [[OAIContestsApi alloc] init];
 
@@ -131,7 +107,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -154,16 +130,6 @@ Contest types are categories judges used to weigh a PokÃ©mon's condition in PokÃ
 
 ### Example
 ```objc
-OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
-// Configure HTTP basic authorization (authentication scheme: basicAuth)
-[apiConfig setUsername:@"YOUR_USERNAME"];
-[apiConfig setPassword:@"YOUR_PASSWORD"];
-
-// Configure API key authorization: (authentication scheme: cookieAuth)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"sessionid"];
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"sessionid"];
-
 
 NSNumber* limit = @56; // Number of results to return per page. (optional)
 NSNumber* offset = @56; // The initial index from which to return the results. (optional)
@@ -199,7 +165,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -220,18 +186,8 @@ Contest types are categories judges used to weigh a PokÃ©mon's condition in PokÃ
 
 ### Example
 ```objc
-OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
-// Configure HTTP basic authorization (authentication scheme: basicAuth)
-[apiConfig setUsername:@"YOUR_USERNAME"];
-[apiConfig setPassword:@"YOUR_PASSWORD"];
 
-// Configure API key authorization: (authentication scheme: cookieAuth)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"sessionid"];
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"sessionid"];
-
-
-NSString* _id = @"_id_example"; // This parameter can be a string or an integer.
+NSString* _id = 1; // This parameter can be a string or an integer.
 
 OAIContestsApi*apiInstance = [[OAIContestsApi alloc] init];
 
@@ -259,7 +215,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -272,7 +228,6 @@ Name | Type | Description  | Notes
 ```objc
 -(NSURLSessionTask*) superContestEffectListWithLimit: (NSNumber*) limit
     offset: (NSNumber*) offset
-    q: (NSString*) q
         completionHandler: (void (^)(OAIPaginatedSuperContestEffectSummaryList* output, NSError* error)) handler;
 ```
 
@@ -282,27 +237,15 @@ Super contest effects refer to the effects of moves when used in super contests.
 
 ### Example
 ```objc
-OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
-// Configure HTTP basic authorization (authentication scheme: basicAuth)
-[apiConfig setUsername:@"YOUR_USERNAME"];
-[apiConfig setPassword:@"YOUR_PASSWORD"];
-
-// Configure API key authorization: (authentication scheme: cookieAuth)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"sessionid"];
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"sessionid"];
-
 
 NSNumber* limit = @56; // Number of results to return per page. (optional)
 NSNumber* offset = @56; // The initial index from which to return the results. (optional)
-NSString* q = @"q_example"; // > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
 
 OAIContestsApi*apiInstance = [[OAIContestsApi alloc] init];
 
 // List super contest effects
 [apiInstance superContestEffectListWithLimit:limit
               offset:offset
-              q:q
           completionHandler: ^(OAIPaginatedSuperContestEffectSummaryList* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
@@ -319,7 +262,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **NSNumber***| Number of results to return per page. | [optional] 
  **offset** | **NSNumber***| The initial index from which to return the results. | [optional] 
- **q** | **NSString***| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional] 
 
 ### Return type
 
@@ -327,7 +269,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -348,18 +290,8 @@ Super contest effects refer to the effects of moves when used in super contests.
 
 ### Example
 ```objc
-OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
-// Configure HTTP basic authorization (authentication scheme: basicAuth)
-[apiConfig setUsername:@"YOUR_USERNAME"];
-[apiConfig setPassword:@"YOUR_PASSWORD"];
 
-// Configure API key authorization: (authentication scheme: cookieAuth)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"sessionid"];
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"sessionid"];
-
-
-NSString* _id = @"_id_example"; // This parameter can be a string or an integer.
+NSString* _id = 1; // This parameter can be a string or an integer.
 
 OAIContestsApi*apiInstance = [[OAIContestsApi alloc] init];
 
@@ -387,7 +319,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

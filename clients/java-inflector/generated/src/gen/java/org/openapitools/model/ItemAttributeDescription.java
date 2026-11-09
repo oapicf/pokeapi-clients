@@ -11,7 +11,7 @@ import org.openapitools.model.LanguageSummary;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-10-25T05:47:53.227411880Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-11-09T13:49:15.621225368Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class ItemAttributeDescription   {
   @JsonProperty("description")
   private String description;
@@ -20,6 +20,7 @@ public class ItemAttributeDescription   {
   private LanguageSummary language;
 
   /**
+   * The localized description for an API resource in a specific language.
    **/
   public ItemAttributeDescription description(String description) {
     this.description = description;
@@ -27,7 +28,7 @@ public class ItemAttributeDescription   {
   }
 
   
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The localized description for an API resource in a specific language.")
   @JsonProperty("description")
   public String getDescription() {
     return description;
@@ -37,6 +38,7 @@ public class ItemAttributeDescription   {
   }
 
   /**
+   * The language this name is in.
    **/
   public ItemAttributeDescription language(LanguageSummary language) {
     this.language = language;
@@ -44,7 +46,7 @@ public class ItemAttributeDescription   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The language this name is in.")
   @JsonProperty("language")
   public LanguageSummary getLanguage() {
     return language;

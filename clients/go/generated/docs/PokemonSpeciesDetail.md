@@ -4,39 +4,39 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int32** |  | [readonly] 
-**Name** | **string** |  | 
-**Order** | Pointer to **NullableInt32** |  | [optional] 
-**GenderRate** | Pointer to **NullableInt32** |  | [optional] 
-**CaptureRate** | Pointer to **NullableInt32** |  | [optional] 
-**BaseHappiness** | Pointer to **NullableInt32** |  | [optional] 
-**IsBaby** | Pointer to **bool** |  | [optional] 
-**IsLegendary** | Pointer to **bool** |  | [optional] 
-**IsMythical** | Pointer to **bool** |  | [optional] 
-**HatchCounter** | Pointer to **NullableInt32** |  | [optional] 
-**HasGenderDifferences** | Pointer to **bool** |  | [optional] 
-**FormsSwitchable** | Pointer to **bool** |  | [optional] 
-**GrowthRate** | [**GrowthRateSummary**](GrowthRateSummary.md) |  | 
-**PokedexNumbers** | [**[]PokemonDexEntry**](PokemonDexEntry.md) |  | [readonly] 
-**EggGroups** | [**[]AbilityDetailPokemonInnerPokemon**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] 
-**Color** | [**PokemonColorSummary**](PokemonColorSummary.md) |  | 
-**Shape** | [**PokemonShapeSummary**](PokemonShapeSummary.md) |  | 
-**EvolvesFromSpecies** | [**PokemonSpeciesSummary**](PokemonSpeciesSummary.md) |  | 
-**EvolutionChain** | [**EvolutionChainSummary**](EvolutionChainSummary.md) |  | 
-**Habitat** | [**PokemonHabitatSummary**](PokemonHabitatSummary.md) |  | 
-**Generation** | [**GenerationSummary**](GenerationSummary.md) |  | 
-**Names** | [**[]PokemonFormDetailFormNamesInner**](PokemonFormDetailFormNamesInner.md) |  | [readonly] 
-**PalParkEncounters** | [**[]PokemonSpeciesDetailPalParkEncountersInner**](PokemonSpeciesDetailPalParkEncountersInner.md) |  | [readonly] 
-**FormDescriptions** | [**[]PokemonSpeciesDescription**](PokemonSpeciesDescription.md) |  | [readonly] 
-**FlavorTextEntries** | [**[]PokemonSpeciesFlavorText**](PokemonSpeciesFlavorText.md) |  | [readonly] 
-**Genera** | [**[]PokemonSpeciesDetailGeneraInner**](PokemonSpeciesDetailGeneraInner.md) |  | [readonly] 
-**Varieties** | [**[]PokemonSpeciesDetailVarietiesInner**](PokemonSpeciesDetailVarietiesInner.md) |  | [readonly] 
+**Id** | **int32** | The identifier for this resource. | [readonly] 
+**Name** | **string** | The name for this resource. | 
+**Order** | Pointer to **NullableInt32** | The order in which species should be sorted. Based on National Dex order, except families are grouped together and sorted by stage. | [optional] 
+**GenderRate** | Pointer to **NullableInt32** | The chance of this Pokémon being female, in eighths; or -1 for genderless. | [optional] 
+**CaptureRate** | Pointer to **NullableInt32** | The base capture rate; up to 255. The higher the number, the easier the catch. | [optional] 
+**BaseHappiness** | Pointer to **NullableInt32** | The happiness when caught by a normal Pokéball; up to 255. The higher the number, the happier the Pokémon. | [optional] 
+**IsBaby** | Pointer to **bool** | Whether or not this is a baby Pokémon. | [optional] 
+**IsLegendary** | Pointer to **bool** | Whether or not this is a legendary Pokémon. | [optional] 
+**IsMythical** | Pointer to **bool** | Whether or not this is a mythical Pokémon. | [optional] 
+**HatchCounter** | Pointer to **NullableInt32** | Initial hatch counter: one must walk Y × (hatch_counter + 1) steps before this Pokémon&#39;s egg hatches, unless utilizing bonuses like Flame Body&#39;s. Y varies per generation. In Generations II, III, and VII, Egg cycles are 256 steps long. In Generation IV, Egg cycles are 255 steps long. In Pokémon Brilliant Diamond and Shining Pearl, Egg cycles are also 255 steps long, but are shorter on special dates. In Generations V and VI, Egg cycles are 257 steps long. In Pokémon Sword and Shield, and in Pokémon Scarlet and Violet, Egg cycles are 128 steps long. | [optional] 
+**HasGenderDifferences** | Pointer to **bool** | Whether or not this Pokémon has visual gender differences. | [optional] 
+**FormsSwitchable** | Pointer to **bool** | Whether or not this Pokémon has multiple forms and can switch between them. | [optional] 
+**GrowthRate** | [**GrowthRateSummary**](GrowthRateSummary.md) | The rate at which this Pokémon species gains levels. | 
+**PokedexNumbers** | [**[]PokemonDexEntry**](PokemonDexEntry.md) | A list of Pokedexes and the indexes reserved within them for this Pokémon species. | [readonly] 
+**EggGroups** | [**[]EggGroupSummary**](EggGroupSummary.md) | A list of egg groups this Pokémon species is a member of. | [readonly] 
+**Color** | [**PokemonColorSummary**](PokemonColorSummary.md) | The color of this Pokémon for Pokédex search. | 
+**Shape** | [**PokemonShapeSummary**](PokemonShapeSummary.md) | The shape of this Pokémon for Pokédex search. | 
+**EvolvesFromSpecies** | [**NullablePokemonSpeciesSummary**](PokemonSpeciesSummary.md) | The Pokémon species that evolves into this Pokemon_species. | 
+**EvolutionChain** | [**EvolutionChainSummary**](EvolutionChainSummary.md) | The evolution chain this Pokémon species is a member of. | 
+**Habitat** | [**NullablePokemonHabitatSummary**](PokemonHabitatSummary.md) | The habitat this Pokémon species can be encountered in. | 
+**Generation** | [**GenerationSummary**](GenerationSummary.md) | The generation this Pokémon species was introduced in. | 
+**Names** | [**[]PokemonSpeciesName**](PokemonSpeciesName.md) | The name of this resource listed in different languages. | [readonly] 
+**PalParkEncounters** | [**[]PokemonSpeciesPalParkEncounter**](PokemonSpeciesPalParkEncounter.md) | A list of encounters that can be had with this Pokémon species in pal park. | [readonly] 
+**FormDescriptions** | [**[]PokemonSpeciesDescription**](PokemonSpeciesDescription.md) | Descriptions of different forms Pokémon take on within the Pokémon species. | [readonly] 
+**FlavorTextEntries** | [**[]PokemonSpeciesFlavorText**](PokemonSpeciesFlavorText.md) | A list of flavor text entries for this Pokémon species. | [readonly] 
+**Genera** | [**[]PokemonSpeciesGenus**](PokemonSpeciesGenus.md) | The genus of this Pokémon species listed in multiple languages. | [readonly] 
+**Varieties** | [**[]PokemonSpeciesVariety**](PokemonSpeciesVariety.md) | A list of the Pokémon that exist within this Pokémon species. | [readonly] 
 
 ## Methods
 
 ### NewPokemonSpeciesDetail
 
-`func NewPokemonSpeciesDetail(id int32, name string, growthRate GrowthRateSummary, pokedexNumbers []PokemonDexEntry, eggGroups []AbilityDetailPokemonInnerPokemon, color PokemonColorSummary, shape PokemonShapeSummary, evolvesFromSpecies PokemonSpeciesSummary, evolutionChain EvolutionChainSummary, habitat PokemonHabitatSummary, generation GenerationSummary, names []PokemonFormDetailFormNamesInner, palParkEncounters []PokemonSpeciesDetailPalParkEncountersInner, formDescriptions []PokemonSpeciesDescription, flavorTextEntries []PokemonSpeciesFlavorText, genera []PokemonSpeciesDetailGeneraInner, varieties []PokemonSpeciesDetailVarietiesInner, ) *PokemonSpeciesDetail`
+`func NewPokemonSpeciesDetail(id int32, name string, growthRate GrowthRateSummary, pokedexNumbers []PokemonDexEntry, eggGroups []EggGroupSummary, color PokemonColorSummary, shape PokemonShapeSummary, evolvesFromSpecies NullablePokemonSpeciesSummary, evolutionChain EvolutionChainSummary, habitat NullablePokemonHabitatSummary, generation GenerationSummary, names []PokemonSpeciesName, palParkEncounters []PokemonSpeciesPalParkEncounter, formDescriptions []PokemonSpeciesDescription, flavorTextEntries []PokemonSpeciesFlavorText, genera []PokemonSpeciesGenus, varieties []PokemonSpeciesVariety, ) *PokemonSpeciesDetail`
 
 NewPokemonSpeciesDetail instantiates a new PokemonSpeciesDetail object
 This constructor will assign default values to properties that have it defined,
@@ -433,20 +433,20 @@ SetPokedexNumbers sets PokedexNumbers field to given value.
 
 ### GetEggGroups
 
-`func (o *PokemonSpeciesDetail) GetEggGroups() []AbilityDetailPokemonInnerPokemon`
+`func (o *PokemonSpeciesDetail) GetEggGroups() []EggGroupSummary`
 
 GetEggGroups returns the EggGroups field if non-nil, zero value otherwise.
 
 ### GetEggGroupsOk
 
-`func (o *PokemonSpeciesDetail) GetEggGroupsOk() (*[]AbilityDetailPokemonInnerPokemon, bool)`
+`func (o *PokemonSpeciesDetail) GetEggGroupsOk() (*[]EggGroupSummary, bool)`
 
 GetEggGroupsOk returns a tuple with the EggGroups field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEggGroups
 
-`func (o *PokemonSpeciesDetail) SetEggGroups(v []AbilityDetailPokemonInnerPokemon)`
+`func (o *PokemonSpeciesDetail) SetEggGroups(v []EggGroupSummary)`
 
 SetEggGroups sets EggGroups field to given value.
 
@@ -511,6 +511,16 @@ and a boolean to check if the value has been set.
 SetEvolvesFromSpecies sets EvolvesFromSpecies field to given value.
 
 
+### SetEvolvesFromSpeciesNil
+
+`func (o *PokemonSpeciesDetail) SetEvolvesFromSpeciesNil(b bool)`
+
+ SetEvolvesFromSpeciesNil sets the value for EvolvesFromSpecies to be an explicit nil
+
+### UnsetEvolvesFromSpecies
+`func (o *PokemonSpeciesDetail) UnsetEvolvesFromSpecies()`
+
+UnsetEvolvesFromSpecies ensures that no value is present for EvolvesFromSpecies, not even an explicit nil
 ### GetEvolutionChain
 
 `func (o *PokemonSpeciesDetail) GetEvolutionChain() EvolutionChainSummary`
@@ -551,6 +561,16 @@ and a boolean to check if the value has been set.
 SetHabitat sets Habitat field to given value.
 
 
+### SetHabitatNil
+
+`func (o *PokemonSpeciesDetail) SetHabitatNil(b bool)`
+
+ SetHabitatNil sets the value for Habitat to be an explicit nil
+
+### UnsetHabitat
+`func (o *PokemonSpeciesDetail) UnsetHabitat()`
+
+UnsetHabitat ensures that no value is present for Habitat, not even an explicit nil
 ### GetGeneration
 
 `func (o *PokemonSpeciesDetail) GetGeneration() GenerationSummary`
@@ -573,40 +593,40 @@ SetGeneration sets Generation field to given value.
 
 ### GetNames
 
-`func (o *PokemonSpeciesDetail) GetNames() []PokemonFormDetailFormNamesInner`
+`func (o *PokemonSpeciesDetail) GetNames() []PokemonSpeciesName`
 
 GetNames returns the Names field if non-nil, zero value otherwise.
 
 ### GetNamesOk
 
-`func (o *PokemonSpeciesDetail) GetNamesOk() (*[]PokemonFormDetailFormNamesInner, bool)`
+`func (o *PokemonSpeciesDetail) GetNamesOk() (*[]PokemonSpeciesName, bool)`
 
 GetNamesOk returns a tuple with the Names field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNames
 
-`func (o *PokemonSpeciesDetail) SetNames(v []PokemonFormDetailFormNamesInner)`
+`func (o *PokemonSpeciesDetail) SetNames(v []PokemonSpeciesName)`
 
 SetNames sets Names field to given value.
 
 
 ### GetPalParkEncounters
 
-`func (o *PokemonSpeciesDetail) GetPalParkEncounters() []PokemonSpeciesDetailPalParkEncountersInner`
+`func (o *PokemonSpeciesDetail) GetPalParkEncounters() []PokemonSpeciesPalParkEncounter`
 
 GetPalParkEncounters returns the PalParkEncounters field if non-nil, zero value otherwise.
 
 ### GetPalParkEncountersOk
 
-`func (o *PokemonSpeciesDetail) GetPalParkEncountersOk() (*[]PokemonSpeciesDetailPalParkEncountersInner, bool)`
+`func (o *PokemonSpeciesDetail) GetPalParkEncountersOk() (*[]PokemonSpeciesPalParkEncounter, bool)`
 
 GetPalParkEncountersOk returns a tuple with the PalParkEncounters field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPalParkEncounters
 
-`func (o *PokemonSpeciesDetail) SetPalParkEncounters(v []PokemonSpeciesDetailPalParkEncountersInner)`
+`func (o *PokemonSpeciesDetail) SetPalParkEncounters(v []PokemonSpeciesPalParkEncounter)`
 
 SetPalParkEncounters sets PalParkEncounters field to given value.
 
@@ -653,40 +673,40 @@ SetFlavorTextEntries sets FlavorTextEntries field to given value.
 
 ### GetGenera
 
-`func (o *PokemonSpeciesDetail) GetGenera() []PokemonSpeciesDetailGeneraInner`
+`func (o *PokemonSpeciesDetail) GetGenera() []PokemonSpeciesGenus`
 
 GetGenera returns the Genera field if non-nil, zero value otherwise.
 
 ### GetGeneraOk
 
-`func (o *PokemonSpeciesDetail) GetGeneraOk() (*[]PokemonSpeciesDetailGeneraInner, bool)`
+`func (o *PokemonSpeciesDetail) GetGeneraOk() (*[]PokemonSpeciesGenus, bool)`
 
 GetGeneraOk returns a tuple with the Genera field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetGenera
 
-`func (o *PokemonSpeciesDetail) SetGenera(v []PokemonSpeciesDetailGeneraInner)`
+`func (o *PokemonSpeciesDetail) SetGenera(v []PokemonSpeciesGenus)`
 
 SetGenera sets Genera field to given value.
 
 
 ### GetVarieties
 
-`func (o *PokemonSpeciesDetail) GetVarieties() []PokemonSpeciesDetailVarietiesInner`
+`func (o *PokemonSpeciesDetail) GetVarieties() []PokemonSpeciesVariety`
 
 GetVarieties returns the Varieties field if non-nil, zero value otherwise.
 
 ### GetVarietiesOk
 
-`func (o *PokemonSpeciesDetail) GetVarietiesOk() (*[]PokemonSpeciesDetailVarietiesInner, bool)`
+`func (o *PokemonSpeciesDetail) GetVarietiesOk() (*[]PokemonSpeciesVariety, bool)`
 
 GetVarietiesOk returns a tuple with the Varieties field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVarieties
 
-`func (o *PokemonSpeciesDetail) SetVarieties(v []PokemonSpeciesDetailVarietiesInner)`
+`func (o *PokemonSpeciesDetail) SetVarieties(v []PokemonSpeciesVariety)`
 
 SetVarieties sets Varieties field to given value.
 

@@ -30,7 +30,6 @@ public:
     * Machines are the representation of items that teach moves to Pokémon. They vary from version to version, so it is not certain that one specific TM or HM corresponds to a single Machine.
     * \param limit Number of results to return per page.
     * \param offset The initial index from which to return the results.
-    * \param q > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
     */
     Response<
                 PaginatedMachineSummaryList
@@ -41,9 +40,6 @@ public:
             , 
             
             int offset
-            , 
-            
-            std::string q
             
     );
     /**

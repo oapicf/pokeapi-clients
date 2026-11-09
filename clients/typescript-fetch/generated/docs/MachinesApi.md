@@ -11,7 +11,7 @@ All URIs are relative to *https://pokeapi.co*
 
 ## machineList
 
-> PaginatedMachineSummaryList machineList(limit, offset, q)
+> PaginatedMachineSummaryList machineList(limit, offset)
 
 List machines
 
@@ -28,22 +28,13 @@ import type { MachineListRequest } from '';
 
 async function example() {
   console.log("🚀 Testing  SDK...");
-  const config = new Configuration({ 
-    // To configure HTTP basic authorization: basicAuth
-    username: "YOUR USERNAME",
-    password: "YOUR PASSWORD",
-    // To configure API key authorization: cookieAuth
-    apiKey: "YOUR API KEY",
-  });
-  const api = new MachinesApi(config);
+  const api = new MachinesApi();
 
   const body = {
     // number | Number of results to return per page. (optional)
     limit: 56,
     // number | The initial index from which to return the results. (optional)
     offset: 56,
-    // string | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
-    q: q_example,
   } satisfies MachineListRequest;
 
   try {
@@ -65,7 +56,6 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **limit** | `number` | Number of results to return per page. | [Optional] [Defaults to `undefined`] |
 | **offset** | `number` | The initial index from which to return the results. | [Optional] [Defaults to `undefined`] |
-| **q** | `string` | &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -73,7 +63,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -108,18 +98,11 @@ import type { MachineRetrieveRequest } from '';
 
 async function example() {
   console.log("🚀 Testing  SDK...");
-  const config = new Configuration({ 
-    // To configure HTTP basic authorization: basicAuth
-    username: "YOUR USERNAME",
-    password: "YOUR PASSWORD",
-    // To configure API key authorization: cookieAuth
-    apiKey: "YOUR API KEY",
-  });
-  const api = new MachinesApi(config);
+  const api = new MachinesApi();
 
   const body = {
     // string | This parameter can be a string or an integer.
-    id: id_example,
+    id: 1,
   } satisfies MachineRetrieveRequest;
 
   try {
@@ -147,7 +130,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

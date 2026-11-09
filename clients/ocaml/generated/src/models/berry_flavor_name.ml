@@ -15,13 +15,15 @@
                 
                 
                 ; [@key "name"]
-                                              language: Language_summary.t
+                    (** The localized name for an API resource in a specific language. *)
+                                      language: Language_summary.t
                   
                   
                 
                 
                 ; [@key "language"]
-                        } [@@deriving yojson { strict = false }, show, eq ];;
+                    (** The language this name is in. *)
+                } [@@deriving yojson { strict = false }, show, eq ];;
         
         let create (name : string) (language : Language_summary.t) : t = {
             name = name;

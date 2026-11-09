@@ -1,0 +1,46 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server PokemonAbility"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a PokemonAbility"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  AbilitySummary = openapi_server.resourceTypes.AbilitySummary
+}
+resourceTypes {
+
+  PokemonAbility {
+    title = PokemonAbility
+    description = PokemonAbility
+    derivedFrom = Root
+    properties {
+        is_hidden {
+          type =  boolean
+          description = "Whether or not this is a hidden ability."
+          optional = false
+        }
+        slot {
+          type =  integer
+          description = "The slot this ability occupies in this Pokémon species."
+          optional = true
+        }
+        ability {
+          type = AbilitySummary
+          description = "The ability the Pokémon may have."
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  PokemonAbility {
+    title = PokemonAbility
+    description = PokemonAbility
+    implements = openapi_server.resourceTypes.PokemonAbility
+
+  }
+}

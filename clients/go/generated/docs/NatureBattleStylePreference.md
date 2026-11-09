@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**LowHpPreference** | **int32** |  | 
-**HighHpPreference** | **int32** |  | 
-**MoveBattleStyle** | [**MoveBattleStyleSummary**](MoveBattleStyleSummary.md) |  | 
+**LowHpPreference** | **int32** | Chance of using the move, in percent, if HP is under one half. | 
+**HighHpPreference** | **int32** | Chance of using the move, in percent, if HP is over one half. | 
+**MoveBattleStyle** | [**MoveBattleStyleSummary**](MoveBattleStyleSummary.md) | The move battle style. | 
 
 ## Methods
 

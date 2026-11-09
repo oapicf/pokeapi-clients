@@ -10,7 +10,7 @@ All URIs are relative to *https://pokeapi.co*
 
 <a name="machineList"></a>
 # **machineList**
-> PaginatedMachineSummaryList machineList(limit, offset, q)
+> PaginatedMachineSummaryList machineList(limit, offset)
 
 List machines
 
@@ -22,7 +22,6 @@ List machines
 |------------- | ------------- | ------------- | -------------|
 | **limit** | **Integer**| Number of results to return per page. | [optional] [default to null] |
 | **offset** | **Integer**| The initial index from which to return the results. | [optional] [default to null] |
-| **q** | **String**| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional] [default to null] |
 
 ### Return type
 
@@ -30,7 +29,7 @@ List machines
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -57,7 +56,7 @@ Get machine
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

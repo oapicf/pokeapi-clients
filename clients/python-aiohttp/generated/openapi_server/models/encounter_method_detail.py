@@ -55,6 +55,7 @@ class EncounterMethodDetail(Model):
     def id(self):
         """Gets the id of this EncounterMethodDetail.
 
+        The identifier for this resource.
 
         :return: The id of this EncounterMethodDetail.
         :rtype: int
@@ -65,6 +66,7 @@ class EncounterMethodDetail(Model):
     def id(self, id):
         """Sets the id of this EncounterMethodDetail.
 
+        The identifier for this resource.
 
         :param id: The id of this EncounterMethodDetail.
         :type id: int
@@ -78,6 +80,7 @@ class EncounterMethodDetail(Model):
     def name(self):
         """Gets the name of this EncounterMethodDetail.
 
+        The name for this resource.
 
         :return: The name of this EncounterMethodDetail.
         :rtype: str
@@ -88,14 +91,15 @@ class EncounterMethodDetail(Model):
     def name(self, name):
         """Sets the name of this EncounterMethodDetail.
 
+        The name for this resource.
 
         :param name: The name of this EncounterMethodDetail.
         :type name: str
         """
         if name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")
-        if name is not None and len(name) > 100:
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `100`")
+        if name is not None and len(name) > 200:
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `200`")
 
         self._name = name
 
@@ -103,6 +107,7 @@ class EncounterMethodDetail(Model):
     def order(self):
         """Gets the order of this EncounterMethodDetail.
 
+        A good value for sorting.
 
         :return: The order of this EncounterMethodDetail.
         :rtype: int
@@ -113,10 +118,15 @@ class EncounterMethodDetail(Model):
     def order(self, order):
         """Sets the order of this EncounterMethodDetail.
 
+        A good value for sorting.
 
         :param order: The order of this EncounterMethodDetail.
         :type order: int
         """
+        if order is not None and order > 2147483647:
+            raise ValueError("Invalid value for `order`, must be a value less than or equal to `2147483647`")
+        if order is not None and order < -2147483648:
+            raise ValueError("Invalid value for `order`, must be a value greater than or equal to `-2147483648`")
 
         self._order = order
 
@@ -124,6 +134,7 @@ class EncounterMethodDetail(Model):
     def names(self):
         """Gets the names of this EncounterMethodDetail.
 
+        The name of this resource listed in different languages.
 
         :return: The names of this EncounterMethodDetail.
         :rtype: List[EncounterMethodName]
@@ -134,6 +145,7 @@ class EncounterMethodDetail(Model):
     def names(self, names):
         """Sets the names of this EncounterMethodDetail.
 
+        The name of this resource listed in different languages.
 
         :param names: The names of this EncounterMethodDetail.
         :type names: List[EncounterMethodName]

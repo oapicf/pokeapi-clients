@@ -25,12 +25,6 @@ open class LocationAPI {
      List location areas
      - GET /api/v2/location-area/
      - Location areas are sections of areas, such as floors in a building or cave. Each area has its own set of possible Pokémon encounters.
-     - BASIC:
-       - type: http
-       - name: basicAuth
-     - API Key:
-       - type: apiKey sessionid 
-       - name: cookieAuth
      - parameter limit: (query) Number of results to return per page. (optional)
      - parameter offset: (query) The initial index from which to return the results. (optional)
      - parameter apiConfiguration: The configuration for the http request.
@@ -56,7 +50,7 @@ open class LocationAPI {
 
         let localVariableRequestBuilder: RequestBuilder<PaginatedLocationAreaSummaryList>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: false, apiConfiguration: apiConfiguration)
     }
 
     /**
@@ -74,12 +68,6 @@ open class LocationAPI {
      Get location area
      - GET /api/v2/location-area/{id}/
      - Location areas are sections of areas, such as floors in a building or cave. Each area has its own set of possible Pokémon encounters.
-     - BASIC:
-       - type: http
-       - name: basicAuth
-     - API Key:
-       - type: apiKey sessionid 
-       - name: cookieAuth
      - parameter id: (path) A unique integer value identifying this location area. 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<LocationAreaDetail> 
@@ -102,7 +90,7 @@ open class LocationAPI {
 
         let localVariableRequestBuilder: RequestBuilder<LocationAreaDetail>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: false, apiConfiguration: apiConfiguration)
     }
 
     /**
@@ -122,12 +110,6 @@ open class LocationAPI {
      List locations
      - GET /api/v2/location/
      - Locations that can be visited within the games. Locations make up sizable portions of regions, like cities or routes.
-     - BASIC:
-       - type: http
-       - name: basicAuth
-     - API Key:
-       - type: apiKey sessionid 
-       - name: cookieAuth
      - parameter limit: (query) Number of results to return per page. (optional)
      - parameter offset: (query) The initial index from which to return the results. (optional)
      - parameter q: (query) &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
@@ -155,7 +137,7 @@ open class LocationAPI {
 
         let localVariableRequestBuilder: RequestBuilder<PaginatedLocationSummaryList>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: false, apiConfiguration: apiConfiguration)
     }
 
     /**
@@ -173,12 +155,6 @@ open class LocationAPI {
      Get location
      - GET /api/v2/location/{id}/
      - Locations that can be visited within the games. Locations make up sizable portions of regions, like cities or routes.
-     - BASIC:
-       - type: http
-       - name: basicAuth
-     - API Key:
-       - type: apiKey sessionid 
-       - name: cookieAuth
      - parameter id: (path) This parameter can be a string or an integer. 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<LocationDetail> 
@@ -201,7 +177,7 @@ open class LocationAPI {
 
         let localVariableRequestBuilder: RequestBuilder<LocationDetail>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: false, apiConfiguration: apiConfiguration)
     }
 
     /**
@@ -221,12 +197,6 @@ open class LocationAPI {
      List pal park areas
      - GET /api/v2/pal-park-area/
      - Areas used for grouping Pokémon encounters in Pal Park. They're like habitats that are specific to Pal Park.
-     - BASIC:
-       - type: http
-       - name: basicAuth
-     - API Key:
-       - type: apiKey sessionid 
-       - name: cookieAuth
      - parameter limit: (query) Number of results to return per page. (optional)
      - parameter offset: (query) The initial index from which to return the results. (optional)
      - parameter q: (query) &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
@@ -254,7 +224,7 @@ open class LocationAPI {
 
         let localVariableRequestBuilder: RequestBuilder<PaginatedPalParkAreaSummaryList>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: false, apiConfiguration: apiConfiguration)
     }
 
     /**
@@ -272,12 +242,6 @@ open class LocationAPI {
      Get pal park area
      - GET /api/v2/pal-park-area/{id}/
      - Areas used for grouping Pokémon encounters in Pal Park. They're like habitats that are specific to Pal Park.
-     - BASIC:
-       - type: http
-       - name: basicAuth
-     - API Key:
-       - type: apiKey sessionid 
-       - name: cookieAuth
      - parameter id: (path) This parameter can be a string or an integer. 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<PalParkAreaDetail> 
@@ -300,7 +264,7 @@ open class LocationAPI {
 
         let localVariableRequestBuilder: RequestBuilder<PalParkAreaDetail>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: false, apiConfiguration: apiConfiguration)
     }
 
     /**
@@ -320,12 +284,6 @@ open class LocationAPI {
      List regions
      - GET /api/v2/region/
      - A region is an organized area of the Pokémon world. Most often, the main difference between regions is the species of Pokémon that can be encountered within them.
-     - BASIC:
-       - type: http
-       - name: basicAuth
-     - API Key:
-       - type: apiKey sessionid 
-       - name: cookieAuth
      - parameter limit: (query) Number of results to return per page. (optional)
      - parameter offset: (query) The initial index from which to return the results. (optional)
      - parameter q: (query) &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
@@ -353,7 +311,7 @@ open class LocationAPI {
 
         let localVariableRequestBuilder: RequestBuilder<PaginatedRegionSummaryList>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: false, apiConfiguration: apiConfiguration)
     }
 
     /**
@@ -371,12 +329,6 @@ open class LocationAPI {
      Get region
      - GET /api/v2/region/{id}/
      - A region is an organized area of the Pokémon world. Most often, the main difference between regions is the species of Pokémon that can be encountered within them.
-     - BASIC:
-       - type: http
-       - name: basicAuth
-     - API Key:
-       - type: apiKey sessionid 
-       - name: cookieAuth
      - parameter id: (path) This parameter can be a string or an integer. 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<RegionDetail> 
@@ -399,6 +351,6 @@ open class LocationAPI {
 
         let localVariableRequestBuilder: RequestBuilder<RegionDetail>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: false, apiConfiguration: apiConfiguration)
     }
 }

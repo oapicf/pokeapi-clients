@@ -9,10 +9,10 @@ Name | Type
 `id` | number
 `name` | string
 `gameIndex` | number
-`encounterMethodRates` | [Array&lt;LocationAreaDetailEncounterMethodRatesInner&gt;](LocationAreaDetailEncounterMethodRatesInner.md)
+`encounterMethodRates` | [Array&lt;LocationAreaEncounterRate&gt;](LocationAreaEncounterRate.md)
 `location` | [LocationSummary](LocationSummary.md)
 `names` | [Array&lt;LocationAreaName&gt;](LocationAreaName.md)
-`pokemonEncounters` | [Array&lt;LocationAreaDetailPokemonEncountersInner&gt;](LocationAreaDetailPokemonEncountersInner.md)
+`pokemonEncounters` | [Array&lt;LocationAreaPokemonEncounter&gt;](LocationAreaPokemonEncounter.md)
 
 ## Example
 

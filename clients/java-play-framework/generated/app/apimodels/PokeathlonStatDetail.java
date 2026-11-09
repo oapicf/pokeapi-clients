@@ -1,6 +1,6 @@
 package apimodels;
 
-import apimodels.PokeathlonStatDetailAffectingNatures;
+import apimodels.PokeathlonStatAffectingNatures;
 import apimodels.PokeathlonStatName;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -14,7 +14,7 @@ import javax.validation.Valid;
 /**
  * PokeathlonStatDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-10-25T05:48:13.486809836Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-11-09T13:49:31.462302702Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class PokeathlonStatDetail   {
   @JsonProperty("id")
@@ -24,7 +24,7 @@ public class PokeathlonStatDetail   {
 
   @JsonProperty("name")
   @NotNull
-@Size(max=100)
+@Size(max=200)
 
   private String name;
 
@@ -32,7 +32,7 @@ public class PokeathlonStatDetail   {
   @NotNull
 @Valid
 
-  private PokeathlonStatDetailAffectingNatures affectingNatures;
+  private PokeathlonStatAffectingNatures affectingNatures;
 
   @JsonProperty("names")
   @NotNull
@@ -46,7 +46,7 @@ public class PokeathlonStatDetail   {
   }
 
    /**
-   * Get id
+   * The identifier for this resource.
    * @return id
   **/
   public Integer getId() {
@@ -63,7 +63,7 @@ public class PokeathlonStatDetail   {
   }
 
    /**
-   * Get name
+   * The name for this resource.
    * @return name
   **/
   public String getName() {
@@ -74,20 +74,20 @@ public class PokeathlonStatDetail   {
     this.name = name;
   }
 
-  public PokeathlonStatDetail affectingNatures(PokeathlonStatDetailAffectingNatures affectingNatures) {
+  public PokeathlonStatDetail affectingNatures(PokeathlonStatAffectingNatures affectingNatures) {
     this.affectingNatures = affectingNatures;
     return this;
   }
 
    /**
-   * Get affectingNatures
+   * A detail of natures which affect this Pokéathlon stat positively or negatively.
    * @return affectingNatures
   **/
-  public PokeathlonStatDetailAffectingNatures getAffectingNatures() {
+  public PokeathlonStatAffectingNatures getAffectingNatures() {
     return affectingNatures;
   }
 
-  public void setAffectingNatures(PokeathlonStatDetailAffectingNatures affectingNatures) {
+  public void setAffectingNatures(PokeathlonStatAffectingNatures affectingNatures) {
     this.affectingNatures = affectingNatures;
   }
 
@@ -105,7 +105,7 @@ public class PokeathlonStatDetail   {
   }
 
    /**
-   * Get names
+   * The name of this resource listed in different languages.
    * @return names
   **/
   public List<@Valid PokeathlonStatName> getNames() {

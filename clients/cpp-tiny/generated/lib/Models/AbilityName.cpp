@@ -7,7 +7,7 @@ using namespace Tiny;
 AbilityName::AbilityName()
 {
 	name = std::string();
-	language = LanguageSummary();
+	language = null;
 }
 
 AbilityName::AbilityName(std::string jsonString)

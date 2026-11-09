@@ -7,6 +7,7 @@
 #pragma once
 // System headers
 #include <nlohmann/json.hpp>
+#include <optional>
 #include <cstdint>
 #include <vector>
 #include "PokedexSummary.h"

@@ -12,13 +12,15 @@ part 'pokemon_dex_entry.g.dart';
 /// PokemonDexEntry
 ///
 /// Properties:
-/// * [entryNumber] 
-/// * [pokedex] 
+/// * [entryNumber] - The index number within the Pokédex.
+/// * [pokedex] - The Pokédex the referenced Pokémon species can be found in.
 @BuiltValue()
 abstract class PokemonDexEntry implements Built<PokemonDexEntry, PokemonDexEntryBuilder> {
+  /// The index number within the Pokédex.
   @BuiltValueField(wireName: r'entry_number')
   int get entryNumber;
 
+  /// The Pokédex the referenced Pokémon species can be found in.
   @BuiltValueField(wireName: r'pokedex')
   PokedexSummary get pokedex;
 

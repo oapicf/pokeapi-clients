@@ -7,14 +7,26 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { PalParkAreaDetailPokemonEncountersInner } from './palParkAreaDetailPokemonEncountersInner';
+import { PalParkEncounter } from './palParkEncounter';
 import { PalParkAreaName } from './palParkAreaName';
 
 
 export interface PalParkAreaDetail { 
+    /**
+     * The identifier for this resource.
+     */
     readonly id: number;
+    /**
+     * The name for this resource.
+     */
     name: string;
+    /**
+     * The name of this resource listed in different languages.
+     */
     readonly names: Array<PalParkAreaName>;
-    readonly pokemon_encounters: Array<PalParkAreaDetailPokemonEncountersInner>;
+    /**
+     * A list of Pokémon encountered in thi pal park area along with details.
+     */
+    readonly pokemon_encounters: Array<PalParkEncounter>;
 }
 

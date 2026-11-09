@@ -17,8 +17,16 @@ class Experience {
     required this.experience,
   });
 
+  /// The level gained.
+  ///
+  /// Minimum value: -2147483648
+  /// Maximum value: 2147483647
   int level;
 
+  /// The amount of experience required to reach the referenced level.
+  ///
+  /// Minimum value: -2147483648
+  /// Maximum value: 2147483647
   int experience;
 
   @override

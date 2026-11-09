@@ -3,6 +3,7 @@ namespace OpenAPI.Model
 open System
 open System.Collections.Generic
 open OpenAPI.Model.ItemCategorySummary
+open OpenAPI.Model.string option
 
 module PaginatedItemCategorySummaryList =
 
@@ -11,8 +12,8 @@ module PaginatedItemCategorySummaryList =
 
   type PaginatedItemCategorySummaryList = {
     Count : int;
-    Next : string;
-    Previous : string;
+    Next : string option;
+    Previous : string option;
     Results : ItemCategorySummary[];
   }
   //#endregion

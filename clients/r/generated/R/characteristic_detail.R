@@ -7,11 +7,11 @@
 #' @title CharacteristicDetail
 #' @description CharacteristicDetail Class
 #' @format An \code{R6Class} generator object
-#' @field id  integer
-#' @field gene_modulo  integer
-#' @field possible_values  list(integer)
-#' @field highest_stat  \link{StatSummary}
-#' @field descriptions  list(\link{CharacteristicDescription})
+#' @field id The identifier for this resource. integer
+#' @field gene_modulo The remainder of the highest stat/IV divided by 5. integer
+#' @field possible_values The possible values of the highest stat that would result in a Pokémon recieving this characteristic when divided by 5. list(integer)
+#' @field highest_stat The stat which results in this characteristic. \link{StatSummary}
+#' @field descriptions The descriptions of this characteristic listed in different languages. list(\link{CharacteristicDescription})
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -27,11 +27,11 @@ CharacteristicDetail <- R6::R6Class(
     #' @description
     #' Initialize a new CharacteristicDetail class.
     #'
-    #' @param id id
-    #' @param gene_modulo gene_modulo
-    #' @param possible_values possible_values
-    #' @param highest_stat highest_stat
-    #' @param descriptions descriptions
+    #' @param id The identifier for this resource.
+    #' @param gene_modulo The remainder of the highest stat/IV divided by 5.
+    #' @param possible_values The possible values of the highest stat that would result in a Pokémon recieving this characteristic when divided by 5.
+    #' @param highest_stat The stat which results in this characteristic.
+    #' @param descriptions The descriptions of this characteristic listed in different languages.
     #' @param ... Other optional arguments.
     initialize = function(`id`, `gene_modulo`, `possible_values`, `highest_stat`, `descriptions`, ...) {
       if (!missing(`id`)) {

@@ -23,17 +23,18 @@
 
 package org.openapitools.client.models
 
-import org.openapitools.client.models.AbilityDetailPokemonInnerPokemon
+import org.openapitools.client.models.EvolutionChainSummary
+import org.openapitools.client.models.ItemAttributeSummary
 import org.openapitools.client.models.ItemCategorySummary
-import org.openapitools.client.models.ItemDetailBabyTriggerFor
-import org.openapitools.client.models.ItemDetailHeldByPokemonInner
-import org.openapitools.client.models.ItemDetailMachinesInner
-import org.openapitools.client.models.ItemDetailSprites
 import org.openapitools.client.models.ItemEffectText
 import org.openapitools.client.models.ItemFlavorText
 import org.openapitools.client.models.ItemFlingEffectSummary
 import org.openapitools.client.models.ItemGameIndex
+import org.openapitools.client.models.ItemMachine
 import org.openapitools.client.models.ItemName
+import org.openapitools.client.models.ItemPrice
+import org.openapitools.client.models.ItemSprites
+import org.openapitools.client.models.PokemonHeldItem
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -41,68 +42,83 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param id 
- * @param name 
- * @param flingEffect 
- * @param attributes 
- * @param category 
- * @param effectEntries 
- * @param flavorTextEntries 
- * @param gameIndices 
- * @param names 
- * @param heldByPokemon 
- * @param sprites 
- * @param babyTriggerFor 
- * @param machines 
- * @param cost 
- * @param flingPower 
+ * @param id The identifier for this resource.
+ * @param name The name for this resource.
+ * @param flingEffect The effect of the move Fling when used with this item.
+ * @param attributes A list of attributes this item has.
+ * @param category The category of items this item falls into.
+ * @param effectEntries The effect of this ability listed in different languages.
+ * @param flavorTextEntries The flavor text of this ability listed in different languages.
+ * @param gameIndices A list of game indices relevent to this item by generation.
+ * @param prices Purchase and sell prices by currency and version group. Prices may be null when the item cannot be bought or sold.
+ * @param names The name of this item listed in different languages.
+ * @param heldByPokemon A list of Pokémon that might be found in the wild holding this item.
+ * @param sprites A set of sprites used to depict this item in the game.
+ * @param babyTriggerFor An evolution chain this item requires to produce a bay during mating.
+ * @param machines A list of the machines related to this item.
+ * @param flingPower The power of the move Fling when used with this item.
  */
 
 
 data class ItemDetail (
 
+    /* The identifier for this resource. */
     @Json(name = "id")
     val id: kotlin.Int,
 
+    /* The name for this resource. */
     @Json(name = "name")
     val name: kotlin.String,
 
+    /* The effect of the move Fling when used with this item. */
     @Json(name = "fling_effect")
-    val flingEffect: ItemFlingEffectSummary,
+    val flingEffect: ItemFlingEffectSummary?,
 
+    /* A list of attributes this item has. */
     @Json(name = "attributes")
-    val attributes: kotlin.collections.List<AbilityDetailPokemonInnerPokemon>,
+    val attributes: kotlin.collections.List<ItemAttributeSummary>,
 
+    /* The category of items this item falls into. */
     @Json(name = "category")
     val category: ItemCategorySummary,
 
+    /* The effect of this ability listed in different languages. */
     @Json(name = "effect_entries")
     val effectEntries: kotlin.collections.List<ItemEffectText>,
 
+    /* The flavor text of this ability listed in different languages. */
     @Json(name = "flavor_text_entries")
     val flavorTextEntries: kotlin.collections.List<ItemFlavorText>,
 
+    /* A list of game indices relevent to this item by generation. */
     @Json(name = "game_indices")
     val gameIndices: kotlin.collections.List<ItemGameIndex>,
 
+    /* Purchase and sell prices by currency and version group. Prices may be null when the item cannot be bought or sold. */
+    @Json(name = "prices")
+    val prices: kotlin.collections.List<ItemPrice>,
+
+    /* The name of this item listed in different languages. */
     @Json(name = "names")
     val names: kotlin.collections.List<ItemName>,
 
+    /* A list of Pokémon that might be found in the wild holding this item. */
     @Json(name = "held_by_pokemon")
-    val heldByPokemon: kotlin.collections.List<ItemDetailHeldByPokemonInner>,
+    val heldByPokemon: kotlin.collections.List<PokemonHeldItem>,
 
+    /* A set of sprites used to depict this item in the game. */
     @Json(name = "sprites")
-    val sprites: ItemDetailSprites,
+    val sprites: ItemSprites,
 
+    /* An evolution chain this item requires to produce a bay during mating. */
     @Json(name = "baby_trigger_for")
-    val babyTriggerFor: ItemDetailBabyTriggerFor,
+    val babyTriggerFor: EvolutionChainSummary?,
 
+    /* A list of the machines related to this item. */
     @Json(name = "machines")
-    val machines: kotlin.collections.List<ItemDetailMachinesInner>,
+    val machines: kotlin.collections.List<ItemMachine>,
 
-    @Json(name = "cost")
-    val cost: kotlin.Int? = null,
-
+    /* The power of the move Fling when used with this item. */
     @Json(name = "fling_power")
     val flingPower: kotlin.Int? = null
 

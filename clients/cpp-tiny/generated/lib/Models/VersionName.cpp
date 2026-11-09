@@ -7,7 +7,7 @@ using namespace Tiny;
 VersionName::VersionName()
 {
 	name = std::string();
-	language = LanguageSummary();
+	language = null;
 }
 
 VersionName::VersionName(std::string jsonString)

@@ -57,6 +57,7 @@ class PokemonStat(Model):
     def base_stat(self) -> int:
         """Gets the base_stat of this PokemonStat.
 
+        The base value of the stat.  # noqa: E501
 
         :return: The base_stat of this PokemonStat.
         :rtype: int
@@ -67,12 +68,17 @@ class PokemonStat(Model):
     def base_stat(self, base_stat: int):
         """Sets the base_stat of this PokemonStat.
 
+        The base value of the stat.  # noqa: E501
 
         :param base_stat: The base_stat of this PokemonStat.
         :type base_stat: int
         """
         if base_stat is None:
             raise ValueError("Invalid value for `base_stat`, must not be `None`")  # noqa: E501
+        if base_stat is not None and base_stat > 2147483647:  # noqa: E501
+            raise ValueError("Invalid value for `base_stat`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if base_stat is not None and base_stat < -2147483648:  # noqa: E501
+            raise ValueError("Invalid value for `base_stat`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._base_stat = base_stat
 
@@ -80,6 +86,7 @@ class PokemonStat(Model):
     def effort(self) -> int:
         """Gets the effort of this PokemonStat.
 
+        The effort points (EV) the Pokémon has in the stat.  # noqa: E501
 
         :return: The effort of this PokemonStat.
         :rtype: int
@@ -90,12 +97,17 @@ class PokemonStat(Model):
     def effort(self, effort: int):
         """Sets the effort of this PokemonStat.
 
+        The effort points (EV) the Pokémon has in the stat.  # noqa: E501
 
         :param effort: The effort of this PokemonStat.
         :type effort: int
         """
         if effort is None:
             raise ValueError("Invalid value for `effort`, must not be `None`")  # noqa: E501
+        if effort is not None and effort > 2147483647:  # noqa: E501
+            raise ValueError("Invalid value for `effort`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if effort is not None and effort < -2147483648:  # noqa: E501
+            raise ValueError("Invalid value for `effort`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._effort = effort
 
@@ -103,6 +115,7 @@ class PokemonStat(Model):
     def stat(self) -> StatSummary:
         """Gets the stat of this PokemonStat.
 
+        The stat the Pokémon has.  # noqa: E501
 
         :return: The stat of this PokemonStat.
         :rtype: StatSummary
@@ -113,6 +126,7 @@ class PokemonStat(Model):
     def stat(self, stat: StatSummary):
         """Sets the stat of this PokemonStat.
 
+        The stat the Pokémon has.  # noqa: E501
 
         :param stat: The stat of this PokemonStat.
         :type stat: StatSummary

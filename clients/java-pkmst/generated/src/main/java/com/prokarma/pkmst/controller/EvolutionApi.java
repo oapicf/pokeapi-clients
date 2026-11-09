@@ -7,8 +7,10 @@ package com.prokarma.pkmst.controller;
 
 import com.prokarma.pkmst.model.EvolutionChainDetail;
 import com.prokarma.pkmst.model.EvolutionTriggerDetail;
+import com.prokarma.pkmst.model.EvolutionVariableDetail;
 import com.prokarma.pkmst.model.PaginatedEvolutionChainSummaryList;
 import com.prokarma.pkmst.model.PaginatedEvolutionTriggerSummaryList;
+import com.prokarma.pkmst.model.PaginatedEvolutionVariableSummaryList;
 
 import io.swagger.annotations.*;
 import org.springframework.http.ResponseEntity;
@@ -22,16 +24,11 @@ import java.util.List;
  * @author pkmst
  *
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-10-25T05:48:09.645019047Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-11-09T13:49:28.343088631Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 @Api(value = "Evolution", description = "the Evolution API")
 public interface EvolutionApi {
 
-    @ApiOperation(value = "List evolution chains", notes = "Evolution chains are essentially family trees. They start with the lowest stage within a family and detail evolution conditions for each as well as Pokémon they can evolve into up through the hierarchy.", response = PaginatedEvolutionChainSummaryList.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "evolution", })
+    @ApiOperation(value = "List evolution chains", notes = "Evolution chains are essentially family trees. They start with the lowest stage within a family and detail evolution conditions for each as well as Pokémon they can evolve into up through the hierarchy.", response = PaginatedEvolutionChainSummaryList.class, tags={ "evolution", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedEvolutionChainSummaryList.class) })
     @RequestMapping(
@@ -39,15 +36,10 @@ public interface EvolutionApi {
         value = "/api/v2/evolution-chain/",
         produces = { "application/json" }
     )
-    ResponseEntity<PaginatedEvolutionChainSummaryList> evolutionChainList(@ApiParam(value = "Number of results to return per page.")  @RequestParam(value = "limit", required = false) Integer limit,@ApiParam(value = "The initial index from which to return the results.")  @RequestParam(value = "offset", required = false) Integer offset,@ApiParam(value = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")  @RequestParam(value = "q", required = false) String q, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
+    ResponseEntity<PaginatedEvolutionChainSummaryList> evolutionChainList(@ApiParam(value = "Number of results to return per page.")  @RequestParam(value = "limit", required = false) Integer limit,@ApiParam(value = "The initial index from which to return the results.")  @RequestParam(value = "offset", required = false) Integer offset, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "Get evolution chain", notes = "Evolution chains are essentially family trees. They start with the lowest stage within a family and detail evolution conditions for each as well as Pokémon they can evolve into up through the hierarchy.", response = EvolutionChainDetail.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "evolution", })
+    @ApiOperation(value = "Get evolution chain", notes = "Evolution chains are essentially family trees. They start with the lowest stage within a family and detail evolution conditions for each as well as Pokémon they can evolve into up through the hierarchy.", response = EvolutionChainDetail.class, tags={ "evolution", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = EvolutionChainDetail.class) })
     @RequestMapping(
@@ -58,12 +50,7 @@ public interface EvolutionApi {
     ResponseEntity<EvolutionChainDetail> evolutionChainRetrieve(@ApiParam(value = "This parameter can be a string or an integer.",required=true ) @PathVariable("id") String id, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "List evolution triggers", notes = "Evolution triggers are the events and conditions that cause a Pokémon to evolve. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Methods_of_evolution) for greater detail.", response = PaginatedEvolutionTriggerSummaryList.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "evolution", })
+    @ApiOperation(value = "List evolution triggers", notes = "Evolution triggers are the events and conditions that cause a Pokémon to evolve. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Methods_of_evolution) for greater detail.", response = PaginatedEvolutionTriggerSummaryList.class, tags={ "evolution", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedEvolutionTriggerSummaryList.class) })
     @RequestMapping(
@@ -74,12 +61,7 @@ public interface EvolutionApi {
     ResponseEntity<PaginatedEvolutionTriggerSummaryList> evolutionTriggerList(@ApiParam(value = "Number of results to return per page.")  @RequestParam(value = "limit", required = false) Integer limit,@ApiParam(value = "The initial index from which to return the results.")  @RequestParam(value = "offset", required = false) Integer offset,@ApiParam(value = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")  @RequestParam(value = "q", required = false) String q, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "Get evolution trigger", notes = "Evolution triggers are the events and conditions that cause a Pokémon to evolve. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Methods_of_evolution) for greater detail.", response = EvolutionTriggerDetail.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "evolution", })
+    @ApiOperation(value = "Get evolution trigger", notes = "Evolution triggers are the events and conditions that cause a Pokémon to evolve. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Methods_of_evolution) for greater detail.", response = EvolutionTriggerDetail.class, tags={ "evolution", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = EvolutionTriggerDetail.class) })
     @RequestMapping(
@@ -88,5 +70,27 @@ public interface EvolutionApi {
         produces = { "application/json" }
     )
     ResponseEntity<EvolutionTriggerDetail> evolutionTriggerRetrieve(@ApiParam(value = "This parameter can be a string or an integer.",required=true ) @PathVariable("id") String id, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
+
+
+    @ApiOperation(value = "List evolution variables", notes = "Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.", response = PaginatedEvolutionVariableSummaryList.class, tags={ "evolution", })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "", response = PaginatedEvolutionVariableSummaryList.class) })
+    @RequestMapping(
+        method = RequestMethod.GET,
+        value = "/api/v2/evolution-variable/",
+        produces = { "application/json" }
+    )
+    ResponseEntity<PaginatedEvolutionVariableSummaryList> evolutionVariableList(@ApiParam(value = "Number of results to return per page.")  @RequestParam(value = "limit", required = false) Integer limit,@ApiParam(value = "The initial index from which to return the results.")  @RequestParam(value = "offset", required = false) Integer offset,@ApiParam(value = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")  @RequestParam(value = "q", required = false) String q, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
+
+
+    @ApiOperation(value = "Get evolution variable", notes = "Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.", response = EvolutionVariableDetail.class, tags={ "evolution", })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "", response = EvolutionVariableDetail.class) })
+    @RequestMapping(
+        method = RequestMethod.GET,
+        value = "/api/v2/evolution-variable/{id}/",
+        produces = { "application/json" }
+    )
+    ResponseEntity<EvolutionVariableDetail> evolutionVariableRetrieve(@ApiParam(value = "This parameter can be a string or an integer.",required=true ) @PathVariable("id") String id, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 }

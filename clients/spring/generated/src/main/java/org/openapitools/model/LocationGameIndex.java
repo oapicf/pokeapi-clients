@@ -20,7 +20,7 @@ import jakarta.annotation.Generated;
  * LocationGameIndex
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-10-25T05:53:37.479908528Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-11-09T13:53:47.069318184Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class LocationGameIndex {
 
   private Integer gameIndex;
@@ -45,11 +45,13 @@ public class LocationGameIndex {
   }
 
   /**
-   * Get gameIndex
+   * The internal id of an API resource within game data.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return gameIndex
    */
-  @NotNull 
-  @Schema(name = "game_index", requiredMode = Schema.RequiredMode.REQUIRED)
+  @NotNull @Min(value = -2147483648) @Max(value = 2147483647) 
+  @Schema(name = "game_index", description = "The internal id of an API resource within game data.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("game_index")
   public Integer getGameIndex() {
     return gameIndex;
@@ -66,11 +68,11 @@ public class LocationGameIndex {
   }
 
   /**
-   * Get generation
+   * The generation relevent to this game index.
    * @return generation
    */
   @NotNull @Valid 
-  @Schema(name = "generation", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "generation", description = "The generation relevent to this game index.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("generation")
   public GenerationSummary getGeneration() {
     return generation;

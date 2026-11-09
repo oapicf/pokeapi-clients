@@ -16,27 +16,42 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class MoveDamageClassDetail  {
   
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The identifier for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
 
   private Integer id;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The name for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The name for this resource.")
 
   private String name;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The description of this resource listed in different languages.
+  */
+  @ApiModelProperty(required = true, value = "The description of this resource listed in different languages.")
 
   private List<@Valid MoveDamageClassDescription> descriptions = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * A list of moves that fall into this damage class.
+  */
+  @ApiModelProperty(required = true, value = "A list of moves that fall into this damage class.")
 
   private List<@Valid MoveSummary> moves = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The name of this resource listed in different languages.
+  */
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
 
   private List<@Valid MoveDamageClassName> names = new ArrayList<>();
  /**
-   * Get id
+   * The identifier for this resource.
    * @return id
   **/
   @JsonProperty("id")
@@ -47,12 +62,12 @@ public class MoveDamageClassDetail  {
 
 
  /**
-   * Get name
+   * The name for this resource.
    * @return name
   **/
   @JsonProperty("name")
   @NotNull
- @Size(max=100)  public String getName() {
+ @Size(max=200)  public String getName() {
     return name;
   }
 
@@ -66,7 +81,7 @@ public class MoveDamageClassDetail  {
   }
 
  /**
-   * Get descriptions
+   * The description of this resource listed in different languages.
    * @return descriptions
   **/
   @JsonProperty("descriptions")
@@ -77,7 +92,7 @@ public class MoveDamageClassDetail  {
 
 
  /**
-   * Get moves
+   * A list of moves that fall into this damage class.
    * @return moves
   **/
   @JsonProperty("moves")
@@ -88,7 +103,7 @@ public class MoveDamageClassDetail  {
 
 
  /**
-   * Get names
+   * The name of this resource listed in different languages.
    * @return names
   **/
   @JsonProperty("names")

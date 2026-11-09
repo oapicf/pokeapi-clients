@@ -3,9 +3,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Effect** | **String** |  | 
-**ShortEffect** | **String** |  | 
-**Language** | [**LanguageSummary**](LanguageSummary.md) |  | 
+**Effect** | **String** | The localized effect text for an API resource in a specific language. | 
+**ShortEffect** | **String** | The localized effect text in brief. | 
+**Language** | [**LanguageSummary**](LanguageSummary.md) | The language this effect is in. | 
 
 ## Examples
 

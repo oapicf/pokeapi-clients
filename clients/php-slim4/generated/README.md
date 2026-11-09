@@ -182,8 +182,10 @@ Class | Method | HTTP request | Description
 *AbstractEncountersApi* | **encounterMethodRetrieve** | **GET** /api/v2/encounter-method/{id}/ | Get encounter method
 *AbstractEvolutionApi* | **evolutionChainList** | **GET** /api/v2/evolution-chain/ | List evolution chains
 *AbstractEvolutionApi* | **evolutionTriggerList** | **GET** /api/v2/evolution-trigger/ | List evolution triggers
+*AbstractEvolutionApi* | **evolutionVariableList** | **GET** /api/v2/evolution-variable/ | List evolution variables
 *AbstractEvolutionApi* | **evolutionChainRetrieve** | **GET** /api/v2/evolution-chain/{id}/ | Get evolution chain
 *AbstractEvolutionApi* | **evolutionTriggerRetrieve** | **GET** /api/v2/evolution-trigger/{id}/ | Get evolution trigger
+*AbstractEvolutionApi* | **evolutionVariableRetrieve** | **GET** /api/v2/evolution-variable/{id}/ | Get evolution variable
 *AbstractGamesApi* | **generationList** | **GET** /api/v2/generation/ | List genrations
 *AbstractGamesApi* | **pokedexList** | **GET** /api/v2/pokedex/ | List pokedex
 *AbstractGamesApi* | **versionGroupList** | **GET** /api/v2/version-group/ | List version groups
@@ -192,11 +194,13 @@ Class | Method | HTTP request | Description
 *AbstractGamesApi* | **pokedexRetrieve** | **GET** /api/v2/pokedex/{id}/ | Get pokedex
 *AbstractGamesApi* | **versionGroupRetrieve** | **GET** /api/v2/version-group/{id}/ | Get version group
 *AbstractGamesApi* | **versionRetrieve** | **GET** /api/v2/version/{id}/ | Get version
+*AbstractItemsApi* | **currencyList** | **GET** /api/v2/currency/ | List currencies
 *AbstractItemsApi* | **itemAttributeList** | **GET** /api/v2/item-attribute/ | List item attributes
 *AbstractItemsApi* | **itemCategoryList** | **GET** /api/v2/item-category/ | List item categories
 *AbstractItemsApi* | **itemFlingEffectList** | **GET** /api/v2/item-fling-effect/ | List item fling effects
 *AbstractItemsApi* | **itemList** | **GET** /api/v2/item/ | List items
 *AbstractItemsApi* | **itemPocketList** | **GET** /api/v2/item-pocket/ | List item pockets
+*AbstractItemsApi* | **currencyRetrieve** | **GET** /api/v2/currency/{id}/ | Get currency
 *AbstractItemsApi* | **itemAttributeRetrieve** | **GET** /api/v2/item-attribute/{id}/ | Get item attribute
 *AbstractItemsApi* | **itemCategoryRetrieve** | **GET** /api/v2/item-category/{id}/ | Get item category
 *AbstractItemsApi* | **itemFlingEffectRetrieve** | **GET** /api/v2/item-fling-effect/{id}/ | Get item fling effect
@@ -224,8 +228,8 @@ Class | Method | HTTP request | Description
 *AbstractMovesApi* | **moveLearnMethodRetrieve** | **GET** /api/v2/move-learn-method/{id}/ | Get move learn method
 *AbstractMovesApi* | **moveRetrieve** | **GET** /api/v2/move/{id}/ | Get move
 *AbstractMovesApi* | **moveTargetRetrieve** | **GET** /api/v2/move-target/{id}/ | Get move target
-*AbstractPokemonApi* | **abilityList** | **GET** /api/v2/ability/ | 
-*AbstractPokemonApi* | **characteristicList** | **GET** /api/v2/characteristic/ | List charecterictics
+*AbstractPokemonApi* | **abilityList** | **GET** /api/v2/ability/ | List abilities
+*AbstractPokemonApi* | **characteristicList** | **GET** /api/v2/characteristic/ | List characteristics
 *AbstractPokemonApi* | **eggGroupList** | **GET** /api/v2/egg-group/ | List egg groups
 *AbstractPokemonApi* | **genderList** | **GET** /api/v2/gender/ | List genders
 *AbstractPokemonApi* | **growthRateList** | **GET** /api/v2/growth-rate/ | List growth rates
@@ -240,7 +244,7 @@ Class | Method | HTTP request | Description
 *AbstractPokemonApi* | **pokemonSpeciesList** | **GET** /api/v2/pokemon-species/ | List pokemon species
 *AbstractPokemonApi* | **statList** | **GET** /api/v2/stat/ | List stats
 *AbstractPokemonApi* | **typeList** | **GET** /api/v2/type/ | List types
-*AbstractPokemonApi* | **abilityRetrieve** | **GET** /api/v2/ability/{id}/ | 
+*AbstractPokemonApi* | **abilityRetrieve** | **GET** /api/v2/ability/{id}/ | Get ability
 *AbstractPokemonApi* | **characteristicRetrieve** | **GET** /api/v2/characteristic/{id}/ | Get characteristic
 *AbstractPokemonApi* | **eggGroupRetrieve** | **GET** /api/v2/egg-group/{id}/ | Get egg group
 *AbstractPokemonApi* | **genderRetrieve** | **GET** /api/v2/gender/{id}/ | Get gender
@@ -257,6 +261,7 @@ Class | Method | HTTP request | Description
 *AbstractPokemonApi* | **statRetrieve** | **GET** /api/v2/stat/{id}/ | Get stat
 *AbstractPokemonApi* | **typeRetrieve** | **GET** /api/v2/type/{id}/ | Get types
 *AbstractUtilityApi* | **languageList** | **GET** /api/v2/language/ | List languages
+*AbstractUtilityApi* | **metaRetrieve** | **GET** /api/v2/meta/ | Get API metadata
 *AbstractUtilityApi* | **languageRetrieve** | **GET** /api/v2/language/{id}/ | Get language
 
 
@@ -265,21 +270,18 @@ Class | Method | HTTP request | Description
 * OpenAPIServer\Model\AbilityChange
 * OpenAPIServer\Model\AbilityChangeEffectText
 * OpenAPIServer\Model\AbilityDetail
-* OpenAPIServer\Model\AbilityDetailPokemonInner
-* OpenAPIServer\Model\AbilityDetailPokemonInnerPokemon
 * OpenAPIServer\Model\AbilityEffectText
 * OpenAPIServer\Model\AbilityFlavorText
 * OpenAPIServer\Model\AbilityName
+* OpenAPIServer\Model\AbilityPokemonDetail
 * OpenAPIServer\Model\AbilitySummary
 * OpenAPIServer\Model\BerryDetail
-* OpenAPIServer\Model\BerryDetailFlavorsInner
-* OpenAPIServer\Model\BerryDetailFlavorsInnerFlavor
 * OpenAPIServer\Model\BerryFirmnessDetail
 * OpenAPIServer\Model\BerryFirmnessName
 * OpenAPIServer\Model\BerryFirmnessSummary
+* OpenAPIServer\Model\BerryFlavorBerryMap
 * OpenAPIServer\Model\BerryFlavorDetail
-* OpenAPIServer\Model\BerryFlavorDetailBerriesInner
-* OpenAPIServer\Model\BerryFlavorDetailBerriesInnerBerry
+* OpenAPIServer\Model\BerryFlavorMap
 * OpenAPIServer\Model\BerryFlavorName
 * OpenAPIServer\Model\BerryFlavorSummary
 * OpenAPIServer\Model\BerrySummary
@@ -293,8 +295,10 @@ Class | Method | HTTP request | Description
 * OpenAPIServer\Model\ContestTypeDetail
 * OpenAPIServer\Model\ContestTypeName
 * OpenAPIServer\Model\ContestTypeSummary
+* OpenAPIServer\Model\CurrencyDetail
+* OpenAPIServer\Model\CurrencyName
+* OpenAPIServer\Model\CurrencySummary
 * OpenAPIServer\Model\EggGroupDetail
-* OpenAPIServer\Model\EggGroupDetailPokemonSpeciesInner
 * OpenAPIServer\Model\EggGroupName
 * OpenAPIServer\Model\EggGroupSummary
 * OpenAPIServer\Model\EncounterConditionDetail
@@ -306,18 +310,21 @@ Class | Method | HTTP request | Description
 * OpenAPIServer\Model\EncounterMethodDetail
 * OpenAPIServer\Model\EncounterMethodName
 * OpenAPIServer\Model\EncounterMethodSummary
+* OpenAPIServer\Model\EncounterPokemonDetail
 * OpenAPIServer\Model\EvolutionChainDetail
-* OpenAPIServer\Model\EvolutionChainDetailChain
-* OpenAPIServer\Model\EvolutionChainDetailChainEvolvesToInner
-* OpenAPIServer\Model\EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
-* OpenAPIServer\Model\EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
+* OpenAPIServer\Model\EvolutionChainLink
 * OpenAPIServer\Model\EvolutionChainSummary
+* OpenAPIServer\Model\EvolutionConditionExpression
 * OpenAPIServer\Model\EvolutionTriggerDetail
 * OpenAPIServer\Model\EvolutionTriggerName
 * OpenAPIServer\Model\EvolutionTriggerSummary
+* OpenAPIServer\Model\EvolutionVariableDescription
+* OpenAPIServer\Model\EvolutionVariableDetail
+* OpenAPIServer\Model\EvolutionVariableName
+* OpenAPIServer\Model\EvolutionVariableSummary
 * OpenAPIServer\Model\Experience
 * OpenAPIServer\Model\GenderDetail
-* OpenAPIServer\Model\GenderDetailPokemonSpeciesDetailsInner
+* OpenAPIServer\Model\GenderPokemonSpecies
 * OpenAPIServer\Model\GenderSummary
 * OpenAPIServer\Model\GenerationDetail
 * OpenAPIServer\Model\GenerationName
@@ -333,32 +340,30 @@ Class | Method | HTTP request | Description
 * OpenAPIServer\Model\ItemCategoryName
 * OpenAPIServer\Model\ItemCategorySummary
 * OpenAPIServer\Model\ItemDetail
-* OpenAPIServer\Model\ItemDetailBabyTriggerFor
-* OpenAPIServer\Model\ItemDetailHeldByPokemonInner
-* OpenAPIServer\Model\ItemDetailHeldByPokemonInnerVersionDetailsInner
-* OpenAPIServer\Model\ItemDetailMachinesInner
-* OpenAPIServer\Model\ItemDetailSprites
 * OpenAPIServer\Model\ItemEffectText
 * OpenAPIServer\Model\ItemFlavorText
 * OpenAPIServer\Model\ItemFlingEffectDetail
 * OpenAPIServer\Model\ItemFlingEffectEffectText
 * OpenAPIServer\Model\ItemFlingEffectSummary
 * OpenAPIServer\Model\ItemGameIndex
+* OpenAPIServer\Model\ItemMachine
 * OpenAPIServer\Model\ItemName
 * OpenAPIServer\Model\ItemPocketDetail
 * OpenAPIServer\Model\ItemPocketName
 * OpenAPIServer\Model\ItemPocketSummary
+* OpenAPIServer\Model\ItemPrice
+* OpenAPIServer\Model\ItemSprites
 * OpenAPIServer\Model\ItemSummary
 * OpenAPIServer\Model\LanguageDetail
 * OpenAPIServer\Model\LanguageName
 * OpenAPIServer\Model\LanguageSummary
 * OpenAPIServer\Model\LocationAreaDetail
-* OpenAPIServer\Model\LocationAreaDetailEncounterMethodRatesInner
-* OpenAPIServer\Model\LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner
-* OpenAPIServer\Model\LocationAreaDetailPokemonEncountersInner
-* OpenAPIServer\Model\LocationAreaDetailPokemonEncountersInnerVersionDetailsInner
-* OpenAPIServer\Model\LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails
+* OpenAPIServer\Model\LocationAreaEncounterDetail
+* OpenAPIServer\Model\LocationAreaEncounterRate
+* OpenAPIServer\Model\LocationAreaEncounterVersionDetail
 * OpenAPIServer\Model\LocationAreaName
+* OpenAPIServer\Model\LocationAreaPokemonEncounter
+* OpenAPIServer\Model\LocationAreaPokemonEncounterVersion
 * OpenAPIServer\Model\LocationAreaSummary
 * OpenAPIServer\Model\LocationDetail
 * OpenAPIServer\Model\LocationGameIndex
@@ -370,19 +375,16 @@ Class | Method | HTTP request | Description
 * OpenAPIServer\Model\MoveBattleStyleName
 * OpenAPIServer\Model\MoveBattleStyleSummary
 * OpenAPIServer\Model\MoveChange
-* OpenAPIServer\Model\MoveChangeEffectEntriesInner
+* OpenAPIServer\Model\MoveComboUsage
+* OpenAPIServer\Model\MoveCombos
 * OpenAPIServer\Model\MoveDamageClassDescription
 * OpenAPIServer\Model\MoveDamageClassDetail
 * OpenAPIServer\Model\MoveDamageClassName
 * OpenAPIServer\Model\MoveDamageClassSummary
 * OpenAPIServer\Model\MoveDetail
-* OpenAPIServer\Model\MoveDetailContestCombos
-* OpenAPIServer\Model\MoveDetailContestCombosNormal
-* OpenAPIServer\Model\MoveDetailEffectChangesInner
-* OpenAPIServer\Model\MoveDetailEffectChangesInnerEffectEntriesInner
-* OpenAPIServer\Model\MoveDetailMachinesInner
-* OpenAPIServer\Model\MoveDetailMachinesInnerMachine
-* OpenAPIServer\Model\MoveDetailStatChangesInner
+* OpenAPIServer\Model\MoveEffectChange
+* OpenAPIServer\Model\MoveEffectChangeEffectText
+* OpenAPIServer\Model\MoveEffectEffectText
 * OpenAPIServer\Model\MoveFlavorText
 * OpenAPIServer\Model\MoveLearnMethodDescription
 * OpenAPIServer\Model\MoveLearnMethodDetail
@@ -395,7 +397,9 @@ Class | Method | HTTP request | Description
 * OpenAPIServer\Model\MoveMetaCategoryDescription
 * OpenAPIServer\Model\MoveMetaCategoryDetail
 * OpenAPIServer\Model\MoveMetaCategorySummary
+* OpenAPIServer\Model\MoveMetaStatChange
 * OpenAPIServer\Model\MoveName
+* OpenAPIServer\Model\MoveStatChange
 * OpenAPIServer\Model\MoveSummary
 * OpenAPIServer\Model\MoveTargetDescription
 * OpenAPIServer\Model\MoveTargetDetail
@@ -403,8 +407,8 @@ Class | Method | HTTP request | Description
 * OpenAPIServer\Model\MoveTargetSummary
 * OpenAPIServer\Model\NatureBattleStylePreference
 * OpenAPIServer\Model\NatureDetail
-* OpenAPIServer\Model\NatureDetailPokeathlonStatChangesInner
 * OpenAPIServer\Model\NatureName
+* OpenAPIServer\Model\NaturePokeathlonStat
 * OpenAPIServer\Model\NatureSummary
 * OpenAPIServer\Model\PaginatedAbilitySummaryList
 * OpenAPIServer\Model\PaginatedBerryFirmnessSummaryList
@@ -413,12 +417,14 @@ Class | Method | HTTP request | Description
 * OpenAPIServer\Model\PaginatedCharacteristicSummaryList
 * OpenAPIServer\Model\PaginatedContestEffectSummaryList
 * OpenAPIServer\Model\PaginatedContestTypeSummaryList
+* OpenAPIServer\Model\PaginatedCurrencySummaryList
 * OpenAPIServer\Model\PaginatedEggGroupSummaryList
 * OpenAPIServer\Model\PaginatedEncounterConditionSummaryList
 * OpenAPIServer\Model\PaginatedEncounterConditionValueSummaryList
 * OpenAPIServer\Model\PaginatedEncounterMethodSummaryList
 * OpenAPIServer\Model\PaginatedEvolutionChainSummaryList
 * OpenAPIServer\Model\PaginatedEvolutionTriggerSummaryList
+* OpenAPIServer\Model\PaginatedEvolutionVariableSummaryList
 * OpenAPIServer\Model\PaginatedGenderSummaryList
 * OpenAPIServer\Model\PaginatedGenerationSummaryList
 * OpenAPIServer\Model\PaginatedGrowthRateSummaryList
@@ -455,75 +461,91 @@ Class | Method | HTTP request | Description
 * OpenAPIServer\Model\PaginatedVersionGroupSummaryList
 * OpenAPIServer\Model\PaginatedVersionSummaryList
 * OpenAPIServer\Model\PalParkAreaDetail
-* OpenAPIServer\Model\PalParkAreaDetailPokemonEncountersInner
 * OpenAPIServer\Model\PalParkAreaName
 * OpenAPIServer\Model\PalParkAreaSummary
+* OpenAPIServer\Model\PalParkEncounter
+* OpenAPIServer\Model\PokeapiMetaResponse
+* OpenAPIServer\Model\PokeathlonStatAffectingNature
+* OpenAPIServer\Model\PokeathlonStatAffectingNatures
 * OpenAPIServer\Model\PokeathlonStatDetail
-* OpenAPIServer\Model\PokeathlonStatDetailAffectingNatures
-* OpenAPIServer\Model\PokeathlonStatDetailAffectingNaturesDecreaseInner
-* OpenAPIServer\Model\PokeathlonStatDetailAffectingNaturesIncreaseInner
 * OpenAPIServer\Model\PokeathlonStatName
 * OpenAPIServer\Model\PokeathlonStatSummary
 * OpenAPIServer\Model\PokedexDescription
 * OpenAPIServer\Model\PokedexDetail
-* OpenAPIServer\Model\PokedexDetailPokemonEntriesInner
 * OpenAPIServer\Model\PokedexName
 * OpenAPIServer\Model\PokedexSummary
+* OpenAPIServer\Model\PokemonAbility
+* OpenAPIServer\Model\PokemonAbilityPast
 * OpenAPIServer\Model\PokemonColorDetail
 * OpenAPIServer\Model\PokemonColorName
 * OpenAPIServer\Model\PokemonColorSummary
+* OpenAPIServer\Model\PokemonCries
 * OpenAPIServer\Model\PokemonDetail
-* OpenAPIServer\Model\PokemonDetailAbilitiesInner
-* OpenAPIServer\Model\PokemonDetailCries
-* OpenAPIServer\Model\PokemonDetailHeldItems
-* OpenAPIServer\Model\PokemonDetailMovesInner
-* OpenAPIServer\Model\PokemonDetailMovesInnerVersionGroupDetailsInner
-* OpenAPIServer\Model\PokemonDetailPastAbilitiesInner
-* OpenAPIServer\Model\PokemonDetailPastTypesInner
-* OpenAPIServer\Model\PokemonDetailSprites
-* OpenAPIServer\Model\PokemonDetailTypesInner
 * OpenAPIServer\Model\PokemonDexEntry
+* OpenAPIServer\Model\PokemonDexNumber
+* OpenAPIServer\Model\PokemonEncounterDetailResponse
+* OpenAPIServer\Model\PokemonEncounterResponse
+* OpenAPIServer\Model\PokemonEncounterVersionDetailResponse
+* OpenAPIServer\Model\PokemonEvolution
+* OpenAPIServer\Model\PokemonEvolutionKnownMove
 * OpenAPIServer\Model\PokemonFormDetail
-* OpenAPIServer\Model\PokemonFormDetailFormNamesInner
-* OpenAPIServer\Model\PokemonFormDetailSprites
+* OpenAPIServer\Model\PokemonFormFlavorText
+* OpenAPIServer\Model\PokemonFormName
+* OpenAPIServer\Model\PokemonFormSprites
 * OpenAPIServer\Model\PokemonFormSummary
+* OpenAPIServer\Model\PokemonFormTriggerCondition
+* OpenAPIServer\Model\PokemonFormType
 * OpenAPIServer\Model\PokemonGameIndex
 * OpenAPIServer\Model\PokemonHabitatDetail
 * OpenAPIServer\Model\PokemonHabitatName
 * OpenAPIServer\Model\PokemonHabitatSummary
+* OpenAPIServer\Model\PokemonHeldItem
+* OpenAPIServer\Model\PokemonHeldItemSummary
+* OpenAPIServer\Model\PokemonHeldItemVersion
+* OpenAPIServer\Model\PokemonMove
+* OpenAPIServer\Model\PokemonMoveVersionGroup
+* OpenAPIServer\Model\PokemonPastAbility
+* OpenAPIServer\Model\PokemonPastStat
+* OpenAPIServer\Model\PokemonPastType
+* OpenAPIServer\Model\PokemonShapeAwesomeName
 * OpenAPIServer\Model\PokemonShapeDetail
-* OpenAPIServer\Model\PokemonShapeDetailAwesomeNamesInner
-* OpenAPIServer\Model\PokemonShapeDetailNamesInner
+* OpenAPIServer\Model\PokemonShapeName
 * OpenAPIServer\Model\PokemonShapeSummary
 * OpenAPIServer\Model\PokemonSpeciesDescription
 * OpenAPIServer\Model\PokemonSpeciesDetail
-* OpenAPIServer\Model\PokemonSpeciesDetailGeneraInner
-* OpenAPIServer\Model\PokemonSpeciesDetailPalParkEncountersInner
-* OpenAPIServer\Model\PokemonSpeciesDetailVarietiesInner
 * OpenAPIServer\Model\PokemonSpeciesFlavorText
+* OpenAPIServer\Model\PokemonSpeciesGenus
+* OpenAPIServer\Model\PokemonSpeciesName
+* OpenAPIServer\Model\PokemonSpeciesPalParkEncounter
 * OpenAPIServer\Model\PokemonSpeciesSummary
+* OpenAPIServer\Model\PokemonSpeciesVariety
+* OpenAPIServer\Model\PokemonSprites
+* OpenAPIServer\Model\PokemonSpritesOther
+* OpenAPIServer\Model\PokemonSpritesOtherDreamWorld
+* OpenAPIServer\Model\PokemonSpritesOtherHome
+* OpenAPIServer\Model\PokemonSpritesOtherOfficialArtwork
+* OpenAPIServer\Model\PokemonSpritesOtherShowdown
 * OpenAPIServer\Model\PokemonStat
 * OpenAPIServer\Model\PokemonSummary
+* OpenAPIServer\Model\PokemonType
 * OpenAPIServer\Model\RegionDetail
 * OpenAPIServer\Model\RegionName
 * OpenAPIServer\Model\RegionSummary
+* OpenAPIServer\Model\StatAffectingMoves
+* OpenAPIServer\Model\StatAffectingNatures
 * OpenAPIServer\Model\StatDetail
-* OpenAPIServer\Model\StatDetailAffectingMoves
-* OpenAPIServer\Model\StatDetailAffectingMovesIncreaseInner
-* OpenAPIServer\Model\StatDetailAffectingNatures
 * OpenAPIServer\Model\StatName
 * OpenAPIServer\Model\StatSummary
 * OpenAPIServer\Model\SuperContestEffectDetail
 * OpenAPIServer\Model\SuperContestEffectFlavorText
 * OpenAPIServer\Model\SuperContestEffectSummary
 * OpenAPIServer\Model\TypeDetail
-* OpenAPIServer\Model\TypeDetailDamageRelations
-* OpenAPIServer\Model\TypeDetailPastDamageRelationsInner
-* OpenAPIServer\Model\TypeDetailPastDamageRelationsInnerDamageRelations
-* OpenAPIServer\Model\TypeDetailPokemonInner
-* OpenAPIServer\Model\TypeDetailPokemonInnerPokemon
-* OpenAPIServer\Model\TypeDetailSpritesValueValue
 * OpenAPIServer\Model\TypeGameIndex
+* OpenAPIServer\Model\TypeGameSprite
+* OpenAPIServer\Model\TypeName
+* OpenAPIServer\Model\TypePastRelationships
+* OpenAPIServer\Model\TypePokemon
+* OpenAPIServer\Model\TypeRelationships
 * OpenAPIServer\Model\TypeSummary
 * OpenAPIServer\Model\VersionDetail
 * OpenAPIServer\Model\VersionGroupDetail
@@ -532,13 +554,3 @@ Class | Method | HTTP request | Description
 * OpenAPIServer\Model\VersionSummary
 
 
-## Authentication
-
-### Security schema `basicAuth`
-> Important! To make Basic authentication work you need to extend [\OpenAPIServer\Auth\AbstractAuthenticator](./lib/Auth/AbstractAuthenticator.php) class by [\OpenAPIServer\Auth\BasicAuthenticator](./src/Auth/BasicAuthenticator.php) class.
-
-### Security schema `cookieAuth`
-> Important! To make ApiKey authentication work you need to extend [\OpenAPIServer\Auth\AbstractAuthenticator](./lib/Auth/AbstractAuthenticator.php) class by [\OpenAPIServer\Auth\ApiKeyAuthenticator](./src/Auth/ApiKeyAuthenticator.php) class.
-
-### Advanced middleware configuration
-Ref to used Slim Token Middleware [dyorg/slim-token-authentication](https://github.com/dyorg/slim-token-authentication/tree/1.x#readme)

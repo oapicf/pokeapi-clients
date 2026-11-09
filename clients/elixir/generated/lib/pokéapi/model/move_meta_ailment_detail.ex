@@ -17,7 +17,7 @@ defmodule PokéAPI.Model.MoveMetaAilmentDetail do
   @type t :: %__MODULE__{
     :id => integer(),
     :name => String.t,
-    :moves => [PokéAPI.Model.AbilityDetailPokemonInnerPokemon.t],
+    :moves => [PokéAPI.Model.MoveSummary.t],
     :names => [PokéAPI.Model.MoveMetaAilmentName.t]
   }
 
@@ -25,7 +25,7 @@ defmodule PokéAPI.Model.MoveMetaAilmentDetail do
 
   def decode(value) do
     value
-     |> Deserializer.deserialize(:moves, :list, PokéAPI.Model.AbilityDetailPokemonInnerPokemon)
+     |> Deserializer.deserialize(:moves, :list, PokéAPI.Model.MoveSummary)
      |> Deserializer.deserialize(:names, :list, PokéAPI.Model.MoveMetaAilmentName)
   end
 end

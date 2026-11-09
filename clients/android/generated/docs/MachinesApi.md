@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## machineList
 
-> PaginatedMachineSummaryList machineList(limit, offset, q)
+> PaginatedMachineSummaryList machineList(limit, offset)
 
 List machines
 
@@ -26,9 +26,8 @@ Machines are the representation of items that teach moves to Pokémon. They vary
 MachinesApi apiInstance = new MachinesApi();
 Integer limit = null; // Integer | Number of results to return per page.
 Integer offset = null; // Integer | The initial index from which to return the results.
-String q = null; // String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
 try {
-    PaginatedMachineSummaryList result = apiInstance.machineList(limit, offset, q);
+    PaginatedMachineSummaryList result = apiInstance.machineList(limit, offset);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MachinesApi#machineList");
@@ -43,7 +42,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **Integer**| Number of results to return per page. | [optional] [default to null]
  **offset** | **Integer**| The initial index from which to return the results. | [optional] [default to null]
- **q** | **String**| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional] [default to null]
 
 ### Return type
 
@@ -51,7 +49,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -74,7 +72,7 @@ Machines are the representation of items that teach moves to Pokémon. They vary
 //import org.openapitools.client.api.MachinesApi;
 
 MachinesApi apiInstance = new MachinesApi();
-String id = null; // String | This parameter can be a string or an integer.
+String id = 1; // String | This parameter can be a string or an integer.
 try {
     MachineDetail result = apiInstance.machineRetrieve(id);
     System.out.println(result);
@@ -97,7 +95,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

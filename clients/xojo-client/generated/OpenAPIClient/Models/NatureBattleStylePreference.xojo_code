@@ -2,16 +2,25 @@
 Protected Class NatureBattleStylePreference
 
 	#tag Property, Flags = &h0
+		#tag Note
+			Chance of using the move, in percent, if HP is under one half.
+		#tag EndNote
 		low_hp_preference As Integer
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			Chance of using the move, in percent, if HP is over one half.
+		#tag EndNote
 		high_hp_preference As Integer
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The move battle style.
+		#tag EndNote
 		move_battle_style As OpenAPIClient.Models.MoveBattleStyleSummary
 	#tag EndProperty
 

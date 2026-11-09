@@ -12,14 +12,20 @@ import java.math.*;
 public class ItemGameIndex implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * The internal id of an API resource within game data.
+   */
   @JsonProperty("game_index")
   private Integer gameIndex;
 
+  /**
+   * The generation relevent to this game index.
+   */
   @JsonProperty("generation")
   private GenerationSummary generation;
 
   /**
-   * 
+   * The internal id of an API resource within game data.
    * @return gameIndex
    */
   public Integer getGameIndex() {
@@ -31,7 +37,7 @@ public class ItemGameIndex implements Serializable {
   }
 
   /**
-   * 
+   * The generation relevent to this game index.
    * @return generation
    */
   public GenerationSummary getGeneration() {

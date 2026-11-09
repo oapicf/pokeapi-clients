@@ -8,10 +8,10 @@
 
 (def paginated-encounter-condition-value-summary-list-data
   {
-   (ds/opt :count) int?
+   (ds/req :count) int?
    (ds/opt :next) string?
    (ds/opt :previous) string?
-   (ds/opt :results) (s/coll-of encounter-condition-value-summary-spec)
+   (ds/req :results) (s/coll-of encounter-condition-value-summary-spec)
    })
 
 (def paginated-encounter-condition-value-summary-list-spec

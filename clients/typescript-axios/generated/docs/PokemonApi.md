@@ -4,9 +4,9 @@ All URIs are relative to *https://pokeapi.co*
 
 |Method | HTTP request | Description|
 |------------- | ------------- | -------------|
-|[**abilityList**](#abilitylist) | **GET** /api/v2/ability/ | |
-|[**abilityRetrieve**](#abilityretrieve) | **GET** /api/v2/ability/{id}/ | |
-|[**characteristicList**](#characteristiclist) | **GET** /api/v2/characteristic/ | List charecterictics|
+|[**abilityList**](#abilitylist) | **GET** /api/v2/ability/ | List abilities|
+|[**abilityRetrieve**](#abilityretrieve) | **GET** /api/v2/ability/{id}/ | Get ability|
+|[**characteristicList**](#characteristiclist) | **GET** /api/v2/characteristic/ | List characteristics|
 |[**characteristicRetrieve**](#characteristicretrieve) | **GET** /api/v2/characteristic/{id}/ | Get characteristic|
 |[**eggGroupList**](#egggrouplist) | **GET** /api/v2/egg-group/ | List egg groups|
 |[**eggGroupRetrieve**](#egggroupretrieve) | **GET** /api/v2/egg-group/{id}/ | Get egg group|
@@ -79,7 +79,7 @@ const { status, data } = await apiInstance.abilityList(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -130,7 +130,7 @@ const { status, data } = await apiInstance.abilityRetrieve(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -163,12 +163,10 @@ const apiInstance = new PokemonApi(configuration);
 
 let limit: number; //Number of results to return per page. (optional) (default to undefined)
 let offset: number; //The initial index from which to return the results. (optional) (default to undefined)
-let q: string; //> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional) (default to undefined)
 
 const { status, data } = await apiInstance.characteristicList(
     limit,
-    offset,
-    q
+    offset
 );
 ```
 
@@ -178,7 +176,6 @@ const { status, data } = await apiInstance.characteristicList(
 |------------- | ------------- | ------------- | -------------|
 | **limit** | [**number**] | Number of results to return per page. | (optional) defaults to undefined|
 | **offset** | [**number**] | The initial index from which to return the results. | (optional) defaults to undefined|
-| **q** | [**string**] | &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | (optional) defaults to undefined|
 
 
 ### Return type
@@ -187,7 +184,7 @@ const { status, data } = await apiInstance.characteristicList(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -238,7 +235,7 @@ const { status, data } = await apiInstance.characteristicRetrieve(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -295,7 +292,7 @@ const { status, data } = await apiInstance.eggGroupList(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -346,7 +343,7 @@ const { status, data } = await apiInstance.eggGroupRetrieve(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -403,7 +400,7 @@ const { status, data } = await apiInstance.genderList(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -454,7 +451,7 @@ const { status, data } = await apiInstance.genderRetrieve(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -511,7 +508,7 @@ const { status, data } = await apiInstance.growthRateList(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -562,7 +559,7 @@ const { status, data } = await apiInstance.growthRateRetrieve(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -619,7 +616,7 @@ const { status, data } = await apiInstance.moveDamageClassList(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -670,7 +667,7 @@ const { status, data } = await apiInstance.moveDamageClassRetrieve(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -727,7 +724,7 @@ const { status, data } = await apiInstance.natureList(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -778,7 +775,7 @@ const { status, data } = await apiInstance.natureRetrieve(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -835,7 +832,7 @@ const { status, data } = await apiInstance.pokeathlonStatList(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -886,7 +883,7 @@ const { status, data } = await apiInstance.pokeathlonStatRetrieve(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -943,7 +940,7 @@ const { status, data } = await apiInstance.pokemonColorList(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -994,7 +991,7 @@ const { status, data } = await apiInstance.pokemonColorRetrieve(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1051,7 +1048,7 @@ const { status, data } = await apiInstance.pokemonFormList(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1102,7 +1099,7 @@ const { status, data } = await apiInstance.pokemonFormRetrieve(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1159,7 +1156,7 @@ const { status, data } = await apiInstance.pokemonHabitatList(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1210,7 +1207,7 @@ const { status, data } = await apiInstance.pokemonHabitatRetrieve(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1267,7 +1264,7 @@ const { status, data } = await apiInstance.pokemonList(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1318,7 +1315,7 @@ const { status, data } = await apiInstance.pokemonRetrieve(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1375,7 +1372,7 @@ const { status, data } = await apiInstance.pokemonShapeList(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1426,7 +1423,7 @@ const { status, data } = await apiInstance.pokemonShapeRetrieve(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1483,7 +1480,7 @@ const { status, data } = await apiInstance.pokemonSpeciesList(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1534,7 +1531,7 @@ const { status, data } = await apiInstance.pokemonSpeciesRetrieve(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1591,7 +1588,7 @@ const { status, data } = await apiInstance.statList(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1642,7 +1639,7 @@ const { status, data } = await apiInstance.statRetrieve(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1699,7 +1696,7 @@ const { status, data } = await apiInstance.typeList(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1750,7 +1747,7 @@ const { status, data } = await apiInstance.typeRetrieve(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

@@ -21,7 +21,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("EncounterMethodDetail")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-11-09T13:50:06.168269698Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class EncounterMethodDetail   {
   private Integer id;
   private String name;
@@ -43,6 +43,7 @@ public class EncounterMethodDetail   {
   }
 
   /**
+   * The identifier for this resource.
    **/
   public EncounterMethodDetail id(Integer id) {
     this.id = id;
@@ -50,7 +51,7 @@ public class EncounterMethodDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   @JsonProperty(required = true, value = "id")
   public Integer getId() {
     return id;
@@ -62,6 +63,7 @@ public class EncounterMethodDetail   {
   }
 
   /**
+   * The name for this resource.
    **/
   public EncounterMethodDetail name(String name) {
     this.name = name;
@@ -69,9 +71,9 @@ public class EncounterMethodDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   @JsonProperty(required = true, value = "name")
-  @NotNull  @Size(max=100)public String getName() {
+  @NotNull  @Size(max=200)public String getName() {
     return name;
   }
 
@@ -81,6 +83,9 @@ public class EncounterMethodDetail   {
   }
 
   /**
+   * A good value for sorting.
+   * minimum: -2147483648
+   * maximum: 2147483647
    **/
   public EncounterMethodDetail order(Integer order) {
     this.order = order;
@@ -88,9 +93,9 @@ public class EncounterMethodDetail   {
   }
 
   
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A good value for sorting.")
   @JsonProperty("order")
-  public Integer getOrder() {
+   @Min(-2147483648) @Max(2147483647)public Integer getOrder() {
     return order;
   }
 
@@ -100,6 +105,7 @@ public class EncounterMethodDetail   {
   }
 
   /**
+   * The name of this resource listed in different languages.
    **/
   public EncounterMethodDetail names(List<@Valid EncounterMethodName> names) {
     this.names = names;
@@ -107,7 +113,7 @@ public class EncounterMethodDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
   @JsonProperty(required = true, value = "names")
   public List<@Valid EncounterMethodName> getNames() {
     return names;

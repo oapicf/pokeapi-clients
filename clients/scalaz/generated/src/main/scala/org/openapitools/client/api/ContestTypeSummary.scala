@@ -13,8 +13,10 @@ import java.net.URI
 import ContestTypeSummary._
 
 case class ContestTypeSummary (
+  /* The name of the referenced resource. */
   name: String,
-url: URI)
+/* The URL of the referenced resource. */
+  url: URI)
 
 object ContestTypeSummary {
   import DateTimeCodecs._

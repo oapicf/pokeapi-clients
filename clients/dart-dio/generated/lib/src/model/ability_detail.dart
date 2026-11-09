@@ -3,7 +3,7 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:openapi/src/model/ability_detail_pokemon_inner.dart';
+import 'package:openapi/src/model/ability_pokemon_detail.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:openapi/src/model/ability_change.dart';
 import 'package:openapi/src/model/ability_name.dart';
@@ -18,43 +18,52 @@ part 'ability_detail.g.dart';
 /// AbilityDetail
 ///
 /// Properties:
-/// * [id] 
-/// * [name] 
-/// * [isMainSeries] 
-/// * [generation] 
-/// * [names] 
-/// * [effectEntries] 
-/// * [effectChanges] 
-/// * [flavorTextEntries] 
-/// * [pokemon] 
+/// * [id] - The identifier for this resource.
+/// * [name] - The name for this resource.
+/// * [isMainSeries] - Whether or not this ability originated in the main series of the video games.
+/// * [generation] - The generation this ability originated in.
+/// * [names] - The name of this resource listed in different languages.
+/// * [effectEntries] - The effect of this ability listed in different languages.
+/// * [effectChanges] - The list of previous effects this ability has had across version groups.
+/// * [flavorTextEntries] - The flavor text of this ability listed in different languages.
+/// * [pokemon] - A list of Pokémon that could potentially have this ability.
 @BuiltValue()
 abstract class AbilityDetail implements Built<AbilityDetail, AbilityDetailBuilder> {
+  /// The identifier for this resource.
   @BuiltValueField(wireName: r'id')
   int get id;
 
+  /// The name for this resource.
   @BuiltValueField(wireName: r'name')
   String get name;
 
+  /// Whether or not this ability originated in the main series of the video games.
   @BuiltValueField(wireName: r'is_main_series')
   bool? get isMainSeries;
 
+  /// The generation this ability originated in.
   @BuiltValueField(wireName: r'generation')
   GenerationSummary get generation;
 
+  /// The name of this resource listed in different languages.
   @BuiltValueField(wireName: r'names')
   BuiltList<AbilityName> get names;
 
+  /// The effect of this ability listed in different languages.
   @BuiltValueField(wireName: r'effect_entries')
   BuiltList<AbilityEffectText> get effectEntries;
 
+  /// The list of previous effects this ability has had across version groups.
   @BuiltValueField(wireName: r'effect_changes')
   BuiltList<AbilityChange> get effectChanges;
 
+  /// The flavor text of this ability listed in different languages.
   @BuiltValueField(wireName: r'flavor_text_entries')
   BuiltList<AbilityFlavorText> get flavorTextEntries;
 
+  /// A list of Pokémon that could potentially have this ability.
   @BuiltValueField(wireName: r'pokemon')
-  BuiltList<AbilityDetailPokemonInner> get pokemon;
+  BuiltList<AbilityPokemonDetail> get pokemon;
 
   AbilityDetail._();
 
@@ -124,7 +133,7 @@ class _$AbilityDetailSerializer implements PrimitiveSerializer<AbilityDetail> {
     yield r'pokemon';
     yield serializers.serialize(
       object.pokemon,
-      specifiedType: const FullType(BuiltList, [FullType(AbilityDetailPokemonInner)]),
+      specifiedType: const FullType(BuiltList, [FullType(AbilityPokemonDetail)]),
     );
   }
 
@@ -209,8 +218,8 @@ class _$AbilityDetailSerializer implements PrimitiveSerializer<AbilityDetail> {
         case r'pokemon':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(AbilityDetailPokemonInner)]),
-          ) as BuiltList<AbilityDetailPokemonInner>;
+            specifiedType: const FullType(BuiltList, [FullType(AbilityPokemonDetail)]),
+          ) as BuiltList<AbilityPokemonDetail>;
           result.pokemon.replace(valueDes);
           break;
         default:

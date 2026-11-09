@@ -36,3 +36,19 @@ func (c *Container) EvolutionTriggerRetrieve(ctx echo.Context) error {
 	})
 }
 
+
+// EvolutionVariableList - List evolution variables
+func (c *Container) EvolutionVariableList(ctx echo.Context) error {
+	return ctx.JSON(http.StatusOK, models.HelloWorld {
+		Message: "Hello World",
+	})
+}
+
+
+// EvolutionVariableRetrieve - Get evolution variable
+func (c *Container) EvolutionVariableRetrieve(ctx echo.Context) error {
+	return ctx.JSON(http.StatusOK, models.HelloWorld {
+		Message: "Hello World",
+	})
+}
+

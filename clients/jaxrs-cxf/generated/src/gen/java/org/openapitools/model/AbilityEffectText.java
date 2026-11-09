@@ -11,21 +11,30 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class AbilityEffectText  {
   
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The localized effect text for an API resource in a specific language.
+  */
+  @ApiModelProperty(required = true, value = "The localized effect text for an API resource in a specific language.")
 
   private String effect;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The localized effect text in brief.
+  */
+  @ApiModelProperty(required = true, value = "The localized effect text in brief.")
 
   private String shortEffect;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The language this effect is in.
+  */
+  @ApiModelProperty(required = true, value = "The language this effect is in.")
 
   @Valid
 
   private LanguageSummary language;
  /**
-   * Get effect
+   * The localized effect text for an API resource in a specific language.
    * @return effect
   **/
   @JsonProperty("effect")
@@ -44,7 +53,7 @@ public class AbilityEffectText  {
   }
 
  /**
-   * Get shortEffect
+   * The localized effect text in brief.
    * @return shortEffect
   **/
   @JsonProperty("short_effect")
@@ -63,7 +72,7 @@ public class AbilityEffectText  {
   }
 
  /**
-   * Get language
+   * The language this effect is in.
    * @return language
   **/
   @JsonProperty("language")

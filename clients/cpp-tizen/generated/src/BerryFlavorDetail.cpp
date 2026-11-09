@@ -26,7 +26,7 @@ BerryFlavorDetail::__init()
 	//id = int(0);
 	//name = std::string();
 	//new std::list()std::list> berries;
-	//contest_type = new ContestTypeSummary();
+	//contest_type = null;
 	//new std::list()std::list> names;
 }
 
@@ -95,12 +95,12 @@ BerryFlavorDetail::fromJson(char* jsonStr)
 		{
 			JsonArray* arr = json_node_get_array(node);
 			JsonNode*  temp_json;
-			list<BerryFlavorDetail_berries_inner> new_list;
-			BerryFlavorDetail_berries_inner inst;
+			list<BerryFlavorBerryMap> new_list;
+			BerryFlavorBerryMap inst;
 			for (guint i=0;i<json_array_get_length(arr);i++) {
 				temp_json = json_array_get_element(arr,i);
-				if (isprimitive("BerryFlavorDetail_berries_inner")) {
-					jsonToValue(&inst, temp_json, "BerryFlavorDetail_berries_inner", "");
+				if (isprimitive("BerryFlavorBerryMap")) {
+					jsonToValue(&inst, temp_json, "BerryFlavorBerryMap", "");
 				} else {
 					
 					inst.fromJson(json_to_string(temp_json, false));
@@ -180,18 +180,18 @@ BerryFlavorDetail::toJson()
 	}
 	const gchar *nameKey = "name";
 	json_object_set_member(pJsonObject, nameKey, node);
-	if (isprimitive("BerryFlavorDetail_berries_inner")) {
-		list<BerryFlavorDetail_berries_inner> new_list = static_cast<list <BerryFlavorDetail_berries_inner> > (getBerries());
-		node = converttoJson(&new_list, "BerryFlavorDetail_berries_inner", "array");
+	if (isprimitive("BerryFlavorBerryMap")) {
+		list<BerryFlavorBerryMap> new_list = static_cast<list <BerryFlavorBerryMap> > (getBerries());
+		node = converttoJson(&new_list, "BerryFlavorBerryMap", "array");
 	} else {
 		node = json_node_alloc();
-		list<BerryFlavorDetail_berries_inner> new_list = static_cast<list <BerryFlavorDetail_berries_inner> > (getBerries());
+		list<BerryFlavorBerryMap> new_list = static_cast<list <BerryFlavorBerryMap> > (getBerries());
 		JsonArray* json_array = json_array_new();
 		GError *mygerror;
 		
-		for (list<BerryFlavorDetail_berries_inner>::iterator it = new_list.begin(); it != new_list.end(); it++) {
+		for (list<BerryFlavorBerryMap>::iterator it = new_list.begin(); it != new_list.end(); it++) {
 			mygerror = NULL;
-			BerryFlavorDetail_berries_inner obj = *it;
+			BerryFlavorBerryMap obj = *it;
 			JsonNode *node_temp = json_from_string(obj.toJson(), &mygerror);
 			json_array_add_element(json_array, node_temp);
 			g_clear_error(&mygerror);
@@ -276,14 +276,14 @@ BerryFlavorDetail::setName(std::string  name)
 	this->name = name;
 }
 
-std::list<BerryFlavorDetail_berries_inner>
+std::list<BerryFlavorBerryMap>
 BerryFlavorDetail::getBerries()
 {
 	return berries;
 }
 
 void
-BerryFlavorDetail::setBerries(std::list <BerryFlavorDetail_berries_inner> berries)
+BerryFlavorDetail::setBerries(std::list <BerryFlavorBerryMap> berries)
 {
 	this->berries = berries;
 }

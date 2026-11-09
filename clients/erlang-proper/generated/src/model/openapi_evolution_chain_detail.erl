@@ -11,7 +11,7 @@
 -type openapi_evolution_chain_detail() ::
   [ {'id', integer() }
   | {'baby_trigger_item', openapi_item_summary:openapi_item_summary() }
-  | {'chain', openapi_evolution_chain_detail_chain:openapi_evolution_chain_detail_chain() }
+  | {'chain', openapi_evolution_chain_link:openapi_evolution_chain_link() }
   ].
 
 
@@ -21,7 +21,7 @@ openapi_evolution_chain_detail() ->
 openapi_evolution_chain_detail(Fields) ->
   Default = [ {'id', integer() }
             , {'baby_trigger_item', openapi_item_summary:openapi_item_summary() }
-            , {'chain', openapi_evolution_chain_detail_chain:openapi_evolution_chain_detail_chain() }
+            , {'chain', openapi_evolution_chain_link:openapi_evolution_chain_link() }
             ],
   lists:ukeymerge(1, lists:sort(Fields), lists:sort(Default)).
 

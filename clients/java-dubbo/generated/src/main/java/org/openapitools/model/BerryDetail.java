@@ -1,7 +1,8 @@
 package org.openapitools.model;
 
-import org.openapitools.model.BerryDetailFlavorsInner;
+import org.openapitools.jackson.nullable.JsonNullable;
 import org.openapitools.model.BerryFirmnessSummary;
+import org.openapitools.model.BerryFlavorMap;
 import org.openapitools.model.ItemSummary;
 import org.openapitools.model.TypeSummary;
 import java.util.*;
@@ -16,44 +17,80 @@ import java.math.*;
 public class BerryDetail implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * The identifier for this resource.
+   */
   @JsonProperty("id")
   private Integer id;
 
+  /**
+   * The name for this resource.
+   */
   @JsonProperty("name")
   private String name;
 
+  /**
+   * Time it takes the tree to grow one stage, in hours. Berry trees go through four of these growth stages before they can be picked.
+   */
   @JsonProperty("growth_time")
   private Integer growthTime;
 
+  /**
+   * The maximum number of these berries that can grow on one tree in Generation IV.
+   */
   @JsonProperty("max_harvest")
   private Integer maxHarvest;
 
+  /**
+   * The power of the move \&quot;Natural Gift\&quot; when used with this Berry.
+   */
   @JsonProperty("natural_gift_power")
   private Integer naturalGiftPower;
 
+  /**
+   * The size of this Berry, in millimeters.
+   */
   @JsonProperty("size")
   private Integer size;
 
+  /**
+   * The smoothness of this Berry, used in making Pokéblocks or Poffins.
+   */
   @JsonProperty("smoothness")
   private Integer smoothness;
 
+  /**
+   * The speed at which this Berry dries out the soil as it grows. A higher rate means the soil dries more quickly.
+   */
   @JsonProperty("soil_dryness")
   private Integer soilDryness;
 
+  /**
+   * The firmness of this berry, used in making Pokéblocks or Poffins.
+   */
   @JsonProperty("firmness")
   private BerryFirmnessSummary firmness;
 
+  /**
+   * A list of references to each flavor a berry can have and the potency of each of those flavors in regard to this berry.
+   */
   @JsonProperty("flavors")
-  private List<BerryDetailFlavorsInner> flavors = new ArrayList<>();
+  private List<BerryFlavorMap> flavors = new ArrayList<>();
 
+  /**
+   * Berries are actually items. This is a reference to the item specific data for this berry.
+   */
   @JsonProperty("item")
   private ItemSummary item;
 
+  /**
+   * The type inherited by \&quot;Natural Gift\&quot; when used with this Berry.
+   */
   @JsonProperty("natural_gift_type")
   private TypeSummary naturalGiftType;
 
   /**
-   * 
+   * The identifier for this resource.
    * @return id
    */
   public Integer getId() {
@@ -65,7 +102,7 @@ public class BerryDetail implements Serializable {
   }
 
   /**
-   * 
+   * The name for this resource.
    * @return name
    */
   public String getName() {
@@ -77,7 +114,7 @@ public class BerryDetail implements Serializable {
   }
 
   /**
-   * 
+   * Time it takes the tree to grow one stage, in hours. Berry trees go through four of these growth stages before they can be picked.
    * @return growthTime
    */
   public Integer getGrowthTime() {
@@ -89,7 +126,7 @@ public class BerryDetail implements Serializable {
   }
 
   /**
-   * 
+   * The maximum number of these berries that can grow on one tree in Generation IV.
    * @return maxHarvest
    */
   public Integer getMaxHarvest() {
@@ -101,7 +138,7 @@ public class BerryDetail implements Serializable {
   }
 
   /**
-   * 
+   * The power of the move \&quot;Natural Gift\&quot; when used with this Berry.
    * @return naturalGiftPower
    */
   public Integer getNaturalGiftPower() {
@@ -113,7 +150,7 @@ public class BerryDetail implements Serializable {
   }
 
   /**
-   * 
+   * The size of this Berry, in millimeters.
    * @return size
    */
   public Integer getSize() {
@@ -125,7 +162,7 @@ public class BerryDetail implements Serializable {
   }
 
   /**
-   * 
+   * The smoothness of this Berry, used in making Pokéblocks or Poffins.
    * @return smoothness
    */
   public Integer getSmoothness() {
@@ -137,7 +174,7 @@ public class BerryDetail implements Serializable {
   }
 
   /**
-   * 
+   * The speed at which this Berry dries out the soil as it grows. A higher rate means the soil dries more quickly.
    * @return soilDryness
    */
   public Integer getSoilDryness() {
@@ -149,7 +186,7 @@ public class BerryDetail implements Serializable {
   }
 
   /**
-   * 
+   * The firmness of this berry, used in making Pokéblocks or Poffins.
    * @return firmness
    */
   public BerryFirmnessSummary getFirmness() {
@@ -161,19 +198,19 @@ public class BerryDetail implements Serializable {
   }
 
   /**
-   * 
+   * A list of references to each flavor a berry can have and the potency of each of those flavors in regard to this berry.
    * @return flavors
    */
-  public List<BerryDetailFlavorsInner> getFlavors() {
+  public List<BerryFlavorMap> getFlavors() {
     return flavors;
   }
 
-  public void setFlavors(List<BerryDetailFlavorsInner> flavors) {
+  public void setFlavors(List<BerryFlavorMap> flavors) {
     this.flavors = flavors;
   }
 
   /**
-   * 
+   * Berries are actually items. This is a reference to the item specific data for this berry.
    * @return item
    */
   public ItemSummary getItem() {
@@ -185,7 +222,7 @@ public class BerryDetail implements Serializable {
   }
 
   /**
-   * 
+   * The type inherited by \&quot;Natural Gift\&quot; when used with this Berry.
    * @return naturalGiftType
    */
   public TypeSummary getNaturalGiftType() {

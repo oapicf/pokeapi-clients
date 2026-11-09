@@ -27,7 +27,7 @@
  */
 + (BOOL)propertyIsOptional:(NSString *)propertyName {
 
-  NSArray *optionalProperties = @[@"count", @"next", @"previous", @"results"];
+  NSArray *optionalProperties = @[@"next", @"previous", ];
   return [optionalProperties containsObject:propertyName];
 }
 

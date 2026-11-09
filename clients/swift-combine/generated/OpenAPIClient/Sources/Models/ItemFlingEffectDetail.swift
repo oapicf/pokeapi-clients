@@ -8,9 +8,13 @@
 import Foundation
 
 public struct ItemFlingEffectDetail: Codable {
+    /// The identifier for this resource.
     public var id: Int
+    /// The name for this resource.
     public var name: String
+    /// The result of this fling effect listed in different languages.
     public var effectEntries: [ItemFlingEffectEffectText]
+    /// A list of items that have this fling effect.
     public var items: [ItemSummary]
 
     public init(id: Int, name: String, effectEntries: [ItemFlingEffectEffectText], items: [ItemSummary]) {

@@ -23,11 +23,11 @@
 
 package org.openapitools.client.models
 
-import org.openapitools.client.models.AbilityDetailPokemonInnerPokemon
 import org.openapitools.client.models.GenerationSummary
 import org.openapitools.client.models.LocationSummary
 import org.openapitools.client.models.PokedexSummary
 import org.openapitools.client.models.RegionName
+import org.openapitools.client.models.VersionGroupSummary
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -35,38 +35,45 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param id 
- * @param name 
- * @param locations 
- * @param mainGeneration 
- * @param names 
- * @param pokedexes 
- * @param versionGroups 
+ * @param id The identifier for this resource.
+ * @param name The name for this resource.
+ * @param locations A list of locations that can be found in this region.
+ * @param mainGeneration The generation this region was introduced in.
+ * @param names The name of this resource listed in different languages.
+ * @param pokedexes A list of pokédexes that catalogue Pokémon in this region.
+ * @param versionGroups A list of version groups where this region can be visited.
  */
 
 
 data class RegionDetail (
 
+    /* The identifier for this resource. */
     @Json(name = "id")
     val id: kotlin.Int,
 
+    /* The name for this resource. */
     @Json(name = "name")
     val name: kotlin.String,
 
+    /* A list of locations that can be found in this region. */
     @Json(name = "locations")
     val locations: kotlin.collections.List<LocationSummary>,
 
+    /* The generation this region was introduced in. */
     @Json(name = "main_generation")
-    val mainGeneration: GenerationSummary,
+    val mainGeneration: GenerationSummary?,
 
+    /* The name of this resource listed in different languages. */
     @Json(name = "names")
     val names: kotlin.collections.List<RegionName>,
 
+    /* A list of pokédexes that catalogue Pokémon in this region. */
     @Json(name = "pokedexes")
     val pokedexes: kotlin.collections.List<PokedexSummary>,
 
+    /* A list of version groups where this region can be visited. */
     @Json(name = "version_groups")
-    val versionGroups: kotlin.collections.List<AbilityDetailPokemonInnerPokemon>
+    val versionGroups: kotlin.collections.List<VersionGroupSummary>
 
 ) {
 

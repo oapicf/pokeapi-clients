@@ -7,30 +7,30 @@
 #' @title MoveDetail
 #' @description MoveDetail Class
 #' @format An \code{R6Class} generator object
-#' @field id  integer
-#' @field name  character
-#' @field accuracy  integer [optional]
-#' @field effect_chance  integer
-#' @field pp  integer [optional]
-#' @field priority  integer [optional]
-#' @field power  integer [optional]
-#' @field contest_combos  \link{MoveDetailContestCombos}
-#' @field contest_type  \link{ContestTypeSummary}
-#' @field contest_effect  \link{ContestEffectSummary}
-#' @field damage_class  \link{MoveDamageClassSummary}
-#' @field effect_entries  list(\link{MoveChangeEffectEntriesInner})
-#' @field effect_changes  list(\link{MoveDetailEffectChangesInner})
-#' @field generation  \link{GenerationSummary}
-#' @field meta  \link{MoveMeta}
-#' @field names  list(\link{MoveName})
-#' @field past_values  list(\link{MoveChange})
-#' @field stat_changes  list(\link{MoveDetailStatChangesInner})
-#' @field super_contest_effect  \link{SuperContestEffectSummary}
-#' @field target  \link{MoveTargetSummary}
-#' @field type  \link{TypeSummary}
-#' @field machines  list(\link{MoveDetailMachinesInner})
-#' @field flavor_text_entries  list(\link{MoveFlavorText})
-#' @field learned_by_pokemon  list(\link{AbilityDetailPokemonInnerPokemon})
+#' @field id The identifier for this resource. integer
+#' @field name The name for this resource. character
+#' @field accuracy The percent value of how likely this move is to be successful. integer [optional]
+#' @field effect_chance The percent value of how likely it is this moves effect will happen. integer
+#' @field pp Power points. The number of times this move can be used. integer [optional]
+#' @field priority A value between -8 and 8. Sets the order in which moves are executed during battle. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Priority) for greater detail. integer [optional]
+#' @field power The base power of this move, or null if it has no fixed base power. integer [optional]
+#' @field contest_combos A detail of normal and super contest combos that require this move. \link{MoveCombos}
+#' @field contest_type The type of appeal this move gives a Pokémon when used in a contest. \link{ContestTypeSummary}
+#' @field contest_effect The effect the move has when used in a contest. \link{ContestEffectSummary}
+#' @field damage_class The type of damage the move inflicts on the target, e.g. physical. \link{MoveDamageClassSummary}
+#' @field effect_entries The effect of this move listed in different languages. list(\link{MoveEffectEffectText})
+#' @field effect_changes The list of previous effects this move has had across version groups of the games. list(\link{MoveEffectChange})
+#' @field generation The generation in which this move was introduced. \link{GenerationSummary}
+#' @field meta Metadata about this move \link{MoveMeta}
+#' @field names The name of this resource listed in different languages. list(\link{MoveName})
+#' @field past_values A list of move resource value changes across version groups of the game. list(\link{MoveChange})
+#' @field stat_changes A list of stats this moves effects and how much it effects them. list(\link{MoveMetaStatChange})
+#' @field super_contest_effect The effect the move has when used in a super contest. \link{SuperContestEffectSummary}
+#' @field target The type of target that will receive the effects of the attack. \link{MoveTargetSummary}
+#' @field type The elemental type of this move. \link{TypeSummary}
+#' @field machines A list of the machines that teach this move. list(\link{ItemMachine})
+#' @field flavor_text_entries The flavor text of this move listed in different languages. list(\link{MoveFlavorText})
+#' @field learned_by_pokemon List of Pokemon that can learn the move list(\link{PokemonSummary})
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -65,30 +65,30 @@ MoveDetail <- R6::R6Class(
     #' @description
     #' Initialize a new MoveDetail class.
     #'
-    #' @param id id
-    #' @param name name
-    #' @param effect_chance effect_chance
-    #' @param contest_combos contest_combos
-    #' @param contest_type contest_type
-    #' @param contest_effect contest_effect
-    #' @param damage_class damage_class
-    #' @param effect_entries effect_entries
-    #' @param effect_changes effect_changes
-    #' @param generation generation
-    #' @param meta meta
-    #' @param names names
-    #' @param past_values past_values
-    #' @param stat_changes stat_changes
-    #' @param super_contest_effect super_contest_effect
-    #' @param target target
-    #' @param type type
-    #' @param machines machines
-    #' @param flavor_text_entries flavor_text_entries
-    #' @param learned_by_pokemon learned_by_pokemon
-    #' @param accuracy accuracy
-    #' @param pp pp
-    #' @param priority priority
-    #' @param power power
+    #' @param id The identifier for this resource.
+    #' @param name The name for this resource.
+    #' @param effect_chance The percent value of how likely it is this moves effect will happen.
+    #' @param contest_combos A detail of normal and super contest combos that require this move.
+    #' @param contest_type The type of appeal this move gives a Pokémon when used in a contest.
+    #' @param contest_effect The effect the move has when used in a contest.
+    #' @param damage_class The type of damage the move inflicts on the target, e.g. physical.
+    #' @param effect_entries The effect of this move listed in different languages.
+    #' @param effect_changes The list of previous effects this move has had across version groups of the games.
+    #' @param generation The generation in which this move was introduced.
+    #' @param meta Metadata about this move
+    #' @param names The name of this resource listed in different languages.
+    #' @param past_values A list of move resource value changes across version groups of the game.
+    #' @param stat_changes A list of stats this moves effects and how much it effects them.
+    #' @param super_contest_effect The effect the move has when used in a super contest.
+    #' @param target The type of target that will receive the effects of the attack.
+    #' @param type The elemental type of this move.
+    #' @param machines A list of the machines that teach this move.
+    #' @param flavor_text_entries The flavor text of this move listed in different languages.
+    #' @param learned_by_pokemon List of Pokemon that can learn the move
+    #' @param accuracy The percent value of how likely this move is to be successful.
+    #' @param pp Power points. The number of times this move can be used.
+    #' @param priority A value between -8 and 8. Sets the order in which moves are executed during battle. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Priority) for greater detail.
+    #' @param power The base power of this move, or null if it has no fixed base power.
     #' @param ... Other optional arguments.
     initialize = function(`id`, `name`, `effect_chance`, `contest_combos`, `contest_type`, `contest_effect`, `damage_class`, `effect_entries`, `effect_changes`, `generation`, `meta`, `names`, `past_values`, `stat_changes`, `super_contest_effect`, `target`, `type`, `machines`, `flavor_text_entries`, `learned_by_pokemon`, `accuracy` = NULL, `pp` = NULL, `priority` = NULL, `power` = NULL, ...) {
       if (!missing(`id`)) {
@@ -393,7 +393,7 @@ MoveDetail <- R6::R6Class(
         self$`power` <- this_object$`power`
       }
       if (!is.null(this_object$`contest_combos`)) {
-        `contest_combos_object` <- MoveDetailContestCombos$new()
+        `contest_combos_object` <- MoveCombos$new()
         `contest_combos_object`$fromJSON(jsonlite::toJSON(this_object$`contest_combos`, auto_unbox = TRUE, digits = NA))
         self$`contest_combos` <- `contest_combos_object`
       }
@@ -413,10 +413,10 @@ MoveDetail <- R6::R6Class(
         self$`damage_class` <- `damage_class_object`
       }
       if (!is.null(this_object$`effect_entries`)) {
-        self$`effect_entries` <- ApiClient$new()$deserializeObj(this_object$`effect_entries`, "array[MoveChangeEffectEntriesInner]", loadNamespace("openapi"))
+        self$`effect_entries` <- ApiClient$new()$deserializeObj(this_object$`effect_entries`, "array[MoveEffectEffectText]", loadNamespace("openapi"))
       }
       if (!is.null(this_object$`effect_changes`)) {
-        self$`effect_changes` <- ApiClient$new()$deserializeObj(this_object$`effect_changes`, "array[MoveDetailEffectChangesInner]", loadNamespace("openapi"))
+        self$`effect_changes` <- ApiClient$new()$deserializeObj(this_object$`effect_changes`, "array[MoveEffectChange]", loadNamespace("openapi"))
       }
       if (!is.null(this_object$`generation`)) {
         `generation_object` <- GenerationSummary$new()
@@ -435,7 +435,7 @@ MoveDetail <- R6::R6Class(
         self$`past_values` <- ApiClient$new()$deserializeObj(this_object$`past_values`, "array[MoveChange]", loadNamespace("openapi"))
       }
       if (!is.null(this_object$`stat_changes`)) {
-        self$`stat_changes` <- ApiClient$new()$deserializeObj(this_object$`stat_changes`, "array[MoveDetailStatChangesInner]", loadNamespace("openapi"))
+        self$`stat_changes` <- ApiClient$new()$deserializeObj(this_object$`stat_changes`, "array[MoveMetaStatChange]", loadNamespace("openapi"))
       }
       if (!is.null(this_object$`super_contest_effect`)) {
         `super_contest_effect_object` <- SuperContestEffectSummary$new()
@@ -453,13 +453,13 @@ MoveDetail <- R6::R6Class(
         self$`type` <- `type_object`
       }
       if (!is.null(this_object$`machines`)) {
-        self$`machines` <- ApiClient$new()$deserializeObj(this_object$`machines`, "array[MoveDetailMachinesInner]", loadNamespace("openapi"))
+        self$`machines` <- ApiClient$new()$deserializeObj(this_object$`machines`, "array[ItemMachine]", loadNamespace("openapi"))
       }
       if (!is.null(this_object$`flavor_text_entries`)) {
         self$`flavor_text_entries` <- ApiClient$new()$deserializeObj(this_object$`flavor_text_entries`, "array[MoveFlavorText]", loadNamespace("openapi"))
       }
       if (!is.null(this_object$`learned_by_pokemon`)) {
-        self$`learned_by_pokemon` <- ApiClient$new()$deserializeObj(this_object$`learned_by_pokemon`, "array[AbilityDetailPokemonInnerPokemon]", loadNamespace("openapi"))
+        self$`learned_by_pokemon` <- ApiClient$new()$deserializeObj(this_object$`learned_by_pokemon`, "array[PokemonSummary]", loadNamespace("openapi"))
       }
       self
     },
@@ -489,23 +489,23 @@ MoveDetail <- R6::R6Class(
       self$`pp` <- this_object$`pp`
       self$`priority` <- this_object$`priority`
       self$`power` <- this_object$`power`
-      self$`contest_combos` <- MoveDetailContestCombos$new()$fromJSON(jsonlite::toJSON(this_object$`contest_combos`, auto_unbox = TRUE, digits = NA))
+      self$`contest_combos` <- MoveCombos$new()$fromJSON(jsonlite::toJSON(this_object$`contest_combos`, auto_unbox = TRUE, digits = NA))
       self$`contest_type` <- ContestTypeSummary$new()$fromJSON(jsonlite::toJSON(this_object$`contest_type`, auto_unbox = TRUE, digits = NA))
       self$`contest_effect` <- ContestEffectSummary$new()$fromJSON(jsonlite::toJSON(this_object$`contest_effect`, auto_unbox = TRUE, digits = NA))
       self$`damage_class` <- MoveDamageClassSummary$new()$fromJSON(jsonlite::toJSON(this_object$`damage_class`, auto_unbox = TRUE, digits = NA))
-      self$`effect_entries` <- ApiClient$new()$deserializeObj(this_object$`effect_entries`, "array[MoveChangeEffectEntriesInner]", loadNamespace("openapi"))
-      self$`effect_changes` <- ApiClient$new()$deserializeObj(this_object$`effect_changes`, "array[MoveDetailEffectChangesInner]", loadNamespace("openapi"))
+      self$`effect_entries` <- ApiClient$new()$deserializeObj(this_object$`effect_entries`, "array[MoveEffectEffectText]", loadNamespace("openapi"))
+      self$`effect_changes` <- ApiClient$new()$deserializeObj(this_object$`effect_changes`, "array[MoveEffectChange]", loadNamespace("openapi"))
       self$`generation` <- GenerationSummary$new()$fromJSON(jsonlite::toJSON(this_object$`generation`, auto_unbox = TRUE, digits = NA))
       self$`meta` <- MoveMeta$new()$fromJSON(jsonlite::toJSON(this_object$`meta`, auto_unbox = TRUE, digits = NA))
       self$`names` <- ApiClient$new()$deserializeObj(this_object$`names`, "array[MoveName]", loadNamespace("openapi"))
       self$`past_values` <- ApiClient$new()$deserializeObj(this_object$`past_values`, "array[MoveChange]", loadNamespace("openapi"))
-      self$`stat_changes` <- ApiClient$new()$deserializeObj(this_object$`stat_changes`, "array[MoveDetailStatChangesInner]", loadNamespace("openapi"))
+      self$`stat_changes` <- ApiClient$new()$deserializeObj(this_object$`stat_changes`, "array[MoveMetaStatChange]", loadNamespace("openapi"))
       self$`super_contest_effect` <- SuperContestEffectSummary$new()$fromJSON(jsonlite::toJSON(this_object$`super_contest_effect`, auto_unbox = TRUE, digits = NA))
       self$`target` <- MoveTargetSummary$new()$fromJSON(jsonlite::toJSON(this_object$`target`, auto_unbox = TRUE, digits = NA))
       self$`type` <- TypeSummary$new()$fromJSON(jsonlite::toJSON(this_object$`type`, auto_unbox = TRUE, digits = NA))
-      self$`machines` <- ApiClient$new()$deserializeObj(this_object$`machines`, "array[MoveDetailMachinesInner]", loadNamespace("openapi"))
+      self$`machines` <- ApiClient$new()$deserializeObj(this_object$`machines`, "array[ItemMachine]", loadNamespace("openapi"))
       self$`flavor_text_entries` <- ApiClient$new()$deserializeObj(this_object$`flavor_text_entries`, "array[MoveFlavorText]", loadNamespace("openapi"))
-      self$`learned_by_pokemon` <- ApiClient$new()$deserializeObj(this_object$`learned_by_pokemon`, "array[AbilityDetailPokemonInnerPokemon]", loadNamespace("openapi"))
+      self$`learned_by_pokemon` <- ApiClient$new()$deserializeObj(this_object$`learned_by_pokemon`, "array[PokemonSummary]", loadNamespace("openapi"))
       self
     },
 
@@ -674,27 +674,35 @@ MoveDetail <- R6::R6Class(
         return(FALSE)
       }
 
-      if (nchar(self$`name`) > 100) {
+      if (nchar(self$`name`) > 200) {
         return(FALSE)
       }
 
-      # check if the required `effect_chance` is null
-      if (is.null(self$`effect_chance`)) {
+      if (self$`accuracy` > 2147483647) {
+        return(FALSE)
+      }
+      if (self$`accuracy` < -2147483648) {
         return(FALSE)
       }
 
-      # check if the required `contest_combos` is null
-      if (is.null(self$`contest_combos`)) {
+      if (self$`pp` > 2147483647) {
+        return(FALSE)
+      }
+      if (self$`pp` < -2147483648) {
         return(FALSE)
       }
 
-      # check if the required `contest_type` is null
-      if (is.null(self$`contest_type`)) {
+      if (self$`priority` > 2147483647) {
+        return(FALSE)
+      }
+      if (self$`priority` < -2147483648) {
         return(FALSE)
       }
 
-      # check if the required `contest_effect` is null
-      if (is.null(self$`contest_effect`)) {
+      if (self$`power` > 2147483647) {
+        return(FALSE)
+      }
+      if (self$`power` < -2147483648) {
         return(FALSE)
       }
 
@@ -718,11 +726,6 @@ MoveDetail <- R6::R6Class(
         return(FALSE)
       }
 
-      # check if the required `meta` is null
-      if (is.null(self$`meta`)) {
-        return(FALSE)
-      }
-
       # check if the required `names` is null
       if (is.null(self$`names`)) {
         return(FALSE)
@@ -735,11 +738,6 @@ MoveDetail <- R6::R6Class(
 
       # check if the required `stat_changes` is null
       if (is.null(self$`stat_changes`)) {
-        return(FALSE)
-      }
-
-      # check if the required `super_contest_effect` is null
-      if (is.null(self$`super_contest_effect`)) {
         return(FALSE)
       }
 
@@ -787,28 +785,36 @@ MoveDetail <- R6::R6Class(
         invalid_fields["name"] <- "Non-nullable required field `name` cannot be null."
       }
 
-      if (nchar(self$`name`) > 100) {
-        invalid_fields["name"] <- "Invalid length for `name`, must be smaller than or equal to 100."
+      if (nchar(self$`name`) > 200) {
+        invalid_fields["name"] <- "Invalid length for `name`, must be smaller than or equal to 200."
       }
 
-      # check if the required `effect_chance` is null
-      if (is.null(self$`effect_chance`)) {
-        invalid_fields["effect_chance"] <- "Non-nullable required field `effect_chance` cannot be null."
+      if (self$`accuracy` > 2147483647) {
+        invalid_fields["accuracy"] <- "Invalid value for `accuracy`, must be smaller than or equal to 2147483647."
+      }
+      if (self$`accuracy` < -2147483648) {
+        invalid_fields["accuracy"] <- "Invalid value for `accuracy`, must be bigger than or equal to -2147483648."
       }
 
-      # check if the required `contest_combos` is null
-      if (is.null(self$`contest_combos`)) {
-        invalid_fields["contest_combos"] <- "Non-nullable required field `contest_combos` cannot be null."
+      if (self$`pp` > 2147483647) {
+        invalid_fields["pp"] <- "Invalid value for `pp`, must be smaller than or equal to 2147483647."
+      }
+      if (self$`pp` < -2147483648) {
+        invalid_fields["pp"] <- "Invalid value for `pp`, must be bigger than or equal to -2147483648."
       }
 
-      # check if the required `contest_type` is null
-      if (is.null(self$`contest_type`)) {
-        invalid_fields["contest_type"] <- "Non-nullable required field `contest_type` cannot be null."
+      if (self$`priority` > 2147483647) {
+        invalid_fields["priority"] <- "Invalid value for `priority`, must be smaller than or equal to 2147483647."
+      }
+      if (self$`priority` < -2147483648) {
+        invalid_fields["priority"] <- "Invalid value for `priority`, must be bigger than or equal to -2147483648."
       }
 
-      # check if the required `contest_effect` is null
-      if (is.null(self$`contest_effect`)) {
-        invalid_fields["contest_effect"] <- "Non-nullable required field `contest_effect` cannot be null."
+      if (self$`power` > 2147483647) {
+        invalid_fields["power"] <- "Invalid value for `power`, must be smaller than or equal to 2147483647."
+      }
+      if (self$`power` < -2147483648) {
+        invalid_fields["power"] <- "Invalid value for `power`, must be bigger than or equal to -2147483648."
       }
 
       # check if the required `damage_class` is null
@@ -831,11 +837,6 @@ MoveDetail <- R6::R6Class(
         invalid_fields["generation"] <- "Non-nullable required field `generation` cannot be null."
       }
 
-      # check if the required `meta` is null
-      if (is.null(self$`meta`)) {
-        invalid_fields["meta"] <- "Non-nullable required field `meta` cannot be null."
-      }
-
       # check if the required `names` is null
       if (is.null(self$`names`)) {
         invalid_fields["names"] <- "Non-nullable required field `names` cannot be null."
@@ -849,11 +850,6 @@ MoveDetail <- R6::R6Class(
       # check if the required `stat_changes` is null
       if (is.null(self$`stat_changes`)) {
         invalid_fields["stat_changes"] <- "Non-nullable required field `stat_changes` cannot be null."
-      }
-
-      # check if the required `super_contest_effect` is null
-      if (is.null(self$`super_contest_effect`)) {
-        invalid_fields["super_contest_effect"] <- "Non-nullable required field `super_contest_effect` cannot be null."
       }
 
       # check if the required `target` is null

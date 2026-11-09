@@ -32,24 +32,28 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param id 
- * @param name 
- * @param names 
- * @param pokemonSpecies 
+ * @param id The identifier for this resource.
+ * @param name The name for this resource.
+ * @param names The name of this resource listed in different languages.
+ * @param pokemonSpecies A list of the Pokémon species that can be found in this habitat.
  */
 
 
 data class PokemonHabitatDetail (
 
+    /* The identifier for this resource. */
     @Json(name = "id")
     val id: kotlin.Int,
 
+    /* The name for this resource. */
     @Json(name = "name")
     val name: kotlin.String,
 
+    /* The name of this resource listed in different languages. */
     @Json(name = "names")
     val names: kotlin.collections.List<PokemonHabitatName>,
 
+    /* A list of the Pokémon species that can be found in this habitat. */
     @Json(name = "pokemon_species")
     val pokemonSpecies: kotlin.collections.List<PokemonSpeciesSummary>
 

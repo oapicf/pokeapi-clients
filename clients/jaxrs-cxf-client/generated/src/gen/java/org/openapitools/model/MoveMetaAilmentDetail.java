@@ -3,8 +3,8 @@ package org.openapitools.model;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.model.AbilityDetailPokemonInnerPokemon;
 import org.openapitools.model.MoveMetaAilmentName;
+import org.openapitools.model.MoveSummary;
 
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
@@ -13,23 +13,35 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class MoveMetaAilmentDetail  {
   
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The identifier for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
 
   private Integer id;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The name for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The name for this resource.")
 
   private String name;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * A list of moves that cause this ailment.
+  */
+  @ApiModelProperty(required = true, value = "A list of moves that cause this ailment.")
 
-  private List<AbilityDetailPokemonInnerPokemon> moves = new ArrayList<>();
+  private List<MoveSummary> moves = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The name of this resource listed in different languages.
+  */
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
 
   private List<MoveMetaAilmentName> names = new ArrayList<>();
  /**
-   * Get id
+   * The identifier for this resource.
    * @return id
   **/
   @JsonProperty("id")
@@ -39,7 +51,7 @@ public class MoveMetaAilmentDetail  {
 
 
  /**
-   * Get name
+   * The name for this resource.
    * @return name
   **/
   @JsonProperty("name")
@@ -57,17 +69,17 @@ public class MoveMetaAilmentDetail  {
   }
 
  /**
-   * Get moves
+   * A list of moves that cause this ailment.
    * @return moves
   **/
   @JsonProperty("moves")
-  public List<AbilityDetailPokemonInnerPokemon> getMoves() {
+  public List<MoveSummary> getMoves() {
     return moves;
   }
 
 
  /**
-   * Get names
+   * The name of this resource listed in different languages.
    * @return names
   **/
   @JsonProperty("names")

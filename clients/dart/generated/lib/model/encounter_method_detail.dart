@@ -19,12 +19,19 @@ class EncounterMethodDetail {
     this.names = const [],
   });
 
+  /// The identifier for this resource.
   int id;
 
+  /// The name for this resource.
   String name;
 
+  /// A good value for sorting.
+  ///
+  /// Minimum value: -2147483648
+  /// Maximum value: 2147483647
   int? order;
 
+  /// The name of this resource listed in different languages.
   List<EncounterMethodName> names;
 
   @override

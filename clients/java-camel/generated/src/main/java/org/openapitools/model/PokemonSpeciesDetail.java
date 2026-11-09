@@ -8,21 +8,21 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
-import org.openapitools.model.AbilityDetailPokemonInnerPokemon;
+import org.openapitools.model.EggGroupSummary;
 import org.openapitools.model.EvolutionChainSummary;
 import org.openapitools.model.GenerationSummary;
 import org.openapitools.model.GrowthRateSummary;
 import org.openapitools.model.PokemonColorSummary;
 import org.openapitools.model.PokemonDexEntry;
-import org.openapitools.model.PokemonFormDetailFormNamesInner;
 import org.openapitools.model.PokemonHabitatSummary;
 import org.openapitools.model.PokemonShapeSummary;
 import org.openapitools.model.PokemonSpeciesDescription;
-import org.openapitools.model.PokemonSpeciesDetailGeneraInner;
-import org.openapitools.model.PokemonSpeciesDetailPalParkEncountersInner;
-import org.openapitools.model.PokemonSpeciesDetailVarietiesInner;
 import org.openapitools.model.PokemonSpeciesFlavorText;
+import org.openapitools.model.PokemonSpeciesGenus;
+import org.openapitools.model.PokemonSpeciesName;
+import org.openapitools.model.PokemonSpeciesPalParkEncounter;
 import org.openapitools.model.PokemonSpeciesSummary;
+import org.openapitools.model.PokemonSpeciesVariety;
 import java.util.NoSuchElementException;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
@@ -38,20 +38,20 @@ import jakarta.annotation.Generated;
  * PokemonSpeciesDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-10-25T05:48:25.711080506Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-11-09T13:49:41.168612095Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PokemonSpeciesDetail {
 
   private Integer id;
 
   private String name;
 
-  private JsonNullable<Integer> order = JsonNullable.<Integer>undefined();
+  private JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> order = JsonNullable.<Integer>undefined();
 
-  private JsonNullable<Integer> genderRate = JsonNullable.<Integer>undefined();
+  private JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> genderRate = JsonNullable.<Integer>undefined();
 
-  private JsonNullable<Integer> captureRate = JsonNullable.<Integer>undefined();
+  private JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> captureRate = JsonNullable.<Integer>undefined();
 
-  private JsonNullable<Integer> baseHappiness = JsonNullable.<Integer>undefined();
+  private JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> baseHappiness = JsonNullable.<Integer>undefined();
 
   private Boolean isBaby;
 
@@ -59,7 +59,7 @@ public class PokemonSpeciesDetail {
 
   private Boolean isMythical;
 
-  private JsonNullable<Integer> hatchCounter = JsonNullable.<Integer>undefined();
+  private JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> hatchCounter = JsonNullable.<Integer>undefined();
 
   private Boolean hasGenderDifferences;
 
@@ -69,31 +69,31 @@ public class PokemonSpeciesDetail {
 
   private List<@Valid PokemonDexEntry> pokedexNumbers = new ArrayList<>();
 
-  private List<@Valid AbilityDetailPokemonInnerPokemon> eggGroups = new ArrayList<>();
+  private List<@Valid EggGroupSummary> eggGroups = new ArrayList<>();
 
   private PokemonColorSummary color;
 
   private PokemonShapeSummary shape;
 
-  private PokemonSpeciesSummary evolvesFromSpecies;
+  private JsonNullable<PokemonSpeciesSummary> evolvesFromSpecies = JsonNullable.<PokemonSpeciesSummary>undefined();
 
   private EvolutionChainSummary evolutionChain;
 
-  private PokemonHabitatSummary habitat;
+  private JsonNullable<PokemonHabitatSummary> habitat = JsonNullable.<PokemonHabitatSummary>undefined();
 
   private GenerationSummary generation;
 
-  private List<@Valid PokemonFormDetailFormNamesInner> names = new ArrayList<>();
+  private List<@Valid PokemonSpeciesName> names = new ArrayList<>();
 
-  private List<@Valid PokemonSpeciesDetailPalParkEncountersInner> palParkEncounters = new ArrayList<>();
+  private List<@Valid PokemonSpeciesPalParkEncounter> palParkEncounters = new ArrayList<>();
 
   private List<@Valid PokemonSpeciesDescription> formDescriptions = new ArrayList<>();
 
   private List<@Valid PokemonSpeciesFlavorText> flavorTextEntries = new ArrayList<>();
 
-  private List<@Valid PokemonSpeciesDetailGeneraInner> genera = new ArrayList<>();
+  private List<@Valid PokemonSpeciesGenus> genera = new ArrayList<>();
 
-  private List<@Valid PokemonSpeciesDetailVarietiesInner> varieties = new ArrayList<>();
+  private List<@Valid PokemonSpeciesVariety> varieties = new ArrayList<>();
 
   public PokemonSpeciesDetail() {
     super();
@@ -102,7 +102,7 @@ public class PokemonSpeciesDetail {
   /**
    * Constructor with only required parameters
    */
-  public PokemonSpeciesDetail(Integer id, String name, GrowthRateSummary growthRate, List<@Valid PokemonDexEntry> pokedexNumbers, List<@Valid AbilityDetailPokemonInnerPokemon> eggGroups, PokemonColorSummary color, PokemonShapeSummary shape, PokemonSpeciesSummary evolvesFromSpecies, EvolutionChainSummary evolutionChain, PokemonHabitatSummary habitat, GenerationSummary generation, List<@Valid PokemonFormDetailFormNamesInner> names, List<@Valid PokemonSpeciesDetailPalParkEncountersInner> palParkEncounters, List<@Valid PokemonSpeciesDescription> formDescriptions, List<@Valid PokemonSpeciesFlavorText> flavorTextEntries, List<@Valid PokemonSpeciesDetailGeneraInner> genera, List<@Valid PokemonSpeciesDetailVarietiesInner> varieties) {
+  public PokemonSpeciesDetail(Integer id, String name, GrowthRateSummary growthRate, List<@Valid PokemonDexEntry> pokedexNumbers, List<@Valid EggGroupSummary> eggGroups, PokemonColorSummary color, PokemonShapeSummary shape, PokemonSpeciesSummary evolvesFromSpecies, EvolutionChainSummary evolutionChain, PokemonHabitatSummary habitat, GenerationSummary generation, List<@Valid PokemonSpeciesName> names, List<@Valid PokemonSpeciesPalParkEncounter> palParkEncounters, List<@Valid PokemonSpeciesDescription> formDescriptions, List<@Valid PokemonSpeciesFlavorText> flavorTextEntries, List<@Valid PokemonSpeciesGenus> genera, List<@Valid PokemonSpeciesVariety> varieties) {
     this.id = id;
     this.name = name;
     this.growthRate = growthRate;
@@ -110,9 +110,9 @@ public class PokemonSpeciesDetail {
     this.eggGroups = eggGroups;
     this.color = color;
     this.shape = shape;
-    this.evolvesFromSpecies = evolvesFromSpecies;
+    this.evolvesFromSpecies = JsonNullable.of(evolvesFromSpecies);
     this.evolutionChain = evolutionChain;
-    this.habitat = habitat;
+    this.habitat = JsonNullable.of(habitat);
     this.generation = generation;
     this.names = names;
     this.palParkEncounters = palParkEncounters;
@@ -128,11 +128,11 @@ public class PokemonSpeciesDetail {
   }
 
   /**
-   * Get id
+   * The identifier for this resource.
    * @return id
    */
   
-  @Schema(name = "id", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "id", accessMode = Schema.AccessMode.READ_ONLY, description = "The identifier for this resource.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("id")
   public Integer getId() {
     return id;
@@ -148,11 +148,11 @@ public class PokemonSpeciesDetail {
   }
 
   /**
-   * Get name
+   * The name for this resource.
    * @return name
    */
-  @NotNull @Size(max = 100) 
-  @Schema(name = "name", requiredMode = Schema.RequiredMode.REQUIRED)
+  @NotNull @Size(max = 200) 
+  @Schema(name = "name", description = "The name for this resource.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("name")
   public String getName() {
     return name;
@@ -168,13 +168,15 @@ public class PokemonSpeciesDetail {
   }
 
   /**
-   * Get order
+   * The order in which species should be sorted. Based on National Dex order, except families are grouped together and sorted by stage.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return order
    */
-  
-  @Schema(name = "order", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Min(value = -2147483648) @Max(value = 2147483647) 
+  @Schema(name = "order", description = "The order in which species should be sorted. Based on National Dex order, except families are grouped together and sorted by stage.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("order")
-  public JsonNullable<Integer> getOrder() {
+  public JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> getOrder() {
     return order;
   }
 
@@ -188,13 +190,15 @@ public class PokemonSpeciesDetail {
   }
 
   /**
-   * Get genderRate
+   * The chance of this Pokémon being female, in eighths; or -1 for genderless.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return genderRate
    */
-  
-  @Schema(name = "gender_rate", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Min(value = -2147483648) @Max(value = 2147483647) 
+  @Schema(name = "gender_rate", description = "The chance of this Pokémon being female, in eighths; or -1 for genderless.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("gender_rate")
-  public JsonNullable<Integer> getGenderRate() {
+  public JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> getGenderRate() {
     return genderRate;
   }
 
@@ -208,13 +212,15 @@ public class PokemonSpeciesDetail {
   }
 
   /**
-   * Get captureRate
+   * The base capture rate; up to 255. The higher the number, the easier the catch.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return captureRate
    */
-  
-  @Schema(name = "capture_rate", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Min(value = -2147483648) @Max(value = 2147483647) 
+  @Schema(name = "capture_rate", description = "The base capture rate; up to 255. The higher the number, the easier the catch.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("capture_rate")
-  public JsonNullable<Integer> getCaptureRate() {
+  public JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> getCaptureRate() {
     return captureRate;
   }
 
@@ -228,13 +234,15 @@ public class PokemonSpeciesDetail {
   }
 
   /**
-   * Get baseHappiness
+   * The happiness when caught by a normal Pokéball; up to 255. The higher the number, the happier the Pokémon.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return baseHappiness
    */
-  
-  @Schema(name = "base_happiness", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Min(value = -2147483648) @Max(value = 2147483647) 
+  @Schema(name = "base_happiness", description = "The happiness when caught by a normal Pokéball; up to 255. The higher the number, the happier the Pokémon.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("base_happiness")
-  public JsonNullable<Integer> getBaseHappiness() {
+  public JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> getBaseHappiness() {
     return baseHappiness;
   }
 
@@ -248,11 +256,11 @@ public class PokemonSpeciesDetail {
   }
 
   /**
-   * Get isBaby
+   * Whether or not this is a baby Pokémon.
    * @return isBaby
    */
   
-  @Schema(name = "is_baby", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Schema(name = "is_baby", description = "Whether or not this is a baby Pokémon.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("is_baby")
   public Boolean getIsBaby() {
     return isBaby;
@@ -268,11 +276,11 @@ public class PokemonSpeciesDetail {
   }
 
   /**
-   * Get isLegendary
+   * Whether or not this is a legendary Pokémon.
    * @return isLegendary
    */
   
-  @Schema(name = "is_legendary", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Schema(name = "is_legendary", description = "Whether or not this is a legendary Pokémon.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("is_legendary")
   public Boolean getIsLegendary() {
     return isLegendary;
@@ -288,11 +296,11 @@ public class PokemonSpeciesDetail {
   }
 
   /**
-   * Get isMythical
+   * Whether or not this is a mythical Pokémon.
    * @return isMythical
    */
   
-  @Schema(name = "is_mythical", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Schema(name = "is_mythical", description = "Whether or not this is a mythical Pokémon.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("is_mythical")
   public Boolean getIsMythical() {
     return isMythical;
@@ -308,13 +316,15 @@ public class PokemonSpeciesDetail {
   }
 
   /**
-   * Get hatchCounter
+   * Initial hatch counter: one must walk Y × (hatch_counter + 1) steps before this Pokémon's egg hatches, unless utilizing bonuses like Flame Body's. Y varies per generation. In Generations II, III, and VII, Egg cycles are 256 steps long. In Generation IV, Egg cycles are 255 steps long. In Pokémon Brilliant Diamond and Shining Pearl, Egg cycles are also 255 steps long, but are shorter on special dates. In Generations V and VI, Egg cycles are 257 steps long. In Pokémon Sword and Shield, and in Pokémon Scarlet and Violet, Egg cycles are 128 steps long.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return hatchCounter
    */
-  
-  @Schema(name = "hatch_counter", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Min(value = -2147483648) @Max(value = 2147483647) 
+  @Schema(name = "hatch_counter", description = "Initial hatch counter: one must walk Y × (hatch_counter + 1) steps before this Pokémon's egg hatches, unless utilizing bonuses like Flame Body's. Y varies per generation. In Generations II, III, and VII, Egg cycles are 256 steps long. In Generation IV, Egg cycles are 255 steps long. In Pokémon Brilliant Diamond and Shining Pearl, Egg cycles are also 255 steps long, but are shorter on special dates. In Generations V and VI, Egg cycles are 257 steps long. In Pokémon Sword and Shield, and in Pokémon Scarlet and Violet, Egg cycles are 128 steps long.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("hatch_counter")
-  public JsonNullable<Integer> getHatchCounter() {
+  public JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> getHatchCounter() {
     return hatchCounter;
   }
 
@@ -328,11 +338,11 @@ public class PokemonSpeciesDetail {
   }
 
   /**
-   * Get hasGenderDifferences
+   * Whether or not this Pokémon has visual gender differences.
    * @return hasGenderDifferences
    */
   
-  @Schema(name = "has_gender_differences", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Schema(name = "has_gender_differences", description = "Whether or not this Pokémon has visual gender differences.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("has_gender_differences")
   public Boolean getHasGenderDifferences() {
     return hasGenderDifferences;
@@ -348,11 +358,11 @@ public class PokemonSpeciesDetail {
   }
 
   /**
-   * Get formsSwitchable
+   * Whether or not this Pokémon has multiple forms and can switch between them.
    * @return formsSwitchable
    */
   
-  @Schema(name = "forms_switchable", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Schema(name = "forms_switchable", description = "Whether or not this Pokémon has multiple forms and can switch between them.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("forms_switchable")
   public Boolean getFormsSwitchable() {
     return formsSwitchable;
@@ -368,11 +378,11 @@ public class PokemonSpeciesDetail {
   }
 
   /**
-   * Get growthRate
+   * The rate at which this Pokémon species gains levels.
    * @return growthRate
    */
   @NotNull @Valid 
-  @Schema(name = "growth_rate", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "growth_rate", description = "The rate at which this Pokémon species gains levels.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("growth_rate")
   public GrowthRateSummary getGrowthRate() {
     return growthRate;
@@ -396,11 +406,11 @@ public class PokemonSpeciesDetail {
   }
 
   /**
-   * Get pokedexNumbers
+   * A list of Pokedexes and the indexes reserved within them for this Pokémon species.
    * @return pokedexNumbers
    */
   
-  @Schema(name = "pokedex_numbers", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "pokedex_numbers", accessMode = Schema.AccessMode.READ_ONLY, description = "A list of Pokedexes and the indexes reserved within them for this Pokémon species.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("pokedex_numbers")
   public List<@Valid PokemonDexEntry> getPokedexNumbers() {
     return pokedexNumbers;
@@ -410,12 +420,12 @@ public class PokemonSpeciesDetail {
     this.pokedexNumbers = pokedexNumbers;
   }
 
-  public PokemonSpeciesDetail eggGroups(List<@Valid AbilityDetailPokemonInnerPokemon> eggGroups) {
+  public PokemonSpeciesDetail eggGroups(List<@Valid EggGroupSummary> eggGroups) {
     this.eggGroups = eggGroups;
     return this;
   }
 
-  public PokemonSpeciesDetail addEggGroupsItem(AbilityDetailPokemonInnerPokemon eggGroupsItem) {
+  public PokemonSpeciesDetail addEggGroupsItem(EggGroupSummary eggGroupsItem) {
     if (this.eggGroups == null) {
       this.eggGroups = new ArrayList<>();
     }
@@ -424,17 +434,17 @@ public class PokemonSpeciesDetail {
   }
 
   /**
-   * Get eggGroups
+   * A list of egg groups this Pokémon species is a member of.
    * @return eggGroups
    */
   
-  @Schema(name = "egg_groups", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "egg_groups", accessMode = Schema.AccessMode.READ_ONLY, description = "A list of egg groups this Pokémon species is a member of.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("egg_groups")
-  public List<@Valid AbilityDetailPokemonInnerPokemon> getEggGroups() {
+  public List<@Valid EggGroupSummary> getEggGroups() {
     return eggGroups;
   }
 
-  public void setEggGroups(List<@Valid AbilityDetailPokemonInnerPokemon> eggGroups) {
+  public void setEggGroups(List<@Valid EggGroupSummary> eggGroups) {
     this.eggGroups = eggGroups;
   }
 
@@ -444,11 +454,11 @@ public class PokemonSpeciesDetail {
   }
 
   /**
-   * Get color
+   * The color of this Pokémon for Pokédex search.
    * @return color
    */
   @NotNull @Valid 
-  @Schema(name = "color", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "color", description = "The color of this Pokémon for Pokédex search.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("color")
   public PokemonColorSummary getColor() {
     return color;
@@ -464,11 +474,11 @@ public class PokemonSpeciesDetail {
   }
 
   /**
-   * Get shape
+   * The shape of this Pokémon for Pokédex search.
    * @return shape
    */
   @NotNull @Valid 
-  @Schema(name = "shape", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "shape", description = "The shape of this Pokémon for Pokédex search.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("shape")
   public PokemonShapeSummary getShape() {
     return shape;
@@ -479,22 +489,22 @@ public class PokemonSpeciesDetail {
   }
 
   public PokemonSpeciesDetail evolvesFromSpecies(PokemonSpeciesSummary evolvesFromSpecies) {
-    this.evolvesFromSpecies = evolvesFromSpecies;
+    this.evolvesFromSpecies = JsonNullable.of(evolvesFromSpecies);
     return this;
   }
 
   /**
-   * Get evolvesFromSpecies
+   * The Pokémon species that evolves into this Pokemon_species.
    * @return evolvesFromSpecies
    */
-  @NotNull @Valid 
-  @Schema(name = "evolves_from_species", requiredMode = Schema.RequiredMode.REQUIRED)
+  /* @Present */ @Valid 
+  @Schema(name = "evolves_from_species", description = "The Pokémon species that evolves into this Pokemon_species.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("evolves_from_species")
-  public PokemonSpeciesSummary getEvolvesFromSpecies() {
+  public JsonNullable<PokemonSpeciesSummary> getEvolvesFromSpecies() {
     return evolvesFromSpecies;
   }
 
-  public void setEvolvesFromSpecies(PokemonSpeciesSummary evolvesFromSpecies) {
+  public void setEvolvesFromSpecies(JsonNullable<PokemonSpeciesSummary> evolvesFromSpecies) {
     this.evolvesFromSpecies = evolvesFromSpecies;
   }
 
@@ -504,11 +514,11 @@ public class PokemonSpeciesDetail {
   }
 
   /**
-   * Get evolutionChain
+   * The evolution chain this Pokémon species is a member of.
    * @return evolutionChain
    */
   @NotNull @Valid 
-  @Schema(name = "evolution_chain", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "evolution_chain", description = "The evolution chain this Pokémon species is a member of.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("evolution_chain")
   public EvolutionChainSummary getEvolutionChain() {
     return evolutionChain;
@@ -519,22 +529,22 @@ public class PokemonSpeciesDetail {
   }
 
   public PokemonSpeciesDetail habitat(PokemonHabitatSummary habitat) {
-    this.habitat = habitat;
+    this.habitat = JsonNullable.of(habitat);
     return this;
   }
 
   /**
-   * Get habitat
+   * The habitat this Pokémon species can be encountered in.
    * @return habitat
    */
-  @NotNull @Valid 
-  @Schema(name = "habitat", requiredMode = Schema.RequiredMode.REQUIRED)
+  /* @Present */ @Valid 
+  @Schema(name = "habitat", description = "The habitat this Pokémon species can be encountered in.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("habitat")
-  public PokemonHabitatSummary getHabitat() {
+  public JsonNullable<PokemonHabitatSummary> getHabitat() {
     return habitat;
   }
 
-  public void setHabitat(PokemonHabitatSummary habitat) {
+  public void setHabitat(JsonNullable<PokemonHabitatSummary> habitat) {
     this.habitat = habitat;
   }
 
@@ -544,11 +554,11 @@ public class PokemonSpeciesDetail {
   }
 
   /**
-   * Get generation
+   * The generation this Pokémon species was introduced in.
    * @return generation
    */
   @NotNull @Valid 
-  @Schema(name = "generation", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "generation", description = "The generation this Pokémon species was introduced in.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("generation")
   public GenerationSummary getGeneration() {
     return generation;
@@ -558,12 +568,12 @@ public class PokemonSpeciesDetail {
     this.generation = generation;
   }
 
-  public PokemonSpeciesDetail names(List<@Valid PokemonFormDetailFormNamesInner> names) {
+  public PokemonSpeciesDetail names(List<@Valid PokemonSpeciesName> names) {
     this.names = names;
     return this;
   }
 
-  public PokemonSpeciesDetail addNamesItem(PokemonFormDetailFormNamesInner namesItem) {
+  public PokemonSpeciesDetail addNamesItem(PokemonSpeciesName namesItem) {
     if (this.names == null) {
       this.names = new ArrayList<>();
     }
@@ -572,26 +582,26 @@ public class PokemonSpeciesDetail {
   }
 
   /**
-   * Get names
+   * The name of this resource listed in different languages.
    * @return names
    */
   
-  @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, description = "The name of this resource listed in different languages.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("names")
-  public List<@Valid PokemonFormDetailFormNamesInner> getNames() {
+  public List<@Valid PokemonSpeciesName> getNames() {
     return names;
   }
 
-  public void setNames(List<@Valid PokemonFormDetailFormNamesInner> names) {
+  public void setNames(List<@Valid PokemonSpeciesName> names) {
     this.names = names;
   }
 
-  public PokemonSpeciesDetail palParkEncounters(List<@Valid PokemonSpeciesDetailPalParkEncountersInner> palParkEncounters) {
+  public PokemonSpeciesDetail palParkEncounters(List<@Valid PokemonSpeciesPalParkEncounter> palParkEncounters) {
     this.palParkEncounters = palParkEncounters;
     return this;
   }
 
-  public PokemonSpeciesDetail addPalParkEncountersItem(PokemonSpeciesDetailPalParkEncountersInner palParkEncountersItem) {
+  public PokemonSpeciesDetail addPalParkEncountersItem(PokemonSpeciesPalParkEncounter palParkEncountersItem) {
     if (this.palParkEncounters == null) {
       this.palParkEncounters = new ArrayList<>();
     }
@@ -600,17 +610,17 @@ public class PokemonSpeciesDetail {
   }
 
   /**
-   * Get palParkEncounters
+   * A list of encounters that can be had with this Pokémon species in pal park.
    * @return palParkEncounters
    */
   
-  @Schema(name = "pal_park_encounters", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "pal_park_encounters", accessMode = Schema.AccessMode.READ_ONLY, description = "A list of encounters that can be had with this Pokémon species in pal park.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("pal_park_encounters")
-  public List<@Valid PokemonSpeciesDetailPalParkEncountersInner> getPalParkEncounters() {
+  public List<@Valid PokemonSpeciesPalParkEncounter> getPalParkEncounters() {
     return palParkEncounters;
   }
 
-  public void setPalParkEncounters(List<@Valid PokemonSpeciesDetailPalParkEncountersInner> palParkEncounters) {
+  public void setPalParkEncounters(List<@Valid PokemonSpeciesPalParkEncounter> palParkEncounters) {
     this.palParkEncounters = palParkEncounters;
   }
 
@@ -628,11 +638,11 @@ public class PokemonSpeciesDetail {
   }
 
   /**
-   * Get formDescriptions
+   * Descriptions of different forms Pokémon take on within the Pokémon species.
    * @return formDescriptions
    */
   
-  @Schema(name = "form_descriptions", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "form_descriptions", accessMode = Schema.AccessMode.READ_ONLY, description = "Descriptions of different forms Pokémon take on within the Pokémon species.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("form_descriptions")
   public List<@Valid PokemonSpeciesDescription> getFormDescriptions() {
     return formDescriptions;
@@ -656,11 +666,11 @@ public class PokemonSpeciesDetail {
   }
 
   /**
-   * Get flavorTextEntries
+   * A list of flavor text entries for this Pokémon species.
    * @return flavorTextEntries
    */
   
-  @Schema(name = "flavor_text_entries", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "flavor_text_entries", accessMode = Schema.AccessMode.READ_ONLY, description = "A list of flavor text entries for this Pokémon species.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("flavor_text_entries")
   public List<@Valid PokemonSpeciesFlavorText> getFlavorTextEntries() {
     return flavorTextEntries;
@@ -670,12 +680,12 @@ public class PokemonSpeciesDetail {
     this.flavorTextEntries = flavorTextEntries;
   }
 
-  public PokemonSpeciesDetail genera(List<@Valid PokemonSpeciesDetailGeneraInner> genera) {
+  public PokemonSpeciesDetail genera(List<@Valid PokemonSpeciesGenus> genera) {
     this.genera = genera;
     return this;
   }
 
-  public PokemonSpeciesDetail addGeneraItem(PokemonSpeciesDetailGeneraInner generaItem) {
+  public PokemonSpeciesDetail addGeneraItem(PokemonSpeciesGenus generaItem) {
     if (this.genera == null) {
       this.genera = new ArrayList<>();
     }
@@ -684,26 +694,26 @@ public class PokemonSpeciesDetail {
   }
 
   /**
-   * Get genera
+   * The genus of this Pokémon species listed in multiple languages.
    * @return genera
    */
   
-  @Schema(name = "genera", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "genera", accessMode = Schema.AccessMode.READ_ONLY, description = "The genus of this Pokémon species listed in multiple languages.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("genera")
-  public List<@Valid PokemonSpeciesDetailGeneraInner> getGenera() {
+  public List<@Valid PokemonSpeciesGenus> getGenera() {
     return genera;
   }
 
-  public void setGenera(List<@Valid PokemonSpeciesDetailGeneraInner> genera) {
+  public void setGenera(List<@Valid PokemonSpeciesGenus> genera) {
     this.genera = genera;
   }
 
-  public PokemonSpeciesDetail varieties(List<@Valid PokemonSpeciesDetailVarietiesInner> varieties) {
+  public PokemonSpeciesDetail varieties(List<@Valid PokemonSpeciesVariety> varieties) {
     this.varieties = varieties;
     return this;
   }
 
-  public PokemonSpeciesDetail addVarietiesItem(PokemonSpeciesDetailVarietiesInner varietiesItem) {
+  public PokemonSpeciesDetail addVarietiesItem(PokemonSpeciesVariety varietiesItem) {
     if (this.varieties == null) {
       this.varieties = new ArrayList<>();
     }
@@ -712,17 +722,17 @@ public class PokemonSpeciesDetail {
   }
 
   /**
-   * Get varieties
+   * A list of the Pokémon that exist within this Pokémon species.
    * @return varieties
    */
   
-  @Schema(name = "varieties", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "varieties", accessMode = Schema.AccessMode.READ_ONLY, description = "A list of the Pokémon that exist within this Pokémon species.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("varieties")
-  public List<@Valid PokemonSpeciesDetailVarietiesInner> getVarieties() {
+  public List<@Valid PokemonSpeciesVariety> getVarieties() {
     return varieties;
   }
 
-  public void setVarieties(List<@Valid PokemonSpeciesDetailVarietiesInner> varieties) {
+  public void setVarieties(List<@Valid PokemonSpeciesVariety> varieties) {
     this.varieties = varieties;
   }
 

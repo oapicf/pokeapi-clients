@@ -26,7 +26,6 @@ public class ContestEffectListEndpoint : FastEndpoints.Endpoint<ContestEffectLis
             s.Summary = "List contest effects";
             s.RequestParam(r => r.Limit, "Number of results to return per page.");
             s.RequestParam(r => r.Offset, "The initial index from which to return the results.");
-            s.RequestParam(r => r.Q, "&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ");
             s.Responses[200] = "";
         });
     }
@@ -174,7 +173,6 @@ public class SuperContestEffectListEndpoint : FastEndpoints.Endpoint<SuperContes
             s.Summary = "List super contest effects";
             s.RequestParam(r => r.Limit, "Number of results to return per page.");
             s.RequestParam(r => r.Offset, "The initial index from which to return the results.");
-            s.RequestParam(r => r.Q, "&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ");
             s.Responses[200] = "";
         });
     }

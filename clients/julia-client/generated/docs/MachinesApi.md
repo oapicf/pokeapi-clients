@@ -9,8 +9,8 @@ Method | HTTP request | Description
 
 
 # **machine_list**
-> `machine_list`(_api::`MachinesApi`; `limit`=nothing, `offset`=nothing, `q`=nothing, _mediaType=nothing) -> `PaginatedMachineSummaryList`, `OpenAPI.Clients.ApiResponse` <br/>
-> `machine_list`(_api::`MachinesApi`, response_stream::`Channel`; `limit`=nothing, `offset`=nothing, `q`=nothing, _mediaType=nothing) -> `Channel`{ `PaginatedMachineSummaryList` }, `OpenAPI.Clients.ApiResponse`
+> `machine_list`(_api::`MachinesApi`; `limit`=nothing, `offset`=nothing, _mediaType=nothing) -> `PaginatedMachineSummaryList`, `OpenAPI.Clients.ApiResponse` <br/>
+> `machine_list`(_api::`MachinesApi`, response_stream::`Channel`; `limit`=nothing, `offset`=nothing, _mediaType=nothing) -> `Channel`{ `PaginatedMachineSummaryList` }, `OpenAPI.Clients.ApiResponse`
 
 List machines
 
@@ -28,7 +28,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **`limit`** | **`Int64`** | Number of results to return per page. | [default to nothing]
  **`offset`** | **`Int64`** | The initial index from which to return the results. | [default to nothing]
- **`q`** | **`String`** | &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [default to nothing]
 
 ### Return type
 
@@ -36,7 +35,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -66,7 +65,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

@@ -1,0 +1,40 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server PokemonSpritesOtherDreamWorld"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a PokemonSpritesOtherDreamWorld"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+}
+resourceTypes {
+
+  PokemonSpritesOtherDreamWorld {
+    title = PokemonSpritesOtherDreamWorld
+    description = PokemonSpritesOtherDreamWorld
+    derivedFrom = Root
+    properties {
+        front_default {
+          type =  string
+          description = "The URL of the default Pokémon Dream World front image, or null if unavailable."
+          optional = true
+        }
+        front_female {
+          type =  string
+          description = "The URL of the female Pokémon Dream World front image, or null if unavailable."
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  PokemonSpritesOtherDreamWorld {
+    title = PokemonSpritesOtherDreamWorld
+    description = PokemonSpritesOtherDreamWorld
+    implements = openapi_server.resourceTypes.PokemonSpritesOtherDreamWorld
+
+  }
+}

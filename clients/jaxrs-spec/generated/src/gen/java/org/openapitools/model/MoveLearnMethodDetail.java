@@ -5,9 +5,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.model.AbilityDetailPokemonInnerPokemon;
 import org.openapitools.model.MoveLearnMethodDescription;
 import org.openapitools.model.MoveLearnMethodName;
+import org.openapitools.model.VersionGroupSummary;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
@@ -22,13 +22,13 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("MoveLearnMethodDetail")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-11-09T13:50:06.168269698Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class MoveLearnMethodDetail   {
   private Integer id;
   private String name;
   private List<@Valid MoveLearnMethodName> names = new ArrayList<>();
   private List<@Valid MoveLearnMethodDescription> descriptions = new ArrayList<>();
-  private List<@Valid AbilityDetailPokemonInnerPokemon> versionGroups = new ArrayList<>();
+  private List<@Valid VersionGroupSummary> versionGroups = new ArrayList<>();
 
   public MoveLearnMethodDetail() {
   }
@@ -39,7 +39,7 @@ public class MoveLearnMethodDetail   {
     @JsonProperty(required = true, value = "name") String name,
     @JsonProperty(required = true, value = "names") List<@Valid MoveLearnMethodName> names,
     @JsonProperty(required = true, value = "descriptions") List<@Valid MoveLearnMethodDescription> descriptions,
-    @JsonProperty(required = true, value = "version_groups") List<@Valid AbilityDetailPokemonInnerPokemon> versionGroups
+    @JsonProperty(required = true, value = "version_groups") List<@Valid VersionGroupSummary> versionGroups
   ) {
     this.id = id;
     this.name = name;
@@ -49,6 +49,7 @@ public class MoveLearnMethodDetail   {
   }
 
   /**
+   * The identifier for this resource.
    **/
   public MoveLearnMethodDetail id(Integer id) {
     this.id = id;
@@ -56,7 +57,7 @@ public class MoveLearnMethodDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   @JsonProperty(required = true, value = "id")
   public Integer getId() {
     return id;
@@ -68,6 +69,7 @@ public class MoveLearnMethodDetail   {
   }
 
   /**
+   * The name for this resource.
    **/
   public MoveLearnMethodDetail name(String name) {
     this.name = name;
@@ -75,9 +77,9 @@ public class MoveLearnMethodDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   @JsonProperty(required = true, value = "name")
-  @NotNull  @Size(max=100)public String getName() {
+  @NotNull  @Size(max=200)public String getName() {
     return name;
   }
 
@@ -87,6 +89,7 @@ public class MoveLearnMethodDetail   {
   }
 
   /**
+   * The name of this resource listed in different languages.
    **/
   public MoveLearnMethodDetail names(List<@Valid MoveLearnMethodName> names) {
     this.names = names;
@@ -94,7 +97,7 @@ public class MoveLearnMethodDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
   @JsonProperty(required = true, value = "names")
   public List<@Valid MoveLearnMethodName> getNames() {
     return names;
@@ -122,6 +125,7 @@ public class MoveLearnMethodDetail   {
     return this;
   }
   /**
+   * The description of this resource listed in different languages.
    **/
   public MoveLearnMethodDetail descriptions(List<@Valid MoveLearnMethodDescription> descriptions) {
     this.descriptions = descriptions;
@@ -129,7 +133,7 @@ public class MoveLearnMethodDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The description of this resource listed in different languages.")
   @JsonProperty(required = true, value = "descriptions")
   public List<@Valid MoveLearnMethodDescription> getDescriptions() {
     return descriptions;
@@ -157,25 +161,26 @@ public class MoveLearnMethodDetail   {
     return this;
   }
   /**
+   * A list of version groups where moves can be learned through this method.
    **/
-  public MoveLearnMethodDetail versionGroups(List<@Valid AbilityDetailPokemonInnerPokemon> versionGroups) {
+  public MoveLearnMethodDetail versionGroups(List<@Valid VersionGroupSummary> versionGroups) {
     this.versionGroups = versionGroups;
     return this;
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of version groups where moves can be learned through this method.")
   @JsonProperty(required = true, value = "version_groups")
-  public List<@Valid AbilityDetailPokemonInnerPokemon> getVersionGroups() {
+  public List<@Valid VersionGroupSummary> getVersionGroups() {
     return versionGroups;
   }
 
   @JsonProperty(required = true, value = "version_groups")
-  public void setVersionGroups(List<@Valid AbilityDetailPokemonInnerPokemon> versionGroups) {
+  public void setVersionGroups(List<@Valid VersionGroupSummary> versionGroups) {
     this.versionGroups = versionGroups;
   }
 
-  public MoveLearnMethodDetail addVersionGroupsItem(AbilityDetailPokemonInnerPokemon versionGroupsItem) {
+  public MoveLearnMethodDetail addVersionGroupsItem(VersionGroupSummary versionGroupsItem) {
     if (this.versionGroups == null) {
       this.versionGroups = new ArrayList<>();
     }
@@ -184,7 +189,7 @@ public class MoveLearnMethodDetail   {
     return this;
   }
 
-  public MoveLearnMethodDetail removeVersionGroupsItem(AbilityDetailPokemonInnerPokemon versionGroupsItem) {
+  public MoveLearnMethodDetail removeVersionGroupsItem(VersionGroupSummary versionGroupsItem) {
     if (versionGroupsItem != null && this.versionGroups != null) {
       this.versionGroups.remove(versionGroupsItem);
     }

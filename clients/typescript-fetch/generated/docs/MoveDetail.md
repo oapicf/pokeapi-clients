@@ -13,23 +13,23 @@ Name | Type
 `pp` | number
 `priority` | number
 `power` | number
-`contestCombos` | [MoveDetailContestCombos](MoveDetailContestCombos.md)
+`contestCombos` | [MoveCombos](MoveCombos.md)
 `contestType` | [ContestTypeSummary](ContestTypeSummary.md)
 `contestEffect` | [ContestEffectSummary](ContestEffectSummary.md)
 `damageClass` | [MoveDamageClassSummary](MoveDamageClassSummary.md)
-`effectEntries` | [Array&lt;MoveChangeEffectEntriesInner&gt;](MoveChangeEffectEntriesInner.md)
-`effectChanges` | [Array&lt;MoveDetailEffectChangesInner&gt;](MoveDetailEffectChangesInner.md)
+`effectEntries` | [Array&lt;MoveEffectEffectText&gt;](MoveEffectEffectText.md)
+`effectChanges` | [Array&lt;MoveEffectChange&gt;](MoveEffectChange.md)
 `generation` | [GenerationSummary](GenerationSummary.md)
 `meta` | [MoveMeta](MoveMeta.md)
 `names` | [Array&lt;MoveName&gt;](MoveName.md)
 `pastValues` | [Array&lt;MoveChange&gt;](MoveChange.md)
-`statChanges` | [Array&lt;MoveDetailStatChangesInner&gt;](MoveDetailStatChangesInner.md)
+`statChanges` | [Array&lt;MoveMetaStatChange&gt;](MoveMetaStatChange.md)
 `superContestEffect` | [SuperContestEffectSummary](SuperContestEffectSummary.md)
 `target` | [MoveTargetSummary](MoveTargetSummary.md)
 `type` | [TypeSummary](TypeSummary.md)
-`machines` | [Array&lt;MoveDetailMachinesInner&gt;](MoveDetailMachinesInner.md)
+`machines` | [Array&lt;ItemMachine&gt;](ItemMachine.md)
 `flavorTextEntries` | [Array&lt;MoveFlavorText&gt;](MoveFlavorText.md)
-`learnedByPokemon` | [Array&lt;AbilityDetailPokemonInnerPokemon&gt;](AbilityDetailPokemonInnerPokemon.md)
+`learnedByPokemon` | [Array&lt;PokemonSummary&gt;](PokemonSummary.md)
 
 ## Example
 

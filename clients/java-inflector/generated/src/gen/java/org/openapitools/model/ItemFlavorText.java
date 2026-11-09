@@ -12,7 +12,7 @@ import org.openapitools.model.VersionGroupSummary;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-10-25T05:47:53.227411880Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-11-09T13:49:15.621225368Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class ItemFlavorText   {
   @JsonProperty("text")
   private String text;
@@ -24,6 +24,7 @@ public class ItemFlavorText   {
   private LanguageSummary language;
 
   /**
+   * The localized flavor text for an API resource in a specific language.
    **/
   public ItemFlavorText text(String text) {
     this.text = text;
@@ -31,7 +32,7 @@ public class ItemFlavorText   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The localized flavor text for an API resource in a specific language.")
   @JsonProperty("text")
   public String getText() {
     return text;
@@ -41,6 +42,7 @@ public class ItemFlavorText   {
   }
 
   /**
+   * The version group which uses this flavor text.
    **/
   public ItemFlavorText versionGroup(VersionGroupSummary versionGroup) {
     this.versionGroup = versionGroup;
@@ -48,7 +50,7 @@ public class ItemFlavorText   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The version group which uses this flavor text.")
   @JsonProperty("version_group")
   public VersionGroupSummary getVersionGroup() {
     return versionGroup;
@@ -58,6 +60,7 @@ public class ItemFlavorText   {
   }
 
   /**
+   * The language this name is in.
    **/
   public ItemFlavorText language(LanguageSummary language) {
     this.language = language;
@@ -65,7 +68,7 @@ public class ItemFlavorText   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The language this name is in.")
   @JsonProperty("language")
   public LanguageSummary getLanguage() {
     return language;

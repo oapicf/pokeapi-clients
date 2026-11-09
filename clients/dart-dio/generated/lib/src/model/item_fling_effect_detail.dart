@@ -14,21 +14,25 @@ part 'item_fling_effect_detail.g.dart';
 /// ItemFlingEffectDetail
 ///
 /// Properties:
-/// * [id] 
-/// * [name] 
-/// * [effectEntries] 
-/// * [items] 
+/// * [id] - The identifier for this resource.
+/// * [name] - The name for this resource.
+/// * [effectEntries] - The result of this fling effect listed in different languages.
+/// * [items] - A list of items that have this fling effect.
 @BuiltValue()
 abstract class ItemFlingEffectDetail implements Built<ItemFlingEffectDetail, ItemFlingEffectDetailBuilder> {
+  /// The identifier for this resource.
   @BuiltValueField(wireName: r'id')
   int get id;
 
+  /// The name for this resource.
   @BuiltValueField(wireName: r'name')
   String get name;
 
+  /// The result of this fling effect listed in different languages.
   @BuiltValueField(wireName: r'effect_entries')
   BuiltList<ItemFlingEffectEffectText> get effectEntries;
 
+  /// A list of items that have this fling effect.
   @BuiltValueField(wireName: r'items')
   BuiltList<ItemSummary> get items;
 

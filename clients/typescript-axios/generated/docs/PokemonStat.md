@@ -5,9 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**base_stat** | **number** |  | [default to undefined]
-**effort** | **number** |  | [default to undefined]
-**stat** | [**StatSummary**](StatSummary.md) |  | [default to undefined]
+**base_stat** | **number** | The base value of the stat. | [default to undefined]
+**effort** | **number** | The effort points (EV) the Pokémon has in the stat. | [default to undefined]
+**stat** | [**StatSummary**](StatSummary.md) | The stat the Pokémon has. | [default to undefined]
 
 ## Example
 

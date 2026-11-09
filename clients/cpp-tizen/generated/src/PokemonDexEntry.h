@@ -46,18 +46,18 @@ public:
 	 */
 	void fromJson(char* jsonStr);
 
-	/*! \brief Get 
+	/*! \brief Get The index number within the Pokédex.
 	 */
 	int getEntryNumber();
 
-	/*! \brief Set 
+	/*! \brief Set The index number within the Pokédex.
 	 */
 	void setEntryNumber(int  entry_number);
-	/*! \brief Get 
+	/*! \brief Get The Pokédex the referenced Pokémon species can be found in.
 	 */
 	PokedexSummary getPokedex();
 
-	/*! \brief Set 
+	/*! \brief Set The Pokédex the referenced Pokémon species can be found in.
 	 */
 	void setPokedex(PokedexSummary  pokedex);
 

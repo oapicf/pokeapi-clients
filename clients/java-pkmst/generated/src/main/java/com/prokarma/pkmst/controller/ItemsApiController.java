@@ -1,10 +1,12 @@
 package com.prokarma.pkmst.controller;
 
+import com.prokarma.pkmst.model.CurrencyDetail;
 import com.prokarma.pkmst.model.ItemAttributeDetail;
 import com.prokarma.pkmst.model.ItemCategoryDetail;
 import com.prokarma.pkmst.model.ItemDetail;
 import com.prokarma.pkmst.model.ItemFlingEffectDetail;
 import com.prokarma.pkmst.model.ItemPocketDetail;
+import com.prokarma.pkmst.model.PaginatedCurrencySummaryList;
 import com.prokarma.pkmst.model.PaginatedItemAttributeSummaryList;
 import com.prokarma.pkmst.model.PaginatedItemCategorySummaryList;
 import com.prokarma.pkmst.model.PaginatedItemFlingEffectSummaryList;
@@ -32,13 +34,37 @@ import java.io.IOException;
  * @author pkmst
  *
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-10-25T05:48:09.645019047Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-11-09T13:49:28.343088631Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 @Controller
 public class ItemsApiController implements ItemsApi {
     private final ObjectMapper objectMapper;
 @Autowired
     public ItemsApiController(ObjectMapper objectMapper) {
         this.objectMapper = objectMapper;
+    }
+
+    public ResponseEntity<PaginatedCurrencySummaryList> currencyList(@ApiParam(value = "Number of results to return per page.")  @RequestParam(value = "limit", required = false) Integer limit,
+        @ApiParam(value = "The initial index from which to return the results.")  @RequestParam(value = "offset", required = false) Integer offset,
+        @ApiParam(value = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")  @RequestParam(value = "q", required = false) String q,
+        @RequestHeader(value = "Accept", required = false) String accept) throws Exception {
+        // do some magic!
+
+        if (accept != null && accept.contains("application/json")) {
+            return new ResponseEntity<PaginatedCurrencySummaryList>(objectMapper.readValue("", PaginatedCurrencySummaryList.class), HttpStatus.OK);
+        }
+
+        return new ResponseEntity<PaginatedCurrencySummaryList>(HttpStatus.OK);
+    }
+
+    public ResponseEntity<CurrencyDetail> currencyRetrieve(@ApiParam(value = "This parameter can be a string or an integer.",required=true ) @PathVariable("id") String id,
+        @RequestHeader(value = "Accept", required = false) String accept) throws Exception {
+        // do some magic!
+
+        if (accept != null && accept.contains("application/json")) {
+            return new ResponseEntity<CurrencyDetail>(objectMapper.readValue("", CurrencyDetail.class), HttpStatus.OK);
+        }
+
+        return new ResponseEntity<CurrencyDetail>(HttpStatus.OK);
     }
 
     public ResponseEntity<PaginatedItemAttributeSummaryList> itemAttributeList(@ApiParam(value = "Number of results to return per page.")  @RequestParam(value = "limit", required = false) Integer limit,

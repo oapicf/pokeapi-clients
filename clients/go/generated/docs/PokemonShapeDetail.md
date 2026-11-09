@@ -4,17 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int32** |  | [readonly] 
-**Name** | **string** |  | 
-**AwesomeNames** | [**[]PokemonShapeDetailAwesomeNamesInner**](PokemonShapeDetailAwesomeNamesInner.md) |  | [readonly] 
-**Names** | [**[]PokemonShapeDetailNamesInner**](PokemonShapeDetailNamesInner.md) |  | [readonly] 
-**PokemonSpecies** | [**[]PokemonSpeciesSummary**](PokemonSpeciesSummary.md) |  | [readonly] 
+**Id** | **int32** | The identifier for this resource. | [readonly] 
+**Name** | **string** | The name for this resource. | 
+**AwesomeNames** | [**[]PokemonShapeAwesomeName**](PokemonShapeAwesomeName.md) | The \&quot;scientific\&quot; name of this Pokémon shape listed in different languages. | [readonly] 
+**Names** | [**[]PokemonShapeName**](PokemonShapeName.md) | The name of this resource listed in different languages. | [readonly] 
+**PokemonSpecies** | [**[]PokemonSpeciesSummary**](PokemonSpeciesSummary.md) | A list of the Pokémon species that have this shape. | [readonly] 
 
 ## Methods
 
 ### NewPokemonShapeDetail
 
-`func NewPokemonShapeDetail(id int32, name string, awesomeNames []PokemonShapeDetailAwesomeNamesInner, names []PokemonShapeDetailNamesInner, pokemonSpecies []PokemonSpeciesSummary, ) *PokemonShapeDetail`
+`func NewPokemonShapeDetail(id int32, name string, awesomeNames []PokemonShapeAwesomeName, names []PokemonShapeName, pokemonSpecies []PokemonSpeciesSummary, ) *PokemonShapeDetail`
 
 NewPokemonShapeDetail instantiates a new PokemonShapeDetail object
 This constructor will assign default values to properties that have it defined,
@@ -71,40 +71,40 @@ SetName sets Name field to given value.
 
 ### GetAwesomeNames
 
-`func (o *PokemonShapeDetail) GetAwesomeNames() []PokemonShapeDetailAwesomeNamesInner`
+`func (o *PokemonShapeDetail) GetAwesomeNames() []PokemonShapeAwesomeName`
 
 GetAwesomeNames returns the AwesomeNames field if non-nil, zero value otherwise.
 
 ### GetAwesomeNamesOk
 
-`func (o *PokemonShapeDetail) GetAwesomeNamesOk() (*[]PokemonShapeDetailAwesomeNamesInner, bool)`
+`func (o *PokemonShapeDetail) GetAwesomeNamesOk() (*[]PokemonShapeAwesomeName, bool)`
 
 GetAwesomeNamesOk returns a tuple with the AwesomeNames field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAwesomeNames
 
-`func (o *PokemonShapeDetail) SetAwesomeNames(v []PokemonShapeDetailAwesomeNamesInner)`
+`func (o *PokemonShapeDetail) SetAwesomeNames(v []PokemonShapeAwesomeName)`
 
 SetAwesomeNames sets AwesomeNames field to given value.
 
 
 ### GetNames
 
-`func (o *PokemonShapeDetail) GetNames() []PokemonShapeDetailNamesInner`
+`func (o *PokemonShapeDetail) GetNames() []PokemonShapeName`
 
 GetNames returns the Names field if non-nil, zero value otherwise.
 
 ### GetNamesOk
 
-`func (o *PokemonShapeDetail) GetNamesOk() (*[]PokemonShapeDetailNamesInner, bool)`
+`func (o *PokemonShapeDetail) GetNamesOk() (*[]PokemonShapeName, bool)`
 
 GetNamesOk returns a tuple with the Names field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNames
 
-`func (o *PokemonShapeDetail) SetNames(v []PokemonShapeDetailNamesInner)`
+`func (o *PokemonShapeDetail) SetNames(v []PokemonShapeName)`
 
 SetNames sets Names field to given value.
 

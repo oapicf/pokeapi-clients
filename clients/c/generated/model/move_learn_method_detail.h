@@ -15,9 +15,9 @@
 
 typedef struct move_learn_method_detail_t move_learn_method_detail_t;
 
-#include "ability_detail_pokemon_inner_pokemon.h"
 #include "move_learn_method_description.h"
 #include "move_learn_method_name.h"
+#include "version_group_summary.h"
 
 
 

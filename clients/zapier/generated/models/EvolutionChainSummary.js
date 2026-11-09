@@ -6,7 +6,7 @@ module.exports = {
         return [
             {
                 key: `${keyPrefix}url`,
-                label: `[${labelPrefix}url]`,
+                label: `The URL of the referenced resource. - [${labelPrefix}url]`,
                 required: true,
                 type: 'string',
             },

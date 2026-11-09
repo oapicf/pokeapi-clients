@@ -12,15 +12,26 @@ import org.joda.time.DateTime
 import StatDetail._
 
 case class StatDetail (
+  /* The identifier for this resource. */
   id: Integer,
-name: String,
-gameIndex: Integer,
-isBattleOnly: Option[Boolean],
-affectingMoves: StatDetailAffectingMoves,
-affectingNatures: StatDetailAffectingNatures,
-characteristics: List[CharacteristicSummary],
-moveDamageClass: MoveDamageClassSummary,
-names: List[StatName])
+/* The name for this resource. */
+  name: String,
+/* ID the games use for this stat. */
+  gameIndex: Integer,
+/* Whether this stat only exists within a battle. */
+  isBattleOnly: Option[Boolean],
+/* A detail of moves which affect this stat positively or negatively. */
+  affectingMoves: StatAffectingMoves,
+/* A detail of natures which affect this stat positively or negatively. */
+  affectingNatures: StatAffectingNatures,
+/* Items that affect this stat, such as vitamins and battle items. */
+  affectingItems: List[ItemSummary],
+/* A list of characteristics that are set on a Pokémon when its highest base stat is this stat. */
+  characteristics: List[CharacteristicSummary],
+/* The class of damage this stat is directly related to. */
+  moveDamageClass: MoveDamageClassSummary,
+/* The name of this resource listed in different languages. */
+  names: List[StatName])
 
 object StatDetail {
   import DateTimeCodecs._

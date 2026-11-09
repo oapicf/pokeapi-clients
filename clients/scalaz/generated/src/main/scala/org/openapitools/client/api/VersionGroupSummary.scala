@@ -13,8 +13,10 @@ import java.net.URI
 import VersionGroupSummary._
 
 case class VersionGroupSummary (
+  /* The name of the referenced resource. */
   name: String,
-url: URI)
+/* The URL of the referenced resource. */
+  url: URI)
 
 object VersionGroupSummary {
   import DateTimeCodecs._

@@ -5,6 +5,80 @@
  *
  *)
 
+let currency_list ?limit ?offset ?q () =
+    let open Lwt.Infix in
+    let uri = Request.build_uri "/api/v2/currency/" in
+    let headers = Request.default_headers in
+    let uri = Request.maybe_add_query_param uri "limit"     
+    Int32.to_string
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        
+        
+ limit in
+    let uri = Request.maybe_add_query_param uri "offset"     
+    Int32.to_string
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        
+        
+ offset in
+    let uri = Request.maybe_add_query_param uri "q"     
+    
+    
+    
+    
+    
+    
+    
+    
+    (fun x -> x)
+    
+    
+        
+        
+ q in
+    Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
+    Request.read_json_body_as (JsonSupport.unwrap Paginated_currency_summary_list.of_yojson) resp body
+
+let currency_retrieve ~id =
+    let open Lwt.Infix in
+    let uri = Request.build_uri "/api/v2/currency/{id}/" in
+    let headers = Request.default_headers in
+    let uri = Request.replace_path_param uri "id"     
+    
+    
+    
+    
+    
+    
+    
+    
+    (fun x -> x)
+    
+    
+        
+        
+ id in
+    Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
+    Request.read_json_body_as (JsonSupport.unwrap Currency_detail.of_yojson) resp body
+
 let item_attribute_list ?limit ?offset ?q () =
     let open Lwt.Infix in
     let uri = Request.build_uri "/api/v2/item-attribute/" in

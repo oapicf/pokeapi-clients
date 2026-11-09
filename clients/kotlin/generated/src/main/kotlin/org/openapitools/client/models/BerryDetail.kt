@@ -23,8 +23,8 @@
 
 package org.openapitools.client.models
 
-import org.openapitools.client.models.BerryDetailFlavorsInner
 import org.openapitools.client.models.BerryFirmnessSummary
+import org.openapitools.client.models.BerryFlavorMap
 import org.openapitools.client.models.ItemSummary
 import org.openapitools.client.models.TypeSummary
 
@@ -34,58 +34,70 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param id 
- * @param name 
- * @param growthTime 
- * @param maxHarvest 
- * @param naturalGiftPower 
- * @param propertySize 
- * @param smoothness 
- * @param soilDryness 
- * @param firmness 
- * @param flavors 
- * @param item 
- * @param naturalGiftType 
+ * @param id The identifier for this resource.
+ * @param name The name for this resource.
+ * @param firmness The firmness of this berry, used in making Pokéblocks or Poffins.
+ * @param flavors A list of references to each flavor a berry can have and the potency of each of those flavors in regard to this berry.
+ * @param item Berries are actually items. This is a reference to the item specific data for this berry.
+ * @param naturalGiftType The type inherited by \"Natural Gift\" when used with this Berry.
+ * @param growthTime Time it takes the tree to grow one stage, in hours. Berry trees go through four of these growth stages before they can be picked.
+ * @param maxHarvest The maximum number of these berries that can grow on one tree in Generation IV.
+ * @param naturalGiftPower The power of the move \"Natural Gift\" when used with this Berry.
+ * @param propertySize The size of this Berry, in millimeters.
+ * @param smoothness The smoothness of this Berry, used in making Pokéblocks or Poffins.
+ * @param soilDryness The speed at which this Berry dries out the soil as it grows. A higher rate means the soil dries more quickly.
  */
 
 
 data class BerryDetail (
 
+    /* The identifier for this resource. */
     @Json(name = "id")
     val id: kotlin.Int,
 
+    /* The name for this resource. */
     @Json(name = "name")
     val name: kotlin.String,
 
-    @Json(name = "growth_time")
-    val growthTime: kotlin.Int,
-
-    @Json(name = "max_harvest")
-    val maxHarvest: kotlin.Int,
-
-    @Json(name = "natural_gift_power")
-    val naturalGiftPower: kotlin.Int,
-
-    @Json(name = "size")
-    val propertySize: kotlin.Int,
-
-    @Json(name = "smoothness")
-    val smoothness: kotlin.Int,
-
-    @Json(name = "soil_dryness")
-    val soilDryness: kotlin.Int,
-
+    /* The firmness of this berry, used in making Pokéblocks or Poffins. */
     @Json(name = "firmness")
-    val firmness: BerryFirmnessSummary,
+    val firmness: BerryFirmnessSummary?,
 
+    /* A list of references to each flavor a berry can have and the potency of each of those flavors in regard to this berry. */
     @Json(name = "flavors")
-    val flavors: kotlin.collections.List<BerryDetailFlavorsInner>,
+    val flavors: kotlin.collections.List<BerryFlavorMap>,
 
+    /* Berries are actually items. This is a reference to the item specific data for this berry. */
     @Json(name = "item")
     val item: ItemSummary,
 
+    /* The type inherited by \"Natural Gift\" when used with this Berry. */
     @Json(name = "natural_gift_type")
-    val naturalGiftType: TypeSummary
+    val naturalGiftType: TypeSummary?,
+
+    /* Time it takes the tree to grow one stage, in hours. Berry trees go through four of these growth stages before they can be picked. */
+    @Json(name = "growth_time")
+    val growthTime: kotlin.Int? = null,
+
+    /* The maximum number of these berries that can grow on one tree in Generation IV. */
+    @Json(name = "max_harvest")
+    val maxHarvest: kotlin.Int? = null,
+
+    /* The power of the move \"Natural Gift\" when used with this Berry. */
+    @Json(name = "natural_gift_power")
+    val naturalGiftPower: kotlin.Int? = null,
+
+    /* The size of this Berry, in millimeters. */
+    @Json(name = "size")
+    val propertySize: kotlin.Int? = null,
+
+    /* The smoothness of this Berry, used in making Pokéblocks or Poffins. */
+    @Json(name = "smoothness")
+    val smoothness: kotlin.Int? = null,
+
+    /* The speed at which this Berry dries out the soil as it grows. A higher rate means the soil dries more quickly. */
+    @Json(name = "soil_dryness")
+    val soilDryness: kotlin.Int? = null
 
 ) {
 

@@ -21,6 +21,9 @@ public class TypeGameIndex   {
   private GenerationSummary generation;
 
   /**
+   * The internal id of an API resource within game data.
+   * minimum: -2147483648
+   * maximum: 2147483647
    **/
   public TypeGameIndex gameIndex(Integer gameIndex) {
     this.gameIndex = gameIndex;
@@ -28,10 +31,10 @@ public class TypeGameIndex   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The internal id of an API resource within game data.")
   @JsonProperty("game_index")
   @NotNull
-  public Integer getGameIndex() {
+ @Min(-2147483648) @Max(2147483647)  public Integer getGameIndex() {
     return gameIndex;
   }
   public void setGameIndex(Integer gameIndex) {
@@ -40,6 +43,7 @@ public class TypeGameIndex   {
 
 
   /**
+   * The generation relevent to this game index.
    **/
   public TypeGameIndex generation(GenerationSummary generation) {
     this.generation = generation;
@@ -47,7 +51,7 @@ public class TypeGameIndex   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The generation relevent to this game index.")
   @JsonProperty("generation")
   @NotNull
   public GenerationSummary getGeneration() {

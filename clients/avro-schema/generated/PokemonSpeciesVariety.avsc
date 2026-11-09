@@ -1,0 +1,19 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "PokemonSpeciesVariety",
+  "fields": [
+    {
+      "name": "is_default",
+      "type": "boolean",
+      "doc": "Whether this variety is the default variety."
+    },
+    {
+      "name": "pokemon",
+      "type": "model.PokemonSummary",
+      "doc": "The Pokémon variety."
+    }
+  ]
+
+}

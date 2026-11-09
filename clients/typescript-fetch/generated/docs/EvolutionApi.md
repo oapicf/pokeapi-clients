@@ -8,12 +8,14 @@ All URIs are relative to *https://pokeapi.co*
 | [**evolutionChainRetrieve**](EvolutionApi.md#evolutionchainretrieve) | **GET** /api/v2/evolution-chain/{id}/ | Get evolution chain |
 | [**evolutionTriggerList**](EvolutionApi.md#evolutiontriggerlist) | **GET** /api/v2/evolution-trigger/ | List evolution triggers |
 | [**evolutionTriggerRetrieve**](EvolutionApi.md#evolutiontriggerretrieve) | **GET** /api/v2/evolution-trigger/{id}/ | Get evolution trigger |
+| [**evolutionVariableList**](EvolutionApi.md#evolutionvariablelist) | **GET** /api/v2/evolution-variable/ | List evolution variables |
+| [**evolutionVariableRetrieve**](EvolutionApi.md#evolutionvariableretrieve) | **GET** /api/v2/evolution-variable/{id}/ | Get evolution variable |
 
 
 
 ## evolutionChainList
 
-> PaginatedEvolutionChainSummaryList evolutionChainList(limit, offset, q)
+> PaginatedEvolutionChainSummaryList evolutionChainList(limit, offset)
 
 List evolution chains
 
@@ -30,22 +32,13 @@ import type { EvolutionChainListRequest } from '';
 
 async function example() {
   console.log("🚀 Testing  SDK...");
-  const config = new Configuration({ 
-    // To configure HTTP basic authorization: basicAuth
-    username: "YOUR USERNAME",
-    password: "YOUR PASSWORD",
-    // To configure API key authorization: cookieAuth
-    apiKey: "YOUR API KEY",
-  });
-  const api = new EvolutionApi(config);
+  const api = new EvolutionApi();
 
   const body = {
     // number | Number of results to return per page. (optional)
     limit: 56,
     // number | The initial index from which to return the results. (optional)
     offset: 56,
-    // string | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
-    q: q_example,
   } satisfies EvolutionChainListRequest;
 
   try {
@@ -67,7 +60,6 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **limit** | `number` | Number of results to return per page. | [Optional] [Defaults to `undefined`] |
 | **offset** | `number` | The initial index from which to return the results. | [Optional] [Defaults to `undefined`] |
-| **q** | `string` | &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -75,7 +67,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -110,18 +102,11 @@ import type { EvolutionChainRetrieveRequest } from '';
 
 async function example() {
   console.log("🚀 Testing  SDK...");
-  const config = new Configuration({ 
-    // To configure HTTP basic authorization: basicAuth
-    username: "YOUR USERNAME",
-    password: "YOUR PASSWORD",
-    // To configure API key authorization: cookieAuth
-    apiKey: "YOUR API KEY",
-  });
-  const api = new EvolutionApi(config);
+  const api = new EvolutionApi();
 
   const body = {
     // string | This parameter can be a string or an integer.
-    id: id_example,
+    id: 1,
   } satisfies EvolutionChainRetrieveRequest;
 
   try {
@@ -149,7 +134,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -184,14 +169,7 @@ import type { EvolutionTriggerListRequest } from '';
 
 async function example() {
   console.log("🚀 Testing  SDK...");
-  const config = new Configuration({ 
-    // To configure HTTP basic authorization: basicAuth
-    username: "YOUR USERNAME",
-    password: "YOUR PASSWORD",
-    // To configure API key authorization: cookieAuth
-    apiKey: "YOUR API KEY",
-  });
-  const api = new EvolutionApi(config);
+  const api = new EvolutionApi();
 
   const body = {
     // number | Number of results to return per page. (optional)
@@ -229,7 +207,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -264,18 +242,11 @@ import type { EvolutionTriggerRetrieveRequest } from '';
 
 async function example() {
   console.log("🚀 Testing  SDK...");
-  const config = new Configuration({ 
-    // To configure HTTP basic authorization: basicAuth
-    username: "YOUR USERNAME",
-    password: "YOUR PASSWORD",
-    // To configure API key authorization: cookieAuth
-    apiKey: "YOUR API KEY",
-  });
-  const api = new EvolutionApi(config);
+  const api = new EvolutionApi();
 
   const body = {
     // string | This parameter can be a string or an integer.
-    id: id_example,
+    id: 1,
   } satisfies EvolutionTriggerRetrieveRequest;
 
   try {
@@ -303,7 +274,147 @@ example().catch(console.error);
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## evolutionVariableList
+
+> PaginatedEvolutionVariableSummaryList evolutionVariableList(limit, offset, q)
+
+List evolution variables
+
+Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  EvolutionApi,
+} from '';
+import type { EvolutionVariableListRequest } from '';
+
+async function example() {
+  console.log("🚀 Testing  SDK...");
+  const api = new EvolutionApi();
+
+  const body = {
+    // number | Number of results to return per page. (optional)
+    limit: 56,
+    // number | The initial index from which to return the results. (optional)
+    offset: 56,
+    // string | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
+    q: q_example,
+  } satisfies EvolutionVariableListRequest;
+
+  try {
+    const data = await api.evolutionVariableList(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **limit** | `number` | Number of results to return per page. | [Optional] [Defaults to `undefined`] |
+| **offset** | `number` | The initial index from which to return the results. | [Optional] [Defaults to `undefined`] |
+| **q** | `string` | &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**PaginatedEvolutionVariableSummaryList**](PaginatedEvolutionVariableSummaryList.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## evolutionVariableRetrieve
+
+> EvolutionVariableDetail evolutionVariableRetrieve(id)
+
+Get evolution variable
+
+Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  EvolutionApi,
+} from '';
+import type { EvolutionVariableRetrieveRequest } from '';
+
+async function example() {
+  console.log("🚀 Testing  SDK...");
+  const api = new EvolutionApi();
+
+  const body = {
+    // string | This parameter can be a string or an integer.
+    id: 1,
+  } satisfies EvolutionVariableRetrieveRequest;
+
+  try {
+    const data = await api.evolutionVariableRetrieve(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `string` | This parameter can be a string or an integer. | [Defaults to `undefined`] |
+
+### Return type
+
+[**EvolutionVariableDetail**](EvolutionVariableDetail.md)
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 

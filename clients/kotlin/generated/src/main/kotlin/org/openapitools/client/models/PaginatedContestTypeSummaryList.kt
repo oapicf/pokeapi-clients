@@ -31,26 +31,30 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param count 
- * @param next 
- * @param previous 
- * @param results 
+ * @param count The total number of resources available from this API.
+ * @param results A list of API resources on this page.
+ * @param next The URL for the next page in the list, or null if there is no next page.
+ * @param previous The URL for the previous page in the list, or null if there is no previous page.
  */
 
 
 data class PaginatedContestTypeSummaryList (
 
+    /* The total number of resources available from this API. */
     @Json(name = "count")
-    val count: kotlin.Int? = null,
+    val count: kotlin.Int,
 
+    /* A list of API resources on this page. */
+    @Json(name = "results")
+    val results: kotlin.collections.List<ContestTypeSummary>,
+
+    /* The URL for the next page in the list, or null if there is no next page. */
     @Json(name = "next")
     val next: java.net.URI? = null,
 
+    /* The URL for the previous page in the list, or null if there is no previous page. */
     @Json(name = "previous")
-    val previous: java.net.URI? = null,
-
-    @Json(name = "results")
-    val results: kotlin.collections.List<ContestTypeSummary>? = null
+    val previous: java.net.URI? = null
 
 ) {
 

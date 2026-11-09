@@ -8,7 +8,9 @@
 import Foundation
 
 public struct SuperContestEffectFlavorText: Codable {
+    /// The localized flavor text for an API resource in a specific language.
     public var flavorText: String
+    /// The language this name is in.
     public var language: LanguageSummary
 
     public init(flavorText: String, language: LanguageSummary) {

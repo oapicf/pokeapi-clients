@@ -20,7 +20,7 @@ public class EvolutionChainSummary   {
     /**
      * Create EvolutionChainSummary.
      *
-     * @param url url
+     * @param url The URL of the referenced resource.
      */
     public EvolutionChainSummary(
         URI url
@@ -31,7 +31,7 @@ public class EvolutionChainSummary   {
 
 
     /**
-     * Get url
+     * The URL of the referenced resource.
      * @return url
      */
     public URI getUrl() {

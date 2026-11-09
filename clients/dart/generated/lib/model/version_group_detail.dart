@@ -23,20 +23,31 @@ class VersionGroupDetail {
     this.versions = const [],
   });
 
+  /// The identifier for this resource.
   int id;
 
+  /// The name for this resource.
   String name;
 
+  /// Order for sorting. Almost by date of release, except similar versions are grouped together.
+  ///
+  /// Minimum value: -2147483648
+  /// Maximum value: 2147483647
   int? order;
 
+  /// The generation this version was introduced in.
   GenerationSummary generation;
 
-  List<AbilityDetailPokemonInnerPokemon> moveLearnMethods;
+  /// A list of methods in which Pokémon can learn moves in this version group.
+  List<MoveLearnMethodSummary> moveLearnMethods;
 
-  List<AbilityDetailPokemonInnerPokemon> pokedexes;
+  /// A list of Pokédexes introduces in this version group.
+  List<PokedexSummary> pokedexes;
 
-  List<AbilityDetailPokemonInnerPokemon> regions;
+  /// A list of regions that can be visited in this version group.
+  List<RegionSummary> regions;
 
+  /// The versions this version group owns.
   List<VersionSummary> versions;
 
   @override
@@ -115,9 +126,9 @@ class VersionGroupDetail {
         name: mapValueOfType<String>(json, r'name')!,
         order: mapValueOfType<int>(json, r'order'),
         generation: GenerationSummary.fromJson(json[r'generation'])!,
-        moveLearnMethods: AbilityDetailPokemonInnerPokemon.listFromJson(json[r'move_learn_methods']),
-        pokedexes: AbilityDetailPokemonInnerPokemon.listFromJson(json[r'pokedexes']),
-        regions: AbilityDetailPokemonInnerPokemon.listFromJson(json[r'regions']),
+        moveLearnMethods: MoveLearnMethodSummary.listFromJson(json[r'move_learn_methods']),
+        pokedexes: PokedexSummary.listFromJson(json[r'pokedexes']),
+        regions: RegionSummary.listFromJson(json[r'regions']),
         versions: VersionSummary.listFromJson(json[r'versions']),
       );
     }

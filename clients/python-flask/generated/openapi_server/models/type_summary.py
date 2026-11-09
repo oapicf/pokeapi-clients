@@ -48,6 +48,7 @@ class TypeSummary(Model):
     def name(self) -> str:
         """Gets the name of this TypeSummary.
 
+        The name of the referenced resource.  # noqa: E501
 
         :return: The name of this TypeSummary.
         :rtype: str
@@ -58,14 +59,15 @@ class TypeSummary(Model):
     def name(self, name: str):
         """Sets the name of this TypeSummary.
 
+        The name of the referenced resource.  # noqa: E501
 
         :param name: The name of this TypeSummary.
         :type name: str
         """
         if name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
-        if name is not None and len(name) > 100:
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `100`")  # noqa: E501
+        if name is not None and len(name) > 200:
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `200`")  # noqa: E501
 
         self._name = name
 
@@ -73,6 +75,7 @@ class TypeSummary(Model):
     def url(self) -> str:
         """Gets the url of this TypeSummary.
 
+        The URL of the referenced resource.  # noqa: E501
 
         :return: The url of this TypeSummary.
         :rtype: str
@@ -83,6 +86,7 @@ class TypeSummary(Model):
     def url(self, url: str):
         """Sets the url of this TypeSummary.
 
+        The URL of the referenced resource.  # noqa: E501
 
         :param url: The url of this TypeSummary.
         :type url: str

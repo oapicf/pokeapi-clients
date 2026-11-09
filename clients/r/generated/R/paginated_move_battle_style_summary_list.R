@@ -7,10 +7,10 @@
 #' @title PaginatedMoveBattleStyleSummaryList
 #' @description PaginatedMoveBattleStyleSummaryList Class
 #' @format An \code{R6Class} generator object
-#' @field count  integer [optional]
-#' @field next  character [optional]
-#' @field previous  character [optional]
-#' @field results  list(\link{MoveBattleStyleSummary}) [optional]
+#' @field count The total number of resources available from this API. integer
+#' @field next The URL for the next page in the list, or null if there is no next page. character [optional]
+#' @field previous The URL for the previous page in the list, or null if there is no previous page. character [optional]
+#' @field results A list of API resources on this page. list(\link{MoveBattleStyleSummary})
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -25,17 +25,22 @@ PaginatedMoveBattleStyleSummaryList <- R6::R6Class(
     #' @description
     #' Initialize a new PaginatedMoveBattleStyleSummaryList class.
     #'
-    #' @param count count
-    #' @param next next
-    #' @param previous previous
-    #' @param results results
+    #' @param count The total number of resources available from this API.
+    #' @param results A list of API resources on this page.
+    #' @param next The URL for the next page in the list, or null if there is no next page.
+    #' @param previous The URL for the previous page in the list, or null if there is no previous page.
     #' @param ... Other optional arguments.
-    initialize = function(`count` = NULL, `next` = NULL, `previous` = NULL, `results` = NULL, ...) {
-      if (!is.null(`count`)) {
+    initialize = function(`count`, `results`, `next` = NULL, `previous` = NULL, ...) {
+      if (!missing(`count`)) {
         if (!(is.numeric(`count`) && length(`count`) == 1)) {
           stop(paste("Error! Invalid data for `count`. Must be an integer:", `count`))
         }
         self$`count` <- `count`
+      }
+      if (!missing(`results`)) {
+        stopifnot(is.vector(`results`), length(`results`) != 0)
+        sapply(`results`, function(x) stopifnot(R6::is.R6(x)))
+        self$`results` <- `results`
       }
       if (!is.null(`next`)) {
         if (!(is.character(`next`) && length(`next`) == 1)) {
@@ -56,11 +61,6 @@ PaginatedMoveBattleStyleSummaryList <- R6::R6Class(
           stop(paste("Error! Invalid data for `previous`. Must be a URL:", `previous`))
         }
         self$`previous` <- `previous`
-      }
-      if (!is.null(`results`)) {
-        stopifnot(is.vector(`results`), length(`results`) != 0)
-        sapply(`results`, function(x) stopifnot(R6::is.R6(x)))
-        self$`results` <- `results`
       }
     },
 
@@ -206,6 +206,21 @@ PaginatedMoveBattleStyleSummaryList <- R6::R6Class(
     #' @param input the JSON input
     validateJSON = function(input) {
       input_json <- jsonlite::fromJSON(input)
+      # check the required field `count`
+      if (!is.null(input_json$`count`)) {
+        if (!(is.numeric(input_json$`count`) && length(input_json$`count`) == 1)) {
+          stop(paste("Error! Invalid data for `count`. Must be an integer:", input_json$`count`))
+        }
+      } else {
+        stop(paste("The JSON input `", input, "` is invalid for PaginatedMoveBattleStyleSummaryList: the required field `count` is missing."))
+      }
+      # check the required field `results`
+      if (!is.null(input_json$`results`)) {
+        stopifnot(is.vector(input_json$`results`), length(input_json$`results`) != 0)
+        tmp <- sapply(input_json$`results`, function(x) stopifnot(R6::is.R6(x)))
+      } else {
+        stop(paste("The JSON input `", input, "` is invalid for PaginatedMoveBattleStyleSummaryList: the required field `results` is missing."))
+      }
     },
 
     #' @description
@@ -221,6 +236,16 @@ PaginatedMoveBattleStyleSummaryList <- R6::R6Class(
     #'
     #' @return true if the values in all fields are valid.
     isValid = function() {
+      # check if the required `count` is null
+      if (is.null(self$`count`)) {
+        return(FALSE)
+      }
+
+      # check if the required `results` is null
+      if (is.null(self$`results`)) {
+        return(FALSE)
+      }
+
       TRUE
     },
 
@@ -230,6 +255,16 @@ PaginatedMoveBattleStyleSummaryList <- R6::R6Class(
     #' @return A list of invalid fields (if any).
     getInvalidFields = function() {
       invalid_fields <- list()
+      # check if the required `count` is null
+      if (is.null(self$`count`)) {
+        invalid_fields["count"] <- "Non-nullable required field `count` cannot be null."
+      }
+
+      # check if the required `results` is null
+      if (is.null(self$`results`)) {
+        invalid_fields["results"] <- "Non-nullable required field `results` cannot be null."
+      }
+
       invalid_fields
     },
 

@@ -3,9 +3,11 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:openapi/src/model/region_summary.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:openapi/src/model/version_summary.dart';
-import 'package:openapi/src/model/ability_detail_pokemon_inner_pokemon.dart';
+import 'package:openapi/src/model/pokedex_summary.dart';
+import 'package:openapi/src/model/move_learn_method_summary.dart';
 import 'package:openapi/src/model/generation_summary.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -15,37 +17,45 @@ part 'version_group_detail.g.dart';
 /// VersionGroupDetail
 ///
 /// Properties:
-/// * [id] 
-/// * [name] 
-/// * [order] 
-/// * [generation] 
-/// * [moveLearnMethods] 
-/// * [pokedexes] 
-/// * [regions] 
-/// * [versions] 
+/// * [id] - The identifier for this resource.
+/// * [name] - The name for this resource.
+/// * [order] - Order for sorting. Almost by date of release, except similar versions are grouped together.
+/// * [generation] - The generation this version was introduced in.
+/// * [moveLearnMethods] - A list of methods in which Pokémon can learn moves in this version group.
+/// * [pokedexes] - A list of Pokédexes introduces in this version group.
+/// * [regions] - A list of regions that can be visited in this version group.
+/// * [versions] - The versions this version group owns.
 @BuiltValue()
 abstract class VersionGroupDetail implements Built<VersionGroupDetail, VersionGroupDetailBuilder> {
+  /// The identifier for this resource.
   @BuiltValueField(wireName: r'id')
   int get id;
 
+  /// The name for this resource.
   @BuiltValueField(wireName: r'name')
   String get name;
 
+  /// Order for sorting. Almost by date of release, except similar versions are grouped together.
   @BuiltValueField(wireName: r'order')
   int? get order;
 
+  /// The generation this version was introduced in.
   @BuiltValueField(wireName: r'generation')
   GenerationSummary get generation;
 
+  /// A list of methods in which Pokémon can learn moves in this version group.
   @BuiltValueField(wireName: r'move_learn_methods')
-  BuiltList<AbilityDetailPokemonInnerPokemon> get moveLearnMethods;
+  BuiltList<MoveLearnMethodSummary> get moveLearnMethods;
 
+  /// A list of Pokédexes introduces in this version group.
   @BuiltValueField(wireName: r'pokedexes')
-  BuiltList<AbilityDetailPokemonInnerPokemon> get pokedexes;
+  BuiltList<PokedexSummary> get pokedexes;
 
+  /// A list of regions that can be visited in this version group.
   @BuiltValueField(wireName: r'regions')
-  BuiltList<AbilityDetailPokemonInnerPokemon> get regions;
+  BuiltList<RegionSummary> get regions;
 
+  /// The versions this version group owns.
   @BuiltValueField(wireName: r'versions')
   BuiltList<VersionSummary> get versions;
 
@@ -97,17 +107,17 @@ class _$VersionGroupDetailSerializer implements PrimitiveSerializer<VersionGroup
     yield r'move_learn_methods';
     yield serializers.serialize(
       object.moveLearnMethods,
-      specifiedType: const FullType(BuiltList, [FullType(AbilityDetailPokemonInnerPokemon)]),
+      specifiedType: const FullType(BuiltList, [FullType(MoveLearnMethodSummary)]),
     );
     yield r'pokedexes';
     yield serializers.serialize(
       object.pokedexes,
-      specifiedType: const FullType(BuiltList, [FullType(AbilityDetailPokemonInnerPokemon)]),
+      specifiedType: const FullType(BuiltList, [FullType(PokedexSummary)]),
     );
     yield r'regions';
     yield serializers.serialize(
       object.regions,
-      specifiedType: const FullType(BuiltList, [FullType(AbilityDetailPokemonInnerPokemon)]),
+      specifiedType: const FullType(BuiltList, [FullType(RegionSummary)]),
     );
     yield r'versions';
     yield serializers.serialize(
@@ -169,22 +179,22 @@ class _$VersionGroupDetailSerializer implements PrimitiveSerializer<VersionGroup
         case r'move_learn_methods':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(AbilityDetailPokemonInnerPokemon)]),
-          ) as BuiltList<AbilityDetailPokemonInnerPokemon>;
+            specifiedType: const FullType(BuiltList, [FullType(MoveLearnMethodSummary)]),
+          ) as BuiltList<MoveLearnMethodSummary>;
           result.moveLearnMethods.replace(valueDes);
           break;
         case r'pokedexes':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(AbilityDetailPokemonInnerPokemon)]),
-          ) as BuiltList<AbilityDetailPokemonInnerPokemon>;
+            specifiedType: const FullType(BuiltList, [FullType(PokedexSummary)]),
+          ) as BuiltList<PokedexSummary>;
           result.pokedexes.replace(valueDes);
           break;
         case r'regions':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(AbilityDetailPokemonInnerPokemon)]),
-          ) as BuiltList<AbilityDetailPokemonInnerPokemon>;
+            specifiedType: const FullType(BuiltList, [FullType(RegionSummary)]),
+          ) as BuiltList<RegionSummary>;
           result.regions.replace(valueDes);
           break;
         case r'versions':

@@ -21,19 +21,25 @@ data class PokemonFormDetail(
     val pokemon: PokemonSummary,
 
     @field:JsonProperty("sprites")
-    val sprites: PokemonFormDetailSprites,
+    val sprites: PokemonFormSprites,
 
     @field:JsonProperty("version_group")
     val versionGroup: VersionGroupSummary,
 
     @field:JsonProperty("form_names")
-    val formNames: kotlin.collections.List<PokemonFormDetailFormNamesInner>,
+    val formNames: kotlin.collections.List<PokemonFormName>,
 
     @field:JsonProperty("names")
-    val names: kotlin.collections.List<PokemonFormDetailFormNamesInner>,
+    val names: kotlin.collections.List<PokemonFormName>,
 
     @field:JsonProperty("types")
-    val types: kotlin.collections.List<PokemonDetailTypesInner>,
+    val types: kotlin.collections.List<PokemonFormType>,
+
+    @field:JsonProperty("trigger_conditions")
+    val triggerConditions: kotlin.collections.List<PokemonFormTriggerCondition>,
+
+    @field:JsonProperty("flavor_text_entries")
+    val flavorTextEntries: kotlin.collections.List<PokemonFormFlavorText>,
 
     @field:JsonProperty("order")
     val order: kotlin.Int? = null,

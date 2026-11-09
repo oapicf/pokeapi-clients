@@ -10,9 +10,6 @@ namespace models {
 
 MachineDetail::MachineDetail()
 : id(0)
-, item(ItemSummary())
-, versionGroup(VersionGroupSummary())
-, move(MoveSummary())
 {
 }
 // =========================================

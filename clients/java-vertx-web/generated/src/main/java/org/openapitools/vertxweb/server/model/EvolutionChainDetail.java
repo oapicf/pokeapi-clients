@@ -3,7 +3,7 @@ package org.openapitools.vertxweb.server.model;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.openapitools.vertxweb.server.model.EvolutionChainDetailChain;
+import org.openapitools.vertxweb.server.model.EvolutionChainLink;
 import org.openapitools.vertxweb.server.model.ItemSummary;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -11,13 +11,13 @@ public class EvolutionChainDetail   {
   
   private Integer id;
   private ItemSummary babyTriggerItem;
-  private EvolutionChainDetailChain chain;
+  private EvolutionChainLink chain;
 
   public EvolutionChainDetail () {
 
   }
 
-  public EvolutionChainDetail (Integer id, ItemSummary babyTriggerItem, EvolutionChainDetailChain chain) {
+  public EvolutionChainDetail (Integer id, ItemSummary babyTriggerItem, EvolutionChainLink chain) {
     this.id = id;
     this.babyTriggerItem = babyTriggerItem;
     this.chain = chain;
@@ -43,10 +43,10 @@ public class EvolutionChainDetail   {
 
     
   @JsonProperty("chain")
-  public EvolutionChainDetailChain getChain() {
+  public EvolutionChainLink getChain() {
     return chain;
   }
-  public void setChain(EvolutionChainDetailChain chain) {
+  public void setChain(EvolutionChainLink chain) {
     this.chain = chain;
   }
 

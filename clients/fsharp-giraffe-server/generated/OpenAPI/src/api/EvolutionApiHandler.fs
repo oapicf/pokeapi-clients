@@ -9,8 +9,10 @@ open EvolutionApiServiceInterface
 open EvolutionApiServiceImplementation
 open OpenAPI.Model.EvolutionChainDetail
 open OpenAPI.Model.EvolutionTriggerDetail
+open OpenAPI.Model.EvolutionVariableDetail
 open OpenAPI.Model.PaginatedEvolutionChainSummaryList
 open OpenAPI.Model.PaginatedEvolutionTriggerSummaryList
+open OpenAPI.Model.PaginatedEvolutionVariableSummaryList
 
 module EvolutionApiHandler =
 
@@ -83,6 +85,41 @@ module EvolutionApiHandler =
           let result = EvolutionApiService.EvolutionTriggerRetrieve ctx serviceArgs
           return! (match result with
                       | EvolutionTriggerRetrieveStatusCode200 resolved ->
+                            setStatusCode 200 >=> json resolved.content
+          ) next ctx
+        }
+    //#endregion
+
+    //#region EvolutionVariableList
+    /// <summary>
+    /// List evolution variables
+    /// </summary>
+
+    let EvolutionVariableList  : HttpHandler =
+      fun (next : HttpFunc) (ctx : HttpContext) ->
+        task {
+          let queryParams = ctx.TryBindQueryString<EvolutionVariableListQueryParams>()
+          let serviceArgs = {  queryParams=queryParams;    } : EvolutionVariableListArgs
+          let result = EvolutionApiService.EvolutionVariableList ctx serviceArgs
+          return! (match result with
+                      | EvolutionVariableListStatusCode200 resolved ->
+                            setStatusCode 200 >=> json resolved.content
+          ) next ctx
+        }
+    //#endregion
+
+    //#region EvolutionVariableRetrieve
+    /// <summary>
+    /// Get evolution variable
+    /// </summary>
+
+    let EvolutionVariableRetrieve (pathParams:EvolutionVariableRetrievePathParams) : HttpHandler =
+      fun (next : HttpFunc) (ctx : HttpContext) ->
+        task {
+          let serviceArgs = {    pathParams=pathParams;  } : EvolutionVariableRetrieveArgs
+          let result = EvolutionApiService.EvolutionVariableRetrieve ctx serviceArgs
+          return! (match result with
+                      | EvolutionVariableRetrieveStatusCode200 resolved ->
                             setStatusCode 200 >=> json resolved.content
           ) next ctx
         }

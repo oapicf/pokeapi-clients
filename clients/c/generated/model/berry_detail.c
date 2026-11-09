@@ -162,7 +162,7 @@ void berry_detail_free(berry_detail_t *berry_detail) {
     }
     if (berry_detail->flavors) {
         list_ForEach(listEntry, berry_detail->flavors) {
-            berry_detail_flavors_inner_free(listEntry->data);
+            berry_flavor_map_free(listEntry->data);
         }
         list_freeList(berry_detail->flavors);
         berry_detail->flavors = NULL;
@@ -200,56 +200,50 @@ cJSON *berry_detail_convertToJSON(berry_detail_t *berry_detail) {
 
 
     // berry_detail->growth_time
-    if (!berry_detail->growth_time) {
-        goto fail;
-    }
+    if(berry_detail->growth_time) {
     if(cJSON_AddNumberToObject(item, "growth_time", *berry_detail->growth_time) == NULL) {
     goto fail; //Numeric
+    }
     }
 
 
     // berry_detail->max_harvest
-    if (!berry_detail->max_harvest) {
-        goto fail;
-    }
+    if(berry_detail->max_harvest) {
     if(cJSON_AddNumberToObject(item, "max_harvest", *berry_detail->max_harvest) == NULL) {
     goto fail; //Numeric
+    }
     }
 
 
     // berry_detail->natural_gift_power
-    if (!berry_detail->natural_gift_power) {
-        goto fail;
-    }
+    if(berry_detail->natural_gift_power) {
     if(cJSON_AddNumberToObject(item, "natural_gift_power", *berry_detail->natural_gift_power) == NULL) {
     goto fail; //Numeric
+    }
     }
 
 
     // berry_detail->size
-    if (!berry_detail->size) {
-        goto fail;
-    }
+    if(berry_detail->size) {
     if(cJSON_AddNumberToObject(item, "size", *berry_detail->size) == NULL) {
     goto fail; //Numeric
+    }
     }
 
 
     // berry_detail->smoothness
-    if (!berry_detail->smoothness) {
-        goto fail;
-    }
+    if(berry_detail->smoothness) {
     if(cJSON_AddNumberToObject(item, "smoothness", *berry_detail->smoothness) == NULL) {
     goto fail; //Numeric
+    }
     }
 
 
     // berry_detail->soil_dryness
-    if (!berry_detail->soil_dryness) {
-        goto fail;
-    }
+    if(berry_detail->soil_dryness) {
     if(cJSON_AddNumberToObject(item, "soil_dryness", *berry_detail->soil_dryness) == NULL) {
     goto fail; //Numeric
+    }
     }
 
 
@@ -279,7 +273,7 @@ cJSON *berry_detail_convertToJSON(berry_detail_t *berry_detail) {
     listEntry_t *flavorsListEntry;
     if (berry_detail->flavors) {
     list_ForEach(flavorsListEntry, berry_detail->flavors) {
-    cJSON *itemLocal = berry_detail_flavors_inner_convertToJSON(flavorsListEntry->data);
+    cJSON *itemLocal = berry_flavor_map_convertToJSON(flavorsListEntry->data);
     if(itemLocal == NULL) {
     goto fail;
     }
@@ -403,11 +397,7 @@ berry_detail_t *berry_detail_parseFromJSON(cJSON *berry_detailJSON){
     if (cJSON_IsNull(growth_time)) {
         growth_time = NULL;
     }
-    if (!growth_time) {
-        goto end;
-    }
-
-    
+    if (growth_time) { 
     if(!cJSON_IsNumber(growth_time))
     {
     goto end; //Numeric
@@ -418,17 +408,14 @@ berry_detail_t *berry_detail_parseFromJSON(cJSON *berry_detailJSON){
         goto end;
     }
     *growth_time_local_var = growth_time->valuedouble;
+    }
 
     // berry_detail->max_harvest
     cJSON *max_harvest = cJSON_GetObjectItemCaseSensitive(berry_detailJSON, "max_harvest");
     if (cJSON_IsNull(max_harvest)) {
         max_harvest = NULL;
     }
-    if (!max_harvest) {
-        goto end;
-    }
-
-    
+    if (max_harvest) { 
     if(!cJSON_IsNumber(max_harvest))
     {
     goto end; //Numeric
@@ -439,17 +426,14 @@ berry_detail_t *berry_detail_parseFromJSON(cJSON *berry_detailJSON){
         goto end;
     }
     *max_harvest_local_var = max_harvest->valuedouble;
+    }
 
     // berry_detail->natural_gift_power
     cJSON *natural_gift_power = cJSON_GetObjectItemCaseSensitive(berry_detailJSON, "natural_gift_power");
     if (cJSON_IsNull(natural_gift_power)) {
         natural_gift_power = NULL;
     }
-    if (!natural_gift_power) {
-        goto end;
-    }
-
-    
+    if (natural_gift_power) { 
     if(!cJSON_IsNumber(natural_gift_power))
     {
     goto end; //Numeric
@@ -460,17 +444,14 @@ berry_detail_t *berry_detail_parseFromJSON(cJSON *berry_detailJSON){
         goto end;
     }
     *natural_gift_power_local_var = natural_gift_power->valuedouble;
+    }
 
     // berry_detail->size
     cJSON *size = cJSON_GetObjectItemCaseSensitive(berry_detailJSON, "size");
     if (cJSON_IsNull(size)) {
         size = NULL;
     }
-    if (!size) {
-        goto end;
-    }
-
-    
+    if (size) { 
     if(!cJSON_IsNumber(size))
     {
     goto end; //Numeric
@@ -481,17 +462,14 @@ berry_detail_t *berry_detail_parseFromJSON(cJSON *berry_detailJSON){
         goto end;
     }
     *size_local_var = size->valuedouble;
+    }
 
     // berry_detail->smoothness
     cJSON *smoothness = cJSON_GetObjectItemCaseSensitive(berry_detailJSON, "smoothness");
     if (cJSON_IsNull(smoothness)) {
         smoothness = NULL;
     }
-    if (!smoothness) {
-        goto end;
-    }
-
-    
+    if (smoothness) { 
     if(!cJSON_IsNumber(smoothness))
     {
     goto end; //Numeric
@@ -502,17 +480,14 @@ berry_detail_t *berry_detail_parseFromJSON(cJSON *berry_detailJSON){
         goto end;
     }
     *smoothness_local_var = smoothness->valuedouble;
+    }
 
     // berry_detail->soil_dryness
     cJSON *soil_dryness = cJSON_GetObjectItemCaseSensitive(berry_detailJSON, "soil_dryness");
     if (cJSON_IsNull(soil_dryness)) {
         soil_dryness = NULL;
     }
-    if (!soil_dryness) {
-        goto end;
-    }
-
-    
+    if (soil_dryness) { 
     if(!cJSON_IsNumber(soil_dryness))
     {
     goto end; //Numeric
@@ -523,6 +498,7 @@ berry_detail_t *berry_detail_parseFromJSON(cJSON *berry_detailJSON){
         goto end;
     }
     *soil_dryness_local_var = soil_dryness->valuedouble;
+    }
 
     // berry_detail->firmness
     cJSON *firmness = cJSON_GetObjectItemCaseSensitive(berry_detailJSON, "firmness");
@@ -558,7 +534,7 @@ berry_detail_t *berry_detail_parseFromJSON(cJSON *berry_detailJSON){
         if(!cJSON_IsObject(flavors_local_nonprimitive)){
             goto end;
         }
-        berry_detail_flavors_inner_t *flavorsItem = berry_detail_flavors_inner_parseFromJSON(flavors_local_nonprimitive);
+        berry_flavor_map_t *flavorsItem = berry_flavor_map_parseFromJSON(flavors_local_nonprimitive);
 
         list_addElement(flavorsList, flavorsItem);
     }
@@ -650,7 +626,7 @@ end:
     if (flavorsList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, flavorsList) {
-            berry_detail_flavors_inner_free(listEntry->data);
+            berry_flavor_map_free(listEntry->data);
             listEntry->data = NULL;
         }
         list_freeList(flavorsList);

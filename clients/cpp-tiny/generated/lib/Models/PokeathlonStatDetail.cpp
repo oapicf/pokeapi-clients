@@ -8,7 +8,7 @@ PokeathlonStatDetail::PokeathlonStatDetail()
 {
 	id = int(0);
 	name = std::string();
-	affecting_natures = PokeathlonStatDetail_affecting_natures();
+	affecting_natures = null;
 	names = std::list<PokeathlonStatName>();
 }
 
@@ -62,7 +62,7 @@ PokeathlonStatDetail::fromJson(std::string jsonObj)
 
 
 
-        PokeathlonStatDetail_affecting_natures* obj = &affecting_natures;
+        PokeathlonStatAffectingNatures* obj = &affecting_natures;
 		obj->fromJson(value.dump());
 
     }
@@ -162,14 +162,14 @@ PokeathlonStatDetail::setName(std::string name)
 	this->name = name;
 }
 
-PokeathlonStatDetail_affecting_natures
+PokeathlonStatAffectingNatures
 PokeathlonStatDetail::getAffectingNatures()
 {
 	return affecting_natures;
 }
 
 void
-PokeathlonStatDetail::setAffectingNatures(PokeathlonStatDetail_affecting_natures affecting_natures)
+PokeathlonStatDetail::setAffectingNatures(PokeathlonStatAffectingNatures affecting_natures)
 {
 	this->affecting_natures = affecting_natures;
 }

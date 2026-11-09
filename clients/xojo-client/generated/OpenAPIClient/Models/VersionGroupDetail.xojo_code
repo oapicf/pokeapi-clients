@@ -2,41 +2,65 @@
 Protected Class VersionGroupDetail
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The identifier for this resource.
+		#tag EndNote
 		id As Integer
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The name for this resource.
+		#tag EndNote
 		name As String
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			Order for sorting. Almost by date of release, except similar versions are grouped together.
+		#tag EndNote
 		order As Xoson.O.OptionalInteger
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The generation this version was introduced in.
+		#tag EndNote
 		generation As OpenAPIClient.Models.GenerationSummary
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
-		move_learn_methods() As OpenAPIClient.Models.AbilityDetailPokemonInnerPokemon
+		#tag Note
+			A list of methods in which Pokémon can learn moves in this version group.
+		#tag EndNote
+		move_learn_methods() As OpenAPIClient.Models.MoveLearnMethodSummary
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
-		pokedexes() As OpenAPIClient.Models.AbilityDetailPokemonInnerPokemon
+		#tag Note
+			A list of Pokédexes introduces in this version group.
+		#tag EndNote
+		pokedexes() As OpenAPIClient.Models.PokedexSummary
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
-		regions() As OpenAPIClient.Models.AbilityDetailPokemonInnerPokemon
+		#tag Note
+			A list of regions that can be visited in this version group.
+		#tag EndNote
+		regions() As OpenAPIClient.Models.RegionSummary
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The versions this version group owns.
+		#tag EndNote
 		versions() As OpenAPIClient.Models.VersionSummary
 	#tag EndProperty
 
@@ -114,7 +138,7 @@ Protected Class VersionGroupDetail
 			Visible=false
 			Group="Behavior"
 			InitialValue=""
-			Type="AbilityDetailPokemonInnerPokemon"
+			Type="MoveLearnMethodSummary"
 			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
@@ -122,7 +146,7 @@ Protected Class VersionGroupDetail
 			Visible=false
 			Group="Behavior"
 			InitialValue=""
-			Type="AbilityDetailPokemonInnerPokemon"
+			Type="PokedexSummary"
 			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
@@ -130,7 +154,7 @@ Protected Class VersionGroupDetail
 			Visible=false
 			Group="Behavior"
 			InitialValue=""
-			Type="AbilityDetailPokemonInnerPokemon"
+			Type="RegionSummary"
 			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty

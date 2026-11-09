@@ -16,9 +16,6 @@ module MachinesApiHandlerParams =
 
       offset : int option;
 
-
-      q : string option;
-
     }
     //#endregion
 

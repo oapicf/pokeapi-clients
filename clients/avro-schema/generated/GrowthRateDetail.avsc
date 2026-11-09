@@ -7,17 +7,17 @@
     {
       "name": "id",
       "type": "int",
-      "doc": ""
+      "doc": "The identifier for this resource."
     },
     {
       "name": "name",
       "type": "string",
-      "doc": ""
+      "doc": "The name for this resource."
     },
     {
       "name": "formula",
       "type": "string",
-      "doc": ""
+      "doc": "The formula used to calculate the rate at which the Pokémon species gains level."
     },
     {
       "name": "descriptions",
@@ -25,7 +25,7 @@
         "type": "array",
         "items": "model.GrowthRateDescription"
       },
-      "doc": ""
+      "doc": "The descriptions of this characteristic listed in different languages."
     },
     {
       "name": "levels",
@@ -33,7 +33,7 @@
         "type": "array",
         "items": "model.Experience"
       },
-      "doc": ""
+      "doc": "A list of levels and the amount of experienced needed to atain them based on this growth rate."
     },
     {
       "name": "pokemon_species",
@@ -41,7 +41,7 @@
         "type": "array",
         "items": "model.PokemonSpeciesSummary"
       },
-      "doc": ""
+      "doc": "A list of Pokémon species that gain levels at this growth rate."
     }
   ]
 

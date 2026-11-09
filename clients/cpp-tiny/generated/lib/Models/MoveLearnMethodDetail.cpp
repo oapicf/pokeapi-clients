@@ -10,7 +10,7 @@ MoveLearnMethodDetail::MoveLearnMethodDetail()
 	name = std::string();
 	names = std::list<MoveLearnMethodName>();
 	descriptions = std::list<MoveLearnMethodDescription>();
-	version_groups = std::list<AbilityDetail_pokemon_inner_pokemon>();
+	version_groups = std::list<VersionGroupSummary>();
 }
 
 MoveLearnMethodDetail::MoveLearnMethodDetail(std::string jsonString)
@@ -105,8 +105,8 @@ MoveLearnMethodDetail::fromJson(std::string jsonObj)
         bourne::json value = object[version_groupsKey];
 
 
-        std::list<AbilityDetail_pokemon_inner_pokemon> version_groups_list;
-        AbilityDetail_pokemon_inner_pokemon element;
+        std::list<VersionGroupSummary> version_groups_list;
+        VersionGroupSummary element;
         for(auto& var : value.array_range())
         {
 
@@ -175,12 +175,12 @@ MoveLearnMethodDetail::toJson()
 
 
 
-    std::list<AbilityDetail_pokemon_inner_pokemon> version_groups_list = getVersionGroups();
+    std::list<VersionGroupSummary> version_groups_list = getVersionGroups();
     bourne::json version_groups_arr = bourne::json::array();
 
     for(auto& var : version_groups_list)
     {
-        AbilityDetail_pokemon_inner_pokemon obj = var;
+        VersionGroupSummary obj = var;
         version_groups_arr.append(obj.toJson());
     }
     object["version_groups"] = version_groups_arr;
@@ -240,14 +240,14 @@ MoveLearnMethodDetail::setDescriptions(std::list<MoveLearnMethodDescription> des
 	this->descriptions = descriptions;
 }
 
-std::list<AbilityDetail_pokemon_inner_pokemon>
+std::list<VersionGroupSummary>
 MoveLearnMethodDetail::getVersionGroups()
 {
 	return version_groups;
 }
 
 void
-MoveLearnMethodDetail::setVersionGroups(std::list<AbilityDetail_pokemon_inner_pokemon> version_groups)
+MoveLearnMethodDetail::setVersionGroups(std::list<VersionGroupSummary> version_groups)
 {
 	this->version_groups = version_groups;
 }

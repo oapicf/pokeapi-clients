@@ -7,6 +7,7 @@
 #include <glib.h>
 #include "LanguageDetail.h"
 #include "PaginatedLanguageSummaryList.h"
+#include "PokeapiMetaResponse.h"
 #include "Error.h"
 
 /** \defgroup Operations API Endpoints
@@ -80,6 +81,31 @@ bool languageRetrieveSync(char * accessToken,
 bool languageRetrieveAsync(char * accessToken,
 	std::string id, 
 	void(* handler)(LanguageDetail, Error, void* )
+	, void* userData);
+
+
+/*! \brief Get API metadata. *Synchronous*
+ *
+ * Returns metadata about the current deployed version of the API, including the git commit hash, deploy date, and tag (if any).
+ * \param handler The callback function to be invoked on completion. *Required*
+ * \param accessToken The Authorization token. *Required*
+ * \param userData The user data to be passed to the callback function.
+ */
+bool metaRetrieveSync(char * accessToken,
+	
+	void(* handler)(PokeapiMetaResponse, Error, void* )
+	, void* userData);
+
+/*! \brief Get API metadata. *Asynchronous*
+ *
+ * Returns metadata about the current deployed version of the API, including the git commit hash, deploy date, and tag (if any).
+ * \param handler The callback function to be invoked on completion. *Required*
+ * \param accessToken The Authorization token. *Required*
+ * \param userData The user data to be passed to the callback function.
+ */
+bool metaRetrieveAsync(char * accessToken,
+	
+	void(* handler)(PokeapiMetaResponse, Error, void* )
 	, void* userData);
 
 

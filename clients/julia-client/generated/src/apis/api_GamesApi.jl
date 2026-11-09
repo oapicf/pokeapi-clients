@@ -16,7 +16,7 @@ const _returntypes_generation_list_GamesApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_generation_list(_api::GamesApi; limit=nothing, offset=nothing, q=nothing, _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_generation_list_GamesApi, "/api/v2/generation/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_generation_list_GamesApi, "/api/v2/generation/", [])
     OpenAPI.Clients.set_param(_ctx.query, "limit", limit; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "offset", offset; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "q", q; style="form", is_explode=true)  # type String
@@ -51,7 +51,7 @@ const _returntypes_generation_retrieve_GamesApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_generation_retrieve(_api::GamesApi, id::String; _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_generation_retrieve_GamesApi, "/api/v2/generation/{id}/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_generation_retrieve_GamesApi, "/api/v2/generation/{id}/", [])
     OpenAPI.Clients.set_param(_ctx.path, "id", id)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
@@ -82,7 +82,7 @@ const _returntypes_pokedex_list_GamesApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_pokedex_list(_api::GamesApi; limit=nothing, offset=nothing, q=nothing, _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_pokedex_list_GamesApi, "/api/v2/pokedex/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_pokedex_list_GamesApi, "/api/v2/pokedex/", [])
     OpenAPI.Clients.set_param(_ctx.query, "limit", limit; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "offset", offset; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "q", q; style="form", is_explode=true)  # type String
@@ -117,7 +117,7 @@ const _returntypes_pokedex_retrieve_GamesApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_pokedex_retrieve(_api::GamesApi, id::String; _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_pokedex_retrieve_GamesApi, "/api/v2/pokedex/{id}/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_pokedex_retrieve_GamesApi, "/api/v2/pokedex/{id}/", [])
     OpenAPI.Clients.set_param(_ctx.path, "id", id)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
@@ -148,7 +148,7 @@ const _returntypes_version_group_list_GamesApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_version_group_list(_api::GamesApi; limit=nothing, offset=nothing, q=nothing, _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_version_group_list_GamesApi, "/api/v2/version-group/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_version_group_list_GamesApi, "/api/v2/version-group/", [])
     OpenAPI.Clients.set_param(_ctx.query, "limit", limit; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "offset", offset; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "q", q; style="form", is_explode=true)  # type String
@@ -183,7 +183,7 @@ const _returntypes_version_group_retrieve_GamesApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_version_group_retrieve(_api::GamesApi, id::String; _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_version_group_retrieve_GamesApi, "/api/v2/version-group/{id}/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_version_group_retrieve_GamesApi, "/api/v2/version-group/{id}/", [])
     OpenAPI.Clients.set_param(_ctx.path, "id", id)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
@@ -214,7 +214,7 @@ const _returntypes_version_list_GamesApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_version_list(_api::GamesApi; limit=nothing, offset=nothing, q=nothing, _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_version_list_GamesApi, "/api/v2/version/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_version_list_GamesApi, "/api/v2/version/", [])
     OpenAPI.Clients.set_param(_ctx.query, "limit", limit; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "offset", offset; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "q", q; style="form", is_explode=true)  # type String
@@ -249,7 +249,7 @@ const _returntypes_version_retrieve_GamesApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_version_retrieve(_api::GamesApi, id::String; _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_version_retrieve_GamesApi, "/api/v2/version/{id}/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_version_retrieve_GamesApi, "/api/v2/version/{id}/", [])
     OpenAPI.Clients.set_param(_ctx.path, "id", id)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])

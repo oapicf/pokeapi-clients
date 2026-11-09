@@ -9,7 +9,11 @@ import Foundation
 
 public struct Experience: Sendable, Codable, Hashable {
 
+    public static let levelRule = NumericRule<Int>(minimum: -2147483648, exclusiveMinimum: false, maximum: 2147483647, exclusiveMaximum: false, multipleOf: nil)
+    public static let experienceRule = NumericRule<Int>(minimum: -2147483648, exclusiveMinimum: false, maximum: 2147483647, exclusiveMaximum: false, multipleOf: nil)
+    /** The level gained. */
     public var level: Int
+    /** The amount of experience required to reach the referenced level. */
     public var experience: Int
 
     public init(level: Int, experience: Int) {

@@ -19,12 +19,16 @@ class PokemonColorDetail {
     this.pokemonSpecies = const [],
   });
 
+  /// The identifier for this resource.
   int id;
 
+  /// The name for this resource.
   String name;
 
+  /// The name of this resource listed in different languages.
   List<PokemonColorName> names;
 
+  /// A list of the Pokémon species that have this color.
   List<PokemonSpeciesSummary> pokemonSpecies;
 
   @override

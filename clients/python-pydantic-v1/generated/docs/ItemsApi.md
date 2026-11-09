@@ -4,6 +4,8 @@ All URIs are relative to *https://pokeapi.co*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**currency_list**](ItemsApi.md#currency_list) | **GET** /api/v2/currency/ | List currencies
+[**currency_retrieve**](ItemsApi.md#currency_retrieve) | **GET** /api/v2/currency/{id}/ | Get currency
 [**item_attribute_list**](ItemsApi.md#item_attribute_list) | **GET** /api/v2/item-attribute/ | List item attributes
 [**item_attribute_retrieve**](ItemsApi.md#item_attribute_retrieve) | **GET** /api/v2/item-attribute/{id}/ | Get item attribute
 [**item_category_list**](ItemsApi.md#item_category_list) | **GET** /api/v2/item-category/ | List item categories
@@ -16,6 +18,144 @@ Method | HTTP request | Description
 [**item_retrieve**](ItemsApi.md#item_retrieve) | **GET** /api/v2/item/{id}/ | Get item
 
 
+# **currency_list**
+> PaginatedCurrencySummaryList currency_list(limit=limit, offset=offset, q=q)
+
+List currencies
+
+Currencies used to buy items.
+
+### Example
+
+```python
+import time
+import os
+import openapi_client
+from openapi_client.models.paginated_currency_summary_list import PaginatedCurrencySummaryList
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://pokeapi.co
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://pokeapi.co"
+)
+
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.ItemsApi(api_client)
+    limit = 56 # int | Number of results to return per page. (optional)
+    offset = 56 # int | The initial index from which to return the results. (optional)
+    q = 'q_example' # str | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
+
+    try:
+        # List currencies
+        api_response = api_instance.currency_list(limit=limit, offset=offset, q=q)
+        print("The response of ItemsApi->currency_list:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ItemsApi->currency_list: %s\n" % e)
+```
+
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | **int**| Number of results to return per page. | [optional] 
+ **offset** | **int**| The initial index from which to return the results. | [optional] 
+ **q** | **str**| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional] 
+
+### Return type
+
+[**PaginatedCurrencySummaryList**](PaginatedCurrencySummaryList.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **currency_retrieve**
+> CurrencyDetail currency_retrieve(id)
+
+Get currency
+
+Currencies used to buy items.
+
+### Example
+
+```python
+import time
+import os
+import openapi_client
+from openapi_client.models.currency_detail import CurrencyDetail
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://pokeapi.co
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://pokeapi.co"
+)
+
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.ItemsApi(api_client)
+    id = '1' # str | This parameter can be a string or an integer.
+
+    try:
+        # Get currency
+        api_response = api_instance.currency_retrieve(id)
+        print("The response of ItemsApi->currency_retrieve:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ItemsApi->currency_retrieve: %s\n" % e)
+```
+
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**| This parameter can be a string or an integer. | 
+
+### Return type
+
+[**CurrencyDetail**](CurrencyDetail.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **item_attribute_list**
 > PaginatedItemAttributeSummaryList item_attribute_list(limit=limit, offset=offset, q=q)
 
@@ -25,8 +165,6 @@ Item attributes define particular aspects of items, e.g."usable in battle" or "c
 
 ### Example
 
-* Basic Authentication (basicAuth):
-* Api Key Authentication (cookieAuth):
 ```python
 import time
 import os
@@ -41,22 +179,6 @@ configuration = openapi_client.Configuration(
     host = "https://pokeapi.co"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure HTTP basic authorization: basicAuth
-configuration = openapi_client.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
-)
-
-# Configure API key authorization: cookieAuth
-configuration.api_key['cookieAuth'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['cookieAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
@@ -91,7 +213,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -114,8 +236,6 @@ Item attributes define particular aspects of items, e.g."usable in battle" or "c
 
 ### Example
 
-* Basic Authentication (basicAuth):
-* Api Key Authentication (cookieAuth):
 ```python
 import time
 import os
@@ -130,28 +250,12 @@ configuration = openapi_client.Configuration(
     host = "https://pokeapi.co"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure HTTP basic authorization: basicAuth
-configuration = openapi_client.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
-)
-
-# Configure API key authorization: cookieAuth
-configuration.api_key['cookieAuth'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['cookieAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.ItemsApi(api_client)
-    id = 'id_example' # str | This parameter can be a string or an integer.
+    id = '1' # str | This parameter can be a string or an integer.
 
     try:
         # Get item attribute
@@ -176,7 +280,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -199,8 +303,6 @@ Item categories determine where items will be placed in the players bag.
 
 ### Example
 
-* Basic Authentication (basicAuth):
-* Api Key Authentication (cookieAuth):
 ```python
 import time
 import os
@@ -215,22 +317,6 @@ configuration = openapi_client.Configuration(
     host = "https://pokeapi.co"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure HTTP basic authorization: basicAuth
-configuration = openapi_client.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
-)
-
-# Configure API key authorization: cookieAuth
-configuration.api_key['cookieAuth'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['cookieAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
@@ -265,7 +351,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -288,8 +374,6 @@ Item categories determine where items will be placed in the players bag.
 
 ### Example
 
-* Basic Authentication (basicAuth):
-* Api Key Authentication (cookieAuth):
 ```python
 import time
 import os
@@ -304,28 +388,12 @@ configuration = openapi_client.Configuration(
     host = "https://pokeapi.co"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure HTTP basic authorization: basicAuth
-configuration = openapi_client.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
-)
-
-# Configure API key authorization: cookieAuth
-configuration.api_key['cookieAuth'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['cookieAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.ItemsApi(api_client)
-    id = 'id_example' # str | This parameter can be a string or an integer.
+    id = '1' # str | This parameter can be a string or an integer.
 
     try:
         # Get item category
@@ -350,7 +418,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -373,8 +441,6 @@ The various effects of the move"Fling" when used with different items.
 
 ### Example
 
-* Basic Authentication (basicAuth):
-* Api Key Authentication (cookieAuth):
 ```python
 import time
 import os
@@ -389,22 +455,6 @@ configuration = openapi_client.Configuration(
     host = "https://pokeapi.co"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure HTTP basic authorization: basicAuth
-configuration = openapi_client.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
-)
-
-# Configure API key authorization: cookieAuth
-configuration.api_key['cookieAuth'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['cookieAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
@@ -439,7 +489,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -462,8 +512,6 @@ The various effects of the move"Fling" when used with different items.
 
 ### Example
 
-* Basic Authentication (basicAuth):
-* Api Key Authentication (cookieAuth):
 ```python
 import time
 import os
@@ -478,28 +526,12 @@ configuration = openapi_client.Configuration(
     host = "https://pokeapi.co"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure HTTP basic authorization: basicAuth
-configuration = openapi_client.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
-)
-
-# Configure API key authorization: cookieAuth
-configuration.api_key['cookieAuth'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['cookieAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.ItemsApi(api_client)
-    id = 'id_example' # str | This parameter can be a string or an integer.
+    id = '1' # str | This parameter can be a string or an integer.
 
     try:
         # Get item fling effect
@@ -524,7 +556,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -547,8 +579,6 @@ An item is an object in the games which the player can pick up, keep in their ba
 
 ### Example
 
-* Basic Authentication (basicAuth):
-* Api Key Authentication (cookieAuth):
 ```python
 import time
 import os
@@ -563,22 +593,6 @@ configuration = openapi_client.Configuration(
     host = "https://pokeapi.co"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure HTTP basic authorization: basicAuth
-configuration = openapi_client.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
-)
-
-# Configure API key authorization: cookieAuth
-configuration.api_key['cookieAuth'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['cookieAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
@@ -613,7 +627,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -636,8 +650,6 @@ Pockets within the players bag used for storing items by category.
 
 ### Example
 
-* Basic Authentication (basicAuth):
-* Api Key Authentication (cookieAuth):
 ```python
 import time
 import os
@@ -652,22 +664,6 @@ configuration = openapi_client.Configuration(
     host = "https://pokeapi.co"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure HTTP basic authorization: basicAuth
-configuration = openapi_client.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
-)
-
-# Configure API key authorization: cookieAuth
-configuration.api_key['cookieAuth'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['cookieAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
@@ -702,7 +698,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -725,8 +721,6 @@ Pockets within the players bag used for storing items by category.
 
 ### Example
 
-* Basic Authentication (basicAuth):
-* Api Key Authentication (cookieAuth):
 ```python
 import time
 import os
@@ -741,28 +735,12 @@ configuration = openapi_client.Configuration(
     host = "https://pokeapi.co"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure HTTP basic authorization: basicAuth
-configuration = openapi_client.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
-)
-
-# Configure API key authorization: cookieAuth
-configuration.api_key['cookieAuth'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['cookieAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.ItemsApi(api_client)
-    id = 'id_example' # str | This parameter can be a string or an integer.
+    id = '1' # str | This parameter can be a string or an integer.
 
     try:
         # Get item pocket
@@ -787,7 +765,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -810,8 +788,6 @@ An item is an object in the games which the player can pick up, keep in their ba
 
 ### Example
 
-* Basic Authentication (basicAuth):
-* Api Key Authentication (cookieAuth):
 ```python
 import time
 import os
@@ -826,28 +802,12 @@ configuration = openapi_client.Configuration(
     host = "https://pokeapi.co"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure HTTP basic authorization: basicAuth
-configuration = openapi_client.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
-)
-
-# Configure API key authorization: cookieAuth
-configuration.api_key['cookieAuth'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['cookieAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.ItemsApi(api_client)
-    id = 'id_example' # str | This parameter can be a string or an integer.
+    id = '1' # str | This parameter can be a string or an integer.
 
     try:
         # Get item
@@ -872,7 +832,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

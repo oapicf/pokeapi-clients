@@ -76,6 +76,7 @@ class LocationDetail(Model):
     def id(self) -> int:
         """Gets the id of this LocationDetail.
 
+        The identifier for this resource.  # noqa: E501
 
         :return: The id of this LocationDetail.
         :rtype: int
@@ -86,6 +87,7 @@ class LocationDetail(Model):
     def id(self, id: int):
         """Sets the id of this LocationDetail.
 
+        The identifier for this resource.  # noqa: E501
 
         :param id: The id of this LocationDetail.
         :type id: int
@@ -99,6 +101,7 @@ class LocationDetail(Model):
     def name(self) -> str:
         """Gets the name of this LocationDetail.
 
+        The name for this resource.  # noqa: E501
 
         :return: The name of this LocationDetail.
         :rtype: str
@@ -109,14 +112,15 @@ class LocationDetail(Model):
     def name(self, name: str):
         """Sets the name of this LocationDetail.
 
+        The name for this resource.  # noqa: E501
 
         :param name: The name of this LocationDetail.
         :type name: str
         """
         if name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
-        if name is not None and len(name) > 100:
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `100`")  # noqa: E501
+        if name is not None and len(name) > 200:
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `200`")  # noqa: E501
 
         self._name = name
 
@@ -124,6 +128,7 @@ class LocationDetail(Model):
     def region(self) -> RegionSummary:
         """Gets the region of this LocationDetail.
 
+        The region this location can be found in.  # noqa: E501
 
         :return: The region of this LocationDetail.
         :rtype: RegionSummary
@@ -134,6 +139,7 @@ class LocationDetail(Model):
     def region(self, region: RegionSummary):
         """Sets the region of this LocationDetail.
 
+        The region this location can be found in.  # noqa: E501
 
         :param region: The region of this LocationDetail.
         :type region: RegionSummary
@@ -147,6 +153,7 @@ class LocationDetail(Model):
     def names(self) -> List[LocationName]:
         """Gets the names of this LocationDetail.
 
+        The name of this resource listed in different languages.  # noqa: E501
 
         :return: The names of this LocationDetail.
         :rtype: List[LocationName]
@@ -157,6 +164,7 @@ class LocationDetail(Model):
     def names(self, names: List[LocationName]):
         """Sets the names of this LocationDetail.
 
+        The name of this resource listed in different languages.  # noqa: E501
 
         :param names: The names of this LocationDetail.
         :type names: List[LocationName]
@@ -170,6 +178,7 @@ class LocationDetail(Model):
     def game_indices(self) -> List[LocationGameIndex]:
         """Gets the game_indices of this LocationDetail.
 
+        A list of game indices relevent to this location by generation.  # noqa: E501
 
         :return: The game_indices of this LocationDetail.
         :rtype: List[LocationGameIndex]
@@ -180,6 +189,7 @@ class LocationDetail(Model):
     def game_indices(self, game_indices: List[LocationGameIndex]):
         """Sets the game_indices of this LocationDetail.
 
+        A list of game indices relevent to this location by generation.  # noqa: E501
 
         :param game_indices: The game_indices of this LocationDetail.
         :type game_indices: List[LocationGameIndex]
@@ -193,6 +203,7 @@ class LocationDetail(Model):
     def areas(self) -> List[LocationAreaSummary]:
         """Gets the areas of this LocationDetail.
 
+        Areas that can be found within this location.  # noqa: E501
 
         :return: The areas of this LocationDetail.
         :rtype: List[LocationAreaSummary]
@@ -203,6 +214,7 @@ class LocationDetail(Model):
     def areas(self, areas: List[LocationAreaSummary]):
         """Sets the areas of this LocationDetail.
 
+        Areas that can be found within this location.  # noqa: E501
 
         :param areas: The areas of this LocationDetail.
         :type areas: List[LocationAreaSummary]

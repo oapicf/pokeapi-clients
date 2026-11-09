@@ -5,8 +5,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.model.AbilityDetailPokemonInnerPokemon;
 import org.openapitools.model.MoveMetaAilmentName;
+import org.openapitools.model.MoveSummary;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
@@ -21,11 +21,11 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("MoveMetaAilmentDetail")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-11-09T13:50:06.168269698Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class MoveMetaAilmentDetail   {
   private Integer id;
   private String name;
-  private List<@Valid AbilityDetailPokemonInnerPokemon> moves = new ArrayList<>();
+  private List<@Valid MoveSummary> moves = new ArrayList<>();
   private List<@Valid MoveMetaAilmentName> names = new ArrayList<>();
 
   public MoveMetaAilmentDetail() {
@@ -35,7 +35,7 @@ public class MoveMetaAilmentDetail   {
   public MoveMetaAilmentDetail(
     @JsonProperty(required = true, value = "id") Integer id,
     @JsonProperty(required = true, value = "name") String name,
-    @JsonProperty(required = true, value = "moves") List<@Valid AbilityDetailPokemonInnerPokemon> moves,
+    @JsonProperty(required = true, value = "moves") List<@Valid MoveSummary> moves,
     @JsonProperty(required = true, value = "names") List<@Valid MoveMetaAilmentName> names
   ) {
     this.id = id;
@@ -45,6 +45,7 @@ public class MoveMetaAilmentDetail   {
   }
 
   /**
+   * The identifier for this resource.
    **/
   public MoveMetaAilmentDetail id(Integer id) {
     this.id = id;
@@ -52,7 +53,7 @@ public class MoveMetaAilmentDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   @JsonProperty(required = true, value = "id")
   public Integer getId() {
     return id;
@@ -64,6 +65,7 @@ public class MoveMetaAilmentDetail   {
   }
 
   /**
+   * The name for this resource.
    **/
   public MoveMetaAilmentDetail name(String name) {
     this.name = name;
@@ -71,9 +73,9 @@ public class MoveMetaAilmentDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   @JsonProperty(required = true, value = "name")
-  @NotNull  @Size(max=100)public String getName() {
+  @NotNull  @Size(max=200)public String getName() {
     return name;
   }
 
@@ -83,25 +85,26 @@ public class MoveMetaAilmentDetail   {
   }
 
   /**
+   * A list of moves that cause this ailment.
    **/
-  public MoveMetaAilmentDetail moves(List<@Valid AbilityDetailPokemonInnerPokemon> moves) {
+  public MoveMetaAilmentDetail moves(List<@Valid MoveSummary> moves) {
     this.moves = moves;
     return this;
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of moves that cause this ailment.")
   @JsonProperty(required = true, value = "moves")
-  public List<@Valid AbilityDetailPokemonInnerPokemon> getMoves() {
+  public List<@Valid MoveSummary> getMoves() {
     return moves;
   }
 
   @JsonProperty(required = true, value = "moves")
-  public void setMoves(List<@Valid AbilityDetailPokemonInnerPokemon> moves) {
+  public void setMoves(List<@Valid MoveSummary> moves) {
     this.moves = moves;
   }
 
-  public MoveMetaAilmentDetail addMovesItem(AbilityDetailPokemonInnerPokemon movesItem) {
+  public MoveMetaAilmentDetail addMovesItem(MoveSummary movesItem) {
     if (this.moves == null) {
       this.moves = new ArrayList<>();
     }
@@ -110,7 +113,7 @@ public class MoveMetaAilmentDetail   {
     return this;
   }
 
-  public MoveMetaAilmentDetail removeMovesItem(AbilityDetailPokemonInnerPokemon movesItem) {
+  public MoveMetaAilmentDetail removeMovesItem(MoveSummary movesItem) {
     if (movesItem != null && this.moves != null) {
       this.moves.remove(movesItem);
     }
@@ -118,6 +121,7 @@ public class MoveMetaAilmentDetail   {
     return this;
   }
   /**
+   * The name of this resource listed in different languages.
    **/
   public MoveMetaAilmentDetail names(List<@Valid MoveMetaAilmentName> names) {
     this.names = names;
@@ -125,7 +129,7 @@ public class MoveMetaAilmentDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
   @JsonProperty(required = true, value = "names")
   public List<@Valid MoveMetaAilmentName> getNames() {
     return names;

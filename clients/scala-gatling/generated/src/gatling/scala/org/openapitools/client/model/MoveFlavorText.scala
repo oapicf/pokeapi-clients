@@ -3,8 +3,11 @@ package org.openapitools.client.model
 
 
 case class MoveFlavorText (
+    /* The localized flavor text for an api resource in a specific language. */
     _flavorText: String,
+    /* The language this name is in. */
     _language: LanguageSummary,
+    /* The version group that uses this flavor text. */
     _versionGroup: VersionGroupSummary
 )
 object MoveFlavorText {

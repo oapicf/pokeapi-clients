@@ -64,6 +64,7 @@ class MachineDetail(Model):
     def id(self) -> int:
         """Gets the id of this MachineDetail.
 
+        The identifier for this resource.  # noqa: E501
 
         :return: The id of this MachineDetail.
         :rtype: int
@@ -74,6 +75,7 @@ class MachineDetail(Model):
     def id(self, id: int):
         """Sets the id of this MachineDetail.
 
+        The identifier for this resource.  # noqa: E501
 
         :param id: The id of this MachineDetail.
         :type id: int
@@ -87,6 +89,7 @@ class MachineDetail(Model):
     def item(self) -> ItemSummary:
         """Gets the item of this MachineDetail.
 
+        The TM or HM item that corresponds to this machine.  # noqa: E501
 
         :return: The item of this MachineDetail.
         :rtype: ItemSummary
@@ -97,6 +100,7 @@ class MachineDetail(Model):
     def item(self, item: ItemSummary):
         """Sets the item of this MachineDetail.
 
+        The TM or HM item that corresponds to this machine.  # noqa: E501
 
         :param item: The item of this MachineDetail.
         :type item: ItemSummary
@@ -110,6 +114,7 @@ class MachineDetail(Model):
     def version_group(self) -> VersionGroupSummary:
         """Gets the version_group of this MachineDetail.
 
+        The version group that this machine applies to.  # noqa: E501
 
         :return: The version_group of this MachineDetail.
         :rtype: VersionGroupSummary
@@ -120,6 +125,7 @@ class MachineDetail(Model):
     def version_group(self, version_group: VersionGroupSummary):
         """Sets the version_group of this MachineDetail.
 
+        The version group that this machine applies to.  # noqa: E501
 
         :param version_group: The version_group of this MachineDetail.
         :type version_group: VersionGroupSummary
@@ -133,6 +139,7 @@ class MachineDetail(Model):
     def move(self) -> MoveSummary:
         """Gets the move of this MachineDetail.
 
+        The move that is taught by this machine.  # noqa: E501
 
         :return: The move of this MachineDetail.
         :rtype: MoveSummary
@@ -143,6 +150,7 @@ class MachineDetail(Model):
     def move(self, move: MoveSummary):
         """Sets the move of this MachineDetail.
 
+        The move that is taught by this machine.  # noqa: E501
 
         :param move: The move of this MachineDetail.
         :type move: MoveSummary

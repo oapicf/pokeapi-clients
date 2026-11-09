@@ -48,32 +48,32 @@ public:
 	 */
     void fromJson(std::string jsonObj);
 
-	/*! \brief Get 
+	/*! \brief Get The identifier for this resource.
 	 */
 	int getId();
 
-	/*! \brief Set 
+	/*! \brief Set The identifier for this resource.
 	 */
 	void setId(int id);
-	/*! \brief Get 
+	/*! \brief Get The name for this resource.
 	 */
 	std::string getName();
 
-	/*! \brief Set 
+	/*! \brief Set The name for this resource.
 	 */
 	void setName(std::string name);
-	/*! \brief Get 
+	/*! \brief Get The result of this fling effect listed in different languages.
 	 */
 	std::list<ItemFlingEffectEffectText> getEffectEntries();
 
-	/*! \brief Set 
+	/*! \brief Set The result of this fling effect listed in different languages.
 	 */
 	void setEffectEntries(std::list<ItemFlingEffectEffectText> effect_entries);
-	/*! \brief Get 
+	/*! \brief Get A list of items that have this fling effect.
 	 */
 	std::list<ItemSummary> getItems();
 
-	/*! \brief Set 
+	/*! \brief Set A list of items that have this fling effect.
 	 */
 	void setItems(std::list<ItemSummary> items);
 

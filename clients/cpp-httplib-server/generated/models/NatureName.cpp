@@ -10,7 +10,6 @@ namespace models {
 
 NatureName::NatureName()
 : name("")
-, language(LanguageSummary())
 {
 }
 // =========================================

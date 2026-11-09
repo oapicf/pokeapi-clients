@@ -12,10 +12,10 @@ Should have a link to Version Group info but the Circular dependency and compila
         version_group=nothing,
     )
 
-    - id::Int64
-    - name::String
-    - names::Vector{VersionName}
-    - version_group::VersionGroupSummary
+    - id::Int64 : The identifier for this resource.
+    - name::String : The name for this resource.
+    - names::Vector{VersionName} : The name of this resource listed in different languages.
+    - version_group::VersionGroupSummary : The version group this version belongs to.
 """
 Base.@kwdef mutable struct VersionDetail <: OpenAPI.APIModel
     id::Union{Nothing, Int64} = nothing
@@ -52,7 +52,7 @@ function OpenAPI.validate_property(::Type{ VersionDetail }, name::Symbol, val)
 
 
     if name === Symbol("name")
-        OpenAPI.validate_param(name, "VersionDetail", :maxLength, val, 100)
+        OpenAPI.validate_param(name, "VersionDetail", :maxLength, val, 200)
     end
 
 

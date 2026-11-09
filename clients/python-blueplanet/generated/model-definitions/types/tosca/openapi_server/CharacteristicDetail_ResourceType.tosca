@@ -19,29 +19,29 @@ resourceTypes {
     properties {
         id {
           type =  integer
-          description = ""
+          description = "The identifier for this resource."
           optional = true
         }
         gene_modulo {
           type =  integer
-          description = ""
+          description = "The remainder of the highest stat/IV divided by 5."
           optional = true
         }
         possible_values {
           type = array
           items.type =  integer
-          description = ""
+          description = "The possible values of the highest stat that would result in a Pokémon recieving this characteristic when divided by 5."
           optional = true
         }
         highest_stat {
           type = StatSummary
-          description = ""
+          description = "The stat which results in this characteristic."
           optional = true
         }
         descriptions {
           type = array
           items.type = CharacteristicDescription
-          description = ""
+          description = "The descriptions of this characteristic listed in different languages."
           optional = true
         }
     }

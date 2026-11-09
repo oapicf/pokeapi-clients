@@ -11,7 +11,6 @@
 
 // Project headers
 #include "LocationApi.h"
-#include "AuthenticationManager.h"
 
 constexpr int HTTP_RESPONSE_CODE_PAGINATED_LOCATION_AREA_SUMMARY_LIST = 200;
 constexpr int HTTP_RESPONSE_CODE_LOCATION_AREA_DETAIL = 200;
@@ -22,7 +21,6 @@ constexpr int HTTP_RESPONSE_CODE_PAL_PARK_AREA_DETAIL = 200;
 constexpr int HTTP_RESPONSE_CODE_PAGINATED_REGION_SUMMARY_LIST = 200;
 constexpr int HTTP_RESPONSE_CODE_REGION_DETAIL = 200;
 constexpr int HTTP_RESPONSE_CODE_BAD_REQUEST = 400;
-constexpr int HTTP_RESPONSE_CODE_UNAUTHORIZED = 401;
 constexpr int HTTP_RESPONSE_CODE_INTERNAL_SERVER_ERROR = 500;
 
 namespace Api {
@@ -428,61 +426,11 @@ void Location::handleApiv2regionidGetResponse(const Apiv2regionidGetResponse& re
     res.set_content(responseJson.dump(), "application/json");
 }
 
-bool Location::performAuthentication(
-    const httplib::Request& req,
-    std::shared_ptr<AuthenticationManager> auth,
-    httplib::Response& res)
-{
-    if (!auth)
-    {
-        nlohmann::json errorJson = nlohmann::json::object();
-        errorJson["message"] = "AuthenticationManager not configured";
-        res.status = HTTP_RESPONSE_CODE_INTERNAL_SERVER_ERROR;
-        res.set_content(errorJson.dump(), "application/json");
-        return false;
-    }
 
-    {
-        auto cookieHeader = req.get_header_value("Cookie");
-        std::string key = "sessionid=";
-        size_t start = cookieHeader.find(key);
-        if (start != std::string::npos)
-        {
-            start += key.length();
-            size_t end = cookieHeader.find(";", start);
-            if (end == std::string::npos) end = cookieHeader.length();
-            std::string cookieValue = cookieHeader.substr(start, end - start);
-            if (auth->validateApiKey(cookieValue)) return true;
-        }
-    }
-
-    if (req.has_header("Authorization"))
-    {
-        auto authHeader = req.get_header_value("Authorization");
-        if (authHeader.find("Basic ") == 0)
-        {
-            std::string credentials = authHeader.substr(6);
-            if (auth->validateBasicAuth(credentials, "")) return true;
-        }
-    }
-
-
-
-    return false;
-}
-
-void Location::handleApiv2locationAreaGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Location::handleApiv2locationAreaGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2locationAreaGetRequest params;
         std::vector<std::string> paramErrors;
@@ -508,18 +456,10 @@ void Location::handleApiv2locationAreaGetRequest([[maybe_unused]] const httplib:
     }
 }
 
-void Location::handleApiv2locationAreaidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Location::handleApiv2locationAreaidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2locationAreaidGetRequest params;
         std::vector<std::string> paramErrors;
@@ -545,18 +485,10 @@ void Location::handleApiv2locationAreaidGetRequest([[maybe_unused]] const httpli
     }
 }
 
-void Location::handleApiv2locationGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Location::handleApiv2locationGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2locationGetRequest params;
         std::vector<std::string> paramErrors;
@@ -582,18 +514,10 @@ void Location::handleApiv2locationGetRequest([[maybe_unused]] const httplib::Req
     }
 }
 
-void Location::handleApiv2locationidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Location::handleApiv2locationidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2locationidGetRequest params;
         std::vector<std::string> paramErrors;
@@ -619,18 +543,10 @@ void Location::handleApiv2locationidGetRequest([[maybe_unused]] const httplib::R
     }
 }
 
-void Location::handleApiv2palParkAreaGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Location::handleApiv2palParkAreaGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2palParkAreaGetRequest params;
         std::vector<std::string> paramErrors;
@@ -656,18 +572,10 @@ void Location::handleApiv2palParkAreaGetRequest([[maybe_unused]] const httplib::
     }
 }
 
-void Location::handleApiv2palParkAreaidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Location::handleApiv2palParkAreaidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2palParkAreaidGetRequest params;
         std::vector<std::string> paramErrors;
@@ -693,18 +601,10 @@ void Location::handleApiv2palParkAreaidGetRequest([[maybe_unused]] const httplib
     }
 }
 
-void Location::handleApiv2regionGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Location::handleApiv2regionGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2regionGetRequest params;
         std::vector<std::string> paramErrors;
@@ -730,18 +630,10 @@ void Location::handleApiv2regionGetRequest([[maybe_unused]] const httplib::Reque
     }
 }
 
-void Location::handleApiv2regionidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Location::handleApiv2regionidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2regionidGetRequest params;
         std::vector<std::string> paramErrors;
@@ -768,39 +660,39 @@ void Location::handleApiv2regionidGetRequest([[maybe_unused]] const httplib::Req
 }
 
 
-void Location::registerRoutes(httplib::Server& svr, std::shared_ptr<AuthenticationManager> auth)
+void Location::registerRoutes(httplib::Server& svr)
 {
-    svr.Get("/api/v2/location-area/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/location-area/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2locationAreaGetRequest(req, res, auth);
+        handleApiv2locationAreaGetRequest(req, res);
     });
-    svr.Get("/api/v2/location-area/{id}/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/location-area/{id}/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2locationAreaidGetRequest(req, res, auth);
+        handleApiv2locationAreaidGetRequest(req, res);
     });
-    svr.Get("/api/v2/location/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/location/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2locationGetRequest(req, res, auth);
+        handleApiv2locationGetRequest(req, res);
     });
-    svr.Get("/api/v2/location/{id}/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/location/{id}/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2locationidGetRequest(req, res, auth);
+        handleApiv2locationidGetRequest(req, res);
     });
-    svr.Get("/api/v2/pal-park-area/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/pal-park-area/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2palParkAreaGetRequest(req, res, auth);
+        handleApiv2palParkAreaGetRequest(req, res);
     });
-    svr.Get("/api/v2/pal-park-area/{id}/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/pal-park-area/{id}/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2palParkAreaidGetRequest(req, res, auth);
+        handleApiv2palParkAreaidGetRequest(req, res);
     });
-    svr.Get("/api/v2/region/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/region/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2regionGetRequest(req, res, auth);
+        handleApiv2regionGetRequest(req, res);
     });
-    svr.Get("/api/v2/region/{id}/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/region/{id}/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2regionidGetRequest(req, res, auth);
+        handleApiv2regionidGetRequest(req, res);
     });
 }
 

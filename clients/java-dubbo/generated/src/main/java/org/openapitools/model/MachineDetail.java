@@ -14,20 +14,32 @@ import java.math.*;
 public class MachineDetail implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * The identifier for this resource.
+   */
   @JsonProperty("id")
   private Integer id;
 
+  /**
+   * The TM or HM item that corresponds to this machine.
+   */
   @JsonProperty("item")
   private ItemSummary item;
 
+  /**
+   * The version group that this machine applies to.
+   */
   @JsonProperty("version_group")
   private VersionGroupSummary versionGroup;
 
+  /**
+   * The move that is taught by this machine.
+   */
   @JsonProperty("move")
   private MoveSummary move;
 
   /**
-   * 
+   * The identifier for this resource.
    * @return id
    */
   public Integer getId() {
@@ -39,7 +51,7 @@ public class MachineDetail implements Serializable {
   }
 
   /**
-   * 
+   * The TM or HM item that corresponds to this machine.
    * @return item
    */
   public ItemSummary getItem() {
@@ -51,7 +63,7 @@ public class MachineDetail implements Serializable {
   }
 
   /**
-   * 
+   * The version group that this machine applies to.
    * @return versionGroup
    */
   public VersionGroupSummary getVersionGroup() {
@@ -63,7 +75,7 @@ public class MachineDetail implements Serializable {
   }
 
   /**
-   * 
+   * The move that is taught by this machine.
    * @return move
    */
   public MoveSummary getMove() {

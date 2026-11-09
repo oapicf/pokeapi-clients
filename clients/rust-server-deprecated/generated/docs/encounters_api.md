@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **encounter_condition_list**
-> models::PaginatedEncounterConditionSummaryList encounter_condition_list(ctx, ctx, optional)
+> models::PaginatedEncounterConditionSummaryList encounter_condition_list(optional)
 List encounter conditions
 
 Conditions which affect what pokemon might appear in the wild, e.g., day or night.
@@ -22,8 +22,6 @@ Conditions which affect what pokemon might appear in the wild, e.g., day or nigh
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -41,7 +39,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -51,7 +49,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **encounter_condition_value_list**
-> models::PaginatedEncounterConditionValueSummaryList encounter_condition_value_list(ctx, ctx, optional)
+> models::PaginatedEncounterConditionValueSummaryList encounter_condition_value_list(optional)
 List encounter condition values
 
 Encounter condition values are the various states that an encounter condition can have, i.e., time of day can be either day or night.
@@ -60,8 +58,6 @@ Encounter condition values are the various states that an encounter condition ca
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -79,7 +75,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -89,7 +85,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **encounter_method_list**
-> models::PaginatedEncounterMethodSummaryList encounter_method_list(ctx, ctx, optional)
+> models::PaginatedEncounterMethodSummaryList encounter_method_list(optional)
 List encounter methods
 
 Methods by which the player might can encounter Pokémon in the wild, e.g., walking in tall grass. Check out Bulbapedia for greater detail.
@@ -98,8 +94,6 @@ Methods by which the player might can encounter Pokémon in the wild, e.g., walk
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -117,7 +111,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -127,7 +121,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **encounter_condition_retrieve**
-> models::EncounterConditionDetail encounter_condition_retrieve(ctx, ctx, id)
+> models::EncounterConditionDetail encounter_condition_retrieve(id)
 Get encounter condition
 
 Conditions which affect what pokemon might appear in the wild, e.g., day or night.
@@ -136,8 +130,6 @@ Conditions which affect what pokemon might appear in the wild, e.g., day or nigh
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **String**| This parameter can be a string or an integer. | 
 
 ### Return type
@@ -146,7 +138,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -156,7 +148,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **encounter_condition_value_retrieve**
-> models::EncounterConditionValueDetail encounter_condition_value_retrieve(ctx, ctx, id)
+> models::EncounterConditionValueDetail encounter_condition_value_retrieve(id)
 Get encounter condition value
 
 Encounter condition values are the various states that an encounter condition can have, i.e., time of day can be either day or night.
@@ -165,8 +157,6 @@ Encounter condition values are the various states that an encounter condition ca
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **String**| This parameter can be a string or an integer. | 
 
 ### Return type
@@ -175,7 +165,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -185,7 +175,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **encounter_method_retrieve**
-> models::EncounterMethodDetail encounter_method_retrieve(ctx, ctx, id)
+> models::EncounterMethodDetail encounter_method_retrieve(id)
 Get encounter method
 
 Methods by which the player might can encounter Pokémon in the wild, e.g., walking in tall grass. Check out Bulbapedia for greater detail.
@@ -194,8 +184,6 @@ Methods by which the player might can encounter Pokémon in the wild, e.g., walk
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **String**| This parameter can be a string or an integer. | 
 
 ### Return type
@@ -204,7 +192,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

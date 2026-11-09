@@ -9,11 +9,16 @@ import Foundation
 
 public struct MoveTargetDetail: Sendable, Codable, Hashable {
 
-    public static let nameRule = StringRule(minLength: nil, maxLength: 100, pattern: nil)
+    public static let nameRule = StringRule(minLength: nil, maxLength: 200, pattern: nil)
+    /** The identifier for this resource. */
     public var id: Int
+    /** The name for this resource. */
     public var name: String
+    /** The description of this resource listed in different languages. */
     public var descriptions: [MoveTargetDescription]
+    /** A list of moves that that are directed at this target. */
     public var moves: [MoveSummary]
+    /** The name of this resource listed in different languages. */
     public var names: [MoveTargetName]
 
     public init(id: Int, name: String, descriptions: [MoveTargetDescription], moves: [MoveSummary], names: [MoveTargetName]) {

@@ -2,21 +2,33 @@
 Protected Class VersionDetail
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The identifier for this resource.
+		#tag EndNote
 		id As Integer
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The name for this resource.
+		#tag EndNote
 		name As String
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The name of this resource listed in different languages.
+		#tag EndNote
 		names() As OpenAPIClient.Models.VersionName
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The version group this version belongs to.
+		#tag EndNote
 		version_group As OpenAPIClient.Models.VersionGroupSummary
 	#tag EndProperty
 

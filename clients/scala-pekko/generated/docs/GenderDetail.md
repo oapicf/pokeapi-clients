@@ -7,10 +7,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Int** |  |  [readonly]
-**name** | **String** |  | 
-**pokemonSpeciesDetails** | [**Seq&lt;GenderDetailPokemonSpeciesDetailsInner&gt;**](GenderDetailPokemonSpeciesDetailsInner.md) |  |  [readonly]
-**requiredForEvolution** | [**Seq&lt;AbilityDetailPokemonInnerPokemon&gt;**](AbilityDetailPokemonInnerPokemon.md) |  |  [readonly]
+**id** | **Int** | The identifier for this resource. |  [readonly]
+**name** | **String** | The name for this resource. | 
+**pokemonSpeciesDetails** | [**Seq&lt;GenderPokemonSpecies&gt;**](GenderPokemonSpecies.md) | A list of Pokémon species that can be this gender and how likely it is that they will be. |  [readonly]
+**requiredForEvolution** | [**Seq&lt;PokemonSpeciesSummary&gt;**](PokemonSpeciesSummary.md) | A list of Pokémon species that required this gender in order for a Pokémon to evolve into them. |  [readonly]
 
 
 

@@ -9,26 +9,27 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.model.AbilityDetailPokemonInnerPokemon;
 import org.openapitools.model.ItemAttributeDescription;
 import org.openapitools.model.ItemAttributeName;
+import org.openapitools.model.ItemSummary;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 import io.swagger.annotations.*;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2026-10-25T05:48:49.952264473Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2026-11-09T13:50:00.159999817Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class ItemAttributeDetail   {
   
   private Integer id;
   private String name;
   private List<@Valid ItemAttributeDescription> descriptions = new ArrayList<>();
-  private List<@Valid AbilityDetailPokemonInnerPokemon> items = new ArrayList<>();
+  private List<@Valid ItemSummary> items = new ArrayList<>();
   private List<@Valid ItemAttributeName> names = new ArrayList<>();
 
   /**
+   * The identifier for this resource.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   @JsonProperty("id")
   @NotNull
   public Integer getId() {
@@ -39,12 +40,13 @@ public class ItemAttributeDetail   {
   }
 
   /**
+   * The name for this resource.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   @JsonProperty("name")
   @NotNull
- @Size(max=100)  public String getName() {
+ @Size(max=200)  public String getName() {
     return name;
   }
   public void setName(String name) {
@@ -52,9 +54,10 @@ public class ItemAttributeDetail   {
   }
 
   /**
+   * The description of this item attribute listed in different languages.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The description of this item attribute listed in different languages.")
   @JsonProperty("descriptions")
   @NotNull
   public List<@Valid ItemAttributeDescription> getDescriptions() {
@@ -65,22 +68,24 @@ public class ItemAttributeDetail   {
   }
 
   /**
+   * A list of items that have this attribute.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of items that have this attribute.")
   @JsonProperty("items")
   @NotNull
-  public List<@Valid AbilityDetailPokemonInnerPokemon> getItems() {
+  public List<@Valid ItemSummary> getItems() {
     return items;
   }
-  public void setItems(List<@Valid AbilityDetailPokemonInnerPokemon> items) {
+  public void setItems(List<@Valid ItemSummary> items) {
     this.items = items;
   }
 
   /**
+   * The name of this item attribute listed in different languages.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name of this item attribute listed in different languages.")
   @JsonProperty("names")
   @NotNull
   public List<@Valid ItemAttributeName> getNames() {

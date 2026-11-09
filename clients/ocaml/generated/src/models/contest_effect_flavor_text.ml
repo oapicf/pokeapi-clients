@@ -15,13 +15,15 @@
                 
                 
                 ; [@key "flavor_text"]
-                                              language: Language_summary.t
+                    (** The localized flavor text for an API resource in a specific language. *)
+                                      language: Language_summary.t
                   
                   
                 
                 
                 ; [@key "language"]
-                        } [@@deriving yojson { strict = false }, show, eq ];;
+                    (** The language this name is in. *)
+                } [@@deriving yojson { strict = false }, show, eq ];;
         
         let create (flavor_text : string) (language : Language_summary.t) : t = {
             flavor_text = flavor_text;

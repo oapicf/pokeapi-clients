@@ -1,7 +1,7 @@
 package apimodels;
 
-import apimodels.PalParkAreaDetailPokemonEncountersInner;
 import apimodels.PalParkAreaName;
+import apimodels.PalParkEncounter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -14,7 +14,7 @@ import javax.validation.Valid;
 /**
  * PalParkAreaDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-10-25T05:48:13.486809836Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-11-09T13:49:31.462302702Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class PalParkAreaDetail   {
   @JsonProperty("id")
@@ -24,7 +24,7 @@ public class PalParkAreaDetail   {
 
   @JsonProperty("name")
   @NotNull
-@Size(max=100)
+@Size(max=200)
 
   private String name;
 
@@ -38,7 +38,7 @@ public class PalParkAreaDetail   {
   @NotNull
 @Valid
 
-  private List<@Valid PalParkAreaDetailPokemonEncountersInner> pokemonEncounters = new ArrayList<>();
+  private List<@Valid PalParkEncounter> pokemonEncounters = new ArrayList<>();
 
   public PalParkAreaDetail id(Integer id) {
     this.id = id;
@@ -46,7 +46,7 @@ public class PalParkAreaDetail   {
   }
 
    /**
-   * Get id
+   * The identifier for this resource.
    * @return id
   **/
   public Integer getId() {
@@ -63,7 +63,7 @@ public class PalParkAreaDetail   {
   }
 
    /**
-   * Get name
+   * The name for this resource.
    * @return name
   **/
   public String getName() {
@@ -88,7 +88,7 @@ public class PalParkAreaDetail   {
   }
 
    /**
-   * Get names
+   * The name of this resource listed in different languages.
    * @return names
   **/
   public List<@Valid PalParkAreaName> getNames() {
@@ -99,12 +99,12 @@ public class PalParkAreaDetail   {
     this.names = names;
   }
 
-  public PalParkAreaDetail pokemonEncounters(List<@Valid PalParkAreaDetailPokemonEncountersInner> pokemonEncounters) {
+  public PalParkAreaDetail pokemonEncounters(List<@Valid PalParkEncounter> pokemonEncounters) {
     this.pokemonEncounters = pokemonEncounters;
     return this;
   }
 
-  public PalParkAreaDetail addPokemonEncountersItem(PalParkAreaDetailPokemonEncountersInner pokemonEncountersItem) {
+  public PalParkAreaDetail addPokemonEncountersItem(PalParkEncounter pokemonEncountersItem) {
     if (this.pokemonEncounters == null) {
       this.pokemonEncounters = new ArrayList<>();
     }
@@ -113,14 +113,14 @@ public class PalParkAreaDetail   {
   }
 
    /**
-   * Get pokemonEncounters
+   * A list of Pokémon encountered in thi pal park area along with details.
    * @return pokemonEncounters
   **/
-  public List<@Valid PalParkAreaDetailPokemonEncountersInner> getPokemonEncounters() {
+  public List<@Valid PalParkEncounter> getPokemonEncounters() {
     return pokemonEncounters;
   }
 
-  public void setPokemonEncounters(List<@Valid PalParkAreaDetailPokemonEncountersInner> pokemonEncounters) {
+  public void setPokemonEncounters(List<@Valid PalParkEncounter> pokemonEncounters) {
     this.pokemonEncounters = pokemonEncounters;
   }
 

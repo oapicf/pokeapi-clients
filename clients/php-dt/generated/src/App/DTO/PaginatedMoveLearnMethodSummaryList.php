@@ -8,28 +8,32 @@ use Articus\DataTransfer\Annotation as DTA;
 class PaginatedMoveLearnMethodSummaryList
 {
     /**
-     * @DTA\Data(field="count", nullable=true)
+     * The total number of resources available from this API.
+     * @DTA\Data(field="count")
      * @DTA\Validator(name="Scalar", options={"type":"int"})
      */
     public ?int $count = null;
 
     /**
+     * The URL for the next page in the list, or null if there is no next page.
      * @DTA\Data(field="next", nullable=true)
      * @DTA\Validator(name="Scalar", options={"type":"string"})
      */
     public ?string $next = null;
 
     /**
+     * The URL for the previous page in the list, or null if there is no previous page.
      * @DTA\Data(field="previous", nullable=true)
      * @DTA\Validator(name="Scalar", options={"type":"string"})
      */
     public ?string $previous = null;
 
     /**
-     * @DTA\Data(field="results", nullable=true)
-     * @DTA\Strategy(name="Object", options={"type":\App\DTO\Collection114::class})
-     * @DTA\Validator(name="TypeCompliant", options={"type":\App\DTO\Collection114::class})
+     * A list of API resources on this page.
+     * @DTA\Data(field="results")
+     * @DTA\Strategy(name="Object", options={"type":\App\DTO\Collection117::class})
+     * @DTA\Validator(name="TypeCompliant", options={"type":\App\DTO\Collection117::class})
      */
-    public ?\App\DTO\Collection114 $results = null;
+    public ?\App\DTO\Collection117 $results = null;
 
 }

@@ -5,15 +5,15 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import org.openapitools.model.AbilityName;
 import org.openapitools.model.GenerationSummary;
 import org.openapitools.model.MoveDamageClassSummary;
 import org.openapitools.model.MoveSummary;
-import org.openapitools.model.TypeDetailDamageRelations;
-import org.openapitools.model.TypeDetailPastDamageRelationsInner;
-import org.openapitools.model.TypeDetailPokemonInner;
-import org.openapitools.model.TypeDetailSpritesValueValue;
 import org.openapitools.model.TypeGameIndex;
+import org.openapitools.model.TypeGameSprite;
+import org.openapitools.model.TypeName;
+import org.openapitools.model.TypePastRelationships;
+import org.openapitools.model.TypePokemon;
+import org.openapitools.model.TypeRelationships;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
@@ -29,57 +29,90 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class TypeDetail  {
   
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The identifier for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
 
   private Integer id;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The name for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The name for this resource.")
 
   private String name;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * A detail of how effective this type is toward others and vice versa.
+  */
+  @ApiModelProperty(required = true, value = "A detail of how effective this type is toward others and vice versa.")
 
   @Valid
 
-  private TypeDetailDamageRelations damageRelations;
+  private TypeRelationships damageRelations;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * A list of details of how effective this type was toward others and vice versa in previous generations
+  */
+  @ApiModelProperty(required = true, value = "A list of details of how effective this type was toward others and vice versa in previous generations")
 
-  private List<@Valid TypeDetailPastDamageRelationsInner> pastDamageRelations = new ArrayList<>();
+  private List<@Valid TypePastRelationships> pastDamageRelations = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * A list of game indices relevent to this item by generation.
+  */
+  @ApiModelProperty(required = true, value = "A list of game indices relevent to this item by generation.")
 
   private List<@Valid TypeGameIndex> gameIndices = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The generation this type was introduced in.
+  */
+  @ApiModelProperty(required = true, value = "The generation this type was introduced in.")
 
   @Valid
 
   private GenerationSummary generation;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The class of damage inflicted by this type.
+  */
+  @ApiModelProperty(required = true, value = "The class of damage inflicted by this type.")
 
   @Valid
 
   private MoveDamageClassSummary moveDamageClass;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The name of this resource listed in different languages.
+  */
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
 
-  private List<@Valid AbilityName> names = new ArrayList<>();
+  private List<@Valid TypeName> names = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * A list of details of Pokémon that have this type.
+  */
+  @ApiModelProperty(required = true, value = "A list of details of Pokémon that have this type.")
 
-  private List<@Valid TypeDetailPokemonInner> pokemon = new ArrayList<>();
+  private List<@Valid TypePokemon> pokemon = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * A list of moves that have this type.
+  */
+  @ApiModelProperty(required = true, value = "A list of moves that have this type.")
 
   private List<@Valid MoveSummary> moves = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
-
-  private Map<String, Map<String, @Valid TypeDetailSpritesValueValue>> sprites = new HashMap<>();
  /**
-   * Get id
+  * Type icons grouped by generation and game, with name_icon and symbol_icon URLs. Unavailable icons are null.
+  */
+  @ApiModelProperty(required = true, value = "Type icons grouped by generation and game, with name_icon and symbol_icon URLs. Unavailable icons are null.")
+
+  private Map<String, Map<String, @Valid TypeGameSprite>> sprites = new HashMap<>();
+ /**
+   * The identifier for this resource.
    * @return id
   **/
   @JsonProperty("id")
@@ -90,12 +123,12 @@ public class TypeDetail  {
 
 
  /**
-   * Get name
+   * The name for this resource.
    * @return name
   **/
   @JsonProperty("name")
   @NotNull
- @Size(max=100)  public String getName() {
+ @Size(max=200)  public String getName() {
     return name;
   }
 
@@ -109,37 +142,29 @@ public class TypeDetail  {
   }
 
  /**
-   * Get damageRelations
+   * A detail of how effective this type is toward others and vice versa.
    * @return damageRelations
   **/
   @JsonProperty("damage_relations")
   @NotNull
-  public TypeDetailDamageRelations getDamageRelations() {
+  public TypeRelationships getDamageRelations() {
     return damageRelations;
   }
 
-  public void setDamageRelations(TypeDetailDamageRelations damageRelations) {
-    this.damageRelations = damageRelations;
-  }
-
-  public TypeDetail damageRelations(TypeDetailDamageRelations damageRelations) {
-    this.damageRelations = damageRelations;
-    return this;
-  }
 
  /**
-   * Get pastDamageRelations
+   * A list of details of how effective this type was toward others and vice versa in previous generations
    * @return pastDamageRelations
   **/
   @JsonProperty("past_damage_relations")
   @NotNull
-  public List<@Valid TypeDetailPastDamageRelationsInner> getPastDamageRelations() {
+  public List<@Valid TypePastRelationships> getPastDamageRelations() {
     return pastDamageRelations;
   }
 
 
  /**
-   * Get gameIndices
+   * A list of game indices relevent to this item by generation.
    * @return gameIndices
   **/
   @JsonProperty("game_indices")
@@ -150,7 +175,7 @@ public class TypeDetail  {
 
 
  /**
-   * Get generation
+   * The generation this type was introduced in.
    * @return generation
   **/
   @JsonProperty("generation")
@@ -169,7 +194,7 @@ public class TypeDetail  {
   }
 
  /**
-   * Get moveDamageClass
+   * The class of damage inflicted by this type.
    * @return moveDamageClass
   **/
   @JsonProperty("move_damage_class")
@@ -188,29 +213,29 @@ public class TypeDetail  {
   }
 
  /**
-   * Get names
+   * The name of this resource listed in different languages.
    * @return names
   **/
   @JsonProperty("names")
   @NotNull
-  public List<@Valid AbilityName> getNames() {
+  public List<@Valid TypeName> getNames() {
     return names;
   }
 
 
  /**
-   * Get pokemon
+   * A list of details of Pokémon that have this type.
    * @return pokemon
   **/
   @JsonProperty("pokemon")
   @NotNull
-  public List<@Valid TypeDetailPokemonInner> getPokemon() {
+  public List<@Valid TypePokemon> getPokemon() {
     return pokemon;
   }
 
 
  /**
-   * Get moves
+   * A list of moves that have this type.
    * @return moves
   **/
   @JsonProperty("moves")
@@ -221,12 +246,12 @@ public class TypeDetail  {
 
 
  /**
-   * Get sprites
+   * Type icons grouped by generation and game, with name_icon and symbol_icon URLs. Unavailable icons are null.
    * @return sprites
   **/
   @JsonProperty("sprites")
   @NotNull
-  public Map<String, Map<String, @Valid TypeDetailSpritesValueValue>> getSprites() {
+  public Map<String, Map<String, @Valid TypeGameSprite>> getSprites() {
     return sprites;
   }
 

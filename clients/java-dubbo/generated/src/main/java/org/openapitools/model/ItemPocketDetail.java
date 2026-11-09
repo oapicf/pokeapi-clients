@@ -14,20 +14,32 @@ import java.math.*;
 public class ItemPocketDetail implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * The identifier for this resource.
+   */
   @JsonProperty("id")
   private Integer id;
 
+  /**
+   * The name for this resource.
+   */
   @JsonProperty("name")
   private String name;
 
+  /**
+   * A list of item categories that are relevant to this item pocket.
+   */
   @JsonProperty("categories")
   private List<ItemCategorySummary> categories = new ArrayList<>();
 
+  /**
+   * The name of this resource listed in different languages.
+   */
   @JsonProperty("names")
   private List<ItemPocketName> names = new ArrayList<>();
 
   /**
-   * 
+   * The identifier for this resource.
    * @return id
    */
   public Integer getId() {
@@ -39,7 +51,7 @@ public class ItemPocketDetail implements Serializable {
   }
 
   /**
-   * 
+   * The name for this resource.
    * @return name
    */
   public String getName() {
@@ -51,7 +63,7 @@ public class ItemPocketDetail implements Serializable {
   }
 
   /**
-   * 
+   * A list of item categories that are relevant to this item pocket.
    * @return categories
    */
   public List<ItemCategorySummary> getCategories() {
@@ -63,7 +75,7 @@ public class ItemPocketDetail implements Serializable {
   }
 
   /**
-   * 
+   * The name of this resource listed in different languages.
    * @return names
    */
   public List<ItemPocketName> getNames() {

@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int32** |  | [readonly] 
-**BabyTriggerItem** | [**ItemSummary**](ItemSummary.md) |  | 
-**Chain** | [**EvolutionChainDetailChain**](EvolutionChainDetailChain.md) |  | 
+**Id** | **int32** | The identifier for this resource. | [readonly] 
+**BabyTriggerItem** | [**NullableItemSummary**](ItemSummary.md) | The item that a Pokémon would be holding when mating that would trigger the egg hatching a baby Pokémon rather than a basic Pokémon. | 
+**Chain** | [**EvolutionChainLink**](EvolutionChainLink.md) | The base chain link object. Each link contains evolution details for a Pokémon in the chain. Each link references the next Pokémon in the natural evolution order. | [readonly] 
 
 ## Methods
 
 ### NewEvolutionChainDetail
 
-`func NewEvolutionChainDetail(id int32, babyTriggerItem ItemSummary, chain EvolutionChainDetailChain, ) *EvolutionChainDetail`
+`func NewEvolutionChainDetail(id int32, babyTriggerItem NullableItemSummary, chain EvolutionChainLink, ) *EvolutionChainDetail`
 
 NewEvolutionChainDetail instantiates a new EvolutionChainDetail object
 This constructor will assign default values to properties that have it defined,
@@ -67,22 +67,32 @@ and a boolean to check if the value has been set.
 SetBabyTriggerItem sets BabyTriggerItem field to given value.
 
 
+### SetBabyTriggerItemNil
+
+`func (o *EvolutionChainDetail) SetBabyTriggerItemNil(b bool)`
+
+ SetBabyTriggerItemNil sets the value for BabyTriggerItem to be an explicit nil
+
+### UnsetBabyTriggerItem
+`func (o *EvolutionChainDetail) UnsetBabyTriggerItem()`
+
+UnsetBabyTriggerItem ensures that no value is present for BabyTriggerItem, not even an explicit nil
 ### GetChain
 
-`func (o *EvolutionChainDetail) GetChain() EvolutionChainDetailChain`
+`func (o *EvolutionChainDetail) GetChain() EvolutionChainLink`
 
 GetChain returns the Chain field if non-nil, zero value otherwise.
 
 ### GetChainOk
 
-`func (o *EvolutionChainDetail) GetChainOk() (*EvolutionChainDetailChain, bool)`
+`func (o *EvolutionChainDetail) GetChainOk() (*EvolutionChainLink, bool)`
 
 GetChainOk returns a tuple with the Chain field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetChain
 
-`func (o *EvolutionChainDetail) SetChain(v EvolutionChainDetailChain)`
+`func (o *EvolutionChainDetail) SetChain(v EvolutionChainLink)`
 
 SetChain sets Chain field to given value.
 

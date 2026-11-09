@@ -17,7 +17,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("MoveMetaAilmentName")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-11-09T13:50:06.168269698Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class MoveMetaAilmentName   {
   private String name;
   private LanguageSummary language;
@@ -35,6 +35,7 @@ public class MoveMetaAilmentName   {
   }
 
   /**
+   * The localized name for an API resource in a specific language.
    **/
   public MoveMetaAilmentName name(String name) {
     this.name = name;
@@ -42,9 +43,9 @@ public class MoveMetaAilmentName   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The localized name for an API resource in a specific language.")
   @JsonProperty(required = true, value = "name")
-  @NotNull  @Size(max=100)public String getName() {
+  @NotNull  @Size(max=200)public String getName() {
     return name;
   }
 
@@ -54,6 +55,7 @@ public class MoveMetaAilmentName   {
   }
 
   /**
+   * The language this name is in.
    **/
   public MoveMetaAilmentName language(LanguageSummary language) {
     this.language = language;
@@ -61,7 +63,7 @@ public class MoveMetaAilmentName   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The language this name is in.")
   @JsonProperty(required = true, value = "language")
   @NotNull @Valid public LanguageSummary getLanguage() {
     return language;

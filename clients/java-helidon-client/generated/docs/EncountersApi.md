@@ -36,7 +36,7 @@ Conditions which affect what pokemon might appear in the wild, e.g., day or nigh
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -71,7 +71,7 @@ Conditions which affect what pokemon might appear in the wild, e.g., day or nigh
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -108,7 +108,7 @@ Encounter condition values are the various states that an encounter condition ca
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -143,7 +143,7 @@ Encounter condition values are the various states that an encounter condition ca
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -180,7 +180,7 @@ Methods by which the player might can encounter Pokémon in the wild, e.g., walk
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -215,7 +215,7 @@ Methods by which the player might can encounter Pokémon in the wild, e.g., walk
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

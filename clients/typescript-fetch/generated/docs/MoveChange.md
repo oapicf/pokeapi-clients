@@ -10,7 +10,7 @@ Name | Type
 `power` | number
 `pp` | number
 `effectChance` | number
-`effectEntries` | [Array&lt;MoveChangeEffectEntriesInner&gt;](MoveChangeEffectEntriesInner.md)
+`effectEntries` | [Array&lt;MoveEffectEffectText&gt;](MoveEffectEffectText.md)
 `type` | [TypeSummary](TypeSummary.md)
 `versionGroup` | [VersionGroupSummary](VersionGroupSummary.md)
 

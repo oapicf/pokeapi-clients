@@ -3,8 +3,8 @@ package org.openapitools.model;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.model.PokemonShapeDetailAwesomeNamesInner;
-import org.openapitools.model.PokemonShapeDetailNamesInner;
+import org.openapitools.model.PokemonShapeAwesomeName;
+import org.openapitools.model.PokemonShapeName;
 import org.openapitools.model.PokemonSpeciesSummary;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
@@ -16,22 +16,37 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class PokemonShapeDetail  {
   
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The identifier for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   private Integer id;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The name for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   private String name;
 
-  @ApiModelProperty(required = true, value = "")
-  private List<@Valid PokemonShapeDetailAwesomeNamesInner> awesomeNames = new ArrayList<>();
+ /**
+  * The \"scientific\" name of this Pokémon shape listed in different languages.
+  */
+  @ApiModelProperty(required = true, value = "The \"scientific\" name of this Pokémon shape listed in different languages.")
+  private List<@Valid PokemonShapeAwesomeName> awesomeNames = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
-  private List<@Valid PokemonShapeDetailNamesInner> names = new ArrayList<>();
+ /**
+  * The name of this resource listed in different languages.
+  */
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
+  private List<@Valid PokemonShapeName> names = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * A list of the Pokémon species that have this shape.
+  */
+  @ApiModelProperty(required = true, value = "A list of the Pokémon species that have this shape.")
   private List<@Valid PokemonSpeciesSummary> pokemonSpecies = new ArrayList<>();
  /**
-  * Get id
+  * The identifier for this resource.
   * @return id
   */
   @JsonProperty("id")
@@ -58,12 +73,12 @@ public class PokemonShapeDetail  {
   }
 
  /**
-  * Get name
+  * The name for this resource.
   * @return name
   */
   @JsonProperty("name")
   @NotNull
- @Size(max=100)  public String getName() {
+ @Size(max=200)  public String getName() {
     return name;
   }
 
@@ -83,12 +98,12 @@ public class PokemonShapeDetail  {
   }
 
  /**
-  * Get awesomeNames
+  * The \&quot;scientific\&quot; name of this Pokémon shape listed in different languages.
   * @return awesomeNames
   */
   @JsonProperty("awesome_names")
   @NotNull
-  public List<@Valid PokemonShapeDetailAwesomeNamesInner> getAwesomeNames() {
+  public List<@Valid PokemonShapeAwesomeName> getAwesomeNames() {
     return awesomeNames;
   }
 
@@ -96,7 +111,7 @@ public class PokemonShapeDetail  {
    * Sets the <code>awesomeNames</code> property.
    * <br><em>N.B. <code>awesomeNames</code> is <b>read only</b>; client code should not call this method</em>.
    */
- public void setAwesomeNames(List<@Valid PokemonShapeDetailAwesomeNamesInner> awesomeNames) {
+ public void setAwesomeNames(List<@Valid PokemonShapeAwesomeName> awesomeNames) {
     this.awesomeNames = awesomeNames;
   }
 
@@ -104,7 +119,7 @@ public class PokemonShapeDetail  {
    * Sets the <code>awesomeNames</code> property.
    * <br><em>N.B. <code>awesomeNames</code> is <b>read only</b>; client code should not call this method</em>.
    */
-  public PokemonShapeDetail awesomeNames(List<@Valid PokemonShapeDetailAwesomeNamesInner> awesomeNames) {
+  public PokemonShapeDetail awesomeNames(List<@Valid PokemonShapeAwesomeName> awesomeNames) {
     this.awesomeNames = awesomeNames;
     return this;
   }
@@ -113,18 +128,18 @@ public class PokemonShapeDetail  {
    * Adds a new item to the <code>awesomeNames</code> list.
    * <br><em>N.B. <code>awesomeNames</code> is <b>read only</b>; client code should not call this method</em>.
    */
-  public PokemonShapeDetail addAwesomeNamesItem(PokemonShapeDetailAwesomeNamesInner awesomeNamesItem) {
+  public PokemonShapeDetail addAwesomeNamesItem(PokemonShapeAwesomeName awesomeNamesItem) {
     this.awesomeNames.add(awesomeNamesItem);
     return this;
   }
 
  /**
-  * Get names
+  * The name of this resource listed in different languages.
   * @return names
   */
   @JsonProperty("names")
   @NotNull
-  public List<@Valid PokemonShapeDetailNamesInner> getNames() {
+  public List<@Valid PokemonShapeName> getNames() {
     return names;
   }
 
@@ -132,7 +147,7 @@ public class PokemonShapeDetail  {
    * Sets the <code>names</code> property.
    * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
- public void setNames(List<@Valid PokemonShapeDetailNamesInner> names) {
+ public void setNames(List<@Valid PokemonShapeName> names) {
     this.names = names;
   }
 
@@ -140,7 +155,7 @@ public class PokemonShapeDetail  {
    * Sets the <code>names</code> property.
    * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
-  public PokemonShapeDetail names(List<@Valid PokemonShapeDetailNamesInner> names) {
+  public PokemonShapeDetail names(List<@Valid PokemonShapeName> names) {
     this.names = names;
     return this;
   }
@@ -149,13 +164,13 @@ public class PokemonShapeDetail  {
    * Adds a new item to the <code>names</code> list.
    * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
-  public PokemonShapeDetail addNamesItem(PokemonShapeDetailNamesInner namesItem) {
+  public PokemonShapeDetail addNamesItem(PokemonShapeName namesItem) {
     this.names.add(namesItem);
     return this;
   }
 
  /**
-  * Get pokemonSpecies
+  * A list of the Pokémon species that have this shape.
   * @return pokemonSpecies
   */
   @JsonProperty("pokemon_species")

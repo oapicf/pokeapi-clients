@@ -55,6 +55,7 @@ class PaginatedPalParkAreaSummaryList(Model):
     def count(self):
         """Gets the count of this PaginatedPalParkAreaSummaryList.
 
+        The total number of resources available from this API.
 
         :return: The count of this PaginatedPalParkAreaSummaryList.
         :rtype: int
@@ -65,10 +66,13 @@ class PaginatedPalParkAreaSummaryList(Model):
     def count(self, count):
         """Sets the count of this PaginatedPalParkAreaSummaryList.
 
+        The total number of resources available from this API.
 
         :param count: The count of this PaginatedPalParkAreaSummaryList.
         :type count: int
         """
+        if count is None:
+            raise ValueError("Invalid value for `count`, must not be `None`")
 
         self._count = count
 
@@ -76,6 +80,7 @@ class PaginatedPalParkAreaSummaryList(Model):
     def next(self):
         """Gets the next of this PaginatedPalParkAreaSummaryList.
 
+        The URL for the next page in the list, or null if there is no next page.
 
         :return: The next of this PaginatedPalParkAreaSummaryList.
         :rtype: str
@@ -86,6 +91,7 @@ class PaginatedPalParkAreaSummaryList(Model):
     def next(self, next):
         """Sets the next of this PaginatedPalParkAreaSummaryList.
 
+        The URL for the next page in the list, or null if there is no next page.
 
         :param next: The next of this PaginatedPalParkAreaSummaryList.
         :type next: str
@@ -97,6 +103,7 @@ class PaginatedPalParkAreaSummaryList(Model):
     def previous(self):
         """Gets the previous of this PaginatedPalParkAreaSummaryList.
 
+        The URL for the previous page in the list, or null if there is no previous page.
 
         :return: The previous of this PaginatedPalParkAreaSummaryList.
         :rtype: str
@@ -107,6 +114,7 @@ class PaginatedPalParkAreaSummaryList(Model):
     def previous(self, previous):
         """Sets the previous of this PaginatedPalParkAreaSummaryList.
 
+        The URL for the previous page in the list, or null if there is no previous page.
 
         :param previous: The previous of this PaginatedPalParkAreaSummaryList.
         :type previous: str
@@ -118,6 +126,7 @@ class PaginatedPalParkAreaSummaryList(Model):
     def results(self):
         """Gets the results of this PaginatedPalParkAreaSummaryList.
 
+        A list of API resources on this page.
 
         :return: The results of this PaginatedPalParkAreaSummaryList.
         :rtype: List[PalParkAreaSummary]
@@ -128,9 +137,12 @@ class PaginatedPalParkAreaSummaryList(Model):
     def results(self, results):
         """Sets the results of this PaginatedPalParkAreaSummaryList.
 
+        A list of API resources on this page.
 
         :param results: The results of this PaginatedPalParkAreaSummaryList.
         :type results: List[PalParkAreaSummary]
         """
+        if results is None:
+            raise ValueError("Invalid value for `results`, must not be `None`")
 
         self._results = results

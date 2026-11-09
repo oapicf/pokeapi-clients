@@ -6,11 +6,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.vertxweb.server.model.AbilityDetailPokemonInnerPokemon;
 import org.openapitools.vertxweb.server.model.PokedexDescription;
-import org.openapitools.vertxweb.server.model.PokedexDetailPokemonEntriesInner;
 import org.openapitools.vertxweb.server.model.PokedexName;
+import org.openapitools.vertxweb.server.model.PokemonDexNumber;
 import org.openapitools.vertxweb.server.model.RegionSummary;
+import org.openapitools.vertxweb.server.model.VersionGroupSummary;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class PokedexDetail   {
@@ -20,15 +20,15 @@ public class PokedexDetail   {
   private Boolean isMainSeries;
   private List<PokedexDescription> descriptions = new ArrayList<>();
   private List<PokedexName> names = new ArrayList<>();
-  private List<PokedexDetailPokemonEntriesInner> pokemonEntries = new ArrayList<>();
+  private List<PokemonDexNumber> pokemonEntries = new ArrayList<>();
   private RegionSummary region;
-  private List<AbilityDetailPokemonInnerPokemon> versionGroups = new ArrayList<>();
+  private List<VersionGroupSummary> versionGroups = new ArrayList<>();
 
   public PokedexDetail () {
 
   }
 
-  public PokedexDetail (Integer id, String name, Boolean isMainSeries, List<PokedexDescription> descriptions, List<PokedexName> names, List<PokedexDetailPokemonEntriesInner> pokemonEntries, RegionSummary region, List<AbilityDetailPokemonInnerPokemon> versionGroups) {
+  public PokedexDetail (Integer id, String name, Boolean isMainSeries, List<PokedexDescription> descriptions, List<PokedexName> names, List<PokemonDexNumber> pokemonEntries, RegionSummary region, List<VersionGroupSummary> versionGroups) {
     this.id = id;
     this.name = name;
     this.isMainSeries = isMainSeries;
@@ -86,10 +86,10 @@ public class PokedexDetail   {
 
     
   @JsonProperty("pokemon_entries")
-  public List<PokedexDetailPokemonEntriesInner> getPokemonEntries() {
+  public List<PokemonDexNumber> getPokemonEntries() {
     return pokemonEntries;
   }
-  public void setPokemonEntries(List<PokedexDetailPokemonEntriesInner> pokemonEntries) {
+  public void setPokemonEntries(List<PokemonDexNumber> pokemonEntries) {
     this.pokemonEntries = pokemonEntries;
   }
 
@@ -104,10 +104,10 @@ public class PokedexDetail   {
 
     
   @JsonProperty("version_groups")
-  public List<AbilityDetailPokemonInnerPokemon> getVersionGroups() {
+  public List<VersionGroupSummary> getVersionGroups() {
     return versionGroups;
   }
-  public void setVersionGroups(List<AbilityDetailPokemonInnerPokemon> versionGroups) {
+  public void setVersionGroups(List<VersionGroupSummary> versionGroups) {
     this.versionGroups = versionGroups;
   }
 

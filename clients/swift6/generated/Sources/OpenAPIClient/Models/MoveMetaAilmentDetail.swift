@@ -9,13 +9,17 @@ import Foundation
 
 public struct MoveMetaAilmentDetail: Sendable, Codable, Hashable {
 
-    public static let nameRule = StringRule(minLength: nil, maxLength: 100, pattern: nil)
+    public static let nameRule = StringRule(minLength: nil, maxLength: 200, pattern: nil)
+    /** The identifier for this resource. */
     public var id: Int
+    /** The name for this resource. */
     public var name: String
-    public var moves: [AbilityDetailPokemonInnerPokemon]
+    /** A list of moves that cause this ailment. */
+    public var moves: [MoveSummary]
+    /** The name of this resource listed in different languages. */
     public var names: [MoveMetaAilmentName]
 
-    public init(id: Int, name: String, moves: [AbilityDetailPokemonInnerPokemon], names: [MoveMetaAilmentName]) {
+    public init(id: Int, name: String, moves: [MoveSummary], names: [MoveMetaAilmentName]) {
         self.id = id
         self.name = name
         self.moves = moves

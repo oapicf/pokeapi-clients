@@ -7,12 +7,12 @@
     {
       "name": "flavor_text",
       "type": "string",
-      "doc": ""
+      "doc": "The localized flavor text for an API resource in a specific language."
     },
     {
       "name": "language",
       "type": "model.LanguageSummary",
-      "doc": ""
+      "doc": "The language this name is in."
     }
   ]
 

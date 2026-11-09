@@ -23,8 +23,8 @@ MoveMeta::~MoveMeta()
 void
 MoveMeta::__init()
 {
-	//ailment = new MoveMetaAilmentSummary();
-	//category = new MoveMetaCategorySummary();
+	//ailment = null;
+	//category = null;
 	//min_hits = int(0);
 	//max_hits = int(0);
 	//min_turns = int(0);

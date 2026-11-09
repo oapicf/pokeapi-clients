@@ -3,15 +3,15 @@ from datetime import date, datetime  # noqa: F401
 from typing import List, Dict  # noqa: F401
 
 from openapi_server.models.base_model import Model
-from openapi_server.models.location_area_detail_encounter_method_rates_inner import LocationAreaDetailEncounterMethodRatesInner
-from openapi_server.models.location_area_detail_pokemon_encounters_inner import LocationAreaDetailPokemonEncountersInner
+from openapi_server.models.location_area_encounter_rate import LocationAreaEncounterRate
 from openapi_server.models.location_area_name import LocationAreaName
+from openapi_server.models.location_area_pokemon_encounter import LocationAreaPokemonEncounter
 from openapi_server.models.location_summary import LocationSummary
 from openapi_server import util
 
-from openapi_server.models.location_area_detail_encounter_method_rates_inner import LocationAreaDetailEncounterMethodRatesInner  # noqa: E501
-from openapi_server.models.location_area_detail_pokemon_encounters_inner import LocationAreaDetailPokemonEncountersInner  # noqa: E501
+from openapi_server.models.location_area_encounter_rate import LocationAreaEncounterRate  # noqa: E501
 from openapi_server.models.location_area_name import LocationAreaName  # noqa: E501
+from openapi_server.models.location_area_pokemon_encounter import LocationAreaPokemonEncounter  # noqa: E501
 from openapi_server.models.location_summary import LocationSummary  # noqa: E501
 
 class LocationAreaDetail(Model):
@@ -30,22 +30,22 @@ class LocationAreaDetail(Model):
         :param game_index: The game_index of this LocationAreaDetail.  # noqa: E501
         :type game_index: int
         :param encounter_method_rates: The encounter_method_rates of this LocationAreaDetail.  # noqa: E501
-        :type encounter_method_rates: List[LocationAreaDetailEncounterMethodRatesInner]
+        :type encounter_method_rates: List[LocationAreaEncounterRate]
         :param location: The location of this LocationAreaDetail.  # noqa: E501
         :type location: LocationSummary
         :param names: The names of this LocationAreaDetail.  # noqa: E501
         :type names: List[LocationAreaName]
         :param pokemon_encounters: The pokemon_encounters of this LocationAreaDetail.  # noqa: E501
-        :type pokemon_encounters: List[LocationAreaDetailPokemonEncountersInner]
+        :type pokemon_encounters: List[LocationAreaPokemonEncounter]
         """
         self.openapi_types = {
             'id': int,
             'name': str,
             'game_index': int,
-            'encounter_method_rates': List[LocationAreaDetailEncounterMethodRatesInner],
+            'encounter_method_rates': List[LocationAreaEncounterRate],
             'location': LocationSummary,
             'names': List[LocationAreaName],
-            'pokemon_encounters': List[LocationAreaDetailPokemonEncountersInner]
+            'pokemon_encounters': List[LocationAreaPokemonEncounter]
         }
 
         self.attribute_map = {
@@ -81,6 +81,7 @@ class LocationAreaDetail(Model):
     def id(self) -> int:
         """Gets the id of this LocationAreaDetail.
 
+        The identifier for this resource.  # noqa: E501
 
         :return: The id of this LocationAreaDetail.
         :rtype: int
@@ -91,6 +92,7 @@ class LocationAreaDetail(Model):
     def id(self, id: int):
         """Sets the id of this LocationAreaDetail.
 
+        The identifier for this resource.  # noqa: E501
 
         :param id: The id of this LocationAreaDetail.
         :type id: int
@@ -104,6 +106,7 @@ class LocationAreaDetail(Model):
     def name(self) -> str:
         """Gets the name of this LocationAreaDetail.
 
+        The name for this resource.  # noqa: E501
 
         :return: The name of this LocationAreaDetail.
         :rtype: str
@@ -114,14 +117,15 @@ class LocationAreaDetail(Model):
     def name(self, name: str):
         """Sets the name of this LocationAreaDetail.
 
+        The name for this resource.  # noqa: E501
 
         :param name: The name of this LocationAreaDetail.
         :type name: str
         """
         if name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
-        if name is not None and len(name) > 100:
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `100`")  # noqa: E501
+        if name is not None and len(name) > 200:
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `200`")  # noqa: E501
 
         self._name = name
 
@@ -129,6 +133,7 @@ class LocationAreaDetail(Model):
     def game_index(self) -> int:
         """Gets the game_index of this LocationAreaDetail.
 
+        The internal id of an API resource within game data.  # noqa: E501
 
         :return: The game_index of this LocationAreaDetail.
         :rtype: int
@@ -139,32 +144,39 @@ class LocationAreaDetail(Model):
     def game_index(self, game_index: int):
         """Sets the game_index of this LocationAreaDetail.
 
+        The internal id of an API resource within game data.  # noqa: E501
 
         :param game_index: The game_index of this LocationAreaDetail.
         :type game_index: int
         """
         if game_index is None:
             raise ValueError("Invalid value for `game_index`, must not be `None`")  # noqa: E501
+        if game_index is not None and game_index > 2147483647:  # noqa: E501
+            raise ValueError("Invalid value for `game_index`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if game_index is not None and game_index < -2147483648:  # noqa: E501
+            raise ValueError("Invalid value for `game_index`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._game_index = game_index
 
     @property
-    def encounter_method_rates(self) -> List[LocationAreaDetailEncounterMethodRatesInner]:
+    def encounter_method_rates(self) -> List[LocationAreaEncounterRate]:
         """Gets the encounter_method_rates of this LocationAreaDetail.
 
+        A list of methods in which Pokémon may be encountered in this area and how likely the method will occur depending on the version of the game.  # noqa: E501
 
         :return: The encounter_method_rates of this LocationAreaDetail.
-        :rtype: List[LocationAreaDetailEncounterMethodRatesInner]
+        :rtype: List[LocationAreaEncounterRate]
         """
         return self._encounter_method_rates
 
     @encounter_method_rates.setter
-    def encounter_method_rates(self, encounter_method_rates: List[LocationAreaDetailEncounterMethodRatesInner]):
+    def encounter_method_rates(self, encounter_method_rates: List[LocationAreaEncounterRate]):
         """Sets the encounter_method_rates of this LocationAreaDetail.
 
+        A list of methods in which Pokémon may be encountered in this area and how likely the method will occur depending on the version of the game.  # noqa: E501
 
         :param encounter_method_rates: The encounter_method_rates of this LocationAreaDetail.
-        :type encounter_method_rates: List[LocationAreaDetailEncounterMethodRatesInner]
+        :type encounter_method_rates: List[LocationAreaEncounterRate]
         """
         if encounter_method_rates is None:
             raise ValueError("Invalid value for `encounter_method_rates`, must not be `None`")  # noqa: E501
@@ -175,6 +187,7 @@ class LocationAreaDetail(Model):
     def location(self) -> LocationSummary:
         """Gets the location of this LocationAreaDetail.
 
+        The region this location area can be found in.  # noqa: E501
 
         :return: The location of this LocationAreaDetail.
         :rtype: LocationSummary
@@ -185,6 +198,7 @@ class LocationAreaDetail(Model):
     def location(self, location: LocationSummary):
         """Sets the location of this LocationAreaDetail.
 
+        The region this location area can be found in.  # noqa: E501
 
         :param location: The location of this LocationAreaDetail.
         :type location: LocationSummary
@@ -198,6 +212,7 @@ class LocationAreaDetail(Model):
     def names(self) -> List[LocationAreaName]:
         """Gets the names of this LocationAreaDetail.
 
+        The name of this resource listed in different languages.  # noqa: E501
 
         :return: The names of this LocationAreaDetail.
         :rtype: List[LocationAreaName]
@@ -208,6 +223,7 @@ class LocationAreaDetail(Model):
     def names(self, names: List[LocationAreaName]):
         """Sets the names of this LocationAreaDetail.
 
+        The name of this resource listed in different languages.  # noqa: E501
 
         :param names: The names of this LocationAreaDetail.
         :type names: List[LocationAreaName]
@@ -218,22 +234,24 @@ class LocationAreaDetail(Model):
         self._names = names
 
     @property
-    def pokemon_encounters(self) -> List[LocationAreaDetailPokemonEncountersInner]:
+    def pokemon_encounters(self) -> List[LocationAreaPokemonEncounter]:
         """Gets the pokemon_encounters of this LocationAreaDetail.
 
+        A list of Pokémon that can be encountered in this area along with version specific details about the encounter.  # noqa: E501
 
         :return: The pokemon_encounters of this LocationAreaDetail.
-        :rtype: List[LocationAreaDetailPokemonEncountersInner]
+        :rtype: List[LocationAreaPokemonEncounter]
         """
         return self._pokemon_encounters
 
     @pokemon_encounters.setter
-    def pokemon_encounters(self, pokemon_encounters: List[LocationAreaDetailPokemonEncountersInner]):
+    def pokemon_encounters(self, pokemon_encounters: List[LocationAreaPokemonEncounter]):
         """Sets the pokemon_encounters of this LocationAreaDetail.
 
+        A list of Pokémon that can be encountered in this area along with version specific details about the encounter.  # noqa: E501
 
         :param pokemon_encounters: The pokemon_encounters of this LocationAreaDetail.
-        :type pokemon_encounters: List[LocationAreaDetailPokemonEncountersInner]
+        :type pokemon_encounters: List[LocationAreaPokemonEncounter]
         """
         if pokemon_encounters is None:
             raise ValueError("Invalid value for `pokemon_encounters`, must not be `None`")  # noqa: E501

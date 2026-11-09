@@ -48,18 +48,18 @@ public:
 	 */
 	void fromJson(char* jsonStr);
 
-	/*! \brief Get 
+	/*! \brief Get The version group in which the previous effect of this ability originated.
 	 */
 	VersionGroupSummary getVersionGroup();
 
-	/*! \brief Set 
+	/*! \brief Set The version group in which the previous effect of this ability originated.
 	 */
 	void setVersionGroup(VersionGroupSummary  version_group);
-	/*! \brief Get 
+	/*! \brief Get The previous effect of this ability listed in different languages.
 	 */
 	std::list<AbilityChangeEffectText> getEffectEntries();
 
-	/*! \brief Set 
+	/*! \brief Set The previous effect of this ability listed in different languages.
 	 */
 	void setEffectEntries(std::list <AbilityChangeEffectText> effect_entries);
 

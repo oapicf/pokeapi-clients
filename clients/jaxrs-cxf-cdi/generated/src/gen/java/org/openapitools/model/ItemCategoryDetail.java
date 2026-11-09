@@ -32,6 +32,7 @@ public class ItemCategoryDetail   {
   private ItemPocketSummary pocket;
 
   /**
+   * The identifier for this resource.
    **/
   public ItemCategoryDetail id(Integer id) {
     this.id = id;
@@ -39,7 +40,7 @@ public class ItemCategoryDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   @JsonProperty("id")
   @NotNull
   public Integer getId() {
@@ -51,6 +52,7 @@ public class ItemCategoryDetail   {
 
 
   /**
+   * The name for this resource.
    **/
   public ItemCategoryDetail name(String name) {
     this.name = name;
@@ -58,10 +60,10 @@ public class ItemCategoryDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   @JsonProperty("name")
   @NotNull
- @Size(max=100)  public String getName() {
+ @Size(max=200)  public String getName() {
     return name;
   }
   public void setName(String name) {
@@ -70,6 +72,7 @@ public class ItemCategoryDetail   {
 
 
   /**
+   * A list of items that are a part of this category.
    **/
   public ItemCategoryDetail items(List<@Valid ItemSummary> items) {
     this.items = items;
@@ -77,7 +80,7 @@ public class ItemCategoryDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of items that are a part of this category.")
   @JsonProperty("items")
   @NotNull
   public List<@Valid ItemSummary> getItems() {
@@ -97,6 +100,7 @@ public class ItemCategoryDetail   {
 
 
   /**
+   * The name of this item category listed in different languages.
    **/
   public ItemCategoryDetail names(List<@Valid ItemCategoryName> names) {
     this.names = names;
@@ -104,7 +108,7 @@ public class ItemCategoryDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name of this item category listed in different languages.")
   @JsonProperty("names")
   @NotNull
   public List<@Valid ItemCategoryName> getNames() {
@@ -124,6 +128,7 @@ public class ItemCategoryDetail   {
 
 
   /**
+   * The pocket items in this category would be put in.
    **/
   public ItemCategoryDetail pocket(ItemPocketSummary pocket) {
     this.pocket = pocket;
@@ -131,7 +136,7 @@ public class ItemCategoryDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The pocket items in this category would be put in.")
   @JsonProperty("pocket")
   @NotNull
   public ItemPocketSummary getPocket() {

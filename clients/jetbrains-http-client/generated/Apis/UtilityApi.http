@@ -4,12 +4,13 @@
 ## List languages
 GET https://pokeapi.co/api/v2/language/?limit={{limit}}&offset={{offset}}&q={{q}}
 Accept: application/json
-Authorization: Basic: {{username-password}}
-Cookie: sessionid={{cookieKey}}
 
 ### Get language
 ## Get language
 GET https://pokeapi.co/api/v2/language/{{id}}/
 Accept: application/json
-Authorization: Basic: {{username-password}}
-Cookie: sessionid={{cookieKey}}
+
+### Get API metadata
+## Get API metadata
+GET https://pokeapi.co/api/v2/meta/
+Accept: application/json

@@ -2,8 +2,8 @@ namespace OpenAPI.Model
 
 open System
 open System.Collections.Generic
-open OpenAPI.Model.AbilityDetailPokemonInnerPokemon
 open OpenAPI.Model.EvolutionTriggerName
+open OpenAPI.Model.PokemonSpeciesSummary
 
 module EvolutionTriggerDetail =
 
@@ -14,6 +14,6 @@ module EvolutionTriggerDetail =
     Id : int;
     Name : string;
     Names : EvolutionTriggerName[];
-    PokemonSpecies : AbilityDetailPokemonInnerPokemon[];
+    PokemonSpecies : PokemonSpeciesSummary[];
   }
   //#endregion

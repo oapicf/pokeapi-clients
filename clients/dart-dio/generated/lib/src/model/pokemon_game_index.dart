@@ -12,13 +12,15 @@ part 'pokemon_game_index.g.dart';
 /// PokemonGameIndex
 ///
 /// Properties:
-/// * [gameIndex] 
-/// * [version] 
+/// * [gameIndex] - The internal id of an API resource within game data.
+/// * [version] - The version relevent to this game index.
 @BuiltValue()
 abstract class PokemonGameIndex implements Built<PokemonGameIndex, PokemonGameIndexBuilder> {
+  /// The internal id of an API resource within game data.
   @BuiltValueField(wireName: r'game_index')
   int get gameIndex;
 
+  /// The version relevent to this game index.
   @BuiltValueField(wireName: r'version')
   VersionSummary get version;
 

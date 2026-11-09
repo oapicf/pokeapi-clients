@@ -9,7 +9,7 @@ Name | Type
 `id` | number
 `name` | string
 `descriptions` | [Array&lt;ItemAttributeDescription&gt;](ItemAttributeDescription.md)
-`items` | [Array&lt;AbilityDetailPokemonInnerPokemon&gt;](AbilityDetailPokemonInnerPokemon.md)
+`items` | [Array&lt;ItemSummary&gt;](ItemSummary.md)
 `names` | [Array&lt;ItemAttributeName&gt;](ItemAttributeName.md)
 
 ## Example

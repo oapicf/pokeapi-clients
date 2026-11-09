@@ -8,6 +8,14 @@
 
 const Controller = require('./Controller');
 const service = require('../services/ItemsService');
+const currency_list = async (request, response) => {
+  await Controller.handleRequest(request, response, service.currency_list);
+};
+
+const currency_retrieve = async (request, response) => {
+  await Controller.handleRequest(request, response, service.currency_retrieve);
+};
+
 const item_attribute_list = async (request, response) => {
   await Controller.handleRequest(request, response, service.item_attribute_list);
 };
@@ -50,6 +58,8 @@ const item_retrieve = async (request, response) => {
 
 
 module.exports = {
+  currency_list,
+  currency_retrieve,
   item_attribute_list,
   item_attribute_retrieve,
   item_category_list,

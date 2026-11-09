@@ -11,12 +11,78 @@ This can be used to construct the `OpenAPI.Clients.Client` instance.
 """
 basepath(::Type{ ItemsApi }) = "https://pokeapi.co"
 
+const _returntypes_currency_list_ItemsApi = Dict{Regex,Type}(
+    Regex("^" * replace("200", "x"=>".") * "\$") => PaginatedCurrencySummaryList,
+)
+
+function _oacinternal_currency_list(_api::ItemsApi; limit=nothing, offset=nothing, q=nothing, _mediaType=nothing)
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_currency_list_ItemsApi, "/api/v2/currency/", [])
+    OpenAPI.Clients.set_param(_ctx.query, "limit", limit; style="form", is_explode=true)  # type Int64
+    OpenAPI.Clients.set_param(_ctx.query, "offset", offset; style="form", is_explode=true)  # type Int64
+    OpenAPI.Clients.set_param(_ctx.query, "q", q; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
+    OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
+    return _ctx
+end
+
+@doc raw"""List currencies
+
+Currencies used to buy items.
+
+Params:
+- `limit`::`Int64`
+- `offset`::`Int64`
+- `q`::`String`
+
+Return: `PaginatedCurrencySummaryList`, `OpenAPI.Clients.ApiResponse`
+"""
+function currency_list(_api::ItemsApi; limit=nothing, offset=nothing, q=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_currency_list(_api; limit=limit, offset=offset, q=q, _mediaType=_mediaType)
+    return OpenAPI.Clients.exec(_ctx)
+end
+
+function currency_list(_api::ItemsApi, response_stream::Channel; limit=nothing, offset=nothing, q=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_currency_list(_api; limit=limit, offset=offset, q=q, _mediaType=_mediaType)
+    return OpenAPI.Clients.exec(_ctx, response_stream)
+end
+
+const _returntypes_currency_retrieve_ItemsApi = Dict{Regex,Type}(
+    Regex("^" * replace("200", "x"=>".") * "\$") => CurrencyDetail,
+)
+
+function _oacinternal_currency_retrieve(_api::ItemsApi, id::String; _mediaType=nothing)
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_currency_retrieve_ItemsApi, "/api/v2/currency/{id}/", [])
+    OpenAPI.Clients.set_param(_ctx.path, "id", id)  # type String
+    OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
+    OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
+    return _ctx
+end
+
+@doc raw"""Get currency
+
+Currencies used to buy items.
+
+Params:
+- `id`::`String` (required)
+
+Return: `CurrencyDetail`, `OpenAPI.Clients.ApiResponse`
+"""
+function currency_retrieve(_api::ItemsApi, id::String; _mediaType=nothing)
+    _ctx = _oacinternal_currency_retrieve(_api, id; _mediaType=_mediaType)
+    return OpenAPI.Clients.exec(_ctx)
+end
+
+function currency_retrieve(_api::ItemsApi, response_stream::Channel, id::String; _mediaType=nothing)
+    _ctx = _oacinternal_currency_retrieve(_api, id; _mediaType=_mediaType)
+    return OpenAPI.Clients.exec(_ctx, response_stream)
+end
+
 const _returntypes_item_attribute_list_ItemsApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => PaginatedItemAttributeSummaryList,
 )
 
 function _oacinternal_item_attribute_list(_api::ItemsApi; limit=nothing, offset=nothing, q=nothing, _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_item_attribute_list_ItemsApi, "/api/v2/item-attribute/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_item_attribute_list_ItemsApi, "/api/v2/item-attribute/", [])
     OpenAPI.Clients.set_param(_ctx.query, "limit", limit; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "offset", offset; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "q", q; style="form", is_explode=true)  # type String
@@ -51,7 +117,7 @@ const _returntypes_item_attribute_retrieve_ItemsApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_item_attribute_retrieve(_api::ItemsApi, id::String; _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_item_attribute_retrieve_ItemsApi, "/api/v2/item-attribute/{id}/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_item_attribute_retrieve_ItemsApi, "/api/v2/item-attribute/{id}/", [])
     OpenAPI.Clients.set_param(_ctx.path, "id", id)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
@@ -82,7 +148,7 @@ const _returntypes_item_category_list_ItemsApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_item_category_list(_api::ItemsApi; limit=nothing, offset=nothing, q=nothing, _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_item_category_list_ItemsApi, "/api/v2/item-category/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_item_category_list_ItemsApi, "/api/v2/item-category/", [])
     OpenAPI.Clients.set_param(_ctx.query, "limit", limit; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "offset", offset; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "q", q; style="form", is_explode=true)  # type String
@@ -117,7 +183,7 @@ const _returntypes_item_category_retrieve_ItemsApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_item_category_retrieve(_api::ItemsApi, id::String; _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_item_category_retrieve_ItemsApi, "/api/v2/item-category/{id}/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_item_category_retrieve_ItemsApi, "/api/v2/item-category/{id}/", [])
     OpenAPI.Clients.set_param(_ctx.path, "id", id)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
@@ -148,7 +214,7 @@ const _returntypes_item_fling_effect_list_ItemsApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_item_fling_effect_list(_api::ItemsApi; limit=nothing, offset=nothing, q=nothing, _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_item_fling_effect_list_ItemsApi, "/api/v2/item-fling-effect/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_item_fling_effect_list_ItemsApi, "/api/v2/item-fling-effect/", [])
     OpenAPI.Clients.set_param(_ctx.query, "limit", limit; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "offset", offset; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "q", q; style="form", is_explode=true)  # type String
@@ -183,7 +249,7 @@ const _returntypes_item_fling_effect_retrieve_ItemsApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_item_fling_effect_retrieve(_api::ItemsApi, id::String; _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_item_fling_effect_retrieve_ItemsApi, "/api/v2/item-fling-effect/{id}/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_item_fling_effect_retrieve_ItemsApi, "/api/v2/item-fling-effect/{id}/", [])
     OpenAPI.Clients.set_param(_ctx.path, "id", id)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
@@ -214,7 +280,7 @@ const _returntypes_item_list_ItemsApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_item_list(_api::ItemsApi; limit=nothing, offset=nothing, q=nothing, _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_item_list_ItemsApi, "/api/v2/item/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_item_list_ItemsApi, "/api/v2/item/", [])
     OpenAPI.Clients.set_param(_ctx.query, "limit", limit; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "offset", offset; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "q", q; style="form", is_explode=true)  # type String
@@ -249,7 +315,7 @@ const _returntypes_item_pocket_list_ItemsApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_item_pocket_list(_api::ItemsApi; limit=nothing, offset=nothing, q=nothing, _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_item_pocket_list_ItemsApi, "/api/v2/item-pocket/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_item_pocket_list_ItemsApi, "/api/v2/item-pocket/", [])
     OpenAPI.Clients.set_param(_ctx.query, "limit", limit; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "offset", offset; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "q", q; style="form", is_explode=true)  # type String
@@ -284,7 +350,7 @@ const _returntypes_item_pocket_retrieve_ItemsApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_item_pocket_retrieve(_api::ItemsApi, id::String; _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_item_pocket_retrieve_ItemsApi, "/api/v2/item-pocket/{id}/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_item_pocket_retrieve_ItemsApi, "/api/v2/item-pocket/{id}/", [])
     OpenAPI.Clients.set_param(_ctx.path, "id", id)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
@@ -315,7 +381,7 @@ const _returntypes_item_retrieve_ItemsApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_item_retrieve(_api::ItemsApi, id::String; _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_item_retrieve_ItemsApi, "/api/v2/item/{id}/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_item_retrieve_ItemsApi, "/api/v2/item/{id}/", [])
     OpenAPI.Clients.set_param(_ctx.path, "id", id)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
@@ -341,6 +407,8 @@ function item_retrieve(_api::ItemsApi, response_stream::Channel, id::String; _me
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
+export currency_list
+export currency_retrieve
 export item_attribute_list
 export item_attribute_retrieve
 export item_category_list

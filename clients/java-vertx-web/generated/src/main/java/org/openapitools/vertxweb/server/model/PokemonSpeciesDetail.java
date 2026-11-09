@@ -7,21 +7,21 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
-import org.openapitools.vertxweb.server.model.AbilityDetailPokemonInnerPokemon;
+import org.openapitools.vertxweb.server.model.EggGroupSummary;
 import org.openapitools.vertxweb.server.model.EvolutionChainSummary;
 import org.openapitools.vertxweb.server.model.GenerationSummary;
 import org.openapitools.vertxweb.server.model.GrowthRateSummary;
 import org.openapitools.vertxweb.server.model.PokemonColorSummary;
 import org.openapitools.vertxweb.server.model.PokemonDexEntry;
-import org.openapitools.vertxweb.server.model.PokemonFormDetailFormNamesInner;
 import org.openapitools.vertxweb.server.model.PokemonHabitatSummary;
 import org.openapitools.vertxweb.server.model.PokemonShapeSummary;
 import org.openapitools.vertxweb.server.model.PokemonSpeciesDescription;
-import org.openapitools.vertxweb.server.model.PokemonSpeciesDetailGeneraInner;
-import org.openapitools.vertxweb.server.model.PokemonSpeciesDetailPalParkEncountersInner;
-import org.openapitools.vertxweb.server.model.PokemonSpeciesDetailVarietiesInner;
 import org.openapitools.vertxweb.server.model.PokemonSpeciesFlavorText;
+import org.openapitools.vertxweb.server.model.PokemonSpeciesGenus;
+import org.openapitools.vertxweb.server.model.PokemonSpeciesName;
+import org.openapitools.vertxweb.server.model.PokemonSpeciesPalParkEncounter;
 import org.openapitools.vertxweb.server.model.PokemonSpeciesSummary;
+import org.openapitools.vertxweb.server.model.PokemonSpeciesVariety;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class PokemonSpeciesDetail   {
@@ -40,25 +40,25 @@ public class PokemonSpeciesDetail   {
   private Boolean formsSwitchable;
   private GrowthRateSummary growthRate;
   private List<PokemonDexEntry> pokedexNumbers = new ArrayList<>();
-  private List<AbilityDetailPokemonInnerPokemon> eggGroups = new ArrayList<>();
+  private List<EggGroupSummary> eggGroups = new ArrayList<>();
   private PokemonColorSummary color;
   private PokemonShapeSummary shape;
   private PokemonSpeciesSummary evolvesFromSpecies;
   private EvolutionChainSummary evolutionChain;
   private PokemonHabitatSummary habitat;
   private GenerationSummary generation;
-  private List<PokemonFormDetailFormNamesInner> names = new ArrayList<>();
-  private List<PokemonSpeciesDetailPalParkEncountersInner> palParkEncounters = new ArrayList<>();
+  private List<PokemonSpeciesName> names = new ArrayList<>();
+  private List<PokemonSpeciesPalParkEncounter> palParkEncounters = new ArrayList<>();
   private List<PokemonSpeciesDescription> formDescriptions = new ArrayList<>();
   private List<PokemonSpeciesFlavorText> flavorTextEntries = new ArrayList<>();
-  private List<PokemonSpeciesDetailGeneraInner> genera = new ArrayList<>();
-  private List<PokemonSpeciesDetailVarietiesInner> varieties = new ArrayList<>();
+  private List<PokemonSpeciesGenus> genera = new ArrayList<>();
+  private List<PokemonSpeciesVariety> varieties = new ArrayList<>();
 
   public PokemonSpeciesDetail () {
 
   }
 
-  public PokemonSpeciesDetail (Integer id, String name, Integer order, Integer genderRate, Integer captureRate, Integer baseHappiness, Boolean isBaby, Boolean isLegendary, Boolean isMythical, Integer hatchCounter, Boolean hasGenderDifferences, Boolean formsSwitchable, GrowthRateSummary growthRate, List<PokemonDexEntry> pokedexNumbers, List<AbilityDetailPokemonInnerPokemon> eggGroups, PokemonColorSummary color, PokemonShapeSummary shape, PokemonSpeciesSummary evolvesFromSpecies, EvolutionChainSummary evolutionChain, PokemonHabitatSummary habitat, GenerationSummary generation, List<PokemonFormDetailFormNamesInner> names, List<PokemonSpeciesDetailPalParkEncountersInner> palParkEncounters, List<PokemonSpeciesDescription> formDescriptions, List<PokemonSpeciesFlavorText> flavorTextEntries, List<PokemonSpeciesDetailGeneraInner> genera, List<PokemonSpeciesDetailVarietiesInner> varieties) {
+  public PokemonSpeciesDetail (Integer id, String name, Integer order, Integer genderRate, Integer captureRate, Integer baseHappiness, Boolean isBaby, Boolean isLegendary, Boolean isMythical, Integer hatchCounter, Boolean hasGenderDifferences, Boolean formsSwitchable, GrowthRateSummary growthRate, List<PokemonDexEntry> pokedexNumbers, List<EggGroupSummary> eggGroups, PokemonColorSummary color, PokemonShapeSummary shape, PokemonSpeciesSummary evolvesFromSpecies, EvolutionChainSummary evolutionChain, PokemonHabitatSummary habitat, GenerationSummary generation, List<PokemonSpeciesName> names, List<PokemonSpeciesPalParkEncounter> palParkEncounters, List<PokemonSpeciesDescription> formDescriptions, List<PokemonSpeciesFlavorText> flavorTextEntries, List<PokemonSpeciesGenus> genera, List<PokemonSpeciesVariety> varieties) {
     this.id = id;
     this.name = name;
     this.order = order;
@@ -216,10 +216,10 @@ public class PokemonSpeciesDetail   {
 
     
   @JsonProperty("egg_groups")
-  public List<AbilityDetailPokemonInnerPokemon> getEggGroups() {
+  public List<EggGroupSummary> getEggGroups() {
     return eggGroups;
   }
-  public void setEggGroups(List<AbilityDetailPokemonInnerPokemon> eggGroups) {
+  public void setEggGroups(List<EggGroupSummary> eggGroups) {
     this.eggGroups = eggGroups;
   }
 
@@ -279,19 +279,19 @@ public class PokemonSpeciesDetail   {
 
     
   @JsonProperty("names")
-  public List<PokemonFormDetailFormNamesInner> getNames() {
+  public List<PokemonSpeciesName> getNames() {
     return names;
   }
-  public void setNames(List<PokemonFormDetailFormNamesInner> names) {
+  public void setNames(List<PokemonSpeciesName> names) {
     this.names = names;
   }
 
     
   @JsonProperty("pal_park_encounters")
-  public List<PokemonSpeciesDetailPalParkEncountersInner> getPalParkEncounters() {
+  public List<PokemonSpeciesPalParkEncounter> getPalParkEncounters() {
     return palParkEncounters;
   }
-  public void setPalParkEncounters(List<PokemonSpeciesDetailPalParkEncountersInner> palParkEncounters) {
+  public void setPalParkEncounters(List<PokemonSpeciesPalParkEncounter> palParkEncounters) {
     this.palParkEncounters = palParkEncounters;
   }
 
@@ -315,19 +315,19 @@ public class PokemonSpeciesDetail   {
 
     
   @JsonProperty("genera")
-  public List<PokemonSpeciesDetailGeneraInner> getGenera() {
+  public List<PokemonSpeciesGenus> getGenera() {
     return genera;
   }
-  public void setGenera(List<PokemonSpeciesDetailGeneraInner> genera) {
+  public void setGenera(List<PokemonSpeciesGenus> genera) {
     this.genera = genera;
   }
 
     
   @JsonProperty("varieties")
-  public List<PokemonSpeciesDetailVarietiesInner> getVarieties() {
+  public List<PokemonSpeciesVariety> getVarieties() {
     return varieties;
   }
-  public void setVarieties(List<PokemonSpeciesDetailVarietiesInner> varieties) {
+  public void setVarieties(List<PokemonSpeciesVariety> varieties) {
     this.varieties = varieties;
   }
 

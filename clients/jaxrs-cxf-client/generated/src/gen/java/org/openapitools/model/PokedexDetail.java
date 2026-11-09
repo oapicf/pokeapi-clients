@@ -3,11 +3,11 @@ package org.openapitools.model;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.model.AbilityDetailPokemonInnerPokemon;
 import org.openapitools.model.PokedexDescription;
-import org.openapitools.model.PokedexDetailPokemonEntriesInner;
 import org.openapitools.model.PokedexName;
+import org.openapitools.model.PokemonDexNumber;
 import org.openapitools.model.RegionSummary;
+import org.openapitools.model.VersionGroupSummary;
 
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
@@ -16,39 +16,63 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class PokedexDetail  {
   
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The identifier for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
 
   private Integer id;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The name for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The name for this resource.")
 
   private String name;
 
-  @ApiModelProperty(value = "")
+ /**
+  * Whether or not this Pokédex originated in the main series of the video games.
+  */
+  @ApiModelProperty(value = "Whether or not this Pokédex originated in the main series of the video games.")
 
   private Boolean isMainSeries;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The description of this resource listed in different languages.
+  */
+  @ApiModelProperty(required = true, value = "The description of this resource listed in different languages.")
 
   private List<PokedexDescription> descriptions = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The name of this resource listed in different languages.
+  */
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
 
   private List<PokedexName> names = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * A list of Pokémon catalogued in this Pokédex and their indexes.
+  */
+  @ApiModelProperty(required = true, value = "A list of Pokémon catalogued in this Pokédex and their indexes.")
 
-  private List<PokedexDetailPokemonEntriesInner> pokemonEntries = new ArrayList<>();
+  private List<PokemonDexNumber> pokemonEntries = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The region this Pokédex catalogues Pokémon for.
+  */
+  @ApiModelProperty(required = true, value = "The region this Pokédex catalogues Pokémon for.")
 
   private RegionSummary region;
 
-  @ApiModelProperty(required = true, value = "")
-
-  private List<AbilityDetailPokemonInnerPokemon> versionGroups = new ArrayList<>();
  /**
-   * Get id
+  * A list of version groups this Pokédex is relevant to.
+  */
+  @ApiModelProperty(required = true, value = "A list of version groups this Pokédex is relevant to.")
+
+  private List<VersionGroupSummary> versionGroups = new ArrayList<>();
+ /**
+   * The identifier for this resource.
    * @return id
   **/
   @JsonProperty("id")
@@ -58,7 +82,7 @@ public class PokedexDetail  {
 
 
  /**
-   * Get name
+   * The name for this resource.
    * @return name
   **/
   @JsonProperty("name")
@@ -76,7 +100,7 @@ public class PokedexDetail  {
   }
 
  /**
-   * Get isMainSeries
+   * Whether or not this Pokédex originated in the main series of the video games.
    * @return isMainSeries
   **/
   @JsonProperty("is_main_series")
@@ -94,7 +118,7 @@ public class PokedexDetail  {
   }
 
  /**
-   * Get descriptions
+   * The description of this resource listed in different languages.
    * @return descriptions
   **/
   @JsonProperty("descriptions")
@@ -104,7 +128,7 @@ public class PokedexDetail  {
 
 
  /**
-   * Get names
+   * The name of this resource listed in different languages.
    * @return names
   **/
   @JsonProperty("names")
@@ -114,17 +138,17 @@ public class PokedexDetail  {
 
 
  /**
-   * Get pokemonEntries
+   * A list of Pokémon catalogued in this Pokédex and their indexes.
    * @return pokemonEntries
   **/
   @JsonProperty("pokemon_entries")
-  public List<PokedexDetailPokemonEntriesInner> getPokemonEntries() {
+  public List<PokemonDexNumber> getPokemonEntries() {
     return pokemonEntries;
   }
 
 
  /**
-   * Get region
+   * The region this Pokédex catalogues Pokémon for.
    * @return region
   **/
   @JsonProperty("region")
@@ -142,11 +166,11 @@ public class PokedexDetail  {
   }
 
  /**
-   * Get versionGroups
+   * A list of version groups this Pokédex is relevant to.
    * @return versionGroups
   **/
   @JsonProperty("version_groups")
-  public List<AbilityDetailPokemonInnerPokemon> getVersionGroups() {
+  public List<VersionGroupSummary> getVersionGroups() {
     return versionGroups;
   }
 

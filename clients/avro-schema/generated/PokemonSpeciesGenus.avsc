@@ -1,0 +1,19 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "PokemonSpeciesGenus",
+  "fields": [
+    {
+      "name": "genus",
+      "type": "string",
+      "doc": "The localized genus for the referenced Pokémon species"
+    },
+    {
+      "name": "language",
+      "type": "model.LanguageSummary",
+      "doc": "The language this genus is in."
+    }
+  ]
+
+}

@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **url** | **String** |  | [readonly] |
+| **url** | **String** | The URL of the referenced resource. | [readonly] |
 
 ## Example
 

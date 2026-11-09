@@ -17,8 +17,10 @@ class AbilityChange {
     this.effectEntries = const [],
   });
 
+  /// The version group in which the previous effect of this ability originated.
   VersionGroupSummary versionGroup;
 
+  /// The previous effect of this ability listed in different languages.
   List<AbilityChangeEffectText> effectEntries;
 
   @override

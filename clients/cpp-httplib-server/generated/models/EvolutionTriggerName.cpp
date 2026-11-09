@@ -10,7 +10,6 @@ namespace models {
 
 EvolutionTriggerName::EvolutionTriggerName()
 : name("")
-, language(LanguageSummary())
 {
 }
 // =========================================

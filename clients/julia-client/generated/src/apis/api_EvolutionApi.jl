@@ -15,11 +15,10 @@ const _returntypes_evolution_chain_list_EvolutionApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => PaginatedEvolutionChainSummaryList,
 )
 
-function _oacinternal_evolution_chain_list(_api::EvolutionApi; limit=nothing, offset=nothing, q=nothing, _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_evolution_chain_list_EvolutionApi, "/api/v2/evolution-chain/", ["basicAuth", "cookieAuth", ])
+function _oacinternal_evolution_chain_list(_api::EvolutionApi; limit=nothing, offset=nothing, _mediaType=nothing)
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_evolution_chain_list_EvolutionApi, "/api/v2/evolution-chain/", [])
     OpenAPI.Clients.set_param(_ctx.query, "limit", limit; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "offset", offset; style="form", is_explode=true)  # type Int64
-    OpenAPI.Clients.set_param(_ctx.query, "q", q; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
     return _ctx
@@ -32,17 +31,16 @@ Evolution chains are essentially family trees. They start with the lowest stage 
 Params:
 - `limit`::`Int64`
 - `offset`::`Int64`
-- `q`::`String`
 
 Return: `PaginatedEvolutionChainSummaryList`, `OpenAPI.Clients.ApiResponse`
 """
-function evolution_chain_list(_api::EvolutionApi; limit=nothing, offset=nothing, q=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_evolution_chain_list(_api; limit=limit, offset=offset, q=q, _mediaType=_mediaType)
+function evolution_chain_list(_api::EvolutionApi; limit=nothing, offset=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_evolution_chain_list(_api; limit=limit, offset=offset, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function evolution_chain_list(_api::EvolutionApi, response_stream::Channel; limit=nothing, offset=nothing, q=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_evolution_chain_list(_api; limit=limit, offset=offset, q=q, _mediaType=_mediaType)
+function evolution_chain_list(_api::EvolutionApi, response_stream::Channel; limit=nothing, offset=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_evolution_chain_list(_api; limit=limit, offset=offset, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -51,7 +49,7 @@ const _returntypes_evolution_chain_retrieve_EvolutionApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_evolution_chain_retrieve(_api::EvolutionApi, id::String; _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_evolution_chain_retrieve_EvolutionApi, "/api/v2/evolution-chain/{id}/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_evolution_chain_retrieve_EvolutionApi, "/api/v2/evolution-chain/{id}/", [])
     OpenAPI.Clients.set_param(_ctx.path, "id", id)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
@@ -82,7 +80,7 @@ const _returntypes_evolution_trigger_list_EvolutionApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_evolution_trigger_list(_api::EvolutionApi; limit=nothing, offset=nothing, q=nothing, _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_evolution_trigger_list_EvolutionApi, "/api/v2/evolution-trigger/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_evolution_trigger_list_EvolutionApi, "/api/v2/evolution-trigger/", [])
     OpenAPI.Clients.set_param(_ctx.query, "limit", limit; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "offset", offset; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "q", q; style="form", is_explode=true)  # type String
@@ -117,7 +115,7 @@ const _returntypes_evolution_trigger_retrieve_EvolutionApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_evolution_trigger_retrieve(_api::EvolutionApi, id::String; _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_evolution_trigger_retrieve_EvolutionApi, "/api/v2/evolution-trigger/{id}/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_evolution_trigger_retrieve_EvolutionApi, "/api/v2/evolution-trigger/{id}/", [])
     OpenAPI.Clients.set_param(_ctx.path, "id", id)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
@@ -143,7 +141,75 @@ function evolution_trigger_retrieve(_api::EvolutionApi, response_stream::Channel
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
+const _returntypes_evolution_variable_list_EvolutionApi = Dict{Regex,Type}(
+    Regex("^" * replace("200", "x"=>".") * "\$") => PaginatedEvolutionVariableSummaryList,
+)
+
+function _oacinternal_evolution_variable_list(_api::EvolutionApi; limit=nothing, offset=nothing, q=nothing, _mediaType=nothing)
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_evolution_variable_list_EvolutionApi, "/api/v2/evolution-variable/", [])
+    OpenAPI.Clients.set_param(_ctx.query, "limit", limit; style="form", is_explode=true)  # type Int64
+    OpenAPI.Clients.set_param(_ctx.query, "offset", offset; style="form", is_explode=true)  # type Int64
+    OpenAPI.Clients.set_param(_ctx.query, "q", q; style="form", is_explode=true)  # type String
+    OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
+    OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
+    return _ctx
+end
+
+@doc raw"""List evolution variables
+
+Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+
+Params:
+- `limit`::`Int64`
+- `offset`::`Int64`
+- `q`::`String`
+
+Return: `PaginatedEvolutionVariableSummaryList`, `OpenAPI.Clients.ApiResponse`
+"""
+function evolution_variable_list(_api::EvolutionApi; limit=nothing, offset=nothing, q=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_evolution_variable_list(_api; limit=limit, offset=offset, q=q, _mediaType=_mediaType)
+    return OpenAPI.Clients.exec(_ctx)
+end
+
+function evolution_variable_list(_api::EvolutionApi, response_stream::Channel; limit=nothing, offset=nothing, q=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_evolution_variable_list(_api; limit=limit, offset=offset, q=q, _mediaType=_mediaType)
+    return OpenAPI.Clients.exec(_ctx, response_stream)
+end
+
+const _returntypes_evolution_variable_retrieve_EvolutionApi = Dict{Regex,Type}(
+    Regex("^" * replace("200", "x"=>".") * "\$") => EvolutionVariableDetail,
+)
+
+function _oacinternal_evolution_variable_retrieve(_api::EvolutionApi, id::String; _mediaType=nothing)
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_evolution_variable_retrieve_EvolutionApi, "/api/v2/evolution-variable/{id}/", [])
+    OpenAPI.Clients.set_param(_ctx.path, "id", id)  # type String
+    OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
+    OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
+    return _ctx
+end
+
+@doc raw"""Get evolution variable
+
+Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+
+Params:
+- `id`::`String` (required)
+
+Return: `EvolutionVariableDetail`, `OpenAPI.Clients.ApiResponse`
+"""
+function evolution_variable_retrieve(_api::EvolutionApi, id::String; _mediaType=nothing)
+    _ctx = _oacinternal_evolution_variable_retrieve(_api, id; _mediaType=_mediaType)
+    return OpenAPI.Clients.exec(_ctx)
+end
+
+function evolution_variable_retrieve(_api::EvolutionApi, response_stream::Channel, id::String; _mediaType=nothing)
+    _ctx = _oacinternal_evolution_variable_retrieve(_api, id; _mediaType=_mediaType)
+    return OpenAPI.Clients.exec(_ctx, response_stream)
+end
+
 export evolution_chain_list
 export evolution_chain_retrieve
 export evolution_trigger_list
 export evolution_trigger_retrieve
+export evolution_variable_list
+export evolution_variable_retrieve

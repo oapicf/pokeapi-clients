@@ -4,17 +4,18 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
-import org.openapitools.model.AbilityDetailPokemonInnerPokemon;
+import org.openapitools.model.EvolutionChainSummary;
+import org.openapitools.model.ItemAttributeSummary;
 import org.openapitools.model.ItemCategorySummary;
-import org.openapitools.model.ItemDetailBabyTriggerFor;
-import org.openapitools.model.ItemDetailHeldByPokemonInner;
-import org.openapitools.model.ItemDetailMachinesInner;
-import org.openapitools.model.ItemDetailSprites;
 import org.openapitools.model.ItemEffectText;
 import org.openapitools.model.ItemFlavorText;
 import org.openapitools.model.ItemFlingEffectSummary;
 import org.openapitools.model.ItemGameIndex;
+import org.openapitools.model.ItemMachine;
 import org.openapitools.model.ItemName;
+import org.openapitools.model.ItemPrice;
+import org.openapitools.model.ItemSprites;
+import org.openapitools.model.PokemonHeldItem;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
@@ -25,56 +26,101 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class ItemDetail  {
   
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The identifier for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   private Integer id;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The name for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   private String name;
 
-  @ApiModelProperty(value = "")
-  private Integer cost;
-
-  @ApiModelProperty(value = "")
+ /**
+  * The power of the move Fling when used with this item.
+  */
+  @ApiModelProperty(value = "The power of the move Fling when used with this item.")
   private Integer flingPower;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The effect of the move Fling when used with this item.
+  */
+  @ApiModelProperty(required = true, value = "The effect of the move Fling when used with this item.")
   @Valid
   private ItemFlingEffectSummary flingEffect;
 
-  @ApiModelProperty(required = true, value = "")
-  private List<@Valid AbilityDetailPokemonInnerPokemon> attributes = new ArrayList<>();
+ /**
+  * A list of attributes this item has.
+  */
+  @ApiModelProperty(required = true, value = "A list of attributes this item has.")
+  private List<@Valid ItemAttributeSummary> attributes = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The category of items this item falls into.
+  */
+  @ApiModelProperty(required = true, value = "The category of items this item falls into.")
   @Valid
   private ItemCategorySummary category;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The effect of this ability listed in different languages.
+  */
+  @ApiModelProperty(required = true, value = "The effect of this ability listed in different languages.")
   private List<@Valid ItemEffectText> effectEntries = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The flavor text of this ability listed in different languages.
+  */
+  @ApiModelProperty(required = true, value = "The flavor text of this ability listed in different languages.")
   private List<@Valid ItemFlavorText> flavorTextEntries = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * A list of game indices relevent to this item by generation.
+  */
+  @ApiModelProperty(required = true, value = "A list of game indices relevent to this item by generation.")
   private List<@Valid ItemGameIndex> gameIndices = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * Purchase and sell prices by currency and version group. Prices may be null when the item cannot be bought or sold.
+  */
+  @ApiModelProperty(required = true, value = "Purchase and sell prices by currency and version group. Prices may be null when the item cannot be bought or sold.")
+  private List<@Valid ItemPrice> prices = new ArrayList<>();
+
+ /**
+  * The name of this item listed in different languages.
+  */
+  @ApiModelProperty(required = true, value = "The name of this item listed in different languages.")
   private List<@Valid ItemName> names = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
-  private List<@Valid ItemDetailHeldByPokemonInner> heldByPokemon = new ArrayList<>();
-
-  @ApiModelProperty(required = true, value = "")
-  @Valid
-  private ItemDetailSprites sprites;
-
-  @ApiModelProperty(required = true, value = "")
-  @Valid
-  private ItemDetailBabyTriggerFor babyTriggerFor;
-
-  @ApiModelProperty(required = true, value = "")
-  private List<@Valid ItemDetailMachinesInner> machines = new ArrayList<>();
  /**
-  * Get id
+  * A list of Pokémon that might be found in the wild holding this item.
+  */
+  @ApiModelProperty(required = true, value = "A list of Pokémon that might be found in the wild holding this item.")
+  private List<@Valid PokemonHeldItem> heldByPokemon = new ArrayList<>();
+
+ /**
+  * A set of sprites used to depict this item in the game.
+  */
+  @ApiModelProperty(required = true, value = "A set of sprites used to depict this item in the game.")
+  @Valid
+  private ItemSprites sprites;
+
+ /**
+  * An evolution chain this item requires to produce a bay during mating.
+  */
+  @ApiModelProperty(required = true, value = "An evolution chain this item requires to produce a bay during mating.")
+  @Valid
+  private EvolutionChainSummary babyTriggerFor;
+
+ /**
+  * A list of the machines related to this item.
+  */
+  @ApiModelProperty(required = true, value = "A list of the machines related to this item.")
+  private List<@Valid ItemMachine> machines = new ArrayList<>();
+ /**
+  * The identifier for this resource.
   * @return id
   */
   @JsonProperty("id")
@@ -101,12 +147,12 @@ public class ItemDetail  {
   }
 
  /**
-  * Get name
+  * The name for this resource.
   * @return name
   */
   @JsonProperty("name")
   @NotNull
- @Size(max=100)  public String getName() {
+ @Size(max=200)  public String getName() {
     return name;
   }
 
@@ -126,35 +172,13 @@ public class ItemDetail  {
   }
 
  /**
-  * Get cost
-  * @return cost
-  */
-  @JsonProperty("cost")
-  public Integer getCost() {
-    return cost;
-  }
-
-  /**
-   * Sets the <code>cost</code> property.
-   */
- public void setCost(Integer cost) {
-    this.cost = cost;
-  }
-
-  /**
-   * Sets the <code>cost</code> property.
-   */
-  public ItemDetail cost(Integer cost) {
-    this.cost = cost;
-    return this;
-  }
-
- /**
-  * Get flingPower
+  * The power of the move Fling when used with this item.
+  * minimum: -2147483648
+  * maximum: 2147483647
   * @return flingPower
   */
   @JsonProperty("fling_power")
-  public Integer getFlingPower() {
+ @Min(-2147483648) @Max(2147483647)  public Integer getFlingPower() {
     return flingPower;
   }
 
@@ -174,7 +198,7 @@ public class ItemDetail  {
   }
 
  /**
-  * Get flingEffect
+  * The effect of the move Fling when used with this item.
   * @return flingEffect
   */
   @JsonProperty("fling_effect")
@@ -199,12 +223,12 @@ public class ItemDetail  {
   }
 
  /**
-  * Get attributes
+  * A list of attributes this item has.
   * @return attributes
   */
   @JsonProperty("attributes")
   @NotNull
-  public List<@Valid AbilityDetailPokemonInnerPokemon> getAttributes() {
+  public List<@Valid ItemAttributeSummary> getAttributes() {
     return attributes;
   }
 
@@ -212,7 +236,7 @@ public class ItemDetail  {
    * Sets the <code>attributes</code> property.
    * <br><em>N.B. <code>attributes</code> is <b>read only</b>; client code should not call this method</em>.
    */
- public void setAttributes(List<@Valid AbilityDetailPokemonInnerPokemon> attributes) {
+ public void setAttributes(List<@Valid ItemAttributeSummary> attributes) {
     this.attributes = attributes;
   }
 
@@ -220,7 +244,7 @@ public class ItemDetail  {
    * Sets the <code>attributes</code> property.
    * <br><em>N.B. <code>attributes</code> is <b>read only</b>; client code should not call this method</em>.
    */
-  public ItemDetail attributes(List<@Valid AbilityDetailPokemonInnerPokemon> attributes) {
+  public ItemDetail attributes(List<@Valid ItemAttributeSummary> attributes) {
     this.attributes = attributes;
     return this;
   }
@@ -229,13 +253,13 @@ public class ItemDetail  {
    * Adds a new item to the <code>attributes</code> list.
    * <br><em>N.B. <code>attributes</code> is <b>read only</b>; client code should not call this method</em>.
    */
-  public ItemDetail addAttributesItem(AbilityDetailPokemonInnerPokemon attributesItem) {
+  public ItemDetail addAttributesItem(ItemAttributeSummary attributesItem) {
     this.attributes.add(attributesItem);
     return this;
   }
 
  /**
-  * Get category
+  * The category of items this item falls into.
   * @return category
   */
   @JsonProperty("category")
@@ -260,7 +284,7 @@ public class ItemDetail  {
   }
 
  /**
-  * Get effectEntries
+  * The effect of this ability listed in different languages.
   * @return effectEntries
   */
   @JsonProperty("effect_entries")
@@ -296,7 +320,7 @@ public class ItemDetail  {
   }
 
  /**
-  * Get flavorTextEntries
+  * The flavor text of this ability listed in different languages.
   * @return flavorTextEntries
   */
   @JsonProperty("flavor_text_entries")
@@ -332,7 +356,7 @@ public class ItemDetail  {
   }
 
  /**
-  * Get gameIndices
+  * A list of game indices relevent to this item by generation.
   * @return gameIndices
   */
   @JsonProperty("game_indices")
@@ -368,7 +392,43 @@ public class ItemDetail  {
   }
 
  /**
-  * Get names
+  * Purchase and sell prices by currency and version group. Prices may be null when the item cannot be bought or sold.
+  * @return prices
+  */
+  @JsonProperty("prices")
+  @NotNull
+  public List<@Valid ItemPrice> getPrices() {
+    return prices;
+  }
+
+  /**
+   * Sets the <code>prices</code> property.
+   * <br><em>N.B. <code>prices</code> is <b>read only</b>; client code should not call this method</em>.
+   */
+ public void setPrices(List<@Valid ItemPrice> prices) {
+    this.prices = prices;
+  }
+
+  /**
+   * Sets the <code>prices</code> property.
+   * <br><em>N.B. <code>prices</code> is <b>read only</b>; client code should not call this method</em>.
+   */
+  public ItemDetail prices(List<@Valid ItemPrice> prices) {
+    this.prices = prices;
+    return this;
+  }
+
+  /**
+   * Adds a new item to the <code>prices</code> list.
+   * <br><em>N.B. <code>prices</code> is <b>read only</b>; client code should not call this method</em>.
+   */
+  public ItemDetail addPricesItem(ItemPrice pricesItem) {
+    this.prices.add(pricesItem);
+    return this;
+  }
+
+ /**
+  * The name of this item listed in different languages.
   * @return names
   */
   @JsonProperty("names")
@@ -404,12 +464,12 @@ public class ItemDetail  {
   }
 
  /**
-  * Get heldByPokemon
+  * A list of Pokémon that might be found in the wild holding this item.
   * @return heldByPokemon
   */
   @JsonProperty("held_by_pokemon")
   @NotNull
-  public List<@Valid ItemDetailHeldByPokemonInner> getHeldByPokemon() {
+  public List<@Valid PokemonHeldItem> getHeldByPokemon() {
     return heldByPokemon;
   }
 
@@ -417,7 +477,7 @@ public class ItemDetail  {
    * Sets the <code>heldByPokemon</code> property.
    * <br><em>N.B. <code>heldByPokemon</code> is <b>read only</b>; client code should not call this method</em>.
    */
- public void setHeldByPokemon(List<@Valid ItemDetailHeldByPokemonInner> heldByPokemon) {
+ public void setHeldByPokemon(List<@Valid PokemonHeldItem> heldByPokemon) {
     this.heldByPokemon = heldByPokemon;
   }
 
@@ -425,7 +485,7 @@ public class ItemDetail  {
    * Sets the <code>heldByPokemon</code> property.
    * <br><em>N.B. <code>heldByPokemon</code> is <b>read only</b>; client code should not call this method</em>.
    */
-  public ItemDetail heldByPokemon(List<@Valid ItemDetailHeldByPokemonInner> heldByPokemon) {
+  public ItemDetail heldByPokemon(List<@Valid PokemonHeldItem> heldByPokemon) {
     this.heldByPokemon = heldByPokemon;
     return this;
   }
@@ -434,68 +494,72 @@ public class ItemDetail  {
    * Adds a new item to the <code>heldByPokemon</code> list.
    * <br><em>N.B. <code>heldByPokemon</code> is <b>read only</b>; client code should not call this method</em>.
    */
-  public ItemDetail addHeldByPokemonItem(ItemDetailHeldByPokemonInner heldByPokemonItem) {
+  public ItemDetail addHeldByPokemonItem(PokemonHeldItem heldByPokemonItem) {
     this.heldByPokemon.add(heldByPokemonItem);
     return this;
   }
 
  /**
-  * Get sprites
+  * A set of sprites used to depict this item in the game.
   * @return sprites
   */
   @JsonProperty("sprites")
   @NotNull
-  public ItemDetailSprites getSprites() {
+  public ItemSprites getSprites() {
     return sprites;
   }
 
   /**
    * Sets the <code>sprites</code> property.
+   * <br><em>N.B. <code>sprites</code> is <b>read only</b>; client code should not call this method</em>.
    */
- public void setSprites(ItemDetailSprites sprites) {
+ public void setSprites(ItemSprites sprites) {
     this.sprites = sprites;
   }
 
   /**
    * Sets the <code>sprites</code> property.
+   * <br><em>N.B. <code>sprites</code> is <b>read only</b>; client code should not call this method</em>.
    */
-  public ItemDetail sprites(ItemDetailSprites sprites) {
+  public ItemDetail sprites(ItemSprites sprites) {
     this.sprites = sprites;
     return this;
   }
 
  /**
-  * Get babyTriggerFor
+  * An evolution chain this item requires to produce a bay during mating.
   * @return babyTriggerFor
   */
   @JsonProperty("baby_trigger_for")
   @NotNull
-  public ItemDetailBabyTriggerFor getBabyTriggerFor() {
+  public EvolutionChainSummary getBabyTriggerFor() {
     return babyTriggerFor;
   }
 
   /**
    * Sets the <code>babyTriggerFor</code> property.
+   * <br><em>N.B. <code>babyTriggerFor</code> is <b>read only</b>; client code should not call this method</em>.
    */
- public void setBabyTriggerFor(ItemDetailBabyTriggerFor babyTriggerFor) {
+ public void setBabyTriggerFor(EvolutionChainSummary babyTriggerFor) {
     this.babyTriggerFor = babyTriggerFor;
   }
 
   /**
    * Sets the <code>babyTriggerFor</code> property.
+   * <br><em>N.B. <code>babyTriggerFor</code> is <b>read only</b>; client code should not call this method</em>.
    */
-  public ItemDetail babyTriggerFor(ItemDetailBabyTriggerFor babyTriggerFor) {
+  public ItemDetail babyTriggerFor(EvolutionChainSummary babyTriggerFor) {
     this.babyTriggerFor = babyTriggerFor;
     return this;
   }
 
  /**
-  * Get machines
+  * A list of the machines related to this item.
   * @return machines
   */
   @JsonProperty("machines")
   @NotNull
-  public List<@Valid ItemDetailMachinesInner> getMachines() {
+  public List<@Valid ItemMachine> getMachines() {
     return machines;
   }
 
@@ -503,7 +567,7 @@ public class ItemDetail  {
    * Sets the <code>machines</code> property.
    * <br><em>N.B. <code>machines</code> is <b>read only</b>; client code should not call this method</em>.
    */
- public void setMachines(List<@Valid ItemDetailMachinesInner> machines) {
+ public void setMachines(List<@Valid ItemMachine> machines) {
     this.machines = machines;
   }
 
@@ -511,7 +575,7 @@ public class ItemDetail  {
    * Sets the <code>machines</code> property.
    * <br><em>N.B. <code>machines</code> is <b>read only</b>; client code should not call this method</em>.
    */
-  public ItemDetail machines(List<@Valid ItemDetailMachinesInner> machines) {
+  public ItemDetail machines(List<@Valid ItemMachine> machines) {
     this.machines = machines;
     return this;
   }
@@ -520,7 +584,7 @@ public class ItemDetail  {
    * Adds a new item to the <code>machines</code> list.
    * <br><em>N.B. <code>machines</code> is <b>read only</b>; client code should not call this method</em>.
    */
-  public ItemDetail addMachinesItem(ItemDetailMachinesInner machinesItem) {
+  public ItemDetail addMachinesItem(ItemMachine machinesItem) {
     this.machines.add(machinesItem);
     return this;
   }
@@ -537,7 +601,6 @@ public class ItemDetail  {
     ItemDetail itemDetail = (ItemDetail) o;
     return Objects.equals(this.id, itemDetail.id) &&
         Objects.equals(this.name, itemDetail.name) &&
-        Objects.equals(this.cost, itemDetail.cost) &&
         Objects.equals(this.flingPower, itemDetail.flingPower) &&
         Objects.equals(this.flingEffect, itemDetail.flingEffect) &&
         Objects.equals(this.attributes, itemDetail.attributes) &&
@@ -545,6 +608,7 @@ public class ItemDetail  {
         Objects.equals(this.effectEntries, itemDetail.effectEntries) &&
         Objects.equals(this.flavorTextEntries, itemDetail.flavorTextEntries) &&
         Objects.equals(this.gameIndices, itemDetail.gameIndices) &&
+        Objects.equals(this.prices, itemDetail.prices) &&
         Objects.equals(this.names, itemDetail.names) &&
         Objects.equals(this.heldByPokemon, itemDetail.heldByPokemon) &&
         Objects.equals(this.sprites, itemDetail.sprites) &&
@@ -554,7 +618,7 @@ public class ItemDetail  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, cost, flingPower, flingEffect, attributes, category, effectEntries, flavorTextEntries, gameIndices, names, heldByPokemon, sprites, babyTriggerFor, machines);
+    return Objects.hash(id, name, flingPower, flingEffect, attributes, category, effectEntries, flavorTextEntries, gameIndices, prices, names, heldByPokemon, sprites, babyTriggerFor, machines);
   }
 
   @Override
@@ -564,7 +628,6 @@ public class ItemDetail  {
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    cost: ").append(toIndentedString(cost)).append("\n");
     sb.append("    flingPower: ").append(toIndentedString(flingPower)).append("\n");
     sb.append("    flingEffect: ").append(toIndentedString(flingEffect)).append("\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
@@ -572,6 +635,7 @@ public class ItemDetail  {
     sb.append("    effectEntries: ").append(toIndentedString(effectEntries)).append("\n");
     sb.append("    flavorTextEntries: ").append(toIndentedString(flavorTextEntries)).append("\n");
     sb.append("    gameIndices: ").append(toIndentedString(gameIndices)).append("\n");
+    sb.append("    prices: ").append(toIndentedString(prices)).append("\n");
     sb.append("    names: ").append(toIndentedString(names)).append("\n");
     sb.append("    heldByPokemon: ").append(toIndentedString(heldByPokemon)).append("\n");
     sb.append("    sprites: ").append(toIndentedString(sprites)).append("\n");

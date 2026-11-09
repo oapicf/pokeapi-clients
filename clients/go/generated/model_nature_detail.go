@@ -1,9 +1,9 @@
 /*
 PokéAPI
 
-All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
 
-API version: 2.7.0
+API version: 2.10.0
 Contact: blah+oapicf@cliffano.com
 */
 
@@ -22,15 +22,23 @@ var _ MappedNullable = &NatureDetail{}
 
 // NatureDetail struct for NatureDetail
 type NatureDetail struct {
+	// The identifier for this resource.
 	Id int32 `json:"id"`
+	// The name for this resource.
 	Name string `json:"name"`
-	DecreasedStat StatSummary `json:"decreased_stat"`
-	IncreasedStat StatSummary `json:"increased_stat"`
-	LikesFlavor BerryFlavorSummary `json:"likes_flavor"`
-	HatesFlavor BerryFlavorSummary `json:"hates_flavor"`
-	Berries []BerrySummary `json:"berries"`
-	PokeathlonStatChanges []NatureDetailPokeathlonStatChangesInner `json:"pokeathlon_stat_changes"`
+	// The stat decreased by 10% in Pokémon with this nature.
+	DecreasedStat NullableStatSummary `json:"decreased_stat"`
+	// The stat increased by 10% in Pokémon with this nature.
+	IncreasedStat NullableStatSummary `json:"increased_stat"`
+	// The flavor liked by Pokémon with this nature.
+	LikesFlavor NullableBerryFlavorSummary `json:"likes_flavor"`
+	// The flavor hated by Pokémon with this nature.
+	HatesFlavor NullableBerryFlavorSummary `json:"hates_flavor"`
+	// A list of Pokéathlon stats this nature effects and how much it effects them.
+	PokeathlonStatChanges []NaturePokeathlonStat `json:"pokeathlon_stat_changes"`
+	// A list of battle styles and how likely a Pokémon with this nature is to use them in the Battle Palace or Battle Tent.
 	MoveBattleStylePreferences []NatureBattleStylePreference `json:"move_battle_style_preferences"`
+	// The name of this resource listed in different languages.
 	Names []NatureName `json:"names"`
 }
 
@@ -40,7 +48,7 @@ type _NatureDetail NatureDetail
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewNatureDetail(id int32, name string, decreasedStat StatSummary, increasedStat StatSummary, likesFlavor BerryFlavorSummary, hatesFlavor BerryFlavorSummary, berries []BerrySummary, pokeathlonStatChanges []NatureDetailPokeathlonStatChangesInner, moveBattleStylePreferences []NatureBattleStylePreference, names []NatureName) *NatureDetail {
+func NewNatureDetail(id int32, name string, decreasedStat NullableStatSummary, increasedStat NullableStatSummary, likesFlavor NullableBerryFlavorSummary, hatesFlavor NullableBerryFlavorSummary, pokeathlonStatChanges []NaturePokeathlonStat, moveBattleStylePreferences []NatureBattleStylePreference, names []NatureName) *NatureDetail {
 	this := NatureDetail{}
 	this.Id = id
 	this.Name = name
@@ -48,7 +56,6 @@ func NewNatureDetail(id int32, name string, decreasedStat StatSummary, increased
 	this.IncreasedStat = increasedStat
 	this.LikesFlavor = likesFlavor
 	this.HatesFlavor = hatesFlavor
-	this.Berries = berries
 	this.PokeathlonStatChanges = pokeathlonStatChanges
 	this.MoveBattleStylePreferences = moveBattleStylePreferences
 	this.Names = names
@@ -112,129 +119,113 @@ func (o *NatureDetail) SetName(v string) {
 }
 
 // GetDecreasedStat returns the DecreasedStat field value
+// If the value is explicit nil, the zero value for StatSummary will be returned
 func (o *NatureDetail) GetDecreasedStat() StatSummary {
-	if o == nil {
+	if o == nil || o.DecreasedStat.Get() == nil {
 		var ret StatSummary
 		return ret
 	}
 
-	return o.DecreasedStat
+	return *o.DecreasedStat.Get()
 }
 
 // GetDecreasedStatOk returns a tuple with the DecreasedStat field value
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *NatureDetail) GetDecreasedStatOk() (*StatSummary, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.DecreasedStat, true
+	return o.DecreasedStat.Get(), o.DecreasedStat.IsSet()
 }
 
 // SetDecreasedStat sets field value
 func (o *NatureDetail) SetDecreasedStat(v StatSummary) {
-	o.DecreasedStat = v
+	o.DecreasedStat.Set(&v)
 }
 
 // GetIncreasedStat returns the IncreasedStat field value
+// If the value is explicit nil, the zero value for StatSummary will be returned
 func (o *NatureDetail) GetIncreasedStat() StatSummary {
-	if o == nil {
+	if o == nil || o.IncreasedStat.Get() == nil {
 		var ret StatSummary
 		return ret
 	}
 
-	return o.IncreasedStat
+	return *o.IncreasedStat.Get()
 }
 
 // GetIncreasedStatOk returns a tuple with the IncreasedStat field value
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *NatureDetail) GetIncreasedStatOk() (*StatSummary, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.IncreasedStat, true
+	return o.IncreasedStat.Get(), o.IncreasedStat.IsSet()
 }
 
 // SetIncreasedStat sets field value
 func (o *NatureDetail) SetIncreasedStat(v StatSummary) {
-	o.IncreasedStat = v
+	o.IncreasedStat.Set(&v)
 }
 
 // GetLikesFlavor returns the LikesFlavor field value
+// If the value is explicit nil, the zero value for BerryFlavorSummary will be returned
 func (o *NatureDetail) GetLikesFlavor() BerryFlavorSummary {
-	if o == nil {
+	if o == nil || o.LikesFlavor.Get() == nil {
 		var ret BerryFlavorSummary
 		return ret
 	}
 
-	return o.LikesFlavor
+	return *o.LikesFlavor.Get()
 }
 
 // GetLikesFlavorOk returns a tuple with the LikesFlavor field value
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *NatureDetail) GetLikesFlavorOk() (*BerryFlavorSummary, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.LikesFlavor, true
+	return o.LikesFlavor.Get(), o.LikesFlavor.IsSet()
 }
 
 // SetLikesFlavor sets field value
 func (o *NatureDetail) SetLikesFlavor(v BerryFlavorSummary) {
-	o.LikesFlavor = v
+	o.LikesFlavor.Set(&v)
 }
 
 // GetHatesFlavor returns the HatesFlavor field value
+// If the value is explicit nil, the zero value for BerryFlavorSummary will be returned
 func (o *NatureDetail) GetHatesFlavor() BerryFlavorSummary {
-	if o == nil {
+	if o == nil || o.HatesFlavor.Get() == nil {
 		var ret BerryFlavorSummary
 		return ret
 	}
 
-	return o.HatesFlavor
+	return *o.HatesFlavor.Get()
 }
 
 // GetHatesFlavorOk returns a tuple with the HatesFlavor field value
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *NatureDetail) GetHatesFlavorOk() (*BerryFlavorSummary, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.HatesFlavor, true
+	return o.HatesFlavor.Get(), o.HatesFlavor.IsSet()
 }
 
 // SetHatesFlavor sets field value
 func (o *NatureDetail) SetHatesFlavor(v BerryFlavorSummary) {
-	o.HatesFlavor = v
-}
-
-// GetBerries returns the Berries field value
-func (o *NatureDetail) GetBerries() []BerrySummary {
-	if o == nil {
-		var ret []BerrySummary
-		return ret
-	}
-
-	return o.Berries
-}
-
-// GetBerriesOk returns a tuple with the Berries field value
-// and a boolean to check if the value has been set.
-func (o *NatureDetail) GetBerriesOk() ([]BerrySummary, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.Berries, true
-}
-
-// SetBerries sets field value
-func (o *NatureDetail) SetBerries(v []BerrySummary) {
-	o.Berries = v
+	o.HatesFlavor.Set(&v)
 }
 
 // GetPokeathlonStatChanges returns the PokeathlonStatChanges field value
-func (o *NatureDetail) GetPokeathlonStatChanges() []NatureDetailPokeathlonStatChangesInner {
+func (o *NatureDetail) GetPokeathlonStatChanges() []NaturePokeathlonStat {
 	if o == nil {
-		var ret []NatureDetailPokeathlonStatChangesInner
+		var ret []NaturePokeathlonStat
 		return ret
 	}
 
@@ -243,7 +234,7 @@ func (o *NatureDetail) GetPokeathlonStatChanges() []NatureDetailPokeathlonStatCh
 
 // GetPokeathlonStatChangesOk returns a tuple with the PokeathlonStatChanges field value
 // and a boolean to check if the value has been set.
-func (o *NatureDetail) GetPokeathlonStatChangesOk() ([]NatureDetailPokeathlonStatChangesInner, bool) {
+func (o *NatureDetail) GetPokeathlonStatChangesOk() ([]NaturePokeathlonStat, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -251,7 +242,7 @@ func (o *NatureDetail) GetPokeathlonStatChangesOk() ([]NatureDetailPokeathlonSta
 }
 
 // SetPokeathlonStatChanges sets field value
-func (o *NatureDetail) SetPokeathlonStatChanges(v []NatureDetailPokeathlonStatChangesInner) {
+func (o *NatureDetail) SetPokeathlonStatChanges(v []NaturePokeathlonStat) {
 	o.PokeathlonStatChanges = v
 }
 
@@ -315,11 +306,10 @@ func (o NatureDetail) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["id"] = o.Id
 	toSerialize["name"] = o.Name
-	toSerialize["decreased_stat"] = o.DecreasedStat
-	toSerialize["increased_stat"] = o.IncreasedStat
-	toSerialize["likes_flavor"] = o.LikesFlavor
-	toSerialize["hates_flavor"] = o.HatesFlavor
-	toSerialize["berries"] = o.Berries
+	toSerialize["decreased_stat"] = o.DecreasedStat.Get()
+	toSerialize["increased_stat"] = o.IncreasedStat.Get()
+	toSerialize["likes_flavor"] = o.LikesFlavor.Get()
+	toSerialize["hates_flavor"] = o.HatesFlavor.Get()
 	toSerialize["pokeathlon_stat_changes"] = o.PokeathlonStatChanges
 	toSerialize["move_battle_style_preferences"] = o.MoveBattleStylePreferences
 	toSerialize["names"] = o.Names
@@ -337,7 +327,6 @@ func (o *NatureDetail) UnmarshalJSON(data []byte) (err error) {
 		"increased_stat",
 		"likes_flavor",
 		"hates_flavor",
-		"berries",
 		"pokeathlon_stat_changes",
 		"move_battle_style_preferences",
 		"names",

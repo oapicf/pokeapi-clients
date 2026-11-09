@@ -35,15 +35,6 @@ Move Ailments are status conditions caused by moves used during battle. See [Bul
 use Data::Dumper;
 use WWW::OpenAPIClient::MovesApi;
 my $api_instance = WWW::OpenAPIClient::MovesApi->new(
-
-    # Configure HTTP basic authorization: basicAuth
-    username => 'YOUR_USERNAME',
-    password => 'YOUR_PASSWORD',
-    
-    # Configure API key authorization: cookieAuth
-    api_key => {'sessionid' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'sessionid' => 'Bearer'},
 );
 
 my $limit = 56; # int | Number of results to return per page.
@@ -73,7 +64,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -94,18 +85,9 @@ Move Ailments are status conditions caused by moves used during battle. See [Bul
 use Data::Dumper;
 use WWW::OpenAPIClient::MovesApi;
 my $api_instance = WWW::OpenAPIClient::MovesApi->new(
-
-    # Configure HTTP basic authorization: basicAuth
-    username => 'YOUR_USERNAME',
-    password => 'YOUR_PASSWORD',
-    
-    # Configure API key authorization: cookieAuth
-    api_key => {'sessionid' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'sessionid' => 'Bearer'},
 );
 
-my $id = "id_example"; # string | This parameter can be a string or an integer.
+my $id = 1; # string | This parameter can be a string or an integer.
 
 eval {
     my $result = $api_instance->move_ailment_retrieve(id => $id);
@@ -128,7 +110,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -149,15 +131,6 @@ Styles of moves when used in the Battle Palace. See [Bulbapedia](http://bulbaped
 use Data::Dumper;
 use WWW::OpenAPIClient::MovesApi;
 my $api_instance = WWW::OpenAPIClient::MovesApi->new(
-
-    # Configure HTTP basic authorization: basicAuth
-    username => 'YOUR_USERNAME',
-    password => 'YOUR_PASSWORD',
-    
-    # Configure API key authorization: cookieAuth
-    api_key => {'sessionid' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'sessionid' => 'Bearer'},
 );
 
 my $limit = 56; # int | Number of results to return per page.
@@ -187,7 +160,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -208,18 +181,9 @@ Styles of moves when used in the Battle Palace. See [Bulbapedia](http://bulbaped
 use Data::Dumper;
 use WWW::OpenAPIClient::MovesApi;
 my $api_instance = WWW::OpenAPIClient::MovesApi->new(
-
-    # Configure HTTP basic authorization: basicAuth
-    username => 'YOUR_USERNAME',
-    password => 'YOUR_PASSWORD',
-    
-    # Configure API key authorization: cookieAuth
-    api_key => {'sessionid' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'sessionid' => 'Bearer'},
 );
 
-my $id = "id_example"; # string | This parameter can be a string or an integer.
+my $id = 1; # string | This parameter can be a string or an integer.
 
 eval {
     my $result = $api_instance->move_battle_style_retrieve(id => $id);
@@ -242,7 +206,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -263,15 +227,6 @@ Very general categories that loosely group move effects.
 use Data::Dumper;
 use WWW::OpenAPIClient::MovesApi;
 my $api_instance = WWW::OpenAPIClient::MovesApi->new(
-
-    # Configure HTTP basic authorization: basicAuth
-    username => 'YOUR_USERNAME',
-    password => 'YOUR_PASSWORD',
-    
-    # Configure API key authorization: cookieAuth
-    api_key => {'sessionid' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'sessionid' => 'Bearer'},
 );
 
 my $limit = 56; # int | Number of results to return per page.
@@ -301,7 +256,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -322,18 +277,9 @@ Very general categories that loosely group move effects.
 use Data::Dumper;
 use WWW::OpenAPIClient::MovesApi;
 my $api_instance = WWW::OpenAPIClient::MovesApi->new(
-
-    # Configure HTTP basic authorization: basicAuth
-    username => 'YOUR_USERNAME',
-    password => 'YOUR_PASSWORD',
-    
-    # Configure API key authorization: cookieAuth
-    api_key => {'sessionid' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'sessionid' => 'Bearer'},
 );
 
-my $id = "id_example"; # string | This parameter can be a string or an integer.
+my $id = 1; # string | This parameter can be a string or an integer.
 
 eval {
     my $result = $api_instance->move_category_retrieve(id => $id);
@@ -356,7 +302,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -377,15 +323,6 @@ Methods by which Pokémon can learn moves.
 use Data::Dumper;
 use WWW::OpenAPIClient::MovesApi;
 my $api_instance = WWW::OpenAPIClient::MovesApi->new(
-
-    # Configure HTTP basic authorization: basicAuth
-    username => 'YOUR_USERNAME',
-    password => 'YOUR_PASSWORD',
-    
-    # Configure API key authorization: cookieAuth
-    api_key => {'sessionid' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'sessionid' => 'Bearer'},
 );
 
 my $limit = 56; # int | Number of results to return per page.
@@ -415,7 +352,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -436,18 +373,9 @@ Methods by which Pokémon can learn moves.
 use Data::Dumper;
 use WWW::OpenAPIClient::MovesApi;
 my $api_instance = WWW::OpenAPIClient::MovesApi->new(
-
-    # Configure HTTP basic authorization: basicAuth
-    username => 'YOUR_USERNAME',
-    password => 'YOUR_PASSWORD',
-    
-    # Configure API key authorization: cookieAuth
-    api_key => {'sessionid' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'sessionid' => 'Bearer'},
 );
 
-my $id = "id_example"; # string | This parameter can be a string or an integer.
+my $id = 1; # string | This parameter can be a string or an integer.
 
 eval {
     my $result = $api_instance->move_learn_method_retrieve(id => $id);
@@ -470,7 +398,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -491,15 +419,6 @@ Moves are the skills of Pokémon in battle. In battle, a Pokémon uses one move 
 use Data::Dumper;
 use WWW::OpenAPIClient::MovesApi;
 my $api_instance = WWW::OpenAPIClient::MovesApi->new(
-
-    # Configure HTTP basic authorization: basicAuth
-    username => 'YOUR_USERNAME',
-    password => 'YOUR_PASSWORD',
-    
-    # Configure API key authorization: cookieAuth
-    api_key => {'sessionid' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'sessionid' => 'Bearer'},
 );
 
 my $limit = 56; # int | Number of results to return per page.
@@ -529,7 +448,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -550,18 +469,9 @@ Moves are the skills of Pokémon in battle. In battle, a Pokémon uses one move 
 use Data::Dumper;
 use WWW::OpenAPIClient::MovesApi;
 my $api_instance = WWW::OpenAPIClient::MovesApi->new(
-
-    # Configure HTTP basic authorization: basicAuth
-    username => 'YOUR_USERNAME',
-    password => 'YOUR_PASSWORD',
-    
-    # Configure API key authorization: cookieAuth
-    api_key => {'sessionid' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'sessionid' => 'Bearer'},
 );
 
-my $id = "id_example"; # string | This parameter can be a string or an integer.
+my $id = 1; # string | This parameter can be a string or an integer.
 
 eval {
     my $result = $api_instance->move_retrieve(id => $id);
@@ -584,7 +494,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -605,15 +515,6 @@ Targets moves can be directed at during battle. Targets can be Pokémon, environ
 use Data::Dumper;
 use WWW::OpenAPIClient::MovesApi;
 my $api_instance = WWW::OpenAPIClient::MovesApi->new(
-
-    # Configure HTTP basic authorization: basicAuth
-    username => 'YOUR_USERNAME',
-    password => 'YOUR_PASSWORD',
-    
-    # Configure API key authorization: cookieAuth
-    api_key => {'sessionid' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'sessionid' => 'Bearer'},
 );
 
 my $limit = 56; # int | Number of results to return per page.
@@ -643,7 +544,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -664,18 +565,9 @@ Targets moves can be directed at during battle. Targets can be Pokémon, environ
 use Data::Dumper;
 use WWW::OpenAPIClient::MovesApi;
 my $api_instance = WWW::OpenAPIClient::MovesApi->new(
-
-    # Configure HTTP basic authorization: basicAuth
-    username => 'YOUR_USERNAME',
-    password => 'YOUR_PASSWORD',
-    
-    # Configure API key authorization: cookieAuth
-    api_key => {'sessionid' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'sessionid' => 'Bearer'},
 );
 
-my $id = "id_example"; # string | This parameter can be a string or an integer.
+my $id = 1; # string | This parameter can be a string or an integer.
 
 eval {
     my $result = $api_instance->move_target_retrieve(id => $id);
@@ -698,7 +590,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

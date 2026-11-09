@@ -34,8 +34,10 @@ GET /api/v2/encounter-method/:id/             api.EncountersApiController.encoun
 
 GET /api/v2/evolution-chain/                  api.EvolutionApiController.evolutionChainList()
 GET /api/v2/evolution-trigger/                api.EvolutionApiController.evolutionTriggerList()
+GET /api/v2/evolution-variable/               api.EvolutionApiController.evolutionVariableList()
 GET /api/v2/evolution-chain/:id/              api.EvolutionApiController.evolutionChainRetrieve(id: String)
 GET /api/v2/evolution-trigger/:id/            api.EvolutionApiController.evolutionTriggerRetrieve(id: String)
+GET /api/v2/evolution-variable/:id/           api.EvolutionApiController.evolutionVariableRetrieve(id: String)
 
 # Routes for Games API
 
@@ -50,11 +52,13 @@ GET /api/v2/version/:id/                      api.GamesApiController.versionRetr
 
 # Routes for Items API
 
+GET /api/v2/currency/                         api.ItemsApiController.currencyList()
 GET /api/v2/item-attribute/                   api.ItemsApiController.itemAttributeList()
 GET /api/v2/item-category/                    api.ItemsApiController.itemCategoryList()
 GET /api/v2/item-fling-effect/                api.ItemsApiController.itemFlingEffectList()
 GET /api/v2/item/                             api.ItemsApiController.itemList()
 GET /api/v2/item-pocket/                      api.ItemsApiController.itemPocketList()
+GET /api/v2/currency/:id/                     api.ItemsApiController.currencyRetrieve(id: String)
 GET /api/v2/item-attribute/:id/               api.ItemsApiController.itemAttributeRetrieve(id: String)
 GET /api/v2/item-category/:id/                api.ItemsApiController.itemCategoryRetrieve(id: String)
 GET /api/v2/item-fling-effect/:id/            api.ItemsApiController.itemFlingEffectRetrieve(id: String)
@@ -130,6 +134,7 @@ GET /api/v2/type/:id/                         api.PokemonApiController.typeRetri
 # Routes for Utility API
 
 GET /api/v2/language/                         api.UtilityApiController.languageList()
+GET /api/v2/meta/                             api.UtilityApiController.metaRetrieve()
 GET /api/v2/language/:id/                     api.UtilityApiController.languageRetrieve(id: String)
 
 # Map static resources from the /public folder to the /assets URL path

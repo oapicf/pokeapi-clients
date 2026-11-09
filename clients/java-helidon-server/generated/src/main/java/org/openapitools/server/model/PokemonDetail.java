@@ -4,18 +4,19 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
-import org.openapitools.server.model.PokemonDetailAbilitiesInner;
-import org.openapitools.server.model.PokemonDetailCries;
-import org.openapitools.server.model.PokemonDetailHeldItems;
-import org.openapitools.server.model.PokemonDetailMovesInner;
-import org.openapitools.server.model.PokemonDetailPastAbilitiesInner;
-import org.openapitools.server.model.PokemonDetailPastTypesInner;
-import org.openapitools.server.model.PokemonDetailSprites;
-import org.openapitools.server.model.PokemonDetailTypesInner;
+import org.openapitools.server.model.PokemonAbility;
+import org.openapitools.server.model.PokemonCries;
 import org.openapitools.server.model.PokemonFormSummary;
 import org.openapitools.server.model.PokemonGameIndex;
+import org.openapitools.server.model.PokemonHeldItemSummary;
+import org.openapitools.server.model.PokemonMove;
+import org.openapitools.server.model.PokemonPastAbility;
+import org.openapitools.server.model.PokemonPastStat;
+import org.openapitools.server.model.PokemonPastType;
 import org.openapitools.server.model.PokemonSpeciesSummary;
+import org.openapitools.server.model.PokemonSprites;
 import org.openapitools.server.model.PokemonStat;
+import org.openapitools.server.model.PokemonType;
 import jakarta.validation.constraints.*;
 import jakarta.validation.Valid;
 
@@ -30,19 +31,20 @@ public class PokemonDetail   {
     private Boolean isDefault;
     private Integer order;
     private Integer weight;
-    private List<@Valid PokemonDetailAbilitiesInner> abilities = new ArrayList<>();
-    private List<@Valid PokemonDetailPastAbilitiesInner> pastAbilities = new ArrayList<>();
+    private List<@Valid PokemonAbility> abilities = new ArrayList<>();
+    private List<@Valid PokemonPastAbility> pastAbilities = new ArrayList<>();
     private List<@Valid PokemonFormSummary> forms = new ArrayList<>();
     private List<@Valid PokemonGameIndex> gameIndices = new ArrayList<>();
-    private PokemonDetailHeldItems heldItems;
+    private List<@Valid PokemonHeldItemSummary> heldItems = new ArrayList<>();
     private String locationAreaEncounters;
-    private List<@Valid PokemonDetailMovesInner> moves = new ArrayList<>();
+    private List<@Valid PokemonMove> moves = new ArrayList<>();
     private PokemonSpeciesSummary species;
-    private PokemonDetailSprites sprites;
-    private PokemonDetailCries cries;
+    private PokemonSprites sprites;
+    private PokemonCries cries;
     private List<@Valid PokemonStat> stats = new ArrayList<>();
-    private List<@Valid PokemonDetailTypesInner> types = new ArrayList<>();
-    private List<@Valid PokemonDetailPastTypesInner> pastTypes = new ArrayList<>();
+    private List<@Valid PokemonPastStat> pastStats = new ArrayList<>();
+    private List<@Valid PokemonType> types = new ArrayList<>();
+    private List<@Valid PokemonPastType> pastTypes = new ArrayList<>();
 
     /**
      * Default constructor.
@@ -54,26 +56,27 @@ public class PokemonDetail   {
     /**
      * Create PokemonDetail.
      *
-     * @param id id
-     * @param name name
-     * @param baseExperience baseExperience
-     * @param height height
-     * @param isDefault isDefault
-     * @param order order
-     * @param weight weight
-     * @param abilities abilities
-     * @param pastAbilities pastAbilities
-     * @param forms forms
-     * @param gameIndices gameIndices
-     * @param heldItems heldItems
-     * @param locationAreaEncounters locationAreaEncounters
-     * @param moves moves
-     * @param species species
-     * @param sprites sprites
-     * @param cries cries
-     * @param stats stats
-     * @param types types
-     * @param pastTypes pastTypes
+     * @param id The identifier for this resource.
+     * @param name The name for this resource.
+     * @param baseExperience The base experience gained for defeating this Pokémon.
+     * @param height The height of this Pokémon in decimetres.
+     * @param isDefault Set for exactly one Pokémon used as the default for each species.
+     * @param order Order for sorting. Almost national order, except families are grouped together.
+     * @param weight The weight of this Pokémon in hectograms.
+     * @param abilities A list of abilities this Pokémon could potentially have.
+     * @param pastAbilities A list of details showing abilities this pokémon had in previous generations
+     * @param forms A list of forms this Pokémon can take on.
+     * @param gameIndices A list of game indices relevent to Pokémon item by generation.
+     * @param heldItems A list of items this Pokémon may be holding when encountered.
+     * @param locationAreaEncounters A link to a list of location areas, as well as encounter details pertaining to specific versions.
+     * @param moves A list of moves along with learn methods and level details pertaining to specific version groups.
+     * @param species The species this Pokémon belongs to.
+     * @param sprites A set of sprites used to depict this Pokémon in the game. A visual representation of the various sprites can be found at &lt;a href&#x3D;&#39;https://github.com/PokeAPI/sprites#sprites&#39;&gt;PokeAPI/sprites&lt;/a&gt;
+     * @param cries A set of cries used to depict this Pokémon in the game. A visual representation of the various cries can be found at &lt;a href&#x3D;&#39;https://github.com/PokeAPI/cries#cries&#39;&gt;PokeAPI/cries&lt;/a&gt;
+     * @param stats A list of base stat values for this Pokémon.
+     * @param pastStats A list of details showing stats this pokémon had in previous generations
+     * @param types A list of details showing types this Pokémon has.
+     * @param pastTypes A list of details showing types this pokémon had in previous generations
      */
     public PokemonDetail(
         Integer id, 
@@ -83,19 +86,20 @@ public class PokemonDetail   {
         Boolean isDefault, 
         Integer order, 
         Integer weight, 
-        List<@Valid PokemonDetailAbilitiesInner> abilities, 
-        List<@Valid PokemonDetailPastAbilitiesInner> pastAbilities, 
+        List<@Valid PokemonAbility> abilities, 
+        List<@Valid PokemonPastAbility> pastAbilities, 
         List<@Valid PokemonFormSummary> forms, 
         List<@Valid PokemonGameIndex> gameIndices, 
-        PokemonDetailHeldItems heldItems, 
+        List<@Valid PokemonHeldItemSummary> heldItems, 
         String locationAreaEncounters, 
-        List<@Valid PokemonDetailMovesInner> moves, 
+        List<@Valid PokemonMove> moves, 
         PokemonSpeciesSummary species, 
-        PokemonDetailSprites sprites, 
-        PokemonDetailCries cries, 
+        PokemonSprites sprites, 
+        PokemonCries cries, 
         List<@Valid PokemonStat> stats, 
-        List<@Valid PokemonDetailTypesInner> types, 
-        List<@Valid PokemonDetailPastTypesInner> pastTypes
+        List<@Valid PokemonPastStat> pastStats, 
+        List<@Valid PokemonType> types, 
+        List<@Valid PokemonPastType> pastTypes
     ) {
         this.id = id;
         this.name = name;
@@ -115,6 +119,7 @@ public class PokemonDetail   {
         this.sprites = sprites;
         this.cries = cries;
         this.stats = stats;
+        this.pastStats = pastStats;
         this.types = types;
         this.pastTypes = pastTypes;
     }
@@ -122,7 +127,7 @@ public class PokemonDetail   {
 
 
     /**
-     * Get id
+     * The identifier for this resource.
      * @return id
      */
     public Integer getId() {
@@ -134,7 +139,7 @@ public class PokemonDetail   {
     }
 
     /**
-     * Get name
+     * The name for this resource.
      * @return name
      */
     public String getName() {
@@ -146,7 +151,9 @@ public class PokemonDetail   {
     }
 
     /**
-     * Get baseExperience
+     * The base experience gained for defeating this Pokémon.
+     * minimum: -2147483648
+     * maximum: 2147483647
      * @return baseExperience
      */
     public Integer getBaseExperience() {
@@ -158,7 +165,9 @@ public class PokemonDetail   {
     }
 
     /**
-     * Get height
+     * The height of this Pokémon in decimetres.
+     * minimum: -2147483648
+     * maximum: 2147483647
      * @return height
      */
     public Integer getHeight() {
@@ -170,7 +179,7 @@ public class PokemonDetail   {
     }
 
     /**
-     * Get isDefault
+     * Set for exactly one Pokémon used as the default for each species.
      * @return isDefault
      */
     public Boolean getIsDefault() {
@@ -182,7 +191,9 @@ public class PokemonDetail   {
     }
 
     /**
-     * Get order
+     * Order for sorting. Almost national order, except families are grouped together.
+     * minimum: -2147483648
+     * maximum: 2147483647
      * @return order
      */
     public Integer getOrder() {
@@ -194,7 +205,9 @@ public class PokemonDetail   {
     }
 
     /**
-     * Get weight
+     * The weight of this Pokémon in hectograms.
+     * minimum: -2147483648
+     * maximum: 2147483647
      * @return weight
      */
     public Integer getWeight() {
@@ -206,31 +219,31 @@ public class PokemonDetail   {
     }
 
     /**
-     * Get abilities
+     * A list of abilities this Pokémon could potentially have.
      * @return abilities
      */
-    public List<@Valid PokemonDetailAbilitiesInner> getAbilities() {
+    public List<@Valid PokemonAbility> getAbilities() {
         return abilities;
     }
 
-    public void setAbilities(List<@Valid PokemonDetailAbilitiesInner> abilities) {
+    public void setAbilities(List<@Valid PokemonAbility> abilities) {
         this.abilities = abilities;
     }
 
     /**
-     * Get pastAbilities
+     * A list of details showing abilities this pokémon had in previous generations
      * @return pastAbilities
      */
-    public List<@Valid PokemonDetailPastAbilitiesInner> getPastAbilities() {
+    public List<@Valid PokemonPastAbility> getPastAbilities() {
         return pastAbilities;
     }
 
-    public void setPastAbilities(List<@Valid PokemonDetailPastAbilitiesInner> pastAbilities) {
+    public void setPastAbilities(List<@Valid PokemonPastAbility> pastAbilities) {
         this.pastAbilities = pastAbilities;
     }
 
     /**
-     * Get forms
+     * A list of forms this Pokémon can take on.
      * @return forms
      */
     public List<@Valid PokemonFormSummary> getForms() {
@@ -242,7 +255,7 @@ public class PokemonDetail   {
     }
 
     /**
-     * Get gameIndices
+     * A list of game indices relevent to Pokémon item by generation.
      * @return gameIndices
      */
     public List<@Valid PokemonGameIndex> getGameIndices() {
@@ -254,19 +267,19 @@ public class PokemonDetail   {
     }
 
     /**
-     * Get heldItems
+     * A list of items this Pokémon may be holding when encountered.
      * @return heldItems
      */
-    public PokemonDetailHeldItems getHeldItems() {
+    public List<@Valid PokemonHeldItemSummary> getHeldItems() {
         return heldItems;
     }
 
-    public void setHeldItems(PokemonDetailHeldItems heldItems) {
+    public void setHeldItems(List<@Valid PokemonHeldItemSummary> heldItems) {
         this.heldItems = heldItems;
     }
 
     /**
-     * Get locationAreaEncounters
+     * A link to a list of location areas, as well as encounter details pertaining to specific versions.
      * @return locationAreaEncounters
      */
     public String getLocationAreaEncounters() {
@@ -278,19 +291,19 @@ public class PokemonDetail   {
     }
 
     /**
-     * Get moves
+     * A list of moves along with learn methods and level details pertaining to specific version groups.
      * @return moves
      */
-    public List<@Valid PokemonDetailMovesInner> getMoves() {
+    public List<@Valid PokemonMove> getMoves() {
         return moves;
     }
 
-    public void setMoves(List<@Valid PokemonDetailMovesInner> moves) {
+    public void setMoves(List<@Valid PokemonMove> moves) {
         this.moves = moves;
     }
 
     /**
-     * Get species
+     * The species this Pokémon belongs to.
      * @return species
      */
     public PokemonSpeciesSummary getSpecies() {
@@ -302,31 +315,31 @@ public class PokemonDetail   {
     }
 
     /**
-     * Get sprites
+     * A set of sprites used to depict this Pokémon in the game. A visual representation of the various sprites can be found at <a href='https://github.com/PokeAPI/sprites#sprites'>PokeAPI/sprites</a>
      * @return sprites
      */
-    public PokemonDetailSprites getSprites() {
+    public PokemonSprites getSprites() {
         return sprites;
     }
 
-    public void setSprites(PokemonDetailSprites sprites) {
+    public void setSprites(PokemonSprites sprites) {
         this.sprites = sprites;
     }
 
     /**
-     * Get cries
+     * A set of cries used to depict this Pokémon in the game. A visual representation of the various cries can be found at <a href='https://github.com/PokeAPI/cries#cries'>PokeAPI/cries</a>
      * @return cries
      */
-    public PokemonDetailCries getCries() {
+    public PokemonCries getCries() {
         return cries;
     }
 
-    public void setCries(PokemonDetailCries cries) {
+    public void setCries(PokemonCries cries) {
         this.cries = cries;
     }
 
     /**
-     * Get stats
+     * A list of base stat values for this Pokémon.
      * @return stats
      */
     public List<@Valid PokemonStat> getStats() {
@@ -338,26 +351,38 @@ public class PokemonDetail   {
     }
 
     /**
-     * Get types
+     * A list of details showing stats this pokémon had in previous generations
+     * @return pastStats
+     */
+    public List<@Valid PokemonPastStat> getPastStats() {
+        return pastStats;
+    }
+
+    public void setPastStats(List<@Valid PokemonPastStat> pastStats) {
+        this.pastStats = pastStats;
+    }
+
+    /**
+     * A list of details showing types this Pokémon has.
      * @return types
      */
-    public List<@Valid PokemonDetailTypesInner> getTypes() {
+    public List<@Valid PokemonType> getTypes() {
         return types;
     }
 
-    public void setTypes(List<@Valid PokemonDetailTypesInner> types) {
+    public void setTypes(List<@Valid PokemonType> types) {
         this.types = types;
     }
 
     /**
-     * Get pastTypes
+     * A list of details showing types this pokémon had in previous generations
      * @return pastTypes
      */
-    public List<@Valid PokemonDetailPastTypesInner> getPastTypes() {
+    public List<@Valid PokemonPastType> getPastTypes() {
         return pastTypes;
     }
 
-    public void setPastTypes(List<@Valid PokemonDetailPastTypesInner> pastTypes) {
+    public void setPastTypes(List<@Valid PokemonPastType> pastTypes) {
         this.pastTypes = pastTypes;
     }
 
@@ -387,6 +412,7 @@ public class PokemonDetail   {
         sb.append("    sprites: ").append(toIndentedString(sprites)).append("\n");
         sb.append("    cries: ").append(toIndentedString(cries)).append("\n");
         sb.append("    stats: ").append(toIndentedString(stats)).append("\n");
+        sb.append("    pastStats: ").append(toIndentedString(pastStats)).append("\n");
         sb.append("    types: ").append(toIndentedString(types)).append("\n");
         sb.append("    pastTypes: ").append(toIndentedString(pastTypes)).append("\n");
         sb.append("}");

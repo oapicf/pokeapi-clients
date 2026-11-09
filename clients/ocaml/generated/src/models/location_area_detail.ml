@@ -15,39 +15,46 @@
                 
                 
                 ; [@key "id"]
-                                              name: string
+                    (** The identifier for this resource. *)
+                                      name: string
                   
                   
                 
                 
                 ; [@key "name"]
-                                              game_index: int32
+                    (** The name for this resource. *)
+                                      game_index: int32
                   
                   
                 
                 
                 ; [@key "game_index"]
-                                              encounter_method_rates: Location_area_detail_encounter_method_rates_inner.t list
+                    (** The internal id of an API resource within game data. *)
+                                      encounter_method_rates: Location_area_encounter_rate.t list
                 
                 
                 ; [@key "encounter_method_rates"]
-                                              location: Location_summary.t
+                    (** A list of methods in which Pokémon may be encountered in this area and how likely the method will occur depending on the version of the game. *)
+                                      location: Location_summary.t
                   
                   
                 
                 
                 ; [@key "location"]
-                                              names: Location_area_name.t list
+                    (** The region this location area can be found in. *)
+                                      names: Location_area_name.t list
                 
                 
                 ; [@key "names"]
-                                              pokemon_encounters: Location_area_detail_pokemon_encounters_inner.t list
+                    (** The name of this resource listed in different languages. *)
+                                      pokemon_encounters: Location_area_pokemon_encounter.t list
                 
                 
                 ; [@key "pokemon_encounters"]
-                        } [@@deriving yojson { strict = false }, show, eq ];;
+                    (** A list of Pokémon that can be encountered in this area along with version specific details about the encounter. *)
+                } [@@deriving yojson { strict = false }, show, eq ];;
         
-        let create (id : int32) (name : string) (game_index : int32) (encounter_method_rates : Location_area_detail_encounter_method_rates_inner.t list) (location : Location_summary.t) (names : Location_area_name.t list) (pokemon_encounters : Location_area_detail_pokemon_encounters_inner.t list) : t = {
+        let create (id : int32) (name : string) (game_index : int32) (encounter_method_rates : Location_area_encounter_rate.t list) (location : Location_summary.t) (names : Location_area_name.t list) (pokemon_encounters : Location_area_pokemon_encounter.t list) : t = {
             id = id;
             name = name;
             game_index = game_index;

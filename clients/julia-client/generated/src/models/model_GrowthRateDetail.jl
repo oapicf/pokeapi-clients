@@ -13,12 +13,12 @@
         pokemon_species=nothing,
     )
 
-    - id::Int64
-    - name::String
-    - formula::String
-    - descriptions::Vector{GrowthRateDescription}
-    - levels::Vector{Experience}
-    - pokemon_species::Vector{PokemonSpeciesSummary}
+    - id::Int64 : The identifier for this resource.
+    - name::String : The name for this resource.
+    - formula::String : The formula used to calculate the rate at which the Pokémon species gains level.
+    - descriptions::Vector{GrowthRateDescription} : The descriptions of this characteristic listed in different languages.
+    - levels::Vector{Experience} : A list of levels and the amount of experienced needed to atain them based on this growth rate.
+    - pokemon_species::Vector{PokemonSpeciesSummary} : A list of Pokémon species that gain levels at this growth rate.
 """
 Base.@kwdef mutable struct GrowthRateDetail <: OpenAPI.APIModel
     id::Union{Nothing, Int64} = nothing
@@ -61,7 +61,7 @@ function OpenAPI.validate_property(::Type{ GrowthRateDetail }, name::Symbol, val
 
 
     if name === Symbol("name")
-        OpenAPI.validate_param(name, "GrowthRateDetail", :maxLength, val, 100)
+        OpenAPI.validate_param(name, "GrowthRateDetail", :maxLength, val, 200)
     end
 
     if name === Symbol("formula")

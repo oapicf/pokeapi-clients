@@ -30,16 +30,16 @@ openapi_move_meta() ->
 openapi_move_meta(Fields) ->
   Default = [ {'ailment', openapi_move_meta_ailment_summary:openapi_move_meta_ailment_summary() }
             , {'category', openapi_move_meta_category_summary:openapi_move_meta_category_summary() }
-            , {'min_hits', integer() }
-            , {'max_hits', integer() }
-            , {'min_turns', integer() }
-            , {'max_turns', integer() }
-            , {'drain', integer() }
-            , {'healing', integer() }
-            , {'crit_rate', integer() }
-            , {'ailment_chance', integer() }
-            , {'flinch_chance', integer() }
-            , {'stat_chance', integer() }
+            , {'min_hits', integer(-2147483648, 2147483647) }
+            , {'max_hits', integer(-2147483648, 2147483647) }
+            , {'min_turns', integer(-2147483648, 2147483647) }
+            , {'max_turns', integer(-2147483648, 2147483647) }
+            , {'drain', integer(-2147483648, 2147483647) }
+            , {'healing', integer(-2147483648, 2147483647) }
+            , {'crit_rate', integer(-2147483648, 2147483647) }
+            , {'ailment_chance', integer(-2147483648, 2147483647) }
+            , {'flinch_chance', integer(-2147483648, 2147483647) }
+            , {'stat_chance', integer(-2147483648, 2147483647) }
             ],
   lists:ukeymerge(1, lists:sort(Fields), lists:sort(Default)).
 

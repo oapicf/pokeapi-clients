@@ -12,8 +12,10 @@ import org.joda.time.DateTime
 import BerryFlavorName._
 
 case class BerryFlavorName (
+  /* The localized name for an API resource in a specific language. */
   name: String,
-language: LanguageSummary)
+/* The language this name is in. */
+  language: LanguageSummary)
 
 object BerryFlavorName {
   import DateTimeCodecs._

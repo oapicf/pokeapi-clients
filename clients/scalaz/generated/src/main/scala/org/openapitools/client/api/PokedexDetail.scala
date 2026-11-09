@@ -12,14 +12,22 @@ import org.joda.time.DateTime
 import PokedexDetail._
 
 case class PokedexDetail (
+  /* The identifier for this resource. */
   id: Integer,
-name: String,
-isMainSeries: Option[Boolean],
-descriptions: List[PokedexDescription],
-names: List[PokedexName],
-pokemonEntries: List[PokedexDetailPokemonEntriesInner],
-region: RegionSummary,
-versionGroups: List[AbilityDetailPokemonInnerPokemon])
+/* The name for this resource. */
+  name: String,
+/* Whether or not this Pokédex originated in the main series of the video games. */
+  isMainSeries: Option[Boolean],
+/* The description of this resource listed in different languages. */
+  descriptions: List[PokedexDescription],
+/* The name of this resource listed in different languages. */
+  names: List[PokedexName],
+/* A list of Pokémon catalogued in this Pokédex and their indexes. */
+  pokemonEntries: List[PokemonDexNumber],
+/* The region this Pokédex catalogues Pokémon for. */
+  region: RegionSummary,
+/* A list of version groups this Pokédex is relevant to. */
+  versionGroups: List[VersionGroupSummary])
 
 object PokedexDetail {
   import DateTimeCodecs._

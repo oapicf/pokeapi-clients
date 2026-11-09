@@ -11,10 +11,9 @@ import com.github.tomakehurst.wiremock.http.Fault;
 
 public class ContestsApiMockServer {
 
-    public static MappingBuilder stubContestEffectList200(@javax.annotation.Nullable String limit, @javax.annotation.Nullable String offset, @javax.annotation.Nullable String q, String response) {
+    public static MappingBuilder stubContestEffectList200(@javax.annotation.Nullable String limit, @javax.annotation.Nullable String offset, String response) {
         MappingBuilder stub = get(urlPathEqualTo("/api/v2/contest-effect/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withStatus(200)
                 .withHeader("Content-Type", "application/json")
@@ -27,17 +26,13 @@ public class ContestsApiMockServer {
         if(offset != null) {
             stub = stub.withQueryParam("offset", equalTo(offset));
         }
-        if(q != null) {
-            stub = stub.withQueryParam("q", equalTo(q));
-        }
 
         return stub;
     }
 
-    public static MappingBuilder stubContestEffectListFault(@javax.annotation.Nullable String limit, @javax.annotation.Nullable String offset, @javax.annotation.Nullable String q, Fault fault) {
+    public static MappingBuilder stubContestEffectListFault(@javax.annotation.Nullable String limit, @javax.annotation.Nullable String offset, Fault fault) {
         MappingBuilder stub = get(urlPathEqualTo("/api/v2/contest-effect/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withFault(fault)
             );
@@ -48,15 +43,12 @@ public class ContestsApiMockServer {
         if(offset != null) {
             stub = stub.withQueryParam("offset", equalTo(offset));
         }
-        if(q != null) {
-            stub = stub.withQueryParam("q", equalTo(q));
-        }
 
         return stub;
     }
 
     public static String contestEffectList200ResponseSample1() {
-        return "{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"url\" : \"https://openapi-generator.tech\" }, { \"url\" : \"https://openapi-generator.tech\" } ] }";
+        return "{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/contest-effect/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/contest-effect/?offset=0&limit=20\", \"results\" : [ { \"url\" : \"https://openapi-generator.tech\" }, { \"url\" : \"https://openapi-generator.tech\" } ] }";
     }
 
 
@@ -64,7 +56,6 @@ public class ContestsApiMockServer {
     public static MappingBuilder stubContestEffectRetrieve200(@javax.annotation.Nonnull String id, String response) {
         MappingBuilder stub = get(urlPathTemplate("/api/v2/contest-effect/{id}/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withStatus(200)
                 .withHeader("Content-Type", "application/json")
@@ -79,7 +70,6 @@ public class ContestsApiMockServer {
     public static MappingBuilder stubContestEffectRetrieveFault(@javax.annotation.Nonnull String id, Fault fault) {
         MappingBuilder stub = get(urlPathTemplate("/api/v2/contest-effect/{id}/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withFault(fault)
             );
@@ -90,7 +80,7 @@ public class ContestsApiMockServer {
     }
 
     public static String contestEffectRetrieve200ResponseSample1() {
-        return "{ \"id\" : 0, \"appeal\" : 6, \"jam\" : 1, \"effect_entries\" : [ { \"effect\" : \"effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"effect\" : \"effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"flavor_text_entries\" : [ { \"flavor_text\" : \"flavor_text\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"flavor_text\" : \"flavor_text\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }";
+        return "{ \"id\" : 0, \"appeal\" : 441289069, \"jam\" : -1517921766, \"effect_entries\" : [ { \"effect\" : \"effect\", \"language\" : \"\" }, { \"effect\" : \"effect\", \"language\" : \"\" } ], \"flavor_text_entries\" : [ { \"flavor_text\" : \"flavor_text\", \"language\" : \"\" }, { \"flavor_text\" : \"flavor_text\", \"language\" : \"\" } ] }";
     }
 
 
@@ -98,7 +88,6 @@ public class ContestsApiMockServer {
     public static MappingBuilder stubContestTypeList200(@javax.annotation.Nullable String limit, @javax.annotation.Nullable String offset, @javax.annotation.Nullable String q, String response) {
         MappingBuilder stub = get(urlPathEqualTo("/api/v2/contest-type/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withStatus(200)
                 .withHeader("Content-Type", "application/json")
@@ -121,7 +110,6 @@ public class ContestsApiMockServer {
     public static MappingBuilder stubContestTypeListFault(@javax.annotation.Nullable String limit, @javax.annotation.Nullable String offset, @javax.annotation.Nullable String q, Fault fault) {
         MappingBuilder stub = get(urlPathEqualTo("/api/v2/contest-type/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withFault(fault)
             );
@@ -140,7 +128,7 @@ public class ContestsApiMockServer {
     }
 
     public static String contestTypeList200ResponseSample1() {
-        return "{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+        return "{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/contest-type/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/contest-type/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
     }
 
 
@@ -148,7 +136,6 @@ public class ContestsApiMockServer {
     public static MappingBuilder stubContestTypeRetrieve200(@javax.annotation.Nonnull String id, String response) {
         MappingBuilder stub = get(urlPathTemplate("/api/v2/contest-type/{id}/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withStatus(200)
                 .withHeader("Content-Type", "application/json")
@@ -163,7 +150,6 @@ public class ContestsApiMockServer {
     public static MappingBuilder stubContestTypeRetrieveFault(@javax.annotation.Nonnull String id, Fault fault) {
         MappingBuilder stub = get(urlPathTemplate("/api/v2/contest-type/{id}/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withFault(fault)
             );
@@ -174,15 +160,14 @@ public class ContestsApiMockServer {
     }
 
     public static String contestTypeRetrieve200ResponseSample1() {
-        return "{ \"id\" : 0, \"name\" : \"name\", \"berry_flavor\" : \"\", \"names\" : [ { \"name\" : \"name\", \"color\" : \"color\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"color\" : \"color\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }";
+        return "{ \"id\" : 0, \"name\" : \"name\", \"berry_flavor\" : \"\", \"names\" : [ { \"name\" : \"name\", \"color\" : \"color\", \"language\" : \"\" }, { \"name\" : \"name\", \"color\" : \"color\", \"language\" : \"\" } ] }";
     }
 
 
 
-    public static MappingBuilder stubSuperContestEffectList200(@javax.annotation.Nullable String limit, @javax.annotation.Nullable String offset, @javax.annotation.Nullable String q, String response) {
+    public static MappingBuilder stubSuperContestEffectList200(@javax.annotation.Nullable String limit, @javax.annotation.Nullable String offset, String response) {
         MappingBuilder stub = get(urlPathEqualTo("/api/v2/super-contest-effect/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withStatus(200)
                 .withHeader("Content-Type", "application/json")
@@ -195,17 +180,13 @@ public class ContestsApiMockServer {
         if(offset != null) {
             stub = stub.withQueryParam("offset", equalTo(offset));
         }
-        if(q != null) {
-            stub = stub.withQueryParam("q", equalTo(q));
-        }
 
         return stub;
     }
 
-    public static MappingBuilder stubSuperContestEffectListFault(@javax.annotation.Nullable String limit, @javax.annotation.Nullable String offset, @javax.annotation.Nullable String q, Fault fault) {
+    public static MappingBuilder stubSuperContestEffectListFault(@javax.annotation.Nullable String limit, @javax.annotation.Nullable String offset, Fault fault) {
         MappingBuilder stub = get(urlPathEqualTo("/api/v2/super-contest-effect/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withFault(fault)
             );
@@ -216,15 +197,12 @@ public class ContestsApiMockServer {
         if(offset != null) {
             stub = stub.withQueryParam("offset", equalTo(offset));
         }
-        if(q != null) {
-            stub = stub.withQueryParam("q", equalTo(q));
-        }
 
         return stub;
     }
 
     public static String superContestEffectList200ResponseSample1() {
-        return "{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"url\" : \"https://openapi-generator.tech\" }, { \"url\" : \"https://openapi-generator.tech\" } ] }";
+        return "{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/super-contest-effect/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/super-contest-effect/?offset=0&limit=20\", \"results\" : [ { \"url\" : \"https://openapi-generator.tech\" }, { \"url\" : \"https://openapi-generator.tech\" } ] }";
     }
 
 
@@ -232,7 +210,6 @@ public class ContestsApiMockServer {
     public static MappingBuilder stubSuperContestEffectRetrieve200(@javax.annotation.Nonnull String id, String response) {
         MappingBuilder stub = get(urlPathTemplate("/api/v2/super-contest-effect/{id}/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withStatus(200)
                 .withHeader("Content-Type", "application/json")
@@ -247,7 +224,6 @@ public class ContestsApiMockServer {
     public static MappingBuilder stubSuperContestEffectRetrieveFault(@javax.annotation.Nonnull String id, Fault fault) {
         MappingBuilder stub = get(urlPathTemplate("/api/v2/super-contest-effect/{id}/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withFault(fault)
             );
@@ -258,7 +234,7 @@ public class ContestsApiMockServer {
     }
 
     public static String superContestEffectRetrieve200ResponseSample1() {
-        return "{ \"id\" : 0, \"appeal\" : 6, \"flavor_text_entries\" : [ { \"flavor_text\" : \"flavor_text\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"flavor_text\" : \"flavor_text\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"moves\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+        return "{ \"id\" : 0, \"appeal\" : 441289069, \"flavor_text_entries\" : [ { \"flavor_text\" : \"flavor_text\", \"language\" : \"\" }, { \"flavor_text\" : \"flavor_text\", \"language\" : \"\" } ], \"moves\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
     }
 
 

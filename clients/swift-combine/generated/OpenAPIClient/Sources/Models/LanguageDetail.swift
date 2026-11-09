@@ -8,11 +8,17 @@
 import Foundation
 
 public struct LanguageDetail: Codable {
+    /// The identifier for this resource.
     public var id: Int
+    /// The name for this resource.
     public var name: String
+    /// Whether or not the games are published in this language.
     public var official: Bool?
+    /// The two-letter ISO 639-1 language code. Multiple PokéAPI language records may share this code.
     public var iso639: String
+    /// The two-letter ISO 3166-1 alpha-2 code of the country or region associated with this language record. Multiple PokéAPI language records may share this code.
     public var iso3166: String
+    /// The name of this resource listed in different languages.
     public var names: [LanguageName]
 
     public init(id: Int, name: String, official: Bool? = nil, iso639: String, iso3166: String, names: [LanguageName]) {

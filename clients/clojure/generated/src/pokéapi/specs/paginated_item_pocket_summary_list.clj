@@ -8,10 +8,10 @@
 
 (def paginated-item-pocket-summary-list-data
   {
-   (ds/opt :count) int?
+   (ds/req :count) int?
    (ds/opt :next) string?
    (ds/opt :previous) string?
-   (ds/opt :results) (s/coll-of item-pocket-summary-spec)
+   (ds/req :results) (s/coll-of item-pocket-summary-spec)
    })
 
 (def paginated-item-pocket-summary-list-spec

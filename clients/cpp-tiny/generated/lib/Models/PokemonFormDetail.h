@@ -12,9 +12,11 @@
 #include <string>
 #include "bourne/json.hpp"
 #include "Helpers.h"
-#include "PokemonDetail_types_inner.h"
-#include "PokemonFormDetail_form_names_inner.h"
-#include "PokemonFormDetail_sprites.h"
+#include "PokemonFormFlavorText.h"
+#include "PokemonFormName.h"
+#include "PokemonFormSprites.h"
+#include "PokemonFormTriggerCondition.h"
+#include "PokemonFormType.h"
 #include "PokemonSummary.h"
 #include "VersionGroupSummary.h"
 #include <list>
@@ -51,104 +53,118 @@ public:
 	 */
     void fromJson(std::string jsonObj);
 
-	/*! \brief Get 
+	/*! \brief Get The identifier for this resource.
 	 */
 	int getId();
 
-	/*! \brief Set 
+	/*! \brief Set The identifier for this resource.
 	 */
 	void setId(int id);
-	/*! \brief Get 
+	/*! \brief Get The name for this resource.
 	 */
 	std::string getName();
 
-	/*! \brief Set 
+	/*! \brief Set The name for this resource.
 	 */
 	void setName(std::string name);
-	/*! \brief Get 
+	/*! \brief Get The order in which forms should be sorted within all forms. Multiple forms may have equal order, in which case they should fall back on sorting by name.
 	 */
 	int getOrder();
 
-	/*! \brief Set 
+	/*! \brief Set The order in which forms should be sorted within all forms. Multiple forms may have equal order, in which case they should fall back on sorting by name.
 	 */
 	void setOrder(int order);
-	/*! \brief Get 
+	/*! \brief Get The order in which forms should be sorted within a species' forms.
 	 */
 	int getFormOrder();
 
-	/*! \brief Set 
+	/*! \brief Set The order in which forms should be sorted within a species' forms.
 	 */
 	void setFormOrder(int form_order);
-	/*! \brief Get 
+	/*! \brief Get True for exactly one form used as the default for each Pokémon.
 	 */
 	bool isIsDefault();
 
-	/*! \brief Set 
+	/*! \brief Set True for exactly one form used as the default for each Pokémon.
 	 */
 	void setIsDefault(bool is_default);
-	/*! \brief Get 
+	/*! \brief Get Whether or not this form can only happen during battle.
 	 */
 	bool isIsBattleOnly();
 
-	/*! \brief Set 
+	/*! \brief Set Whether or not this form can only happen during battle.
 	 */
 	void setIsBattleOnly(bool is_battle_only);
-	/*! \brief Get 
+	/*! \brief Get Whether or not this form requires mega evolution.
 	 */
 	bool isIsMega();
 
-	/*! \brief Set 
+	/*! \brief Set Whether or not this form requires mega evolution.
 	 */
 	void setIsMega(bool is_mega);
-	/*! \brief Get 
+	/*! \brief Get The name of this form.
 	 */
 	std::string getFormName();
 
-	/*! \brief Set 
+	/*! \brief Set The name of this form.
 	 */
 	void setFormName(std::string form_name);
-	/*! \brief Get 
+	/*! \brief Get The Pokémon that can take on this form.
 	 */
 	PokemonSummary getPokemon();
 
-	/*! \brief Set 
+	/*! \brief Set The Pokémon that can take on this form.
 	 */
 	void setPokemon(PokemonSummary pokemon);
-	/*! \brief Get 
+	/*! \brief Get A set of sprites used to depict this Pokémon form in the game.
 	 */
-	PokemonFormDetail_sprites&lt;std::string, std::string&gt; getSprites();
+	PokemonFormSprites getSprites();
 
-	/*! \brief Set 
+	/*! \brief Set A set of sprites used to depict this Pokémon form in the game.
 	 */
-	void setSprites(PokemonFormDetail_sprites&lt;std::string, std::string&gt; sprites);
-	/*! \brief Get 
+	void setSprites(PokemonFormSprites sprites);
+	/*! \brief Get The version group this Pokémon form was introduced in.
 	 */
 	VersionGroupSummary getVersionGroup();
 
-	/*! \brief Set 
+	/*! \brief Set The version group this Pokémon form was introduced in.
 	 */
 	void setVersionGroup(VersionGroupSummary version_group);
-	/*! \brief Get 
+	/*! \brief Get The form specific form name of this Pokémon form, or empty if the form does not have a specific name.
 	 */
-	std::list<PokemonFormDetail_form_names_inner> getFormNames();
+	std::list<PokemonFormName> getFormNames();
 
-	/*! \brief Set 
+	/*! \brief Set The form specific form name of this Pokémon form, or empty if the form does not have a specific name.
 	 */
-	void setFormNames(std::list<PokemonFormDetail_form_names_inner> form_names);
-	/*! \brief Get 
+	void setFormNames(std::list<PokemonFormName> form_names);
+	/*! \brief Get The form specific full name of this Pokémon form, or empty if the form does not have a specific name.
 	 */
-	std::list<PokemonFormDetail_form_names_inner> getNames();
+	std::list<PokemonFormName> getNames();
 
-	/*! \brief Set 
+	/*! \brief Set The form specific full name of this Pokémon form, or empty if the form does not have a specific name.
 	 */
-	void setNames(std::list<PokemonFormDetail_form_names_inner> names);
-	/*! \brief Get 
+	void setNames(std::list<PokemonFormName> names);
+	/*! \brief Get A list of details showing types this Pokémon form has.
 	 */
-	std::list<PokemonDetail_types_inner> getTypes();
+	std::list<PokemonFormType> getTypes();
 
-	/*! \brief Set 
+	/*! \brief Set A list of details showing types this Pokémon form has.
 	 */
-	void setTypes(std::list<PokemonDetail_types_inner> types);
+	void setTypes(std::list<PokemonFormType> types);
+	/*! \brief Get The conditions that trigger this form. Resource names and URLs are included when the trigger requires a resource.
+	 */
+	std::list<PokemonFormTriggerCondition> getTriggerConditions();
+
+	/*! \brief Set The conditions that trigger this form. Resource names and URLs are included when the trigger requires a resource.
+	 */
+	void setTriggerConditions(std::list<PokemonFormTriggerCondition> trigger_conditions);
+	/*! \brief Get The flavor text of this form listed in different languages and versions.
+	 */
+	std::list<PokemonFormFlavorText> getFlavorTextEntries();
+
+	/*! \brief Set The flavor text of this form listed in different languages and versions.
+	 */
+	void setFlavorTextEntries(std::list<PokemonFormFlavorText> flavor_text_entries);
 
 
     private:
@@ -161,11 +177,13 @@ public:
     bool is_mega{};
     std::string form_name{};
     PokemonSummary pokemon;
-    PokemonFormDetail_sprites&lt;std::string, std::string&gt; sprites;
+    PokemonFormSprites sprites;
     VersionGroupSummary version_group;
-    std::list<PokemonFormDetail_form_names_inner> form_names;
-    std::list<PokemonFormDetail_form_names_inner> names;
-    std::list<PokemonDetail_types_inner> types;
+    std::list<PokemonFormName> form_names;
+    std::list<PokemonFormName> names;
+    std::list<PokemonFormType> types;
+    std::list<PokemonFormTriggerCondition> trigger_conditions;
+    std::list<PokemonFormFlavorText> flavor_text_entries;
 };
 }
 

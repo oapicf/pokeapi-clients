@@ -2,6 +2,52 @@
 const Service = require('./Service');
 
 /**
+* List currencies
+* Currencies used to buy items.
+*
+* limit Integer Number of results to return per page. (optional)
+* offset Integer The initial index from which to return the results. (optional)
+* q String > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
+* returns PaginatedCurrencySummaryList
+* */
+const currency_list = ({ limit, offset, q }) => new Promise(
+  async (resolve, reject) => {
+    try {
+      resolve(Service.successResponse({
+        limit,
+        offset,
+        q,
+      }));
+    } catch (e) {
+      reject(Service.rejectResponse(
+        e.message || 'Invalid input',
+        e.status || 405,
+      ));
+    }
+  },
+);
+/**
+* Get currency
+* Currencies used to buy items.
+*
+* id String This parameter can be a string or an integer.
+* returns CurrencyDetail
+* */
+const currency_retrieve = ({ id }) => new Promise(
+  async (resolve, reject) => {
+    try {
+      resolve(Service.successResponse({
+        id,
+      }));
+    } catch (e) {
+      reject(Service.rejectResponse(
+        e.message || 'Invalid input',
+        e.status || 405,
+      ));
+    }
+  },
+);
+/**
 * List item attributes
 * Item attributes define particular aspects of items, e.g.\"usable in battle\" or \"consumable\".
 *
@@ -233,6 +279,8 @@ const item_retrieve = ({ id }) => new Promise(
 );
 
 module.exports = {
+  currency_list,
+  currency_retrieve,
   item_attribute_list,
   item_attribute_retrieve,
   item_category_list,

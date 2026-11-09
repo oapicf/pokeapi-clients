@@ -27,16 +27,29 @@ class PokemonFormDetail {
     this.formNames = const [],
     this.names = const [],
     this.types = const [],
+    this.triggerConditions = const [],
+    this.flavorTextEntries = const [],
   });
 
+  /// The identifier for this resource.
   int id;
 
+  /// The name for this resource.
   String name;
 
+  /// The order in which forms should be sorted within all forms. Multiple forms may have equal order, in which case they should fall back on sorting by name.
+  ///
+  /// Minimum value: -2147483648
+  /// Maximum value: 2147483647
   int? order;
 
+  /// The order in which forms should be sorted within a species' forms.
+  ///
+  /// Minimum value: -2147483648
+  /// Maximum value: 2147483647
   int? formOrder;
 
+  /// True for exactly one form used as the default for each Pokémon.
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated
@@ -45,6 +58,7 @@ class PokemonFormDetail {
   ///
   bool? isDefault;
 
+  /// Whether or not this form can only happen during battle.
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated
@@ -53,6 +67,7 @@ class PokemonFormDetail {
   ///
   bool? isBattleOnly;
 
+  /// Whether or not this form requires mega evolution.
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated
@@ -61,19 +76,32 @@ class PokemonFormDetail {
   ///
   bool? isMega;
 
+  /// The name of this form.
   String formName;
 
+  /// The Pokémon that can take on this form.
   PokemonSummary pokemon;
 
-  PokemonFormDetailSprites sprites;
+  /// A set of sprites used to depict this Pokémon form in the game.
+  PokemonFormSprites sprites;
 
+  /// The version group this Pokémon form was introduced in.
   VersionGroupSummary versionGroup;
 
-  List<PokemonFormDetailFormNamesInner> formNames;
+  /// The form specific form name of this Pokémon form, or empty if the form does not have a specific name.
+  List<PokemonFormName> formNames;
 
-  List<PokemonFormDetailFormNamesInner> names;
+  /// The form specific full name of this Pokémon form, or empty if the form does not have a specific name.
+  List<PokemonFormName> names;
 
-  List<PokemonDetailTypesInner> types;
+  /// A list of details showing types this Pokémon form has.
+  List<PokemonFormType> types;
+
+  /// The conditions that trigger this form. Resource names and URLs are included when the trigger requires a resource.
+  List<PokemonFormTriggerCondition> triggerConditions;
+
+  /// The flavor text of this form listed in different languages and versions.
+  List<PokemonFormFlavorText> flavorTextEntries;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is PokemonFormDetail &&
@@ -90,7 +118,9 @@ class PokemonFormDetail {
     other.versionGroup == versionGroup &&
     _deepEquality.equals(other.formNames, formNames) &&
     _deepEquality.equals(other.names, names) &&
-    _deepEquality.equals(other.types, types);
+    _deepEquality.equals(other.types, types) &&
+    _deepEquality.equals(other.triggerConditions, triggerConditions) &&
+    _deepEquality.equals(other.flavorTextEntries, flavorTextEntries);
 
   @override
   int get hashCode =>
@@ -108,10 +138,12 @@ class PokemonFormDetail {
     (versionGroup.hashCode) +
     (formNames.hashCode) +
     (names.hashCode) +
-    (types.hashCode);
+    (types.hashCode) +
+    (triggerConditions.hashCode) +
+    (flavorTextEntries.hashCode);
 
   @override
-  String toString() => 'PokemonFormDetail[id=$id, name=$name, order=$order, formOrder=$formOrder, isDefault=$isDefault, isBattleOnly=$isBattleOnly, isMega=$isMega, formName=$formName, pokemon=$pokemon, sprites=$sprites, versionGroup=$versionGroup, formNames=$formNames, names=$names, types=$types]';
+  String toString() => 'PokemonFormDetail[id=$id, name=$name, order=$order, formOrder=$formOrder, isDefault=$isDefault, isBattleOnly=$isBattleOnly, isMega=$isMega, formName=$formName, pokemon=$pokemon, sprites=$sprites, versionGroup=$versionGroup, formNames=$formNames, names=$names, types=$types, triggerConditions=$triggerConditions, flavorTextEntries=$flavorTextEntries]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -149,6 +181,8 @@ class PokemonFormDetail {
       json[r'form_names'] = this.formNames;
       json[r'names'] = this.names;
       json[r'types'] = this.types;
+      json[r'trigger_conditions'] = this.triggerConditions;
+      json[r'flavor_text_entries'] = this.flavorTextEntries;
     return json;
   }
 
@@ -181,6 +215,10 @@ class PokemonFormDetail {
         assert(json[r'names'] != null, 'Required key "PokemonFormDetail[names]" has a null value in JSON.');
         assert(json.containsKey(r'types'), 'Required key "PokemonFormDetail[types]" is missing from JSON.');
         assert(json[r'types'] != null, 'Required key "PokemonFormDetail[types]" has a null value in JSON.');
+        assert(json.containsKey(r'trigger_conditions'), 'Required key "PokemonFormDetail[trigger_conditions]" is missing from JSON.');
+        assert(json[r'trigger_conditions'] != null, 'Required key "PokemonFormDetail[trigger_conditions]" has a null value in JSON.');
+        assert(json.containsKey(r'flavor_text_entries'), 'Required key "PokemonFormDetail[flavor_text_entries]" is missing from JSON.');
+        assert(json[r'flavor_text_entries'] != null, 'Required key "PokemonFormDetail[flavor_text_entries]" has a null value in JSON.');
         return true;
       }());
 
@@ -194,11 +232,13 @@ class PokemonFormDetail {
         isMega: mapValueOfType<bool>(json, r'is_mega'),
         formName: mapValueOfType<String>(json, r'form_name')!,
         pokemon: PokemonSummary.fromJson(json[r'pokemon'])!,
-        sprites: PokemonFormDetailSprites.fromJson(json[r'sprites'])!,
+        sprites: PokemonFormSprites.fromJson(json[r'sprites'])!,
         versionGroup: VersionGroupSummary.fromJson(json[r'version_group'])!,
-        formNames: PokemonFormDetailFormNamesInner.listFromJson(json[r'form_names']),
-        names: PokemonFormDetailFormNamesInner.listFromJson(json[r'names']),
-        types: PokemonDetailTypesInner.listFromJson(json[r'types']),
+        formNames: PokemonFormName.listFromJson(json[r'form_names']),
+        names: PokemonFormName.listFromJson(json[r'names']),
+        types: PokemonFormType.listFromJson(json[r'types']),
+        triggerConditions: PokemonFormTriggerCondition.listFromJson(json[r'trigger_conditions']),
+        flavorTextEntries: PokemonFormFlavorText.listFromJson(json[r'flavor_text_entries']),
       );
     }
     return null;
@@ -255,6 +295,8 @@ class PokemonFormDetail {
     'form_names',
     'names',
     'types',
+    'trigger_conditions',
+    'flavor_text_entries',
   };
 }
 

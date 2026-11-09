@@ -9,8 +9,6 @@
 namespace models {
 
 MoveMeta::MoveMeta()
-: ailment(MoveMetaAilmentSummary())
-, category(MoveMetaCategorySummary())
 , minHits(0)
 , maxHits(0)
 , minTurns(0)

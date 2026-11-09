@@ -10,6 +10,7 @@ class_name ItemFlavorText
 # ItemFlavorText Model
 
 
+# The localized flavor text for an API resource in a specific language.
 # Required: True
 # isArray: false
 @export var text: String:
@@ -18,6 +19,7 @@ class_name ItemFlavorText
 		text = value
 var __text__was__set := false
 
+# The version group which uses this flavor text.
 # Required: True
 # isArray: false
 @export var versionUnderscoregroup: VersionGroupSummary:
@@ -26,6 +28,7 @@ var __text__was__set := false
 		versionUnderscoregroup = value
 var __versionUnderscoregroup__was__set := false
 
+# The language this name is in.
 # Required: True
 # isArray: false
 @export var language: LanguageSummary:

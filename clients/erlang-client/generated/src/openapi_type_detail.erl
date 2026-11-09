@@ -7,7 +7,7 @@
 -type openapi_type_detail() ::
     #{ 'id' := integer(),
        'name' := binary(),
-       'damage_relations' := openapi_type_detail_damage_relations:openapi_type_detail_damage_relations(),
+       'damage_relations' := openapi_type_relationships:openapi_type_relationships(),
        'past_damage_relations' := list(),
        'game_indices' := list(),
        'generation' := openapi_generation_summary:openapi_generation_summary(),

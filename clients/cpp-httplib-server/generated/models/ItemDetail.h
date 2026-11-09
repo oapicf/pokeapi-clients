@@ -11,17 +11,18 @@
 #include <cstdint>
 #include <string>
 #include <vector>
+#include "EvolutionChainSummary.h"
+#include "ItemAttributeSummary.h"
 #include "ItemCategorySummary.h"
-#include "ItemDetailAttributesInner.h"
-#include "ItemDetailBabyTriggerFor.h"
-#include "ItemDetailHeldByPokemonInner.h"
-#include "ItemDetailMachinesInner.h"
-#include "ItemDetailSprites.h"
 #include "ItemEffectText.h"
 #include "ItemFlavorText.h"
 #include "ItemFlingEffectSummary.h"
 #include "ItemGameIndex.h"
+#include "ItemMachine.h"
 #include "ItemName.h"
+#include "ItemPrice.h"
+#include "ItemSprites.h"
+#include "PokemonHeldItem.h"
 
 
 
@@ -40,14 +41,12 @@ public:
     void setId(const int& id);
     [[nodiscard]] std::string getName() const;
     void setName(const std::string& name);
-    [[nodiscard]] int getCost() const;
-    void setCost(const int& cost);
     [[nodiscard]] int getFlingPower() const;
     void setFlingPower(const int& flingPower);
     [[nodiscard]] ItemFlingEffectSummary getFlingEffect() const;
     void setFlingEffect(const ItemFlingEffectSummary& flingEffect);
-    [[nodiscard]] std::vector<ItemDetail_attributes_inner> getAttributes() const;
-    void setAttributes(const std::vector<ItemDetail_attributes_inner>& attributes);
+    [[nodiscard]] std::vector<ItemAttributeSummary> getAttributes() const;
+    void setAttributes(const std::vector<ItemAttributeSummary>& attributes);
     [[nodiscard]] ItemCategorySummary getCategory() const;
     void setCategory(const ItemCategorySummary& category);
     [[nodiscard]] std::vector<ItemEffectText> getEffectEntries() const;
@@ -56,38 +55,40 @@ public:
     void setFlavorTextEntries(const std::vector<ItemFlavorText>& flavorTextEntries);
     [[nodiscard]] std::vector<ItemGameIndex> getGameIndices() const;
     void setGameIndices(const std::vector<ItemGameIndex>& gameIndices);
+    [[nodiscard]] std::vector<ItemPrice> getPrices() const;
+    void setPrices(const std::vector<ItemPrice>& prices);
     [[nodiscard]] std::vector<ItemName> getNames() const;
     void setNames(const std::vector<ItemName>& names);
-    [[nodiscard]] std::vector<ItemDetail_held_by_pokemon_inner> getHeldByPokemon() const;
-    void setHeldByPokemon(const std::vector<ItemDetail_held_by_pokemon_inner>& heldByPokemon);
-    [[nodiscard]] ItemDetailSprites getSprites() const;
-    void setSprites(const ItemDetailSprites& sprites);
-    [[nodiscard]] ItemDetailBabyTriggerFor getBabyTriggerFor() const;
-    void setBabyTriggerFor(const ItemDetailBabyTriggerFor& babyTriggerFor);
-    [[nodiscard]] std::vector<ItemDetail_machines_inner> getMachines() const;
-    void setMachines(const std::vector<ItemDetail_machines_inner>& machines);
+    [[nodiscard]] std::vector<PokemonHeldItem> getHeldByPokemon() const;
+    void setHeldByPokemon(const std::vector<PokemonHeldItem>& heldByPokemon);
+    [[nodiscard]] ItemSprites getSprites() const;
+    void setSprites(const ItemSprites& sprites);
+    [[nodiscard]] EvolutionChainSummary getBabyTriggerFor() const;
+    void setBabyTriggerFor(const EvolutionChainSummary& babyTriggerFor);
+    [[nodiscard]] std::vector<ItemMachine> getMachines() const;
+    void setMachines(const std::vector<ItemMachine>& machines);
 
 
     // JSON serialization using NLOHMANN INTRUSIVE macro (must be inside class to access private members)
     NLOHMANN_DEFINE_TYPE_INTRUSIVE(ItemDetail,
-         id, name, cost, flingPower, flingEffect, attributes, category, effectEntries, flavorTextEntries, gameIndices, names, heldByPokemon, sprites, babyTriggerFor, machines)
+         id, name, flingPower, flingEffect, attributes, category, effectEntries, flavorTextEntries, gameIndices, prices, names, heldByPokemon, sprites, babyTriggerFor, machines)
 
 private:
     int id;
     std::string name;
-    int cost;
     int flingPower;
     ItemFlingEffectSummary flingEffect;
-    std::vector<ItemDetail_attributes_inner> attributes;
+    std::vector<ItemAttributeSummary> attributes;
     ItemCategorySummary category;
     std::vector<ItemEffectText> effectEntries;
     std::vector<ItemFlavorText> flavorTextEntries;
     std::vector<ItemGameIndex> gameIndices;
+    std::vector<ItemPrice> prices;
     std::vector<ItemName> names;
-    std::vector<ItemDetail_held_by_pokemon_inner> heldByPokemon;
-    ItemDetailSprites sprites;
-    ItemDetailBabyTriggerFor babyTriggerFor;
-    std::vector<ItemDetail_machines_inner> machines;
+    std::vector<PokemonHeldItem> heldByPokemon;
+    ItemSprites sprites;
+    EvolutionChainSummary babyTriggerFor;
+    std::vector<ItemMachine> machines;
 };
 
 

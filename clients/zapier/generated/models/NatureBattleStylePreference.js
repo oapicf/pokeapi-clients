@@ -7,13 +7,13 @@ module.exports = {
         return [
             {
                 key: `${keyPrefix}low_hp_preference`,
-                label: `[${labelPrefix}low_hp_preference]`,
+                label: `Chance of using the move, in percent, if HP is under one half. - [${labelPrefix}low_hp_preference]`,
                 required: true,
                 type: 'integer',
             },
             {
                 key: `${keyPrefix}high_hp_preference`,
-                label: `[${labelPrefix}high_hp_preference]`,
+                label: `Chance of using the move, in percent, if HP is over one half. - [${labelPrefix}high_hp_preference]`,
                 required: true,
                 type: 'integer',
             },

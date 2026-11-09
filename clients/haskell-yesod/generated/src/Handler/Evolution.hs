@@ -34,3 +34,18 @@ getApiV2EvolutionTriggerR = notImplemented
 getApiV2EvolutionTriggerByTextR :: Text -- ^ This parameter can be a string or an integer.
                                 -> Handler Value
 getApiV2EvolutionTriggerByTextR id = notImplemented
+
+-- | List evolution variables
+--
+-- Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+-- operationId: evolutionVariableList
+getApiV2EvolutionVariableR :: Handler Value
+getApiV2EvolutionVariableR = notImplemented
+
+-- | Get evolution variable
+--
+-- Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+-- operationId: evolutionVariableRetrieve
+getApiV2EvolutionVariableByTextR :: Text -- ^ This parameter can be a string or an integer.
+                                 -> Handler Value
+getApiV2EvolutionVariableByTextR id = notImplemented

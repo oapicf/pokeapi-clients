@@ -15,7 +15,7 @@ import org.openapitools.model.PokemonSpeciesSummary;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-10-25T05:47:53.227411880Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-11-09T13:49:15.621225368Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PokemonHabitatDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -30,6 +30,7 @@ public class PokemonHabitatDetail   {
   private List<PokemonSpeciesSummary> pokemonSpecies = new ArrayList<>();
 
   /**
+   * The identifier for this resource.
    **/
   public PokemonHabitatDetail id(Integer id) {
     this.id = id;
@@ -37,7 +38,7 @@ public class PokemonHabitatDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   @JsonProperty("id")
   public Integer getId() {
     return id;
@@ -47,6 +48,7 @@ public class PokemonHabitatDetail   {
   }
 
   /**
+   * The name for this resource.
    **/
   public PokemonHabitatDetail name(String name) {
     this.name = name;
@@ -54,7 +56,7 @@ public class PokemonHabitatDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   @JsonProperty("name")
   public String getName() {
     return name;
@@ -64,6 +66,7 @@ public class PokemonHabitatDetail   {
   }
 
   /**
+   * The name of this resource listed in different languages.
    **/
   public PokemonHabitatDetail names(List<PokemonHabitatName> names) {
     this.names = names;
@@ -71,7 +74,7 @@ public class PokemonHabitatDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
   @JsonProperty("names")
   public List<PokemonHabitatName> getNames() {
     return names;
@@ -81,6 +84,7 @@ public class PokemonHabitatDetail   {
   }
 
   /**
+   * A list of the Pokémon species that can be found in this habitat.
    **/
   public PokemonHabitatDetail pokemonSpecies(List<PokemonSpeciesSummary> pokemonSpecies) {
     this.pokemonSpecies = pokemonSpecies;
@@ -88,7 +92,7 @@ public class PokemonHabitatDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of the Pokémon species that can be found in this habitat.")
   @JsonProperty("pokemon_species")
   public List<PokemonSpeciesSummary> getPokemonSpecies() {
     return pokemonSpecies;

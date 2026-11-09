@@ -3,7 +3,7 @@ package com.prokarma.pkmst.model;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.prokarma.pkmst.model.EvolutionChainDetailChain;
+import com.prokarma.pkmst.model.EvolutionChainLink;
 import com.prokarma.pkmst.model.ItemSummary;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -16,7 +16,7 @@ import io.swagger.annotations.ApiModelProperty;
  * EvolutionChainDetail
  */
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-10-25T05:48:09.645019047Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-11-09T13:49:28.343088631Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class EvolutionChainDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -25,7 +25,7 @@ public class EvolutionChainDetail   {
   private ItemSummary babyTriggerItem;
 
   @JsonProperty("chain")
-  private EvolutionChainDetailChain chain;
+  private EvolutionChainLink chain;
 
   public EvolutionChainDetail id(Integer id) {
     this.id = id;
@@ -33,10 +33,10 @@ public class EvolutionChainDetail   {
   }
 
   /**
-   * Get id
+   * The identifier for this resource.
    * @return id
    */
-  @ApiModelProperty(required = true, readOnly = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "The identifier for this resource.")
   public Integer getId() {
     return id;
   }
@@ -51,10 +51,10 @@ public class EvolutionChainDetail   {
   }
 
   /**
-   * Get babyTriggerItem
+   * The item that a Pokémon would be holding when mating that would trigger the egg hatching a baby Pokémon rather than a basic Pokémon.
    * @return babyTriggerItem
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The item that a Pokémon would be holding when mating that would trigger the egg hatching a baby Pokémon rather than a basic Pokémon.")
   public ItemSummary getBabyTriggerItem() {
     return babyTriggerItem;
   }
@@ -63,21 +63,21 @@ public class EvolutionChainDetail   {
     this.babyTriggerItem = babyTriggerItem;
   }
 
-  public EvolutionChainDetail chain(EvolutionChainDetailChain chain) {
+  public EvolutionChainDetail chain(EvolutionChainLink chain) {
     this.chain = chain;
     return this;
   }
 
   /**
-   * Get chain
+   * The base chain link object. Each link contains evolution details for a Pokémon in the chain. Each link references the next Pokémon in the natural evolution order.
    * @return chain
    */
-  @ApiModelProperty(required = true, value = "")
-  public EvolutionChainDetailChain getChain() {
+  @ApiModelProperty(required = true, readOnly = true, value = "The base chain link object. Each link contains evolution details for a Pokémon in the chain. Each link references the next Pokémon in the natural evolution order.")
+  public EvolutionChainLink getChain() {
     return chain;
   }
 
-  public void setChain(EvolutionChainDetailChain chain) {
+  public void setChain(EvolutionChainLink chain) {
     this.chain = chain;
   }
 

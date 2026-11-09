@@ -1,0 +1,40 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server PokemonEvolutionKnownMove"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a PokemonEvolutionKnownMove"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+}
+resourceTypes {
+
+  PokemonEvolutionKnownMove {
+    title = PokemonEvolutionKnownMove
+    description = PokemonEvolutionKnownMove
+    derivedFrom = Root
+    properties {
+        name {
+          type =  string
+          description = ""
+          optional = true
+        }
+        url {
+          type =  string
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  PokemonEvolutionKnownMove {
+    title = PokemonEvolutionKnownMove
+    description = PokemonEvolutionKnownMove
+    implements = openapi_server.resourceTypes.PokemonEvolutionKnownMove
+
+  }
+}

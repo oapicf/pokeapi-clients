@@ -18,8 +18,8 @@ defmodule PokéAPI.Model.PokemonShapeDetail do
   @type t :: %__MODULE__{
     :id => integer(),
     :name => String.t,
-    :awesome_names => [PokéAPI.Model.PokemonShapeDetailAwesomeNamesInner.t],
-    :names => [PokéAPI.Model.PokemonShapeDetailNamesInner.t],
+    :awesome_names => [PokéAPI.Model.PokemonShapeAwesomeName.t],
+    :names => [PokéAPI.Model.PokemonShapeName.t],
     :pokemon_species => [PokéAPI.Model.PokemonSpeciesSummary.t]
   }
 
@@ -27,8 +27,8 @@ defmodule PokéAPI.Model.PokemonShapeDetail do
 
   def decode(value) do
     value
-     |> Deserializer.deserialize(:awesome_names, :list, PokéAPI.Model.PokemonShapeDetailAwesomeNamesInner)
-     |> Deserializer.deserialize(:names, :list, PokéAPI.Model.PokemonShapeDetailNamesInner)
+     |> Deserializer.deserialize(:awesome_names, :list, PokéAPI.Model.PokemonShapeAwesomeName)
+     |> Deserializer.deserialize(:names, :list, PokéAPI.Model.PokemonShapeName)
      |> Deserializer.deserialize(:pokemon_species, :list, PokéAPI.Model.PokemonSpeciesSummary)
   end
 end

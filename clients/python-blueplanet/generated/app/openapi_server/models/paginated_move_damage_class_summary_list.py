@@ -62,6 +62,7 @@ class PaginatedMoveDamageClassSummaryList(Model):
     def count(self) -> int:
         """Gets the count of this PaginatedMoveDamageClassSummaryList.
 
+        The total number of resources available from this API.  # noqa: E501
 
         :return: The count of this PaginatedMoveDamageClassSummaryList.
         :rtype: int
@@ -72,10 +73,13 @@ class PaginatedMoveDamageClassSummaryList(Model):
     def count(self, count: int):
         """Sets the count of this PaginatedMoveDamageClassSummaryList.
 
+        The total number of resources available from this API.  # noqa: E501
 
         :param count: The count of this PaginatedMoveDamageClassSummaryList.
         :type count: int
         """
+        if count is None:
+            raise ValueError("Invalid value for `count`, must not be `None`")  # noqa: E501
 
         self._count = count
 
@@ -83,6 +87,7 @@ class PaginatedMoveDamageClassSummaryList(Model):
     def next(self) -> str:
         """Gets the next of this PaginatedMoveDamageClassSummaryList.
 
+        The URL for the next page in the list, or null if there is no next page.  # noqa: E501
 
         :return: The next of this PaginatedMoveDamageClassSummaryList.
         :rtype: str
@@ -93,6 +98,7 @@ class PaginatedMoveDamageClassSummaryList(Model):
     def next(self, next: str):
         """Sets the next of this PaginatedMoveDamageClassSummaryList.
 
+        The URL for the next page in the list, or null if there is no next page.  # noqa: E501
 
         :param next: The next of this PaginatedMoveDamageClassSummaryList.
         :type next: str
@@ -104,6 +110,7 @@ class PaginatedMoveDamageClassSummaryList(Model):
     def previous(self) -> str:
         """Gets the previous of this PaginatedMoveDamageClassSummaryList.
 
+        The URL for the previous page in the list, or null if there is no previous page.  # noqa: E501
 
         :return: The previous of this PaginatedMoveDamageClassSummaryList.
         :rtype: str
@@ -114,6 +121,7 @@ class PaginatedMoveDamageClassSummaryList(Model):
     def previous(self, previous: str):
         """Sets the previous of this PaginatedMoveDamageClassSummaryList.
 
+        The URL for the previous page in the list, or null if there is no previous page.  # noqa: E501
 
         :param previous: The previous of this PaginatedMoveDamageClassSummaryList.
         :type previous: str
@@ -125,6 +133,7 @@ class PaginatedMoveDamageClassSummaryList(Model):
     def results(self) -> List[MoveDamageClassSummary]:
         """Gets the results of this PaginatedMoveDamageClassSummaryList.
 
+        A list of API resources on this page.  # noqa: E501
 
         :return: The results of this PaginatedMoveDamageClassSummaryList.
         :rtype: List[MoveDamageClassSummary]
@@ -135,9 +144,12 @@ class PaginatedMoveDamageClassSummaryList(Model):
     def results(self, results: List[MoveDamageClassSummary]):
         """Sets the results of this PaginatedMoveDamageClassSummaryList.
 
+        A list of API resources on this page.  # noqa: E501
 
         :param results: The results of this PaginatedMoveDamageClassSummaryList.
         :type results: List[MoveDamageClassSummary]
         """
+        if results is None:
+            raise ValueError("Invalid value for `results`, must not be `None`")  # noqa: E501
 
         self._results = results

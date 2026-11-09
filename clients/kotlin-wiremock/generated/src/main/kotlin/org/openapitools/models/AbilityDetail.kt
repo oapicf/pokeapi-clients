@@ -30,7 +30,7 @@ data class AbilityDetail(
     val flavorTextEntries: kotlin.collections.List<AbilityFlavorText>,
 
     @field:JsonProperty("pokemon")
-    val pokemon: kotlin.collections.List<AbilityDetailPokemonInner>,
+    val pokemon: kotlin.collections.List<AbilityPokemonDetail>,
 
     @field:JsonProperty("is_main_series")
     val isMainSeries: kotlin.Boolean? = null,

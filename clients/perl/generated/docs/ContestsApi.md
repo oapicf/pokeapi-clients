@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 
 # **contest_effect_list**
-> PaginatedContestEffectSummaryList contest_effect_list(limit => $limit, offset => $offset, q => $q)
+> PaginatedContestEffectSummaryList contest_effect_list(limit => $limit, offset => $offset)
 
 List contest effects
 
@@ -29,23 +29,13 @@ Contest effects refer to the effects of moves when used in contests.
 use Data::Dumper;
 use WWW::OpenAPIClient::ContestsApi;
 my $api_instance = WWW::OpenAPIClient::ContestsApi->new(
-
-    # Configure HTTP basic authorization: basicAuth
-    username => 'YOUR_USERNAME',
-    password => 'YOUR_PASSWORD',
-    
-    # Configure API key authorization: cookieAuth
-    api_key => {'sessionid' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'sessionid' => 'Bearer'},
 );
 
 my $limit = 56; # int | Number of results to return per page.
 my $offset = 56; # int | The initial index from which to return the results.
-my $q = "q_example"; # string | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
 
 eval {
-    my $result = $api_instance->contest_effect_list(limit => $limit, offset => $offset, q => $q);
+    my $result = $api_instance->contest_effect_list(limit => $limit, offset => $offset);
     print Dumper($result);
 };
 if ($@) {
@@ -59,7 +49,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **int**| Number of results to return per page. | [optional] 
  **offset** | **int**| The initial index from which to return the results. | [optional] 
- **q** | **string**| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional] 
 
 ### Return type
 
@@ -67,7 +56,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -88,18 +77,9 @@ Contest effects refer to the effects of moves when used in contests.
 use Data::Dumper;
 use WWW::OpenAPIClient::ContestsApi;
 my $api_instance = WWW::OpenAPIClient::ContestsApi->new(
-
-    # Configure HTTP basic authorization: basicAuth
-    username => 'YOUR_USERNAME',
-    password => 'YOUR_PASSWORD',
-    
-    # Configure API key authorization: cookieAuth
-    api_key => {'sessionid' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'sessionid' => 'Bearer'},
 );
 
-my $id = "id_example"; # string | This parameter can be a string or an integer.
+my $id = 1; # string | This parameter can be a string or an integer.
 
 eval {
     my $result = $api_instance->contest_effect_retrieve(id => $id);
@@ -122,7 +102,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -143,15 +123,6 @@ Contest types are categories judges used to weigh a PokÃ©mon's condition in PokÃ
 use Data::Dumper;
 use WWW::OpenAPIClient::ContestsApi;
 my $api_instance = WWW::OpenAPIClient::ContestsApi->new(
-
-    # Configure HTTP basic authorization: basicAuth
-    username => 'YOUR_USERNAME',
-    password => 'YOUR_PASSWORD',
-    
-    # Configure API key authorization: cookieAuth
-    api_key => {'sessionid' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'sessionid' => 'Bearer'},
 );
 
 my $limit = 56; # int | Number of results to return per page.
@@ -181,7 +152,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -202,18 +173,9 @@ Contest types are categories judges used to weigh a PokÃ©mon's condition in PokÃ
 use Data::Dumper;
 use WWW::OpenAPIClient::ContestsApi;
 my $api_instance = WWW::OpenAPIClient::ContestsApi->new(
-
-    # Configure HTTP basic authorization: basicAuth
-    username => 'YOUR_USERNAME',
-    password => 'YOUR_PASSWORD',
-    
-    # Configure API key authorization: cookieAuth
-    api_key => {'sessionid' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'sessionid' => 'Bearer'},
 );
 
-my $id = "id_example"; # string | This parameter can be a string or an integer.
+my $id = 1; # string | This parameter can be a string or an integer.
 
 eval {
     my $result = $api_instance->contest_type_retrieve(id => $id);
@@ -236,7 +198,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -246,7 +208,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **super_contest_effect_list**
-> PaginatedSuperContestEffectSummaryList super_contest_effect_list(limit => $limit, offset => $offset, q => $q)
+> PaginatedSuperContestEffectSummaryList super_contest_effect_list(limit => $limit, offset => $offset)
 
 List super contest effects
 
@@ -257,23 +219,13 @@ Super contest effects refer to the effects of moves when used in super contests.
 use Data::Dumper;
 use WWW::OpenAPIClient::ContestsApi;
 my $api_instance = WWW::OpenAPIClient::ContestsApi->new(
-
-    # Configure HTTP basic authorization: basicAuth
-    username => 'YOUR_USERNAME',
-    password => 'YOUR_PASSWORD',
-    
-    # Configure API key authorization: cookieAuth
-    api_key => {'sessionid' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'sessionid' => 'Bearer'},
 );
 
 my $limit = 56; # int | Number of results to return per page.
 my $offset = 56; # int | The initial index from which to return the results.
-my $q = "q_example"; # string | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
 
 eval {
-    my $result = $api_instance->super_contest_effect_list(limit => $limit, offset => $offset, q => $q);
+    my $result = $api_instance->super_contest_effect_list(limit => $limit, offset => $offset);
     print Dumper($result);
 };
 if ($@) {
@@ -287,7 +239,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **int**| Number of results to return per page. | [optional] 
  **offset** | **int**| The initial index from which to return the results. | [optional] 
- **q** | **string**| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional] 
 
 ### Return type
 
@@ -295,7 +246,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -316,18 +267,9 @@ Super contest effects refer to the effects of moves when used in super contests.
 use Data::Dumper;
 use WWW::OpenAPIClient::ContestsApi;
 my $api_instance = WWW::OpenAPIClient::ContestsApi->new(
-
-    # Configure HTTP basic authorization: basicAuth
-    username => 'YOUR_USERNAME',
-    password => 'YOUR_PASSWORD',
-    
-    # Configure API key authorization: cookieAuth
-    api_key => {'sessionid' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'sessionid' => 'Bearer'},
 );
 
-my $id = "id_example"; # string | This parameter can be a string or an integer.
+my $id = 1; # string | This parameter can be a string or an integer.
 
 eval {
     my $result = $api_instance->super_contest_effect_retrieve(id => $id);
@@ -350,7 +292,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

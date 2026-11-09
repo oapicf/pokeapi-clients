@@ -8,7 +8,7 @@ MoveMetaAilmentDetail::MoveMetaAilmentDetail()
 {
 	id = int(0);
 	name = std::string();
-	moves = std::list<AbilityDetail_pokemon_inner_pokemon>();
+	moves = std::list<MoveSummary>();
 	names = std::list<MoveMetaAilmentName>();
 }
 
@@ -60,8 +60,8 @@ MoveMetaAilmentDetail::fromJson(std::string jsonObj)
         bourne::json value = object[movesKey];
 
 
-        std::list<AbilityDetail_pokemon_inner_pokemon> moves_list;
-        AbilityDetail_pokemon_inner_pokemon element;
+        std::list<MoveSummary> moves_list;
+        MoveSummary element;
         for(auto& var : value.array_range())
         {
 
@@ -122,12 +122,12 @@ MoveMetaAilmentDetail::toJson()
 
 
 
-    std::list<AbilityDetail_pokemon_inner_pokemon> moves_list = getMoves();
+    std::list<MoveSummary> moves_list = getMoves();
     bourne::json moves_arr = bourne::json::array();
 
     for(auto& var : moves_list)
     {
-        AbilityDetail_pokemon_inner_pokemon obj = var;
+        MoveSummary obj = var;
         moves_arr.append(obj.toJson());
     }
     object["moves"] = moves_arr;
@@ -178,14 +178,14 @@ MoveMetaAilmentDetail::setName(std::string name)
 	this->name = name;
 }
 
-std::list<AbilityDetail_pokemon_inner_pokemon>
+std::list<MoveSummary>
 MoveMetaAilmentDetail::getMoves()
 {
 	return moves;
 }
 
 void
-MoveMetaAilmentDetail::setMoves(std::list<AbilityDetail_pokemon_inner_pokemon> moves)
+MoveMetaAilmentDetail::setMoves(std::list<MoveSummary> moves)
 {
 	this->moves = moves;
 }

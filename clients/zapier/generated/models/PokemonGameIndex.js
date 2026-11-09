@@ -7,7 +7,7 @@ module.exports = {
         return [
             {
                 key: `${keyPrefix}game_index`,
-                label: `[${labelPrefix}game_index]`,
+                label: `The internal id of an API resource within game data. - [${labelPrefix}game_index]`,
                 required: true,
                 type: 'integer',
             },

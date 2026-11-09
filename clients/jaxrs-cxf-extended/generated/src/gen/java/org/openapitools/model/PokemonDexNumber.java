@@ -1,0 +1,114 @@
+package org.openapitools.model;
+
+import org.openapitools.model.PokemonSpeciesSummary;
+import javax.validation.constraints.*;
+import javax.validation.Valid;
+
+import io.swagger.annotations.ApiModelProperty;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+
+public class PokemonDexNumber  {
+  
+ /**
+  * The index of this Pokémon species entry within the Pokédex.
+  */
+  @ApiModelProperty(required = true, value = "The index of this Pokémon species entry within the Pokédex.")
+  private Integer entryNumber;
+
+ /**
+  * The Pokémon species being encountered.
+  */
+  @ApiModelProperty(required = true, value = "The Pokémon species being encountered.")
+  @Valid
+  private PokemonSpeciesSummary pokemonSpecies;
+ /**
+  * The index of this Pokémon species entry within the Pokédex.
+  * @return entryNumber
+  */
+  @JsonProperty("entry_number")
+  @NotNull
+  public Integer getEntryNumber() {
+    return entryNumber;
+  }
+
+  /**
+   * Sets the <code>entryNumber</code> property.
+   */
+ public void setEntryNumber(Integer entryNumber) {
+    this.entryNumber = entryNumber;
+  }
+
+  /**
+   * Sets the <code>entryNumber</code> property.
+   */
+  public PokemonDexNumber entryNumber(Integer entryNumber) {
+    this.entryNumber = entryNumber;
+    return this;
+  }
+
+ /**
+  * The Pokémon species being encountered.
+  * @return pokemonSpecies
+  */
+  @JsonProperty("pokemon_species")
+  @NotNull
+  public PokemonSpeciesSummary getPokemonSpecies() {
+    return pokemonSpecies;
+  }
+
+  /**
+   * Sets the <code>pokemonSpecies</code> property.
+   */
+ public void setPokemonSpecies(PokemonSpeciesSummary pokemonSpecies) {
+    this.pokemonSpecies = pokemonSpecies;
+  }
+
+  /**
+   * Sets the <code>pokemonSpecies</code> property.
+   */
+  public PokemonDexNumber pokemonSpecies(PokemonSpeciesSummary pokemonSpecies) {
+    this.pokemonSpecies = pokemonSpecies;
+    return this;
+  }
+
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    PokemonDexNumber pokemonDexNumber = (PokemonDexNumber) o;
+    return Objects.equals(this.entryNumber, pokemonDexNumber.entryNumber) &&
+        Objects.equals(this.pokemonSpecies, pokemonDexNumber.pokemonSpecies);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(entryNumber, pokemonSpecies);
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class PokemonDexNumber {\n");
+    
+    sb.append("    entryNumber: ").append(toIndentedString(entryNumber)).append("\n");
+    sb.append("    pokemonSpecies: ").append(toIndentedString(pokemonSpecies)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private static String toIndentedString(Object o) {
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
+  }
+}
+

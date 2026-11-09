@@ -7,26 +7,27 @@
 #' @title PokemonDetail
 #' @description PokemonDetail Class
 #' @format An \code{R6Class} generator object
-#' @field id  integer
-#' @field name  character
-#' @field base_experience  integer [optional]
-#' @field height  integer [optional]
-#' @field is_default  character [optional]
-#' @field order  integer [optional]
-#' @field weight  integer [optional]
-#' @field abilities  list(\link{PokemonDetailAbilitiesInner})
-#' @field past_abilities  list(\link{PokemonDetailPastAbilitiesInner})
-#' @field forms  list(\link{PokemonFormSummary})
-#' @field game_indices  list(\link{PokemonGameIndex})
-#' @field held_items  \link{PokemonDetailHeldItems}
-#' @field location_area_encounters  character
-#' @field moves  list(\link{PokemonDetailMovesInner})
-#' @field species  \link{PokemonSpeciesSummary}
-#' @field sprites  \link{PokemonDetailSprites}
-#' @field cries  \link{PokemonDetailCries}
-#' @field stats  list(\link{PokemonStat})
-#' @field types  list(\link{PokemonDetailTypesInner})
-#' @field past_types  list(\link{PokemonDetailPastTypesInner})
+#' @field id The identifier for this resource. integer
+#' @field name The name for this resource. character
+#' @field base_experience The base experience gained for defeating this Pokémon. integer [optional]
+#' @field height The height of this Pokémon in decimetres. integer [optional]
+#' @field is_default Set for exactly one Pokémon used as the default for each species. character [optional]
+#' @field order Order for sorting. Almost national order, except families are grouped together. integer [optional]
+#' @field weight The weight of this Pokémon in hectograms. integer [optional]
+#' @field abilities A list of abilities this Pokémon could potentially have. list(\link{PokemonAbility})
+#' @field past_abilities A list of details showing abilities this pokémon had in previous generations list(\link{PokemonPastAbility})
+#' @field forms A list of forms this Pokémon can take on. list(\link{PokemonFormSummary})
+#' @field game_indices A list of game indices relevent to Pokémon item by generation. list(\link{PokemonGameIndex})
+#' @field held_items A list of items this Pokémon may be holding when encountered. list(\link{PokemonHeldItemSummary})
+#' @field location_area_encounters A link to a list of location areas, as well as encounter details pertaining to specific versions. character
+#' @field moves A list of moves along with learn methods and level details pertaining to specific version groups. list(\link{PokemonMove})
+#' @field species The species this Pokémon belongs to. \link{PokemonSpeciesSummary}
+#' @field sprites A set of sprites used to depict this Pokémon in the game. A visual representation of the various sprites can be found at <a href='https://github.com/PokeAPI/sprites#sprites'>PokeAPI/sprites</a> \link{PokemonSprites}
+#' @field cries A set of cries used to depict this Pokémon in the game. A visual representation of the various cries can be found at <a href='https://github.com/PokeAPI/cries#cries'>PokeAPI/cries</a> \link{PokemonCries}
+#' @field stats A list of base stat values for this Pokémon. list(\link{PokemonStat})
+#' @field past_stats A list of details showing stats this pokémon had in previous generations list(\link{PokemonPastStat})
+#' @field types A list of details showing types this Pokémon has. list(\link{PokemonType})
+#' @field past_types A list of details showing types this pokémon had in previous generations list(\link{PokemonPastType})
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -51,34 +52,36 @@ PokemonDetail <- R6::R6Class(
     `sprites` = NULL,
     `cries` = NULL,
     `stats` = NULL,
+    `past_stats` = NULL,
     `types` = NULL,
     `past_types` = NULL,
 
     #' @description
     #' Initialize a new PokemonDetail class.
     #'
-    #' @param id id
-    #' @param name name
-    #' @param abilities abilities
-    #' @param past_abilities past_abilities
-    #' @param forms forms
-    #' @param game_indices game_indices
-    #' @param held_items held_items
-    #' @param location_area_encounters location_area_encounters
-    #' @param moves moves
-    #' @param species species
-    #' @param sprites sprites
-    #' @param cries cries
-    #' @param stats stats
-    #' @param types types
-    #' @param past_types past_types
-    #' @param base_experience base_experience
-    #' @param height height
-    #' @param is_default is_default
-    #' @param order order
-    #' @param weight weight
+    #' @param id The identifier for this resource.
+    #' @param name The name for this resource.
+    #' @param abilities A list of abilities this Pokémon could potentially have.
+    #' @param past_abilities A list of details showing abilities this pokémon had in previous generations
+    #' @param forms A list of forms this Pokémon can take on.
+    #' @param game_indices A list of game indices relevent to Pokémon item by generation.
+    #' @param held_items A list of items this Pokémon may be holding when encountered.
+    #' @param location_area_encounters A link to a list of location areas, as well as encounter details pertaining to specific versions.
+    #' @param moves A list of moves along with learn methods and level details pertaining to specific version groups.
+    #' @param species The species this Pokémon belongs to.
+    #' @param sprites A set of sprites used to depict this Pokémon in the game. A visual representation of the various sprites can be found at <a href='https://github.com/PokeAPI/sprites#sprites'>PokeAPI/sprites</a>
+    #' @param cries A set of cries used to depict this Pokémon in the game. A visual representation of the various cries can be found at <a href='https://github.com/PokeAPI/cries#cries'>PokeAPI/cries</a>
+    #' @param stats A list of base stat values for this Pokémon.
+    #' @param past_stats A list of details showing stats this pokémon had in previous generations
+    #' @param types A list of details showing types this Pokémon has.
+    #' @param past_types A list of details showing types this pokémon had in previous generations
+    #' @param base_experience The base experience gained for defeating this Pokémon.
+    #' @param height The height of this Pokémon in decimetres.
+    #' @param is_default Set for exactly one Pokémon used as the default for each species.
+    #' @param order Order for sorting. Almost national order, except families are grouped together.
+    #' @param weight The weight of this Pokémon in hectograms.
     #' @param ... Other optional arguments.
-    initialize = function(`id`, `name`, `abilities`, `past_abilities`, `forms`, `game_indices`, `held_items`, `location_area_encounters`, `moves`, `species`, `sprites`, `cries`, `stats`, `types`, `past_types`, `base_experience` = NULL, `height` = NULL, `is_default` = NULL, `order` = NULL, `weight` = NULL, ...) {
+    initialize = function(`id`, `name`, `abilities`, `past_abilities`, `forms`, `game_indices`, `held_items`, `location_area_encounters`, `moves`, `species`, `sprites`, `cries`, `stats`, `past_stats`, `types`, `past_types`, `base_experience` = NULL, `height` = NULL, `is_default` = NULL, `order` = NULL, `weight` = NULL, ...) {
       if (!missing(`id`)) {
         if (!(is.numeric(`id`) && length(`id`) == 1)) {
           stop(paste("Error! Invalid data for `id`. Must be an integer:", `id`))
@@ -112,7 +115,8 @@ PokemonDetail <- R6::R6Class(
         self$`game_indices` <- `game_indices`
       }
       if (!missing(`held_items`)) {
-        stopifnot(R6::is.R6(`held_items`))
+        stopifnot(is.vector(`held_items`), length(`held_items`) != 0)
+        sapply(`held_items`, function(x) stopifnot(R6::is.R6(x)))
         self$`held_items` <- `held_items`
       }
       if (!missing(`location_area_encounters`)) {
@@ -142,6 +146,11 @@ PokemonDetail <- R6::R6Class(
         stopifnot(is.vector(`stats`), length(`stats`) != 0)
         sapply(`stats`, function(x) stopifnot(R6::is.R6(x)))
         self$`stats` <- `stats`
+      }
+      if (!missing(`past_stats`)) {
+        stopifnot(is.vector(`past_stats`), length(`past_stats`) != 0)
+        sapply(`past_stats`, function(x) stopifnot(R6::is.R6(x)))
+        self$`past_stats` <- `past_stats`
       }
       if (!missing(`types`)) {
         stopifnot(is.vector(`types`), length(`types`) != 0)
@@ -288,6 +297,10 @@ PokemonDetail <- R6::R6Class(
         PokemonDetailObject[["stats"]] <-
           self$extractSimpleType(self$`stats`)
       }
+      if (!is.null(self$`past_stats`)) {
+        PokemonDetailObject[["past_stats"]] <-
+          self$extractSimpleType(self$`past_stats`)
+      }
       if (!is.null(self$`types`)) {
         PokemonDetailObject[["types"]] <-
           self$extractSimpleType(self$`types`)
@@ -351,10 +364,10 @@ PokemonDetail <- R6::R6Class(
         self$`weight` <- this_object$`weight`
       }
       if (!is.null(this_object$`abilities`)) {
-        self$`abilities` <- ApiClient$new()$deserializeObj(this_object$`abilities`, "array[PokemonDetailAbilitiesInner]", loadNamespace("openapi"))
+        self$`abilities` <- ApiClient$new()$deserializeObj(this_object$`abilities`, "array[PokemonAbility]", loadNamespace("openapi"))
       }
       if (!is.null(this_object$`past_abilities`)) {
-        self$`past_abilities` <- ApiClient$new()$deserializeObj(this_object$`past_abilities`, "array[PokemonDetailPastAbilitiesInner]", loadNamespace("openapi"))
+        self$`past_abilities` <- ApiClient$new()$deserializeObj(this_object$`past_abilities`, "array[PokemonPastAbility]", loadNamespace("openapi"))
       }
       if (!is.null(this_object$`forms`)) {
         self$`forms` <- ApiClient$new()$deserializeObj(this_object$`forms`, "array[PokemonFormSummary]", loadNamespace("openapi"))
@@ -363,15 +376,13 @@ PokemonDetail <- R6::R6Class(
         self$`game_indices` <- ApiClient$new()$deserializeObj(this_object$`game_indices`, "array[PokemonGameIndex]", loadNamespace("openapi"))
       }
       if (!is.null(this_object$`held_items`)) {
-        `held_items_object` <- PokemonDetailHeldItems$new()
-        `held_items_object`$fromJSON(jsonlite::toJSON(this_object$`held_items`, auto_unbox = TRUE, digits = NA))
-        self$`held_items` <- `held_items_object`
+        self$`held_items` <- ApiClient$new()$deserializeObj(this_object$`held_items`, "array[PokemonHeldItemSummary]", loadNamespace("openapi"))
       }
       if (!is.null(this_object$`location_area_encounters`)) {
         self$`location_area_encounters` <- this_object$`location_area_encounters`
       }
       if (!is.null(this_object$`moves`)) {
-        self$`moves` <- ApiClient$new()$deserializeObj(this_object$`moves`, "array[PokemonDetailMovesInner]", loadNamespace("openapi"))
+        self$`moves` <- ApiClient$new()$deserializeObj(this_object$`moves`, "array[PokemonMove]", loadNamespace("openapi"))
       }
       if (!is.null(this_object$`species`)) {
         `species_object` <- PokemonSpeciesSummary$new()
@@ -379,23 +390,26 @@ PokemonDetail <- R6::R6Class(
         self$`species` <- `species_object`
       }
       if (!is.null(this_object$`sprites`)) {
-        `sprites_object` <- PokemonDetailSprites$new()
+        `sprites_object` <- PokemonSprites$new()
         `sprites_object`$fromJSON(jsonlite::toJSON(this_object$`sprites`, auto_unbox = TRUE, digits = NA))
         self$`sprites` <- `sprites_object`
       }
       if (!is.null(this_object$`cries`)) {
-        `cries_object` <- PokemonDetailCries$new()
+        `cries_object` <- PokemonCries$new()
         `cries_object`$fromJSON(jsonlite::toJSON(this_object$`cries`, auto_unbox = TRUE, digits = NA))
         self$`cries` <- `cries_object`
       }
       if (!is.null(this_object$`stats`)) {
         self$`stats` <- ApiClient$new()$deserializeObj(this_object$`stats`, "array[PokemonStat]", loadNamespace("openapi"))
       }
+      if (!is.null(this_object$`past_stats`)) {
+        self$`past_stats` <- ApiClient$new()$deserializeObj(this_object$`past_stats`, "array[PokemonPastStat]", loadNamespace("openapi"))
+      }
       if (!is.null(this_object$`types`)) {
-        self$`types` <- ApiClient$new()$deserializeObj(this_object$`types`, "array[PokemonDetailTypesInner]", loadNamespace("openapi"))
+        self$`types` <- ApiClient$new()$deserializeObj(this_object$`types`, "array[PokemonType]", loadNamespace("openapi"))
       }
       if (!is.null(this_object$`past_types`)) {
-        self$`past_types` <- ApiClient$new()$deserializeObj(this_object$`past_types`, "array[PokemonDetailPastTypesInner]", loadNamespace("openapi"))
+        self$`past_types` <- ApiClient$new()$deserializeObj(this_object$`past_types`, "array[PokemonPastType]", loadNamespace("openapi"))
       }
       self
     },
@@ -425,19 +439,20 @@ PokemonDetail <- R6::R6Class(
       self$`is_default` <- this_object$`is_default`
       self$`order` <- this_object$`order`
       self$`weight` <- this_object$`weight`
-      self$`abilities` <- ApiClient$new()$deserializeObj(this_object$`abilities`, "array[PokemonDetailAbilitiesInner]", loadNamespace("openapi"))
-      self$`past_abilities` <- ApiClient$new()$deserializeObj(this_object$`past_abilities`, "array[PokemonDetailPastAbilitiesInner]", loadNamespace("openapi"))
+      self$`abilities` <- ApiClient$new()$deserializeObj(this_object$`abilities`, "array[PokemonAbility]", loadNamespace("openapi"))
+      self$`past_abilities` <- ApiClient$new()$deserializeObj(this_object$`past_abilities`, "array[PokemonPastAbility]", loadNamespace("openapi"))
       self$`forms` <- ApiClient$new()$deserializeObj(this_object$`forms`, "array[PokemonFormSummary]", loadNamespace("openapi"))
       self$`game_indices` <- ApiClient$new()$deserializeObj(this_object$`game_indices`, "array[PokemonGameIndex]", loadNamespace("openapi"))
-      self$`held_items` <- PokemonDetailHeldItems$new()$fromJSON(jsonlite::toJSON(this_object$`held_items`, auto_unbox = TRUE, digits = NA))
+      self$`held_items` <- ApiClient$new()$deserializeObj(this_object$`held_items`, "array[PokemonHeldItemSummary]", loadNamespace("openapi"))
       self$`location_area_encounters` <- this_object$`location_area_encounters`
-      self$`moves` <- ApiClient$new()$deserializeObj(this_object$`moves`, "array[PokemonDetailMovesInner]", loadNamespace("openapi"))
+      self$`moves` <- ApiClient$new()$deserializeObj(this_object$`moves`, "array[PokemonMove]", loadNamespace("openapi"))
       self$`species` <- PokemonSpeciesSummary$new()$fromJSON(jsonlite::toJSON(this_object$`species`, auto_unbox = TRUE, digits = NA))
-      self$`sprites` <- PokemonDetailSprites$new()$fromJSON(jsonlite::toJSON(this_object$`sprites`, auto_unbox = TRUE, digits = NA))
-      self$`cries` <- PokemonDetailCries$new()$fromJSON(jsonlite::toJSON(this_object$`cries`, auto_unbox = TRUE, digits = NA))
+      self$`sprites` <- PokemonSprites$new()$fromJSON(jsonlite::toJSON(this_object$`sprites`, auto_unbox = TRUE, digits = NA))
+      self$`cries` <- PokemonCries$new()$fromJSON(jsonlite::toJSON(this_object$`cries`, auto_unbox = TRUE, digits = NA))
       self$`stats` <- ApiClient$new()$deserializeObj(this_object$`stats`, "array[PokemonStat]", loadNamespace("openapi"))
-      self$`types` <- ApiClient$new()$deserializeObj(this_object$`types`, "array[PokemonDetailTypesInner]", loadNamespace("openapi"))
-      self$`past_types` <- ApiClient$new()$deserializeObj(this_object$`past_types`, "array[PokemonDetailPastTypesInner]", loadNamespace("openapi"))
+      self$`past_stats` <- ApiClient$new()$deserializeObj(this_object$`past_stats`, "array[PokemonPastStat]", loadNamespace("openapi"))
+      self$`types` <- ApiClient$new()$deserializeObj(this_object$`types`, "array[PokemonType]", loadNamespace("openapi"))
+      self$`past_types` <- ApiClient$new()$deserializeObj(this_object$`past_types`, "array[PokemonPastType]", loadNamespace("openapi"))
       self
     },
 
@@ -493,7 +508,8 @@ PokemonDetail <- R6::R6Class(
       }
       # check the required field `held_items`
       if (!is.null(input_json$`held_items`)) {
-        stopifnot(R6::is.R6(input_json$`held_items`))
+        stopifnot(is.vector(input_json$`held_items`), length(input_json$`held_items`) != 0)
+        tmp <- sapply(input_json$`held_items`, function(x) stopifnot(R6::is.R6(x)))
       } else {
         stop(paste("The JSON input `", input, "` is invalid for PokemonDetail: the required field `held_items` is missing."))
       }
@@ -537,6 +553,13 @@ PokemonDetail <- R6::R6Class(
       } else {
         stop(paste("The JSON input `", input, "` is invalid for PokemonDetail: the required field `stats` is missing."))
       }
+      # check the required field `past_stats`
+      if (!is.null(input_json$`past_stats`)) {
+        stopifnot(is.vector(input_json$`past_stats`), length(input_json$`past_stats`) != 0)
+        tmp <- sapply(input_json$`past_stats`, function(x) stopifnot(R6::is.R6(x)))
+      } else {
+        stop(paste("The JSON input `", input, "` is invalid for PokemonDetail: the required field `past_stats` is missing."))
+      }
       # check the required field `types`
       if (!is.null(input_json$`types`)) {
         stopifnot(is.vector(input_json$`types`), length(input_json$`types`) != 0)
@@ -576,7 +599,35 @@ PokemonDetail <- R6::R6Class(
         return(FALSE)
       }
 
-      if (nchar(self$`name`) > 100) {
+      if (nchar(self$`name`) > 200) {
+        return(FALSE)
+      }
+
+      if (self$`base_experience` > 2147483647) {
+        return(FALSE)
+      }
+      if (self$`base_experience` < -2147483648) {
+        return(FALSE)
+      }
+
+      if (self$`height` > 2147483647) {
+        return(FALSE)
+      }
+      if (self$`height` < -2147483648) {
+        return(FALSE)
+      }
+
+      if (self$`order` > 2147483647) {
+        return(FALSE)
+      }
+      if (self$`order` < -2147483648) {
+        return(FALSE)
+      }
+
+      if (self$`weight` > 2147483647) {
+        return(FALSE)
+      }
+      if (self$`weight` < -2147483648) {
         return(FALSE)
       }
 
@@ -635,6 +686,11 @@ PokemonDetail <- R6::R6Class(
         return(FALSE)
       }
 
+      # check if the required `past_stats` is null
+      if (is.null(self$`past_stats`)) {
+        return(FALSE)
+      }
+
       # check if the required `types` is null
       if (is.null(self$`types`)) {
         return(FALSE)
@@ -664,8 +720,36 @@ PokemonDetail <- R6::R6Class(
         invalid_fields["name"] <- "Non-nullable required field `name` cannot be null."
       }
 
-      if (nchar(self$`name`) > 100) {
-        invalid_fields["name"] <- "Invalid length for `name`, must be smaller than or equal to 100."
+      if (nchar(self$`name`) > 200) {
+        invalid_fields["name"] <- "Invalid length for `name`, must be smaller than or equal to 200."
+      }
+
+      if (self$`base_experience` > 2147483647) {
+        invalid_fields["base_experience"] <- "Invalid value for `base_experience`, must be smaller than or equal to 2147483647."
+      }
+      if (self$`base_experience` < -2147483648) {
+        invalid_fields["base_experience"] <- "Invalid value for `base_experience`, must be bigger than or equal to -2147483648."
+      }
+
+      if (self$`height` > 2147483647) {
+        invalid_fields["height"] <- "Invalid value for `height`, must be smaller than or equal to 2147483647."
+      }
+      if (self$`height` < -2147483648) {
+        invalid_fields["height"] <- "Invalid value for `height`, must be bigger than or equal to -2147483648."
+      }
+
+      if (self$`order` > 2147483647) {
+        invalid_fields["order"] <- "Invalid value for `order`, must be smaller than or equal to 2147483647."
+      }
+      if (self$`order` < -2147483648) {
+        invalid_fields["order"] <- "Invalid value for `order`, must be bigger than or equal to -2147483648."
+      }
+
+      if (self$`weight` > 2147483647) {
+        invalid_fields["weight"] <- "Invalid value for `weight`, must be smaller than or equal to 2147483647."
+      }
+      if (self$`weight` < -2147483648) {
+        invalid_fields["weight"] <- "Invalid value for `weight`, must be bigger than or equal to -2147483648."
       }
 
       # check if the required `abilities` is null
@@ -721,6 +805,11 @@ PokemonDetail <- R6::R6Class(
       # check if the required `stats` is null
       if (is.null(self$`stats`)) {
         invalid_fields["stats"] <- "Non-nullable required field `stats` cannot be null."
+      }
+
+      # check if the required `past_stats` is null
+      if (is.null(self$`past_stats`)) {
+        invalid_fields["past_stats"] <- "Non-nullable required field `past_stats` cannot be null."
       }
 
       # check if the required `types` is null

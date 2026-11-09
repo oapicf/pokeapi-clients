@@ -14,7 +14,7 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 import io.swagger.annotations.*;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2026-10-25T05:48:53.778376553Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2026-11-09T13:50:03.149615362Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class LanguageDetail   {
   
   private Integer id;
@@ -25,9 +25,10 @@ public class LanguageDetail   {
   private List<@Valid LanguageName> names = new ArrayList<>();
 
   /**
+   * The identifier for this resource.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   @JsonProperty("id")
   @NotNull
   public Integer getId() {
@@ -38,12 +39,13 @@ public class LanguageDetail   {
   }
 
   /**
+   * The name for this resource.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   @JsonProperty("name")
   @NotNull
- @Size(max=100)  public String getName() {
+ @Size(max=200)  public String getName() {
     return name;
   }
   public void setName(String name) {
@@ -51,9 +53,10 @@ public class LanguageDetail   {
   }
 
   /**
+   * Whether or not the games are published in this language.
    **/
   
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Whether or not the games are published in this language.")
   @JsonProperty("official")
   public Boolean getOfficial() {
     return official;
@@ -63,9 +66,10 @@ public class LanguageDetail   {
   }
 
   /**
+   * The two-letter ISO 639-1 language code. Multiple PokéAPI language records may share this code.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The two-letter ISO 639-1 language code. Multiple PokéAPI language records may share this code.")
   @JsonProperty("iso639")
   @NotNull
  @Size(max=10)  public String getIso639() {
@@ -76,9 +80,10 @@ public class LanguageDetail   {
   }
 
   /**
+   * The two-letter ISO 3166-1 alpha-2 code of the country or region associated with this language record. Multiple PokéAPI language records may share this code.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The two-letter ISO 3166-1 alpha-2 code of the country or region associated with this language record. Multiple PokéAPI language records may share this code.")
   @JsonProperty("iso3166")
   @NotNull
  @Size(max=2)  public String getIso3166() {
@@ -89,9 +94,10 @@ public class LanguageDetail   {
   }
 
   /**
+   * The name of this resource listed in different languages.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
   @JsonProperty("names")
   @NotNull
   public List<@Valid LanguageName> getNames() {

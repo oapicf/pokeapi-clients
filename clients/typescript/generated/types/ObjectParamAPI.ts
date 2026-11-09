@@ -5,21 +5,18 @@ import type { Middleware } from '../middleware';
 import { AbilityChange } from '../models/AbilityChange';
 import { AbilityChangeEffectText } from '../models/AbilityChangeEffectText';
 import { AbilityDetail } from '../models/AbilityDetail';
-import { AbilityDetailPokemonInner } from '../models/AbilityDetailPokemonInner';
-import { AbilityDetailPokemonInnerPokemon } from '../models/AbilityDetailPokemonInnerPokemon';
 import { AbilityEffectText } from '../models/AbilityEffectText';
 import { AbilityFlavorText } from '../models/AbilityFlavorText';
 import { AbilityName } from '../models/AbilityName';
+import { AbilityPokemonDetail } from '../models/AbilityPokemonDetail';
 import { AbilitySummary } from '../models/AbilitySummary';
 import { BerryDetail } from '../models/BerryDetail';
-import { BerryDetailFlavorsInner } from '../models/BerryDetailFlavorsInner';
-import { BerryDetailFlavorsInnerFlavor } from '../models/BerryDetailFlavorsInnerFlavor';
 import { BerryFirmnessDetail } from '../models/BerryFirmnessDetail';
 import { BerryFirmnessName } from '../models/BerryFirmnessName';
 import { BerryFirmnessSummary } from '../models/BerryFirmnessSummary';
+import { BerryFlavorBerryMap } from '../models/BerryFlavorBerryMap';
 import { BerryFlavorDetail } from '../models/BerryFlavorDetail';
-import { BerryFlavorDetailBerriesInner } from '../models/BerryFlavorDetailBerriesInner';
-import { BerryFlavorDetailBerriesInnerBerry } from '../models/BerryFlavorDetailBerriesInnerBerry';
+import { BerryFlavorMap } from '../models/BerryFlavorMap';
 import { BerryFlavorName } from '../models/BerryFlavorName';
 import { BerryFlavorSummary } from '../models/BerryFlavorSummary';
 import { BerrySummary } from '../models/BerrySummary';
@@ -33,8 +30,10 @@ import { ContestEffectSummary } from '../models/ContestEffectSummary';
 import { ContestTypeDetail } from '../models/ContestTypeDetail';
 import { ContestTypeName } from '../models/ContestTypeName';
 import { ContestTypeSummary } from '../models/ContestTypeSummary';
+import { CurrencyDetail } from '../models/CurrencyDetail';
+import { CurrencyName } from '../models/CurrencyName';
+import { CurrencySummary } from '../models/CurrencySummary';
 import { EggGroupDetail } from '../models/EggGroupDetail';
-import { EggGroupDetailPokemonSpeciesInner } from '../models/EggGroupDetailPokemonSpeciesInner';
 import { EggGroupName } from '../models/EggGroupName';
 import { EggGroupSummary } from '../models/EggGroupSummary';
 import { EncounterConditionDetail } from '../models/EncounterConditionDetail';
@@ -46,18 +45,21 @@ import { EncounterConditionValueSummary } from '../models/EncounterConditionValu
 import { EncounterMethodDetail } from '../models/EncounterMethodDetail';
 import { EncounterMethodName } from '../models/EncounterMethodName';
 import { EncounterMethodSummary } from '../models/EncounterMethodSummary';
+import { EncounterPokemonDetail } from '../models/EncounterPokemonDetail';
 import { EvolutionChainDetail } from '../models/EvolutionChainDetail';
-import { EvolutionChainDetailChain } from '../models/EvolutionChainDetailChain';
-import { EvolutionChainDetailChainEvolvesToInner } from '../models/EvolutionChainDetailChainEvolvesToInner';
-import { EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner } from '../models/EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner';
-import { EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender } from '../models/EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender';
+import { EvolutionChainLink } from '../models/EvolutionChainLink';
 import { EvolutionChainSummary } from '../models/EvolutionChainSummary';
+import { EvolutionConditionExpression } from '../models/EvolutionConditionExpression';
 import { EvolutionTriggerDetail } from '../models/EvolutionTriggerDetail';
 import { EvolutionTriggerName } from '../models/EvolutionTriggerName';
 import { EvolutionTriggerSummary } from '../models/EvolutionTriggerSummary';
+import { EvolutionVariableDescription } from '../models/EvolutionVariableDescription';
+import { EvolutionVariableDetail } from '../models/EvolutionVariableDetail';
+import { EvolutionVariableName } from '../models/EvolutionVariableName';
+import { EvolutionVariableSummary } from '../models/EvolutionVariableSummary';
 import { Experience } from '../models/Experience';
 import { GenderDetail } from '../models/GenderDetail';
-import { GenderDetailPokemonSpeciesDetailsInner } from '../models/GenderDetailPokemonSpeciesDetailsInner';
+import { GenderPokemonSpecies } from '../models/GenderPokemonSpecies';
 import { GenderSummary } from '../models/GenderSummary';
 import { GenerationDetail } from '../models/GenerationDetail';
 import { GenerationName } from '../models/GenerationName';
@@ -73,32 +75,30 @@ import { ItemCategoryDetail } from '../models/ItemCategoryDetail';
 import { ItemCategoryName } from '../models/ItemCategoryName';
 import { ItemCategorySummary } from '../models/ItemCategorySummary';
 import { ItemDetail } from '../models/ItemDetail';
-import { ItemDetailBabyTriggerFor } from '../models/ItemDetailBabyTriggerFor';
-import { ItemDetailHeldByPokemonInner } from '../models/ItemDetailHeldByPokemonInner';
-import { ItemDetailHeldByPokemonInnerVersionDetailsInner } from '../models/ItemDetailHeldByPokemonInnerVersionDetailsInner';
-import { ItemDetailMachinesInner } from '../models/ItemDetailMachinesInner';
-import { ItemDetailSprites } from '../models/ItemDetailSprites';
 import { ItemEffectText } from '../models/ItemEffectText';
 import { ItemFlavorText } from '../models/ItemFlavorText';
 import { ItemFlingEffectDetail } from '../models/ItemFlingEffectDetail';
 import { ItemFlingEffectEffectText } from '../models/ItemFlingEffectEffectText';
 import { ItemFlingEffectSummary } from '../models/ItemFlingEffectSummary';
 import { ItemGameIndex } from '../models/ItemGameIndex';
+import { ItemMachine } from '../models/ItemMachine';
 import { ItemName } from '../models/ItemName';
 import { ItemPocketDetail } from '../models/ItemPocketDetail';
 import { ItemPocketName } from '../models/ItemPocketName';
 import { ItemPocketSummary } from '../models/ItemPocketSummary';
+import { ItemPrice } from '../models/ItemPrice';
+import { ItemSprites } from '../models/ItemSprites';
 import { ItemSummary } from '../models/ItemSummary';
 import { LanguageDetail } from '../models/LanguageDetail';
 import { LanguageName } from '../models/LanguageName';
 import { LanguageSummary } from '../models/LanguageSummary';
 import { LocationAreaDetail } from '../models/LocationAreaDetail';
-import { LocationAreaDetailEncounterMethodRatesInner } from '../models/LocationAreaDetailEncounterMethodRatesInner';
-import { LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner } from '../models/LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner';
-import { LocationAreaDetailPokemonEncountersInner } from '../models/LocationAreaDetailPokemonEncountersInner';
-import { LocationAreaDetailPokemonEncountersInnerVersionDetailsInner } from '../models/LocationAreaDetailPokemonEncountersInnerVersionDetailsInner';
-import { LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails } from '../models/LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails';
+import { LocationAreaEncounterDetail } from '../models/LocationAreaEncounterDetail';
+import { LocationAreaEncounterRate } from '../models/LocationAreaEncounterRate';
+import { LocationAreaEncounterVersionDetail } from '../models/LocationAreaEncounterVersionDetail';
 import { LocationAreaName } from '../models/LocationAreaName';
+import { LocationAreaPokemonEncounter } from '../models/LocationAreaPokemonEncounter';
+import { LocationAreaPokemonEncounterVersion } from '../models/LocationAreaPokemonEncounterVersion';
 import { LocationAreaSummary } from '../models/LocationAreaSummary';
 import { LocationDetail } from '../models/LocationDetail';
 import { LocationGameIndex } from '../models/LocationGameIndex';
@@ -110,19 +110,16 @@ import { MoveBattleStyleDetail } from '../models/MoveBattleStyleDetail';
 import { MoveBattleStyleName } from '../models/MoveBattleStyleName';
 import { MoveBattleStyleSummary } from '../models/MoveBattleStyleSummary';
 import { MoveChange } from '../models/MoveChange';
-import { MoveChangeEffectEntriesInner } from '../models/MoveChangeEffectEntriesInner';
+import { MoveComboUsage } from '../models/MoveComboUsage';
+import { MoveCombos } from '../models/MoveCombos';
 import { MoveDamageClassDescription } from '../models/MoveDamageClassDescription';
 import { MoveDamageClassDetail } from '../models/MoveDamageClassDetail';
 import { MoveDamageClassName } from '../models/MoveDamageClassName';
 import { MoveDamageClassSummary } from '../models/MoveDamageClassSummary';
 import { MoveDetail } from '../models/MoveDetail';
-import { MoveDetailContestCombos } from '../models/MoveDetailContestCombos';
-import { MoveDetailContestCombosNormal } from '../models/MoveDetailContestCombosNormal';
-import { MoveDetailEffectChangesInner } from '../models/MoveDetailEffectChangesInner';
-import { MoveDetailEffectChangesInnerEffectEntriesInner } from '../models/MoveDetailEffectChangesInnerEffectEntriesInner';
-import { MoveDetailMachinesInner } from '../models/MoveDetailMachinesInner';
-import { MoveDetailMachinesInnerMachine } from '../models/MoveDetailMachinesInnerMachine';
-import { MoveDetailStatChangesInner } from '../models/MoveDetailStatChangesInner';
+import { MoveEffectChange } from '../models/MoveEffectChange';
+import { MoveEffectChangeEffectText } from '../models/MoveEffectChangeEffectText';
+import { MoveEffectEffectText } from '../models/MoveEffectEffectText';
 import { MoveFlavorText } from '../models/MoveFlavorText';
 import { MoveLearnMethodDescription } from '../models/MoveLearnMethodDescription';
 import { MoveLearnMethodDetail } from '../models/MoveLearnMethodDetail';
@@ -135,7 +132,9 @@ import { MoveMetaAilmentSummary } from '../models/MoveMetaAilmentSummary';
 import { MoveMetaCategoryDescription } from '../models/MoveMetaCategoryDescription';
 import { MoveMetaCategoryDetail } from '../models/MoveMetaCategoryDetail';
 import { MoveMetaCategorySummary } from '../models/MoveMetaCategorySummary';
+import { MoveMetaStatChange } from '../models/MoveMetaStatChange';
 import { MoveName } from '../models/MoveName';
+import { MoveStatChange } from '../models/MoveStatChange';
 import { MoveSummary } from '../models/MoveSummary';
 import { MoveTargetDescription } from '../models/MoveTargetDescription';
 import { MoveTargetDetail } from '../models/MoveTargetDetail';
@@ -143,8 +142,8 @@ import { MoveTargetName } from '../models/MoveTargetName';
 import { MoveTargetSummary } from '../models/MoveTargetSummary';
 import { NatureBattleStylePreference } from '../models/NatureBattleStylePreference';
 import { NatureDetail } from '../models/NatureDetail';
-import { NatureDetailPokeathlonStatChangesInner } from '../models/NatureDetailPokeathlonStatChangesInner';
 import { NatureName } from '../models/NatureName';
+import { NaturePokeathlonStat } from '../models/NaturePokeathlonStat';
 import { NatureSummary } from '../models/NatureSummary';
 import { PaginatedAbilitySummaryList } from '../models/PaginatedAbilitySummaryList';
 import { PaginatedBerryFirmnessSummaryList } from '../models/PaginatedBerryFirmnessSummaryList';
@@ -153,12 +152,14 @@ import { PaginatedBerrySummaryList } from '../models/PaginatedBerrySummaryList';
 import { PaginatedCharacteristicSummaryList } from '../models/PaginatedCharacteristicSummaryList';
 import { PaginatedContestEffectSummaryList } from '../models/PaginatedContestEffectSummaryList';
 import { PaginatedContestTypeSummaryList } from '../models/PaginatedContestTypeSummaryList';
+import { PaginatedCurrencySummaryList } from '../models/PaginatedCurrencySummaryList';
 import { PaginatedEggGroupSummaryList } from '../models/PaginatedEggGroupSummaryList';
 import { PaginatedEncounterConditionSummaryList } from '../models/PaginatedEncounterConditionSummaryList';
 import { PaginatedEncounterConditionValueSummaryList } from '../models/PaginatedEncounterConditionValueSummaryList';
 import { PaginatedEncounterMethodSummaryList } from '../models/PaginatedEncounterMethodSummaryList';
 import { PaginatedEvolutionChainSummaryList } from '../models/PaginatedEvolutionChainSummaryList';
 import { PaginatedEvolutionTriggerSummaryList } from '../models/PaginatedEvolutionTriggerSummaryList';
+import { PaginatedEvolutionVariableSummaryList } from '../models/PaginatedEvolutionVariableSummaryList';
 import { PaginatedGenderSummaryList } from '../models/PaginatedGenderSummaryList';
 import { PaginatedGenerationSummaryList } from '../models/PaginatedGenerationSummaryList';
 import { PaginatedGrowthRateSummaryList } from '../models/PaginatedGrowthRateSummaryList';
@@ -195,75 +196,91 @@ import { PaginatedTypeSummaryList } from '../models/PaginatedTypeSummaryList';
 import { PaginatedVersionGroupSummaryList } from '../models/PaginatedVersionGroupSummaryList';
 import { PaginatedVersionSummaryList } from '../models/PaginatedVersionSummaryList';
 import { PalParkAreaDetail } from '../models/PalParkAreaDetail';
-import { PalParkAreaDetailPokemonEncountersInner } from '../models/PalParkAreaDetailPokemonEncountersInner';
 import { PalParkAreaName } from '../models/PalParkAreaName';
 import { PalParkAreaSummary } from '../models/PalParkAreaSummary';
+import { PalParkEncounter } from '../models/PalParkEncounter';
+import { PokeapiMetaResponse } from '../models/PokeapiMetaResponse';
+import { PokeathlonStatAffectingNature } from '../models/PokeathlonStatAffectingNature';
+import { PokeathlonStatAffectingNatures } from '../models/PokeathlonStatAffectingNatures';
 import { PokeathlonStatDetail } from '../models/PokeathlonStatDetail';
-import { PokeathlonStatDetailAffectingNatures } from '../models/PokeathlonStatDetailAffectingNatures';
-import { PokeathlonStatDetailAffectingNaturesDecreaseInner } from '../models/PokeathlonStatDetailAffectingNaturesDecreaseInner';
-import { PokeathlonStatDetailAffectingNaturesIncreaseInner } from '../models/PokeathlonStatDetailAffectingNaturesIncreaseInner';
 import { PokeathlonStatName } from '../models/PokeathlonStatName';
 import { PokeathlonStatSummary } from '../models/PokeathlonStatSummary';
 import { PokedexDescription } from '../models/PokedexDescription';
 import { PokedexDetail } from '../models/PokedexDetail';
-import { PokedexDetailPokemonEntriesInner } from '../models/PokedexDetailPokemonEntriesInner';
 import { PokedexName } from '../models/PokedexName';
 import { PokedexSummary } from '../models/PokedexSummary';
+import { PokemonAbility } from '../models/PokemonAbility';
+import { PokemonAbilityPast } from '../models/PokemonAbilityPast';
 import { PokemonColorDetail } from '../models/PokemonColorDetail';
 import { PokemonColorName } from '../models/PokemonColorName';
 import { PokemonColorSummary } from '../models/PokemonColorSummary';
+import { PokemonCries } from '../models/PokemonCries';
 import { PokemonDetail } from '../models/PokemonDetail';
-import { PokemonDetailAbilitiesInner } from '../models/PokemonDetailAbilitiesInner';
-import { PokemonDetailCries } from '../models/PokemonDetailCries';
-import { PokemonDetailHeldItems } from '../models/PokemonDetailHeldItems';
-import { PokemonDetailMovesInner } from '../models/PokemonDetailMovesInner';
-import { PokemonDetailMovesInnerVersionGroupDetailsInner } from '../models/PokemonDetailMovesInnerVersionGroupDetailsInner';
-import { PokemonDetailPastAbilitiesInner } from '../models/PokemonDetailPastAbilitiesInner';
-import { PokemonDetailPastTypesInner } from '../models/PokemonDetailPastTypesInner';
-import { PokemonDetailSprites } from '../models/PokemonDetailSprites';
-import { PokemonDetailTypesInner } from '../models/PokemonDetailTypesInner';
 import { PokemonDexEntry } from '../models/PokemonDexEntry';
+import { PokemonDexNumber } from '../models/PokemonDexNumber';
+import { PokemonEncounterDetailResponse } from '../models/PokemonEncounterDetailResponse';
+import { PokemonEncounterResponse } from '../models/PokemonEncounterResponse';
+import { PokemonEncounterVersionDetailResponse } from '../models/PokemonEncounterVersionDetailResponse';
+import { PokemonEvolution } from '../models/PokemonEvolution';
+import { PokemonEvolutionKnownMove } from '../models/PokemonEvolutionKnownMove';
 import { PokemonFormDetail } from '../models/PokemonFormDetail';
-import { PokemonFormDetailFormNamesInner } from '../models/PokemonFormDetailFormNamesInner';
-import { PokemonFormDetailSprites } from '../models/PokemonFormDetailSprites';
+import { PokemonFormFlavorText } from '../models/PokemonFormFlavorText';
+import { PokemonFormName } from '../models/PokemonFormName';
+import { PokemonFormSprites } from '../models/PokemonFormSprites';
 import { PokemonFormSummary } from '../models/PokemonFormSummary';
+import { PokemonFormTriggerCondition } from '../models/PokemonFormTriggerCondition';
+import { PokemonFormType } from '../models/PokemonFormType';
 import { PokemonGameIndex } from '../models/PokemonGameIndex';
 import { PokemonHabitatDetail } from '../models/PokemonHabitatDetail';
 import { PokemonHabitatName } from '../models/PokemonHabitatName';
 import { PokemonHabitatSummary } from '../models/PokemonHabitatSummary';
+import { PokemonHeldItem } from '../models/PokemonHeldItem';
+import { PokemonHeldItemSummary } from '../models/PokemonHeldItemSummary';
+import { PokemonHeldItemVersion } from '../models/PokemonHeldItemVersion';
+import { PokemonMove } from '../models/PokemonMove';
+import { PokemonMoveVersionGroup } from '../models/PokemonMoveVersionGroup';
+import { PokemonPastAbility } from '../models/PokemonPastAbility';
+import { PokemonPastStat } from '../models/PokemonPastStat';
+import { PokemonPastType } from '../models/PokemonPastType';
+import { PokemonShapeAwesomeName } from '../models/PokemonShapeAwesomeName';
 import { PokemonShapeDetail } from '../models/PokemonShapeDetail';
-import { PokemonShapeDetailAwesomeNamesInner } from '../models/PokemonShapeDetailAwesomeNamesInner';
-import { PokemonShapeDetailNamesInner } from '../models/PokemonShapeDetailNamesInner';
+import { PokemonShapeName } from '../models/PokemonShapeName';
 import { PokemonShapeSummary } from '../models/PokemonShapeSummary';
 import { PokemonSpeciesDescription } from '../models/PokemonSpeciesDescription';
 import { PokemonSpeciesDetail } from '../models/PokemonSpeciesDetail';
-import { PokemonSpeciesDetailGeneraInner } from '../models/PokemonSpeciesDetailGeneraInner';
-import { PokemonSpeciesDetailPalParkEncountersInner } from '../models/PokemonSpeciesDetailPalParkEncountersInner';
-import { PokemonSpeciesDetailVarietiesInner } from '../models/PokemonSpeciesDetailVarietiesInner';
 import { PokemonSpeciesFlavorText } from '../models/PokemonSpeciesFlavorText';
+import { PokemonSpeciesGenus } from '../models/PokemonSpeciesGenus';
+import { PokemonSpeciesName } from '../models/PokemonSpeciesName';
+import { PokemonSpeciesPalParkEncounter } from '../models/PokemonSpeciesPalParkEncounter';
 import { PokemonSpeciesSummary } from '../models/PokemonSpeciesSummary';
+import { PokemonSpeciesVariety } from '../models/PokemonSpeciesVariety';
+import { PokemonSprites } from '../models/PokemonSprites';
+import { PokemonSpritesOther } from '../models/PokemonSpritesOther';
+import { PokemonSpritesOtherDreamWorld } from '../models/PokemonSpritesOtherDreamWorld';
+import { PokemonSpritesOtherHome } from '../models/PokemonSpritesOtherHome';
+import { PokemonSpritesOtherOfficialArtwork } from '../models/PokemonSpritesOtherOfficialArtwork';
+import { PokemonSpritesOtherShowdown } from '../models/PokemonSpritesOtherShowdown';
 import { PokemonStat } from '../models/PokemonStat';
 import { PokemonSummary } from '../models/PokemonSummary';
+import { PokemonType } from '../models/PokemonType';
 import { RegionDetail } from '../models/RegionDetail';
 import { RegionName } from '../models/RegionName';
 import { RegionSummary } from '../models/RegionSummary';
+import { StatAffectingMoves } from '../models/StatAffectingMoves';
+import { StatAffectingNatures } from '../models/StatAffectingNatures';
 import { StatDetail } from '../models/StatDetail';
-import { StatDetailAffectingMoves } from '../models/StatDetailAffectingMoves';
-import { StatDetailAffectingMovesIncreaseInner } from '../models/StatDetailAffectingMovesIncreaseInner';
-import { StatDetailAffectingNatures } from '../models/StatDetailAffectingNatures';
 import { StatName } from '../models/StatName';
 import { StatSummary } from '../models/StatSummary';
 import { SuperContestEffectDetail } from '../models/SuperContestEffectDetail';
 import { SuperContestEffectFlavorText } from '../models/SuperContestEffectFlavorText';
 import { SuperContestEffectSummary } from '../models/SuperContestEffectSummary';
 import { TypeDetail } from '../models/TypeDetail';
-import { TypeDetailDamageRelations } from '../models/TypeDetailDamageRelations';
-import { TypeDetailPastDamageRelationsInner } from '../models/TypeDetailPastDamageRelationsInner';
-import { TypeDetailPastDamageRelationsInnerDamageRelations } from '../models/TypeDetailPastDamageRelationsInnerDamageRelations';
-import { TypeDetailPokemonInner } from '../models/TypeDetailPokemonInner';
-import { TypeDetailPokemonInnerPokemon } from '../models/TypeDetailPokemonInnerPokemon';
-import { TypeDetailSpritesValueValue } from '../models/TypeDetailSpritesValueValue';
 import { TypeGameIndex } from '../models/TypeGameIndex';
+import { TypeGameSprite } from '../models/TypeGameSprite';
+import { TypeName } from '../models/TypeName';
+import { TypePastRelationships } from '../models/TypePastRelationships';
+import { TypePokemon } from '../models/TypePokemon';
+import { TypeRelationships } from '../models/TypeRelationships';
 import { TypeSummary } from '../models/TypeSummary';
 import { VersionDetail } from '../models/VersionDetail';
 import { VersionGroupDetail } from '../models/VersionGroupDetail';
@@ -511,13 +528,6 @@ export interface ContestsApiContestEffectListRequest {
      * @memberof ContestsApicontestEffectList
      */
     offset?: number
-    /**
-     * &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. 
-     * Defaults to: undefined
-     * @type string
-     * @memberof ContestsApicontestEffectList
-     */
-    q?: string
 }
 
 export interface ContestsApiContestEffectRetrieveRequest {
@@ -579,13 +589,6 @@ export interface ContestsApiSuperContestEffectListRequest {
      * @memberof ContestsApisuperContestEffectList
      */
     offset?: number
-    /**
-     * &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. 
-     * Defaults to: undefined
-     * @type string
-     * @memberof ContestsApisuperContestEffectList
-     */
-    q?: string
 }
 
 export interface ContestsApiSuperContestEffectRetrieveRequest {
@@ -611,7 +614,7 @@ export class ObjectContestsApi {
      * @param param the request object
      */
     public contestEffectListWithHttpInfo(param: ContestsApiContestEffectListRequest = {}, options?: ConfigurationOptions): Promise<HttpInfo<PaginatedContestEffectSummaryList>> {
-        return this.api.contestEffectListWithHttpInfo(param.limit, param.offset, param.q,  options).toPromise();
+        return this.api.contestEffectListWithHttpInfo(param.limit, param.offset,  options).toPromise();
     }
 
     /**
@@ -620,7 +623,7 @@ export class ObjectContestsApi {
      * @param param the request object
      */
     public contestEffectList(param: ContestsApiContestEffectListRequest = {}, options?: ConfigurationOptions): Promise<PaginatedContestEffectSummaryList> {
-        return this.api.contestEffectList(param.limit, param.offset, param.q,  options).toPromise();
+        return this.api.contestEffectList(param.limit, param.offset,  options).toPromise();
     }
 
     /**
@@ -683,7 +686,7 @@ export class ObjectContestsApi {
      * @param param the request object
      */
     public superContestEffectListWithHttpInfo(param: ContestsApiSuperContestEffectListRequest = {}, options?: ConfigurationOptions): Promise<HttpInfo<PaginatedSuperContestEffectSummaryList>> {
-        return this.api.superContestEffectListWithHttpInfo(param.limit, param.offset, param.q,  options).toPromise();
+        return this.api.superContestEffectListWithHttpInfo(param.limit, param.offset,  options).toPromise();
     }
 
     /**
@@ -692,7 +695,7 @@ export class ObjectContestsApi {
      * @param param the request object
      */
     public superContestEffectList(param: ContestsApiSuperContestEffectListRequest = {}, options?: ConfigurationOptions): Promise<PaginatedSuperContestEffectSummaryList> {
-        return this.api.superContestEffectList(param.limit, param.offset, param.q,  options).toPromise();
+        return this.api.superContestEffectList(param.limit, param.offset,  options).toPromise();
     }
 
     /**
@@ -955,13 +958,6 @@ export interface EvolutionApiEvolutionChainListRequest {
      * @memberof EvolutionApievolutionChainList
      */
     offset?: number
-    /**
-     * &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. 
-     * Defaults to: undefined
-     * @type string
-     * @memberof EvolutionApievolutionChainList
-     */
-    q?: string
 }
 
 export interface EvolutionApiEvolutionChainRetrieveRequest {
@@ -1008,6 +1004,40 @@ export interface EvolutionApiEvolutionTriggerRetrieveRequest {
     id: string
 }
 
+export interface EvolutionApiEvolutionVariableListRequest {
+    /**
+     * Number of results to return per page.
+     * Defaults to: undefined
+     * @type number
+     * @memberof EvolutionApievolutionVariableList
+     */
+    limit?: number
+    /**
+     * The initial index from which to return the results.
+     * Defaults to: undefined
+     * @type number
+     * @memberof EvolutionApievolutionVariableList
+     */
+    offset?: number
+    /**
+     * &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. 
+     * Defaults to: undefined
+     * @type string
+     * @memberof EvolutionApievolutionVariableList
+     */
+    q?: string
+}
+
+export interface EvolutionApiEvolutionVariableRetrieveRequest {
+    /**
+     * This parameter can be a string or an integer.
+     * Defaults to: undefined
+     * @type string
+     * @memberof EvolutionApievolutionVariableRetrieve
+     */
+    id: string
+}
+
 export class ObjectEvolutionApi {
     private api: ObservableEvolutionApi
 
@@ -1021,7 +1051,7 @@ export class ObjectEvolutionApi {
      * @param param the request object
      */
     public evolutionChainListWithHttpInfo(param: EvolutionApiEvolutionChainListRequest = {}, options?: ConfigurationOptions): Promise<HttpInfo<PaginatedEvolutionChainSummaryList>> {
-        return this.api.evolutionChainListWithHttpInfo(param.limit, param.offset, param.q,  options).toPromise();
+        return this.api.evolutionChainListWithHttpInfo(param.limit, param.offset,  options).toPromise();
     }
 
     /**
@@ -1030,7 +1060,7 @@ export class ObjectEvolutionApi {
      * @param param the request object
      */
     public evolutionChainList(param: EvolutionApiEvolutionChainListRequest = {}, options?: ConfigurationOptions): Promise<PaginatedEvolutionChainSummaryList> {
-        return this.api.evolutionChainList(param.limit, param.offset, param.q,  options).toPromise();
+        return this.api.evolutionChainList(param.limit, param.offset,  options).toPromise();
     }
 
     /**
@@ -1085,6 +1115,42 @@ export class ObjectEvolutionApi {
      */
     public evolutionTriggerRetrieve(param: EvolutionApiEvolutionTriggerRetrieveRequest, options?: ConfigurationOptions): Promise<EvolutionTriggerDetail> {
         return this.api.evolutionTriggerRetrieve(param.id,  options).toPromise();
+    }
+
+    /**
+     * Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+     * List evolution variables
+     * @param param the request object
+     */
+    public evolutionVariableListWithHttpInfo(param: EvolutionApiEvolutionVariableListRequest = {}, options?: ConfigurationOptions): Promise<HttpInfo<PaginatedEvolutionVariableSummaryList>> {
+        return this.api.evolutionVariableListWithHttpInfo(param.limit, param.offset, param.q,  options).toPromise();
+    }
+
+    /**
+     * Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+     * List evolution variables
+     * @param param the request object
+     */
+    public evolutionVariableList(param: EvolutionApiEvolutionVariableListRequest = {}, options?: ConfigurationOptions): Promise<PaginatedEvolutionVariableSummaryList> {
+        return this.api.evolutionVariableList(param.limit, param.offset, param.q,  options).toPromise();
+    }
+
+    /**
+     * Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+     * Get evolution variable
+     * @param param the request object
+     */
+    public evolutionVariableRetrieveWithHttpInfo(param: EvolutionApiEvolutionVariableRetrieveRequest, options?: ConfigurationOptions): Promise<HttpInfo<EvolutionVariableDetail>> {
+        return this.api.evolutionVariableRetrieveWithHttpInfo(param.id,  options).toPromise();
+    }
+
+    /**
+     * Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+     * Get evolution variable
+     * @param param the request object
+     */
+    public evolutionVariableRetrieve(param: EvolutionApiEvolutionVariableRetrieveRequest, options?: ConfigurationOptions): Promise<EvolutionVariableDetail> {
+        return this.api.evolutionVariableRetrieve(param.id,  options).toPromise();
     }
 
 }
@@ -1384,6 +1450,40 @@ export class ObjectGamesApi {
 import { ObservableItemsApi } from "./ObservableAPI";
 import { ItemsApiRequestFactory, ItemsApiResponseProcessor} from "../apis/ItemsApi";
 
+export interface ItemsApiCurrencyListRequest {
+    /**
+     * Number of results to return per page.
+     * Defaults to: undefined
+     * @type number
+     * @memberof ItemsApicurrencyList
+     */
+    limit?: number
+    /**
+     * The initial index from which to return the results.
+     * Defaults to: undefined
+     * @type number
+     * @memberof ItemsApicurrencyList
+     */
+    offset?: number
+    /**
+     * &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. 
+     * Defaults to: undefined
+     * @type string
+     * @memberof ItemsApicurrencyList
+     */
+    q?: string
+}
+
+export interface ItemsApiCurrencyRetrieveRequest {
+    /**
+     * This parameter can be a string or an integer.
+     * Defaults to: undefined
+     * @type string
+     * @memberof ItemsApicurrencyRetrieve
+     */
+    id: string
+}
+
 export interface ItemsApiItemAttributeListRequest {
     /**
      * Number of results to return per page.
@@ -1559,6 +1659,42 @@ export class ObjectItemsApi {
 
     public constructor(configuration: Configuration, requestFactory?: ItemsApiRequestFactory, responseProcessor?: ItemsApiResponseProcessor) {
         this.api = new ObservableItemsApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * Currencies used to buy items.
+     * List currencies
+     * @param param the request object
+     */
+    public currencyListWithHttpInfo(param: ItemsApiCurrencyListRequest = {}, options?: ConfigurationOptions): Promise<HttpInfo<PaginatedCurrencySummaryList>> {
+        return this.api.currencyListWithHttpInfo(param.limit, param.offset, param.q,  options).toPromise();
+    }
+
+    /**
+     * Currencies used to buy items.
+     * List currencies
+     * @param param the request object
+     */
+    public currencyList(param: ItemsApiCurrencyListRequest = {}, options?: ConfigurationOptions): Promise<PaginatedCurrencySummaryList> {
+        return this.api.currencyList(param.limit, param.offset, param.q,  options).toPromise();
+    }
+
+    /**
+     * Currencies used to buy items.
+     * Get currency
+     * @param param the request object
+     */
+    public currencyRetrieveWithHttpInfo(param: ItemsApiCurrencyRetrieveRequest, options?: ConfigurationOptions): Promise<HttpInfo<CurrencyDetail>> {
+        return this.api.currencyRetrieveWithHttpInfo(param.id,  options).toPromise();
+    }
+
+    /**
+     * Currencies used to buy items.
+     * Get currency
+     * @param param the request object
+     */
+    public currencyRetrieve(param: ItemsApiCurrencyRetrieveRequest, options?: ConfigurationOptions): Promise<CurrencyDetail> {
+        return this.api.currencyRetrieve(param.id,  options).toPromise();
     }
 
     /**
@@ -2046,13 +2182,6 @@ export interface MachinesApiMachineListRequest {
      * @memberof MachinesApimachineList
      */
     offset?: number
-    /**
-     * &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. 
-     * Defaults to: undefined
-     * @type string
-     * @memberof MachinesApimachineList
-     */
-    q?: string
 }
 
 export interface MachinesApiMachineRetrieveRequest {
@@ -2078,7 +2207,7 @@ export class ObjectMachinesApi {
      * @param param the request object
      */
     public machineListWithHttpInfo(param: MachinesApiMachineListRequest = {}, options?: ConfigurationOptions): Promise<HttpInfo<PaginatedMachineSummaryList>> {
-        return this.api.machineListWithHttpInfo(param.limit, param.offset, param.q,  options).toPromise();
+        return this.api.machineListWithHttpInfo(param.limit, param.offset,  options).toPromise();
     }
 
     /**
@@ -2087,7 +2216,7 @@ export class ObjectMachinesApi {
      * @param param the request object
      */
     public machineList(param: MachinesApiMachineListRequest = {}, options?: ConfigurationOptions): Promise<PaginatedMachineSummaryList> {
-        return this.api.machineList(param.limit, param.offset, param.q,  options).toPromise();
+        return this.api.machineList(param.limit, param.offset,  options).toPromise();
     }
 
     /**
@@ -2594,13 +2723,6 @@ export interface PokemonApiCharacteristicListRequest {
      * @memberof PokemonApicharacteristicList
      */
     offset?: number
-    /**
-     * &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. 
-     * Defaults to: undefined
-     * @type string
-     * @memberof PokemonApicharacteristicList
-     */
-    q?: string
 }
 
 export interface PokemonApiCharacteristicRetrieveRequest {
@@ -3098,6 +3220,7 @@ export class ObjectPokemonApi {
 
     /**
      * Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
+     * List abilities
      * @param param the request object
      */
     public abilityListWithHttpInfo(param: PokemonApiAbilityListRequest = {}, options?: ConfigurationOptions): Promise<HttpInfo<PaginatedAbilitySummaryList>> {
@@ -3106,6 +3229,7 @@ export class ObjectPokemonApi {
 
     /**
      * Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
+     * List abilities
      * @param param the request object
      */
     public abilityList(param: PokemonApiAbilityListRequest = {}, options?: ConfigurationOptions): Promise<PaginatedAbilitySummaryList> {
@@ -3114,6 +3238,7 @@ export class ObjectPokemonApi {
 
     /**
      * Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
+     * Get ability
      * @param param the request object
      */
     public abilityRetrieveWithHttpInfo(param: PokemonApiAbilityRetrieveRequest, options?: ConfigurationOptions): Promise<HttpInfo<AbilityDetail>> {
@@ -3122,6 +3247,7 @@ export class ObjectPokemonApi {
 
     /**
      * Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
+     * Get ability
      * @param param the request object
      */
     public abilityRetrieve(param: PokemonApiAbilityRetrieveRequest, options?: ConfigurationOptions): Promise<AbilityDetail> {
@@ -3130,20 +3256,20 @@ export class ObjectPokemonApi {
 
     /**
      * Characteristics indicate which stat contains a Pokémon\'s highest IV. A Pokémon\'s Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail.
-     * List charecterictics
+     * List characteristics
      * @param param the request object
      */
     public characteristicListWithHttpInfo(param: PokemonApiCharacteristicListRequest = {}, options?: ConfigurationOptions): Promise<HttpInfo<PaginatedCharacteristicSummaryList>> {
-        return this.api.characteristicListWithHttpInfo(param.limit, param.offset, param.q,  options).toPromise();
+        return this.api.characteristicListWithHttpInfo(param.limit, param.offset,  options).toPromise();
     }
 
     /**
      * Characteristics indicate which stat contains a Pokémon\'s highest IV. A Pokémon\'s Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail.
-     * List charecterictics
+     * List characteristics
      * @param param the request object
      */
     public characteristicList(param: PokemonApiCharacteristicListRequest = {}, options?: ConfigurationOptions): Promise<PaginatedCharacteristicSummaryList> {
-        return this.api.characteristicList(param.limit, param.offset, param.q,  options).toPromise();
+        return this.api.characteristicList(param.limit, param.offset,  options).toPromise();
     }
 
     /**
@@ -3707,6 +3833,9 @@ export interface UtilityApiLanguageRetrieveRequest {
     id: string
 }
 
+export interface UtilityApiMetaRetrieveRequest {
+}
+
 export class ObjectUtilityApi {
     private api: ObservableUtilityApi
 
@@ -3748,6 +3877,24 @@ export class ObjectUtilityApi {
      */
     public languageRetrieve(param: UtilityApiLanguageRetrieveRequest, options?: ConfigurationOptions): Promise<LanguageDetail> {
         return this.api.languageRetrieve(param.id,  options).toPromise();
+    }
+
+    /**
+     * Returns metadata about the current deployed version of the API, including the git commit hash, deploy date, and tag (if any).
+     * Get API metadata
+     * @param param the request object
+     */
+    public metaRetrieveWithHttpInfo(param: UtilityApiMetaRetrieveRequest = {}, options?: ConfigurationOptions): Promise<HttpInfo<PokeapiMetaResponse>> {
+        return this.api.metaRetrieveWithHttpInfo( options).toPromise();
+    }
+
+    /**
+     * Returns metadata about the current deployed version of the API, including the git commit hash, deploy date, and tag (if any).
+     * Get API metadata
+     * @param param the request object
+     */
+    public metaRetrieve(param: UtilityApiMetaRetrieveRequest = {}, options?: ConfigurationOptions): Promise<PokeapiMetaResponse> {
+        return this.api.metaRetrieve( options).toPromise();
     }
 
 }

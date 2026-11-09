@@ -1,0 +1,35 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server ItemSprites"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a ItemSprites"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+}
+resourceTypes {
+
+  ItemSprites {
+    title = ItemSprites
+    description = ItemSprites
+    derivedFrom = Root
+    properties {
+        default {
+          type =  string
+          description = "The default depiction of this item."
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  ItemSprites {
+    title = ItemSprites
+    description = ItemSprites
+    implements = openapi_server.resourceTypes.ItemSprites
+
+  }
+}

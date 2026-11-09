@@ -8,6 +8,7 @@ use Articus\DataTransfer\Annotation as DTA;
 class CharacteristicSummary
 {
     /**
+     * The URL of the referenced resource.
      * @DTA\Data(field="url")
      * @DTA\Validator(name="Scalar", options={"type":"string"})
      */

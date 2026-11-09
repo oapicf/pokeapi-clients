@@ -10,7 +10,6 @@ namespace models {
 
 PalParkAreaName::PalParkAreaName()
 : name("")
-, language(LanguageSummary())
 {
 }
 // =========================================

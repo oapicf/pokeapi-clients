@@ -1,10 +1,12 @@
 package org.openapitools.api;
 
+import org.openapitools.model.CurrencyDetail;
 import org.openapitools.model.ItemAttributeDetail;
 import org.openapitools.model.ItemCategoryDetail;
 import org.openapitools.model.ItemDetail;
 import org.openapitools.model.ItemFlingEffectDetail;
 import org.openapitools.model.ItemPocketDetail;
+import org.openapitools.model.PaginatedCurrencySummaryList;
 import org.openapitools.model.PaginatedItemAttributeSummaryList;
 import org.openapitools.model.PaginatedItemCategorySummaryList;
 import org.openapitools.model.PaginatedItemFlingEffectSummaryList;
@@ -27,12 +29,40 @@ import javax.validation.Valid;
 /**
  * PokéAPI
  *
- * <p>All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+ * <p>All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
  *
  */
 @Path("")
 @Api(value = "/", description = "")
 public interface ItemsApi  {
+
+    /**
+     * List currencies
+     *
+     * Currencies used to buy items.
+     *
+     */
+    @GET
+    @Path("/api/v2/currency/")
+    @Produces({ "application/json" })
+    @ApiOperation(value = "List currencies", tags={ "items" })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "", response = PaginatedCurrencySummaryList.class) })
+    public PaginatedCurrencySummaryList currencyList(@QueryParam("limit") Integer limit, @QueryParam("offset") Integer offset, @QueryParam("q") String q);
+
+    /**
+     * Get currency
+     *
+     * Currencies used to buy items.
+     *
+     */
+    @GET
+    @Path("/api/v2/currency/{id}/")
+    @Produces({ "application/json" })
+    @ApiOperation(value = "Get currency", tags={ "items" })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "", response = CurrencyDetail.class) })
+    public CurrencyDetail currencyRetrieve(@PathParam("id") String id);
 
     /**
      * List item attributes

@@ -2,8 +2,8 @@ namespace OpenAPI.Model
 
 open System
 open System.Collections.Generic
-open OpenAPI.Model.PalParkAreaDetailPokemonEncountersInner
 open OpenAPI.Model.PalParkAreaName
+open OpenAPI.Model.PalParkEncounter
 
 module PalParkAreaDetail =
 
@@ -14,6 +14,6 @@ module PalParkAreaDetail =
     Id : int;
     Name : string;
     Names : PalParkAreaName[];
-    PokemonEncounters : PalParkAreaDetailPokemonEncountersInner[];
+    PokemonEncounters : PalParkEncounter[];
   }
   //#endregion

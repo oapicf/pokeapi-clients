@@ -1,0 +1,25 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "PalParkEncounter",
+  "fields": [
+    {
+      "name": "base_score",
+      "type": ["null", "int"],
+      "doc": "The base score given to the player when this Pokémon is caught during a pal park run.",
+      "default": null
+    },
+    {
+      "name": "rate",
+      "type": "int",
+      "doc": "The base rate for encountering this Pokémon in this pal park area."
+    },
+    {
+      "name": "pokemon_species",
+      "type": "model.PokemonSpeciesSummary",
+      "doc": "The Pokémon species being encountered."
+    }
+  ]
+
+}

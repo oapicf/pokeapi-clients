@@ -47,32 +47,32 @@ public:
 	 */
     void fromJson(std::string jsonObj);
 
-	/*! \brief Get 
+	/*! \brief Get The total number of resources available from this API.
 	 */
 	int getCount();
 
-	/*! \brief Set 
+	/*! \brief Set The total number of resources available from this API.
 	 */
 	void setCount(int count);
-	/*! \brief Get 
+	/*! \brief Get The URL for the next page in the list, or null if there is no next page.
 	 */
 	std::string getNext();
 
-	/*! \brief Set 
+	/*! \brief Set The URL for the next page in the list, or null if there is no next page.
 	 */
 	void setNext(std::string next);
-	/*! \brief Get 
+	/*! \brief Get The URL for the previous page in the list, or null if there is no previous page.
 	 */
 	std::string getPrevious();
 
-	/*! \brief Set 
+	/*! \brief Set The URL for the previous page in the list, or null if there is no previous page.
 	 */
 	void setPrevious(std::string previous);
-	/*! \brief Get 
+	/*! \brief Get A list of API resources on this page.
 	 */
 	std::list<LocationAreaSummary> getResults();
 
-	/*! \brief Set 
+	/*! \brief Set A list of API resources on this page.
 	 */
 	void setResults(std::list<LocationAreaSummary> results);
 

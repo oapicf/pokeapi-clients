@@ -27,7 +27,7 @@ LocationAreaDetail::__init()
 	//name = std::string();
 	//game_index = int(0);
 	//new std::list()std::list> encounter_method_rates;
-	//location = new LocationSummary();
+	//location = null;
 	//new std::list()std::list> names;
 	//new std::list()std::list> pokemon_encounters;
 }
@@ -118,12 +118,12 @@ LocationAreaDetail::fromJson(char* jsonStr)
 		{
 			JsonArray* arr = json_node_get_array(node);
 			JsonNode*  temp_json;
-			list<LocationAreaDetail_encounter_method_rates_inner> new_list;
-			LocationAreaDetail_encounter_method_rates_inner inst;
+			list<LocationAreaEncounterRate> new_list;
+			LocationAreaEncounterRate inst;
 			for (guint i=0;i<json_array_get_length(arr);i++) {
 				temp_json = json_array_get_element(arr,i);
-				if (isprimitive("LocationAreaDetail_encounter_method_rates_inner")) {
-					jsonToValue(&inst, temp_json, "LocationAreaDetail_encounter_method_rates_inner", "");
+				if (isprimitive("LocationAreaEncounterRate")) {
+					jsonToValue(&inst, temp_json, "LocationAreaEncounterRate", "");
 				} else {
 					
 					inst.fromJson(json_to_string(temp_json, false));
@@ -180,12 +180,12 @@ LocationAreaDetail::fromJson(char* jsonStr)
 		{
 			JsonArray* arr = json_node_get_array(node);
 			JsonNode*  temp_json;
-			list<LocationAreaDetail_pokemon_encounters_inner> new_list;
-			LocationAreaDetail_pokemon_encounters_inner inst;
+			list<LocationAreaPokemonEncounter> new_list;
+			LocationAreaPokemonEncounter inst;
 			for (guint i=0;i<json_array_get_length(arr);i++) {
 				temp_json = json_array_get_element(arr,i);
-				if (isprimitive("LocationAreaDetail_pokemon_encounters_inner")) {
-					jsonToValue(&inst, temp_json, "LocationAreaDetail_pokemon_encounters_inner", "");
+				if (isprimitive("LocationAreaPokemonEncounter")) {
+					jsonToValue(&inst, temp_json, "LocationAreaPokemonEncounter", "");
 				} else {
 					
 					inst.fromJson(json_to_string(temp_json, false));
@@ -236,18 +236,18 @@ LocationAreaDetail::toJson()
 	}
 	const gchar *game_indexKey = "game_index";
 	json_object_set_member(pJsonObject, game_indexKey, node);
-	if (isprimitive("LocationAreaDetail_encounter_method_rates_inner")) {
-		list<LocationAreaDetail_encounter_method_rates_inner> new_list = static_cast<list <LocationAreaDetail_encounter_method_rates_inner> > (getEncounterMethodRates());
-		node = converttoJson(&new_list, "LocationAreaDetail_encounter_method_rates_inner", "array");
+	if (isprimitive("LocationAreaEncounterRate")) {
+		list<LocationAreaEncounterRate> new_list = static_cast<list <LocationAreaEncounterRate> > (getEncounterMethodRates());
+		node = converttoJson(&new_list, "LocationAreaEncounterRate", "array");
 	} else {
 		node = json_node_alloc();
-		list<LocationAreaDetail_encounter_method_rates_inner> new_list = static_cast<list <LocationAreaDetail_encounter_method_rates_inner> > (getEncounterMethodRates());
+		list<LocationAreaEncounterRate> new_list = static_cast<list <LocationAreaEncounterRate> > (getEncounterMethodRates());
 		JsonArray* json_array = json_array_new();
 		GError *mygerror;
 		
-		for (list<LocationAreaDetail_encounter_method_rates_inner>::iterator it = new_list.begin(); it != new_list.end(); it++) {
+		for (list<LocationAreaEncounterRate>::iterator it = new_list.begin(); it != new_list.end(); it++) {
 			mygerror = NULL;
-			LocationAreaDetail_encounter_method_rates_inner obj = *it;
+			LocationAreaEncounterRate obj = *it;
 			JsonNode *node_temp = json_from_string(obj.toJson(), &mygerror);
 			json_array_add_element(json_array, node_temp);
 			g_clear_error(&mygerror);
@@ -300,18 +300,18 @@ LocationAreaDetail::toJson()
 	
 	const gchar *namesKey = "names";
 	json_object_set_member(pJsonObject, namesKey, node);
-	if (isprimitive("LocationAreaDetail_pokemon_encounters_inner")) {
-		list<LocationAreaDetail_pokemon_encounters_inner> new_list = static_cast<list <LocationAreaDetail_pokemon_encounters_inner> > (getPokemonEncounters());
-		node = converttoJson(&new_list, "LocationAreaDetail_pokemon_encounters_inner", "array");
+	if (isprimitive("LocationAreaPokemonEncounter")) {
+		list<LocationAreaPokemonEncounter> new_list = static_cast<list <LocationAreaPokemonEncounter> > (getPokemonEncounters());
+		node = converttoJson(&new_list, "LocationAreaPokemonEncounter", "array");
 	} else {
 		node = json_node_alloc();
-		list<LocationAreaDetail_pokemon_encounters_inner> new_list = static_cast<list <LocationAreaDetail_pokemon_encounters_inner> > (getPokemonEncounters());
+		list<LocationAreaPokemonEncounter> new_list = static_cast<list <LocationAreaPokemonEncounter> > (getPokemonEncounters());
 		JsonArray* json_array = json_array_new();
 		GError *mygerror;
 		
-		for (list<LocationAreaDetail_pokemon_encounters_inner>::iterator it = new_list.begin(); it != new_list.end(); it++) {
+		for (list<LocationAreaPokemonEncounter>::iterator it = new_list.begin(); it != new_list.end(); it++) {
 			mygerror = NULL;
-			LocationAreaDetail_pokemon_encounters_inner obj = *it;
+			LocationAreaPokemonEncounter obj = *it;
 			JsonNode *node_temp = json_from_string(obj.toJson(), &mygerror);
 			json_array_add_element(json_array, node_temp);
 			g_clear_error(&mygerror);
@@ -369,14 +369,14 @@ LocationAreaDetail::setGameIndex(int  game_index)
 	this->game_index = game_index;
 }
 
-std::list<LocationAreaDetail_encounter_method_rates_inner>
+std::list<LocationAreaEncounterRate>
 LocationAreaDetail::getEncounterMethodRates()
 {
 	return encounter_method_rates;
 }
 
 void
-LocationAreaDetail::setEncounterMethodRates(std::list <LocationAreaDetail_encounter_method_rates_inner> encounter_method_rates)
+LocationAreaDetail::setEncounterMethodRates(std::list <LocationAreaEncounterRate> encounter_method_rates)
 {
 	this->encounter_method_rates = encounter_method_rates;
 }
@@ -405,14 +405,14 @@ LocationAreaDetail::setNames(std::list <LocationAreaName> names)
 	this->names = names;
 }
 
-std::list<LocationAreaDetail_pokemon_encounters_inner>
+std::list<LocationAreaPokemonEncounter>
 LocationAreaDetail::getPokemonEncounters()
 {
 	return pokemon_encounters;
 }
 
 void
-LocationAreaDetail::setPokemonEncounters(std::list <LocationAreaDetail_pokemon_encounters_inner> pokemon_encounters)
+LocationAreaDetail::setPokemonEncounters(std::list <LocationAreaPokemonEncounter> pokemon_encounters)
 {
 	this->pokemon_encounters = pokemon_encounters;
 }

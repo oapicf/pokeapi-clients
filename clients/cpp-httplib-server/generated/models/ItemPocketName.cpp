@@ -10,7 +10,6 @@ namespace models {
 
 ItemPocketName::ItemPocketName()
 : name("")
-, language(LanguageSummary())
 {
 }
 // =========================================

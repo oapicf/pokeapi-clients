@@ -13,17 +13,20 @@ part 'ability_flavor_text.g.dart';
 /// AbilityFlavorText
 ///
 /// Properties:
-/// * [flavorText] 
-/// * [language] 
-/// * [versionGroup] 
+/// * [flavorText] - The localized name for an API resource in a specific language.
+/// * [language] - The language this text resource is in.
+/// * [versionGroup] - The version group that uses this flavor text.
 @BuiltValue()
 abstract class AbilityFlavorText implements Built<AbilityFlavorText, AbilityFlavorTextBuilder> {
+  /// The localized name for an API resource in a specific language.
   @BuiltValueField(wireName: r'flavor_text')
   String get flavorText;
 
+  /// The language this text resource is in.
   @BuiltValueField(wireName: r'language')
   LanguageSummary get language;
 
+  /// The version group that uses this flavor text.
   @BuiltValueField(wireName: r'version_group')
   VersionGroupSummary get versionGroup;
 

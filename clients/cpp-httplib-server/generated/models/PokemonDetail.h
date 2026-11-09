@@ -11,18 +11,19 @@
 #include <cstdint>
 #include <string>
 #include <vector>
-#include "PokemonDetailAbilitiesInner.h"
-#include "PokemonDetailCries.h"
-#include "PokemonDetailHeldItems.h"
-#include "PokemonDetailMovesInner.h"
-#include "PokemonDetailPastAbilitiesInner.h"
-#include "PokemonDetailPastTypesInner.h"
-#include "PokemonDetailSprites.h"
-#include "PokemonDetailTypesInner.h"
+#include "PokemonAbility.h"
+#include "PokemonCries.h"
 #include "PokemonFormSummary.h"
 #include "PokemonGameIndex.h"
+#include "PokemonHeldItemSummary.h"
+#include "PokemonMove.h"
+#include "PokemonPastAbility.h"
+#include "PokemonPastStat.h"
+#include "PokemonPastType.h"
 #include "PokemonSpeciesSummary.h"
+#include "PokemonSprites.h"
 #include "PokemonStat.h"
+#include "PokemonType.h"
 
 
 
@@ -51,37 +52,39 @@ public:
     void setOrder(const int& order);
     [[nodiscard]] int getWeight() const;
     void setWeight(const int& weight);
-    [[nodiscard]] std::vector<PokemonDetail_abilities_inner> getAbilities() const;
-    void setAbilities(const std::vector<PokemonDetail_abilities_inner>& abilities);
-    [[nodiscard]] std::vector<PokemonDetail_past_abilities_inner> getPastAbilities() const;
-    void setPastAbilities(const std::vector<PokemonDetail_past_abilities_inner>& pastAbilities);
+    [[nodiscard]] std::vector<PokemonAbility> getAbilities() const;
+    void setAbilities(const std::vector<PokemonAbility>& abilities);
+    [[nodiscard]] std::vector<PokemonPastAbility> getPastAbilities() const;
+    void setPastAbilities(const std::vector<PokemonPastAbility>& pastAbilities);
     [[nodiscard]] std::vector<PokemonFormSummary> getForms() const;
     void setForms(const std::vector<PokemonFormSummary>& forms);
     [[nodiscard]] std::vector<PokemonGameIndex> getGameIndices() const;
     void setGameIndices(const std::vector<PokemonGameIndex>& gameIndices);
-    [[nodiscard]] PokemonDetailHeldItems getHeldItems() const;
-    void setHeldItems(const PokemonDetailHeldItems& heldItems);
+    [[nodiscard]] std::vector<PokemonHeldItemSummary> getHeldItems() const;
+    void setHeldItems(const std::vector<PokemonHeldItemSummary>& heldItems);
     [[nodiscard]] std::string getLocationAreaEncounters() const;
     void setLocationAreaEncounters(const std::string& locationAreaEncounters);
-    [[nodiscard]] std::vector<PokemonDetail_moves_inner> getMoves() const;
-    void setMoves(const std::vector<PokemonDetail_moves_inner>& moves);
+    [[nodiscard]] std::vector<PokemonMove> getMoves() const;
+    void setMoves(const std::vector<PokemonMove>& moves);
     [[nodiscard]] PokemonSpeciesSummary getSpecies() const;
     void setSpecies(const PokemonSpeciesSummary& species);
-    [[nodiscard]] PokemonDetailSprites getSprites() const;
-    void setSprites(const PokemonDetailSprites& sprites);
-    [[nodiscard]] PokemonDetailCries getCries() const;
-    void setCries(const PokemonDetailCries& cries);
+    [[nodiscard]] PokemonSprites getSprites() const;
+    void setSprites(const PokemonSprites& sprites);
+    [[nodiscard]] PokemonCries getCries() const;
+    void setCries(const PokemonCries& cries);
     [[nodiscard]] std::vector<PokemonStat> getStats() const;
     void setStats(const std::vector<PokemonStat>& stats);
-    [[nodiscard]] std::vector<PokemonDetail_types_inner> getTypes() const;
-    void setTypes(const std::vector<PokemonDetail_types_inner>& types);
-    [[nodiscard]] std::vector<PokemonDetail_past_types_inner> getPastTypes() const;
-    void setPastTypes(const std::vector<PokemonDetail_past_types_inner>& pastTypes);
+    [[nodiscard]] std::vector<PokemonPastStat> getPastStats() const;
+    void setPastStats(const std::vector<PokemonPastStat>& pastStats);
+    [[nodiscard]] std::vector<PokemonType> getTypes() const;
+    void setTypes(const std::vector<PokemonType>& types);
+    [[nodiscard]] std::vector<PokemonPastType> getPastTypes() const;
+    void setPastTypes(const std::vector<PokemonPastType>& pastTypes);
 
 
     // JSON serialization using NLOHMANN INTRUSIVE macro (must be inside class to access private members)
     NLOHMANN_DEFINE_TYPE_INTRUSIVE(PokemonDetail,
-         id, name, baseExperience, height, isDefault, order, weight, abilities, pastAbilities, forms, gameIndices, heldItems, locationAreaEncounters, moves, species, sprites, cries, stats, types, pastTypes)
+         id, name, baseExperience, height, isDefault, order, weight, abilities, pastAbilities, forms, gameIndices, heldItems, locationAreaEncounters, moves, species, sprites, cries, stats, pastStats, types, pastTypes)
 
 private:
     int id;
@@ -91,19 +94,20 @@ private:
     bool isDefault;
     int order;
     int weight;
-    std::vector<PokemonDetail_abilities_inner> abilities;
-    std::vector<PokemonDetail_past_abilities_inner> pastAbilities;
+    std::vector<PokemonAbility> abilities;
+    std::vector<PokemonPastAbility> pastAbilities;
     std::vector<PokemonFormSummary> forms;
     std::vector<PokemonGameIndex> gameIndices;
-    PokemonDetailHeldItems heldItems;
+    std::vector<PokemonHeldItemSummary> heldItems;
     std::string locationAreaEncounters;
-    std::vector<PokemonDetail_moves_inner> moves;
+    std::vector<PokemonMove> moves;
     PokemonSpeciesSummary species;
-    PokemonDetailSprites sprites;
-    PokemonDetailCries cries;
+    PokemonSprites sprites;
+    PokemonCries cries;
     std::vector<PokemonStat> stats;
-    std::vector<PokemonDetail_types_inner> types;
-    std::vector<PokemonDetail_past_types_inner> pastTypes;
+    std::vector<PokemonPastStat> pastStats;
+    std::vector<PokemonType> types;
+    std::vector<PokemonPastType> pastTypes;
 };
 
 

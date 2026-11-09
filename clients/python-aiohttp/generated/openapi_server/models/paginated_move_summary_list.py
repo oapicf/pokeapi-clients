@@ -55,6 +55,7 @@ class PaginatedMoveSummaryList(Model):
     def count(self):
         """Gets the count of this PaginatedMoveSummaryList.
 
+        The total number of resources available from this API.
 
         :return: The count of this PaginatedMoveSummaryList.
         :rtype: int
@@ -65,10 +66,13 @@ class PaginatedMoveSummaryList(Model):
     def count(self, count):
         """Sets the count of this PaginatedMoveSummaryList.
 
+        The total number of resources available from this API.
 
         :param count: The count of this PaginatedMoveSummaryList.
         :type count: int
         """
+        if count is None:
+            raise ValueError("Invalid value for `count`, must not be `None`")
 
         self._count = count
 
@@ -76,6 +80,7 @@ class PaginatedMoveSummaryList(Model):
     def next(self):
         """Gets the next of this PaginatedMoveSummaryList.
 
+        The URL for the next page in the list, or null if there is no next page.
 
         :return: The next of this PaginatedMoveSummaryList.
         :rtype: str
@@ -86,6 +91,7 @@ class PaginatedMoveSummaryList(Model):
     def next(self, next):
         """Sets the next of this PaginatedMoveSummaryList.
 
+        The URL for the next page in the list, or null if there is no next page.
 
         :param next: The next of this PaginatedMoveSummaryList.
         :type next: str
@@ -97,6 +103,7 @@ class PaginatedMoveSummaryList(Model):
     def previous(self):
         """Gets the previous of this PaginatedMoveSummaryList.
 
+        The URL for the previous page in the list, or null if there is no previous page.
 
         :return: The previous of this PaginatedMoveSummaryList.
         :rtype: str
@@ -107,6 +114,7 @@ class PaginatedMoveSummaryList(Model):
     def previous(self, previous):
         """Sets the previous of this PaginatedMoveSummaryList.
 
+        The URL for the previous page in the list, or null if there is no previous page.
 
         :param previous: The previous of this PaginatedMoveSummaryList.
         :type previous: str
@@ -118,6 +126,7 @@ class PaginatedMoveSummaryList(Model):
     def results(self):
         """Gets the results of this PaginatedMoveSummaryList.
 
+        A list of API resources on this page.
 
         :return: The results of this PaginatedMoveSummaryList.
         :rtype: List[MoveSummary]
@@ -128,9 +137,12 @@ class PaginatedMoveSummaryList(Model):
     def results(self, results):
         """Sets the results of this PaginatedMoveSummaryList.
 
+        A list of API resources on this page.
 
         :param results: The results of this PaginatedMoveSummaryList.
         :type results: List[MoveSummary]
         """
+        if results is None:
+            raise ValueError("Invalid value for `results`, must not be `None`")
 
         self._results = results

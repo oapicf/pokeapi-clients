@@ -9,9 +9,13 @@ import Foundation
 
 /// Should have a link to Version Group info but the Circular dependency and compilation order fight eachother and I&#39;m not sure how to add anything other than a hyperlink 
 public struct VersionDetail: Codable {
+    /// The identifier for this resource.
     public var id: Int
+    /// The name for this resource.
     public var name: String
+    /// The name of this resource listed in different languages.
     public var names: [VersionName]
+    /// The version group this version belongs to.
     public var versionGroup: VersionGroupSummary
 
     public init(id: Int, name: String, names: [VersionName], versionGroup: VersionGroupSummary) {

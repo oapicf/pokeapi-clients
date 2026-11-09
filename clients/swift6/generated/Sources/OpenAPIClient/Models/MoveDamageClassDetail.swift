@@ -9,11 +9,16 @@ import Foundation
 
 public struct MoveDamageClassDetail: Sendable, Codable, Hashable {
 
-    public static let nameRule = StringRule(minLength: nil, maxLength: 100, pattern: nil)
+    public static let nameRule = StringRule(minLength: nil, maxLength: 200, pattern: nil)
+    /** The identifier for this resource. */
     public var id: Int
+    /** The name for this resource. */
     public var name: String
+    /** The description of this resource listed in different languages. */
     public var descriptions: [MoveDamageClassDescription]
+    /** A list of moves that fall into this damage class. */
     public var moves: [MoveSummary]
+    /** The name of this resource listed in different languages. */
     public var names: [MoveDamageClassName]
 
     public init(id: Int, name: String, descriptions: [MoveDamageClassDescription], moves: [MoveSummary], names: [MoveDamageClassName]) {

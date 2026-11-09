@@ -25,11 +25,11 @@ TypeDetail::__init()
 {
 	//id = int(0);
 	//name = std::string();
-	//damage_relations = new TypeDetail_damage_relations();
+	//damage_relations = null;
 	//new std::list()std::list> past_damage_relations;
 	//new std::list()std::list> game_indices;
-	//generation = new GenerationSummary();
-	//move_damage_class = new MoveDamageClassSummary();
+	//generation = null;
+	//move_damage_class = null;
 	//new std::list()std::list> names;
 	//new std::list()std::list> pokemon;
 	//new std::list()std::list> moves;
@@ -129,11 +129,11 @@ TypeDetail::fromJson(char* jsonStr)
 	if (node !=NULL) {
 	
 
-		if (isprimitive("TypeDetail_damage_relations")) {
-			jsonToValue(&damage_relations, node, "TypeDetail_damage_relations", "TypeDetail_damage_relations");
+		if (isprimitive("TypeRelationships")) {
+			jsonToValue(&damage_relations, node, "TypeRelationships", "TypeRelationships");
 		} else {
 			
-			TypeDetail_damage_relations* obj = static_cast<TypeDetail_damage_relations*> (&damage_relations);
+			TypeRelationships* obj = static_cast<TypeRelationships*> (&damage_relations);
 			obj->fromJson(json_to_string(node, false));
 			
 		}
@@ -145,12 +145,12 @@ TypeDetail::fromJson(char* jsonStr)
 		{
 			JsonArray* arr = json_node_get_array(node);
 			JsonNode*  temp_json;
-			list<TypeDetail_past_damage_relations_inner> new_list;
-			TypeDetail_past_damage_relations_inner inst;
+			list<TypePastRelationships> new_list;
+			TypePastRelationships inst;
 			for (guint i=0;i<json_array_get_length(arr);i++) {
 				temp_json = json_array_get_element(arr,i);
-				if (isprimitive("TypeDetail_past_damage_relations_inner")) {
-					jsonToValue(&inst, temp_json, "TypeDetail_past_damage_relations_inner", "");
+				if (isprimitive("TypePastRelationships")) {
+					jsonToValue(&inst, temp_json, "TypePastRelationships", "");
 				} else {
 					
 					inst.fromJson(json_to_string(temp_json, false));
@@ -221,12 +221,12 @@ TypeDetail::fromJson(char* jsonStr)
 		{
 			JsonArray* arr = json_node_get_array(node);
 			JsonNode*  temp_json;
-			list<AbilityName> new_list;
-			AbilityName inst;
+			list<TypeName> new_list;
+			TypeName inst;
 			for (guint i=0;i<json_array_get_length(arr);i++) {
 				temp_json = json_array_get_element(arr,i);
-				if (isprimitive("AbilityName")) {
-					jsonToValue(&inst, temp_json, "AbilityName", "");
+				if (isprimitive("TypeName")) {
+					jsonToValue(&inst, temp_json, "TypeName", "");
 				} else {
 					
 					inst.fromJson(json_to_string(temp_json, false));
@@ -245,12 +245,12 @@ TypeDetail::fromJson(char* jsonStr)
 		{
 			JsonArray* arr = json_node_get_array(node);
 			JsonNode*  temp_json;
-			list<TypeDetail_pokemon_inner> new_list;
-			TypeDetail_pokemon_inner inst;
+			list<TypePokemon> new_list;
+			TypePokemon inst;
 			for (guint i=0;i<json_array_get_length(arr);i++) {
 				temp_json = json_array_get_element(arr,i);
-				if (isprimitive("TypeDetail_pokemon_inner")) {
-					jsonToValue(&inst, temp_json, "TypeDetail_pokemon_inner", "");
+				if (isprimitive("TypePokemon")) {
+					jsonToValue(&inst, temp_json, "TypePokemon", "");
 				} else {
 					
 					inst.fromJson(json_to_string(temp_json, false));
@@ -328,13 +328,13 @@ TypeDetail::toJson()
 	}
 	const gchar *nameKey = "name";
 	json_object_set_member(pJsonObject, nameKey, node);
-	if (isprimitive("TypeDetail_damage_relations")) {
-		TypeDetail_damage_relations obj = getDamageRelations();
-		node = converttoJson(&obj, "TypeDetail_damage_relations", "");
+	if (isprimitive("TypeRelationships")) {
+		TypeRelationships obj = getDamageRelations();
+		node = converttoJson(&obj, "TypeRelationships", "");
 	}
 	else {
 		
-		TypeDetail_damage_relations obj = static_cast<TypeDetail_damage_relations> (getDamageRelations());
+		TypeRelationships obj = static_cast<TypeRelationships> (getDamageRelations());
 		GError *mygerror;
 		mygerror = NULL;
 		node = json_from_string(obj.toJson(), &mygerror);
@@ -342,18 +342,18 @@ TypeDetail::toJson()
 	}
 	const gchar *damage_relationsKey = "damage_relations";
 	json_object_set_member(pJsonObject, damage_relationsKey, node);
-	if (isprimitive("TypeDetail_past_damage_relations_inner")) {
-		list<TypeDetail_past_damage_relations_inner> new_list = static_cast<list <TypeDetail_past_damage_relations_inner> > (getPastDamageRelations());
-		node = converttoJson(&new_list, "TypeDetail_past_damage_relations_inner", "array");
+	if (isprimitive("TypePastRelationships")) {
+		list<TypePastRelationships> new_list = static_cast<list <TypePastRelationships> > (getPastDamageRelations());
+		node = converttoJson(&new_list, "TypePastRelationships", "array");
 	} else {
 		node = json_node_alloc();
-		list<TypeDetail_past_damage_relations_inner> new_list = static_cast<list <TypeDetail_past_damage_relations_inner> > (getPastDamageRelations());
+		list<TypePastRelationships> new_list = static_cast<list <TypePastRelationships> > (getPastDamageRelations());
 		JsonArray* json_array = json_array_new();
 		GError *mygerror;
 		
-		for (list<TypeDetail_past_damage_relations_inner>::iterator it = new_list.begin(); it != new_list.end(); it++) {
+		for (list<TypePastRelationships>::iterator it = new_list.begin(); it != new_list.end(); it++) {
 			mygerror = NULL;
-			TypeDetail_past_damage_relations_inner obj = *it;
+			TypePastRelationships obj = *it;
 			JsonNode *node_temp = json_from_string(obj.toJson(), &mygerror);
 			json_array_add_element(json_array, node_temp);
 			g_clear_error(&mygerror);
@@ -420,18 +420,18 @@ TypeDetail::toJson()
 	}
 	const gchar *move_damage_classKey = "move_damage_class";
 	json_object_set_member(pJsonObject, move_damage_classKey, node);
-	if (isprimitive("AbilityName")) {
-		list<AbilityName> new_list = static_cast<list <AbilityName> > (getNames());
-		node = converttoJson(&new_list, "AbilityName", "array");
+	if (isprimitive("TypeName")) {
+		list<TypeName> new_list = static_cast<list <TypeName> > (getNames());
+		node = converttoJson(&new_list, "TypeName", "array");
 	} else {
 		node = json_node_alloc();
-		list<AbilityName> new_list = static_cast<list <AbilityName> > (getNames());
+		list<TypeName> new_list = static_cast<list <TypeName> > (getNames());
 		JsonArray* json_array = json_array_new();
 		GError *mygerror;
 		
-		for (list<AbilityName>::iterator it = new_list.begin(); it != new_list.end(); it++) {
+		for (list<TypeName>::iterator it = new_list.begin(); it != new_list.end(); it++) {
 			mygerror = NULL;
-			AbilityName obj = *it;
+			TypeName obj = *it;
 			JsonNode *node_temp = json_from_string(obj.toJson(), &mygerror);
 			json_array_add_element(json_array, node_temp);
 			g_clear_error(&mygerror);
@@ -445,18 +445,18 @@ TypeDetail::toJson()
 	
 	const gchar *namesKey = "names";
 	json_object_set_member(pJsonObject, namesKey, node);
-	if (isprimitive("TypeDetail_pokemon_inner")) {
-		list<TypeDetail_pokemon_inner> new_list = static_cast<list <TypeDetail_pokemon_inner> > (getPokemon());
-		node = converttoJson(&new_list, "TypeDetail_pokemon_inner", "array");
+	if (isprimitive("TypePokemon")) {
+		list<TypePokemon> new_list = static_cast<list <TypePokemon> > (getPokemon());
+		node = converttoJson(&new_list, "TypePokemon", "array");
 	} else {
 		node = json_node_alloc();
-		list<TypeDetail_pokemon_inner> new_list = static_cast<list <TypeDetail_pokemon_inner> > (getPokemon());
+		list<TypePokemon> new_list = static_cast<list <TypePokemon> > (getPokemon());
 		JsonArray* json_array = json_array_new();
 		GError *mygerror;
 		
-		for (list<TypeDetail_pokemon_inner>::iterator it = new_list.begin(); it != new_list.end(); it++) {
+		for (list<TypePokemon>::iterator it = new_list.begin(); it != new_list.end(); it++) {
 			mygerror = NULL;
-			TypeDetail_pokemon_inner obj = *it;
+			TypePokemon obj = *it;
 			JsonNode *node_temp = json_from_string(obj.toJson(), &mygerror);
 			json_array_add_element(json_array, node_temp);
 			g_clear_error(&mygerror);
@@ -546,26 +546,26 @@ TypeDetail::setName(std::string  name)
 	this->name = name;
 }
 
-TypeDetail_damage_relations
+TypeRelationships
 TypeDetail::getDamageRelations()
 {
 	return damage_relations;
 }
 
 void
-TypeDetail::setDamageRelations(TypeDetail_damage_relations  damage_relations)
+TypeDetail::setDamageRelations(TypeRelationships  damage_relations)
 {
 	this->damage_relations = damage_relations;
 }
 
-std::list<TypeDetail_past_damage_relations_inner>
+std::list<TypePastRelationships>
 TypeDetail::getPastDamageRelations()
 {
 	return past_damage_relations;
 }
 
 void
-TypeDetail::setPastDamageRelations(std::list <TypeDetail_past_damage_relations_inner> past_damage_relations)
+TypeDetail::setPastDamageRelations(std::list <TypePastRelationships> past_damage_relations)
 {
 	this->past_damage_relations = past_damage_relations;
 }
@@ -606,26 +606,26 @@ TypeDetail::setMoveDamageClass(MoveDamageClassSummary  move_damage_class)
 	this->move_damage_class = move_damage_class;
 }
 
-std::list<AbilityName>
+std::list<TypeName>
 TypeDetail::getNames()
 {
 	return names;
 }
 
 void
-TypeDetail::setNames(std::list <AbilityName> names)
+TypeDetail::setNames(std::list <TypeName> names)
 {
 	this->names = names;
 }
 
-std::list<TypeDetail_pokemon_inner>
+std::list<TypePokemon>
 TypeDetail::getPokemon()
 {
 	return pokemon;
 }
 
 void
-TypeDetail::setPokemon(std::list <TypeDetail_pokemon_inner> pokemon)
+TypeDetail::setPokemon(std::list <TypePokemon> pokemon)
 {
 	this->pokemon = pokemon;
 }

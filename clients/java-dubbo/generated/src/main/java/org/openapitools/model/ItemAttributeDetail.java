@@ -1,8 +1,8 @@
 package org.openapitools.model;
 
-import org.openapitools.model.AbilityDetailPokemonInnerPokemon;
 import org.openapitools.model.ItemAttributeDescription;
 import org.openapitools.model.ItemAttributeName;
+import org.openapitools.model.ItemSummary;
 import java.util.*;
 import java.util.Objects;
 import java.io.Serializable;
@@ -15,23 +15,38 @@ import java.math.*;
 public class ItemAttributeDetail implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * The identifier for this resource.
+   */
   @JsonProperty("id")
   private Integer id;
 
+  /**
+   * The name for this resource.
+   */
   @JsonProperty("name")
   private String name;
 
+  /**
+   * The description of this item attribute listed in different languages.
+   */
   @JsonProperty("descriptions")
   private List<ItemAttributeDescription> descriptions = new ArrayList<>();
 
+  /**
+   * A list of items that have this attribute.
+   */
   @JsonProperty("items")
-  private List<AbilityDetailPokemonInnerPokemon> items = new ArrayList<>();
+  private List<ItemSummary> items = new ArrayList<>();
 
+  /**
+   * The name of this item attribute listed in different languages.
+   */
   @JsonProperty("names")
   private List<ItemAttributeName> names = new ArrayList<>();
 
   /**
-   * 
+   * The identifier for this resource.
    * @return id
    */
   public Integer getId() {
@@ -43,7 +58,7 @@ public class ItemAttributeDetail implements Serializable {
   }
 
   /**
-   * 
+   * The name for this resource.
    * @return name
    */
   public String getName() {
@@ -55,7 +70,7 @@ public class ItemAttributeDetail implements Serializable {
   }
 
   /**
-   * 
+   * The description of this item attribute listed in different languages.
    * @return descriptions
    */
   public List<ItemAttributeDescription> getDescriptions() {
@@ -67,19 +82,19 @@ public class ItemAttributeDetail implements Serializable {
   }
 
   /**
-   * 
+   * A list of items that have this attribute.
    * @return items
    */
-  public List<AbilityDetailPokemonInnerPokemon> getItems() {
+  public List<ItemSummary> getItems() {
     return items;
   }
 
-  public void setItems(List<AbilityDetailPokemonInnerPokemon> items) {
+  public void setItems(List<ItemSummary> items) {
     this.items = items;
   }
 
   /**
-   * 
+   * The name of this item attribute listed in different languages.
    * @return names
    */
   public List<ItemAttributeName> getNames() {

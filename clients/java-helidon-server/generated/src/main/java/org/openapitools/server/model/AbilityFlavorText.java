@@ -23,9 +23,9 @@ public class AbilityFlavorText   {
     /**
      * Create AbilityFlavorText.
      *
-     * @param flavorText flavorText
-     * @param language language
-     * @param versionGroup versionGroup
+     * @param flavorText The localized name for an API resource in a specific language.
+     * @param language The language this text resource is in.
+     * @param versionGroup The version group that uses this flavor text.
      */
     public AbilityFlavorText(
         String flavorText, 
@@ -40,7 +40,7 @@ public class AbilityFlavorText   {
 
 
     /**
-     * Get flavorText
+     * The localized name for an API resource in a specific language.
      * @return flavorText
      */
     public String getFlavorText() {
@@ -52,7 +52,7 @@ public class AbilityFlavorText   {
     }
 
     /**
-     * Get language
+     * The language this text resource is in.
      * @return language
      */
     public LanguageSummary getLanguage() {
@@ -64,7 +64,7 @@ public class AbilityFlavorText   {
     }
 
     /**
-     * Get versionGroup
+     * The version group that uses this flavor text.
      * @return versionGroup
      */
     public VersionGroupSummary getVersionGroup() {

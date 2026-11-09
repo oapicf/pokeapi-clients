@@ -10,6 +10,7 @@ class_name LocationAreaDetail
 # LocationAreaDetail Model
 
 
+# The identifier for this resource.
 # Required: True
 # isArray: false
 @export var id: int:
@@ -18,6 +19,7 @@ class_name LocationAreaDetail
 		id = value
 var __id__was__set := false
 
+# The name for this resource.
 # Required: True
 # isArray: false
 @export var name: String:
@@ -26,6 +28,7 @@ var __id__was__set := false
 		name = value
 var __name__was__set := false
 
+# The internal id of an API resource within game data.
 # Required: True
 # isArray: false
 @export var gameUnderscoreindex: int:
@@ -34,6 +37,7 @@ var __name__was__set := false
 		gameUnderscoreindex = value
 var __gameUnderscoreindex__was__set := false
 
+# A list of methods in which Pokémon may be encountered in this area and how likely the method will occur depending on the version of the game.
 # Required: True
 # isArray: true
 @export var encounterUnderscoremethodUnderscorerates: Array:
@@ -42,6 +46,7 @@ var __gameUnderscoreindex__was__set := false
 		encounterUnderscoremethodUnderscorerates = value
 var __encounterUnderscoremethodUnderscorerates__was__set := false
 
+# The region this location area can be found in.
 # Required: True
 # isArray: false
 @export var location: LocationSummary:
@@ -50,6 +55,7 @@ var __encounterUnderscoremethodUnderscorerates__was__set := false
 		location = value
 var __location__was__set := false
 
+# The name of this resource listed in different languages.
 # Required: True
 # isArray: true
 @export var names: Array:
@@ -58,6 +64,7 @@ var __location__was__set := false
 		names = value
 var __names__was__set := false
 
+# A list of Pokémon that can be encountered in this area along with version specific details about the encounter.
 # Required: True
 # isArray: true
 @export var pokemonUnderscoreencounters: Array:
@@ -115,13 +122,13 @@ static func bzz_denormalize_single(from_dict: Dictionary):
 	if from_dict.has("gameUnderscoreindex"):
 		me.gameUnderscoreindex = from_dict["gameUnderscoreindex"]
 	if from_dict.has("encounterUnderscoremethodUnderscorerates"):
-		me.encounterUnderscoremethodUnderscorerates = LocationAreaDetail_encounter_method_rates_inner.bzz_denormalize_multiple(from_dict["encounterUnderscoremethodUnderscorerates"])
+		me.encounterUnderscoremethodUnderscorerates = LocationAreaEncounterRate.bzz_denormalize_multiple(from_dict["encounterUnderscoremethodUnderscorerates"])
 	if from_dict.has("location"):
 		me.location = LocationSummary.bzz_denormalize_single(from_dict["location"])
 	if from_dict.has("names"):
 		me.names = LocationAreaName.bzz_denormalize_multiple(from_dict["names"])
 	if from_dict.has("pokemonUnderscoreencounters"):
-		me.pokemonUnderscoreencounters = LocationAreaDetail_pokemon_encounters_inner.bzz_denormalize_multiple(from_dict["pokemonUnderscoreencounters"])
+		me.pokemonUnderscoreencounters = LocationAreaPokemonEncounter.bzz_denormalize_multiple(from_dict["pokemonUnderscoreencounters"])
 	return me
 
 

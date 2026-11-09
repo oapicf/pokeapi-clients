@@ -15,7 +15,7 @@ data class PokeathlonStatDetail(
     val name: kotlin.String,
 
     @field:JsonProperty("affecting_natures")
-    val affectingNatures: PokeathlonStatDetailAffectingNatures,
+    val affectingNatures: PokeathlonStatAffectingNatures,
 
     @field:JsonProperty("names")
     val names: kotlin.collections.List<PokeathlonStatName>,

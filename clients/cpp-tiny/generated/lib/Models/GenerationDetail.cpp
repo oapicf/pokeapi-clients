@@ -9,7 +9,7 @@ GenerationDetail::GenerationDetail()
 	id = int(0);
 	name = std::string();
 	abilities = std::list<AbilitySummary>();
-	main_region = RegionSummary();
+	main_region = null;
 	moves = std::list<MoveSummary>();
 	names = std::list<GenerationName>();
 	pokemon_species = std::list<PokemonSpeciesSummary>();

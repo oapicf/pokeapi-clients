@@ -21,6 +21,7 @@ public class GenderSummary   {
   private URI url;
 
   /**
+   * The name of the referenced resource.
    **/
   public GenderSummary name(String name) {
     this.name = name;
@@ -28,10 +29,10 @@ public class GenderSummary   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name of the referenced resource.")
   @JsonProperty("name")
   @NotNull
- @Size(max=100)  public String getName() {
+ @Size(max=200)  public String getName() {
     return name;
   }
   public void setName(String name) {
@@ -40,6 +41,7 @@ public class GenderSummary   {
 
 
   /**
+   * The URL of the referenced resource.
    **/
   public GenderSummary url(URI url) {
     this.url = url;
@@ -47,7 +49,7 @@ public class GenderSummary   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The URL of the referenced resource.")
   @JsonProperty("url")
   @NotNull
   public URI getUrl() {

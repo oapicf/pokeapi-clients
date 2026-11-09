@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int32** |  | [readonly] 
-**Name** | **string** |  | 
-**Names** | [**[]EggGroupName**](EggGroupName.md) |  | [readonly] 
-**PokemonSpecies** | [**[]EggGroupDetailPokemonSpeciesInner**](EggGroupDetailPokemonSpeciesInner.md) |  | [readonly] 
+**Id** | **int32** | The identifier for this resource. | [readonly] 
+**Name** | **string** | The name for this resource. | 
+**Names** | [**[]EggGroupName**](EggGroupName.md) | The name of this resource listed in different languages. | [readonly] 
+**PokemonSpecies** | [**[]PokemonSpeciesSummary**](PokemonSpeciesSummary.md) | A list of all Pokémon species that are members of this egg group. | [readonly] 
 
 ## Methods
 
 ### NewEggGroupDetail
 
-`func NewEggGroupDetail(id int32, name string, names []EggGroupName, pokemonSpecies []EggGroupDetailPokemonSpeciesInner, ) *EggGroupDetail`
+`func NewEggGroupDetail(id int32, name string, names []EggGroupName, pokemonSpecies []PokemonSpeciesSummary, ) *EggGroupDetail`
 
 NewEggGroupDetail instantiates a new EggGroupDetail object
 This constructor will assign default values to properties that have it defined,
@@ -90,20 +90,20 @@ SetNames sets Names field to given value.
 
 ### GetPokemonSpecies
 
-`func (o *EggGroupDetail) GetPokemonSpecies() []EggGroupDetailPokemonSpeciesInner`
+`func (o *EggGroupDetail) GetPokemonSpecies() []PokemonSpeciesSummary`
 
 GetPokemonSpecies returns the PokemonSpecies field if non-nil, zero value otherwise.
 
 ### GetPokemonSpeciesOk
 
-`func (o *EggGroupDetail) GetPokemonSpeciesOk() (*[]EggGroupDetailPokemonSpeciesInner, bool)`
+`func (o *EggGroupDetail) GetPokemonSpeciesOk() (*[]PokemonSpeciesSummary, bool)`
 
 GetPokemonSpeciesOk returns a tuple with the PokemonSpecies field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPokemonSpecies
 
-`func (o *EggGroupDetail) SetPokemonSpecies(v []EggGroupDetailPokemonSpeciesInner)`
+`func (o *EggGroupDetail) SetPokemonSpecies(v []PokemonSpeciesSummary)`
 
 SetPokemonSpecies sets PokemonSpecies field to given value.
 

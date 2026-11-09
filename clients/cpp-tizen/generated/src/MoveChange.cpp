@@ -28,8 +28,8 @@ MoveChange::__init()
 	//pp = int(0);
 	//effect_chance = int(0);
 	//new std::list()std::list> effect_entries;
-	//type = new TypeSummary();
-	//version_group = new VersionGroupSummary();
+	//type = null;
+	//version_group = null;
 }
 
 void
@@ -129,12 +129,12 @@ MoveChange::fromJson(char* jsonStr)
 		{
 			JsonArray* arr = json_node_get_array(node);
 			JsonNode*  temp_json;
-			list<MoveChange_effect_entries_inner> new_list;
-			MoveChange_effect_entries_inner inst;
+			list<MoveEffectEffectText> new_list;
+			MoveEffectEffectText inst;
 			for (guint i=0;i<json_array_get_length(arr);i++) {
 				temp_json = json_array_get_element(arr,i);
-				if (isprimitive("MoveChange_effect_entries_inner")) {
-					jsonToValue(&inst, temp_json, "MoveChange_effect_entries_inner", "");
+				if (isprimitive("MoveEffectEffectText")) {
+					jsonToValue(&inst, temp_json, "MoveEffectEffectText", "");
 				} else {
 					
 					inst.fromJson(json_to_string(temp_json, false));
@@ -222,18 +222,18 @@ MoveChange::toJson()
 	}
 	const gchar *effect_chanceKey = "effect_chance";
 	json_object_set_member(pJsonObject, effect_chanceKey, node);
-	if (isprimitive("MoveChange_effect_entries_inner")) {
-		list<MoveChange_effect_entries_inner> new_list = static_cast<list <MoveChange_effect_entries_inner> > (getEffectEntries());
-		node = converttoJson(&new_list, "MoveChange_effect_entries_inner", "array");
+	if (isprimitive("MoveEffectEffectText")) {
+		list<MoveEffectEffectText> new_list = static_cast<list <MoveEffectEffectText> > (getEffectEntries());
+		node = converttoJson(&new_list, "MoveEffectEffectText", "array");
 	} else {
 		node = json_node_alloc();
-		list<MoveChange_effect_entries_inner> new_list = static_cast<list <MoveChange_effect_entries_inner> > (getEffectEntries());
+		list<MoveEffectEffectText> new_list = static_cast<list <MoveEffectEffectText> > (getEffectEntries());
 		JsonArray* json_array = json_array_new();
 		GError *mygerror;
 		
-		for (list<MoveChange_effect_entries_inner>::iterator it = new_list.begin(); it != new_list.end(); it++) {
+		for (list<MoveEffectEffectText>::iterator it = new_list.begin(); it != new_list.end(); it++) {
 			mygerror = NULL;
-			MoveChange_effect_entries_inner obj = *it;
+			MoveEffectEffectText obj = *it;
 			JsonNode *node_temp = json_from_string(obj.toJson(), &mygerror);
 			json_array_add_element(json_array, node_temp);
 			g_clear_error(&mygerror);
@@ -331,14 +331,14 @@ MoveChange::setEffectChance(int  effect_chance)
 	this->effect_chance = effect_chance;
 }
 
-std::list<MoveChange_effect_entries_inner>
+std::list<MoveEffectEffectText>
 MoveChange::getEffectEntries()
 {
 	return effect_entries;
 }
 
 void
-MoveChange::setEffectEntries(std::list <MoveChange_effect_entries_inner> effect_entries)
+MoveChange::setEffectEntries(std::list <MoveEffectEffectText> effect_entries)
 {
 	this->effect_entries = effect_entries;
 }

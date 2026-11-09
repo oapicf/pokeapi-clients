@@ -15,21 +15,25 @@
                 
                 
                 ; [@key "id"]
-                                              appeal: int32
+                    (** The identifier for this resource. *)
+                                      appeal: int32
                   
                   
                 
                 
                 ; [@key "appeal"]
-                                              flavor_text_entries: Super_contest_effect_flavor_text.t list
+                    (** The level of appeal this super contest effect has. *)
+                                      flavor_text_entries: Super_contest_effect_flavor_text.t list
                 
                 
                 ; [@key "flavor_text_entries"]
-                                              moves: Move_summary.t list
+                    (** The flavor text of this super contest effect listed in different languages. *)
+                                      moves: Move_summary.t list
                 
                 
                 ; [@key "moves"]
-                        } [@@deriving yojson { strict = false }, show, eq ];;
+                    (** A list of moves that have the effect when used in super contests. *)
+                } [@@deriving yojson { strict = false }, show, eq ];;
         
         let create (id : int32) (appeal : int32) (flavor_text_entries : Super_contest_effect_flavor_text.t list) (moves : Move_summary.t list) : t = {
             id = id;

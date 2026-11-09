@@ -19,7 +19,6 @@ defmodule PokéAPI.Api.Contests do
   - `opts` (keyword): Optional parameters
     - `:limit` (integer()): Number of results to return per page.
     - `:offset` (integer()): The initial index from which to return the results.
-    - `:q` (String.t): > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
 
   ### Returns
 
@@ -30,8 +29,7 @@ defmodule PokéAPI.Api.Contests do
   def contest_effect_list(connection, opts \\ []) do
     optional_params = %{
       :limit => :query,
-      :offset => :query,
-      :q => :query
+      :offset => :query
     }
 
     request =
@@ -161,7 +159,6 @@ defmodule PokéAPI.Api.Contests do
   - `opts` (keyword): Optional parameters
     - `:limit` (integer()): Number of results to return per page.
     - `:offset` (integer()): The initial index from which to return the results.
-    - `:q` (String.t): > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
 
   ### Returns
 
@@ -172,8 +169,7 @@ defmodule PokéAPI.Api.Contests do
   def super_contest_effect_list(connection, opts \\ []) do
     optional_params = %{
       :limit => :query,
-      :offset => :query,
-      :q => :query
+      :offset => :query
     }
 
     request =

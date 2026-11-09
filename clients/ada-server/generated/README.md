@@ -1,4 +1,4 @@
-# All the Pokémon data you'll ever need in one place, easily accessible through a modern free open_source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.      - OpenAPI Ada Server
+# All the Pokémon data you'll ever need in one place, easily accessible through a modern free open_source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo. - OpenAPI Ada Server
 
 ## Overview
 
@@ -114,6 +114,8 @@ Method | HTTP request | Description
 [**Evolution_Chain_Retrieve**](EvolutionApi.md#Evolution_Chain_Retrieve) | **GET** /api/v2/evolution-chain/{id}/ | Get evolution chain
 [**Evolution_Trigger_List**](EvolutionApi.md#Evolution_Trigger_List) | **GET** /api/v2/evolution-trigger/ | List evolution triggers
 [**Evolution_Trigger_Retrieve**](EvolutionApi.md#Evolution_Trigger_Retrieve) | **GET** /api/v2/evolution-trigger/{id}/ | Get evolution trigger
+[**Evolution_Variable_List**](EvolutionApi.md#Evolution_Variable_List) | **GET** /api/v2/evolution-variable/ | List evolution variables
+[**Evolution_Variable_Retrieve**](EvolutionApi.md#Evolution_Variable_Retrieve) | **GET** /api/v2/evolution-variable/{id}/ | Get evolution variable
 [**Generation_List**](GamesApi.md#Generation_List) | **GET** /api/v2/generation/ | List genrations
 [**Generation_Retrieve**](GamesApi.md#Generation_Retrieve) | **GET** /api/v2/generation/{id}/ | Get genration
 [**Pokedex_List**](GamesApi.md#Pokedex_List) | **GET** /api/v2/pokedex/ | List pokedex
@@ -122,6 +124,8 @@ Method | HTTP request | Description
 [**Version_Group_Retrieve**](GamesApi.md#Version_Group_Retrieve) | **GET** /api/v2/version-group/{id}/ | Get version group
 [**Version_List**](GamesApi.md#Version_List) | **GET** /api/v2/version/ | List versions
 [**Version_Retrieve**](GamesApi.md#Version_Retrieve) | **GET** /api/v2/version/{id}/ | Get version
+[**Currency_List**](ItemsApi.md#Currency_List) | **GET** /api/v2/currency/ | List currencies
+[**Currency_Retrieve**](ItemsApi.md#Currency_Retrieve) | **GET** /api/v2/currency/{id}/ | Get currency
 [**Item_Attribute_List**](ItemsApi.md#Item_Attribute_List) | **GET** /api/v2/item-attribute/ | List item attributes
 [**Item_Attribute_Retrieve**](ItemsApi.md#Item_Attribute_Retrieve) | **GET** /api/v2/item-attribute/{id}/ | Get item attribute
 [**Item_Category_List**](ItemsApi.md#Item_Category_List) | **GET** /api/v2/item-category/ | List item categories
@@ -154,9 +158,9 @@ Method | HTTP request | Description
 [**Move_Retrieve**](MovesApi.md#Move_Retrieve) | **GET** /api/v2/move/{id}/ | Get move
 [**Move_Target_List**](MovesApi.md#Move_Target_List) | **GET** /api/v2/move-target/ | List move targets
 [**Move_Target_Retrieve**](MovesApi.md#Move_Target_Retrieve) | **GET** /api/v2/move-target/{id}/ | Get move target
-[**Ability_List**](PokemonApi.md#Ability_List) | **GET** /api/v2/ability/ | 
-[**Ability_Retrieve**](PokemonApi.md#Ability_Retrieve) | **GET** /api/v2/ability/{id}/ | 
-[**Characteristic_List**](PokemonApi.md#Characteristic_List) | **GET** /api/v2/characteristic/ | List charecterictics
+[**Ability_List**](PokemonApi.md#Ability_List) | **GET** /api/v2/ability/ | List abilities
+[**Ability_Retrieve**](PokemonApi.md#Ability_Retrieve) | **GET** /api/v2/ability/{id}/ | Get ability
+[**Characteristic_List**](PokemonApi.md#Characteristic_List) | **GET** /api/v2/characteristic/ | List characteristics
 [**Characteristic_Retrieve**](PokemonApi.md#Characteristic_Retrieve) | **GET** /api/v2/characteristic/{id}/ | Get characteristic
 [**Egg_Group_List**](PokemonApi.md#Egg_Group_List) | **GET** /api/v2/egg-group/ | List egg groups
 [**Egg_Group_Retrieve**](PokemonApi.md#Egg_Group_Retrieve) | **GET** /api/v2/egg-group/{id}/ | Get egg group
@@ -188,28 +192,26 @@ Method | HTTP request | Description
 [**Type_Retrieve**](PokemonApi.md#Type_Retrieve) | **GET** /api/v2/type/{id}/ | Get types
 [**Language_List**](UtilityApi.md#Language_List) | **GET** /api/v2/language/ | List languages
 [**Language_Retrieve**](UtilityApi.md#Language_Retrieve) | **GET** /api/v2/language/{id}/ | Get language
+[**Meta_Retrieve**](UtilityApi.md#Meta_Retrieve) | **GET** /api/v2/meta/ | Get API metadata
 
 
 ### Models
 
  - [.Models.AbilityChangeEffectText_Type](AbilityChangeEffectText_Type.md)
  - [.Models.AbilityChange_Type](AbilityChange_Type.md)
- - [.Models.AbilityDetailPokemonInnerPokemon_Type](AbilityDetailPokemonInnerPokemon_Type.md)
- - [.Models.AbilityDetailPokemonInner_Type](AbilityDetailPokemonInner_Type.md)
  - [.Models.AbilityDetail_Type](AbilityDetail_Type.md)
  - [.Models.AbilityEffectText_Type](AbilityEffectText_Type.md)
  - [.Models.AbilityFlavorText_Type](AbilityFlavorText_Type.md)
  - [.Models.AbilityName_Type](AbilityName_Type.md)
+ - [.Models.AbilityPokemonDetail_Type](AbilityPokemonDetail_Type.md)
  - [.Models.AbilitySummary_Type](AbilitySummary_Type.md)
- - [.Models.BerryDetailFlavorsInnerFlavor_Type](BerryDetailFlavorsInnerFlavor_Type.md)
- - [.Models.BerryDetailFlavorsInner_Type](BerryDetailFlavorsInner_Type.md)
  - [.Models.BerryDetail_Type](BerryDetail_Type.md)
  - [.Models.BerryFirmnessDetail_Type](BerryFirmnessDetail_Type.md)
  - [.Models.BerryFirmnessName_Type](BerryFirmnessName_Type.md)
  - [.Models.BerryFirmnessSummary_Type](BerryFirmnessSummary_Type.md)
- - [.Models.BerryFlavorDetailBerriesInnerBerry_Type](BerryFlavorDetailBerriesInnerBerry_Type.md)
- - [.Models.BerryFlavorDetailBerriesInner_Type](BerryFlavorDetailBerriesInner_Type.md)
+ - [.Models.BerryFlavorBerryMap_Type](BerryFlavorBerryMap_Type.md)
  - [.Models.BerryFlavorDetail_Type](BerryFlavorDetail_Type.md)
+ - [.Models.BerryFlavorMap_Type](BerryFlavorMap_Type.md)
  - [.Models.BerryFlavorName_Type](BerryFlavorName_Type.md)
  - [.Models.BerryFlavorSummary_Type](BerryFlavorSummary_Type.md)
  - [.Models.BerrySummary_Type](BerrySummary_Type.md)
@@ -223,7 +225,9 @@ Method | HTTP request | Description
  - [.Models.ContestTypeDetail_Type](ContestTypeDetail_Type.md)
  - [.Models.ContestTypeName_Type](ContestTypeName_Type.md)
  - [.Models.ContestTypeSummary_Type](ContestTypeSummary_Type.md)
- - [.Models.EggGroupDetailPokemonSpeciesInner_Type](EggGroupDetailPokemonSpeciesInner_Type.md)
+ - [.Models.CurrencyDetail_Type](CurrencyDetail_Type.md)
+ - [.Models.CurrencyName_Type](CurrencyName_Type.md)
+ - [.Models.CurrencySummary_Type](CurrencySummary_Type.md)
  - [.Models.EggGroupDetail_Type](EggGroupDetail_Type.md)
  - [.Models.EggGroupName_Type](EggGroupName_Type.md)
  - [.Models.EggGroupSummary_Type](EggGroupSummary_Type.md)
@@ -236,18 +240,21 @@ Method | HTTP request | Description
  - [.Models.EncounterMethodDetail_Type](EncounterMethodDetail_Type.md)
  - [.Models.EncounterMethodName_Type](EncounterMethodName_Type.md)
  - [.Models.EncounterMethodSummary_Type](EncounterMethodSummary_Type.md)
- - [.Models.EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender_Type](EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender_Type.md)
- - [.Models.EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner_Type](EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner_Type.md)
- - [.Models.EvolutionChainDetailChainEvolvesToInner_Type](EvolutionChainDetailChainEvolvesToInner_Type.md)
- - [.Models.EvolutionChainDetailChain_Type](EvolutionChainDetailChain_Type.md)
+ - [.Models.EncounterPokemonDetail_Type](EncounterPokemonDetail_Type.md)
  - [.Models.EvolutionChainDetail_Type](EvolutionChainDetail_Type.md)
+ - [.Models.EvolutionChainLink_Type](EvolutionChainLink_Type.md)
  - [.Models.EvolutionChainSummary_Type](EvolutionChainSummary_Type.md)
+ - [.Models.EvolutionConditionExpression_Type](EvolutionConditionExpression_Type.md)
  - [.Models.EvolutionTriggerDetail_Type](EvolutionTriggerDetail_Type.md)
  - [.Models.EvolutionTriggerName_Type](EvolutionTriggerName_Type.md)
  - [.Models.EvolutionTriggerSummary_Type](EvolutionTriggerSummary_Type.md)
+ - [.Models.EvolutionVariableDescription_Type](EvolutionVariableDescription_Type.md)
+ - [.Models.EvolutionVariableDetail_Type](EvolutionVariableDetail_Type.md)
+ - [.Models.EvolutionVariableName_Type](EvolutionVariableName_Type.md)
+ - [.Models.EvolutionVariableSummary_Type](EvolutionVariableSummary_Type.md)
  - [.Models.Experience_Type](Experience_Type.md)
- - [.Models.GenderDetailPokemonSpeciesDetailsInner_Type](GenderDetailPokemonSpeciesDetailsInner_Type.md)
  - [.Models.GenderDetail_Type](GenderDetail_Type.md)
+ - [.Models.GenderPokemonSpecies_Type](GenderPokemonSpecies_Type.md)
  - [.Models.GenderSummary_Type](GenderSummary_Type.md)
  - [.Models.GenerationDetail_Type](GenerationDetail_Type.md)
  - [.Models.GenerationName_Type](GenerationName_Type.md)
@@ -262,11 +269,6 @@ Method | HTTP request | Description
  - [.Models.ItemCategoryDetail_Type](ItemCategoryDetail_Type.md)
  - [.Models.ItemCategoryName_Type](ItemCategoryName_Type.md)
  - [.Models.ItemCategorySummary_Type](ItemCategorySummary_Type.md)
- - [.Models.ItemDetailBabyTriggerFor_Type](ItemDetailBabyTriggerFor_Type.md)
- - [.Models.ItemDetailHeldByPokemonInnerVersionDetailsInner_Type](ItemDetailHeldByPokemonInnerVersionDetailsInner_Type.md)
- - [.Models.ItemDetailHeldByPokemonInner_Type](ItemDetailHeldByPokemonInner_Type.md)
- - [.Models.ItemDetailMachinesInner_Type](ItemDetailMachinesInner_Type.md)
- - [.Models.ItemDetailSprites_Type](ItemDetailSprites_Type.md)
  - [.Models.ItemDetail_Type](ItemDetail_Type.md)
  - [.Models.ItemEffectText_Type](ItemEffectText_Type.md)
  - [.Models.ItemFlavorText_Type](ItemFlavorText_Type.md)
@@ -274,21 +276,24 @@ Method | HTTP request | Description
  - [.Models.ItemFlingEffectEffectText_Type](ItemFlingEffectEffectText_Type.md)
  - [.Models.ItemFlingEffectSummary_Type](ItemFlingEffectSummary_Type.md)
  - [.Models.ItemGameIndex_Type](ItemGameIndex_Type.md)
+ - [.Models.ItemMachine_Type](ItemMachine_Type.md)
  - [.Models.ItemName_Type](ItemName_Type.md)
  - [.Models.ItemPocketDetail_Type](ItemPocketDetail_Type.md)
  - [.Models.ItemPocketName_Type](ItemPocketName_Type.md)
  - [.Models.ItemPocketSummary_Type](ItemPocketSummary_Type.md)
+ - [.Models.ItemPrice_Type](ItemPrice_Type.md)
+ - [.Models.ItemSprites_Type](ItemSprites_Type.md)
  - [.Models.ItemSummary_Type](ItemSummary_Type.md)
  - [.Models.LanguageDetail_Type](LanguageDetail_Type.md)
  - [.Models.LanguageName_Type](LanguageName_Type.md)
  - [.Models.LanguageSummary_Type](LanguageSummary_Type.md)
- - [.Models.LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner_Type](LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner_Type.md)
- - [.Models.LocationAreaDetailEncounterMethodRatesInner_Type](LocationAreaDetailEncounterMethodRatesInner_Type.md)
- - [.Models.LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails_Type](LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails_Type.md)
- - [.Models.LocationAreaDetailPokemonEncountersInnerVersionDetailsInner_Type](LocationAreaDetailPokemonEncountersInnerVersionDetailsInner_Type.md)
- - [.Models.LocationAreaDetailPokemonEncountersInner_Type](LocationAreaDetailPokemonEncountersInner_Type.md)
  - [.Models.LocationAreaDetail_Type](LocationAreaDetail_Type.md)
+ - [.Models.LocationAreaEncounterDetail_Type](LocationAreaEncounterDetail_Type.md)
+ - [.Models.LocationAreaEncounterRate_Type](LocationAreaEncounterRate_Type.md)
+ - [.Models.LocationAreaEncounterVersionDetail_Type](LocationAreaEncounterVersionDetail_Type.md)
  - [.Models.LocationAreaName_Type](LocationAreaName_Type.md)
+ - [.Models.LocationAreaPokemonEncounterVersion_Type](LocationAreaPokemonEncounterVersion_Type.md)
+ - [.Models.LocationAreaPokemonEncounter_Type](LocationAreaPokemonEncounter_Type.md)
  - [.Models.LocationAreaSummary_Type](LocationAreaSummary_Type.md)
  - [.Models.LocationDetail_Type](LocationDetail_Type.md)
  - [.Models.LocationGameIndex_Type](LocationGameIndex_Type.md)
@@ -299,20 +304,17 @@ Method | HTTP request | Description
  - [.Models.MoveBattleStyleDetail_Type](MoveBattleStyleDetail_Type.md)
  - [.Models.MoveBattleStyleName_Type](MoveBattleStyleName_Type.md)
  - [.Models.MoveBattleStyleSummary_Type](MoveBattleStyleSummary_Type.md)
- - [.Models.MoveChangeEffectEntriesInner_Type](MoveChangeEffectEntriesInner_Type.md)
  - [.Models.MoveChange_Type](MoveChange_Type.md)
+ - [.Models.MoveComboUsage_Type](MoveComboUsage_Type.md)
+ - [.Models.MoveCombos_Type](MoveCombos_Type.md)
  - [.Models.MoveDamageClassDescription_Type](MoveDamageClassDescription_Type.md)
  - [.Models.MoveDamageClassDetail_Type](MoveDamageClassDetail_Type.md)
  - [.Models.MoveDamageClassName_Type](MoveDamageClassName_Type.md)
  - [.Models.MoveDamageClassSummary_Type](MoveDamageClassSummary_Type.md)
- - [.Models.MoveDetailContestCombosNormal_Type](MoveDetailContestCombosNormal_Type.md)
- - [.Models.MoveDetailContestCombos_Type](MoveDetailContestCombos_Type.md)
- - [.Models.MoveDetailEffectChangesInnerEffectEntriesInner_Type](MoveDetailEffectChangesInnerEffectEntriesInner_Type.md)
- - [.Models.MoveDetailEffectChangesInner_Type](MoveDetailEffectChangesInner_Type.md)
- - [.Models.MoveDetailMachinesInnerMachine_Type](MoveDetailMachinesInnerMachine_Type.md)
- - [.Models.MoveDetailMachinesInner_Type](MoveDetailMachinesInner_Type.md)
- - [.Models.MoveDetailStatChangesInner_Type](MoveDetailStatChangesInner_Type.md)
  - [.Models.MoveDetail_Type](MoveDetail_Type.md)
+ - [.Models.MoveEffectChangeEffectText_Type](MoveEffectChangeEffectText_Type.md)
+ - [.Models.MoveEffectChange_Type](MoveEffectChange_Type.md)
+ - [.Models.MoveEffectEffectText_Type](MoveEffectEffectText_Type.md)
  - [.Models.MoveFlavorText_Type](MoveFlavorText_Type.md)
  - [.Models.MoveLearnMethodDescription_Type](MoveLearnMethodDescription_Type.md)
  - [.Models.MoveLearnMethodDetail_Type](MoveLearnMethodDetail_Type.md)
@@ -324,17 +326,19 @@ Method | HTTP request | Description
  - [.Models.MoveMetaCategoryDescription_Type](MoveMetaCategoryDescription_Type.md)
  - [.Models.MoveMetaCategoryDetail_Type](MoveMetaCategoryDetail_Type.md)
  - [.Models.MoveMetaCategorySummary_Type](MoveMetaCategorySummary_Type.md)
+ - [.Models.MoveMetaStatChange_Type](MoveMetaStatChange_Type.md)
  - [.Models.MoveMeta_Type](MoveMeta_Type.md)
  - [.Models.MoveName_Type](MoveName_Type.md)
+ - [.Models.MoveStatChange_Type](MoveStatChange_Type.md)
  - [.Models.MoveSummary_Type](MoveSummary_Type.md)
  - [.Models.MoveTargetDescription_Type](MoveTargetDescription_Type.md)
  - [.Models.MoveTargetDetail_Type](MoveTargetDetail_Type.md)
  - [.Models.MoveTargetName_Type](MoveTargetName_Type.md)
  - [.Models.MoveTargetSummary_Type](MoveTargetSummary_Type.md)
  - [.Models.NatureBattleStylePreference_Type](NatureBattleStylePreference_Type.md)
- - [.Models.NatureDetailPokeathlonStatChangesInner_Type](NatureDetailPokeathlonStatChangesInner_Type.md)
  - [.Models.NatureDetail_Type](NatureDetail_Type.md)
  - [.Models.NatureName_Type](NatureName_Type.md)
+ - [.Models.NaturePokeathlonStat_Type](NaturePokeathlonStat_Type.md)
  - [.Models.NatureSummary_Type](NatureSummary_Type.md)
  - [.Models.PaginatedAbilitySummaryList_Type](PaginatedAbilitySummaryList_Type.md)
  - [.Models.PaginatedBerryFirmnessSummaryList_Type](PaginatedBerryFirmnessSummaryList_Type.md)
@@ -343,12 +347,14 @@ Method | HTTP request | Description
  - [.Models.PaginatedCharacteristicSummaryList_Type](PaginatedCharacteristicSummaryList_Type.md)
  - [.Models.PaginatedContestEffectSummaryList_Type](PaginatedContestEffectSummaryList_Type.md)
  - [.Models.PaginatedContestTypeSummaryList_Type](PaginatedContestTypeSummaryList_Type.md)
+ - [.Models.PaginatedCurrencySummaryList_Type](PaginatedCurrencySummaryList_Type.md)
  - [.Models.PaginatedEggGroupSummaryList_Type](PaginatedEggGroupSummaryList_Type.md)
  - [.Models.PaginatedEncounterConditionSummaryList_Type](PaginatedEncounterConditionSummaryList_Type.md)
  - [.Models.PaginatedEncounterConditionValueSummaryList_Type](PaginatedEncounterConditionValueSummaryList_Type.md)
  - [.Models.PaginatedEncounterMethodSummaryList_Type](PaginatedEncounterMethodSummaryList_Type.md)
  - [.Models.PaginatedEvolutionChainSummaryList_Type](PaginatedEvolutionChainSummaryList_Type.md)
  - [.Models.PaginatedEvolutionTriggerSummaryList_Type](PaginatedEvolutionTriggerSummaryList_Type.md)
+ - [.Models.PaginatedEvolutionVariableSummaryList_Type](PaginatedEvolutionVariableSummaryList_Type.md)
  - [.Models.PaginatedGenderSummaryList_Type](PaginatedGenderSummaryList_Type.md)
  - [.Models.PaginatedGenerationSummaryList_Type](PaginatedGenerationSummaryList_Type.md)
  - [.Models.PaginatedGrowthRateSummaryList_Type](PaginatedGrowthRateSummaryList_Type.md)
@@ -384,76 +390,92 @@ Method | HTTP request | Description
  - [.Models.PaginatedTypeSummaryList_Type](PaginatedTypeSummaryList_Type.md)
  - [.Models.PaginatedVersionGroupSummaryList_Type](PaginatedVersionGroupSummaryList_Type.md)
  - [.Models.PaginatedVersionSummaryList_Type](PaginatedVersionSummaryList_Type.md)
- - [.Models.PalParkAreaDetailPokemonEncountersInner_Type](PalParkAreaDetailPokemonEncountersInner_Type.md)
  - [.Models.PalParkAreaDetail_Type](PalParkAreaDetail_Type.md)
  - [.Models.PalParkAreaName_Type](PalParkAreaName_Type.md)
  - [.Models.PalParkAreaSummary_Type](PalParkAreaSummary_Type.md)
- - [.Models.PokeathlonStatDetailAffectingNaturesDecreaseInner_Type](PokeathlonStatDetailAffectingNaturesDecreaseInner_Type.md)
- - [.Models.PokeathlonStatDetailAffectingNaturesIncreaseInner_Type](PokeathlonStatDetailAffectingNaturesIncreaseInner_Type.md)
- - [.Models.PokeathlonStatDetailAffectingNatures_Type](PokeathlonStatDetailAffectingNatures_Type.md)
+ - [.Models.PalParkEncounter_Type](PalParkEncounter_Type.md)
+ - [.Models.PokeapiMetaResponse_Type](PokeapiMetaResponse_Type.md)
+ - [.Models.PokeathlonStatAffectingNature_Type](PokeathlonStatAffectingNature_Type.md)
+ - [.Models.PokeathlonStatAffectingNatures_Type](PokeathlonStatAffectingNatures_Type.md)
  - [.Models.PokeathlonStatDetail_Type](PokeathlonStatDetail_Type.md)
  - [.Models.PokeathlonStatName_Type](PokeathlonStatName_Type.md)
  - [.Models.PokeathlonStatSummary_Type](PokeathlonStatSummary_Type.md)
  - [.Models.PokedexDescription_Type](PokedexDescription_Type.md)
- - [.Models.PokedexDetailPokemonEntriesInner_Type](PokedexDetailPokemonEntriesInner_Type.md)
  - [.Models.PokedexDetail_Type](PokedexDetail_Type.md)
  - [.Models.PokedexName_Type](PokedexName_Type.md)
  - [.Models.PokedexSummary_Type](PokedexSummary_Type.md)
+ - [.Models.PokemonAbilityPast_Type](PokemonAbilityPast_Type.md)
+ - [.Models.PokemonAbility_Type](PokemonAbility_Type.md)
  - [.Models.PokemonColorDetail_Type](PokemonColorDetail_Type.md)
  - [.Models.PokemonColorName_Type](PokemonColorName_Type.md)
  - [.Models.PokemonColorSummary_Type](PokemonColorSummary_Type.md)
- - [.Models.PokemonDetailAbilitiesInner_Type](PokemonDetailAbilitiesInner_Type.md)
- - [.Models.PokemonDetailCries_Type](PokemonDetailCries_Type.md)
- - [.Models.PokemonDetailHeldItems_Type](PokemonDetailHeldItems_Type.md)
- - [.Models.PokemonDetailMovesInnerVersionGroupDetailsInner_Type](PokemonDetailMovesInnerVersionGroupDetailsInner_Type.md)
- - [.Models.PokemonDetailMovesInner_Type](PokemonDetailMovesInner_Type.md)
- - [.Models.PokemonDetailPastAbilitiesInner_Type](PokemonDetailPastAbilitiesInner_Type.md)
- - [.Models.PokemonDetailPastTypesInner_Type](PokemonDetailPastTypesInner_Type.md)
- - [.Models.PokemonDetailSprites_Type](PokemonDetailSprites_Type.md)
- - [.Models.PokemonDetailTypesInner_Type](PokemonDetailTypesInner_Type.md)
+ - [.Models.PokemonCries_Type](PokemonCries_Type.md)
  - [.Models.PokemonDetail_Type](PokemonDetail_Type.md)
  - [.Models.PokemonDexEntry_Type](PokemonDexEntry_Type.md)
- - [.Models.PokemonFormDetailFormNamesInner_Type](PokemonFormDetailFormNamesInner_Type.md)
- - [.Models.PokemonFormDetailSprites_Type](PokemonFormDetailSprites_Type.md)
+ - [.Models.PokemonDexNumber_Type](PokemonDexNumber_Type.md)
+ - [.Models.PokemonEncounterDetailResponse_Type](PokemonEncounterDetailResponse_Type.md)
+ - [.Models.PokemonEncounterResponse_Type](PokemonEncounterResponse_Type.md)
+ - [.Models.PokemonEncounterVersionDetailResponse_Type](PokemonEncounterVersionDetailResponse_Type.md)
+ - [.Models.PokemonEvolutionKnownMove_Type](PokemonEvolutionKnownMove_Type.md)
+ - [.Models.PokemonEvolution_Type](PokemonEvolution_Type.md)
  - [.Models.PokemonFormDetail_Type](PokemonFormDetail_Type.md)
+ - [.Models.PokemonFormFlavorText_Type](PokemonFormFlavorText_Type.md)
+ - [.Models.PokemonFormName_Type](PokemonFormName_Type.md)
+ - [.Models.PokemonFormSprites_Type](PokemonFormSprites_Type.md)
  - [.Models.PokemonFormSummary_Type](PokemonFormSummary_Type.md)
+ - [.Models.PokemonFormTriggerCondition_Type](PokemonFormTriggerCondition_Type.md)
+ - [.Models.PokemonFormType_Type](PokemonFormType_Type.md)
  - [.Models.PokemonGameIndex_Type](PokemonGameIndex_Type.md)
  - [.Models.PokemonHabitatDetail_Type](PokemonHabitatDetail_Type.md)
  - [.Models.PokemonHabitatName_Type](PokemonHabitatName_Type.md)
  - [.Models.PokemonHabitatSummary_Type](PokemonHabitatSummary_Type.md)
- - [.Models.PokemonShapeDetailAwesomeNamesInner_Type](PokemonShapeDetailAwesomeNamesInner_Type.md)
- - [.Models.PokemonShapeDetailNamesInner_Type](PokemonShapeDetailNamesInner_Type.md)
+ - [.Models.PokemonHeldItemSummary_Type](PokemonHeldItemSummary_Type.md)
+ - [.Models.PokemonHeldItemVersion_Type](PokemonHeldItemVersion_Type.md)
+ - [.Models.PokemonHeldItem_Type](PokemonHeldItem_Type.md)
+ - [.Models.PokemonMoveVersionGroup_Type](PokemonMoveVersionGroup_Type.md)
+ - [.Models.PokemonMove_Type](PokemonMove_Type.md)
+ - [.Models.PokemonPastAbility_Type](PokemonPastAbility_Type.md)
+ - [.Models.PokemonPastStat_Type](PokemonPastStat_Type.md)
+ - [.Models.PokemonPastType_Type](PokemonPastType_Type.md)
+ - [.Models.PokemonShapeAwesomeName_Type](PokemonShapeAwesomeName_Type.md)
  - [.Models.PokemonShapeDetail_Type](PokemonShapeDetail_Type.md)
+ - [.Models.PokemonShapeName_Type](PokemonShapeName_Type.md)
  - [.Models.PokemonShapeSummary_Type](PokemonShapeSummary_Type.md)
  - [.Models.PokemonSpeciesDescription_Type](PokemonSpeciesDescription_Type.md)
- - [.Models.PokemonSpeciesDetailGeneraInner_Type](PokemonSpeciesDetailGeneraInner_Type.md)
- - [.Models.PokemonSpeciesDetailPalParkEncountersInner_Type](PokemonSpeciesDetailPalParkEncountersInner_Type.md)
- - [.Models.PokemonSpeciesDetailVarietiesInner_Type](PokemonSpeciesDetailVarietiesInner_Type.md)
  - [.Models.PokemonSpeciesDetail_Type](PokemonSpeciesDetail_Type.md)
  - [.Models.PokemonSpeciesFlavorText_Type](PokemonSpeciesFlavorText_Type.md)
+ - [.Models.PokemonSpeciesGenus_Type](PokemonSpeciesGenus_Type.md)
+ - [.Models.PokemonSpeciesName_Type](PokemonSpeciesName_Type.md)
+ - [.Models.PokemonSpeciesPalParkEncounter_Type](PokemonSpeciesPalParkEncounter_Type.md)
  - [.Models.PokemonSpeciesSummary_Type](PokemonSpeciesSummary_Type.md)
+ - [.Models.PokemonSpeciesVariety_Type](PokemonSpeciesVariety_Type.md)
+ - [.Models.PokemonSpritesOtherDreamWorld_Type](PokemonSpritesOtherDreamWorld_Type.md)
+ - [.Models.PokemonSpritesOtherHome_Type](PokemonSpritesOtherHome_Type.md)
+ - [.Models.PokemonSpritesOtherOfficialArtwork_Type](PokemonSpritesOtherOfficialArtwork_Type.md)
+ - [.Models.PokemonSpritesOtherShowdown_Type](PokemonSpritesOtherShowdown_Type.md)
+ - [.Models.PokemonSpritesOther_Type](PokemonSpritesOther_Type.md)
+ - [.Models.PokemonSprites_Type](PokemonSprites_Type.md)
  - [.Models.PokemonStat_Type](PokemonStat_Type.md)
  - [.Models.PokemonSummary_Type](PokemonSummary_Type.md)
+ - [.Models.PokemonType_Type](PokemonType_Type.md)
  - [.Models.RegionDetail_Type](RegionDetail_Type.md)
  - [.Models.RegionName_Type](RegionName_Type.md)
  - [.Models.RegionSummary_Type](RegionSummary_Type.md)
- - [.Models.StatDetailAffectingMovesIncreaseInner_Type](StatDetailAffectingMovesIncreaseInner_Type.md)
- - [.Models.StatDetailAffectingMoves_Type](StatDetailAffectingMoves_Type.md)
- - [.Models.StatDetailAffectingNatures_Type](StatDetailAffectingNatures_Type.md)
+ - [.Models.StatAffectingMoves_Type](StatAffectingMoves_Type.md)
+ - [.Models.StatAffectingNatures_Type](StatAffectingNatures_Type.md)
  - [.Models.StatDetail_Type](StatDetail_Type.md)
  - [.Models.StatName_Type](StatName_Type.md)
  - [.Models.StatSummary_Type](StatSummary_Type.md)
  - [.Models.SuperContestEffectDetail_Type](SuperContestEffectDetail_Type.md)
  - [.Models.SuperContestEffectFlavorText_Type](SuperContestEffectFlavorText_Type.md)
  - [.Models.SuperContestEffectSummary_Type](SuperContestEffectSummary_Type.md)
- - [.Models.TypeDetailDamageRelations_Type](TypeDetailDamageRelations_Type.md)
- - [.Models.TypeDetailPastDamageRelationsInnerDamageRelations_Type](TypeDetailPastDamageRelationsInnerDamageRelations_Type.md)
- - [.Models.TypeDetailPastDamageRelationsInner_Type](TypeDetailPastDamageRelationsInner_Type.md)
- - [.Models.TypeDetailPokemonInnerPokemon_Type](TypeDetailPokemonInnerPokemon_Type.md)
- - [.Models.TypeDetailPokemonInner_Type](TypeDetailPokemonInner_Type.md)
- - [.Models.TypeDetailSpritesValueValue_Type](TypeDetailSpritesValueValue_Type.md)
  - [.Models.TypeDetail_Type](TypeDetail_Type.md)
  - [.Models.TypeGameIndex_Type](TypeGameIndex_Type.md)
+ - [.Models.TypeGameSprite_Type](TypeGameSprite_Type.md)
+ - [.Models.TypeName_Type](TypeName_Type.md)
+ - [.Models.TypePastRelationships_Type](TypePastRelationships_Type.md)
+ - [.Models.TypePokemon_Type](TypePokemon_Type.md)
+ - [.Models.TypeRelationships_Type](TypeRelationships_Type.md)
  - [.Models.TypeSummary_Type](TypeSummary_Type.md)
  - [.Models.VersionDetail_Type](VersionDetail_Type.md)
  - [.Models.VersionGroupDetail_Type](VersionGroupDetail_Type.md)
@@ -464,16 +486,5 @@ Method | HTTP request | Description
 
 ### Authorization
 
-
-## basicAuth
-
-
-- **Type**: HTTP basic authentication
-
-## cookieAuth
-
-
-- **Type**: API key
-- **API key parameter name**: sessionid
-- **Location**: 
+ All endpoints do not require authorization.
 

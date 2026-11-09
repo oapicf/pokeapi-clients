@@ -7,10 +7,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.vertxweb.server.model.AbilityChange;
-import org.openapitools.vertxweb.server.model.AbilityDetailPokemonInner;
 import org.openapitools.vertxweb.server.model.AbilityEffectText;
 import org.openapitools.vertxweb.server.model.AbilityFlavorText;
 import org.openapitools.vertxweb.server.model.AbilityName;
+import org.openapitools.vertxweb.server.model.AbilityPokemonDetail;
 import org.openapitools.vertxweb.server.model.GenerationSummary;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -24,13 +24,13 @@ public class AbilityDetail   {
   private List<AbilityEffectText> effectEntries = new ArrayList<>();
   private List<AbilityChange> effectChanges = new ArrayList<>();
   private List<AbilityFlavorText> flavorTextEntries = new ArrayList<>();
-  private List<AbilityDetailPokemonInner> pokemon = new ArrayList<>();
+  private List<AbilityPokemonDetail> pokemon = new ArrayList<>();
 
   public AbilityDetail () {
 
   }
 
-  public AbilityDetail (Integer id, String name, Boolean isMainSeries, GenerationSummary generation, List<AbilityName> names, List<AbilityEffectText> effectEntries, List<AbilityChange> effectChanges, List<AbilityFlavorText> flavorTextEntries, List<AbilityDetailPokemonInner> pokemon) {
+  public AbilityDetail (Integer id, String name, Boolean isMainSeries, GenerationSummary generation, List<AbilityName> names, List<AbilityEffectText> effectEntries, List<AbilityChange> effectChanges, List<AbilityFlavorText> flavorTextEntries, List<AbilityPokemonDetail> pokemon) {
     this.id = id;
     this.name = name;
     this.isMainSeries = isMainSeries;
@@ -116,10 +116,10 @@ public class AbilityDetail   {
 
     
   @JsonProperty("pokemon")
-  public List<AbilityDetailPokemonInner> getPokemon() {
+  public List<AbilityPokemonDetail> getPokemon() {
     return pokemon;
   }
-  public void setPokemon(List<AbilityDetailPokemonInner> pokemon) {
+  public void setPokemon(List<AbilityPokemonDetail> pokemon) {
     this.pokemon = pokemon;
   }
 

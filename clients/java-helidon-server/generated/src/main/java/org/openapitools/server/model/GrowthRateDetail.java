@@ -30,12 +30,12 @@ public class GrowthRateDetail   {
     /**
      * Create GrowthRateDetail.
      *
-     * @param id id
-     * @param name name
-     * @param formula formula
-     * @param descriptions descriptions
-     * @param levels levels
-     * @param pokemonSpecies pokemonSpecies
+     * @param id The identifier for this resource.
+     * @param name The name for this resource.
+     * @param formula The formula used to calculate the rate at which the Pokémon species gains level.
+     * @param descriptions The descriptions of this characteristic listed in different languages.
+     * @param levels A list of levels and the amount of experienced needed to atain them based on this growth rate.
+     * @param pokemonSpecies A list of Pokémon species that gain levels at this growth rate.
      */
     public GrowthRateDetail(
         Integer id, 
@@ -56,7 +56,7 @@ public class GrowthRateDetail   {
 
 
     /**
-     * Get id
+     * The identifier for this resource.
      * @return id
      */
     public Integer getId() {
@@ -68,7 +68,7 @@ public class GrowthRateDetail   {
     }
 
     /**
-     * Get name
+     * The name for this resource.
      * @return name
      */
     public String getName() {
@@ -80,7 +80,7 @@ public class GrowthRateDetail   {
     }
 
     /**
-     * Get formula
+     * The formula used to calculate the rate at which the Pokémon species gains level.
      * @return formula
      */
     public String getFormula() {
@@ -92,7 +92,7 @@ public class GrowthRateDetail   {
     }
 
     /**
-     * Get descriptions
+     * The descriptions of this characteristic listed in different languages.
      * @return descriptions
      */
     public List<@Valid GrowthRateDescription> getDescriptions() {
@@ -104,7 +104,7 @@ public class GrowthRateDetail   {
     }
 
     /**
-     * Get levels
+     * A list of levels and the amount of experienced needed to atain them based on this growth rate.
      * @return levels
      */
     public List<@Valid Experience> getLevels() {
@@ -116,7 +116,7 @@ public class GrowthRateDetail   {
     }
 
     /**
-     * Get pokemonSpecies
+     * A list of Pokémon species that gain levels at this growth rate.
      * @return pokemonSpecies
      */
     public List<@Valid PokemonSpeciesSummary> getPokemonSpecies() {

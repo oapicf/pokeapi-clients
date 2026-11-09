@@ -3,8 +3,8 @@ package com.prokarma.pkmst.model;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.prokarma.pkmst.model.EggGroupDetailPokemonSpeciesInner;
 import com.prokarma.pkmst.model.EggGroupName;
+import com.prokarma.pkmst.model.PokemonSpeciesSummary;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
@@ -19,7 +19,7 @@ import java.util.List;
  * EggGroupDetail
  */
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-10-25T05:48:09.645019047Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-11-09T13:49:28.343088631Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class EggGroupDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -33,7 +33,7 @@ public class EggGroupDetail   {
 
   @JsonProperty("pokemon_species")
   
-  private List<EggGroupDetailPokemonSpeciesInner> pokemonSpecies = new ArrayList<>();
+  private List<PokemonSpeciesSummary> pokemonSpecies = new ArrayList<>();
 
   public EggGroupDetail id(Integer id) {
     this.id = id;
@@ -41,10 +41,10 @@ public class EggGroupDetail   {
   }
 
   /**
-   * Get id
+   * The identifier for this resource.
    * @return id
    */
-  @ApiModelProperty(required = true, readOnly = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "The identifier for this resource.")
   public Integer getId() {
     return id;
   }
@@ -59,10 +59,10 @@ public class EggGroupDetail   {
   }
 
   /**
-   * Get name
+   * The name for this resource.
    * @return name
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   public String getName() {
     return name;
   }
@@ -85,10 +85,10 @@ public class EggGroupDetail   {
   }
 
   /**
-   * Get names
+   * The name of this resource listed in different languages.
    * @return names
    */
-  @ApiModelProperty(required = true, readOnly = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "The name of this resource listed in different languages.")
   public List<EggGroupName> getNames() {
     return names;
   }
@@ -97,12 +97,12 @@ public class EggGroupDetail   {
     this.names = names;
   }
 
-  public EggGroupDetail pokemonSpecies(List<EggGroupDetailPokemonSpeciesInner> pokemonSpecies) {
+  public EggGroupDetail pokemonSpecies(List<PokemonSpeciesSummary> pokemonSpecies) {
     this.pokemonSpecies = pokemonSpecies;
     return this;
   }
 
-  public EggGroupDetail addPokemonSpeciesItem(EggGroupDetailPokemonSpeciesInner pokemonSpeciesItem) {
+  public EggGroupDetail addPokemonSpeciesItem(PokemonSpeciesSummary pokemonSpeciesItem) {
     if (this.pokemonSpecies == null) {
       this.pokemonSpecies = new ArrayList<>();
     }
@@ -111,15 +111,15 @@ public class EggGroupDetail   {
   }
 
   /**
-   * Get pokemonSpecies
+   * A list of all Pokémon species that are members of this egg group.
    * @return pokemonSpecies
    */
-  @ApiModelProperty(required = true, readOnly = true, value = "")
-  public List<EggGroupDetailPokemonSpeciesInner> getPokemonSpecies() {
+  @ApiModelProperty(required = true, readOnly = true, value = "A list of all Pokémon species that are members of this egg group.")
+  public List<PokemonSpeciesSummary> getPokemonSpecies() {
     return pokemonSpecies;
   }
 
-  public void setPokemonSpecies(List<EggGroupDetailPokemonSpeciesInner> pokemonSpecies) {
+  public void setPokemonSpecies(List<PokemonSpeciesSummary> pokemonSpecies) {
     this.pokemonSpecies = pokemonSpecies;
   }
 

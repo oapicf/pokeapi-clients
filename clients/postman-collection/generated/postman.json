@@ -2,10 +2,10 @@
 	"info": {
 		"name": "PokéAPI",
 		"description": {
-		    "content": "All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.\n\n## What is this?\n\nThis is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.\n\nWe've covered everything from Pokémon to Berry Flavors.\n\n## Where do I start?\n\nWe have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.\n\nThis API will always be publicly available and will never require any extensive setup process to consume.\n\nCreated by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.\n    ",
+		    "content": "All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.\n\n## What is this?\n\nThis is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.\n\nWe've covered everything from Pokémon to Berry Flavors.\n\n## Where do I start?\n\nWe have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.\n\nThis API will always be publicly available and will never require any extensive setup process to consume.\n\nCreated by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.",
 		    "type": "text/markdown"
 		},
-		"version": "2.7.0",
+		"version": "2.10.0",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -1092,7 +1092,7 @@
                 "description": "Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.",
                  "item": [
                             {
-                                "name": "abilityList",
+                                "name": "List abilities",
                                 "request": {
     "method": "GET",
     "header": [
@@ -1157,7 +1157,7 @@
                 "description": "Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.",
                  "item": [
                             {
-                                "name": "abilityRetrieve",
+                                "name": "Get ability",
                                 "request": {
     "method": "GET",
     "header": [
@@ -1210,7 +1210,7 @@
                 "description": "Characteristics indicate which stat contains a Pokémon's highest IV. A Pokémon's Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail.",
                  "item": [
                             {
-                                "name": "List charecterictics",
+                                "name": "List characteristics",
                                 "request": {
     "method": "GET",
     "header": [
@@ -1253,12 +1253,6 @@
         "key": "offset",
         "value": "56",
         "description": "The initial index from which to return the results.",
-        "disabled": true
-        },
-        {
-        "key": "q",
-        "value": "q_example",
-        "description": "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ",
         "disabled": true
         }
     ]
@@ -3570,6 +3564,53 @@
                             ]
                             }
                             ]
+                        },
+	                        {
+    "name": "/api/v2/meta/",
+                "description": "Returns metadata about the current deployed version of the API, including the git commit hash, deploy date, and tag (if any).",
+                 "item": [
+                            {
+                                "name": "Get API metadata",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/meta/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "meta"
+    ],
+    "variable": [
+    ],
+    "query": [
+    ]
+    },
+    "description": "Returns metadata about the current deployed version of the API, including the git commit hash, deploy date, and tag (if any)."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
                         }
 	                    ]
 	        },
@@ -3577,6 +3618,124 @@
 	            "name": "items",
 	            "description": "An item is an object in the games which the player can pick up, keep in their bag, and use in some manner. They have various uses, including healing, powering up, helping catch Pokémon, or to access a new area.",
 	            "item": [
+	                        {
+    "name": "/api/v2/currency/",
+                "description": "Currencies used to buy items.",
+                 "item": [
+                            {
+                                "name": "List currencies",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/currency/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "currency"
+    ],
+    "variable": [
+    ],
+    "query": [
+        {
+        "key": "limit",
+        "value": "56",
+        "description": "Number of results to return per page.",
+        "disabled": true
+        },
+        {
+        "key": "offset",
+        "value": "56",
+        "description": "The initial index from which to return the results.",
+        "disabled": true
+        },
+        {
+        "key": "q",
+        "value": "q_example",
+        "description": "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ",
+        "disabled": true
+        }
+    ]
+    },
+    "description": "Currencies used to buy items."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/currency/:id/",
+                "description": "Currencies used to buy items.",
+                 "item": [
+                            {
+                                "name": "Get currency",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/currency/:id/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "currency",
+        ":id"
+    ],
+    "variable": [
+        {
+        "key": "id",
+        "value": "",
+        "description": "This parameter can be a string or an integer."
+        }
+    ],
+    "query": [
+    ]
+    },
+    "description": "Currencies used to buy items."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
 	                        {
     "name": "/api/v2/item-attribute/",
                 "description": "Item attributes define particular aspects of items, e.g.\"usable in battle\" or \"consumable\".",
@@ -5060,12 +5219,6 @@
         "value": "56",
         "description": "The initial index from which to return the results.",
         "disabled": true
-        },
-        {
-        "key": "q",
-        "value": "q_example",
-        "description": "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ",
-        "disabled": true
         }
     ]
     },
@@ -5296,12 +5449,6 @@
         "value": "56",
         "description": "The initial index from which to return the results.",
         "disabled": true
-        },
-        {
-        "key": "q",
-        "value": "q_example",
-        "description": "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ",
-        "disabled": true
         }
     ]
     },
@@ -5420,12 +5567,6 @@
         "value": "56",
         "description": "The initial index from which to return the results.",
         "disabled": true
-        },
-        {
-        "key": "q",
-        "value": "q_example",
-        "description": "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ",
-        "disabled": true
         }
     ]
     },
@@ -5543,12 +5684,6 @@
         "key": "offset",
         "value": "56",
         "description": "The initial index from which to return the results.",
-        "disabled": true
-        },
-        {
-        "key": "q",
-        "value": "q_example",
-        "description": "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ",
         "disabled": true
         }
     ]
@@ -5730,35 +5865,134 @@
                             ]
                             }
                             ]
+                        },
+	                        {
+    "name": "/api/v2/evolution-variable/",
+                "description": "Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.",
+                 "item": [
+                            {
+                                "name": "List evolution variables",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/evolution-variable/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "evolution-variable"
+    ],
+    "variable": [
+    ],
+    "query": [
+        {
+        "key": "limit",
+        "value": "56",
+        "description": "Number of results to return per page.",
+        "disabled": true
+        },
+        {
+        "key": "offset",
+        "value": "56",
+        "description": "The initial index from which to return the results.",
+        "disabled": true
+        },
+        {
+        "key": "q",
+        "value": "q_example",
+        "description": "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ",
+        "disabled": true
+        }
+    ]
+    },
+    "description": "Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
+                        },
+	                        {
+    "name": "/api/v2/evolution-variable/:id/",
+                "description": "Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.",
+                 "item": [
+                            {
+                                "name": "Get evolution variable",
+                                "request": {
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/v2/evolution-variable/:id/",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "v2",
+        "evolution-variable",
+        ":id"
+    ],
+    "variable": [
+        {
+        "key": "id",
+        "value": "",
+        "description": "This parameter can be a string or an integer."
+        }
+    ],
+    "query": [
+    ]
+    },
+    "description": "Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail."
+}
+                                ,"response": [
+                            ]
+                            }
+                            ]
                         }
 	                    ]
 	        }
     ],
-    "auth": {
-            		"type": "basic",
-            		"basic": [
-            			{
-            				"key": "username",
-            				"value": "{{USERNAME}}",
-            				"type": "string"
-            			},
-            			{
-            				"key": "password",
-            				"value": "{{PASSWORD}}",
-            				"type": "string"
-            			}
-            		]
-            	},
+    
 	"variable": [
 		{
 			"key": "baseUrl",
 			"value": "https://pokeapi.co",
 			"type": "string"
-        },
-        {
-            "key": "sessionid",
-            "value": "",
-            "type": "string"
         }
 	]
 }

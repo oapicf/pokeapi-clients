@@ -18,17 +18,17 @@ resourceTypes {
     properties {
         name {
           type =  string
-          description = ""
+          description = "The name for this contest."
           optional = true
         }
         color {
           type =  string
-          description = ""
+          description = "The color associated with this contest&#39;s name."
           optional = true
         }
         language {
           type = LanguageSummary
-          description = ""
+          description = "The language that this name is in."
           optional = true
         }
     }

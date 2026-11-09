@@ -7,8 +7,8 @@ import org.openapitools.model.GenerationSummary;
 
 @Canonical
 class LocationGameIndex {
-    
+    /* The internal id of an API resource within game data. */
     Integer gameIndex
-    
+    /* The generation relevent to this game index. */
     GenerationSummary generation
 }

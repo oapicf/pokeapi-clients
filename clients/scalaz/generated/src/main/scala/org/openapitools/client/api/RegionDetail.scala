@@ -12,13 +12,20 @@ import org.joda.time.DateTime
 import RegionDetail._
 
 case class RegionDetail (
+  /* The identifier for this resource. */
   id: Integer,
-name: String,
-locations: List[LocationSummary],
-mainGeneration: GenerationSummary,
-names: List[RegionName],
-pokedexes: List[PokedexSummary],
-versionGroups: List[AbilityDetailPokemonInnerPokemon])
+/* The name for this resource. */
+  name: String,
+/* A list of locations that can be found in this region. */
+  locations: List[LocationSummary],
+/* The generation this region was introduced in. */
+  mainGeneration: GenerationSummary,
+/* The name of this resource listed in different languages. */
+  names: List[RegionName],
+/* A list of pokédexes that catalogue Pokémon in this region. */
+  pokedexes: List[PokedexSummary],
+/* A list of version groups where this region can be visited. */
+  versionGroups: List[VersionGroupSummary])
 
 object RegionDetail {
   import DateTimeCodecs._

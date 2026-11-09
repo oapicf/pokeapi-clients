@@ -5,10 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** |  | [readonly] 
-**name** | **str** |  | 
-**pokemon_species_details** | [**List[GenderDetailPokemonSpeciesDetailsInner]**](GenderDetailPokemonSpeciesDetailsInner.md) |  | [readonly] 
-**required_for_evolution** | [**List[AbilityDetailPokemonInnerPokemon]**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] 
+**id** | **int** | The identifier for this resource. | [readonly] 
+**name** | **str** | The name for this resource. | 
+**pokemon_species_details** | [**List[GenderPokemonSpecies]**](GenderPokemonSpecies.md) | A list of Pokémon species that can be this gender and how likely it is that they will be. | [readonly] 
+**required_for_evolution** | [**List[PokemonSpeciesSummary]**](PokemonSpeciesSummary.md) | A list of Pokémon species that required this gender in order for a Pokémon to evolve into them. | [readonly] 
 
 ## Example
 

@@ -29,6 +29,7 @@ public class ContestTypeDetail   {
   private List<@Valid ContestTypeName> names = new ArrayList<>();
 
   /**
+   * The identifier for this resource.
    **/
   public ContestTypeDetail id(Integer id) {
     this.id = id;
@@ -36,7 +37,7 @@ public class ContestTypeDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   @JsonProperty("id")
   @NotNull
   public Integer getId() {
@@ -48,6 +49,7 @@ public class ContestTypeDetail   {
 
 
   /**
+   * The name for this resource.
    **/
   public ContestTypeDetail name(String name) {
     this.name = name;
@@ -55,10 +57,10 @@ public class ContestTypeDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   @JsonProperty("name")
   @NotNull
- @Size(max=100)  public String getName() {
+ @Size(max=200)  public String getName() {
     return name;
   }
   public void setName(String name) {
@@ -67,6 +69,7 @@ public class ContestTypeDetail   {
 
 
   /**
+   * The berry flavor that correlates with this contest type.
    **/
   public ContestTypeDetail berryFlavor(BerryFlavorSummary berryFlavor) {
     this.berryFlavor = berryFlavor;
@@ -74,7 +77,7 @@ public class ContestTypeDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The berry flavor that correlates with this contest type.")
   @JsonProperty("berry_flavor")
   @NotNull
   public BerryFlavorSummary getBerryFlavor() {
@@ -86,6 +89,7 @@ public class ContestTypeDetail   {
 
 
   /**
+   * The name of this contest type listed in different languages.
    **/
   public ContestTypeDetail names(List<@Valid ContestTypeName> names) {
     this.names = names;
@@ -93,7 +97,7 @@ public class ContestTypeDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name of this contest type listed in different languages.")
   @JsonProperty("names")
   @NotNull
   public List<@Valid ContestTypeName> getNames() {

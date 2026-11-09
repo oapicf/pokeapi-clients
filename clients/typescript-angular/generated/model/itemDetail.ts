@@ -7,34 +7,80 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { ItemDetailSprites } from './itemDetailSprites';
+import { ItemAttributeSummary } from './itemAttributeSummary';
+import { ItemSprites } from './itemSprites';
+import { ItemMachine } from './itemMachine';
+import { PokemonHeldItem } from './pokemonHeldItem';
 import { ItemFlingEffectSummary } from './itemFlingEffectSummary';
+import { ItemPrice } from './itemPrice';
 import { ItemName } from './itemName';
-import { AbilityDetailPokemonInnerPokemon } from './abilityDetailPokemonInnerPokemon';
 import { ItemCategorySummary } from './itemCategorySummary';
-import { ItemDetailHeldByPokemonInner } from './itemDetailHeldByPokemonInner';
 import { ItemEffectText } from './itemEffectText';
+import { EvolutionChainSummary } from './evolutionChainSummary';
 import { ItemGameIndex } from './itemGameIndex';
 import { ItemFlavorText } from './itemFlavorText';
-import { ItemDetailBabyTriggerFor } from './itemDetailBabyTriggerFor';
-import { ItemDetailMachinesInner } from './itemDetailMachinesInner';
 
 
 export interface ItemDetail { 
+    /**
+     * The identifier for this resource.
+     */
     readonly id: number;
+    /**
+     * The name for this resource.
+     */
     name: string;
-    cost?: number | null;
+    /**
+     * The power of the move Fling when used with this item.
+     */
     fling_power?: number | null;
-    fling_effect: ItemFlingEffectSummary;
-    readonly attributes: Array<AbilityDetailPokemonInnerPokemon>;
+    /**
+     * The effect of the move Fling when used with this item.
+     */
+    fling_effect: ItemFlingEffectSummary | null;
+    /**
+     * A list of attributes this item has.
+     */
+    readonly attributes: Array<ItemAttributeSummary>;
+    /**
+     * The category of items this item falls into.
+     */
     category: ItemCategorySummary;
+    /**
+     * The effect of this ability listed in different languages.
+     */
     readonly effect_entries: Array<ItemEffectText>;
+    /**
+     * The flavor text of this ability listed in different languages.
+     */
     readonly flavor_text_entries: Array<ItemFlavorText>;
+    /**
+     * A list of game indices relevent to this item by generation.
+     */
     readonly game_indices: Array<ItemGameIndex>;
+    /**
+     * Purchase and sell prices by currency and version group. Prices may be null when the item cannot be bought or sold.
+     */
+    readonly prices: Array<ItemPrice>;
+    /**
+     * The name of this item listed in different languages.
+     */
     readonly names: Array<ItemName>;
-    readonly held_by_pokemon: Array<ItemDetailHeldByPokemonInner>;
-    sprites: ItemDetailSprites;
-    baby_trigger_for: ItemDetailBabyTriggerFor;
-    readonly machines: Array<ItemDetailMachinesInner>;
+    /**
+     * A list of Pokémon that might be found in the wild holding this item.
+     */
+    readonly held_by_pokemon: Array<PokemonHeldItem>;
+    /**
+     * A set of sprites used to depict this item in the game.
+     */
+    readonly sprites: ItemSprites;
+    /**
+     * An evolution chain this item requires to produce a bay during mating.
+     */
+    readonly baby_trigger_for: EvolutionChainSummary | null;
+    /**
+     * A list of the machines related to this item.
+     */
+    readonly machines: Array<ItemMachine>;
 }
 

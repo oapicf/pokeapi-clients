@@ -26,12 +26,6 @@ open class UtilityAPI {
      List languages
      - GET /api/v2/language/
      - Languages for translations of API resource information.
-     - BASIC:
-       - type: http
-       - name: basicAuth
-     - API Key:
-       - type: apiKey sessionid 
-       - name: cookieAuth
      - parameter limit: (query) Number of results to return per page. (optional)
      - parameter offset: (query) The initial index from which to return the results. (optional)
      - parameter q: (query) &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
@@ -59,7 +53,7 @@ open class UtilityAPI {
 
         let localVariableRequestBuilder: RequestBuilder<PaginatedLanguageSummaryList>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: false, apiConfiguration: apiConfiguration)
     }
 
     /**
@@ -77,12 +71,6 @@ open class UtilityAPI {
      Get language
      - GET /api/v2/language/{id}/
      - Languages for translations of API resource information.
-     - BASIC:
-       - type: http
-       - name: basicAuth
-     - API Key:
-       - type: apiKey sessionid 
-       - name: cookieAuth
      - parameter id: (path) This parameter can be a string or an integer. 
      - parameter apiConfiguration: The configuration for the http request.
      - returns: RequestBuilder<LanguageDetail> 
@@ -105,6 +93,41 @@ open class UtilityAPI {
 
         let localVariableRequestBuilder: RequestBuilder<LanguageDetail>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
 
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true, apiConfiguration: apiConfiguration)
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: false, apiConfiguration: apiConfiguration)
+    }
+
+    /**
+     Get API metadata
+     
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: PokeapiMetaResponse
+     */
+    open class func metaRetrieve(apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) async throws(ErrorResponse) -> PokeapiMetaResponse {
+        return try await metaRetrieveWithRequestBuilder(apiConfiguration: apiConfiguration).execute().body
+    }
+
+    /**
+     Get API metadata
+     - GET /api/v2/meta/
+     - Returns metadata about the current deployed version of the API, including the git commit hash, deploy date, and tag (if any).
+     - parameter apiConfiguration: The configuration for the http request.
+     - returns: RequestBuilder<PokeapiMetaResponse> 
+     */
+    open class func metaRetrieveWithRequestBuilder(apiConfiguration: OpenAPIClientAPIConfiguration = OpenAPIClientAPIConfiguration.shared) -> RequestBuilder<PokeapiMetaResponse> {
+        let localVariablePath = "/api/v2/meta/"
+        let localVariableURLString = apiConfiguration.basePath + localVariablePath
+        let localVariableParameters: [String: any Sendable]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: (any Sendable)?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<PokeapiMetaResponse>.Type = apiConfiguration.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: false, apiConfiguration: apiConfiguration)
     }
 }

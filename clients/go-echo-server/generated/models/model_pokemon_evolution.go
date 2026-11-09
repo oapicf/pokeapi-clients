@@ -1,0 +1,95 @@
+package models
+
+type PokemonEvolution struct {
+
+	// The version group in which these evolution requirements apply.
+	VersionGroup VersionGroupSummary `json:"version_group"`
+
+	// Whether the evolution is considered as the expected evolution in a main series game. Each unique Pokémon variety of a line capable of evolution should have exactly one 'default' evolution. For example, the Meowth species has three default evolutions as there are three distinct varieties it can evolve into: Persian, Alolan Persian, and Perrserker.
+	IsDefault bool `json:"is_default,omitempty"`
+
+	// The item required to cause evolution this into Pokémon species.
+	Item *ItemSummary `json:"item"`
+
+	// The type of event that triggers evolution into this Pokémon species.
+	Trigger EvolutionTriggerSummary `json:"trigger"`
+
+	// The id of the gender of the evolving Pokémon species must be in order to evolve into this Pokémon species.
+	Gender *int32 `json:"gender,omitempty"`
+
+	// The item the evolving Pokémon species must be holding during the evolution trigger event to evolve into this Pokémon species.
+	HeldItem *ItemSummary `json:"held_item"`
+
+	KnownMove PokemonEvolutionKnownMove `json:"known_move"`
+
+	KnownMoveType PokemonEvolutionKnownMove `json:"known_move_type"`
+
+	// The location the evolution must be triggered at.
+	Location *LocationSummary `json:"location"`
+
+	// The minimum required level of the evolving Pokémon species to evolve into this Pokémon species.
+	MinLevel *int32 `json:"min_level,omitempty"`
+
+	// The minimum required level of happiness the evolving Pokémon species to evolve into this Pokémon species.
+	MinHappiness *int32 `json:"min_happiness,omitempty"`
+
+	// The minimum required level of beauty the evolving Pokémon species to evolve into this Pokémon species.
+	MinBeauty *int32 `json:"min_beauty,omitempty"`
+
+	// The minimum required level of affection the evolving Pokémon species to evolve into this Pokémon species.
+	MinAffection *int32 `json:"min_affection,omitempty"`
+
+	// Whether or not you need to be near a Moss Rock or Icy Rock to evolve into this Pokémon species.
+	NearSpecialRock bool `json:"near_special_rock,omitempty"`
+
+	// Whether or not multiplayer link play is needed to evolve into this Pokémon species (e.g. Union Circle).
+	NeedsMultiplayer bool `json:"needs_multiplayer,omitempty"`
+
+	// Whether or not it must be raining in the overworld to cause evolution this Pokémon species.
+	NeedsOverworldRain bool `json:"needs_overworld_rain,omitempty"`
+
+	// The Pokémon species that must be in the players party in order for the evolving Pokémon species to evolve into this Pokémon species.
+	PartySpecies *PokemonSpeciesSummary `json:"party_species"`
+
+	// The player must have a Pokémon of this type in their party during the evolution trigger event in order for the evolving Pokémon species to evolve into this Pokémon species.
+	PartyType *TypeSummary `json:"party_type"`
+
+	// The required relation between the Pokémon's Attack and Defense stats. 1 means Attack > Defense. 0 means Attack = Defense. -1 means Attack < Defense.
+	RelativePhysicalStats *int32 `json:"relative_physical_stats,omitempty"`
+
+	// The required time of day. Day or night.
+	TimeOfDay string `json:"time_of_day,omitempty"`
+
+	// Pokémon species for which this one must be traded.
+	TradeSpecies *PokemonSpeciesSummary `json:"trade_species"`
+
+	// Whether or not the 3DS needs to be turned upside-down as this Pokémon levels up.
+	TurnUpsideDown bool `json:"turn_upside_down,omitempty"`
+
+	// The required region in which this evolution can occur.
+	Region *RegionSummary `json:"region"`
+
+	// The Pokémon form required before evolving, or null if unrestricted.
+	RequiredPokemonForm *PokemonFormSummary `json:"required_pokemon_form"`
+
+	// The Pokémon form produced by this evolution, or null if unspecified.
+	EvolvedPokemonForm *PokemonFormSummary `json:"evolved_pokemon_form"`
+
+	// The move that must be used by the evolving Pokémon species during the evolution trigger event in order to evolve into this Pokémon species.
+	UsedMove *MoveSummary `json:"used_move"`
+
+	// The minimum number of times a move must be used in order to evolve into this Pokémon species.
+	MinMoveCount *int32 `json:"min_move_count,omitempty"`
+
+	// The minimum number of steps that must be taken in order to evolve into this Pokémon species.
+	MinSteps *int32 `json:"min_steps,omitempty"`
+
+	// The minimum amount of damage taken during the evolution trigger event in order to evolve into this Pokémon species.
+	MinDamageTaken *int32 `json:"min_damage_taken,omitempty"`
+
+	// The natures that allow this evolution, or null if unrestricted.
+	AllowedNatures *[]NatureSummary `json:"allowed_natures"`
+
+	// An additional evolution condition expressed in reverse Polish notation, or null if none.
+	ConditionExpression *EvolutionConditionExpression `json:"condition_expression"`
+}

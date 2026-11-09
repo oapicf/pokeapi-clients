@@ -9,33 +9,61 @@ import Foundation
 
 public struct MoveDetail: Sendable, Codable, Hashable {
 
-    public static let nameRule = StringRule(minLength: nil, maxLength: 100, pattern: nil)
+    public static let nameRule = StringRule(minLength: nil, maxLength: 200, pattern: nil)
+    public static let accuracyRule = NumericRule<Int>(minimum: -2147483648, exclusiveMinimum: false, maximum: 2147483647, exclusiveMaximum: false, multipleOf: nil)
+    public static let ppRule = NumericRule<Int>(minimum: -2147483648, exclusiveMinimum: false, maximum: 2147483647, exclusiveMaximum: false, multipleOf: nil)
+    public static let priorityRule = NumericRule<Int>(minimum: -2147483648, exclusiveMinimum: false, maximum: 2147483647, exclusiveMaximum: false, multipleOf: nil)
+    public static let powerRule = NumericRule<Int>(minimum: -2147483648, exclusiveMinimum: false, maximum: 2147483647, exclusiveMaximum: false, multipleOf: nil)
+    /** The identifier for this resource. */
     public var id: Int
+    /** The name for this resource. */
     public var name: String
+    /** The percent value of how likely this move is to be successful. */
     public var accuracy: Int?
-    public var effectChance: Int
+    /** The percent value of how likely it is this moves effect will happen. */
+    public var effectChance: Int?
+    /** Power points. The number of times this move can be used. */
     public var pp: Int?
+    /** A value between -8 and 8. Sets the order in which moves are executed during battle. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Priority) for greater detail. */
     public var priority: Int?
+    /** The base power of this move, or null if it has no fixed base power. */
     public var power: Int?
-    public var contestCombos: MoveDetailContestCombos
-    public var contestType: ContestTypeSummary
-    public var contestEffect: ContestEffectSummary
+    /** A detail of normal and super contest combos that require this move. */
+    public var contestCombos: MoveCombos?
+    /** The type of appeal this move gives a Pokémon when used in a contest. */
+    public var contestType: ContestTypeSummary?
+    /** The effect the move has when used in a contest. */
+    public var contestEffect: ContestEffectSummary?
+    /** The type of damage the move inflicts on the target, e.g. physical. */
     public var damageClass: MoveDamageClassSummary
-    public var effectEntries: [MoveChangeEffectEntriesInner]
-    public var effectChanges: [MoveDetailEffectChangesInner]
+    /** The effect of this move listed in different languages. */
+    public var effectEntries: [MoveEffectEffectText]
+    /** The list of previous effects this move has had across version groups of the games. */
+    public var effectChanges: [MoveEffectChange]
+    /** The generation in which this move was introduced. */
     public var generation: GenerationSummary
-    public var meta: MoveMeta
+    /** Metadata about this move */
+    public var meta: MoveMeta?
+    /** The name of this resource listed in different languages. */
     public var names: [MoveName]
+    /** A list of move resource value changes across version groups of the game. */
     public var pastValues: [MoveChange]
-    public var statChanges: [MoveDetailStatChangesInner]
-    public var superContestEffect: SuperContestEffectSummary
+    /** A list of stats this moves effects and how much it effects them. */
+    public var statChanges: [MoveMetaStatChange]
+    /** The effect the move has when used in a super contest. */
+    public var superContestEffect: SuperContestEffectSummary?
+    /** The type of target that will receive the effects of the attack. */
     public var target: MoveTargetSummary
+    /** The elemental type of this move. */
     public var type: TypeSummary
-    public var machines: [MoveDetailMachinesInner]
+    /** A list of the machines that teach this move. */
+    public var machines: [ItemMachine]
+    /** The flavor text of this move listed in different languages. */
     public var flavorTextEntries: [MoveFlavorText]
-    public var learnedByPokemon: [AbilityDetailPokemonInnerPokemon]
+    /** List of Pokemon that can learn the move */
+    public var learnedByPokemon: [PokemonSummary]
 
-    public init(id: Int, name: String, accuracy: Int? = nil, effectChance: Int, pp: Int? = nil, priority: Int? = nil, power: Int? = nil, contestCombos: MoveDetailContestCombos, contestType: ContestTypeSummary, contestEffect: ContestEffectSummary, damageClass: MoveDamageClassSummary, effectEntries: [MoveChangeEffectEntriesInner], effectChanges: [MoveDetailEffectChangesInner], generation: GenerationSummary, meta: MoveMeta, names: [MoveName], pastValues: [MoveChange], statChanges: [MoveDetailStatChangesInner], superContestEffect: SuperContestEffectSummary, target: MoveTargetSummary, type: TypeSummary, machines: [MoveDetailMachinesInner], flavorTextEntries: [MoveFlavorText], learnedByPokemon: [AbilityDetailPokemonInnerPokemon]) {
+    public init(id: Int, name: String, accuracy: Int? = nil, effectChance: Int?, pp: Int? = nil, priority: Int? = nil, power: Int? = nil, contestCombos: MoveCombos?, contestType: ContestTypeSummary?, contestEffect: ContestEffectSummary?, damageClass: MoveDamageClassSummary, effectEntries: [MoveEffectEffectText], effectChanges: [MoveEffectChange], generation: GenerationSummary, meta: MoveMeta?, names: [MoveName], pastValues: [MoveChange], statChanges: [MoveMetaStatChange], superContestEffect: SuperContestEffectSummary?, target: MoveTargetSummary, type: TypeSummary, machines: [ItemMachine], flavorTextEntries: [MoveFlavorText], learnedByPokemon: [PokemonSummary]) {
         self.id = id
         self.name = name
         self.accuracy = accuracy

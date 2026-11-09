@@ -1,0 +1,43 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server MoveComboUsage"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a MoveComboUsage"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  MoveSummary = openapi_server.resourceTypes.MoveSummary
+}
+resourceTypes {
+
+  MoveComboUsage {
+    title = MoveComboUsage
+    description = MoveComboUsage
+    derivedFrom = Root
+    properties {
+        use_before {
+          type = array
+          items.type = MoveSummary
+          description = "A list of moves to use before this move."
+          optional = true
+        }
+        use_after {
+          type = array
+          items.type = MoveSummary
+          description = "A list of moves to use after this move."
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  MoveComboUsage {
+    title = MoveComboUsage
+    description = MoveComboUsage
+    implements = openapi_server.resourceTypes.MoveComboUsage
+
+  }
+}

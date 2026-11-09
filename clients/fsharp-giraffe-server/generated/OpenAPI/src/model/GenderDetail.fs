@@ -2,8 +2,8 @@ namespace OpenAPI.Model
 
 open System
 open System.Collections.Generic
-open OpenAPI.Model.AbilityDetailPokemonInnerPokemon
-open OpenAPI.Model.GenderDetailPokemonSpeciesDetailsInner
+open OpenAPI.Model.GenderPokemonSpecies
+open OpenAPI.Model.PokemonSpeciesSummary
 
 module GenderDetail =
 
@@ -13,7 +13,7 @@ module GenderDetail =
   type GenderDetail = {
     Id : int;
     Name : string;
-    PokemonSpeciesDetails : GenderDetailPokemonSpeciesDetailsInner[];
-    RequiredForEvolution : AbilityDetailPokemonInnerPokemon[];
+    PokemonSpeciesDetails : GenderPokemonSpecies[];
+    RequiredForEvolution : PokemonSpeciesSummary[];
   }
   //#endregion

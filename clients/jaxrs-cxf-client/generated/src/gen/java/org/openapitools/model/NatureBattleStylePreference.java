@@ -9,19 +9,30 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class NatureBattleStylePreference  {
   
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * Chance of using the move, in percent, if HP is under one half.
+  */
+  @ApiModelProperty(required = true, value = "Chance of using the move, in percent, if HP is under one half.")
 
   private Integer lowHpPreference;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * Chance of using the move, in percent, if HP is over one half.
+  */
+  @ApiModelProperty(required = true, value = "Chance of using the move, in percent, if HP is over one half.")
 
   private Integer highHpPreference;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The move battle style.
+  */
+  @ApiModelProperty(required = true, value = "The move battle style.")
 
   private MoveBattleStyleSummary moveBattleStyle;
  /**
-   * Get lowHpPreference
+   * Chance of using the move, in percent, if HP is under one half.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return lowHpPreference
   **/
   @JsonProperty("low_hp_preference")
@@ -39,7 +50,9 @@ public class NatureBattleStylePreference  {
   }
 
  /**
-   * Get highHpPreference
+   * Chance of using the move, in percent, if HP is over one half.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return highHpPreference
   **/
   @JsonProperty("high_hp_preference")
@@ -57,7 +70,7 @@ public class NatureBattleStylePreference  {
   }
 
  /**
-   * Get moveBattleStyle
+   * The move battle style.
    * @return moveBattleStyle
   **/
   @JsonProperty("move_battle_style")

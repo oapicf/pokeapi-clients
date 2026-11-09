@@ -9,15 +9,15 @@ import com.fasterxml.jackson.annotation.JsonProperty
 
 data class PaginatedStatSummaryList(
     @field:JsonProperty("count")
-    val count: kotlin.Int? = null,
+    val count: kotlin.Int,
+
+    @field:JsonProperty("results")
+    val results: kotlin.collections.List<StatSummary>,
 
     @field:JsonProperty("next")
     val next: java.net.URI? = null,
 
     @field:JsonProperty("previous")
     val previous: java.net.URI? = null,
-
-    @field:JsonProperty("results")
-    val results: kotlin.collections.List<StatSummary>? = null,
 
 )

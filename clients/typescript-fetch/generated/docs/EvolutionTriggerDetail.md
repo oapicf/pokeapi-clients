@@ -9,7 +9,7 @@ Name | Type
 `id` | number
 `name` | string
 `names` | [Array&lt;EvolutionTriggerName&gt;](EvolutionTriggerName.md)
-`pokemonSpecies` | [Array&lt;AbilityDetailPokemonInnerPokemon&gt;](AbilityDetailPokemonInnerPokemon.md)
+`pokemonSpecies` | [Array&lt;PokemonSpeciesSummary&gt;](PokemonSpeciesSummary.md)
 
 ## Example
 

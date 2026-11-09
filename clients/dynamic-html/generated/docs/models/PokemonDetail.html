@@ -2,101 +2,106 @@
 <h2>PokemonDetail</h2>
 <ul class="parameter">
   <li class="param-required-true">id : Integer
-    <br/>
+    <br/>The identifier for this resource.
   </li>
 </ul>
 <ul class="parameter">
   <li class="param-required-true">name : String
-    <br/>
+    <br/>The name for this resource.
   </li>
 </ul>
 <ul class="parameter">
   <li class="param-required-false">baseUnderscoreexperience : Integer
-    <br/>
+    <br/>The base experience gained for defeating this Pokémon.
   </li>
 </ul>
 <ul class="parameter">
   <li class="param-required-false">height : Integer
-    <br/>
+    <br/>The height of this Pokémon in decimetres.
   </li>
 </ul>
 <ul class="parameter">
   <li class="param-required-false">isUnderscoredefault : Boolean
-    <br/>
+    <br/>Set for exactly one Pokémon used as the default for each species.
   </li>
 </ul>
 <ul class="parameter">
   <li class="param-required-false">order : Integer
-    <br/>
+    <br/>Order for sorting. Almost national order, except families are grouped together.
   </li>
 </ul>
 <ul class="parameter">
   <li class="param-required-false">weight : Integer
-    <br/>
+    <br/>The weight of this Pokémon in hectograms.
   </li>
 </ul>
 <ul class="parameter">
   <li class="param-required-true">abilities : List
-    <br/>
+    <br/>A list of abilities this Pokémon could potentially have.
   </li>
 </ul>
 <ul class="parameter">
   <li class="param-required-true">pastUnderscoreabilities : List
-    <br/>
+    <br/>A list of details showing abilities this pokémon had in previous generations
   </li>
 </ul>
 <ul class="parameter">
   <li class="param-required-true">forms : List
-    <br/>
+    <br/>A list of forms this Pokémon can take on.
   </li>
 </ul>
 <ul class="parameter">
   <li class="param-required-true">gameUnderscoreindices : List
-    <br/>
+    <br/>A list of game indices relevent to Pokémon item by generation.
   </li>
 </ul>
 <ul class="parameter">
-  <li class="param-required-true">heldUnderscoreitems : PokemonDetail_held_items
-    <br/>
+  <li class="param-required-true">heldUnderscoreitems : List
+    <br/>A list of items this Pokémon may be holding when encountered.
   </li>
 </ul>
 <ul class="parameter">
   <li class="param-required-true">locationUnderscoreareaUnderscoreencounters : String
-    <br/>
+    <br/>A link to a list of location areas, as well as encounter details pertaining to specific versions.
   </li>
 </ul>
 <ul class="parameter">
   <li class="param-required-true">moves : List
-    <br/>
+    <br/>A list of moves along with learn methods and level details pertaining to specific version groups.
   </li>
 </ul>
 <ul class="parameter">
   <li class="param-required-true">species : PokemonSpeciesSummary
-    <br/>
+    <br/>The species this Pokémon belongs to.
   </li>
 </ul>
 <ul class="parameter">
-  <li class="param-required-true">sprites : PokemonDetail_sprites
-    <br/>
+  <li class="param-required-true">sprites : PokemonSprites
+    <br/>A set of sprites used to depict this Pokémon in the game. A visual representation of the various sprites can be found at &lt;a href&#x3D;&#39;https://github.com/PokeAPI/sprites#sprites&#39;&gt;PokeAPI/sprites&lt;/a&gt;
   </li>
 </ul>
 <ul class="parameter">
-  <li class="param-required-true">cries : PokemonDetail_cries
-    <br/>
+  <li class="param-required-true">cries : PokemonCries
+    <br/>A set of cries used to depict this Pokémon in the game. A visual representation of the various cries can be found at &lt;a href&#x3D;&#39;https://github.com/PokeAPI/cries#cries&#39;&gt;PokeAPI/cries&lt;/a&gt;
   </li>
 </ul>
 <ul class="parameter">
   <li class="param-required-true">stats : List
-    <br/>
+    <br/>A list of base stat values for this Pokémon.
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-true">pastUnderscorestats : List
+    <br/>A list of details showing stats this pokémon had in previous generations
   </li>
 </ul>
 <ul class="parameter">
   <li class="param-required-true">types : List
-    <br/>
+    <br/>A list of details showing types this Pokémon has.
   </li>
 </ul>
 <ul class="parameter">
   <li class="param-required-true">pastUnderscoretypes : List
-    <br/>
+    <br/>A list of details showing types this pokémon had in previous generations
   </li>
 </ul>

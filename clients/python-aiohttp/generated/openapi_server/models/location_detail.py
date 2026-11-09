@@ -66,6 +66,7 @@ class LocationDetail(Model):
     def id(self):
         """Gets the id of this LocationDetail.
 
+        The identifier for this resource.
 
         :return: The id of this LocationDetail.
         :rtype: int
@@ -76,6 +77,7 @@ class LocationDetail(Model):
     def id(self, id):
         """Sets the id of this LocationDetail.
 
+        The identifier for this resource.
 
         :param id: The id of this LocationDetail.
         :type id: int
@@ -89,6 +91,7 @@ class LocationDetail(Model):
     def name(self):
         """Gets the name of this LocationDetail.
 
+        The name for this resource.
 
         :return: The name of this LocationDetail.
         :rtype: str
@@ -99,14 +102,15 @@ class LocationDetail(Model):
     def name(self, name):
         """Sets the name of this LocationDetail.
 
+        The name for this resource.
 
         :param name: The name of this LocationDetail.
         :type name: str
         """
         if name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")
-        if name is not None and len(name) > 100:
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `100`")
+        if name is not None and len(name) > 200:
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `200`")
 
         self._name = name
 
@@ -114,6 +118,7 @@ class LocationDetail(Model):
     def region(self):
         """Gets the region of this LocationDetail.
 
+        The region this location can be found in.
 
         :return: The region of this LocationDetail.
         :rtype: RegionSummary
@@ -124,6 +129,7 @@ class LocationDetail(Model):
     def region(self, region):
         """Sets the region of this LocationDetail.
 
+        The region this location can be found in.
 
         :param region: The region of this LocationDetail.
         :type region: RegionSummary
@@ -137,6 +143,7 @@ class LocationDetail(Model):
     def names(self):
         """Gets the names of this LocationDetail.
 
+        The name of this resource listed in different languages.
 
         :return: The names of this LocationDetail.
         :rtype: List[LocationName]
@@ -147,6 +154,7 @@ class LocationDetail(Model):
     def names(self, names):
         """Sets the names of this LocationDetail.
 
+        The name of this resource listed in different languages.
 
         :param names: The names of this LocationDetail.
         :type names: List[LocationName]
@@ -160,6 +168,7 @@ class LocationDetail(Model):
     def game_indices(self):
         """Gets the game_indices of this LocationDetail.
 
+        A list of game indices relevent to this location by generation.
 
         :return: The game_indices of this LocationDetail.
         :rtype: List[LocationGameIndex]
@@ -170,6 +179,7 @@ class LocationDetail(Model):
     def game_indices(self, game_indices):
         """Sets the game_indices of this LocationDetail.
 
+        A list of game indices relevent to this location by generation.
 
         :param game_indices: The game_indices of this LocationDetail.
         :type game_indices: List[LocationGameIndex]
@@ -183,6 +193,7 @@ class LocationDetail(Model):
     def areas(self):
         """Gets the areas of this LocationDetail.
 
+        Areas that can be found within this location.
 
         :return: The areas of this LocationDetail.
         :rtype: List[LocationAreaSummary]
@@ -193,6 +204,7 @@ class LocationDetail(Model):
     def areas(self, areas):
         """Sets the areas of this LocationDetail.
 
+        Areas that can be found within this location.
 
         :param areas: The areas of this LocationDetail.
         :type areas: List[LocationAreaSummary]

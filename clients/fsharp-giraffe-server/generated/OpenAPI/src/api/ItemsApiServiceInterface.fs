@@ -9,6 +9,8 @@ module ItemsApiServiceInterface =
 
     //#region Service interface
     type IItemsApiService =
+      abstract member CurrencyList:HttpContext -> CurrencyListArgs->CurrencyListResult
+      abstract member CurrencyRetrieve:HttpContext -> CurrencyRetrieveArgs->CurrencyRetrieveResult
       abstract member ItemAttributeList:HttpContext -> ItemAttributeListArgs->ItemAttributeListResult
       abstract member ItemAttributeRetrieve:HttpContext -> ItemAttributeRetrieveArgs->ItemAttributeRetrieveResult
       abstract member ItemCategoryList:HttpContext -> ItemCategoryListArgs->ItemCategoryListResult

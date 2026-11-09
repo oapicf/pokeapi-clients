@@ -8,7 +8,6 @@
 static item_detail_t *item_detail_create_internal(
     int *id,
     char *name,
-    int *cost,
     int *fling_power,
     item_fling_effect_summary_t *fling_effect,
     list_t *attributes,
@@ -16,10 +15,11 @@ static item_detail_t *item_detail_create_internal(
     list_t *effect_entries,
     list_t *flavor_text_entries,
     list_t *game_indices,
+    list_t *prices,
     list_t *names,
     list_t *held_by_pokemon,
-    item_detail_sprites_t *sprites,
-    item_detail_baby_trigger_for_t *baby_trigger_for,
+    item_sprites_t *sprites,
+    evolution_chain_summary_t *baby_trigger_for,
     list_t *machines
     ) {
     item_detail_t *item_detail_local_var = malloc(sizeof(item_detail_t));
@@ -30,7 +30,6 @@ static item_detail_t *item_detail_create_internal(
     item_detail_local_var->_library_owned = 1;
     item_detail_local_var->id = id;
     item_detail_local_var->name = name;
-    item_detail_local_var->cost = cost;
     item_detail_local_var->fling_power = fling_power;
     item_detail_local_var->fling_effect = fling_effect;
     item_detail_local_var->attributes = attributes;
@@ -38,6 +37,7 @@ static item_detail_t *item_detail_create_internal(
     item_detail_local_var->effect_entries = effect_entries;
     item_detail_local_var->flavor_text_entries = flavor_text_entries;
     item_detail_local_var->game_indices = game_indices;
+    item_detail_local_var->prices = prices;
     item_detail_local_var->names = names;
     item_detail_local_var->held_by_pokemon = held_by_pokemon;
     item_detail_local_var->sprites = sprites;
@@ -49,7 +49,6 @@ static item_detail_t *item_detail_create_internal(
 __attribute__((deprecated)) item_detail_t *item_detail_create(
     int *id,
     char *name,
-    int *cost,
     int *fling_power,
     item_fling_effect_summary_t *fling_effect,
     list_t *attributes,
@@ -57,21 +56,17 @@ __attribute__((deprecated)) item_detail_t *item_detail_create(
     list_t *effect_entries,
     list_t *flavor_text_entries,
     list_t *game_indices,
+    list_t *prices,
     list_t *names,
     list_t *held_by_pokemon,
-    item_detail_sprites_t *sprites,
-    item_detail_baby_trigger_for_t *baby_trigger_for,
+    item_sprites_t *sprites,
+    evolution_chain_summary_t *baby_trigger_for,
     list_t *machines
     ) {
     int *id_copy = NULL;
     if (id) {
         id_copy = malloc(sizeof(int));
         if (id_copy) *id_copy = *id;
-    }
-    int *cost_copy = NULL;
-    if (cost) {
-        cost_copy = malloc(sizeof(int));
-        if (cost_copy) *cost_copy = *cost;
     }
     int *fling_power_copy = NULL;
     if (fling_power) {
@@ -81,7 +76,6 @@ __attribute__((deprecated)) item_detail_t *item_detail_create(
     item_detail_t *result = item_detail_create_internal (
         id_copy,
         name,
-        cost_copy,
         fling_power_copy,
         fling_effect,
         attributes,
@@ -89,6 +83,7 @@ __attribute__((deprecated)) item_detail_t *item_detail_create(
         effect_entries,
         flavor_text_entries,
         game_indices,
+        prices,
         names,
         held_by_pokemon,
         sprites,
@@ -97,7 +92,6 @@ __attribute__((deprecated)) item_detail_t *item_detail_create(
         );
     if (!result) {
         free(id_copy);
-        free(cost_copy);
         free(fling_power_copy);
     }
     return result;
@@ -120,10 +114,6 @@ void item_detail_free(item_detail_t *item_detail) {
         free(item_detail->name);
         item_detail->name = NULL;
     }
-    if (item_detail->cost) {
-        free(item_detail->cost);
-        item_detail->cost = NULL;
-    }
     if (item_detail->fling_power) {
         free(item_detail->fling_power);
         item_detail->fling_power = NULL;
@@ -134,7 +124,7 @@ void item_detail_free(item_detail_t *item_detail) {
     }
     if (item_detail->attributes) {
         list_ForEach(listEntry, item_detail->attributes) {
-            ability_detail_pokemon_inner_pokemon_free(listEntry->data);
+            item_attribute_summary_free(listEntry->data);
         }
         list_freeList(item_detail->attributes);
         item_detail->attributes = NULL;
@@ -164,6 +154,13 @@ void item_detail_free(item_detail_t *item_detail) {
         list_freeList(item_detail->game_indices);
         item_detail->game_indices = NULL;
     }
+    if (item_detail->prices) {
+        list_ForEach(listEntry, item_detail->prices) {
+            item_price_free(listEntry->data);
+        }
+        list_freeList(item_detail->prices);
+        item_detail->prices = NULL;
+    }
     if (item_detail->names) {
         list_ForEach(listEntry, item_detail->names) {
             item_name_free(listEntry->data);
@@ -173,22 +170,22 @@ void item_detail_free(item_detail_t *item_detail) {
     }
     if (item_detail->held_by_pokemon) {
         list_ForEach(listEntry, item_detail->held_by_pokemon) {
-            item_detail_held_by_pokemon_inner_free(listEntry->data);
+            pokemon_held_item_free(listEntry->data);
         }
         list_freeList(item_detail->held_by_pokemon);
         item_detail->held_by_pokemon = NULL;
     }
     if (item_detail->sprites) {
-        item_detail_sprites_free(item_detail->sprites);
+        item_sprites_free(item_detail->sprites);
         item_detail->sprites = NULL;
     }
     if (item_detail->baby_trigger_for) {
-        item_detail_baby_trigger_for_free(item_detail->baby_trigger_for);
+        evolution_chain_summary_free(item_detail->baby_trigger_for);
         item_detail->baby_trigger_for = NULL;
     }
     if (item_detail->machines) {
         list_ForEach(listEntry, item_detail->machines) {
-            item_detail_machines_inner_free(listEntry->data);
+            item_machine_free(listEntry->data);
         }
         list_freeList(item_detail->machines);
         item_detail->machines = NULL;
@@ -214,14 +211,6 @@ cJSON *item_detail_convertToJSON(item_detail_t *item_detail) {
     }
     if(cJSON_AddStringToObject(item, "name", item_detail->name) == NULL) {
     goto fail; //String
-    }
-
-
-    // item_detail->cost
-    if(item_detail->cost) {
-    if(cJSON_AddNumberToObject(item, "cost", *item_detail->cost) == NULL) {
-    goto fail; //Numeric
-    }
     }
 
 
@@ -259,7 +248,7 @@ cJSON *item_detail_convertToJSON(item_detail_t *item_detail) {
     listEntry_t *attributesListEntry;
     if (item_detail->attributes) {
     list_ForEach(attributesListEntry, item_detail->attributes) {
-    cJSON *itemLocal = ability_detail_pokemon_inner_pokemon_convertToJSON(attributesListEntry->data);
+    cJSON *itemLocal = item_attribute_summary_convertToJSON(attributesListEntry->data);
     if(itemLocal == NULL) {
     goto fail;
     }
@@ -345,6 +334,27 @@ cJSON *item_detail_convertToJSON(item_detail_t *item_detail) {
     }
 
 
+    // item_detail->prices
+    if (!item_detail->prices) {
+        goto fail;
+    }
+    cJSON *prices = cJSON_AddArrayToObject(item, "prices");
+    if(prices == NULL) {
+    goto fail; //nonprimitive container
+    }
+
+    listEntry_t *pricesListEntry;
+    if (item_detail->prices) {
+    list_ForEach(pricesListEntry, item_detail->prices) {
+    cJSON *itemLocal = item_price_convertToJSON(pricesListEntry->data);
+    if(itemLocal == NULL) {
+    goto fail;
+    }
+    cJSON_AddItemToArray(prices, itemLocal);
+    }
+    }
+
+
     // item_detail->names
     if (!item_detail->names) {
         goto fail;
@@ -378,7 +388,7 @@ cJSON *item_detail_convertToJSON(item_detail_t *item_detail) {
     listEntry_t *held_by_pokemonListEntry;
     if (item_detail->held_by_pokemon) {
     list_ForEach(held_by_pokemonListEntry, item_detail->held_by_pokemon) {
-    cJSON *itemLocal = item_detail_held_by_pokemon_inner_convertToJSON(held_by_pokemonListEntry->data);
+    cJSON *itemLocal = pokemon_held_item_convertToJSON(held_by_pokemonListEntry->data);
     if(itemLocal == NULL) {
     goto fail;
     }
@@ -391,7 +401,7 @@ cJSON *item_detail_convertToJSON(item_detail_t *item_detail) {
     if (!item_detail->sprites) {
         goto fail;
     }
-    cJSON *sprites_local_JSON = item_detail_sprites_convertToJSON(item_detail->sprites);
+    cJSON *sprites_local_JSON = item_sprites_convertToJSON(item_detail->sprites);
     if(sprites_local_JSON == NULL) {
     goto fail; //model
     }
@@ -405,7 +415,7 @@ cJSON *item_detail_convertToJSON(item_detail_t *item_detail) {
     if (!item_detail->baby_trigger_for) {
         goto fail;
     }
-    cJSON *baby_trigger_for_local_JSON = item_detail_baby_trigger_for_convertToJSON(item_detail->baby_trigger_for);
+    cJSON *baby_trigger_for_local_JSON = evolution_chain_summary_convertToJSON(item_detail->baby_trigger_for);
     if(baby_trigger_for_local_JSON == NULL) {
     goto fail; //model
     }
@@ -427,7 +437,7 @@ cJSON *item_detail_convertToJSON(item_detail_t *item_detail) {
     listEntry_t *machinesListEntry;
     if (item_detail->machines) {
     list_ForEach(machinesListEntry, item_detail->machines) {
-    cJSON *itemLocal = item_detail_machines_inner_convertToJSON(machinesListEntry->data);
+    cJSON *itemLocal = item_machine_convertToJSON(machinesListEntry->data);
     if(itemLocal == NULL) {
     goto fail;
     }
@@ -452,9 +462,6 @@ item_detail_t *item_detail_parseFromJSON(cJSON *item_detailJSON){
 
     char *name_local_str = NULL;
 
-    // define the local variable for item_detail->cost
-    int *cost_local_var = NULL;
-
     // define the local variable for item_detail->fling_power
     int *fling_power_local_var = NULL;
 
@@ -476,6 +483,9 @@ item_detail_t *item_detail_parseFromJSON(cJSON *item_detailJSON){
     // define the local list for item_detail->game_indices
     list_t *game_indicesList = NULL;
 
+    // define the local list for item_detail->prices
+    list_t *pricesList = NULL;
+
     // define the local list for item_detail->names
     list_t *namesList = NULL;
 
@@ -483,10 +493,10 @@ item_detail_t *item_detail_parseFromJSON(cJSON *item_detailJSON){
     list_t *held_by_pokemonList = NULL;
 
     // define the local variable for item_detail->sprites
-    item_detail_sprites_t *sprites_local_nonprim = NULL;
+    item_sprites_t *sprites_local_nonprim = NULL;
 
     // define the local variable for item_detail->baby_trigger_for
-    item_detail_baby_trigger_for_t *baby_trigger_for_local_nonprim = NULL;
+    evolution_chain_summary_t *baby_trigger_for_local_nonprim = NULL;
 
     // define the local list for item_detail->machines
     list_t *machinesList = NULL;
@@ -525,24 +535,6 @@ item_detail_t *item_detail_parseFromJSON(cJSON *item_detailJSON){
     if(!cJSON_IsString(name))
     {
     goto end; //String
-    }
-
-    // item_detail->cost
-    cJSON *cost = cJSON_GetObjectItemCaseSensitive(item_detailJSON, "cost");
-    if (cJSON_IsNull(cost)) {
-        cost = NULL;
-    }
-    if (cost) { 
-    if(!cJSON_IsNumber(cost))
-    {
-    goto end; //Numeric
-    }
-    cost_local_var = malloc(sizeof(int));
-    if(!cost_local_var)
-    {
-        goto end;
-    }
-    *cost_local_var = cost->valuedouble;
     }
 
     // item_detail->fling_power
@@ -597,7 +589,7 @@ item_detail_t *item_detail_parseFromJSON(cJSON *item_detailJSON){
         if(!cJSON_IsObject(attributes_local_nonprimitive)){
             goto end;
         }
-        ability_detail_pokemon_inner_pokemon_t *attributesItem = ability_detail_pokemon_inner_pokemon_parseFromJSON(attributes_local_nonprimitive);
+        item_attribute_summary_t *attributesItem = item_attribute_summary_parseFromJSON(attributes_local_nonprimitive);
 
         list_addElement(attributesList, attributesItem);
     }
@@ -695,6 +687,33 @@ item_detail_t *item_detail_parseFromJSON(cJSON *item_detailJSON){
         list_addElement(game_indicesList, game_indicesItem);
     }
 
+    // item_detail->prices
+    cJSON *prices = cJSON_GetObjectItemCaseSensitive(item_detailJSON, "prices");
+    if (cJSON_IsNull(prices)) {
+        prices = NULL;
+    }
+    if (!prices) {
+        goto end;
+    }
+
+    
+    cJSON *prices_local_nonprimitive = NULL;
+    if(!cJSON_IsArray(prices)){
+        goto end; //nonprimitive container
+    }
+
+    pricesList = list_createList();
+
+    cJSON_ArrayForEach(prices_local_nonprimitive,prices )
+    {
+        if(!cJSON_IsObject(prices_local_nonprimitive)){
+            goto end;
+        }
+        item_price_t *pricesItem = item_price_parseFromJSON(prices_local_nonprimitive);
+
+        list_addElement(pricesList, pricesItem);
+    }
+
     // item_detail->names
     cJSON *names = cJSON_GetObjectItemCaseSensitive(item_detailJSON, "names");
     if (cJSON_IsNull(names)) {
@@ -744,7 +763,7 @@ item_detail_t *item_detail_parseFromJSON(cJSON *item_detailJSON){
         if(!cJSON_IsObject(held_by_pokemon_local_nonprimitive)){
             goto end;
         }
-        item_detail_held_by_pokemon_inner_t *held_by_pokemonItem = item_detail_held_by_pokemon_inner_parseFromJSON(held_by_pokemon_local_nonprimitive);
+        pokemon_held_item_t *held_by_pokemonItem = pokemon_held_item_parseFromJSON(held_by_pokemon_local_nonprimitive);
 
         list_addElement(held_by_pokemonList, held_by_pokemonItem);
     }
@@ -759,7 +778,7 @@ item_detail_t *item_detail_parseFromJSON(cJSON *item_detailJSON){
     }
 
     
-    sprites_local_nonprim = item_detail_sprites_parseFromJSON(sprites); //nonprimitive
+    sprites_local_nonprim = item_sprites_parseFromJSON(sprites); //nonprimitive
 
     // item_detail->baby_trigger_for
     cJSON *baby_trigger_for = cJSON_GetObjectItemCaseSensitive(item_detailJSON, "baby_trigger_for");
@@ -771,7 +790,7 @@ item_detail_t *item_detail_parseFromJSON(cJSON *item_detailJSON){
     }
 
     
-    baby_trigger_for_local_nonprim = item_detail_baby_trigger_for_parseFromJSON(baby_trigger_for); //nonprimitive
+    baby_trigger_for_local_nonprim = evolution_chain_summary_parseFromJSON(baby_trigger_for); //nonprimitive
 
     // item_detail->machines
     cJSON *machines = cJSON_GetObjectItemCaseSensitive(item_detailJSON, "machines");
@@ -795,7 +814,7 @@ item_detail_t *item_detail_parseFromJSON(cJSON *item_detailJSON){
         if(!cJSON_IsObject(machines_local_nonprimitive)){
             goto end;
         }
-        item_detail_machines_inner_t *machinesItem = item_detail_machines_inner_parseFromJSON(machines_local_nonprimitive);
+        item_machine_t *machinesItem = item_machine_parseFromJSON(machines_local_nonprimitive);
 
         list_addElement(machinesList, machinesItem);
     }
@@ -806,7 +825,6 @@ item_detail_t *item_detail_parseFromJSON(cJSON *item_detailJSON){
     item_detail_local_var = item_detail_create_internal (
         id_local_var,
         name_local_str,
-        cost_local_var,
         fling_power_local_var,
         fling_effect_local_nonprim,
         attributesList,
@@ -814,6 +832,7 @@ item_detail_t *item_detail_parseFromJSON(cJSON *item_detailJSON){
         effect_entriesList,
         flavor_text_entriesList,
         game_indicesList,
+        pricesList,
         namesList,
         held_by_pokemonList,
         sprites_local_nonprim,
@@ -835,10 +854,6 @@ end:
         free(name_local_str);
         name_local_str = NULL;
     }
-    if (cost_local_var) {
-        free(cost_local_var);
-        cost_local_var = NULL;
-    }
     if (fling_power_local_var) {
         free(fling_power_local_var);
         fling_power_local_var = NULL;
@@ -850,7 +865,7 @@ end:
     if (attributesList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, attributesList) {
-            ability_detail_pokemon_inner_pokemon_free(listEntry->data);
+            item_attribute_summary_free(listEntry->data);
             listEntry->data = NULL;
         }
         list_freeList(attributesList);
@@ -887,6 +902,15 @@ end:
         list_freeList(game_indicesList);
         game_indicesList = NULL;
     }
+    if (pricesList) {
+        listEntry_t *listEntry = NULL;
+        list_ForEach(listEntry, pricesList) {
+            item_price_free(listEntry->data);
+            listEntry->data = NULL;
+        }
+        list_freeList(pricesList);
+        pricesList = NULL;
+    }
     if (namesList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, namesList) {
@@ -899,24 +923,24 @@ end:
     if (held_by_pokemonList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, held_by_pokemonList) {
-            item_detail_held_by_pokemon_inner_free(listEntry->data);
+            pokemon_held_item_free(listEntry->data);
             listEntry->data = NULL;
         }
         list_freeList(held_by_pokemonList);
         held_by_pokemonList = NULL;
     }
     if (sprites_local_nonprim) {
-        item_detail_sprites_free(sprites_local_nonprim);
+        item_sprites_free(sprites_local_nonprim);
         sprites_local_nonprim = NULL;
     }
     if (baby_trigger_for_local_nonprim) {
-        item_detail_baby_trigger_for_free(baby_trigger_for_local_nonprim);
+        evolution_chain_summary_free(baby_trigger_for_local_nonprim);
         baby_trigger_for_local_nonprim = NULL;
     }
     if (machinesList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, machinesList) {
-            item_detail_machines_inner_free(listEntry->data);
+            item_machine_free(listEntry->data);
             listEntry->data = NULL;
         }
         list_freeList(machinesList);

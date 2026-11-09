@@ -7,9 +7,9 @@
 #' @title PokemonStat
 #' @description PokemonStat Class
 #' @format An \code{R6Class} generator object
-#' @field base_stat  integer
-#' @field effort  integer
-#' @field stat  \link{StatSummary}
+#' @field base_stat The base value of the stat. integer
+#' @field effort The effort points (EV) the Pokémon has in the stat. integer
+#' @field stat The stat the Pokémon has. \link{StatSummary}
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -23,9 +23,9 @@ PokemonStat <- R6::R6Class(
     #' @description
     #' Initialize a new PokemonStat class.
     #'
-    #' @param base_stat base_stat
-    #' @param effort effort
-    #' @param stat stat
+    #' @param base_stat The base value of the stat.
+    #' @param effort The effort points (EV) the Pokémon has in the stat.
+    #' @param stat The stat the Pokémon has.
     #' @param ... Other optional arguments.
     initialize = function(`base_stat`, `effort`, `stat`, ...) {
       if (!missing(`base_stat`)) {
@@ -208,8 +208,22 @@ PokemonStat <- R6::R6Class(
         return(FALSE)
       }
 
+      if (self$`base_stat` > 2147483647) {
+        return(FALSE)
+      }
+      if (self$`base_stat` < -2147483648) {
+        return(FALSE)
+      }
+
       # check if the required `effort` is null
       if (is.null(self$`effort`)) {
+        return(FALSE)
+      }
+
+      if (self$`effort` > 2147483647) {
+        return(FALSE)
+      }
+      if (self$`effort` < -2147483648) {
         return(FALSE)
       }
 
@@ -232,9 +246,23 @@ PokemonStat <- R6::R6Class(
         invalid_fields["base_stat"] <- "Non-nullable required field `base_stat` cannot be null."
       }
 
+      if (self$`base_stat` > 2147483647) {
+        invalid_fields["base_stat"] <- "Invalid value for `base_stat`, must be smaller than or equal to 2147483647."
+      }
+      if (self$`base_stat` < -2147483648) {
+        invalid_fields["base_stat"] <- "Invalid value for `base_stat`, must be bigger than or equal to -2147483648."
+      }
+
       # check if the required `effort` is null
       if (is.null(self$`effort`)) {
         invalid_fields["effort"] <- "Non-nullable required field `effort` cannot be null."
+      }
+
+      if (self$`effort` > 2147483647) {
+        invalid_fields["effort"] <- "Invalid value for `effort`, must be smaller than or equal to 2147483647."
+      }
+      if (self$`effort` < -2147483648) {
+        invalid_fields["effort"] <- "Invalid value for `effort`, must be bigger than or equal to -2147483648."
       }
 
       # check if the required `stat` is null

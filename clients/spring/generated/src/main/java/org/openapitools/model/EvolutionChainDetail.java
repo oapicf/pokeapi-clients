@@ -4,7 +4,7 @@ import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import org.openapitools.model.EvolutionChainDetailChain;
+import org.openapitools.model.EvolutionChainLink;
 import org.openapitools.model.ItemSummary;
 import org.springframework.lang.Nullable;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -21,14 +21,14 @@ import jakarta.annotation.Generated;
  * EvolutionChainDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-10-25T05:53:37.479908528Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-11-09T13:53:47.069318184Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class EvolutionChainDetail {
 
   private Integer id;
 
-  private ItemSummary babyTriggerItem;
+  private JsonNullable<ItemSummary> babyTriggerItem = JsonNullable.<ItemSummary>undefined();
 
-  private EvolutionChainDetailChain chain;
+  private EvolutionChainLink chain;
 
   public EvolutionChainDetail() {
     super();
@@ -37,9 +37,9 @@ public class EvolutionChainDetail {
   /**
    * Constructor with only required parameters
    */
-  public EvolutionChainDetail(Integer id, ItemSummary babyTriggerItem, EvolutionChainDetailChain chain) {
+  public EvolutionChainDetail(Integer id, ItemSummary babyTriggerItem, EvolutionChainLink chain) {
     this.id = id;
-    this.babyTriggerItem = babyTriggerItem;
+    this.babyTriggerItem = JsonNullable.of(babyTriggerItem);
     this.chain = chain;
   }
 
@@ -49,11 +49,11 @@ public class EvolutionChainDetail {
   }
 
   /**
-   * Get id
+   * The identifier for this resource.
    * @return id
    */
   
-  @Schema(name = "id", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "id", accessMode = Schema.AccessMode.READ_ONLY, description = "The identifier for this resource.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("id")
   public Integer getId() {
     return id;
@@ -65,44 +65,44 @@ public class EvolutionChainDetail {
   }
 
   public EvolutionChainDetail babyTriggerItem(ItemSummary babyTriggerItem) {
-    this.babyTriggerItem = babyTriggerItem;
+    this.babyTriggerItem = JsonNullable.of(babyTriggerItem);
     return this;
   }
 
   /**
-   * Get babyTriggerItem
+   * The item that a Pokémon would be holding when mating that would trigger the egg hatching a baby Pokémon rather than a basic Pokémon.
    * @return babyTriggerItem
    */
-  @NotNull @Valid 
-  @Schema(name = "baby_trigger_item", requiredMode = Schema.RequiredMode.REQUIRED)
+  /* @Present */ @Valid 
+  @Schema(name = "baby_trigger_item", description = "The item that a Pokémon would be holding when mating that would trigger the egg hatching a baby Pokémon rather than a basic Pokémon.", requiredMode = Schema.RequiredMode.REQUIRED, nullable = true)
   @JsonProperty("baby_trigger_item")
-  public ItemSummary getBabyTriggerItem() {
+  public JsonNullable<ItemSummary> getBabyTriggerItem() {
     return babyTriggerItem;
   }
 
   @JsonProperty("baby_trigger_item")
-  public void setBabyTriggerItem(ItemSummary babyTriggerItem) {
+  public void setBabyTriggerItem(JsonNullable<ItemSummary> babyTriggerItem) {
     this.babyTriggerItem = babyTriggerItem;
   }
 
-  public EvolutionChainDetail chain(EvolutionChainDetailChain chain) {
+  public EvolutionChainDetail chain(EvolutionChainLink chain) {
     this.chain = chain;
     return this;
   }
 
   /**
-   * Get chain
+   * The base chain link object. Each link contains evolution details for a Pokémon in the chain. Each link references the next Pokémon in the natural evolution order.
    * @return chain
    */
-  @NotNull @Valid 
-  @Schema(name = "chain", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "chain", accessMode = Schema.AccessMode.READ_ONLY, description = "The base chain link object. Each link contains evolution details for a Pokémon in the chain. Each link references the next Pokémon in the natural evolution order.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("chain")
-  public EvolutionChainDetailChain getChain() {
+  public EvolutionChainLink getChain() {
     return chain;
   }
 
   @JsonProperty("chain")
-  public void setChain(EvolutionChainDetailChain chain) {
+  public void setChain(EvolutionChainLink chain) {
     this.chain = chain;
   }
 

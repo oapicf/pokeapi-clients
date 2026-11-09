@@ -3,10 +3,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **Int32** |  | [readonly] 
-**Name** | **String** |  | 
-**Berries** | [**BerrySummary[]**](BerrySummary.md) |  | [readonly] 
-**Names** | [**BerryFirmnessName[]**](BerryFirmnessName.md) |  | [readonly] 
+**Id** | **Int32** | The identifier for this resource. | [readonly] 
+**Name** | **String** | The name for this resource. | 
+**Berries** | [**BerrySummary[]**](BerrySummary.md) | A list of the berries with this firmness. | [readonly] 
+**Names** | [**BerryFirmnessName[]**](BerryFirmnessName.md) | The name of this resource listed in different languages. | [readonly] 
 
 ## Examples
 

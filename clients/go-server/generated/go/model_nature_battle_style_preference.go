@@ -3,9 +3,9 @@
 /*
  * PokéAPI
  *
- * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+ * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
  *
- * API version: 2.7.0
+ * API version: 2.10.0
  * Contact: blah+oapicf@cliffano.com
  */
 
@@ -13,6 +13,7 @@ package openapi
 
 
 import (
+	"errors"
 	"encoding/json"
 	"fmt"
 )
@@ -21,10 +22,13 @@ import (
 
 type NatureBattleStylePreference struct {
 
+	// Chance of using the move, in percent, if HP is under one half.
 	LowHpPreference int32 `json:"low_hp_preference"`
 
+	// Chance of using the move, in percent, if HP is over one half.
 	HighHpPreference int32 `json:"high_hp_preference"`
 
+	// The move battle style.
 	MoveBattleStyle MoveBattleStyleSummary `json:"move_battle_style"`
 }
 // UnmarshalJSON validates required property keys then unmarshals into NatureBattleStylePreference
@@ -116,6 +120,18 @@ func AssertNatureBattleStylePreferenceRequired(obj NatureBattleStylePreference) 
 
 // AssertNatureBattleStylePreferenceConstraints checks if the values respects the defined constraints
 func AssertNatureBattleStylePreferenceConstraints(obj NatureBattleStylePreference) error {
+	if obj.LowHpPreference < -2147483648 {
+		return &ParsingError{Param: "LowHpPreference", Err: errors.New(errMsgMinValueConstraint)}
+	}
+	if obj.LowHpPreference > 2147483647 {
+		return &ParsingError{Param: "LowHpPreference", Err: errors.New(errMsgMaxValueConstraint)}
+	}
+	if obj.HighHpPreference < -2147483648 {
+		return &ParsingError{Param: "HighHpPreference", Err: errors.New(errMsgMinValueConstraint)}
+	}
+	if obj.HighHpPreference > 2147483647 {
+		return &ParsingError{Param: "HighHpPreference", Err: errors.New(errMsgMaxValueConstraint)}
+	}
 	if err := AssertMoveBattleStyleSummaryConstraints(obj.MoveBattleStyle); err != nil {
 		return err
 	}

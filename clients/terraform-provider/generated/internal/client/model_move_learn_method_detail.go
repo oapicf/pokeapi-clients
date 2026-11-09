@@ -8,5 +8,5 @@ type MoveLearnMethodDetail struct {
 	Name string `json:"name"`
 	Names []MoveLearnMethodName `json:"names"`
 	Descriptions []MoveLearnMethodDescription `json:"descriptions"`
-	VersionGroups []AbilityDetailPokemonInnerPokemon `json:"version_groups"`
+	VersionGroups []VersionGroupSummary `json:"version_groups"`
 }

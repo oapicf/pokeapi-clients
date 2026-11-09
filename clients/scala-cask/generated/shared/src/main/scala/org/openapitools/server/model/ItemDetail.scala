@@ -1,8 +1,8 @@
 /**
  * PokéAPI
- * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+ * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
  *
- * OpenAPI spec version: 2.7.0
+ * OpenAPI spec version: 2.10.0
  *
  * Contact: blah+oapicf@cliffano.com
  *
@@ -23,21 +23,36 @@ import upickle.default.*
 
         
 case class ItemDetail(
+        /* The identifier for this resource. */
     id: Int,
+        /* The name for this resource. */
     name: String,
-    cost: Option[Int] = None ,
+        /* The power of the move Fling when used with this item. */
     flingPower: Option[Int] = None ,
+        /* The effect of the move Fling when used with this item. */
     flingEffect: ItemFlingEffectSummary,
-    attributes: Seq[AbilityDetailPokemonInnerPokemon],
+        /* A list of attributes this item has. */
+    attributes: Seq[ItemAttributeSummary],
+        /* The category of items this item falls into. */
     category: ItemCategorySummary,
+        /* The effect of this ability listed in different languages. */
     effectEntries: Seq[ItemEffectText],
+        /* The flavor text of this ability listed in different languages. */
     flavorTextEntries: Seq[ItemFlavorText],
+        /* A list of game indices relevent to this item by generation. */
     gameIndices: Seq[ItemGameIndex],
+        /* Purchase and sell prices by currency and version group. Prices may be null when the item cannot be bought or sold. */
+    prices: Seq[ItemPrice],
+        /* The name of this item listed in different languages. */
     names: Seq[ItemName],
-    heldByPokemon: Seq[ItemDetailHeldByPokemonInner],
-    sprites: ItemDetailSprites,
-    babyTriggerFor: ItemDetailBabyTriggerFor,
-    machines: Seq[ItemDetailMachinesInner]
+        /* A list of Pokémon that might be found in the wild holding this item. */
+    heldByPokemon: Seq[PokemonHeldItem],
+        /* A set of sprites used to depict this item in the game. */
+    sprites: ItemSprites,
+        /* An evolution chain this item requires to produce a bay during mating. */
+    babyTriggerFor: EvolutionChainSummary,
+        /* A list of the machines related to this item. */
+    machines: Seq[ItemMachine]
 
 
 ) {
@@ -49,7 +64,6 @@ def asData : ItemDetailData = {
 ItemDetailData(
     id = id /* 2 */,
     name = name /* 2 */,
-    cost = cost.getOrElse(0) /*  1 */,
     flingPower = flingPower.getOrElse(0) /*  1 */,
     flingEffect = flingEffect.asData /* 8 */,
     attributes = attributes.map(_.asData) /* 6 */,
@@ -57,6 +71,7 @@ ItemDetailData(
     effectEntries = effectEntries.map(_.asData) /* 6 */,
     flavorTextEntries = flavorTextEntries.map(_.asData) /* 6 */,
     gameIndices = gameIndices.map(_.asData) /* 6 */,
+    prices = prices.map(_.asData) /* 6 */,
     names = names.map(_.asData) /* 6 */,
     heldByPokemon = heldByPokemon.map(_.asData) /* 6 */,
     sprites = sprites.asData /* 8 */,
@@ -73,7 +88,6 @@ given RW[ItemDetail] = summon[RW[ujson.Value]].bimap[ItemDetail](_.asJson, json 
 enum Fields(val fieldName : String) extends Field(fieldName) {
     case id extends Fields("id")
     case name extends Fields("name")
-    case cost extends Fields("cost")
     case flingPower extends Fields("flingPower")
     case flingEffect extends Fields("flingEffect")
     case attributes extends Fields("attributes")
@@ -81,6 +95,7 @@ enum Fields(val fieldName : String) extends Field(fieldName) {
     case effectEntries extends Fields("effectEntries")
     case flavorTextEntries extends Fields("flavorTextEntries")
     case gameIndices extends Fields("gameIndices")
+    case prices extends Fields("prices")
     case names extends Fields("names")
     case heldByPokemon extends Fields("heldByPokemon")
     case sprites extends Fields("sprites")

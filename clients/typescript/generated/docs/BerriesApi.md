@@ -56,7 +56,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](README.md#basicAuth), [cookieAuth](README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -88,7 +88,7 @@ const apiInstance = new BerriesApi(configuration);
 
 const request: BerriesApiBerryFirmnessRetrieveRequest = {
     // This parameter can be a string or an integer.
-  id: "id_example",
+  id: "1",
 };
 
 const data = await apiInstance.berryFirmnessRetrieve(request);
@@ -109,7 +109,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](README.md#basicAuth), [cookieAuth](README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -168,7 +168,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](README.md#basicAuth), [cookieAuth](README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -200,7 +200,7 @@ const apiInstance = new BerriesApi(configuration);
 
 const request: BerriesApiBerryFlavorRetrieveRequest = {
     // This parameter can be a string or an integer.
-  id: "id_example",
+  id: "1",
 };
 
 const data = await apiInstance.berryFlavorRetrieve(request);
@@ -221,7 +221,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](README.md#basicAuth), [cookieAuth](README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -280,7 +280,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](README.md#basicAuth), [cookieAuth](README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -312,7 +312,7 @@ const apiInstance = new BerriesApi(configuration);
 
 const request: BerriesApiBerryRetrieveRequest = {
     // This parameter can be a string or an integer.
-  id: "id_example",
+  id: "1",
 };
 
 const data = await apiInstance.berryRetrieve(request);
@@ -333,7 +333,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](README.md#basicAuth), [cookieAuth](README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

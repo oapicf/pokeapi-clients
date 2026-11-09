@@ -5,7 +5,7 @@
  *
  *)
 
-let contest_effect_list ?limit ?offset ?q () =
+let contest_effect_list ?limit ?offset () =
     let open Lwt.Infix in
     let uri = Request.build_uri "/api/v2/contest-effect/" in
     let headers = Request.default_headers in
@@ -39,21 +39,6 @@ let contest_effect_list ?limit ?offset ?q () =
         
         
  offset in
-    let uri = Request.maybe_add_query_param uri "q"     
-    
-    
-    
-    
-    
-    
-    
-    
-    (fun x -> x)
-    
-    
-        
-        
- q in
     Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
     Request.read_json_body_as (JsonSupport.unwrap Paginated_contest_effect_summary_list.of_yojson) resp body
 
@@ -153,7 +138,7 @@ let contest_type_retrieve ~id =
     Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
     Request.read_json_body_as (JsonSupport.unwrap Contest_type_detail.of_yojson) resp body
 
-let super_contest_effect_list ?limit ?offset ?q () =
+let super_contest_effect_list ?limit ?offset () =
     let open Lwt.Infix in
     let uri = Request.build_uri "/api/v2/super-contest-effect/" in
     let headers = Request.default_headers in
@@ -187,21 +172,6 @@ let super_contest_effect_list ?limit ?offset ?q () =
         
         
  offset in
-    let uri = Request.maybe_add_query_param uri "q"     
-    
-    
-    
-    
-    
-    
-    
-    
-    (fun x -> x)
-    
-    
-        
-        
- q in
     Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
     Request.read_json_body_as (JsonSupport.unwrap Paginated_super_contest_effect_summary_list.of_yojson) resp body
 

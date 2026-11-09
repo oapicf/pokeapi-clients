@@ -7,13 +7,13 @@
     {
       "name": "description",
       "type": ["null", "string"],
-      "doc": "",
+      "doc": "The localized description for an API resource in a specific language.",
       "default": null
     },
     {
       "name": "language",
       "type": "model.LanguageSummary",
-      "doc": ""
+      "doc": "The language this name is in."
     }
   ]
 

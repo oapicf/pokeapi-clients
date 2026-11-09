@@ -16,7 +16,7 @@ import org.openapitools.model.MoveSummary;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-10-25T05:47:53.227411880Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-11-09T13:49:15.621225368Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class MoveDamageClassDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -34,6 +34,7 @@ public class MoveDamageClassDetail   {
   private List<MoveDamageClassName> names = new ArrayList<>();
 
   /**
+   * The identifier for this resource.
    **/
   public MoveDamageClassDetail id(Integer id) {
     this.id = id;
@@ -41,7 +42,7 @@ public class MoveDamageClassDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   @JsonProperty("id")
   public Integer getId() {
     return id;
@@ -51,6 +52,7 @@ public class MoveDamageClassDetail   {
   }
 
   /**
+   * The name for this resource.
    **/
   public MoveDamageClassDetail name(String name) {
     this.name = name;
@@ -58,7 +60,7 @@ public class MoveDamageClassDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   @JsonProperty("name")
   public String getName() {
     return name;
@@ -68,6 +70,7 @@ public class MoveDamageClassDetail   {
   }
 
   /**
+   * The description of this resource listed in different languages.
    **/
   public MoveDamageClassDetail descriptions(List<MoveDamageClassDescription> descriptions) {
     this.descriptions = descriptions;
@@ -75,7 +78,7 @@ public class MoveDamageClassDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The description of this resource listed in different languages.")
   @JsonProperty("descriptions")
   public List<MoveDamageClassDescription> getDescriptions() {
     return descriptions;
@@ -85,6 +88,7 @@ public class MoveDamageClassDetail   {
   }
 
   /**
+   * A list of moves that fall into this damage class.
    **/
   public MoveDamageClassDetail moves(List<MoveSummary> moves) {
     this.moves = moves;
@@ -92,7 +96,7 @@ public class MoveDamageClassDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of moves that fall into this damage class.")
   @JsonProperty("moves")
   public List<MoveSummary> getMoves() {
     return moves;
@@ -102,6 +106,7 @@ public class MoveDamageClassDetail   {
   }
 
   /**
+   * The name of this resource listed in different languages.
    **/
   public MoveDamageClassDetail names(List<MoveDamageClassName> names) {
     this.names = names;
@@ -109,7 +114,7 @@ public class MoveDamageClassDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
   @JsonProperty("names")
   public List<MoveDamageClassName> getNames() {
     return names;

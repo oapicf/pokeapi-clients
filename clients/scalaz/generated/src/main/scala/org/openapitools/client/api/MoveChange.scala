@@ -12,13 +12,20 @@ import org.joda.time.DateTime
 import MoveChange._
 
 case class MoveChange (
+  /* The percent value of how likely this move is to be successful. */
   accuracy: Option[Integer],
-power: Option[Integer],
-pp: Option[Integer],
-effectChance: Integer,
-effectEntries: List[MoveChangeEffectEntriesInner],
-`type`: TypeSummary,
-versionGroup: VersionGroupSummary)
+/* The base power before the listed version group, or null if power did not change. */
+  power: Option[Integer],
+/* Power points. The number of times this move can be used. */
+  pp: Option[Integer],
+/* The percent value of how likely it is this moves effect will take effect. */
+  effectChance: Integer,
+/* The effect of this move listed in different languages. */
+  effectEntries: List[MoveEffectEffectText],
+/* The elemental type of this move. */
+  `type`: TypeSummary,
+/* The version group in which these move stat values were in effect. */
+  versionGroup: VersionGroupSummary)
 
 object MoveChange {
   import DateTimeCodecs._

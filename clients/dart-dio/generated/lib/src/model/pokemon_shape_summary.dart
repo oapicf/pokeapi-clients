@@ -11,13 +11,15 @@ part 'pokemon_shape_summary.g.dart';
 /// PokemonShapeSummary
 ///
 /// Properties:
-/// * [name] 
-/// * [url] 
+/// * [name] - The name of the referenced resource.
+/// * [url] - The URL of the referenced resource.
 @BuiltValue()
 abstract class PokemonShapeSummary implements Built<PokemonShapeSummary, PokemonShapeSummaryBuilder> {
+  /// The name of the referenced resource.
   @BuiltValueField(wireName: r'name')
   String get name;
 
+  /// The URL of the referenced resource.
   @BuiltValueField(wireName: r'url')
   String get url;
 

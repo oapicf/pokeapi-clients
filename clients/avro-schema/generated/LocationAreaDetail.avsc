@@ -7,30 +7,30 @@
     {
       "name": "id",
       "type": "int",
-      "doc": ""
+      "doc": "The identifier for this resource."
     },
     {
       "name": "name",
       "type": "string",
-      "doc": ""
+      "doc": "The name for this resource."
     },
     {
       "name": "game_index",
       "type": "int",
-      "doc": ""
+      "doc": "The internal id of an API resource within game data."
     },
     {
       "name": "encounter_method_rates",
       "type": {
         "type": "array",
-        "items": "model.LocationAreaDetailEncounterMethodRatesInner"
+        "items": "model.LocationAreaEncounterRate"
       },
-      "doc": ""
+      "doc": "A list of methods in which Pokémon may be encountered in this area and how likely the method will occur depending on the version of the game."
     },
     {
       "name": "location",
       "type": "model.LocationSummary",
-      "doc": ""
+      "doc": "The region this location area can be found in."
     },
     {
       "name": "names",
@@ -38,15 +38,15 @@
         "type": "array",
         "items": "model.LocationAreaName"
       },
-      "doc": ""
+      "doc": "The name of this resource listed in different languages."
     },
     {
       "name": "pokemon_encounters",
       "type": {
         "type": "array",
-        "items": "model.LocationAreaDetailPokemonEncountersInner"
+        "items": "model.LocationAreaPokemonEncounter"
       },
-      "doc": ""
+      "doc": "A list of Pokémon that can be encountered in this area along with version specific details about the encounter."
     }
   ]
 

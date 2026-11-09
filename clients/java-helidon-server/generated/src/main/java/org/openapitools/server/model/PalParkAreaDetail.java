@@ -3,8 +3,8 @@ package org.openapitools.server.model;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.server.model.PalParkAreaDetailPokemonEncountersInner;
 import org.openapitools.server.model.PalParkAreaName;
+import org.openapitools.server.model.PalParkEncounter;
 import jakarta.validation.constraints.*;
 import jakarta.validation.Valid;
 
@@ -15,7 +15,7 @@ public class PalParkAreaDetail   {
     private Integer id;
     private String name;
     private List<@Valid PalParkAreaName> names = new ArrayList<>();
-    private List<@Valid PalParkAreaDetailPokemonEncountersInner> pokemonEncounters = new ArrayList<>();
+    private List<@Valid PalParkEncounter> pokemonEncounters = new ArrayList<>();
 
     /**
      * Default constructor.
@@ -27,16 +27,16 @@ public class PalParkAreaDetail   {
     /**
      * Create PalParkAreaDetail.
      *
-     * @param id id
-     * @param name name
-     * @param names names
-     * @param pokemonEncounters pokemonEncounters
+     * @param id The identifier for this resource.
+     * @param name The name for this resource.
+     * @param names The name of this resource listed in different languages.
+     * @param pokemonEncounters A list of Pokémon encountered in thi pal park area along with details.
      */
     public PalParkAreaDetail(
         Integer id, 
         String name, 
         List<@Valid PalParkAreaName> names, 
-        List<@Valid PalParkAreaDetailPokemonEncountersInner> pokemonEncounters
+        List<@Valid PalParkEncounter> pokemonEncounters
     ) {
         this.id = id;
         this.name = name;
@@ -47,7 +47,7 @@ public class PalParkAreaDetail   {
 
 
     /**
-     * Get id
+     * The identifier for this resource.
      * @return id
      */
     public Integer getId() {
@@ -59,7 +59,7 @@ public class PalParkAreaDetail   {
     }
 
     /**
-     * Get name
+     * The name for this resource.
      * @return name
      */
     public String getName() {
@@ -71,7 +71,7 @@ public class PalParkAreaDetail   {
     }
 
     /**
-     * Get names
+     * The name of this resource listed in different languages.
      * @return names
      */
     public List<@Valid PalParkAreaName> getNames() {
@@ -83,14 +83,14 @@ public class PalParkAreaDetail   {
     }
 
     /**
-     * Get pokemonEncounters
+     * A list of Pokémon encountered in thi pal park area along with details.
      * @return pokemonEncounters
      */
-    public List<@Valid PalParkAreaDetailPokemonEncountersInner> getPokemonEncounters() {
+    public List<@Valid PalParkEncounter> getPokemonEncounters() {
         return pokemonEncounters;
     }
 
-    public void setPokemonEncounters(List<@Valid PalParkAreaDetailPokemonEncountersInner> pokemonEncounters) {
+    public void setPokemonEncounters(List<@Valid PalParkEncounter> pokemonEncounters) {
         this.pokemonEncounters = pokemonEncounters;
     }
 

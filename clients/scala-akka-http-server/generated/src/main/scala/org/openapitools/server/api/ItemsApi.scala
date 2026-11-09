@@ -7,11 +7,13 @@ import akka.http.scaladsl.marshalling.ToEntityMarshaller
 import akka.http.scaladsl.unmarshalling.FromEntityUnmarshaller
 import akka.http.scaladsl.unmarshalling.FromStringUnmarshaller
 import org.openapitools.server.AkkaHttpHelper._
+import org.openapitools.server.model.CurrencyDetail
 import org.openapitools.server.model.ItemAttributeDetail
 import org.openapitools.server.model.ItemCategoryDetail
 import org.openapitools.server.model.ItemDetail
 import org.openapitools.server.model.ItemFlingEffectDetail
 import org.openapitools.server.model.ItemPocketDetail
+import org.openapitools.server.model.PaginatedCurrencySummaryList
 import org.openapitools.server.model.PaginatedItemAttributeSummaryList
 import org.openapitools.server.model.PaginatedItemCategorySummaryList
 import org.openapitools.server.model.PaginatedItemFlingEffectSummaryList
@@ -28,6 +30,18 @@ class ItemsApi(
   import itemsMarshaller._
 
   lazy val route: Route =
+    path("api" / "v2" / "currency") { 
+      get { 
+        parameters("limit".as[Int].?, "offset".as[Int].?, "q".as[String].?) { (limit, offset, q) => 
+            itemsService.currencyList(limit = limit, offset = offset, q = q)
+        }
+      }
+    } ~
+    path("api" / "v2" / "currency" / Segment) { (id) => 
+      get {  
+            itemsService.currencyRetrieve(id = id)
+      }
+    } ~
     path("api" / "v2" / "item-attribute") { 
       get { 
         parameters("limit".as[Int].?, "offset".as[Int].?, "q".as[String].?) { (limit, offset, q) => 
@@ -92,6 +106,22 @@ class ItemsApi(
 
 
 trait ItemsApiService {
+
+  def currencyList200(responsePaginatedCurrencySummaryList: PaginatedCurrencySummaryList)(implicit toEntityMarshallerPaginatedCurrencySummaryList: ToEntityMarshaller[PaginatedCurrencySummaryList]): Route =
+    complete((200, responsePaginatedCurrencySummaryList))
+  /**
+   * Code: 200, Message: , DataType: PaginatedCurrencySummaryList
+   */
+  def currencyList(limit: Option[Int], offset: Option[Int], q: Option[String])
+      (implicit toEntityMarshallerPaginatedCurrencySummaryList: ToEntityMarshaller[PaginatedCurrencySummaryList]): Route
+
+  def currencyRetrieve200(responseCurrencyDetail: CurrencyDetail)(implicit toEntityMarshallerCurrencyDetail: ToEntityMarshaller[CurrencyDetail]): Route =
+    complete((200, responseCurrencyDetail))
+  /**
+   * Code: 200, Message: , DataType: CurrencyDetail
+   */
+  def currencyRetrieve(id: String)
+      (implicit toEntityMarshallerCurrencyDetail: ToEntityMarshaller[CurrencyDetail]): Route
 
   def itemAttributeList200(responsePaginatedItemAttributeSummaryList: PaginatedItemAttributeSummaryList)(implicit toEntityMarshallerPaginatedItemAttributeSummaryList: ToEntityMarshaller[PaginatedItemAttributeSummaryList]): Route =
     complete((200, responsePaginatedItemAttributeSummaryList))
@@ -188,11 +218,15 @@ trait ItemsApiMarshaller {
 
   implicit def toEntityMarshallerItemPocketDetail: ToEntityMarshaller[ItemPocketDetail]
 
+  implicit def toEntityMarshallerCurrencyDetail: ToEntityMarshaller[CurrencyDetail]
+
   implicit def toEntityMarshallerPaginatedItemCategorySummaryList: ToEntityMarshaller[PaginatedItemCategorySummaryList]
 
   implicit def toEntityMarshallerItemCategoryDetail: ToEntityMarshaller[ItemCategoryDetail]
 
   implicit def toEntityMarshallerPaginatedItemSummaryList: ToEntityMarshaller[PaginatedItemSummaryList]
+
+  implicit def toEntityMarshallerPaginatedCurrencySummaryList: ToEntityMarshaller[PaginatedCurrencySummaryList]
 
   implicit def toEntityMarshallerItemAttributeDetail: ToEntityMarshaller[ItemAttributeDetail]
 

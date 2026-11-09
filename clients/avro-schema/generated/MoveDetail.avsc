@@ -7,87 +7,87 @@
     {
       "name": "id",
       "type": "int",
-      "doc": ""
+      "doc": "The identifier for this resource."
     },
     {
       "name": "name",
       "type": "string",
-      "doc": ""
+      "doc": "The name for this resource."
     },
     {
       "name": "accuracy",
       "type": ["null", "int"],
-      "doc": "",
+      "doc": "The percent value of how likely this move is to be successful.",
       "default": null
     },
     {
       "name": "effect_chance",
       "type": "int",
-      "doc": ""
+      "doc": "The percent value of how likely it is this moves effect will happen."
     },
     {
       "name": "pp",
       "type": ["null", "int"],
-      "doc": "",
+      "doc": "Power points. The number of times this move can be used.",
       "default": null
     },
     {
       "name": "priority",
       "type": ["null", "int"],
-      "doc": "",
+      "doc": "A value between -8 and 8. Sets the order in which moves are executed during battle. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Priority) for greater detail.",
       "default": null
     },
     {
       "name": "power",
       "type": ["null", "int"],
-      "doc": "",
+      "doc": "The base power of this move, or null if it has no fixed base power.",
       "default": null
     },
     {
       "name": "contest_combos",
-      "type": "model.MoveDetailContestCombos",
-      "doc": ""
+      "type": "model.MoveCombos",
+      "doc": "A detail of normal and super contest combos that require this move."
     },
     {
       "name": "contest_type",
       "type": "model.ContestTypeSummary",
-      "doc": ""
+      "doc": "The type of appeal this move gives a Pokémon when used in a contest."
     },
     {
       "name": "contest_effect",
       "type": "model.ContestEffectSummary",
-      "doc": ""
+      "doc": "The effect the move has when used in a contest."
     },
     {
       "name": "damage_class",
       "type": "model.MoveDamageClassSummary",
-      "doc": ""
+      "doc": "The type of damage the move inflicts on the target, e.g. physical."
     },
     {
       "name": "effect_entries",
       "type": {
         "type": "array",
-        "items": "model.MoveChangeEffectEntriesInner"
+        "items": "model.MoveEffectEffectText"
       },
-      "doc": ""
+      "doc": "The effect of this move listed in different languages."
     },
     {
       "name": "effect_changes",
       "type": {
         "type": "array",
-        "items": "model.MoveDetailEffectChangesInner"
+        "items": "model.MoveEffectChange"
       },
-      "doc": ""
+      "doc": "The list of previous effects this move has had across version groups of the games."
     },
     {
       "name": "generation",
       "type": "model.GenerationSummary",
-      "doc": ""
+      "doc": "The generation in which this move was introduced."
     },
     {
       "name": "meta",
       "type": "model.MoveMeta",
-      "doc": ""
+      "doc": "Metadata about this move"
     },
     {
       "name": "names",
@@ -95,7 +95,7 @@
         "type": "array",
         "items": "model.MoveName"
       },
-      "doc": ""
+      "doc": "The name of this resource listed in different languages."
     },
     {
       "name": "past_values",
@@ -103,38 +103,38 @@
         "type": "array",
         "items": "model.MoveChange"
       },
-      "doc": ""
+      "doc": "A list of move resource value changes across version groups of the game."
     },
     {
       "name": "stat_changes",
       "type": {
         "type": "array",
-        "items": "model.MoveDetailStatChangesInner"
+        "items": "model.MoveMetaStatChange"
       },
-      "doc": ""
+      "doc": "A list of stats this moves effects and how much it effects them."
     },
     {
       "name": "super_contest_effect",
       "type": "model.SuperContestEffectSummary",
-      "doc": ""
+      "doc": "The effect the move has when used in a super contest."
     },
     {
       "name": "target",
       "type": "model.MoveTargetSummary",
-      "doc": ""
+      "doc": "The type of target that will receive the effects of the attack."
     },
     {
       "name": "type",
       "type": "model.TypeSummary",
-      "doc": ""
+      "doc": "The elemental type of this move."
     },
     {
       "name": "machines",
       "type": {
         "type": "array",
-        "items": "model.MoveDetailMachinesInner"
+        "items": "model.ItemMachine"
       },
-      "doc": ""
+      "doc": "A list of the machines that teach this move."
     },
     {
       "name": "flavor_text_entries",
@@ -142,15 +142,15 @@
         "type": "array",
         "items": "model.MoveFlavorText"
       },
-      "doc": ""
+      "doc": "The flavor text of this move listed in different languages."
     },
     {
       "name": "learned_by_pokemon",
       "type": {
         "type": "array",
-        "items": "model.AbilityDetailPokemonInnerPokemon"
+        "items": "model.PokemonSummary"
       },
-      "doc": ""
+      "doc": "List of Pokemon that can learn the move"
     }
   ]
 

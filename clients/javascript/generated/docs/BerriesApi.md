@@ -25,16 +25,6 @@ Berries can be soft or hard. Check out [Bulbapedia](http://bulbapedia.bulbagarde
 
 ```javascript
 import PokeapiClient from 'pokeapi-client';
-let defaultClient = PokeapiClient.ApiClient.instance;
-// Configure HTTP basic authorization: basicAuth
-let basicAuth = defaultClient.authentications['basicAuth'];
-basicAuth.username = 'YOUR USERNAME';
-basicAuth.password = 'YOUR PASSWORD';
-// Configure API key authorization: cookieAuth
-let cookieAuth = defaultClient.authentications['cookieAuth'];
-cookieAuth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//cookieAuth.apiKeyPrefix = 'Token';
 
 let apiInstance = new PokeapiClient.BerriesApi();
 let opts = {
@@ -66,7 +56,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -86,19 +76,9 @@ Berries can be soft or hard. Check out [Bulbapedia](http://bulbapedia.bulbagarde
 
 ```javascript
 import PokeapiClient from 'pokeapi-client';
-let defaultClient = PokeapiClient.ApiClient.instance;
-// Configure HTTP basic authorization: basicAuth
-let basicAuth = defaultClient.authentications['basicAuth'];
-basicAuth.username = 'YOUR USERNAME';
-basicAuth.password = 'YOUR PASSWORD';
-// Configure API key authorization: cookieAuth
-let cookieAuth = defaultClient.authentications['cookieAuth'];
-cookieAuth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//cookieAuth.apiKeyPrefix = 'Token';
 
 let apiInstance = new PokeapiClient.BerriesApi();
-let id = "id_example"; // String | This parameter can be a string or an integer.
+let id = "1"; // String | This parameter can be a string or an integer.
 apiInstance.berryFirmnessRetrieve(id, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -121,7 +101,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -141,16 +121,6 @@ Flavors determine whether a Pokémon will benefit or suffer from eating a berry 
 
 ```javascript
 import PokeapiClient from 'pokeapi-client';
-let defaultClient = PokeapiClient.ApiClient.instance;
-// Configure HTTP basic authorization: basicAuth
-let basicAuth = defaultClient.authentications['basicAuth'];
-basicAuth.username = 'YOUR USERNAME';
-basicAuth.password = 'YOUR PASSWORD';
-// Configure API key authorization: cookieAuth
-let cookieAuth = defaultClient.authentications['cookieAuth'];
-cookieAuth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//cookieAuth.apiKeyPrefix = 'Token';
 
 let apiInstance = new PokeapiClient.BerriesApi();
 let opts = {
@@ -182,7 +152,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -202,19 +172,9 @@ Flavors determine whether a Pokémon will benefit or suffer from eating a berry 
 
 ```javascript
 import PokeapiClient from 'pokeapi-client';
-let defaultClient = PokeapiClient.ApiClient.instance;
-// Configure HTTP basic authorization: basicAuth
-let basicAuth = defaultClient.authentications['basicAuth'];
-basicAuth.username = 'YOUR USERNAME';
-basicAuth.password = 'YOUR PASSWORD';
-// Configure API key authorization: cookieAuth
-let cookieAuth = defaultClient.authentications['cookieAuth'];
-cookieAuth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//cookieAuth.apiKeyPrefix = 'Token';
 
 let apiInstance = new PokeapiClient.BerriesApi();
-let id = "id_example"; // String | This parameter can be a string or an integer.
+let id = "1"; // String | This parameter can be a string or an integer.
 apiInstance.berryFlavorRetrieve(id, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -237,7 +197,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -257,16 +217,6 @@ Berries are small fruits that can provide HP and status condition restoration, s
 
 ```javascript
 import PokeapiClient from 'pokeapi-client';
-let defaultClient = PokeapiClient.ApiClient.instance;
-// Configure HTTP basic authorization: basicAuth
-let basicAuth = defaultClient.authentications['basicAuth'];
-basicAuth.username = 'YOUR USERNAME';
-basicAuth.password = 'YOUR PASSWORD';
-// Configure API key authorization: cookieAuth
-let cookieAuth = defaultClient.authentications['cookieAuth'];
-cookieAuth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//cookieAuth.apiKeyPrefix = 'Token';
 
 let apiInstance = new PokeapiClient.BerriesApi();
 let opts = {
@@ -298,7 +248,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -318,19 +268,9 @@ Berries are small fruits that can provide HP and status condition restoration, s
 
 ```javascript
 import PokeapiClient from 'pokeapi-client';
-let defaultClient = PokeapiClient.ApiClient.instance;
-// Configure HTTP basic authorization: basicAuth
-let basicAuth = defaultClient.authentications['basicAuth'];
-basicAuth.username = 'YOUR USERNAME';
-basicAuth.password = 'YOUR PASSWORD';
-// Configure API key authorization: cookieAuth
-let cookieAuth = defaultClient.authentications['cookieAuth'];
-cookieAuth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//cookieAuth.apiKeyPrefix = 'Token';
 
 let apiInstance = new PokeapiClient.BerriesApi();
-let id = "id_example"; // String | This parameter can be a string or an integer.
+let id = "1"; // String | This parameter can be a string or an integer.
 apiInstance.berryRetrieve(id, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -353,7 +293,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

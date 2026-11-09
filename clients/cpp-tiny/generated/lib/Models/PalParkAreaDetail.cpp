@@ -9,7 +9,7 @@ PalParkAreaDetail::PalParkAreaDetail()
 	id = int(0);
 	name = std::string();
 	names = std::list<PalParkAreaName>();
-	pokemon_encounters = std::list<PalParkAreaDetail_pokemon_encounters_inner>();
+	pokemon_encounters = std::list<PalParkEncounter>();
 }
 
 PalParkAreaDetail::PalParkAreaDetail(std::string jsonString)
@@ -82,8 +82,8 @@ PalParkAreaDetail::fromJson(std::string jsonObj)
         bourne::json value = object[pokemon_encountersKey];
 
 
-        std::list<PalParkAreaDetail_pokemon_encounters_inner> pokemon_encounters_list;
-        PalParkAreaDetail_pokemon_encounters_inner element;
+        std::list<PalParkEncounter> pokemon_encounters_list;
+        PalParkEncounter element;
         for(auto& var : value.array_range())
         {
 
@@ -137,12 +137,12 @@ PalParkAreaDetail::toJson()
 
 
 
-    std::list<PalParkAreaDetail_pokemon_encounters_inner> pokemon_encounters_list = getPokemonEncounters();
+    std::list<PalParkEncounter> pokemon_encounters_list = getPokemonEncounters();
     bourne::json pokemon_encounters_arr = bourne::json::array();
 
     for(auto& var : pokemon_encounters_list)
     {
-        PalParkAreaDetail_pokemon_encounters_inner obj = var;
+        PalParkEncounter obj = var;
         pokemon_encounters_arr.append(obj.toJson());
     }
     object["pokemon_encounters"] = pokemon_encounters_arr;
@@ -190,14 +190,14 @@ PalParkAreaDetail::setNames(std::list<PalParkAreaName> names)
 	this->names = names;
 }
 
-std::list<PalParkAreaDetail_pokemon_encounters_inner>
+std::list<PalParkEncounter>
 PalParkAreaDetail::getPokemonEncounters()
 {
 	return pokemon_encounters;
 }
 
 void
-PalParkAreaDetail::setPokemonEncounters(std::list<PalParkAreaDetail_pokemon_encounters_inner> pokemon_encounters)
+PalParkAreaDetail::setPokemonEncounters(std::list<PalParkEncounter> pokemon_encounters)
 {
 	this->pokemon_encounters = pokemon_encounters;
 }

@@ -12,7 +12,7 @@ module OpenapiClient
           :GET,
           '/api/v2/pokeathlon-stat/',
           type: OpenapiClient::Models::PaginatedPokeathlonStatSummaryList,
-          auth: ['basicAuth', 'cookieAuth'],
+          auth: [],
           query: { 'limit' => limit, 'offset' => offset, 'q' => q }
         )
       end
@@ -25,7 +25,7 @@ module OpenapiClient
           '/api/v2/pokeathlon-stat/{id}/'
             .gsub('{id}', ERB::Util.url_encode(id.to_s)),
           type: OpenapiClient::Models::PokeathlonStatDetail,
-          auth: ['basicAuth', 'cookieAuth']
+          auth: []
         )
       end
     end

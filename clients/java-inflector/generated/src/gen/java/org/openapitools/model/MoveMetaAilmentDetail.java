@@ -8,14 +8,14 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.model.AbilityDetailPokemonInnerPokemon;
 import org.openapitools.model.MoveMetaAilmentName;
+import org.openapitools.model.MoveSummary;
 
 
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-10-25T05:47:53.227411880Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-11-09T13:49:15.621225368Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class MoveMetaAilmentDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -24,12 +24,13 @@ public class MoveMetaAilmentDetail   {
   private String name;
 
   @JsonProperty("moves")
-  private List<AbilityDetailPokemonInnerPokemon> moves = new ArrayList<>();
+  private List<MoveSummary> moves = new ArrayList<>();
 
   @JsonProperty("names")
   private List<MoveMetaAilmentName> names = new ArrayList<>();
 
   /**
+   * The identifier for this resource.
    **/
   public MoveMetaAilmentDetail id(Integer id) {
     this.id = id;
@@ -37,7 +38,7 @@ public class MoveMetaAilmentDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   @JsonProperty("id")
   public Integer getId() {
     return id;
@@ -47,6 +48,7 @@ public class MoveMetaAilmentDetail   {
   }
 
   /**
+   * The name for this resource.
    **/
   public MoveMetaAilmentDetail name(String name) {
     this.name = name;
@@ -54,7 +56,7 @@ public class MoveMetaAilmentDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   @JsonProperty("name")
   public String getName() {
     return name;
@@ -64,23 +66,25 @@ public class MoveMetaAilmentDetail   {
   }
 
   /**
+   * A list of moves that cause this ailment.
    **/
-  public MoveMetaAilmentDetail moves(List<AbilityDetailPokemonInnerPokemon> moves) {
+  public MoveMetaAilmentDetail moves(List<MoveSummary> moves) {
     this.moves = moves;
     return this;
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of moves that cause this ailment.")
   @JsonProperty("moves")
-  public List<AbilityDetailPokemonInnerPokemon> getMoves() {
+  public List<MoveSummary> getMoves() {
     return moves;
   }
-  public void setMoves(List<AbilityDetailPokemonInnerPokemon> moves) {
+  public void setMoves(List<MoveSummary> moves) {
     this.moves = moves;
   }
 
   /**
+   * The name of this resource listed in different languages.
    **/
   public MoveMetaAilmentDetail names(List<MoveMetaAilmentName> names) {
     this.names = names;
@@ -88,7 +92,7 @@ public class MoveMetaAilmentDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
   @JsonProperty("names")
   public List<MoveMetaAilmentName> getNames() {
     return names;

@@ -7,8 +7,8 @@
 #' @title Experience
 #' @description Experience Class
 #' @format An \code{R6Class} generator object
-#' @field level  integer
-#' @field experience  integer
+#' @field level The level gained. integer
+#' @field experience The amount of experience required to reach the referenced level. integer
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -21,8 +21,8 @@ Experience <- R6::R6Class(
     #' @description
     #' Initialize a new Experience class.
     #'
-    #' @param level level
-    #' @param experience experience
+    #' @param level The level gained.
+    #' @param experience The amount of experience required to reach the referenced level.
     #' @param ... Other optional arguments.
     initialize = function(`level`, `experience`, ...) {
       if (!missing(`level`)) {
@@ -162,8 +162,22 @@ Experience <- R6::R6Class(
         return(FALSE)
       }
 
+      if (self$`level` > 2147483647) {
+        return(FALSE)
+      }
+      if (self$`level` < -2147483648) {
+        return(FALSE)
+      }
+
       # check if the required `experience` is null
       if (is.null(self$`experience`)) {
+        return(FALSE)
+      }
+
+      if (self$`experience` > 2147483647) {
+        return(FALSE)
+      }
+      if (self$`experience` < -2147483648) {
         return(FALSE)
       }
 
@@ -181,9 +195,23 @@ Experience <- R6::R6Class(
         invalid_fields["level"] <- "Non-nullable required field `level` cannot be null."
       }
 
+      if (self$`level` > 2147483647) {
+        invalid_fields["level"] <- "Invalid value for `level`, must be smaller than or equal to 2147483647."
+      }
+      if (self$`level` < -2147483648) {
+        invalid_fields["level"] <- "Invalid value for `level`, must be bigger than or equal to -2147483648."
+      }
+
       # check if the required `experience` is null
       if (is.null(self$`experience`)) {
         invalid_fields["experience"] <- "Non-nullable required field `experience` cannot be null."
+      }
+
+      if (self$`experience` > 2147483647) {
+        invalid_fields["experience"] <- "Invalid value for `experience`, must be smaller than or equal to 2147483647."
+      }
+      if (self$`experience` < -2147483648) {
+        invalid_fields["experience"] <- "Invalid value for `experience`, must be bigger than or equal to -2147483648."
       }
 
       invalid_fields

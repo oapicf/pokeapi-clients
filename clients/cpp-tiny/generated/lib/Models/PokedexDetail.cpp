@@ -11,9 +11,9 @@ PokedexDetail::PokedexDetail()
 	is_main_series = bool(false);
 	descriptions = std::list<PokedexDescription>();
 	names = std::list<PokedexName>();
-	pokemon_entries = std::list<PokedexDetail_pokemon_entries_inner>();
-	region = RegionSummary();
-	version_groups = std::list<AbilityDetail_pokemon_inner_pokemon>();
+	pokemon_entries = std::list<PokemonDexNumber>();
+	region = null;
+	version_groups = std::list<VersionGroupSummary>();
 }
 
 PokedexDetail::PokedexDetail(std::string jsonString)
@@ -121,8 +121,8 @@ PokedexDetail::fromJson(std::string jsonObj)
         bourne::json value = object[pokemon_entriesKey];
 
 
-        std::list<PokedexDetail_pokemon_entries_inner> pokemon_entries_list;
-        PokedexDetail_pokemon_entries_inner element;
+        std::list<PokemonDexNumber> pokemon_entries_list;
+        PokemonDexNumber element;
         for(auto& var : value.array_range())
         {
 
@@ -157,8 +157,8 @@ PokedexDetail::fromJson(std::string jsonObj)
         bourne::json value = object[version_groupsKey];
 
 
-        std::list<AbilityDetail_pokemon_inner_pokemon> version_groups_list;
-        AbilityDetail_pokemon_inner_pokemon element;
+        std::list<VersionGroupSummary> version_groups_list;
+        VersionGroupSummary element;
         for(auto& var : value.array_range())
         {
 
@@ -234,12 +234,12 @@ PokedexDetail::toJson()
 
 
 
-    std::list<PokedexDetail_pokemon_entries_inner> pokemon_entries_list = getPokemonEntries();
+    std::list<PokemonDexNumber> pokemon_entries_list = getPokemonEntries();
     bourne::json pokemon_entries_arr = bourne::json::array();
 
     for(auto& var : pokemon_entries_list)
     {
-        PokedexDetail_pokemon_entries_inner obj = var;
+        PokemonDexNumber obj = var;
         pokemon_entries_arr.append(obj.toJson());
     }
     object["pokemon_entries"] = pokemon_entries_arr;
@@ -256,12 +256,12 @@ PokedexDetail::toJson()
 
 
 
-    std::list<AbilityDetail_pokemon_inner_pokemon> version_groups_list = getVersionGroups();
+    std::list<VersionGroupSummary> version_groups_list = getVersionGroups();
     bourne::json version_groups_arr = bourne::json::array();
 
     for(auto& var : version_groups_list)
     {
-        AbilityDetail_pokemon_inner_pokemon obj = var;
+        VersionGroupSummary obj = var;
         version_groups_arr.append(obj.toJson());
     }
     object["version_groups"] = version_groups_arr;
@@ -333,14 +333,14 @@ PokedexDetail::setNames(std::list<PokedexName> names)
 	this->names = names;
 }
 
-std::list<PokedexDetail_pokemon_entries_inner>
+std::list<PokemonDexNumber>
 PokedexDetail::getPokemonEntries()
 {
 	return pokemon_entries;
 }
 
 void
-PokedexDetail::setPokemonEntries(std::list<PokedexDetail_pokemon_entries_inner> pokemon_entries)
+PokedexDetail::setPokemonEntries(std::list<PokemonDexNumber> pokemon_entries)
 {
 	this->pokemon_entries = pokemon_entries;
 }
@@ -357,14 +357,14 @@ PokedexDetail::setRegion(RegionSummary region)
 	this->region = region;
 }
 
-std::list<AbilityDetail_pokemon_inner_pokemon>
+std::list<VersionGroupSummary>
 PokedexDetail::getVersionGroups()
 {
 	return version_groups;
 }
 
 void
-PokedexDetail::setVersionGroups(std::list<AbilityDetail_pokemon_inner_pokemon> version_groups)
+PokedexDetail::setVersionGroups(std::list<VersionGroupSummary> version_groups)
 {
 	this->version_groups = version_groups;
 }

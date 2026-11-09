@@ -62,6 +62,7 @@ class PaginatedGenerationSummaryList(Model):
     def count(self) -> int:
         """Gets the count of this PaginatedGenerationSummaryList.
 
+        The total number of resources available from this API.  # noqa: E501
 
         :return: The count of this PaginatedGenerationSummaryList.
         :rtype: int
@@ -72,10 +73,13 @@ class PaginatedGenerationSummaryList(Model):
     def count(self, count: int):
         """Sets the count of this PaginatedGenerationSummaryList.
 
+        The total number of resources available from this API.  # noqa: E501
 
         :param count: The count of this PaginatedGenerationSummaryList.
         :type count: int
         """
+        if count is None:
+            raise ValueError("Invalid value for `count`, must not be `None`")  # noqa: E501
 
         self._count = count
 
@@ -83,6 +87,7 @@ class PaginatedGenerationSummaryList(Model):
     def next(self) -> str:
         """Gets the next of this PaginatedGenerationSummaryList.
 
+        The URL for the next page in the list, or null if there is no next page.  # noqa: E501
 
         :return: The next of this PaginatedGenerationSummaryList.
         :rtype: str
@@ -93,6 +98,7 @@ class PaginatedGenerationSummaryList(Model):
     def next(self, next: str):
         """Sets the next of this PaginatedGenerationSummaryList.
 
+        The URL for the next page in the list, or null if there is no next page.  # noqa: E501
 
         :param next: The next of this PaginatedGenerationSummaryList.
         :type next: str
@@ -104,6 +110,7 @@ class PaginatedGenerationSummaryList(Model):
     def previous(self) -> str:
         """Gets the previous of this PaginatedGenerationSummaryList.
 
+        The URL for the previous page in the list, or null if there is no previous page.  # noqa: E501
 
         :return: The previous of this PaginatedGenerationSummaryList.
         :rtype: str
@@ -114,6 +121,7 @@ class PaginatedGenerationSummaryList(Model):
     def previous(self, previous: str):
         """Sets the previous of this PaginatedGenerationSummaryList.
 
+        The URL for the previous page in the list, or null if there is no previous page.  # noqa: E501
 
         :param previous: The previous of this PaginatedGenerationSummaryList.
         :type previous: str
@@ -125,6 +133,7 @@ class PaginatedGenerationSummaryList(Model):
     def results(self) -> List[GenerationSummary]:
         """Gets the results of this PaginatedGenerationSummaryList.
 
+        A list of API resources on this page.  # noqa: E501
 
         :return: The results of this PaginatedGenerationSummaryList.
         :rtype: List[GenerationSummary]
@@ -135,9 +144,12 @@ class PaginatedGenerationSummaryList(Model):
     def results(self, results: List[GenerationSummary]):
         """Sets the results of this PaginatedGenerationSummaryList.
 
+        A list of API resources on this page.  # noqa: E501
 
         :param results: The results of this PaginatedGenerationSummaryList.
         :type results: List[GenerationSummary]
         """
+        if results is None:
+            raise ValueError("Invalid value for `results`, must not be `None`")  # noqa: E501
 
         self._results = results

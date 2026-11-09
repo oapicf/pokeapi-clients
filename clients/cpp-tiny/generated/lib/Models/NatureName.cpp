@@ -7,7 +7,7 @@ using namespace Tiny;
 NatureName::NatureName()
 {
 	name = std::string();
-	language = LanguageSummary();
+	language = null;
 }
 
 NatureName::NatureName(std::string jsonString)

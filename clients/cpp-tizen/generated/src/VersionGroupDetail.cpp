@@ -26,7 +26,7 @@ VersionGroupDetail::__init()
 	//id = int(0);
 	//name = std::string();
 	//order = int(0);
-	//generation = new GenerationSummary();
+	//generation = null;
 	//new std::list()std::list> move_learn_methods;
 	//new std::list()std::list> pokedexes;
 	//new std::list()std::list> regions;
@@ -138,12 +138,12 @@ VersionGroupDetail::fromJson(char* jsonStr)
 		{
 			JsonArray* arr = json_node_get_array(node);
 			JsonNode*  temp_json;
-			list<AbilityDetail_pokemon_inner_pokemon> new_list;
-			AbilityDetail_pokemon_inner_pokemon inst;
+			list<MoveLearnMethodSummary> new_list;
+			MoveLearnMethodSummary inst;
 			for (guint i=0;i<json_array_get_length(arr);i++) {
 				temp_json = json_array_get_element(arr,i);
-				if (isprimitive("AbilityDetail_pokemon_inner_pokemon")) {
-					jsonToValue(&inst, temp_json, "AbilityDetail_pokemon_inner_pokemon", "");
+				if (isprimitive("MoveLearnMethodSummary")) {
+					jsonToValue(&inst, temp_json, "MoveLearnMethodSummary", "");
 				} else {
 					
 					inst.fromJson(json_to_string(temp_json, false));
@@ -162,12 +162,12 @@ VersionGroupDetail::fromJson(char* jsonStr)
 		{
 			JsonArray* arr = json_node_get_array(node);
 			JsonNode*  temp_json;
-			list<AbilityDetail_pokemon_inner_pokemon> new_list;
-			AbilityDetail_pokemon_inner_pokemon inst;
+			list<PokedexSummary> new_list;
+			PokedexSummary inst;
 			for (guint i=0;i<json_array_get_length(arr);i++) {
 				temp_json = json_array_get_element(arr,i);
-				if (isprimitive("AbilityDetail_pokemon_inner_pokemon")) {
-					jsonToValue(&inst, temp_json, "AbilityDetail_pokemon_inner_pokemon", "");
+				if (isprimitive("PokedexSummary")) {
+					jsonToValue(&inst, temp_json, "PokedexSummary", "");
 				} else {
 					
 					inst.fromJson(json_to_string(temp_json, false));
@@ -186,12 +186,12 @@ VersionGroupDetail::fromJson(char* jsonStr)
 		{
 			JsonArray* arr = json_node_get_array(node);
 			JsonNode*  temp_json;
-			list<AbilityDetail_pokemon_inner_pokemon> new_list;
-			AbilityDetail_pokemon_inner_pokemon inst;
+			list<RegionSummary> new_list;
+			RegionSummary inst;
 			for (guint i=0;i<json_array_get_length(arr);i++) {
 				temp_json = json_array_get_element(arr,i);
-				if (isprimitive("AbilityDetail_pokemon_inner_pokemon")) {
-					jsonToValue(&inst, temp_json, "AbilityDetail_pokemon_inner_pokemon", "");
+				if (isprimitive("RegionSummary")) {
+					jsonToValue(&inst, temp_json, "RegionSummary", "");
 				} else {
 					
 					inst.fromJson(json_to_string(temp_json, false));
@@ -280,18 +280,18 @@ VersionGroupDetail::toJson()
 	}
 	const gchar *generationKey = "generation";
 	json_object_set_member(pJsonObject, generationKey, node);
-	if (isprimitive("AbilityDetail_pokemon_inner_pokemon")) {
-		list<AbilityDetail_pokemon_inner_pokemon> new_list = static_cast<list <AbilityDetail_pokemon_inner_pokemon> > (getMoveLearnMethods());
-		node = converttoJson(&new_list, "AbilityDetail_pokemon_inner_pokemon", "array");
+	if (isprimitive("MoveLearnMethodSummary")) {
+		list<MoveLearnMethodSummary> new_list = static_cast<list <MoveLearnMethodSummary> > (getMoveLearnMethods());
+		node = converttoJson(&new_list, "MoveLearnMethodSummary", "array");
 	} else {
 		node = json_node_alloc();
-		list<AbilityDetail_pokemon_inner_pokemon> new_list = static_cast<list <AbilityDetail_pokemon_inner_pokemon> > (getMoveLearnMethods());
+		list<MoveLearnMethodSummary> new_list = static_cast<list <MoveLearnMethodSummary> > (getMoveLearnMethods());
 		JsonArray* json_array = json_array_new();
 		GError *mygerror;
 		
-		for (list<AbilityDetail_pokemon_inner_pokemon>::iterator it = new_list.begin(); it != new_list.end(); it++) {
+		for (list<MoveLearnMethodSummary>::iterator it = new_list.begin(); it != new_list.end(); it++) {
 			mygerror = NULL;
-			AbilityDetail_pokemon_inner_pokemon obj = *it;
+			MoveLearnMethodSummary obj = *it;
 			JsonNode *node_temp = json_from_string(obj.toJson(), &mygerror);
 			json_array_add_element(json_array, node_temp);
 			g_clear_error(&mygerror);
@@ -305,18 +305,18 @@ VersionGroupDetail::toJson()
 	
 	const gchar *move_learn_methodsKey = "move_learn_methods";
 	json_object_set_member(pJsonObject, move_learn_methodsKey, node);
-	if (isprimitive("AbilityDetail_pokemon_inner_pokemon")) {
-		list<AbilityDetail_pokemon_inner_pokemon> new_list = static_cast<list <AbilityDetail_pokemon_inner_pokemon> > (getPokedexes());
-		node = converttoJson(&new_list, "AbilityDetail_pokemon_inner_pokemon", "array");
+	if (isprimitive("PokedexSummary")) {
+		list<PokedexSummary> new_list = static_cast<list <PokedexSummary> > (getPokedexes());
+		node = converttoJson(&new_list, "PokedexSummary", "array");
 	} else {
 		node = json_node_alloc();
-		list<AbilityDetail_pokemon_inner_pokemon> new_list = static_cast<list <AbilityDetail_pokemon_inner_pokemon> > (getPokedexes());
+		list<PokedexSummary> new_list = static_cast<list <PokedexSummary> > (getPokedexes());
 		JsonArray* json_array = json_array_new();
 		GError *mygerror;
 		
-		for (list<AbilityDetail_pokemon_inner_pokemon>::iterator it = new_list.begin(); it != new_list.end(); it++) {
+		for (list<PokedexSummary>::iterator it = new_list.begin(); it != new_list.end(); it++) {
 			mygerror = NULL;
-			AbilityDetail_pokemon_inner_pokemon obj = *it;
+			PokedexSummary obj = *it;
 			JsonNode *node_temp = json_from_string(obj.toJson(), &mygerror);
 			json_array_add_element(json_array, node_temp);
 			g_clear_error(&mygerror);
@@ -330,18 +330,18 @@ VersionGroupDetail::toJson()
 	
 	const gchar *pokedexesKey = "pokedexes";
 	json_object_set_member(pJsonObject, pokedexesKey, node);
-	if (isprimitive("AbilityDetail_pokemon_inner_pokemon")) {
-		list<AbilityDetail_pokemon_inner_pokemon> new_list = static_cast<list <AbilityDetail_pokemon_inner_pokemon> > (getRegions());
-		node = converttoJson(&new_list, "AbilityDetail_pokemon_inner_pokemon", "array");
+	if (isprimitive("RegionSummary")) {
+		list<RegionSummary> new_list = static_cast<list <RegionSummary> > (getRegions());
+		node = converttoJson(&new_list, "RegionSummary", "array");
 	} else {
 		node = json_node_alloc();
-		list<AbilityDetail_pokemon_inner_pokemon> new_list = static_cast<list <AbilityDetail_pokemon_inner_pokemon> > (getRegions());
+		list<RegionSummary> new_list = static_cast<list <RegionSummary> > (getRegions());
 		JsonArray* json_array = json_array_new();
 		GError *mygerror;
 		
-		for (list<AbilityDetail_pokemon_inner_pokemon>::iterator it = new_list.begin(); it != new_list.end(); it++) {
+		for (list<RegionSummary>::iterator it = new_list.begin(); it != new_list.end(); it++) {
 			mygerror = NULL;
-			AbilityDetail_pokemon_inner_pokemon obj = *it;
+			RegionSummary obj = *it;
 			JsonNode *node_temp = json_from_string(obj.toJson(), &mygerror);
 			json_array_add_element(json_array, node_temp);
 			g_clear_error(&mygerror);
@@ -436,38 +436,38 @@ VersionGroupDetail::setGeneration(GenerationSummary  generation)
 	this->generation = generation;
 }
 
-std::list<AbilityDetail_pokemon_inner_pokemon>
+std::list<MoveLearnMethodSummary>
 VersionGroupDetail::getMoveLearnMethods()
 {
 	return move_learn_methods;
 }
 
 void
-VersionGroupDetail::setMoveLearnMethods(std::list <AbilityDetail_pokemon_inner_pokemon> move_learn_methods)
+VersionGroupDetail::setMoveLearnMethods(std::list <MoveLearnMethodSummary> move_learn_methods)
 {
 	this->move_learn_methods = move_learn_methods;
 }
 
-std::list<AbilityDetail_pokemon_inner_pokemon>
+std::list<PokedexSummary>
 VersionGroupDetail::getPokedexes()
 {
 	return pokedexes;
 }
 
 void
-VersionGroupDetail::setPokedexes(std::list <AbilityDetail_pokemon_inner_pokemon> pokedexes)
+VersionGroupDetail::setPokedexes(std::list <PokedexSummary> pokedexes)
 {
 	this->pokedexes = pokedexes;
 }
 
-std::list<AbilityDetail_pokemon_inner_pokemon>
+std::list<RegionSummary>
 VersionGroupDetail::getRegions()
 {
 	return regions;
 }
 
 void
-VersionGroupDetail::setRegions(std::list <AbilityDetail_pokemon_inner_pokemon> regions)
+VersionGroupDetail::setRegions(std::list <RegionSummary> regions)
 {
 	this->regions = regions;
 }

@@ -8,7 +8,9 @@
 import Foundation
 
 public struct AbilityChangeEffectText: Codable {
+    /// The localized effect text for an API resource in a specific language.
     public var effect: String
+    /// The language this effect is in.
     public var language: LanguageSummary
 
     public init(effect: String, language: LanguageSummary) {

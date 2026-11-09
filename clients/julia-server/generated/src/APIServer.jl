@@ -27,7 +27,7 @@ The following server methods must be implemented:
     - *signature:* berry_retrieve(req::HTTP.Request, id::String;) -> BerryDetail
 - **contest_effect_list**
     - *invocation:* GET /api/v2/contest-effect/
-    - *signature:* contest_effect_list(req::HTTP.Request; limit=nothing, offset=nothing, q=nothing,) -> PaginatedContestEffectSummaryList
+    - *signature:* contest_effect_list(req::HTTP.Request; limit=nothing, offset=nothing,) -> PaginatedContestEffectSummaryList
 - **contest_effect_retrieve**
     - *invocation:* GET /api/v2/contest-effect/{id}/
     - *signature:* contest_effect_retrieve(req::HTTP.Request, id::String;) -> ContestEffectDetail
@@ -39,7 +39,7 @@ The following server methods must be implemented:
     - *signature:* contest_type_retrieve(req::HTTP.Request, id::String;) -> ContestTypeDetail
 - **super_contest_effect_list**
     - *invocation:* GET /api/v2/super-contest-effect/
-    - *signature:* super_contest_effect_list(req::HTTP.Request; limit=nothing, offset=nothing, q=nothing,) -> PaginatedSuperContestEffectSummaryList
+    - *signature:* super_contest_effect_list(req::HTTP.Request; limit=nothing, offset=nothing,) -> PaginatedSuperContestEffectSummaryList
 - **super_contest_effect_retrieve**
     - *invocation:* GET /api/v2/super-contest-effect/{id}/
     - *signature:* super_contest_effect_retrieve(req::HTTP.Request, id::String;) -> SuperContestEffectDetail
@@ -63,7 +63,7 @@ The following server methods must be implemented:
     - *signature:* encounter_method_retrieve(req::HTTP.Request, id::String;) -> EncounterMethodDetail
 - **evolution_chain_list**
     - *invocation:* GET /api/v2/evolution-chain/
-    - *signature:* evolution_chain_list(req::HTTP.Request; limit=nothing, offset=nothing, q=nothing,) -> PaginatedEvolutionChainSummaryList
+    - *signature:* evolution_chain_list(req::HTTP.Request; limit=nothing, offset=nothing,) -> PaginatedEvolutionChainSummaryList
 - **evolution_chain_retrieve**
     - *invocation:* GET /api/v2/evolution-chain/{id}/
     - *signature:* evolution_chain_retrieve(req::HTTP.Request, id::String;) -> EvolutionChainDetail
@@ -73,6 +73,12 @@ The following server methods must be implemented:
 - **evolution_trigger_retrieve**
     - *invocation:* GET /api/v2/evolution-trigger/{id}/
     - *signature:* evolution_trigger_retrieve(req::HTTP.Request, id::String;) -> EvolutionTriggerDetail
+- **evolution_variable_list**
+    - *invocation:* GET /api/v2/evolution-variable/
+    - *signature:* evolution_variable_list(req::HTTP.Request; limit=nothing, offset=nothing, q=nothing,) -> PaginatedEvolutionVariableSummaryList
+- **evolution_variable_retrieve**
+    - *invocation:* GET /api/v2/evolution-variable/{id}/
+    - *signature:* evolution_variable_retrieve(req::HTTP.Request, id::String;) -> EvolutionVariableDetail
 - **generation_list**
     - *invocation:* GET /api/v2/generation/
     - *signature:* generation_list(req::HTTP.Request; limit=nothing, offset=nothing, q=nothing,) -> PaginatedGenerationSummaryList
@@ -97,6 +103,12 @@ The following server methods must be implemented:
 - **version_retrieve**
     - *invocation:* GET /api/v2/version/{id}/
     - *signature:* version_retrieve(req::HTTP.Request, id::String;) -> VersionDetail
+- **currency_list**
+    - *invocation:* GET /api/v2/currency/
+    - *signature:* currency_list(req::HTTP.Request; limit=nothing, offset=nothing, q=nothing,) -> PaginatedCurrencySummaryList
+- **currency_retrieve**
+    - *invocation:* GET /api/v2/currency/{id}/
+    - *signature:* currency_retrieve(req::HTTP.Request, id::String;) -> CurrencyDetail
 - **item_attribute_list**
     - *invocation:* GET /api/v2/item-attribute/
     - *signature:* item_attribute_list(req::HTTP.Request; limit=nothing, offset=nothing, q=nothing,) -> PaginatedItemAttributeSummaryList
@@ -153,7 +165,7 @@ The following server methods must be implemented:
     - *signature:* region_retrieve(req::HTTP.Request, id::String;) -> RegionDetail
 - **machine_list**
     - *invocation:* GET /api/v2/machine/
-    - *signature:* machine_list(req::HTTP.Request; limit=nothing, offset=nothing, q=nothing,) -> PaginatedMachineSummaryList
+    - *signature:* machine_list(req::HTTP.Request; limit=nothing, offset=nothing,) -> PaginatedMachineSummaryList
 - **machine_retrieve**
     - *invocation:* GET /api/v2/machine/{id}/
     - *signature:* machine_retrieve(req::HTTP.Request, id::String;) -> MachineDetail
@@ -201,7 +213,7 @@ The following server methods must be implemented:
     - *signature:* ability_retrieve(req::HTTP.Request, id::String;) -> AbilityDetail
 - **characteristic_list**
     - *invocation:* GET /api/v2/characteristic/
-    - *signature:* characteristic_list(req::HTTP.Request; limit=nothing, offset=nothing, q=nothing,) -> PaginatedCharacteristicSummaryList
+    - *signature:* characteristic_list(req::HTTP.Request; limit=nothing, offset=nothing,) -> PaginatedCharacteristicSummaryList
 - **characteristic_retrieve**
     - *invocation:* GET /api/v2/characteristic/{id}/
     - *signature:* characteristic_retrieve(req::HTTP.Request, id::String;) -> CharacteristicDetail
@@ -295,6 +307,9 @@ The following server methods must be implemented:
 - **language_retrieve**
     - *invocation:* GET /api/v2/language/{id}/
     - *signature:* language_retrieve(req::HTTP.Request, id::String;) -> LanguageDetail
+- **meta_retrieve**
+    - *invocation:* GET /api/v2/meta/
+    - *signature:* meta_retrieve(req::HTTP.Request;) -> PokeapiMetaResponse
 """
 module APIServer
 
@@ -305,7 +320,7 @@ using TimeZones
 using OpenAPI
 using OpenAPI.Servers
 
-const API_VERSION = "2.7.0"
+const API_VERSION = "2.10.0"
 
 include("modelincludes.jl")
 

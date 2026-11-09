@@ -15,11 +15,10 @@ const _returntypes_machine_list_MachinesApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => PaginatedMachineSummaryList,
 )
 
-function _oacinternal_machine_list(_api::MachinesApi; limit=nothing, offset=nothing, q=nothing, _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_machine_list_MachinesApi, "/api/v2/machine/", ["basicAuth", "cookieAuth", ])
+function _oacinternal_machine_list(_api::MachinesApi; limit=nothing, offset=nothing, _mediaType=nothing)
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_machine_list_MachinesApi, "/api/v2/machine/", [])
     OpenAPI.Clients.set_param(_ctx.query, "limit", limit; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "offset", offset; style="form", is_explode=true)  # type Int64
-    OpenAPI.Clients.set_param(_ctx.query, "q", q; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
     return _ctx
@@ -32,17 +31,16 @@ Machines are the representation of items that teach moves to Pokémon. They vary
 Params:
 - `limit`::`Int64`
 - `offset`::`Int64`
-- `q`::`String`
 
 Return: `PaginatedMachineSummaryList`, `OpenAPI.Clients.ApiResponse`
 """
-function machine_list(_api::MachinesApi; limit=nothing, offset=nothing, q=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_machine_list(_api; limit=limit, offset=offset, q=q, _mediaType=_mediaType)
+function machine_list(_api::MachinesApi; limit=nothing, offset=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_machine_list(_api; limit=limit, offset=offset, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function machine_list(_api::MachinesApi, response_stream::Channel; limit=nothing, offset=nothing, q=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_machine_list(_api; limit=limit, offset=offset, q=q, _mediaType=_mediaType)
+function machine_list(_api::MachinesApi, response_stream::Channel; limit=nothing, offset=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_machine_list(_api; limit=limit, offset=offset, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -51,7 +49,7 @@ const _returntypes_machine_retrieve_MachinesApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_machine_retrieve(_api::MachinesApi, id::String; _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_machine_retrieve_MachinesApi, "/api/v2/machine/{id}/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_machine_retrieve_MachinesApi, "/api/v2/machine/{id}/", [])
     OpenAPI.Clients.set_param(_ctx.path, "id", id)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])

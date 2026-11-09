@@ -1,6 +1,6 @@
 package org.openapitools.server.model;
 
-import org.openapitools.server.model.EvolutionChainDetailChain;
+import org.openapitools.server.model.EvolutionChainLink;
 import org.openapitools.server.model.ItemSummary;
 import jakarta.validation.constraints.*;
 import jakarta.validation.Valid;
@@ -11,7 +11,7 @@ public class EvolutionChainDetail   {
 
     private Integer id;
     private ItemSummary babyTriggerItem;
-    private EvolutionChainDetailChain chain;
+    private EvolutionChainLink chain;
 
     /**
      * Default constructor.
@@ -23,14 +23,14 @@ public class EvolutionChainDetail   {
     /**
      * Create EvolutionChainDetail.
      *
-     * @param id id
-     * @param babyTriggerItem babyTriggerItem
-     * @param chain chain
+     * @param id The identifier for this resource.
+     * @param babyTriggerItem The item that a Pokémon would be holding when mating that would trigger the egg hatching a baby Pokémon rather than a basic Pokémon.
+     * @param chain The base chain link object. Each link contains evolution details for a Pokémon in the chain. Each link references the next Pokémon in the natural evolution order.
      */
     public EvolutionChainDetail(
         Integer id, 
         ItemSummary babyTriggerItem, 
-        EvolutionChainDetailChain chain
+        EvolutionChainLink chain
     ) {
         this.id = id;
         this.babyTriggerItem = babyTriggerItem;
@@ -40,7 +40,7 @@ public class EvolutionChainDetail   {
 
 
     /**
-     * Get id
+     * The identifier for this resource.
      * @return id
      */
     public Integer getId() {
@@ -52,7 +52,7 @@ public class EvolutionChainDetail   {
     }
 
     /**
-     * Get babyTriggerItem
+     * The item that a Pokémon would be holding when mating that would trigger the egg hatching a baby Pokémon rather than a basic Pokémon.
      * @return babyTriggerItem
      */
     public ItemSummary getBabyTriggerItem() {
@@ -64,14 +64,14 @@ public class EvolutionChainDetail   {
     }
 
     /**
-     * Get chain
+     * The base chain link object. Each link contains evolution details for a Pokémon in the chain. Each link references the next Pokémon in the natural evolution order.
      * @return chain
      */
-    public EvolutionChainDetailChain getChain() {
+    public EvolutionChainLink getChain() {
         return chain;
     }
 
-    public void setChain(EvolutionChainDetailChain chain) {
+    public void setChain(EvolutionChainLink chain) {
         this.chain = chain;
     }
 

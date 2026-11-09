@@ -62,6 +62,7 @@ class PaginatedGenderSummaryList(Model):
     def count(self) -> int:
         """Gets the count of this PaginatedGenderSummaryList.
 
+        The total number of resources available from this API.  # noqa: E501
 
         :return: The count of this PaginatedGenderSummaryList.
         :rtype: int
@@ -72,10 +73,13 @@ class PaginatedGenderSummaryList(Model):
     def count(self, count: int):
         """Sets the count of this PaginatedGenderSummaryList.
 
+        The total number of resources available from this API.  # noqa: E501
 
         :param count: The count of this PaginatedGenderSummaryList.
         :type count: int
         """
+        if count is None:
+            raise ValueError("Invalid value for `count`, must not be `None`")  # noqa: E501
 
         self._count = count
 
@@ -83,6 +87,7 @@ class PaginatedGenderSummaryList(Model):
     def next(self) -> str:
         """Gets the next of this PaginatedGenderSummaryList.
 
+        The URL for the next page in the list, or null if there is no next page.  # noqa: E501
 
         :return: The next of this PaginatedGenderSummaryList.
         :rtype: str
@@ -93,6 +98,7 @@ class PaginatedGenderSummaryList(Model):
     def next(self, next: str):
         """Sets the next of this PaginatedGenderSummaryList.
 
+        The URL for the next page in the list, or null if there is no next page.  # noqa: E501
 
         :param next: The next of this PaginatedGenderSummaryList.
         :type next: str
@@ -104,6 +110,7 @@ class PaginatedGenderSummaryList(Model):
     def previous(self) -> str:
         """Gets the previous of this PaginatedGenderSummaryList.
 
+        The URL for the previous page in the list, or null if there is no previous page.  # noqa: E501
 
         :return: The previous of this PaginatedGenderSummaryList.
         :rtype: str
@@ -114,6 +121,7 @@ class PaginatedGenderSummaryList(Model):
     def previous(self, previous: str):
         """Sets the previous of this PaginatedGenderSummaryList.
 
+        The URL for the previous page in the list, or null if there is no previous page.  # noqa: E501
 
         :param previous: The previous of this PaginatedGenderSummaryList.
         :type previous: str
@@ -125,6 +133,7 @@ class PaginatedGenderSummaryList(Model):
     def results(self) -> List[GenderSummary]:
         """Gets the results of this PaginatedGenderSummaryList.
 
+        A list of API resources on this page.  # noqa: E501
 
         :return: The results of this PaginatedGenderSummaryList.
         :rtype: List[GenderSummary]
@@ -135,9 +144,12 @@ class PaginatedGenderSummaryList(Model):
     def results(self, results: List[GenderSummary]):
         """Sets the results of this PaginatedGenderSummaryList.
 
+        A list of API resources on this page.  # noqa: E501
 
         :param results: The results of this PaginatedGenderSummaryList.
         :type results: List[GenderSummary]
         """
+        if results is None:
+            raise ValueError("Invalid value for `results`, must not be `None`")  # noqa: E501
 
         self._results = results

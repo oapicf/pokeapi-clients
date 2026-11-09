@@ -52,19 +52,19 @@ defmodule PokéAPI.Model.PokemonSpeciesDetail do
     :forms_switchable => boolean() | nil,
     :growth_rate => PokéAPI.Model.GrowthRateSummary.t,
     :pokedex_numbers => [PokéAPI.Model.PokemonDexEntry.t],
-    :egg_groups => [PokéAPI.Model.AbilityDetailPokemonInnerPokemon.t],
+    :egg_groups => [PokéAPI.Model.EggGroupSummary.t],
     :color => PokéAPI.Model.PokemonColorSummary.t,
     :shape => PokéAPI.Model.PokemonShapeSummary.t,
-    :evolves_from_species => PokéAPI.Model.PokemonSpeciesSummary.t,
+    :evolves_from_species => PokéAPI.Model.PokemonSpeciesSummary.t | nil,
     :evolution_chain => PokéAPI.Model.EvolutionChainSummary.t,
-    :habitat => PokéAPI.Model.PokemonHabitatSummary.t,
+    :habitat => PokéAPI.Model.PokemonHabitatSummary.t | nil,
     :generation => PokéAPI.Model.GenerationSummary.t,
-    :names => [PokéAPI.Model.PokemonFormDetailFormNamesInner.t],
-    :pal_park_encounters => [PokéAPI.Model.PokemonSpeciesDetailPalParkEncountersInner.t],
+    :names => [PokéAPI.Model.PokemonSpeciesName.t],
+    :pal_park_encounters => [PokéAPI.Model.PokemonSpeciesPalParkEncounter.t],
     :form_descriptions => [PokéAPI.Model.PokemonSpeciesDescription.t],
     :flavor_text_entries => [PokéAPI.Model.PokemonSpeciesFlavorText.t],
-    :genera => [PokéAPI.Model.PokemonSpeciesDetailGeneraInner.t],
-    :varieties => [PokéAPI.Model.PokemonSpeciesDetailVarietiesInner.t]
+    :genera => [PokéAPI.Model.PokemonSpeciesGenus.t],
+    :varieties => [PokéAPI.Model.PokemonSpeciesVariety.t]
   }
 
   alias PokéAPI.Deserializer
@@ -73,19 +73,19 @@ defmodule PokéAPI.Model.PokemonSpeciesDetail do
     value
      |> Deserializer.deserialize(:growth_rate, :struct, PokéAPI.Model.GrowthRateSummary)
      |> Deserializer.deserialize(:pokedex_numbers, :list, PokéAPI.Model.PokemonDexEntry)
-     |> Deserializer.deserialize(:egg_groups, :list, PokéAPI.Model.AbilityDetailPokemonInnerPokemon)
+     |> Deserializer.deserialize(:egg_groups, :list, PokéAPI.Model.EggGroupSummary)
      |> Deserializer.deserialize(:color, :struct, PokéAPI.Model.PokemonColorSummary)
      |> Deserializer.deserialize(:shape, :struct, PokéAPI.Model.PokemonShapeSummary)
      |> Deserializer.deserialize(:evolves_from_species, :struct, PokéAPI.Model.PokemonSpeciesSummary)
      |> Deserializer.deserialize(:evolution_chain, :struct, PokéAPI.Model.EvolutionChainSummary)
      |> Deserializer.deserialize(:habitat, :struct, PokéAPI.Model.PokemonHabitatSummary)
      |> Deserializer.deserialize(:generation, :struct, PokéAPI.Model.GenerationSummary)
-     |> Deserializer.deserialize(:names, :list, PokéAPI.Model.PokemonFormDetailFormNamesInner)
-     |> Deserializer.deserialize(:pal_park_encounters, :list, PokéAPI.Model.PokemonSpeciesDetailPalParkEncountersInner)
+     |> Deserializer.deserialize(:names, :list, PokéAPI.Model.PokemonSpeciesName)
+     |> Deserializer.deserialize(:pal_park_encounters, :list, PokéAPI.Model.PokemonSpeciesPalParkEncounter)
      |> Deserializer.deserialize(:form_descriptions, :list, PokéAPI.Model.PokemonSpeciesDescription)
      |> Deserializer.deserialize(:flavor_text_entries, :list, PokéAPI.Model.PokemonSpeciesFlavorText)
-     |> Deserializer.deserialize(:genera, :list, PokéAPI.Model.PokemonSpeciesDetailGeneraInner)
-     |> Deserializer.deserialize(:varieties, :list, PokéAPI.Model.PokemonSpeciesDetailVarietiesInner)
+     |> Deserializer.deserialize(:genera, :list, PokéAPI.Model.PokemonSpeciesGenus)
+     |> Deserializer.deserialize(:varieties, :list, PokéAPI.Model.PokemonSpeciesVariety)
   end
 end
 

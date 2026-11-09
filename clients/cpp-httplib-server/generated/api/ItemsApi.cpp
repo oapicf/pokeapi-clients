@@ -11,8 +11,9 @@
 
 // Project headers
 #include "ItemsApi.h"
-#include "AuthenticationManager.h"
 
+constexpr int HTTP_RESPONSE_CODE_PAGINATED_CURRENCY_SUMMARY_LIST = 200;
+constexpr int HTTP_RESPONSE_CODE_CURRENCY_DETAIL = 200;
 constexpr int HTTP_RESPONSE_CODE_PAGINATED_ITEM_ATTRIBUTE_SUMMARY_LIST = 200;
 constexpr int HTTP_RESPONSE_CODE_ITEM_ATTRIBUTE_DETAIL = 200;
 constexpr int HTTP_RESPONSE_CODE_PAGINATED_ITEM_CATEGORY_SUMMARY_LIST = 200;
@@ -24,13 +25,114 @@ constexpr int HTTP_RESPONSE_CODE_PAGINATED_ITEM_POCKET_SUMMARY_LIST = 200;
 constexpr int HTTP_RESPONSE_CODE_ITEM_POCKET_DETAIL = 200;
 constexpr int HTTP_RESPONSE_CODE_ITEM_DETAIL = 200;
 constexpr int HTTP_RESPONSE_CODE_BAD_REQUEST = 400;
-constexpr int HTTP_RESPONSE_CODE_UNAUTHORIZED = 401;
 constexpr int HTTP_RESPONSE_CODE_INTERNAL_SERVER_ERROR = 500;
 
 namespace Api {
 
 using namespace models;
 
+bool Items::parseApiv2currencyGetParams(const httplib::Request& req, Items::Apiv2currencyGetRequest& params, std::vector<std::string>& paramErrors)
+{
+    std::vector<std::string> errors;
+
+    // Query Parameters - limit
+    if (req.has_param("limit"))
+    {
+        try
+        {
+            params.m_limit = std::stoi(req.get_param_value("limit"));
+        }
+        catch (const std::exception& e)
+        {
+            errors.push_back("Invalid query parameter 'limit': " + std::string(e.what()));
+        }
+    }
+    else
+    {
+        // Use default value for optional parameter
+        params.m_limit = 0;
+    }
+    // Query Parameters - offset
+    if (req.has_param("offset"))
+    {
+        try
+        {
+            params.m_offset = std::stoi(req.get_param_value("offset"));
+        }
+        catch (const std::exception& e)
+        {
+            errors.push_back("Invalid query parameter 'offset': " + std::string(e.what()));
+        }
+    }
+    else
+    {
+        // Use default value for optional parameter
+        params.m_offset = 0;
+    }
+    // Query Parameters - q
+    if (req.has_param("q"))
+    {
+        params.m_q = req.get_param_value("q");
+    }
+    else
+    {
+        // Use default value for optional parameter
+        params.m_q = "";
+    }
+
+    // Return errors via out-parameter, return false if any errors
+    if (!errors.empty())
+    {
+        paramErrors = std::move(errors);
+        return false;
+    }
+    return true;
+}
+void Items::handleApiv2currencyGetResponse(const Apiv2currencyGetResponse& result, httplib::Response& res)
+{
+    // Single response type
+    res.status = HTTP_RESPONSE_CODE_PAGINATED_CURRENCY_SUMMARY_LIST;
+    nlohmann::json responseJson;
+    to_json(responseJson, result);
+    res.set_content(responseJson.dump(), "application/json");
+}
+bool Items::parseApiv2currencyidGetParams(const httplib::Request& req, Items::Apiv2currencyidGetRequest& params, std::vector<std::string>& paramErrors)
+{
+    std::vector<std::string> errors;
+
+    // Path Parameters - id (index: 1)
+    if (req.matches.size() < 1 + 1)
+    {
+        errors.push_back("Missing path parameter 'id'");
+    }
+    else
+    {
+        try
+        {
+            params.m_id = req.matches[1];
+        }
+        catch (const std::exception& e)
+        {
+            errors.push_back("Invalid path parameter 'id': " + std::string(e.what()));
+        }
+    }
+
+    // Return errors via out-parameter, return false if any errors
+    if (!errors.empty())
+    {
+        paramErrors = std::move(errors);
+        return false;
+    }
+    return true;
+}
+void Items::handleApiv2currencyidGetResponse(const Apiv2currencyidGetResponse& result, httplib::Response& res)
+{
+    // Single response type
+    res.status = HTTP_RESPONSE_CODE_CURRENCY_DETAIL;
+    nlohmann::json responseJson;
+    to_json(responseJson, result);
+    res.set_content(responseJson.dump(), "application/json");
+}
 bool Items::parseApiv2itemAttributeGetParams(const httplib::Request& req, Items::Apiv2itemAttributeGetRequest& params, std::vector<std::string>& paramErrors)
 {
     std::vector<std::string> errors;
@@ -542,61 +644,69 @@ void Items::handleApiv2itemidGetResponse(const Apiv2itemidGetResponse& result, h
     res.set_content(responseJson.dump(), "application/json");
 }
 
-bool Items::performAuthentication(
-    const httplib::Request& req,
-    std::shared_ptr<AuthenticationManager> auth,
-    httplib::Response& res)
-{
-    if (!auth)
-    {
-        nlohmann::json errorJson = nlohmann::json::object();
-        errorJson["message"] = "AuthenticationManager not configured";
-        res.status = HTTP_RESPONSE_CODE_INTERNAL_SERVER_ERROR;
-        res.set_content(errorJson.dump(), "application/json");
-        return false;
-    }
 
-    {
-        auto cookieHeader = req.get_header_value("Cookie");
-        std::string key = "sessionid=";
-        size_t start = cookieHeader.find(key);
-        if (start != std::string::npos)
-        {
-            start += key.length();
-            size_t end = cookieHeader.find(";", start);
-            if (end == std::string::npos) end = cookieHeader.length();
-            std::string cookieValue = cookieHeader.substr(start, end - start);
-            if (auth->validateApiKey(cookieValue)) return true;
-        }
-    }
-
-    if (req.has_header("Authorization"))
-    {
-        auto authHeader = req.get_header_value("Authorization");
-        if (authHeader.find("Basic ") == 0)
-        {
-            std::string credentials = authHeader.substr(6);
-            if (auth->validateBasicAuth(credentials, "")) return true;
-        }
-    }
-
-
-
-    return false;
-}
-
-void Items::handleApiv2itemAttributeGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Items::handleApiv2currencyGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
+
+        Apiv2currencyGetRequest params;
+        std::vector<std::string> paramErrors;
+        if (!parseApiv2currencyGetParams(req, params, paramErrors))
         {
             nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
+            errorJson["message"] = "Invalid parameters";
+            errorJson["errors"] = paramErrors;
+            res.status = HTTP_RESPONSE_CODE_BAD_REQUEST;
             res.set_content(errorJson.dump(), "application/json");
             return;
         }
+        auto result = handleGetForApiv2currency(params);
+        handleApiv2currencyGetResponse(result, res);
+
+    }
+    catch (const std::exception& e)
+    {
+        nlohmann::json errorJson = nlohmann::json::object();
+        errorJson["message"] = "Internal error: " + std::string(e.what());
+        res.status = HTTP_RESPONSE_CODE_INTERNAL_SERVER_ERROR;
+        res.set_content(errorJson.dump(), "application/json");
+    }
+}
+
+void Items::handleApiv2currencyidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+{
+    try
+    {
+
+        Apiv2currencyidGetRequest params;
+        std::vector<std::string> paramErrors;
+        if (!parseApiv2currencyidGetParams(req, params, paramErrors))
+        {
+            nlohmann::json errorJson = nlohmann::json::object();
+            errorJson["message"] = "Invalid parameters";
+            errorJson["errors"] = paramErrors;
+            res.status = HTTP_RESPONSE_CODE_BAD_REQUEST;
+            res.set_content(errorJson.dump(), "application/json");
+            return;
+        }
+        auto result = handleGetForApiv2currencyid(params);
+        handleApiv2currencyidGetResponse(result, res);
+
+    }
+    catch (const std::exception& e)
+    {
+        nlohmann::json errorJson = nlohmann::json::object();
+        errorJson["message"] = "Internal error: " + std::string(e.what());
+        res.status = HTTP_RESPONSE_CODE_INTERNAL_SERVER_ERROR;
+        res.set_content(errorJson.dump(), "application/json");
+    }
+}
+
+void Items::handleApiv2itemAttributeGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+{
+    try
+    {
 
         Apiv2itemAttributeGetRequest params;
         std::vector<std::string> paramErrors;
@@ -622,18 +732,10 @@ void Items::handleApiv2itemAttributeGetRequest([[maybe_unused]] const httplib::R
     }
 }
 
-void Items::handleApiv2itemAttributeidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Items::handleApiv2itemAttributeidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2itemAttributeidGetRequest params;
         std::vector<std::string> paramErrors;
@@ -659,18 +761,10 @@ void Items::handleApiv2itemAttributeidGetRequest([[maybe_unused]] const httplib:
     }
 }
 
-void Items::handleApiv2itemCategoryGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Items::handleApiv2itemCategoryGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2itemCategoryGetRequest params;
         std::vector<std::string> paramErrors;
@@ -696,18 +790,10 @@ void Items::handleApiv2itemCategoryGetRequest([[maybe_unused]] const httplib::Re
     }
 }
 
-void Items::handleApiv2itemCategoryidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Items::handleApiv2itemCategoryidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2itemCategoryidGetRequest params;
         std::vector<std::string> paramErrors;
@@ -733,18 +819,10 @@ void Items::handleApiv2itemCategoryidGetRequest([[maybe_unused]] const httplib::
     }
 }
 
-void Items::handleApiv2itemFlingEffectGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Items::handleApiv2itemFlingEffectGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2itemFlingEffectGetRequest params;
         std::vector<std::string> paramErrors;
@@ -770,18 +848,10 @@ void Items::handleApiv2itemFlingEffectGetRequest([[maybe_unused]] const httplib:
     }
 }
 
-void Items::handleApiv2itemFlingEffectidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Items::handleApiv2itemFlingEffectidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2itemFlingEffectidGetRequest params;
         std::vector<std::string> paramErrors;
@@ -807,18 +877,10 @@ void Items::handleApiv2itemFlingEffectidGetRequest([[maybe_unused]] const httpli
     }
 }
 
-void Items::handleApiv2itemGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Items::handleApiv2itemGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2itemGetRequest params;
         std::vector<std::string> paramErrors;
@@ -844,18 +906,10 @@ void Items::handleApiv2itemGetRequest([[maybe_unused]] const httplib::Request& r
     }
 }
 
-void Items::handleApiv2itemPocketGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Items::handleApiv2itemPocketGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2itemPocketGetRequest params;
         std::vector<std::string> paramErrors;
@@ -881,18 +935,10 @@ void Items::handleApiv2itemPocketGetRequest([[maybe_unused]] const httplib::Requ
     }
 }
 
-void Items::handleApiv2itemPocketidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Items::handleApiv2itemPocketidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2itemPocketidGetRequest params;
         std::vector<std::string> paramErrors;
@@ -918,18 +964,10 @@ void Items::handleApiv2itemPocketidGetRequest([[maybe_unused]] const httplib::Re
     }
 }
 
-void Items::handleApiv2itemidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Items::handleApiv2itemidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2itemidGetRequest params;
         std::vector<std::string> paramErrors;
@@ -956,47 +994,55 @@ void Items::handleApiv2itemidGetRequest([[maybe_unused]] const httplib::Request&
 }
 
 
-void Items::registerRoutes(httplib::Server& svr, std::shared_ptr<AuthenticationManager> auth)
+void Items::registerRoutes(httplib::Server& svr)
 {
-    svr.Get("/api/v2/item-attribute/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/currency/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2itemAttributeGetRequest(req, res, auth);
+        handleApiv2currencyGetRequest(req, res);
     });
-    svr.Get("/api/v2/item-attribute/{id}/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/currency/{id}/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2itemAttributeidGetRequest(req, res, auth);
+        handleApiv2currencyidGetRequest(req, res);
     });
-    svr.Get("/api/v2/item-category/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/item-attribute/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2itemCategoryGetRequest(req, res, auth);
+        handleApiv2itemAttributeGetRequest(req, res);
     });
-    svr.Get("/api/v2/item-category/{id}/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/item-attribute/{id}/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2itemCategoryidGetRequest(req, res, auth);
+        handleApiv2itemAttributeidGetRequest(req, res);
     });
-    svr.Get("/api/v2/item-fling-effect/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/item-category/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2itemFlingEffectGetRequest(req, res, auth);
+        handleApiv2itemCategoryGetRequest(req, res);
     });
-    svr.Get("/api/v2/item-fling-effect/{id}/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/item-category/{id}/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2itemFlingEffectidGetRequest(req, res, auth);
+        handleApiv2itemCategoryidGetRequest(req, res);
     });
-    svr.Get("/api/v2/item/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/item-fling-effect/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2itemGetRequest(req, res, auth);
+        handleApiv2itemFlingEffectGetRequest(req, res);
     });
-    svr.Get("/api/v2/item-pocket/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/item-fling-effect/{id}/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2itemPocketGetRequest(req, res, auth);
+        handleApiv2itemFlingEffectidGetRequest(req, res);
     });
-    svr.Get("/api/v2/item-pocket/{id}/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/item/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2itemPocketidGetRequest(req, res, auth);
+        handleApiv2itemGetRequest(req, res);
     });
-    svr.Get("/api/v2/item/{id}/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/item-pocket/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2itemidGetRequest(req, res, auth);
+        handleApiv2itemPocketGetRequest(req, res);
+    });
+    svr.Get("/api/v2/item-pocket/{id}/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    {
+        handleApiv2itemPocketidGetRequest(req, res);
+    });
+    svr.Get("/api/v2/item/{id}/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    {
+        handleApiv2itemidGetRequest(req, res);
     });
 }
 

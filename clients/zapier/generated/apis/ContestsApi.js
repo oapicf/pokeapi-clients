@@ -28,11 +28,6 @@ module.exports = {
                     label: 'The initial index from which to return the results.',
                     type: 'integer',
                 },
-                {
-                    key: 'q',
-                    label: '&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ',
-                    type: 'string',
-                },
             ],
             outputFields: [
                 ...PaginatedContestEffectSummaryList.fields('', false),
@@ -49,7 +44,6 @@ module.exports = {
                     params: {
                         'limit': bundle.inputData?.['limit'],
                         'offset': bundle.inputData?.['offset'],
-                        'q': bundle.inputData?.['q'],
                     },
                     body: {
                     },
@@ -224,11 +218,6 @@ module.exports = {
                     label: 'The initial index from which to return the results.',
                     type: 'integer',
                 },
-                {
-                    key: 'q',
-                    label: '&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ',
-                    type: 'string',
-                },
             ],
             outputFields: [
                 ...PaginatedSuperContestEffectSummaryList.fields('', false),
@@ -245,7 +234,6 @@ module.exports = {
                     params: {
                         'limit': bundle.inputData?.['limit'],
                         'offset': bundle.inputData?.['offset'],
-                        'q': bundle.inputData?.['q'],
                     },
                     body: {
                     },

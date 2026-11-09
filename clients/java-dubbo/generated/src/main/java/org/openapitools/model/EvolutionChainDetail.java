@@ -1,6 +1,6 @@
 package org.openapitools.model;
 
-import org.openapitools.model.EvolutionChainDetailChain;
+import org.openapitools.model.EvolutionChainLink;
 import org.openapitools.model.ItemSummary;
 import java.util.Objects;
 import java.io.Serializable;
@@ -13,17 +13,26 @@ import java.math.*;
 public class EvolutionChainDetail implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * The identifier for this resource.
+   */
   @JsonProperty("id")
   private Integer id;
 
+  /**
+   * The item that a Pokémon would be holding when mating that would trigger the egg hatching a baby Pokémon rather than a basic Pokémon.
+   */
   @JsonProperty("baby_trigger_item")
   private ItemSummary babyTriggerItem;
 
+  /**
+   * The base chain link object. Each link contains evolution details for a Pokémon in the chain. Each link references the next Pokémon in the natural evolution order.
+   */
   @JsonProperty("chain")
-  private EvolutionChainDetailChain chain;
+  private EvolutionChainLink chain;
 
   /**
-   * 
+   * The identifier for this resource.
    * @return id
    */
   public Integer getId() {
@@ -35,7 +44,7 @@ public class EvolutionChainDetail implements Serializable {
   }
 
   /**
-   * 
+   * The item that a Pokémon would be holding when mating that would trigger the egg hatching a baby Pokémon rather than a basic Pokémon.
    * @return babyTriggerItem
    */
   public ItemSummary getBabyTriggerItem() {
@@ -47,14 +56,14 @@ public class EvolutionChainDetail implements Serializable {
   }
 
   /**
-   * 
+   * The base chain link object. Each link contains evolution details for a Pokémon in the chain. Each link references the next Pokémon in the natural evolution order.
    * @return chain
    */
-  public EvolutionChainDetailChain getChain() {
+  public EvolutionChainLink getChain() {
     return chain;
   }
 
-  public void setChain(EvolutionChainDetailChain chain) {
+  public void setChain(EvolutionChainLink chain) {
     this.chain = chain;
   }
 

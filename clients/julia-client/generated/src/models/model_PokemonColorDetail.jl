@@ -11,10 +11,10 @@
         pokemon_species=nothing,
     )
 
-    - id::Int64
-    - name::String
-    - names::Vector{PokemonColorName}
-    - pokemon_species::Vector{PokemonSpeciesSummary}
+    - id::Int64 : The identifier for this resource.
+    - name::String : The name for this resource.
+    - names::Vector{PokemonColorName} : The name of this resource listed in different languages.
+    - pokemon_species::Vector{PokemonSpeciesSummary} : A list of the Pokémon species that have this color.
 """
 Base.@kwdef mutable struct PokemonColorDetail <: OpenAPI.APIModel
     id::Union{Nothing, Int64} = nothing
@@ -51,7 +51,7 @@ function OpenAPI.validate_property(::Type{ PokemonColorDetail }, name::Symbol, v
 
 
     if name === Symbol("name")
-        OpenAPI.validate_param(name, "PokemonColorDetail", :maxLength, val, 100)
+        OpenAPI.validate_param(name, "PokemonColorDetail", :maxLength, val, 200)
     end
 
 

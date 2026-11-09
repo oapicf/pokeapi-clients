@@ -1,9 +1,9 @@
 /*
 PokéAPI
 
-All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
 
-API version: 2.7.0
+API version: 2.10.0
 Contact: blah+oapicf@cliffano.com
 */
 
@@ -22,20 +22,38 @@ var _ MappedNullable = &PokemonFormDetail{}
 
 // PokemonFormDetail struct for PokemonFormDetail
 type PokemonFormDetail struct {
+	// The identifier for this resource.
 	Id int32 `json:"id"`
+	// The name for this resource.
 	Name string `json:"name"`
+	// The order in which forms should be sorted within all forms. Multiple forms may have equal order, in which case they should fall back on sorting by name.
 	Order NullableInt32 `json:"order,omitempty"`
+	// The order in which forms should be sorted within a species' forms.
 	FormOrder NullableInt32 `json:"form_order,omitempty"`
+	// True for exactly one form used as the default for each Pokémon.
 	IsDefault *bool `json:"is_default,omitempty"`
+	// Whether or not this form can only happen during battle.
 	IsBattleOnly *bool `json:"is_battle_only,omitempty"`
+	// Whether or not this form requires mega evolution.
 	IsMega *bool `json:"is_mega,omitempty"`
+	// The name of this form.
 	FormName string `json:"form_name"`
+	// The Pokémon that can take on this form.
 	Pokemon PokemonSummary `json:"pokemon"`
-	Sprites PokemonFormDetailSprites `json:"sprites"`
+	// A set of sprites used to depict this Pokémon form in the game.
+	Sprites PokemonFormSprites `json:"sprites"`
+	// The version group this Pokémon form was introduced in.
 	VersionGroup VersionGroupSummary `json:"version_group"`
-	FormNames []PokemonFormDetailFormNamesInner `json:"form_names"`
-	Names []PokemonFormDetailFormNamesInner `json:"names"`
-	Types []PokemonDetailTypesInner `json:"types"`
+	// The form specific form name of this Pokémon form, or empty if the form does not have a specific name.
+	FormNames []PokemonFormName `json:"form_names"`
+	// The form specific full name of this Pokémon form, or empty if the form does not have a specific name.
+	Names []PokemonFormName `json:"names"`
+	// A list of details showing types this Pokémon form has.
+	Types []PokemonFormType `json:"types"`
+	// The conditions that trigger this form. Resource names and URLs are included when the trigger requires a resource.
+	TriggerConditions []PokemonFormTriggerCondition `json:"trigger_conditions"`
+	// The flavor text of this form listed in different languages and versions.
+	FlavorTextEntries []PokemonFormFlavorText `json:"flavor_text_entries"`
 }
 
 type _PokemonFormDetail PokemonFormDetail
@@ -44,7 +62,7 @@ type _PokemonFormDetail PokemonFormDetail
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPokemonFormDetail(id int32, name string, formName string, pokemon PokemonSummary, sprites PokemonFormDetailSprites, versionGroup VersionGroupSummary, formNames []PokemonFormDetailFormNamesInner, names []PokemonFormDetailFormNamesInner, types []PokemonDetailTypesInner) *PokemonFormDetail {
+func NewPokemonFormDetail(id int32, name string, formName string, pokemon PokemonSummary, sprites PokemonFormSprites, versionGroup VersionGroupSummary, formNames []PokemonFormName, names []PokemonFormName, types []PokemonFormType, triggerConditions []PokemonFormTriggerCondition, flavorTextEntries []PokemonFormFlavorText) *PokemonFormDetail {
 	this := PokemonFormDetail{}
 	this.Id = id
 	this.Name = name
@@ -55,6 +73,8 @@ func NewPokemonFormDetail(id int32, name string, formName string, pokemon Pokemo
 	this.FormNames = formNames
 	this.Names = names
 	this.Types = types
+	this.TriggerConditions = triggerConditions
+	this.FlavorTextEntries = flavorTextEntries
 	return &this
 }
 
@@ -343,9 +363,9 @@ func (o *PokemonFormDetail) SetPokemon(v PokemonSummary) {
 }
 
 // GetSprites returns the Sprites field value
-func (o *PokemonFormDetail) GetSprites() PokemonFormDetailSprites {
+func (o *PokemonFormDetail) GetSprites() PokemonFormSprites {
 	if o == nil {
-		var ret PokemonFormDetailSprites
+		var ret PokemonFormSprites
 		return ret
 	}
 
@@ -354,7 +374,7 @@ func (o *PokemonFormDetail) GetSprites() PokemonFormDetailSprites {
 
 // GetSpritesOk returns a tuple with the Sprites field value
 // and a boolean to check if the value has been set.
-func (o *PokemonFormDetail) GetSpritesOk() (*PokemonFormDetailSprites, bool) {
+func (o *PokemonFormDetail) GetSpritesOk() (*PokemonFormSprites, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -362,7 +382,7 @@ func (o *PokemonFormDetail) GetSpritesOk() (*PokemonFormDetailSprites, bool) {
 }
 
 // SetSprites sets field value
-func (o *PokemonFormDetail) SetSprites(v PokemonFormDetailSprites) {
+func (o *PokemonFormDetail) SetSprites(v PokemonFormSprites) {
 	o.Sprites = v
 }
 
@@ -391,9 +411,9 @@ func (o *PokemonFormDetail) SetVersionGroup(v VersionGroupSummary) {
 }
 
 // GetFormNames returns the FormNames field value
-func (o *PokemonFormDetail) GetFormNames() []PokemonFormDetailFormNamesInner {
+func (o *PokemonFormDetail) GetFormNames() []PokemonFormName {
 	if o == nil {
-		var ret []PokemonFormDetailFormNamesInner
+		var ret []PokemonFormName
 		return ret
 	}
 
@@ -402,7 +422,7 @@ func (o *PokemonFormDetail) GetFormNames() []PokemonFormDetailFormNamesInner {
 
 // GetFormNamesOk returns a tuple with the FormNames field value
 // and a boolean to check if the value has been set.
-func (o *PokemonFormDetail) GetFormNamesOk() ([]PokemonFormDetailFormNamesInner, bool) {
+func (o *PokemonFormDetail) GetFormNamesOk() ([]PokemonFormName, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -410,14 +430,14 @@ func (o *PokemonFormDetail) GetFormNamesOk() ([]PokemonFormDetailFormNamesInner,
 }
 
 // SetFormNames sets field value
-func (o *PokemonFormDetail) SetFormNames(v []PokemonFormDetailFormNamesInner) {
+func (o *PokemonFormDetail) SetFormNames(v []PokemonFormName) {
 	o.FormNames = v
 }
 
 // GetNames returns the Names field value
-func (o *PokemonFormDetail) GetNames() []PokemonFormDetailFormNamesInner {
+func (o *PokemonFormDetail) GetNames() []PokemonFormName {
 	if o == nil {
-		var ret []PokemonFormDetailFormNamesInner
+		var ret []PokemonFormName
 		return ret
 	}
 
@@ -426,7 +446,7 @@ func (o *PokemonFormDetail) GetNames() []PokemonFormDetailFormNamesInner {
 
 // GetNamesOk returns a tuple with the Names field value
 // and a boolean to check if the value has been set.
-func (o *PokemonFormDetail) GetNamesOk() ([]PokemonFormDetailFormNamesInner, bool) {
+func (o *PokemonFormDetail) GetNamesOk() ([]PokemonFormName, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -434,14 +454,14 @@ func (o *PokemonFormDetail) GetNamesOk() ([]PokemonFormDetailFormNamesInner, boo
 }
 
 // SetNames sets field value
-func (o *PokemonFormDetail) SetNames(v []PokemonFormDetailFormNamesInner) {
+func (o *PokemonFormDetail) SetNames(v []PokemonFormName) {
 	o.Names = v
 }
 
 // GetTypes returns the Types field value
-func (o *PokemonFormDetail) GetTypes() []PokemonDetailTypesInner {
+func (o *PokemonFormDetail) GetTypes() []PokemonFormType {
 	if o == nil {
-		var ret []PokemonDetailTypesInner
+		var ret []PokemonFormType
 		return ret
 	}
 
@@ -450,7 +470,7 @@ func (o *PokemonFormDetail) GetTypes() []PokemonDetailTypesInner {
 
 // GetTypesOk returns a tuple with the Types field value
 // and a boolean to check if the value has been set.
-func (o *PokemonFormDetail) GetTypesOk() ([]PokemonDetailTypesInner, bool) {
+func (o *PokemonFormDetail) GetTypesOk() ([]PokemonFormType, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -458,8 +478,56 @@ func (o *PokemonFormDetail) GetTypesOk() ([]PokemonDetailTypesInner, bool) {
 }
 
 // SetTypes sets field value
-func (o *PokemonFormDetail) SetTypes(v []PokemonDetailTypesInner) {
+func (o *PokemonFormDetail) SetTypes(v []PokemonFormType) {
 	o.Types = v
+}
+
+// GetTriggerConditions returns the TriggerConditions field value
+func (o *PokemonFormDetail) GetTriggerConditions() []PokemonFormTriggerCondition {
+	if o == nil {
+		var ret []PokemonFormTriggerCondition
+		return ret
+	}
+
+	return o.TriggerConditions
+}
+
+// GetTriggerConditionsOk returns a tuple with the TriggerConditions field value
+// and a boolean to check if the value has been set.
+func (o *PokemonFormDetail) GetTriggerConditionsOk() ([]PokemonFormTriggerCondition, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.TriggerConditions, true
+}
+
+// SetTriggerConditions sets field value
+func (o *PokemonFormDetail) SetTriggerConditions(v []PokemonFormTriggerCondition) {
+	o.TriggerConditions = v
+}
+
+// GetFlavorTextEntries returns the FlavorTextEntries field value
+func (o *PokemonFormDetail) GetFlavorTextEntries() []PokemonFormFlavorText {
+	if o == nil {
+		var ret []PokemonFormFlavorText
+		return ret
+	}
+
+	return o.FlavorTextEntries
+}
+
+// GetFlavorTextEntriesOk returns a tuple with the FlavorTextEntries field value
+// and a boolean to check if the value has been set.
+func (o *PokemonFormDetail) GetFlavorTextEntriesOk() ([]PokemonFormFlavorText, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.FlavorTextEntries, true
+}
+
+// SetFlavorTextEntries sets field value
+func (o *PokemonFormDetail) SetFlavorTextEntries(v []PokemonFormFlavorText) {
+	o.FlavorTextEntries = v
 }
 
 func (o PokemonFormDetail) MarshalJSON() ([]byte, error) {
@@ -496,6 +564,8 @@ func (o PokemonFormDetail) ToMap() (map[string]interface{}, error) {
 	toSerialize["form_names"] = o.FormNames
 	toSerialize["names"] = o.Names
 	toSerialize["types"] = o.Types
+	toSerialize["trigger_conditions"] = o.TriggerConditions
+	toSerialize["flavor_text_entries"] = o.FlavorTextEntries
 	return toSerialize, nil
 }
 
@@ -513,6 +583,8 @@ func (o *PokemonFormDetail) UnmarshalJSON(data []byte) (err error) {
 		"form_names",
 		"names",
 		"types",
+		"trigger_conditions",
+		"flavor_text_entries",
 	}
 
 	allProperties := make(map[string]interface{})

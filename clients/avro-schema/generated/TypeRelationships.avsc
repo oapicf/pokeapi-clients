@@ -1,0 +1,57 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "TypeRelationships",
+  "fields": [
+    {
+      "name": "no_damage_to",
+      "type": {
+        "type": "array",
+        "items": "model.TypeSummary"
+      },
+      "doc": "A list of types this type has no effect on."
+    },
+    {
+      "name": "half_damage_to",
+      "type": {
+        "type": "array",
+        "items": "model.TypeSummary"
+      },
+      "doc": "A list of types this type is not very effect against."
+    },
+    {
+      "name": "double_damage_to",
+      "type": {
+        "type": "array",
+        "items": "model.TypeSummary"
+      },
+      "doc": "A list of types this type is very effect against."
+    },
+    {
+      "name": "no_damage_from",
+      "type": {
+        "type": "array",
+        "items": "model.TypeSummary"
+      },
+      "doc": "A list of types that have no effect on this type."
+    },
+    {
+      "name": "half_damage_from",
+      "type": {
+        "type": "array",
+        "items": "model.TypeSummary"
+      },
+      "doc": "A list of types that are not very effective against this type."
+    },
+    {
+      "name": "double_damage_from",
+      "type": {
+        "type": "array",
+        "items": "model.TypeSummary"
+      },
+      "doc": "A list of types that are very effective against this type."
+    }
+  ]
+
+}

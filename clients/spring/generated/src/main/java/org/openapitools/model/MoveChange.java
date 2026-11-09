@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
-import org.openapitools.model.MoveChangeEffectEntriesInner;
+import org.openapitools.model.MoveEffectEffectText;
 import org.openapitools.model.TypeSummary;
 import org.openapitools.model.VersionGroupSummary;
 import org.springframework.lang.Nullable;
@@ -27,20 +27,20 @@ import jakarta.annotation.Generated;
  * MoveChange
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-10-25T05:53:37.479908528Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-11-09T13:53:47.069318184Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class MoveChange {
 
-  private JsonNullable<Integer> accuracy = JsonNullable.<Integer>undefined();
+  private JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> accuracy = JsonNullable.<Integer>undefined();
 
-  private JsonNullable<Integer> power = JsonNullable.<Integer>undefined();
+  private JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> power = JsonNullable.<Integer>undefined();
 
-  private JsonNullable<Integer> pp = JsonNullable.<Integer>undefined();
+  private JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> pp = JsonNullable.<Integer>undefined();
 
-  private Integer effectChance;
+  private JsonNullable<Integer> effectChance = JsonNullable.<Integer>undefined();
 
-  private List<@Valid MoveChangeEffectEntriesInner> effectEntries = new ArrayList<>();
+  private List<@Valid MoveEffectEffectText> effectEntries = new ArrayList<>();
 
-  private TypeSummary type;
+  private JsonNullable<TypeSummary> type = JsonNullable.<TypeSummary>undefined();
 
   private VersionGroupSummary versionGroup;
 
@@ -51,10 +51,10 @@ public class MoveChange {
   /**
    * Constructor with only required parameters
    */
-  public MoveChange(Integer effectChance, List<@Valid MoveChangeEffectEntriesInner> effectEntries, TypeSummary type, VersionGroupSummary versionGroup) {
-    this.effectChance = effectChance;
+  public MoveChange(Integer effectChance, List<@Valid MoveEffectEffectText> effectEntries, TypeSummary type, VersionGroupSummary versionGroup) {
+    this.effectChance = JsonNullable.of(effectChance);
     this.effectEntries = effectEntries;
-    this.type = type;
+    this.type = JsonNullable.of(type);
     this.versionGroup = versionGroup;
   }
 
@@ -64,13 +64,15 @@ public class MoveChange {
   }
 
   /**
-   * Get accuracy
+   * The percent value of how likely this move is to be successful.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return accuracy
    */
-  
-  @Schema(name = "accuracy", requiredMode = Schema.RequiredMode.NOT_REQUIRED, nullable = true)
+  @Min(value = -2147483648) @Max(value = 2147483647) 
+  @Schema(name = "accuracy", description = "The percent value of how likely this move is to be successful.", requiredMode = Schema.RequiredMode.NOT_REQUIRED, nullable = true)
   @JsonProperty("accuracy")
-  public JsonNullable<Integer> getAccuracy() {
+  public JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> getAccuracy() {
     return accuracy;
   }
 
@@ -84,13 +86,15 @@ public class MoveChange {
   }
 
   /**
-   * Get power
+   * The base power before the listed version group, or null if power did not change.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return power
    */
-  
-  @Schema(name = "power", requiredMode = Schema.RequiredMode.NOT_REQUIRED, nullable = true)
+  @Min(value = -2147483648) @Max(value = 2147483647) 
+  @Schema(name = "power", description = "The base power before the listed version group, or null if power did not change.", requiredMode = Schema.RequiredMode.NOT_REQUIRED, nullable = true)
   @JsonProperty("power")
-  public JsonNullable<Integer> getPower() {
+  public JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> getPower() {
     return power;
   }
 
@@ -104,13 +108,15 @@ public class MoveChange {
   }
 
   /**
-   * Get pp
+   * Power points. The number of times this move can be used.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return pp
    */
-  
-  @Schema(name = "pp", requiredMode = Schema.RequiredMode.NOT_REQUIRED, nullable = true)
+  @Min(value = -2147483648) @Max(value = 2147483647) 
+  @Schema(name = "pp", description = "Power points. The number of times this move can be used.", requiredMode = Schema.RequiredMode.NOT_REQUIRED, nullable = true)
   @JsonProperty("pp")
-  public JsonNullable<Integer> getPp() {
+  public JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> getPp() {
     return pp;
   }
 
@@ -119,32 +125,32 @@ public class MoveChange {
   }
 
   public MoveChange effectChance(Integer effectChance) {
-    this.effectChance = effectChance;
+    this.effectChance = JsonNullable.of(effectChance);
     return this;
   }
 
   /**
-   * Get effectChance
+   * The percent value of how likely it is this moves effect will take effect.
    * @return effectChance
    */
-  @NotNull 
-  @Schema(name = "effect_chance", requiredMode = Schema.RequiredMode.REQUIRED)
+  /* @Present */ 
+  @Schema(name = "effect_chance", description = "The percent value of how likely it is this moves effect will take effect.", requiredMode = Schema.RequiredMode.REQUIRED, nullable = true)
   @JsonProperty("effect_chance")
-  public Integer getEffectChance() {
+  public JsonNullable<Integer> getEffectChance() {
     return effectChance;
   }
 
   @JsonProperty("effect_chance")
-  public void setEffectChance(Integer effectChance) {
+  public void setEffectChance(JsonNullable<Integer> effectChance) {
     this.effectChance = effectChance;
   }
 
-  public MoveChange effectEntries(List<@Valid MoveChangeEffectEntriesInner> effectEntries) {
+  public MoveChange effectEntries(List<@Valid MoveEffectEffectText> effectEntries) {
     this.effectEntries = effectEntries;
     return this;
   }
 
-  public MoveChange addEffectEntriesItem(MoveChangeEffectEntriesInner effectEntriesItem) {
+  public MoveChange addEffectEntriesItem(MoveEffectEffectText effectEntriesItem) {
     if (this.effectEntries == null) {
       this.effectEntries = new ArrayList<>();
     }
@@ -153,39 +159,39 @@ public class MoveChange {
   }
 
   /**
-   * Get effectEntries
+   * The effect of this move listed in different languages.
    * @return effectEntries
    */
   
-  @Schema(name = "effect_entries", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "effect_entries", accessMode = Schema.AccessMode.READ_ONLY, description = "The effect of this move listed in different languages.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("effect_entries")
-  public List<@Valid MoveChangeEffectEntriesInner> getEffectEntries() {
+  public List<@Valid MoveEffectEffectText> getEffectEntries() {
     return effectEntries;
   }
 
   @JsonProperty("effect_entries")
-  public void setEffectEntries(List<@Valid MoveChangeEffectEntriesInner> effectEntries) {
+  public void setEffectEntries(List<@Valid MoveEffectEffectText> effectEntries) {
     this.effectEntries = effectEntries;
   }
 
   public MoveChange type(TypeSummary type) {
-    this.type = type;
+    this.type = JsonNullable.of(type);
     return this;
   }
 
   /**
-   * Get type
+   * The elemental type of this move.
    * @return type
    */
-  @NotNull @Valid 
-  @Schema(name = "type", requiredMode = Schema.RequiredMode.REQUIRED)
+  /* @Present */ @Valid 
+  @Schema(name = "type", description = "The elemental type of this move.", requiredMode = Schema.RequiredMode.REQUIRED, nullable = true)
   @JsonProperty("type")
-  public TypeSummary getType() {
+  public JsonNullable<TypeSummary> getType() {
     return type;
   }
 
   @JsonProperty("type")
-  public void setType(TypeSummary type) {
+  public void setType(JsonNullable<TypeSummary> type) {
     this.type = type;
   }
 
@@ -195,11 +201,11 @@ public class MoveChange {
   }
 
   /**
-   * Get versionGroup
+   * The version group in which these move stat values were in effect.
    * @return versionGroup
    */
   @NotNull @Valid 
-  @Schema(name = "version_group", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "version_group", description = "The version group in which these move stat values were in effect.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("version_group")
   public VersionGroupSummary getVersionGroup() {
     return versionGroup;

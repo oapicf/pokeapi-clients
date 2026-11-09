@@ -5,14 +5,14 @@ module Handler.Pokemon where
 import           Import
 
 
--- | 
+-- | List abilities
 --
 -- Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
 -- operationId: abilityList
 getApiV2AbilityR :: Handler Value
 getApiV2AbilityR = notImplemented
 
--- | 
+-- | Get ability
 --
 -- Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
 -- operationId: abilityRetrieve
@@ -20,7 +20,7 @@ getApiV2AbilityByTextR :: Text -- ^ This parameter can be a string or an integer
                        -> Handler Value
 getApiV2AbilityByTextR id = notImplemented
 
--- | List charecterictics
+-- | List characteristics
 --
 -- Characteristics indicate which stat contains a Pokémon&#39;s highest IV. A Pokémon&#39;s Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail.
 -- operationId: characteristicList

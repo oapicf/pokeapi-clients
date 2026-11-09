@@ -7,8 +7,8 @@ authors     = ["F. Bar (foo@bar.baz)"]
 
 imports {
   Root = tosca.resourceTypes.Root
-  EggGroupDetailPokemonSpeciesInner = openapi_server.resourceTypes.EggGroupDetailPokemonSpeciesInner
   EggGroupName = openapi_server.resourceTypes.EggGroupName
+  PokemonSpeciesSummary = openapi_server.resourceTypes.PokemonSpeciesSummary
 }
 resourceTypes {
 
@@ -19,24 +19,24 @@ resourceTypes {
     properties {
         id {
           type =  integer
-          description = ""
+          description = "The identifier for this resource."
           optional = true
         }
         name {
           type =  string
-          description = ""
+          description = "The name for this resource."
           optional = true
         }
         names {
           type = array
           items.type = EggGroupName
-          description = ""
+          description = "The name of this resource listed in different languages."
           optional = true
         }
         pokemon_species {
           type = array
-          items.type = EggGroupDetailPokemonSpeciesInner
-          description = ""
+          items.type = PokemonSpeciesSummary
+          description = "A list of all Pokémon species that are members of this egg group."
           optional = true
         }
     }

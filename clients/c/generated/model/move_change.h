@@ -15,7 +15,7 @@
 
 typedef struct move_change_t move_change_t;
 
-#include "move_change_effect_entries_inner.h"
+#include "move_effect_effect_text.h"
 #include "type_summary.h"
 #include "version_group_summary.h"
 

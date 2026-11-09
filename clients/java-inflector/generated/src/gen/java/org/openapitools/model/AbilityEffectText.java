@@ -11,7 +11,7 @@ import org.openapitools.model.LanguageSummary;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-10-25T05:47:53.227411880Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-11-09T13:49:15.621225368Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class AbilityEffectText   {
   @JsonProperty("effect")
   private String effect;
@@ -23,6 +23,7 @@ public class AbilityEffectText   {
   private LanguageSummary language;
 
   /**
+   * The localized effect text for an API resource in a specific language.
    **/
   public AbilityEffectText effect(String effect) {
     this.effect = effect;
@@ -30,7 +31,7 @@ public class AbilityEffectText   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The localized effect text for an API resource in a specific language.")
   @JsonProperty("effect")
   public String getEffect() {
     return effect;
@@ -40,6 +41,7 @@ public class AbilityEffectText   {
   }
 
   /**
+   * The localized effect text in brief.
    **/
   public AbilityEffectText shortEffect(String shortEffect) {
     this.shortEffect = shortEffect;
@@ -47,7 +49,7 @@ public class AbilityEffectText   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The localized effect text in brief.")
   @JsonProperty("short_effect")
   public String getShortEffect() {
     return shortEffect;
@@ -57,6 +59,7 @@ public class AbilityEffectText   {
   }
 
   /**
+   * The language this effect is in.
    **/
   public AbilityEffectText language(LanguageSummary language) {
     this.language = language;
@@ -64,7 +67,7 @@ public class AbilityEffectText   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The language this effect is in.")
   @JsonProperty("language")
   public LanguageSummary getLanguage() {
     return language;

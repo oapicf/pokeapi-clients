@@ -1,18 +1,19 @@
 package org.openapitools.model;
 
 import org.openapitools.jackson.nullable.JsonNullable;
-import org.openapitools.model.PokemonDetailAbilitiesInner;
-import org.openapitools.model.PokemonDetailCries;
-import org.openapitools.model.PokemonDetailHeldItems;
-import org.openapitools.model.PokemonDetailMovesInner;
-import org.openapitools.model.PokemonDetailPastAbilitiesInner;
-import org.openapitools.model.PokemonDetailPastTypesInner;
-import org.openapitools.model.PokemonDetailSprites;
-import org.openapitools.model.PokemonDetailTypesInner;
+import org.openapitools.model.PokemonAbility;
+import org.openapitools.model.PokemonCries;
 import org.openapitools.model.PokemonFormSummary;
 import org.openapitools.model.PokemonGameIndex;
+import org.openapitools.model.PokemonHeldItemSummary;
+import org.openapitools.model.PokemonMove;
+import org.openapitools.model.PokemonPastAbility;
+import org.openapitools.model.PokemonPastStat;
+import org.openapitools.model.PokemonPastType;
 import org.openapitools.model.PokemonSpeciesSummary;
+import org.openapitools.model.PokemonSprites;
 import org.openapitools.model.PokemonStat;
+import org.openapitools.model.PokemonType;
 import java.util.*;
 import java.util.Objects;
 import java.io.Serializable;
@@ -25,68 +26,134 @@ import java.math.*;
 public class PokemonDetail implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * The identifier for this resource.
+   */
   @JsonProperty("id")
   private Integer id;
 
+  /**
+   * The name for this resource.
+   */
   @JsonProperty("name")
   private String name;
 
+  /**
+   * The base experience gained for defeating this Pokémon.
+   */
   @JsonProperty("base_experience")
   private Integer baseExperience;
 
+  /**
+   * The height of this Pokémon in decimetres.
+   */
   @JsonProperty("height")
   private Integer height;
 
+  /**
+   * Set for exactly one Pokémon used as the default for each species.
+   */
   @JsonProperty("is_default")
   private Boolean isDefault;
 
+  /**
+   * Order for sorting. Almost national order, except families are grouped together.
+   */
   @JsonProperty("order")
   private Integer order;
 
+  /**
+   * The weight of this Pokémon in hectograms.
+   */
   @JsonProperty("weight")
   private Integer weight;
 
+  /**
+   * A list of abilities this Pokémon could potentially have.
+   */
   @JsonProperty("abilities")
-  private List<PokemonDetailAbilitiesInner> abilities = new ArrayList<>();
+  private List<PokemonAbility> abilities = new ArrayList<>();
 
+  /**
+   * A list of details showing abilities this pokémon had in previous generations
+   */
   @JsonProperty("past_abilities")
-  private List<PokemonDetailPastAbilitiesInner> pastAbilities = new ArrayList<>();
+  private List<PokemonPastAbility> pastAbilities = new ArrayList<>();
 
+  /**
+   * A list of forms this Pokémon can take on.
+   */
   @JsonProperty("forms")
   private List<PokemonFormSummary> forms = new ArrayList<>();
 
+  /**
+   * A list of game indices relevent to Pokémon item by generation.
+   */
   @JsonProperty("game_indices")
   private List<PokemonGameIndex> gameIndices = new ArrayList<>();
 
+  /**
+   * A list of items this Pokémon may be holding when encountered.
+   */
   @JsonProperty("held_items")
-  private PokemonDetailHeldItems heldItems;
+  private List<PokemonHeldItemSummary> heldItems = new ArrayList<>();
 
+  /**
+   * A link to a list of location areas, as well as encounter details pertaining to specific versions.
+   */
   @JsonProperty("location_area_encounters")
   private String locationAreaEncounters;
 
+  /**
+   * A list of moves along with learn methods and level details pertaining to specific version groups.
+   */
   @JsonProperty("moves")
-  private List<PokemonDetailMovesInner> moves = new ArrayList<>();
+  private List<PokemonMove> moves = new ArrayList<>();
 
+  /**
+   * The species this Pokémon belongs to.
+   */
   @JsonProperty("species")
   private PokemonSpeciesSummary species;
 
+  /**
+   * A set of sprites used to depict this Pokémon in the game. A visual representation of the various sprites can be found at &lt;a href&#x3D;&#39;https://github.com/PokeAPI/sprites#sprites&#39;&gt;PokeAPI/sprites&lt;/a&gt;
+   */
   @JsonProperty("sprites")
-  private PokemonDetailSprites sprites;
+  private PokemonSprites sprites;
 
+  /**
+   * A set of cries used to depict this Pokémon in the game. A visual representation of the various cries can be found at &lt;a href&#x3D;&#39;https://github.com/PokeAPI/cries#cries&#39;&gt;PokeAPI/cries&lt;/a&gt;
+   */
   @JsonProperty("cries")
-  private PokemonDetailCries cries;
+  private PokemonCries cries;
 
+  /**
+   * A list of base stat values for this Pokémon.
+   */
   @JsonProperty("stats")
   private List<PokemonStat> stats = new ArrayList<>();
 
-  @JsonProperty("types")
-  private List<PokemonDetailTypesInner> types = new ArrayList<>();
-
-  @JsonProperty("past_types")
-  private List<PokemonDetailPastTypesInner> pastTypes = new ArrayList<>();
+  /**
+   * A list of details showing stats this pokémon had in previous generations
+   */
+  @JsonProperty("past_stats")
+  private List<PokemonPastStat> pastStats = new ArrayList<>();
 
   /**
-   * 
+   * A list of details showing types this Pokémon has.
+   */
+  @JsonProperty("types")
+  private List<PokemonType> types = new ArrayList<>();
+
+  /**
+   * A list of details showing types this pokémon had in previous generations
+   */
+  @JsonProperty("past_types")
+  private List<PokemonPastType> pastTypes = new ArrayList<>();
+
+  /**
+   * The identifier for this resource.
    * @return id
    */
   public Integer getId() {
@@ -98,7 +165,7 @@ public class PokemonDetail implements Serializable {
   }
 
   /**
-   * 
+   * The name for this resource.
    * @return name
    */
   public String getName() {
@@ -110,7 +177,7 @@ public class PokemonDetail implements Serializable {
   }
 
   /**
-   * 
+   * The base experience gained for defeating this Pokémon.
    * @return baseExperience
    */
   public Integer getBaseExperience() {
@@ -122,7 +189,7 @@ public class PokemonDetail implements Serializable {
   }
 
   /**
-   * 
+   * The height of this Pokémon in decimetres.
    * @return height
    */
   public Integer getHeight() {
@@ -134,7 +201,7 @@ public class PokemonDetail implements Serializable {
   }
 
   /**
-   * 
+   * Set for exactly one Pokémon used as the default for each species.
    * @return isDefault
    */
   public Boolean getIsDefault() {
@@ -146,7 +213,7 @@ public class PokemonDetail implements Serializable {
   }
 
   /**
-   * 
+   * Order for sorting. Almost national order, except families are grouped together.
    * @return order
    */
   public Integer getOrder() {
@@ -158,7 +225,7 @@ public class PokemonDetail implements Serializable {
   }
 
   /**
-   * 
+   * The weight of this Pokémon in hectograms.
    * @return weight
    */
   public Integer getWeight() {
@@ -170,31 +237,31 @@ public class PokemonDetail implements Serializable {
   }
 
   /**
-   * 
+   * A list of abilities this Pokémon could potentially have.
    * @return abilities
    */
-  public List<PokemonDetailAbilitiesInner> getAbilities() {
+  public List<PokemonAbility> getAbilities() {
     return abilities;
   }
 
-  public void setAbilities(List<PokemonDetailAbilitiesInner> abilities) {
+  public void setAbilities(List<PokemonAbility> abilities) {
     this.abilities = abilities;
   }
 
   /**
-   * 
+   * A list of details showing abilities this pokémon had in previous generations
    * @return pastAbilities
    */
-  public List<PokemonDetailPastAbilitiesInner> getPastAbilities() {
+  public List<PokemonPastAbility> getPastAbilities() {
     return pastAbilities;
   }
 
-  public void setPastAbilities(List<PokemonDetailPastAbilitiesInner> pastAbilities) {
+  public void setPastAbilities(List<PokemonPastAbility> pastAbilities) {
     this.pastAbilities = pastAbilities;
   }
 
   /**
-   * 
+   * A list of forms this Pokémon can take on.
    * @return forms
    */
   public List<PokemonFormSummary> getForms() {
@@ -206,7 +273,7 @@ public class PokemonDetail implements Serializable {
   }
 
   /**
-   * 
+   * A list of game indices relevent to Pokémon item by generation.
    * @return gameIndices
    */
   public List<PokemonGameIndex> getGameIndices() {
@@ -218,19 +285,19 @@ public class PokemonDetail implements Serializable {
   }
 
   /**
-   * 
+   * A list of items this Pokémon may be holding when encountered.
    * @return heldItems
    */
-  public PokemonDetailHeldItems getHeldItems() {
+  public List<PokemonHeldItemSummary> getHeldItems() {
     return heldItems;
   }
 
-  public void setHeldItems(PokemonDetailHeldItems heldItems) {
+  public void setHeldItems(List<PokemonHeldItemSummary> heldItems) {
     this.heldItems = heldItems;
   }
 
   /**
-   * 
+   * A link to a list of location areas, as well as encounter details pertaining to specific versions.
    * @return locationAreaEncounters
    */
   public String getLocationAreaEncounters() {
@@ -242,19 +309,19 @@ public class PokemonDetail implements Serializable {
   }
 
   /**
-   * 
+   * A list of moves along with learn methods and level details pertaining to specific version groups.
    * @return moves
    */
-  public List<PokemonDetailMovesInner> getMoves() {
+  public List<PokemonMove> getMoves() {
     return moves;
   }
 
-  public void setMoves(List<PokemonDetailMovesInner> moves) {
+  public void setMoves(List<PokemonMove> moves) {
     this.moves = moves;
   }
 
   /**
-   * 
+   * The species this Pokémon belongs to.
    * @return species
    */
   public PokemonSpeciesSummary getSpecies() {
@@ -266,31 +333,31 @@ public class PokemonDetail implements Serializable {
   }
 
   /**
-   * 
+   * A set of sprites used to depict this Pokémon in the game. A visual representation of the various sprites can be found at &lt;a href&#x3D;&#39;https://github.com/PokeAPI/sprites#sprites&#39;&gt;PokeAPI/sprites&lt;/a&gt;
    * @return sprites
    */
-  public PokemonDetailSprites getSprites() {
+  public PokemonSprites getSprites() {
     return sprites;
   }
 
-  public void setSprites(PokemonDetailSprites sprites) {
+  public void setSprites(PokemonSprites sprites) {
     this.sprites = sprites;
   }
 
   /**
-   * 
+   * A set of cries used to depict this Pokémon in the game. A visual representation of the various cries can be found at &lt;a href&#x3D;&#39;https://github.com/PokeAPI/cries#cries&#39;&gt;PokeAPI/cries&lt;/a&gt;
    * @return cries
    */
-  public PokemonDetailCries getCries() {
+  public PokemonCries getCries() {
     return cries;
   }
 
-  public void setCries(PokemonDetailCries cries) {
+  public void setCries(PokemonCries cries) {
     this.cries = cries;
   }
 
   /**
-   * 
+   * A list of base stat values for this Pokémon.
    * @return stats
    */
   public List<PokemonStat> getStats() {
@@ -302,26 +369,38 @@ public class PokemonDetail implements Serializable {
   }
 
   /**
-   * 
+   * A list of details showing stats this pokémon had in previous generations
+   * @return pastStats
+   */
+  public List<PokemonPastStat> getPastStats() {
+    return pastStats;
+  }
+
+  public void setPastStats(List<PokemonPastStat> pastStats) {
+    this.pastStats = pastStats;
+  }
+
+  /**
+   * A list of details showing types this Pokémon has.
    * @return types
    */
-  public List<PokemonDetailTypesInner> getTypes() {
+  public List<PokemonType> getTypes() {
     return types;
   }
 
-  public void setTypes(List<PokemonDetailTypesInner> types) {
+  public void setTypes(List<PokemonType> types) {
     this.types = types;
   }
 
   /**
-   * 
+   * A list of details showing types this pokémon had in previous generations
    * @return pastTypes
    */
-  public List<PokemonDetailPastTypesInner> getPastTypes() {
+  public List<PokemonPastType> getPastTypes() {
     return pastTypes;
   }
 
-  public void setPastTypes(List<PokemonDetailPastTypesInner> pastTypes) {
+  public void setPastTypes(List<PokemonPastType> pastTypes) {
     this.pastTypes = pastTypes;
   }
 
@@ -353,13 +432,14 @@ public class PokemonDetail implements Serializable {
         Objects.equals(this.sprites, pokemonDetail.sprites) &&
         Objects.equals(this.cries, pokemonDetail.cries) &&
         Objects.equals(this.stats, pokemonDetail.stats) &&
+        Objects.equals(this.pastStats, pokemonDetail.pastStats) &&
         Objects.equals(this.types, pokemonDetail.types) &&
         Objects.equals(this.pastTypes, pokemonDetail.pastTypes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, baseExperience, height, isDefault, order, weight, abilities, pastAbilities, forms, gameIndices, heldItems, locationAreaEncounters, moves, species, sprites, cries, stats, types, pastTypes);
+    return Objects.hash(id, name, baseExperience, height, isDefault, order, weight, abilities, pastAbilities, forms, gameIndices, heldItems, locationAreaEncounters, moves, species, sprites, cries, stats, pastStats, types, pastTypes);
   }
 
   @Override
@@ -385,6 +465,7 @@ public class PokemonDetail implements Serializable {
     sb.append("    sprites: ").append(toIndentedString(sprites)).append("\n");
     sb.append("    cries: ").append(toIndentedString(cries)).append("\n");
     sb.append("    stats: ").append(toIndentedString(stats)).append("\n");
+    sb.append("    pastStats: ").append(toIndentedString(pastStats)).append("\n");
     sb.append("    types: ").append(toIndentedString(types)).append("\n");
     sb.append("    pastTypes: ").append(toIndentedString(pastTypes)).append("\n");
     sb.append("}");

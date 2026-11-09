@@ -3,7 +3,9 @@ package org.openapitools.client.model
 
 
 case class PokemonGameIndex (
+    /* The internal id of an API resource within game data. */
     _gameIndex: Integer,
+    /* The version relevent to this game index. */
     _version: VersionSummary
 )
 object PokemonGameIndex {

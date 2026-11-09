@@ -9,13 +9,19 @@ import Foundation
 
 public struct GrowthRateDetail: Sendable, Codable, Hashable {
 
-    public static let nameRule = StringRule(minLength: nil, maxLength: 100, pattern: nil)
+    public static let nameRule = StringRule(minLength: nil, maxLength: 200, pattern: nil)
     public static let formulaRule = StringRule(minLength: nil, maxLength: 500, pattern: nil)
+    /** The identifier for this resource. */
     public var id: Int
+    /** The name for this resource. */
     public var name: String
+    /** The formula used to calculate the rate at which the Pokémon species gains level. */
     public var formula: String
+    /** The descriptions of this characteristic listed in different languages. */
     public var descriptions: [GrowthRateDescription]
+    /** A list of levels and the amount of experienced needed to atain them based on this growth rate. */
     public var levels: [Experience]
+    /** A list of Pokémon species that gain levels at this growth rate. */
     public var pokemonSpecies: [PokemonSpeciesSummary]
 
     public init(id: Int, name: String, formula: String, descriptions: [GrowthRateDescription], levels: [Experience], pokemonSpecies: [PokemonSpeciesSummary]) {

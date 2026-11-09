@@ -12,11 +12,16 @@ import org.joda.time.DateTime
 import ItemAttributeDetail._
 
 case class ItemAttributeDetail (
+  /* The identifier for this resource. */
   id: Integer,
-name: String,
-descriptions: List[ItemAttributeDescription],
-items: List[AbilityDetailPokemonInnerPokemon],
-names: List[ItemAttributeName])
+/* The name for this resource. */
+  name: String,
+/* The description of this item attribute listed in different languages. */
+  descriptions: List[ItemAttributeDescription],
+/* A list of items that have this attribute. */
+  items: List[ItemSummary],
+/* The name of this item attribute listed in different languages. */
+  names: List[ItemAttributeName])
 
 object ItemAttributeDetail {
   import DateTimeCodecs._

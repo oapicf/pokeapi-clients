@@ -21,6 +21,7 @@ public class AbilityName   {
   private LanguageSummary language;
 
   /**
+   * The localized name for an API resource in a specific language.
    **/
   public AbilityName name(String name) {
     this.name = name;
@@ -28,10 +29,10 @@ public class AbilityName   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The localized name for an API resource in a specific language.")
   @JsonProperty("name")
   @NotNull
- @Size(max=100)  public String getName() {
+ @Size(max=200)  public String getName() {
     return name;
   }
   public void setName(String name) {
@@ -40,6 +41,7 @@ public class AbilityName   {
 
 
   /**
+   * The language this name is in.
    **/
   public AbilityName language(LanguageSummary language) {
     this.language = language;
@@ -47,7 +49,7 @@ public class AbilityName   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The language this name is in.")
   @JsonProperty("language")
   @NotNull
   public LanguageSummary getLanguage() {

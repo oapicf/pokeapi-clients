@@ -7,21 +7,21 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
-import org.openapitools.vertxweb.server.model.AbilityDetailPokemonInnerPokemon;
 import org.openapitools.vertxweb.server.model.ContestEffectSummary;
 import org.openapitools.vertxweb.server.model.ContestTypeSummary;
 import org.openapitools.vertxweb.server.model.GenerationSummary;
+import org.openapitools.vertxweb.server.model.ItemMachine;
 import org.openapitools.vertxweb.server.model.MoveChange;
-import org.openapitools.vertxweb.server.model.MoveChangeEffectEntriesInner;
+import org.openapitools.vertxweb.server.model.MoveCombos;
 import org.openapitools.vertxweb.server.model.MoveDamageClassSummary;
-import org.openapitools.vertxweb.server.model.MoveDetailContestCombos;
-import org.openapitools.vertxweb.server.model.MoveDetailEffectChangesInner;
-import org.openapitools.vertxweb.server.model.MoveDetailMachinesInner;
-import org.openapitools.vertxweb.server.model.MoveDetailStatChangesInner;
+import org.openapitools.vertxweb.server.model.MoveEffectChange;
+import org.openapitools.vertxweb.server.model.MoveEffectEffectText;
 import org.openapitools.vertxweb.server.model.MoveFlavorText;
 import org.openapitools.vertxweb.server.model.MoveMeta;
+import org.openapitools.vertxweb.server.model.MoveMetaStatChange;
 import org.openapitools.vertxweb.server.model.MoveName;
 import org.openapitools.vertxweb.server.model.MoveTargetSummary;
+import org.openapitools.vertxweb.server.model.PokemonSummary;
 import org.openapitools.vertxweb.server.model.SuperContestEffectSummary;
 import org.openapitools.vertxweb.server.model.TypeSummary;
 
@@ -35,29 +35,29 @@ public class MoveDetail   {
   private Integer pp;
   private Integer priority;
   private Integer power;
-  private MoveDetailContestCombos contestCombos;
+  private MoveCombos contestCombos;
   private ContestTypeSummary contestType;
   private ContestEffectSummary contestEffect;
   private MoveDamageClassSummary damageClass;
-  private List<MoveChangeEffectEntriesInner> effectEntries = new ArrayList<>();
-  private List<MoveDetailEffectChangesInner> effectChanges = new ArrayList<>();
+  private List<MoveEffectEffectText> effectEntries = new ArrayList<>();
+  private List<MoveEffectChange> effectChanges = new ArrayList<>();
   private GenerationSummary generation;
   private MoveMeta meta;
   private List<MoveName> names = new ArrayList<>();
   private List<MoveChange> pastValues = new ArrayList<>();
-  private List<MoveDetailStatChangesInner> statChanges = new ArrayList<>();
+  private List<MoveMetaStatChange> statChanges = new ArrayList<>();
   private SuperContestEffectSummary superContestEffect;
   private MoveTargetSummary target;
   private TypeSummary type;
-  private List<MoveDetailMachinesInner> machines = new ArrayList<>();
+  private List<ItemMachine> machines = new ArrayList<>();
   private List<MoveFlavorText> flavorTextEntries = new ArrayList<>();
-  private List<AbilityDetailPokemonInnerPokemon> learnedByPokemon = new ArrayList<>();
+  private List<PokemonSummary> learnedByPokemon = new ArrayList<>();
 
   public MoveDetail () {
 
   }
 
-  public MoveDetail (Integer id, String name, Integer accuracy, Integer effectChance, Integer pp, Integer priority, Integer power, MoveDetailContestCombos contestCombos, ContestTypeSummary contestType, ContestEffectSummary contestEffect, MoveDamageClassSummary damageClass, List<MoveChangeEffectEntriesInner> effectEntries, List<MoveDetailEffectChangesInner> effectChanges, GenerationSummary generation, MoveMeta meta, List<MoveName> names, List<MoveChange> pastValues, List<MoveDetailStatChangesInner> statChanges, SuperContestEffectSummary superContestEffect, MoveTargetSummary target, TypeSummary type, List<MoveDetailMachinesInner> machines, List<MoveFlavorText> flavorTextEntries, List<AbilityDetailPokemonInnerPokemon> learnedByPokemon) {
+  public MoveDetail (Integer id, String name, Integer accuracy, Integer effectChance, Integer pp, Integer priority, Integer power, MoveCombos contestCombos, ContestTypeSummary contestType, ContestEffectSummary contestEffect, MoveDamageClassSummary damageClass, List<MoveEffectEffectText> effectEntries, List<MoveEffectChange> effectChanges, GenerationSummary generation, MoveMeta meta, List<MoveName> names, List<MoveChange> pastValues, List<MoveMetaStatChange> statChanges, SuperContestEffectSummary superContestEffect, MoveTargetSummary target, TypeSummary type, List<ItemMachine> machines, List<MoveFlavorText> flavorTextEntries, List<PokemonSummary> learnedByPokemon) {
     this.id = id;
     this.name = name;
     this.accuracy = accuracy;
@@ -149,10 +149,10 @@ public class MoveDetail   {
 
     
   @JsonProperty("contest_combos")
-  public MoveDetailContestCombos getContestCombos() {
+  public MoveCombos getContestCombos() {
     return contestCombos;
   }
-  public void setContestCombos(MoveDetailContestCombos contestCombos) {
+  public void setContestCombos(MoveCombos contestCombos) {
     this.contestCombos = contestCombos;
   }
 
@@ -185,19 +185,19 @@ public class MoveDetail   {
 
     
   @JsonProperty("effect_entries")
-  public List<MoveChangeEffectEntriesInner> getEffectEntries() {
+  public List<MoveEffectEffectText> getEffectEntries() {
     return effectEntries;
   }
-  public void setEffectEntries(List<MoveChangeEffectEntriesInner> effectEntries) {
+  public void setEffectEntries(List<MoveEffectEffectText> effectEntries) {
     this.effectEntries = effectEntries;
   }
 
     
   @JsonProperty("effect_changes")
-  public List<MoveDetailEffectChangesInner> getEffectChanges() {
+  public List<MoveEffectChange> getEffectChanges() {
     return effectChanges;
   }
-  public void setEffectChanges(List<MoveDetailEffectChangesInner> effectChanges) {
+  public void setEffectChanges(List<MoveEffectChange> effectChanges) {
     this.effectChanges = effectChanges;
   }
 
@@ -239,10 +239,10 @@ public class MoveDetail   {
 
     
   @JsonProperty("stat_changes")
-  public List<MoveDetailStatChangesInner> getStatChanges() {
+  public List<MoveMetaStatChange> getStatChanges() {
     return statChanges;
   }
-  public void setStatChanges(List<MoveDetailStatChangesInner> statChanges) {
+  public void setStatChanges(List<MoveMetaStatChange> statChanges) {
     this.statChanges = statChanges;
   }
 
@@ -275,10 +275,10 @@ public class MoveDetail   {
 
     
   @JsonProperty("machines")
-  public List<MoveDetailMachinesInner> getMachines() {
+  public List<ItemMachine> getMachines() {
     return machines;
   }
-  public void setMachines(List<MoveDetailMachinesInner> machines) {
+  public void setMachines(List<ItemMachine> machines) {
     this.machines = machines;
   }
 
@@ -293,10 +293,10 @@ public class MoveDetail   {
 
     
   @JsonProperty("learned_by_pokemon")
-  public List<AbilityDetailPokemonInnerPokemon> getLearnedByPokemon() {
+  public List<PokemonSummary> getLearnedByPokemon() {
     return learnedByPokemon;
   }
-  public void setLearnedByPokemon(List<AbilityDetailPokemonInnerPokemon> learnedByPokemon) {
+  public void setLearnedByPokemon(List<PokemonSummary> learnedByPokemon) {
     this.learnedByPokemon = learnedByPokemon;
   }
 

@@ -34,6 +34,8 @@ GET     /api/v2/evolution-chain/                     controllers.EvolutionApiCon
 GET     /api/v2/evolution-chain/:id/                     controllers.EvolutionApiController.evolutionChainRetrieve(request: Request, id: String)
 GET     /api/v2/evolution-trigger/                     controllers.EvolutionApiController.evolutionTriggerList(request: Request)
 GET     /api/v2/evolution-trigger/:id/                     controllers.EvolutionApiController.evolutionTriggerRetrieve(request: Request, id: String)
+GET     /api/v2/evolution-variable/                     controllers.EvolutionApiController.evolutionVariableList(request: Request)
+GET     /api/v2/evolution-variable/:id/                     controllers.EvolutionApiController.evolutionVariableRetrieve(request: Request, id: String)
 
 #Functions for Games API
 GET     /api/v2/generation/                     controllers.GamesApiController.generationList(request: Request)
@@ -46,6 +48,8 @@ GET     /api/v2/version/                     controllers.GamesApiController.vers
 GET     /api/v2/version/:id/                     controllers.GamesApiController.versionRetrieve(request: Request, id: String)
 
 #Functions for Items API
+GET     /api/v2/currency/                     controllers.ItemsApiController.currencyList(request: Request)
+GET     /api/v2/currency/:id/                     controllers.ItemsApiController.currencyRetrieve(request: Request, id: String)
 GET     /api/v2/item-attribute/                     controllers.ItemsApiController.itemAttributeList(request: Request)
 GET     /api/v2/item-attribute/:id/                     controllers.ItemsApiController.itemAttributeRetrieve(request: Request, id: String)
 GET     /api/v2/item-category/                     controllers.ItemsApiController.itemCategoryList(request: Request)
@@ -122,6 +126,7 @@ GET     /api/v2/type/:id/                     controllers.PokemonApiController.t
 #Functions for Utility API
 GET     /api/v2/language/                     controllers.UtilityApiController.languageList(request: Request)
 GET     /api/v2/language/:id/                     controllers.UtilityApiController.languageRetrieve(request: Request, id: String)
+GET     /api/v2/meta/                     controllers.UtilityApiController.metaRetrieve(request: Request)
 
 # Map static resources from the /public folder to the /assets URL path
 GET /assets/*file           controllers.Assets.at(file)

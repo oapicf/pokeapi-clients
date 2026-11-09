@@ -9,8 +9,11 @@ import Foundation
 
 public struct MoveFlavorText: Sendable, Codable, Hashable {
 
+    /** The localized flavor text for an api resource in a specific language. */
     public var flavorText: String
+    /** The language this name is in. */
     public var language: LanguageSummary
+    /** The version group that uses this flavor text. */
     public var versionGroup: VersionGroupSummary
 
     public init(flavorText: String, language: LanguageSummary, versionGroup: VersionGroupSummary) {

@@ -46,25 +46,25 @@ public:
 	 */
 	void fromJson(char* jsonStr);
 
-	/*! \brief Get 
+	/*! \brief Get The name for this contest.
 	 */
 	std::string getName();
 
-	/*! \brief Set 
+	/*! \brief Set The name for this contest.
 	 */
 	void setName(std::string  name);
-	/*! \brief Get 
+	/*! \brief Get The color associated with this contest's name.
 	 */
 	std::string getColor();
 
-	/*! \brief Set 
+	/*! \brief Set The color associated with this contest's name.
 	 */
 	void setColor(std::string  color);
-	/*! \brief Get 
+	/*! \brief Get The language that this name is in.
 	 */
 	LanguageSummary getLanguage();
 
-	/*! \brief Set 
+	/*! \brief Set The language that this name is in.
 	 */
 	void setLanguage(LanguageSummary  language);
 

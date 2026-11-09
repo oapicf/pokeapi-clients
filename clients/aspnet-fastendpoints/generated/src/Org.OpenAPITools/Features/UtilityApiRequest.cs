@@ -30,5 +30,8 @@ public class LanguageRetrieveRequest
     [FastEndpoints.BindFrom("id")]
     public string Id { get; set; }
 }
+public class MetaRetrieveRequest
+{
+}
 
 

@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 
 # **generation_list**
-> models::PaginatedGenerationSummaryList generation_list(ctx, ctx, optional)
+> models::PaginatedGenerationSummaryList generation_list(optional)
 List genrations
 
 A generation is a grouping of the Pokémon games that separates them based on the Pokémon they include. In each generation, a new set of Pokémon, Moves, Abilities and Types that did not exist in the previous generation are released.
@@ -24,8 +24,6 @@ A generation is a grouping of the Pokémon games that separates them based on th
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -43,7 +41,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -53,7 +51,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **pokedex_list**
-> models::PaginatedPokedexSummaryList pokedex_list(ctx, ctx, optional)
+> models::PaginatedPokedexSummaryList pokedex_list(optional)
 List pokedex
 
 A Pokédex is a handheld electronic encyclopedia device; one which is capable of recording and retaining information of the various Pokémon in a given region with the exception of the national dex and some smaller dexes related to portions of a region. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pokedex) for greater detail.
@@ -62,8 +60,6 @@ A Pokédex is a handheld electronic encyclopedia device; one which is capable of
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -81,7 +77,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -91,7 +87,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **version_group_list**
-> models::PaginatedVersionGroupSummaryList version_group_list(ctx, ctx, optional)
+> models::PaginatedVersionGroupSummaryList version_group_list(optional)
 List version groups
 
 Version groups categorize highly similar versions of the games.
@@ -100,8 +96,6 @@ Version groups categorize highly similar versions of the games.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -119,7 +113,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -129,7 +123,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **version_list**
-> models::PaginatedVersionSummaryList version_list(ctx, ctx, optional)
+> models::PaginatedVersionSummaryList version_list(optional)
 List versions
 
 Versions of the games, e.g., Red, Blue or Yellow.
@@ -138,8 +132,6 @@ Versions of the games, e.g., Red, Blue or Yellow.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -157,7 +149,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -167,7 +159,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **generation_retrieve**
-> models::GenerationDetail generation_retrieve(ctx, ctx, id)
+> models::GenerationDetail generation_retrieve(id)
 Get genration
 
 A generation is a grouping of the Pokémon games that separates them based on the Pokémon they include. In each generation, a new set of Pokémon, Moves, Abilities and Types that did not exist in the previous generation are released.
@@ -176,8 +168,6 @@ A generation is a grouping of the Pokémon games that separates them based on th
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **String**| This parameter can be a string or an integer. | 
 
 ### Return type
@@ -186,7 +176,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -196,7 +186,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **pokedex_retrieve**
-> models::PokedexDetail pokedex_retrieve(ctx, ctx, id)
+> models::PokedexDetail pokedex_retrieve(id)
 Get pokedex
 
 A Pokédex is a handheld electronic encyclopedia device; one which is capable of recording and retaining information of the various Pokémon in a given region with the exception of the national dex and some smaller dexes related to portions of a region. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pokedex) for greater detail.
@@ -205,8 +195,6 @@ A Pokédex is a handheld electronic encyclopedia device; one which is capable of
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **String**| This parameter can be a string or an integer. | 
 
 ### Return type
@@ -215,7 +203,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -225,7 +213,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **version_group_retrieve**
-> models::VersionGroupDetail version_group_retrieve(ctx, ctx, id)
+> models::VersionGroupDetail version_group_retrieve(id)
 Get version group
 
 Version groups categorize highly similar versions of the games.
@@ -234,8 +222,6 @@ Version groups categorize highly similar versions of the games.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **String**| This parameter can be a string or an integer. | 
 
 ### Return type
@@ -244,7 +230,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -254,7 +240,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **version_retrieve**
-> models::VersionDetail version_retrieve(ctx, ctx, id)
+> models::VersionDetail version_retrieve(id)
 Get version
 
 Versions of the games, e.g., Red, Blue or Yellow.
@@ -263,8 +249,6 @@ Versions of the games, e.g., Red, Blue or Yellow.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **String**| This parameter can be a string or an integer. | 
 
 ### Return type
@@ -273,7 +257,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

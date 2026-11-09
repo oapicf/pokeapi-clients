@@ -15,23 +15,38 @@ import java.math.*;
 public class MoveTargetDetail implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * The identifier for this resource.
+   */
   @JsonProperty("id")
   private Integer id;
 
+  /**
+   * The name for this resource.
+   */
   @JsonProperty("name")
   private String name;
 
+  /**
+   * The description of this resource listed in different languages.
+   */
   @JsonProperty("descriptions")
   private List<MoveTargetDescription> descriptions = new ArrayList<>();
 
+  /**
+   * A list of moves that that are directed at this target.
+   */
   @JsonProperty("moves")
   private List<MoveSummary> moves = new ArrayList<>();
 
+  /**
+   * The name of this resource listed in different languages.
+   */
   @JsonProperty("names")
   private List<MoveTargetName> names = new ArrayList<>();
 
   /**
-   * 
+   * The identifier for this resource.
    * @return id
    */
   public Integer getId() {
@@ -43,7 +58,7 @@ public class MoveTargetDetail implements Serializable {
   }
 
   /**
-   * 
+   * The name for this resource.
    * @return name
    */
   public String getName() {
@@ -55,7 +70,7 @@ public class MoveTargetDetail implements Serializable {
   }
 
   /**
-   * 
+   * The description of this resource listed in different languages.
    * @return descriptions
    */
   public List<MoveTargetDescription> getDescriptions() {
@@ -67,7 +82,7 @@ public class MoveTargetDetail implements Serializable {
   }
 
   /**
-   * 
+   * A list of moves that that are directed at this target.
    * @return moves
    */
   public List<MoveSummary> getMoves() {
@@ -79,7 +94,7 @@ public class MoveTargetDetail implements Serializable {
   }
 
   /**
-   * 
+   * The name of this resource listed in different languages.
    * @return names
    */
   public List<MoveTargetName> getNames() {

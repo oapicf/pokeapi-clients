@@ -149,7 +149,7 @@ open class MovesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
             path = "/api/v2/move-ailment/",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -222,7 +222,7 @@ open class MovesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
             path = "/api/v2/move-ailment/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -312,7 +312,7 @@ open class MovesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
             path = "/api/v2/move-battle-style/",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -385,7 +385,7 @@ open class MovesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
             path = "/api/v2/move-battle-style/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -475,7 +475,7 @@ open class MovesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
             path = "/api/v2/move-category/",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -548,7 +548,7 @@ open class MovesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
             path = "/api/v2/move-category/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -638,7 +638,7 @@ open class MovesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
             path = "/api/v2/move-learn-method/",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -711,7 +711,7 @@ open class MovesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
             path = "/api/v2/move-learn-method/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -801,7 +801,7 @@ open class MovesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
             path = "/api/v2/move/",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -874,7 +874,7 @@ open class MovesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
             path = "/api/v2/move/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -964,7 +964,7 @@ open class MovesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
             path = "/api/v2/move-target/",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -1037,7 +1037,7 @@ open class MovesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
             path = "/api/v2/move-target/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }

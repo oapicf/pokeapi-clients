@@ -5,6 +5,22 @@ import (
 	"net/http"
 )
 
+// CurrencyList - List currencies
+func (c *Container) CurrencyList(ctx echo.Context) error {
+	return ctx.JSON(http.StatusOK, models.HelloWorld {
+		Message: "Hello World",
+	})
+}
+
+
+// CurrencyRetrieve - Get currency
+func (c *Container) CurrencyRetrieve(ctx echo.Context) error {
+	return ctx.JSON(http.StatusOK, models.HelloWorld {
+		Message: "Hello World",
+	})
+}
+
+
 // ItemAttributeList - List item attributes
 func (c *Container) ItemAttributeList(ctx echo.Context) error {
 	return ctx.JSON(http.StatusOK, models.HelloWorld {

@@ -7,8 +7,8 @@
 #' @title AbilityChange
 #' @description AbilityChange Class
 #' @format An \code{R6Class} generator object
-#' @field version_group  \link{VersionGroupSummary}
-#' @field effect_entries  list(\link{AbilityChangeEffectText})
+#' @field version_group The version group in which the previous effect of this ability originated. \link{VersionGroupSummary}
+#' @field effect_entries The previous effect of this ability listed in different languages. list(\link{AbilityChangeEffectText})
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -21,8 +21,8 @@ AbilityChange <- R6::R6Class(
     #' @description
     #' Initialize a new AbilityChange class.
     #'
-    #' @param version_group version_group
-    #' @param effect_entries effect_entries
+    #' @param version_group The version group in which the previous effect of this ability originated.
+    #' @param effect_entries The previous effect of this ability listed in different languages.
     #' @param ... Other optional arguments.
     initialize = function(`version_group`, `effect_entries`, ...) {
       if (!missing(`version_group`)) {

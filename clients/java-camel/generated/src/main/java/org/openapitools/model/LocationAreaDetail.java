@@ -7,9 +7,9 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.model.LocationAreaDetailEncounterMethodRatesInner;
-import org.openapitools.model.LocationAreaDetailPokemonEncountersInner;
+import org.openapitools.model.LocationAreaEncounterRate;
 import org.openapitools.model.LocationAreaName;
+import org.openapitools.model.LocationAreaPokemonEncounter;
 import org.openapitools.model.LocationSummary;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
@@ -25,7 +25,7 @@ import jakarta.annotation.Generated;
  * LocationAreaDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-10-25T05:48:25.711080506Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-11-09T13:49:41.168612095Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class LocationAreaDetail {
 
   private Integer id;
@@ -34,13 +34,13 @@ public class LocationAreaDetail {
 
   private Integer gameIndex;
 
-  private List<@Valid LocationAreaDetailEncounterMethodRatesInner> encounterMethodRates = new ArrayList<>();
+  private List<@Valid LocationAreaEncounterRate> encounterMethodRates = new ArrayList<>();
 
   private LocationSummary location;
 
   private List<@Valid LocationAreaName> names = new ArrayList<>();
 
-  private List<@Valid LocationAreaDetailPokemonEncountersInner> pokemonEncounters = new ArrayList<>();
+  private List<@Valid LocationAreaPokemonEncounter> pokemonEncounters = new ArrayList<>();
 
   public LocationAreaDetail() {
     super();
@@ -49,7 +49,7 @@ public class LocationAreaDetail {
   /**
    * Constructor with only required parameters
    */
-  public LocationAreaDetail(Integer id, String name, Integer gameIndex, List<@Valid LocationAreaDetailEncounterMethodRatesInner> encounterMethodRates, LocationSummary location, List<@Valid LocationAreaName> names, List<@Valid LocationAreaDetailPokemonEncountersInner> pokemonEncounters) {
+  public LocationAreaDetail(Integer id, String name, Integer gameIndex, List<@Valid LocationAreaEncounterRate> encounterMethodRates, LocationSummary location, List<@Valid LocationAreaName> names, List<@Valid LocationAreaPokemonEncounter> pokemonEncounters) {
     this.id = id;
     this.name = name;
     this.gameIndex = gameIndex;
@@ -65,11 +65,11 @@ public class LocationAreaDetail {
   }
 
   /**
-   * Get id
+   * The identifier for this resource.
    * @return id
    */
   
-  @Schema(name = "id", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "id", accessMode = Schema.AccessMode.READ_ONLY, description = "The identifier for this resource.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("id")
   public Integer getId() {
     return id;
@@ -85,11 +85,11 @@ public class LocationAreaDetail {
   }
 
   /**
-   * Get name
+   * The name for this resource.
    * @return name
    */
-  @NotNull @Size(max = 100) 
-  @Schema(name = "name", requiredMode = Schema.RequiredMode.REQUIRED)
+  @NotNull @Size(max = 200) 
+  @Schema(name = "name", description = "The name for this resource.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("name")
   public String getName() {
     return name;
@@ -105,11 +105,13 @@ public class LocationAreaDetail {
   }
 
   /**
-   * Get gameIndex
+   * The internal id of an API resource within game data.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return gameIndex
    */
-  @NotNull 
-  @Schema(name = "game_index", requiredMode = Schema.RequiredMode.REQUIRED)
+  @NotNull @Min(value = -2147483648) @Max(value = 2147483647) 
+  @Schema(name = "game_index", description = "The internal id of an API resource within game data.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("game_index")
   public Integer getGameIndex() {
     return gameIndex;
@@ -119,12 +121,12 @@ public class LocationAreaDetail {
     this.gameIndex = gameIndex;
   }
 
-  public LocationAreaDetail encounterMethodRates(List<@Valid LocationAreaDetailEncounterMethodRatesInner> encounterMethodRates) {
+  public LocationAreaDetail encounterMethodRates(List<@Valid LocationAreaEncounterRate> encounterMethodRates) {
     this.encounterMethodRates = encounterMethodRates;
     return this;
   }
 
-  public LocationAreaDetail addEncounterMethodRatesItem(LocationAreaDetailEncounterMethodRatesInner encounterMethodRatesItem) {
+  public LocationAreaDetail addEncounterMethodRatesItem(LocationAreaEncounterRate encounterMethodRatesItem) {
     if (this.encounterMethodRates == null) {
       this.encounterMethodRates = new ArrayList<>();
     }
@@ -133,17 +135,17 @@ public class LocationAreaDetail {
   }
 
   /**
-   * Get encounterMethodRates
+   * A list of methods in which Pokémon may be encountered in this area and how likely the method will occur depending on the version of the game.
    * @return encounterMethodRates
    */
   
-  @Schema(name = "encounter_method_rates", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "encounter_method_rates", accessMode = Schema.AccessMode.READ_ONLY, description = "A list of methods in which Pokémon may be encountered in this area and how likely the method will occur depending on the version of the game.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("encounter_method_rates")
-  public List<@Valid LocationAreaDetailEncounterMethodRatesInner> getEncounterMethodRates() {
+  public List<@Valid LocationAreaEncounterRate> getEncounterMethodRates() {
     return encounterMethodRates;
   }
 
-  public void setEncounterMethodRates(List<@Valid LocationAreaDetailEncounterMethodRatesInner> encounterMethodRates) {
+  public void setEncounterMethodRates(List<@Valid LocationAreaEncounterRate> encounterMethodRates) {
     this.encounterMethodRates = encounterMethodRates;
   }
 
@@ -153,11 +155,11 @@ public class LocationAreaDetail {
   }
 
   /**
-   * Get location
+   * The region this location area can be found in.
    * @return location
    */
   @NotNull @Valid 
-  @Schema(name = "location", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "location", description = "The region this location area can be found in.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("location")
   public LocationSummary getLocation() {
     return location;
@@ -181,11 +183,11 @@ public class LocationAreaDetail {
   }
 
   /**
-   * Get names
+   * The name of this resource listed in different languages.
    * @return names
    */
   
-  @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, description = "The name of this resource listed in different languages.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("names")
   public List<@Valid LocationAreaName> getNames() {
     return names;
@@ -195,12 +197,12 @@ public class LocationAreaDetail {
     this.names = names;
   }
 
-  public LocationAreaDetail pokemonEncounters(List<@Valid LocationAreaDetailPokemonEncountersInner> pokemonEncounters) {
+  public LocationAreaDetail pokemonEncounters(List<@Valid LocationAreaPokemonEncounter> pokemonEncounters) {
     this.pokemonEncounters = pokemonEncounters;
     return this;
   }
 
-  public LocationAreaDetail addPokemonEncountersItem(LocationAreaDetailPokemonEncountersInner pokemonEncountersItem) {
+  public LocationAreaDetail addPokemonEncountersItem(LocationAreaPokemonEncounter pokemonEncountersItem) {
     if (this.pokemonEncounters == null) {
       this.pokemonEncounters = new ArrayList<>();
     }
@@ -209,17 +211,17 @@ public class LocationAreaDetail {
   }
 
   /**
-   * Get pokemonEncounters
+   * A list of Pokémon that can be encountered in this area along with version specific details about the encounter.
    * @return pokemonEncounters
    */
   
-  @Schema(name = "pokemon_encounters", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "pokemon_encounters", accessMode = Schema.AccessMode.READ_ONLY, description = "A list of Pokémon that can be encountered in this area along with version specific details about the encounter.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("pokemon_encounters")
-  public List<@Valid LocationAreaDetailPokemonEncountersInner> getPokemonEncounters() {
+  public List<@Valid LocationAreaPokemonEncounter> getPokemonEncounters() {
     return pokemonEncounters;
   }
 
-  public void setPokemonEncounters(List<@Valid LocationAreaDetailPokemonEncountersInner> pokemonEncounters) {
+  public void setPokemonEncounters(List<@Valid LocationAreaPokemonEncounter> pokemonEncounters) {
     this.pokemonEncounters = pokemonEncounters;
   }
 

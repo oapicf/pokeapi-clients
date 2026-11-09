@@ -23,6 +23,7 @@ public class ContestTypeName   {
   private LanguageSummary language;
 
   /**
+   * The name for this contest.
    **/
   public ContestTypeName name(String name) {
     this.name = name;
@@ -30,10 +31,10 @@ public class ContestTypeName   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this contest.")
   @JsonProperty("name")
   @NotNull
- @Size(max=100)  public String getName() {
+ @Size(max=200)  public String getName() {
     return name;
   }
   public void setName(String name) {
@@ -42,6 +43,7 @@ public class ContestTypeName   {
 
 
   /**
+   * The color associated with this contest&#39;s name.
    **/
   public ContestTypeName color(String color) {
     this.color = color;
@@ -49,7 +51,7 @@ public class ContestTypeName   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The color associated with this contest's name.")
   @JsonProperty("color")
   @NotNull
  @Size(max=10)  public String getColor() {
@@ -61,6 +63,7 @@ public class ContestTypeName   {
 
 
   /**
+   * The language that this name is in.
    **/
   public ContestTypeName language(LanguageSummary language) {
     this.language = language;
@@ -68,7 +71,7 @@ public class ContestTypeName   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The language that this name is in.")
   @JsonProperty("language")
   @NotNull
   public LanguageSummary getLanguage() {

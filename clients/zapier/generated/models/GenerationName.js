@@ -7,7 +7,7 @@ module.exports = {
         return [
             {
                 key: `${keyPrefix}name`,
-                label: `[${labelPrefix}name]`,
+                label: `The localized name for an API resource in a specific language. - [${labelPrefix}name]`,
                 required: true,
                 type: 'string',
             },

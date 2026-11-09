@@ -30,16 +30,11 @@ import java.util.List;
  * @author pkmst
  *
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-10-25T05:48:09.645019047Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-11-09T13:49:28.343088631Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 @Api(value = "Moves", description = "the Moves API")
 public interface MovesApi {
 
-    @ApiOperation(value = "List move meta ailments", notes = "Move Ailments are status conditions caused by moves used during battle. See [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Status_condition) for greater detail.", response = PaginatedMoveMetaAilmentSummaryList.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "moves", })
+    @ApiOperation(value = "List move meta ailments", notes = "Move Ailments are status conditions caused by moves used during battle. See [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Status_condition) for greater detail.", response = PaginatedMoveMetaAilmentSummaryList.class, tags={ "moves", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedMoveMetaAilmentSummaryList.class) })
     @RequestMapping(
@@ -50,12 +45,7 @@ public interface MovesApi {
     ResponseEntity<PaginatedMoveMetaAilmentSummaryList> moveAilmentList(@ApiParam(value = "Number of results to return per page.")  @RequestParam(value = "limit", required = false) Integer limit,@ApiParam(value = "The initial index from which to return the results.")  @RequestParam(value = "offset", required = false) Integer offset,@ApiParam(value = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")  @RequestParam(value = "q", required = false) String q, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "Get move meta ailment", notes = "Move Ailments are status conditions caused by moves used during battle. See [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Status_condition) for greater detail.", response = MoveMetaAilmentDetail.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "moves", })
+    @ApiOperation(value = "Get move meta ailment", notes = "Move Ailments are status conditions caused by moves used during battle. See [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Status_condition) for greater detail.", response = MoveMetaAilmentDetail.class, tags={ "moves", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = MoveMetaAilmentDetail.class) })
     @RequestMapping(
@@ -66,12 +56,7 @@ public interface MovesApi {
     ResponseEntity<MoveMetaAilmentDetail> moveAilmentRetrieve(@ApiParam(value = "This parameter can be a string or an integer.",required=true ) @PathVariable("id") String id, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "List move battle styles", notes = "Styles of moves when used in the Battle Palace. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Battle_Frontier_(Generation_III)) for greater detail.", response = PaginatedMoveBattleStyleSummaryList.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "moves", })
+    @ApiOperation(value = "List move battle styles", notes = "Styles of moves when used in the Battle Palace. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Battle_Frontier_(Generation_III)) for greater detail.", response = PaginatedMoveBattleStyleSummaryList.class, tags={ "moves", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedMoveBattleStyleSummaryList.class) })
     @RequestMapping(
@@ -82,12 +67,7 @@ public interface MovesApi {
     ResponseEntity<PaginatedMoveBattleStyleSummaryList> moveBattleStyleList(@ApiParam(value = "Number of results to return per page.")  @RequestParam(value = "limit", required = false) Integer limit,@ApiParam(value = "The initial index from which to return the results.")  @RequestParam(value = "offset", required = false) Integer offset,@ApiParam(value = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")  @RequestParam(value = "q", required = false) String q, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "Get move battle style", notes = "Styles of moves when used in the Battle Palace. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Battle_Frontier_(Generation_III)) for greater detail.", response = MoveBattleStyleDetail.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "moves", })
+    @ApiOperation(value = "Get move battle style", notes = "Styles of moves when used in the Battle Palace. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Battle_Frontier_(Generation_III)) for greater detail.", response = MoveBattleStyleDetail.class, tags={ "moves", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = MoveBattleStyleDetail.class) })
     @RequestMapping(
@@ -98,12 +78,7 @@ public interface MovesApi {
     ResponseEntity<MoveBattleStyleDetail> moveBattleStyleRetrieve(@ApiParam(value = "This parameter can be a string or an integer.",required=true ) @PathVariable("id") String id, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "List move meta categories", notes = "Very general categories that loosely group move effects.", response = PaginatedMoveMetaCategorySummaryList.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "moves", })
+    @ApiOperation(value = "List move meta categories", notes = "Very general categories that loosely group move effects.", response = PaginatedMoveMetaCategorySummaryList.class, tags={ "moves", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedMoveMetaCategorySummaryList.class) })
     @RequestMapping(
@@ -114,12 +89,7 @@ public interface MovesApi {
     ResponseEntity<PaginatedMoveMetaCategorySummaryList> moveCategoryList(@ApiParam(value = "Number of results to return per page.")  @RequestParam(value = "limit", required = false) Integer limit,@ApiParam(value = "The initial index from which to return the results.")  @RequestParam(value = "offset", required = false) Integer offset,@ApiParam(value = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")  @RequestParam(value = "q", required = false) String q, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "Get move meta category", notes = "Very general categories that loosely group move effects.", response = MoveMetaCategoryDetail.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "moves", })
+    @ApiOperation(value = "Get move meta category", notes = "Very general categories that loosely group move effects.", response = MoveMetaCategoryDetail.class, tags={ "moves", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = MoveMetaCategoryDetail.class) })
     @RequestMapping(
@@ -130,12 +100,7 @@ public interface MovesApi {
     ResponseEntity<MoveMetaCategoryDetail> moveCategoryRetrieve(@ApiParam(value = "This parameter can be a string or an integer.",required=true ) @PathVariable("id") String id, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "List move learn methods", notes = "Methods by which Pokémon can learn moves.", response = PaginatedMoveLearnMethodSummaryList.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "moves", })
+    @ApiOperation(value = "List move learn methods", notes = "Methods by which Pokémon can learn moves.", response = PaginatedMoveLearnMethodSummaryList.class, tags={ "moves", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedMoveLearnMethodSummaryList.class) })
     @RequestMapping(
@@ -146,12 +111,7 @@ public interface MovesApi {
     ResponseEntity<PaginatedMoveLearnMethodSummaryList> moveLearnMethodList(@ApiParam(value = "Number of results to return per page.")  @RequestParam(value = "limit", required = false) Integer limit,@ApiParam(value = "The initial index from which to return the results.")  @RequestParam(value = "offset", required = false) Integer offset,@ApiParam(value = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")  @RequestParam(value = "q", required = false) String q, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "Get move learn method", notes = "Methods by which Pokémon can learn moves.", response = MoveLearnMethodDetail.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "moves", })
+    @ApiOperation(value = "Get move learn method", notes = "Methods by which Pokémon can learn moves.", response = MoveLearnMethodDetail.class, tags={ "moves", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = MoveLearnMethodDetail.class) })
     @RequestMapping(
@@ -162,12 +122,7 @@ public interface MovesApi {
     ResponseEntity<MoveLearnMethodDetail> moveLearnMethodRetrieve(@ApiParam(value = "This parameter can be a string or an integer.",required=true ) @PathVariable("id") String id, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "List moves", notes = "Moves are the skills of Pokémon in battle. In battle, a Pokémon uses one move each turn. Some moves (including those learned by Hidden Machine) can be used outside of battle as well, usually for the purpose of removing obstacles or exploring new areas.", response = PaginatedMoveSummaryList.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "moves", })
+    @ApiOperation(value = "List moves", notes = "Moves are the skills of Pokémon in battle. In battle, a Pokémon uses one move each turn. Some moves (including those learned by Hidden Machine) can be used outside of battle as well, usually for the purpose of removing obstacles or exploring new areas.", response = PaginatedMoveSummaryList.class, tags={ "moves", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedMoveSummaryList.class) })
     @RequestMapping(
@@ -178,12 +133,7 @@ public interface MovesApi {
     ResponseEntity<PaginatedMoveSummaryList> moveList(@ApiParam(value = "Number of results to return per page.")  @RequestParam(value = "limit", required = false) Integer limit,@ApiParam(value = "The initial index from which to return the results.")  @RequestParam(value = "offset", required = false) Integer offset,@ApiParam(value = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")  @RequestParam(value = "q", required = false) String q, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "Get move", notes = "Moves are the skills of Pokémon in battle. In battle, a Pokémon uses one move each turn. Some moves (including those learned by Hidden Machine) can be used outside of battle as well, usually for the purpose of removing obstacles or exploring new areas.", response = MoveDetail.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "moves", })
+    @ApiOperation(value = "Get move", notes = "Moves are the skills of Pokémon in battle. In battle, a Pokémon uses one move each turn. Some moves (including those learned by Hidden Machine) can be used outside of battle as well, usually for the purpose of removing obstacles or exploring new areas.", response = MoveDetail.class, tags={ "moves", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = MoveDetail.class) })
     @RequestMapping(
@@ -194,12 +144,7 @@ public interface MovesApi {
     ResponseEntity<MoveDetail> moveRetrieve(@ApiParam(value = "This parameter can be a string or an integer.",required=true ) @PathVariable("id") String id, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "List move targets", notes = "Targets moves can be directed at during battle. Targets can be Pokémon, environments or even other moves.", response = PaginatedMoveTargetSummaryList.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "moves", })
+    @ApiOperation(value = "List move targets", notes = "Targets moves can be directed at during battle. Targets can be Pokémon, environments or even other moves.", response = PaginatedMoveTargetSummaryList.class, tags={ "moves", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedMoveTargetSummaryList.class) })
     @RequestMapping(
@@ -210,12 +155,7 @@ public interface MovesApi {
     ResponseEntity<PaginatedMoveTargetSummaryList> moveTargetList(@ApiParam(value = "Number of results to return per page.")  @RequestParam(value = "limit", required = false) Integer limit,@ApiParam(value = "The initial index from which to return the results.")  @RequestParam(value = "offset", required = false) Integer offset,@ApiParam(value = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")  @RequestParam(value = "q", required = false) String q, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "Get move target", notes = "Targets moves can be directed at during battle. Targets can be Pokémon, environments or even other moves.", response = MoveTargetDetail.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "moves", })
+    @ApiOperation(value = "Get move target", notes = "Targets moves can be directed at during battle. Targets can be Pokémon, environments or even other moves.", response = MoveTargetDetail.class, tags={ "moves", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = MoveTargetDetail.class) })
     @RequestMapping(

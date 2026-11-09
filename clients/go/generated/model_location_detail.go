@@ -1,9 +1,9 @@
 /*
 PokéAPI
 
-All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
 
-API version: 2.7.0
+API version: 2.10.0
 Contact: blah+oapicf@cliffano.com
 */
 
@@ -22,11 +22,17 @@ var _ MappedNullable = &LocationDetail{}
 
 // LocationDetail struct for LocationDetail
 type LocationDetail struct {
+	// The identifier for this resource.
 	Id int32 `json:"id"`
+	// The name for this resource.
 	Name string `json:"name"`
-	Region RegionSummary `json:"region"`
+	// The region this location can be found in.
+	Region NullableRegionSummary `json:"region"`
+	// The name of this resource listed in different languages.
 	Names []LocationName `json:"names"`
+	// A list of game indices relevent to this location by generation.
 	GameIndices []LocationGameIndex `json:"game_indices"`
+	// Areas that can be found within this location.
 	Areas []LocationAreaSummary `json:"areas"`
 }
 
@@ -36,7 +42,7 @@ type _LocationDetail LocationDetail
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewLocationDetail(id int32, name string, region RegionSummary, names []LocationName, gameIndices []LocationGameIndex, areas []LocationAreaSummary) *LocationDetail {
+func NewLocationDetail(id int32, name string, region NullableRegionSummary, names []LocationName, gameIndices []LocationGameIndex, areas []LocationAreaSummary) *LocationDetail {
 	this := LocationDetail{}
 	this.Id = id
 	this.Name = name
@@ -104,27 +110,29 @@ func (o *LocationDetail) SetName(v string) {
 }
 
 // GetRegion returns the Region field value
+// If the value is explicit nil, the zero value for RegionSummary will be returned
 func (o *LocationDetail) GetRegion() RegionSummary {
-	if o == nil {
+	if o == nil || o.Region.Get() == nil {
 		var ret RegionSummary
 		return ret
 	}
 
-	return o.Region
+	return *o.Region.Get()
 }
 
 // GetRegionOk returns a tuple with the Region field value
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *LocationDetail) GetRegionOk() (*RegionSummary, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Region, true
+	return o.Region.Get(), o.Region.IsSet()
 }
 
 // SetRegion sets field value
 func (o *LocationDetail) SetRegion(v RegionSummary) {
-	o.Region = v
+	o.Region.Set(&v)
 }
 
 // GetNames returns the Names field value
@@ -211,7 +219,7 @@ func (o LocationDetail) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["id"] = o.Id
 	toSerialize["name"] = o.Name
-	toSerialize["region"] = o.Region
+	toSerialize["region"] = o.Region.Get()
 	toSerialize["names"] = o.Names
 	toSerialize["game_indices"] = o.GameIndices
 	toSerialize["areas"] = o.Areas

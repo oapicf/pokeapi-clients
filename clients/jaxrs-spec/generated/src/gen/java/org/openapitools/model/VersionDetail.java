@@ -23,7 +23,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
  **/
 @ApiModel(description = "Should have a link to Version Group info but the Circular dependency and compilation order fight eachother and I'm not sure how to add anything other than a hyperlink")
 @JsonTypeName("VersionDetail")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-11-09T13:50:06.168269698Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class VersionDetail   {
   private Integer id;
   private String name;
@@ -47,6 +47,7 @@ public class VersionDetail   {
   }
 
   /**
+   * The identifier for this resource.
    **/
   public VersionDetail id(Integer id) {
     this.id = id;
@@ -54,7 +55,7 @@ public class VersionDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   @JsonProperty(required = true, value = "id")
   public Integer getId() {
     return id;
@@ -66,6 +67,7 @@ public class VersionDetail   {
   }
 
   /**
+   * The name for this resource.
    **/
   public VersionDetail name(String name) {
     this.name = name;
@@ -73,9 +75,9 @@ public class VersionDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   @JsonProperty(required = true, value = "name")
-  @NotNull  @Size(max=100)public String getName() {
+  @NotNull  @Size(max=200)public String getName() {
     return name;
   }
 
@@ -85,6 +87,7 @@ public class VersionDetail   {
   }
 
   /**
+   * The name of this resource listed in different languages.
    **/
   public VersionDetail names(List<@Valid VersionName> names) {
     this.names = names;
@@ -92,7 +95,7 @@ public class VersionDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
   @JsonProperty(required = true, value = "names")
   public List<@Valid VersionName> getNames() {
     return names;
@@ -120,6 +123,7 @@ public class VersionDetail   {
     return this;
   }
   /**
+   * The version group this version belongs to.
    **/
   public VersionDetail versionGroup(VersionGroupSummary versionGroup) {
     this.versionGroup = versionGroup;
@@ -127,7 +131,7 @@ public class VersionDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The version group this version belongs to.")
   @JsonProperty(required = true, value = "version_group")
   @NotNull @Valid public VersionGroupSummary getVersionGroup() {
     return versionGroup;

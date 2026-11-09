@@ -21,8 +21,6 @@ Berries can be soft or hard. Check out [Bulbapedia](http://bulbapedia.bulbagarde
 
 ### Example
 
-* Basic Authentication (basicAuth):
-* Api Key Authentication (cookieAuth):
 ```python
 import time
 import os
@@ -37,22 +35,6 @@ configuration = openapi_client.Configuration(
     host = "https://pokeapi.co"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure HTTP basic authorization: basicAuth
-configuration = openapi_client.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
-)
-
-# Configure API key authorization: cookieAuth
-configuration.api_key['cookieAuth'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['cookieAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
@@ -87,7 +69,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -110,8 +92,6 @@ Berries can be soft or hard. Check out [Bulbapedia](http://bulbapedia.bulbagarde
 
 ### Example
 
-* Basic Authentication (basicAuth):
-* Api Key Authentication (cookieAuth):
 ```python
 import time
 import os
@@ -126,28 +106,12 @@ configuration = openapi_client.Configuration(
     host = "https://pokeapi.co"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure HTTP basic authorization: basicAuth
-configuration = openapi_client.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
-)
-
-# Configure API key authorization: cookieAuth
-configuration.api_key['cookieAuth'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['cookieAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.BerriesApi(api_client)
-    id = 'id_example' # str | This parameter can be a string or an integer.
+    id = '1' # str | This parameter can be a string or an integer.
 
     try:
         # Get berry by firmness
@@ -172,7 +136,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -195,8 +159,6 @@ Flavors determine whether a Pokémon will benefit or suffer from eating a berry 
 
 ### Example
 
-* Basic Authentication (basicAuth):
-* Api Key Authentication (cookieAuth):
 ```python
 import time
 import os
@@ -211,22 +173,6 @@ configuration = openapi_client.Configuration(
     host = "https://pokeapi.co"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure HTTP basic authorization: basicAuth
-configuration = openapi_client.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
-)
-
-# Configure API key authorization: cookieAuth
-configuration.api_key['cookieAuth'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['cookieAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
@@ -261,7 +207,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -284,8 +230,6 @@ Flavors determine whether a Pokémon will benefit or suffer from eating a berry 
 
 ### Example
 
-* Basic Authentication (basicAuth):
-* Api Key Authentication (cookieAuth):
 ```python
 import time
 import os
@@ -300,28 +244,12 @@ configuration = openapi_client.Configuration(
     host = "https://pokeapi.co"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure HTTP basic authorization: basicAuth
-configuration = openapi_client.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
-)
-
-# Configure API key authorization: cookieAuth
-configuration.api_key['cookieAuth'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['cookieAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.BerriesApi(api_client)
-    id = 'id_example' # str | This parameter can be a string or an integer.
+    id = '1' # str | This parameter can be a string or an integer.
 
     try:
         # Get berries by flavor
@@ -346,7 +274,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -369,8 +297,6 @@ Berries are small fruits that can provide HP and status condition restoration, s
 
 ### Example
 
-* Basic Authentication (basicAuth):
-* Api Key Authentication (cookieAuth):
 ```python
 import time
 import os
@@ -385,22 +311,6 @@ configuration = openapi_client.Configuration(
     host = "https://pokeapi.co"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure HTTP basic authorization: basicAuth
-configuration = openapi_client.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
-)
-
-# Configure API key authorization: cookieAuth
-configuration.api_key['cookieAuth'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['cookieAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
@@ -435,7 +345,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -458,8 +368,6 @@ Berries are small fruits that can provide HP and status condition restoration, s
 
 ### Example
 
-* Basic Authentication (basicAuth):
-* Api Key Authentication (cookieAuth):
 ```python
 import time
 import os
@@ -474,28 +382,12 @@ configuration = openapi_client.Configuration(
     host = "https://pokeapi.co"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure HTTP basic authorization: basicAuth
-configuration = openapi_client.Configuration(
-    username = os.environ["USERNAME"],
-    password = os.environ["PASSWORD"]
-)
-
-# Configure API key authorization: cookieAuth
-configuration.api_key['cookieAuth'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['cookieAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.BerriesApi(api_client)
-    id = 'id_example' # str | This parameter can be a string or an integer.
+    id = '1' # str | This parameter can be a string or an integer.
 
     try:
         # Get a berry
@@ -520,7 +412,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

@@ -6,9 +6,9 @@ namespace App\DTO;
 use Articus\DataTransfer\Annotation as DTA;
 
 /**
- * @DTA\Strategy(name="ObjectList", options={"type":\App\DTO\MoveChangeEffectEntriesInner::class})
+ * @DTA\Strategy(name="ObjectList", options={"type":\App\DTO\LocationAreaPokemonEncounter::class})
  * @DTA\Validator(name="Collection", options={"validators":{
- *     {"name":"TypeCompliant", "options":{"type":\App\DTO\MoveChangeEffectEntriesInner::class}}
+ *     {"name":"TypeCompliant", "options":{"type":\App\DTO\LocationAreaPokemonEncounter::class}}
  * }})
  */
 class Collection92 extends \ArrayObject

@@ -4,10 +4,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** |  | [readonly] 
-**name** | **str** |  | 
-**order** | **int** |  | [optional] 
-**names** | [**List[EncounterMethodName]**](EncounterMethodName.md) |  | [readonly] 
+**id** | **int** | The identifier for this resource. | [readonly] 
+**name** | **str** | The name for this resource. | 
+**order** | **int** | A good value for sorting. | [optional] 
+**names** | [**List[EncounterMethodName]**](EncounterMethodName.md) | The name of this resource listed in different languages. | [readonly] 
 
 ## Example
 

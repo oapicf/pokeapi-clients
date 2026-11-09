@@ -1,6 +1,6 @@
 package org.openapitools.model;
 
-import org.openapitools.model.BerryFlavorDetailBerriesInner;
+import org.openapitools.model.BerryFlavorBerryMap;
 import org.openapitools.model.BerryFlavorName;
 import org.openapitools.model.ContestTypeSummary;
 import java.util.*;
@@ -15,23 +15,38 @@ import java.math.*;
 public class BerryFlavorDetail implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * The identifier for this resource.
+   */
   @JsonProperty("id")
   private Integer id;
 
+  /**
+   * The name for this resource.
+   */
   @JsonProperty("name")
   private String name;
 
+  /**
+   * A list of the berries with this flavor.
+   */
   @JsonProperty("berries")
-  private List<BerryFlavorDetailBerriesInner> berries = new ArrayList<>();
+  private List<BerryFlavorBerryMap> berries = new ArrayList<>();
 
+  /**
+   * The contest type that correlates with this berry flavor.
+   */
   @JsonProperty("contest_type")
   private ContestTypeSummary contestType;
 
+  /**
+   * The name of this resource listed in different languages.
+   */
   @JsonProperty("names")
   private List<BerryFlavorName> names = new ArrayList<>();
 
   /**
-   * 
+   * The identifier for this resource.
    * @return id
    */
   public Integer getId() {
@@ -43,7 +58,7 @@ public class BerryFlavorDetail implements Serializable {
   }
 
   /**
-   * 
+   * The name for this resource.
    * @return name
    */
   public String getName() {
@@ -55,19 +70,19 @@ public class BerryFlavorDetail implements Serializable {
   }
 
   /**
-   * 
+   * A list of the berries with this flavor.
    * @return berries
    */
-  public List<BerryFlavorDetailBerriesInner> getBerries() {
+  public List<BerryFlavorBerryMap> getBerries() {
     return berries;
   }
 
-  public void setBerries(List<BerryFlavorDetailBerriesInner> berries) {
+  public void setBerries(List<BerryFlavorBerryMap> berries) {
     this.berries = berries;
   }
 
   /**
-   * 
+   * The contest type that correlates with this berry flavor.
    * @return contestType
    */
   public ContestTypeSummary getContestType() {
@@ -79,7 +94,7 @@ public class BerryFlavorDetail implements Serializable {
   }
 
   /**
-   * 
+   * The name of this resource listed in different languages.
    * @return names
    */
   public List<BerryFlavorName> getNames() {

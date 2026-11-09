@@ -12,7 +12,7 @@ import org.openapitools.model.VersionSummary;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-10-25T05:47:53.227411880Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-11-09T13:49:15.621225368Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PokemonSpeciesFlavorText   {
   @JsonProperty("flavor_text")
   private String flavorText;
@@ -24,6 +24,7 @@ public class PokemonSpeciesFlavorText   {
   private VersionSummary version;
 
   /**
+   * The localized flavor text for an API resource in a specific language. Note that this text is left unprocessed as it is found in game files. This means that it contains special characters that one might want to replace with their visible decodable version. Please check out this <a href='https://github.com/veekun/pokedex/issues/218#issuecomment-339841781' >issue</a> to find out more. 
    **/
   public PokemonSpeciesFlavorText flavorText(String flavorText) {
     this.flavorText = flavorText;
@@ -31,7 +32,7 @@ public class PokemonSpeciesFlavorText   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The localized flavor text for an API resource in a specific language. Note that this text is left unprocessed as it is found in game files. This means that it contains special characters that one might want to replace with their visible decodable version. Please check out this <a href='https://github.com/veekun/pokedex/issues/218#issuecomment-339841781' >issue</a> to find out more. ")
   @JsonProperty("flavor_text")
   public String getFlavorText() {
     return flavorText;
@@ -41,6 +42,7 @@ public class PokemonSpeciesFlavorText   {
   }
 
   /**
+   * The language this name is in.
    **/
   public PokemonSpeciesFlavorText language(LanguageSummary language) {
     this.language = language;
@@ -48,7 +50,7 @@ public class PokemonSpeciesFlavorText   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The language this name is in.")
   @JsonProperty("language")
   public LanguageSummary getLanguage() {
     return language;
@@ -58,6 +60,7 @@ public class PokemonSpeciesFlavorText   {
   }
 
   /**
+   * The game version this flavor text is extracted from.
    **/
   public PokemonSpeciesFlavorText version(VersionSummary version) {
     this.version = version;
@@ -65,7 +68,7 @@ public class PokemonSpeciesFlavorText   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The game version this flavor text is extracted from.")
   @JsonProperty("version")
   public VersionSummary getVersion() {
     return version;

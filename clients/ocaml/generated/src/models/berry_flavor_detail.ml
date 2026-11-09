@@ -15,29 +15,34 @@
                 
                 
                 ; [@key "id"]
-                                              name: string
+                    (** The identifier for this resource. *)
+                                      name: string
                   
                   
                 
                 
                 ; [@key "name"]
-                                              berries: Berry_flavor_detail_berries_inner.t list
+                    (** The name for this resource. *)
+                                      berries: Berry_flavor_berry_map.t list
                 
                 
                 ; [@key "berries"]
-                                              contest_type: Contest_type_summary.t
+                    (** A list of the berries with this flavor. *)
+                                      contest_type: Contest_type_summary.t
                   
                   
                 
                 
                 ; [@key "contest_type"]
-                                              names: Berry_flavor_name.t list
+                    (** The contest type that correlates with this berry flavor. *)
+                                      names: Berry_flavor_name.t list
                 
                 
                 ; [@key "names"]
-                        } [@@deriving yojson { strict = false }, show, eq ];;
+                    (** The name of this resource listed in different languages. *)
+                } [@@deriving yojson { strict = false }, show, eq ];;
         
-        let create (id : int32) (name : string) (berries : Berry_flavor_detail_berries_inner.t list) (contest_type : Contest_type_summary.t) (names : Berry_flavor_name.t list) : t = {
+        let create (id : int32) (name : string) (berries : Berry_flavor_berry_map.t list) (contest_type : Contest_type_summary.t) (names : Berry_flavor_name.t list) : t = {
             id = id;
             name = name;
             berries = berries;

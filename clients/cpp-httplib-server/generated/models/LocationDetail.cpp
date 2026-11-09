@@ -11,7 +11,7 @@ namespace models {
 LocationDetail::LocationDetail()
 : id(0)
 , name("")
-, region(RegionSummary())
+, region(std::nullopt)
 , names(std::vector<LocationName>())
 , gameIndices(std::vector<LocationGameIndex>())
 , areas(std::vector<LocationAreaSummary>())

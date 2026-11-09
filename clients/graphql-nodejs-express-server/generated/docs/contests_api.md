@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 <a name="ContestEffectList"></a>
 # **ContestEffectList**
-> PaginatedContestEffectSummaryList ContestEffectList(limit, offset, q)
+> PaginatedContestEffectSummaryList ContestEffectList(limit, offset)
 
 List contest effects
 
@@ -42,7 +42,7 @@ Get contest type
 Contest types are categories judges used to weigh a Pokémon&#39;s condition in Pokémon contests. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Contest_condition) for greater detail.
 <a name="SuperContestEffectList"></a>
 # **SuperContestEffectList**
-> PaginatedSuperContestEffectSummaryList SuperContestEffectList(limit, offset, q)
+> PaginatedSuperContestEffectSummaryList SuperContestEffectList(limit, offset)
 
 List super contest effects
 

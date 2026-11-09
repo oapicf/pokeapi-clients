@@ -10,8 +10,8 @@
 #include <cstdint>
 #include <string>
 #include <vector>
-#include "PalParkAreaDetailPokemonEncountersInner.h"
 #include "PalParkAreaName.h"
+#include "PalParkEncounter.h"
 
 
 
@@ -32,8 +32,8 @@ public:
     void setName(const std::string& name);
     [[nodiscard]] std::vector<PalParkAreaName> getNames() const;
     void setNames(const std::vector<PalParkAreaName>& names);
-    [[nodiscard]] std::vector<PalParkAreaDetail_pokemon_encounters_inner> getPokemonEncounters() const;
-    void setPokemonEncounters(const std::vector<PalParkAreaDetail_pokemon_encounters_inner>& pokemonEncounters);
+    [[nodiscard]] std::vector<PalParkEncounter> getPokemonEncounters() const;
+    void setPokemonEncounters(const std::vector<PalParkEncounter>& pokemonEncounters);
 
 
     // JSON serialization using NLOHMANN INTRUSIVE macro (must be inside class to access private members)
@@ -44,7 +44,7 @@ private:
     int id;
     std::string name;
     std::vector<PalParkAreaName> names;
-    std::vector<PalParkAreaDetail_pokemon_encounters_inner> pokemonEncounters;
+    std::vector<PalParkEncounter> pokemonEncounters;
 };
 
 

@@ -107,9 +107,37 @@ function language_retrieve_invoke(impl; post_invoke=nothing)
     end
 end
 
+function meta_retrieve_read(handler)
+    function meta_retrieve_read_handler(req::HTTP.Request)
+        openapi_params = Dict{String,Any}()
+        req.context[:openapi_params] = openapi_params
+
+        return handler(req)
+    end
+end
+
+function meta_retrieve_validate(handler)
+    function meta_retrieve_validate_handler(req::HTTP.Request)
+        openapi_params = req.context[:openapi_params]
+        op = "meta_retrieve"
+
+        return handler(req)
+    end
+end
+
+function meta_retrieve_invoke(impl; post_invoke=nothing)
+    function meta_retrieve_invoke_handler(req::HTTP.Request)
+        openapi_params = req.context[:openapi_params]
+        ret = impl.meta_retrieve(req::HTTP.Request;)
+        resp = OpenAPI.Servers.server_response(ret)
+        return (post_invoke === nothing) ? resp : post_invoke(req, resp)
+    end
+end
+
 
 function registerUtilityApi(router::HTTP.Router, impl; path_prefix::String="", optional_middlewares...)
     HTTP.register!(router, "GET", path_prefix * "/api/v2/language/", OpenAPI.Servers.middleware(impl, language_list_read, language_list_validate, language_list_invoke; optional_middlewares...))
     HTTP.register!(router, "GET", path_prefix * "/api/v2/language/{id}/", OpenAPI.Servers.middleware(impl, language_retrieve_read, language_retrieve_validate, language_retrieve_invoke; optional_middlewares...))
+    HTTP.register!(router, "GET", path_prefix * "/api/v2/meta/", OpenAPI.Servers.middleware(impl, meta_retrieve_read, meta_retrieve_validate, meta_retrieve_invoke; optional_middlewares...))
     return router
 end

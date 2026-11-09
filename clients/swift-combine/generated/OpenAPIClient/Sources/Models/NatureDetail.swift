@@ -8,25 +8,32 @@
 import Foundation
 
 public struct NatureDetail: Codable {
+    /// The identifier for this resource.
     public var id: Int
+    /// The name for this resource.
     public var name: String
-    public var decreasedStat: StatSummary
-    public var increasedStat: StatSummary
-    public var likesFlavor: BerryFlavorSummary
-    public var hatesFlavor: BerryFlavorSummary
-    public var berries: [BerrySummary]
-    public var pokeathlonStatChanges: [NatureDetailPokeathlonStatChangesInner]
+    /// The stat decreased by 10% in Pokémon with this nature.
+    public var decreasedStat: StatSummary?
+    /// The stat increased by 10% in Pokémon with this nature.
+    public var increasedStat: StatSummary?
+    /// The flavor liked by Pokémon with this nature.
+    public var likesFlavor: BerryFlavorSummary?
+    /// The flavor hated by Pokémon with this nature.
+    public var hatesFlavor: BerryFlavorSummary?
+    /// A list of Pokéathlon stats this nature effects and how much it effects them.
+    public var pokeathlonStatChanges: [NaturePokeathlonStat]
+    /// A list of battle styles and how likely a Pokémon with this nature is to use them in the Battle Palace or Battle Tent.
     public var moveBattleStylePreferences: [NatureBattleStylePreference]
+    /// The name of this resource listed in different languages.
     public var names: [NatureName]
 
-    public init(id: Int, name: String, decreasedStat: StatSummary, increasedStat: StatSummary, likesFlavor: BerryFlavorSummary, hatesFlavor: BerryFlavorSummary, berries: [BerrySummary], pokeathlonStatChanges: [NatureDetailPokeathlonStatChangesInner], moveBattleStylePreferences: [NatureBattleStylePreference], names: [NatureName]) {
+    public init(id: Int, name: String, decreasedStat: StatSummary?, increasedStat: StatSummary?, likesFlavor: BerryFlavorSummary?, hatesFlavor: BerryFlavorSummary?, pokeathlonStatChanges: [NaturePokeathlonStat], moveBattleStylePreferences: [NatureBattleStylePreference], names: [NatureName]) {
         self.id = id
         self.name = name
         self.decreasedStat = decreasedStat
         self.increasedStat = increasedStat
         self.likesFlavor = likesFlavor
         self.hatesFlavor = hatesFlavor
-        self.berries = berries
         self.pokeathlonStatChanges = pokeathlonStatChanges
         self.moveBattleStylePreferences = moveBattleStylePreferences
         self.names = names
@@ -39,7 +46,6 @@ public struct NatureDetail: Codable {
         case increasedStat = "increased_stat"
         case likesFlavor = "likes_flavor"
         case hatesFlavor = "hates_flavor"
-        case berries
         case pokeathlonStatChanges = "pokeathlon_stat_changes"
         case moveBattleStylePreferences = "move_battle_style_preferences"
         case names
@@ -53,8 +59,7 @@ public struct NatureDetail: Codable {
         increasedStat = try container.decode(StatSummary.self, forKey: .increasedStat)
         likesFlavor = try container.decode(BerryFlavorSummary.self, forKey: .likesFlavor)
         hatesFlavor = try container.decode(BerryFlavorSummary.self, forKey: .hatesFlavor)
-        berries = try container.decode([BerrySummary].self, forKey: .berries)
-        pokeathlonStatChanges = try container.decode([NatureDetailPokeathlonStatChangesInner].self, forKey: .pokeathlonStatChanges)
+        pokeathlonStatChanges = try container.decode([NaturePokeathlonStat].self, forKey: .pokeathlonStatChanges)
         moveBattleStylePreferences = try container.decode([NatureBattleStylePreference].self, forKey: .moveBattleStylePreferences)
         names = try container.decode([NatureName].self, forKey: .names)
     }
@@ -67,7 +72,6 @@ public struct NatureDetail: Codable {
         try container.encode(increasedStat, forKey: .increasedStat)
         try container.encode(likesFlavor, forKey: .likesFlavor)
         try container.encode(hatesFlavor, forKey: .hatesFlavor)
-        try container.encode(berries, forKey: .berries)
         try container.encode(pokeathlonStatChanges, forKey: .pokeathlonStatChanges)
         try container.encode(moveBattleStylePreferences, forKey: .moveBattleStylePreferences)
         try container.encode(names, forKey: .names)

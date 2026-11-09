@@ -11,10 +11,10 @@
         names=nothing,
     )
 
-    - id::Int64
-    - name::String
-    - categories::Vector{ItemCategorySummary}
-    - names::Vector{ItemPocketName}
+    - id::Int64 : The identifier for this resource.
+    - name::String : The name for this resource.
+    - categories::Vector{ItemCategorySummary} : A list of item categories that are relevant to this item pocket.
+    - names::Vector{ItemPocketName} : The name of this resource listed in different languages.
 """
 Base.@kwdef mutable struct ItemPocketDetail <: OpenAPI.APIModel
     id::Union{Nothing, Int64} = nothing
@@ -51,7 +51,7 @@ function OpenAPI.validate_property(::Type{ ItemPocketDetail }, name::Symbol, val
 
 
     if name === Symbol("name")
-        OpenAPI.validate_param(name, "ItemPocketDetail", :maxLength, val, 100)
+        OpenAPI.validate_param(name, "ItemPocketDetail", :maxLength, val, 200)
     end
 
 

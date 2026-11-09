@@ -11,9 +11,10 @@ part 'machine_summary.g.dart';
 /// MachineSummary
 ///
 /// Properties:
-/// * [url] 
+/// * [url] - The URL of the referenced resource.
 @BuiltValue()
 abstract class MachineSummary implements Built<MachineSummary, MachineSummaryBuilder> {
+  /// The URL of the referenced resource.
   @BuiltValueField(wireName: r'url')
   String get url;
 

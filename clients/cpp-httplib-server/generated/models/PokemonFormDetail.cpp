@@ -17,12 +17,11 @@ PokemonFormDetail::PokemonFormDetail()
 , isBattleOnly(false)
 , isMega(false)
 , formName("")
-, pokemon(PokemonSummary())
-, sprites(std::make_shared<PokemonFormDetailSprites>())
-, versionGroup(VersionGroupSummary())
-, formNames(std::vector<PokemonFormDetail_form_names_inner>())
-, names(std::vector<PokemonFormDetail_names_inner>())
-, types(std::vector<PokemonFormDetail_types_inner>())
+, formNames(std::vector<PokemonFormName>())
+, names(std::vector<PokemonFormName>())
+, types(std::vector<PokemonFormType>())
+, triggerConditions(std::vector<PokemonFormTriggerCondition>())
+, flavorTextEntries(std::vector<PokemonFormFlavorText>())
 {
 }
 // =========================================
@@ -67,7 +66,7 @@ PokemonSummary PokemonFormDetail::getPokemon() const
 {
     return pokemon;
 }
-PokemonFormDetailSprites PokemonFormDetail::getSprites() const
+PokemonFormSprites PokemonFormDetail::getSprites() const
 {
     return sprites;
 }
@@ -75,17 +74,25 @@ VersionGroupSummary PokemonFormDetail::getVersionGroup() const
 {
     return versionGroup;
 }
-std::vector<PokemonFormDetail_form_names_inner> PokemonFormDetail::getFormNames() const
+std::vector<PokemonFormName> PokemonFormDetail::getFormNames() const
 {
     return formNames;
 }
-std::vector<PokemonFormDetail_names_inner> PokemonFormDetail::getNames() const
+std::vector<PokemonFormName> PokemonFormDetail::getNames() const
 {
     return names;
 }
-std::vector<PokemonFormDetail_types_inner> PokemonFormDetail::getTypes() const
+std::vector<PokemonFormType> PokemonFormDetail::getTypes() const
 {
     return types;
+}
+std::vector<PokemonFormTriggerCondition> PokemonFormDetail::getTriggerConditions() const
+{
+    return triggerConditions;
+}
+std::vector<PokemonFormFlavorText> PokemonFormDetail::getFlavorTextEntries() const
+{
+    return flavorTextEntries;
 }
 
 // ===================
@@ -127,7 +134,7 @@ void PokemonFormDetail::setPokemon(const PokemonSummary& pokemonObj)
 {
     pokemon = pokemonObj;
 }
-void PokemonFormDetail::setSprites(const PokemonFormDetailSprites& spritesObj)
+void PokemonFormDetail::setSprites(const PokemonFormSprites& spritesObj)
 {
     sprites = spritesObj;
 }
@@ -135,17 +142,25 @@ void PokemonFormDetail::setVersionGroup(const VersionGroupSummary& versionGroupO
 {
     versionGroup = versionGroupObj;
 }
-void PokemonFormDetail::setFormNames(const std::vector<PokemonFormDetail_form_names_inner>& formNamesObj)
+void PokemonFormDetail::setFormNames(const std::vector<PokemonFormName>& formNamesObj)
 {
     formNames = formNamesObj;
 }
-void PokemonFormDetail::setNames(const std::vector<PokemonFormDetail_names_inner>& namesObj)
+void PokemonFormDetail::setNames(const std::vector<PokemonFormName>& namesObj)
 {
     names = namesObj;
 }
-void PokemonFormDetail::setTypes(const std::vector<PokemonFormDetail_types_inner>& typesObj)
+void PokemonFormDetail::setTypes(const std::vector<PokemonFormType>& typesObj)
 {
     types = typesObj;
+}
+void PokemonFormDetail::setTriggerConditions(const std::vector<PokemonFormTriggerCondition>& triggerConditionsObj)
+{
+    triggerConditions = triggerConditionsObj;
+}
+void PokemonFormDetail::setFlavorTextEntries(const std::vector<PokemonFormFlavorText>& flavorTextEntriesObj)
+{
+    flavorTextEntries = flavorTextEntriesObj;
 }
 
 

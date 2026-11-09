@@ -11,10 +11,10 @@
         names=nothing,
     )
 
-    - id::Int64
-    - name::String
-    - values::Vector{EncounterConditionValueSummary}
-    - names::Vector{EncounterConditionName}
+    - id::Int64 : The identifier for this resource.
+    - name::String : The name for this resource.
+    - values::Vector{EncounterConditionValueSummary} : A list of possible values for this encounter condition.
+    - names::Vector{EncounterConditionName} : The name of this resource listed in different languages.
 """
 Base.@kwdef mutable struct EncounterConditionDetail <: OpenAPI.APIModel
     id::Union{Nothing, Int64} = nothing
@@ -51,7 +51,7 @@ function OpenAPI.validate_property(::Type{ EncounterConditionDetail }, name::Sym
 
 
     if name === Symbol("name")
-        OpenAPI.validate_param(name, "EncounterConditionDetail", :maxLength, val, 100)
+        OpenAPI.validate_param(name, "EncounterConditionDetail", :maxLength, val, 200)
     end
 
 

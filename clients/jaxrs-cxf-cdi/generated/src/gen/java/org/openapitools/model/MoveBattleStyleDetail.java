@@ -26,6 +26,7 @@ public class MoveBattleStyleDetail   {
   private List<@Valid MoveBattleStyleName> names = new ArrayList<>();
 
   /**
+   * The identifier for this resource.
    **/
   public MoveBattleStyleDetail id(Integer id) {
     this.id = id;
@@ -33,7 +34,7 @@ public class MoveBattleStyleDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   @JsonProperty("id")
   @NotNull
   public Integer getId() {
@@ -45,6 +46,7 @@ public class MoveBattleStyleDetail   {
 
 
   /**
+   * The name for this resource.
    **/
   public MoveBattleStyleDetail name(String name) {
     this.name = name;
@@ -52,10 +54,10 @@ public class MoveBattleStyleDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   @JsonProperty("name")
   @NotNull
- @Size(max=100)  public String getName() {
+ @Size(max=200)  public String getName() {
     return name;
   }
   public void setName(String name) {
@@ -64,6 +66,7 @@ public class MoveBattleStyleDetail   {
 
 
   /**
+   * The name of this resource listed in different languages.
    **/
   public MoveBattleStyleDetail names(List<@Valid MoveBattleStyleName> names) {
     this.names = names;
@@ -71,7 +74,7 @@ public class MoveBattleStyleDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
   @JsonProperty("names")
   @NotNull
   public List<@Valid MoveBattleStyleName> getNames() {

@@ -10,8 +10,9 @@ static stat_detail_t *stat_detail_create_internal(
     char *name,
     int *game_index,
     int *is_battle_only,
-    stat_detail_affecting_moves_t *affecting_moves,
-    stat_detail_affecting_natures_t *affecting_natures,
+    stat_affecting_moves_t *affecting_moves,
+    stat_affecting_natures_t *affecting_natures,
+    list_t *affecting_items,
     list_t *characteristics,
     move_damage_class_summary_t *move_damage_class,
     list_t *names
@@ -28,6 +29,7 @@ static stat_detail_t *stat_detail_create_internal(
     stat_detail_local_var->is_battle_only = is_battle_only;
     stat_detail_local_var->affecting_moves = affecting_moves;
     stat_detail_local_var->affecting_natures = affecting_natures;
+    stat_detail_local_var->affecting_items = affecting_items;
     stat_detail_local_var->characteristics = characteristics;
     stat_detail_local_var->move_damage_class = move_damage_class;
     stat_detail_local_var->names = names;
@@ -39,8 +41,9 @@ __attribute__((deprecated)) stat_detail_t *stat_detail_create(
     char *name,
     int *game_index,
     int *is_battle_only,
-    stat_detail_affecting_moves_t *affecting_moves,
-    stat_detail_affecting_natures_t *affecting_natures,
+    stat_affecting_moves_t *affecting_moves,
+    stat_affecting_natures_t *affecting_natures,
+    list_t *affecting_items,
     list_t *characteristics,
     move_damage_class_summary_t *move_damage_class,
     list_t *names
@@ -67,6 +70,7 @@ __attribute__((deprecated)) stat_detail_t *stat_detail_create(
         is_battle_only_copy,
         affecting_moves,
         affecting_natures,
+        affecting_items,
         characteristics,
         move_damage_class,
         names
@@ -105,12 +109,19 @@ void stat_detail_free(stat_detail_t *stat_detail) {
         stat_detail->is_battle_only = NULL;
     }
     if (stat_detail->affecting_moves) {
-        stat_detail_affecting_moves_free(stat_detail->affecting_moves);
+        stat_affecting_moves_free(stat_detail->affecting_moves);
         stat_detail->affecting_moves = NULL;
     }
     if (stat_detail->affecting_natures) {
-        stat_detail_affecting_natures_free(stat_detail->affecting_natures);
+        stat_affecting_natures_free(stat_detail->affecting_natures);
         stat_detail->affecting_natures = NULL;
+    }
+    if (stat_detail->affecting_items) {
+        list_ForEach(listEntry, stat_detail->affecting_items) {
+            item_summary_free(listEntry->data);
+        }
+        list_freeList(stat_detail->affecting_items);
+        stat_detail->affecting_items = NULL;
     }
     if (stat_detail->characteristics) {
         list_ForEach(listEntry, stat_detail->characteristics) {
@@ -175,7 +186,7 @@ cJSON *stat_detail_convertToJSON(stat_detail_t *stat_detail) {
     if (!stat_detail->affecting_moves) {
         goto fail;
     }
-    cJSON *affecting_moves_local_JSON = stat_detail_affecting_moves_convertToJSON(stat_detail->affecting_moves);
+    cJSON *affecting_moves_local_JSON = stat_affecting_moves_convertToJSON(stat_detail->affecting_moves);
     if(affecting_moves_local_JSON == NULL) {
     goto fail; //model
     }
@@ -189,13 +200,34 @@ cJSON *stat_detail_convertToJSON(stat_detail_t *stat_detail) {
     if (!stat_detail->affecting_natures) {
         goto fail;
     }
-    cJSON *affecting_natures_local_JSON = stat_detail_affecting_natures_convertToJSON(stat_detail->affecting_natures);
+    cJSON *affecting_natures_local_JSON = stat_affecting_natures_convertToJSON(stat_detail->affecting_natures);
     if(affecting_natures_local_JSON == NULL) {
     goto fail; //model
     }
     cJSON_AddItemToObject(item, "affecting_natures", affecting_natures_local_JSON);
     if(item->child == NULL) {
     goto fail;
+    }
+
+
+    // stat_detail->affecting_items
+    if (!stat_detail->affecting_items) {
+        goto fail;
+    }
+    cJSON *affecting_items = cJSON_AddArrayToObject(item, "affecting_items");
+    if(affecting_items == NULL) {
+    goto fail; //nonprimitive container
+    }
+
+    listEntry_t *affecting_itemsListEntry;
+    if (stat_detail->affecting_items) {
+    list_ForEach(affecting_itemsListEntry, stat_detail->affecting_items) {
+    cJSON *itemLocal = item_summary_convertToJSON(affecting_itemsListEntry->data);
+    if(itemLocal == NULL) {
+    goto fail;
+    }
+    cJSON_AddItemToArray(affecting_items, itemLocal);
+    }
     }
 
 
@@ -278,10 +310,13 @@ stat_detail_t *stat_detail_parseFromJSON(cJSON *stat_detailJSON){
     int *is_battle_only_local_var = NULL;
 
     // define the local variable for stat_detail->affecting_moves
-    stat_detail_affecting_moves_t *affecting_moves_local_nonprim = NULL;
+    stat_affecting_moves_t *affecting_moves_local_nonprim = NULL;
 
     // define the local variable for stat_detail->affecting_natures
-    stat_detail_affecting_natures_t *affecting_natures_local_nonprim = NULL;
+    stat_affecting_natures_t *affecting_natures_local_nonprim = NULL;
+
+    // define the local list for stat_detail->affecting_items
+    list_t *affecting_itemsList = NULL;
 
     // define the local list for stat_detail->characteristics
     list_t *characteristicsList = NULL;
@@ -377,7 +412,7 @@ stat_detail_t *stat_detail_parseFromJSON(cJSON *stat_detailJSON){
     }
 
     
-    affecting_moves_local_nonprim = stat_detail_affecting_moves_parseFromJSON(affecting_moves); //nonprimitive
+    affecting_moves_local_nonprim = stat_affecting_moves_parseFromJSON(affecting_moves); //nonprimitive
 
     // stat_detail->affecting_natures
     cJSON *affecting_natures = cJSON_GetObjectItemCaseSensitive(stat_detailJSON, "affecting_natures");
@@ -389,7 +424,34 @@ stat_detail_t *stat_detail_parseFromJSON(cJSON *stat_detailJSON){
     }
 
     
-    affecting_natures_local_nonprim = stat_detail_affecting_natures_parseFromJSON(affecting_natures); //nonprimitive
+    affecting_natures_local_nonprim = stat_affecting_natures_parseFromJSON(affecting_natures); //nonprimitive
+
+    // stat_detail->affecting_items
+    cJSON *affecting_items = cJSON_GetObjectItemCaseSensitive(stat_detailJSON, "affecting_items");
+    if (cJSON_IsNull(affecting_items)) {
+        affecting_items = NULL;
+    }
+    if (!affecting_items) {
+        goto end;
+    }
+
+    
+    cJSON *affecting_items_local_nonprimitive = NULL;
+    if(!cJSON_IsArray(affecting_items)){
+        goto end; //nonprimitive container
+    }
+
+    affecting_itemsList = list_createList();
+
+    cJSON_ArrayForEach(affecting_items_local_nonprimitive,affecting_items )
+    {
+        if(!cJSON_IsObject(affecting_items_local_nonprimitive)){
+            goto end;
+        }
+        item_summary_t *affecting_itemsItem = item_summary_parseFromJSON(affecting_items_local_nonprimitive);
+
+        list_addElement(affecting_itemsList, affecting_itemsItem);
+    }
 
     // stat_detail->characteristics
     cJSON *characteristics = cJSON_GetObjectItemCaseSensitive(stat_detailJSON, "characteristics");
@@ -467,6 +529,7 @@ stat_detail_t *stat_detail_parseFromJSON(cJSON *stat_detailJSON){
         is_battle_only_local_var,
         affecting_moves_local_nonprim,
         affecting_natures_local_nonprim,
+        affecting_itemsList,
         characteristicsList,
         move_damage_class_local_nonprim,
         namesList
@@ -495,12 +558,21 @@ end:
         is_battle_only_local_var = NULL;
     }
     if (affecting_moves_local_nonprim) {
-        stat_detail_affecting_moves_free(affecting_moves_local_nonprim);
+        stat_affecting_moves_free(affecting_moves_local_nonprim);
         affecting_moves_local_nonprim = NULL;
     }
     if (affecting_natures_local_nonprim) {
-        stat_detail_affecting_natures_free(affecting_natures_local_nonprim);
+        stat_affecting_natures_free(affecting_natures_local_nonprim);
         affecting_natures_local_nonprim = NULL;
+    }
+    if (affecting_itemsList) {
+        listEntry_t *listEntry = NULL;
+        list_ForEach(listEntry, affecting_itemsList) {
+            item_summary_free(listEntry->data);
+            listEntry->data = NULL;
+        }
+        list_freeList(affecting_itemsList);
+        affecting_itemsList = NULL;
     }
     if (characteristicsList) {
         listEntry_t *listEntry = NULL;

@@ -8,28 +8,50 @@
 import Foundation
 
 public struct PokemonDetail: Codable {
+    /// The identifier for this resource.
     public var id: Int
+    /// The name for this resource.
     public var name: String
+    /// The base experience gained for defeating this Pokémon.
     public var baseExperience: Int?
+    /// The height of this Pokémon in decimetres.
     public var height: Int?
+    /// Set for exactly one Pokémon used as the default for each species.
     public var isDefault: Bool?
+    /// Order for sorting. Almost national order, except families are grouped together.
     public var order: Int?
+    /// The weight of this Pokémon in hectograms.
     public var weight: Int?
-    public var abilities: [PokemonDetailAbilitiesInner]
-    public var pastAbilities: [PokemonDetailPastAbilitiesInner]
+    /// A list of abilities this Pokémon could potentially have.
+    public var abilities: [PokemonAbility]
+    /// A list of details showing abilities this pokémon had in previous generations
+    public var pastAbilities: [PokemonPastAbility]
+    /// A list of forms this Pokémon can take on.
     public var forms: [PokemonFormSummary]
+    /// A list of game indices relevent to Pokémon item by generation.
     public var gameIndices: [PokemonGameIndex]
-    public var heldItems: PokemonDetailHeldItems
+    /// A list of items this Pokémon may be holding when encountered.
+    public var heldItems: [PokemonHeldItemSummary]
+    /// A link to a list of location areas, as well as encounter details pertaining to specific versions.
     public var locationAreaEncounters: String
-    public var moves: [PokemonDetailMovesInner]
+    /// A list of moves along with learn methods and level details pertaining to specific version groups.
+    public var moves: [PokemonMove]
+    /// The species this Pokémon belongs to.
     public var species: PokemonSpeciesSummary
-    public var sprites: PokemonDetailSprites
-    public var cries: PokemonDetailCries
+    /// A set of sprites used to depict this Pokémon in the game. A visual representation of the various sprites can be found at <a href='https://github.com/PokeAPI/sprites#sprites'>PokeAPI/sprites</a>
+    public var sprites: PokemonSprites
+    /// A set of cries used to depict this Pokémon in the game. A visual representation of the various cries can be found at <a href='https://github.com/PokeAPI/cries#cries'>PokeAPI/cries</a>
+    public var cries: PokemonCries
+    /// A list of base stat values for this Pokémon.
     public var stats: [PokemonStat]
-    public var types: [PokemonDetailTypesInner]
-    public var pastTypes: [PokemonDetailPastTypesInner]
+    /// A list of details showing stats this pokémon had in previous generations
+    public var pastStats: [PokemonPastStat]
+    /// A list of details showing types this Pokémon has.
+    public var types: [PokemonType]
+    /// A list of details showing types this pokémon had in previous generations
+    public var pastTypes: [PokemonPastType]
 
-    public init(id: Int, name: String, baseExperience: Int? = nil, height: Int? = nil, isDefault: Bool? = nil, order: Int? = nil, weight: Int? = nil, abilities: [PokemonDetailAbilitiesInner], pastAbilities: [PokemonDetailPastAbilitiesInner], forms: [PokemonFormSummary], gameIndices: [PokemonGameIndex], heldItems: PokemonDetailHeldItems, locationAreaEncounters: String, moves: [PokemonDetailMovesInner], species: PokemonSpeciesSummary, sprites: PokemonDetailSprites, cries: PokemonDetailCries, stats: [PokemonStat], types: [PokemonDetailTypesInner], pastTypes: [PokemonDetailPastTypesInner]) {
+    public init(id: Int, name: String, baseExperience: Int? = nil, height: Int? = nil, isDefault: Bool? = nil, order: Int? = nil, weight: Int? = nil, abilities: [PokemonAbility], pastAbilities: [PokemonPastAbility], forms: [PokemonFormSummary], gameIndices: [PokemonGameIndex], heldItems: [PokemonHeldItemSummary], locationAreaEncounters: String, moves: [PokemonMove], species: PokemonSpeciesSummary, sprites: PokemonSprites, cries: PokemonCries, stats: [PokemonStat], pastStats: [PokemonPastStat], types: [PokemonType], pastTypes: [PokemonPastType]) {
         self.id = id
         self.name = name
         self.baseExperience = baseExperience
@@ -48,6 +70,7 @@ public struct PokemonDetail: Codable {
         self.sprites = sprites
         self.cries = cries
         self.stats = stats
+        self.pastStats = pastStats
         self.types = types
         self.pastTypes = pastTypes
     }
@@ -71,6 +94,7 @@ public struct PokemonDetail: Codable {
         case sprites
         case cries
         case stats
+        case pastStats = "past_stats"
         case types
         case pastTypes = "past_types"
     }
@@ -84,19 +108,20 @@ public struct PokemonDetail: Codable {
         isDefault = try container.decodeIfPresent(Bool.self, forKey: .isDefault)
         order = try container.decodeIfPresent(Int.self, forKey: .order)
         weight = try container.decodeIfPresent(Int.self, forKey: .weight)
-        abilities = try container.decode([PokemonDetailAbilitiesInner].self, forKey: .abilities)
-        pastAbilities = try container.decode([PokemonDetailPastAbilitiesInner].self, forKey: .pastAbilities)
+        abilities = try container.decode([PokemonAbility].self, forKey: .abilities)
+        pastAbilities = try container.decode([PokemonPastAbility].self, forKey: .pastAbilities)
         forms = try container.decode([PokemonFormSummary].self, forKey: .forms)
         gameIndices = try container.decode([PokemonGameIndex].self, forKey: .gameIndices)
-        heldItems = try container.decode(PokemonDetailHeldItems.self, forKey: .heldItems)
+        heldItems = try container.decode([PokemonHeldItemSummary].self, forKey: .heldItems)
         locationAreaEncounters = try container.decode(String.self, forKey: .locationAreaEncounters)
-        moves = try container.decode([PokemonDetailMovesInner].self, forKey: .moves)
+        moves = try container.decode([PokemonMove].self, forKey: .moves)
         species = try container.decode(PokemonSpeciesSummary.self, forKey: .species)
-        sprites = try container.decode(PokemonDetailSprites.self, forKey: .sprites)
-        cries = try container.decode(PokemonDetailCries.self, forKey: .cries)
+        sprites = try container.decode(PokemonSprites.self, forKey: .sprites)
+        cries = try container.decode(PokemonCries.self, forKey: .cries)
         stats = try container.decode([PokemonStat].self, forKey: .stats)
-        types = try container.decode([PokemonDetailTypesInner].self, forKey: .types)
-        pastTypes = try container.decode([PokemonDetailPastTypesInner].self, forKey: .pastTypes)
+        pastStats = try container.decode([PokemonPastStat].self, forKey: .pastStats)
+        types = try container.decode([PokemonType].self, forKey: .types)
+        pastTypes = try container.decode([PokemonPastType].self, forKey: .pastTypes)
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -119,6 +144,7 @@ public struct PokemonDetail: Codable {
         try container.encode(sprites, forKey: .sprites)
         try container.encode(cries, forKey: .cries)
         try container.encode(stats, forKey: .stats)
+        try container.encode(pastStats, forKey: .pastStats)
         try container.encode(types, forKey: .types)
         try container.encode(pastTypes, forKey: .pastTypes)
     }

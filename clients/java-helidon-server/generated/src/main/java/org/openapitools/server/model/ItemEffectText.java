@@ -22,9 +22,9 @@ public class ItemEffectText   {
     /**
      * Create ItemEffectText.
      *
-     * @param effect effect
-     * @param shortEffect shortEffect
-     * @param language language
+     * @param effect The localized effect text for an API resource in a specific language.
+     * @param shortEffect The localized effect text in brief.
+     * @param language The language this effect is in.
      */
     public ItemEffectText(
         String effect, 
@@ -39,7 +39,7 @@ public class ItemEffectText   {
 
 
     /**
-     * Get effect
+     * The localized effect text for an API resource in a specific language.
      * @return effect
      */
     public String getEffect() {
@@ -51,7 +51,7 @@ public class ItemEffectText   {
     }
 
     /**
-     * Get shortEffect
+     * The localized effect text in brief.
      * @return shortEffect
      */
     public String getShortEffect() {
@@ -63,7 +63,7 @@ public class ItemEffectText   {
     }
 
     /**
-     * Get language
+     * The language this effect is in.
      * @return language
      */
     public LanguageSummary getLanguage() {

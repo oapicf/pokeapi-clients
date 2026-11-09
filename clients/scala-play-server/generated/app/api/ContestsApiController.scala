@@ -11,11 +11,11 @@ import model.PaginatedContestTypeSummaryList
 import model.PaginatedSuperContestEffectSummaryList
 import model.SuperContestEffectDetail
 
-@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2026-10-25T05:53:17.467323765Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2026-11-09T13:53:31.572745352Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 @Singleton
 class ContestsApiController @Inject()(cc: ControllerComponents, api: ContestsApi) extends AbstractController(cc) {
   /**
-    * GET /api/v2/contest-effect/?limit=[value]&offset=[value]&q=[value]
+    * GET /api/v2/contest-effect/?limit=[value]&offset=[value]
     */
   def contestEffectList(): Action[AnyContent] = Action { request =>
     def executeApi(): PaginatedContestEffectSummaryList = {
@@ -25,9 +25,7 @@ class ContestsApiController @Inject()(cc: ControllerComponents, api: ContestsApi
       val offset = request.getQueryString("offset")
         .map(value => value.toInt)
         
-      val q = request.getQueryString("q")
-        
-      api.contestEffectList(limit, offset, q)
+      api.contestEffectList(limit, offset)
     }
 
     val result = executeApi()
@@ -85,7 +83,7 @@ class ContestsApiController @Inject()(cc: ControllerComponents, api: ContestsApi
   }
 
   /**
-    * GET /api/v2/super-contest-effect/?limit=[value]&offset=[value]&q=[value]
+    * GET /api/v2/super-contest-effect/?limit=[value]&offset=[value]
     */
   def superContestEffectList(): Action[AnyContent] = Action { request =>
     def executeApi(): PaginatedSuperContestEffectSummaryList = {
@@ -95,9 +93,7 @@ class ContestsApiController @Inject()(cc: ControllerComponents, api: ContestsApi
       val offset = request.getQueryString("offset")
         .map(value => value.toInt)
         
-      val q = request.getQueryString("q")
-        
-      api.superContestEffectList(limit, offset, q)
+      api.superContestEffectList(limit, offset)
     }
 
     val result = executeApi()

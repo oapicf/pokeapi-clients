@@ -8,10 +8,10 @@ authors     = ["F. Bar (foo@bar.baz)"]
 imports {
   Root = tosca.resourceTypes.Root
   AbilityChange = openapi_server.resourceTypes.AbilityChange
-  AbilityDetailPokemonInner = openapi_server.resourceTypes.AbilityDetailPokemonInner
   AbilityEffectText = openapi_server.resourceTypes.AbilityEffectText
   AbilityFlavorText = openapi_server.resourceTypes.AbilityFlavorText
   AbilityName = openapi_server.resourceTypes.AbilityName
+  AbilityPokemonDetail = openapi_server.resourceTypes.AbilityPokemonDetail
   GenerationSummary = openapi_server.resourceTypes.GenerationSummary
 }
 resourceTypes {
@@ -23,52 +23,52 @@ resourceTypes {
     properties {
         id {
           type =  integer
-          description = ""
+          description = "The identifier for this resource."
           optional = true
         }
         name {
           type =  string
-          description = ""
+          description = "The name for this resource."
           optional = true
         }
         is_main_series {
           type =  boolean
-          description = ""
+          description = "Whether or not this ability originated in the main series of the video games."
           optional = false
         }
         generation {
           type = GenerationSummary
-          description = ""
+          description = "The generation this ability originated in."
           optional = true
         }
         names {
           type = array
           items.type = AbilityName
-          description = ""
+          description = "The name of this resource listed in different languages."
           optional = true
         }
         effect_entries {
           type = array
           items.type = AbilityEffectText
-          description = ""
+          description = "The effect of this ability listed in different languages."
           optional = true
         }
         effect_changes {
           type = array
           items.type = AbilityChange
-          description = ""
+          description = "The list of previous effects this ability has had across version groups."
           optional = true
         }
         flavor_text_entries {
           type = array
           items.type = AbilityFlavorText
-          description = ""
+          description = "The flavor text of this ability listed in different languages."
           optional = true
         }
         pokemon {
           type = array
-          items.type = AbilityDetailPokemonInner
-          description = ""
+          items.type = AbilityPokemonDetail
+          description = "A list of Pokémon that could potentially have this ability."
           optional = true
         }
     }

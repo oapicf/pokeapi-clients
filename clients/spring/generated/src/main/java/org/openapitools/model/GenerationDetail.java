@@ -29,7 +29,7 @@ import jakarta.annotation.Generated;
  * GenerationDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-10-25T05:53:37.479908528Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-11-09T13:53:47.069318184Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class GenerationDetail {
 
   private Integer id;
@@ -75,11 +75,11 @@ public class GenerationDetail {
   }
 
   /**
-   * Get id
+   * The identifier for this resource.
    * @return id
    */
   
-  @Schema(name = "id", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "id", accessMode = Schema.AccessMode.READ_ONLY, description = "The identifier for this resource.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("id")
   public Integer getId() {
     return id;
@@ -96,11 +96,11 @@ public class GenerationDetail {
   }
 
   /**
-   * Get name
+   * The name for this resource.
    * @return name
    */
-  @NotNull @Size(max = 100) 
-  @Schema(name = "name", requiredMode = Schema.RequiredMode.REQUIRED)
+  @NotNull @Size(max = 200) 
+  @Schema(name = "name", description = "The name for this resource.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("name")
   public String getName() {
     return name;
@@ -125,11 +125,11 @@ public class GenerationDetail {
   }
 
   /**
-   * Get abilities
+   * A list of abilities that were introduced in this generation.
    * @return abilities
    */
   
-  @Schema(name = "abilities", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "abilities", accessMode = Schema.AccessMode.READ_ONLY, description = "A list of abilities that were introduced in this generation.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("abilities")
   public List<@Valid AbilitySummary> getAbilities() {
     return abilities;
@@ -146,11 +146,11 @@ public class GenerationDetail {
   }
 
   /**
-   * Get mainRegion
+   * The main region travelled in this generation.
    * @return mainRegion
    */
   @NotNull @Valid 
-  @Schema(name = "main_region", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "main_region", description = "The main region travelled in this generation.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("main_region")
   public RegionSummary getMainRegion() {
     return mainRegion;
@@ -175,11 +175,11 @@ public class GenerationDetail {
   }
 
   /**
-   * Get moves
+   * A list of moves that were introduced in this generation.
    * @return moves
    */
   
-  @Schema(name = "moves", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "moves", accessMode = Schema.AccessMode.READ_ONLY, description = "A list of moves that were introduced in this generation.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("moves")
   public List<@Valid MoveSummary> getMoves() {
     return moves;
@@ -204,11 +204,11 @@ public class GenerationDetail {
   }
 
   /**
-   * Get names
+   * The name of this resource listed in different languages.
    * @return names
    */
   
-  @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, description = "The name of this resource listed in different languages.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("names")
   public List<@Valid GenerationName> getNames() {
     return names;
@@ -233,11 +233,11 @@ public class GenerationDetail {
   }
 
   /**
-   * Get pokemonSpecies
+   * A list of Pokémon species that were introduced in this generation.
    * @return pokemonSpecies
    */
   
-  @Schema(name = "pokemon_species", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "pokemon_species", accessMode = Schema.AccessMode.READ_ONLY, description = "A list of Pokémon species that were introduced in this generation.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("pokemon_species")
   public List<@Valid PokemonSpeciesSummary> getPokemonSpecies() {
     return pokemonSpecies;
@@ -262,11 +262,11 @@ public class GenerationDetail {
   }
 
   /**
-   * Get types
+   * A list of types that were introduced in this generation.
    * @return types
    */
   
-  @Schema(name = "types", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "types", accessMode = Schema.AccessMode.READ_ONLY, description = "A list of types that were introduced in this generation.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("types")
   public List<@Valid TypeSummary> getTypes() {
     return types;
@@ -291,11 +291,11 @@ public class GenerationDetail {
   }
 
   /**
-   * Get versionGroups
+   * A list of version groups that were introduced in this generation.
    * @return versionGroups
    */
   
-  @Schema(name = "version_groups", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "version_groups", accessMode = Schema.AccessMode.READ_ONLY, description = "A list of version groups that were introduced in this generation.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("version_groups")
   public List<@Valid VersionGroupSummary> getVersionGroups() {
     return versionGroups;

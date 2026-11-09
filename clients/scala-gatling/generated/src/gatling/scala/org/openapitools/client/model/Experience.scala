@@ -3,7 +3,9 @@ package org.openapitools.client.model
 
 
 case class Experience (
+    /* The level gained. */
     _level: Integer,
+    /* The amount of experience required to reach the referenced level. */
     _experience: Integer
 )
 object Experience {

@@ -9,7 +9,7 @@ Name | Type
 `id` | number
 `name` | string
 `descriptions` | [Array&lt;MoveMetaCategoryDescription&gt;](MoveMetaCategoryDescription.md)
-`moves` | [Array&lt;AbilityDetailPokemonInnerPokemon&gt;](AbilityDetailPokemonInnerPokemon.md)
+`moves` | [Array&lt;MoveSummary&gt;](MoveSummary.md)
 
 ## Example
 

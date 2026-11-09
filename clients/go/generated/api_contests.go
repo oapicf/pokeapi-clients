@@ -1,9 +1,9 @@
 /*
 PokéAPI
 
-All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
 
-API version: 2.7.0
+API version: 2.10.0
 Contact: blah+oapicf@cliffano.com
 */
 
@@ -29,7 +29,6 @@ type ApiContestEffectListRequest struct {
 	ApiService *ContestsAPIService
 	limit *int32
 	offset *int32
-	q *string
 }
 
 // Number of results to return per page.
@@ -41,12 +40,6 @@ func (r ApiContestEffectListRequest) Limit(limit int32) ApiContestEffectListRequ
 // The initial index from which to return the results.
 func (r ApiContestEffectListRequest) Offset(offset int32) ApiContestEffectListRequest {
 	r.offset = &offset
-	return r
-}
-
-// &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. 
-func (r ApiContestEffectListRequest) Q(q string) ApiContestEffectListRequest {
-	r.q = &q
 	return r
 }
 
@@ -95,9 +88,6 @@ func (a *ContestsAPIService) ContestEffectListExecute(r ApiContestEffectListRequ
 	}
 	if r.offset != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "form", "")
-	}
-	if r.q != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "q", r.q, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -493,7 +483,6 @@ type ApiSuperContestEffectListRequest struct {
 	ApiService *ContestsAPIService
 	limit *int32
 	offset *int32
-	q *string
 }
 
 // Number of results to return per page.
@@ -505,12 +494,6 @@ func (r ApiSuperContestEffectListRequest) Limit(limit int32) ApiSuperContestEffe
 // The initial index from which to return the results.
 func (r ApiSuperContestEffectListRequest) Offset(offset int32) ApiSuperContestEffectListRequest {
 	r.offset = &offset
-	return r
-}
-
-// &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. 
-func (r ApiSuperContestEffectListRequest) Q(q string) ApiSuperContestEffectListRequest {
-	r.q = &q
 	return r
 }
 
@@ -559,9 +542,6 @@ func (a *ContestsAPIService) SuperContestEffectListExecute(r ApiSuperContestEffe
 	}
 	if r.offset != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "form", "")
-	}
-	if r.q != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "q", r.q, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

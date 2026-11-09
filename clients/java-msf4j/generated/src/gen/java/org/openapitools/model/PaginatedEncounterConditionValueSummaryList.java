@@ -9,12 +9,13 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.openapitools.jackson.nullable.JsonNullable;
 import org.openapitools.model.EncounterConditionValueSummary;
 
 /**
  * PaginatedEncounterConditionValueSummaryList
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-10-25T05:48:05.787850114Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-11-09T13:49:25.341948748Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PaginatedEncounterConditionValueSummaryList   {
   @JsonProperty("count")
   private Integer count;
@@ -26,7 +27,7 @@ public class PaginatedEncounterConditionValueSummaryList   {
   private URI previous;
 
   @JsonProperty("results")
-  private List<@Valid EncounterConditionValueSummary> results = null;
+  private List<@Valid EncounterConditionValueSummary> results = new ArrayList<>();
 
   public PaginatedEncounterConditionValueSummaryList count(Integer count) {
     this.count = count;
@@ -34,10 +35,10 @@ public class PaginatedEncounterConditionValueSummaryList   {
   }
 
    /**
-   * Get count
+   * The total number of resources available from this API.
    * @return count
   **/
-  @ApiModelProperty(example = "123", value = "")
+  @ApiModelProperty(example = "100", required = true, value = "The total number of resources available from this API.")
   public Integer getCount() {
     return count;
   }
@@ -52,10 +53,10 @@ public class PaginatedEncounterConditionValueSummaryList   {
   }
 
    /**
-   * Get next
+   * The URL for the next page in the list, or null if there is no next page.
    * @return next
   **/
-  @ApiModelProperty(example = "http://api.example.org/accounts/?offset=400&limit=100", value = "")
+  @ApiModelProperty(example = "https://pokeapi.co/api/v2/encounter-condition-value/?offset=40&limit=20", value = "The URL for the next page in the list, or null if there is no next page.")
   public URI getNext() {
     return next;
   }
@@ -70,10 +71,10 @@ public class PaginatedEncounterConditionValueSummaryList   {
   }
 
    /**
-   * Get previous
+   * The URL for the previous page in the list, or null if there is no previous page.
    * @return previous
   **/
-  @ApiModelProperty(example = "http://api.example.org/accounts/?offset=200&limit=100", value = "")
+  @ApiModelProperty(example = "https://pokeapi.co/api/v2/encounter-condition-value/?offset=0&limit=20", value = "The URL for the previous page in the list, or null if there is no previous page.")
   public URI getPrevious() {
     return previous;
   }
@@ -88,18 +89,15 @@ public class PaginatedEncounterConditionValueSummaryList   {
   }
 
   public PaginatedEncounterConditionValueSummaryList addResultsItem(EncounterConditionValueSummary resultsItem) {
-    if (this.results == null) {
-      this.results = new ArrayList<>();
-    }
     this.results.add(resultsItem);
     return this;
   }
 
    /**
-   * Get results
+   * A list of API resources on this page.
    * @return results
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "A list of API resources on this page.")
   public List<@Valid EncounterConditionValueSummary> getResults() {
     return results;
   }

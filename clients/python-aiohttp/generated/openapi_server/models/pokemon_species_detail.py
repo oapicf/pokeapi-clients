@@ -5,21 +5,21 @@ from datetime import date, datetime
 from typing import List, Dict, Type
 
 from openapi_server.models.base_model import Model
-from openapi_server.models.ability_detail_pokemon_inner_pokemon import AbilityDetailPokemonInnerPokemon
+from openapi_server.models.egg_group_summary import EggGroupSummary
 from openapi_server.models.evolution_chain_summary import EvolutionChainSummary
 from openapi_server.models.generation_summary import GenerationSummary
 from openapi_server.models.growth_rate_summary import GrowthRateSummary
 from openapi_server.models.pokemon_color_summary import PokemonColorSummary
 from openapi_server.models.pokemon_dex_entry import PokemonDexEntry
-from openapi_server.models.pokemon_form_detail_form_names_inner import PokemonFormDetailFormNamesInner
 from openapi_server.models.pokemon_habitat_summary import PokemonHabitatSummary
 from openapi_server.models.pokemon_shape_summary import PokemonShapeSummary
 from openapi_server.models.pokemon_species_description import PokemonSpeciesDescription
-from openapi_server.models.pokemon_species_detail_genera_inner import PokemonSpeciesDetailGeneraInner
-from openapi_server.models.pokemon_species_detail_pal_park_encounters_inner import PokemonSpeciesDetailPalParkEncountersInner
-from openapi_server.models.pokemon_species_detail_varieties_inner import PokemonSpeciesDetailVarietiesInner
 from openapi_server.models.pokemon_species_flavor_text import PokemonSpeciesFlavorText
+from openapi_server.models.pokemon_species_genus import PokemonSpeciesGenus
+from openapi_server.models.pokemon_species_name import PokemonSpeciesName
+from openapi_server.models.pokemon_species_pal_park_encounter import PokemonSpeciesPalParkEncounter
 from openapi_server.models.pokemon_species_summary import PokemonSpeciesSummary
+from openapi_server.models.pokemon_species_variety import PokemonSpeciesVariety
 from openapi_server import util
 
 
@@ -29,7 +29,7 @@ class PokemonSpeciesDetail(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, id: int=None, name: str=None, order: int=None, gender_rate: int=None, capture_rate: int=None, base_happiness: int=None, is_baby: bool=None, is_legendary: bool=None, is_mythical: bool=None, hatch_counter: int=None, has_gender_differences: bool=None, forms_switchable: bool=None, growth_rate: GrowthRateSummary=None, pokedex_numbers: List[PokemonDexEntry]=None, egg_groups: List[AbilityDetailPokemonInnerPokemon]=None, color: PokemonColorSummary=None, shape: PokemonShapeSummary=None, evolves_from_species: PokemonSpeciesSummary=None, evolution_chain: EvolutionChainSummary=None, habitat: PokemonHabitatSummary=None, generation: GenerationSummary=None, names: List[PokemonFormDetailFormNamesInner]=None, pal_park_encounters: List[PokemonSpeciesDetailPalParkEncountersInner]=None, form_descriptions: List[PokemonSpeciesDescription]=None, flavor_text_entries: List[PokemonSpeciesFlavorText]=None, genera: List[PokemonSpeciesDetailGeneraInner]=None, varieties: List[PokemonSpeciesDetailVarietiesInner]=None):
+    def __init__(self, id: int=None, name: str=None, order: int=None, gender_rate: int=None, capture_rate: int=None, base_happiness: int=None, is_baby: bool=None, is_legendary: bool=None, is_mythical: bool=None, hatch_counter: int=None, has_gender_differences: bool=None, forms_switchable: bool=None, growth_rate: GrowthRateSummary=None, pokedex_numbers: List[PokemonDexEntry]=None, egg_groups: List[EggGroupSummary]=None, color: PokemonColorSummary=None, shape: PokemonShapeSummary=None, evolves_from_species: PokemonSpeciesSummary=None, evolution_chain: EvolutionChainSummary=None, habitat: PokemonHabitatSummary=None, generation: GenerationSummary=None, names: List[PokemonSpeciesName]=None, pal_park_encounters: List[PokemonSpeciesPalParkEncounter]=None, form_descriptions: List[PokemonSpeciesDescription]=None, flavor_text_entries: List[PokemonSpeciesFlavorText]=None, genera: List[PokemonSpeciesGenus]=None, varieties: List[PokemonSpeciesVariety]=None):
         """PokemonSpeciesDetail - a model defined in OpenAPI
 
         :param id: The id of this PokemonSpeciesDetail.
@@ -75,19 +75,19 @@ class PokemonSpeciesDetail(Model):
             'forms_switchable': bool,
             'growth_rate': GrowthRateSummary,
             'pokedex_numbers': List[PokemonDexEntry],
-            'egg_groups': List[AbilityDetailPokemonInnerPokemon],
+            'egg_groups': List[EggGroupSummary],
             'color': PokemonColorSummary,
             'shape': PokemonShapeSummary,
             'evolves_from_species': PokemonSpeciesSummary,
             'evolution_chain': EvolutionChainSummary,
             'habitat': PokemonHabitatSummary,
             'generation': GenerationSummary,
-            'names': List[PokemonFormDetailFormNamesInner],
-            'pal_park_encounters': List[PokemonSpeciesDetailPalParkEncountersInner],
+            'names': List[PokemonSpeciesName],
+            'pal_park_encounters': List[PokemonSpeciesPalParkEncounter],
             'form_descriptions': List[PokemonSpeciesDescription],
             'flavor_text_entries': List[PokemonSpeciesFlavorText],
-            'genera': List[PokemonSpeciesDetailGeneraInner],
-            'varieties': List[PokemonSpeciesDetailVarietiesInner]
+            'genera': List[PokemonSpeciesGenus],
+            'varieties': List[PokemonSpeciesVariety]
         }
 
         self.attribute_map = {
@@ -161,6 +161,7 @@ class PokemonSpeciesDetail(Model):
     def id(self):
         """Gets the id of this PokemonSpeciesDetail.
 
+        The identifier for this resource.
 
         :return: The id of this PokemonSpeciesDetail.
         :rtype: int
@@ -171,6 +172,7 @@ class PokemonSpeciesDetail(Model):
     def id(self, id):
         """Sets the id of this PokemonSpeciesDetail.
 
+        The identifier for this resource.
 
         :param id: The id of this PokemonSpeciesDetail.
         :type id: int
@@ -184,6 +186,7 @@ class PokemonSpeciesDetail(Model):
     def name(self):
         """Gets the name of this PokemonSpeciesDetail.
 
+        The name for this resource.
 
         :return: The name of this PokemonSpeciesDetail.
         :rtype: str
@@ -194,14 +197,15 @@ class PokemonSpeciesDetail(Model):
     def name(self, name):
         """Sets the name of this PokemonSpeciesDetail.
 
+        The name for this resource.
 
         :param name: The name of this PokemonSpeciesDetail.
         :type name: str
         """
         if name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")
-        if name is not None and len(name) > 100:
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `100`")
+        if name is not None and len(name) > 200:
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `200`")
 
         self._name = name
 
@@ -209,6 +213,7 @@ class PokemonSpeciesDetail(Model):
     def order(self):
         """Gets the order of this PokemonSpeciesDetail.
 
+        The order in which species should be sorted. Based on National Dex order, except families are grouped together and sorted by stage.
 
         :return: The order of this PokemonSpeciesDetail.
         :rtype: int
@@ -219,10 +224,15 @@ class PokemonSpeciesDetail(Model):
     def order(self, order):
         """Sets the order of this PokemonSpeciesDetail.
 
+        The order in which species should be sorted. Based on National Dex order, except families are grouped together and sorted by stage.
 
         :param order: The order of this PokemonSpeciesDetail.
         :type order: int
         """
+        if order is not None and order > 2147483647:
+            raise ValueError("Invalid value for `order`, must be a value less than or equal to `2147483647`")
+        if order is not None and order < -2147483648:
+            raise ValueError("Invalid value for `order`, must be a value greater than or equal to `-2147483648`")
 
         self._order = order
 
@@ -230,6 +240,7 @@ class PokemonSpeciesDetail(Model):
     def gender_rate(self):
         """Gets the gender_rate of this PokemonSpeciesDetail.
 
+        The chance of this Pokémon being female, in eighths; or -1 for genderless.
 
         :return: The gender_rate of this PokemonSpeciesDetail.
         :rtype: int
@@ -240,10 +251,15 @@ class PokemonSpeciesDetail(Model):
     def gender_rate(self, gender_rate):
         """Sets the gender_rate of this PokemonSpeciesDetail.
 
+        The chance of this Pokémon being female, in eighths; or -1 for genderless.
 
         :param gender_rate: The gender_rate of this PokemonSpeciesDetail.
         :type gender_rate: int
         """
+        if gender_rate is not None and gender_rate > 2147483647:
+            raise ValueError("Invalid value for `gender_rate`, must be a value less than or equal to `2147483647`")
+        if gender_rate is not None and gender_rate < -2147483648:
+            raise ValueError("Invalid value for `gender_rate`, must be a value greater than or equal to `-2147483648`")
 
         self._gender_rate = gender_rate
 
@@ -251,6 +267,7 @@ class PokemonSpeciesDetail(Model):
     def capture_rate(self):
         """Gets the capture_rate of this PokemonSpeciesDetail.
 
+        The base capture rate; up to 255. The higher the number, the easier the catch.
 
         :return: The capture_rate of this PokemonSpeciesDetail.
         :rtype: int
@@ -261,10 +278,15 @@ class PokemonSpeciesDetail(Model):
     def capture_rate(self, capture_rate):
         """Sets the capture_rate of this PokemonSpeciesDetail.
 
+        The base capture rate; up to 255. The higher the number, the easier the catch.
 
         :param capture_rate: The capture_rate of this PokemonSpeciesDetail.
         :type capture_rate: int
         """
+        if capture_rate is not None and capture_rate > 2147483647:
+            raise ValueError("Invalid value for `capture_rate`, must be a value less than or equal to `2147483647`")
+        if capture_rate is not None and capture_rate < -2147483648:
+            raise ValueError("Invalid value for `capture_rate`, must be a value greater than or equal to `-2147483648`")
 
         self._capture_rate = capture_rate
 
@@ -272,6 +294,7 @@ class PokemonSpeciesDetail(Model):
     def base_happiness(self):
         """Gets the base_happiness of this PokemonSpeciesDetail.
 
+        The happiness when caught by a normal Pokéball; up to 255. The higher the number, the happier the Pokémon.
 
         :return: The base_happiness of this PokemonSpeciesDetail.
         :rtype: int
@@ -282,10 +305,15 @@ class PokemonSpeciesDetail(Model):
     def base_happiness(self, base_happiness):
         """Sets the base_happiness of this PokemonSpeciesDetail.
 
+        The happiness when caught by a normal Pokéball; up to 255. The higher the number, the happier the Pokémon.
 
         :param base_happiness: The base_happiness of this PokemonSpeciesDetail.
         :type base_happiness: int
         """
+        if base_happiness is not None and base_happiness > 2147483647:
+            raise ValueError("Invalid value for `base_happiness`, must be a value less than or equal to `2147483647`")
+        if base_happiness is not None and base_happiness < -2147483648:
+            raise ValueError("Invalid value for `base_happiness`, must be a value greater than or equal to `-2147483648`")
 
         self._base_happiness = base_happiness
 
@@ -293,6 +321,7 @@ class PokemonSpeciesDetail(Model):
     def is_baby(self):
         """Gets the is_baby of this PokemonSpeciesDetail.
 
+        Whether or not this is a baby Pokémon.
 
         :return: The is_baby of this PokemonSpeciesDetail.
         :rtype: bool
@@ -303,6 +332,7 @@ class PokemonSpeciesDetail(Model):
     def is_baby(self, is_baby):
         """Sets the is_baby of this PokemonSpeciesDetail.
 
+        Whether or not this is a baby Pokémon.
 
         :param is_baby: The is_baby of this PokemonSpeciesDetail.
         :type is_baby: bool
@@ -314,6 +344,7 @@ class PokemonSpeciesDetail(Model):
     def is_legendary(self):
         """Gets the is_legendary of this PokemonSpeciesDetail.
 
+        Whether or not this is a legendary Pokémon.
 
         :return: The is_legendary of this PokemonSpeciesDetail.
         :rtype: bool
@@ -324,6 +355,7 @@ class PokemonSpeciesDetail(Model):
     def is_legendary(self, is_legendary):
         """Sets the is_legendary of this PokemonSpeciesDetail.
 
+        Whether or not this is a legendary Pokémon.
 
         :param is_legendary: The is_legendary of this PokemonSpeciesDetail.
         :type is_legendary: bool
@@ -335,6 +367,7 @@ class PokemonSpeciesDetail(Model):
     def is_mythical(self):
         """Gets the is_mythical of this PokemonSpeciesDetail.
 
+        Whether or not this is a mythical Pokémon.
 
         :return: The is_mythical of this PokemonSpeciesDetail.
         :rtype: bool
@@ -345,6 +378,7 @@ class PokemonSpeciesDetail(Model):
     def is_mythical(self, is_mythical):
         """Sets the is_mythical of this PokemonSpeciesDetail.
 
+        Whether or not this is a mythical Pokémon.
 
         :param is_mythical: The is_mythical of this PokemonSpeciesDetail.
         :type is_mythical: bool
@@ -356,6 +390,7 @@ class PokemonSpeciesDetail(Model):
     def hatch_counter(self):
         """Gets the hatch_counter of this PokemonSpeciesDetail.
 
+        Initial hatch counter: one must walk Y × (hatch_counter + 1) steps before this Pokémon's egg hatches, unless utilizing bonuses like Flame Body's. Y varies per generation. In Generations II, III, and VII, Egg cycles are 256 steps long. In Generation IV, Egg cycles are 255 steps long. In Pokémon Brilliant Diamond and Shining Pearl, Egg cycles are also 255 steps long, but are shorter on special dates. In Generations V and VI, Egg cycles are 257 steps long. In Pokémon Sword and Shield, and in Pokémon Scarlet and Violet, Egg cycles are 128 steps long.
 
         :return: The hatch_counter of this PokemonSpeciesDetail.
         :rtype: int
@@ -366,10 +401,15 @@ class PokemonSpeciesDetail(Model):
     def hatch_counter(self, hatch_counter):
         """Sets the hatch_counter of this PokemonSpeciesDetail.
 
+        Initial hatch counter: one must walk Y × (hatch_counter + 1) steps before this Pokémon's egg hatches, unless utilizing bonuses like Flame Body's. Y varies per generation. In Generations II, III, and VII, Egg cycles are 256 steps long. In Generation IV, Egg cycles are 255 steps long. In Pokémon Brilliant Diamond and Shining Pearl, Egg cycles are also 255 steps long, but are shorter on special dates. In Generations V and VI, Egg cycles are 257 steps long. In Pokémon Sword and Shield, and in Pokémon Scarlet and Violet, Egg cycles are 128 steps long.
 
         :param hatch_counter: The hatch_counter of this PokemonSpeciesDetail.
         :type hatch_counter: int
         """
+        if hatch_counter is not None and hatch_counter > 2147483647:
+            raise ValueError("Invalid value for `hatch_counter`, must be a value less than or equal to `2147483647`")
+        if hatch_counter is not None and hatch_counter < -2147483648:
+            raise ValueError("Invalid value for `hatch_counter`, must be a value greater than or equal to `-2147483648`")
 
         self._hatch_counter = hatch_counter
 
@@ -377,6 +417,7 @@ class PokemonSpeciesDetail(Model):
     def has_gender_differences(self):
         """Gets the has_gender_differences of this PokemonSpeciesDetail.
 
+        Whether or not this Pokémon has visual gender differences.
 
         :return: The has_gender_differences of this PokemonSpeciesDetail.
         :rtype: bool
@@ -387,6 +428,7 @@ class PokemonSpeciesDetail(Model):
     def has_gender_differences(self, has_gender_differences):
         """Sets the has_gender_differences of this PokemonSpeciesDetail.
 
+        Whether or not this Pokémon has visual gender differences.
 
         :param has_gender_differences: The has_gender_differences of this PokemonSpeciesDetail.
         :type has_gender_differences: bool
@@ -398,6 +440,7 @@ class PokemonSpeciesDetail(Model):
     def forms_switchable(self):
         """Gets the forms_switchable of this PokemonSpeciesDetail.
 
+        Whether or not this Pokémon has multiple forms and can switch between them.
 
         :return: The forms_switchable of this PokemonSpeciesDetail.
         :rtype: bool
@@ -408,6 +451,7 @@ class PokemonSpeciesDetail(Model):
     def forms_switchable(self, forms_switchable):
         """Sets the forms_switchable of this PokemonSpeciesDetail.
 
+        Whether or not this Pokémon has multiple forms and can switch between them.
 
         :param forms_switchable: The forms_switchable of this PokemonSpeciesDetail.
         :type forms_switchable: bool
@@ -419,6 +463,7 @@ class PokemonSpeciesDetail(Model):
     def growth_rate(self):
         """Gets the growth_rate of this PokemonSpeciesDetail.
 
+        The rate at which this Pokémon species gains levels.
 
         :return: The growth_rate of this PokemonSpeciesDetail.
         :rtype: GrowthRateSummary
@@ -429,6 +474,7 @@ class PokemonSpeciesDetail(Model):
     def growth_rate(self, growth_rate):
         """Sets the growth_rate of this PokemonSpeciesDetail.
 
+        The rate at which this Pokémon species gains levels.
 
         :param growth_rate: The growth_rate of this PokemonSpeciesDetail.
         :type growth_rate: GrowthRateSummary
@@ -442,6 +488,7 @@ class PokemonSpeciesDetail(Model):
     def pokedex_numbers(self):
         """Gets the pokedex_numbers of this PokemonSpeciesDetail.
 
+        A list of Pokedexes and the indexes reserved within them for this Pokémon species.
 
         :return: The pokedex_numbers of this PokemonSpeciesDetail.
         :rtype: List[PokemonDexEntry]
@@ -452,6 +499,7 @@ class PokemonSpeciesDetail(Model):
     def pokedex_numbers(self, pokedex_numbers):
         """Sets the pokedex_numbers of this PokemonSpeciesDetail.
 
+        A list of Pokedexes and the indexes reserved within them for this Pokémon species.
 
         :param pokedex_numbers: The pokedex_numbers of this PokemonSpeciesDetail.
         :type pokedex_numbers: List[PokemonDexEntry]
@@ -465,9 +513,10 @@ class PokemonSpeciesDetail(Model):
     def egg_groups(self):
         """Gets the egg_groups of this PokemonSpeciesDetail.
 
+        A list of egg groups this Pokémon species is a member of.
 
         :return: The egg_groups of this PokemonSpeciesDetail.
-        :rtype: List[AbilityDetailPokemonInnerPokemon]
+        :rtype: List[EggGroupSummary]
         """
         return self._egg_groups
 
@@ -475,9 +524,10 @@ class PokemonSpeciesDetail(Model):
     def egg_groups(self, egg_groups):
         """Sets the egg_groups of this PokemonSpeciesDetail.
 
+        A list of egg groups this Pokémon species is a member of.
 
         :param egg_groups: The egg_groups of this PokemonSpeciesDetail.
-        :type egg_groups: List[AbilityDetailPokemonInnerPokemon]
+        :type egg_groups: List[EggGroupSummary]
         """
         if egg_groups is None:
             raise ValueError("Invalid value for `egg_groups`, must not be `None`")
@@ -488,6 +538,7 @@ class PokemonSpeciesDetail(Model):
     def color(self):
         """Gets the color of this PokemonSpeciesDetail.
 
+        The color of this Pokémon for Pokédex search.
 
         :return: The color of this PokemonSpeciesDetail.
         :rtype: PokemonColorSummary
@@ -498,6 +549,7 @@ class PokemonSpeciesDetail(Model):
     def color(self, color):
         """Sets the color of this PokemonSpeciesDetail.
 
+        The color of this Pokémon for Pokédex search.
 
         :param color: The color of this PokemonSpeciesDetail.
         :type color: PokemonColorSummary
@@ -511,6 +563,7 @@ class PokemonSpeciesDetail(Model):
     def shape(self):
         """Gets the shape of this PokemonSpeciesDetail.
 
+        The shape of this Pokémon for Pokédex search.
 
         :return: The shape of this PokemonSpeciesDetail.
         :rtype: PokemonShapeSummary
@@ -521,6 +574,7 @@ class PokemonSpeciesDetail(Model):
     def shape(self, shape):
         """Sets the shape of this PokemonSpeciesDetail.
 
+        The shape of this Pokémon for Pokédex search.
 
         :param shape: The shape of this PokemonSpeciesDetail.
         :type shape: PokemonShapeSummary
@@ -534,6 +588,7 @@ class PokemonSpeciesDetail(Model):
     def evolves_from_species(self):
         """Gets the evolves_from_species of this PokemonSpeciesDetail.
 
+        The Pokémon species that evolves into this Pokemon_species.
 
         :return: The evolves_from_species of this PokemonSpeciesDetail.
         :rtype: PokemonSpeciesSummary
@@ -544,6 +599,7 @@ class PokemonSpeciesDetail(Model):
     def evolves_from_species(self, evolves_from_species):
         """Sets the evolves_from_species of this PokemonSpeciesDetail.
 
+        The Pokémon species that evolves into this Pokemon_species.
 
         :param evolves_from_species: The evolves_from_species of this PokemonSpeciesDetail.
         :type evolves_from_species: PokemonSpeciesSummary
@@ -557,6 +613,7 @@ class PokemonSpeciesDetail(Model):
     def evolution_chain(self):
         """Gets the evolution_chain of this PokemonSpeciesDetail.
 
+        The evolution chain this Pokémon species is a member of.
 
         :return: The evolution_chain of this PokemonSpeciesDetail.
         :rtype: EvolutionChainSummary
@@ -567,6 +624,7 @@ class PokemonSpeciesDetail(Model):
     def evolution_chain(self, evolution_chain):
         """Sets the evolution_chain of this PokemonSpeciesDetail.
 
+        The evolution chain this Pokémon species is a member of.
 
         :param evolution_chain: The evolution_chain of this PokemonSpeciesDetail.
         :type evolution_chain: EvolutionChainSummary
@@ -580,6 +638,7 @@ class PokemonSpeciesDetail(Model):
     def habitat(self):
         """Gets the habitat of this PokemonSpeciesDetail.
 
+        The habitat this Pokémon species can be encountered in.
 
         :return: The habitat of this PokemonSpeciesDetail.
         :rtype: PokemonHabitatSummary
@@ -590,6 +649,7 @@ class PokemonSpeciesDetail(Model):
     def habitat(self, habitat):
         """Sets the habitat of this PokemonSpeciesDetail.
 
+        The habitat this Pokémon species can be encountered in.
 
         :param habitat: The habitat of this PokemonSpeciesDetail.
         :type habitat: PokemonHabitatSummary
@@ -603,6 +663,7 @@ class PokemonSpeciesDetail(Model):
     def generation(self):
         """Gets the generation of this PokemonSpeciesDetail.
 
+        The generation this Pokémon species was introduced in.
 
         :return: The generation of this PokemonSpeciesDetail.
         :rtype: GenerationSummary
@@ -613,6 +674,7 @@ class PokemonSpeciesDetail(Model):
     def generation(self, generation):
         """Sets the generation of this PokemonSpeciesDetail.
 
+        The generation this Pokémon species was introduced in.
 
         :param generation: The generation of this PokemonSpeciesDetail.
         :type generation: GenerationSummary
@@ -626,9 +688,10 @@ class PokemonSpeciesDetail(Model):
     def names(self):
         """Gets the names of this PokemonSpeciesDetail.
 
+        The name of this resource listed in different languages.
 
         :return: The names of this PokemonSpeciesDetail.
-        :rtype: List[PokemonFormDetailFormNamesInner]
+        :rtype: List[PokemonSpeciesName]
         """
         return self._names
 
@@ -636,9 +699,10 @@ class PokemonSpeciesDetail(Model):
     def names(self, names):
         """Sets the names of this PokemonSpeciesDetail.
 
+        The name of this resource listed in different languages.
 
         :param names: The names of this PokemonSpeciesDetail.
-        :type names: List[PokemonFormDetailFormNamesInner]
+        :type names: List[PokemonSpeciesName]
         """
         if names is None:
             raise ValueError("Invalid value for `names`, must not be `None`")
@@ -649,9 +713,10 @@ class PokemonSpeciesDetail(Model):
     def pal_park_encounters(self):
         """Gets the pal_park_encounters of this PokemonSpeciesDetail.
 
+        A list of encounters that can be had with this Pokémon species in pal park.
 
         :return: The pal_park_encounters of this PokemonSpeciesDetail.
-        :rtype: List[PokemonSpeciesDetailPalParkEncountersInner]
+        :rtype: List[PokemonSpeciesPalParkEncounter]
         """
         return self._pal_park_encounters
 
@@ -659,9 +724,10 @@ class PokemonSpeciesDetail(Model):
     def pal_park_encounters(self, pal_park_encounters):
         """Sets the pal_park_encounters of this PokemonSpeciesDetail.
 
+        A list of encounters that can be had with this Pokémon species in pal park.
 
         :param pal_park_encounters: The pal_park_encounters of this PokemonSpeciesDetail.
-        :type pal_park_encounters: List[PokemonSpeciesDetailPalParkEncountersInner]
+        :type pal_park_encounters: List[PokemonSpeciesPalParkEncounter]
         """
         if pal_park_encounters is None:
             raise ValueError("Invalid value for `pal_park_encounters`, must not be `None`")
@@ -672,6 +738,7 @@ class PokemonSpeciesDetail(Model):
     def form_descriptions(self):
         """Gets the form_descriptions of this PokemonSpeciesDetail.
 
+        Descriptions of different forms Pokémon take on within the Pokémon species.
 
         :return: The form_descriptions of this PokemonSpeciesDetail.
         :rtype: List[PokemonSpeciesDescription]
@@ -682,6 +749,7 @@ class PokemonSpeciesDetail(Model):
     def form_descriptions(self, form_descriptions):
         """Sets the form_descriptions of this PokemonSpeciesDetail.
 
+        Descriptions of different forms Pokémon take on within the Pokémon species.
 
         :param form_descriptions: The form_descriptions of this PokemonSpeciesDetail.
         :type form_descriptions: List[PokemonSpeciesDescription]
@@ -695,6 +763,7 @@ class PokemonSpeciesDetail(Model):
     def flavor_text_entries(self):
         """Gets the flavor_text_entries of this PokemonSpeciesDetail.
 
+        A list of flavor text entries for this Pokémon species.
 
         :return: The flavor_text_entries of this PokemonSpeciesDetail.
         :rtype: List[PokemonSpeciesFlavorText]
@@ -705,6 +774,7 @@ class PokemonSpeciesDetail(Model):
     def flavor_text_entries(self, flavor_text_entries):
         """Sets the flavor_text_entries of this PokemonSpeciesDetail.
 
+        A list of flavor text entries for this Pokémon species.
 
         :param flavor_text_entries: The flavor_text_entries of this PokemonSpeciesDetail.
         :type flavor_text_entries: List[PokemonSpeciesFlavorText]
@@ -718,9 +788,10 @@ class PokemonSpeciesDetail(Model):
     def genera(self):
         """Gets the genera of this PokemonSpeciesDetail.
 
+        The genus of this Pokémon species listed in multiple languages.
 
         :return: The genera of this PokemonSpeciesDetail.
-        :rtype: List[PokemonSpeciesDetailGeneraInner]
+        :rtype: List[PokemonSpeciesGenus]
         """
         return self._genera
 
@@ -728,9 +799,10 @@ class PokemonSpeciesDetail(Model):
     def genera(self, genera):
         """Sets the genera of this PokemonSpeciesDetail.
 
+        The genus of this Pokémon species listed in multiple languages.
 
         :param genera: The genera of this PokemonSpeciesDetail.
-        :type genera: List[PokemonSpeciesDetailGeneraInner]
+        :type genera: List[PokemonSpeciesGenus]
         """
         if genera is None:
             raise ValueError("Invalid value for `genera`, must not be `None`")
@@ -741,9 +813,10 @@ class PokemonSpeciesDetail(Model):
     def varieties(self):
         """Gets the varieties of this PokemonSpeciesDetail.
 
+        A list of the Pokémon that exist within this Pokémon species.
 
         :return: The varieties of this PokemonSpeciesDetail.
-        :rtype: List[PokemonSpeciesDetailVarietiesInner]
+        :rtype: List[PokemonSpeciesVariety]
         """
         return self._varieties
 
@@ -751,9 +824,10 @@ class PokemonSpeciesDetail(Model):
     def varieties(self, varieties):
         """Sets the varieties of this PokemonSpeciesDetail.
 
+        A list of the Pokémon that exist within this Pokémon species.
 
         :param varieties: The varieties of this PokemonSpeciesDetail.
-        :type varieties: List[PokemonSpeciesDetailVarietiesInner]
+        :type varieties: List[PokemonSpeciesVariety]
         """
         if varieties is None:
             raise ValueError("Invalid value for `varieties`, must not be `None`")

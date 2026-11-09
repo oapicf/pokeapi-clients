@@ -11,12 +11,11 @@ namespace models {
 NatureDetail::NatureDetail()
 : id(0)
 , name("")
-, decreasedStat(StatSummary())
-, increasedStat(StatSummary())
-, likesFlavor(BerryFlavorSummary())
-, hatesFlavor(BerryFlavorSummary())
-, berries(std::vector<BerrySummary>())
-, pokeathlonStatChanges(std::vector<NatureDetail_pokeathlon_stat_changes_inner>())
+, decreasedStat(std::nullopt)
+, increasedStat(std::nullopt)
+, likesFlavor(std::nullopt)
+, hatesFlavor(std::nullopt)
+, pokeathlonStatChanges(std::vector<NaturePokeathlonStat>())
 , moveBattleStylePreferences(std::vector<NatureBattleStylePreference>())
 , names(std::vector<NatureName>())
 {
@@ -51,11 +50,7 @@ BerryFlavorSummary NatureDetail::getHatesFlavor() const
 {
     return hatesFlavor;
 }
-std::vector<BerrySummary> NatureDetail::getBerries() const
-{
-    return berries;
-}
-std::vector<NatureDetail_pokeathlon_stat_changes_inner> NatureDetail::getPokeathlonStatChanges() const
+std::vector<NaturePokeathlonStat> NatureDetail::getPokeathlonStatChanges() const
 {
     return pokeathlonStatChanges;
 }
@@ -95,11 +90,7 @@ void NatureDetail::setHatesFlavor(const BerryFlavorSummary& hatesFlavorObj)
 {
     hatesFlavor = hatesFlavorObj;
 }
-void NatureDetail::setBerries(const std::vector<BerrySummary>& berriesObj)
-{
-    berries = berriesObj;
-}
-void NatureDetail::setPokeathlonStatChanges(const std::vector<NatureDetail_pokeathlon_stat_changes_inner>& pokeathlonStatChangesObj)
+void NatureDetail::setPokeathlonStatChanges(const std::vector<NaturePokeathlonStat>& pokeathlonStatChangesObj)
 {
     pokeathlonStatChanges = pokeathlonStatChangesObj;
 }

@@ -67,9 +67,7 @@ Move Ailments are status conditions caused by moves used during battle. See [Bul
 ### Return type
 [**PaginatedMoveMetaAilmentSummaryList**](PaginatedMoveMetaAilmentSummaryList.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -94,9 +92,7 @@ Move Ailments are status conditions caused by moves used during battle. See [Bul
 ### Return type
 [**MoveMetaAilmentDetail**](MoveMetaAilmentDetail.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -123,9 +119,7 @@ Styles of moves when used in the Battle Palace. See [Bulbapedia](http://bulbaped
 ### Return type
 [**PaginatedMoveBattleStyleSummaryList**](PaginatedMoveBattleStyleSummaryList.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -150,9 +144,7 @@ Styles of moves when used in the Battle Palace. See [Bulbapedia](http://bulbaped
 ### Return type
 [**MoveBattleStyleDetail**](MoveBattleStyleDetail.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -179,9 +171,7 @@ Very general categories that loosely group move effects.
 ### Return type
 [**PaginatedMoveMetaCategorySummaryList**](PaginatedMoveMetaCategorySummaryList.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -206,9 +196,7 @@ Very general categories that loosely group move effects.
 ### Return type
 [**MoveMetaCategoryDetail**](MoveMetaCategoryDetail.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -235,9 +223,7 @@ Methods by which Pokémon can learn moves.
 ### Return type
 [**PaginatedMoveLearnMethodSummaryList**](PaginatedMoveLearnMethodSummaryList.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -262,9 +248,7 @@ Methods by which Pokémon can learn moves.
 ### Return type
 [**MoveLearnMethodDetail**](MoveLearnMethodDetail.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -291,9 +275,7 @@ Moves are the skills of Pokémon in battle. In battle, a Pokémon uses one move 
 ### Return type
 [**PaginatedMoveSummaryList**](PaginatedMoveSummaryList.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -318,9 +300,7 @@ Moves are the skills of Pokémon in battle. In battle, a Pokémon uses one move 
 ### Return type
 [**MoveDetail**](MoveDetail.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -347,9 +327,7 @@ Targets moves can be directed at during battle. Targets can be Pokémon, environ
 ### Return type
 [**PaginatedMoveTargetSummaryList**](PaginatedMoveTargetSummaryList.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -374,9 +352,7 @@ Targets moves can be directed at during battle. Targets can be Pokémon, environ
 ### Return type
 [**MoveTargetDetail**](MoveTargetDetail.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined

@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="machineList"></a>
 # **machineList**
-> PaginatedMachineSummaryList machineList(limit, offset, q)
+> PaginatedMachineSummaryList machineList(limit, offset)
 
 List machines
 
@@ -25,9 +25,8 @@ Machines are the representation of items that teach moves to Pokémon. They vary
 val apiInstance = MachinesApi()
 val limit : kotlin.Int = 56 // kotlin.Int | Number of results to return per page.
 val offset : kotlin.Int = 56 // kotlin.Int | The initial index from which to return the results.
-val q : kotlin.String = q_example // kotlin.String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
 try {
-    val result : PaginatedMachineSummaryList = apiInstance.machineList(limit, offset, q)
+    val result : PaginatedMachineSummaryList = apiInstance.machineList(limit, offset)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling MachinesApi#machineList")
@@ -44,7 +43,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **kotlin.Int**| Number of results to return per page. | [optional]
  **offset** | **kotlin.Int**| The initial index from which to return the results. | [optional]
- **q** | **kotlin.String**| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional]
 
 ### Return type
 
@@ -52,7 +50,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -74,7 +72,7 @@ Machines are the representation of items that teach moves to Pokémon. They vary
 //import org.openapitools.server.api.model.*
 
 val apiInstance = MachinesApi()
-val id : kotlin.String = id_example // kotlin.String | This parameter can be a string or an integer.
+val id : kotlin.String = 1 // kotlin.String | This parameter can be a string or an integer.
 try {
     val result : MachineDetail = apiInstance.machineRetrieve(id)
     println(result)
@@ -99,7 +97,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

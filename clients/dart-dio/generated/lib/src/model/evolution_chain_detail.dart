@@ -3,8 +3,8 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:openapi/src/model/evolution_chain_detail_chain.dart';
 import 'package:openapi/src/model/item_summary.dart';
+import 'package:openapi/src/model/evolution_chain_link.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -13,19 +13,22 @@ part 'evolution_chain_detail.g.dart';
 /// EvolutionChainDetail
 ///
 /// Properties:
-/// * [id] 
-/// * [babyTriggerItem] 
-/// * [chain] 
+/// * [id] - The identifier for this resource.
+/// * [babyTriggerItem] - The item that a Pokémon would be holding when mating that would trigger the egg hatching a baby Pokémon rather than a basic Pokémon.
+/// * [chain] - The base chain link object. Each link contains evolution details for a Pokémon in the chain. Each link references the next Pokémon in the natural evolution order.
 @BuiltValue()
 abstract class EvolutionChainDetail implements Built<EvolutionChainDetail, EvolutionChainDetailBuilder> {
+  /// The identifier for this resource.
   @BuiltValueField(wireName: r'id')
   int get id;
 
+  /// The item that a Pokémon would be holding when mating that would trigger the egg hatching a baby Pokémon rather than a basic Pokémon.
   @BuiltValueField(wireName: r'baby_trigger_item')
-  ItemSummary get babyTriggerItem;
+  ItemSummary? get babyTriggerItem;
 
+  /// The base chain link object. Each link contains evolution details for a Pokémon in the chain. Each link references the next Pokémon in the natural evolution order.
   @BuiltValueField(wireName: r'chain')
-  EvolutionChainDetailChain get chain;
+  EvolutionChainLink get chain;
 
   EvolutionChainDetail._();
 
@@ -56,14 +59,14 @@ class _$EvolutionChainDetailSerializer implements PrimitiveSerializer<EvolutionC
       specifiedType: const FullType(int),
     );
     yield r'baby_trigger_item';
-    yield serializers.serialize(
+    yield object.babyTriggerItem == null ? null : serializers.serialize(
       object.babyTriggerItem,
-      specifiedType: const FullType(ItemSummary),
+      specifiedType: const FullType.nullable(ItemSummary),
     );
     yield r'chain';
     yield serializers.serialize(
       object.chain,
-      specifiedType: const FullType(EvolutionChainDetailChain),
+      specifiedType: const FullType(EvolutionChainLink),
     );
   }
 
@@ -98,15 +101,16 @@ class _$EvolutionChainDetailSerializer implements PrimitiveSerializer<EvolutionC
         case r'baby_trigger_item':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(ItemSummary),
-          ) as ItemSummary;
+            specifiedType: const FullType.nullable(ItemSummary),
+          ) as ItemSummary?;
+          if (valueDes == null) continue;
           result.babyTriggerItem.replace(valueDes);
           break;
         case r'chain':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(EvolutionChainDetailChain),
-          ) as EvolutionChainDetailChain;
+            specifiedType: const FullType(EvolutionChainLink),
+          ) as EvolutionChainLink;
           result.chain.replace(valueDes);
           break;
         default:

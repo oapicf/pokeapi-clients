@@ -7,12 +7,12 @@
     {
       "name": "entry_number",
       "type": "int",
-      "doc": ""
+      "doc": "The index number within the Pokédex."
     },
     {
       "name": "pokedex",
       "type": "model.PokedexSummary",
-      "doc": ""
+      "doc": "The Pokédex the referenced Pokémon species can be found in."
     }
   ]
 

@@ -44,7 +44,7 @@ import java.util.Map;
 public interface PokemonApi  {
     Future<ApiResponse<PaginatedAbilitySummaryList>> abilityList(Integer limit, Integer offset, String q);
     Future<ApiResponse<AbilityDetail>> abilityRetrieve(String id);
-    Future<ApiResponse<PaginatedCharacteristicSummaryList>> characteristicList(Integer limit, Integer offset, String q);
+    Future<ApiResponse<PaginatedCharacteristicSummaryList>> characteristicList(Integer limit, Integer offset);
     Future<ApiResponse<CharacteristicDetail>> characteristicRetrieve(String id);
     Future<ApiResponse<PaginatedEggGroupSummaryList>> eggGroupList(Integer limit, Integer offset, String q);
     Future<ApiResponse<EggGroupDetail>> eggGroupRetrieve(String id);

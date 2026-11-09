@@ -28,15 +28,79 @@ open class ItemsAPI {
     }
 
 
+    /// List currencies
+    /// - GET /api/v2/currency/
+    /// - Currencies used to buy items.
+    /// - parameter limit: (query) Number of results to return per page. (optional)
+    /// - parameter offset: (query) The initial index from which to return the results. (optional)
+    /// - parameter q: (query) &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+    /// - returns: AnyPublisher<PaginatedCurrencySummaryList, Error> 
+    open func currencyList(limit: Int? = nil, offset: Int? = nil, q: String? = nil) -> AnyPublisher<PaginatedCurrencySummaryList, Error> {
+        Deferred {
+            Result<URLRequest, Error> {
+                guard let baseURL = self.transport.baseURL ?? self.baseURL else {
+                    throw OpenAPITransportError.badURLError()
+                }
+                let localVarPath = "/api/v2/currency/"
+                let localVarURL = baseURL.appendingPathComponent(localVarPath)
+                var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
+                var queryItems: [URLQueryItem] = []
+                if let limit = limit { queryItems.append(URLQueryItem(name: "limit", value: "\(limit)")) } 
+                if let offset = offset { queryItems.append(URLQueryItem(name: "offset", value: "\(offset)")) } 
+                if let q = q { queryItems.append(URLQueryItem(name: "q", value: q)) } 
+                components?.queryItems = queryItems
+                guard let requestURL = components?.url else {
+                    throw OpenAPITransportError.badURLError()
+                }
+                var request = URLRequest(url: requestURL)
+                request.httpMethod = "GET"
+                return request
+            }.publisher
+        }.flatMap { request -> AnyPublisher<PaginatedCurrencySummaryList, Error> in 
+            return self.transport.send(request: request)
+                .tryMap { response in
+                    try self.decoder.decode(PaginatedCurrencySummaryList.self, from: response.data)
+                }
+                .eraseToAnyPublisher()
+        }.eraseToAnyPublisher()
+    }
+
+
+    /// Get currency
+    /// - GET /api/v2/currency/{id}/
+    /// - Currencies used to buy items.
+    /// - parameter id: (path) This parameter can be a string or an integer. 
+    /// - returns: AnyPublisher<CurrencyDetail, Error> 
+    open func currencyRetrieve(id: String) -> AnyPublisher<CurrencyDetail, Error> {
+        Deferred {
+            Result<URLRequest, Error> {
+                guard let baseURL = self.transport.baseURL ?? self.baseURL else {
+                    throw OpenAPITransportError.badURLError()
+                }
+                var localVarPath = "/api/v2/currency/{id}/"
+                localVarPath = localVarPath.replacingOccurrences(of: "{id}", with: id)
+                let localVarURL = baseURL.appendingPathComponent(localVarPath)
+                let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
+                guard let requestURL = components?.url else {
+                    throw OpenAPITransportError.badURLError()
+                }
+                var request = URLRequest(url: requestURL)
+                request.httpMethod = "GET"
+                return request
+            }.publisher
+        }.flatMap { request -> AnyPublisher<CurrencyDetail, Error> in 
+            return self.transport.send(request: request)
+                .tryMap { response in
+                    try self.decoder.decode(CurrencyDetail.self, from: response.data)
+                }
+                .eraseToAnyPublisher()
+        }.eraseToAnyPublisher()
+    }
+
+
     /// List item attributes
     /// - GET /api/v2/item-attribute/
     /// - Item attributes define particular aspects of items, e.g.\"usable in battle\" or \"consumable\".
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter limit: (query) Number of results to return per page. (optional)
     /// - parameter offset: (query) The initial index from which to return the results. (optional)
     /// - parameter q: (query) &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
@@ -75,12 +139,6 @@ open class ItemsAPI {
     /// Get item attribute
     /// - GET /api/v2/item-attribute/{id}/
     /// - Item attributes define particular aspects of items, e.g.\"usable in battle\" or \"consumable\".
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter id: (path) This parameter can be a string or an integer. 
     /// - returns: AnyPublisher<ItemAttributeDetail, Error> 
     open func itemAttributeRetrieve(id: String) -> AnyPublisher<ItemAttributeDetail, Error> {
@@ -113,12 +171,6 @@ open class ItemsAPI {
     /// List item categories
     /// - GET /api/v2/item-category/
     /// - Item categories determine where items will be placed in the players bag.
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter limit: (query) Number of results to return per page. (optional)
     /// - parameter offset: (query) The initial index from which to return the results. (optional)
     /// - parameter q: (query) &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
@@ -157,12 +209,6 @@ open class ItemsAPI {
     /// Get item category
     /// - GET /api/v2/item-category/{id}/
     /// - Item categories determine where items will be placed in the players bag.
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter id: (path) This parameter can be a string or an integer. 
     /// - returns: AnyPublisher<ItemCategoryDetail, Error> 
     open func itemCategoryRetrieve(id: String) -> AnyPublisher<ItemCategoryDetail, Error> {
@@ -195,12 +241,6 @@ open class ItemsAPI {
     /// List item fling effects
     /// - GET /api/v2/item-fling-effect/
     /// - The various effects of the move\"Fling\" when used with different items.
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter limit: (query) Number of results to return per page. (optional)
     /// - parameter offset: (query) The initial index from which to return the results. (optional)
     /// - parameter q: (query) &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
@@ -239,12 +279,6 @@ open class ItemsAPI {
     /// Get item fling effect
     /// - GET /api/v2/item-fling-effect/{id}/
     /// - The various effects of the move\"Fling\" when used with different items.
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter id: (path) This parameter can be a string or an integer. 
     /// - returns: AnyPublisher<ItemFlingEffectDetail, Error> 
     open func itemFlingEffectRetrieve(id: String) -> AnyPublisher<ItemFlingEffectDetail, Error> {
@@ -277,12 +311,6 @@ open class ItemsAPI {
     /// List items
     /// - GET /api/v2/item/
     /// - An item is an object in the games which the player can pick up, keep in their bag, and use in some manner. They have various uses, including healing, powering up, helping catch Pokémon, or to access a new area.
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter limit: (query) Number of results to return per page. (optional)
     /// - parameter offset: (query) The initial index from which to return the results. (optional)
     /// - parameter q: (query) &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
@@ -321,12 +349,6 @@ open class ItemsAPI {
     /// List item pockets
     /// - GET /api/v2/item-pocket/
     /// - Pockets within the players bag used for storing items by category.
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter limit: (query) Number of results to return per page. (optional)
     /// - parameter offset: (query) The initial index from which to return the results. (optional)
     /// - parameter q: (query) &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
@@ -365,12 +387,6 @@ open class ItemsAPI {
     /// Get item pocket
     /// - GET /api/v2/item-pocket/{id}/
     /// - Pockets within the players bag used for storing items by category.
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter id: (path) This parameter can be a string or an integer. 
     /// - returns: AnyPublisher<ItemPocketDetail, Error> 
     open func itemPocketRetrieve(id: String) -> AnyPublisher<ItemPocketDetail, Error> {
@@ -403,12 +419,6 @@ open class ItemsAPI {
     /// Get item
     /// - GET /api/v2/item/{id}/
     /// - An item is an object in the games which the player can pick up, keep in their bag, and use in some manner. They have various uses, including healing, powering up, helping catch Pokémon, or to access a new area.
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter id: (path) This parameter can be a string or an integer. 
     /// - returns: AnyPublisher<ItemDetail, Error> 
     open func itemRetrieve(id: String) -> AnyPublisher<ItemDetail, Error> {

@@ -16,24 +16,24 @@ import io.swagger.v3.oas.annotations.media.Schema
 
 /**
  * 
- * @param name 
- * @param color 
- * @param language 
+ * @param name The name for this contest.
+ * @param color The color associated with this contest's name.
+ * @param language The language that this name is in.
  */
 data class ContestTypeName(
 
-    @get:Size(max=100)
-    @Schema(required = true, description = "")
+    @get:Size(max=200)
+    @Schema(required = true, description = "The name for this contest.")
     @param:JsonProperty("name", required = true)
     @get:JsonProperty("name", required = true) val name: kotlin.String,
 
     @get:Size(max=10)
-    @Schema(required = true, description = "")
+    @Schema(required = true, description = "The color associated with this contest's name.")
     @param:JsonProperty("color", required = true)
     @get:JsonProperty("color", required = true) val color: kotlin.String,
 
     @field:Valid
-    @Schema(required = true, description = "")
+    @Schema(required = true, description = "The language that this name is in.")
     @param:JsonProperty("language", required = true)
     @get:JsonProperty("language", required = true) val language: LanguageSummary
 ) {

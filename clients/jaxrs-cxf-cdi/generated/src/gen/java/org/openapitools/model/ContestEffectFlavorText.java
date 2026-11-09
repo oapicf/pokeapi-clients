@@ -21,6 +21,7 @@ public class ContestEffectFlavorText   {
   private LanguageSummary language;
 
   /**
+   * The localized flavor text for an API resource in a specific language.
    **/
   public ContestEffectFlavorText flavorText(String flavorText) {
     this.flavorText = flavorText;
@@ -28,7 +29,7 @@ public class ContestEffectFlavorText   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The localized flavor text for an API resource in a specific language.")
   @JsonProperty("flavor_text")
   @NotNull
  @Size(max=500)  public String getFlavorText() {
@@ -40,6 +41,7 @@ public class ContestEffectFlavorText   {
 
 
   /**
+   * The language this name is in.
    **/
   public ContestEffectFlavorText language(LanguageSummary language) {
     this.language = language;
@@ -47,7 +49,7 @@ public class ContestEffectFlavorText   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The language this name is in.")
   @JsonProperty("language")
   @NotNull
   public LanguageSummary getLanguage() {

@@ -12,8 +12,7 @@ Name | Type
 `increasedStat` | [StatSummary](StatSummary.md)
 `likesFlavor` | [BerryFlavorSummary](BerryFlavorSummary.md)
 `hatesFlavor` | [BerryFlavorSummary](BerryFlavorSummary.md)
-`berries` | [Array&lt;BerrySummary&gt;](BerrySummary.md)
-`pokeathlonStatChanges` | [Array&lt;NatureDetailPokeathlonStatChangesInner&gt;](NatureDetailPokeathlonStatChangesInner.md)
+`pokeathlonStatChanges` | [Array&lt;NaturePokeathlonStat&gt;](NaturePokeathlonStat.md)
 `moveBattleStylePreferences` | [Array&lt;NatureBattleStylePreference&gt;](NatureBattleStylePreference.md)
 `names` | [Array&lt;NatureName&gt;](NatureName.md)
 
@@ -30,7 +29,6 @@ const example = {
   "increasedStat": null,
   "likesFlavor": null,
   "hatesFlavor": null,
-  "berries": null,
   "pokeathlonStatChanges": null,
   "moveBattleStylePreferences": null,
   "names": null,

@@ -29,6 +29,7 @@ public class EncounterMethodDetail   {
   private List<@Valid EncounterMethodName> names = new ArrayList<>();
 
   /**
+   * The identifier for this resource.
    **/
   public EncounterMethodDetail id(Integer id) {
     this.id = id;
@@ -36,7 +37,7 @@ public class EncounterMethodDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   @JsonProperty("id")
   @NotNull
   public Integer getId() {
@@ -48,6 +49,7 @@ public class EncounterMethodDetail   {
 
 
   /**
+   * The name for this resource.
    **/
   public EncounterMethodDetail name(String name) {
     this.name = name;
@@ -55,10 +57,10 @@ public class EncounterMethodDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   @JsonProperty("name")
   @NotNull
- @Size(max=100)  public String getName() {
+ @Size(max=200)  public String getName() {
     return name;
   }
   public void setName(String name) {
@@ -67,6 +69,9 @@ public class EncounterMethodDetail   {
 
 
   /**
+   * A good value for sorting.
+   * minimum: -2147483648
+   * maximum: 2147483647
    **/
   public EncounterMethodDetail order(Integer order) {
     this.order = order;
@@ -74,9 +79,9 @@ public class EncounterMethodDetail   {
   }
 
   
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A good value for sorting.")
   @JsonProperty("order")
-  public Integer getOrder() {
+ @Min(-2147483648) @Max(2147483647)  public Integer getOrder() {
     return order;
   }
   public void setOrder(Integer order) {
@@ -85,6 +90,7 @@ public class EncounterMethodDetail   {
 
 
   /**
+   * The name of this resource listed in different languages.
    **/
   public EncounterMethodDetail names(List<@Valid EncounterMethodName> names) {
     this.names = names;
@@ -92,7 +98,7 @@ public class EncounterMethodDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
   @JsonProperty("names")
   @NotNull
   public List<@Valid EncounterMethodName> getNames() {

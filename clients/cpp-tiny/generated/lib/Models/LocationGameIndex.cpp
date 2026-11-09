@@ -7,7 +7,7 @@ using namespace Tiny;
 LocationGameIndex::LocationGameIndex()
 {
 	game_index = int(0);
-	generation = GenerationSummary();
+	generation = null;
 }
 
 LocationGameIndex::LocationGameIndex(std::string jsonString)

@@ -15,9 +15,9 @@
 
 typedef struct item_attribute_detail_t item_attribute_detail_t;
 
-#include "ability_detail_pokemon_inner_pokemon.h"
 #include "item_attribute_description.h"
 #include "item_attribute_name.h"
+#include "item_summary.h"
 
 
 

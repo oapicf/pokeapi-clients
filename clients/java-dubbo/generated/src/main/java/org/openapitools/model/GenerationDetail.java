@@ -19,35 +19,62 @@ import java.math.*;
 public class GenerationDetail implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * The identifier for this resource.
+   */
   @JsonProperty("id")
   private Integer id;
 
+  /**
+   * The name for this resource.
+   */
   @JsonProperty("name")
   private String name;
 
+  /**
+   * A list of abilities that were introduced in this generation.
+   */
   @JsonProperty("abilities")
   private List<AbilitySummary> abilities = new ArrayList<>();
 
+  /**
+   * The main region travelled in this generation.
+   */
   @JsonProperty("main_region")
   private RegionSummary mainRegion;
 
+  /**
+   * A list of moves that were introduced in this generation.
+   */
   @JsonProperty("moves")
   private List<MoveSummary> moves = new ArrayList<>();
 
+  /**
+   * The name of this resource listed in different languages.
+   */
   @JsonProperty("names")
   private List<GenerationName> names = new ArrayList<>();
 
+  /**
+   * A list of Pokémon species that were introduced in this generation.
+   */
   @JsonProperty("pokemon_species")
   private List<PokemonSpeciesSummary> pokemonSpecies = new ArrayList<>();
 
+  /**
+   * A list of types that were introduced in this generation.
+   */
   @JsonProperty("types")
   private List<TypeSummary> types = new ArrayList<>();
 
+  /**
+   * A list of version groups that were introduced in this generation.
+   */
   @JsonProperty("version_groups")
   private List<VersionGroupSummary> versionGroups = new ArrayList<>();
 
   /**
-   * 
+   * The identifier for this resource.
    * @return id
    */
   public Integer getId() {
@@ -59,7 +86,7 @@ public class GenerationDetail implements Serializable {
   }
 
   /**
-   * 
+   * The name for this resource.
    * @return name
    */
   public String getName() {
@@ -71,7 +98,7 @@ public class GenerationDetail implements Serializable {
   }
 
   /**
-   * 
+   * A list of abilities that were introduced in this generation.
    * @return abilities
    */
   public List<AbilitySummary> getAbilities() {
@@ -83,7 +110,7 @@ public class GenerationDetail implements Serializable {
   }
 
   /**
-   * 
+   * The main region travelled in this generation.
    * @return mainRegion
    */
   public RegionSummary getMainRegion() {
@@ -95,7 +122,7 @@ public class GenerationDetail implements Serializable {
   }
 
   /**
-   * 
+   * A list of moves that were introduced in this generation.
    * @return moves
    */
   public List<MoveSummary> getMoves() {
@@ -107,7 +134,7 @@ public class GenerationDetail implements Serializable {
   }
 
   /**
-   * 
+   * The name of this resource listed in different languages.
    * @return names
    */
   public List<GenerationName> getNames() {
@@ -119,7 +146,7 @@ public class GenerationDetail implements Serializable {
   }
 
   /**
-   * 
+   * A list of Pokémon species that were introduced in this generation.
    * @return pokemonSpecies
    */
   public List<PokemonSpeciesSummary> getPokemonSpecies() {
@@ -131,7 +158,7 @@ public class GenerationDetail implements Serializable {
   }
 
   /**
-   * 
+   * A list of types that were introduced in this generation.
    * @return types
    */
   public List<TypeSummary> getTypes() {
@@ -143,7 +170,7 @@ public class GenerationDetail implements Serializable {
   }
 
   /**
-   * 
+   * A list of version groups that were introduced in this generation.
    * @return versionGroups
    */
   public List<VersionGroupSummary> getVersionGroups() {

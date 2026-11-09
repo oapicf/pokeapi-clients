@@ -10,11 +10,13 @@ Method | HTTP request | Description
 [**evolutionChainRetrieve**](#evolutionChainRetrieve) | **GET** /api/v2/evolution-chain/{id}/ | Get evolution chain
 [**evolutionTriggerList**](#evolutionTriggerList) | **GET** /api/v2/evolution-trigger/ | List evolution triggers
 [**evolutionTriggerRetrieve**](#evolutionTriggerRetrieve) | **GET** /api/v2/evolution-trigger/{id}/ | Get evolution trigger
+[**evolutionVariableList**](#evolutionVariableList) | **GET** /api/v2/evolution-variable/ | List evolution variables
+[**evolutionVariableRetrieve**](#evolutionVariableRetrieve) | **GET** /api/v2/evolution-variable/{id}/ | Get evolution variable
 
 <a id="evolutionChainList"></a>
 # **evolutionChainList**
 ```java
-Mono<PaginatedEvolutionChainSummaryList> EvolutionController.evolutionChainList(limitoffsetq)
+Mono<PaginatedEvolutionChainSummaryList> EvolutionController.evolutionChainList(limitoffset)
 ```
 
 List evolution chains
@@ -26,14 +28,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **limit** | `Integer` | Number of results to return per page. | [optional parameter]
 **offset** | `Integer` | The initial index from which to return the results. | [optional parameter]
-**q** | `String` | &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional parameter]
 
 ### Return type
 [**PaginatedEvolutionChainSummaryList**](../../docs/models/PaginatedEvolutionChainSummaryList.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -57,9 +55,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**EvolutionChainDetail**](../../docs/models/EvolutionChainDetail.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -85,9 +80,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**PaginatedEvolutionTriggerSummaryList**](../../docs/models/PaginatedEvolutionTriggerSummaryList.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -111,9 +103,54 @@ Name | Type | Description  | Notes
 ### Return type
 [**EvolutionTriggerDetail**](../../docs/models/EvolutionTriggerDetail.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
+
+### HTTP request headers
+ - **Accepts Content-Type**: Not defined
+ - **Produces Content-Type**: `application/json`
+
+<a id="evolutionVariableList"></a>
+# **evolutionVariableList**
+```java
+Mono<PaginatedEvolutionVariableSummaryList> EvolutionController.evolutionVariableList(limitoffsetq)
+```
+
+List evolution variables
+
+Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+
+### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**limit** | `Integer` | Number of results to return per page. | [optional parameter]
+**offset** | `Integer` | The initial index from which to return the results. | [optional parameter]
+**q** | `String` | &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional parameter]
+
+### Return type
+[**PaginatedEvolutionVariableSummaryList**](../../docs/models/PaginatedEvolutionVariableSummaryList.md)
+
+
+### HTTP request headers
+ - **Accepts Content-Type**: Not defined
+ - **Produces Content-Type**: `application/json`
+
+<a id="evolutionVariableRetrieve"></a>
+# **evolutionVariableRetrieve**
+```java
+Mono<EvolutionVariableDetail> EvolutionController.evolutionVariableRetrieve(id)
+```
+
+Get evolution variable
+
+Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+
+### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**id** | `String` | This parameter can be a string or an integer. |
+
+### Return type
+[**EvolutionVariableDetail**](../../docs/models/EvolutionVariableDetail.md)
+
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined

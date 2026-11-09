@@ -12,14 +12,20 @@ import java.math.*;
 public class PokemonGameIndex implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * The internal id of an API resource within game data.
+   */
   @JsonProperty("game_index")
   private Integer gameIndex;
 
+  /**
+   * The version relevent to this game index.
+   */
   @JsonProperty("version")
   private VersionSummary version;
 
   /**
-   * 
+   * The internal id of an API resource within game data.
    * @return gameIndex
    */
   public Integer getGameIndex() {
@@ -31,7 +37,7 @@ public class PokemonGameIndex implements Serializable {
   }
 
   /**
-   * 
+   * The version relevent to this game index.
    * @return version
    */
   public VersionSummary getVersion() {

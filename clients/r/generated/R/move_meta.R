@@ -7,18 +7,18 @@
 #' @title MoveMeta
 #' @description MoveMeta Class
 #' @format An \code{R6Class} generator object
-#' @field ailment  \link{MoveMetaAilmentSummary}
-#' @field category  \link{MoveMetaCategorySummary}
-#' @field min_hits  integer [optional]
-#' @field max_hits  integer [optional]
-#' @field min_turns  integer [optional]
-#' @field max_turns  integer [optional]
-#' @field drain  integer [optional]
-#' @field healing  integer [optional]
-#' @field crit_rate  integer [optional]
-#' @field ailment_chance  integer [optional]
-#' @field flinch_chance  integer [optional]
-#' @field stat_chance  integer [optional]
+#' @field ailment The status ailment this move inflicts on its target. \link{MoveMetaAilmentSummary}
+#' @field category The category of move this move falls under, e.g. damage or ailment. \link{MoveMetaCategorySummary}
+#' @field min_hits The minimum number of times this move hits. Null if it always only hits once. integer [optional]
+#' @field max_hits The maximum number of times this move hits. Null if it always only hits once. integer [optional]
+#' @field min_turns The minimum number of turns this move continues to take effect. Null if it always only lasts one turn. integer [optional]
+#' @field max_turns The maximum number of turns this move continues to take effect. Null if it always only lasts one turn. integer [optional]
+#' @field drain HP drain (if positive) or Recoil damage (if negative), in percent of damage done. integer [optional]
+#' @field healing The amount of hp gained by the attacking Pokemon, in percent of it's maximum HP. integer [optional]
+#' @field crit_rate Critical hit rate bonus. integer [optional]
+#' @field ailment_chance The likelihood this attack will cause an ailment. integer [optional]
+#' @field flinch_chance The likelihood this attack will cause the target Pokémon to flinch. integer [optional]
+#' @field stat_chance The likelihood this attack will cause a stat change in the target Pokémon. integer [optional]
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -41,18 +41,18 @@ MoveMeta <- R6::R6Class(
     #' @description
     #' Initialize a new MoveMeta class.
     #'
-    #' @param ailment ailment
-    #' @param category category
-    #' @param min_hits min_hits
-    #' @param max_hits max_hits
-    #' @param min_turns min_turns
-    #' @param max_turns max_turns
-    #' @param drain drain
-    #' @param healing healing
-    #' @param crit_rate crit_rate
-    #' @param ailment_chance ailment_chance
-    #' @param flinch_chance flinch_chance
-    #' @param stat_chance stat_chance
+    #' @param ailment The status ailment this move inflicts on its target.
+    #' @param category The category of move this move falls under, e.g. damage or ailment.
+    #' @param min_hits The minimum number of times this move hits. Null if it always only hits once.
+    #' @param max_hits The maximum number of times this move hits. Null if it always only hits once.
+    #' @param min_turns The minimum number of turns this move continues to take effect. Null if it always only lasts one turn.
+    #' @param max_turns The maximum number of turns this move continues to take effect. Null if it always only lasts one turn.
+    #' @param drain HP drain (if positive) or Recoil damage (if negative), in percent of damage done.
+    #' @param healing The amount of hp gained by the attacking Pokemon, in percent of it's maximum HP.
+    #' @param crit_rate Critical hit rate bonus.
+    #' @param ailment_chance The likelihood this attack will cause an ailment.
+    #' @param flinch_chance The likelihood this attack will cause the target Pokémon to flinch.
+    #' @param stat_chance The likelihood this attack will cause a stat change in the target Pokémon.
     #' @param ... Other optional arguments.
     initialize = function(`ailment`, `category`, `min_hits` = NULL, `max_hits` = NULL, `min_turns` = NULL, `max_turns` = NULL, `drain` = NULL, `healing` = NULL, `crit_rate` = NULL, `ailment_chance` = NULL, `flinch_chance` = NULL, `stat_chance` = NULL, ...) {
       if (!missing(`ailment`)) {
@@ -356,6 +356,76 @@ MoveMeta <- R6::R6Class(
         return(FALSE)
       }
 
+      if (self$`min_hits` > 2147483647) {
+        return(FALSE)
+      }
+      if (self$`min_hits` < -2147483648) {
+        return(FALSE)
+      }
+
+      if (self$`max_hits` > 2147483647) {
+        return(FALSE)
+      }
+      if (self$`max_hits` < -2147483648) {
+        return(FALSE)
+      }
+
+      if (self$`min_turns` > 2147483647) {
+        return(FALSE)
+      }
+      if (self$`min_turns` < -2147483648) {
+        return(FALSE)
+      }
+
+      if (self$`max_turns` > 2147483647) {
+        return(FALSE)
+      }
+      if (self$`max_turns` < -2147483648) {
+        return(FALSE)
+      }
+
+      if (self$`drain` > 2147483647) {
+        return(FALSE)
+      }
+      if (self$`drain` < -2147483648) {
+        return(FALSE)
+      }
+
+      if (self$`healing` > 2147483647) {
+        return(FALSE)
+      }
+      if (self$`healing` < -2147483648) {
+        return(FALSE)
+      }
+
+      if (self$`crit_rate` > 2147483647) {
+        return(FALSE)
+      }
+      if (self$`crit_rate` < -2147483648) {
+        return(FALSE)
+      }
+
+      if (self$`ailment_chance` > 2147483647) {
+        return(FALSE)
+      }
+      if (self$`ailment_chance` < -2147483648) {
+        return(FALSE)
+      }
+
+      if (self$`flinch_chance` > 2147483647) {
+        return(FALSE)
+      }
+      if (self$`flinch_chance` < -2147483648) {
+        return(FALSE)
+      }
+
+      if (self$`stat_chance` > 2147483647) {
+        return(FALSE)
+      }
+      if (self$`stat_chance` < -2147483648) {
+        return(FALSE)
+      }
+
       TRUE
     },
 
@@ -373,6 +443,76 @@ MoveMeta <- R6::R6Class(
       # check if the required `category` is null
       if (is.null(self$`category`)) {
         invalid_fields["category"] <- "Non-nullable required field `category` cannot be null."
+      }
+
+      if (self$`min_hits` > 2147483647) {
+        invalid_fields["min_hits"] <- "Invalid value for `min_hits`, must be smaller than or equal to 2147483647."
+      }
+      if (self$`min_hits` < -2147483648) {
+        invalid_fields["min_hits"] <- "Invalid value for `min_hits`, must be bigger than or equal to -2147483648."
+      }
+
+      if (self$`max_hits` > 2147483647) {
+        invalid_fields["max_hits"] <- "Invalid value for `max_hits`, must be smaller than or equal to 2147483647."
+      }
+      if (self$`max_hits` < -2147483648) {
+        invalid_fields["max_hits"] <- "Invalid value for `max_hits`, must be bigger than or equal to -2147483648."
+      }
+
+      if (self$`min_turns` > 2147483647) {
+        invalid_fields["min_turns"] <- "Invalid value for `min_turns`, must be smaller than or equal to 2147483647."
+      }
+      if (self$`min_turns` < -2147483648) {
+        invalid_fields["min_turns"] <- "Invalid value for `min_turns`, must be bigger than or equal to -2147483648."
+      }
+
+      if (self$`max_turns` > 2147483647) {
+        invalid_fields["max_turns"] <- "Invalid value for `max_turns`, must be smaller than or equal to 2147483647."
+      }
+      if (self$`max_turns` < -2147483648) {
+        invalid_fields["max_turns"] <- "Invalid value for `max_turns`, must be bigger than or equal to -2147483648."
+      }
+
+      if (self$`drain` > 2147483647) {
+        invalid_fields["drain"] <- "Invalid value for `drain`, must be smaller than or equal to 2147483647."
+      }
+      if (self$`drain` < -2147483648) {
+        invalid_fields["drain"] <- "Invalid value for `drain`, must be bigger than or equal to -2147483648."
+      }
+
+      if (self$`healing` > 2147483647) {
+        invalid_fields["healing"] <- "Invalid value for `healing`, must be smaller than or equal to 2147483647."
+      }
+      if (self$`healing` < -2147483648) {
+        invalid_fields["healing"] <- "Invalid value for `healing`, must be bigger than or equal to -2147483648."
+      }
+
+      if (self$`crit_rate` > 2147483647) {
+        invalid_fields["crit_rate"] <- "Invalid value for `crit_rate`, must be smaller than or equal to 2147483647."
+      }
+      if (self$`crit_rate` < -2147483648) {
+        invalid_fields["crit_rate"] <- "Invalid value for `crit_rate`, must be bigger than or equal to -2147483648."
+      }
+
+      if (self$`ailment_chance` > 2147483647) {
+        invalid_fields["ailment_chance"] <- "Invalid value for `ailment_chance`, must be smaller than or equal to 2147483647."
+      }
+      if (self$`ailment_chance` < -2147483648) {
+        invalid_fields["ailment_chance"] <- "Invalid value for `ailment_chance`, must be bigger than or equal to -2147483648."
+      }
+
+      if (self$`flinch_chance` > 2147483647) {
+        invalid_fields["flinch_chance"] <- "Invalid value for `flinch_chance`, must be smaller than or equal to 2147483647."
+      }
+      if (self$`flinch_chance` < -2147483648) {
+        invalid_fields["flinch_chance"] <- "Invalid value for `flinch_chance`, must be bigger than or equal to -2147483648."
+      }
+
+      if (self$`stat_chance` > 2147483647) {
+        invalid_fields["stat_chance"] <- "Invalid value for `stat_chance`, must be smaller than or equal to 2147483647."
+      }
+      if (self$`stat_chance` < -2147483648) {
+        invalid_fields["stat_chance"] <- "Invalid value for `stat_chance`, must be bigger than or equal to -2147483648."
       }
 
       invalid_fields

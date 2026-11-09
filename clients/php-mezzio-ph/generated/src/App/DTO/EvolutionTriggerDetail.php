@@ -10,6 +10,7 @@ use Articus\DataTransfer\Annotation as DTA;
 class EvolutionTriggerDetail
 {
     /**
+     * The identifier for this resource.
      * @DTA\Data(field="id")
      * @DTA\Validator(name="Scalar", options={"type":"int"})
      * @var int|null
@@ -17,26 +18,29 @@ class EvolutionTriggerDetail
     public $id;
 
     /**
+     * The name for this resource.
      * @DTA\Data(field="name")
      * @DTA\Validator(name="Scalar", options={"type":"string"})
-     * @DTA\Validator(name="StringLength", options={"max":100})
+     * @DTA\Validator(name="StringLength", options={"max":200})
      * @var string|null
      */
     public $name;
 
     /**
+     * The name of this resource listed in different languages.
      * @DTA\Data(field="names")
-     * @DTA\Strategy(name="Object", options={"type":\App\DTO\Collection38::class})
-     * @DTA\Validator(name="TypeCompliant", options={"type":\App\DTO\Collection38::class})
-     * @var \App\DTO\Collection38|null
+     * @DTA\Strategy(name="Object", options={"type":\App\DTO\Collection35::class})
+     * @DTA\Validator(name="TypeCompliant", options={"type":\App\DTO\Collection35::class})
+     * @var \App\DTO\Collection35|null
      */
     public $names;
 
     /**
+     * A list of pokemon species that result from this evolution trigger.
      * @DTA\Data(field="pokemon_species")
-     * @DTA\Strategy(name="Object", options={"type":\App\DTO\Collection39::class})
-     * @DTA\Validator(name="TypeCompliant", options={"type":\App\DTO\Collection39::class})
-     * @var \App\DTO\Collection39|null
+     * @DTA\Strategy(name="Object", options={"type":\App\DTO\Collection36::class})
+     * @DTA\Validator(name="TypeCompliant", options={"type":\App\DTO\Collection36::class})
+     * @var \App\DTO\Collection36|null
      */
     public $pokemon_species;
 

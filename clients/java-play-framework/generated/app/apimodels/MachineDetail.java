@@ -12,7 +12,7 @@ import javax.validation.Valid;
 /**
  * MachineDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-10-25T05:48:13.486809836Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-11-09T13:49:31.462302702Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class MachineDetail   {
   @JsonProperty("id")
@@ -44,7 +44,7 @@ public class MachineDetail   {
   }
 
    /**
-   * Get id
+   * The identifier for this resource.
    * @return id
   **/
   public Integer getId() {
@@ -61,7 +61,7 @@ public class MachineDetail   {
   }
 
    /**
-   * Get item
+   * The TM or HM item that corresponds to this machine.
    * @return item
   **/
   public ItemSummary getItem() {
@@ -78,7 +78,7 @@ public class MachineDetail   {
   }
 
    /**
-   * Get versionGroup
+   * The version group that this machine applies to.
    * @return versionGroup
   **/
   public VersionGroupSummary getVersionGroup() {
@@ -95,7 +95,7 @@ public class MachineDetail   {
   }
 
    /**
-   * Get move
+   * The move that is taught by this machine.
    * @return move
   **/
   public MoveSummary getMove() {

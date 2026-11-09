@@ -2,17 +2,26 @@
 Protected Class EvolutionChainDetail
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The identifier for this resource.
+		#tag EndNote
 		id As Integer
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The item that a Pokémon would be holding when mating that would trigger the egg hatching a baby Pokémon rather than a basic Pokémon.
+		#tag EndNote
 		baby_trigger_item As OpenAPIClient.Models.ItemSummary
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
-		chain As OpenAPIClient.Models.EvolutionChainDetailChain
+		#tag Note
+			The base chain link object. Each link contains evolution details for a Pokémon in the chain. Each link references the next Pokémon in the natural evolution order.
+		#tag EndNote
+		chain As OpenAPIClient.Models.EvolutionChainLink
 	#tag EndProperty
 
 
@@ -73,7 +82,7 @@ Protected Class EvolutionChainDetail
 			Visible=false
 			Group="Behavior"
 			InitialValue=""
-			Type="EvolutionChainDetailChain"
+			Type="EvolutionChainLink"
 			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior

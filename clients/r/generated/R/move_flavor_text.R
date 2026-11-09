@@ -7,9 +7,9 @@
 #' @title MoveFlavorText
 #' @description MoveFlavorText Class
 #' @format An \code{R6Class} generator object
-#' @field flavor_text  character
-#' @field language  \link{LanguageSummary}
-#' @field version_group  \link{VersionGroupSummary}
+#' @field flavor_text The localized flavor text for an api resource in a specific language. character
+#' @field language The language this name is in. \link{LanguageSummary}
+#' @field version_group The version group that uses this flavor text. \link{VersionGroupSummary}
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -23,9 +23,9 @@ MoveFlavorText <- R6::R6Class(
     #' @description
     #' Initialize a new MoveFlavorText class.
     #'
-    #' @param flavor_text flavor_text
-    #' @param language language
-    #' @param version_group version_group
+    #' @param flavor_text The localized flavor text for an api resource in a specific language.
+    #' @param language The language this name is in.
+    #' @param version_group The version group that uses this flavor text.
     #' @param ... Other optional arguments.
     initialize = function(`flavor_text`, `language`, `version_group`, ...) {
       if (!missing(`flavor_text`)) {

@@ -29,10 +29,10 @@ public class VersionDetail   {
     /**
      * Create VersionDetail.
      *
-     * @param id id
-     * @param name name
-     * @param names names
-     * @param versionGroup versionGroup
+     * @param id The identifier for this resource.
+     * @param name The name for this resource.
+     * @param names The name of this resource listed in different languages.
+     * @param versionGroup The version group this version belongs to.
      */
     public VersionDetail(
         Integer id, 
@@ -49,7 +49,7 @@ public class VersionDetail   {
 
 
     /**
-     * Get id
+     * The identifier for this resource.
      * @return id
      */
     public Integer getId() {
@@ -61,7 +61,7 @@ public class VersionDetail   {
     }
 
     /**
-     * Get name
+     * The name for this resource.
      * @return name
      */
     public String getName() {
@@ -73,7 +73,7 @@ public class VersionDetail   {
     }
 
     /**
-     * Get names
+     * The name of this resource listed in different languages.
      * @return names
      */
     public List<@Valid VersionName> getNames() {
@@ -85,7 +85,7 @@ public class VersionDetail   {
     }
 
     /**
-     * Get versionGroup
+     * The version group this version belongs to.
      * @return versionGroup
      */
     public VersionGroupSummary getVersionGroup() {

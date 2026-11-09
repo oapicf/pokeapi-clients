@@ -5,11 +5,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **number** |  | [readonly] [default to undefined]
-**name** | **string** |  | [default to undefined]
-**names** | [**Array&lt;MoveLearnMethodName&gt;**](MoveLearnMethodName.md) |  | [readonly] [default to undefined]
-**descriptions** | [**Array&lt;MoveLearnMethodDescription&gt;**](MoveLearnMethodDescription.md) |  | [readonly] [default to undefined]
-**version_groups** | [**Array&lt;AbilityDetailPokemonInnerPokemon&gt;**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] [default to undefined]
+**id** | **number** | The identifier for this resource. | [readonly] [default to undefined]
+**name** | **string** | The name for this resource. | [default to undefined]
+**names** | [**Array&lt;MoveLearnMethodName&gt;**](MoveLearnMethodName.md) | The name of this resource listed in different languages. | [readonly] [default to undefined]
+**descriptions** | [**Array&lt;MoveLearnMethodDescription&gt;**](MoveLearnMethodDescription.md) | The description of this resource listed in different languages. | [readonly] [default to undefined]
+**version_groups** | [**Array&lt;VersionGroupSummary&gt;**](VersionGroupSummary.md) | A list of version groups where moves can be learned through this method. | [readonly] [default to undefined]
 
 ## Example
 

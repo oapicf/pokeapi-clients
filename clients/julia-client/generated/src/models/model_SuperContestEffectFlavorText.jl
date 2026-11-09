@@ -9,8 +9,8 @@
         language=nothing,
     )
 
-    - flavor_text::String
-    - language::LanguageSummary
+    - flavor_text::String : The localized flavor text for an API resource in a specific language.
+    - language::LanguageSummary : The language this name is in.
 """
 Base.@kwdef mutable struct SuperContestEffectFlavorText <: OpenAPI.APIModel
     flavor_text::Union{Nothing, String} = nothing

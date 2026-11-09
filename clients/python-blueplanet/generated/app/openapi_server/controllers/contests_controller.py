@@ -9,7 +9,7 @@ from app.openapi_server.models.super_contest_effect_detail import SuperContestEf
 from openapi_server import util
 
 
-def contest_effect_list(limit=None, offset=None, q=None):  # noqa: E501
+def contest_effect_list(limit=None, offset=None):  # noqa: E501
     """List contest effects
 
     Contest effects refer to the effects of moves when used in contests. # noqa: E501
@@ -18,8 +18,6 @@ def contest_effect_list(limit=None, offset=None, q=None):  # noqa: E501
     :type limit: int
     :param offset: The initial index from which to return the results.
     :type offset: int
-    :param q: &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. 
-    :type q: str
 
     :rtype: PaginatedContestEffectSummaryList
     """
@@ -69,7 +67,7 @@ def contest_type_retrieve(id):  # noqa: E501
     return 'do some magic!'
 
 
-def super_contest_effect_list(limit=None, offset=None, q=None):  # noqa: E501
+def super_contest_effect_list(limit=None, offset=None):  # noqa: E501
     """List super contest effects
 
     Super contest effects refer to the effects of moves when used in super contests. # noqa: E501
@@ -78,8 +76,6 @@ def super_contest_effect_list(limit=None, offset=None, q=None):  # noqa: E501
     :type limit: int
     :param offset: The initial index from which to return the results.
     :type offset: int
-    :param q: &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. 
-    :type q: str
 
     :rtype: PaginatedSuperContestEffectSummaryList
     """

@@ -1,0 +1,64 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "PokemonFormSprites",
+  "fields": [
+    {
+      "name": "front_default",
+      "type": "string",
+      "doc": "The default depiction of this Pokémon from the front in battle."
+    },
+    {
+      "name": "front_shiny",
+      "type": "string",
+      "doc": "The shiny depiction of this Pokémon from the front in battle."
+    },
+    {
+      "name": "front_female",
+      "type": "string",
+      "doc": "The female depiction of this Pokémon from the front in battle."
+    },
+    {
+      "name": "front_shiny_female",
+      "type": "string",
+      "doc": "The shiny female depiction of this Pokémon from the front in battle."
+    },
+    {
+      "name": "back_default",
+      "type": "string",
+      "doc": "The default depiction of this Pokémon from the back in battle."
+    },
+    {
+      "name": "back_shiny",
+      "type": "string",
+      "doc": "The shiny depiction of this Pokémon from the back in battle."
+    },
+    {
+      "name": "back_female",
+      "type": "string",
+      "doc": "The female depiction of this Pokémon from the back in battle."
+    },
+    {
+      "name": "back_shiny_female",
+      "type": "string",
+      "doc": "The shiny female depiction of this Pokémon from the back in battle."
+    },
+    {
+      "name": "other",
+      "type": ["null", "model.PokemonSpritesOther"],
+      "doc": "Additional sprites grouped by source, such as official artwork, HOME, and Showdown. Available keys vary by resource.",
+      "default": null
+    },
+    {
+      "name": "versions",
+      "type": ["null", {
+        "type": "map",
+        "items": "model.map"
+      }],
+      "doc": "Sprites grouped by generation and game. Available keys vary by resource.",
+      "default": null
+    }
+  ]
+
+}

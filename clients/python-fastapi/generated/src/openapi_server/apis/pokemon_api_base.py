@@ -37,7 +37,7 @@ from openapi_server.models.pokemon_shape_detail import PokemonShapeDetail
 from openapi_server.models.pokemon_species_detail import PokemonSpeciesDetail
 from openapi_server.models.stat_detail import StatDetail
 from openapi_server.models.type_detail import TypeDetail
-from openapi_server.security_api import get_token_basicAuth, get_token_cookieAuth
+
 
 class BasePokemonApi:
     subclasses: ClassVar[Tuple] = ()
@@ -67,7 +67,6 @@ class BasePokemonApi:
         self,
         limit: Annotated[Optional[int], Field(description="Number of results to return per page.")],
         offset: Annotated[Optional[int], Field(description="The initial index from which to return the results.")],
-        q: Annotated[Optional[str], Field(description="> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")],
     ) -> PaginatedCharacteristicSummaryList:
         """Characteristics indicate which stat contains a Pokémon&#39;s highest IV. A Pokémon&#39;s Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail."""
         ...

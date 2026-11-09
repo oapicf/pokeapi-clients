@@ -9,16 +9,20 @@ import javax.validation.Valid;
 /**
  * Experience
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-10-25T05:48:13.486809836Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-11-09T13:49:31.462302702Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class Experience   {
   @JsonProperty("level")
   @NotNull
+@Min(-2147483648)
+@Max(2147483647)
 
   private Integer level;
 
   @JsonProperty("experience")
   @NotNull
+@Min(-2147483648)
+@Max(2147483647)
 
   private Integer experience;
 
@@ -28,7 +32,9 @@ public class Experience   {
   }
 
    /**
-   * Get level
+   * The level gained.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return level
   **/
   public Integer getLevel() {
@@ -45,7 +51,9 @@ public class Experience   {
   }
 
    /**
-   * Get experience
+   * The amount of experience required to reach the referenced level.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return experience
   **/
   public Integer getExperience() {

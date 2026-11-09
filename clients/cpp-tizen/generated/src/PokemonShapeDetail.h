@@ -9,8 +9,8 @@
 
 
 #include <string>
-#include "PokemonShapeDetail_awesome_names_inner.h"
-#include "PokemonShapeDetail_names_inner.h"
+#include "PokemonShapeAwesomeName.h"
+#include "PokemonShapeName.h"
 #include "PokemonSpeciesSummary.h"
 #include <list>
 #include "Object.h"
@@ -49,47 +49,47 @@ public:
 	 */
 	void fromJson(char* jsonStr);
 
-	/*! \brief Get 
+	/*! \brief Get The identifier for this resource.
 	 */
 	int getId();
 
-	/*! \brief Set 
+	/*! \brief Set The identifier for this resource.
 	 */
 	void setId(int  id);
-	/*! \brief Get 
+	/*! \brief Get The name for this resource.
 	 */
 	std::string getName();
 
-	/*! \brief Set 
+	/*! \brief Set The name for this resource.
 	 */
 	void setName(std::string  name);
-	/*! \brief Get 
+	/*! \brief Get The \"scientific\" name of this Pokémon shape listed in different languages.
 	 */
-	std::list<PokemonShapeDetail_awesome_names_inner> getAwesomeNames();
+	std::list<PokemonShapeAwesomeName> getAwesomeNames();
 
-	/*! \brief Set 
+	/*! \brief Set The \"scientific\" name of this Pokémon shape listed in different languages.
 	 */
-	void setAwesomeNames(std::list <PokemonShapeDetail_awesome_names_inner> awesome_names);
-	/*! \brief Get 
+	void setAwesomeNames(std::list <PokemonShapeAwesomeName> awesome_names);
+	/*! \brief Get The name of this resource listed in different languages.
 	 */
-	std::list<PokemonShapeDetail_names_inner> getNames();
+	std::list<PokemonShapeName> getNames();
 
-	/*! \brief Set 
+	/*! \brief Set The name of this resource listed in different languages.
 	 */
-	void setNames(std::list <PokemonShapeDetail_names_inner> names);
-	/*! \brief Get 
+	void setNames(std::list <PokemonShapeName> names);
+	/*! \brief Get A list of the Pokémon species that have this shape.
 	 */
 	std::list<PokemonSpeciesSummary> getPokemonSpecies();
 
-	/*! \brief Set 
+	/*! \brief Set A list of the Pokémon species that have this shape.
 	 */
 	void setPokemonSpecies(std::list <PokemonSpeciesSummary> pokemon_species);
 
 private:
 	int id;
 	std::string name;
-	std::list <PokemonShapeDetail_awesome_names_inner>awesome_names;
-	std::list <PokemonShapeDetail_names_inner>names;
+	std::list <PokemonShapeAwesomeName>awesome_names;
+	std::list <PokemonShapeName>names;
 	std::list <PokemonSpeciesSummary>pokemon_species;
 	void __init();
 	void __cleanup();

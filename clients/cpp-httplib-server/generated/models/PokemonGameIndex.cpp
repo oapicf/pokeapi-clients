@@ -10,7 +10,6 @@ namespace models {
 
 PokemonGameIndex::PokemonGameIndex()
 : gameIndex(0)
-, version(VersionSummary())
 {
 }
 // =========================================

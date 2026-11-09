@@ -7,12 +7,12 @@
     {
       "name": "id",
       "type": "int",
-      "doc": ""
+      "doc": "The identifier for this resource."
     },
     {
       "name": "name",
       "type": "string",
-      "doc": ""
+      "doc": "The name for this resource."
     },
     {
       "name": "abilities",
@@ -20,12 +20,12 @@
         "type": "array",
         "items": "model.AbilitySummary"
       },
-      "doc": ""
+      "doc": "A list of abilities that were introduced in this generation."
     },
     {
       "name": "main_region",
       "type": "model.RegionSummary",
-      "doc": ""
+      "doc": "The main region travelled in this generation."
     },
     {
       "name": "moves",
@@ -33,7 +33,7 @@
         "type": "array",
         "items": "model.MoveSummary"
       },
-      "doc": ""
+      "doc": "A list of moves that were introduced in this generation."
     },
     {
       "name": "names",
@@ -41,7 +41,7 @@
         "type": "array",
         "items": "model.GenerationName"
       },
-      "doc": ""
+      "doc": "The name of this resource listed in different languages."
     },
     {
       "name": "pokemon_species",
@@ -49,7 +49,7 @@
         "type": "array",
         "items": "model.PokemonSpeciesSummary"
       },
-      "doc": ""
+      "doc": "A list of Pokémon species that were introduced in this generation."
     },
     {
       "name": "types",
@@ -57,7 +57,7 @@
         "type": "array",
         "items": "model.TypeSummary"
       },
-      "doc": ""
+      "doc": "A list of types that were introduced in this generation."
     },
     {
       "name": "version_groups",
@@ -65,7 +65,7 @@
         "type": "array",
         "items": "model.VersionGroupSummary"
       },
-      "doc": ""
+      "doc": "A list of version groups that were introduced in this generation."
     }
   ]
 

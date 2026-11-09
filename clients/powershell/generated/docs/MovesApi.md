@@ -31,17 +31,6 @@ Move Ailments are status conditions caused by moves used during battle. See [Bul
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure HTTP basic authorization: basicAuth
-$Configuration.Username = "YOUR_USERNAME"
-$Configuration.Password = "YOUR_PASSWORD"
-
-# Configure API key authorization: cookieAuth
-$Configuration.ApiKey.sessionid = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.sessionid = "Bearer"
-
 $Limit = 56 # Int32 | Number of results to return per page. (optional)
 $Offset = 56 # Int32 | The initial index from which to return the results. (optional)
 $Q = "MyQ" # String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
@@ -69,7 +58,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -89,18 +78,7 @@ Move Ailments are status conditions caused by moves used during battle. See [Bul
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure HTTP basic authorization: basicAuth
-$Configuration.Username = "YOUR_USERNAME"
-$Configuration.Password = "YOUR_PASSWORD"
-
-# Configure API key authorization: cookieAuth
-$Configuration.ApiKey.sessionid = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.sessionid = "Bearer"
-
-$Id = "MyId" # String | This parameter can be a string or an integer.
+$Id = "1" # String | This parameter can be a string or an integer.
 
 # Get move meta ailment
 try {
@@ -123,7 +101,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -145,17 +123,6 @@ Styles of moves when used in the Battle Palace. See [Bulbapedia](http://bulbaped
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure HTTP basic authorization: basicAuth
-$Configuration.Username = "YOUR_USERNAME"
-$Configuration.Password = "YOUR_PASSWORD"
-
-# Configure API key authorization: cookieAuth
-$Configuration.ApiKey.sessionid = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.sessionid = "Bearer"
-
 $Limit = 56 # Int32 | Number of results to return per page. (optional)
 $Offset = 56 # Int32 | The initial index from which to return the results. (optional)
 $Q = "MyQ" # String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
@@ -183,7 +150,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -203,18 +170,7 @@ Styles of moves when used in the Battle Palace. See [Bulbapedia](http://bulbaped
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure HTTP basic authorization: basicAuth
-$Configuration.Username = "YOUR_USERNAME"
-$Configuration.Password = "YOUR_PASSWORD"
-
-# Configure API key authorization: cookieAuth
-$Configuration.ApiKey.sessionid = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.sessionid = "Bearer"
-
-$Id = "MyId" # String | This parameter can be a string or an integer.
+$Id = "1" # String | This parameter can be a string or an integer.
 
 # Get move battle style
 try {
@@ -237,7 +193,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -259,17 +215,6 @@ Very general categories that loosely group move effects.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure HTTP basic authorization: basicAuth
-$Configuration.Username = "YOUR_USERNAME"
-$Configuration.Password = "YOUR_PASSWORD"
-
-# Configure API key authorization: cookieAuth
-$Configuration.ApiKey.sessionid = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.sessionid = "Bearer"
-
 $Limit = 56 # Int32 | Number of results to return per page. (optional)
 $Offset = 56 # Int32 | The initial index from which to return the results. (optional)
 $Q = "MyQ" # String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
@@ -297,7 +242,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -317,18 +262,7 @@ Very general categories that loosely group move effects.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure HTTP basic authorization: basicAuth
-$Configuration.Username = "YOUR_USERNAME"
-$Configuration.Password = "YOUR_PASSWORD"
-
-# Configure API key authorization: cookieAuth
-$Configuration.ApiKey.sessionid = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.sessionid = "Bearer"
-
-$Id = "MyId" # String | This parameter can be a string or an integer.
+$Id = "1" # String | This parameter can be a string or an integer.
 
 # Get move meta category
 try {
@@ -351,7 +285,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -373,17 +307,6 @@ Methods by which Pokémon can learn moves.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure HTTP basic authorization: basicAuth
-$Configuration.Username = "YOUR_USERNAME"
-$Configuration.Password = "YOUR_PASSWORD"
-
-# Configure API key authorization: cookieAuth
-$Configuration.ApiKey.sessionid = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.sessionid = "Bearer"
-
 $Limit = 56 # Int32 | Number of results to return per page. (optional)
 $Offset = 56 # Int32 | The initial index from which to return the results. (optional)
 $Q = "MyQ" # String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
@@ -411,7 +334,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -431,18 +354,7 @@ Methods by which Pokémon can learn moves.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure HTTP basic authorization: basicAuth
-$Configuration.Username = "YOUR_USERNAME"
-$Configuration.Password = "YOUR_PASSWORD"
-
-# Configure API key authorization: cookieAuth
-$Configuration.ApiKey.sessionid = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.sessionid = "Bearer"
-
-$Id = "MyId" # String | This parameter can be a string or an integer.
+$Id = "1" # String | This parameter can be a string or an integer.
 
 # Get move learn method
 try {
@@ -465,7 +377,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -487,17 +399,6 @@ Moves are the skills of Pokémon in battle. In battle, a Pokémon uses one move 
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure HTTP basic authorization: basicAuth
-$Configuration.Username = "YOUR_USERNAME"
-$Configuration.Password = "YOUR_PASSWORD"
-
-# Configure API key authorization: cookieAuth
-$Configuration.ApiKey.sessionid = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.sessionid = "Bearer"
-
 $Limit = 56 # Int32 | Number of results to return per page. (optional)
 $Offset = 56 # Int32 | The initial index from which to return the results. (optional)
 $Q = "MyQ" # String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
@@ -525,7 +426,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -545,18 +446,7 @@ Moves are the skills of Pokémon in battle. In battle, a Pokémon uses one move 
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure HTTP basic authorization: basicAuth
-$Configuration.Username = "YOUR_USERNAME"
-$Configuration.Password = "YOUR_PASSWORD"
-
-# Configure API key authorization: cookieAuth
-$Configuration.ApiKey.sessionid = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.sessionid = "Bearer"
-
-$Id = "MyId" # String | This parameter can be a string or an integer.
+$Id = "1" # String | This parameter can be a string or an integer.
 
 # Get move
 try {
@@ -579,7 +469,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -601,17 +491,6 @@ Targets moves can be directed at during battle. Targets can be Pokémon, environ
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure HTTP basic authorization: basicAuth
-$Configuration.Username = "YOUR_USERNAME"
-$Configuration.Password = "YOUR_PASSWORD"
-
-# Configure API key authorization: cookieAuth
-$Configuration.ApiKey.sessionid = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.sessionid = "Bearer"
-
 $Limit = 56 # Int32 | Number of results to return per page. (optional)
 $Offset = 56 # Int32 | The initial index from which to return the results. (optional)
 $Q = "MyQ" # String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
@@ -639,7 +518,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -659,18 +538,7 @@ Targets moves can be directed at during battle. Targets can be Pokémon, environ
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure HTTP basic authorization: basicAuth
-$Configuration.Username = "YOUR_USERNAME"
-$Configuration.Password = "YOUR_PASSWORD"
-
-# Configure API key authorization: cookieAuth
-$Configuration.ApiKey.sessionid = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.sessionid = "Bearer"
-
-$Id = "MyId" # String | This parameter can be a string or an integer.
+$Id = "1" # String | This parameter can be a string or an integer.
 
 # Get move target
 try {
@@ -693,7 +561,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

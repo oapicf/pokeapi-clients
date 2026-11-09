@@ -7,8 +7,8 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.model.EggGroupDetailPokemonSpeciesInner;
 import org.openapitools.model.EggGroupName;
+import org.openapitools.model.PokemonSpeciesSummary;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
@@ -23,7 +23,7 @@ import jakarta.annotation.Generated;
  * EggGroupDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-10-25T05:48:25.711080506Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-11-09T13:49:41.168612095Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class EggGroupDetail {
 
   private Integer id;
@@ -32,7 +32,7 @@ public class EggGroupDetail {
 
   private List<@Valid EggGroupName> names = new ArrayList<>();
 
-  private List<@Valid EggGroupDetailPokemonSpeciesInner> pokemonSpecies = new ArrayList<>();
+  private List<@Valid PokemonSpeciesSummary> pokemonSpecies = new ArrayList<>();
 
   public EggGroupDetail() {
     super();
@@ -41,7 +41,7 @@ public class EggGroupDetail {
   /**
    * Constructor with only required parameters
    */
-  public EggGroupDetail(Integer id, String name, List<@Valid EggGroupName> names, List<@Valid EggGroupDetailPokemonSpeciesInner> pokemonSpecies) {
+  public EggGroupDetail(Integer id, String name, List<@Valid EggGroupName> names, List<@Valid PokemonSpeciesSummary> pokemonSpecies) {
     this.id = id;
     this.name = name;
     this.names = names;
@@ -54,11 +54,11 @@ public class EggGroupDetail {
   }
 
   /**
-   * Get id
+   * The identifier for this resource.
    * @return id
    */
   
-  @Schema(name = "id", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "id", accessMode = Schema.AccessMode.READ_ONLY, description = "The identifier for this resource.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("id")
   public Integer getId() {
     return id;
@@ -74,11 +74,11 @@ public class EggGroupDetail {
   }
 
   /**
-   * Get name
+   * The name for this resource.
    * @return name
    */
-  @NotNull @Size(max = 100) 
-  @Schema(name = "name", requiredMode = Schema.RequiredMode.REQUIRED)
+  @NotNull @Size(max = 200) 
+  @Schema(name = "name", description = "The name for this resource.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("name")
   public String getName() {
     return name;
@@ -102,11 +102,11 @@ public class EggGroupDetail {
   }
 
   /**
-   * Get names
+   * The name of this resource listed in different languages.
    * @return names
    */
   
-  @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, description = "The name of this resource listed in different languages.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("names")
   public List<@Valid EggGroupName> getNames() {
     return names;
@@ -116,12 +116,12 @@ public class EggGroupDetail {
     this.names = names;
   }
 
-  public EggGroupDetail pokemonSpecies(List<@Valid EggGroupDetailPokemonSpeciesInner> pokemonSpecies) {
+  public EggGroupDetail pokemonSpecies(List<@Valid PokemonSpeciesSummary> pokemonSpecies) {
     this.pokemonSpecies = pokemonSpecies;
     return this;
   }
 
-  public EggGroupDetail addPokemonSpeciesItem(EggGroupDetailPokemonSpeciesInner pokemonSpeciesItem) {
+  public EggGroupDetail addPokemonSpeciesItem(PokemonSpeciesSummary pokemonSpeciesItem) {
     if (this.pokemonSpecies == null) {
       this.pokemonSpecies = new ArrayList<>();
     }
@@ -130,17 +130,17 @@ public class EggGroupDetail {
   }
 
   /**
-   * Get pokemonSpecies
+   * A list of all Pokémon species that are members of this egg group.
    * @return pokemonSpecies
    */
   
-  @Schema(name = "pokemon_species", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "pokemon_species", accessMode = Schema.AccessMode.READ_ONLY, description = "A list of all Pokémon species that are members of this egg group.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("pokemon_species")
-  public List<@Valid EggGroupDetailPokemonSpeciesInner> getPokemonSpecies() {
+  public List<@Valid PokemonSpeciesSummary> getPokemonSpecies() {
     return pokemonSpecies;
   }
 
-  public void setPokemonSpecies(List<@Valid EggGroupDetailPokemonSpeciesInner> pokemonSpecies) {
+  public void setPokemonSpecies(List<@Valid PokemonSpeciesSummary> pokemonSpecies) {
     this.pokemonSpecies = pokemonSpecies;
   }
 

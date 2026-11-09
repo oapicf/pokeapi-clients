@@ -4,9 +4,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **str** |  | 
-**color** | **str** |  | 
-**language** | [**LanguageSummary**](LanguageSummary.md) |  | 
+**name** | **str** | The name for this contest. | 
+**color** | **str** | The color associated with this contest&#39;s name. | 
+**language** | [**LanguageSummary**](LanguageSummary.md) | The language that this name is in. | 
 
 ## Example
 

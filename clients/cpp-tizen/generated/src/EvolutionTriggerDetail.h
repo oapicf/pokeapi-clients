@@ -9,8 +9,8 @@
 
 
 #include <string>
-#include "AbilityDetail_pokemon_inner_pokemon.h"
 #include "EvolutionTriggerName.h"
+#include "PokemonSpeciesSummary.h"
 #include <list>
 #include "Object.h"
 
@@ -48,40 +48,40 @@ public:
 	 */
 	void fromJson(char* jsonStr);
 
-	/*! \brief Get 
+	/*! \brief Get The identifier for this resource.
 	 */
 	int getId();
 
-	/*! \brief Set 
+	/*! \brief Set The identifier for this resource.
 	 */
 	void setId(int  id);
-	/*! \brief Get 
+	/*! \brief Get The name for this resource.
 	 */
 	std::string getName();
 
-	/*! \brief Set 
+	/*! \brief Set The name for this resource.
 	 */
 	void setName(std::string  name);
-	/*! \brief Get 
+	/*! \brief Get The name of this resource listed in different languages.
 	 */
 	std::list<EvolutionTriggerName> getNames();
 
-	/*! \brief Set 
+	/*! \brief Set The name of this resource listed in different languages.
 	 */
 	void setNames(std::list <EvolutionTriggerName> names);
-	/*! \brief Get 
+	/*! \brief Get A list of pokemon species that result from this evolution trigger.
 	 */
-	std::list<AbilityDetail_pokemon_inner_pokemon> getPokemonSpecies();
+	std::list<PokemonSpeciesSummary> getPokemonSpecies();
 
-	/*! \brief Set 
+	/*! \brief Set A list of pokemon species that result from this evolution trigger.
 	 */
-	void setPokemonSpecies(std::list <AbilityDetail_pokemon_inner_pokemon> pokemon_species);
+	void setPokemonSpecies(std::list <PokemonSpeciesSummary> pokemon_species);
 
 private:
 	int id;
 	std::string name;
 	std::list <EvolutionTriggerName>names;
-	std::list <AbilityDetail_pokemon_inner_pokemon>pokemon_species;
+	std::list <PokemonSpeciesSummary>pokemon_species;
 	void __init();
 	void __cleanup();
 

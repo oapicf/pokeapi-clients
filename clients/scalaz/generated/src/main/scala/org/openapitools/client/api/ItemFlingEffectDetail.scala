@@ -12,10 +12,14 @@ import org.joda.time.DateTime
 import ItemFlingEffectDetail._
 
 case class ItemFlingEffectDetail (
+  /* The identifier for this resource. */
   id: Integer,
-name: String,
-effectEntries: List[ItemFlingEffectEffectText],
-items: List[ItemSummary])
+/* The name for this resource. */
+  name: String,
+/* The result of this fling effect listed in different languages. */
+  effectEntries: List[ItemFlingEffectEffectText],
+/* A list of items that have this fling effect. */
+  items: List[ItemSummary])
 
 object ItemFlingEffectDetail {
   import DateTimeCodecs._

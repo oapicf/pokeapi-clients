@@ -7,12 +7,14 @@ import org.openapitools.model.BerryFlavorDetail
 import org.openapitools.model.CharacteristicDetail
 import org.openapitools.model.ContestEffectDetail
 import org.openapitools.model.ContestTypeDetail
+import org.openapitools.model.CurrencyDetail
 import org.openapitools.model.EggGroupDetail
 import org.openapitools.model.EncounterConditionDetail
 import org.openapitools.model.EncounterConditionValueDetail
 import org.openapitools.model.EncounterMethodDetail
 import org.openapitools.model.EvolutionChainDetail
 import org.openapitools.model.EvolutionTriggerDetail
+import org.openapitools.model.EvolutionVariableDetail
 import org.openapitools.model.GenderDetail
 import org.openapitools.model.GenerationDetail
 import org.openapitools.model.GrowthRateDetail
@@ -40,12 +42,14 @@ import org.openapitools.model.PaginatedBerrySummaryList
 import org.openapitools.model.PaginatedCharacteristicSummaryList
 import org.openapitools.model.PaginatedContestEffectSummaryList
 import org.openapitools.model.PaginatedContestTypeSummaryList
+import org.openapitools.model.PaginatedCurrencySummaryList
 import org.openapitools.model.PaginatedEggGroupSummaryList
 import org.openapitools.model.PaginatedEncounterConditionSummaryList
 import org.openapitools.model.PaginatedEncounterConditionValueSummaryList
 import org.openapitools.model.PaginatedEncounterMethodSummaryList
 import org.openapitools.model.PaginatedEvolutionChainSummaryList
 import org.openapitools.model.PaginatedEvolutionTriggerSummaryList
+import org.openapitools.model.PaginatedEvolutionVariableSummaryList
 import org.openapitools.model.PaginatedGenderSummaryList
 import org.openapitools.model.PaginatedGenerationSummaryList
 import org.openapitools.model.PaginatedGrowthRateSummaryList
@@ -82,6 +86,7 @@ import org.openapitools.model.PaginatedTypeSummaryList
 import org.openapitools.model.PaginatedVersionGroupSummaryList
 import org.openapitools.model.PaginatedVersionSummaryList
 import org.openapitools.model.PalParkAreaDetail
+import org.openapitools.model.PokeapiMetaResponse
 import org.openapitools.model.PokeathlonStatDetail
 import org.openapitools.model.PokedexDetail
 import org.openapitools.model.PokemonColorDetail
@@ -129,12 +134,11 @@ import kotlin.collections.Map
 class ApiApiController() {
 
     @Operation(
-        summary = "",
+        summary = "List abilities",
         operationId = "abilityList",
         description = """Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedAbilitySummaryList::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedAbilitySummaryList::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -151,12 +155,11 @@ class ApiApiController() {
     }
 
     @Operation(
-        summary = "",
+        summary = "Get ability",
         operationId = "abilityRetrieve",
         description = """Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = AbilityDetail::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = AbilityDetail::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -175,8 +178,7 @@ class ApiApiController() {
         operationId = "berryFirmnessList",
         description = """Berries can be soft or hard. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Category:Berries_by_firmness) for greater detail.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedBerryFirmnessSummaryList::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedBerryFirmnessSummaryList::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -197,8 +199,7 @@ class ApiApiController() {
         operationId = "berryFirmnessRetrieve",
         description = """Berries can be soft or hard. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Category:Berries_by_firmness) for greater detail.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = BerryFirmnessDetail::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = BerryFirmnessDetail::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -217,8 +218,7 @@ class ApiApiController() {
         operationId = "berryFlavorList",
         description = """Flavors determine whether a Pokémon will benefit or suffer from eating a berry based on their **nature**. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Flavor) for greater detail.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedBerryFlavorSummaryList::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedBerryFlavorSummaryList::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -239,8 +239,7 @@ class ApiApiController() {
         operationId = "berryFlavorRetrieve",
         description = """Flavors determine whether a Pokémon will benefit or suffer from eating a berry based on their **nature**. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Flavor) for greater detail.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = BerryFlavorDetail::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = BerryFlavorDetail::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -259,8 +258,7 @@ class ApiApiController() {
         operationId = "berryList",
         description = """Berries are small fruits that can provide HP and status condition restoration, stat enhancement, and even damage negation when eaten by Pokémon. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Berry) for greater detail.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedBerrySummaryList::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedBerrySummaryList::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -281,8 +279,7 @@ class ApiApiController() {
         operationId = "berryRetrieve",
         description = """Berries are small fruits that can provide HP and status condition restoration, stat enhancement, and even damage negation when eaten by Pokémon. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Berry) for greater detail.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = BerryDetail::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = BerryDetail::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -297,12 +294,11 @@ class ApiApiController() {
     }
 
     @Operation(
-        summary = "List charecterictics",
+        summary = "List characteristics",
         operationId = "characteristicList",
         description = """Characteristics indicate which stat contains a Pokémon's highest IV. A Pokémon's Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedCharacteristicSummaryList::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedCharacteristicSummaryList::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -312,8 +308,7 @@ class ApiApiController() {
     )
     fun characteristicList(
         @Parameter(description = "Number of results to return per page.") @Valid @RequestParam(value = "limit", required = false) limit: kotlin.Int?,
-        @Parameter(description = "The initial index from which to return the results.") @Valid @RequestParam(value = "offset", required = false) offset: kotlin.Int?,
-        @Parameter(description = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ") @Valid @RequestParam(value = "q", required = false) q: kotlin.String?
+        @Parameter(description = "The initial index from which to return the results.") @Valid @RequestParam(value = "offset", required = false) offset: kotlin.Int?
     ): ResponseEntity<PaginatedCharacteristicSummaryList> {
         return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
     }
@@ -323,8 +318,7 @@ class ApiApiController() {
         operationId = "characteristicRetrieve",
         description = """Characteristics indicate which stat contains a Pokémon's highest IV. A Pokémon's Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = CharacteristicDetail::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = CharacteristicDetail::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -343,8 +337,7 @@ class ApiApiController() {
         operationId = "contestEffectList",
         description = """Contest effects refer to the effects of moves when used in contests.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedContestEffectSummaryList::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedContestEffectSummaryList::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -354,8 +347,7 @@ class ApiApiController() {
     )
     fun contestEffectList(
         @Parameter(description = "Number of results to return per page.") @Valid @RequestParam(value = "limit", required = false) limit: kotlin.Int?,
-        @Parameter(description = "The initial index from which to return the results.") @Valid @RequestParam(value = "offset", required = false) offset: kotlin.Int?,
-        @Parameter(description = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ") @Valid @RequestParam(value = "q", required = false) q: kotlin.String?
+        @Parameter(description = "The initial index from which to return the results.") @Valid @RequestParam(value = "offset", required = false) offset: kotlin.Int?
     ): ResponseEntity<PaginatedContestEffectSummaryList> {
         return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
     }
@@ -365,8 +357,7 @@ class ApiApiController() {
         operationId = "contestEffectRetrieve",
         description = """Contest effects refer to the effects of moves when used in contests.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = ContestEffectDetail::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = ContestEffectDetail::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -385,8 +376,7 @@ class ApiApiController() {
         operationId = "contestTypeList",
         description = """Contest types are categories judges used to weigh a Pokémon's condition in Pokémon contests. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Contest_condition) for greater detail.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedContestTypeSummaryList::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedContestTypeSummaryList::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -407,8 +397,7 @@ class ApiApiController() {
         operationId = "contestTypeRetrieve",
         description = """Contest types are categories judges used to weigh a Pokémon's condition in Pokémon contests. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Contest_condition) for greater detail.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = ContestTypeDetail::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = ContestTypeDetail::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -423,12 +412,51 @@ class ApiApiController() {
     }
 
     @Operation(
+        summary = "List currencies",
+        operationId = "currencyList",
+        description = """Currencies used to buy items.""",
+        responses = [
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedCurrencySummaryList::class))]) ]
+    )
+    @RequestMapping(
+        method = [RequestMethod.GET],
+        // "/api/v2/currency/"
+        value = [PATH_CURRENCY_LIST],
+        produces = ["application/json"]
+    )
+    fun currencyList(
+        @Parameter(description = "Number of results to return per page.") @Valid @RequestParam(value = "limit", required = false) limit: kotlin.Int?,
+        @Parameter(description = "The initial index from which to return the results.") @Valid @RequestParam(value = "offset", required = false) offset: kotlin.Int?,
+        @Parameter(description = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ") @Valid @RequestParam(value = "q", required = false) q: kotlin.String?
+    ): ResponseEntity<PaginatedCurrencySummaryList> {
+        return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
+    }
+
+    @Operation(
+        summary = "Get currency",
+        operationId = "currencyRetrieve",
+        description = """Currencies used to buy items.""",
+        responses = [
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = CurrencyDetail::class))]) ]
+    )
+    @RequestMapping(
+        method = [RequestMethod.GET],
+        // "/api/v2/currency/{id}/"
+        value = [PATH_CURRENCY_RETRIEVE],
+        produces = ["application/json"]
+    )
+    fun currencyRetrieve(
+        @Parameter(description = "This parameter can be a string or an integer.", required = true) @PathVariable("id") id: kotlin.String
+    ): ResponseEntity<CurrencyDetail> {
+        return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
+    }
+
+    @Operation(
         summary = "List egg groups",
         operationId = "eggGroupList",
         description = """Egg Groups are categories which determine which Pokémon are able to interbreed. Pokémon may belong to either one or two Egg Groups. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Egg_Group) for greater detail.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedEggGroupSummaryList::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedEggGroupSummaryList::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -449,8 +477,7 @@ class ApiApiController() {
         operationId = "eggGroupRetrieve",
         description = """Egg Groups are categories which determine which Pokémon are able to interbreed. Pokémon may belong to either one or two Egg Groups. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Egg_Group) for greater detail.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = EggGroupDetail::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = EggGroupDetail::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -469,8 +496,7 @@ class ApiApiController() {
         operationId = "encounterConditionList",
         description = """Conditions which affect what pokemon might appear in the wild, e.g., day or night.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedEncounterConditionSummaryList::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedEncounterConditionSummaryList::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -491,8 +517,7 @@ class ApiApiController() {
         operationId = "encounterConditionRetrieve",
         description = """Conditions which affect what pokemon might appear in the wild, e.g., day or night.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = EncounterConditionDetail::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = EncounterConditionDetail::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -511,8 +536,7 @@ class ApiApiController() {
         operationId = "encounterConditionValueList",
         description = """Encounter condition values are the various states that an encounter condition can have, i.e., time of day can be either day or night.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedEncounterConditionValueSummaryList::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedEncounterConditionValueSummaryList::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -533,8 +557,7 @@ class ApiApiController() {
         operationId = "encounterConditionValueRetrieve",
         description = """Encounter condition values are the various states that an encounter condition can have, i.e., time of day can be either day or night.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = EncounterConditionValueDetail::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = EncounterConditionValueDetail::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -553,8 +576,7 @@ class ApiApiController() {
         operationId = "encounterMethodList",
         description = """Methods by which the player might can encounter Pokémon in the wild, e.g., walking in tall grass. Check out Bulbapedia for greater detail.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedEncounterMethodSummaryList::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedEncounterMethodSummaryList::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -575,8 +597,7 @@ class ApiApiController() {
         operationId = "encounterMethodRetrieve",
         description = """Methods by which the player might can encounter Pokémon in the wild, e.g., walking in tall grass. Check out Bulbapedia for greater detail.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = EncounterMethodDetail::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = EncounterMethodDetail::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -595,8 +616,7 @@ class ApiApiController() {
         operationId = "evolutionChainList",
         description = """Evolution chains are essentially family trees. They start with the lowest stage within a family and detail evolution conditions for each as well as Pokémon they can evolve into up through the hierarchy.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedEvolutionChainSummaryList::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedEvolutionChainSummaryList::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -606,8 +626,7 @@ class ApiApiController() {
     )
     fun evolutionChainList(
         @Parameter(description = "Number of results to return per page.") @Valid @RequestParam(value = "limit", required = false) limit: kotlin.Int?,
-        @Parameter(description = "The initial index from which to return the results.") @Valid @RequestParam(value = "offset", required = false) offset: kotlin.Int?,
-        @Parameter(description = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ") @Valid @RequestParam(value = "q", required = false) q: kotlin.String?
+        @Parameter(description = "The initial index from which to return the results.") @Valid @RequestParam(value = "offset", required = false) offset: kotlin.Int?
     ): ResponseEntity<PaginatedEvolutionChainSummaryList> {
         return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
     }
@@ -617,8 +636,7 @@ class ApiApiController() {
         operationId = "evolutionChainRetrieve",
         description = """Evolution chains are essentially family trees. They start with the lowest stage within a family and detail evolution conditions for each as well as Pokémon they can evolve into up through the hierarchy.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = EvolutionChainDetail::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = EvolutionChainDetail::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -637,8 +655,7 @@ class ApiApiController() {
         operationId = "evolutionTriggerList",
         description = """Evolution triggers are the events and conditions that cause a Pokémon to evolve. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Methods_of_evolution) for greater detail.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedEvolutionTriggerSummaryList::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedEvolutionTriggerSummaryList::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -659,8 +676,7 @@ class ApiApiController() {
         operationId = "evolutionTriggerRetrieve",
         description = """Evolution triggers are the events and conditions that cause a Pokémon to evolve. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Methods_of_evolution) for greater detail.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = EvolutionTriggerDetail::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = EvolutionTriggerDetail::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -675,12 +691,51 @@ class ApiApiController() {
     }
 
     @Operation(
+        summary = "List evolution variables",
+        operationId = "evolutionVariableList",
+        description = """Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.""",
+        responses = [
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedEvolutionVariableSummaryList::class))]) ]
+    )
+    @RequestMapping(
+        method = [RequestMethod.GET],
+        // "/api/v2/evolution-variable/"
+        value = [PATH_EVOLUTION_VARIABLE_LIST],
+        produces = ["application/json"]
+    )
+    fun evolutionVariableList(
+        @Parameter(description = "Number of results to return per page.") @Valid @RequestParam(value = "limit", required = false) limit: kotlin.Int?,
+        @Parameter(description = "The initial index from which to return the results.") @Valid @RequestParam(value = "offset", required = false) offset: kotlin.Int?,
+        @Parameter(description = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ") @Valid @RequestParam(value = "q", required = false) q: kotlin.String?
+    ): ResponseEntity<PaginatedEvolutionVariableSummaryList> {
+        return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
+    }
+
+    @Operation(
+        summary = "Get evolution variable",
+        operationId = "evolutionVariableRetrieve",
+        description = """Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.""",
+        responses = [
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = EvolutionVariableDetail::class))]) ]
+    )
+    @RequestMapping(
+        method = [RequestMethod.GET],
+        // "/api/v2/evolution-variable/{id}/"
+        value = [PATH_EVOLUTION_VARIABLE_RETRIEVE],
+        produces = ["application/json"]
+    )
+    fun evolutionVariableRetrieve(
+        @Parameter(description = "This parameter can be a string or an integer.", required = true) @PathVariable("id") id: kotlin.String
+    ): ResponseEntity<EvolutionVariableDetail> {
+        return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
+    }
+
+    @Operation(
         summary = "List genders",
         operationId = "genderList",
         description = """Genders were introduced in Generation II for the purposes of breeding Pokémon but can also result in visual differences or even different evolutionary lines. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Gender) for greater detail.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedGenderSummaryList::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedGenderSummaryList::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -701,8 +756,7 @@ class ApiApiController() {
         operationId = "genderRetrieve",
         description = """Genders were introduced in Generation II for the purposes of breeding Pokémon but can also result in visual differences or even different evolutionary lines. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Gender) for greater detail.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = GenderDetail::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = GenderDetail::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -721,8 +775,7 @@ class ApiApiController() {
         operationId = "generationList",
         description = """A generation is a grouping of the Pokémon games that separates them based on the Pokémon they include. In each generation, a new set of Pokémon, Moves, Abilities and Types that did not exist in the previous generation are released.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedGenerationSummaryList::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedGenerationSummaryList::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -743,8 +796,7 @@ class ApiApiController() {
         operationId = "generationRetrieve",
         description = """A generation is a grouping of the Pokémon games that separates them based on the Pokémon they include. In each generation, a new set of Pokémon, Moves, Abilities and Types that did not exist in the previous generation are released.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = GenerationDetail::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = GenerationDetail::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -763,8 +815,7 @@ class ApiApiController() {
         operationId = "growthRateList",
         description = """Growth rates are the speed with which Pokémon gain levels through experience. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Experience) for greater detail.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedGrowthRateSummaryList::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedGrowthRateSummaryList::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -785,8 +836,7 @@ class ApiApiController() {
         operationId = "growthRateRetrieve",
         description = """Growth rates are the speed with which Pokémon gain levels through experience. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Experience) for greater detail.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = GrowthRateDetail::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = GrowthRateDetail::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -805,8 +855,7 @@ class ApiApiController() {
         operationId = "itemAttributeList",
         description = """Item attributes define particular aspects of items, e.g."usable in battle" or "consumable".""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedItemAttributeSummaryList::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedItemAttributeSummaryList::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -827,8 +876,7 @@ class ApiApiController() {
         operationId = "itemAttributeRetrieve",
         description = """Item attributes define particular aspects of items, e.g."usable in battle" or "consumable".""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = ItemAttributeDetail::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = ItemAttributeDetail::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -847,8 +895,7 @@ class ApiApiController() {
         operationId = "itemCategoryList",
         description = """Item categories determine where items will be placed in the players bag.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedItemCategorySummaryList::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedItemCategorySummaryList::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -869,8 +916,7 @@ class ApiApiController() {
         operationId = "itemCategoryRetrieve",
         description = """Item categories determine where items will be placed in the players bag.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = ItemCategoryDetail::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = ItemCategoryDetail::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -889,8 +935,7 @@ class ApiApiController() {
         operationId = "itemFlingEffectList",
         description = """The various effects of the move"Fling" when used with different items.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedItemFlingEffectSummaryList::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedItemFlingEffectSummaryList::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -911,8 +956,7 @@ class ApiApiController() {
         operationId = "itemFlingEffectRetrieve",
         description = """The various effects of the move"Fling" when used with different items.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = ItemFlingEffectDetail::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = ItemFlingEffectDetail::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -931,8 +975,7 @@ class ApiApiController() {
         operationId = "itemList",
         description = """An item is an object in the games which the player can pick up, keep in their bag, and use in some manner. They have various uses, including healing, powering up, helping catch Pokémon, or to access a new area.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedItemSummaryList::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedItemSummaryList::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -953,8 +996,7 @@ class ApiApiController() {
         operationId = "itemPocketList",
         description = """Pockets within the players bag used for storing items by category.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedItemPocketSummaryList::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedItemPocketSummaryList::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -975,8 +1017,7 @@ class ApiApiController() {
         operationId = "itemPocketRetrieve",
         description = """Pockets within the players bag used for storing items by category.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = ItemPocketDetail::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = ItemPocketDetail::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -995,8 +1036,7 @@ class ApiApiController() {
         operationId = "itemRetrieve",
         description = """An item is an object in the games which the player can pick up, keep in their bag, and use in some manner. They have various uses, including healing, powering up, helping catch Pokémon, or to access a new area.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = ItemDetail::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = ItemDetail::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -1015,8 +1055,7 @@ class ApiApiController() {
         operationId = "languageList",
         description = """Languages for translations of API resource information.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedLanguageSummaryList::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedLanguageSummaryList::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -1037,8 +1076,7 @@ class ApiApiController() {
         operationId = "languageRetrieve",
         description = """Languages for translations of API resource information.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = LanguageDetail::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = LanguageDetail::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -1057,8 +1095,7 @@ class ApiApiController() {
         operationId = "locationAreaList",
         description = """Location areas are sections of areas, such as floors in a building or cave. Each area has its own set of possible Pokémon encounters.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedLocationAreaSummaryList::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedLocationAreaSummaryList::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -1078,8 +1115,7 @@ class ApiApiController() {
         operationId = "locationAreaRetrieve",
         description = """Location areas are sections of areas, such as floors in a building or cave. Each area has its own set of possible Pokémon encounters.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = LocationAreaDetail::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = LocationAreaDetail::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -1098,8 +1134,7 @@ class ApiApiController() {
         operationId = "locationList",
         description = """Locations that can be visited within the games. Locations make up sizable portions of regions, like cities or routes.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedLocationSummaryList::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedLocationSummaryList::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -1120,8 +1155,7 @@ class ApiApiController() {
         operationId = "locationRetrieve",
         description = """Locations that can be visited within the games. Locations make up sizable portions of regions, like cities or routes.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = LocationDetail::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = LocationDetail::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -1140,8 +1174,7 @@ class ApiApiController() {
         operationId = "machineList",
         description = """Machines are the representation of items that teach moves to Pokémon. They vary from version to version, so it is not certain that one specific TM or HM corresponds to a single Machine.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedMachineSummaryList::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedMachineSummaryList::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -1151,8 +1184,7 @@ class ApiApiController() {
     )
     fun machineList(
         @Parameter(description = "Number of results to return per page.") @Valid @RequestParam(value = "limit", required = false) limit: kotlin.Int?,
-        @Parameter(description = "The initial index from which to return the results.") @Valid @RequestParam(value = "offset", required = false) offset: kotlin.Int?,
-        @Parameter(description = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ") @Valid @RequestParam(value = "q", required = false) q: kotlin.String?
+        @Parameter(description = "The initial index from which to return the results.") @Valid @RequestParam(value = "offset", required = false) offset: kotlin.Int?
     ): ResponseEntity<PaginatedMachineSummaryList> {
         return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
     }
@@ -1162,8 +1194,7 @@ class ApiApiController() {
         operationId = "machineRetrieve",
         description = """Machines are the representation of items that teach moves to Pokémon. They vary from version to version, so it is not certain that one specific TM or HM corresponds to a single Machine.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = MachineDetail::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = MachineDetail::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -1178,12 +1209,28 @@ class ApiApiController() {
     }
 
     @Operation(
+        summary = "Get API metadata",
+        operationId = "metaRetrieve",
+        description = """Returns metadata about the current deployed version of the API, including the git commit hash, deploy date, and tag (if any).""",
+        responses = [
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PokeapiMetaResponse::class))]) ]
+    )
+    @RequestMapping(
+        method = [RequestMethod.GET],
+        // "/api/v2/meta/"
+        value = [PATH_META_RETRIEVE],
+        produces = ["application/json"]
+    )
+    fun metaRetrieve(): ResponseEntity<PokeapiMetaResponse> {
+        return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
+    }
+
+    @Operation(
         summary = "List move meta ailments",
         operationId = "moveAilmentList",
         description = """Move Ailments are status conditions caused by moves used during battle. See [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Status_condition) for greater detail.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedMoveMetaAilmentSummaryList::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedMoveMetaAilmentSummaryList::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -1204,8 +1251,7 @@ class ApiApiController() {
         operationId = "moveAilmentRetrieve",
         description = """Move Ailments are status conditions caused by moves used during battle. See [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Status_condition) for greater detail.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = MoveMetaAilmentDetail::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = MoveMetaAilmentDetail::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -1224,8 +1270,7 @@ class ApiApiController() {
         operationId = "moveBattleStyleList",
         description = """Styles of moves when used in the Battle Palace. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Battle_Frontier_(Generation_III)) for greater detail.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedMoveBattleStyleSummaryList::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedMoveBattleStyleSummaryList::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -1246,8 +1291,7 @@ class ApiApiController() {
         operationId = "moveBattleStyleRetrieve",
         description = """Styles of moves when used in the Battle Palace. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Battle_Frontier_(Generation_III)) for greater detail.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = MoveBattleStyleDetail::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = MoveBattleStyleDetail::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -1266,8 +1310,7 @@ class ApiApiController() {
         operationId = "moveCategoryList",
         description = """Very general categories that loosely group move effects.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedMoveMetaCategorySummaryList::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedMoveMetaCategorySummaryList::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -1288,8 +1331,7 @@ class ApiApiController() {
         operationId = "moveCategoryRetrieve",
         description = """Very general categories that loosely group move effects.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = MoveMetaCategoryDetail::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = MoveMetaCategoryDetail::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -1308,8 +1350,7 @@ class ApiApiController() {
         operationId = "moveDamageClassList",
         description = """Damage classes moves can have, e.g. physical, special, or non-damaging.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedMoveDamageClassSummaryList::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedMoveDamageClassSummaryList::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -1330,8 +1371,7 @@ class ApiApiController() {
         operationId = "moveDamageClassRetrieve",
         description = """Damage classes moves can have, e.g. physical, special, or non-damaging.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = MoveDamageClassDetail::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = MoveDamageClassDetail::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -1350,8 +1390,7 @@ class ApiApiController() {
         operationId = "moveLearnMethodList",
         description = """Methods by which Pokémon can learn moves.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedMoveLearnMethodSummaryList::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedMoveLearnMethodSummaryList::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -1372,8 +1411,7 @@ class ApiApiController() {
         operationId = "moveLearnMethodRetrieve",
         description = """Methods by which Pokémon can learn moves.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = MoveLearnMethodDetail::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = MoveLearnMethodDetail::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -1392,8 +1430,7 @@ class ApiApiController() {
         operationId = "moveList",
         description = """Moves are the skills of Pokémon in battle. In battle, a Pokémon uses one move each turn. Some moves (including those learned by Hidden Machine) can be used outside of battle as well, usually for the purpose of removing obstacles or exploring new areas.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedMoveSummaryList::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedMoveSummaryList::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -1414,8 +1451,7 @@ class ApiApiController() {
         operationId = "moveRetrieve",
         description = """Moves are the skills of Pokémon in battle. In battle, a Pokémon uses one move each turn. Some moves (including those learned by Hidden Machine) can be used outside of battle as well, usually for the purpose of removing obstacles or exploring new areas.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = MoveDetail::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = MoveDetail::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -1434,8 +1470,7 @@ class ApiApiController() {
         operationId = "moveTargetList",
         description = """Targets moves can be directed at during battle. Targets can be Pokémon, environments or even other moves.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedMoveTargetSummaryList::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedMoveTargetSummaryList::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -1456,8 +1491,7 @@ class ApiApiController() {
         operationId = "moveTargetRetrieve",
         description = """Targets moves can be directed at during battle. Targets can be Pokémon, environments or even other moves.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = MoveTargetDetail::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = MoveTargetDetail::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -1476,8 +1510,7 @@ class ApiApiController() {
         operationId = "natureList",
         description = """Natures influence how a Pokémon's stats grow. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Nature) for greater detail.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedNatureSummaryList::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedNatureSummaryList::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -1498,8 +1531,7 @@ class ApiApiController() {
         operationId = "natureRetrieve",
         description = """Natures influence how a Pokémon's stats grow. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Nature) for greater detail.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = NatureDetail::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = NatureDetail::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -1518,8 +1550,7 @@ class ApiApiController() {
         operationId = "palParkAreaList",
         description = """Areas used for grouping Pokémon encounters in Pal Park. They're like habitats that are specific to Pal Park.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedPalParkAreaSummaryList::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedPalParkAreaSummaryList::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -1540,8 +1571,7 @@ class ApiApiController() {
         operationId = "palParkAreaRetrieve",
         description = """Areas used for grouping Pokémon encounters in Pal Park. They're like habitats that are specific to Pal Park.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PalParkAreaDetail::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PalParkAreaDetail::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -1560,8 +1590,7 @@ class ApiApiController() {
         operationId = "pokeathlonStatList",
         description = """Pokeathlon Stats are different attributes of a Pokémon's performance in Pokéathlons. In Pokéathlons, competitions happen on different courses; one for each of the different Pokéathlon stats. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9athlon) for greater detail.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedPokeathlonStatSummaryList::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedPokeathlonStatSummaryList::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -1582,8 +1611,7 @@ class ApiApiController() {
         operationId = "pokeathlonStatRetrieve",
         description = """Pokeathlon Stats are different attributes of a Pokémon's performance in Pokéathlons. In Pokéathlons, competitions happen on different courses; one for each of the different Pokéathlon stats. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9athlon) for greater detail.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PokeathlonStatDetail::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PokeathlonStatDetail::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -1602,8 +1630,7 @@ class ApiApiController() {
         operationId = "pokedexList",
         description = """A Pokédex is a handheld electronic encyclopedia device; one which is capable of recording and retaining information of the various Pokémon in a given region with the exception of the national dex and some smaller dexes related to portions of a region. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pokedex) for greater detail.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedPokedexSummaryList::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedPokedexSummaryList::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -1624,8 +1651,7 @@ class ApiApiController() {
         operationId = "pokedexRetrieve",
         description = """A Pokédex is a handheld electronic encyclopedia device; one which is capable of recording and retaining information of the various Pokémon in a given region with the exception of the national dex and some smaller dexes related to portions of a region. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pokedex) for greater detail.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PokedexDetail::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PokedexDetail::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -1644,8 +1670,7 @@ class ApiApiController() {
         operationId = "pokemonColorList",
         description = """Colors used for sorting Pokémon in a Pokédex. The color listed in the Pokédex is usually the color most apparent or covering each Pokémon's body. No orange category exists; Pokémon that are primarily orange are listed as red or brown.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedPokemonColorSummaryList::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedPokemonColorSummaryList::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -1666,8 +1691,7 @@ class ApiApiController() {
         operationId = "pokemonColorRetrieve",
         description = """Colors used for sorting Pokémon in a Pokédex. The color listed in the Pokédex is usually the color most apparent or covering each Pokémon's body. No orange category exists; Pokémon that are primarily orange are listed as red or brown.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PokemonColorDetail::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PokemonColorDetail::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -1686,8 +1710,7 @@ class ApiApiController() {
         operationId = "pokemonFormList",
         description = """Some Pokémon may appear in one of multiple, visually different forms. These differences are purely cosmetic. For variations within a Pokémon species, which do differ in more than just visuals, the 'Pokémon' entity is used to represent such a variety.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedPokemonFormSummaryList::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedPokemonFormSummaryList::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -1708,8 +1731,7 @@ class ApiApiController() {
         operationId = "pokemonFormRetrieve",
         description = """Some Pokémon may appear in one of multiple, visually different forms. These differences are purely cosmetic. For variations within a Pokémon species, which do differ in more than just visuals, the 'Pokémon' entity is used to represent such a variety.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PokemonFormDetail::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PokemonFormDetail::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -1728,8 +1750,7 @@ class ApiApiController() {
         operationId = "pokemonHabitatList",
         description = """Habitats are generally different terrain Pokémon can be found in but can also be areas designated for rare or legendary Pokémon.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedPokemonHabitatSummaryList::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedPokemonHabitatSummaryList::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -1750,8 +1771,7 @@ class ApiApiController() {
         operationId = "pokemonHabitatRetrieve",
         description = """Habitats are generally different terrain Pokémon can be found in but can also be areas designated for rare or legendary Pokémon.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PokemonHabitatDetail::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PokemonHabitatDetail::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -1770,8 +1790,7 @@ class ApiApiController() {
         operationId = "pokemonList",
         description = """Pokémon are the creatures that inhabit the world of the Pokémon games. They can be caught using Pokéballs and trained by battling with other Pokémon. Each Pokémon belongs to a specific species but may take on a variant which makes it differ from other Pokémon of the same species, such as base stats, available abilities and typings. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_(species)) for greater detail.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedPokemonSummaryList::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedPokemonSummaryList::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -1792,8 +1811,7 @@ class ApiApiController() {
         operationId = "pokemonRetrieve",
         description = """Pokémon are the creatures that inhabit the world of the Pokémon games. They can be caught using Pokéballs and trained by battling with other Pokémon. Each Pokémon belongs to a specific species but may take on a variant which makes it differ from other Pokémon of the same species, such as base stats, available abilities and typings. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_(species)) for greater detail.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PokemonDetail::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PokemonDetail::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -1812,8 +1830,7 @@ class ApiApiController() {
         operationId = "pokemonShapeList",
         description = """Shapes used for sorting Pokémon in a Pokédex.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedPokemonShapeSummaryList::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedPokemonShapeSummaryList::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -1834,8 +1851,7 @@ class ApiApiController() {
         operationId = "pokemonShapeRetrieve",
         description = """Shapes used for sorting Pokémon in a Pokédex.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PokemonShapeDetail::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PokemonShapeDetail::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -1854,8 +1870,7 @@ class ApiApiController() {
         operationId = "pokemonSpeciesList",
         description = """A Pokémon Species forms the basis for at least one Pokémon. Attributes of a Pokémon species are shared across all varieties of Pokémon within the species. A good example is Wormadam; Wormadam is the species which can be found in three different varieties, Wormadam-Trash, Wormadam-Sandy and Wormadam-Plant.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedPokemonSpeciesSummaryList::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedPokemonSpeciesSummaryList::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -1876,8 +1891,7 @@ class ApiApiController() {
         operationId = "pokemonSpeciesRetrieve",
         description = """A Pokémon Species forms the basis for at least one Pokémon. Attributes of a Pokémon species are shared across all varieties of Pokémon within the species. A good example is Wormadam; Wormadam is the species which can be found in three different varieties, Wormadam-Trash, Wormadam-Sandy and Wormadam-Plant.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PokemonSpeciesDetail::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PokemonSpeciesDetail::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -1896,8 +1910,7 @@ class ApiApiController() {
         operationId = "regionList",
         description = """A region is an organized area of the Pokémon world. Most often, the main difference between regions is the species of Pokémon that can be encountered within them.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedRegionSummaryList::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedRegionSummaryList::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -1918,8 +1931,7 @@ class ApiApiController() {
         operationId = "regionRetrieve",
         description = """A region is an organized area of the Pokémon world. Most often, the main difference between regions is the species of Pokémon that can be encountered within them.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = RegionDetail::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = RegionDetail::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -1938,8 +1950,7 @@ class ApiApiController() {
         operationId = "statList",
         description = """Stats determine certain aspects of battles. Each Pokémon has a value for each stat which grows as they gain levels and can be altered momentarily by effects in battles.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedStatSummaryList::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedStatSummaryList::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -1960,8 +1971,7 @@ class ApiApiController() {
         operationId = "statRetrieve",
         description = """Stats determine certain aspects of battles. Each Pokémon has a value for each stat which grows as they gain levels and can be altered momentarily by effects in battles.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = StatDetail::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = StatDetail::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -1980,8 +1990,7 @@ class ApiApiController() {
         operationId = "superContestEffectList",
         description = """Super contest effects refer to the effects of moves when used in super contests.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedSuperContestEffectSummaryList::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedSuperContestEffectSummaryList::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -1991,8 +2000,7 @@ class ApiApiController() {
     )
     fun superContestEffectList(
         @Parameter(description = "Number of results to return per page.") @Valid @RequestParam(value = "limit", required = false) limit: kotlin.Int?,
-        @Parameter(description = "The initial index from which to return the results.") @Valid @RequestParam(value = "offset", required = false) offset: kotlin.Int?,
-        @Parameter(description = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ") @Valid @RequestParam(value = "q", required = false) q: kotlin.String?
+        @Parameter(description = "The initial index from which to return the results.") @Valid @RequestParam(value = "offset", required = false) offset: kotlin.Int?
     ): ResponseEntity<PaginatedSuperContestEffectSummaryList> {
         return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
     }
@@ -2002,8 +2010,7 @@ class ApiApiController() {
         operationId = "superContestEffectRetrieve",
         description = """Super contest effects refer to the effects of moves when used in super contests.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = SuperContestEffectDetail::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = SuperContestEffectDetail::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -2022,8 +2029,7 @@ class ApiApiController() {
         operationId = "typeList",
         description = """Types are properties for Pokémon and their moves. Each type has three properties: which types of Pokémon it is super effective against, which types of Pokémon it is not very effective against, and which types of Pokémon it is completely ineffective against.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedTypeSummaryList::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedTypeSummaryList::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -2044,8 +2050,7 @@ class ApiApiController() {
         operationId = "typeRetrieve",
         description = """Types are properties for Pokémon and their moves. Each type has three properties: which types of Pokémon it is super effective against, which types of Pokémon it is not very effective against, and which types of Pokémon it is completely ineffective against.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = TypeDetail::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = TypeDetail::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -2064,8 +2069,7 @@ class ApiApiController() {
         operationId = "versionGroupList",
         description = """Version groups categorize highly similar versions of the games.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedVersionGroupSummaryList::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedVersionGroupSummaryList::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -2086,8 +2090,7 @@ class ApiApiController() {
         operationId = "versionGroupRetrieve",
         description = """Version groups categorize highly similar versions of the games.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = VersionGroupDetail::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = VersionGroupDetail::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -2106,8 +2109,7 @@ class ApiApiController() {
         operationId = "versionList",
         description = """Versions of the games, e.g., Red, Blue or Yellow.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedVersionSummaryList::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = PaginatedVersionSummaryList::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -2128,8 +2130,7 @@ class ApiApiController() {
         operationId = "versionRetrieve",
         description = """Versions of the games, e.g., Red, Blue or Yellow.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = VersionDetail::class))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
+            ApiResponse(responseCode = "200", description = "", content = [Content(schema = Schema(implementation = VersionDetail::class))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
@@ -2160,6 +2161,8 @@ class ApiApiController() {
         const val PATH_CONTEST_EFFECT_RETRIEVE: String = "/api/v2/contest-effect/{id}/"
         const val PATH_CONTEST_TYPE_LIST: String = "/api/v2/contest-type/"
         const val PATH_CONTEST_TYPE_RETRIEVE: String = "/api/v2/contest-type/{id}/"
+        const val PATH_CURRENCY_LIST: String = "/api/v2/currency/"
+        const val PATH_CURRENCY_RETRIEVE: String = "/api/v2/currency/{id}/"
         const val PATH_EGG_GROUP_LIST: String = "/api/v2/egg-group/"
         const val PATH_EGG_GROUP_RETRIEVE: String = "/api/v2/egg-group/{id}/"
         const val PATH_ENCOUNTER_CONDITION_LIST: String = "/api/v2/encounter-condition/"
@@ -2172,6 +2175,8 @@ class ApiApiController() {
         const val PATH_EVOLUTION_CHAIN_RETRIEVE: String = "/api/v2/evolution-chain/{id}/"
         const val PATH_EVOLUTION_TRIGGER_LIST: String = "/api/v2/evolution-trigger/"
         const val PATH_EVOLUTION_TRIGGER_RETRIEVE: String = "/api/v2/evolution-trigger/{id}/"
+        const val PATH_EVOLUTION_VARIABLE_LIST: String = "/api/v2/evolution-variable/"
+        const val PATH_EVOLUTION_VARIABLE_RETRIEVE: String = "/api/v2/evolution-variable/{id}/"
         const val PATH_GENDER_LIST: String = "/api/v2/gender/"
         const val PATH_GENDER_RETRIEVE: String = "/api/v2/gender/{id}/"
         const val PATH_GENERATION_LIST: String = "/api/v2/generation/"
@@ -2196,6 +2201,7 @@ class ApiApiController() {
         const val PATH_LOCATION_RETRIEVE: String = "/api/v2/location/{id}/"
         const val PATH_MACHINE_LIST: String = "/api/v2/machine/"
         const val PATH_MACHINE_RETRIEVE: String = "/api/v2/machine/{id}/"
+        const val PATH_META_RETRIEVE: String = "/api/v2/meta/"
         const val PATH_MOVE_AILMENT_LIST: String = "/api/v2/move-ailment/"
         const val PATH_MOVE_AILMENT_RETRIEVE: String = "/api/v2/move-ailment/{id}/"
         const val PATH_MOVE_BATTLE_STYLE_LIST: String = "/api/v2/move-battle-style/"

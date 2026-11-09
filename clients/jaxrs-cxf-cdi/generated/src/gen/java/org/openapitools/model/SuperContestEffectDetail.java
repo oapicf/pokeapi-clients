@@ -29,6 +29,7 @@ public class SuperContestEffectDetail   {
   private List<@Valid MoveSummary> moves = new ArrayList<>();
 
   /**
+   * The identifier for this resource.
    **/
   public SuperContestEffectDetail id(Integer id) {
     this.id = id;
@@ -36,7 +37,7 @@ public class SuperContestEffectDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   @JsonProperty("id")
   @NotNull
   public Integer getId() {
@@ -48,6 +49,9 @@ public class SuperContestEffectDetail   {
 
 
   /**
+   * The level of appeal this super contest effect has.
+   * minimum: -2147483648
+   * maximum: 2147483647
    **/
   public SuperContestEffectDetail appeal(Integer appeal) {
     this.appeal = appeal;
@@ -55,10 +59,10 @@ public class SuperContestEffectDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The level of appeal this super contest effect has.")
   @JsonProperty("appeal")
   @NotNull
-  public Integer getAppeal() {
+ @Min(-2147483648) @Max(2147483647)  public Integer getAppeal() {
     return appeal;
   }
   public void setAppeal(Integer appeal) {
@@ -67,6 +71,7 @@ public class SuperContestEffectDetail   {
 
 
   /**
+   * The flavor text of this super contest effect listed in different languages.
    **/
   public SuperContestEffectDetail flavorTextEntries(List<@Valid SuperContestEffectFlavorText> flavorTextEntries) {
     this.flavorTextEntries = flavorTextEntries;
@@ -74,7 +79,7 @@ public class SuperContestEffectDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The flavor text of this super contest effect listed in different languages.")
   @JsonProperty("flavor_text_entries")
   @NotNull
   public List<@Valid SuperContestEffectFlavorText> getFlavorTextEntries() {
@@ -94,6 +99,7 @@ public class SuperContestEffectDetail   {
 
 
   /**
+   * A list of moves that have the effect when used in super contests.
    **/
   public SuperContestEffectDetail moves(List<@Valid MoveSummary> moves) {
     this.moves = moves;
@@ -101,7 +107,7 @@ public class SuperContestEffectDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of moves that have the effect when used in super contests.")
   @JsonProperty("moves")
   @NotNull
   public List<@Valid MoveSummary> getMoves() {

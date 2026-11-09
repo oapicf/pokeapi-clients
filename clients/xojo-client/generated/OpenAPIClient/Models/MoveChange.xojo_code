@@ -2,36 +2,57 @@
 Protected Class MoveChange
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The percent value of how likely this move is to be successful.
+		#tag EndNote
 		accuracy As Xoson.O.OptionalInteger
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The base power before the listed version group, or null if power did not change.
+		#tag EndNote
 		power As Xoson.O.OptionalInteger
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			Power points. The number of times this move can be used.
+		#tag EndNote
 		pp As Xoson.O.OptionalInteger
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The percent value of how likely it is this moves effect will take effect.
+		#tag EndNote
 		effect_chance As Integer
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
-		effect_entries() As OpenAPIClient.Models.MoveChangeEffectEntriesInner
+		#tag Note
+			The effect of this move listed in different languages.
+		#tag EndNote
+		effect_entries() As OpenAPIClient.Models.MoveEffectEffectText
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The elemental type of this move.
+		#tag EndNote
 		type As OpenAPIClient.Models.TypeSummary
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The version group in which these move stat values were in effect.
+		#tag EndNote
 		version_group As OpenAPIClient.Models.VersionGroupSummary
 	#tag EndProperty
 
@@ -109,7 +130,7 @@ Protected Class MoveChange
 			Visible=false
 			Group="Behavior"
 			InitialValue=""
-			Type="MoveChangeEffectEntriesInner"
+			Type="MoveEffectEffectText"
 			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty

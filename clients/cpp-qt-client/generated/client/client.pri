@@ -5,21 +5,18 @@ HEADERS += \
     $${PWD}/OAIAbilityChange.h \
     $${PWD}/OAIAbilityChangeEffectText.h \
     $${PWD}/OAIAbilityDetail.h \
-    $${PWD}/OAIAbilityDetail_pokemon_inner.h \
-    $${PWD}/OAIAbilityDetail_pokemon_inner_pokemon.h \
     $${PWD}/OAIAbilityEffectText.h \
     $${PWD}/OAIAbilityFlavorText.h \
     $${PWD}/OAIAbilityName.h \
+    $${PWD}/OAIAbilityPokemonDetail.h \
     $${PWD}/OAIAbilitySummary.h \
     $${PWD}/OAIBerryDetail.h \
-    $${PWD}/OAIBerryDetail_flavors_inner.h \
-    $${PWD}/OAIBerryDetail_flavors_inner_flavor.h \
     $${PWD}/OAIBerryFirmnessDetail.h \
     $${PWD}/OAIBerryFirmnessName.h \
     $${PWD}/OAIBerryFirmnessSummary.h \
+    $${PWD}/OAIBerryFlavorBerryMap.h \
     $${PWD}/OAIBerryFlavorDetail.h \
-    $${PWD}/OAIBerryFlavorDetail_berries_inner.h \
-    $${PWD}/OAIBerryFlavorDetail_berries_inner_berry.h \
+    $${PWD}/OAIBerryFlavorMap.h \
     $${PWD}/OAIBerryFlavorName.h \
     $${PWD}/OAIBerryFlavorSummary.h \
     $${PWD}/OAIBerrySummary.h \
@@ -33,8 +30,10 @@ HEADERS += \
     $${PWD}/OAIContestTypeDetail.h \
     $${PWD}/OAIContestTypeName.h \
     $${PWD}/OAIContestTypeSummary.h \
+    $${PWD}/OAICurrencyDetail.h \
+    $${PWD}/OAICurrencyName.h \
+    $${PWD}/OAICurrencySummary.h \
     $${PWD}/OAIEggGroupDetail.h \
-    $${PWD}/OAIEggGroupDetail_pokemon_species_inner.h \
     $${PWD}/OAIEggGroupName.h \
     $${PWD}/OAIEggGroupSummary.h \
     $${PWD}/OAIEncounterConditionDetail.h \
@@ -46,18 +45,21 @@ HEADERS += \
     $${PWD}/OAIEncounterMethodDetail.h \
     $${PWD}/OAIEncounterMethodName.h \
     $${PWD}/OAIEncounterMethodSummary.h \
+    $${PWD}/OAIEncounterPokemonDetail.h \
     $${PWD}/OAIEvolutionChainDetail.h \
-    $${PWD}/OAIEvolutionChainDetail_chain.h \
-    $${PWD}/OAIEvolutionChainDetail_chain_evolves_to_inner.h \
-    $${PWD}/OAIEvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner.h \
-    $${PWD}/OAIEvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender.h \
+    $${PWD}/OAIEvolutionChainLink.h \
     $${PWD}/OAIEvolutionChainSummary.h \
+    $${PWD}/OAIEvolutionConditionExpression.h \
     $${PWD}/OAIEvolutionTriggerDetail.h \
     $${PWD}/OAIEvolutionTriggerName.h \
     $${PWD}/OAIEvolutionTriggerSummary.h \
+    $${PWD}/OAIEvolutionVariableDescription.h \
+    $${PWD}/OAIEvolutionVariableDetail.h \
+    $${PWD}/OAIEvolutionVariableName.h \
+    $${PWD}/OAIEvolutionVariableSummary.h \
     $${PWD}/OAIExperience.h \
     $${PWD}/OAIGenderDetail.h \
-    $${PWD}/OAIGenderDetail_pokemon_species_details_inner.h \
+    $${PWD}/OAIGenderPokemonSpecies.h \
     $${PWD}/OAIGenderSummary.h \
     $${PWD}/OAIGenerationDetail.h \
     $${PWD}/OAIGenerationName.h \
@@ -73,32 +75,30 @@ HEADERS += \
     $${PWD}/OAIItemCategoryName.h \
     $${PWD}/OAIItemCategorySummary.h \
     $${PWD}/OAIItemDetail.h \
-    $${PWD}/OAIItemDetail_baby_trigger_for.h \
-    $${PWD}/OAIItemDetail_held_by_pokemon_inner.h \
-    $${PWD}/OAIItemDetail_held_by_pokemon_inner_version_details_inner.h \
-    $${PWD}/OAIItemDetail_machines_inner.h \
-    $${PWD}/OAIItemDetail_sprites.h \
     $${PWD}/OAIItemEffectText.h \
     $${PWD}/OAIItemFlavorText.h \
     $${PWD}/OAIItemFlingEffectDetail.h \
     $${PWD}/OAIItemFlingEffectEffectText.h \
     $${PWD}/OAIItemFlingEffectSummary.h \
     $${PWD}/OAIItemGameIndex.h \
+    $${PWD}/OAIItemMachine.h \
     $${PWD}/OAIItemName.h \
     $${PWD}/OAIItemPocketDetail.h \
     $${PWD}/OAIItemPocketName.h \
     $${PWD}/OAIItemPocketSummary.h \
+    $${PWD}/OAIItemPrice.h \
+    $${PWD}/OAIItemSprites.h \
     $${PWD}/OAIItemSummary.h \
     $${PWD}/OAILanguageDetail.h \
     $${PWD}/OAILanguageName.h \
     $${PWD}/OAILanguageSummary.h \
     $${PWD}/OAILocationAreaDetail.h \
-    $${PWD}/OAILocationAreaDetail_encounter_method_rates_inner.h \
-    $${PWD}/OAILocationAreaDetail_encounter_method_rates_inner_version_details_inner.h \
-    $${PWD}/OAILocationAreaDetail_pokemon_encounters_inner.h \
-    $${PWD}/OAILocationAreaDetail_pokemon_encounters_inner_version_details_inner.h \
-    $${PWD}/OAILocationAreaDetail_pokemon_encounters_inner_version_details_inner_encounter_details.h \
+    $${PWD}/OAILocationAreaEncounterDetail.h \
+    $${PWD}/OAILocationAreaEncounterRate.h \
+    $${PWD}/OAILocationAreaEncounterVersionDetail.h \
     $${PWD}/OAILocationAreaName.h \
+    $${PWD}/OAILocationAreaPokemonEncounter.h \
+    $${PWD}/OAILocationAreaPokemonEncounterVersion.h \
     $${PWD}/OAILocationAreaSummary.h \
     $${PWD}/OAILocationDetail.h \
     $${PWD}/OAILocationGameIndex.h \
@@ -110,19 +110,16 @@ HEADERS += \
     $${PWD}/OAIMoveBattleStyleName.h \
     $${PWD}/OAIMoveBattleStyleSummary.h \
     $${PWD}/OAIMoveChange.h \
-    $${PWD}/OAIMoveChange_effect_entries_inner.h \
+    $${PWD}/OAIMoveComboUsage.h \
+    $${PWD}/OAIMoveCombos.h \
     $${PWD}/OAIMoveDamageClassDescription.h \
     $${PWD}/OAIMoveDamageClassDetail.h \
     $${PWD}/OAIMoveDamageClassName.h \
     $${PWD}/OAIMoveDamageClassSummary.h \
     $${PWD}/OAIMoveDetail.h \
-    $${PWD}/OAIMoveDetail_contest_combos.h \
-    $${PWD}/OAIMoveDetail_contest_combos_normal.h \
-    $${PWD}/OAIMoveDetail_effect_changes_inner.h \
-    $${PWD}/OAIMoveDetail_effect_changes_inner_effect_entries_inner.h \
-    $${PWD}/OAIMoveDetail_machines_inner.h \
-    $${PWD}/OAIMoveDetail_machines_inner_machine.h \
-    $${PWD}/OAIMoveDetail_stat_changes_inner.h \
+    $${PWD}/OAIMoveEffectChange.h \
+    $${PWD}/OAIMoveEffectChangeEffectText.h \
+    $${PWD}/OAIMoveEffectEffectText.h \
     $${PWD}/OAIMoveFlavorText.h \
     $${PWD}/OAIMoveLearnMethodDescription.h \
     $${PWD}/OAIMoveLearnMethodDetail.h \
@@ -135,7 +132,9 @@ HEADERS += \
     $${PWD}/OAIMoveMetaCategoryDescription.h \
     $${PWD}/OAIMoveMetaCategoryDetail.h \
     $${PWD}/OAIMoveMetaCategorySummary.h \
+    $${PWD}/OAIMoveMetaStatChange.h \
     $${PWD}/OAIMoveName.h \
+    $${PWD}/OAIMoveStatChange.h \
     $${PWD}/OAIMoveSummary.h \
     $${PWD}/OAIMoveTargetDescription.h \
     $${PWD}/OAIMoveTargetDetail.h \
@@ -143,8 +142,8 @@ HEADERS += \
     $${PWD}/OAIMoveTargetSummary.h \
     $${PWD}/OAINatureBattleStylePreference.h \
     $${PWD}/OAINatureDetail.h \
-    $${PWD}/OAINatureDetail_pokeathlon_stat_changes_inner.h \
     $${PWD}/OAINatureName.h \
+    $${PWD}/OAINaturePokeathlonStat.h \
     $${PWD}/OAINatureSummary.h \
     $${PWD}/OAIPaginatedAbilitySummaryList.h \
     $${PWD}/OAIPaginatedBerryFirmnessSummaryList.h \
@@ -153,12 +152,14 @@ HEADERS += \
     $${PWD}/OAIPaginatedCharacteristicSummaryList.h \
     $${PWD}/OAIPaginatedContestEffectSummaryList.h \
     $${PWD}/OAIPaginatedContestTypeSummaryList.h \
+    $${PWD}/OAIPaginatedCurrencySummaryList.h \
     $${PWD}/OAIPaginatedEggGroupSummaryList.h \
     $${PWD}/OAIPaginatedEncounterConditionSummaryList.h \
     $${PWD}/OAIPaginatedEncounterConditionValueSummaryList.h \
     $${PWD}/OAIPaginatedEncounterMethodSummaryList.h \
     $${PWD}/OAIPaginatedEvolutionChainSummaryList.h \
     $${PWD}/OAIPaginatedEvolutionTriggerSummaryList.h \
+    $${PWD}/OAIPaginatedEvolutionVariableSummaryList.h \
     $${PWD}/OAIPaginatedGenderSummaryList.h \
     $${PWD}/OAIPaginatedGenerationSummaryList.h \
     $${PWD}/OAIPaginatedGrowthRateSummaryList.h \
@@ -195,75 +196,91 @@ HEADERS += \
     $${PWD}/OAIPaginatedVersionGroupSummaryList.h \
     $${PWD}/OAIPaginatedVersionSummaryList.h \
     $${PWD}/OAIPalParkAreaDetail.h \
-    $${PWD}/OAIPalParkAreaDetail_pokemon_encounters_inner.h \
     $${PWD}/OAIPalParkAreaName.h \
     $${PWD}/OAIPalParkAreaSummary.h \
+    $${PWD}/OAIPalParkEncounter.h \
+    $${PWD}/OAIPokeapiMetaResponse.h \
+    $${PWD}/OAIPokeathlonStatAffectingNature.h \
+    $${PWD}/OAIPokeathlonStatAffectingNatures.h \
     $${PWD}/OAIPokeathlonStatDetail.h \
-    $${PWD}/OAIPokeathlonStatDetail_affecting_natures.h \
-    $${PWD}/OAIPokeathlonStatDetail_affecting_natures_decrease_inner.h \
-    $${PWD}/OAIPokeathlonStatDetail_affecting_natures_increase_inner.h \
     $${PWD}/OAIPokeathlonStatName.h \
     $${PWD}/OAIPokeathlonStatSummary.h \
     $${PWD}/OAIPokedexDescription.h \
     $${PWD}/OAIPokedexDetail.h \
-    $${PWD}/OAIPokedexDetail_pokemon_entries_inner.h \
     $${PWD}/OAIPokedexName.h \
     $${PWD}/OAIPokedexSummary.h \
+    $${PWD}/OAIPokemonAbility.h \
+    $${PWD}/OAIPokemonAbilityPast.h \
     $${PWD}/OAIPokemonColorDetail.h \
     $${PWD}/OAIPokemonColorName.h \
     $${PWD}/OAIPokemonColorSummary.h \
+    $${PWD}/OAIPokemonCries.h \
     $${PWD}/OAIPokemonDetail.h \
-    $${PWD}/OAIPokemonDetail_abilities_inner.h \
-    $${PWD}/OAIPokemonDetail_cries.h \
-    $${PWD}/OAIPokemonDetail_held_items.h \
-    $${PWD}/OAIPokemonDetail_moves_inner.h \
-    $${PWD}/OAIPokemonDetail_moves_inner_version_group_details_inner.h \
-    $${PWD}/OAIPokemonDetail_past_abilities_inner.h \
-    $${PWD}/OAIPokemonDetail_past_types_inner.h \
-    $${PWD}/OAIPokemonDetail_sprites.h \
-    $${PWD}/OAIPokemonDetail_types_inner.h \
     $${PWD}/OAIPokemonDexEntry.h \
+    $${PWD}/OAIPokemonDexNumber.h \
+    $${PWD}/OAIPokemonEncounterDetailResponse.h \
+    $${PWD}/OAIPokemonEncounterResponse.h \
+    $${PWD}/OAIPokemonEncounterVersionDetailResponse.h \
+    $${PWD}/OAIPokemonEvolution.h \
+    $${PWD}/OAIPokemonEvolution_known_move.h \
     $${PWD}/OAIPokemonFormDetail.h \
-    $${PWD}/OAIPokemonFormDetail_form_names_inner.h \
-    $${PWD}/OAIPokemonFormDetail_sprites.h \
+    $${PWD}/OAIPokemonFormFlavorText.h \
+    $${PWD}/OAIPokemonFormName.h \
+    $${PWD}/OAIPokemonFormSprites.h \
     $${PWD}/OAIPokemonFormSummary.h \
+    $${PWD}/OAIPokemonFormTriggerCondition.h \
+    $${PWD}/OAIPokemonFormType.h \
     $${PWD}/OAIPokemonGameIndex.h \
     $${PWD}/OAIPokemonHabitatDetail.h \
     $${PWD}/OAIPokemonHabitatName.h \
     $${PWD}/OAIPokemonHabitatSummary.h \
+    $${PWD}/OAIPokemonHeldItem.h \
+    $${PWD}/OAIPokemonHeldItemSummary.h \
+    $${PWD}/OAIPokemonHeldItemVersion.h \
+    $${PWD}/OAIPokemonMove.h \
+    $${PWD}/OAIPokemonMoveVersionGroup.h \
+    $${PWD}/OAIPokemonPastAbility.h \
+    $${PWD}/OAIPokemonPastStat.h \
+    $${PWD}/OAIPokemonPastType.h \
+    $${PWD}/OAIPokemonShapeAwesomeName.h \
     $${PWD}/OAIPokemonShapeDetail.h \
-    $${PWD}/OAIPokemonShapeDetail_awesome_names_inner.h \
-    $${PWD}/OAIPokemonShapeDetail_names_inner.h \
+    $${PWD}/OAIPokemonShapeName.h \
     $${PWD}/OAIPokemonShapeSummary.h \
     $${PWD}/OAIPokemonSpeciesDescription.h \
     $${PWD}/OAIPokemonSpeciesDetail.h \
-    $${PWD}/OAIPokemonSpeciesDetail_genera_inner.h \
-    $${PWD}/OAIPokemonSpeciesDetail_pal_park_encounters_inner.h \
-    $${PWD}/OAIPokemonSpeciesDetail_varieties_inner.h \
     $${PWD}/OAIPokemonSpeciesFlavorText.h \
+    $${PWD}/OAIPokemonSpeciesGenus.h \
+    $${PWD}/OAIPokemonSpeciesName.h \
+    $${PWD}/OAIPokemonSpeciesPalParkEncounter.h \
     $${PWD}/OAIPokemonSpeciesSummary.h \
+    $${PWD}/OAIPokemonSpeciesVariety.h \
+    $${PWD}/OAIPokemonSprites.h \
+    $${PWD}/OAIPokemonSpritesOther.h \
+    $${PWD}/OAIPokemonSpritesOtherDreamWorld.h \
+    $${PWD}/OAIPokemonSpritesOtherHome.h \
+    $${PWD}/OAIPokemonSpritesOtherOfficialArtwork.h \
+    $${PWD}/OAIPokemonSpritesOtherShowdown.h \
     $${PWD}/OAIPokemonStat.h \
     $${PWD}/OAIPokemonSummary.h \
+    $${PWD}/OAIPokemonType.h \
     $${PWD}/OAIRegionDetail.h \
     $${PWD}/OAIRegionName.h \
     $${PWD}/OAIRegionSummary.h \
+    $${PWD}/OAIStatAffectingMoves.h \
+    $${PWD}/OAIStatAffectingNatures.h \
     $${PWD}/OAIStatDetail.h \
-    $${PWD}/OAIStatDetail_affecting_moves.h \
-    $${PWD}/OAIStatDetail_affecting_moves_increase_inner.h \
-    $${PWD}/OAIStatDetail_affecting_natures.h \
     $${PWD}/OAIStatName.h \
     $${PWD}/OAIStatSummary.h \
     $${PWD}/OAISuperContestEffectDetail.h \
     $${PWD}/OAISuperContestEffectFlavorText.h \
     $${PWD}/OAISuperContestEffectSummary.h \
     $${PWD}/OAITypeDetail.h \
-    $${PWD}/OAITypeDetail_damage_relations.h \
-    $${PWD}/OAITypeDetail_past_damage_relations_inner.h \
-    $${PWD}/OAITypeDetail_past_damage_relations_inner_damage_relations.h \
-    $${PWD}/OAITypeDetail_pokemon_inner.h \
-    $${PWD}/OAITypeDetail_pokemon_inner_pokemon.h \
-    $${PWD}/OAITypeDetail_sprites_value_value.h \
     $${PWD}/OAITypeGameIndex.h \
+    $${PWD}/OAITypeGameSprite.h \
+    $${PWD}/OAITypeName.h \
+    $${PWD}/OAITypePastRelationships.h \
+    $${PWD}/OAITypePokemon.h \
+    $${PWD}/OAITypeRelationships.h \
     $${PWD}/OAITypeSummary.h \
     $${PWD}/OAIVersionDetail.h \
     $${PWD}/OAIVersionGroupDetail.h \
@@ -297,21 +314,18 @@ SOURCES += \
     $${PWD}/OAIAbilityChange.cpp \
     $${PWD}/OAIAbilityChangeEffectText.cpp \
     $${PWD}/OAIAbilityDetail.cpp \
-    $${PWD}/OAIAbilityDetail_pokemon_inner.cpp \
-    $${PWD}/OAIAbilityDetail_pokemon_inner_pokemon.cpp \
     $${PWD}/OAIAbilityEffectText.cpp \
     $${PWD}/OAIAbilityFlavorText.cpp \
     $${PWD}/OAIAbilityName.cpp \
+    $${PWD}/OAIAbilityPokemonDetail.cpp \
     $${PWD}/OAIAbilitySummary.cpp \
     $${PWD}/OAIBerryDetail.cpp \
-    $${PWD}/OAIBerryDetail_flavors_inner.cpp \
-    $${PWD}/OAIBerryDetail_flavors_inner_flavor.cpp \
     $${PWD}/OAIBerryFirmnessDetail.cpp \
     $${PWD}/OAIBerryFirmnessName.cpp \
     $${PWD}/OAIBerryFirmnessSummary.cpp \
+    $${PWD}/OAIBerryFlavorBerryMap.cpp \
     $${PWD}/OAIBerryFlavorDetail.cpp \
-    $${PWD}/OAIBerryFlavorDetail_berries_inner.cpp \
-    $${PWD}/OAIBerryFlavorDetail_berries_inner_berry.cpp \
+    $${PWD}/OAIBerryFlavorMap.cpp \
     $${PWD}/OAIBerryFlavorName.cpp \
     $${PWD}/OAIBerryFlavorSummary.cpp \
     $${PWD}/OAIBerrySummary.cpp \
@@ -325,8 +339,10 @@ SOURCES += \
     $${PWD}/OAIContestTypeDetail.cpp \
     $${PWD}/OAIContestTypeName.cpp \
     $${PWD}/OAIContestTypeSummary.cpp \
+    $${PWD}/OAICurrencyDetail.cpp \
+    $${PWD}/OAICurrencyName.cpp \
+    $${PWD}/OAICurrencySummary.cpp \
     $${PWD}/OAIEggGroupDetail.cpp \
-    $${PWD}/OAIEggGroupDetail_pokemon_species_inner.cpp \
     $${PWD}/OAIEggGroupName.cpp \
     $${PWD}/OAIEggGroupSummary.cpp \
     $${PWD}/OAIEncounterConditionDetail.cpp \
@@ -338,18 +354,21 @@ SOURCES += \
     $${PWD}/OAIEncounterMethodDetail.cpp \
     $${PWD}/OAIEncounterMethodName.cpp \
     $${PWD}/OAIEncounterMethodSummary.cpp \
+    $${PWD}/OAIEncounterPokemonDetail.cpp \
     $${PWD}/OAIEvolutionChainDetail.cpp \
-    $${PWD}/OAIEvolutionChainDetail_chain.cpp \
-    $${PWD}/OAIEvolutionChainDetail_chain_evolves_to_inner.cpp \
-    $${PWD}/OAIEvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner.cpp \
-    $${PWD}/OAIEvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender.cpp \
+    $${PWD}/OAIEvolutionChainLink.cpp \
     $${PWD}/OAIEvolutionChainSummary.cpp \
+    $${PWD}/OAIEvolutionConditionExpression.cpp \
     $${PWD}/OAIEvolutionTriggerDetail.cpp \
     $${PWD}/OAIEvolutionTriggerName.cpp \
     $${PWD}/OAIEvolutionTriggerSummary.cpp \
+    $${PWD}/OAIEvolutionVariableDescription.cpp \
+    $${PWD}/OAIEvolutionVariableDetail.cpp \
+    $${PWD}/OAIEvolutionVariableName.cpp \
+    $${PWD}/OAIEvolutionVariableSummary.cpp \
     $${PWD}/OAIExperience.cpp \
     $${PWD}/OAIGenderDetail.cpp \
-    $${PWD}/OAIGenderDetail_pokemon_species_details_inner.cpp \
+    $${PWD}/OAIGenderPokemonSpecies.cpp \
     $${PWD}/OAIGenderSummary.cpp \
     $${PWD}/OAIGenerationDetail.cpp \
     $${PWD}/OAIGenerationName.cpp \
@@ -365,32 +384,30 @@ SOURCES += \
     $${PWD}/OAIItemCategoryName.cpp \
     $${PWD}/OAIItemCategorySummary.cpp \
     $${PWD}/OAIItemDetail.cpp \
-    $${PWD}/OAIItemDetail_baby_trigger_for.cpp \
-    $${PWD}/OAIItemDetail_held_by_pokemon_inner.cpp \
-    $${PWD}/OAIItemDetail_held_by_pokemon_inner_version_details_inner.cpp \
-    $${PWD}/OAIItemDetail_machines_inner.cpp \
-    $${PWD}/OAIItemDetail_sprites.cpp \
     $${PWD}/OAIItemEffectText.cpp \
     $${PWD}/OAIItemFlavorText.cpp \
     $${PWD}/OAIItemFlingEffectDetail.cpp \
     $${PWD}/OAIItemFlingEffectEffectText.cpp \
     $${PWD}/OAIItemFlingEffectSummary.cpp \
     $${PWD}/OAIItemGameIndex.cpp \
+    $${PWD}/OAIItemMachine.cpp \
     $${PWD}/OAIItemName.cpp \
     $${PWD}/OAIItemPocketDetail.cpp \
     $${PWD}/OAIItemPocketName.cpp \
     $${PWD}/OAIItemPocketSummary.cpp \
+    $${PWD}/OAIItemPrice.cpp \
+    $${PWD}/OAIItemSprites.cpp \
     $${PWD}/OAIItemSummary.cpp \
     $${PWD}/OAILanguageDetail.cpp \
     $${PWD}/OAILanguageName.cpp \
     $${PWD}/OAILanguageSummary.cpp \
     $${PWD}/OAILocationAreaDetail.cpp \
-    $${PWD}/OAILocationAreaDetail_encounter_method_rates_inner.cpp \
-    $${PWD}/OAILocationAreaDetail_encounter_method_rates_inner_version_details_inner.cpp \
-    $${PWD}/OAILocationAreaDetail_pokemon_encounters_inner.cpp \
-    $${PWD}/OAILocationAreaDetail_pokemon_encounters_inner_version_details_inner.cpp \
-    $${PWD}/OAILocationAreaDetail_pokemon_encounters_inner_version_details_inner_encounter_details.cpp \
+    $${PWD}/OAILocationAreaEncounterDetail.cpp \
+    $${PWD}/OAILocationAreaEncounterRate.cpp \
+    $${PWD}/OAILocationAreaEncounterVersionDetail.cpp \
     $${PWD}/OAILocationAreaName.cpp \
+    $${PWD}/OAILocationAreaPokemonEncounter.cpp \
+    $${PWD}/OAILocationAreaPokemonEncounterVersion.cpp \
     $${PWD}/OAILocationAreaSummary.cpp \
     $${PWD}/OAILocationDetail.cpp \
     $${PWD}/OAILocationGameIndex.cpp \
@@ -402,19 +419,16 @@ SOURCES += \
     $${PWD}/OAIMoveBattleStyleName.cpp \
     $${PWD}/OAIMoveBattleStyleSummary.cpp \
     $${PWD}/OAIMoveChange.cpp \
-    $${PWD}/OAIMoveChange_effect_entries_inner.cpp \
+    $${PWD}/OAIMoveComboUsage.cpp \
+    $${PWD}/OAIMoveCombos.cpp \
     $${PWD}/OAIMoveDamageClassDescription.cpp \
     $${PWD}/OAIMoveDamageClassDetail.cpp \
     $${PWD}/OAIMoveDamageClassName.cpp \
     $${PWD}/OAIMoveDamageClassSummary.cpp \
     $${PWD}/OAIMoveDetail.cpp \
-    $${PWD}/OAIMoveDetail_contest_combos.cpp \
-    $${PWD}/OAIMoveDetail_contest_combos_normal.cpp \
-    $${PWD}/OAIMoveDetail_effect_changes_inner.cpp \
-    $${PWD}/OAIMoveDetail_effect_changes_inner_effect_entries_inner.cpp \
-    $${PWD}/OAIMoveDetail_machines_inner.cpp \
-    $${PWD}/OAIMoveDetail_machines_inner_machine.cpp \
-    $${PWD}/OAIMoveDetail_stat_changes_inner.cpp \
+    $${PWD}/OAIMoveEffectChange.cpp \
+    $${PWD}/OAIMoveEffectChangeEffectText.cpp \
+    $${PWD}/OAIMoveEffectEffectText.cpp \
     $${PWD}/OAIMoveFlavorText.cpp \
     $${PWD}/OAIMoveLearnMethodDescription.cpp \
     $${PWD}/OAIMoveLearnMethodDetail.cpp \
@@ -427,7 +441,9 @@ SOURCES += \
     $${PWD}/OAIMoveMetaCategoryDescription.cpp \
     $${PWD}/OAIMoveMetaCategoryDetail.cpp \
     $${PWD}/OAIMoveMetaCategorySummary.cpp \
+    $${PWD}/OAIMoveMetaStatChange.cpp \
     $${PWD}/OAIMoveName.cpp \
+    $${PWD}/OAIMoveStatChange.cpp \
     $${PWD}/OAIMoveSummary.cpp \
     $${PWD}/OAIMoveTargetDescription.cpp \
     $${PWD}/OAIMoveTargetDetail.cpp \
@@ -435,8 +451,8 @@ SOURCES += \
     $${PWD}/OAIMoveTargetSummary.cpp \
     $${PWD}/OAINatureBattleStylePreference.cpp \
     $${PWD}/OAINatureDetail.cpp \
-    $${PWD}/OAINatureDetail_pokeathlon_stat_changes_inner.cpp \
     $${PWD}/OAINatureName.cpp \
+    $${PWD}/OAINaturePokeathlonStat.cpp \
     $${PWD}/OAINatureSummary.cpp \
     $${PWD}/OAIPaginatedAbilitySummaryList.cpp \
     $${PWD}/OAIPaginatedBerryFirmnessSummaryList.cpp \
@@ -445,12 +461,14 @@ SOURCES += \
     $${PWD}/OAIPaginatedCharacteristicSummaryList.cpp \
     $${PWD}/OAIPaginatedContestEffectSummaryList.cpp \
     $${PWD}/OAIPaginatedContestTypeSummaryList.cpp \
+    $${PWD}/OAIPaginatedCurrencySummaryList.cpp \
     $${PWD}/OAIPaginatedEggGroupSummaryList.cpp \
     $${PWD}/OAIPaginatedEncounterConditionSummaryList.cpp \
     $${PWD}/OAIPaginatedEncounterConditionValueSummaryList.cpp \
     $${PWD}/OAIPaginatedEncounterMethodSummaryList.cpp \
     $${PWD}/OAIPaginatedEvolutionChainSummaryList.cpp \
     $${PWD}/OAIPaginatedEvolutionTriggerSummaryList.cpp \
+    $${PWD}/OAIPaginatedEvolutionVariableSummaryList.cpp \
     $${PWD}/OAIPaginatedGenderSummaryList.cpp \
     $${PWD}/OAIPaginatedGenerationSummaryList.cpp \
     $${PWD}/OAIPaginatedGrowthRateSummaryList.cpp \
@@ -487,75 +505,91 @@ SOURCES += \
     $${PWD}/OAIPaginatedVersionGroupSummaryList.cpp \
     $${PWD}/OAIPaginatedVersionSummaryList.cpp \
     $${PWD}/OAIPalParkAreaDetail.cpp \
-    $${PWD}/OAIPalParkAreaDetail_pokemon_encounters_inner.cpp \
     $${PWD}/OAIPalParkAreaName.cpp \
     $${PWD}/OAIPalParkAreaSummary.cpp \
+    $${PWD}/OAIPalParkEncounter.cpp \
+    $${PWD}/OAIPokeapiMetaResponse.cpp \
+    $${PWD}/OAIPokeathlonStatAffectingNature.cpp \
+    $${PWD}/OAIPokeathlonStatAffectingNatures.cpp \
     $${PWD}/OAIPokeathlonStatDetail.cpp \
-    $${PWD}/OAIPokeathlonStatDetail_affecting_natures.cpp \
-    $${PWD}/OAIPokeathlonStatDetail_affecting_natures_decrease_inner.cpp \
-    $${PWD}/OAIPokeathlonStatDetail_affecting_natures_increase_inner.cpp \
     $${PWD}/OAIPokeathlonStatName.cpp \
     $${PWD}/OAIPokeathlonStatSummary.cpp \
     $${PWD}/OAIPokedexDescription.cpp \
     $${PWD}/OAIPokedexDetail.cpp \
-    $${PWD}/OAIPokedexDetail_pokemon_entries_inner.cpp \
     $${PWD}/OAIPokedexName.cpp \
     $${PWD}/OAIPokedexSummary.cpp \
+    $${PWD}/OAIPokemonAbility.cpp \
+    $${PWD}/OAIPokemonAbilityPast.cpp \
     $${PWD}/OAIPokemonColorDetail.cpp \
     $${PWD}/OAIPokemonColorName.cpp \
     $${PWD}/OAIPokemonColorSummary.cpp \
+    $${PWD}/OAIPokemonCries.cpp \
     $${PWD}/OAIPokemonDetail.cpp \
-    $${PWD}/OAIPokemonDetail_abilities_inner.cpp \
-    $${PWD}/OAIPokemonDetail_cries.cpp \
-    $${PWD}/OAIPokemonDetail_held_items.cpp \
-    $${PWD}/OAIPokemonDetail_moves_inner.cpp \
-    $${PWD}/OAIPokemonDetail_moves_inner_version_group_details_inner.cpp \
-    $${PWD}/OAIPokemonDetail_past_abilities_inner.cpp \
-    $${PWD}/OAIPokemonDetail_past_types_inner.cpp \
-    $${PWD}/OAIPokemonDetail_sprites.cpp \
-    $${PWD}/OAIPokemonDetail_types_inner.cpp \
     $${PWD}/OAIPokemonDexEntry.cpp \
+    $${PWD}/OAIPokemonDexNumber.cpp \
+    $${PWD}/OAIPokemonEncounterDetailResponse.cpp \
+    $${PWD}/OAIPokemonEncounterResponse.cpp \
+    $${PWD}/OAIPokemonEncounterVersionDetailResponse.cpp \
+    $${PWD}/OAIPokemonEvolution.cpp \
+    $${PWD}/OAIPokemonEvolution_known_move.cpp \
     $${PWD}/OAIPokemonFormDetail.cpp \
-    $${PWD}/OAIPokemonFormDetail_form_names_inner.cpp \
-    $${PWD}/OAIPokemonFormDetail_sprites.cpp \
+    $${PWD}/OAIPokemonFormFlavorText.cpp \
+    $${PWD}/OAIPokemonFormName.cpp \
+    $${PWD}/OAIPokemonFormSprites.cpp \
     $${PWD}/OAIPokemonFormSummary.cpp \
+    $${PWD}/OAIPokemonFormTriggerCondition.cpp \
+    $${PWD}/OAIPokemonFormType.cpp \
     $${PWD}/OAIPokemonGameIndex.cpp \
     $${PWD}/OAIPokemonHabitatDetail.cpp \
     $${PWD}/OAIPokemonHabitatName.cpp \
     $${PWD}/OAIPokemonHabitatSummary.cpp \
+    $${PWD}/OAIPokemonHeldItem.cpp \
+    $${PWD}/OAIPokemonHeldItemSummary.cpp \
+    $${PWD}/OAIPokemonHeldItemVersion.cpp \
+    $${PWD}/OAIPokemonMove.cpp \
+    $${PWD}/OAIPokemonMoveVersionGroup.cpp \
+    $${PWD}/OAIPokemonPastAbility.cpp \
+    $${PWD}/OAIPokemonPastStat.cpp \
+    $${PWD}/OAIPokemonPastType.cpp \
+    $${PWD}/OAIPokemonShapeAwesomeName.cpp \
     $${PWD}/OAIPokemonShapeDetail.cpp \
-    $${PWD}/OAIPokemonShapeDetail_awesome_names_inner.cpp \
-    $${PWD}/OAIPokemonShapeDetail_names_inner.cpp \
+    $${PWD}/OAIPokemonShapeName.cpp \
     $${PWD}/OAIPokemonShapeSummary.cpp \
     $${PWD}/OAIPokemonSpeciesDescription.cpp \
     $${PWD}/OAIPokemonSpeciesDetail.cpp \
-    $${PWD}/OAIPokemonSpeciesDetail_genera_inner.cpp \
-    $${PWD}/OAIPokemonSpeciesDetail_pal_park_encounters_inner.cpp \
-    $${PWD}/OAIPokemonSpeciesDetail_varieties_inner.cpp \
     $${PWD}/OAIPokemonSpeciesFlavorText.cpp \
+    $${PWD}/OAIPokemonSpeciesGenus.cpp \
+    $${PWD}/OAIPokemonSpeciesName.cpp \
+    $${PWD}/OAIPokemonSpeciesPalParkEncounter.cpp \
     $${PWD}/OAIPokemonSpeciesSummary.cpp \
+    $${PWD}/OAIPokemonSpeciesVariety.cpp \
+    $${PWD}/OAIPokemonSprites.cpp \
+    $${PWD}/OAIPokemonSpritesOther.cpp \
+    $${PWD}/OAIPokemonSpritesOtherDreamWorld.cpp \
+    $${PWD}/OAIPokemonSpritesOtherHome.cpp \
+    $${PWD}/OAIPokemonSpritesOtherOfficialArtwork.cpp \
+    $${PWD}/OAIPokemonSpritesOtherShowdown.cpp \
     $${PWD}/OAIPokemonStat.cpp \
     $${PWD}/OAIPokemonSummary.cpp \
+    $${PWD}/OAIPokemonType.cpp \
     $${PWD}/OAIRegionDetail.cpp \
     $${PWD}/OAIRegionName.cpp \
     $${PWD}/OAIRegionSummary.cpp \
+    $${PWD}/OAIStatAffectingMoves.cpp \
+    $${PWD}/OAIStatAffectingNatures.cpp \
     $${PWD}/OAIStatDetail.cpp \
-    $${PWD}/OAIStatDetail_affecting_moves.cpp \
-    $${PWD}/OAIStatDetail_affecting_moves_increase_inner.cpp \
-    $${PWD}/OAIStatDetail_affecting_natures.cpp \
     $${PWD}/OAIStatName.cpp \
     $${PWD}/OAIStatSummary.cpp \
     $${PWD}/OAISuperContestEffectDetail.cpp \
     $${PWD}/OAISuperContestEffectFlavorText.cpp \
     $${PWD}/OAISuperContestEffectSummary.cpp \
     $${PWD}/OAITypeDetail.cpp \
-    $${PWD}/OAITypeDetail_damage_relations.cpp \
-    $${PWD}/OAITypeDetail_past_damage_relations_inner.cpp \
-    $${PWD}/OAITypeDetail_past_damage_relations_inner_damage_relations.cpp \
-    $${PWD}/OAITypeDetail_pokemon_inner.cpp \
-    $${PWD}/OAITypeDetail_pokemon_inner_pokemon.cpp \
-    $${PWD}/OAITypeDetail_sprites_value_value.cpp \
     $${PWD}/OAITypeGameIndex.cpp \
+    $${PWD}/OAITypeGameSprite.cpp \
+    $${PWD}/OAITypeName.cpp \
+    $${PWD}/OAITypePastRelationships.cpp \
+    $${PWD}/OAITypePokemon.cpp \
+    $${PWD}/OAITypeRelationships.cpp \
     $${PWD}/OAITypeSummary.cpp \
     $${PWD}/OAIVersionDetail.cpp \
     $${PWD}/OAIVersionGroupDetail.cpp \

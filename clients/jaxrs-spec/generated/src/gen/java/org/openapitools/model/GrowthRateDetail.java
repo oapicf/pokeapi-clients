@@ -22,7 +22,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("GrowthRateDetail")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-11-09T13:50:06.168269698Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class GrowthRateDetail   {
   private Integer id;
   private String name;
@@ -52,6 +52,7 @@ public class GrowthRateDetail   {
   }
 
   /**
+   * The identifier for this resource.
    **/
   public GrowthRateDetail id(Integer id) {
     this.id = id;
@@ -59,7 +60,7 @@ public class GrowthRateDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   @JsonProperty(required = true, value = "id")
   public Integer getId() {
     return id;
@@ -71,6 +72,7 @@ public class GrowthRateDetail   {
   }
 
   /**
+   * The name for this resource.
    **/
   public GrowthRateDetail name(String name) {
     this.name = name;
@@ -78,9 +80,9 @@ public class GrowthRateDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   @JsonProperty(required = true, value = "name")
-  @NotNull  @Size(max=100)public String getName() {
+  @NotNull  @Size(max=200)public String getName() {
     return name;
   }
 
@@ -90,6 +92,7 @@ public class GrowthRateDetail   {
   }
 
   /**
+   * The formula used to calculate the rate at which the Pokémon species gains level.
    **/
   public GrowthRateDetail formula(String formula) {
     this.formula = formula;
@@ -97,7 +100,7 @@ public class GrowthRateDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The formula used to calculate the rate at which the Pokémon species gains level.")
   @JsonProperty(required = true, value = "formula")
   @NotNull  @Size(max=500)public String getFormula() {
     return formula;
@@ -109,6 +112,7 @@ public class GrowthRateDetail   {
   }
 
   /**
+   * The descriptions of this characteristic listed in different languages.
    **/
   public GrowthRateDetail descriptions(List<@Valid GrowthRateDescription> descriptions) {
     this.descriptions = descriptions;
@@ -116,7 +120,7 @@ public class GrowthRateDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The descriptions of this characteristic listed in different languages.")
   @JsonProperty(required = true, value = "descriptions")
   public List<@Valid GrowthRateDescription> getDescriptions() {
     return descriptions;
@@ -144,6 +148,7 @@ public class GrowthRateDetail   {
     return this;
   }
   /**
+   * A list of levels and the amount of experienced needed to atain them based on this growth rate.
    **/
   public GrowthRateDetail levels(List<@Valid Experience> levels) {
     this.levels = levels;
@@ -151,7 +156,7 @@ public class GrowthRateDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of levels and the amount of experienced needed to atain them based on this growth rate.")
   @JsonProperty(required = true, value = "levels")
   public List<@Valid Experience> getLevels() {
     return levels;
@@ -179,6 +184,7 @@ public class GrowthRateDetail   {
     return this;
   }
   /**
+   * A list of Pokémon species that gain levels at this growth rate.
    **/
   public GrowthRateDetail pokemonSpecies(List<@Valid PokemonSpeciesSummary> pokemonSpecies) {
     this.pokemonSpecies = pokemonSpecies;
@@ -186,7 +192,7 @@ public class GrowthRateDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of Pokémon species that gain levels at this growth rate.")
   @JsonProperty(required = true, value = "pokemon_species")
   public List<@Valid PokemonSpeciesSummary> getPokemonSpecies() {
     return pokemonSpecies;

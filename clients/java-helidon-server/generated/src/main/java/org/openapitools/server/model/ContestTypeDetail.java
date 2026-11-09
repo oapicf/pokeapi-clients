@@ -27,10 +27,10 @@ public class ContestTypeDetail   {
     /**
      * Create ContestTypeDetail.
      *
-     * @param id id
-     * @param name name
-     * @param berryFlavor berryFlavor
-     * @param names names
+     * @param id The identifier for this resource.
+     * @param name The name for this resource.
+     * @param berryFlavor The berry flavor that correlates with this contest type.
+     * @param names The name of this contest type listed in different languages.
      */
     public ContestTypeDetail(
         Integer id, 
@@ -47,7 +47,7 @@ public class ContestTypeDetail   {
 
 
     /**
-     * Get id
+     * The identifier for this resource.
      * @return id
      */
     public Integer getId() {
@@ -59,7 +59,7 @@ public class ContestTypeDetail   {
     }
 
     /**
-     * Get name
+     * The name for this resource.
      * @return name
      */
     public String getName() {
@@ -71,7 +71,7 @@ public class ContestTypeDetail   {
     }
 
     /**
-     * Get berryFlavor
+     * The berry flavor that correlates with this contest type.
      * @return berryFlavor
      */
     public BerryFlavorSummary getBerryFlavor() {
@@ -83,7 +83,7 @@ public class ContestTypeDetail   {
     }
 
     /**
-     * Get names
+     * The name of this contest type listed in different languages.
      * @return names
      */
     public List<@Valid ContestTypeName> getNames() {

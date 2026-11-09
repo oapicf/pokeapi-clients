@@ -8,6 +8,7 @@ use Articus\DataTransfer\Annotation as DTA;
 class SuperContestEffectFlavorText
 {
     /**
+     * The localized flavor text for an API resource in a specific language.
      * @DTA\Data(field="flavor_text")
      * @DTA\Validator(name="Scalar", options={"type":"string"})
      * @DTA\Validator(name="Length", options={"max":500})
@@ -15,6 +16,7 @@ class SuperContestEffectFlavorText
     public ?string $flavor_text = null;
 
     /**
+     * The language this name is in.
      * @DTA\Data(field="language")
      * @DTA\Strategy(name="Object", options={"type":\App\DTO\LanguageSummary::class})
      * @DTA\Validator(name="TypeCompliant", options={"type":\App\DTO\LanguageSummary::class})

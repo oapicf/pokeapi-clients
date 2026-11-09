@@ -10,7 +10,9 @@ import Foundation
 public struct SuperContestEffectFlavorText: Sendable, Codable, Hashable {
 
     public static let flavorTextRule = StringRule(minLength: nil, maxLength: 500, pattern: nil)
+    /** The localized flavor text for an API resource in a specific language. */
     public var flavorText: String
+    /** The language this name is in. */
     public var language: LanguageSummary
 
     public init(flavorText: String, language: LanguageSummary) {

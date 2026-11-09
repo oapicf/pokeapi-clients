@@ -1,9 +1,9 @@
 /*
 PokéAPI
 
-All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
 
-API version: 2.7.0
+API version: 2.10.0
 Contact: blah+oapicf@cliffano.com
 */
 
@@ -22,10 +22,14 @@ var _ MappedNullable = &GenderDetail{}
 
 // GenderDetail struct for GenderDetail
 type GenderDetail struct {
+	// The identifier for this resource.
 	Id int32 `json:"id"`
+	// The name for this resource.
 	Name string `json:"name"`
-	PokemonSpeciesDetails []GenderDetailPokemonSpeciesDetailsInner `json:"pokemon_species_details"`
-	RequiredForEvolution []AbilityDetailPokemonInnerPokemon `json:"required_for_evolution"`
+	// A list of Pokémon species that can be this gender and how likely it is that they will be.
+	PokemonSpeciesDetails []GenderPokemonSpecies `json:"pokemon_species_details"`
+	// A list of Pokémon species that required this gender in order for a Pokémon to evolve into them.
+	RequiredForEvolution []PokemonSpeciesSummary `json:"required_for_evolution"`
 }
 
 type _GenderDetail GenderDetail
@@ -34,7 +38,7 @@ type _GenderDetail GenderDetail
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGenderDetail(id int32, name string, pokemonSpeciesDetails []GenderDetailPokemonSpeciesDetailsInner, requiredForEvolution []AbilityDetailPokemonInnerPokemon) *GenderDetail {
+func NewGenderDetail(id int32, name string, pokemonSpeciesDetails []GenderPokemonSpecies, requiredForEvolution []PokemonSpeciesSummary) *GenderDetail {
 	this := GenderDetail{}
 	this.Id = id
 	this.Name = name
@@ -100,9 +104,9 @@ func (o *GenderDetail) SetName(v string) {
 }
 
 // GetPokemonSpeciesDetails returns the PokemonSpeciesDetails field value
-func (o *GenderDetail) GetPokemonSpeciesDetails() []GenderDetailPokemonSpeciesDetailsInner {
+func (o *GenderDetail) GetPokemonSpeciesDetails() []GenderPokemonSpecies {
 	if o == nil {
-		var ret []GenderDetailPokemonSpeciesDetailsInner
+		var ret []GenderPokemonSpecies
 		return ret
 	}
 
@@ -111,7 +115,7 @@ func (o *GenderDetail) GetPokemonSpeciesDetails() []GenderDetailPokemonSpeciesDe
 
 // GetPokemonSpeciesDetailsOk returns a tuple with the PokemonSpeciesDetails field value
 // and a boolean to check if the value has been set.
-func (o *GenderDetail) GetPokemonSpeciesDetailsOk() ([]GenderDetailPokemonSpeciesDetailsInner, bool) {
+func (o *GenderDetail) GetPokemonSpeciesDetailsOk() ([]GenderPokemonSpecies, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -119,14 +123,14 @@ func (o *GenderDetail) GetPokemonSpeciesDetailsOk() ([]GenderDetailPokemonSpecie
 }
 
 // SetPokemonSpeciesDetails sets field value
-func (o *GenderDetail) SetPokemonSpeciesDetails(v []GenderDetailPokemonSpeciesDetailsInner) {
+func (o *GenderDetail) SetPokemonSpeciesDetails(v []GenderPokemonSpecies) {
 	o.PokemonSpeciesDetails = v
 }
 
 // GetRequiredForEvolution returns the RequiredForEvolution field value
-func (o *GenderDetail) GetRequiredForEvolution() []AbilityDetailPokemonInnerPokemon {
+func (o *GenderDetail) GetRequiredForEvolution() []PokemonSpeciesSummary {
 	if o == nil {
-		var ret []AbilityDetailPokemonInnerPokemon
+		var ret []PokemonSpeciesSummary
 		return ret
 	}
 
@@ -135,7 +139,7 @@ func (o *GenderDetail) GetRequiredForEvolution() []AbilityDetailPokemonInnerPoke
 
 // GetRequiredForEvolutionOk returns a tuple with the RequiredForEvolution field value
 // and a boolean to check if the value has been set.
-func (o *GenderDetail) GetRequiredForEvolutionOk() ([]AbilityDetailPokemonInnerPokemon, bool) {
+func (o *GenderDetail) GetRequiredForEvolutionOk() ([]PokemonSpeciesSummary, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -143,7 +147,7 @@ func (o *GenderDetail) GetRequiredForEvolutionOk() ([]AbilityDetailPokemonInnerP
 }
 
 // SetRequiredForEvolution sets field value
-func (o *GenderDetail) SetRequiredForEvolution(v []AbilityDetailPokemonInnerPokemon) {
+func (o *GenderDetail) SetRequiredForEvolution(v []PokemonSpeciesSummary) {
 	o.RequiredForEvolution = v
 }
 

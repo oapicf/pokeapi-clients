@@ -8,8 +8,8 @@ public class GenderDetail
 {
     public int Id { get; set; }
     public string Name { get; set; }
-    public List<GenderDetailPokemonSpeciesDetailsInner> PokemonSpeciesDetails { get; set; }
-    public List<AbilityDetailPokemonInnerPokemon> RequiredForEvolution { get; set; }
+    public List<GenderPokemonSpecies> PokemonSpeciesDetails { get; set; }
+    public List<PokemonSpeciesSummary> RequiredForEvolution { get; set; }
 }
 
 

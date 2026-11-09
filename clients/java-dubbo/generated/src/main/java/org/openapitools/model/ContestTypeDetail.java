@@ -14,20 +14,32 @@ import java.math.*;
 public class ContestTypeDetail implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * The identifier for this resource.
+   */
   @JsonProperty("id")
   private Integer id;
 
+  /**
+   * The name for this resource.
+   */
   @JsonProperty("name")
   private String name;
 
+  /**
+   * The berry flavor that correlates with this contest type.
+   */
   @JsonProperty("berry_flavor")
   private BerryFlavorSummary berryFlavor;
 
+  /**
+   * The name of this contest type listed in different languages.
+   */
   @JsonProperty("names")
   private List<ContestTypeName> names = new ArrayList<>();
 
   /**
-   * 
+   * The identifier for this resource.
    * @return id
    */
   public Integer getId() {
@@ -39,7 +51,7 @@ public class ContestTypeDetail implements Serializable {
   }
 
   /**
-   * 
+   * The name for this resource.
    * @return name
    */
   public String getName() {
@@ -51,7 +63,7 @@ public class ContestTypeDetail implements Serializable {
   }
 
   /**
-   * 
+   * The berry flavor that correlates with this contest type.
    * @return berryFlavor
    */
   public BerryFlavorSummary getBerryFlavor() {
@@ -63,7 +75,7 @@ public class ContestTypeDetail implements Serializable {
   }
 
   /**
-   * 
+   * The name of this contest type listed in different languages.
    * @return names
    */
   public List<ContestTypeName> getNames() {

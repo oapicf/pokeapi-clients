@@ -17,13 +17,14 @@ static pokemon_detail_t *pokemon_detail_create_internal(
     list_t *past_abilities,
     list_t *forms,
     list_t *game_indices,
-    pokemon_detail_held_items_t *held_items,
+    list_t *held_items,
     char *location_area_encounters,
     list_t *moves,
     pokemon_species_summary_t *species,
-    pokemon_detail_sprites_t *sprites,
-    pokemon_detail_cries_t *cries,
+    pokemon_sprites_t *sprites,
+    pokemon_cries_t *cries,
     list_t *stats,
+    list_t *past_stats,
     list_t *types,
     list_t *past_types
     ) {
@@ -51,6 +52,7 @@ static pokemon_detail_t *pokemon_detail_create_internal(
     pokemon_detail_local_var->sprites = sprites;
     pokemon_detail_local_var->cries = cries;
     pokemon_detail_local_var->stats = stats;
+    pokemon_detail_local_var->past_stats = past_stats;
     pokemon_detail_local_var->types = types;
     pokemon_detail_local_var->past_types = past_types;
     return pokemon_detail_local_var;
@@ -68,13 +70,14 @@ __attribute__((deprecated)) pokemon_detail_t *pokemon_detail_create(
     list_t *past_abilities,
     list_t *forms,
     list_t *game_indices,
-    pokemon_detail_held_items_t *held_items,
+    list_t *held_items,
     char *location_area_encounters,
     list_t *moves,
     pokemon_species_summary_t *species,
-    pokemon_detail_sprites_t *sprites,
-    pokemon_detail_cries_t *cries,
+    pokemon_sprites_t *sprites,
+    pokemon_cries_t *cries,
     list_t *stats,
+    list_t *past_stats,
     list_t *types,
     list_t *past_types
     ) {
@@ -127,6 +130,7 @@ __attribute__((deprecated)) pokemon_detail_t *pokemon_detail_create(
         sprites,
         cries,
         stats,
+        past_stats,
         types,
         past_types
         );
@@ -180,14 +184,14 @@ void pokemon_detail_free(pokemon_detail_t *pokemon_detail) {
     }
     if (pokemon_detail->abilities) {
         list_ForEach(listEntry, pokemon_detail->abilities) {
-            pokemon_detail_abilities_inner_free(listEntry->data);
+            pokemon_ability_free(listEntry->data);
         }
         list_freeList(pokemon_detail->abilities);
         pokemon_detail->abilities = NULL;
     }
     if (pokemon_detail->past_abilities) {
         list_ForEach(listEntry, pokemon_detail->past_abilities) {
-            pokemon_detail_past_abilities_inner_free(listEntry->data);
+            pokemon_past_ability_free(listEntry->data);
         }
         list_freeList(pokemon_detail->past_abilities);
         pokemon_detail->past_abilities = NULL;
@@ -207,7 +211,10 @@ void pokemon_detail_free(pokemon_detail_t *pokemon_detail) {
         pokemon_detail->game_indices = NULL;
     }
     if (pokemon_detail->held_items) {
-        pokemon_detail_held_items_free(pokemon_detail->held_items);
+        list_ForEach(listEntry, pokemon_detail->held_items) {
+            pokemon_held_item_summary_free(listEntry->data);
+        }
+        list_freeList(pokemon_detail->held_items);
         pokemon_detail->held_items = NULL;
     }
     if (pokemon_detail->location_area_encounters) {
@@ -216,7 +223,7 @@ void pokemon_detail_free(pokemon_detail_t *pokemon_detail) {
     }
     if (pokemon_detail->moves) {
         list_ForEach(listEntry, pokemon_detail->moves) {
-            pokemon_detail_moves_inner_free(listEntry->data);
+            pokemon_move_free(listEntry->data);
         }
         list_freeList(pokemon_detail->moves);
         pokemon_detail->moves = NULL;
@@ -226,11 +233,11 @@ void pokemon_detail_free(pokemon_detail_t *pokemon_detail) {
         pokemon_detail->species = NULL;
     }
     if (pokemon_detail->sprites) {
-        pokemon_detail_sprites_free(pokemon_detail->sprites);
+        pokemon_sprites_free(pokemon_detail->sprites);
         pokemon_detail->sprites = NULL;
     }
     if (pokemon_detail->cries) {
-        pokemon_detail_cries_free(pokemon_detail->cries);
+        pokemon_cries_free(pokemon_detail->cries);
         pokemon_detail->cries = NULL;
     }
     if (pokemon_detail->stats) {
@@ -240,16 +247,23 @@ void pokemon_detail_free(pokemon_detail_t *pokemon_detail) {
         list_freeList(pokemon_detail->stats);
         pokemon_detail->stats = NULL;
     }
+    if (pokemon_detail->past_stats) {
+        list_ForEach(listEntry, pokemon_detail->past_stats) {
+            pokemon_past_stat_free(listEntry->data);
+        }
+        list_freeList(pokemon_detail->past_stats);
+        pokemon_detail->past_stats = NULL;
+    }
     if (pokemon_detail->types) {
         list_ForEach(listEntry, pokemon_detail->types) {
-            pokemon_detail_types_inner_free(listEntry->data);
+            pokemon_type_free(listEntry->data);
         }
         list_freeList(pokemon_detail->types);
         pokemon_detail->types = NULL;
     }
     if (pokemon_detail->past_types) {
         list_ForEach(listEntry, pokemon_detail->past_types) {
-            pokemon_detail_past_types_inner_free(listEntry->data);
+            pokemon_past_type_free(listEntry->data);
         }
         list_freeList(pokemon_detail->past_types);
         pokemon_detail->past_types = NULL;
@@ -330,7 +344,7 @@ cJSON *pokemon_detail_convertToJSON(pokemon_detail_t *pokemon_detail) {
     listEntry_t *abilitiesListEntry;
     if (pokemon_detail->abilities) {
     list_ForEach(abilitiesListEntry, pokemon_detail->abilities) {
-    cJSON *itemLocal = pokemon_detail_abilities_inner_convertToJSON(abilitiesListEntry->data);
+    cJSON *itemLocal = pokemon_ability_convertToJSON(abilitiesListEntry->data);
     if(itemLocal == NULL) {
     goto fail;
     }
@@ -351,7 +365,7 @@ cJSON *pokemon_detail_convertToJSON(pokemon_detail_t *pokemon_detail) {
     listEntry_t *past_abilitiesListEntry;
     if (pokemon_detail->past_abilities) {
     list_ForEach(past_abilitiesListEntry, pokemon_detail->past_abilities) {
-    cJSON *itemLocal = pokemon_detail_past_abilities_inner_convertToJSON(past_abilitiesListEntry->data);
+    cJSON *itemLocal = pokemon_past_ability_convertToJSON(past_abilitiesListEntry->data);
     if(itemLocal == NULL) {
     goto fail;
     }
@@ -406,13 +420,20 @@ cJSON *pokemon_detail_convertToJSON(pokemon_detail_t *pokemon_detail) {
     if (!pokemon_detail->held_items) {
         goto fail;
     }
-    cJSON *held_items_local_JSON = pokemon_detail_held_items_convertToJSON(pokemon_detail->held_items);
-    if(held_items_local_JSON == NULL) {
-    goto fail; //model
+    cJSON *held_items = cJSON_AddArrayToObject(item, "held_items");
+    if(held_items == NULL) {
+    goto fail; //nonprimitive container
     }
-    cJSON_AddItemToObject(item, "held_items", held_items_local_JSON);
-    if(item->child == NULL) {
+
+    listEntry_t *held_itemsListEntry;
+    if (pokemon_detail->held_items) {
+    list_ForEach(held_itemsListEntry, pokemon_detail->held_items) {
+    cJSON *itemLocal = pokemon_held_item_summary_convertToJSON(held_itemsListEntry->data);
+    if(itemLocal == NULL) {
     goto fail;
+    }
+    cJSON_AddItemToArray(held_items, itemLocal);
+    }
     }
 
 
@@ -437,7 +458,7 @@ cJSON *pokemon_detail_convertToJSON(pokemon_detail_t *pokemon_detail) {
     listEntry_t *movesListEntry;
     if (pokemon_detail->moves) {
     list_ForEach(movesListEntry, pokemon_detail->moves) {
-    cJSON *itemLocal = pokemon_detail_moves_inner_convertToJSON(movesListEntry->data);
+    cJSON *itemLocal = pokemon_move_convertToJSON(movesListEntry->data);
     if(itemLocal == NULL) {
     goto fail;
     }
@@ -464,13 +485,13 @@ cJSON *pokemon_detail_convertToJSON(pokemon_detail_t *pokemon_detail) {
     if (!pokemon_detail->sprites) {
         goto fail;
     }
-    cJSON *sprites_local_JSON = pokemon_detail_sprites_convertToJSON(pokemon_detail->sprites);
+    cJSON *sprites_local_JSON = pokemon_sprites_convertToJSON(pokemon_detail->sprites);
     if(sprites_local_JSON == NULL) {
-        goto fail; // custom
+    goto fail; //model
     }
     cJSON_AddItemToObject(item, "sprites", sprites_local_JSON);
     if(item->child == NULL) {
-        goto fail;
+    goto fail;
     }
 
 
@@ -478,7 +499,7 @@ cJSON *pokemon_detail_convertToJSON(pokemon_detail_t *pokemon_detail) {
     if (!pokemon_detail->cries) {
         goto fail;
     }
-    cJSON *cries_local_JSON = pokemon_detail_cries_convertToJSON(pokemon_detail->cries);
+    cJSON *cries_local_JSON = pokemon_cries_convertToJSON(pokemon_detail->cries);
     if(cries_local_JSON == NULL) {
     goto fail; //model
     }
@@ -509,6 +530,27 @@ cJSON *pokemon_detail_convertToJSON(pokemon_detail_t *pokemon_detail) {
     }
 
 
+    // pokemon_detail->past_stats
+    if (!pokemon_detail->past_stats) {
+        goto fail;
+    }
+    cJSON *past_stats = cJSON_AddArrayToObject(item, "past_stats");
+    if(past_stats == NULL) {
+    goto fail; //nonprimitive container
+    }
+
+    listEntry_t *past_statsListEntry;
+    if (pokemon_detail->past_stats) {
+    list_ForEach(past_statsListEntry, pokemon_detail->past_stats) {
+    cJSON *itemLocal = pokemon_past_stat_convertToJSON(past_statsListEntry->data);
+    if(itemLocal == NULL) {
+    goto fail;
+    }
+    cJSON_AddItemToArray(past_stats, itemLocal);
+    }
+    }
+
+
     // pokemon_detail->types
     if (!pokemon_detail->types) {
         goto fail;
@@ -521,7 +563,7 @@ cJSON *pokemon_detail_convertToJSON(pokemon_detail_t *pokemon_detail) {
     listEntry_t *typesListEntry;
     if (pokemon_detail->types) {
     list_ForEach(typesListEntry, pokemon_detail->types) {
-    cJSON *itemLocal = pokemon_detail_types_inner_convertToJSON(typesListEntry->data);
+    cJSON *itemLocal = pokemon_type_convertToJSON(typesListEntry->data);
     if(itemLocal == NULL) {
     goto fail;
     }
@@ -542,7 +584,7 @@ cJSON *pokemon_detail_convertToJSON(pokemon_detail_t *pokemon_detail) {
     listEntry_t *past_typesListEntry;
     if (pokemon_detail->past_types) {
     list_ForEach(past_typesListEntry, pokemon_detail->past_types) {
-    cJSON *itemLocal = pokemon_detail_past_types_inner_convertToJSON(past_typesListEntry->data);
+    cJSON *itemLocal = pokemon_past_type_convertToJSON(past_typesListEntry->data);
     if(itemLocal == NULL) {
     goto fail;
     }
@@ -594,8 +636,8 @@ pokemon_detail_t *pokemon_detail_parseFromJSON(cJSON *pokemon_detailJSON){
     // define the local list for pokemon_detail->game_indices
     list_t *game_indicesList = NULL;
 
-    // define the local variable for pokemon_detail->held_items
-    pokemon_detail_held_items_t *held_items_local_nonprim = NULL;
+    // define the local list for pokemon_detail->held_items
+    list_t *held_itemsList = NULL;
 
     char *location_area_encounters_local_str = NULL;
 
@@ -606,13 +648,16 @@ pokemon_detail_t *pokemon_detail_parseFromJSON(cJSON *pokemon_detailJSON){
     pokemon_species_summary_t *species_local_nonprim = NULL;
 
     // define the local variable for pokemon_detail->sprites
-    pokemon_detail_sprites_t *sprites_local_nonprim = NULL;
+    pokemon_sprites_t *sprites_local_nonprim = NULL;
 
     // define the local variable for pokemon_detail->cries
-    pokemon_detail_cries_t *cries_local_nonprim = NULL;
+    pokemon_cries_t *cries_local_nonprim = NULL;
 
     // define the local list for pokemon_detail->stats
     list_t *statsList = NULL;
+
+    // define the local list for pokemon_detail->past_stats
+    list_t *past_statsList = NULL;
 
     // define the local list for pokemon_detail->types
     list_t *typesList = NULL;
@@ -768,7 +813,7 @@ pokemon_detail_t *pokemon_detail_parseFromJSON(cJSON *pokemon_detailJSON){
         if(!cJSON_IsObject(abilities_local_nonprimitive)){
             goto end;
         }
-        pokemon_detail_abilities_inner_t *abilitiesItem = pokemon_detail_abilities_inner_parseFromJSON(abilities_local_nonprimitive);
+        pokemon_ability_t *abilitiesItem = pokemon_ability_parseFromJSON(abilities_local_nonprimitive);
 
         list_addElement(abilitiesList, abilitiesItem);
     }
@@ -795,7 +840,7 @@ pokemon_detail_t *pokemon_detail_parseFromJSON(cJSON *pokemon_detailJSON){
         if(!cJSON_IsObject(past_abilities_local_nonprimitive)){
             goto end;
         }
-        pokemon_detail_past_abilities_inner_t *past_abilitiesItem = pokemon_detail_past_abilities_inner_parseFromJSON(past_abilities_local_nonprimitive);
+        pokemon_past_ability_t *past_abilitiesItem = pokemon_past_ability_parseFromJSON(past_abilities_local_nonprimitive);
 
         list_addElement(past_abilitiesList, past_abilitiesItem);
     }
@@ -864,7 +909,22 @@ pokemon_detail_t *pokemon_detail_parseFromJSON(cJSON *pokemon_detailJSON){
     }
 
     
-    held_items_local_nonprim = pokemon_detail_held_items_parseFromJSON(held_items); //nonprimitive
+    cJSON *held_items_local_nonprimitive = NULL;
+    if(!cJSON_IsArray(held_items)){
+        goto end; //nonprimitive container
+    }
+
+    held_itemsList = list_createList();
+
+    cJSON_ArrayForEach(held_items_local_nonprimitive,held_items )
+    {
+        if(!cJSON_IsObject(held_items_local_nonprimitive)){
+            goto end;
+        }
+        pokemon_held_item_summary_t *held_itemsItem = pokemon_held_item_summary_parseFromJSON(held_items_local_nonprimitive);
+
+        list_addElement(held_itemsList, held_itemsItem);
+    }
 
     // pokemon_detail->location_area_encounters
     cJSON *location_area_encounters = cJSON_GetObjectItemCaseSensitive(pokemon_detailJSON, "location_area_encounters");
@@ -903,7 +963,7 @@ pokemon_detail_t *pokemon_detail_parseFromJSON(cJSON *pokemon_detailJSON){
         if(!cJSON_IsObject(moves_local_nonprimitive)){
             goto end;
         }
-        pokemon_detail_moves_inner_t *movesItem = pokemon_detail_moves_inner_parseFromJSON(moves_local_nonprimitive);
+        pokemon_move_t *movesItem = pokemon_move_parseFromJSON(moves_local_nonprimitive);
 
         list_addElement(movesList, movesItem);
     }
@@ -930,7 +990,7 @@ pokemon_detail_t *pokemon_detail_parseFromJSON(cJSON *pokemon_detailJSON){
     }
 
     
-    sprites_local_nonprim = pokemon_detail_sprites_parseFromJSON(sprites); //custom
+    sprites_local_nonprim = pokemon_sprites_parseFromJSON(sprites); //nonprimitive
 
     // pokemon_detail->cries
     cJSON *cries = cJSON_GetObjectItemCaseSensitive(pokemon_detailJSON, "cries");
@@ -942,7 +1002,7 @@ pokemon_detail_t *pokemon_detail_parseFromJSON(cJSON *pokemon_detailJSON){
     }
 
     
-    cries_local_nonprim = pokemon_detail_cries_parseFromJSON(cries); //nonprimitive
+    cries_local_nonprim = pokemon_cries_parseFromJSON(cries); //nonprimitive
 
     // pokemon_detail->stats
     cJSON *stats = cJSON_GetObjectItemCaseSensitive(pokemon_detailJSON, "stats");
@@ -971,6 +1031,33 @@ pokemon_detail_t *pokemon_detail_parseFromJSON(cJSON *pokemon_detailJSON){
         list_addElement(statsList, statsItem);
     }
 
+    // pokemon_detail->past_stats
+    cJSON *past_stats = cJSON_GetObjectItemCaseSensitive(pokemon_detailJSON, "past_stats");
+    if (cJSON_IsNull(past_stats)) {
+        past_stats = NULL;
+    }
+    if (!past_stats) {
+        goto end;
+    }
+
+    
+    cJSON *past_stats_local_nonprimitive = NULL;
+    if(!cJSON_IsArray(past_stats)){
+        goto end; //nonprimitive container
+    }
+
+    past_statsList = list_createList();
+
+    cJSON_ArrayForEach(past_stats_local_nonprimitive,past_stats )
+    {
+        if(!cJSON_IsObject(past_stats_local_nonprimitive)){
+            goto end;
+        }
+        pokemon_past_stat_t *past_statsItem = pokemon_past_stat_parseFromJSON(past_stats_local_nonprimitive);
+
+        list_addElement(past_statsList, past_statsItem);
+    }
+
     // pokemon_detail->types
     cJSON *types = cJSON_GetObjectItemCaseSensitive(pokemon_detailJSON, "types");
     if (cJSON_IsNull(types)) {
@@ -993,7 +1080,7 @@ pokemon_detail_t *pokemon_detail_parseFromJSON(cJSON *pokemon_detailJSON){
         if(!cJSON_IsObject(types_local_nonprimitive)){
             goto end;
         }
-        pokemon_detail_types_inner_t *typesItem = pokemon_detail_types_inner_parseFromJSON(types_local_nonprimitive);
+        pokemon_type_t *typesItem = pokemon_type_parseFromJSON(types_local_nonprimitive);
 
         list_addElement(typesList, typesItem);
     }
@@ -1020,7 +1107,7 @@ pokemon_detail_t *pokemon_detail_parseFromJSON(cJSON *pokemon_detailJSON){
         if(!cJSON_IsObject(past_types_local_nonprimitive)){
             goto end;
         }
-        pokemon_detail_past_types_inner_t *past_typesItem = pokemon_detail_past_types_inner_parseFromJSON(past_types_local_nonprimitive);
+        pokemon_past_type_t *past_typesItem = pokemon_past_type_parseFromJSON(past_types_local_nonprimitive);
 
         list_addElement(past_typesList, past_typesItem);
     }
@@ -1041,13 +1128,14 @@ pokemon_detail_t *pokemon_detail_parseFromJSON(cJSON *pokemon_detailJSON){
         past_abilitiesList,
         formsList,
         game_indicesList,
-        held_items_local_nonprim,
+        held_itemsList,
         location_area_encounters_local_str,
         movesList,
         species_local_nonprim,
         sprites_local_nonprim,
         cries_local_nonprim,
         statsList,
+        past_statsList,
         typesList,
         past_typesList
         );
@@ -1089,7 +1177,7 @@ end:
     if (abilitiesList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, abilitiesList) {
-            pokemon_detail_abilities_inner_free(listEntry->data);
+            pokemon_ability_free(listEntry->data);
             listEntry->data = NULL;
         }
         list_freeList(abilitiesList);
@@ -1098,7 +1186,7 @@ end:
     if (past_abilitiesList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, past_abilitiesList) {
-            pokemon_detail_past_abilities_inner_free(listEntry->data);
+            pokemon_past_ability_free(listEntry->data);
             listEntry->data = NULL;
         }
         list_freeList(past_abilitiesList);
@@ -1122,9 +1210,14 @@ end:
         list_freeList(game_indicesList);
         game_indicesList = NULL;
     }
-    if (held_items_local_nonprim) {
-        pokemon_detail_held_items_free(held_items_local_nonprim);
-        held_items_local_nonprim = NULL;
+    if (held_itemsList) {
+        listEntry_t *listEntry = NULL;
+        list_ForEach(listEntry, held_itemsList) {
+            pokemon_held_item_summary_free(listEntry->data);
+            listEntry->data = NULL;
+        }
+        list_freeList(held_itemsList);
+        held_itemsList = NULL;
     }
     if (location_area_encounters_local_str) {
         free(location_area_encounters_local_str);
@@ -1133,7 +1226,7 @@ end:
     if (movesList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, movesList) {
-            pokemon_detail_moves_inner_free(listEntry->data);
+            pokemon_move_free(listEntry->data);
             listEntry->data = NULL;
         }
         list_freeList(movesList);
@@ -1144,11 +1237,11 @@ end:
         species_local_nonprim = NULL;
     }
     if (sprites_local_nonprim) {
-        pokemon_detail_sprites_free(sprites_local_nonprim);
+        pokemon_sprites_free(sprites_local_nonprim);
         sprites_local_nonprim = NULL;
     }
     if (cries_local_nonprim) {
-        pokemon_detail_cries_free(cries_local_nonprim);
+        pokemon_cries_free(cries_local_nonprim);
         cries_local_nonprim = NULL;
     }
     if (statsList) {
@@ -1160,10 +1253,19 @@ end:
         list_freeList(statsList);
         statsList = NULL;
     }
+    if (past_statsList) {
+        listEntry_t *listEntry = NULL;
+        list_ForEach(listEntry, past_statsList) {
+            pokemon_past_stat_free(listEntry->data);
+            listEntry->data = NULL;
+        }
+        list_freeList(past_statsList);
+        past_statsList = NULL;
+    }
     if (typesList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, typesList) {
-            pokemon_detail_types_inner_free(listEntry->data);
+            pokemon_type_free(listEntry->data);
             listEntry->data = NULL;
         }
         list_freeList(typesList);
@@ -1172,7 +1274,7 @@ end:
     if (past_typesList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, past_typesList) {
-            pokemon_detail_past_types_inner_free(listEntry->data);
+            pokemon_past_type_free(listEntry->data);
             listEntry->data = NULL;
         }
         list_freeList(past_typesList);

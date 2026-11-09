@@ -15,14 +15,14 @@
         version_groups=nothing,
     )
 
-    - id::Int64
-    - name::String
-    - is_main_series::Bool
-    - descriptions::Vector{PokedexDescription}
-    - names::Vector{PokedexName}
-    - pokemon_entries::Vector{PokedexDetailPokemonEntriesInner}
-    - region::RegionSummary
-    - version_groups::Vector{AbilityDetailPokemonInnerPokemon}
+    - id::Int64 : The identifier for this resource.
+    - name::String : The name for this resource.
+    - is_main_series::Bool : Whether or not this Pokédex originated in the main series of the video games.
+    - descriptions::Vector{PokedexDescription} : The description of this resource listed in different languages.
+    - names::Vector{PokedexName} : The name of this resource listed in different languages.
+    - pokemon_entries::Vector{PokemonDexNumber} : A list of Pokémon catalogued in this Pokédex and their indexes.
+    - region::RegionSummary : The region this Pokédex catalogues Pokémon for.
+    - version_groups::Vector{VersionGroupSummary} : A list of version groups this Pokédex is relevant to.
 """
 Base.@kwdef mutable struct PokedexDetail <: OpenAPI.APIModel
     id::Union{Nothing, Int64} = nothing
@@ -30,9 +30,9 @@ Base.@kwdef mutable struct PokedexDetail <: OpenAPI.APIModel
     is_main_series::Union{Nothing, Bool} = nothing
     descriptions::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{PokedexDescription} }
     names::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{PokedexName} }
-    pokemon_entries::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{PokedexDetailPokemonEntriesInner} }
+    pokemon_entries::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{PokemonDexNumber} }
     region = nothing # spec type: Union{ Nothing, RegionSummary }
-    version_groups::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{AbilityDetailPokemonInnerPokemon} }
+    version_groups::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{VersionGroupSummary} }
 
     function PokedexDetail(id, name, is_main_series, descriptions, names, pokemon_entries, region, version_groups, )
         o = new(id, name, is_main_series, descriptions, names, pokemon_entries, region, version_groups, )
@@ -41,7 +41,7 @@ Base.@kwdef mutable struct PokedexDetail <: OpenAPI.APIModel
     end
 end # type PokedexDetail
 
-const _property_types_PokedexDetail = Dict{Symbol,String}(Symbol("id")=>"Int64", Symbol("name")=>"String", Symbol("is_main_series")=>"Bool", Symbol("descriptions")=>"Vector{PokedexDescription}", Symbol("names")=>"Vector{PokedexName}", Symbol("pokemon_entries")=>"Vector{PokedexDetailPokemonEntriesInner}", Symbol("region")=>"RegionSummary", Symbol("version_groups")=>"Vector{AbilityDetailPokemonInnerPokemon}", )
+const _property_types_PokedexDetail = Dict{Symbol,String}(Symbol("id")=>"Int64", Symbol("name")=>"String", Symbol("is_main_series")=>"Bool", Symbol("descriptions")=>"Vector{PokedexDescription}", Symbol("names")=>"Vector{PokedexName}", Symbol("pokemon_entries")=>"Vector{PokemonDexNumber}", Symbol("region")=>"RegionSummary", Symbol("version_groups")=>"Vector{VersionGroupSummary}", )
 OpenAPI.property_type(::Type{ PokedexDetail }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_PokedexDetail[name]))}
 
 function OpenAPI.check_required(o::PokedexDetail)
@@ -70,7 +70,7 @@ function OpenAPI.validate_property(::Type{ PokedexDetail }, name::Symbol, val)
 
 
     if name === Symbol("name")
-        OpenAPI.validate_param(name, "PokedexDetail", :maxLength, val, 100)
+        OpenAPI.validate_param(name, "PokedexDetail", :maxLength, val, 200)
     end
 
 

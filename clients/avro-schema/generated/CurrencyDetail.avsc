@@ -1,0 +1,27 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "CurrencyDetail",
+  "fields": [
+    {
+      "name": "id",
+      "type": "int",
+      "doc": "The identifier for this resource."
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "doc": "The name for this resource."
+    },
+    {
+      "name": "names",
+      "type": {
+        "type": "array",
+        "items": "model.CurrencyName"
+      },
+      "doc": "The name of this resource listed in different languages."
+    }
+  ]
+
+}

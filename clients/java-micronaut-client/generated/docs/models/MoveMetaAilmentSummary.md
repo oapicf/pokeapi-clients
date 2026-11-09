@@ -8,8 +8,8 @@ The class is defined in **[MoveMetaAilmentSummary.java](../../src/main/java/org/
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | `String` |  | 
-**url** | `URI` |  |  [readonly property]
+**name** | `String` | The name of the referenced resource. | 
+**url** | `URI` | The URL of the referenced resource. |  [readonly property]
 
 
 

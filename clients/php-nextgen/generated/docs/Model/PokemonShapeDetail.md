@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** |  | [readonly]
-**name** | **string** |  |
-**awesome_names** | [**\OpenAPI\Client\Model\PokemonShapeDetailAwesomeNamesInner[]**](PokemonShapeDetailAwesomeNamesInner.md) |  | [readonly]
-**names** | [**\OpenAPI\Client\Model\PokemonShapeDetailNamesInner[]**](PokemonShapeDetailNamesInner.md) |  | [readonly]
-**pokemon_species** | [**\OpenAPI\Client\Model\PokemonSpeciesSummary[]**](PokemonSpeciesSummary.md) |  | [readonly]
+**id** | **int** | The identifier for this resource. | [readonly]
+**name** | **string** | The name for this resource. |
+**awesome_names** | [**\OpenAPI\Client\Model\PokemonShapeAwesomeName[]**](PokemonShapeAwesomeName.md) | The \&quot;scientific\&quot; name of this Pokémon shape listed in different languages. | [readonly]
+**names** | [**\OpenAPI\Client\Model\PokemonShapeName[]**](PokemonShapeName.md) | The name of this resource listed in different languages. | [readonly]
+**pokemon_species** | [**\OpenAPI\Client\Model\PokemonSpeciesSummary[]**](PokemonSpeciesSummary.md) | A list of the Pokémon species that have this shape. | [readonly]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

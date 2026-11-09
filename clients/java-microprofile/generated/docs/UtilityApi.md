@@ -6,6 +6,7 @@ All URIs are relative to *https://pokeapi.co*
 |------------- | ------------- | -------------|
 | [**languageList**](UtilityApi.md#languageList) | **GET** /api/v2/language/ | List languages |
 | [**languageRetrieve**](UtilityApi.md#languageRetrieve) | **GET** /api/v2/language/{id}/ | Get language |
+| [**metaRetrieve**](UtilityApi.md#metaRetrieve) | **GET** /api/v2/meta/ | Get API metadata |
 
 
 
@@ -24,7 +25,6 @@ Languages for translations of API resource information.
 import org.openapitools.server.ApiClient;
 import org.openapitools.server.ApiException;
 import org.openapitools.server.Configuration;
-import org.openapitools.server.auth.*;
 import org.openapitools.server.models.*;
 import org.openapitools.server.api.UtilityApi;
 
@@ -32,17 +32,6 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("https://pokeapi.co");
-        
-        // Configure HTTP basic authorization: basicAuth
-        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-        basicAuth.setUsername("YOUR USERNAME");
-        basicAuth.setPassword("YOUR PASSWORD");
-
-        // Configure API key authorization: cookieAuth
-        ApiKeyAuth cookieAuth = (ApiKeyAuth) defaultClient.getAuthentication("cookieAuth");
-        cookieAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //cookieAuth.setApiKeyPrefix("Token");
 
         UtilityApi apiInstance = new UtilityApi(defaultClient);
         Integer limit = 56; // Integer | Number of results to return per page.
@@ -77,7 +66,7 @@ public class Example {
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -106,7 +95,6 @@ Languages for translations of API resource information.
 import org.openapitools.server.ApiClient;
 import org.openapitools.server.ApiException;
 import org.openapitools.server.Configuration;
-import org.openapitools.server.auth.*;
 import org.openapitools.server.models.*;
 import org.openapitools.server.api.UtilityApi;
 
@@ -114,20 +102,9 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("https://pokeapi.co");
-        
-        // Configure HTTP basic authorization: basicAuth
-        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-        basicAuth.setUsername("YOUR USERNAME");
-        basicAuth.setPassword("YOUR PASSWORD");
-
-        // Configure API key authorization: cookieAuth
-        ApiKeyAuth cookieAuth = (ApiKeyAuth) defaultClient.getAuthentication("cookieAuth");
-        cookieAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //cookieAuth.setApiKeyPrefix("Token");
 
         UtilityApi apiInstance = new UtilityApi(defaultClient);
-        String id = "id_example"; // String | This parameter can be a string or an integer.
+        String id = "1"; // String | This parameter can be a string or an integer.
         try {
             LanguageDetail result = apiInstance.languageRetrieve(id);
             System.out.println(result);
@@ -155,7 +132,69 @@ public class Example {
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** |  |  -  |
+
+
+## metaRetrieve
+
+> PokeapiMetaResponse metaRetrieve()
+
+Get API metadata
+
+Returns metadata about the current deployed version of the API, including the git commit hash, deploy date, and tag (if any).
+
+### Example
+
+```java
+// Import classes:
+import org.openapitools.server.ApiClient;
+import org.openapitools.server.ApiException;
+import org.openapitools.server.Configuration;
+import org.openapitools.server.models.*;
+import org.openapitools.server.api.UtilityApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://pokeapi.co");
+
+        UtilityApi apiInstance = new UtilityApi(defaultClient);
+        try {
+            PokeapiMetaResponse result = apiInstance.metaRetrieve();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling UtilityApi#metaRetrieve");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**PokeapiMetaResponse**](PokeapiMetaResponse.md)
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 

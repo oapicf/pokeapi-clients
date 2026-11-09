@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**url** | **str** |  | [readonly] 
+**url** | **str** | The URL of the referenced resource. | [readonly] 
 
 ## Example
 

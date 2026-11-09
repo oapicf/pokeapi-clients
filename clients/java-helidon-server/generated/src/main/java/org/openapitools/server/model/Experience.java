@@ -20,8 +20,8 @@ public class Experience   {
     /**
      * Create Experience.
      *
-     * @param level level
-     * @param experience experience
+     * @param level The level gained.
+     * @param experience The amount of experience required to reach the referenced level.
      */
     public Experience(
         Integer level, 
@@ -34,7 +34,9 @@ public class Experience   {
 
 
     /**
-     * Get level
+     * The level gained.
+     * minimum: -2147483648
+     * maximum: 2147483647
      * @return level
      */
     public Integer getLevel() {
@@ -46,7 +48,9 @@ public class Experience   {
     }
 
     /**
-     * Get experience
+     * The amount of experience required to reach the referenced level.
+     * minimum: -2147483648
+     * maximum: 2147483647
      * @return experience
      */
     public Integer getExperience() {

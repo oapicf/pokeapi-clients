@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Number** |  | [readonly] 
-**name** | **String** |  | 
-**names** | [**[VersionName]**](VersionName.md) |  | [readonly] 
-**versionGroup** | [**VersionGroupSummary**](VersionGroupSummary.md) |  | 
+**id** | **Number** | The identifier for this resource. | [readonly] 
+**name** | **String** | The name for this resource. | 
+**names** | [**[VersionName]**](VersionName.md) | The name of this resource listed in different languages. | [readonly] 
+**versionGroup** | [**VersionGroupSummary**](VersionGroupSummary.md) | The version group this version belongs to. | 
 
 

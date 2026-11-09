@@ -15,23 +15,35 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class EncounterMethodDetail  {
   
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The identifier for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
 
   private Integer id;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The name for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The name for this resource.")
 
   private String name;
 
-  @ApiModelProperty(value = "")
+ /**
+  * A good value for sorting.
+  */
+  @ApiModelProperty(value = "A good value for sorting.")
 
   private Integer order;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The name of this resource listed in different languages.
+  */
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
 
   private List<@Valid EncounterMethodName> names = new ArrayList<>();
  /**
-   * Get id
+   * The identifier for this resource.
    * @return id
   **/
   @JsonProperty("id")
@@ -42,12 +54,12 @@ public class EncounterMethodDetail  {
 
 
  /**
-   * Get name
+   * The name for this resource.
    * @return name
   **/
   @JsonProperty("name")
   @NotNull
- @Size(max=100)  public String getName() {
+ @Size(max=200)  public String getName() {
     return name;
   }
 
@@ -61,11 +73,13 @@ public class EncounterMethodDetail  {
   }
 
  /**
-   * Get order
+   * A good value for sorting.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return order
   **/
   @JsonProperty("order")
-  public Integer getOrder() {
+ @Min(-2147483648) @Max(2147483647)  public Integer getOrder() {
     return order;
   }
 
@@ -79,7 +93,7 @@ public class EncounterMethodDetail  {
   }
 
  /**
-   * Get names
+   * The name of this resource listed in different languages.
    * @return names
   **/
   @JsonProperty("names")

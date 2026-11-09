@@ -3,9 +3,9 @@
 /*
  * PokéAPI
  *
- * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+ * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
  *
- * API version: 2.7.0
+ * API version: 2.10.0
  * Contact: blah+oapicf@cliffano.com
  */
 
@@ -21,12 +21,16 @@ import (
 
 type PokeathlonStatDetail struct {
 
+	// The identifier for this resource.
 	Id int32 `json:"id"`
 
+	// The name for this resource.
 	Name string `json:"name"`
 
-	AffectingNatures PokeathlonStatDetailAffectingNatures `json:"affecting_natures"`
+	// A detail of natures which affect this Pokéathlon stat positively or negatively.
+	AffectingNatures PokeathlonStatAffectingNatures `json:"affecting_natures"`
 
+	// The name of this resource listed in different languages.
 	Names []PokeathlonStatName `json:"names"`
 }
 // UnmarshalJSON validates required property keys then unmarshals into PokeathlonStatDetail
@@ -35,12 +39,10 @@ func (o *PokeathlonStatDetail) UnmarshalJSON(data []byte) (err error) {
 	// including fields promoted from embedded allOf parents.
 	requiredProperties := []string{
 		"name",
-		"affecting_natures",
 	}
 
 	requiredNullableProperties := map[string]bool{
 		"name": false,
-		"affecting_natures": false,
 	}
 
 	allowedJsonKeys := map[string]struct{}{
@@ -105,25 +107,10 @@ func (o *PokeathlonStatDetail) UnmarshalJSON(data []byte) (err error) {
 // AssertPokeathlonStatDetailRequired checks complex required fields (models, arrays, maps) and embedded parents.
 // Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertPokeathlonStatDetailRequired(obj PokeathlonStatDetail) error {
-	elements := map[string]interface{}{
-		"affecting_natures": obj.AffectingNatures,
-	}
-	for name, el := range elements {
-		if isZero := IsZeroValue(el); isZero {
-			return &RequiredError{Field: name}
-		}
-	}
-
-	if err := AssertPokeathlonStatDetailAffectingNaturesRequired(obj.AffectingNatures); err != nil {
-		return err
-	}
 	return nil
 }
 
 // AssertPokeathlonStatDetailConstraints checks if the values respects the defined constraints
 func AssertPokeathlonStatDetailConstraints(obj PokeathlonStatDetail) error {
-	if err := AssertPokeathlonStatDetailAffectingNaturesConstraints(obj.AffectingNatures); err != nil {
-		return err
-	}
 	return nil
 }

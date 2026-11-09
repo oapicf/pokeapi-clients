@@ -15,10 +15,10 @@ defmodule PokéAPI.Model.PaginatedLocationAreaSummaryList do
   ]
 
   @type t :: %__MODULE__{
-    :count => integer() | nil,
+    :count => integer(),
     :next => Uri | nil,
     :previous => Uri | nil,
-    :results => [PokéAPI.Model.LocationAreaSummary.t] | nil
+    :results => [PokéAPI.Model.LocationAreaSummary.t]
   }
 
   alias PokéAPI.Deserializer

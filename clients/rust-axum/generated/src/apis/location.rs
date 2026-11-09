@@ -87,8 +87,6 @@ pub enum RegionRetrieveResponse {
 #[async_trait]
 #[allow(clippy::ptr_arg)]
 pub trait Location<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorHandler<E> {
-    type Claims;
-
     /// List location areas.
     ///
     /// LocationAreaList - GET /api/v2/location-area/
@@ -98,7 +96,6 @@ pub trait Location<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Erro
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       query_params: &models::LocationAreaListQueryParams,
     ) -> Result<LocationAreaListResponse, E>;
 
@@ -111,7 +108,6 @@ pub trait Location<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Erro
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       path_params: &models::LocationAreaRetrievePathParams,
     ) -> Result<LocationAreaRetrieveResponse, E>;
 
@@ -124,7 +120,6 @@ pub trait Location<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Erro
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       query_params: &models::LocationListQueryParams,
     ) -> Result<LocationListResponse, E>;
 
@@ -137,7 +132,6 @@ pub trait Location<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Erro
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       path_params: &models::LocationRetrievePathParams,
     ) -> Result<LocationRetrieveResponse, E>;
 
@@ -150,7 +144,6 @@ pub trait Location<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Erro
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       query_params: &models::PalParkAreaListQueryParams,
     ) -> Result<PalParkAreaListResponse, E>;
 
@@ -163,7 +156,6 @@ pub trait Location<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Erro
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       path_params: &models::PalParkAreaRetrievePathParams,
     ) -> Result<PalParkAreaRetrieveResponse, E>;
 
@@ -176,7 +168,6 @@ pub trait Location<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Erro
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       query_params: &models::RegionListQueryParams,
     ) -> Result<RegionListResponse, E>;
 
@@ -189,7 +180,6 @@ pub trait Location<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Erro
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       path_params: &models::RegionRetrievePathParams,
     ) -> Result<RegionRetrieveResponse, E>;
 }

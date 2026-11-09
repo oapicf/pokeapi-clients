@@ -2,21 +2,33 @@
 Protected Class MoveMetaAilmentDetail
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The identifier for this resource.
+		#tag EndNote
 		id As Integer
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The name for this resource.
+		#tag EndNote
 		name As String
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
-		moves() As OpenAPIClient.Models.AbilityDetailPokemonInnerPokemon
+		#tag Note
+			A list of moves that cause this ailment.
+		#tag EndNote
+		moves() As OpenAPIClient.Models.MoveSummary
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The name of this resource listed in different languages.
+		#tag EndNote
 		names() As OpenAPIClient.Models.MoveMetaAilmentName
 	#tag EndProperty
 
@@ -78,7 +90,7 @@ Protected Class MoveMetaAilmentDetail
 			Visible=false
 			Group="Behavior"
 			InitialValue=""
-			Type="AbilityDetailPokemonInnerPokemon"
+			Type="MoveSummary"
 			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty

@@ -15,10 +15,10 @@ defmodule PokéAPI.Model.PaginatedContestEffectSummaryList do
   ]
 
   @type t :: %__MODULE__{
-    :count => integer() | nil,
+    :count => integer(),
     :next => Uri | nil,
     :previous => Uri | nil,
-    :results => [PokéAPI.Model.ContestEffectSummary.t] | nil
+    :results => [PokéAPI.Model.ContestEffectSummary.t]
   }
 
   alias PokéAPI.Deserializer

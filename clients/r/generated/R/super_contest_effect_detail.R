@@ -7,10 +7,10 @@
 #' @title SuperContestEffectDetail
 #' @description SuperContestEffectDetail Class
 #' @format An \code{R6Class} generator object
-#' @field id  integer
-#' @field appeal  integer
-#' @field flavor_text_entries  list(\link{SuperContestEffectFlavorText})
-#' @field moves  list(\link{MoveSummary})
+#' @field id The identifier for this resource. integer
+#' @field appeal The level of appeal this super contest effect has. integer
+#' @field flavor_text_entries The flavor text of this super contest effect listed in different languages. list(\link{SuperContestEffectFlavorText})
+#' @field moves A list of moves that have the effect when used in super contests. list(\link{MoveSummary})
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -25,10 +25,10 @@ SuperContestEffectDetail <- R6::R6Class(
     #' @description
     #' Initialize a new SuperContestEffectDetail class.
     #'
-    #' @param id id
-    #' @param appeal appeal
-    #' @param flavor_text_entries flavor_text_entries
-    #' @param moves moves
+    #' @param id The identifier for this resource.
+    #' @param appeal The level of appeal this super contest effect has.
+    #' @param flavor_text_entries The flavor text of this super contest effect listed in different languages.
+    #' @param moves A list of moves that have the effect when used in super contests.
     #' @param ... Other optional arguments.
     initialize = function(`id`, `appeal`, `flavor_text_entries`, `moves`, ...) {
       if (!missing(`id`)) {
@@ -236,6 +236,13 @@ SuperContestEffectDetail <- R6::R6Class(
         return(FALSE)
       }
 
+      if (self$`appeal` > 2147483647) {
+        return(FALSE)
+      }
+      if (self$`appeal` < -2147483648) {
+        return(FALSE)
+      }
+
       # check if the required `flavor_text_entries` is null
       if (is.null(self$`flavor_text_entries`)) {
         return(FALSE)
@@ -263,6 +270,13 @@ SuperContestEffectDetail <- R6::R6Class(
       # check if the required `appeal` is null
       if (is.null(self$`appeal`)) {
         invalid_fields["appeal"] <- "Non-nullable required field `appeal` cannot be null."
+      }
+
+      if (self$`appeal` > 2147483647) {
+        invalid_fields["appeal"] <- "Invalid value for `appeal`, must be smaller than or equal to 2147483647."
+      }
+      if (self$`appeal` < -2147483648) {
+        invalid_fields["appeal"] <- "Invalid value for `appeal`, must be bigger than or equal to -2147483648."
       }
 
       # check if the required `flavor_text_entries` is null

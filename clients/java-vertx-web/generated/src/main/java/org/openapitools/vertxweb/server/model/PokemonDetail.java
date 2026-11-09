@@ -7,18 +7,19 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
-import org.openapitools.vertxweb.server.model.PokemonDetailAbilitiesInner;
-import org.openapitools.vertxweb.server.model.PokemonDetailCries;
-import org.openapitools.vertxweb.server.model.PokemonDetailHeldItems;
-import org.openapitools.vertxweb.server.model.PokemonDetailMovesInner;
-import org.openapitools.vertxweb.server.model.PokemonDetailPastAbilitiesInner;
-import org.openapitools.vertxweb.server.model.PokemonDetailPastTypesInner;
-import org.openapitools.vertxweb.server.model.PokemonDetailSprites;
-import org.openapitools.vertxweb.server.model.PokemonDetailTypesInner;
+import org.openapitools.vertxweb.server.model.PokemonAbility;
+import org.openapitools.vertxweb.server.model.PokemonCries;
 import org.openapitools.vertxweb.server.model.PokemonFormSummary;
 import org.openapitools.vertxweb.server.model.PokemonGameIndex;
+import org.openapitools.vertxweb.server.model.PokemonHeldItemSummary;
+import org.openapitools.vertxweb.server.model.PokemonMove;
+import org.openapitools.vertxweb.server.model.PokemonPastAbility;
+import org.openapitools.vertxweb.server.model.PokemonPastStat;
+import org.openapitools.vertxweb.server.model.PokemonPastType;
 import org.openapitools.vertxweb.server.model.PokemonSpeciesSummary;
+import org.openapitools.vertxweb.server.model.PokemonSprites;
 import org.openapitools.vertxweb.server.model.PokemonStat;
+import org.openapitools.vertxweb.server.model.PokemonType;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class PokemonDetail   {
@@ -30,25 +31,26 @@ public class PokemonDetail   {
   private Boolean isDefault;
   private Integer order;
   private Integer weight;
-  private List<PokemonDetailAbilitiesInner> abilities = new ArrayList<>();
-  private List<PokemonDetailPastAbilitiesInner> pastAbilities = new ArrayList<>();
+  private List<PokemonAbility> abilities = new ArrayList<>();
+  private List<PokemonPastAbility> pastAbilities = new ArrayList<>();
   private List<PokemonFormSummary> forms = new ArrayList<>();
   private List<PokemonGameIndex> gameIndices = new ArrayList<>();
-  private PokemonDetailHeldItems heldItems;
+  private List<PokemonHeldItemSummary> heldItems = new ArrayList<>();
   private String locationAreaEncounters;
-  private List<PokemonDetailMovesInner> moves = new ArrayList<>();
+  private List<PokemonMove> moves = new ArrayList<>();
   private PokemonSpeciesSummary species;
-  private PokemonDetailSprites sprites;
-  private PokemonDetailCries cries;
+  private PokemonSprites sprites;
+  private PokemonCries cries;
   private List<PokemonStat> stats = new ArrayList<>();
-  private List<PokemonDetailTypesInner> types = new ArrayList<>();
-  private List<PokemonDetailPastTypesInner> pastTypes = new ArrayList<>();
+  private List<PokemonPastStat> pastStats = new ArrayList<>();
+  private List<PokemonType> types = new ArrayList<>();
+  private List<PokemonPastType> pastTypes = new ArrayList<>();
 
   public PokemonDetail () {
 
   }
 
-  public PokemonDetail (Integer id, String name, Integer baseExperience, Integer height, Boolean isDefault, Integer order, Integer weight, List<PokemonDetailAbilitiesInner> abilities, List<PokemonDetailPastAbilitiesInner> pastAbilities, List<PokemonFormSummary> forms, List<PokemonGameIndex> gameIndices, PokemonDetailHeldItems heldItems, String locationAreaEncounters, List<PokemonDetailMovesInner> moves, PokemonSpeciesSummary species, PokemonDetailSprites sprites, PokemonDetailCries cries, List<PokemonStat> stats, List<PokemonDetailTypesInner> types, List<PokemonDetailPastTypesInner> pastTypes) {
+  public PokemonDetail (Integer id, String name, Integer baseExperience, Integer height, Boolean isDefault, Integer order, Integer weight, List<PokemonAbility> abilities, List<PokemonPastAbility> pastAbilities, List<PokemonFormSummary> forms, List<PokemonGameIndex> gameIndices, List<PokemonHeldItemSummary> heldItems, String locationAreaEncounters, List<PokemonMove> moves, PokemonSpeciesSummary species, PokemonSprites sprites, PokemonCries cries, List<PokemonStat> stats, List<PokemonPastStat> pastStats, List<PokemonType> types, List<PokemonPastType> pastTypes) {
     this.id = id;
     this.name = name;
     this.baseExperience = baseExperience;
@@ -67,6 +69,7 @@ public class PokemonDetail   {
     this.sprites = sprites;
     this.cries = cries;
     this.stats = stats;
+    this.pastStats = pastStats;
     this.types = types;
     this.pastTypes = pastTypes;
   }
@@ -136,19 +139,19 @@ public class PokemonDetail   {
 
     
   @JsonProperty("abilities")
-  public List<PokemonDetailAbilitiesInner> getAbilities() {
+  public List<PokemonAbility> getAbilities() {
     return abilities;
   }
-  public void setAbilities(List<PokemonDetailAbilitiesInner> abilities) {
+  public void setAbilities(List<PokemonAbility> abilities) {
     this.abilities = abilities;
   }
 
     
   @JsonProperty("past_abilities")
-  public List<PokemonDetailPastAbilitiesInner> getPastAbilities() {
+  public List<PokemonPastAbility> getPastAbilities() {
     return pastAbilities;
   }
-  public void setPastAbilities(List<PokemonDetailPastAbilitiesInner> pastAbilities) {
+  public void setPastAbilities(List<PokemonPastAbility> pastAbilities) {
     this.pastAbilities = pastAbilities;
   }
 
@@ -172,10 +175,10 @@ public class PokemonDetail   {
 
     
   @JsonProperty("held_items")
-  public PokemonDetailHeldItems getHeldItems() {
+  public List<PokemonHeldItemSummary> getHeldItems() {
     return heldItems;
   }
-  public void setHeldItems(PokemonDetailHeldItems heldItems) {
+  public void setHeldItems(List<PokemonHeldItemSummary> heldItems) {
     this.heldItems = heldItems;
   }
 
@@ -190,10 +193,10 @@ public class PokemonDetail   {
 
     
   @JsonProperty("moves")
-  public List<PokemonDetailMovesInner> getMoves() {
+  public List<PokemonMove> getMoves() {
     return moves;
   }
-  public void setMoves(List<PokemonDetailMovesInner> moves) {
+  public void setMoves(List<PokemonMove> moves) {
     this.moves = moves;
   }
 
@@ -208,19 +211,19 @@ public class PokemonDetail   {
 
     
   @JsonProperty("sprites")
-  public PokemonDetailSprites getSprites() {
+  public PokemonSprites getSprites() {
     return sprites;
   }
-  public void setSprites(PokemonDetailSprites sprites) {
+  public void setSprites(PokemonSprites sprites) {
     this.sprites = sprites;
   }
 
     
   @JsonProperty("cries")
-  public PokemonDetailCries getCries() {
+  public PokemonCries getCries() {
     return cries;
   }
-  public void setCries(PokemonDetailCries cries) {
+  public void setCries(PokemonCries cries) {
     this.cries = cries;
   }
 
@@ -234,20 +237,29 @@ public class PokemonDetail   {
   }
 
     
+  @JsonProperty("past_stats")
+  public List<PokemonPastStat> getPastStats() {
+    return pastStats;
+  }
+  public void setPastStats(List<PokemonPastStat> pastStats) {
+    this.pastStats = pastStats;
+  }
+
+    
   @JsonProperty("types")
-  public List<PokemonDetailTypesInner> getTypes() {
+  public List<PokemonType> getTypes() {
     return types;
   }
-  public void setTypes(List<PokemonDetailTypesInner> types) {
+  public void setTypes(List<PokemonType> types) {
     this.types = types;
   }
 
     
   @JsonProperty("past_types")
-  public List<PokemonDetailPastTypesInner> getPastTypes() {
+  public List<PokemonPastType> getPastTypes() {
     return pastTypes;
   }
-  public void setPastTypes(List<PokemonDetailPastTypesInner> pastTypes) {
+  public void setPastTypes(List<PokemonPastType> pastTypes) {
     this.pastTypes = pastTypes;
   }
 
@@ -279,13 +291,14 @@ public class PokemonDetail   {
         Objects.equals(sprites, pokemonDetail.sprites) &&
         Objects.equals(cries, pokemonDetail.cries) &&
         Objects.equals(stats, pokemonDetail.stats) &&
+        Objects.equals(pastStats, pokemonDetail.pastStats) &&
         Objects.equals(types, pokemonDetail.types) &&
         Objects.equals(pastTypes, pokemonDetail.pastTypes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, baseExperience, height, isDefault, order, weight, abilities, pastAbilities, forms, gameIndices, heldItems, locationAreaEncounters, moves, species, sprites, cries, stats, types, pastTypes);
+    return Objects.hash(id, name, baseExperience, height, isDefault, order, weight, abilities, pastAbilities, forms, gameIndices, heldItems, locationAreaEncounters, moves, species, sprites, cries, stats, pastStats, types, pastTypes);
   }
 
   @Override
@@ -311,6 +324,7 @@ public class PokemonDetail   {
     sb.append("    sprites: ").append(toIndentedString(sprites)).append("\n");
     sb.append("    cries: ").append(toIndentedString(cries)).append("\n");
     sb.append("    stats: ").append(toIndentedString(stats)).append("\n");
+    sb.append("    pastStats: ").append(toIndentedString(pastStats)).append("\n");
     sb.append("    types: ").append(toIndentedString(types)).append("\n");
     sb.append("    pastTypes: ").append(toIndentedString(pastTypes)).append("\n");
     sb.append("}");

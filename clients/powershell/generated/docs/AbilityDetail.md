@@ -3,15 +3,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **Int32** |  | [readonly] 
-**Name** | **String** |  | 
-**IsMainSeries** | **Boolean** |  | [optional] 
-**Generation** | [**GenerationSummary**](GenerationSummary.md) |  | 
-**Names** | [**AbilityName[]**](AbilityName.md) |  | [readonly] 
-**EffectEntries** | [**AbilityEffectText[]**](AbilityEffectText.md) |  | [readonly] 
-**EffectChanges** | [**AbilityChange[]**](AbilityChange.md) |  | [readonly] 
-**FlavorTextEntries** | [**AbilityFlavorText[]**](AbilityFlavorText.md) |  | [readonly] 
-**Pokemon** | [**AbilityDetailPokemonInner[]**](AbilityDetailPokemonInner.md) |  | [readonly] 
+**Id** | **Int32** | The identifier for this resource. | [readonly] 
+**Name** | **String** | The name for this resource. | 
+**IsMainSeries** | **Boolean** | Whether or not this ability originated in the main series of the video games. | [optional] 
+**Generation** | [**GenerationSummary**](GenerationSummary.md) | The generation this ability originated in. | 
+**Names** | [**AbilityName[]**](AbilityName.md) | The name of this resource listed in different languages. | [readonly] 
+**EffectEntries** | [**AbilityEffectText[]**](AbilityEffectText.md) | The effect of this ability listed in different languages. | [readonly] 
+**EffectChanges** | [**AbilityChange[]**](AbilityChange.md) | The list of previous effects this ability has had across version groups. | [readonly] 
+**FlavorTextEntries** | [**AbilityFlavorText[]**](AbilityFlavorText.md) | The flavor text of this ability listed in different languages. | [readonly] 
+**Pokemon** | [**AbilityPokemonDetail[]**](AbilityPokemonDetail.md) | A list of Pokémon that could potentially have this ability. | [readonly] 
 
 ## Examples
 

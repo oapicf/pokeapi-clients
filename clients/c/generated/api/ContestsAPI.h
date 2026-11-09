@@ -18,7 +18,7 @@
 // Contest effects refer to the effects of moves when used in contests.
 //
 paginated_contest_effect_summary_list_t*
-ContestsAPI_contestEffectList(apiClient_t *apiClient, int *limit, int *offset, char *q);
+ContestsAPI_contestEffectList(apiClient_t *apiClient, int *limit, int *offset);
 
 
 // Get contest effect
@@ -50,7 +50,7 @@ ContestsAPI_contestTypeRetrieve(apiClient_t *apiClient, char *id);
 // Super contest effects refer to the effects of moves when used in super contests.
 //
 paginated_super_contest_effect_summary_list_t*
-ContestsAPI_superContestEffectList(apiClient_t *apiClient, int *limit, int *offset, char *q);
+ContestsAPI_superContestEffectList(apiClient_t *apiClient, int *limit, int *offset);
 
 
 // Get super contest effect

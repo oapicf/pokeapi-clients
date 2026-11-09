@@ -6,21 +6,21 @@ from datetime import date, datetime  # noqa: F401
 from typing import List, Dict  # noqa: F401
 
 from app.openapi_server.models.base_model import Model
-from app.openapi_server.models.ability_detail_pokemon_inner_pokemon import AbilityDetailPokemonInnerPokemon  # noqa: F401,E501
 from app.openapi_server.models.contest_effect_summary import ContestEffectSummary  # noqa: F401,E501
 from app.openapi_server.models.contest_type_summary import ContestTypeSummary  # noqa: F401,E501
 from app.openapi_server.models.generation_summary import GenerationSummary  # noqa: F401,E501
+from app.openapi_server.models.item_machine import ItemMachine  # noqa: F401,E501
 from app.openapi_server.models.move_change import MoveChange  # noqa: F401,E501
-from app.openapi_server.models.move_change_effect_entries_inner import MoveChangeEffectEntriesInner  # noqa: F401,E501
+from app.openapi_server.models.move_combos import MoveCombos  # noqa: F401,E501
 from app.openapi_server.models.move_damage_class_summary import MoveDamageClassSummary  # noqa: F401,E501
-from app.openapi_server.models.move_detail_contest_combos import MoveDetailContestCombos  # noqa: F401,E501
-from app.openapi_server.models.move_detail_effect_changes_inner import MoveDetailEffectChangesInner  # noqa: F401,E501
-from app.openapi_server.models.move_detail_machines_inner import MoveDetailMachinesInner  # noqa: F401,E501
-from app.openapi_server.models.move_detail_stat_changes_inner import MoveDetailStatChangesInner  # noqa: F401,E501
+from app.openapi_server.models.move_effect_change import MoveEffectChange  # noqa: F401,E501
+from app.openapi_server.models.move_effect_effect_text import MoveEffectEffectText  # noqa: F401,E501
 from app.openapi_server.models.move_flavor_text import MoveFlavorText  # noqa: F401,E501
 from app.openapi_server.models.move_meta import MoveMeta  # noqa: F401,E501
+from app.openapi_server.models.move_meta_stat_change import MoveMetaStatChange  # noqa: F401,E501
 from app.openapi_server.models.move_name import MoveName  # noqa: F401,E501
 from app.openapi_server.models.move_target_summary import MoveTargetSummary  # noqa: F401,E501
+from app.openapi_server.models.pokemon_summary import PokemonSummary  # noqa: F401,E501
 from app.openapi_server.models.super_contest_effect_summary import SuperContestEffectSummary  # noqa: F401,E501
 from app.openapi_server.models.type_summary import TypeSummary  # noqa: F401,E501
 from openapi_server import util
@@ -32,7 +32,7 @@ class MoveDetail(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, id: int=None, name: str=None, accuracy: int=None, effect_chance: int=None, pp: int=None, priority: int=None, power: int=None, contest_combos: MoveDetailContestCombos=None, contest_type: ContestTypeSummary=None, contest_effect: ContestEffectSummary=None, damage_class: MoveDamageClassSummary=None, effect_entries: List[MoveChangeEffectEntriesInner]=None, effect_changes: List[MoveDetailEffectChangesInner]=None, generation: GenerationSummary=None, meta: MoveMeta=None, names: List[MoveName]=None, past_values: List[MoveChange]=None, stat_changes: List[MoveDetailStatChangesInner]=None, super_contest_effect: SuperContestEffectSummary=None, target: MoveTargetSummary=None, type: TypeSummary=None, machines: List[MoveDetailMachinesInner]=None, flavor_text_entries: List[MoveFlavorText]=None, learned_by_pokemon: List[AbilityDetailPokemonInnerPokemon]=None):  # noqa: E501
+    def __init__(self, id: int=None, name: str=None, accuracy: int=None, effect_chance: int=None, pp: int=None, priority: int=None, power: int=None, contest_combos: MoveCombos=None, contest_type: ContestTypeSummary=None, contest_effect: ContestEffectSummary=None, damage_class: MoveDamageClassSummary=None, effect_entries: List[MoveEffectEffectText]=None, effect_changes: List[MoveEffectChange]=None, generation: GenerationSummary=None, meta: MoveMeta=None, names: List[MoveName]=None, past_values: List[MoveChange]=None, stat_changes: List[MoveMetaStatChange]=None, super_contest_effect: SuperContestEffectSummary=None, target: MoveTargetSummary=None, type: TypeSummary=None, machines: List[ItemMachine]=None, flavor_text_entries: List[MoveFlavorText]=None, learned_by_pokemon: List[PokemonSummary]=None):  # noqa: E501
         """MoveDetail - a model defined in Swagger
 
         :param id: The id of this MoveDetail.  # noqa: E501
@@ -50,7 +50,7 @@ class MoveDetail(Model):
         :param power: The power of this MoveDetail.  # noqa: E501
         :type power: int
         :param contest_combos: The contest_combos of this MoveDetail.  # noqa: E501
-        :type contest_combos: MoveDetailContestCombos
+        :type contest_combos: MoveCombos
         :param contest_type: The contest_type of this MoveDetail.  # noqa: E501
         :type contest_type: ContestTypeSummary
         :param contest_effect: The contest_effect of this MoveDetail.  # noqa: E501
@@ -58,9 +58,9 @@ class MoveDetail(Model):
         :param damage_class: The damage_class of this MoveDetail.  # noqa: E501
         :type damage_class: MoveDamageClassSummary
         :param effect_entries: The effect_entries of this MoveDetail.  # noqa: E501
-        :type effect_entries: List[MoveChangeEffectEntriesInner]
+        :type effect_entries: List[MoveEffectEffectText]
         :param effect_changes: The effect_changes of this MoveDetail.  # noqa: E501
-        :type effect_changes: List[MoveDetailEffectChangesInner]
+        :type effect_changes: List[MoveEffectChange]
         :param generation: The generation of this MoveDetail.  # noqa: E501
         :type generation: GenerationSummary
         :param meta: The meta of this MoveDetail.  # noqa: E501
@@ -70,7 +70,7 @@ class MoveDetail(Model):
         :param past_values: The past_values of this MoveDetail.  # noqa: E501
         :type past_values: List[MoveChange]
         :param stat_changes: The stat_changes of this MoveDetail.  # noqa: E501
-        :type stat_changes: List[MoveDetailStatChangesInner]
+        :type stat_changes: List[MoveMetaStatChange]
         :param super_contest_effect: The super_contest_effect of this MoveDetail.  # noqa: E501
         :type super_contest_effect: SuperContestEffectSummary
         :param target: The target of this MoveDetail.  # noqa: E501
@@ -78,11 +78,11 @@ class MoveDetail(Model):
         :param type: The type of this MoveDetail.  # noqa: E501
         :type type: TypeSummary
         :param machines: The machines of this MoveDetail.  # noqa: E501
-        :type machines: List[MoveDetailMachinesInner]
+        :type machines: List[ItemMachine]
         :param flavor_text_entries: The flavor_text_entries of this MoveDetail.  # noqa: E501
         :type flavor_text_entries: List[MoveFlavorText]
         :param learned_by_pokemon: The learned_by_pokemon of this MoveDetail.  # noqa: E501
-        :type learned_by_pokemon: List[AbilityDetailPokemonInnerPokemon]
+        :type learned_by_pokemon: List[PokemonSummary]
         """
         self.swagger_types = {
             'id': int,
@@ -92,23 +92,23 @@ class MoveDetail(Model):
             'pp': int,
             'priority': int,
             'power': int,
-            'contest_combos': MoveDetailContestCombos,
+            'contest_combos': MoveCombos,
             'contest_type': ContestTypeSummary,
             'contest_effect': ContestEffectSummary,
             'damage_class': MoveDamageClassSummary,
-            'effect_entries': List[MoveChangeEffectEntriesInner],
-            'effect_changes': List[MoveDetailEffectChangesInner],
+            'effect_entries': List[MoveEffectEffectText],
+            'effect_changes': List[MoveEffectChange],
             'generation': GenerationSummary,
             'meta': MoveMeta,
             'names': List[MoveName],
             'past_values': List[MoveChange],
-            'stat_changes': List[MoveDetailStatChangesInner],
+            'stat_changes': List[MoveMetaStatChange],
             'super_contest_effect': SuperContestEffectSummary,
             'target': MoveTargetSummary,
             'type': TypeSummary,
-            'machines': List[MoveDetailMachinesInner],
+            'machines': List[ItemMachine],
             'flavor_text_entries': List[MoveFlavorText],
-            'learned_by_pokemon': List[AbilityDetailPokemonInnerPokemon]
+            'learned_by_pokemon': List[PokemonSummary]
         }
 
         self.attribute_map = {
@@ -178,6 +178,7 @@ class MoveDetail(Model):
     def id(self) -> int:
         """Gets the id of this MoveDetail.
 
+        The identifier for this resource.  # noqa: E501
 
         :return: The id of this MoveDetail.
         :rtype: int
@@ -188,6 +189,7 @@ class MoveDetail(Model):
     def id(self, id: int):
         """Sets the id of this MoveDetail.
 
+        The identifier for this resource.  # noqa: E501
 
         :param id: The id of this MoveDetail.
         :type id: int
@@ -201,6 +203,7 @@ class MoveDetail(Model):
     def name(self) -> str:
         """Gets the name of this MoveDetail.
 
+        The name for this resource.  # noqa: E501
 
         :return: The name of this MoveDetail.
         :rtype: str
@@ -211,14 +214,15 @@ class MoveDetail(Model):
     def name(self, name: str):
         """Sets the name of this MoveDetail.
 
+        The name for this resource.  # noqa: E501
 
         :param name: The name of this MoveDetail.
         :type name: str
         """
         if name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
-        if name is not None and len(name) > 100:
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `100`")  # noqa: E501
+        if name is not None and len(name) > 200:
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `200`")  # noqa: E501
 
         self._name = name
 
@@ -226,6 +230,7 @@ class MoveDetail(Model):
     def accuracy(self) -> int:
         """Gets the accuracy of this MoveDetail.
 
+        The percent value of how likely this move is to be successful.  # noqa: E501
 
         :return: The accuracy of this MoveDetail.
         :rtype: int
@@ -236,10 +241,15 @@ class MoveDetail(Model):
     def accuracy(self, accuracy: int):
         """Sets the accuracy of this MoveDetail.
 
+        The percent value of how likely this move is to be successful.  # noqa: E501
 
         :param accuracy: The accuracy of this MoveDetail.
         :type accuracy: int
         """
+        if accuracy is not None and accuracy > 2147483647:  # noqa: E501
+            raise ValueError("Invalid value for `accuracy`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if accuracy is not None and accuracy < -2147483648:  # noqa: E501
+            raise ValueError("Invalid value for `accuracy`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._accuracy = accuracy
 
@@ -247,6 +257,7 @@ class MoveDetail(Model):
     def effect_chance(self) -> int:
         """Gets the effect_chance of this MoveDetail.
 
+        The percent value of how likely it is this moves effect will happen.  # noqa: E501
 
         :return: The effect_chance of this MoveDetail.
         :rtype: int
@@ -257,6 +268,7 @@ class MoveDetail(Model):
     def effect_chance(self, effect_chance: int):
         """Sets the effect_chance of this MoveDetail.
 
+        The percent value of how likely it is this moves effect will happen.  # noqa: E501
 
         :param effect_chance: The effect_chance of this MoveDetail.
         :type effect_chance: int
@@ -270,6 +282,7 @@ class MoveDetail(Model):
     def pp(self) -> int:
         """Gets the pp of this MoveDetail.
 
+        Power points. The number of times this move can be used.  # noqa: E501
 
         :return: The pp of this MoveDetail.
         :rtype: int
@@ -280,10 +293,15 @@ class MoveDetail(Model):
     def pp(self, pp: int):
         """Sets the pp of this MoveDetail.
 
+        Power points. The number of times this move can be used.  # noqa: E501
 
         :param pp: The pp of this MoveDetail.
         :type pp: int
         """
+        if pp is not None and pp > 2147483647:  # noqa: E501
+            raise ValueError("Invalid value for `pp`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if pp is not None and pp < -2147483648:  # noqa: E501
+            raise ValueError("Invalid value for `pp`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._pp = pp
 
@@ -291,6 +309,7 @@ class MoveDetail(Model):
     def priority(self) -> int:
         """Gets the priority of this MoveDetail.
 
+        A value between -8 and 8. Sets the order in which moves are executed during battle. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Priority) for greater detail.  # noqa: E501
 
         :return: The priority of this MoveDetail.
         :rtype: int
@@ -301,10 +320,15 @@ class MoveDetail(Model):
     def priority(self, priority: int):
         """Sets the priority of this MoveDetail.
 
+        A value between -8 and 8. Sets the order in which moves are executed during battle. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Priority) for greater detail.  # noqa: E501
 
         :param priority: The priority of this MoveDetail.
         :type priority: int
         """
+        if priority is not None and priority > 2147483647:  # noqa: E501
+            raise ValueError("Invalid value for `priority`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if priority is not None and priority < -2147483648:  # noqa: E501
+            raise ValueError("Invalid value for `priority`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._priority = priority
 
@@ -312,6 +336,7 @@ class MoveDetail(Model):
     def power(self) -> int:
         """Gets the power of this MoveDetail.
 
+        The base power of this move, or null if it has no fixed base power.  # noqa: E501
 
         :return: The power of this MoveDetail.
         :rtype: int
@@ -322,30 +347,37 @@ class MoveDetail(Model):
     def power(self, power: int):
         """Sets the power of this MoveDetail.
 
+        The base power of this move, or null if it has no fixed base power.  # noqa: E501
 
         :param power: The power of this MoveDetail.
         :type power: int
         """
+        if power is not None and power > 2147483647:  # noqa: E501
+            raise ValueError("Invalid value for `power`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if power is not None and power < -2147483648:  # noqa: E501
+            raise ValueError("Invalid value for `power`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._power = power
 
     @property
-    def contest_combos(self) -> MoveDetailContestCombos:
+    def contest_combos(self) -> MoveCombos:
         """Gets the contest_combos of this MoveDetail.
 
+        A detail of normal and super contest combos that require this move.  # noqa: E501
 
         :return: The contest_combos of this MoveDetail.
-        :rtype: MoveDetailContestCombos
+        :rtype: MoveCombos
         """
         return self._contest_combos
 
     @contest_combos.setter
-    def contest_combos(self, contest_combos: MoveDetailContestCombos):
+    def contest_combos(self, contest_combos: MoveCombos):
         """Sets the contest_combos of this MoveDetail.
 
+        A detail of normal and super contest combos that require this move.  # noqa: E501
 
         :param contest_combos: The contest_combos of this MoveDetail.
-        :type contest_combos: MoveDetailContestCombos
+        :type contest_combos: MoveCombos
         """
         if contest_combos is None:
             raise ValueError("Invalid value for `contest_combos`, must not be `None`")  # noqa: E501
@@ -356,6 +388,7 @@ class MoveDetail(Model):
     def contest_type(self) -> ContestTypeSummary:
         """Gets the contest_type of this MoveDetail.
 
+        The type of appeal this move gives a Pokémon when used in a contest.  # noqa: E501
 
         :return: The contest_type of this MoveDetail.
         :rtype: ContestTypeSummary
@@ -366,6 +399,7 @@ class MoveDetail(Model):
     def contest_type(self, contest_type: ContestTypeSummary):
         """Sets the contest_type of this MoveDetail.
 
+        The type of appeal this move gives a Pokémon when used in a contest.  # noqa: E501
 
         :param contest_type: The contest_type of this MoveDetail.
         :type contest_type: ContestTypeSummary
@@ -379,6 +413,7 @@ class MoveDetail(Model):
     def contest_effect(self) -> ContestEffectSummary:
         """Gets the contest_effect of this MoveDetail.
 
+        The effect the move has when used in a contest.  # noqa: E501
 
         :return: The contest_effect of this MoveDetail.
         :rtype: ContestEffectSummary
@@ -389,6 +424,7 @@ class MoveDetail(Model):
     def contest_effect(self, contest_effect: ContestEffectSummary):
         """Sets the contest_effect of this MoveDetail.
 
+        The effect the move has when used in a contest.  # noqa: E501
 
         :param contest_effect: The contest_effect of this MoveDetail.
         :type contest_effect: ContestEffectSummary
@@ -402,6 +438,7 @@ class MoveDetail(Model):
     def damage_class(self) -> MoveDamageClassSummary:
         """Gets the damage_class of this MoveDetail.
 
+        The type of damage the move inflicts on the target, e.g. physical.  # noqa: E501
 
         :return: The damage_class of this MoveDetail.
         :rtype: MoveDamageClassSummary
@@ -412,6 +449,7 @@ class MoveDetail(Model):
     def damage_class(self, damage_class: MoveDamageClassSummary):
         """Sets the damage_class of this MoveDetail.
 
+        The type of damage the move inflicts on the target, e.g. physical.  # noqa: E501
 
         :param damage_class: The damage_class of this MoveDetail.
         :type damage_class: MoveDamageClassSummary
@@ -422,22 +460,24 @@ class MoveDetail(Model):
         self._damage_class = damage_class
 
     @property
-    def effect_entries(self) -> List[MoveChangeEffectEntriesInner]:
+    def effect_entries(self) -> List[MoveEffectEffectText]:
         """Gets the effect_entries of this MoveDetail.
 
+        The effect of this move listed in different languages.  # noqa: E501
 
         :return: The effect_entries of this MoveDetail.
-        :rtype: List[MoveChangeEffectEntriesInner]
+        :rtype: List[MoveEffectEffectText]
         """
         return self._effect_entries
 
     @effect_entries.setter
-    def effect_entries(self, effect_entries: List[MoveChangeEffectEntriesInner]):
+    def effect_entries(self, effect_entries: List[MoveEffectEffectText]):
         """Sets the effect_entries of this MoveDetail.
 
+        The effect of this move listed in different languages.  # noqa: E501
 
         :param effect_entries: The effect_entries of this MoveDetail.
-        :type effect_entries: List[MoveChangeEffectEntriesInner]
+        :type effect_entries: List[MoveEffectEffectText]
         """
         if effect_entries is None:
             raise ValueError("Invalid value for `effect_entries`, must not be `None`")  # noqa: E501
@@ -445,22 +485,24 @@ class MoveDetail(Model):
         self._effect_entries = effect_entries
 
     @property
-    def effect_changes(self) -> List[MoveDetailEffectChangesInner]:
+    def effect_changes(self) -> List[MoveEffectChange]:
         """Gets the effect_changes of this MoveDetail.
 
+        The list of previous effects this move has had across version groups of the games.  # noqa: E501
 
         :return: The effect_changes of this MoveDetail.
-        :rtype: List[MoveDetailEffectChangesInner]
+        :rtype: List[MoveEffectChange]
         """
         return self._effect_changes
 
     @effect_changes.setter
-    def effect_changes(self, effect_changes: List[MoveDetailEffectChangesInner]):
+    def effect_changes(self, effect_changes: List[MoveEffectChange]):
         """Sets the effect_changes of this MoveDetail.
 
+        The list of previous effects this move has had across version groups of the games.  # noqa: E501
 
         :param effect_changes: The effect_changes of this MoveDetail.
-        :type effect_changes: List[MoveDetailEffectChangesInner]
+        :type effect_changes: List[MoveEffectChange]
         """
         if effect_changes is None:
             raise ValueError("Invalid value for `effect_changes`, must not be `None`")  # noqa: E501
@@ -471,6 +513,7 @@ class MoveDetail(Model):
     def generation(self) -> GenerationSummary:
         """Gets the generation of this MoveDetail.
 
+        The generation in which this move was introduced.  # noqa: E501
 
         :return: The generation of this MoveDetail.
         :rtype: GenerationSummary
@@ -481,6 +524,7 @@ class MoveDetail(Model):
     def generation(self, generation: GenerationSummary):
         """Sets the generation of this MoveDetail.
 
+        The generation in which this move was introduced.  # noqa: E501
 
         :param generation: The generation of this MoveDetail.
         :type generation: GenerationSummary
@@ -494,6 +538,7 @@ class MoveDetail(Model):
     def meta(self) -> MoveMeta:
         """Gets the meta of this MoveDetail.
 
+        Metadata about this move  # noqa: E501
 
         :return: The meta of this MoveDetail.
         :rtype: MoveMeta
@@ -504,6 +549,7 @@ class MoveDetail(Model):
     def meta(self, meta: MoveMeta):
         """Sets the meta of this MoveDetail.
 
+        Metadata about this move  # noqa: E501
 
         :param meta: The meta of this MoveDetail.
         :type meta: MoveMeta
@@ -517,6 +563,7 @@ class MoveDetail(Model):
     def names(self) -> List[MoveName]:
         """Gets the names of this MoveDetail.
 
+        The name of this resource listed in different languages.  # noqa: E501
 
         :return: The names of this MoveDetail.
         :rtype: List[MoveName]
@@ -527,6 +574,7 @@ class MoveDetail(Model):
     def names(self, names: List[MoveName]):
         """Sets the names of this MoveDetail.
 
+        The name of this resource listed in different languages.  # noqa: E501
 
         :param names: The names of this MoveDetail.
         :type names: List[MoveName]
@@ -540,6 +588,7 @@ class MoveDetail(Model):
     def past_values(self) -> List[MoveChange]:
         """Gets the past_values of this MoveDetail.
 
+        A list of move resource value changes across version groups of the game.  # noqa: E501
 
         :return: The past_values of this MoveDetail.
         :rtype: List[MoveChange]
@@ -550,6 +599,7 @@ class MoveDetail(Model):
     def past_values(self, past_values: List[MoveChange]):
         """Sets the past_values of this MoveDetail.
 
+        A list of move resource value changes across version groups of the game.  # noqa: E501
 
         :param past_values: The past_values of this MoveDetail.
         :type past_values: List[MoveChange]
@@ -560,22 +610,24 @@ class MoveDetail(Model):
         self._past_values = past_values
 
     @property
-    def stat_changes(self) -> List[MoveDetailStatChangesInner]:
+    def stat_changes(self) -> List[MoveMetaStatChange]:
         """Gets the stat_changes of this MoveDetail.
 
+        A list of stats this moves effects and how much it effects them.  # noqa: E501
 
         :return: The stat_changes of this MoveDetail.
-        :rtype: List[MoveDetailStatChangesInner]
+        :rtype: List[MoveMetaStatChange]
         """
         return self._stat_changes
 
     @stat_changes.setter
-    def stat_changes(self, stat_changes: List[MoveDetailStatChangesInner]):
+    def stat_changes(self, stat_changes: List[MoveMetaStatChange]):
         """Sets the stat_changes of this MoveDetail.
 
+        A list of stats this moves effects and how much it effects them.  # noqa: E501
 
         :param stat_changes: The stat_changes of this MoveDetail.
-        :type stat_changes: List[MoveDetailStatChangesInner]
+        :type stat_changes: List[MoveMetaStatChange]
         """
         if stat_changes is None:
             raise ValueError("Invalid value for `stat_changes`, must not be `None`")  # noqa: E501
@@ -586,6 +638,7 @@ class MoveDetail(Model):
     def super_contest_effect(self) -> SuperContestEffectSummary:
         """Gets the super_contest_effect of this MoveDetail.
 
+        The effect the move has when used in a super contest.  # noqa: E501
 
         :return: The super_contest_effect of this MoveDetail.
         :rtype: SuperContestEffectSummary
@@ -596,6 +649,7 @@ class MoveDetail(Model):
     def super_contest_effect(self, super_contest_effect: SuperContestEffectSummary):
         """Sets the super_contest_effect of this MoveDetail.
 
+        The effect the move has when used in a super contest.  # noqa: E501
 
         :param super_contest_effect: The super_contest_effect of this MoveDetail.
         :type super_contest_effect: SuperContestEffectSummary
@@ -609,6 +663,7 @@ class MoveDetail(Model):
     def target(self) -> MoveTargetSummary:
         """Gets the target of this MoveDetail.
 
+        The type of target that will receive the effects of the attack.  # noqa: E501
 
         :return: The target of this MoveDetail.
         :rtype: MoveTargetSummary
@@ -619,6 +674,7 @@ class MoveDetail(Model):
     def target(self, target: MoveTargetSummary):
         """Sets the target of this MoveDetail.
 
+        The type of target that will receive the effects of the attack.  # noqa: E501
 
         :param target: The target of this MoveDetail.
         :type target: MoveTargetSummary
@@ -632,6 +688,7 @@ class MoveDetail(Model):
     def type(self) -> TypeSummary:
         """Gets the type of this MoveDetail.
 
+        The elemental type of this move.  # noqa: E501
 
         :return: The type of this MoveDetail.
         :rtype: TypeSummary
@@ -642,6 +699,7 @@ class MoveDetail(Model):
     def type(self, type: TypeSummary):
         """Sets the type of this MoveDetail.
 
+        The elemental type of this move.  # noqa: E501
 
         :param type: The type of this MoveDetail.
         :type type: TypeSummary
@@ -652,22 +710,24 @@ class MoveDetail(Model):
         self._type = type
 
     @property
-    def machines(self) -> List[MoveDetailMachinesInner]:
+    def machines(self) -> List[ItemMachine]:
         """Gets the machines of this MoveDetail.
 
+        A list of the machines that teach this move.  # noqa: E501
 
         :return: The machines of this MoveDetail.
-        :rtype: List[MoveDetailMachinesInner]
+        :rtype: List[ItemMachine]
         """
         return self._machines
 
     @machines.setter
-    def machines(self, machines: List[MoveDetailMachinesInner]):
+    def machines(self, machines: List[ItemMachine]):
         """Sets the machines of this MoveDetail.
 
+        A list of the machines that teach this move.  # noqa: E501
 
         :param machines: The machines of this MoveDetail.
-        :type machines: List[MoveDetailMachinesInner]
+        :type machines: List[ItemMachine]
         """
         if machines is None:
             raise ValueError("Invalid value for `machines`, must not be `None`")  # noqa: E501
@@ -678,6 +738,7 @@ class MoveDetail(Model):
     def flavor_text_entries(self) -> List[MoveFlavorText]:
         """Gets the flavor_text_entries of this MoveDetail.
 
+        The flavor text of this move listed in different languages.  # noqa: E501
 
         :return: The flavor_text_entries of this MoveDetail.
         :rtype: List[MoveFlavorText]
@@ -688,6 +749,7 @@ class MoveDetail(Model):
     def flavor_text_entries(self, flavor_text_entries: List[MoveFlavorText]):
         """Sets the flavor_text_entries of this MoveDetail.
 
+        The flavor text of this move listed in different languages.  # noqa: E501
 
         :param flavor_text_entries: The flavor_text_entries of this MoveDetail.
         :type flavor_text_entries: List[MoveFlavorText]
@@ -698,22 +760,24 @@ class MoveDetail(Model):
         self._flavor_text_entries = flavor_text_entries
 
     @property
-    def learned_by_pokemon(self) -> List[AbilityDetailPokemonInnerPokemon]:
+    def learned_by_pokemon(self) -> List[PokemonSummary]:
         """Gets the learned_by_pokemon of this MoveDetail.
 
+        List of Pokemon that can learn the move  # noqa: E501
 
         :return: The learned_by_pokemon of this MoveDetail.
-        :rtype: List[AbilityDetailPokemonInnerPokemon]
+        :rtype: List[PokemonSummary]
         """
         return self._learned_by_pokemon
 
     @learned_by_pokemon.setter
-    def learned_by_pokemon(self, learned_by_pokemon: List[AbilityDetailPokemonInnerPokemon]):
+    def learned_by_pokemon(self, learned_by_pokemon: List[PokemonSummary]):
         """Sets the learned_by_pokemon of this MoveDetail.
 
+        List of Pokemon that can learn the move  # noqa: E501
 
         :param learned_by_pokemon: The learned_by_pokemon of this MoveDetail.
-        :type learned_by_pokemon: List[AbilityDetailPokemonInnerPokemon]
+        :type learned_by_pokemon: List[PokemonSummary]
         """
         if learned_by_pokemon is None:
             raise ValueError("Invalid value for `learned_by_pokemon`, must not be `None`")  # noqa: E501

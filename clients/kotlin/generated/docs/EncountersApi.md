@@ -55,19 +55,7 @@ try {
 
 ### Authorization
 
-
-Configure basicAuth statically:
-```kotlin
-ApiClient.username = ""
-ApiClient.password = ""
-```
-Configure basicAuth dynamically:
-```kotlin
-apiInstance.userCredentialProvider = { "user" to "pass" }
-```
-Configure cookieAuth:
-    ApiClient.apiKey["sessionid"] = ""
-    ApiClient.apiKeyPrefix["sessionid"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -89,7 +77,7 @@ Conditions which affect what pokemon might appear in the wild, e.g., day or nigh
 //import org.openapitools.client.models.*
 
 val apiInstance = EncountersApi()
-val id : kotlin.String = id_example // kotlin.String | This parameter can be a string or an integer.
+val id : kotlin.String = 1 // kotlin.String | This parameter can be a string or an integer.
 try {
     val result : EncounterConditionDetail = apiInstance.encounterConditionRetrieve(id)
     println(result)
@@ -113,19 +101,7 @@ try {
 
 ### Authorization
 
-
-Configure basicAuth statically:
-```kotlin
-ApiClient.username = ""
-ApiClient.password = ""
-```
-Configure basicAuth dynamically:
-```kotlin
-apiInstance.userCredentialProvider = { "user" to "pass" }
-```
-Configure cookieAuth:
-    ApiClient.apiKey["sessionid"] = ""
-    ApiClient.apiKeyPrefix["sessionid"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -175,19 +151,7 @@ try {
 
 ### Authorization
 
-
-Configure basicAuth statically:
-```kotlin
-ApiClient.username = ""
-ApiClient.password = ""
-```
-Configure basicAuth dynamically:
-```kotlin
-apiInstance.userCredentialProvider = { "user" to "pass" }
-```
-Configure cookieAuth:
-    ApiClient.apiKey["sessionid"] = ""
-    ApiClient.apiKeyPrefix["sessionid"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -209,7 +173,7 @@ Encounter condition values are the various states that an encounter condition ca
 //import org.openapitools.client.models.*
 
 val apiInstance = EncountersApi()
-val id : kotlin.String = id_example // kotlin.String | This parameter can be a string or an integer.
+val id : kotlin.String = 1 // kotlin.String | This parameter can be a string or an integer.
 try {
     val result : EncounterConditionValueDetail = apiInstance.encounterConditionValueRetrieve(id)
     println(result)
@@ -233,19 +197,7 @@ try {
 
 ### Authorization
 
-
-Configure basicAuth statically:
-```kotlin
-ApiClient.username = ""
-ApiClient.password = ""
-```
-Configure basicAuth dynamically:
-```kotlin
-apiInstance.userCredentialProvider = { "user" to "pass" }
-```
-Configure cookieAuth:
-    ApiClient.apiKey["sessionid"] = ""
-    ApiClient.apiKeyPrefix["sessionid"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -295,19 +247,7 @@ try {
 
 ### Authorization
 
-
-Configure basicAuth statically:
-```kotlin
-ApiClient.username = ""
-ApiClient.password = ""
-```
-Configure basicAuth dynamically:
-```kotlin
-apiInstance.userCredentialProvider = { "user" to "pass" }
-```
-Configure cookieAuth:
-    ApiClient.apiKey["sessionid"] = ""
-    ApiClient.apiKeyPrefix["sessionid"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -329,7 +269,7 @@ Methods by which the player might can encounter Pokémon in the wild, e.g., walk
 //import org.openapitools.client.models.*
 
 val apiInstance = EncountersApi()
-val id : kotlin.String = id_example // kotlin.String | This parameter can be a string or an integer.
+val id : kotlin.String = 1 // kotlin.String | This parameter can be a string or an integer.
 try {
     val result : EncounterMethodDetail = apiInstance.encounterMethodRetrieve(id)
     println(result)
@@ -353,19 +293,7 @@ try {
 
 ### Authorization
 
-
-Configure basicAuth statically:
-```kotlin
-ApiClient.username = ""
-ApiClient.password = ""
-```
-Configure basicAuth dynamically:
-```kotlin
-apiInstance.userCredentialProvider = { "user" to "pass" }
-```
-Configure cookieAuth:
-    ApiClient.apiKey["sessionid"] = ""
-    ApiClient.apiKeyPrefix["sessionid"] = ""
+No authorization required
 
 ### HTTP request headers
 

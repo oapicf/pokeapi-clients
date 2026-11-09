@@ -28,11 +28,13 @@ import misk.web.RequestHeader
 import misk.web.Response
 import misk.web.ResponseContentType
 import misk.web.mediatype.MediaTypes
+import org.openapitools.server.api.model.CurrencyDetail
 import org.openapitools.server.api.model.ItemAttributeDetail
 import org.openapitools.server.api.model.ItemCategoryDetail
 import org.openapitools.server.api.model.ItemDetail
 import org.openapitools.server.api.model.ItemFlingEffectDetail
 import org.openapitools.server.api.model.ItemPocketDetail
+import org.openapitools.server.api.model.PaginatedCurrencySummaryList
 import org.openapitools.server.api.model.PaginatedItemAttributeSummaryList
 import org.openapitools.server.api.model.PaginatedItemCategorySummaryList
 import org.openapitools.server.api.model.PaginatedItemFlingEffectSummaryList
@@ -45,6 +47,28 @@ import org.openapitools.server.api.model.PaginatedItemSummaryList
 @Singleton
 class ItemsApiAction @Inject constructor(
 ) : WebAction {
+
+    @Get("/api/v2/currency/")
+    @Description("List currencies")
+    @ResponseContentType(MediaTypes.APPLICATION_JSON)
+    @LogRequestResponse(bodySampling = 1.0, errorBodySampling = 1.0)
+    fun currencyList(
+         @QueryParam(value = "limit") limit: kotlin.Int?, 
+         @QueryParam(value = "offset") offset: kotlin.Int?, 
+         @QueryParam(value = "q") q: kotlin.String?
+    ): PaginatedCurrencySummaryList {
+        TODO()
+    }
+
+    @Get("/api/v2/currency/{id}/")
+    @Description("Get currency")
+    @ResponseContentType(MediaTypes.APPLICATION_JSON)
+    @LogRequestResponse(bodySampling = 1.0, errorBodySampling = 1.0)
+    fun currencyRetrieve(
+        @PathParam("id") id: kotlin.String
+    ): CurrencyDetail {
+        TODO()
+    }
 
     @Get("/api/v2/item-attribute/")
     @Description("List item attributes")

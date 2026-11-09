@@ -3,7 +3,7 @@
             [spec-tools.data-spec :as ds]
             [pokéapi.specs.move-learn-method-name :refer :all]
             [pokéapi.specs.move-learn-method-description :refer :all]
-            [pokéapi.specs.ability-detail-pokemon-inner-pokemon :refer :all]
+            [pokéapi.specs.version-group-summary :refer :all]
             )
   (:import (java.io File)))
 
@@ -14,7 +14,7 @@
    (ds/req :name) string?
    (ds/req :names) (s/coll-of move-learn-method-name-spec)
    (ds/req :descriptions) (s/coll-of move-learn-method-description-spec)
-   (ds/req :version_groups) (s/coll-of ability-detail-pokemon-inner-pokemon-spec)
+   (ds/req :version_groups) (s/coll-of version-group-summary-spec)
    })
 
 (def move-learn-method-detail-spec

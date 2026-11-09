@@ -29,8 +29,10 @@ import okhttp3.HttpUrl
 
 import org.openapitools.client.models.EvolutionChainDetail
 import org.openapitools.client.models.EvolutionTriggerDetail
+import org.openapitools.client.models.EvolutionVariableDetail
 import org.openapitools.client.models.PaginatedEvolutionChainSummaryList
 import org.openapitools.client.models.PaginatedEvolutionTriggerSummaryList
+import org.openapitools.client.models.PaginatedEvolutionVariableSummaryList
 
 import com.squareup.moshi.Json
 
@@ -62,7 +64,6 @@ open class EvolutionApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * Evolution chains are essentially family trees. They start with the lowest stage within a family and detail evolution conditions for each as well as Pokémon they can evolve into up through the hierarchy.
      * @param limit Number of results to return per page. (optional)
      * @param offset The initial index from which to return the results. (optional)
-     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
      * @return PaginatedEvolutionChainSummaryList
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -72,8 +73,8 @@ open class EvolutionApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun evolutionChainList(limit: kotlin.Int? = null, offset: kotlin.Int? = null, q: kotlin.String? = null) : PaginatedEvolutionChainSummaryList {
-        val localVarResponse = evolutionChainListWithHttpInfo(limit = limit, offset = offset, q = q)
+    fun evolutionChainList(limit: kotlin.Int? = null, offset: kotlin.Int? = null) : PaginatedEvolutionChainSummaryList {
+        val localVarResponse = evolutionChainListWithHttpInfo(limit = limit, offset = offset)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as PaginatedEvolutionChainSummaryList
@@ -96,15 +97,14 @@ open class EvolutionApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * Evolution chains are essentially family trees. They start with the lowest stage within a family and detail evolution conditions for each as well as Pokémon they can evolve into up through the hierarchy.
      * @param limit Number of results to return per page. (optional)
      * @param offset The initial index from which to return the results. (optional)
-     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
      * @return ApiResponse<PaginatedEvolutionChainSummaryList?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun evolutionChainListWithHttpInfo(limit: kotlin.Int?, offset: kotlin.Int?, q: kotlin.String?) : ApiResponse<PaginatedEvolutionChainSummaryList?> {
-        val localVariableConfig = evolutionChainListRequestConfig(limit = limit, offset = offset, q = q)
+    fun evolutionChainListWithHttpInfo(limit: kotlin.Int?, offset: kotlin.Int?) : ApiResponse<PaginatedEvolutionChainSummaryList?> {
+        val localVariableConfig = evolutionChainListRequestConfig(limit = limit, offset = offset)
 
         return request<Unit, PaginatedEvolutionChainSummaryList>(
             localVariableConfig
@@ -116,10 +116,9 @@ open class EvolutionApi(basePath: kotlin.String = defaultBasePath, client: Call.
      *
      * @param limit Number of results to return per page. (optional)
      * @param offset The initial index from which to return the results. (optional)
-     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
      * @return RequestConfig
      */
-    fun evolutionChainListRequestConfig(limit: kotlin.Int?, offset: kotlin.Int?, q: kotlin.String?) : RequestConfig<Unit> {
+    fun evolutionChainListRequestConfig(limit: kotlin.Int?, offset: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -128,9 +127,6 @@ open class EvolutionApi(basePath: kotlin.String = defaultBasePath, client: Call.
                 }
                 if (offset != null) {
                     put("offset", listOf(offset.toString()))
-                }
-                if (q != null) {
-                    put("q", listOf(q.toString()))
                 }
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
@@ -141,7 +137,7 @@ open class EvolutionApi(basePath: kotlin.String = defaultBasePath, client: Call.
             path = "/api/v2/evolution-chain/",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -214,7 +210,7 @@ open class EvolutionApi(basePath: kotlin.String = defaultBasePath, client: Call.
             path = "/api/v2/evolution-chain/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -304,7 +300,7 @@ open class EvolutionApi(basePath: kotlin.String = defaultBasePath, client: Call.
             path = "/api/v2/evolution-trigger/",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -377,7 +373,170 @@ open class EvolutionApi(basePath: kotlin.String = defaultBasePath, client: Call.
             path = "/api/v2/evolution-trigger/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * GET /api/v2/evolution-variable/
+     * List evolution variables
+     * Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+     * @param limit Number of results to return per page. (optional)
+     * @param offset The initial index from which to return the results. (optional)
+     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     * @return PaginatedEvolutionVariableSummaryList
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun evolutionVariableList(limit: kotlin.Int? = null, offset: kotlin.Int? = null, q: kotlin.String? = null) : PaginatedEvolutionVariableSummaryList {
+        val localVarResponse = evolutionVariableListWithHttpInfo(limit = limit, offset = offset, q = q)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as PaginatedEvolutionVariableSummaryList
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * GET /api/v2/evolution-variable/
+     * List evolution variables
+     * Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+     * @param limit Number of results to return per page. (optional)
+     * @param offset The initial index from which to return the results. (optional)
+     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     * @return ApiResponse<PaginatedEvolutionVariableSummaryList?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun evolutionVariableListWithHttpInfo(limit: kotlin.Int?, offset: kotlin.Int?, q: kotlin.String?) : ApiResponse<PaginatedEvolutionVariableSummaryList?> {
+        val localVariableConfig = evolutionVariableListRequestConfig(limit = limit, offset = offset, q = q)
+
+        return request<Unit, PaginatedEvolutionVariableSummaryList>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation evolutionVariableList
+     *
+     * @param limit Number of results to return per page. (optional)
+     * @param offset The initial index from which to return the results. (optional)
+     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     * @return RequestConfig
+     */
+    fun evolutionVariableListRequestConfig(limit: kotlin.Int?, offset: kotlin.Int?, q: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (limit != null) {
+                    put("limit", listOf(limit.toString()))
+                }
+                if (offset != null) {
+                    put("offset", listOf(offset.toString()))
+                }
+                if (q != null) {
+                    put("q", listOf(q.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/evolution-variable/",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * GET /api/v2/evolution-variable/{id}/
+     * Get evolution variable
+     * Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+     * @param id This parameter can be a string or an integer.
+     * @return EvolutionVariableDetail
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun evolutionVariableRetrieve(id: kotlin.String) : EvolutionVariableDetail {
+        val localVarResponse = evolutionVariableRetrieveWithHttpInfo(id = id)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as EvolutionVariableDetail
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * GET /api/v2/evolution-variable/{id}/
+     * Get evolution variable
+     * Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+     * @param id This parameter can be a string or an integer.
+     * @return ApiResponse<EvolutionVariableDetail?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun evolutionVariableRetrieveWithHttpInfo(id: kotlin.String) : ApiResponse<EvolutionVariableDetail?> {
+        val localVariableConfig = evolutionVariableRetrieveRequestConfig(id = id)
+
+        return request<Unit, EvolutionVariableDetail>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation evolutionVariableRetrieve
+     *
+     * @param id This parameter can be a string or an integer.
+     * @return RequestConfig
+     */
+    fun evolutionVariableRetrieveRequestConfig(id: kotlin.String) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/evolution-variable/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }

@@ -4,22 +4,21 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int32** |  | [readonly] 
-**Name** | **string** |  | 
-**DecreasedStat** | [**StatSummary**](StatSummary.md) |  | 
-**IncreasedStat** | [**StatSummary**](StatSummary.md) |  | 
-**LikesFlavor** | [**BerryFlavorSummary**](BerryFlavorSummary.md) |  | 
-**HatesFlavor** | [**BerryFlavorSummary**](BerryFlavorSummary.md) |  | 
-**Berries** | [**[]BerrySummary**](BerrySummary.md) |  | [readonly] 
-**PokeathlonStatChanges** | [**[]NatureDetailPokeathlonStatChangesInner**](NatureDetailPokeathlonStatChangesInner.md) |  | [readonly] 
-**MoveBattleStylePreferences** | [**[]NatureBattleStylePreference**](NatureBattleStylePreference.md) |  | [readonly] 
-**Names** | [**[]NatureName**](NatureName.md) |  | [readonly] 
+**Id** | **int32** | The identifier for this resource. | [readonly] 
+**Name** | **string** | The name for this resource. | 
+**DecreasedStat** | [**NullableStatSummary**](StatSummary.md) | The stat decreased by 10% in Pokémon with this nature. | 
+**IncreasedStat** | [**NullableStatSummary**](StatSummary.md) | The stat increased by 10% in Pokémon with this nature. | 
+**LikesFlavor** | [**NullableBerryFlavorSummary**](BerryFlavorSummary.md) | The flavor liked by Pokémon with this nature. | 
+**HatesFlavor** | [**NullableBerryFlavorSummary**](BerryFlavorSummary.md) | The flavor hated by Pokémon with this nature. | 
+**PokeathlonStatChanges** | [**[]NaturePokeathlonStat**](NaturePokeathlonStat.md) | A list of Pokéathlon stats this nature effects and how much it effects them. | [readonly] 
+**MoveBattleStylePreferences** | [**[]NatureBattleStylePreference**](NatureBattleStylePreference.md) | A list of battle styles and how likely a Pokémon with this nature is to use them in the Battle Palace or Battle Tent. | [readonly] 
+**Names** | [**[]NatureName**](NatureName.md) | The name of this resource listed in different languages. | [readonly] 
 
 ## Methods
 
 ### NewNatureDetail
 
-`func NewNatureDetail(id int32, name string, decreasedStat StatSummary, increasedStat StatSummary, likesFlavor BerryFlavorSummary, hatesFlavor BerryFlavorSummary, berries []BerrySummary, pokeathlonStatChanges []NatureDetailPokeathlonStatChangesInner, moveBattleStylePreferences []NatureBattleStylePreference, names []NatureName, ) *NatureDetail`
+`func NewNatureDetail(id int32, name string, decreasedStat NullableStatSummary, increasedStat NullableStatSummary, likesFlavor NullableBerryFlavorSummary, hatesFlavor NullableBerryFlavorSummary, pokeathlonStatChanges []NaturePokeathlonStat, moveBattleStylePreferences []NatureBattleStylePreference, names []NatureName, ) *NatureDetail`
 
 NewNatureDetail instantiates a new NatureDetail object
 This constructor will assign default values to properties that have it defined,
@@ -94,6 +93,16 @@ and a boolean to check if the value has been set.
 SetDecreasedStat sets DecreasedStat field to given value.
 
 
+### SetDecreasedStatNil
+
+`func (o *NatureDetail) SetDecreasedStatNil(b bool)`
+
+ SetDecreasedStatNil sets the value for DecreasedStat to be an explicit nil
+
+### UnsetDecreasedStat
+`func (o *NatureDetail) UnsetDecreasedStat()`
+
+UnsetDecreasedStat ensures that no value is present for DecreasedStat, not even an explicit nil
 ### GetIncreasedStat
 
 `func (o *NatureDetail) GetIncreasedStat() StatSummary`
@@ -114,6 +123,16 @@ and a boolean to check if the value has been set.
 SetIncreasedStat sets IncreasedStat field to given value.
 
 
+### SetIncreasedStatNil
+
+`func (o *NatureDetail) SetIncreasedStatNil(b bool)`
+
+ SetIncreasedStatNil sets the value for IncreasedStat to be an explicit nil
+
+### UnsetIncreasedStat
+`func (o *NatureDetail) UnsetIncreasedStat()`
+
+UnsetIncreasedStat ensures that no value is present for IncreasedStat, not even an explicit nil
 ### GetLikesFlavor
 
 `func (o *NatureDetail) GetLikesFlavor() BerryFlavorSummary`
@@ -134,6 +153,16 @@ and a boolean to check if the value has been set.
 SetLikesFlavor sets LikesFlavor field to given value.
 
 
+### SetLikesFlavorNil
+
+`func (o *NatureDetail) SetLikesFlavorNil(b bool)`
+
+ SetLikesFlavorNil sets the value for LikesFlavor to be an explicit nil
+
+### UnsetLikesFlavor
+`func (o *NatureDetail) UnsetLikesFlavor()`
+
+UnsetLikesFlavor ensures that no value is present for LikesFlavor, not even an explicit nil
 ### GetHatesFlavor
 
 `func (o *NatureDetail) GetHatesFlavor() BerryFlavorSummary`
@@ -154,42 +183,32 @@ and a boolean to check if the value has been set.
 SetHatesFlavor sets HatesFlavor field to given value.
 
 
-### GetBerries
+### SetHatesFlavorNil
 
-`func (o *NatureDetail) GetBerries() []BerrySummary`
+`func (o *NatureDetail) SetHatesFlavorNil(b bool)`
 
-GetBerries returns the Berries field if non-nil, zero value otherwise.
+ SetHatesFlavorNil sets the value for HatesFlavor to be an explicit nil
 
-### GetBerriesOk
+### UnsetHatesFlavor
+`func (o *NatureDetail) UnsetHatesFlavor()`
 
-`func (o *NatureDetail) GetBerriesOk() (*[]BerrySummary, bool)`
-
-GetBerriesOk returns a tuple with the Berries field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetBerries
-
-`func (o *NatureDetail) SetBerries(v []BerrySummary)`
-
-SetBerries sets Berries field to given value.
-
-
+UnsetHatesFlavor ensures that no value is present for HatesFlavor, not even an explicit nil
 ### GetPokeathlonStatChanges
 
-`func (o *NatureDetail) GetPokeathlonStatChanges() []NatureDetailPokeathlonStatChangesInner`
+`func (o *NatureDetail) GetPokeathlonStatChanges() []NaturePokeathlonStat`
 
 GetPokeathlonStatChanges returns the PokeathlonStatChanges field if non-nil, zero value otherwise.
 
 ### GetPokeathlonStatChangesOk
 
-`func (o *NatureDetail) GetPokeathlonStatChangesOk() (*[]NatureDetailPokeathlonStatChangesInner, bool)`
+`func (o *NatureDetail) GetPokeathlonStatChangesOk() (*[]NaturePokeathlonStat, bool)`
 
 GetPokeathlonStatChangesOk returns a tuple with the PokeathlonStatChanges field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPokeathlonStatChanges
 
-`func (o *NatureDetail) SetPokeathlonStatChanges(v []NatureDetailPokeathlonStatChangesInner)`
+`func (o *NatureDetail) SetPokeathlonStatChanges(v []NaturePokeathlonStat)`
 
 SetPokeathlonStatChanges sets PokeathlonStatChanges field to given value.
 

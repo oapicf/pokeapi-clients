@@ -9,14 +9,19 @@ import Foundation
 
 public struct PokemonShapeDetail: Sendable, Codable, Hashable {
 
-    public static let nameRule = StringRule(minLength: nil, maxLength: 100, pattern: nil)
+    public static let nameRule = StringRule(minLength: nil, maxLength: 200, pattern: nil)
+    /** The identifier for this resource. */
     public var id: Int
+    /** The name for this resource. */
     public var name: String
-    public var awesomeNames: [PokemonShapeDetailAwesomeNamesInner]
-    public var names: [PokemonShapeDetailNamesInner]
+    /** The \"scientific\" name of this Pokémon shape listed in different languages. */
+    public var awesomeNames: [PokemonShapeAwesomeName]
+    /** The name of this resource listed in different languages. */
+    public var names: [PokemonShapeName]
+    /** A list of the Pokémon species that have this shape. */
     public var pokemonSpecies: [PokemonSpeciesSummary]
 
-    public init(id: Int, name: String, awesomeNames: [PokemonShapeDetailAwesomeNamesInner], names: [PokemonShapeDetailNamesInner], pokemonSpecies: [PokemonSpeciesSummary]) {
+    public init(id: Int, name: String, awesomeNames: [PokemonShapeAwesomeName], names: [PokemonShapeName], pokemonSpecies: [PokemonSpeciesSummary]) {
         self.id = id
         self.name = name
         self.awesomeNames = awesomeNames

@@ -1,10 +1,10 @@
 package apimodels;
 
-import apimodels.AbilityDetailPokemonInnerPokemon;
 import apimodels.GenerationSummary;
 import apimodels.LocationSummary;
 import apimodels.PokedexSummary;
 import apimodels.RegionName;
+import apimodels.VersionGroupSummary;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -17,7 +17,7 @@ import javax.validation.Valid;
 /**
  * RegionDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-10-25T05:48:13.486809836Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-11-09T13:49:31.462302702Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class RegionDetail   {
   @JsonProperty("id")
@@ -27,7 +27,7 @@ public class RegionDetail   {
 
   @JsonProperty("name")
   @NotNull
-@Size(max=100)
+@Size(max=200)
 
   private String name;
 
@@ -59,7 +59,7 @@ public class RegionDetail   {
   @NotNull
 @Valid
 
-  private List<@Valid AbilityDetailPokemonInnerPokemon> versionGroups = new ArrayList<>();
+  private List<@Valid VersionGroupSummary> versionGroups = new ArrayList<>();
 
   public RegionDetail id(Integer id) {
     this.id = id;
@@ -67,7 +67,7 @@ public class RegionDetail   {
   }
 
    /**
-   * Get id
+   * The identifier for this resource.
    * @return id
   **/
   public Integer getId() {
@@ -84,7 +84,7 @@ public class RegionDetail   {
   }
 
    /**
-   * Get name
+   * The name for this resource.
    * @return name
   **/
   public String getName() {
@@ -109,7 +109,7 @@ public class RegionDetail   {
   }
 
    /**
-   * Get locations
+   * A list of locations that can be found in this region.
    * @return locations
   **/
   public List<@Valid LocationSummary> getLocations() {
@@ -126,7 +126,7 @@ public class RegionDetail   {
   }
 
    /**
-   * Get mainGeneration
+   * The generation this region was introduced in.
    * @return mainGeneration
   **/
   public GenerationSummary getMainGeneration() {
@@ -151,7 +151,7 @@ public class RegionDetail   {
   }
 
    /**
-   * Get names
+   * The name of this resource listed in different languages.
    * @return names
   **/
   public List<@Valid RegionName> getNames() {
@@ -176,7 +176,7 @@ public class RegionDetail   {
   }
 
    /**
-   * Get pokedexes
+   * A list of pokédexes that catalogue Pokémon in this region.
    * @return pokedexes
   **/
   public List<@Valid PokedexSummary> getPokedexes() {
@@ -187,12 +187,12 @@ public class RegionDetail   {
     this.pokedexes = pokedexes;
   }
 
-  public RegionDetail versionGroups(List<@Valid AbilityDetailPokemonInnerPokemon> versionGroups) {
+  public RegionDetail versionGroups(List<@Valid VersionGroupSummary> versionGroups) {
     this.versionGroups = versionGroups;
     return this;
   }
 
-  public RegionDetail addVersionGroupsItem(AbilityDetailPokemonInnerPokemon versionGroupsItem) {
+  public RegionDetail addVersionGroupsItem(VersionGroupSummary versionGroupsItem) {
     if (this.versionGroups == null) {
       this.versionGroups = new ArrayList<>();
     }
@@ -201,14 +201,14 @@ public class RegionDetail   {
   }
 
    /**
-   * Get versionGroups
+   * A list of version groups where this region can be visited.
    * @return versionGroups
   **/
-  public List<@Valid AbilityDetailPokemonInnerPokemon> getVersionGroups() {
+  public List<@Valid VersionGroupSummary> getVersionGroups() {
     return versionGroups;
   }
 
-  public void setVersionGroups(List<@Valid AbilityDetailPokemonInnerPokemon> versionGroups) {
+  public void setVersionGroups(List<@Valid VersionGroupSummary> versionGroups) {
     this.versionGroups = versionGroups;
   }
 

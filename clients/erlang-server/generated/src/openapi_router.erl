@@ -201,6 +201,20 @@ get_operations() ->
             method => <<"GET">>,
             handler => 'openapi_evolution_handler'
         },
+       'evolution_variable_list' => #{
+            servers => [],
+            base_path => "",
+            path => "/api/v2/evolution-variable/",
+            method => <<"GET">>,
+            handler => 'openapi_evolution_handler'
+        },
+       'evolution_variable_retrieve' => #{
+            servers => [],
+            base_path => "",
+            path => "/api/v2/evolution-variable/:id/",
+            method => <<"GET">>,
+            handler => 'openapi_evolution_handler'
+        },
        'generation_list' => #{
             servers => [],
             base_path => "",
@@ -256,6 +270,20 @@ get_operations() ->
             path => "/api/v2/version/:id/",
             method => <<"GET">>,
             handler => 'openapi_games_handler'
+        },
+       'currency_list' => #{
+            servers => [],
+            base_path => "",
+            path => "/api/v2/currency/",
+            method => <<"GET">>,
+            handler => 'openapi_items_handler'
+        },
+       'currency_retrieve' => #{
+            servers => [],
+            base_path => "",
+            path => "/api/v2/currency/:id/",
+            method => <<"GET">>,
+            handler => 'openapi_items_handler'
         },
        'item_attribute_list' => #{
             servers => [],
@@ -716,6 +744,13 @@ get_operations() ->
             servers => [],
             base_path => "",
             path => "/api/v2/language/:id/",
+            method => <<"GET">>,
+            handler => 'openapi_utility_handler'
+        },
+       'meta_retrieve' => #{
+            servers => [],
+            base_path => "",
+            path => "/api/v2/meta/",
             method => <<"GET">>,
             handler => 'openapi_utility_handler'
         }

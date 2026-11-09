@@ -12,17 +12,20 @@ part 'nature_battle_style_preference.g.dart';
 /// NatureBattleStylePreference
 ///
 /// Properties:
-/// * [lowHpPreference] 
-/// * [highHpPreference] 
-/// * [moveBattleStyle] 
+/// * [lowHpPreference] - Chance of using the move, in percent, if HP is under one half.
+/// * [highHpPreference] - Chance of using the move, in percent, if HP is over one half.
+/// * [moveBattleStyle] - The move battle style.
 @BuiltValue()
 abstract class NatureBattleStylePreference implements Built<NatureBattleStylePreference, NatureBattleStylePreferenceBuilder> {
+  /// Chance of using the move, in percent, if HP is under one half.
   @BuiltValueField(wireName: r'low_hp_preference')
   int get lowHpPreference;
 
+  /// Chance of using the move, in percent, if HP is over one half.
   @BuiltValueField(wireName: r'high_hp_preference')
   int get highHpPreference;
 
+  /// The move battle style.
   @BuiltValueField(wireName: r'move_battle_style')
   MoveBattleStyleSummary get moveBattleStyle;
 

@@ -13,17 +13,26 @@ import java.math.*;
 public class MoveFlavorText implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * The localized flavor text for an api resource in a specific language.
+   */
   @JsonProperty("flavor_text")
   private String flavorText;
 
+  /**
+   * The language this name is in.
+   */
   @JsonProperty("language")
   private LanguageSummary language;
 
+  /**
+   * The version group that uses this flavor text.
+   */
   @JsonProperty("version_group")
   private VersionGroupSummary versionGroup;
 
   /**
-   * 
+   * The localized flavor text for an api resource in a specific language.
    * @return flavorText
    */
   public String getFlavorText() {
@@ -35,7 +44,7 @@ public class MoveFlavorText implements Serializable {
   }
 
   /**
-   * 
+   * The language this name is in.
    * @return language
    */
   public LanguageSummary getLanguage() {
@@ -47,7 +56,7 @@ public class MoveFlavorText implements Serializable {
   }
 
   /**
-   * 
+   * The version group that uses this flavor text.
    * @return versionGroup
    */
   public VersionGroupSummary getVersionGroup() {

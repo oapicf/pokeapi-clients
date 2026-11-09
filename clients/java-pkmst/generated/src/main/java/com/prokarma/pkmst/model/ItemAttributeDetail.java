@@ -3,9 +3,9 @@ package com.prokarma.pkmst.model;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.prokarma.pkmst.model.AbilityDetailPokemonInnerPokemon;
 import com.prokarma.pkmst.model.ItemAttributeDescription;
 import com.prokarma.pkmst.model.ItemAttributeName;
+import com.prokarma.pkmst.model.ItemSummary;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
@@ -20,7 +20,7 @@ import java.util.List;
  * ItemAttributeDetail
  */
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-10-25T05:48:09.645019047Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-11-09T13:49:28.343088631Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class ItemAttributeDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -34,7 +34,7 @@ public class ItemAttributeDetail   {
 
   @JsonProperty("items")
   
-  private List<AbilityDetailPokemonInnerPokemon> items = new ArrayList<>();
+  private List<ItemSummary> items = new ArrayList<>();
 
   @JsonProperty("names")
   
@@ -46,10 +46,10 @@ public class ItemAttributeDetail   {
   }
 
   /**
-   * Get id
+   * The identifier for this resource.
    * @return id
    */
-  @ApiModelProperty(required = true, readOnly = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "The identifier for this resource.")
   public Integer getId() {
     return id;
   }
@@ -64,10 +64,10 @@ public class ItemAttributeDetail   {
   }
 
   /**
-   * Get name
+   * The name for this resource.
    * @return name
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   public String getName() {
     return name;
   }
@@ -90,10 +90,10 @@ public class ItemAttributeDetail   {
   }
 
   /**
-   * Get descriptions
+   * The description of this item attribute listed in different languages.
    * @return descriptions
    */
-  @ApiModelProperty(required = true, readOnly = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "The description of this item attribute listed in different languages.")
   public List<ItemAttributeDescription> getDescriptions() {
     return descriptions;
   }
@@ -102,12 +102,12 @@ public class ItemAttributeDetail   {
     this.descriptions = descriptions;
   }
 
-  public ItemAttributeDetail items(List<AbilityDetailPokemonInnerPokemon> items) {
+  public ItemAttributeDetail items(List<ItemSummary> items) {
     this.items = items;
     return this;
   }
 
-  public ItemAttributeDetail addItemsItem(AbilityDetailPokemonInnerPokemon itemsItem) {
+  public ItemAttributeDetail addItemsItem(ItemSummary itemsItem) {
     if (this.items == null) {
       this.items = new ArrayList<>();
     }
@@ -116,15 +116,15 @@ public class ItemAttributeDetail   {
   }
 
   /**
-   * Get items
+   * A list of items that have this attribute.
    * @return items
    */
-  @ApiModelProperty(required = true, readOnly = true, value = "")
-  public List<AbilityDetailPokemonInnerPokemon> getItems() {
+  @ApiModelProperty(required = true, readOnly = true, value = "A list of items that have this attribute.")
+  public List<ItemSummary> getItems() {
     return items;
   }
 
-  public void setItems(List<AbilityDetailPokemonInnerPokemon> items) {
+  public void setItems(List<ItemSummary> items) {
     this.items = items;
   }
 
@@ -142,10 +142,10 @@ public class ItemAttributeDetail   {
   }
 
   /**
-   * Get names
+   * The name of this item attribute listed in different languages.
    * @return names
    */
-  @ApiModelProperty(required = true, readOnly = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "The name of this item attribute listed in different languages.")
   public List<ItemAttributeName> getNames() {
     return names;
   }

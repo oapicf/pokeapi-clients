@@ -3,11 +3,11 @@ namespace OpenAPI.Model
 open System
 open System.Collections.Generic
 open Newtonsoft.Json
-open OpenAPI.Model.AbilityDetailPokemonInnerPokemon
 open OpenAPI.Model.GenerationSummary
 open OpenAPI.Model.LocationSummary
 open OpenAPI.Model.PokedexSummary
 open OpenAPI.Model.RegionName
+open OpenAPI.Model.VersionGroupSummary
 
 module RegionDetail =
 
@@ -28,7 +28,7 @@ module RegionDetail =
     [<JsonProperty(PropertyName = "pokedexes")>]
     Pokedexes : PokedexSummary[];
     [<JsonProperty(PropertyName = "version_groups")>]
-    VersionGroups : AbilityDetailPokemonInnerPokemon[];
+    VersionGroups : VersionGroupSummary[];
   }
 
   //#endregion

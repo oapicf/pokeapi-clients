@@ -7,7 +7,7 @@ using namespace Tiny;
 GenerationName::GenerationName()
 {
 	name = std::string();
-	language = LanguageSummary();
+	language = null;
 }
 
 GenerationName::GenerationName(std::string jsonString)

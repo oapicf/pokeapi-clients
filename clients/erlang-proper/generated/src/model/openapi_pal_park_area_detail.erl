@@ -12,7 +12,7 @@
   [ {'id', integer() }
   | {'name', binary() }
   | {'names', list(openapi_pal_park_area_name:openapi_pal_park_area_name()) }
-  | {'pokemon_encounters', list(openapi_pal_park_area_detail_pokemon_encounters_inner:openapi_pal_park_area_detail_pokemon_encounters_inner()) }
+  | {'pokemon_encounters', list(openapi_pal_park_encounter:openapi_pal_park_encounter()) }
   ].
 
 
@@ -23,7 +23,7 @@ openapi_pal_park_area_detail(Fields) ->
   Default = [ {'id', integer() }
             , {'name', binary() }
             , {'names', list(openapi_pal_park_area_name:openapi_pal_park_area_name()) }
-            , {'pokemon_encounters', list(openapi_pal_park_area_detail_pokemon_encounters_inner:openapi_pal_park_area_detail_pokemon_encounters_inner()) }
+            , {'pokemon_encounters', list(openapi_pal_park_encounter:openapi_pal_park_encounter()) }
             ],
   lists:ukeymerge(1, lists:sort(Fields), lists:sort(Default)).
 

@@ -7,7 +7,7 @@
     {
       "name": "url",
       "type": "model.URI",
-      "doc": ""
+      "doc": "The URL of the referenced resource."
     }
   ]
 

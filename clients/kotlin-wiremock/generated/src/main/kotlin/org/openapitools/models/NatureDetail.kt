@@ -26,11 +26,8 @@ data class NatureDetail(
     @field:JsonProperty("hates_flavor")
     val hatesFlavor: BerryFlavorSummary,
 
-    @field:JsonProperty("berries")
-    val berries: kotlin.collections.List<BerrySummary>,
-
     @field:JsonProperty("pokeathlon_stat_changes")
-    val pokeathlonStatChanges: kotlin.collections.List<NatureDetailPokeathlonStatChangesInner>,
+    val pokeathlonStatChanges: kotlin.collections.List<NaturePokeathlonStat>,
 
     @field:JsonProperty("move_battle_style_preferences")
     val moveBattleStylePreferences: kotlin.collections.List<NatureBattleStylePreference>,

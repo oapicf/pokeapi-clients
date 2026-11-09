@@ -11,10 +11,10 @@
         names=nothing,
     )
 
-    - id::Int64
-    - name::String
-    - order::Int64
-    - names::Vector{EncounterMethodName}
+    - id::Int64 : The identifier for this resource.
+    - name::String : The name for this resource.
+    - order::Int64 : A good value for sorting.
+    - names::Vector{EncounterMethodName} : The name of this resource listed in different languages.
 """
 Base.@kwdef mutable struct EncounterMethodDetail <: OpenAPI.APIModel
     id::Union{Nothing, Int64} = nothing
@@ -50,8 +50,12 @@ function OpenAPI.validate_property(::Type{ EncounterMethodDetail }, name::Symbol
 
 
     if name === Symbol("name")
-        OpenAPI.validate_param(name, "EncounterMethodDetail", :maxLength, val, 100)
+        OpenAPI.validate_param(name, "EncounterMethodDetail", :maxLength, val, 200)
     end
 
+    if name === Symbol("order")
+        OpenAPI.validate_param(name, "EncounterMethodDetail", :maximum, val, 2147483647, false)
+        OpenAPI.validate_param(name, "EncounterMethodDetail", :minimum, val, -2147483648, false)
+    end
 
 end

@@ -62,6 +62,7 @@ class PaginatedPokemonShapeSummaryList(Model):
     def count(self) -> int:
         """Gets the count of this PaginatedPokemonShapeSummaryList.
 
+        The total number of resources available from this API.  # noqa: E501
 
         :return: The count of this PaginatedPokemonShapeSummaryList.
         :rtype: int
@@ -72,10 +73,13 @@ class PaginatedPokemonShapeSummaryList(Model):
     def count(self, count: int):
         """Sets the count of this PaginatedPokemonShapeSummaryList.
 
+        The total number of resources available from this API.  # noqa: E501
 
         :param count: The count of this PaginatedPokemonShapeSummaryList.
         :type count: int
         """
+        if count is None:
+            raise ValueError("Invalid value for `count`, must not be `None`")  # noqa: E501
 
         self._count = count
 
@@ -83,6 +87,7 @@ class PaginatedPokemonShapeSummaryList(Model):
     def next(self) -> str:
         """Gets the next of this PaginatedPokemonShapeSummaryList.
 
+        The URL for the next page in the list, or null if there is no next page.  # noqa: E501
 
         :return: The next of this PaginatedPokemonShapeSummaryList.
         :rtype: str
@@ -93,6 +98,7 @@ class PaginatedPokemonShapeSummaryList(Model):
     def next(self, next: str):
         """Sets the next of this PaginatedPokemonShapeSummaryList.
 
+        The URL for the next page in the list, or null if there is no next page.  # noqa: E501
 
         :param next: The next of this PaginatedPokemonShapeSummaryList.
         :type next: str
@@ -104,6 +110,7 @@ class PaginatedPokemonShapeSummaryList(Model):
     def previous(self) -> str:
         """Gets the previous of this PaginatedPokemonShapeSummaryList.
 
+        The URL for the previous page in the list, or null if there is no previous page.  # noqa: E501
 
         :return: The previous of this PaginatedPokemonShapeSummaryList.
         :rtype: str
@@ -114,6 +121,7 @@ class PaginatedPokemonShapeSummaryList(Model):
     def previous(self, previous: str):
         """Sets the previous of this PaginatedPokemonShapeSummaryList.
 
+        The URL for the previous page in the list, or null if there is no previous page.  # noqa: E501
 
         :param previous: The previous of this PaginatedPokemonShapeSummaryList.
         :type previous: str
@@ -125,6 +133,7 @@ class PaginatedPokemonShapeSummaryList(Model):
     def results(self) -> List[PokemonShapeSummary]:
         """Gets the results of this PaginatedPokemonShapeSummaryList.
 
+        A list of API resources on this page.  # noqa: E501
 
         :return: The results of this PaginatedPokemonShapeSummaryList.
         :rtype: List[PokemonShapeSummary]
@@ -135,9 +144,12 @@ class PaginatedPokemonShapeSummaryList(Model):
     def results(self, results: List[PokemonShapeSummary]):
         """Sets the results of this PaginatedPokemonShapeSummaryList.
 
+        A list of API resources on this page.  # noqa: E501
 
         :param results: The results of this PaginatedPokemonShapeSummaryList.
         :type results: List[PokemonShapeSummary]
         """
+        if results is None:
+            raise ValueError("Invalid value for `results`, must not be `None`")  # noqa: E501
 
         self._results = results

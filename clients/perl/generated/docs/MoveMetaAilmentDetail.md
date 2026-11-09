@@ -8,10 +8,10 @@ use WWW::OpenAPIClient::Object::MoveMetaAilmentDetail;
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** |  | [readonly] 
-**name** | **string** |  | 
-**moves** | [**ARRAY[AbilityDetailPokemonInnerPokemon]**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] 
-**names** | [**ARRAY[MoveMetaAilmentName]**](MoveMetaAilmentName.md) |  | [readonly] 
+**id** | **int** | The identifier for this resource. | [readonly] 
+**name** | **string** | The name for this resource. | 
+**moves** | [**ARRAY[MoveSummary]**](MoveSummary.md) | A list of moves that cause this ailment. | [readonly] 
+**names** | [**ARRAY[MoveMetaAilmentName]**](MoveMetaAilmentName.md) | The name of this resource listed in different languages. | [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

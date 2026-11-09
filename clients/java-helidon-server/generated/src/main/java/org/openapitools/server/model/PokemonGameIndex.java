@@ -21,8 +21,8 @@ public class PokemonGameIndex   {
     /**
      * Create PokemonGameIndex.
      *
-     * @param gameIndex gameIndex
-     * @param version version
+     * @param gameIndex The internal id of an API resource within game data.
+     * @param version The version relevent to this game index.
      */
     public PokemonGameIndex(
         Integer gameIndex, 
@@ -35,7 +35,9 @@ public class PokemonGameIndex   {
 
 
     /**
-     * Get gameIndex
+     * The internal id of an API resource within game data.
+     * minimum: -2147483648
+     * maximum: 2147483647
      * @return gameIndex
      */
     public Integer getGameIndex() {
@@ -47,7 +49,7 @@ public class PokemonGameIndex   {
     }
 
     /**
-     * Get version
+     * The version relevent to this game index.
      * @return version
      */
     public VersionSummary getVersion() {

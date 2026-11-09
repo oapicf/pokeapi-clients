@@ -7,10 +7,10 @@
 #' @title EncounterMethodDetail
 #' @description EncounterMethodDetail Class
 #' @format An \code{R6Class} generator object
-#' @field id  integer
-#' @field name  character
-#' @field order  integer [optional]
-#' @field names  list(\link{EncounterMethodName})
+#' @field id The identifier for this resource. integer
+#' @field name The name for this resource. character
+#' @field order A good value for sorting. integer [optional]
+#' @field names The name of this resource listed in different languages. list(\link{EncounterMethodName})
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -25,10 +25,10 @@ EncounterMethodDetail <- R6::R6Class(
     #' @description
     #' Initialize a new EncounterMethodDetail class.
     #'
-    #' @param id id
-    #' @param name name
-    #' @param names names
-    #' @param order order
+    #' @param id The identifier for this resource.
+    #' @param name The name for this resource.
+    #' @param names The name of this resource listed in different languages.
+    #' @param order A good value for sorting.
     #' @param ... Other optional arguments.
     initialize = function(`id`, `name`, `names`, `order` = NULL, ...) {
       if (!missing(`id`)) {
@@ -230,7 +230,14 @@ EncounterMethodDetail <- R6::R6Class(
         return(FALSE)
       }
 
-      if (nchar(self$`name`) > 100) {
+      if (nchar(self$`name`) > 200) {
+        return(FALSE)
+      }
+
+      if (self$`order` > 2147483647) {
+        return(FALSE)
+      }
+      if (self$`order` < -2147483648) {
         return(FALSE)
       }
 
@@ -258,8 +265,15 @@ EncounterMethodDetail <- R6::R6Class(
         invalid_fields["name"] <- "Non-nullable required field `name` cannot be null."
       }
 
-      if (nchar(self$`name`) > 100) {
-        invalid_fields["name"] <- "Invalid length for `name`, must be smaller than or equal to 100."
+      if (nchar(self$`name`) > 200) {
+        invalid_fields["name"] <- "Invalid length for `name`, must be smaller than or equal to 200."
+      }
+
+      if (self$`order` > 2147483647) {
+        invalid_fields["order"] <- "Invalid value for `order`, must be smaller than or equal to 2147483647."
+      }
+      if (self$`order` < -2147483648) {
+        invalid_fields["order"] <- "Invalid value for `order`, must be bigger than or equal to -2147483648."
       }
 
       # check if the required `names` is null

@@ -16,7 +16,7 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 import io.swagger.annotations.*;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2026-10-25T05:48:49.952264473Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2026-11-09T13:50:00.159999817Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class ItemCategoryDetail   {
   
   private Integer id;
@@ -26,9 +26,10 @@ public class ItemCategoryDetail   {
   private ItemPocketSummary pocket;
 
   /**
+   * The identifier for this resource.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   @JsonProperty("id")
   @NotNull
   public Integer getId() {
@@ -39,12 +40,13 @@ public class ItemCategoryDetail   {
   }
 
   /**
+   * The name for this resource.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   @JsonProperty("name")
   @NotNull
- @Size(max=100)  public String getName() {
+ @Size(max=200)  public String getName() {
     return name;
   }
   public void setName(String name) {
@@ -52,9 +54,10 @@ public class ItemCategoryDetail   {
   }
 
   /**
+   * A list of items that are a part of this category.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of items that are a part of this category.")
   @JsonProperty("items")
   @NotNull
   public List<@Valid ItemSummary> getItems() {
@@ -65,9 +68,10 @@ public class ItemCategoryDetail   {
   }
 
   /**
+   * The name of this item category listed in different languages.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name of this item category listed in different languages.")
   @JsonProperty("names")
   @NotNull
   public List<@Valid ItemCategoryName> getNames() {
@@ -78,9 +82,10 @@ public class ItemCategoryDetail   {
   }
 
   /**
+   * The pocket items in this category would be put in.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The pocket items in this category would be put in.")
   @JsonProperty("pocket")
   @NotNull
   @Valid

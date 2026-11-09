@@ -24,7 +24,7 @@ services:
 ```
 
 ## **contestEffectList**
-> OpenAPI\Server\Model\PaginatedContestEffectSummaryList contestEffectList($limit, $offset, $q)
+> OpenAPI\Server\Model\PaginatedContestEffectSummaryList contestEffectList($limit, $offset)
 
 List contest effects
 
@@ -42,20 +42,12 @@ use OpenAPI\Server\Api\ContestsApiInterface;
 class ContestsApi implements ContestsApiInterface
 {
 
-    /**
-     * Configure API key authorization: cookieAuth
-     */
-    public function setcookieAuth($apiKey)
-    {
-        // Retrieve logged in user from $apiKey ...
-    }
-
     // ...
 
     /**
      * Implementation of ContestsApiInterface#contestEffectList
      */
-    public function contestEffectList(?int $limit, ?int $offset, ?string $q, int &$responseCode, array &$responseHeaders): array|object|null
+    public function contestEffectList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }
@@ -70,7 +62,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
- **q** | **string**| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. | [optional]
 
 ### Return type
 
@@ -78,7 +69,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -106,14 +97,6 @@ use OpenAPI\Server\Api\ContestsApiInterface;
 class ContestsApi implements ContestsApiInterface
 {
 
-    /**
-     * Configure API key authorization: cookieAuth
-     */
-    public function setcookieAuth($apiKey)
-    {
-        // Retrieve logged in user from $apiKey ...
-    }
-
     // ...
 
     /**
@@ -140,7 +123,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -167,14 +150,6 @@ use OpenAPI\Server\Api\ContestsApiInterface;
 
 class ContestsApi implements ContestsApiInterface
 {
-
-    /**
-     * Configure API key authorization: cookieAuth
-     */
-    public function setcookieAuth($apiKey)
-    {
-        // Retrieve logged in user from $apiKey ...
-    }
 
     // ...
 
@@ -204,7 +179,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -232,14 +207,6 @@ use OpenAPI\Server\Api\ContestsApiInterface;
 class ContestsApi implements ContestsApiInterface
 {
 
-    /**
-     * Configure API key authorization: cookieAuth
-     */
-    public function setcookieAuth($apiKey)
-    {
-        // Retrieve logged in user from $apiKey ...
-    }
-
     // ...
 
     /**
@@ -266,7 +233,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -276,7 +243,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 ## **superContestEffectList**
-> OpenAPI\Server\Model\PaginatedSuperContestEffectSummaryList superContestEffectList($limit, $offset, $q)
+> OpenAPI\Server\Model\PaginatedSuperContestEffectSummaryList superContestEffectList($limit, $offset)
 
 List super contest effects
 
@@ -294,20 +261,12 @@ use OpenAPI\Server\Api\ContestsApiInterface;
 class ContestsApi implements ContestsApiInterface
 {
 
-    /**
-     * Configure API key authorization: cookieAuth
-     */
-    public function setcookieAuth($apiKey)
-    {
-        // Retrieve logged in user from $apiKey ...
-    }
-
     // ...
 
     /**
      * Implementation of ContestsApiInterface#superContestEffectList
      */
-    public function superContestEffectList(?int $limit, ?int $offset, ?string $q, int &$responseCode, array &$responseHeaders): array|object|null
+    public function superContestEffectList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }
@@ -322,7 +281,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **int**| Number of results to return per page. | [optional]
  **offset** | **int**| The initial index from which to return the results. | [optional]
- **q** | **string**| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. | [optional]
 
 ### Return type
 
@@ -330,7 +288,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -358,14 +316,6 @@ use OpenAPI\Server\Api\ContestsApiInterface;
 class ContestsApi implements ContestsApiInterface
 {
 
-    /**
-     * Configure API key authorization: cookieAuth
-     */
-    public function setcookieAuth($apiKey)
-    {
-        // Retrieve logged in user from $apiKey ...
-    }
-
     // ...
 
     /**
@@ -392,7 +342,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

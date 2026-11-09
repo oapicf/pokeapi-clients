@@ -25,7 +25,7 @@ ContestTypeName::__init()
 {
 	//name = std::string();
 	//color = std::string();
-	//language = new LanguageSummary();
+	//language = null;
 }
 
 void

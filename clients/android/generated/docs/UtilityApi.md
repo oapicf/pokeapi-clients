@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**languageList**](UtilityApi.md#languageList) | **GET** /api/v2/language/ | List languages
 [**languageRetrieve**](UtilityApi.md#languageRetrieve) | **GET** /api/v2/language/{id}/ | Get language
+[**metaRetrieve**](UtilityApi.md#metaRetrieve) | **GET** /api/v2/meta/ | Get API metadata
 
 
 
@@ -51,7 +52,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -74,7 +75,7 @@ Languages for translations of API resource information.
 //import org.openapitools.client.api.UtilityApi;
 
 UtilityApi apiInstance = new UtilityApi();
-String id = null; // String | This parameter can be a string or an integer.
+String id = 1; // String | This parameter can be a string or an integer.
 try {
     LanguageDetail result = apiInstance.languageRetrieve(id);
     System.out.println(result);
@@ -97,7 +98,49 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## metaRetrieve
+
+> PokeapiMetaResponse metaRetrieve()
+
+Get API metadata
+
+Returns metadata about the current deployed version of the API, including the git commit hash, deploy date, and tag (if any).
+
+### Example
+
+```java
+// Import classes:
+//import org.openapitools.client.api.UtilityApi;
+
+UtilityApi apiInstance = new UtilityApi();
+try {
+    PokeapiMetaResponse result = apiInstance.metaRetrieve();
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling UtilityApi#metaRetrieve");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**PokeapiMetaResponse**](PokeapiMetaResponse.md)
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 

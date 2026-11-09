@@ -2,46 +2,81 @@
 Protected Class StatDetail
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The identifier for this resource.
+		#tag EndNote
 		id As Integer
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The name for this resource.
+		#tag EndNote
 		name As String
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			ID the games use for this stat.
+		#tag EndNote
 		game_index As Integer
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			Whether this stat only exists within a battle.
+		#tag EndNote
 		is_battle_only As Xoson.O.OptionalBoolean
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
-		affecting_moves As OpenAPIClient.Models.StatDetailAffectingMoves
+		#tag Note
+			A detail of moves which affect this stat positively or negatively.
+		#tag EndNote
+		affecting_moves As OpenAPIClient.Models.StatAffectingMoves
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
-		affecting_natures As OpenAPIClient.Models.StatDetailAffectingNatures
+		#tag Note
+			A detail of natures which affect this stat positively or negatively.
+		#tag EndNote
+		affecting_natures As OpenAPIClient.Models.StatAffectingNatures
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			Items that affect this stat, such as vitamins and battle items.
+		#tag EndNote
+		affecting_items() As OpenAPIClient.Models.ItemSummary
+	#tag EndProperty
+
+
+	#tag Property, Flags = &h0
+		#tag Note
+			A list of characteristics that are set on a Pokémon when its highest base stat is this stat.
+		#tag EndNote
 		characteristics() As OpenAPIClient.Models.CharacteristicSummary
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The class of damage this stat is directly related to.
+		#tag EndNote
 		move_damage_class As OpenAPIClient.Models.MoveDamageClassSummary
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The name of this resource listed in different languages.
+		#tag EndNote
 		names() As OpenAPIClient.Models.StatName
 	#tag EndProperty
 
@@ -119,7 +154,7 @@ Protected Class StatDetail
 			Visible=false
 			Group="Behavior"
 			InitialValue=""
-			Type="StatDetailAffectingMoves"
+			Type="StatAffectingMoves"
 			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
@@ -127,7 +162,15 @@ Protected Class StatDetail
 			Visible=false
 			Group="Behavior"
 			InitialValue=""
-			Type="StatDetailAffectingNatures"
+			Type="StatAffectingNatures"
+			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="affecting_items"
+			Visible=false
+			Group="Behavior"
+			InitialValue=""
+			Type="ItemSummary"
 			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty

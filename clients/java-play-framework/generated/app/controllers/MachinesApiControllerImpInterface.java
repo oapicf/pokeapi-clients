@@ -28,8 +28,8 @@ public abstract class MachinesApiControllerImpInterface {
     @Inject private SecurityAPIUtils securityAPIUtils;
     private ObjectMapper mapper = new ObjectMapper();
 
-    public Result machineListHttp(Http.Request request, Integer limit, Integer offset, String q) throws Exception {
-        PaginatedMachineSummaryList obj = machineList(request, limit, offset, q);
+    public Result machineListHttp(Http.Request request, Integer limit, Integer offset) throws Exception {
+        PaginatedMachineSummaryList obj = machineList(request, limit, offset);
 
         if (configuration.getBoolean("useOutputBeanValidation")) {
             OpenAPIUtils.validate(obj);
@@ -41,7 +41,7 @@ public abstract class MachinesApiControllerImpInterface {
 
     }
 
-    public abstract PaginatedMachineSummaryList machineList(Http.Request request, Integer limit, Integer offset, String q) throws Exception;
+    public abstract PaginatedMachineSummaryList machineList(Http.Request request, Integer limit, Integer offset) throws Exception;
 
     public Result machineRetrieveHttp(Http.Request request, String id) throws Exception {
         MachineDetail obj = machineRetrieve(request, id);

@@ -17,7 +17,7 @@ defmodule PokéAPI.Model.PokeathlonStatDetail do
   @type t :: %__MODULE__{
     :id => integer(),
     :name => String.t,
-    :affecting_natures => PokéAPI.Model.PokeathlonStatDetailAffectingNatures.t,
+    :affecting_natures => PokéAPI.Model.PokeathlonStatAffectingNatures.t,
     :names => [PokéAPI.Model.PokeathlonStatName.t]
   }
 
@@ -25,7 +25,7 @@ defmodule PokéAPI.Model.PokeathlonStatDetail do
 
   def decode(value) do
     value
-     |> Deserializer.deserialize(:affecting_natures, :struct, PokéAPI.Model.PokeathlonStatDetailAffectingNatures)
+     |> Deserializer.deserialize(:affecting_natures, :struct, PokéAPI.Model.PokeathlonStatAffectingNatures)
      |> Deserializer.deserialize(:names, :list, PokéAPI.Model.PokeathlonStatName)
   end
 end

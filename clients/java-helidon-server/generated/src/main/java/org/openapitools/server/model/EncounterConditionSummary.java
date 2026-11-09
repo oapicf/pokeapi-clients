@@ -21,8 +21,8 @@ public class EncounterConditionSummary   {
     /**
      * Create EncounterConditionSummary.
      *
-     * @param name name
-     * @param url url
+     * @param name The name of the referenced resource.
+     * @param url The URL of the referenced resource.
      */
     public EncounterConditionSummary(
         String name, 
@@ -35,7 +35,7 @@ public class EncounterConditionSummary   {
 
 
     /**
-     * Get name
+     * The name of the referenced resource.
      * @return name
      */
     public String getName() {
@@ -47,7 +47,7 @@ public class EncounterConditionSummary   {
     }
 
     /**
-     * Get url
+     * The URL of the referenced resource.
      * @return url
      */
     public URI getUrl() {

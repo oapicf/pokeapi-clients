@@ -1,0 +1,33 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "EncounterPokemonDetail",
+  "fields": [
+    {
+      "name": "min_perfect_ivs",
+      "type": ["null", "int"],
+      "doc": "The minimum number of perfect IVs, or null if unspecified.",
+      "default": null
+    },
+    {
+      "name": "always_shiny",
+      "type": ["null", "boolean"],
+      "doc": "Whether the encountered Pokémon is always shiny.",
+      "default": null
+    },
+    {
+      "name": "never_shiny",
+      "type": ["null", "boolean"],
+      "doc": "Whether the encountered Pokémon can never be shiny.",
+      "default": null
+    },
+    {
+      "name": "is_alpha",
+      "type": ["null", "boolean"],
+      "doc": "Whether the encountered Pokémon is an alpha Pokémon.",
+      "default": null
+    }
+  ]
+
+}

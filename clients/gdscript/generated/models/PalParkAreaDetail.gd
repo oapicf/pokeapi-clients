@@ -10,6 +10,7 @@ class_name PalParkAreaDetail
 # PalParkAreaDetail Model
 
 
+# The identifier for this resource.
 # Required: True
 # isArray: false
 @export var id: int:
@@ -18,6 +19,7 @@ class_name PalParkAreaDetail
 		id = value
 var __id__was__set := false
 
+# The name for this resource.
 # Required: True
 # isArray: false
 @export var name: String:
@@ -26,6 +28,7 @@ var __id__was__set := false
 		name = value
 var __name__was__set := false
 
+# The name of this resource listed in different languages.
 # Required: True
 # isArray: true
 @export var names: Array:
@@ -34,6 +37,7 @@ var __name__was__set := false
 		names = value
 var __names__was__set := false
 
+# A list of Pokémon encountered in thi pal park area along with details.
 # Required: True
 # isArray: true
 @export var pokemonUnderscoreencounters: Array:
@@ -79,7 +83,7 @@ static func bzz_denormalize_single(from_dict: Dictionary):
 	if from_dict.has("names"):
 		me.names = PalParkAreaName.bzz_denormalize_multiple(from_dict["names"])
 	if from_dict.has("pokemonUnderscoreencounters"):
-		me.pokemonUnderscoreencounters = PalParkAreaDetail_pokemon_encounters_inner.bzz_denormalize_multiple(from_dict["pokemonUnderscoreencounters"])
+		me.pokemonUnderscoreencounters = PalParkEncounter.bzz_denormalize_multiple(from_dict["pokemonUnderscoreencounters"])
 	return me
 
 

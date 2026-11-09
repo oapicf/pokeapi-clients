@@ -8,10 +8,10 @@
 
 (def paginated-move-learn-method-summary-list-data
   {
-   (ds/opt :count) int?
+   (ds/req :count) int?
    (ds/opt :next) string?
    (ds/opt :previous) string?
-   (ds/opt :results) (s/coll-of move-learn-method-summary-spec)
+   (ds/req :results) (s/coll-of move-learn-method-summary-spec)
    })
 
 (def paginated-move-learn-method-summary-list-spec

@@ -8,23 +8,35 @@
 import Foundation
 
 public struct StatDetail: Codable {
+    /// The identifier for this resource.
     public var id: Int
+    /// The name for this resource.
     public var name: String
+    /// ID the games use for this stat.
     public var gameIndex: Int
+    /// Whether this stat only exists within a battle.
     public var isBattleOnly: Bool?
-    public var affectingMoves: StatDetailAffectingMoves
-    public var affectingNatures: StatDetailAffectingNatures
+    /// A detail of moves which affect this stat positively or negatively.
+    public var affectingMoves: StatAffectingMoves
+    /// A detail of natures which affect this stat positively or negatively.
+    public var affectingNatures: StatAffectingNatures
+    /// Items that affect this stat, such as vitamins and battle items.
+    public var affectingItems: [ItemSummary]
+    /// A list of characteristics that are set on a Pokémon when its highest base stat is this stat.
     public var characteristics: [CharacteristicSummary]
-    public var moveDamageClass: MoveDamageClassSummary
+    /// The class of damage this stat is directly related to.
+    public var moveDamageClass: MoveDamageClassSummary?
+    /// The name of this resource listed in different languages.
     public var names: [StatName]
 
-    public init(id: Int, name: String, gameIndex: Int, isBattleOnly: Bool? = nil, affectingMoves: StatDetailAffectingMoves, affectingNatures: StatDetailAffectingNatures, characteristics: [CharacteristicSummary], moveDamageClass: MoveDamageClassSummary, names: [StatName]) {
+    public init(id: Int, name: String, gameIndex: Int, isBattleOnly: Bool? = nil, affectingMoves: StatAffectingMoves, affectingNatures: StatAffectingNatures, affectingItems: [ItemSummary], characteristics: [CharacteristicSummary], moveDamageClass: MoveDamageClassSummary?, names: [StatName]) {
         self.id = id
         self.name = name
         self.gameIndex = gameIndex
         self.isBattleOnly = isBattleOnly
         self.affectingMoves = affectingMoves
         self.affectingNatures = affectingNatures
+        self.affectingItems = affectingItems
         self.characteristics = characteristics
         self.moveDamageClass = moveDamageClass
         self.names = names
@@ -37,6 +49,7 @@ public struct StatDetail: Codable {
         case isBattleOnly = "is_battle_only"
         case affectingMoves = "affecting_moves"
         case affectingNatures = "affecting_natures"
+        case affectingItems = "affecting_items"
         case characteristics
         case moveDamageClass = "move_damage_class"
         case names
@@ -48,8 +61,9 @@ public struct StatDetail: Codable {
         name = try container.decode(String.self, forKey: .name)
         gameIndex = try container.decode(Int.self, forKey: .gameIndex)
         isBattleOnly = try container.decodeIfPresent(Bool.self, forKey: .isBattleOnly)
-        affectingMoves = try container.decode(StatDetailAffectingMoves.self, forKey: .affectingMoves)
-        affectingNatures = try container.decode(StatDetailAffectingNatures.self, forKey: .affectingNatures)
+        affectingMoves = try container.decode(StatAffectingMoves.self, forKey: .affectingMoves)
+        affectingNatures = try container.decode(StatAffectingNatures.self, forKey: .affectingNatures)
+        affectingItems = try container.decode([ItemSummary].self, forKey: .affectingItems)
         characteristics = try container.decode([CharacteristicSummary].self, forKey: .characteristics)
         moveDamageClass = try container.decode(MoveDamageClassSummary.self, forKey: .moveDamageClass)
         names = try container.decode([StatName].self, forKey: .names)
@@ -63,6 +77,7 @@ public struct StatDetail: Codable {
         try container.encodeIfPresent(isBattleOnly, forKey: .isBattleOnly)
         try container.encode(affectingMoves, forKey: .affectingMoves)
         try container.encode(affectingNatures, forKey: .affectingNatures)
+        try container.encode(affectingItems, forKey: .affectingItems)
         try container.encode(characteristics, forKey: .characteristics)
         try container.encode(moveDamageClass, forKey: .moveDamageClass)
         try container.encode(names, forKey: .names)

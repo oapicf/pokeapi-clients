@@ -7,17 +7,17 @@
     {
       "name": "id",
       "type": "int",
-      "doc": ""
+      "doc": "The identifier for this resource."
     },
     {
       "name": "name",
       "type": "string",
-      "doc": ""
+      "doc": "The name for this resource."
     },
     {
       "name": "condition",
       "type": "model.EncounterConditionSummary",
-      "doc": ""
+      "doc": "The condition this encounter condition value pertains to."
     },
     {
       "name": "names",
@@ -25,7 +25,7 @@
         "type": "array",
         "items": "model.EncounterConditionValueName"
       },
-      "doc": ""
+      "doc": "The name of this resource listed in different languages."
     }
   ]
 

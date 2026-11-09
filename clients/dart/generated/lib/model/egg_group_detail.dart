@@ -19,13 +19,17 @@ class EggGroupDetail {
     this.pokemonSpecies = const [],
   });
 
+  /// The identifier for this resource.
   int id;
 
+  /// The name for this resource.
   String name;
 
+  /// The name of this resource listed in different languages.
   List<EggGroupName> names;
 
-  List<EggGroupDetailPokemonSpeciesInner> pokemonSpecies;
+  /// A list of all Pokémon species that are members of this egg group.
+  List<PokemonSpeciesSummary> pokemonSpecies;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is EggGroupDetail &&
@@ -80,7 +84,7 @@ class EggGroupDetail {
         id: mapValueOfType<int>(json, r'id')!,
         name: mapValueOfType<String>(json, r'name')!,
         names: EggGroupName.listFromJson(json[r'names']),
-        pokemonSpecies: EggGroupDetailPokemonSpeciesInner.listFromJson(json[r'pokemon_species']),
+        pokemonSpecies: PokemonSpeciesSummary.listFromJson(json[r'pokemon_species']),
       );
     }
     return null;

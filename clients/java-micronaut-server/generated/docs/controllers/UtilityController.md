@@ -8,6 +8,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**languageList**](#languageList) | **GET** /api/v2/language/ | List languages
 [**languageRetrieve**](#languageRetrieve) | **GET** /api/v2/language/{id}/ | Get language
+[**metaRetrieve**](#metaRetrieve) | **GET** /api/v2/meta/ | Get API metadata
 
 <a id="languageList"></a>
 # **languageList**
@@ -29,9 +30,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**PaginatedLanguageSummaryList**](../../docs/models/PaginatedLanguageSummaryList.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -55,9 +53,25 @@ Name | Type | Description  | Notes
 ### Return type
 [**LanguageDetail**](../../docs/models/LanguageDetail.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
+
+### HTTP request headers
+ - **Accepts Content-Type**: Not defined
+ - **Produces Content-Type**: `application/json`
+
+<a id="metaRetrieve"></a>
+# **metaRetrieve**
+```java
+Mono<PokeapiMetaResponse> UtilityController.metaRetrieve()
+```
+
+Get API metadata
+
+Returns metadata about the current deployed version of the API, including the git commit hash, deploy date, and tag (if any).
+
+
+### Return type
+[**PokeapiMetaResponse**](../../docs/models/PokeapiMetaResponse.md)
+
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined

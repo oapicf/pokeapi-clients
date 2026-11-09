@@ -17,18 +17,18 @@ import io.swagger.v3.oas.annotations.media.Schema
 
 /**
  * 
- * @param versionGroup 
- * @param effectEntries 
+ * @param versionGroup The version group in which the previous effect of this ability originated.
+ * @param effectEntries The previous effect of this ability listed in different languages.
  */
 data class AbilityChange(
 
     @field:Valid
-    @Schema(required = true, description = "")
+    @Schema(required = true, description = "The version group in which the previous effect of this ability originated.")
     @param:JsonProperty("version_group", required = true)
     @get:JsonProperty("version_group", required = true) val versionGroup: VersionGroupSummary,
 
     @field:Valid
-    @Schema(required = true, readOnly = true, description = "")
+    @Schema(required = true, readOnly = true, description = "The previous effect of this ability listed in different languages.")
     @param:JsonProperty("effect_entries", required = true)
     @get:JsonProperty("effect_entries", required = true) val effectEntries: kotlin.collections.List<AbilityChangeEffectText>
 ) {

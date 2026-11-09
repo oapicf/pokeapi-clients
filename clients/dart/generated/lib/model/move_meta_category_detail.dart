@@ -19,13 +19,17 @@ class MoveMetaCategoryDetail {
     this.moves = const [],
   });
 
+  /// The identifier for this resource.
   int id;
 
+  /// The name for this resource.
   String name;
 
+  /// The description of this resource listed in different languages.
   List<MoveMetaCategoryDescription> descriptions;
 
-  List<AbilityDetailPokemonInnerPokemon> moves;
+  /// A list of moves that fall into this category.
+  List<MoveSummary> moves;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is MoveMetaCategoryDetail &&
@@ -80,7 +84,7 @@ class MoveMetaCategoryDetail {
         id: mapValueOfType<int>(json, r'id')!,
         name: mapValueOfType<String>(json, r'name')!,
         descriptions: MoveMetaCategoryDescription.listFromJson(json[r'descriptions']),
-        moves: AbilityDetailPokemonInnerPokemon.listFromJson(json[r'moves']),
+        moves: MoveSummary.listFromJson(json[r'moves']),
       );
     }
     return null;

@@ -4,8 +4,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**entry_number** | **int** |  | 
-**pokedex** | [**PokedexSummary**](PokedexSummary.md) |  | 
+**entry_number** | **int** | The index number within the Pokédex. | 
+**pokedex** | [**PokedexSummary**](PokedexSummary.md) | The Pokédex the referenced Pokémon species can be found in. | 
 
 ## Example
 

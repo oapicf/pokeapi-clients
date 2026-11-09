@@ -3,9 +3,9 @@
 /*
  * PokéAPI
  *
- * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+ * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
  *
- * API version: 2.7.0
+ * API version: 2.10.0
  * Contact: blah+oapicf@cliffano.com
  */
 
@@ -13,6 +13,7 @@ package openapi
 
 
 import (
+	"errors"
 	"encoding/json"
 	"fmt"
 )
@@ -21,35 +22,50 @@ import (
 
 type ItemDetail struct {
 
+	// The identifier for this resource.
 	Id int32 `json:"id"`
 
+	// The name for this resource.
 	Name string `json:"name"`
 
-	Cost *int32 `json:"cost,omitempty"`
-
+	// The power of the move Fling when used with this item.
 	FlingPower *int32 `json:"fling_power,omitempty"`
 
-	FlingEffect ItemFlingEffectSummary `json:"fling_effect"`
+	// The effect of the move Fling when used with this item.
+	FlingEffect *ItemFlingEffectSummary `json:"fling_effect"`
 
-	Attributes []AbilityDetailPokemonInnerPokemon `json:"attributes"`
+	// A list of attributes this item has.
+	Attributes []ItemAttributeSummary `json:"attributes"`
 
+	// The category of items this item falls into.
 	Category ItemCategorySummary `json:"category"`
 
+	// The effect of this ability listed in different languages.
 	EffectEntries []ItemEffectText `json:"effect_entries"`
 
+	// The flavor text of this ability listed in different languages.
 	FlavorTextEntries []ItemFlavorText `json:"flavor_text_entries"`
 
+	// A list of game indices relevent to this item by generation.
 	GameIndices []ItemGameIndex `json:"game_indices"`
 
+	// Purchase and sell prices by currency and version group. Prices may be null when the item cannot be bought or sold.
+	Prices []ItemPrice `json:"prices"`
+
+	// The name of this item listed in different languages.
 	Names []ItemName `json:"names"`
 
-	HeldByPokemon []ItemDetailHeldByPokemonInner `json:"held_by_pokemon"`
+	// A list of Pokémon that might be found in the wild holding this item.
+	HeldByPokemon []PokemonHeldItem `json:"held_by_pokemon"`
 
-	Sprites ItemDetailSprites `json:"sprites"`
+	// A set of sprites used to depict this item in the game.
+	Sprites ItemSprites `json:"sprites"`
 
-	BabyTriggerFor ItemDetailBabyTriggerFor `json:"baby_trigger_for"`
+	// An evolution chain this item requires to produce a bay during mating.
+	BabyTriggerFor *EvolutionChainSummary `json:"baby_trigger_for"`
 
-	Machines []ItemDetailMachinesInner `json:"machines"`
+	// A list of the machines related to this item.
+	Machines []ItemMachine `json:"machines"`
 }
 // UnmarshalJSON validates required property keys then unmarshals into ItemDetail
 func (o *ItemDetail) UnmarshalJSON(data []byte) (err error) {
@@ -59,22 +75,17 @@ func (o *ItemDetail) UnmarshalJSON(data []byte) (err error) {
 		"name",
 		"fling_effect",
 		"category",
-		"sprites",
-		"baby_trigger_for",
 	}
 
 	requiredNullableProperties := map[string]bool{
 		"name": false,
-		"fling_effect": false,
+		"fling_effect": true,
 		"category": false,
-		"sprites": false,
-		"baby_trigger_for": false,
 	}
 
 	allowedJsonKeys := map[string]struct{}{
 		"id": {},
 		"name": {},
-		"cost": {},
 		"fling_power": {},
 		"fling_effect": {},
 		"attributes": {},
@@ -82,6 +93,7 @@ func (o *ItemDetail) UnmarshalJSON(data []byte) (err error) {
 		"effect_entries": {},
 		"flavor_text_entries": {},
 		"game_indices": {},
+		"prices": {},
 		"names": {},
 		"held_by_pokemon": {},
 		"sprites": {},
@@ -125,11 +137,6 @@ func (o *ItemDetail) UnmarshalJSON(data []byte) (err error) {
 			return err
 		}
 	}
-	if value, exists := allProperties["cost"]; exists {
-		if err = json.Unmarshal(value, &decoded.Cost); err != nil {
-			return err
-		}
-	}
 	if value, exists := allProperties["fling_power"]; exists {
 		if err = json.Unmarshal(value, &decoded.FlingPower); err != nil {
 			return err
@@ -162,6 +169,11 @@ func (o *ItemDetail) UnmarshalJSON(data []byte) (err error) {
 	}
 	if value, exists := allProperties["game_indices"]; exists {
 		if err = json.Unmarshal(value, &decoded.GameIndices); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["prices"]; exists {
+		if err = json.Unmarshal(value, &decoded.Prices); err != nil {
 			return err
 		}
 	}
@@ -200,10 +212,7 @@ func (o *ItemDetail) UnmarshalJSON(data []byte) (err error) {
 // Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertItemDetailRequired(obj ItemDetail) error {
 	elements := map[string]interface{}{
-		"fling_effect": obj.FlingEffect,
 		"category": obj.Category,
-		"sprites": obj.Sprites,
-		"baby_trigger_for": obj.BabyTriggerFor,
 	}
 	for name, el := range elements {
 		if isZero := IsZeroValue(el); isZero {
@@ -211,16 +220,12 @@ func AssertItemDetailRequired(obj ItemDetail) error {
 		}
 	}
 
-	if err := AssertItemFlingEffectSummaryRequired(obj.FlingEffect); err != nil {
-		return err
+	if obj.FlingEffect != nil {
+		if err := AssertItemFlingEffectSummaryRequired(*obj.FlingEffect); err != nil {
+			return err
+		}
 	}
 	if err := AssertItemCategorySummaryRequired(obj.Category); err != nil {
-		return err
-	}
-	if err := AssertItemDetailSpritesRequired(obj.Sprites); err != nil {
-		return err
-	}
-	if err := AssertItemDetailBabyTriggerForRequired(obj.BabyTriggerFor); err != nil {
 		return err
 	}
 	return nil
@@ -228,16 +233,18 @@ func AssertItemDetailRequired(obj ItemDetail) error {
 
 // AssertItemDetailConstraints checks if the values respects the defined constraints
 func AssertItemDetailConstraints(obj ItemDetail) error {
-	if err := AssertItemFlingEffectSummaryConstraints(obj.FlingEffect); err != nil {
-		return err
+	if obj.FlingPower != nil && *obj.FlingPower < -2147483648 {
+		return &ParsingError{Param: "FlingPower", Err: errors.New(errMsgMinValueConstraint)}
 	}
+	if obj.FlingPower != nil && *obj.FlingPower > 2147483647 {
+		return &ParsingError{Param: "FlingPower", Err: errors.New(errMsgMaxValueConstraint)}
+	}
+    if obj.FlingEffect != nil {
+     	if err := AssertItemFlingEffectSummaryConstraints(*obj.FlingEffect); err != nil {
+     		return err
+     	}
+    }
 	if err := AssertItemCategorySummaryConstraints(obj.Category); err != nil {
-		return err
-	}
-	if err := AssertItemDetailSpritesConstraints(obj.Sprites); err != nil {
-		return err
-	}
-	if err := AssertItemDetailBabyTriggerForConstraints(obj.BabyTriggerFor); err != nil {
 		return err
 	}
 	return nil

@@ -25,7 +25,7 @@ ItemEffectText::__init()
 {
 	//effect = std::string();
 	//short_effect = std::string();
-	//language = new LanguageSummary();
+	//language = null;
 }
 
 void

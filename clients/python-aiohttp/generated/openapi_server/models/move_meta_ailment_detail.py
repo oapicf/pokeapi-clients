@@ -5,8 +5,8 @@ from datetime import date, datetime
 from typing import List, Dict, Type
 
 from openapi_server.models.base_model import Model
-from openapi_server.models.ability_detail_pokemon_inner_pokemon import AbilityDetailPokemonInnerPokemon
 from openapi_server.models.move_meta_ailment_name import MoveMetaAilmentName
+from openapi_server.models.move_summary import MoveSummary
 from openapi_server import util
 
 
@@ -16,7 +16,7 @@ class MoveMetaAilmentDetail(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, id: int=None, name: str=None, moves: List[AbilityDetailPokemonInnerPokemon]=None, names: List[MoveMetaAilmentName]=None):
+    def __init__(self, id: int=None, name: str=None, moves: List[MoveSummary]=None, names: List[MoveMetaAilmentName]=None):
         """MoveMetaAilmentDetail - a model defined in OpenAPI
 
         :param id: The id of this MoveMetaAilmentDetail.
@@ -27,7 +27,7 @@ class MoveMetaAilmentDetail(Model):
         self.openapi_types = {
             'id': int,
             'name': str,
-            'moves': List[AbilityDetailPokemonInnerPokemon],
+            'moves': List[MoveSummary],
             'names': List[MoveMetaAilmentName]
         }
 
@@ -56,6 +56,7 @@ class MoveMetaAilmentDetail(Model):
     def id(self):
         """Gets the id of this MoveMetaAilmentDetail.
 
+        The identifier for this resource.
 
         :return: The id of this MoveMetaAilmentDetail.
         :rtype: int
@@ -66,6 +67,7 @@ class MoveMetaAilmentDetail(Model):
     def id(self, id):
         """Sets the id of this MoveMetaAilmentDetail.
 
+        The identifier for this resource.
 
         :param id: The id of this MoveMetaAilmentDetail.
         :type id: int
@@ -79,6 +81,7 @@ class MoveMetaAilmentDetail(Model):
     def name(self):
         """Gets the name of this MoveMetaAilmentDetail.
 
+        The name for this resource.
 
         :return: The name of this MoveMetaAilmentDetail.
         :rtype: str
@@ -89,14 +92,15 @@ class MoveMetaAilmentDetail(Model):
     def name(self, name):
         """Sets the name of this MoveMetaAilmentDetail.
 
+        The name for this resource.
 
         :param name: The name of this MoveMetaAilmentDetail.
         :type name: str
         """
         if name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")
-        if name is not None and len(name) > 100:
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `100`")
+        if name is not None and len(name) > 200:
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `200`")
 
         self._name = name
 
@@ -104,9 +108,10 @@ class MoveMetaAilmentDetail(Model):
     def moves(self):
         """Gets the moves of this MoveMetaAilmentDetail.
 
+        A list of moves that cause this ailment.
 
         :return: The moves of this MoveMetaAilmentDetail.
-        :rtype: List[AbilityDetailPokemonInnerPokemon]
+        :rtype: List[MoveSummary]
         """
         return self._moves
 
@@ -114,9 +119,10 @@ class MoveMetaAilmentDetail(Model):
     def moves(self, moves):
         """Sets the moves of this MoveMetaAilmentDetail.
 
+        A list of moves that cause this ailment.
 
         :param moves: The moves of this MoveMetaAilmentDetail.
-        :type moves: List[AbilityDetailPokemonInnerPokemon]
+        :type moves: List[MoveSummary]
         """
         if moves is None:
             raise ValueError("Invalid value for `moves`, must not be `None`")
@@ -127,6 +133,7 @@ class MoveMetaAilmentDetail(Model):
     def names(self):
         """Gets the names of this MoveMetaAilmentDetail.
 
+        The name of this resource listed in different languages.
 
         :return: The names of this MoveMetaAilmentDetail.
         :rtype: List[MoveMetaAilmentName]
@@ -137,6 +144,7 @@ class MoveMetaAilmentDetail(Model):
     def names(self, names):
         """Sets the names of this MoveMetaAilmentDetail.
 
+        The name of this resource listed in different languages.
 
         :param names: The names of this MoveMetaAilmentDetail.
         :type names: List[MoveMetaAilmentName]

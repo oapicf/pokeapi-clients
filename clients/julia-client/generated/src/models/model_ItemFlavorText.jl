@@ -10,9 +10,9 @@
         language=nothing,
     )
 
-    - text::String
-    - version_group::VersionGroupSummary
-    - language::LanguageSummary
+    - text::String : The localized flavor text for an API resource in a specific language.
+    - version_group::VersionGroupSummary : The version group which uses this flavor text.
+    - language::LanguageSummary : The language this name is in.
 """
 Base.@kwdef mutable struct ItemFlavorText <: OpenAPI.APIModel
     text::Union{Nothing, String} = nothing

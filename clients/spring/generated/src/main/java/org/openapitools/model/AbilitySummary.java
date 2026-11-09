@@ -20,7 +20,7 @@ import jakarta.annotation.Generated;
  * AbilitySummary
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-10-25T05:53:37.479908528Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-11-09T13:53:47.069318184Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class AbilitySummary {
 
   private String name;
@@ -45,11 +45,11 @@ public class AbilitySummary {
   }
 
   /**
-   * Get name
+   * The name of the referenced resource.
    * @return name
    */
-  @NotNull @Size(max = 100) 
-  @Schema(name = "name", requiredMode = Schema.RequiredMode.REQUIRED)
+  @NotNull @Size(max = 200) 
+  @Schema(name = "name", description = "The name of the referenced resource.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("name")
   public String getName() {
     return name;
@@ -66,11 +66,11 @@ public class AbilitySummary {
   }
 
   /**
-   * Get url
+   * The URL of the referenced resource.
    * @return url
    */
   @Valid 
-  @Schema(name = "url", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "url", accessMode = Schema.AccessMode.READ_ONLY, description = "The URL of the referenced resource.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("url")
   public URI getUrl() {
     return url;

@@ -1,0 +1,40 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server TypeGameSprite"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a TypeGameSprite"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+}
+resourceTypes {
+
+  TypeGameSprite {
+    title = TypeGameSprite
+    description = TypeGameSprite
+    derivedFrom = Root
+    properties {
+        name_icon {
+          type =  string
+          description = "The URL of the icon displaying the type name in this game, or null if unavailable."
+          optional = false
+        }
+        symbol_icon {
+          type =  string
+          description = "The URL of the type symbol icon in this game, or null if unavailable."
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  TypeGameSprite {
+    title = TypeGameSprite
+    description = TypeGameSprite
+    implements = openapi_server.resourceTypes.TypeGameSprite
+
+  }
+}

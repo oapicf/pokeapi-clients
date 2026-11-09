@@ -14,20 +14,32 @@ import java.math.*;
 public class EncounterMethodDetail implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * The identifier for this resource.
+   */
   @JsonProperty("id")
   private Integer id;
 
+  /**
+   * The name for this resource.
+   */
   @JsonProperty("name")
   private String name;
 
+  /**
+   * A good value for sorting.
+   */
   @JsonProperty("order")
   private Integer order;
 
+  /**
+   * The name of this resource listed in different languages.
+   */
   @JsonProperty("names")
   private List<EncounterMethodName> names = new ArrayList<>();
 
   /**
-   * 
+   * The identifier for this resource.
    * @return id
    */
   public Integer getId() {
@@ -39,7 +51,7 @@ public class EncounterMethodDetail implements Serializable {
   }
 
   /**
-   * 
+   * The name for this resource.
    * @return name
    */
   public String getName() {
@@ -51,7 +63,7 @@ public class EncounterMethodDetail implements Serializable {
   }
 
   /**
-   * 
+   * A good value for sorting.
    * @return order
    */
   public Integer getOrder() {
@@ -63,7 +75,7 @@ public class EncounterMethodDetail implements Serializable {
   }
 
   /**
-   * 
+   * The name of this resource listed in different languages.
    * @return names
    */
   public List<EncounterMethodName> getNames() {

@@ -33,8 +33,6 @@ pub enum MachineRetrieveResponse {
 #[async_trait]
 #[allow(clippy::ptr_arg)]
 pub trait Machines<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorHandler<E> {
-    type Claims;
-
     /// List machines.
     ///
     /// MachineList - GET /api/v2/machine/
@@ -44,7 +42,6 @@ pub trait Machines<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Erro
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       query_params: &models::MachineListQueryParams,
     ) -> Result<MachineListResponse, E>;
 
@@ -57,7 +54,6 @@ pub trait Machines<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Erro
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       path_params: &models::MachineRetrievePathParams,
     ) -> Result<MachineRetrieveResponse, E>;
 }

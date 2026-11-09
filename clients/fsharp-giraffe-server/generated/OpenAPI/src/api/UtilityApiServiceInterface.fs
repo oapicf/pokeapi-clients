@@ -11,4 +11,5 @@ module UtilityApiServiceInterface =
     type IUtilityApiService =
       abstract member LanguageList:HttpContext -> LanguageListArgs->LanguageListResult
       abstract member LanguageRetrieve:HttpContext -> LanguageRetrieveArgs->LanguageRetrieveResult
+      abstract member MetaRetrieve:HttpContext ->MetaRetrieveResult
     //#endregion

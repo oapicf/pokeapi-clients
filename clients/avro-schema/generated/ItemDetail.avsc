@@ -7,42 +7,36 @@
     {
       "name": "id",
       "type": "int",
-      "doc": ""
+      "doc": "The identifier for this resource."
     },
     {
       "name": "name",
       "type": "string",
-      "doc": ""
-    },
-    {
-      "name": "cost",
-      "type": ["null", "int"],
-      "doc": "",
-      "default": null
+      "doc": "The name for this resource."
     },
     {
       "name": "fling_power",
       "type": ["null", "int"],
-      "doc": "",
+      "doc": "The power of the move Fling when used with this item.",
       "default": null
     },
     {
       "name": "fling_effect",
       "type": "model.ItemFlingEffectSummary",
-      "doc": ""
+      "doc": "The effect of the move Fling when used with this item."
     },
     {
       "name": "attributes",
       "type": {
         "type": "array",
-        "items": "model.AbilityDetailPokemonInnerPokemon"
+        "items": "model.ItemAttributeSummary"
       },
-      "doc": ""
+      "doc": "A list of attributes this item has."
     },
     {
       "name": "category",
       "type": "model.ItemCategorySummary",
-      "doc": ""
+      "doc": "The category of items this item falls into."
     },
     {
       "name": "effect_entries",
@@ -50,7 +44,7 @@
         "type": "array",
         "items": "model.ItemEffectText"
       },
-      "doc": ""
+      "doc": "The effect of this ability listed in different languages."
     },
     {
       "name": "flavor_text_entries",
@@ -58,7 +52,7 @@
         "type": "array",
         "items": "model.ItemFlavorText"
       },
-      "doc": ""
+      "doc": "The flavor text of this ability listed in different languages."
     },
     {
       "name": "game_indices",
@@ -66,7 +60,15 @@
         "type": "array",
         "items": "model.ItemGameIndex"
       },
-      "doc": ""
+      "doc": "A list of game indices relevent to this item by generation."
+    },
+    {
+      "name": "prices",
+      "type": {
+        "type": "array",
+        "items": "model.ItemPrice"
+      },
+      "doc": "Purchase and sell prices by currency and version group. Prices may be null when the item cannot be bought or sold."
     },
     {
       "name": "names",
@@ -74,33 +76,33 @@
         "type": "array",
         "items": "model.ItemName"
       },
-      "doc": ""
+      "doc": "The name of this item listed in different languages."
     },
     {
       "name": "held_by_pokemon",
       "type": {
         "type": "array",
-        "items": "model.ItemDetailHeldByPokemonInner"
+        "items": "model.PokemonHeldItem"
       },
-      "doc": ""
+      "doc": "A list of Pokémon that might be found in the wild holding this item."
     },
     {
       "name": "sprites",
-      "type": "model.ItemDetailSprites",
-      "doc": ""
+      "type": "model.ItemSprites",
+      "doc": "A set of sprites used to depict this item in the game."
     },
     {
       "name": "baby_trigger_for",
-      "type": "model.ItemDetailBabyTriggerFor",
-      "doc": ""
+      "type": "model.EvolutionChainSummary",
+      "doc": "An evolution chain this item requires to produce a bay during mating."
     },
     {
       "name": "machines",
       "type": {
         "type": "array",
-        "items": "model.ItemDetailMachinesInner"
+        "items": "model.ItemMachine"
       },
-      "doc": ""
+      "doc": "A list of the machines related to this item."
     }
   ]
 

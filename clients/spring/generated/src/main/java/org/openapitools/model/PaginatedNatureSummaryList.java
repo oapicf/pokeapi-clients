@@ -8,8 +8,10 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.openapitools.jackson.nullable.JsonNullable;
 import org.openapitools.model.NatureSummary;
 import org.springframework.lang.Nullable;
+import java.util.NoSuchElementException;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
@@ -24,77 +26,87 @@ import jakarta.annotation.Generated;
  * PaginatedNatureSummaryList
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-10-25T05:53:37.479908528Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-11-09T13:53:47.069318184Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PaginatedNatureSummaryList {
 
-  private @Nullable Integer count;
+  private Integer count;
 
-  private @Nullable URI next;
+  private JsonNullable<URI> next = JsonNullable.<URI>undefined();
 
-  private @Nullable URI previous;
+  private JsonNullable<URI> previous = JsonNullable.<URI>undefined();
 
   private List<@Valid NatureSummary> results = new ArrayList<>();
 
-  public PaginatedNatureSummaryList count(@Nullable Integer count) {
+  public PaginatedNatureSummaryList() {
+    super();
+  }
+
+  /**
+   * Constructor with only required parameters
+   */
+  public PaginatedNatureSummaryList(Integer count, List<@Valid NatureSummary> results) {
+    this.count = count;
+    this.results = results;
+  }
+
+  public PaginatedNatureSummaryList count(Integer count) {
     this.count = count;
     return this;
   }
 
   /**
-   * Get count
+   * The total number of resources available from this API.
    * @return count
    */
-  
-  @Schema(name = "count", example = "123", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @NotNull 
+  @Schema(name = "count", example = "100", description = "The total number of resources available from this API.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("count")
-  public @Nullable Integer getCount() {
+  public Integer getCount() {
     return count;
   }
 
   @JsonProperty("count")
-  public void setCount(@Nullable Integer count) {
+  public void setCount(Integer count) {
     this.count = count;
   }
 
-  public PaginatedNatureSummaryList next(@Nullable URI next) {
-    this.next = next;
+  public PaginatedNatureSummaryList next(URI next) {
+    this.next = JsonNullable.of(next);
     return this;
   }
 
   /**
-   * Get next
+   * The URL for the next page in the list, or null if there is no next page.
    * @return next
    */
   @Valid 
-  @Schema(name = "next", example = "http://api.example.org/accounts/?offset=400&limit=100", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Schema(name = "next", example = "https://pokeapi.co/api/v2/nature/?offset=40&limit=20", description = "The URL for the next page in the list, or null if there is no next page.", requiredMode = Schema.RequiredMode.NOT_REQUIRED, nullable = true)
   @JsonProperty("next")
-  public @Nullable URI getNext() {
+  public JsonNullable<URI> getNext() {
     return next;
   }
 
-  @JsonProperty("next")
-  public void setNext(@Nullable URI next) {
+  public void setNext(JsonNullable<URI> next) {
     this.next = next;
   }
 
-  public PaginatedNatureSummaryList previous(@Nullable URI previous) {
-    this.previous = previous;
+  public PaginatedNatureSummaryList previous(URI previous) {
+    this.previous = JsonNullable.of(previous);
     return this;
   }
 
   /**
-   * Get previous
+   * The URL for the previous page in the list, or null if there is no previous page.
    * @return previous
    */
   @Valid 
-  @Schema(name = "previous", example = "http://api.example.org/accounts/?offset=200&limit=100", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Schema(name = "previous", example = "https://pokeapi.co/api/v2/nature/?offset=0&limit=20", description = "The URL for the previous page in the list, or null if there is no previous page.", requiredMode = Schema.RequiredMode.NOT_REQUIRED, nullable = true)
   @JsonProperty("previous")
-  public @Nullable URI getPrevious() {
+  public JsonNullable<URI> getPrevious() {
     return previous;
   }
 
-  @JsonProperty("previous")
-  public void setPrevious(@Nullable URI previous) {
+  public void setPrevious(JsonNullable<URI> previous) {
     this.previous = previous;
   }
 
@@ -112,11 +124,11 @@ public class PaginatedNatureSummaryList {
   }
 
   /**
-   * Get results
+   * A list of API resources on this page.
    * @return results
    */
-  
-  @Schema(name = "results", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @NotNull 
+  @Schema(name = "results", description = "A list of API resources on this page.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("results")
   public List<@Valid NatureSummary> getResults() {
     return results;
@@ -137,14 +149,25 @@ public class PaginatedNatureSummaryList {
     }
     PaginatedNatureSummaryList paginatedNatureSummaryList = (PaginatedNatureSummaryList) o;
     return Objects.equals(this.count, paginatedNatureSummaryList.count) &&
-        Objects.equals(this.next, paginatedNatureSummaryList.next) &&
-        Objects.equals(this.previous, paginatedNatureSummaryList.previous) &&
+        equalsNullable(this.next, paginatedNatureSummaryList.next) &&
+        equalsNullable(this.previous, paginatedNatureSummaryList.previous) &&
         Objects.equals(this.results, paginatedNatureSummaryList.results);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(count, next, previous, results);
+    return Objects.hash(count, hashCodeNullable(next), hashCodeNullable(previous), results);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

@@ -14,21 +14,25 @@ part 'contest_type_detail.g.dart';
 /// ContestTypeDetail
 ///
 /// Properties:
-/// * [id] 
-/// * [name] 
-/// * [berryFlavor] 
-/// * [names] 
+/// * [id] - The identifier for this resource.
+/// * [name] - The name for this resource.
+/// * [berryFlavor] - The berry flavor that correlates with this contest type.
+/// * [names] - The name of this contest type listed in different languages.
 @BuiltValue()
 abstract class ContestTypeDetail implements Built<ContestTypeDetail, ContestTypeDetailBuilder> {
+  /// The identifier for this resource.
   @BuiltValueField(wireName: r'id')
   int get id;
 
+  /// The name for this resource.
   @BuiltValueField(wireName: r'name')
   String get name;
 
+  /// The berry flavor that correlates with this contest type.
   @BuiltValueField(wireName: r'berry_flavor')
   BerryFlavorSummary get berryFlavor;
 
+  /// The name of this contest type listed in different languages.
   @BuiltValueField(wireName: r'names')
   BuiltList<ContestTypeName> get names;
 

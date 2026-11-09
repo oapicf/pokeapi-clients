@@ -10,7 +10,6 @@ namespace models {
 
 ItemFlingEffectEffectText::ItemFlingEffectEffectText()
 : effect("")
-, language(LanguageSummary())
 {
 }
 // =========================================

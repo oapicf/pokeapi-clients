@@ -8,14 +8,14 @@ The class is defined in **[VersionGroupDetail.java](../../src/main/java/org/open
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | `Integer` |  |  [readonly property]
-**name** | `String` |  | 
-**order** | `Integer` |  |  [optional property]
-**generation** | [`GenerationSummary`](GenerationSummary.md) |  | 
-**moveLearnMethods** | [`List&lt;AbilityDetailPokemonInnerPokemon&gt;`](AbilityDetailPokemonInnerPokemon.md) |  |  [readonly property]
-**pokedexes** | [`List&lt;AbilityDetailPokemonInnerPokemon&gt;`](AbilityDetailPokemonInnerPokemon.md) |  |  [readonly property]
-**regions** | [`List&lt;AbilityDetailPokemonInnerPokemon&gt;`](AbilityDetailPokemonInnerPokemon.md) |  |  [readonly property]
-**versions** | [`List&lt;VersionSummary&gt;`](VersionSummary.md) |  |  [readonly property]
+**id** | `Integer` | The identifier for this resource. |  [readonly property]
+**name** | `String` | The name for this resource. | 
+**order** | `Integer` | Order for sorting. Almost by date of release, except similar versions are grouped together. |  [optional property]
+**generation** | [`GenerationSummary`](GenerationSummary.md) | The generation this version was introduced in. | 
+**moveLearnMethods** | [`List&lt;MoveLearnMethodSummary&gt;`](MoveLearnMethodSummary.md) | A list of methods in which Pokémon can learn moves in this version group. |  [readonly property]
+**pokedexes** | [`List&lt;PokedexSummary&gt;`](PokedexSummary.md) | A list of Pokédexes introduces in this version group. |  [readonly property]
+**regions** | [`List&lt;RegionSummary&gt;`](RegionSummary.md) | A list of regions that can be visited in this version group. |  [readonly property]
+**versions** | [`List&lt;VersionSummary&gt;`](VersionSummary.md) | The versions this version group owns. |  [readonly property]
 
 
 

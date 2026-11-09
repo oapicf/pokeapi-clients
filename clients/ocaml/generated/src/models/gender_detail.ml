@@ -15,23 +15,27 @@
                 
                 
                 ; [@key "id"]
-                                              name: string
+                    (** The identifier for this resource. *)
+                                      name: string
                   
                   
                 
                 
                 ; [@key "name"]
-                                              pokemon_species_details: Gender_detail_pokemon_species_details_inner.t list
+                    (** The name for this resource. *)
+                                      pokemon_species_details: Gender_pokemon_species.t list
                 
                 
                 ; [@key "pokemon_species_details"]
-                                              required_for_evolution: Ability_detail_pokemon_inner_pokemon.t list
+                    (** A list of Pokémon species that can be this gender and how likely it is that they will be. *)
+                                      required_for_evolution: Pokemon_species_summary.t list
                 
                 
                 ; [@key "required_for_evolution"]
-                        } [@@deriving yojson { strict = false }, show, eq ];;
+                    (** A list of Pokémon species that required this gender in order for a Pokémon to evolve into them. *)
+                } [@@deriving yojson { strict = false }, show, eq ];;
         
-        let create (id : int32) (name : string) (pokemon_species_details : Gender_detail_pokemon_species_details_inner.t list) (required_for_evolution : Ability_detail_pokemon_inner_pokemon.t list) : t = {
+        let create (id : int32) (name : string) (pokemon_species_details : Gender_pokemon_species.t list) (required_for_evolution : Pokemon_species_summary.t list) : t = {
             id = id;
             name = name;
             pokemon_species_details = pokemon_species_details;

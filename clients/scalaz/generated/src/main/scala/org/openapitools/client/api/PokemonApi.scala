@@ -102,7 +102,7 @@ object PokemonApi {
     } yield resp
   }
 
-  def characteristicList(host: String, limit: Integer, offset: Integer, q: String)(implicit limitQuery: QueryParam[Integer], offsetQuery: QueryParam[Integer], qQuery: QueryParam[String]): Task[PaginatedCharacteristicSummaryList] = {
+  def characteristicList(host: String, limit: Integer, offset: Integer)(implicit limitQuery: QueryParam[Integer], offsetQuery: QueryParam[Integer]): Task[PaginatedCharacteristicSummaryList] = {
     implicit val returnTypeDecoder: EntityDecoder[PaginatedCharacteristicSummaryList] = jsonOf[PaginatedCharacteristicSummaryList]
 
     val path = "/api/v2/characteristic/"
@@ -112,7 +112,7 @@ object PokemonApi {
     val headers = Headers(
       )
     val queryParams = Query(
-      ("limit", Some(limitQuery.toParamString(limit))), ("offset", Some(offsetQuery.toParamString(offset))), ("q", Some(qQuery.toParamString(q))))
+      ("limit", Some(limitQuery.toParamString(limit))), ("offset", Some(offsetQuery.toParamString(offset))))
 
     for {
       uri           <- Task.fromDisjunction(Uri.fromString(host + path))
@@ -781,7 +781,7 @@ class HttpServicePokemonApi(service: HttpService) {
     } yield resp
   }
 
-  def characteristicList(limit: Integer, offset: Integer, q: String)(implicit limitQuery: QueryParam[Integer], offsetQuery: QueryParam[Integer], qQuery: QueryParam[String]): Task[PaginatedCharacteristicSummaryList] = {
+  def characteristicList(limit: Integer, offset: Integer)(implicit limitQuery: QueryParam[Integer], offsetQuery: QueryParam[Integer]): Task[PaginatedCharacteristicSummaryList] = {
     implicit val returnTypeDecoder: EntityDecoder[PaginatedCharacteristicSummaryList] = jsonOf[PaginatedCharacteristicSummaryList]
 
     val path = "/api/v2/characteristic/"
@@ -791,7 +791,7 @@ class HttpServicePokemonApi(service: HttpService) {
     val headers = Headers(
       )
     val queryParams = Query(
-      ("limit", Some(limitQuery.toParamString(limit))), ("offset", Some(offsetQuery.toParamString(offset))), ("q", Some(qQuery.toParamString(q))))
+      ("limit", Some(limitQuery.toParamString(limit))), ("offset", Some(offsetQuery.toParamString(offset))))
 
     for {
       uri           <- Task.fromDisjunction(Uri.fromString(path))

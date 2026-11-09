@@ -7,13 +7,13 @@
 #' @title LocationAreaDetail
 #' @description LocationAreaDetail Class
 #' @format An \code{R6Class} generator object
-#' @field id  integer
-#' @field name  character
-#' @field game_index  integer
-#' @field encounter_method_rates  list(\link{LocationAreaDetailEncounterMethodRatesInner})
-#' @field location  \link{LocationSummary}
-#' @field names  list(\link{LocationAreaName})
-#' @field pokemon_encounters  list(\link{LocationAreaDetailPokemonEncountersInner})
+#' @field id The identifier for this resource. integer
+#' @field name The name for this resource. character
+#' @field game_index The internal id of an API resource within game data. integer
+#' @field encounter_method_rates A list of methods in which Pokémon may be encountered in this area and how likely the method will occur depending on the version of the game. list(\link{LocationAreaEncounterRate})
+#' @field location The region this location area can be found in. \link{LocationSummary}
+#' @field names The name of this resource listed in different languages. list(\link{LocationAreaName})
+#' @field pokemon_encounters A list of Pokémon that can be encountered in this area along with version specific details about the encounter. list(\link{LocationAreaPokemonEncounter})
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -31,13 +31,13 @@ LocationAreaDetail <- R6::R6Class(
     #' @description
     #' Initialize a new LocationAreaDetail class.
     #'
-    #' @param id id
-    #' @param name name
-    #' @param game_index game_index
-    #' @param encounter_method_rates encounter_method_rates
-    #' @param location location
-    #' @param names names
-    #' @param pokemon_encounters pokemon_encounters
+    #' @param id The identifier for this resource.
+    #' @param name The name for this resource.
+    #' @param game_index The internal id of an API resource within game data.
+    #' @param encounter_method_rates A list of methods in which Pokémon may be encountered in this area and how likely the method will occur depending on the version of the game.
+    #' @param location The region this location area can be found in.
+    #' @param names The name of this resource listed in different languages.
+    #' @param pokemon_encounters A list of Pokémon that can be encountered in this area along with version specific details about the encounter.
     #' @param ... Other optional arguments.
     initialize = function(`id`, `name`, `game_index`, `encounter_method_rates`, `location`, `names`, `pokemon_encounters`, ...) {
       if (!missing(`id`)) {
@@ -181,7 +181,7 @@ LocationAreaDetail <- R6::R6Class(
         self$`game_index` <- this_object$`game_index`
       }
       if (!is.null(this_object$`encounter_method_rates`)) {
-        self$`encounter_method_rates` <- ApiClient$new()$deserializeObj(this_object$`encounter_method_rates`, "array[LocationAreaDetailEncounterMethodRatesInner]", loadNamespace("openapi"))
+        self$`encounter_method_rates` <- ApiClient$new()$deserializeObj(this_object$`encounter_method_rates`, "array[LocationAreaEncounterRate]", loadNamespace("openapi"))
       }
       if (!is.null(this_object$`location`)) {
         `location_object` <- LocationSummary$new()
@@ -192,7 +192,7 @@ LocationAreaDetail <- R6::R6Class(
         self$`names` <- ApiClient$new()$deserializeObj(this_object$`names`, "array[LocationAreaName]", loadNamespace("openapi"))
       }
       if (!is.null(this_object$`pokemon_encounters`)) {
-        self$`pokemon_encounters` <- ApiClient$new()$deserializeObj(this_object$`pokemon_encounters`, "array[LocationAreaDetailPokemonEncountersInner]", loadNamespace("openapi"))
+        self$`pokemon_encounters` <- ApiClient$new()$deserializeObj(this_object$`pokemon_encounters`, "array[LocationAreaPokemonEncounter]", loadNamespace("openapi"))
       }
       self
     },
@@ -218,10 +218,10 @@ LocationAreaDetail <- R6::R6Class(
       self$`id` <- this_object$`id`
       self$`name` <- this_object$`name`
       self$`game_index` <- this_object$`game_index`
-      self$`encounter_method_rates` <- ApiClient$new()$deserializeObj(this_object$`encounter_method_rates`, "array[LocationAreaDetailEncounterMethodRatesInner]", loadNamespace("openapi"))
+      self$`encounter_method_rates` <- ApiClient$new()$deserializeObj(this_object$`encounter_method_rates`, "array[LocationAreaEncounterRate]", loadNamespace("openapi"))
       self$`location` <- LocationSummary$new()$fromJSON(jsonlite::toJSON(this_object$`location`, auto_unbox = TRUE, digits = NA))
       self$`names` <- ApiClient$new()$deserializeObj(this_object$`names`, "array[LocationAreaName]", loadNamespace("openapi"))
-      self$`pokemon_encounters` <- ApiClient$new()$deserializeObj(this_object$`pokemon_encounters`, "array[LocationAreaDetailPokemonEncountersInner]", loadNamespace("openapi"))
+      self$`pokemon_encounters` <- ApiClient$new()$deserializeObj(this_object$`pokemon_encounters`, "array[LocationAreaPokemonEncounter]", loadNamespace("openapi"))
       self
     },
 
@@ -307,12 +307,19 @@ LocationAreaDetail <- R6::R6Class(
         return(FALSE)
       }
 
-      if (nchar(self$`name`) > 100) {
+      if (nchar(self$`name`) > 200) {
         return(FALSE)
       }
 
       # check if the required `game_index` is null
       if (is.null(self$`game_index`)) {
+        return(FALSE)
+      }
+
+      if (self$`game_index` > 2147483647) {
+        return(FALSE)
+      }
+      if (self$`game_index` < -2147483648) {
         return(FALSE)
       }
 
@@ -355,13 +362,20 @@ LocationAreaDetail <- R6::R6Class(
         invalid_fields["name"] <- "Non-nullable required field `name` cannot be null."
       }
 
-      if (nchar(self$`name`) > 100) {
-        invalid_fields["name"] <- "Invalid length for `name`, must be smaller than or equal to 100."
+      if (nchar(self$`name`) > 200) {
+        invalid_fields["name"] <- "Invalid length for `name`, must be smaller than or equal to 200."
       }
 
       # check if the required `game_index` is null
       if (is.null(self$`game_index`)) {
         invalid_fields["game_index"] <- "Non-nullable required field `game_index` cannot be null."
+      }
+
+      if (self$`game_index` > 2147483647) {
+        invalid_fields["game_index"] <- "Invalid value for `game_index`, must be smaller than or equal to 2147483647."
+      }
+      if (self$`game_index` < -2147483648) {
+        invalid_fields["game_index"] <- "Invalid value for `game_index`, must be bigger than or equal to -2147483648."
       }
 
       # check if the required `encounter_method_rates` is null

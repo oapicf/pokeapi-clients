@@ -5,10 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** |  | [readonly] 
-**name** | **str** |  | 
-**effect_entries** | [**List[ItemFlingEffectEffectText]**](ItemFlingEffectEffectText.md) |  | [readonly] 
-**items** | [**List[ItemSummary]**](ItemSummary.md) |  | [readonly] 
+**id** | **int** | The identifier for this resource. | [readonly] 
+**name** | **str** | The name for this resource. | 
+**effect_entries** | [**List[ItemFlingEffectEffectText]**](ItemFlingEffectEffectText.md) | The result of this fling effect listed in different languages. | [readonly] 
+**items** | [**List[ItemSummary]**](ItemSummary.md) | A list of items that have this fling effect. | [readonly] 
 
 ## Example
 

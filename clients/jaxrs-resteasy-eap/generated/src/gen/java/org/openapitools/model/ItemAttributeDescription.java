@@ -11,18 +11,19 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 import io.swagger.annotations.*;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2026-10-25T05:48:53.778376553Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2026-11-09T13:50:03.149615362Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class ItemAttributeDescription   {
   
   private String description;
   private LanguageSummary language;
 
   /**
+   * The localized description for an API resource in a specific language.
    **/
   
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The localized description for an API resource in a specific language.")
   @JsonProperty("description")
- @Size(max=1000)  public String getDescription() {
+ @Size(max=2000)  public String getDescription() {
     return description;
   }
   public void setDescription(String description) {
@@ -30,9 +31,10 @@ public class ItemAttributeDescription   {
   }
 
   /**
+   * The language this name is in.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The language this name is in.")
   @JsonProperty("language")
   @NotNull
   public LanguageSummary getLanguage() {

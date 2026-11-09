@@ -29,10 +29,7 @@ class ContestsApi {
   ///
   /// * [int] offset:
   ///   The initial index from which to return the results.
-  ///
-  /// * [String] q:
-  ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<Response> contestEffectListWithHttpInfo({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
+  Future<Response> contestEffectListWithHttpInfo({ int? limit, int? offset, Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/contest-effect/';
 
@@ -48,9 +45,6 @@ class ContestsApi {
     }
     if (offset != null) {
       queryParams.addAll(_queryParams('', 'offset', offset));
-    }
-    if (q != null) {
-      queryParams.addAll(_queryParams('', 'q', q));
     }
 
     const contentTypes = <String>[];
@@ -79,11 +73,8 @@ class ContestsApi {
   ///
   /// * [int] offset:
   ///   The initial index from which to return the results.
-  ///
-  /// * [String] q:
-  ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<PaginatedContestEffectSummaryList?> contestEffectList({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
-    final response = await contestEffectListWithHttpInfo(limit: limit, offset: offset, q: q, abortTrigger: abortTrigger,);
+  Future<PaginatedContestEffectSummaryList?> contestEffectList({ int? limit, int? offset, Future<void>? abortTrigger, }) async {
+    final response = await contestEffectListWithHttpInfo(limit: limit, offset: offset, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -311,10 +302,7 @@ class ContestsApi {
   ///
   /// * [int] offset:
   ///   The initial index from which to return the results.
-  ///
-  /// * [String] q:
-  ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<Response> superContestEffectListWithHttpInfo({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
+  Future<Response> superContestEffectListWithHttpInfo({ int? limit, int? offset, Future<void>? abortTrigger, }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/super-contest-effect/';
 
@@ -330,9 +318,6 @@ class ContestsApi {
     }
     if (offset != null) {
       queryParams.addAll(_queryParams('', 'offset', offset));
-    }
-    if (q != null) {
-      queryParams.addAll(_queryParams('', 'q', q));
     }
 
     const contentTypes = <String>[];
@@ -361,11 +346,8 @@ class ContestsApi {
   ///
   /// * [int] offset:
   ///   The initial index from which to return the results.
-  ///
-  /// * [String] q:
-  ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-  Future<PaginatedSuperContestEffectSummaryList?> superContestEffectList({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
-    final response = await superContestEffectListWithHttpInfo(limit: limit, offset: offset, q: q, abortTrigger: abortTrigger,);
+  Future<PaginatedSuperContestEffectSummaryList?> superContestEffectList({ int? limit, int? offset, Future<void>? abortTrigger, }) async {
+    final response = await superContestEffectListWithHttpInfo(limit: limit, offset: offset, abortTrigger: abortTrigger,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

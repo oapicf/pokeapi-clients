@@ -15,23 +15,35 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class SuperContestEffectDetail  {
   
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The identifier for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
 
   private Integer id;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The level of appeal this super contest effect has.
+  */
+  @ApiModelProperty(required = true, value = "The level of appeal this super contest effect has.")
 
   private Integer appeal;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The flavor text of this super contest effect listed in different languages.
+  */
+  @ApiModelProperty(required = true, value = "The flavor text of this super contest effect listed in different languages.")
 
   private List<@Valid SuperContestEffectFlavorText> flavorTextEntries = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * A list of moves that have the effect when used in super contests.
+  */
+  @ApiModelProperty(required = true, value = "A list of moves that have the effect when used in super contests.")
 
   private List<@Valid MoveSummary> moves = new ArrayList<>();
  /**
-   * Get id
+   * The identifier for this resource.
    * @return id
   **/
   @JsonProperty("id")
@@ -42,12 +54,14 @@ public class SuperContestEffectDetail  {
 
 
  /**
-   * Get appeal
+   * The level of appeal this super contest effect has.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return appeal
   **/
   @JsonProperty("appeal")
   @NotNull
-  public Integer getAppeal() {
+ @Min(-2147483648) @Max(2147483647)  public Integer getAppeal() {
     return appeal;
   }
 
@@ -61,7 +75,7 @@ public class SuperContestEffectDetail  {
   }
 
  /**
-   * Get flavorTextEntries
+   * The flavor text of this super contest effect listed in different languages.
    * @return flavorTextEntries
   **/
   @JsonProperty("flavor_text_entries")
@@ -72,7 +86,7 @@ public class SuperContestEffectDetail  {
 
 
  /**
-   * Get moves
+   * A list of moves that have the effect when used in super contests.
    * @return moves
   **/
   @JsonProperty("moves")

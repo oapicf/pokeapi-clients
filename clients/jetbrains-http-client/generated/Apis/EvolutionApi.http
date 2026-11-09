@@ -2,28 +2,30 @@
 
 ### List evolution chains
 ## List evolution chains
-GET https://pokeapi.co/api/v2/evolution-chain/?limit={{limit}}&offset={{offset}}&q={{q}}
+GET https://pokeapi.co/api/v2/evolution-chain/?limit={{limit}}&offset={{offset}}
 Accept: application/json
-Authorization: Basic: {{username-password}}
-Cookie: sessionid={{cookieKey}}
 
 ### Get evolution chain
 ## Get evolution chain
 GET https://pokeapi.co/api/v2/evolution-chain/{{id}}/
 Accept: application/json
-Authorization: Basic: {{username-password}}
-Cookie: sessionid={{cookieKey}}
 
 ### List evolution triggers
 ## List evolution triggers
 GET https://pokeapi.co/api/v2/evolution-trigger/?limit={{limit}}&offset={{offset}}&q={{q}}
 Accept: application/json
-Authorization: Basic: {{username-password}}
-Cookie: sessionid={{cookieKey}}
 
 ### Get evolution trigger
 ## Get evolution trigger
 GET https://pokeapi.co/api/v2/evolution-trigger/{{id}}/
 Accept: application/json
-Authorization: Basic: {{username-password}}
-Cookie: sessionid={{cookieKey}}
+
+### List evolution variables
+## List evolution variables
+GET https://pokeapi.co/api/v2/evolution-variable/?limit={{limit}}&offset={{offset}}&q={{q}}
+Accept: application/json
+
+### Get evolution variable
+## Get evolution variable
+GET https://pokeapi.co/api/v2/evolution-variable/{{id}}/
+Accept: application/json

@@ -12,7 +12,7 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 import io.swagger.annotations.*;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2026-10-25T05:48:53.778376553Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2026-11-09T13:50:03.149615362Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class AbilityFlavorText   {
   
   private String flavorText;
@@ -20,9 +20,10 @@ public class AbilityFlavorText   {
   private VersionGroupSummary versionGroup;
 
   /**
+   * The localized name for an API resource in a specific language.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The localized name for an API resource in a specific language.")
   @JsonProperty("flavor_text")
   @NotNull
   public String getFlavorText() {
@@ -33,9 +34,10 @@ public class AbilityFlavorText   {
   }
 
   /**
+   * The language this text resource is in.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The language this text resource is in.")
   @JsonProperty("language")
   @NotNull
   public LanguageSummary getLanguage() {
@@ -46,9 +48,10 @@ public class AbilityFlavorText   {
   }
 
   /**
+   * The version group that uses this flavor text.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The version group that uses this flavor text.")
   @JsonProperty("version_group")
   @NotNull
   public VersionGroupSummary getVersionGroup() {

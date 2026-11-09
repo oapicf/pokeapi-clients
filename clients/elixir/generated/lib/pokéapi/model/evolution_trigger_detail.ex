@@ -18,7 +18,7 @@ defmodule PokéAPI.Model.EvolutionTriggerDetail do
     :id => integer(),
     :name => String.t,
     :names => [PokéAPI.Model.EvolutionTriggerName.t],
-    :pokemon_species => [PokéAPI.Model.AbilityDetailPokemonInnerPokemon.t]
+    :pokemon_species => [PokéAPI.Model.PokemonSpeciesSummary.t]
   }
 
   alias PokéAPI.Deserializer
@@ -26,7 +26,7 @@ defmodule PokéAPI.Model.EvolutionTriggerDetail do
   def decode(value) do
     value
      |> Deserializer.deserialize(:names, :list, PokéAPI.Model.EvolutionTriggerName)
-     |> Deserializer.deserialize(:pokemon_species, :list, PokéAPI.Model.AbilityDetailPokemonInnerPokemon)
+     |> Deserializer.deserialize(:pokemon_species, :list, PokéAPI.Model.PokemonSpeciesSummary)
   end
 end
 

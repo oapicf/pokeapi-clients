@@ -8,7 +8,6 @@
 
 // System headers
 #include <httplib.h>
-#include <memory>
 #include <variant>
 
 // Project headers
@@ -22,7 +21,6 @@
 #include "models/RegionDetail.h"
 
 namespace Api {
-    class AuthenticationManager;
 class Location {
 public:
     Location() = default;
@@ -30,9 +28,8 @@ public:
     /**
      * @brief Register all routes for this API
      * @param svr The httplib::Server instance to register routes on
-     * @param auth The AuthenticationManager for authentication (optional, defaults to nullptr)
      */
-    void registerRoutes(httplib::Server& svr, std::shared_ptr<AuthenticationManager> auth = nullptr);
+    void registerRoutes(httplib::Server& svr);
     // =========================
     // ===== Request types =====
     // =========================
@@ -215,33 +212,29 @@ private:
     // ===== Helper function declarations =====
     // ========================================
     static bool parseApiv2locationAreaGetParams(const httplib::Request& req, Apiv2locationAreaGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2locationAreaGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2locationAreaGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2locationAreaGetResponse(const Apiv2locationAreaGetResponse& result, httplib::Response& res);
     static bool parseApiv2locationAreaidGetParams(const httplib::Request& req, Apiv2locationAreaidGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2locationAreaidGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2locationAreaidGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2locationAreaidGetResponse(const Apiv2locationAreaidGetResponse& result, httplib::Response& res);
     static bool parseApiv2locationGetParams(const httplib::Request& req, Apiv2locationGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2locationGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2locationGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2locationGetResponse(const Apiv2locationGetResponse& result, httplib::Response& res);
     static bool parseApiv2locationidGetParams(const httplib::Request& req, Apiv2locationidGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2locationidGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2locationidGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2locationidGetResponse(const Apiv2locationidGetResponse& result, httplib::Response& res);
     static bool parseApiv2palParkAreaGetParams(const httplib::Request& req, Apiv2palParkAreaGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2palParkAreaGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2palParkAreaGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2palParkAreaGetResponse(const Apiv2palParkAreaGetResponse& result, httplib::Response& res);
     static bool parseApiv2palParkAreaidGetParams(const httplib::Request& req, Apiv2palParkAreaidGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2palParkAreaidGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2palParkAreaidGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2palParkAreaidGetResponse(const Apiv2palParkAreaidGetResponse& result, httplib::Response& res);
     static bool parseApiv2regionGetParams(const httplib::Request& req, Apiv2regionGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2regionGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2regionGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2regionGetResponse(const Apiv2regionGetResponse& result, httplib::Response& res);
     static bool parseApiv2regionidGetParams(const httplib::Request& req, Apiv2regionidGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2regionidGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2regionidGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2regionidGetResponse(const Apiv2regionidGetResponse& result, httplib::Response& res);
-    static bool performAuthentication(
-        const httplib::Request& req,
-        std::shared_ptr<AuthenticationManager> auth,
-        httplib::Response& res);
 };
 
 } // namespace Api

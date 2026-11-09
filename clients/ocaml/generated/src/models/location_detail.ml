@@ -15,33 +15,39 @@
                 
                 
                 ; [@key "id"]
-                                              name: string
+                    (** The identifier for this resource. *)
+                                      name: string
                   
                   
                 
                 
                 ; [@key "name"]
-                                              region: Region_summary.t
-                  
+                    (** The name for this resource. *)
+                                      region: Region_summary.t
+                   option
                   
                 
                 
                 ; [@key "region"]
-                                              names: Location_name.t list
+                    (** The region this location can be found in. *)
+                                      names: Location_name.t list
                 
                 
                 ; [@key "names"]
-                                              game_indices: Location_game_index.t list
+                    (** The name of this resource listed in different languages. *)
+                                      game_indices: Location_game_index.t list
                 
                 
                 ; [@key "game_indices"]
-                                              areas: Location_area_summary.t list
+                    (** A list of game indices relevent to this location by generation. *)
+                                      areas: Location_area_summary.t list
                 
                 
                 ; [@key "areas"]
-                        } [@@deriving yojson { strict = false }, show, eq ];;
+                    (** Areas that can be found within this location. *)
+                } [@@deriving yojson { strict = false }, show, eq ];;
         
-        let create (id : int32) (name : string) (region : Region_summary.t) (names : Location_name.t list) (game_indices : Location_game_index.t list) (areas : Location_area_summary.t list) : t = {
+        let create (id : int32) (name : string) (region : Region_summary.t option) (names : Location_name.t list) (game_indices : Location_game_index.t list) (areas : Location_area_summary.t list) : t = {
             id = id;
             name = name;
             region = region;

@@ -8,6 +8,7 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.openapitools.jackson.nullable.JsonNullable;
 import org.openapitools.model.MoveMetaAilmentSummary;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
@@ -29,6 +30,7 @@ public class PaginatedMoveMetaAilmentSummaryList   {
   private List<@Valid MoveMetaAilmentSummary> results = new ArrayList<>();
 
   /**
+   * The total number of resources available from this API.
    **/
   public PaginatedMoveMetaAilmentSummaryList count(Integer count) {
     this.count = count;
@@ -36,8 +38,9 @@ public class PaginatedMoveMetaAilmentSummaryList   {
   }
 
   
-  @ApiModelProperty(example = "123", value = "")
+  @ApiModelProperty(example = "100", required = true, value = "The total number of resources available from this API.")
   @JsonProperty("count")
+  @NotNull
   public Integer getCount() {
     return count;
   }
@@ -47,6 +50,7 @@ public class PaginatedMoveMetaAilmentSummaryList   {
 
 
   /**
+   * The URL for the next page in the list, or null if there is no next page.
    **/
   public PaginatedMoveMetaAilmentSummaryList next(URI next) {
     this.next = next;
@@ -54,7 +58,7 @@ public class PaginatedMoveMetaAilmentSummaryList   {
   }
 
   
-  @ApiModelProperty(example = "http://api.example.org/accounts/?offset=400&limit=100", value = "")
+  @ApiModelProperty(example = "https://pokeapi.co/api/v2/move-ailment/?offset=40&limit=20", value = "The URL for the next page in the list, or null if there is no next page.")
   @JsonProperty("next")
   public URI getNext() {
     return next;
@@ -65,6 +69,7 @@ public class PaginatedMoveMetaAilmentSummaryList   {
 
 
   /**
+   * The URL for the previous page in the list, or null if there is no previous page.
    **/
   public PaginatedMoveMetaAilmentSummaryList previous(URI previous) {
     this.previous = previous;
@@ -72,7 +77,7 @@ public class PaginatedMoveMetaAilmentSummaryList   {
   }
 
   
-  @ApiModelProperty(example = "http://api.example.org/accounts/?offset=200&limit=100", value = "")
+  @ApiModelProperty(example = "https://pokeapi.co/api/v2/move-ailment/?offset=0&limit=20", value = "The URL for the previous page in the list, or null if there is no previous page.")
   @JsonProperty("previous")
   public URI getPrevious() {
     return previous;
@@ -83,6 +88,7 @@ public class PaginatedMoveMetaAilmentSummaryList   {
 
 
   /**
+   * A list of API resources on this page.
    **/
   public PaginatedMoveMetaAilmentSummaryList results(List<@Valid MoveMetaAilmentSummary> results) {
     this.results = results;
@@ -90,8 +96,9 @@ public class PaginatedMoveMetaAilmentSummaryList   {
   }
 
   
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "A list of API resources on this page.")
   @JsonProperty("results")
+  @NotNull
   public List<@Valid MoveMetaAilmentSummary> getResults() {
     return results;
   }

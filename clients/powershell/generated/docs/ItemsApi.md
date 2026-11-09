@@ -4,6 +4,8 @@ All URIs are relative to *https://pokeapi.co*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**Invoke-CurrencyList**](ItemsApi.md#Invoke-CurrencyList) | **GET** /api/v2/currency/ | List currencies
+[**Invoke-CurrencyRetrieve**](ItemsApi.md#Invoke-CurrencyRetrieve) | **GET** /api/v2/currency/{id}/ | Get currency
 [**Invoke-ItemAttributeList**](ItemsApi.md#Invoke-ItemAttributeList) | **GET** /api/v2/item-attribute/ | List item attributes
 [**Invoke-ItemAttributeRetrieve**](ItemsApi.md#Invoke-ItemAttributeRetrieve) | **GET** /api/v2/item-attribute/{id}/ | Get item attribute
 [**Invoke-ItemCategoryList**](ItemsApi.md#Invoke-ItemCategoryList) | **GET** /api/v2/item-category/ | List item categories
@@ -15,6 +17,98 @@ Method | HTTP request | Description
 [**Invoke-ItemPocketRetrieve**](ItemsApi.md#Invoke-ItemPocketRetrieve) | **GET** /api/v2/item-pocket/{id}/ | Get item pocket
 [**Invoke-ItemRetrieve**](ItemsApi.md#Invoke-ItemRetrieve) | **GET** /api/v2/item/{id}/ | Get item
 
+
+<a id="Invoke-CurrencyList"></a>
+# **Invoke-CurrencyList**
+> PaginatedCurrencySummaryList Invoke-CurrencyList<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Q] <String><br>
+
+List currencies
+
+Currencies used to buy items.
+
+### Example
+```powershell
+$Limit = 56 # Int32 | Number of results to return per page. (optional)
+$Offset = 56 # Int32 | The initial index from which to return the results. (optional)
+$Q = "MyQ" # String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
+
+# List currencies
+try {
+    $Result = Invoke-CurrencyList -Limit $Limit -Offset $Offset -Q $Q
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-CurrencyList: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **Limit** | **Int32**| Number of results to return per page. | [optional] 
+ **Offset** | **Int32**| The initial index from which to return the results. | [optional] 
+ **Q** | **String**| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional] 
+
+### Return type
+
+[**PaginatedCurrencySummaryList**](PaginatedCurrencySummaryList.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="Invoke-CurrencyRetrieve"></a>
+# **Invoke-CurrencyRetrieve**
+> CurrencyDetail Invoke-CurrencyRetrieve<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <String><br>
+
+Get currency
+
+Currencies used to buy items.
+
+### Example
+```powershell
+$Id = "1" # String | This parameter can be a string or an integer.
+
+# Get currency
+try {
+    $Result = Invoke-CurrencyRetrieve -Id $Id
+} catch {
+    Write-Host ("Exception occurred when calling Invoke-CurrencyRetrieve: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
+    Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **Id** | **String**| This parameter can be a string or an integer. | 
+
+### Return type
+
+[**CurrencyDetail**](CurrencyDetail.md) (PSCustomObject)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a id="Invoke-ItemAttributeList"></a>
 # **Invoke-ItemAttributeList**
@@ -29,17 +123,6 @@ Item attributes define particular aspects of items, e.g.""usable in battle"" or 
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure HTTP basic authorization: basicAuth
-$Configuration.Username = "YOUR_USERNAME"
-$Configuration.Password = "YOUR_PASSWORD"
-
-# Configure API key authorization: cookieAuth
-$Configuration.ApiKey.sessionid = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.sessionid = "Bearer"
-
 $Limit = 56 # Int32 | Number of results to return per page. (optional)
 $Offset = 56 # Int32 | The initial index from which to return the results. (optional)
 $Q = "MyQ" # String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
@@ -67,7 +150,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -87,18 +170,7 @@ Item attributes define particular aspects of items, e.g.""usable in battle"" or 
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure HTTP basic authorization: basicAuth
-$Configuration.Username = "YOUR_USERNAME"
-$Configuration.Password = "YOUR_PASSWORD"
-
-# Configure API key authorization: cookieAuth
-$Configuration.ApiKey.sessionid = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.sessionid = "Bearer"
-
-$Id = "MyId" # String | This parameter can be a string or an integer.
+$Id = "1" # String | This parameter can be a string or an integer.
 
 # Get item attribute
 try {
@@ -121,7 +193,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -143,17 +215,6 @@ Item categories determine where items will be placed in the players bag.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure HTTP basic authorization: basicAuth
-$Configuration.Username = "YOUR_USERNAME"
-$Configuration.Password = "YOUR_PASSWORD"
-
-# Configure API key authorization: cookieAuth
-$Configuration.ApiKey.sessionid = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.sessionid = "Bearer"
-
 $Limit = 56 # Int32 | Number of results to return per page. (optional)
 $Offset = 56 # Int32 | The initial index from which to return the results. (optional)
 $Q = "MyQ" # String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
@@ -181,7 +242,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -201,18 +262,7 @@ Item categories determine where items will be placed in the players bag.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure HTTP basic authorization: basicAuth
-$Configuration.Username = "YOUR_USERNAME"
-$Configuration.Password = "YOUR_PASSWORD"
-
-# Configure API key authorization: cookieAuth
-$Configuration.ApiKey.sessionid = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.sessionid = "Bearer"
-
-$Id = "MyId" # String | This parameter can be a string or an integer.
+$Id = "1" # String | This parameter can be a string or an integer.
 
 # Get item category
 try {
@@ -235,7 +285,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -257,17 +307,6 @@ The various effects of the move""Fling"" when used with different items.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure HTTP basic authorization: basicAuth
-$Configuration.Username = "YOUR_USERNAME"
-$Configuration.Password = "YOUR_PASSWORD"
-
-# Configure API key authorization: cookieAuth
-$Configuration.ApiKey.sessionid = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.sessionid = "Bearer"
-
 $Limit = 56 # Int32 | Number of results to return per page. (optional)
 $Offset = 56 # Int32 | The initial index from which to return the results. (optional)
 $Q = "MyQ" # String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
@@ -295,7 +334,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -315,18 +354,7 @@ The various effects of the move""Fling"" when used with different items.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure HTTP basic authorization: basicAuth
-$Configuration.Username = "YOUR_USERNAME"
-$Configuration.Password = "YOUR_PASSWORD"
-
-# Configure API key authorization: cookieAuth
-$Configuration.ApiKey.sessionid = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.sessionid = "Bearer"
-
-$Id = "MyId" # String | This parameter can be a string or an integer.
+$Id = "1" # String | This parameter can be a string or an integer.
 
 # Get item fling effect
 try {
@@ -349,7 +377,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -371,17 +399,6 @@ An item is an object in the games which the player can pick up, keep in their ba
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure HTTP basic authorization: basicAuth
-$Configuration.Username = "YOUR_USERNAME"
-$Configuration.Password = "YOUR_PASSWORD"
-
-# Configure API key authorization: cookieAuth
-$Configuration.ApiKey.sessionid = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.sessionid = "Bearer"
-
 $Limit = 56 # Int32 | Number of results to return per page. (optional)
 $Offset = 56 # Int32 | The initial index from which to return the results. (optional)
 $Q = "MyQ" # String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
@@ -409,7 +426,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -431,17 +448,6 @@ Pockets within the players bag used for storing items by category.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure HTTP basic authorization: basicAuth
-$Configuration.Username = "YOUR_USERNAME"
-$Configuration.Password = "YOUR_PASSWORD"
-
-# Configure API key authorization: cookieAuth
-$Configuration.ApiKey.sessionid = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.sessionid = "Bearer"
-
 $Limit = 56 # Int32 | Number of results to return per page. (optional)
 $Offset = 56 # Int32 | The initial index from which to return the results. (optional)
 $Q = "MyQ" # String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
@@ -469,7 +475,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -489,18 +495,7 @@ Pockets within the players bag used for storing items by category.
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure HTTP basic authorization: basicAuth
-$Configuration.Username = "YOUR_USERNAME"
-$Configuration.Password = "YOUR_PASSWORD"
-
-# Configure API key authorization: cookieAuth
-$Configuration.ApiKey.sessionid = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.sessionid = "Bearer"
-
-$Id = "MyId" # String | This parameter can be a string or an integer.
+$Id = "1" # String | This parameter can be a string or an integer.
 
 # Get item pocket
 try {
@@ -523,7 +518,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -543,18 +538,7 @@ An item is an object in the games which the player can pick up, keep in their ba
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure HTTP basic authorization: basicAuth
-$Configuration.Username = "YOUR_USERNAME"
-$Configuration.Password = "YOUR_PASSWORD"
-
-# Configure API key authorization: cookieAuth
-$Configuration.ApiKey.sessionid = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.sessionid = "Bearer"
-
-$Id = "MyId" # String | This parameter can be a string or an integer.
+$Id = "1" # String | This parameter can be a string or an integer.
 
 # Get item
 try {
@@ -577,7 +561,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

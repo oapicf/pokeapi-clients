@@ -12,16 +12,16 @@
         names=nothing,
     )
 
-    - id::Int64
-    - name::String
-    - berries::Vector{BerryFlavorDetailBerriesInner}
-    - contest_type::ContestTypeSummary
-    - names::Vector{BerryFlavorName}
+    - id::Int64 : The identifier for this resource.
+    - name::String : The name for this resource.
+    - berries::Vector{BerryFlavorBerryMap} : A list of the berries with this flavor.
+    - contest_type::ContestTypeSummary : The contest type that correlates with this berry flavor.
+    - names::Vector{BerryFlavorName} : The name of this resource listed in different languages.
 """
 Base.@kwdef mutable struct BerryFlavorDetail <: OpenAPI.APIModel
     id::Union{Nothing, Int64} = nothing
     name::Union{Nothing, String} = nothing
-    berries::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{BerryFlavorDetailBerriesInner} }
+    berries::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{BerryFlavorBerryMap} }
     contest_type = nothing # spec type: Union{ Nothing, ContestTypeSummary }
     names::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{BerryFlavorName} }
 
@@ -32,7 +32,7 @@ Base.@kwdef mutable struct BerryFlavorDetail <: OpenAPI.APIModel
     end
 end # type BerryFlavorDetail
 
-const _property_types_BerryFlavorDetail = Dict{Symbol,String}(Symbol("id")=>"Int64", Symbol("name")=>"String", Symbol("berries")=>"Vector{BerryFlavorDetailBerriesInner}", Symbol("contest_type")=>"ContestTypeSummary", Symbol("names")=>"Vector{BerryFlavorName}", )
+const _property_types_BerryFlavorDetail = Dict{Symbol,String}(Symbol("id")=>"Int64", Symbol("name")=>"String", Symbol("berries")=>"Vector{BerryFlavorBerryMap}", Symbol("contest_type")=>"ContestTypeSummary", Symbol("names")=>"Vector{BerryFlavorName}", )
 OpenAPI.property_type(::Type{ BerryFlavorDetail }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_BerryFlavorDetail[name]))}
 
 function OpenAPI.check_required(o::BerryFlavorDetail)
@@ -56,7 +56,7 @@ function OpenAPI.validate_property(::Type{ BerryFlavorDetail }, name::Symbol, va
 
 
     if name === Symbol("name")
-        OpenAPI.validate_param(name, "BerryFlavorDetail", :maxLength, val, 100)
+        OpenAPI.validate_param(name, "BerryFlavorDetail", :maxLength, val, 200)
     end
 
 

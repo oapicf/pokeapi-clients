@@ -3,8 +3,8 @@ package org.openapitools.server.model;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.server.model.AbilityDetailPokemonInnerPokemon;
 import org.openapitools.server.model.EvolutionTriggerName;
+import org.openapitools.server.model.PokemonSpeciesSummary;
 import jakarta.validation.constraints.*;
 import jakarta.validation.Valid;
 
@@ -15,7 +15,7 @@ public class EvolutionTriggerDetail   {
     private Integer id;
     private String name;
     private List<@Valid EvolutionTriggerName> names = new ArrayList<>();
-    private List<@Valid AbilityDetailPokemonInnerPokemon> pokemonSpecies = new ArrayList<>();
+    private List<@Valid PokemonSpeciesSummary> pokemonSpecies = new ArrayList<>();
 
     /**
      * Default constructor.
@@ -27,16 +27,16 @@ public class EvolutionTriggerDetail   {
     /**
      * Create EvolutionTriggerDetail.
      *
-     * @param id id
-     * @param name name
-     * @param names names
-     * @param pokemonSpecies pokemonSpecies
+     * @param id The identifier for this resource.
+     * @param name The name for this resource.
+     * @param names The name of this resource listed in different languages.
+     * @param pokemonSpecies A list of pokemon species that result from this evolution trigger.
      */
     public EvolutionTriggerDetail(
         Integer id, 
         String name, 
         List<@Valid EvolutionTriggerName> names, 
-        List<@Valid AbilityDetailPokemonInnerPokemon> pokemonSpecies
+        List<@Valid PokemonSpeciesSummary> pokemonSpecies
     ) {
         this.id = id;
         this.name = name;
@@ -47,7 +47,7 @@ public class EvolutionTriggerDetail   {
 
 
     /**
-     * Get id
+     * The identifier for this resource.
      * @return id
      */
     public Integer getId() {
@@ -59,7 +59,7 @@ public class EvolutionTriggerDetail   {
     }
 
     /**
-     * Get name
+     * The name for this resource.
      * @return name
      */
     public String getName() {
@@ -71,7 +71,7 @@ public class EvolutionTriggerDetail   {
     }
 
     /**
-     * Get names
+     * The name of this resource listed in different languages.
      * @return names
      */
     public List<@Valid EvolutionTriggerName> getNames() {
@@ -83,14 +83,14 @@ public class EvolutionTriggerDetail   {
     }
 
     /**
-     * Get pokemonSpecies
+     * A list of pokemon species that result from this evolution trigger.
      * @return pokemonSpecies
      */
-    public List<@Valid AbilityDetailPokemonInnerPokemon> getPokemonSpecies() {
+    public List<@Valid PokemonSpeciesSummary> getPokemonSpecies() {
         return pokemonSpecies;
     }
 
-    public void setPokemonSpecies(List<@Valid AbilityDetailPokemonInnerPokemon> pokemonSpecies) {
+    public void setPokemonSpecies(List<@Valid PokemonSpeciesSummary> pokemonSpecies) {
         this.pokemonSpecies = pokemonSpecies;
     }
 

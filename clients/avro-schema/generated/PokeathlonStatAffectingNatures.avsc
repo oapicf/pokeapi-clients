@@ -1,0 +1,25 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "PokeathlonStatAffectingNatures",
+  "fields": [
+    {
+      "name": "increase",
+      "type": {
+        "type": "array",
+        "items": "model.PokeathlonStatAffectingNature"
+      },
+      "doc": "A list of natures and how they change the referenced Pokéathlon stat."
+    },
+    {
+      "name": "decrease",
+      "type": {
+        "type": "array",
+        "items": "model.PokeathlonStatAffectingNature"
+      },
+      "doc": "A list of natures and how they change the referenced Pokéathlon stat."
+    }
+  ]
+
+}

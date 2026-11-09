@@ -15,12 +15,6 @@ Protected Class UtilityApi
 		  // - Languages for translations of API resource information.
 		  // - defaultResponse: Nil
 		  //
-		  // - BASIC:
-		  //   - type: http
-		  //   - name: basicAuth
-		  // - API Key:
-		  //   - type: apiKey sessionid 
-		  //   - name: cookieAuth
 		  //
 		  
 		  Dim localVarHTTPSocket As New HTTPSecureSocket
@@ -34,10 +28,6 @@ Protected Class UtilityApi
 		  If q <> nil Then localVarQueryParams = localVarQueryParams + "&" + EncodeURLComponent("q") + "=" + EncodeURLComponent(q)
 		  
 
-		  
-		  AddHandler localVarHTTPSocket.AuthenticationRequired, addressof Me.AuthenticationRequiredIf me.ApiKeycookieAuth = "" Then Raise New OpenAPIClient.OpenAPIClientException(kErrorCannotAuthenticate, "API key is unset. Please assign a value to `UtilityApi.ApiKeycookieAuth` before invoking `UtilityApi.LanguageList()`.")
-		  
-		  
 		  
 
 
@@ -157,20 +147,10 @@ Protected Class UtilityApi
 		  // - Languages for translations of API resource information.
 		  // - defaultResponse: Nil
 		  //
-		  // - BASIC:
-		  //   - type: http
-		  //   - name: basicAuth
-		  // - API Key:
-		  //   - type: apiKey sessionid 
-		  //   - name: cookieAuth
 		  //
 		  
 		  Dim localVarHTTPSocket As New HTTPSecureSocket
 		  Me.PrivateFuncPrepareSocket(localVarHTTPSocket)
-		  
-		  
-		  
-		  AddHandler localVarHTTPSocket.AuthenticationRequired, addressof Me.AuthenticationRequiredIf me.ApiKeycookieAuth = "" Then Raise New OpenAPIClient.OpenAPIClientException(kErrorCannotAuthenticate, "API key is unset. Please assign a value to `UtilityApi.ApiKeycookieAuth` before invoking `UtilityApi.LanguageRetrieve()`.")
 		  
 		  
 		  
@@ -282,6 +262,130 @@ Protected Class UtilityApi
 
 
 
+	#tag Method, Flags = &h0
+		Sub MetaRetrieve()
+		  // Operation meta_retrieve
+		  // Get API metadata
+		  // - 
+		  //
+		  // Invokes UtilityApiCallbackHandler.MetaRetrieveCallback(PokeapiMetaResponse) on completion. 
+		  //
+		  // - GET /api/v2/meta/
+		  // - Returns metadata about the current deployed version of the API, including the git commit hash, deploy date, and tag (if any).
+		  // - defaultResponse: Nil
+		  //
+		  //
+		  
+		  Dim localVarHTTPSocket As New HTTPSecureSocket
+		  Me.PrivateFuncPrepareSocket(localVarHTTPSocket)
+		  
+		  
+		  
+
+
+		  Dim localVarPath As String = "/api/v2/meta/"
+		  
+		  
+		  
+		  AddHandler localVarHTTPSocket.PageReceived, addressof me.MetaRetrieve_handler
+		  AddHandler localVarHTTPSocket.Error, addressof Me.MetaRetrieve_error
+		  
+		  
+		  localVarHTTPSocket.SendRequest("GET", Me.BasePath + localVarPath)
+		  if localVarHTTPSocket.LastErrorCode <> 0 then
+		    Dim localVarException As New OpenAPIClient.OpenAPIClientException(localVarHTTPSocket.LastErrorCode)
+			Raise localVarException
+		  end if
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Function MetaRetrievePrivateFuncDeserializeResponse(HTTPStatus As Integer, Headers As InternetHeaders, error As OpenAPIClient.OpenAPIClientException, Content As String, ByRef outData As OpenAPIClient.Models.PokeapiMetaResponse) As Boolean
+		  Dim contentType As String = Headers.Value("Content-Type")
+		  Dim contentEncoding As TextEncoding = OpenAPIClient.EncodingFromContentType(contentType)
+		  Content = DefineEncoding(Content, contentEncoding)
+		  
+		  If HTTPStatus > 199 and HTTPStatus < 300 then
+		    If contentType.LeftB(16) = "application/json" then
+		      
+			  outData = New OpenAPIClient.Models.PokeapiMetaResponse
+			  Try
+		        Xoson.fromJSON(outData, Content.toText())
+
+		      Catch e As JSONException
+		        error.Message = error.Message + " with JSON parse exception: " + e.Message
+		        error.ErrorNumber = kErrorInvalidJSON
+		        Return False
+		        
+		      Catch e As Xojo.Data.InvalidJSONException
+		        error.Message = error.Message + " with Xojo.Data.JSON parse exception: " + e.Message
+		        error.ErrorNumber = kErrorInvalidJSON
+		        Return False
+		        
+		      Catch e As Xoson.XosonException
+		        error.Message = error.Message + " with Xoson parse exception: " + e.Message
+		        error.ErrorNumber = kErrorXosonProblem
+		        Return False
+
+		      End Try
+		      
+		      
+		    ElseIf contentType.LeftB(19) = "multipart/form-data" then
+		      error.Message = "Unsupported media type: " + contentType
+		      error.ErrorNumber = kErrorUnsupportedMediaType
+		      Return False
+
+		    ElseIf contentType.LeftB(33) = "application/x-www-form-urlencoded" then
+		      error.Message = "Unsupported media type: " + contentType
+		      error.ErrorNumber = kErrorUnsupportedMediaType
+		      Return False
+
+		    Else
+		      error.Message = "Unsupported media type: " + contentType
+		      error.ErrorNumber = kErrorUnsupportedMediaType
+		      Return False
+
+		    End If
+		  Else
+		    error.Message = error.Message + ". " + Content
+			error.ErrorNumber = kErrorHTTPFail
+		    Return False
+		  End If
+		  
+		  Return True
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Sub MetaRetrieve_error(sender As HTTPSecureSocket, Code As Integer)
+		  If sender <> nil Then sender.Close()
+
+		  Dim error As New OpenAPIClient.OpenAPIClientException(Code)
+		  Dim data As OpenAPIClient.Models.PokeapiMetaResponse
+		  CallbackHandler.MetaRetrieveCallback(error, data)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Sub MetaRetrieve_handler(sender As HTTPSecureSocket, URL As String, HTTPStatus As Integer, Headers As InternetHeaders, Content As String)
+		  #Pragma Unused URL
+		  
+
+		  If sender <> nil Then sender.Close()
+		  
+		  Dim error As New OpenAPIClient.OpenAPIClientException(HTTPStatus, "", Content)
+		  
+		  Dim data As OpenAPIClient.Models.PokeapiMetaResponse
+		  Call MetaRetrievePrivateFuncDeserializeResponse(HTTPStatus, Headers, error, Content, data)
+		  
+		  CallbackHandler.MetaRetrieveCallback(error, data)
+		End Sub
+	#tag EndMethod
+
+
+
+
 
 
 	#tag Method, Flags = &h21
@@ -328,10 +432,6 @@ Protected Class UtilityApi
 
 	#tag Property, Flags = &h0
 		AdditionalHeaders As Dictionary
-	#tag EndProperty
-
-	#tag Property, Flags = &h0
-		ApiKeycookieAuth As String
 	#tag EndProperty
 
 	#tag Property, Flags = &h0

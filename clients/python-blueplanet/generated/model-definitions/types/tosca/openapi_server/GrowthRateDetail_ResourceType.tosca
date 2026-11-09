@@ -20,35 +20,35 @@ resourceTypes {
     properties {
         id {
           type =  integer
-          description = ""
+          description = "The identifier for this resource."
           optional = true
         }
         name {
           type =  string
-          description = ""
+          description = "The name for this resource."
           optional = true
         }
         formula {
           type =  string
-          description = ""
+          description = "The formula used to calculate the rate at which the Pokémon species gains level."
           optional = true
         }
         descriptions {
           type = array
           items.type = GrowthRateDescription
-          description = ""
+          description = "The descriptions of this characteristic listed in different languages."
           optional = true
         }
         levels {
           type = array
           items.type = Experience
-          description = ""
+          description = "A list of levels and the amount of experienced needed to atain them based on this growth rate."
           optional = true
         }
         pokemon_species {
           type = array
           items.type = PokemonSpeciesSummary
-          description = ""
+          description = "A list of Pokémon species that gain levels at this growth rate."
           optional = true
         }
     }

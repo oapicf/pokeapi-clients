@@ -57,7 +57,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -80,7 +80,7 @@ A generation is a grouping of the Pokémon games that separates them based on th
 //import org.openapitools.client.api.GamesApi;
 
 GamesApi apiInstance = new GamesApi();
-String id = null; // String | This parameter can be a string or an integer.
+String id = 1; // String | This parameter can be a string or an integer.
 try {
     GenerationDetail result = apiInstance.generationRetrieve(id);
     System.out.println(result);
@@ -103,7 +103,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -153,7 +153,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -176,7 +176,7 @@ A Pokédex is a handheld electronic encyclopedia device; one which is capable of
 //import org.openapitools.client.api.GamesApi;
 
 GamesApi apiInstance = new GamesApi();
-String id = null; // String | This parameter can be a string or an integer.
+String id = 1; // String | This parameter can be a string or an integer.
 try {
     PokedexDetail result = apiInstance.pokedexRetrieve(id);
     System.out.println(result);
@@ -199,7 +199,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -249,7 +249,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -272,7 +272,7 @@ Version groups categorize highly similar versions of the games.
 //import org.openapitools.client.api.GamesApi;
 
 GamesApi apiInstance = new GamesApi();
-String id = null; // String | This parameter can be a string or an integer.
+String id = 1; // String | This parameter can be a string or an integer.
 try {
     VersionGroupDetail result = apiInstance.versionGroupRetrieve(id);
     System.out.println(result);
@@ -295,7 +295,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -345,7 +345,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -368,7 +368,7 @@ Versions of the games, e.g., Red, Blue or Yellow.
 //import org.openapitools.client.api.GamesApi;
 
 GamesApi apiInstance = new GamesApi();
-String id = null; // String | This parameter can be a string or an integer.
+String id = 1; // String | This parameter can be a string or an integer.
 try {
     VersionDetail result = apiInstance.versionRetrieve(id);
     System.out.println(result);
@@ -391,7 +391,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

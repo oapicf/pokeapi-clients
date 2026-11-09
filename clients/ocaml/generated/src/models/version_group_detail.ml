@@ -15,43 +15,51 @@
                 
                 
                 ; [@key "id"]
-                                              name: string
+                    (** The identifier for this resource. *)
+                                      name: string
                   
                   
                 
                 
                 ; [@key "name"]
-                                              order: int32
+                    (** The name for this resource. *)
+                                      order: int32
                   
                    option [@default None]
                 
                 
                 ; [@key "order"]
-                                              generation: Generation_summary.t
+                    (** Order for sorting. Almost by date of release, except similar versions are grouped together. *)
+                                      generation: Generation_summary.t
                   
                   
                 
                 
                 ; [@key "generation"]
-                                              move_learn_methods: Ability_detail_pokemon_inner_pokemon.t list
+                    (** The generation this version was introduced in. *)
+                                      move_learn_methods: Move_learn_method_summary.t list
                 
                 
                 ; [@key "move_learn_methods"]
-                                              pokedexes: Ability_detail_pokemon_inner_pokemon.t list
+                    (** A list of methods in which Pokémon can learn moves in this version group. *)
+                                      pokedexes: Pokedex_summary.t list
                 
                 
                 ; [@key "pokedexes"]
-                                              regions: Ability_detail_pokemon_inner_pokemon.t list
+                    (** A list of Pokédexes introduces in this version group. *)
+                                      regions: Region_summary.t list
                 
                 
                 ; [@key "regions"]
-                                              versions: Version_summary.t list
+                    (** A list of regions that can be visited in this version group. *)
+                                      versions: Version_summary.t list
                 
                 
                 ; [@key "versions"]
-                        } [@@deriving yojson { strict = false }, show, eq ];;
+                    (** The versions this version group owns. *)
+                } [@@deriving yojson { strict = false }, show, eq ];;
         
-        let create (id : int32) (name : string) (generation : Generation_summary.t) (move_learn_methods : Ability_detail_pokemon_inner_pokemon.t list) (pokedexes : Ability_detail_pokemon_inner_pokemon.t list) (regions : Ability_detail_pokemon_inner_pokemon.t list) (versions : Version_summary.t list) : t = {
+        let create (id : int32) (name : string) (generation : Generation_summary.t) (move_learn_methods : Move_learn_method_summary.t list) (pokedexes : Pokedex_summary.t list) (regions : Region_summary.t list) (versions : Version_summary.t list) : t = {
             id = id;
             name = name;
             order = None;

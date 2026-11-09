@@ -1,0 +1,41 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server GenderPokemonSpecies"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a GenderPokemonSpecies"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  PokemonSpeciesSummary = openapi_server.resourceTypes.PokemonSpeciesSummary
+}
+resourceTypes {
+
+  GenderPokemonSpecies {
+    title = GenderPokemonSpecies
+    description = GenderPokemonSpecies
+    derivedFrom = Root
+    properties {
+        rate {
+          type =  integer
+          description = "The chance of this Pokémon being female, in eighths; or -1 for genderless."
+          optional = true
+        }
+        pokemon_species {
+          type = PokemonSpeciesSummary
+          description = "A Pokémon species that can be the referenced gender."
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  GenderPokemonSpecies {
+    title = GenderPokemonSpecies
+    description = GenderPokemonSpecies
+    implements = openapi_server.resourceTypes.GenderPokemonSpecies
+
+  }
+}

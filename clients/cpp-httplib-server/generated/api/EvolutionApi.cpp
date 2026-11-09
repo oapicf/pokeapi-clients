@@ -11,14 +11,14 @@
 
 // Project headers
 #include "EvolutionApi.h"
-#include "AuthenticationManager.h"
 
 constexpr int HTTP_RESPONSE_CODE_PAGINATED_EVOLUTION_CHAIN_SUMMARY_LIST = 200;
 constexpr int HTTP_RESPONSE_CODE_EVOLUTION_CHAIN_DETAIL = 200;
 constexpr int HTTP_RESPONSE_CODE_PAGINATED_EVOLUTION_TRIGGER_SUMMARY_LIST = 200;
 constexpr int HTTP_RESPONSE_CODE_EVOLUTION_TRIGGER_DETAIL = 200;
+constexpr int HTTP_RESPONSE_CODE_PAGINATED_EVOLUTION_VARIABLE_SUMMARY_LIST = 200;
+constexpr int HTTP_RESPONSE_CODE_EVOLUTION_VARIABLE_DETAIL = 200;
 constexpr int HTTP_RESPONSE_CODE_BAD_REQUEST = 400;
-constexpr int HTTP_RESPONSE_CODE_UNAUTHORIZED = 401;
 constexpr int HTTP_RESPONSE_CODE_INTERNAL_SERVER_ERROR = 500;
 
 namespace Api {
@@ -62,16 +62,6 @@ bool Evolution::parseApiv2evolutionChainGetParams(const httplib::Request& req, E
     {
         // Use default value for optional parameter
         params.m_offset = 0;
-    }
-    // Query Parameters - q
-    if (req.has_param("q"))
-    {
-        params.m_q = req.get_param_value("q");
-    }
-    else
-    {
-        // Use default value for optional parameter
-        params.m_q = "";
     }
 
     // Return errors via out-parameter, return false if any errors
@@ -229,62 +219,114 @@ void Evolution::handleApiv2evolutionTriggeridGetResponse(const Apiv2evolutionTri
     to_json(responseJson, result);
     res.set_content(responseJson.dump(), "application/json");
 }
-
-bool Evolution::performAuthentication(
-    const httplib::Request& req,
-    std::shared_ptr<AuthenticationManager> auth,
-    httplib::Response& res)
+bool Evolution::parseApiv2evolutionVariableGetParams(const httplib::Request& req, Evolution::Apiv2evolutionVariableGetRequest& params, std::vector<std::string>& paramErrors)
 {
-    if (!auth)
+    std::vector<std::string> errors;
+
+    // Query Parameters - limit
+    if (req.has_param("limit"))
     {
-        nlohmann::json errorJson = nlohmann::json::object();
-        errorJson["message"] = "AuthenticationManager not configured";
-        res.status = HTTP_RESPONSE_CODE_INTERNAL_SERVER_ERROR;
-        res.set_content(errorJson.dump(), "application/json");
+        try
+        {
+            params.m_limit = std::stoi(req.get_param_value("limit"));
+        }
+        catch (const std::exception& e)
+        {
+            errors.push_back("Invalid query parameter 'limit': " + std::string(e.what()));
+        }
+    }
+    else
+    {
+        // Use default value for optional parameter
+        params.m_limit = 0;
+    }
+    // Query Parameters - offset
+    if (req.has_param("offset"))
+    {
+        try
+        {
+            params.m_offset = std::stoi(req.get_param_value("offset"));
+        }
+        catch (const std::exception& e)
+        {
+            errors.push_back("Invalid query parameter 'offset': " + std::string(e.what()));
+        }
+    }
+    else
+    {
+        // Use default value for optional parameter
+        params.m_offset = 0;
+    }
+    // Query Parameters - q
+    if (req.has_param("q"))
+    {
+        params.m_q = req.get_param_value("q");
+    }
+    else
+    {
+        // Use default value for optional parameter
+        params.m_q = "";
+    }
+
+    // Return errors via out-parameter, return false if any errors
+    if (!errors.empty())
+    {
+        paramErrors = std::move(errors);
         return false;
     }
+    return true;
+}
+void Evolution::handleApiv2evolutionVariableGetResponse(const Apiv2evolutionVariableGetResponse& result, httplib::Response& res)
+{
+    // Single response type
+    res.status = HTTP_RESPONSE_CODE_PAGINATED_EVOLUTION_VARIABLE_SUMMARY_LIST;
+    nlohmann::json responseJson;
+    to_json(responseJson, result);
+    res.set_content(responseJson.dump(), "application/json");
+}
+bool Evolution::parseApiv2evolutionVariableidGetParams(const httplib::Request& req, Evolution::Apiv2evolutionVariableidGetRequest& params, std::vector<std::string>& paramErrors)
+{
+    std::vector<std::string> errors;
 
+    // Path Parameters - id (index: 1)
+    if (req.matches.size() < 1 + 1)
     {
-        auto cookieHeader = req.get_header_value("Cookie");
-        std::string key = "sessionid=";
-        size_t start = cookieHeader.find(key);
-        if (start != std::string::npos)
+        errors.push_back("Missing path parameter 'id'");
+    }
+    else
+    {
+        try
         {
-            start += key.length();
-            size_t end = cookieHeader.find(";", start);
-            if (end == std::string::npos) end = cookieHeader.length();
-            std::string cookieValue = cookieHeader.substr(start, end - start);
-            if (auth->validateApiKey(cookieValue)) return true;
+            params.m_id = req.matches[1];
+        }
+        catch (const std::exception& e)
+        {
+            errors.push_back("Invalid path parameter 'id': " + std::string(e.what()));
         }
     }
 
-    if (req.has_header("Authorization"))
+    // Return errors via out-parameter, return false if any errors
+    if (!errors.empty())
     {
-        auto authHeader = req.get_header_value("Authorization");
-        if (authHeader.find("Basic ") == 0)
-        {
-            std::string credentials = authHeader.substr(6);
-            if (auth->validateBasicAuth(credentials, "")) return true;
-        }
+        paramErrors = std::move(errors);
+        return false;
     }
-
-
-
-    return false;
+    return true;
+}
+void Evolution::handleApiv2evolutionVariableidGetResponse(const Apiv2evolutionVariableidGetResponse& result, httplib::Response& res)
+{
+    // Single response type
+    res.status = HTTP_RESPONSE_CODE_EVOLUTION_VARIABLE_DETAIL;
+    nlohmann::json responseJson;
+    to_json(responseJson, result);
+    res.set_content(responseJson.dump(), "application/json");
 }
 
-void Evolution::handleApiv2evolutionChainGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+
+void Evolution::handleApiv2evolutionChainGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2evolutionChainGetRequest params;
         std::vector<std::string> paramErrors;
@@ -310,18 +352,10 @@ void Evolution::handleApiv2evolutionChainGetRequest([[maybe_unused]] const httpl
     }
 }
 
-void Evolution::handleApiv2evolutionChainidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Evolution::handleApiv2evolutionChainidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2evolutionChainidGetRequest params;
         std::vector<std::string> paramErrors;
@@ -347,18 +381,10 @@ void Evolution::handleApiv2evolutionChainidGetRequest([[maybe_unused]] const htt
     }
 }
 
-void Evolution::handleApiv2evolutionTriggerGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Evolution::handleApiv2evolutionTriggerGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2evolutionTriggerGetRequest params;
         std::vector<std::string> paramErrors;
@@ -384,18 +410,10 @@ void Evolution::handleApiv2evolutionTriggerGetRequest([[maybe_unused]] const htt
     }
 }
 
-void Evolution::handleApiv2evolutionTriggeridGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Evolution::handleApiv2evolutionTriggeridGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2evolutionTriggeridGetRequest params;
         std::vector<std::string> paramErrors;
@@ -421,24 +439,90 @@ void Evolution::handleApiv2evolutionTriggeridGetRequest([[maybe_unused]] const h
     }
 }
 
-
-void Evolution::registerRoutes(httplib::Server& svr, std::shared_ptr<AuthenticationManager> auth)
+void Evolution::handleApiv2evolutionVariableGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
-    svr.Get("/api/v2/evolution-chain/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    try
     {
-        handleApiv2evolutionChainGetRequest(req, res, auth);
+
+        Apiv2evolutionVariableGetRequest params;
+        std::vector<std::string> paramErrors;
+        if (!parseApiv2evolutionVariableGetParams(req, params, paramErrors))
+        {
+            nlohmann::json errorJson = nlohmann::json::object();
+            errorJson["message"] = "Invalid parameters";
+            errorJson["errors"] = paramErrors;
+            res.status = HTTP_RESPONSE_CODE_BAD_REQUEST;
+            res.set_content(errorJson.dump(), "application/json");
+            return;
+        }
+        auto result = handleGetForApiv2evolutionVariable(params);
+        handleApiv2evolutionVariableGetResponse(result, res);
+
+    }
+    catch (const std::exception& e)
+    {
+        nlohmann::json errorJson = nlohmann::json::object();
+        errorJson["message"] = "Internal error: " + std::string(e.what());
+        res.status = HTTP_RESPONSE_CODE_INTERNAL_SERVER_ERROR;
+        res.set_content(errorJson.dump(), "application/json");
+    }
+}
+
+void Evolution::handleApiv2evolutionVariableidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+{
+    try
+    {
+
+        Apiv2evolutionVariableidGetRequest params;
+        std::vector<std::string> paramErrors;
+        if (!parseApiv2evolutionVariableidGetParams(req, params, paramErrors))
+        {
+            nlohmann::json errorJson = nlohmann::json::object();
+            errorJson["message"] = "Invalid parameters";
+            errorJson["errors"] = paramErrors;
+            res.status = HTTP_RESPONSE_CODE_BAD_REQUEST;
+            res.set_content(errorJson.dump(), "application/json");
+            return;
+        }
+        auto result = handleGetForApiv2evolutionVariableid(params);
+        handleApiv2evolutionVariableidGetResponse(result, res);
+
+    }
+    catch (const std::exception& e)
+    {
+        nlohmann::json errorJson = nlohmann::json::object();
+        errorJson["message"] = "Internal error: " + std::string(e.what());
+        res.status = HTTP_RESPONSE_CODE_INTERNAL_SERVER_ERROR;
+        res.set_content(errorJson.dump(), "application/json");
+    }
+}
+
+
+void Evolution::registerRoutes(httplib::Server& svr)
+{
+    svr.Get("/api/v2/evolution-chain/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    {
+        handleApiv2evolutionChainGetRequest(req, res);
     });
-    svr.Get("/api/v2/evolution-chain/{id}/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/evolution-chain/{id}/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2evolutionChainidGetRequest(req, res, auth);
+        handleApiv2evolutionChainidGetRequest(req, res);
     });
-    svr.Get("/api/v2/evolution-trigger/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/evolution-trigger/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2evolutionTriggerGetRequest(req, res, auth);
+        handleApiv2evolutionTriggerGetRequest(req, res);
     });
-    svr.Get("/api/v2/evolution-trigger/{id}/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/evolution-trigger/{id}/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2evolutionTriggeridGetRequest(req, res, auth);
+        handleApiv2evolutionTriggeridGetRequest(req, res);
+    });
+    svr.Get("/api/v2/evolution-variable/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    {
+        handleApiv2evolutionVariableGetRequest(req, res);
+    });
+    svr.Get("/api/v2/evolution-variable/{id}/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    {
+        handleApiv2evolutionVariableidGetRequest(req, res);
     });
 }
 

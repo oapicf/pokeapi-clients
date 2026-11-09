@@ -5,11 +5,13 @@
  */
 package com.prokarma.pkmst.controller;
 
+import com.prokarma.pkmst.model.CurrencyDetail;
 import com.prokarma.pkmst.model.ItemAttributeDetail;
 import com.prokarma.pkmst.model.ItemCategoryDetail;
 import com.prokarma.pkmst.model.ItemDetail;
 import com.prokarma.pkmst.model.ItemFlingEffectDetail;
 import com.prokarma.pkmst.model.ItemPocketDetail;
+import com.prokarma.pkmst.model.PaginatedCurrencySummaryList;
 import com.prokarma.pkmst.model.PaginatedItemAttributeSummaryList;
 import com.prokarma.pkmst.model.PaginatedItemCategorySummaryList;
 import com.prokarma.pkmst.model.PaginatedItemFlingEffectSummaryList;
@@ -28,16 +30,33 @@ import java.util.List;
  * @author pkmst
  *
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-10-25T05:48:09.645019047Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-11-09T13:49:28.343088631Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 @Api(value = "Items", description = "the Items API")
 public interface ItemsApi {
 
-    @ApiOperation(value = "List item attributes", notes = "Item attributes define particular aspects of items, e.g.\"usable in battle\" or \"consumable\".", response = PaginatedItemAttributeSummaryList.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "items", })
+    @ApiOperation(value = "List currencies", notes = "Currencies used to buy items.", response = PaginatedCurrencySummaryList.class, tags={ "items", })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "", response = PaginatedCurrencySummaryList.class) })
+    @RequestMapping(
+        method = RequestMethod.GET,
+        value = "/api/v2/currency/",
+        produces = { "application/json" }
+    )
+    ResponseEntity<PaginatedCurrencySummaryList> currencyList(@ApiParam(value = "Number of results to return per page.")  @RequestParam(value = "limit", required = false) Integer limit,@ApiParam(value = "The initial index from which to return the results.")  @RequestParam(value = "offset", required = false) Integer offset,@ApiParam(value = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")  @RequestParam(value = "q", required = false) String q, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
+
+
+    @ApiOperation(value = "Get currency", notes = "Currencies used to buy items.", response = CurrencyDetail.class, tags={ "items", })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "", response = CurrencyDetail.class) })
+    @RequestMapping(
+        method = RequestMethod.GET,
+        value = "/api/v2/currency/{id}/",
+        produces = { "application/json" }
+    )
+    ResponseEntity<CurrencyDetail> currencyRetrieve(@ApiParam(value = "This parameter can be a string or an integer.",required=true ) @PathVariable("id") String id, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
+
+
+    @ApiOperation(value = "List item attributes", notes = "Item attributes define particular aspects of items, e.g.\"usable in battle\" or \"consumable\".", response = PaginatedItemAttributeSummaryList.class, tags={ "items", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedItemAttributeSummaryList.class) })
     @RequestMapping(
@@ -48,12 +67,7 @@ public interface ItemsApi {
     ResponseEntity<PaginatedItemAttributeSummaryList> itemAttributeList(@ApiParam(value = "Number of results to return per page.")  @RequestParam(value = "limit", required = false) Integer limit,@ApiParam(value = "The initial index from which to return the results.")  @RequestParam(value = "offset", required = false) Integer offset,@ApiParam(value = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")  @RequestParam(value = "q", required = false) String q, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "Get item attribute", notes = "Item attributes define particular aspects of items, e.g.\"usable in battle\" or \"consumable\".", response = ItemAttributeDetail.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "items", })
+    @ApiOperation(value = "Get item attribute", notes = "Item attributes define particular aspects of items, e.g.\"usable in battle\" or \"consumable\".", response = ItemAttributeDetail.class, tags={ "items", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = ItemAttributeDetail.class) })
     @RequestMapping(
@@ -64,12 +78,7 @@ public interface ItemsApi {
     ResponseEntity<ItemAttributeDetail> itemAttributeRetrieve(@ApiParam(value = "This parameter can be a string or an integer.",required=true ) @PathVariable("id") String id, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "List item categories", notes = "Item categories determine where items will be placed in the players bag.", response = PaginatedItemCategorySummaryList.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "items", })
+    @ApiOperation(value = "List item categories", notes = "Item categories determine where items will be placed in the players bag.", response = PaginatedItemCategorySummaryList.class, tags={ "items", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedItemCategorySummaryList.class) })
     @RequestMapping(
@@ -80,12 +89,7 @@ public interface ItemsApi {
     ResponseEntity<PaginatedItemCategorySummaryList> itemCategoryList(@ApiParam(value = "Number of results to return per page.")  @RequestParam(value = "limit", required = false) Integer limit,@ApiParam(value = "The initial index from which to return the results.")  @RequestParam(value = "offset", required = false) Integer offset,@ApiParam(value = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")  @RequestParam(value = "q", required = false) String q, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "Get item category", notes = "Item categories determine where items will be placed in the players bag.", response = ItemCategoryDetail.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "items", })
+    @ApiOperation(value = "Get item category", notes = "Item categories determine where items will be placed in the players bag.", response = ItemCategoryDetail.class, tags={ "items", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = ItemCategoryDetail.class) })
     @RequestMapping(
@@ -96,12 +100,7 @@ public interface ItemsApi {
     ResponseEntity<ItemCategoryDetail> itemCategoryRetrieve(@ApiParam(value = "This parameter can be a string or an integer.",required=true ) @PathVariable("id") String id, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "List item fling effects", notes = "The various effects of the move\"Fling\" when used with different items.", response = PaginatedItemFlingEffectSummaryList.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "items", })
+    @ApiOperation(value = "List item fling effects", notes = "The various effects of the move\"Fling\" when used with different items.", response = PaginatedItemFlingEffectSummaryList.class, tags={ "items", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedItemFlingEffectSummaryList.class) })
     @RequestMapping(
@@ -112,12 +111,7 @@ public interface ItemsApi {
     ResponseEntity<PaginatedItemFlingEffectSummaryList> itemFlingEffectList(@ApiParam(value = "Number of results to return per page.")  @RequestParam(value = "limit", required = false) Integer limit,@ApiParam(value = "The initial index from which to return the results.")  @RequestParam(value = "offset", required = false) Integer offset,@ApiParam(value = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")  @RequestParam(value = "q", required = false) String q, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "Get item fling effect", notes = "The various effects of the move\"Fling\" when used with different items.", response = ItemFlingEffectDetail.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "items", })
+    @ApiOperation(value = "Get item fling effect", notes = "The various effects of the move\"Fling\" when used with different items.", response = ItemFlingEffectDetail.class, tags={ "items", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = ItemFlingEffectDetail.class) })
     @RequestMapping(
@@ -128,12 +122,7 @@ public interface ItemsApi {
     ResponseEntity<ItemFlingEffectDetail> itemFlingEffectRetrieve(@ApiParam(value = "This parameter can be a string or an integer.",required=true ) @PathVariable("id") String id, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "List items", notes = "An item is an object in the games which the player can pick up, keep in their bag, and use in some manner. They have various uses, including healing, powering up, helping catch Pokémon, or to access a new area.", response = PaginatedItemSummaryList.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "items", })
+    @ApiOperation(value = "List items", notes = "An item is an object in the games which the player can pick up, keep in their bag, and use in some manner. They have various uses, including healing, powering up, helping catch Pokémon, or to access a new area.", response = PaginatedItemSummaryList.class, tags={ "items", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedItemSummaryList.class) })
     @RequestMapping(
@@ -144,12 +133,7 @@ public interface ItemsApi {
     ResponseEntity<PaginatedItemSummaryList> itemList(@ApiParam(value = "Number of results to return per page.")  @RequestParam(value = "limit", required = false) Integer limit,@ApiParam(value = "The initial index from which to return the results.")  @RequestParam(value = "offset", required = false) Integer offset,@ApiParam(value = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")  @RequestParam(value = "q", required = false) String q, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "List item pockets", notes = "Pockets within the players bag used for storing items by category.", response = PaginatedItemPocketSummaryList.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "items", })
+    @ApiOperation(value = "List item pockets", notes = "Pockets within the players bag used for storing items by category.", response = PaginatedItemPocketSummaryList.class, tags={ "items", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedItemPocketSummaryList.class) })
     @RequestMapping(
@@ -160,12 +144,7 @@ public interface ItemsApi {
     ResponseEntity<PaginatedItemPocketSummaryList> itemPocketList(@ApiParam(value = "Number of results to return per page.")  @RequestParam(value = "limit", required = false) Integer limit,@ApiParam(value = "The initial index from which to return the results.")  @RequestParam(value = "offset", required = false) Integer offset,@ApiParam(value = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")  @RequestParam(value = "q", required = false) String q, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "Get item pocket", notes = "Pockets within the players bag used for storing items by category.", response = ItemPocketDetail.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "items", })
+    @ApiOperation(value = "Get item pocket", notes = "Pockets within the players bag used for storing items by category.", response = ItemPocketDetail.class, tags={ "items", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = ItemPocketDetail.class) })
     @RequestMapping(
@@ -176,12 +155,7 @@ public interface ItemsApi {
     ResponseEntity<ItemPocketDetail> itemPocketRetrieve(@ApiParam(value = "This parameter can be a string or an integer.",required=true ) @PathVariable("id") String id, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "Get item", notes = "An item is an object in the games which the player can pick up, keep in their bag, and use in some manner. They have various uses, including healing, powering up, helping catch Pokémon, or to access a new area.", response = ItemDetail.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "items", })
+    @ApiOperation(value = "Get item", notes = "An item is an object in the games which the player can pick up, keep in their bag, and use in some manner. They have various uses, including healing, powering up, helping catch Pokémon, or to access a new area.", response = ItemDetail.class, tags={ "items", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = ItemDetail.class) })
     @RequestMapping(

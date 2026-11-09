@@ -32,28 +32,33 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param id 
- * @param appeal 
- * @param jam 
- * @param effectEntries 
- * @param flavorTextEntries 
+ * @param id The identifier for this resource.
+ * @param appeal The base number of hearts the user of this move gets.
+ * @param jam The base number of hearts the user's opponent loses.
+ * @param effectEntries The result of this contest effect listed in different languages.
+ * @param flavorTextEntries The flavor text of this contest effect listed in different languages.
  */
 
 
 data class ContestEffectDetail (
 
+    /* The identifier for this resource. */
     @Json(name = "id")
     val id: kotlin.Int,
 
+    /* The base number of hearts the user of this move gets. */
     @Json(name = "appeal")
     val appeal: kotlin.Int,
 
+    /* The base number of hearts the user's opponent loses. */
     @Json(name = "jam")
     val jam: kotlin.Int,
 
+    /* The result of this contest effect listed in different languages. */
     @Json(name = "effect_entries")
     val effectEntries: kotlin.collections.List<ContestEffectEffectText>,
 
+    /* The flavor text of this contest effect listed in different languages. */
     @Json(name = "flavor_text_entries")
     val flavorTextEntries: kotlin.collections.List<ContestEffectFlavorText>
 

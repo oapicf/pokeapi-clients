@@ -48,7 +48,7 @@ module PokemonApiHandler =
 
     //#region AbilityList
     /// <summary>
-    /// 
+    /// List abilities
     /// </summary>
 
     let AbilityList  : HttpHandler =
@@ -66,7 +66,7 @@ module PokemonApiHandler =
 
     //#region AbilityRetrieve
     /// <summary>
-    /// 
+    /// Get ability
     /// </summary>
 
     let AbilityRetrieve (pathParams:AbilityRetrievePathParams) : HttpHandler =
@@ -83,7 +83,7 @@ module PokemonApiHandler =
 
     //#region CharacteristicList
     /// <summary>
-    /// List charecterictics
+    /// List characteristics
     /// </summary>
 
     let CharacteristicList  : HttpHandler =

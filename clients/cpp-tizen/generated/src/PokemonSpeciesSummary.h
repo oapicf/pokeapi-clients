@@ -45,18 +45,18 @@ public:
 	 */
 	void fromJson(char* jsonStr);
 
-	/*! \brief Get 
+	/*! \brief Get The name of the referenced resource.
 	 */
 	std::string getName();
 
-	/*! \brief Set 
+	/*! \brief Set The name of the referenced resource.
 	 */
 	void setName(std::string  name);
-	/*! \brief Get 
+	/*! \brief Get The URL of the referenced resource.
 	 */
 	std::string getUrl();
 
-	/*! \brief Set 
+	/*! \brief Set The URL of the referenced resource.
 	 */
 	void setUrl(std::string  url);
 

@@ -46,18 +46,18 @@ public:
 	 */
     void fromJson(std::string jsonObj);
 
-	/*! \brief Get 
+	/*! \brief Get The internal id of an API resource within game data.
 	 */
 	int getGameIndex();
 
-	/*! \brief Set 
+	/*! \brief Set The internal id of an API resource within game data.
 	 */
 	void setGameIndex(int game_index);
-	/*! \brief Get 
+	/*! \brief Get The generation relevent to this game index.
 	 */
 	GenerationSummary getGeneration();
 
-	/*! \brief Set 
+	/*! \brief Set The generation relevent to this game index.
 	 */
 	void setGeneration(GenerationSummary generation);
 

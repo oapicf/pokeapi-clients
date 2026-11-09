@@ -110,7 +110,6 @@ operation_parameters_minimum_occurrences["berryList:::q"]=0
 operation_parameters_minimum_occurrences["berryRetrieve:::id"]=1
 operation_parameters_minimum_occurrences["contestEffectList:::limit"]=0
 operation_parameters_minimum_occurrences["contestEffectList:::offset"]=0
-operation_parameters_minimum_occurrences["contestEffectList:::q"]=0
 operation_parameters_minimum_occurrences["contestEffectRetrieve:::id"]=1
 operation_parameters_minimum_occurrences["contestTypeList:::limit"]=0
 operation_parameters_minimum_occurrences["contestTypeList:::offset"]=0
@@ -118,7 +117,6 @@ operation_parameters_minimum_occurrences["contestTypeList:::q"]=0
 operation_parameters_minimum_occurrences["contestTypeRetrieve:::id"]=1
 operation_parameters_minimum_occurrences["superContestEffectList:::limit"]=0
 operation_parameters_minimum_occurrences["superContestEffectList:::offset"]=0
-operation_parameters_minimum_occurrences["superContestEffectList:::q"]=0
 operation_parameters_minimum_occurrences["superContestEffectRetrieve:::id"]=1
 operation_parameters_minimum_occurrences["encounterConditionList:::limit"]=0
 operation_parameters_minimum_occurrences["encounterConditionList:::offset"]=0
@@ -134,12 +132,15 @@ operation_parameters_minimum_occurrences["encounterMethodList:::q"]=0
 operation_parameters_minimum_occurrences["encounterMethodRetrieve:::id"]=1
 operation_parameters_minimum_occurrences["evolutionChainList:::limit"]=0
 operation_parameters_minimum_occurrences["evolutionChainList:::offset"]=0
-operation_parameters_minimum_occurrences["evolutionChainList:::q"]=0
 operation_parameters_minimum_occurrences["evolutionChainRetrieve:::id"]=1
 operation_parameters_minimum_occurrences["evolutionTriggerList:::limit"]=0
 operation_parameters_minimum_occurrences["evolutionTriggerList:::offset"]=0
 operation_parameters_minimum_occurrences["evolutionTriggerList:::q"]=0
 operation_parameters_minimum_occurrences["evolutionTriggerRetrieve:::id"]=1
+operation_parameters_minimum_occurrences["evolutionVariableList:::limit"]=0
+operation_parameters_minimum_occurrences["evolutionVariableList:::offset"]=0
+operation_parameters_minimum_occurrences["evolutionVariableList:::q"]=0
+operation_parameters_minimum_occurrences["evolutionVariableRetrieve:::id"]=1
 operation_parameters_minimum_occurrences["generationList:::limit"]=0
 operation_parameters_minimum_occurrences["generationList:::offset"]=0
 operation_parameters_minimum_occurrences["generationList:::q"]=0
@@ -156,6 +157,10 @@ operation_parameters_minimum_occurrences["versionList:::limit"]=0
 operation_parameters_minimum_occurrences["versionList:::offset"]=0
 operation_parameters_minimum_occurrences["versionList:::q"]=0
 operation_parameters_minimum_occurrences["versionRetrieve:::id"]=1
+operation_parameters_minimum_occurrences["currencyList:::limit"]=0
+operation_parameters_minimum_occurrences["currencyList:::offset"]=0
+operation_parameters_minimum_occurrences["currencyList:::q"]=0
+operation_parameters_minimum_occurrences["currencyRetrieve:::id"]=1
 operation_parameters_minimum_occurrences["itemAttributeList:::limit"]=0
 operation_parameters_minimum_occurrences["itemAttributeList:::offset"]=0
 operation_parameters_minimum_occurrences["itemAttributeList:::q"]=0
@@ -193,7 +198,6 @@ operation_parameters_minimum_occurrences["regionList:::q"]=0
 operation_parameters_minimum_occurrences["regionRetrieve:::id"]=1
 operation_parameters_minimum_occurrences["machineList:::limit"]=0
 operation_parameters_minimum_occurrences["machineList:::offset"]=0
-operation_parameters_minimum_occurrences["machineList:::q"]=0
 operation_parameters_minimum_occurrences["machineRetrieve:::id"]=1
 operation_parameters_minimum_occurrences["moveAilmentList:::limit"]=0
 operation_parameters_minimum_occurrences["moveAilmentList:::offset"]=0
@@ -225,7 +229,6 @@ operation_parameters_minimum_occurrences["abilityList:::q"]=0
 operation_parameters_minimum_occurrences["abilityRetrieve:::id"]=1
 operation_parameters_minimum_occurrences["characteristicList:::limit"]=0
 operation_parameters_minimum_occurrences["characteristicList:::offset"]=0
-operation_parameters_minimum_occurrences["characteristicList:::q"]=0
 operation_parameters_minimum_occurrences["characteristicRetrieve:::id"]=1
 operation_parameters_minimum_occurrences["eggGroupList:::limit"]=0
 operation_parameters_minimum_occurrences["eggGroupList:::offset"]=0
@@ -309,7 +312,6 @@ operation_parameters_maximum_occurrences["berryList:::q"]=0
 operation_parameters_maximum_occurrences["berryRetrieve:::id"]=0
 operation_parameters_maximum_occurrences["contestEffectList:::limit"]=0
 operation_parameters_maximum_occurrences["contestEffectList:::offset"]=0
-operation_parameters_maximum_occurrences["contestEffectList:::q"]=0
 operation_parameters_maximum_occurrences["contestEffectRetrieve:::id"]=0
 operation_parameters_maximum_occurrences["contestTypeList:::limit"]=0
 operation_parameters_maximum_occurrences["contestTypeList:::offset"]=0
@@ -317,7 +319,6 @@ operation_parameters_maximum_occurrences["contestTypeList:::q"]=0
 operation_parameters_maximum_occurrences["contestTypeRetrieve:::id"]=0
 operation_parameters_maximum_occurrences["superContestEffectList:::limit"]=0
 operation_parameters_maximum_occurrences["superContestEffectList:::offset"]=0
-operation_parameters_maximum_occurrences["superContestEffectList:::q"]=0
 operation_parameters_maximum_occurrences["superContestEffectRetrieve:::id"]=0
 operation_parameters_maximum_occurrences["encounterConditionList:::limit"]=0
 operation_parameters_maximum_occurrences["encounterConditionList:::offset"]=0
@@ -333,12 +334,15 @@ operation_parameters_maximum_occurrences["encounterMethodList:::q"]=0
 operation_parameters_maximum_occurrences["encounterMethodRetrieve:::id"]=0
 operation_parameters_maximum_occurrences["evolutionChainList:::limit"]=0
 operation_parameters_maximum_occurrences["evolutionChainList:::offset"]=0
-operation_parameters_maximum_occurrences["evolutionChainList:::q"]=0
 operation_parameters_maximum_occurrences["evolutionChainRetrieve:::id"]=0
 operation_parameters_maximum_occurrences["evolutionTriggerList:::limit"]=0
 operation_parameters_maximum_occurrences["evolutionTriggerList:::offset"]=0
 operation_parameters_maximum_occurrences["evolutionTriggerList:::q"]=0
 operation_parameters_maximum_occurrences["evolutionTriggerRetrieve:::id"]=0
+operation_parameters_maximum_occurrences["evolutionVariableList:::limit"]=0
+operation_parameters_maximum_occurrences["evolutionVariableList:::offset"]=0
+operation_parameters_maximum_occurrences["evolutionVariableList:::q"]=0
+operation_parameters_maximum_occurrences["evolutionVariableRetrieve:::id"]=0
 operation_parameters_maximum_occurrences["generationList:::limit"]=0
 operation_parameters_maximum_occurrences["generationList:::offset"]=0
 operation_parameters_maximum_occurrences["generationList:::q"]=0
@@ -355,6 +359,10 @@ operation_parameters_maximum_occurrences["versionList:::limit"]=0
 operation_parameters_maximum_occurrences["versionList:::offset"]=0
 operation_parameters_maximum_occurrences["versionList:::q"]=0
 operation_parameters_maximum_occurrences["versionRetrieve:::id"]=0
+operation_parameters_maximum_occurrences["currencyList:::limit"]=0
+operation_parameters_maximum_occurrences["currencyList:::offset"]=0
+operation_parameters_maximum_occurrences["currencyList:::q"]=0
+operation_parameters_maximum_occurrences["currencyRetrieve:::id"]=0
 operation_parameters_maximum_occurrences["itemAttributeList:::limit"]=0
 operation_parameters_maximum_occurrences["itemAttributeList:::offset"]=0
 operation_parameters_maximum_occurrences["itemAttributeList:::q"]=0
@@ -392,7 +400,6 @@ operation_parameters_maximum_occurrences["regionList:::q"]=0
 operation_parameters_maximum_occurrences["regionRetrieve:::id"]=0
 operation_parameters_maximum_occurrences["machineList:::limit"]=0
 operation_parameters_maximum_occurrences["machineList:::offset"]=0
-operation_parameters_maximum_occurrences["machineList:::q"]=0
 operation_parameters_maximum_occurrences["machineRetrieve:::id"]=0
 operation_parameters_maximum_occurrences["moveAilmentList:::limit"]=0
 operation_parameters_maximum_occurrences["moveAilmentList:::offset"]=0
@@ -424,7 +431,6 @@ operation_parameters_maximum_occurrences["abilityList:::q"]=0
 operation_parameters_maximum_occurrences["abilityRetrieve:::id"]=0
 operation_parameters_maximum_occurrences["characteristicList:::limit"]=0
 operation_parameters_maximum_occurrences["characteristicList:::offset"]=0
-operation_parameters_maximum_occurrences["characteristicList:::q"]=0
 operation_parameters_maximum_occurrences["characteristicRetrieve:::id"]=0
 operation_parameters_maximum_occurrences["eggGroupList:::limit"]=0
 operation_parameters_maximum_occurrences["eggGroupList:::offset"]=0
@@ -505,7 +511,6 @@ operation_parameters_collection_type["berryList:::q"]=""
 operation_parameters_collection_type["berryRetrieve:::id"]=""
 operation_parameters_collection_type["contestEffectList:::limit"]=""
 operation_parameters_collection_type["contestEffectList:::offset"]=""
-operation_parameters_collection_type["contestEffectList:::q"]=""
 operation_parameters_collection_type["contestEffectRetrieve:::id"]=""
 operation_parameters_collection_type["contestTypeList:::limit"]=""
 operation_parameters_collection_type["contestTypeList:::offset"]=""
@@ -513,7 +518,6 @@ operation_parameters_collection_type["contestTypeList:::q"]=""
 operation_parameters_collection_type["contestTypeRetrieve:::id"]=""
 operation_parameters_collection_type["superContestEffectList:::limit"]=""
 operation_parameters_collection_type["superContestEffectList:::offset"]=""
-operation_parameters_collection_type["superContestEffectList:::q"]=""
 operation_parameters_collection_type["superContestEffectRetrieve:::id"]=""
 operation_parameters_collection_type["encounterConditionList:::limit"]=""
 operation_parameters_collection_type["encounterConditionList:::offset"]=""
@@ -529,12 +533,15 @@ operation_parameters_collection_type["encounterMethodList:::q"]=""
 operation_parameters_collection_type["encounterMethodRetrieve:::id"]=""
 operation_parameters_collection_type["evolutionChainList:::limit"]=""
 operation_parameters_collection_type["evolutionChainList:::offset"]=""
-operation_parameters_collection_type["evolutionChainList:::q"]=""
 operation_parameters_collection_type["evolutionChainRetrieve:::id"]=""
 operation_parameters_collection_type["evolutionTriggerList:::limit"]=""
 operation_parameters_collection_type["evolutionTriggerList:::offset"]=""
 operation_parameters_collection_type["evolutionTriggerList:::q"]=""
 operation_parameters_collection_type["evolutionTriggerRetrieve:::id"]=""
+operation_parameters_collection_type["evolutionVariableList:::limit"]=""
+operation_parameters_collection_type["evolutionVariableList:::offset"]=""
+operation_parameters_collection_type["evolutionVariableList:::q"]=""
+operation_parameters_collection_type["evolutionVariableRetrieve:::id"]=""
 operation_parameters_collection_type["generationList:::limit"]=""
 operation_parameters_collection_type["generationList:::offset"]=""
 operation_parameters_collection_type["generationList:::q"]=""
@@ -551,6 +558,10 @@ operation_parameters_collection_type["versionList:::limit"]=""
 operation_parameters_collection_type["versionList:::offset"]=""
 operation_parameters_collection_type["versionList:::q"]=""
 operation_parameters_collection_type["versionRetrieve:::id"]=""
+operation_parameters_collection_type["currencyList:::limit"]=""
+operation_parameters_collection_type["currencyList:::offset"]=""
+operation_parameters_collection_type["currencyList:::q"]=""
+operation_parameters_collection_type["currencyRetrieve:::id"]=""
 operation_parameters_collection_type["itemAttributeList:::limit"]=""
 operation_parameters_collection_type["itemAttributeList:::offset"]=""
 operation_parameters_collection_type["itemAttributeList:::q"]=""
@@ -588,7 +599,6 @@ operation_parameters_collection_type["regionList:::q"]=""
 operation_parameters_collection_type["regionRetrieve:::id"]=""
 operation_parameters_collection_type["machineList:::limit"]=""
 operation_parameters_collection_type["machineList:::offset"]=""
-operation_parameters_collection_type["machineList:::q"]=""
 operation_parameters_collection_type["machineRetrieve:::id"]=""
 operation_parameters_collection_type["moveAilmentList:::limit"]=""
 operation_parameters_collection_type["moveAilmentList:::offset"]=""
@@ -620,7 +630,6 @@ operation_parameters_collection_type["abilityList:::q"]=""
 operation_parameters_collection_type["abilityRetrieve:::id"]=""
 operation_parameters_collection_type["characteristicList:::limit"]=""
 operation_parameters_collection_type["characteristicList:::offset"]=""
-operation_parameters_collection_type["characteristicList:::q"]=""
 operation_parameters_collection_type["characteristicRetrieve:::id"]=""
 operation_parameters_collection_type["eggGroupList:::limit"]=""
 operation_parameters_collection_type["eggGroupList:::offset"]=""
@@ -1039,7 +1048,7 @@ build_request_path() {
 print_help() {
 cat <<EOF
 
-${BOLD}${WHITE}PokéAPI command line client (API version 2.7.0)${OFF}
+${BOLD}${WHITE}PokéAPI command line client (API version 2.10.0)${OFF}
 
 ${BOLD}${WHITE}Usage${OFF}
 
@@ -1066,162 +1075,161 @@ ${BOLD}${WHITE}Usage${OFF}
                                       JSON as '{ ..., "${YELLOW}KEY${OFF}": ${BLUE}VALUE${OFF}, ... }'
 
 EOF
-    echo -e "${BOLD}${WHITE}Authentication methods${OFF}"
-    echo -e ""
-    echo -e "  - ${BLUE}Basic AUTH${OFF} - add '-u <username>:<password>' before ${YELLOW}<operation>${OFF}"
-    
-    
-    echo ""
     echo -e "${BOLD}${WHITE}Operations (grouped by tags)${OFF}"
     echo ""
     echo -e "${BOLD}${WHITE}[berries]${OFF}"
 read -r -d '' ops <<EOF
-  ${CYAN}berryFirmnessList${OFF};List berry firmness (AUTH) (AUTH)
-  ${CYAN}berryFirmnessRetrieve${OFF};Get berry by firmness (AUTH) (AUTH)
-  ${CYAN}berryFlavorList${OFF};List berry flavors (AUTH) (AUTH)
-  ${CYAN}berryFlavorRetrieve${OFF};Get berries by flavor (AUTH) (AUTH)
-  ${CYAN}berryList${OFF};List berries (AUTH) (AUTH)
-  ${CYAN}berryRetrieve${OFF};Get a berry (AUTH) (AUTH)
+  ${CYAN}berryFirmnessList${OFF};List berry firmness
+  ${CYAN}berryFirmnessRetrieve${OFF};Get berry by firmness
+  ${CYAN}berryFlavorList${OFF};List berry flavors
+  ${CYAN}berryFlavorRetrieve${OFF};Get berries by flavor
+  ${CYAN}berryList${OFF};List berries
+  ${CYAN}berryRetrieve${OFF};Get a berry
 EOF
 echo "  $ops" | column -t -s ';'
     echo ""
     echo -e "${BOLD}${WHITE}[contests]${OFF}"
 read -r -d '' ops <<EOF
-  ${CYAN}contestEffectList${OFF};List contest effects (AUTH) (AUTH)
-  ${CYAN}contestEffectRetrieve${OFF};Get contest effect (AUTH) (AUTH)
-  ${CYAN}contestTypeList${OFF};List contest types (AUTH) (AUTH)
-  ${CYAN}contestTypeRetrieve${OFF};Get contest type (AUTH) (AUTH)
-  ${CYAN}superContestEffectList${OFF};List super contest effects (AUTH) (AUTH)
-  ${CYAN}superContestEffectRetrieve${OFF};Get super contest effect (AUTH) (AUTH)
+  ${CYAN}contestEffectList${OFF};List contest effects
+  ${CYAN}contestEffectRetrieve${OFF};Get contest effect
+  ${CYAN}contestTypeList${OFF};List contest types
+  ${CYAN}contestTypeRetrieve${OFF};Get contest type
+  ${CYAN}superContestEffectList${OFF};List super contest effects
+  ${CYAN}superContestEffectRetrieve${OFF};Get super contest effect
 EOF
 echo "  $ops" | column -t -s ';'
     echo ""
     echo -e "${BOLD}${WHITE}[encounters]${OFF}"
 read -r -d '' ops <<EOF
-  ${CYAN}encounterConditionList${OFF};List encounter conditions (AUTH) (AUTH)
-  ${CYAN}encounterConditionRetrieve${OFF};Get encounter condition (AUTH) (AUTH)
-  ${CYAN}encounterConditionValueList${OFF};List encounter condition values (AUTH) (AUTH)
-  ${CYAN}encounterConditionValueRetrieve${OFF};Get encounter condition value (AUTH) (AUTH)
-  ${CYAN}encounterMethodList${OFF};List encounter methods (AUTH) (AUTH)
-  ${CYAN}encounterMethodRetrieve${OFF};Get encounter method (AUTH) (AUTH)
+  ${CYAN}encounterConditionList${OFF};List encounter conditions
+  ${CYAN}encounterConditionRetrieve${OFF};Get encounter condition
+  ${CYAN}encounterConditionValueList${OFF};List encounter condition values
+  ${CYAN}encounterConditionValueRetrieve${OFF};Get encounter condition value
+  ${CYAN}encounterMethodList${OFF};List encounter methods
+  ${CYAN}encounterMethodRetrieve${OFF};Get encounter method
 EOF
 echo "  $ops" | column -t -s ';'
     echo ""
     echo -e "${BOLD}${WHITE}[evolution]${OFF}"
 read -r -d '' ops <<EOF
-  ${CYAN}evolutionChainList${OFF};List evolution chains (AUTH) (AUTH)
-  ${CYAN}evolutionChainRetrieve${OFF};Get evolution chain (AUTH) (AUTH)
-  ${CYAN}evolutionTriggerList${OFF};List evolution triggers (AUTH) (AUTH)
-  ${CYAN}evolutionTriggerRetrieve${OFF};Get evolution trigger (AUTH) (AUTH)
+  ${CYAN}evolutionChainList${OFF};List evolution chains
+  ${CYAN}evolutionChainRetrieve${OFF};Get evolution chain
+  ${CYAN}evolutionTriggerList${OFF};List evolution triggers
+  ${CYAN}evolutionTriggerRetrieve${OFF};Get evolution trigger
+  ${CYAN}evolutionVariableList${OFF};List evolution variables
+  ${CYAN}evolutionVariableRetrieve${OFF};Get evolution variable
 EOF
 echo "  $ops" | column -t -s ';'
     echo ""
     echo -e "${BOLD}${WHITE}[games]${OFF}"
 read -r -d '' ops <<EOF
-  ${CYAN}generationList${OFF};List genrations (AUTH) (AUTH)
-  ${CYAN}generationRetrieve${OFF};Get genration (AUTH) (AUTH)
-  ${CYAN}pokedexList${OFF};List pokedex (AUTH) (AUTH)
-  ${CYAN}pokedexRetrieve${OFF};Get pokedex (AUTH) (AUTH)
-  ${CYAN}versionGroupList${OFF};List version groups (AUTH) (AUTH)
-  ${CYAN}versionGroupRetrieve${OFF};Get version group (AUTH) (AUTH)
-  ${CYAN}versionList${OFF};List versions (AUTH) (AUTH)
-  ${CYAN}versionRetrieve${OFF};Get version (AUTH) (AUTH)
+  ${CYAN}generationList${OFF};List genrations
+  ${CYAN}generationRetrieve${OFF};Get genration
+  ${CYAN}pokedexList${OFF};List pokedex
+  ${CYAN}pokedexRetrieve${OFF};Get pokedex
+  ${CYAN}versionGroupList${OFF};List version groups
+  ${CYAN}versionGroupRetrieve${OFF};Get version group
+  ${CYAN}versionList${OFF};List versions
+  ${CYAN}versionRetrieve${OFF};Get version
 EOF
 echo "  $ops" | column -t -s ';'
     echo ""
     echo -e "${BOLD}${WHITE}[items]${OFF}"
 read -r -d '' ops <<EOF
-  ${CYAN}itemAttributeList${OFF};List item attributes (AUTH) (AUTH)
-  ${CYAN}itemAttributeRetrieve${OFF};Get item attribute (AUTH) (AUTH)
-  ${CYAN}itemCategoryList${OFF};List item categories (AUTH) (AUTH)
-  ${CYAN}itemCategoryRetrieve${OFF};Get item category (AUTH) (AUTH)
-  ${CYAN}itemFlingEffectList${OFF};List item fling effects (AUTH) (AUTH)
-  ${CYAN}itemFlingEffectRetrieve${OFF};Get item fling effect (AUTH) (AUTH)
-  ${CYAN}itemList${OFF};List items (AUTH) (AUTH)
-  ${CYAN}itemPocketList${OFF};List item pockets (AUTH) (AUTH)
-  ${CYAN}itemPocketRetrieve${OFF};Get item pocket (AUTH) (AUTH)
-  ${CYAN}itemRetrieve${OFF};Get item (AUTH) (AUTH)
+  ${CYAN}currencyList${OFF};List currencies
+  ${CYAN}currencyRetrieve${OFF};Get currency
+  ${CYAN}itemAttributeList${OFF};List item attributes
+  ${CYAN}itemAttributeRetrieve${OFF};Get item attribute
+  ${CYAN}itemCategoryList${OFF};List item categories
+  ${CYAN}itemCategoryRetrieve${OFF};Get item category
+  ${CYAN}itemFlingEffectList${OFF};List item fling effects
+  ${CYAN}itemFlingEffectRetrieve${OFF};Get item fling effect
+  ${CYAN}itemList${OFF};List items
+  ${CYAN}itemPocketList${OFF};List item pockets
+  ${CYAN}itemPocketRetrieve${OFF};Get item pocket
+  ${CYAN}itemRetrieve${OFF};Get item
 EOF
 echo "  $ops" | column -t -s ';'
     echo ""
     echo -e "${BOLD}${WHITE}[location]${OFF}"
 read -r -d '' ops <<EOF
-  ${CYAN}locationAreaList${OFF};List location areas (AUTH) (AUTH)
-  ${CYAN}locationAreaRetrieve${OFF};Get location area (AUTH) (AUTH)
-  ${CYAN}locationList${OFF};List locations (AUTH) (AUTH)
-  ${CYAN}locationRetrieve${OFF};Get location (AUTH) (AUTH)
-  ${CYAN}palParkAreaList${OFF};List pal park areas (AUTH) (AUTH)
-  ${CYAN}palParkAreaRetrieve${OFF};Get pal park area (AUTH) (AUTH)
-  ${CYAN}regionList${OFF};List regions (AUTH) (AUTH)
-  ${CYAN}regionRetrieve${OFF};Get region (AUTH) (AUTH)
+  ${CYAN}locationAreaList${OFF};List location areas
+  ${CYAN}locationAreaRetrieve${OFF};Get location area
+  ${CYAN}locationList${OFF};List locations
+  ${CYAN}locationRetrieve${OFF};Get location
+  ${CYAN}palParkAreaList${OFF};List pal park areas
+  ${CYAN}palParkAreaRetrieve${OFF};Get pal park area
+  ${CYAN}regionList${OFF};List regions
+  ${CYAN}regionRetrieve${OFF};Get region
 EOF
 echo "  $ops" | column -t -s ';'
     echo ""
     echo -e "${BOLD}${WHITE}[machines]${OFF}"
 read -r -d '' ops <<EOF
-  ${CYAN}machineList${OFF};List machines (AUTH) (AUTH)
-  ${CYAN}machineRetrieve${OFF};Get machine (AUTH) (AUTH)
+  ${CYAN}machineList${OFF};List machines
+  ${CYAN}machineRetrieve${OFF};Get machine
 EOF
 echo "  $ops" | column -t -s ';'
     echo ""
     echo -e "${BOLD}${WHITE}[moves]${OFF}"
 read -r -d '' ops <<EOF
-  ${CYAN}moveAilmentList${OFF};List move meta ailments (AUTH) (AUTH)
-  ${CYAN}moveAilmentRetrieve${OFF};Get move meta ailment (AUTH) (AUTH)
-  ${CYAN}moveBattleStyleList${OFF};List move battle styles (AUTH) (AUTH)
-  ${CYAN}moveBattleStyleRetrieve${OFF};Get move battle style (AUTH) (AUTH)
-  ${CYAN}moveCategoryList${OFF};List move meta categories (AUTH) (AUTH)
-  ${CYAN}moveCategoryRetrieve${OFF};Get move meta category (AUTH) (AUTH)
-  ${CYAN}moveLearnMethodList${OFF};List move learn methods (AUTH) (AUTH)
-  ${CYAN}moveLearnMethodRetrieve${OFF};Get move learn method (AUTH) (AUTH)
-  ${CYAN}moveList${OFF};List moves (AUTH) (AUTH)
-  ${CYAN}moveRetrieve${OFF};Get move (AUTH) (AUTH)
-  ${CYAN}moveTargetList${OFF};List move targets (AUTH) (AUTH)
-  ${CYAN}moveTargetRetrieve${OFF};Get move target (AUTH) (AUTH)
+  ${CYAN}moveAilmentList${OFF};List move meta ailments
+  ${CYAN}moveAilmentRetrieve${OFF};Get move meta ailment
+  ${CYAN}moveBattleStyleList${OFF};List move battle styles
+  ${CYAN}moveBattleStyleRetrieve${OFF};Get move battle style
+  ${CYAN}moveCategoryList${OFF};List move meta categories
+  ${CYAN}moveCategoryRetrieve${OFF};Get move meta category
+  ${CYAN}moveLearnMethodList${OFF};List move learn methods
+  ${CYAN}moveLearnMethodRetrieve${OFF};Get move learn method
+  ${CYAN}moveList${OFF};List moves
+  ${CYAN}moveRetrieve${OFF};Get move
+  ${CYAN}moveTargetList${OFF};List move targets
+  ${CYAN}moveTargetRetrieve${OFF};Get move target
 EOF
 echo "  $ops" | column -t -s ';'
     echo ""
     echo -e "${BOLD}${WHITE}[pokemon]${OFF}"
 read -r -d '' ops <<EOF
-  ${CYAN}abilityList${OFF}; (AUTH) (AUTH)
-  ${CYAN}abilityRetrieve${OFF}; (AUTH) (AUTH)
-  ${CYAN}characteristicList${OFF};List charecterictics (AUTH) (AUTH)
-  ${CYAN}characteristicRetrieve${OFF};Get characteristic (AUTH) (AUTH)
-  ${CYAN}eggGroupList${OFF};List egg groups (AUTH) (AUTH)
-  ${CYAN}eggGroupRetrieve${OFF};Get egg group (AUTH) (AUTH)
-  ${CYAN}genderList${OFF};List genders (AUTH) (AUTH)
-  ${CYAN}genderRetrieve${OFF};Get gender (AUTH) (AUTH)
-  ${CYAN}growthRateList${OFF};List growth rates (AUTH) (AUTH)
-  ${CYAN}growthRateRetrieve${OFF};Get growth rate (AUTH) (AUTH)
-  ${CYAN}moveDamageClassList${OFF};List move damage classes (AUTH) (AUTH)
-  ${CYAN}moveDamageClassRetrieve${OFF};Get move damage class (AUTH) (AUTH)
-  ${CYAN}natureList${OFF};List natures (AUTH) (AUTH)
-  ${CYAN}natureRetrieve${OFF};Get nature (AUTH) (AUTH)
-  ${CYAN}pokeathlonStatList${OFF};List pokeathlon stats (AUTH) (AUTH)
-  ${CYAN}pokeathlonStatRetrieve${OFF};Get pokeathlon stat (AUTH) (AUTH)
-  ${CYAN}pokemonColorList${OFF};List pokemon colors (AUTH) (AUTH)
-  ${CYAN}pokemonColorRetrieve${OFF};Get pokemon color (AUTH) (AUTH)
-  ${CYAN}pokemonFormList${OFF};List pokemon forms (AUTH) (AUTH)
-  ${CYAN}pokemonFormRetrieve${OFF};Get pokemon form (AUTH) (AUTH)
-  ${CYAN}pokemonHabitatList${OFF};List pokemom habitas (AUTH) (AUTH)
-  ${CYAN}pokemonHabitatRetrieve${OFF};Get pokemom habita (AUTH) (AUTH)
-  ${CYAN}pokemonList${OFF};List pokemon (AUTH) (AUTH)
-  ${CYAN}pokemonRetrieve${OFF};Get pokemon (AUTH) (AUTH)
-  ${CYAN}pokemonShapeList${OFF};List pokemon shapes (AUTH) (AUTH)
-  ${CYAN}pokemonShapeRetrieve${OFF};Get pokemon shape (AUTH) (AUTH)
-  ${CYAN}pokemonSpeciesList${OFF};List pokemon species (AUTH) (AUTH)
-  ${CYAN}pokemonSpeciesRetrieve${OFF};Get pokemon species (AUTH) (AUTH)
-  ${CYAN}statList${OFF};List stats (AUTH) (AUTH)
-  ${CYAN}statRetrieve${OFF};Get stat (AUTH) (AUTH)
-  ${CYAN}typeList${OFF};List types (AUTH) (AUTH)
-  ${CYAN}typeRetrieve${OFF};Get types (AUTH) (AUTH)
+  ${CYAN}abilityList${OFF};List abilities
+  ${CYAN}abilityRetrieve${OFF};Get ability
+  ${CYAN}characteristicList${OFF};List characteristics
+  ${CYAN}characteristicRetrieve${OFF};Get characteristic
+  ${CYAN}eggGroupList${OFF};List egg groups
+  ${CYAN}eggGroupRetrieve${OFF};Get egg group
+  ${CYAN}genderList${OFF};List genders
+  ${CYAN}genderRetrieve${OFF};Get gender
+  ${CYAN}growthRateList${OFF};List growth rates
+  ${CYAN}growthRateRetrieve${OFF};Get growth rate
+  ${CYAN}moveDamageClassList${OFF};List move damage classes
+  ${CYAN}moveDamageClassRetrieve${OFF};Get move damage class
+  ${CYAN}natureList${OFF};List natures
+  ${CYAN}natureRetrieve${OFF};Get nature
+  ${CYAN}pokeathlonStatList${OFF};List pokeathlon stats
+  ${CYAN}pokeathlonStatRetrieve${OFF};Get pokeathlon stat
+  ${CYAN}pokemonColorList${OFF};List pokemon colors
+  ${CYAN}pokemonColorRetrieve${OFF};Get pokemon color
+  ${CYAN}pokemonFormList${OFF};List pokemon forms
+  ${CYAN}pokemonFormRetrieve${OFF};Get pokemon form
+  ${CYAN}pokemonHabitatList${OFF};List pokemom habitas
+  ${CYAN}pokemonHabitatRetrieve${OFF};Get pokemom habita
+  ${CYAN}pokemonList${OFF};List pokemon
+  ${CYAN}pokemonRetrieve${OFF};Get pokemon
+  ${CYAN}pokemonShapeList${OFF};List pokemon shapes
+  ${CYAN}pokemonShapeRetrieve${OFF};Get pokemon shape
+  ${CYAN}pokemonSpeciesList${OFF};List pokemon species
+  ${CYAN}pokemonSpeciesRetrieve${OFF};Get pokemon species
+  ${CYAN}statList${OFF};List stats
+  ${CYAN}statRetrieve${OFF};Get stat
+  ${CYAN}typeList${OFF};List types
+  ${CYAN}typeRetrieve${OFF};Get types
 EOF
 echo "  $ops" | column -t -s ';'
     echo ""
     echo -e "${BOLD}${WHITE}[utility]${OFF}"
 read -r -d '' ops <<EOF
-  ${CYAN}languageList${OFF};List languages (AUTH) (AUTH)
-  ${CYAN}languageRetrieve${OFF};Get language (AUTH) (AUTH)
+  ${CYAN}languageList${OFF};List languages
+  ${CYAN}languageRetrieve${OFF};Get language
+  ${CYAN}metaRetrieve${OFF};Get API metadata
 EOF
 echo "  $ops" | column -t -s ';'
     echo ""
@@ -1251,7 +1259,7 @@ echo -e "              \\t\\t\\t\\t(e.g. 'https://pokeapi.co')"
 ##############################################################################
 print_about() {
     echo ""
-    echo -e "${BOLD}${WHITE}PokéAPI command line client (API version 2.7.0)${OFF}"
+    echo -e "${BOLD}${WHITE}PokéAPI command line client (API version 2.10.0)${OFF}"
     echo ""
     echo -e "License: "
     echo -e "Contact: blah+oapicf@cliffano.com"
@@ -1272,7 +1280,7 @@ We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this A
 
 This API will always be publicly available and will never require any extensive setup process to consume.
 
-Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
+Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
 EOF
 echo "$appdescription" | paste -sd' ' - | fold -sw 80
 }
@@ -1285,7 +1293,7 @@ echo "$appdescription" | paste -sd' ' - | fold -sw 80
 ##############################################################################
 print_version() {
     echo ""
-    echo -e "${BOLD}PokéAPI command line client (API version 2.7.0)${OFF}"
+    echo -e "${BOLD}PokéAPI command line client (API version 2.10.0)${OFF}"
     echo ""
 }
 
@@ -1296,7 +1304,7 @@ print_version() {
 ##############################################################################
 print_berryFirmnessList_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}berryFirmnessList - List berry firmness${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}berryFirmnessList - List berry firmness${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Berries can be soft or hard. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Category:Berries_by_firmness) for greater detail." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -1320,7 +1328,7 @@ Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=va
 ##############################################################################
 print_berryFirmnessRetrieve_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}berryFirmnessRetrieve - Get berry by firmness${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}berryFirmnessRetrieve - Get berry by firmness${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Berries can be soft or hard. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Category:Berries_by_firmness) for greater detail." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -1338,7 +1346,7 @@ print_berryFirmnessRetrieve_help() {
 ##############################################################################
 print_berryFlavorList_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}berryFlavorList - List berry flavors${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}berryFlavorList - List berry flavors${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Flavors determine whether a Pokémon will benefit or suffer from eating a berry based on their **nature**. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Flavor) for greater detail." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -1362,7 +1370,7 @@ Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=va
 ##############################################################################
 print_berryFlavorRetrieve_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}berryFlavorRetrieve - Get berries by flavor${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}berryFlavorRetrieve - Get berries by flavor${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Flavors determine whether a Pokémon will benefit or suffer from eating a berry based on their **nature**. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Flavor) for greater detail." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -1380,7 +1388,7 @@ print_berryFlavorRetrieve_help() {
 ##############################################################################
 print_berryList_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}berryList - List berries${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}berryList - List berries${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Berries are small fruits that can provide HP and status condition restoration, stat enhancement, and even damage negation when eaten by Pokémon. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Berry) for greater detail." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -1404,7 +1412,7 @@ Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=va
 ##############################################################################
 print_berryRetrieve_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}berryRetrieve - Get a berry${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}berryRetrieve - Get a berry${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Berries are small fruits that can provide HP and status condition restoration, stat enhancement, and even damage negation when eaten by Pokémon. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Berry) for greater detail." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -1422,7 +1430,7 @@ print_berryRetrieve_help() {
 ##############################################################################
 print_contestEffectList_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}contestEffectList - List contest effects${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}contestEffectList - List contest effects${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Contest effects refer to the effects of moves when used in contests." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -1430,9 +1438,6 @@ print_contestEffectList_help() {
     echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Number of results to return per page.${YELLOW} Specify as: limit=value${OFF}" \
         | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The initial index from which to return the results.${YELLOW} Specify as: offset=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}q${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
-Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=value${OFF}" \
         | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
@@ -1446,7 +1451,7 @@ Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=va
 ##############################################################################
 print_contestEffectRetrieve_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}contestEffectRetrieve - Get contest effect${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}contestEffectRetrieve - Get contest effect${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Contest effects refer to the effects of moves when used in contests." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -1464,7 +1469,7 @@ print_contestEffectRetrieve_help() {
 ##############################################################################
 print_contestTypeList_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}contestTypeList - List contest types${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}contestTypeList - List contest types${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Contest types are categories judges used to weigh a Pokémon's condition in Pokémon contests. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Contest_condition) for greater detail." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -1488,7 +1493,7 @@ Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=va
 ##############################################################################
 print_contestTypeRetrieve_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}contestTypeRetrieve - Get contest type${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}contestTypeRetrieve - Get contest type${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Contest types are categories judges used to weigh a Pokémon's condition in Pokémon contests. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Contest_condition) for greater detail." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -1506,7 +1511,7 @@ print_contestTypeRetrieve_help() {
 ##############################################################################
 print_superContestEffectList_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}superContestEffectList - List super contest effects${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}superContestEffectList - List super contest effects${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Super contest effects refer to the effects of moves when used in super contests." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -1514,9 +1519,6 @@ print_superContestEffectList_help() {
     echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Number of results to return per page.${YELLOW} Specify as: limit=value${OFF}" \
         | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The initial index from which to return the results.${YELLOW} Specify as: offset=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}q${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
-Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=value${OFF}" \
         | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
@@ -1530,7 +1532,7 @@ Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=va
 ##############################################################################
 print_superContestEffectRetrieve_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}superContestEffectRetrieve - Get super contest effect${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}superContestEffectRetrieve - Get super contest effect${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Super contest effects refer to the effects of moves when used in super contests." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -1548,7 +1550,7 @@ print_superContestEffectRetrieve_help() {
 ##############################################################################
 print_encounterConditionList_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}encounterConditionList - List encounter conditions${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}encounterConditionList - List encounter conditions${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Conditions which affect what pokemon might appear in the wild, e.g., day or night." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -1572,7 +1574,7 @@ Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=va
 ##############################################################################
 print_encounterConditionRetrieve_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}encounterConditionRetrieve - Get encounter condition${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}encounterConditionRetrieve - Get encounter condition${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Conditions which affect what pokemon might appear in the wild, e.g., day or night." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -1590,7 +1592,7 @@ print_encounterConditionRetrieve_help() {
 ##############################################################################
 print_encounterConditionValueList_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}encounterConditionValueList - List encounter condition values${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}encounterConditionValueList - List encounter condition values${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Encounter condition values are the various states that an encounter condition can have, i.e., time of day can be either day or night." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -1614,7 +1616,7 @@ Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=va
 ##############################################################################
 print_encounterConditionValueRetrieve_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}encounterConditionValueRetrieve - Get encounter condition value${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}encounterConditionValueRetrieve - Get encounter condition value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Encounter condition values are the various states that an encounter condition can have, i.e., time of day can be either day or night." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -1632,7 +1634,7 @@ print_encounterConditionValueRetrieve_help() {
 ##############################################################################
 print_encounterMethodList_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}encounterMethodList - List encounter methods${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}encounterMethodList - List encounter methods${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Methods by which the player might can encounter Pokémon in the wild, e.g., walking in tall grass. Check out Bulbapedia for greater detail." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -1656,7 +1658,7 @@ Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=va
 ##############################################################################
 print_encounterMethodRetrieve_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}encounterMethodRetrieve - Get encounter method${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}encounterMethodRetrieve - Get encounter method${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Methods by which the player might can encounter Pokémon in the wild, e.g., walking in tall grass. Check out Bulbapedia for greater detail." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -1674,7 +1676,7 @@ print_encounterMethodRetrieve_help() {
 ##############################################################################
 print_evolutionChainList_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}evolutionChainList - List evolution chains${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}evolutionChainList - List evolution chains${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Evolution chains are essentially family trees. They start with the lowest stage within a family and detail evolution conditions for each as well as Pokémon they can evolve into up through the hierarchy." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -1682,9 +1684,6 @@ print_evolutionChainList_help() {
     echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Number of results to return per page.${YELLOW} Specify as: limit=value${OFF}" \
         | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The initial index from which to return the results.${YELLOW} Specify as: offset=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}q${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
-Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=value${OFF}" \
         | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
@@ -1698,7 +1697,7 @@ Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=va
 ##############################################################################
 print_evolutionChainRetrieve_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}evolutionChainRetrieve - Get evolution chain${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}evolutionChainRetrieve - Get evolution chain${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Evolution chains are essentially family trees. They start with the lowest stage within a family and detail evolution conditions for each as well as Pokémon they can evolve into up through the hierarchy." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -1716,7 +1715,7 @@ print_evolutionChainRetrieve_help() {
 ##############################################################################
 print_evolutionTriggerList_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}evolutionTriggerList - List evolution triggers${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}evolutionTriggerList - List evolution triggers${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Evolution triggers are the events and conditions that cause a Pokémon to evolve. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Methods_of_evolution) for greater detail." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -1740,9 +1739,51 @@ Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=va
 ##############################################################################
 print_evolutionTriggerRetrieve_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}evolutionTriggerRetrieve - Get evolution trigger${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}evolutionTriggerRetrieve - Get evolution trigger${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Evolution triggers are the events and conditions that cause a Pokémon to evolve. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Methods_of_evolution) for greater detail." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - This parameter can be a string or an integer. ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for evolutionVariableList operation
+#
+##############################################################################
+print_evolutionVariableList_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}evolutionVariableList - List evolution variables${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Number of results to return per page.${YELLOW} Specify as: limit=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The initial index from which to return the results.${YELLOW} Specify as: offset=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}q${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for evolutionVariableRetrieve operation
+#
+##############################################################################
+print_evolutionVariableRetrieve_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}evolutionVariableRetrieve - Get evolution variable${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail." | paste -sd' ' - | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
     echo -e "  * ${GREEN}id${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - This parameter can be a string or an integer. ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
@@ -1758,7 +1799,7 @@ print_evolutionTriggerRetrieve_help() {
 ##############################################################################
 print_generationList_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}generationList - List genrations${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}generationList - List genrations${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "A generation is a grouping of the Pokémon games that separates them based on the Pokémon they include. In each generation, a new set of Pokémon, Moves, Abilities and Types that did not exist in the previous generation are released." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -1782,7 +1823,7 @@ Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=va
 ##############################################################################
 print_generationRetrieve_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}generationRetrieve - Get genration${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}generationRetrieve - Get genration${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "A generation is a grouping of the Pokémon games that separates them based on the Pokémon they include. In each generation, a new set of Pokémon, Moves, Abilities and Types that did not exist in the previous generation are released." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -1800,7 +1841,7 @@ print_generationRetrieve_help() {
 ##############################################################################
 print_pokedexList_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}pokedexList - List pokedex${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}pokedexList - List pokedex${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "A Pokédex is a handheld electronic encyclopedia device; one which is capable of recording and retaining information of the various Pokémon in a given region with the exception of the national dex and some smaller dexes related to portions of a region. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pokedex) for greater detail." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -1824,7 +1865,7 @@ Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=va
 ##############################################################################
 print_pokedexRetrieve_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}pokedexRetrieve - Get pokedex${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}pokedexRetrieve - Get pokedex${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "A Pokédex is a handheld electronic encyclopedia device; one which is capable of recording and retaining information of the various Pokémon in a given region with the exception of the national dex and some smaller dexes related to portions of a region. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pokedex) for greater detail." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -1842,7 +1883,7 @@ print_pokedexRetrieve_help() {
 ##############################################################################
 print_versionGroupList_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}versionGroupList - List version groups${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}versionGroupList - List version groups${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Version groups categorize highly similar versions of the games." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -1866,7 +1907,7 @@ Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=va
 ##############################################################################
 print_versionGroupRetrieve_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}versionGroupRetrieve - Get version group${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}versionGroupRetrieve - Get version group${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Version groups categorize highly similar versions of the games." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -1884,7 +1925,7 @@ print_versionGroupRetrieve_help() {
 ##############################################################################
 print_versionList_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}versionList - List versions${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}versionList - List versions${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Versions of the games, e.g., Red, Blue or Yellow." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -1908,9 +1949,51 @@ Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=va
 ##############################################################################
 print_versionRetrieve_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}versionRetrieve - Get version${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}versionRetrieve - Get version${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Versions of the games, e.g., Red, Blue or Yellow." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - This parameter can be a string or an integer. ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for currencyList operation
+#
+##############################################################################
+print_currencyList_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}currencyList - List currencies${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Currencies used to buy items." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Number of results to return per page.${YELLOW} Specify as: limit=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The initial index from which to return the results.${YELLOW} Specify as: offset=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}q${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for currencyRetrieve operation
+#
+##############################################################################
+print_currencyRetrieve_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}currencyRetrieve - Get currency${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Currencies used to buy items." | paste -sd' ' - | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
     echo -e "  * ${GREEN}id${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - This parameter can be a string or an integer. ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
@@ -1926,7 +2009,7 @@ print_versionRetrieve_help() {
 ##############################################################################
 print_itemAttributeList_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}itemAttributeList - List item attributes${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}itemAttributeList - List item attributes${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Item attributes define particular aspects of items, e.g.\"usable in battle\" or \"consumable\"." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -1950,7 +2033,7 @@ Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=va
 ##############################################################################
 print_itemAttributeRetrieve_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}itemAttributeRetrieve - Get item attribute${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}itemAttributeRetrieve - Get item attribute${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Item attributes define particular aspects of items, e.g.\"usable in battle\" or \"consumable\"." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -1968,7 +2051,7 @@ print_itemAttributeRetrieve_help() {
 ##############################################################################
 print_itemCategoryList_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}itemCategoryList - List item categories${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}itemCategoryList - List item categories${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Item categories determine where items will be placed in the players bag." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -1992,7 +2075,7 @@ Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=va
 ##############################################################################
 print_itemCategoryRetrieve_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}itemCategoryRetrieve - Get item category${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}itemCategoryRetrieve - Get item category${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Item categories determine where items will be placed in the players bag." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -2010,7 +2093,7 @@ print_itemCategoryRetrieve_help() {
 ##############################################################################
 print_itemFlingEffectList_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}itemFlingEffectList - List item fling effects${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}itemFlingEffectList - List item fling effects${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "The various effects of the move\"Fling\" when used with different items." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -2034,7 +2117,7 @@ Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=va
 ##############################################################################
 print_itemFlingEffectRetrieve_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}itemFlingEffectRetrieve - Get item fling effect${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}itemFlingEffectRetrieve - Get item fling effect${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "The various effects of the move\"Fling\" when used with different items." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -2052,7 +2135,7 @@ print_itemFlingEffectRetrieve_help() {
 ##############################################################################
 print_itemList_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}itemList - List items${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}itemList - List items${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "An item is an object in the games which the player can pick up, keep in their bag, and use in some manner. They have various uses, including healing, powering up, helping catch Pokémon, or to access a new area." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -2076,7 +2159,7 @@ Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=va
 ##############################################################################
 print_itemPocketList_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}itemPocketList - List item pockets${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}itemPocketList - List item pockets${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Pockets within the players bag used for storing items by category." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -2100,7 +2183,7 @@ Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=va
 ##############################################################################
 print_itemPocketRetrieve_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}itemPocketRetrieve - Get item pocket${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}itemPocketRetrieve - Get item pocket${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Pockets within the players bag used for storing items by category." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -2118,7 +2201,7 @@ print_itemPocketRetrieve_help() {
 ##############################################################################
 print_itemRetrieve_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}itemRetrieve - Get item${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}itemRetrieve - Get item${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "An item is an object in the games which the player can pick up, keep in their bag, and use in some manner. They have various uses, including healing, powering up, helping catch Pokémon, or to access a new area." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -2136,7 +2219,7 @@ print_itemRetrieve_help() {
 ##############################################################################
 print_locationAreaList_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}locationAreaList - List location areas${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}locationAreaList - List location areas${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Location areas are sections of areas, such as floors in a building or cave. Each area has its own set of possible Pokémon encounters." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -2157,7 +2240,7 @@ print_locationAreaList_help() {
 ##############################################################################
 print_locationAreaRetrieve_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}locationAreaRetrieve - Get location area${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}locationAreaRetrieve - Get location area${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Location areas are sections of areas, such as floors in a building or cave. Each area has its own set of possible Pokémon encounters." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -2175,7 +2258,7 @@ print_locationAreaRetrieve_help() {
 ##############################################################################
 print_locationList_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}locationList - List locations${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}locationList - List locations${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Locations that can be visited within the games. Locations make up sizable portions of regions, like cities or routes." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -2199,7 +2282,7 @@ Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=va
 ##############################################################################
 print_locationRetrieve_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}locationRetrieve - Get location${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}locationRetrieve - Get location${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Locations that can be visited within the games. Locations make up sizable portions of regions, like cities or routes." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -2217,7 +2300,7 @@ print_locationRetrieve_help() {
 ##############################################################################
 print_palParkAreaList_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}palParkAreaList - List pal park areas${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}palParkAreaList - List pal park areas${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Areas used for grouping Pokémon encounters in Pal Park. They're like habitats that are specific to Pal Park." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -2241,7 +2324,7 @@ Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=va
 ##############################################################################
 print_palParkAreaRetrieve_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}palParkAreaRetrieve - Get pal park area${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}palParkAreaRetrieve - Get pal park area${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Areas used for grouping Pokémon encounters in Pal Park. They're like habitats that are specific to Pal Park." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -2259,7 +2342,7 @@ print_palParkAreaRetrieve_help() {
 ##############################################################################
 print_regionList_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}regionList - List regions${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}regionList - List regions${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "A region is an organized area of the Pokémon world. Most often, the main difference between regions is the species of Pokémon that can be encountered within them." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -2283,7 +2366,7 @@ Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=va
 ##############################################################################
 print_regionRetrieve_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}regionRetrieve - Get region${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}regionRetrieve - Get region${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "A region is an organized area of the Pokémon world. Most often, the main difference between regions is the species of Pokémon that can be encountered within them." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -2301,7 +2384,7 @@ print_regionRetrieve_help() {
 ##############################################################################
 print_machineList_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}machineList - List machines${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}machineList - List machines${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Machines are the representation of items that teach moves to Pokémon. They vary from version to version, so it is not certain that one specific TM or HM corresponds to a single Machine." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -2309,9 +2392,6 @@ print_machineList_help() {
     echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Number of results to return per page.${YELLOW} Specify as: limit=value${OFF}" \
         | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The initial index from which to return the results.${YELLOW} Specify as: offset=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}q${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
-Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=value${OFF}" \
         | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
@@ -2325,7 +2405,7 @@ Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=va
 ##############################################################################
 print_machineRetrieve_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}machineRetrieve - Get machine${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}machineRetrieve - Get machine${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Machines are the representation of items that teach moves to Pokémon. They vary from version to version, so it is not certain that one specific TM or HM corresponds to a single Machine." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -2343,7 +2423,7 @@ print_machineRetrieve_help() {
 ##############################################################################
 print_moveAilmentList_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}moveAilmentList - List move meta ailments${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}moveAilmentList - List move meta ailments${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Move Ailments are status conditions caused by moves used during battle. See [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Status_condition) for greater detail." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -2367,7 +2447,7 @@ Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=va
 ##############################################################################
 print_moveAilmentRetrieve_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}moveAilmentRetrieve - Get move meta ailment${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}moveAilmentRetrieve - Get move meta ailment${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Move Ailments are status conditions caused by moves used during battle. See [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Status_condition) for greater detail." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -2385,7 +2465,7 @@ print_moveAilmentRetrieve_help() {
 ##############################################################################
 print_moveBattleStyleList_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}moveBattleStyleList - List move battle styles${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}moveBattleStyleList - List move battle styles${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Styles of moves when used in the Battle Palace. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Battle_Frontier_(Generation_III)) for greater detail." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -2409,7 +2489,7 @@ Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=va
 ##############################################################################
 print_moveBattleStyleRetrieve_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}moveBattleStyleRetrieve - Get move battle style${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}moveBattleStyleRetrieve - Get move battle style${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Styles of moves when used in the Battle Palace. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Battle_Frontier_(Generation_III)) for greater detail." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -2427,7 +2507,7 @@ print_moveBattleStyleRetrieve_help() {
 ##############################################################################
 print_moveCategoryList_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}moveCategoryList - List move meta categories${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}moveCategoryList - List move meta categories${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Very general categories that loosely group move effects." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -2451,7 +2531,7 @@ Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=va
 ##############################################################################
 print_moveCategoryRetrieve_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}moveCategoryRetrieve - Get move meta category${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}moveCategoryRetrieve - Get move meta category${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Very general categories that loosely group move effects." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -2469,7 +2549,7 @@ print_moveCategoryRetrieve_help() {
 ##############################################################################
 print_moveLearnMethodList_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}moveLearnMethodList - List move learn methods${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}moveLearnMethodList - List move learn methods${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Methods by which Pokémon can learn moves." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -2493,7 +2573,7 @@ Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=va
 ##############################################################################
 print_moveLearnMethodRetrieve_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}moveLearnMethodRetrieve - Get move learn method${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}moveLearnMethodRetrieve - Get move learn method${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Methods by which Pokémon can learn moves." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -2511,7 +2591,7 @@ print_moveLearnMethodRetrieve_help() {
 ##############################################################################
 print_moveList_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}moveList - List moves${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}moveList - List moves${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Moves are the skills of Pokémon in battle. In battle, a Pokémon uses one move each turn. Some moves (including those learned by Hidden Machine) can be used outside of battle as well, usually for the purpose of removing obstacles or exploring new areas." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -2535,7 +2615,7 @@ Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=va
 ##############################################################################
 print_moveRetrieve_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}moveRetrieve - Get move${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}moveRetrieve - Get move${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Moves are the skills of Pokémon in battle. In battle, a Pokémon uses one move each turn. Some moves (including those learned by Hidden Machine) can be used outside of battle as well, usually for the purpose of removing obstacles or exploring new areas." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -2553,7 +2633,7 @@ print_moveRetrieve_help() {
 ##############################################################################
 print_moveTargetList_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}moveTargetList - List move targets${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}moveTargetList - List move targets${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Targets moves can be directed at during battle. Targets can be Pokémon, environments or even other moves." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -2577,7 +2657,7 @@ Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=va
 ##############################################################################
 print_moveTargetRetrieve_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}moveTargetRetrieve - Get move target${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}moveTargetRetrieve - Get move target${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Targets moves can be directed at during battle. Targets can be Pokémon, environments or even other moves." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -2595,7 +2675,7 @@ print_moveTargetRetrieve_help() {
 ##############################################################################
 print_abilityList_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}abilityList - ${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}abilityList - List abilities${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -2619,7 +2699,7 @@ Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=va
 ##############################################################################
 print_abilityRetrieve_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}abilityRetrieve - ${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}abilityRetrieve - Get ability${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -2637,7 +2717,7 @@ print_abilityRetrieve_help() {
 ##############################################################################
 print_characteristicList_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}characteristicList - List charecterictics${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}characteristicList - List characteristics${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Characteristics indicate which stat contains a Pokémon's highest IV. A Pokémon's Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -2645,9 +2725,6 @@ print_characteristicList_help() {
     echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Number of results to return per page.${YELLOW} Specify as: limit=value${OFF}" \
         | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The initial index from which to return the results.${YELLOW} Specify as: offset=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}q${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
-Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=value${OFF}" \
         | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
@@ -2661,7 +2738,7 @@ Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=va
 ##############################################################################
 print_characteristicRetrieve_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}characteristicRetrieve - Get characteristic${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}characteristicRetrieve - Get characteristic${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Characteristics indicate which stat contains a Pokémon's highest IV. A Pokémon's Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -2679,7 +2756,7 @@ print_characteristicRetrieve_help() {
 ##############################################################################
 print_eggGroupList_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}eggGroupList - List egg groups${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}eggGroupList - List egg groups${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Egg Groups are categories which determine which Pokémon are able to interbreed. Pokémon may belong to either one or two Egg Groups. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Egg_Group) for greater detail." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -2703,7 +2780,7 @@ Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=va
 ##############################################################################
 print_eggGroupRetrieve_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}eggGroupRetrieve - Get egg group${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}eggGroupRetrieve - Get egg group${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Egg Groups are categories which determine which Pokémon are able to interbreed. Pokémon may belong to either one or two Egg Groups. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Egg_Group) for greater detail." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -2721,7 +2798,7 @@ print_eggGroupRetrieve_help() {
 ##############################################################################
 print_genderList_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}genderList - List genders${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}genderList - List genders${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Genders were introduced in Generation II for the purposes of breeding Pokémon but can also result in visual differences or even different evolutionary lines. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Gender) for greater detail." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -2745,7 +2822,7 @@ Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=va
 ##############################################################################
 print_genderRetrieve_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}genderRetrieve - Get gender${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}genderRetrieve - Get gender${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Genders were introduced in Generation II for the purposes of breeding Pokémon but can also result in visual differences or even different evolutionary lines. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Gender) for greater detail." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -2763,7 +2840,7 @@ print_genderRetrieve_help() {
 ##############################################################################
 print_growthRateList_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}growthRateList - List growth rates${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}growthRateList - List growth rates${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Growth rates are the speed with which Pokémon gain levels through experience. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Experience) for greater detail." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -2787,7 +2864,7 @@ Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=va
 ##############################################################################
 print_growthRateRetrieve_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}growthRateRetrieve - Get growth rate${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}growthRateRetrieve - Get growth rate${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Growth rates are the speed with which Pokémon gain levels through experience. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Experience) for greater detail." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -2805,7 +2882,7 @@ print_growthRateRetrieve_help() {
 ##############################################################################
 print_moveDamageClassList_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}moveDamageClassList - List move damage classes${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}moveDamageClassList - List move damage classes${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Damage classes moves can have, e.g. physical, special, or non-damaging." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -2829,7 +2906,7 @@ Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=va
 ##############################################################################
 print_moveDamageClassRetrieve_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}moveDamageClassRetrieve - Get move damage class${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}moveDamageClassRetrieve - Get move damage class${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Damage classes moves can have, e.g. physical, special, or non-damaging." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -2847,7 +2924,7 @@ print_moveDamageClassRetrieve_help() {
 ##############################################################################
 print_natureList_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}natureList - List natures${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}natureList - List natures${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Natures influence how a Pokémon's stats grow. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Nature) for greater detail." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -2871,7 +2948,7 @@ Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=va
 ##############################################################################
 print_natureRetrieve_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}natureRetrieve - Get nature${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}natureRetrieve - Get nature${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Natures influence how a Pokémon's stats grow. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Nature) for greater detail." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -2889,7 +2966,7 @@ print_natureRetrieve_help() {
 ##############################################################################
 print_pokeathlonStatList_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}pokeathlonStatList - List pokeathlon stats${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}pokeathlonStatList - List pokeathlon stats${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Pokeathlon Stats are different attributes of a Pokémon's performance in Pokéathlons. In Pokéathlons, competitions happen on different courses; one for each of the different Pokéathlon stats. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9athlon) for greater detail." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -2913,7 +2990,7 @@ Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=va
 ##############################################################################
 print_pokeathlonStatRetrieve_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}pokeathlonStatRetrieve - Get pokeathlon stat${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}pokeathlonStatRetrieve - Get pokeathlon stat${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Pokeathlon Stats are different attributes of a Pokémon's performance in Pokéathlons. In Pokéathlons, competitions happen on different courses; one for each of the different Pokéathlon stats. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9athlon) for greater detail." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -2931,7 +3008,7 @@ print_pokeathlonStatRetrieve_help() {
 ##############################################################################
 print_pokemonColorList_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}pokemonColorList - List pokemon colors${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}pokemonColorList - List pokemon colors${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Colors used for sorting Pokémon in a Pokédex. The color listed in the Pokédex is usually the color most apparent or covering each Pokémon's body. No orange category exists; Pokémon that are primarily orange are listed as red or brown." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -2955,7 +3032,7 @@ Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=va
 ##############################################################################
 print_pokemonColorRetrieve_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}pokemonColorRetrieve - Get pokemon color${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}pokemonColorRetrieve - Get pokemon color${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Colors used for sorting Pokémon in a Pokédex. The color listed in the Pokédex is usually the color most apparent or covering each Pokémon's body. No orange category exists; Pokémon that are primarily orange are listed as red or brown." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -2973,7 +3050,7 @@ print_pokemonColorRetrieve_help() {
 ##############################################################################
 print_pokemonFormList_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}pokemonFormList - List pokemon forms${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}pokemonFormList - List pokemon forms${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Some Pokémon may appear in one of multiple, visually different forms. These differences are purely cosmetic. For variations within a Pokémon species, which do differ in more than just visuals, the 'Pokémon' entity is used to represent such a variety." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -2997,7 +3074,7 @@ Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=va
 ##############################################################################
 print_pokemonFormRetrieve_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}pokemonFormRetrieve - Get pokemon form${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}pokemonFormRetrieve - Get pokemon form${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Some Pokémon may appear in one of multiple, visually different forms. These differences are purely cosmetic. For variations within a Pokémon species, which do differ in more than just visuals, the 'Pokémon' entity is used to represent such a variety." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -3015,7 +3092,7 @@ print_pokemonFormRetrieve_help() {
 ##############################################################################
 print_pokemonHabitatList_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}pokemonHabitatList - List pokemom habitas${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}pokemonHabitatList - List pokemom habitas${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Habitats are generally different terrain Pokémon can be found in but can also be areas designated for rare or legendary Pokémon." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -3039,7 +3116,7 @@ Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=va
 ##############################################################################
 print_pokemonHabitatRetrieve_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}pokemonHabitatRetrieve - Get pokemom habita${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}pokemonHabitatRetrieve - Get pokemom habita${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Habitats are generally different terrain Pokémon can be found in but can also be areas designated for rare or legendary Pokémon." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -3057,7 +3134,7 @@ print_pokemonHabitatRetrieve_help() {
 ##############################################################################
 print_pokemonList_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}pokemonList - List pokemon${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}pokemonList - List pokemon${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Pokémon are the creatures that inhabit the world of the Pokémon games. They can be caught using Pokéballs and trained by battling with other Pokémon. Each Pokémon belongs to a specific species but may take on a variant which makes it differ from other Pokémon of the same species, such as base stats, available abilities and typings. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_(species)) for greater detail." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -3081,7 +3158,7 @@ Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=va
 ##############################################################################
 print_pokemonRetrieve_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}pokemonRetrieve - Get pokemon${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}pokemonRetrieve - Get pokemon${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Pokémon are the creatures that inhabit the world of the Pokémon games. They can be caught using Pokéballs and trained by battling with other Pokémon. Each Pokémon belongs to a specific species but may take on a variant which makes it differ from other Pokémon of the same species, such as base stats, available abilities and typings. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_(species)) for greater detail." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -3099,7 +3176,7 @@ print_pokemonRetrieve_help() {
 ##############################################################################
 print_pokemonShapeList_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}pokemonShapeList - List pokemon shapes${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}pokemonShapeList - List pokemon shapes${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Shapes used for sorting Pokémon in a Pokédex." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -3123,7 +3200,7 @@ Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=va
 ##############################################################################
 print_pokemonShapeRetrieve_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}pokemonShapeRetrieve - Get pokemon shape${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}pokemonShapeRetrieve - Get pokemon shape${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Shapes used for sorting Pokémon in a Pokédex." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -3141,7 +3218,7 @@ print_pokemonShapeRetrieve_help() {
 ##############################################################################
 print_pokemonSpeciesList_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}pokemonSpeciesList - List pokemon species${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}pokemonSpeciesList - List pokemon species${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "A Pokémon Species forms the basis for at least one Pokémon. Attributes of a Pokémon species are shared across all varieties of Pokémon within the species. A good example is Wormadam; Wormadam is the species which can be found in three different varieties, Wormadam-Trash, Wormadam-Sandy and Wormadam-Plant." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -3165,7 +3242,7 @@ Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=va
 ##############################################################################
 print_pokemonSpeciesRetrieve_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}pokemonSpeciesRetrieve - Get pokemon species${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}pokemonSpeciesRetrieve - Get pokemon species${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "A Pokémon Species forms the basis for at least one Pokémon. Attributes of a Pokémon species are shared across all varieties of Pokémon within the species. A good example is Wormadam; Wormadam is the species which can be found in three different varieties, Wormadam-Trash, Wormadam-Sandy and Wormadam-Plant." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -3183,7 +3260,7 @@ print_pokemonSpeciesRetrieve_help() {
 ##############################################################################
 print_statList_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}statList - List stats${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}statList - List stats${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Stats determine certain aspects of battles. Each Pokémon has a value for each stat which grows as they gain levels and can be altered momentarily by effects in battles." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -3207,7 +3284,7 @@ Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=va
 ##############################################################################
 print_statRetrieve_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}statRetrieve - Get stat${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}statRetrieve - Get stat${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Stats determine certain aspects of battles. Each Pokémon has a value for each stat which grows as they gain levels and can be altered momentarily by effects in battles." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -3225,7 +3302,7 @@ print_statRetrieve_help() {
 ##############################################################################
 print_typeList_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}typeList - List types${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}typeList - List types${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Types are properties for Pokémon and their moves. Each type has three properties: which types of Pokémon it is super effective against, which types of Pokémon it is not very effective against, and which types of Pokémon it is completely ineffective against." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -3249,7 +3326,7 @@ Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=va
 ##############################################################################
 print_typeRetrieve_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}typeRetrieve - Get types${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}typeRetrieve - Get types${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Types are properties for Pokémon and their moves. Each type has three properties: which types of Pokémon it is super effective against, which types of Pokémon it is not very effective against, and which types of Pokémon it is completely ineffective against." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -3267,7 +3344,7 @@ print_typeRetrieve_help() {
 ##############################################################################
 print_languageList_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}languageList - List languages${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}languageList - List languages${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Languages for translations of API resource information." | paste -sd' ' - | fold -sw 80
     echo -e ""
@@ -3291,12 +3368,28 @@ Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=va
 ##############################################################################
 print_languageRetrieve_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}languageRetrieve - Get language${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}languageRetrieve - Get language${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Languages for translations of API resource information." | paste -sd' ' - | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
     echo -e "  * ${GREEN}id${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - This parameter can be a string or an integer. ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for metaRetrieve operation
+#
+##############################################################################
+print_metaRetrieve_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}metaRetrieve - Get API metadata${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Returns metadata about the current deployed version of the API, including the git commit hash, deploy date, and tag (if any)." | paste -sd' ' - | fold -sw 80
+    echo -e ""
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
     code=200
@@ -3315,7 +3408,7 @@ call_berryFirmnessList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset q    )
+    local query_parameter_names=(limit offset q)
     local path
 
     if ! path=$(build_request_path "/api/v2/berry-firmness/" path_parameter_names query_parameter_names); then
@@ -3351,7 +3444,7 @@ call_berryFirmnessRetrieve() {
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(    )
+    local query_parameter_names=()
     local path
 
     if ! path=$(build_request_path "/api/v2/berry-firmness/{id}/" path_parameter_names query_parameter_names); then
@@ -3387,7 +3480,7 @@ call_berryFlavorList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset q    )
+    local query_parameter_names=(limit offset q)
     local path
 
     if ! path=$(build_request_path "/api/v2/berry-flavor/" path_parameter_names query_parameter_names); then
@@ -3423,7 +3516,7 @@ call_berryFlavorRetrieve() {
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(    )
+    local query_parameter_names=()
     local path
 
     if ! path=$(build_request_path "/api/v2/berry-flavor/{id}/" path_parameter_names query_parameter_names); then
@@ -3459,7 +3552,7 @@ call_berryList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset q    )
+    local query_parameter_names=(limit offset q)
     local path
 
     if ! path=$(build_request_path "/api/v2/berry/" path_parameter_names query_parameter_names); then
@@ -3495,7 +3588,7 @@ call_berryRetrieve() {
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(    )
+    local query_parameter_names=()
     local path
 
     if ! path=$(build_request_path "/api/v2/berry/{id}/" path_parameter_names query_parameter_names); then
@@ -3531,7 +3624,7 @@ call_contestEffectList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset q    )
+    local query_parameter_names=(limit offset)
     local path
 
     if ! path=$(build_request_path "/api/v2/contest-effect/" path_parameter_names query_parameter_names); then
@@ -3567,7 +3660,7 @@ call_contestEffectRetrieve() {
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(    )
+    local query_parameter_names=()
     local path
 
     if ! path=$(build_request_path "/api/v2/contest-effect/{id}/" path_parameter_names query_parameter_names); then
@@ -3603,7 +3696,7 @@ call_contestTypeList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset q    )
+    local query_parameter_names=(limit offset q)
     local path
 
     if ! path=$(build_request_path "/api/v2/contest-type/" path_parameter_names query_parameter_names); then
@@ -3639,7 +3732,7 @@ call_contestTypeRetrieve() {
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(    )
+    local query_parameter_names=()
     local path
 
     if ! path=$(build_request_path "/api/v2/contest-type/{id}/" path_parameter_names query_parameter_names); then
@@ -3675,7 +3768,7 @@ call_superContestEffectList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset q    )
+    local query_parameter_names=(limit offset)
     local path
 
     if ! path=$(build_request_path "/api/v2/super-contest-effect/" path_parameter_names query_parameter_names); then
@@ -3711,7 +3804,7 @@ call_superContestEffectRetrieve() {
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(    )
+    local query_parameter_names=()
     local path
 
     if ! path=$(build_request_path "/api/v2/super-contest-effect/{id}/" path_parameter_names query_parameter_names); then
@@ -3747,7 +3840,7 @@ call_encounterConditionList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset q    )
+    local query_parameter_names=(limit offset q)
     local path
 
     if ! path=$(build_request_path "/api/v2/encounter-condition/" path_parameter_names query_parameter_names); then
@@ -3783,7 +3876,7 @@ call_encounterConditionRetrieve() {
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(    )
+    local query_parameter_names=()
     local path
 
     if ! path=$(build_request_path "/api/v2/encounter-condition/{id}/" path_parameter_names query_parameter_names); then
@@ -3819,7 +3912,7 @@ call_encounterConditionValueList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset q    )
+    local query_parameter_names=(limit offset q)
     local path
 
     if ! path=$(build_request_path "/api/v2/encounter-condition-value/" path_parameter_names query_parameter_names); then
@@ -3855,7 +3948,7 @@ call_encounterConditionValueRetrieve() {
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(    )
+    local query_parameter_names=()
     local path
 
     if ! path=$(build_request_path "/api/v2/encounter-condition-value/{id}/" path_parameter_names query_parameter_names); then
@@ -3891,7 +3984,7 @@ call_encounterMethodList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset q    )
+    local query_parameter_names=(limit offset q)
     local path
 
     if ! path=$(build_request_path "/api/v2/encounter-method/" path_parameter_names query_parameter_names); then
@@ -3927,7 +4020,7 @@ call_encounterMethodRetrieve() {
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(    )
+    local query_parameter_names=()
     local path
 
     if ! path=$(build_request_path "/api/v2/encounter-method/{id}/" path_parameter_names query_parameter_names); then
@@ -3963,7 +4056,7 @@ call_evolutionChainList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset q    )
+    local query_parameter_names=(limit offset)
     local path
 
     if ! path=$(build_request_path "/api/v2/evolution-chain/" path_parameter_names query_parameter_names); then
@@ -3999,7 +4092,7 @@ call_evolutionChainRetrieve() {
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(    )
+    local query_parameter_names=()
     local path
 
     if ! path=$(build_request_path "/api/v2/evolution-chain/{id}/" path_parameter_names query_parameter_names); then
@@ -4035,7 +4128,7 @@ call_evolutionTriggerList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset q    )
+    local query_parameter_names=(limit offset q)
     local path
 
     if ! path=$(build_request_path "/api/v2/evolution-trigger/" path_parameter_names query_parameter_names); then
@@ -4071,10 +4164,82 @@ call_evolutionTriggerRetrieve() {
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(    )
+    local query_parameter_names=()
     local path
 
     if ! path=$(build_request_path "/api/v2/evolution-trigger/{id}/" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="GET"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call evolutionVariableList operation
+#
+##############################################################################
+call_evolutionVariableList() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=()
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(limit offset q)
+    local path
+
+    if ! path=$(build_request_path "/api/v2/evolution-variable/" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="GET"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call evolutionVariableRetrieve operation
+#
+##############################################################################
+call_evolutionVariableRetrieve() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=(id)
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=()
+    local path
+
+    if ! path=$(build_request_path "/api/v2/evolution-variable/{id}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -4107,7 +4272,7 @@ call_generationList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset q    )
+    local query_parameter_names=(limit offset q)
     local path
 
     if ! path=$(build_request_path "/api/v2/generation/" path_parameter_names query_parameter_names); then
@@ -4143,7 +4308,7 @@ call_generationRetrieve() {
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(    )
+    local query_parameter_names=()
     local path
 
     if ! path=$(build_request_path "/api/v2/generation/{id}/" path_parameter_names query_parameter_names); then
@@ -4179,7 +4344,7 @@ call_pokedexList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset q    )
+    local query_parameter_names=(limit offset q)
     local path
 
     if ! path=$(build_request_path "/api/v2/pokedex/" path_parameter_names query_parameter_names); then
@@ -4215,7 +4380,7 @@ call_pokedexRetrieve() {
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(    )
+    local query_parameter_names=()
     local path
 
     if ! path=$(build_request_path "/api/v2/pokedex/{id}/" path_parameter_names query_parameter_names); then
@@ -4251,7 +4416,7 @@ call_versionGroupList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset q    )
+    local query_parameter_names=(limit offset q)
     local path
 
     if ! path=$(build_request_path "/api/v2/version-group/" path_parameter_names query_parameter_names); then
@@ -4287,7 +4452,7 @@ call_versionGroupRetrieve() {
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(    )
+    local query_parameter_names=()
     local path
 
     if ! path=$(build_request_path "/api/v2/version-group/{id}/" path_parameter_names query_parameter_names); then
@@ -4323,7 +4488,7 @@ call_versionList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset q    )
+    local query_parameter_names=(limit offset q)
     local path
 
     if ! path=$(build_request_path "/api/v2/version/" path_parameter_names query_parameter_names); then
@@ -4359,10 +4524,82 @@ call_versionRetrieve() {
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(    )
+    local query_parameter_names=()
     local path
 
     if ! path=$(build_request_path "/api/v2/version/{id}/" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="GET"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call currencyList operation
+#
+##############################################################################
+call_currencyList() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=()
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(limit offset q)
+    local path
+
+    if ! path=$(build_request_path "/api/v2/currency/" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="GET"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call currencyRetrieve operation
+#
+##############################################################################
+call_currencyRetrieve() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=(id)
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=()
+    local path
+
+    if ! path=$(build_request_path "/api/v2/currency/{id}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -4395,7 +4632,7 @@ call_itemAttributeList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset q    )
+    local query_parameter_names=(limit offset q)
     local path
 
     if ! path=$(build_request_path "/api/v2/item-attribute/" path_parameter_names query_parameter_names); then
@@ -4431,7 +4668,7 @@ call_itemAttributeRetrieve() {
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(    )
+    local query_parameter_names=()
     local path
 
     if ! path=$(build_request_path "/api/v2/item-attribute/{id}/" path_parameter_names query_parameter_names); then
@@ -4467,7 +4704,7 @@ call_itemCategoryList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset q    )
+    local query_parameter_names=(limit offset q)
     local path
 
     if ! path=$(build_request_path "/api/v2/item-category/" path_parameter_names query_parameter_names); then
@@ -4503,7 +4740,7 @@ call_itemCategoryRetrieve() {
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(    )
+    local query_parameter_names=()
     local path
 
     if ! path=$(build_request_path "/api/v2/item-category/{id}/" path_parameter_names query_parameter_names); then
@@ -4539,7 +4776,7 @@ call_itemFlingEffectList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset q    )
+    local query_parameter_names=(limit offset q)
     local path
 
     if ! path=$(build_request_path "/api/v2/item-fling-effect/" path_parameter_names query_parameter_names); then
@@ -4575,7 +4812,7 @@ call_itemFlingEffectRetrieve() {
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(    )
+    local query_parameter_names=()
     local path
 
     if ! path=$(build_request_path "/api/v2/item-fling-effect/{id}/" path_parameter_names query_parameter_names); then
@@ -4611,7 +4848,7 @@ call_itemList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset q    )
+    local query_parameter_names=(limit offset q)
     local path
 
     if ! path=$(build_request_path "/api/v2/item/" path_parameter_names query_parameter_names); then
@@ -4647,7 +4884,7 @@ call_itemPocketList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset q    )
+    local query_parameter_names=(limit offset q)
     local path
 
     if ! path=$(build_request_path "/api/v2/item-pocket/" path_parameter_names query_parameter_names); then
@@ -4683,7 +4920,7 @@ call_itemPocketRetrieve() {
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(    )
+    local query_parameter_names=()
     local path
 
     if ! path=$(build_request_path "/api/v2/item-pocket/{id}/" path_parameter_names query_parameter_names); then
@@ -4719,7 +4956,7 @@ call_itemRetrieve() {
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(    )
+    local query_parameter_names=()
     local path
 
     if ! path=$(build_request_path "/api/v2/item/{id}/" path_parameter_names query_parameter_names); then
@@ -4755,7 +4992,7 @@ call_locationAreaList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset    )
+    local query_parameter_names=(limit offset)
     local path
 
     if ! path=$(build_request_path "/api/v2/location-area/" path_parameter_names query_parameter_names); then
@@ -4791,7 +5028,7 @@ call_locationAreaRetrieve() {
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(    )
+    local query_parameter_names=()
     local path
 
     if ! path=$(build_request_path "/api/v2/location-area/{id}/" path_parameter_names query_parameter_names); then
@@ -4827,7 +5064,7 @@ call_locationList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset q    )
+    local query_parameter_names=(limit offset q)
     local path
 
     if ! path=$(build_request_path "/api/v2/location/" path_parameter_names query_parameter_names); then
@@ -4863,7 +5100,7 @@ call_locationRetrieve() {
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(    )
+    local query_parameter_names=()
     local path
 
     if ! path=$(build_request_path "/api/v2/location/{id}/" path_parameter_names query_parameter_names); then
@@ -4899,7 +5136,7 @@ call_palParkAreaList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset q    )
+    local query_parameter_names=(limit offset q)
     local path
 
     if ! path=$(build_request_path "/api/v2/pal-park-area/" path_parameter_names query_parameter_names); then
@@ -4935,7 +5172,7 @@ call_palParkAreaRetrieve() {
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(    )
+    local query_parameter_names=()
     local path
 
     if ! path=$(build_request_path "/api/v2/pal-park-area/{id}/" path_parameter_names query_parameter_names); then
@@ -4971,7 +5208,7 @@ call_regionList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset q    )
+    local query_parameter_names=(limit offset q)
     local path
 
     if ! path=$(build_request_path "/api/v2/region/" path_parameter_names query_parameter_names); then
@@ -5007,7 +5244,7 @@ call_regionRetrieve() {
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(    )
+    local query_parameter_names=()
     local path
 
     if ! path=$(build_request_path "/api/v2/region/{id}/" path_parameter_names query_parameter_names); then
@@ -5043,7 +5280,7 @@ call_machineList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset q    )
+    local query_parameter_names=(limit offset)
     local path
 
     if ! path=$(build_request_path "/api/v2/machine/" path_parameter_names query_parameter_names); then
@@ -5079,7 +5316,7 @@ call_machineRetrieve() {
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(    )
+    local query_parameter_names=()
     local path
 
     if ! path=$(build_request_path "/api/v2/machine/{id}/" path_parameter_names query_parameter_names); then
@@ -5115,7 +5352,7 @@ call_moveAilmentList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset q    )
+    local query_parameter_names=(limit offset q)
     local path
 
     if ! path=$(build_request_path "/api/v2/move-ailment/" path_parameter_names query_parameter_names); then
@@ -5151,7 +5388,7 @@ call_moveAilmentRetrieve() {
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(    )
+    local query_parameter_names=()
     local path
 
     if ! path=$(build_request_path "/api/v2/move-ailment/{id}/" path_parameter_names query_parameter_names); then
@@ -5187,7 +5424,7 @@ call_moveBattleStyleList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset q    )
+    local query_parameter_names=(limit offset q)
     local path
 
     if ! path=$(build_request_path "/api/v2/move-battle-style/" path_parameter_names query_parameter_names); then
@@ -5223,7 +5460,7 @@ call_moveBattleStyleRetrieve() {
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(    )
+    local query_parameter_names=()
     local path
 
     if ! path=$(build_request_path "/api/v2/move-battle-style/{id}/" path_parameter_names query_parameter_names); then
@@ -5259,7 +5496,7 @@ call_moveCategoryList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset q    )
+    local query_parameter_names=(limit offset q)
     local path
 
     if ! path=$(build_request_path "/api/v2/move-category/" path_parameter_names query_parameter_names); then
@@ -5295,7 +5532,7 @@ call_moveCategoryRetrieve() {
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(    )
+    local query_parameter_names=()
     local path
 
     if ! path=$(build_request_path "/api/v2/move-category/{id}/" path_parameter_names query_parameter_names); then
@@ -5331,7 +5568,7 @@ call_moveLearnMethodList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset q    )
+    local query_parameter_names=(limit offset q)
     local path
 
     if ! path=$(build_request_path "/api/v2/move-learn-method/" path_parameter_names query_parameter_names); then
@@ -5367,7 +5604,7 @@ call_moveLearnMethodRetrieve() {
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(    )
+    local query_parameter_names=()
     local path
 
     if ! path=$(build_request_path "/api/v2/move-learn-method/{id}/" path_parameter_names query_parameter_names); then
@@ -5403,7 +5640,7 @@ call_moveList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset q    )
+    local query_parameter_names=(limit offset q)
     local path
 
     if ! path=$(build_request_path "/api/v2/move/" path_parameter_names query_parameter_names); then
@@ -5439,7 +5676,7 @@ call_moveRetrieve() {
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(    )
+    local query_parameter_names=()
     local path
 
     if ! path=$(build_request_path "/api/v2/move/{id}/" path_parameter_names query_parameter_names); then
@@ -5475,7 +5712,7 @@ call_moveTargetList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset q    )
+    local query_parameter_names=(limit offset q)
     local path
 
     if ! path=$(build_request_path "/api/v2/move-target/" path_parameter_names query_parameter_names); then
@@ -5511,7 +5748,7 @@ call_moveTargetRetrieve() {
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(    )
+    local query_parameter_names=()
     local path
 
     if ! path=$(build_request_path "/api/v2/move-target/{id}/" path_parameter_names query_parameter_names); then
@@ -5547,7 +5784,7 @@ call_abilityList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset q    )
+    local query_parameter_names=(limit offset q)
     local path
 
     if ! path=$(build_request_path "/api/v2/ability/" path_parameter_names query_parameter_names); then
@@ -5583,7 +5820,7 @@ call_abilityRetrieve() {
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(    )
+    local query_parameter_names=()
     local path
 
     if ! path=$(build_request_path "/api/v2/ability/{id}/" path_parameter_names query_parameter_names); then
@@ -5619,7 +5856,7 @@ call_characteristicList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset q    )
+    local query_parameter_names=(limit offset)
     local path
 
     if ! path=$(build_request_path "/api/v2/characteristic/" path_parameter_names query_parameter_names); then
@@ -5655,7 +5892,7 @@ call_characteristicRetrieve() {
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(    )
+    local query_parameter_names=()
     local path
 
     if ! path=$(build_request_path "/api/v2/characteristic/{id}/" path_parameter_names query_parameter_names); then
@@ -5691,7 +5928,7 @@ call_eggGroupList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset q    )
+    local query_parameter_names=(limit offset q)
     local path
 
     if ! path=$(build_request_path "/api/v2/egg-group/" path_parameter_names query_parameter_names); then
@@ -5727,7 +5964,7 @@ call_eggGroupRetrieve() {
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(    )
+    local query_parameter_names=()
     local path
 
     if ! path=$(build_request_path "/api/v2/egg-group/{id}/" path_parameter_names query_parameter_names); then
@@ -5763,7 +6000,7 @@ call_genderList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset q    )
+    local query_parameter_names=(limit offset q)
     local path
 
     if ! path=$(build_request_path "/api/v2/gender/" path_parameter_names query_parameter_names); then
@@ -5799,7 +6036,7 @@ call_genderRetrieve() {
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(    )
+    local query_parameter_names=()
     local path
 
     if ! path=$(build_request_path "/api/v2/gender/{id}/" path_parameter_names query_parameter_names); then
@@ -5835,7 +6072,7 @@ call_growthRateList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset q    )
+    local query_parameter_names=(limit offset q)
     local path
 
     if ! path=$(build_request_path "/api/v2/growth-rate/" path_parameter_names query_parameter_names); then
@@ -5871,7 +6108,7 @@ call_growthRateRetrieve() {
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(    )
+    local query_parameter_names=()
     local path
 
     if ! path=$(build_request_path "/api/v2/growth-rate/{id}/" path_parameter_names query_parameter_names); then
@@ -5907,7 +6144,7 @@ call_moveDamageClassList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset q    )
+    local query_parameter_names=(limit offset q)
     local path
 
     if ! path=$(build_request_path "/api/v2/move-damage-class/" path_parameter_names query_parameter_names); then
@@ -5943,7 +6180,7 @@ call_moveDamageClassRetrieve() {
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(    )
+    local query_parameter_names=()
     local path
 
     if ! path=$(build_request_path "/api/v2/move-damage-class/{id}/" path_parameter_names query_parameter_names); then
@@ -5979,7 +6216,7 @@ call_natureList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset q    )
+    local query_parameter_names=(limit offset q)
     local path
 
     if ! path=$(build_request_path "/api/v2/nature/" path_parameter_names query_parameter_names); then
@@ -6015,7 +6252,7 @@ call_natureRetrieve() {
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(    )
+    local query_parameter_names=()
     local path
 
     if ! path=$(build_request_path "/api/v2/nature/{id}/" path_parameter_names query_parameter_names); then
@@ -6051,7 +6288,7 @@ call_pokeathlonStatList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset q    )
+    local query_parameter_names=(limit offset q)
     local path
 
     if ! path=$(build_request_path "/api/v2/pokeathlon-stat/" path_parameter_names query_parameter_names); then
@@ -6087,7 +6324,7 @@ call_pokeathlonStatRetrieve() {
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(    )
+    local query_parameter_names=()
     local path
 
     if ! path=$(build_request_path "/api/v2/pokeathlon-stat/{id}/" path_parameter_names query_parameter_names); then
@@ -6123,7 +6360,7 @@ call_pokemonColorList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset q    )
+    local query_parameter_names=(limit offset q)
     local path
 
     if ! path=$(build_request_path "/api/v2/pokemon-color/" path_parameter_names query_parameter_names); then
@@ -6159,7 +6396,7 @@ call_pokemonColorRetrieve() {
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(    )
+    local query_parameter_names=()
     local path
 
     if ! path=$(build_request_path "/api/v2/pokemon-color/{id}/" path_parameter_names query_parameter_names); then
@@ -6195,7 +6432,7 @@ call_pokemonFormList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset q    )
+    local query_parameter_names=(limit offset q)
     local path
 
     if ! path=$(build_request_path "/api/v2/pokemon-form/" path_parameter_names query_parameter_names); then
@@ -6231,7 +6468,7 @@ call_pokemonFormRetrieve() {
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(    )
+    local query_parameter_names=()
     local path
 
     if ! path=$(build_request_path "/api/v2/pokemon-form/{id}/" path_parameter_names query_parameter_names); then
@@ -6267,7 +6504,7 @@ call_pokemonHabitatList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset q    )
+    local query_parameter_names=(limit offset q)
     local path
 
     if ! path=$(build_request_path "/api/v2/pokemon-habitat/" path_parameter_names query_parameter_names); then
@@ -6303,7 +6540,7 @@ call_pokemonHabitatRetrieve() {
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(    )
+    local query_parameter_names=()
     local path
 
     if ! path=$(build_request_path "/api/v2/pokemon-habitat/{id}/" path_parameter_names query_parameter_names); then
@@ -6339,7 +6576,7 @@ call_pokemonList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset q    )
+    local query_parameter_names=(limit offset q)
     local path
 
     if ! path=$(build_request_path "/api/v2/pokemon/" path_parameter_names query_parameter_names); then
@@ -6375,7 +6612,7 @@ call_pokemonRetrieve() {
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(    )
+    local query_parameter_names=()
     local path
 
     if ! path=$(build_request_path "/api/v2/pokemon/{id}/" path_parameter_names query_parameter_names); then
@@ -6411,7 +6648,7 @@ call_pokemonShapeList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset q    )
+    local query_parameter_names=(limit offset q)
     local path
 
     if ! path=$(build_request_path "/api/v2/pokemon-shape/" path_parameter_names query_parameter_names); then
@@ -6447,7 +6684,7 @@ call_pokemonShapeRetrieve() {
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(    )
+    local query_parameter_names=()
     local path
 
     if ! path=$(build_request_path "/api/v2/pokemon-shape/{id}/" path_parameter_names query_parameter_names); then
@@ -6483,7 +6720,7 @@ call_pokemonSpeciesList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset q    )
+    local query_parameter_names=(limit offset q)
     local path
 
     if ! path=$(build_request_path "/api/v2/pokemon-species/" path_parameter_names query_parameter_names); then
@@ -6519,7 +6756,7 @@ call_pokemonSpeciesRetrieve() {
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(    )
+    local query_parameter_names=()
     local path
 
     if ! path=$(build_request_path "/api/v2/pokemon-species/{id}/" path_parameter_names query_parameter_names); then
@@ -6555,7 +6792,7 @@ call_statList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset q    )
+    local query_parameter_names=(limit offset q)
     local path
 
     if ! path=$(build_request_path "/api/v2/stat/" path_parameter_names query_parameter_names); then
@@ -6591,7 +6828,7 @@ call_statRetrieve() {
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(    )
+    local query_parameter_names=()
     local path
 
     if ! path=$(build_request_path "/api/v2/stat/{id}/" path_parameter_names query_parameter_names); then
@@ -6627,7 +6864,7 @@ call_typeList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset q    )
+    local query_parameter_names=(limit offset q)
     local path
 
     if ! path=$(build_request_path "/api/v2/type/" path_parameter_names query_parameter_names); then
@@ -6663,7 +6900,7 @@ call_typeRetrieve() {
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(    )
+    local query_parameter_names=()
     local path
 
     if ! path=$(build_request_path "/api/v2/type/{id}/" path_parameter_names query_parameter_names); then
@@ -6699,7 +6936,7 @@ call_languageList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset q    )
+    local query_parameter_names=(limit offset q)
     local path
 
     if ! path=$(build_request_path "/api/v2/language/" path_parameter_names query_parameter_names); then
@@ -6735,10 +6972,46 @@ call_languageRetrieve() {
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(    )
+    local query_parameter_names=()
     local path
 
     if ! path=$(build_request_path "/api/v2/language/{id}/" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="GET"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call metaRetrieve operation
+#
+##############################################################################
+call_metaRetrieve() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=()
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=()
+    local path
+
+    if ! path=$(build_request_path "/api/v2/meta/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -6923,6 +7196,12 @@ case $key in
     evolutionTriggerRetrieve)
     operation="evolutionTriggerRetrieve"
     ;;
+    evolutionVariableList)
+    operation="evolutionVariableList"
+    ;;
+    evolutionVariableRetrieve)
+    operation="evolutionVariableRetrieve"
+    ;;
     generationList)
     operation="generationList"
     ;;
@@ -6946,6 +7225,12 @@ case $key in
     ;;
     versionRetrieve)
     operation="versionRetrieve"
+    ;;
+    currencyList)
+    operation="currencyList"
+    ;;
+    currencyRetrieve)
+    operation="currencyRetrieve"
     ;;
     itemAttributeList)
     operation="itemAttributeList"
@@ -7145,6 +7430,9 @@ case $key in
     languageRetrieve)
     operation="languageRetrieve"
     ;;
+    metaRetrieve)
+    operation="metaRetrieve"
+    ;;
     *==*)
     # Parse body arguments and convert them into top level
     # JSON properties passed in the body content as strings
@@ -7298,6 +7586,12 @@ case $operation in
     evolutionTriggerRetrieve)
     call_evolutionTriggerRetrieve
     ;;
+    evolutionVariableList)
+    call_evolutionVariableList
+    ;;
+    evolutionVariableRetrieve)
+    call_evolutionVariableRetrieve
+    ;;
     generationList)
     call_generationList
     ;;
@@ -7321,6 +7615,12 @@ case $operation in
     ;;
     versionRetrieve)
     call_versionRetrieve
+    ;;
+    currencyList)
+    call_currencyList
+    ;;
+    currencyRetrieve)
+    call_currencyRetrieve
     ;;
     itemAttributeList)
     call_itemAttributeList
@@ -7519,6 +7819,9 @@ case $operation in
     ;;
     languageRetrieve)
     call_languageRetrieve
+    ;;
+    metaRetrieve)
+    call_metaRetrieve
     ;;
     *)
     ERROR_MSG="ERROR: Unknown operation: $operation"

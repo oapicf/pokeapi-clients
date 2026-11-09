@@ -10,7 +10,6 @@ namespace models {
 
 AbilityChangeEffectText::AbilityChangeEffectText()
 : effect("")
-, language(LanguageSummary())
 {
 }
 // =========================================

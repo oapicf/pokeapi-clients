@@ -9,8 +9,10 @@ import akka.http.scaladsl.unmarshalling.FromStringUnmarshaller
 import org.openapitools.server.AkkaHttpHelper._
 import org.openapitools.server.model.EvolutionChainDetail
 import org.openapitools.server.model.EvolutionTriggerDetail
+import org.openapitools.server.model.EvolutionVariableDetail
 import org.openapitools.server.model.PaginatedEvolutionChainSummaryList
 import org.openapitools.server.model.PaginatedEvolutionTriggerSummaryList
+import org.openapitools.server.model.PaginatedEvolutionVariableSummaryList
 
 
 class EvolutionApi(
@@ -24,8 +26,8 @@ class EvolutionApi(
   lazy val route: Route =
     path("api" / "v2" / "evolution-chain") { 
       get { 
-        parameters("limit".as[Int].?, "offset".as[Int].?, "q".as[String].?) { (limit, offset, q) => 
-            evolutionService.evolutionChainList(limit = limit, offset = offset, q = q)
+        parameters("limit".as[Int].?, "offset".as[Int].?) { (limit, offset) => 
+            evolutionService.evolutionChainList(limit = limit, offset = offset)
         }
       }
     } ~
@@ -45,6 +47,18 @@ class EvolutionApi(
       get {  
             evolutionService.evolutionTriggerRetrieve(id = id)
       }
+    } ~
+    path("api" / "v2" / "evolution-variable") { 
+      get { 
+        parameters("limit".as[Int].?, "offset".as[Int].?, "q".as[String].?) { (limit, offset, q) => 
+            evolutionService.evolutionVariableList(limit = limit, offset = offset, q = q)
+        }
+      }
+    } ~
+    path("api" / "v2" / "evolution-variable" / Segment) { (id) => 
+      get {  
+            evolutionService.evolutionVariableRetrieve(id = id)
+      }
     }
 }
 
@@ -56,7 +70,7 @@ trait EvolutionApiService {
   /**
    * Code: 200, Message: , DataType: PaginatedEvolutionChainSummaryList
    */
-  def evolutionChainList(limit: Option[Int], offset: Option[Int], q: Option[String])
+  def evolutionChainList(limit: Option[Int], offset: Option[Int])
       (implicit toEntityMarshallerPaginatedEvolutionChainSummaryList: ToEntityMarshaller[PaginatedEvolutionChainSummaryList]): Route
 
   def evolutionChainRetrieve200(responseEvolutionChainDetail: EvolutionChainDetail)(implicit toEntityMarshallerEvolutionChainDetail: ToEntityMarshaller[EvolutionChainDetail]): Route =
@@ -83,16 +97,36 @@ trait EvolutionApiService {
   def evolutionTriggerRetrieve(id: String)
       (implicit toEntityMarshallerEvolutionTriggerDetail: ToEntityMarshaller[EvolutionTriggerDetail]): Route
 
+  def evolutionVariableList200(responsePaginatedEvolutionVariableSummaryList: PaginatedEvolutionVariableSummaryList)(implicit toEntityMarshallerPaginatedEvolutionVariableSummaryList: ToEntityMarshaller[PaginatedEvolutionVariableSummaryList]): Route =
+    complete((200, responsePaginatedEvolutionVariableSummaryList))
+  /**
+   * Code: 200, Message: , DataType: PaginatedEvolutionVariableSummaryList
+   */
+  def evolutionVariableList(limit: Option[Int], offset: Option[Int], q: Option[String])
+      (implicit toEntityMarshallerPaginatedEvolutionVariableSummaryList: ToEntityMarshaller[PaginatedEvolutionVariableSummaryList]): Route
+
+  def evolutionVariableRetrieve200(responseEvolutionVariableDetail: EvolutionVariableDetail)(implicit toEntityMarshallerEvolutionVariableDetail: ToEntityMarshaller[EvolutionVariableDetail]): Route =
+    complete((200, responseEvolutionVariableDetail))
+  /**
+   * Code: 200, Message: , DataType: EvolutionVariableDetail
+   */
+  def evolutionVariableRetrieve(id: String)
+      (implicit toEntityMarshallerEvolutionVariableDetail: ToEntityMarshaller[EvolutionVariableDetail]): Route
+
 }
 
 trait EvolutionApiMarshaller {
 
+
+  implicit def toEntityMarshallerEvolutionVariableDetail: ToEntityMarshaller[EvolutionVariableDetail]
 
   implicit def toEntityMarshallerEvolutionTriggerDetail: ToEntityMarshaller[EvolutionTriggerDetail]
 
   implicit def toEntityMarshallerPaginatedEvolutionChainSummaryList: ToEntityMarshaller[PaginatedEvolutionChainSummaryList]
 
   implicit def toEntityMarshallerEvolutionChainDetail: ToEntityMarshaller[EvolutionChainDetail]
+
+  implicit def toEntityMarshallerPaginatedEvolutionVariableSummaryList: ToEntityMarshaller[PaginatedEvolutionVariableSummaryList]
 
   implicit def toEntityMarshallerPaginatedEvolutionTriggerSummaryList: ToEntityMarshaller[PaginatedEvolutionTriggerSummaryList]
 

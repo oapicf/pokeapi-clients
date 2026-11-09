@@ -7,3 +7,4 @@
 
 val language_list : ?limit:int32 -> ?offset:int32 -> ?q:string -> unit -> Paginated_language_summary_list.t Lwt.t
 val language_retrieve : id:string -> Language_detail.t Lwt.t
+val meta_retrieve : unit -> Pokeapi_meta_response.t Lwt.t

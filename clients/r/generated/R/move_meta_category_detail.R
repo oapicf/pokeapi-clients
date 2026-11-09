@@ -7,10 +7,10 @@
 #' @title MoveMetaCategoryDetail
 #' @description MoveMetaCategoryDetail Class
 #' @format An \code{R6Class} generator object
-#' @field id  integer
-#' @field name  character
-#' @field descriptions  list(\link{MoveMetaCategoryDescription})
-#' @field moves  list(\link{AbilityDetailPokemonInnerPokemon})
+#' @field id The identifier for this resource. integer
+#' @field name The name for this resource. character
+#' @field descriptions The description of this resource listed in different languages. list(\link{MoveMetaCategoryDescription})
+#' @field moves A list of moves that fall into this category. list(\link{MoveSummary})
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -25,10 +25,10 @@ MoveMetaCategoryDetail <- R6::R6Class(
     #' @description
     #' Initialize a new MoveMetaCategoryDetail class.
     #'
-    #' @param id id
-    #' @param name name
-    #' @param descriptions descriptions
-    #' @param moves moves
+    #' @param id The identifier for this resource.
+    #' @param name The name for this resource.
+    #' @param descriptions The description of this resource listed in different languages.
+    #' @param moves A list of moves that fall into this category.
     #' @param ... Other optional arguments.
     initialize = function(`id`, `name`, `descriptions`, `moves`, ...) {
       if (!missing(`id`)) {
@@ -145,7 +145,7 @@ MoveMetaCategoryDetail <- R6::R6Class(
         self$`descriptions` <- ApiClient$new()$deserializeObj(this_object$`descriptions`, "array[MoveMetaCategoryDescription]", loadNamespace("openapi"))
       }
       if (!is.null(this_object$`moves`)) {
-        self$`moves` <- ApiClient$new()$deserializeObj(this_object$`moves`, "array[AbilityDetailPokemonInnerPokemon]", loadNamespace("openapi"))
+        self$`moves` <- ApiClient$new()$deserializeObj(this_object$`moves`, "array[MoveSummary]", loadNamespace("openapi"))
       }
       self
     },
@@ -171,7 +171,7 @@ MoveMetaCategoryDetail <- R6::R6Class(
       self$`id` <- this_object$`id`
       self$`name` <- this_object$`name`
       self$`descriptions` <- ApiClient$new()$deserializeObj(this_object$`descriptions`, "array[MoveMetaCategoryDescription]", loadNamespace("openapi"))
-      self$`moves` <- ApiClient$new()$deserializeObj(this_object$`moves`, "array[AbilityDetailPokemonInnerPokemon]", loadNamespace("openapi"))
+      self$`moves` <- ApiClient$new()$deserializeObj(this_object$`moves`, "array[MoveSummary]", loadNamespace("openapi"))
       self
     },
 
@@ -236,7 +236,7 @@ MoveMetaCategoryDetail <- R6::R6Class(
         return(FALSE)
       }
 
-      if (nchar(self$`name`) > 100) {
+      if (nchar(self$`name`) > 200) {
         return(FALSE)
       }
 
@@ -269,8 +269,8 @@ MoveMetaCategoryDetail <- R6::R6Class(
         invalid_fields["name"] <- "Non-nullable required field `name` cannot be null."
       }
 
-      if (nchar(self$`name`) > 100) {
-        invalid_fields["name"] <- "Invalid length for `name`, must be smaller than or equal to 100."
+      if (nchar(self$`name`) > 200) {
+        invalid_fields["name"] <- "Invalid length for `name`, must be smaller than or equal to 200."
       }
 
       # check if the required `descriptions` is null

@@ -10,12 +10,12 @@ import org.openapitools.model.PokemonSpeciesSummary;
 
 @Canonical
 class PokemonColorDetail {
-    
+    /* The identifier for this resource. */
     Integer id
-    
+    /* The name for this resource. */
     String name
-    
+    /* The name of this resource listed in different languages. */
     List<PokemonColorName> names = new ArrayList<>()
-    
+    /* A list of the Pokémon species that have this color. */
     List<PokemonSpeciesSummary> pokemonSpecies = new ArrayList<>()
 }

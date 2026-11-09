@@ -8,10 +8,10 @@
 
 (def paginated-egg-group-summary-list-data
   {
-   (ds/opt :count) int?
+   (ds/req :count) int?
    (ds/opt :next) string?
    (ds/opt :previous) string?
-   (ds/opt :results) (s/coll-of egg-group-summary-spec)
+   (ds/req :results) (s/coll-of egg-group-summary-spec)
    })
 
 (def paginated-egg-group-summary-list-spec

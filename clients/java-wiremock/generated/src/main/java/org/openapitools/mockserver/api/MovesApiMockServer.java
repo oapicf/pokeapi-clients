@@ -14,7 +14,6 @@ public class MovesApiMockServer {
     public static MappingBuilder stubMoveAilmentList200(@javax.annotation.Nullable String limit, @javax.annotation.Nullable String offset, @javax.annotation.Nullable String q, String response) {
         MappingBuilder stub = get(urlPathEqualTo("/api/v2/move-ailment/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withStatus(200)
                 .withHeader("Content-Type", "application/json")
@@ -37,7 +36,6 @@ public class MovesApiMockServer {
     public static MappingBuilder stubMoveAilmentListFault(@javax.annotation.Nullable String limit, @javax.annotation.Nullable String offset, @javax.annotation.Nullable String q, Fault fault) {
         MappingBuilder stub = get(urlPathEqualTo("/api/v2/move-ailment/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withFault(fault)
             );
@@ -56,7 +54,7 @@ public class MovesApiMockServer {
     }
 
     public static String moveAilmentList200ResponseSample1() {
-        return "{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+        return "{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/move-ailment/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/move-ailment/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
     }
 
 
@@ -64,7 +62,6 @@ public class MovesApiMockServer {
     public static MappingBuilder stubMoveAilmentRetrieve200(@javax.annotation.Nonnull String id, String response) {
         MappingBuilder stub = get(urlPathTemplate("/api/v2/move-ailment/{id}/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withStatus(200)
                 .withHeader("Content-Type", "application/json")
@@ -79,7 +76,6 @@ public class MovesApiMockServer {
     public static MappingBuilder stubMoveAilmentRetrieveFault(@javax.annotation.Nonnull String id, Fault fault) {
         MappingBuilder stub = get(urlPathTemplate("/api/v2/move-ailment/{id}/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withFault(fault)
             );
@@ -90,7 +86,7 @@ public class MovesApiMockServer {
     }
 
     public static String moveAilmentRetrieve200ResponseSample1() {
-        return "{ \"id\" : 0, \"name\" : \"name\", \"moves\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }";
+        return "{ \"id\" : 0, \"name\" : \"name\", \"moves\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ] }";
     }
 
 
@@ -98,7 +94,6 @@ public class MovesApiMockServer {
     public static MappingBuilder stubMoveBattleStyleList200(@javax.annotation.Nullable String limit, @javax.annotation.Nullable String offset, @javax.annotation.Nullable String q, String response) {
         MappingBuilder stub = get(urlPathEqualTo("/api/v2/move-battle-style/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withStatus(200)
                 .withHeader("Content-Type", "application/json")
@@ -121,7 +116,6 @@ public class MovesApiMockServer {
     public static MappingBuilder stubMoveBattleStyleListFault(@javax.annotation.Nullable String limit, @javax.annotation.Nullable String offset, @javax.annotation.Nullable String q, Fault fault) {
         MappingBuilder stub = get(urlPathEqualTo("/api/v2/move-battle-style/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withFault(fault)
             );
@@ -140,7 +134,7 @@ public class MovesApiMockServer {
     }
 
     public static String moveBattleStyleList200ResponseSample1() {
-        return "{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+        return "{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/move-battle-style/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/move-battle-style/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
     }
 
 
@@ -148,7 +142,6 @@ public class MovesApiMockServer {
     public static MappingBuilder stubMoveBattleStyleRetrieve200(@javax.annotation.Nonnull String id, String response) {
         MappingBuilder stub = get(urlPathTemplate("/api/v2/move-battle-style/{id}/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withStatus(200)
                 .withHeader("Content-Type", "application/json")
@@ -163,7 +156,6 @@ public class MovesApiMockServer {
     public static MappingBuilder stubMoveBattleStyleRetrieveFault(@javax.annotation.Nonnull String id, Fault fault) {
         MappingBuilder stub = get(urlPathTemplate("/api/v2/move-battle-style/{id}/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withFault(fault)
             );
@@ -174,7 +166,7 @@ public class MovesApiMockServer {
     }
 
     public static String moveBattleStyleRetrieve200ResponseSample1() {
-        return "{ \"id\" : 0, \"name\" : \"name\", \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }";
+        return "{ \"id\" : 0, \"name\" : \"name\", \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ] }";
     }
 
 
@@ -182,7 +174,6 @@ public class MovesApiMockServer {
     public static MappingBuilder stubMoveCategoryList200(@javax.annotation.Nullable String limit, @javax.annotation.Nullable String offset, @javax.annotation.Nullable String q, String response) {
         MappingBuilder stub = get(urlPathEqualTo("/api/v2/move-category/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withStatus(200)
                 .withHeader("Content-Type", "application/json")
@@ -205,7 +196,6 @@ public class MovesApiMockServer {
     public static MappingBuilder stubMoveCategoryListFault(@javax.annotation.Nullable String limit, @javax.annotation.Nullable String offset, @javax.annotation.Nullable String q, Fault fault) {
         MappingBuilder stub = get(urlPathEqualTo("/api/v2/move-category/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withFault(fault)
             );
@@ -224,7 +214,7 @@ public class MovesApiMockServer {
     }
 
     public static String moveCategoryList200ResponseSample1() {
-        return "{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+        return "{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/move-category/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/move-category/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
     }
 
 
@@ -232,7 +222,6 @@ public class MovesApiMockServer {
     public static MappingBuilder stubMoveCategoryRetrieve200(@javax.annotation.Nonnull String id, String response) {
         MappingBuilder stub = get(urlPathTemplate("/api/v2/move-category/{id}/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withStatus(200)
                 .withHeader("Content-Type", "application/json")
@@ -247,7 +236,6 @@ public class MovesApiMockServer {
     public static MappingBuilder stubMoveCategoryRetrieveFault(@javax.annotation.Nonnull String id, Fault fault) {
         MappingBuilder stub = get(urlPathTemplate("/api/v2/move-category/{id}/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withFault(fault)
             );
@@ -258,7 +246,7 @@ public class MovesApiMockServer {
     }
 
     public static String moveCategoryRetrieve200ResponseSample1() {
-        return "{ \"id\" : 0, \"name\" : \"name\", \"descriptions\" : [ { \"description\" : \"description\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"description\" : \"description\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"moves\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+        return "{ \"id\" : 0, \"name\" : \"name\", \"descriptions\" : [ { \"description\" : \"description\", \"language\" : \"\" }, { \"description\" : \"description\", \"language\" : \"\" } ], \"moves\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
     }
 
 
@@ -266,7 +254,6 @@ public class MovesApiMockServer {
     public static MappingBuilder stubMoveLearnMethodList200(@javax.annotation.Nullable String limit, @javax.annotation.Nullable String offset, @javax.annotation.Nullable String q, String response) {
         MappingBuilder stub = get(urlPathEqualTo("/api/v2/move-learn-method/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withStatus(200)
                 .withHeader("Content-Type", "application/json")
@@ -289,7 +276,6 @@ public class MovesApiMockServer {
     public static MappingBuilder stubMoveLearnMethodListFault(@javax.annotation.Nullable String limit, @javax.annotation.Nullable String offset, @javax.annotation.Nullable String q, Fault fault) {
         MappingBuilder stub = get(urlPathEqualTo("/api/v2/move-learn-method/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withFault(fault)
             );
@@ -308,7 +294,7 @@ public class MovesApiMockServer {
     }
 
     public static String moveLearnMethodList200ResponseSample1() {
-        return "{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+        return "{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/move-learn-method/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/move-learn-method/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
     }
 
 
@@ -316,7 +302,6 @@ public class MovesApiMockServer {
     public static MappingBuilder stubMoveLearnMethodRetrieve200(@javax.annotation.Nonnull String id, String response) {
         MappingBuilder stub = get(urlPathTemplate("/api/v2/move-learn-method/{id}/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withStatus(200)
                 .withHeader("Content-Type", "application/json")
@@ -331,7 +316,6 @@ public class MovesApiMockServer {
     public static MappingBuilder stubMoveLearnMethodRetrieveFault(@javax.annotation.Nonnull String id, Fault fault) {
         MappingBuilder stub = get(urlPathTemplate("/api/v2/move-learn-method/{id}/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withFault(fault)
             );
@@ -342,7 +326,7 @@ public class MovesApiMockServer {
     }
 
     public static String moveLearnMethodRetrieve200ResponseSample1() {
-        return "{ \"id\" : 0, \"name\" : \"name\", \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"descriptions\" : [ { \"description\" : \"description\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"description\" : \"description\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"version_groups\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+        return "{ \"id\" : 0, \"name\" : \"name\", \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ], \"descriptions\" : [ { \"description\" : \"description\", \"language\" : \"\" }, { \"description\" : \"description\", \"language\" : \"\" } ], \"version_groups\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
     }
 
 
@@ -350,7 +334,6 @@ public class MovesApiMockServer {
     public static MappingBuilder stubMoveList200(@javax.annotation.Nullable String limit, @javax.annotation.Nullable String offset, @javax.annotation.Nullable String q, String response) {
         MappingBuilder stub = get(urlPathEqualTo("/api/v2/move/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withStatus(200)
                 .withHeader("Content-Type", "application/json")
@@ -373,7 +356,6 @@ public class MovesApiMockServer {
     public static MappingBuilder stubMoveListFault(@javax.annotation.Nullable String limit, @javax.annotation.Nullable String offset, @javax.annotation.Nullable String q, Fault fault) {
         MappingBuilder stub = get(urlPathEqualTo("/api/v2/move/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withFault(fault)
             );
@@ -392,7 +374,7 @@ public class MovesApiMockServer {
     }
 
     public static String moveList200ResponseSample1() {
-        return "{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+        return "{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/move/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/move/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
     }
 
 
@@ -400,7 +382,6 @@ public class MovesApiMockServer {
     public static MappingBuilder stubMoveRetrieve200(@javax.annotation.Nonnull String id, String response) {
         MappingBuilder stub = get(urlPathTemplate("/api/v2/move/{id}/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withStatus(200)
                 .withHeader("Content-Type", "application/json")
@@ -415,7 +396,6 @@ public class MovesApiMockServer {
     public static MappingBuilder stubMoveRetrieveFault(@javax.annotation.Nonnull String id, Fault fault) {
         MappingBuilder stub = get(urlPathTemplate("/api/v2/move/{id}/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withFault(fault)
             );
@@ -426,7 +406,7 @@ public class MovesApiMockServer {
     }
 
     public static String moveRetrieve200ResponseSample1() {
-        return "{ \"id\" : 0, \"name\" : \"name\", \"accuracy\" : 6, \"effect_chance\" : 1, \"pp\" : 5, \"priority\" : 5, \"power\" : 2, \"contest_combos\" : { \"normal\" : { \"use_before\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"use_after\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }, \"super\" : { \"use_before\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"use_after\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] } }, \"contest_type\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"contest_effect\" : { \"url\" : \"https://openapi-generator.tech\" }, \"damage_class\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"effect_entries\" : [ { \"effect\" : \"effect\", \"short_effect\" : \"short_effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"effect\" : \"effect\", \"short_effect\" : \"short_effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"effect_changes\" : [ { \"effect_entries\" : [ { \"effect\" : \"effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"effect\" : \"effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"effect_entries\" : [ { \"effect\" : \"effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"effect\" : \"effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"generation\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"meta\" : \"\", \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"past_values\" : [ { \"accuracy\" : 7, \"power\" : 9, \"pp\" : 3, \"effect_chance\" : 2, \"effect_entries\" : [ { \"effect\" : \"effect\", \"short_effect\" : \"short_effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"effect\" : \"effect\", \"short_effect\" : \"short_effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"type\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"accuracy\" : 7, \"power\" : 9, \"pp\" : 3, \"effect_chance\" : 2, \"effect_entries\" : [ { \"effect\" : \"effect\", \"short_effect\" : \"short_effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"effect\" : \"effect\", \"short_effect\" : \"short_effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"type\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"stat_changes\" : [ { \"change\" : 4, \"stat\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"change\" : 4, \"stat\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"super_contest_effect\" : { \"url\" : \"https://openapi-generator.tech\" }, \"target\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"type\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"machines\" : [ { \"machine\" : { \"url\" : \"https://openapi-generator.tech\" }, \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"machine\" : { \"url\" : \"https://openapi-generator.tech\" }, \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"flavor_text_entries\" : [ { \"flavor_text\" : \"flavor_text\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"flavor_text\" : \"flavor_text\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"learned_by_pokemon\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+        return "{ \"id\" : 0, \"name\" : \"name\", \"accuracy\" : 441289069, \"effect_chance\" : 1, \"pp\" : 413233370, \"priority\" : 273751188, \"power\" : -1158723813, \"contest_combos\" : \"\", \"contest_type\" : \"\", \"contest_effect\" : \"\", \"damage_class\" : \"\", \"effect_entries\" : [ { \"effect\" : \"effect\", \"short_effect\" : \"short_effect\", \"language\" : \"\" }, { \"effect\" : \"effect\", \"short_effect\" : \"short_effect\", \"language\" : \"\" } ], \"effect_changes\" : [ { \"version_group\" : \"\", \"effect_entries\" : [ { \"effect\" : \"effect\", \"language\" : \"\" }, { \"effect\" : \"effect\", \"language\" : \"\" } ] }, { \"version_group\" : \"\", \"effect_entries\" : [ { \"effect\" : \"effect\", \"language\" : \"\" }, { \"effect\" : \"effect\", \"language\" : \"\" } ] } ], \"generation\" : \"\", \"meta\" : \"\", \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ], \"past_values\" : [ { \"accuracy\" : 885365090, \"power\" : 1847456234, \"pp\" : -594390510, \"effect_chance\" : 2, \"effect_entries\" : [ { \"effect\" : \"effect\", \"short_effect\" : \"short_effect\", \"language\" : \"\" }, { \"effect\" : \"effect\", \"short_effect\" : \"short_effect\", \"language\" : \"\" } ], \"type\" : \"\", \"version_group\" : \"\" }, { \"accuracy\" : 885365090, \"power\" : 1847456234, \"pp\" : -594390510, \"effect_chance\" : 2, \"effect_entries\" : [ { \"effect\" : \"effect\", \"short_effect\" : \"short_effect\", \"language\" : \"\" }, { \"effect\" : \"effect\", \"short_effect\" : \"short_effect\", \"language\" : \"\" } ], \"type\" : \"\", \"version_group\" : \"\" } ], \"stat_changes\" : [ { \"change\" : -366958557, \"stat\" : \"\" }, { \"change\" : -366958557, \"stat\" : \"\" } ], \"super_contest_effect\" : \"\", \"target\" : \"\", \"type\" : \"\", \"machines\" : [ { \"machine\" : \"\", \"version_group\" : \"\" }, { \"machine\" : \"\", \"version_group\" : \"\" } ], \"flavor_text_entries\" : [ { \"flavor_text\" : \"flavor_text\", \"language\" : \"\", \"version_group\" : \"\" }, { \"flavor_text\" : \"flavor_text\", \"language\" : \"\", \"version_group\" : \"\" } ], \"learned_by_pokemon\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
     }
 
 
@@ -434,7 +414,6 @@ public class MovesApiMockServer {
     public static MappingBuilder stubMoveTargetList200(@javax.annotation.Nullable String limit, @javax.annotation.Nullable String offset, @javax.annotation.Nullable String q, String response) {
         MappingBuilder stub = get(urlPathEqualTo("/api/v2/move-target/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withStatus(200)
                 .withHeader("Content-Type", "application/json")
@@ -457,7 +436,6 @@ public class MovesApiMockServer {
     public static MappingBuilder stubMoveTargetListFault(@javax.annotation.Nullable String limit, @javax.annotation.Nullable String offset, @javax.annotation.Nullable String q, Fault fault) {
         MappingBuilder stub = get(urlPathEqualTo("/api/v2/move-target/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withFault(fault)
             );
@@ -476,7 +454,7 @@ public class MovesApiMockServer {
     }
 
     public static String moveTargetList200ResponseSample1() {
-        return "{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+        return "{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/move-target/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/move-target/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
     }
 
 
@@ -484,7 +462,6 @@ public class MovesApiMockServer {
     public static MappingBuilder stubMoveTargetRetrieve200(@javax.annotation.Nonnull String id, String response) {
         MappingBuilder stub = get(urlPathTemplate("/api/v2/move-target/{id}/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withStatus(200)
                 .withHeader("Content-Type", "application/json")
@@ -499,7 +476,6 @@ public class MovesApiMockServer {
     public static MappingBuilder stubMoveTargetRetrieveFault(@javax.annotation.Nonnull String id, Fault fault) {
         MappingBuilder stub = get(urlPathTemplate("/api/v2/move-target/{id}/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withFault(fault)
             );
@@ -510,7 +486,7 @@ public class MovesApiMockServer {
     }
 
     public static String moveTargetRetrieve200ResponseSample1() {
-        return "{ \"id\" : 0, \"name\" : \"name\", \"descriptions\" : [ { \"description\" : \"description\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"description\" : \"description\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"moves\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }";
+        return "{ \"id\" : 0, \"name\" : \"name\", \"descriptions\" : [ { \"description\" : \"description\", \"language\" : \"\" }, { \"description\" : \"description\", \"language\" : \"\" } ], \"moves\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ] }";
     }
 
 

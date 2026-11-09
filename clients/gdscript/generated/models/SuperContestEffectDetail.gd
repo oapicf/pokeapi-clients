@@ -10,6 +10,7 @@ class_name SuperContestEffectDetail
 # SuperContestEffectDetail Model
 
 
+# The identifier for this resource.
 # Required: True
 # isArray: false
 @export var id: int:
@@ -18,6 +19,7 @@ class_name SuperContestEffectDetail
 		id = value
 var __id__was__set := false
 
+# The level of appeal this super contest effect has.
 # Required: True
 # isArray: false
 @export var appeal: int:
@@ -26,6 +28,7 @@ var __id__was__set := false
 		appeal = value
 var __appeal__was__set := false
 
+# The flavor text of this super contest effect listed in different languages.
 # Required: True
 # isArray: true
 @export var flavorUnderscoretextUnderscoreentries: Array:
@@ -34,6 +37,7 @@ var __appeal__was__set := false
 		flavorUnderscoretextUnderscoreentries = value
 var __flavorUnderscoretextUnderscoreentries__was__set := false
 
+# A list of moves that have the effect when used in super contests.
 # Required: True
 # isArray: true
 @export var moves: Array:

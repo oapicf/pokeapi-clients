@@ -31,16 +31,18 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param effect 
- * @param language 
+ * @param effect The localized effect text for an API resource in a specific language.
+ * @param language The language this effect is in.
  */
 
 
 data class ContestEffectEffectText (
 
+    /* The localized effect text for an API resource in a specific language. */
     @Json(name = "effect")
     val effect: kotlin.String,
 
+    /* The language this effect is in. */
     @Json(name = "language")
     val language: LanguageSummary
 

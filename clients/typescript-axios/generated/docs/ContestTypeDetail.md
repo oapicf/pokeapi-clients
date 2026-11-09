@@ -5,10 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **number** |  | [readonly] [default to undefined]
-**name** | **string** |  | [default to undefined]
-**berry_flavor** | [**BerryFlavorSummary**](BerryFlavorSummary.md) |  | [readonly] [default to undefined]
-**names** | [**Array&lt;ContestTypeName&gt;**](ContestTypeName.md) |  | [readonly] [default to undefined]
+**id** | **number** | The identifier for this resource. | [readonly] [default to undefined]
+**name** | **string** | The name for this resource. | [default to undefined]
+**berry_flavor** | [**BerryFlavorSummary**](BerryFlavorSummary.md) | The berry flavor that correlates with this contest type. | [readonly] [default to undefined]
+**names** | [**Array&lt;ContestTypeName&gt;**](ContestTypeName.md) | The name of this contest type listed in different languages. | [readonly] [default to undefined]
 
 ## Example
 

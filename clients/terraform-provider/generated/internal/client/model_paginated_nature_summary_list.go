@@ -4,8 +4,8 @@ package client
 
 // PaginatedNatureSummaryList - PaginatedNatureSummaryList struct
 type PaginatedNatureSummaryList struct {
-	Count int32 `json:"count,omitempty"`
+	Count int32 `json:"count"`
 	Next string `json:"next,omitempty"`
 	Previous string `json:"previous,omitempty"`
-	Results []NatureSummary `json:"results,omitempty"`
+	Results []NatureSummary `json:"results"`
 }

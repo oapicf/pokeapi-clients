@@ -4,15 +4,16 @@
 ## Properties
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
-| **id** | **kotlin.Int** |  |  [readonly] |
-| **name** | **kotlin.String** |  |  |
-| **gameIndex** | **kotlin.Int** |  |  |
-| **affectingMoves** | [**StatDetailAffectingMoves**](StatDetailAffectingMoves.md) |  |  |
-| **affectingNatures** | [**StatDetailAffectingNatures**](StatDetailAffectingNatures.md) |  |  |
-| **characteristics** | [**kotlin.collections.List&lt;CharacteristicSummary&gt;**](CharacteristicSummary.md) |  |  [readonly] |
-| **moveDamageClass** | [**MoveDamageClassSummary**](MoveDamageClassSummary.md) |  |  |
-| **names** | [**kotlin.collections.List&lt;StatName&gt;**](StatName.md) |  |  [readonly] |
-| **isBattleOnly** | **kotlin.Boolean** |  |  [optional] |
+| **id** | **kotlin.Int** | The identifier for this resource. |  [readonly] |
+| **name** | **kotlin.String** | The name for this resource. |  |
+| **gameIndex** | **kotlin.Int** | ID the games use for this stat. |  |
+| **affectingMoves** | [**StatAffectingMoves**](StatAffectingMoves.md) | A detail of moves which affect this stat positively or negatively. |  [readonly] |
+| **affectingNatures** | [**StatAffectingNatures**](StatAffectingNatures.md) | A detail of natures which affect this stat positively or negatively. |  [readonly] |
+| **affectingItems** | [**kotlin.collections.List&lt;ItemSummary&gt;**](ItemSummary.md) | Items that affect this stat, such as vitamins and battle items. |  [readonly] |
+| **characteristics** | [**kotlin.collections.List&lt;CharacteristicSummary&gt;**](CharacteristicSummary.md) | A list of characteristics that are set on a Pokémon when its highest base stat is this stat. |  [readonly] |
+| **moveDamageClass** | [**MoveDamageClassSummary**](MoveDamageClassSummary.md) | The class of damage this stat is directly related to. |  |
+| **names** | [**kotlin.collections.List&lt;StatName&gt;**](StatName.md) | The name of this resource listed in different languages. |  [readonly] |
+| **isBattleOnly** | **kotlin.Boolean** | Whether this stat only exists within a battle. |  [optional] |
 
 
 

@@ -2,7 +2,7 @@ package org.openapitools.model;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.openapitools.model.EvolutionChainDetailChain;
+import org.openapitools.model.EvolutionChainLink;
 import org.openapitools.model.ItemSummary;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
@@ -18,11 +18,11 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("EvolutionChainDetail")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-11-09T13:50:06.168269698Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class EvolutionChainDetail   {
   private Integer id;
   private ItemSummary babyTriggerItem;
-  private EvolutionChainDetailChain chain;
+  private EvolutionChainLink chain;
 
   public EvolutionChainDetail() {
   }
@@ -31,7 +31,7 @@ public class EvolutionChainDetail   {
   public EvolutionChainDetail(
     @JsonProperty(required = true, value = "id") Integer id,
     @JsonProperty(required = true, value = "baby_trigger_item") ItemSummary babyTriggerItem,
-    @JsonProperty(required = true, value = "chain") EvolutionChainDetailChain chain
+    @JsonProperty(required = true, value = "chain") EvolutionChainLink chain
   ) {
     this.id = id;
     this.babyTriggerItem = babyTriggerItem;
@@ -39,6 +39,7 @@ public class EvolutionChainDetail   {
   }
 
   /**
+   * The identifier for this resource.
    **/
   public EvolutionChainDetail id(Integer id) {
     this.id = id;
@@ -46,7 +47,7 @@ public class EvolutionChainDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   @JsonProperty(required = true, value = "id")
   public Integer getId() {
     return id;
@@ -58,6 +59,7 @@ public class EvolutionChainDetail   {
   }
 
   /**
+   * The item that a Pokémon would be holding when mating that would trigger the egg hatching a baby Pokémon rather than a basic Pokémon.
    **/
   public EvolutionChainDetail babyTriggerItem(ItemSummary babyTriggerItem) {
     this.babyTriggerItem = babyTriggerItem;
@@ -65,7 +67,7 @@ public class EvolutionChainDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The item that a Pokémon would be holding when mating that would trigger the egg hatching a baby Pokémon rather than a basic Pokémon.")
   @JsonProperty(required = true, value = "baby_trigger_item")
   @NotNull @Valid public ItemSummary getBabyTriggerItem() {
     return babyTriggerItem;
@@ -77,21 +79,22 @@ public class EvolutionChainDetail   {
   }
 
   /**
+   * The base chain link object. Each link contains evolution details for a Pokémon in the chain. Each link references the next Pokémon in the natural evolution order.
    **/
-  public EvolutionChainDetail chain(EvolutionChainDetailChain chain) {
+  public EvolutionChainDetail chain(EvolutionChainLink chain) {
     this.chain = chain;
     return this;
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The base chain link object. Each link contains evolution details for a Pokémon in the chain. Each link references the next Pokémon in the natural evolution order.")
   @JsonProperty(required = true, value = "chain")
-  @NotNull @Valid public EvolutionChainDetailChain getChain() {
+  @Valid public EvolutionChainLink getChain() {
     return chain;
   }
 
   @JsonProperty(required = true, value = "chain")
-  public void setChain(EvolutionChainDetailChain chain) {
+  public void setChain(EvolutionChainLink chain) {
     this.chain = chain;
   }
 

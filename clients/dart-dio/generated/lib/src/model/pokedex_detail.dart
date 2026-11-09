@@ -5,10 +5,10 @@
 // ignore_for_file: unused_element
 import 'package:openapi/src/model/region_summary.dart';
 import 'package:built_collection/built_collection.dart';
-import 'package:openapi/src/model/ability_detail_pokemon_inner_pokemon.dart';
+import 'package:openapi/src/model/version_group_summary.dart';
 import 'package:openapi/src/model/pokedex_name.dart';
+import 'package:openapi/src/model/pokemon_dex_number.dart';
 import 'package:openapi/src/model/pokedex_description.dart';
-import 'package:openapi/src/model/pokedex_detail_pokemon_entries_inner.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -17,39 +17,47 @@ part 'pokedex_detail.g.dart';
 /// PokedexDetail
 ///
 /// Properties:
-/// * [id] 
-/// * [name] 
-/// * [isMainSeries] 
-/// * [descriptions] 
-/// * [names] 
-/// * [pokemonEntries] 
-/// * [region] 
-/// * [versionGroups] 
+/// * [id] - The identifier for this resource.
+/// * [name] - The name for this resource.
+/// * [isMainSeries] - Whether or not this Pokédex originated in the main series of the video games.
+/// * [descriptions] - The description of this resource listed in different languages.
+/// * [names] - The name of this resource listed in different languages.
+/// * [pokemonEntries] - A list of Pokémon catalogued in this Pokédex and their indexes.
+/// * [region] - The region this Pokédex catalogues Pokémon for.
+/// * [versionGroups] - A list of version groups this Pokédex is relevant to.
 @BuiltValue()
 abstract class PokedexDetail implements Built<PokedexDetail, PokedexDetailBuilder> {
+  /// The identifier for this resource.
   @BuiltValueField(wireName: r'id')
   int get id;
 
+  /// The name for this resource.
   @BuiltValueField(wireName: r'name')
   String get name;
 
+  /// Whether or not this Pokédex originated in the main series of the video games.
   @BuiltValueField(wireName: r'is_main_series')
   bool? get isMainSeries;
 
+  /// The description of this resource listed in different languages.
   @BuiltValueField(wireName: r'descriptions')
   BuiltList<PokedexDescription> get descriptions;
 
+  /// The name of this resource listed in different languages.
   @BuiltValueField(wireName: r'names')
   BuiltList<PokedexName> get names;
 
+  /// A list of Pokémon catalogued in this Pokédex and their indexes.
   @BuiltValueField(wireName: r'pokemon_entries')
-  BuiltList<PokedexDetailPokemonEntriesInner> get pokemonEntries;
+  BuiltList<PokemonDexNumber> get pokemonEntries;
 
+  /// The region this Pokédex catalogues Pokémon for.
   @BuiltValueField(wireName: r'region')
-  RegionSummary get region;
+  RegionSummary? get region;
 
+  /// A list of version groups this Pokédex is relevant to.
   @BuiltValueField(wireName: r'version_groups')
-  BuiltList<AbilityDetailPokemonInnerPokemon> get versionGroups;
+  BuiltList<VersionGroupSummary> get versionGroups;
 
   PokedexDetail._();
 
@@ -104,17 +112,17 @@ class _$PokedexDetailSerializer implements PrimitiveSerializer<PokedexDetail> {
     yield r'pokemon_entries';
     yield serializers.serialize(
       object.pokemonEntries,
-      specifiedType: const FullType(BuiltList, [FullType(PokedexDetailPokemonEntriesInner)]),
+      specifiedType: const FullType(BuiltList, [FullType(PokemonDexNumber)]),
     );
     yield r'region';
-    yield serializers.serialize(
+    yield object.region == null ? null : serializers.serialize(
       object.region,
-      specifiedType: const FullType(RegionSummary),
+      specifiedType: const FullType.nullable(RegionSummary),
     );
     yield r'version_groups';
     yield serializers.serialize(
       object.versionGroups,
-      specifiedType: const FullType(BuiltList, [FullType(AbilityDetailPokemonInnerPokemon)]),
+      specifiedType: const FullType(BuiltList, [FullType(VersionGroupSummary)]),
     );
   }
 
@@ -178,22 +186,23 @@ class _$PokedexDetailSerializer implements PrimitiveSerializer<PokedexDetail> {
         case r'pokemon_entries':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(PokedexDetailPokemonEntriesInner)]),
-          ) as BuiltList<PokedexDetailPokemonEntriesInner>;
+            specifiedType: const FullType(BuiltList, [FullType(PokemonDexNumber)]),
+          ) as BuiltList<PokemonDexNumber>;
           result.pokemonEntries.replace(valueDes);
           break;
         case r'region':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(RegionSummary),
-          ) as RegionSummary;
+            specifiedType: const FullType.nullable(RegionSummary),
+          ) as RegionSummary?;
+          if (valueDes == null) continue;
           result.region.replace(valueDes);
           break;
         case r'version_groups':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(AbilityDetailPokemonInnerPokemon)]),
-          ) as BuiltList<AbilityDetailPokemonInnerPokemon>;
+            specifiedType: const FullType(BuiltList, [FullType(VersionGroupSummary)]),
+          ) as BuiltList<VersionGroupSummary>;
           result.versionGroups.replace(valueDes);
           break;
         default:

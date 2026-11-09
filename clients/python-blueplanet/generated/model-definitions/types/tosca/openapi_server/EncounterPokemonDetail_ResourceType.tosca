@@ -1,0 +1,50 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server EncounterPokemonDetail"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a EncounterPokemonDetail"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+}
+resourceTypes {
+
+  EncounterPokemonDetail {
+    title = EncounterPokemonDetail
+    description = EncounterPokemonDetail
+    derivedFrom = Root
+    properties {
+        min_perfect_ivs {
+          type =  integer
+          description = "The minimum number of perfect IVs, or null if unspecified."
+          optional = false
+        }
+        always_shiny {
+          type =  boolean
+          description = "Whether the encountered Pokémon is always shiny."
+          optional = false
+        }
+        never_shiny {
+          type =  boolean
+          description = "Whether the encountered Pokémon can never be shiny."
+          optional = false
+        }
+        is_alpha {
+          type =  boolean
+          description = "Whether the encountered Pokémon is an alpha Pokémon."
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  EncounterPokemonDetail {
+    title = EncounterPokemonDetail
+    description = EncounterPokemonDetail
+    implements = openapi_server.resourceTypes.EncounterPokemonDetail
+
+  }
+}

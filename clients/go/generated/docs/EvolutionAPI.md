@@ -8,12 +8,14 @@ Method | HTTP request | Description
 [**EvolutionChainRetrieve**](EvolutionAPI.md#EvolutionChainRetrieve) | **Get** /api/v2/evolution-chain/{id}/ | Get evolution chain
 [**EvolutionTriggerList**](EvolutionAPI.md#EvolutionTriggerList) | **Get** /api/v2/evolution-trigger/ | List evolution triggers
 [**EvolutionTriggerRetrieve**](EvolutionAPI.md#EvolutionTriggerRetrieve) | **Get** /api/v2/evolution-trigger/{id}/ | Get evolution trigger
+[**EvolutionVariableList**](EvolutionAPI.md#EvolutionVariableList) | **Get** /api/v2/evolution-variable/ | List evolution variables
+[**EvolutionVariableRetrieve**](EvolutionAPI.md#EvolutionVariableRetrieve) | **Get** /api/v2/evolution-variable/{id}/ | Get evolution variable
 
 
 
 ## EvolutionChainList
 
-> PaginatedEvolutionChainSummaryList EvolutionChainList(ctx).Limit(limit).Offset(offset).Q(q).Execute()
+> PaginatedEvolutionChainSummaryList EvolutionChainList(ctx).Limit(limit).Offset(offset).Execute()
 
 List evolution chains
 
@@ -34,11 +36,10 @@ import (
 func main() {
 	limit := int32(56) // int32 | Number of results to return per page. (optional)
 	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
-	q := "q_example" // string | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.EvolutionAPI.EvolutionChainList(context.Background()).Limit(limit).Offset(offset).Q(q).Execute()
+	resp, r, err := apiClient.EvolutionAPI.EvolutionChainList(context.Background()).Limit(limit).Offset(offset).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `EvolutionAPI.EvolutionChainList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -61,7 +62,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **int32** | Number of results to return per page. | 
  **offset** | **int32** | The initial index from which to return the results. | 
- **q** | **string** | &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | 
 
 ### Return type
 
@@ -69,7 +69,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -102,7 +102,7 @@ import (
 )
 
 func main() {
-	id := "id_example" // string | This parameter can be a string or an integer.
+	id := "1" // string | This parameter can be a string or an integer.
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -139,7 +139,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -209,7 +209,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -242,7 +242,7 @@ import (
 )
 
 func main() {
-	id := "id_example" // string | This parameter can be a string or an integer.
+	id := "1" // string | This parameter can be a string or an integer.
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -279,7 +279,147 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## EvolutionVariableList
+
+> PaginatedEvolutionVariableSummaryList EvolutionVariableList(ctx).Limit(limit).Offset(offset).Q(q).Execute()
+
+List evolution variables
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/oapicf/pokeapi-clients"
+)
+
+func main() {
+	limit := int32(56) // int32 | Number of results to return per page. (optional)
+	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+	q := "q_example" // string | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.EvolutionAPI.EvolutionVariableList(context.Background()).Limit(limit).Offset(offset).Q(q).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `EvolutionAPI.EvolutionVariableList``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EvolutionVariableList`: PaginatedEvolutionVariableSummaryList
+	fmt.Fprintf(os.Stdout, "Response from `EvolutionAPI.EvolutionVariableList`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEvolutionVariableListRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | **int32** | Number of results to return per page. | 
+ **offset** | **int32** | The initial index from which to return the results. | 
+ **q** | **string** | &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | 
+
+### Return type
+
+[**PaginatedEvolutionVariableSummaryList**](PaginatedEvolutionVariableSummaryList.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## EvolutionVariableRetrieve
+
+> EvolutionVariableDetail EvolutionVariableRetrieve(ctx, id).Execute()
+
+Get evolution variable
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/oapicf/pokeapi-clients"
+)
+
+func main() {
+	id := "1" // string | This parameter can be a string or an integer.
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.EvolutionAPI.EvolutionVariableRetrieve(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `EvolutionAPI.EvolutionVariableRetrieve``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EvolutionVariableRetrieve`: EvolutionVariableDetail
+	fmt.Fprintf(os.Stdout, "Response from `EvolutionAPI.EvolutionVariableRetrieve`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | This parameter can be a string or an integer. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiEvolutionVariableRetrieveRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**EvolutionVariableDetail**](EvolutionVariableDetail.md)
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 

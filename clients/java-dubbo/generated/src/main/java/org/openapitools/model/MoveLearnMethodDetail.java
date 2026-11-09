@@ -1,8 +1,8 @@
 package org.openapitools.model;
 
-import org.openapitools.model.AbilityDetailPokemonInnerPokemon;
 import org.openapitools.model.MoveLearnMethodDescription;
 import org.openapitools.model.MoveLearnMethodName;
+import org.openapitools.model.VersionGroupSummary;
 import java.util.*;
 import java.util.Objects;
 import java.io.Serializable;
@@ -15,23 +15,38 @@ import java.math.*;
 public class MoveLearnMethodDetail implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * The identifier for this resource.
+   */
   @JsonProperty("id")
   private Integer id;
 
+  /**
+   * The name for this resource.
+   */
   @JsonProperty("name")
   private String name;
 
+  /**
+   * The name of this resource listed in different languages.
+   */
   @JsonProperty("names")
   private List<MoveLearnMethodName> names = new ArrayList<>();
 
+  /**
+   * The description of this resource listed in different languages.
+   */
   @JsonProperty("descriptions")
   private List<MoveLearnMethodDescription> descriptions = new ArrayList<>();
 
+  /**
+   * A list of version groups where moves can be learned through this method.
+   */
   @JsonProperty("version_groups")
-  private List<AbilityDetailPokemonInnerPokemon> versionGroups = new ArrayList<>();
+  private List<VersionGroupSummary> versionGroups = new ArrayList<>();
 
   /**
-   * 
+   * The identifier for this resource.
    * @return id
    */
   public Integer getId() {
@@ -43,7 +58,7 @@ public class MoveLearnMethodDetail implements Serializable {
   }
 
   /**
-   * 
+   * The name for this resource.
    * @return name
    */
   public String getName() {
@@ -55,7 +70,7 @@ public class MoveLearnMethodDetail implements Serializable {
   }
 
   /**
-   * 
+   * The name of this resource listed in different languages.
    * @return names
    */
   public List<MoveLearnMethodName> getNames() {
@@ -67,7 +82,7 @@ public class MoveLearnMethodDetail implements Serializable {
   }
 
   /**
-   * 
+   * The description of this resource listed in different languages.
    * @return descriptions
    */
   public List<MoveLearnMethodDescription> getDescriptions() {
@@ -79,14 +94,14 @@ public class MoveLearnMethodDetail implements Serializable {
   }
 
   /**
-   * 
+   * A list of version groups where moves can be learned through this method.
    * @return versionGroups
    */
-  public List<AbilityDetailPokemonInnerPokemon> getVersionGroups() {
+  public List<VersionGroupSummary> getVersionGroups() {
     return versionGroups;
   }
 
-  public void setVersionGroups(List<AbilityDetailPokemonInnerPokemon> versionGroups) {
+  public void setVersionGroups(List<VersionGroupSummary> versionGroups) {
     this.versionGroups = versionGroups;
   }
 

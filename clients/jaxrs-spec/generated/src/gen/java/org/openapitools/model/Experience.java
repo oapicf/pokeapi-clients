@@ -16,7 +16,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("Experience")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-11-09T13:50:06.168269698Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class Experience   {
   private Integer level;
   private Integer experience;
@@ -34,6 +34,9 @@ public class Experience   {
   }
 
   /**
+   * The level gained.
+   * minimum: -2147483648
+   * maximum: 2147483647
    **/
   public Experience level(Integer level) {
     this.level = level;
@@ -41,9 +44,9 @@ public class Experience   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The level gained.")
   @JsonProperty(required = true, value = "level")
-  @NotNull public Integer getLevel() {
+  @NotNull  @Min(-2147483648) @Max(2147483647)public Integer getLevel() {
     return level;
   }
 
@@ -53,6 +56,9 @@ public class Experience   {
   }
 
   /**
+   * The amount of experience required to reach the referenced level.
+   * minimum: -2147483648
+   * maximum: 2147483647
    **/
   public Experience experience(Integer experience) {
     this.experience = experience;
@@ -60,9 +66,9 @@ public class Experience   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The amount of experience required to reach the referenced level.")
   @JsonProperty(required = true, value = "experience")
-  @NotNull public Integer getExperience() {
+  @NotNull  @Min(-2147483648) @Max(2147483647)public Integer getExperience() {
     return experience;
   }
 

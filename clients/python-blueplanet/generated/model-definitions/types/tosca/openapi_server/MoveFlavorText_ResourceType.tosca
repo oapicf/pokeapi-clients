@@ -19,17 +19,17 @@ resourceTypes {
     properties {
         flavor_text {
           type =  string
-          description = ""
+          description = "The localized flavor text for an api resource in a specific language."
           optional = true
         }
         language {
           type = LanguageSummary
-          description = ""
+          description = "The language this name is in."
           optional = true
         }
         version_group {
           type = VersionGroupSummary
-          description = ""
+          description = "The version group that uses this flavor text."
           optional = true
         }
     }

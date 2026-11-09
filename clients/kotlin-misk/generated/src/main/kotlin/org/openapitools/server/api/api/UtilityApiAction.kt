@@ -30,6 +30,7 @@ import misk.web.ResponseContentType
 import misk.web.mediatype.MediaTypes
 import org.openapitools.server.api.model.LanguageDetail
 import org.openapitools.server.api.model.PaginatedLanguageSummaryList
+import org.openapitools.server.api.model.PokeapiMetaResponse
 
 /**
 * @TODO("Fill out implementation")
@@ -57,6 +58,15 @@ class UtilityApiAction @Inject constructor(
     fun languageRetrieve(
         @PathParam("id") id: kotlin.String
     ): LanguageDetail {
+        TODO()
+    }
+
+    @Get("/api/v2/meta/")
+    @Description("Get API metadata")
+    @ResponseContentType(MediaTypes.APPLICATION_JSON)
+    @LogRequestResponse(bodySampling = 1.0, errorBodySampling = 1.0)
+    fun metaRetrieve(
+    ): PokeapiMetaResponse {
         TODO()
     }
 }

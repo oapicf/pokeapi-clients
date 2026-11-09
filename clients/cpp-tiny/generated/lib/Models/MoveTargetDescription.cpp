@@ -7,7 +7,7 @@ using namespace Tiny;
 MoveTargetDescription::MoveTargetDescription()
 {
 	description = std::string();
-	language = LanguageSummary();
+	language = null;
 }
 
 MoveTargetDescription::MoveTargetDescription(std::string jsonString)

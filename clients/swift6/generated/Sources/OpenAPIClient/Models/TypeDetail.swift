@@ -10,20 +10,31 @@ import Foundation
 /** Serializer for the Type resource */
 public struct TypeDetail: Sendable, Codable, Hashable {
 
-    public static let nameRule = StringRule(minLength: nil, maxLength: 100, pattern: nil)
+    public static let nameRule = StringRule(minLength: nil, maxLength: 200, pattern: nil)
+    /** The identifier for this resource. */
     public var id: Int
+    /** The name for this resource. */
     public var name: String
-    public var damageRelations: TypeDetailDamageRelations
-    public var pastDamageRelations: [TypeDetailPastDamageRelationsInner]
+    /** A detail of how effective this type is toward others and vice versa. */
+    public var damageRelations: TypeRelationships
+    /** A list of details of how effective this type was toward others and vice versa in previous generations */
+    public var pastDamageRelations: [TypePastRelationships]
+    /** A list of game indices relevent to this item by generation. */
     public var gameIndices: [TypeGameIndex]
+    /** The generation this type was introduced in. */
     public var generation: GenerationSummary
-    public var moveDamageClass: MoveDamageClassSummary
-    public var names: [AbilityName]
-    public var pokemon: [TypeDetailPokemonInner]
+    /** The class of damage inflicted by this type. */
+    public var moveDamageClass: MoveDamageClassSummary?
+    /** The name of this resource listed in different languages. */
+    public var names: [TypeName]
+    /** A list of details of Pokémon that have this type. */
+    public var pokemon: [TypePokemon]
+    /** A list of moves that have this type. */
     public var moves: [MoveSummary]
-    public var sprites: [String: [String: TypeDetailSpritesValueValue]]
+    /** Type icons grouped by generation and game, with name_icon and symbol_icon URLs. Unavailable icons are null. */
+    public var sprites: [String: [String: TypeGameSprite]]
 
-    public init(id: Int, name: String, damageRelations: TypeDetailDamageRelations, pastDamageRelations: [TypeDetailPastDamageRelationsInner], gameIndices: [TypeGameIndex], generation: GenerationSummary, moveDamageClass: MoveDamageClassSummary, names: [AbilityName], pokemon: [TypeDetailPokemonInner], moves: [MoveSummary], sprites: [String: [String: TypeDetailSpritesValueValue]]) {
+    public init(id: Int, name: String, damageRelations: TypeRelationships, pastDamageRelations: [TypePastRelationships], gameIndices: [TypeGameIndex], generation: GenerationSummary, moveDamageClass: MoveDamageClassSummary?, names: [TypeName], pokemon: [TypePokemon], moves: [MoveSummary], sprites: [String: [String: TypeGameSprite]]) {
         self.id = id
         self.name = name
         self.damageRelations = damageRelations

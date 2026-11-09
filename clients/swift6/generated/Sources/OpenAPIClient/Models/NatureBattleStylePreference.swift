@@ -9,8 +9,13 @@ import Foundation
 
 public struct NatureBattleStylePreference: Sendable, Codable, Hashable {
 
+    public static let lowHpPreferenceRule = NumericRule<Int>(minimum: -2147483648, exclusiveMinimum: false, maximum: 2147483647, exclusiveMaximum: false, multipleOf: nil)
+    public static let highHpPreferenceRule = NumericRule<Int>(minimum: -2147483648, exclusiveMinimum: false, maximum: 2147483647, exclusiveMaximum: false, multipleOf: nil)
+    /** Chance of using the move, in percent, if HP is under one half. */
     public var lowHpPreference: Int
+    /** Chance of using the move, in percent, if HP is over one half. */
     public var highHpPreference: Int
+    /** The move battle style. */
     public var moveBattleStyle: MoveBattleStyleSummary
 
     public init(lowHpPreference: Int, highHpPreference: Int, moveBattleStyle: MoveBattleStyleSummary) {

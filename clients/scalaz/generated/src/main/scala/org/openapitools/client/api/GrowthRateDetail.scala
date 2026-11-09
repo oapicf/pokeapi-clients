@@ -12,12 +12,18 @@ import org.joda.time.DateTime
 import GrowthRateDetail._
 
 case class GrowthRateDetail (
+  /* The identifier for this resource. */
   id: Integer,
-name: String,
-formula: String,
-descriptions: List[GrowthRateDescription],
-levels: List[Experience],
-pokemonSpecies: List[PokemonSpeciesSummary])
+/* The name for this resource. */
+  name: String,
+/* The formula used to calculate the rate at which the Pokémon species gains level. */
+  formula: String,
+/* The descriptions of this characteristic listed in different languages. */
+  descriptions: List[GrowthRateDescription],
+/* A list of levels and the amount of experienced needed to atain them based on this growth rate. */
+  levels: List[Experience],
+/* A list of Pokémon species that gain levels at this growth rate. */
+  pokemonSpecies: List[PokemonSpeciesSummary])
 
 object GrowthRateDetail {
   import DateTimeCodecs._

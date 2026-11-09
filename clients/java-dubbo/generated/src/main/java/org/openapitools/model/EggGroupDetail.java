@@ -1,7 +1,7 @@
 package org.openapitools.model;
 
-import org.openapitools.model.EggGroupDetailPokemonSpeciesInner;
 import org.openapitools.model.EggGroupName;
+import org.openapitools.model.PokemonSpeciesSummary;
 import java.util.*;
 import java.util.Objects;
 import java.io.Serializable;
@@ -14,20 +14,32 @@ import java.math.*;
 public class EggGroupDetail implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * The identifier for this resource.
+   */
   @JsonProperty("id")
   private Integer id;
 
+  /**
+   * The name for this resource.
+   */
   @JsonProperty("name")
   private String name;
 
+  /**
+   * The name of this resource listed in different languages.
+   */
   @JsonProperty("names")
   private List<EggGroupName> names = new ArrayList<>();
 
+  /**
+   * A list of all Pokémon species that are members of this egg group.
+   */
   @JsonProperty("pokemon_species")
-  private List<EggGroupDetailPokemonSpeciesInner> pokemonSpecies = new ArrayList<>();
+  private List<PokemonSpeciesSummary> pokemonSpecies = new ArrayList<>();
 
   /**
-   * 
+   * The identifier for this resource.
    * @return id
    */
   public Integer getId() {
@@ -39,7 +51,7 @@ public class EggGroupDetail implements Serializable {
   }
 
   /**
-   * 
+   * The name for this resource.
    * @return name
    */
   public String getName() {
@@ -51,7 +63,7 @@ public class EggGroupDetail implements Serializable {
   }
 
   /**
-   * 
+   * The name of this resource listed in different languages.
    * @return names
    */
   public List<EggGroupName> getNames() {
@@ -63,14 +75,14 @@ public class EggGroupDetail implements Serializable {
   }
 
   /**
-   * 
+   * A list of all Pokémon species that are members of this egg group.
    * @return pokemonSpecies
    */
-  public List<EggGroupDetailPokemonSpeciesInner> getPokemonSpecies() {
+  public List<PokemonSpeciesSummary> getPokemonSpecies() {
     return pokemonSpecies;
   }
 
-  public void setPokemonSpecies(List<EggGroupDetailPokemonSpeciesInner> pokemonSpecies) {
+  public void setPokemonSpecies(List<PokemonSpeciesSummary> pokemonSpecies) {
     this.pokemonSpecies = pokemonSpecies;
   }
 

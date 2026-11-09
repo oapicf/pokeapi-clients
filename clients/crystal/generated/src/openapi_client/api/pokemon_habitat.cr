@@ -12,7 +12,7 @@ module OpenAPIClient
         path: "/api/v2/pokemon-habitat/",
         query: { "limit" => limit, "offset" => offset, "q" => q },
         accept: %w[application/json],
-        auth: %w[basicAuth cookieAuth])
+        auth: %w[])
     end
 
     # Get pokemom habita Habitats are generally different terrain Pokémon can be found in but can also be areas designated for rare or legendary Pokémon.
@@ -21,7 +21,7 @@ module OpenAPIClient
         method: :GET,
         path: "/api/v2/pokemon-habitat/{id}/".sub("{id}", OpenAPIClient.enc(id)),
         accept: %w[application/json],
-        auth: %w[basicAuth cookieAuth])
+        auth: %w[])
     end
   end
   end

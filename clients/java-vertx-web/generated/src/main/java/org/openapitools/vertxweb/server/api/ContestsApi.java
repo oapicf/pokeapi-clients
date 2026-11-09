@@ -16,10 +16,10 @@ import java.util.List;
 import java.util.Map;
 
 public interface ContestsApi  {
-    Future<ApiResponse<PaginatedContestEffectSummaryList>> contestEffectList(Integer limit, Integer offset, String q);
+    Future<ApiResponse<PaginatedContestEffectSummaryList>> contestEffectList(Integer limit, Integer offset);
     Future<ApiResponse<ContestEffectDetail>> contestEffectRetrieve(String id);
     Future<ApiResponse<PaginatedContestTypeSummaryList>> contestTypeList(Integer limit, Integer offset, String q);
     Future<ApiResponse<ContestTypeDetail>> contestTypeRetrieve(String id);
-    Future<ApiResponse<PaginatedSuperContestEffectSummaryList>> superContestEffectList(Integer limit, Integer offset, String q);
+    Future<ApiResponse<PaginatedSuperContestEffectSummaryList>> superContestEffectList(Integer limit, Integer offset);
     Future<ApiResponse<SuperContestEffectDetail>> superContestEffectRetrieve(String id);
 }

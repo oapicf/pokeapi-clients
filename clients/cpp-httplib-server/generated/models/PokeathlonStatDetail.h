@@ -10,7 +10,7 @@
 #include <cstdint>
 #include <string>
 #include <vector>
-#include "PokeathlonStatDetailAffectingNatures.h"
+#include "PokeathlonStatAffectingNatures.h"
 #include "PokeathlonStatName.h"
 
 
@@ -30,8 +30,8 @@ public:
     void setId(const int& id);
     [[nodiscard]] std::string getName() const;
     void setName(const std::string& name);
-    [[nodiscard]] PokeathlonStatDetailAffectingNatures getAffectingNatures() const;
-    void setAffectingNatures(const PokeathlonStatDetailAffectingNatures& affectingNatures);
+    [[nodiscard]] PokeathlonStatAffectingNatures getAffectingNatures() const;
+    void setAffectingNatures(const PokeathlonStatAffectingNatures& affectingNatures);
     [[nodiscard]] std::vector<PokeathlonStatName> getNames() const;
     void setNames(const std::vector<PokeathlonStatName>& names);
 
@@ -43,7 +43,7 @@ public:
 private:
     int id;
     std::string name;
-    PokeathlonStatDetailAffectingNatures affectingNatures;
+    PokeathlonStatAffectingNatures affectingNatures;
     std::vector<PokeathlonStatName> names;
 };
 

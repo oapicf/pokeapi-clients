@@ -9,8 +9,13 @@ import Foundation
 
 public struct PokemonStat: Sendable, Codable, Hashable {
 
+    public static let baseStatRule = NumericRule<Int>(minimum: -2147483648, exclusiveMinimum: false, maximum: 2147483647, exclusiveMaximum: false, multipleOf: nil)
+    public static let effortRule = NumericRule<Int>(minimum: -2147483648, exclusiveMinimum: false, maximum: 2147483647, exclusiveMaximum: false, multipleOf: nil)
+    /** The base value of the stat. */
     public var baseStat: Int
+    /** The effort points (EV) the Pokémon has in the stat. */
     public var effort: Int
+    /** The stat the Pokémon has. */
     public var stat: StatSummary
 
     public init(baseStat: Int, effort: Int, stat: StatSummary) {

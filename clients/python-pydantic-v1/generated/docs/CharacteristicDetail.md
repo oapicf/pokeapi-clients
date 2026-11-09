@@ -4,11 +4,11 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** |  | [readonly] 
-**gene_modulo** | **int** |  | 
-**possible_values** | **List[int]** |  | [readonly] 
-**highest_stat** | [**StatSummary**](StatSummary.md) |  | 
-**descriptions** | [**List[CharacteristicDescription]**](CharacteristicDescription.md) |  | [readonly] 
+**id** | **int** | The identifier for this resource. | [readonly] 
+**gene_modulo** | **int** | The remainder of the highest stat/IV divided by 5. | 
+**possible_values** | **List[int]** | The possible values of the highest stat that would result in a Pokémon recieving this characteristic when divided by 5. | [readonly] 
+**highest_stat** | [**StatSummary**](StatSummary.md) | The stat which results in this characteristic. | 
+**descriptions** | [**List[CharacteristicDescription]**](CharacteristicDescription.md) | The descriptions of this characteristic listed in different languages. | [readonly] 
 
 ## Example
 

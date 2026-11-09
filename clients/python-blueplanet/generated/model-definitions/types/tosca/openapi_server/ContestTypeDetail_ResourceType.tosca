@@ -19,23 +19,23 @@ resourceTypes {
     properties {
         id {
           type =  integer
-          description = ""
+          description = "The identifier for this resource."
           optional = true
         }
         name {
           type =  string
-          description = ""
+          description = "The name for this resource."
           optional = true
         }
         berry_flavor {
           type = BerryFlavorSummary
-          description = ""
+          description = "The berry flavor that correlates with this contest type."
           optional = true
         }
         names {
           type = array
           items.type = ContestTypeName
-          description = ""
+          description = "The name of this contest type listed in different languages."
           optional = true
         }
     }

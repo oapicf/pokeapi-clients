@@ -9,26 +9,26 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
-import org.openapitools.model.AbilityDetailPokemonInnerPokemon;
+import org.openapitools.model.EggGroupSummary;
 import org.openapitools.model.EvolutionChainSummary;
 import org.openapitools.model.GenerationSummary;
 import org.openapitools.model.GrowthRateSummary;
 import org.openapitools.model.PokemonColorSummary;
 import org.openapitools.model.PokemonDexEntry;
-import org.openapitools.model.PokemonFormDetailFormNamesInner;
 import org.openapitools.model.PokemonHabitatSummary;
 import org.openapitools.model.PokemonShapeSummary;
 import org.openapitools.model.PokemonSpeciesDescription;
-import org.openapitools.model.PokemonSpeciesDetailGeneraInner;
-import org.openapitools.model.PokemonSpeciesDetailPalParkEncountersInner;
-import org.openapitools.model.PokemonSpeciesDetailVarietiesInner;
 import org.openapitools.model.PokemonSpeciesFlavorText;
+import org.openapitools.model.PokemonSpeciesGenus;
+import org.openapitools.model.PokemonSpeciesName;
+import org.openapitools.model.PokemonSpeciesPalParkEncounter;
 import org.openapitools.model.PokemonSpeciesSummary;
+import org.openapitools.model.PokemonSpeciesVariety;
 
 /**
  * PokemonSpeciesDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-10-25T05:48:05.787850114Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-11-09T13:49:25.341948748Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PokemonSpeciesDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -73,7 +73,7 @@ public class PokemonSpeciesDetail   {
   private List<@Valid PokemonDexEntry> pokedexNumbers = new ArrayList<>();
 
   @JsonProperty("egg_groups")
-  private List<@Valid AbilityDetailPokemonInnerPokemon> eggGroups = new ArrayList<>();
+  private List<@Valid EggGroupSummary> eggGroups = new ArrayList<>();
 
   @JsonProperty("color")
   private PokemonColorSummary color;
@@ -94,10 +94,10 @@ public class PokemonSpeciesDetail   {
   private GenerationSummary generation;
 
   @JsonProperty("names")
-  private List<@Valid PokemonFormDetailFormNamesInner> names = new ArrayList<>();
+  private List<@Valid PokemonSpeciesName> names = new ArrayList<>();
 
   @JsonProperty("pal_park_encounters")
-  private List<@Valid PokemonSpeciesDetailPalParkEncountersInner> palParkEncounters = new ArrayList<>();
+  private List<@Valid PokemonSpeciesPalParkEncounter> palParkEncounters = new ArrayList<>();
 
   @JsonProperty("form_descriptions")
   private List<@Valid PokemonSpeciesDescription> formDescriptions = new ArrayList<>();
@@ -106,16 +106,16 @@ public class PokemonSpeciesDetail   {
   private List<@Valid PokemonSpeciesFlavorText> flavorTextEntries = new ArrayList<>();
 
   @JsonProperty("genera")
-  private List<@Valid PokemonSpeciesDetailGeneraInner> genera = new ArrayList<>();
+  private List<@Valid PokemonSpeciesGenus> genera = new ArrayList<>();
 
   @JsonProperty("varieties")
-  private List<@Valid PokemonSpeciesDetailVarietiesInner> varieties = new ArrayList<>();
+  private List<@Valid PokemonSpeciesVariety> varieties = new ArrayList<>();
 
    /**
-   * Get id
+   * The identifier for this resource.
    * @return id
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   public Integer getId() {
     return id;
   }
@@ -126,10 +126,10 @@ public class PokemonSpeciesDetail   {
   }
 
    /**
-   * Get name
+   * The name for this resource.
    * @return name
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   public String getName() {
     return name;
   }
@@ -144,10 +144,12 @@ public class PokemonSpeciesDetail   {
   }
 
    /**
-   * Get order
+   * The order in which species should be sorted. Based on National Dex order, except families are grouped together and sorted by stage.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return order
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The order in which species should be sorted. Based on National Dex order, except families are grouped together and sorted by stage.")
   public Integer getOrder() {
     return order;
   }
@@ -162,10 +164,12 @@ public class PokemonSpeciesDetail   {
   }
 
    /**
-   * Get genderRate
+   * The chance of this Pokémon being female, in eighths; or -1 for genderless.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return genderRate
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The chance of this Pokémon being female, in eighths; or -1 for genderless.")
   public Integer getGenderRate() {
     return genderRate;
   }
@@ -180,10 +184,12 @@ public class PokemonSpeciesDetail   {
   }
 
    /**
-   * Get captureRate
+   * The base capture rate; up to 255. The higher the number, the easier the catch.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return captureRate
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The base capture rate; up to 255. The higher the number, the easier the catch.")
   public Integer getCaptureRate() {
     return captureRate;
   }
@@ -198,10 +204,12 @@ public class PokemonSpeciesDetail   {
   }
 
    /**
-   * Get baseHappiness
+   * The happiness when caught by a normal Pokéball; up to 255. The higher the number, the happier the Pokémon.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return baseHappiness
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The happiness when caught by a normal Pokéball; up to 255. The higher the number, the happier the Pokémon.")
   public Integer getBaseHappiness() {
     return baseHappiness;
   }
@@ -216,10 +224,10 @@ public class PokemonSpeciesDetail   {
   }
 
    /**
-   * Get isBaby
+   * Whether or not this is a baby Pokémon.
    * @return isBaby
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Whether or not this is a baby Pokémon.")
   public Boolean getIsBaby() {
     return isBaby;
   }
@@ -234,10 +242,10 @@ public class PokemonSpeciesDetail   {
   }
 
    /**
-   * Get isLegendary
+   * Whether or not this is a legendary Pokémon.
    * @return isLegendary
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Whether or not this is a legendary Pokémon.")
   public Boolean getIsLegendary() {
     return isLegendary;
   }
@@ -252,10 +260,10 @@ public class PokemonSpeciesDetail   {
   }
 
    /**
-   * Get isMythical
+   * Whether or not this is a mythical Pokémon.
    * @return isMythical
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Whether or not this is a mythical Pokémon.")
   public Boolean getIsMythical() {
     return isMythical;
   }
@@ -270,10 +278,12 @@ public class PokemonSpeciesDetail   {
   }
 
    /**
-   * Get hatchCounter
+   * Initial hatch counter: one must walk Y × (hatch_counter + 1) steps before this Pokémon's egg hatches, unless utilizing bonuses like Flame Body's. Y varies per generation. In Generations II, III, and VII, Egg cycles are 256 steps long. In Generation IV, Egg cycles are 255 steps long. In Pokémon Brilliant Diamond and Shining Pearl, Egg cycles are also 255 steps long, but are shorter on special dates. In Generations V and VI, Egg cycles are 257 steps long. In Pokémon Sword and Shield, and in Pokémon Scarlet and Violet, Egg cycles are 128 steps long.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return hatchCounter
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Initial hatch counter: one must walk Y × (hatch_counter + 1) steps before this Pokémon's egg hatches, unless utilizing bonuses like Flame Body's. Y varies per generation. In Generations II, III, and VII, Egg cycles are 256 steps long. In Generation IV, Egg cycles are 255 steps long. In Pokémon Brilliant Diamond and Shining Pearl, Egg cycles are also 255 steps long, but are shorter on special dates. In Generations V and VI, Egg cycles are 257 steps long. In Pokémon Sword and Shield, and in Pokémon Scarlet and Violet, Egg cycles are 128 steps long.")
   public Integer getHatchCounter() {
     return hatchCounter;
   }
@@ -288,10 +298,10 @@ public class PokemonSpeciesDetail   {
   }
 
    /**
-   * Get hasGenderDifferences
+   * Whether or not this Pokémon has visual gender differences.
    * @return hasGenderDifferences
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Whether or not this Pokémon has visual gender differences.")
   public Boolean getHasGenderDifferences() {
     return hasGenderDifferences;
   }
@@ -306,10 +316,10 @@ public class PokemonSpeciesDetail   {
   }
 
    /**
-   * Get formsSwitchable
+   * Whether or not this Pokémon has multiple forms and can switch between them.
    * @return formsSwitchable
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Whether or not this Pokémon has multiple forms and can switch between them.")
   public Boolean getFormsSwitchable() {
     return formsSwitchable;
   }
@@ -324,10 +334,10 @@ public class PokemonSpeciesDetail   {
   }
 
    /**
-   * Get growthRate
+   * The rate at which this Pokémon species gains levels.
    * @return growthRate
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The rate at which this Pokémon species gains levels.")
   public GrowthRateSummary getGrowthRate() {
     return growthRate;
   }
@@ -337,20 +347,20 @@ public class PokemonSpeciesDetail   {
   }
 
    /**
-   * Get pokedexNumbers
+   * A list of Pokedexes and the indexes reserved within them for this Pokémon species.
    * @return pokedexNumbers
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of Pokedexes and the indexes reserved within them for this Pokémon species.")
   public List<@Valid PokemonDexEntry> getPokedexNumbers() {
     return pokedexNumbers;
   }
 
    /**
-   * Get eggGroups
+   * A list of egg groups this Pokémon species is a member of.
    * @return eggGroups
   **/
-  @ApiModelProperty(required = true, value = "")
-  public List<@Valid AbilityDetailPokemonInnerPokemon> getEggGroups() {
+  @ApiModelProperty(required = true, value = "A list of egg groups this Pokémon species is a member of.")
+  public List<@Valid EggGroupSummary> getEggGroups() {
     return eggGroups;
   }
 
@@ -360,10 +370,10 @@ public class PokemonSpeciesDetail   {
   }
 
    /**
-   * Get color
+   * The color of this Pokémon for Pokédex search.
    * @return color
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The color of this Pokémon for Pokédex search.")
   public PokemonColorSummary getColor() {
     return color;
   }
@@ -378,10 +388,10 @@ public class PokemonSpeciesDetail   {
   }
 
    /**
-   * Get shape
+   * The shape of this Pokémon for Pokédex search.
    * @return shape
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The shape of this Pokémon for Pokédex search.")
   public PokemonShapeSummary getShape() {
     return shape;
   }
@@ -396,10 +406,10 @@ public class PokemonSpeciesDetail   {
   }
 
    /**
-   * Get evolvesFromSpecies
+   * The Pokémon species that evolves into this Pokemon_species.
    * @return evolvesFromSpecies
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The Pokémon species that evolves into this Pokemon_species.")
   public PokemonSpeciesSummary getEvolvesFromSpecies() {
     return evolvesFromSpecies;
   }
@@ -414,10 +424,10 @@ public class PokemonSpeciesDetail   {
   }
 
    /**
-   * Get evolutionChain
+   * The evolution chain this Pokémon species is a member of.
    * @return evolutionChain
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The evolution chain this Pokémon species is a member of.")
   public EvolutionChainSummary getEvolutionChain() {
     return evolutionChain;
   }
@@ -432,10 +442,10 @@ public class PokemonSpeciesDetail   {
   }
 
    /**
-   * Get habitat
+   * The habitat this Pokémon species can be encountered in.
    * @return habitat
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The habitat this Pokémon species can be encountered in.")
   public PokemonHabitatSummary getHabitat() {
     return habitat;
   }
@@ -450,10 +460,10 @@ public class PokemonSpeciesDetail   {
   }
 
    /**
-   * Get generation
+   * The generation this Pokémon species was introduced in.
    * @return generation
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The generation this Pokémon species was introduced in.")
   public GenerationSummary getGeneration() {
     return generation;
   }
@@ -463,56 +473,56 @@ public class PokemonSpeciesDetail   {
   }
 
    /**
-   * Get names
+   * The name of this resource listed in different languages.
    * @return names
   **/
-  @ApiModelProperty(required = true, value = "")
-  public List<@Valid PokemonFormDetailFormNamesInner> getNames() {
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
+  public List<@Valid PokemonSpeciesName> getNames() {
     return names;
   }
 
    /**
-   * Get palParkEncounters
+   * A list of encounters that can be had with this Pokémon species in pal park.
    * @return palParkEncounters
   **/
-  @ApiModelProperty(required = true, value = "")
-  public List<@Valid PokemonSpeciesDetailPalParkEncountersInner> getPalParkEncounters() {
+  @ApiModelProperty(required = true, value = "A list of encounters that can be had with this Pokémon species in pal park.")
+  public List<@Valid PokemonSpeciesPalParkEncounter> getPalParkEncounters() {
     return palParkEncounters;
   }
 
    /**
-   * Get formDescriptions
+   * Descriptions of different forms Pokémon take on within the Pokémon species.
    * @return formDescriptions
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "Descriptions of different forms Pokémon take on within the Pokémon species.")
   public List<@Valid PokemonSpeciesDescription> getFormDescriptions() {
     return formDescriptions;
   }
 
    /**
-   * Get flavorTextEntries
+   * A list of flavor text entries for this Pokémon species.
    * @return flavorTextEntries
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of flavor text entries for this Pokémon species.")
   public List<@Valid PokemonSpeciesFlavorText> getFlavorTextEntries() {
     return flavorTextEntries;
   }
 
    /**
-   * Get genera
+   * The genus of this Pokémon species listed in multiple languages.
    * @return genera
   **/
-  @ApiModelProperty(required = true, value = "")
-  public List<@Valid PokemonSpeciesDetailGeneraInner> getGenera() {
+  @ApiModelProperty(required = true, value = "The genus of this Pokémon species listed in multiple languages.")
+  public List<@Valid PokemonSpeciesGenus> getGenera() {
     return genera;
   }
 
    /**
-   * Get varieties
+   * A list of the Pokémon that exist within this Pokémon species.
    * @return varieties
   **/
-  @ApiModelProperty(required = true, value = "")
-  public List<@Valid PokemonSpeciesDetailVarietiesInner> getVarieties() {
+  @ApiModelProperty(required = true, value = "A list of the Pokémon that exist within this Pokémon species.")
+  public List<@Valid PokemonSpeciesVariety> getVarieties() {
     return varieties;
   }
 

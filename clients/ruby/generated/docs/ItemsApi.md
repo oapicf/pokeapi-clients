@@ -4,6 +4,8 @@ All URIs are relative to *https://pokeapi.co*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
+| [**currency_list**](ItemsApi.md#currency_list) | **GET** /api/v2/currency/ | List currencies |
+| [**currency_retrieve**](ItemsApi.md#currency_retrieve) | **GET** /api/v2/currency/{id}/ | Get currency |
 | [**item_attribute_list**](ItemsApi.md#item_attribute_list) | **GET** /api/v2/item-attribute/ | List item attributes |
 | [**item_attribute_retrieve**](ItemsApi.md#item_attribute_retrieve) | **GET** /api/v2/item-attribute/{id}/ | Get item attribute |
 | [**item_category_list**](ItemsApi.md#item_category_list) | **GET** /api/v2/item-category/ | List item categories |
@@ -14,6 +16,140 @@ All URIs are relative to *https://pokeapi.co*
 | [**item_pocket_list**](ItemsApi.md#item_pocket_list) | **GET** /api/v2/item-pocket/ | List item pockets |
 | [**item_pocket_retrieve**](ItemsApi.md#item_pocket_retrieve) | **GET** /api/v2/item-pocket/{id}/ | Get item pocket |
 | [**item_retrieve**](ItemsApi.md#item_retrieve) | **GET** /api/v2/item/{id}/ | Get item |
+
+
+## currency_list
+
+> <PaginatedCurrencySummaryList> currency_list(opts)
+
+List currencies
+
+Currencies used to buy items.
+
+### Examples
+
+```ruby
+require 'time'
+require 'pokeapi_client'
+
+api_instance = PokeApiClient::ItemsApi.new
+opts = {
+  limit: 56, # Integer | Number of results to return per page.
+  offset: 56, # Integer | The initial index from which to return the results.
+  q: 'q_example' # String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+}
+
+begin
+  # List currencies
+  result = api_instance.currency_list(opts)
+  p result
+rescue PokeApiClient::ApiError => e
+  puts "Error when calling ItemsApi->currency_list: #{e}"
+end
+```
+
+#### Using the currency_list_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<PaginatedCurrencySummaryList>, Integer, Hash)> currency_list_with_http_info(opts)
+
+```ruby
+begin
+  # List currencies
+  data, status_code, headers = api_instance.currency_list_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <PaginatedCurrencySummaryList>
+rescue PokeApiClient::ApiError => e
+  puts "Error when calling ItemsApi->currency_list_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **limit** | **Integer** | Number of results to return per page. | [optional] |
+| **offset** | **Integer** | The initial index from which to return the results. | [optional] |
+| **q** | **String** | &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional] |
+
+### Return type
+
+[**PaginatedCurrencySummaryList**](PaginatedCurrencySummaryList.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## currency_retrieve
+
+> <CurrencyDetail> currency_retrieve(id)
+
+Get currency
+
+Currencies used to buy items.
+
+### Examples
+
+```ruby
+require 'time'
+require 'pokeapi_client'
+
+api_instance = PokeApiClient::ItemsApi.new
+id = '1' # String | This parameter can be a string or an integer.
+
+begin
+  # Get currency
+  result = api_instance.currency_retrieve(id)
+  p result
+rescue PokeApiClient::ApiError => e
+  puts "Error when calling ItemsApi->currency_retrieve: #{e}"
+end
+```
+
+#### Using the currency_retrieve_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<CurrencyDetail>, Integer, Hash)> currency_retrieve_with_http_info(id)
+
+```ruby
+begin
+  # Get currency
+  data, status_code, headers = api_instance.currency_retrieve_with_http_info(id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <CurrencyDetail>
+rescue PokeApiClient::ApiError => e
+  puts "Error when calling ItemsApi->currency_retrieve_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **String** | This parameter can be a string or an integer. |  |
+
+### Return type
+
+[**CurrencyDetail**](CurrencyDetail.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
 ## item_attribute_list
@@ -29,17 +165,6 @@ Item attributes define particular aspects of items, e.g.\"usable in battle\" or 
 ```ruby
 require 'time'
 require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
 
 api_instance = PokeApiClient::ItemsApi.new
 opts = {
@@ -89,7 +214,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -110,20 +235,9 @@ Item attributes define particular aspects of items, e.g.\"usable in battle\" or 
 ```ruby
 require 'time'
 require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
 
 api_instance = PokeApiClient::ItemsApi.new
-id = 'id_example' # String | This parameter can be a string or an integer.
+id = '1' # String | This parameter can be a string or an integer.
 
 begin
   # Get item attribute
@@ -164,7 +278,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -185,17 +299,6 @@ Item categories determine where items will be placed in the players bag.
 ```ruby
 require 'time'
 require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
 
 api_instance = PokeApiClient::ItemsApi.new
 opts = {
@@ -245,7 +348,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -266,20 +369,9 @@ Item categories determine where items will be placed in the players bag.
 ```ruby
 require 'time'
 require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
 
 api_instance = PokeApiClient::ItemsApi.new
-id = 'id_example' # String | This parameter can be a string or an integer.
+id = '1' # String | This parameter can be a string or an integer.
 
 begin
   # Get item category
@@ -320,7 +412,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -341,17 +433,6 @@ The various effects of the move\"Fling\" when used with different items.
 ```ruby
 require 'time'
 require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
 
 api_instance = PokeApiClient::ItemsApi.new
 opts = {
@@ -401,7 +482,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -422,20 +503,9 @@ The various effects of the move\"Fling\" when used with different items.
 ```ruby
 require 'time'
 require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
 
 api_instance = PokeApiClient::ItemsApi.new
-id = 'id_example' # String | This parameter can be a string or an integer.
+id = '1' # String | This parameter can be a string or an integer.
 
 begin
   # Get item fling effect
@@ -476,7 +546,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -497,17 +567,6 @@ An item is an object in the games which the player can pick up, keep in their ba
 ```ruby
 require 'time'
 require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
 
 api_instance = PokeApiClient::ItemsApi.new
 opts = {
@@ -557,7 +616,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -578,17 +637,6 @@ Pockets within the players bag used for storing items by category.
 ```ruby
 require 'time'
 require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
 
 api_instance = PokeApiClient::ItemsApi.new
 opts = {
@@ -638,7 +686,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -659,20 +707,9 @@ Pockets within the players bag used for storing items by category.
 ```ruby
 require 'time'
 require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
 
 api_instance = PokeApiClient::ItemsApi.new
-id = 'id_example' # String | This parameter can be a string or an integer.
+id = '1' # String | This parameter can be a string or an integer.
 
 begin
   # Get item pocket
@@ -713,7 +750,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -734,20 +771,9 @@ An item is an object in the games which the player can pick up, keep in their ba
 ```ruby
 require 'time'
 require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
 
 api_instance = PokeApiClient::ItemsApi.new
-id = 'id_example' # String | This parameter can be a string or an integer.
+id = '1' # String | This parameter can be a string or an integer.
 
 begin
   # Get item
@@ -788,7 +814,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

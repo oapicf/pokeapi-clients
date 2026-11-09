@@ -7,7 +7,7 @@ authors     = ["F. Bar (foo@bar.baz)"]
 
 imports {
   Root = tosca.resourceTypes.Root
-  MoveChangeEffectEntriesInner = openapi_server.resourceTypes.MoveChangeEffectEntriesInner
+  MoveEffectEffectText = openapi_server.resourceTypes.MoveEffectEffectText
   TypeSummary = openapi_server.resourceTypes.TypeSummary
   VersionGroupSummary = openapi_server.resourceTypes.VersionGroupSummary
 }
@@ -20,38 +20,38 @@ resourceTypes {
     properties {
         accuracy {
           type =  integer
-          description = ""
+          description = "The percent value of how likely this move is to be successful."
           optional = false
         }
         power {
           type =  integer
-          description = ""
+          description = "The base power before the listed version group, or null if power did not change."
           optional = false
         }
         pp {
           type =  integer
-          description = ""
+          description = "Power points. The number of times this move can be used."
           optional = false
         }
         effect_chance {
           type =  integer
-          description = ""
+          description = "The percent value of how likely it is this moves effect will take effect."
           optional = true
         }
         effect_entries {
           type = array
-          items.type = MoveChangeEffectEntriesInner
-          description = ""
+          items.type = MoveEffectEffectText
+          description = "The effect of this move listed in different languages."
           optional = true
         }
         type {
           type = TypeSummary
-          description = ""
+          description = "The elemental type of this move."
           optional = true
         }
         version_group {
           type = VersionGroupSummary
-          description = ""
+          description = "The version group in which these move stat values were in effect."
           optional = true
         }
     }

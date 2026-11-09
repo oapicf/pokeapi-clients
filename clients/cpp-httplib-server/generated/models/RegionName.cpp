@@ -10,7 +10,6 @@ namespace models {
 
 RegionName::RegionName()
 : name("")
-, language(LanguageSummary())
 {
 }
 // =========================================

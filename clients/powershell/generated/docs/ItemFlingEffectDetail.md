@@ -3,10 +3,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **Int32** |  | [readonly] 
-**Name** | **String** |  | 
-**EffectEntries** | [**ItemFlingEffectEffectText[]**](ItemFlingEffectEffectText.md) |  | [readonly] 
-**Items** | [**ItemSummary[]**](ItemSummary.md) |  | [readonly] 
+**Id** | **Int32** | The identifier for this resource. | [readonly] 
+**Name** | **String** | The name for this resource. | 
+**EffectEntries** | [**ItemFlingEffectEffectText[]**](ItemFlingEffectEffectText.md) | The result of this fling effect listed in different languages. | [readonly] 
+**Items** | [**ItemSummary[]**](ItemSummary.md) | A list of items that have this fling effect. | [readonly] 
 
 ## Examples
 

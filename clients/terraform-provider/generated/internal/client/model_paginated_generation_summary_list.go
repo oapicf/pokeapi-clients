@@ -4,8 +4,8 @@ package client
 
 // PaginatedGenerationSummaryList - PaginatedGenerationSummaryList struct
 type PaginatedGenerationSummaryList struct {
-	Count int32 `json:"count,omitempty"`
+	Count int32 `json:"count"`
 	Next string `json:"next,omitempty"`
 	Previous string `json:"previous,omitempty"`
-	Results []GenerationSummary `json:"results,omitempty"`
+	Results []GenerationSummary `json:"results"`
 }

@@ -4,18 +4,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Ailment** | [**MoveMetaAilmentSummary**](MoveMetaAilmentSummary.md) |  | 
-**Category** | [**MoveMetaCategorySummary**](MoveMetaCategorySummary.md) |  | 
-**MinHits** | Pointer to **NullableInt32** |  | [optional] 
-**MaxHits** | Pointer to **NullableInt32** |  | [optional] 
-**MinTurns** | Pointer to **NullableInt32** |  | [optional] 
-**MaxTurns** | Pointer to **NullableInt32** |  | [optional] 
-**Drain** | Pointer to **NullableInt32** |  | [optional] 
-**Healing** | Pointer to **NullableInt32** |  | [optional] 
-**CritRate** | Pointer to **NullableInt32** |  | [optional] 
-**AilmentChance** | Pointer to **NullableInt32** |  | [optional] 
-**FlinchChance** | Pointer to **NullableInt32** |  | [optional] 
-**StatChance** | Pointer to **NullableInt32** |  | [optional] 
+**Ailment** | [**MoveMetaAilmentSummary**](MoveMetaAilmentSummary.md) | The status ailment this move inflicts on its target. | 
+**Category** | [**MoveMetaCategorySummary**](MoveMetaCategorySummary.md) | The category of move this move falls under, e.g. damage or ailment. | 
+**MinHits** | Pointer to **NullableInt32** | The minimum number of times this move hits. Null if it always only hits once. | [optional] 
+**MaxHits** | Pointer to **NullableInt32** | The maximum number of times this move hits. Null if it always only hits once. | [optional] 
+**MinTurns** | Pointer to **NullableInt32** | The minimum number of turns this move continues to take effect. Null if it always only lasts one turn. | [optional] 
+**MaxTurns** | Pointer to **NullableInt32** | The maximum number of turns this move continues to take effect. Null if it always only lasts one turn. | [optional] 
+**Drain** | Pointer to **NullableInt32** | HP drain (if positive) or Recoil damage (if negative), in percent of damage done. | [optional] 
+**Healing** | Pointer to **NullableInt32** | The amount of hp gained by the attacking Pokemon, in percent of it&#39;s maximum HP. | [optional] 
+**CritRate** | Pointer to **NullableInt32** | Critical hit rate bonus. | [optional] 
+**AilmentChance** | Pointer to **NullableInt32** | The likelihood this attack will cause an ailment. | [optional] 
+**FlinchChance** | Pointer to **NullableInt32** | The likelihood this attack will cause the target Pokémon to flinch. | [optional] 
+**StatChance** | Pointer to **NullableInt32** | The likelihood this attack will cause a stat change in the target Pokémon. | [optional] 
 
 ## Methods
 

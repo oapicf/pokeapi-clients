@@ -1,0 +1,19 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "BerryFlavorMap",
+  "fields": [
+    {
+      "name": "potency",
+      "type": "int",
+      "doc": "How powerful the referenced flavor is for this berry."
+    },
+    {
+      "name": "flavor",
+      "type": "model.BerryFlavorSummary",
+      "doc": "The referenced berry flavor."
+    }
+  ]
+
+}

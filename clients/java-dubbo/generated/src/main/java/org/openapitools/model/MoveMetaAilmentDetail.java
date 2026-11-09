@@ -1,7 +1,7 @@
 package org.openapitools.model;
 
-import org.openapitools.model.AbilityDetailPokemonInnerPokemon;
 import org.openapitools.model.MoveMetaAilmentName;
+import org.openapitools.model.MoveSummary;
 import java.util.*;
 import java.util.Objects;
 import java.io.Serializable;
@@ -14,20 +14,32 @@ import java.math.*;
 public class MoveMetaAilmentDetail implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * The identifier for this resource.
+   */
   @JsonProperty("id")
   private Integer id;
 
+  /**
+   * The name for this resource.
+   */
   @JsonProperty("name")
   private String name;
 
+  /**
+   * A list of moves that cause this ailment.
+   */
   @JsonProperty("moves")
-  private List<AbilityDetailPokemonInnerPokemon> moves = new ArrayList<>();
+  private List<MoveSummary> moves = new ArrayList<>();
 
+  /**
+   * The name of this resource listed in different languages.
+   */
   @JsonProperty("names")
   private List<MoveMetaAilmentName> names = new ArrayList<>();
 
   /**
-   * 
+   * The identifier for this resource.
    * @return id
    */
   public Integer getId() {
@@ -39,7 +51,7 @@ public class MoveMetaAilmentDetail implements Serializable {
   }
 
   /**
-   * 
+   * The name for this resource.
    * @return name
    */
   public String getName() {
@@ -51,19 +63,19 @@ public class MoveMetaAilmentDetail implements Serializable {
   }
 
   /**
-   * 
+   * A list of moves that cause this ailment.
    * @return moves
    */
-  public List<AbilityDetailPokemonInnerPokemon> getMoves() {
+  public List<MoveSummary> getMoves() {
     return moves;
   }
 
-  public void setMoves(List<AbilityDetailPokemonInnerPokemon> moves) {
+  public void setMoves(List<MoveSummary> moves) {
     this.moves = moves;
   }
 
   /**
-   * 
+   * The name of this resource listed in different languages.
    * @return names
    */
   public List<MoveMetaAilmentName> getNames() {

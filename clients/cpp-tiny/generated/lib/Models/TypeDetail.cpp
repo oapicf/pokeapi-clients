@@ -8,13 +8,13 @@ TypeDetail::TypeDetail()
 {
 	id = int(0);
 	name = std::string();
-	damage_relations = TypeDetail_damage_relations();
-	past_damage_relations = std::list<TypeDetail_past_damage_relations_inner>();
+	damage_relations = null;
+	past_damage_relations = std::list<TypePastRelationships>();
 	game_indices = std::list<TypeGameIndex>();
-	generation = GenerationSummary();
-	move_damage_class = MoveDamageClassSummary();
-	names = std::list<AbilityName>();
-	pokemon = std::list<TypeDetail_pokemon_inner>();
+	generation = null;
+	move_damage_class = null;
+	names = std::list<TypeName>();
+	pokemon = std::list<TypePokemon>();
 	moves = std::list<MoveSummary>();
 	sprites = null<std::map>();
 }
@@ -69,7 +69,7 @@ TypeDetail::fromJson(std::string jsonObj)
 
 
 
-        TypeDetail_damage_relations* obj = &damage_relations;
+        TypeRelationships* obj = &damage_relations;
 		obj->fromJson(value.dump());
 
     }
@@ -81,8 +81,8 @@ TypeDetail::fromJson(std::string jsonObj)
         bourne::json value = object[past_damage_relationsKey];
 
 
-        std::list<TypeDetail_past_damage_relations_inner> past_damage_relations_list;
-        TypeDetail_past_damage_relations_inner element;
+        std::list<TypePastRelationships> past_damage_relations_list;
+        TypePastRelationships element;
         for(auto& var : value.array_range())
         {
 
@@ -153,8 +153,8 @@ TypeDetail::fromJson(std::string jsonObj)
         bourne::json value = object[namesKey];
 
 
-        std::list<AbilityName> names_list;
-        AbilityName element;
+        std::list<TypeName> names_list;
+        TypeName element;
         for(auto& var : value.array_range())
         {
 
@@ -175,8 +175,8 @@ TypeDetail::fromJson(std::string jsonObj)
         bourne::json value = object[pokemonKey];
 
 
-        std::list<TypeDetail_pokemon_inner> pokemon_list;
-        TypeDetail_pokemon_inner element;
+        std::list<TypePokemon> pokemon_list;
+        TypePokemon element;
         for(auto& var : value.array_range())
         {
 
@@ -253,12 +253,12 @@ TypeDetail::toJson()
 
 
 
-    std::list<TypeDetail_past_damage_relations_inner> past_damage_relations_list = getPastDamageRelations();
+    std::list<TypePastRelationships> past_damage_relations_list = getPastDamageRelations();
     bourne::json past_damage_relations_arr = bourne::json::array();
 
     for(auto& var : past_damage_relations_list)
     {
-        TypeDetail_past_damage_relations_inner obj = var;
+        TypePastRelationships obj = var;
         past_damage_relations_arr.append(obj.toJson());
     }
     object["past_damage_relations"] = past_damage_relations_arr;
@@ -297,12 +297,12 @@ TypeDetail::toJson()
 
 
 
-    std::list<AbilityName> names_list = getNames();
+    std::list<TypeName> names_list = getNames();
     bourne::json names_arr = bourne::json::array();
 
     for(auto& var : names_list)
     {
-        AbilityName obj = var;
+        TypeName obj = var;
         names_arr.append(obj.toJson());
     }
     object["names"] = names_arr;
@@ -312,12 +312,12 @@ TypeDetail::toJson()
 
 
 
-    std::list<TypeDetail_pokemon_inner> pokemon_list = getPokemon();
+    std::list<TypePokemon> pokemon_list = getPokemon();
     bourne::json pokemon_arr = bourne::json::array();
 
     for(auto& var : pokemon_list)
     {
-        TypeDetail_pokemon_inner obj = var;
+        TypePokemon obj = var;
         pokemon_arr.append(obj.toJson());
     }
     object["pokemon"] = pokemon_arr;
@@ -371,26 +371,26 @@ TypeDetail::setName(std::string name)
 	this->name = name;
 }
 
-TypeDetail_damage_relations
+TypeRelationships
 TypeDetail::getDamageRelations()
 {
 	return damage_relations;
 }
 
 void
-TypeDetail::setDamageRelations(TypeDetail_damage_relations damage_relations)
+TypeDetail::setDamageRelations(TypeRelationships damage_relations)
 {
 	this->damage_relations = damage_relations;
 }
 
-std::list<TypeDetail_past_damage_relations_inner>
+std::list<TypePastRelationships>
 TypeDetail::getPastDamageRelations()
 {
 	return past_damage_relations;
 }
 
 void
-TypeDetail::setPastDamageRelations(std::list<TypeDetail_past_damage_relations_inner> past_damage_relations)
+TypeDetail::setPastDamageRelations(std::list<TypePastRelationships> past_damage_relations)
 {
 	this->past_damage_relations = past_damage_relations;
 }
@@ -431,26 +431,26 @@ TypeDetail::setMoveDamageClass(MoveDamageClassSummary move_damage_class)
 	this->move_damage_class = move_damage_class;
 }
 
-std::list<AbilityName>
+std::list<TypeName>
 TypeDetail::getNames()
 {
 	return names;
 }
 
 void
-TypeDetail::setNames(std::list<AbilityName> names)
+TypeDetail::setNames(std::list<TypeName> names)
 {
 	this->names = names;
 }
 
-std::list<TypeDetail_pokemon_inner>
+std::list<TypePokemon>
 TypeDetail::getPokemon()
 {
 	return pokemon;
 }
 
 void
-TypeDetail::setPokemon(std::list<TypeDetail_pokemon_inner> pokemon)
+TypeDetail::setPokemon(std::list<TypePokemon> pokemon)
 {
 	this->pokemon = pokemon;
 }
@@ -467,14 +467,14 @@ TypeDetail::setMoves(std::list<MoveSummary> moves)
 	this->moves = moves;
 }
 
-std::map<std::string, std::map<std::string, TypeDetail_sprites_value_value>>
+std::map<std::string, std::map<std::string, TypeGameSprite>>
 TypeDetail::getSprites()
 {
 	return sprites;
 }
 
 void
-TypeDetail::setSprites(std::map<std::string, std::map<std::string, TypeDetail_sprites_value_value>> sprites)
+TypeDetail::setSprites(std::map<std::string, std::map<std::string, TypeGameSprite>> sprites)
 {
 	this->sprites = sprites;
 }

@@ -3,7 +3,7 @@ package org.openapitools.server.model;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.server.model.PokeathlonStatDetailAffectingNatures;
+import org.openapitools.server.model.PokeathlonStatAffectingNatures;
 import org.openapitools.server.model.PokeathlonStatName;
 import jakarta.validation.constraints.*;
 import jakarta.validation.Valid;
@@ -14,7 +14,7 @@ public class PokeathlonStatDetail   {
 
     private Integer id;
     private String name;
-    private PokeathlonStatDetailAffectingNatures affectingNatures;
+    private PokeathlonStatAffectingNatures affectingNatures;
     private List<@Valid PokeathlonStatName> names = new ArrayList<>();
 
     /**
@@ -27,15 +27,15 @@ public class PokeathlonStatDetail   {
     /**
      * Create PokeathlonStatDetail.
      *
-     * @param id id
-     * @param name name
-     * @param affectingNatures affectingNatures
-     * @param names names
+     * @param id The identifier for this resource.
+     * @param name The name for this resource.
+     * @param affectingNatures A detail of natures which affect this Pokéathlon stat positively or negatively.
+     * @param names The name of this resource listed in different languages.
      */
     public PokeathlonStatDetail(
         Integer id, 
         String name, 
-        PokeathlonStatDetailAffectingNatures affectingNatures, 
+        PokeathlonStatAffectingNatures affectingNatures, 
         List<@Valid PokeathlonStatName> names
     ) {
         this.id = id;
@@ -47,7 +47,7 @@ public class PokeathlonStatDetail   {
 
 
     /**
-     * Get id
+     * The identifier for this resource.
      * @return id
      */
     public Integer getId() {
@@ -59,7 +59,7 @@ public class PokeathlonStatDetail   {
     }
 
     /**
-     * Get name
+     * The name for this resource.
      * @return name
      */
     public String getName() {
@@ -71,19 +71,19 @@ public class PokeathlonStatDetail   {
     }
 
     /**
-     * Get affectingNatures
+     * A detail of natures which affect this Pokéathlon stat positively or negatively.
      * @return affectingNatures
      */
-    public PokeathlonStatDetailAffectingNatures getAffectingNatures() {
+    public PokeathlonStatAffectingNatures getAffectingNatures() {
         return affectingNatures;
     }
 
-    public void setAffectingNatures(PokeathlonStatDetailAffectingNatures affectingNatures) {
+    public void setAffectingNatures(PokeathlonStatAffectingNatures affectingNatures) {
         this.affectingNatures = affectingNatures;
     }
 
     /**
-     * Get names
+     * The name of this resource listed in different languages.
      * @return names
      */
     public List<@Valid PokeathlonStatName> getNames() {

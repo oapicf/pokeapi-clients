@@ -5,12 +5,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** |  | [readonly] 
-**name** | **str** |  | 
-**region** | [**RegionSummary**](RegionSummary.md) |  | 
-**names** | [**List[LocationName]**](LocationName.md) |  | [readonly] 
-**game_indices** | [**List[LocationGameIndex]**](LocationGameIndex.md) |  | [readonly] 
-**areas** | [**List[LocationAreaSummary]**](LocationAreaSummary.md) |  | [readonly] 
+**id** | **int** | The identifier for this resource. | [readonly] 
+**name** | **str** | The name for this resource. | 
+**region** | [**RegionSummary**](RegionSummary.md) | The region this location can be found in. | 
+**names** | [**List[LocationName]**](LocationName.md) | The name of this resource listed in different languages. | [readonly] 
+**game_indices** | [**List[LocationGameIndex]**](LocationGameIndex.md) | A list of game indices relevent to this location by generation. | [readonly] 
+**areas** | [**List[LocationAreaSummary]**](LocationAreaSummary.md) | Areas that can be found within this location. | [readonly] 
 
 ## Example
 

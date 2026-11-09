@@ -3,9 +3,9 @@
 //> using lib "com.lihaoyi::scalatags:0.12.0"
 /**
  * PokéAPI
- * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+ * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
  *
- * OpenAPI spec version: 2.7.0
+ * OpenAPI spec version: 2.10.0
  *
  * Contact: blah+oapicf@cliffano.com
  *
@@ -44,18 +44,18 @@ class ContestsRoutes(service : ContestsService[Try]) extends cask.Routes {
     }
     // route group for routeWorkAroundForGETApiV2Contesteffect
     @cask.get("/api/v2/contest-effect", true)
-    def routeWorkAroundForGETApiV2Contesteffect(request: cask.Request,limit : Option[Int] = None,offset : Option[Int] = None,q : Option[String] = None) = {
+    def routeWorkAroundForGETApiV2Contesteffect(request: cask.Request,limit : Option[Int] = None,offset : Option[Int] = None) = {
         request.remainingPathSegments match {
-            case Seq() => contestEffectList(request,limit, offset, q)
+            case Seq() => contestEffectList(request,limit, offset)
             case Seq(id) => contestEffectRetrieve(id,request)
             case _          => cask.Response("Not Found", statusCode = 404)
         }
     }
     // route group for routeWorkAroundForGETApiV2Supercontesteffect
     @cask.get("/api/v2/super-contest-effect", true)
-    def routeWorkAroundForGETApiV2Supercontesteffect(request: cask.Request,limit : Option[Int] = None,offset : Option[Int] = None,q : Option[String] = None) = {
+    def routeWorkAroundForGETApiV2Supercontesteffect(request: cask.Request,limit : Option[Int] = None,offset : Option[Int] = None) = {
         request.remainingPathSegments match {
-            case Seq() => superContestEffectList(request,limit, offset, q)
+            case Seq() => superContestEffectList(request,limit, offset)
             case Seq(id) => superContestEffectRetrieve(id,request)
             case _          => cask.Response("Not Found", statusCode = 404)
         }
@@ -65,14 +65,12 @@ class ContestsRoutes(service : ContestsService[Try]) extends cask.Routes {
          * 
          */
         // conflicts with [/api/v2/contest-effect/{id}/, /api/v2/contest-effect/] after/api/v2/contest-effect, ignoring @cask.get("/api/v2/contest-effect/")
-        def contestEffectList(request: cask.Request, limit : Option[Int], offset : Option[Int], q : Option[String]) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
+        def contestEffectList(request: cask.Request, limit : Option[Int], offset : Option[Int]) = {
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
         val result =         for {
-            resultTry <- Parsed.eval(service.contestEffectList(limit, offset, q))
+            resultTry <- Parsed.eval(service.contestEffectList(limit, offset))
             result <- Parsed.fromTry(resultTry)
         } yield result
 
@@ -89,8 +87,6 @@ class ContestsRoutes(service : ContestsService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/contest-effect/{id}/, /api/v2/contest-effect/] after/api/v2/contest-effect, ignoring @cask.get("/api/v2/contest-effect/:id/")
         def contestEffectRetrieve(id : String, request: cask.Request) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
@@ -113,8 +109,6 @@ class ContestsRoutes(service : ContestsService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/contest-type/{id}/, /api/v2/contest-type/] after/api/v2/contest-type, ignoring @cask.get("/api/v2/contest-type/")
         def contestTypeList(request: cask.Request, limit : Option[Int], offset : Option[Int], q : Option[String]) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
@@ -136,8 +130,6 @@ class ContestsRoutes(service : ContestsService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/contest-type/{id}/, /api/v2/contest-type/] after/api/v2/contest-type, ignoring @cask.get("/api/v2/contest-type/:id/")
         def contestTypeRetrieve(id : String, request: cask.Request) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
@@ -159,14 +151,12 @@ class ContestsRoutes(service : ContestsService[Try]) extends cask.Routes {
          * 
          */
         // conflicts with [/api/v2/super-contest-effect/{id}/, /api/v2/super-contest-effect/] after/api/v2/super-contest-effect, ignoring @cask.get("/api/v2/super-contest-effect/")
-        def superContestEffectList(request: cask.Request, limit : Option[Int], offset : Option[Int], q : Option[String]) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
+        def superContestEffectList(request: cask.Request, limit : Option[Int], offset : Option[Int]) = {
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
         val result =         for {
-            resultTry <- Parsed.eval(service.superContestEffectList(limit, offset, q))
+            resultTry <- Parsed.eval(service.superContestEffectList(limit, offset))
             result <- Parsed.fromTry(resultTry)
         } yield result
 
@@ -183,8 +173,6 @@ class ContestsRoutes(service : ContestsService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/super-contest-effect/{id}/, /api/v2/super-contest-effect/] after/api/v2/super-contest-effect, ignoring @cask.get("/api/v2/super-contest-effect/:id/")
         def superContestEffectRetrieve(id : String, request: cask.Request) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 

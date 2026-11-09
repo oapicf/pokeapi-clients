@@ -1,13 +1,12 @@
 #tag Class
 Protected Class ContestsApi
 	#tag Method, Flags = &h0
-		Sub ContestEffectList(, Optional limit As Xoson.O.OptionalInteger, Optional offset As Xoson.O.OptionalInteger, Optional q As Xoson.O.OptionalString)
+		Sub ContestEffectList(, Optional limit As Xoson.O.OptionalInteger, Optional offset As Xoson.O.OptionalInteger)
 		  // Operation contest_effect_list
 		  // List contest effects
 		  // - 
 		  // - parameter limit: (query) Number of results to return per page. (optional, default to 0)
 		  // - parameter offset: (query) The initial index from which to return the results. (optional, default to 0)
-		  // - parameter q: (query) &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional, default to Sample)
 		  //
 		  // Invokes ContestsApiCallbackHandler.ContestEffectListCallback(PaginatedContestEffectSummaryList) on completion. 
 		  //
@@ -15,12 +14,6 @@ Protected Class ContestsApi
 		  // - Contest effects refer to the effects of moves when used in contests.
 		  // - defaultResponse: Nil
 		  //
-		  // - BASIC:
-		  //   - type: http
-		  //   - name: basicAuth
-		  // - API Key:
-		  //   - type: apiKey sessionid 
-		  //   - name: cookieAuth
 		  //
 		  
 		  Dim localVarHTTPSocket As New HTTPSecureSocket
@@ -31,13 +24,7 @@ Protected Class ContestsApi
 		  
 		  If offset <> nil Then localVarQueryParams = localVarQueryParams + "&" + EncodeURLComponent("offset") + "=" + EncodeURLComponent(offset.ToString)
 		  
-		  If q <> nil Then localVarQueryParams = localVarQueryParams + "&" + EncodeURLComponent("q") + "=" + EncodeURLComponent(q)
-		  
 
-		  
-		  AddHandler localVarHTTPSocket.AuthenticationRequired, addressof Me.AuthenticationRequiredIf me.ApiKeycookieAuth = "" Then Raise New OpenAPIClient.OpenAPIClientException(kErrorCannotAuthenticate, "API key is unset. Please assign a value to `ContestsApi.ApiKeycookieAuth` before invoking `ContestsApi.ContestEffectList()`.")
-		  
-		  
 		  
 
 
@@ -157,20 +144,10 @@ Protected Class ContestsApi
 		  // - Contest effects refer to the effects of moves when used in contests.
 		  // - defaultResponse: Nil
 		  //
-		  // - BASIC:
-		  //   - type: http
-		  //   - name: basicAuth
-		  // - API Key:
-		  //   - type: apiKey sessionid 
-		  //   - name: cookieAuth
 		  //
 		  
 		  Dim localVarHTTPSocket As New HTTPSecureSocket
 		  Me.PrivateFuncPrepareSocket(localVarHTTPSocket)
-		  
-		  
-		  
-		  AddHandler localVarHTTPSocket.AuthenticationRequired, addressof Me.AuthenticationRequiredIf me.ApiKeycookieAuth = "" Then Raise New OpenAPIClient.OpenAPIClientException(kErrorCannotAuthenticate, "API key is unset. Please assign a value to `ContestsApi.ApiKeycookieAuth` before invoking `ContestsApi.ContestEffectRetrieve()`.")
 		  
 		  
 		  
@@ -297,12 +274,6 @@ Protected Class ContestsApi
 		  // - Contest types are categories judges used to weigh a Pokémon's condition in Pokémon contests. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Contest_condition) for greater detail.
 		  // - defaultResponse: Nil
 		  //
-		  // - BASIC:
-		  //   - type: http
-		  //   - name: basicAuth
-		  // - API Key:
-		  //   - type: apiKey sessionid 
-		  //   - name: cookieAuth
 		  //
 		  
 		  Dim localVarHTTPSocket As New HTTPSecureSocket
@@ -316,10 +287,6 @@ Protected Class ContestsApi
 		  If q <> nil Then localVarQueryParams = localVarQueryParams + "&" + EncodeURLComponent("q") + "=" + EncodeURLComponent(q)
 		  
 
-		  
-		  AddHandler localVarHTTPSocket.AuthenticationRequired, addressof Me.AuthenticationRequiredIf me.ApiKeycookieAuth = "" Then Raise New OpenAPIClient.OpenAPIClientException(kErrorCannotAuthenticate, "API key is unset. Please assign a value to `ContestsApi.ApiKeycookieAuth` before invoking `ContestsApi.ContestTypeList()`.")
-		  
-		  
 		  
 
 
@@ -439,20 +406,10 @@ Protected Class ContestsApi
 		  // - Contest types are categories judges used to weigh a Pokémon's condition in Pokémon contests. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Contest_condition) for greater detail.
 		  // - defaultResponse: Nil
 		  //
-		  // - BASIC:
-		  //   - type: http
-		  //   - name: basicAuth
-		  // - API Key:
-		  //   - type: apiKey sessionid 
-		  //   - name: cookieAuth
 		  //
 		  
 		  Dim localVarHTTPSocket As New HTTPSecureSocket
 		  Me.PrivateFuncPrepareSocket(localVarHTTPSocket)
-		  
-		  
-		  
-		  AddHandler localVarHTTPSocket.AuthenticationRequired, addressof Me.AuthenticationRequiredIf me.ApiKeycookieAuth = "" Then Raise New OpenAPIClient.OpenAPIClientException(kErrorCannotAuthenticate, "API key is unset. Please assign a value to `ContestsApi.ApiKeycookieAuth` before invoking `ContestsApi.ContestTypeRetrieve()`.")
 		  
 		  
 		  
@@ -565,13 +522,12 @@ Protected Class ContestsApi
 
 
 	#tag Method, Flags = &h0
-		Sub SuperContestEffectList(, Optional limit As Xoson.O.OptionalInteger, Optional offset As Xoson.O.OptionalInteger, Optional q As Xoson.O.OptionalString)
+		Sub SuperContestEffectList(, Optional limit As Xoson.O.OptionalInteger, Optional offset As Xoson.O.OptionalInteger)
 		  // Operation super_contest_effect_list
 		  // List super contest effects
 		  // - 
 		  // - parameter limit: (query) Number of results to return per page. (optional, default to 0)
 		  // - parameter offset: (query) The initial index from which to return the results. (optional, default to 0)
-		  // - parameter q: (query) &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional, default to Sample)
 		  //
 		  // Invokes ContestsApiCallbackHandler.SuperContestEffectListCallback(PaginatedSuperContestEffectSummaryList) on completion. 
 		  //
@@ -579,12 +535,6 @@ Protected Class ContestsApi
 		  // - Super contest effects refer to the effects of moves when used in super contests.
 		  // - defaultResponse: Nil
 		  //
-		  // - BASIC:
-		  //   - type: http
-		  //   - name: basicAuth
-		  // - API Key:
-		  //   - type: apiKey sessionid 
-		  //   - name: cookieAuth
 		  //
 		  
 		  Dim localVarHTTPSocket As New HTTPSecureSocket
@@ -595,13 +545,7 @@ Protected Class ContestsApi
 		  
 		  If offset <> nil Then localVarQueryParams = localVarQueryParams + "&" + EncodeURLComponent("offset") + "=" + EncodeURLComponent(offset.ToString)
 		  
-		  If q <> nil Then localVarQueryParams = localVarQueryParams + "&" + EncodeURLComponent("q") + "=" + EncodeURLComponent(q)
-		  
 
-		  
-		  AddHandler localVarHTTPSocket.AuthenticationRequired, addressof Me.AuthenticationRequiredIf me.ApiKeycookieAuth = "" Then Raise New OpenAPIClient.OpenAPIClientException(kErrorCannotAuthenticate, "API key is unset. Please assign a value to `ContestsApi.ApiKeycookieAuth` before invoking `ContestsApi.SuperContestEffectList()`.")
-		  
-		  
 		  
 
 
@@ -721,20 +665,10 @@ Protected Class ContestsApi
 		  // - Super contest effects refer to the effects of moves when used in super contests.
 		  // - defaultResponse: Nil
 		  //
-		  // - BASIC:
-		  //   - type: http
-		  //   - name: basicAuth
-		  // - API Key:
-		  //   - type: apiKey sessionid 
-		  //   - name: cookieAuth
 		  //
 		  
 		  Dim localVarHTTPSocket As New HTTPSecureSocket
 		  Me.PrivateFuncPrepareSocket(localVarHTTPSocket)
-		  
-		  
-		  
-		  AddHandler localVarHTTPSocket.AuthenticationRequired, addressof Me.AuthenticationRequiredIf me.ApiKeycookieAuth = "" Then Raise New OpenAPIClient.OpenAPIClientException(kErrorCannotAuthenticate, "API key is unset. Please assign a value to `ContestsApi.ApiKeycookieAuth` before invoking `ContestsApi.SuperContestEffectRetrieve()`.")
 		  
 		  
 		  
@@ -892,10 +826,6 @@ Protected Class ContestsApi
 
 	#tag Property, Flags = &h0
 		AdditionalHeaders As Dictionary
-	#tag EndProperty
-
-	#tag Property, Flags = &h0
-		ApiKeycookieAuth As String
 	#tag EndProperty
 
 	#tag Property, Flags = &h0

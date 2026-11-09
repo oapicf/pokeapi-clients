@@ -7,17 +7,17 @@
     {
       "name": "base_stat",
       "type": "int",
-      "doc": ""
+      "doc": "The base value of the stat."
     },
     {
       "name": "effort",
       "type": "int",
-      "doc": ""
+      "doc": "The effort points (EV) the Pokémon has in the stat."
     },
     {
       "name": "stat",
       "type": "model.StatSummary",
-      "doc": ""
+      "doc": "The stat the Pokémon has."
     }
   ]
 

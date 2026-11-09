@@ -10,6 +10,7 @@ class_name ContestTypeName
 # ContestTypeName Model
 
 
+# The name for this contest.
 # Required: True
 # isArray: false
 @export var name: String:
@@ -18,6 +19,7 @@ class_name ContestTypeName
 		name = value
 var __name__was__set := false
 
+# The color associated with this contest's name.
 # Required: True
 # isArray: false
 @export var some_color: String:
@@ -26,6 +28,7 @@ var __name__was__set := false
 		some_color = value
 var __some_color__was__set := false
 
+# The language that this name is in.
 # Required: True
 # isArray: false
 @export var language: LanguageSummary:

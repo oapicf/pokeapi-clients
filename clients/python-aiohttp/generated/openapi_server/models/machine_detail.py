@@ -57,6 +57,7 @@ class MachineDetail(Model):
     def id(self):
         """Gets the id of this MachineDetail.
 
+        The identifier for this resource.
 
         :return: The id of this MachineDetail.
         :rtype: int
@@ -67,6 +68,7 @@ class MachineDetail(Model):
     def id(self, id):
         """Sets the id of this MachineDetail.
 
+        The identifier for this resource.
 
         :param id: The id of this MachineDetail.
         :type id: int
@@ -80,6 +82,7 @@ class MachineDetail(Model):
     def item(self):
         """Gets the item of this MachineDetail.
 
+        The TM or HM item that corresponds to this machine.
 
         :return: The item of this MachineDetail.
         :rtype: ItemSummary
@@ -90,6 +93,7 @@ class MachineDetail(Model):
     def item(self, item):
         """Sets the item of this MachineDetail.
 
+        The TM or HM item that corresponds to this machine.
 
         :param item: The item of this MachineDetail.
         :type item: ItemSummary
@@ -103,6 +107,7 @@ class MachineDetail(Model):
     def version_group(self):
         """Gets the version_group of this MachineDetail.
 
+        The version group that this machine applies to.
 
         :return: The version_group of this MachineDetail.
         :rtype: VersionGroupSummary
@@ -113,6 +118,7 @@ class MachineDetail(Model):
     def version_group(self, version_group):
         """Sets the version_group of this MachineDetail.
 
+        The version group that this machine applies to.
 
         :param version_group: The version_group of this MachineDetail.
         :type version_group: VersionGroupSummary
@@ -126,6 +132,7 @@ class MachineDetail(Model):
     def move(self):
         """Gets the move of this MachineDetail.
 
+        The move that is taught by this machine.
 
         :return: The move of this MachineDetail.
         :rtype: MoveSummary
@@ -136,6 +143,7 @@ class MachineDetail(Model):
     def move(self, move):
         """Sets the move of this MachineDetail.
 
+        The move that is taught by this machine.
 
         :param move: The move of this MachineDetail.
         :type move: MoveSummary

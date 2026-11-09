@@ -2,6 +2,7 @@
 const Service = require('./Service');
 
 /**
+* List abilities
 * Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
 *
 * limit Integer Number of results to return per page. (optional)
@@ -26,6 +27,7 @@ const ability_list = ({ limit, offset, q }) => new Promise(
   },
 );
 /**
+* Get ability
 * Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
 *
 * id String This parameter can be a string or an integer.
@@ -46,21 +48,19 @@ const ability_retrieve = ({ id }) => new Promise(
   },
 );
 /**
-* List charecterictics
+* List characteristics
 * Characteristics indicate which stat contains a Pokémon's highest IV. A Pokémon's Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail.
 *
 * limit Integer Number of results to return per page. (optional)
 * offset Integer The initial index from which to return the results. (optional)
-* q String > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
 * returns PaginatedCharacteristicSummaryList
 * */
-const characteristic_list = ({ limit, offset, q }) => new Promise(
+const characteristic_list = ({ limit, offset }) => new Promise(
   async (resolve, reject) => {
     try {
       resolve(Service.successResponse({
         limit,
         offset,
-        q,
       }));
     } catch (e) {
       reject(Service.rejectResponse(

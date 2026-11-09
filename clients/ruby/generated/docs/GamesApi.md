@@ -27,17 +27,6 @@ A generation is a grouping of the Pokémon games that separates them based on th
 ```ruby
 require 'time'
 require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
 
 api_instance = PokeApiClient::GamesApi.new
 opts = {
@@ -87,7 +76,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -108,20 +97,9 @@ A generation is a grouping of the Pokémon games that separates them based on th
 ```ruby
 require 'time'
 require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
 
 api_instance = PokeApiClient::GamesApi.new
-id = 'id_example' # String | This parameter can be a string or an integer.
+id = '1' # String | This parameter can be a string or an integer.
 
 begin
   # Get genration
@@ -162,7 +140,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -183,17 +161,6 @@ A Pokédex is a handheld electronic encyclopedia device; one which is capable of
 ```ruby
 require 'time'
 require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
 
 api_instance = PokeApiClient::GamesApi.new
 opts = {
@@ -243,7 +210,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -264,20 +231,9 @@ A Pokédex is a handheld electronic encyclopedia device; one which is capable of
 ```ruby
 require 'time'
 require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
 
 api_instance = PokeApiClient::GamesApi.new
-id = 'id_example' # String | This parameter can be a string or an integer.
+id = '1' # String | This parameter can be a string or an integer.
 
 begin
   # Get pokedex
@@ -318,7 +274,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -339,17 +295,6 @@ Version groups categorize highly similar versions of the games.
 ```ruby
 require 'time'
 require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
 
 api_instance = PokeApiClient::GamesApi.new
 opts = {
@@ -399,7 +344,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -420,20 +365,9 @@ Version groups categorize highly similar versions of the games.
 ```ruby
 require 'time'
 require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
 
 api_instance = PokeApiClient::GamesApi.new
-id = 'id_example' # String | This parameter can be a string or an integer.
+id = '1' # String | This parameter can be a string or an integer.
 
 begin
   # Get version group
@@ -474,7 +408,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -495,17 +429,6 @@ Versions of the games, e.g., Red, Blue or Yellow.
 ```ruby
 require 'time'
 require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
 
 api_instance = PokeApiClient::GamesApi.new
 opts = {
@@ -555,7 +478,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -576,20 +499,9 @@ Versions of the games, e.g., Red, Blue or Yellow.
 ```ruby
 require 'time'
 require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
 
 api_instance = PokeApiClient::GamesApi.new
-id = 'id_example' # String | This parameter can be a string or an integer.
+id = '1' # String | This parameter can be a string or an integer.
 
 begin
   # Get version
@@ -630,7 +542,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

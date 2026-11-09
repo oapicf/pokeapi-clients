@@ -15,23 +15,38 @@ import java.math.*;
 public class ItemCategoryDetail implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * The identifier for this resource.
+   */
   @JsonProperty("id")
   private Integer id;
 
+  /**
+   * The name for this resource.
+   */
   @JsonProperty("name")
   private String name;
 
+  /**
+   * A list of items that are a part of this category.
+   */
   @JsonProperty("items")
   private List<ItemSummary> items = new ArrayList<>();
 
+  /**
+   * The name of this item category listed in different languages.
+   */
   @JsonProperty("names")
   private List<ItemCategoryName> names = new ArrayList<>();
 
+  /**
+   * The pocket items in this category would be put in.
+   */
   @JsonProperty("pocket")
   private ItemPocketSummary pocket;
 
   /**
-   * 
+   * The identifier for this resource.
    * @return id
    */
   public Integer getId() {
@@ -43,7 +58,7 @@ public class ItemCategoryDetail implements Serializable {
   }
 
   /**
-   * 
+   * The name for this resource.
    * @return name
    */
   public String getName() {
@@ -55,7 +70,7 @@ public class ItemCategoryDetail implements Serializable {
   }
 
   /**
-   * 
+   * A list of items that are a part of this category.
    * @return items
    */
   public List<ItemSummary> getItems() {
@@ -67,7 +82,7 @@ public class ItemCategoryDetail implements Serializable {
   }
 
   /**
-   * 
+   * The name of this item category listed in different languages.
    * @return names
    */
   public List<ItemCategoryName> getNames() {
@@ -79,7 +94,7 @@ public class ItemCategoryDetail implements Serializable {
   }
 
   /**
-   * 
+   * The pocket items in this category would be put in.
    * @return pocket
    */
   public ItemPocketSummary getPocket() {

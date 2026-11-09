@@ -50,6 +50,7 @@ class PokemonGameIndex(Model):
     def game_index(self) -> int:
         """Gets the game_index of this PokemonGameIndex.
 
+        The internal id of an API resource within game data.  # noqa: E501
 
         :return: The game_index of this PokemonGameIndex.
         :rtype: int
@@ -60,12 +61,17 @@ class PokemonGameIndex(Model):
     def game_index(self, game_index: int):
         """Sets the game_index of this PokemonGameIndex.
 
+        The internal id of an API resource within game data.  # noqa: E501
 
         :param game_index: The game_index of this PokemonGameIndex.
         :type game_index: int
         """
         if game_index is None:
             raise ValueError("Invalid value for `game_index`, must not be `None`")  # noqa: E501
+        if game_index is not None and game_index > 2147483647:  # noqa: E501
+            raise ValueError("Invalid value for `game_index`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if game_index is not None and game_index < -2147483648:  # noqa: E501
+            raise ValueError("Invalid value for `game_index`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._game_index = game_index
 
@@ -73,6 +79,7 @@ class PokemonGameIndex(Model):
     def version(self) -> VersionSummary:
         """Gets the version of this PokemonGameIndex.
 
+        The version relevent to this game index.  # noqa: E501
 
         :return: The version of this PokemonGameIndex.
         :rtype: VersionSummary
@@ -83,6 +90,7 @@ class PokemonGameIndex(Model):
     def version(self, version: VersionSummary):
         """Sets the version of this PokemonGameIndex.
 
+        The version relevent to this game index.  # noqa: E501
 
         :param version: The version of this PokemonGameIndex.
         :type version: VersionSummary

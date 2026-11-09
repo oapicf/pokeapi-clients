@@ -1,8 +1,8 @@
 /**
  * PokéAPI
- * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+ * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
  *
- * OpenAPI spec version: 2.7.0
+ * OpenAPI spec version: 2.10.0
  *
  * Contact: blah+oapicf@cliffano.com
  *
@@ -23,14 +23,25 @@ import upickle.default.*
 
         
 case class StatDetail(
+        /* The identifier for this resource. */
     id: Int,
+        /* The name for this resource. */
     name: String,
+        /* ID the games use for this stat. */
     gameIndex: Int,
+        /* Whether this stat only exists within a battle. */
     isBattleOnly: Option[Boolean] = None ,
-    affectingMoves: StatDetailAffectingMoves,
-    affectingNatures: StatDetailAffectingNatures,
+        /* A detail of moves which affect this stat positively or negatively. */
+    affectingMoves: StatAffectingMoves,
+        /* A detail of natures which affect this stat positively or negatively. */
+    affectingNatures: StatAffectingNatures,
+        /* Items that affect this stat, such as vitamins and battle items. */
+    affectingItems: Seq[ItemSummary],
+        /* A list of characteristics that are set on a Pokémon when its highest base stat is this stat. */
     characteristics: Seq[CharacteristicSummary],
+        /* The class of damage this stat is directly related to. */
     moveDamageClass: MoveDamageClassSummary,
+        /* The name of this resource listed in different languages. */
     names: Seq[StatName]
 
 
@@ -47,6 +58,7 @@ StatDetailData(
     isBattleOnly = isBattleOnly.getOrElse(false) /*  1 */,
     affectingMoves = affectingMoves.asData /* 8 */,
     affectingNatures = affectingNatures.asData /* 8 */,
+    affectingItems = affectingItems.map(_.asData) /* 6 */,
     characteristics = characteristics.map(_.asData) /* 6 */,
     moveDamageClass = moveDamageClass.asData /* 8 */,
     names = names.map(_.asData) /* 6 */
@@ -65,6 +77,7 @@ enum Fields(val fieldName : String) extends Field(fieldName) {
     case isBattleOnly extends Fields("isBattleOnly")
     case affectingMoves extends Fields("affectingMoves")
     case affectingNatures extends Fields("affectingNatures")
+    case affectingItems extends Fields("affectingItems")
     case characteristics extends Fields("characteristics")
     case moveDamageClass extends Fields("moveDamageClass")
     case names extends Fields("names")

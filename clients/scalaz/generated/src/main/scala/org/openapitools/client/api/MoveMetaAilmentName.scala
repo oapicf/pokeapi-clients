@@ -12,8 +12,10 @@ import org.joda.time.DateTime
 import MoveMetaAilmentName._
 
 case class MoveMetaAilmentName (
+  /* The localized name for an API resource in a specific language. */
   name: String,
-language: LanguageSummary)
+/* The language this name is in. */
+  language: LanguageSummary)
 
 object MoveMetaAilmentName {
   import DateTimeCodecs._

@@ -3,9 +3,9 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:openapi/src/model/item_summary.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:openapi/src/model/item_attribute_description.dart';
-import 'package:openapi/src/model/ability_detail_pokemon_inner_pokemon.dart';
 import 'package:openapi/src/model/item_attribute_name.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -15,25 +15,30 @@ part 'item_attribute_detail.g.dart';
 /// ItemAttributeDetail
 ///
 /// Properties:
-/// * [id] 
-/// * [name] 
-/// * [descriptions] 
-/// * [items] 
-/// * [names] 
+/// * [id] - The identifier for this resource.
+/// * [name] - The name for this resource.
+/// * [descriptions] - The description of this item attribute listed in different languages.
+/// * [items] - A list of items that have this attribute.
+/// * [names] - The name of this item attribute listed in different languages.
 @BuiltValue()
 abstract class ItemAttributeDetail implements Built<ItemAttributeDetail, ItemAttributeDetailBuilder> {
+  /// The identifier for this resource.
   @BuiltValueField(wireName: r'id')
   int get id;
 
+  /// The name for this resource.
   @BuiltValueField(wireName: r'name')
   String get name;
 
+  /// The description of this item attribute listed in different languages.
   @BuiltValueField(wireName: r'descriptions')
   BuiltList<ItemAttributeDescription> get descriptions;
 
+  /// A list of items that have this attribute.
   @BuiltValueField(wireName: r'items')
-  BuiltList<AbilityDetailPokemonInnerPokemon> get items;
+  BuiltList<ItemSummary> get items;
 
+  /// The name of this item attribute listed in different languages.
   @BuiltValueField(wireName: r'names')
   BuiltList<ItemAttributeName> get names;
 
@@ -78,7 +83,7 @@ class _$ItemAttributeDetailSerializer implements PrimitiveSerializer<ItemAttribu
     yield r'items';
     yield serializers.serialize(
       object.items,
-      specifiedType: const FullType(BuiltList, [FullType(AbilityDetailPokemonInnerPokemon)]),
+      specifiedType: const FullType(BuiltList, [FullType(ItemSummary)]),
     );
     yield r'names';
     yield serializers.serialize(
@@ -132,8 +137,8 @@ class _$ItemAttributeDetailSerializer implements PrimitiveSerializer<ItemAttribu
         case r'items':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(AbilityDetailPokemonInnerPokemon)]),
-          ) as BuiltList<AbilityDetailPokemonInnerPokemon>;
+            specifiedType: const FullType(BuiltList, [FullType(ItemSummary)]),
+          ) as BuiltList<ItemSummary>;
           result.items.replace(valueDes);
           break;
         case r'names':

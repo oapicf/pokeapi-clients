@@ -3,9 +3,9 @@
 /*
  * PokéAPI
  *
- * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+ * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
  *
- * API version: 2.7.0
+ * API version: 2.10.0
  * Contact: blah+oapicf@cliffano.com
  */
 
@@ -13,6 +13,7 @@ package openapi
 
 
 import (
+	"errors"
 	"encoding/json"
 	"fmt"
 )
@@ -21,18 +22,25 @@ import (
 
 type MoveChange struct {
 
+	// The percent value of how likely this move is to be successful.
 	Accuracy *int32 `json:"accuracy,omitempty"`
 
+	// The base power before the listed version group, or null if power did not change.
 	Power *int32 `json:"power,omitempty"`
 
+	// Power points. The number of times this move can be used.
 	Pp *int32 `json:"pp,omitempty"`
 
-	EffectChance int32 `json:"effect_chance"`
+	// The percent value of how likely it is this moves effect will take effect.
+	EffectChance *int32 `json:"effect_chance"`
 
-	EffectEntries []MoveChangeEffectEntriesInner `json:"effect_entries"`
+	// The effect of this move listed in different languages.
+	EffectEntries []MoveEffectEffectText `json:"effect_entries"`
 
-	Type TypeSummary `json:"type"`
+	// The elemental type of this move.
+	Type *TypeSummary `json:"type"`
 
+	// The version group in which these move stat values were in effect.
 	VersionGroup VersionGroupSummary `json:"version_group"`
 }
 // UnmarshalJSON validates required property keys then unmarshals into MoveChange
@@ -46,8 +54,8 @@ func (o *MoveChange) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	requiredNullableProperties := map[string]bool{
-		"effect_chance": false,
-		"type": false,
+		"effect_chance": true,
+		"type": true,
 		"version_group": false,
 	}
 
@@ -132,7 +140,6 @@ func (o *MoveChange) UnmarshalJSON(data []byte) (err error) {
 // Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertMoveChangeRequired(obj MoveChange) error {
 	elements := map[string]interface{}{
-		"type": obj.Type,
 		"version_group": obj.VersionGroup,
 	}
 	for name, el := range elements {
@@ -141,8 +148,10 @@ func AssertMoveChangeRequired(obj MoveChange) error {
 		}
 	}
 
-	if err := AssertTypeSummaryRequired(obj.Type); err != nil {
-		return err
+	if obj.Type != nil {
+		if err := AssertTypeSummaryRequired(*obj.Type); err != nil {
+			return err
+		}
 	}
 	if err := AssertVersionGroupSummaryRequired(obj.VersionGroup); err != nil {
 		return err
@@ -152,9 +161,29 @@ func AssertMoveChangeRequired(obj MoveChange) error {
 
 // AssertMoveChangeConstraints checks if the values respects the defined constraints
 func AssertMoveChangeConstraints(obj MoveChange) error {
-	if err := AssertTypeSummaryConstraints(obj.Type); err != nil {
-		return err
+	if obj.Accuracy != nil && *obj.Accuracy < -2147483648 {
+		return &ParsingError{Param: "Accuracy", Err: errors.New(errMsgMinValueConstraint)}
 	}
+	if obj.Accuracy != nil && *obj.Accuracy > 2147483647 {
+		return &ParsingError{Param: "Accuracy", Err: errors.New(errMsgMaxValueConstraint)}
+	}
+	if obj.Power != nil && *obj.Power < -2147483648 {
+		return &ParsingError{Param: "Power", Err: errors.New(errMsgMinValueConstraint)}
+	}
+	if obj.Power != nil && *obj.Power > 2147483647 {
+		return &ParsingError{Param: "Power", Err: errors.New(errMsgMaxValueConstraint)}
+	}
+	if obj.Pp != nil && *obj.Pp < -2147483648 {
+		return &ParsingError{Param: "Pp", Err: errors.New(errMsgMinValueConstraint)}
+	}
+	if obj.Pp != nil && *obj.Pp > 2147483647 {
+		return &ParsingError{Param: "Pp", Err: errors.New(errMsgMaxValueConstraint)}
+	}
+    if obj.Type != nil {
+     	if err := AssertTypeSummaryConstraints(*obj.Type); err != nil {
+     		return err
+     	}
+    }
 	if err := AssertVersionGroupSummaryConstraints(obj.VersionGroup); err != nil {
 		return err
 	}

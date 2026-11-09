@@ -5,18 +5,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ailment** | [**MoveMetaAilmentSummary**](MoveMetaAilmentSummary.md) |  | [default to undefined]
-**category** | [**MoveMetaCategorySummary**](MoveMetaCategorySummary.md) |  | [default to undefined]
-**min_hits** | **number** |  | [optional] [default to undefined]
-**max_hits** | **number** |  | [optional] [default to undefined]
-**min_turns** | **number** |  | [optional] [default to undefined]
-**max_turns** | **number** |  | [optional] [default to undefined]
-**drain** | **number** |  | [optional] [default to undefined]
-**healing** | **number** |  | [optional] [default to undefined]
-**crit_rate** | **number** |  | [optional] [default to undefined]
-**ailment_chance** | **number** |  | [optional] [default to undefined]
-**flinch_chance** | **number** |  | [optional] [default to undefined]
-**stat_chance** | **number** |  | [optional] [default to undefined]
+**ailment** | [**MoveMetaAilmentSummary**](MoveMetaAilmentSummary.md) | The status ailment this move inflicts on its target. | [default to undefined]
+**category** | [**MoveMetaCategorySummary**](MoveMetaCategorySummary.md) | The category of move this move falls under, e.g. damage or ailment. | [default to undefined]
+**min_hits** | **number** | The minimum number of times this move hits. Null if it always only hits once. | [optional] [default to undefined]
+**max_hits** | **number** | The maximum number of times this move hits. Null if it always only hits once. | [optional] [default to undefined]
+**min_turns** | **number** | The minimum number of turns this move continues to take effect. Null if it always only lasts one turn. | [optional] [default to undefined]
+**max_turns** | **number** | The maximum number of turns this move continues to take effect. Null if it always only lasts one turn. | [optional] [default to undefined]
+**drain** | **number** | HP drain (if positive) or Recoil damage (if negative), in percent of damage done. | [optional] [default to undefined]
+**healing** | **number** | The amount of hp gained by the attacking Pokemon, in percent of it\&#39;s maximum HP. | [optional] [default to undefined]
+**crit_rate** | **number** | Critical hit rate bonus. | [optional] [default to undefined]
+**ailment_chance** | **number** | The likelihood this attack will cause an ailment. | [optional] [default to undefined]
+**flinch_chance** | **number** | The likelihood this attack will cause the target Pokémon to flinch. | [optional] [default to undefined]
+**stat_chance** | **number** | The likelihood this attack will cause a stat change in the target Pokémon. | [optional] [default to undefined]
 
 ## Example
 

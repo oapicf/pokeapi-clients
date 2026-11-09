@@ -7,14 +7,14 @@
 #' @title VersionGroupDetail
 #' @description VersionGroupDetail Class
 #' @format An \code{R6Class} generator object
-#' @field id  integer
-#' @field name  character
-#' @field order  integer [optional]
-#' @field generation  \link{GenerationSummary}
-#' @field move_learn_methods  list(\link{AbilityDetailPokemonInnerPokemon})
-#' @field pokedexes  list(\link{AbilityDetailPokemonInnerPokemon})
-#' @field regions  list(\link{AbilityDetailPokemonInnerPokemon})
-#' @field versions  list(\link{VersionSummary})
+#' @field id The identifier for this resource. integer
+#' @field name The name for this resource. character
+#' @field order Order for sorting. Almost by date of release, except similar versions are grouped together. integer [optional]
+#' @field generation The generation this version was introduced in. \link{GenerationSummary}
+#' @field move_learn_methods A list of methods in which Pokémon can learn moves in this version group. list(\link{MoveLearnMethodSummary})
+#' @field pokedexes A list of Pokédexes introduces in this version group. list(\link{PokedexSummary})
+#' @field regions A list of regions that can be visited in this version group. list(\link{RegionSummary})
+#' @field versions The versions this version group owns. list(\link{VersionSummary})
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -33,14 +33,14 @@ VersionGroupDetail <- R6::R6Class(
     #' @description
     #' Initialize a new VersionGroupDetail class.
     #'
-    #' @param id id
-    #' @param name name
-    #' @param generation generation
-    #' @param move_learn_methods move_learn_methods
-    #' @param pokedexes pokedexes
-    #' @param regions regions
-    #' @param versions versions
-    #' @param order order
+    #' @param id The identifier for this resource.
+    #' @param name The name for this resource.
+    #' @param generation The generation this version was introduced in.
+    #' @param move_learn_methods A list of methods in which Pokémon can learn moves in this version group.
+    #' @param pokedexes A list of Pokédexes introduces in this version group.
+    #' @param regions A list of regions that can be visited in this version group.
+    #' @param versions The versions this version group owns.
+    #' @param order Order for sorting. Almost by date of release, except similar versions are grouped together.
     #' @param ... Other optional arguments.
     initialize = function(`id`, `name`, `generation`, `move_learn_methods`, `pokedexes`, `regions`, `versions`, `order` = NULL, ...) {
       if (!missing(`id`)) {
@@ -198,13 +198,13 @@ VersionGroupDetail <- R6::R6Class(
         self$`generation` <- `generation_object`
       }
       if (!is.null(this_object$`move_learn_methods`)) {
-        self$`move_learn_methods` <- ApiClient$new()$deserializeObj(this_object$`move_learn_methods`, "array[AbilityDetailPokemonInnerPokemon]", loadNamespace("openapi"))
+        self$`move_learn_methods` <- ApiClient$new()$deserializeObj(this_object$`move_learn_methods`, "array[MoveLearnMethodSummary]", loadNamespace("openapi"))
       }
       if (!is.null(this_object$`pokedexes`)) {
-        self$`pokedexes` <- ApiClient$new()$deserializeObj(this_object$`pokedexes`, "array[AbilityDetailPokemonInnerPokemon]", loadNamespace("openapi"))
+        self$`pokedexes` <- ApiClient$new()$deserializeObj(this_object$`pokedexes`, "array[PokedexSummary]", loadNamespace("openapi"))
       }
       if (!is.null(this_object$`regions`)) {
-        self$`regions` <- ApiClient$new()$deserializeObj(this_object$`regions`, "array[AbilityDetailPokemonInnerPokemon]", loadNamespace("openapi"))
+        self$`regions` <- ApiClient$new()$deserializeObj(this_object$`regions`, "array[RegionSummary]", loadNamespace("openapi"))
       }
       if (!is.null(this_object$`versions`)) {
         self$`versions` <- ApiClient$new()$deserializeObj(this_object$`versions`, "array[VersionSummary]", loadNamespace("openapi"))
@@ -234,9 +234,9 @@ VersionGroupDetail <- R6::R6Class(
       self$`name` <- this_object$`name`
       self$`order` <- this_object$`order`
       self$`generation` <- GenerationSummary$new()$fromJSON(jsonlite::toJSON(this_object$`generation`, auto_unbox = TRUE, digits = NA))
-      self$`move_learn_methods` <- ApiClient$new()$deserializeObj(this_object$`move_learn_methods`, "array[AbilityDetailPokemonInnerPokemon]", loadNamespace("openapi"))
-      self$`pokedexes` <- ApiClient$new()$deserializeObj(this_object$`pokedexes`, "array[AbilityDetailPokemonInnerPokemon]", loadNamespace("openapi"))
-      self$`regions` <- ApiClient$new()$deserializeObj(this_object$`regions`, "array[AbilityDetailPokemonInnerPokemon]", loadNamespace("openapi"))
+      self$`move_learn_methods` <- ApiClient$new()$deserializeObj(this_object$`move_learn_methods`, "array[MoveLearnMethodSummary]", loadNamespace("openapi"))
+      self$`pokedexes` <- ApiClient$new()$deserializeObj(this_object$`pokedexes`, "array[PokedexSummary]", loadNamespace("openapi"))
+      self$`regions` <- ApiClient$new()$deserializeObj(this_object$`regions`, "array[RegionSummary]", loadNamespace("openapi"))
       self$`versions` <- ApiClient$new()$deserializeObj(this_object$`versions`, "array[VersionSummary]", loadNamespace("openapi"))
       self
     },
@@ -322,7 +322,14 @@ VersionGroupDetail <- R6::R6Class(
         return(FALSE)
       }
 
-      if (nchar(self$`name`) > 100) {
+      if (nchar(self$`name`) > 200) {
+        return(FALSE)
+      }
+
+      if (self$`order` > 2147483647) {
+        return(FALSE)
+      }
+      if (self$`order` < -2147483648) {
         return(FALSE)
       }
 
@@ -370,8 +377,15 @@ VersionGroupDetail <- R6::R6Class(
         invalid_fields["name"] <- "Non-nullable required field `name` cannot be null."
       }
 
-      if (nchar(self$`name`) > 100) {
-        invalid_fields["name"] <- "Invalid length for `name`, must be smaller than or equal to 100."
+      if (nchar(self$`name`) > 200) {
+        invalid_fields["name"] <- "Invalid length for `name`, must be smaller than or equal to 200."
+      }
+
+      if (self$`order` > 2147483647) {
+        invalid_fields["order"] <- "Invalid value for `order`, must be smaller than or equal to 2147483647."
+      }
+      if (self$`order` < -2147483648) {
+        invalid_fields["order"] <- "Invalid value for `order`, must be bigger than or equal to -2147483648."
       }
 
       # check if the required `generation` is null

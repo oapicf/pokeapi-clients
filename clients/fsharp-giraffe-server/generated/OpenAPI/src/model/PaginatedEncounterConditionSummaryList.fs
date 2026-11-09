@@ -3,6 +3,7 @@ namespace OpenAPI.Model
 open System
 open System.Collections.Generic
 open OpenAPI.Model.EncounterConditionSummary
+open OpenAPI.Model.string option
 
 module PaginatedEncounterConditionSummaryList =
 
@@ -11,8 +12,8 @@ module PaginatedEncounterConditionSummaryList =
 
   type PaginatedEncounterConditionSummaryList = {
     Count : int;
-    Next : string;
-    Previous : string;
+    Next : string option;
+    Previous : string option;
     Results : EncounterConditionSummary[];
   }
   //#endregion

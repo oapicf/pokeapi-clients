@@ -1,9 +1,10 @@
 package apimodels;
 
 import apimodels.CharacteristicSummary;
+import apimodels.ItemSummary;
 import apimodels.MoveDamageClassSummary;
-import apimodels.StatDetailAffectingMoves;
-import apimodels.StatDetailAffectingNatures;
+import apimodels.StatAffectingMoves;
+import apimodels.StatAffectingNatures;
 import apimodels.StatName;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -17,7 +18,7 @@ import javax.validation.Valid;
 /**
  * StatDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-10-25T05:48:13.486809836Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-11-09T13:49:31.462302702Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class StatDetail   {
   @JsonProperty("id")
@@ -27,12 +28,14 @@ public class StatDetail   {
 
   @JsonProperty("name")
   @NotNull
-@Size(max=100)
+@Size(max=200)
 
   private String name;
 
   @JsonProperty("game_index")
   @NotNull
+@Min(-2147483648)
+@Max(2147483647)
 
   private Integer gameIndex;
 
@@ -44,13 +47,19 @@ public class StatDetail   {
   @NotNull
 @Valid
 
-  private StatDetailAffectingMoves affectingMoves;
+  private StatAffectingMoves affectingMoves;
 
   @JsonProperty("affecting_natures")
   @NotNull
 @Valid
 
-  private StatDetailAffectingNatures affectingNatures;
+  private StatAffectingNatures affectingNatures;
+
+  @JsonProperty("affecting_items")
+  @NotNull
+@Valid
+
+  private List<@Valid ItemSummary> affectingItems = new ArrayList<>();
 
   @JsonProperty("characteristics")
   @NotNull
@@ -76,7 +85,7 @@ public class StatDetail   {
   }
 
    /**
-   * Get id
+   * The identifier for this resource.
    * @return id
   **/
   public Integer getId() {
@@ -93,7 +102,7 @@ public class StatDetail   {
   }
 
    /**
-   * Get name
+   * The name for this resource.
    * @return name
   **/
   public String getName() {
@@ -110,7 +119,9 @@ public class StatDetail   {
   }
 
    /**
-   * Get gameIndex
+   * ID the games use for this stat.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return gameIndex
   **/
   public Integer getGameIndex() {
@@ -127,7 +138,7 @@ public class StatDetail   {
   }
 
    /**
-   * Get isBattleOnly
+   * Whether this stat only exists within a battle.
    * @return isBattleOnly
   **/
   public Boolean getIsBattleOnly() {
@@ -138,38 +149,63 @@ public class StatDetail   {
     this.isBattleOnly = isBattleOnly;
   }
 
-  public StatDetail affectingMoves(StatDetailAffectingMoves affectingMoves) {
+  public StatDetail affectingMoves(StatAffectingMoves affectingMoves) {
     this.affectingMoves = affectingMoves;
     return this;
   }
 
    /**
-   * Get affectingMoves
+   * A detail of moves which affect this stat positively or negatively.
    * @return affectingMoves
   **/
-  public StatDetailAffectingMoves getAffectingMoves() {
+  public StatAffectingMoves getAffectingMoves() {
     return affectingMoves;
   }
 
-  public void setAffectingMoves(StatDetailAffectingMoves affectingMoves) {
+  public void setAffectingMoves(StatAffectingMoves affectingMoves) {
     this.affectingMoves = affectingMoves;
   }
 
-  public StatDetail affectingNatures(StatDetailAffectingNatures affectingNatures) {
+  public StatDetail affectingNatures(StatAffectingNatures affectingNatures) {
     this.affectingNatures = affectingNatures;
     return this;
   }
 
    /**
-   * Get affectingNatures
+   * A detail of natures which affect this stat positively or negatively.
    * @return affectingNatures
   **/
-  public StatDetailAffectingNatures getAffectingNatures() {
+  public StatAffectingNatures getAffectingNatures() {
     return affectingNatures;
   }
 
-  public void setAffectingNatures(StatDetailAffectingNatures affectingNatures) {
+  public void setAffectingNatures(StatAffectingNatures affectingNatures) {
     this.affectingNatures = affectingNatures;
+  }
+
+  public StatDetail affectingItems(List<@Valid ItemSummary> affectingItems) {
+    this.affectingItems = affectingItems;
+    return this;
+  }
+
+  public StatDetail addAffectingItemsItem(ItemSummary affectingItemsItem) {
+    if (this.affectingItems == null) {
+      this.affectingItems = new ArrayList<>();
+    }
+    this.affectingItems.add(affectingItemsItem);
+    return this;
+  }
+
+   /**
+   * Items that affect this stat, such as vitamins and battle items.
+   * @return affectingItems
+  **/
+  public List<@Valid ItemSummary> getAffectingItems() {
+    return affectingItems;
+  }
+
+  public void setAffectingItems(List<@Valid ItemSummary> affectingItems) {
+    this.affectingItems = affectingItems;
   }
 
   public StatDetail characteristics(List<@Valid CharacteristicSummary> characteristics) {
@@ -186,7 +222,7 @@ public class StatDetail   {
   }
 
    /**
-   * Get characteristics
+   * A list of characteristics that are set on a Pokémon when its highest base stat is this stat.
    * @return characteristics
   **/
   public List<@Valid CharacteristicSummary> getCharacteristics() {
@@ -203,7 +239,7 @@ public class StatDetail   {
   }
 
    /**
-   * Get moveDamageClass
+   * The class of damage this stat is directly related to.
    * @return moveDamageClass
   **/
   public MoveDamageClassSummary getMoveDamageClass() {
@@ -228,7 +264,7 @@ public class StatDetail   {
   }
 
    /**
-   * Get names
+   * The name of this resource listed in different languages.
    * @return names
   **/
   public List<@Valid StatName> getNames() {
@@ -255,6 +291,7 @@ public class StatDetail   {
         Objects.equals(isBattleOnly, statDetail.isBattleOnly) &&
         Objects.equals(affectingMoves, statDetail.affectingMoves) &&
         Objects.equals(affectingNatures, statDetail.affectingNatures) &&
+        Objects.equals(affectingItems, statDetail.affectingItems) &&
         Objects.equals(characteristics, statDetail.characteristics) &&
         Objects.equals(moveDamageClass, statDetail.moveDamageClass) &&
         Objects.equals(names, statDetail.names);
@@ -262,7 +299,7 @@ public class StatDetail   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, gameIndex, isBattleOnly, affectingMoves, affectingNatures, characteristics, moveDamageClass, names);
+    return Objects.hash(id, name, gameIndex, isBattleOnly, affectingMoves, affectingNatures, affectingItems, characteristics, moveDamageClass, names);
   }
 
   @SuppressWarnings("StringBufferReplaceableByString")
@@ -277,6 +314,7 @@ public class StatDetail   {
     sb.append("    isBattleOnly: ").append(toIndentedString(isBattleOnly)).append("\n");
     sb.append("    affectingMoves: ").append(toIndentedString(affectingMoves)).append("\n");
     sb.append("    affectingNatures: ").append(toIndentedString(affectingNatures)).append("\n");
+    sb.append("    affectingItems: ").append(toIndentedString(affectingItems)).append("\n");
     sb.append("    characteristics: ").append(toIndentedString(characteristics)).append("\n");
     sb.append("    moveDamageClass: ").append(toIndentedString(moveDamageClass)).append("\n");
     sb.append("    names: ").append(toIndentedString(names)).append("\n");

@@ -8,16 +8,15 @@ import model.PaginatedContestTypeSummaryList
 import model.PaginatedSuperContestEffectSummaryList
 import model.SuperContestEffectDetail
 
-@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2026-10-25T05:53:17.467323765Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2026-11-09T13:53:31.572745352Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 trait ContestsApi {
   /**
     * List contest effects
     * Contest effects refer to the effects of moves when used in contests.
     * @param limit Number of results to return per page.
     * @param offset The initial index from which to return the results.
-    * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. 
     */
-  def contestEffectList(limit: Option[Int], offset: Option[Int], q: Option[String]): PaginatedContestEffectSummaryList
+  def contestEffectList(limit: Option[Int], offset: Option[Int]): PaginatedContestEffectSummaryList
 
   /**
     * Get contest effect
@@ -47,9 +46,8 @@ trait ContestsApi {
     * Super contest effects refer to the effects of moves when used in super contests.
     * @param limit Number of results to return per page.
     * @param offset The initial index from which to return the results.
-    * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. 
     */
-  def superContestEffectList(limit: Option[Int], offset: Option[Int], q: Option[String]): PaginatedSuperContestEffectSummaryList
+  def superContestEffectList(limit: Option[Int], offset: Option[Int]): PaginatedSuperContestEffectSummaryList
 
   /**
     * Get super contest effect

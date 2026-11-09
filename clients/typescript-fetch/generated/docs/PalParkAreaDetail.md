@@ -9,7 +9,7 @@ Name | Type
 `id` | number
 `name` | string
 `names` | [Array&lt;PalParkAreaName&gt;](PalParkAreaName.md)
-`pokemonEncounters` | [Array&lt;PalParkAreaDetailPokemonEncountersInner&gt;](PalParkAreaDetailPokemonEncountersInner.md)
+`pokemonEncounters` | [Array&lt;PalParkEncounter&gt;](PalParkEncounter.md)
 
 ## Example
 

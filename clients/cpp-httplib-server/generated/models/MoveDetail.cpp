@@ -16,22 +16,19 @@ MoveDetail::MoveDetail()
 , pp(0)
 , priority(0)
 , power(0)
-, contestCombos(MoveDetailContestCombos())
-, contestType(ContestTypeSummary())
-, contestEffect(ContestEffectSummary())
-, damageClass(MoveDamageClassSummary())
-, effectEntries(std::vector<MoveDetail_effect_entries_inner>())
-, effectChanges(std::vector<MoveDetail_effect_changes_inner>())
-, generation(GenerationSummary())
+, contestCombos(std::nullopt)
+, contestType(std::nullopt)
+, contestEffect(std::nullopt)
+, effectEntries(std::vector<MoveEffectEffectText>())
+, effectChanges(std::vector<MoveEffectChange>())
+, meta(std::nullopt)
 , names(std::vector<MoveName>())
 , pastValues(std::vector<MoveChange>())
-, statChanges(std::vector<MoveDetail_stat_changes_inner>())
-, superContestEffect(SuperContestEffectSummary())
-, target(MoveTargetSummary())
-, type(TypeSummary())
-, machines(std::vector<MoveDetail_machines_inner>())
+, statChanges(std::vector<MoveMetaStatChange>())
+, superContestEffect(std::nullopt)
+, machines(std::vector<ItemMachine>())
 , flavorTextEntries(std::vector<MoveFlavorText>())
-, learnedByPokemon(std::vector<MoveDetail_learned_by_pokemon_inner>())
+, learnedByPokemon(std::vector<PokemonSummary>())
 {
 }
 // =========================================
@@ -68,7 +65,7 @@ int MoveDetail::getPower() const
 {
     return power;
 }
-MoveDetailContestCombos MoveDetail::getContestCombos() const
+MoveCombos MoveDetail::getContestCombos() const
 {
     return contestCombos;
 }
@@ -84,11 +81,11 @@ MoveDamageClassSummary MoveDetail::getDamageClass() const
 {
     return damageClass;
 }
-std::vector<MoveDetail_effect_entries_inner> MoveDetail::getEffectEntries() const
+std::vector<MoveEffectEffectText> MoveDetail::getEffectEntries() const
 {
     return effectEntries;
 }
-std::vector<MoveDetail_effect_changes_inner> MoveDetail::getEffectChanges() const
+std::vector<MoveEffectChange> MoveDetail::getEffectChanges() const
 {
     return effectChanges;
 }
@@ -108,7 +105,7 @@ std::vector<MoveChange> MoveDetail::getPastValues() const
 {
     return pastValues;
 }
-std::vector<MoveDetail_stat_changes_inner> MoveDetail::getStatChanges() const
+std::vector<MoveMetaStatChange> MoveDetail::getStatChanges() const
 {
     return statChanges;
 }
@@ -124,7 +121,7 @@ TypeSummary MoveDetail::getType() const
 {
     return type;
 }
-std::vector<MoveDetail_machines_inner> MoveDetail::getMachines() const
+std::vector<ItemMachine> MoveDetail::getMachines() const
 {
     return machines;
 }
@@ -132,7 +129,7 @@ std::vector<MoveFlavorText> MoveDetail::getFlavorTextEntries() const
 {
     return flavorTextEntries;
 }
-std::vector<MoveDetail_learned_by_pokemon_inner> MoveDetail::getLearnedByPokemon() const
+std::vector<PokemonSummary> MoveDetail::getLearnedByPokemon() const
 {
     return learnedByPokemon;
 }
@@ -168,7 +165,7 @@ void MoveDetail::setPower(const int& powerObj)
 {
     power = powerObj;
 }
-void MoveDetail::setContestCombos(const MoveDetailContestCombos& contestCombosObj)
+void MoveDetail::setContestCombos(const MoveCombos& contestCombosObj)
 {
     contestCombos = contestCombosObj;
 }
@@ -184,11 +181,11 @@ void MoveDetail::setDamageClass(const MoveDamageClassSummary& damageClassObj)
 {
     damageClass = damageClassObj;
 }
-void MoveDetail::setEffectEntries(const std::vector<MoveDetail_effect_entries_inner>& effectEntriesObj)
+void MoveDetail::setEffectEntries(const std::vector<MoveEffectEffectText>& effectEntriesObj)
 {
     effectEntries = effectEntriesObj;
 }
-void MoveDetail::setEffectChanges(const std::vector<MoveDetail_effect_changes_inner>& effectChangesObj)
+void MoveDetail::setEffectChanges(const std::vector<MoveEffectChange>& effectChangesObj)
 {
     effectChanges = effectChangesObj;
 }
@@ -208,7 +205,7 @@ void MoveDetail::setPastValues(const std::vector<MoveChange>& pastValuesObj)
 {
     pastValues = pastValuesObj;
 }
-void MoveDetail::setStatChanges(const std::vector<MoveDetail_stat_changes_inner>& statChangesObj)
+void MoveDetail::setStatChanges(const std::vector<MoveMetaStatChange>& statChangesObj)
 {
     statChanges = statChangesObj;
 }
@@ -224,7 +221,7 @@ void MoveDetail::setType(const TypeSummary& typeObj)
 {
     type = typeObj;
 }
-void MoveDetail::setMachines(const std::vector<MoveDetail_machines_inner>& machinesObj)
+void MoveDetail::setMachines(const std::vector<ItemMachine>& machinesObj)
 {
     machines = machinesObj;
 }
@@ -232,7 +229,7 @@ void MoveDetail::setFlavorTextEntries(const std::vector<MoveFlavorText>& flavorT
 {
     flavorTextEntries = flavorTextEntriesObj;
 }
-void MoveDetail::setLearnedByPokemon(const std::vector<MoveDetail_learned_by_pokemon_inner>& learnedByPokemonObj)
+void MoveDetail::setLearnedByPokemon(const std::vector<PokemonSummary>& learnedByPokemonObj)
 {
     learnedByPokemon = learnedByPokemonObj;
 }

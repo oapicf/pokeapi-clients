@@ -3,7 +3,7 @@ package org.openapitools.model;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.model.PokeathlonStatDetailAffectingNatures;
+import org.openapitools.model.PokeathlonStatAffectingNatures;
 import org.openapitools.model.PokeathlonStatName;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
@@ -15,20 +15,32 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class PokeathlonStatDetail  {
   
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The identifier for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   private Integer id;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The name for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   private String name;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * A detail of natures which affect this Pokéathlon stat positively or negatively.
+  */
+  @ApiModelProperty(required = true, value = "A detail of natures which affect this Pokéathlon stat positively or negatively.")
   @Valid
-  private PokeathlonStatDetailAffectingNatures affectingNatures;
+  private PokeathlonStatAffectingNatures affectingNatures;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The name of this resource listed in different languages.
+  */
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
   private List<@Valid PokeathlonStatName> names = new ArrayList<>();
  /**
-  * Get id
+  * The identifier for this resource.
   * @return id
   */
   @JsonProperty("id")
@@ -55,12 +67,12 @@ public class PokeathlonStatDetail  {
   }
 
  /**
-  * Get name
+  * The name for this resource.
   * @return name
   */
   @JsonProperty("name")
   @NotNull
- @Size(max=100)  public String getName() {
+ @Size(max=200)  public String getName() {
     return name;
   }
 
@@ -80,32 +92,34 @@ public class PokeathlonStatDetail  {
   }
 
  /**
-  * Get affectingNatures
+  * A detail of natures which affect this Pokéathlon stat positively or negatively.
   * @return affectingNatures
   */
   @JsonProperty("affecting_natures")
   @NotNull
-  public PokeathlonStatDetailAffectingNatures getAffectingNatures() {
+  public PokeathlonStatAffectingNatures getAffectingNatures() {
     return affectingNatures;
   }
 
   /**
    * Sets the <code>affectingNatures</code> property.
+   * <br><em>N.B. <code>affectingNatures</code> is <b>read only</b>; client code should not call this method</em>.
    */
- public void setAffectingNatures(PokeathlonStatDetailAffectingNatures affectingNatures) {
+ public void setAffectingNatures(PokeathlonStatAffectingNatures affectingNatures) {
     this.affectingNatures = affectingNatures;
   }
 
   /**
    * Sets the <code>affectingNatures</code> property.
+   * <br><em>N.B. <code>affectingNatures</code> is <b>read only</b>; client code should not call this method</em>.
    */
-  public PokeathlonStatDetail affectingNatures(PokeathlonStatDetailAffectingNatures affectingNatures) {
+  public PokeathlonStatDetail affectingNatures(PokeathlonStatAffectingNatures affectingNatures) {
     this.affectingNatures = affectingNatures;
     return this;
   }
 
  /**
-  * Get names
+  * The name of this resource listed in different languages.
   * @return names
   */
   @JsonProperty("names")

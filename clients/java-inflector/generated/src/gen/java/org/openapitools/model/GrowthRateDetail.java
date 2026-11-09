@@ -16,7 +16,7 @@ import org.openapitools.model.PokemonSpeciesSummary;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-10-25T05:47:53.227411880Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-11-09T13:49:15.621225368Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class GrowthRateDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -37,6 +37,7 @@ public class GrowthRateDetail   {
   private List<PokemonSpeciesSummary> pokemonSpecies = new ArrayList<>();
 
   /**
+   * The identifier for this resource.
    **/
   public GrowthRateDetail id(Integer id) {
     this.id = id;
@@ -44,7 +45,7 @@ public class GrowthRateDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   @JsonProperty("id")
   public Integer getId() {
     return id;
@@ -54,6 +55,7 @@ public class GrowthRateDetail   {
   }
 
   /**
+   * The name for this resource.
    **/
   public GrowthRateDetail name(String name) {
     this.name = name;
@@ -61,7 +63,7 @@ public class GrowthRateDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   @JsonProperty("name")
   public String getName() {
     return name;
@@ -71,6 +73,7 @@ public class GrowthRateDetail   {
   }
 
   /**
+   * The formula used to calculate the rate at which the Pokémon species gains level.
    **/
   public GrowthRateDetail formula(String formula) {
     this.formula = formula;
@@ -78,7 +81,7 @@ public class GrowthRateDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The formula used to calculate the rate at which the Pokémon species gains level.")
   @JsonProperty("formula")
   public String getFormula() {
     return formula;
@@ -88,6 +91,7 @@ public class GrowthRateDetail   {
   }
 
   /**
+   * The descriptions of this characteristic listed in different languages.
    **/
   public GrowthRateDetail descriptions(List<GrowthRateDescription> descriptions) {
     this.descriptions = descriptions;
@@ -95,7 +99,7 @@ public class GrowthRateDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The descriptions of this characteristic listed in different languages.")
   @JsonProperty("descriptions")
   public List<GrowthRateDescription> getDescriptions() {
     return descriptions;
@@ -105,6 +109,7 @@ public class GrowthRateDetail   {
   }
 
   /**
+   * A list of levels and the amount of experienced needed to atain them based on this growth rate.
    **/
   public GrowthRateDetail levels(List<Experience> levels) {
     this.levels = levels;
@@ -112,7 +117,7 @@ public class GrowthRateDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of levels and the amount of experienced needed to atain them based on this growth rate.")
   @JsonProperty("levels")
   public List<Experience> getLevels() {
     return levels;
@@ -122,6 +127,7 @@ public class GrowthRateDetail   {
   }
 
   /**
+   * A list of Pokémon species that gain levels at this growth rate.
    **/
   public GrowthRateDetail pokemonSpecies(List<PokemonSpeciesSummary> pokemonSpecies) {
     this.pokemonSpecies = pokemonSpecies;
@@ -129,7 +135,7 @@ public class GrowthRateDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of Pokémon species that gain levels at this growth rate.")
   @JsonProperty("pokemon_species")
   public List<PokemonSpeciesSummary> getPokemonSpecies() {
     return pokemonSpecies;

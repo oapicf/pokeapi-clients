@@ -8,8 +8,11 @@
 import Foundation
 
 public struct PokemonStat: Codable {
+    /// The base value of the stat.
     public var baseStat: Int
+    /// The effort points (EV) the Pokémon has in the stat.
     public var effort: Int
+    /// The stat the Pokémon has.
     public var stat: StatSummary
 
     public init(baseStat: Int, effort: Int, stat: StatSummary) {

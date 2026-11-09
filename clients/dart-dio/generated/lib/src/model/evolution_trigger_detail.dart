@@ -5,7 +5,7 @@
 // ignore_for_file: unused_element
 import 'package:openapi/src/model/evolution_trigger_name.dart';
 import 'package:built_collection/built_collection.dart';
-import 'package:openapi/src/model/ability_detail_pokemon_inner_pokemon.dart';
+import 'package:openapi/src/model/pokemon_species_summary.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -14,23 +14,27 @@ part 'evolution_trigger_detail.g.dart';
 /// EvolutionTriggerDetail
 ///
 /// Properties:
-/// * [id] 
-/// * [name] 
-/// * [names] 
-/// * [pokemonSpecies] 
+/// * [id] - The identifier for this resource.
+/// * [name] - The name for this resource.
+/// * [names] - The name of this resource listed in different languages.
+/// * [pokemonSpecies] - A list of pokemon species that result from this evolution trigger.
 @BuiltValue()
 abstract class EvolutionTriggerDetail implements Built<EvolutionTriggerDetail, EvolutionTriggerDetailBuilder> {
+  /// The identifier for this resource.
   @BuiltValueField(wireName: r'id')
   int get id;
 
+  /// The name for this resource.
   @BuiltValueField(wireName: r'name')
   String get name;
 
+  /// The name of this resource listed in different languages.
   @BuiltValueField(wireName: r'names')
   BuiltList<EvolutionTriggerName> get names;
 
+  /// A list of pokemon species that result from this evolution trigger.
   @BuiltValueField(wireName: r'pokemon_species')
-  BuiltList<AbilityDetailPokemonInnerPokemon> get pokemonSpecies;
+  BuiltList<PokemonSpeciesSummary> get pokemonSpecies;
 
   EvolutionTriggerDetail._();
 
@@ -73,7 +77,7 @@ class _$EvolutionTriggerDetailSerializer implements PrimitiveSerializer<Evolutio
     yield r'pokemon_species';
     yield serializers.serialize(
       object.pokemonSpecies,
-      specifiedType: const FullType(BuiltList, [FullType(AbilityDetailPokemonInnerPokemon)]),
+      specifiedType: const FullType(BuiltList, [FullType(PokemonSpeciesSummary)]),
     );
   }
 
@@ -122,8 +126,8 @@ class _$EvolutionTriggerDetailSerializer implements PrimitiveSerializer<Evolutio
         case r'pokemon_species':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(AbilityDetailPokemonInnerPokemon)]),
-          ) as BuiltList<AbilityDetailPokemonInnerPokemon>;
+            specifiedType: const FullType(BuiltList, [FullType(PokemonSpeciesSummary)]),
+          ) as BuiltList<PokemonSpeciesSummary>;
           result.pokemonSpecies.replace(valueDes);
           break;
         default:

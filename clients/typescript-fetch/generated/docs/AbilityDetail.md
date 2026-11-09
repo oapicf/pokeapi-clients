@@ -14,7 +14,7 @@ Name | Type
 `effectEntries` | [Array&lt;AbilityEffectText&gt;](AbilityEffectText.md)
 `effectChanges` | [Array&lt;AbilityChange&gt;](AbilityChange.md)
 `flavorTextEntries` | [Array&lt;AbilityFlavorText&gt;](AbilityFlavorText.md)
-`pokemon` | [Array&lt;AbilityDetailPokemonInner&gt;](AbilityDetailPokemonInner.md)
+`pokemon` | [Array&lt;AbilityPokemonDetail&gt;](AbilityPokemonDetail.md)
 
 ## Example
 

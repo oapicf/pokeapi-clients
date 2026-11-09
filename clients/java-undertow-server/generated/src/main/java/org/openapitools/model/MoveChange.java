@@ -1,9 +1,9 @@
 /*
  * PokéAPI
  *
- * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+ * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
  *
- * OpenAPI document version: 2.7.0
+ * OpenAPI document version: 2.10.0
  * Maintained by: blah+oapicf@cliffano.com
  *
  * AUTO-GENERATED FILE, DO NOT MODIFY!
@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
-import org.openapitools.model.MoveChangeEffectEntriesInner;
+import org.openapitools.model.MoveEffectEffectText;
 import org.openapitools.model.TypeSummary;
 import org.openapitools.model.VersionGroupSummary;
 
@@ -27,18 +27,21 @@ import org.openapitools.model.VersionGroupSummary;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2026-10-25T05:48:17.483504027Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2026-11-09T13:49:34.675912514Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class MoveChange   {
   
   private Integer accuracy;
   private Integer power;
   private Integer pp;
   private Integer effectChance;
-  private List<MoveChangeEffectEntriesInner> effectEntries = new ArrayList<>();
+  private List<MoveEffectEffectText> effectEntries = new ArrayList<>();
   private TypeSummary type;
   private VersionGroupSummary versionGroup;
 
   /**
+   * The percent value of how likely this move is to be successful.
+   * minimum: -2147483648
+   * maximum: 2147483647
    */
   public MoveChange accuracy(Integer accuracy) {
     this.accuracy = accuracy;
@@ -46,7 +49,7 @@ public class MoveChange   {
   }
 
   
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The percent value of how likely this move is to be successful.")
   @JsonProperty("accuracy")
   public Integer getAccuracy() {
     return accuracy;
@@ -56,6 +59,9 @@ public class MoveChange   {
   }
 
   /**
+   * The base power before the listed version group, or null if power did not change.
+   * minimum: -2147483648
+   * maximum: 2147483647
    */
   public MoveChange power(Integer power) {
     this.power = power;
@@ -63,7 +69,7 @@ public class MoveChange   {
   }
 
   
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The base power before the listed version group, or null if power did not change.")
   @JsonProperty("power")
   public Integer getPower() {
     return power;
@@ -73,6 +79,9 @@ public class MoveChange   {
   }
 
   /**
+   * Power points. The number of times this move can be used.
+   * minimum: -2147483648
+   * maximum: 2147483647
    */
   public MoveChange pp(Integer pp) {
     this.pp = pp;
@@ -80,7 +89,7 @@ public class MoveChange   {
   }
 
   
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Power points. The number of times this move can be used.")
   @JsonProperty("pp")
   public Integer getPp() {
     return pp;
@@ -90,6 +99,7 @@ public class MoveChange   {
   }
 
   /**
+   * The percent value of how likely it is this moves effect will take effect.
    */
   public MoveChange effectChance(Integer effectChance) {
     this.effectChance = effectChance;
@@ -97,7 +107,7 @@ public class MoveChange   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The percent value of how likely it is this moves effect will take effect.")
   @JsonProperty("effect_chance")
   public Integer getEffectChance() {
     return effectChance;
@@ -107,23 +117,25 @@ public class MoveChange   {
   }
 
   /**
+   * The effect of this move listed in different languages.
    */
-  public MoveChange effectEntries(List<MoveChangeEffectEntriesInner> effectEntries) {
+  public MoveChange effectEntries(List<MoveEffectEffectText> effectEntries) {
     this.effectEntries = effectEntries;
     return this;
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The effect of this move listed in different languages.")
   @JsonProperty("effect_entries")
-  public List<MoveChangeEffectEntriesInner> getEffectEntries() {
+  public List<MoveEffectEffectText> getEffectEntries() {
     return effectEntries;
   }
-  public void setEffectEntries(List<MoveChangeEffectEntriesInner> effectEntries) {
+  public void setEffectEntries(List<MoveEffectEffectText> effectEntries) {
     this.effectEntries = effectEntries;
   }
 
   /**
+   * The elemental type of this move.
    */
   public MoveChange type(TypeSummary type) {
     this.type = type;
@@ -131,7 +143,7 @@ public class MoveChange   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The elemental type of this move.")
   @JsonProperty("type")
   public TypeSummary getType() {
     return type;
@@ -141,6 +153,7 @@ public class MoveChange   {
   }
 
   /**
+   * The version group in which these move stat values were in effect.
    */
   public MoveChange versionGroup(VersionGroupSummary versionGroup) {
     this.versionGroup = versionGroup;
@@ -148,7 +161,7 @@ public class MoveChange   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The version group in which these move stat values were in effect.")
   @JsonProperty("version_group")
   public VersionGroupSummary getVersionGroup() {
     return versionGroup;

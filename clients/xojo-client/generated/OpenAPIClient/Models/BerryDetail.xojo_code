@@ -2,61 +2,97 @@
 Protected Class BerryDetail
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The identifier for this resource.
+		#tag EndNote
 		id As Integer
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The name for this resource.
+		#tag EndNote
 		name As String
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
-		growth_time As Integer
+		#tag Note
+			Time it takes the tree to grow one stage, in hours. Berry trees go through four of these growth stages before they can be picked.
+		#tag EndNote
+		growth_time As Xoson.O.OptionalInteger
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
-		max_harvest As Integer
+		#tag Note
+			The maximum number of these berries that can grow on one tree in Generation IV.
+		#tag EndNote
+		max_harvest As Xoson.O.OptionalInteger
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
-		natural_gift_power As Integer
+		#tag Note
+			The power of the move "Natural Gift" when used with this Berry.
+		#tag EndNote
+		natural_gift_power As Xoson.O.OptionalInteger
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
-		size As Integer
+		#tag Note
+			The size of this Berry, in millimeters.
+		#tag EndNote
+		size As Xoson.O.OptionalInteger
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
-		smoothness As Integer
+		#tag Note
+			The smoothness of this Berry, used in making Pokéblocks or Poffins.
+		#tag EndNote
+		smoothness As Xoson.O.OptionalInteger
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
-		soil_dryness As Integer
+		#tag Note
+			The speed at which this Berry dries out the soil as it grows. A higher rate means the soil dries more quickly.
+		#tag EndNote
+		soil_dryness As Xoson.O.OptionalInteger
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The firmness of this berry, used in making Pokéblocks or Poffins.
+		#tag EndNote
 		firmness As OpenAPIClient.Models.BerryFirmnessSummary
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
-		flavors() As OpenAPIClient.Models.BerryDetailFlavorsInner
+		#tag Note
+			A list of references to each flavor a berry can have and the potency of each of those flavors in regard to this berry.
+		#tag EndNote
+		flavors() As OpenAPIClient.Models.BerryFlavorMap
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			Berries are actually items. This is a reference to the item specific data for this berry.
+		#tag EndNote
 		item As OpenAPIClient.Models.ItemSummary
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The type inherited by "Natural Gift" when used with this Berry.
+		#tag EndNote
 		natural_gift_type As OpenAPIClient.Models.TypeSummary
 	#tag EndProperty
 
@@ -174,7 +210,7 @@ Protected Class BerryDetail
 			Visible=false
 			Group="Behavior"
 			InitialValue=""
-			Type="BerryDetailFlavorsInner"
+			Type="BerryFlavorMap"
 			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty

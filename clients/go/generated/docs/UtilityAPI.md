@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**LanguageList**](UtilityAPI.md#LanguageList) | **Get** /api/v2/language/ | List languages
 [**LanguageRetrieve**](UtilityAPI.md#LanguageRetrieve) | **Get** /api/v2/language/{id}/ | Get language
+[**MetaRetrieve**](UtilityAPI.md#MetaRetrieve) | **Get** /api/v2/meta/ | Get API metadata
 
 
 
@@ -67,7 +68,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -100,7 +101,7 @@ import (
 )
 
 func main() {
-	id := "id_example" // string | This parameter can be a string or an integer.
+	id := "1" // string | This parameter can be a string or an integer.
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -137,7 +138,68 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## MetaRetrieve
+
+> PokeapiMetaResponse MetaRetrieve(ctx).Execute()
+
+Get API metadata
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/oapicf/pokeapi-clients"
+)
+
+func main() {
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.UtilityAPI.MetaRetrieve(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UtilityAPI.MetaRetrieve``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `MetaRetrieve`: PokeapiMetaResponse
+	fmt.Fprintf(os.Stdout, "Response from `UtilityAPI.MetaRetrieve`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiMetaRetrieveRequest struct via the builder pattern
+
+
+### Return type
+
+[**PokeapiMetaResponse**](PokeapiMetaResponse.md)
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 

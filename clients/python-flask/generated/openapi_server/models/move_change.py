@@ -3,12 +3,12 @@ from datetime import date, datetime  # noqa: F401
 from typing import List, Dict  # noqa: F401
 
 from openapi_server.models.base_model import Model
-from openapi_server.models.move_change_effect_entries_inner import MoveChangeEffectEntriesInner
+from openapi_server.models.move_effect_effect_text import MoveEffectEffectText
 from openapi_server.models.type_summary import TypeSummary
 from openapi_server.models.version_group_summary import VersionGroupSummary
 from openapi_server import util
 
-from openapi_server.models.move_change_effect_entries_inner import MoveChangeEffectEntriesInner  # noqa: E501
+from openapi_server.models.move_effect_effect_text import MoveEffectEffectText  # noqa: E501
 from openapi_server.models.type_summary import TypeSummary  # noqa: E501
 from openapi_server.models.version_group_summary import VersionGroupSummary  # noqa: E501
 
@@ -30,7 +30,7 @@ class MoveChange(Model):
         :param effect_chance: The effect_chance of this MoveChange.  # noqa: E501
         :type effect_chance: int
         :param effect_entries: The effect_entries of this MoveChange.  # noqa: E501
-        :type effect_entries: List[MoveChangeEffectEntriesInner]
+        :type effect_entries: List[MoveEffectEffectText]
         :param type: The type of this MoveChange.  # noqa: E501
         :type type: TypeSummary
         :param version_group: The version_group of this MoveChange.  # noqa: E501
@@ -41,7 +41,7 @@ class MoveChange(Model):
             'power': int,
             'pp': int,
             'effect_chance': int,
-            'effect_entries': List[MoveChangeEffectEntriesInner],
+            'effect_entries': List[MoveEffectEffectText],
             'type': TypeSummary,
             'version_group': VersionGroupSummary
         }
@@ -79,6 +79,7 @@ class MoveChange(Model):
     def accuracy(self) -> int:
         """Gets the accuracy of this MoveChange.
 
+        The percent value of how likely this move is to be successful.  # noqa: E501
 
         :return: The accuracy of this MoveChange.
         :rtype: int
@@ -89,10 +90,15 @@ class MoveChange(Model):
     def accuracy(self, accuracy: int):
         """Sets the accuracy of this MoveChange.
 
+        The percent value of how likely this move is to be successful.  # noqa: E501
 
         :param accuracy: The accuracy of this MoveChange.
         :type accuracy: int
         """
+        if accuracy is not None and accuracy > 2147483647:  # noqa: E501
+            raise ValueError("Invalid value for `accuracy`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if accuracy is not None and accuracy < -2147483648:  # noqa: E501
+            raise ValueError("Invalid value for `accuracy`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._accuracy = accuracy
 
@@ -100,6 +106,7 @@ class MoveChange(Model):
     def power(self) -> int:
         """Gets the power of this MoveChange.
 
+        The base power before the listed version group, or null if power did not change.  # noqa: E501
 
         :return: The power of this MoveChange.
         :rtype: int
@@ -110,10 +117,15 @@ class MoveChange(Model):
     def power(self, power: int):
         """Sets the power of this MoveChange.
 
+        The base power before the listed version group, or null if power did not change.  # noqa: E501
 
         :param power: The power of this MoveChange.
         :type power: int
         """
+        if power is not None and power > 2147483647:  # noqa: E501
+            raise ValueError("Invalid value for `power`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if power is not None and power < -2147483648:  # noqa: E501
+            raise ValueError("Invalid value for `power`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._power = power
 
@@ -121,6 +133,7 @@ class MoveChange(Model):
     def pp(self) -> int:
         """Gets the pp of this MoveChange.
 
+        Power points. The number of times this move can be used.  # noqa: E501
 
         :return: The pp of this MoveChange.
         :rtype: int
@@ -131,10 +144,15 @@ class MoveChange(Model):
     def pp(self, pp: int):
         """Sets the pp of this MoveChange.
 
+        Power points. The number of times this move can be used.  # noqa: E501
 
         :param pp: The pp of this MoveChange.
         :type pp: int
         """
+        if pp is not None and pp > 2147483647:  # noqa: E501
+            raise ValueError("Invalid value for `pp`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if pp is not None and pp < -2147483648:  # noqa: E501
+            raise ValueError("Invalid value for `pp`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._pp = pp
 
@@ -142,6 +160,7 @@ class MoveChange(Model):
     def effect_chance(self) -> int:
         """Gets the effect_chance of this MoveChange.
 
+        The percent value of how likely it is this moves effect will take effect.  # noqa: E501
 
         :return: The effect_chance of this MoveChange.
         :rtype: int
@@ -152,6 +171,7 @@ class MoveChange(Model):
     def effect_chance(self, effect_chance: int):
         """Sets the effect_chance of this MoveChange.
 
+        The percent value of how likely it is this moves effect will take effect.  # noqa: E501
 
         :param effect_chance: The effect_chance of this MoveChange.
         :type effect_chance: int
@@ -162,22 +182,24 @@ class MoveChange(Model):
         self._effect_chance = effect_chance
 
     @property
-    def effect_entries(self) -> List[MoveChangeEffectEntriesInner]:
+    def effect_entries(self) -> List[MoveEffectEffectText]:
         """Gets the effect_entries of this MoveChange.
 
+        The effect of this move listed in different languages.  # noqa: E501
 
         :return: The effect_entries of this MoveChange.
-        :rtype: List[MoveChangeEffectEntriesInner]
+        :rtype: List[MoveEffectEffectText]
         """
         return self._effect_entries
 
     @effect_entries.setter
-    def effect_entries(self, effect_entries: List[MoveChangeEffectEntriesInner]):
+    def effect_entries(self, effect_entries: List[MoveEffectEffectText]):
         """Sets the effect_entries of this MoveChange.
 
+        The effect of this move listed in different languages.  # noqa: E501
 
         :param effect_entries: The effect_entries of this MoveChange.
-        :type effect_entries: List[MoveChangeEffectEntriesInner]
+        :type effect_entries: List[MoveEffectEffectText]
         """
         if effect_entries is None:
             raise ValueError("Invalid value for `effect_entries`, must not be `None`")  # noqa: E501
@@ -188,6 +210,7 @@ class MoveChange(Model):
     def type(self) -> TypeSummary:
         """Gets the type of this MoveChange.
 
+        The elemental type of this move.  # noqa: E501
 
         :return: The type of this MoveChange.
         :rtype: TypeSummary
@@ -198,6 +221,7 @@ class MoveChange(Model):
     def type(self, type: TypeSummary):
         """Sets the type of this MoveChange.
 
+        The elemental type of this move.  # noqa: E501
 
         :param type: The type of this MoveChange.
         :type type: TypeSummary
@@ -211,6 +235,7 @@ class MoveChange(Model):
     def version_group(self) -> VersionGroupSummary:
         """Gets the version_group of this MoveChange.
 
+        The version group in which these move stat values were in effect.  # noqa: E501
 
         :return: The version_group of this MoveChange.
         :rtype: VersionGroupSummary
@@ -221,6 +246,7 @@ class MoveChange(Model):
     def version_group(self, version_group: VersionGroupSummary):
         """Sets the version_group of this MoveChange.
 
+        The version group in which these move stat values were in effect.  # noqa: E501
 
         :param version_group: The version_group of this MoveChange.
         :type version_group: VersionGroupSummary

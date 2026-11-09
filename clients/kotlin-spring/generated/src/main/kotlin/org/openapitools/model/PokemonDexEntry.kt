@@ -16,17 +16,17 @@ import io.swagger.v3.oas.annotations.media.Schema
 
 /**
  * 
- * @param entryNumber 
- * @param pokedex 
+ * @param entryNumber The index number within the Pokédex.
+ * @param pokedex The Pokédex the referenced Pokémon species can be found in.
  */
 data class PokemonDexEntry(
 
-    @Schema(required = true, description = "")
+    @Schema(required = true, description = "The index number within the Pokédex.")
     @param:JsonProperty("entry_number", required = true)
     @get:JsonProperty("entry_number", required = true) val entryNumber: kotlin.Int,
 
     @field:Valid
-    @Schema(required = true, description = "")
+    @Schema(required = true, description = "The Pokédex the referenced Pokémon species can be found in.")
     @param:JsonProperty("pokedex", required = true)
     @get:JsonProperty("pokedex", required = true) val pokedex: PokedexSummary
 ) {

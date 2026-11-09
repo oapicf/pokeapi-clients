@@ -7,9 +7,9 @@ using namespace Tiny;
 MachineDetail::MachineDetail()
 {
 	id = int(0);
-	item = ItemSummary();
-	version_group = VersionGroupSummary();
-	move = MoveSummary();
+	item = null;
+	version_group = null;
+	move = null;
 }
 
 MachineDetail::MachineDetail(std::string jsonString)

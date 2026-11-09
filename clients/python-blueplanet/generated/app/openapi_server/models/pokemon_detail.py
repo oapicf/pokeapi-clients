@@ -6,18 +6,19 @@ from datetime import date, datetime  # noqa: F401
 from typing import List, Dict  # noqa: F401
 
 from app.openapi_server.models.base_model import Model
-from app.openapi_server.models.pokemon_detail_abilities_inner import PokemonDetailAbilitiesInner  # noqa: F401,E501
-from app.openapi_server.models.pokemon_detail_cries import PokemonDetailCries  # noqa: F401,E501
-from app.openapi_server.models.pokemon_detail_held_items import PokemonDetailHeldItems  # noqa: F401,E501
-from app.openapi_server.models.pokemon_detail_moves_inner import PokemonDetailMovesInner  # noqa: F401,E501
-from app.openapi_server.models.pokemon_detail_past_abilities_inner import PokemonDetailPastAbilitiesInner  # noqa: F401,E501
-from app.openapi_server.models.pokemon_detail_past_types_inner import PokemonDetailPastTypesInner  # noqa: F401,E501
-from app.openapi_server.models.pokemon_detail_sprites import PokemonDetailSprites  # noqa: F401,E501
-from app.openapi_server.models.pokemon_detail_types_inner import PokemonDetailTypesInner  # noqa: F401,E501
+from app.openapi_server.models.pokemon_ability import PokemonAbility  # noqa: F401,E501
+from app.openapi_server.models.pokemon_cries import PokemonCries  # noqa: F401,E501
 from app.openapi_server.models.pokemon_form_summary import PokemonFormSummary  # noqa: F401,E501
 from app.openapi_server.models.pokemon_game_index import PokemonGameIndex  # noqa: F401,E501
+from app.openapi_server.models.pokemon_held_item_summary import PokemonHeldItemSummary  # noqa: F401,E501
+from app.openapi_server.models.pokemon_move import PokemonMove  # noqa: F401,E501
+from app.openapi_server.models.pokemon_past_ability import PokemonPastAbility  # noqa: F401,E501
+from app.openapi_server.models.pokemon_past_stat import PokemonPastStat  # noqa: F401,E501
+from app.openapi_server.models.pokemon_past_type import PokemonPastType  # noqa: F401,E501
 from app.openapi_server.models.pokemon_species_summary import PokemonSpeciesSummary  # noqa: F401,E501
+from app.openapi_server.models.pokemon_sprites import PokemonSprites  # noqa: F401,E501
 from app.openapi_server.models.pokemon_stat import PokemonStat  # noqa: F401,E501
+from app.openapi_server.models.pokemon_type import PokemonType  # noqa: F401,E501
 from openapi_server import util
 
 
@@ -27,7 +28,7 @@ class PokemonDetail(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, id: int=None, name: str=None, base_experience: int=None, height: int=None, is_default: bool=None, order: int=None, weight: int=None, abilities: List[PokemonDetailAbilitiesInner]=None, past_abilities: List[PokemonDetailPastAbilitiesInner]=None, forms: List[PokemonFormSummary]=None, game_indices: List[PokemonGameIndex]=None, held_items: PokemonDetailHeldItems=None, location_area_encounters: str=None, moves: List[PokemonDetailMovesInner]=None, species: PokemonSpeciesSummary=None, sprites: PokemonDetailSprites=None, cries: PokemonDetailCries=None, stats: List[PokemonStat]=None, types: List[PokemonDetailTypesInner]=None, past_types: List[PokemonDetailPastTypesInner]=None):  # noqa: E501
+    def __init__(self, id: int=None, name: str=None, base_experience: int=None, height: int=None, is_default: bool=None, order: int=None, weight: int=None, abilities: List[PokemonAbility]=None, past_abilities: List[PokemonPastAbility]=None, forms: List[PokemonFormSummary]=None, game_indices: List[PokemonGameIndex]=None, held_items: List[PokemonHeldItemSummary]=None, location_area_encounters: str=None, moves: List[PokemonMove]=None, species: PokemonSpeciesSummary=None, sprites: PokemonSprites=None, cries: PokemonCries=None, stats: List[PokemonStat]=None, past_stats: List[PokemonPastStat]=None, types: List[PokemonType]=None, past_types: List[PokemonPastType]=None):  # noqa: E501
         """PokemonDetail - a model defined in Swagger
 
         :param id: The id of this PokemonDetail.  # noqa: E501
@@ -45,31 +46,33 @@ class PokemonDetail(Model):
         :param weight: The weight of this PokemonDetail.  # noqa: E501
         :type weight: int
         :param abilities: The abilities of this PokemonDetail.  # noqa: E501
-        :type abilities: List[PokemonDetailAbilitiesInner]
+        :type abilities: List[PokemonAbility]
         :param past_abilities: The past_abilities of this PokemonDetail.  # noqa: E501
-        :type past_abilities: List[PokemonDetailPastAbilitiesInner]
+        :type past_abilities: List[PokemonPastAbility]
         :param forms: The forms of this PokemonDetail.  # noqa: E501
         :type forms: List[PokemonFormSummary]
         :param game_indices: The game_indices of this PokemonDetail.  # noqa: E501
         :type game_indices: List[PokemonGameIndex]
         :param held_items: The held_items of this PokemonDetail.  # noqa: E501
-        :type held_items: PokemonDetailHeldItems
+        :type held_items: List[PokemonHeldItemSummary]
         :param location_area_encounters: The location_area_encounters of this PokemonDetail.  # noqa: E501
         :type location_area_encounters: str
         :param moves: The moves of this PokemonDetail.  # noqa: E501
-        :type moves: List[PokemonDetailMovesInner]
+        :type moves: List[PokemonMove]
         :param species: The species of this PokemonDetail.  # noqa: E501
         :type species: PokemonSpeciesSummary
         :param sprites: The sprites of this PokemonDetail.  # noqa: E501
-        :type sprites: PokemonDetailSprites
+        :type sprites: PokemonSprites
         :param cries: The cries of this PokemonDetail.  # noqa: E501
-        :type cries: PokemonDetailCries
+        :type cries: PokemonCries
         :param stats: The stats of this PokemonDetail.  # noqa: E501
         :type stats: List[PokemonStat]
+        :param past_stats: The past_stats of this PokemonDetail.  # noqa: E501
+        :type past_stats: List[PokemonPastStat]
         :param types: The types of this PokemonDetail.  # noqa: E501
-        :type types: List[PokemonDetailTypesInner]
+        :type types: List[PokemonType]
         :param past_types: The past_types of this PokemonDetail.  # noqa: E501
-        :type past_types: List[PokemonDetailPastTypesInner]
+        :type past_types: List[PokemonPastType]
         """
         self.swagger_types = {
             'id': int,
@@ -79,19 +82,20 @@ class PokemonDetail(Model):
             'is_default': bool,
             'order': int,
             'weight': int,
-            'abilities': List[PokemonDetailAbilitiesInner],
-            'past_abilities': List[PokemonDetailPastAbilitiesInner],
+            'abilities': List[PokemonAbility],
+            'past_abilities': List[PokemonPastAbility],
             'forms': List[PokemonFormSummary],
             'game_indices': List[PokemonGameIndex],
-            'held_items': PokemonDetailHeldItems,
+            'held_items': List[PokemonHeldItemSummary],
             'location_area_encounters': str,
-            'moves': List[PokemonDetailMovesInner],
+            'moves': List[PokemonMove],
             'species': PokemonSpeciesSummary,
-            'sprites': PokemonDetailSprites,
-            'cries': PokemonDetailCries,
+            'sprites': PokemonSprites,
+            'cries': PokemonCries,
             'stats': List[PokemonStat],
-            'types': List[PokemonDetailTypesInner],
-            'past_types': List[PokemonDetailPastTypesInner]
+            'past_stats': List[PokemonPastStat],
+            'types': List[PokemonType],
+            'past_types': List[PokemonPastType]
         }
 
         self.attribute_map = {
@@ -113,6 +117,7 @@ class PokemonDetail(Model):
             'sprites': 'sprites',
             'cries': 'cries',
             'stats': 'stats',
+            'past_stats': 'past_stats',
             'types': 'types',
             'past_types': 'past_types'
         }
@@ -135,6 +140,7 @@ class PokemonDetail(Model):
         self._sprites = sprites
         self._cries = cries
         self._stats = stats
+        self._past_stats = past_stats
         self._types = types
         self._past_types = past_types
 
@@ -153,6 +159,7 @@ class PokemonDetail(Model):
     def id(self) -> int:
         """Gets the id of this PokemonDetail.
 
+        The identifier for this resource.  # noqa: E501
 
         :return: The id of this PokemonDetail.
         :rtype: int
@@ -163,6 +170,7 @@ class PokemonDetail(Model):
     def id(self, id: int):
         """Sets the id of this PokemonDetail.
 
+        The identifier for this resource.  # noqa: E501
 
         :param id: The id of this PokemonDetail.
         :type id: int
@@ -176,6 +184,7 @@ class PokemonDetail(Model):
     def name(self) -> str:
         """Gets the name of this PokemonDetail.
 
+        The name for this resource.  # noqa: E501
 
         :return: The name of this PokemonDetail.
         :rtype: str
@@ -186,14 +195,15 @@ class PokemonDetail(Model):
     def name(self, name: str):
         """Sets the name of this PokemonDetail.
 
+        The name for this resource.  # noqa: E501
 
         :param name: The name of this PokemonDetail.
         :type name: str
         """
         if name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
-        if name is not None and len(name) > 100:
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `100`")  # noqa: E501
+        if name is not None and len(name) > 200:
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `200`")  # noqa: E501
 
         self._name = name
 
@@ -201,6 +211,7 @@ class PokemonDetail(Model):
     def base_experience(self) -> int:
         """Gets the base_experience of this PokemonDetail.
 
+        The base experience gained for defeating this Pokémon.  # noqa: E501
 
         :return: The base_experience of this PokemonDetail.
         :rtype: int
@@ -211,10 +222,15 @@ class PokemonDetail(Model):
     def base_experience(self, base_experience: int):
         """Sets the base_experience of this PokemonDetail.
 
+        The base experience gained for defeating this Pokémon.  # noqa: E501
 
         :param base_experience: The base_experience of this PokemonDetail.
         :type base_experience: int
         """
+        if base_experience is not None and base_experience > 2147483647:  # noqa: E501
+            raise ValueError("Invalid value for `base_experience`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if base_experience is not None and base_experience < -2147483648:  # noqa: E501
+            raise ValueError("Invalid value for `base_experience`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._base_experience = base_experience
 
@@ -222,6 +238,7 @@ class PokemonDetail(Model):
     def height(self) -> int:
         """Gets the height of this PokemonDetail.
 
+        The height of this Pokémon in decimetres.  # noqa: E501
 
         :return: The height of this PokemonDetail.
         :rtype: int
@@ -232,10 +249,15 @@ class PokemonDetail(Model):
     def height(self, height: int):
         """Sets the height of this PokemonDetail.
 
+        The height of this Pokémon in decimetres.  # noqa: E501
 
         :param height: The height of this PokemonDetail.
         :type height: int
         """
+        if height is not None and height > 2147483647:  # noqa: E501
+            raise ValueError("Invalid value for `height`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if height is not None and height < -2147483648:  # noqa: E501
+            raise ValueError("Invalid value for `height`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._height = height
 
@@ -243,6 +265,7 @@ class PokemonDetail(Model):
     def is_default(self) -> bool:
         """Gets the is_default of this PokemonDetail.
 
+        Set for exactly one Pokémon used as the default for each species.  # noqa: E501
 
         :return: The is_default of this PokemonDetail.
         :rtype: bool
@@ -253,6 +276,7 @@ class PokemonDetail(Model):
     def is_default(self, is_default: bool):
         """Sets the is_default of this PokemonDetail.
 
+        Set for exactly one Pokémon used as the default for each species.  # noqa: E501
 
         :param is_default: The is_default of this PokemonDetail.
         :type is_default: bool
@@ -264,6 +288,7 @@ class PokemonDetail(Model):
     def order(self) -> int:
         """Gets the order of this PokemonDetail.
 
+        Order for sorting. Almost national order, except families are grouped together.  # noqa: E501
 
         :return: The order of this PokemonDetail.
         :rtype: int
@@ -274,10 +299,15 @@ class PokemonDetail(Model):
     def order(self, order: int):
         """Sets the order of this PokemonDetail.
 
+        Order for sorting. Almost national order, except families are grouped together.  # noqa: E501
 
         :param order: The order of this PokemonDetail.
         :type order: int
         """
+        if order is not None and order > 2147483647:  # noqa: E501
+            raise ValueError("Invalid value for `order`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if order is not None and order < -2147483648:  # noqa: E501
+            raise ValueError("Invalid value for `order`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._order = order
 
@@ -285,6 +315,7 @@ class PokemonDetail(Model):
     def weight(self) -> int:
         """Gets the weight of this PokemonDetail.
 
+        The weight of this Pokémon in hectograms.  # noqa: E501
 
         :return: The weight of this PokemonDetail.
         :rtype: int
@@ -295,30 +326,37 @@ class PokemonDetail(Model):
     def weight(self, weight: int):
         """Sets the weight of this PokemonDetail.
 
+        The weight of this Pokémon in hectograms.  # noqa: E501
 
         :param weight: The weight of this PokemonDetail.
         :type weight: int
         """
+        if weight is not None and weight > 2147483647:  # noqa: E501
+            raise ValueError("Invalid value for `weight`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if weight is not None and weight < -2147483648:  # noqa: E501
+            raise ValueError("Invalid value for `weight`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._weight = weight
 
     @property
-    def abilities(self) -> List[PokemonDetailAbilitiesInner]:
+    def abilities(self) -> List[PokemonAbility]:
         """Gets the abilities of this PokemonDetail.
 
+        A list of abilities this Pokémon could potentially have.  # noqa: E501
 
         :return: The abilities of this PokemonDetail.
-        :rtype: List[PokemonDetailAbilitiesInner]
+        :rtype: List[PokemonAbility]
         """
         return self._abilities
 
     @abilities.setter
-    def abilities(self, abilities: List[PokemonDetailAbilitiesInner]):
+    def abilities(self, abilities: List[PokemonAbility]):
         """Sets the abilities of this PokemonDetail.
 
+        A list of abilities this Pokémon could potentially have.  # noqa: E501
 
         :param abilities: The abilities of this PokemonDetail.
-        :type abilities: List[PokemonDetailAbilitiesInner]
+        :type abilities: List[PokemonAbility]
         """
         if abilities is None:
             raise ValueError("Invalid value for `abilities`, must not be `None`")  # noqa: E501
@@ -326,22 +364,24 @@ class PokemonDetail(Model):
         self._abilities = abilities
 
     @property
-    def past_abilities(self) -> List[PokemonDetailPastAbilitiesInner]:
+    def past_abilities(self) -> List[PokemonPastAbility]:
         """Gets the past_abilities of this PokemonDetail.
 
+        A list of details showing abilities this pokémon had in previous generations  # noqa: E501
 
         :return: The past_abilities of this PokemonDetail.
-        :rtype: List[PokemonDetailPastAbilitiesInner]
+        :rtype: List[PokemonPastAbility]
         """
         return self._past_abilities
 
     @past_abilities.setter
-    def past_abilities(self, past_abilities: List[PokemonDetailPastAbilitiesInner]):
+    def past_abilities(self, past_abilities: List[PokemonPastAbility]):
         """Sets the past_abilities of this PokemonDetail.
 
+        A list of details showing abilities this pokémon had in previous generations  # noqa: E501
 
         :param past_abilities: The past_abilities of this PokemonDetail.
-        :type past_abilities: List[PokemonDetailPastAbilitiesInner]
+        :type past_abilities: List[PokemonPastAbility]
         """
         if past_abilities is None:
             raise ValueError("Invalid value for `past_abilities`, must not be `None`")  # noqa: E501
@@ -352,6 +392,7 @@ class PokemonDetail(Model):
     def forms(self) -> List[PokemonFormSummary]:
         """Gets the forms of this PokemonDetail.
 
+        A list of forms this Pokémon can take on.  # noqa: E501
 
         :return: The forms of this PokemonDetail.
         :rtype: List[PokemonFormSummary]
@@ -362,6 +403,7 @@ class PokemonDetail(Model):
     def forms(self, forms: List[PokemonFormSummary]):
         """Sets the forms of this PokemonDetail.
 
+        A list of forms this Pokémon can take on.  # noqa: E501
 
         :param forms: The forms of this PokemonDetail.
         :type forms: List[PokemonFormSummary]
@@ -375,6 +417,7 @@ class PokemonDetail(Model):
     def game_indices(self) -> List[PokemonGameIndex]:
         """Gets the game_indices of this PokemonDetail.
 
+        A list of game indices relevent to Pokémon item by generation.  # noqa: E501
 
         :return: The game_indices of this PokemonDetail.
         :rtype: List[PokemonGameIndex]
@@ -385,6 +428,7 @@ class PokemonDetail(Model):
     def game_indices(self, game_indices: List[PokemonGameIndex]):
         """Sets the game_indices of this PokemonDetail.
 
+        A list of game indices relevent to Pokémon item by generation.  # noqa: E501
 
         :param game_indices: The game_indices of this PokemonDetail.
         :type game_indices: List[PokemonGameIndex]
@@ -395,22 +439,24 @@ class PokemonDetail(Model):
         self._game_indices = game_indices
 
     @property
-    def held_items(self) -> PokemonDetailHeldItems:
+    def held_items(self) -> List[PokemonHeldItemSummary]:
         """Gets the held_items of this PokemonDetail.
 
+        A list of items this Pokémon may be holding when encountered.  # noqa: E501
 
         :return: The held_items of this PokemonDetail.
-        :rtype: PokemonDetailHeldItems
+        :rtype: List[PokemonHeldItemSummary]
         """
         return self._held_items
 
     @held_items.setter
-    def held_items(self, held_items: PokemonDetailHeldItems):
+    def held_items(self, held_items: List[PokemonHeldItemSummary]):
         """Sets the held_items of this PokemonDetail.
 
+        A list of items this Pokémon may be holding when encountered.  # noqa: E501
 
         :param held_items: The held_items of this PokemonDetail.
-        :type held_items: PokemonDetailHeldItems
+        :type held_items: List[PokemonHeldItemSummary]
         """
         if held_items is None:
             raise ValueError("Invalid value for `held_items`, must not be `None`")  # noqa: E501
@@ -421,6 +467,7 @@ class PokemonDetail(Model):
     def location_area_encounters(self) -> str:
         """Gets the location_area_encounters of this PokemonDetail.
 
+        A link to a list of location areas, as well as encounter details pertaining to specific versions.  # noqa: E501
 
         :return: The location_area_encounters of this PokemonDetail.
         :rtype: str
@@ -431,6 +478,7 @@ class PokemonDetail(Model):
     def location_area_encounters(self, location_area_encounters: str):
         """Sets the location_area_encounters of this PokemonDetail.
 
+        A link to a list of location areas, as well as encounter details pertaining to specific versions.  # noqa: E501
 
         :param location_area_encounters: The location_area_encounters of this PokemonDetail.
         :type location_area_encounters: str
@@ -441,22 +489,24 @@ class PokemonDetail(Model):
         self._location_area_encounters = location_area_encounters
 
     @property
-    def moves(self) -> List[PokemonDetailMovesInner]:
+    def moves(self) -> List[PokemonMove]:
         """Gets the moves of this PokemonDetail.
 
+        A list of moves along with learn methods and level details pertaining to specific version groups.  # noqa: E501
 
         :return: The moves of this PokemonDetail.
-        :rtype: List[PokemonDetailMovesInner]
+        :rtype: List[PokemonMove]
         """
         return self._moves
 
     @moves.setter
-    def moves(self, moves: List[PokemonDetailMovesInner]):
+    def moves(self, moves: List[PokemonMove]):
         """Sets the moves of this PokemonDetail.
 
+        A list of moves along with learn methods and level details pertaining to specific version groups.  # noqa: E501
 
         :param moves: The moves of this PokemonDetail.
-        :type moves: List[PokemonDetailMovesInner]
+        :type moves: List[PokemonMove]
         """
         if moves is None:
             raise ValueError("Invalid value for `moves`, must not be `None`")  # noqa: E501
@@ -467,6 +517,7 @@ class PokemonDetail(Model):
     def species(self) -> PokemonSpeciesSummary:
         """Gets the species of this PokemonDetail.
 
+        The species this Pokémon belongs to.  # noqa: E501
 
         :return: The species of this PokemonDetail.
         :rtype: PokemonSpeciesSummary
@@ -477,6 +528,7 @@ class PokemonDetail(Model):
     def species(self, species: PokemonSpeciesSummary):
         """Sets the species of this PokemonDetail.
 
+        The species this Pokémon belongs to.  # noqa: E501
 
         :param species: The species of this PokemonDetail.
         :type species: PokemonSpeciesSummary
@@ -487,22 +539,24 @@ class PokemonDetail(Model):
         self._species = species
 
     @property
-    def sprites(self) -> PokemonDetailSprites:
+    def sprites(self) -> PokemonSprites:
         """Gets the sprites of this PokemonDetail.
 
+        A set of sprites used to depict this Pokémon in the game. A visual representation of the various sprites can be found at <a href='https://github.com/PokeAPI/sprites#sprites'>PokeAPI/sprites</a>  # noqa: E501
 
         :return: The sprites of this PokemonDetail.
-        :rtype: PokemonDetailSprites
+        :rtype: PokemonSprites
         """
         return self._sprites
 
     @sprites.setter
-    def sprites(self, sprites: PokemonDetailSprites):
+    def sprites(self, sprites: PokemonSprites):
         """Sets the sprites of this PokemonDetail.
 
+        A set of sprites used to depict this Pokémon in the game. A visual representation of the various sprites can be found at <a href='https://github.com/PokeAPI/sprites#sprites'>PokeAPI/sprites</a>  # noqa: E501
 
         :param sprites: The sprites of this PokemonDetail.
-        :type sprites: PokemonDetailSprites
+        :type sprites: PokemonSprites
         """
         if sprites is None:
             raise ValueError("Invalid value for `sprites`, must not be `None`")  # noqa: E501
@@ -510,22 +564,24 @@ class PokemonDetail(Model):
         self._sprites = sprites
 
     @property
-    def cries(self) -> PokemonDetailCries:
+    def cries(self) -> PokemonCries:
         """Gets the cries of this PokemonDetail.
 
+        A set of cries used to depict this Pokémon in the game. A visual representation of the various cries can be found at <a href='https://github.com/PokeAPI/cries#cries'>PokeAPI/cries</a>  # noqa: E501
 
         :return: The cries of this PokemonDetail.
-        :rtype: PokemonDetailCries
+        :rtype: PokemonCries
         """
         return self._cries
 
     @cries.setter
-    def cries(self, cries: PokemonDetailCries):
+    def cries(self, cries: PokemonCries):
         """Sets the cries of this PokemonDetail.
 
+        A set of cries used to depict this Pokémon in the game. A visual representation of the various cries can be found at <a href='https://github.com/PokeAPI/cries#cries'>PokeAPI/cries</a>  # noqa: E501
 
         :param cries: The cries of this PokemonDetail.
-        :type cries: PokemonDetailCries
+        :type cries: PokemonCries
         """
         if cries is None:
             raise ValueError("Invalid value for `cries`, must not be `None`")  # noqa: E501
@@ -536,6 +592,7 @@ class PokemonDetail(Model):
     def stats(self) -> List[PokemonStat]:
         """Gets the stats of this PokemonDetail.
 
+        A list of base stat values for this Pokémon.  # noqa: E501
 
         :return: The stats of this PokemonDetail.
         :rtype: List[PokemonStat]
@@ -546,6 +603,7 @@ class PokemonDetail(Model):
     def stats(self, stats: List[PokemonStat]):
         """Sets the stats of this PokemonDetail.
 
+        A list of base stat values for this Pokémon.  # noqa: E501
 
         :param stats: The stats of this PokemonDetail.
         :type stats: List[PokemonStat]
@@ -556,22 +614,49 @@ class PokemonDetail(Model):
         self._stats = stats
 
     @property
-    def types(self) -> List[PokemonDetailTypesInner]:
+    def past_stats(self) -> List[PokemonPastStat]:
+        """Gets the past_stats of this PokemonDetail.
+
+        A list of details showing stats this pokémon had in previous generations  # noqa: E501
+
+        :return: The past_stats of this PokemonDetail.
+        :rtype: List[PokemonPastStat]
+        """
+        return self._past_stats
+
+    @past_stats.setter
+    def past_stats(self, past_stats: List[PokemonPastStat]):
+        """Sets the past_stats of this PokemonDetail.
+
+        A list of details showing stats this pokémon had in previous generations  # noqa: E501
+
+        :param past_stats: The past_stats of this PokemonDetail.
+        :type past_stats: List[PokemonPastStat]
+        """
+        if past_stats is None:
+            raise ValueError("Invalid value for `past_stats`, must not be `None`")  # noqa: E501
+
+        self._past_stats = past_stats
+
+    @property
+    def types(self) -> List[PokemonType]:
         """Gets the types of this PokemonDetail.
 
+        A list of details showing types this Pokémon has.  # noqa: E501
 
         :return: The types of this PokemonDetail.
-        :rtype: List[PokemonDetailTypesInner]
+        :rtype: List[PokemonType]
         """
         return self._types
 
     @types.setter
-    def types(self, types: List[PokemonDetailTypesInner]):
+    def types(self, types: List[PokemonType]):
         """Sets the types of this PokemonDetail.
 
+        A list of details showing types this Pokémon has.  # noqa: E501
 
         :param types: The types of this PokemonDetail.
-        :type types: List[PokemonDetailTypesInner]
+        :type types: List[PokemonType]
         """
         if types is None:
             raise ValueError("Invalid value for `types`, must not be `None`")  # noqa: E501
@@ -579,22 +664,24 @@ class PokemonDetail(Model):
         self._types = types
 
     @property
-    def past_types(self) -> List[PokemonDetailPastTypesInner]:
+    def past_types(self) -> List[PokemonPastType]:
         """Gets the past_types of this PokemonDetail.
 
+        A list of details showing types this pokémon had in previous generations  # noqa: E501
 
         :return: The past_types of this PokemonDetail.
-        :rtype: List[PokemonDetailPastTypesInner]
+        :rtype: List[PokemonPastType]
         """
         return self._past_types
 
     @past_types.setter
-    def past_types(self, past_types: List[PokemonDetailPastTypesInner]):
+    def past_types(self, past_types: List[PokemonPastType]):
         """Sets the past_types of this PokemonDetail.
 
+        A list of details showing types this pokémon had in previous generations  # noqa: E501
 
         :param past_types: The past_types of this PokemonDetail.
-        :type past_types: List[PokemonDetailPastTypesInner]
+        :type past_types: List[PokemonPastType]
         """
         if past_types is None:
             raise ValueError("Invalid value for `past_types`, must not be `None`")  # noqa: E501

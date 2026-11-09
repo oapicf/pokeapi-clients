@@ -2,26 +2,41 @@
 Protected Class MoveTargetDetail
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The identifier for this resource.
+		#tag EndNote
 		id As Integer
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The name for this resource.
+		#tag EndNote
 		name As String
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The description of this resource listed in different languages.
+		#tag EndNote
 		descriptions() As OpenAPIClient.Models.MoveTargetDescription
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			A list of moves that that are directed at this target.
+		#tag EndNote
 		moves() As OpenAPIClient.Models.MoveSummary
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The name of this resource listed in different languages.
+		#tag EndNote
 		names() As OpenAPIClient.Models.MoveTargetName
 	#tag EndProperty
 

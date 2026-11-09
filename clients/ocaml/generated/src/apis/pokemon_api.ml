@@ -79,7 +79,7 @@ let ability_retrieve ~id =
     Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
     Request.read_json_body_as (JsonSupport.unwrap Ability_detail.of_yojson) resp body
 
-let characteristic_list ?limit ?offset ?q () =
+let characteristic_list ?limit ?offset () =
     let open Lwt.Infix in
     let uri = Request.build_uri "/api/v2/characteristic/" in
     let headers = Request.default_headers in
@@ -113,21 +113,6 @@ let characteristic_list ?limit ?offset ?q () =
         
         
  offset in
-    let uri = Request.maybe_add_query_param uri "q"     
-    
-    
-    
-    
-    
-    
-    
-    
-    (fun x -> x)
-    
-    
-        
-        
- q in
     Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
     Request.read_json_body_as (JsonSupport.unwrap Paginated_characteristic_summary_list.of_yojson) resp body
 

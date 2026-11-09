@@ -20,7 +20,7 @@ defmodule PokéAPI.Model.MoveLearnMethodDetail do
     :name => String.t,
     :names => [PokéAPI.Model.MoveLearnMethodName.t],
     :descriptions => [PokéAPI.Model.MoveLearnMethodDescription.t],
-    :version_groups => [PokéAPI.Model.AbilityDetailPokemonInnerPokemon.t]
+    :version_groups => [PokéAPI.Model.VersionGroupSummary.t]
   }
 
   alias PokéAPI.Deserializer
@@ -29,7 +29,7 @@ defmodule PokéAPI.Model.MoveLearnMethodDetail do
     value
      |> Deserializer.deserialize(:names, :list, PokéAPI.Model.MoveLearnMethodName)
      |> Deserializer.deserialize(:descriptions, :list, PokéAPI.Model.MoveLearnMethodDescription)
-     |> Deserializer.deserialize(:version_groups, :list, PokéAPI.Model.AbilityDetailPokemonInnerPokemon)
+     |> Deserializer.deserialize(:version_groups, :list, PokéAPI.Model.VersionGroupSummary)
   end
 end
 

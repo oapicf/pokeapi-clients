@@ -63,6 +63,7 @@ class SuperContestEffectDetail(Model):
     def id(self) -> int:
         """Gets the id of this SuperContestEffectDetail.
 
+        The identifier for this resource.  # noqa: E501
 
         :return: The id of this SuperContestEffectDetail.
         :rtype: int
@@ -73,6 +74,7 @@ class SuperContestEffectDetail(Model):
     def id(self, id: int):
         """Sets the id of this SuperContestEffectDetail.
 
+        The identifier for this resource.  # noqa: E501
 
         :param id: The id of this SuperContestEffectDetail.
         :type id: int
@@ -86,6 +88,7 @@ class SuperContestEffectDetail(Model):
     def appeal(self) -> int:
         """Gets the appeal of this SuperContestEffectDetail.
 
+        The level of appeal this super contest effect has.  # noqa: E501
 
         :return: The appeal of this SuperContestEffectDetail.
         :rtype: int
@@ -96,12 +99,17 @@ class SuperContestEffectDetail(Model):
     def appeal(self, appeal: int):
         """Sets the appeal of this SuperContestEffectDetail.
 
+        The level of appeal this super contest effect has.  # noqa: E501
 
         :param appeal: The appeal of this SuperContestEffectDetail.
         :type appeal: int
         """
         if appeal is None:
             raise ValueError("Invalid value for `appeal`, must not be `None`")  # noqa: E501
+        if appeal is not None and appeal > 2147483647:  # noqa: E501
+            raise ValueError("Invalid value for `appeal`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if appeal is not None and appeal < -2147483648:  # noqa: E501
+            raise ValueError("Invalid value for `appeal`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._appeal = appeal
 
@@ -109,6 +117,7 @@ class SuperContestEffectDetail(Model):
     def flavor_text_entries(self) -> List[SuperContestEffectFlavorText]:
         """Gets the flavor_text_entries of this SuperContestEffectDetail.
 
+        The flavor text of this super contest effect listed in different languages.  # noqa: E501
 
         :return: The flavor_text_entries of this SuperContestEffectDetail.
         :rtype: List[SuperContestEffectFlavorText]
@@ -119,6 +128,7 @@ class SuperContestEffectDetail(Model):
     def flavor_text_entries(self, flavor_text_entries: List[SuperContestEffectFlavorText]):
         """Sets the flavor_text_entries of this SuperContestEffectDetail.
 
+        The flavor text of this super contest effect listed in different languages.  # noqa: E501
 
         :param flavor_text_entries: The flavor_text_entries of this SuperContestEffectDetail.
         :type flavor_text_entries: List[SuperContestEffectFlavorText]
@@ -132,6 +142,7 @@ class SuperContestEffectDetail(Model):
     def moves(self) -> List[MoveSummary]:
         """Gets the moves of this SuperContestEffectDetail.
 
+        A list of moves that have the effect when used in super contests.  # noqa: E501
 
         :return: The moves of this SuperContestEffectDetail.
         :rtype: List[MoveSummary]
@@ -142,6 +153,7 @@ class SuperContestEffectDetail(Model):
     def moves(self, moves: List[MoveSummary]):
         """Sets the moves of this SuperContestEffectDetail.
 
+        A list of moves that have the effect when used in super contests.  # noqa: E501
 
         :param moves: The moves of this SuperContestEffectDetail.
         :type moves: List[MoveSummary]

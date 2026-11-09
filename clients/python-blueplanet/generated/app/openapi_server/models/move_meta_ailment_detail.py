@@ -6,8 +6,8 @@ from datetime import date, datetime  # noqa: F401
 from typing import List, Dict  # noqa: F401
 
 from app.openapi_server.models.base_model import Model
-from app.openapi_server.models.ability_detail_pokemon_inner_pokemon import AbilityDetailPokemonInnerPokemon  # noqa: F401,E501
 from app.openapi_server.models.move_meta_ailment_name import MoveMetaAilmentName  # noqa: F401,E501
+from app.openapi_server.models.move_summary import MoveSummary  # noqa: F401,E501
 from openapi_server import util
 
 
@@ -17,7 +17,7 @@ class MoveMetaAilmentDetail(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, id: int=None, name: str=None, moves: List[AbilityDetailPokemonInnerPokemon]=None, names: List[MoveMetaAilmentName]=None):  # noqa: E501
+    def __init__(self, id: int=None, name: str=None, moves: List[MoveSummary]=None, names: List[MoveMetaAilmentName]=None):  # noqa: E501
         """MoveMetaAilmentDetail - a model defined in Swagger
 
         :param id: The id of this MoveMetaAilmentDetail.  # noqa: E501
@@ -25,14 +25,14 @@ class MoveMetaAilmentDetail(Model):
         :param name: The name of this MoveMetaAilmentDetail.  # noqa: E501
         :type name: str
         :param moves: The moves of this MoveMetaAilmentDetail.  # noqa: E501
-        :type moves: List[AbilityDetailPokemonInnerPokemon]
+        :type moves: List[MoveSummary]
         :param names: The names of this MoveMetaAilmentDetail.  # noqa: E501
         :type names: List[MoveMetaAilmentName]
         """
         self.swagger_types = {
             'id': int,
             'name': str,
-            'moves': List[AbilityDetailPokemonInnerPokemon],
+            'moves': List[MoveSummary],
             'names': List[MoveMetaAilmentName]
         }
 
@@ -63,6 +63,7 @@ class MoveMetaAilmentDetail(Model):
     def id(self) -> int:
         """Gets the id of this MoveMetaAilmentDetail.
 
+        The identifier for this resource.  # noqa: E501
 
         :return: The id of this MoveMetaAilmentDetail.
         :rtype: int
@@ -73,6 +74,7 @@ class MoveMetaAilmentDetail(Model):
     def id(self, id: int):
         """Sets the id of this MoveMetaAilmentDetail.
 
+        The identifier for this resource.  # noqa: E501
 
         :param id: The id of this MoveMetaAilmentDetail.
         :type id: int
@@ -86,6 +88,7 @@ class MoveMetaAilmentDetail(Model):
     def name(self) -> str:
         """Gets the name of this MoveMetaAilmentDetail.
 
+        The name for this resource.  # noqa: E501
 
         :return: The name of this MoveMetaAilmentDetail.
         :rtype: str
@@ -96,34 +99,37 @@ class MoveMetaAilmentDetail(Model):
     def name(self, name: str):
         """Sets the name of this MoveMetaAilmentDetail.
 
+        The name for this resource.  # noqa: E501
 
         :param name: The name of this MoveMetaAilmentDetail.
         :type name: str
         """
         if name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
-        if name is not None and len(name) > 100:
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `100`")  # noqa: E501
+        if name is not None and len(name) > 200:
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `200`")  # noqa: E501
 
         self._name = name
 
     @property
-    def moves(self) -> List[AbilityDetailPokemonInnerPokemon]:
+    def moves(self) -> List[MoveSummary]:
         """Gets the moves of this MoveMetaAilmentDetail.
 
+        A list of moves that cause this ailment.  # noqa: E501
 
         :return: The moves of this MoveMetaAilmentDetail.
-        :rtype: List[AbilityDetailPokemonInnerPokemon]
+        :rtype: List[MoveSummary]
         """
         return self._moves
 
     @moves.setter
-    def moves(self, moves: List[AbilityDetailPokemonInnerPokemon]):
+    def moves(self, moves: List[MoveSummary]):
         """Sets the moves of this MoveMetaAilmentDetail.
 
+        A list of moves that cause this ailment.  # noqa: E501
 
         :param moves: The moves of this MoveMetaAilmentDetail.
-        :type moves: List[AbilityDetailPokemonInnerPokemon]
+        :type moves: List[MoveSummary]
         """
         if moves is None:
             raise ValueError("Invalid value for `moves`, must not be `None`")  # noqa: E501
@@ -134,6 +140,7 @@ class MoveMetaAilmentDetail(Model):
     def names(self) -> List[MoveMetaAilmentName]:
         """Gets the names of this MoveMetaAilmentDetail.
 
+        The name of this resource listed in different languages.  # noqa: E501
 
         :return: The names of this MoveMetaAilmentDetail.
         :rtype: List[MoveMetaAilmentName]
@@ -144,6 +151,7 @@ class MoveMetaAilmentDetail(Model):
     def names(self, names: List[MoveMetaAilmentName]):
         """Sets the names of this MoveMetaAilmentDetail.
 
+        The name of this resource listed in different languages.  # noqa: E501
 
         :param names: The names of this MoveMetaAilmentDetail.
         :type names: List[MoveMetaAilmentName]

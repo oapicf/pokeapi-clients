@@ -14,25 +14,43 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class LanguageDetail  {
   
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The identifier for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   private Integer id;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The name for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   private String name;
 
-  @ApiModelProperty(value = "")
+ /**
+  * Whether or not the games are published in this language.
+  */
+  @ApiModelProperty(value = "Whether or not the games are published in this language.")
   private Boolean official;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The two-letter ISO 639-1 language code. Multiple PokéAPI language records may share this code.
+  */
+  @ApiModelProperty(required = true, value = "The two-letter ISO 639-1 language code. Multiple PokéAPI language records may share this code.")
   private String iso639;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The two-letter ISO 3166-1 alpha-2 code of the country or region associated with this language record. Multiple PokéAPI language records may share this code.
+  */
+  @ApiModelProperty(required = true, value = "The two-letter ISO 3166-1 alpha-2 code of the country or region associated with this language record. Multiple PokéAPI language records may share this code.")
   private String iso3166;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The name of this resource listed in different languages.
+  */
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
   private List<@Valid LanguageName> names = new ArrayList<>();
  /**
-  * Get id
+  * The identifier for this resource.
   * @return id
   */
   @JsonProperty("id")
@@ -59,12 +77,12 @@ public class LanguageDetail  {
   }
 
  /**
-  * Get name
+  * The name for this resource.
   * @return name
   */
   @JsonProperty("name")
   @NotNull
- @Size(max=100)  public String getName() {
+ @Size(max=200)  public String getName() {
     return name;
   }
 
@@ -84,7 +102,7 @@ public class LanguageDetail  {
   }
 
  /**
-  * Get official
+  * Whether or not the games are published in this language.
   * @return official
   */
   @JsonProperty("official")
@@ -108,7 +126,7 @@ public class LanguageDetail  {
   }
 
  /**
-  * Get iso639
+  * The two-letter ISO 639-1 language code. Multiple PokéAPI language records may share this code.
   * @return iso639
   */
   @JsonProperty("iso639")
@@ -133,7 +151,7 @@ public class LanguageDetail  {
   }
 
  /**
-  * Get iso3166
+  * The two-letter ISO 3166-1 alpha-2 code of the country or region associated with this language record. Multiple PokéAPI language records may share this code.
   * @return iso3166
   */
   @JsonProperty("iso3166")
@@ -158,7 +176,7 @@ public class LanguageDetail  {
   }
 
  /**
-  * Get names
+  * The name of this resource listed in different languages.
   * @return names
   */
   @JsonProperty("names")

@@ -2,11 +2,17 @@
 Protected Class GrowthRateDescription
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The localized description for an API resource in a specific language.
+		#tag EndNote
 		description As Xoson.O.OptionalString
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The language this name is in.
+		#tag EndNote
 		language As OpenAPIClient.Models.LanguageSummary
 	#tag EndProperty
 

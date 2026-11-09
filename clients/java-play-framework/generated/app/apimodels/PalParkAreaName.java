@@ -10,12 +10,12 @@ import javax.validation.Valid;
 /**
  * PalParkAreaName
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-10-25T05:48:13.486809836Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-11-09T13:49:31.462302702Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class PalParkAreaName   {
   @JsonProperty("name")
   @NotNull
-@Size(max=100)
+@Size(max=200)
 
   private String name;
 
@@ -31,7 +31,7 @@ public class PalParkAreaName   {
   }
 
    /**
-   * Get name
+   * The localized name for an API resource in a specific language.
    * @return name
   **/
   public String getName() {
@@ -48,7 +48,7 @@ public class PalParkAreaName   {
   }
 
    /**
-   * Get language
+   * The language this name is in.
    * @return language
   **/
   public LanguageSummary getLanguage() {

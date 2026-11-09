@@ -62,6 +62,7 @@ class PaginatedEvolutionChainSummaryList(Model):
     def count(self) -> int:
         """Gets the count of this PaginatedEvolutionChainSummaryList.
 
+        The total number of resources available from this API.  # noqa: E501
 
         :return: The count of this PaginatedEvolutionChainSummaryList.
         :rtype: int
@@ -72,10 +73,13 @@ class PaginatedEvolutionChainSummaryList(Model):
     def count(self, count: int):
         """Sets the count of this PaginatedEvolutionChainSummaryList.
 
+        The total number of resources available from this API.  # noqa: E501
 
         :param count: The count of this PaginatedEvolutionChainSummaryList.
         :type count: int
         """
+        if count is None:
+            raise ValueError("Invalid value for `count`, must not be `None`")  # noqa: E501
 
         self._count = count
 
@@ -83,6 +87,7 @@ class PaginatedEvolutionChainSummaryList(Model):
     def next(self) -> str:
         """Gets the next of this PaginatedEvolutionChainSummaryList.
 
+        The URL for the next page in the list, or null if there is no next page.  # noqa: E501
 
         :return: The next of this PaginatedEvolutionChainSummaryList.
         :rtype: str
@@ -93,6 +98,7 @@ class PaginatedEvolutionChainSummaryList(Model):
     def next(self, next: str):
         """Sets the next of this PaginatedEvolutionChainSummaryList.
 
+        The URL for the next page in the list, or null if there is no next page.  # noqa: E501
 
         :param next: The next of this PaginatedEvolutionChainSummaryList.
         :type next: str
@@ -104,6 +110,7 @@ class PaginatedEvolutionChainSummaryList(Model):
     def previous(self) -> str:
         """Gets the previous of this PaginatedEvolutionChainSummaryList.
 
+        The URL for the previous page in the list, or null if there is no previous page.  # noqa: E501
 
         :return: The previous of this PaginatedEvolutionChainSummaryList.
         :rtype: str
@@ -114,6 +121,7 @@ class PaginatedEvolutionChainSummaryList(Model):
     def previous(self, previous: str):
         """Sets the previous of this PaginatedEvolutionChainSummaryList.
 
+        The URL for the previous page in the list, or null if there is no previous page.  # noqa: E501
 
         :param previous: The previous of this PaginatedEvolutionChainSummaryList.
         :type previous: str
@@ -125,6 +133,7 @@ class PaginatedEvolutionChainSummaryList(Model):
     def results(self) -> List[EvolutionChainSummary]:
         """Gets the results of this PaginatedEvolutionChainSummaryList.
 
+        A list of API resources on this page.  # noqa: E501
 
         :return: The results of this PaginatedEvolutionChainSummaryList.
         :rtype: List[EvolutionChainSummary]
@@ -135,9 +144,12 @@ class PaginatedEvolutionChainSummaryList(Model):
     def results(self, results: List[EvolutionChainSummary]):
         """Sets the results of this PaginatedEvolutionChainSummaryList.
 
+        A list of API resources on this page.  # noqa: E501
 
         :param results: The results of this PaginatedEvolutionChainSummaryList.
         :type results: List[EvolutionChainSummary]
         """
+        if results is None:
+            raise ValueError("Invalid value for `results`, must not be `None`")  # noqa: E501
 
         self._results = results

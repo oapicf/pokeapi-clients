@@ -7,9 +7,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.vertxweb.server.model.CharacteristicSummary;
+import org.openapitools.vertxweb.server.model.ItemSummary;
 import org.openapitools.vertxweb.server.model.MoveDamageClassSummary;
-import org.openapitools.vertxweb.server.model.StatDetailAffectingMoves;
-import org.openapitools.vertxweb.server.model.StatDetailAffectingNatures;
+import org.openapitools.vertxweb.server.model.StatAffectingMoves;
+import org.openapitools.vertxweb.server.model.StatAffectingNatures;
 import org.openapitools.vertxweb.server.model.StatName;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -19,8 +20,9 @@ public class StatDetail   {
   private String name;
   private Integer gameIndex;
   private Boolean isBattleOnly;
-  private StatDetailAffectingMoves affectingMoves;
-  private StatDetailAffectingNatures affectingNatures;
+  private StatAffectingMoves affectingMoves;
+  private StatAffectingNatures affectingNatures;
+  private List<ItemSummary> affectingItems = new ArrayList<>();
   private List<CharacteristicSummary> characteristics = new ArrayList<>();
   private MoveDamageClassSummary moveDamageClass;
   private List<StatName> names = new ArrayList<>();
@@ -29,13 +31,14 @@ public class StatDetail   {
 
   }
 
-  public StatDetail (Integer id, String name, Integer gameIndex, Boolean isBattleOnly, StatDetailAffectingMoves affectingMoves, StatDetailAffectingNatures affectingNatures, List<CharacteristicSummary> characteristics, MoveDamageClassSummary moveDamageClass, List<StatName> names) {
+  public StatDetail (Integer id, String name, Integer gameIndex, Boolean isBattleOnly, StatAffectingMoves affectingMoves, StatAffectingNatures affectingNatures, List<ItemSummary> affectingItems, List<CharacteristicSummary> characteristics, MoveDamageClassSummary moveDamageClass, List<StatName> names) {
     this.id = id;
     this.name = name;
     this.gameIndex = gameIndex;
     this.isBattleOnly = isBattleOnly;
     this.affectingMoves = affectingMoves;
     this.affectingNatures = affectingNatures;
+    this.affectingItems = affectingItems;
     this.characteristics = characteristics;
     this.moveDamageClass = moveDamageClass;
     this.names = names;
@@ -79,20 +82,29 @@ public class StatDetail   {
 
     
   @JsonProperty("affecting_moves")
-  public StatDetailAffectingMoves getAffectingMoves() {
+  public StatAffectingMoves getAffectingMoves() {
     return affectingMoves;
   }
-  public void setAffectingMoves(StatDetailAffectingMoves affectingMoves) {
+  public void setAffectingMoves(StatAffectingMoves affectingMoves) {
     this.affectingMoves = affectingMoves;
   }
 
     
   @JsonProperty("affecting_natures")
-  public StatDetailAffectingNatures getAffectingNatures() {
+  public StatAffectingNatures getAffectingNatures() {
     return affectingNatures;
   }
-  public void setAffectingNatures(StatDetailAffectingNatures affectingNatures) {
+  public void setAffectingNatures(StatAffectingNatures affectingNatures) {
     this.affectingNatures = affectingNatures;
+  }
+
+    
+  @JsonProperty("affecting_items")
+  public List<ItemSummary> getAffectingItems() {
+    return affectingItems;
+  }
+  public void setAffectingItems(List<ItemSummary> affectingItems) {
+    this.affectingItems = affectingItems;
   }
 
     
@@ -138,6 +150,7 @@ public class StatDetail   {
         Objects.equals(isBattleOnly, statDetail.isBattleOnly) &&
         Objects.equals(affectingMoves, statDetail.affectingMoves) &&
         Objects.equals(affectingNatures, statDetail.affectingNatures) &&
+        Objects.equals(affectingItems, statDetail.affectingItems) &&
         Objects.equals(characteristics, statDetail.characteristics) &&
         Objects.equals(moveDamageClass, statDetail.moveDamageClass) &&
         Objects.equals(names, statDetail.names);
@@ -145,7 +158,7 @@ public class StatDetail   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, gameIndex, isBattleOnly, affectingMoves, affectingNatures, characteristics, moveDamageClass, names);
+    return Objects.hash(id, name, gameIndex, isBattleOnly, affectingMoves, affectingNatures, affectingItems, characteristics, moveDamageClass, names);
   }
 
   @Override
@@ -159,6 +172,7 @@ public class StatDetail   {
     sb.append("    isBattleOnly: ").append(toIndentedString(isBattleOnly)).append("\n");
     sb.append("    affectingMoves: ").append(toIndentedString(affectingMoves)).append("\n");
     sb.append("    affectingNatures: ").append(toIndentedString(affectingNatures)).append("\n");
+    sb.append("    affectingItems: ").append(toIndentedString(affectingItems)).append("\n");
     sb.append("    characteristics: ").append(toIndentedString(characteristics)).append("\n");
     sb.append("    moveDamageClass: ").append(toIndentedString(moveDamageClass)).append("\n");
     sb.append("    names: ").append(toIndentedString(names)).append("\n");

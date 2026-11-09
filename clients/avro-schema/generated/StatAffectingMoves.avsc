@@ -1,0 +1,25 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "StatAffectingMoves",
+  "fields": [
+    {
+      "name": "increase",
+      "type": {
+        "type": "array",
+        "items": "model.MoveStatChange"
+      },
+      "doc": "A list of moves and how they change the referenced stat."
+    },
+    {
+      "name": "decrease",
+      "type": {
+        "type": "array",
+        "items": "model.MoveStatChange"
+      },
+      "doc": "A list of moves and how they change the referenced stat."
+    }
+  ]
+
+}

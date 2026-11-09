@@ -2,11 +2,21 @@ import { Body, Controller, DefaultValuePipe, Get, Param, ParseIntPipe, ParseFloa
 import { Observable } from 'rxjs';
 import { Cookies, Headers } from '../decorators';
 import { ItemsApi } from '../api';
-import { ItemAttributeDetail, ItemCategoryDetail, ItemDetail, ItemFlingEffectDetail, ItemPocketDetail, PaginatedItemAttributeSummaryList, PaginatedItemCategorySummaryList, PaginatedItemFlingEffectSummaryList, PaginatedItemPocketSummaryList, PaginatedItemSummaryList,  } from '../models';
+import { CurrencyDetail, ItemAttributeDetail, ItemCategoryDetail, ItemDetail, ItemFlingEffectDetail, ItemPocketDetail, PaginatedCurrencySummaryList, PaginatedItemAttributeSummaryList, PaginatedItemCategorySummaryList, PaginatedItemFlingEffectSummaryList, PaginatedItemPocketSummaryList, PaginatedItemSummaryList,  } from '../models';
 
 @Controller()
 export class ItemsApiController {
   constructor(private readonly itemsApi: ItemsApi) {}
+
+  @Get('/api/v2/currency/')
+  currencyList(@Query('limit') limit: number | undefined, @Query('offset') offset: number | undefined, @Query('q') q: string | undefined, @Req() request: Request): PaginatedCurrencySummaryList | Promise<PaginatedCurrencySummaryList> | Observable<PaginatedCurrencySummaryList> {
+    return this.itemsApi.currencyList(limit, offset, q, request);
+  }
+
+  @Get('/api/v2/currency/:id/')
+  currencyRetrieve(@Param('id') id: string, @Req() request: Request): CurrencyDetail | Promise<CurrencyDetail> | Observable<CurrencyDetail> {
+    return this.itemsApi.currencyRetrieve(id, request);
+  }
 
   @Get('/api/v2/item-attribute/')
   itemAttributeList(@Query('limit') limit: number | undefined, @Query('offset') offset: number | undefined, @Query('q') q: string | undefined, @Req() request: Request): PaginatedItemAttributeSummaryList | Promise<PaginatedItemAttributeSummaryList> | Observable<PaginatedItemAttributeSummaryList> {

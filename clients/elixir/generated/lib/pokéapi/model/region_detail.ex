@@ -21,10 +21,10 @@ defmodule PokéAPI.Model.RegionDetail do
     :id => integer(),
     :name => String.t,
     :locations => [PokéAPI.Model.LocationSummary.t],
-    :main_generation => PokéAPI.Model.GenerationSummary.t,
+    :main_generation => PokéAPI.Model.GenerationSummary.t | nil,
     :names => [PokéAPI.Model.RegionName.t],
     :pokedexes => [PokéAPI.Model.PokedexSummary.t],
-    :version_groups => [PokéAPI.Model.AbilityDetailPokemonInnerPokemon.t]
+    :version_groups => [PokéAPI.Model.VersionGroupSummary.t]
   }
 
   alias PokéAPI.Deserializer
@@ -35,7 +35,7 @@ defmodule PokéAPI.Model.RegionDetail do
      |> Deserializer.deserialize(:main_generation, :struct, PokéAPI.Model.GenerationSummary)
      |> Deserializer.deserialize(:names, :list, PokéAPI.Model.RegionName)
      |> Deserializer.deserialize(:pokedexes, :list, PokéAPI.Model.PokedexSummary)
-     |> Deserializer.deserialize(:version_groups, :list, PokéAPI.Model.AbilityDetailPokemonInnerPokemon)
+     |> Deserializer.deserialize(:version_groups, :list, PokéAPI.Model.VersionGroupSummary)
   end
 end
 

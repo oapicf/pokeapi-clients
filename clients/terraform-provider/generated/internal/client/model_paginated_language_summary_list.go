@@ -4,8 +4,8 @@ package client
 
 // PaginatedLanguageSummaryList - PaginatedLanguageSummaryList struct
 type PaginatedLanguageSummaryList struct {
-	Count int32 `json:"count,omitempty"`
+	Count int32 `json:"count"`
 	Next string `json:"next,omitempty"`
 	Previous string `json:"previous,omitempty"`
-	Results []LanguageSummary `json:"results,omitempty"`
+	Results []LanguageSummary `json:"results"`
 }

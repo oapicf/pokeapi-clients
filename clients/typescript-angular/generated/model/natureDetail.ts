@@ -8,23 +8,48 @@
  * Do not edit the class manually.
  */
 import { StatSummary } from './statSummary';
-import { BerrySummary } from './berrySummary';
+import { NaturePokeathlonStat } from './naturePokeathlonStat';
 import { NatureBattleStylePreference } from './natureBattleStylePreference';
-import { NatureDetailPokeathlonStatChangesInner } from './natureDetailPokeathlonStatChangesInner';
 import { BerryFlavorSummary } from './berryFlavorSummary';
 import { NatureName } from './natureName';
 
 
 export interface NatureDetail { 
+    /**
+     * The identifier for this resource.
+     */
     readonly id: number;
+    /**
+     * The name for this resource.
+     */
     name: string;
-    decreased_stat: StatSummary;
-    increased_stat: StatSummary;
-    likes_flavor: BerryFlavorSummary;
-    hates_flavor: BerryFlavorSummary;
-    readonly berries: Array<BerrySummary>;
-    readonly pokeathlon_stat_changes: Array<NatureDetailPokeathlonStatChangesInner>;
+    /**
+     * The stat decreased by 10% in Pokémon with this nature.
+     */
+    decreased_stat: StatSummary | null;
+    /**
+     * The stat increased by 10% in Pokémon with this nature.
+     */
+    increased_stat: StatSummary | null;
+    /**
+     * The flavor liked by Pokémon with this nature.
+     */
+    likes_flavor: BerryFlavorSummary | null;
+    /**
+     * The flavor hated by Pokémon with this nature.
+     */
+    hates_flavor: BerryFlavorSummary | null;
+    /**
+     * A list of Pokéathlon stats this nature effects and how much it effects them.
+     */
+    readonly pokeathlon_stat_changes: Array<NaturePokeathlonStat>;
+    /**
+     * A list of battle styles and how likely a Pokémon with this nature is to use them in the Battle Palace or Battle Tent.
+     */
     readonly move_battle_style_preferences: Array<NatureBattleStylePreference>;
+    /**
+     * The name of this resource listed in different languages.
+     */
     readonly names: Array<NatureName>;
 }
 

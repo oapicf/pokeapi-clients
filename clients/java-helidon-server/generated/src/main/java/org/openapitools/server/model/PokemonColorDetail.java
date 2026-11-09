@@ -27,10 +27,10 @@ public class PokemonColorDetail   {
     /**
      * Create PokemonColorDetail.
      *
-     * @param id id
-     * @param name name
-     * @param names names
-     * @param pokemonSpecies pokemonSpecies
+     * @param id The identifier for this resource.
+     * @param name The name for this resource.
+     * @param names The name of this resource listed in different languages.
+     * @param pokemonSpecies A list of the Pokémon species that have this color.
      */
     public PokemonColorDetail(
         Integer id, 
@@ -47,7 +47,7 @@ public class PokemonColorDetail   {
 
 
     /**
-     * Get id
+     * The identifier for this resource.
      * @return id
      */
     public Integer getId() {
@@ -59,7 +59,7 @@ public class PokemonColorDetail   {
     }
 
     /**
-     * Get name
+     * The name for this resource.
      * @return name
      */
     public String getName() {
@@ -71,7 +71,7 @@ public class PokemonColorDetail   {
     }
 
     /**
-     * Get names
+     * The name of this resource listed in different languages.
      * @return names
      */
     public List<@Valid PokemonColorName> getNames() {
@@ -83,7 +83,7 @@ public class PokemonColorDetail   {
     }
 
     /**
-     * Get pokemonSpecies
+     * A list of the Pokémon species that have this color.
      * @return pokemonSpecies
      */
     public List<@Valid PokemonSpeciesSummary> getPokemonSpecies() {

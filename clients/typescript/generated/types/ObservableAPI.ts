@@ -6,21 +6,18 @@ import {mergeMap, map} from  '../rxjsStub';
 import { AbilityChange } from '../models/AbilityChange';
 import { AbilityChangeEffectText } from '../models/AbilityChangeEffectText';
 import { AbilityDetail } from '../models/AbilityDetail';
-import { AbilityDetailPokemonInner } from '../models/AbilityDetailPokemonInner';
-import { AbilityDetailPokemonInnerPokemon } from '../models/AbilityDetailPokemonInnerPokemon';
 import { AbilityEffectText } from '../models/AbilityEffectText';
 import { AbilityFlavorText } from '../models/AbilityFlavorText';
 import { AbilityName } from '../models/AbilityName';
+import { AbilityPokemonDetail } from '../models/AbilityPokemonDetail';
 import { AbilitySummary } from '../models/AbilitySummary';
 import { BerryDetail } from '../models/BerryDetail';
-import { BerryDetailFlavorsInner } from '../models/BerryDetailFlavorsInner';
-import { BerryDetailFlavorsInnerFlavor } from '../models/BerryDetailFlavorsInnerFlavor';
 import { BerryFirmnessDetail } from '../models/BerryFirmnessDetail';
 import { BerryFirmnessName } from '../models/BerryFirmnessName';
 import { BerryFirmnessSummary } from '../models/BerryFirmnessSummary';
+import { BerryFlavorBerryMap } from '../models/BerryFlavorBerryMap';
 import { BerryFlavorDetail } from '../models/BerryFlavorDetail';
-import { BerryFlavorDetailBerriesInner } from '../models/BerryFlavorDetailBerriesInner';
-import { BerryFlavorDetailBerriesInnerBerry } from '../models/BerryFlavorDetailBerriesInnerBerry';
+import { BerryFlavorMap } from '../models/BerryFlavorMap';
 import { BerryFlavorName } from '../models/BerryFlavorName';
 import { BerryFlavorSummary } from '../models/BerryFlavorSummary';
 import { BerrySummary } from '../models/BerrySummary';
@@ -34,8 +31,10 @@ import { ContestEffectSummary } from '../models/ContestEffectSummary';
 import { ContestTypeDetail } from '../models/ContestTypeDetail';
 import { ContestTypeName } from '../models/ContestTypeName';
 import { ContestTypeSummary } from '../models/ContestTypeSummary';
+import { CurrencyDetail } from '../models/CurrencyDetail';
+import { CurrencyName } from '../models/CurrencyName';
+import { CurrencySummary } from '../models/CurrencySummary';
 import { EggGroupDetail } from '../models/EggGroupDetail';
-import { EggGroupDetailPokemonSpeciesInner } from '../models/EggGroupDetailPokemonSpeciesInner';
 import { EggGroupName } from '../models/EggGroupName';
 import { EggGroupSummary } from '../models/EggGroupSummary';
 import { EncounterConditionDetail } from '../models/EncounterConditionDetail';
@@ -47,18 +46,21 @@ import { EncounterConditionValueSummary } from '../models/EncounterConditionValu
 import { EncounterMethodDetail } from '../models/EncounterMethodDetail';
 import { EncounterMethodName } from '../models/EncounterMethodName';
 import { EncounterMethodSummary } from '../models/EncounterMethodSummary';
+import { EncounterPokemonDetail } from '../models/EncounterPokemonDetail';
 import { EvolutionChainDetail } from '../models/EvolutionChainDetail';
-import { EvolutionChainDetailChain } from '../models/EvolutionChainDetailChain';
-import { EvolutionChainDetailChainEvolvesToInner } from '../models/EvolutionChainDetailChainEvolvesToInner';
-import { EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner } from '../models/EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner';
-import { EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender } from '../models/EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender';
+import { EvolutionChainLink } from '../models/EvolutionChainLink';
 import { EvolutionChainSummary } from '../models/EvolutionChainSummary';
+import { EvolutionConditionExpression } from '../models/EvolutionConditionExpression';
 import { EvolutionTriggerDetail } from '../models/EvolutionTriggerDetail';
 import { EvolutionTriggerName } from '../models/EvolutionTriggerName';
 import { EvolutionTriggerSummary } from '../models/EvolutionTriggerSummary';
+import { EvolutionVariableDescription } from '../models/EvolutionVariableDescription';
+import { EvolutionVariableDetail } from '../models/EvolutionVariableDetail';
+import { EvolutionVariableName } from '../models/EvolutionVariableName';
+import { EvolutionVariableSummary } from '../models/EvolutionVariableSummary';
 import { Experience } from '../models/Experience';
 import { GenderDetail } from '../models/GenderDetail';
-import { GenderDetailPokemonSpeciesDetailsInner } from '../models/GenderDetailPokemonSpeciesDetailsInner';
+import { GenderPokemonSpecies } from '../models/GenderPokemonSpecies';
 import { GenderSummary } from '../models/GenderSummary';
 import { GenerationDetail } from '../models/GenerationDetail';
 import { GenerationName } from '../models/GenerationName';
@@ -74,32 +76,30 @@ import { ItemCategoryDetail } from '../models/ItemCategoryDetail';
 import { ItemCategoryName } from '../models/ItemCategoryName';
 import { ItemCategorySummary } from '../models/ItemCategorySummary';
 import { ItemDetail } from '../models/ItemDetail';
-import { ItemDetailBabyTriggerFor } from '../models/ItemDetailBabyTriggerFor';
-import { ItemDetailHeldByPokemonInner } from '../models/ItemDetailHeldByPokemonInner';
-import { ItemDetailHeldByPokemonInnerVersionDetailsInner } from '../models/ItemDetailHeldByPokemonInnerVersionDetailsInner';
-import { ItemDetailMachinesInner } from '../models/ItemDetailMachinesInner';
-import { ItemDetailSprites } from '../models/ItemDetailSprites';
 import { ItemEffectText } from '../models/ItemEffectText';
 import { ItemFlavorText } from '../models/ItemFlavorText';
 import { ItemFlingEffectDetail } from '../models/ItemFlingEffectDetail';
 import { ItemFlingEffectEffectText } from '../models/ItemFlingEffectEffectText';
 import { ItemFlingEffectSummary } from '../models/ItemFlingEffectSummary';
 import { ItemGameIndex } from '../models/ItemGameIndex';
+import { ItemMachine } from '../models/ItemMachine';
 import { ItemName } from '../models/ItemName';
 import { ItemPocketDetail } from '../models/ItemPocketDetail';
 import { ItemPocketName } from '../models/ItemPocketName';
 import { ItemPocketSummary } from '../models/ItemPocketSummary';
+import { ItemPrice } from '../models/ItemPrice';
+import { ItemSprites } from '../models/ItemSprites';
 import { ItemSummary } from '../models/ItemSummary';
 import { LanguageDetail } from '../models/LanguageDetail';
 import { LanguageName } from '../models/LanguageName';
 import { LanguageSummary } from '../models/LanguageSummary';
 import { LocationAreaDetail } from '../models/LocationAreaDetail';
-import { LocationAreaDetailEncounterMethodRatesInner } from '../models/LocationAreaDetailEncounterMethodRatesInner';
-import { LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner } from '../models/LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner';
-import { LocationAreaDetailPokemonEncountersInner } from '../models/LocationAreaDetailPokemonEncountersInner';
-import { LocationAreaDetailPokemonEncountersInnerVersionDetailsInner } from '../models/LocationAreaDetailPokemonEncountersInnerVersionDetailsInner';
-import { LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails } from '../models/LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails';
+import { LocationAreaEncounterDetail } from '../models/LocationAreaEncounterDetail';
+import { LocationAreaEncounterRate } from '../models/LocationAreaEncounterRate';
+import { LocationAreaEncounterVersionDetail } from '../models/LocationAreaEncounterVersionDetail';
 import { LocationAreaName } from '../models/LocationAreaName';
+import { LocationAreaPokemonEncounter } from '../models/LocationAreaPokemonEncounter';
+import { LocationAreaPokemonEncounterVersion } from '../models/LocationAreaPokemonEncounterVersion';
 import { LocationAreaSummary } from '../models/LocationAreaSummary';
 import { LocationDetail } from '../models/LocationDetail';
 import { LocationGameIndex } from '../models/LocationGameIndex';
@@ -111,19 +111,16 @@ import { MoveBattleStyleDetail } from '../models/MoveBattleStyleDetail';
 import { MoveBattleStyleName } from '../models/MoveBattleStyleName';
 import { MoveBattleStyleSummary } from '../models/MoveBattleStyleSummary';
 import { MoveChange } from '../models/MoveChange';
-import { MoveChangeEffectEntriesInner } from '../models/MoveChangeEffectEntriesInner';
+import { MoveComboUsage } from '../models/MoveComboUsage';
+import { MoveCombos } from '../models/MoveCombos';
 import { MoveDamageClassDescription } from '../models/MoveDamageClassDescription';
 import { MoveDamageClassDetail } from '../models/MoveDamageClassDetail';
 import { MoveDamageClassName } from '../models/MoveDamageClassName';
 import { MoveDamageClassSummary } from '../models/MoveDamageClassSummary';
 import { MoveDetail } from '../models/MoveDetail';
-import { MoveDetailContestCombos } from '../models/MoveDetailContestCombos';
-import { MoveDetailContestCombosNormal } from '../models/MoveDetailContestCombosNormal';
-import { MoveDetailEffectChangesInner } from '../models/MoveDetailEffectChangesInner';
-import { MoveDetailEffectChangesInnerEffectEntriesInner } from '../models/MoveDetailEffectChangesInnerEffectEntriesInner';
-import { MoveDetailMachinesInner } from '../models/MoveDetailMachinesInner';
-import { MoveDetailMachinesInnerMachine } from '../models/MoveDetailMachinesInnerMachine';
-import { MoveDetailStatChangesInner } from '../models/MoveDetailStatChangesInner';
+import { MoveEffectChange } from '../models/MoveEffectChange';
+import { MoveEffectChangeEffectText } from '../models/MoveEffectChangeEffectText';
+import { MoveEffectEffectText } from '../models/MoveEffectEffectText';
 import { MoveFlavorText } from '../models/MoveFlavorText';
 import { MoveLearnMethodDescription } from '../models/MoveLearnMethodDescription';
 import { MoveLearnMethodDetail } from '../models/MoveLearnMethodDetail';
@@ -136,7 +133,9 @@ import { MoveMetaAilmentSummary } from '../models/MoveMetaAilmentSummary';
 import { MoveMetaCategoryDescription } from '../models/MoveMetaCategoryDescription';
 import { MoveMetaCategoryDetail } from '../models/MoveMetaCategoryDetail';
 import { MoveMetaCategorySummary } from '../models/MoveMetaCategorySummary';
+import { MoveMetaStatChange } from '../models/MoveMetaStatChange';
 import { MoveName } from '../models/MoveName';
+import { MoveStatChange } from '../models/MoveStatChange';
 import { MoveSummary } from '../models/MoveSummary';
 import { MoveTargetDescription } from '../models/MoveTargetDescription';
 import { MoveTargetDetail } from '../models/MoveTargetDetail';
@@ -144,8 +143,8 @@ import { MoveTargetName } from '../models/MoveTargetName';
 import { MoveTargetSummary } from '../models/MoveTargetSummary';
 import { NatureBattleStylePreference } from '../models/NatureBattleStylePreference';
 import { NatureDetail } from '../models/NatureDetail';
-import { NatureDetailPokeathlonStatChangesInner } from '../models/NatureDetailPokeathlonStatChangesInner';
 import { NatureName } from '../models/NatureName';
+import { NaturePokeathlonStat } from '../models/NaturePokeathlonStat';
 import { NatureSummary } from '../models/NatureSummary';
 import { PaginatedAbilitySummaryList } from '../models/PaginatedAbilitySummaryList';
 import { PaginatedBerryFirmnessSummaryList } from '../models/PaginatedBerryFirmnessSummaryList';
@@ -154,12 +153,14 @@ import { PaginatedBerrySummaryList } from '../models/PaginatedBerrySummaryList';
 import { PaginatedCharacteristicSummaryList } from '../models/PaginatedCharacteristicSummaryList';
 import { PaginatedContestEffectSummaryList } from '../models/PaginatedContestEffectSummaryList';
 import { PaginatedContestTypeSummaryList } from '../models/PaginatedContestTypeSummaryList';
+import { PaginatedCurrencySummaryList } from '../models/PaginatedCurrencySummaryList';
 import { PaginatedEggGroupSummaryList } from '../models/PaginatedEggGroupSummaryList';
 import { PaginatedEncounterConditionSummaryList } from '../models/PaginatedEncounterConditionSummaryList';
 import { PaginatedEncounterConditionValueSummaryList } from '../models/PaginatedEncounterConditionValueSummaryList';
 import { PaginatedEncounterMethodSummaryList } from '../models/PaginatedEncounterMethodSummaryList';
 import { PaginatedEvolutionChainSummaryList } from '../models/PaginatedEvolutionChainSummaryList';
 import { PaginatedEvolutionTriggerSummaryList } from '../models/PaginatedEvolutionTriggerSummaryList';
+import { PaginatedEvolutionVariableSummaryList } from '../models/PaginatedEvolutionVariableSummaryList';
 import { PaginatedGenderSummaryList } from '../models/PaginatedGenderSummaryList';
 import { PaginatedGenerationSummaryList } from '../models/PaginatedGenerationSummaryList';
 import { PaginatedGrowthRateSummaryList } from '../models/PaginatedGrowthRateSummaryList';
@@ -196,75 +197,91 @@ import { PaginatedTypeSummaryList } from '../models/PaginatedTypeSummaryList';
 import { PaginatedVersionGroupSummaryList } from '../models/PaginatedVersionGroupSummaryList';
 import { PaginatedVersionSummaryList } from '../models/PaginatedVersionSummaryList';
 import { PalParkAreaDetail } from '../models/PalParkAreaDetail';
-import { PalParkAreaDetailPokemonEncountersInner } from '../models/PalParkAreaDetailPokemonEncountersInner';
 import { PalParkAreaName } from '../models/PalParkAreaName';
 import { PalParkAreaSummary } from '../models/PalParkAreaSummary';
+import { PalParkEncounter } from '../models/PalParkEncounter';
+import { PokeapiMetaResponse } from '../models/PokeapiMetaResponse';
+import { PokeathlonStatAffectingNature } from '../models/PokeathlonStatAffectingNature';
+import { PokeathlonStatAffectingNatures } from '../models/PokeathlonStatAffectingNatures';
 import { PokeathlonStatDetail } from '../models/PokeathlonStatDetail';
-import { PokeathlonStatDetailAffectingNatures } from '../models/PokeathlonStatDetailAffectingNatures';
-import { PokeathlonStatDetailAffectingNaturesDecreaseInner } from '../models/PokeathlonStatDetailAffectingNaturesDecreaseInner';
-import { PokeathlonStatDetailAffectingNaturesIncreaseInner } from '../models/PokeathlonStatDetailAffectingNaturesIncreaseInner';
 import { PokeathlonStatName } from '../models/PokeathlonStatName';
 import { PokeathlonStatSummary } from '../models/PokeathlonStatSummary';
 import { PokedexDescription } from '../models/PokedexDescription';
 import { PokedexDetail } from '../models/PokedexDetail';
-import { PokedexDetailPokemonEntriesInner } from '../models/PokedexDetailPokemonEntriesInner';
 import { PokedexName } from '../models/PokedexName';
 import { PokedexSummary } from '../models/PokedexSummary';
+import { PokemonAbility } from '../models/PokemonAbility';
+import { PokemonAbilityPast } from '../models/PokemonAbilityPast';
 import { PokemonColorDetail } from '../models/PokemonColorDetail';
 import { PokemonColorName } from '../models/PokemonColorName';
 import { PokemonColorSummary } from '../models/PokemonColorSummary';
+import { PokemonCries } from '../models/PokemonCries';
 import { PokemonDetail } from '../models/PokemonDetail';
-import { PokemonDetailAbilitiesInner } from '../models/PokemonDetailAbilitiesInner';
-import { PokemonDetailCries } from '../models/PokemonDetailCries';
-import { PokemonDetailHeldItems } from '../models/PokemonDetailHeldItems';
-import { PokemonDetailMovesInner } from '../models/PokemonDetailMovesInner';
-import { PokemonDetailMovesInnerVersionGroupDetailsInner } from '../models/PokemonDetailMovesInnerVersionGroupDetailsInner';
-import { PokemonDetailPastAbilitiesInner } from '../models/PokemonDetailPastAbilitiesInner';
-import { PokemonDetailPastTypesInner } from '../models/PokemonDetailPastTypesInner';
-import { PokemonDetailSprites } from '../models/PokemonDetailSprites';
-import { PokemonDetailTypesInner } from '../models/PokemonDetailTypesInner';
 import { PokemonDexEntry } from '../models/PokemonDexEntry';
+import { PokemonDexNumber } from '../models/PokemonDexNumber';
+import { PokemonEncounterDetailResponse } from '../models/PokemonEncounterDetailResponse';
+import { PokemonEncounterResponse } from '../models/PokemonEncounterResponse';
+import { PokemonEncounterVersionDetailResponse } from '../models/PokemonEncounterVersionDetailResponse';
+import { PokemonEvolution } from '../models/PokemonEvolution';
+import { PokemonEvolutionKnownMove } from '../models/PokemonEvolutionKnownMove';
 import { PokemonFormDetail } from '../models/PokemonFormDetail';
-import { PokemonFormDetailFormNamesInner } from '../models/PokemonFormDetailFormNamesInner';
-import { PokemonFormDetailSprites } from '../models/PokemonFormDetailSprites';
+import { PokemonFormFlavorText } from '../models/PokemonFormFlavorText';
+import { PokemonFormName } from '../models/PokemonFormName';
+import { PokemonFormSprites } from '../models/PokemonFormSprites';
 import { PokemonFormSummary } from '../models/PokemonFormSummary';
+import { PokemonFormTriggerCondition } from '../models/PokemonFormTriggerCondition';
+import { PokemonFormType } from '../models/PokemonFormType';
 import { PokemonGameIndex } from '../models/PokemonGameIndex';
 import { PokemonHabitatDetail } from '../models/PokemonHabitatDetail';
 import { PokemonHabitatName } from '../models/PokemonHabitatName';
 import { PokemonHabitatSummary } from '../models/PokemonHabitatSummary';
+import { PokemonHeldItem } from '../models/PokemonHeldItem';
+import { PokemonHeldItemSummary } from '../models/PokemonHeldItemSummary';
+import { PokemonHeldItemVersion } from '../models/PokemonHeldItemVersion';
+import { PokemonMove } from '../models/PokemonMove';
+import { PokemonMoveVersionGroup } from '../models/PokemonMoveVersionGroup';
+import { PokemonPastAbility } from '../models/PokemonPastAbility';
+import { PokemonPastStat } from '../models/PokemonPastStat';
+import { PokemonPastType } from '../models/PokemonPastType';
+import { PokemonShapeAwesomeName } from '../models/PokemonShapeAwesomeName';
 import { PokemonShapeDetail } from '../models/PokemonShapeDetail';
-import { PokemonShapeDetailAwesomeNamesInner } from '../models/PokemonShapeDetailAwesomeNamesInner';
-import { PokemonShapeDetailNamesInner } from '../models/PokemonShapeDetailNamesInner';
+import { PokemonShapeName } from '../models/PokemonShapeName';
 import { PokemonShapeSummary } from '../models/PokemonShapeSummary';
 import { PokemonSpeciesDescription } from '../models/PokemonSpeciesDescription';
 import { PokemonSpeciesDetail } from '../models/PokemonSpeciesDetail';
-import { PokemonSpeciesDetailGeneraInner } from '../models/PokemonSpeciesDetailGeneraInner';
-import { PokemonSpeciesDetailPalParkEncountersInner } from '../models/PokemonSpeciesDetailPalParkEncountersInner';
-import { PokemonSpeciesDetailVarietiesInner } from '../models/PokemonSpeciesDetailVarietiesInner';
 import { PokemonSpeciesFlavorText } from '../models/PokemonSpeciesFlavorText';
+import { PokemonSpeciesGenus } from '../models/PokemonSpeciesGenus';
+import { PokemonSpeciesName } from '../models/PokemonSpeciesName';
+import { PokemonSpeciesPalParkEncounter } from '../models/PokemonSpeciesPalParkEncounter';
 import { PokemonSpeciesSummary } from '../models/PokemonSpeciesSummary';
+import { PokemonSpeciesVariety } from '../models/PokemonSpeciesVariety';
+import { PokemonSprites } from '../models/PokemonSprites';
+import { PokemonSpritesOther } from '../models/PokemonSpritesOther';
+import { PokemonSpritesOtherDreamWorld } from '../models/PokemonSpritesOtherDreamWorld';
+import { PokemonSpritesOtherHome } from '../models/PokemonSpritesOtherHome';
+import { PokemonSpritesOtherOfficialArtwork } from '../models/PokemonSpritesOtherOfficialArtwork';
+import { PokemonSpritesOtherShowdown } from '../models/PokemonSpritesOtherShowdown';
 import { PokemonStat } from '../models/PokemonStat';
 import { PokemonSummary } from '../models/PokemonSummary';
+import { PokemonType } from '../models/PokemonType';
 import { RegionDetail } from '../models/RegionDetail';
 import { RegionName } from '../models/RegionName';
 import { RegionSummary } from '../models/RegionSummary';
+import { StatAffectingMoves } from '../models/StatAffectingMoves';
+import { StatAffectingNatures } from '../models/StatAffectingNatures';
 import { StatDetail } from '../models/StatDetail';
-import { StatDetailAffectingMoves } from '../models/StatDetailAffectingMoves';
-import { StatDetailAffectingMovesIncreaseInner } from '../models/StatDetailAffectingMovesIncreaseInner';
-import { StatDetailAffectingNatures } from '../models/StatDetailAffectingNatures';
 import { StatName } from '../models/StatName';
 import { StatSummary } from '../models/StatSummary';
 import { SuperContestEffectDetail } from '../models/SuperContestEffectDetail';
 import { SuperContestEffectFlavorText } from '../models/SuperContestEffectFlavorText';
 import { SuperContestEffectSummary } from '../models/SuperContestEffectSummary';
 import { TypeDetail } from '../models/TypeDetail';
-import { TypeDetailDamageRelations } from '../models/TypeDetailDamageRelations';
-import { TypeDetailPastDamageRelationsInner } from '../models/TypeDetailPastDamageRelationsInner';
-import { TypeDetailPastDamageRelationsInnerDamageRelations } from '../models/TypeDetailPastDamageRelationsInnerDamageRelations';
-import { TypeDetailPokemonInner } from '../models/TypeDetailPokemonInner';
-import { TypeDetailPokemonInnerPokemon } from '../models/TypeDetailPokemonInnerPokemon';
-import { TypeDetailSpritesValueValue } from '../models/TypeDetailSpritesValueValue';
 import { TypeGameIndex } from '../models/TypeGameIndex';
+import { TypeGameSprite } from '../models/TypeGameSprite';
+import { TypeName } from '../models/TypeName';
+import { TypePastRelationships } from '../models/TypePastRelationships';
+import { TypePokemon } from '../models/TypePokemon';
+import { TypeRelationships } from '../models/TypeRelationships';
 import { TypeSummary } from '../models/TypeSummary';
 import { VersionDetail } from '../models/VersionDetail';
 import { VersionGroupDetail } from '../models/VersionGroupDetail';
@@ -527,12 +544,11 @@ export class ObservableContestsApi {
      * List contest effects
      * @param [limit] Number of results to return per page.
      * @param [offset] The initial index from which to return the results.
-     * @param [q] &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. 
      */
-    public contestEffectListWithHttpInfo(limit?: number, offset?: number, q?: string, _options?: ConfigurationOptions): Observable<HttpInfo<PaginatedContestEffectSummaryList>> {
+    public contestEffectListWithHttpInfo(limit?: number, offset?: number, _options?: ConfigurationOptions): Observable<HttpInfo<PaginatedContestEffectSummaryList>> {
         const _config = mergeConfiguration(this.configuration, _options);
 
-        const requestContextPromise = this.requestFactory.contestEffectList(limit, offset, q, _config);
+        const requestContextPromise = this.requestFactory.contestEffectList(limit, offset, _config);
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
         for (const middleware of _config.middleware) {
@@ -554,10 +570,9 @@ export class ObservableContestsApi {
      * List contest effects
      * @param [limit] Number of results to return per page.
      * @param [offset] The initial index from which to return the results.
-     * @param [q] &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. 
      */
-    public contestEffectList(limit?: number, offset?: number, q?: string, _options?: ConfigurationOptions): Observable<PaginatedContestEffectSummaryList> {
-        return this.contestEffectListWithHttpInfo(limit, offset, q, _options).pipe(map((apiResponse: HttpInfo<PaginatedContestEffectSummaryList>) => apiResponse.data));
+    public contestEffectList(limit?: number, offset?: number, _options?: ConfigurationOptions): Observable<PaginatedContestEffectSummaryList> {
+        return this.contestEffectListWithHttpInfo(limit, offset, _options).pipe(map((apiResponse: HttpInfo<PaginatedContestEffectSummaryList>) => apiResponse.data));
     }
 
     /**
@@ -671,12 +686,11 @@ export class ObservableContestsApi {
      * List super contest effects
      * @param [limit] Number of results to return per page.
      * @param [offset] The initial index from which to return the results.
-     * @param [q] &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. 
      */
-    public superContestEffectListWithHttpInfo(limit?: number, offset?: number, q?: string, _options?: ConfigurationOptions): Observable<HttpInfo<PaginatedSuperContestEffectSummaryList>> {
+    public superContestEffectListWithHttpInfo(limit?: number, offset?: number, _options?: ConfigurationOptions): Observable<HttpInfo<PaginatedSuperContestEffectSummaryList>> {
         const _config = mergeConfiguration(this.configuration, _options);
 
-        const requestContextPromise = this.requestFactory.superContestEffectList(limit, offset, q, _config);
+        const requestContextPromise = this.requestFactory.superContestEffectList(limit, offset, _config);
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
         for (const middleware of _config.middleware) {
@@ -698,10 +712,9 @@ export class ObservableContestsApi {
      * List super contest effects
      * @param [limit] Number of results to return per page.
      * @param [offset] The initial index from which to return the results.
-     * @param [q] &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. 
      */
-    public superContestEffectList(limit?: number, offset?: number, q?: string, _options?: ConfigurationOptions): Observable<PaginatedSuperContestEffectSummaryList> {
-        return this.superContestEffectListWithHttpInfo(limit, offset, q, _options).pipe(map((apiResponse: HttpInfo<PaginatedSuperContestEffectSummaryList>) => apiResponse.data));
+    public superContestEffectList(limit?: number, offset?: number, _options?: ConfigurationOptions): Observable<PaginatedSuperContestEffectSummaryList> {
+        return this.superContestEffectListWithHttpInfo(limit, offset, _options).pipe(map((apiResponse: HttpInfo<PaginatedSuperContestEffectSummaryList>) => apiResponse.data));
     }
 
     /**
@@ -995,12 +1008,11 @@ export class ObservableEvolutionApi {
      * List evolution chains
      * @param [limit] Number of results to return per page.
      * @param [offset] The initial index from which to return the results.
-     * @param [q] &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. 
      */
-    public evolutionChainListWithHttpInfo(limit?: number, offset?: number, q?: string, _options?: ConfigurationOptions): Observable<HttpInfo<PaginatedEvolutionChainSummaryList>> {
+    public evolutionChainListWithHttpInfo(limit?: number, offset?: number, _options?: ConfigurationOptions): Observable<HttpInfo<PaginatedEvolutionChainSummaryList>> {
         const _config = mergeConfiguration(this.configuration, _options);
 
-        const requestContextPromise = this.requestFactory.evolutionChainList(limit, offset, q, _config);
+        const requestContextPromise = this.requestFactory.evolutionChainList(limit, offset, _config);
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
         for (const middleware of _config.middleware) {
@@ -1022,10 +1034,9 @@ export class ObservableEvolutionApi {
      * List evolution chains
      * @param [limit] Number of results to return per page.
      * @param [offset] The initial index from which to return the results.
-     * @param [q] &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. 
      */
-    public evolutionChainList(limit?: number, offset?: number, q?: string, _options?: ConfigurationOptions): Observable<PaginatedEvolutionChainSummaryList> {
-        return this.evolutionChainListWithHttpInfo(limit, offset, q, _options).pipe(map((apiResponse: HttpInfo<PaginatedEvolutionChainSummaryList>) => apiResponse.data));
+    public evolutionChainList(limit?: number, offset?: number, _options?: ConfigurationOptions): Observable<PaginatedEvolutionChainSummaryList> {
+        return this.evolutionChainListWithHttpInfo(limit, offset, _options).pipe(map((apiResponse: HttpInfo<PaginatedEvolutionChainSummaryList>) => apiResponse.data));
     }
 
     /**
@@ -1132,6 +1143,78 @@ export class ObservableEvolutionApi {
      */
     public evolutionTriggerRetrieve(id: string, _options?: ConfigurationOptions): Observable<EvolutionTriggerDetail> {
         return this.evolutionTriggerRetrieveWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<EvolutionTriggerDetail>) => apiResponse.data));
+    }
+
+    /**
+     * Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+     * List evolution variables
+     * @param [limit] Number of results to return per page.
+     * @param [offset] The initial index from which to return the results.
+     * @param [q] &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. 
+     */
+    public evolutionVariableListWithHttpInfo(limit?: number, offset?: number, q?: string, _options?: ConfigurationOptions): Observable<HttpInfo<PaginatedEvolutionVariableSummaryList>> {
+        const _config = mergeConfiguration(this.configuration, _options);
+
+        const requestContextPromise = this.requestFactory.evolutionVariableList(limit, offset, q, _config);
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (const middleware of _config.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => _config.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (const middleware of _config.middleware.reverse()) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.evolutionVariableListWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+     * List evolution variables
+     * @param [limit] Number of results to return per page.
+     * @param [offset] The initial index from which to return the results.
+     * @param [q] &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. 
+     */
+    public evolutionVariableList(limit?: number, offset?: number, q?: string, _options?: ConfigurationOptions): Observable<PaginatedEvolutionVariableSummaryList> {
+        return this.evolutionVariableListWithHttpInfo(limit, offset, q, _options).pipe(map((apiResponse: HttpInfo<PaginatedEvolutionVariableSummaryList>) => apiResponse.data));
+    }
+
+    /**
+     * Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+     * Get evolution variable
+     * @param id This parameter can be a string or an integer.
+     */
+    public evolutionVariableRetrieveWithHttpInfo(id: string, _options?: ConfigurationOptions): Observable<HttpInfo<EvolutionVariableDetail>> {
+        const _config = mergeConfiguration(this.configuration, _options);
+
+        const requestContextPromise = this.requestFactory.evolutionVariableRetrieve(id, _config);
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (const middleware of _config.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => _config.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (const middleware of _config.middleware.reverse()) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.evolutionVariableRetrieveWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+     * Get evolution variable
+     * @param id This parameter can be a string or an integer.
+     */
+    public evolutionVariableRetrieve(id: string, _options?: ConfigurationOptions): Observable<EvolutionVariableDetail> {
+        return this.evolutionVariableRetrieveWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<EvolutionVariableDetail>) => apiResponse.data));
     }
 
 }
@@ -1456,6 +1539,78 @@ export class ObservableItemsApi {
         this.configuration = configuration;
         this.requestFactory = requestFactory || new ItemsApiRequestFactory(configuration);
         this.responseProcessor = responseProcessor || new ItemsApiResponseProcessor();
+    }
+
+    /**
+     * Currencies used to buy items.
+     * List currencies
+     * @param [limit] Number of results to return per page.
+     * @param [offset] The initial index from which to return the results.
+     * @param [q] &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. 
+     */
+    public currencyListWithHttpInfo(limit?: number, offset?: number, q?: string, _options?: ConfigurationOptions): Observable<HttpInfo<PaginatedCurrencySummaryList>> {
+        const _config = mergeConfiguration(this.configuration, _options);
+
+        const requestContextPromise = this.requestFactory.currencyList(limit, offset, q, _config);
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (const middleware of _config.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => _config.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (const middleware of _config.middleware.reverse()) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.currencyListWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * Currencies used to buy items.
+     * List currencies
+     * @param [limit] Number of results to return per page.
+     * @param [offset] The initial index from which to return the results.
+     * @param [q] &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. 
+     */
+    public currencyList(limit?: number, offset?: number, q?: string, _options?: ConfigurationOptions): Observable<PaginatedCurrencySummaryList> {
+        return this.currencyListWithHttpInfo(limit, offset, q, _options).pipe(map((apiResponse: HttpInfo<PaginatedCurrencySummaryList>) => apiResponse.data));
+    }
+
+    /**
+     * Currencies used to buy items.
+     * Get currency
+     * @param id This parameter can be a string or an integer.
+     */
+    public currencyRetrieveWithHttpInfo(id: string, _options?: ConfigurationOptions): Observable<HttpInfo<CurrencyDetail>> {
+        const _config = mergeConfiguration(this.configuration, _options);
+
+        const requestContextPromise = this.requestFactory.currencyRetrieve(id, _config);
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (const middleware of _config.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => _config.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (const middleware of _config.middleware.reverse()) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.currencyRetrieveWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * Currencies used to buy items.
+     * Get currency
+     * @param id This parameter can be a string or an integer.
+     */
+    public currencyRetrieve(id: string, _options?: ConfigurationOptions): Observable<CurrencyDetail> {
+        return this.currencyRetrieveWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<CurrencyDetail>) => apiResponse.data));
     }
 
     /**
@@ -2145,12 +2300,11 @@ export class ObservableMachinesApi {
      * List machines
      * @param [limit] Number of results to return per page.
      * @param [offset] The initial index from which to return the results.
-     * @param [q] &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. 
      */
-    public machineListWithHttpInfo(limit?: number, offset?: number, q?: string, _options?: ConfigurationOptions): Observable<HttpInfo<PaginatedMachineSummaryList>> {
+    public machineListWithHttpInfo(limit?: number, offset?: number, _options?: ConfigurationOptions): Observable<HttpInfo<PaginatedMachineSummaryList>> {
         const _config = mergeConfiguration(this.configuration, _options);
 
-        const requestContextPromise = this.requestFactory.machineList(limit, offset, q, _config);
+        const requestContextPromise = this.requestFactory.machineList(limit, offset, _config);
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
         for (const middleware of _config.middleware) {
@@ -2172,10 +2326,9 @@ export class ObservableMachinesApi {
      * List machines
      * @param [limit] Number of results to return per page.
      * @param [offset] The initial index from which to return the results.
-     * @param [q] &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. 
      */
-    public machineList(limit?: number, offset?: number, q?: string, _options?: ConfigurationOptions): Observable<PaginatedMachineSummaryList> {
-        return this.machineListWithHttpInfo(limit, offset, q, _options).pipe(map((apiResponse: HttpInfo<PaginatedMachineSummaryList>) => apiResponse.data));
+    public machineList(limit?: number, offset?: number, _options?: ConfigurationOptions): Observable<PaginatedMachineSummaryList> {
+        return this.machineListWithHttpInfo(limit, offset, _options).pipe(map((apiResponse: HttpInfo<PaginatedMachineSummaryList>) => apiResponse.data));
     }
 
     /**
@@ -2682,6 +2835,7 @@ export class ObservablePokemonApi {
 
     /**
      * Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
+     * List abilities
      * @param [limit] Number of results to return per page.
      * @param [offset] The initial index from which to return the results.
      * @param [q] &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. 
@@ -2708,6 +2862,7 @@ export class ObservablePokemonApi {
 
     /**
      * Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
+     * List abilities
      * @param [limit] Number of results to return per page.
      * @param [offset] The initial index from which to return the results.
      * @param [q] &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. 
@@ -2718,6 +2873,7 @@ export class ObservablePokemonApi {
 
     /**
      * Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
+     * Get ability
      * @param id This parameter can be a string or an integer.
      */
     public abilityRetrieveWithHttpInfo(id: string, _options?: ConfigurationOptions): Observable<HttpInfo<AbilityDetail>> {
@@ -2742,6 +2898,7 @@ export class ObservablePokemonApi {
 
     /**
      * Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
+     * Get ability
      * @param id This parameter can be a string or an integer.
      */
     public abilityRetrieve(id: string, _options?: ConfigurationOptions): Observable<AbilityDetail> {
@@ -2750,15 +2907,14 @@ export class ObservablePokemonApi {
 
     /**
      * Characteristics indicate which stat contains a Pokémon\'s highest IV. A Pokémon\'s Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail.
-     * List charecterictics
+     * List characteristics
      * @param [limit] Number of results to return per page.
      * @param [offset] The initial index from which to return the results.
-     * @param [q] &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. 
      */
-    public characteristicListWithHttpInfo(limit?: number, offset?: number, q?: string, _options?: ConfigurationOptions): Observable<HttpInfo<PaginatedCharacteristicSummaryList>> {
+    public characteristicListWithHttpInfo(limit?: number, offset?: number, _options?: ConfigurationOptions): Observable<HttpInfo<PaginatedCharacteristicSummaryList>> {
         const _config = mergeConfiguration(this.configuration, _options);
 
-        const requestContextPromise = this.requestFactory.characteristicList(limit, offset, q, _config);
+        const requestContextPromise = this.requestFactory.characteristicList(limit, offset, _config);
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
         for (const middleware of _config.middleware) {
@@ -2777,13 +2933,12 @@ export class ObservablePokemonApi {
 
     /**
      * Characteristics indicate which stat contains a Pokémon\'s highest IV. A Pokémon\'s Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail.
-     * List charecterictics
+     * List characteristics
      * @param [limit] Number of results to return per page.
      * @param [offset] The initial index from which to return the results.
-     * @param [q] &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. 
      */
-    public characteristicList(limit?: number, offset?: number, q?: string, _options?: ConfigurationOptions): Observable<PaginatedCharacteristicSummaryList> {
-        return this.characteristicListWithHttpInfo(limit, offset, q, _options).pipe(map((apiResponse: HttpInfo<PaginatedCharacteristicSummaryList>) => apiResponse.data));
+    public characteristicList(limit?: number, offset?: number, _options?: ConfigurationOptions): Observable<PaginatedCharacteristicSummaryList> {
+        return this.characteristicListWithHttpInfo(limit, offset, _options).pipe(map((apiResponse: HttpInfo<PaginatedCharacteristicSummaryList>) => apiResponse.data));
     }
 
     /**
@@ -3916,6 +4071,38 @@ export class ObservableUtilityApi {
      */
     public languageRetrieve(id: string, _options?: ConfigurationOptions): Observable<LanguageDetail> {
         return this.languageRetrieveWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<LanguageDetail>) => apiResponse.data));
+    }
+
+    /**
+     * Returns metadata about the current deployed version of the API, including the git commit hash, deploy date, and tag (if any).
+     * Get API metadata
+     */
+    public metaRetrieveWithHttpInfo(_options?: ConfigurationOptions): Observable<HttpInfo<PokeapiMetaResponse>> {
+        const _config = mergeConfiguration(this.configuration, _options);
+
+        const requestContextPromise = this.requestFactory.metaRetrieve(_config);
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (const middleware of _config.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => _config.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (const middleware of _config.middleware.reverse()) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.metaRetrieveWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * Returns metadata about the current deployed version of the API, including the git commit hash, deploy date, and tag (if any).
+     * Get API metadata
+     */
+    public metaRetrieve(_options?: ConfigurationOptions): Observable<PokeapiMetaResponse> {
+        return this.metaRetrieveWithHttpInfo(_options).pipe(map((apiResponse: HttpInfo<PokeapiMetaResponse>) => apiResponse.data));
     }
 
 }

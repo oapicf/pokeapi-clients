@@ -4,6 +4,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**url** | **character** |  | [readonly] 
+**url** | **character** | The URL of the referenced resource. | [readonly] 
 
 

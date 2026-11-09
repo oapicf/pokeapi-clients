@@ -1,9 +1,9 @@
 /*
 PokéAPI
 
-All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
 
-API version: 2.7.0
+API version: 2.10.0
 Contact: blah+oapicf@cliffano.com
 */
 
@@ -22,9 +22,12 @@ var _ MappedNullable = &EvolutionChainDetail{}
 
 // EvolutionChainDetail struct for EvolutionChainDetail
 type EvolutionChainDetail struct {
+	// The identifier for this resource.
 	Id int32 `json:"id"`
-	BabyTriggerItem ItemSummary `json:"baby_trigger_item"`
-	Chain EvolutionChainDetailChain `json:"chain"`
+	// The item that a Pokémon would be holding when mating that would trigger the egg hatching a baby Pokémon rather than a basic Pokémon.
+	BabyTriggerItem NullableItemSummary `json:"baby_trigger_item"`
+	// The base chain link object. Each link contains evolution details for a Pokémon in the chain. Each link references the next Pokémon in the natural evolution order.
+	Chain EvolutionChainLink `json:"chain"`
 }
 
 type _EvolutionChainDetail EvolutionChainDetail
@@ -33,7 +36,7 @@ type _EvolutionChainDetail EvolutionChainDetail
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEvolutionChainDetail(id int32, babyTriggerItem ItemSummary, chain EvolutionChainDetailChain) *EvolutionChainDetail {
+func NewEvolutionChainDetail(id int32, babyTriggerItem NullableItemSummary, chain EvolutionChainLink) *EvolutionChainDetail {
 	this := EvolutionChainDetail{}
 	this.Id = id
 	this.BabyTriggerItem = babyTriggerItem
@@ -74,33 +77,35 @@ func (o *EvolutionChainDetail) SetId(v int32) {
 }
 
 // GetBabyTriggerItem returns the BabyTriggerItem field value
+// If the value is explicit nil, the zero value for ItemSummary will be returned
 func (o *EvolutionChainDetail) GetBabyTriggerItem() ItemSummary {
-	if o == nil {
+	if o == nil || o.BabyTriggerItem.Get() == nil {
 		var ret ItemSummary
 		return ret
 	}
 
-	return o.BabyTriggerItem
+	return *o.BabyTriggerItem.Get()
 }
 
 // GetBabyTriggerItemOk returns a tuple with the BabyTriggerItem field value
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EvolutionChainDetail) GetBabyTriggerItemOk() (*ItemSummary, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.BabyTriggerItem, true
+	return o.BabyTriggerItem.Get(), o.BabyTriggerItem.IsSet()
 }
 
 // SetBabyTriggerItem sets field value
 func (o *EvolutionChainDetail) SetBabyTriggerItem(v ItemSummary) {
-	o.BabyTriggerItem = v
+	o.BabyTriggerItem.Set(&v)
 }
 
 // GetChain returns the Chain field value
-func (o *EvolutionChainDetail) GetChain() EvolutionChainDetailChain {
+func (o *EvolutionChainDetail) GetChain() EvolutionChainLink {
 	if o == nil {
-		var ret EvolutionChainDetailChain
+		var ret EvolutionChainLink
 		return ret
 	}
 
@@ -109,7 +114,7 @@ func (o *EvolutionChainDetail) GetChain() EvolutionChainDetailChain {
 
 // GetChainOk returns a tuple with the Chain field value
 // and a boolean to check if the value has been set.
-func (o *EvolutionChainDetail) GetChainOk() (*EvolutionChainDetailChain, bool) {
+func (o *EvolutionChainDetail) GetChainOk() (*EvolutionChainLink, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -117,7 +122,7 @@ func (o *EvolutionChainDetail) GetChainOk() (*EvolutionChainDetailChain, bool) {
 }
 
 // SetChain sets field value
-func (o *EvolutionChainDetail) SetChain(v EvolutionChainDetailChain) {
+func (o *EvolutionChainDetail) SetChain(v EvolutionChainLink) {
 	o.Chain = v
 }
 
@@ -132,7 +137,7 @@ func (o EvolutionChainDetail) MarshalJSON() ([]byte, error) {
 func (o EvolutionChainDetail) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["id"] = o.Id
-	toSerialize["baby_trigger_item"] = o.BabyTriggerItem
+	toSerialize["baby_trigger_item"] = o.BabyTriggerItem.Get()
 	toSerialize["chain"] = o.Chain
 	return toSerialize, nil
 }

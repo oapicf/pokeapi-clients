@@ -56,6 +56,7 @@ class VersionDetail(Model):
     def id(self):
         """Gets the id of this VersionDetail.
 
+        The identifier for this resource.
 
         :return: The id of this VersionDetail.
         :rtype: int
@@ -66,6 +67,7 @@ class VersionDetail(Model):
     def id(self, id):
         """Sets the id of this VersionDetail.
 
+        The identifier for this resource.
 
         :param id: The id of this VersionDetail.
         :type id: int
@@ -79,6 +81,7 @@ class VersionDetail(Model):
     def name(self):
         """Gets the name of this VersionDetail.
 
+        The name for this resource.
 
         :return: The name of this VersionDetail.
         :rtype: str
@@ -89,14 +92,15 @@ class VersionDetail(Model):
     def name(self, name):
         """Sets the name of this VersionDetail.
 
+        The name for this resource.
 
         :param name: The name of this VersionDetail.
         :type name: str
         """
         if name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")
-        if name is not None and len(name) > 100:
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `100`")
+        if name is not None and len(name) > 200:
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `200`")
 
         self._name = name
 
@@ -104,6 +108,7 @@ class VersionDetail(Model):
     def names(self):
         """Gets the names of this VersionDetail.
 
+        The name of this resource listed in different languages.
 
         :return: The names of this VersionDetail.
         :rtype: List[VersionName]
@@ -114,6 +119,7 @@ class VersionDetail(Model):
     def names(self, names):
         """Sets the names of this VersionDetail.
 
+        The name of this resource listed in different languages.
 
         :param names: The names of this VersionDetail.
         :type names: List[VersionName]
@@ -127,6 +133,7 @@ class VersionDetail(Model):
     def version_group(self):
         """Gets the version_group of this VersionDetail.
 
+        The version group this version belongs to.
 
         :return: The version_group of this VersionDetail.
         :rtype: VersionGroupSummary
@@ -137,6 +144,7 @@ class VersionDetail(Model):
     def version_group(self, version_group):
         """Sets the version_group of this VersionDetail.
 
+        The version group this version belongs to.
 
         :param version_group: The version_group of this VersionDetail.
         :type version_group: VersionGroupSummary

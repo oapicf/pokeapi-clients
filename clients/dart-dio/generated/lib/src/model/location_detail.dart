@@ -16,29 +16,35 @@ part 'location_detail.g.dart';
 /// LocationDetail
 ///
 /// Properties:
-/// * [id] 
-/// * [name] 
-/// * [region] 
-/// * [names] 
-/// * [gameIndices] 
-/// * [areas] 
+/// * [id] - The identifier for this resource.
+/// * [name] - The name for this resource.
+/// * [region] - The region this location can be found in.
+/// * [names] - The name of this resource listed in different languages.
+/// * [gameIndices] - A list of game indices relevent to this location by generation.
+/// * [areas] - Areas that can be found within this location.
 @BuiltValue()
 abstract class LocationDetail implements Built<LocationDetail, LocationDetailBuilder> {
+  /// The identifier for this resource.
   @BuiltValueField(wireName: r'id')
   int get id;
 
+  /// The name for this resource.
   @BuiltValueField(wireName: r'name')
   String get name;
 
+  /// The region this location can be found in.
   @BuiltValueField(wireName: r'region')
-  RegionSummary get region;
+  RegionSummary? get region;
 
+  /// The name of this resource listed in different languages.
   @BuiltValueField(wireName: r'names')
   BuiltList<LocationName> get names;
 
+  /// A list of game indices relevent to this location by generation.
   @BuiltValueField(wireName: r'game_indices')
   BuiltList<LocationGameIndex> get gameIndices;
 
+  /// Areas that can be found within this location.
   @BuiltValueField(wireName: r'areas')
   BuiltList<LocationAreaSummary> get areas;
 
@@ -76,9 +82,9 @@ class _$LocationDetailSerializer implements PrimitiveSerializer<LocationDetail> 
       specifiedType: const FullType(String),
     );
     yield r'region';
-    yield serializers.serialize(
+    yield object.region == null ? null : serializers.serialize(
       object.region,
-      specifiedType: const FullType(RegionSummary),
+      specifiedType: const FullType.nullable(RegionSummary),
     );
     yield r'names';
     yield serializers.serialize(
@@ -135,8 +141,9 @@ class _$LocationDetailSerializer implements PrimitiveSerializer<LocationDetail> 
         case r'region':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(RegionSummary),
-          ) as RegionSummary;
+            specifiedType: const FullType.nullable(RegionSummary),
+          ) as RegionSummary?;
+          if (valueDes == null) continue;
           result.region.replace(valueDes);
           break;
         case r'names':

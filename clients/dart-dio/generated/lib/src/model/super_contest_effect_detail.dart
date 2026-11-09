@@ -14,21 +14,25 @@ part 'super_contest_effect_detail.g.dart';
 /// SuperContestEffectDetail
 ///
 /// Properties:
-/// * [id] 
-/// * [appeal] 
-/// * [flavorTextEntries] 
-/// * [moves] 
+/// * [id] - The identifier for this resource.
+/// * [appeal] - The level of appeal this super contest effect has.
+/// * [flavorTextEntries] - The flavor text of this super contest effect listed in different languages.
+/// * [moves] - A list of moves that have the effect when used in super contests.
 @BuiltValue()
 abstract class SuperContestEffectDetail implements Built<SuperContestEffectDetail, SuperContestEffectDetailBuilder> {
+  /// The identifier for this resource.
   @BuiltValueField(wireName: r'id')
   int get id;
 
+  /// The level of appeal this super contest effect has.
   @BuiltValueField(wireName: r'appeal')
   int get appeal;
 
+  /// The flavor text of this super contest effect listed in different languages.
   @BuiltValueField(wireName: r'flavor_text_entries')
   BuiltList<SuperContestEffectFlavorText> get flavorTextEntries;
 
+  /// A list of moves that have the effect when used in super contests.
   @BuiltValueField(wireName: r'moves')
   BuiltList<MoveSummary> get moves;
 

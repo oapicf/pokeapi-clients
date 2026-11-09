@@ -3,16 +3,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **Int32** |  | [readonly] 
-**Name** | **String** |  | 
-**DecreasedStat** | [**StatSummary**](StatSummary.md) |  | 
-**IncreasedStat** | [**StatSummary**](StatSummary.md) |  | 
-**LikesFlavor** | [**BerryFlavorSummary**](BerryFlavorSummary.md) |  | 
-**HatesFlavor** | [**BerryFlavorSummary**](BerryFlavorSummary.md) |  | 
-**Berries** | [**BerrySummary[]**](BerrySummary.md) |  | [readonly] 
-**PokeathlonStatChanges** | [**NatureDetailPokeathlonStatChangesInner[]**](NatureDetailPokeathlonStatChangesInner.md) |  | [readonly] 
-**MoveBattleStylePreferences** | [**NatureBattleStylePreference[]**](NatureBattleStylePreference.md) |  | [readonly] 
-**Names** | [**NatureName[]**](NatureName.md) |  | [readonly] 
+**Id** | **Int32** | The identifier for this resource. | [readonly] 
+**Name** | **String** | The name for this resource. | 
+**DecreasedStat** | [**StatSummary**](StatSummary.md) | The stat decreased by 10% in Pokémon with this nature. | 
+**IncreasedStat** | [**StatSummary**](StatSummary.md) | The stat increased by 10% in Pokémon with this nature. | 
+**LikesFlavor** | [**BerryFlavorSummary**](BerryFlavorSummary.md) | The flavor liked by Pokémon with this nature. | 
+**HatesFlavor** | [**BerryFlavorSummary**](BerryFlavorSummary.md) | The flavor hated by Pokémon with this nature. | 
+**PokeathlonStatChanges** | [**NaturePokeathlonStat[]**](NaturePokeathlonStat.md) | A list of Pokéathlon stats this nature effects and how much it effects them. | [readonly] 
+**MoveBattleStylePreferences** | [**NatureBattleStylePreference[]**](NatureBattleStylePreference.md) | A list of battle styles and how likely a Pokémon with this nature is to use them in the Battle Palace or Battle Tent. | [readonly] 
+**Names** | [**NatureName[]**](NatureName.md) | The name of this resource listed in different languages. | [readonly] 
 
 ## Examples
 
@@ -24,7 +23,6 @@ $NatureDetail = Initialize-PSOpenAPIToolsNatureDetail  -Id null `
  -IncreasedStat null `
  -LikesFlavor null `
  -HatesFlavor null `
- -Berries null `
  -PokeathlonStatChanges null `
  -MoveBattleStylePreferences null `
  -Names null

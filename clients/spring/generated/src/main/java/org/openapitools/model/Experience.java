@@ -19,7 +19,7 @@ import jakarta.annotation.Generated;
  * Experience
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-10-25T05:53:37.479908528Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-11-09T13:53:47.069318184Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class Experience {
 
   private Integer level;
@@ -44,11 +44,13 @@ public class Experience {
   }
 
   /**
-   * Get level
+   * The level gained.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return level
    */
-  @NotNull 
-  @Schema(name = "level", requiredMode = Schema.RequiredMode.REQUIRED)
+  @NotNull @Min(value = -2147483648) @Max(value = 2147483647) 
+  @Schema(name = "level", description = "The level gained.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("level")
   public Integer getLevel() {
     return level;
@@ -65,11 +67,13 @@ public class Experience {
   }
 
   /**
-   * Get experience
+   * The amount of experience required to reach the referenced level.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return experience
    */
-  @NotNull 
-  @Schema(name = "experience", requiredMode = Schema.RequiredMode.REQUIRED)
+  @NotNull @Min(value = -2147483648) @Max(value = 2147483647) 
+  @Schema(name = "experience", description = "The amount of experience required to reach the referenced level.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("experience")
   public Integer getExperience() {
     return experience;

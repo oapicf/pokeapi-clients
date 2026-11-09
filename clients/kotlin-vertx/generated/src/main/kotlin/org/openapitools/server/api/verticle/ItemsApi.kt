@@ -1,10 +1,12 @@
 package org.openapitools.server.api.verticle
 
+import org.openapitools.server.api.model.CurrencyDetail
 import org.openapitools.server.api.model.ItemAttributeDetail
 import org.openapitools.server.api.model.ItemCategoryDetail
 import org.openapitools.server.api.model.ItemDetail
 import org.openapitools.server.api.model.ItemFlingEffectDetail
 import org.openapitools.server.api.model.ItemPocketDetail
+import org.openapitools.server.api.model.PaginatedCurrencySummaryList
 import org.openapitools.server.api.model.PaginatedItemAttributeSummaryList
 import org.openapitools.server.api.model.PaginatedItemCategorySummaryList
 import org.openapitools.server.api.model.PaginatedItemFlingEffectSummaryList
@@ -26,6 +28,12 @@ import java.util.Map
 
 interface ItemsApi  {
     fun init(vertx:Vertx,config:JsonObject)
+    /* currencyList
+     * List currencies */
+    suspend fun currencyList(limit:kotlin.Int?,offset:kotlin.Int?,q:kotlin.String?,context:OperationRequest):Response<PaginatedCurrencySummaryList>
+    /* currencyRetrieve
+     * Get currency */
+    suspend fun currencyRetrieve(id:kotlin.String?,context:OperationRequest):Response<CurrencyDetail>
     /* itemAttributeList
      * List item attributes */
     suspend fun itemAttributeList(limit:kotlin.Int?,offset:kotlin.Int?,q:kotlin.String?,context:OperationRequest):Response<PaginatedItemAttributeSummaryList>

@@ -12,14 +12,20 @@ import java.math.*;
 public class MoveTargetDescription implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * The localized description for an API resource in a specific language.
+   */
   @JsonProperty("description")
   private String description;
 
+  /**
+   * The language this name is in.
+   */
   @JsonProperty("language")
   private LanguageSummary language;
 
   /**
-   * 
+   * The localized description for an API resource in a specific language.
    * @return description
    */
   public String getDescription() {
@@ -31,7 +37,7 @@ public class MoveTargetDescription implements Serializable {
   }
 
   /**
-   * 
+   * The language this name is in.
    * @return language
    */
   public LanguageSummary getLanguage() {

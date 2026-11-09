@@ -17,7 +17,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("PokedexDescription")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-11-09T13:50:06.168269698Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PokedexDescription   {
   private String description;
   private LanguageSummary language;
@@ -33,6 +33,7 @@ public class PokedexDescription   {
   }
 
   /**
+   * The localized description for an API resource in a specific language.
    **/
   public PokedexDescription description(String description) {
     this.description = description;
@@ -40,9 +41,9 @@ public class PokedexDescription   {
   }
 
   
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The localized description for an API resource in a specific language.")
   @JsonProperty("description")
-   @Size(max=1000)public String getDescription() {
+   @Size(max=2000)public String getDescription() {
     return description;
   }
 
@@ -52,6 +53,7 @@ public class PokedexDescription   {
   }
 
   /**
+   * The language this name is in.
    **/
   public PokedexDescription language(LanguageSummary language) {
     this.language = language;
@@ -59,7 +61,7 @@ public class PokedexDescription   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The language this name is in.")
   @JsonProperty(required = true, value = "language")
   @NotNull @Valid public LanguageSummary getLanguage() {
     return language;

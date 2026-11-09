@@ -8,7 +8,7 @@ AbilityEffectText::AbilityEffectText()
 {
 	effect = std::string();
 	short_effect = std::string();
-	language = LanguageSummary();
+	language = null;
 }
 
 AbilityEffectText::AbilityEffectText(std::string jsonString)

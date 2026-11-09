@@ -12,13 +12,15 @@ part 'move_damage_class_name.g.dart';
 /// MoveDamageClassName
 ///
 /// Properties:
-/// * [name] 
-/// * [language] 
+/// * [name] - The localized name for an API resource in a specific language.
+/// * [language] - The language this name is in.
 @BuiltValue()
 abstract class MoveDamageClassName implements Built<MoveDamageClassName, MoveDamageClassNameBuilder> {
+  /// The localized name for an API resource in a specific language.
   @BuiltValueField(wireName: r'name')
   String get name;
 
+  /// The language this name is in.
   @BuiltValueField(wireName: r'language')
   LanguageSummary get language;
 

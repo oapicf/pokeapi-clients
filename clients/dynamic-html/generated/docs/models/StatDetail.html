@@ -2,46 +2,51 @@
 <h2>StatDetail</h2>
 <ul class="parameter">
   <li class="param-required-true">id : Integer
-    <br/>
+    <br/>The identifier for this resource.
   </li>
 </ul>
 <ul class="parameter">
   <li class="param-required-true">name : String
-    <br/>
+    <br/>The name for this resource.
   </li>
 </ul>
 <ul class="parameter">
   <li class="param-required-true">gameUnderscoreindex : Integer
-    <br/>
+    <br/>ID the games use for this stat.
   </li>
 </ul>
 <ul class="parameter">
   <li class="param-required-false">isUnderscorebattleUnderscoreonly : Boolean
-    <br/>
+    <br/>Whether this stat only exists within a battle.
   </li>
 </ul>
 <ul class="parameter">
-  <li class="param-required-true">affectingUnderscoremoves : StatDetail_affecting_moves
-    <br/>
+  <li class="param-required-true">affectingUnderscoremoves : StatAffectingMoves
+    <br/>A detail of moves which affect this stat positively or negatively.
   </li>
 </ul>
 <ul class="parameter">
-  <li class="param-required-true">affectingUnderscorenatures : StatDetail_affecting_natures
-    <br/>
+  <li class="param-required-true">affectingUnderscorenatures : StatAffectingNatures
+    <br/>A detail of natures which affect this stat positively or negatively.
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-true">affectingUnderscoreitems : List
+    <br/>Items that affect this stat, such as vitamins and battle items.
   </li>
 </ul>
 <ul class="parameter">
   <li class="param-required-true">characteristics : List
-    <br/>
+    <br/>A list of characteristics that are set on a Pokémon when its highest base stat is this stat.
   </li>
 </ul>
 <ul class="parameter">
   <li class="param-required-true">moveUnderscoredamageUnderscoreclass : MoveDamageClassSummary
-    <br/>
+    <br/>The class of damage this stat is directly related to.
   </li>
 </ul>
 <ul class="parameter">
   <li class="param-required-true">names : List
-    <br/>
+    <br/>The name of this resource listed in different languages.
   </li>
 </ul>

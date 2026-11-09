@@ -18,7 +18,7 @@ data class ItemAttributeDetail(
     val descriptions: kotlin.collections.List<ItemAttributeDescription>,
 
     @field:JsonProperty("items")
-    val items: kotlin.collections.List<AbilityDetailPokemonInnerPokemon>,
+    val items: kotlin.collections.List<ItemSummary>,
 
     @field:JsonProperty("names")
     val names: kotlin.collections.List<ItemAttributeName>,

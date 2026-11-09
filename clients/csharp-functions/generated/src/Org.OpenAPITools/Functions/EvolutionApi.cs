@@ -52,5 +52,23 @@ namespace Org.OpenAPITools.Functions
                 ? (await ((Task<EvolutionTriggerDetail>)method.Invoke(this, new object[] { req, context, id })).ConfigureAwait(false))
                 : new StatusCodeResult((int)HttpStatusCode.NotImplemented);
         }
+
+        [FunctionName("EvolutionApi_EvolutionVariableList")]
+        public async Task<ActionResult<PaginatedEvolutionVariableSummaryList>> _EvolutionVariableList([HttpTrigger(AuthorizationLevel.Anonymous, "Get", Route = "api/v2/evolution-variable/")]HttpRequest req, ExecutionContext context)
+        {
+            var method = this.GetType().GetMethod("EvolutionVariableList");
+            return method != null
+                ? (await ((Task<PaginatedEvolutionVariableSummaryList>)method.Invoke(this, new object[] { req, context })).ConfigureAwait(false))
+                : new StatusCodeResult((int)HttpStatusCode.NotImplemented);
+        }
+
+        [FunctionName("EvolutionApi_EvolutionVariableRetrieve")]
+        public async Task<ActionResult<EvolutionVariableDetail>> _EvolutionVariableRetrieve([HttpTrigger(AuthorizationLevel.Anonymous, "Get", Route = "api/v2/evolution-variable/{id}/")]HttpRequest req, ExecutionContext context, string id)
+        {
+            var method = this.GetType().GetMethod("EvolutionVariableRetrieve");
+            return method != null
+                ? (await ((Task<EvolutionVariableDetail>)method.Invoke(this, new object[] { req, context, id })).ConfigureAwait(false))
+                : new StatusCodeResult((int)HttpStatusCode.NotImplemented);
+        }
     }
 }

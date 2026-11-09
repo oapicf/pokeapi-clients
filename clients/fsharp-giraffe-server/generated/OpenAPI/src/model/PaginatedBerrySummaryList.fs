@@ -3,6 +3,7 @@ namespace OpenAPI.Model
 open System
 open System.Collections.Generic
 open OpenAPI.Model.BerrySummary
+open OpenAPI.Model.string option
 
 module PaginatedBerrySummaryList =
 
@@ -11,8 +12,8 @@ module PaginatedBerrySummaryList =
 
   type PaginatedBerrySummaryList = {
     Count : int;
-    Next : string;
-    Previous : string;
+    Next : string option;
+    Previous : string option;
     Results : BerrySummary[];
   }
   //#endregion

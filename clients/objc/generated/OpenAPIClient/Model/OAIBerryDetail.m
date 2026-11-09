@@ -27,7 +27,7 @@
  */
 + (BOOL)propertyIsOptional:(NSString *)propertyName {
 
-  NSArray *optionalProperties = @[];
+  NSArray *optionalProperties = @[@"growthTime", @"maxHarvest", @"naturalGiftPower", @"size", @"smoothness", @"soilDryness", ];
   return [optionalProperties containsObject:propertyName];
 }
 

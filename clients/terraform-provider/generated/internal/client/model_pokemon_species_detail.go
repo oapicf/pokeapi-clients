@@ -18,17 +18,17 @@ type PokemonSpeciesDetail struct {
 	FormsSwitchable bool `json:"forms_switchable,omitempty"`
 	GrowthRate GrowthRateSummary `json:"growth_rate"`
 	PokedexNumbers []PokemonDexEntry `json:"pokedex_numbers"`
-	EggGroups []AbilityDetailPokemonInnerPokemon `json:"egg_groups"`
+	EggGroups []EggGroupSummary `json:"egg_groups"`
 	Color PokemonColorSummary `json:"color"`
 	Shape PokemonShapeSummary `json:"shape"`
 	EvolvesFromSpecies PokemonSpeciesSummary `json:"evolves_from_species"`
 	EvolutionChain EvolutionChainSummary `json:"evolution_chain"`
 	Habitat PokemonHabitatSummary `json:"habitat"`
 	Generation GenerationSummary `json:"generation"`
-	Names []PokemonFormDetailFormNamesInner `json:"names"`
-	PalParkEncounters []PokemonSpeciesDetailPalParkEncountersInner `json:"pal_park_encounters"`
+	Names []PokemonSpeciesName `json:"names"`
+	PalParkEncounters []PokemonSpeciesPalParkEncounter `json:"pal_park_encounters"`
 	FormDescriptions []PokemonSpeciesDescription `json:"form_descriptions"`
 	FlavorTextEntries []PokemonSpeciesFlavorText `json:"flavor_text_entries"`
-	Genera []PokemonSpeciesDetailGeneraInner `json:"genera"`
-	Varieties []PokemonSpeciesDetailVarietiesInner `json:"varieties"`
+	Genera []PokemonSpeciesGenus `json:"genera"`
+	Varieties []PokemonSpeciesVariety `json:"varieties"`
 }

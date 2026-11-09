@@ -13,29 +13,35 @@ part 'language_detail.g.dart';
 /// LanguageDetail
 ///
 /// Properties:
-/// * [id] 
-/// * [name] 
-/// * [official] 
-/// * [iso639] 
-/// * [iso3166] 
-/// * [names] 
+/// * [id] - The identifier for this resource.
+/// * [name] - The name for this resource.
+/// * [official] - Whether or not the games are published in this language.
+/// * [iso639] - The two-letter ISO 639-1 language code. Multiple PokéAPI language records may share this code.
+/// * [iso3166] - The two-letter ISO 3166-1 alpha-2 code of the country or region associated with this language record. Multiple PokéAPI language records may share this code.
+/// * [names] - The name of this resource listed in different languages.
 @BuiltValue()
 abstract class LanguageDetail implements Built<LanguageDetail, LanguageDetailBuilder> {
+  /// The identifier for this resource.
   @BuiltValueField(wireName: r'id')
   int get id;
 
+  /// The name for this resource.
   @BuiltValueField(wireName: r'name')
   String get name;
 
+  /// Whether or not the games are published in this language.
   @BuiltValueField(wireName: r'official')
   bool? get official;
 
+  /// The two-letter ISO 639-1 language code. Multiple PokéAPI language records may share this code.
   @BuiltValueField(wireName: r'iso639')
   String get iso639;
 
+  /// The two-letter ISO 3166-1 alpha-2 code of the country or region associated with this language record. Multiple PokéAPI language records may share this code.
   @BuiltValueField(wireName: r'iso3166')
   String get iso3166;
 
+  /// The name of this resource listed in different languages.
   @BuiltValueField(wireName: r'names')
   BuiltList<LanguageName> get names;
 

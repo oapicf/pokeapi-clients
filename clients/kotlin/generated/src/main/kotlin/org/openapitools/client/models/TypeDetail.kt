@@ -23,15 +23,15 @@
 
 package org.openapitools.client.models
 
-import org.openapitools.client.models.AbilityName
 import org.openapitools.client.models.GenerationSummary
 import org.openapitools.client.models.MoveDamageClassSummary
 import org.openapitools.client.models.MoveSummary
-import org.openapitools.client.models.TypeDetailDamageRelations
-import org.openapitools.client.models.TypeDetailPastDamageRelationsInner
-import org.openapitools.client.models.TypeDetailPokemonInner
-import org.openapitools.client.models.TypeDetailSpritesValueValue
 import org.openapitools.client.models.TypeGameIndex
+import org.openapitools.client.models.TypeGameSprite
+import org.openapitools.client.models.TypeName
+import org.openapitools.client.models.TypePastRelationships
+import org.openapitools.client.models.TypePokemon
+import org.openapitools.client.models.TypeRelationships
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -39,54 +39,65 @@ import com.squareup.moshi.JsonClass
 /**
  * Serializer for the Type resource
  *
- * @param id 
- * @param name 
- * @param damageRelations 
- * @param pastDamageRelations 
- * @param gameIndices 
- * @param generation 
- * @param moveDamageClass 
- * @param names 
- * @param pokemon 
- * @param moves 
- * @param sprites 
+ * @param id The identifier for this resource.
+ * @param name The name for this resource.
+ * @param damageRelations A detail of how effective this type is toward others and vice versa.
+ * @param pastDamageRelations A list of details of how effective this type was toward others and vice versa in previous generations
+ * @param gameIndices A list of game indices relevent to this item by generation.
+ * @param generation The generation this type was introduced in.
+ * @param moveDamageClass The class of damage inflicted by this type.
+ * @param names The name of this resource listed in different languages.
+ * @param pokemon A list of details of Pokémon that have this type.
+ * @param moves A list of moves that have this type.
+ * @param sprites Type icons grouped by generation and game, with name_icon and symbol_icon URLs. Unavailable icons are null.
  */
 
 
 data class TypeDetail (
 
+    /* The identifier for this resource. */
     @Json(name = "id")
     val id: kotlin.Int,
 
+    /* The name for this resource. */
     @Json(name = "name")
     val name: kotlin.String,
 
+    /* A detail of how effective this type is toward others and vice versa. */
     @Json(name = "damage_relations")
-    val damageRelations: TypeDetailDamageRelations,
+    val damageRelations: TypeRelationships,
 
+    /* A list of details of how effective this type was toward others and vice versa in previous generations */
     @Json(name = "past_damage_relations")
-    val pastDamageRelations: kotlin.collections.List<TypeDetailPastDamageRelationsInner>,
+    val pastDamageRelations: kotlin.collections.List<TypePastRelationships>,
 
+    /* A list of game indices relevent to this item by generation. */
     @Json(name = "game_indices")
     val gameIndices: kotlin.collections.List<TypeGameIndex>,
 
+    /* The generation this type was introduced in. */
     @Json(name = "generation")
     val generation: GenerationSummary,
 
+    /* The class of damage inflicted by this type. */
     @Json(name = "move_damage_class")
-    val moveDamageClass: MoveDamageClassSummary,
+    val moveDamageClass: MoveDamageClassSummary?,
 
+    /* The name of this resource listed in different languages. */
     @Json(name = "names")
-    val names: kotlin.collections.List<AbilityName>,
+    val names: kotlin.collections.List<TypeName>,
 
+    /* A list of details of Pokémon that have this type. */
     @Json(name = "pokemon")
-    val pokemon: kotlin.collections.List<TypeDetailPokemonInner>,
+    val pokemon: kotlin.collections.List<TypePokemon>,
 
+    /* A list of moves that have this type. */
     @Json(name = "moves")
     val moves: kotlin.collections.List<MoveSummary>,
 
+    /* Type icons grouped by generation and game, with name_icon and symbol_icon URLs. Unavailable icons are null. */
     @Json(name = "sprites")
-    val sprites: kotlin.collections.Map<kotlin.String, kotlin.collections.Map<kotlin.String, TypeDetailSpritesValueValue>>
+    val sprites: kotlin.collections.Map<kotlin.String, kotlin.collections.Map<kotlin.String, TypeGameSprite>>
 
 ) {
 

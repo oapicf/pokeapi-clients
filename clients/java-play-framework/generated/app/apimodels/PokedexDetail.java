@@ -1,10 +1,10 @@
 package apimodels;
 
-import apimodels.AbilityDetailPokemonInnerPokemon;
 import apimodels.PokedexDescription;
-import apimodels.PokedexDetailPokemonEntriesInner;
 import apimodels.PokedexName;
+import apimodels.PokemonDexNumber;
 import apimodels.RegionSummary;
+import apimodels.VersionGroupSummary;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -17,7 +17,7 @@ import javax.validation.Valid;
 /**
  * PokedexDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-10-25T05:48:13.486809836Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-11-09T13:49:31.462302702Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class PokedexDetail   {
   @JsonProperty("id")
@@ -27,7 +27,7 @@ public class PokedexDetail   {
 
   @JsonProperty("name")
   @NotNull
-@Size(max=100)
+@Size(max=200)
 
   private String name;
 
@@ -51,7 +51,7 @@ public class PokedexDetail   {
   @NotNull
 @Valid
 
-  private List<@Valid PokedexDetailPokemonEntriesInner> pokemonEntries = new ArrayList<>();
+  private List<@Valid PokemonDexNumber> pokemonEntries = new ArrayList<>();
 
   @JsonProperty("region")
   @NotNull
@@ -63,7 +63,7 @@ public class PokedexDetail   {
   @NotNull
 @Valid
 
-  private List<@Valid AbilityDetailPokemonInnerPokemon> versionGroups = new ArrayList<>();
+  private List<@Valid VersionGroupSummary> versionGroups = new ArrayList<>();
 
   public PokedexDetail id(Integer id) {
     this.id = id;
@@ -71,7 +71,7 @@ public class PokedexDetail   {
   }
 
    /**
-   * Get id
+   * The identifier for this resource.
    * @return id
   **/
   public Integer getId() {
@@ -88,7 +88,7 @@ public class PokedexDetail   {
   }
 
    /**
-   * Get name
+   * The name for this resource.
    * @return name
   **/
   public String getName() {
@@ -105,7 +105,7 @@ public class PokedexDetail   {
   }
 
    /**
-   * Get isMainSeries
+   * Whether or not this Pokédex originated in the main series of the video games.
    * @return isMainSeries
   **/
   public Boolean getIsMainSeries() {
@@ -130,7 +130,7 @@ public class PokedexDetail   {
   }
 
    /**
-   * Get descriptions
+   * The description of this resource listed in different languages.
    * @return descriptions
   **/
   public List<@Valid PokedexDescription> getDescriptions() {
@@ -155,7 +155,7 @@ public class PokedexDetail   {
   }
 
    /**
-   * Get names
+   * The name of this resource listed in different languages.
    * @return names
   **/
   public List<@Valid PokedexName> getNames() {
@@ -166,12 +166,12 @@ public class PokedexDetail   {
     this.names = names;
   }
 
-  public PokedexDetail pokemonEntries(List<@Valid PokedexDetailPokemonEntriesInner> pokemonEntries) {
+  public PokedexDetail pokemonEntries(List<@Valid PokemonDexNumber> pokemonEntries) {
     this.pokemonEntries = pokemonEntries;
     return this;
   }
 
-  public PokedexDetail addPokemonEntriesItem(PokedexDetailPokemonEntriesInner pokemonEntriesItem) {
+  public PokedexDetail addPokemonEntriesItem(PokemonDexNumber pokemonEntriesItem) {
     if (this.pokemonEntries == null) {
       this.pokemonEntries = new ArrayList<>();
     }
@@ -180,14 +180,14 @@ public class PokedexDetail   {
   }
 
    /**
-   * Get pokemonEntries
+   * A list of Pokémon catalogued in this Pokédex and their indexes.
    * @return pokemonEntries
   **/
-  public List<@Valid PokedexDetailPokemonEntriesInner> getPokemonEntries() {
+  public List<@Valid PokemonDexNumber> getPokemonEntries() {
     return pokemonEntries;
   }
 
-  public void setPokemonEntries(List<@Valid PokedexDetailPokemonEntriesInner> pokemonEntries) {
+  public void setPokemonEntries(List<@Valid PokemonDexNumber> pokemonEntries) {
     this.pokemonEntries = pokemonEntries;
   }
 
@@ -197,7 +197,7 @@ public class PokedexDetail   {
   }
 
    /**
-   * Get region
+   * The region this Pokédex catalogues Pokémon for.
    * @return region
   **/
   public RegionSummary getRegion() {
@@ -208,12 +208,12 @@ public class PokedexDetail   {
     this.region = region;
   }
 
-  public PokedexDetail versionGroups(List<@Valid AbilityDetailPokemonInnerPokemon> versionGroups) {
+  public PokedexDetail versionGroups(List<@Valid VersionGroupSummary> versionGroups) {
     this.versionGroups = versionGroups;
     return this;
   }
 
-  public PokedexDetail addVersionGroupsItem(AbilityDetailPokemonInnerPokemon versionGroupsItem) {
+  public PokedexDetail addVersionGroupsItem(VersionGroupSummary versionGroupsItem) {
     if (this.versionGroups == null) {
       this.versionGroups = new ArrayList<>();
     }
@@ -222,14 +222,14 @@ public class PokedexDetail   {
   }
 
    /**
-   * Get versionGroups
+   * A list of version groups this Pokédex is relevant to.
    * @return versionGroups
   **/
-  public List<@Valid AbilityDetailPokemonInnerPokemon> getVersionGroups() {
+  public List<@Valid VersionGroupSummary> getVersionGroups() {
     return versionGroups;
   }
 
-  public void setVersionGroups(List<@Valid AbilityDetailPokemonInnerPokemon> versionGroups) {
+  public void setVersionGroups(List<@Valid VersionGroupSummary> versionGroups) {
     this.versionGroups = versionGroups;
   }
 

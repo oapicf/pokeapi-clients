@@ -43,6 +43,7 @@ class CharacteristicSummary(Model):
     def url(self) -> str:
         """Gets the url of this CharacteristicSummary.
 
+        The URL of the referenced resource.  # noqa: E501
 
         :return: The url of this CharacteristicSummary.
         :rtype: str
@@ -53,6 +54,7 @@ class CharacteristicSummary(Model):
     def url(self, url: str):
         """Sets the url of this CharacteristicSummary.
 
+        The URL of the referenced resource.  # noqa: E501
 
         :param url: The url of this CharacteristicSummary.
         :type url: str

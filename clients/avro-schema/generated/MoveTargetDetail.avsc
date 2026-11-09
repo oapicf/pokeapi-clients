@@ -7,12 +7,12 @@
     {
       "name": "id",
       "type": "int",
-      "doc": ""
+      "doc": "The identifier for this resource."
     },
     {
       "name": "name",
       "type": "string",
-      "doc": ""
+      "doc": "The name for this resource."
     },
     {
       "name": "descriptions",
@@ -20,7 +20,7 @@
         "type": "array",
         "items": "model.MoveTargetDescription"
       },
-      "doc": ""
+      "doc": "The description of this resource listed in different languages."
     },
     {
       "name": "moves",
@@ -28,7 +28,7 @@
         "type": "array",
         "items": "model.MoveSummary"
       },
-      "doc": ""
+      "doc": "A list of moves that that are directed at this target."
     },
     {
       "name": "names",
@@ -36,7 +36,7 @@
         "type": "array",
         "items": "model.MoveTargetName"
       },
-      "doc": ""
+      "doc": "The name of this resource listed in different languages."
     }
   ]
 

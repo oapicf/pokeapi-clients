@@ -3,17 +3,18 @@ namespace OpenAPI.Model
 open System
 open System.Collections.Generic
 open Newtonsoft.Json
-open OpenAPI.Model.AbilityDetailPokemonInnerPokemon
+open OpenAPI.Model.EvolutionChainSummary
+open OpenAPI.Model.ItemAttributeSummary
 open OpenAPI.Model.ItemCategorySummary
-open OpenAPI.Model.ItemDetailBabyTriggerFor
-open OpenAPI.Model.ItemDetailHeldByPokemonInner
-open OpenAPI.Model.ItemDetailMachinesInner
-open OpenAPI.Model.ItemDetailSprites
 open OpenAPI.Model.ItemEffectText
 open OpenAPI.Model.ItemFlavorText
 open OpenAPI.Model.ItemFlingEffectSummary
 open OpenAPI.Model.ItemGameIndex
+open OpenAPI.Model.ItemMachine
 open OpenAPI.Model.ItemName
+open OpenAPI.Model.ItemPrice
+open OpenAPI.Model.ItemSprites
+open OpenAPI.Model.PokemonHeldItem
 open OpenAPI.Model.int option
 
 module ItemDetail =
@@ -26,14 +27,12 @@ module ItemDetail =
     Id : int;
     [<JsonProperty(PropertyName = "name")>]
     Name : string;
-    [<JsonProperty(PropertyName = "cost")>]
-    Cost : int option;
     [<JsonProperty(PropertyName = "fling_power")>]
     FlingPower : int option;
     [<JsonProperty(PropertyName = "fling_effect")>]
     FlingEffect : ItemFlingEffectSummary;
     [<JsonProperty(PropertyName = "attributes")>]
-    Attributes : AbilityDetailPokemonInnerPokemon[];
+    Attributes : ItemAttributeSummary[];
     [<JsonProperty(PropertyName = "category")>]
     Category : ItemCategorySummary;
     [<JsonProperty(PropertyName = "effect_entries")>]
@@ -42,16 +41,18 @@ module ItemDetail =
     FlavorTextEntries : ItemFlavorText[];
     [<JsonProperty(PropertyName = "game_indices")>]
     GameIndices : ItemGameIndex[];
+    [<JsonProperty(PropertyName = "prices")>]
+    Prices : ItemPrice[];
     [<JsonProperty(PropertyName = "names")>]
     Names : ItemName[];
     [<JsonProperty(PropertyName = "held_by_pokemon")>]
-    HeldByPokemon : ItemDetailHeldByPokemonInner[];
+    HeldByPokemon : PokemonHeldItem[];
     [<JsonProperty(PropertyName = "sprites")>]
-    Sprites : ItemDetailSprites;
+    Sprites : ItemSprites;
     [<JsonProperty(PropertyName = "baby_trigger_for")>]
-    BabyTriggerFor : ItemDetailBabyTriggerFor;
+    BabyTriggerFor : EvolutionChainSummary;
     [<JsonProperty(PropertyName = "machines")>]
-    Machines : ItemDetailMachinesInner[];
+    Machines : ItemMachine[];
   }
 
   //#endregion

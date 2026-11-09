@@ -4,10 +4,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.server.model.BerryFlavorSummary;
-import org.openapitools.server.model.BerrySummary;
 import org.openapitools.server.model.NatureBattleStylePreference;
-import org.openapitools.server.model.NatureDetailPokeathlonStatChangesInner;
 import org.openapitools.server.model.NatureName;
+import org.openapitools.server.model.NaturePokeathlonStat;
 import org.openapitools.server.model.StatSummary;
 import jakarta.validation.constraints.*;
 import jakarta.validation.Valid;
@@ -22,8 +21,7 @@ public class NatureDetail   {
     private StatSummary increasedStat;
     private BerryFlavorSummary likesFlavor;
     private BerryFlavorSummary hatesFlavor;
-    private List<@Valid BerrySummary> berries = new ArrayList<>();
-    private List<@Valid NatureDetailPokeathlonStatChangesInner> pokeathlonStatChanges = new ArrayList<>();
+    private List<@Valid NaturePokeathlonStat> pokeathlonStatChanges = new ArrayList<>();
     private List<@Valid NatureBattleStylePreference> moveBattleStylePreferences = new ArrayList<>();
     private List<@Valid NatureName> names = new ArrayList<>();
 
@@ -37,16 +35,15 @@ public class NatureDetail   {
     /**
      * Create NatureDetail.
      *
-     * @param id id
-     * @param name name
-     * @param decreasedStat decreasedStat
-     * @param increasedStat increasedStat
-     * @param likesFlavor likesFlavor
-     * @param hatesFlavor hatesFlavor
-     * @param berries berries
-     * @param pokeathlonStatChanges pokeathlonStatChanges
-     * @param moveBattleStylePreferences moveBattleStylePreferences
-     * @param names names
+     * @param id The identifier for this resource.
+     * @param name The name for this resource.
+     * @param decreasedStat The stat decreased by 10% in Pokémon with this nature.
+     * @param increasedStat The stat increased by 10% in Pokémon with this nature.
+     * @param likesFlavor The flavor liked by Pokémon with this nature.
+     * @param hatesFlavor The flavor hated by Pokémon with this nature.
+     * @param pokeathlonStatChanges A list of Pokéathlon stats this nature effects and how much it effects them.
+     * @param moveBattleStylePreferences A list of battle styles and how likely a Pokémon with this nature is to use them in the Battle Palace or Battle Tent.
+     * @param names The name of this resource listed in different languages.
      */
     public NatureDetail(
         Integer id, 
@@ -55,8 +52,7 @@ public class NatureDetail   {
         StatSummary increasedStat, 
         BerryFlavorSummary likesFlavor, 
         BerryFlavorSummary hatesFlavor, 
-        List<@Valid BerrySummary> berries, 
-        List<@Valid NatureDetailPokeathlonStatChangesInner> pokeathlonStatChanges, 
+        List<@Valid NaturePokeathlonStat> pokeathlonStatChanges, 
         List<@Valid NatureBattleStylePreference> moveBattleStylePreferences, 
         List<@Valid NatureName> names
     ) {
@@ -66,7 +62,6 @@ public class NatureDetail   {
         this.increasedStat = increasedStat;
         this.likesFlavor = likesFlavor;
         this.hatesFlavor = hatesFlavor;
-        this.berries = berries;
         this.pokeathlonStatChanges = pokeathlonStatChanges;
         this.moveBattleStylePreferences = moveBattleStylePreferences;
         this.names = names;
@@ -75,7 +70,7 @@ public class NatureDetail   {
 
 
     /**
-     * Get id
+     * The identifier for this resource.
      * @return id
      */
     public Integer getId() {
@@ -87,7 +82,7 @@ public class NatureDetail   {
     }
 
     /**
-     * Get name
+     * The name for this resource.
      * @return name
      */
     public String getName() {
@@ -99,7 +94,7 @@ public class NatureDetail   {
     }
 
     /**
-     * Get decreasedStat
+     * The stat decreased by 10% in Pokémon with this nature.
      * @return decreasedStat
      */
     public StatSummary getDecreasedStat() {
@@ -111,7 +106,7 @@ public class NatureDetail   {
     }
 
     /**
-     * Get increasedStat
+     * The stat increased by 10% in Pokémon with this nature.
      * @return increasedStat
      */
     public StatSummary getIncreasedStat() {
@@ -123,7 +118,7 @@ public class NatureDetail   {
     }
 
     /**
-     * Get likesFlavor
+     * The flavor liked by Pokémon with this nature.
      * @return likesFlavor
      */
     public BerryFlavorSummary getLikesFlavor() {
@@ -135,7 +130,7 @@ public class NatureDetail   {
     }
 
     /**
-     * Get hatesFlavor
+     * The flavor hated by Pokémon with this nature.
      * @return hatesFlavor
      */
     public BerryFlavorSummary getHatesFlavor() {
@@ -147,31 +142,19 @@ public class NatureDetail   {
     }
 
     /**
-     * Get berries
-     * @return berries
-     */
-    public List<@Valid BerrySummary> getBerries() {
-        return berries;
-    }
-
-    public void setBerries(List<@Valid BerrySummary> berries) {
-        this.berries = berries;
-    }
-
-    /**
-     * Get pokeathlonStatChanges
+     * A list of Pokéathlon stats this nature effects and how much it effects them.
      * @return pokeathlonStatChanges
      */
-    public List<@Valid NatureDetailPokeathlonStatChangesInner> getPokeathlonStatChanges() {
+    public List<@Valid NaturePokeathlonStat> getPokeathlonStatChanges() {
         return pokeathlonStatChanges;
     }
 
-    public void setPokeathlonStatChanges(List<@Valid NatureDetailPokeathlonStatChangesInner> pokeathlonStatChanges) {
+    public void setPokeathlonStatChanges(List<@Valid NaturePokeathlonStat> pokeathlonStatChanges) {
         this.pokeathlonStatChanges = pokeathlonStatChanges;
     }
 
     /**
-     * Get moveBattleStylePreferences
+     * A list of battle styles and how likely a Pokémon with this nature is to use them in the Battle Palace or Battle Tent.
      * @return moveBattleStylePreferences
      */
     public List<@Valid NatureBattleStylePreference> getMoveBattleStylePreferences() {
@@ -183,7 +166,7 @@ public class NatureDetail   {
     }
 
     /**
-     * Get names
+     * The name of this resource listed in different languages.
      * @return names
      */
     public List<@Valid NatureName> getNames() {
@@ -208,7 +191,6 @@ public class NatureDetail   {
         sb.append("    increasedStat: ").append(toIndentedString(increasedStat)).append("\n");
         sb.append("    likesFlavor: ").append(toIndentedString(likesFlavor)).append("\n");
         sb.append("    hatesFlavor: ").append(toIndentedString(hatesFlavor)).append("\n");
-        sb.append("    berries: ").append(toIndentedString(berries)).append("\n");
         sb.append("    pokeathlonStatChanges: ").append(toIndentedString(pokeathlonStatChanges)).append("\n");
         sb.append("    moveBattleStylePreferences: ").append(toIndentedString(moveBattleStylePreferences)).append("\n");
         sb.append("    names: ").append(toIndentedString(names)).append("\n");

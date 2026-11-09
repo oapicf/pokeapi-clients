@@ -27,6 +27,6 @@ data class RegionDetail(
     val pokedexes: kotlin.collections.List<PokedexSummary>,
 
     @field:JsonProperty("version_groups")
-    val versionGroups: kotlin.collections.List<AbilityDetailPokemonInnerPokemon>,
+    val versionGroups: kotlin.collections.List<VersionGroupSummary>,
 
 )

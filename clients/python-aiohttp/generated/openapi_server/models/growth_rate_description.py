@@ -47,6 +47,7 @@ class GrowthRateDescription(Model):
     def description(self):
         """Gets the description of this GrowthRateDescription.
 
+        The localized description for an API resource in a specific language.
 
         :return: The description of this GrowthRateDescription.
         :rtype: str
@@ -57,12 +58,13 @@ class GrowthRateDescription(Model):
     def description(self, description):
         """Sets the description of this GrowthRateDescription.
 
+        The localized description for an API resource in a specific language.
 
         :param description: The description of this GrowthRateDescription.
         :type description: str
         """
-        if description is not None and len(description) > 1000:
-            raise ValueError("Invalid value for `description`, length must be less than or equal to `1000`")
+        if description is not None and len(description) > 2000:
+            raise ValueError("Invalid value for `description`, length must be less than or equal to `2000`")
 
         self._description = description
 
@@ -70,6 +72,7 @@ class GrowthRateDescription(Model):
     def language(self):
         """Gets the language of this GrowthRateDescription.
 
+        The language this name is in.
 
         :return: The language of this GrowthRateDescription.
         :rtype: LanguageSummary
@@ -80,6 +83,7 @@ class GrowthRateDescription(Model):
     def language(self, language):
         """Sets the language of this GrowthRateDescription.
 
+        The language this name is in.
 
         :param language: The language of this GrowthRateDescription.
         :type language: LanguageSummary

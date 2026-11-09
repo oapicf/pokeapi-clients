@@ -8,15 +8,14 @@
 
 // System headers
 #include <httplib.h>
-#include <memory>
 #include <variant>
 
 // Project headers
 #include "models/LanguageDetail.h"
 #include "models/PaginatedLanguageSummaryList.h"
+#include "models/PokeapiMetaResponse.h"
 
 namespace Api {
-    class AuthenticationManager;
 class Utility {
 public:
     Utility() = default;
@@ -24,9 +23,8 @@ public:
     /**
      * @brief Register all routes for this API
      * @param svr The httplib::Server instance to register routes on
-     * @param auth The AuthenticationManager for authentication (optional, defaults to nullptr)
      */
-    void registerRoutes(httplib::Server& svr, std::shared_ptr<AuthenticationManager> auth = nullptr);
+    void registerRoutes(httplib::Server& svr);
     // =========================
     // ===== Request types =====
     // =========================
@@ -64,6 +62,11 @@ public:
     * @brief Response type for handleGetForApiv2languageid.
     */
     using Apiv2languageidGetResponse = models::LanguageDetail;
+
+    /**
+    * @brief Response type for handleGetForApiv2meta.
+    */
+    using Apiv2metaGetResponse = models::PokeapiMetaResponse;
     // ============================================================
     // ===== Pure virtual functions to be handled by the user =====
     // ============================================================
@@ -79,20 +82,23 @@ public:
      */
     virtual Apiv2languageidGetResponse handleGetForApiv2languageid(const Apiv2languageidGetRequest& params)=0;
 
+    /**
+     * @return Apiv2metaGetResponse The response type returned by the handler.
+     */
+    virtual Apiv2metaGetResponse handleGetForApiv2meta()=0;
+
 private:
     // ========================================
     // ===== Helper function declarations =====
     // ========================================
     static bool parseApiv2languageGetParams(const httplib::Request& req, Apiv2languageGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2languageGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2languageGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2languageGetResponse(const Apiv2languageGetResponse& result, httplib::Response& res);
     static bool parseApiv2languageidGetParams(const httplib::Request& req, Apiv2languageidGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2languageidGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2languageidGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2languageidGetResponse(const Apiv2languageidGetResponse& result, httplib::Response& res);
-    static bool performAuthentication(
-        const httplib::Request& req,
-        std::shared_ptr<AuthenticationManager> auth,
-        httplib::Response& res);
+    void handleApiv2metaGetRequest(const httplib::Request& req, httplib::Response& res);
+    static void handleApiv2metaGetResponse(const Apiv2metaGetResponse& result, httplib::Response& res);
 };
 
 } // namespace Api

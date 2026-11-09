@@ -24,8 +24,8 @@ void
 PokemonSpeciesFlavorText::__init()
 {
 	//flavor_text = std::string();
-	//language = new LanguageSummary();
-	//version = new VersionSummary();
+	//language = null;
+	//version = null;
 }
 
 void

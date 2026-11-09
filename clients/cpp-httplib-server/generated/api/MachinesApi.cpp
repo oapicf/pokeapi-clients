@@ -11,12 +11,10 @@
 
 // Project headers
 #include "MachinesApi.h"
-#include "AuthenticationManager.h"
 
 constexpr int HTTP_RESPONSE_CODE_PAGINATED_MACHINE_SUMMARY_LIST = 200;
 constexpr int HTTP_RESPONSE_CODE_MACHINE_DETAIL = 200;
 constexpr int HTTP_RESPONSE_CODE_BAD_REQUEST = 400;
-constexpr int HTTP_RESPONSE_CODE_UNAUTHORIZED = 401;
 constexpr int HTTP_RESPONSE_CODE_INTERNAL_SERVER_ERROR = 500;
 
 namespace Api {
@@ -60,16 +58,6 @@ bool Machines::parseApiv2machineGetParams(const httplib::Request& req, Machines:
     {
         // Use default value for optional parameter
         params.m_offset = 0;
-    }
-    // Query Parameters - q
-    if (req.has_param("q"))
-    {
-        params.m_q = req.get_param_value("q");
-    }
-    else
-    {
-        // Use default value for optional parameter
-        params.m_q = "";
     }
 
     // Return errors via out-parameter, return false if any errors
@@ -126,61 +114,11 @@ void Machines::handleApiv2machineidGetResponse(const Apiv2machineidGetResponse& 
     res.set_content(responseJson.dump(), "application/json");
 }
 
-bool Machines::performAuthentication(
-    const httplib::Request& req,
-    std::shared_ptr<AuthenticationManager> auth,
-    httplib::Response& res)
-{
-    if (!auth)
-    {
-        nlohmann::json errorJson = nlohmann::json::object();
-        errorJson["message"] = "AuthenticationManager not configured";
-        res.status = HTTP_RESPONSE_CODE_INTERNAL_SERVER_ERROR;
-        res.set_content(errorJson.dump(), "application/json");
-        return false;
-    }
 
-    {
-        auto cookieHeader = req.get_header_value("Cookie");
-        std::string key = "sessionid=";
-        size_t start = cookieHeader.find(key);
-        if (start != std::string::npos)
-        {
-            start += key.length();
-            size_t end = cookieHeader.find(";", start);
-            if (end == std::string::npos) end = cookieHeader.length();
-            std::string cookieValue = cookieHeader.substr(start, end - start);
-            if (auth->validateApiKey(cookieValue)) return true;
-        }
-    }
-
-    if (req.has_header("Authorization"))
-    {
-        auto authHeader = req.get_header_value("Authorization");
-        if (authHeader.find("Basic ") == 0)
-        {
-            std::string credentials = authHeader.substr(6);
-            if (auth->validateBasicAuth(credentials, "")) return true;
-        }
-    }
-
-
-
-    return false;
-}
-
-void Machines::handleApiv2machineGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Machines::handleApiv2machineGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2machineGetRequest params;
         std::vector<std::string> paramErrors;
@@ -206,18 +144,10 @@ void Machines::handleApiv2machineGetRequest([[maybe_unused]] const httplib::Requ
     }
 }
 
-void Machines::handleApiv2machineidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Machines::handleApiv2machineidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2machineidGetRequest params;
         std::vector<std::string> paramErrors;
@@ -244,15 +174,15 @@ void Machines::handleApiv2machineidGetRequest([[maybe_unused]] const httplib::Re
 }
 
 
-void Machines::registerRoutes(httplib::Server& svr, std::shared_ptr<AuthenticationManager> auth)
+void Machines::registerRoutes(httplib::Server& svr)
 {
-    svr.Get("/api/v2/machine/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/machine/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2machineGetRequest(req, res, auth);
+        handleApiv2machineGetRequest(req, res);
     });
-    svr.Get("/api/v2/machine/{id}/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/machine/{id}/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2machineidGetRequest(req, res, auth);
+        handleApiv2machineidGetRequest(req, res);
     });
 }
 

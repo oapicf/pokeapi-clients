@@ -15,7 +15,7 @@ import org.openapitools.model.VersionGroupSummary;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-10-25T05:47:53.227411880Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-11-09T13:49:15.621225368Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class AbilityChange   {
   @JsonProperty("version_group")
   private VersionGroupSummary versionGroup;
@@ -24,6 +24,7 @@ public class AbilityChange   {
   private List<AbilityChangeEffectText> effectEntries = new ArrayList<>();
 
   /**
+   * The version group in which the previous effect of this ability originated.
    **/
   public AbilityChange versionGroup(VersionGroupSummary versionGroup) {
     this.versionGroup = versionGroup;
@@ -31,7 +32,7 @@ public class AbilityChange   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The version group in which the previous effect of this ability originated.")
   @JsonProperty("version_group")
   public VersionGroupSummary getVersionGroup() {
     return versionGroup;
@@ -41,6 +42,7 @@ public class AbilityChange   {
   }
 
   /**
+   * The previous effect of this ability listed in different languages.
    **/
   public AbilityChange effectEntries(List<AbilityChangeEffectText> effectEntries) {
     this.effectEntries = effectEntries;
@@ -48,7 +50,7 @@ public class AbilityChange   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The previous effect of this ability listed in different languages.")
   @JsonProperty("effect_entries")
   public List<AbilityChangeEffectText> getEffectEntries() {
     return effectEntries;

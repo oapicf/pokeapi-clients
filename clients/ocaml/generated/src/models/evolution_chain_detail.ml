@@ -15,21 +15,24 @@
                 
                 
                 ; [@key "id"]
-                                              baby_trigger_item: Item_summary.t
-                  
+                    (** The identifier for this resource. *)
+                                      baby_trigger_item: Item_summary.t
+                   option
                   
                 
                 
                 ; [@key "baby_trigger_item"]
-                                              chain: Evolution_chain_detail_chain.t
+                    (** The item that a Pokémon would be holding when mating that would trigger the egg hatching a baby Pokémon rather than a basic Pokémon. *)
+                                      chain: Evolution_chain_link.t
                   
                   
                 
                 
                 ; [@key "chain"]
-                        } [@@deriving yojson { strict = false }, show, eq ];;
+                    (** The base chain link object. Each link contains evolution details for a Pokémon in the chain. Each link references the next Pokémon in the natural evolution order. *)
+                } [@@deriving yojson { strict = false }, show, eq ];;
         
-        let create (id : int32) (baby_trigger_item : Item_summary.t) (chain : Evolution_chain_detail_chain.t) : t = {
+        let create (id : int32) (baby_trigger_item : Item_summary.t option) (chain : Evolution_chain_link.t) : t = {
             id = id;
             baby_trigger_item = baby_trigger_item;
             chain = chain;

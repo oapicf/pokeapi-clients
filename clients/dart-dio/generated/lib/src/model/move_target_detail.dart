@@ -15,25 +15,30 @@ part 'move_target_detail.g.dart';
 /// MoveTargetDetail
 ///
 /// Properties:
-/// * [id] 
-/// * [name] 
-/// * [descriptions] 
-/// * [moves] 
-/// * [names] 
+/// * [id] - The identifier for this resource.
+/// * [name] - The name for this resource.
+/// * [descriptions] - The description of this resource listed in different languages.
+/// * [moves] - A list of moves that that are directed at this target.
+/// * [names] - The name of this resource listed in different languages.
 @BuiltValue()
 abstract class MoveTargetDetail implements Built<MoveTargetDetail, MoveTargetDetailBuilder> {
+  /// The identifier for this resource.
   @BuiltValueField(wireName: r'id')
   int get id;
 
+  /// The name for this resource.
   @BuiltValueField(wireName: r'name')
   String get name;
 
+  /// The description of this resource listed in different languages.
   @BuiltValueField(wireName: r'descriptions')
   BuiltList<MoveTargetDescription> get descriptions;
 
+  /// A list of moves that that are directed at this target.
   @BuiltValueField(wireName: r'moves')
   BuiltList<MoveSummary> get moves;
 
+  /// The name of this resource listed in different languages.
   @BuiltValueField(wireName: r'names')
   BuiltList<MoveTargetName> get names;
 

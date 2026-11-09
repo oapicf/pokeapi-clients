@@ -46,6 +46,7 @@ class BerrySummary(Model):
     def name(self):
         """Gets the name of this BerrySummary.
 
+        The name of the referenced resource.
 
         :return: The name of this BerrySummary.
         :rtype: str
@@ -56,14 +57,15 @@ class BerrySummary(Model):
     def name(self, name):
         """Sets the name of this BerrySummary.
 
+        The name of the referenced resource.
 
         :param name: The name of this BerrySummary.
         :type name: str
         """
         if name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")
-        if name is not None and len(name) > 100:
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `100`")
+        if name is not None and len(name) > 200:
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `200`")
 
         self._name = name
 
@@ -71,6 +73,7 @@ class BerrySummary(Model):
     def url(self):
         """Gets the url of this BerrySummary.
 
+        The URL of the referenced resource.
 
         :return: The url of this BerrySummary.
         :rtype: str
@@ -81,6 +84,7 @@ class BerrySummary(Model):
     def url(self, url):
         """Sets the url of this BerrySummary.
 
+        The URL of the referenced resource.
 
         :param url: The url of this BerrySummary.
         :type url: str

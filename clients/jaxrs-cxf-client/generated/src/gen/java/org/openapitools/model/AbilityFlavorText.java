@@ -10,19 +10,28 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class AbilityFlavorText  {
   
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The localized name for an API resource in a specific language.
+  */
+  @ApiModelProperty(required = true, value = "The localized name for an API resource in a specific language.")
 
   private String flavorText;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The language this text resource is in.
+  */
+  @ApiModelProperty(required = true, value = "The language this text resource is in.")
 
   private LanguageSummary language;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The version group that uses this flavor text.
+  */
+  @ApiModelProperty(required = true, value = "The version group that uses this flavor text.")
 
   private VersionGroupSummary versionGroup;
  /**
-   * Get flavorText
+   * The localized name for an API resource in a specific language.
    * @return flavorText
   **/
   @JsonProperty("flavor_text")
@@ -40,7 +49,7 @@ public class AbilityFlavorText  {
   }
 
  /**
-   * Get language
+   * The language this text resource is in.
    * @return language
   **/
   @JsonProperty("language")
@@ -58,7 +67,7 @@ public class AbilityFlavorText  {
   }
 
  /**
-   * Get versionGroup
+   * The version group that uses this flavor text.
    * @return versionGroup
   **/
   @JsonProperty("version_group")

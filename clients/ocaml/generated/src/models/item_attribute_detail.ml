@@ -15,27 +15,32 @@
                 
                 
                 ; [@key "id"]
-                                              name: string
+                    (** The identifier for this resource. *)
+                                      name: string
                   
                   
                 
                 
                 ; [@key "name"]
-                                              descriptions: Item_attribute_description.t list
+                    (** The name for this resource. *)
+                                      descriptions: Item_attribute_description.t list
                 
                 
                 ; [@key "descriptions"]
-                                              items: Ability_detail_pokemon_inner_pokemon.t list
+                    (** The description of this item attribute listed in different languages. *)
+                                      items: Item_summary.t list
                 
                 
                 ; [@key "items"]
-                                              names: Item_attribute_name.t list
+                    (** A list of items that have this attribute. *)
+                                      names: Item_attribute_name.t list
                 
                 
                 ; [@key "names"]
-                        } [@@deriving yojson { strict = false }, show, eq ];;
+                    (** The name of this item attribute listed in different languages. *)
+                } [@@deriving yojson { strict = false }, show, eq ];;
         
-        let create (id : int32) (name : string) (descriptions : Item_attribute_description.t list) (items : Ability_detail_pokemon_inner_pokemon.t list) (names : Item_attribute_name.t list) : t = {
+        let create (id : int32) (name : string) (descriptions : Item_attribute_description.t list) (items : Item_summary.t list) (names : Item_attribute_name.t list) : t = {
             id = id;
             name = name;
             descriptions = descriptions;

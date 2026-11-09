@@ -1,8 +1,8 @@
 /**
  * PokéAPI
- * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+ * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
  *
- * OpenAPI spec version: 2.7.0
+ * OpenAPI spec version: 2.10.0
  *
  * Contact: blah+oapicf@cliffano.com
  *
@@ -25,26 +25,48 @@ import upickle.default.*
   * It has no validation - there may be nulls, values out of range, etc
   */
 case class PokemonDetailData(
+/* The identifier for this resource. */
   id: Int,
+/* The name for this resource. */
   name: String,
+/* The base experience gained for defeating this Pokémon. */
   baseExperience: Int = 0 ,
+/* The height of this Pokémon in decimetres. */
   height: Int = 0 ,
+/* Set for exactly one Pokémon used as the default for each species. */
   isDefault: Boolean = false ,
+/* Order for sorting. Almost national order, except families are grouped together. */
   order: Int = 0 ,
+/* The weight of this Pokémon in hectograms. */
   weight: Int = 0 ,
-  abilities: Seq[PokemonDetailAbilitiesInnerData],
-  pastAbilities: Seq[PokemonDetailPastAbilitiesInnerData],
+/* A list of abilities this Pokémon could potentially have. */
+  abilities: Seq[PokemonAbilityData],
+/* A list of details showing abilities this pokémon had in previous generations */
+  pastAbilities: Seq[PokemonPastAbilityData],
+/* A list of forms this Pokémon can take on. */
   forms: Seq[PokemonFormSummaryData],
+/* A list of game indices relevent to Pokémon item by generation. */
   gameIndices: Seq[PokemonGameIndexData],
-  heldItems: PokemonDetailHeldItemsData,
+/* A list of items this Pokémon may be holding when encountered. */
+  heldItems: Seq[PokemonHeldItemSummaryData],
+/* A link to a list of location areas, as well as encounter details pertaining to specific versions. */
   locationAreaEncounters: String,
-  moves: Seq[PokemonDetailMovesInnerData],
+/* A list of moves along with learn methods and level details pertaining to specific version groups. */
+  moves: Seq[PokemonMoveData],
+/* The species this Pokémon belongs to. */
   species: PokemonSpeciesSummaryData,
-  sprites: PokemonDetailSprites,
-  cries: PokemonDetailCriesData,
+/* A set of sprites used to depict this Pokémon in the game. A visual representation of the various sprites can be found at <a href='https://github.com/PokeAPI/sprites#sprites'>PokeAPI/sprites</a> */
+  sprites: PokemonSpritesData,
+/* A set of cries used to depict this Pokémon in the game. A visual representation of the various cries can be found at <a href='https://github.com/PokeAPI/cries#cries'>PokeAPI/cries</a> */
+  cries: PokemonCriesData,
+/* A list of base stat values for this Pokémon. */
   stats: Seq[PokemonStatData],
-  types: Seq[PokemonDetailTypesInnerData],
-  pastTypes: Seq[PokemonDetailPastTypesInnerData]
+/* A list of details showing stats this pokémon had in previous generations */
+  pastStats: Seq[PokemonPastStatData],
+/* A list of details showing types this Pokémon has. */
+  types: Seq[PokemonTypeData],
+/* A list of details showing types this pokémon had in previous generations */
+  pastTypes: Seq[PokemonPastTypeData]
   
 
 ) derives RW {
@@ -65,11 +87,11 @@ case class PokemonDetailData(
         
 
         // ================== name validation ==================
-        // validate max length 100
+        // validate max length 200
         if (_allValidationErrors.isEmpty || !failFast)  {
           val len = if name == null then 0 else name.length
-            if (len < 100) {
-               _allValidationErrors += ValidationError(path :+ PokemonDetail.Fields.name, s"length $len is longer than the max length 100")
+            if (len < 200) {
+               _allValidationErrors += ValidationError(path :+ PokemonDetail.Fields.name, s"length $len is longer than the max length 200")
             }
         }
         
@@ -78,12 +100,32 @@ case class PokemonDetailData(
         
 
         // ================== baseExperience validation ==================
+        // validate against minimum -2147483648
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if !(baseExperience >= -2147483648) then
+            _allValidationErrors += ValidationError(path :+ PokemonDetail.Fields.baseExperience, s"value '$baseExperience' is not greater than the minimum value -2147483648")
+        }
+        // validate against maximum 2147483647
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if !(baseExperience <= 2147483647) then
+            _allValidationErrors += ValidationError(path :+ PokemonDetail.Fields.baseExperience, s"value '$baseExperience' is not greater than the maximum value 2147483647")
+        }
         
         
         
         
 
         // ================== height validation ==================
+        // validate against minimum -2147483648
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if !(height >= -2147483648) then
+            _allValidationErrors += ValidationError(path :+ PokemonDetail.Fields.height, s"value '$height' is not greater than the minimum value -2147483648")
+        }
+        // validate against maximum 2147483647
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if !(height <= 2147483647) then
+            _allValidationErrors += ValidationError(path :+ PokemonDetail.Fields.height, s"value '$height' is not greater than the maximum value 2147483647")
+        }
         
         
         
@@ -96,12 +138,32 @@ case class PokemonDetailData(
         
 
         // ================== order validation ==================
+        // validate against minimum -2147483648
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if !(order >= -2147483648) then
+            _allValidationErrors += ValidationError(path :+ PokemonDetail.Fields.order, s"value '$order' is not greater than the minimum value -2147483648")
+        }
+        // validate against maximum 2147483647
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if !(order <= 2147483647) then
+            _allValidationErrors += ValidationError(path :+ PokemonDetail.Fields.order, s"value '$order' is not greater than the maximum value 2147483647")
+        }
         
         
         
         
 
         // ================== weight validation ==================
+        // validate against minimum -2147483648
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if !(weight >= -2147483648) then
+            _allValidationErrors += ValidationError(path :+ PokemonDetail.Fields.weight, s"value '$weight' is not greater than the minimum value -2147483648")
+        }
+        // validate against maximum 2147483647
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if !(weight <= 2147483647) then
+            _allValidationErrors += ValidationError(path :+ PokemonDetail.Fields.weight, s"value '$weight' is not greater than the maximum value 2147483647")
+        }
         
         
         
@@ -214,10 +276,18 @@ case class PokemonDetailData(
         
         
         
-        // validating heldItems
         if (_allValidationErrors.isEmpty || !failFast) {
-            if heldItems != null then _allValidationErrors ++= heldItems.validationErrors(path :+ PokemonDetail.Fields.heldItems, failFast)
+            if (heldItems != null) {
+                heldItems.zipWithIndex.foreach {
+                    case (value, i) if _allValidationErrors.isEmpty || !failFast =>
+                      _allValidationErrors ++= value.validationErrors(
+                        path :+ PokemonDetail.Fields.heldItems :+ Field(i.toString),
+                        failFast)
+                    case (value, i) =>
+                }
+            }
         }
+        
 
         // ================== locationAreaEncounters validation ==================
         
@@ -276,6 +346,10 @@ case class PokemonDetailData(
         
         
         
+        // validating sprites
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if sprites != null then _allValidationErrors ++= sprites.validationErrors(path :+ PokemonDetail.Fields.sprites, failFast)
+        }
 
         // ================== cries validation ==================
         
@@ -310,6 +384,30 @@ case class PokemonDetailData(
                     case (value, i) if _allValidationErrors.isEmpty || !failFast =>
                       _allValidationErrors ++= value.validationErrors(
                         path :+ PokemonDetail.Fields.stats :+ Field(i.toString),
+                        failFast)
+                    case (value, i) =>
+                }
+            }
+        }
+        
+
+        // ================== pastStats validation ==================
+        
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if (pastStats == null) {
+            _allValidationErrors += ValidationError(path :+ PokemonDetail.Fields.pastStats, "pastStats is a required field and cannot be null")
+            }
+        }
+        
+        
+        
+        
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if (pastStats != null) {
+                pastStats.zipWithIndex.foreach {
+                    case (value, i) if _allValidationErrors.isEmpty || !failFast =>
+                      _allValidationErrors ++= value.validationErrors(
+                        path :+ PokemonDetail.Fields.pastStats :+ Field(i.toString),
                         failFast)
                     case (value, i) =>
                 }
@@ -392,13 +490,14 @@ case class PokemonDetailData(
         pastAbilities = pastAbilities.map(_.asModel) /* 5 */,
         forms = forms.map(_.asModel) /* 5 */,
         gameIndices = gameIndices.map(_.asModel) /* 5 */,
-        heldItems = heldItems.asModel /* 6 */,
+        heldItems = heldItems.map(_.asModel) /* 5 */,
         locationAreaEncounters = locationAreaEncounters /* 2 */,
         moves = moves.map(_.asModel) /* 5 */,
         species = species.asModel /* 6 */,
         sprites = sprites.asModel /* 6 */,
         cries = cries.asModel /* 6 */,
         stats = stats.map(_.asModel) /* 5 */,
+        pastStats = pastStats.map(_.asModel) /* 5 */,
         types = types.map(_.asModel) /* 5 */,
         pastTypes = pastTypes.map(_.asModel) /* 5 */
     

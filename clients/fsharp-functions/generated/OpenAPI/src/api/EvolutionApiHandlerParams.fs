@@ -2,8 +2,10 @@ namespace OpenAPI
 
 open OpenAPI.Model.EvolutionChainDetail
 open OpenAPI.Model.EvolutionTriggerDetail
+open OpenAPI.Model.EvolutionVariableDetail
 open OpenAPI.Model.PaginatedEvolutionChainSummaryList
 open OpenAPI.Model.PaginatedEvolutionTriggerSummaryList
+open OpenAPI.Model.PaginatedEvolutionVariableSummaryList
 open System.Collections.Generic
 open System
 
@@ -17,9 +19,6 @@ module EvolutionApiHandlerParams =
 
 
       offset : int option;
-
-
-      q : string option;
 
     }
     //#endregion
@@ -92,4 +91,46 @@ module EvolutionApiHandlerParams =
 
     type EvolutionTriggerRetrieveArgs = {
       pathParams:EvolutionTriggerRetrievePathParams;
+    }
+
+    //#region Query parameters
+    [<CLIMutable>]
+    type EvolutionVariableListQueryParams = {
+      limit : int option;
+
+
+      offset : int option;
+
+
+      q : string option;
+
+    }
+    //#endregion
+
+
+    type EvolutionVariableListStatusCode200Response = {
+      content:PaginatedEvolutionVariableSummaryList;
+      
+    }
+    type EvolutionVariableListResult = EvolutionVariableListStatusCode200 of EvolutionVariableListStatusCode200Response
+
+    type EvolutionVariableListArgs = {
+      queryParams:Result<EvolutionVariableListQueryParams,string>;
+    }
+    //#region Path parameters
+    [<CLIMutable>]
+    type EvolutionVariableRetrievePathParams = {
+      id : string ;
+    }
+    //#endregion
+
+
+    type EvolutionVariableRetrieveStatusCode200Response = {
+      content:EvolutionVariableDetail;
+      
+    }
+    type EvolutionVariableRetrieveResult = EvolutionVariableRetrieveStatusCode200 of EvolutionVariableRetrieveStatusCode200Response
+
+    type EvolutionVariableRetrieveArgs = {
+      pathParams:EvolutionVariableRetrievePathParams;
     }

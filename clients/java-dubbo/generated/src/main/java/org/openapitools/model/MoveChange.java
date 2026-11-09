@@ -1,7 +1,7 @@
 package org.openapitools.model;
 
 import org.openapitools.jackson.nullable.JsonNullable;
-import org.openapitools.model.MoveChangeEffectEntriesInner;
+import org.openapitools.model.MoveEffectEffectText;
 import org.openapitools.model.TypeSummary;
 import org.openapitools.model.VersionGroupSummary;
 import java.util.*;
@@ -16,29 +16,50 @@ import java.math.*;
 public class MoveChange implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * The percent value of how likely this move is to be successful.
+   */
   @JsonProperty("accuracy")
   private Integer accuracy;
 
+  /**
+   * The base power before the listed version group, or null if power did not change.
+   */
   @JsonProperty("power")
   private Integer power;
 
+  /**
+   * Power points. The number of times this move can be used.
+   */
   @JsonProperty("pp")
   private Integer pp;
 
+  /**
+   * The percent value of how likely it is this moves effect will take effect.
+   */
   @JsonProperty("effect_chance")
   private Integer effectChance;
 
+  /**
+   * The effect of this move listed in different languages.
+   */
   @JsonProperty("effect_entries")
-  private List<MoveChangeEffectEntriesInner> effectEntries = new ArrayList<>();
+  private List<MoveEffectEffectText> effectEntries = new ArrayList<>();
 
+  /**
+   * The elemental type of this move.
+   */
   @JsonProperty("type")
   private TypeSummary type;
 
+  /**
+   * The version group in which these move stat values were in effect.
+   */
   @JsonProperty("version_group")
   private VersionGroupSummary versionGroup;
 
   /**
-   * 
+   * The percent value of how likely this move is to be successful.
    * @return accuracy
    */
   public Integer getAccuracy() {
@@ -50,7 +71,7 @@ public class MoveChange implements Serializable {
   }
 
   /**
-   * 
+   * The base power before the listed version group, or null if power did not change.
    * @return power
    */
   public Integer getPower() {
@@ -62,7 +83,7 @@ public class MoveChange implements Serializable {
   }
 
   /**
-   * 
+   * Power points. The number of times this move can be used.
    * @return pp
    */
   public Integer getPp() {
@@ -74,7 +95,7 @@ public class MoveChange implements Serializable {
   }
 
   /**
-   * 
+   * The percent value of how likely it is this moves effect will take effect.
    * @return effectChance
    */
   public Integer getEffectChance() {
@@ -86,19 +107,19 @@ public class MoveChange implements Serializable {
   }
 
   /**
-   * 
+   * The effect of this move listed in different languages.
    * @return effectEntries
    */
-  public List<MoveChangeEffectEntriesInner> getEffectEntries() {
+  public List<MoveEffectEffectText> getEffectEntries() {
     return effectEntries;
   }
 
-  public void setEffectEntries(List<MoveChangeEffectEntriesInner> effectEntries) {
+  public void setEffectEntries(List<MoveEffectEffectText> effectEntries) {
     this.effectEntries = effectEntries;
   }
 
   /**
-   * 
+   * The elemental type of this move.
    * @return type
    */
   public TypeSummary getType() {
@@ -110,7 +131,7 @@ public class MoveChange implements Serializable {
   }
 
   /**
-   * 
+   * The version group in which these move stat values were in effect.
    * @return versionGroup
    */
   public VersionGroupSummary getVersionGroup() {

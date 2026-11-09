@@ -25,17 +25,6 @@ Berries can be soft or hard. Check out [Bulbapedia](http://bulbapedia.bulbagarde
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure HTTP basic authorization: basicAuth
-$Configuration.Username = "YOUR_USERNAME"
-$Configuration.Password = "YOUR_PASSWORD"
-
-# Configure API key authorization: cookieAuth
-$Configuration.ApiKey.sessionid = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.sessionid = "Bearer"
-
 $Limit = 56 # Int32 | Number of results to return per page. (optional)
 $Offset = 56 # Int32 | The initial index from which to return the results. (optional)
 $Q = "MyQ" # String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
@@ -63,7 +52,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -83,18 +72,7 @@ Berries can be soft or hard. Check out [Bulbapedia](http://bulbapedia.bulbagarde
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure HTTP basic authorization: basicAuth
-$Configuration.Username = "YOUR_USERNAME"
-$Configuration.Password = "YOUR_PASSWORD"
-
-# Configure API key authorization: cookieAuth
-$Configuration.ApiKey.sessionid = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.sessionid = "Bearer"
-
-$Id = "MyId" # String | This parameter can be a string or an integer.
+$Id = "1" # String | This parameter can be a string or an integer.
 
 # Get berry by firmness
 try {
@@ -117,7 +95,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -139,17 +117,6 @@ Flavors determine whether a Pokémon will benefit or suffer from eating a berry 
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure HTTP basic authorization: basicAuth
-$Configuration.Username = "YOUR_USERNAME"
-$Configuration.Password = "YOUR_PASSWORD"
-
-# Configure API key authorization: cookieAuth
-$Configuration.ApiKey.sessionid = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.sessionid = "Bearer"
-
 $Limit = 56 # Int32 | Number of results to return per page. (optional)
 $Offset = 56 # Int32 | The initial index from which to return the results. (optional)
 $Q = "MyQ" # String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
@@ -177,7 +144,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -197,18 +164,7 @@ Flavors determine whether a Pokémon will benefit or suffer from eating a berry 
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure HTTP basic authorization: basicAuth
-$Configuration.Username = "YOUR_USERNAME"
-$Configuration.Password = "YOUR_PASSWORD"
-
-# Configure API key authorization: cookieAuth
-$Configuration.ApiKey.sessionid = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.sessionid = "Bearer"
-
-$Id = "MyId" # String | This parameter can be a string or an integer.
+$Id = "1" # String | This parameter can be a string or an integer.
 
 # Get berries by flavor
 try {
@@ -231,7 +187,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -253,17 +209,6 @@ Berries are small fruits that can provide HP and status condition restoration, s
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure HTTP basic authorization: basicAuth
-$Configuration.Username = "YOUR_USERNAME"
-$Configuration.Password = "YOUR_PASSWORD"
-
-# Configure API key authorization: cookieAuth
-$Configuration.ApiKey.sessionid = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.sessionid = "Bearer"
-
 $Limit = 56 # Int32 | Number of results to return per page. (optional)
 $Offset = 56 # Int32 | The initial index from which to return the results. (optional)
 $Q = "MyQ" # String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
@@ -291,7 +236,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -311,18 +256,7 @@ Berries are small fruits that can provide HP and status condition restoration, s
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure HTTP basic authorization: basicAuth
-$Configuration.Username = "YOUR_USERNAME"
-$Configuration.Password = "YOUR_PASSWORD"
-
-# Configure API key authorization: cookieAuth
-$Configuration.ApiKey.sessionid = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.sessionid = "Bearer"
-
-$Id = "MyId" # String | This parameter can be a string or an integer.
+$Id = "1" # String | This parameter can be a string or an integer.
 
 # Get a berry
 try {
@@ -345,7 +279,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

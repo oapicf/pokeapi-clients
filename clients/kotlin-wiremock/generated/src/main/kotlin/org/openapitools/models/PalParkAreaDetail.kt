@@ -18,6 +18,6 @@ data class PalParkAreaDetail(
     val names: kotlin.collections.List<PalParkAreaName>,
 
     @field:JsonProperty("pokemon_encounters")
-    val pokemonEncounters: kotlin.collections.List<PalParkAreaDetailPokemonEncountersInner>,
+    val pokemonEncounters: kotlin.collections.List<PalParkEncounter>,
 
 )

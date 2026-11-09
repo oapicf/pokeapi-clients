@@ -3,7 +3,7 @@ namespace OpenAPI.Model
 open System
 open System.Collections.Generic
 open Newtonsoft.Json
-open OpenAPI.Model.MoveChangeEffectEntriesInner
+open OpenAPI.Model.MoveEffectEffectText
 open OpenAPI.Model.TypeSummary
 open OpenAPI.Model.VersionGroupSummary
 open OpenAPI.Model.int option
@@ -21,9 +21,9 @@ module MoveChange =
     [<JsonProperty(PropertyName = "pp")>]
     Pp : int option;
     [<JsonProperty(PropertyName = "effect_chance")>]
-    EffectChance : int;
+    EffectChance : int option;
     [<JsonProperty(PropertyName = "effect_entries")>]
-    EffectEntries : MoveChangeEffectEntriesInner[];
+    EffectEntries : MoveEffectEffectText[];
     [<JsonProperty(PropertyName = "type")>]
     Type : TypeSummary;
     [<JsonProperty(PropertyName = "version_group")>]

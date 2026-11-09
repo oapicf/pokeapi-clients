@@ -9,7 +9,7 @@ module.exports = {
         return [
             {
                 key: `${keyPrefix}id`,
-                label: `[${labelPrefix}id]`,
+                label: `The identifier for this resource. - [${labelPrefix}id]`,
                 required: true,
                 type: 'integer',
             },

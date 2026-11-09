@@ -9,10 +9,17 @@ import Foundation
 
 public struct ContestEffectDetail: Sendable, Codable, Hashable {
 
+    public static let appealRule = NumericRule<Int>(minimum: -2147483648, exclusiveMinimum: false, maximum: 2147483647, exclusiveMaximum: false, multipleOf: nil)
+    public static let jamRule = NumericRule<Int>(minimum: -2147483648, exclusiveMinimum: false, maximum: 2147483647, exclusiveMaximum: false, multipleOf: nil)
+    /** The identifier for this resource. */
     public var id: Int
+    /** The base number of hearts the user of this move gets. */
     public var appeal: Int
+    /** The base number of hearts the user's opponent loses. */
     public var jam: Int
+    /** The result of this contest effect listed in different languages. */
     public var effectEntries: [ContestEffectEffectText]
+    /** The flavor text of this contest effect listed in different languages. */
     public var flavorTextEntries: [ContestEffectFlavorText]
 
     public init(id: Int, appeal: Int, jam: Int, effectEntries: [ContestEffectEffectText], flavorTextEntries: [ContestEffectFlavorText]) {

@@ -7,10 +7,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Int** |  |  [readonly]
-**name** | **String** |  | 
-**berryFlavor** | [**BerryFlavorSummary**](BerryFlavorSummary.md) |  |  [readonly]
-**names** | [**Seq&lt;ContestTypeName&gt;**](ContestTypeName.md) |  |  [readonly]
+**id** | **Int** | The identifier for this resource. |  [readonly]
+**name** | **String** | The name for this resource. | 
+**berryFlavor** | [**BerryFlavorSummary**](BerryFlavorSummary.md) | The berry flavor that correlates with this contest type. |  [readonly]
+**names** | [**Seq&lt;ContestTypeName&gt;**](ContestTypeName.md) | The name of this contest type listed in different languages. |  [readonly]
 
 
 

@@ -34,5 +34,14 @@ namespace Org.OpenAPITools.Functions
                 ? (await ((Task<LanguageDetail>)method.Invoke(this, new object[] { req, context, id })).ConfigureAwait(false))
                 : new StatusCodeResult((int)HttpStatusCode.NotImplemented);
         }
+
+        [FunctionName("UtilityApi_MetaRetrieve")]
+        public async Task<ActionResult<PokeapiMetaResponse>> _MetaRetrieve([HttpTrigger(AuthorizationLevel.Anonymous, "Get", Route = "api/v2/meta/")]HttpRequest req, ExecutionContext context)
+        {
+            var method = this.GetType().GetMethod("MetaRetrieve");
+            return method != null
+                ? (await ((Task<PokeapiMetaResponse>)method.Invoke(this, new object[] { req, context })).ConfigureAwait(false))
+                : new StatusCodeResult((int)HttpStatusCode.NotImplemented);
+        }
     }
 }

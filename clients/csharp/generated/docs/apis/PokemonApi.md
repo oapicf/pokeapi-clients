@@ -4,9 +4,9 @@ All URIs are relative to *https://pokeapi.co*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**AbilityList**](PokemonApi.md#abilitylist) | **GET** /api/v2/ability/ |  |
-| [**AbilityRetrieve**](PokemonApi.md#abilityretrieve) | **GET** /api/v2/ability/{id}/ |  |
-| [**CharacteristicList**](PokemonApi.md#characteristiclist) | **GET** /api/v2/characteristic/ | List charecterictics |
+| [**AbilityList**](PokemonApi.md#abilitylist) | **GET** /api/v2/ability/ | List abilities |
+| [**AbilityRetrieve**](PokemonApi.md#abilityretrieve) | **GET** /api/v2/ability/{id}/ | Get ability |
+| [**CharacteristicList**](PokemonApi.md#characteristiclist) | **GET** /api/v2/characteristic/ | List characteristics |
 | [**CharacteristicRetrieve**](PokemonApi.md#characteristicretrieve) | **GET** /api/v2/characteristic/{id}/ | Get characteristic |
 | [**EggGroupList**](PokemonApi.md#egggrouplist) | **GET** /api/v2/egg-group/ | List egg groups |
 | [**EggGroupRetrieve**](PokemonApi.md#egggroupretrieve) | **GET** /api/v2/egg-group/{id}/ | Get egg group |
@@ -41,7 +41,7 @@ All URIs are relative to *https://pokeapi.co*
 # **AbilityList**
 > PaginatedAbilitySummaryList AbilityList (int limit = null, int offset = null, string q = null)
 
-
+List abilities
 
 Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
 
@@ -60,7 +60,7 @@ Abilities provide passive effects for Pokémon in battle or in the overworld. Po
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -79,7 +79,7 @@ Abilities provide passive effects for Pokémon in battle or in the overworld. Po
 # **AbilityRetrieve**
 > AbilityDetail AbilityRetrieve (string id)
 
-
+Get ability
 
 Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
 
@@ -96,7 +96,7 @@ Abilities provide passive effects for Pokémon in battle or in the overworld. Po
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -113,9 +113,9 @@ Abilities provide passive effects for Pokémon in battle or in the overworld. Po
 
 <a id="characteristiclist"></a>
 # **CharacteristicList**
-> PaginatedCharacteristicSummaryList CharacteristicList (int limit = null, int offset = null, string q = null)
+> PaginatedCharacteristicSummaryList CharacteristicList (int limit = null, int offset = null)
 
-List charecterictics
+List characteristics
 
 Characteristics indicate which stat contains a Pokémon's highest IV. A Pokémon's Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail.
 
@@ -126,7 +126,6 @@ Characteristics indicate which stat contains a Pokémon's highest IV. A Pokémon
 |------|------|-------------|-------|
 | **limit** | **int** | Number of results to return per page. | [optional]  |
 | **offset** | **int** | The initial index from which to return the results. | [optional]  |
-| **q** | **string** | &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional]  |
 
 ### Return type
 
@@ -134,7 +133,7 @@ Characteristics indicate which stat contains a Pokémon's highest IV. A Pokémon
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -170,7 +169,7 @@ Characteristics indicate which stat contains a Pokémon's highest IV. A Pokémon
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -208,7 +207,7 @@ Egg Groups are categories which determine which Pokémon are able to interbreed.
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -244,7 +243,7 @@ Egg Groups are categories which determine which Pokémon are able to interbreed.
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -282,7 +281,7 @@ Genders were introduced in Generation II for the purposes of breeding Pokémon b
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -318,7 +317,7 @@ Genders were introduced in Generation II for the purposes of breeding Pokémon b
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -356,7 +355,7 @@ Growth rates are the speed with which Pokémon gain levels through experience. C
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -392,7 +391,7 @@ Growth rates are the speed with which Pokémon gain levels through experience. C
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -430,7 +429,7 @@ Damage classes moves can have, e.g. physical, special, or non-damaging.
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -466,7 +465,7 @@ Damage classes moves can have, e.g. physical, special, or non-damaging.
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -504,7 +503,7 @@ Natures influence how a Pokémon's stats grow. See [Bulbapedia](http://bulbapedi
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -540,7 +539,7 @@ Natures influence how a Pokémon's stats grow. See [Bulbapedia](http://bulbapedi
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -578,7 +577,7 @@ Pokeathlon Stats are different attributes of a Pokémon's performance in Pokéat
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -614,7 +613,7 @@ Pokeathlon Stats are different attributes of a Pokémon's performance in Pokéat
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -652,7 +651,7 @@ Colors used for sorting Pokémon in a Pokédex. The color listed in the Pokédex
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -688,7 +687,7 @@ Colors used for sorting Pokémon in a Pokédex. The color listed in the Pokédex
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -726,7 +725,7 @@ Some Pokémon may appear in one of multiple, visually different forms. These dif
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -762,7 +761,7 @@ Some Pokémon may appear in one of multiple, visually different forms. These dif
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -800,7 +799,7 @@ Habitats are generally different terrain Pokémon can be found in but can also b
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -836,7 +835,7 @@ Habitats are generally different terrain Pokémon can be found in but can also b
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -874,7 +873,7 @@ Pokémon are the creatures that inhabit the world of the Pokémon games. They ca
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -910,7 +909,7 @@ Pokémon are the creatures that inhabit the world of the Pokémon games. They ca
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -948,7 +947,7 @@ Shapes used for sorting Pokémon in a Pokédex.
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -984,7 +983,7 @@ Shapes used for sorting Pokémon in a Pokédex.
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1022,7 +1021,7 @@ A Pokémon Species forms the basis for at least one Pokémon. Attributes of a Po
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1058,7 +1057,7 @@ A Pokémon Species forms the basis for at least one Pokémon. Attributes of a Po
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1096,7 +1095,7 @@ Stats determine certain aspects of battles. Each Pokémon has a value for each s
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1132,7 +1131,7 @@ Stats determine certain aspects of battles. Each Pokémon has a value for each s
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1170,7 +1169,7 @@ Types are properties for Pokémon and their moves. Each type has three propertie
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1206,7 +1205,7 @@ Types are properties for Pokémon and their moves. Each type has three propertie
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

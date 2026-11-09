@@ -7,6 +7,6 @@ import java.net.URI;
 
 @Canonical
 class MachineSummary {
-    
+    /* The URL of the referenced resource. */
     URI url
 }

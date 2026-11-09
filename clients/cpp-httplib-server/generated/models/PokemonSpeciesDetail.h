@@ -11,6 +11,7 @@
 #include <cstdint>
 #include <string>
 #include <vector>
+#include "EggGroupSummary.h"
 #include "EvolutionChainSummary.h"
 #include "GenerationSummary.h"
 #include "GrowthRateSummary.h"
@@ -19,13 +20,12 @@
 #include "PokemonHabitatSummary.h"
 #include "PokemonShapeSummary.h"
 #include "PokemonSpeciesDescription.h"
-#include "PokemonSpeciesDetailEggGroupsInner.h"
-#include "PokemonSpeciesDetailGeneraInner.h"
-#include "PokemonSpeciesDetailNamesInner.h"
-#include "PokemonSpeciesDetailPalParkEncountersInner.h"
-#include "PokemonSpeciesDetailVarietiesInner.h"
 #include "PokemonSpeciesFlavorText.h"
+#include "PokemonSpeciesGenus.h"
+#include "PokemonSpeciesName.h"
+#include "PokemonSpeciesPalParkEncounter.h"
 #include "PokemonSpeciesSummary.h"
+#include "PokemonSpeciesVariety.h"
 
 
 
@@ -68,8 +68,8 @@ public:
     void setGrowthRate(const GrowthRateSummary& growthRate);
     [[nodiscard]] std::vector<PokemonDexEntry> getPokedexNumbers() const;
     void setPokedexNumbers(const std::vector<PokemonDexEntry>& pokedexNumbers);
-    [[nodiscard]] std::vector<PokemonSpeciesDetail_egg_groups_inner> getEggGroups() const;
-    void setEggGroups(const std::vector<PokemonSpeciesDetail_egg_groups_inner>& eggGroups);
+    [[nodiscard]] std::vector<EggGroupSummary> getEggGroups() const;
+    void setEggGroups(const std::vector<EggGroupSummary>& eggGroups);
     [[nodiscard]] PokemonColorSummary getColor() const;
     void setColor(const PokemonColorSummary& color);
     [[nodiscard]] PokemonShapeSummary getShape() const;
@@ -82,18 +82,18 @@ public:
     void setHabitat(const PokemonHabitatSummary& habitat);
     [[nodiscard]] GenerationSummary getGeneration() const;
     void setGeneration(const GenerationSummary& generation);
-    [[nodiscard]] std::vector<PokemonSpeciesDetail_names_inner> getNames() const;
-    void setNames(const std::vector<PokemonSpeciesDetail_names_inner>& names);
-    [[nodiscard]] std::vector<PokemonSpeciesDetail_pal_park_encounters_inner> getPalParkEncounters() const;
-    void setPalParkEncounters(const std::vector<PokemonSpeciesDetail_pal_park_encounters_inner>& palParkEncounters);
+    [[nodiscard]] std::vector<PokemonSpeciesName> getNames() const;
+    void setNames(const std::vector<PokemonSpeciesName>& names);
+    [[nodiscard]] std::vector<PokemonSpeciesPalParkEncounter> getPalParkEncounters() const;
+    void setPalParkEncounters(const std::vector<PokemonSpeciesPalParkEncounter>& palParkEncounters);
     [[nodiscard]] std::vector<PokemonSpeciesDescription> getFormDescriptions() const;
     void setFormDescriptions(const std::vector<PokemonSpeciesDescription>& formDescriptions);
     [[nodiscard]] std::vector<PokemonSpeciesFlavorText> getFlavorTextEntries() const;
     void setFlavorTextEntries(const std::vector<PokemonSpeciesFlavorText>& flavorTextEntries);
-    [[nodiscard]] std::vector<PokemonSpeciesDetail_genera_inner> getGenera() const;
-    void setGenera(const std::vector<PokemonSpeciesDetail_genera_inner>& genera);
-    [[nodiscard]] std::vector<PokemonSpeciesDetail_varieties_inner> getVarieties() const;
-    void setVarieties(const std::vector<PokemonSpeciesDetail_varieties_inner>& varieties);
+    [[nodiscard]] std::vector<PokemonSpeciesGenus> getGenera() const;
+    void setGenera(const std::vector<PokemonSpeciesGenus>& genera);
+    [[nodiscard]] std::vector<PokemonSpeciesVariety> getVarieties() const;
+    void setVarieties(const std::vector<PokemonSpeciesVariety>& varieties);
 
 
     // JSON serialization using NLOHMANN INTRUSIVE macro (must be inside class to access private members)
@@ -115,19 +115,19 @@ private:
     bool formsSwitchable;
     GrowthRateSummary growthRate;
     std::vector<PokemonDexEntry> pokedexNumbers;
-    std::vector<PokemonSpeciesDetail_egg_groups_inner> eggGroups;
+    std::vector<EggGroupSummary> eggGroups;
     PokemonColorSummary color;
     PokemonShapeSummary shape;
     PokemonSpeciesSummary evolvesFromSpecies;
     EvolutionChainSummary evolutionChain;
     PokemonHabitatSummary habitat;
     GenerationSummary generation;
-    std::vector<PokemonSpeciesDetail_names_inner> names;
-    std::vector<PokemonSpeciesDetail_pal_park_encounters_inner> palParkEncounters;
+    std::vector<PokemonSpeciesName> names;
+    std::vector<PokemonSpeciesPalParkEncounter> palParkEncounters;
     std::vector<PokemonSpeciesDescription> formDescriptions;
     std::vector<PokemonSpeciesFlavorText> flavorTextEntries;
-    std::vector<PokemonSpeciesDetail_genera_inner> genera;
-    std::vector<PokemonSpeciesDetail_varieties_inner> varieties;
+    std::vector<PokemonSpeciesGenus> genera;
+    std::vector<PokemonSpeciesVariety> varieties;
 };
 
 

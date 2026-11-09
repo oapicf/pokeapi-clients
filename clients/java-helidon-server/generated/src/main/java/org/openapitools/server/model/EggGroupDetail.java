@@ -3,8 +3,8 @@ package org.openapitools.server.model;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.server.model.EggGroupDetailPokemonSpeciesInner;
 import org.openapitools.server.model.EggGroupName;
+import org.openapitools.server.model.PokemonSpeciesSummary;
 import jakarta.validation.constraints.*;
 import jakarta.validation.Valid;
 
@@ -15,7 +15,7 @@ public class EggGroupDetail   {
     private Integer id;
     private String name;
     private List<@Valid EggGroupName> names = new ArrayList<>();
-    private List<@Valid EggGroupDetailPokemonSpeciesInner> pokemonSpecies = new ArrayList<>();
+    private List<@Valid PokemonSpeciesSummary> pokemonSpecies = new ArrayList<>();
 
     /**
      * Default constructor.
@@ -27,16 +27,16 @@ public class EggGroupDetail   {
     /**
      * Create EggGroupDetail.
      *
-     * @param id id
-     * @param name name
-     * @param names names
-     * @param pokemonSpecies pokemonSpecies
+     * @param id The identifier for this resource.
+     * @param name The name for this resource.
+     * @param names The name of this resource listed in different languages.
+     * @param pokemonSpecies A list of all Pokémon species that are members of this egg group.
      */
     public EggGroupDetail(
         Integer id, 
         String name, 
         List<@Valid EggGroupName> names, 
-        List<@Valid EggGroupDetailPokemonSpeciesInner> pokemonSpecies
+        List<@Valid PokemonSpeciesSummary> pokemonSpecies
     ) {
         this.id = id;
         this.name = name;
@@ -47,7 +47,7 @@ public class EggGroupDetail   {
 
 
     /**
-     * Get id
+     * The identifier for this resource.
      * @return id
      */
     public Integer getId() {
@@ -59,7 +59,7 @@ public class EggGroupDetail   {
     }
 
     /**
-     * Get name
+     * The name for this resource.
      * @return name
      */
     public String getName() {
@@ -71,7 +71,7 @@ public class EggGroupDetail   {
     }
 
     /**
-     * Get names
+     * The name of this resource listed in different languages.
      * @return names
      */
     public List<@Valid EggGroupName> getNames() {
@@ -83,14 +83,14 @@ public class EggGroupDetail   {
     }
 
     /**
-     * Get pokemonSpecies
+     * A list of all Pokémon species that are members of this egg group.
      * @return pokemonSpecies
      */
-    public List<@Valid EggGroupDetailPokemonSpeciesInner> getPokemonSpecies() {
+    public List<@Valid PokemonSpeciesSummary> getPokemonSpecies() {
         return pokemonSpecies;
     }
 
-    public void setPokemonSpecies(List<@Valid EggGroupDetailPokemonSpeciesInner> pokemonSpecies) {
+    public void setPokemonSpecies(List<@Valid PokemonSpeciesSummary> pokemonSpecies) {
         this.pokemonSpecies = pokemonSpecies;
     }
 

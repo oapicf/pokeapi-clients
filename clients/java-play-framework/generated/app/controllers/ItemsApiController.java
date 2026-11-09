@@ -1,10 +1,12 @@
 package controllers;
 
+import apimodels.CurrencyDetail;
 import apimodels.ItemAttributeDetail;
 import apimodels.ItemCategoryDetail;
 import apimodels.ItemDetail;
 import apimodels.ItemFlingEffectDetail;
 import apimodels.ItemPocketDetail;
+import apimodels.PaginatedCurrencySummaryList;
 import apimodels.PaginatedItemAttributeSummaryList;
 import apimodels.PaginatedItemCategorySummaryList;
 import apimodels.PaginatedItemFlingEffectSummaryList;
@@ -33,7 +35,7 @@ import com.typesafe.config.Config;
 
 import openapitools.OpenAPIUtils.ApiAction;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-10-25T05:48:13.486809836Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-11-09T13:49:31.462302702Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class ItemsApiController extends Controller {
     private final ItemsApiControllerImpInterface imp;
     private final ObjectMapper mapper;
@@ -44,6 +46,37 @@ public class ItemsApiController extends Controller {
         this.imp = imp;
         mapper = new ObjectMapper();
         this.configuration = configuration;
+    }
+
+    @ApiAction
+    public Result currencyList(Http.Request request) throws Exception {
+        String valuelimit = request.getQueryString("limit");
+        Integer limit;
+        if (valuelimit != null) {
+            limit = Integer.parseInt(valuelimit);
+        } else {
+            limit = null;
+        }
+        String valueoffset = request.getQueryString("offset");
+        Integer offset;
+        if (valueoffset != null) {
+            offset = Integer.parseInt(valueoffset);
+        } else {
+            offset = null;
+        }
+        String valueq = request.getQueryString("q");
+        String q;
+        if (valueq != null) {
+            q = valueq;
+        } else {
+            q = null;
+        }
+        return imp.currencyListHttp(request, limit, offset, q);
+    }
+
+    @ApiAction
+    public Result currencyRetrieve(Http.Request request, String id) throws Exception {
+        return imp.currencyRetrieveHttp(request, id);
     }
 
     @ApiAction

@@ -8,19 +8,19 @@ Name | Type
 ------------ | -------------
 `id` | number
 `name` | string
-`cost` | number
 `flingPower` | number
 `flingEffect` | [ItemFlingEffectSummary](ItemFlingEffectSummary.md)
-`attributes` | [Array&lt;AbilityDetailPokemonInnerPokemon&gt;](AbilityDetailPokemonInnerPokemon.md)
+`attributes` | [Array&lt;ItemAttributeSummary&gt;](ItemAttributeSummary.md)
 `category` | [ItemCategorySummary](ItemCategorySummary.md)
 `effectEntries` | [Array&lt;ItemEffectText&gt;](ItemEffectText.md)
 `flavorTextEntries` | [Array&lt;ItemFlavorText&gt;](ItemFlavorText.md)
 `gameIndices` | [Array&lt;ItemGameIndex&gt;](ItemGameIndex.md)
+`prices` | [Array&lt;ItemPrice&gt;](ItemPrice.md)
 `names` | [Array&lt;ItemName&gt;](ItemName.md)
-`heldByPokemon` | [Array&lt;ItemDetailHeldByPokemonInner&gt;](ItemDetailHeldByPokemonInner.md)
-`sprites` | [ItemDetailSprites](ItemDetailSprites.md)
-`babyTriggerFor` | [ItemDetailBabyTriggerFor](ItemDetailBabyTriggerFor.md)
-`machines` | [Array&lt;ItemDetailMachinesInner&gt;](ItemDetailMachinesInner.md)
+`heldByPokemon` | [Array&lt;PokemonHeldItem&gt;](PokemonHeldItem.md)
+`sprites` | [ItemSprites](ItemSprites.md)
+`babyTriggerFor` | [EvolutionChainSummary](EvolutionChainSummary.md)
+`machines` | [Array&lt;ItemMachine&gt;](ItemMachine.md)
 
 ## Example
 
@@ -31,7 +31,6 @@ import type { ItemDetail } from ''
 const example = {
   "id": null,
   "name": null,
-  "cost": null,
   "flingPower": null,
   "flingEffect": null,
   "attributes": null,
@@ -39,6 +38,7 @@ const example = {
   "effectEntries": null,
   "flavorTextEntries": null,
   "gameIndices": null,
+  "prices": null,
   "names": null,
   "heldByPokemon": null,
   "sprites": null,

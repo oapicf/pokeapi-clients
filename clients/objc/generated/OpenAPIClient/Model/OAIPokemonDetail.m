@@ -17,7 +17,7 @@
  * This method is used by `JSONModel`.
  */
 + (JSONKeyMapper *)keyMapper {
-  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{ @"_id": @"id", @"name": @"name", @"baseExperience": @"base_experience", @"height": @"height", @"isDefault": @"is_default", @"order": @"order", @"weight": @"weight", @"abilities": @"abilities", @"pastAbilities": @"past_abilities", @"forms": @"forms", @"gameIndices": @"game_indices", @"heldItems": @"held_items", @"locationAreaEncounters": @"location_area_encounters", @"moves": @"moves", @"species": @"species", @"sprites": @"sprites", @"cries": @"cries", @"stats": @"stats", @"types": @"types", @"pastTypes": @"past_types" }];
+  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{ @"_id": @"id", @"name": @"name", @"baseExperience": @"base_experience", @"height": @"height", @"isDefault": @"is_default", @"order": @"order", @"weight": @"weight", @"abilities": @"abilities", @"pastAbilities": @"past_abilities", @"forms": @"forms", @"gameIndices": @"game_indices", @"heldItems": @"held_items", @"locationAreaEncounters": @"location_area_encounters", @"moves": @"moves", @"species": @"species", @"sprites": @"sprites", @"cries": @"cries", @"stats": @"stats", @"pastStats": @"past_stats", @"types": @"types", @"pastTypes": @"past_types" }];
 }
 
 /**

@@ -10,15 +10,15 @@ import model.SuperContestEffectDetail
 /**
   * Provides a default implementation for [[ContestsApi]].
   */
-@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2026-10-25T05:53:17.467323765Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2026-11-09T13:53:31.572745352Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 class ContestsApiImpl extends ContestsApi {
   /**
     * @inheritdoc
     */
-  override def contestEffectList(limit: Option[Int], offset: Option[Int], q: Option[String]): PaginatedContestEffectSummaryList = {
+  override def contestEffectList(limit: Option[Int], offset: Option[Int]): PaginatedContestEffectSummaryList = {
     // TODO: Implement better logic
 
-    PaginatedContestEffectSummaryList(None, None, None, None)
+    PaginatedContestEffectSummaryList(0, None, None, List.empty[ContestEffectSummary])
   }
 
   /**
@@ -36,7 +36,7 @@ class ContestsApiImpl extends ContestsApi {
   override def contestTypeList(limit: Option[Int], offset: Option[Int], q: Option[String]): PaginatedContestTypeSummaryList = {
     // TODO: Implement better logic
 
-    PaginatedContestTypeSummaryList(None, None, None, None)
+    PaginatedContestTypeSummaryList(0, None, None, List.empty[ContestTypeSummary])
   }
 
   /**
@@ -51,10 +51,10 @@ class ContestsApiImpl extends ContestsApi {
   /**
     * @inheritdoc
     */
-  override def superContestEffectList(limit: Option[Int], offset: Option[Int], q: Option[String]): PaginatedSuperContestEffectSummaryList = {
+  override def superContestEffectList(limit: Option[Int], offset: Option[Int]): PaginatedSuperContestEffectSummaryList = {
     // TODO: Implement better logic
 
-    PaginatedSuperContestEffectSummaryList(None, None, None, None)
+    PaginatedSuperContestEffectSummaryList(0, None, None, List.empty[SuperContestEffectSummary])
   }
 
   /**

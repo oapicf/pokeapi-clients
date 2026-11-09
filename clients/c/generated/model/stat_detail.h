@@ -16,9 +16,10 @@
 typedef struct stat_detail_t stat_detail_t;
 
 #include "characteristic_summary.h"
+#include "item_summary.h"
 #include "move_damage_class_summary.h"
-#include "stat_detail_affecting_moves.h"
-#include "stat_detail_affecting_natures.h"
+#include "stat_affecting_moves.h"
+#include "stat_affecting_natures.h"
 #include "stat_name.h"
 
 
@@ -28,8 +29,9 @@ typedef struct stat_detail_t {
     char *name; // string
     int *game_index; //numeric
     int *is_battle_only; //boolean
-    struct stat_detail_affecting_moves_t *affecting_moves; //model
-    struct stat_detail_affecting_natures_t *affecting_natures; //model
+    struct stat_affecting_moves_t *affecting_moves; //model
+    struct stat_affecting_natures_t *affecting_natures; //model
+    list_t *affecting_items; //nonprimitive container
     list_t *characteristics; //nonprimitive container
     struct move_damage_class_summary_t *move_damage_class; //model
     list_t *names; //nonprimitive container
@@ -42,8 +44,9 @@ __attribute__((deprecated)) stat_detail_t *stat_detail_create(
     char *name,
     int *game_index,
     int *is_battle_only,
-    stat_detail_affecting_moves_t *affecting_moves,
-    stat_detail_affecting_natures_t *affecting_natures,
+    stat_affecting_moves_t *affecting_moves,
+    stat_affecting_natures_t *affecting_natures,
+    list_t *affecting_items,
     list_t *characteristics,
     move_damage_class_summary_t *move_damage_class,
     list_t *names

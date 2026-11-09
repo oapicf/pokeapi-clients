@@ -24,7 +24,7 @@ import jakarta.annotation.Generated;
  * EncounterConditionValueDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-10-25T05:53:37.479908528Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-11-09T13:53:47.069318184Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class EncounterConditionValueDetail {
 
   private Integer id;
@@ -55,11 +55,11 @@ public class EncounterConditionValueDetail {
   }
 
   /**
-   * Get id
+   * The identifier for this resource.
    * @return id
    */
   
-  @Schema(name = "id", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "id", accessMode = Schema.AccessMode.READ_ONLY, description = "The identifier for this resource.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("id")
   public Integer getId() {
     return id;
@@ -76,11 +76,11 @@ public class EncounterConditionValueDetail {
   }
 
   /**
-   * Get name
+   * The name for this resource.
    * @return name
    */
-  @NotNull @Size(max = 100) 
-  @Schema(name = "name", requiredMode = Schema.RequiredMode.REQUIRED)
+  @NotNull @Size(max = 200) 
+  @Schema(name = "name", description = "The name for this resource.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("name")
   public String getName() {
     return name;
@@ -97,11 +97,11 @@ public class EncounterConditionValueDetail {
   }
 
   /**
-   * Get condition
+   * The condition this encounter condition value pertains to.
    * @return condition
    */
   @NotNull @Valid 
-  @Schema(name = "condition", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "condition", description = "The condition this encounter condition value pertains to.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("condition")
   public EncounterConditionSummary getCondition() {
     return condition;
@@ -126,11 +126,11 @@ public class EncounterConditionValueDetail {
   }
 
   /**
-   * Get names
+   * The name of this resource listed in different languages.
    * @return names
    */
   
-  @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, description = "The name of this resource listed in different languages.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("names")
   public List<@Valid EncounterConditionValueName> getNames() {
     return names;

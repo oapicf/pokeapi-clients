@@ -9,7 +9,7 @@ VersionDetail::VersionDetail()
 	id = int(0);
 	name = std::string();
 	names = std::list<VersionName>();
-	version_group = VersionGroupSummary();
+	version_group = null;
 }
 
 VersionDetail::VersionDetail(std::string jsonString)

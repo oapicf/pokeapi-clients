@@ -14,11 +14,13 @@
        'is_mega' => boolean(),
        'form_name' := binary(),
        'pokemon' := openapi_pokemon_summary:openapi_pokemon_summary(),
-       'sprites' := openapi_pokemon_form_detail_sprites:openapi_pokemon_form_detail_sprites(),
+       'sprites' := openapi_pokemon_form_sprites:openapi_pokemon_form_sprites(),
        'version_group' := openapi_version_group_summary:openapi_version_group_summary(),
        'form_names' := list(),
        'names' := list(),
-       'types' := list()
+       'types' := list(),
+       'trigger_conditions' := list(),
+       'flavor_text_entries' := list()
      }.
 
 encode(#{ 'id' := Id,
@@ -34,7 +36,9 @@ encode(#{ 'id' := Id,
           'version_group' := VersionGroup,
           'form_names' := FormNames,
           'names' := Names,
-          'types' := Types
+          'types' := Types,
+          'trigger_conditions' := TriggerConditions,
+          'flavor_text_entries' := FlavorTextEntries
         }) ->
     #{ 'id' => Id,
        'name' => Name,
@@ -49,5 +53,7 @@ encode(#{ 'id' := Id,
        'version_group' => VersionGroup,
        'form_names' => FormNames,
        'names' => Names,
-       'types' => Types
+       'types' => Types,
+       'trigger_conditions' => TriggerConditions,
+       'flavor_text_entries' => FlavorTextEntries
      }.

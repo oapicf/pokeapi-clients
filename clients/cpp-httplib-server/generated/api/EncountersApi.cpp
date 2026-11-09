@@ -11,7 +11,6 @@
 
 // Project headers
 #include "EncountersApi.h"
-#include "AuthenticationManager.h"
 
 constexpr int HTTP_RESPONSE_CODE_PAGINATED_ENCOUNTER_CONDITION_SUMMARY_LIST = 200;
 constexpr int HTTP_RESPONSE_CODE_ENCOUNTER_CONDITION_DETAIL = 200;
@@ -20,7 +19,6 @@ constexpr int HTTP_RESPONSE_CODE_ENCOUNTER_CONDITION_VALUE_DETAIL = 200;
 constexpr int HTTP_RESPONSE_CODE_PAGINATED_ENCOUNTER_METHOD_SUMMARY_LIST = 200;
 constexpr int HTTP_RESPONSE_CODE_ENCOUNTER_METHOD_DETAIL = 200;
 constexpr int HTTP_RESPONSE_CODE_BAD_REQUEST = 400;
-constexpr int HTTP_RESPONSE_CODE_UNAUTHORIZED = 401;
 constexpr int HTTP_RESPONSE_CODE_INTERNAL_SERVER_ERROR = 500;
 
 namespace Api {
@@ -334,61 +332,11 @@ void Encounters::handleApiv2encounterMethodidGetResponse(const Apiv2encounterMet
     res.set_content(responseJson.dump(), "application/json");
 }
 
-bool Encounters::performAuthentication(
-    const httplib::Request& req,
-    std::shared_ptr<AuthenticationManager> auth,
-    httplib::Response& res)
-{
-    if (!auth)
-    {
-        nlohmann::json errorJson = nlohmann::json::object();
-        errorJson["message"] = "AuthenticationManager not configured";
-        res.status = HTTP_RESPONSE_CODE_INTERNAL_SERVER_ERROR;
-        res.set_content(errorJson.dump(), "application/json");
-        return false;
-    }
 
-    {
-        auto cookieHeader = req.get_header_value("Cookie");
-        std::string key = "sessionid=";
-        size_t start = cookieHeader.find(key);
-        if (start != std::string::npos)
-        {
-            start += key.length();
-            size_t end = cookieHeader.find(";", start);
-            if (end == std::string::npos) end = cookieHeader.length();
-            std::string cookieValue = cookieHeader.substr(start, end - start);
-            if (auth->validateApiKey(cookieValue)) return true;
-        }
-    }
-
-    if (req.has_header("Authorization"))
-    {
-        auto authHeader = req.get_header_value("Authorization");
-        if (authHeader.find("Basic ") == 0)
-        {
-            std::string credentials = authHeader.substr(6);
-            if (auth->validateBasicAuth(credentials, "")) return true;
-        }
-    }
-
-
-
-    return false;
-}
-
-void Encounters::handleApiv2encounterConditionGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Encounters::handleApiv2encounterConditionGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2encounterConditionGetRequest params;
         std::vector<std::string> paramErrors;
@@ -414,18 +362,10 @@ void Encounters::handleApiv2encounterConditionGetRequest([[maybe_unused]] const 
     }
 }
 
-void Encounters::handleApiv2encounterConditionidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Encounters::handleApiv2encounterConditionidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2encounterConditionidGetRequest params;
         std::vector<std::string> paramErrors;
@@ -451,18 +391,10 @@ void Encounters::handleApiv2encounterConditionidGetRequest([[maybe_unused]] cons
     }
 }
 
-void Encounters::handleApiv2encounterConditionValueGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Encounters::handleApiv2encounterConditionValueGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2encounterConditionValueGetRequest params;
         std::vector<std::string> paramErrors;
@@ -488,18 +420,10 @@ void Encounters::handleApiv2encounterConditionValueGetRequest([[maybe_unused]] c
     }
 }
 
-void Encounters::handleApiv2encounterConditionValueidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Encounters::handleApiv2encounterConditionValueidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2encounterConditionValueidGetRequest params;
         std::vector<std::string> paramErrors;
@@ -525,18 +449,10 @@ void Encounters::handleApiv2encounterConditionValueidGetRequest([[maybe_unused]]
     }
 }
 
-void Encounters::handleApiv2encounterMethodGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Encounters::handleApiv2encounterMethodGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2encounterMethodGetRequest params;
         std::vector<std::string> paramErrors;
@@ -562,18 +478,10 @@ void Encounters::handleApiv2encounterMethodGetRequest([[maybe_unused]] const htt
     }
 }
 
-void Encounters::handleApiv2encounterMethodidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Encounters::handleApiv2encounterMethodidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2encounterMethodidGetRequest params;
         std::vector<std::string> paramErrors;
@@ -600,31 +508,31 @@ void Encounters::handleApiv2encounterMethodidGetRequest([[maybe_unused]] const h
 }
 
 
-void Encounters::registerRoutes(httplib::Server& svr, std::shared_ptr<AuthenticationManager> auth)
+void Encounters::registerRoutes(httplib::Server& svr)
 {
-    svr.Get("/api/v2/encounter-condition/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/encounter-condition/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2encounterConditionGetRequest(req, res, auth);
+        handleApiv2encounterConditionGetRequest(req, res);
     });
-    svr.Get("/api/v2/encounter-condition/{id}/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/encounter-condition/{id}/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2encounterConditionidGetRequest(req, res, auth);
+        handleApiv2encounterConditionidGetRequest(req, res);
     });
-    svr.Get("/api/v2/encounter-condition-value/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/encounter-condition-value/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2encounterConditionValueGetRequest(req, res, auth);
+        handleApiv2encounterConditionValueGetRequest(req, res);
     });
-    svr.Get("/api/v2/encounter-condition-value/{id}/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/encounter-condition-value/{id}/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2encounterConditionValueidGetRequest(req, res, auth);
+        handleApiv2encounterConditionValueidGetRequest(req, res);
     });
-    svr.Get("/api/v2/encounter-method/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/encounter-method/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2encounterMethodGetRequest(req, res, auth);
+        handleApiv2encounterMethodGetRequest(req, res);
     });
-    svr.Get("/api/v2/encounter-method/{id}/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/encounter-method/{id}/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2encounterMethodidGetRequest(req, res, auth);
+        handleApiv2encounterMethodidGetRequest(req, res);
     });
 }
 

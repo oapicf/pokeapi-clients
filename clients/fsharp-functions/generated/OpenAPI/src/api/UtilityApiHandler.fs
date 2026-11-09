@@ -46,3 +46,19 @@ module UtilityApiHandlers =
           let responseContentType = "application/json"
           ContentResult(Content = content, ContentType = responseContentType, StatusCode = System.Nullable(200))
 
+    //#region MetaRetrieve
+    /// <summary>
+    /// Get API metadata
+    /// </summary>
+   [<FunctionName("MetaRetrieve")>]
+    let MetaRetrieve
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/meta/")>]
+        req:HttpRequest ) =
+
+      let result = UtilityApiService.MetaRetrieve ()
+      match result with
+      | MetaRetrieveStatusCode200 resolved ->
+          let content = JsonConvert.SerializeObject resolved.content
+          let responseContentType = "application/json"
+          ContentResult(Content = content, ContentType = responseContentType, StatusCode = System.Nullable(200))
+

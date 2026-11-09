@@ -9,8 +9,8 @@
         url=nothing,
     )
 
-    - name::String
-    - url::String
+    - name::String : The name of the referenced resource.
+    - url::String : The URL of the referenced resource.
 """
 Base.@kwdef mutable struct PokeathlonStatSummary <: OpenAPI.APIModel
     name::Union{Nothing, String} = nothing
@@ -40,7 +40,7 @@ end
 function OpenAPI.validate_property(::Type{ PokeathlonStatSummary }, name::Symbol, val)
 
     if name === Symbol("name")
-        OpenAPI.validate_param(name, "PokeathlonStatSummary", :maxLength, val, 100)
+        OpenAPI.validate_param(name, "PokeathlonStatSummary", :maxLength, val, 200)
     end
 
     if name === Symbol("url")

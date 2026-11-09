@@ -1,9 +1,11 @@
 const samples = require('../samples/ItemsApi');
+const CurrencyDetail = require('../models/CurrencyDetail');
 const ItemAttributeDetail = require('../models/ItemAttributeDetail');
 const ItemCategoryDetail = require('../models/ItemCategoryDetail');
 const ItemDetail = require('../models/ItemDetail');
 const ItemFlingEffectDetail = require('../models/ItemFlingEffectDetail');
 const ItemPocketDetail = require('../models/ItemPocketDetail');
+const PaginatedCurrencySummaryList = require('../models/PaginatedCurrencySummaryList');
 const PaginatedItemAttributeSummaryList = require('../models/PaginatedItemAttributeSummaryList');
 const PaginatedItemCategorySummaryList = require('../models/PaginatedItemCategorySummaryList');
 const PaginatedItemFlingEffectSummaryList = require('../models/PaginatedItemFlingEffectSummaryList');
@@ -12,6 +14,104 @@ const PaginatedItemSummaryList = require('../models/PaginatedItemSummaryList');
 const utils = require('../utils/utils');
 
 module.exports = {
+    currencyList: {
+        key: 'currencyList',
+        noun: 'items',
+        display: {
+            label: 'List currencies',
+            description: 'Currencies used to buy items.',
+            hidden: false,
+        },
+        operation: {
+            inputFields: [
+                {
+                    key: 'limit',
+                    label: 'Number of results to return per page.',
+                    type: 'integer',
+                },
+                {
+                    key: 'offset',
+                    label: 'The initial index from which to return the results.',
+                    type: 'integer',
+                },
+                {
+                    key: 'q',
+                    label: '&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ',
+                    type: 'string',
+                },
+            ],
+            outputFields: [
+                ...PaginatedCurrencySummaryList.fields('', false),
+            ],
+            perform: async (z, bundle) => {
+                const options = {
+                    url: utils.replacePathParameters('https://pokeapi.co/api/v2/currency/'),
+                    method: 'GET',
+                    removeMissingValuesFrom: { params: true, body: true },
+                    headers: {
+                        'Content-Type': '',
+                        'Accept': 'application/json',
+                    },
+                    params: {
+                        'limit': bundle.inputData?.['limit'],
+                        'offset': bundle.inputData?.['offset'],
+                        'q': bundle.inputData?.['q'],
+                    },
+                    body: {
+                    },
+                }
+                return z.request(utils.requestOptionsMiddleware(z, bundle, options)).then((response) => {
+                    response.throwForStatus();
+                    const results = utils.responseOptionsMiddleware(z, bundle, 'currencyList', response.json);
+                    return results;
+                })
+            },
+            sample: samples['PaginatedCurrencySummaryListSample']
+        }
+    },
+    currencyRetrieve: {
+        key: 'currencyRetrieve',
+        noun: 'items',
+        display: {
+            label: 'Get currency',
+            description: 'Currencies used to buy items.',
+            hidden: false,
+        },
+        operation: {
+            inputFields: [
+                {
+                    key: 'id',
+                    label: 'This parameter can be a string or an integer.',
+                    type: 'string',
+                    required: true,
+                },
+            ],
+            outputFields: [
+                ...CurrencyDetail.fields('', false),
+            ],
+            perform: async (z, bundle) => {
+                const options = {
+                    url: utils.replacePathParameters('https://pokeapi.co/api/v2/currency/{id}/'),
+                    method: 'GET',
+                    removeMissingValuesFrom: { params: true, body: true },
+                    headers: {
+                        'Content-Type': '',
+                        'Accept': 'application/json',
+                    },
+                    params: {
+                    },
+                    body: {
+                    },
+                }
+                return z.request(utils.requestOptionsMiddleware(z, bundle, options)).then((response) => {
+                    response.throwForStatus();
+                    const results = utils.responseOptionsMiddleware(z, bundle, 'currencyRetrieve', response.json);
+                    return results;
+                })
+            },
+            sample: samples['CurrencyDetailSample']
+        }
+    },
     itemAttributeList: {
         key: 'itemAttributeList',
         noun: 'items',

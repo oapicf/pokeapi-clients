@@ -8,25 +8,29 @@ use Articus\DataTransfer\Annotation as DTA;
 class LanguageDetail
 {
     /**
+     * The identifier for this resource.
      * @DTA\Data(field="id")
      * @DTA\Validator(name="Scalar", options={"type":"int"})
      */
     public ?int $id = null;
 
     /**
+     * The name for this resource.
      * @DTA\Data(field="name")
      * @DTA\Validator(name="Scalar", options={"type":"string"})
-     * @DTA\Validator(name="Length", options={"max":100})
+     * @DTA\Validator(name="Length", options={"max":200})
      */
     public ?string $name = null;
 
     /**
+     * Whether or not the games are published in this language.
      * @DTA\Data(field="official", nullable=true)
      * @DTA\Validator(name="Scalar", options={"type":"bool"})
      */
     public ?bool $official = null;
 
     /**
+     * The two-letter ISO 639-1 language code. Multiple PokéAPI language records may share this code.
      * @DTA\Data(field="iso639")
      * @DTA\Validator(name="Scalar", options={"type":"string"})
      * @DTA\Validator(name="Length", options={"max":10})
@@ -34,6 +38,7 @@ class LanguageDetail
     public ?string $iso639 = null;
 
     /**
+     * The two-letter ISO 3166-1 alpha-2 code of the country or region associated with this language record. Multiple PokéAPI language records may share this code.
      * @DTA\Data(field="iso3166")
      * @DTA\Validator(name="Scalar", options={"type":"string"})
      * @DTA\Validator(name="Length", options={"max":2})
@@ -41,10 +46,11 @@ class LanguageDetail
     public ?string $iso3166 = null;
 
     /**
+     * The name of this resource listed in different languages.
      * @DTA\Data(field="names")
-     * @DTA\Strategy(name="Object", options={"type":\App\DTO\Collection77::class})
-     * @DTA\Validator(name="TypeCompliant", options={"type":\App\DTO\Collection77::class})
+     * @DTA\Strategy(name="Object", options={"type":\App\DTO\Collection80::class})
+     * @DTA\Validator(name="TypeCompliant", options={"type":\App\DTO\Collection80::class})
      */
-    public ?\App\DTO\Collection77 $names = null;
+    public ?\App\DTO\Collection80 $names = null;
 
 }

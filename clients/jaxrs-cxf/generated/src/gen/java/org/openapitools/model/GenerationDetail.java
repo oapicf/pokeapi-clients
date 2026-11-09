@@ -20,45 +20,72 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class GenerationDetail  {
   
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The identifier for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
 
   private Integer id;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The name for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The name for this resource.")
 
   private String name;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * A list of abilities that were introduced in this generation.
+  */
+  @ApiModelProperty(required = true, value = "A list of abilities that were introduced in this generation.")
 
   private List<@Valid AbilitySummary> abilities = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The main region travelled in this generation.
+  */
+  @ApiModelProperty(required = true, value = "The main region travelled in this generation.")
 
   @Valid
 
   private RegionSummary mainRegion;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * A list of moves that were introduced in this generation.
+  */
+  @ApiModelProperty(required = true, value = "A list of moves that were introduced in this generation.")
 
   private List<@Valid MoveSummary> moves = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The name of this resource listed in different languages.
+  */
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
 
   private List<@Valid GenerationName> names = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * A list of Pokémon species that were introduced in this generation.
+  */
+  @ApiModelProperty(required = true, value = "A list of Pokémon species that were introduced in this generation.")
 
   private List<@Valid PokemonSpeciesSummary> pokemonSpecies = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * A list of types that were introduced in this generation.
+  */
+  @ApiModelProperty(required = true, value = "A list of types that were introduced in this generation.")
 
   private List<@Valid TypeSummary> types = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * A list of version groups that were introduced in this generation.
+  */
+  @ApiModelProperty(required = true, value = "A list of version groups that were introduced in this generation.")
 
   private List<@Valid VersionGroupSummary> versionGroups = new ArrayList<>();
  /**
-   * Get id
+   * The identifier for this resource.
    * @return id
   **/
   @JsonProperty("id")
@@ -69,12 +96,12 @@ public class GenerationDetail  {
 
 
  /**
-   * Get name
+   * The name for this resource.
    * @return name
   **/
   @JsonProperty("name")
   @NotNull
- @Size(max=100)  public String getName() {
+ @Size(max=200)  public String getName() {
     return name;
   }
 
@@ -88,7 +115,7 @@ public class GenerationDetail  {
   }
 
  /**
-   * Get abilities
+   * A list of abilities that were introduced in this generation.
    * @return abilities
   **/
   @JsonProperty("abilities")
@@ -99,7 +126,7 @@ public class GenerationDetail  {
 
 
  /**
-   * Get mainRegion
+   * The main region travelled in this generation.
    * @return mainRegion
   **/
   @JsonProperty("main_region")
@@ -118,7 +145,7 @@ public class GenerationDetail  {
   }
 
  /**
-   * Get moves
+   * A list of moves that were introduced in this generation.
    * @return moves
   **/
   @JsonProperty("moves")
@@ -129,7 +156,7 @@ public class GenerationDetail  {
 
 
  /**
-   * Get names
+   * The name of this resource listed in different languages.
    * @return names
   **/
   @JsonProperty("names")
@@ -140,7 +167,7 @@ public class GenerationDetail  {
 
 
  /**
-   * Get pokemonSpecies
+   * A list of Pokémon species that were introduced in this generation.
    * @return pokemonSpecies
   **/
   @JsonProperty("pokemon_species")
@@ -151,7 +178,7 @@ public class GenerationDetail  {
 
 
  /**
-   * Get types
+   * A list of types that were introduced in this generation.
    * @return types
   **/
   @JsonProperty("types")
@@ -162,7 +189,7 @@ public class GenerationDetail  {
 
 
  /**
-   * Get versionGroups
+   * A list of version groups that were introduced in this generation.
    * @return versionGroups
   **/
   @JsonProperty("version_groups")

@@ -9,8 +9,8 @@
         language=nothing,
     )
 
-    - description::String
-    - language::LanguageSummary
+    - description::String : The localized description for an API resource in a specific language.
+    - language::LanguageSummary : The language this name is in.
 """
 Base.@kwdef mutable struct MoveTargetDescription <: OpenAPI.APIModel
     description::Union{Nothing, String} = nothing
@@ -39,7 +39,7 @@ end
 function OpenAPI.validate_property(::Type{ MoveTargetDescription }, name::Symbol, val)
 
     if name === Symbol("description")
-        OpenAPI.validate_param(name, "MoveTargetDescription", :maxLength, val, 1000)
+        OpenAPI.validate_param(name, "MoveTargetDescription", :maxLength, val, 2000)
     end
 
 end

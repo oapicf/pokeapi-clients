@@ -19,7 +19,7 @@ import javax.validation.Valid;
 /**
  * GenerationDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-10-25T05:48:13.486809836Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-11-09T13:49:31.462302702Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class GenerationDetail   {
   @JsonProperty("id")
@@ -29,7 +29,7 @@ public class GenerationDetail   {
 
   @JsonProperty("name")
   @NotNull
-@Size(max=100)
+@Size(max=200)
 
   private String name;
 
@@ -81,7 +81,7 @@ public class GenerationDetail   {
   }
 
    /**
-   * Get id
+   * The identifier for this resource.
    * @return id
   **/
   public Integer getId() {
@@ -98,7 +98,7 @@ public class GenerationDetail   {
   }
 
    /**
-   * Get name
+   * The name for this resource.
    * @return name
   **/
   public String getName() {
@@ -123,7 +123,7 @@ public class GenerationDetail   {
   }
 
    /**
-   * Get abilities
+   * A list of abilities that were introduced in this generation.
    * @return abilities
   **/
   public List<@Valid AbilitySummary> getAbilities() {
@@ -140,7 +140,7 @@ public class GenerationDetail   {
   }
 
    /**
-   * Get mainRegion
+   * The main region travelled in this generation.
    * @return mainRegion
   **/
   public RegionSummary getMainRegion() {
@@ -165,7 +165,7 @@ public class GenerationDetail   {
   }
 
    /**
-   * Get moves
+   * A list of moves that were introduced in this generation.
    * @return moves
   **/
   public List<@Valid MoveSummary> getMoves() {
@@ -190,7 +190,7 @@ public class GenerationDetail   {
   }
 
    /**
-   * Get names
+   * The name of this resource listed in different languages.
    * @return names
   **/
   public List<@Valid GenerationName> getNames() {
@@ -215,7 +215,7 @@ public class GenerationDetail   {
   }
 
    /**
-   * Get pokemonSpecies
+   * A list of Pokémon species that were introduced in this generation.
    * @return pokemonSpecies
   **/
   public List<@Valid PokemonSpeciesSummary> getPokemonSpecies() {
@@ -240,7 +240,7 @@ public class GenerationDetail   {
   }
 
    /**
-   * Get types
+   * A list of types that were introduced in this generation.
    * @return types
   **/
   public List<@Valid TypeSummary> getTypes() {
@@ -265,7 +265,7 @@ public class GenerationDetail   {
   }
 
    /**
-   * Get versionGroups
+   * A list of version groups that were introduced in this generation.
    * @return versionGroups
   **/
   public List<@Valid VersionGroupSummary> getVersionGroups() {

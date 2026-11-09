@@ -7,7 +7,7 @@
 
 val ability_list : ?limit:int32 -> ?offset:int32 -> ?q:string -> unit -> Paginated_ability_summary_list.t Lwt.t
 val ability_retrieve : id:string -> Ability_detail.t Lwt.t
-val characteristic_list : ?limit:int32 -> ?offset:int32 -> ?q:string -> unit -> Paginated_characteristic_summary_list.t Lwt.t
+val characteristic_list : ?limit:int32 -> ?offset:int32 -> unit -> Paginated_characteristic_summary_list.t Lwt.t
 val characteristic_retrieve : id:string -> Characteristic_detail.t Lwt.t
 val egg_group_list : ?limit:int32 -> ?offset:int32 -> ?q:string -> unit -> Paginated_egg_group_summary_list.t Lwt.t
 val egg_group_retrieve : id:string -> Egg_group_detail.t Lwt.t

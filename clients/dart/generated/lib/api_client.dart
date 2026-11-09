@@ -189,36 +189,30 @@ class ApiClient {
           return AbilityChangeEffectText.fromJson(value);
         case 'AbilityDetail':
           return AbilityDetail.fromJson(value);
-        case 'AbilityDetailPokemonInner':
-          return AbilityDetailPokemonInner.fromJson(value);
-        case 'AbilityDetailPokemonInnerPokemon':
-          return AbilityDetailPokemonInnerPokemon.fromJson(value);
         case 'AbilityEffectText':
           return AbilityEffectText.fromJson(value);
         case 'AbilityFlavorText':
           return AbilityFlavorText.fromJson(value);
         case 'AbilityName':
           return AbilityName.fromJson(value);
+        case 'AbilityPokemonDetail':
+          return AbilityPokemonDetail.fromJson(value);
         case 'AbilitySummary':
           return AbilitySummary.fromJson(value);
         case 'BerryDetail':
           return BerryDetail.fromJson(value);
-        case 'BerryDetailFlavorsInner':
-          return BerryDetailFlavorsInner.fromJson(value);
-        case 'BerryDetailFlavorsInnerFlavor':
-          return BerryDetailFlavorsInnerFlavor.fromJson(value);
         case 'BerryFirmnessDetail':
           return BerryFirmnessDetail.fromJson(value);
         case 'BerryFirmnessName':
           return BerryFirmnessName.fromJson(value);
         case 'BerryFirmnessSummary':
           return BerryFirmnessSummary.fromJson(value);
+        case 'BerryFlavorBerryMap':
+          return BerryFlavorBerryMap.fromJson(value);
         case 'BerryFlavorDetail':
           return BerryFlavorDetail.fromJson(value);
-        case 'BerryFlavorDetailBerriesInner':
-          return BerryFlavorDetailBerriesInner.fromJson(value);
-        case 'BerryFlavorDetailBerriesInnerBerry':
-          return BerryFlavorDetailBerriesInnerBerry.fromJson(value);
+        case 'BerryFlavorMap':
+          return BerryFlavorMap.fromJson(value);
         case 'BerryFlavorName':
           return BerryFlavorName.fromJson(value);
         case 'BerryFlavorSummary':
@@ -245,10 +239,14 @@ class ApiClient {
           return ContestTypeName.fromJson(value);
         case 'ContestTypeSummary':
           return ContestTypeSummary.fromJson(value);
+        case 'CurrencyDetail':
+          return CurrencyDetail.fromJson(value);
+        case 'CurrencyName':
+          return CurrencyName.fromJson(value);
+        case 'CurrencySummary':
+          return CurrencySummary.fromJson(value);
         case 'EggGroupDetail':
           return EggGroupDetail.fromJson(value);
-        case 'EggGroupDetailPokemonSpeciesInner':
-          return EggGroupDetailPokemonSpeciesInner.fromJson(value);
         case 'EggGroupName':
           return EggGroupName.fromJson(value);
         case 'EggGroupSummary':
@@ -271,30 +269,36 @@ class ApiClient {
           return EncounterMethodName.fromJson(value);
         case 'EncounterMethodSummary':
           return EncounterMethodSummary.fromJson(value);
+        case 'EncounterPokemonDetail':
+          return EncounterPokemonDetail.fromJson(value);
         case 'EvolutionChainDetail':
           return EvolutionChainDetail.fromJson(value);
-        case 'EvolutionChainDetailChain':
-          return EvolutionChainDetailChain.fromJson(value);
-        case 'EvolutionChainDetailChainEvolvesToInner':
-          return EvolutionChainDetailChainEvolvesToInner.fromJson(value);
-        case 'EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner':
-          return EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.fromJson(value);
-        case 'EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender':
-          return EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.fromJson(value);
+        case 'EvolutionChainLink':
+          return EvolutionChainLink.fromJson(value);
         case 'EvolutionChainSummary':
           return EvolutionChainSummary.fromJson(value);
+        case 'EvolutionConditionExpression':
+          return EvolutionConditionExpression.fromJson(value);
         case 'EvolutionTriggerDetail':
           return EvolutionTriggerDetail.fromJson(value);
         case 'EvolutionTriggerName':
           return EvolutionTriggerName.fromJson(value);
         case 'EvolutionTriggerSummary':
           return EvolutionTriggerSummary.fromJson(value);
+        case 'EvolutionVariableDescription':
+          return EvolutionVariableDescription.fromJson(value);
+        case 'EvolutionVariableDetail':
+          return EvolutionVariableDetail.fromJson(value);
+        case 'EvolutionVariableName':
+          return EvolutionVariableName.fromJson(value);
+        case 'EvolutionVariableSummary':
+          return EvolutionVariableSummary.fromJson(value);
         case 'Experience':
           return Experience.fromJson(value);
         case 'GenderDetail':
           return GenderDetail.fromJson(value);
-        case 'GenderDetailPokemonSpeciesDetailsInner':
-          return GenderDetailPokemonSpeciesDetailsInner.fromJson(value);
+        case 'GenderPokemonSpecies':
+          return GenderPokemonSpecies.fromJson(value);
         case 'GenderSummary':
           return GenderSummary.fromJson(value);
         case 'GenerationDetail':
@@ -325,16 +329,6 @@ class ApiClient {
           return ItemCategorySummary.fromJson(value);
         case 'ItemDetail':
           return ItemDetail.fromJson(value);
-        case 'ItemDetailBabyTriggerFor':
-          return ItemDetailBabyTriggerFor.fromJson(value);
-        case 'ItemDetailHeldByPokemonInner':
-          return ItemDetailHeldByPokemonInner.fromJson(value);
-        case 'ItemDetailHeldByPokemonInnerVersionDetailsInner':
-          return ItemDetailHeldByPokemonInnerVersionDetailsInner.fromJson(value);
-        case 'ItemDetailMachinesInner':
-          return ItemDetailMachinesInner.fromJson(value);
-        case 'ItemDetailSprites':
-          return ItemDetailSprites.fromJson(value);
         case 'ItemEffectText':
           return ItemEffectText.fromJson(value);
         case 'ItemFlavorText':
@@ -347,6 +341,8 @@ class ApiClient {
           return ItemFlingEffectSummary.fromJson(value);
         case 'ItemGameIndex':
           return ItemGameIndex.fromJson(value);
+        case 'ItemMachine':
+          return ItemMachine.fromJson(value);
         case 'ItemName':
           return ItemName.fromJson(value);
         case 'ItemPocketDetail':
@@ -355,6 +351,10 @@ class ApiClient {
           return ItemPocketName.fromJson(value);
         case 'ItemPocketSummary':
           return ItemPocketSummary.fromJson(value);
+        case 'ItemPrice':
+          return ItemPrice.fromJson(value);
+        case 'ItemSprites':
+          return ItemSprites.fromJson(value);
         case 'ItemSummary':
           return ItemSummary.fromJson(value);
         case 'LanguageDetail':
@@ -365,18 +365,18 @@ class ApiClient {
           return LanguageSummary.fromJson(value);
         case 'LocationAreaDetail':
           return LocationAreaDetail.fromJson(value);
-        case 'LocationAreaDetailEncounterMethodRatesInner':
-          return LocationAreaDetailEncounterMethodRatesInner.fromJson(value);
-        case 'LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner':
-          return LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner.fromJson(value);
-        case 'LocationAreaDetailPokemonEncountersInner':
-          return LocationAreaDetailPokemonEncountersInner.fromJson(value);
-        case 'LocationAreaDetailPokemonEncountersInnerVersionDetailsInner':
-          return LocationAreaDetailPokemonEncountersInnerVersionDetailsInner.fromJson(value);
-        case 'LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails':
-          return LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails.fromJson(value);
+        case 'LocationAreaEncounterDetail':
+          return LocationAreaEncounterDetail.fromJson(value);
+        case 'LocationAreaEncounterRate':
+          return LocationAreaEncounterRate.fromJson(value);
+        case 'LocationAreaEncounterVersionDetail':
+          return LocationAreaEncounterVersionDetail.fromJson(value);
         case 'LocationAreaName':
           return LocationAreaName.fromJson(value);
+        case 'LocationAreaPokemonEncounter':
+          return LocationAreaPokemonEncounter.fromJson(value);
+        case 'LocationAreaPokemonEncounterVersion':
+          return LocationAreaPokemonEncounterVersion.fromJson(value);
         case 'LocationAreaSummary':
           return LocationAreaSummary.fromJson(value);
         case 'LocationDetail':
@@ -399,8 +399,10 @@ class ApiClient {
           return MoveBattleStyleSummary.fromJson(value);
         case 'MoveChange':
           return MoveChange.fromJson(value);
-        case 'MoveChangeEffectEntriesInner':
-          return MoveChangeEffectEntriesInner.fromJson(value);
+        case 'MoveComboUsage':
+          return MoveComboUsage.fromJson(value);
+        case 'MoveCombos':
+          return MoveCombos.fromJson(value);
         case 'MoveDamageClassDescription':
           return MoveDamageClassDescription.fromJson(value);
         case 'MoveDamageClassDetail':
@@ -411,20 +413,12 @@ class ApiClient {
           return MoveDamageClassSummary.fromJson(value);
         case 'MoveDetail':
           return MoveDetail.fromJson(value);
-        case 'MoveDetailContestCombos':
-          return MoveDetailContestCombos.fromJson(value);
-        case 'MoveDetailContestCombosNormal':
-          return MoveDetailContestCombosNormal.fromJson(value);
-        case 'MoveDetailEffectChangesInner':
-          return MoveDetailEffectChangesInner.fromJson(value);
-        case 'MoveDetailEffectChangesInnerEffectEntriesInner':
-          return MoveDetailEffectChangesInnerEffectEntriesInner.fromJson(value);
-        case 'MoveDetailMachinesInner':
-          return MoveDetailMachinesInner.fromJson(value);
-        case 'MoveDetailMachinesInnerMachine':
-          return MoveDetailMachinesInnerMachine.fromJson(value);
-        case 'MoveDetailStatChangesInner':
-          return MoveDetailStatChangesInner.fromJson(value);
+        case 'MoveEffectChange':
+          return MoveEffectChange.fromJson(value);
+        case 'MoveEffectChangeEffectText':
+          return MoveEffectChangeEffectText.fromJson(value);
+        case 'MoveEffectEffectText':
+          return MoveEffectEffectText.fromJson(value);
         case 'MoveFlavorText':
           return MoveFlavorText.fromJson(value);
         case 'MoveLearnMethodDescription':
@@ -449,8 +443,12 @@ class ApiClient {
           return MoveMetaCategoryDetail.fromJson(value);
         case 'MoveMetaCategorySummary':
           return MoveMetaCategorySummary.fromJson(value);
+        case 'MoveMetaStatChange':
+          return MoveMetaStatChange.fromJson(value);
         case 'MoveName':
           return MoveName.fromJson(value);
+        case 'MoveStatChange':
+          return MoveStatChange.fromJson(value);
         case 'MoveSummary':
           return MoveSummary.fromJson(value);
         case 'MoveTargetDescription':
@@ -465,10 +463,10 @@ class ApiClient {
           return NatureBattleStylePreference.fromJson(value);
         case 'NatureDetail':
           return NatureDetail.fromJson(value);
-        case 'NatureDetailPokeathlonStatChangesInner':
-          return NatureDetailPokeathlonStatChangesInner.fromJson(value);
         case 'NatureName':
           return NatureName.fromJson(value);
+        case 'NaturePokeathlonStat':
+          return NaturePokeathlonStat.fromJson(value);
         case 'NatureSummary':
           return NatureSummary.fromJson(value);
         case 'PaginatedAbilitySummaryList':
@@ -485,6 +483,8 @@ class ApiClient {
           return PaginatedContestEffectSummaryList.fromJson(value);
         case 'PaginatedContestTypeSummaryList':
           return PaginatedContestTypeSummaryList.fromJson(value);
+        case 'PaginatedCurrencySummaryList':
+          return PaginatedCurrencySummaryList.fromJson(value);
         case 'PaginatedEggGroupSummaryList':
           return PaginatedEggGroupSummaryList.fromJson(value);
         case 'PaginatedEncounterConditionSummaryList':
@@ -497,6 +497,8 @@ class ApiClient {
           return PaginatedEvolutionChainSummaryList.fromJson(value);
         case 'PaginatedEvolutionTriggerSummaryList':
           return PaginatedEvolutionTriggerSummaryList.fromJson(value);
+        case 'PaginatedEvolutionVariableSummaryList':
+          return PaginatedEvolutionVariableSummaryList.fromJson(value);
         case 'PaginatedGenderSummaryList':
           return PaginatedGenderSummaryList.fromJson(value);
         case 'PaginatedGenerationSummaryList':
@@ -569,20 +571,20 @@ class ApiClient {
           return PaginatedVersionSummaryList.fromJson(value);
         case 'PalParkAreaDetail':
           return PalParkAreaDetail.fromJson(value);
-        case 'PalParkAreaDetailPokemonEncountersInner':
-          return PalParkAreaDetailPokemonEncountersInner.fromJson(value);
         case 'PalParkAreaName':
           return PalParkAreaName.fromJson(value);
         case 'PalParkAreaSummary':
           return PalParkAreaSummary.fromJson(value);
+        case 'PalParkEncounter':
+          return PalParkEncounter.fromJson(value);
+        case 'PokeapiMetaResponse':
+          return PokeapiMetaResponse.fromJson(value);
+        case 'PokeathlonStatAffectingNature':
+          return PokeathlonStatAffectingNature.fromJson(value);
+        case 'PokeathlonStatAffectingNatures':
+          return PokeathlonStatAffectingNatures.fromJson(value);
         case 'PokeathlonStatDetail':
           return PokeathlonStatDetail.fromJson(value);
-        case 'PokeathlonStatDetailAffectingNatures':
-          return PokeathlonStatDetailAffectingNatures.fromJson(value);
-        case 'PokeathlonStatDetailAffectingNaturesDecreaseInner':
-          return PokeathlonStatDetailAffectingNaturesDecreaseInner.fromJson(value);
-        case 'PokeathlonStatDetailAffectingNaturesIncreaseInner':
-          return PokeathlonStatDetailAffectingNaturesIncreaseInner.fromJson(value);
         case 'PokeathlonStatName':
           return PokeathlonStatName.fromJson(value);
         case 'PokeathlonStatSummary':
@@ -591,48 +593,52 @@ class ApiClient {
           return PokedexDescription.fromJson(value);
         case 'PokedexDetail':
           return PokedexDetail.fromJson(value);
-        case 'PokedexDetailPokemonEntriesInner':
-          return PokedexDetailPokemonEntriesInner.fromJson(value);
         case 'PokedexName':
           return PokedexName.fromJson(value);
         case 'PokedexSummary':
           return PokedexSummary.fromJson(value);
+        case 'PokemonAbility':
+          return PokemonAbility.fromJson(value);
+        case 'PokemonAbilityPast':
+          return PokemonAbilityPast.fromJson(value);
         case 'PokemonColorDetail':
           return PokemonColorDetail.fromJson(value);
         case 'PokemonColorName':
           return PokemonColorName.fromJson(value);
         case 'PokemonColorSummary':
           return PokemonColorSummary.fromJson(value);
+        case 'PokemonCries':
+          return PokemonCries.fromJson(value);
         case 'PokemonDetail':
           return PokemonDetail.fromJson(value);
-        case 'PokemonDetailAbilitiesInner':
-          return PokemonDetailAbilitiesInner.fromJson(value);
-        case 'PokemonDetailCries':
-          return PokemonDetailCries.fromJson(value);
-        case 'PokemonDetailHeldItems':
-          return PokemonDetailHeldItems.fromJson(value);
-        case 'PokemonDetailMovesInner':
-          return PokemonDetailMovesInner.fromJson(value);
-        case 'PokemonDetailMovesInnerVersionGroupDetailsInner':
-          return PokemonDetailMovesInnerVersionGroupDetailsInner.fromJson(value);
-        case 'PokemonDetailPastAbilitiesInner':
-          return PokemonDetailPastAbilitiesInner.fromJson(value);
-        case 'PokemonDetailPastTypesInner':
-          return PokemonDetailPastTypesInner.fromJson(value);
-        case 'PokemonDetailSprites':
-          return PokemonDetailSprites.fromJson(value);
-        case 'PokemonDetailTypesInner':
-          return PokemonDetailTypesInner.fromJson(value);
         case 'PokemonDexEntry':
           return PokemonDexEntry.fromJson(value);
+        case 'PokemonDexNumber':
+          return PokemonDexNumber.fromJson(value);
+        case 'PokemonEncounterDetailResponse':
+          return PokemonEncounterDetailResponse.fromJson(value);
+        case 'PokemonEncounterResponse':
+          return PokemonEncounterResponse.fromJson(value);
+        case 'PokemonEncounterVersionDetailResponse':
+          return PokemonEncounterVersionDetailResponse.fromJson(value);
+        case 'PokemonEvolution':
+          return PokemonEvolution.fromJson(value);
+        case 'PokemonEvolutionKnownMove':
+          return PokemonEvolutionKnownMove.fromJson(value);
         case 'PokemonFormDetail':
           return PokemonFormDetail.fromJson(value);
-        case 'PokemonFormDetailFormNamesInner':
-          return PokemonFormDetailFormNamesInner.fromJson(value);
-        case 'PokemonFormDetailSprites':
-          return PokemonFormDetailSprites.fromJson(value);
+        case 'PokemonFormFlavorText':
+          return PokemonFormFlavorText.fromJson(value);
+        case 'PokemonFormName':
+          return PokemonFormName.fromJson(value);
+        case 'PokemonFormSprites':
+          return PokemonFormSprites.fromJson(value);
         case 'PokemonFormSummary':
           return PokemonFormSummary.fromJson(value);
+        case 'PokemonFormTriggerCondition':
+          return PokemonFormTriggerCondition.fromJson(value);
+        case 'PokemonFormType':
+          return PokemonFormType.fromJson(value);
         case 'PokemonGameIndex':
           return PokemonGameIndex.fromJson(value);
         case 'PokemonHabitatDetail':
@@ -641,46 +647,76 @@ class ApiClient {
           return PokemonHabitatName.fromJson(value);
         case 'PokemonHabitatSummary':
           return PokemonHabitatSummary.fromJson(value);
+        case 'PokemonHeldItem':
+          return PokemonHeldItem.fromJson(value);
+        case 'PokemonHeldItemSummary':
+          return PokemonHeldItemSummary.fromJson(value);
+        case 'PokemonHeldItemVersion':
+          return PokemonHeldItemVersion.fromJson(value);
+        case 'PokemonMove':
+          return PokemonMove.fromJson(value);
+        case 'PokemonMoveVersionGroup':
+          return PokemonMoveVersionGroup.fromJson(value);
+        case 'PokemonPastAbility':
+          return PokemonPastAbility.fromJson(value);
+        case 'PokemonPastStat':
+          return PokemonPastStat.fromJson(value);
+        case 'PokemonPastType':
+          return PokemonPastType.fromJson(value);
+        case 'PokemonShapeAwesomeName':
+          return PokemonShapeAwesomeName.fromJson(value);
         case 'PokemonShapeDetail':
           return PokemonShapeDetail.fromJson(value);
-        case 'PokemonShapeDetailAwesomeNamesInner':
-          return PokemonShapeDetailAwesomeNamesInner.fromJson(value);
-        case 'PokemonShapeDetailNamesInner':
-          return PokemonShapeDetailNamesInner.fromJson(value);
+        case 'PokemonShapeName':
+          return PokemonShapeName.fromJson(value);
         case 'PokemonShapeSummary':
           return PokemonShapeSummary.fromJson(value);
         case 'PokemonSpeciesDescription':
           return PokemonSpeciesDescription.fromJson(value);
         case 'PokemonSpeciesDetail':
           return PokemonSpeciesDetail.fromJson(value);
-        case 'PokemonSpeciesDetailGeneraInner':
-          return PokemonSpeciesDetailGeneraInner.fromJson(value);
-        case 'PokemonSpeciesDetailPalParkEncountersInner':
-          return PokemonSpeciesDetailPalParkEncountersInner.fromJson(value);
-        case 'PokemonSpeciesDetailVarietiesInner':
-          return PokemonSpeciesDetailVarietiesInner.fromJson(value);
         case 'PokemonSpeciesFlavorText':
           return PokemonSpeciesFlavorText.fromJson(value);
+        case 'PokemonSpeciesGenus':
+          return PokemonSpeciesGenus.fromJson(value);
+        case 'PokemonSpeciesName':
+          return PokemonSpeciesName.fromJson(value);
+        case 'PokemonSpeciesPalParkEncounter':
+          return PokemonSpeciesPalParkEncounter.fromJson(value);
         case 'PokemonSpeciesSummary':
           return PokemonSpeciesSummary.fromJson(value);
+        case 'PokemonSpeciesVariety':
+          return PokemonSpeciesVariety.fromJson(value);
+        case 'PokemonSprites':
+          return PokemonSprites.fromJson(value);
+        case 'PokemonSpritesOther':
+          return PokemonSpritesOther.fromJson(value);
+        case 'PokemonSpritesOtherDreamWorld':
+          return PokemonSpritesOtherDreamWorld.fromJson(value);
+        case 'PokemonSpritesOtherHome':
+          return PokemonSpritesOtherHome.fromJson(value);
+        case 'PokemonSpritesOtherOfficialArtwork':
+          return PokemonSpritesOtherOfficialArtwork.fromJson(value);
+        case 'PokemonSpritesOtherShowdown':
+          return PokemonSpritesOtherShowdown.fromJson(value);
         case 'PokemonStat':
           return PokemonStat.fromJson(value);
         case 'PokemonSummary':
           return PokemonSummary.fromJson(value);
+        case 'PokemonType':
+          return PokemonType.fromJson(value);
         case 'RegionDetail':
           return RegionDetail.fromJson(value);
         case 'RegionName':
           return RegionName.fromJson(value);
         case 'RegionSummary':
           return RegionSummary.fromJson(value);
+        case 'StatAffectingMoves':
+          return StatAffectingMoves.fromJson(value);
+        case 'StatAffectingNatures':
+          return StatAffectingNatures.fromJson(value);
         case 'StatDetail':
           return StatDetail.fromJson(value);
-        case 'StatDetailAffectingMoves':
-          return StatDetailAffectingMoves.fromJson(value);
-        case 'StatDetailAffectingMovesIncreaseInner':
-          return StatDetailAffectingMovesIncreaseInner.fromJson(value);
-        case 'StatDetailAffectingNatures':
-          return StatDetailAffectingNatures.fromJson(value);
         case 'StatName':
           return StatName.fromJson(value);
         case 'StatSummary':
@@ -693,20 +729,18 @@ class ApiClient {
           return SuperContestEffectSummary.fromJson(value);
         case 'TypeDetail':
           return TypeDetail.fromJson(value);
-        case 'TypeDetailDamageRelations':
-          return TypeDetailDamageRelations.fromJson(value);
-        case 'TypeDetailPastDamageRelationsInner':
-          return TypeDetailPastDamageRelationsInner.fromJson(value);
-        case 'TypeDetailPastDamageRelationsInnerDamageRelations':
-          return TypeDetailPastDamageRelationsInnerDamageRelations.fromJson(value);
-        case 'TypeDetailPokemonInner':
-          return TypeDetailPokemonInner.fromJson(value);
-        case 'TypeDetailPokemonInnerPokemon':
-          return TypeDetailPokemonInnerPokemon.fromJson(value);
-        case 'TypeDetailSpritesValueValue':
-          return TypeDetailSpritesValueValue.fromJson(value);
         case 'TypeGameIndex':
           return TypeGameIndex.fromJson(value);
+        case 'TypeGameSprite':
+          return TypeGameSprite.fromJson(value);
+        case 'TypeName':
+          return TypeName.fromJson(value);
+        case 'TypePastRelationships':
+          return TypePastRelationships.fromJson(value);
+        case 'TypePokemon':
+          return TypePokemon.fromJson(value);
+        case 'TypeRelationships':
+          return TypeRelationships.fromJson(value);
         case 'TypeSummary':
           return TypeSummary.fromJson(value);
         case 'VersionDetail':

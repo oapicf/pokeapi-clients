@@ -3,7 +3,9 @@
 -export([evolution_chain_list/1, evolution_chain_list/2,
          evolution_chain_retrieve/2, evolution_chain_retrieve/3,
          evolution_trigger_list/1, evolution_trigger_list/2,
-         evolution_trigger_retrieve/2, evolution_trigger_retrieve/3]).
+         evolution_trigger_retrieve/2, evolution_trigger_retrieve/3,
+         evolution_variable_list/1, evolution_variable_list/2,
+         evolution_variable_retrieve/2, evolution_variable_retrieve/3]).
 
 -define(BASE_URL, <<"">>).
 
@@ -20,7 +22,7 @@ evolution_chain_list(Ctx, Optional) ->
 
     Method = get,
     Path = [?BASE_URL, "/api/v2/evolution-chain/"],
-    QS = lists:flatten([])++openapi_utils:optional_params(['limit', 'offset', 'q'], _OptionalParams),
+    QS = lists:flatten([])++openapi_utils:optional_params(['limit', 'offset'], _OptionalParams),
     Headers = [],
     Body1 = [],
     ContentTypeHeader = openapi_utils:select_header_content_type([]),
@@ -83,6 +85,48 @@ evolution_trigger_retrieve(Ctx, Id, Optional) ->
 
     Method = get,
     Path = [?BASE_URL, "/api/v2/evolution-trigger/", Id, "/"],
+    QS = [],
+    Headers = [],
+    Body1 = [],
+    ContentTypeHeader = openapi_utils:select_header_content_type([]),
+    Opts = maps:get(hackney_opts, Optional, []),
+
+    openapi_utils:request(Ctx, Method, Path, QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
+
+%% @doc List evolution variables
+%% Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+-spec evolution_variable_list(ctx:ctx()) -> {ok, openapi_paginated_evolution_variable_summary_list:openapi_paginated_evolution_variable_summary_list(), openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
+evolution_variable_list(Ctx) ->
+    evolution_variable_list(Ctx, #{}).
+
+-spec evolution_variable_list(ctx:ctx(), maps:map()) -> {ok, openapi_paginated_evolution_variable_summary_list:openapi_paginated_evolution_variable_summary_list(), openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
+evolution_variable_list(Ctx, Optional) ->
+    _OptionalParams = maps:get(params, Optional, #{}),
+    Cfg = maps:get(cfg, Optional, application:get_env(openapi_api, config, #{})),
+
+    Method = get,
+    Path = [?BASE_URL, "/api/v2/evolution-variable/"],
+    QS = lists:flatten([])++openapi_utils:optional_params(['limit', 'offset', 'q'], _OptionalParams),
+    Headers = [],
+    Body1 = [],
+    ContentTypeHeader = openapi_utils:select_header_content_type([]),
+    Opts = maps:get(hackney_opts, Optional, []),
+
+    openapi_utils:request(Ctx, Method, Path, QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
+
+%% @doc Get evolution variable
+%% Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+-spec evolution_variable_retrieve(ctx:ctx(), binary()) -> {ok, openapi_evolution_variable_detail:openapi_evolution_variable_detail(), openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
+evolution_variable_retrieve(Ctx, Id) ->
+    evolution_variable_retrieve(Ctx, Id, #{}).
+
+-spec evolution_variable_retrieve(ctx:ctx(), binary(), maps:map()) -> {ok, openapi_evolution_variable_detail:openapi_evolution_variable_detail(), openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
+evolution_variable_retrieve(Ctx, Id, Optional) ->
+    _OptionalParams = maps:get(params, Optional, #{}),
+    Cfg = maps:get(cfg, Optional, application:get_env(openapi_api, config, #{})),
+
+    Method = get,
+    Path = [?BASE_URL, "/api/v2/evolution-variable/", Id, "/"],
     QS = [],
     Headers = [],
     Body1 = [],

@@ -14,7 +14,7 @@ import javax.validation.Valid;
 /**
  * SuperContestEffectDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-10-25T05:48:13.486809836Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-11-09T13:49:31.462302702Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class SuperContestEffectDetail   {
   @JsonProperty("id")
@@ -24,6 +24,8 @@ public class SuperContestEffectDetail   {
 
   @JsonProperty("appeal")
   @NotNull
+@Min(-2147483648)
+@Max(2147483647)
 
   private Integer appeal;
 
@@ -45,7 +47,7 @@ public class SuperContestEffectDetail   {
   }
 
    /**
-   * Get id
+   * The identifier for this resource.
    * @return id
   **/
   public Integer getId() {
@@ -62,7 +64,9 @@ public class SuperContestEffectDetail   {
   }
 
    /**
-   * Get appeal
+   * The level of appeal this super contest effect has.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return appeal
   **/
   public Integer getAppeal() {
@@ -87,7 +91,7 @@ public class SuperContestEffectDetail   {
   }
 
    /**
-   * Get flavorTextEntries
+   * The flavor text of this super contest effect listed in different languages.
    * @return flavorTextEntries
   **/
   public List<@Valid SuperContestEffectFlavorText> getFlavorTextEntries() {
@@ -112,7 +116,7 @@ public class SuperContestEffectDetail   {
   }
 
    /**
-   * Get moves
+   * A list of moves that have the effect when used in super contests.
    * @return moves
   **/
   public List<@Valid MoveSummary> getMoves() {

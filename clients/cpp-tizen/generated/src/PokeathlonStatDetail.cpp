@@ -25,7 +25,7 @@ PokeathlonStatDetail::__init()
 {
 	//id = int(0);
 	//name = std::string();
-	//affecting_natures = new PokeathlonStatDetail_affecting_natures();
+	//affecting_natures = null;
 	//new std::list()std::list> names;
 }
 
@@ -87,11 +87,11 @@ PokeathlonStatDetail::fromJson(char* jsonStr)
 	if (node !=NULL) {
 	
 
-		if (isprimitive("PokeathlonStatDetail_affecting_natures")) {
-			jsonToValue(&affecting_natures, node, "PokeathlonStatDetail_affecting_natures", "PokeathlonStatDetail_affecting_natures");
+		if (isprimitive("PokeathlonStatAffectingNatures")) {
+			jsonToValue(&affecting_natures, node, "PokeathlonStatAffectingNatures", "PokeathlonStatAffectingNatures");
 		} else {
 			
-			PokeathlonStatDetail_affecting_natures* obj = static_cast<PokeathlonStatDetail_affecting_natures*> (&affecting_natures);
+			PokeathlonStatAffectingNatures* obj = static_cast<PokeathlonStatAffectingNatures*> (&affecting_natures);
 			obj->fromJson(json_to_string(node, false));
 			
 		}
@@ -150,13 +150,13 @@ PokeathlonStatDetail::toJson()
 	}
 	const gchar *nameKey = "name";
 	json_object_set_member(pJsonObject, nameKey, node);
-	if (isprimitive("PokeathlonStatDetail_affecting_natures")) {
-		PokeathlonStatDetail_affecting_natures obj = getAffectingNatures();
-		node = converttoJson(&obj, "PokeathlonStatDetail_affecting_natures", "");
+	if (isprimitive("PokeathlonStatAffectingNatures")) {
+		PokeathlonStatAffectingNatures obj = getAffectingNatures();
+		node = converttoJson(&obj, "PokeathlonStatAffectingNatures", "");
 	}
 	else {
 		
-		PokeathlonStatDetail_affecting_natures obj = static_cast<PokeathlonStatDetail_affecting_natures> (getAffectingNatures());
+		PokeathlonStatAffectingNatures obj = static_cast<PokeathlonStatAffectingNatures> (getAffectingNatures());
 		GError *mygerror;
 		mygerror = NULL;
 		node = json_from_string(obj.toJson(), &mygerror);
@@ -221,14 +221,14 @@ PokeathlonStatDetail::setName(std::string  name)
 	this->name = name;
 }
 
-PokeathlonStatDetail_affecting_natures
+PokeathlonStatAffectingNatures
 PokeathlonStatDetail::getAffectingNatures()
 {
 	return affecting_natures;
 }
 
 void
-PokeathlonStatDetail::setAffectingNatures(PokeathlonStatDetail_affecting_natures  affecting_natures)
+PokeathlonStatDetail::setAffectingNatures(PokeathlonStatAffectingNatures  affecting_natures)
 {
 	this->affecting_natures = affecting_natures;
 }

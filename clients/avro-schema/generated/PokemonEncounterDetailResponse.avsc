@@ -1,0 +1,37 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "PokemonEncounterDetailResponse",
+  "fields": [
+    {
+      "name": "chance",
+      "type": "int",
+      "doc": "Percent chance that this encounter will occur."
+    },
+    {
+      "name": "condition_values",
+      "type": {
+        "type": "array",
+        "items": "model.EncounterConditionValueSummary"
+      },
+      "doc": "A list of condition values that must be in effect for this encounter to occur."
+    },
+    {
+      "name": "max_level",
+      "type": "int",
+      "doc": "The highest level the Pokémon could be encountered at."
+    },
+    {
+      "name": "method",
+      "type": "model.EncounterMethodSummary",
+      "doc": "The method by which this encounter happens."
+    },
+    {
+      "name": "min_level",
+      "type": "int",
+      "doc": "The lowest level the Pokémon could be encountered at."
+    }
+  ]
+
+}

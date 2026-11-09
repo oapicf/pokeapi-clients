@@ -9,7 +9,7 @@ ItemAttributeDetail::ItemAttributeDetail()
 	id = int(0);
 	name = std::string();
 	descriptions = std::list<ItemAttributeDescription>();
-	items = std::list<AbilityDetail_pokemon_inner_pokemon>();
+	items = std::list<ItemSummary>();
 	names = std::list<ItemAttributeName>();
 }
 
@@ -83,8 +83,8 @@ ItemAttributeDetail::fromJson(std::string jsonObj)
         bourne::json value = object[itemsKey];
 
 
-        std::list<AbilityDetail_pokemon_inner_pokemon> items_list;
-        AbilityDetail_pokemon_inner_pokemon element;
+        std::list<ItemSummary> items_list;
+        ItemSummary element;
         for(auto& var : value.array_range())
         {
 
@@ -160,12 +160,12 @@ ItemAttributeDetail::toJson()
 
 
 
-    std::list<AbilityDetail_pokemon_inner_pokemon> items_list = getItems();
+    std::list<ItemSummary> items_list = getItems();
     bourne::json items_arr = bourne::json::array();
 
     for(auto& var : items_list)
     {
-        AbilityDetail_pokemon_inner_pokemon obj = var;
+        ItemSummary obj = var;
         items_arr.append(obj.toJson());
     }
     object["items"] = items_arr;
@@ -228,14 +228,14 @@ ItemAttributeDetail::setDescriptions(std::list<ItemAttributeDescription> descrip
 	this->descriptions = descriptions;
 }
 
-std::list<AbilityDetail_pokemon_inner_pokemon>
+std::list<ItemSummary>
 ItemAttributeDetail::getItems()
 {
 	return items;
 }
 
 void
-ItemAttributeDetail::setItems(std::list<AbilityDetail_pokemon_inner_pokemon> items)
+ItemAttributeDetail::setItems(std::list<ItemSummary> items)
 {
 	this->items = items;
 }

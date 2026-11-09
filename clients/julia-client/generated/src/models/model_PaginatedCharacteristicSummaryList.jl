@@ -11,10 +11,10 @@
         results=nothing,
     )
 
-    - count::Int64
-    - next::String
-    - previous::String
-    - results::Vector{CharacteristicSummary}
+    - count::Int64 : The total number of resources available from this API.
+    - next::String : The URL for the next page in the list, or null if there is no next page.
+    - previous::String : The URL for the previous page in the list, or null if there is no previous page.
+    - results::Vector{CharacteristicSummary} : A list of API resources on this page.
 """
 Base.@kwdef mutable struct PaginatedCharacteristicSummaryList <: OpenAPI.APIModel
     count::Union{Nothing, Int64} = nothing
@@ -33,6 +33,8 @@ const _property_types_PaginatedCharacteristicSummaryList = Dict{Symbol,String}(S
 OpenAPI.property_type(::Type{ PaginatedCharacteristicSummaryList }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_PaginatedCharacteristicSummaryList[name]))}
 
 function OpenAPI.check_required(o::PaginatedCharacteristicSummaryList)
+    o.count === nothing && (return false)
+    o.results === nothing && (return false)
     true
 end
 

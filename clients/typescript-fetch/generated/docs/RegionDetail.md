@@ -12,7 +12,7 @@ Name | Type
 `mainGeneration` | [GenerationSummary](GenerationSummary.md)
 `names` | [Array&lt;RegionName&gt;](RegionName.md)
 `pokedexes` | [Array&lt;PokedexSummary&gt;](PokedexSummary.md)
-`versionGroups` | [Array&lt;AbilityDetailPokemonInnerPokemon&gt;](AbilityDetailPokemonInnerPokemon.md)
+`versionGroups` | [Array&lt;VersionGroupSummary&gt;](VersionGroupSummary.md)
 
 ## Example
 

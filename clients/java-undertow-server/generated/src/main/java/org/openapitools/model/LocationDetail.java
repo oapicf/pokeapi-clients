@@ -1,9 +1,9 @@
 /*
  * PokéAPI
  *
- * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+ * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
  *
- * OpenAPI document version: 2.7.0
+ * OpenAPI document version: 2.10.0
  * Maintained by: blah+oapicf@cliffano.com
  *
  * AUTO-GENERATED FILE, DO NOT MODIFY!
@@ -27,7 +27,7 @@ import org.openapitools.model.RegionSummary;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2026-10-25T05:48:17.483504027Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2026-11-09T13:49:34.675912514Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class LocationDetail   {
   
   private Integer id;
@@ -38,6 +38,7 @@ public class LocationDetail   {
   private List<LocationAreaSummary> areas = new ArrayList<>();
 
   /**
+   * The identifier for this resource.
    */
   public LocationDetail id(Integer id) {
     this.id = id;
@@ -45,7 +46,7 @@ public class LocationDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   @JsonProperty("id")
   public Integer getId() {
     return id;
@@ -55,6 +56,7 @@ public class LocationDetail   {
   }
 
   /**
+   * The name for this resource.
    */
   public LocationDetail name(String name) {
     this.name = name;
@@ -62,7 +64,7 @@ public class LocationDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   @JsonProperty("name")
   public String getName() {
     return name;
@@ -72,6 +74,7 @@ public class LocationDetail   {
   }
 
   /**
+   * The region this location can be found in.
    */
   public LocationDetail region(RegionSummary region) {
     this.region = region;
@@ -79,7 +82,7 @@ public class LocationDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The region this location can be found in.")
   @JsonProperty("region")
   public RegionSummary getRegion() {
     return region;
@@ -89,6 +92,7 @@ public class LocationDetail   {
   }
 
   /**
+   * The name of this resource listed in different languages.
    */
   public LocationDetail names(List<LocationName> names) {
     this.names = names;
@@ -96,7 +100,7 @@ public class LocationDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
   @JsonProperty("names")
   public List<LocationName> getNames() {
     return names;
@@ -106,6 +110,7 @@ public class LocationDetail   {
   }
 
   /**
+   * A list of game indices relevent to this location by generation.
    */
   public LocationDetail gameIndices(List<LocationGameIndex> gameIndices) {
     this.gameIndices = gameIndices;
@@ -113,7 +118,7 @@ public class LocationDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of game indices relevent to this location by generation.")
   @JsonProperty("game_indices")
   public List<LocationGameIndex> getGameIndices() {
     return gameIndices;
@@ -123,6 +128,7 @@ public class LocationDetail   {
   }
 
   /**
+   * Areas that can be found within this location.
    */
   public LocationDetail areas(List<LocationAreaSummary> areas) {
     this.areas = areas;
@@ -130,7 +136,7 @@ public class LocationDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "Areas that can be found within this location.")
   @JsonProperty("areas")
   public List<LocationAreaSummary> getAreas() {
     return areas;

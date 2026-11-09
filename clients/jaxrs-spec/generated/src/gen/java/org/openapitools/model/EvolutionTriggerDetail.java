@@ -5,8 +5,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.model.AbilityDetailPokemonInnerPokemon;
 import org.openapitools.model.EvolutionTriggerName;
+import org.openapitools.model.PokemonSpeciesSummary;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
@@ -21,12 +21,12 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("EvolutionTriggerDetail")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-11-09T13:50:06.168269698Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class EvolutionTriggerDetail   {
   private Integer id;
   private String name;
   private List<@Valid EvolutionTriggerName> names = new ArrayList<>();
-  private List<@Valid AbilityDetailPokemonInnerPokemon> pokemonSpecies = new ArrayList<>();
+  private List<@Valid PokemonSpeciesSummary> pokemonSpecies = new ArrayList<>();
 
   public EvolutionTriggerDetail() {
   }
@@ -36,7 +36,7 @@ public class EvolutionTriggerDetail   {
     @JsonProperty(required = true, value = "id") Integer id,
     @JsonProperty(required = true, value = "name") String name,
     @JsonProperty(required = true, value = "names") List<@Valid EvolutionTriggerName> names,
-    @JsonProperty(required = true, value = "pokemon_species") List<@Valid AbilityDetailPokemonInnerPokemon> pokemonSpecies
+    @JsonProperty(required = true, value = "pokemon_species") List<@Valid PokemonSpeciesSummary> pokemonSpecies
   ) {
     this.id = id;
     this.name = name;
@@ -45,6 +45,7 @@ public class EvolutionTriggerDetail   {
   }
 
   /**
+   * The identifier for this resource.
    **/
   public EvolutionTriggerDetail id(Integer id) {
     this.id = id;
@@ -52,7 +53,7 @@ public class EvolutionTriggerDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   @JsonProperty(required = true, value = "id")
   public Integer getId() {
     return id;
@@ -64,6 +65,7 @@ public class EvolutionTriggerDetail   {
   }
 
   /**
+   * The name for this resource.
    **/
   public EvolutionTriggerDetail name(String name) {
     this.name = name;
@@ -71,9 +73,9 @@ public class EvolutionTriggerDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   @JsonProperty(required = true, value = "name")
-  @NotNull  @Size(max=100)public String getName() {
+  @NotNull  @Size(max=200)public String getName() {
     return name;
   }
 
@@ -83,6 +85,7 @@ public class EvolutionTriggerDetail   {
   }
 
   /**
+   * The name of this resource listed in different languages.
    **/
   public EvolutionTriggerDetail names(List<@Valid EvolutionTriggerName> names) {
     this.names = names;
@@ -90,7 +93,7 @@ public class EvolutionTriggerDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
   @JsonProperty(required = true, value = "names")
   public List<@Valid EvolutionTriggerName> getNames() {
     return names;
@@ -118,25 +121,26 @@ public class EvolutionTriggerDetail   {
     return this;
   }
   /**
+   * A list of pokemon species that result from this evolution trigger.
    **/
-  public EvolutionTriggerDetail pokemonSpecies(List<@Valid AbilityDetailPokemonInnerPokemon> pokemonSpecies) {
+  public EvolutionTriggerDetail pokemonSpecies(List<@Valid PokemonSpeciesSummary> pokemonSpecies) {
     this.pokemonSpecies = pokemonSpecies;
     return this;
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of pokemon species that result from this evolution trigger.")
   @JsonProperty(required = true, value = "pokemon_species")
-  public List<@Valid AbilityDetailPokemonInnerPokemon> getPokemonSpecies() {
+  public List<@Valid PokemonSpeciesSummary> getPokemonSpecies() {
     return pokemonSpecies;
   }
 
   @JsonProperty(required = true, value = "pokemon_species")
-  public void setPokemonSpecies(List<@Valid AbilityDetailPokemonInnerPokemon> pokemonSpecies) {
+  public void setPokemonSpecies(List<@Valid PokemonSpeciesSummary> pokemonSpecies) {
     this.pokemonSpecies = pokemonSpecies;
   }
 
-  public EvolutionTriggerDetail addPokemonSpeciesItem(AbilityDetailPokemonInnerPokemon pokemonSpeciesItem) {
+  public EvolutionTriggerDetail addPokemonSpeciesItem(PokemonSpeciesSummary pokemonSpeciesItem) {
     if (this.pokemonSpecies == null) {
       this.pokemonSpecies = new ArrayList<>();
     }
@@ -145,7 +149,7 @@ public class EvolutionTriggerDetail   {
     return this;
   }
 
-  public EvolutionTriggerDetail removePokemonSpeciesItem(AbilityDetailPokemonInnerPokemon pokemonSpeciesItem) {
+  public EvolutionTriggerDetail removePokemonSpeciesItem(PokemonSpeciesSummary pokemonSpeciesItem) {
     if (pokemonSpeciesItem != null && this.pokemonSpecies != null) {
       this.pokemonSpecies.remove(pokemonSpeciesItem);
     }

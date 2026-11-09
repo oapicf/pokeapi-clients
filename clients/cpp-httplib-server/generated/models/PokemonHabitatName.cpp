@@ -10,7 +10,6 @@ namespace models {
 
 PokemonHabitatName::PokemonHabitatName()
 : name("")
-, language(LanguageSummary())
 {
 }
 // =========================================

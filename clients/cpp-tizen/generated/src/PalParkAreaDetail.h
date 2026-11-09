@@ -9,8 +9,8 @@
 
 
 #include <string>
-#include "PalParkAreaDetail_pokemon_encounters_inner.h"
 #include "PalParkAreaName.h"
+#include "PalParkEncounter.h"
 #include <list>
 #include "Object.h"
 
@@ -48,40 +48,40 @@ public:
 	 */
 	void fromJson(char* jsonStr);
 
-	/*! \brief Get 
+	/*! \brief Get The identifier for this resource.
 	 */
 	int getId();
 
-	/*! \brief Set 
+	/*! \brief Set The identifier for this resource.
 	 */
 	void setId(int  id);
-	/*! \brief Get 
+	/*! \brief Get The name for this resource.
 	 */
 	std::string getName();
 
-	/*! \brief Set 
+	/*! \brief Set The name for this resource.
 	 */
 	void setName(std::string  name);
-	/*! \brief Get 
+	/*! \brief Get The name of this resource listed in different languages.
 	 */
 	std::list<PalParkAreaName> getNames();
 
-	/*! \brief Set 
+	/*! \brief Set The name of this resource listed in different languages.
 	 */
 	void setNames(std::list <PalParkAreaName> names);
-	/*! \brief Get 
+	/*! \brief Get A list of Pokémon encountered in thi pal park area along with details.
 	 */
-	std::list<PalParkAreaDetail_pokemon_encounters_inner> getPokemonEncounters();
+	std::list<PalParkEncounter> getPokemonEncounters();
 
-	/*! \brief Set 
+	/*! \brief Set A list of Pokémon encountered in thi pal park area along with details.
 	 */
-	void setPokemonEncounters(std::list <PalParkAreaDetail_pokemon_encounters_inner> pokemon_encounters);
+	void setPokemonEncounters(std::list <PalParkEncounter> pokemon_encounters);
 
 private:
 	int id;
 	std::string name;
 	std::list <PalParkAreaName>names;
-	std::list <PalParkAreaDetail_pokemon_encounters_inner>pokemon_encounters;
+	std::list <PalParkEncounter>pokemon_encounters;
 	void __init();
 	void __cleanup();
 

@@ -19,7 +19,7 @@ import jakarta.annotation.Generated;
  * ContestTypeName
  */
 
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-10-25T05:48:25.711080506Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-11-09T13:49:41.168612095Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class ContestTypeName {
 
   private String name;
@@ -47,11 +47,11 @@ public class ContestTypeName {
   }
 
   /**
-   * Get name
+   * The name for this contest.
    * @return name
    */
-  @NotNull @Size(max = 100) 
-  @Schema(name = "name", requiredMode = Schema.RequiredMode.REQUIRED)
+  @NotNull @Size(max = 200) 
+  @Schema(name = "name", description = "The name for this contest.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("name")
   public String getName() {
     return name;
@@ -67,11 +67,11 @@ public class ContestTypeName {
   }
 
   /**
-   * Get color
+   * The color associated with this contest's name.
    * @return color
    */
   @NotNull @Size(max = 10) 
-  @Schema(name = "color", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "color", description = "The color associated with this contest's name.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("color")
   public String getColor() {
     return color;
@@ -87,11 +87,11 @@ public class ContestTypeName {
   }
 
   /**
-   * Get language
+   * The language that this name is in.
    * @return language
    */
   @NotNull @Valid 
-  @Schema(name = "language", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "language", description = "The language that this name is in.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("language")
   public LanguageSummary getLanguage() {
     return language;

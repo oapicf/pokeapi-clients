@@ -2,56 +2,89 @@
 Protected Class TypeDetail
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The identifier for this resource.
+		#tag EndNote
 		id As Integer
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The name for this resource.
+		#tag EndNote
 		name As String
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
-		damage_relations As OpenAPIClient.Models.TypeDetailDamageRelations
+		#tag Note
+			A detail of how effective this type is toward others and vice versa.
+		#tag EndNote
+		damage_relations As OpenAPIClient.Models.TypeRelationships
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
-		past_damage_relations() As OpenAPIClient.Models.TypeDetailPastDamageRelationsInner
+		#tag Note
+			A list of details of how effective this type was toward others and vice versa in previous generations
+		#tag EndNote
+		past_damage_relations() As OpenAPIClient.Models.TypePastRelationships
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			A list of game indices relevent to this item by generation.
+		#tag EndNote
 		game_indices() As OpenAPIClient.Models.TypeGameIndex
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The generation this type was introduced in.
+		#tag EndNote
 		generation As OpenAPIClient.Models.GenerationSummary
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The class of damage inflicted by this type.
+		#tag EndNote
 		move_damage_class As OpenAPIClient.Models.MoveDamageClassSummary
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
-		names() As OpenAPIClient.Models.AbilityName
+		#tag Note
+			The name of this resource listed in different languages.
+		#tag EndNote
+		names() As OpenAPIClient.Models.TypeName
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
-		pokemon() As OpenAPIClient.Models.TypeDetailPokemonInner
+		#tag Note
+			A list of details of Pokémon that have this type.
+		#tag EndNote
+		pokemon() As OpenAPIClient.Models.TypePokemon
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			A list of moves that have this type.
+		#tag EndNote
 		moves() As OpenAPIClient.Models.MoveSummary
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			Type icons grouped by generation and game, with name_icon and symbol_icon URLs. Unavailable icons are null.
+		#tag EndNote
 		sprites As Dictionary
 	#tag EndProperty
 
@@ -113,7 +146,7 @@ Protected Class TypeDetail
 			Visible=false
 			Group="Behavior"
 			InitialValue=""
-			Type="TypeDetailDamageRelations"
+			Type="TypeRelationships"
 			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
@@ -121,7 +154,7 @@ Protected Class TypeDetail
 			Visible=false
 			Group="Behavior"
 			InitialValue=""
-			Type="TypeDetailPastDamageRelationsInner"
+			Type="TypePastRelationships"
 			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
@@ -153,7 +186,7 @@ Protected Class TypeDetail
 			Visible=false
 			Group="Behavior"
 			InitialValue=""
-			Type="AbilityName"
+			Type="TypeName"
 			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
@@ -161,7 +194,7 @@ Protected Class TypeDetail
 			Visible=false
 			Group="Behavior"
 			InitialValue=""
-			Type="TypeDetailPokemonInner"
+			Type="TypePokemon"
 			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty

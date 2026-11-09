@@ -3,8 +3,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**GameIndex** | **Int32** |  | 
-**Version** | [**VersionSummary**](VersionSummary.md) |  | 
+**GameIndex** | **Int32** | The internal id of an API resource within game data. | 
+**Version** | [**VersionSummary**](VersionSummary.md) | The version relevent to this game index. | 
 
 ## Examples
 

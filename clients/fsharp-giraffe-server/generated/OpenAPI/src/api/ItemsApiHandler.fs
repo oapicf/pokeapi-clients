@@ -7,11 +7,13 @@ open FSharp.Control.Tasks.V2.ContextInsensitive
 open ItemsApiHandlerParams
 open ItemsApiServiceInterface
 open ItemsApiServiceImplementation
+open OpenAPI.Model.CurrencyDetail
 open OpenAPI.Model.ItemAttributeDetail
 open OpenAPI.Model.ItemCategoryDetail
 open OpenAPI.Model.ItemDetail
 open OpenAPI.Model.ItemFlingEffectDetail
 open OpenAPI.Model.ItemPocketDetail
+open OpenAPI.Model.PaginatedCurrencySummaryList
 open OpenAPI.Model.PaginatedItemAttributeSummaryList
 open OpenAPI.Model.PaginatedItemCategorySummaryList
 open OpenAPI.Model.PaginatedItemFlingEffectSummaryList
@@ -23,6 +25,41 @@ module ItemsApiHandler =
     /// <summary>
     /// 
     /// </summary>
+
+    //#region CurrencyList
+    /// <summary>
+    /// List currencies
+    /// </summary>
+
+    let CurrencyList  : HttpHandler =
+      fun (next : HttpFunc) (ctx : HttpContext) ->
+        task {
+          let queryParams = ctx.TryBindQueryString<CurrencyListQueryParams>()
+          let serviceArgs = {  queryParams=queryParams;    } : CurrencyListArgs
+          let result = ItemsApiService.CurrencyList ctx serviceArgs
+          return! (match result with
+                      | CurrencyListStatusCode200 resolved ->
+                            setStatusCode 200 >=> json resolved.content
+          ) next ctx
+        }
+    //#endregion
+
+    //#region CurrencyRetrieve
+    /// <summary>
+    /// Get currency
+    /// </summary>
+
+    let CurrencyRetrieve (pathParams:CurrencyRetrievePathParams) : HttpHandler =
+      fun (next : HttpFunc) (ctx : HttpContext) ->
+        task {
+          let serviceArgs = {    pathParams=pathParams;  } : CurrencyRetrieveArgs
+          let result = ItemsApiService.CurrencyRetrieve ctx serviceArgs
+          return! (match result with
+                      | CurrencyRetrieveStatusCode200 resolved ->
+                            setStatusCode 200 >=> json resolved.content
+          ) next ctx
+        }
+    //#endregion
 
     //#region ItemAttributeList
     /// <summary>

@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
-import org.openapitools.server.model.PokemonDetailTypesInner;
-import org.openapitools.server.model.PokemonFormDetailFormNamesInner;
-import org.openapitools.server.model.PokemonFormDetailSprites;
+import org.openapitools.server.model.PokemonFormFlavorText;
+import org.openapitools.server.model.PokemonFormName;
+import org.openapitools.server.model.PokemonFormSprites;
+import org.openapitools.server.model.PokemonFormTriggerCondition;
+import org.openapitools.server.model.PokemonFormType;
 import org.openapitools.server.model.PokemonSummary;
 import org.openapitools.server.model.VersionGroupSummary;
 import jakarta.validation.constraints.*;
@@ -25,11 +27,13 @@ public class PokemonFormDetail   {
     private Boolean isMega;
     private String formName;
     private PokemonSummary pokemon;
-    private PokemonFormDetailSprites sprites;
+    private PokemonFormSprites sprites;
     private VersionGroupSummary versionGroup;
-    private List<@Valid PokemonFormDetailFormNamesInner> formNames = new ArrayList<>();
-    private List<@Valid PokemonFormDetailFormNamesInner> names = new ArrayList<>();
-    private List<@Valid PokemonDetailTypesInner> types = new ArrayList<>();
+    private List<@Valid PokemonFormName> formNames = new ArrayList<>();
+    private List<@Valid PokemonFormName> names = new ArrayList<>();
+    private List<@Valid PokemonFormType> types = new ArrayList<>();
+    private List<@Valid PokemonFormTriggerCondition> triggerConditions = new ArrayList<>();
+    private List<@Valid PokemonFormFlavorText> flavorTextEntries = new ArrayList<>();
 
     /**
      * Default constructor.
@@ -41,20 +45,22 @@ public class PokemonFormDetail   {
     /**
      * Create PokemonFormDetail.
      *
-     * @param id id
-     * @param name name
-     * @param order order
-     * @param formOrder formOrder
-     * @param isDefault isDefault
-     * @param isBattleOnly isBattleOnly
-     * @param isMega isMega
-     * @param formName formName
-     * @param pokemon pokemon
-     * @param sprites sprites
-     * @param versionGroup versionGroup
-     * @param formNames formNames
-     * @param names names
-     * @param types types
+     * @param id The identifier for this resource.
+     * @param name The name for this resource.
+     * @param order The order in which forms should be sorted within all forms. Multiple forms may have equal order, in which case they should fall back on sorting by name.
+     * @param formOrder The order in which forms should be sorted within a species&#39; forms.
+     * @param isDefault True for exactly one form used as the default for each Pokémon.
+     * @param isBattleOnly Whether or not this form can only happen during battle.
+     * @param isMega Whether or not this form requires mega evolution.
+     * @param formName The name of this form.
+     * @param pokemon The Pokémon that can take on this form.
+     * @param sprites A set of sprites used to depict this Pokémon form in the game.
+     * @param versionGroup The version group this Pokémon form was introduced in.
+     * @param formNames The form specific form name of this Pokémon form, or empty if the form does not have a specific name.
+     * @param names The form specific full name of this Pokémon form, or empty if the form does not have a specific name.
+     * @param types A list of details showing types this Pokémon form has.
+     * @param triggerConditions The conditions that trigger this form. Resource names and URLs are included when the trigger requires a resource.
+     * @param flavorTextEntries The flavor text of this form listed in different languages and versions.
      */
     public PokemonFormDetail(
         Integer id, 
@@ -66,11 +72,13 @@ public class PokemonFormDetail   {
         Boolean isMega, 
         String formName, 
         PokemonSummary pokemon, 
-        PokemonFormDetailSprites sprites, 
+        PokemonFormSprites sprites, 
         VersionGroupSummary versionGroup, 
-        List<@Valid PokemonFormDetailFormNamesInner> formNames, 
-        List<@Valid PokemonFormDetailFormNamesInner> names, 
-        List<@Valid PokemonDetailTypesInner> types
+        List<@Valid PokemonFormName> formNames, 
+        List<@Valid PokemonFormName> names, 
+        List<@Valid PokemonFormType> types, 
+        List<@Valid PokemonFormTriggerCondition> triggerConditions, 
+        List<@Valid PokemonFormFlavorText> flavorTextEntries
     ) {
         this.id = id;
         this.name = name;
@@ -86,12 +94,14 @@ public class PokemonFormDetail   {
         this.formNames = formNames;
         this.names = names;
         this.types = types;
+        this.triggerConditions = triggerConditions;
+        this.flavorTextEntries = flavorTextEntries;
     }
 
 
 
     /**
-     * Get id
+     * The identifier for this resource.
      * @return id
      */
     public Integer getId() {
@@ -103,7 +113,7 @@ public class PokemonFormDetail   {
     }
 
     /**
-     * Get name
+     * The name for this resource.
      * @return name
      */
     public String getName() {
@@ -115,7 +125,9 @@ public class PokemonFormDetail   {
     }
 
     /**
-     * Get order
+     * The order in which forms should be sorted within all forms. Multiple forms may have equal order, in which case they should fall back on sorting by name.
+     * minimum: -2147483648
+     * maximum: 2147483647
      * @return order
      */
     public Integer getOrder() {
@@ -127,7 +139,9 @@ public class PokemonFormDetail   {
     }
 
     /**
-     * Get formOrder
+     * The order in which forms should be sorted within a species' forms.
+     * minimum: -2147483648
+     * maximum: 2147483647
      * @return formOrder
      */
     public Integer getFormOrder() {
@@ -139,7 +153,7 @@ public class PokemonFormDetail   {
     }
 
     /**
-     * Get isDefault
+     * True for exactly one form used as the default for each Pokémon.
      * @return isDefault
      */
     public Boolean getIsDefault() {
@@ -151,7 +165,7 @@ public class PokemonFormDetail   {
     }
 
     /**
-     * Get isBattleOnly
+     * Whether or not this form can only happen during battle.
      * @return isBattleOnly
      */
     public Boolean getIsBattleOnly() {
@@ -163,7 +177,7 @@ public class PokemonFormDetail   {
     }
 
     /**
-     * Get isMega
+     * Whether or not this form requires mega evolution.
      * @return isMega
      */
     public Boolean getIsMega() {
@@ -175,7 +189,7 @@ public class PokemonFormDetail   {
     }
 
     /**
-     * Get formName
+     * The name of this form.
      * @return formName
      */
     public String getFormName() {
@@ -187,7 +201,7 @@ public class PokemonFormDetail   {
     }
 
     /**
-     * Get pokemon
+     * The Pokémon that can take on this form.
      * @return pokemon
      */
     public PokemonSummary getPokemon() {
@@ -199,19 +213,19 @@ public class PokemonFormDetail   {
     }
 
     /**
-     * Get sprites
+     * A set of sprites used to depict this Pokémon form in the game.
      * @return sprites
      */
-    public PokemonFormDetailSprites getSprites() {
+    public PokemonFormSprites getSprites() {
         return sprites;
     }
 
-    public void setSprites(PokemonFormDetailSprites sprites) {
+    public void setSprites(PokemonFormSprites sprites) {
         this.sprites = sprites;
     }
 
     /**
-     * Get versionGroup
+     * The version group this Pokémon form was introduced in.
      * @return versionGroup
      */
     public VersionGroupSummary getVersionGroup() {
@@ -223,39 +237,63 @@ public class PokemonFormDetail   {
     }
 
     /**
-     * Get formNames
+     * The form specific form name of this Pokémon form, or empty if the form does not have a specific name.
      * @return formNames
      */
-    public List<@Valid PokemonFormDetailFormNamesInner> getFormNames() {
+    public List<@Valid PokemonFormName> getFormNames() {
         return formNames;
     }
 
-    public void setFormNames(List<@Valid PokemonFormDetailFormNamesInner> formNames) {
+    public void setFormNames(List<@Valid PokemonFormName> formNames) {
         this.formNames = formNames;
     }
 
     /**
-     * Get names
+     * The form specific full name of this Pokémon form, or empty if the form does not have a specific name.
      * @return names
      */
-    public List<@Valid PokemonFormDetailFormNamesInner> getNames() {
+    public List<@Valid PokemonFormName> getNames() {
         return names;
     }
 
-    public void setNames(List<@Valid PokemonFormDetailFormNamesInner> names) {
+    public void setNames(List<@Valid PokemonFormName> names) {
         this.names = names;
     }
 
     /**
-     * Get types
+     * A list of details showing types this Pokémon form has.
      * @return types
      */
-    public List<@Valid PokemonDetailTypesInner> getTypes() {
+    public List<@Valid PokemonFormType> getTypes() {
         return types;
     }
 
-    public void setTypes(List<@Valid PokemonDetailTypesInner> types) {
+    public void setTypes(List<@Valid PokemonFormType> types) {
         this.types = types;
+    }
+
+    /**
+     * The conditions that trigger this form. Resource names and URLs are included when the trigger requires a resource.
+     * @return triggerConditions
+     */
+    public List<@Valid PokemonFormTriggerCondition> getTriggerConditions() {
+        return triggerConditions;
+    }
+
+    public void setTriggerConditions(List<@Valid PokemonFormTriggerCondition> triggerConditions) {
+        this.triggerConditions = triggerConditions;
+    }
+
+    /**
+     * The flavor text of this form listed in different languages and versions.
+     * @return flavorTextEntries
+     */
+    public List<@Valid PokemonFormFlavorText> getFlavorTextEntries() {
+        return flavorTextEntries;
+    }
+
+    public void setFlavorTextEntries(List<@Valid PokemonFormFlavorText> flavorTextEntries) {
+        this.flavorTextEntries = flavorTextEntries;
     }
 
     /**
@@ -280,6 +318,8 @@ public class PokemonFormDetail   {
         sb.append("    formNames: ").append(toIndentedString(formNames)).append("\n");
         sb.append("    names: ").append(toIndentedString(names)).append("\n");
         sb.append("    types: ").append(toIndentedString(types)).append("\n");
+        sb.append("    triggerConditions: ").append(toIndentedString(triggerConditions)).append("\n");
+        sb.append("    flavorTextEntries: ").append(toIndentedString(flavorTextEntries)).append("\n");
         sb.append("}");
         return sb.toString();
     }

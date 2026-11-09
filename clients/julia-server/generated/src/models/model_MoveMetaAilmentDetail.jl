@@ -11,15 +11,15 @@
         names=nothing,
     )
 
-    - id::Int64
-    - name::String
-    - moves::Vector{AbilityDetailPokemonInnerPokemon}
-    - names::Vector{MoveMetaAilmentName}
+    - id::Int64 : The identifier for this resource.
+    - name::String : The name for this resource.
+    - moves::Vector{MoveSummary} : A list of moves that cause this ailment.
+    - names::Vector{MoveMetaAilmentName} : The name of this resource listed in different languages.
 """
 Base.@kwdef mutable struct MoveMetaAilmentDetail <: OpenAPI.APIModel
     id::Union{Nothing, Int64} = nothing
     name::Union{Nothing, String} = nothing
-    moves::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{AbilityDetailPokemonInnerPokemon} }
+    moves::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{MoveSummary} }
     names::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{MoveMetaAilmentName} }
 
     function MoveMetaAilmentDetail(id, name, moves, names, )
@@ -29,7 +29,7 @@ Base.@kwdef mutable struct MoveMetaAilmentDetail <: OpenAPI.APIModel
     end
 end # type MoveMetaAilmentDetail
 
-const _property_types_MoveMetaAilmentDetail = Dict{Symbol,String}(Symbol("id")=>"Int64", Symbol("name")=>"String", Symbol("moves")=>"Vector{AbilityDetailPokemonInnerPokemon}", Symbol("names")=>"Vector{MoveMetaAilmentName}", )
+const _property_types_MoveMetaAilmentDetail = Dict{Symbol,String}(Symbol("id")=>"Int64", Symbol("name")=>"String", Symbol("moves")=>"Vector{MoveSummary}", Symbol("names")=>"Vector{MoveMetaAilmentName}", )
 OpenAPI.property_type(::Type{ MoveMetaAilmentDetail }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_MoveMetaAilmentDetail[name]))}
 
 function OpenAPI.check_required(o::MoveMetaAilmentDetail)
@@ -51,7 +51,7 @@ function OpenAPI.validate_property(::Type{ MoveMetaAilmentDetail }, name::Symbol
 
 
     if name === Symbol("name")
-        OpenAPI.validate_param(name, "MoveMetaAilmentDetail", :maxLength, val, 100)
+        OpenAPI.validate_param(name, "MoveMetaAilmentDetail", :maxLength, val, 200)
     end
 
 

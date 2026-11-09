@@ -8,10 +8,10 @@
 
 (def paginated-gender-summary-list-data
   {
-   (ds/opt :count) int?
+   (ds/req :count) int?
    (ds/opt :next) string?
    (ds/opt :previous) string?
-   (ds/opt :results) (s/coll-of gender-summary-spec)
+   (ds/req :results) (s/coll-of gender-summary-spec)
    })
 
 (def paginated-gender-summary-list-spec

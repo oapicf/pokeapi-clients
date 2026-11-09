@@ -28,7 +28,7 @@ defmodule PokéAPI.Model.AbilityDetail do
     :effect_entries => [PokéAPI.Model.AbilityEffectText.t],
     :effect_changes => [PokéAPI.Model.AbilityChange.t],
     :flavor_text_entries => [PokéAPI.Model.AbilityFlavorText.t],
-    :pokemon => [PokéAPI.Model.AbilityDetailPokemonInner.t]
+    :pokemon => [PokéAPI.Model.AbilityPokemonDetail.t]
   }
 
   alias PokéAPI.Deserializer
@@ -40,7 +40,7 @@ defmodule PokéAPI.Model.AbilityDetail do
      |> Deserializer.deserialize(:effect_entries, :list, PokéAPI.Model.AbilityEffectText)
      |> Deserializer.deserialize(:effect_changes, :list, PokéAPI.Model.AbilityChange)
      |> Deserializer.deserialize(:flavor_text_entries, :list, PokéAPI.Model.AbilityFlavorText)
-     |> Deserializer.deserialize(:pokemon, :list, PokéAPI.Model.AbilityDetailPokemonInner)
+     |> Deserializer.deserialize(:pokemon, :list, PokéAPI.Model.AbilityPokemonDetail)
   end
 end
 

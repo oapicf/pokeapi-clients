@@ -10,7 +10,6 @@ namespace models {
 
 EncounterConditionValueName::EncounterConditionValueName()
 : name("")
-, language(LanguageSummary())
 {
 }
 // =========================================

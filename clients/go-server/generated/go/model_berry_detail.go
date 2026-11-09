@@ -3,9 +3,9 @@
 /*
  * PokéAPI
  *
- * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+ * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
  *
- * API version: 2.7.0
+ * API version: 2.10.0
  * Contact: blah+oapicf@cliffano.com
  */
 
@@ -13,6 +13,7 @@ package openapi
 
 
 import (
+	"errors"
 	"encoding/json"
 	"fmt"
 )
@@ -21,29 +22,41 @@ import (
 
 type BerryDetail struct {
 
+	// The identifier for this resource.
 	Id int32 `json:"id"`
 
+	// The name for this resource.
 	Name string `json:"name"`
 
-	GrowthTime int32 `json:"growth_time"`
+	// Time it takes the tree to grow one stage, in hours. Berry trees go through four of these growth stages before they can be picked.
+	GrowthTime *int32 `json:"growth_time,omitempty"`
 
-	MaxHarvest int32 `json:"max_harvest"`
+	// The maximum number of these berries that can grow on one tree in Generation IV.
+	MaxHarvest *int32 `json:"max_harvest,omitempty"`
 
-	NaturalGiftPower int32 `json:"natural_gift_power"`
+	// The power of the move \"Natural Gift\" when used with this Berry.
+	NaturalGiftPower *int32 `json:"natural_gift_power,omitempty"`
 
-	Size int32 `json:"size"`
+	// The size of this Berry, in millimeters.
+	Size *int32 `json:"size,omitempty"`
 
-	Smoothness int32 `json:"smoothness"`
+	// The smoothness of this Berry, used in making Pokéblocks or Poffins.
+	Smoothness *int32 `json:"smoothness,omitempty"`
 
-	SoilDryness int32 `json:"soil_dryness"`
+	// The speed at which this Berry dries out the soil as it grows. A higher rate means the soil dries more quickly.
+	SoilDryness *int32 `json:"soil_dryness,omitempty"`
 
-	Firmness BerryFirmnessSummary `json:"firmness"`
+	// The firmness of this berry, used in making Pokéblocks or Poffins.
+	Firmness *BerryFirmnessSummary `json:"firmness"`
 
-	Flavors []BerryDetailFlavorsInner `json:"flavors"`
+	// A list of references to each flavor a berry can have and the potency of each of those flavors in regard to this berry.
+	Flavors []BerryFlavorMap `json:"flavors"`
 
+	// Berries are actually items. This is a reference to the item specific data for this berry.
 	Item ItemSummary `json:"item"`
 
-	NaturalGiftType TypeSummary `json:"natural_gift_type"`
+	// The type inherited by \"Natural Gift\" when used with this Berry.
+	NaturalGiftType *TypeSummary `json:"natural_gift_type"`
 }
 // UnmarshalJSON validates required property keys then unmarshals into BerryDetail
 func (o *BerryDetail) UnmarshalJSON(data []byte) (err error) {
@@ -51,12 +64,6 @@ func (o *BerryDetail) UnmarshalJSON(data []byte) (err error) {
 	// including fields promoted from embedded allOf parents.
 	requiredProperties := []string{
 		"name",
-		"growth_time",
-		"max_harvest",
-		"natural_gift_power",
-		"size",
-		"smoothness",
-		"soil_dryness",
 		"firmness",
 		"item",
 		"natural_gift_type",
@@ -64,15 +71,9 @@ func (o *BerryDetail) UnmarshalJSON(data []byte) (err error) {
 
 	requiredNullableProperties := map[string]bool{
 		"name": false,
-		"growth_time": false,
-		"max_harvest": false,
-		"natural_gift_power": false,
-		"size": false,
-		"smoothness": false,
-		"soil_dryness": false,
-		"firmness": false,
+		"firmness": true,
 		"item": false,
-		"natural_gift_type": false,
+		"natural_gift_type": true,
 	}
 
 	allowedJsonKeys := map[string]struct{}{
@@ -186,9 +187,7 @@ func (o *BerryDetail) UnmarshalJSON(data []byte) (err error) {
 // Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertBerryDetailRequired(obj BerryDetail) error {
 	elements := map[string]interface{}{
-		"firmness": obj.Firmness,
 		"item": obj.Item,
-		"natural_gift_type": obj.NaturalGiftType,
 	}
 	for name, el := range elements {
 		if isZero := IsZeroValue(el); isZero {
@@ -196,28 +195,72 @@ func AssertBerryDetailRequired(obj BerryDetail) error {
 		}
 	}
 
-	if err := AssertBerryFirmnessSummaryRequired(obj.Firmness); err != nil {
-		return err
+	if obj.Firmness != nil {
+		if err := AssertBerryFirmnessSummaryRequired(*obj.Firmness); err != nil {
+			return err
+		}
 	}
 	if err := AssertItemSummaryRequired(obj.Item); err != nil {
 		return err
 	}
-	if err := AssertTypeSummaryRequired(obj.NaturalGiftType); err != nil {
-		return err
+	if obj.NaturalGiftType != nil {
+		if err := AssertTypeSummaryRequired(*obj.NaturalGiftType); err != nil {
+			return err
+		}
 	}
 	return nil
 }
 
 // AssertBerryDetailConstraints checks if the values respects the defined constraints
 func AssertBerryDetailConstraints(obj BerryDetail) error {
-	if err := AssertBerryFirmnessSummaryConstraints(obj.Firmness); err != nil {
-		return err
+	if obj.GrowthTime != nil && *obj.GrowthTime < -2147483648 {
+		return &ParsingError{Param: "GrowthTime", Err: errors.New(errMsgMinValueConstraint)}
 	}
+	if obj.GrowthTime != nil && *obj.GrowthTime > 2147483647 {
+		return &ParsingError{Param: "GrowthTime", Err: errors.New(errMsgMaxValueConstraint)}
+	}
+	if obj.MaxHarvest != nil && *obj.MaxHarvest < -2147483648 {
+		return &ParsingError{Param: "MaxHarvest", Err: errors.New(errMsgMinValueConstraint)}
+	}
+	if obj.MaxHarvest != nil && *obj.MaxHarvest > 2147483647 {
+		return &ParsingError{Param: "MaxHarvest", Err: errors.New(errMsgMaxValueConstraint)}
+	}
+	if obj.NaturalGiftPower != nil && *obj.NaturalGiftPower < -2147483648 {
+		return &ParsingError{Param: "NaturalGiftPower", Err: errors.New(errMsgMinValueConstraint)}
+	}
+	if obj.NaturalGiftPower != nil && *obj.NaturalGiftPower > 2147483647 {
+		return &ParsingError{Param: "NaturalGiftPower", Err: errors.New(errMsgMaxValueConstraint)}
+	}
+	if obj.Size != nil && *obj.Size < -2147483648 {
+		return &ParsingError{Param: "Size", Err: errors.New(errMsgMinValueConstraint)}
+	}
+	if obj.Size != nil && *obj.Size > 2147483647 {
+		return &ParsingError{Param: "Size", Err: errors.New(errMsgMaxValueConstraint)}
+	}
+	if obj.Smoothness != nil && *obj.Smoothness < -2147483648 {
+		return &ParsingError{Param: "Smoothness", Err: errors.New(errMsgMinValueConstraint)}
+	}
+	if obj.Smoothness != nil && *obj.Smoothness > 2147483647 {
+		return &ParsingError{Param: "Smoothness", Err: errors.New(errMsgMaxValueConstraint)}
+	}
+	if obj.SoilDryness != nil && *obj.SoilDryness < -2147483648 {
+		return &ParsingError{Param: "SoilDryness", Err: errors.New(errMsgMinValueConstraint)}
+	}
+	if obj.SoilDryness != nil && *obj.SoilDryness > 2147483647 {
+		return &ParsingError{Param: "SoilDryness", Err: errors.New(errMsgMaxValueConstraint)}
+	}
+    if obj.Firmness != nil {
+     	if err := AssertBerryFirmnessSummaryConstraints(*obj.Firmness); err != nil {
+     		return err
+     	}
+    }
 	if err := AssertItemSummaryConstraints(obj.Item); err != nil {
 		return err
 	}
-	if err := AssertTypeSummaryConstraints(obj.NaturalGiftType); err != nil {
-		return err
-	}
+    if obj.NaturalGiftType != nil {
+     	if err := AssertTypeSummaryConstraints(*obj.NaturalGiftType); err != nil {
+     		return err
+     	}
+    }
 	return nil
 }

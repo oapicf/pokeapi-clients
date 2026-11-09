@@ -2,8 +2,8 @@ namespace OpenAPI.Model
 
 open System
 open System.Collections.Generic
-open OpenAPI.Model.PokemonShapeDetailAwesomeNamesInner
-open OpenAPI.Model.PokemonShapeDetailNamesInner
+open OpenAPI.Model.PokemonShapeAwesomeName
+open OpenAPI.Model.PokemonShapeName
 open OpenAPI.Model.PokemonSpeciesSummary
 
 module PokemonShapeDetail =
@@ -14,8 +14,8 @@ module PokemonShapeDetail =
   type PokemonShapeDetail = {
     Id : int;
     Name : string;
-    AwesomeNames : PokemonShapeDetailAwesomeNamesInner[];
-    Names : PokemonShapeDetailNamesInner[];
+    AwesomeNames : PokemonShapeAwesomeName[];
+    Names : PokemonShapeName[];
     PokemonSpecies : PokemonSpeciesSummary[];
   }
   //#endregion

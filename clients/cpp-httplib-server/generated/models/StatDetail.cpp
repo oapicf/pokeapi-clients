@@ -13,10 +13,9 @@ StatDetail::StatDetail()
 , name("")
 , gameIndex(0)
 , isBattleOnly(false)
-, affectingMoves(StatDetailAffectingMoves())
-, affectingNatures(StatDetailAffectingNatures())
+, affectingItems(std::vector<ItemSummary>())
 , characteristics(std::vector<CharacteristicSummary>())
-, moveDamageClass(MoveDamageClassSummary())
+, moveDamageClass(std::nullopt)
 , names(std::vector<StatName>())
 {
 }
@@ -42,13 +41,17 @@ bool StatDetail::isIsBattleOnly() const
 {
     return isBattleOnly;
 }
-StatDetailAffectingMoves StatDetail::getAffectingMoves() const
+StatAffectingMoves StatDetail::getAffectingMoves() const
 {
     return affectingMoves;
 }
-StatDetailAffectingNatures StatDetail::getAffectingNatures() const
+StatAffectingNatures StatDetail::getAffectingNatures() const
 {
     return affectingNatures;
+}
+std::vector<ItemSummary> StatDetail::getAffectingItems() const
+{
+    return affectingItems;
 }
 std::vector<CharacteristicSummary> StatDetail::getCharacteristics() const
 {
@@ -82,13 +85,17 @@ void StatDetail::setIsBattleOnly(const bool& isBattleOnlyObj)
 {
     isBattleOnly = isBattleOnlyObj;
 }
-void StatDetail::setAffectingMoves(const StatDetailAffectingMoves& affectingMovesObj)
+void StatDetail::setAffectingMoves(const StatAffectingMoves& affectingMovesObj)
 {
     affectingMoves = affectingMovesObj;
 }
-void StatDetail::setAffectingNatures(const StatDetailAffectingNatures& affectingNaturesObj)
+void StatDetail::setAffectingNatures(const StatAffectingNatures& affectingNaturesObj)
 {
     affectingNatures = affectingNaturesObj;
+}
+void StatDetail::setAffectingItems(const std::vector<ItemSummary>& affectingItemsObj)
+{
+    affectingItems = affectingItemsObj;
 }
 void StatDetail::setCharacteristics(const std::vector<CharacteristicSummary>& characteristicsObj)
 {

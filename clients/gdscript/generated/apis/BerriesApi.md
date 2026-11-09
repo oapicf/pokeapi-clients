@@ -24,8 +24,6 @@ Berries can be soft or hard. Check out [Bulbapedia](http://bulbapedia.bulbagarde
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -78,8 +76,6 @@ Berries can be soft or hard. Check out [Bulbapedia](http://bulbapedia.bulbagarde
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -98,7 +94,7 @@ var api = BerriesApi.new(config)
 
 # Invoke an endpoint
 api.berry_firmness_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id,
 	# On Success
@@ -126,8 +122,6 @@ Flavors determine whether a Pokémon will benefit or suffer from eating a berry 
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -180,8 +174,6 @@ Flavors determine whether a Pokémon will benefit or suffer from eating a berry 
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -200,7 +192,7 @@ var api = BerriesApi.new(config)
 
 # Invoke an endpoint
 api.berry_flavor_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id,
 	# On Success
@@ -228,8 +220,6 @@ Berries are small fruits that can provide HP and status condition restoration, s
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -282,8 +272,6 @@ Berries are small fruits that can provide HP and status condition restoration, s
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -302,7 +290,7 @@ var api = BerriesApi.new(config)
 
 # Invoke an endpoint
 api.berry_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id,
 	# On Success
@@ -322,8 +310,7 @@ api.berry_retrieve(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), 
-[cookieAuth](../README.md#cookieAuth)
+No authorization required.
 
 [[Back to top]](#__pageTop) \
 [[Back to API list]](../README.md#documentation-for-api-endpoints) \

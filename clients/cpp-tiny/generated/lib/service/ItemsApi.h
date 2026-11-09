@@ -8,11 +8,13 @@
 #include "Helpers.h"
 #include <list>
 
+#include "CurrencyDetail.h"
 #include "ItemAttributeDetail.h"
 #include "ItemCategoryDetail.h"
 #include "ItemDetail.h"
 #include "ItemFlingEffectDetail.h"
 #include "ItemPocketDetail.h"
+#include "PaginatedCurrencySummaryList.h"
 #include "PaginatedItemAttributeSummaryList.h"
 #include "PaginatedItemCategorySummaryList.h"
 #include "PaginatedItemFlingEffectSummaryList.h"
@@ -32,6 +34,42 @@ public:
 
     virtual ~ItemsApi();
 
+    /**
+    * List currencies.
+    *
+    * Currencies used to buy items.
+    * \param limit Number of results to return per page.
+    * \param offset The initial index from which to return the results.
+    * \param q > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+    */
+    Response<
+                PaginatedCurrencySummaryList
+        >
+    currencyList(
+            
+            int limit
+            , 
+            
+            int offset
+            , 
+            
+            std::string q
+            
+    );
+    /**
+    * Get currency.
+    *
+    * Currencies used to buy items.
+    * \param id This parameter can be a string or an integer. *Required*
+    */
+    Response<
+                CurrencyDetail
+        >
+    currencyRetrieve(
+            
+            std::string id
+            
+    );
     /**
     * List item attributes.
     *

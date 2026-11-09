@@ -8,10 +8,10 @@
 
 (def paginated-super-contest-effect-summary-list-data
   {
-   (ds/opt :count) int?
+   (ds/req :count) int?
    (ds/opt :next) string?
    (ds/opt :previous) string?
-   (ds/opt :results) (s/coll-of super-contest-effect-summary-spec)
+   (ds/req :results) (s/coll-of super-contest-effect-summary-spec)
    })
 
 (def paginated-super-contest-effect-summary-list-spec

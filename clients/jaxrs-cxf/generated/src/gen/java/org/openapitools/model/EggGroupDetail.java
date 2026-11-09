@@ -3,8 +3,8 @@ package org.openapitools.model;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.model.EggGroupDetailPokemonSpeciesInner;
 import org.openapitools.model.EggGroupName;
+import org.openapitools.model.PokemonSpeciesSummary;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
@@ -15,23 +15,35 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class EggGroupDetail  {
   
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The identifier for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
 
   private Integer id;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The name for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The name for this resource.")
 
   private String name;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The name of this resource listed in different languages.
+  */
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
 
   private List<@Valid EggGroupName> names = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
-
-  private List<@Valid EggGroupDetailPokemonSpeciesInner> pokemonSpecies = new ArrayList<>();
  /**
-   * Get id
+  * A list of all Pokémon species that are members of this egg group.
+  */
+  @ApiModelProperty(required = true, value = "A list of all Pokémon species that are members of this egg group.")
+
+  private List<@Valid PokemonSpeciesSummary> pokemonSpecies = new ArrayList<>();
+ /**
+   * The identifier for this resource.
    * @return id
   **/
   @JsonProperty("id")
@@ -42,12 +54,12 @@ public class EggGroupDetail  {
 
 
  /**
-   * Get name
+   * The name for this resource.
    * @return name
   **/
   @JsonProperty("name")
   @NotNull
- @Size(max=100)  public String getName() {
+ @Size(max=200)  public String getName() {
     return name;
   }
 
@@ -61,7 +73,7 @@ public class EggGroupDetail  {
   }
 
  /**
-   * Get names
+   * The name of this resource listed in different languages.
    * @return names
   **/
   @JsonProperty("names")
@@ -72,12 +84,12 @@ public class EggGroupDetail  {
 
 
  /**
-   * Get pokemonSpecies
+   * A list of all Pokémon species that are members of this egg group.
    * @return pokemonSpecies
   **/
   @JsonProperty("pokemon_species")
   @NotNull
-  public List<@Valid EggGroupDetailPokemonSpeciesInner> getPokemonSpecies() {
+  public List<@Valid PokemonSpeciesSummary> getPokemonSpecies() {
     return pokemonSpecies;
   }
 

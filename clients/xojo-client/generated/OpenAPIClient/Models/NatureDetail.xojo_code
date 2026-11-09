@@ -2,51 +2,73 @@
 Protected Class NatureDetail
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The identifier for this resource.
+		#tag EndNote
 		id As Integer
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The name for this resource.
+		#tag EndNote
 		name As String
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The stat decreased by 10% in Pokémon with this nature.
+		#tag EndNote
 		decreased_stat As OpenAPIClient.Models.StatSummary
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The stat increased by 10% in Pokémon with this nature.
+		#tag EndNote
 		increased_stat As OpenAPIClient.Models.StatSummary
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The flavor liked by Pokémon with this nature.
+		#tag EndNote
 		likes_flavor As OpenAPIClient.Models.BerryFlavorSummary
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The flavor hated by Pokémon with this nature.
+		#tag EndNote
 		hates_flavor As OpenAPIClient.Models.BerryFlavorSummary
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
-		berries() As OpenAPIClient.Models.BerrySummary
+		#tag Note
+			A list of Pokéathlon stats this nature effects and how much it effects them.
+		#tag EndNote
+		pokeathlon_stat_changes() As OpenAPIClient.Models.NaturePokeathlonStat
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
-		pokeathlon_stat_changes() As OpenAPIClient.Models.NatureDetailPokeathlonStatChangesInner
-	#tag EndProperty
-
-
-	#tag Property, Flags = &h0
+		#tag Note
+			A list of battle styles and how likely a Pokémon with this nature is to use them in the Battle Palace or Battle Tent.
+		#tag EndNote
 		move_battle_style_preferences() As OpenAPIClient.Models.NatureBattleStylePreference
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The name of this resource listed in different languages.
+		#tag EndNote
 		names() As OpenAPIClient.Models.NatureName
 	#tag EndProperty
 
@@ -136,19 +158,11 @@ Protected Class NatureDetail
 			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="berries"
-			Visible=false
-			Group="Behavior"
-			InitialValue=""
-			Type="BerrySummary"
-			EditorType=""
-		#tag EndViewProperty
-		#tag ViewProperty
 			Name="pokeathlon_stat_changes"
 			Visible=false
 			Group="Behavior"
 			InitialValue=""
-			Type="NatureDetailPokeathlonStatChangesInner"
+			Type="NaturePokeathlonStat"
 			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty

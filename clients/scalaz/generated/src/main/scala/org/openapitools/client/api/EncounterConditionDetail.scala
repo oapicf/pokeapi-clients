@@ -12,10 +12,14 @@ import org.joda.time.DateTime
 import EncounterConditionDetail._
 
 case class EncounterConditionDetail (
+  /* The identifier for this resource. */
   id: Integer,
-name: String,
-values: List[EncounterConditionValueSummary],
-names: List[EncounterConditionName])
+/* The name for this resource. */
+  name: String,
+/* A list of possible values for this encounter condition. */
+  values: List[EncounterConditionValueSummary],
+/* The name of this resource listed in different languages. */
+  names: List[EncounterConditionName])
 
 object EncounterConditionDetail {
   import DateTimeCodecs._

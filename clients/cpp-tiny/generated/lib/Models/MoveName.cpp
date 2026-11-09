@@ -7,7 +7,7 @@ using namespace Tiny;
 MoveName::MoveName()
 {
 	name = std::string();
-	language = LanguageSummary();
+	language = null;
 }
 
 MoveName::MoveName(std::string jsonString)

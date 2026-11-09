@@ -22,9 +22,9 @@ public class PokemonStat   {
     /**
      * Create PokemonStat.
      *
-     * @param baseStat baseStat
-     * @param effort effort
-     * @param stat stat
+     * @param baseStat The base value of the stat.
+     * @param effort The effort points (EV) the Pokémon has in the stat.
+     * @param stat The stat the Pokémon has.
      */
     public PokemonStat(
         Integer baseStat, 
@@ -39,7 +39,9 @@ public class PokemonStat   {
 
 
     /**
-     * Get baseStat
+     * The base value of the stat.
+     * minimum: -2147483648
+     * maximum: 2147483647
      * @return baseStat
      */
     public Integer getBaseStat() {
@@ -51,7 +53,9 @@ public class PokemonStat   {
     }
 
     /**
-     * Get effort
+     * The effort points (EV) the Pokémon has in the stat.
+     * minimum: -2147483648
+     * maximum: 2147483647
      * @return effort
      */
     public Integer getEffort() {
@@ -63,7 +67,7 @@ public class PokemonStat   {
     }
 
     /**
-     * Get stat
+     * The stat the Pokémon has.
      * @return stat
      */
     public StatSummary getStat() {

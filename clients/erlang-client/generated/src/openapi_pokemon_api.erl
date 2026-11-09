@@ -35,7 +35,7 @@
 
 -define(BASE_URL, <<"">>).
 
-%% @doc 
+%% @doc List abilities
 %% Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
 -spec ability_list(ctx:ctx()) -> {ok, openapi_paginated_ability_summary_list:openapi_paginated_ability_summary_list(), openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
 ability_list(Ctx) ->
@@ -56,7 +56,7 @@ ability_list(Ctx, Optional) ->
 
     openapi_utils:request(Ctx, Method, Path, QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
 
-%% @doc 
+%% @doc Get ability
 %% Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
 -spec ability_retrieve(ctx:ctx(), binary()) -> {ok, openapi_ability_detail:openapi_ability_detail(), openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
 ability_retrieve(Ctx, Id) ->
@@ -77,7 +77,7 @@ ability_retrieve(Ctx, Id, Optional) ->
 
     openapi_utils:request(Ctx, Method, Path, QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
 
-%% @doc List charecterictics
+%% @doc List characteristics
 %% Characteristics indicate which stat contains a Pokémon's highest IV. A Pokémon's Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail.
 -spec characteristic_list(ctx:ctx()) -> {ok, openapi_paginated_characteristic_summary_list:openapi_paginated_characteristic_summary_list(), openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
 characteristic_list(Ctx) ->
@@ -90,7 +90,7 @@ characteristic_list(Ctx, Optional) ->
 
     Method = get,
     Path = [?BASE_URL, "/api/v2/characteristic/"],
-    QS = lists:flatten([])++openapi_utils:optional_params(['limit', 'offset', 'q'], _OptionalParams),
+    QS = lists:flatten([])++openapi_utils:optional_params(['limit', 'offset'], _OptionalParams),
     Headers = [],
     Body1 = [],
     ContentTypeHeader = openapi_utils:select_header_content_type([]),

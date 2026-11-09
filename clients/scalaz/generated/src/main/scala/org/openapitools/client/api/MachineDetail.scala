@@ -12,10 +12,14 @@ import org.joda.time.DateTime
 import MachineDetail._
 
 case class MachineDetail (
+  /* The identifier for this resource. */
   id: Integer,
-item: ItemSummary,
-versionGroup: VersionGroupSummary,
-move: MoveSummary)
+/* The TM or HM item that corresponds to this machine. */
+  item: ItemSummary,
+/* The version group that this machine applies to. */
+  versionGroup: VersionGroupSummary,
+/* The move that is taught by this machine. */
+  move: MoveSummary)
 
 object MachineDetail {
   import DateTimeCodecs._

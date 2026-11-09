@@ -11,8 +11,8 @@ namespace models {
 GenderDetail::GenderDetail()
 : id(0)
 , name("")
-, pokemonSpeciesDetails(std::vector<GenderDetail_pokemon_species_details_inner>())
-, requiredForEvolution(std::vector<GenderDetail_required_for_evolution_inner>())
+, pokemonSpeciesDetails(std::vector<GenderPokemonSpecies>())
+, requiredForEvolution(std::vector<PokemonSpeciesSummary>())
 {
 }
 // =========================================
@@ -29,11 +29,11 @@ std::string GenderDetail::getName() const
 {
     return name;
 }
-std::vector<GenderDetail_pokemon_species_details_inner> GenderDetail::getPokemonSpeciesDetails() const
+std::vector<GenderPokemonSpecies> GenderDetail::getPokemonSpeciesDetails() const
 {
     return pokemonSpeciesDetails;
 }
-std::vector<GenderDetail_required_for_evolution_inner> GenderDetail::getRequiredForEvolution() const
+std::vector<PokemonSpeciesSummary> GenderDetail::getRequiredForEvolution() const
 {
     return requiredForEvolution;
 }
@@ -49,11 +49,11 @@ void GenderDetail::setName(const std::string& nameObj)
 {
     name = nameObj;
 }
-void GenderDetail::setPokemonSpeciesDetails(const std::vector<GenderDetail_pokemon_species_details_inner>& pokemonSpeciesDetailsObj)
+void GenderDetail::setPokemonSpeciesDetails(const std::vector<GenderPokemonSpecies>& pokemonSpeciesDetailsObj)
 {
     pokemonSpeciesDetails = pokemonSpeciesDetailsObj;
 }
-void GenderDetail::setRequiredForEvolution(const std::vector<GenderDetail_required_for_evolution_inner>& requiredForEvolutionObj)
+void GenderDetail::setRequiredForEvolution(const std::vector<PokemonSpeciesSummary>& requiredForEvolutionObj)
 {
     requiredForEvolution = requiredForEvolutionObj;
 }

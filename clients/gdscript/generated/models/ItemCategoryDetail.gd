@@ -10,6 +10,7 @@ class_name ItemCategoryDetail
 # ItemCategoryDetail Model
 
 
+# The identifier for this resource.
 # Required: True
 # isArray: false
 @export var id: int:
@@ -18,6 +19,7 @@ class_name ItemCategoryDetail
 		id = value
 var __id__was__set := false
 
+# The name for this resource.
 # Required: True
 # isArray: false
 @export var name: String:
@@ -26,6 +28,7 @@ var __id__was__set := false
 		name = value
 var __name__was__set := false
 
+# A list of items that are a part of this category.
 # Required: True
 # isArray: true
 @export var items: Array:
@@ -34,6 +37,7 @@ var __name__was__set := false
 		items = value
 var __items__was__set := false
 
+# The name of this item category listed in different languages.
 # Required: True
 # isArray: true
 @export var names: Array:
@@ -42,6 +46,7 @@ var __items__was__set := false
 		names = value
 var __names__was__set := false
 
+# The pocket items in this category would be put in.
 # Required: True
 # isArray: false
 @export var pocket: ItemPocketSummary:

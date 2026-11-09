@@ -5,10 +5,10 @@
 -export_type([openapi_paginated_generation_summary_list/0]).
 
 -type openapi_paginated_generation_summary_list() ::
-    #{ 'count' => integer(),
+    #{ 'count' := integer(),
        'next' => openapi_u_ri:openapi_u_ri(),
        'previous' => openapi_u_ri:openapi_u_ri(),
-       'results' => list()
+       'results' := list()
      }.
 
 encode(#{ 'count' := Count,

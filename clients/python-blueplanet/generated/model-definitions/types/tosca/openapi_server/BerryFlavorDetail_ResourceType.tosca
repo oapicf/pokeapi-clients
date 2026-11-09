@@ -7,7 +7,7 @@ authors     = ["F. Bar (foo@bar.baz)"]
 
 imports {
   Root = tosca.resourceTypes.Root
-  BerryFlavorDetailBerriesInner = openapi_server.resourceTypes.BerryFlavorDetailBerriesInner
+  BerryFlavorBerryMap = openapi_server.resourceTypes.BerryFlavorBerryMap
   BerryFlavorName = openapi_server.resourceTypes.BerryFlavorName
   ContestTypeSummary = openapi_server.resourceTypes.ContestTypeSummary
 }
@@ -20,29 +20,29 @@ resourceTypes {
     properties {
         id {
           type =  integer
-          description = ""
+          description = "The identifier for this resource."
           optional = true
         }
         name {
           type =  string
-          description = ""
+          description = "The name for this resource."
           optional = true
         }
         berries {
           type = array
-          items.type = BerryFlavorDetailBerriesInner
-          description = ""
+          items.type = BerryFlavorBerryMap
+          description = "A list of the berries with this flavor."
           optional = true
         }
         contest_type {
           type = ContestTypeSummary
-          description = ""
+          description = "The contest type that correlates with this berry flavor."
           optional = true
         }
         names {
           type = array
           items.type = BerryFlavorName
-          description = ""
+          description = "The name of this resource listed in different languages."
           optional = true
         }
     }

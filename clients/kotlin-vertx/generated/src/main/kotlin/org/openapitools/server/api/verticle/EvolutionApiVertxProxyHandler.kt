@@ -18,8 +18,10 @@ import com.google.gson.reflect.TypeToken
 import com.google.gson.Gson
 import org.openapitools.server.api.model.EvolutionChainDetail
 import org.openapitools.server.api.model.EvolutionTriggerDetail
+import org.openapitools.server.api.model.EvolutionVariableDetail
 import org.openapitools.server.api.model.PaginatedEvolutionChainSummaryList
 import org.openapitools.server.api.model.PaginatedEvolutionTriggerSummaryList
+import org.openapitools.server.api.model.PaginatedEvolutionVariableSummaryList
 
 class EvolutionApiVertxProxyHandler(private val vertx: Vertx, private val service: EvolutionApi, topLevel: Boolean, private val timeoutSeconds: Long) : ProxyHandler() {
     private lateinit var timerID: Long
@@ -71,9 +73,8 @@ class EvolutionApiVertxProxyHandler(private val vertx: Vertx, private val servic
                     val params = context.params
                     val limit = ApiHandlerUtils.searchIntegerInJson(params,"limit")
                     val offset = ApiHandlerUtils.searchIntegerInJson(params,"offset")
-                    val q = ApiHandlerUtils.searchStringInJson(params,"q")
                     GlobalScope.launch(vertx.dispatcher()){
-                        val result = service.evolutionChainList(limit,offset,q,context)
+                        val result = service.evolutionChainList(limit,offset,context)
                         val payload = JsonObject(Json.encode(result.payload)).toBuffer()
                         val res = OperationResponse(result.statusCode,result.statusMessage,payload,result.headers)
                         msg.reply(res.toJson())
@@ -121,6 +122,37 @@ class EvolutionApiVertxProxyHandler(private val vertx: Vertx, private val servic
                     }
                     GlobalScope.launch(vertx.dispatcher()){
                         val result = service.evolutionTriggerRetrieve(id,context)
+                        val payload = JsonObject(Json.encode(result.payload)).toBuffer()
+                        val res = OperationResponse(result.statusCode,result.statusMessage,payload,result.headers)
+                        msg.reply(res.toJson())
+                    }.invokeOnCompletion{
+                        it?.let{ throw it }
+                    }
+                }
+        
+                "evolutionVariableList" -> {
+                    val params = context.params
+                    val limit = ApiHandlerUtils.searchIntegerInJson(params,"limit")
+                    val offset = ApiHandlerUtils.searchIntegerInJson(params,"offset")
+                    val q = ApiHandlerUtils.searchStringInJson(params,"q")
+                    GlobalScope.launch(vertx.dispatcher()){
+                        val result = service.evolutionVariableList(limit,offset,q,context)
+                        val payload = JsonObject(Json.encode(result.payload)).toBuffer()
+                        val res = OperationResponse(result.statusCode,result.statusMessage,payload,result.headers)
+                        msg.reply(res.toJson())
+                    }.invokeOnCompletion{
+                        it?.let{ throw it }
+                    }
+                }
+        
+                "evolutionVariableRetrieve" -> {
+                    val params = context.params
+                    val id = ApiHandlerUtils.searchStringInJson(params,"id")
+                    if(id == null){
+                        throw IllegalArgumentException("id is required")
+                    }
+                    GlobalScope.launch(vertx.dispatcher()){
+                        val result = service.evolutionVariableRetrieve(id,context)
                         val payload = JsonObject(Json.encode(result.payload)).toBuffer()
                         val res = OperationResponse(result.statusCode,result.statusMessage,payload,result.headers)
                         msg.reply(res.toJson())

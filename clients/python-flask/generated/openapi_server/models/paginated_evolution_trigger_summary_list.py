@@ -60,6 +60,7 @@ class PaginatedEvolutionTriggerSummaryList(Model):
     def count(self) -> int:
         """Gets the count of this PaginatedEvolutionTriggerSummaryList.
 
+        The total number of resources available from this API.  # noqa: E501
 
         :return: The count of this PaginatedEvolutionTriggerSummaryList.
         :rtype: int
@@ -70,10 +71,13 @@ class PaginatedEvolutionTriggerSummaryList(Model):
     def count(self, count: int):
         """Sets the count of this PaginatedEvolutionTriggerSummaryList.
 
+        The total number of resources available from this API.  # noqa: E501
 
         :param count: The count of this PaginatedEvolutionTriggerSummaryList.
         :type count: int
         """
+        if count is None:
+            raise ValueError("Invalid value for `count`, must not be `None`")  # noqa: E501
 
         self._count = count
 
@@ -81,6 +85,7 @@ class PaginatedEvolutionTriggerSummaryList(Model):
     def next(self) -> str:
         """Gets the next of this PaginatedEvolutionTriggerSummaryList.
 
+        The URL for the next page in the list, or null if there is no next page.  # noqa: E501
 
         :return: The next of this PaginatedEvolutionTriggerSummaryList.
         :rtype: str
@@ -91,6 +96,7 @@ class PaginatedEvolutionTriggerSummaryList(Model):
     def next(self, next: str):
         """Sets the next of this PaginatedEvolutionTriggerSummaryList.
 
+        The URL for the next page in the list, or null if there is no next page.  # noqa: E501
 
         :param next: The next of this PaginatedEvolutionTriggerSummaryList.
         :type next: str
@@ -102,6 +108,7 @@ class PaginatedEvolutionTriggerSummaryList(Model):
     def previous(self) -> str:
         """Gets the previous of this PaginatedEvolutionTriggerSummaryList.
 
+        The URL for the previous page in the list, or null if there is no previous page.  # noqa: E501
 
         :return: The previous of this PaginatedEvolutionTriggerSummaryList.
         :rtype: str
@@ -112,6 +119,7 @@ class PaginatedEvolutionTriggerSummaryList(Model):
     def previous(self, previous: str):
         """Sets the previous of this PaginatedEvolutionTriggerSummaryList.
 
+        The URL for the previous page in the list, or null if there is no previous page.  # noqa: E501
 
         :param previous: The previous of this PaginatedEvolutionTriggerSummaryList.
         :type previous: str
@@ -123,6 +131,7 @@ class PaginatedEvolutionTriggerSummaryList(Model):
     def results(self) -> List[EvolutionTriggerSummary]:
         """Gets the results of this PaginatedEvolutionTriggerSummaryList.
 
+        A list of API resources on this page.  # noqa: E501
 
         :return: The results of this PaginatedEvolutionTriggerSummaryList.
         :rtype: List[EvolutionTriggerSummary]
@@ -133,9 +142,12 @@ class PaginatedEvolutionTriggerSummaryList(Model):
     def results(self, results: List[EvolutionTriggerSummary]):
         """Sets the results of this PaginatedEvolutionTriggerSummaryList.
 
+        A list of API resources on this page.  # noqa: E501
 
         :param results: The results of this PaginatedEvolutionTriggerSummaryList.
         :type results: List[EvolutionTriggerSummary]
         """
+        if results is None:
+            raise ValueError("Invalid value for `results`, must not be `None`")  # noqa: E501
 
         self._results = results

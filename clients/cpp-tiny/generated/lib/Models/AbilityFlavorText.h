@@ -47,25 +47,25 @@ public:
 	 */
     void fromJson(std::string jsonObj);
 
-	/*! \brief Get 
+	/*! \brief Get The localized name for an API resource in a specific language.
 	 */
 	std::string getFlavorText();
 
-	/*! \brief Set 
+	/*! \brief Set The localized name for an API resource in a specific language.
 	 */
 	void setFlavorText(std::string flavor_text);
-	/*! \brief Get 
+	/*! \brief Get The language this text resource is in.
 	 */
 	LanguageSummary getLanguage();
 
-	/*! \brief Set 
+	/*! \brief Set The language this text resource is in.
 	 */
 	void setLanguage(LanguageSummary language);
-	/*! \brief Get 
+	/*! \brief Get The version group that uses this flavor text.
 	 */
 	VersionGroupSummary getVersionGroup();
 
-	/*! \brief Set 
+	/*! \brief Set The version group that uses this flavor text.
 	 */
 	void setVersionGroup(VersionGroupSummary version_group);
 

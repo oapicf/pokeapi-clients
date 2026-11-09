@@ -21,8 +21,8 @@ public class BerryFirmnessName   {
     /**
      * Create BerryFirmnessName.
      *
-     * @param name name
-     * @param language language
+     * @param name The localized name for an API resource in a specific language.
+     * @param language The language this name is in.
      */
     public BerryFirmnessName(
         String name, 
@@ -35,7 +35,7 @@ public class BerryFirmnessName   {
 
 
     /**
-     * Get name
+     * The localized name for an API resource in a specific language.
      * @return name
      */
     public String getName() {
@@ -47,7 +47,7 @@ public class BerryFirmnessName   {
     }
 
     /**
-     * Get language
+     * The language this name is in.
      * @return language
      */
     public LanguageSummary getLanguage() {

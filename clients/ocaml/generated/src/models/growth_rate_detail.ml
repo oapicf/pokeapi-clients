@@ -15,31 +15,37 @@
                 
                 
                 ; [@key "id"]
-                                              name: string
+                    (** The identifier for this resource. *)
+                                      name: string
                   
                   
                 
                 
                 ; [@key "name"]
-                                              formula: string
+                    (** The name for this resource. *)
+                                      formula: string
                   
                   
                 
                 
                 ; [@key "formula"]
-                                              descriptions: Growth_rate_description.t list
+                    (** The formula used to calculate the rate at which the Pokémon species gains level. *)
+                                      descriptions: Growth_rate_description.t list
                 
                 
                 ; [@key "descriptions"]
-                                              levels: Experience.t list
+                    (** The descriptions of this characteristic listed in different languages. *)
+                                      levels: Experience.t list
                 
                 
                 ; [@key "levels"]
-                                              pokemon_species: Pokemon_species_summary.t list
+                    (** A list of levels and the amount of experienced needed to atain them based on this growth rate. *)
+                                      pokemon_species: Pokemon_species_summary.t list
                 
                 
                 ; [@key "pokemon_species"]
-                        } [@@deriving yojson { strict = false }, show, eq ];;
+                    (** A list of Pokémon species that gain levels at this growth rate. *)
+                } [@@deriving yojson { strict = false }, show, eq ];;
         
         let create (id : int32) (name : string) (formula : string) (descriptions : Growth_rate_description.t list) (levels : Experience.t list) (pokemon_species : Pokemon_species_summary.t list) : t = {
             id = id;

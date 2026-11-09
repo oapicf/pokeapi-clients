@@ -1,7 +1,7 @@
 package apimodels;
 
-import apimodels.AbilityDetailPokemonInnerPokemon;
 import apimodels.MoveMetaAilmentName;
+import apimodels.MoveSummary;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -14,7 +14,7 @@ import javax.validation.Valid;
 /**
  * MoveMetaAilmentDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-10-25T05:48:13.486809836Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-11-09T13:49:31.462302702Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class MoveMetaAilmentDetail   {
   @JsonProperty("id")
@@ -24,7 +24,7 @@ public class MoveMetaAilmentDetail   {
 
   @JsonProperty("name")
   @NotNull
-@Size(max=100)
+@Size(max=200)
 
   private String name;
 
@@ -32,7 +32,7 @@ public class MoveMetaAilmentDetail   {
   @NotNull
 @Valid
 
-  private List<@Valid AbilityDetailPokemonInnerPokemon> moves = new ArrayList<>();
+  private List<@Valid MoveSummary> moves = new ArrayList<>();
 
   @JsonProperty("names")
   @NotNull
@@ -46,7 +46,7 @@ public class MoveMetaAilmentDetail   {
   }
 
    /**
-   * Get id
+   * The identifier for this resource.
    * @return id
   **/
   public Integer getId() {
@@ -63,7 +63,7 @@ public class MoveMetaAilmentDetail   {
   }
 
    /**
-   * Get name
+   * The name for this resource.
    * @return name
   **/
   public String getName() {
@@ -74,12 +74,12 @@ public class MoveMetaAilmentDetail   {
     this.name = name;
   }
 
-  public MoveMetaAilmentDetail moves(List<@Valid AbilityDetailPokemonInnerPokemon> moves) {
+  public MoveMetaAilmentDetail moves(List<@Valid MoveSummary> moves) {
     this.moves = moves;
     return this;
   }
 
-  public MoveMetaAilmentDetail addMovesItem(AbilityDetailPokemonInnerPokemon movesItem) {
+  public MoveMetaAilmentDetail addMovesItem(MoveSummary movesItem) {
     if (this.moves == null) {
       this.moves = new ArrayList<>();
     }
@@ -88,14 +88,14 @@ public class MoveMetaAilmentDetail   {
   }
 
    /**
-   * Get moves
+   * A list of moves that cause this ailment.
    * @return moves
   **/
-  public List<@Valid AbilityDetailPokemonInnerPokemon> getMoves() {
+  public List<@Valid MoveSummary> getMoves() {
     return moves;
   }
 
-  public void setMoves(List<@Valid AbilityDetailPokemonInnerPokemon> moves) {
+  public void setMoves(List<@Valid MoveSummary> moves) {
     this.moves = moves;
   }
 
@@ -113,7 +113,7 @@ public class MoveMetaAilmentDetail   {
   }
 
    /**
-   * Get names
+   * The name of this resource listed in different languages.
    * @return names
   **/
   public List<@Valid MoveMetaAilmentName> getNames() {

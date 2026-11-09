@@ -17,3066 +17,245 @@ namespace {
 
 void appendSchemaRegistryChunk3(SchemaResourceRegistry& reg) {
 
-    { // node 1257
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1472;
-        n.sourceName = "TypeDetail_past_damage_relations_inner_component_prop1_prop1";
-        n.schemaPath = "#/components/schemas/TypeDetail_past_damage_relations_inner/properties/damage_relations/properties/double_damage_from";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail_past_damage_relations_inner/properties/damage_relations/properties/double_damage_from";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1258
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1473;
-        n.sourceName = "TypeDetail_past_damage_relations_inner_component_prop1_prop2";
-        n.schemaPath = "#/components/schemas/TypeDetail_past_damage_relations_inner/properties/damage_relations/properties/double_damage_to";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail_past_damage_relations_inner/properties/damage_relations/properties/double_damage_to";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1259
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1474;
-        n.sourceName = "TypeDetail_past_damage_relations_inner_component_prop1_prop3";
-        n.schemaPath = "#/components/schemas/TypeDetail_past_damage_relations_inner/properties/damage_relations/properties/half_damage_from";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail_past_damage_relations_inner/properties/damage_relations/properties/half_damage_from";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1260
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1475;
-        n.sourceName = "TypeDetail_past_damage_relations_inner_component_prop1_prop4";
-        n.schemaPath = "#/components/schemas/TypeDetail_past_damage_relations_inner/properties/damage_relations/properties/half_damage_to";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail_past_damage_relations_inner/properties/damage_relations/properties/half_damage_to";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1261
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1476;
-        n.sourceName = "TypeDetail_past_damage_relations_inner_component_prop1_prop5";
-        n.schemaPath = "#/components/schemas/TypeDetail_past_damage_relations_inner/properties/damage_relations/properties/no_damage_from";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail_past_damage_relations_inner/properties/damage_relations/properties/no_damage_from";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1262
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1477;
-        n.sourceName = "TypeDetail_past_damage_relations_inner_component_prop1_prop6";
-        n.schemaPath = "#/components/schemas/TypeDetail_past_damage_relations_inner/properties/damage_relations/properties/no_damage_to";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail_past_damage_relations_inner/properties/damage_relations/properties/no_damage_to";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1263
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "TypeDetail_past_damage_relations_inner_component_prop2_prop1";
-        n.schemaPath = "#/components/schemas/TypeDetail_past_damage_relations_inner/properties/generation/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail_past_damage_relations_inner/properties/generation/properties/name";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1264
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "TypeDetail_past_damage_relations_inner_component_prop2_prop2";
-        n.schemaPath = "#/components/schemas/TypeDetail_past_damage_relations_inner/properties/generation/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail_past_damage_relations_inner/properties/generation/properties/url";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1265
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1478; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1479; n.properties.push_back(std::move(b)); }
-        n.sourceName = "TypeDetail_past_damage_relations_inner_damage_relations_component_prop1_items1";
-        n.schemaPath = "#/components/schemas/TypeDetail_past_damage_relations_inner_damage_relations/properties/double_damage_from/items";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail_past_damage_relations_inner_damage_relations/properties/double_damage_from/items";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1266
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1480; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1481; n.properties.push_back(std::move(b)); }
-        n.sourceName = "TypeDetail_past_damage_relations_inner_damage_relations_component_prop2_items1";
-        n.schemaPath = "#/components/schemas/TypeDetail_past_damage_relations_inner_damage_relations/properties/double_damage_to/items";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail_past_damage_relations_inner_damage_relations/properties/double_damage_to/items";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1267
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1482; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1483; n.properties.push_back(std::move(b)); }
-        n.sourceName = "TypeDetail_past_damage_relations_inner_damage_relations_component_prop3_items1";
-        n.schemaPath = "#/components/schemas/TypeDetail_past_damage_relations_inner_damage_relations/properties/half_damage_from/items";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail_past_damage_relations_inner_damage_relations/properties/half_damage_from/items";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1268
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1484; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1485; n.properties.push_back(std::move(b)); }
-        n.sourceName = "TypeDetail_past_damage_relations_inner_damage_relations_component_prop4_items1";
-        n.schemaPath = "#/components/schemas/TypeDetail_past_damage_relations_inner_damage_relations/properties/half_damage_to/items";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail_past_damage_relations_inner_damage_relations/properties/half_damage_to/items";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1269
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1486; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1487; n.properties.push_back(std::move(b)); }
-        n.sourceName = "TypeDetail_past_damage_relations_inner_damage_relations_component_prop5_items1";
-        n.schemaPath = "#/components/schemas/TypeDetail_past_damage_relations_inner_damage_relations/properties/no_damage_from/items";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail_past_damage_relations_inner_damage_relations/properties/no_damage_from/items";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1270
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1488; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1489; n.properties.push_back(std::move(b)); }
-        n.sourceName = "TypeDetail_past_damage_relations_inner_damage_relations_component_prop6_items1";
-        n.schemaPath = "#/components/schemas/TypeDetail_past_damage_relations_inner_damage_relations/properties/no_damage_to/items";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail_past_damage_relations_inner_damage_relations/properties/no_damage_to/items";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1271
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annDescription = "\"The name of the pokemon\"";
-        n.annExamplesJson = "[\"sandshrew\"]";
-        n.sourceName = "TypeDetail_pokemon_inner_component_prop1_prop1";
-        n.schemaPath = "#/components/schemas/TypeDetail_pokemon_inner/properties/pokemon/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail_pokemon_inner/properties/pokemon/properties/name";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1272
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annDescription = "\"The URL to get more information about the pokemon\"";
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/pokemon/27/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "TypeDetail_pokemon_inner_component_prop1_prop2";
-        n.schemaPath = "#/components/schemas/TypeDetail_pokemon_inner/properties/pokemon/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail_pokemon_inner/properties/pokemon/properties/url";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1273
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(2089);
-        n.sourceName = "VersionDetail_component_prop3_items1";
-        n.schemaPath = "#/components/schemas/VersionDetail/properties/names/items";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/VersionDetail/properties/names/items";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1274
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1490; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1491; n.properties.push_back(std::move(b)); }
-        n.sourceName = "VersionGroupDetail_component_prop3_items1";
-        n.schemaPath = "#/components/schemas/VersionGroupDetail/properties/move_learn_methods/items";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/VersionGroupDetail/properties/move_learn_methods/items";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1275
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1492; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1493; n.properties.push_back(std::move(b)); }
-        n.sourceName = "VersionGroupDetail_component_prop6_items1";
-        n.schemaPath = "#/components/schemas/VersionGroupDetail/properties/pokedexes/items";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/VersionGroupDetail/properties/pokedexes/items";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1276
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1494; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1495; n.properties.push_back(std::move(b)); }
-        n.sourceName = "VersionGroupDetail_component_prop7_items1";
-        n.schemaPath = "#/components/schemas/VersionGroupDetail/properties/regions/items";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/VersionGroupDetail/properties/regions/items";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1277
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(2090);
-        n.sourceName = "VersionGroupDetail_component_prop8_items1";
-        n.schemaPath = "#/components/schemas/VersionGroupDetail/properties/versions/items";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/VersionGroupDetail/properties/versions/items";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1278
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 2u;
-        n.sourceName = "AbilityDetail_component_prop9_items1_prop1";
-        n.schemaPath = "#/components/schemas/AbilityDetail/properties/pokemon/items/properties/is_hidden";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/AbilityDetail/properties/pokemon/items/properties/is_hidden";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1279
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1496; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1497; n.properties.push_back(std::move(b)); }
-        n.sourceName = "AbilityDetail_component_prop9_items1_prop2";
-        n.schemaPath = "#/components/schemas/AbilityDetail/properties/pokemon/items/properties/pokemon";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/AbilityDetail/properties/pokemon/items/properties/pokemon";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1280
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.annExamplesJson = "[3]";
-        n.annFormat = "\"int32\"";
-        n.sourceName = "AbilityDetail_component_prop9_items1_prop3";
-        n.schemaPath = "#/components/schemas/AbilityDetail/properties/pokemon/items/properties/slot";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/AbilityDetail/properties/pokemon/items/properties/slot";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1281
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1834);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1498; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1499; n.properties.push_back(std::move(b)); }
-        n.sourceName = "BerryDetail_component_prop2_items1_prop1";
-        n.schemaPath = "#/components/schemas/BerryDetail/properties/flavors/items/properties/flavor";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/BerryDetail/properties/flavors/items/properties/flavor";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1282
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.annExamplesJson = "[10]";
-        n.sourceName = "BerryDetail_component_prop2_items1_prop2";
-        n.schemaPath = "#/components/schemas/BerryDetail/properties/flavors/items/properties/potency";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/BerryDetail/properties/flavors/items/properties/potency";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1283
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1840);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1500; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1501; n.properties.push_back(std::move(b)); }
-        n.sourceName = "BerryFlavorDetail_component_prop1_items1_prop1";
-        n.schemaPath = "#/components/schemas/BerryFlavorDetail/properties/berries/items/properties/berry";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/BerryFlavorDetail/properties/berries/items/properties/berry";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1284
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.annExamplesJson = "[10]";
-        n.sourceName = "BerryFlavorDetail_component_prop1_items1_prop2";
-        n.schemaPath = "#/components/schemas/BerryFlavorDetail/properties/berries/items/properties/potency";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/BerryFlavorDetail/properties/berries/items/properties/potency";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1285
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annDescription = "\"Pokemon species name.\"";
-        n.annExamplesJson = "[\"bulbasaur\"]";
-        n.sourceName = "EggGroupDetail_component_prop4_items1_prop1";
-        n.schemaPath = "#/components/schemas/EggGroupDetail/properties/pokemon_species/items/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EggGroupDetail/properties/pokemon_species/items/properties/name";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1286
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annDescription = "\"The URL to get more information about the species\"";
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/pokemon-species/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "EggGroupDetail_component_prop4_items1_prop2";
-        n.schemaPath = "#/components/schemas/EggGroupDetail/properties/pokemon_species/items/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EggGroupDetail/properties/pokemon_species/items/properties/url";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1287
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.sourceName = "EvolutionChainDetail_component_prop2_prop1_items1";
-        n.schemaPath = "#/components/schemas/EvolutionChainDetail/properties/chain/properties/evolution_details/items";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EvolutionChainDetail/properties/chain/properties/evolution_details/items";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1288
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1869);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "evolution_details"; b.node = 1502; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "is_baby"; b.node = 1503; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "species"; b.node = 1504; n.properties.push_back(std::move(b)); }
-        n.sourceName = "EvolutionChainDetail_component_prop2_prop2_items1";
-        n.schemaPath = "#/components/schemas/EvolutionChainDetail/properties/chain/properties/evolves_to/items";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EvolutionChainDetail/properties/chain/properties/evolves_to/items";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1289
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "EvolutionChainDetail_component_prop2_prop4_prop1";
-        n.schemaPath = "#/components/schemas/EvolutionChainDetail/properties/chain/properties/species/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EvolutionChainDetail/properties/chain/properties/species/properties/name";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1290
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "EvolutionChainDetail_component_prop2_prop4_prop2";
-        n.schemaPath = "#/components/schemas/EvolutionChainDetail/properties/chain/properties/species/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EvolutionChainDetail/properties/chain/properties/species/properties/url";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1291
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1505;
-        n.sourceName = "EvolutionChainDetail_chain_component_prop2_items1_prop1";
-        n.schemaPath = "#/components/schemas/EvolutionChainDetail_chain/properties/evolves_to/items/properties/evolution_details";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EvolutionChainDetail_chain/properties/evolves_to/items/properties/evolution_details";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1292
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 2u;
-        n.sourceName = "EvolutionChainDetail_chain_component_prop2_items1_prop2";
-        n.schemaPath = "#/components/schemas/EvolutionChainDetail_chain/properties/evolves_to/items/properties/is_baby";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EvolutionChainDetail_chain/properties/evolves_to/items/properties/is_baby";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1293
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1506; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1507; n.properties.push_back(std::move(b)); }
-        n.sourceName = "EvolutionChainDetail_chain_component_prop2_items1_prop3";
-        n.schemaPath = "#/components/schemas/EvolutionChainDetail_chain/properties/evolves_to/items/properties/species";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EvolutionChainDetail_chain/properties/evolves_to/items/properties/species";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1294
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1871);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1508; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1509; n.properties.push_back(std::move(b)); }
-        n.sourceName = "EvolutionChainDetail_chain_evolves_to_inner_component_prop1_items1_prop1";
-        n.schemaPath = "#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner/properties/evolution_details/items/properties/gender";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner/properties/evolution_details/items/properties/gender";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1295
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1871);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1510; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1511; n.properties.push_back(std::move(b)); }
-        n.sourceName = "EvolutionChainDetail_chain_evolves_to_inner_component_prop1_items1_prop2";
-        n.schemaPath = "#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner/properties/evolution_details/items/properties/held_item";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner/properties/evolution_details/items/properties/held_item";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1296
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1871);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1512; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1513; n.properties.push_back(std::move(b)); }
-        n.sourceName = "EvolutionChainDetail_chain_evolves_to_inner_component_prop1_items1_prop3";
-        n.schemaPath = "#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner/properties/evolution_details/items/properties/item";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner/properties/evolution_details/items/properties/item";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1297
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1871);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1514; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1515; n.properties.push_back(std::move(b)); }
-        n.sourceName = "EvolutionChainDetail_chain_evolves_to_inner_component_prop1_items1_prop4";
-        n.schemaPath = "#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner/properties/evolution_details/items/properties/known_move";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner/properties/evolution_details/items/properties/known_move";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1298
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1871);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1516; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1517; n.properties.push_back(std::move(b)); }
-        n.sourceName = "EvolutionChainDetail_chain_evolves_to_inner_component_prop1_items1_prop5";
-        n.schemaPath = "#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner/properties/evolution_details/items/properties/known_move_type";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner/properties/evolution_details/items/properties/known_move_type";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1299
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1871);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1518; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1519; n.properties.push_back(std::move(b)); }
-        n.sourceName = "EvolutionChainDetail_chain_evolves_to_inner_component_prop1_items1_prop6";
-        n.schemaPath = "#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner/properties/evolution_details/items/properties/location";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner/properties/evolution_details/items/properties/location";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1300
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.annFormat = "\"int32\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "EvolutionChainDetail_chain_evolves_to_inner_component_prop1_items1_prop7";
-        n.schemaPath = "#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner/properties/evolution_details/items/properties/min_affection";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner/properties/evolution_details/items/properties/min_affection";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1301
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.annFormat = "\"int32\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "EvolutionChainDetail_chain_evolves_to_inner_component_prop1_items1_prop8";
-        n.schemaPath = "#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner/properties/evolution_details/items/properties/min_beauty";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner/properties/evolution_details/items/properties/min_beauty";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1302
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.annFormat = "\"int32\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "EvolutionChainDetail_chain_evolves_to_inner_component_prop1_items1_prop9";
-        n.schemaPath = "#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner/properties/evolution_details/items/properties/min_happiness";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner/properties/evolution_details/items/properties/min_happiness";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1303
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.annFormat = "\"int32\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "EvolutionChainDetail_chain_evolves_to_inner_component_prop1_items1_prop10";
-        n.schemaPath = "#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner/properties/evolution_details/items/properties/min_level";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner/properties/evolution_details/items/properties/min_level";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1304
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 2u;
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "EvolutionChainDetail_chain_evolves_to_inner_component_prop1_items1_prop11";
-        n.schemaPath = "#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner/properties/evolution_details/items/properties/needs_overworld_rain";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner/properties/evolution_details/items/properties/needs_overworld_rain";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1305
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "EvolutionChainDetail_chain_evolves_to_inner_component_prop1_items1_prop12";
-        n.schemaPath = "#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner/properties/evolution_details/items/properties/party_species";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner/properties/evolution_details/items/properties/party_species";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1306
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "EvolutionChainDetail_chain_evolves_to_inner_component_prop1_items1_prop13";
-        n.schemaPath = "#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner/properties/evolution_details/items/properties/party_type";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner/properties/evolution_details/items/properties/party_type";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1307
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "EvolutionChainDetail_chain_evolves_to_inner_component_prop1_items1_prop14";
-        n.schemaPath = "#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner/properties/evolution_details/items/properties/relative_physical_stats";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner/properties/evolution_details/items/properties/relative_physical_stats";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1308
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.sourceName = "EvolutionChainDetail_chain_evolves_to_inner_component_prop1_items1_prop15";
-        n.schemaPath = "#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner/properties/evolution_details/items/properties/time_of_day";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner/properties/evolution_details/items/properties/time_of_day";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1309
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "EvolutionChainDetail_chain_evolves_to_inner_component_prop1_items1_prop16";
-        n.schemaPath = "#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner/properties/evolution_details/items/properties/trade_species";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner/properties/evolution_details/items/properties/trade_species";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1310
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1520; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1521; n.properties.push_back(std::move(b)); }
-        n.sourceName = "EvolutionChainDetail_chain_evolves_to_inner_component_prop1_items1_prop17";
-        n.schemaPath = "#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner/properties/evolution_details/items/properties/trigger";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner/properties/evolution_details/items/properties/trigger";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1311
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 2u;
-        n.sourceName = "EvolutionChainDetail_chain_evolves_to_inner_component_prop1_items1_prop18";
-        n.schemaPath = "#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner/properties/evolution_details/items/properties/turn_upside_down";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner/properties/evolution_details/items/properties/turn_upside_down";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1312
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "EvolutionTriggerDetail_component_prop4_items1_prop1";
-        n.schemaPath = "#/components/schemas/EvolutionTriggerDetail/properties/pokemon_species/items/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EvolutionTriggerDetail/properties/pokemon_species/items/properties/name";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1313
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "EvolutionTriggerDetail_component_prop4_items1_prop2";
-        n.schemaPath = "#/components/schemas/EvolutionTriggerDetail/properties/pokemon_species/items/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EvolutionTriggerDetail/properties/pokemon_species/items/properties/url";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1314
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1522; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1523; n.properties.push_back(std::move(b)); }
-        n.sourceName = "GenderDetail_component_prop3_items1_prop1";
-        n.schemaPath = "#/components/schemas/GenderDetail/properties/pokemon_species_details/items/properties/pokemon_species";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/GenderDetail/properties/pokemon_species_details/items/properties/pokemon_species";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1315
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.annExamplesJson = "[1]";
-        n.annFormat = "\"int32\"";
-        n.sourceName = "GenderDetail_component_prop3_items1_prop2";
-        n.schemaPath = "#/components/schemas/GenderDetail/properties/pokemon_species_details/items/properties/rate";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/GenderDetail/properties/pokemon_species_details/items/properties/rate";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1316
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "GenderDetail_component_prop4_items1_prop1";
-        n.schemaPath = "#/components/schemas/GenderDetail/properties/required_for_evolution/items/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/GenderDetail/properties/required_for_evolution/items/properties/name";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1317
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "GenderDetail_component_prop4_items1_prop2";
-        n.schemaPath = "#/components/schemas/GenderDetail/properties/required_for_evolution/items/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/GenderDetail/properties/required_for_evolution/items/properties/url";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1318
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "ItemAttributeDetail_component_prop3_items1_prop1";
-        n.schemaPath = "#/components/schemas/ItemAttributeDetail/properties/items/items/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/ItemAttributeDetail/properties/items/items/properties/name";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1319
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "ItemAttributeDetail_component_prop3_items1_prop2";
-        n.schemaPath = "#/components/schemas/ItemAttributeDetail/properties/items/items/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/ItemAttributeDetail/properties/items/items/properties/url";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1320
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "ItemDetail_component_prop1_items1_prop1";
-        n.schemaPath = "#/components/schemas/ItemDetail/properties/attributes/items/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/ItemDetail/properties/attributes/items/properties/name";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1321
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "ItemDetail_component_prop1_items1_prop2";
-        n.schemaPath = "#/components/schemas/ItemDetail/properties/attributes/items/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/ItemDetail/properties/attributes/items/properties/url";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1322
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1524; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1525; n.properties.push_back(std::move(b)); }
-        n.sourceName = "ItemDetail_component_prop10_items1_prop1";
-        n.schemaPath = "#/components/schemas/ItemDetail/properties/held_by_pokemon/items/properties/pokemon";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/ItemDetail/properties/held_by_pokemon/items/properties/pokemon";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1323
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1526;
-        n.sourceName = "ItemDetail_component_prop10_items1_prop2";
-        n.schemaPath = "#/components/schemas/ItemDetail/properties/held_by_pokemon/items/properties/version-details";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/ItemDetail/properties/held_by_pokemon/items/properties/version-details";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1324
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/machine/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "ItemDetail_component_prop12_items1_prop1";
-        n.schemaPath = "#/components/schemas/ItemDetail/properties/machines/items/properties/machine";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/ItemDetail/properties/machines/items/properties/machine";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1325
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1527; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1528; n.properties.push_back(std::move(b)); }
-        n.sourceName = "ItemDetail_component_prop12_items1_prop2";
-        n.schemaPath = "#/components/schemas/ItemDetail/properties/machines/items/properties/version_group";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/ItemDetail/properties/machines/items/properties/version_group";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1326
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.annExamplesJson = "[5]";
-        n.annFormat = "\"int32\"";
-        n.sourceName = "ItemDetail_held_by_pokemon_inner_component_prop2_items1_prop1";
-        n.schemaPath = "#/components/schemas/ItemDetail_held_by_pokemon_inner/properties/version-details/items/properties/rarity";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/ItemDetail_held_by_pokemon_inner/properties/version-details/items/properties/rarity";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1327
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1529; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1530; n.properties.push_back(std::move(b)); }
-        n.sourceName = "ItemDetail_held_by_pokemon_inner_component_prop2_items1_prop2";
-        n.schemaPath = "#/components/schemas/ItemDetail_held_by_pokemon_inner/properties/version-details/items/properties/version";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/ItemDetail_held_by_pokemon_inner/properties/version-details/items/properties/version";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1328
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1531; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1532; n.properties.push_back(std::move(b)); }
-        n.sourceName = "LocationAreaDetail_component_prop1_items1_prop1";
-        n.schemaPath = "#/components/schemas/LocationAreaDetail/properties/encounter_method_rates/items/properties/encounter_method";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/LocationAreaDetail/properties/encounter_method_rates/items/properties/encounter_method";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1329
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1533;
-        n.sourceName = "LocationAreaDetail_component_prop1_items1_prop2";
-        n.schemaPath = "#/components/schemas/LocationAreaDetail/properties/encounter_method_rates/items/properties/version_details";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/LocationAreaDetail/properties/encounter_method_rates/items/properties/version_details";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1330
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1534; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1535; n.properties.push_back(std::move(b)); }
-        n.sourceName = "LocationAreaDetail_component_prop7_items1_prop1";
-        n.schemaPath = "#/components/schemas/LocationAreaDetail/properties/pokemon_encounters/items/properties/pokemon";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/LocationAreaDetail/properties/pokemon_encounters/items/properties/pokemon";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1331
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1536;
-        n.sourceName = "LocationAreaDetail_component_prop7_items1_prop2";
-        n.schemaPath = "#/components/schemas/LocationAreaDetail/properties/pokemon_encounters/items/properties/version_details";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/LocationAreaDetail/properties/pokemon_encounters/items/properties/version_details";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1332
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.annExamplesJson = "[5]";
-        n.annFormat = "\"int32\"";
-        n.sourceName = "LocationAreaDetail_encounter_method_rates_inner_component_prop2_items1_prop1";
-        n.schemaPath = "#/components/schemas/LocationAreaDetail_encounter_method_rates_inner/properties/version_details/items/properties/rate";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/LocationAreaDetail_encounter_method_rates_inner/properties/version_details/items/properties/rate";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1333
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1537; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1538; n.properties.push_back(std::move(b)); }
-        n.sourceName = "LocationAreaDetail_encounter_method_rates_inner_component_prop2_items1_prop2";
-        n.schemaPath = "#/components/schemas/LocationAreaDetail_encounter_method_rates_inner/properties/version_details/items/properties/version";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/LocationAreaDetail_encounter_method_rates_inner/properties/version_details/items/properties/version";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1334
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1918);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "chance"; b.node = 1539; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "condition_values"; b.node = 1540; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "max_level"; b.node = 1541; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "method"; b.node = 1542; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "min_level"; b.node = 1543; n.properties.push_back(std::move(b)); }
-        n.sourceName = "LocationAreaDetail_pokemon_encounters_inner_component_prop2_items1_prop1";
-        n.schemaPath = "#/components/schemas/LocationAreaDetail_pokemon_encounters_inner/properties/version_details/items/properties/encounter_details";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/LocationAreaDetail_pokemon_encounters_inner/properties/version_details/items/properties/encounter_details";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1335
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.annExamplesJson = "[60]";
-        n.annFormat = "\"int32\"";
-        n.sourceName = "LocationAreaDetail_pokemon_encounters_inner_component_prop2_items1_prop2";
-        n.schemaPath = "#/components/schemas/LocationAreaDetail_pokemon_encounters_inner/properties/version_details/items/properties/max_chance";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/LocationAreaDetail_pokemon_encounters_inner/properties/version_details/items/properties/max_chance";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1336
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1544; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1545; n.properties.push_back(std::move(b)); }
-        n.sourceName = "LocationAreaDetail_pokemon_encounters_inner_component_prop2_items1_prop3";
-        n.schemaPath = "#/components/schemas/LocationAreaDetail_pokemon_encounters_inner/properties/version_details/items/properties/version";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/LocationAreaDetail_pokemon_encounters_inner/properties/version_details/items/properties/version";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1337
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "LocationAreaDetail_pokemon_encounters_inner_version_details_inner_component_prop1_prop2_prop1";
-        n.schemaPath = "#/components/schemas/LocationAreaDetail_pokemon_encounters_inner_version_details_inner/properties/encounter_details/properties/condition_values/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/LocationAreaDetail_pokemon_encounters_inner_version_details_inner/properties/encounter_details/properties/condition_values/properties/name";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1338
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "LocationAreaDetail_pokemon_encounters_inner_version_details_inner_component_prop1_prop2_prop2";
-        n.schemaPath = "#/components/schemas/LocationAreaDetail_pokemon_encounters_inner_version_details_inner/properties/encounter_details/properties/condition_values/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/LocationAreaDetail_pokemon_encounters_inner_version_details_inner/properties/encounter_details/properties/condition_values/properties/url";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1339
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "LocationAreaDetail_pokemon_encounters_inner_version_details_inner_component_prop1_prop4_prop1";
-        n.schemaPath = "#/components/schemas/LocationAreaDetail_pokemon_encounters_inner_version_details_inner/properties/encounter_details/properties/method/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/LocationAreaDetail_pokemon_encounters_inner_version_details_inner/properties/encounter_details/properties/method/properties/name";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1340
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "LocationAreaDetail_pokemon_encounters_inner_version_details_inner_component_prop1_prop4_prop2";
-        n.schemaPath = "#/components/schemas/LocationAreaDetail_pokemon_encounters_inner_version_details_inner/properties/encounter_details/properties/method/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/LocationAreaDetail_pokemon_encounters_inner_version_details_inner/properties/encounter_details/properties/method/properties/url";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1341
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"Inflicts [regular damage]{mechanic:regular-damage}.\"]";
-        n.sourceName = "MoveChange_component_prop3_items1_prop1";
-        n.schemaPath = "#/components/schemas/MoveChange/properties/effect_entries/items/properties/effect";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveChange/properties/effect_entries/items/properties/effect";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1342
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1546; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1547; n.properties.push_back(std::move(b)); }
-        n.sourceName = "MoveChange_component_prop3_items1_prop2";
-        n.schemaPath = "#/components/schemas/MoveChange/properties/effect_entries/items/properties/language";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveChange/properties/effect_entries/items/properties/language";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1343
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"Inflicts regular damage with no additional effect.\"]";
-        n.sourceName = "MoveChange_component_prop3_items1_prop3";
-        n.schemaPath = "#/components/schemas/MoveChange/properties/effect_entries/items/properties/short_effect";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveChange/properties/effect_entries/items/properties/short_effect";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1344
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1548;
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "MoveDetail_component_prop2_prop1_prop1";
-        n.schemaPath = "#/components/schemas/MoveDetail/properties/contest_combos/properties/normal/properties/use_after";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail/properties/contest_combos/properties/normal/properties/use_after";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1345
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1549;
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "MoveDetail_component_prop2_prop1_prop2";
-        n.schemaPath = "#/components/schemas/MoveDetail/properties/contest_combos/properties/normal/properties/use_before";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail/properties/contest_combos/properties/normal/properties/use_before";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1346
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1550;
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "MoveDetail_component_prop2_prop2_prop1";
-        n.schemaPath = "#/components/schemas/MoveDetail/properties/contest_combos/properties/super/properties/use_after";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail/properties/contest_combos/properties/super/properties/use_after";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1347
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1551;
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "MoveDetail_component_prop2_prop2_prop2";
-        n.schemaPath = "#/components/schemas/MoveDetail/properties/contest_combos/properties/super/properties/use_before";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail/properties/contest_combos/properties/super/properties/use_before";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1348
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1552;
-        n.sourceName = "MoveDetail_component_prop7_items1_prop1";
-        n.schemaPath = "#/components/schemas/MoveDetail/properties/effect_changes/items/properties/effect_entries";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail/properties/effect_changes/items/properties/effect_entries";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1349
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1553; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1554; n.properties.push_back(std::move(b)); }
-        n.sourceName = "MoveDetail_component_prop7_items1_prop2";
-        n.schemaPath = "#/components/schemas/MoveDetail/properties/effect_changes/items/properties/version_group";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail/properties/effect_changes/items/properties/version_group";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1350
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"Inflicts [regular damage]{mechanic:regular-damage}.\"]";
-        n.sourceName = "MoveDetail_component_prop8_items1_prop1";
-        n.schemaPath = "#/components/schemas/MoveDetail/properties/effect_entries/items/properties/effect";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail/properties/effect_entries/items/properties/effect";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1351
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1555; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1556; n.properties.push_back(std::move(b)); }
-        n.sourceName = "MoveDetail_component_prop8_items1_prop2";
-        n.schemaPath = "#/components/schemas/MoveDetail/properties/effect_entries/items/properties/language";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail/properties/effect_entries/items/properties/language";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1352
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"Inflicts regular damage with no additional effect.\"]";
-        n.sourceName = "MoveDetail_component_prop8_items1_prop3";
-        n.schemaPath = "#/components/schemas/MoveDetail/properties/effect_entries/items/properties/short_effect";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail/properties/effect_entries/items/properties/short_effect";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1353
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "MoveDetail_component_prop12_items1_prop1";
-        n.schemaPath = "#/components/schemas/MoveDetail/properties/learned_by_pokemon/items/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail/properties/learned_by_pokemon/items/properties/name";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1354
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "MoveDetail_component_prop12_items1_prop2";
-        n.schemaPath = "#/components/schemas/MoveDetail/properties/learned_by_pokemon/items/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail/properties/learned_by_pokemon/items/properties/url";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1355
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1942);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "url"; b.node = 1557; n.properties.push_back(std::move(b)); }
-        n.sourceName = "MoveDetail_component_prop13_items1_prop1";
-        n.schemaPath = "#/components/schemas/MoveDetail/properties/machines/items/properties/machine";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail/properties/machines/items/properties/machine";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1356
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1558; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1559; n.properties.push_back(std::move(b)); }
-        n.sourceName = "MoveDetail_component_prop13_items1_prop2";
-        n.schemaPath = "#/components/schemas/MoveDetail/properties/machines/items/properties/version_group";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail/properties/machines/items/properties/version_group";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1357
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.annExamplesJson = "[2]";
-        n.annFormat = "\"int32\"";
-        n.sourceName = "MoveDetail_component_prop21_items1_prop1";
-        n.schemaPath = "#/components/schemas/MoveDetail/properties/stat_changes/items/properties/change";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail/properties/stat_changes/items/properties/change";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1358
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1560; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1561; n.properties.push_back(std::move(b)); }
-        n.sourceName = "MoveDetail_component_prop21_items1_prop2";
-        n.schemaPath = "#/components/schemas/MoveDetail/properties/stat_changes/items/properties/stat";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail/properties/stat_changes/items/properties/stat";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1359
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1562; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1563; n.properties.push_back(std::move(b)); }
-        n.sourceName = "MoveDetail_contest_combos_component_prop1_prop1_items1";
-        n.schemaPath = "#/components/schemas/MoveDetail_contest_combos/properties/normal/properties/use_after/items";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail_contest_combos/properties/normal/properties/use_after/items";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1360
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1564; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1565; n.properties.push_back(std::move(b)); }
-        n.sourceName = "MoveDetail_contest_combos_component_prop1_prop2_items1";
-        n.schemaPath = "#/components/schemas/MoveDetail_contest_combos/properties/normal/properties/use_before/items";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail_contest_combos/properties/normal/properties/use_before/items";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1361
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1566; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1567; n.properties.push_back(std::move(b)); }
-        n.sourceName = "MoveDetail_contest_combos_component_prop2_prop1_items1";
-        n.schemaPath = "#/components/schemas/MoveDetail_contest_combos/properties/super/properties/use_after/items";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail_contest_combos/properties/super/properties/use_after/items";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1362
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1568; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1569; n.properties.push_back(std::move(b)); }
-        n.sourceName = "MoveDetail_contest_combos_component_prop2_prop2_items1";
-        n.schemaPath = "#/components/schemas/MoveDetail_contest_combos/properties/super/properties/use_before/items";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail_contest_combos/properties/super/properties/use_before/items";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1363
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "MoveDetail_contest_combos_normal_component_prop1_items1_prop1";
-        n.schemaPath = "#/components/schemas/MoveDetail_contest_combos_normal/properties/use_after/items/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail_contest_combos_normal/properties/use_after/items/properties/name";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1364
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "MoveDetail_contest_combos_normal_component_prop1_items1_prop2";
-        n.schemaPath = "#/components/schemas/MoveDetail_contest_combos_normal/properties/use_after/items/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail_contest_combos_normal/properties/use_after/items/properties/url";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1365
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "MoveDetail_contest_combos_normal_component_prop2_items1_prop1";
-        n.schemaPath = "#/components/schemas/MoveDetail_contest_combos_normal/properties/use_before/items/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail_contest_combos_normal/properties/use_before/items/properties/name";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1366
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "MoveDetail_contest_combos_normal_component_prop2_items1_prop2";
-        n.schemaPath = "#/components/schemas/MoveDetail_contest_combos_normal/properties/use_before/items/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail_contest_combos_normal/properties/use_before/items/properties/url";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1367
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"Hits Pok\303\251mon under the effects of dig and fly.\"]";
-        n.sourceName = "MoveDetail_effect_changes_inner_component_prop1_items1_prop1";
-        n.schemaPath = "#/components/schemas/MoveDetail_effect_changes_inner/properties/effect_entries/items/properties/effect";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail_effect_changes_inner/properties/effect_entries/items/properties/effect";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1368
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1570; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1571; n.properties.push_back(std::move(b)); }
-        n.sourceName = "MoveDetail_effect_changes_inner_component_prop1_items1_prop2";
-        n.schemaPath = "#/components/schemas/MoveDetail_effect_changes_inner/properties/effect_entries/items/properties/language";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail_effect_changes_inner/properties/effect_entries/items/properties/language";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1369
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "MoveLearnMethodDetail_component_prop5_items1_prop1";
-        n.schemaPath = "#/components/schemas/MoveLearnMethodDetail/properties/version_groups/items/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveLearnMethodDetail/properties/version_groups/items/properties/name";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1370
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "MoveLearnMethodDetail_component_prop5_items1_prop2";
-        n.schemaPath = "#/components/schemas/MoveLearnMethodDetail/properties/version_groups/items/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveLearnMethodDetail/properties/version_groups/items/properties/url";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1371
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "MoveMetaAilmentDetail_component_prop2_items1_prop1";
-        n.schemaPath = "#/components/schemas/MoveMetaAilmentDetail/properties/moves/items/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveMetaAilmentDetail/properties/moves/items/properties/name";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1372
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "MoveMetaAilmentDetail_component_prop2_items1_prop2";
-        n.schemaPath = "#/components/schemas/MoveMetaAilmentDetail/properties/moves/items/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveMetaAilmentDetail/properties/moves/items/properties/url";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1373
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "MoveMetaCategoryDetail_component_prop3_items1_prop1";
-        n.schemaPath = "#/components/schemas/MoveMetaCategoryDetail/properties/moves/items/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveMetaCategoryDetail/properties/moves/items/properties/name";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1374
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "MoveMetaCategoryDetail_component_prop3_items1_prop2";
-        n.schemaPath = "#/components/schemas/MoveMetaCategoryDetail/properties/moves/items/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveMetaCategoryDetail/properties/moves/items/properties/url";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1375
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.annExamplesJson = "[1]";
-        n.annFormat = "\"int32\"";
-        n.sourceName = "NatureDetail_component_prop10_items1_prop1";
-        n.schemaPath = "#/components/schemas/NatureDetail/properties/pokeathlon_stat_changes/items/properties/max_change";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/NatureDetail/properties/pokeathlon_stat_changes/items/properties/max_change";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1376
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1572; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1573; n.properties.push_back(std::move(b)); }
-        n.sourceName = "NatureDetail_component_prop10_items1_prop2";
-        n.schemaPath = "#/components/schemas/NatureDetail/properties/pokeathlon_stat_changes/items/properties/pokeathlon_stat";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/NatureDetail/properties/pokeathlon_stat_changes/items/properties/pokeathlon_stat";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1377
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.annExamplesJson = "[50]";
-        n.annFormat = "\"int32\"";
-        n.sourceName = "PalParkAreaDetail_component_prop4_items1_prop1";
-        n.schemaPath = "#/components/schemas/PalParkAreaDetail/properties/pokemon_encounters/items/properties/base_score";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PalParkAreaDetail/properties/pokemon_encounters/items/properties/base_score";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1378
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1574; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1575; n.properties.push_back(std::move(b)); }
-        n.sourceName = "PalParkAreaDetail_component_prop4_items1_prop2";
-        n.schemaPath = "#/components/schemas/PalParkAreaDetail/properties/pokemon_encounters/items/properties/pokemon-species";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PalParkAreaDetail/properties/pokemon_encounters/items/properties/pokemon-species";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1379
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.annExamplesJson = "[30]";
-        n.annFormat = "\"int32\"";
-        n.sourceName = "PalParkAreaDetail_component_prop4_items1_prop3";
-        n.schemaPath = "#/components/schemas/PalParkAreaDetail/properties/pokemon_encounters/items/properties/rate";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PalParkAreaDetail/properties/pokemon_encounters/items/properties/rate";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1380
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(2021);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "max_change"; b.node = 1576; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "nature"; b.node = 1577; n.properties.push_back(std::move(b)); }
-        n.sourceName = "PokeathlonStatDetail_component_prop1_prop1_items1";
-        n.schemaPath = "#/components/schemas/PokeathlonStatDetail/properties/affecting_natures/properties/decrease/items";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokeathlonStatDetail/properties/affecting_natures/properties/decrease/items";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1381
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(2022);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "max_change"; b.node = 1578; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "nature"; b.node = 1579; n.properties.push_back(std::move(b)); }
-        n.sourceName = "PokeathlonStatDetail_component_prop1_prop2_items1";
-        n.schemaPath = "#/components/schemas/PokeathlonStatDetail/properties/affecting_natures/properties/increase/items";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokeathlonStatDetail/properties/affecting_natures/properties/increase/items";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1382
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        setExact(n.maximum, n.hasMaximum, "-1");
-        n.annExamplesJson = "[-1]";
-        n.annFormat = "\"int32\"";
-        n.sourceName = "PokeathlonStatDetail_affecting_natures_component_prop1_items1_prop1";
-        n.schemaPath = "#/components/schemas/PokeathlonStatDetail_affecting_natures/properties/decrease/items/properties/max_change";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokeathlonStatDetail_affecting_natures/properties/decrease/items/properties/max_change";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1383
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1580; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1581; n.properties.push_back(std::move(b)); }
-        n.sourceName = "PokeathlonStatDetail_affecting_natures_component_prop1_items1_prop2";
-        n.schemaPath = "#/components/schemas/PokeathlonStatDetail_affecting_natures/properties/decrease/items/properties/nature";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokeathlonStatDetail_affecting_natures/properties/decrease/items/properties/nature";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1384
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        setExact(n.minimum, n.hasMinimum, "1");
-        n.annExamplesJson = "[2]";
-        n.annFormat = "\"int32\"";
-        n.sourceName = "PokeathlonStatDetail_affecting_natures_component_prop2_items1_prop1";
-        n.schemaPath = "#/components/schemas/PokeathlonStatDetail_affecting_natures/properties/increase/items/properties/max_change";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokeathlonStatDetail_affecting_natures/properties/increase/items/properties/max_change";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1385
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1582; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1583; n.properties.push_back(std::move(b)); }
-        n.sourceName = "PokeathlonStatDetail_affecting_natures_component_prop2_items1_prop2";
-        n.schemaPath = "#/components/schemas/PokeathlonStatDetail_affecting_natures/properties/increase/items/properties/nature";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokeathlonStatDetail_affecting_natures/properties/increase/items/properties/nature";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1386
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.annExamplesJson = "[1]";
-        n.annFormat = "\"int32\"";
-        n.sourceName = "PokedexDetail_component_prop6_items1_prop1";
-        n.schemaPath = "#/components/schemas/PokedexDetail/properties/pokemon_entries/items/properties/entry_number";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokedexDetail/properties/pokemon_entries/items/properties/entry_number";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1387
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1584; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1585; n.properties.push_back(std::move(b)); }
-        n.sourceName = "PokedexDetail_component_prop6_items1_prop2";
-        n.schemaPath = "#/components/schemas/PokedexDetail/properties/pokemon_entries/items/properties/pokemon_species";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokedexDetail/properties/pokemon_entries/items/properties/pokemon_species";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1388
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "PokedexDetail_component_prop8_items1_prop1";
-        n.schemaPath = "#/components/schemas/PokedexDetail/properties/version_groups/items/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokedexDetail/properties/version_groups/items/properties/name";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1389
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "PokedexDetail_component_prop8_items1_prop2";
-        n.schemaPath = "#/components/schemas/PokedexDetail/properties/version_groups/items/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokedexDetail/properties/version_groups/items/properties/url";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1390
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1586; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1587; n.properties.push_back(std::move(b)); }
-        n.sourceName = "PokemonDetail_component_prop1_items1_prop1";
-        n.schemaPath = "#/components/schemas/PokemonDetail/properties/abilities/items/properties/ability";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail/properties/abilities/items/properties/ability";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1391
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 2u;
-        n.sourceName = "PokemonDetail_component_prop1_items1_prop2";
-        n.schemaPath = "#/components/schemas/PokemonDetail/properties/abilities/items/properties/is_hidden";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail/properties/abilities/items/properties/is_hidden";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1392
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.annExamplesJson = "[1]";
-        n.annFormat = "\"int32\"";
-        n.sourceName = "PokemonDetail_component_prop1_items1_prop3";
-        n.schemaPath = "#/components/schemas/PokemonDetail/properties/abilities/items/properties/slot";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail/properties/abilities/items/properties/slot";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1393
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "PokemonDetail_component_prop7_prop1_prop1";
-        n.schemaPath = "#/components/schemas/PokemonDetail/properties/held_items/properties/item/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail/properties/held_items/properties/item/properties/name";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1394
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "PokemonDetail_component_prop7_prop1_prop2";
-        n.schemaPath = "#/components/schemas/PokemonDetail/properties/held_items/properties/item/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail/properties/held_items/properties/item/properties/url";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1395
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1896);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "rarity"; b.node = 1588; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "version"; b.node = 1589; n.properties.push_back(std::move(b)); }
-        n.sourceName = "PokemonDetail_component_prop7_prop2_items1";
-        n.schemaPath = "#/components/schemas/PokemonDetail/properties/held_items/properties/version_details/items";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail/properties/held_items/properties/version_details/items";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1396
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1590; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1591; n.properties.push_back(std::move(b)); }
-        n.sourceName = "PokemonDetail_component_prop11_items1_prop1";
-        n.schemaPath = "#/components/schemas/PokemonDetail/properties/moves/items/properties/move";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail/properties/moves/items/properties/move";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1397
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1592;
-        n.sourceName = "PokemonDetail_component_prop11_items1_prop2";
-        n.schemaPath = "#/components/schemas/PokemonDetail/properties/moves/items/properties/version_group_details";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail/properties/moves/items/properties/version_group_details";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1398
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1593;
-        n.sourceName = "PokemonDetail_component_prop14_items1_prop1";
-        n.schemaPath = "#/components/schemas/PokemonDetail/properties/past_abilities/items/properties/abilities";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail/properties/past_abilities/items/properties/abilities";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1399
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1594; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1595; n.properties.push_back(std::move(b)); }
-        n.sourceName = "PokemonDetail_component_prop14_items1_prop2";
-        n.schemaPath = "#/components/schemas/PokemonDetail/properties/past_abilities/items/properties/generation";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail/properties/past_abilities/items/properties/generation";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1400
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1596; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1597; n.properties.push_back(std::move(b)); }
-        n.sourceName = "PokemonDetail_component_prop15_items1_prop1";
-        n.schemaPath = "#/components/schemas/PokemonDetail/properties/past_types/items/properties/generation";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail/properties/past_types/items/properties/generation";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1401
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1598;
-        n.sourceName = "PokemonDetail_component_prop15_items1_prop2";
-        n.schemaPath = "#/components/schemas/PokemonDetail/properties/past_types/items/properties/types";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail/properties/past_types/items/properties/types";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1402
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.annExamplesJson = "[1]";
-        n.annFormat = "\"int32\"";
-        n.sourceName = "PokemonDetail_component_prop19_items1_prop1";
-        n.schemaPath = "#/components/schemas/PokemonDetail/properties/types/items/properties/slot";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail/properties/types/items/properties/slot";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1403
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1599; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1600; n.properties.push_back(std::move(b)); }
-        n.sourceName = "PokemonDetail_component_prop19_items1_prop2";
-        n.schemaPath = "#/components/schemas/PokemonDetail/properties/types/items/properties/type";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail/properties/types/items/properties/type";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1404
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.annExamplesJson = "[5]";
-        n.annFormat = "\"int32\"";
-        n.sourceName = "PokemonDetail_held_items_component_prop2_items1_prop1";
-        n.schemaPath = "#/components/schemas/PokemonDetail_held_items/properties/version_details/items/properties/rarity";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail_held_items/properties/version_details/items/properties/rarity";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1405
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1601; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1602; n.properties.push_back(std::move(b)); }
-        n.sourceName = "PokemonDetail_held_items_component_prop2_items1_prop2";
-        n.schemaPath = "#/components/schemas/PokemonDetail_held_items/properties/version_details/items/properties/version";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail_held_items/properties/version_details/items/properties/version";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1406
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.annExamplesJson = "[1]";
-        n.annFormat = "\"int32\"";
-        n.sourceName = "PokemonDetail_moves_inner_component_prop2_items1_prop1";
-        n.schemaPath = "#/components/schemas/PokemonDetail_moves_inner/properties/version_group_details/items/properties/level_learned_at";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail_moves_inner/properties/version_group_details/items/properties/level_learned_at";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1407
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1603; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1604; n.properties.push_back(std::move(b)); }
-        n.sourceName = "PokemonDetail_moves_inner_component_prop2_items1_prop2";
-        n.schemaPath = "#/components/schemas/PokemonDetail_moves_inner/properties/version_group_details/items/properties/move_learn_method";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail_moves_inner/properties/version_group_details/items/properties/move_learn_method";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1408
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1605; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1606; n.properties.push_back(std::move(b)); }
-        n.sourceName = "PokemonDetail_moves_inner_component_prop2_items1_prop3";
-        n.schemaPath = "#/components/schemas/PokemonDetail_moves_inner/properties/version_group_details/items/properties/version_group";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail_moves_inner/properties/version_group_details/items/properties/version_group";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1409
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1607; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1608; n.properties.push_back(std::move(b)); }
-        n.sourceName = "PokemonDetail_past_abilities_inner_component_prop1_items1_prop1";
-        n.schemaPath = "#/components/schemas/PokemonDetail_past_abilities_inner/properties/abilities/items/properties/ability";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail_past_abilities_inner/properties/abilities/items/properties/ability";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1410
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 2u;
-        n.sourceName = "PokemonDetail_past_abilities_inner_component_prop1_items1_prop2";
-        n.schemaPath = "#/components/schemas/PokemonDetail_past_abilities_inner/properties/abilities/items/properties/is_hidden";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail_past_abilities_inner/properties/abilities/items/properties/is_hidden";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1411
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.annExamplesJson = "[1]";
-        n.annFormat = "\"int32\"";
-        n.sourceName = "PokemonDetail_past_abilities_inner_component_prop1_items1_prop3";
-        n.schemaPath = "#/components/schemas/PokemonDetail_past_abilities_inner/properties/abilities/items/properties/slot";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail_past_abilities_inner/properties/abilities/items/properties/slot";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1412
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.annExamplesJson = "[1]";
-        n.annFormat = "\"int32\"";
-        n.sourceName = "PokemonDetail_past_types_inner_component_prop2_items1_prop1";
-        n.schemaPath = "#/components/schemas/PokemonDetail_past_types_inner/properties/types/items/properties/slot";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail_past_types_inner/properties/types/items/properties/slot";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1413
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1609; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1610; n.properties.push_back(std::move(b)); }
-        n.sourceName = "PokemonDetail_past_types_inner_component_prop2_items1_prop2";
-        n.schemaPath = "#/components/schemas/PokemonDetail_past_types_inner/properties/types/items/properties/type";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail_past_types_inner/properties/types/items/properties/type";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1414
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1611; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1612; n.properties.push_back(std::move(b)); }
-        n.sourceName = "PokemonFormDetail_component_prop2_items1_prop1";
-        n.schemaPath = "#/components/schemas/PokemonFormDetail/properties/form_names/items/properties/language";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonFormDetail/properties/form_names/items/properties/language";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1415
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"bulbasaur\"]";
-        n.sourceName = "PokemonFormDetail_component_prop2_items1_prop2";
-        n.schemaPath = "#/components/schemas/PokemonFormDetail/properties/form_names/items/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonFormDetail/properties/form_names/items/properties/name";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1416
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1613; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1614; n.properties.push_back(std::move(b)); }
-        n.sourceName = "PokemonFormDetail_component_prop9_items1_prop1";
-        n.schemaPath = "#/components/schemas/PokemonFormDetail/properties/names/items/properties/language";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonFormDetail/properties/names/items/properties/language";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1417
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"bulbasaur\"]";
-        n.sourceName = "PokemonFormDetail_component_prop9_items1_prop2";
-        n.schemaPath = "#/components/schemas/PokemonFormDetail/properties/names/items/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonFormDetail/properties/names/items/properties/name";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1418
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.annExamplesJson = "[1]";
-        n.annFormat = "\"int32\"";
-        n.sourceName = "PokemonFormDetail_component_prop13_items1_prop1";
-        n.schemaPath = "#/components/schemas/PokemonFormDetail/properties/types/items/properties/slot";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonFormDetail/properties/types/items/properties/slot";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1419
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1615; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1616; n.properties.push_back(std::move(b)); }
-        n.sourceName = "PokemonFormDetail_component_prop13_items1_prop2";
-        n.schemaPath = "#/components/schemas/PokemonFormDetail/properties/types/items/properties/type";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonFormDetail/properties/types/items/properties/type";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1420
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"Pomaceous\"]";
-        n.sourceName = "PokemonShapeDetail_component_prop1_items1_prop1";
-        n.schemaPath = "#/components/schemas/PokemonShapeDetail/properties/awesome_names/items/properties/awesome_name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonShapeDetail/properties/awesome_names/items/properties/awesome_name";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1421
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1617; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1618; n.properties.push_back(std::move(b)); }
-        n.sourceName = "PokemonShapeDetail_component_prop1_items1_prop2";
-        n.schemaPath = "#/components/schemas/PokemonShapeDetail/properties/awesome_names/items/properties/language";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonShapeDetail/properties/awesome_names/items/properties/language";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1422
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"Ball\"]";
-        n.sourceName = "PokemonShapeDetail_component_prop4_items1_prop1";
-        n.schemaPath = "#/components/schemas/PokemonShapeDetail/properties/names/items/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonShapeDetail/properties/names/items/properties/name";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1423
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/language/9/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "PokemonShapeDetail_component_prop4_items1_prop2";
-        n.schemaPath = "#/components/schemas/PokemonShapeDetail/properties/names/items/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonShapeDetail/properties/names/items/properties/url";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1424
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "PokemonSpeciesDetail_component_prop4_items1_prop1";
-        n.schemaPath = "#/components/schemas/PokemonSpeciesDetail/properties/egg_groups/items/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDetail/properties/egg_groups/items/properties/name";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1425
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "PokemonSpeciesDetail_component_prop4_items1_prop2";
-        n.schemaPath = "#/components/schemas/PokemonSpeciesDetail/properties/egg_groups/items/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDetail/properties/egg_groups/items/properties/url";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1426
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"Seed Pok\303\251mon\"]";
-        n.sourceName = "PokemonSpeciesDetail_component_prop11_items1_prop1";
-        n.schemaPath = "#/components/schemas/PokemonSpeciesDetail/properties/genera/items/properties/genus";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDetail/properties/genera/items/properties/genus";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1427
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1619; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1620; n.properties.push_back(std::move(b)); }
-        n.sourceName = "PokemonSpeciesDetail_component_prop11_items1_prop2";
-        n.schemaPath = "#/components/schemas/PokemonSpeciesDetail/properties/genera/items/properties/language";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDetail/properties/genera/items/properties/language";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1428
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1621; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1622; n.properties.push_back(std::move(b)); }
-        n.sourceName = "PokemonSpeciesDetail_component_prop22_items1_prop1";
-        n.schemaPath = "#/components/schemas/PokemonSpeciesDetail/properties/names/items/properties/language";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDetail/properties/names/items/properties/language";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1429
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"bulbasaur\"]";
-        n.sourceName = "PokemonSpeciesDetail_component_prop22_items1_prop2";
-        n.schemaPath = "#/components/schemas/PokemonSpeciesDetail/properties/names/items/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDetail/properties/names/items/properties/name";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1430
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1623; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1624; n.properties.push_back(std::move(b)); }
-        n.sourceName = "PokemonSpeciesDetail_component_prop24_items1_prop1";
-        n.schemaPath = "#/components/schemas/PokemonSpeciesDetail/properties/pal_park_encounters/items/properties/area";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDetail/properties/pal_park_encounters/items/properties/area";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1431
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.annExamplesJson = "[50]";
-        n.annFormat = "\"int32\"";
-        n.sourceName = "PokemonSpeciesDetail_component_prop24_items1_prop2";
-        n.schemaPath = "#/components/schemas/PokemonSpeciesDetail/properties/pal_park_encounters/items/properties/base_score";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDetail/properties/pal_park_encounters/items/properties/base_score";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1432
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.annExamplesJson = "[30]";
-        n.annFormat = "\"int32\"";
-        n.sourceName = "PokemonSpeciesDetail_component_prop24_items1_prop3";
-        n.schemaPath = "#/components/schemas/PokemonSpeciesDetail/properties/pal_park_encounters/items/properties/rate";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDetail/properties/pal_park_encounters/items/properties/rate";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1433
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 2u;
-        n.sourceName = "PokemonSpeciesDetail_component_prop27_items1_prop1";
-        n.schemaPath = "#/components/schemas/PokemonSpeciesDetail/properties/varieties/items/properties/is_default";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDetail/properties/varieties/items/properties/is_default";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1434
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1625; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1626; n.properties.push_back(std::move(b)); }
-        n.sourceName = "PokemonSpeciesDetail_component_prop27_items1_prop2";
-        n.schemaPath = "#/components/schemas/PokemonSpeciesDetail/properties/varieties/items/properties/pokemon";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDetail/properties/varieties/items/properties/pokemon";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1435
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "RegionDetail_component_prop7_items1_prop1";
-        n.schemaPath = "#/components/schemas/RegionDetail/properties/version_groups/items/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/RegionDetail/properties/version_groups/items/properties/name";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1436
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "RegionDetail_component_prop7_items1_prop2";
-        n.schemaPath = "#/components/schemas/RegionDetail/properties/version_groups/items/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/RegionDetail/properties/version_groups/items/properties/url";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1437
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(2070);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "change"; b.node = 1627; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "move"; b.node = 1628; n.properties.push_back(std::move(b)); }
-        n.sourceName = "StatDetail_component_prop1_prop1_items1";
-        n.schemaPath = "#/components/schemas/StatDetail/properties/affecting_moves/properties/decrease/items";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/StatDetail/properties/affecting_moves/properties/decrease/items";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1438
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(2070);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "change"; b.node = 1629; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "move"; b.node = 1630; n.properties.push_back(std::move(b)); }
-        n.sourceName = "StatDetail_component_prop1_prop2_items1";
-        n.schemaPath = "#/components/schemas/StatDetail/properties/affecting_moves/properties/increase/items";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/StatDetail/properties/affecting_moves/properties/increase/items";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1439
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1631; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1632; n.properties.push_back(std::move(b)); }
-        n.sourceName = "StatDetail_component_prop2_prop1_items1";
-        n.schemaPath = "#/components/schemas/StatDetail/properties/affecting_natures/properties/decrease/items";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/StatDetail/properties/affecting_natures/properties/decrease/items";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1440
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1633; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1634; n.properties.push_back(std::move(b)); }
-        n.sourceName = "StatDetail_component_prop2_prop2_items1";
-        n.schemaPath = "#/components/schemas/StatDetail/properties/affecting_natures/properties/increase/items";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/StatDetail/properties/affecting_natures/properties/increase/items";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1441
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.annExamplesJson = "[5]";
-        n.annFormat = "\"int32\"";
-        n.sourceName = "StatDetail_affecting_moves_component_prop1_items1_prop1";
-        n.schemaPath = "#/components/schemas/StatDetail_affecting_moves/properties/decrease/items/properties/change";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/StatDetail_affecting_moves/properties/decrease/items/properties/change";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1442
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1635; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1636; n.properties.push_back(std::move(b)); }
-        n.sourceName = "StatDetail_affecting_moves_component_prop1_items1_prop2";
-        n.schemaPath = "#/components/schemas/StatDetail_affecting_moves/properties/decrease/items/properties/move";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/StatDetail_affecting_moves/properties/decrease/items/properties/move";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1443
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.annExamplesJson = "[5]";
-        n.annFormat = "\"int32\"";
-        n.sourceName = "StatDetail_affecting_moves_component_prop2_items1_prop1";
-        n.schemaPath = "#/components/schemas/StatDetail_affecting_moves/properties/increase/items/properties/change";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/StatDetail_affecting_moves/properties/increase/items/properties/change";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1444
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1637; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1638; n.properties.push_back(std::move(b)); }
-        n.sourceName = "StatDetail_affecting_moves_component_prop2_items1_prop2";
-        n.schemaPath = "#/components/schemas/StatDetail_affecting_moves/properties/increase/items/properties/move";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/StatDetail_affecting_moves/properties/increase/items/properties/move";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1445
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "StatDetail_affecting_natures_component_prop1_items1_prop1";
-        n.schemaPath = "#/components/schemas/StatDetail_affecting_natures/properties/decrease/items/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/StatDetail_affecting_natures/properties/decrease/items/properties/name";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1446
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "StatDetail_affecting_natures_component_prop1_items1_prop2";
-        n.schemaPath = "#/components/schemas/StatDetail_affecting_natures/properties/decrease/items/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/StatDetail_affecting_natures/properties/decrease/items/properties/url";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1447
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "StatDetail_affecting_natures_component_prop2_items1_prop1";
-        n.schemaPath = "#/components/schemas/StatDetail_affecting_natures/properties/increase/items/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/StatDetail_affecting_natures/properties/increase/items/properties/name";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1448
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "StatDetail_affecting_natures_component_prop2_items1_prop2";
-        n.schemaPath = "#/components/schemas/StatDetail_affecting_natures/properties/increase/items/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/StatDetail_affecting_natures/properties/increase/items/properties/url";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1449
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1639; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1640; n.properties.push_back(std::move(b)); }
-        n.sourceName = "TypeDetail_component_prop1_prop1_items1";
-        n.schemaPath = "#/components/schemas/TypeDetail/properties/damage_relations/properties/double_damage_from/items";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail/properties/damage_relations/properties/double_damage_from/items";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1450
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1641; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1642; n.properties.push_back(std::move(b)); }
-        n.sourceName = "TypeDetail_component_prop1_prop2_items1";
-        n.schemaPath = "#/components/schemas/TypeDetail/properties/damage_relations/properties/double_damage_to/items";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail/properties/damage_relations/properties/double_damage_to/items";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1451
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1643; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1644; n.properties.push_back(std::move(b)); }
-        n.sourceName = "TypeDetail_component_prop1_prop3_items1";
-        n.schemaPath = "#/components/schemas/TypeDetail/properties/damage_relations/properties/half_damage_from/items";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail/properties/damage_relations/properties/half_damage_from/items";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1452
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1645; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1646; n.properties.push_back(std::move(b)); }
-        n.sourceName = "TypeDetail_component_prop1_prop4_items1";
-        n.schemaPath = "#/components/schemas/TypeDetail/properties/damage_relations/properties/half_damage_to/items";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail/properties/damage_relations/properties/half_damage_to/items";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1453
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1647; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1648; n.properties.push_back(std::move(b)); }
-        n.sourceName = "TypeDetail_component_prop1_prop5_items1";
-        n.schemaPath = "#/components/schemas/TypeDetail/properties/damage_relations/properties/no_damage_from/items";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail/properties/damage_relations/properties/no_damage_from/items";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1454
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1649; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1650; n.properties.push_back(std::move(b)); }
-        n.sourceName = "TypeDetail_component_prop1_prop6_items1";
-        n.schemaPath = "#/components/schemas/TypeDetail/properties/damage_relations/properties/no_damage_to/items";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail/properties/damage_relations/properties/no_damage_to/items";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1455
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(2080);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "double_damage_from"; b.node = 1651; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "double_damage_to"; b.node = 1652; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "half_damage_from"; b.node = 1653; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "half_damage_to"; b.node = 1654; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "no_damage_from"; b.node = 1655; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "no_damage_to"; b.node = 1656; n.properties.push_back(std::move(b)); }
-        n.sourceName = "TypeDetail_component_prop9_items1_prop1";
-        n.schemaPath = "#/components/schemas/TypeDetail/properties/past_damage_relations/items/properties/damage_relations";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail/properties/past_damage_relations/items/properties/damage_relations";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1456
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1657; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1658; n.properties.push_back(std::move(b)); }
-        n.sourceName = "TypeDetail_component_prop9_items1_prop2";
-        n.schemaPath = "#/components/schemas/TypeDetail/properties/past_damage_relations/items/properties/generation";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail/properties/past_damage_relations/items/properties/generation";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1457
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(2082);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1659; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1660; n.properties.push_back(std::move(b)); }
-        n.sourceName = "TypeDetail_component_prop10_items1_prop1";
-        n.schemaPath = "#/components/schemas/TypeDetail/properties/pokemon/items/properties/pokemon";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail/properties/pokemon/items/properties/pokemon";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1458
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.annExamplesJson = "[1]";
-        n.sourceName = "TypeDetail_component_prop10_items1_prop2";
-        n.schemaPath = "#/components/schemas/TypeDetail/properties/pokemon/items/properties/slot";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail/properties/pokemon/items/properties/slot";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1459
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(2083);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name-icon"; b.node = 1661; n.properties.push_back(std::move(b)); }
-        n.sourceName = "TypeDetail_component_prop11_addprops1_addprops1";
-        n.schemaPath = "#/components/schemas/TypeDetail/properties/sprites/additionalProperties/additionalProperties";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail/properties/sprites/additionalProperties/additionalProperties";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1460
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "TypeDetail_damage_relations_component_prop1_items1_prop1";
-        n.schemaPath = "#/components/schemas/TypeDetail_damage_relations/properties/double_damage_from/items/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail_damage_relations/properties/double_damage_from/items/properties/name";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1461
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "TypeDetail_damage_relations_component_prop1_items1_prop2";
-        n.schemaPath = "#/components/schemas/TypeDetail_damage_relations/properties/double_damage_from/items/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail_damage_relations/properties/double_damage_from/items/properties/url";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1462
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "TypeDetail_damage_relations_component_prop2_items1_prop1";
-        n.schemaPath = "#/components/schemas/TypeDetail_damage_relations/properties/double_damage_to/items/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail_damage_relations/properties/double_damage_to/items/properties/name";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1463
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "TypeDetail_damage_relations_component_prop2_items1_prop2";
-        n.schemaPath = "#/components/schemas/TypeDetail_damage_relations/properties/double_damage_to/items/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail_damage_relations/properties/double_damage_to/items/properties/url";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1464
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "TypeDetail_damage_relations_component_prop3_items1_prop1";
-        n.schemaPath = "#/components/schemas/TypeDetail_damage_relations/properties/half_damage_from/items/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail_damage_relations/properties/half_damage_from/items/properties/name";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1465
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "TypeDetail_damage_relations_component_prop3_items1_prop2";
-        n.schemaPath = "#/components/schemas/TypeDetail_damage_relations/properties/half_damage_from/items/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail_damage_relations/properties/half_damage_from/items/properties/url";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1466
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "TypeDetail_damage_relations_component_prop4_items1_prop1";
-        n.schemaPath = "#/components/schemas/TypeDetail_damage_relations/properties/half_damage_to/items/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail_damage_relations/properties/half_damage_to/items/properties/name";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1467
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "TypeDetail_damage_relations_component_prop4_items1_prop2";
-        n.schemaPath = "#/components/schemas/TypeDetail_damage_relations/properties/half_damage_to/items/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail_damage_relations/properties/half_damage_to/items/properties/url";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1468
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "TypeDetail_damage_relations_component_prop5_items1_prop1";
-        n.schemaPath = "#/components/schemas/TypeDetail_damage_relations/properties/no_damage_from/items/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail_damage_relations/properties/no_damage_from/items/properties/name";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1469
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "TypeDetail_damage_relations_component_prop5_items1_prop2";
-        n.schemaPath = "#/components/schemas/TypeDetail_damage_relations/properties/no_damage_from/items/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail_damage_relations/properties/no_damage_from/items/properties/url";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1470
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "TypeDetail_damage_relations_component_prop6_items1_prop1";
-        n.schemaPath = "#/components/schemas/TypeDetail_damage_relations/properties/no_damage_to/items/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail_damage_relations/properties/no_damage_to/items/properties/name";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1471
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "TypeDetail_damage_relations_component_prop6_items1_prop2";
-        n.schemaPath = "#/components/schemas/TypeDetail_damage_relations/properties/no_damage_to/items/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail_damage_relations/properties/no_damage_to/items/properties/url";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1472
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1662; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1663; n.properties.push_back(std::move(b)); }
-        n.sourceName = "TypeDetail_past_damage_relations_inner_component_prop1_prop1_items1";
-        n.schemaPath = "#/components/schemas/TypeDetail_past_damage_relations_inner/properties/damage_relations/properties/double_damage_from/items";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail_past_damage_relations_inner/properties/damage_relations/properties/double_damage_from/items";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1473
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1664; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1665; n.properties.push_back(std::move(b)); }
-        n.sourceName = "TypeDetail_past_damage_relations_inner_component_prop1_prop2_items1";
-        n.schemaPath = "#/components/schemas/TypeDetail_past_damage_relations_inner/properties/damage_relations/properties/double_damage_to/items";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail_past_damage_relations_inner/properties/damage_relations/properties/double_damage_to/items";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1474
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1666; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1667; n.properties.push_back(std::move(b)); }
-        n.sourceName = "TypeDetail_past_damage_relations_inner_component_prop1_prop3_items1";
-        n.schemaPath = "#/components/schemas/TypeDetail_past_damage_relations_inner/properties/damage_relations/properties/half_damage_from/items";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail_past_damage_relations_inner/properties/damage_relations/properties/half_damage_from/items";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1475
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1668; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1669; n.properties.push_back(std::move(b)); }
-        n.sourceName = "TypeDetail_past_damage_relations_inner_component_prop1_prop4_items1";
-        n.schemaPath = "#/components/schemas/TypeDetail_past_damage_relations_inner/properties/damage_relations/properties/half_damage_to/items";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail_past_damage_relations_inner/properties/damage_relations/properties/half_damage_to/items";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1476
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1670; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1671; n.properties.push_back(std::move(b)); }
-        n.sourceName = "TypeDetail_past_damage_relations_inner_component_prop1_prop5_items1";
-        n.schemaPath = "#/components/schemas/TypeDetail_past_damage_relations_inner/properties/damage_relations/properties/no_damage_from/items";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail_past_damage_relations_inner/properties/damage_relations/properties/no_damage_from/items";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1477
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1672; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1673; n.properties.push_back(std::move(b)); }
-        n.sourceName = "TypeDetail_past_damage_relations_inner_component_prop1_prop6_items1";
-        n.schemaPath = "#/components/schemas/TypeDetail_past_damage_relations_inner/properties/damage_relations/properties/no_damage_to/items";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail_past_damage_relations_inner/properties/damage_relations/properties/no_damage_to/items";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1478
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "TypeDetail_past_damage_relations_inner_damage_relations_component_prop1_items1_prop1";
-        n.schemaPath = "#/components/schemas/TypeDetail_past_damage_relations_inner_damage_relations/properties/double_damage_from/items/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail_past_damage_relations_inner_damage_relations/properties/double_damage_from/items/properties/name";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1479
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "TypeDetail_past_damage_relations_inner_damage_relations_component_prop1_items1_prop2";
-        n.schemaPath = "#/components/schemas/TypeDetail_past_damage_relations_inner_damage_relations/properties/double_damage_from/items/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail_past_damage_relations_inner_damage_relations/properties/double_damage_from/items/properties/url";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1480
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "TypeDetail_past_damage_relations_inner_damage_relations_component_prop2_items1_prop1";
-        n.schemaPath = "#/components/schemas/TypeDetail_past_damage_relations_inner_damage_relations/properties/double_damage_to/items/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail_past_damage_relations_inner_damage_relations/properties/double_damage_to/items/properties/name";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 1481
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "TypeDetail_past_damage_relations_inner_damage_relations_component_prop2_items1_prop2";
-        n.schemaPath = "#/components/schemas/TypeDetail_past_damage_relations_inner_damage_relations/properties/double_damage_to/items/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail_past_damage_relations_inner_damage_relations/properties/double_damage_to/items/properties/url";
-        reg.nodes.push_back(std::move(n));
-    }
-
     { // node 1482
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "TypeDetail_past_damage_relations_inner_damage_relations_component_prop3_items1_prop1";
-        n.schemaPath = "#/components/schemas/TypeDetail_past_damage_relations_inner_damage_relations/properties/half_damage_from/items/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail_past_damage_relations_inner_damage_relations/properties/half_damage_from/items/properties/name";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1910);
+        n.sourceName = "PaginatedPokemonFormSummaryList_component_prop4_items1";
+        n.schemaPath = "#/components/schemas/PaginatedPokemonFormSummaryList/properties/results/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokemonFormSummaryList/properties/results/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1483
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "TypeDetail_past_damage_relations_inner_damage_relations_component_prop3_items1_prop2";
-        n.schemaPath = "#/components/schemas/TypeDetail_past_damage_relations_inner_damage_relations/properties/half_damage_from/items/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail_past_damage_relations_inner_damage_relations/properties/half_damage_from/items/properties/url";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1916);
+        n.sourceName = "PaginatedPokemonHabitatSummaryList_component_prop4_items1";
+        n.schemaPath = "#/components/schemas/PaginatedPokemonHabitatSummaryList/properties/results/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokemonHabitatSummaryList/properties/results/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1484
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "TypeDetail_past_damage_relations_inner_damage_relations_component_prop4_items1_prop1";
-        n.schemaPath = "#/components/schemas/TypeDetail_past_damage_relations_inner_damage_relations/properties/half_damage_to/items/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail_past_damage_relations_inner_damage_relations/properties/half_damage_to/items/properties/name";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1928);
+        n.sourceName = "PaginatedPokemonShapeSummaryList_component_prop4_items1";
+        n.schemaPath = "#/components/schemas/PaginatedPokemonShapeSummaryList/properties/results/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokemonShapeSummaryList/properties/results/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1485
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "TypeDetail_past_damage_relations_inner_damage_relations_component_prop4_items1_prop2";
-        n.schemaPath = "#/components/schemas/TypeDetail_past_damage_relations_inner_damage_relations/properties/half_damage_to/items/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail_past_damage_relations_inner_damage_relations/properties/half_damage_to/items/properties/url";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1937);
+        n.sourceName = "PaginatedPokemonSpeciesSummaryList_component_prop4_items1";
+        n.schemaPath = "#/components/schemas/PaginatedPokemonSpeciesSummaryList/properties/results/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokemonSpeciesSummaryList/properties/results/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1486
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "TypeDetail_past_damage_relations_inner_damage_relations_component_prop5_items1_prop1";
-        n.schemaPath = "#/components/schemas/TypeDetail_past_damage_relations_inner_damage_relations/properties/no_damage_from/items/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail_past_damage_relations_inner_damage_relations/properties/no_damage_from/items/properties/name";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1946);
+        n.sourceName = "PaginatedPokemonSummaryList_component_prop4_items1";
+        n.schemaPath = "#/components/schemas/PaginatedPokemonSummaryList/properties/results/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokemonSummaryList/properties/results/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1487
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "TypeDetail_past_damage_relations_inner_damage_relations_component_prop5_items1_prop2";
-        n.schemaPath = "#/components/schemas/TypeDetail_past_damage_relations_inner_damage_relations/properties/no_damage_from/items/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail_past_damage_relations_inner_damage_relations/properties/no_damage_from/items/properties/url";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1951);
+        n.sourceName = "PaginatedRegionSummaryList_component_prop4_items1";
+        n.schemaPath = "#/components/schemas/PaginatedRegionSummaryList/properties/results/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedRegionSummaryList/properties/results/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1488
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "TypeDetail_past_damage_relations_inner_damage_relations_component_prop6_items1_prop1";
-        n.schemaPath = "#/components/schemas/TypeDetail_past_damage_relations_inner_damage_relations/properties/no_damage_to/items/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail_past_damage_relations_inner_damage_relations/properties/no_damage_to/items/properties/name";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1957);
+        n.sourceName = "PaginatedStatSummaryList_component_prop4_items1";
+        n.schemaPath = "#/components/schemas/PaginatedStatSummaryList/properties/results/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedStatSummaryList/properties/results/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1489
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "TypeDetail_past_damage_relations_inner_damage_relations_component_prop6_items1_prop2";
-        n.schemaPath = "#/components/schemas/TypeDetail_past_damage_relations_inner_damage_relations/properties/no_damage_to/items/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail_past_damage_relations_inner_damage_relations/properties/no_damage_to/items/properties/url";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1960);
+        n.sourceName = "PaginatedSuperContestEffectSummaryList_component_prop4_items1";
+        n.schemaPath = "#/components/schemas/PaginatedSuperContestEffectSummaryList/properties/results/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedSuperContestEffectSummaryList/properties/results/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1490
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "VersionGroupDetail_component_prop3_items1_prop1";
-        n.schemaPath = "#/components/schemas/VersionGroupDetail/properties/move_learn_methods/items/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/VersionGroupDetail/properties/move_learn_methods/items/properties/name";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1969);
+        n.sourceName = "PaginatedTypeSummaryList_component_prop4_items1";
+        n.schemaPath = "#/components/schemas/PaginatedTypeSummaryList/properties/results/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedTypeSummaryList/properties/results/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1491
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "VersionGroupDetail_component_prop3_items1_prop2";
-        n.schemaPath = "#/components/schemas/VersionGroupDetail/properties/move_learn_methods/items/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/VersionGroupDetail/properties/move_learn_methods/items/properties/url";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1972);
+        n.sourceName = "PaginatedVersionGroupSummaryList_component_prop4_items1";
+        n.schemaPath = "#/components/schemas/PaginatedVersionGroupSummaryList/properties/results/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedVersionGroupSummaryList/properties/results/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1492
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "VersionGroupDetail_component_prop6_items1_prop1";
-        n.schemaPath = "#/components/schemas/VersionGroupDetail/properties/pokedexes/items/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/VersionGroupDetail/properties/pokedexes/items/properties/name";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1974);
+        n.sourceName = "PaginatedVersionSummaryList_component_prop4_items1";
+        n.schemaPath = "#/components/schemas/PaginatedVersionSummaryList/properties/results/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedVersionSummaryList/properties/results/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1493
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "VersionGroupDetail_component_prop6_items1_prop2";
-        n.schemaPath = "#/components/schemas/VersionGroupDetail/properties/pokedexes/items/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/VersionGroupDetail/properties/pokedexes/items/properties/url";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1866);
+        n.sourceName = "PalParkAreaDetail_component_prop3_items1";
+        n.schemaPath = "#/components/schemas/PalParkAreaDetail/properties/names/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PalParkAreaDetail/properties/names/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1494
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "VersionGroupDetail_component_prop7_items1_prop1";
-        n.schemaPath = "#/components/schemas/VersionGroupDetail/properties/regions/items/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/VersionGroupDetail/properties/regions/items/properties/name";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1868);
+        n.sourceName = "PalParkAreaDetail_component_prop4_items1";
+        n.schemaPath = "#/components/schemas/PalParkAreaDetail/properties/pokemon_encounters/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PalParkAreaDetail/properties/pokemon_encounters/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1495
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "VersionGroupDetail_component_prop7_items1_prop2";
-        n.schemaPath = "#/components/schemas/VersionGroupDetail/properties/regions/items/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/VersionGroupDetail/properties/regions/items/properties/url";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1749);
+        n.sourceName = "PalParkAreaName_component_prop1_app1";
+        n.schemaPath = "#/components/schemas/PalParkAreaName/properties/language/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PalParkAreaName/properties/language/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1496
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "AbilityDetail_component_prop9_items1_prop2_prop1";
-        n.schemaPath = "#/components/schemas/AbilityDetail/properties/pokemon/items/properties/pokemon/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/AbilityDetail/properties/pokemon/items/properties/pokemon/properties/name";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1937);
+        n.sourceName = "PalParkEncounter_component_prop2_app1";
+        n.schemaPath = "#/components/schemas/PalParkEncounter/properties/pokemon_species/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PalParkEncounter/properties/pokemon_species/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1497
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "AbilityDetail_component_prop9_items1_prop2_prop2";
-        n.schemaPath = "#/components/schemas/AbilityDetail/properties/pokemon/items/properties/pokemon/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/AbilityDetail/properties/pokemon/items/properties/pokemon/properties/url";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1814);
+        n.sourceName = "PokeathlonStatAffectingNature_component_prop2_app1";
+        n.schemaPath = "#/components/schemas/PokeathlonStatAffectingNature/properties/nature/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokeathlonStatAffectingNature/properties/nature/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1498
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annDescription = "\"The name of the flavor\"";
-        n.annExamplesJson = "[\"spicy\"]";
-        n.sourceName = "BerryDetail_component_prop2_items1_prop1_prop1";
-        n.schemaPath = "#/components/schemas/BerryDetail/properties/flavors/items/properties/flavor/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/BerryDetail/properties/flavors/items/properties/flavor/properties/name";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1870);
+        n.sourceName = "PokeathlonStatAffectingNatures_component_prop1_items1";
+        n.schemaPath = "#/components/schemas/PokeathlonStatAffectingNatures/properties/decrease/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokeathlonStatAffectingNatures/properties/decrease/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1499
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annDescription = "\"The URL to get more information about the flavor\"";
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/berry-flavor/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "BerryDetail_component_prop2_items1_prop1_prop2";
-        n.schemaPath = "#/components/schemas/BerryDetail/properties/flavors/items/properties/flavor/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/BerryDetail/properties/flavors/items/properties/flavor/properties/url";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1870);
+        n.sourceName = "PokeathlonStatAffectingNatures_component_prop2_items1";
+        n.schemaPath = "#/components/schemas/PokeathlonStatAffectingNatures/properties/increase/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokeathlonStatAffectingNatures/properties/increase/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1500
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annDescription = "\"The name of the berry\"";
-        n.annExamplesJson = "[\"rowap\"]";
-        n.sourceName = "BerryFlavorDetail_component_prop1_items1_prop1_prop1";
-        n.schemaPath = "#/components/schemas/BerryFlavorDetail/properties/berries/items/properties/berry/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/BerryFlavorDetail/properties/berries/items/properties/berry/properties/name";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1871);
+        n.sourceName = "PokeathlonStatDetail_component_prop1_app1";
+        n.schemaPath = "#/components/schemas/PokeathlonStatDetail/properties/affecting_natures/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokeathlonStatDetail/properties/affecting_natures/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1501
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annDescription = "\"The URL to get more information about the berry\"";
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/berry/64/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "BerryFlavorDetail_component_prop1_items1_prop1_prop2";
-        n.schemaPath = "#/components/schemas/BerryFlavorDetail/properties/berries/items/properties/berry/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/BerryFlavorDetail/properties/berries/items/properties/berry/properties/url";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1873);
+        n.sourceName = "PokeathlonStatDetail_component_prop4_items1";
+        n.schemaPath = "#/components/schemas/PokeathlonStatDetail/properties/names/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokeathlonStatDetail/properties/names/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1502
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1674;
-        n.sourceName = "EvolutionChainDetail_component_prop2_prop2_items1_prop1";
-        n.schemaPath = "#/components/schemas/EvolutionChainDetail/properties/chain/properties/evolves_to/items/properties/evolution_details";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EvolutionChainDetail/properties/chain/properties/evolves_to/items/properties/evolution_details";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1749);
+        n.sourceName = "PokeathlonStatName_component_prop1_app1";
+        n.schemaPath = "#/components/schemas/PokeathlonStatName/properties/language/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokeathlonStatName/properties/language/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1503
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 2u;
-        n.sourceName = "EvolutionChainDetail_component_prop2_prop2_items1_prop2";
-        n.schemaPath = "#/components/schemas/EvolutionChainDetail/properties/chain/properties/evolves_to/items/properties/is_baby";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EvolutionChainDetail/properties/chain/properties/evolves_to/items/properties/is_baby";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1749);
+        n.sourceName = "PokedexDescription_component_prop2_app1";
+        n.schemaPath = "#/components/schemas/PokedexDescription/properties/language/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokedexDescription/properties/language/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
@@ -3084,13 +263,10 @@ void appendSchemaRegistryChunk3(SchemaResourceRegistry& reg) {
         SchemaNode n;
         n.resourceIdentity = 0;
         n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1675; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1676; n.properties.push_back(std::move(b)); }
-        n.sourceName = "EvolutionChainDetail_component_prop2_prop2_items1_prop3";
-        n.schemaPath = "#/components/schemas/EvolutionChainDetail/properties/chain/properties/evolves_to/items/properties/species";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EvolutionChainDetail/properties/chain/properties/evolves_to/items/properties/species";
+        n.children.push_back(1875);
+        n.sourceName = "PokedexDetail_component_prop1_items1";
+        n.schemaPath = "#/components/schemas/PokedexDetail/properties/descriptions/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokedexDetail/properties/descriptions/items";
         reg.nodes.push_back(std::move(n));
     }
 
@@ -3098,259 +274,230 @@ void appendSchemaRegistryChunk3(SchemaResourceRegistry& reg) {
         SchemaNode n;
         n.resourceIdentity = 0;
         n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1870);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "gender"; b.node = 1677; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "held_item"; b.node = 1678; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "item"; b.node = 1679; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "known_move"; b.node = 1680; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "known_move_type"; b.node = 1681; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "location"; b.node = 1682; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "min_affection"; b.node = 1683; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "min_beauty"; b.node = 1684; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "min_happiness"; b.node = 1685; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "min_level"; b.node = 1686; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "needs_overworld_rain"; b.node = 1687; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "party_species"; b.node = 1688; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "party_type"; b.node = 1689; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "relative_physical_stats"; b.node = 1690; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "time_of_day"; b.node = 1691; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "trade_species"; b.node = 1692; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "trigger"; b.node = 1693; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "turn_upside_down"; b.node = 1694; n.properties.push_back(std::move(b)); }
-        n.sourceName = "EvolutionChainDetail_chain_component_prop2_items1_prop1_items1";
-        n.schemaPath = "#/components/schemas/EvolutionChainDetail_chain/properties/evolves_to/items/properties/evolution_details/items";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EvolutionChainDetail_chain/properties/evolves_to/items/properties/evolution_details/items";
+        n.children.push_back(1878);
+        n.sourceName = "PokedexDetail_component_prop5_items1";
+        n.schemaPath = "#/components/schemas/PokedexDetail/properties/names/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokedexDetail/properties/names/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1506
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "EvolutionChainDetail_chain_component_prop2_items1_prop3_prop1";
-        n.schemaPath = "#/components/schemas/EvolutionChainDetail_chain/properties/evolves_to/items/properties/species/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EvolutionChainDetail_chain/properties/evolves_to/items/properties/species/properties/name";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1889);
+        n.sourceName = "PokedexDetail_component_prop6_items1";
+        n.schemaPath = "#/components/schemas/PokedexDetail/properties/pokemon_entries/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokedexDetail/properties/pokemon_entries/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1507
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "EvolutionChainDetail_chain_component_prop2_items1_prop3_prop2";
-        n.schemaPath = "#/components/schemas/EvolutionChainDetail_chain/properties/evolves_to/items/properties/species/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EvolutionChainDetail_chain/properties/evolves_to/items/properties/species/properties/url";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1972);
+        n.sourceName = "PokedexDetail_component_prop8_items1";
+        n.schemaPath = "#/components/schemas/PokedexDetail/properties/version_groups/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokedexDetail/properties/version_groups/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1508
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[1]";
-        n.sourceName = "EvolutionChainDetail_chain_evolves_to_inner_component_prop1_items1_prop1_prop1";
-        n.schemaPath = "#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner/properties/evolution_details/items/properties/gender/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner/properties/evolution_details/items/properties/gender/properties/name";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1749);
+        n.sourceName = "PokedexName_component_prop1_app1";
+        n.schemaPath = "#/components/schemas/PokedexName/properties/language/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokedexName/properties/language/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1509
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[2]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "EvolutionChainDetail_chain_evolves_to_inner_component_prop1_items1_prop1_prop2";
-        n.schemaPath = "#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner/properties/evolution_details/items/properties/gender/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner/properties/evolution_details/items/properties/gender/properties/url";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1662);
+        n.sourceName = "PokemonAbility_component_prop1_app1";
+        n.schemaPath = "#/components/schemas/PokemonAbility/properties/ability/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonAbility/properties/ability/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1510
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[1]";
-        n.sourceName = "EvolutionChainDetail_chain_evolves_to_inner_component_prop1_items1_prop2_prop1";
-        n.schemaPath = "#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner/properties/evolution_details/items/properties/held_item/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner/properties/evolution_details/items/properties/held_item/properties/name";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1884);
+        n.sourceName = "PokemonColorDetail_component_prop3_items1";
+        n.schemaPath = "#/components/schemas/PokemonColorDetail/properties/names/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonColorDetail/properties/names/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1511
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[2]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "EvolutionChainDetail_chain_evolves_to_inner_component_prop1_items1_prop2_prop2";
-        n.schemaPath = "#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner/properties/evolution_details/items/properties/held_item/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner/properties/evolution_details/items/properties/held_item/properties/url";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1937);
+        n.sourceName = "PokemonColorDetail_component_prop4_items1";
+        n.schemaPath = "#/components/schemas/PokemonColorDetail/properties/pokemon_species/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonColorDetail/properties/pokemon_species/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1512
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[1]";
-        n.sourceName = "EvolutionChainDetail_chain_evolves_to_inner_component_prop1_items1_prop3_prop1";
-        n.schemaPath = "#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner/properties/evolution_details/items/properties/item/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner/properties/evolution_details/items/properties/item/properties/name";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1749);
+        n.sourceName = "PokemonColorName_component_prop1_app1";
+        n.schemaPath = "#/components/schemas/PokemonColorName/properties/language/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonColorName/properties/language/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1513
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[2]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "EvolutionChainDetail_chain_evolves_to_inner_component_prop1_items1_prop3_prop2";
-        n.schemaPath = "#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner/properties/evolution_details/items/properties/item/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner/properties/evolution_details/items/properties/item/properties/url";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1880);
+        n.sourceName = "PokemonDetail_component_prop1_items1";
+        n.schemaPath = "#/components/schemas/PokemonDetail/properties/abilities/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail/properties/abilities/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1514
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[1]";
-        n.sourceName = "EvolutionChainDetail_chain_evolves_to_inner_component_prop1_items1_prop4_prop1";
-        n.schemaPath = "#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner/properties/evolution_details/items/properties/known_move/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner/properties/evolution_details/items/properties/known_move/properties/name";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1886);
+        n.sourceName = "PokemonDetail_component_prop3_app1";
+        n.schemaPath = "#/components/schemas/PokemonDetail/properties/cries/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail/properties/cries/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1515
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[2]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "EvolutionChainDetail_chain_evolves_to_inner_component_prop1_items1_prop4_prop2";
-        n.schemaPath = "#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner/properties/evolution_details/items/properties/known_move/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner/properties/evolution_details/items/properties/known_move/properties/url";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1910);
+        n.sourceName = "PokemonDetail_component_prop4_items1";
+        n.schemaPath = "#/components/schemas/PokemonDetail/properties/forms/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail/properties/forms/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1516
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[1]";
-        n.sourceName = "EvolutionChainDetail_chain_evolves_to_inner_component_prop1_items1_prop5_prop1";
-        n.schemaPath = "#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner/properties/evolution_details/items/properties/known_move_type/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner/properties/evolution_details/items/properties/known_move_type/properties/name";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1913);
+        n.sourceName = "PokemonDetail_component_prop5_items1";
+        n.schemaPath = "#/components/schemas/PokemonDetail/properties/game_indices/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail/properties/game_indices/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1517
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[2]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "EvolutionChainDetail_chain_evolves_to_inner_component_prop1_items1_prop5_prop2";
-        n.schemaPath = "#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner/properties/evolution_details/items/properties/known_move_type/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner/properties/evolution_details/items/properties/known_move_type/properties/url";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1918);
+        n.sourceName = "PokemonDetail_component_prop7_items1";
+        n.schemaPath = "#/components/schemas/PokemonDetail/properties/held_items/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail/properties/held_items/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1518
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[1]";
-        n.sourceName = "EvolutionChainDetail_chain_evolves_to_inner_component_prop1_items1_prop6_prop1";
-        n.schemaPath = "#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner/properties/evolution_details/items/properties/location/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner/properties/evolution_details/items/properties/location/properties/name";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1920);
+        n.sourceName = "PokemonDetail_component_prop11_items1";
+        n.schemaPath = "#/components/schemas/PokemonDetail/properties/moves/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail/properties/moves/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1519
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[2]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "EvolutionChainDetail_chain_evolves_to_inner_component_prop1_items1_prop6_prop2";
-        n.schemaPath = "#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner/properties/evolution_details/items/properties/location/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner/properties/evolution_details/items/properties/location/properties/url";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1922);
+        n.sourceName = "PokemonDetail_component_prop14_items1";
+        n.schemaPath = "#/components/schemas/PokemonDetail/properties/past_abilities/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail/properties/past_abilities/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1520
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "EvolutionChainDetail_chain_evolves_to_inner_component_prop1_items1_prop17_prop1";
-        n.schemaPath = "#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner/properties/evolution_details/items/properties/trigger/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner/properties/evolution_details/items/properties/trigger/properties/name";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1923);
+        n.sourceName = "PokemonDetail_component_prop15_items1";
+        n.schemaPath = "#/components/schemas/PokemonDetail/properties/past_stats/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail/properties/past_stats/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1521
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "EvolutionChainDetail_chain_evolves_to_inner_component_prop1_items1_prop17_prop2";
-        n.schemaPath = "#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner/properties/evolution_details/items/properties/trigger/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner/properties/evolution_details/items/properties/trigger/properties/url";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1924);
+        n.sourceName = "PokemonDetail_component_prop16_items1";
+        n.schemaPath = "#/components/schemas/PokemonDetail/properties/past_types/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail/properties/past_types/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1522
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "GenderDetail_component_prop3_items1_prop1_prop1";
-        n.schemaPath = "#/components/schemas/GenderDetail/properties/pokemon_species_details/items/properties/pokemon_species/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/GenderDetail/properties/pokemon_species_details/items/properties/pokemon_species/properties/name";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1937);
+        n.sourceName = "PokemonDetail_component_prop17_app1";
+        n.schemaPath = "#/components/schemas/PokemonDetail/properties/species/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail/properties/species/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1523
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "GenderDetail_component_prop3_items1_prop1_prop2";
-        n.schemaPath = "#/components/schemas/GenderDetail/properties/pokemon_species_details/items/properties/pokemon_species/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/GenderDetail/properties/pokemon_species_details/items/properties/pokemon_species/properties/url";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1939);
+        n.sourceName = "PokemonDetail_component_prop18_app1";
+        n.schemaPath = "#/components/schemas/PokemonDetail/properties/sprites/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail/properties/sprites/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1524
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "ItemDetail_component_prop10_items1_prop1_prop1";
-        n.schemaPath = "#/components/schemas/ItemDetail/properties/held_by_pokemon/items/properties/pokemon/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/ItemDetail/properties/held_by_pokemon/items/properties/pokemon/properties/name";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1945);
+        n.sourceName = "PokemonDetail_component_prop19_items1";
+        n.schemaPath = "#/components/schemas/PokemonDetail/properties/stats/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail/properties/stats/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1525
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "ItemDetail_component_prop10_items1_prop1_prop2";
-        n.schemaPath = "#/components/schemas/ItemDetail/properties/held_by_pokemon/items/properties/pokemon/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/ItemDetail/properties/held_by_pokemon/items/properties/pokemon/properties/url";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1947);
+        n.sourceName = "PokemonDetail_component_prop20_items1";
+        n.schemaPath = "#/components/schemas/PokemonDetail/properties/types/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail/properties/types/items";
         reg.nodes.push_back(std::move(n));
     }
 
@@ -3358,82 +505,76 @@ void appendSchemaRegistryChunk3(SchemaResourceRegistry& reg) {
         SchemaNode n;
         n.resourceIdentity = 0;
         n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1896);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "rarity"; b.node = 1695; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "version"; b.node = 1696; n.properties.push_back(std::move(b)); }
-        n.sourceName = "ItemDetail_component_prop10_items1_prop2_items1";
-        n.schemaPath = "#/components/schemas/ItemDetail/properties/held_by_pokemon/items/properties/version-details/items";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/ItemDetail/properties/held_by_pokemon/items/properties/version-details/items";
+        n.children.push_back(1879);
+        n.sourceName = "PokemonDexEntry_component_prop2_app1";
+        n.schemaPath = "#/components/schemas/PokemonDexEntry/properties/pokedex/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDexEntry/properties/pokedex/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1527
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "ItemDetail_component_prop12_items1_prop2_prop1";
-        n.schemaPath = "#/components/schemas/ItemDetail/properties/machines/items/properties/version_group/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/ItemDetail/properties/machines/items/properties/version_group/properties/name";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1937);
+        n.sourceName = "PokemonDexNumber_component_prop2_app1";
+        n.schemaPath = "#/components/schemas/PokemonDexNumber/properties/pokemon_species/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDexNumber/properties/pokemon_species/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1528
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "ItemDetail_component_prop12_items1_prop2_prop2";
-        n.schemaPath = "#/components/schemas/ItemDetail/properties/machines/items/properties/version_group/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/ItemDetail/properties/machines/items/properties/version_group/properties/url";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1696);
+        n.sourceName = "PokemonEncounterDetailResponse_component_prop2_items1";
+        n.schemaPath = "#/components/schemas/PokemonEncounterDetailResponse/properties/condition_values/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEncounterDetailResponse/properties/condition_values/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1529
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "ItemDetail_held_by_pokemon_inner_component_prop2_items1_prop2_prop1";
-        n.schemaPath = "#/components/schemas/ItemDetail_held_by_pokemon_inner/properties/version-details/items/properties/version/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/ItemDetail_held_by_pokemon_inner/properties/version-details/items/properties/version/properties/name";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1699);
+        n.sourceName = "PokemonEncounterDetailResponse_component_prop4_app1";
+        n.schemaPath = "#/components/schemas/PokemonEncounterDetailResponse/properties/method/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEncounterDetailResponse/properties/method/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1530
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "ItemDetail_held_by_pokemon_inner_component_prop2_items1_prop2_prop2";
-        n.schemaPath = "#/components/schemas/ItemDetail_held_by_pokemon_inner/properties/version-details/items/properties/version/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/ItemDetail_held_by_pokemon_inner/properties/version-details/items/properties/version/properties/url";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1758);
+        n.sourceName = "PokemonEncounterResponse_component_prop1_app1";
+        n.schemaPath = "#/components/schemas/PokemonEncounterResponse/properties/location_area/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEncounterResponse/properties/location_area/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1531
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "LocationAreaDetail_component_prop1_items1_prop1_prop1";
-        n.schemaPath = "#/components/schemas/LocationAreaDetail/properties/encounter_method_rates/items/properties/encounter_method/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/LocationAreaDetail/properties/encounter_method_rates/items/properties/encounter_method/properties/name";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1892);
+        n.sourceName = "PokemonEncounterResponse_component_prop2_items1";
+        n.schemaPath = "#/components/schemas/PokemonEncounterResponse/properties/version_details/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEncounterResponse/properties/version_details/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1532
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "LocationAreaDetail_component_prop1_items1_prop1_prop2";
-        n.schemaPath = "#/components/schemas/LocationAreaDetail/properties/encounter_method_rates/items/properties/encounter_method/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/LocationAreaDetail/properties/encounter_method_rates/items/properties/encounter_method/properties/url";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1890);
+        n.sourceName = "PokemonEncounterVersionDetailResponse_component_prop1_items1";
+        n.schemaPath = "#/components/schemas/PokemonEncounterVersionDetailResponse/properties/encounter_details/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEncounterVersionDetailResponse/properties/encounter_details/items";
         reg.nodes.push_back(std::move(n));
     }
 
@@ -3441,24 +582,21 @@ void appendSchemaRegistryChunk3(SchemaResourceRegistry& reg) {
         SchemaNode n;
         n.resourceIdentity = 0;
         n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1915);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "rate"; b.node = 1697; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "version"; b.node = 1698; n.properties.push_back(std::move(b)); }
-        n.sourceName = "LocationAreaDetail_component_prop1_items1_prop2_items1";
-        n.schemaPath = "#/components/schemas/LocationAreaDetail/properties/encounter_method_rates/items/properties/version_details/items";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/LocationAreaDetail/properties/encounter_method_rates/items/properties/version_details/items";
+        n.children.push_back(1974);
+        n.sourceName = "PokemonEncounterVersionDetailResponse_component_prop3_app1";
+        n.schemaPath = "#/components/schemas/PokemonEncounterVersionDetailResponse/properties/version/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEncounterVersionDetailResponse/properties/version/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1534
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "LocationAreaDetail_component_prop7_items1_prop1_prop1";
-        n.schemaPath = "#/components/schemas/LocationAreaDetail/properties/pokemon_encounters/items/properties/pokemon/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/LocationAreaDetail/properties/pokemon_encounters/items/properties/pokemon/properties/name";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1814);
+        n.sourceName = "PokemonEvolution_component_prop1_items1";
+        n.schemaPath = "#/components/schemas/PokemonEvolution/properties/allowed_natures/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEvolution/properties/allowed_natures/items";
         reg.nodes.push_back(std::move(n));
     }
 
@@ -3466,26 +604,20 @@ void appendSchemaRegistryChunk3(SchemaResourceRegistry& reg) {
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "LocationAreaDetail_component_prop7_items1_prop1_prop2";
-        n.schemaPath = "#/components/schemas/LocationAreaDetail/properties/pokemon_encounters/items/properties/pokemon/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/LocationAreaDetail/properties/pokemon_encounters/items/properties/pokemon/properties/url";
+        n.sourceName = "PokemonEvolution_component_prop8_prop1";
+        n.schemaPath = "#/components/schemas/PokemonEvolution/properties/known_move/properties/name";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEvolution/properties/known_move/properties/name";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1536
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1917);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "encounter_details"; b.node = 1699; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "max_chance"; b.node = 1700; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "version"; b.node = 1701; n.properties.push_back(std::move(b)); }
-        n.sourceName = "LocationAreaDetail_component_prop7_items1_prop2_items1";
-        n.schemaPath = "#/components/schemas/LocationAreaDetail/properties/pokemon_encounters/items/properties/version_details/items";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/LocationAreaDetail/properties/pokemon_encounters/items/properties/version_details/items";
+        n.typeFlags = 8u;
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PokemonEvolution_component_prop8_prop2";
+        n.schemaPath = "#/components/schemas/PokemonEvolution/properties/known_move/properties/url";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEvolution/properties/known_move/properties/url";
         reg.nodes.push_back(std::move(n));
     }
 
@@ -3493,10 +625,9 @@ void appendSchemaRegistryChunk3(SchemaResourceRegistry& reg) {
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "LocationAreaDetail_encounter_method_rates_inner_component_prop2_items1_prop2_prop1";
-        n.schemaPath = "#/components/schemas/LocationAreaDetail_encounter_method_rates_inner/properties/version_details/items/properties/version/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/LocationAreaDetail_encounter_method_rates_inner/properties/version_details/items/properties/version/properties/name";
+        n.sourceName = "PokemonEvolution_component_prop9_prop1";
+        n.schemaPath = "#/components/schemas/PokemonEvolution/properties/known_move_type/properties/name";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEvolution/properties/known_move_type/properties/name";
         reg.nodes.push_back(std::move(n));
     }
 
@@ -3504,23 +635,21 @@ void appendSchemaRegistryChunk3(SchemaResourceRegistry& reg) {
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
         n.annFormat = "\"uri\"";
-        n.sourceName = "LocationAreaDetail_encounter_method_rates_inner_component_prop2_items1_prop2_prop2";
-        n.schemaPath = "#/components/schemas/LocationAreaDetail_encounter_method_rates_inner/properties/version_details/items/properties/version/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/LocationAreaDetail_encounter_method_rates_inner/properties/version_details/items/properties/version/properties/url";
+        n.sourceName = "PokemonEvolution_component_prop9_prop2";
+        n.schemaPath = "#/components/schemas/PokemonEvolution/properties/known_move_type/properties/url";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEvolution/properties/known_move_type/properties/url";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1539
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.annExamplesJson = "[60]";
-        n.annFormat = "\"int32\"";
-        n.sourceName = "LocationAreaDetail_pokemon_encounters_inner_component_prop2_items1_prop1_prop1";
-        n.schemaPath = "#/components/schemas/LocationAreaDetail_pokemon_encounters_inner/properties/version_details/items/properties/encounter_details/properties/chance";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/LocationAreaDetail_pokemon_encounters_inner/properties/version_details/items/properties/encounter_details/properties/chance";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1708);
+        n.sourceName = "PokemonEvolution_component_prop28_app1";
+        n.schemaPath = "#/components/schemas/PokemonEvolution/properties/trigger/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEvolution/properties/trigger/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
@@ -3528,25 +657,21 @@ void appendSchemaRegistryChunk3(SchemaResourceRegistry& reg) {
         SchemaNode n;
         n.resourceIdentity = 0;
         n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1702; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1703; n.properties.push_back(std::move(b)); }
-        n.sourceName = "LocationAreaDetail_pokemon_encounters_inner_component_prop2_items1_prop1_prop2";
-        n.schemaPath = "#/components/schemas/LocationAreaDetail_pokemon_encounters_inner/properties/version_details/items/properties/encounter_details/properties/condition_values";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/LocationAreaDetail_pokemon_encounters_inner/properties/version_details/items/properties/encounter_details/properties/condition_values";
+        n.children.push_back(1972);
+        n.sourceName = "PokemonEvolution_component_prop31_app1";
+        n.schemaPath = "#/components/schemas/PokemonEvolution/properties/version_group/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEvolution/properties/version_group/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1541
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.annExamplesJson = "[30]";
-        n.annFormat = "\"int32\"";
-        n.sourceName = "LocationAreaDetail_pokemon_encounters_inner_component_prop2_items1_prop1_prop3";
-        n.schemaPath = "#/components/schemas/LocationAreaDetail_pokemon_encounters_inner/properties/version_details/items/properties/encounter_details/properties/max_level";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/LocationAreaDetail_pokemon_encounters_inner/properties/version_details/items/properties/encounter_details/properties/max_level";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1907);
+        n.sourceName = "PokemonFormDetail_component_prop1_items1";
+        n.schemaPath = "#/components/schemas/PokemonFormDetail/properties/flavor_text_entries/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonFormDetail/properties/flavor_text_entries/items";
         reg.nodes.push_back(std::move(n));
     }
 
@@ -3554,71 +679,65 @@ void appendSchemaRegistryChunk3(SchemaResourceRegistry& reg) {
         SchemaNode n;
         n.resourceIdentity = 0;
         n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1704; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1705; n.properties.push_back(std::move(b)); }
-        n.sourceName = "LocationAreaDetail_pokemon_encounters_inner_component_prop2_items1_prop1_prop4";
-        n.schemaPath = "#/components/schemas/LocationAreaDetail_pokemon_encounters_inner/properties/version_details/items/properties/encounter_details/properties/method";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/LocationAreaDetail_pokemon_encounters_inner/properties/version_details/items/properties/encounter_details/properties/method";
+        n.children.push_back(1908);
+        n.sourceName = "PokemonFormDetail_component_prop3_items1";
+        n.schemaPath = "#/components/schemas/PokemonFormDetail/properties/form_names/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonFormDetail/properties/form_names/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1543
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.annExamplesJson = "[20]";
-        n.annFormat = "\"int32\"";
-        n.sourceName = "LocationAreaDetail_pokemon_encounters_inner_component_prop2_items1_prop1_prop5";
-        n.schemaPath = "#/components/schemas/LocationAreaDetail_pokemon_encounters_inner/properties/version_details/items/properties/encounter_details/properties/min_level";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/LocationAreaDetail_pokemon_encounters_inner/properties/version_details/items/properties/encounter_details/properties/min_level";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1908);
+        n.sourceName = "PokemonFormDetail_component_prop10_items1";
+        n.schemaPath = "#/components/schemas/PokemonFormDetail/properties/names/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonFormDetail/properties/names/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1544
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "LocationAreaDetail_pokemon_encounters_inner_component_prop2_items1_prop3_prop1";
-        n.schemaPath = "#/components/schemas/LocationAreaDetail_pokemon_encounters_inner/properties/version_details/items/properties/version/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/LocationAreaDetail_pokemon_encounters_inner/properties/version_details/items/properties/version/properties/name";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1946);
+        n.sourceName = "PokemonFormDetail_component_prop12_app1";
+        n.schemaPath = "#/components/schemas/PokemonFormDetail/properties/pokemon/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonFormDetail/properties/pokemon/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1545
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "LocationAreaDetail_pokemon_encounters_inner_component_prop2_items1_prop3_prop2";
-        n.schemaPath = "#/components/schemas/LocationAreaDetail_pokemon_encounters_inner/properties/version_details/items/properties/version/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/LocationAreaDetail_pokemon_encounters_inner/properties/version_details/items/properties/version/properties/url";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1909);
+        n.sourceName = "PokemonFormDetail_component_prop13_app1";
+        n.schemaPath = "#/components/schemas/PokemonFormDetail/properties/sprites/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonFormDetail/properties/sprites/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1546
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "MoveChange_component_prop3_items1_prop2_prop1";
-        n.schemaPath = "#/components/schemas/MoveChange/properties/effect_entries/items/properties/language/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveChange/properties/effect_entries/items/properties/language/properties/name";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1911);
+        n.sourceName = "PokemonFormDetail_component_prop14_items1";
+        n.schemaPath = "#/components/schemas/PokemonFormDetail/properties/trigger_conditions/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonFormDetail/properties/trigger_conditions/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1547
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "MoveChange_component_prop3_items1_prop2_prop2";
-        n.schemaPath = "#/components/schemas/MoveChange/properties/effect_entries/items/properties/language/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveChange/properties/effect_entries/items/properties/language/properties/url";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1912);
+        n.sourceName = "PokemonFormDetail_component_prop15_items1";
+        n.schemaPath = "#/components/schemas/PokemonFormDetail/properties/types/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonFormDetail/properties/types/items";
         reg.nodes.push_back(std::move(n));
     }
 
@@ -3626,13 +745,10 @@ void appendSchemaRegistryChunk3(SchemaResourceRegistry& reg) {
         SchemaNode n;
         n.resourceIdentity = 0;
         n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1706; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1707; n.properties.push_back(std::move(b)); }
-        n.sourceName = "MoveDetail_component_prop2_prop1_prop1_items1";
-        n.schemaPath = "#/components/schemas/MoveDetail/properties/contest_combos/properties/normal/properties/use_after/items";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail/properties/contest_combos/properties/normal/properties/use_after/items";
+        n.children.push_back(1972);
+        n.sourceName = "PokemonFormDetail_component_prop16_app1";
+        n.schemaPath = "#/components/schemas/PokemonFormDetail/properties/version_group/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonFormDetail/properties/version_group/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
@@ -3640,13 +756,10 @@ void appendSchemaRegistryChunk3(SchemaResourceRegistry& reg) {
         SchemaNode n;
         n.resourceIdentity = 0;
         n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1708; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1709; n.properties.push_back(std::move(b)); }
-        n.sourceName = "MoveDetail_component_prop2_prop1_prop2_items1";
-        n.schemaPath = "#/components/schemas/MoveDetail/properties/contest_combos/properties/normal/properties/use_before/items";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail/properties/contest_combos/properties/normal/properties/use_before/items";
+        n.children.push_back(1749);
+        n.sourceName = "PokemonFormFlavorText_component_prop2_app1";
+        n.schemaPath = "#/components/schemas/PokemonFormFlavorText/properties/language/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonFormFlavorText/properties/language/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
@@ -3654,13 +767,10 @@ void appendSchemaRegistryChunk3(SchemaResourceRegistry& reg) {
         SchemaNode n;
         n.resourceIdentity = 0;
         n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1710; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1711; n.properties.push_back(std::move(b)); }
-        n.sourceName = "MoveDetail_component_prop2_prop2_prop1_items1";
-        n.schemaPath = "#/components/schemas/MoveDetail/properties/contest_combos/properties/super/properties/use_after/items";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail/properties/contest_combos/properties/super/properties/use_after/items";
+        n.children.push_back(1974);
+        n.sourceName = "PokemonFormFlavorText_component_prop3_app1";
+        n.schemaPath = "#/components/schemas/PokemonFormFlavorText/properties/version/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonFormFlavorText/properties/version/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
@@ -3668,13 +778,10 @@ void appendSchemaRegistryChunk3(SchemaResourceRegistry& reg) {
         SchemaNode n;
         n.resourceIdentity = 0;
         n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1712; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1713; n.properties.push_back(std::move(b)); }
-        n.sourceName = "MoveDetail_component_prop2_prop2_prop2_items1";
-        n.schemaPath = "#/components/schemas/MoveDetail/properties/contest_combos/properties/super/properties/use_before/items";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail/properties/contest_combos/properties/super/properties/use_before/items";
+        n.children.push_back(1749);
+        n.sourceName = "PokemonFormName_component_prop1_app1";
+        n.schemaPath = "#/components/schemas/PokemonFormName/properties/language/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonFormName/properties/language/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
@@ -3683,290 +790,274 @@ void appendSchemaRegistryChunk3(SchemaResourceRegistry& reg) {
         n.resourceIdentity = 0;
         n.applicator = ApplicatorKind::ref;
         n.children.push_back(1940);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "effect"; b.node = 1714; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "language"; b.node = 1715; n.properties.push_back(std::move(b)); }
-        n.sourceName = "MoveDetail_component_prop7_items1_prop1_items1";
-        n.schemaPath = "#/components/schemas/MoveDetail/properties/effect_changes/items/properties/effect_entries/items";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail/properties/effect_changes/items/properties/effect_entries/items";
+        n.sourceName = "PokemonFormSprites_component_prop9_app1";
+        n.schemaPath = "#/components/schemas/PokemonFormSprites/properties/other/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonFormSprites/properties/other/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1553
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "MoveDetail_component_prop7_items1_prop2_prop1";
-        n.schemaPath = "#/components/schemas/MoveDetail/properties/effect_changes/items/properties/version_group/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail/properties/effect_changes/items/properties/version_group/properties/name";
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        n.additionalProperties = AdditionalPropertiesKind::allowed;
+        n.sourceName = "PokemonFormSprites_component_prop10_addprops1";
+        n.schemaPath = "#/components/schemas/PokemonFormSprites/properties/versions/additionalProperties";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonFormSprites/properties/versions/additionalProperties";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1554
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "MoveDetail_component_prop7_items1_prop2_prop2";
-        n.schemaPath = "#/components/schemas/MoveDetail/properties/effect_changes/items/properties/version_group/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail/properties/effect_changes/items/properties/version_group/properties/url";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1910);
+        n.sourceName = "PokemonFormTriggerCondition_component_prop1_app1";
+        n.schemaPath = "#/components/schemas/PokemonFormTriggerCondition/properties/base_form/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonFormTriggerCondition/properties/base_form/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1555
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "MoveDetail_component_prop8_items1_prop2_prop1";
-        n.schemaPath = "#/components/schemas/MoveDetail/properties/effect_entries/items/properties/language/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail/properties/effect_entries/items/properties/language/properties/name";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1969);
+        n.sourceName = "PokemonFormType_component_prop2_app1";
+        n.schemaPath = "#/components/schemas/PokemonFormType/properties/type/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonFormType/properties/type/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1556
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "MoveDetail_component_prop8_items1_prop2_prop2";
-        n.schemaPath = "#/components/schemas/MoveDetail/properties/effect_entries/items/properties/language/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail/properties/effect_entries/items/properties/language/properties/url";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1974);
+        n.sourceName = "PokemonGameIndex_component_prop2_app1";
+        n.schemaPath = "#/components/schemas/PokemonGameIndex/properties/version/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonGameIndex/properties/version/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1557
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/machine/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "MoveDetail_component_prop13_items1_prop1_prop1";
-        n.schemaPath = "#/components/schemas/MoveDetail/properties/machines/items/properties/machine/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail/properties/machines/items/properties/machine/properties/url";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1915);
+        n.sourceName = "PokemonHabitatDetail_component_prop3_items1";
+        n.schemaPath = "#/components/schemas/PokemonHabitatDetail/properties/names/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonHabitatDetail/properties/names/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1558
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "MoveDetail_component_prop13_items1_prop2_prop1";
-        n.schemaPath = "#/components/schemas/MoveDetail/properties/machines/items/properties/version_group/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail/properties/machines/items/properties/version_group/properties/name";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1937);
+        n.sourceName = "PokemonHabitatDetail_component_prop4_items1";
+        n.schemaPath = "#/components/schemas/PokemonHabitatDetail/properties/pokemon_species/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonHabitatDetail/properties/pokemon_species/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1559
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "MoveDetail_component_prop13_items1_prop2_prop2";
-        n.schemaPath = "#/components/schemas/MoveDetail/properties/machines/items/properties/version_group/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail/properties/machines/items/properties/version_group/properties/url";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1749);
+        n.sourceName = "PokemonHabitatName_component_prop1_app1";
+        n.schemaPath = "#/components/schemas/PokemonHabitatName/properties/language/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonHabitatName/properties/language/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1560
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "MoveDetail_component_prop21_items1_prop2_prop1";
-        n.schemaPath = "#/components/schemas/MoveDetail/properties/stat_changes/items/properties/stat/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail/properties/stat_changes/items/properties/stat/properties/name";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1946);
+        n.sourceName = "PokemonHeldItem_component_prop1_app1";
+        n.schemaPath = "#/components/schemas/PokemonHeldItem/properties/pokemon/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonHeldItem/properties/pokemon/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1561
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "MoveDetail_component_prop21_items1_prop2_prop2";
-        n.schemaPath = "#/components/schemas/MoveDetail/properties/stat_changes/items/properties/stat/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail/properties/stat_changes/items/properties/stat/properties/url";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1919);
+        n.sourceName = "PokemonHeldItem_component_prop2_items1";
+        n.schemaPath = "#/components/schemas/PokemonHeldItem/properties/version_details/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonHeldItem/properties/version_details/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1562
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "MoveDetail_contest_combos_component_prop1_prop1_items1_prop1";
-        n.schemaPath = "#/components/schemas/MoveDetail_contest_combos/properties/normal/properties/use_after/items/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail_contest_combos/properties/normal/properties/use_after/items/properties/name";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1746);
+        n.sourceName = "PokemonHeldItemSummary_component_prop1_app1";
+        n.schemaPath = "#/components/schemas/PokemonHeldItemSummary/properties/item/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonHeldItemSummary/properties/item/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1563
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "MoveDetail_contest_combos_component_prop1_prop1_items1_prop2";
-        n.schemaPath = "#/components/schemas/MoveDetail_contest_combos/properties/normal/properties/use_after/items/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail_contest_combos/properties/normal/properties/use_after/items/properties/url";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1919);
+        n.sourceName = "PokemonHeldItemSummary_component_prop2_items1";
+        n.schemaPath = "#/components/schemas/PokemonHeldItemSummary/properties/version_details/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonHeldItemSummary/properties/version_details/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1564
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "MoveDetail_contest_combos_component_prop1_prop2_items1_prop1";
-        n.schemaPath = "#/components/schemas/MoveDetail_contest_combos/properties/normal/properties/use_before/items/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail_contest_combos/properties/normal/properties/use_before/items/properties/name";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1974);
+        n.sourceName = "PokemonHeldItemVersion_component_prop2_app1";
+        n.schemaPath = "#/components/schemas/PokemonHeldItemVersion/properties/version/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonHeldItemVersion/properties/version/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1565
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "MoveDetail_contest_combos_component_prop1_prop2_items1_prop2";
-        n.schemaPath = "#/components/schemas/MoveDetail_contest_combos/properties/normal/properties/use_before/items/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail_contest_combos/properties/normal/properties/use_before/items/properties/url";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1801);
+        n.sourceName = "PokemonMove_component_prop1_app1";
+        n.schemaPath = "#/components/schemas/PokemonMove/properties/move/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonMove/properties/move/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1566
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "MoveDetail_contest_combos_component_prop2_prop1_items1_prop1";
-        n.schemaPath = "#/components/schemas/MoveDetail_contest_combos/properties/super/properties/use_after/items/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail_contest_combos/properties/super/properties/use_after/items/properties/name";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1921);
+        n.sourceName = "PokemonMove_component_prop2_items1";
+        n.schemaPath = "#/components/schemas/PokemonMove/properties/version_group_details/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonMove/properties/version_group_details/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1567
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "MoveDetail_contest_combos_component_prop2_prop1_items1_prop2";
-        n.schemaPath = "#/components/schemas/MoveDetail_contest_combos/properties/super/properties/use_after/items/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail_contest_combos/properties/super/properties/use_after/items/properties/url";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1790);
+        n.sourceName = "PokemonMoveVersionGroup_component_prop2_app1";
+        n.schemaPath = "#/components/schemas/PokemonMoveVersionGroup/properties/move_learn_method/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonMoveVersionGroup/properties/move_learn_method/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1568
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "MoveDetail_contest_combos_component_prop2_prop2_items1_prop1";
-        n.schemaPath = "#/components/schemas/MoveDetail_contest_combos/properties/super/properties/use_before/items/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail_contest_combos/properties/super/properties/use_before/items/properties/name";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1972);
+        n.sourceName = "PokemonMoveVersionGroup_component_prop4_app1";
+        n.schemaPath = "#/components/schemas/PokemonMoveVersionGroup/properties/version_group/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonMoveVersionGroup/properties/version_group/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1569
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "MoveDetail_contest_combos_component_prop2_prop2_items1_prop2";
-        n.schemaPath = "#/components/schemas/MoveDetail_contest_combos/properties/super/properties/use_before/items/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail_contest_combos/properties/super/properties/use_before/items/properties/url";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1881);
+        n.sourceName = "PokemonPastAbility_component_prop1_items1";
+        n.schemaPath = "#/components/schemas/PokemonPastAbility/properties/abilities/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonPastAbility/properties/abilities/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1570
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "MoveDetail_effect_changes_inner_component_prop1_items1_prop2_prop1";
-        n.schemaPath = "#/components/schemas/MoveDetail_effect_changes_inner/properties/effect_entries/items/properties/language/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail_effect_changes_inner/properties/effect_entries/items/properties/language/properties/name";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1719);
+        n.sourceName = "PokemonPastAbility_component_prop2_app1";
+        n.schemaPath = "#/components/schemas/PokemonPastAbility/properties/generation/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonPastAbility/properties/generation/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1571
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "MoveDetail_effect_changes_inner_component_prop1_items1_prop2_prop2";
-        n.schemaPath = "#/components/schemas/MoveDetail_effect_changes_inner/properties/effect_entries/items/properties/language/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail_effect_changes_inner/properties/effect_entries/items/properties/language/properties/url";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1719);
+        n.sourceName = "PokemonPastStat_component_prop1_app1";
+        n.schemaPath = "#/components/schemas/PokemonPastStat/properties/generation/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonPastStat/properties/generation/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1572
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "NatureDetail_component_prop10_items1_prop2_prop1";
-        n.schemaPath = "#/components/schemas/NatureDetail/properties/pokeathlon_stat_changes/items/properties/pokeathlon_stat/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/NatureDetail/properties/pokeathlon_stat_changes/items/properties/pokeathlon_stat/properties/name";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1945);
+        n.sourceName = "PokemonPastStat_component_prop2_items1";
+        n.schemaPath = "#/components/schemas/PokemonPastStat/properties/stats/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonPastStat/properties/stats/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1573
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "NatureDetail_component_prop10_items1_prop2_prop2";
-        n.schemaPath = "#/components/schemas/NatureDetail/properties/pokeathlon_stat_changes/items/properties/pokeathlon_stat/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/NatureDetail/properties/pokeathlon_stat_changes/items/properties/pokeathlon_stat/properties/url";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1719);
+        n.sourceName = "PokemonPastType_component_prop1_app1";
+        n.schemaPath = "#/components/schemas/PokemonPastType/properties/generation/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonPastType/properties/generation/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1574
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "PalParkAreaDetail_component_prop4_items1_prop2_prop1";
-        n.schemaPath = "#/components/schemas/PalParkAreaDetail/properties/pokemon_encounters/items/properties/pokemon-species/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PalParkAreaDetail/properties/pokemon_encounters/items/properties/pokemon-species/properties/name";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1947);
+        n.sourceName = "PokemonPastType_component_prop2_items1";
+        n.schemaPath = "#/components/schemas/PokemonPastType/properties/types/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonPastType/properties/types/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1575
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "PalParkAreaDetail_component_prop4_items1_prop2_prop2";
-        n.schemaPath = "#/components/schemas/PalParkAreaDetail/properties/pokemon_encounters/items/properties/pokemon-species/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PalParkAreaDetail/properties/pokemon_encounters/items/properties/pokemon-species/properties/url";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1749);
+        n.sourceName = "PokemonShapeAwesomeName_component_prop2_app1";
+        n.schemaPath = "#/components/schemas/PokemonShapeAwesomeName/properties/language/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonShapeAwesomeName/properties/language/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1576
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        setExact(n.maximum, n.hasMaximum, "-1");
-        n.annExamplesJson = "[-1]";
-        n.annFormat = "\"int32\"";
-        n.sourceName = "PokeathlonStatDetail_component_prop1_prop1_items1_prop1";
-        n.schemaPath = "#/components/schemas/PokeathlonStatDetail/properties/affecting_natures/properties/decrease/items/properties/max_change";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokeathlonStatDetail/properties/affecting_natures/properties/decrease/items/properties/max_change";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1925);
+        n.sourceName = "PokemonShapeDetail_component_prop1_items1";
+        n.schemaPath = "#/components/schemas/PokemonShapeDetail/properties/awesome_names/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonShapeDetail/properties/awesome_names/items";
         reg.nodes.push_back(std::move(n));
     }
 
@@ -3974,26 +1065,21 @@ void appendSchemaRegistryChunk3(SchemaResourceRegistry& reg) {
         SchemaNode n;
         n.resourceIdentity = 0;
         n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1716; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1717; n.properties.push_back(std::move(b)); }
-        n.sourceName = "PokeathlonStatDetail_component_prop1_prop1_items1_prop2";
-        n.schemaPath = "#/components/schemas/PokeathlonStatDetail/properties/affecting_natures/properties/decrease/items/properties/nature";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokeathlonStatDetail/properties/affecting_natures/properties/decrease/items/properties/nature";
+        n.children.push_back(1927);
+        n.sourceName = "PokemonShapeDetail_component_prop4_items1";
+        n.schemaPath = "#/components/schemas/PokemonShapeDetail/properties/names/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonShapeDetail/properties/names/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1578
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        setExact(n.minimum, n.hasMinimum, "1");
-        n.annExamplesJson = "[2]";
-        n.annFormat = "\"int32\"";
-        n.sourceName = "PokeathlonStatDetail_component_prop1_prop2_items1_prop1";
-        n.schemaPath = "#/components/schemas/PokeathlonStatDetail/properties/affecting_natures/properties/increase/items/properties/max_change";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokeathlonStatDetail/properties/affecting_natures/properties/increase/items/properties/max_change";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1937);
+        n.sourceName = "PokemonShapeDetail_component_prop5_items1";
+        n.schemaPath = "#/components/schemas/PokemonShapeDetail/properties/pokemon_species/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonShapeDetail/properties/pokemon_species/items";
         reg.nodes.push_back(std::move(n));
     }
 
@@ -4001,117 +1087,109 @@ void appendSchemaRegistryChunk3(SchemaResourceRegistry& reg) {
         SchemaNode n;
         n.resourceIdentity = 0;
         n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1718; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1719; n.properties.push_back(std::move(b)); }
-        n.sourceName = "PokeathlonStatDetail_component_prop1_prop2_items1_prop2";
-        n.schemaPath = "#/components/schemas/PokeathlonStatDetail/properties/affecting_natures/properties/increase/items/properties/nature";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokeathlonStatDetail/properties/affecting_natures/properties/increase/items/properties/nature";
+        n.children.push_back(1749);
+        n.sourceName = "PokemonShapeName_component_prop1_app1";
+        n.schemaPath = "#/components/schemas/PokemonShapeName/properties/language/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonShapeName/properties/language/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1580
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "PokeathlonStatDetail_affecting_natures_component_prop1_items1_prop2_prop1";
-        n.schemaPath = "#/components/schemas/PokeathlonStatDetail_affecting_natures/properties/decrease/items/properties/nature/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokeathlonStatDetail_affecting_natures/properties/decrease/items/properties/nature/properties/name";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1749);
+        n.sourceName = "PokemonSpeciesDescription_component_prop2_app1";
+        n.schemaPath = "#/components/schemas/PokemonSpeciesDescription/properties/language/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDescription/properties/language/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1581
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "PokeathlonStatDetail_affecting_natures_component_prop1_items1_prop2_prop2";
-        n.schemaPath = "#/components/schemas/PokeathlonStatDetail_affecting_natures/properties/decrease/items/properties/nature/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokeathlonStatDetail_affecting_natures/properties/decrease/items/properties/nature/properties/url";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1885);
+        n.sourceName = "PokemonSpeciesDetail_component_prop3_app1";
+        n.schemaPath = "#/components/schemas/PokemonSpeciesDetail/properties/color/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDetail/properties/color/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1582
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "PokeathlonStatDetail_affecting_natures_component_prop2_items1_prop2_prop1";
-        n.schemaPath = "#/components/schemas/PokeathlonStatDetail_affecting_natures/properties/increase/items/properties/nature/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokeathlonStatDetail_affecting_natures/properties/increase/items/properties/nature/properties/name";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1690);
+        n.sourceName = "PokemonSpeciesDetail_component_prop4_items1";
+        n.schemaPath = "#/components/schemas/PokemonSpeciesDetail/properties/egg_groups/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDetail/properties/egg_groups/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1583
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "PokeathlonStatDetail_affecting_natures_component_prop2_items1_prop2_prop2";
-        n.schemaPath = "#/components/schemas/PokeathlonStatDetail_affecting_natures/properties/increase/items/properties/nature/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokeathlonStatDetail_affecting_natures/properties/increase/items/properties/nature/properties/url";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1704);
+        n.sourceName = "PokemonSpeciesDetail_component_prop5_app1";
+        n.schemaPath = "#/components/schemas/PokemonSpeciesDetail/properties/evolution_chain/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDetail/properties/evolution_chain/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1584
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "PokedexDetail_component_prop6_items1_prop2_prop1";
-        n.schemaPath = "#/components/schemas/PokedexDetail/properties/pokemon_entries/items/properties/pokemon_species/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokedexDetail/properties/pokemon_entries/items/properties/pokemon_species/properties/name";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1933);
+        n.sourceName = "PokemonSpeciesDetail_component_prop7_items1";
+        n.schemaPath = "#/components/schemas/PokemonSpeciesDetail/properties/flavor_text_entries/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDetail/properties/flavor_text_entries/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1585
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "PokedexDetail_component_prop6_items1_prop2_prop2";
-        n.schemaPath = "#/components/schemas/PokedexDetail/properties/pokemon_entries/items/properties/pokemon_species/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokedexDetail/properties/pokemon_entries/items/properties/pokemon_species/properties/url";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1929);
+        n.sourceName = "PokemonSpeciesDetail_component_prop8_items1";
+        n.schemaPath = "#/components/schemas/PokemonSpeciesDetail/properties/form_descriptions/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDetail/properties/form_descriptions/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1586
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "PokemonDetail_component_prop1_items1_prop1_prop1";
-        n.schemaPath = "#/components/schemas/PokemonDetail/properties/abilities/items/properties/ability/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail/properties/abilities/items/properties/ability/properties/name";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1934);
+        n.sourceName = "PokemonSpeciesDetail_component_prop11_items1";
+        n.schemaPath = "#/components/schemas/PokemonSpeciesDetail/properties/genera/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDetail/properties/genera/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1587
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "PokemonDetail_component_prop1_items1_prop1_prop2";
-        n.schemaPath = "#/components/schemas/PokemonDetail/properties/abilities/items/properties/ability/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail/properties/abilities/items/properties/ability/properties/url";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1719);
+        n.sourceName = "PokemonSpeciesDetail_component_prop12_app1";
+        n.schemaPath = "#/components/schemas/PokemonSpeciesDetail/properties/generation/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDetail/properties/generation/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1588
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.annExamplesJson = "[5]";
-        n.annFormat = "\"int32\"";
-        n.sourceName = "PokemonDetail_component_prop7_prop2_items1_prop1";
-        n.schemaPath = "#/components/schemas/PokemonDetail/properties/held_items/properties/version_details/items/properties/rarity";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail/properties/held_items/properties/version_details/items/properties/rarity";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1722);
+        n.sourceName = "PokemonSpeciesDetail_component_prop13_app1";
+        n.schemaPath = "#/components/schemas/PokemonSpeciesDetail/properties/growth_rate/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDetail/properties/growth_rate/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
@@ -4119,36 +1197,32 @@ void appendSchemaRegistryChunk3(SchemaResourceRegistry& reg) {
         SchemaNode n;
         n.resourceIdentity = 0;
         n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1720; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1721; n.properties.push_back(std::move(b)); }
-        n.sourceName = "PokemonDetail_component_prop7_prop2_items1_prop2";
-        n.schemaPath = "#/components/schemas/PokemonDetail/properties/held_items/properties/version_details/items/properties/version";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail/properties/held_items/properties/version_details/items/properties/version";
+        n.children.push_back(1935);
+        n.sourceName = "PokemonSpeciesDetail_component_prop22_items1";
+        n.schemaPath = "#/components/schemas/PokemonSpeciesDetail/properties/names/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDetail/properties/names/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1590
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "PokemonDetail_component_prop11_items1_prop1_prop1";
-        n.schemaPath = "#/components/schemas/PokemonDetail/properties/moves/items/properties/move/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail/properties/moves/items/properties/move/properties/name";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1936);
+        n.sourceName = "PokemonSpeciesDetail_component_prop24_items1";
+        n.schemaPath = "#/components/schemas/PokemonSpeciesDetail/properties/pal_park_encounters/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDetail/properties/pal_park_encounters/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1591
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "PokemonDetail_component_prop11_items1_prop1_prop2";
-        n.schemaPath = "#/components/schemas/PokemonDetail/properties/moves/items/properties/move/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail/properties/moves/items/properties/move/properties/url";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1888);
+        n.sourceName = "PokemonSpeciesDetail_component_prop25_items1";
+        n.schemaPath = "#/components/schemas/PokemonSpeciesDetail/properties/pokedex_numbers/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDetail/properties/pokedex_numbers/items";
         reg.nodes.push_back(std::move(n));
     }
 
@@ -4156,14 +1230,10 @@ void appendSchemaRegistryChunk3(SchemaResourceRegistry& reg) {
         SchemaNode n;
         n.resourceIdentity = 0;
         n.applicator = ApplicatorKind::ref;
-        n.children.push_back(2038);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "level_learned_at"; b.node = 1722; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "move_learn_method"; b.node = 1723; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "version_group"; b.node = 1724; n.properties.push_back(std::move(b)); }
-        n.sourceName = "PokemonDetail_component_prop11_items1_prop2_items1";
-        n.schemaPath = "#/components/schemas/PokemonDetail/properties/moves/items/properties/version_group_details/items";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail/properties/moves/items/properties/version_group_details/items";
+        n.children.push_back(1928);
+        n.sourceName = "PokemonSpeciesDetail_component_prop26_app1";
+        n.schemaPath = "#/components/schemas/PokemonSpeciesDetail/properties/shape/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDetail/properties/shape/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
@@ -4171,60 +1241,54 @@ void appendSchemaRegistryChunk3(SchemaResourceRegistry& reg) {
         SchemaNode n;
         n.resourceIdentity = 0;
         n.applicator = ApplicatorKind::ref;
-        n.children.push_back(2034);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "ability"; b.node = 1725; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "is_hidden"; b.node = 1726; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "slot"; b.node = 1727; n.properties.push_back(std::move(b)); }
-        n.sourceName = "PokemonDetail_component_prop14_items1_prop1_items1";
-        n.schemaPath = "#/components/schemas/PokemonDetail/properties/past_abilities/items/properties/abilities/items";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail/properties/past_abilities/items/properties/abilities/items";
+        n.children.push_back(1938);
+        n.sourceName = "PokemonSpeciesDetail_component_prop27_items1";
+        n.schemaPath = "#/components/schemas/PokemonSpeciesDetail/properties/varieties/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDetail/properties/varieties/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1594
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "PokemonDetail_component_prop14_items1_prop2_prop1";
-        n.schemaPath = "#/components/schemas/PokemonDetail/properties/past_abilities/items/properties/generation/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail/properties/past_abilities/items/properties/generation/properties/name";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1749);
+        n.sourceName = "PokemonSpeciesFlavorText_component_prop2_app1";
+        n.schemaPath = "#/components/schemas/PokemonSpeciesFlavorText/properties/language/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesFlavorText/properties/language/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1595
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "PokemonDetail_component_prop14_items1_prop2_prop2";
-        n.schemaPath = "#/components/schemas/PokemonDetail/properties/past_abilities/items/properties/generation/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail/properties/past_abilities/items/properties/generation/properties/url";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1974);
+        n.sourceName = "PokemonSpeciesFlavorText_component_prop3_app1";
+        n.schemaPath = "#/components/schemas/PokemonSpeciesFlavorText/properties/version/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesFlavorText/properties/version/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1596
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "PokemonDetail_component_prop15_items1_prop1_prop1";
-        n.schemaPath = "#/components/schemas/PokemonDetail/properties/past_types/items/properties/generation/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail/properties/past_types/items/properties/generation/properties/name";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1749);
+        n.sourceName = "PokemonSpeciesGenus_component_prop2_app1";
+        n.schemaPath = "#/components/schemas/PokemonSpeciesGenus/properties/language/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesGenus/properties/language/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1597
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "PokemonDetail_component_prop15_items1_prop1_prop2";
-        n.schemaPath = "#/components/schemas/PokemonDetail/properties/past_types/items/properties/generation/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail/properties/past_types/items/properties/generation/properties/url";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1749);
+        n.sourceName = "PokemonSpeciesName_component_prop1_app1";
+        n.schemaPath = "#/components/schemas/PokemonSpeciesName/properties/language/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesName/properties/language/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
@@ -4232,347 +1296,331 @@ void appendSchemaRegistryChunk3(SchemaResourceRegistry& reg) {
         SchemaNode n;
         n.resourceIdentity = 0;
         n.applicator = ApplicatorKind::ref;
-        n.children.push_back(2042);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "slot"; b.node = 1728; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "type"; b.node = 1729; n.properties.push_back(std::move(b)); }
-        n.sourceName = "PokemonDetail_component_prop15_items1_prop2_items1";
-        n.schemaPath = "#/components/schemas/PokemonDetail/properties/past_types/items/properties/types/items";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail/properties/past_types/items/properties/types/items";
+        n.children.push_back(1867);
+        n.sourceName = "PokemonSpeciesPalParkEncounter_component_prop1_app1";
+        n.schemaPath = "#/components/schemas/PokemonSpeciesPalParkEncounter/properties/area/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesPalParkEncounter/properties/area/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1599
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "PokemonDetail_component_prop19_items1_prop2_prop1";
-        n.schemaPath = "#/components/schemas/PokemonDetail/properties/types/items/properties/type/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail/properties/types/items/properties/type/properties/name";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1946);
+        n.sourceName = "PokemonSpeciesVariety_component_prop2_app1";
+        n.schemaPath = "#/components/schemas/PokemonSpeciesVariety/properties/pokemon/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesVariety/properties/pokemon/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1600
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "PokemonDetail_component_prop19_items1_prop2_prop2";
-        n.schemaPath = "#/components/schemas/PokemonDetail/properties/types/items/properties/type/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail/properties/types/items/properties/type/properties/url";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1940);
+        n.sourceName = "PokemonSprites_component_prop9_app1";
+        n.schemaPath = "#/components/schemas/PokemonSprites/properties/other/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSprites/properties/other/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1601
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "PokemonDetail_held_items_component_prop2_items1_prop2_prop1";
-        n.schemaPath = "#/components/schemas/PokemonDetail_held_items/properties/version_details/items/properties/version/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail_held_items/properties/version_details/items/properties/version/properties/name";
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        n.additionalProperties = AdditionalPropertiesKind::allowed;
+        n.sourceName = "PokemonSprites_component_prop10_addprops1";
+        n.schemaPath = "#/components/schemas/PokemonSprites/properties/versions/additionalProperties";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSprites/properties/versions/additionalProperties";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1602
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "PokemonDetail_held_items_component_prop2_items1_prop2_prop2";
-        n.schemaPath = "#/components/schemas/PokemonDetail_held_items/properties/version_details/items/properties/version/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail_held_items/properties/version_details/items/properties/version/properties/url";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1941);
+        n.sourceName = "PokemonSpritesOther_component_prop1_app1";
+        n.schemaPath = "#/components/schemas/PokemonSpritesOther/properties/dream_world/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpritesOther/properties/dream_world/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1603
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "PokemonDetail_moves_inner_component_prop2_items1_prop2_prop1";
-        n.schemaPath = "#/components/schemas/PokemonDetail_moves_inner/properties/version_group_details/items/properties/move_learn_method/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail_moves_inner/properties/version_group_details/items/properties/move_learn_method/properties/name";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1942);
+        n.sourceName = "PokemonSpritesOther_component_prop2_app1";
+        n.schemaPath = "#/components/schemas/PokemonSpritesOther/properties/home/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpritesOther/properties/home/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1604
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "PokemonDetail_moves_inner_component_prop2_items1_prop2_prop2";
-        n.schemaPath = "#/components/schemas/PokemonDetail_moves_inner/properties/version_group_details/items/properties/move_learn_method/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail_moves_inner/properties/version_group_details/items/properties/move_learn_method/properties/url";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1943);
+        n.sourceName = "PokemonSpritesOther_component_prop3_app1";
+        n.schemaPath = "#/components/schemas/PokemonSpritesOther/properties/official-artwork/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpritesOther/properties/official-artwork/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1605
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "PokemonDetail_moves_inner_component_prop2_items1_prop3_prop1";
-        n.schemaPath = "#/components/schemas/PokemonDetail_moves_inner/properties/version_group_details/items/properties/version_group/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail_moves_inner/properties/version_group_details/items/properties/version_group/properties/name";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1944);
+        n.sourceName = "PokemonSpritesOther_component_prop4_app1";
+        n.schemaPath = "#/components/schemas/PokemonSpritesOther/properties/showdown/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpritesOther/properties/showdown/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1606
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "PokemonDetail_moves_inner_component_prop2_items1_prop3_prop2";
-        n.schemaPath = "#/components/schemas/PokemonDetail_moves_inner/properties/version_group_details/items/properties/version_group/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail_moves_inner/properties/version_group_details/items/properties/version_group/properties/url";
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        n.additionalProperties = AdditionalPropertiesKind::allowed;
+        n.sourceName = "PokemonSpritesOtherOfficialArtwork_component_prop3_addprops1";
+        n.schemaPath = "#/components/schemas/PokemonSpritesOtherOfficialArtwork/properties/versions/additionalProperties";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpritesOtherOfficialArtwork/properties/versions/additionalProperties";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1607
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "PokemonDetail_past_abilities_inner_component_prop1_items1_prop1_prop1";
-        n.schemaPath = "#/components/schemas/PokemonDetail_past_abilities_inner/properties/abilities/items/properties/ability/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail_past_abilities_inner/properties/abilities/items/properties/ability/properties/name";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1957);
+        n.sourceName = "PokemonStat_component_prop3_app1";
+        n.schemaPath = "#/components/schemas/PokemonStat/properties/stat/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonStat/properties/stat/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1608
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "PokemonDetail_past_abilities_inner_component_prop1_items1_prop1_prop2";
-        n.schemaPath = "#/components/schemas/PokemonDetail_past_abilities_inner/properties/abilities/items/properties/ability/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail_past_abilities_inner/properties/abilities/items/properties/ability/properties/url";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1969);
+        n.sourceName = "PokemonType_component_prop2_app1";
+        n.schemaPath = "#/components/schemas/PokemonType/properties/type/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonType/properties/type/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1609
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "PokemonDetail_past_types_inner_component_prop2_items1_prop2_prop1";
-        n.schemaPath = "#/components/schemas/PokemonDetail_past_types_inner/properties/types/items/properties/type/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail_past_types_inner/properties/types/items/properties/type/properties/name";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1763);
+        n.sourceName = "RegionDetail_component_prop2_items1";
+        n.schemaPath = "#/components/schemas/RegionDetail/properties/locations/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/RegionDetail/properties/locations/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1610
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "PokemonDetail_past_types_inner_component_prop2_items1_prop2_prop2";
-        n.schemaPath = "#/components/schemas/PokemonDetail_past_types_inner/properties/types/items/properties/type/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail_past_types_inner/properties/types/items/properties/type/properties/url";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1950);
+        n.sourceName = "RegionDetail_component_prop5_items1";
+        n.schemaPath = "#/components/schemas/RegionDetail/properties/names/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/RegionDetail/properties/names/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1611
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "PokemonFormDetail_component_prop2_items1_prop1_prop1";
-        n.schemaPath = "#/components/schemas/PokemonFormDetail/properties/form_names/items/properties/language/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonFormDetail/properties/form_names/items/properties/language/properties/name";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1879);
+        n.sourceName = "RegionDetail_component_prop6_items1";
+        n.schemaPath = "#/components/schemas/RegionDetail/properties/pokedexes/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/RegionDetail/properties/pokedexes/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1612
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "PokemonFormDetail_component_prop2_items1_prop1_prop2";
-        n.schemaPath = "#/components/schemas/PokemonFormDetail/properties/form_names/items/properties/language/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonFormDetail/properties/form_names/items/properties/language/properties/url";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1972);
+        n.sourceName = "RegionDetail_component_prop7_items1";
+        n.schemaPath = "#/components/schemas/RegionDetail/properties/version_groups/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/RegionDetail/properties/version_groups/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1613
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "PokemonFormDetail_component_prop9_items1_prop1_prop1";
-        n.schemaPath = "#/components/schemas/PokemonFormDetail/properties/names/items/properties/language/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonFormDetail/properties/names/items/properties/language/properties/name";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1749);
+        n.sourceName = "RegionName_component_prop1_app1";
+        n.schemaPath = "#/components/schemas/RegionName/properties/language/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/RegionName/properties/language/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1614
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "PokemonFormDetail_component_prop9_items1_prop1_prop2";
-        n.schemaPath = "#/components/schemas/PokemonFormDetail/properties/names/items/properties/language/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonFormDetail/properties/names/items/properties/language/properties/url";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1800);
+        n.sourceName = "StatAffectingMoves_component_prop1_items1";
+        n.schemaPath = "#/components/schemas/StatAffectingMoves/properties/decrease/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/StatAffectingMoves/properties/decrease/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1615
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "PokemonFormDetail_component_prop13_items1_prop2_prop1";
-        n.schemaPath = "#/components/schemas/PokemonFormDetail/properties/types/items/properties/type/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonFormDetail/properties/types/items/properties/type/properties/name";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1800);
+        n.sourceName = "StatAffectingMoves_component_prop2_items1";
+        n.schemaPath = "#/components/schemas/StatAffectingMoves/properties/increase/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/StatAffectingMoves/properties/increase/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1616
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "PokemonFormDetail_component_prop13_items1_prop2_prop2";
-        n.schemaPath = "#/components/schemas/PokemonFormDetail/properties/types/items/properties/type/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonFormDetail/properties/types/items/properties/type/properties/url";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1814);
+        n.sourceName = "StatAffectingNatures_component_prop1_items1";
+        n.schemaPath = "#/components/schemas/StatAffectingNatures/properties/decrease/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/StatAffectingNatures/properties/decrease/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1617
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "PokemonShapeDetail_component_prop1_items1_prop2_prop1";
-        n.schemaPath = "#/components/schemas/PokemonShapeDetail/properties/awesome_names/items/properties/language/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonShapeDetail/properties/awesome_names/items/properties/language/properties/name";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1814);
+        n.sourceName = "StatAffectingNatures_component_prop2_items1";
+        n.schemaPath = "#/components/schemas/StatAffectingNatures/properties/increase/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/StatAffectingNatures/properties/increase/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1618
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "PokemonShapeDetail_component_prop1_items1_prop2_prop2";
-        n.schemaPath = "#/components/schemas/PokemonShapeDetail/properties/awesome_names/items/properties/language/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonShapeDetail/properties/awesome_names/items/properties/language/properties/url";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1746);
+        n.sourceName = "StatDetail_component_prop1_items1";
+        n.schemaPath = "#/components/schemas/StatDetail/properties/affecting_items/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/StatDetail/properties/affecting_items/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1619
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "PokemonSpeciesDetail_component_prop11_items1_prop2_prop1";
-        n.schemaPath = "#/components/schemas/PokemonSpeciesDetail/properties/genera/items/properties/language/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDetail/properties/genera/items/properties/language/properties/name";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1952);
+        n.sourceName = "StatDetail_component_prop2_app1";
+        n.schemaPath = "#/components/schemas/StatDetail/properties/affecting_moves/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/StatDetail/properties/affecting_moves/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1620
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "PokemonSpeciesDetail_component_prop11_items1_prop2_prop2";
-        n.schemaPath = "#/components/schemas/PokemonSpeciesDetail/properties/genera/items/properties/language/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDetail/properties/genera/items/properties/language/properties/url";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1953);
+        n.sourceName = "StatDetail_component_prop3_app1";
+        n.schemaPath = "#/components/schemas/StatDetail/properties/affecting_natures/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/StatDetail/properties/affecting_natures/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1621
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "PokemonSpeciesDetail_component_prop22_items1_prop1_prop1";
-        n.schemaPath = "#/components/schemas/PokemonSpeciesDetail/properties/names/items/properties/language/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDetail/properties/names/items/properties/language/properties/name";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1677);
+        n.sourceName = "StatDetail_component_prop4_items1";
+        n.schemaPath = "#/components/schemas/StatDetail/properties/characteristics/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/StatDetail/properties/characteristics/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1622
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "PokemonSpeciesDetail_component_prop22_items1_prop1_prop2";
-        n.schemaPath = "#/components/schemas/PokemonSpeciesDetail/properties/names/items/properties/language/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDetail/properties/names/items/properties/language/properties/url";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1956);
+        n.sourceName = "StatDetail_component_prop10_items1";
+        n.schemaPath = "#/components/schemas/StatDetail/properties/names/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/StatDetail/properties/names/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1623
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "PokemonSpeciesDetail_component_prop24_items1_prop1_prop1";
-        n.schemaPath = "#/components/schemas/PokemonSpeciesDetail/properties/pal_park_encounters/items/properties/area/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDetail/properties/pal_park_encounters/items/properties/area/properties/name";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1749);
+        n.sourceName = "StatName_component_prop1_app1";
+        n.schemaPath = "#/components/schemas/StatName/properties/language/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/StatName/properties/language/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1624
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "PokemonSpeciesDetail_component_prop24_items1_prop1_prop2";
-        n.schemaPath = "#/components/schemas/PokemonSpeciesDetail/properties/pal_park_encounters/items/properties/area/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDetail/properties/pal_park_encounters/items/properties/area/properties/url";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1959);
+        n.sourceName = "SuperContestEffectDetail_component_prop2_items1";
+        n.schemaPath = "#/components/schemas/SuperContestEffectDetail/properties/flavor_text_entries/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/SuperContestEffectDetail/properties/flavor_text_entries/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1625
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "PokemonSpeciesDetail_component_prop27_items1_prop2_prop1";
-        n.schemaPath = "#/components/schemas/PokemonSpeciesDetail/properties/varieties/items/properties/pokemon/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDetail/properties/varieties/items/properties/pokemon/properties/name";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1801);
+        n.sourceName = "SuperContestEffectDetail_component_prop4_items1";
+        n.schemaPath = "#/components/schemas/SuperContestEffectDetail/properties/moves/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/SuperContestEffectDetail/properties/moves/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1626
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "PokemonSpeciesDetail_component_prop27_items1_prop2_prop2";
-        n.schemaPath = "#/components/schemas/PokemonSpeciesDetail/properties/varieties/items/properties/pokemon/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDetail/properties/varieties/items/properties/pokemon/properties/url";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1749);
+        n.sourceName = "SuperContestEffectFlavorText_component_prop2_app1";
+        n.schemaPath = "#/components/schemas/SuperContestEffectFlavorText/properties/language/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/SuperContestEffectFlavorText/properties/language/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1627
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.annExamplesJson = "[5]";
-        n.annFormat = "\"int32\"";
-        n.sourceName = "StatDetail_component_prop1_prop1_items1_prop1";
-        n.schemaPath = "#/components/schemas/StatDetail/properties/affecting_moves/properties/decrease/items/properties/change";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/StatDetail/properties/affecting_moves/properties/decrease/items/properties/change";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1968);
+        n.sourceName = "TypeDetail_component_prop1_app1";
+        n.schemaPath = "#/components/schemas/TypeDetail/properties/damage_relations/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail/properties/damage_relations/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
@@ -4580,25 +1628,21 @@ void appendSchemaRegistryChunk3(SchemaResourceRegistry& reg) {
         SchemaNode n;
         n.resourceIdentity = 0;
         n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1730; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1731; n.properties.push_back(std::move(b)); }
-        n.sourceName = "StatDetail_component_prop1_prop1_items1_prop2";
-        n.schemaPath = "#/components/schemas/StatDetail/properties/affecting_moves/properties/decrease/items/properties/move";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/StatDetail/properties/affecting_moves/properties/decrease/items/properties/move";
+        n.children.push_back(1963);
+        n.sourceName = "TypeDetail_component_prop2_items1";
+        n.schemaPath = "#/components/schemas/TypeDetail/properties/game_indices/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail/properties/game_indices/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1629
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.annExamplesJson = "[5]";
-        n.annFormat = "\"int32\"";
-        n.sourceName = "StatDetail_component_prop1_prop2_items1_prop1";
-        n.schemaPath = "#/components/schemas/StatDetail/properties/affecting_moves/properties/increase/items/properties/change";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/StatDetail/properties/affecting_moves/properties/increase/items/properties/change";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1719);
+        n.sourceName = "TypeDetail_component_prop3_app1";
+        n.schemaPath = "#/components/schemas/TypeDetail/properties/generation/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail/properties/generation/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
@@ -4606,972 +1650,6183 @@ void appendSchemaRegistryChunk3(SchemaResourceRegistry& reg) {
         SchemaNode n;
         n.resourceIdentity = 0;
         n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1732; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1733; n.properties.push_back(std::move(b)); }
-        n.sourceName = "StatDetail_component_prop1_prop2_items1_prop2";
-        n.schemaPath = "#/components/schemas/StatDetail/properties/affecting_moves/properties/increase/items/properties/move";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/StatDetail/properties/affecting_moves/properties/increase/items/properties/move";
+        n.children.push_back(1801);
+        n.sourceName = "TypeDetail_component_prop6_items1";
+        n.schemaPath = "#/components/schemas/TypeDetail/properties/moves/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail/properties/moves/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1631
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "StatDetail_component_prop2_prop1_items1_prop1";
-        n.schemaPath = "#/components/schemas/StatDetail/properties/affecting_natures/properties/decrease/items/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/StatDetail/properties/affecting_natures/properties/decrease/items/properties/name";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1965);
+        n.sourceName = "TypeDetail_component_prop8_items1";
+        n.schemaPath = "#/components/schemas/TypeDetail/properties/names/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail/properties/names/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1632
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "StatDetail_component_prop2_prop1_items1_prop2";
-        n.schemaPath = "#/components/schemas/StatDetail/properties/affecting_natures/properties/decrease/items/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/StatDetail/properties/affecting_natures/properties/decrease/items/properties/url";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1966);
+        n.sourceName = "TypeDetail_component_prop9_items1";
+        n.schemaPath = "#/components/schemas/TypeDetail/properties/past_damage_relations/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail/properties/past_damage_relations/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1633
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "StatDetail_component_prop2_prop2_items1_prop1";
-        n.schemaPath = "#/components/schemas/StatDetail/properties/affecting_natures/properties/increase/items/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/StatDetail/properties/affecting_natures/properties/increase/items/properties/name";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1967);
+        n.sourceName = "TypeDetail_component_prop10_items1";
+        n.schemaPath = "#/components/schemas/TypeDetail/properties/pokemon/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail/properties/pokemon/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1634
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "StatDetail_component_prop2_prop2_items1_prop2";
-        n.schemaPath = "#/components/schemas/StatDetail/properties/affecting_natures/properties/increase/items/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/StatDetail/properties/affecting_natures/properties/increase/items/properties/url";
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        n.additionalProperties = AdditionalPropertiesKind::schema;
+        n.additionalSchema = 1654;
+        n.sourceName = "TypeDetail_component_prop11_addprops1";
+        n.schemaPath = "#/components/schemas/TypeDetail/properties/sprites/additionalProperties";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail/properties/sprites/additionalProperties";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1635
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "StatDetail_affecting_moves_component_prop1_items1_prop2_prop1";
-        n.schemaPath = "#/components/schemas/StatDetail_affecting_moves/properties/decrease/items/properties/move/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/StatDetail_affecting_moves/properties/decrease/items/properties/move/properties/name";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1719);
+        n.sourceName = "TypeGameIndex_component_prop2_app1";
+        n.schemaPath = "#/components/schemas/TypeGameIndex/properties/generation/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeGameIndex/properties/generation/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1636
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "StatDetail_affecting_moves_component_prop1_items1_prop2_prop2";
-        n.schemaPath = "#/components/schemas/StatDetail_affecting_moves/properties/decrease/items/properties/move/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/StatDetail_affecting_moves/properties/decrease/items/properties/move/properties/url";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1749);
+        n.sourceName = "TypeName_component_prop1_app1";
+        n.schemaPath = "#/components/schemas/TypeName/properties/language/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeName/properties/language/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1637
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "StatDetail_affecting_moves_component_prop2_items1_prop2_prop1";
-        n.schemaPath = "#/components/schemas/StatDetail_affecting_moves/properties/increase/items/properties/move/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/StatDetail_affecting_moves/properties/increase/items/properties/move/properties/name";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1968);
+        n.sourceName = "TypePastRelationships_component_prop1_app1";
+        n.schemaPath = "#/components/schemas/TypePastRelationships/properties/damage_relations/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypePastRelationships/properties/damage_relations/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1638
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "StatDetail_affecting_moves_component_prop2_items1_prop2_prop2";
-        n.schemaPath = "#/components/schemas/StatDetail_affecting_moves/properties/increase/items/properties/move/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/StatDetail_affecting_moves/properties/increase/items/properties/move/properties/url";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1719);
+        n.sourceName = "TypePastRelationships_component_prop2_app1";
+        n.schemaPath = "#/components/schemas/TypePastRelationships/properties/generation/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypePastRelationships/properties/generation/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1639
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "TypeDetail_component_prop1_prop1_items1_prop1";
-        n.schemaPath = "#/components/schemas/TypeDetail/properties/damage_relations/properties/double_damage_from/items/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail/properties/damage_relations/properties/double_damage_from/items/properties/name";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1946);
+        n.sourceName = "TypePokemon_component_prop1_app1";
+        n.schemaPath = "#/components/schemas/TypePokemon/properties/pokemon/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypePokemon/properties/pokemon/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1640
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "TypeDetail_component_prop1_prop1_items1_prop2";
-        n.schemaPath = "#/components/schemas/TypeDetail/properties/damage_relations/properties/double_damage_from/items/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail/properties/damage_relations/properties/double_damage_from/items/properties/url";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1969);
+        n.sourceName = "TypeRelationships_component_prop1_items1";
+        n.schemaPath = "#/components/schemas/TypeRelationships/properties/double_damage_from/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeRelationships/properties/double_damage_from/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1641
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "TypeDetail_component_prop1_prop2_items1_prop1";
-        n.schemaPath = "#/components/schemas/TypeDetail/properties/damage_relations/properties/double_damage_to/items/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail/properties/damage_relations/properties/double_damage_to/items/properties/name";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1969);
+        n.sourceName = "TypeRelationships_component_prop2_items1";
+        n.schemaPath = "#/components/schemas/TypeRelationships/properties/double_damage_to/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeRelationships/properties/double_damage_to/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1642
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "TypeDetail_component_prop1_prop2_items1_prop2";
-        n.schemaPath = "#/components/schemas/TypeDetail/properties/damage_relations/properties/double_damage_to/items/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail/properties/damage_relations/properties/double_damage_to/items/properties/url";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1969);
+        n.sourceName = "TypeRelationships_component_prop3_items1";
+        n.schemaPath = "#/components/schemas/TypeRelationships/properties/half_damage_from/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeRelationships/properties/half_damage_from/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1643
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "TypeDetail_component_prop1_prop3_items1_prop1";
-        n.schemaPath = "#/components/schemas/TypeDetail/properties/damage_relations/properties/half_damage_from/items/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail/properties/damage_relations/properties/half_damage_from/items/properties/name";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1969);
+        n.sourceName = "TypeRelationships_component_prop4_items1";
+        n.schemaPath = "#/components/schemas/TypeRelationships/properties/half_damage_to/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeRelationships/properties/half_damage_to/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1644
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "TypeDetail_component_prop1_prop3_items1_prop2";
-        n.schemaPath = "#/components/schemas/TypeDetail/properties/damage_relations/properties/half_damage_from/items/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail/properties/damage_relations/properties/half_damage_from/items/properties/url";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1969);
+        n.sourceName = "TypeRelationships_component_prop5_items1";
+        n.schemaPath = "#/components/schemas/TypeRelationships/properties/no_damage_from/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeRelationships/properties/no_damage_from/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1645
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "TypeDetail_component_prop1_prop4_items1_prop1";
-        n.schemaPath = "#/components/schemas/TypeDetail/properties/damage_relations/properties/half_damage_to/items/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail/properties/damage_relations/properties/half_damage_to/items/properties/name";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1969);
+        n.sourceName = "TypeRelationships_component_prop6_items1";
+        n.schemaPath = "#/components/schemas/TypeRelationships/properties/no_damage_to/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeRelationships/properties/no_damage_to/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1646
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "TypeDetail_component_prop1_prop4_items1_prop2";
-        n.schemaPath = "#/components/schemas/TypeDetail/properties/damage_relations/properties/half_damage_to/items/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail/properties/damage_relations/properties/half_damage_to/items/properties/url";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1973);
+        n.sourceName = "VersionDetail_component_prop3_items1";
+        n.schemaPath = "#/components/schemas/VersionDetail/properties/names/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/VersionDetail/properties/names/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1647
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "TypeDetail_component_prop1_prop5_items1_prop1";
-        n.schemaPath = "#/components/schemas/TypeDetail/properties/damage_relations/properties/no_damage_from/items/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail/properties/damage_relations/properties/no_damage_from/items/properties/name";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1972);
+        n.sourceName = "VersionDetail_component_prop4_app1";
+        n.schemaPath = "#/components/schemas/VersionDetail/properties/version_group/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/VersionDetail/properties/version_group/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1648
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "TypeDetail_component_prop1_prop5_items1_prop2";
-        n.schemaPath = "#/components/schemas/TypeDetail/properties/damage_relations/properties/no_damage_from/items/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail/properties/damage_relations/properties/no_damage_from/items/properties/url";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1719);
+        n.sourceName = "VersionGroupDetail_component_prop1_app1";
+        n.schemaPath = "#/components/schemas/VersionGroupDetail/properties/generation/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/VersionGroupDetail/properties/generation/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1649
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "TypeDetail_component_prop1_prop6_items1_prop1";
-        n.schemaPath = "#/components/schemas/TypeDetail/properties/damage_relations/properties/no_damage_to/items/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail/properties/damage_relations/properties/no_damage_to/items/properties/name";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1790);
+        n.sourceName = "VersionGroupDetail_component_prop3_items1";
+        n.schemaPath = "#/components/schemas/VersionGroupDetail/properties/move_learn_methods/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/VersionGroupDetail/properties/move_learn_methods/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1650
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "TypeDetail_component_prop1_prop6_items1_prop2";
-        n.schemaPath = "#/components/schemas/TypeDetail/properties/damage_relations/properties/no_damage_to/items/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail/properties/damage_relations/properties/no_damage_to/items/properties/url";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1879);
+        n.sourceName = "VersionGroupDetail_component_prop6_items1";
+        n.schemaPath = "#/components/schemas/VersionGroupDetail/properties/pokedexes/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/VersionGroupDetail/properties/pokedexes/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1651
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1734;
-        n.sourceName = "TypeDetail_component_prop9_items1_prop1_prop1";
-        n.schemaPath = "#/components/schemas/TypeDetail/properties/past_damage_relations/items/properties/damage_relations/properties/double_damage_from";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail/properties/past_damage_relations/items/properties/damage_relations/properties/double_damage_from";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1951);
+        n.sourceName = "VersionGroupDetail_component_prop7_items1";
+        n.schemaPath = "#/components/schemas/VersionGroupDetail/properties/regions/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/VersionGroupDetail/properties/regions/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1652
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1735;
-        n.sourceName = "TypeDetail_component_prop9_items1_prop1_prop2";
-        n.schemaPath = "#/components/schemas/TypeDetail/properties/past_damage_relations/items/properties/damage_relations/properties/double_damage_to";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail/properties/past_damage_relations/items/properties/damage_relations/properties/double_damage_to";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1974);
+        n.sourceName = "VersionGroupDetail_component_prop8_items1";
+        n.schemaPath = "#/components/schemas/VersionGroupDetail/properties/versions/items";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/VersionGroupDetail/properties/versions/items";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1653
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1736;
-        n.sourceName = "TypeDetail_component_prop9_items1_prop1_prop3";
-        n.schemaPath = "#/components/schemas/TypeDetail/properties/past_damage_relations/items/properties/damage_relations/properties/half_damage_from";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail/properties/past_damage_relations/items/properties/damage_relations/properties/half_damage_from";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1749);
+        n.sourceName = "VersionName_component_prop1_app1";
+        n.schemaPath = "#/components/schemas/VersionName/properties/language/allOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/VersionName/properties/language/allOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1654
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1737;
-        n.sourceName = "TypeDetail_component_prop9_items1_prop1_prop4";
-        n.schemaPath = "#/components/schemas/TypeDetail/properties/past_damage_relations/items/properties/damage_relations/properties/half_damage_to";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail/properties/past_damage_relations/items/properties/damage_relations/properties/half_damage_to";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1964);
+        n.sourceName = "TypeDetail_component_prop11_addprops1_addprops1";
+        n.schemaPath = "#/components/schemas/TypeDetail/properties/sprites/additionalProperties/additionalProperties";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail/properties/sprites/additionalProperties/additionalProperties";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1655
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1738;
-        n.sourceName = "TypeDetail_component_prop9_items1_prop1_prop5";
-        n.schemaPath = "#/components/schemas/TypeDetail/properties/past_damage_relations/items/properties/damage_relations/properties/no_damage_from";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail/properties/past_damage_relations/items/properties/damage_relations/properties/no_damage_from";
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "effect_entries"; b.node = 150; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "version_group"; b.node = 151; n.properties.push_back(std::move(b)); }
+        n.required.push_back("effect_entries");
+        n.required.push_back("version_group");
+        n.sourceName = "AbilityChange_component";
+        n.schemaPath = "#/components/schemas/AbilityChange";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/AbilityChange";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1656
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1739;
-        n.sourceName = "TypeDetail_component_prop9_items1_prop1_prop6";
-        n.schemaPath = "#/components/schemas/TypeDetail/properties/past_damage_relations/items/properties/damage_relations/properties/no_damage_to";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail/properties/past_damage_relations/items/properties/damage_relations/properties/no_damage_to";
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "effect"; b.node = 152; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "language"; b.node = 153; n.properties.push_back(std::move(b)); }
+        n.required.push_back("effect");
+        n.required.push_back("language");
+        n.sourceName = "AbilityChangeEffectText_component";
+        n.schemaPath = "#/components/schemas/AbilityChangeEffectText";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/AbilityChangeEffectText";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1657
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "TypeDetail_component_prop9_items1_prop2_prop1";
-        n.schemaPath = "#/components/schemas/TypeDetail/properties/past_damage_relations/items/properties/generation/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail/properties/past_damage_relations/items/properties/generation/properties/name";
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "effect_changes"; b.node = 154; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "effect_entries"; b.node = 155; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "flavor_text_entries"; b.node = 156; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "generation"; b.node = 157; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "id"; b.node = 158; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "is_main_series"; b.node = 159; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 160; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "names"; b.node = 161; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "pokemon"; b.node = 162; n.properties.push_back(std::move(b)); }
+        n.required.push_back("effect_changes");
+        n.required.push_back("effect_entries");
+        n.required.push_back("flavor_text_entries");
+        n.required.push_back("generation");
+        n.required.push_back("id");
+        n.required.push_back("name");
+        n.required.push_back("names");
+        n.required.push_back("pokemon");
+        n.sourceName = "AbilityDetail_component";
+        n.schemaPath = "#/components/schemas/AbilityDetail";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/AbilityDetail";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1658
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "TypeDetail_component_prop9_items1_prop2_prop2";
-        n.schemaPath = "#/components/schemas/TypeDetail/properties/past_damage_relations/items/properties/generation/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail/properties/past_damage_relations/items/properties/generation/properties/url";
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "effect"; b.node = 163; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "language"; b.node = 164; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "short_effect"; b.node = 165; n.properties.push_back(std::move(b)); }
+        n.required.push_back("effect");
+        n.required.push_back("language");
+        n.required.push_back("short_effect");
+        n.sourceName = "AbilityEffectText_component";
+        n.schemaPath = "#/components/schemas/AbilityEffectText";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/AbilityEffectText";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1659
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annDescription = "\"The name of the pokemon\"";
-        n.annExamplesJson = "[\"sandshrew\"]";
-        n.sourceName = "TypeDetail_component_prop10_items1_prop1_prop1";
-        n.schemaPath = "#/components/schemas/TypeDetail/properties/pokemon/items/properties/pokemon/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail/properties/pokemon/items/properties/pokemon/properties/name";
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "flavor_text"; b.node = 166; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "language"; b.node = 167; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "version_group"; b.node = 168; n.properties.push_back(std::move(b)); }
+        n.required.push_back("flavor_text");
+        n.required.push_back("language");
+        n.required.push_back("version_group");
+        n.sourceName = "AbilityFlavorText_component";
+        n.schemaPath = "#/components/schemas/AbilityFlavorText";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/AbilityFlavorText";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1660
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annDescription = "\"The URL to get more information about the pokemon\"";
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/pokemon/27/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "TypeDetail_component_prop10_items1_prop1_prop2";
-        n.schemaPath = "#/components/schemas/TypeDetail/properties/pokemon/items/properties/pokemon/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail/properties/pokemon/items/properties/pokemon/properties/url";
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "language"; b.node = 169; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 170; n.properties.push_back(std::move(b)); }
+        n.required.push_back("language");
+        n.required.push_back("name");
+        n.sourceName = "AbilityName_component";
+        n.schemaPath = "#/components/schemas/AbilityName";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/AbilityName";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1661
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/types/generation-iii/colosseum/1.png\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "TypeDetail_component_prop11_addprops1_addprops1_prop1";
-        n.schemaPath = "#/components/schemas/TypeDetail/properties/sprites/additionalProperties/additionalProperties/properties/name-icon";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail/properties/sprites/additionalProperties/additionalProperties/properties/name-icon";
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "is_hidden"; b.node = 171; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "pokemon"; b.node = 172; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "slot"; b.node = 173; n.properties.push_back(std::move(b)); }
+        n.required.push_back("pokemon");
+        n.required.push_back("slot");
+        n.sourceName = "AbilityPokemonDetail_component";
+        n.schemaPath = "#/components/schemas/AbilityPokemonDetail";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/AbilityPokemonDetail";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1662
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "TypeDetail_past_damage_relations_inner_component_prop1_prop1_items1_prop1";
-        n.schemaPath = "#/components/schemas/TypeDetail_past_damage_relations_inner/properties/damage_relations/properties/double_damage_from/items/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail_past_damage_relations_inner/properties/damage_relations/properties/double_damage_from/items/properties/name";
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "name"; b.node = 174; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "url"; b.node = 175; n.properties.push_back(std::move(b)); }
+        n.required.push_back("name");
+        n.required.push_back("url");
+        n.sourceName = "AbilitySummary_component";
+        n.schemaPath = "#/components/schemas/AbilitySummary";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/AbilitySummary";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1663
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "TypeDetail_past_damage_relations_inner_component_prop1_prop1_items1_prop2";
-        n.schemaPath = "#/components/schemas/TypeDetail_past_damage_relations_inner/properties/damage_relations/properties/double_damage_from/items/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail_past_damage_relations_inner/properties/damage_relations/properties/double_damage_from/items/properties/url";
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "firmness"; b.node = 176; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "flavors"; b.node = 177; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "growth_time"; b.node = 178; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "id"; b.node = 179; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "item"; b.node = 180; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "max_harvest"; b.node = 181; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 182; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "natural_gift_power"; b.node = 183; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "natural_gift_type"; b.node = 184; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "size"; b.node = 185; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "smoothness"; b.node = 186; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "soil_dryness"; b.node = 187; n.properties.push_back(std::move(b)); }
+        n.required.push_back("firmness");
+        n.required.push_back("flavors");
+        n.required.push_back("id");
+        n.required.push_back("item");
+        n.required.push_back("name");
+        n.required.push_back("natural_gift_type");
+        n.sourceName = "BerryDetail_component";
+        n.schemaPath = "#/components/schemas/BerryDetail";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/BerryDetail";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1664
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "TypeDetail_past_damage_relations_inner_component_prop1_prop2_items1_prop1";
-        n.schemaPath = "#/components/schemas/TypeDetail_past_damage_relations_inner/properties/damage_relations/properties/double_damage_to/items/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail_past_damage_relations_inner/properties/damage_relations/properties/double_damage_to/items/properties/name";
+        n.oneOfChildren.push_back(188);
+        n.oneOfChildren.push_back(189);
+        n.annDescription = "\"The firmness of this berry, used in making Pok\303\251blocks or Poffins.\"";
+        n.sourceName = "BerryDetail_firmness_component";
+        n.schemaPath = "#/components/schemas/BerryDetail_firmness";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/BerryDetail_firmness";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1665
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "TypeDetail_past_damage_relations_inner_component_prop1_prop2_items1_prop2";
-        n.schemaPath = "#/components/schemas/TypeDetail_past_damage_relations_inner/properties/damage_relations/properties/double_damage_to/items/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail_past_damage_relations_inner/properties/damage_relations/properties/double_damage_to/items/properties/url";
+        n.oneOfChildren.push_back(190);
+        n.oneOfChildren.push_back(191);
+        n.annDescription = "\"The type inherited by \\\"Natural Gift\\\" when used with this Berry.\"";
+        n.sourceName = "BerryDetail_natural_gift_type_component";
+        n.schemaPath = "#/components/schemas/BerryDetail_natural_gift_type";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/BerryDetail_natural_gift_type";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1666
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "TypeDetail_past_damage_relations_inner_component_prop1_prop3_items1_prop1";
-        n.schemaPath = "#/components/schemas/TypeDetail_past_damage_relations_inner/properties/damage_relations/properties/half_damage_from/items/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail_past_damage_relations_inner/properties/damage_relations/properties/half_damage_from/items/properties/name";
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "berries"; b.node = 192; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "id"; b.node = 193; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 194; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "names"; b.node = 195; n.properties.push_back(std::move(b)); }
+        n.required.push_back("berries");
+        n.required.push_back("id");
+        n.required.push_back("name");
+        n.required.push_back("names");
+        n.sourceName = "BerryFirmnessDetail_component";
+        n.schemaPath = "#/components/schemas/BerryFirmnessDetail";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/BerryFirmnessDetail";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1667
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "TypeDetail_past_damage_relations_inner_component_prop1_prop3_items1_prop2";
-        n.schemaPath = "#/components/schemas/TypeDetail_past_damage_relations_inner/properties/damage_relations/properties/half_damage_from/items/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail_past_damage_relations_inner/properties/damage_relations/properties/half_damage_from/items/properties/url";
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "language"; b.node = 196; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 197; n.properties.push_back(std::move(b)); }
+        n.required.push_back("language");
+        n.required.push_back("name");
+        n.sourceName = "BerryFirmnessName_component";
+        n.schemaPath = "#/components/schemas/BerryFirmnessName";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/BerryFirmnessName";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1668
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "TypeDetail_past_damage_relations_inner_component_prop1_prop4_items1_prop1";
-        n.schemaPath = "#/components/schemas/TypeDetail_past_damage_relations_inner/properties/damage_relations/properties/half_damage_to/items/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail_past_damage_relations_inner/properties/damage_relations/properties/half_damage_to/items/properties/name";
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "name"; b.node = 198; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "url"; b.node = 199; n.properties.push_back(std::move(b)); }
+        n.required.push_back("name");
+        n.required.push_back("url");
+        n.sourceName = "BerryFirmnessSummary_component";
+        n.schemaPath = "#/components/schemas/BerryFirmnessSummary";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/BerryFirmnessSummary";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1669
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "TypeDetail_past_damage_relations_inner_component_prop1_prop4_items1_prop2";
-        n.schemaPath = "#/components/schemas/TypeDetail_past_damage_relations_inner/properties/damage_relations/properties/half_damage_to/items/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail_past_damage_relations_inner/properties/damage_relations/properties/half_damage_to/items/properties/url";
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "berry"; b.node = 200; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "potency"; b.node = 201; n.properties.push_back(std::move(b)); }
+        n.required.push_back("berry");
+        n.required.push_back("potency");
+        n.sourceName = "BerryFlavorBerryMap_component";
+        n.schemaPath = "#/components/schemas/BerryFlavorBerryMap";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/BerryFlavorBerryMap";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1670
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "TypeDetail_past_damage_relations_inner_component_prop1_prop5_items1_prop1";
-        n.schemaPath = "#/components/schemas/TypeDetail_past_damage_relations_inner/properties/damage_relations/properties/no_damage_from/items/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail_past_damage_relations_inner/properties/damage_relations/properties/no_damage_from/items/properties/name";
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "berries"; b.node = 202; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "contest_type"; b.node = 203; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "id"; b.node = 204; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 205; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "names"; b.node = 206; n.properties.push_back(std::move(b)); }
+        n.required.push_back("berries");
+        n.required.push_back("contest_type");
+        n.required.push_back("id");
+        n.required.push_back("name");
+        n.required.push_back("names");
+        n.sourceName = "BerryFlavorDetail_component";
+        n.schemaPath = "#/components/schemas/BerryFlavorDetail";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/BerryFlavorDetail";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1671
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "TypeDetail_past_damage_relations_inner_component_prop1_prop5_items1_prop2";
-        n.schemaPath = "#/components/schemas/TypeDetail_past_damage_relations_inner/properties/damage_relations/properties/no_damage_from/items/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail_past_damage_relations_inner/properties/damage_relations/properties/no_damage_from/items/properties/url";
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "flavor"; b.node = 207; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "potency"; b.node = 208; n.properties.push_back(std::move(b)); }
+        n.required.push_back("flavor");
+        n.required.push_back("potency");
+        n.sourceName = "BerryFlavorMap_component";
+        n.schemaPath = "#/components/schemas/BerryFlavorMap";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/BerryFlavorMap";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1672
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "TypeDetail_past_damage_relations_inner_component_prop1_prop6_items1_prop1";
-        n.schemaPath = "#/components/schemas/TypeDetail_past_damage_relations_inner/properties/damage_relations/properties/no_damage_to/items/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail_past_damage_relations_inner/properties/damage_relations/properties/no_damage_to/items/properties/name";
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "language"; b.node = 209; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 210; n.properties.push_back(std::move(b)); }
+        n.required.push_back("language");
+        n.required.push_back("name");
+        n.sourceName = "BerryFlavorName_component";
+        n.schemaPath = "#/components/schemas/BerryFlavorName";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/BerryFlavorName";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1673
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/region/1/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "TypeDetail_past_damage_relations_inner_component_prop1_prop6_items1_prop2";
-        n.schemaPath = "#/components/schemas/TypeDetail_past_damage_relations_inner/properties/damage_relations/properties/no_damage_to/items/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail_past_damage_relations_inner/properties/damage_relations/properties/no_damage_to/items/properties/url";
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "name"; b.node = 211; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "url"; b.node = 212; n.properties.push_back(std::move(b)); }
+        n.required.push_back("name");
+        n.required.push_back("url");
+        n.sourceName = "BerryFlavorSummary_component";
+        n.schemaPath = "#/components/schemas/BerryFlavorSummary";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/BerryFlavorSummary";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1674
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1870);
+        n.typeFlags = 32u;
         n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "gender"; b.node = 1740; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "held_item"; b.node = 1741; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "item"; b.node = 1742; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "known_move"; b.node = 1743; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "known_move_type"; b.node = 1744; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "location"; b.node = 1745; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "min_affection"; b.node = 1746; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "min_beauty"; b.node = 1747; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "min_happiness"; b.node = 1748; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "min_level"; b.node = 1749; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "needs_overworld_rain"; b.node = 1750; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "party_species"; b.node = 1751; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "party_type"; b.node = 1752; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "relative_physical_stats"; b.node = 1753; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "time_of_day"; b.node = 1754; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "trade_species"; b.node = 1755; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "trigger"; b.node = 1756; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "turn_upside_down"; b.node = 1757; n.properties.push_back(std::move(b)); }
-        n.sourceName = "EvolutionChainDetail_component_prop2_prop2_items1_prop1_items1";
-        n.schemaPath = "#/components/schemas/EvolutionChainDetail/properties/chain/properties/evolves_to/items/properties/evolution_details/items";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EvolutionChainDetail/properties/chain/properties/evolves_to/items/properties/evolution_details/items";
+        { PropertyBinding b; b.name = "name"; b.node = 213; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "url"; b.node = 214; n.properties.push_back(std::move(b)); }
+        n.required.push_back("name");
+        n.required.push_back("url");
+        n.sourceName = "BerrySummary_component";
+        n.schemaPath = "#/components/schemas/BerrySummary";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/BerrySummary";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 1675
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"kanto\"]";
-        n.sourceName = "EvolutionChainDetail_component_prop2_prop2_items1_prop3_prop1";
-        n.schemaPath = "#/components/schemas/EvolutionChainDetail/properties/chain/properties/evolves_to/items/properties/species/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EvolutionChainDetail/properties/chain/properties/evolves_to/items/properties/species/properties/name";
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "description"; b.node = 215; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "language"; b.node = 216; n.properties.push_back(std::move(b)); }
+        n.required.push_back("language");
+        n.sourceName = "CharacteristicDescription_component";
+        n.schemaPath = "#/components/schemas/CharacteristicDescription";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/CharacteristicDescription";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1676
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "descriptions"; b.node = 217; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "gene_modulo"; b.node = 218; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "highest_stat"; b.node = 219; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "id"; b.node = 220; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "possible_values"; b.node = 221; n.properties.push_back(std::move(b)); }
+        n.required.push_back("descriptions");
+        n.required.push_back("gene_modulo");
+        n.required.push_back("highest_stat");
+        n.required.push_back("id");
+        n.required.push_back("possible_values");
+        n.sourceName = "CharacteristicDetail_component";
+        n.schemaPath = "#/components/schemas/CharacteristicDetail";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/CharacteristicDetail";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1677
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "url"; b.node = 222; n.properties.push_back(std::move(b)); }
+        n.required.push_back("url");
+        n.sourceName = "CharacteristicSummary_component";
+        n.schemaPath = "#/components/schemas/CharacteristicSummary";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/CharacteristicSummary";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1678
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "appeal"; b.node = 223; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "effect_entries"; b.node = 224; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "flavor_text_entries"; b.node = 225; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "id"; b.node = 226; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "jam"; b.node = 227; n.properties.push_back(std::move(b)); }
+        n.required.push_back("appeal");
+        n.required.push_back("effect_entries");
+        n.required.push_back("flavor_text_entries");
+        n.required.push_back("id");
+        n.required.push_back("jam");
+        n.sourceName = "ContestEffectDetail_component";
+        n.schemaPath = "#/components/schemas/ContestEffectDetail";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/ContestEffectDetail";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1679
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "effect"; b.node = 228; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "language"; b.node = 229; n.properties.push_back(std::move(b)); }
+        n.required.push_back("effect");
+        n.required.push_back("language");
+        n.sourceName = "ContestEffectEffectText_component";
+        n.schemaPath = "#/components/schemas/ContestEffectEffectText";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/ContestEffectEffectText";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1680
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "flavor_text"; b.node = 230; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "language"; b.node = 231; n.properties.push_back(std::move(b)); }
+        n.required.push_back("flavor_text");
+        n.required.push_back("language");
+        n.sourceName = "ContestEffectFlavorText_component";
+        n.schemaPath = "#/components/schemas/ContestEffectFlavorText";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/ContestEffectFlavorText";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1681
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "url"; b.node = 232; n.properties.push_back(std::move(b)); }
+        n.required.push_back("url");
+        n.sourceName = "ContestEffectSummary_component";
+        n.schemaPath = "#/components/schemas/ContestEffectSummary";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/ContestEffectSummary";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1682
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "berry_flavor"; b.node = 233; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "id"; b.node = 234; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 235; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "names"; b.node = 236; n.properties.push_back(std::move(b)); }
+        n.required.push_back("berry_flavor");
+        n.required.push_back("id");
+        n.required.push_back("name");
+        n.required.push_back("names");
+        n.sourceName = "ContestTypeDetail_component";
+        n.schemaPath = "#/components/schemas/ContestTypeDetail";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/ContestTypeDetail";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1683
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "color"; b.node = 237; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "language"; b.node = 238; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 239; n.properties.push_back(std::move(b)); }
+        n.required.push_back("color");
+        n.required.push_back("language");
+        n.required.push_back("name");
+        n.sourceName = "ContestTypeName_component";
+        n.schemaPath = "#/components/schemas/ContestTypeName";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/ContestTypeName";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1684
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "name"; b.node = 240; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "url"; b.node = 241; n.properties.push_back(std::move(b)); }
+        n.required.push_back("name");
+        n.required.push_back("url");
+        n.sourceName = "ContestTypeSummary_component";
+        n.schemaPath = "#/components/schemas/ContestTypeSummary";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/ContestTypeSummary";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1685
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "id"; b.node = 242; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 243; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "names"; b.node = 244; n.properties.push_back(std::move(b)); }
+        n.required.push_back("id");
+        n.required.push_back("name");
+        n.required.push_back("names");
+        n.sourceName = "CurrencyDetail_component";
+        n.schemaPath = "#/components/schemas/CurrencyDetail";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/CurrencyDetail";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1686
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "language"; b.node = 245; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 246; n.properties.push_back(std::move(b)); }
+        n.required.push_back("language");
+        n.required.push_back("name");
+        n.sourceName = "CurrencyName_component";
+        n.schemaPath = "#/components/schemas/CurrencyName";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/CurrencyName";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1687
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "name"; b.node = 247; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "url"; b.node = 248; n.properties.push_back(std::move(b)); }
+        n.required.push_back("name");
+        n.required.push_back("url");
+        n.sourceName = "CurrencySummary_component";
+        n.schemaPath = "#/components/schemas/CurrencySummary";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/CurrencySummary";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1688
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "id"; b.node = 249; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 250; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "names"; b.node = 251; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "pokemon_species"; b.node = 252; n.properties.push_back(std::move(b)); }
+        n.required.push_back("id");
+        n.required.push_back("name");
+        n.required.push_back("names");
+        n.required.push_back("pokemon_species");
+        n.sourceName = "EggGroupDetail_component";
+        n.schemaPath = "#/components/schemas/EggGroupDetail";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EggGroupDetail";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1689
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "language"; b.node = 253; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 254; n.properties.push_back(std::move(b)); }
+        n.required.push_back("language");
+        n.required.push_back("name");
+        n.sourceName = "EggGroupName_component";
+        n.schemaPath = "#/components/schemas/EggGroupName";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EggGroupName";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1690
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "name"; b.node = 255; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "url"; b.node = 256; n.properties.push_back(std::move(b)); }
+        n.required.push_back("name");
+        n.required.push_back("url");
+        n.sourceName = "EggGroupSummary_component";
+        n.schemaPath = "#/components/schemas/EggGroupSummary";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EggGroupSummary";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1691
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "id"; b.node = 257; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 258; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "names"; b.node = 259; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "values"; b.node = 260; n.properties.push_back(std::move(b)); }
+        n.required.push_back("id");
+        n.required.push_back("name");
+        n.required.push_back("names");
+        n.required.push_back("values");
+        n.sourceName = "EncounterConditionDetail_component";
+        n.schemaPath = "#/components/schemas/EncounterConditionDetail";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EncounterConditionDetail";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1692
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "language"; b.node = 261; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 262; n.properties.push_back(std::move(b)); }
+        n.required.push_back("language");
+        n.required.push_back("name");
+        n.sourceName = "EncounterConditionName_component";
+        n.schemaPath = "#/components/schemas/EncounterConditionName";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EncounterConditionName";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1693
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "name"; b.node = 263; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "url"; b.node = 264; n.properties.push_back(std::move(b)); }
+        n.required.push_back("name");
+        n.required.push_back("url");
+        n.sourceName = "EncounterConditionSummary_component";
+        n.schemaPath = "#/components/schemas/EncounterConditionSummary";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EncounterConditionSummary";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1694
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "condition"; b.node = 265; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "id"; b.node = 266; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 267; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "names"; b.node = 268; n.properties.push_back(std::move(b)); }
+        n.required.push_back("condition");
+        n.required.push_back("id");
+        n.required.push_back("name");
+        n.required.push_back("names");
+        n.sourceName = "EncounterConditionValueDetail_component";
+        n.schemaPath = "#/components/schemas/EncounterConditionValueDetail";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EncounterConditionValueDetail";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1695
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "language"; b.node = 269; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 270; n.properties.push_back(std::move(b)); }
+        n.required.push_back("language");
+        n.required.push_back("name");
+        n.sourceName = "EncounterConditionValueName_component";
+        n.schemaPath = "#/components/schemas/EncounterConditionValueName";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EncounterConditionValueName";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1696
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "name"; b.node = 271; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "url"; b.node = 272; n.properties.push_back(std::move(b)); }
+        n.required.push_back("name");
+        n.required.push_back("url");
+        n.sourceName = "EncounterConditionValueSummary_component";
+        n.schemaPath = "#/components/schemas/EncounterConditionValueSummary";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EncounterConditionValueSummary";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1697
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "id"; b.node = 273; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 274; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "names"; b.node = 275; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "order"; b.node = 276; n.properties.push_back(std::move(b)); }
+        n.required.push_back("id");
+        n.required.push_back("name");
+        n.required.push_back("names");
+        n.sourceName = "EncounterMethodDetail_component";
+        n.schemaPath = "#/components/schemas/EncounterMethodDetail";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EncounterMethodDetail";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1698
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "language"; b.node = 277; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 278; n.properties.push_back(std::move(b)); }
+        n.required.push_back("language");
+        n.required.push_back("name");
+        n.sourceName = "EncounterMethodName_component";
+        n.schemaPath = "#/components/schemas/EncounterMethodName";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EncounterMethodName";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1699
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "name"; b.node = 279; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "url"; b.node = 280; n.properties.push_back(std::move(b)); }
+        n.required.push_back("name");
+        n.required.push_back("url");
+        n.sourceName = "EncounterMethodSummary_component";
+        n.schemaPath = "#/components/schemas/EncounterMethodSummary";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EncounterMethodSummary";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1700
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "always_shiny"; b.node = 281; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "is_alpha"; b.node = 282; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "min_perfect_ivs"; b.node = 283; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "never_shiny"; b.node = 284; n.properties.push_back(std::move(b)); }
+        n.sourceName = "EncounterPokemonDetail_component";
+        n.schemaPath = "#/components/schemas/EncounterPokemonDetail";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EncounterPokemonDetail";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1701
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "baby_trigger_item"; b.node = 285; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "chain"; b.node = 286; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "id"; b.node = 287; n.properties.push_back(std::move(b)); }
+        n.required.push_back("baby_trigger_item");
+        n.required.push_back("chain");
+        n.required.push_back("id");
+        n.sourceName = "EvolutionChainDetail_component";
+        n.schemaPath = "#/components/schemas/EvolutionChainDetail";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EvolutionChainDetail";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1702
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.oneOfChildren.push_back(288);
+        n.oneOfChildren.push_back(289);
+        n.annDescription = "\"The item that a Pok\303\251mon would be holding when mating that would trigger the egg hatching a baby Pok\303\251mon rather than a basic Pok\303\251mon.\"";
+        n.sourceName = "EvolutionChainDetail_baby_trigger_item_component";
+        n.schemaPath = "#/components/schemas/EvolutionChainDetail_baby_trigger_item";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EvolutionChainDetail_baby_trigger_item";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1703
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "evolution_details"; b.node = 290; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "evolves_to"; b.node = 291; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "is_baby"; b.node = 292; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "species"; b.node = 293; n.properties.push_back(std::move(b)); }
+        n.required.push_back("evolution_details");
+        n.required.push_back("evolves_to");
+        n.required.push_back("is_baby");
+        n.required.push_back("species");
+        n.sourceName = "EvolutionChainLink_component";
+        n.schemaPath = "#/components/schemas/EvolutionChainLink";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EvolutionChainLink";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1704
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "url"; b.node = 294; n.properties.push_back(std::move(b)); }
+        n.required.push_back("url");
+        n.sourceName = "EvolutionChainSummary_component";
+        n.schemaPath = "#/components/schemas/EvolutionChainSummary";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EvolutionChainSummary";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1705
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "expression"; b.node = 295; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "percentage_chance"; b.node = 296; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "variables"; b.node = 297; n.properties.push_back(std::move(b)); }
+        n.required.push_back("expression");
+        n.required.push_back("percentage_chance");
+        n.required.push_back("variables");
+        n.sourceName = "EvolutionConditionExpression_component";
+        n.schemaPath = "#/components/schemas/EvolutionConditionExpression";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EvolutionConditionExpression";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1706
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "id"; b.node = 298; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 299; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "names"; b.node = 300; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "pokemon_species"; b.node = 301; n.properties.push_back(std::move(b)); }
+        n.required.push_back("id");
+        n.required.push_back("name");
+        n.required.push_back("names");
+        n.required.push_back("pokemon_species");
+        n.sourceName = "EvolutionTriggerDetail_component";
+        n.schemaPath = "#/components/schemas/EvolutionTriggerDetail";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EvolutionTriggerDetail";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1707
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "language"; b.node = 302; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 303; n.properties.push_back(std::move(b)); }
+        n.required.push_back("language");
+        n.required.push_back("name");
+        n.sourceName = "EvolutionTriggerName_component";
+        n.schemaPath = "#/components/schemas/EvolutionTriggerName";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EvolutionTriggerName";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1708
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "name"; b.node = 304; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "url"; b.node = 305; n.properties.push_back(std::move(b)); }
+        n.required.push_back("name");
+        n.required.push_back("url");
+        n.sourceName = "EvolutionTriggerSummary_component";
+        n.schemaPath = "#/components/schemas/EvolutionTriggerSummary";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EvolutionTriggerSummary";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1709
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "description"; b.node = 306; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "language"; b.node = 307; n.properties.push_back(std::move(b)); }
+        n.required.push_back("language");
+        n.sourceName = "EvolutionVariableDescription_component";
+        n.schemaPath = "#/components/schemas/EvolutionVariableDescription";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EvolutionVariableDescription";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1710
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "data_type"; b.node = 308; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "descriptions"; b.node = 309; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "id"; b.node = 310; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 311; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "names"; b.node = 312; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "source"; b.node = 313; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "symbol"; b.node = 314; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "version_group"; b.node = 315; n.properties.push_back(std::move(b)); }
+        n.required.push_back("descriptions");
+        n.required.push_back("id");
+        n.required.push_back("name");
+        n.required.push_back("names");
+        n.required.push_back("symbol");
+        n.required.push_back("version_group");
+        n.sourceName = "EvolutionVariableDetail_component";
+        n.schemaPath = "#/components/schemas/EvolutionVariableDetail";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EvolutionVariableDetail";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1711
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "language"; b.node = 316; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 317; n.properties.push_back(std::move(b)); }
+        n.required.push_back("language");
+        n.required.push_back("name");
+        n.sourceName = "EvolutionVariableName_component";
+        n.schemaPath = "#/components/schemas/EvolutionVariableName";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EvolutionVariableName";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1712
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "name"; b.node = 318; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "url"; b.node = 319; n.properties.push_back(std::move(b)); }
+        n.required.push_back("name");
+        n.required.push_back("url");
+        n.sourceName = "EvolutionVariableSummary_component";
+        n.schemaPath = "#/components/schemas/EvolutionVariableSummary";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/EvolutionVariableSummary";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1713
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "experience"; b.node = 320; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "level"; b.node = 321; n.properties.push_back(std::move(b)); }
+        n.required.push_back("experience");
+        n.required.push_back("level");
+        n.sourceName = "Experience_component";
+        n.schemaPath = "#/components/schemas/Experience";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/Experience";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1714
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "id"; b.node = 322; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 323; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "pokemon_species_details"; b.node = 324; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "required_for_evolution"; b.node = 325; n.properties.push_back(std::move(b)); }
+        n.required.push_back("id");
+        n.required.push_back("name");
+        n.required.push_back("pokemon_species_details");
+        n.required.push_back("required_for_evolution");
+        n.sourceName = "GenderDetail_component";
+        n.schemaPath = "#/components/schemas/GenderDetail";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/GenderDetail";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1715
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "pokemon_species"; b.node = 326; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "rate"; b.node = 327; n.properties.push_back(std::move(b)); }
+        n.required.push_back("pokemon_species");
+        n.required.push_back("rate");
+        n.sourceName = "GenderPokemonSpecies_component";
+        n.schemaPath = "#/components/schemas/GenderPokemonSpecies";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/GenderPokemonSpecies";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1716
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "name"; b.node = 328; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "url"; b.node = 329; n.properties.push_back(std::move(b)); }
+        n.required.push_back("name");
+        n.required.push_back("url");
+        n.sourceName = "GenderSummary_component";
+        n.schemaPath = "#/components/schemas/GenderSummary";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/GenderSummary";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1717
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "abilities"; b.node = 330; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "id"; b.node = 331; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "main_region"; b.node = 332; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "moves"; b.node = 333; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 334; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "names"; b.node = 335; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "pokemon_species"; b.node = 336; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "types"; b.node = 337; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "version_groups"; b.node = 338; n.properties.push_back(std::move(b)); }
+        n.required.push_back("abilities");
+        n.required.push_back("id");
+        n.required.push_back("main_region");
+        n.required.push_back("moves");
+        n.required.push_back("name");
+        n.required.push_back("names");
+        n.required.push_back("pokemon_species");
+        n.required.push_back("types");
+        n.required.push_back("version_groups");
+        n.sourceName = "GenerationDetail_component";
+        n.schemaPath = "#/components/schemas/GenerationDetail";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/GenerationDetail";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1718
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "language"; b.node = 339; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 340; n.properties.push_back(std::move(b)); }
+        n.required.push_back("language");
+        n.required.push_back("name");
+        n.sourceName = "GenerationName_component";
+        n.schemaPath = "#/components/schemas/GenerationName";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/GenerationName";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1719
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "name"; b.node = 341; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "url"; b.node = 342; n.properties.push_back(std::move(b)); }
+        n.required.push_back("name");
+        n.required.push_back("url");
+        n.sourceName = "GenerationSummary_component";
+        n.schemaPath = "#/components/schemas/GenerationSummary";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/GenerationSummary";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1720
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "description"; b.node = 343; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "language"; b.node = 344; n.properties.push_back(std::move(b)); }
+        n.required.push_back("language");
+        n.sourceName = "GrowthRateDescription_component";
+        n.schemaPath = "#/components/schemas/GrowthRateDescription";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/GrowthRateDescription";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1721
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "descriptions"; b.node = 345; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "formula"; b.node = 346; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "id"; b.node = 347; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "levels"; b.node = 348; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 349; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "pokemon_species"; b.node = 350; n.properties.push_back(std::move(b)); }
+        n.required.push_back("descriptions");
+        n.required.push_back("formula");
+        n.required.push_back("id");
+        n.required.push_back("levels");
+        n.required.push_back("name");
+        n.required.push_back("pokemon_species");
+        n.sourceName = "GrowthRateDetail_component";
+        n.schemaPath = "#/components/schemas/GrowthRateDetail";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/GrowthRateDetail";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1722
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "name"; b.node = 351; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "url"; b.node = 352; n.properties.push_back(std::move(b)); }
+        n.required.push_back("name");
+        n.required.push_back("url");
+        n.sourceName = "GrowthRateSummary_component";
+        n.schemaPath = "#/components/schemas/GrowthRateSummary";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/GrowthRateSummary";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1723
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "description"; b.node = 353; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "language"; b.node = 354; n.properties.push_back(std::move(b)); }
+        n.required.push_back("language");
+        n.sourceName = "ItemAttributeDescription_component";
+        n.schemaPath = "#/components/schemas/ItemAttributeDescription";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/ItemAttributeDescription";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1724
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "descriptions"; b.node = 355; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "id"; b.node = 356; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "items"; b.node = 357; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 358; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "names"; b.node = 359; n.properties.push_back(std::move(b)); }
+        n.required.push_back("descriptions");
+        n.required.push_back("id");
+        n.required.push_back("items");
+        n.required.push_back("name");
+        n.required.push_back("names");
+        n.sourceName = "ItemAttributeDetail_component";
+        n.schemaPath = "#/components/schemas/ItemAttributeDetail";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/ItemAttributeDetail";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1725
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "language"; b.node = 360; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 361; n.properties.push_back(std::move(b)); }
+        n.required.push_back("language");
+        n.required.push_back("name");
+        n.sourceName = "ItemAttributeName_component";
+        n.schemaPath = "#/components/schemas/ItemAttributeName";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/ItemAttributeName";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1726
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "name"; b.node = 362; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "url"; b.node = 363; n.properties.push_back(std::move(b)); }
+        n.required.push_back("name");
+        n.required.push_back("url");
+        n.sourceName = "ItemAttributeSummary_component";
+        n.schemaPath = "#/components/schemas/ItemAttributeSummary";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/ItemAttributeSummary";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1727
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "id"; b.node = 364; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "items"; b.node = 365; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 366; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "names"; b.node = 367; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "pocket"; b.node = 368; n.properties.push_back(std::move(b)); }
+        n.required.push_back("id");
+        n.required.push_back("items");
+        n.required.push_back("name");
+        n.required.push_back("names");
+        n.required.push_back("pocket");
+        n.sourceName = "ItemCategoryDetail_component";
+        n.schemaPath = "#/components/schemas/ItemCategoryDetail";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/ItemCategoryDetail";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1728
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "language"; b.node = 369; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 370; n.properties.push_back(std::move(b)); }
+        n.required.push_back("language");
+        n.required.push_back("name");
+        n.sourceName = "ItemCategoryName_component";
+        n.schemaPath = "#/components/schemas/ItemCategoryName";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/ItemCategoryName";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1729
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "name"; b.node = 371; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "url"; b.node = 372; n.properties.push_back(std::move(b)); }
+        n.required.push_back("name");
+        n.required.push_back("url");
+        n.sourceName = "ItemCategorySummary_component";
+        n.schemaPath = "#/components/schemas/ItemCategorySummary";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/ItemCategorySummary";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1730
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "attributes"; b.node = 373; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "baby_trigger_for"; b.node = 374; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "category"; b.node = 375; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "effect_entries"; b.node = 376; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "flavor_text_entries"; b.node = 377; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "fling_effect"; b.node = 378; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "fling_power"; b.node = 379; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "game_indices"; b.node = 380; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "held_by_pokemon"; b.node = 381; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "id"; b.node = 382; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "machines"; b.node = 383; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 384; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "names"; b.node = 385; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "prices"; b.node = 386; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "sprites"; b.node = 387; n.properties.push_back(std::move(b)); }
+        n.required.push_back("attributes");
+        n.required.push_back("baby_trigger_for");
+        n.required.push_back("category");
+        n.required.push_back("effect_entries");
+        n.required.push_back("flavor_text_entries");
+        n.required.push_back("fling_effect");
+        n.required.push_back("game_indices");
+        n.required.push_back("held_by_pokemon");
+        n.required.push_back("id");
+        n.required.push_back("machines");
+        n.required.push_back("name");
+        n.required.push_back("names");
+        n.required.push_back("prices");
+        n.required.push_back("sprites");
+        n.sourceName = "ItemDetail_component";
+        n.schemaPath = "#/components/schemas/ItemDetail";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/ItemDetail";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1731
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.oneOfChildren.push_back(388);
+        n.oneOfChildren.push_back(389);
+        n.annDescription = "\"An evolution chain this item requires to produce a bay during mating.\"";
+        n.annReadOnlyJson = "true";
+        n.sourceName = "ItemDetail_baby_trigger_for_component";
+        n.schemaPath = "#/components/schemas/ItemDetail_baby_trigger_for";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/ItemDetail_baby_trigger_for";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1732
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.oneOfChildren.push_back(390);
+        n.oneOfChildren.push_back(391);
+        n.annDescription = "\"The effect of the move Fling when used with this item.\"";
+        n.sourceName = "ItemDetail_fling_effect_component";
+        n.schemaPath = "#/components/schemas/ItemDetail_fling_effect";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/ItemDetail_fling_effect";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1733
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "effect"; b.node = 392; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "language"; b.node = 393; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "short_effect"; b.node = 394; n.properties.push_back(std::move(b)); }
+        n.required.push_back("effect");
+        n.required.push_back("language");
+        n.required.push_back("short_effect");
+        n.sourceName = "ItemEffectText_component";
+        n.schemaPath = "#/components/schemas/ItemEffectText";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/ItemEffectText";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1734
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "language"; b.node = 395; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "text"; b.node = 396; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "version_group"; b.node = 397; n.properties.push_back(std::move(b)); }
+        n.required.push_back("language");
+        n.required.push_back("text");
+        n.required.push_back("version_group");
+        n.sourceName = "ItemFlavorText_component";
+        n.schemaPath = "#/components/schemas/ItemFlavorText";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/ItemFlavorText";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1735
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "effect_entries"; b.node = 398; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "id"; b.node = 399; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "items"; b.node = 400; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 401; n.properties.push_back(std::move(b)); }
+        n.required.push_back("effect_entries");
+        n.required.push_back("id");
+        n.required.push_back("items");
+        n.required.push_back("name");
+        n.sourceName = "ItemFlingEffectDetail_component";
+        n.schemaPath = "#/components/schemas/ItemFlingEffectDetail";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/ItemFlingEffectDetail";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1736
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "effect"; b.node = 402; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "language"; b.node = 403; n.properties.push_back(std::move(b)); }
+        n.required.push_back("effect");
+        n.required.push_back("language");
+        n.sourceName = "ItemFlingEffectEffectText_component";
+        n.schemaPath = "#/components/schemas/ItemFlingEffectEffectText";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/ItemFlingEffectEffectText";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1737
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "name"; b.node = 404; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "url"; b.node = 405; n.properties.push_back(std::move(b)); }
+        n.required.push_back("name");
+        n.required.push_back("url");
+        n.sourceName = "ItemFlingEffectSummary_component";
+        n.schemaPath = "#/components/schemas/ItemFlingEffectSummary";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/ItemFlingEffectSummary";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1738
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "game_index"; b.node = 406; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "generation"; b.node = 407; n.properties.push_back(std::move(b)); }
+        n.required.push_back("game_index");
+        n.required.push_back("generation");
+        n.sourceName = "ItemGameIndex_component";
+        n.schemaPath = "#/components/schemas/ItemGameIndex";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/ItemGameIndex";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1739
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "machine"; b.node = 408; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "version_group"; b.node = 409; n.properties.push_back(std::move(b)); }
+        n.required.push_back("machine");
+        n.required.push_back("version_group");
+        n.sourceName = "ItemMachine_component";
+        n.schemaPath = "#/components/schemas/ItemMachine";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/ItemMachine";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1740
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "language"; b.node = 410; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 411; n.properties.push_back(std::move(b)); }
+        n.required.push_back("language");
+        n.required.push_back("name");
+        n.sourceName = "ItemName_component";
+        n.schemaPath = "#/components/schemas/ItemName";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/ItemName";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1741
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "categories"; b.node = 412; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "id"; b.node = 413; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 414; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "names"; b.node = 415; n.properties.push_back(std::move(b)); }
+        n.required.push_back("categories");
+        n.required.push_back("id");
+        n.required.push_back("name");
+        n.required.push_back("names");
+        n.sourceName = "ItemPocketDetail_component";
+        n.schemaPath = "#/components/schemas/ItemPocketDetail";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/ItemPocketDetail";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1742
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "language"; b.node = 416; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 417; n.properties.push_back(std::move(b)); }
+        n.required.push_back("language");
+        n.required.push_back("name");
+        n.sourceName = "ItemPocketName_component";
+        n.schemaPath = "#/components/schemas/ItemPocketName";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/ItemPocketName";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1743
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "name"; b.node = 418; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "url"; b.node = 419; n.properties.push_back(std::move(b)); }
+        n.required.push_back("name");
+        n.required.push_back("url");
+        n.sourceName = "ItemPocketSummary_component";
+        n.schemaPath = "#/components/schemas/ItemPocketSummary";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/ItemPocketSummary";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1744
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "currency"; b.node = 420; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "purchase_price"; b.node = 421; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "sell_price"; b.node = 422; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "version_group"; b.node = 423; n.properties.push_back(std::move(b)); }
+        n.required.push_back("currency");
+        n.required.push_back("version_group");
+        n.sourceName = "ItemPrice_component";
+        n.schemaPath = "#/components/schemas/ItemPrice";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/ItemPrice";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1745
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "default"; b.node = 424; n.properties.push_back(std::move(b)); }
+        n.required.push_back("default");
+        n.sourceName = "ItemSprites_component";
+        n.schemaPath = "#/components/schemas/ItemSprites";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/ItemSprites";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1746
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "name"; b.node = 425; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "url"; b.node = 426; n.properties.push_back(std::move(b)); }
+        n.required.push_back("name");
+        n.required.push_back("url");
+        n.sourceName = "ItemSummary_component";
+        n.schemaPath = "#/components/schemas/ItemSummary";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/ItemSummary";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1747
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "id"; b.node = 427; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "iso3166"; b.node = 428; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "iso639"; b.node = 429; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 430; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "names"; b.node = 431; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "official"; b.node = 432; n.properties.push_back(std::move(b)); }
+        n.required.push_back("id");
+        n.required.push_back("iso3166");
+        n.required.push_back("iso639");
+        n.required.push_back("name");
+        n.required.push_back("names");
+        n.sourceName = "LanguageDetail_component";
+        n.schemaPath = "#/components/schemas/LanguageDetail";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/LanguageDetail";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1748
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "language"; b.node = 433; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 434; n.properties.push_back(std::move(b)); }
+        n.required.push_back("language");
+        n.required.push_back("name");
+        n.sourceName = "LanguageName_component";
+        n.schemaPath = "#/components/schemas/LanguageName";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/LanguageName";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1749
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "name"; b.node = 435; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "url"; b.node = 436; n.properties.push_back(std::move(b)); }
+        n.required.push_back("name");
+        n.required.push_back("url");
+        n.sourceName = "LanguageSummary_component";
+        n.schemaPath = "#/components/schemas/LanguageSummary";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/LanguageSummary";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1750
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "encounter_method_rates"; b.node = 437; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "game_index"; b.node = 438; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "id"; b.node = 439; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "location"; b.node = 440; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 441; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "names"; b.node = 442; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "pokemon_encounters"; b.node = 443; n.properties.push_back(std::move(b)); }
+        n.required.push_back("encounter_method_rates");
+        n.required.push_back("game_index");
+        n.required.push_back("id");
+        n.required.push_back("location");
+        n.required.push_back("name");
+        n.required.push_back("names");
+        n.required.push_back("pokemon_encounters");
+        n.sourceName = "LocationAreaDetail_component";
+        n.schemaPath = "#/components/schemas/LocationAreaDetail";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/LocationAreaDetail";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1751
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "chance"; b.node = 444; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "condition_values"; b.node = 445; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "max_level"; b.node = 446; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "method"; b.node = 447; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "min_level"; b.node = 448; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "pokemon_details"; b.node = 449; n.properties.push_back(std::move(b)); }
+        n.required.push_back("condition_values");
+        n.required.push_back("max_level");
+        n.required.push_back("min_level");
+        n.required.push_back("pokemon_details");
+        n.sourceName = "LocationAreaEncounterDetail_component";
+        n.schemaPath = "#/components/schemas/LocationAreaEncounterDetail";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/LocationAreaEncounterDetail";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1752
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.oneOfChildren.push_back(450);
+        n.oneOfChildren.push_back(451);
+        n.annDescription = "\"Additional properties of the encountered Pok\303\251mon, or null if unspecified.\"";
+        n.annReadOnlyJson = "true";
+        n.sourceName = "LocationAreaEncounterDetail_pokemon_details_component";
+        n.schemaPath = "#/components/schemas/LocationAreaEncounterDetail_pokemon_details";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/LocationAreaEncounterDetail_pokemon_details";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1753
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "encounter_method"; b.node = 452; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "version_details"; b.node = 453; n.properties.push_back(std::move(b)); }
+        n.required.push_back("encounter_method");
+        n.required.push_back("version_details");
+        n.sourceName = "LocationAreaEncounterRate_component";
+        n.schemaPath = "#/components/schemas/LocationAreaEncounterRate";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/LocationAreaEncounterRate";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1754
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "rate"; b.node = 454; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "version"; b.node = 455; n.properties.push_back(std::move(b)); }
+        n.required.push_back("rate");
+        n.required.push_back("version");
+        n.sourceName = "LocationAreaEncounterVersionDetail_component";
+        n.schemaPath = "#/components/schemas/LocationAreaEncounterVersionDetail";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/LocationAreaEncounterVersionDetail";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1755
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "language"; b.node = 456; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 457; n.properties.push_back(std::move(b)); }
+        n.required.push_back("language");
+        n.required.push_back("name");
+        n.sourceName = "LocationAreaName_component";
+        n.schemaPath = "#/components/schemas/LocationAreaName";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/LocationAreaName";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1756
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "pokemon"; b.node = 458; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "version_details"; b.node = 459; n.properties.push_back(std::move(b)); }
+        n.required.push_back("pokemon");
+        n.required.push_back("version_details");
+        n.sourceName = "LocationAreaPokemonEncounter_component";
+        n.schemaPath = "#/components/schemas/LocationAreaPokemonEncounter";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/LocationAreaPokemonEncounter";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1757
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "encounter_details"; b.node = 460; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "max_chance"; b.node = 461; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "version"; b.node = 462; n.properties.push_back(std::move(b)); }
+        n.required.push_back("encounter_details");
+        n.required.push_back("max_chance");
+        n.required.push_back("version");
+        n.sourceName = "LocationAreaPokemonEncounterVersion_component";
+        n.schemaPath = "#/components/schemas/LocationAreaPokemonEncounterVersion";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/LocationAreaPokemonEncounterVersion";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1758
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "name"; b.node = 463; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "url"; b.node = 464; n.properties.push_back(std::move(b)); }
+        n.required.push_back("name");
+        n.required.push_back("url");
+        n.sourceName = "LocationAreaSummary_component";
+        n.schemaPath = "#/components/schemas/LocationAreaSummary";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/LocationAreaSummary";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1759
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "areas"; b.node = 465; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "game_indices"; b.node = 466; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "id"; b.node = 467; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 468; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "names"; b.node = 469; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "region"; b.node = 470; n.properties.push_back(std::move(b)); }
+        n.required.push_back("areas");
+        n.required.push_back("game_indices");
+        n.required.push_back("id");
+        n.required.push_back("name");
+        n.required.push_back("names");
+        n.required.push_back("region");
+        n.sourceName = "LocationDetail_component";
+        n.schemaPath = "#/components/schemas/LocationDetail";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/LocationDetail";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1760
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.oneOfChildren.push_back(471);
+        n.oneOfChildren.push_back(472);
+        n.annDescription = "\"The region this location can be found in.\"";
+        n.sourceName = "LocationDetail_region_component";
+        n.schemaPath = "#/components/schemas/LocationDetail_region";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/LocationDetail_region";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1761
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "game_index"; b.node = 473; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "generation"; b.node = 474; n.properties.push_back(std::move(b)); }
+        n.required.push_back("game_index");
+        n.required.push_back("generation");
+        n.sourceName = "LocationGameIndex_component";
+        n.schemaPath = "#/components/schemas/LocationGameIndex";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/LocationGameIndex";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1762
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "language"; b.node = 475; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 476; n.properties.push_back(std::move(b)); }
+        n.required.push_back("language");
+        n.required.push_back("name");
+        n.sourceName = "LocationName_component";
+        n.schemaPath = "#/components/schemas/LocationName";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/LocationName";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1763
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "name"; b.node = 477; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "url"; b.node = 478; n.properties.push_back(std::move(b)); }
+        n.required.push_back("name");
+        n.required.push_back("url");
+        n.sourceName = "LocationSummary_component";
+        n.schemaPath = "#/components/schemas/LocationSummary";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/LocationSummary";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1764
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "id"; b.node = 479; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "item"; b.node = 480; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "move"; b.node = 481; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "version_group"; b.node = 482; n.properties.push_back(std::move(b)); }
+        n.required.push_back("id");
+        n.required.push_back("item");
+        n.required.push_back("move");
+        n.required.push_back("version_group");
+        n.sourceName = "MachineDetail_component";
+        n.schemaPath = "#/components/schemas/MachineDetail";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MachineDetail";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1765
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "url"; b.node = 483; n.properties.push_back(std::move(b)); }
+        n.required.push_back("url");
+        n.sourceName = "MachineSummary_component";
+        n.schemaPath = "#/components/schemas/MachineSummary";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MachineSummary";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1766
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "id"; b.node = 484; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 485; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "names"; b.node = 486; n.properties.push_back(std::move(b)); }
+        n.required.push_back("id");
+        n.required.push_back("name");
+        n.required.push_back("names");
+        n.sourceName = "MoveBattleStyleDetail_component";
+        n.schemaPath = "#/components/schemas/MoveBattleStyleDetail";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveBattleStyleDetail";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1767
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "language"; b.node = 487; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 488; n.properties.push_back(std::move(b)); }
+        n.required.push_back("language");
+        n.required.push_back("name");
+        n.sourceName = "MoveBattleStyleName_component";
+        n.schemaPath = "#/components/schemas/MoveBattleStyleName";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveBattleStyleName";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1768
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "name"; b.node = 489; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "url"; b.node = 490; n.properties.push_back(std::move(b)); }
+        n.required.push_back("name");
+        n.required.push_back("url");
+        n.sourceName = "MoveBattleStyleSummary_component";
+        n.schemaPath = "#/components/schemas/MoveBattleStyleSummary";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveBattleStyleSummary";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1769
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "accuracy"; b.node = 491; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "effect_chance"; b.node = 492; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "effect_entries"; b.node = 493; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "power"; b.node = 494; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "pp"; b.node = 495; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "type"; b.node = 496; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "version_group"; b.node = 497; n.properties.push_back(std::move(b)); }
+        n.required.push_back("effect_chance");
+        n.required.push_back("effect_entries");
+        n.required.push_back("type");
+        n.required.push_back("version_group");
+        n.sourceName = "MoveChange_component";
+        n.schemaPath = "#/components/schemas/MoveChange";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveChange";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1770
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.oneOfChildren.push_back(498);
+        n.oneOfChildren.push_back(499);
+        n.annDescription = "\"The elemental type of this move.\"";
+        n.sourceName = "MoveChange_type_component";
+        n.schemaPath = "#/components/schemas/MoveChange_type";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveChange_type";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1771
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "use_after"; b.node = 500; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "use_before"; b.node = 501; n.properties.push_back(std::move(b)); }
+        n.required.push_back("use_after");
+        n.required.push_back("use_before");
+        n.sourceName = "MoveComboUsage_component";
+        n.schemaPath = "#/components/schemas/MoveComboUsage";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveComboUsage";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1772
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "normal"; b.node = 502; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "super"; b.node = 503; n.properties.push_back(std::move(b)); }
+        n.required.push_back("normal");
+        n.required.push_back("super");
+        n.sourceName = "MoveCombos_component";
+        n.schemaPath = "#/components/schemas/MoveCombos";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveCombos";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1773
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "description"; b.node = 504; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "language"; b.node = 505; n.properties.push_back(std::move(b)); }
+        n.required.push_back("language");
+        n.sourceName = "MoveDamageClassDescription_component";
+        n.schemaPath = "#/components/schemas/MoveDamageClassDescription";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDamageClassDescription";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1774
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "descriptions"; b.node = 506; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "id"; b.node = 507; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "moves"; b.node = 508; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 509; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "names"; b.node = 510; n.properties.push_back(std::move(b)); }
+        n.required.push_back("descriptions");
+        n.required.push_back("id");
+        n.required.push_back("moves");
+        n.required.push_back("name");
+        n.required.push_back("names");
+        n.sourceName = "MoveDamageClassDetail_component";
+        n.schemaPath = "#/components/schemas/MoveDamageClassDetail";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDamageClassDetail";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1775
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "language"; b.node = 511; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 512; n.properties.push_back(std::move(b)); }
+        n.required.push_back("language");
+        n.required.push_back("name");
+        n.sourceName = "MoveDamageClassName_component";
+        n.schemaPath = "#/components/schemas/MoveDamageClassName";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDamageClassName";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1776
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "name"; b.node = 513; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "url"; b.node = 514; n.properties.push_back(std::move(b)); }
+        n.required.push_back("name");
+        n.required.push_back("url");
+        n.sourceName = "MoveDamageClassSummary_component";
+        n.schemaPath = "#/components/schemas/MoveDamageClassSummary";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDamageClassSummary";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1777
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "accuracy"; b.node = 515; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "contest_combos"; b.node = 516; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "contest_effect"; b.node = 517; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "contest_type"; b.node = 518; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "damage_class"; b.node = 519; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "effect_chance"; b.node = 520; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "effect_changes"; b.node = 521; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "effect_entries"; b.node = 522; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "flavor_text_entries"; b.node = 523; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "generation"; b.node = 524; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "id"; b.node = 525; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "learned_by_pokemon"; b.node = 526; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "machines"; b.node = 527; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "meta"; b.node = 528; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 529; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "names"; b.node = 530; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "past_values"; b.node = 531; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "power"; b.node = 532; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "pp"; b.node = 533; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "priority"; b.node = 534; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "stat_changes"; b.node = 535; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "super_contest_effect"; b.node = 536; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "target"; b.node = 537; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "type"; b.node = 538; n.properties.push_back(std::move(b)); }
+        n.required.push_back("contest_combos");
+        n.required.push_back("contest_effect");
+        n.required.push_back("contest_type");
+        n.required.push_back("damage_class");
+        n.required.push_back("effect_chance");
+        n.required.push_back("effect_changes");
+        n.required.push_back("effect_entries");
+        n.required.push_back("flavor_text_entries");
+        n.required.push_back("generation");
+        n.required.push_back("id");
+        n.required.push_back("learned_by_pokemon");
+        n.required.push_back("machines");
+        n.required.push_back("meta");
+        n.required.push_back("name");
+        n.required.push_back("names");
+        n.required.push_back("past_values");
+        n.required.push_back("stat_changes");
+        n.required.push_back("super_contest_effect");
+        n.required.push_back("target");
+        n.required.push_back("type");
+        n.sourceName = "MoveDetail_component";
+        n.schemaPath = "#/components/schemas/MoveDetail";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1778
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.oneOfChildren.push_back(539);
+        n.oneOfChildren.push_back(540);
+        n.annDescription = "\"A detail of normal and super contest combos that require this move.\"";
+        n.annReadOnlyJson = "true";
+        n.sourceName = "MoveDetail_contest_combos_component";
+        n.schemaPath = "#/components/schemas/MoveDetail_contest_combos";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail_contest_combos";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1779
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.oneOfChildren.push_back(541);
+        n.oneOfChildren.push_back(542);
+        n.annDescription = "\"The effect the move has when used in a contest.\"";
+        n.sourceName = "MoveDetail_contest_effect_component";
+        n.schemaPath = "#/components/schemas/MoveDetail_contest_effect";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail_contest_effect";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1780
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.oneOfChildren.push_back(543);
+        n.oneOfChildren.push_back(544);
+        n.annDescription = "\"The type of appeal this move gives a Pok\303\251mon when used in a contest.\"";
+        n.sourceName = "MoveDetail_contest_type_component";
+        n.schemaPath = "#/components/schemas/MoveDetail_contest_type";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail_contest_type";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1781
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.oneOfChildren.push_back(545);
+        n.oneOfChildren.push_back(546);
+        n.annDescription = "\"Metadata about this move\"";
+        n.annReadOnlyJson = "true";
+        n.sourceName = "MoveDetail_meta_component";
+        n.schemaPath = "#/components/schemas/MoveDetail_meta";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail_meta";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1782
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.oneOfChildren.push_back(547);
+        n.oneOfChildren.push_back(548);
+        n.annDescription = "\"The effect the move has when used in a super contest.\"";
+        n.sourceName = "MoveDetail_super_contest_effect_component";
+        n.schemaPath = "#/components/schemas/MoveDetail_super_contest_effect";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail_super_contest_effect";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1783
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "effect_entries"; b.node = 549; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "version_group"; b.node = 550; n.properties.push_back(std::move(b)); }
+        n.required.push_back("effect_entries");
+        n.required.push_back("version_group");
+        n.sourceName = "MoveEffectChange_component";
+        n.schemaPath = "#/components/schemas/MoveEffectChange";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveEffectChange";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1784
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "effect"; b.node = 551; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "language"; b.node = 552; n.properties.push_back(std::move(b)); }
+        n.required.push_back("effect");
+        n.required.push_back("language");
+        n.sourceName = "MoveEffectChangeEffectText_component";
+        n.schemaPath = "#/components/schemas/MoveEffectChangeEffectText";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveEffectChangeEffectText";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1785
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "effect"; b.node = 553; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "language"; b.node = 554; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "short_effect"; b.node = 555; n.properties.push_back(std::move(b)); }
+        n.required.push_back("effect");
+        n.required.push_back("language");
+        n.required.push_back("short_effect");
+        n.sourceName = "MoveEffectEffectText_component";
+        n.schemaPath = "#/components/schemas/MoveEffectEffectText";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveEffectEffectText";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1786
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "flavor_text"; b.node = 556; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "language"; b.node = 557; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "version_group"; b.node = 558; n.properties.push_back(std::move(b)); }
+        n.required.push_back("flavor_text");
+        n.required.push_back("language");
+        n.required.push_back("version_group");
+        n.sourceName = "MoveFlavorText_component";
+        n.schemaPath = "#/components/schemas/MoveFlavorText";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveFlavorText";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1787
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "description"; b.node = 559; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "language"; b.node = 560; n.properties.push_back(std::move(b)); }
+        n.required.push_back("language");
+        n.sourceName = "MoveLearnMethodDescription_component";
+        n.schemaPath = "#/components/schemas/MoveLearnMethodDescription";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveLearnMethodDescription";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1788
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "descriptions"; b.node = 561; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "id"; b.node = 562; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 563; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "names"; b.node = 564; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "version_groups"; b.node = 565; n.properties.push_back(std::move(b)); }
+        n.required.push_back("descriptions");
+        n.required.push_back("id");
+        n.required.push_back("name");
+        n.required.push_back("names");
+        n.required.push_back("version_groups");
+        n.sourceName = "MoveLearnMethodDetail_component";
+        n.schemaPath = "#/components/schemas/MoveLearnMethodDetail";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveLearnMethodDetail";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1789
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "language"; b.node = 566; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 567; n.properties.push_back(std::move(b)); }
+        n.required.push_back("language");
+        n.required.push_back("name");
+        n.sourceName = "MoveLearnMethodName_component";
+        n.schemaPath = "#/components/schemas/MoveLearnMethodName";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveLearnMethodName";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1790
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "name"; b.node = 568; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "url"; b.node = 569; n.properties.push_back(std::move(b)); }
+        n.required.push_back("name");
+        n.required.push_back("url");
+        n.sourceName = "MoveLearnMethodSummary_component";
+        n.schemaPath = "#/components/schemas/MoveLearnMethodSummary";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveLearnMethodSummary";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1791
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "ailment"; b.node = 570; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "ailment_chance"; b.node = 571; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "category"; b.node = 572; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "crit_rate"; b.node = 573; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "drain"; b.node = 574; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "flinch_chance"; b.node = 575; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "healing"; b.node = 576; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "max_hits"; b.node = 577; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "max_turns"; b.node = 578; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "min_hits"; b.node = 579; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "min_turns"; b.node = 580; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "stat_chance"; b.node = 581; n.properties.push_back(std::move(b)); }
+        n.required.push_back("ailment");
+        n.required.push_back("category");
+        n.sourceName = "MoveMeta_component";
+        n.schemaPath = "#/components/schemas/MoveMeta";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveMeta";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1792
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "id"; b.node = 582; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "moves"; b.node = 583; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 584; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "names"; b.node = 585; n.properties.push_back(std::move(b)); }
+        n.required.push_back("id");
+        n.required.push_back("moves");
+        n.required.push_back("name");
+        n.required.push_back("names");
+        n.sourceName = "MoveMetaAilmentDetail_component";
+        n.schemaPath = "#/components/schemas/MoveMetaAilmentDetail";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveMetaAilmentDetail";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1793
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "language"; b.node = 586; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 587; n.properties.push_back(std::move(b)); }
+        n.required.push_back("language");
+        n.required.push_back("name");
+        n.sourceName = "MoveMetaAilmentName_component";
+        n.schemaPath = "#/components/schemas/MoveMetaAilmentName";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveMetaAilmentName";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1794
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "name"; b.node = 588; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "url"; b.node = 589; n.properties.push_back(std::move(b)); }
+        n.required.push_back("name");
+        n.required.push_back("url");
+        n.sourceName = "MoveMetaAilmentSummary_component";
+        n.schemaPath = "#/components/schemas/MoveMetaAilmentSummary";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveMetaAilmentSummary";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1795
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "description"; b.node = 590; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "language"; b.node = 591; n.properties.push_back(std::move(b)); }
+        n.required.push_back("language");
+        n.sourceName = "MoveMetaCategoryDescription_component";
+        n.schemaPath = "#/components/schemas/MoveMetaCategoryDescription";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveMetaCategoryDescription";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1796
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "descriptions"; b.node = 592; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "id"; b.node = 593; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "moves"; b.node = 594; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 595; n.properties.push_back(std::move(b)); }
+        n.required.push_back("descriptions");
+        n.required.push_back("id");
+        n.required.push_back("moves");
+        n.required.push_back("name");
+        n.sourceName = "MoveMetaCategoryDetail_component";
+        n.schemaPath = "#/components/schemas/MoveMetaCategoryDetail";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveMetaCategoryDetail";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1797
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "name"; b.node = 596; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "url"; b.node = 597; n.properties.push_back(std::move(b)); }
+        n.required.push_back("name");
+        n.required.push_back("url");
+        n.sourceName = "MoveMetaCategorySummary_component";
+        n.schemaPath = "#/components/schemas/MoveMetaCategorySummary";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveMetaCategorySummary";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1798
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "change"; b.node = 598; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "stat"; b.node = 599; n.properties.push_back(std::move(b)); }
+        n.required.push_back("change");
+        n.required.push_back("stat");
+        n.sourceName = "MoveMetaStatChange_component";
+        n.schemaPath = "#/components/schemas/MoveMetaStatChange";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveMetaStatChange";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1799
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "language"; b.node = 600; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 601; n.properties.push_back(std::move(b)); }
+        n.required.push_back("language");
+        n.required.push_back("name");
+        n.sourceName = "MoveName_component";
+        n.schemaPath = "#/components/schemas/MoveName";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveName";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1800
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "change"; b.node = 602; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "move"; b.node = 603; n.properties.push_back(std::move(b)); }
+        n.required.push_back("change");
+        n.required.push_back("move");
+        n.sourceName = "MoveStatChange_component";
+        n.schemaPath = "#/components/schemas/MoveStatChange";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveStatChange";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1801
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "name"; b.node = 604; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "url"; b.node = 605; n.properties.push_back(std::move(b)); }
+        n.required.push_back("name");
+        n.required.push_back("url");
+        n.sourceName = "MoveSummary_component";
+        n.schemaPath = "#/components/schemas/MoveSummary";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveSummary";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1802
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "description"; b.node = 606; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "language"; b.node = 607; n.properties.push_back(std::move(b)); }
+        n.required.push_back("language");
+        n.sourceName = "MoveTargetDescription_component";
+        n.schemaPath = "#/components/schemas/MoveTargetDescription";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveTargetDescription";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1803
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "descriptions"; b.node = 608; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "id"; b.node = 609; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "moves"; b.node = 610; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 611; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "names"; b.node = 612; n.properties.push_back(std::move(b)); }
+        n.required.push_back("descriptions");
+        n.required.push_back("id");
+        n.required.push_back("moves");
+        n.required.push_back("name");
+        n.required.push_back("names");
+        n.sourceName = "MoveTargetDetail_component";
+        n.schemaPath = "#/components/schemas/MoveTargetDetail";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveTargetDetail";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1804
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "language"; b.node = 613; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 614; n.properties.push_back(std::move(b)); }
+        n.required.push_back("language");
+        n.required.push_back("name");
+        n.sourceName = "MoveTargetName_component";
+        n.schemaPath = "#/components/schemas/MoveTargetName";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveTargetName";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1805
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "name"; b.node = 615; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "url"; b.node = 616; n.properties.push_back(std::move(b)); }
+        n.required.push_back("name");
+        n.required.push_back("url");
+        n.sourceName = "MoveTargetSummary_component";
+        n.schemaPath = "#/components/schemas/MoveTargetSummary";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveTargetSummary";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1806
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "high_hp_preference"; b.node = 617; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "low_hp_preference"; b.node = 618; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "move_battle_style"; b.node = 619; n.properties.push_back(std::move(b)); }
+        n.required.push_back("high_hp_preference");
+        n.required.push_back("low_hp_preference");
+        n.required.push_back("move_battle_style");
+        n.sourceName = "NatureBattleStylePreference_component";
+        n.schemaPath = "#/components/schemas/NatureBattleStylePreference";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/NatureBattleStylePreference";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1807
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "decreased_stat"; b.node = 620; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "hates_flavor"; b.node = 621; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "id"; b.node = 622; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "increased_stat"; b.node = 623; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "likes_flavor"; b.node = 624; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "move_battle_style_preferences"; b.node = 625; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 626; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "names"; b.node = 627; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "pokeathlon_stat_changes"; b.node = 628; n.properties.push_back(std::move(b)); }
+        n.required.push_back("decreased_stat");
+        n.required.push_back("hates_flavor");
+        n.required.push_back("id");
+        n.required.push_back("increased_stat");
+        n.required.push_back("likes_flavor");
+        n.required.push_back("move_battle_style_preferences");
+        n.required.push_back("name");
+        n.required.push_back("names");
+        n.required.push_back("pokeathlon_stat_changes");
+        n.sourceName = "NatureDetail_component";
+        n.schemaPath = "#/components/schemas/NatureDetail";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/NatureDetail";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1808
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.oneOfChildren.push_back(629);
+        n.oneOfChildren.push_back(630);
+        n.annDescription = "\"The stat decreased by 10% in Pok\303\251mon with this nature.\"";
+        n.sourceName = "NatureDetail_decreased_stat_component";
+        n.schemaPath = "#/components/schemas/NatureDetail_decreased_stat";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/NatureDetail_decreased_stat";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1809
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.oneOfChildren.push_back(631);
+        n.oneOfChildren.push_back(632);
+        n.annDescription = "\"The flavor hated by Pok\303\251mon with this nature.\"";
+        n.sourceName = "NatureDetail_hates_flavor_component";
+        n.schemaPath = "#/components/schemas/NatureDetail_hates_flavor";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/NatureDetail_hates_flavor";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1810
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.oneOfChildren.push_back(633);
+        n.oneOfChildren.push_back(634);
+        n.annDescription = "\"The stat increased by 10% in Pok\303\251mon with this nature.\"";
+        n.sourceName = "NatureDetail_increased_stat_component";
+        n.schemaPath = "#/components/schemas/NatureDetail_increased_stat";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/NatureDetail_increased_stat";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1811
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.oneOfChildren.push_back(635);
+        n.oneOfChildren.push_back(636);
+        n.annDescription = "\"The flavor liked by Pok\303\251mon with this nature.\"";
+        n.sourceName = "NatureDetail_likes_flavor_component";
+        n.schemaPath = "#/components/schemas/NatureDetail_likes_flavor";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/NatureDetail_likes_flavor";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1812
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "language"; b.node = 637; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 638; n.properties.push_back(std::move(b)); }
+        n.required.push_back("language");
+        n.required.push_back("name");
+        n.sourceName = "NatureName_component";
+        n.schemaPath = "#/components/schemas/NatureName";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/NatureName";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1813
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "max_change"; b.node = 639; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "pokeathlon_stat"; b.node = 640; n.properties.push_back(std::move(b)); }
+        n.required.push_back("max_change");
+        n.required.push_back("pokeathlon_stat");
+        n.sourceName = "NaturePokeathlonStat_component";
+        n.schemaPath = "#/components/schemas/NaturePokeathlonStat";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/NaturePokeathlonStat";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1814
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "name"; b.node = 641; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "url"; b.node = 642; n.properties.push_back(std::move(b)); }
+        n.required.push_back("name");
+        n.required.push_back("url");
+        n.sourceName = "NatureSummary_component";
+        n.schemaPath = "#/components/schemas/NatureSummary";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/NatureSummary";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1815
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "count"; b.node = 643; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "next"; b.node = 644; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "previous"; b.node = 645; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "results"; b.node = 646; n.properties.push_back(std::move(b)); }
+        n.required.push_back("count");
+        n.required.push_back("results");
+        n.sourceName = "PaginatedAbilitySummaryList_component";
+        n.schemaPath = "#/components/schemas/PaginatedAbilitySummaryList";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedAbilitySummaryList";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1816
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "count"; b.node = 647; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "next"; b.node = 648; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "previous"; b.node = 649; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "results"; b.node = 650; n.properties.push_back(std::move(b)); }
+        n.required.push_back("count");
+        n.required.push_back("results");
+        n.sourceName = "PaginatedBerryFirmnessSummaryList_component";
+        n.schemaPath = "#/components/schemas/PaginatedBerryFirmnessSummaryList";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedBerryFirmnessSummaryList";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1817
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "count"; b.node = 651; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "next"; b.node = 652; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "previous"; b.node = 653; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "results"; b.node = 654; n.properties.push_back(std::move(b)); }
+        n.required.push_back("count");
+        n.required.push_back("results");
+        n.sourceName = "PaginatedBerryFlavorSummaryList_component";
+        n.schemaPath = "#/components/schemas/PaginatedBerryFlavorSummaryList";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedBerryFlavorSummaryList";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1818
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "count"; b.node = 655; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "next"; b.node = 656; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "previous"; b.node = 657; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "results"; b.node = 658; n.properties.push_back(std::move(b)); }
+        n.required.push_back("count");
+        n.required.push_back("results");
+        n.sourceName = "PaginatedBerrySummaryList_component";
+        n.schemaPath = "#/components/schemas/PaginatedBerrySummaryList";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedBerrySummaryList";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1819
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "count"; b.node = 659; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "next"; b.node = 660; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "previous"; b.node = 661; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "results"; b.node = 662; n.properties.push_back(std::move(b)); }
+        n.required.push_back("count");
+        n.required.push_back("results");
+        n.sourceName = "PaginatedCharacteristicSummaryList_component";
+        n.schemaPath = "#/components/schemas/PaginatedCharacteristicSummaryList";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedCharacteristicSummaryList";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1820
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "count"; b.node = 663; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "next"; b.node = 664; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "previous"; b.node = 665; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "results"; b.node = 666; n.properties.push_back(std::move(b)); }
+        n.required.push_back("count");
+        n.required.push_back("results");
+        n.sourceName = "PaginatedContestEffectSummaryList_component";
+        n.schemaPath = "#/components/schemas/PaginatedContestEffectSummaryList";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedContestEffectSummaryList";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1821
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "count"; b.node = 667; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "next"; b.node = 668; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "previous"; b.node = 669; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "results"; b.node = 670; n.properties.push_back(std::move(b)); }
+        n.required.push_back("count");
+        n.required.push_back("results");
+        n.sourceName = "PaginatedContestTypeSummaryList_component";
+        n.schemaPath = "#/components/schemas/PaginatedContestTypeSummaryList";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedContestTypeSummaryList";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1822
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "count"; b.node = 671; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "next"; b.node = 672; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "previous"; b.node = 673; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "results"; b.node = 674; n.properties.push_back(std::move(b)); }
+        n.required.push_back("count");
+        n.required.push_back("results");
+        n.sourceName = "PaginatedCurrencySummaryList_component";
+        n.schemaPath = "#/components/schemas/PaginatedCurrencySummaryList";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedCurrencySummaryList";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1823
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "count"; b.node = 675; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "next"; b.node = 676; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "previous"; b.node = 677; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "results"; b.node = 678; n.properties.push_back(std::move(b)); }
+        n.required.push_back("count");
+        n.required.push_back("results");
+        n.sourceName = "PaginatedEggGroupSummaryList_component";
+        n.schemaPath = "#/components/schemas/PaginatedEggGroupSummaryList";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedEggGroupSummaryList";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1824
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "count"; b.node = 679; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "next"; b.node = 680; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "previous"; b.node = 681; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "results"; b.node = 682; n.properties.push_back(std::move(b)); }
+        n.required.push_back("count");
+        n.required.push_back("results");
+        n.sourceName = "PaginatedEncounterConditionSummaryList_component";
+        n.schemaPath = "#/components/schemas/PaginatedEncounterConditionSummaryList";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedEncounterConditionSummaryList";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1825
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "count"; b.node = 683; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "next"; b.node = 684; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "previous"; b.node = 685; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "results"; b.node = 686; n.properties.push_back(std::move(b)); }
+        n.required.push_back("count");
+        n.required.push_back("results");
+        n.sourceName = "PaginatedEncounterConditionValueSummaryList_component";
+        n.schemaPath = "#/components/schemas/PaginatedEncounterConditionValueSummaryList";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedEncounterConditionValueSummaryList";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1826
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "count"; b.node = 687; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "next"; b.node = 688; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "previous"; b.node = 689; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "results"; b.node = 690; n.properties.push_back(std::move(b)); }
+        n.required.push_back("count");
+        n.required.push_back("results");
+        n.sourceName = "PaginatedEncounterMethodSummaryList_component";
+        n.schemaPath = "#/components/schemas/PaginatedEncounterMethodSummaryList";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedEncounterMethodSummaryList";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1827
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "count"; b.node = 691; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "next"; b.node = 692; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "previous"; b.node = 693; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "results"; b.node = 694; n.properties.push_back(std::move(b)); }
+        n.required.push_back("count");
+        n.required.push_back("results");
+        n.sourceName = "PaginatedEvolutionChainSummaryList_component";
+        n.schemaPath = "#/components/schemas/PaginatedEvolutionChainSummaryList";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedEvolutionChainSummaryList";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1828
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "count"; b.node = 695; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "next"; b.node = 696; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "previous"; b.node = 697; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "results"; b.node = 698; n.properties.push_back(std::move(b)); }
+        n.required.push_back("count");
+        n.required.push_back("results");
+        n.sourceName = "PaginatedEvolutionTriggerSummaryList_component";
+        n.schemaPath = "#/components/schemas/PaginatedEvolutionTriggerSummaryList";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedEvolutionTriggerSummaryList";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1829
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "count"; b.node = 699; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "next"; b.node = 700; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "previous"; b.node = 701; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "results"; b.node = 702; n.properties.push_back(std::move(b)); }
+        n.required.push_back("count");
+        n.required.push_back("results");
+        n.sourceName = "PaginatedEvolutionVariableSummaryList_component";
+        n.schemaPath = "#/components/schemas/PaginatedEvolutionVariableSummaryList";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedEvolutionVariableSummaryList";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1830
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "count"; b.node = 703; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "next"; b.node = 704; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "previous"; b.node = 705; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "results"; b.node = 706; n.properties.push_back(std::move(b)); }
+        n.required.push_back("count");
+        n.required.push_back("results");
+        n.sourceName = "PaginatedGenderSummaryList_component";
+        n.schemaPath = "#/components/schemas/PaginatedGenderSummaryList";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedGenderSummaryList";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1831
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "count"; b.node = 707; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "next"; b.node = 708; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "previous"; b.node = 709; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "results"; b.node = 710; n.properties.push_back(std::move(b)); }
+        n.required.push_back("count");
+        n.required.push_back("results");
+        n.sourceName = "PaginatedGenerationSummaryList_component";
+        n.schemaPath = "#/components/schemas/PaginatedGenerationSummaryList";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedGenerationSummaryList";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1832
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "count"; b.node = 711; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "next"; b.node = 712; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "previous"; b.node = 713; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "results"; b.node = 714; n.properties.push_back(std::move(b)); }
+        n.required.push_back("count");
+        n.required.push_back("results");
+        n.sourceName = "PaginatedGrowthRateSummaryList_component";
+        n.schemaPath = "#/components/schemas/PaginatedGrowthRateSummaryList";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedGrowthRateSummaryList";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1833
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "count"; b.node = 715; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "next"; b.node = 716; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "previous"; b.node = 717; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "results"; b.node = 718; n.properties.push_back(std::move(b)); }
+        n.required.push_back("count");
+        n.required.push_back("results");
+        n.sourceName = "PaginatedItemAttributeSummaryList_component";
+        n.schemaPath = "#/components/schemas/PaginatedItemAttributeSummaryList";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedItemAttributeSummaryList";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1834
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "count"; b.node = 719; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "next"; b.node = 720; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "previous"; b.node = 721; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "results"; b.node = 722; n.properties.push_back(std::move(b)); }
+        n.required.push_back("count");
+        n.required.push_back("results");
+        n.sourceName = "PaginatedItemCategorySummaryList_component";
+        n.schemaPath = "#/components/schemas/PaginatedItemCategorySummaryList";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedItemCategorySummaryList";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1835
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "count"; b.node = 723; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "next"; b.node = 724; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "previous"; b.node = 725; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "results"; b.node = 726; n.properties.push_back(std::move(b)); }
+        n.required.push_back("count");
+        n.required.push_back("results");
+        n.sourceName = "PaginatedItemFlingEffectSummaryList_component";
+        n.schemaPath = "#/components/schemas/PaginatedItemFlingEffectSummaryList";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedItemFlingEffectSummaryList";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1836
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "count"; b.node = 727; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "next"; b.node = 728; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "previous"; b.node = 729; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "results"; b.node = 730; n.properties.push_back(std::move(b)); }
+        n.required.push_back("count");
+        n.required.push_back("results");
+        n.sourceName = "PaginatedItemPocketSummaryList_component";
+        n.schemaPath = "#/components/schemas/PaginatedItemPocketSummaryList";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedItemPocketSummaryList";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1837
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "count"; b.node = 731; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "next"; b.node = 732; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "previous"; b.node = 733; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "results"; b.node = 734; n.properties.push_back(std::move(b)); }
+        n.required.push_back("count");
+        n.required.push_back("results");
+        n.sourceName = "PaginatedItemSummaryList_component";
+        n.schemaPath = "#/components/schemas/PaginatedItemSummaryList";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedItemSummaryList";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1838
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "count"; b.node = 735; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "next"; b.node = 736; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "previous"; b.node = 737; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "results"; b.node = 738; n.properties.push_back(std::move(b)); }
+        n.required.push_back("count");
+        n.required.push_back("results");
+        n.sourceName = "PaginatedLanguageSummaryList_component";
+        n.schemaPath = "#/components/schemas/PaginatedLanguageSummaryList";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedLanguageSummaryList";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1839
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "count"; b.node = 739; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "next"; b.node = 740; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "previous"; b.node = 741; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "results"; b.node = 742; n.properties.push_back(std::move(b)); }
+        n.required.push_back("count");
+        n.required.push_back("results");
+        n.sourceName = "PaginatedLocationAreaSummaryList_component";
+        n.schemaPath = "#/components/schemas/PaginatedLocationAreaSummaryList";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedLocationAreaSummaryList";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1840
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "count"; b.node = 743; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "next"; b.node = 744; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "previous"; b.node = 745; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "results"; b.node = 746; n.properties.push_back(std::move(b)); }
+        n.required.push_back("count");
+        n.required.push_back("results");
+        n.sourceName = "PaginatedLocationSummaryList_component";
+        n.schemaPath = "#/components/schemas/PaginatedLocationSummaryList";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedLocationSummaryList";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1841
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "count"; b.node = 747; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "next"; b.node = 748; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "previous"; b.node = 749; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "results"; b.node = 750; n.properties.push_back(std::move(b)); }
+        n.required.push_back("count");
+        n.required.push_back("results");
+        n.sourceName = "PaginatedMachineSummaryList_component";
+        n.schemaPath = "#/components/schemas/PaginatedMachineSummaryList";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMachineSummaryList";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1842
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "count"; b.node = 751; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "next"; b.node = 752; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "previous"; b.node = 753; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "results"; b.node = 754; n.properties.push_back(std::move(b)); }
+        n.required.push_back("count");
+        n.required.push_back("results");
+        n.sourceName = "PaginatedMoveBattleStyleSummaryList_component";
+        n.schemaPath = "#/components/schemas/PaginatedMoveBattleStyleSummaryList";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMoveBattleStyleSummaryList";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1843
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "count"; b.node = 755; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "next"; b.node = 756; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "previous"; b.node = 757; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "results"; b.node = 758; n.properties.push_back(std::move(b)); }
+        n.required.push_back("count");
+        n.required.push_back("results");
+        n.sourceName = "PaginatedMoveDamageClassSummaryList_component";
+        n.schemaPath = "#/components/schemas/PaginatedMoveDamageClassSummaryList";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMoveDamageClassSummaryList";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1844
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "count"; b.node = 759; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "next"; b.node = 760; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "previous"; b.node = 761; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "results"; b.node = 762; n.properties.push_back(std::move(b)); }
+        n.required.push_back("count");
+        n.required.push_back("results");
+        n.sourceName = "PaginatedMoveLearnMethodSummaryList_component";
+        n.schemaPath = "#/components/schemas/PaginatedMoveLearnMethodSummaryList";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMoveLearnMethodSummaryList";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1845
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "count"; b.node = 763; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "next"; b.node = 764; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "previous"; b.node = 765; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "results"; b.node = 766; n.properties.push_back(std::move(b)); }
+        n.required.push_back("count");
+        n.required.push_back("results");
+        n.sourceName = "PaginatedMoveMetaAilmentSummaryList_component";
+        n.schemaPath = "#/components/schemas/PaginatedMoveMetaAilmentSummaryList";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMoveMetaAilmentSummaryList";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1846
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "count"; b.node = 767; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "next"; b.node = 768; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "previous"; b.node = 769; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "results"; b.node = 770; n.properties.push_back(std::move(b)); }
+        n.required.push_back("count");
+        n.required.push_back("results");
+        n.sourceName = "PaginatedMoveMetaCategorySummaryList_component";
+        n.schemaPath = "#/components/schemas/PaginatedMoveMetaCategorySummaryList";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMoveMetaCategorySummaryList";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1847
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "count"; b.node = 771; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "next"; b.node = 772; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "previous"; b.node = 773; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "results"; b.node = 774; n.properties.push_back(std::move(b)); }
+        n.required.push_back("count");
+        n.required.push_back("results");
+        n.sourceName = "PaginatedMoveSummaryList_component";
+        n.schemaPath = "#/components/schemas/PaginatedMoveSummaryList";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMoveSummaryList";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1848
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "count"; b.node = 775; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "next"; b.node = 776; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "previous"; b.node = 777; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "results"; b.node = 778; n.properties.push_back(std::move(b)); }
+        n.required.push_back("count");
+        n.required.push_back("results");
+        n.sourceName = "PaginatedMoveTargetSummaryList_component";
+        n.schemaPath = "#/components/schemas/PaginatedMoveTargetSummaryList";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMoveTargetSummaryList";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1849
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "count"; b.node = 779; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "next"; b.node = 780; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "previous"; b.node = 781; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "results"; b.node = 782; n.properties.push_back(std::move(b)); }
+        n.required.push_back("count");
+        n.required.push_back("results");
+        n.sourceName = "PaginatedNatureSummaryList_component";
+        n.schemaPath = "#/components/schemas/PaginatedNatureSummaryList";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedNatureSummaryList";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1850
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "count"; b.node = 783; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "next"; b.node = 784; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "previous"; b.node = 785; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "results"; b.node = 786; n.properties.push_back(std::move(b)); }
+        n.required.push_back("count");
+        n.required.push_back("results");
+        n.sourceName = "PaginatedPalParkAreaSummaryList_component";
+        n.schemaPath = "#/components/schemas/PaginatedPalParkAreaSummaryList";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPalParkAreaSummaryList";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1851
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "count"; b.node = 787; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "next"; b.node = 788; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "previous"; b.node = 789; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "results"; b.node = 790; n.properties.push_back(std::move(b)); }
+        n.required.push_back("count");
+        n.required.push_back("results");
+        n.sourceName = "PaginatedPokeathlonStatSummaryList_component";
+        n.schemaPath = "#/components/schemas/PaginatedPokeathlonStatSummaryList";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokeathlonStatSummaryList";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1852
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "count"; b.node = 791; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "next"; b.node = 792; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "previous"; b.node = 793; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "results"; b.node = 794; n.properties.push_back(std::move(b)); }
+        n.required.push_back("count");
+        n.required.push_back("results");
+        n.sourceName = "PaginatedPokedexSummaryList_component";
+        n.schemaPath = "#/components/schemas/PaginatedPokedexSummaryList";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokedexSummaryList";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1853
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "count"; b.node = 795; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "next"; b.node = 796; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "previous"; b.node = 797; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "results"; b.node = 798; n.properties.push_back(std::move(b)); }
+        n.required.push_back("count");
+        n.required.push_back("results");
+        n.sourceName = "PaginatedPokemonColorSummaryList_component";
+        n.schemaPath = "#/components/schemas/PaginatedPokemonColorSummaryList";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokemonColorSummaryList";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1854
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "count"; b.node = 799; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "next"; b.node = 800; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "previous"; b.node = 801; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "results"; b.node = 802; n.properties.push_back(std::move(b)); }
+        n.required.push_back("count");
+        n.required.push_back("results");
+        n.sourceName = "PaginatedPokemonFormSummaryList_component";
+        n.schemaPath = "#/components/schemas/PaginatedPokemonFormSummaryList";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokemonFormSummaryList";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1855
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "count"; b.node = 803; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "next"; b.node = 804; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "previous"; b.node = 805; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "results"; b.node = 806; n.properties.push_back(std::move(b)); }
+        n.required.push_back("count");
+        n.required.push_back("results");
+        n.sourceName = "PaginatedPokemonHabitatSummaryList_component";
+        n.schemaPath = "#/components/schemas/PaginatedPokemonHabitatSummaryList";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokemonHabitatSummaryList";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1856
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "count"; b.node = 807; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "next"; b.node = 808; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "previous"; b.node = 809; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "results"; b.node = 810; n.properties.push_back(std::move(b)); }
+        n.required.push_back("count");
+        n.required.push_back("results");
+        n.sourceName = "PaginatedPokemonShapeSummaryList_component";
+        n.schemaPath = "#/components/schemas/PaginatedPokemonShapeSummaryList";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokemonShapeSummaryList";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1857
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "count"; b.node = 811; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "next"; b.node = 812; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "previous"; b.node = 813; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "results"; b.node = 814; n.properties.push_back(std::move(b)); }
+        n.required.push_back("count");
+        n.required.push_back("results");
+        n.sourceName = "PaginatedPokemonSpeciesSummaryList_component";
+        n.schemaPath = "#/components/schemas/PaginatedPokemonSpeciesSummaryList";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokemonSpeciesSummaryList";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1858
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "count"; b.node = 815; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "next"; b.node = 816; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "previous"; b.node = 817; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "results"; b.node = 818; n.properties.push_back(std::move(b)); }
+        n.required.push_back("count");
+        n.required.push_back("results");
+        n.sourceName = "PaginatedPokemonSummaryList_component";
+        n.schemaPath = "#/components/schemas/PaginatedPokemonSummaryList";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokemonSummaryList";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1859
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "count"; b.node = 819; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "next"; b.node = 820; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "previous"; b.node = 821; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "results"; b.node = 822; n.properties.push_back(std::move(b)); }
+        n.required.push_back("count");
+        n.required.push_back("results");
+        n.sourceName = "PaginatedRegionSummaryList_component";
+        n.schemaPath = "#/components/schemas/PaginatedRegionSummaryList";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedRegionSummaryList";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1860
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "count"; b.node = 823; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "next"; b.node = 824; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "previous"; b.node = 825; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "results"; b.node = 826; n.properties.push_back(std::move(b)); }
+        n.required.push_back("count");
+        n.required.push_back("results");
+        n.sourceName = "PaginatedStatSummaryList_component";
+        n.schemaPath = "#/components/schemas/PaginatedStatSummaryList";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedStatSummaryList";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1861
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "count"; b.node = 827; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "next"; b.node = 828; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "previous"; b.node = 829; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "results"; b.node = 830; n.properties.push_back(std::move(b)); }
+        n.required.push_back("count");
+        n.required.push_back("results");
+        n.sourceName = "PaginatedSuperContestEffectSummaryList_component";
+        n.schemaPath = "#/components/schemas/PaginatedSuperContestEffectSummaryList";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedSuperContestEffectSummaryList";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1862
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "count"; b.node = 831; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "next"; b.node = 832; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "previous"; b.node = 833; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "results"; b.node = 834; n.properties.push_back(std::move(b)); }
+        n.required.push_back("count");
+        n.required.push_back("results");
+        n.sourceName = "PaginatedTypeSummaryList_component";
+        n.schemaPath = "#/components/schemas/PaginatedTypeSummaryList";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedTypeSummaryList";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1863
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "count"; b.node = 835; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "next"; b.node = 836; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "previous"; b.node = 837; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "results"; b.node = 838; n.properties.push_back(std::move(b)); }
+        n.required.push_back("count");
+        n.required.push_back("results");
+        n.sourceName = "PaginatedVersionGroupSummaryList_component";
+        n.schemaPath = "#/components/schemas/PaginatedVersionGroupSummaryList";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedVersionGroupSummaryList";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1864
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "count"; b.node = 839; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "next"; b.node = 840; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "previous"; b.node = 841; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "results"; b.node = 842; n.properties.push_back(std::move(b)); }
+        n.required.push_back("count");
+        n.required.push_back("results");
+        n.sourceName = "PaginatedVersionSummaryList_component";
+        n.schemaPath = "#/components/schemas/PaginatedVersionSummaryList";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedVersionSummaryList";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1865
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "id"; b.node = 843; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 844; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "names"; b.node = 845; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "pokemon_encounters"; b.node = 846; n.properties.push_back(std::move(b)); }
+        n.required.push_back("id");
+        n.required.push_back("name");
+        n.required.push_back("names");
+        n.required.push_back("pokemon_encounters");
+        n.sourceName = "PalParkAreaDetail_component";
+        n.schemaPath = "#/components/schemas/PalParkAreaDetail";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PalParkAreaDetail";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1866
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "language"; b.node = 847; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 848; n.properties.push_back(std::move(b)); }
+        n.required.push_back("language");
+        n.required.push_back("name");
+        n.sourceName = "PalParkAreaName_component";
+        n.schemaPath = "#/components/schemas/PalParkAreaName";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PalParkAreaName";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1867
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "name"; b.node = 849; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "url"; b.node = 850; n.properties.push_back(std::move(b)); }
+        n.required.push_back("name");
+        n.required.push_back("url");
+        n.sourceName = "PalParkAreaSummary_component";
+        n.schemaPath = "#/components/schemas/PalParkAreaSummary";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PalParkAreaSummary";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1868
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "base_score"; b.node = 851; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "pokemon_species"; b.node = 852; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "rate"; b.node = 853; n.properties.push_back(std::move(b)); }
+        n.required.push_back("pokemon_species");
+        n.required.push_back("rate");
+        n.sourceName = "PalParkEncounter_component";
+        n.schemaPath = "#/components/schemas/PalParkEncounter";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PalParkEncounter";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1869
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "deploy_date"; b.node = 854; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "hash"; b.node = 855; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "tag"; b.node = 856; n.properties.push_back(std::move(b)); }
+        n.required.push_back("deploy_date");
+        n.required.push_back("hash");
+        n.required.push_back("tag");
+        n.sourceName = "PokeapiMetaResponse_component";
+        n.schemaPath = "#/components/schemas/PokeapiMetaResponse";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokeapiMetaResponse";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1870
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "max_change"; b.node = 857; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "nature"; b.node = 858; n.properties.push_back(std::move(b)); }
+        n.required.push_back("max_change");
+        n.required.push_back("nature");
+        n.sourceName = "PokeathlonStatAffectingNature_component";
+        n.schemaPath = "#/components/schemas/PokeathlonStatAffectingNature";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokeathlonStatAffectingNature";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1871
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "decrease"; b.node = 859; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "increase"; b.node = 860; n.properties.push_back(std::move(b)); }
+        n.required.push_back("decrease");
+        n.required.push_back("increase");
+        n.sourceName = "PokeathlonStatAffectingNatures_component";
+        n.schemaPath = "#/components/schemas/PokeathlonStatAffectingNatures";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokeathlonStatAffectingNatures";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1872
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "affecting_natures"; b.node = 861; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "id"; b.node = 862; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 863; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "names"; b.node = 864; n.properties.push_back(std::move(b)); }
+        n.required.push_back("affecting_natures");
+        n.required.push_back("id");
+        n.required.push_back("name");
+        n.required.push_back("names");
+        n.sourceName = "PokeathlonStatDetail_component";
+        n.schemaPath = "#/components/schemas/PokeathlonStatDetail";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokeathlonStatDetail";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1873
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "language"; b.node = 865; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 866; n.properties.push_back(std::move(b)); }
+        n.required.push_back("language");
+        n.required.push_back("name");
+        n.sourceName = "PokeathlonStatName_component";
+        n.schemaPath = "#/components/schemas/PokeathlonStatName";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokeathlonStatName";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1874
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "name"; b.node = 867; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "url"; b.node = 868; n.properties.push_back(std::move(b)); }
+        n.required.push_back("name");
+        n.required.push_back("url");
+        n.sourceName = "PokeathlonStatSummary_component";
+        n.schemaPath = "#/components/schemas/PokeathlonStatSummary";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokeathlonStatSummary";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1875
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "description"; b.node = 869; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "language"; b.node = 870; n.properties.push_back(std::move(b)); }
+        n.required.push_back("language");
+        n.sourceName = "PokedexDescription_component";
+        n.schemaPath = "#/components/schemas/PokedexDescription";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokedexDescription";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1876
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "descriptions"; b.node = 871; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "id"; b.node = 872; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "is_main_series"; b.node = 873; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 874; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "names"; b.node = 875; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "pokemon_entries"; b.node = 876; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "region"; b.node = 877; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "version_groups"; b.node = 878; n.properties.push_back(std::move(b)); }
+        n.required.push_back("descriptions");
+        n.required.push_back("id");
+        n.required.push_back("name");
+        n.required.push_back("names");
+        n.required.push_back("pokemon_entries");
+        n.required.push_back("region");
+        n.required.push_back("version_groups");
+        n.sourceName = "PokedexDetail_component";
+        n.schemaPath = "#/components/schemas/PokedexDetail";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokedexDetail";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1877
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.oneOfChildren.push_back(879);
+        n.oneOfChildren.push_back(880);
+        n.annDescription = "\"The region this Pok\303\251dex catalogues Pok\303\251mon for.\"";
+        n.sourceName = "PokedexDetail_region_component";
+        n.schemaPath = "#/components/schemas/PokedexDetail_region";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokedexDetail_region";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1878
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "language"; b.node = 881; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 882; n.properties.push_back(std::move(b)); }
+        n.required.push_back("language");
+        n.required.push_back("name");
+        n.sourceName = "PokedexName_component";
+        n.schemaPath = "#/components/schemas/PokedexName";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokedexName";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1879
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "name"; b.node = 883; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "url"; b.node = 884; n.properties.push_back(std::move(b)); }
+        n.required.push_back("name");
+        n.required.push_back("url");
+        n.sourceName = "PokedexSummary_component";
+        n.schemaPath = "#/components/schemas/PokedexSummary";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokedexSummary";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1880
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "ability"; b.node = 885; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "is_hidden"; b.node = 886; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "slot"; b.node = 887; n.properties.push_back(std::move(b)); }
+        n.required.push_back("ability");
+        n.required.push_back("slot");
+        n.sourceName = "PokemonAbility_component";
+        n.schemaPath = "#/components/schemas/PokemonAbility";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonAbility";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1881
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "ability"; b.node = 888; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "is_hidden"; b.node = 889; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "slot"; b.node = 890; n.properties.push_back(std::move(b)); }
+        n.required.push_back("ability");
+        n.required.push_back("slot");
+        n.sourceName = "PokemonAbilityPast_component";
+        n.schemaPath = "#/components/schemas/PokemonAbilityPast";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonAbilityPast";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1882
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.oneOfChildren.push_back(891);
+        n.oneOfChildren.push_back(892);
+        n.annDescription = "\"The ability the Pok\303\251mon may have.\"";
+        n.sourceName = "PokemonAbilityPast_ability_component";
+        n.schemaPath = "#/components/schemas/PokemonAbilityPast_ability";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonAbilityPast_ability";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1883
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "id"; b.node = 893; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 894; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "names"; b.node = 895; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "pokemon_species"; b.node = 896; n.properties.push_back(std::move(b)); }
+        n.required.push_back("id");
+        n.required.push_back("name");
+        n.required.push_back("names");
+        n.required.push_back("pokemon_species");
+        n.sourceName = "PokemonColorDetail_component";
+        n.schemaPath = "#/components/schemas/PokemonColorDetail";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonColorDetail";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1884
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "language"; b.node = 897; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 898; n.properties.push_back(std::move(b)); }
+        n.required.push_back("language");
+        n.required.push_back("name");
+        n.sourceName = "PokemonColorName_component";
+        n.schemaPath = "#/components/schemas/PokemonColorName";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonColorName";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1885
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "name"; b.node = 899; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "url"; b.node = 900; n.properties.push_back(std::move(b)); }
+        n.required.push_back("name");
+        n.required.push_back("url");
+        n.sourceName = "PokemonColorSummary_component";
+        n.schemaPath = "#/components/schemas/PokemonColorSummary";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonColorSummary";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1886
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "latest"; b.node = 901; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "legacy"; b.node = 902; n.properties.push_back(std::move(b)); }
+        n.required.push_back("latest");
+        n.required.push_back("legacy");
+        n.sourceName = "PokemonCries_component";
+        n.schemaPath = "#/components/schemas/PokemonCries";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonCries";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1887
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "abilities"; b.node = 903; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "base_experience"; b.node = 904; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "cries"; b.node = 905; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "forms"; b.node = 906; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "game_indices"; b.node = 907; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "height"; b.node = 908; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "held_items"; b.node = 909; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "id"; b.node = 910; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "is_default"; b.node = 911; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "location_area_encounters"; b.node = 912; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "moves"; b.node = 913; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 914; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "order"; b.node = 915; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "past_abilities"; b.node = 916; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "past_stats"; b.node = 917; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "past_types"; b.node = 918; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "species"; b.node = 919; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "sprites"; b.node = 920; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "stats"; b.node = 921; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "types"; b.node = 922; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "weight"; b.node = 923; n.properties.push_back(std::move(b)); }
+        n.required.push_back("abilities");
+        n.required.push_back("cries");
+        n.required.push_back("forms");
+        n.required.push_back("game_indices");
+        n.required.push_back("held_items");
+        n.required.push_back("id");
+        n.required.push_back("location_area_encounters");
+        n.required.push_back("moves");
+        n.required.push_back("name");
+        n.required.push_back("past_abilities");
+        n.required.push_back("past_stats");
+        n.required.push_back("past_types");
+        n.required.push_back("species");
+        n.required.push_back("sprites");
+        n.required.push_back("stats");
+        n.required.push_back("types");
+        n.sourceName = "PokemonDetail_component";
+        n.schemaPath = "#/components/schemas/PokemonDetail";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1888
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "entry_number"; b.node = 924; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "pokedex"; b.node = 925; n.properties.push_back(std::move(b)); }
+        n.required.push_back("entry_number");
+        n.required.push_back("pokedex");
+        n.sourceName = "PokemonDexEntry_component";
+        n.schemaPath = "#/components/schemas/PokemonDexEntry";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDexEntry";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1889
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "entry_number"; b.node = 926; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "pokemon_species"; b.node = 927; n.properties.push_back(std::move(b)); }
+        n.required.push_back("entry_number");
+        n.required.push_back("pokemon_species");
+        n.sourceName = "PokemonDexNumber_component";
+        n.schemaPath = "#/components/schemas/PokemonDexNumber";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDexNumber";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1890
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "chance"; b.node = 928; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "condition_values"; b.node = 929; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "max_level"; b.node = 930; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "method"; b.node = 931; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "min_level"; b.node = 932; n.properties.push_back(std::move(b)); }
+        n.required.push_back("chance");
+        n.required.push_back("condition_values");
+        n.required.push_back("max_level");
+        n.required.push_back("method");
+        n.required.push_back("min_level");
+        n.sourceName = "PokemonEncounterDetailResponse_component";
+        n.schemaPath = "#/components/schemas/PokemonEncounterDetailResponse";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEncounterDetailResponse";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1891
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "location_area"; b.node = 933; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "version_details"; b.node = 934; n.properties.push_back(std::move(b)); }
+        n.required.push_back("location_area");
+        n.required.push_back("version_details");
+        n.sourceName = "PokemonEncounterResponse_component";
+        n.schemaPath = "#/components/schemas/PokemonEncounterResponse";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEncounterResponse";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1892
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "encounter_details"; b.node = 935; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "max_chance"; b.node = 936; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "version"; b.node = 937; n.properties.push_back(std::move(b)); }
+        n.required.push_back("encounter_details");
+        n.required.push_back("max_chance");
+        n.required.push_back("version");
+        n.sourceName = "PokemonEncounterVersionDetailResponse_component";
+        n.schemaPath = "#/components/schemas/PokemonEncounterVersionDetailResponse";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEncounterVersionDetailResponse";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1893
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "allowed_natures"; b.node = 938; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "condition_expression"; b.node = 939; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "evolved_pokemon_form"; b.node = 940; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "gender"; b.node = 941; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "held_item"; b.node = 942; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "is_default"; b.node = 943; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "item"; b.node = 944; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "known_move"; b.node = 945; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "known_move_type"; b.node = 946; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "location"; b.node = 947; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "min_affection"; b.node = 948; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "min_beauty"; b.node = 949; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "min_damage_taken"; b.node = 950; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "min_happiness"; b.node = 951; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "min_level"; b.node = 952; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "min_move_count"; b.node = 953; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "min_steps"; b.node = 954; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "near_special_rock"; b.node = 955; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "needs_multiplayer"; b.node = 956; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "needs_overworld_rain"; b.node = 957; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "party_species"; b.node = 958; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "party_type"; b.node = 959; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "region"; b.node = 960; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "relative_physical_stats"; b.node = 961; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "required_pokemon_form"; b.node = 962; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "time_of_day"; b.node = 963; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "trade_species"; b.node = 964; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "trigger"; b.node = 965; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "turn_upside_down"; b.node = 966; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "used_move"; b.node = 967; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "version_group"; b.node = 968; n.properties.push_back(std::move(b)); }
+        n.required.push_back("allowed_natures");
+        n.required.push_back("condition_expression");
+        n.required.push_back("evolved_pokemon_form");
+        n.required.push_back("held_item");
+        n.required.push_back("item");
+        n.required.push_back("known_move");
+        n.required.push_back("known_move_type");
+        n.required.push_back("location");
+        n.required.push_back("party_species");
+        n.required.push_back("party_type");
+        n.required.push_back("region");
+        n.required.push_back("required_pokemon_form");
+        n.required.push_back("trade_species");
+        n.required.push_back("trigger");
+        n.required.push_back("used_move");
+        n.required.push_back("version_group");
+        n.sourceName = "PokemonEvolution_component";
+        n.schemaPath = "#/components/schemas/PokemonEvolution";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEvolution";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1894
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.oneOfChildren.push_back(969);
+        n.oneOfChildren.push_back(970);
+        n.annDescription = "\"An additional evolution condition expressed in reverse Polish notation, or null if none.\"";
+        n.annReadOnlyJson = "true";
+        n.sourceName = "PokemonEvolution_condition_expression_component";
+        n.schemaPath = "#/components/schemas/PokemonEvolution_condition_expression";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEvolution_condition_expression";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1895
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.oneOfChildren.push_back(971);
+        n.oneOfChildren.push_back(972);
+        n.annDescription = "\"The Pok\303\251mon form produced by this evolution, or null if unspecified.\"";
+        n.sourceName = "PokemonEvolution_evolved_pokemon_form_component";
+        n.schemaPath = "#/components/schemas/PokemonEvolution_evolved_pokemon_form";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEvolution_evolved_pokemon_form";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1896
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.oneOfChildren.push_back(973);
+        n.oneOfChildren.push_back(974);
+        n.annDescription = "\"The item the evolving Pok\303\251mon species must be holding during the evolution trigger event to evolve into this Pok\303\251mon species.\"";
+        n.sourceName = "PokemonEvolution_held_item_component";
+        n.schemaPath = "#/components/schemas/PokemonEvolution_held_item";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEvolution_held_item";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1897
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.oneOfChildren.push_back(975);
+        n.oneOfChildren.push_back(976);
+        n.annDescription = "\"The item required to cause evolution this into Pok\303\251mon species.\"";
+        n.sourceName = "PokemonEvolution_item_component";
+        n.schemaPath = "#/components/schemas/PokemonEvolution_item";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEvolution_item";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1898
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "name"; b.node = 977; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "url"; b.node = 978; n.properties.push_back(std::move(b)); }
+        n.required.push_back("name");
+        n.required.push_back("url");
+        n.annExtras.push_back({"nullable", "true"});
+        n.sourceName = "PokemonEvolution_known_move_component";
+        n.schemaPath = "#/components/schemas/PokemonEvolution_known_move";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEvolution_known_move";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1899
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.oneOfChildren.push_back(979);
+        n.oneOfChildren.push_back(980);
+        n.annDescription = "\"The location the evolution must be triggered at.\"";
+        n.sourceName = "PokemonEvolution_location_component";
+        n.schemaPath = "#/components/schemas/PokemonEvolution_location";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEvolution_location";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1900
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.oneOfChildren.push_back(981);
+        n.oneOfChildren.push_back(982);
+        n.annDescription = "\"The Pok\303\251mon species that must be in the players party in order for the evolving Pok\303\251mon species to evolve into this Pok\303\251mon species.\"";
+        n.sourceName = "PokemonEvolution_party_species_component";
+        n.schemaPath = "#/components/schemas/PokemonEvolution_party_species";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEvolution_party_species";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1901
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.oneOfChildren.push_back(983);
+        n.oneOfChildren.push_back(984);
+        n.annDescription = "\"The player must have a Pok\303\251mon of this type in their party during the evolution trigger event in order for the evolving Pok\303\251mon species to evolve into this Pok\303\251mon species.\"";
+        n.sourceName = "PokemonEvolution_party_type_component";
+        n.schemaPath = "#/components/schemas/PokemonEvolution_party_type";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEvolution_party_type";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1902
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.oneOfChildren.push_back(985);
+        n.oneOfChildren.push_back(986);
+        n.annDescription = "\"The required region in which this evolution can occur.\"";
+        n.sourceName = "PokemonEvolution_region_component";
+        n.schemaPath = "#/components/schemas/PokemonEvolution_region";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEvolution_region";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1903
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.oneOfChildren.push_back(987);
+        n.oneOfChildren.push_back(988);
+        n.annDescription = "\"The Pok\303\251mon form required before evolving, or null if unrestricted.\"";
+        n.sourceName = "PokemonEvolution_required_pokemon_form_component";
+        n.schemaPath = "#/components/schemas/PokemonEvolution_required_pokemon_form";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEvolution_required_pokemon_form";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1904
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.oneOfChildren.push_back(989);
+        n.oneOfChildren.push_back(990);
+        n.annDescription = "\"Pok\303\251mon species for which this one must be traded.\"";
+        n.sourceName = "PokemonEvolution_trade_species_component";
+        n.schemaPath = "#/components/schemas/PokemonEvolution_trade_species";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEvolution_trade_species";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1905
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.oneOfChildren.push_back(991);
+        n.oneOfChildren.push_back(992);
+        n.annDescription = "\"The move that must be used by the evolving Pok\303\251mon species during the evolution trigger event in order to evolve into this Pok\303\251mon species.\"";
+        n.sourceName = "PokemonEvolution_used_move_component";
+        n.schemaPath = "#/components/schemas/PokemonEvolution_used_move";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEvolution_used_move";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1906
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "flavor_text_entries"; b.node = 993; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "form_name"; b.node = 994; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "form_names"; b.node = 995; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "form_order"; b.node = 996; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "id"; b.node = 997; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "is_battle_only"; b.node = 998; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "is_default"; b.node = 999; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "is_mega"; b.node = 1000; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 1001; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "names"; b.node = 1002; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "order"; b.node = 1003; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "pokemon"; b.node = 1004; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "sprites"; b.node = 1005; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "trigger_conditions"; b.node = 1006; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "types"; b.node = 1007; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "version_group"; b.node = 1008; n.properties.push_back(std::move(b)); }
+        n.required.push_back("flavor_text_entries");
+        n.required.push_back("form_name");
+        n.required.push_back("form_names");
+        n.required.push_back("id");
+        n.required.push_back("name");
+        n.required.push_back("names");
+        n.required.push_back("pokemon");
+        n.required.push_back("sprites");
+        n.required.push_back("trigger_conditions");
+        n.required.push_back("types");
+        n.required.push_back("version_group");
+        n.sourceName = "PokemonFormDetail_component";
+        n.schemaPath = "#/components/schemas/PokemonFormDetail";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonFormDetail";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1907
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "flavor_text"; b.node = 1009; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "language"; b.node = 1010; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "version"; b.node = 1011; n.properties.push_back(std::move(b)); }
+        n.required.push_back("flavor_text");
+        n.required.push_back("language");
+        n.required.push_back("version");
+        n.sourceName = "PokemonFormFlavorText_component";
+        n.schemaPath = "#/components/schemas/PokemonFormFlavorText";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonFormFlavorText";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1908
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "language"; b.node = 1012; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 1013; n.properties.push_back(std::move(b)); }
+        n.required.push_back("language");
+        n.required.push_back("name");
+        n.sourceName = "PokemonFormName_component";
+        n.schemaPath = "#/components/schemas/PokemonFormName";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonFormName";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1909
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "back_default"; b.node = 1014; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "back_female"; b.node = 1015; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "back_shiny"; b.node = 1016; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "back_shiny_female"; b.node = 1017; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "front_default"; b.node = 1018; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "front_female"; b.node = 1019; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "front_shiny"; b.node = 1020; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "front_shiny_female"; b.node = 1021; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "other"; b.node = 1022; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "versions"; b.node = 1023; n.properties.push_back(std::move(b)); }
+        n.required.push_back("back_default");
+        n.required.push_back("back_female");
+        n.required.push_back("back_shiny");
+        n.required.push_back("back_shiny_female");
+        n.required.push_back("front_default");
+        n.required.push_back("front_female");
+        n.required.push_back("front_shiny");
+        n.required.push_back("front_shiny_female");
+        n.sourceName = "PokemonFormSprites_component";
+        n.schemaPath = "#/components/schemas/PokemonFormSprites";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonFormSprites";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1910
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "name"; b.node = 1024; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "url"; b.node = 1025; n.properties.push_back(std::move(b)); }
+        n.required.push_back("name");
+        n.required.push_back("url");
+        n.sourceName = "PokemonFormSummary_component";
+        n.schemaPath = "#/components/schemas/PokemonFormSummary";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonFormSummary";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1911
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "base_form"; b.node = 1026; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 1027; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "trigger"; b.node = 1028; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "url"; b.node = 1029; n.properties.push_back(std::move(b)); }
+        n.required.push_back("trigger");
+        n.sourceName = "PokemonFormTriggerCondition_component";
+        n.schemaPath = "#/components/schemas/PokemonFormTriggerCondition";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonFormTriggerCondition";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1912
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "slot"; b.node = 1030; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "type"; b.node = 1031; n.properties.push_back(std::move(b)); }
+        n.required.push_back("slot");
+        n.required.push_back("type");
+        n.sourceName = "PokemonFormType_component";
+        n.schemaPath = "#/components/schemas/PokemonFormType";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonFormType";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1913
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "game_index"; b.node = 1032; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "version"; b.node = 1033; n.properties.push_back(std::move(b)); }
+        n.required.push_back("game_index");
+        n.required.push_back("version");
+        n.sourceName = "PokemonGameIndex_component";
+        n.schemaPath = "#/components/schemas/PokemonGameIndex";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonGameIndex";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1914
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "id"; b.node = 1034; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 1035; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "names"; b.node = 1036; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "pokemon_species"; b.node = 1037; n.properties.push_back(std::move(b)); }
+        n.required.push_back("id");
+        n.required.push_back("name");
+        n.required.push_back("names");
+        n.required.push_back("pokemon_species");
+        n.sourceName = "PokemonHabitatDetail_component";
+        n.schemaPath = "#/components/schemas/PokemonHabitatDetail";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonHabitatDetail";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1915
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "language"; b.node = 1038; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 1039; n.properties.push_back(std::move(b)); }
+        n.required.push_back("language");
+        n.required.push_back("name");
+        n.sourceName = "PokemonHabitatName_component";
+        n.schemaPath = "#/components/schemas/PokemonHabitatName";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonHabitatName";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1916
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "name"; b.node = 1040; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "url"; b.node = 1041; n.properties.push_back(std::move(b)); }
+        n.required.push_back("name");
+        n.required.push_back("url");
+        n.sourceName = "PokemonHabitatSummary_component";
+        n.schemaPath = "#/components/schemas/PokemonHabitatSummary";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonHabitatSummary";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1917
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "pokemon"; b.node = 1042; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "version_details"; b.node = 1043; n.properties.push_back(std::move(b)); }
+        n.required.push_back("pokemon");
+        n.required.push_back("version_details");
+        n.sourceName = "PokemonHeldItem_component";
+        n.schemaPath = "#/components/schemas/PokemonHeldItem";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonHeldItem";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1918
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "item"; b.node = 1044; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "version_details"; b.node = 1045; n.properties.push_back(std::move(b)); }
+        n.required.push_back("item");
+        n.required.push_back("version_details");
+        n.sourceName = "PokemonHeldItemSummary_component";
+        n.schemaPath = "#/components/schemas/PokemonHeldItemSummary";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonHeldItemSummary";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1919
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "rarity"; b.node = 1046; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "version"; b.node = 1047; n.properties.push_back(std::move(b)); }
+        n.required.push_back("rarity");
+        n.required.push_back("version");
+        n.sourceName = "PokemonHeldItemVersion_component";
+        n.schemaPath = "#/components/schemas/PokemonHeldItemVersion";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonHeldItemVersion";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1920
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "move"; b.node = 1048; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "version_group_details"; b.node = 1049; n.properties.push_back(std::move(b)); }
+        n.required.push_back("move");
+        n.required.push_back("version_group_details");
+        n.sourceName = "PokemonMove_component";
+        n.schemaPath = "#/components/schemas/PokemonMove";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonMove";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1921
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "level_learned_at"; b.node = 1050; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "move_learn_method"; b.node = 1051; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "order"; b.node = 1052; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "version_group"; b.node = 1053; n.properties.push_back(std::move(b)); }
+        n.required.push_back("level_learned_at");
+        n.required.push_back("move_learn_method");
+        n.required.push_back("version_group");
+        n.sourceName = "PokemonMoveVersionGroup_component";
+        n.schemaPath = "#/components/schemas/PokemonMoveVersionGroup";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonMoveVersionGroup";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1922
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "abilities"; b.node = 1054; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "generation"; b.node = 1055; n.properties.push_back(std::move(b)); }
+        n.required.push_back("abilities");
+        n.required.push_back("generation");
+        n.sourceName = "PokemonPastAbility_component";
+        n.schemaPath = "#/components/schemas/PokemonPastAbility";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonPastAbility";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1923
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "generation"; b.node = 1056; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "stats"; b.node = 1057; n.properties.push_back(std::move(b)); }
+        n.required.push_back("generation");
+        n.required.push_back("stats");
+        n.sourceName = "PokemonPastStat_component";
+        n.schemaPath = "#/components/schemas/PokemonPastStat";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonPastStat";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1924
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "generation"; b.node = 1058; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "types"; b.node = 1059; n.properties.push_back(std::move(b)); }
+        n.required.push_back("generation");
+        n.required.push_back("types");
+        n.sourceName = "PokemonPastType_component";
+        n.schemaPath = "#/components/schemas/PokemonPastType";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonPastType";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1925
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "awesome_name"; b.node = 1060; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "language"; b.node = 1061; n.properties.push_back(std::move(b)); }
+        n.required.push_back("awesome_name");
+        n.required.push_back("language");
+        n.sourceName = "PokemonShapeAwesomeName_component";
+        n.schemaPath = "#/components/schemas/PokemonShapeAwesomeName";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonShapeAwesomeName";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1926
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "awesome_names"; b.node = 1062; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "id"; b.node = 1063; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 1064; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "names"; b.node = 1065; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "pokemon_species"; b.node = 1066; n.properties.push_back(std::move(b)); }
+        n.required.push_back("awesome_names");
+        n.required.push_back("id");
+        n.required.push_back("name");
+        n.required.push_back("names");
+        n.required.push_back("pokemon_species");
+        n.sourceName = "PokemonShapeDetail_component";
+        n.schemaPath = "#/components/schemas/PokemonShapeDetail";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonShapeDetail";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1927
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "language"; b.node = 1067; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 1068; n.properties.push_back(std::move(b)); }
+        n.required.push_back("language");
+        n.required.push_back("name");
+        n.sourceName = "PokemonShapeName_component";
+        n.schemaPath = "#/components/schemas/PokemonShapeName";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonShapeName";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1928
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "name"; b.node = 1069; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "url"; b.node = 1070; n.properties.push_back(std::move(b)); }
+        n.required.push_back("name");
+        n.required.push_back("url");
+        n.sourceName = "PokemonShapeSummary_component";
+        n.schemaPath = "#/components/schemas/PokemonShapeSummary";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonShapeSummary";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1929
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "description"; b.node = 1071; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "language"; b.node = 1072; n.properties.push_back(std::move(b)); }
+        n.required.push_back("language");
+        n.sourceName = "PokemonSpeciesDescription_component";
+        n.schemaPath = "#/components/schemas/PokemonSpeciesDescription";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDescription";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1930
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "base_happiness"; b.node = 1073; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "capture_rate"; b.node = 1074; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "color"; b.node = 1075; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "egg_groups"; b.node = 1076; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "evolution_chain"; b.node = 1077; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "evolves_from_species"; b.node = 1078; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "flavor_text_entries"; b.node = 1079; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "form_descriptions"; b.node = 1080; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "forms_switchable"; b.node = 1081; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "gender_rate"; b.node = 1082; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "genera"; b.node = 1083; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "generation"; b.node = 1084; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "growth_rate"; b.node = 1085; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "habitat"; b.node = 1086; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "has_gender_differences"; b.node = 1087; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "hatch_counter"; b.node = 1088; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "id"; b.node = 1089; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "is_baby"; b.node = 1090; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "is_legendary"; b.node = 1091; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "is_mythical"; b.node = 1092; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 1093; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "names"; b.node = 1094; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "order"; b.node = 1095; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "pal_park_encounters"; b.node = 1096; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "pokedex_numbers"; b.node = 1097; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "shape"; b.node = 1098; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "varieties"; b.node = 1099; n.properties.push_back(std::move(b)); }
+        n.required.push_back("color");
+        n.required.push_back("egg_groups");
+        n.required.push_back("evolution_chain");
+        n.required.push_back("evolves_from_species");
+        n.required.push_back("flavor_text_entries");
+        n.required.push_back("form_descriptions");
+        n.required.push_back("genera");
+        n.required.push_back("generation");
+        n.required.push_back("growth_rate");
+        n.required.push_back("habitat");
+        n.required.push_back("id");
+        n.required.push_back("name");
+        n.required.push_back("names");
+        n.required.push_back("pal_park_encounters");
+        n.required.push_back("pokedex_numbers");
+        n.required.push_back("shape");
+        n.required.push_back("varieties");
+        n.sourceName = "PokemonSpeciesDetail_component";
+        n.schemaPath = "#/components/schemas/PokemonSpeciesDetail";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDetail";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1931
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.oneOfChildren.push_back(1100);
+        n.oneOfChildren.push_back(1101);
+        n.annDescription = "\"The Pok\303\251mon species that evolves into this Pokemon_species.\"";
+        n.sourceName = "PokemonSpeciesDetail_evolves_from_species_component";
+        n.schemaPath = "#/components/schemas/PokemonSpeciesDetail_evolves_from_species";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDetail_evolves_from_species";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1932
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.oneOfChildren.push_back(1102);
+        n.oneOfChildren.push_back(1103);
+        n.annDescription = "\"The habitat this Pok\303\251mon species can be encountered in.\"";
+        n.sourceName = "PokemonSpeciesDetail_habitat_component";
+        n.schemaPath = "#/components/schemas/PokemonSpeciesDetail_habitat";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDetail_habitat";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1933
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "flavor_text"; b.node = 1104; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "language"; b.node = 1105; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "version"; b.node = 1106; n.properties.push_back(std::move(b)); }
+        n.required.push_back("flavor_text");
+        n.required.push_back("language");
+        n.required.push_back("version");
+        n.sourceName = "PokemonSpeciesFlavorText_component";
+        n.schemaPath = "#/components/schemas/PokemonSpeciesFlavorText";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesFlavorText";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1934
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "genus"; b.node = 1107; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "language"; b.node = 1108; n.properties.push_back(std::move(b)); }
+        n.required.push_back("genus");
+        n.required.push_back("language");
+        n.sourceName = "PokemonSpeciesGenus_component";
+        n.schemaPath = "#/components/schemas/PokemonSpeciesGenus";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesGenus";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1935
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "language"; b.node = 1109; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 1110; n.properties.push_back(std::move(b)); }
+        n.required.push_back("language");
+        n.required.push_back("name");
+        n.sourceName = "PokemonSpeciesName_component";
+        n.schemaPath = "#/components/schemas/PokemonSpeciesName";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesName";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1936
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "area"; b.node = 1111; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "base_score"; b.node = 1112; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "rate"; b.node = 1113; n.properties.push_back(std::move(b)); }
+        n.required.push_back("area");
+        n.required.push_back("rate");
+        n.sourceName = "PokemonSpeciesPalParkEncounter_component";
+        n.schemaPath = "#/components/schemas/PokemonSpeciesPalParkEncounter";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesPalParkEncounter";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1937
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "name"; b.node = 1114; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "url"; b.node = 1115; n.properties.push_back(std::move(b)); }
+        n.required.push_back("name");
+        n.required.push_back("url");
+        n.sourceName = "PokemonSpeciesSummary_component";
+        n.schemaPath = "#/components/schemas/PokemonSpeciesSummary";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesSummary";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1938
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "is_default"; b.node = 1116; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "pokemon"; b.node = 1117; n.properties.push_back(std::move(b)); }
+        n.required.push_back("is_default");
+        n.required.push_back("pokemon");
+        n.sourceName = "PokemonSpeciesVariety_component";
+        n.schemaPath = "#/components/schemas/PokemonSpeciesVariety";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesVariety";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1939
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "back_default"; b.node = 1118; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "back_female"; b.node = 1119; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "back_shiny"; b.node = 1120; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "back_shiny_female"; b.node = 1121; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "front_default"; b.node = 1122; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "front_female"; b.node = 1123; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "front_shiny"; b.node = 1124; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "front_shiny_female"; b.node = 1125; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "other"; b.node = 1126; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "versions"; b.node = 1127; n.properties.push_back(std::move(b)); }
+        n.required.push_back("back_default");
+        n.required.push_back("back_female");
+        n.required.push_back("back_shiny");
+        n.required.push_back("back_shiny_female");
+        n.required.push_back("front_default");
+        n.required.push_back("front_female");
+        n.required.push_back("front_shiny");
+        n.required.push_back("front_shiny_female");
+        n.sourceName = "PokemonSprites_component";
+        n.schemaPath = "#/components/schemas/PokemonSprites";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSprites";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1940
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "dream_world"; b.node = 1128; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "home"; b.node = 1129; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "official-artwork"; b.node = 1130; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "showdown"; b.node = 1131; n.properties.push_back(std::move(b)); }
+        n.sourceName = "PokemonSpritesOther_component";
+        n.schemaPath = "#/components/schemas/PokemonSpritesOther";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpritesOther";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1941
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "front_default"; b.node = 1132; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "front_female"; b.node = 1133; n.properties.push_back(std::move(b)); }
+        n.required.push_back("front_default");
+        n.required.push_back("front_female");
+        n.sourceName = "PokemonSpritesOtherDreamWorld_component";
+        n.schemaPath = "#/components/schemas/PokemonSpritesOtherDreamWorld";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpritesOtherDreamWorld";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1942
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "front_default"; b.node = 1134; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "front_female"; b.node = 1135; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "front_shiny"; b.node = 1136; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "front_shiny_female"; b.node = 1137; n.properties.push_back(std::move(b)); }
+        n.required.push_back("front_default");
+        n.required.push_back("front_female");
+        n.required.push_back("front_shiny");
+        n.required.push_back("front_shiny_female");
+        n.sourceName = "PokemonSpritesOtherHome_component";
+        n.schemaPath = "#/components/schemas/PokemonSpritesOtherHome";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpritesOtherHome";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1943
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "front_default"; b.node = 1138; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "front_shiny"; b.node = 1139; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "versions"; b.node = 1140; n.properties.push_back(std::move(b)); }
+        n.required.push_back("front_default");
+        n.required.push_back("front_shiny");
+        n.sourceName = "PokemonSpritesOtherOfficialArtwork_component";
+        n.schemaPath = "#/components/schemas/PokemonSpritesOtherOfficialArtwork";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpritesOtherOfficialArtwork";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1944
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "back_default"; b.node = 1141; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "back_female"; b.node = 1142; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "back_shiny"; b.node = 1143; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "back_shiny_female"; b.node = 1144; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "front_default"; b.node = 1145; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "front_female"; b.node = 1146; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "front_shiny"; b.node = 1147; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "front_shiny_female"; b.node = 1148; n.properties.push_back(std::move(b)); }
+        n.required.push_back("back_default");
+        n.required.push_back("back_female");
+        n.required.push_back("back_shiny");
+        n.required.push_back("back_shiny_female");
+        n.required.push_back("front_default");
+        n.required.push_back("front_female");
+        n.required.push_back("front_shiny");
+        n.required.push_back("front_shiny_female");
+        n.sourceName = "PokemonSpritesOtherShowdown_component";
+        n.schemaPath = "#/components/schemas/PokemonSpritesOtherShowdown";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpritesOtherShowdown";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1945
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "base_stat"; b.node = 1149; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "effort"; b.node = 1150; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "stat"; b.node = 1151; n.properties.push_back(std::move(b)); }
+        n.required.push_back("base_stat");
+        n.required.push_back("effort");
+        n.required.push_back("stat");
+        n.sourceName = "PokemonStat_component";
+        n.schemaPath = "#/components/schemas/PokemonStat";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonStat";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1946
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "name"; b.node = 1152; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "url"; b.node = 1153; n.properties.push_back(std::move(b)); }
+        n.required.push_back("name");
+        n.required.push_back("url");
+        n.sourceName = "PokemonSummary_component";
+        n.schemaPath = "#/components/schemas/PokemonSummary";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSummary";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1947
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "slot"; b.node = 1154; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "type"; b.node = 1155; n.properties.push_back(std::move(b)); }
+        n.required.push_back("slot");
+        n.required.push_back("type");
+        n.sourceName = "PokemonType_component";
+        n.schemaPath = "#/components/schemas/PokemonType";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonType";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1948
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "id"; b.node = 1156; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "locations"; b.node = 1157; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "main_generation"; b.node = 1158; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 1159; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "names"; b.node = 1160; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "pokedexes"; b.node = 1161; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "version_groups"; b.node = 1162; n.properties.push_back(std::move(b)); }
+        n.required.push_back("id");
+        n.required.push_back("locations");
+        n.required.push_back("main_generation");
+        n.required.push_back("name");
+        n.required.push_back("names");
+        n.required.push_back("pokedexes");
+        n.required.push_back("version_groups");
+        n.sourceName = "RegionDetail_component";
+        n.schemaPath = "#/components/schemas/RegionDetail";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/RegionDetail";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1949
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.oneOfChildren.push_back(1163);
+        n.oneOfChildren.push_back(1164);
+        n.annDescription = "\"The generation this region was introduced in.\"";
+        n.annReadOnlyJson = "true";
+        n.sourceName = "RegionDetail_main_generation_component";
+        n.schemaPath = "#/components/schemas/RegionDetail_main_generation";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/RegionDetail_main_generation";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1950
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "language"; b.node = 1165; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 1166; n.properties.push_back(std::move(b)); }
+        n.required.push_back("language");
+        n.required.push_back("name");
+        n.sourceName = "RegionName_component";
+        n.schemaPath = "#/components/schemas/RegionName";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/RegionName";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1951
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "name"; b.node = 1167; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "url"; b.node = 1168; n.properties.push_back(std::move(b)); }
+        n.required.push_back("name");
+        n.required.push_back("url");
+        n.sourceName = "RegionSummary_component";
+        n.schemaPath = "#/components/schemas/RegionSummary";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/RegionSummary";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1952
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "decrease"; b.node = 1169; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "increase"; b.node = 1170; n.properties.push_back(std::move(b)); }
+        n.required.push_back("decrease");
+        n.required.push_back("increase");
+        n.sourceName = "StatAffectingMoves_component";
+        n.schemaPath = "#/components/schemas/StatAffectingMoves";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/StatAffectingMoves";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1953
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "decrease"; b.node = 1171; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "increase"; b.node = 1172; n.properties.push_back(std::move(b)); }
+        n.required.push_back("decrease");
+        n.required.push_back("increase");
+        n.sourceName = "StatAffectingNatures_component";
+        n.schemaPath = "#/components/schemas/StatAffectingNatures";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/StatAffectingNatures";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1954
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "affecting_items"; b.node = 1173; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "affecting_moves"; b.node = 1174; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "affecting_natures"; b.node = 1175; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "characteristics"; b.node = 1176; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "game_index"; b.node = 1177; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "id"; b.node = 1178; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "is_battle_only"; b.node = 1179; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "move_damage_class"; b.node = 1180; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 1181; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "names"; b.node = 1182; n.properties.push_back(std::move(b)); }
+        n.required.push_back("affecting_items");
+        n.required.push_back("affecting_moves");
+        n.required.push_back("affecting_natures");
+        n.required.push_back("characteristics");
+        n.required.push_back("game_index");
+        n.required.push_back("id");
+        n.required.push_back("move_damage_class");
+        n.required.push_back("name");
+        n.required.push_back("names");
+        n.sourceName = "StatDetail_component";
+        n.schemaPath = "#/components/schemas/StatDetail";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/StatDetail";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1955
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.oneOfChildren.push_back(1183);
+        n.oneOfChildren.push_back(1184);
+        n.annDescription = "\"The class of damage this stat is directly related to.\"";
+        n.sourceName = "StatDetail_move_damage_class_component";
+        n.schemaPath = "#/components/schemas/StatDetail_move_damage_class";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/StatDetail_move_damage_class";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1956
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "language"; b.node = 1185; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 1186; n.properties.push_back(std::move(b)); }
+        n.required.push_back("language");
+        n.required.push_back("name");
+        n.sourceName = "StatName_component";
+        n.schemaPath = "#/components/schemas/StatName";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/StatName";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1957
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "name"; b.node = 1187; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "url"; b.node = 1188; n.properties.push_back(std::move(b)); }
+        n.required.push_back("name");
+        n.required.push_back("url");
+        n.sourceName = "StatSummary_component";
+        n.schemaPath = "#/components/schemas/StatSummary";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/StatSummary";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1958
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "appeal"; b.node = 1189; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "flavor_text_entries"; b.node = 1190; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "id"; b.node = 1191; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "moves"; b.node = 1192; n.properties.push_back(std::move(b)); }
+        n.required.push_back("appeal");
+        n.required.push_back("flavor_text_entries");
+        n.required.push_back("id");
+        n.required.push_back("moves");
+        n.sourceName = "SuperContestEffectDetail_component";
+        n.schemaPath = "#/components/schemas/SuperContestEffectDetail";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/SuperContestEffectDetail";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1959
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "flavor_text"; b.node = 1193; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "language"; b.node = 1194; n.properties.push_back(std::move(b)); }
+        n.required.push_back("flavor_text");
+        n.required.push_back("language");
+        n.sourceName = "SuperContestEffectFlavorText_component";
+        n.schemaPath = "#/components/schemas/SuperContestEffectFlavorText";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/SuperContestEffectFlavorText";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1960
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "url"; b.node = 1195; n.properties.push_back(std::move(b)); }
+        n.required.push_back("url");
+        n.sourceName = "SuperContestEffectSummary_component";
+        n.schemaPath = "#/components/schemas/SuperContestEffectSummary";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/SuperContestEffectSummary";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1961
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "damage_relations"; b.node = 1196; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "game_indices"; b.node = 1197; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "generation"; b.node = 1198; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "id"; b.node = 1199; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "move_damage_class"; b.node = 1200; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "moves"; b.node = 1201; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 1202; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "names"; b.node = 1203; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "past_damage_relations"; b.node = 1204; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "pokemon"; b.node = 1205; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "sprites"; b.node = 1206; n.properties.push_back(std::move(b)); }
+        n.required.push_back("damage_relations");
+        n.required.push_back("game_indices");
+        n.required.push_back("generation");
+        n.required.push_back("id");
+        n.required.push_back("move_damage_class");
+        n.required.push_back("moves");
+        n.required.push_back("name");
+        n.required.push_back("names");
+        n.required.push_back("past_damage_relations");
+        n.required.push_back("pokemon");
+        n.required.push_back("sprites");
+        n.annDescription = "\"Serializer for the Type resource\"";
+        n.sourceName = "TypeDetail_component";
+        n.schemaPath = "#/components/schemas/TypeDetail";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1962
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.oneOfChildren.push_back(1207);
+        n.oneOfChildren.push_back(1208);
+        n.annDescription = "\"The class of damage inflicted by this type.\"";
+        n.sourceName = "TypeDetail_move_damage_class_component";
+        n.schemaPath = "#/components/schemas/TypeDetail_move_damage_class";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeDetail_move_damage_class";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1963
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "game_index"; b.node = 1209; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "generation"; b.node = 1210; n.properties.push_back(std::move(b)); }
+        n.required.push_back("game_index");
+        n.required.push_back("generation");
+        n.sourceName = "TypeGameIndex_component";
+        n.schemaPath = "#/components/schemas/TypeGameIndex";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeGameIndex";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1964
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "name_icon"; b.node = 1211; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "symbol_icon"; b.node = 1212; n.properties.push_back(std::move(b)); }
+        n.sourceName = "TypeGameSprite_component";
+        n.schemaPath = "#/components/schemas/TypeGameSprite";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeGameSprite";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1965
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "language"; b.node = 1213; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 1214; n.properties.push_back(std::move(b)); }
+        n.required.push_back("language");
+        n.required.push_back("name");
+        n.sourceName = "TypeName_component";
+        n.schemaPath = "#/components/schemas/TypeName";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeName";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1966
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "damage_relations"; b.node = 1215; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "generation"; b.node = 1216; n.properties.push_back(std::move(b)); }
+        n.required.push_back("damage_relations");
+        n.required.push_back("generation");
+        n.sourceName = "TypePastRelationships_component";
+        n.schemaPath = "#/components/schemas/TypePastRelationships";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypePastRelationships";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1967
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "pokemon"; b.node = 1217; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "slot"; b.node = 1218; n.properties.push_back(std::move(b)); }
+        n.required.push_back("pokemon");
+        n.required.push_back("slot");
+        n.sourceName = "TypePokemon_component";
+        n.schemaPath = "#/components/schemas/TypePokemon";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypePokemon";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1968
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "double_damage_from"; b.node = 1219; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "double_damage_to"; b.node = 1220; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "half_damage_from"; b.node = 1221; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "half_damage_to"; b.node = 1222; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "no_damage_from"; b.node = 1223; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "no_damage_to"; b.node = 1224; n.properties.push_back(std::move(b)); }
+        n.required.push_back("double_damage_from");
+        n.required.push_back("double_damage_to");
+        n.required.push_back("half_damage_from");
+        n.required.push_back("half_damage_to");
+        n.required.push_back("no_damage_from");
+        n.required.push_back("no_damage_to");
+        n.sourceName = "TypeRelationships_component";
+        n.schemaPath = "#/components/schemas/TypeRelationships";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeRelationships";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1969
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "name"; b.node = 1225; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "url"; b.node = 1226; n.properties.push_back(std::move(b)); }
+        n.required.push_back("name");
+        n.required.push_back("url");
+        n.sourceName = "TypeSummary_component";
+        n.schemaPath = "#/components/schemas/TypeSummary";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/TypeSummary";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1970
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "id"; b.node = 1227; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 1228; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "names"; b.node = 1229; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "version_group"; b.node = 1230; n.properties.push_back(std::move(b)); }
+        n.required.push_back("id");
+        n.required.push_back("name");
+        n.required.push_back("names");
+        n.required.push_back("version_group");
+        n.annDescription = "\"Should have a link to Version Group info but the Circular\\ndependency and compilation order fight eachother and I'm\\nnot sure how to add anything other than a hyperlink\"";
+        n.sourceName = "VersionDetail_component";
+        n.schemaPath = "#/components/schemas/VersionDetail";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/VersionDetail";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1971
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "generation"; b.node = 1231; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "id"; b.node = 1232; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "move_learn_methods"; b.node = 1233; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 1234; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "order"; b.node = 1235; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "pokedexes"; b.node = 1236; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "regions"; b.node = 1237; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "versions"; b.node = 1238; n.properties.push_back(std::move(b)); }
+        n.required.push_back("generation");
+        n.required.push_back("id");
+        n.required.push_back("move_learn_methods");
+        n.required.push_back("name");
+        n.required.push_back("pokedexes");
+        n.required.push_back("regions");
+        n.required.push_back("versions");
+        n.sourceName = "VersionGroupDetail_component";
+        n.schemaPath = "#/components/schemas/VersionGroupDetail";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/VersionGroupDetail";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1972
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "name"; b.node = 1239; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "url"; b.node = 1240; n.properties.push_back(std::move(b)); }
+        n.required.push_back("name");
+        n.required.push_back("url");
+        n.sourceName = "VersionGroupSummary_component";
+        n.schemaPath = "#/components/schemas/VersionGroupSummary";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/VersionGroupSummary";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1973
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "language"; b.node = 1241; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "name"; b.node = 1242; n.properties.push_back(std::move(b)); }
+        n.required.push_back("language");
+        n.required.push_back("name");
+        n.sourceName = "VersionName_component";
+        n.schemaPath = "#/components/schemas/VersionName";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/VersionName";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 1974
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 32u;
+        n.hasObjectSchema = true;
+        { PropertyBinding b; b.name = "name"; b.node = 1243; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "url"; b.node = 1244; n.properties.push_back(std::move(b)); }
+        n.required.push_back("name");
+        n.required.push_back("url");
+        n.sourceName = "VersionSummary_component";
+        n.schemaPath = "#/components/schemas/VersionSummary";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/VersionSummary";
         reg.nodes.push_back(std::move(n));
     }
 }
 
 SchemaIndex schemaNodeForChunk3(std::string const& id) {
-    if (id == "TypeDetail_past_damage_relations_inner_component_prop1_prop1") return 1257;
-    if (id == "TypeDetail_past_damage_relations_inner_component_prop1_prop2") return 1258;
-    if (id == "TypeDetail_past_damage_relations_inner_component_prop1_prop3") return 1259;
-    if (id == "TypeDetail_past_damage_relations_inner_component_prop1_prop4") return 1260;
-    if (id == "TypeDetail_past_damage_relations_inner_component_prop1_prop5") return 1261;
-    if (id == "TypeDetail_past_damage_relations_inner_component_prop1_prop6") return 1262;
-    if (id == "TypeDetail_past_damage_relations_inner_component_prop2_prop1") return 1263;
-    if (id == "TypeDetail_past_damage_relations_inner_component_prop2_prop2") return 1264;
-    if (id == "TypeDetail_past_damage_relations_inner_damage_relations_component_prop1_items1") return 1265;
-    if (id == "TypeDetail_past_damage_relations_inner_damage_relations_component_prop2_items1") return 1266;
-    if (id == "TypeDetail_past_damage_relations_inner_damage_relations_component_prop3_items1") return 1267;
-    if (id == "TypeDetail_past_damage_relations_inner_damage_relations_component_prop4_items1") return 1268;
-    if (id == "TypeDetail_past_damage_relations_inner_damage_relations_component_prop5_items1") return 1269;
-    if (id == "TypeDetail_past_damage_relations_inner_damage_relations_component_prop6_items1") return 1270;
-    if (id == "TypeDetail_pokemon_inner_component_prop1_prop1") return 1271;
-    if (id == "TypeDetail_pokemon_inner_component_prop1_prop2") return 1272;
-    if (id == "VersionDetail_component_prop3_items1") return 1273;
-    if (id == "VersionGroupDetail_component_prop3_items1") return 1274;
-    if (id == "VersionGroupDetail_component_prop6_items1") return 1275;
-    if (id == "VersionGroupDetail_component_prop7_items1") return 1276;
-    if (id == "VersionGroupDetail_component_prop8_items1") return 1277;
-    if (id == "AbilityDetail_component_prop9_items1_prop1") return 1278;
-    if (id == "AbilityDetail_component_prop9_items1_prop2") return 1279;
-    if (id == "AbilityDetail_component_prop9_items1_prop3") return 1280;
-    if (id == "BerryDetail_component_prop2_items1_prop1") return 1281;
-    if (id == "BerryDetail_component_prop2_items1_prop2") return 1282;
-    if (id == "BerryFlavorDetail_component_prop1_items1_prop1") return 1283;
-    if (id == "BerryFlavorDetail_component_prop1_items1_prop2") return 1284;
-    if (id == "EggGroupDetail_component_prop4_items1_prop1") return 1285;
-    if (id == "EggGroupDetail_component_prop4_items1_prop2") return 1286;
-    if (id == "EvolutionChainDetail_component_prop2_prop1_items1") return 1287;
-    if (id == "EvolutionChainDetail_component_prop2_prop2_items1") return 1288;
-    if (id == "EvolutionChainDetail_component_prop2_prop4_prop1") return 1289;
-    if (id == "EvolutionChainDetail_component_prop2_prop4_prop2") return 1290;
-    if (id == "EvolutionChainDetail_chain_component_prop2_items1_prop1") return 1291;
-    if (id == "EvolutionChainDetail_chain_component_prop2_items1_prop2") return 1292;
-    if (id == "EvolutionChainDetail_chain_component_prop2_items1_prop3") return 1293;
-    if (id == "EvolutionChainDetail_chain_evolves_to_inner_component_prop1_items1_prop1") return 1294;
-    if (id == "EvolutionChainDetail_chain_evolves_to_inner_component_prop1_items1_prop2") return 1295;
-    if (id == "EvolutionChainDetail_chain_evolves_to_inner_component_prop1_items1_prop3") return 1296;
-    if (id == "EvolutionChainDetail_chain_evolves_to_inner_component_prop1_items1_prop4") return 1297;
-    if (id == "EvolutionChainDetail_chain_evolves_to_inner_component_prop1_items1_prop5") return 1298;
-    if (id == "EvolutionChainDetail_chain_evolves_to_inner_component_prop1_items1_prop6") return 1299;
-    if (id == "EvolutionChainDetail_chain_evolves_to_inner_component_prop1_items1_prop7") return 1300;
-    if (id == "EvolutionChainDetail_chain_evolves_to_inner_component_prop1_items1_prop8") return 1301;
-    if (id == "EvolutionChainDetail_chain_evolves_to_inner_component_prop1_items1_prop9") return 1302;
-    if (id == "EvolutionChainDetail_chain_evolves_to_inner_component_prop1_items1_prop10") return 1303;
-    if (id == "EvolutionChainDetail_chain_evolves_to_inner_component_prop1_items1_prop11") return 1304;
-    if (id == "EvolutionChainDetail_chain_evolves_to_inner_component_prop1_items1_prop12") return 1305;
-    if (id == "EvolutionChainDetail_chain_evolves_to_inner_component_prop1_items1_prop13") return 1306;
-    if (id == "EvolutionChainDetail_chain_evolves_to_inner_component_prop1_items1_prop14") return 1307;
-    if (id == "EvolutionChainDetail_chain_evolves_to_inner_component_prop1_items1_prop15") return 1308;
-    if (id == "EvolutionChainDetail_chain_evolves_to_inner_component_prop1_items1_prop16") return 1309;
-    if (id == "EvolutionChainDetail_chain_evolves_to_inner_component_prop1_items1_prop17") return 1310;
-    if (id == "EvolutionChainDetail_chain_evolves_to_inner_component_prop1_items1_prop18") return 1311;
-    if (id == "EvolutionTriggerDetail_component_prop4_items1_prop1") return 1312;
-    if (id == "EvolutionTriggerDetail_component_prop4_items1_prop2") return 1313;
-    if (id == "GenderDetail_component_prop3_items1_prop1") return 1314;
-    if (id == "GenderDetail_component_prop3_items1_prop2") return 1315;
-    if (id == "GenderDetail_component_prop4_items1_prop1") return 1316;
-    if (id == "GenderDetail_component_prop4_items1_prop2") return 1317;
-    if (id == "ItemAttributeDetail_component_prop3_items1_prop1") return 1318;
-    if (id == "ItemAttributeDetail_component_prop3_items1_prop2") return 1319;
-    if (id == "ItemDetail_component_prop1_items1_prop1") return 1320;
-    if (id == "ItemDetail_component_prop1_items1_prop2") return 1321;
-    if (id == "ItemDetail_component_prop10_items1_prop1") return 1322;
-    if (id == "ItemDetail_component_prop10_items1_prop2") return 1323;
-    if (id == "ItemDetail_component_prop12_items1_prop1") return 1324;
-    if (id == "ItemDetail_component_prop12_items1_prop2") return 1325;
-    if (id == "ItemDetail_held_by_pokemon_inner_component_prop2_items1_prop1") return 1326;
-    if (id == "ItemDetail_held_by_pokemon_inner_component_prop2_items1_prop2") return 1327;
-    if (id == "LocationAreaDetail_component_prop1_items1_prop1") return 1328;
-    if (id == "LocationAreaDetail_component_prop1_items1_prop2") return 1329;
-    if (id == "LocationAreaDetail_component_prop7_items1_prop1") return 1330;
-    if (id == "LocationAreaDetail_component_prop7_items1_prop2") return 1331;
-    if (id == "LocationAreaDetail_encounter_method_rates_inner_component_prop2_items1_prop1") return 1332;
-    if (id == "LocationAreaDetail_encounter_method_rates_inner_component_prop2_items1_prop2") return 1333;
-    if (id == "LocationAreaDetail_pokemon_encounters_inner_component_prop2_items1_prop1") return 1334;
-    if (id == "LocationAreaDetail_pokemon_encounters_inner_component_prop2_items1_prop2") return 1335;
-    if (id == "LocationAreaDetail_pokemon_encounters_inner_component_prop2_items1_prop3") return 1336;
-    if (id == "LocationAreaDetail_pokemon_encounters_inner_version_details_inner_component_prop1_prop2_prop1") return 1337;
-    if (id == "LocationAreaDetail_pokemon_encounters_inner_version_details_inner_component_prop1_prop2_prop2") return 1338;
-    if (id == "LocationAreaDetail_pokemon_encounters_inner_version_details_inner_component_prop1_prop4_prop1") return 1339;
-    if (id == "LocationAreaDetail_pokemon_encounters_inner_version_details_inner_component_prop1_prop4_prop2") return 1340;
-    if (id == "MoveChange_component_prop3_items1_prop1") return 1341;
-    if (id == "MoveChange_component_prop3_items1_prop2") return 1342;
-    if (id == "MoveChange_component_prop3_items1_prop3") return 1343;
-    if (id == "MoveDetail_component_prop2_prop1_prop1") return 1344;
-    if (id == "MoveDetail_component_prop2_prop1_prop2") return 1345;
-    if (id == "MoveDetail_component_prop2_prop2_prop1") return 1346;
-    if (id == "MoveDetail_component_prop2_prop2_prop2") return 1347;
-    if (id == "MoveDetail_component_prop7_items1_prop1") return 1348;
-    if (id == "MoveDetail_component_prop7_items1_prop2") return 1349;
-    if (id == "MoveDetail_component_prop8_items1_prop1") return 1350;
-    if (id == "MoveDetail_component_prop8_items1_prop2") return 1351;
-    if (id == "MoveDetail_component_prop8_items1_prop3") return 1352;
-    if (id == "MoveDetail_component_prop12_items1_prop1") return 1353;
-    if (id == "MoveDetail_component_prop12_items1_prop2") return 1354;
-    if (id == "MoveDetail_component_prop13_items1_prop1") return 1355;
-    if (id == "MoveDetail_component_prop13_items1_prop2") return 1356;
-    if (id == "MoveDetail_component_prop21_items1_prop1") return 1357;
-    if (id == "MoveDetail_component_prop21_items1_prop2") return 1358;
-    if (id == "MoveDetail_contest_combos_component_prop1_prop1_items1") return 1359;
-    if (id == "MoveDetail_contest_combos_component_prop1_prop2_items1") return 1360;
-    if (id == "MoveDetail_contest_combos_component_prop2_prop1_items1") return 1361;
-    if (id == "MoveDetail_contest_combos_component_prop2_prop2_items1") return 1362;
-    if (id == "MoveDetail_contest_combos_normal_component_prop1_items1_prop1") return 1363;
-    if (id == "MoveDetail_contest_combos_normal_component_prop1_items1_prop2") return 1364;
-    if (id == "MoveDetail_contest_combos_normal_component_prop2_items1_prop1") return 1365;
-    if (id == "MoveDetail_contest_combos_normal_component_prop2_items1_prop2") return 1366;
-    if (id == "MoveDetail_effect_changes_inner_component_prop1_items1_prop1") return 1367;
-    if (id == "MoveDetail_effect_changes_inner_component_prop1_items1_prop2") return 1368;
-    if (id == "MoveLearnMethodDetail_component_prop5_items1_prop1") return 1369;
-    if (id == "MoveLearnMethodDetail_component_prop5_items1_prop2") return 1370;
-    if (id == "MoveMetaAilmentDetail_component_prop2_items1_prop1") return 1371;
-    if (id == "MoveMetaAilmentDetail_component_prop2_items1_prop2") return 1372;
-    if (id == "MoveMetaCategoryDetail_component_prop3_items1_prop1") return 1373;
-    if (id == "MoveMetaCategoryDetail_component_prop3_items1_prop2") return 1374;
-    if (id == "NatureDetail_component_prop10_items1_prop1") return 1375;
-    if (id == "NatureDetail_component_prop10_items1_prop2") return 1376;
-    if (id == "PalParkAreaDetail_component_prop4_items1_prop1") return 1377;
-    if (id == "PalParkAreaDetail_component_prop4_items1_prop2") return 1378;
-    if (id == "PalParkAreaDetail_component_prop4_items1_prop3") return 1379;
-    if (id == "PokeathlonStatDetail_component_prop1_prop1_items1") return 1380;
-    if (id == "PokeathlonStatDetail_component_prop1_prop2_items1") return 1381;
-    if (id == "PokeathlonStatDetail_affecting_natures_component_prop1_items1_prop1") return 1382;
-    if (id == "PokeathlonStatDetail_affecting_natures_component_prop1_items1_prop2") return 1383;
-    if (id == "PokeathlonStatDetail_affecting_natures_component_prop2_items1_prop1") return 1384;
-    if (id == "PokeathlonStatDetail_affecting_natures_component_prop2_items1_prop2") return 1385;
-    if (id == "PokedexDetail_component_prop6_items1_prop1") return 1386;
-    if (id == "PokedexDetail_component_prop6_items1_prop2") return 1387;
-    if (id == "PokedexDetail_component_prop8_items1_prop1") return 1388;
-    if (id == "PokedexDetail_component_prop8_items1_prop2") return 1389;
-    if (id == "PokemonDetail_component_prop1_items1_prop1") return 1390;
-    if (id == "PokemonDetail_component_prop1_items1_prop2") return 1391;
-    if (id == "PokemonDetail_component_prop1_items1_prop3") return 1392;
-    if (id == "PokemonDetail_component_prop7_prop1_prop1") return 1393;
-    if (id == "PokemonDetail_component_prop7_prop1_prop2") return 1394;
-    if (id == "PokemonDetail_component_prop7_prop2_items1") return 1395;
-    if (id == "PokemonDetail_component_prop11_items1_prop1") return 1396;
-    if (id == "PokemonDetail_component_prop11_items1_prop2") return 1397;
-    if (id == "PokemonDetail_component_prop14_items1_prop1") return 1398;
-    if (id == "PokemonDetail_component_prop14_items1_prop2") return 1399;
-    if (id == "PokemonDetail_component_prop15_items1_prop1") return 1400;
-    if (id == "PokemonDetail_component_prop15_items1_prop2") return 1401;
-    if (id == "PokemonDetail_component_prop19_items1_prop1") return 1402;
-    if (id == "PokemonDetail_component_prop19_items1_prop2") return 1403;
-    if (id == "PokemonDetail_held_items_component_prop2_items1_prop1") return 1404;
-    if (id == "PokemonDetail_held_items_component_prop2_items1_prop2") return 1405;
-    if (id == "PokemonDetail_moves_inner_component_prop2_items1_prop1") return 1406;
-    if (id == "PokemonDetail_moves_inner_component_prop2_items1_prop2") return 1407;
-    if (id == "PokemonDetail_moves_inner_component_prop2_items1_prop3") return 1408;
-    if (id == "PokemonDetail_past_abilities_inner_component_prop1_items1_prop1") return 1409;
-    if (id == "PokemonDetail_past_abilities_inner_component_prop1_items1_prop2") return 1410;
-    if (id == "PokemonDetail_past_abilities_inner_component_prop1_items1_prop3") return 1411;
-    if (id == "PokemonDetail_past_types_inner_component_prop2_items1_prop1") return 1412;
-    if (id == "PokemonDetail_past_types_inner_component_prop2_items1_prop2") return 1413;
-    if (id == "PokemonFormDetail_component_prop2_items1_prop1") return 1414;
-    if (id == "PokemonFormDetail_component_prop2_items1_prop2") return 1415;
-    if (id == "PokemonFormDetail_component_prop9_items1_prop1") return 1416;
-    if (id == "PokemonFormDetail_component_prop9_items1_prop2") return 1417;
-    if (id == "PokemonFormDetail_component_prop13_items1_prop1") return 1418;
-    if (id == "PokemonFormDetail_component_prop13_items1_prop2") return 1419;
-    if (id == "PokemonShapeDetail_component_prop1_items1_prop1") return 1420;
-    if (id == "PokemonShapeDetail_component_prop1_items1_prop2") return 1421;
-    if (id == "PokemonShapeDetail_component_prop4_items1_prop1") return 1422;
-    if (id == "PokemonShapeDetail_component_prop4_items1_prop2") return 1423;
-    if (id == "PokemonSpeciesDetail_component_prop4_items1_prop1") return 1424;
-    if (id == "PokemonSpeciesDetail_component_prop4_items1_prop2") return 1425;
-    if (id == "PokemonSpeciesDetail_component_prop11_items1_prop1") return 1426;
-    if (id == "PokemonSpeciesDetail_component_prop11_items1_prop2") return 1427;
-    if (id == "PokemonSpeciesDetail_component_prop22_items1_prop1") return 1428;
-    if (id == "PokemonSpeciesDetail_component_prop22_items1_prop2") return 1429;
-    if (id == "PokemonSpeciesDetail_component_prop24_items1_prop1") return 1430;
-    if (id == "PokemonSpeciesDetail_component_prop24_items1_prop2") return 1431;
-    if (id == "PokemonSpeciesDetail_component_prop24_items1_prop3") return 1432;
-    if (id == "PokemonSpeciesDetail_component_prop27_items1_prop1") return 1433;
-    if (id == "PokemonSpeciesDetail_component_prop27_items1_prop2") return 1434;
-    if (id == "RegionDetail_component_prop7_items1_prop1") return 1435;
-    if (id == "RegionDetail_component_prop7_items1_prop2") return 1436;
-    if (id == "StatDetail_component_prop1_prop1_items1") return 1437;
-    if (id == "StatDetail_component_prop1_prop2_items1") return 1438;
-    if (id == "StatDetail_component_prop2_prop1_items1") return 1439;
-    if (id == "StatDetail_component_prop2_prop2_items1") return 1440;
-    if (id == "StatDetail_affecting_moves_component_prop1_items1_prop1") return 1441;
-    if (id == "StatDetail_affecting_moves_component_prop1_items1_prop2") return 1442;
-    if (id == "StatDetail_affecting_moves_component_prop2_items1_prop1") return 1443;
-    if (id == "StatDetail_affecting_moves_component_prop2_items1_prop2") return 1444;
-    if (id == "StatDetail_affecting_natures_component_prop1_items1_prop1") return 1445;
-    if (id == "StatDetail_affecting_natures_component_prop1_items1_prop2") return 1446;
-    if (id == "StatDetail_affecting_natures_component_prop2_items1_prop1") return 1447;
-    if (id == "StatDetail_affecting_natures_component_prop2_items1_prop2") return 1448;
-    if (id == "TypeDetail_component_prop1_prop1_items1") return 1449;
-    if (id == "TypeDetail_component_prop1_prop2_items1") return 1450;
-    if (id == "TypeDetail_component_prop1_prop3_items1") return 1451;
-    if (id == "TypeDetail_component_prop1_prop4_items1") return 1452;
-    if (id == "TypeDetail_component_prop1_prop5_items1") return 1453;
-    if (id == "TypeDetail_component_prop1_prop6_items1") return 1454;
-    if (id == "TypeDetail_component_prop9_items1_prop1") return 1455;
-    if (id == "TypeDetail_component_prop9_items1_prop2") return 1456;
-    if (id == "TypeDetail_component_prop10_items1_prop1") return 1457;
-    if (id == "TypeDetail_component_prop10_items1_prop2") return 1458;
-    if (id == "TypeDetail_component_prop11_addprops1_addprops1") return 1459;
-    if (id == "TypeDetail_damage_relations_component_prop1_items1_prop1") return 1460;
-    if (id == "TypeDetail_damage_relations_component_prop1_items1_prop2") return 1461;
-    if (id == "TypeDetail_damage_relations_component_prop2_items1_prop1") return 1462;
-    if (id == "TypeDetail_damage_relations_component_prop2_items1_prop2") return 1463;
-    if (id == "TypeDetail_damage_relations_component_prop3_items1_prop1") return 1464;
-    if (id == "TypeDetail_damage_relations_component_prop3_items1_prop2") return 1465;
-    if (id == "TypeDetail_damage_relations_component_prop4_items1_prop1") return 1466;
-    if (id == "TypeDetail_damage_relations_component_prop4_items1_prop2") return 1467;
-    if (id == "TypeDetail_damage_relations_component_prop5_items1_prop1") return 1468;
-    if (id == "TypeDetail_damage_relations_component_prop5_items1_prop2") return 1469;
-    if (id == "TypeDetail_damage_relations_component_prop6_items1_prop1") return 1470;
-    if (id == "TypeDetail_damage_relations_component_prop6_items1_prop2") return 1471;
-    if (id == "TypeDetail_past_damage_relations_inner_component_prop1_prop1_items1") return 1472;
-    if (id == "TypeDetail_past_damage_relations_inner_component_prop1_prop2_items1") return 1473;
-    if (id == "TypeDetail_past_damage_relations_inner_component_prop1_prop3_items1") return 1474;
-    if (id == "TypeDetail_past_damage_relations_inner_component_prop1_prop4_items1") return 1475;
-    if (id == "TypeDetail_past_damage_relations_inner_component_prop1_prop5_items1") return 1476;
-    if (id == "TypeDetail_past_damage_relations_inner_component_prop1_prop6_items1") return 1477;
-    if (id == "TypeDetail_past_damage_relations_inner_damage_relations_component_prop1_items1_prop1") return 1478;
-    if (id == "TypeDetail_past_damage_relations_inner_damage_relations_component_prop1_items1_prop2") return 1479;
-    if (id == "TypeDetail_past_damage_relations_inner_damage_relations_component_prop2_items1_prop1") return 1480;
-    if (id == "TypeDetail_past_damage_relations_inner_damage_relations_component_prop2_items1_prop2") return 1481;
-    if (id == "TypeDetail_past_damage_relations_inner_damage_relations_component_prop3_items1_prop1") return 1482;
-    if (id == "TypeDetail_past_damage_relations_inner_damage_relations_component_prop3_items1_prop2") return 1483;
-    if (id == "TypeDetail_past_damage_relations_inner_damage_relations_component_prop4_items1_prop1") return 1484;
-    if (id == "TypeDetail_past_damage_relations_inner_damage_relations_component_prop4_items1_prop2") return 1485;
-    if (id == "TypeDetail_past_damage_relations_inner_damage_relations_component_prop5_items1_prop1") return 1486;
-    if (id == "TypeDetail_past_damage_relations_inner_damage_relations_component_prop5_items1_prop2") return 1487;
-    if (id == "TypeDetail_past_damage_relations_inner_damage_relations_component_prop6_items1_prop1") return 1488;
-    if (id == "TypeDetail_past_damage_relations_inner_damage_relations_component_prop6_items1_prop2") return 1489;
-    if (id == "VersionGroupDetail_component_prop3_items1_prop1") return 1490;
-    if (id == "VersionGroupDetail_component_prop3_items1_prop2") return 1491;
-    if (id == "VersionGroupDetail_component_prop6_items1_prop1") return 1492;
-    if (id == "VersionGroupDetail_component_prop6_items1_prop2") return 1493;
-    if (id == "VersionGroupDetail_component_prop7_items1_prop1") return 1494;
-    if (id == "VersionGroupDetail_component_prop7_items1_prop2") return 1495;
-    if (id == "AbilityDetail_component_prop9_items1_prop2_prop1") return 1496;
-    if (id == "AbilityDetail_component_prop9_items1_prop2_prop2") return 1497;
-    if (id == "BerryDetail_component_prop2_items1_prop1_prop1") return 1498;
-    if (id == "BerryDetail_component_prop2_items1_prop1_prop2") return 1499;
-    if (id == "BerryFlavorDetail_component_prop1_items1_prop1_prop1") return 1500;
-    if (id == "BerryFlavorDetail_component_prop1_items1_prop1_prop2") return 1501;
-    if (id == "EvolutionChainDetail_component_prop2_prop2_items1_prop1") return 1502;
-    if (id == "EvolutionChainDetail_component_prop2_prop2_items1_prop2") return 1503;
-    if (id == "EvolutionChainDetail_component_prop2_prop2_items1_prop3") return 1504;
-    if (id == "EvolutionChainDetail_chain_component_prop2_items1_prop1_items1") return 1505;
-    if (id == "EvolutionChainDetail_chain_component_prop2_items1_prop3_prop1") return 1506;
-    if (id == "EvolutionChainDetail_chain_component_prop2_items1_prop3_prop2") return 1507;
-    if (id == "EvolutionChainDetail_chain_evolves_to_inner_component_prop1_items1_prop1_prop1") return 1508;
-    if (id == "EvolutionChainDetail_chain_evolves_to_inner_component_prop1_items1_prop1_prop2") return 1509;
-    if (id == "EvolutionChainDetail_chain_evolves_to_inner_component_prop1_items1_prop2_prop1") return 1510;
-    if (id == "EvolutionChainDetail_chain_evolves_to_inner_component_prop1_items1_prop2_prop2") return 1511;
-    if (id == "EvolutionChainDetail_chain_evolves_to_inner_component_prop1_items1_prop3_prop1") return 1512;
-    if (id == "EvolutionChainDetail_chain_evolves_to_inner_component_prop1_items1_prop3_prop2") return 1513;
-    if (id == "EvolutionChainDetail_chain_evolves_to_inner_component_prop1_items1_prop4_prop1") return 1514;
-    if (id == "EvolutionChainDetail_chain_evolves_to_inner_component_prop1_items1_prop4_prop2") return 1515;
-    if (id == "EvolutionChainDetail_chain_evolves_to_inner_component_prop1_items1_prop5_prop1") return 1516;
-    if (id == "EvolutionChainDetail_chain_evolves_to_inner_component_prop1_items1_prop5_prop2") return 1517;
-    if (id == "EvolutionChainDetail_chain_evolves_to_inner_component_prop1_items1_prop6_prop1") return 1518;
-    if (id == "EvolutionChainDetail_chain_evolves_to_inner_component_prop1_items1_prop6_prop2") return 1519;
-    if (id == "EvolutionChainDetail_chain_evolves_to_inner_component_prop1_items1_prop17_prop1") return 1520;
-    if (id == "EvolutionChainDetail_chain_evolves_to_inner_component_prop1_items1_prop17_prop2") return 1521;
-    if (id == "GenderDetail_component_prop3_items1_prop1_prop1") return 1522;
-    if (id == "GenderDetail_component_prop3_items1_prop1_prop2") return 1523;
-    if (id == "ItemDetail_component_prop10_items1_prop1_prop1") return 1524;
-    if (id == "ItemDetail_component_prop10_items1_prop1_prop2") return 1525;
-    if (id == "ItemDetail_component_prop10_items1_prop2_items1") return 1526;
-    if (id == "ItemDetail_component_prop12_items1_prop2_prop1") return 1527;
-    if (id == "ItemDetail_component_prop12_items1_prop2_prop2") return 1528;
-    if (id == "ItemDetail_held_by_pokemon_inner_component_prop2_items1_prop2_prop1") return 1529;
-    if (id == "ItemDetail_held_by_pokemon_inner_component_prop2_items1_prop2_prop2") return 1530;
-    if (id == "LocationAreaDetail_component_prop1_items1_prop1_prop1") return 1531;
-    if (id == "LocationAreaDetail_component_prop1_items1_prop1_prop2") return 1532;
-    if (id == "LocationAreaDetail_component_prop1_items1_prop2_items1") return 1533;
-    if (id == "LocationAreaDetail_component_prop7_items1_prop1_prop1") return 1534;
-    if (id == "LocationAreaDetail_component_prop7_items1_prop1_prop2") return 1535;
-    if (id == "LocationAreaDetail_component_prop7_items1_prop2_items1") return 1536;
-    if (id == "LocationAreaDetail_encounter_method_rates_inner_component_prop2_items1_prop2_prop1") return 1537;
-    if (id == "LocationAreaDetail_encounter_method_rates_inner_component_prop2_items1_prop2_prop2") return 1538;
-    if (id == "LocationAreaDetail_pokemon_encounters_inner_component_prop2_items1_prop1_prop1") return 1539;
-    if (id == "LocationAreaDetail_pokemon_encounters_inner_component_prop2_items1_prop1_prop2") return 1540;
-    if (id == "LocationAreaDetail_pokemon_encounters_inner_component_prop2_items1_prop1_prop3") return 1541;
-    if (id == "LocationAreaDetail_pokemon_encounters_inner_component_prop2_items1_prop1_prop4") return 1542;
-    if (id == "LocationAreaDetail_pokemon_encounters_inner_component_prop2_items1_prop1_prop5") return 1543;
-    if (id == "LocationAreaDetail_pokemon_encounters_inner_component_prop2_items1_prop3_prop1") return 1544;
-    if (id == "LocationAreaDetail_pokemon_encounters_inner_component_prop2_items1_prop3_prop2") return 1545;
-    if (id == "MoveChange_component_prop3_items1_prop2_prop1") return 1546;
-    if (id == "MoveChange_component_prop3_items1_prop2_prop2") return 1547;
-    if (id == "MoveDetail_component_prop2_prop1_prop1_items1") return 1548;
-    if (id == "MoveDetail_component_prop2_prop1_prop2_items1") return 1549;
-    if (id == "MoveDetail_component_prop2_prop2_prop1_items1") return 1550;
-    if (id == "MoveDetail_component_prop2_prop2_prop2_items1") return 1551;
-    if (id == "MoveDetail_component_prop7_items1_prop1_items1") return 1552;
-    if (id == "MoveDetail_component_prop7_items1_prop2_prop1") return 1553;
-    if (id == "MoveDetail_component_prop7_items1_prop2_prop2") return 1554;
-    if (id == "MoveDetail_component_prop8_items1_prop2_prop1") return 1555;
-    if (id == "MoveDetail_component_prop8_items1_prop2_prop2") return 1556;
-    if (id == "MoveDetail_component_prop13_items1_prop1_prop1") return 1557;
-    if (id == "MoveDetail_component_prop13_items1_prop2_prop1") return 1558;
-    if (id == "MoveDetail_component_prop13_items1_prop2_prop2") return 1559;
-    if (id == "MoveDetail_component_prop21_items1_prop2_prop1") return 1560;
-    if (id == "MoveDetail_component_prop21_items1_prop2_prop2") return 1561;
-    if (id == "MoveDetail_contest_combos_component_prop1_prop1_items1_prop1") return 1562;
-    if (id == "MoveDetail_contest_combos_component_prop1_prop1_items1_prop2") return 1563;
-    if (id == "MoveDetail_contest_combos_component_prop1_prop2_items1_prop1") return 1564;
-    if (id == "MoveDetail_contest_combos_component_prop1_prop2_items1_prop2") return 1565;
-    if (id == "MoveDetail_contest_combos_component_prop2_prop1_items1_prop1") return 1566;
-    if (id == "MoveDetail_contest_combos_component_prop2_prop1_items1_prop2") return 1567;
-    if (id == "MoveDetail_contest_combos_component_prop2_prop2_items1_prop1") return 1568;
-    if (id == "MoveDetail_contest_combos_component_prop2_prop2_items1_prop2") return 1569;
-    if (id == "MoveDetail_effect_changes_inner_component_prop1_items1_prop2_prop1") return 1570;
-    if (id == "MoveDetail_effect_changes_inner_component_prop1_items1_prop2_prop2") return 1571;
-    if (id == "NatureDetail_component_prop10_items1_prop2_prop1") return 1572;
-    if (id == "NatureDetail_component_prop10_items1_prop2_prop2") return 1573;
-    if (id == "PalParkAreaDetail_component_prop4_items1_prop2_prop1") return 1574;
-    if (id == "PalParkAreaDetail_component_prop4_items1_prop2_prop2") return 1575;
-    if (id == "PokeathlonStatDetail_component_prop1_prop1_items1_prop1") return 1576;
-    if (id == "PokeathlonStatDetail_component_prop1_prop1_items1_prop2") return 1577;
-    if (id == "PokeathlonStatDetail_component_prop1_prop2_items1_prop1") return 1578;
-    if (id == "PokeathlonStatDetail_component_prop1_prop2_items1_prop2") return 1579;
-    if (id == "PokeathlonStatDetail_affecting_natures_component_prop1_items1_prop2_prop1") return 1580;
-    if (id == "PokeathlonStatDetail_affecting_natures_component_prop1_items1_prop2_prop2") return 1581;
-    if (id == "PokeathlonStatDetail_affecting_natures_component_prop2_items1_prop2_prop1") return 1582;
-    if (id == "PokeathlonStatDetail_affecting_natures_component_prop2_items1_prop2_prop2") return 1583;
-    if (id == "PokedexDetail_component_prop6_items1_prop2_prop1") return 1584;
-    if (id == "PokedexDetail_component_prop6_items1_prop2_prop2") return 1585;
-    if (id == "PokemonDetail_component_prop1_items1_prop1_prop1") return 1586;
-    if (id == "PokemonDetail_component_prop1_items1_prop1_prop2") return 1587;
-    if (id == "PokemonDetail_component_prop7_prop2_items1_prop1") return 1588;
-    if (id == "PokemonDetail_component_prop7_prop2_items1_prop2") return 1589;
-    if (id == "PokemonDetail_component_prop11_items1_prop1_prop1") return 1590;
-    if (id == "PokemonDetail_component_prop11_items1_prop1_prop2") return 1591;
-    if (id == "PokemonDetail_component_prop11_items1_prop2_items1") return 1592;
-    if (id == "PokemonDetail_component_prop14_items1_prop1_items1") return 1593;
-    if (id == "PokemonDetail_component_prop14_items1_prop2_prop1") return 1594;
-    if (id == "PokemonDetail_component_prop14_items1_prop2_prop2") return 1595;
-    if (id == "PokemonDetail_component_prop15_items1_prop1_prop1") return 1596;
-    if (id == "PokemonDetail_component_prop15_items1_prop1_prop2") return 1597;
-    if (id == "PokemonDetail_component_prop15_items1_prop2_items1") return 1598;
-    if (id == "PokemonDetail_component_prop19_items1_prop2_prop1") return 1599;
-    if (id == "PokemonDetail_component_prop19_items1_prop2_prop2") return 1600;
-    if (id == "PokemonDetail_held_items_component_prop2_items1_prop2_prop1") return 1601;
-    if (id == "PokemonDetail_held_items_component_prop2_items1_prop2_prop2") return 1602;
-    if (id == "PokemonDetail_moves_inner_component_prop2_items1_prop2_prop1") return 1603;
-    if (id == "PokemonDetail_moves_inner_component_prop2_items1_prop2_prop2") return 1604;
-    if (id == "PokemonDetail_moves_inner_component_prop2_items1_prop3_prop1") return 1605;
-    if (id == "PokemonDetail_moves_inner_component_prop2_items1_prop3_prop2") return 1606;
-    if (id == "PokemonDetail_past_abilities_inner_component_prop1_items1_prop1_prop1") return 1607;
-    if (id == "PokemonDetail_past_abilities_inner_component_prop1_items1_prop1_prop2") return 1608;
-    if (id == "PokemonDetail_past_types_inner_component_prop2_items1_prop2_prop1") return 1609;
-    if (id == "PokemonDetail_past_types_inner_component_prop2_items1_prop2_prop2") return 1610;
-    if (id == "PokemonFormDetail_component_prop2_items1_prop1_prop1") return 1611;
-    if (id == "PokemonFormDetail_component_prop2_items1_prop1_prop2") return 1612;
-    if (id == "PokemonFormDetail_component_prop9_items1_prop1_prop1") return 1613;
-    if (id == "PokemonFormDetail_component_prop9_items1_prop1_prop2") return 1614;
-    if (id == "PokemonFormDetail_component_prop13_items1_prop2_prop1") return 1615;
-    if (id == "PokemonFormDetail_component_prop13_items1_prop2_prop2") return 1616;
-    if (id == "PokemonShapeDetail_component_prop1_items1_prop2_prop1") return 1617;
-    if (id == "PokemonShapeDetail_component_prop1_items1_prop2_prop2") return 1618;
-    if (id == "PokemonSpeciesDetail_component_prop11_items1_prop2_prop1") return 1619;
-    if (id == "PokemonSpeciesDetail_component_prop11_items1_prop2_prop2") return 1620;
-    if (id == "PokemonSpeciesDetail_component_prop22_items1_prop1_prop1") return 1621;
-    if (id == "PokemonSpeciesDetail_component_prop22_items1_prop1_prop2") return 1622;
-    if (id == "PokemonSpeciesDetail_component_prop24_items1_prop1_prop1") return 1623;
-    if (id == "PokemonSpeciesDetail_component_prop24_items1_prop1_prop2") return 1624;
-    if (id == "PokemonSpeciesDetail_component_prop27_items1_prop2_prop1") return 1625;
-    if (id == "PokemonSpeciesDetail_component_prop27_items1_prop2_prop2") return 1626;
-    if (id == "StatDetail_component_prop1_prop1_items1_prop1") return 1627;
-    if (id == "StatDetail_component_prop1_prop1_items1_prop2") return 1628;
-    if (id == "StatDetail_component_prop1_prop2_items1_prop1") return 1629;
-    if (id == "StatDetail_component_prop1_prop2_items1_prop2") return 1630;
-    if (id == "StatDetail_component_prop2_prop1_items1_prop1") return 1631;
-    if (id == "StatDetail_component_prop2_prop1_items1_prop2") return 1632;
-    if (id == "StatDetail_component_prop2_prop2_items1_prop1") return 1633;
-    if (id == "StatDetail_component_prop2_prop2_items1_prop2") return 1634;
-    if (id == "StatDetail_affecting_moves_component_prop1_items1_prop2_prop1") return 1635;
-    if (id == "StatDetail_affecting_moves_component_prop1_items1_prop2_prop2") return 1636;
-    if (id == "StatDetail_affecting_moves_component_prop2_items1_prop2_prop1") return 1637;
-    if (id == "StatDetail_affecting_moves_component_prop2_items1_prop2_prop2") return 1638;
-    if (id == "TypeDetail_component_prop1_prop1_items1_prop1") return 1639;
-    if (id == "TypeDetail_component_prop1_prop1_items1_prop2") return 1640;
-    if (id == "TypeDetail_component_prop1_prop2_items1_prop1") return 1641;
-    if (id == "TypeDetail_component_prop1_prop2_items1_prop2") return 1642;
-    if (id == "TypeDetail_component_prop1_prop3_items1_prop1") return 1643;
-    if (id == "TypeDetail_component_prop1_prop3_items1_prop2") return 1644;
-    if (id == "TypeDetail_component_prop1_prop4_items1_prop1") return 1645;
-    if (id == "TypeDetail_component_prop1_prop4_items1_prop2") return 1646;
-    if (id == "TypeDetail_component_prop1_prop5_items1_prop1") return 1647;
-    if (id == "TypeDetail_component_prop1_prop5_items1_prop2") return 1648;
-    if (id == "TypeDetail_component_prop1_prop6_items1_prop1") return 1649;
-    if (id == "TypeDetail_component_prop1_prop6_items1_prop2") return 1650;
-    if (id == "TypeDetail_component_prop9_items1_prop1_prop1") return 1651;
-    if (id == "TypeDetail_component_prop9_items1_prop1_prop2") return 1652;
-    if (id == "TypeDetail_component_prop9_items1_prop1_prop3") return 1653;
-    if (id == "TypeDetail_component_prop9_items1_prop1_prop4") return 1654;
-    if (id == "TypeDetail_component_prop9_items1_prop1_prop5") return 1655;
-    if (id == "TypeDetail_component_prop9_items1_prop1_prop6") return 1656;
-    if (id == "TypeDetail_component_prop9_items1_prop2_prop1") return 1657;
-    if (id == "TypeDetail_component_prop9_items1_prop2_prop2") return 1658;
-    if (id == "TypeDetail_component_prop10_items1_prop1_prop1") return 1659;
-    if (id == "TypeDetail_component_prop10_items1_prop1_prop2") return 1660;
-    if (id == "TypeDetail_component_prop11_addprops1_addprops1_prop1") return 1661;
-    if (id == "TypeDetail_past_damage_relations_inner_component_prop1_prop1_items1_prop1") return 1662;
-    if (id == "TypeDetail_past_damage_relations_inner_component_prop1_prop1_items1_prop2") return 1663;
-    if (id == "TypeDetail_past_damage_relations_inner_component_prop1_prop2_items1_prop1") return 1664;
-    if (id == "TypeDetail_past_damage_relations_inner_component_prop1_prop2_items1_prop2") return 1665;
-    if (id == "TypeDetail_past_damage_relations_inner_component_prop1_prop3_items1_prop1") return 1666;
-    if (id == "TypeDetail_past_damage_relations_inner_component_prop1_prop3_items1_prop2") return 1667;
-    if (id == "TypeDetail_past_damage_relations_inner_component_prop1_prop4_items1_prop1") return 1668;
-    if (id == "TypeDetail_past_damage_relations_inner_component_prop1_prop4_items1_prop2") return 1669;
-    if (id == "TypeDetail_past_damage_relations_inner_component_prop1_prop5_items1_prop1") return 1670;
-    if (id == "TypeDetail_past_damage_relations_inner_component_prop1_prop5_items1_prop2") return 1671;
-    if (id == "TypeDetail_past_damage_relations_inner_component_prop1_prop6_items1_prop1") return 1672;
-    if (id == "TypeDetail_past_damage_relations_inner_component_prop1_prop6_items1_prop2") return 1673;
-    if (id == "EvolutionChainDetail_component_prop2_prop2_items1_prop1_items1") return 1674;
-    if (id == "EvolutionChainDetail_component_prop2_prop2_items1_prop3_prop1") return 1675;
+    if (id == "PaginatedPokemonFormSummaryList_component_prop4_items1") return 1482;
+    if (id == "PaginatedPokemonHabitatSummaryList_component_prop4_items1") return 1483;
+    if (id == "PaginatedPokemonShapeSummaryList_component_prop4_items1") return 1484;
+    if (id == "PaginatedPokemonSpeciesSummaryList_component_prop4_items1") return 1485;
+    if (id == "PaginatedPokemonSummaryList_component_prop4_items1") return 1486;
+    if (id == "PaginatedRegionSummaryList_component_prop4_items1") return 1487;
+    if (id == "PaginatedStatSummaryList_component_prop4_items1") return 1488;
+    if (id == "PaginatedSuperContestEffectSummaryList_component_prop4_items1") return 1489;
+    if (id == "PaginatedTypeSummaryList_component_prop4_items1") return 1490;
+    if (id == "PaginatedVersionGroupSummaryList_component_prop4_items1") return 1491;
+    if (id == "PaginatedVersionSummaryList_component_prop4_items1") return 1492;
+    if (id == "PalParkAreaDetail_component_prop3_items1") return 1493;
+    if (id == "PalParkAreaDetail_component_prop4_items1") return 1494;
+    if (id == "PalParkAreaName_component_prop1_app1") return 1495;
+    if (id == "PalParkEncounter_component_prop2_app1") return 1496;
+    if (id == "PokeathlonStatAffectingNature_component_prop2_app1") return 1497;
+    if (id == "PokeathlonStatAffectingNatures_component_prop1_items1") return 1498;
+    if (id == "PokeathlonStatAffectingNatures_component_prop2_items1") return 1499;
+    if (id == "PokeathlonStatDetail_component_prop1_app1") return 1500;
+    if (id == "PokeathlonStatDetail_component_prop4_items1") return 1501;
+    if (id == "PokeathlonStatName_component_prop1_app1") return 1502;
+    if (id == "PokedexDescription_component_prop2_app1") return 1503;
+    if (id == "PokedexDetail_component_prop1_items1") return 1504;
+    if (id == "PokedexDetail_component_prop5_items1") return 1505;
+    if (id == "PokedexDetail_component_prop6_items1") return 1506;
+    if (id == "PokedexDetail_component_prop8_items1") return 1507;
+    if (id == "PokedexName_component_prop1_app1") return 1508;
+    if (id == "PokemonAbility_component_prop1_app1") return 1509;
+    if (id == "PokemonColorDetail_component_prop3_items1") return 1510;
+    if (id == "PokemonColorDetail_component_prop4_items1") return 1511;
+    if (id == "PokemonColorName_component_prop1_app1") return 1512;
+    if (id == "PokemonDetail_component_prop1_items1") return 1513;
+    if (id == "PokemonDetail_component_prop3_app1") return 1514;
+    if (id == "PokemonDetail_component_prop4_items1") return 1515;
+    if (id == "PokemonDetail_component_prop5_items1") return 1516;
+    if (id == "PokemonDetail_component_prop7_items1") return 1517;
+    if (id == "PokemonDetail_component_prop11_items1") return 1518;
+    if (id == "PokemonDetail_component_prop14_items1") return 1519;
+    if (id == "PokemonDetail_component_prop15_items1") return 1520;
+    if (id == "PokemonDetail_component_prop16_items1") return 1521;
+    if (id == "PokemonDetail_component_prop17_app1") return 1522;
+    if (id == "PokemonDetail_component_prop18_app1") return 1523;
+    if (id == "PokemonDetail_component_prop19_items1") return 1524;
+    if (id == "PokemonDetail_component_prop20_items1") return 1525;
+    if (id == "PokemonDexEntry_component_prop2_app1") return 1526;
+    if (id == "PokemonDexNumber_component_prop2_app1") return 1527;
+    if (id == "PokemonEncounterDetailResponse_component_prop2_items1") return 1528;
+    if (id == "PokemonEncounterDetailResponse_component_prop4_app1") return 1529;
+    if (id == "PokemonEncounterResponse_component_prop1_app1") return 1530;
+    if (id == "PokemonEncounterResponse_component_prop2_items1") return 1531;
+    if (id == "PokemonEncounterVersionDetailResponse_component_prop1_items1") return 1532;
+    if (id == "PokemonEncounterVersionDetailResponse_component_prop3_app1") return 1533;
+    if (id == "PokemonEvolution_component_prop1_items1") return 1534;
+    if (id == "PokemonEvolution_component_prop8_prop1") return 1535;
+    if (id == "PokemonEvolution_component_prop8_prop2") return 1536;
+    if (id == "PokemonEvolution_component_prop9_prop1") return 1537;
+    if (id == "PokemonEvolution_component_prop9_prop2") return 1538;
+    if (id == "PokemonEvolution_component_prop28_app1") return 1539;
+    if (id == "PokemonEvolution_component_prop31_app1") return 1540;
+    if (id == "PokemonFormDetail_component_prop1_items1") return 1541;
+    if (id == "PokemonFormDetail_component_prop3_items1") return 1542;
+    if (id == "PokemonFormDetail_component_prop10_items1") return 1543;
+    if (id == "PokemonFormDetail_component_prop12_app1") return 1544;
+    if (id == "PokemonFormDetail_component_prop13_app1") return 1545;
+    if (id == "PokemonFormDetail_component_prop14_items1") return 1546;
+    if (id == "PokemonFormDetail_component_prop15_items1") return 1547;
+    if (id == "PokemonFormDetail_component_prop16_app1") return 1548;
+    if (id == "PokemonFormFlavorText_component_prop2_app1") return 1549;
+    if (id == "PokemonFormFlavorText_component_prop3_app1") return 1550;
+    if (id == "PokemonFormName_component_prop1_app1") return 1551;
+    if (id == "PokemonFormSprites_component_prop9_app1") return 1552;
+    if (id == "PokemonFormSprites_component_prop10_addprops1") return 1553;
+    if (id == "PokemonFormTriggerCondition_component_prop1_app1") return 1554;
+    if (id == "PokemonFormType_component_prop2_app1") return 1555;
+    if (id == "PokemonGameIndex_component_prop2_app1") return 1556;
+    if (id == "PokemonHabitatDetail_component_prop3_items1") return 1557;
+    if (id == "PokemonHabitatDetail_component_prop4_items1") return 1558;
+    if (id == "PokemonHabitatName_component_prop1_app1") return 1559;
+    if (id == "PokemonHeldItem_component_prop1_app1") return 1560;
+    if (id == "PokemonHeldItem_component_prop2_items1") return 1561;
+    if (id == "PokemonHeldItemSummary_component_prop1_app1") return 1562;
+    if (id == "PokemonHeldItemSummary_component_prop2_items1") return 1563;
+    if (id == "PokemonHeldItemVersion_component_prop2_app1") return 1564;
+    if (id == "PokemonMove_component_prop1_app1") return 1565;
+    if (id == "PokemonMove_component_prop2_items1") return 1566;
+    if (id == "PokemonMoveVersionGroup_component_prop2_app1") return 1567;
+    if (id == "PokemonMoveVersionGroup_component_prop4_app1") return 1568;
+    if (id == "PokemonPastAbility_component_prop1_items1") return 1569;
+    if (id == "PokemonPastAbility_component_prop2_app1") return 1570;
+    if (id == "PokemonPastStat_component_prop1_app1") return 1571;
+    if (id == "PokemonPastStat_component_prop2_items1") return 1572;
+    if (id == "PokemonPastType_component_prop1_app1") return 1573;
+    if (id == "PokemonPastType_component_prop2_items1") return 1574;
+    if (id == "PokemonShapeAwesomeName_component_prop2_app1") return 1575;
+    if (id == "PokemonShapeDetail_component_prop1_items1") return 1576;
+    if (id == "PokemonShapeDetail_component_prop4_items1") return 1577;
+    if (id == "PokemonShapeDetail_component_prop5_items1") return 1578;
+    if (id == "PokemonShapeName_component_prop1_app1") return 1579;
+    if (id == "PokemonSpeciesDescription_component_prop2_app1") return 1580;
+    if (id == "PokemonSpeciesDetail_component_prop3_app1") return 1581;
+    if (id == "PokemonSpeciesDetail_component_prop4_items1") return 1582;
+    if (id == "PokemonSpeciesDetail_component_prop5_app1") return 1583;
+    if (id == "PokemonSpeciesDetail_component_prop7_items1") return 1584;
+    if (id == "PokemonSpeciesDetail_component_prop8_items1") return 1585;
+    if (id == "PokemonSpeciesDetail_component_prop11_items1") return 1586;
+    if (id == "PokemonSpeciesDetail_component_prop12_app1") return 1587;
+    if (id == "PokemonSpeciesDetail_component_prop13_app1") return 1588;
+    if (id == "PokemonSpeciesDetail_component_prop22_items1") return 1589;
+    if (id == "PokemonSpeciesDetail_component_prop24_items1") return 1590;
+    if (id == "PokemonSpeciesDetail_component_prop25_items1") return 1591;
+    if (id == "PokemonSpeciesDetail_component_prop26_app1") return 1592;
+    if (id == "PokemonSpeciesDetail_component_prop27_items1") return 1593;
+    if (id == "PokemonSpeciesFlavorText_component_prop2_app1") return 1594;
+    if (id == "PokemonSpeciesFlavorText_component_prop3_app1") return 1595;
+    if (id == "PokemonSpeciesGenus_component_prop2_app1") return 1596;
+    if (id == "PokemonSpeciesName_component_prop1_app1") return 1597;
+    if (id == "PokemonSpeciesPalParkEncounter_component_prop1_app1") return 1598;
+    if (id == "PokemonSpeciesVariety_component_prop2_app1") return 1599;
+    if (id == "PokemonSprites_component_prop9_app1") return 1600;
+    if (id == "PokemonSprites_component_prop10_addprops1") return 1601;
+    if (id == "PokemonSpritesOther_component_prop1_app1") return 1602;
+    if (id == "PokemonSpritesOther_component_prop2_app1") return 1603;
+    if (id == "PokemonSpritesOther_component_prop3_app1") return 1604;
+    if (id == "PokemonSpritesOther_component_prop4_app1") return 1605;
+    if (id == "PokemonSpritesOtherOfficialArtwork_component_prop3_addprops1") return 1606;
+    if (id == "PokemonStat_component_prop3_app1") return 1607;
+    if (id == "PokemonType_component_prop2_app1") return 1608;
+    if (id == "RegionDetail_component_prop2_items1") return 1609;
+    if (id == "RegionDetail_component_prop5_items1") return 1610;
+    if (id == "RegionDetail_component_prop6_items1") return 1611;
+    if (id == "RegionDetail_component_prop7_items1") return 1612;
+    if (id == "RegionName_component_prop1_app1") return 1613;
+    if (id == "StatAffectingMoves_component_prop1_items1") return 1614;
+    if (id == "StatAffectingMoves_component_prop2_items1") return 1615;
+    if (id == "StatAffectingNatures_component_prop1_items1") return 1616;
+    if (id == "StatAffectingNatures_component_prop2_items1") return 1617;
+    if (id == "StatDetail_component_prop1_items1") return 1618;
+    if (id == "StatDetail_component_prop2_app1") return 1619;
+    if (id == "StatDetail_component_prop3_app1") return 1620;
+    if (id == "StatDetail_component_prop4_items1") return 1621;
+    if (id == "StatDetail_component_prop10_items1") return 1622;
+    if (id == "StatName_component_prop1_app1") return 1623;
+    if (id == "SuperContestEffectDetail_component_prop2_items1") return 1624;
+    if (id == "SuperContestEffectDetail_component_prop4_items1") return 1625;
+    if (id == "SuperContestEffectFlavorText_component_prop2_app1") return 1626;
+    if (id == "TypeDetail_component_prop1_app1") return 1627;
+    if (id == "TypeDetail_component_prop2_items1") return 1628;
+    if (id == "TypeDetail_component_prop3_app1") return 1629;
+    if (id == "TypeDetail_component_prop6_items1") return 1630;
+    if (id == "TypeDetail_component_prop8_items1") return 1631;
+    if (id == "TypeDetail_component_prop9_items1") return 1632;
+    if (id == "TypeDetail_component_prop10_items1") return 1633;
+    if (id == "TypeDetail_component_prop11_addprops1") return 1634;
+    if (id == "TypeGameIndex_component_prop2_app1") return 1635;
+    if (id == "TypeName_component_prop1_app1") return 1636;
+    if (id == "TypePastRelationships_component_prop1_app1") return 1637;
+    if (id == "TypePastRelationships_component_prop2_app1") return 1638;
+    if (id == "TypePokemon_component_prop1_app1") return 1639;
+    if (id == "TypeRelationships_component_prop1_items1") return 1640;
+    if (id == "TypeRelationships_component_prop2_items1") return 1641;
+    if (id == "TypeRelationships_component_prop3_items1") return 1642;
+    if (id == "TypeRelationships_component_prop4_items1") return 1643;
+    if (id == "TypeRelationships_component_prop5_items1") return 1644;
+    if (id == "TypeRelationships_component_prop6_items1") return 1645;
+    if (id == "VersionDetail_component_prop3_items1") return 1646;
+    if (id == "VersionDetail_component_prop4_app1") return 1647;
+    if (id == "VersionGroupDetail_component_prop1_app1") return 1648;
+    if (id == "VersionGroupDetail_component_prop3_items1") return 1649;
+    if (id == "VersionGroupDetail_component_prop6_items1") return 1650;
+    if (id == "VersionGroupDetail_component_prop7_items1") return 1651;
+    if (id == "VersionGroupDetail_component_prop8_items1") return 1652;
+    if (id == "VersionName_component_prop1_app1") return 1653;
+    if (id == "TypeDetail_component_prop11_addprops1_addprops1") return 1654;
+    if (id == "AbilityChange_component") return 1655;
+    if (id == "AbilityChangeEffectText_component") return 1656;
+    if (id == "AbilityDetail_component") return 1657;
+    if (id == "AbilityEffectText_component") return 1658;
+    if (id == "AbilityFlavorText_component") return 1659;
+    if (id == "AbilityName_component") return 1660;
+    if (id == "AbilityPokemonDetail_component") return 1661;
+    if (id == "AbilitySummary_component") return 1662;
+    if (id == "BerryDetail_component") return 1663;
+    if (id == "BerryDetail_firmness_component") return 1664;
+    if (id == "BerryDetail_natural_gift_type_component") return 1665;
+    if (id == "BerryFirmnessDetail_component") return 1666;
+    if (id == "BerryFirmnessName_component") return 1667;
+    if (id == "BerryFirmnessSummary_component") return 1668;
+    if (id == "BerryFlavorBerryMap_component") return 1669;
+    if (id == "BerryFlavorDetail_component") return 1670;
+    if (id == "BerryFlavorMap_component") return 1671;
+    if (id == "BerryFlavorName_component") return 1672;
+    if (id == "BerryFlavorSummary_component") return 1673;
+    if (id == "BerrySummary_component") return 1674;
+    if (id == "CharacteristicDescription_component") return 1675;
+    if (id == "CharacteristicDetail_component") return 1676;
+    if (id == "CharacteristicSummary_component") return 1677;
+    if (id == "ContestEffectDetail_component") return 1678;
+    if (id == "ContestEffectEffectText_component") return 1679;
+    if (id == "ContestEffectFlavorText_component") return 1680;
+    if (id == "ContestEffectSummary_component") return 1681;
+    if (id == "ContestTypeDetail_component") return 1682;
+    if (id == "ContestTypeName_component") return 1683;
+    if (id == "ContestTypeSummary_component") return 1684;
+    if (id == "CurrencyDetail_component") return 1685;
+    if (id == "CurrencyName_component") return 1686;
+    if (id == "CurrencySummary_component") return 1687;
+    if (id == "EggGroupDetail_component") return 1688;
+    if (id == "EggGroupName_component") return 1689;
+    if (id == "EggGroupSummary_component") return 1690;
+    if (id == "EncounterConditionDetail_component") return 1691;
+    if (id == "EncounterConditionName_component") return 1692;
+    if (id == "EncounterConditionSummary_component") return 1693;
+    if (id == "EncounterConditionValueDetail_component") return 1694;
+    if (id == "EncounterConditionValueName_component") return 1695;
+    if (id == "EncounterConditionValueSummary_component") return 1696;
+    if (id == "EncounterMethodDetail_component") return 1697;
+    if (id == "EncounterMethodName_component") return 1698;
+    if (id == "EncounterMethodSummary_component") return 1699;
+    if (id == "EncounterPokemonDetail_component") return 1700;
+    if (id == "EvolutionChainDetail_component") return 1701;
+    if (id == "EvolutionChainDetail_baby_trigger_item_component") return 1702;
+    if (id == "EvolutionChainLink_component") return 1703;
+    if (id == "EvolutionChainSummary_component") return 1704;
+    if (id == "EvolutionConditionExpression_component") return 1705;
+    if (id == "EvolutionTriggerDetail_component") return 1706;
+    if (id == "EvolutionTriggerName_component") return 1707;
+    if (id == "EvolutionTriggerSummary_component") return 1708;
+    if (id == "EvolutionVariableDescription_component") return 1709;
+    if (id == "EvolutionVariableDetail_component") return 1710;
+    if (id == "EvolutionVariableName_component") return 1711;
+    if (id == "EvolutionVariableSummary_component") return 1712;
+    if (id == "Experience_component") return 1713;
+    if (id == "GenderDetail_component") return 1714;
+    if (id == "GenderPokemonSpecies_component") return 1715;
+    if (id == "GenderSummary_component") return 1716;
+    if (id == "GenerationDetail_component") return 1717;
+    if (id == "GenerationName_component") return 1718;
+    if (id == "GenerationSummary_component") return 1719;
+    if (id == "GrowthRateDescription_component") return 1720;
+    if (id == "GrowthRateDetail_component") return 1721;
+    if (id == "GrowthRateSummary_component") return 1722;
+    if (id == "ItemAttributeDescription_component") return 1723;
+    if (id == "ItemAttributeDetail_component") return 1724;
+    if (id == "ItemAttributeName_component") return 1725;
+    if (id == "ItemAttributeSummary_component") return 1726;
+    if (id == "ItemCategoryDetail_component") return 1727;
+    if (id == "ItemCategoryName_component") return 1728;
+    if (id == "ItemCategorySummary_component") return 1729;
+    if (id == "ItemDetail_component") return 1730;
+    if (id == "ItemDetail_baby_trigger_for_component") return 1731;
+    if (id == "ItemDetail_fling_effect_component") return 1732;
+    if (id == "ItemEffectText_component") return 1733;
+    if (id == "ItemFlavorText_component") return 1734;
+    if (id == "ItemFlingEffectDetail_component") return 1735;
+    if (id == "ItemFlingEffectEffectText_component") return 1736;
+    if (id == "ItemFlingEffectSummary_component") return 1737;
+    if (id == "ItemGameIndex_component") return 1738;
+    if (id == "ItemMachine_component") return 1739;
+    if (id == "ItemName_component") return 1740;
+    if (id == "ItemPocketDetail_component") return 1741;
+    if (id == "ItemPocketName_component") return 1742;
+    if (id == "ItemPocketSummary_component") return 1743;
+    if (id == "ItemPrice_component") return 1744;
+    if (id == "ItemSprites_component") return 1745;
+    if (id == "ItemSummary_component") return 1746;
+    if (id == "LanguageDetail_component") return 1747;
+    if (id == "LanguageName_component") return 1748;
+    if (id == "LanguageSummary_component") return 1749;
+    if (id == "LocationAreaDetail_component") return 1750;
+    if (id == "LocationAreaEncounterDetail_component") return 1751;
+    if (id == "LocationAreaEncounterDetail_pokemon_details_component") return 1752;
+    if (id == "LocationAreaEncounterRate_component") return 1753;
+    if (id == "LocationAreaEncounterVersionDetail_component") return 1754;
+    if (id == "LocationAreaName_component") return 1755;
+    if (id == "LocationAreaPokemonEncounter_component") return 1756;
+    if (id == "LocationAreaPokemonEncounterVersion_component") return 1757;
+    if (id == "LocationAreaSummary_component") return 1758;
+    if (id == "LocationDetail_component") return 1759;
+    if (id == "LocationDetail_region_component") return 1760;
+    if (id == "LocationGameIndex_component") return 1761;
+    if (id == "LocationName_component") return 1762;
+    if (id == "LocationSummary_component") return 1763;
+    if (id == "MachineDetail_component") return 1764;
+    if (id == "MachineSummary_component") return 1765;
+    if (id == "MoveBattleStyleDetail_component") return 1766;
+    if (id == "MoveBattleStyleName_component") return 1767;
+    if (id == "MoveBattleStyleSummary_component") return 1768;
+    if (id == "MoveChange_component") return 1769;
+    if (id == "MoveChange_type_component") return 1770;
+    if (id == "MoveComboUsage_component") return 1771;
+    if (id == "MoveCombos_component") return 1772;
+    if (id == "MoveDamageClassDescription_component") return 1773;
+    if (id == "MoveDamageClassDetail_component") return 1774;
+    if (id == "MoveDamageClassName_component") return 1775;
+    if (id == "MoveDamageClassSummary_component") return 1776;
+    if (id == "MoveDetail_component") return 1777;
+    if (id == "MoveDetail_contest_combos_component") return 1778;
+    if (id == "MoveDetail_contest_effect_component") return 1779;
+    if (id == "MoveDetail_contest_type_component") return 1780;
+    if (id == "MoveDetail_meta_component") return 1781;
+    if (id == "MoveDetail_super_contest_effect_component") return 1782;
+    if (id == "MoveEffectChange_component") return 1783;
+    if (id == "MoveEffectChangeEffectText_component") return 1784;
+    if (id == "MoveEffectEffectText_component") return 1785;
+    if (id == "MoveFlavorText_component") return 1786;
+    if (id == "MoveLearnMethodDescription_component") return 1787;
+    if (id == "MoveLearnMethodDetail_component") return 1788;
+    if (id == "MoveLearnMethodName_component") return 1789;
+    if (id == "MoveLearnMethodSummary_component") return 1790;
+    if (id == "MoveMeta_component") return 1791;
+    if (id == "MoveMetaAilmentDetail_component") return 1792;
+    if (id == "MoveMetaAilmentName_component") return 1793;
+    if (id == "MoveMetaAilmentSummary_component") return 1794;
+    if (id == "MoveMetaCategoryDescription_component") return 1795;
+    if (id == "MoveMetaCategoryDetail_component") return 1796;
+    if (id == "MoveMetaCategorySummary_component") return 1797;
+    if (id == "MoveMetaStatChange_component") return 1798;
+    if (id == "MoveName_component") return 1799;
+    if (id == "MoveStatChange_component") return 1800;
+    if (id == "MoveSummary_component") return 1801;
+    if (id == "MoveTargetDescription_component") return 1802;
+    if (id == "MoveTargetDetail_component") return 1803;
+    if (id == "MoveTargetName_component") return 1804;
+    if (id == "MoveTargetSummary_component") return 1805;
+    if (id == "NatureBattleStylePreference_component") return 1806;
+    if (id == "NatureDetail_component") return 1807;
+    if (id == "NatureDetail_decreased_stat_component") return 1808;
+    if (id == "NatureDetail_hates_flavor_component") return 1809;
+    if (id == "NatureDetail_increased_stat_component") return 1810;
+    if (id == "NatureDetail_likes_flavor_component") return 1811;
+    if (id == "NatureName_component") return 1812;
+    if (id == "NaturePokeathlonStat_component") return 1813;
+    if (id == "NatureSummary_component") return 1814;
+    if (id == "PaginatedAbilitySummaryList_component") return 1815;
+    if (id == "PaginatedBerryFirmnessSummaryList_component") return 1816;
+    if (id == "PaginatedBerryFlavorSummaryList_component") return 1817;
+    if (id == "PaginatedBerrySummaryList_component") return 1818;
+    if (id == "PaginatedCharacteristicSummaryList_component") return 1819;
+    if (id == "PaginatedContestEffectSummaryList_component") return 1820;
+    if (id == "PaginatedContestTypeSummaryList_component") return 1821;
+    if (id == "PaginatedCurrencySummaryList_component") return 1822;
+    if (id == "PaginatedEggGroupSummaryList_component") return 1823;
+    if (id == "PaginatedEncounterConditionSummaryList_component") return 1824;
+    if (id == "PaginatedEncounterConditionValueSummaryList_component") return 1825;
+    if (id == "PaginatedEncounterMethodSummaryList_component") return 1826;
+    if (id == "PaginatedEvolutionChainSummaryList_component") return 1827;
+    if (id == "PaginatedEvolutionTriggerSummaryList_component") return 1828;
+    if (id == "PaginatedEvolutionVariableSummaryList_component") return 1829;
+    if (id == "PaginatedGenderSummaryList_component") return 1830;
+    if (id == "PaginatedGenerationSummaryList_component") return 1831;
+    if (id == "PaginatedGrowthRateSummaryList_component") return 1832;
+    if (id == "PaginatedItemAttributeSummaryList_component") return 1833;
+    if (id == "PaginatedItemCategorySummaryList_component") return 1834;
+    if (id == "PaginatedItemFlingEffectSummaryList_component") return 1835;
+    if (id == "PaginatedItemPocketSummaryList_component") return 1836;
+    if (id == "PaginatedItemSummaryList_component") return 1837;
+    if (id == "PaginatedLanguageSummaryList_component") return 1838;
+    if (id == "PaginatedLocationAreaSummaryList_component") return 1839;
+    if (id == "PaginatedLocationSummaryList_component") return 1840;
+    if (id == "PaginatedMachineSummaryList_component") return 1841;
+    if (id == "PaginatedMoveBattleStyleSummaryList_component") return 1842;
+    if (id == "PaginatedMoveDamageClassSummaryList_component") return 1843;
+    if (id == "PaginatedMoveLearnMethodSummaryList_component") return 1844;
+    if (id == "PaginatedMoveMetaAilmentSummaryList_component") return 1845;
+    if (id == "PaginatedMoveMetaCategorySummaryList_component") return 1846;
+    if (id == "PaginatedMoveSummaryList_component") return 1847;
+    if (id == "PaginatedMoveTargetSummaryList_component") return 1848;
+    if (id == "PaginatedNatureSummaryList_component") return 1849;
+    if (id == "PaginatedPalParkAreaSummaryList_component") return 1850;
+    if (id == "PaginatedPokeathlonStatSummaryList_component") return 1851;
+    if (id == "PaginatedPokedexSummaryList_component") return 1852;
+    if (id == "PaginatedPokemonColorSummaryList_component") return 1853;
+    if (id == "PaginatedPokemonFormSummaryList_component") return 1854;
+    if (id == "PaginatedPokemonHabitatSummaryList_component") return 1855;
+    if (id == "PaginatedPokemonShapeSummaryList_component") return 1856;
+    if (id == "PaginatedPokemonSpeciesSummaryList_component") return 1857;
+    if (id == "PaginatedPokemonSummaryList_component") return 1858;
+    if (id == "PaginatedRegionSummaryList_component") return 1859;
+    if (id == "PaginatedStatSummaryList_component") return 1860;
+    if (id == "PaginatedSuperContestEffectSummaryList_component") return 1861;
+    if (id == "PaginatedTypeSummaryList_component") return 1862;
+    if (id == "PaginatedVersionGroupSummaryList_component") return 1863;
+    if (id == "PaginatedVersionSummaryList_component") return 1864;
+    if (id == "PalParkAreaDetail_component") return 1865;
+    if (id == "PalParkAreaName_component") return 1866;
+    if (id == "PalParkAreaSummary_component") return 1867;
+    if (id == "PalParkEncounter_component") return 1868;
+    if (id == "PokeapiMetaResponse_component") return 1869;
+    if (id == "PokeathlonStatAffectingNature_component") return 1870;
+    if (id == "PokeathlonStatAffectingNatures_component") return 1871;
+    if (id == "PokeathlonStatDetail_component") return 1872;
+    if (id == "PokeathlonStatName_component") return 1873;
+    if (id == "PokeathlonStatSummary_component") return 1874;
+    if (id == "PokedexDescription_component") return 1875;
+    if (id == "PokedexDetail_component") return 1876;
+    if (id == "PokedexDetail_region_component") return 1877;
+    if (id == "PokedexName_component") return 1878;
+    if (id == "PokedexSummary_component") return 1879;
+    if (id == "PokemonAbility_component") return 1880;
+    if (id == "PokemonAbilityPast_component") return 1881;
+    if (id == "PokemonAbilityPast_ability_component") return 1882;
+    if (id == "PokemonColorDetail_component") return 1883;
+    if (id == "PokemonColorName_component") return 1884;
+    if (id == "PokemonColorSummary_component") return 1885;
+    if (id == "PokemonCries_component") return 1886;
+    if (id == "PokemonDetail_component") return 1887;
+    if (id == "PokemonDexEntry_component") return 1888;
+    if (id == "PokemonDexNumber_component") return 1889;
+    if (id == "PokemonEncounterDetailResponse_component") return 1890;
+    if (id == "PokemonEncounterResponse_component") return 1891;
+    if (id == "PokemonEncounterVersionDetailResponse_component") return 1892;
+    if (id == "PokemonEvolution_component") return 1893;
+    if (id == "PokemonEvolution_condition_expression_component") return 1894;
+    if (id == "PokemonEvolution_evolved_pokemon_form_component") return 1895;
+    if (id == "PokemonEvolution_held_item_component") return 1896;
+    if (id == "PokemonEvolution_item_component") return 1897;
+    if (id == "PokemonEvolution_known_move_component") return 1898;
+    if (id == "PokemonEvolution_location_component") return 1899;
+    if (id == "PokemonEvolution_party_species_component") return 1900;
+    if (id == "PokemonEvolution_party_type_component") return 1901;
+    if (id == "PokemonEvolution_region_component") return 1902;
+    if (id == "PokemonEvolution_required_pokemon_form_component") return 1903;
+    if (id == "PokemonEvolution_trade_species_component") return 1904;
+    if (id == "PokemonEvolution_used_move_component") return 1905;
+    if (id == "PokemonFormDetail_component") return 1906;
+    if (id == "PokemonFormFlavorText_component") return 1907;
+    if (id == "PokemonFormName_component") return 1908;
+    if (id == "PokemonFormSprites_component") return 1909;
+    if (id == "PokemonFormSummary_component") return 1910;
+    if (id == "PokemonFormTriggerCondition_component") return 1911;
+    if (id == "PokemonFormType_component") return 1912;
+    if (id == "PokemonGameIndex_component") return 1913;
+    if (id == "PokemonHabitatDetail_component") return 1914;
+    if (id == "PokemonHabitatName_component") return 1915;
+    if (id == "PokemonHabitatSummary_component") return 1916;
+    if (id == "PokemonHeldItem_component") return 1917;
+    if (id == "PokemonHeldItemSummary_component") return 1918;
+    if (id == "PokemonHeldItemVersion_component") return 1919;
+    if (id == "PokemonMove_component") return 1920;
+    if (id == "PokemonMoveVersionGroup_component") return 1921;
+    if (id == "PokemonPastAbility_component") return 1922;
+    if (id == "PokemonPastStat_component") return 1923;
+    if (id == "PokemonPastType_component") return 1924;
+    if (id == "PokemonShapeAwesomeName_component") return 1925;
+    if (id == "PokemonShapeDetail_component") return 1926;
+    if (id == "PokemonShapeName_component") return 1927;
+    if (id == "PokemonShapeSummary_component") return 1928;
+    if (id == "PokemonSpeciesDescription_component") return 1929;
+    if (id == "PokemonSpeciesDetail_component") return 1930;
+    if (id == "PokemonSpeciesDetail_evolves_from_species_component") return 1931;
+    if (id == "PokemonSpeciesDetail_habitat_component") return 1932;
+    if (id == "PokemonSpeciesFlavorText_component") return 1933;
+    if (id == "PokemonSpeciesGenus_component") return 1934;
+    if (id == "PokemonSpeciesName_component") return 1935;
+    if (id == "PokemonSpeciesPalParkEncounter_component") return 1936;
+    if (id == "PokemonSpeciesSummary_component") return 1937;
+    if (id == "PokemonSpeciesVariety_component") return 1938;
+    if (id == "PokemonSprites_component") return 1939;
+    if (id == "PokemonSpritesOther_component") return 1940;
+    if (id == "PokemonSpritesOtherDreamWorld_component") return 1941;
+    if (id == "PokemonSpritesOtherHome_component") return 1942;
+    if (id == "PokemonSpritesOtherOfficialArtwork_component") return 1943;
+    if (id == "PokemonSpritesOtherShowdown_component") return 1944;
+    if (id == "PokemonStat_component") return 1945;
+    if (id == "PokemonSummary_component") return 1946;
+    if (id == "PokemonType_component") return 1947;
+    if (id == "RegionDetail_component") return 1948;
+    if (id == "RegionDetail_main_generation_component") return 1949;
+    if (id == "RegionName_component") return 1950;
+    if (id == "RegionSummary_component") return 1951;
+    if (id == "StatAffectingMoves_component") return 1952;
+    if (id == "StatAffectingNatures_component") return 1953;
+    if (id == "StatDetail_component") return 1954;
+    if (id == "StatDetail_move_damage_class_component") return 1955;
+    if (id == "StatName_component") return 1956;
+    if (id == "StatSummary_component") return 1957;
+    if (id == "SuperContestEffectDetail_component") return 1958;
+    if (id == "SuperContestEffectFlavorText_component") return 1959;
+    if (id == "SuperContestEffectSummary_component") return 1960;
+    if (id == "TypeDetail_component") return 1961;
+    if (id == "TypeDetail_move_damage_class_component") return 1962;
+    if (id == "TypeGameIndex_component") return 1963;
+    if (id == "TypeGameSprite_component") return 1964;
+    if (id == "TypeName_component") return 1965;
+    if (id == "TypePastRelationships_component") return 1966;
+    if (id == "TypePokemon_component") return 1967;
+    if (id == "TypeRelationships_component") return 1968;
+    if (id == "TypeSummary_component") return 1969;
+    if (id == "VersionDetail_component") return 1970;
+    if (id == "VersionGroupDetail_component") return 1971;
+    if (id == "VersionGroupSummary_component") return 1972;
+    if (id == "VersionName_component") return 1973;
+    if (id == "VersionSummary_component") return 1974;
     return kNoSchema;
 }
 

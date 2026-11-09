@@ -47,8 +47,28 @@ const language_retrieve = ({ id }) => new Promise(
     }
   },
 );
+/**
+* Get API metadata
+* Returns metadata about the current deployed version of the API, including the git commit hash, deploy date, and tag (if any).
+*
+* returns PokeapiMetaResponse
+* */
+const meta_retrieve = () => new Promise(
+  async (resolve, reject) => {
+    try {
+      resolve(Service.successResponse({
+      }));
+    } catch (e) {
+      reject(Service.rejectResponse(
+        e.message || 'Invalid input',
+        e.status || 405,
+      ));
+    }
+  },
+);
 
 module.exports = {
   language_list,
   language_retrieve,
+  meta_retrieve,
 };

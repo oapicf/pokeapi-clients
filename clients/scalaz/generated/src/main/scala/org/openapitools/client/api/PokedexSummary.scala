@@ -13,8 +13,10 @@ import java.net.URI
 import PokedexSummary._
 
 case class PokedexSummary (
+  /* The name of the referenced resource. */
   name: String,
-url: URI)
+/* The URL of the referenced resource. */
+  url: URI)
 
 object PokedexSummary {
   import DateTimeCodecs._

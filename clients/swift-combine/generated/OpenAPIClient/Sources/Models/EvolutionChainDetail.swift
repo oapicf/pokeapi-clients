@@ -8,11 +8,14 @@
 import Foundation
 
 public struct EvolutionChainDetail: Codable {
+    /// The identifier for this resource.
     public var id: Int
-    public var babyTriggerItem: ItemSummary
-    public var chain: EvolutionChainDetailChain
+    /// The item that a Pokémon would be holding when mating that would trigger the egg hatching a baby Pokémon rather than a basic Pokémon.
+    public var babyTriggerItem: ItemSummary?
+    /// The base chain link object. Each link contains evolution details for a Pokémon in the chain. Each link references the next Pokémon in the natural evolution order.
+    public var chain: EvolutionChainLink
 
-    public init(id: Int, babyTriggerItem: ItemSummary, chain: EvolutionChainDetailChain) {
+    public init(id: Int, babyTriggerItem: ItemSummary?, chain: EvolutionChainLink) {
         self.id = id
         self.babyTriggerItem = babyTriggerItem
         self.chain = chain
@@ -28,7 +31,7 @@ public struct EvolutionChainDetail: Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         id = try container.decode(Int.self, forKey: .id)
         babyTriggerItem = try container.decode(ItemSummary.self, forKey: .babyTriggerItem)
-        chain = try container.decode(EvolutionChainDetailChain.self, forKey: .chain)
+        chain = try container.decode(EvolutionChainLink.self, forKey: .chain)
     }
 
     public func encode(to encoder: Encoder) throws {

@@ -3,9 +3,9 @@
 /*
  * PokéAPI
  *
- * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+ * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
  *
- * API version: 2.7.0
+ * API version: 2.10.0
  * Contact: blah+oapicf@cliffano.com
  */
 
@@ -21,11 +21,14 @@ import (
 
 type EvolutionChainDetail struct {
 
+	// The identifier for this resource.
 	Id int32 `json:"id"`
 
-	BabyTriggerItem ItemSummary `json:"baby_trigger_item"`
+	// The item that a Pokémon would be holding when mating that would trigger the egg hatching a baby Pokémon rather than a basic Pokémon.
+	BabyTriggerItem *ItemSummary `json:"baby_trigger_item"`
 
-	Chain EvolutionChainDetailChain `json:"chain"`
+	// The base chain link object. Each link contains evolution details for a Pokémon in the chain. Each link references the next Pokémon in the natural evolution order.
+	Chain EvolutionChainLink `json:"chain"`
 }
 // UnmarshalJSON validates required property keys then unmarshals into EvolutionChainDetail
 func (o *EvolutionChainDetail) UnmarshalJSON(data []byte) (err error) {
@@ -33,12 +36,10 @@ func (o *EvolutionChainDetail) UnmarshalJSON(data []byte) (err error) {
 	// including fields promoted from embedded allOf parents.
 	requiredProperties := []string{
 		"baby_trigger_item",
-		"chain",
 	}
 
 	requiredNullableProperties := map[string]bool{
-		"baby_trigger_item": false,
-		"chain": false,
+		"baby_trigger_item": true,
 	}
 
 	allowedJsonKeys := map[string]struct{}{
@@ -97,32 +98,20 @@ func (o *EvolutionChainDetail) UnmarshalJSON(data []byte) (err error) {
 // AssertEvolutionChainDetailRequired checks complex required fields (models, arrays, maps) and embedded parents.
 // Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertEvolutionChainDetailRequired(obj EvolutionChainDetail) error {
-	elements := map[string]interface{}{
-		"baby_trigger_item": obj.BabyTriggerItem,
-		"chain": obj.Chain,
-	}
-	for name, el := range elements {
-		if isZero := IsZeroValue(el); isZero {
-			return &RequiredError{Field: name}
+	if obj.BabyTriggerItem != nil {
+		if err := AssertItemSummaryRequired(*obj.BabyTriggerItem); err != nil {
+			return err
 		}
-	}
-
-	if err := AssertItemSummaryRequired(obj.BabyTriggerItem); err != nil {
-		return err
-	}
-	if err := AssertEvolutionChainDetailChainRequired(obj.Chain); err != nil {
-		return err
 	}
 	return nil
 }
 
 // AssertEvolutionChainDetailConstraints checks if the values respects the defined constraints
 func AssertEvolutionChainDetailConstraints(obj EvolutionChainDetail) error {
-	if err := AssertItemSummaryConstraints(obj.BabyTriggerItem); err != nil {
-		return err
-	}
-	if err := AssertEvolutionChainDetailChainConstraints(obj.Chain); err != nil {
-		return err
-	}
+    if obj.BabyTriggerItem != nil {
+     	if err := AssertItemSummaryConstraints(*obj.BabyTriggerItem); err != nil {
+     		return err
+     	}
+    }
 	return nil
 }

@@ -15,149 +15,176 @@
                 
                 
                 ; [@key "id"]
-                                              name: string
+                    (** The identifier for this resource. *)
+                                      name: string
                   
                   
                 
                 
                 ; [@key "name"]
-                                              order: int32
+                    (** The name for this resource. *)
+                                      order: int32
                   
                    option [@default None]
                 
                 
                 ; [@key "order"]
-                                              gender_rate: int32
+                    (** The order in which species should be sorted. Based on National Dex order, except families are grouped together and sorted by stage. *)
+                                      gender_rate: int32
                   
                    option [@default None]
                 
                 
                 ; [@key "gender_rate"]
-                                              capture_rate: int32
+                    (** The chance of this Pokémon being female, in eighths; or -1 for genderless. *)
+                                      capture_rate: int32
                   
                    option [@default None]
                 
                 
                 ; [@key "capture_rate"]
-                                              base_happiness: int32
+                    (** The base capture rate; up to 255. The higher the number, the easier the catch. *)
+                                      base_happiness: int32
                   
                    option [@default None]
                 
                 
                 ; [@key "base_happiness"]
-                                              is_baby: bool
+                    (** The happiness when caught by a normal Pokéball; up to 255. The higher the number, the happier the Pokémon. *)
+                                      is_baby: bool
                   
                    option [@default None]
                 
                 
                 ; [@key "is_baby"]
-                                              is_legendary: bool
+                    (** Whether or not this is a baby Pokémon. *)
+                                      is_legendary: bool
                   
                    option [@default None]
                 
                 
                 ; [@key "is_legendary"]
-                                              is_mythical: bool
+                    (** Whether or not this is a legendary Pokémon. *)
+                                      is_mythical: bool
                   
                    option [@default None]
                 
                 
                 ; [@key "is_mythical"]
-                                              hatch_counter: int32
+                    (** Whether or not this is a mythical Pokémon. *)
+                                      hatch_counter: int32
                   
                    option [@default None]
                 
                 
                 ; [@key "hatch_counter"]
-                                              has_gender_differences: bool
+                    (** Initial hatch counter: one must walk Y × (hatch_counter + 1) steps before this Pokémon's egg hatches, unless utilizing bonuses like Flame Body's. Y varies per generation. In Generations II, III, and VII, Egg cycles are 256 steps long. In Generation IV, Egg cycles are 255 steps long. In Pokémon Brilliant Diamond and Shining Pearl, Egg cycles are also 255 steps long, but are shorter on special dates. In Generations V and VI, Egg cycles are 257 steps long. In Pokémon Sword and Shield, and in Pokémon Scarlet and Violet, Egg cycles are 128 steps long. *)
+                                      has_gender_differences: bool
                   
                    option [@default None]
                 
                 
                 ; [@key "has_gender_differences"]
-                                              forms_switchable: bool
+                    (** Whether or not this Pokémon has visual gender differences. *)
+                                      forms_switchable: bool
                   
                    option [@default None]
                 
                 
                 ; [@key "forms_switchable"]
-                                              growth_rate: Growth_rate_summary.t
+                    (** Whether or not this Pokémon has multiple forms and can switch between them. *)
+                                      growth_rate: Growth_rate_summary.t
                   
                   
                 
                 
                 ; [@key "growth_rate"]
-                                              pokedex_numbers: Pokemon_dex_entry.t list
+                    (** The rate at which this Pokémon species gains levels. *)
+                                      pokedex_numbers: Pokemon_dex_entry.t list
                 
                 
                 ; [@key "pokedex_numbers"]
-                                              egg_groups: Ability_detail_pokemon_inner_pokemon.t list
+                    (** A list of Pokedexes and the indexes reserved within them for this Pokémon species. *)
+                                      egg_groups: Egg_group_summary.t list
                 
                 
                 ; [@key "egg_groups"]
-                                              color: Pokemon_color_summary.t
+                    (** A list of egg groups this Pokémon species is a member of. *)
+                                      color: Pokemon_color_summary.t
                   
                   
                 
                 
                 ; [@key "color"]
-                                              shape: Pokemon_shape_summary.t
+                    (** The color of this Pokémon for Pokédex search. *)
+                                      shape: Pokemon_shape_summary.t
                   
                   
                 
                 
                 ; [@key "shape"]
-                                              evolves_from_species: Pokemon_species_summary.t
-                  
+                    (** The shape of this Pokémon for Pokédex search. *)
+                                      evolves_from_species: Pokemon_species_summary.t
+                   option
                   
                 
                 
                 ; [@key "evolves_from_species"]
-                                              evolution_chain: Evolution_chain_summary.t
+                    (** The Pokémon species that evolves into this Pokemon_species. *)
+                                      evolution_chain: Evolution_chain_summary.t
                   
                   
                 
                 
                 ; [@key "evolution_chain"]
-                                              habitat: Pokemon_habitat_summary.t
-                  
+                    (** The evolution chain this Pokémon species is a member of. *)
+                                      habitat: Pokemon_habitat_summary.t
+                   option
                   
                 
                 
                 ; [@key "habitat"]
-                                              generation: Generation_summary.t
+                    (** The habitat this Pokémon species can be encountered in. *)
+                                      generation: Generation_summary.t
                   
                   
                 
                 
                 ; [@key "generation"]
-                                              names: Pokemon_form_detail_form_names_inner.t list
+                    (** The generation this Pokémon species was introduced in. *)
+                                      names: Pokemon_species_name.t list
                 
                 
                 ; [@key "names"]
-                                              pal_park_encounters: Pokemon_species_detail_pal_park_encounters_inner.t list
+                    (** The name of this resource listed in different languages. *)
+                                      pal_park_encounters: Pokemon_species_pal_park_encounter.t list
                 
                 
                 ; [@key "pal_park_encounters"]
-                                              form_descriptions: Pokemon_species_description.t list
+                    (** A list of encounters that can be had with this Pokémon species in pal park. *)
+                                      form_descriptions: Pokemon_species_description.t list
                 
                 
                 ; [@key "form_descriptions"]
-                                              flavor_text_entries: Pokemon_species_flavor_text.t list
+                    (** Descriptions of different forms Pokémon take on within the Pokémon species. *)
+                                      flavor_text_entries: Pokemon_species_flavor_text.t list
                 
                 
                 ; [@key "flavor_text_entries"]
-                                              genera: Pokemon_species_detail_genera_inner.t list
+                    (** A list of flavor text entries for this Pokémon species. *)
+                                      genera: Pokemon_species_genus.t list
                 
                 
                 ; [@key "genera"]
-                                              varieties: Pokemon_species_detail_varieties_inner.t list
+                    (** The genus of this Pokémon species listed in multiple languages. *)
+                                      varieties: Pokemon_species_variety.t list
                 
                 
                 ; [@key "varieties"]
-                        } [@@deriving yojson { strict = false }, show, eq ];;
+                    (** A list of the Pokémon that exist within this Pokémon species. *)
+                } [@@deriving yojson { strict = false }, show, eq ];;
         
-        let create (id : int32) (name : string) (growth_rate : Growth_rate_summary.t) (pokedex_numbers : Pokemon_dex_entry.t list) (egg_groups : Ability_detail_pokemon_inner_pokemon.t list) (color : Pokemon_color_summary.t) (shape : Pokemon_shape_summary.t) (evolves_from_species : Pokemon_species_summary.t) (evolution_chain : Evolution_chain_summary.t) (habitat : Pokemon_habitat_summary.t) (generation : Generation_summary.t) (names : Pokemon_form_detail_form_names_inner.t list) (pal_park_encounters : Pokemon_species_detail_pal_park_encounters_inner.t list) (form_descriptions : Pokemon_species_description.t list) (flavor_text_entries : Pokemon_species_flavor_text.t list) (genera : Pokemon_species_detail_genera_inner.t list) (varieties : Pokemon_species_detail_varieties_inner.t list) : t = {
+        let create (id : int32) (name : string) (growth_rate : Growth_rate_summary.t) (pokedex_numbers : Pokemon_dex_entry.t list) (egg_groups : Egg_group_summary.t list) (color : Pokemon_color_summary.t) (shape : Pokemon_shape_summary.t) (evolves_from_species : Pokemon_species_summary.t option) (evolution_chain : Evolution_chain_summary.t) (habitat : Pokemon_habitat_summary.t option) (generation : Generation_summary.t) (names : Pokemon_species_name.t list) (pal_park_encounters : Pokemon_species_pal_park_encounter.t list) (form_descriptions : Pokemon_species_description.t list) (flavor_text_entries : Pokemon_species_flavor_text.t list) (genera : Pokemon_species_genus.t list) (varieties : Pokemon_species_variety.t list) : t = {
             id = id;
             name = name;
             order = None;

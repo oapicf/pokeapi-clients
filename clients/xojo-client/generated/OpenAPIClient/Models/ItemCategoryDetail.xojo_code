@@ -2,26 +2,41 @@
 Protected Class ItemCategoryDetail
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The identifier for this resource.
+		#tag EndNote
 		id As Integer
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The name for this resource.
+		#tag EndNote
 		name As String
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			A list of items that are a part of this category.
+		#tag EndNote
 		items() As OpenAPIClient.Models.ItemSummary
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The name of this item category listed in different languages.
+		#tag EndNote
 		names() As OpenAPIClient.Models.ItemCategoryName
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The pocket items in this category would be put in.
+		#tag EndNote
 		pocket As OpenAPIClient.Models.ItemPocketSummary
 	#tag EndProperty
 

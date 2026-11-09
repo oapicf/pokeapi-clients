@@ -7,16 +7,14 @@ const Service = require('./Service');
 *
 * limit Integer Number of results to return per page. (optional)
 * offset Integer The initial index from which to return the results. (optional)
-* q String > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
 * returns PaginatedContestEffectSummaryList
 * */
-const contest_effect_list = ({ limit, offset, q }) => new Promise(
+const contest_effect_list = ({ limit, offset }) => new Promise(
   async (resolve, reject) => {
     try {
       resolve(Service.successResponse({
         limit,
         offset,
-        q,
       }));
     } catch (e) {
       reject(Service.rejectResponse(
@@ -99,16 +97,14 @@ const contest_type_retrieve = ({ id }) => new Promise(
 *
 * limit Integer Number of results to return per page. (optional)
 * offset Integer The initial index from which to return the results. (optional)
-* q String > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
 * returns PaginatedSuperContestEffectSummaryList
 * */
-const super_contest_effect_list = ({ limit, offset, q }) => new Promise(
+const super_contest_effect_list = ({ limit, offset }) => new Promise(
   async (resolve, reject) => {
     try {
       resolve(Service.successResponse({
         limit,
         offset,
-        q,
       }));
     } catch (e) {
       reject(Service.rejectResponse(

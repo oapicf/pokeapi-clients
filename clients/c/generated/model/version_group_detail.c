@@ -96,21 +96,21 @@ void version_group_detail_free(version_group_detail_t *version_group_detail) {
     }
     if (version_group_detail->move_learn_methods) {
         list_ForEach(listEntry, version_group_detail->move_learn_methods) {
-            ability_detail_pokemon_inner_pokemon_free(listEntry->data);
+            move_learn_method_summary_free(listEntry->data);
         }
         list_freeList(version_group_detail->move_learn_methods);
         version_group_detail->move_learn_methods = NULL;
     }
     if (version_group_detail->pokedexes) {
         list_ForEach(listEntry, version_group_detail->pokedexes) {
-            ability_detail_pokemon_inner_pokemon_free(listEntry->data);
+            pokedex_summary_free(listEntry->data);
         }
         list_freeList(version_group_detail->pokedexes);
         version_group_detail->pokedexes = NULL;
     }
     if (version_group_detail->regions) {
         list_ForEach(listEntry, version_group_detail->regions) {
-            ability_detail_pokemon_inner_pokemon_free(listEntry->data);
+            region_summary_free(listEntry->data);
         }
         list_freeList(version_group_detail->regions);
         version_group_detail->regions = NULL;
@@ -180,7 +180,7 @@ cJSON *version_group_detail_convertToJSON(version_group_detail_t *version_group_
     listEntry_t *move_learn_methodsListEntry;
     if (version_group_detail->move_learn_methods) {
     list_ForEach(move_learn_methodsListEntry, version_group_detail->move_learn_methods) {
-    cJSON *itemLocal = ability_detail_pokemon_inner_pokemon_convertToJSON(move_learn_methodsListEntry->data);
+    cJSON *itemLocal = move_learn_method_summary_convertToJSON(move_learn_methodsListEntry->data);
     if(itemLocal == NULL) {
     goto fail;
     }
@@ -201,7 +201,7 @@ cJSON *version_group_detail_convertToJSON(version_group_detail_t *version_group_
     listEntry_t *pokedexesListEntry;
     if (version_group_detail->pokedexes) {
     list_ForEach(pokedexesListEntry, version_group_detail->pokedexes) {
-    cJSON *itemLocal = ability_detail_pokemon_inner_pokemon_convertToJSON(pokedexesListEntry->data);
+    cJSON *itemLocal = pokedex_summary_convertToJSON(pokedexesListEntry->data);
     if(itemLocal == NULL) {
     goto fail;
     }
@@ -222,7 +222,7 @@ cJSON *version_group_detail_convertToJSON(version_group_detail_t *version_group_
     listEntry_t *regionsListEntry;
     if (version_group_detail->regions) {
     list_ForEach(regionsListEntry, version_group_detail->regions) {
-    cJSON *itemLocal = ability_detail_pokemon_inner_pokemon_convertToJSON(regionsListEntry->data);
+    cJSON *itemLocal = region_summary_convertToJSON(regionsListEntry->data);
     if(itemLocal == NULL) {
     goto fail;
     }
@@ -374,7 +374,7 @@ version_group_detail_t *version_group_detail_parseFromJSON(cJSON *version_group_
         if(!cJSON_IsObject(move_learn_methods_local_nonprimitive)){
             goto end;
         }
-        ability_detail_pokemon_inner_pokemon_t *move_learn_methodsItem = ability_detail_pokemon_inner_pokemon_parseFromJSON(move_learn_methods_local_nonprimitive);
+        move_learn_method_summary_t *move_learn_methodsItem = move_learn_method_summary_parseFromJSON(move_learn_methods_local_nonprimitive);
 
         list_addElement(move_learn_methodsList, move_learn_methodsItem);
     }
@@ -401,7 +401,7 @@ version_group_detail_t *version_group_detail_parseFromJSON(cJSON *version_group_
         if(!cJSON_IsObject(pokedexes_local_nonprimitive)){
             goto end;
         }
-        ability_detail_pokemon_inner_pokemon_t *pokedexesItem = ability_detail_pokemon_inner_pokemon_parseFromJSON(pokedexes_local_nonprimitive);
+        pokedex_summary_t *pokedexesItem = pokedex_summary_parseFromJSON(pokedexes_local_nonprimitive);
 
         list_addElement(pokedexesList, pokedexesItem);
     }
@@ -428,7 +428,7 @@ version_group_detail_t *version_group_detail_parseFromJSON(cJSON *version_group_
         if(!cJSON_IsObject(regions_local_nonprimitive)){
             goto end;
         }
-        ability_detail_pokemon_inner_pokemon_t *regionsItem = ability_detail_pokemon_inner_pokemon_parseFromJSON(regions_local_nonprimitive);
+        region_summary_t *regionsItem = region_summary_parseFromJSON(regions_local_nonprimitive);
 
         list_addElement(regionsList, regionsItem);
     }
@@ -499,7 +499,7 @@ end:
     if (move_learn_methodsList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, move_learn_methodsList) {
-            ability_detail_pokemon_inner_pokemon_free(listEntry->data);
+            move_learn_method_summary_free(listEntry->data);
             listEntry->data = NULL;
         }
         list_freeList(move_learn_methodsList);
@@ -508,7 +508,7 @@ end:
     if (pokedexesList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, pokedexesList) {
-            ability_detail_pokemon_inner_pokemon_free(listEntry->data);
+            pokedex_summary_free(listEntry->data);
             listEntry->data = NULL;
         }
         list_freeList(pokedexesList);
@@ -517,7 +517,7 @@ end:
     if (regionsList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, regionsList) {
-            ability_detail_pokemon_inner_pokemon_free(listEntry->data);
+            region_summary_free(listEntry->data);
             listEntry->data = NULL;
         }
         list_freeList(regionsList);

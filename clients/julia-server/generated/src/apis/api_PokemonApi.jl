@@ -113,7 +113,6 @@ function characteristic_list_read(handler)
         query_params = HTTP.queryparams(URIs.URI(req.target))
         openapi_params["limit"] = OpenAPI.Servers.to_param(Int64, query_params, "limit", style="form", is_explode=true)
         openapi_params["offset"] = OpenAPI.Servers.to_param(Int64, query_params, "offset", style="form", is_explode=true)
-        openapi_params["q"] = OpenAPI.Servers.to_param(String, query_params, "q", style="form", is_explode=true)
         req.context[:openapi_params] = openapi_params
 
         return handler(req)
@@ -146,17 +145,6 @@ function characteristic_list_validate(handler)
                 end
             end
         end
-        
-        n = "q"
-        v = get(openapi_params, n, nothing)
-        if !isnothing(v)
-            if isa(v, OpenAPI.APIModel)
-                OpenAPI.validate_properties(v)
-                if !OpenAPI.check_required(v)
-                    throw(OpenAPI.ValidationException(;reason="$n is missing required properties", operation_or_model=op))
-                end
-            end
-        end
 
         return handler(req)
     end
@@ -165,7 +153,7 @@ end
 function characteristic_list_invoke(impl; post_invoke=nothing)
     function characteristic_list_invoke_handler(req::HTTP.Request)
         openapi_params = req.context[:openapi_params]
-        ret = impl.characteristic_list(req::HTTP.Request; limit=get(openapi_params, "limit", nothing), offset=get(openapi_params, "offset", nothing), q=get(openapi_params, "q", nothing),)
+        ret = impl.characteristic_list(req::HTTP.Request; limit=get(openapi_params, "limit", nothing), offset=get(openapi_params, "offset", nothing),)
         resp = OpenAPI.Servers.server_response(ret)
         return (post_invoke === nothing) ? resp : post_invoke(req, resp)
     end

@@ -7,12 +7,12 @@
     {
       "name": "level",
       "type": "int",
-      "doc": ""
+      "doc": "The level gained."
     },
     {
       "name": "experience",
       "type": "int",
-      "doc": ""
+      "doc": "The amount of experience required to reach the referenced level."
     }
   ]
 

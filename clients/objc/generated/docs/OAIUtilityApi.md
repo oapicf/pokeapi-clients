@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**languageList**](OAIUtilityApi.md#languagelist) | **GET** /api/v2/language/ | List languages
 [**languageRetrieve**](OAIUtilityApi.md#languageretrieve) | **GET** /api/v2/language/{id}/ | Get language
+[**metaRetrieve**](OAIUtilityApi.md#metaretrieve) | **GET** /api/v2/meta/ | Get API metadata
 
 
 # **languageList**
@@ -22,16 +23,6 @@ Languages for translations of API resource information.
 
 ### Example
 ```objc
-OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
-// Configure HTTP basic authorization (authentication scheme: basicAuth)
-[apiConfig setUsername:@"YOUR_USERNAME"];
-[apiConfig setPassword:@"YOUR_PASSWORD"];
-
-// Configure API key authorization: (authentication scheme: cookieAuth)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"sessionid"];
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"sessionid"];
-
 
 NSNumber* limit = @56; // Number of results to return per page. (optional)
 NSNumber* offset = @56; // The initial index from which to return the results. (optional)
@@ -67,7 +58,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -88,18 +79,8 @@ Languages for translations of API resource information.
 
 ### Example
 ```objc
-OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
-// Configure HTTP basic authorization (authentication scheme: basicAuth)
-[apiConfig setUsername:@"YOUR_USERNAME"];
-[apiConfig setPassword:@"YOUR_PASSWORD"];
 
-// Configure API key authorization: (authentication scheme: cookieAuth)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"sessionid"];
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"sessionid"];
-
-
-NSString* _id = @"_id_example"; // This parameter can be a string or an integer.
+NSString* _id = 1; // This parameter can be a string or an integer.
 
 OAIUtilityApi*apiInstance = [[OAIUtilityApi alloc] init];
 
@@ -127,7 +108,53 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **metaRetrieve**
+```objc
+-(NSURLSessionTask*) metaRetrieveWithCompletionHandler: 
+        (void (^)(OAIPokeapiMetaResponse* output, NSError* error)) handler;
+```
+
+Get API metadata
+
+Returns metadata about the current deployed version of the API, including the git commit hash, deploy date, and tag (if any).
+
+### Example
+```objc
+
+
+OAIUtilityApi*apiInstance = [[OAIUtilityApi alloc] init];
+
+// Get API metadata
+[apiInstance metaRetrieveWithCompletionHandler: 
+          ^(OAIPokeapiMetaResponse* output, NSError* error) {
+                        if (output) {
+                            NSLog(@"%@", output);
+                        }
+                        if (error) {
+                            NSLog(@"Error calling OAIUtilityApi->metaRetrieve: %@", error);
+                        }
+                    }];
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**OAIPokeapiMetaResponse***](OAIPokeapiMetaResponse.md)
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 

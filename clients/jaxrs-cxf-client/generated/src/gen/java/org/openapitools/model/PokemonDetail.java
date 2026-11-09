@@ -4,18 +4,19 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
-import org.openapitools.model.PokemonDetailAbilitiesInner;
-import org.openapitools.model.PokemonDetailCries;
-import org.openapitools.model.PokemonDetailHeldItems;
-import org.openapitools.model.PokemonDetailMovesInner;
-import org.openapitools.model.PokemonDetailPastAbilitiesInner;
-import org.openapitools.model.PokemonDetailPastTypesInner;
-import org.openapitools.model.PokemonDetailSprites;
-import org.openapitools.model.PokemonDetailTypesInner;
+import org.openapitools.model.PokemonAbility;
+import org.openapitools.model.PokemonCries;
 import org.openapitools.model.PokemonFormSummary;
 import org.openapitools.model.PokemonGameIndex;
+import org.openapitools.model.PokemonHeldItemSummary;
+import org.openapitools.model.PokemonMove;
+import org.openapitools.model.PokemonPastAbility;
+import org.openapitools.model.PokemonPastStat;
+import org.openapitools.model.PokemonPastType;
 import org.openapitools.model.PokemonSpeciesSummary;
+import org.openapitools.model.PokemonSprites;
 import org.openapitools.model.PokemonStat;
+import org.openapitools.model.PokemonType;
 
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
@@ -24,87 +25,154 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class PokemonDetail  {
   
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The identifier for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
 
   private Integer id;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The name for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The name for this resource.")
 
   private String name;
 
-  @ApiModelProperty(value = "")
+ /**
+  * The base experience gained for defeating this Pokémon.
+  */
+  @ApiModelProperty(value = "The base experience gained for defeating this Pokémon.")
 
   private Integer baseExperience;
 
-  @ApiModelProperty(value = "")
+ /**
+  * The height of this Pokémon in decimetres.
+  */
+  @ApiModelProperty(value = "The height of this Pokémon in decimetres.")
 
   private Integer height;
 
-  @ApiModelProperty(value = "")
+ /**
+  * Set for exactly one Pokémon used as the default for each species.
+  */
+  @ApiModelProperty(value = "Set for exactly one Pokémon used as the default for each species.")
 
   private Boolean isDefault;
 
-  @ApiModelProperty(value = "")
+ /**
+  * Order for sorting. Almost national order, except families are grouped together.
+  */
+  @ApiModelProperty(value = "Order for sorting. Almost national order, except families are grouped together.")
 
   private Integer order;
 
-  @ApiModelProperty(value = "")
+ /**
+  * The weight of this Pokémon in hectograms.
+  */
+  @ApiModelProperty(value = "The weight of this Pokémon in hectograms.")
 
   private Integer weight;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * A list of abilities this Pokémon could potentially have.
+  */
+  @ApiModelProperty(required = true, value = "A list of abilities this Pokémon could potentially have.")
 
-  private List<PokemonDetailAbilitiesInner> abilities = new ArrayList<>();
+  private List<PokemonAbility> abilities = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * A list of details showing abilities this pokémon had in previous generations
+  */
+  @ApiModelProperty(required = true, value = "A list of details showing abilities this pokémon had in previous generations")
 
-  private List<PokemonDetailPastAbilitiesInner> pastAbilities = new ArrayList<>();
+  private List<PokemonPastAbility> pastAbilities = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * A list of forms this Pokémon can take on.
+  */
+  @ApiModelProperty(required = true, value = "A list of forms this Pokémon can take on.")
 
   private List<PokemonFormSummary> forms = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * A list of game indices relevent to Pokémon item by generation.
+  */
+  @ApiModelProperty(required = true, value = "A list of game indices relevent to Pokémon item by generation.")
 
   private List<PokemonGameIndex> gameIndices = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * A list of items this Pokémon may be holding when encountered.
+  */
+  @ApiModelProperty(required = true, value = "A list of items this Pokémon may be holding when encountered.")
 
-  private PokemonDetailHeldItems heldItems;
+  private List<PokemonHeldItemSummary> heldItems = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * A link to a list of location areas, as well as encounter details pertaining to specific versions.
+  */
+  @ApiModelProperty(required = true, value = "A link to a list of location areas, as well as encounter details pertaining to specific versions.")
 
   private String locationAreaEncounters;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * A list of moves along with learn methods and level details pertaining to specific version groups.
+  */
+  @ApiModelProperty(required = true, value = "A list of moves along with learn methods and level details pertaining to specific version groups.")
 
-  private List<PokemonDetailMovesInner> moves = new ArrayList<>();
+  private List<PokemonMove> moves = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The species this Pokémon belongs to.
+  */
+  @ApiModelProperty(required = true, value = "The species this Pokémon belongs to.")
 
   private PokemonSpeciesSummary species;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * A set of sprites used to depict this Pokémon in the game. A visual representation of the various sprites can be found at <a href='https://github.com/PokeAPI/sprites#sprites'>PokeAPI/sprites</a>
+  */
+  @ApiModelProperty(required = true, value = "A set of sprites used to depict this Pokémon in the game. A visual representation of the various sprites can be found at <a href='https://github.com/PokeAPI/sprites#sprites'>PokeAPI/sprites</a>")
 
-  private PokemonDetailSprites sprites;
+  private PokemonSprites sprites;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * A set of cries used to depict this Pokémon in the game. A visual representation of the various cries can be found at <a href='https://github.com/PokeAPI/cries#cries'>PokeAPI/cries</a>
+  */
+  @ApiModelProperty(required = true, value = "A set of cries used to depict this Pokémon in the game. A visual representation of the various cries can be found at <a href='https://github.com/PokeAPI/cries#cries'>PokeAPI/cries</a>")
 
-  private PokemonDetailCries cries;
+  private PokemonCries cries;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * A list of base stat values for this Pokémon.
+  */
+  @ApiModelProperty(required = true, value = "A list of base stat values for this Pokémon.")
 
   private List<PokemonStat> stats = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
-
-  private List<PokemonDetailTypesInner> types = new ArrayList<>();
-
-  @ApiModelProperty(required = true, value = "")
-
-  private List<PokemonDetailPastTypesInner> pastTypes = new ArrayList<>();
  /**
-   * Get id
+  * A list of details showing stats this pokémon had in previous generations
+  */
+  @ApiModelProperty(required = true, value = "A list of details showing stats this pokémon had in previous generations")
+
+  private List<PokemonPastStat> pastStats = new ArrayList<>();
+
+ /**
+  * A list of details showing types this Pokémon has.
+  */
+  @ApiModelProperty(required = true, value = "A list of details showing types this Pokémon has.")
+
+  private List<PokemonType> types = new ArrayList<>();
+
+ /**
+  * A list of details showing types this pokémon had in previous generations
+  */
+  @ApiModelProperty(required = true, value = "A list of details showing types this pokémon had in previous generations")
+
+  private List<PokemonPastType> pastTypes = new ArrayList<>();
+ /**
+   * The identifier for this resource.
    * @return id
   **/
   @JsonProperty("id")
@@ -114,7 +182,7 @@ public class PokemonDetail  {
 
 
  /**
-   * Get name
+   * The name for this resource.
    * @return name
   **/
   @JsonProperty("name")
@@ -132,7 +200,9 @@ public class PokemonDetail  {
   }
 
  /**
-   * Get baseExperience
+   * The base experience gained for defeating this Pokémon.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return baseExperience
   **/
   @JsonProperty("base_experience")
@@ -150,7 +220,9 @@ public class PokemonDetail  {
   }
 
  /**
-   * Get height
+   * The height of this Pokémon in decimetres.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return height
   **/
   @JsonProperty("height")
@@ -168,7 +240,7 @@ public class PokemonDetail  {
   }
 
  /**
-   * Get isDefault
+   * Set for exactly one Pokémon used as the default for each species.
    * @return isDefault
   **/
   @JsonProperty("is_default")
@@ -186,7 +258,9 @@ public class PokemonDetail  {
   }
 
  /**
-   * Get order
+   * Order for sorting. Almost national order, except families are grouped together.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return order
   **/
   @JsonProperty("order")
@@ -204,7 +278,9 @@ public class PokemonDetail  {
   }
 
  /**
-   * Get weight
+   * The weight of this Pokémon in hectograms.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return weight
   **/
   @JsonProperty("weight")
@@ -222,27 +298,27 @@ public class PokemonDetail  {
   }
 
  /**
-   * Get abilities
+   * A list of abilities this Pokémon could potentially have.
    * @return abilities
   **/
   @JsonProperty("abilities")
-  public List<PokemonDetailAbilitiesInner> getAbilities() {
+  public List<PokemonAbility> getAbilities() {
     return abilities;
   }
 
 
  /**
-   * Get pastAbilities
+   * A list of details showing abilities this pokémon had in previous generations
    * @return pastAbilities
   **/
   @JsonProperty("past_abilities")
-  public List<PokemonDetailPastAbilitiesInner> getPastAbilities() {
+  public List<PokemonPastAbility> getPastAbilities() {
     return pastAbilities;
   }
 
 
  /**
-   * Get forms
+   * A list of forms this Pokémon can take on.
    * @return forms
   **/
   @JsonProperty("forms")
@@ -252,7 +328,7 @@ public class PokemonDetail  {
 
 
  /**
-   * Get gameIndices
+   * A list of game indices relevent to Pokémon item by generation.
    * @return gameIndices
   **/
   @JsonProperty("game_indices")
@@ -262,25 +338,17 @@ public class PokemonDetail  {
 
 
  /**
-   * Get heldItems
+   * A list of items this Pokémon may be holding when encountered.
    * @return heldItems
   **/
   @JsonProperty("held_items")
-  public PokemonDetailHeldItems getHeldItems() {
+  public List<PokemonHeldItemSummary> getHeldItems() {
     return heldItems;
   }
 
-  public void setHeldItems(PokemonDetailHeldItems heldItems) {
-    this.heldItems = heldItems;
-  }
-
-  public PokemonDetail heldItems(PokemonDetailHeldItems heldItems) {
-    this.heldItems = heldItems;
-    return this;
-  }
 
  /**
-   * Get locationAreaEncounters
+   * A link to a list of location areas, as well as encounter details pertaining to specific versions.
    * @return locationAreaEncounters
   **/
   @JsonProperty("location_area_encounters")
@@ -290,17 +358,17 @@ public class PokemonDetail  {
 
 
  /**
-   * Get moves
+   * A list of moves along with learn methods and level details pertaining to specific version groups.
    * @return moves
   **/
   @JsonProperty("moves")
-  public List<PokemonDetailMovesInner> getMoves() {
+  public List<PokemonMove> getMoves() {
     return moves;
   }
 
 
  /**
-   * Get species
+   * The species this Pokémon belongs to.
    * @return species
   **/
   @JsonProperty("species")
@@ -318,43 +386,27 @@ public class PokemonDetail  {
   }
 
  /**
-   * Get sprites
+   * A set of sprites used to depict this Pokémon in the game. A visual representation of the various sprites can be found at &lt;a href&#x3D;&#39;https://github.com/PokeAPI/sprites#sprites&#39;&gt;PokeAPI/sprites&lt;/a&gt;
    * @return sprites
   **/
   @JsonProperty("sprites")
-  public PokemonDetailSprites getSprites() {
+  public PokemonSprites getSprites() {
     return sprites;
   }
 
-  public void setSprites(PokemonDetailSprites sprites) {
-    this.sprites = sprites;
-  }
-
-  public PokemonDetail sprites(PokemonDetailSprites sprites) {
-    this.sprites = sprites;
-    return this;
-  }
 
  /**
-   * Get cries
+   * A set of cries used to depict this Pokémon in the game. A visual representation of the various cries can be found at &lt;a href&#x3D;&#39;https://github.com/PokeAPI/cries#cries&#39;&gt;PokeAPI/cries&lt;/a&gt;
    * @return cries
   **/
   @JsonProperty("cries")
-  public PokemonDetailCries getCries() {
+  public PokemonCries getCries() {
     return cries;
   }
 
-  public void setCries(PokemonDetailCries cries) {
-    this.cries = cries;
-  }
-
-  public PokemonDetail cries(PokemonDetailCries cries) {
-    this.cries = cries;
-    return this;
-  }
 
  /**
-   * Get stats
+   * A list of base stat values for this Pokémon.
    * @return stats
   **/
   @JsonProperty("stats")
@@ -364,21 +416,31 @@ public class PokemonDetail  {
 
 
  /**
-   * Get types
+   * A list of details showing stats this pokémon had in previous generations
+   * @return pastStats
+  **/
+  @JsonProperty("past_stats")
+  public List<PokemonPastStat> getPastStats() {
+    return pastStats;
+  }
+
+
+ /**
+   * A list of details showing types this Pokémon has.
    * @return types
   **/
   @JsonProperty("types")
-  public List<PokemonDetailTypesInner> getTypes() {
+  public List<PokemonType> getTypes() {
     return types;
   }
 
 
  /**
-   * Get pastTypes
+   * A list of details showing types this pokémon had in previous generations
    * @return pastTypes
   **/
   @JsonProperty("past_types")
-  public List<PokemonDetailPastTypesInner> getPastTypes() {
+  public List<PokemonPastType> getPastTypes() {
     return pastTypes;
   }
 
@@ -410,13 +472,14 @@ public class PokemonDetail  {
         Objects.equals(this.sprites, pokemonDetail.sprites) &&
         Objects.equals(this.cries, pokemonDetail.cries) &&
         Objects.equals(this.stats, pokemonDetail.stats) &&
+        Objects.equals(this.pastStats, pokemonDetail.pastStats) &&
         Objects.equals(this.types, pokemonDetail.types) &&
         Objects.equals(this.pastTypes, pokemonDetail.pastTypes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, baseExperience, height, isDefault, order, weight, abilities, pastAbilities, forms, gameIndices, heldItems, locationAreaEncounters, moves, species, sprites, cries, stats, types, pastTypes);
+    return Objects.hash(id, name, baseExperience, height, isDefault, order, weight, abilities, pastAbilities, forms, gameIndices, heldItems, locationAreaEncounters, moves, species, sprites, cries, stats, pastStats, types, pastTypes);
   }
 
   @Override
@@ -442,6 +505,7 @@ public class PokemonDetail  {
     sb.append("    sprites: ").append(toIndentedString(sprites)).append("\n");
     sb.append("    cries: ").append(toIndentedString(cries)).append("\n");
     sb.append("    stats: ").append(toIndentedString(stats)).append("\n");
+    sb.append("    pastStats: ").append(toIndentedString(pastStats)).append("\n");
     sb.append("    types: ").append(toIndentedString(types)).append("\n");
     sb.append("    pastTypes: ").append(toIndentedString(pastTypes)).append("\n");
     sb.append("}");

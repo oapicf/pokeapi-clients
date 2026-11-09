@@ -5,11 +5,13 @@
 #include <cstring>
 #include <list>
 #include <glib.h>
+#include "CurrencyDetail.h"
 #include "ItemAttributeDetail.h"
 #include "ItemCategoryDetail.h"
 #include "ItemDetail.h"
 #include "ItemFlingEffectDetail.h"
 #include "ItemPocketDetail.h"
+#include "PaginatedCurrencySummaryList.h"
 #include "PaginatedItemAttributeSummaryList.h"
 #include "PaginatedItemCategorySummaryList.h"
 #include "PaginatedItemFlingEffectSummaryList.h"
@@ -32,6 +34,64 @@ class ItemsManager {
 public:
 	ItemsManager();
 	virtual ~ItemsManager();
+
+/*! \brief List currencies. *Synchronous*
+ *
+ * Currencies used to buy items.
+ * \param limit Number of results to return per page.
+ * \param offset The initial index from which to return the results.
+ * \param q > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+ * \param handler The callback function to be invoked on completion. *Required*
+ * \param accessToken The Authorization token. *Required*
+ * \param userData The user data to be passed to the callback function.
+ */
+bool currencyListSync(char * accessToken,
+	int limit, int offset, std::string q, 
+	void(* handler)(PaginatedCurrencySummaryList, Error, void* )
+	, void* userData);
+
+/*! \brief List currencies. *Asynchronous*
+ *
+ * Currencies used to buy items.
+ * \param limit Number of results to return per page.
+ * \param offset The initial index from which to return the results.
+ * \param q > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+ * \param handler The callback function to be invoked on completion. *Required*
+ * \param accessToken The Authorization token. *Required*
+ * \param userData The user data to be passed to the callback function.
+ */
+bool currencyListAsync(char * accessToken,
+	int limit, int offset, std::string q, 
+	void(* handler)(PaginatedCurrencySummaryList, Error, void* )
+	, void* userData);
+
+
+/*! \brief Get currency. *Synchronous*
+ *
+ * Currencies used to buy items.
+ * \param id This parameter can be a string or an integer. *Required*
+ * \param handler The callback function to be invoked on completion. *Required*
+ * \param accessToken The Authorization token. *Required*
+ * \param userData The user data to be passed to the callback function.
+ */
+bool currencyRetrieveSync(char * accessToken,
+	std::string id, 
+	void(* handler)(CurrencyDetail, Error, void* )
+	, void* userData);
+
+/*! \brief Get currency. *Asynchronous*
+ *
+ * Currencies used to buy items.
+ * \param id This parameter can be a string or an integer. *Required*
+ * \param handler The callback function to be invoked on completion. *Required*
+ * \param accessToken The Authorization token. *Required*
+ * \param userData The user data to be passed to the callback function.
+ */
+bool currencyRetrieveAsync(char * accessToken,
+	std::string id, 
+	void(* handler)(CurrencyDetail, Error, void* )
+	, void* userData);
+
 
 /*! \brief List item attributes. *Synchronous*
  *

@@ -7,21 +7,21 @@
 #' @title ItemDetail
 #' @description ItemDetail Class
 #' @format An \code{R6Class} generator object
-#' @field id  integer
-#' @field name  character
-#' @field cost  integer [optional]
-#' @field fling_power  integer [optional]
-#' @field fling_effect  \link{ItemFlingEffectSummary}
-#' @field attributes  list(\link{AbilityDetailPokemonInnerPokemon})
-#' @field category  \link{ItemCategorySummary}
-#' @field effect_entries  list(\link{ItemEffectText})
-#' @field flavor_text_entries  list(\link{ItemFlavorText})
-#' @field game_indices  list(\link{ItemGameIndex})
-#' @field names  list(\link{ItemName})
-#' @field held_by_pokemon  list(\link{ItemDetailHeldByPokemonInner})
-#' @field sprites  \link{ItemDetailSprites}
-#' @field baby_trigger_for  \link{ItemDetailBabyTriggerFor}
-#' @field machines  list(\link{ItemDetailMachinesInner})
+#' @field id The identifier for this resource. integer
+#' @field name The name for this resource. character
+#' @field fling_power The power of the move Fling when used with this item. integer [optional]
+#' @field fling_effect The effect of the move Fling when used with this item. \link{ItemFlingEffectSummary}
+#' @field attributes A list of attributes this item has. list(\link{ItemAttributeSummary})
+#' @field category The category of items this item falls into. \link{ItemCategorySummary}
+#' @field effect_entries The effect of this ability listed in different languages. list(\link{ItemEffectText})
+#' @field flavor_text_entries The flavor text of this ability listed in different languages. list(\link{ItemFlavorText})
+#' @field game_indices A list of game indices relevent to this item by generation. list(\link{ItemGameIndex})
+#' @field prices Purchase and sell prices by currency and version group. Prices may be null when the item cannot be bought or sold. list(\link{ItemPrice})
+#' @field names The name of this item listed in different languages. list(\link{ItemName})
+#' @field held_by_pokemon A list of Pokémon that might be found in the wild holding this item. list(\link{PokemonHeldItem})
+#' @field sprites A set of sprites used to depict this item in the game. \link{ItemSprites}
+#' @field baby_trigger_for An evolution chain this item requires to produce a bay during mating. \link{EvolutionChainSummary}
+#' @field machines A list of the machines related to this item. list(\link{ItemMachine})
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -30,7 +30,6 @@ ItemDetail <- R6::R6Class(
   public = list(
     `id` = NULL,
     `name` = NULL,
-    `cost` = NULL,
     `fling_power` = NULL,
     `fling_effect` = NULL,
     `attributes` = NULL,
@@ -38,6 +37,7 @@ ItemDetail <- R6::R6Class(
     `effect_entries` = NULL,
     `flavor_text_entries` = NULL,
     `game_indices` = NULL,
+    `prices` = NULL,
     `names` = NULL,
     `held_by_pokemon` = NULL,
     `sprites` = NULL,
@@ -47,23 +47,23 @@ ItemDetail <- R6::R6Class(
     #' @description
     #' Initialize a new ItemDetail class.
     #'
-    #' @param id id
-    #' @param name name
-    #' @param fling_effect fling_effect
-    #' @param attributes attributes
-    #' @param category category
-    #' @param effect_entries effect_entries
-    #' @param flavor_text_entries flavor_text_entries
-    #' @param game_indices game_indices
-    #' @param names names
-    #' @param held_by_pokemon held_by_pokemon
-    #' @param sprites sprites
-    #' @param baby_trigger_for baby_trigger_for
-    #' @param machines machines
-    #' @param cost cost
-    #' @param fling_power fling_power
+    #' @param id The identifier for this resource.
+    #' @param name The name for this resource.
+    #' @param fling_effect The effect of the move Fling when used with this item.
+    #' @param attributes A list of attributes this item has.
+    #' @param category The category of items this item falls into.
+    #' @param effect_entries The effect of this ability listed in different languages.
+    #' @param flavor_text_entries The flavor text of this ability listed in different languages.
+    #' @param game_indices A list of game indices relevent to this item by generation.
+    #' @param prices Purchase and sell prices by currency and version group. Prices may be null when the item cannot be bought or sold.
+    #' @param names The name of this item listed in different languages.
+    #' @param held_by_pokemon A list of Pokémon that might be found in the wild holding this item.
+    #' @param sprites A set of sprites used to depict this item in the game.
+    #' @param baby_trigger_for An evolution chain this item requires to produce a bay during mating.
+    #' @param machines A list of the machines related to this item.
+    #' @param fling_power The power of the move Fling when used with this item.
     #' @param ... Other optional arguments.
-    initialize = function(`id`, `name`, `fling_effect`, `attributes`, `category`, `effect_entries`, `flavor_text_entries`, `game_indices`, `names`, `held_by_pokemon`, `sprites`, `baby_trigger_for`, `machines`, `cost` = NULL, `fling_power` = NULL, ...) {
+    initialize = function(`id`, `name`, `fling_effect`, `attributes`, `category`, `effect_entries`, `flavor_text_entries`, `game_indices`, `prices`, `names`, `held_by_pokemon`, `sprites`, `baby_trigger_for`, `machines`, `fling_power` = NULL, ...) {
       if (!missing(`id`)) {
         if (!(is.numeric(`id`) && length(`id`) == 1)) {
           stop(paste("Error! Invalid data for `id`. Must be an integer:", `id`))
@@ -104,6 +104,11 @@ ItemDetail <- R6::R6Class(
         sapply(`game_indices`, function(x) stopifnot(R6::is.R6(x)))
         self$`game_indices` <- `game_indices`
       }
+      if (!missing(`prices`)) {
+        stopifnot(is.vector(`prices`), length(`prices`) != 0)
+        sapply(`prices`, function(x) stopifnot(R6::is.R6(x)))
+        self$`prices` <- `prices`
+      }
       if (!missing(`names`)) {
         stopifnot(is.vector(`names`), length(`names`) != 0)
         sapply(`names`, function(x) stopifnot(R6::is.R6(x)))
@@ -126,12 +131,6 @@ ItemDetail <- R6::R6Class(
         stopifnot(is.vector(`machines`), length(`machines`) != 0)
         sapply(`machines`, function(x) stopifnot(R6::is.R6(x)))
         self$`machines` <- `machines`
-      }
-      if (!is.null(`cost`)) {
-        if (!(is.numeric(`cost`) && length(`cost`) == 1)) {
-          stop(paste("Error! Invalid data for `cost`. Must be an integer:", `cost`))
-        }
-        self$`cost` <- `cost`
       }
       if (!is.null(`fling_power`)) {
         if (!(is.numeric(`fling_power`) && length(`fling_power`) == 1)) {
@@ -180,10 +179,6 @@ ItemDetail <- R6::R6Class(
         ItemDetailObject[["name"]] <-
           self$`name`
       }
-      if (!is.null(self$`cost`)) {
-        ItemDetailObject[["cost"]] <-
-          self$`cost`
-      }
       if (!is.null(self$`fling_power`)) {
         ItemDetailObject[["fling_power"]] <-
           self$`fling_power`
@@ -211,6 +206,10 @@ ItemDetail <- R6::R6Class(
       if (!is.null(self$`game_indices`)) {
         ItemDetailObject[["game_indices"]] <-
           self$extractSimpleType(self$`game_indices`)
+      }
+      if (!is.null(self$`prices`)) {
+        ItemDetailObject[["prices"]] <-
+          self$extractSimpleType(self$`prices`)
       }
       if (!is.null(self$`names`)) {
         ItemDetailObject[["names"]] <-
@@ -271,9 +270,6 @@ ItemDetail <- R6::R6Class(
       if (!is.null(this_object$`name`)) {
         self$`name` <- this_object$`name`
       }
-      if (!is.null(this_object$`cost`)) {
-        self$`cost` <- this_object$`cost`
-      }
       if (!is.null(this_object$`fling_power`)) {
         self$`fling_power` <- this_object$`fling_power`
       }
@@ -283,7 +279,7 @@ ItemDetail <- R6::R6Class(
         self$`fling_effect` <- `fling_effect_object`
       }
       if (!is.null(this_object$`attributes`)) {
-        self$`attributes` <- ApiClient$new()$deserializeObj(this_object$`attributes`, "array[AbilityDetailPokemonInnerPokemon]", loadNamespace("openapi"))
+        self$`attributes` <- ApiClient$new()$deserializeObj(this_object$`attributes`, "array[ItemAttributeSummary]", loadNamespace("openapi"))
       }
       if (!is.null(this_object$`category`)) {
         `category_object` <- ItemCategorySummary$new()
@@ -299,24 +295,27 @@ ItemDetail <- R6::R6Class(
       if (!is.null(this_object$`game_indices`)) {
         self$`game_indices` <- ApiClient$new()$deserializeObj(this_object$`game_indices`, "array[ItemGameIndex]", loadNamespace("openapi"))
       }
+      if (!is.null(this_object$`prices`)) {
+        self$`prices` <- ApiClient$new()$deserializeObj(this_object$`prices`, "array[ItemPrice]", loadNamespace("openapi"))
+      }
       if (!is.null(this_object$`names`)) {
         self$`names` <- ApiClient$new()$deserializeObj(this_object$`names`, "array[ItemName]", loadNamespace("openapi"))
       }
       if (!is.null(this_object$`held_by_pokemon`)) {
-        self$`held_by_pokemon` <- ApiClient$new()$deserializeObj(this_object$`held_by_pokemon`, "array[ItemDetailHeldByPokemonInner]", loadNamespace("openapi"))
+        self$`held_by_pokemon` <- ApiClient$new()$deserializeObj(this_object$`held_by_pokemon`, "array[PokemonHeldItem]", loadNamespace("openapi"))
       }
       if (!is.null(this_object$`sprites`)) {
-        `sprites_object` <- ItemDetailSprites$new()
+        `sprites_object` <- ItemSprites$new()
         `sprites_object`$fromJSON(jsonlite::toJSON(this_object$`sprites`, auto_unbox = TRUE, digits = NA))
         self$`sprites` <- `sprites_object`
       }
       if (!is.null(this_object$`baby_trigger_for`)) {
-        `baby_trigger_for_object` <- ItemDetailBabyTriggerFor$new()
+        `baby_trigger_for_object` <- EvolutionChainSummary$new()
         `baby_trigger_for_object`$fromJSON(jsonlite::toJSON(this_object$`baby_trigger_for`, auto_unbox = TRUE, digits = NA))
         self$`baby_trigger_for` <- `baby_trigger_for_object`
       }
       if (!is.null(this_object$`machines`)) {
-        self$`machines` <- ApiClient$new()$deserializeObj(this_object$`machines`, "array[ItemDetailMachinesInner]", loadNamespace("openapi"))
+        self$`machines` <- ApiClient$new()$deserializeObj(this_object$`machines`, "array[ItemMachine]", loadNamespace("openapi"))
       }
       self
     },
@@ -341,19 +340,19 @@ ItemDetail <- R6::R6Class(
       this_object <- jsonlite::fromJSON(input_json)
       self$`id` <- this_object$`id`
       self$`name` <- this_object$`name`
-      self$`cost` <- this_object$`cost`
       self$`fling_power` <- this_object$`fling_power`
       self$`fling_effect` <- ItemFlingEffectSummary$new()$fromJSON(jsonlite::toJSON(this_object$`fling_effect`, auto_unbox = TRUE, digits = NA))
-      self$`attributes` <- ApiClient$new()$deserializeObj(this_object$`attributes`, "array[AbilityDetailPokemonInnerPokemon]", loadNamespace("openapi"))
+      self$`attributes` <- ApiClient$new()$deserializeObj(this_object$`attributes`, "array[ItemAttributeSummary]", loadNamespace("openapi"))
       self$`category` <- ItemCategorySummary$new()$fromJSON(jsonlite::toJSON(this_object$`category`, auto_unbox = TRUE, digits = NA))
       self$`effect_entries` <- ApiClient$new()$deserializeObj(this_object$`effect_entries`, "array[ItemEffectText]", loadNamespace("openapi"))
       self$`flavor_text_entries` <- ApiClient$new()$deserializeObj(this_object$`flavor_text_entries`, "array[ItemFlavorText]", loadNamespace("openapi"))
       self$`game_indices` <- ApiClient$new()$deserializeObj(this_object$`game_indices`, "array[ItemGameIndex]", loadNamespace("openapi"))
+      self$`prices` <- ApiClient$new()$deserializeObj(this_object$`prices`, "array[ItemPrice]", loadNamespace("openapi"))
       self$`names` <- ApiClient$new()$deserializeObj(this_object$`names`, "array[ItemName]", loadNamespace("openapi"))
-      self$`held_by_pokemon` <- ApiClient$new()$deserializeObj(this_object$`held_by_pokemon`, "array[ItemDetailHeldByPokemonInner]", loadNamespace("openapi"))
-      self$`sprites` <- ItemDetailSprites$new()$fromJSON(jsonlite::toJSON(this_object$`sprites`, auto_unbox = TRUE, digits = NA))
-      self$`baby_trigger_for` <- ItemDetailBabyTriggerFor$new()$fromJSON(jsonlite::toJSON(this_object$`baby_trigger_for`, auto_unbox = TRUE, digits = NA))
-      self$`machines` <- ApiClient$new()$deserializeObj(this_object$`machines`, "array[ItemDetailMachinesInner]", loadNamespace("openapi"))
+      self$`held_by_pokemon` <- ApiClient$new()$deserializeObj(this_object$`held_by_pokemon`, "array[PokemonHeldItem]", loadNamespace("openapi"))
+      self$`sprites` <- ItemSprites$new()$fromJSON(jsonlite::toJSON(this_object$`sprites`, auto_unbox = TRUE, digits = NA))
+      self$`baby_trigger_for` <- EvolutionChainSummary$new()$fromJSON(jsonlite::toJSON(this_object$`baby_trigger_for`, auto_unbox = TRUE, digits = NA))
+      self$`machines` <- ApiClient$new()$deserializeObj(this_object$`machines`, "array[ItemMachine]", loadNamespace("openapi"))
       self
     },
 
@@ -419,6 +418,13 @@ ItemDetail <- R6::R6Class(
       } else {
         stop(paste("The JSON input `", input, "` is invalid for ItemDetail: the required field `game_indices` is missing."))
       }
+      # check the required field `prices`
+      if (!is.null(input_json$`prices`)) {
+        stopifnot(is.vector(input_json$`prices`), length(input_json$`prices`) != 0)
+        tmp <- sapply(input_json$`prices`, function(x) stopifnot(R6::is.R6(x)))
+      } else {
+        stop(paste("The JSON input `", input, "` is invalid for ItemDetail: the required field `prices` is missing."))
+      }
       # check the required field `names`
       if (!is.null(input_json$`names`)) {
         stopifnot(is.vector(input_json$`names`), length(input_json$`names`) != 0)
@@ -477,12 +483,14 @@ ItemDetail <- R6::R6Class(
         return(FALSE)
       }
 
-      if (nchar(self$`name`) > 100) {
+      if (nchar(self$`name`) > 200) {
         return(FALSE)
       }
 
-      # check if the required `fling_effect` is null
-      if (is.null(self$`fling_effect`)) {
+      if (self$`fling_power` > 2147483647) {
+        return(FALSE)
+      }
+      if (self$`fling_power` < -2147483648) {
         return(FALSE)
       }
 
@@ -511,6 +519,11 @@ ItemDetail <- R6::R6Class(
         return(FALSE)
       }
 
+      # check if the required `prices` is null
+      if (is.null(self$`prices`)) {
+        return(FALSE)
+      }
+
       # check if the required `names` is null
       if (is.null(self$`names`)) {
         return(FALSE)
@@ -523,11 +536,6 @@ ItemDetail <- R6::R6Class(
 
       # check if the required `sprites` is null
       if (is.null(self$`sprites`)) {
-        return(FALSE)
-      }
-
-      # check if the required `baby_trigger_for` is null
-      if (is.null(self$`baby_trigger_for`)) {
         return(FALSE)
       }
 
@@ -555,13 +563,15 @@ ItemDetail <- R6::R6Class(
         invalid_fields["name"] <- "Non-nullable required field `name` cannot be null."
       }
 
-      if (nchar(self$`name`) > 100) {
-        invalid_fields["name"] <- "Invalid length for `name`, must be smaller than or equal to 100."
+      if (nchar(self$`name`) > 200) {
+        invalid_fields["name"] <- "Invalid length for `name`, must be smaller than or equal to 200."
       }
 
-      # check if the required `fling_effect` is null
-      if (is.null(self$`fling_effect`)) {
-        invalid_fields["fling_effect"] <- "Non-nullable required field `fling_effect` cannot be null."
+      if (self$`fling_power` > 2147483647) {
+        invalid_fields["fling_power"] <- "Invalid value for `fling_power`, must be smaller than or equal to 2147483647."
+      }
+      if (self$`fling_power` < -2147483648) {
+        invalid_fields["fling_power"] <- "Invalid value for `fling_power`, must be bigger than or equal to -2147483648."
       }
 
       # check if the required `attributes` is null
@@ -589,6 +599,11 @@ ItemDetail <- R6::R6Class(
         invalid_fields["game_indices"] <- "Non-nullable required field `game_indices` cannot be null."
       }
 
+      # check if the required `prices` is null
+      if (is.null(self$`prices`)) {
+        invalid_fields["prices"] <- "Non-nullable required field `prices` cannot be null."
+      }
+
       # check if the required `names` is null
       if (is.null(self$`names`)) {
         invalid_fields["names"] <- "Non-nullable required field `names` cannot be null."
@@ -602,11 +617,6 @@ ItemDetail <- R6::R6Class(
       # check if the required `sprites` is null
       if (is.null(self$`sprites`)) {
         invalid_fields["sprites"] <- "Non-nullable required field `sprites` cannot be null."
-      }
-
-      # check if the required `baby_trigger_for` is null
-      if (is.null(self$`baby_trigger_for`)) {
-        invalid_fields["baby_trigger_for"] <- "Non-nullable required field `baby_trigger_for` cannot be null."
       }
 
       # check if the required `machines` is null

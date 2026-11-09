@@ -1,0 +1,19 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "LocationAreaEncounterVersionDetail",
+  "fields": [
+    {
+      "name": "rate",
+      "type": "int",
+      "doc": "The chance of an encounter to occur."
+    },
+    {
+      "name": "version",
+      "type": "model.VersionSummary",
+      "doc": "The version of the game in which the encounter can occur with the given chance."
+    }
+  ]
+
+}

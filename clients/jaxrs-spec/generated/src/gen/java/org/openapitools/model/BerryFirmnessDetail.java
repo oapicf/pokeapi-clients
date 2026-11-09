@@ -21,7 +21,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("BerryFirmnessDetail")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-11-09T13:50:06.168269698Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class BerryFirmnessDetail   {
   private Integer id;
   private String name;
@@ -45,6 +45,7 @@ public class BerryFirmnessDetail   {
   }
 
   /**
+   * The identifier for this resource.
    **/
   public BerryFirmnessDetail id(Integer id) {
     this.id = id;
@@ -52,7 +53,7 @@ public class BerryFirmnessDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   @JsonProperty(required = true, value = "id")
   public Integer getId() {
     return id;
@@ -64,6 +65,7 @@ public class BerryFirmnessDetail   {
   }
 
   /**
+   * The name for this resource.
    **/
   public BerryFirmnessDetail name(String name) {
     this.name = name;
@@ -71,9 +73,9 @@ public class BerryFirmnessDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   @JsonProperty(required = true, value = "name")
-  @NotNull  @Size(max=100)public String getName() {
+  @NotNull  @Size(max=200)public String getName() {
     return name;
   }
 
@@ -83,6 +85,7 @@ public class BerryFirmnessDetail   {
   }
 
   /**
+   * A list of the berries with this firmness.
    **/
   public BerryFirmnessDetail berries(List<@Valid BerrySummary> berries) {
     this.berries = berries;
@@ -90,7 +93,7 @@ public class BerryFirmnessDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of the berries with this firmness.")
   @JsonProperty(required = true, value = "berries")
   public List<@Valid BerrySummary> getBerries() {
     return berries;
@@ -118,6 +121,7 @@ public class BerryFirmnessDetail   {
     return this;
   }
   /**
+   * The name of this resource listed in different languages.
    **/
   public BerryFirmnessDetail names(List<@Valid BerryFirmnessName> names) {
     this.names = names;
@@ -125,7 +129,7 @@ public class BerryFirmnessDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
   @JsonProperty(required = true, value = "names")
   public List<@Valid BerryFirmnessName> getNames() {
     return names;

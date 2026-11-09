@@ -19,7 +19,6 @@ defmodule PokéAPI.Api.Evolution do
   - `opts` (keyword): Optional parameters
     - `:limit` (integer()): Number of results to return per page.
     - `:offset` (integer()): The initial index from which to return the results.
-    - `:q` (String.t): > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
 
   ### Returns
 
@@ -30,8 +29,7 @@ defmodule PokéAPI.Api.Evolution do
   def evolution_chain_list(connection, opts \\ []) do
     optional_params = %{
       :limit => :query,
-      :offset => :query,
-      :q => :query
+      :offset => :query
     }
 
     request =
@@ -148,6 +146,77 @@ defmodule PokéAPI.Api.Evolution do
     |> Connection.request(request)
     |> evaluate_response([
       {200, PokéAPI.Model.EvolutionTriggerDetail}
+    ])
+  end
+
+  @doc """
+  List evolution variables
+  Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+
+  ### Parameters
+
+  - `connection` (PokéAPI.Connection): Connection to server
+  - `opts` (keyword): Optional parameters
+    - `:limit` (integer()): Number of results to return per page.
+    - `:offset` (integer()): The initial index from which to return the results.
+    - `:q` (String.t): > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+
+  ### Returns
+
+  - `{:ok, PokéAPI.Model.PaginatedEvolutionVariableSummaryList.t}` on success
+  - `{:error, Tesla.Env.t}` on failure
+  """
+  @spec evolution_variable_list(Tesla.Env.client, keyword()) :: {:ok, PokéAPI.Model.PaginatedEvolutionVariableSummaryList.t} | {:error, Tesla.Env.t}
+  def evolution_variable_list(connection, opts \\ []) do
+    optional_params = %{
+      :limit => :query,
+      :offset => :query,
+      :q => :query
+    }
+
+    request =
+      %{}
+      |> method(:get)
+      |> url("/api/v2/evolution-variable/")
+      |> add_optional_params(optional_params, opts)
+      |> finalize_request()
+      |> Enum.into([])
+
+    connection
+    |> Connection.request(request)
+    |> evaluate_response([
+      {200, PokéAPI.Model.PaginatedEvolutionVariableSummaryList}
+    ])
+  end
+
+  @doc """
+  Get evolution variable
+  Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+
+  ### Parameters
+
+  - `connection` (PokéAPI.Connection): Connection to server
+  - `id` (String.t): This parameter can be a string or an integer.
+  - `opts` (keyword): Optional parameters
+
+  ### Returns
+
+  - `{:ok, PokéAPI.Model.EvolutionVariableDetail.t}` on success
+  - `{:error, Tesla.Env.t}` on failure
+  """
+  @spec evolution_variable_retrieve(Tesla.Env.client, String.t, keyword()) :: {:ok, PokéAPI.Model.EvolutionVariableDetail.t} | {:error, Tesla.Env.t}
+  def evolution_variable_retrieve(connection, id, _opts \\ []) do
+    request =
+      %{}
+      |> method(:get)
+      |> url("/api/v2/evolution-variable/#{id}/")
+      |> finalize_request()
+      |> Enum.into([])
+
+    connection
+    |> Connection.request(request)
+    |> evaluate_response([
+      {200, PokéAPI.Model.EvolutionVariableDetail}
     ])
   end
 end

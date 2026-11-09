@@ -8,7 +8,7 @@ module.exports = {
         return [
             {
                 key: `${keyPrefix}flavor_text`,
-                label: `[${labelPrefix}flavor_text]`,
+                label: `The localized flavor text for an API resource in a specific language. Note that this text is left unprocessed as it is found in game files. This means that it contains special characters that one might want to replace with their visible decodable version. Please check out this <a href='https://github.com/veekun/pokedex/issues/218#issuecomment-339841781' >issue</a> to find out more.  - [${labelPrefix}flavor_text]`,
                 required: true,
                 type: 'string',
             },

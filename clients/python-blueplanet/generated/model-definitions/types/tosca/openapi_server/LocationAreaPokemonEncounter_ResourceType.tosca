@@ -1,0 +1,43 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server LocationAreaPokemonEncounter"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a LocationAreaPokemonEncounter"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  LocationAreaPokemonEncounterVersion = openapi_server.resourceTypes.LocationAreaPokemonEncounterVersion
+  PokemonSummary = openapi_server.resourceTypes.PokemonSummary
+}
+resourceTypes {
+
+  LocationAreaPokemonEncounter {
+    title = LocationAreaPokemonEncounter
+    description = LocationAreaPokemonEncounter
+    derivedFrom = Root
+    properties {
+        pokemon {
+          type = PokemonSummary
+          description = "The Pokémon being encountered."
+          optional = true
+        }
+        version_details {
+          type = array
+          items.type = LocationAreaPokemonEncounterVersion
+          description = "A list of versions and encounters with Pokémon that might happen in the referenced location area."
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  LocationAreaPokemonEncounter {
+    title = LocationAreaPokemonEncounter
+    description = LocationAreaPokemonEncounter
+    implements = openapi_server.resourceTypes.LocationAreaPokemonEncounter
+
+  }
+}

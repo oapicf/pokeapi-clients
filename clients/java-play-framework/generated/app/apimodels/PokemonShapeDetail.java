@@ -1,7 +1,7 @@
 package apimodels;
 
-import apimodels.PokemonShapeDetailAwesomeNamesInner;
-import apimodels.PokemonShapeDetailNamesInner;
+import apimodels.PokemonShapeAwesomeName;
+import apimodels.PokemonShapeName;
 import apimodels.PokemonSpeciesSummary;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -15,7 +15,7 @@ import javax.validation.Valid;
 /**
  * PokemonShapeDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-10-25T05:48:13.486809836Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-11-09T13:49:31.462302702Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class PokemonShapeDetail   {
   @JsonProperty("id")
@@ -25,7 +25,7 @@ public class PokemonShapeDetail   {
 
   @JsonProperty("name")
   @NotNull
-@Size(max=100)
+@Size(max=200)
 
   private String name;
 
@@ -33,13 +33,13 @@ public class PokemonShapeDetail   {
   @NotNull
 @Valid
 
-  private List<@Valid PokemonShapeDetailAwesomeNamesInner> awesomeNames = new ArrayList<>();
+  private List<@Valid PokemonShapeAwesomeName> awesomeNames = new ArrayList<>();
 
   @JsonProperty("names")
   @NotNull
 @Valid
 
-  private List<@Valid PokemonShapeDetailNamesInner> names = new ArrayList<>();
+  private List<@Valid PokemonShapeName> names = new ArrayList<>();
 
   @JsonProperty("pokemon_species")
   @NotNull
@@ -53,7 +53,7 @@ public class PokemonShapeDetail   {
   }
 
    /**
-   * Get id
+   * The identifier for this resource.
    * @return id
   **/
   public Integer getId() {
@@ -70,7 +70,7 @@ public class PokemonShapeDetail   {
   }
 
    /**
-   * Get name
+   * The name for this resource.
    * @return name
   **/
   public String getName() {
@@ -81,12 +81,12 @@ public class PokemonShapeDetail   {
     this.name = name;
   }
 
-  public PokemonShapeDetail awesomeNames(List<@Valid PokemonShapeDetailAwesomeNamesInner> awesomeNames) {
+  public PokemonShapeDetail awesomeNames(List<@Valid PokemonShapeAwesomeName> awesomeNames) {
     this.awesomeNames = awesomeNames;
     return this;
   }
 
-  public PokemonShapeDetail addAwesomeNamesItem(PokemonShapeDetailAwesomeNamesInner awesomeNamesItem) {
+  public PokemonShapeDetail addAwesomeNamesItem(PokemonShapeAwesomeName awesomeNamesItem) {
     if (this.awesomeNames == null) {
       this.awesomeNames = new ArrayList<>();
     }
@@ -95,23 +95,23 @@ public class PokemonShapeDetail   {
   }
 
    /**
-   * Get awesomeNames
+   * The \"scientific\" name of this Pokémon shape listed in different languages.
    * @return awesomeNames
   **/
-  public List<@Valid PokemonShapeDetailAwesomeNamesInner> getAwesomeNames() {
+  public List<@Valid PokemonShapeAwesomeName> getAwesomeNames() {
     return awesomeNames;
   }
 
-  public void setAwesomeNames(List<@Valid PokemonShapeDetailAwesomeNamesInner> awesomeNames) {
+  public void setAwesomeNames(List<@Valid PokemonShapeAwesomeName> awesomeNames) {
     this.awesomeNames = awesomeNames;
   }
 
-  public PokemonShapeDetail names(List<@Valid PokemonShapeDetailNamesInner> names) {
+  public PokemonShapeDetail names(List<@Valid PokemonShapeName> names) {
     this.names = names;
     return this;
   }
 
-  public PokemonShapeDetail addNamesItem(PokemonShapeDetailNamesInner namesItem) {
+  public PokemonShapeDetail addNamesItem(PokemonShapeName namesItem) {
     if (this.names == null) {
       this.names = new ArrayList<>();
     }
@@ -120,14 +120,14 @@ public class PokemonShapeDetail   {
   }
 
    /**
-   * Get names
+   * The name of this resource listed in different languages.
    * @return names
   **/
-  public List<@Valid PokemonShapeDetailNamesInner> getNames() {
+  public List<@Valid PokemonShapeName> getNames() {
     return names;
   }
 
-  public void setNames(List<@Valid PokemonShapeDetailNamesInner> names) {
+  public void setNames(List<@Valid PokemonShapeName> names) {
     this.names = names;
   }
 
@@ -145,7 +145,7 @@ public class PokemonShapeDetail   {
   }
 
    /**
-   * Get pokemonSpecies
+   * A list of the Pokémon species that have this shape.
    * @return pokemonSpecies
   **/
   public List<@Valid PokemonSpeciesSummary> getPokemonSpecies() {

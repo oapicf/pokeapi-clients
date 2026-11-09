@@ -15,13 +15,15 @@
                 
                 
                 ; [@key "entry_number"]
-                                              pokedex: Pokedex_summary.t
+                    (** The index number within the Pokédex. *)
+                                      pokedex: Pokedex_summary.t
                   
                   
                 
                 
                 ; [@key "pokedex"]
-                        } [@@deriving yojson { strict = false }, show, eq ];;
+                    (** The Pokédex the referenced Pokémon species can be found in. *)
+                } [@@deriving yojson { strict = false }, show, eq ];;
         
         let create (entry_number : int32) (pokedex : Pokedex_summary.t) : t = {
             entry_number = entry_number;

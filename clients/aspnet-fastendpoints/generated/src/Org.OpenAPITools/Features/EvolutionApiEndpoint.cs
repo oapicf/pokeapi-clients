@@ -26,7 +26,6 @@ public class EvolutionChainListEndpoint : FastEndpoints.Endpoint<EvolutionChainL
             s.Summary = "List evolution chains";
             s.RequestParam(r => r.Limit, "Number of results to return per page.");
             s.RequestParam(r => r.Offset, "The initial index from which to return the results.");
-            s.RequestParam(r => r.Q, "&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ");
             s.Responses[200] = "";
         });
     }
@@ -142,6 +141,80 @@ public class EvolutionTriggerRetrieveEndpoint : FastEndpoints.Endpoint<Evolution
     }
 
     public override async Task HandleAsync(EvolutionTriggerRetrieveRequest req, CancellationToken ct)
+    {
+        //Response = new()
+        //{
+            //...
+        //};
+        //return Task.CompletedTask;
+    }
+}
+
+
+/// <summary>
+/// List evolution variables
+/// </summary>
+
+public class EvolutionVariableListEndpoint : FastEndpoints.Endpoint<EvolutionVariableListRequest, PaginatedEvolutionVariableSummaryList>
+{
+    public override void Configure()
+    {
+        Get("/api/v2/evolution-variable/");
+        
+        
+        AllowAnonymous();
+        
+        Description(x =>
+        {
+            x.WithTags("evolution");
+        });
+
+        Summary(s => {
+            s.Summary = "List evolution variables";
+            s.RequestParam(r => r.Limit, "Number of results to return per page.");
+            s.RequestParam(r => r.Offset, "The initial index from which to return the results.");
+            s.RequestParam(r => r.Q, "&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ");
+            s.Responses[200] = "";
+        });
+    }
+
+    public override async Task HandleAsync(EvolutionVariableListRequest req, CancellationToken ct)
+    {
+        //Response = new()
+        //{
+            //...
+        //};
+        //return Task.CompletedTask;
+    }
+}
+
+
+/// <summary>
+/// Get evolution variable
+/// </summary>
+
+public class EvolutionVariableRetrieveEndpoint : FastEndpoints.Endpoint<EvolutionVariableRetrieveRequest, EvolutionVariableDetail>
+{
+    public override void Configure()
+    {
+        Get("/api/v2/evolution-variable/{id}/");
+        
+        
+        AllowAnonymous();
+        
+        Description(x =>
+        {
+            x.WithTags("evolution");
+        });
+
+        Summary(s => {
+            s.Summary = "Get evolution variable";
+            s.RequestParam(r => r.Id, "This parameter can be a string or an integer.");
+            s.Responses[200] = "";
+        });
+    }
+
+    public override async Task HandleAsync(EvolutionVariableRetrieveRequest req, CancellationToken ct)
     {
         //Response = new()
         //{

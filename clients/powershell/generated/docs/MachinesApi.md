@@ -13,7 +13,6 @@ Method | HTTP request | Description
 > PaginatedMachineSummaryList Invoke-MachineList<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Offset] <System.Nullable[Int32]><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Q] <String><br>
 
 List machines
 
@@ -21,24 +20,12 @@ Machines are the representation of items that teach moves to Pokémon. They vary
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure HTTP basic authorization: basicAuth
-$Configuration.Username = "YOUR_USERNAME"
-$Configuration.Password = "YOUR_PASSWORD"
-
-# Configure API key authorization: cookieAuth
-$Configuration.ApiKey.sessionid = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.sessionid = "Bearer"
-
 $Limit = 56 # Int32 | Number of results to return per page. (optional)
 $Offset = 56 # Int32 | The initial index from which to return the results. (optional)
-$Q = "MyQ" # String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
 
 # List machines
 try {
-    $Result = Invoke-MachineList -Limit $Limit -Offset $Offset -Q $Q
+    $Result = Invoke-MachineList -Limit $Limit -Offset $Offset
 } catch {
     Write-Host ("Exception occurred when calling Invoke-MachineList: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -51,7 +38,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **Limit** | **Int32**| Number of results to return per page. | [optional] 
  **Offset** | **Int32**| The initial index from which to return the results. | [optional] 
- **Q** | **String**| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional] 
 
 ### Return type
 
@@ -59,7 +45,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -79,18 +65,7 @@ Machines are the representation of items that teach moves to Pokémon. They vary
 
 ### Example
 ```powershell
-# general setting of the PowerShell module, e.g. base URL, authentication, etc
-$Configuration = Get-Configuration
-# Configure HTTP basic authorization: basicAuth
-$Configuration.Username = "YOUR_USERNAME"
-$Configuration.Password = "YOUR_PASSWORD"
-
-# Configure API key authorization: cookieAuth
-$Configuration.ApiKey.sessionid = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration.ApiKeyPrefix.sessionid = "Bearer"
-
-$Id = "MyId" # String | This parameter can be a string or an integer.
+$Id = "1" # String | This parameter can be a string or an integer.
 
 # Get machine
 try {
@@ -113,7 +88,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

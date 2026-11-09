@@ -12,11 +12,11 @@
         names=nothing,
     )
 
-    - id::Int64
-    - name::String
-    - descriptions::Vector{MoveDamageClassDescription}
-    - moves::Vector{MoveSummary}
-    - names::Vector{MoveDamageClassName}
+    - id::Int64 : The identifier for this resource.
+    - name::String : The name for this resource.
+    - descriptions::Vector{MoveDamageClassDescription} : The description of this resource listed in different languages.
+    - moves::Vector{MoveSummary} : A list of moves that fall into this damage class.
+    - names::Vector{MoveDamageClassName} : The name of this resource listed in different languages.
 """
 Base.@kwdef mutable struct MoveDamageClassDetail <: OpenAPI.APIModel
     id::Union{Nothing, Int64} = nothing
@@ -56,7 +56,7 @@ function OpenAPI.validate_property(::Type{ MoveDamageClassDetail }, name::Symbol
 
 
     if name === Symbol("name")
-        OpenAPI.validate_param(name, "MoveDamageClassDetail", :maxLength, val, 100)
+        OpenAPI.validate_param(name, "MoveDamageClassDetail", :maxLength, val, 200)
     end
 
 

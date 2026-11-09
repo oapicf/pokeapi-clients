@@ -12,14 +12,20 @@ import java.math.*;
 public class EncounterConditionName implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * The localized name for an API resource in a specific language.
+   */
   @JsonProperty("name")
   private String name;
 
+  /**
+   * The language this name is in.
+   */
   @JsonProperty("language")
   private LanguageSummary language;
 
   /**
-   * 
+   * The localized name for an API resource in a specific language.
    * @return name
    */
   public String getName() {
@@ -31,7 +37,7 @@ public class EncounterConditionName implements Serializable {
   }
 
   /**
-   * 
+   * The language this name is in.
    * @return language
    */
   public LanguageSummary getLanguage() {

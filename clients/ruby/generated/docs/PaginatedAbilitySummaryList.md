@@ -4,10 +4,10 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **count** | **Integer** |  | [optional] |
-| **_next** | **String** |  | [optional] |
-| **previous** | **String** |  | [optional] |
-| **results** | [**Array&lt;AbilitySummary&gt;**](AbilitySummary.md) |  | [optional] |
+| **count** | **Integer** | The total number of resources available from this API. |  |
+| **_next** | **String** | The URL for the next page in the list, or null if there is no next page. | [optional] |
+| **previous** | **String** | The URL for the previous page in the list, or null if there is no previous page. | [optional] |
+| **results** | [**Array&lt;AbilitySummary&gt;**](AbilitySummary.md) | A list of API resources on this page. |  |
 
 ## Example
 
@@ -15,9 +15,9 @@
 require 'pokeapi_client'
 
 instance = PokeApiClient::PaginatedAbilitySummaryList.new(
-  count: 123,
-  _next: http://api.example.org/accounts/?offset&#x3D;400&amp;limit&#x3D;100,
-  previous: http://api.example.org/accounts/?offset&#x3D;200&amp;limit&#x3D;100,
+  count: 100,
+  _next: https://pokeapi.co/api/v2/ability/?offset&#x3D;40&amp;limit&#x3D;20,
+  previous: https://pokeapi.co/api/v2/ability/?offset&#x3D;0&amp;limit&#x3D;20,
   results: null
 )
 ```

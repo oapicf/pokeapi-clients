@@ -23,15 +23,13 @@ open class ContestsApiStubs(private val objectMapper: ObjectMapper) {
      *
      * @param limit query parameter limit pattern.
      * @param offset query parameter offset pattern.
-     * @param q query parameter q pattern.
      * @param configurer configurer for the [MappingBuilder], allowing for arbitrary changes.
      * @return A [ContestEffectListStubBuilder] to configure the response, and the final [MappingBuilder].
      */
-    fun contestEffectList(limit: StringValuePattern? = null, offset: StringValuePattern? = null, q: StringValuePattern? = null, configurer: MappingBuilder.() -> MappingBuilder = { this }): ContestEffectListStubBuilder =
+    fun contestEffectList(limit: StringValuePattern? = null, offset: StringValuePattern? = null, configurer: MappingBuilder.() -> MappingBuilder = { this }): ContestEffectListStubBuilder =
         ContestEffectListStubBuilder(objectMapper, get(urlPathTemplate("/api/v2/contest-effect/"))
             .apply { limit?.let { withQueryParam("limit", it) } }
             .apply { offset?.let { withQueryParam("offset", it) } }
-            .apply { q?.let { withQueryParam("q", it) } }
             .configurer()
         )
 
@@ -83,15 +81,13 @@ open class ContestsApiStubs(private val objectMapper: ObjectMapper) {
      *
      * @param limit query parameter limit pattern.
      * @param offset query parameter offset pattern.
-     * @param q query parameter q pattern.
      * @param configurer configurer for the [MappingBuilder], allowing for arbitrary changes.
      * @return A [SuperContestEffectListStubBuilder] to configure the response, and the final [MappingBuilder].
      */
-    fun superContestEffectList(limit: StringValuePattern? = null, offset: StringValuePattern? = null, q: StringValuePattern? = null, configurer: MappingBuilder.() -> MappingBuilder = { this }): SuperContestEffectListStubBuilder =
+    fun superContestEffectList(limit: StringValuePattern? = null, offset: StringValuePattern? = null, configurer: MappingBuilder.() -> MappingBuilder = { this }): SuperContestEffectListStubBuilder =
         SuperContestEffectListStubBuilder(objectMapper, get(urlPathTemplate("/api/v2/super-contest-effect/"))
             .apply { limit?.let { withQueryParam("limit", it) } }
             .apply { offset?.let { withQueryParam("offset", it) } }
-            .apply { q?.let { withQueryParam("q", it) } }
             .configurer()
         )
 

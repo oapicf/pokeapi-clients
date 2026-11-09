@@ -10,7 +10,6 @@ namespace models {
 
 ItemAttributeDescription::ItemAttributeDescription()
 : description("")
-, language(LanguageSummary())
 {
 }
 // =========================================

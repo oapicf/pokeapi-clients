@@ -3,6 +3,7 @@ namespace OpenAPI.Model
 open System
 open System.Collections.Generic
 open OpenAPI.Model.MoveMetaAilmentSummary
+open OpenAPI.Model.string option
 
 module PaginatedMoveMetaAilmentSummaryList =
 
@@ -11,8 +12,8 @@ module PaginatedMoveMetaAilmentSummaryList =
 
   type PaginatedMoveMetaAilmentSummaryList = {
     Count : int;
-    Next : string;
-    Previous : string;
+    Next : string option;
+    Previous : string option;
     Results : MoveMetaAilmentSummary[];
   }
   //#endregion

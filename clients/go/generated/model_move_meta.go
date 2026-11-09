@@ -1,9 +1,9 @@
 /*
 PokéAPI
 
-All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
 
-API version: 2.7.0
+API version: 2.10.0
 Contact: blah+oapicf@cliffano.com
 */
 
@@ -22,17 +22,29 @@ var _ MappedNullable = &MoveMeta{}
 
 // MoveMeta struct for MoveMeta
 type MoveMeta struct {
+	// The status ailment this move inflicts on its target.
 	Ailment MoveMetaAilmentSummary `json:"ailment"`
+	// The category of move this move falls under, e.g. damage or ailment.
 	Category MoveMetaCategorySummary `json:"category"`
+	// The minimum number of times this move hits. Null if it always only hits once.
 	MinHits NullableInt32 `json:"min_hits,omitempty"`
+	// The maximum number of times this move hits. Null if it always only hits once.
 	MaxHits NullableInt32 `json:"max_hits,omitempty"`
+	// The minimum number of turns this move continues to take effect. Null if it always only lasts one turn.
 	MinTurns NullableInt32 `json:"min_turns,omitempty"`
+	// The maximum number of turns this move continues to take effect. Null if it always only lasts one turn.
 	MaxTurns NullableInt32 `json:"max_turns,omitempty"`
+	// HP drain (if positive) or Recoil damage (if negative), in percent of damage done.
 	Drain NullableInt32 `json:"drain,omitempty"`
+	// The amount of hp gained by the attacking Pokemon, in percent of it's maximum HP.
 	Healing NullableInt32 `json:"healing,omitempty"`
+	// Critical hit rate bonus.
 	CritRate NullableInt32 `json:"crit_rate,omitempty"`
+	// The likelihood this attack will cause an ailment.
 	AilmentChance NullableInt32 `json:"ailment_chance,omitempty"`
+	// The likelihood this attack will cause the target Pokémon to flinch.
 	FlinchChance NullableInt32 `json:"flinch_chance,omitempty"`
+	// The likelihood this attack will cause a stat change in the target Pokémon.
 	StatChance NullableInt32 `json:"stat_chance,omitempty"`
 }
 

@@ -4,16 +4,15 @@
 ## Properties
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
-| **id** | **kotlin.Int** |  |  [readonly] |
-| **name** | **kotlin.String** |  |  |
-| **decreasedStat** | [**StatSummary**](StatSummary.md) |  |  |
-| **increasedStat** | [**StatSummary**](StatSummary.md) |  |  |
-| **likesFlavor** | [**BerryFlavorSummary**](BerryFlavorSummary.md) |  |  |
-| **hatesFlavor** | [**BerryFlavorSummary**](BerryFlavorSummary.md) |  |  |
-| **berries** | [**kotlin.collections.List&lt;BerrySummary&gt;**](BerrySummary.md) |  |  [readonly] |
-| **pokeathlonStatChanges** | [**kotlin.collections.List&lt;NatureDetailPokeathlonStatChangesInner&gt;**](NatureDetailPokeathlonStatChangesInner.md) |  |  [readonly] |
-| **moveBattleStylePreferences** | [**kotlin.collections.List&lt;NatureBattleStylePreference&gt;**](NatureBattleStylePreference.md) |  |  [readonly] |
-| **names** | [**kotlin.collections.List&lt;NatureName&gt;**](NatureName.md) |  |  [readonly] |
+| **id** | **kotlin.Int** | The identifier for this resource. |  [readonly] |
+| **name** | **kotlin.String** | The name for this resource. |  |
+| **decreasedStat** | [**StatSummary**](StatSummary.md) | The stat decreased by 10% in Pokémon with this nature. |  |
+| **increasedStat** | [**StatSummary**](StatSummary.md) | The stat increased by 10% in Pokémon with this nature. |  |
+| **likesFlavor** | [**BerryFlavorSummary**](BerryFlavorSummary.md) | The flavor liked by Pokémon with this nature. |  |
+| **hatesFlavor** | [**BerryFlavorSummary**](BerryFlavorSummary.md) | The flavor hated by Pokémon with this nature. |  |
+| **pokeathlonStatChanges** | [**kotlin.collections.List&lt;NaturePokeathlonStat&gt;**](NaturePokeathlonStat.md) | A list of Pokéathlon stats this nature effects and how much it effects them. |  [readonly] |
+| **moveBattleStylePreferences** | [**kotlin.collections.List&lt;NatureBattleStylePreference&gt;**](NatureBattleStylePreference.md) | A list of battle styles and how likely a Pokémon with this nature is to use them in the Battle Palace or Battle Tent. |  [readonly] |
+| **names** | [**kotlin.collections.List&lt;NatureName&gt;**](NatureName.md) | The name of this resource listed in different languages. |  [readonly] |
 
 
 

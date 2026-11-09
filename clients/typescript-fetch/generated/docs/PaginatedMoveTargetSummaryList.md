@@ -18,9 +18,9 @@ import type { PaginatedMoveTargetSummaryList } from ''
 
 // TODO: Update the object below with actual values
 const example = {
-  "count": 123,
-  "next": http://api.example.org/accounts/?offset=400&limit=100,
-  "previous": http://api.example.org/accounts/?offset=200&limit=100,
+  "count": 100,
+  "next": https://pokeapi.co/api/v2/move-target/?offset=40&limit=20,
+  "previous": https://pokeapi.co/api/v2/move-target/?offset=0&limit=20,
   "results": null,
 } satisfies PaginatedMoveTargetSummaryList
 

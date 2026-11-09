@@ -5,11 +5,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **number** |  | [readonly] [default to undefined]
-**name** | **string** |  | [default to undefined]
-**descriptions** | [**Array&lt;MoveTargetDescription&gt;**](MoveTargetDescription.md) |  | [readonly] [default to undefined]
-**moves** | [**Array&lt;MoveSummary&gt;**](MoveSummary.md) |  | [readonly] [default to undefined]
-**names** | [**Array&lt;MoveTargetName&gt;**](MoveTargetName.md) |  | [readonly] [default to undefined]
+**id** | **number** | The identifier for this resource. | [readonly] [default to undefined]
+**name** | **string** | The name for this resource. | [default to undefined]
+**descriptions** | [**Array&lt;MoveTargetDescription&gt;**](MoveTargetDescription.md) | The description of this resource listed in different languages. | [readonly] [default to undefined]
+**moves** | [**Array&lt;MoveSummary&gt;**](MoveSummary.md) | A list of moves that that are directed at this target. | [readonly] [default to undefined]
+**names** | [**Array&lt;MoveTargetName&gt;**](MoveTargetName.md) | The name of this resource listed in different languages. | [readonly] [default to undefined]
 
 ## Example
 

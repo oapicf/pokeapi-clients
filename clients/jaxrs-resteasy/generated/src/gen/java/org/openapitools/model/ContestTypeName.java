@@ -11,7 +11,7 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 import io.swagger.annotations.*;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2026-10-25T05:48:49.952264473Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2026-11-09T13:50:00.159999817Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class ContestTypeName   {
   
   private String name;
@@ -19,12 +19,13 @@ public class ContestTypeName   {
   private LanguageSummary language;
 
   /**
+   * The name for this contest.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this contest.")
   @JsonProperty("name")
   @NotNull
- @Size(max=100)  public String getName() {
+ @Size(max=200)  public String getName() {
     return name;
   }
   public void setName(String name) {
@@ -32,9 +33,10 @@ public class ContestTypeName   {
   }
 
   /**
+   * The color associated with this contest&#39;s name.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The color associated with this contest's name.")
   @JsonProperty("color")
   @NotNull
  @Size(max=10)  public String getColor() {
@@ -45,9 +47,10 @@ public class ContestTypeName   {
   }
 
   /**
+   * The language that this name is in.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The language that this name is in.")
   @JsonProperty("language")
   @NotNull
   @Valid

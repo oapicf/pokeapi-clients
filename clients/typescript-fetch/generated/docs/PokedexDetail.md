@@ -11,9 +11,9 @@ Name | Type
 `isMainSeries` | boolean
 `descriptions` | [Array&lt;PokedexDescription&gt;](PokedexDescription.md)
 `names` | [Array&lt;PokedexName&gt;](PokedexName.md)
-`pokemonEntries` | [Array&lt;PokedexDetailPokemonEntriesInner&gt;](PokedexDetailPokemonEntriesInner.md)
+`pokemonEntries` | [Array&lt;PokemonDexNumber&gt;](PokemonDexNumber.md)
 `region` | [RegionSummary](RegionSummary.md)
-`versionGroups` | [Array&lt;AbilityDetailPokemonInnerPokemon&gt;](AbilityDetailPokemonInnerPokemon.md)
+`versionGroups` | [Array&lt;VersionGroupSummary&gt;](VersionGroupSummary.md)
 
 ## Example
 

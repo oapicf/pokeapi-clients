@@ -8,10 +8,12 @@ Feature | HTTP request | Description
 [**evolution_chain_retrieve**](EVOLUTION_API.md#evolution_chain_retrieve) | **Get** /api/v2/evolution-chain/{id}/ | Get evolution chain
 [**evolution_trigger_list**](EVOLUTION_API.md#evolution_trigger_list) | **Get** /api/v2/evolution-trigger/ | List evolution triggers
 [**evolution_trigger_retrieve**](EVOLUTION_API.md#evolution_trigger_retrieve) | **Get** /api/v2/evolution-trigger/{id}/ | Get evolution trigger
+[**evolution_variable_list**](EVOLUTION_API.md#evolution_variable_list) | **Get** /api/v2/evolution-variable/ | List evolution variables
+[**evolution_variable_retrieve**](EVOLUTION_API.md#evolution_variable_retrieve) | **Get** /api/v2/evolution-variable/{id}/ | Get evolution variable
 
 
 # **evolution_chain_list**
-> evolution_chain_list (limit:  detachable INTEGER_32 ; offset:  detachable INTEGER_32 ; q:  detachable STRING_32 ): detachable PAGINATED_EVOLUTION_CHAIN_SUMMARY_LIST
+> evolution_chain_list (limit:  detachable INTEGER_32 ; offset:  detachable INTEGER_32 ): detachable PAGINATED_EVOLUTION_CHAIN_SUMMARY_LIST
 
 
 List evolution chains
@@ -25,7 +27,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **INTEGER_32**| Number of results to return per page. | [optional] [default to null]
  **offset** | **INTEGER_32**| The initial index from which to return the results. | [optional] [default to null]
- **q** | **STRING_32**| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional] [default to null]
 
 ### Return type
 
@@ -33,7 +34,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -63,7 +64,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -95,7 +96,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -125,7 +126,69 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **evolution_variable_list**
+> evolution_variable_list (limit:  detachable INTEGER_32 ; offset:  detachable INTEGER_32 ; q:  detachable STRING_32 ): detachable PAGINATED_EVOLUTION_VARIABLE_SUMMARY_LIST
+
+
+List evolution variables
+
+Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | **INTEGER_32**| Number of results to return per page. | [optional] [default to null]
+ **offset** | **INTEGER_32**| The initial index from which to return the results. | [optional] [default to null]
+ **q** | **STRING_32**| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional] [default to null]
+
+### Return type
+
+[**PAGINATED_EVOLUTION_VARIABLE_SUMMARY_LIST**](PaginatedEvolutionVariableSummaryList.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **evolution_variable_retrieve**
+> evolution_variable_retrieve (id: STRING_32 ): detachable EVOLUTION_VARIABLE_DETAIL
+
+
+Get evolution variable
+
+Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **STRING_32**| This parameter can be a string or an integer. | [default to null]
+
+### Return type
+
+[**EVOLUTION_VARIABLE_DETAIL**](EvolutionVariableDetail.md)
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 

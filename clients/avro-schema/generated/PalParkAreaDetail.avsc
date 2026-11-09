@@ -7,12 +7,12 @@
     {
       "name": "id",
       "type": "int",
-      "doc": ""
+      "doc": "The identifier for this resource."
     },
     {
       "name": "name",
       "type": "string",
-      "doc": ""
+      "doc": "The name for this resource."
     },
     {
       "name": "names",
@@ -20,15 +20,15 @@
         "type": "array",
         "items": "model.PalParkAreaName"
       },
-      "doc": ""
+      "doc": "The name of this resource listed in different languages."
     },
     {
       "name": "pokemon_encounters",
       "type": {
         "type": "array",
-        "items": "model.PalParkAreaDetailPokemonEncountersInner"
+        "items": "model.PalParkEncounter"
       },
-      "doc": ""
+      "doc": "A list of Pokémon encountered in thi pal park area along with details."
     }
   ]
 

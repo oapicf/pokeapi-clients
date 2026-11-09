@@ -29,11 +29,11 @@ public class MoveTargetDetail   {
     /**
      * Create MoveTargetDetail.
      *
-     * @param id id
-     * @param name name
-     * @param descriptions descriptions
-     * @param moves moves
-     * @param names names
+     * @param id The identifier for this resource.
+     * @param name The name for this resource.
+     * @param descriptions The description of this resource listed in different languages.
+     * @param moves A list of moves that that are directed at this target.
+     * @param names The name of this resource listed in different languages.
      */
     public MoveTargetDetail(
         Integer id, 
@@ -52,7 +52,7 @@ public class MoveTargetDetail   {
 
 
     /**
-     * Get id
+     * The identifier for this resource.
      * @return id
      */
     public Integer getId() {
@@ -64,7 +64,7 @@ public class MoveTargetDetail   {
     }
 
     /**
-     * Get name
+     * The name for this resource.
      * @return name
      */
     public String getName() {
@@ -76,7 +76,7 @@ public class MoveTargetDetail   {
     }
 
     /**
-     * Get descriptions
+     * The description of this resource listed in different languages.
      * @return descriptions
      */
     public List<@Valid MoveTargetDescription> getDescriptions() {
@@ -88,7 +88,7 @@ public class MoveTargetDetail   {
     }
 
     /**
-     * Get moves
+     * A list of moves that that are directed at this target.
      * @return moves
      */
     public List<@Valid MoveSummary> getMoves() {
@@ -100,7 +100,7 @@ public class MoveTargetDetail   {
     }
 
     /**
-     * Get names
+     * The name of this resource listed in different languages.
      * @return names
      */
     public List<@Valid MoveTargetName> getNames() {

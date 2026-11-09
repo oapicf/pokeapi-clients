@@ -26,8 +26,6 @@ Location areas are sections of areas, such as floors in a building or cave. Each
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -77,8 +75,6 @@ Location areas are sections of areas, such as floors in a building or cave. Each
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -97,7 +93,7 @@ var api = LocationApi.new(config)
 
 # Invoke an endpoint
 api.location_area_retrieve(
-	# id: int   Eg: 56
+	# id: int   Eg: 1
 	# A unique integer value identifying this location area.
 	id,
 	# On Success
@@ -125,8 +121,6 @@ Locations that can be visited within the games. Locations make up sizable portio
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -179,8 +173,6 @@ Locations that can be visited within the games. Locations make up sizable portio
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -199,7 +191,7 @@ var api = LocationApi.new(config)
 
 # Invoke an endpoint
 api.location_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id,
 	# On Success
@@ -227,8 +219,6 @@ Areas used for grouping Pokémon encounters in Pal Park. They're like habitats t
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -281,8 +271,6 @@ Areas used for grouping Pokémon encounters in Pal Park. They're like habitats t
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -301,7 +289,7 @@ var api = LocationApi.new(config)
 
 # Invoke an endpoint
 api.pal_park_area_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id,
 	# On Success
@@ -329,8 +317,6 @@ A region is an organized area of the Pokémon world. Most often, the main differ
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -383,8 +369,6 @@ A region is an organized area of the Pokémon world. Most often, the main differ
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -403,7 +387,7 @@ var api = LocationApi.new(config)
 
 # Invoke an endpoint
 api.region_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id,
 	# On Success
@@ -423,8 +407,7 @@ api.region_retrieve(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), 
-[cookieAuth](../README.md#cookieAuth)
+No authorization required.
 
 [[Back to top]](#__pageTop) \
 [[Back to API list]](../README.md#documentation-for-api-endpoints) \

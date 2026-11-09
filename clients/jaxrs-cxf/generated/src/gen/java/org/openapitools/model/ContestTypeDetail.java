@@ -15,25 +15,37 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class ContestTypeDetail  {
   
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The identifier for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
 
   private Integer id;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The name for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The name for this resource.")
 
   private String name;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The berry flavor that correlates with this contest type.
+  */
+  @ApiModelProperty(required = true, value = "The berry flavor that correlates with this contest type.")
 
   @Valid
 
   private BerryFlavorSummary berryFlavor;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The name of this contest type listed in different languages.
+  */
+  @ApiModelProperty(required = true, value = "The name of this contest type listed in different languages.")
 
   private List<@Valid ContestTypeName> names = new ArrayList<>();
  /**
-   * Get id
+   * The identifier for this resource.
    * @return id
   **/
   @JsonProperty("id")
@@ -44,12 +56,12 @@ public class ContestTypeDetail  {
 
 
  /**
-   * Get name
+   * The name for this resource.
    * @return name
   **/
   @JsonProperty("name")
   @NotNull
- @Size(max=100)  public String getName() {
+ @Size(max=200)  public String getName() {
     return name;
   }
 
@@ -63,7 +75,7 @@ public class ContestTypeDetail  {
   }
 
  /**
-   * Get berryFlavor
+   * The berry flavor that correlates with this contest type.
    * @return berryFlavor
   **/
   @JsonProperty("berry_flavor")
@@ -74,7 +86,7 @@ public class ContestTypeDetail  {
 
 
  /**
-   * Get names
+   * The name of this contest type listed in different languages.
    * @return names
   **/
   @JsonProperty("names")

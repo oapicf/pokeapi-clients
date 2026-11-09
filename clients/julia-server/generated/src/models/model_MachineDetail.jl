@@ -11,10 +11,10 @@
         move=nothing,
     )
 
-    - id::Int64
-    - item::ItemSummary
-    - version_group::VersionGroupSummary
-    - move::MoveSummary
+    - id::Int64 : The identifier for this resource.
+    - item::ItemSummary : The TM or HM item that corresponds to this machine.
+    - version_group::VersionGroupSummary : The version group that this machine applies to.
+    - move::MoveSummary : The move that is taught by this machine.
 """
 Base.@kwdef mutable struct MachineDetail <: OpenAPI.APIModel
     id::Union{Nothing, Int64} = nothing

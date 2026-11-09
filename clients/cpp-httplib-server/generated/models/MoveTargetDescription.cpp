@@ -10,7 +10,6 @@ namespace models {
 
 MoveTargetDescription::MoveTargetDescription()
 : description("")
-, language(LanguageSummary())
 {
 }
 // =========================================

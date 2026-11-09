@@ -6,6 +6,8 @@ import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
 data class AbilityChange(
+    /** The version group in which the previous effect of this ability originated. */
     val versionGroup: VersionGroupSummary,
+    /** The previous effect of this ability listed in different languages. */
     val effectEntries: kotlin.collections.List<AbilityChangeEffectText>
 )

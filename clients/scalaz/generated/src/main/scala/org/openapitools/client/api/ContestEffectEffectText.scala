@@ -12,8 +12,10 @@ import org.joda.time.DateTime
 import ContestEffectEffectText._
 
 case class ContestEffectEffectText (
+  /* The localized effect text for an API resource in a specific language. */
   effect: String,
-language: LanguageSummary)
+/* The language this effect is in. */
+  language: LanguageSummary)
 
 object ContestEffectEffectText {
   import DateTimeCodecs._

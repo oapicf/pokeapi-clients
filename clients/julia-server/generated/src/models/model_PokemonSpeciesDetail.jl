@@ -34,33 +34,33 @@
         varieties=nothing,
     )
 
-    - id::Int64
-    - name::String
-    - order::Int64
-    - gender_rate::Int64
-    - capture_rate::Int64
-    - base_happiness::Int64
-    - is_baby::Bool
-    - is_legendary::Bool
-    - is_mythical::Bool
-    - hatch_counter::Int64
-    - has_gender_differences::Bool
-    - forms_switchable::Bool
-    - growth_rate::GrowthRateSummary
-    - pokedex_numbers::Vector{PokemonDexEntry}
-    - egg_groups::Vector{AbilityDetailPokemonInnerPokemon}
-    - color::PokemonColorSummary
-    - shape::PokemonShapeSummary
-    - evolves_from_species::PokemonSpeciesSummary
-    - evolution_chain::EvolutionChainSummary
-    - habitat::PokemonHabitatSummary
-    - generation::GenerationSummary
-    - names::Vector{PokemonFormDetailFormNamesInner}
-    - pal_park_encounters::Vector{PokemonSpeciesDetailPalParkEncountersInner}
-    - form_descriptions::Vector{PokemonSpeciesDescription}
-    - flavor_text_entries::Vector{PokemonSpeciesFlavorText}
-    - genera::Vector{PokemonSpeciesDetailGeneraInner}
-    - varieties::Vector{PokemonSpeciesDetailVarietiesInner}
+    - id::Int64 : The identifier for this resource.
+    - name::String : The name for this resource.
+    - order::Int64 : The order in which species should be sorted. Based on National Dex order, except families are grouped together and sorted by stage.
+    - gender_rate::Int64 : The chance of this Pokémon being female, in eighths; or -1 for genderless.
+    - capture_rate::Int64 : The base capture rate; up to 255. The higher the number, the easier the catch.
+    - base_happiness::Int64 : The happiness when caught by a normal Pokéball; up to 255. The higher the number, the happier the Pokémon.
+    - is_baby::Bool : Whether or not this is a baby Pokémon.
+    - is_legendary::Bool : Whether or not this is a legendary Pokémon.
+    - is_mythical::Bool : Whether or not this is a mythical Pokémon.
+    - hatch_counter::Int64 : Initial hatch counter: one must walk Y × (hatch_counter + 1) steps before this Pokémon&#39;s egg hatches, unless utilizing bonuses like Flame Body&#39;s. Y varies per generation. In Generations II, III, and VII, Egg cycles are 256 steps long. In Generation IV, Egg cycles are 255 steps long. In Pokémon Brilliant Diamond and Shining Pearl, Egg cycles are also 255 steps long, but are shorter on special dates. In Generations V and VI, Egg cycles are 257 steps long. In Pokémon Sword and Shield, and in Pokémon Scarlet and Violet, Egg cycles are 128 steps long.
+    - has_gender_differences::Bool : Whether or not this Pokémon has visual gender differences.
+    - forms_switchable::Bool : Whether or not this Pokémon has multiple forms and can switch between them.
+    - growth_rate::GrowthRateSummary : The rate at which this Pokémon species gains levels.
+    - pokedex_numbers::Vector{PokemonDexEntry} : A list of Pokedexes and the indexes reserved within them for this Pokémon species.
+    - egg_groups::Vector{EggGroupSummary} : A list of egg groups this Pokémon species is a member of.
+    - color::PokemonColorSummary : The color of this Pokémon for Pokédex search.
+    - shape::PokemonShapeSummary : The shape of this Pokémon for Pokédex search.
+    - evolves_from_species::PokemonSpeciesSummary : The Pokémon species that evolves into this Pokemon_species.
+    - evolution_chain::EvolutionChainSummary : The evolution chain this Pokémon species is a member of.
+    - habitat::PokemonHabitatSummary : The habitat this Pokémon species can be encountered in.
+    - generation::GenerationSummary : The generation this Pokémon species was introduced in.
+    - names::Vector{PokemonSpeciesName} : The name of this resource listed in different languages.
+    - pal_park_encounters::Vector{PokemonSpeciesPalParkEncounter} : A list of encounters that can be had with this Pokémon species in pal park.
+    - form_descriptions::Vector{PokemonSpeciesDescription} : Descriptions of different forms Pokémon take on within the Pokémon species.
+    - flavor_text_entries::Vector{PokemonSpeciesFlavorText} : A list of flavor text entries for this Pokémon species.
+    - genera::Vector{PokemonSpeciesGenus} : The genus of this Pokémon species listed in multiple languages.
+    - varieties::Vector{PokemonSpeciesVariety} : A list of the Pokémon that exist within this Pokémon species.
 """
 Base.@kwdef mutable struct PokemonSpeciesDetail <: OpenAPI.APIModel
     id::Union{Nothing, Int64} = nothing
@@ -77,19 +77,19 @@ Base.@kwdef mutable struct PokemonSpeciesDetail <: OpenAPI.APIModel
     forms_switchable::Union{Nothing, Bool} = nothing
     growth_rate = nothing # spec type: Union{ Nothing, GrowthRateSummary }
     pokedex_numbers::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{PokemonDexEntry} }
-    egg_groups::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{AbilityDetailPokemonInnerPokemon} }
+    egg_groups::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{EggGroupSummary} }
     color = nothing # spec type: Union{ Nothing, PokemonColorSummary }
     shape = nothing # spec type: Union{ Nothing, PokemonShapeSummary }
     evolves_from_species = nothing # spec type: Union{ Nothing, PokemonSpeciesSummary }
     evolution_chain = nothing # spec type: Union{ Nothing, EvolutionChainSummary }
     habitat = nothing # spec type: Union{ Nothing, PokemonHabitatSummary }
     generation = nothing # spec type: Union{ Nothing, GenerationSummary }
-    names::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{PokemonFormDetailFormNamesInner} }
-    pal_park_encounters::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{PokemonSpeciesDetailPalParkEncountersInner} }
+    names::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{PokemonSpeciesName} }
+    pal_park_encounters::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{PokemonSpeciesPalParkEncounter} }
     form_descriptions::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{PokemonSpeciesDescription} }
     flavor_text_entries::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{PokemonSpeciesFlavorText} }
-    genera::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{PokemonSpeciesDetailGeneraInner} }
-    varieties::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{PokemonSpeciesDetailVarietiesInner} }
+    genera::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{PokemonSpeciesGenus} }
+    varieties::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{PokemonSpeciesVariety} }
 
     function PokemonSpeciesDetail(id, name, order, gender_rate, capture_rate, base_happiness, is_baby, is_legendary, is_mythical, hatch_counter, has_gender_differences, forms_switchable, growth_rate, pokedex_numbers, egg_groups, color, shape, evolves_from_species, evolution_chain, habitat, generation, names, pal_park_encounters, form_descriptions, flavor_text_entries, genera, varieties, )
         o = new(id, name, order, gender_rate, capture_rate, base_happiness, is_baby, is_legendary, is_mythical, hatch_counter, has_gender_differences, forms_switchable, growth_rate, pokedex_numbers, egg_groups, color, shape, evolves_from_species, evolution_chain, habitat, generation, names, pal_park_encounters, form_descriptions, flavor_text_entries, genera, varieties, )
@@ -98,7 +98,7 @@ Base.@kwdef mutable struct PokemonSpeciesDetail <: OpenAPI.APIModel
     end
 end # type PokemonSpeciesDetail
 
-const _property_types_PokemonSpeciesDetail = Dict{Symbol,String}(Symbol("id")=>"Int64", Symbol("name")=>"String", Symbol("order")=>"Int64", Symbol("gender_rate")=>"Int64", Symbol("capture_rate")=>"Int64", Symbol("base_happiness")=>"Int64", Symbol("is_baby")=>"Bool", Symbol("is_legendary")=>"Bool", Symbol("is_mythical")=>"Bool", Symbol("hatch_counter")=>"Int64", Symbol("has_gender_differences")=>"Bool", Symbol("forms_switchable")=>"Bool", Symbol("growth_rate")=>"GrowthRateSummary", Symbol("pokedex_numbers")=>"Vector{PokemonDexEntry}", Symbol("egg_groups")=>"Vector{AbilityDetailPokemonInnerPokemon}", Symbol("color")=>"PokemonColorSummary", Symbol("shape")=>"PokemonShapeSummary", Symbol("evolves_from_species")=>"PokemonSpeciesSummary", Symbol("evolution_chain")=>"EvolutionChainSummary", Symbol("habitat")=>"PokemonHabitatSummary", Symbol("generation")=>"GenerationSummary", Symbol("names")=>"Vector{PokemonFormDetailFormNamesInner}", Symbol("pal_park_encounters")=>"Vector{PokemonSpeciesDetailPalParkEncountersInner}", Symbol("form_descriptions")=>"Vector{PokemonSpeciesDescription}", Symbol("flavor_text_entries")=>"Vector{PokemonSpeciesFlavorText}", Symbol("genera")=>"Vector{PokemonSpeciesDetailGeneraInner}", Symbol("varieties")=>"Vector{PokemonSpeciesDetailVarietiesInner}", )
+const _property_types_PokemonSpeciesDetail = Dict{Symbol,String}(Symbol("id")=>"Int64", Symbol("name")=>"String", Symbol("order")=>"Int64", Symbol("gender_rate")=>"Int64", Symbol("capture_rate")=>"Int64", Symbol("base_happiness")=>"Int64", Symbol("is_baby")=>"Bool", Symbol("is_legendary")=>"Bool", Symbol("is_mythical")=>"Bool", Symbol("hatch_counter")=>"Int64", Symbol("has_gender_differences")=>"Bool", Symbol("forms_switchable")=>"Bool", Symbol("growth_rate")=>"GrowthRateSummary", Symbol("pokedex_numbers")=>"Vector{PokemonDexEntry}", Symbol("egg_groups")=>"Vector{EggGroupSummary}", Symbol("color")=>"PokemonColorSummary", Symbol("shape")=>"PokemonShapeSummary", Symbol("evolves_from_species")=>"PokemonSpeciesSummary", Symbol("evolution_chain")=>"EvolutionChainSummary", Symbol("habitat")=>"PokemonHabitatSummary", Symbol("generation")=>"GenerationSummary", Symbol("names")=>"Vector{PokemonSpeciesName}", Symbol("pal_park_encounters")=>"Vector{PokemonSpeciesPalParkEncounter}", Symbol("form_descriptions")=>"Vector{PokemonSpeciesDescription}", Symbol("flavor_text_entries")=>"Vector{PokemonSpeciesFlavorText}", Symbol("genera")=>"Vector{PokemonSpeciesGenus}", Symbol("varieties")=>"Vector{PokemonSpeciesVariety}", )
 OpenAPI.property_type(::Type{ PokemonSpeciesDetail }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_PokemonSpeciesDetail[name]))}
 
 function OpenAPI.check_required(o::PokemonSpeciesDetail)
@@ -156,16 +156,36 @@ function OpenAPI.validate_property(::Type{ PokemonSpeciesDetail }, name::Symbol,
 
 
     if name === Symbol("name")
-        OpenAPI.validate_param(name, "PokemonSpeciesDetail", :maxLength, val, 100)
+        OpenAPI.validate_param(name, "PokemonSpeciesDetail", :maxLength, val, 200)
+    end
+
+    if name === Symbol("order")
+        OpenAPI.validate_param(name, "PokemonSpeciesDetail", :maximum, val, 2147483647, false)
+        OpenAPI.validate_param(name, "PokemonSpeciesDetail", :minimum, val, -2147483648, false)
+    end
+
+    if name === Symbol("gender_rate")
+        OpenAPI.validate_param(name, "PokemonSpeciesDetail", :maximum, val, 2147483647, false)
+        OpenAPI.validate_param(name, "PokemonSpeciesDetail", :minimum, val, -2147483648, false)
+    end
+
+    if name === Symbol("capture_rate")
+        OpenAPI.validate_param(name, "PokemonSpeciesDetail", :maximum, val, 2147483647, false)
+        OpenAPI.validate_param(name, "PokemonSpeciesDetail", :minimum, val, -2147483648, false)
+    end
+
+    if name === Symbol("base_happiness")
+        OpenAPI.validate_param(name, "PokemonSpeciesDetail", :maximum, val, 2147483647, false)
+        OpenAPI.validate_param(name, "PokemonSpeciesDetail", :minimum, val, -2147483648, false)
     end
 
 
 
 
-
-
-
-
+    if name === Symbol("hatch_counter")
+        OpenAPI.validate_param(name, "PokemonSpeciesDetail", :maximum, val, 2147483647, false)
+        OpenAPI.validate_param(name, "PokemonSpeciesDetail", :minimum, val, -2147483648, false)
+    end
 
 
 

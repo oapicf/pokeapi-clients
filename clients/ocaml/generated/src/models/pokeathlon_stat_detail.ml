@@ -15,25 +15,29 @@
                 
                 
                 ; [@key "id"]
-                                              name: string
+                    (** The identifier for this resource. *)
+                                      name: string
                   
                   
                 
                 
                 ; [@key "name"]
-                                              affecting_natures: Pokeathlon_stat_detail_affecting_natures.t
+                    (** The name for this resource. *)
+                                      affecting_natures: Pokeathlon_stat_affecting_natures.t
                   
                   
                 
                 
                 ; [@key "affecting_natures"]
-                                              names: Pokeathlon_stat_name.t list
+                    (** A detail of natures which affect this Pokéathlon stat positively or negatively. *)
+                                      names: Pokeathlon_stat_name.t list
                 
                 
                 ; [@key "names"]
-                        } [@@deriving yojson { strict = false }, show, eq ];;
+                    (** The name of this resource listed in different languages. *)
+                } [@@deriving yojson { strict = false }, show, eq ];;
         
-        let create (id : int32) (name : string) (affecting_natures : Pokeathlon_stat_detail_affecting_natures.t) (names : Pokeathlon_stat_name.t list) : t = {
+        let create (id : int32) (name : string) (affecting_natures : Pokeathlon_stat_affecting_natures.t) (names : Pokeathlon_stat_name.t list) : t = {
             id = id;
             name = name;
             affecting_natures = affecting_natures;

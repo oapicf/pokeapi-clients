@@ -8,12 +8,16 @@
 import Foundation
 
 public struct MoveMetaCategoryDetail: Codable {
+    /// The identifier for this resource.
     public var id: Int
+    /// The name for this resource.
     public var name: String
+    /// The description of this resource listed in different languages.
     public var descriptions: [MoveMetaCategoryDescription]
-    public var moves: [AbilityDetailPokemonInnerPokemon]
+    /// A list of moves that fall into this category.
+    public var moves: [MoveSummary]
 
-    public init(id: Int, name: String, descriptions: [MoveMetaCategoryDescription], moves: [AbilityDetailPokemonInnerPokemon]) {
+    public init(id: Int, name: String, descriptions: [MoveMetaCategoryDescription], moves: [MoveSummary]) {
         self.id = id
         self.name = name
         self.descriptions = descriptions

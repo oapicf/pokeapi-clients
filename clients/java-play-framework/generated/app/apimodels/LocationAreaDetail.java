@@ -1,8 +1,8 @@
 package apimodels;
 
-import apimodels.LocationAreaDetailEncounterMethodRatesInner;
-import apimodels.LocationAreaDetailPokemonEncountersInner;
+import apimodels.LocationAreaEncounterRate;
 import apimodels.LocationAreaName;
+import apimodels.LocationAreaPokemonEncounter;
 import apimodels.LocationSummary;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -16,7 +16,7 @@ import javax.validation.Valid;
 /**
  * LocationAreaDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-10-25T05:48:13.486809836Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-11-09T13:49:31.462302702Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class LocationAreaDetail   {
   @JsonProperty("id")
@@ -26,12 +26,14 @@ public class LocationAreaDetail   {
 
   @JsonProperty("name")
   @NotNull
-@Size(max=100)
+@Size(max=200)
 
   private String name;
 
   @JsonProperty("game_index")
   @NotNull
+@Min(-2147483648)
+@Max(2147483647)
 
   private Integer gameIndex;
 
@@ -39,7 +41,7 @@ public class LocationAreaDetail   {
   @NotNull
 @Valid
 
-  private List<@Valid LocationAreaDetailEncounterMethodRatesInner> encounterMethodRates = new ArrayList<>();
+  private List<@Valid LocationAreaEncounterRate> encounterMethodRates = new ArrayList<>();
 
   @JsonProperty("location")
   @NotNull
@@ -57,7 +59,7 @@ public class LocationAreaDetail   {
   @NotNull
 @Valid
 
-  private List<@Valid LocationAreaDetailPokemonEncountersInner> pokemonEncounters = new ArrayList<>();
+  private List<@Valid LocationAreaPokemonEncounter> pokemonEncounters = new ArrayList<>();
 
   public LocationAreaDetail id(Integer id) {
     this.id = id;
@@ -65,7 +67,7 @@ public class LocationAreaDetail   {
   }
 
    /**
-   * Get id
+   * The identifier for this resource.
    * @return id
   **/
   public Integer getId() {
@@ -82,7 +84,7 @@ public class LocationAreaDetail   {
   }
 
    /**
-   * Get name
+   * The name for this resource.
    * @return name
   **/
   public String getName() {
@@ -99,7 +101,9 @@ public class LocationAreaDetail   {
   }
 
    /**
-   * Get gameIndex
+   * The internal id of an API resource within game data.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return gameIndex
   **/
   public Integer getGameIndex() {
@@ -110,12 +114,12 @@ public class LocationAreaDetail   {
     this.gameIndex = gameIndex;
   }
 
-  public LocationAreaDetail encounterMethodRates(List<@Valid LocationAreaDetailEncounterMethodRatesInner> encounterMethodRates) {
+  public LocationAreaDetail encounterMethodRates(List<@Valid LocationAreaEncounterRate> encounterMethodRates) {
     this.encounterMethodRates = encounterMethodRates;
     return this;
   }
 
-  public LocationAreaDetail addEncounterMethodRatesItem(LocationAreaDetailEncounterMethodRatesInner encounterMethodRatesItem) {
+  public LocationAreaDetail addEncounterMethodRatesItem(LocationAreaEncounterRate encounterMethodRatesItem) {
     if (this.encounterMethodRates == null) {
       this.encounterMethodRates = new ArrayList<>();
     }
@@ -124,14 +128,14 @@ public class LocationAreaDetail   {
   }
 
    /**
-   * Get encounterMethodRates
+   * A list of methods in which Pokémon may be encountered in this area and how likely the method will occur depending on the version of the game.
    * @return encounterMethodRates
   **/
-  public List<@Valid LocationAreaDetailEncounterMethodRatesInner> getEncounterMethodRates() {
+  public List<@Valid LocationAreaEncounterRate> getEncounterMethodRates() {
     return encounterMethodRates;
   }
 
-  public void setEncounterMethodRates(List<@Valid LocationAreaDetailEncounterMethodRatesInner> encounterMethodRates) {
+  public void setEncounterMethodRates(List<@Valid LocationAreaEncounterRate> encounterMethodRates) {
     this.encounterMethodRates = encounterMethodRates;
   }
 
@@ -141,7 +145,7 @@ public class LocationAreaDetail   {
   }
 
    /**
-   * Get location
+   * The region this location area can be found in.
    * @return location
   **/
   public LocationSummary getLocation() {
@@ -166,7 +170,7 @@ public class LocationAreaDetail   {
   }
 
    /**
-   * Get names
+   * The name of this resource listed in different languages.
    * @return names
   **/
   public List<@Valid LocationAreaName> getNames() {
@@ -177,12 +181,12 @@ public class LocationAreaDetail   {
     this.names = names;
   }
 
-  public LocationAreaDetail pokemonEncounters(List<@Valid LocationAreaDetailPokemonEncountersInner> pokemonEncounters) {
+  public LocationAreaDetail pokemonEncounters(List<@Valid LocationAreaPokemonEncounter> pokemonEncounters) {
     this.pokemonEncounters = pokemonEncounters;
     return this;
   }
 
-  public LocationAreaDetail addPokemonEncountersItem(LocationAreaDetailPokemonEncountersInner pokemonEncountersItem) {
+  public LocationAreaDetail addPokemonEncountersItem(LocationAreaPokemonEncounter pokemonEncountersItem) {
     if (this.pokemonEncounters == null) {
       this.pokemonEncounters = new ArrayList<>();
     }
@@ -191,14 +195,14 @@ public class LocationAreaDetail   {
   }
 
    /**
-   * Get pokemonEncounters
+   * A list of Pokémon that can be encountered in this area along with version specific details about the encounter.
    * @return pokemonEncounters
   **/
-  public List<@Valid LocationAreaDetailPokemonEncountersInner> getPokemonEncounters() {
+  public List<@Valid LocationAreaPokemonEncounter> getPokemonEncounters() {
     return pokemonEncounters;
   }
 
-  public void setPokemonEncounters(List<@Valid LocationAreaDetailPokemonEncountersInner> pokemonEncounters) {
+  public void setPokemonEncounters(List<@Valid LocationAreaPokemonEncounter> pokemonEncounters) {
     this.pokemonEncounters = pokemonEncounters;
   }
 

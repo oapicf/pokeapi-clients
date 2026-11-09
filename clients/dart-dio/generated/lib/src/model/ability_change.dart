@@ -14,13 +14,15 @@ part 'ability_change.g.dart';
 /// AbilityChange
 ///
 /// Properties:
-/// * [versionGroup] 
-/// * [effectEntries] 
+/// * [versionGroup] - The version group in which the previous effect of this ability originated.
+/// * [effectEntries] - The previous effect of this ability listed in different languages.
 @BuiltValue()
 abstract class AbilityChange implements Built<AbilityChange, AbilityChangeBuilder> {
+  /// The version group in which the previous effect of this ability originated.
   @BuiltValueField(wireName: r'version_group')
   VersionGroupSummary get versionGroup;
 
+  /// The previous effect of this ability listed in different languages.
   @BuiltValueField(wireName: r'effect_entries')
   BuiltList<AbilityChangeEffectText> get effectEntries;
 

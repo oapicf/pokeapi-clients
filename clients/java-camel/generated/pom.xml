@@ -12,7 +12,7 @@ Do not edit the class manually.
     <artifactId>openapi-camel</artifactId>
     <packaging>jar</packaging>
     <name>openapi-camel</name>
-    <version>2.7.0</version>
+    <version>2.10.0</version>
 
     <scm>
         <connection>scm:git:git@github.com:openapitools/openapi-generator.git</connection>

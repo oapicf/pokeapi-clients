@@ -42,14 +42,6 @@ use OpenAPI\Server\Api\EncountersApiInterface;
 class EncountersApi implements EncountersApiInterface
 {
 
-    /**
-     * Configure API key authorization: cookieAuth
-     */
-    public function setcookieAuth($apiKey)
-    {
-        // Retrieve logged in user from $apiKey ...
-    }
-
     // ...
 
     /**
@@ -78,7 +70,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -106,14 +98,6 @@ use OpenAPI\Server\Api\EncountersApiInterface;
 class EncountersApi implements EncountersApiInterface
 {
 
-    /**
-     * Configure API key authorization: cookieAuth
-     */
-    public function setcookieAuth($apiKey)
-    {
-        // Retrieve logged in user from $apiKey ...
-    }
-
     // ...
 
     /**
@@ -140,7 +124,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -167,14 +151,6 @@ use OpenAPI\Server\Api\EncountersApiInterface;
 
 class EncountersApi implements EncountersApiInterface
 {
-
-    /**
-     * Configure API key authorization: cookieAuth
-     */
-    public function setcookieAuth($apiKey)
-    {
-        // Retrieve logged in user from $apiKey ...
-    }
 
     // ...
 
@@ -204,7 +180,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -232,14 +208,6 @@ use OpenAPI\Server\Api\EncountersApiInterface;
 class EncountersApi implements EncountersApiInterface
 {
 
-    /**
-     * Configure API key authorization: cookieAuth
-     */
-    public function setcookieAuth($apiKey)
-    {
-        // Retrieve logged in user from $apiKey ...
-    }
-
     // ...
 
     /**
@@ -266,7 +234,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -293,14 +261,6 @@ use OpenAPI\Server\Api\EncountersApiInterface;
 
 class EncountersApi implements EncountersApiInterface
 {
-
-    /**
-     * Configure API key authorization: cookieAuth
-     */
-    public function setcookieAuth($apiKey)
-    {
-        // Retrieve logged in user from $apiKey ...
-    }
 
     // ...
 
@@ -330,7 +290,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -358,14 +318,6 @@ use OpenAPI\Server\Api\EncountersApiInterface;
 class EncountersApi implements EncountersApiInterface
 {
 
-    /**
-     * Configure API key authorization: cookieAuth
-     */
-    public function setcookieAuth($apiKey)
-    {
-        // Retrieve logged in user from $apiKey ...
-    }
-
     // ...
 
     /**
@@ -392,7 +344,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

@@ -1,0 +1,40 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server PokemonCries"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a PokemonCries"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+}
+resourceTypes {
+
+  PokemonCries {
+    title = PokemonCries
+    description = PokemonCries
+    derivedFrom = Root
+    properties {
+        latest {
+          type =  string
+          description = "The latest depiction of this Pokémon&#39;s cry."
+          optional = true
+        }
+        legacy {
+          type =  string
+          description = "The legacy depiction of this Pokémon&#39;s cry."
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  PokemonCries {
+    title = PokemonCries
+    description = PokemonCries
+    implements = openapi_server.resourceTypes.PokemonCries
+
+  }
+}

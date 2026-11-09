@@ -2,6 +2,7 @@ package org.openapitools.vertxweb.server.api;
 
 import org.openapitools.vertxweb.server.model.LanguageDetail;
 import org.openapitools.vertxweb.server.model.PaginatedLanguageSummaryList;
+import org.openapitools.vertxweb.server.model.PokeapiMetaResponse;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import io.vertx.core.json.jackson.DatabindCodec;
@@ -35,6 +36,7 @@ public class UtilityApiHandler {
     public void mount(RouterBuilder builder) {
         builder.operation("languageList").handler(this::languageList);
         builder.operation("languageRetrieve").handler(this::languageRetrieve);
+        builder.operation("metaRetrieve").handler(this::metaRetrieve);
     }
 
     private void languageList(RoutingContext routingContext) {
@@ -74,6 +76,26 @@ public class UtilityApiHandler {
         logger.debug("Parameter id is {}", id);
 
         api.languageRetrieve(id)
+            .onSuccess(apiResponse -> {
+                routingContext.response().setStatusCode(apiResponse.getStatusCode());
+                if (apiResponse.hasData()) {
+                    routingContext.json(apiResponse.getData());
+                } else {
+                    routingContext.response().end();
+                }
+            })
+            .onFailure(routingContext::fail);
+    }
+
+    private void metaRetrieve(RoutingContext routingContext) {
+        logger.info("metaRetrieve()");
+
+        // Param extraction
+        RequestParameters requestParameters = routingContext.get(ValidationHandler.REQUEST_CONTEXT_KEY);
+
+
+
+        api.metaRetrieve()
             .onSuccess(apiResponse -> {
                 routingContext.response().setStatusCode(apiResponse.getStatusCode());
                 if (apiResponse.hasData()) {

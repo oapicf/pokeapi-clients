@@ -7,17 +7,17 @@
     {
       "name": "id",
       "type": "int",
-      "doc": ""
+      "doc": "The identifier for this resource."
     },
     {
       "name": "name",
       "type": "string",
-      "doc": ""
+      "doc": "The name for this resource."
     },
     {
       "name": "berry_flavor",
       "type": "model.BerryFlavorSummary",
-      "doc": ""
+      "doc": "The berry flavor that correlates with this contest type."
     },
     {
       "name": "names",
@@ -25,7 +25,7 @@
         "type": "array",
         "items": "model.ContestTypeName"
       },
-      "doc": ""
+      "doc": "The name of this contest type listed in different languages."
     }
   ]
 

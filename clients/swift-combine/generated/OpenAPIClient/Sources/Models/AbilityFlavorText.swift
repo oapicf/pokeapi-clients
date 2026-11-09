@@ -8,8 +8,11 @@
 import Foundation
 
 public struct AbilityFlavorText: Codable {
+    /// The localized name for an API resource in a specific language.
     public var flavorText: String
+    /// The language this text resource is in.
     public var language: LanguageSummary
+    /// The version group that uses this flavor text.
     public var versionGroup: VersionGroupSummary
 
     public init(flavorText: String, language: LanguageSummary, versionGroup: VersionGroupSummary) {

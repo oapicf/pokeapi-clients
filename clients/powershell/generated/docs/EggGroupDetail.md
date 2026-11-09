@@ -3,10 +3,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **Int32** |  | [readonly] 
-**Name** | **String** |  | 
-**Names** | [**EggGroupName[]**](EggGroupName.md) |  | [readonly] 
-**PokemonSpecies** | [**EggGroupDetailPokemonSpeciesInner[]**](EggGroupDetailPokemonSpeciesInner.md) |  | [readonly] 
+**Id** | **Int32** | The identifier for this resource. | [readonly] 
+**Name** | **String** | The name for this resource. | 
+**Names** | [**EggGroupName[]**](EggGroupName.md) | The name of this resource listed in different languages. | [readonly] 
+**PokemonSpecies** | [**PokemonSpeciesSummary[]**](PokemonSpeciesSummary.md) | A list of all Pokémon species that are members of this egg group. | [readonly] 
 
 ## Examples
 

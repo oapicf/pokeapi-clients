@@ -11,13 +11,15 @@ part 'berry_flavor_summary.g.dart';
 /// BerryFlavorSummary
 ///
 /// Properties:
-/// * [name] 
-/// * [url] 
+/// * [name] - The name of the referenced resource.
+/// * [url] - The URL of the referenced resource.
 @BuiltValue()
 abstract class BerryFlavorSummary implements Built<BerryFlavorSummary, BerryFlavorSummaryBuilder> {
+  /// The name of the referenced resource.
   @BuiltValueField(wireName: r'name')
   String get name;
 
+  /// The URL of the referenced resource.
   @BuiltValueField(wireName: r'url')
   String get url;
 

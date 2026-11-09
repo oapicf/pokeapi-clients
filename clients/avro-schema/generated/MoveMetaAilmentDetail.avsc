@@ -7,20 +7,20 @@
     {
       "name": "id",
       "type": "int",
-      "doc": ""
+      "doc": "The identifier for this resource."
     },
     {
       "name": "name",
       "type": "string",
-      "doc": ""
+      "doc": "The name for this resource."
     },
     {
       "name": "moves",
       "type": {
         "type": "array",
-        "items": "model.AbilityDetailPokemonInnerPokemon"
+        "items": "model.MoveSummary"
       },
-      "doc": ""
+      "doc": "A list of moves that cause this ailment."
     },
     {
       "name": "names",
@@ -28,7 +28,7 @@
         "type": "array",
         "items": "model.MoveMetaAilmentName"
       },
-      "doc": ""
+      "doc": "The name of this resource listed in different languages."
     }
   ]
 

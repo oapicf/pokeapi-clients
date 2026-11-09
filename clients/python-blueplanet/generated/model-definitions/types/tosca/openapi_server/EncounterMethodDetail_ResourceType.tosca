@@ -18,23 +18,23 @@ resourceTypes {
     properties {
         id {
           type =  integer
-          description = ""
+          description = "The identifier for this resource."
           optional = true
         }
         name {
           type =  string
-          description = ""
+          description = "The name for this resource."
           optional = true
         }
         order {
           type =  integer
-          description = ""
+          description = "A good value for sorting."
           optional = false
         }
         names {
           type = array
           items.type = EncounterMethodName
-          description = ""
+          description = "The name of this resource listed in different languages."
           optional = true
         }
     }

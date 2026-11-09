@@ -12,7 +12,7 @@ import model.VersionGroupDetail
 /**
   * Provides a default implementation for [[GamesApi]].
   */
-@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2026-10-25T05:53:17.467323765Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2026-11-09T13:53:31.572745352Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 class GamesApiImpl extends GamesApi {
   /**
     * @inheritdoc
@@ -20,7 +20,7 @@ class GamesApiImpl extends GamesApi {
   override def generationList(limit: Option[Int], offset: Option[Int], q: Option[String]): PaginatedGenerationSummaryList = {
     // TODO: Implement better logic
 
-    PaginatedGenerationSummaryList(None, None, None, None)
+    PaginatedGenerationSummaryList(0, None, None, List.empty[GenerationSummary])
   }
 
   /**
@@ -38,7 +38,7 @@ class GamesApiImpl extends GamesApi {
   override def pokedexList(limit: Option[Int], offset: Option[Int], q: Option[String]): PaginatedPokedexSummaryList = {
     // TODO: Implement better logic
 
-    PaginatedPokedexSummaryList(None, None, None, None)
+    PaginatedPokedexSummaryList(0, None, None, List.empty[PokedexSummary])
   }
 
   /**
@@ -47,7 +47,7 @@ class GamesApiImpl extends GamesApi {
   override def pokedexRetrieve(id: String): PokedexDetail = {
     // TODO: Implement better logic
 
-    PokedexDetail(0, "", None, List.empty[PokedexDescription], List.empty[PokedexName], List.empty[PokedexDetailPokemonEntriesInner], RegionSummary("", ""), List.empty[AbilityDetailPokemonInnerPokemon])
+    PokedexDetail(0, "", None, List.empty[PokedexDescription], List.empty[PokedexName], List.empty[PokemonDexNumber], RegionSummary("", ""), List.empty[VersionGroupSummary])
   }
 
   /**
@@ -56,7 +56,7 @@ class GamesApiImpl extends GamesApi {
   override def versionGroupList(limit: Option[Int], offset: Option[Int], q: Option[String]): PaginatedVersionGroupSummaryList = {
     // TODO: Implement better logic
 
-    PaginatedVersionGroupSummaryList(None, None, None, None)
+    PaginatedVersionGroupSummaryList(0, None, None, List.empty[VersionGroupSummary])
   }
 
   /**
@@ -65,7 +65,7 @@ class GamesApiImpl extends GamesApi {
   override def versionGroupRetrieve(id: String): VersionGroupDetail = {
     // TODO: Implement better logic
 
-    VersionGroupDetail(0, "", None, GenerationSummary("", ""), List.empty[AbilityDetailPokemonInnerPokemon], List.empty[AbilityDetailPokemonInnerPokemon], List.empty[AbilityDetailPokemonInnerPokemon], List.empty[VersionSummary])
+    VersionGroupDetail(0, "", None, GenerationSummary("", ""), List.empty[MoveLearnMethodSummary], List.empty[PokedexSummary], List.empty[RegionSummary], List.empty[VersionSummary])
   }
 
   /**
@@ -74,7 +74,7 @@ class GamesApiImpl extends GamesApi {
   override def versionList(limit: Option[Int], offset: Option[Int], q: Option[String]): PaginatedVersionSummaryList = {
     // TODO: Implement better logic
 
-    PaginatedVersionSummaryList(None, None, None, None)
+    PaginatedVersionSummaryList(0, None, None, List.empty[VersionSummary])
   }
 
   /**

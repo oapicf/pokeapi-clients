@@ -9,24 +9,44 @@ import Foundation
 
 public struct PokemonFormDetail: Sendable, Codable, Hashable {
 
-    public static let nameRule = StringRule(minLength: nil, maxLength: 100, pattern: nil)
+    public static let nameRule = StringRule(minLength: nil, maxLength: 200, pattern: nil)
+    public static let orderRule = NumericRule<Int>(minimum: -2147483648, exclusiveMinimum: false, maximum: 2147483647, exclusiveMaximum: false, multipleOf: nil)
+    public static let formOrderRule = NumericRule<Int>(minimum: -2147483648, exclusiveMinimum: false, maximum: 2147483647, exclusiveMaximum: false, multipleOf: nil)
     public static let formNameRule = StringRule(minLength: nil, maxLength: 30, pattern: nil)
+    /** The identifier for this resource. */
     public var id: Int
+    /** The name for this resource. */
     public var name: String
+    /** The order in which forms should be sorted within all forms. Multiple forms may have equal order, in which case they should fall back on sorting by name. */
     public var order: Int?
+    /** The order in which forms should be sorted within a species' forms. */
     public var formOrder: Int?
+    /** True for exactly one form used as the default for each Pokémon. */
     public var isDefault: Bool?
+    /** Whether or not this form can only happen during battle. */
     public var isBattleOnly: Bool?
+    /** Whether or not this form requires mega evolution. */
     public var isMega: Bool?
+    /** The name of this form. */
     public var formName: String
+    /** The Pokémon that can take on this form. */
     public var pokemon: PokemonSummary
-    public var sprites: PokemonFormDetailSprites
+    /** A set of sprites used to depict this Pokémon form in the game. */
+    public var sprites: PokemonFormSprites
+    /** The version group this Pokémon form was introduced in. */
     public var versionGroup: VersionGroupSummary
-    public var formNames: [PokemonFormDetailFormNamesInner]
-    public var names: [PokemonFormDetailFormNamesInner]
-    public var types: [PokemonDetailTypesInner]
+    /** The form specific form name of this Pokémon form, or empty if the form does not have a specific name. */
+    public var formNames: [PokemonFormName]
+    /** The form specific full name of this Pokémon form, or empty if the form does not have a specific name. */
+    public var names: [PokemonFormName]
+    /** A list of details showing types this Pokémon form has. */
+    public var types: [PokemonFormType]
+    /** The conditions that trigger this form. Resource names and URLs are included when the trigger requires a resource. */
+    public var triggerConditions: [PokemonFormTriggerCondition]
+    /** The flavor text of this form listed in different languages and versions. */
+    public var flavorTextEntries: [PokemonFormFlavorText]
 
-    public init(id: Int, name: String, order: Int? = nil, formOrder: Int? = nil, isDefault: Bool? = nil, isBattleOnly: Bool? = nil, isMega: Bool? = nil, formName: String, pokemon: PokemonSummary, sprites: PokemonFormDetailSprites, versionGroup: VersionGroupSummary, formNames: [PokemonFormDetailFormNamesInner], names: [PokemonFormDetailFormNamesInner], types: [PokemonDetailTypesInner]) {
+    public init(id: Int, name: String, order: Int? = nil, formOrder: Int? = nil, isDefault: Bool? = nil, isBattleOnly: Bool? = nil, isMega: Bool? = nil, formName: String, pokemon: PokemonSummary, sprites: PokemonFormSprites, versionGroup: VersionGroupSummary, formNames: [PokemonFormName], names: [PokemonFormName], types: [PokemonFormType], triggerConditions: [PokemonFormTriggerCondition], flavorTextEntries: [PokemonFormFlavorText]) {
         self.id = id
         self.name = name
         self.order = order
@@ -41,6 +61,8 @@ public struct PokemonFormDetail: Sendable, Codable, Hashable {
         self.formNames = formNames
         self.names = names
         self.types = types
+        self.triggerConditions = triggerConditions
+        self.flavorTextEntries = flavorTextEntries
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -58,6 +80,8 @@ public struct PokemonFormDetail: Sendable, Codable, Hashable {
         case formNames = "form_names"
         case names
         case types
+        case triggerConditions = "trigger_conditions"
+        case flavorTextEntries = "flavor_text_entries"
     }
 
     // Encodable protocol methods
@@ -78,6 +102,8 @@ public struct PokemonFormDetail: Sendable, Codable, Hashable {
         try container.encode(formNames, forKey: .formNames)
         try container.encode(names, forKey: .names)
         try container.encode(types, forKey: .types)
+        try container.encode(triggerConditions, forKey: .triggerConditions)
+        try container.encode(flavorTextEntries, forKey: .flavorTextEntries)
     }
 }
 

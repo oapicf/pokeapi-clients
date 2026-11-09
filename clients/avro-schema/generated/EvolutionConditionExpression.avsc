@@ -1,0 +1,27 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "EvolutionConditionExpression",
+  "fields": [
+    {
+      "name": "expression",
+      "type": "string",
+      "doc": "Evaluatable RPN condition expression using evolution variables (e.g. 'EC 100 % 0 ==')"
+    },
+    {
+      "name": "percentage_chance",
+      "type": "double",
+      "doc": "Percentage chance of evolution under this condition (0-100)"
+    },
+    {
+      "name": "variables",
+      "type": {
+        "type": "array",
+        "items": "model.EvolutionVariableSummary"
+      },
+      "doc": "Evolution variables referenced in the expression"
+    }
+  ]
+
+}

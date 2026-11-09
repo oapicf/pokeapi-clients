@@ -1,5 +1,5 @@
 const utils = require('../utils/utils');
-const EvolutionChainDetail_chain = require('../models/EvolutionChainDetail_chain');
+const EvolutionChainLink = require('../models/EvolutionChainLink');
 const ItemSummary = require('../models/ItemSummary');
 
 module.exports = {
@@ -8,12 +8,12 @@ module.exports = {
         return [
             {
                 key: `${keyPrefix}id`,
-                label: `[${labelPrefix}id]`,
+                label: `The identifier for this resource. - [${labelPrefix}id]`,
                 required: true,
                 type: 'integer',
             },
             ...ItemSummary.fields(`${keyPrefix}baby_trigger_item`, isInput),
-            ...EvolutionChainDetail_chain.fields(`${keyPrefix}chain`, isInput),
+            ...EvolutionChainLink.fields(`${keyPrefix}chain`, isInput),
         ]
     },
     mapping: (bundle, prefix = '') => {
@@ -21,7 +21,7 @@ module.exports = {
         return {
             'id': bundle.inputData?.[`${keyPrefix}id`],
             'baby_trigger_item': utils.removeIfEmpty(ItemSummary.mapping(bundle, `${keyPrefix}baby_trigger_item`)),
-            'chain': utils.removeIfEmpty(EvolutionChainDetail_chain.mapping(bundle, `${keyPrefix}chain`)),
+            'chain': utils.removeIfEmpty(EvolutionChainLink.mapping(bundle, `${keyPrefix}chain`)),
         }
     },
 }

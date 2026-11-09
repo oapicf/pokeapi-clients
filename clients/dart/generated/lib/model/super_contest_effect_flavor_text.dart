@@ -17,8 +17,10 @@ class SuperContestEffectFlavorText {
     required this.language,
   });
 
+  /// The localized flavor text for an API resource in a specific language.
   String flavorText;
 
+  /// The language this name is in.
   LanguageSummary language;
 
   @override

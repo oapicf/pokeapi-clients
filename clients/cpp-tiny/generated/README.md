@@ -6,7 +6,7 @@ After the client have been generated, you have to change these following variabl
 - src/main.cpp | Change wifi password
 - lib/service/AbstractService.h | Change to your url
 
-# Documentation for PokéAPI 2.7.0 Tiny client cpp (Arduino) 
+# Documentation for PokéAPI 2.10.0 Tiny client cpp (Arduino) 
 
 The project is structured like this:
 ```
@@ -64,6 +64,8 @@ All URIs are relative to https://pokeapi.cohttps://pokeapi.co
 |*evolutionChainRetrieve* | *GET* /api/v2/evolution-chain/{id}/ | Get evolution chain.|
 |*evolutionTriggerList* | *GET* /api/v2/evolution-trigger/ | List evolution triggers.|
 |*evolutionTriggerRetrieve* | *GET* /api/v2/evolution-trigger/{id}/ | Get evolution trigger.|
+|*evolutionVariableList* | *GET* /api/v2/evolution-variable/ | List evolution variables.|
+|*evolutionVariableRetrieve* | *GET* /api/v2/evolution-variable/{id}/ | Get evolution variable.|
 
 ### GamesApi
 |Method | HTTP request | Description|
@@ -80,6 +82,8 @@ All URIs are relative to https://pokeapi.cohttps://pokeapi.co
 ### ItemsApi
 |Method | HTTP request | Description|
 |------------- | ------------- | -------------|
+|*currencyList* | *GET* /api/v2/currency/ | List currencies.|
+|*currencyRetrieve* | *GET* /api/v2/currency/{id}/ | Get currency.|
 |*itemAttributeList* | *GET* /api/v2/item-attribute/ | List item attributes.|
 |*itemAttributeRetrieve* | *GET* /api/v2/item-attribute/{id}/ | Get item attribute.|
 |*itemCategoryList* | *GET* /api/v2/item-category/ | List item categories.|
@@ -128,9 +132,9 @@ All URIs are relative to https://pokeapi.cohttps://pokeapi.co
 ### PokemonApi
 |Method | HTTP request | Description|
 |------------- | ------------- | -------------|
-|*abilityList* | *GET* /api/v2/ability/ | .|
-|*abilityRetrieve* | *GET* /api/v2/ability/{id}/ | .|
-|*characteristicList* | *GET* /api/v2/characteristic/ | List charecterictics.|
+|*abilityList* | *GET* /api/v2/ability/ | List abilities.|
+|*abilityRetrieve* | *GET* /api/v2/ability/{id}/ | Get ability.|
+|*characteristicList* | *GET* /api/v2/characteristic/ | List characteristics.|
 |*characteristicRetrieve* | *GET* /api/v2/characteristic/{id}/ | Get characteristic.|
 |*eggGroupList* | *GET* /api/v2/egg-group/ | List egg groups.|
 |*eggGroupRetrieve* | *GET* /api/v2/egg-group/{id}/ | Get egg group.|
@@ -166,6 +170,7 @@ All URIs are relative to https://pokeapi.cohttps://pokeapi.co
 |------------- | ------------- | -------------|
 |*languageList* | *GET* /api/v2/language/ | List languages.|
 |*languageRetrieve* | *GET* /api/v2/language/{id}/ | Get language.|
+|*metaRetrieve* | *GET* /api/v2/meta/ | Get API metadata.|
 
 
 ## What are the Model files for the data structures/objects?
@@ -174,21 +179,18 @@ All URIs are relative to https://pokeapi.cohttps://pokeapi.co
 |*AbilityChange* | |
 |*AbilityChangeEffectText* | |
 |*AbilityDetail* | |
-|*AbilityDetail_pokemon_inner* | |
-|*AbilityDetail_pokemon_inner_pokemon* | |
 |*AbilityEffectText* | |
 |*AbilityFlavorText* | |
 |*AbilityName* | |
+|*AbilityPokemonDetail* | |
 |*AbilitySummary* | |
 |*BerryDetail* | |
-|*BerryDetail_flavors_inner* | |
-|*BerryDetail_flavors_inner_flavor* | |
 |*BerryFirmnessDetail* | |
 |*BerryFirmnessName* | |
 |*BerryFirmnessSummary* | |
+|*BerryFlavorBerryMap* | |
 |*BerryFlavorDetail* | |
-|*BerryFlavorDetail_berries_inner* | |
-|*BerryFlavorDetail_berries_inner_berry* | |
+|*BerryFlavorMap* | |
 |*BerryFlavorName* | |
 |*BerryFlavorSummary* | |
 |*BerrySummary* | |
@@ -202,8 +204,10 @@ All URIs are relative to https://pokeapi.cohttps://pokeapi.co
 |*ContestTypeDetail* | |
 |*ContestTypeName* | |
 |*ContestTypeSummary* | |
+|*CurrencyDetail* | |
+|*CurrencyName* | |
+|*CurrencySummary* | |
 |*EggGroupDetail* | |
-|*EggGroupDetail_pokemon_species_inner* | |
 |*EggGroupName* | |
 |*EggGroupSummary* | |
 |*EncounterConditionDetail* | |
@@ -215,18 +219,21 @@ All URIs are relative to https://pokeapi.cohttps://pokeapi.co
 |*EncounterMethodDetail* | |
 |*EncounterMethodName* | |
 |*EncounterMethodSummary* | |
+|*EncounterPokemonDetail* | |
 |*EvolutionChainDetail* | |
-|*EvolutionChainDetail_chain* | |
-|*EvolutionChainDetail_chain_evolves_to_inner* | |
-|*EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner* | |
-|*EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender* | |
+|*EvolutionChainLink* | |
 |*EvolutionChainSummary* | |
+|*EvolutionConditionExpression* | |
 |*EvolutionTriggerDetail* | |
 |*EvolutionTriggerName* | |
 |*EvolutionTriggerSummary* | |
+|*EvolutionVariableDescription* | |
+|*EvolutionVariableDetail* | |
+|*EvolutionVariableName* | |
+|*EvolutionVariableSummary* | |
 |*Experience* | |
 |*GenderDetail* | |
-|*GenderDetail_pokemon_species_details_inner* | |
+|*GenderPokemonSpecies* | |
 |*GenderSummary* | |
 |*GenerationDetail* | |
 |*GenerationName* | |
@@ -242,32 +249,30 @@ All URIs are relative to https://pokeapi.cohttps://pokeapi.co
 |*ItemCategoryName* | |
 |*ItemCategorySummary* | |
 |*ItemDetail* | |
-|*ItemDetail_baby_trigger_for* | |
-|*ItemDetail_held_by_pokemon_inner* | |
-|*ItemDetail_held_by_pokemon_inner_version_details_inner* | |
-|*ItemDetail_machines_inner* | |
-|*ItemDetail_sprites* | |
 |*ItemEffectText* | |
 |*ItemFlavorText* | |
 |*ItemFlingEffectDetail* | |
 |*ItemFlingEffectEffectText* | |
 |*ItemFlingEffectSummary* | |
 |*ItemGameIndex* | |
+|*ItemMachine* | |
 |*ItemName* | |
 |*ItemPocketDetail* | |
 |*ItemPocketName* | |
 |*ItemPocketSummary* | |
+|*ItemPrice* | |
+|*ItemSprites* | |
 |*ItemSummary* | |
 |*LanguageDetail* | |
 |*LanguageName* | |
 |*LanguageSummary* | |
 |*LocationAreaDetail* | |
-|*LocationAreaDetail_encounter_method_rates_inner* | |
-|*LocationAreaDetail_encounter_method_rates_inner_version_details_inner* | |
-|*LocationAreaDetail_pokemon_encounters_inner* | |
-|*LocationAreaDetail_pokemon_encounters_inner_version_details_inner* | |
-|*LocationAreaDetail_pokemon_encounters_inner_version_details_inner_encounter_details* | |
+|*LocationAreaEncounterDetail* | |
+|*LocationAreaEncounterRate* | |
+|*LocationAreaEncounterVersionDetail* | |
 |*LocationAreaName* | |
+|*LocationAreaPokemonEncounter* | |
+|*LocationAreaPokemonEncounterVersion* | |
 |*LocationAreaSummary* | |
 |*LocationDetail* | |
 |*LocationGameIndex* | |
@@ -279,19 +284,16 @@ All URIs are relative to https://pokeapi.cohttps://pokeapi.co
 |*MoveBattleStyleName* | |
 |*MoveBattleStyleSummary* | |
 |*MoveChange* | |
-|*MoveChange_effect_entries_inner* | |
+|*MoveComboUsage* | |
+|*MoveCombos* | |
 |*MoveDamageClassDescription* | |
 |*MoveDamageClassDetail* | |
 |*MoveDamageClassName* | |
 |*MoveDamageClassSummary* | |
 |*MoveDetail* | |
-|*MoveDetail_contest_combos* | |
-|*MoveDetail_contest_combos_normal* | |
-|*MoveDetail_effect_changes_inner* | |
-|*MoveDetail_effect_changes_inner_effect_entries_inner* | |
-|*MoveDetail_machines_inner* | |
-|*MoveDetail_machines_inner_machine* | |
-|*MoveDetail_stat_changes_inner* | |
+|*MoveEffectChange* | |
+|*MoveEffectChangeEffectText* | |
+|*MoveEffectEffectText* | |
 |*MoveFlavorText* | |
 |*MoveLearnMethodDescription* | |
 |*MoveLearnMethodDetail* | |
@@ -304,7 +306,9 @@ All URIs are relative to https://pokeapi.cohttps://pokeapi.co
 |*MoveMetaCategoryDescription* | |
 |*MoveMetaCategoryDetail* | |
 |*MoveMetaCategorySummary* | |
+|*MoveMetaStatChange* | |
 |*MoveName* | |
+|*MoveStatChange* | |
 |*MoveSummary* | |
 |*MoveTargetDescription* | |
 |*MoveTargetDetail* | |
@@ -312,8 +316,8 @@ All URIs are relative to https://pokeapi.cohttps://pokeapi.co
 |*MoveTargetSummary* | |
 |*NatureBattleStylePreference* | |
 |*NatureDetail* | |
-|*NatureDetail_pokeathlon_stat_changes_inner* | |
 |*NatureName* | |
+|*NaturePokeathlonStat* | |
 |*NatureSummary* | |
 |*PaginatedAbilitySummaryList* | |
 |*PaginatedBerryFirmnessSummaryList* | |
@@ -322,12 +326,14 @@ All URIs are relative to https://pokeapi.cohttps://pokeapi.co
 |*PaginatedCharacteristicSummaryList* | |
 |*PaginatedContestEffectSummaryList* | |
 |*PaginatedContestTypeSummaryList* | |
+|*PaginatedCurrencySummaryList* | |
 |*PaginatedEggGroupSummaryList* | |
 |*PaginatedEncounterConditionSummaryList* | |
 |*PaginatedEncounterConditionValueSummaryList* | |
 |*PaginatedEncounterMethodSummaryList* | |
 |*PaginatedEvolutionChainSummaryList* | |
 |*PaginatedEvolutionTriggerSummaryList* | |
+|*PaginatedEvolutionVariableSummaryList* | |
 |*PaginatedGenderSummaryList* | |
 |*PaginatedGenerationSummaryList* | |
 |*PaginatedGrowthRateSummaryList* | |
@@ -364,75 +370,91 @@ All URIs are relative to https://pokeapi.cohttps://pokeapi.co
 |*PaginatedVersionGroupSummaryList* | |
 |*PaginatedVersionSummaryList* | |
 |*PalParkAreaDetail* | |
-|*PalParkAreaDetail_pokemon_encounters_inner* | |
 |*PalParkAreaName* | |
 |*PalParkAreaSummary* | |
+|*PalParkEncounter* | |
+|*PokeapiMetaResponse* | |
+|*PokeathlonStatAffectingNature* | |
+|*PokeathlonStatAffectingNatures* | |
 |*PokeathlonStatDetail* | |
-|*PokeathlonStatDetail_affecting_natures* | |
-|*PokeathlonStatDetail_affecting_natures_decrease_inner* | |
-|*PokeathlonStatDetail_affecting_natures_increase_inner* | |
 |*PokeathlonStatName* | |
 |*PokeathlonStatSummary* | |
 |*PokedexDescription* | |
 |*PokedexDetail* | |
-|*PokedexDetail_pokemon_entries_inner* | |
 |*PokedexName* | |
 |*PokedexSummary* | |
+|*PokemonAbility* | |
+|*PokemonAbilityPast* | |
 |*PokemonColorDetail* | |
 |*PokemonColorName* | |
 |*PokemonColorSummary* | |
+|*PokemonCries* | |
 |*PokemonDetail* | |
-|*PokemonDetail_abilities_inner* | |
-|*PokemonDetail_cries* | |
-|*PokemonDetail_held_items* | |
-|*PokemonDetail_moves_inner* | |
-|*PokemonDetail_moves_inner_version_group_details_inner* | |
-|*PokemonDetail_past_abilities_inner* | |
-|*PokemonDetail_past_types_inner* | |
-|*PokemonDetail_sprites* | |
-|*PokemonDetail_types_inner* | |
 |*PokemonDexEntry* | |
+|*PokemonDexNumber* | |
+|*PokemonEncounterDetailResponse* | |
+|*PokemonEncounterResponse* | |
+|*PokemonEncounterVersionDetailResponse* | |
+|*PokemonEvolution* | |
+|*PokemonEvolution_known_move* | |
 |*PokemonFormDetail* | |
-|*PokemonFormDetail_form_names_inner* | |
-|*PokemonFormDetail_sprites* | |
+|*PokemonFormFlavorText* | |
+|*PokemonFormName* | |
+|*PokemonFormSprites* | |
 |*PokemonFormSummary* | |
+|*PokemonFormTriggerCondition* | |
+|*PokemonFormType* | |
 |*PokemonGameIndex* | |
 |*PokemonHabitatDetail* | |
 |*PokemonHabitatName* | |
 |*PokemonHabitatSummary* | |
+|*PokemonHeldItem* | |
+|*PokemonHeldItemSummary* | |
+|*PokemonHeldItemVersion* | |
+|*PokemonMove* | |
+|*PokemonMoveVersionGroup* | |
+|*PokemonPastAbility* | |
+|*PokemonPastStat* | |
+|*PokemonPastType* | |
+|*PokemonShapeAwesomeName* | |
 |*PokemonShapeDetail* | |
-|*PokemonShapeDetail_awesome_names_inner* | |
-|*PokemonShapeDetail_names_inner* | |
+|*PokemonShapeName* | |
 |*PokemonShapeSummary* | |
 |*PokemonSpeciesDescription* | |
 |*PokemonSpeciesDetail* | |
-|*PokemonSpeciesDetail_genera_inner* | |
-|*PokemonSpeciesDetail_pal_park_encounters_inner* | |
-|*PokemonSpeciesDetail_varieties_inner* | |
 |*PokemonSpeciesFlavorText* | |
+|*PokemonSpeciesGenus* | |
+|*PokemonSpeciesName* | |
+|*PokemonSpeciesPalParkEncounter* | |
 |*PokemonSpeciesSummary* | |
+|*PokemonSpeciesVariety* | |
+|*PokemonSprites* | |
+|*PokemonSpritesOther* | |
+|*PokemonSpritesOtherDreamWorld* | |
+|*PokemonSpritesOtherHome* | |
+|*PokemonSpritesOtherOfficialArtwork* | |
+|*PokemonSpritesOtherShowdown* | |
 |*PokemonStat* | |
 |*PokemonSummary* | |
+|*PokemonType* | |
 |*RegionDetail* | |
 |*RegionName* | |
 |*RegionSummary* | |
+|*StatAffectingMoves* | |
+|*StatAffectingNatures* | |
 |*StatDetail* | |
-|*StatDetail_affecting_moves* | |
-|*StatDetail_affecting_moves_increase_inner* | |
-|*StatDetail_affecting_natures* | |
 |*StatName* | |
 |*StatSummary* | |
 |*SuperContestEffectDetail* | |
 |*SuperContestEffectFlavorText* | |
 |*SuperContestEffectSummary* | |
 |*TypeDetail* | Serializer for the Type resource|
-|*TypeDetail_damage_relations* | |
-|*TypeDetail_past_damage_relations_inner* | |
-|*TypeDetail_past_damage_relations_inner_damage_relations* | |
-|*TypeDetail_pokemon_inner* | |
-|*TypeDetail_pokemon_inner_pokemon* | |
-|*TypeDetail_sprites_value_value* | |
 |*TypeGameIndex* | |
+|*TypeGameSprite* | |
+|*TypeName* | |
+|*TypePastRelationships* | |
+|*TypePokemon* | |
+|*TypeRelationships* | |
 |*TypeSummary* | |
 |*VersionDetail* | Should have a link to Version Group info but the Circular dependency and compilation order fight eachother and I'm not sure how to add anything other than a hyperlink|
 |*VersionGroupDetail* | |

@@ -18,6 +18,6 @@ data class EggGroupDetail(
     val names: kotlin.collections.List<EggGroupName>,
 
     @field:JsonProperty("pokemon_species")
-    val pokemonSpecies: kotlin.collections.List<EggGroupDetailPokemonSpeciesInner>,
+    val pokemonSpecies: kotlin.collections.List<PokemonSpeciesSummary>,
 
 )

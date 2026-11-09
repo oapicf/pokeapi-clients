@@ -10,7 +10,6 @@ namespace models {
 
 GenerationName::GenerationName()
 : name("")
-, language(LanguageSummary())
 {
 }
 // =========================================

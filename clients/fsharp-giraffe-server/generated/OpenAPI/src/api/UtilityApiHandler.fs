@@ -9,6 +9,7 @@ open UtilityApiServiceInterface
 open UtilityApiServiceImplementation
 open OpenAPI.Model.LanguageDetail
 open OpenAPI.Model.PaginatedLanguageSummaryList
+open OpenAPI.Model.PokeapiMetaResponse
 
 module UtilityApiHandler =
 
@@ -46,6 +47,22 @@ module UtilityApiHandler =
           let result = UtilityApiService.LanguageRetrieve ctx serviceArgs
           return! (match result with
                       | LanguageRetrieveStatusCode200 resolved ->
+                            setStatusCode 200 >=> json resolved.content
+          ) next ctx
+        }
+    //#endregion
+
+    //#region MetaRetrieve
+    /// <summary>
+    /// Get API metadata
+    /// </summary>
+
+    let MetaRetrieve  : HttpHandler =
+      fun (next : HttpFunc) (ctx : HttpContext) ->
+        task {
+          let result = UtilityApiService.MetaRetrieve ctx 
+          return! (match result with
+                      | MetaRetrieveStatusCode200 resolved ->
                             setStatusCode 200 >=> json resolved.content
           ) next ctx
         }

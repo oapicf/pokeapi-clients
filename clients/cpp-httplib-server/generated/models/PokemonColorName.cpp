@@ -10,7 +10,6 @@ namespace models {
 
 PokemonColorName::PokemonColorName()
 : name("")
-, language(LanguageSummary())
 {
 }
 // =========================================

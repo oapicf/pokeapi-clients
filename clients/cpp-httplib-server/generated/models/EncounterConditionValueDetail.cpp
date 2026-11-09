@@ -11,7 +11,6 @@ namespace models {
 EncounterConditionValueDetail::EncounterConditionValueDetail()
 : id(0)
 , name("")
-, condition(EncounterConditionSummary())
 , names(std::vector<EncounterConditionValueName>())
 {
 }

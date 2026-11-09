@@ -7,17 +7,17 @@
 #' @title TypeDetail
 #' @description TypeDetail Class
 #' @format An \code{R6Class} generator object
-#' @field id  integer
-#' @field name  character
-#' @field damage_relations  \link{TypeDetailDamageRelations}
-#' @field past_damage_relations  list(\link{TypeDetailPastDamageRelationsInner})
-#' @field game_indices  list(\link{TypeGameIndex})
-#' @field generation  \link{GenerationSummary}
-#' @field move_damage_class  \link{MoveDamageClassSummary}
-#' @field names  list(\link{AbilityName})
-#' @field pokemon  list(\link{TypeDetailPokemonInner})
-#' @field moves  list(\link{MoveSummary})
-#' @field sprites  named list(named list(\link{TypeDetailSpritesValueValue}))
+#' @field id The identifier for this resource. integer
+#' @field name The name for this resource. character
+#' @field damage_relations A detail of how effective this type is toward others and vice versa. \link{TypeRelationships}
+#' @field past_damage_relations A list of details of how effective this type was toward others and vice versa in previous generations list(\link{TypePastRelationships})
+#' @field game_indices A list of game indices relevent to this item by generation. list(\link{TypeGameIndex})
+#' @field generation The generation this type was introduced in. \link{GenerationSummary}
+#' @field move_damage_class The class of damage inflicted by this type. \link{MoveDamageClassSummary}
+#' @field names The name of this resource listed in different languages. list(\link{TypeName})
+#' @field pokemon A list of details of Pokémon that have this type. list(\link{TypePokemon})
+#' @field moves A list of moves that have this type. list(\link{MoveSummary})
+#' @field sprites Type icons grouped by generation and game, with name_icon and symbol_icon URLs. Unavailable icons are null. named list(named list(\link{TypeGameSprite}))
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -39,17 +39,17 @@ TypeDetail <- R6::R6Class(
     #' @description
     #' Initialize a new TypeDetail class.
     #'
-    #' @param id id
-    #' @param name name
-    #' @param damage_relations damage_relations
-    #' @param past_damage_relations past_damage_relations
-    #' @param game_indices game_indices
-    #' @param generation generation
-    #' @param move_damage_class move_damage_class
-    #' @param names names
-    #' @param pokemon pokemon
-    #' @param moves moves
-    #' @param sprites sprites
+    #' @param id The identifier for this resource.
+    #' @param name The name for this resource.
+    #' @param damage_relations A detail of how effective this type is toward others and vice versa.
+    #' @param past_damage_relations A list of details of how effective this type was toward others and vice versa in previous generations
+    #' @param game_indices A list of game indices relevent to this item by generation.
+    #' @param generation The generation this type was introduced in.
+    #' @param move_damage_class The class of damage inflicted by this type.
+    #' @param names The name of this resource listed in different languages.
+    #' @param pokemon A list of details of Pokémon that have this type.
+    #' @param moves A list of moves that have this type.
+    #' @param sprites Type icons grouped by generation and game, with name_icon and symbol_icon URLs. Unavailable icons are null.
     #' @param ... Other optional arguments.
     initialize = function(`id`, `name`, `damage_relations`, `past_damage_relations`, `game_indices`, `generation`, `move_damage_class`, `names`, `pokemon`, `moves`, `sprites`, ...) {
       if (!missing(`id`)) {
@@ -223,12 +223,12 @@ TypeDetail <- R6::R6Class(
         self$`name` <- this_object$`name`
       }
       if (!is.null(this_object$`damage_relations`)) {
-        `damage_relations_object` <- TypeDetailDamageRelations$new()
+        `damage_relations_object` <- TypeRelationships$new()
         `damage_relations_object`$fromJSON(jsonlite::toJSON(this_object$`damage_relations`, auto_unbox = TRUE, digits = NA))
         self$`damage_relations` <- `damage_relations_object`
       }
       if (!is.null(this_object$`past_damage_relations`)) {
-        self$`past_damage_relations` <- ApiClient$new()$deserializeObj(this_object$`past_damage_relations`, "array[TypeDetailPastDamageRelationsInner]", loadNamespace("openapi"))
+        self$`past_damage_relations` <- ApiClient$new()$deserializeObj(this_object$`past_damage_relations`, "array[TypePastRelationships]", loadNamespace("openapi"))
       }
       if (!is.null(this_object$`game_indices`)) {
         self$`game_indices` <- ApiClient$new()$deserializeObj(this_object$`game_indices`, "array[TypeGameIndex]", loadNamespace("openapi"))
@@ -244,16 +244,16 @@ TypeDetail <- R6::R6Class(
         self$`move_damage_class` <- `move_damage_class_object`
       }
       if (!is.null(this_object$`names`)) {
-        self$`names` <- ApiClient$new()$deserializeObj(this_object$`names`, "array[AbilityName]", loadNamespace("openapi"))
+        self$`names` <- ApiClient$new()$deserializeObj(this_object$`names`, "array[TypeName]", loadNamespace("openapi"))
       }
       if (!is.null(this_object$`pokemon`)) {
-        self$`pokemon` <- ApiClient$new()$deserializeObj(this_object$`pokemon`, "array[TypeDetailPokemonInner]", loadNamespace("openapi"))
+        self$`pokemon` <- ApiClient$new()$deserializeObj(this_object$`pokemon`, "array[TypePokemon]", loadNamespace("openapi"))
       }
       if (!is.null(this_object$`moves`)) {
         self$`moves` <- ApiClient$new()$deserializeObj(this_object$`moves`, "array[MoveSummary]", loadNamespace("openapi"))
       }
       if (!is.null(this_object$`sprites`)) {
-        self$`sprites` <- ApiClient$new()$deserializeObj(this_object$`sprites`, "map(map(TypeDetailSpritesValueValue))", loadNamespace("openapi"))
+        self$`sprites` <- ApiClient$new()$deserializeObj(this_object$`sprites`, "map(map(TypeGameSprite))", loadNamespace("openapi"))
       }
       self
     },
@@ -278,15 +278,15 @@ TypeDetail <- R6::R6Class(
       this_object <- jsonlite::fromJSON(input_json)
       self$`id` <- this_object$`id`
       self$`name` <- this_object$`name`
-      self$`damage_relations` <- TypeDetailDamageRelations$new()$fromJSON(jsonlite::toJSON(this_object$`damage_relations`, auto_unbox = TRUE, digits = NA))
-      self$`past_damage_relations` <- ApiClient$new()$deserializeObj(this_object$`past_damage_relations`, "array[TypeDetailPastDamageRelationsInner]", loadNamespace("openapi"))
+      self$`damage_relations` <- TypeRelationships$new()$fromJSON(jsonlite::toJSON(this_object$`damage_relations`, auto_unbox = TRUE, digits = NA))
+      self$`past_damage_relations` <- ApiClient$new()$deserializeObj(this_object$`past_damage_relations`, "array[TypePastRelationships]", loadNamespace("openapi"))
       self$`game_indices` <- ApiClient$new()$deserializeObj(this_object$`game_indices`, "array[TypeGameIndex]", loadNamespace("openapi"))
       self$`generation` <- GenerationSummary$new()$fromJSON(jsonlite::toJSON(this_object$`generation`, auto_unbox = TRUE, digits = NA))
       self$`move_damage_class` <- MoveDamageClassSummary$new()$fromJSON(jsonlite::toJSON(this_object$`move_damage_class`, auto_unbox = TRUE, digits = NA))
-      self$`names` <- ApiClient$new()$deserializeObj(this_object$`names`, "array[AbilityName]", loadNamespace("openapi"))
-      self$`pokemon` <- ApiClient$new()$deserializeObj(this_object$`pokemon`, "array[TypeDetailPokemonInner]", loadNamespace("openapi"))
+      self$`names` <- ApiClient$new()$deserializeObj(this_object$`names`, "array[TypeName]", loadNamespace("openapi"))
+      self$`pokemon` <- ApiClient$new()$deserializeObj(this_object$`pokemon`, "array[TypePokemon]", loadNamespace("openapi"))
       self$`moves` <- ApiClient$new()$deserializeObj(this_object$`moves`, "array[MoveSummary]", loadNamespace("openapi"))
-      self$`sprites` <- ApiClient$new()$deserializeObj(this_object$`sprites`, "map(map(TypeDetailSpritesValueValue))", loadNamespace("openapi"))
+      self$`sprites` <- ApiClient$new()$deserializeObj(this_object$`sprites`, "map(map(TypeGameSprite))", loadNamespace("openapi"))
       self
     },
 
@@ -397,7 +397,7 @@ TypeDetail <- R6::R6Class(
         return(FALSE)
       }
 
-      if (nchar(self$`name`) > 100) {
+      if (nchar(self$`name`) > 200) {
         return(FALSE)
       }
 
@@ -418,11 +418,6 @@ TypeDetail <- R6::R6Class(
 
       # check if the required `generation` is null
       if (is.null(self$`generation`)) {
-        return(FALSE)
-      }
-
-      # check if the required `move_damage_class` is null
-      if (is.null(self$`move_damage_class`)) {
         return(FALSE)
       }
 
@@ -465,8 +460,8 @@ TypeDetail <- R6::R6Class(
         invalid_fields["name"] <- "Non-nullable required field `name` cannot be null."
       }
 
-      if (nchar(self$`name`) > 100) {
-        invalid_fields["name"] <- "Invalid length for `name`, must be smaller than or equal to 100."
+      if (nchar(self$`name`) > 200) {
+        invalid_fields["name"] <- "Invalid length for `name`, must be smaller than or equal to 200."
       }
 
       # check if the required `damage_relations` is null
@@ -487,11 +482,6 @@ TypeDetail <- R6::R6Class(
       # check if the required `generation` is null
       if (is.null(self$`generation`)) {
         invalid_fields["generation"] <- "Non-nullable required field `generation` cannot be null."
-      }
-
-      # check if the required `move_damage_class` is null
-      if (is.null(self$`move_damage_class`)) {
-        invalid_fields["move_damage_class"] <- "Non-nullable required field `move_damage_class` cannot be null."
       }
 
       # check if the required `names` is null

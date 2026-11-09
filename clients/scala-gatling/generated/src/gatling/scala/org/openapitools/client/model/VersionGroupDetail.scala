@@ -3,13 +3,21 @@ package org.openapitools.client.model
 
 
 case class VersionGroupDetail (
+    /* The identifier for this resource. */
     _id: Integer,
+    /* The name for this resource. */
     _name: String,
+    /* Order for sorting. Almost by date of release, except similar versions are grouped together. */
     _order: Option[Integer],
+    /* The generation this version was introduced in. */
     _generation: GenerationSummary,
-    _moveLearnMethods: List[AbilityDetailPokemonInnerPokemon],
-    _pokedexes: List[AbilityDetailPokemonInnerPokemon],
-    _regions: List[AbilityDetailPokemonInnerPokemon],
+    /* A list of methods in which Pokémon can learn moves in this version group. */
+    _moveLearnMethods: List[MoveLearnMethodSummary],
+    /* A list of Pokédexes introduces in this version group. */
+    _pokedexes: List[PokedexSummary],
+    /* A list of regions that can be visited in this version group. */
+    _regions: List[RegionSummary],
+    /* The versions this version group owns. */
     _versions: List[VersionSummary]
 )
 object VersionGroupDetail {

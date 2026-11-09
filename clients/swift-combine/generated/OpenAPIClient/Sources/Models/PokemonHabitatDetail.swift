@@ -8,9 +8,13 @@
 import Foundation
 
 public struct PokemonHabitatDetail: Codable {
+    /// The identifier for this resource.
     public var id: Int
+    /// The name for this resource.
     public var name: String
+    /// The name of this resource listed in different languages.
     public var names: [PokemonHabitatName]
+    /// A list of the Pokémon species that can be found in this habitat.
     public var pokemonSpecies: [PokemonSpeciesSummary]
 
     public init(id: Int, name: String, names: [PokemonHabitatName], pokemonSpecies: [PokemonSpeciesSummary]) {

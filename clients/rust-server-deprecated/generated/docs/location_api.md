@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 
 # **location_area_list**
-> models::PaginatedLocationAreaSummaryList location_area_list(ctx, ctx, optional)
+> models::PaginatedLocationAreaSummaryList location_area_list(optional)
 List location areas
 
 Location areas are sections of areas, such as floors in a building or cave. Each area has its own set of possible Pokémon encounters.
@@ -24,8 +24,6 @@ Location areas are sections of areas, such as floors in a building or cave. Each
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -42,7 +40,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -52,7 +50,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **location_list**
-> models::PaginatedLocationSummaryList location_list(ctx, ctx, optional)
+> models::PaginatedLocationSummaryList location_list(optional)
 List locations
 
 Locations that can be visited within the games. Locations make up sizable portions of regions, like cities or routes.
@@ -61,8 +59,6 @@ Locations that can be visited within the games. Locations make up sizable portio
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -80,7 +76,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -90,7 +86,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **pal_park_area_list**
-> models::PaginatedPalParkAreaSummaryList pal_park_area_list(ctx, ctx, optional)
+> models::PaginatedPalParkAreaSummaryList pal_park_area_list(optional)
 List pal park areas
 
 Areas used for grouping Pokémon encounters in Pal Park. They're like habitats that are specific to Pal Park.
@@ -99,8 +95,6 @@ Areas used for grouping Pokémon encounters in Pal Park. They're like habitats t
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -118,7 +112,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -128,7 +122,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **region_list**
-> models::PaginatedRegionSummaryList region_list(ctx, ctx, optional)
+> models::PaginatedRegionSummaryList region_list(optional)
 List regions
 
 A region is an organized area of the Pokémon world. Most often, the main difference between regions is the species of Pokémon that can be encountered within them.
@@ -137,8 +131,6 @@ A region is an organized area of the Pokémon world. Most often, the main differ
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -156,7 +148,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -166,7 +158,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **location_area_retrieve**
-> models::LocationAreaDetail location_area_retrieve(ctx, ctx, id)
+> models::LocationAreaDetail location_area_retrieve(id)
 Get location area
 
 Location areas are sections of areas, such as floors in a building or cave. Each area has its own set of possible Pokémon encounters.
@@ -175,8 +167,6 @@ Location areas are sections of areas, such as floors in a building or cave. Each
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **i32**| A unique integer value identifying this location area. | 
 
 ### Return type
@@ -185,7 +175,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -195,7 +185,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **location_retrieve**
-> models::LocationDetail location_retrieve(ctx, ctx, id)
+> models::LocationDetail location_retrieve(id)
 Get location
 
 Locations that can be visited within the games. Locations make up sizable portions of regions, like cities or routes.
@@ -204,8 +194,6 @@ Locations that can be visited within the games. Locations make up sizable portio
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **String**| This parameter can be a string or an integer. | 
 
 ### Return type
@@ -214,7 +202,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -224,7 +212,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **pal_park_area_retrieve**
-> models::PalParkAreaDetail pal_park_area_retrieve(ctx, ctx, id)
+> models::PalParkAreaDetail pal_park_area_retrieve(id)
 Get pal park area
 
 Areas used for grouping Pokémon encounters in Pal Park. They're like habitats that are specific to Pal Park.
@@ -233,8 +221,6 @@ Areas used for grouping Pokémon encounters in Pal Park. They're like habitats t
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **String**| This parameter can be a string or an integer. | 
 
 ### Return type
@@ -243,7 +229,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -253,7 +239,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **region_retrieve**
-> models::RegionDetail region_retrieve(ctx, ctx, id)
+> models::RegionDetail region_retrieve(id)
 Get region
 
 A region is an organized area of the Pokémon world. Most often, the main difference between regions is the species of Pokémon that can be encountered within them.
@@ -262,8 +248,6 @@ A region is an organized area of the Pokémon world. Most often, the main differ
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **String**| This parameter can be a string or an integer. | 
 
 ### Return type
@@ -272,7 +256,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

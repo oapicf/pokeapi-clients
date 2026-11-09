@@ -24,7 +24,7 @@ void
 ItemCategoryName::__init()
 {
 	//name = std::string();
-	//language = new LanguageSummary();
+	//language = null;
 }
 
 void

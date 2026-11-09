@@ -20,22 +20,22 @@ resourceTypes {
     properties {
         id {
           type =  integer
-          description = ""
+          description = "The identifier for this resource."
           optional = true
         }
         item {
           type = ItemSummary
-          description = ""
+          description = "The TM or HM item that corresponds to this machine."
           optional = true
         }
         version_group {
           type = VersionGroupSummary
-          description = ""
+          description = "The version group that this machine applies to."
           optional = true
         }
         move {
           type = MoveSummary
-          description = ""
+          description = "The move that is taught by this machine."
           optional = true
         }
     }

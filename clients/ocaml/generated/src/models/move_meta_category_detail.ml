@@ -15,23 +15,27 @@
                 
                 
                 ; [@key "id"]
-                                              name: string
+                    (** The identifier for this resource. *)
+                                      name: string
                   
                   
                 
                 
                 ; [@key "name"]
-                                              descriptions: Move_meta_category_description.t list
+                    (** The name for this resource. *)
+                                      descriptions: Move_meta_category_description.t list
                 
                 
                 ; [@key "descriptions"]
-                                              moves: Ability_detail_pokemon_inner_pokemon.t list
+                    (** The description of this resource listed in different languages. *)
+                                      moves: Move_summary.t list
                 
                 
                 ; [@key "moves"]
-                        } [@@deriving yojson { strict = false }, show, eq ];;
+                    (** A list of moves that fall into this category. *)
+                } [@@deriving yojson { strict = false }, show, eq ];;
         
-        let create (id : int32) (name : string) (descriptions : Move_meta_category_description.t list) (moves : Ability_detail_pokemon_inner_pokemon.t list) : t = {
+        let create (id : int32) (name : string) (descriptions : Move_meta_category_description.t list) (moves : Move_summary.t list) : t = {
             id = id;
             name = name;
             descriptions = descriptions;

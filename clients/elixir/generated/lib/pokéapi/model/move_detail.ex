@@ -38,50 +38,50 @@ defmodule PokéAPI.Model.MoveDetail do
     :id => integer(),
     :name => String.t,
     :accuracy => integer() | nil,
-    :effect_chance => integer(),
+    :effect_chance => integer() | nil,
     :pp => integer() | nil,
     :priority => integer() | nil,
     :power => integer() | nil,
-    :contest_combos => PokéAPI.Model.MoveDetailContestCombos.t,
-    :contest_type => PokéAPI.Model.ContestTypeSummary.t,
-    :contest_effect => PokéAPI.Model.ContestEffectSummary.t,
+    :contest_combos => PokéAPI.Model.MoveCombos.t | nil,
+    :contest_type => PokéAPI.Model.ContestTypeSummary.t | nil,
+    :contest_effect => PokéAPI.Model.ContestEffectSummary.t | nil,
     :damage_class => PokéAPI.Model.MoveDamageClassSummary.t,
-    :effect_entries => [PokéAPI.Model.MoveChangeEffectEntriesInner.t],
-    :effect_changes => [PokéAPI.Model.MoveDetailEffectChangesInner.t],
+    :effect_entries => [PokéAPI.Model.MoveEffectEffectText.t],
+    :effect_changes => [PokéAPI.Model.MoveEffectChange.t],
     :generation => PokéAPI.Model.GenerationSummary.t,
-    :meta => PokéAPI.Model.MoveMeta.t,
+    :meta => PokéAPI.Model.MoveMeta.t | nil,
     :names => [PokéAPI.Model.MoveName.t],
     :past_values => [PokéAPI.Model.MoveChange.t],
-    :stat_changes => [PokéAPI.Model.MoveDetailStatChangesInner.t],
-    :super_contest_effect => PokéAPI.Model.SuperContestEffectSummary.t,
+    :stat_changes => [PokéAPI.Model.MoveMetaStatChange.t],
+    :super_contest_effect => PokéAPI.Model.SuperContestEffectSummary.t | nil,
     :target => PokéAPI.Model.MoveTargetSummary.t,
     :type => PokéAPI.Model.TypeSummary.t,
-    :machines => [PokéAPI.Model.MoveDetailMachinesInner.t],
+    :machines => [PokéAPI.Model.ItemMachine.t],
     :flavor_text_entries => [PokéAPI.Model.MoveFlavorText.t],
-    :learned_by_pokemon => [PokéAPI.Model.AbilityDetailPokemonInnerPokemon.t]
+    :learned_by_pokemon => [PokéAPI.Model.PokemonSummary.t]
   }
 
   alias PokéAPI.Deserializer
 
   def decode(value) do
     value
-     |> Deserializer.deserialize(:contest_combos, :struct, PokéAPI.Model.MoveDetailContestCombos)
+     |> Deserializer.deserialize(:contest_combos, :struct, PokéAPI.Model.MoveCombos)
      |> Deserializer.deserialize(:contest_type, :struct, PokéAPI.Model.ContestTypeSummary)
      |> Deserializer.deserialize(:contest_effect, :struct, PokéAPI.Model.ContestEffectSummary)
      |> Deserializer.deserialize(:damage_class, :struct, PokéAPI.Model.MoveDamageClassSummary)
-     |> Deserializer.deserialize(:effect_entries, :list, PokéAPI.Model.MoveChangeEffectEntriesInner)
-     |> Deserializer.deserialize(:effect_changes, :list, PokéAPI.Model.MoveDetailEffectChangesInner)
+     |> Deserializer.deserialize(:effect_entries, :list, PokéAPI.Model.MoveEffectEffectText)
+     |> Deserializer.deserialize(:effect_changes, :list, PokéAPI.Model.MoveEffectChange)
      |> Deserializer.deserialize(:generation, :struct, PokéAPI.Model.GenerationSummary)
      |> Deserializer.deserialize(:meta, :struct, PokéAPI.Model.MoveMeta)
      |> Deserializer.deserialize(:names, :list, PokéAPI.Model.MoveName)
      |> Deserializer.deserialize(:past_values, :list, PokéAPI.Model.MoveChange)
-     |> Deserializer.deserialize(:stat_changes, :list, PokéAPI.Model.MoveDetailStatChangesInner)
+     |> Deserializer.deserialize(:stat_changes, :list, PokéAPI.Model.MoveMetaStatChange)
      |> Deserializer.deserialize(:super_contest_effect, :struct, PokéAPI.Model.SuperContestEffectSummary)
      |> Deserializer.deserialize(:target, :struct, PokéAPI.Model.MoveTargetSummary)
      |> Deserializer.deserialize(:type, :struct, PokéAPI.Model.TypeSummary)
-     |> Deserializer.deserialize(:machines, :list, PokéAPI.Model.MoveDetailMachinesInner)
+     |> Deserializer.deserialize(:machines, :list, PokéAPI.Model.ItemMachine)
      |> Deserializer.deserialize(:flavor_text_entries, :list, PokéAPI.Model.MoveFlavorText)
-     |> Deserializer.deserialize(:learned_by_pokemon, :list, PokéAPI.Model.AbilityDetailPokemonInnerPokemon)
+     |> Deserializer.deserialize(:learned_by_pokemon, :list, PokéAPI.Model.PokemonSummary)
   end
 end
 

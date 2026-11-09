@@ -8,15 +8,15 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import org.openapitools.vertxweb.server.model.AbilityName;
 import org.openapitools.vertxweb.server.model.GenerationSummary;
 import org.openapitools.vertxweb.server.model.MoveDamageClassSummary;
 import org.openapitools.vertxweb.server.model.MoveSummary;
-import org.openapitools.vertxweb.server.model.TypeDetailDamageRelations;
-import org.openapitools.vertxweb.server.model.TypeDetailPastDamageRelationsInner;
-import org.openapitools.vertxweb.server.model.TypeDetailPokemonInner;
-import org.openapitools.vertxweb.server.model.TypeDetailSpritesValueValue;
 import org.openapitools.vertxweb.server.model.TypeGameIndex;
+import org.openapitools.vertxweb.server.model.TypeGameSprite;
+import org.openapitools.vertxweb.server.model.TypeName;
+import org.openapitools.vertxweb.server.model.TypePastRelationships;
+import org.openapitools.vertxweb.server.model.TypePokemon;
+import org.openapitools.vertxweb.server.model.TypeRelationships;
 
 /**
  * Serializer for the Type resource
@@ -26,21 +26,21 @@ public class TypeDetail   {
   
   private Integer id;
   private String name;
-  private TypeDetailDamageRelations damageRelations;
-  private List<TypeDetailPastDamageRelationsInner> pastDamageRelations = new ArrayList<>();
+  private TypeRelationships damageRelations;
+  private List<TypePastRelationships> pastDamageRelations = new ArrayList<>();
   private List<TypeGameIndex> gameIndices = new ArrayList<>();
   private GenerationSummary generation;
   private MoveDamageClassSummary moveDamageClass;
-  private List<AbilityName> names = new ArrayList<>();
-  private List<TypeDetailPokemonInner> pokemon = new ArrayList<>();
+  private List<TypeName> names = new ArrayList<>();
+  private List<TypePokemon> pokemon = new ArrayList<>();
   private List<MoveSummary> moves = new ArrayList<>();
-  private Map<String, Map<String, TypeDetailSpritesValueValue>> sprites = new HashMap<>();
+  private Map<String, Map<String, TypeGameSprite>> sprites = new HashMap<>();
 
   public TypeDetail () {
 
   }
 
-  public TypeDetail (Integer id, String name, TypeDetailDamageRelations damageRelations, List<TypeDetailPastDamageRelationsInner> pastDamageRelations, List<TypeGameIndex> gameIndices, GenerationSummary generation, MoveDamageClassSummary moveDamageClass, List<AbilityName> names, List<TypeDetailPokemonInner> pokemon, List<MoveSummary> moves, Map<String, Map<String, TypeDetailSpritesValueValue>> sprites) {
+  public TypeDetail (Integer id, String name, TypeRelationships damageRelations, List<TypePastRelationships> pastDamageRelations, List<TypeGameIndex> gameIndices, GenerationSummary generation, MoveDamageClassSummary moveDamageClass, List<TypeName> names, List<TypePokemon> pokemon, List<MoveSummary> moves, Map<String, Map<String, TypeGameSprite>> sprites) {
     this.id = id;
     this.name = name;
     this.damageRelations = damageRelations;
@@ -74,19 +74,19 @@ public class TypeDetail   {
 
     
   @JsonProperty("damage_relations")
-  public TypeDetailDamageRelations getDamageRelations() {
+  public TypeRelationships getDamageRelations() {
     return damageRelations;
   }
-  public void setDamageRelations(TypeDetailDamageRelations damageRelations) {
+  public void setDamageRelations(TypeRelationships damageRelations) {
     this.damageRelations = damageRelations;
   }
 
     
   @JsonProperty("past_damage_relations")
-  public List<TypeDetailPastDamageRelationsInner> getPastDamageRelations() {
+  public List<TypePastRelationships> getPastDamageRelations() {
     return pastDamageRelations;
   }
-  public void setPastDamageRelations(List<TypeDetailPastDamageRelationsInner> pastDamageRelations) {
+  public void setPastDamageRelations(List<TypePastRelationships> pastDamageRelations) {
     this.pastDamageRelations = pastDamageRelations;
   }
 
@@ -119,19 +119,19 @@ public class TypeDetail   {
 
     
   @JsonProperty("names")
-  public List<AbilityName> getNames() {
+  public List<TypeName> getNames() {
     return names;
   }
-  public void setNames(List<AbilityName> names) {
+  public void setNames(List<TypeName> names) {
     this.names = names;
   }
 
     
   @JsonProperty("pokemon")
-  public List<TypeDetailPokemonInner> getPokemon() {
+  public List<TypePokemon> getPokemon() {
     return pokemon;
   }
-  public void setPokemon(List<TypeDetailPokemonInner> pokemon) {
+  public void setPokemon(List<TypePokemon> pokemon) {
     this.pokemon = pokemon;
   }
 
@@ -146,10 +146,10 @@ public class TypeDetail   {
 
     
   @JsonProperty("sprites")
-  public Map<String, Map<String, TypeDetailSpritesValueValue>> getSprites() {
+  public Map<String, Map<String, TypeGameSprite>> getSprites() {
     return sprites;
   }
-  public void setSprites(Map<String, Map<String, TypeDetailSpritesValueValue>> sprites) {
+  public void setSprites(Map<String, Map<String, TypeGameSprite>> sprites) {
     this.sprites = sprites;
   }
 

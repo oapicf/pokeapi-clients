@@ -15,6 +15,6 @@ data class EvolutionChainDetail(
     val babyTriggerItem: ItemSummary,
 
     @field:JsonProperty("chain")
-    val chain: EvolutionChainDetailChain,
+    val chain: EvolutionChainLink,
 
 )

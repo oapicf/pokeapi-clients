@@ -18,7 +18,7 @@ openapi_pokemon_game_index() ->
     openapi_pokemon_game_index([]).
 
 openapi_pokemon_game_index(Fields) ->
-  Default = [ {'game_index', integer() }
+  Default = [ {'game_index', integer(-2147483648, 2147483647) }
             , {'version', openapi_version_summary:openapi_version_summary() }
             ],
   lists:ukeymerge(1, lists:sort(Fields), lists:sort(Default)).

@@ -1,0 +1,43 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server PokemonMove"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a PokemonMove"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  MoveSummary = openapi_server.resourceTypes.MoveSummary
+  PokemonMoveVersionGroup = openapi_server.resourceTypes.PokemonMoveVersionGroup
+}
+resourceTypes {
+
+  PokemonMove {
+    title = PokemonMove
+    description = PokemonMove
+    derivedFrom = Root
+    properties {
+        move {
+          type = MoveSummary
+          description = "The move the Pokémon can learn."
+          optional = true
+        }
+        version_group_details {
+          type = array
+          items.type = PokemonMoveVersionGroup
+          description = "The details of the version in which the Pokémon can learn the move."
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  PokemonMove {
+    title = PokemonMove
+    description = PokemonMove
+    implements = openapi_server.resourceTypes.PokemonMove
+
+  }
+}

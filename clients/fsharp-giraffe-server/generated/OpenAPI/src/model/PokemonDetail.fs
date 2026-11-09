@@ -2,18 +2,19 @@ namespace OpenAPI.Model
 
 open System
 open System.Collections.Generic
-open OpenAPI.Model.PokemonDetailAbilitiesInner
-open OpenAPI.Model.PokemonDetailCries
-open OpenAPI.Model.PokemonDetailHeldItems
-open OpenAPI.Model.PokemonDetailMovesInner
-open OpenAPI.Model.PokemonDetailPastAbilitiesInner
-open OpenAPI.Model.PokemonDetailPastTypesInner
-open OpenAPI.Model.PokemonDetailSprites
-open OpenAPI.Model.PokemonDetailTypesInner
+open OpenAPI.Model.PokemonAbility
+open OpenAPI.Model.PokemonCries
 open OpenAPI.Model.PokemonFormSummary
 open OpenAPI.Model.PokemonGameIndex
+open OpenAPI.Model.PokemonHeldItemSummary
+open OpenAPI.Model.PokemonMove
+open OpenAPI.Model.PokemonPastAbility
+open OpenAPI.Model.PokemonPastStat
+open OpenAPI.Model.PokemonPastType
 open OpenAPI.Model.PokemonSpeciesSummary
+open OpenAPI.Model.PokemonSprites
 open OpenAPI.Model.PokemonStat
+open OpenAPI.Model.PokemonType
 open OpenAPI.Model.int option
 
 module PokemonDetail =
@@ -29,18 +30,19 @@ module PokemonDetail =
     IsDefault : bool;
     Order : int option;
     Weight : int option;
-    Abilities : PokemonDetailAbilitiesInner[];
-    PastAbilities : PokemonDetailPastAbilitiesInner[];
+    Abilities : PokemonAbility[];
+    PastAbilities : PokemonPastAbility[];
     Forms : PokemonFormSummary[];
     GameIndices : PokemonGameIndex[];
-    HeldItems : PokemonDetailHeldItems;
+    HeldItems : PokemonHeldItemSummary[];
     LocationAreaEncounters : string;
-    Moves : PokemonDetailMovesInner[];
+    Moves : PokemonMove[];
     Species : PokemonSpeciesSummary;
-    Sprites : PokemonDetailSprites;
-    Cries : PokemonDetailCries;
+    Sprites : PokemonSprites;
+    Cries : PokemonCries;
     Stats : PokemonStat[];
-    Types : PokemonDetailTypesInner[];
-    PastTypes : PokemonDetailPastTypesInner[];
+    PastStats : PokemonPastStat[];
+    Types : PokemonType[];
+    PastTypes : PokemonPastType[];
   }
   //#endregion

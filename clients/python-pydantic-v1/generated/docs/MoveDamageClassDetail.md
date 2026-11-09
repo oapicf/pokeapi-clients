@@ -4,11 +4,11 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** |  | [readonly] 
-**name** | **str** |  | 
-**descriptions** | [**List[MoveDamageClassDescription]**](MoveDamageClassDescription.md) |  | [readonly] 
-**moves** | [**List[MoveSummary]**](MoveSummary.md) |  | [readonly] 
-**names** | [**List[MoveDamageClassName]**](MoveDamageClassName.md) |  | [readonly] 
+**id** | **int** | The identifier for this resource. | [readonly] 
+**name** | **str** | The name for this resource. | 
+**descriptions** | [**List[MoveDamageClassDescription]**](MoveDamageClassDescription.md) | The description of this resource listed in different languages. | [readonly] 
+**moves** | [**List[MoveSummary]**](MoveSummary.md) | A list of moves that fall into this damage class. | [readonly] 
+**names** | [**List[MoveDamageClassName]**](MoveDamageClassName.md) | The name of this resource listed in different languages. | [readonly] 
 
 ## Example
 

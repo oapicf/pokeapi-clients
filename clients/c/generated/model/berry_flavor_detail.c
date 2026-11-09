@@ -70,7 +70,7 @@ void berry_flavor_detail_free(berry_flavor_detail_t *berry_flavor_detail) {
     }
     if (berry_flavor_detail->berries) {
         list_ForEach(listEntry, berry_flavor_detail->berries) {
-            berry_flavor_detail_berries_inner_free(listEntry->data);
+            berry_flavor_berry_map_free(listEntry->data);
         }
         list_freeList(berry_flavor_detail->berries);
         berry_flavor_detail->berries = NULL;
@@ -122,7 +122,7 @@ cJSON *berry_flavor_detail_convertToJSON(berry_flavor_detail_t *berry_flavor_det
     listEntry_t *berriesListEntry;
     if (berry_flavor_detail->berries) {
     list_ForEach(berriesListEntry, berry_flavor_detail->berries) {
-    cJSON *itemLocal = berry_flavor_detail_berries_inner_convertToJSON(berriesListEntry->data);
+    cJSON *itemLocal = berry_flavor_berry_map_convertToJSON(berriesListEntry->data);
     if(itemLocal == NULL) {
     goto fail;
     }
@@ -249,7 +249,7 @@ berry_flavor_detail_t *berry_flavor_detail_parseFromJSON(cJSON *berry_flavor_det
         if(!cJSON_IsObject(berries_local_nonprimitive)){
             goto end;
         }
-        berry_flavor_detail_berries_inner_t *berriesItem = berry_flavor_detail_berries_inner_parseFromJSON(berries_local_nonprimitive);
+        berry_flavor_berry_map_t *berriesItem = berry_flavor_berry_map_parseFromJSON(berries_local_nonprimitive);
 
         list_addElement(berriesList, berriesItem);
     }
@@ -321,7 +321,7 @@ end:
     if (berriesList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, berriesList) {
-            berry_flavor_detail_berries_inner_free(listEntry->data);
+            berry_flavor_berry_map_free(listEntry->data);
             listEntry->data = NULL;
         }
         list_freeList(berriesList);

@@ -24,10 +24,20 @@ const evolution_trigger_retrieve = async (request, response) => {
   await Controller.handleRequest(request, response, service.evolution_trigger_retrieve);
 };
 
+const evolution_variable_list = async (request, response) => {
+  await Controller.handleRequest(request, response, service.evolution_variable_list);
+};
+
+const evolution_variable_retrieve = async (request, response) => {
+  await Controller.handleRequest(request, response, service.evolution_variable_retrieve);
+};
+
 
 module.exports = {
   evolution_chain_list,
   evolution_chain_retrieve,
   evolution_trigger_list,
   evolution_trigger_retrieve,
+  evolution_variable_list,
+  evolution_variable_retrieve,
 };

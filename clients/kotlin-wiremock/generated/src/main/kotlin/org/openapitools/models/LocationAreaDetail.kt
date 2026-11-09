@@ -18,7 +18,7 @@ data class LocationAreaDetail(
     val gameIndex: kotlin.Int,
 
     @field:JsonProperty("encounter_method_rates")
-    val encounterMethodRates: kotlin.collections.List<LocationAreaDetailEncounterMethodRatesInner>,
+    val encounterMethodRates: kotlin.collections.List<LocationAreaEncounterRate>,
 
     @field:JsonProperty("location")
     val location: LocationSummary,
@@ -27,6 +27,6 @@ data class LocationAreaDetail(
     val names: kotlin.collections.List<LocationAreaName>,
 
     @field:JsonProperty("pokemon_encounters")
-    val pokemonEncounters: kotlin.collections.List<LocationAreaDetailPokemonEncountersInner>,
+    val pokemonEncounters: kotlin.collections.List<LocationAreaPokemonEncounter>,
 
 )

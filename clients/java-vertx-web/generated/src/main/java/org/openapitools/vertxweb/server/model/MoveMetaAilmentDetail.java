@@ -6,22 +6,22 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.vertxweb.server.model.AbilityDetailPokemonInnerPokemon;
 import org.openapitools.vertxweb.server.model.MoveMetaAilmentName;
+import org.openapitools.vertxweb.server.model.MoveSummary;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class MoveMetaAilmentDetail   {
   
   private Integer id;
   private String name;
-  private List<AbilityDetailPokemonInnerPokemon> moves = new ArrayList<>();
+  private List<MoveSummary> moves = new ArrayList<>();
   private List<MoveMetaAilmentName> names = new ArrayList<>();
 
   public MoveMetaAilmentDetail () {
 
   }
 
-  public MoveMetaAilmentDetail (Integer id, String name, List<AbilityDetailPokemonInnerPokemon> moves, List<MoveMetaAilmentName> names) {
+  public MoveMetaAilmentDetail (Integer id, String name, List<MoveSummary> moves, List<MoveMetaAilmentName> names) {
     this.id = id;
     this.name = name;
     this.moves = moves;
@@ -48,10 +48,10 @@ public class MoveMetaAilmentDetail   {
 
     
   @JsonProperty("moves")
-  public List<AbilityDetailPokemonInnerPokemon> getMoves() {
+  public List<MoveSummary> getMoves() {
     return moves;
   }
-  public void setMoves(List<AbilityDetailPokemonInnerPokemon> moves) {
+  public void setMoves(List<MoveSummary> moves) {
     this.moves = moves;
   }
 

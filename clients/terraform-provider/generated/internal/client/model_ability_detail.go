@@ -12,5 +12,5 @@ type AbilityDetail struct {
 	EffectEntries []AbilityEffectText `json:"effect_entries"`
 	EffectChanges []AbilityChange `json:"effect_changes"`
 	FlavorTextEntries []AbilityFlavorText `json:"flavor_text_entries"`
-	Pokemon []AbilityDetailPokemonInner `json:"pokemon"`
+	Pokemon []AbilityPokemonDetail `json:"pokemon"`
 }

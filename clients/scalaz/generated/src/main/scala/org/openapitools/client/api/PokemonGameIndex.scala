@@ -12,8 +12,10 @@ import org.joda.time.DateTime
 import PokemonGameIndex._
 
 case class PokemonGameIndex (
+  /* The internal id of an API resource within game data. */
   gameIndex: Integer,
-version: VersionSummary)
+/* The version relevent to this game index. */
+  version: VersionSummary)
 
 object PokemonGameIndex {
   import DateTimeCodecs._

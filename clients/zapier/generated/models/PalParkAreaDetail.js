@@ -1,6 +1,6 @@
 const utils = require('../utils/utils');
-const PalParkAreaDetail_pokemon_encounters_inner = require('../models/PalParkAreaDetail_pokemon_encounters_inner');
 const PalParkAreaName = require('../models/PalParkAreaName');
+const PalParkEncounter = require('../models/PalParkEncounter');
 
 module.exports = {
     fields: (prefix = '', isInput = true, isArrayChild = false) => {
@@ -8,13 +8,13 @@ module.exports = {
         return [
             {
                 key: `${keyPrefix}id`,
-                label: `[${labelPrefix}id]`,
+                label: `The identifier for this resource. - [${labelPrefix}id]`,
                 required: true,
                 type: 'integer',
             },
             {
                 key: `${keyPrefix}name`,
-                label: `[${labelPrefix}name]`,
+                label: `The name for this resource. - [${labelPrefix}name]`,
                 required: true,
                 type: 'string',
             },
@@ -26,7 +26,7 @@ module.exports = {
             {
                 key: `${keyPrefix}pokemon_encounters`,
                 label: `[${labelPrefix}pokemon_encounters]`,
-                children: PalParkAreaDetail_pokemon_encounters_inner.fields(`${keyPrefix}pokemon_encounters${!isInput ? '[]' : ''}`, isInput, true), 
+                children: PalParkEncounter.fields(`${keyPrefix}pokemon_encounters${!isInput ? '[]' : ''}`, isInput, true), 
             },
         ]
     },
@@ -36,7 +36,7 @@ module.exports = {
             'id': bundle.inputData?.[`${keyPrefix}id`],
             'name': bundle.inputData?.[`${keyPrefix}name`],
             'names': utils.childMapping(bundle.inputData?.[`${keyPrefix}names`], `${keyPrefix}names`, PalParkAreaName),
-            'pokemon_encounters': utils.childMapping(bundle.inputData?.[`${keyPrefix}pokemon_encounters`], `${keyPrefix}pokemon_encounters`, PalParkAreaDetail_pokemon_encounters_inner),
+            'pokemon_encounters': utils.childMapping(bundle.inputData?.[`${keyPrefix}pokemon_encounters`], `${keyPrefix}pokemon_encounters`, PalParkEncounter),
         }
     },
 }

@@ -10,12 +10,12 @@ import org.openapitools.model.BerrySummary;
 
 @Canonical
 class BerryFirmnessDetail {
-    
+    /* The identifier for this resource. */
     Integer id
-    
+    /* The name for this resource. */
     String name
-    
+    /* A list of the berries with this firmness. */
     List<BerrySummary> berries = new ArrayList<>()
-    
+    /* The name of this resource listed in different languages. */
     List<BerryFirmnessName> names = new ArrayList<>()
 }

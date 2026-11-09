@@ -8,10 +8,15 @@
 import Foundation
 
 public struct CharacteristicDetail: Codable {
+    /// The identifier for this resource.
     public var id: Int
+    /// The remainder of the highest stat/IV divided by 5.
     public var geneModulo: Int
+    /// The possible values of the highest stat that would result in a Pokémon recieving this characteristic when divided by 5.
     public var possibleValues: [Int]
+    /// The stat which results in this characteristic.
     public var highestStat: StatSummary
+    /// The descriptions of this characteristic listed in different languages.
     public var descriptions: [CharacteristicDescription]
 
     public init(id: Int, geneModulo: Int, possibleValues: [Int], highestStat: StatSummary, descriptions: [CharacteristicDescription]) {

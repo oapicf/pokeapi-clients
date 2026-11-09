@@ -23,8 +23,8 @@
 
 package org.openapitools.client.models
 
-import org.openapitools.client.models.AbilityDetailPokemonInnerPokemon
 import org.openapitools.client.models.EvolutionTriggerName
+import org.openapitools.client.models.PokemonSpeciesSummary
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -32,26 +32,30 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param id 
- * @param name 
- * @param names 
- * @param pokemonSpecies 
+ * @param id The identifier for this resource.
+ * @param name The name for this resource.
+ * @param names The name of this resource listed in different languages.
+ * @param pokemonSpecies A list of pokemon species that result from this evolution trigger.
  */
 
 
 data class EvolutionTriggerDetail (
 
+    /* The identifier for this resource. */
     @Json(name = "id")
     val id: kotlin.Int,
 
+    /* The name for this resource. */
     @Json(name = "name")
     val name: kotlin.String,
 
+    /* The name of this resource listed in different languages. */
     @Json(name = "names")
     val names: kotlin.collections.List<EvolutionTriggerName>,
 
+    /* A list of pokemon species that result from this evolution trigger. */
     @Json(name = "pokemon_species")
-    val pokemonSpecies: kotlin.collections.List<AbilityDetailPokemonInnerPokemon>
+    val pokemonSpecies: kotlin.collections.List<PokemonSpeciesSummary>
 
 ) {
 

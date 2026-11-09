@@ -9,21 +9,21 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
-import org.openapitools.model.AbilityDetailPokemonInnerPokemon;
 import org.openapitools.model.ContestEffectSummary;
 import org.openapitools.model.ContestTypeSummary;
 import org.openapitools.model.GenerationSummary;
+import org.openapitools.model.ItemMachine;
 import org.openapitools.model.MoveChange;
-import org.openapitools.model.MoveChangeEffectEntriesInner;
+import org.openapitools.model.MoveCombos;
 import org.openapitools.model.MoveDamageClassSummary;
-import org.openapitools.model.MoveDetailContestCombos;
-import org.openapitools.model.MoveDetailEffectChangesInner;
-import org.openapitools.model.MoveDetailMachinesInner;
-import org.openapitools.model.MoveDetailStatChangesInner;
+import org.openapitools.model.MoveEffectChange;
+import org.openapitools.model.MoveEffectEffectText;
 import org.openapitools.model.MoveFlavorText;
 import org.openapitools.model.MoveMeta;
+import org.openapitools.model.MoveMetaStatChange;
 import org.openapitools.model.MoveName;
 import org.openapitools.model.MoveTargetSummary;
+import org.openapitools.model.PokemonSummary;
 import org.openapitools.model.SuperContestEffectSummary;
 import org.openapitools.model.TypeSummary;
 
@@ -31,7 +31,7 @@ import org.openapitools.model.TypeSummary;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-10-25T05:47:53.227411880Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-11-09T13:49:15.621225368Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class MoveDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -55,7 +55,7 @@ public class MoveDetail   {
   private Integer power;
 
   @JsonProperty("contest_combos")
-  private MoveDetailContestCombos contestCombos;
+  private MoveCombos contestCombos;
 
   @JsonProperty("contest_type")
   private ContestTypeSummary contestType;
@@ -67,10 +67,10 @@ public class MoveDetail   {
   private MoveDamageClassSummary damageClass;
 
   @JsonProperty("effect_entries")
-  private List<MoveChangeEffectEntriesInner> effectEntries = new ArrayList<>();
+  private List<MoveEffectEffectText> effectEntries = new ArrayList<>();
 
   @JsonProperty("effect_changes")
-  private List<MoveDetailEffectChangesInner> effectChanges = new ArrayList<>();
+  private List<MoveEffectChange> effectChanges = new ArrayList<>();
 
   @JsonProperty("generation")
   private GenerationSummary generation;
@@ -85,7 +85,7 @@ public class MoveDetail   {
   private List<MoveChange> pastValues = new ArrayList<>();
 
   @JsonProperty("stat_changes")
-  private List<MoveDetailStatChangesInner> statChanges = new ArrayList<>();
+  private List<MoveMetaStatChange> statChanges = new ArrayList<>();
 
   @JsonProperty("super_contest_effect")
   private SuperContestEffectSummary superContestEffect;
@@ -97,15 +97,16 @@ public class MoveDetail   {
   private TypeSummary type;
 
   @JsonProperty("machines")
-  private List<MoveDetailMachinesInner> machines = new ArrayList<>();
+  private List<ItemMachine> machines = new ArrayList<>();
 
   @JsonProperty("flavor_text_entries")
   private List<MoveFlavorText> flavorTextEntries = new ArrayList<>();
 
   @JsonProperty("learned_by_pokemon")
-  private List<AbilityDetailPokemonInnerPokemon> learnedByPokemon = new ArrayList<>();
+  private List<PokemonSummary> learnedByPokemon = new ArrayList<>();
 
   /**
+   * The identifier for this resource.
    **/
   public MoveDetail id(Integer id) {
     this.id = id;
@@ -113,7 +114,7 @@ public class MoveDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   @JsonProperty("id")
   public Integer getId() {
     return id;
@@ -123,6 +124,7 @@ public class MoveDetail   {
   }
 
   /**
+   * The name for this resource.
    **/
   public MoveDetail name(String name) {
     this.name = name;
@@ -130,7 +132,7 @@ public class MoveDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   @JsonProperty("name")
   public String getName() {
     return name;
@@ -140,6 +142,9 @@ public class MoveDetail   {
   }
 
   /**
+   * The percent value of how likely this move is to be successful.
+   * minimum: -2147483648
+   * maximum: 2147483647
    **/
   public MoveDetail accuracy(Integer accuracy) {
     this.accuracy = accuracy;
@@ -147,7 +152,7 @@ public class MoveDetail   {
   }
 
   
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The percent value of how likely this move is to be successful.")
   @JsonProperty("accuracy")
   public Integer getAccuracy() {
     return accuracy;
@@ -157,6 +162,7 @@ public class MoveDetail   {
   }
 
   /**
+   * The percent value of how likely it is this moves effect will happen.
    **/
   public MoveDetail effectChance(Integer effectChance) {
     this.effectChance = effectChance;
@@ -164,7 +170,7 @@ public class MoveDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The percent value of how likely it is this moves effect will happen.")
   @JsonProperty("effect_chance")
   public Integer getEffectChance() {
     return effectChance;
@@ -174,6 +180,9 @@ public class MoveDetail   {
   }
 
   /**
+   * Power points. The number of times this move can be used.
+   * minimum: -2147483648
+   * maximum: 2147483647
    **/
   public MoveDetail pp(Integer pp) {
     this.pp = pp;
@@ -181,7 +190,7 @@ public class MoveDetail   {
   }
 
   
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Power points. The number of times this move can be used.")
   @JsonProperty("pp")
   public Integer getPp() {
     return pp;
@@ -191,6 +200,9 @@ public class MoveDetail   {
   }
 
   /**
+   * A value between -8 and 8. Sets the order in which moves are executed during battle. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Priority) for greater detail.
+   * minimum: -2147483648
+   * maximum: 2147483647
    **/
   public MoveDetail priority(Integer priority) {
     this.priority = priority;
@@ -198,7 +210,7 @@ public class MoveDetail   {
   }
 
   
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A value between -8 and 8. Sets the order in which moves are executed during battle. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Priority) for greater detail.")
   @JsonProperty("priority")
   public Integer getPriority() {
     return priority;
@@ -208,6 +220,9 @@ public class MoveDetail   {
   }
 
   /**
+   * The base power of this move, or null if it has no fixed base power.
+   * minimum: -2147483648
+   * maximum: 2147483647
    **/
   public MoveDetail power(Integer power) {
     this.power = power;
@@ -215,7 +230,7 @@ public class MoveDetail   {
   }
 
   
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The base power of this move, or null if it has no fixed base power.")
   @JsonProperty("power")
   public Integer getPower() {
     return power;
@@ -225,23 +240,25 @@ public class MoveDetail   {
   }
 
   /**
+   * A detail of normal and super contest combos that require this move.
    **/
-  public MoveDetail contestCombos(MoveDetailContestCombos contestCombos) {
+  public MoveDetail contestCombos(MoveCombos contestCombos) {
     this.contestCombos = contestCombos;
     return this;
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A detail of normal and super contest combos that require this move.")
   @JsonProperty("contest_combos")
-  public MoveDetailContestCombos getContestCombos() {
+  public MoveCombos getContestCombos() {
     return contestCombos;
   }
-  public void setContestCombos(MoveDetailContestCombos contestCombos) {
+  public void setContestCombos(MoveCombos contestCombos) {
     this.contestCombos = contestCombos;
   }
 
   /**
+   * The type of appeal this move gives a Pokémon when used in a contest.
    **/
   public MoveDetail contestType(ContestTypeSummary contestType) {
     this.contestType = contestType;
@@ -249,7 +266,7 @@ public class MoveDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The type of appeal this move gives a Pokémon when used in a contest.")
   @JsonProperty("contest_type")
   public ContestTypeSummary getContestType() {
     return contestType;
@@ -259,6 +276,7 @@ public class MoveDetail   {
   }
 
   /**
+   * The effect the move has when used in a contest.
    **/
   public MoveDetail contestEffect(ContestEffectSummary contestEffect) {
     this.contestEffect = contestEffect;
@@ -266,7 +284,7 @@ public class MoveDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The effect the move has when used in a contest.")
   @JsonProperty("contest_effect")
   public ContestEffectSummary getContestEffect() {
     return contestEffect;
@@ -276,6 +294,7 @@ public class MoveDetail   {
   }
 
   /**
+   * The type of damage the move inflicts on the target, e.g. physical.
    **/
   public MoveDetail damageClass(MoveDamageClassSummary damageClass) {
     this.damageClass = damageClass;
@@ -283,7 +302,7 @@ public class MoveDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The type of damage the move inflicts on the target, e.g. physical.")
   @JsonProperty("damage_class")
   public MoveDamageClassSummary getDamageClass() {
     return damageClass;
@@ -293,40 +312,43 @@ public class MoveDetail   {
   }
 
   /**
+   * The effect of this move listed in different languages.
    **/
-  public MoveDetail effectEntries(List<MoveChangeEffectEntriesInner> effectEntries) {
+  public MoveDetail effectEntries(List<MoveEffectEffectText> effectEntries) {
     this.effectEntries = effectEntries;
     return this;
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The effect of this move listed in different languages.")
   @JsonProperty("effect_entries")
-  public List<MoveChangeEffectEntriesInner> getEffectEntries() {
+  public List<MoveEffectEffectText> getEffectEntries() {
     return effectEntries;
   }
-  public void setEffectEntries(List<MoveChangeEffectEntriesInner> effectEntries) {
+  public void setEffectEntries(List<MoveEffectEffectText> effectEntries) {
     this.effectEntries = effectEntries;
   }
 
   /**
+   * The list of previous effects this move has had across version groups of the games.
    **/
-  public MoveDetail effectChanges(List<MoveDetailEffectChangesInner> effectChanges) {
+  public MoveDetail effectChanges(List<MoveEffectChange> effectChanges) {
     this.effectChanges = effectChanges;
     return this;
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The list of previous effects this move has had across version groups of the games.")
   @JsonProperty("effect_changes")
-  public List<MoveDetailEffectChangesInner> getEffectChanges() {
+  public List<MoveEffectChange> getEffectChanges() {
     return effectChanges;
   }
-  public void setEffectChanges(List<MoveDetailEffectChangesInner> effectChanges) {
+  public void setEffectChanges(List<MoveEffectChange> effectChanges) {
     this.effectChanges = effectChanges;
   }
 
   /**
+   * The generation in which this move was introduced.
    **/
   public MoveDetail generation(GenerationSummary generation) {
     this.generation = generation;
@@ -334,7 +356,7 @@ public class MoveDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The generation in which this move was introduced.")
   @JsonProperty("generation")
   public GenerationSummary getGeneration() {
     return generation;
@@ -344,6 +366,7 @@ public class MoveDetail   {
   }
 
   /**
+   * Metadata about this move
    **/
   public MoveDetail meta(MoveMeta meta) {
     this.meta = meta;
@@ -351,7 +374,7 @@ public class MoveDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "Metadata about this move")
   @JsonProperty("meta")
   public MoveMeta getMeta() {
     return meta;
@@ -361,6 +384,7 @@ public class MoveDetail   {
   }
 
   /**
+   * The name of this resource listed in different languages.
    **/
   public MoveDetail names(List<MoveName> names) {
     this.names = names;
@@ -368,7 +392,7 @@ public class MoveDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
   @JsonProperty("names")
   public List<MoveName> getNames() {
     return names;
@@ -378,6 +402,7 @@ public class MoveDetail   {
   }
 
   /**
+   * A list of move resource value changes across version groups of the game.
    **/
   public MoveDetail pastValues(List<MoveChange> pastValues) {
     this.pastValues = pastValues;
@@ -385,7 +410,7 @@ public class MoveDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of move resource value changes across version groups of the game.")
   @JsonProperty("past_values")
   public List<MoveChange> getPastValues() {
     return pastValues;
@@ -395,23 +420,25 @@ public class MoveDetail   {
   }
 
   /**
+   * A list of stats this moves effects and how much it effects them.
    **/
-  public MoveDetail statChanges(List<MoveDetailStatChangesInner> statChanges) {
+  public MoveDetail statChanges(List<MoveMetaStatChange> statChanges) {
     this.statChanges = statChanges;
     return this;
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of stats this moves effects and how much it effects them.")
   @JsonProperty("stat_changes")
-  public List<MoveDetailStatChangesInner> getStatChanges() {
+  public List<MoveMetaStatChange> getStatChanges() {
     return statChanges;
   }
-  public void setStatChanges(List<MoveDetailStatChangesInner> statChanges) {
+  public void setStatChanges(List<MoveMetaStatChange> statChanges) {
     this.statChanges = statChanges;
   }
 
   /**
+   * The effect the move has when used in a super contest.
    **/
   public MoveDetail superContestEffect(SuperContestEffectSummary superContestEffect) {
     this.superContestEffect = superContestEffect;
@@ -419,7 +446,7 @@ public class MoveDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The effect the move has when used in a super contest.")
   @JsonProperty("super_contest_effect")
   public SuperContestEffectSummary getSuperContestEffect() {
     return superContestEffect;
@@ -429,6 +456,7 @@ public class MoveDetail   {
   }
 
   /**
+   * The type of target that will receive the effects of the attack.
    **/
   public MoveDetail target(MoveTargetSummary target) {
     this.target = target;
@@ -436,7 +464,7 @@ public class MoveDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The type of target that will receive the effects of the attack.")
   @JsonProperty("target")
   public MoveTargetSummary getTarget() {
     return target;
@@ -446,6 +474,7 @@ public class MoveDetail   {
   }
 
   /**
+   * The elemental type of this move.
    **/
   public MoveDetail type(TypeSummary type) {
     this.type = type;
@@ -453,7 +482,7 @@ public class MoveDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The elemental type of this move.")
   @JsonProperty("type")
   public TypeSummary getType() {
     return type;
@@ -463,23 +492,25 @@ public class MoveDetail   {
   }
 
   /**
+   * A list of the machines that teach this move.
    **/
-  public MoveDetail machines(List<MoveDetailMachinesInner> machines) {
+  public MoveDetail machines(List<ItemMachine> machines) {
     this.machines = machines;
     return this;
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of the machines that teach this move.")
   @JsonProperty("machines")
-  public List<MoveDetailMachinesInner> getMachines() {
+  public List<ItemMachine> getMachines() {
     return machines;
   }
-  public void setMachines(List<MoveDetailMachinesInner> machines) {
+  public void setMachines(List<ItemMachine> machines) {
     this.machines = machines;
   }
 
   /**
+   * The flavor text of this move listed in different languages.
    **/
   public MoveDetail flavorTextEntries(List<MoveFlavorText> flavorTextEntries) {
     this.flavorTextEntries = flavorTextEntries;
@@ -487,7 +518,7 @@ public class MoveDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The flavor text of this move listed in different languages.")
   @JsonProperty("flavor_text_entries")
   public List<MoveFlavorText> getFlavorTextEntries() {
     return flavorTextEntries;
@@ -497,19 +528,20 @@ public class MoveDetail   {
   }
 
   /**
+   * List of Pokemon that can learn the move
    **/
-  public MoveDetail learnedByPokemon(List<AbilityDetailPokemonInnerPokemon> learnedByPokemon) {
+  public MoveDetail learnedByPokemon(List<PokemonSummary> learnedByPokemon) {
     this.learnedByPokemon = learnedByPokemon;
     return this;
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "List of Pokemon that can learn the move")
   @JsonProperty("learned_by_pokemon")
-  public List<AbilityDetailPokemonInnerPokemon> getLearnedByPokemon() {
+  public List<PokemonSummary> getLearnedByPokemon() {
     return learnedByPokemon;
   }
-  public void setLearnedByPokemon(List<AbilityDetailPokemonInnerPokemon> learnedByPokemon) {
+  public void setLearnedByPokemon(List<PokemonSummary> learnedByPokemon) {
     this.learnedByPokemon = learnedByPokemon;
   }
 

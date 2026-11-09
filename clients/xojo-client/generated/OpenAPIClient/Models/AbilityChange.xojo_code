@@ -2,11 +2,17 @@
 Protected Class AbilityChange
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The version group in which the previous effect of this ability originated.
+		#tag EndNote
 		version_group As OpenAPIClient.Models.VersionGroupSummary
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The previous effect of this ability listed in different languages.
+		#tag EndNote
 		effect_entries() As OpenAPIClient.Models.AbilityChangeEffectText
 	#tag EndProperty
 

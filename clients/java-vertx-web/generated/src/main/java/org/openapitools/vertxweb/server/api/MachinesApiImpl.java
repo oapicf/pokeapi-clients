@@ -15,7 +15,7 @@ import java.util.Map;
 // Implement this class
 
 public class MachinesApiImpl implements MachinesApi {
-    public Future<ApiResponse<PaginatedMachineSummaryList>> machineList(Integer limit, Integer offset, String q) {
+    public Future<ApiResponse<PaginatedMachineSummaryList>> machineList(Integer limit, Integer offset) {
         return Future.failedFuture(new HttpException(501));
     }
 

@@ -13,9 +13,11 @@ type PokemonFormDetail struct {
 	IsMega bool `json:"is_mega,omitempty"`
 	FormName string `json:"form_name"`
 	Pokemon PokemonSummary `json:"pokemon"`
-	Sprites PokemonFormDetailSprites `json:"sprites"`
+	Sprites PokemonFormSprites `json:"sprites"`
 	VersionGroup VersionGroupSummary `json:"version_group"`
-	FormNames []PokemonFormDetailFormNamesInner `json:"form_names"`
-	Names []PokemonFormDetailFormNamesInner `json:"names"`
-	Types []PokemonDetailTypesInner `json:"types"`
+	FormNames []PokemonFormName `json:"form_names"`
+	Names []PokemonFormName `json:"names"`
+	Types []PokemonFormType `json:"types"`
+	TriggerConditions []PokemonFormTriggerCondition `json:"trigger_conditions"`
+	FlavorTextEntries []PokemonFormFlavorText `json:"flavor_text_entries"`
 }

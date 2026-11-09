@@ -29,6 +29,7 @@ public class BerryFirmnessDetail   {
   private List<@Valid BerryFirmnessName> names = new ArrayList<>();
 
   /**
+   * The identifier for this resource.
    **/
   public BerryFirmnessDetail id(Integer id) {
     this.id = id;
@@ -36,7 +37,7 @@ public class BerryFirmnessDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   @JsonProperty("id")
   @NotNull
   public Integer getId() {
@@ -48,6 +49,7 @@ public class BerryFirmnessDetail   {
 
 
   /**
+   * The name for this resource.
    **/
   public BerryFirmnessDetail name(String name) {
     this.name = name;
@@ -55,10 +57,10 @@ public class BerryFirmnessDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   @JsonProperty("name")
   @NotNull
- @Size(max=100)  public String getName() {
+ @Size(max=200)  public String getName() {
     return name;
   }
   public void setName(String name) {
@@ -67,6 +69,7 @@ public class BerryFirmnessDetail   {
 
 
   /**
+   * A list of the berries with this firmness.
    **/
   public BerryFirmnessDetail berries(List<@Valid BerrySummary> berries) {
     this.berries = berries;
@@ -74,7 +77,7 @@ public class BerryFirmnessDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of the berries with this firmness.")
   @JsonProperty("berries")
   @NotNull
   public List<@Valid BerrySummary> getBerries() {
@@ -94,6 +97,7 @@ public class BerryFirmnessDetail   {
 
 
   /**
+   * The name of this resource listed in different languages.
    **/
   public BerryFirmnessDetail names(List<@Valid BerryFirmnessName> names) {
     this.names = names;
@@ -101,7 +105,7 @@ public class BerryFirmnessDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
   @JsonProperty("names")
   @NotNull
   public List<@Valid BerryFirmnessName> getNames() {

@@ -8,7 +8,7 @@
 static evolution_chain_detail_t *evolution_chain_detail_create_internal(
     int *id,
     item_summary_t *baby_trigger_item,
-    evolution_chain_detail_chain_t *chain
+    evolution_chain_link_t *chain
     ) {
     evolution_chain_detail_t *evolution_chain_detail_local_var = malloc(sizeof(evolution_chain_detail_t));
     if (!evolution_chain_detail_local_var) {
@@ -25,7 +25,7 @@ static evolution_chain_detail_t *evolution_chain_detail_create_internal(
 __attribute__((deprecated)) evolution_chain_detail_t *evolution_chain_detail_create(
     int *id,
     item_summary_t *baby_trigger_item,
-    evolution_chain_detail_chain_t *chain
+    evolution_chain_link_t *chain
     ) {
     int *id_copy = NULL;
     if (id) {
@@ -61,7 +61,7 @@ void evolution_chain_detail_free(evolution_chain_detail_t *evolution_chain_detai
         evolution_chain_detail->baby_trigger_item = NULL;
     }
     if (evolution_chain_detail->chain) {
-        evolution_chain_detail_chain_free(evolution_chain_detail->chain);
+        evolution_chain_link_free(evolution_chain_detail->chain);
         evolution_chain_detail->chain = NULL;
     }
     free(evolution_chain_detail);
@@ -97,7 +97,7 @@ cJSON *evolution_chain_detail_convertToJSON(evolution_chain_detail_t *evolution_
     if (!evolution_chain_detail->chain) {
         goto fail;
     }
-    cJSON *chain_local_JSON = evolution_chain_detail_chain_convertToJSON(evolution_chain_detail->chain);
+    cJSON *chain_local_JSON = evolution_chain_link_convertToJSON(evolution_chain_detail->chain);
     if(chain_local_JSON == NULL) {
     goto fail; //model
     }
@@ -125,7 +125,7 @@ evolution_chain_detail_t *evolution_chain_detail_parseFromJSON(cJSON *evolution_
     item_summary_t *baby_trigger_item_local_nonprim = NULL;
 
     // define the local variable for evolution_chain_detail->chain
-    evolution_chain_detail_chain_t *chain_local_nonprim = NULL;
+    evolution_chain_link_t *chain_local_nonprim = NULL;
 
     // evolution_chain_detail->id
     cJSON *id = cJSON_GetObjectItemCaseSensitive(evolution_chain_detailJSON, "id");
@@ -170,7 +170,7 @@ evolution_chain_detail_t *evolution_chain_detail_parseFromJSON(cJSON *evolution_
     }
 
     
-    chain_local_nonprim = evolution_chain_detail_chain_parseFromJSON(chain); //nonprimitive
+    chain_local_nonprim = evolution_chain_link_parseFromJSON(chain); //nonprimitive
 
 
 
@@ -195,7 +195,7 @@ end:
         baby_trigger_item_local_nonprim = NULL;
     }
     if (chain_local_nonprim) {
-        evolution_chain_detail_chain_free(chain_local_nonprim);
+        evolution_chain_link_free(chain_local_nonprim);
         chain_local_nonprim = NULL;
     }
     return NULL;

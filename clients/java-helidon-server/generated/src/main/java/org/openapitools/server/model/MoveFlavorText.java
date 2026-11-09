@@ -23,9 +23,9 @@ public class MoveFlavorText   {
     /**
      * Create MoveFlavorText.
      *
-     * @param flavorText flavorText
-     * @param language language
-     * @param versionGroup versionGroup
+     * @param flavorText The localized flavor text for an api resource in a specific language.
+     * @param language The language this name is in.
+     * @param versionGroup The version group that uses this flavor text.
      */
     public MoveFlavorText(
         String flavorText, 
@@ -40,7 +40,7 @@ public class MoveFlavorText   {
 
 
     /**
-     * Get flavorText
+     * The localized flavor text for an api resource in a specific language.
      * @return flavorText
      */
     public String getFlavorText() {
@@ -52,7 +52,7 @@ public class MoveFlavorText   {
     }
 
     /**
-     * Get language
+     * The language this name is in.
      * @return language
      */
     public LanguageSummary getLanguage() {
@@ -64,7 +64,7 @@ public class MoveFlavorText   {
     }
 
     /**
-     * Get versionGroup
+     * The version group that uses this flavor text.
      * @return versionGroup
      */
     public VersionGroupSummary getVersionGroup() {

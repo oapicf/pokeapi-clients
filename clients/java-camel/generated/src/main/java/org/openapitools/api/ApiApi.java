@@ -20,17 +20,11 @@ public class ApiApi extends RouteBuilder {
         
 
         /**
-        GET /api/v2/ability/
+        GET /api/v2/ability/ : List abilities
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/ability/")
-                .description("")
+                .description("List abilities")
                 .id("abilityListApi")
                 .produces("application/json")
                 .outType(PaginatedAbilitySummaryList.class)
@@ -56,17 +50,11 @@ public class ApiApi extends RouteBuilder {
         
 
         /**
-        GET /api/v2/ability/{id}/
+        GET /api/v2/ability/{id}/ : Get ability
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/ability/{id}/")
-                .description("")
+                .description("Get ability")
                 .id("abilityRetrieveApi")
                 .produces("application/json")
                 .outType(AbilityDetail.class)
@@ -83,12 +71,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/berry-firmness/ : List berry firmness
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/berry-firmness/")
                 .description("List berry firmness")
                 .id("berryFirmnessListApi")
@@ -119,12 +101,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/berry-firmness/{id}/ : Get berry by firmness
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/berry-firmness/{id}/")
                 .description("Get berry by firmness")
                 .id("berryFirmnessRetrieveApi")
@@ -143,12 +119,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/berry-flavor/ : List berry flavors
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/berry-flavor/")
                 .description("List berry flavors")
                 .id("berryFlavorListApi")
@@ -179,12 +149,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/berry-flavor/{id}/ : Get berries by flavor
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/berry-flavor/{id}/")
                 .description("Get berries by flavor")
                 .id("berryFlavorRetrieveApi")
@@ -203,12 +167,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/berry/ : List berries
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/berry/")
                 .description("List berries")
                 .id("berryListApi")
@@ -239,12 +197,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/berry/{id}/ : Get a berry
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/berry/{id}/")
                 .description("Get a berry")
                 .id("berryRetrieveApi")
@@ -260,17 +212,11 @@ public class ApiApi extends RouteBuilder {
         
 
         /**
-        GET /api/v2/characteristic/ : List charecterictics
+        GET /api/v2/characteristic/ : List characteristics
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/characteristic/")
-                .description("List charecterictics")
+                .description("List characteristics")
                 .id("characteristicListApi")
                 .produces("application/json")
                 .outType(PaginatedCharacteristicSummaryList.class)
@@ -286,12 +232,6 @@ public class ApiApi extends RouteBuilder {
                     .required(false)
                     .description("The initial index from which to return the results.")
                 .endParam()
-                .param()
-                    .name("q")
-                    .type(RestParamType.query)
-                    .required(false)
-                    .description("> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")
-                .endParam()
                 .to("direct:characteristicList");
         
 
@@ -299,12 +239,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/characteristic/{id}/ : Get characteristic
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/characteristic/{id}/")
                 .description("Get characteristic")
                 .id("characteristicRetrieveApi")
@@ -323,12 +257,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/contest-effect/ : List contest effects
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/contest-effect/")
                 .description("List contest effects")
                 .id("contestEffectListApi")
@@ -346,12 +274,6 @@ public class ApiApi extends RouteBuilder {
                     .required(false)
                     .description("The initial index from which to return the results.")
                 .endParam()
-                .param()
-                    .name("q")
-                    .type(RestParamType.query)
-                    .required(false)
-                    .description("> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")
-                .endParam()
                 .to("direct:contestEffectList");
         
 
@@ -359,12 +281,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/contest-effect/{id}/ : Get contest effect
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/contest-effect/{id}/")
                 .description("Get contest effect")
                 .id("contestEffectRetrieveApi")
@@ -383,12 +299,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/contest-type/ : List contest types
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/contest-type/")
                 .description("List contest types")
                 .id("contestTypeListApi")
@@ -419,12 +329,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/contest-type/{id}/ : Get contest type
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/contest-type/{id}/")
                 .description("Get contest type")
                 .id("contestTypeRetrieveApi")
@@ -440,15 +344,57 @@ public class ApiApi extends RouteBuilder {
         
 
         /**
+        GET /api/v2/currency/ : List currencies
+        **/
+        rest()
+            .get("/api/v2/currency/")
+                .description("List currencies")
+                .id("currencyListApi")
+                .produces("application/json")
+                .outType(PaginatedCurrencySummaryList.class)
+                .param()
+                    .name("limit")
+                    .type(RestParamType.query)
+                    .required(false)
+                    .description("Number of results to return per page.")
+                .endParam()
+                .param()
+                    .name("offset")
+                    .type(RestParamType.query)
+                    .required(false)
+                    .description("The initial index from which to return the results.")
+                .endParam()
+                .param()
+                    .name("q")
+                    .type(RestParamType.query)
+                    .required(false)
+                    .description("> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")
+                .endParam()
+                .to("direct:currencyList");
+        
+
+        /**
+        GET /api/v2/currency/{id}/ : Get currency
+        **/
+        rest()
+            .get("/api/v2/currency/{id}/")
+                .description("Get currency")
+                .id("currencyRetrieveApi")
+                .produces("application/json")
+                .outType(CurrencyDetail.class)
+                .param()
+                    .name("id")
+                    .type(RestParamType.path)
+                    .required(true)
+                    .description("This parameter can be a string or an integer.")
+                .endParam()
+                .to("direct:currencyRetrieve");
+        
+
+        /**
         GET /api/v2/egg-group/ : List egg groups
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/egg-group/")
                 .description("List egg groups")
                 .id("eggGroupListApi")
@@ -479,12 +425,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/egg-group/{id}/ : Get egg group
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/egg-group/{id}/")
                 .description("Get egg group")
                 .id("eggGroupRetrieveApi")
@@ -503,12 +443,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/encounter-condition/ : List encounter conditions
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/encounter-condition/")
                 .description("List encounter conditions")
                 .id("encounterConditionListApi")
@@ -539,12 +473,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/encounter-condition/{id}/ : Get encounter condition
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/encounter-condition/{id}/")
                 .description("Get encounter condition")
                 .id("encounterConditionRetrieveApi")
@@ -563,12 +491,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/encounter-condition-value/ : List encounter condition values
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/encounter-condition-value/")
                 .description("List encounter condition values")
                 .id("encounterConditionValueListApi")
@@ -599,12 +521,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/encounter-condition-value/{id}/ : Get encounter condition value
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/encounter-condition-value/{id}/")
                 .description("Get encounter condition value")
                 .id("encounterConditionValueRetrieveApi")
@@ -623,12 +539,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/encounter-method/ : List encounter methods
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/encounter-method/")
                 .description("List encounter methods")
                 .id("encounterMethodListApi")
@@ -659,12 +569,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/encounter-method/{id}/ : Get encounter method
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/encounter-method/{id}/")
                 .description("Get encounter method")
                 .id("encounterMethodRetrieveApi")
@@ -683,12 +587,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/evolution-chain/ : List evolution chains
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/evolution-chain/")
                 .description("List evolution chains")
                 .id("evolutionChainListApi")
@@ -706,12 +604,6 @@ public class ApiApi extends RouteBuilder {
                     .required(false)
                     .description("The initial index from which to return the results.")
                 .endParam()
-                .param()
-                    .name("q")
-                    .type(RestParamType.query)
-                    .required(false)
-                    .description("> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")
-                .endParam()
                 .to("direct:evolutionChainList");
         
 
@@ -719,12 +611,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/evolution-chain/{id}/ : Get evolution chain
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/evolution-chain/{id}/")
                 .description("Get evolution chain")
                 .id("evolutionChainRetrieveApi")
@@ -743,12 +629,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/evolution-trigger/ : List evolution triggers
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/evolution-trigger/")
                 .description("List evolution triggers")
                 .id("evolutionTriggerListApi")
@@ -779,12 +659,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/evolution-trigger/{id}/ : Get evolution trigger
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/evolution-trigger/{id}/")
                 .description("Get evolution trigger")
                 .id("evolutionTriggerRetrieveApi")
@@ -800,15 +674,57 @@ public class ApiApi extends RouteBuilder {
         
 
         /**
+        GET /api/v2/evolution-variable/ : List evolution variables
+        **/
+        rest()
+            .get("/api/v2/evolution-variable/")
+                .description("List evolution variables")
+                .id("evolutionVariableListApi")
+                .produces("application/json")
+                .outType(PaginatedEvolutionVariableSummaryList.class)
+                .param()
+                    .name("limit")
+                    .type(RestParamType.query)
+                    .required(false)
+                    .description("Number of results to return per page.")
+                .endParam()
+                .param()
+                    .name("offset")
+                    .type(RestParamType.query)
+                    .required(false)
+                    .description("The initial index from which to return the results.")
+                .endParam()
+                .param()
+                    .name("q")
+                    .type(RestParamType.query)
+                    .required(false)
+                    .description("> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")
+                .endParam()
+                .to("direct:evolutionVariableList");
+        
+
+        /**
+        GET /api/v2/evolution-variable/{id}/ : Get evolution variable
+        **/
+        rest()
+            .get("/api/v2/evolution-variable/{id}/")
+                .description("Get evolution variable")
+                .id("evolutionVariableRetrieveApi")
+                .produces("application/json")
+                .outType(EvolutionVariableDetail.class)
+                .param()
+                    .name("id")
+                    .type(RestParamType.path)
+                    .required(true)
+                    .description("This parameter can be a string or an integer.")
+                .endParam()
+                .to("direct:evolutionVariableRetrieve");
+        
+
+        /**
         GET /api/v2/gender/ : List genders
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/gender/")
                 .description("List genders")
                 .id("genderListApi")
@@ -839,12 +755,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/gender/{id}/ : Get gender
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/gender/{id}/")
                 .description("Get gender")
                 .id("genderRetrieveApi")
@@ -863,12 +773,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/generation/ : List genrations
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/generation/")
                 .description("List genrations")
                 .id("generationListApi")
@@ -899,12 +803,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/generation/{id}/ : Get genration
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/generation/{id}/")
                 .description("Get genration")
                 .id("generationRetrieveApi")
@@ -923,12 +821,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/growth-rate/ : List growth rates
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/growth-rate/")
                 .description("List growth rates")
                 .id("growthRateListApi")
@@ -959,12 +851,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/growth-rate/{id}/ : Get growth rate
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/growth-rate/{id}/")
                 .description("Get growth rate")
                 .id("growthRateRetrieveApi")
@@ -983,12 +869,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/item-attribute/ : List item attributes
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/item-attribute/")
                 .description("List item attributes")
                 .id("itemAttributeListApi")
@@ -1019,12 +899,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/item-attribute/{id}/ : Get item attribute
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/item-attribute/{id}/")
                 .description("Get item attribute")
                 .id("itemAttributeRetrieveApi")
@@ -1043,12 +917,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/item-category/ : List item categories
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/item-category/")
                 .description("List item categories")
                 .id("itemCategoryListApi")
@@ -1079,12 +947,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/item-category/{id}/ : Get item category
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/item-category/{id}/")
                 .description("Get item category")
                 .id("itemCategoryRetrieveApi")
@@ -1103,12 +965,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/item-fling-effect/ : List item fling effects
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/item-fling-effect/")
                 .description("List item fling effects")
                 .id("itemFlingEffectListApi")
@@ -1139,12 +995,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/item-fling-effect/{id}/ : Get item fling effect
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/item-fling-effect/{id}/")
                 .description("Get item fling effect")
                 .id("itemFlingEffectRetrieveApi")
@@ -1163,12 +1013,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/item/ : List items
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/item/")
                 .description("List items")
                 .id("itemListApi")
@@ -1199,12 +1043,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/item-pocket/ : List item pockets
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/item-pocket/")
                 .description("List item pockets")
                 .id("itemPocketListApi")
@@ -1235,12 +1073,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/item-pocket/{id}/ : Get item pocket
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/item-pocket/{id}/")
                 .description("Get item pocket")
                 .id("itemPocketRetrieveApi")
@@ -1259,12 +1091,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/item/{id}/ : Get item
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/item/{id}/")
                 .description("Get item")
                 .id("itemRetrieveApi")
@@ -1283,12 +1109,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/language/ : List languages
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/language/")
                 .description("List languages")
                 .id("languageListApi")
@@ -1319,12 +1139,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/language/{id}/ : Get language
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/language/{id}/")
                 .description("Get language")
                 .id("languageRetrieveApi")
@@ -1343,12 +1157,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/location-area/ : List location areas
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/location-area/")
                 .description("List location areas")
                 .id("locationAreaListApi")
@@ -1373,12 +1181,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/location-area/{id}/ : Get location area
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/location-area/{id}/")
                 .description("Get location area")
                 .id("locationAreaRetrieveApi")
@@ -1397,12 +1199,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/location/ : List locations
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/location/")
                 .description("List locations")
                 .id("locationListApi")
@@ -1433,12 +1229,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/location/{id}/ : Get location
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/location/{id}/")
                 .description("Get location")
                 .id("locationRetrieveApi")
@@ -1457,12 +1247,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/machine/ : List machines
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/machine/")
                 .description("List machines")
                 .id("machineListApi")
@@ -1480,12 +1264,6 @@ public class ApiApi extends RouteBuilder {
                     .required(false)
                     .description("The initial index from which to return the results.")
                 .endParam()
-                .param()
-                    .name("q")
-                    .type(RestParamType.query)
-                    .required(false)
-                    .description("> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")
-                .endParam()
                 .to("direct:machineList");
         
 
@@ -1493,12 +1271,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/machine/{id}/ : Get machine
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/machine/{id}/")
                 .description("Get machine")
                 .id("machineRetrieveApi")
@@ -1514,15 +1286,21 @@ public class ApiApi extends RouteBuilder {
         
 
         /**
+        GET /api/v2/meta/ : Get API metadata
+        **/
+        rest()
+            .get("/api/v2/meta/")
+                .description("Get API metadata")
+                .id("metaRetrieveApi")
+                .produces("application/json")
+                .outType(PokeapiMetaResponse.class)
+                .to("direct:metaRetrieve");
+        
+
+        /**
         GET /api/v2/move-ailment/ : List move meta ailments
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/move-ailment/")
                 .description("List move meta ailments")
                 .id("moveAilmentListApi")
@@ -1553,12 +1331,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/move-ailment/{id}/ : Get move meta ailment
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/move-ailment/{id}/")
                 .description("Get move meta ailment")
                 .id("moveAilmentRetrieveApi")
@@ -1577,12 +1349,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/move-battle-style/ : List move battle styles
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/move-battle-style/")
                 .description("List move battle styles")
                 .id("moveBattleStyleListApi")
@@ -1613,12 +1379,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/move-battle-style/{id}/ : Get move battle style
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/move-battle-style/{id}/")
                 .description("Get move battle style")
                 .id("moveBattleStyleRetrieveApi")
@@ -1637,12 +1397,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/move-category/ : List move meta categories
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/move-category/")
                 .description("List move meta categories")
                 .id("moveCategoryListApi")
@@ -1673,12 +1427,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/move-category/{id}/ : Get move meta category
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/move-category/{id}/")
                 .description("Get move meta category")
                 .id("moveCategoryRetrieveApi")
@@ -1697,12 +1445,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/move-damage-class/ : List move damage classes
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/move-damage-class/")
                 .description("List move damage classes")
                 .id("moveDamageClassListApi")
@@ -1733,12 +1475,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/move-damage-class/{id}/ : Get move damage class
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/move-damage-class/{id}/")
                 .description("Get move damage class")
                 .id("moveDamageClassRetrieveApi")
@@ -1757,12 +1493,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/move-learn-method/ : List move learn methods
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/move-learn-method/")
                 .description("List move learn methods")
                 .id("moveLearnMethodListApi")
@@ -1793,12 +1523,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/move-learn-method/{id}/ : Get move learn method
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/move-learn-method/{id}/")
                 .description("Get move learn method")
                 .id("moveLearnMethodRetrieveApi")
@@ -1817,12 +1541,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/move/ : List moves
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/move/")
                 .description("List moves")
                 .id("moveListApi")
@@ -1853,12 +1571,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/move/{id}/ : Get move
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/move/{id}/")
                 .description("Get move")
                 .id("moveRetrieveApi")
@@ -1877,12 +1589,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/move-target/ : List move targets
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/move-target/")
                 .description("List move targets")
                 .id("moveTargetListApi")
@@ -1913,12 +1619,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/move-target/{id}/ : Get move target
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/move-target/{id}/")
                 .description("Get move target")
                 .id("moveTargetRetrieveApi")
@@ -1937,12 +1637,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/nature/ : List natures
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/nature/")
                 .description("List natures")
                 .id("natureListApi")
@@ -1973,12 +1667,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/nature/{id}/ : Get nature
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/nature/{id}/")
                 .description("Get nature")
                 .id("natureRetrieveApi")
@@ -1997,12 +1685,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/pal-park-area/ : List pal park areas
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/pal-park-area/")
                 .description("List pal park areas")
                 .id("palParkAreaListApi")
@@ -2033,12 +1715,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/pal-park-area/{id}/ : Get pal park area
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/pal-park-area/{id}/")
                 .description("Get pal park area")
                 .id("palParkAreaRetrieveApi")
@@ -2057,12 +1733,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/pokeathlon-stat/ : List pokeathlon stats
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/pokeathlon-stat/")
                 .description("List pokeathlon stats")
                 .id("pokeathlonStatListApi")
@@ -2093,12 +1763,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/pokeathlon-stat/{id}/ : Get pokeathlon stat
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/pokeathlon-stat/{id}/")
                 .description("Get pokeathlon stat")
                 .id("pokeathlonStatRetrieveApi")
@@ -2117,12 +1781,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/pokedex/ : List pokedex
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/pokedex/")
                 .description("List pokedex")
                 .id("pokedexListApi")
@@ -2153,12 +1811,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/pokedex/{id}/ : Get pokedex
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/pokedex/{id}/")
                 .description("Get pokedex")
                 .id("pokedexRetrieveApi")
@@ -2177,12 +1829,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/pokemon-color/ : List pokemon colors
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/pokemon-color/")
                 .description("List pokemon colors")
                 .id("pokemonColorListApi")
@@ -2213,12 +1859,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/pokemon-color/{id}/ : Get pokemon color
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/pokemon-color/{id}/")
                 .description("Get pokemon color")
                 .id("pokemonColorRetrieveApi")
@@ -2237,12 +1877,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/pokemon-form/ : List pokemon forms
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/pokemon-form/")
                 .description("List pokemon forms")
                 .id("pokemonFormListApi")
@@ -2273,12 +1907,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/pokemon-form/{id}/ : Get pokemon form
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/pokemon-form/{id}/")
                 .description("Get pokemon form")
                 .id("pokemonFormRetrieveApi")
@@ -2297,12 +1925,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/pokemon-habitat/ : List pokemom habitas
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/pokemon-habitat/")
                 .description("List pokemom habitas")
                 .id("pokemonHabitatListApi")
@@ -2333,12 +1955,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/pokemon-habitat/{id}/ : Get pokemom habita
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/pokemon-habitat/{id}/")
                 .description("Get pokemom habita")
                 .id("pokemonHabitatRetrieveApi")
@@ -2357,12 +1973,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/pokemon/ : List pokemon
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/pokemon/")
                 .description("List pokemon")
                 .id("pokemonListApi")
@@ -2393,12 +2003,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/pokemon/{id}/ : Get pokemon
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/pokemon/{id}/")
                 .description("Get pokemon")
                 .id("pokemonRetrieveApi")
@@ -2417,12 +2021,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/pokemon-shape/ : List pokemon shapes
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/pokemon-shape/")
                 .description("List pokemon shapes")
                 .id("pokemonShapeListApi")
@@ -2453,12 +2051,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/pokemon-shape/{id}/ : Get pokemon shape
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/pokemon-shape/{id}/")
                 .description("Get pokemon shape")
                 .id("pokemonShapeRetrieveApi")
@@ -2477,12 +2069,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/pokemon-species/ : List pokemon species
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/pokemon-species/")
                 .description("List pokemon species")
                 .id("pokemonSpeciesListApi")
@@ -2513,12 +2099,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/pokemon-species/{id}/ : Get pokemon species
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/pokemon-species/{id}/")
                 .description("Get pokemon species")
                 .id("pokemonSpeciesRetrieveApi")
@@ -2537,12 +2117,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/region/ : List regions
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/region/")
                 .description("List regions")
                 .id("regionListApi")
@@ -2573,12 +2147,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/region/{id}/ : Get region
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/region/{id}/")
                 .description("Get region")
                 .id("regionRetrieveApi")
@@ -2597,12 +2165,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/stat/ : List stats
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/stat/")
                 .description("List stats")
                 .id("statListApi")
@@ -2633,12 +2195,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/stat/{id}/ : Get stat
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/stat/{id}/")
                 .description("Get stat")
                 .id("statRetrieveApi")
@@ -2657,12 +2213,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/super-contest-effect/ : List super contest effects
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/super-contest-effect/")
                 .description("List super contest effects")
                 .id("superContestEffectListApi")
@@ -2680,12 +2230,6 @@ public class ApiApi extends RouteBuilder {
                     .required(false)
                     .description("The initial index from which to return the results.")
                 .endParam()
-                .param()
-                    .name("q")
-                    .type(RestParamType.query)
-                    .required(false)
-                    .description("> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")
-                .endParam()
                 .to("direct:superContestEffectList");
         
 
@@ -2693,12 +2237,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/super-contest-effect/{id}/ : Get super contest effect
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/super-contest-effect/{id}/")
                 .description("Get super contest effect")
                 .id("superContestEffectRetrieveApi")
@@ -2717,12 +2255,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/type/ : List types
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/type/")
                 .description("List types")
                 .id("typeListApi")
@@ -2753,12 +2285,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/type/{id}/ : Get types
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/type/{id}/")
                 .description("Get types")
                 .id("typeRetrieveApi")
@@ -2777,12 +2303,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/version-group/ : List version groups
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/version-group/")
                 .description("List version groups")
                 .id("versionGroupListApi")
@@ -2813,12 +2333,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/version-group/{id}/ : Get version group
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/version-group/{id}/")
                 .description("Get version group")
                 .id("versionGroupRetrieveApi")
@@ -2837,12 +2351,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/version/ : List versions
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/version/")
                 .description("List versions")
                 .id("versionListApi")
@@ -2873,12 +2381,6 @@ public class ApiApi extends RouteBuilder {
         GET /api/v2/version/{id}/ : Get version
         **/
         rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
             .get("/api/v2/version/{id}/")
                 .description("Get version")
                 .id("versionRetrieveApi")

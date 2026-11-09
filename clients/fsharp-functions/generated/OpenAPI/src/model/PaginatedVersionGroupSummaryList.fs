@@ -4,6 +4,7 @@ open System
 open System.Collections.Generic
 open Newtonsoft.Json
 open OpenAPI.Model.VersionGroupSummary
+open OpenAPI.Model.string option
 
 module PaginatedVersionGroupSummaryList =
 
@@ -14,9 +15,9 @@ module PaginatedVersionGroupSummaryList =
     [<JsonProperty(PropertyName = "count")>]
     Count : int;
     [<JsonProperty(PropertyName = "next")>]
-    Next : string;
+    Next : string option;
     [<JsonProperty(PropertyName = "previous")>]
-    Previous : string;
+    Previous : string option;
     [<JsonProperty(PropertyName = "results")>]
     Results : VersionGroupSummary[];
   }

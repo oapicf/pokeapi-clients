@@ -3,31 +3,121 @@
 /*
  * PokéAPI
  *
- * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+ * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
  *
- * API version: 2.7.0
+ * API version: 2.10.0
  * Contact: blah+oapicf@cliffano.com
  */
 
 package openapi
 
 
+import (
+	"encoding/json"
+	"fmt"
+)
+
 
 
 type PaginatedBerryFirmnessSummaryList struct {
 
-	Count int32 `json:"count,omitempty"`
+	// The total number of resources available from this API.
+	Count int32 `json:"count"`
 
-	Next string `json:"next,omitempty"`
+	// The URL for the next page in the list, or null if there is no next page.
+	Next *string `json:"next,omitempty"`
 
-	Previous string `json:"previous,omitempty"`
+	// The URL for the previous page in the list, or null if there is no previous page.
+	Previous *string `json:"previous,omitempty"`
 
-	Results []BerryFirmnessSummary `json:"results,omitempty"`
+	// A list of API resources on this page.
+	Results []BerryFirmnessSummary `json:"results"`
+}
+// UnmarshalJSON validates required property keys then unmarshals into PaginatedBerryFirmnessSummaryList
+func (o *PaginatedBerryFirmnessSummaryList) UnmarshalJSON(data []byte) (err error) {
+	// Presence is checked against required fields that exist on this struct,
+	// including fields promoted from embedded allOf parents.
+	requiredProperties := []string{
+		"count",
+		"results",
+	}
+
+	requiredNullableProperties := map[string]bool{
+		"count": false,
+		"results": false,
+	}
+
+	allowedJsonKeys := map[string]struct{}{
+		"count": {},
+		"next": {},
+		"previous": {},
+		"results": {},
+	}
+
+	allProperties := make(map[string]json.RawMessage)
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err
+	}
+
+	for _, requiredProperty := range requiredProperties {
+		value, exists := allProperties[requiredProperty]
+		if !exists {
+			return &RequiredError{Field: requiredProperty}
+		}
+		if string(value) == "null" && !requiredNullableProperties[requiredProperty] {
+			return &RequiredError{Field: requiredProperty}
+		}
+	}
+
+	for key := range allProperties {
+		if _, exists := allowedJsonKeys[key]; !exists {
+			return fmt.Errorf("json: unknown field %q", key)
+		}
+	}
+
+	var decoded PaginatedBerryFirmnessSummaryList
+
+	if value, exists := allProperties["count"]; exists {
+		if err = json.Unmarshal(value, &decoded.Count); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["next"]; exists {
+		if err = json.Unmarshal(value, &decoded.Next); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["previous"]; exists {
+		if err = json.Unmarshal(value, &decoded.Previous); err != nil {
+			return err
+		}
+	}
+	if value, exists := allProperties["results"]; exists {
+		if err = json.Unmarshal(value, &decoded.Results); err != nil {
+			return err
+		}
+	}
+
+	*o = decoded
+
+	return nil
 }
 
 // AssertPaginatedBerryFirmnessSummaryListRequired checks complex required fields (models, arrays, maps) and embedded parents.
 // Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertPaginatedBerryFirmnessSummaryListRequired(obj PaginatedBerryFirmnessSummaryList) error {
+	elements := map[string]interface{}{
+		"results": obj.Results,
+	}
+	for name, el := range elements {
+		if isZero := IsZeroValue(el); isZero {
+			return &RequiredError{Field: name}
+		}
+	}
+
 	for _, el := range obj.Results {
 		if err := AssertBerryFirmnessSummaryRequired(el); err != nil {
 			return err

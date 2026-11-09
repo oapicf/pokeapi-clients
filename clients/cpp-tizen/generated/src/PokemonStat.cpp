@@ -25,7 +25,7 @@ PokemonStat::__init()
 {
 	//base_stat = int(0);
 	//effort = int(0);
-	//stat = new StatSummary();
+	//stat = null;
 }
 
 void

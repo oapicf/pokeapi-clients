@@ -56,6 +56,7 @@ class SuperContestEffectDetail(Model):
     def id(self):
         """Gets the id of this SuperContestEffectDetail.
 
+        The identifier for this resource.
 
         :return: The id of this SuperContestEffectDetail.
         :rtype: int
@@ -66,6 +67,7 @@ class SuperContestEffectDetail(Model):
     def id(self, id):
         """Sets the id of this SuperContestEffectDetail.
 
+        The identifier for this resource.
 
         :param id: The id of this SuperContestEffectDetail.
         :type id: int
@@ -79,6 +81,7 @@ class SuperContestEffectDetail(Model):
     def appeal(self):
         """Gets the appeal of this SuperContestEffectDetail.
 
+        The level of appeal this super contest effect has.
 
         :return: The appeal of this SuperContestEffectDetail.
         :rtype: int
@@ -89,12 +92,17 @@ class SuperContestEffectDetail(Model):
     def appeal(self, appeal):
         """Sets the appeal of this SuperContestEffectDetail.
 
+        The level of appeal this super contest effect has.
 
         :param appeal: The appeal of this SuperContestEffectDetail.
         :type appeal: int
         """
         if appeal is None:
             raise ValueError("Invalid value for `appeal`, must not be `None`")
+        if appeal is not None and appeal > 2147483647:
+            raise ValueError("Invalid value for `appeal`, must be a value less than or equal to `2147483647`")
+        if appeal is not None and appeal < -2147483648:
+            raise ValueError("Invalid value for `appeal`, must be a value greater than or equal to `-2147483648`")
 
         self._appeal = appeal
 
@@ -102,6 +110,7 @@ class SuperContestEffectDetail(Model):
     def flavor_text_entries(self):
         """Gets the flavor_text_entries of this SuperContestEffectDetail.
 
+        The flavor text of this super contest effect listed in different languages.
 
         :return: The flavor_text_entries of this SuperContestEffectDetail.
         :rtype: List[SuperContestEffectFlavorText]
@@ -112,6 +121,7 @@ class SuperContestEffectDetail(Model):
     def flavor_text_entries(self, flavor_text_entries):
         """Sets the flavor_text_entries of this SuperContestEffectDetail.
 
+        The flavor text of this super contest effect listed in different languages.
 
         :param flavor_text_entries: The flavor_text_entries of this SuperContestEffectDetail.
         :type flavor_text_entries: List[SuperContestEffectFlavorText]
@@ -125,6 +135,7 @@ class SuperContestEffectDetail(Model):
     def moves(self):
         """Gets the moves of this SuperContestEffectDetail.
 
+        A list of moves that have the effect when used in super contests.
 
         :return: The moves of this SuperContestEffectDetail.
         :rtype: List[MoveSummary]
@@ -135,6 +146,7 @@ class SuperContestEffectDetail(Model):
     def moves(self, moves):
         """Sets the moves of this SuperContestEffectDetail.
 
+        A list of moves that have the effect when used in super contests.
 
         :param moves: The moves of this SuperContestEffectDetail.
         :type moves: List[MoveSummary]

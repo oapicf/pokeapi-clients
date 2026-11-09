@@ -3,10 +3,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **Int32** |  | [readonly] 
-**Name** | **String** |  | 
-**Values** | [**EncounterConditionValueSummary[]**](EncounterConditionValueSummary.md) |  | [readonly] 
-**Names** | [**EncounterConditionName[]**](EncounterConditionName.md) |  | [readonly] 
+**Id** | **Int32** | The identifier for this resource. | [readonly] 
+**Name** | **String** | The name for this resource. | 
+**Values** | [**EncounterConditionValueSummary[]**](EncounterConditionValueSummary.md) | A list of possible values for this encounter condition. | [readonly] 
+**Names** | [**EncounterConditionName[]**](EncounterConditionName.md) | The name of this resource listed in different languages. | [readonly] 
 
 ## Examples
 

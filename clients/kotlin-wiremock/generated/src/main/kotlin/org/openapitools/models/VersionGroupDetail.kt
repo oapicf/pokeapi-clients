@@ -18,13 +18,13 @@ data class VersionGroupDetail(
     val generation: GenerationSummary,
 
     @field:JsonProperty("move_learn_methods")
-    val moveLearnMethods: kotlin.collections.List<AbilityDetailPokemonInnerPokemon>,
+    val moveLearnMethods: kotlin.collections.List<MoveLearnMethodSummary>,
 
     @field:JsonProperty("pokedexes")
-    val pokedexes: kotlin.collections.List<AbilityDetailPokemonInnerPokemon>,
+    val pokedexes: kotlin.collections.List<PokedexSummary>,
 
     @field:JsonProperty("regions")
-    val regions: kotlin.collections.List<AbilityDetailPokemonInnerPokemon>,
+    val regions: kotlin.collections.List<RegionSummary>,
 
     @field:JsonProperty("versions")
     val versions: kotlin.collections.List<VersionSummary>,

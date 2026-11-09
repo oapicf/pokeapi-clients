@@ -10,8 +10,10 @@
 
 #include "EvolutionChainDetail.h"
 #include "EvolutionTriggerDetail.h"
+#include "EvolutionVariableDetail.h"
 #include "PaginatedEvolutionChainSummaryList.h"
 #include "PaginatedEvolutionTriggerSummaryList.h"
+#include "PaginatedEvolutionVariableSummaryList.h"
 
 namespace Tiny {
 
@@ -32,7 +34,6 @@ public:
     * Evolution chains are essentially family trees. They start with the lowest stage within a family and detail evolution conditions for each as well as Pokémon they can evolve into up through the hierarchy.
     * \param limit Number of results to return per page.
     * \param offset The initial index from which to return the results.
-    * \param q > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
     */
     Response<
                 PaginatedEvolutionChainSummaryList
@@ -43,9 +44,6 @@ public:
             , 
             
             int offset
-            , 
-            
-            std::string q
             
     );
     /**
@@ -94,6 +92,42 @@ public:
                 EvolutionTriggerDetail
         >
     evolutionTriggerRetrieve(
+            
+            std::string id
+            
+    );
+    /**
+    * List evolution variables.
+    *
+    * Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+    * \param limit Number of results to return per page.
+    * \param offset The initial index from which to return the results.
+    * \param q > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+    */
+    Response<
+                PaginatedEvolutionVariableSummaryList
+        >
+    evolutionVariableList(
+            
+            int limit
+            , 
+            
+            int offset
+            , 
+            
+            std::string q
+            
+    );
+    /**
+    * Get evolution variable.
+    *
+    * Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+    * \param id This parameter can be a string or an integer. *Required*
+    */
+    Response<
+                EvolutionVariableDetail
+        >
+    evolutionVariableRetrieve(
             
             std::string id
             

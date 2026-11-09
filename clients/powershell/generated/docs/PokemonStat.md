@@ -3,9 +3,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**BaseStat** | **Int32** |  | 
-**Effort** | **Int32** |  | 
-**Stat** | [**StatSummary**](StatSummary.md) |  | 
+**BaseStat** | **Int32** | The base value of the stat. | 
+**Effort** | **Int32** | The effort points (EV) the Pokémon has in the stat. | 
+**Stat** | [**StatSummary**](StatSummary.md) | The stat the Pokémon has. | 
 
 ## Examples
 

@@ -10,8 +10,8 @@
 #include <cstdint>
 #include <string>
 #include <vector>
-#include "GenderDetailPokemonSpeciesDetailsInner.h"
-#include "GenderDetailRequiredForEvolutionInner.h"
+#include "GenderPokemonSpecies.h"
+#include "PokemonSpeciesSummary.h"
 
 
 
@@ -30,10 +30,10 @@ public:
     void setId(const int& id);
     [[nodiscard]] std::string getName() const;
     void setName(const std::string& name);
-    [[nodiscard]] std::vector<GenderDetail_pokemon_species_details_inner> getPokemonSpeciesDetails() const;
-    void setPokemonSpeciesDetails(const std::vector<GenderDetail_pokemon_species_details_inner>& pokemonSpeciesDetails);
-    [[nodiscard]] std::vector<GenderDetail_required_for_evolution_inner> getRequiredForEvolution() const;
-    void setRequiredForEvolution(const std::vector<GenderDetail_required_for_evolution_inner>& requiredForEvolution);
+    [[nodiscard]] std::vector<GenderPokemonSpecies> getPokemonSpeciesDetails() const;
+    void setPokemonSpeciesDetails(const std::vector<GenderPokemonSpecies>& pokemonSpeciesDetails);
+    [[nodiscard]] std::vector<PokemonSpeciesSummary> getRequiredForEvolution() const;
+    void setRequiredForEvolution(const std::vector<PokemonSpeciesSummary>& requiredForEvolution);
 
 
     // JSON serialization using NLOHMANN INTRUSIVE macro (must be inside class to access private members)
@@ -43,8 +43,8 @@ public:
 private:
     int id;
     std::string name;
-    std::vector<GenderDetail_pokemon_species_details_inner> pokemonSpeciesDetails;
-    std::vector<GenderDetail_required_for_evolution_inner> requiredForEvolution;
+    std::vector<GenderPokemonSpecies> pokemonSpeciesDetails;
+    std::vector<PokemonSpeciesSummary> requiredForEvolution;
 };
 
 

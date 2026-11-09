@@ -8,6 +8,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**language_list**](#language_list) | **GET** `/api/v2/language/` | List languages
 [**language_retrieve**](#language_retrieve) | **GET** `/api/v2/language/{id}/` | Get language
+[**meta_retrieve**](#meta_retrieve) | **GET** `/api/v2/meta/` | Get API metadata
 
 # **language_list**   { #language_list }
 <a name="language_list"></a>
@@ -20,8 +21,6 @@ Languages for translations of API resource information.
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -74,8 +73,6 @@ Languages for translations of API resource information.
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -94,7 +91,7 @@ var api = UtilityApi.new(config)
 
 # Invoke an endpoint
 api.language_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id,
 	# On Success
@@ -111,11 +108,53 @@ api.language_retrieve(
 
 ```
 
+# **meta_retrieve**   { #meta_retrieve }
+<a name="meta_retrieve"></a>
+
+> `meta_retrieve( on_success: Callable, on_failure: Callable)`
+
+Get API metadata
+
+Returns metadata about the current deployed version of the API, including the git commit hash, deploy date, and tag (if any).
+
+### Example
+
+
+```gdscript
+
+# Customize configuration
+var config := ApiConfig.new()
+config.host = "localhost"
+config.port = 8080
+#config.tls_enabled = true
+#config.trusted_chain = preload("res://my_cert_chain.crt")
+
+# Instantiate the api
+var api = UtilityApi.new(config)
+# You can also provide your own HTTPClient, to re-use it across apis.
+#var api = UtilityApi.new(config, client)
+
+
+# Invoke an endpoint
+api.meta_retrieve(
+	# On Success
+	func(response):  # response is ApiResponse
+		prints("Success!", "meta_retrieve", response)
+		assert(response.data is PokeapiMetaResponse)
+		pass  # do things, make stuff
+		,
+	# On Error
+	func(error):  # error is ApiError
+		push_error(str(error))
+		,
+)
+
+```
+
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), 
-[cookieAuth](../README.md#cookieAuth)
+No authorization required.
 
 [[Back to top]](#__pageTop) \
 [[Back to API list]](../README.md#documentation-for-api-endpoints) \

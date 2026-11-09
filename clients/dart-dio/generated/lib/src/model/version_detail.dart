@@ -14,21 +14,25 @@ part 'version_detail.g.dart';
 /// Should have a link to Version Group info but the Circular dependency and compilation order fight eachother and I'm not sure how to add anything other than a hyperlink
 ///
 /// Properties:
-/// * [id] 
-/// * [name] 
-/// * [names] 
-/// * [versionGroup] 
+/// * [id] - The identifier for this resource.
+/// * [name] - The name for this resource.
+/// * [names] - The name of this resource listed in different languages.
+/// * [versionGroup] - The version group this version belongs to.
 @BuiltValue()
 abstract class VersionDetail implements Built<VersionDetail, VersionDetailBuilder> {
+  /// The identifier for this resource.
   @BuiltValueField(wireName: r'id')
   int get id;
 
+  /// The name for this resource.
   @BuiltValueField(wireName: r'name')
   String get name;
 
+  /// The name of this resource listed in different languages.
   @BuiltValueField(wireName: r'names')
   BuiltList<VersionName> get names;
 
+  /// The version group this version belongs to.
   @BuiltValueField(wireName: r'version_group')
   VersionGroupSummary get versionGroup;
 

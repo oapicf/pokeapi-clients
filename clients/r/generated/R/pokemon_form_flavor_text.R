@@ -1,0 +1,266 @@
+#' Create a new PokemonFormFlavorText
+#'
+#' @description
+#' PokemonFormFlavorText Class
+#'
+#' @docType class
+#' @title PokemonFormFlavorText
+#' @description PokemonFormFlavorText Class
+#' @format An \code{R6Class} generator object
+#' @field flavor_text The localized flavor text for an API resource in a specific language. Note that this text is left unprocessed as it is found in game files. This means that it contains special characters that one might want to replace with their visible decodable version. Please check out this <a href='https://github.com/veekun/pokedex/issues/218#issuecomment-339841781' >issue</a> to find out more. character
+#' @field language The language this name is in. \link{LanguageSummary}
+#' @field version The game version this flavor text is extracted from. \link{VersionSummary}
+#' @importFrom R6 R6Class
+#' @importFrom jsonlite fromJSON toJSON
+#' @export
+PokemonFormFlavorText <- R6::R6Class(
+  "PokemonFormFlavorText",
+  public = list(
+    `flavor_text` = NULL,
+    `language` = NULL,
+    `version` = NULL,
+
+    #' @description
+    #' Initialize a new PokemonFormFlavorText class.
+    #'
+    #' @param flavor_text The localized flavor text for an API resource in a specific language. Note that this text is left unprocessed as it is found in game files. This means that it contains special characters that one might want to replace with their visible decodable version. Please check out this <a href='https://github.com/veekun/pokedex/issues/218#issuecomment-339841781' >issue</a> to find out more.
+    #' @param language The language this name is in.
+    #' @param version The game version this flavor text is extracted from.
+    #' @param ... Other optional arguments.
+    initialize = function(`flavor_text`, `language`, `version`, ...) {
+      if (!missing(`flavor_text`)) {
+        if (!(is.character(`flavor_text`) && length(`flavor_text`) == 1)) {
+          stop(paste("Error! Invalid data for `flavor_text`. Must be a string:", `flavor_text`))
+        }
+        self$`flavor_text` <- `flavor_text`
+      }
+      if (!missing(`language`)) {
+        stopifnot(R6::is.R6(`language`))
+        self$`language` <- `language`
+      }
+      if (!missing(`version`)) {
+        stopifnot(R6::is.R6(`version`))
+        self$`version` <- `version`
+      }
+    },
+
+    #' @description
+    #' Convert to an R object. This method is deprecated. Use `toSimpleType()` instead.
+    toJSON = function() {
+      .Deprecated(new = "toSimpleType", msg = "Use the '$toSimpleType()' method instead since that is more clearly named. Use '$toJSONString()' to get a JSON string")
+      return(self$toSimpleType())
+    },
+
+    #' @description
+    #' Convert to a List
+    #'
+    #' Convert the R6 object to a list to work more easily with other tooling.
+    #'
+    #' @return PokemonFormFlavorText as a base R list.
+    #' @examples
+    #' # convert array of PokemonFormFlavorText (x) to a data frame
+    #' \dontrun{
+    #' library(purrr)
+    #' library(tibble)
+    #' df <- x |> map(\(y)y$toList()) |> map(as_tibble) |> list_rbind()
+    #' df
+    #' }
+    toList = function() {
+      return(self$toSimpleType())
+    },
+
+    #' @description
+    #' Convert PokemonFormFlavorText to a base R type
+    #'
+    #' @return A base R type, e.g. a list or numeric/character array.
+    toSimpleType = function() {
+      PokemonFormFlavorTextObject <- list()
+      if (!is.null(self$`flavor_text`)) {
+        PokemonFormFlavorTextObject[["flavor_text"]] <-
+          self$`flavor_text`
+      }
+      if (!is.null(self$`language`)) {
+        PokemonFormFlavorTextObject[["language"]] <-
+          self$extractSimpleType(self$`language`)
+      }
+      if (!is.null(self$`version`)) {
+        PokemonFormFlavorTextObject[["version"]] <-
+          self$extractSimpleType(self$`version`)
+      }
+      return(PokemonFormFlavorTextObject)
+    },
+
+    extractSimpleType = function(x) {
+      if (R6::is.R6(x)) {
+        return(x$toSimpleType())
+      } else if (!self$hasNestedR6(x)) {
+        return(x)
+      }
+      lapply(x, self$extractSimpleType)
+    },
+
+    hasNestedR6 = function(x) {
+      if (R6::is.R6(x)) {
+        return(TRUE)
+      }
+      if (is.list(x)) {
+        for (item in x) {
+          if (self$hasNestedR6(item)) {
+            return(TRUE)
+          }
+        }
+      }
+      FALSE
+    },
+
+    #' @description
+    #' Deserialize JSON string into an instance of PokemonFormFlavorText
+    #'
+    #' @param input_json the JSON input
+    #' @return the instance of PokemonFormFlavorText
+    fromJSON = function(input_json) {
+      this_object <- jsonlite::fromJSON(input_json)
+      if (!is.null(this_object$`flavor_text`)) {
+        self$`flavor_text` <- this_object$`flavor_text`
+      }
+      if (!is.null(this_object$`language`)) {
+        `language_object` <- LanguageSummary$new()
+        `language_object`$fromJSON(jsonlite::toJSON(this_object$`language`, auto_unbox = TRUE, digits = NA))
+        self$`language` <- `language_object`
+      }
+      if (!is.null(this_object$`version`)) {
+        `version_object` <- VersionSummary$new()
+        `version_object`$fromJSON(jsonlite::toJSON(this_object$`version`, auto_unbox = TRUE, digits = NA))
+        self$`version` <- `version_object`
+      }
+      self
+    },
+
+    #' @description
+    #' To JSON String
+    #' 
+    #' @param ... Parameters passed to `jsonlite::toJSON`
+    #' @return PokemonFormFlavorText in JSON format
+    toJSONString = function(...) {
+      simple <- self$toSimpleType()
+      json <- jsonlite::toJSON(simple, auto_unbox = TRUE, digits = NA, ...)
+      return(as.character(jsonlite::minify(json)))
+    },
+
+    #' @description
+    #' Deserialize JSON string into an instance of PokemonFormFlavorText
+    #'
+    #' @param input_json the JSON input
+    #' @return the instance of PokemonFormFlavorText
+    fromJSONString = function(input_json) {
+      this_object <- jsonlite::fromJSON(input_json)
+      self$`flavor_text` <- this_object$`flavor_text`
+      self$`language` <- LanguageSummary$new()$fromJSON(jsonlite::toJSON(this_object$`language`, auto_unbox = TRUE, digits = NA))
+      self$`version` <- VersionSummary$new()$fromJSON(jsonlite::toJSON(this_object$`version`, auto_unbox = TRUE, digits = NA))
+      self
+    },
+
+    #' @description
+    #' Validate JSON input with respect to PokemonFormFlavorText and throw an exception if invalid
+    #'
+    #' @param input the JSON input
+    validateJSON = function(input) {
+      input_json <- jsonlite::fromJSON(input)
+      # check the required field `flavor_text`
+      if (!is.null(input_json$`flavor_text`)) {
+        if (!(is.character(input_json$`flavor_text`) && length(input_json$`flavor_text`) == 1)) {
+          stop(paste("Error! Invalid data for `flavor_text`. Must be a string:", input_json$`flavor_text`))
+        }
+      } else {
+        stop(paste("The JSON input `", input, "` is invalid for PokemonFormFlavorText: the required field `flavor_text` is missing."))
+      }
+      # check the required field `language`
+      if (!is.null(input_json$`language`)) {
+        stopifnot(R6::is.R6(input_json$`language`))
+      } else {
+        stop(paste("The JSON input `", input, "` is invalid for PokemonFormFlavorText: the required field `language` is missing."))
+      }
+      # check the required field `version`
+      if (!is.null(input_json$`version`)) {
+        stopifnot(R6::is.R6(input_json$`version`))
+      } else {
+        stop(paste("The JSON input `", input, "` is invalid for PokemonFormFlavorText: the required field `version` is missing."))
+      }
+    },
+
+    #' @description
+    #' To string (JSON format)
+    #'
+    #' @return String representation of PokemonFormFlavorText
+    toString = function() {
+      self$toJSONString()
+    },
+
+    #' @description
+    #' Return true if the values in all fields are valid.
+    #'
+    #' @return true if the values in all fields are valid.
+    isValid = function() {
+      # check if the required `flavor_text` is null
+      if (is.null(self$`flavor_text`)) {
+        return(FALSE)
+      }
+
+      # check if the required `language` is null
+      if (is.null(self$`language`)) {
+        return(FALSE)
+      }
+
+      # check if the required `version` is null
+      if (is.null(self$`version`)) {
+        return(FALSE)
+      }
+
+      TRUE
+    },
+
+    #' @description
+    #' Return a list of invalid fields (if any).
+    #'
+    #' @return A list of invalid fields (if any).
+    getInvalidFields = function() {
+      invalid_fields <- list()
+      # check if the required `flavor_text` is null
+      if (is.null(self$`flavor_text`)) {
+        invalid_fields["flavor_text"] <- "Non-nullable required field `flavor_text` cannot be null."
+      }
+
+      # check if the required `language` is null
+      if (is.null(self$`language`)) {
+        invalid_fields["language"] <- "Non-nullable required field `language` cannot be null."
+      }
+
+      # check if the required `version` is null
+      if (is.null(self$`version`)) {
+        invalid_fields["version"] <- "Non-nullable required field `version` cannot be null."
+      }
+
+      invalid_fields
+    },
+
+    #' @description
+    #' Print the object
+    print = function() {
+      print(jsonlite::prettify(self$toJSONString()))
+      invisible(self)
+    }
+  ),
+  # Lock the class to prevent modifications to the method or field
+  lock_class = TRUE
+)
+## Uncomment below to unlock the class to allow modifications of the method or field
+# PokemonFormFlavorText$unlock()
+#
+## Below is an example to define the print function
+# PokemonFormFlavorText$set("public", "print", function(...) {
+#   print(jsonlite::prettify(self$toJSONString()))
+#   invisible(self)
+# })
+## Uncomment below to lock the class to prevent modifications to the method or field
+# PokemonFormFlavorText$lock()
+

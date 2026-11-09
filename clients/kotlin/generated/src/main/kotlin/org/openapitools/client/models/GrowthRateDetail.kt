@@ -33,32 +33,38 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param id 
- * @param name 
- * @param formula 
- * @param descriptions 
- * @param levels 
- * @param pokemonSpecies 
+ * @param id The identifier for this resource.
+ * @param name The name for this resource.
+ * @param formula The formula used to calculate the rate at which the Pokémon species gains level.
+ * @param descriptions The descriptions of this characteristic listed in different languages.
+ * @param levels A list of levels and the amount of experienced needed to atain them based on this growth rate.
+ * @param pokemonSpecies A list of Pokémon species that gain levels at this growth rate.
  */
 
 
 data class GrowthRateDetail (
 
+    /* The identifier for this resource. */
     @Json(name = "id")
     val id: kotlin.Int,
 
+    /* The name for this resource. */
     @Json(name = "name")
     val name: kotlin.String,
 
+    /* The formula used to calculate the rate at which the Pokémon species gains level. */
     @Json(name = "formula")
     val formula: kotlin.String,
 
+    /* The descriptions of this characteristic listed in different languages. */
     @Json(name = "descriptions")
     val descriptions: kotlin.collections.List<GrowthRateDescription>,
 
+    /* A list of levels and the amount of experienced needed to atain them based on this growth rate. */
     @Json(name = "levels")
     val levels: kotlin.collections.List<Experience>,
 
+    /* A list of Pokémon species that gain levels at this growth rate. */
     @Json(name = "pokemon_species")
     val pokemonSpecies: kotlin.collections.List<PokemonSpeciesSummary>
 

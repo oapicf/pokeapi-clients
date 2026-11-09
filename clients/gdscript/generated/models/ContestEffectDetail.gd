@@ -10,6 +10,7 @@ class_name ContestEffectDetail
 # ContestEffectDetail Model
 
 
+# The identifier for this resource.
 # Required: True
 # isArray: false
 @export var id: int:
@@ -18,6 +19,7 @@ class_name ContestEffectDetail
 		id = value
 var __id__was__set := false
 
+# The base number of hearts the user of this move gets.
 # Required: True
 # isArray: false
 @export var appeal: int:
@@ -26,6 +28,7 @@ var __id__was__set := false
 		appeal = value
 var __appeal__was__set := false
 
+# The base number of hearts the user's opponent loses.
 # Required: True
 # isArray: false
 @export var jam: int:
@@ -34,6 +37,7 @@ var __appeal__was__set := false
 		jam = value
 var __jam__was__set := false
 
+# The result of this contest effect listed in different languages.
 # Required: True
 # isArray: true
 @export var effectUnderscoreentries: Array:
@@ -42,6 +46,7 @@ var __jam__was__set := false
 		effectUnderscoreentries = value
 var __effectUnderscoreentries__was__set := false
 
+# The flavor text of this contest effect listed in different languages.
 # Required: True
 # isArray: true
 @export var flavorUnderscoretextUnderscoreentries: Array:

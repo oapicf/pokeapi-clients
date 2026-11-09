@@ -10,7 +10,6 @@ namespace models {
 
 LocationAreaName::LocationAreaName()
 : name("")
-, language(LanguageSummary())
 {
 }
 // =========================================

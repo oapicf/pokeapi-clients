@@ -1,6 +1,6 @@
 const utils = require('../utils/utils');
-const AbilityDetail_pokemon_inner_pokemon = require('../models/AbilityDetail_pokemon_inner_pokemon');
 const MoveMetaAilmentName = require('../models/MoveMetaAilmentName');
+const MoveSummary = require('../models/MoveSummary');
 
 module.exports = {
     fields: (prefix = '', isInput = true, isArrayChild = false) => {
@@ -8,20 +8,20 @@ module.exports = {
         return [
             {
                 key: `${keyPrefix}id`,
-                label: `[${labelPrefix}id]`,
+                label: `The identifier for this resource. - [${labelPrefix}id]`,
                 required: true,
                 type: 'integer',
             },
             {
                 key: `${keyPrefix}name`,
-                label: `[${labelPrefix}name]`,
+                label: `The name for this resource. - [${labelPrefix}name]`,
                 required: true,
                 type: 'string',
             },
             {
                 key: `${keyPrefix}moves`,
                 label: `[${labelPrefix}moves]`,
-                children: AbilityDetail_pokemon_inner_pokemon.fields(`${keyPrefix}moves${!isInput ? '[]' : ''}`, isInput, true), 
+                children: MoveSummary.fields(`${keyPrefix}moves${!isInput ? '[]' : ''}`, isInput, true), 
             },
             {
                 key: `${keyPrefix}names`,
@@ -35,7 +35,7 @@ module.exports = {
         return {
             'id': bundle.inputData?.[`${keyPrefix}id`],
             'name': bundle.inputData?.[`${keyPrefix}name`],
-            'moves': utils.childMapping(bundle.inputData?.[`${keyPrefix}moves`], `${keyPrefix}moves`, AbilityDetail_pokemon_inner_pokemon),
+            'moves': utils.childMapping(bundle.inputData?.[`${keyPrefix}moves`], `${keyPrefix}moves`, MoveSummary),
             'names': utils.childMapping(bundle.inputData?.[`${keyPrefix}names`], `${keyPrefix}names`, MoveMetaAilmentName),
         }
     },

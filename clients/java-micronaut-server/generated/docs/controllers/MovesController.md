@@ -39,9 +39,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**PaginatedMoveMetaAilmentSummaryList**](../../docs/models/PaginatedMoveMetaAilmentSummaryList.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -65,9 +62,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**MoveMetaAilmentDetail**](../../docs/models/MoveMetaAilmentDetail.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -93,9 +87,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**PaginatedMoveBattleStyleSummaryList**](../../docs/models/PaginatedMoveBattleStyleSummaryList.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -119,9 +110,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**MoveBattleStyleDetail**](../../docs/models/MoveBattleStyleDetail.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -147,9 +135,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**PaginatedMoveMetaCategorySummaryList**](../../docs/models/PaginatedMoveMetaCategorySummaryList.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -173,9 +158,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**MoveMetaCategoryDetail**](../../docs/models/MoveMetaCategoryDetail.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -201,9 +183,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**PaginatedMoveLearnMethodSummaryList**](../../docs/models/PaginatedMoveLearnMethodSummaryList.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -227,9 +206,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**MoveLearnMethodDetail**](../../docs/models/MoveLearnMethodDetail.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -255,9 +231,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**PaginatedMoveSummaryList**](../../docs/models/PaginatedMoveSummaryList.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -281,9 +254,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**MoveDetail**](../../docs/models/MoveDetail.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -309,9 +279,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**PaginatedMoveTargetSummaryList**](../../docs/models/PaginatedMoveTargetSummaryList.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -335,9 +302,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**MoveTargetDetail**](../../docs/models/MoveTargetDetail.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined

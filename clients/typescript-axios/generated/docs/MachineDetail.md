@@ -5,10 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **number** |  | [readonly] [default to undefined]
-**item** | [**ItemSummary**](ItemSummary.md) |  | [default to undefined]
-**version_group** | [**VersionGroupSummary**](VersionGroupSummary.md) |  | [default to undefined]
-**move** | [**MoveSummary**](MoveSummary.md) |  | [default to undefined]
+**id** | **number** | The identifier for this resource. | [readonly] [default to undefined]
+**item** | [**ItemSummary**](ItemSummary.md) | The TM or HM item that corresponds to this machine. | [default to undefined]
+**version_group** | [**VersionGroupSummary**](VersionGroupSummary.md) | The version group that this machine applies to. | [default to undefined]
+**move** | [**MoveSummary**](MoveSummary.md) | The move that is taught by this machine. | [default to undefined]
 
 ## Example
 

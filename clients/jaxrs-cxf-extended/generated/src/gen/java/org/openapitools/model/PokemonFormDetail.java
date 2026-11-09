@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
-import org.openapitools.model.PokemonDetailTypesInner;
-import org.openapitools.model.PokemonFormDetailFormNamesInner;
-import org.openapitools.model.PokemonFormDetailSprites;
+import org.openapitools.model.PokemonFormFlavorText;
+import org.openapitools.model.PokemonFormName;
+import org.openapitools.model.PokemonFormSprites;
+import org.openapitools.model.PokemonFormTriggerCondition;
+import org.openapitools.model.PokemonFormType;
 import org.openapitools.model.PokemonSummary;
 import org.openapitools.model.VersionGroupSummary;
 import javax.validation.constraints.*;
@@ -19,52 +21,106 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class PokemonFormDetail  {
   
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The identifier for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   private Integer id;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The name for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   private String name;
 
-  @ApiModelProperty(value = "")
+ /**
+  * The order in which forms should be sorted within all forms. Multiple forms may have equal order, in which case they should fall back on sorting by name.
+  */
+  @ApiModelProperty(value = "The order in which forms should be sorted within all forms. Multiple forms may have equal order, in which case they should fall back on sorting by name.")
   private Integer order;
 
-  @ApiModelProperty(value = "")
+ /**
+  * The order in which forms should be sorted within a species' forms.
+  */
+  @ApiModelProperty(value = "The order in which forms should be sorted within a species' forms.")
   private Integer formOrder;
 
-  @ApiModelProperty(value = "")
+ /**
+  * True for exactly one form used as the default for each Pokémon.
+  */
+  @ApiModelProperty(value = "True for exactly one form used as the default for each Pokémon.")
   private Boolean isDefault;
 
-  @ApiModelProperty(value = "")
+ /**
+  * Whether or not this form can only happen during battle.
+  */
+  @ApiModelProperty(value = "Whether or not this form can only happen during battle.")
   private Boolean isBattleOnly;
 
-  @ApiModelProperty(value = "")
+ /**
+  * Whether or not this form requires mega evolution.
+  */
+  @ApiModelProperty(value = "Whether or not this form requires mega evolution.")
   private Boolean isMega;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The name of this form.
+  */
+  @ApiModelProperty(required = true, value = "The name of this form.")
   private String formName;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The Pokémon that can take on this form.
+  */
+  @ApiModelProperty(required = true, value = "The Pokémon that can take on this form.")
   @Valid
   private PokemonSummary pokemon;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * A set of sprites used to depict this Pokémon form in the game.
+  */
+  @ApiModelProperty(required = true, value = "A set of sprites used to depict this Pokémon form in the game.")
   @Valid
-  private PokemonFormDetailSprites sprites;
+  private PokemonFormSprites sprites;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The version group this Pokémon form was introduced in.
+  */
+  @ApiModelProperty(required = true, value = "The version group this Pokémon form was introduced in.")
   @Valid
   private VersionGroupSummary versionGroup;
 
-  @ApiModelProperty(required = true, value = "")
-  private List<@Valid PokemonFormDetailFormNamesInner> formNames = new ArrayList<>();
-
-  @ApiModelProperty(required = true, value = "")
-  private List<@Valid PokemonFormDetailFormNamesInner> names = new ArrayList<>();
-
-  @ApiModelProperty(required = true, value = "")
-  private List<@Valid PokemonDetailTypesInner> types = new ArrayList<>();
  /**
-  * Get id
+  * The form specific form name of this Pokémon form, or empty if the form does not have a specific name.
+  */
+  @ApiModelProperty(required = true, value = "The form specific form name of this Pokémon form, or empty if the form does not have a specific name.")
+  private List<@Valid PokemonFormName> formNames = new ArrayList<>();
+
+ /**
+  * The form specific full name of this Pokémon form, or empty if the form does not have a specific name.
+  */
+  @ApiModelProperty(required = true, value = "The form specific full name of this Pokémon form, or empty if the form does not have a specific name.")
+  private List<@Valid PokemonFormName> names = new ArrayList<>();
+
+ /**
+  * A list of details showing types this Pokémon form has.
+  */
+  @ApiModelProperty(required = true, value = "A list of details showing types this Pokémon form has.")
+  private List<@Valid PokemonFormType> types = new ArrayList<>();
+
+ /**
+  * The conditions that trigger this form. Resource names and URLs are included when the trigger requires a resource.
+  */
+  @ApiModelProperty(required = true, value = "The conditions that trigger this form. Resource names and URLs are included when the trigger requires a resource.")
+  private List<@Valid PokemonFormTriggerCondition> triggerConditions = new ArrayList<>();
+
+ /**
+  * The flavor text of this form listed in different languages and versions.
+  */
+  @ApiModelProperty(required = true, value = "The flavor text of this form listed in different languages and versions.")
+  private List<@Valid PokemonFormFlavorText> flavorTextEntries = new ArrayList<>();
+ /**
+  * The identifier for this resource.
   * @return id
   */
   @JsonProperty("id")
@@ -91,12 +147,12 @@ public class PokemonFormDetail  {
   }
 
  /**
-  * Get name
+  * The name for this resource.
   * @return name
   */
   @JsonProperty("name")
   @NotNull
- @Size(max=100)  public String getName() {
+ @Size(max=200)  public String getName() {
     return name;
   }
 
@@ -116,11 +172,13 @@ public class PokemonFormDetail  {
   }
 
  /**
-  * Get order
+  * The order in which forms should be sorted within all forms. Multiple forms may have equal order, in which case they should fall back on sorting by name.
+  * minimum: -2147483648
+  * maximum: 2147483647
   * @return order
   */
   @JsonProperty("order")
-  public Integer getOrder() {
+ @Min(-2147483648) @Max(2147483647)  public Integer getOrder() {
     return order;
   }
 
@@ -140,11 +198,13 @@ public class PokemonFormDetail  {
   }
 
  /**
-  * Get formOrder
+  * The order in which forms should be sorted within a species&#39; forms.
+  * minimum: -2147483648
+  * maximum: 2147483647
   * @return formOrder
   */
   @JsonProperty("form_order")
-  public Integer getFormOrder() {
+ @Min(-2147483648) @Max(2147483647)  public Integer getFormOrder() {
     return formOrder;
   }
 
@@ -164,7 +224,7 @@ public class PokemonFormDetail  {
   }
 
  /**
-  * Get isDefault
+  * True for exactly one form used as the default for each Pokémon.
   * @return isDefault
   */
   @JsonProperty("is_default")
@@ -188,7 +248,7 @@ public class PokemonFormDetail  {
   }
 
  /**
-  * Get isBattleOnly
+  * Whether or not this form can only happen during battle.
   * @return isBattleOnly
   */
   @JsonProperty("is_battle_only")
@@ -212,7 +272,7 @@ public class PokemonFormDetail  {
   }
 
  /**
-  * Get isMega
+  * Whether or not this form requires mega evolution.
   * @return isMega
   */
   @JsonProperty("is_mega")
@@ -236,7 +296,7 @@ public class PokemonFormDetail  {
   }
 
  /**
-  * Get formName
+  * The name of this form.
   * @return formName
   */
   @JsonProperty("form_name")
@@ -261,7 +321,7 @@ public class PokemonFormDetail  {
   }
 
  /**
-  * Get pokemon
+  * The Pokémon that can take on this form.
   * @return pokemon
   */
   @JsonProperty("pokemon")
@@ -286,32 +346,34 @@ public class PokemonFormDetail  {
   }
 
  /**
-  * Get sprites
+  * A set of sprites used to depict this Pokémon form in the game.
   * @return sprites
   */
   @JsonProperty("sprites")
   @NotNull
-  public PokemonFormDetailSprites getSprites() {
+  public PokemonFormSprites getSprites() {
     return sprites;
   }
 
   /**
    * Sets the <code>sprites</code> property.
+   * <br><em>N.B. <code>sprites</code> is <b>read only</b>; client code should not call this method</em>.
    */
- public void setSprites(PokemonFormDetailSprites sprites) {
+ public void setSprites(PokemonFormSprites sprites) {
     this.sprites = sprites;
   }
 
   /**
    * Sets the <code>sprites</code> property.
+   * <br><em>N.B. <code>sprites</code> is <b>read only</b>; client code should not call this method</em>.
    */
-  public PokemonFormDetail sprites(PokemonFormDetailSprites sprites) {
+  public PokemonFormDetail sprites(PokemonFormSprites sprites) {
     this.sprites = sprites;
     return this;
   }
 
  /**
-  * Get versionGroup
+  * The version group this Pokémon form was introduced in.
   * @return versionGroup
   */
   @JsonProperty("version_group")
@@ -336,12 +398,12 @@ public class PokemonFormDetail  {
   }
 
  /**
-  * Get formNames
+  * The form specific form name of this Pokémon form, or empty if the form does not have a specific name.
   * @return formNames
   */
   @JsonProperty("form_names")
   @NotNull
-  public List<@Valid PokemonFormDetailFormNamesInner> getFormNames() {
+  public List<@Valid PokemonFormName> getFormNames() {
     return formNames;
   }
 
@@ -349,7 +411,7 @@ public class PokemonFormDetail  {
    * Sets the <code>formNames</code> property.
    * <br><em>N.B. <code>formNames</code> is <b>read only</b>; client code should not call this method</em>.
    */
- public void setFormNames(List<@Valid PokemonFormDetailFormNamesInner> formNames) {
+ public void setFormNames(List<@Valid PokemonFormName> formNames) {
     this.formNames = formNames;
   }
 
@@ -357,7 +419,7 @@ public class PokemonFormDetail  {
    * Sets the <code>formNames</code> property.
    * <br><em>N.B. <code>formNames</code> is <b>read only</b>; client code should not call this method</em>.
    */
-  public PokemonFormDetail formNames(List<@Valid PokemonFormDetailFormNamesInner> formNames) {
+  public PokemonFormDetail formNames(List<@Valid PokemonFormName> formNames) {
     this.formNames = formNames;
     return this;
   }
@@ -366,18 +428,18 @@ public class PokemonFormDetail  {
    * Adds a new item to the <code>formNames</code> list.
    * <br><em>N.B. <code>formNames</code> is <b>read only</b>; client code should not call this method</em>.
    */
-  public PokemonFormDetail addFormNamesItem(PokemonFormDetailFormNamesInner formNamesItem) {
+  public PokemonFormDetail addFormNamesItem(PokemonFormName formNamesItem) {
     this.formNames.add(formNamesItem);
     return this;
   }
 
  /**
-  * Get names
+  * The form specific full name of this Pokémon form, or empty if the form does not have a specific name.
   * @return names
   */
   @JsonProperty("names")
   @NotNull
-  public List<@Valid PokemonFormDetailFormNamesInner> getNames() {
+  public List<@Valid PokemonFormName> getNames() {
     return names;
   }
 
@@ -385,7 +447,7 @@ public class PokemonFormDetail  {
    * Sets the <code>names</code> property.
    * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
- public void setNames(List<@Valid PokemonFormDetailFormNamesInner> names) {
+ public void setNames(List<@Valid PokemonFormName> names) {
     this.names = names;
   }
 
@@ -393,7 +455,7 @@ public class PokemonFormDetail  {
    * Sets the <code>names</code> property.
    * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
-  public PokemonFormDetail names(List<@Valid PokemonFormDetailFormNamesInner> names) {
+  public PokemonFormDetail names(List<@Valid PokemonFormName> names) {
     this.names = names;
     return this;
   }
@@ -402,18 +464,18 @@ public class PokemonFormDetail  {
    * Adds a new item to the <code>names</code> list.
    * <br><em>N.B. <code>names</code> is <b>read only</b>; client code should not call this method</em>.
    */
-  public PokemonFormDetail addNamesItem(PokemonFormDetailFormNamesInner namesItem) {
+  public PokemonFormDetail addNamesItem(PokemonFormName namesItem) {
     this.names.add(namesItem);
     return this;
   }
 
  /**
-  * Get types
+  * A list of details showing types this Pokémon form has.
   * @return types
   */
   @JsonProperty("types")
   @NotNull
-  public List<@Valid PokemonDetailTypesInner> getTypes() {
+  public List<@Valid PokemonFormType> getTypes() {
     return types;
   }
 
@@ -421,7 +483,7 @@ public class PokemonFormDetail  {
    * Sets the <code>types</code> property.
    * <br><em>N.B. <code>types</code> is <b>read only</b>; client code should not call this method</em>.
    */
- public void setTypes(List<@Valid PokemonDetailTypesInner> types) {
+ public void setTypes(List<@Valid PokemonFormType> types) {
     this.types = types;
   }
 
@@ -429,7 +491,7 @@ public class PokemonFormDetail  {
    * Sets the <code>types</code> property.
    * <br><em>N.B. <code>types</code> is <b>read only</b>; client code should not call this method</em>.
    */
-  public PokemonFormDetail types(List<@Valid PokemonDetailTypesInner> types) {
+  public PokemonFormDetail types(List<@Valid PokemonFormType> types) {
     this.types = types;
     return this;
   }
@@ -438,8 +500,80 @@ public class PokemonFormDetail  {
    * Adds a new item to the <code>types</code> list.
    * <br><em>N.B. <code>types</code> is <b>read only</b>; client code should not call this method</em>.
    */
-  public PokemonFormDetail addTypesItem(PokemonDetailTypesInner typesItem) {
+  public PokemonFormDetail addTypesItem(PokemonFormType typesItem) {
     this.types.add(typesItem);
+    return this;
+  }
+
+ /**
+  * The conditions that trigger this form. Resource names and URLs are included when the trigger requires a resource.
+  * @return triggerConditions
+  */
+  @JsonProperty("trigger_conditions")
+  @NotNull
+  public List<@Valid PokemonFormTriggerCondition> getTriggerConditions() {
+    return triggerConditions;
+  }
+
+  /**
+   * Sets the <code>triggerConditions</code> property.
+   * <br><em>N.B. <code>triggerConditions</code> is <b>read only</b>; client code should not call this method</em>.
+   */
+ public void setTriggerConditions(List<@Valid PokemonFormTriggerCondition> triggerConditions) {
+    this.triggerConditions = triggerConditions;
+  }
+
+  /**
+   * Sets the <code>triggerConditions</code> property.
+   * <br><em>N.B. <code>triggerConditions</code> is <b>read only</b>; client code should not call this method</em>.
+   */
+  public PokemonFormDetail triggerConditions(List<@Valid PokemonFormTriggerCondition> triggerConditions) {
+    this.triggerConditions = triggerConditions;
+    return this;
+  }
+
+  /**
+   * Adds a new item to the <code>triggerConditions</code> list.
+   * <br><em>N.B. <code>triggerConditions</code> is <b>read only</b>; client code should not call this method</em>.
+   */
+  public PokemonFormDetail addTriggerConditionsItem(PokemonFormTriggerCondition triggerConditionsItem) {
+    this.triggerConditions.add(triggerConditionsItem);
+    return this;
+  }
+
+ /**
+  * The flavor text of this form listed in different languages and versions.
+  * @return flavorTextEntries
+  */
+  @JsonProperty("flavor_text_entries")
+  @NotNull
+  public List<@Valid PokemonFormFlavorText> getFlavorTextEntries() {
+    return flavorTextEntries;
+  }
+
+  /**
+   * Sets the <code>flavorTextEntries</code> property.
+   * <br><em>N.B. <code>flavorTextEntries</code> is <b>read only</b>; client code should not call this method</em>.
+   */
+ public void setFlavorTextEntries(List<@Valid PokemonFormFlavorText> flavorTextEntries) {
+    this.flavorTextEntries = flavorTextEntries;
+  }
+
+  /**
+   * Sets the <code>flavorTextEntries</code> property.
+   * <br><em>N.B. <code>flavorTextEntries</code> is <b>read only</b>; client code should not call this method</em>.
+   */
+  public PokemonFormDetail flavorTextEntries(List<@Valid PokemonFormFlavorText> flavorTextEntries) {
+    this.flavorTextEntries = flavorTextEntries;
+    return this;
+  }
+
+  /**
+   * Adds a new item to the <code>flavorTextEntries</code> list.
+   * <br><em>N.B. <code>flavorTextEntries</code> is <b>read only</b>; client code should not call this method</em>.
+   */
+  public PokemonFormDetail addFlavorTextEntriesItem(PokemonFormFlavorText flavorTextEntriesItem) {
+    this.flavorTextEntries.add(flavorTextEntriesItem);
     return this;
   }
 
@@ -466,12 +600,14 @@ public class PokemonFormDetail  {
         Objects.equals(this.versionGroup, pokemonFormDetail.versionGroup) &&
         Objects.equals(this.formNames, pokemonFormDetail.formNames) &&
         Objects.equals(this.names, pokemonFormDetail.names) &&
-        Objects.equals(this.types, pokemonFormDetail.types);
+        Objects.equals(this.types, pokemonFormDetail.types) &&
+        Objects.equals(this.triggerConditions, pokemonFormDetail.triggerConditions) &&
+        Objects.equals(this.flavorTextEntries, pokemonFormDetail.flavorTextEntries);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, order, formOrder, isDefault, isBattleOnly, isMega, formName, pokemon, sprites, versionGroup, formNames, names, types);
+    return Objects.hash(id, name, order, formOrder, isDefault, isBattleOnly, isMega, formName, pokemon, sprites, versionGroup, formNames, names, types, triggerConditions, flavorTextEntries);
   }
 
   @Override
@@ -493,6 +629,8 @@ public class PokemonFormDetail  {
     sb.append("    formNames: ").append(toIndentedString(formNames)).append("\n");
     sb.append("    names: ").append(toIndentedString(names)).append("\n");
     sb.append("    types: ").append(toIndentedString(types)).append("\n");
+    sb.append("    triggerConditions: ").append(toIndentedString(triggerConditions)).append("\n");
+    sb.append("    flavorTextEntries: ").append(toIndentedString(flavorTextEntries)).append("\n");
     sb.append("}");
     return sb.toString();
   }

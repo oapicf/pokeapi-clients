@@ -7,33 +7,33 @@
 #' @title PokemonSpeciesDetail
 #' @description PokemonSpeciesDetail Class
 #' @format An \code{R6Class} generator object
-#' @field id  integer
-#' @field name  character
-#' @field order  integer [optional]
-#' @field gender_rate  integer [optional]
-#' @field capture_rate  integer [optional]
-#' @field base_happiness  integer [optional]
-#' @field is_baby  character [optional]
-#' @field is_legendary  character [optional]
-#' @field is_mythical  character [optional]
-#' @field hatch_counter  integer [optional]
-#' @field has_gender_differences  character [optional]
-#' @field forms_switchable  character [optional]
-#' @field growth_rate  \link{GrowthRateSummary}
-#' @field pokedex_numbers  list(\link{PokemonDexEntry})
-#' @field egg_groups  list(\link{AbilityDetailPokemonInnerPokemon})
-#' @field color  \link{PokemonColorSummary}
-#' @field shape  \link{PokemonShapeSummary}
-#' @field evolves_from_species  \link{PokemonSpeciesSummary}
-#' @field evolution_chain  \link{EvolutionChainSummary}
-#' @field habitat  \link{PokemonHabitatSummary}
-#' @field generation  \link{GenerationSummary}
-#' @field names  list(\link{PokemonFormDetailFormNamesInner})
-#' @field pal_park_encounters  list(\link{PokemonSpeciesDetailPalParkEncountersInner})
-#' @field form_descriptions  list(\link{PokemonSpeciesDescription})
-#' @field flavor_text_entries  list(\link{PokemonSpeciesFlavorText})
-#' @field genera  list(\link{PokemonSpeciesDetailGeneraInner})
-#' @field varieties  list(\link{PokemonSpeciesDetailVarietiesInner})
+#' @field id The identifier for this resource. integer
+#' @field name The name for this resource. character
+#' @field order The order in which species should be sorted. Based on National Dex order, except families are grouped together and sorted by stage. integer [optional]
+#' @field gender_rate The chance of this Pokémon being female, in eighths; or -1 for genderless. integer [optional]
+#' @field capture_rate The base capture rate; up to 255. The higher the number, the easier the catch. integer [optional]
+#' @field base_happiness The happiness when caught by a normal Pokéball; up to 255. The higher the number, the happier the Pokémon. integer [optional]
+#' @field is_baby Whether or not this is a baby Pokémon. character [optional]
+#' @field is_legendary Whether or not this is a legendary Pokémon. character [optional]
+#' @field is_mythical Whether or not this is a mythical Pokémon. character [optional]
+#' @field hatch_counter Initial hatch counter: one must walk Y × (hatch_counter + 1) steps before this Pokémon's egg hatches, unless utilizing bonuses like Flame Body's. Y varies per generation. In Generations II, III, and VII, Egg cycles are 256 steps long. In Generation IV, Egg cycles are 255 steps long. In Pokémon Brilliant Diamond and Shining Pearl, Egg cycles are also 255 steps long, but are shorter on special dates. In Generations V and VI, Egg cycles are 257 steps long. In Pokémon Sword and Shield, and in Pokémon Scarlet and Violet, Egg cycles are 128 steps long. integer [optional]
+#' @field has_gender_differences Whether or not this Pokémon has visual gender differences. character [optional]
+#' @field forms_switchable Whether or not this Pokémon has multiple forms and can switch between them. character [optional]
+#' @field growth_rate The rate at which this Pokémon species gains levels. \link{GrowthRateSummary}
+#' @field pokedex_numbers A list of Pokedexes and the indexes reserved within them for this Pokémon species. list(\link{PokemonDexEntry})
+#' @field egg_groups A list of egg groups this Pokémon species is a member of. list(\link{EggGroupSummary})
+#' @field color The color of this Pokémon for Pokédex search. \link{PokemonColorSummary}
+#' @field shape The shape of this Pokémon for Pokédex search. \link{PokemonShapeSummary}
+#' @field evolves_from_species The Pokémon species that evolves into this Pokemon_species. \link{PokemonSpeciesSummary}
+#' @field evolution_chain The evolution chain this Pokémon species is a member of. \link{EvolutionChainSummary}
+#' @field habitat The habitat this Pokémon species can be encountered in. \link{PokemonHabitatSummary}
+#' @field generation The generation this Pokémon species was introduced in. \link{GenerationSummary}
+#' @field names The name of this resource listed in different languages. list(\link{PokemonSpeciesName})
+#' @field pal_park_encounters A list of encounters that can be had with this Pokémon species in pal park. list(\link{PokemonSpeciesPalParkEncounter})
+#' @field form_descriptions Descriptions of different forms Pokémon take on within the Pokémon species. list(\link{PokemonSpeciesDescription})
+#' @field flavor_text_entries A list of flavor text entries for this Pokémon species. list(\link{PokemonSpeciesFlavorText})
+#' @field genera The genus of this Pokémon species listed in multiple languages. list(\link{PokemonSpeciesGenus})
+#' @field varieties A list of the Pokémon that exist within this Pokémon species. list(\link{PokemonSpeciesVariety})
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -71,33 +71,33 @@ PokemonSpeciesDetail <- R6::R6Class(
     #' @description
     #' Initialize a new PokemonSpeciesDetail class.
     #'
-    #' @param id id
-    #' @param name name
-    #' @param growth_rate growth_rate
-    #' @param pokedex_numbers pokedex_numbers
-    #' @param egg_groups egg_groups
-    #' @param color color
-    #' @param shape shape
-    #' @param evolves_from_species evolves_from_species
-    #' @param evolution_chain evolution_chain
-    #' @param habitat habitat
-    #' @param generation generation
-    #' @param names names
-    #' @param pal_park_encounters pal_park_encounters
-    #' @param form_descriptions form_descriptions
-    #' @param flavor_text_entries flavor_text_entries
-    #' @param genera genera
-    #' @param varieties varieties
-    #' @param order order
-    #' @param gender_rate gender_rate
-    #' @param capture_rate capture_rate
-    #' @param base_happiness base_happiness
-    #' @param is_baby is_baby
-    #' @param is_legendary is_legendary
-    #' @param is_mythical is_mythical
-    #' @param hatch_counter hatch_counter
-    #' @param has_gender_differences has_gender_differences
-    #' @param forms_switchable forms_switchable
+    #' @param id The identifier for this resource.
+    #' @param name The name for this resource.
+    #' @param growth_rate The rate at which this Pokémon species gains levels.
+    #' @param pokedex_numbers A list of Pokedexes and the indexes reserved within them for this Pokémon species.
+    #' @param egg_groups A list of egg groups this Pokémon species is a member of.
+    #' @param color The color of this Pokémon for Pokédex search.
+    #' @param shape The shape of this Pokémon for Pokédex search.
+    #' @param evolves_from_species The Pokémon species that evolves into this Pokemon_species.
+    #' @param evolution_chain The evolution chain this Pokémon species is a member of.
+    #' @param habitat The habitat this Pokémon species can be encountered in.
+    #' @param generation The generation this Pokémon species was introduced in.
+    #' @param names The name of this resource listed in different languages.
+    #' @param pal_park_encounters A list of encounters that can be had with this Pokémon species in pal park.
+    #' @param form_descriptions Descriptions of different forms Pokémon take on within the Pokémon species.
+    #' @param flavor_text_entries A list of flavor text entries for this Pokémon species.
+    #' @param genera The genus of this Pokémon species listed in multiple languages.
+    #' @param varieties A list of the Pokémon that exist within this Pokémon species.
+    #' @param order The order in which species should be sorted. Based on National Dex order, except families are grouped together and sorted by stage.
+    #' @param gender_rate The chance of this Pokémon being female, in eighths; or -1 for genderless.
+    #' @param capture_rate The base capture rate; up to 255. The higher the number, the easier the catch.
+    #' @param base_happiness The happiness when caught by a normal Pokéball; up to 255. The higher the number, the happier the Pokémon.
+    #' @param is_baby Whether or not this is a baby Pokémon.
+    #' @param is_legendary Whether or not this is a legendary Pokémon.
+    #' @param is_mythical Whether or not this is a mythical Pokémon.
+    #' @param hatch_counter Initial hatch counter: one must walk Y × (hatch_counter + 1) steps before this Pokémon's egg hatches, unless utilizing bonuses like Flame Body's. Y varies per generation. In Generations II, III, and VII, Egg cycles are 256 steps long. In Generation IV, Egg cycles are 255 steps long. In Pokémon Brilliant Diamond and Shining Pearl, Egg cycles are also 255 steps long, but are shorter on special dates. In Generations V and VI, Egg cycles are 257 steps long. In Pokémon Sword and Shield, and in Pokémon Scarlet and Violet, Egg cycles are 128 steps long.
+    #' @param has_gender_differences Whether or not this Pokémon has visual gender differences.
+    #' @param forms_switchable Whether or not this Pokémon has multiple forms and can switch between them.
     #' @param ... Other optional arguments.
     initialize = function(`id`, `name`, `growth_rate`, `pokedex_numbers`, `egg_groups`, `color`, `shape`, `evolves_from_species`, `evolution_chain`, `habitat`, `generation`, `names`, `pal_park_encounters`, `form_descriptions`, `flavor_text_entries`, `genera`, `varieties`, `order` = NULL, `gender_rate` = NULL, `capture_rate` = NULL, `base_happiness` = NULL, `is_baby` = NULL, `is_legendary` = NULL, `is_mythical` = NULL, `hatch_counter` = NULL, `has_gender_differences` = NULL, `forms_switchable` = NULL, ...) {
       if (!missing(`id`)) {
@@ -459,7 +459,7 @@ PokemonSpeciesDetail <- R6::R6Class(
         self$`pokedex_numbers` <- ApiClient$new()$deserializeObj(this_object$`pokedex_numbers`, "array[PokemonDexEntry]", loadNamespace("openapi"))
       }
       if (!is.null(this_object$`egg_groups`)) {
-        self$`egg_groups` <- ApiClient$new()$deserializeObj(this_object$`egg_groups`, "array[AbilityDetailPokemonInnerPokemon]", loadNamespace("openapi"))
+        self$`egg_groups` <- ApiClient$new()$deserializeObj(this_object$`egg_groups`, "array[EggGroupSummary]", loadNamespace("openapi"))
       }
       if (!is.null(this_object$`color`)) {
         `color_object` <- PokemonColorSummary$new()
@@ -492,10 +492,10 @@ PokemonSpeciesDetail <- R6::R6Class(
         self$`generation` <- `generation_object`
       }
       if (!is.null(this_object$`names`)) {
-        self$`names` <- ApiClient$new()$deserializeObj(this_object$`names`, "array[PokemonFormDetailFormNamesInner]", loadNamespace("openapi"))
+        self$`names` <- ApiClient$new()$deserializeObj(this_object$`names`, "array[PokemonSpeciesName]", loadNamespace("openapi"))
       }
       if (!is.null(this_object$`pal_park_encounters`)) {
-        self$`pal_park_encounters` <- ApiClient$new()$deserializeObj(this_object$`pal_park_encounters`, "array[PokemonSpeciesDetailPalParkEncountersInner]", loadNamespace("openapi"))
+        self$`pal_park_encounters` <- ApiClient$new()$deserializeObj(this_object$`pal_park_encounters`, "array[PokemonSpeciesPalParkEncounter]", loadNamespace("openapi"))
       }
       if (!is.null(this_object$`form_descriptions`)) {
         self$`form_descriptions` <- ApiClient$new()$deserializeObj(this_object$`form_descriptions`, "array[PokemonSpeciesDescription]", loadNamespace("openapi"))
@@ -504,10 +504,10 @@ PokemonSpeciesDetail <- R6::R6Class(
         self$`flavor_text_entries` <- ApiClient$new()$deserializeObj(this_object$`flavor_text_entries`, "array[PokemonSpeciesFlavorText]", loadNamespace("openapi"))
       }
       if (!is.null(this_object$`genera`)) {
-        self$`genera` <- ApiClient$new()$deserializeObj(this_object$`genera`, "array[PokemonSpeciesDetailGeneraInner]", loadNamespace("openapi"))
+        self$`genera` <- ApiClient$new()$deserializeObj(this_object$`genera`, "array[PokemonSpeciesGenus]", loadNamespace("openapi"))
       }
       if (!is.null(this_object$`varieties`)) {
-        self$`varieties` <- ApiClient$new()$deserializeObj(this_object$`varieties`, "array[PokemonSpeciesDetailVarietiesInner]", loadNamespace("openapi"))
+        self$`varieties` <- ApiClient$new()$deserializeObj(this_object$`varieties`, "array[PokemonSpeciesVariety]", loadNamespace("openapi"))
       }
       self
     },
@@ -544,19 +544,19 @@ PokemonSpeciesDetail <- R6::R6Class(
       self$`forms_switchable` <- this_object$`forms_switchable`
       self$`growth_rate` <- GrowthRateSummary$new()$fromJSON(jsonlite::toJSON(this_object$`growth_rate`, auto_unbox = TRUE, digits = NA))
       self$`pokedex_numbers` <- ApiClient$new()$deserializeObj(this_object$`pokedex_numbers`, "array[PokemonDexEntry]", loadNamespace("openapi"))
-      self$`egg_groups` <- ApiClient$new()$deserializeObj(this_object$`egg_groups`, "array[AbilityDetailPokemonInnerPokemon]", loadNamespace("openapi"))
+      self$`egg_groups` <- ApiClient$new()$deserializeObj(this_object$`egg_groups`, "array[EggGroupSummary]", loadNamespace("openapi"))
       self$`color` <- PokemonColorSummary$new()$fromJSON(jsonlite::toJSON(this_object$`color`, auto_unbox = TRUE, digits = NA))
       self$`shape` <- PokemonShapeSummary$new()$fromJSON(jsonlite::toJSON(this_object$`shape`, auto_unbox = TRUE, digits = NA))
       self$`evolves_from_species` <- PokemonSpeciesSummary$new()$fromJSON(jsonlite::toJSON(this_object$`evolves_from_species`, auto_unbox = TRUE, digits = NA))
       self$`evolution_chain` <- EvolutionChainSummary$new()$fromJSON(jsonlite::toJSON(this_object$`evolution_chain`, auto_unbox = TRUE, digits = NA))
       self$`habitat` <- PokemonHabitatSummary$new()$fromJSON(jsonlite::toJSON(this_object$`habitat`, auto_unbox = TRUE, digits = NA))
       self$`generation` <- GenerationSummary$new()$fromJSON(jsonlite::toJSON(this_object$`generation`, auto_unbox = TRUE, digits = NA))
-      self$`names` <- ApiClient$new()$deserializeObj(this_object$`names`, "array[PokemonFormDetailFormNamesInner]", loadNamespace("openapi"))
-      self$`pal_park_encounters` <- ApiClient$new()$deserializeObj(this_object$`pal_park_encounters`, "array[PokemonSpeciesDetailPalParkEncountersInner]", loadNamespace("openapi"))
+      self$`names` <- ApiClient$new()$deserializeObj(this_object$`names`, "array[PokemonSpeciesName]", loadNamespace("openapi"))
+      self$`pal_park_encounters` <- ApiClient$new()$deserializeObj(this_object$`pal_park_encounters`, "array[PokemonSpeciesPalParkEncounter]", loadNamespace("openapi"))
       self$`form_descriptions` <- ApiClient$new()$deserializeObj(this_object$`form_descriptions`, "array[PokemonSpeciesDescription]", loadNamespace("openapi"))
       self$`flavor_text_entries` <- ApiClient$new()$deserializeObj(this_object$`flavor_text_entries`, "array[PokemonSpeciesFlavorText]", loadNamespace("openapi"))
-      self$`genera` <- ApiClient$new()$deserializeObj(this_object$`genera`, "array[PokemonSpeciesDetailGeneraInner]", loadNamespace("openapi"))
-      self$`varieties` <- ApiClient$new()$deserializeObj(this_object$`varieties`, "array[PokemonSpeciesDetailVarietiesInner]", loadNamespace("openapi"))
+      self$`genera` <- ApiClient$new()$deserializeObj(this_object$`genera`, "array[PokemonSpeciesGenus]", loadNamespace("openapi"))
+      self$`varieties` <- ApiClient$new()$deserializeObj(this_object$`varieties`, "array[PokemonSpeciesVariety]", loadNamespace("openapi"))
       self
     },
 
@@ -705,7 +705,42 @@ PokemonSpeciesDetail <- R6::R6Class(
         return(FALSE)
       }
 
-      if (nchar(self$`name`) > 100) {
+      if (nchar(self$`name`) > 200) {
+        return(FALSE)
+      }
+
+      if (self$`order` > 2147483647) {
+        return(FALSE)
+      }
+      if (self$`order` < -2147483648) {
+        return(FALSE)
+      }
+
+      if (self$`gender_rate` > 2147483647) {
+        return(FALSE)
+      }
+      if (self$`gender_rate` < -2147483648) {
+        return(FALSE)
+      }
+
+      if (self$`capture_rate` > 2147483647) {
+        return(FALSE)
+      }
+      if (self$`capture_rate` < -2147483648) {
+        return(FALSE)
+      }
+
+      if (self$`base_happiness` > 2147483647) {
+        return(FALSE)
+      }
+      if (self$`base_happiness` < -2147483648) {
+        return(FALSE)
+      }
+
+      if (self$`hatch_counter` > 2147483647) {
+        return(FALSE)
+      }
+      if (self$`hatch_counter` < -2147483648) {
         return(FALSE)
       }
 
@@ -734,18 +769,8 @@ PokemonSpeciesDetail <- R6::R6Class(
         return(FALSE)
       }
 
-      # check if the required `evolves_from_species` is null
-      if (is.null(self$`evolves_from_species`)) {
-        return(FALSE)
-      }
-
       # check if the required `evolution_chain` is null
       if (is.null(self$`evolution_chain`)) {
-        return(FALSE)
-      }
-
-      # check if the required `habitat` is null
-      if (is.null(self$`habitat`)) {
         return(FALSE)
       }
 
@@ -803,8 +828,43 @@ PokemonSpeciesDetail <- R6::R6Class(
         invalid_fields["name"] <- "Non-nullable required field `name` cannot be null."
       }
 
-      if (nchar(self$`name`) > 100) {
-        invalid_fields["name"] <- "Invalid length for `name`, must be smaller than or equal to 100."
+      if (nchar(self$`name`) > 200) {
+        invalid_fields["name"] <- "Invalid length for `name`, must be smaller than or equal to 200."
+      }
+
+      if (self$`order` > 2147483647) {
+        invalid_fields["order"] <- "Invalid value for `order`, must be smaller than or equal to 2147483647."
+      }
+      if (self$`order` < -2147483648) {
+        invalid_fields["order"] <- "Invalid value for `order`, must be bigger than or equal to -2147483648."
+      }
+
+      if (self$`gender_rate` > 2147483647) {
+        invalid_fields["gender_rate"] <- "Invalid value for `gender_rate`, must be smaller than or equal to 2147483647."
+      }
+      if (self$`gender_rate` < -2147483648) {
+        invalid_fields["gender_rate"] <- "Invalid value for `gender_rate`, must be bigger than or equal to -2147483648."
+      }
+
+      if (self$`capture_rate` > 2147483647) {
+        invalid_fields["capture_rate"] <- "Invalid value for `capture_rate`, must be smaller than or equal to 2147483647."
+      }
+      if (self$`capture_rate` < -2147483648) {
+        invalid_fields["capture_rate"] <- "Invalid value for `capture_rate`, must be bigger than or equal to -2147483648."
+      }
+
+      if (self$`base_happiness` > 2147483647) {
+        invalid_fields["base_happiness"] <- "Invalid value for `base_happiness`, must be smaller than or equal to 2147483647."
+      }
+      if (self$`base_happiness` < -2147483648) {
+        invalid_fields["base_happiness"] <- "Invalid value for `base_happiness`, must be bigger than or equal to -2147483648."
+      }
+
+      if (self$`hatch_counter` > 2147483647) {
+        invalid_fields["hatch_counter"] <- "Invalid value for `hatch_counter`, must be smaller than or equal to 2147483647."
+      }
+      if (self$`hatch_counter` < -2147483648) {
+        invalid_fields["hatch_counter"] <- "Invalid value for `hatch_counter`, must be bigger than or equal to -2147483648."
       }
 
       # check if the required `growth_rate` is null
@@ -832,19 +892,9 @@ PokemonSpeciesDetail <- R6::R6Class(
         invalid_fields["shape"] <- "Non-nullable required field `shape` cannot be null."
       }
 
-      # check if the required `evolves_from_species` is null
-      if (is.null(self$`evolves_from_species`)) {
-        invalid_fields["evolves_from_species"] <- "Non-nullable required field `evolves_from_species` cannot be null."
-      }
-
       # check if the required `evolution_chain` is null
       if (is.null(self$`evolution_chain`)) {
         invalid_fields["evolution_chain"] <- "Non-nullable required field `evolution_chain` cannot be null."
-      }
-
-      # check if the required `habitat` is null
-      if (is.null(self$`habitat`)) {
-        invalid_fields["habitat"] <- "Non-nullable required field `habitat` cannot be null."
       }
 
       # check if the required `generation` is null

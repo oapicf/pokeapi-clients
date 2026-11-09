@@ -6,9 +6,9 @@ namespace App\DTO;
 use Articus\DataTransfer\Annotation as DTA;
 
 /**
- * @DTA\Strategy(name="ObjectList", options={"type":\App\DTO\NatureDetailPokeathlonStatChangesInner::class})
+ * @DTA\Strategy(name="ObjectList", options={"type":\App\DTO\MoveTargetName::class})
  * @DTA\Validator(name="Collection", options={"validators":{
- *     {"name":"TypeCompliant", "options":{"type":\App\DTO\NatureDetailPokeathlonStatChangesInner::class}}
+ *     {"name":"TypeCompliant", "options":{"type":\App\DTO\MoveTargetName::class}}
  * }})
  */
 class Collection124 extends \ArrayObject

@@ -65,6 +65,7 @@ class GrowthRateDetail(Model):
     def id(self):
         """Gets the id of this GrowthRateDetail.
 
+        The identifier for this resource.
 
         :return: The id of this GrowthRateDetail.
         :rtype: int
@@ -75,6 +76,7 @@ class GrowthRateDetail(Model):
     def id(self, id):
         """Sets the id of this GrowthRateDetail.
 
+        The identifier for this resource.
 
         :param id: The id of this GrowthRateDetail.
         :type id: int
@@ -88,6 +90,7 @@ class GrowthRateDetail(Model):
     def name(self):
         """Gets the name of this GrowthRateDetail.
 
+        The name for this resource.
 
         :return: The name of this GrowthRateDetail.
         :rtype: str
@@ -98,14 +101,15 @@ class GrowthRateDetail(Model):
     def name(self, name):
         """Sets the name of this GrowthRateDetail.
 
+        The name for this resource.
 
         :param name: The name of this GrowthRateDetail.
         :type name: str
         """
         if name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")
-        if name is not None and len(name) > 100:
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `100`")
+        if name is not None and len(name) > 200:
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `200`")
 
         self._name = name
 
@@ -113,6 +117,7 @@ class GrowthRateDetail(Model):
     def formula(self):
         """Gets the formula of this GrowthRateDetail.
 
+        The formula used to calculate the rate at which the Pokémon species gains level.
 
         :return: The formula of this GrowthRateDetail.
         :rtype: str
@@ -123,6 +128,7 @@ class GrowthRateDetail(Model):
     def formula(self, formula):
         """Sets the formula of this GrowthRateDetail.
 
+        The formula used to calculate the rate at which the Pokémon species gains level.
 
         :param formula: The formula of this GrowthRateDetail.
         :type formula: str
@@ -138,6 +144,7 @@ class GrowthRateDetail(Model):
     def descriptions(self):
         """Gets the descriptions of this GrowthRateDetail.
 
+        The descriptions of this characteristic listed in different languages.
 
         :return: The descriptions of this GrowthRateDetail.
         :rtype: List[GrowthRateDescription]
@@ -148,6 +155,7 @@ class GrowthRateDetail(Model):
     def descriptions(self, descriptions):
         """Sets the descriptions of this GrowthRateDetail.
 
+        The descriptions of this characteristic listed in different languages.
 
         :param descriptions: The descriptions of this GrowthRateDetail.
         :type descriptions: List[GrowthRateDescription]
@@ -161,6 +169,7 @@ class GrowthRateDetail(Model):
     def levels(self):
         """Gets the levels of this GrowthRateDetail.
 
+        A list of levels and the amount of experienced needed to atain them based on this growth rate.
 
         :return: The levels of this GrowthRateDetail.
         :rtype: List[Experience]
@@ -171,6 +180,7 @@ class GrowthRateDetail(Model):
     def levels(self, levels):
         """Sets the levels of this GrowthRateDetail.
 
+        A list of levels and the amount of experienced needed to atain them based on this growth rate.
 
         :param levels: The levels of this GrowthRateDetail.
         :type levels: List[Experience]
@@ -184,6 +194,7 @@ class GrowthRateDetail(Model):
     def pokemon_species(self):
         """Gets the pokemon_species of this GrowthRateDetail.
 
+        A list of Pokémon species that gain levels at this growth rate.
 
         :return: The pokemon_species of this GrowthRateDetail.
         :rtype: List[PokemonSpeciesSummary]
@@ -194,6 +205,7 @@ class GrowthRateDetail(Model):
     def pokemon_species(self, pokemon_species):
         """Sets the pokemon_species of this GrowthRateDetail.
 
+        A list of Pokémon species that gain levels at this growth rate.
 
         :param pokemon_species: The pokemon_species of this GrowthRateDetail.
         :type pokemon_species: List[PokemonSpeciesSummary]

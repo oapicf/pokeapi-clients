@@ -4,8 +4,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **str** |  | 
-**url** | **str** |  | [readonly] 
+**name** | **str** | The name of the referenced resource. | 
+**url** | **str** | The URL of the referenced resource. | [readonly] 
 
 ## Example
 

@@ -12,9 +12,12 @@ import org.joda.time.DateTime
 import ItemEffectText._
 
 case class ItemEffectText (
+  /* The localized effect text for an API resource in a specific language. */
   effect: String,
-shortEffect: String,
-language: LanguageSummary)
+/* The localized effect text in brief. */
+  shortEffect: String,
+/* The language this effect is in. */
+  language: LanguageSummary)
 
 object ItemEffectText {
   import DateTimeCodecs._

@@ -23,21 +23,21 @@
 
 package org.openapitools.client.models
 
-import org.openapitools.client.models.AbilityDetailPokemonInnerPokemon
 import org.openapitools.client.models.ContestEffectSummary
 import org.openapitools.client.models.ContestTypeSummary
 import org.openapitools.client.models.GenerationSummary
+import org.openapitools.client.models.ItemMachine
 import org.openapitools.client.models.MoveChange
-import org.openapitools.client.models.MoveChangeEffectEntriesInner
+import org.openapitools.client.models.MoveCombos
 import org.openapitools.client.models.MoveDamageClassSummary
-import org.openapitools.client.models.MoveDetailContestCombos
-import org.openapitools.client.models.MoveDetailEffectChangesInner
-import org.openapitools.client.models.MoveDetailMachinesInner
-import org.openapitools.client.models.MoveDetailStatChangesInner
+import org.openapitools.client.models.MoveEffectChange
+import org.openapitools.client.models.MoveEffectEffectText
 import org.openapitools.client.models.MoveFlavorText
 import org.openapitools.client.models.MoveMeta
+import org.openapitools.client.models.MoveMetaStatChange
 import org.openapitools.client.models.MoveName
 import org.openapitools.client.models.MoveTargetSummary
+import org.openapitools.client.models.PokemonSummary
 import org.openapitools.client.models.SuperContestEffectSummary
 import org.openapitools.client.models.TypeSummary
 
@@ -47,104 +47,128 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param id 
- * @param name 
- * @param effectChance 
- * @param contestCombos 
- * @param contestType 
- * @param contestEffect 
- * @param damageClass 
- * @param effectEntries 
- * @param effectChanges 
- * @param generation 
- * @param meta 
- * @param names 
- * @param pastValues 
- * @param statChanges 
- * @param superContestEffect 
- * @param target 
- * @param type 
- * @param machines 
- * @param flavorTextEntries 
- * @param learnedByPokemon 
- * @param accuracy 
- * @param pp 
- * @param priority 
- * @param power 
+ * @param id The identifier for this resource.
+ * @param name The name for this resource.
+ * @param effectChance The percent value of how likely it is this moves effect will happen.
+ * @param contestCombos A detail of normal and super contest combos that require this move.
+ * @param contestType The type of appeal this move gives a Pokémon when used in a contest.
+ * @param contestEffect The effect the move has when used in a contest.
+ * @param damageClass The type of damage the move inflicts on the target, e.g. physical.
+ * @param effectEntries The effect of this move listed in different languages.
+ * @param effectChanges The list of previous effects this move has had across version groups of the games.
+ * @param generation The generation in which this move was introduced.
+ * @param meta Metadata about this move
+ * @param names The name of this resource listed in different languages.
+ * @param pastValues A list of move resource value changes across version groups of the game.
+ * @param statChanges A list of stats this moves effects and how much it effects them.
+ * @param superContestEffect The effect the move has when used in a super contest.
+ * @param target The type of target that will receive the effects of the attack.
+ * @param type The elemental type of this move.
+ * @param machines A list of the machines that teach this move.
+ * @param flavorTextEntries The flavor text of this move listed in different languages.
+ * @param learnedByPokemon List of Pokemon that can learn the move
+ * @param accuracy The percent value of how likely this move is to be successful.
+ * @param pp Power points. The number of times this move can be used.
+ * @param priority A value between -8 and 8. Sets the order in which moves are executed during battle. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Priority) for greater detail.
+ * @param power The base power of this move, or null if it has no fixed base power.
  */
 
 
 data class MoveDetail (
 
+    /* The identifier for this resource. */
     @Json(name = "id")
     val id: kotlin.Int,
 
+    /* The name for this resource. */
     @Json(name = "name")
     val name: kotlin.String,
 
+    /* The percent value of how likely it is this moves effect will happen. */
     @Json(name = "effect_chance")
-    val effectChance: kotlin.Int,
+    val effectChance: kotlin.Int?,
 
+    /* A detail of normal and super contest combos that require this move. */
     @Json(name = "contest_combos")
-    val contestCombos: MoveDetailContestCombos,
+    val contestCombos: MoveCombos?,
 
+    /* The type of appeal this move gives a Pokémon when used in a contest. */
     @Json(name = "contest_type")
-    val contestType: ContestTypeSummary,
+    val contestType: ContestTypeSummary?,
 
+    /* The effect the move has when used in a contest. */
     @Json(name = "contest_effect")
-    val contestEffect: ContestEffectSummary,
+    val contestEffect: ContestEffectSummary?,
 
+    /* The type of damage the move inflicts on the target, e.g. physical. */
     @Json(name = "damage_class")
     val damageClass: MoveDamageClassSummary,
 
+    /* The effect of this move listed in different languages. */
     @Json(name = "effect_entries")
-    val effectEntries: kotlin.collections.List<MoveChangeEffectEntriesInner>,
+    val effectEntries: kotlin.collections.List<MoveEffectEffectText>,
 
+    /* The list of previous effects this move has had across version groups of the games. */
     @Json(name = "effect_changes")
-    val effectChanges: kotlin.collections.List<MoveDetailEffectChangesInner>,
+    val effectChanges: kotlin.collections.List<MoveEffectChange>,
 
+    /* The generation in which this move was introduced. */
     @Json(name = "generation")
     val generation: GenerationSummary,
 
+    /* Metadata about this move */
     @Json(name = "meta")
-    val meta: MoveMeta,
+    val meta: MoveMeta?,
 
+    /* The name of this resource listed in different languages. */
     @Json(name = "names")
     val names: kotlin.collections.List<MoveName>,
 
+    /* A list of move resource value changes across version groups of the game. */
     @Json(name = "past_values")
     val pastValues: kotlin.collections.List<MoveChange>,
 
+    /* A list of stats this moves effects and how much it effects them. */
     @Json(name = "stat_changes")
-    val statChanges: kotlin.collections.List<MoveDetailStatChangesInner>,
+    val statChanges: kotlin.collections.List<MoveMetaStatChange>,
 
+    /* The effect the move has when used in a super contest. */
     @Json(name = "super_contest_effect")
-    val superContestEffect: SuperContestEffectSummary,
+    val superContestEffect: SuperContestEffectSummary?,
 
+    /* The type of target that will receive the effects of the attack. */
     @Json(name = "target")
     val target: MoveTargetSummary,
 
+    /* The elemental type of this move. */
     @Json(name = "type")
     val type: TypeSummary,
 
+    /* A list of the machines that teach this move. */
     @Json(name = "machines")
-    val machines: kotlin.collections.List<MoveDetailMachinesInner>,
+    val machines: kotlin.collections.List<ItemMachine>,
 
+    /* The flavor text of this move listed in different languages. */
     @Json(name = "flavor_text_entries")
     val flavorTextEntries: kotlin.collections.List<MoveFlavorText>,
 
+    /* List of Pokemon that can learn the move */
     @Json(name = "learned_by_pokemon")
-    val learnedByPokemon: kotlin.collections.List<AbilityDetailPokemonInnerPokemon>,
+    val learnedByPokemon: kotlin.collections.List<PokemonSummary>,
 
+    /* The percent value of how likely this move is to be successful. */
     @Json(name = "accuracy")
     val accuracy: kotlin.Int? = null,
 
+    /* Power points. The number of times this move can be used. */
     @Json(name = "pp")
     val pp: kotlin.Int? = null,
 
+    /* A value between -8 and 8. Sets the order in which moves are executed during battle. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Priority) for greater detail. */
     @Json(name = "priority")
     val priority: kotlin.Int? = null,
 
+    /* The base power of this move, or null if it has no fixed base power. */
     @Json(name = "power")
     val power: kotlin.Int? = null
 

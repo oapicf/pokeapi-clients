@@ -32,6 +32,7 @@ public class VersionDetail   {
   private VersionGroupSummary versionGroup;
 
   /**
+   * The identifier for this resource.
    **/
   public VersionDetail id(Integer id) {
     this.id = id;
@@ -39,7 +40,7 @@ public class VersionDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   @JsonProperty("id")
   @NotNull
   public Integer getId() {
@@ -51,6 +52,7 @@ public class VersionDetail   {
 
 
   /**
+   * The name for this resource.
    **/
   public VersionDetail name(String name) {
     this.name = name;
@@ -58,10 +60,10 @@ public class VersionDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   @JsonProperty("name")
   @NotNull
- @Size(max=100)  public String getName() {
+ @Size(max=200)  public String getName() {
     return name;
   }
   public void setName(String name) {
@@ -70,6 +72,7 @@ public class VersionDetail   {
 
 
   /**
+   * The name of this resource listed in different languages.
    **/
   public VersionDetail names(List<@Valid VersionName> names) {
     this.names = names;
@@ -77,7 +80,7 @@ public class VersionDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
   @JsonProperty("names")
   @NotNull
   public List<@Valid VersionName> getNames() {
@@ -97,6 +100,7 @@ public class VersionDetail   {
 
 
   /**
+   * The version group this version belongs to.
    **/
   public VersionDetail versionGroup(VersionGroupSummary versionGroup) {
     this.versionGroup = versionGroup;
@@ -104,7 +108,7 @@ public class VersionDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The version group this version belongs to.")
   @JsonProperty("version_group")
   @NotNull
   public VersionGroupSummary getVersionGroup() {

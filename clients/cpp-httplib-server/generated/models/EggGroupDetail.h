@@ -10,8 +10,8 @@
 #include <cstdint>
 #include <string>
 #include <vector>
-#include "EggGroupDetailPokemonSpeciesInner.h"
 #include "EggGroupName.h"
+#include "PokemonSpeciesSummary.h"
 
 
 
@@ -32,8 +32,8 @@ public:
     void setName(const std::string& name);
     [[nodiscard]] std::vector<EggGroupName> getNames() const;
     void setNames(const std::vector<EggGroupName>& names);
-    [[nodiscard]] std::vector<EggGroupDetail_pokemon_species_inner> getPokemonSpecies() const;
-    void setPokemonSpecies(const std::vector<EggGroupDetail_pokemon_species_inner>& pokemonSpecies);
+    [[nodiscard]] std::vector<PokemonSpeciesSummary> getPokemonSpecies() const;
+    void setPokemonSpecies(const std::vector<PokemonSpeciesSummary>& pokemonSpecies);
 
 
     // JSON serialization using NLOHMANN INTRUSIVE macro (must be inside class to access private members)
@@ -44,7 +44,7 @@ private:
     int id;
     std::string name;
     std::vector<EggGroupName> names;
-    std::vector<EggGroupDetail_pokemon_species_inner> pokemonSpecies;
+    std::vector<PokemonSpeciesSummary> pokemonSpecies;
 };
 
 

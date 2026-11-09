@@ -12,11 +12,16 @@ import org.joda.time.DateTime
 import ContestEffectDetail._
 
 case class ContestEffectDetail (
+  /* The identifier for this resource. */
   id: Integer,
-appeal: Integer,
-jam: Integer,
-effectEntries: List[ContestEffectEffectText],
-flavorTextEntries: List[ContestEffectFlavorText])
+/* The base number of hearts the user of this move gets. */
+  appeal: Integer,
+/* The base number of hearts the user's opponent loses. */
+  jam: Integer,
+/* The result of this contest effect listed in different languages. */
+  effectEntries: List[ContestEffectEffectText],
+/* The flavor text of this contest effect listed in different languages. */
+  flavorTextEntries: List[ContestEffectFlavorText])
 
 object ContestEffectDetail {
   import DateTimeCodecs._

@@ -8,8 +8,11 @@
 import Foundation
 
 public struct ContestTypeName: Codable {
+    /// The name for this contest.
     public var name: String
+    /// The color associated with this contest's name.
     public var color: String
+    /// The language that this name is in.
     public var language: LanguageSummary
 
     public init(name: String, color: String, language: LanguageSummary) {

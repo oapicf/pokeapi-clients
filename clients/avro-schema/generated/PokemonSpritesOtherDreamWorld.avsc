@@ -1,0 +1,19 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "PokemonSpritesOtherDreamWorld",
+  "fields": [
+    {
+      "name": "front_default",
+      "type": "string",
+      "doc": "The URL of the default Pokémon Dream World front image, or null if unavailable."
+    },
+    {
+      "name": "front_female",
+      "type": "string",
+      "doc": "The URL of the female Pokémon Dream World front image, or null if unavailable."
+    }
+  ]
+
+}

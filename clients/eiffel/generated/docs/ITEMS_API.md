@@ -4,6 +4,8 @@ All URIs are relative to *https://pokeapi.co*
 
 Feature | HTTP request | Description
 ------------- | ------------- | -------------
+[**currency_list**](ITEMS_API.md#currency_list) | **Get** /api/v2/currency/ | List currencies
+[**currency_retrieve**](ITEMS_API.md#currency_retrieve) | **Get** /api/v2/currency/{id}/ | Get currency
 [**item_attribute_list**](ITEMS_API.md#item_attribute_list) | **Get** /api/v2/item-attribute/ | List item attributes
 [**item_attribute_retrieve**](ITEMS_API.md#item_attribute_retrieve) | **Get** /api/v2/item-attribute/{id}/ | Get item attribute
 [**item_category_list**](ITEMS_API.md#item_category_list) | **Get** /api/v2/item-category/ | List item categories
@@ -15,6 +17,68 @@ Feature | HTTP request | Description
 [**item_pocket_retrieve**](ITEMS_API.md#item_pocket_retrieve) | **Get** /api/v2/item-pocket/{id}/ | Get item pocket
 [**item_retrieve**](ITEMS_API.md#item_retrieve) | **Get** /api/v2/item/{id}/ | Get item
 
+
+# **currency_list**
+> currency_list (limit:  detachable INTEGER_32 ; offset:  detachable INTEGER_32 ; q:  detachable STRING_32 ): detachable PAGINATED_CURRENCY_SUMMARY_LIST
+
+
+List currencies
+
+Currencies used to buy items.
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | **INTEGER_32**| Number of results to return per page. | [optional] [default to null]
+ **offset** | **INTEGER_32**| The initial index from which to return the results. | [optional] [default to null]
+ **q** | **STRING_32**| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional] [default to null]
+
+### Return type
+
+[**PAGINATED_CURRENCY_SUMMARY_LIST**](PaginatedCurrencySummaryList.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **currency_retrieve**
+> currency_retrieve (id: STRING_32 ): detachable CURRENCY_DETAIL
+
+
+Get currency
+
+Currencies used to buy items.
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **STRING_32**| This parameter can be a string or an integer. | [default to null]
+
+### Return type
+
+[**CURRENCY_DETAIL**](CurrencyDetail.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **item_attribute_list**
 > item_attribute_list (limit:  detachable INTEGER_32 ; offset:  detachable INTEGER_32 ; q:  detachable STRING_32 ): detachable PAGINATED_ITEM_ATTRIBUTE_SUMMARY_LIST
@@ -39,7 +103,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -69,7 +133,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -101,7 +165,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -131,7 +195,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -163,7 +227,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -193,7 +257,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -225,7 +289,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -257,7 +321,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -287,7 +351,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -317,7 +381,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

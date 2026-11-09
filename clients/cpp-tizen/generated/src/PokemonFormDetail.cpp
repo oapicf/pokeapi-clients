@@ -31,12 +31,14 @@ PokemonFormDetail::__init()
 	//is_battle_only = bool(false);
 	//is_mega = bool(false);
 	//form_name = std::string();
-	//pokemon = new PokemonSummary();
-	//sprites = new PokemonFormDetail_sprites();
-	//version_group = new VersionGroupSummary();
+	//pokemon = null;
+	//sprites = null;
+	//version_group = null;
 	//new std::list()std::list> form_names;
 	//new std::list()std::list> names;
 	//new std::list()std::list> types;
+	//new std::list()std::list> trigger_conditions;
+	//new std::list()std::list> flavor_text_entries;
 }
 
 void
@@ -111,6 +113,16 @@ PokemonFormDetail::__cleanup()
 	//types.RemoveAll(true);
 	//delete types;
 	//types = NULL;
+	//}
+	//if(trigger_conditions != NULL) {
+	//trigger_conditions.RemoveAll(true);
+	//delete trigger_conditions;
+	//trigger_conditions = NULL;
+	//}
+	//if(flavor_text_entries != NULL) {
+	//flavor_text_entries.RemoveAll(true);
+	//delete flavor_text_entries;
+	//flavor_text_entries = NULL;
 	//}
 	//
 }
@@ -227,11 +239,11 @@ PokemonFormDetail::fromJson(char* jsonStr)
 	if (node !=NULL) {
 	
 
-		if (isprimitive("PokemonFormDetail_sprites")) {
-			jsonToValue(&sprites, node, "PokemonFormDetail_sprites", "PokemonFormDetail_sprites");
+		if (isprimitive("PokemonFormSprites")) {
+			jsonToValue(&sprites, node, "PokemonFormSprites", "PokemonFormSprites");
 		} else {
 			
-			PokemonFormDetail_sprites* obj = static_cast<PokemonFormDetail_sprites*> (&sprites);
+			PokemonFormSprites* obj = static_cast<PokemonFormSprites*> (&sprites);
 			obj->fromJson(json_to_string(node, false));
 			
 		}
@@ -257,12 +269,12 @@ PokemonFormDetail::fromJson(char* jsonStr)
 		{
 			JsonArray* arr = json_node_get_array(node);
 			JsonNode*  temp_json;
-			list<PokemonFormDetail_form_names_inner> new_list;
-			PokemonFormDetail_form_names_inner inst;
+			list<PokemonFormName> new_list;
+			PokemonFormName inst;
 			for (guint i=0;i<json_array_get_length(arr);i++) {
 				temp_json = json_array_get_element(arr,i);
-				if (isprimitive("PokemonFormDetail_form_names_inner")) {
-					jsonToValue(&inst, temp_json, "PokemonFormDetail_form_names_inner", "");
+				if (isprimitive("PokemonFormName")) {
+					jsonToValue(&inst, temp_json, "PokemonFormName", "");
 				} else {
 					
 					inst.fromJson(json_to_string(temp_json, false));
@@ -281,12 +293,12 @@ PokemonFormDetail::fromJson(char* jsonStr)
 		{
 			JsonArray* arr = json_node_get_array(node);
 			JsonNode*  temp_json;
-			list<PokemonFormDetail_form_names_inner> new_list;
-			PokemonFormDetail_form_names_inner inst;
+			list<PokemonFormName> new_list;
+			PokemonFormName inst;
 			for (guint i=0;i<json_array_get_length(arr);i++) {
 				temp_json = json_array_get_element(arr,i);
-				if (isprimitive("PokemonFormDetail_form_names_inner")) {
-					jsonToValue(&inst, temp_json, "PokemonFormDetail_form_names_inner", "");
+				if (isprimitive("PokemonFormName")) {
+					jsonToValue(&inst, temp_json, "PokemonFormName", "");
 				} else {
 					
 					inst.fromJson(json_to_string(temp_json, false));
@@ -305,12 +317,12 @@ PokemonFormDetail::fromJson(char* jsonStr)
 		{
 			JsonArray* arr = json_node_get_array(node);
 			JsonNode*  temp_json;
-			list<PokemonDetail_types_inner> new_list;
-			PokemonDetail_types_inner inst;
+			list<PokemonFormType> new_list;
+			PokemonFormType inst;
 			for (guint i=0;i<json_array_get_length(arr);i++) {
 				temp_json = json_array_get_element(arr,i);
-				if (isprimitive("PokemonDetail_types_inner")) {
-					jsonToValue(&inst, temp_json, "PokemonDetail_types_inner", "");
+				if (isprimitive("PokemonFormType")) {
+					jsonToValue(&inst, temp_json, "PokemonFormType", "");
 				} else {
 					
 					inst.fromJson(json_to_string(temp_json, false));
@@ -319,6 +331,54 @@ PokemonFormDetail::fromJson(char* jsonStr)
 				new_list.push_back(inst);
 			}
 			types = new_list;
+		}
+		
+	}
+	const gchar *trigger_conditionsKey = "trigger_conditions";
+	node = json_object_get_member(pJsonObject, trigger_conditionsKey);
+	if (node !=NULL) {
+	
+		{
+			JsonArray* arr = json_node_get_array(node);
+			JsonNode*  temp_json;
+			list<PokemonFormTriggerCondition> new_list;
+			PokemonFormTriggerCondition inst;
+			for (guint i=0;i<json_array_get_length(arr);i++) {
+				temp_json = json_array_get_element(arr,i);
+				if (isprimitive("PokemonFormTriggerCondition")) {
+					jsonToValue(&inst, temp_json, "PokemonFormTriggerCondition", "");
+				} else {
+					
+					inst.fromJson(json_to_string(temp_json, false));
+					
+				}
+				new_list.push_back(inst);
+			}
+			trigger_conditions = new_list;
+		}
+		
+	}
+	const gchar *flavor_text_entriesKey = "flavor_text_entries";
+	node = json_object_get_member(pJsonObject, flavor_text_entriesKey);
+	if (node !=NULL) {
+	
+		{
+			JsonArray* arr = json_node_get_array(node);
+			JsonNode*  temp_json;
+			list<PokemonFormFlavorText> new_list;
+			PokemonFormFlavorText inst;
+			for (guint i=0;i<json_array_get_length(arr);i++) {
+				temp_json = json_array_get_element(arr,i);
+				if (isprimitive("PokemonFormFlavorText")) {
+					jsonToValue(&inst, temp_json, "PokemonFormFlavorText", "");
+				} else {
+					
+					inst.fromJson(json_to_string(temp_json, false));
+					
+				}
+				new_list.push_back(inst);
+			}
+			flavor_text_entries = new_list;
 		}
 		
 	}
@@ -420,13 +480,13 @@ PokemonFormDetail::toJson()
 	}
 	const gchar *pokemonKey = "pokemon";
 	json_object_set_member(pJsonObject, pokemonKey, node);
-	if (isprimitive("PokemonFormDetail_sprites")) {
-		PokemonFormDetail_sprites obj = getSprites();
-		node = converttoJson(&obj, "PokemonFormDetail_sprites", "");
+	if (isprimitive("PokemonFormSprites")) {
+		PokemonFormSprites obj = getSprites();
+		node = converttoJson(&obj, "PokemonFormSprites", "");
 	}
 	else {
 		
-		PokemonFormDetail_sprites obj = static_cast<PokemonFormDetail_sprites> (getSprites());
+		PokemonFormSprites obj = static_cast<PokemonFormSprites> (getSprites());
 		GError *mygerror;
 		mygerror = NULL;
 		node = json_from_string(obj.toJson(), &mygerror);
@@ -448,18 +508,18 @@ PokemonFormDetail::toJson()
 	}
 	const gchar *version_groupKey = "version_group";
 	json_object_set_member(pJsonObject, version_groupKey, node);
-	if (isprimitive("PokemonFormDetail_form_names_inner")) {
-		list<PokemonFormDetail_form_names_inner> new_list = static_cast<list <PokemonFormDetail_form_names_inner> > (getFormNames());
-		node = converttoJson(&new_list, "PokemonFormDetail_form_names_inner", "array");
+	if (isprimitive("PokemonFormName")) {
+		list<PokemonFormName> new_list = static_cast<list <PokemonFormName> > (getFormNames());
+		node = converttoJson(&new_list, "PokemonFormName", "array");
 	} else {
 		node = json_node_alloc();
-		list<PokemonFormDetail_form_names_inner> new_list = static_cast<list <PokemonFormDetail_form_names_inner> > (getFormNames());
+		list<PokemonFormName> new_list = static_cast<list <PokemonFormName> > (getFormNames());
 		JsonArray* json_array = json_array_new();
 		GError *mygerror;
 		
-		for (list<PokemonFormDetail_form_names_inner>::iterator it = new_list.begin(); it != new_list.end(); it++) {
+		for (list<PokemonFormName>::iterator it = new_list.begin(); it != new_list.end(); it++) {
 			mygerror = NULL;
-			PokemonFormDetail_form_names_inner obj = *it;
+			PokemonFormName obj = *it;
 			JsonNode *node_temp = json_from_string(obj.toJson(), &mygerror);
 			json_array_add_element(json_array, node_temp);
 			g_clear_error(&mygerror);
@@ -473,18 +533,18 @@ PokemonFormDetail::toJson()
 	
 	const gchar *form_namesKey = "form_names";
 	json_object_set_member(pJsonObject, form_namesKey, node);
-	if (isprimitive("PokemonFormDetail_form_names_inner")) {
-		list<PokemonFormDetail_form_names_inner> new_list = static_cast<list <PokemonFormDetail_form_names_inner> > (getNames());
-		node = converttoJson(&new_list, "PokemonFormDetail_form_names_inner", "array");
+	if (isprimitive("PokemonFormName")) {
+		list<PokemonFormName> new_list = static_cast<list <PokemonFormName> > (getNames());
+		node = converttoJson(&new_list, "PokemonFormName", "array");
 	} else {
 		node = json_node_alloc();
-		list<PokemonFormDetail_form_names_inner> new_list = static_cast<list <PokemonFormDetail_form_names_inner> > (getNames());
+		list<PokemonFormName> new_list = static_cast<list <PokemonFormName> > (getNames());
 		JsonArray* json_array = json_array_new();
 		GError *mygerror;
 		
-		for (list<PokemonFormDetail_form_names_inner>::iterator it = new_list.begin(); it != new_list.end(); it++) {
+		for (list<PokemonFormName>::iterator it = new_list.begin(); it != new_list.end(); it++) {
 			mygerror = NULL;
-			PokemonFormDetail_form_names_inner obj = *it;
+			PokemonFormName obj = *it;
 			JsonNode *node_temp = json_from_string(obj.toJson(), &mygerror);
 			json_array_add_element(json_array, node_temp);
 			g_clear_error(&mygerror);
@@ -498,18 +558,18 @@ PokemonFormDetail::toJson()
 	
 	const gchar *namesKey = "names";
 	json_object_set_member(pJsonObject, namesKey, node);
-	if (isprimitive("PokemonDetail_types_inner")) {
-		list<PokemonDetail_types_inner> new_list = static_cast<list <PokemonDetail_types_inner> > (getTypes());
-		node = converttoJson(&new_list, "PokemonDetail_types_inner", "array");
+	if (isprimitive("PokemonFormType")) {
+		list<PokemonFormType> new_list = static_cast<list <PokemonFormType> > (getTypes());
+		node = converttoJson(&new_list, "PokemonFormType", "array");
 	} else {
 		node = json_node_alloc();
-		list<PokemonDetail_types_inner> new_list = static_cast<list <PokemonDetail_types_inner> > (getTypes());
+		list<PokemonFormType> new_list = static_cast<list <PokemonFormType> > (getTypes());
 		JsonArray* json_array = json_array_new();
 		GError *mygerror;
 		
-		for (list<PokemonDetail_types_inner>::iterator it = new_list.begin(); it != new_list.end(); it++) {
+		for (list<PokemonFormType>::iterator it = new_list.begin(); it != new_list.end(); it++) {
 			mygerror = NULL;
-			PokemonDetail_types_inner obj = *it;
+			PokemonFormType obj = *it;
 			JsonNode *node_temp = json_from_string(obj.toJson(), &mygerror);
 			json_array_add_element(json_array, node_temp);
 			g_clear_error(&mygerror);
@@ -523,6 +583,56 @@ PokemonFormDetail::toJson()
 	
 	const gchar *typesKey = "types";
 	json_object_set_member(pJsonObject, typesKey, node);
+	if (isprimitive("PokemonFormTriggerCondition")) {
+		list<PokemonFormTriggerCondition> new_list = static_cast<list <PokemonFormTriggerCondition> > (getTriggerConditions());
+		node = converttoJson(&new_list, "PokemonFormTriggerCondition", "array");
+	} else {
+		node = json_node_alloc();
+		list<PokemonFormTriggerCondition> new_list = static_cast<list <PokemonFormTriggerCondition> > (getTriggerConditions());
+		JsonArray* json_array = json_array_new();
+		GError *mygerror;
+		
+		for (list<PokemonFormTriggerCondition>::iterator it = new_list.begin(); it != new_list.end(); it++) {
+			mygerror = NULL;
+			PokemonFormTriggerCondition obj = *it;
+			JsonNode *node_temp = json_from_string(obj.toJson(), &mygerror);
+			json_array_add_element(json_array, node_temp);
+			g_clear_error(&mygerror);
+		}
+		json_node_init_array(node, json_array);
+		json_array_unref(json_array);
+		
+	}
+
+
+	
+	const gchar *trigger_conditionsKey = "trigger_conditions";
+	json_object_set_member(pJsonObject, trigger_conditionsKey, node);
+	if (isprimitive("PokemonFormFlavorText")) {
+		list<PokemonFormFlavorText> new_list = static_cast<list <PokemonFormFlavorText> > (getFlavorTextEntries());
+		node = converttoJson(&new_list, "PokemonFormFlavorText", "array");
+	} else {
+		node = json_node_alloc();
+		list<PokemonFormFlavorText> new_list = static_cast<list <PokemonFormFlavorText> > (getFlavorTextEntries());
+		JsonArray* json_array = json_array_new();
+		GError *mygerror;
+		
+		for (list<PokemonFormFlavorText>::iterator it = new_list.begin(); it != new_list.end(); it++) {
+			mygerror = NULL;
+			PokemonFormFlavorText obj = *it;
+			JsonNode *node_temp = json_from_string(obj.toJson(), &mygerror);
+			json_array_add_element(json_array, node_temp);
+			g_clear_error(&mygerror);
+		}
+		json_node_init_array(node, json_array);
+		json_array_unref(json_array);
+		
+	}
+
+
+	
+	const gchar *flavor_text_entriesKey = "flavor_text_entries";
+	json_object_set_member(pJsonObject, flavor_text_entriesKey, node);
 	node = json_node_alloc();
 	json_node_init(node, JSON_NODE_OBJECT);
 	json_node_take_object(node, pJsonObject);
@@ -639,14 +749,14 @@ PokemonFormDetail::setPokemon(PokemonSummary  pokemon)
 	this->pokemon = pokemon;
 }
 
-PokemonFormDetail_sprites
+PokemonFormSprites
 PokemonFormDetail::getSprites()
 {
 	return sprites;
 }
 
 void
-PokemonFormDetail::setSprites(PokemonFormDetail_sprites  sprites)
+PokemonFormDetail::setSprites(PokemonFormSprites  sprites)
 {
 	this->sprites = sprites;
 }
@@ -663,40 +773,64 @@ PokemonFormDetail::setVersionGroup(VersionGroupSummary  version_group)
 	this->version_group = version_group;
 }
 
-std::list<PokemonFormDetail_form_names_inner>
+std::list<PokemonFormName>
 PokemonFormDetail::getFormNames()
 {
 	return form_names;
 }
 
 void
-PokemonFormDetail::setFormNames(std::list <PokemonFormDetail_form_names_inner> form_names)
+PokemonFormDetail::setFormNames(std::list <PokemonFormName> form_names)
 {
 	this->form_names = form_names;
 }
 
-std::list<PokemonFormDetail_form_names_inner>
+std::list<PokemonFormName>
 PokemonFormDetail::getNames()
 {
 	return names;
 }
 
 void
-PokemonFormDetail::setNames(std::list <PokemonFormDetail_form_names_inner> names)
+PokemonFormDetail::setNames(std::list <PokemonFormName> names)
 {
 	this->names = names;
 }
 
-std::list<PokemonDetail_types_inner>
+std::list<PokemonFormType>
 PokemonFormDetail::getTypes()
 {
 	return types;
 }
 
 void
-PokemonFormDetail::setTypes(std::list <PokemonDetail_types_inner> types)
+PokemonFormDetail::setTypes(std::list <PokemonFormType> types)
 {
 	this->types = types;
+}
+
+std::list<PokemonFormTriggerCondition>
+PokemonFormDetail::getTriggerConditions()
+{
+	return trigger_conditions;
+}
+
+void
+PokemonFormDetail::setTriggerConditions(std::list <PokemonFormTriggerCondition> trigger_conditions)
+{
+	this->trigger_conditions = trigger_conditions;
+}
+
+std::list<PokemonFormFlavorText>
+PokemonFormDetail::getFlavorTextEntries()
+{
+	return flavor_text_entries;
+}
+
+void
+PokemonFormDetail::setFlavorTextEntries(std::list <PokemonFormFlavorText> flavor_text_entries)
+{
+	this->flavor_text_entries = flavor_text_entries;
 }
 
 

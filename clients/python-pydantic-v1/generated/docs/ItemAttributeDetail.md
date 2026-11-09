@@ -4,11 +4,11 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** |  | [readonly] 
-**name** | **str** |  | 
-**descriptions** | [**List[ItemAttributeDescription]**](ItemAttributeDescription.md) |  | [readonly] 
-**items** | [**List[AbilityDetailPokemonInnerPokemon]**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] 
-**names** | [**List[ItemAttributeName]**](ItemAttributeName.md) |  | [readonly] 
+**id** | **int** | The identifier for this resource. | [readonly] 
+**name** | **str** | The name for this resource. | 
+**descriptions** | [**List[ItemAttributeDescription]**](ItemAttributeDescription.md) | The description of this item attribute listed in different languages. | [readonly] 
+**items** | [**List[ItemSummary]**](ItemSummary.md) | A list of items that have this attribute. | [readonly] 
+**names** | [**List[ItemAttributeName]**](ItemAttributeName.md) | The name of this item attribute listed in different languages. | [readonly] 
 
 ## Example
 

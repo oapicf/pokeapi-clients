@@ -10,7 +10,6 @@ namespace models {
 
 AbilityName::AbilityName()
 : name("")
-, language(LanguageSummary())
 {
 }
 // =========================================

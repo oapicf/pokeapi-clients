@@ -8,8 +8,9 @@ type StatDetail struct {
 	Name string `json:"name"`
 	GameIndex int32 `json:"game_index"`
 	IsBattleOnly bool `json:"is_battle_only,omitempty"`
-	AffectingMoves StatDetailAffectingMoves `json:"affecting_moves"`
-	AffectingNatures StatDetailAffectingNatures `json:"affecting_natures"`
+	AffectingMoves StatAffectingMoves `json:"affecting_moves"`
+	AffectingNatures StatAffectingNatures `json:"affecting_natures"`
+	AffectingItems []ItemSummary `json:"affecting_items"`
 	Characteristics []CharacteristicSummary `json:"characteristics"`
 	MoveDamageClass MoveDamageClassSummary `json:"move_damage_class"`
 	Names []StatName `json:"names"`

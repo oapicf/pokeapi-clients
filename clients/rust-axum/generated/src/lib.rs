@@ -17,7 +17,7 @@
 extern crate futures_util;
 
 pub const BASE_PATH: &str = "";
-pub const API_VERSION: &str = "2.7.0";
+pub const API_VERSION: &str = "2.10.0";
 
 #[cfg(feature = "server")]
 pub mod server;

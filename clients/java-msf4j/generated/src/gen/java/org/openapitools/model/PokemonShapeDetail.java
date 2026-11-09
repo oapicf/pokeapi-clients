@@ -8,14 +8,14 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.model.PokemonShapeDetailAwesomeNamesInner;
-import org.openapitools.model.PokemonShapeDetailNamesInner;
+import org.openapitools.model.PokemonShapeAwesomeName;
+import org.openapitools.model.PokemonShapeName;
 import org.openapitools.model.PokemonSpeciesSummary;
 
 /**
  * PokemonShapeDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-10-25T05:48:05.787850114Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-11-09T13:49:25.341948748Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PokemonShapeDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -24,19 +24,19 @@ public class PokemonShapeDetail   {
   private String name;
 
   @JsonProperty("awesome_names")
-  private List<@Valid PokemonShapeDetailAwesomeNamesInner> awesomeNames = new ArrayList<>();
+  private List<@Valid PokemonShapeAwesomeName> awesomeNames = new ArrayList<>();
 
   @JsonProperty("names")
-  private List<@Valid PokemonShapeDetailNamesInner> names = new ArrayList<>();
+  private List<@Valid PokemonShapeName> names = new ArrayList<>();
 
   @JsonProperty("pokemon_species")
   private List<@Valid PokemonSpeciesSummary> pokemonSpecies = new ArrayList<>();
 
    /**
-   * Get id
+   * The identifier for this resource.
    * @return id
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   public Integer getId() {
     return id;
   }
@@ -47,10 +47,10 @@ public class PokemonShapeDetail   {
   }
 
    /**
-   * Get name
+   * The name for this resource.
    * @return name
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   public String getName() {
     return name;
   }
@@ -60,28 +60,28 @@ public class PokemonShapeDetail   {
   }
 
    /**
-   * Get awesomeNames
+   * The \"scientific\" name of this Pokémon shape listed in different languages.
    * @return awesomeNames
   **/
-  @ApiModelProperty(required = true, value = "")
-  public List<@Valid PokemonShapeDetailAwesomeNamesInner> getAwesomeNames() {
+  @ApiModelProperty(required = true, value = "The \"scientific\" name of this Pokémon shape listed in different languages.")
+  public List<@Valid PokemonShapeAwesomeName> getAwesomeNames() {
     return awesomeNames;
   }
 
    /**
-   * Get names
+   * The name of this resource listed in different languages.
    * @return names
   **/
-  @ApiModelProperty(required = true, value = "")
-  public List<@Valid PokemonShapeDetailNamesInner> getNames() {
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
+  public List<@Valid PokemonShapeName> getNames() {
     return names;
   }
 
    /**
-   * Get pokemonSpecies
+   * A list of the Pokémon species that have this shape.
    * @return pokemonSpecies
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of the Pokémon species that have this shape.")
   public List<@Valid PokemonSpeciesSummary> getPokemonSpecies() {
     return pokemonSpecies;
   }

@@ -6,7 +6,7 @@ from datetime import date, datetime  # noqa: F401
 from typing import List, Dict  # noqa: F401
 
 from app.openapi_server.models.base_model import Model
-from app.openapi_server.models.evolution_chain_detail_chain import EvolutionChainDetailChain  # noqa: F401,E501
+from app.openapi_server.models.evolution_chain_link import EvolutionChainLink  # noqa: F401,E501
 from app.openapi_server.models.item_summary import ItemSummary  # noqa: F401,E501
 from openapi_server import util
 
@@ -17,7 +17,7 @@ class EvolutionChainDetail(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, id: int=None, baby_trigger_item: ItemSummary=None, chain: EvolutionChainDetailChain=None):  # noqa: E501
+    def __init__(self, id: int=None, baby_trigger_item: ItemSummary=None, chain: EvolutionChainLink=None):  # noqa: E501
         """EvolutionChainDetail - a model defined in Swagger
 
         :param id: The id of this EvolutionChainDetail.  # noqa: E501
@@ -25,12 +25,12 @@ class EvolutionChainDetail(Model):
         :param baby_trigger_item: The baby_trigger_item of this EvolutionChainDetail.  # noqa: E501
         :type baby_trigger_item: ItemSummary
         :param chain: The chain of this EvolutionChainDetail.  # noqa: E501
-        :type chain: EvolutionChainDetailChain
+        :type chain: EvolutionChainLink
         """
         self.swagger_types = {
             'id': int,
             'baby_trigger_item': ItemSummary,
-            'chain': EvolutionChainDetailChain
+            'chain': EvolutionChainLink
         }
 
         self.attribute_map = {
@@ -58,6 +58,7 @@ class EvolutionChainDetail(Model):
     def id(self) -> int:
         """Gets the id of this EvolutionChainDetail.
 
+        The identifier for this resource.  # noqa: E501
 
         :return: The id of this EvolutionChainDetail.
         :rtype: int
@@ -68,6 +69,7 @@ class EvolutionChainDetail(Model):
     def id(self, id: int):
         """Sets the id of this EvolutionChainDetail.
 
+        The identifier for this resource.  # noqa: E501
 
         :param id: The id of this EvolutionChainDetail.
         :type id: int
@@ -81,6 +83,7 @@ class EvolutionChainDetail(Model):
     def baby_trigger_item(self) -> ItemSummary:
         """Gets the baby_trigger_item of this EvolutionChainDetail.
 
+        The item that a Pokémon would be holding when mating that would trigger the egg hatching a baby Pokémon rather than a basic Pokémon.  # noqa: E501
 
         :return: The baby_trigger_item of this EvolutionChainDetail.
         :rtype: ItemSummary
@@ -91,6 +94,7 @@ class EvolutionChainDetail(Model):
     def baby_trigger_item(self, baby_trigger_item: ItemSummary):
         """Sets the baby_trigger_item of this EvolutionChainDetail.
 
+        The item that a Pokémon would be holding when mating that would trigger the egg hatching a baby Pokémon rather than a basic Pokémon.  # noqa: E501
 
         :param baby_trigger_item: The baby_trigger_item of this EvolutionChainDetail.
         :type baby_trigger_item: ItemSummary
@@ -101,22 +105,24 @@ class EvolutionChainDetail(Model):
         self._baby_trigger_item = baby_trigger_item
 
     @property
-    def chain(self) -> EvolutionChainDetailChain:
+    def chain(self) -> EvolutionChainLink:
         """Gets the chain of this EvolutionChainDetail.
 
+        The base chain link object. Each link contains evolution details for a Pokémon in the chain. Each link references the next Pokémon in the natural evolution order.  # noqa: E501
 
         :return: The chain of this EvolutionChainDetail.
-        :rtype: EvolutionChainDetailChain
+        :rtype: EvolutionChainLink
         """
         return self._chain
 
     @chain.setter
-    def chain(self, chain: EvolutionChainDetailChain):
+    def chain(self, chain: EvolutionChainLink):
         """Sets the chain of this EvolutionChainDetail.
 
+        The base chain link object. Each link contains evolution details for a Pokémon in the chain. Each link references the next Pokémon in the natural evolution order.  # noqa: E501
 
         :param chain: The chain of this EvolutionChainDetail.
-        :type chain: EvolutionChainDetailChain
+        :type chain: EvolutionChainLink
         """
         if chain is None:
             raise ValueError("Invalid value for `chain`, must not be `None`")  # noqa: E501

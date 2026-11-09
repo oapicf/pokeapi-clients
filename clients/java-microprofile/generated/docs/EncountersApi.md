@@ -28,7 +28,6 @@ Conditions which affect what pokemon might appear in the wild, e.g., day or nigh
 import org.openapitools.server.ApiClient;
 import org.openapitools.server.ApiException;
 import org.openapitools.server.Configuration;
-import org.openapitools.server.auth.*;
 import org.openapitools.server.models.*;
 import org.openapitools.server.api.EncountersApi;
 
@@ -36,17 +35,6 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("https://pokeapi.co");
-        
-        // Configure HTTP basic authorization: basicAuth
-        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-        basicAuth.setUsername("YOUR USERNAME");
-        basicAuth.setPassword("YOUR PASSWORD");
-
-        // Configure API key authorization: cookieAuth
-        ApiKeyAuth cookieAuth = (ApiKeyAuth) defaultClient.getAuthentication("cookieAuth");
-        cookieAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //cookieAuth.setApiKeyPrefix("Token");
 
         EncountersApi apiInstance = new EncountersApi(defaultClient);
         Integer limit = 56; // Integer | Number of results to return per page.
@@ -81,7 +69,7 @@ public class Example {
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -110,7 +98,6 @@ Conditions which affect what pokemon might appear in the wild, e.g., day or nigh
 import org.openapitools.server.ApiClient;
 import org.openapitools.server.ApiException;
 import org.openapitools.server.Configuration;
-import org.openapitools.server.auth.*;
 import org.openapitools.server.models.*;
 import org.openapitools.server.api.EncountersApi;
 
@@ -118,20 +105,9 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("https://pokeapi.co");
-        
-        // Configure HTTP basic authorization: basicAuth
-        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-        basicAuth.setUsername("YOUR USERNAME");
-        basicAuth.setPassword("YOUR PASSWORD");
-
-        // Configure API key authorization: cookieAuth
-        ApiKeyAuth cookieAuth = (ApiKeyAuth) defaultClient.getAuthentication("cookieAuth");
-        cookieAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //cookieAuth.setApiKeyPrefix("Token");
 
         EncountersApi apiInstance = new EncountersApi(defaultClient);
-        String id = "id_example"; // String | This parameter can be a string or an integer.
+        String id = "1"; // String | This parameter can be a string or an integer.
         try {
             EncounterConditionDetail result = apiInstance.encounterConditionRetrieve(id);
             System.out.println(result);
@@ -159,7 +135,7 @@ public class Example {
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -188,7 +164,6 @@ Encounter condition values are the various states that an encounter condition ca
 import org.openapitools.server.ApiClient;
 import org.openapitools.server.ApiException;
 import org.openapitools.server.Configuration;
-import org.openapitools.server.auth.*;
 import org.openapitools.server.models.*;
 import org.openapitools.server.api.EncountersApi;
 
@@ -196,17 +171,6 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("https://pokeapi.co");
-        
-        // Configure HTTP basic authorization: basicAuth
-        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-        basicAuth.setUsername("YOUR USERNAME");
-        basicAuth.setPassword("YOUR PASSWORD");
-
-        // Configure API key authorization: cookieAuth
-        ApiKeyAuth cookieAuth = (ApiKeyAuth) defaultClient.getAuthentication("cookieAuth");
-        cookieAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //cookieAuth.setApiKeyPrefix("Token");
 
         EncountersApi apiInstance = new EncountersApi(defaultClient);
         Integer limit = 56; // Integer | Number of results to return per page.
@@ -241,7 +205,7 @@ public class Example {
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -270,7 +234,6 @@ Encounter condition values are the various states that an encounter condition ca
 import org.openapitools.server.ApiClient;
 import org.openapitools.server.ApiException;
 import org.openapitools.server.Configuration;
-import org.openapitools.server.auth.*;
 import org.openapitools.server.models.*;
 import org.openapitools.server.api.EncountersApi;
 
@@ -278,20 +241,9 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("https://pokeapi.co");
-        
-        // Configure HTTP basic authorization: basicAuth
-        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-        basicAuth.setUsername("YOUR USERNAME");
-        basicAuth.setPassword("YOUR PASSWORD");
-
-        // Configure API key authorization: cookieAuth
-        ApiKeyAuth cookieAuth = (ApiKeyAuth) defaultClient.getAuthentication("cookieAuth");
-        cookieAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //cookieAuth.setApiKeyPrefix("Token");
 
         EncountersApi apiInstance = new EncountersApi(defaultClient);
-        String id = "id_example"; // String | This parameter can be a string or an integer.
+        String id = "1"; // String | This parameter can be a string or an integer.
         try {
             EncounterConditionValueDetail result = apiInstance.encounterConditionValueRetrieve(id);
             System.out.println(result);
@@ -319,7 +271,7 @@ public class Example {
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -348,7 +300,6 @@ Methods by which the player might can encounter Pokémon in the wild, e.g., walk
 import org.openapitools.server.ApiClient;
 import org.openapitools.server.ApiException;
 import org.openapitools.server.Configuration;
-import org.openapitools.server.auth.*;
 import org.openapitools.server.models.*;
 import org.openapitools.server.api.EncountersApi;
 
@@ -356,17 +307,6 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("https://pokeapi.co");
-        
-        // Configure HTTP basic authorization: basicAuth
-        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-        basicAuth.setUsername("YOUR USERNAME");
-        basicAuth.setPassword("YOUR PASSWORD");
-
-        // Configure API key authorization: cookieAuth
-        ApiKeyAuth cookieAuth = (ApiKeyAuth) defaultClient.getAuthentication("cookieAuth");
-        cookieAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //cookieAuth.setApiKeyPrefix("Token");
 
         EncountersApi apiInstance = new EncountersApi(defaultClient);
         Integer limit = 56; // Integer | Number of results to return per page.
@@ -401,7 +341,7 @@ public class Example {
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -430,7 +370,6 @@ Methods by which the player might can encounter Pokémon in the wild, e.g., walk
 import org.openapitools.server.ApiClient;
 import org.openapitools.server.ApiException;
 import org.openapitools.server.Configuration;
-import org.openapitools.server.auth.*;
 import org.openapitools.server.models.*;
 import org.openapitools.server.api.EncountersApi;
 
@@ -438,20 +377,9 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("https://pokeapi.co");
-        
-        // Configure HTTP basic authorization: basicAuth
-        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-        basicAuth.setUsername("YOUR USERNAME");
-        basicAuth.setPassword("YOUR PASSWORD");
-
-        // Configure API key authorization: cookieAuth
-        ApiKeyAuth cookieAuth = (ApiKeyAuth) defaultClient.getAuthentication("cookieAuth");
-        cookieAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //cookieAuth.setApiKeyPrefix("Token");
 
         EncountersApi apiInstance = new EncountersApi(defaultClient);
-        String id = "id_example"; // String | This parameter can be a string or an integer.
+        String id = "1"; // String | This parameter can be a string or an integer.
         try {
             EncounterMethodDetail result = apiInstance.encounterMethodRetrieve(id);
             System.out.println(result);
@@ -479,7 +407,7 @@ public class Example {
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

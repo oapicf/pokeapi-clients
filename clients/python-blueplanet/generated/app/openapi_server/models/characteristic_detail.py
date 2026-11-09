@@ -68,6 +68,7 @@ class CharacteristicDetail(Model):
     def id(self) -> int:
         """Gets the id of this CharacteristicDetail.
 
+        The identifier for this resource.  # noqa: E501
 
         :return: The id of this CharacteristicDetail.
         :rtype: int
@@ -78,6 +79,7 @@ class CharacteristicDetail(Model):
     def id(self, id: int):
         """Sets the id of this CharacteristicDetail.
 
+        The identifier for this resource.  # noqa: E501
 
         :param id: The id of this CharacteristicDetail.
         :type id: int
@@ -91,6 +93,7 @@ class CharacteristicDetail(Model):
     def gene_modulo(self) -> int:
         """Gets the gene_modulo of this CharacteristicDetail.
 
+        The remainder of the highest stat/IV divided by 5.  # noqa: E501
 
         :return: The gene_modulo of this CharacteristicDetail.
         :rtype: int
@@ -101,6 +104,7 @@ class CharacteristicDetail(Model):
     def gene_modulo(self, gene_modulo: int):
         """Sets the gene_modulo of this CharacteristicDetail.
 
+        The remainder of the highest stat/IV divided by 5.  # noqa: E501
 
         :param gene_modulo: The gene_modulo of this CharacteristicDetail.
         :type gene_modulo: int
@@ -114,6 +118,7 @@ class CharacteristicDetail(Model):
     def possible_values(self) -> List[int]:
         """Gets the possible_values of this CharacteristicDetail.
 
+        The possible values of the highest stat that would result in a Pokémon recieving this characteristic when divided by 5.  # noqa: E501
 
         :return: The possible_values of this CharacteristicDetail.
         :rtype: List[int]
@@ -124,6 +129,7 @@ class CharacteristicDetail(Model):
     def possible_values(self, possible_values: List[int]):
         """Sets the possible_values of this CharacteristicDetail.
 
+        The possible values of the highest stat that would result in a Pokémon recieving this characteristic when divided by 5.  # noqa: E501
 
         :param possible_values: The possible_values of this CharacteristicDetail.
         :type possible_values: List[int]
@@ -137,6 +143,7 @@ class CharacteristicDetail(Model):
     def highest_stat(self) -> StatSummary:
         """Gets the highest_stat of this CharacteristicDetail.
 
+        The stat which results in this characteristic.  # noqa: E501
 
         :return: The highest_stat of this CharacteristicDetail.
         :rtype: StatSummary
@@ -147,6 +154,7 @@ class CharacteristicDetail(Model):
     def highest_stat(self, highest_stat: StatSummary):
         """Sets the highest_stat of this CharacteristicDetail.
 
+        The stat which results in this characteristic.  # noqa: E501
 
         :param highest_stat: The highest_stat of this CharacteristicDetail.
         :type highest_stat: StatSummary
@@ -160,6 +168,7 @@ class CharacteristicDetail(Model):
     def descriptions(self) -> List[CharacteristicDescription]:
         """Gets the descriptions of this CharacteristicDetail.
 
+        The descriptions of this characteristic listed in different languages.  # noqa: E501
 
         :return: The descriptions of this CharacteristicDetail.
         :rtype: List[CharacteristicDescription]
@@ -170,6 +179,7 @@ class CharacteristicDetail(Model):
     def descriptions(self, descriptions: List[CharacteristicDescription]):
         """Sets the descriptions of this CharacteristicDetail.
 
+        The descriptions of this characteristic listed in different languages.  # noqa: E501
 
         :param descriptions: The descriptions of this CharacteristicDetail.
         :type descriptions: List[CharacteristicDescription]

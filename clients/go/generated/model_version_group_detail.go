@@ -1,9 +1,9 @@
 /*
 PokéAPI
 
-All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
 
-API version: 2.7.0
+API version: 2.10.0
 Contact: blah+oapicf@cliffano.com
 */
 
@@ -22,13 +22,21 @@ var _ MappedNullable = &VersionGroupDetail{}
 
 // VersionGroupDetail struct for VersionGroupDetail
 type VersionGroupDetail struct {
+	// The identifier for this resource.
 	Id int32 `json:"id"`
+	// The name for this resource.
 	Name string `json:"name"`
+	// Order for sorting. Almost by date of release, except similar versions are grouped together.
 	Order NullableInt32 `json:"order,omitempty"`
+	// The generation this version was introduced in.
 	Generation GenerationSummary `json:"generation"`
-	MoveLearnMethods []AbilityDetailPokemonInnerPokemon `json:"move_learn_methods"`
-	Pokedexes []AbilityDetailPokemonInnerPokemon `json:"pokedexes"`
-	Regions []AbilityDetailPokemonInnerPokemon `json:"regions"`
+	// A list of methods in which Pokémon can learn moves in this version group.
+	MoveLearnMethods []MoveLearnMethodSummary `json:"move_learn_methods"`
+	// A list of Pokédexes introduces in this version group.
+	Pokedexes []PokedexSummary `json:"pokedexes"`
+	// A list of regions that can be visited in this version group.
+	Regions []RegionSummary `json:"regions"`
+	// The versions this version group owns.
 	Versions []VersionSummary `json:"versions"`
 }
 
@@ -38,7 +46,7 @@ type _VersionGroupDetail VersionGroupDetail
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewVersionGroupDetail(id int32, name string, generation GenerationSummary, moveLearnMethods []AbilityDetailPokemonInnerPokemon, pokedexes []AbilityDetailPokemonInnerPokemon, regions []AbilityDetailPokemonInnerPokemon, versions []VersionSummary) *VersionGroupDetail {
+func NewVersionGroupDetail(id int32, name string, generation GenerationSummary, moveLearnMethods []MoveLearnMethodSummary, pokedexes []PokedexSummary, regions []RegionSummary, versions []VersionSummary) *VersionGroupDetail {
 	this := VersionGroupDetail{}
 	this.Id = id
 	this.Name = name
@@ -173,9 +181,9 @@ func (o *VersionGroupDetail) SetGeneration(v GenerationSummary) {
 }
 
 // GetMoveLearnMethods returns the MoveLearnMethods field value
-func (o *VersionGroupDetail) GetMoveLearnMethods() []AbilityDetailPokemonInnerPokemon {
+func (o *VersionGroupDetail) GetMoveLearnMethods() []MoveLearnMethodSummary {
 	if o == nil {
-		var ret []AbilityDetailPokemonInnerPokemon
+		var ret []MoveLearnMethodSummary
 		return ret
 	}
 
@@ -184,7 +192,7 @@ func (o *VersionGroupDetail) GetMoveLearnMethods() []AbilityDetailPokemonInnerPo
 
 // GetMoveLearnMethodsOk returns a tuple with the MoveLearnMethods field value
 // and a boolean to check if the value has been set.
-func (o *VersionGroupDetail) GetMoveLearnMethodsOk() ([]AbilityDetailPokemonInnerPokemon, bool) {
+func (o *VersionGroupDetail) GetMoveLearnMethodsOk() ([]MoveLearnMethodSummary, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -192,14 +200,14 @@ func (o *VersionGroupDetail) GetMoveLearnMethodsOk() ([]AbilityDetailPokemonInne
 }
 
 // SetMoveLearnMethods sets field value
-func (o *VersionGroupDetail) SetMoveLearnMethods(v []AbilityDetailPokemonInnerPokemon) {
+func (o *VersionGroupDetail) SetMoveLearnMethods(v []MoveLearnMethodSummary) {
 	o.MoveLearnMethods = v
 }
 
 // GetPokedexes returns the Pokedexes field value
-func (o *VersionGroupDetail) GetPokedexes() []AbilityDetailPokemonInnerPokemon {
+func (o *VersionGroupDetail) GetPokedexes() []PokedexSummary {
 	if o == nil {
-		var ret []AbilityDetailPokemonInnerPokemon
+		var ret []PokedexSummary
 		return ret
 	}
 
@@ -208,7 +216,7 @@ func (o *VersionGroupDetail) GetPokedexes() []AbilityDetailPokemonInnerPokemon {
 
 // GetPokedexesOk returns a tuple with the Pokedexes field value
 // and a boolean to check if the value has been set.
-func (o *VersionGroupDetail) GetPokedexesOk() ([]AbilityDetailPokemonInnerPokemon, bool) {
+func (o *VersionGroupDetail) GetPokedexesOk() ([]PokedexSummary, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -216,14 +224,14 @@ func (o *VersionGroupDetail) GetPokedexesOk() ([]AbilityDetailPokemonInnerPokemo
 }
 
 // SetPokedexes sets field value
-func (o *VersionGroupDetail) SetPokedexes(v []AbilityDetailPokemonInnerPokemon) {
+func (o *VersionGroupDetail) SetPokedexes(v []PokedexSummary) {
 	o.Pokedexes = v
 }
 
 // GetRegions returns the Regions field value
-func (o *VersionGroupDetail) GetRegions() []AbilityDetailPokemonInnerPokemon {
+func (o *VersionGroupDetail) GetRegions() []RegionSummary {
 	if o == nil {
-		var ret []AbilityDetailPokemonInnerPokemon
+		var ret []RegionSummary
 		return ret
 	}
 
@@ -232,7 +240,7 @@ func (o *VersionGroupDetail) GetRegions() []AbilityDetailPokemonInnerPokemon {
 
 // GetRegionsOk returns a tuple with the Regions field value
 // and a boolean to check if the value has been set.
-func (o *VersionGroupDetail) GetRegionsOk() ([]AbilityDetailPokemonInnerPokemon, bool) {
+func (o *VersionGroupDetail) GetRegionsOk() ([]RegionSummary, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -240,7 +248,7 @@ func (o *VersionGroupDetail) GetRegionsOk() ([]AbilityDetailPokemonInnerPokemon,
 }
 
 // SetRegions sets field value
-func (o *VersionGroupDetail) SetRegions(v []AbilityDetailPokemonInnerPokemon) {
+func (o *VersionGroupDetail) SetRegions(v []RegionSummary) {
 	o.Regions = v
 }
 

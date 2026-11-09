@@ -1,6 +1,6 @@
 package apimodels;
 
-import apimodels.BerryFlavorDetailBerriesInner;
+import apimodels.BerryFlavorBerryMap;
 import apimodels.BerryFlavorName;
 import apimodels.ContestTypeSummary;
 import java.util.ArrayList;
@@ -15,7 +15,7 @@ import javax.validation.Valid;
 /**
  * BerryFlavorDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-10-25T05:48:13.486809836Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-11-09T13:49:31.462302702Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class BerryFlavorDetail   {
   @JsonProperty("id")
@@ -25,7 +25,7 @@ public class BerryFlavorDetail   {
 
   @JsonProperty("name")
   @NotNull
-@Size(max=100)
+@Size(max=200)
 
   private String name;
 
@@ -33,7 +33,7 @@ public class BerryFlavorDetail   {
   @NotNull
 @Valid
 
-  private List<@Valid BerryFlavorDetailBerriesInner> berries = new ArrayList<>();
+  private List<@Valid BerryFlavorBerryMap> berries = new ArrayList<>();
 
   @JsonProperty("contest_type")
   @NotNull
@@ -53,7 +53,7 @@ public class BerryFlavorDetail   {
   }
 
    /**
-   * Get id
+   * The identifier for this resource.
    * @return id
   **/
   public Integer getId() {
@@ -70,7 +70,7 @@ public class BerryFlavorDetail   {
   }
 
    /**
-   * Get name
+   * The name for this resource.
    * @return name
   **/
   public String getName() {
@@ -81,12 +81,12 @@ public class BerryFlavorDetail   {
     this.name = name;
   }
 
-  public BerryFlavorDetail berries(List<@Valid BerryFlavorDetailBerriesInner> berries) {
+  public BerryFlavorDetail berries(List<@Valid BerryFlavorBerryMap> berries) {
     this.berries = berries;
     return this;
   }
 
-  public BerryFlavorDetail addBerriesItem(BerryFlavorDetailBerriesInner berriesItem) {
+  public BerryFlavorDetail addBerriesItem(BerryFlavorBerryMap berriesItem) {
     if (this.berries == null) {
       this.berries = new ArrayList<>();
     }
@@ -95,14 +95,14 @@ public class BerryFlavorDetail   {
   }
 
    /**
-   * Get berries
+   * A list of the berries with this flavor.
    * @return berries
   **/
-  public List<@Valid BerryFlavorDetailBerriesInner> getBerries() {
+  public List<@Valid BerryFlavorBerryMap> getBerries() {
     return berries;
   }
 
-  public void setBerries(List<@Valid BerryFlavorDetailBerriesInner> berries) {
+  public void setBerries(List<@Valid BerryFlavorBerryMap> berries) {
     this.berries = berries;
   }
 
@@ -112,7 +112,7 @@ public class BerryFlavorDetail   {
   }
 
    /**
-   * Get contestType
+   * The contest type that correlates with this berry flavor.
    * @return contestType
   **/
   public ContestTypeSummary getContestType() {
@@ -137,7 +137,7 @@ public class BerryFlavorDetail   {
   }
 
    /**
-   * Get names
+   * The name of this resource listed in different languages.
    * @return names
   **/
   public List<@Valid BerryFlavorName> getNames() {

@@ -52,6 +52,7 @@ class AbilityChange(Model):
     def version_group(self) -> VersionGroupSummary:
         """Gets the version_group of this AbilityChange.
 
+        The version group in which the previous effect of this ability originated.  # noqa: E501
 
         :return: The version_group of this AbilityChange.
         :rtype: VersionGroupSummary
@@ -62,6 +63,7 @@ class AbilityChange(Model):
     def version_group(self, version_group: VersionGroupSummary):
         """Sets the version_group of this AbilityChange.
 
+        The version group in which the previous effect of this ability originated.  # noqa: E501
 
         :param version_group: The version_group of this AbilityChange.
         :type version_group: VersionGroupSummary
@@ -75,6 +77,7 @@ class AbilityChange(Model):
     def effect_entries(self) -> List[AbilityChangeEffectText]:
         """Gets the effect_entries of this AbilityChange.
 
+        The previous effect of this ability listed in different languages.  # noqa: E501
 
         :return: The effect_entries of this AbilityChange.
         :rtype: List[AbilityChangeEffectText]
@@ -85,6 +88,7 @@ class AbilityChange(Model):
     def effect_entries(self, effect_entries: List[AbilityChangeEffectText]):
         """Sets the effect_entries of this AbilityChange.
 
+        The previous effect of this ability listed in different languages.  # noqa: E501
 
         :param effect_entries: The effect_entries of this AbilityChange.
         :type effect_entries: List[AbilityChangeEffectText]

@@ -15,10 +15,10 @@ defmodule PokéAPI.Model.PaginatedMoveMetaCategorySummaryList do
   ]
 
   @type t :: %__MODULE__{
-    :count => integer() | nil,
+    :count => integer(),
     :next => Uri | nil,
     :previous => Uri | nil,
-    :results => [PokéAPI.Model.MoveMetaCategorySummary.t] | nil
+    :results => [PokéAPI.Model.MoveMetaCategorySummary.t]
   }
 
   alias PokéAPI.Deserializer

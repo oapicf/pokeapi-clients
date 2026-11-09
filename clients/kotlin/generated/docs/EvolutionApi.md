@@ -8,11 +8,13 @@ All URIs are relative to *https://pokeapi.co*
 | [**evolutionChainRetrieve**](EvolutionApi.md#evolutionChainRetrieve) | **GET** /api/v2/evolution-chain/{id}/ | Get evolution chain |
 | [**evolutionTriggerList**](EvolutionApi.md#evolutionTriggerList) | **GET** /api/v2/evolution-trigger/ | List evolution triggers |
 | [**evolutionTriggerRetrieve**](EvolutionApi.md#evolutionTriggerRetrieve) | **GET** /api/v2/evolution-trigger/{id}/ | Get evolution trigger |
+| [**evolutionVariableList**](EvolutionApi.md#evolutionVariableList) | **GET** /api/v2/evolution-variable/ | List evolution variables |
+| [**evolutionVariableRetrieve**](EvolutionApi.md#evolutionVariableRetrieve) | **GET** /api/v2/evolution-variable/{id}/ | Get evolution variable |
 
 
 <a id="evolutionChainList"></a>
 # **evolutionChainList**
-> PaginatedEvolutionChainSummaryList evolutionChainList(limit, offset, q)
+> PaginatedEvolutionChainSummaryList evolutionChainList(limit, offset)
 
 List evolution chains
 
@@ -27,9 +29,8 @@ Evolution chains are essentially family trees. They start with the lowest stage 
 val apiInstance = EvolutionApi()
 val limit : kotlin.Int = 56 // kotlin.Int | Number of results to return per page.
 val offset : kotlin.Int = 56 // kotlin.Int | The initial index from which to return the results.
-val q : kotlin.String = q_example // kotlin.String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
 try {
-    val result : PaginatedEvolutionChainSummaryList = apiInstance.evolutionChainList(limit, offset, q)
+    val result : PaginatedEvolutionChainSummaryList = apiInstance.evolutionChainList(limit, offset)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling EvolutionApi#evolutionChainList")
@@ -45,7 +46,6 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **limit** | **kotlin.Int**| Number of results to return per page. | [optional] |
 | **offset** | **kotlin.Int**| The initial index from which to return the results. | [optional] |
-| **q** | **kotlin.String**| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional] |
 
 ### Return type
 
@@ -53,19 +53,7 @@ try {
 
 ### Authorization
 
-
-Configure basicAuth statically:
-```kotlin
-ApiClient.username = ""
-ApiClient.password = ""
-```
-Configure basicAuth dynamically:
-```kotlin
-apiInstance.userCredentialProvider = { "user" to "pass" }
-```
-Configure cookieAuth:
-    ApiClient.apiKey["sessionid"] = ""
-    ApiClient.apiKeyPrefix["sessionid"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -87,7 +75,7 @@ Evolution chains are essentially family trees. They start with the lowest stage 
 //import org.openapitools.client.models.*
 
 val apiInstance = EvolutionApi()
-val id : kotlin.String = id_example // kotlin.String | This parameter can be a string or an integer.
+val id : kotlin.String = 1 // kotlin.String | This parameter can be a string or an integer.
 try {
     val result : EvolutionChainDetail = apiInstance.evolutionChainRetrieve(id)
     println(result)
@@ -111,19 +99,7 @@ try {
 
 ### Authorization
 
-
-Configure basicAuth statically:
-```kotlin
-ApiClient.username = ""
-ApiClient.password = ""
-```
-Configure basicAuth dynamically:
-```kotlin
-apiInstance.userCredentialProvider = { "user" to "pass" }
-```
-Configure cookieAuth:
-    ApiClient.apiKey["sessionid"] = ""
-    ApiClient.apiKeyPrefix["sessionid"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -173,19 +149,7 @@ try {
 
 ### Authorization
 
-
-Configure basicAuth statically:
-```kotlin
-ApiClient.username = ""
-ApiClient.password = ""
-```
-Configure basicAuth dynamically:
-```kotlin
-apiInstance.userCredentialProvider = { "user" to "pass" }
-```
-Configure cookieAuth:
-    ApiClient.apiKey["sessionid"] = ""
-    ApiClient.apiKeyPrefix["sessionid"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -207,7 +171,7 @@ Evolution triggers are the events and conditions that cause a Pokémon to evolve
 //import org.openapitools.client.models.*
 
 val apiInstance = EvolutionApi()
-val id : kotlin.String = id_example // kotlin.String | This parameter can be a string or an integer.
+val id : kotlin.String = 1 // kotlin.String | This parameter can be a string or an integer.
 try {
     val result : EvolutionTriggerDetail = apiInstance.evolutionTriggerRetrieve(id)
     println(result)
@@ -231,19 +195,103 @@ try {
 
 ### Authorization
 
+No authorization required
 
-Configure basicAuth statically:
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="evolutionVariableList"></a>
+# **evolutionVariableList**
+> PaginatedEvolutionVariableSummaryList evolutionVariableList(limit, offset, q)
+
+List evolution variables
+
+Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+
+### Example
 ```kotlin
-ApiClient.username = ""
-ApiClient.password = ""
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = EvolutionApi()
+val limit : kotlin.Int = 56 // kotlin.Int | Number of results to return per page.
+val offset : kotlin.Int = 56 // kotlin.Int | The initial index from which to return the results.
+val q : kotlin.String = q_example // kotlin.String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+try {
+    val result : PaginatedEvolutionVariableSummaryList = apiInstance.evolutionVariableList(limit, offset, q)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling EvolutionApi#evolutionVariableList")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling EvolutionApi#evolutionVariableList")
+    e.printStackTrace()
+}
 ```
-Configure basicAuth dynamically:
+
+### Parameters
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **limit** | **kotlin.Int**| Number of results to return per page. | [optional] |
+| **offset** | **kotlin.Int**| The initial index from which to return the results. | [optional] |
+| **q** | **kotlin.String**| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional] |
+
+### Return type
+
+[**PaginatedEvolutionVariableSummaryList**](PaginatedEvolutionVariableSummaryList.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="evolutionVariableRetrieve"></a>
+# **evolutionVariableRetrieve**
+> EvolutionVariableDetail evolutionVariableRetrieve(id)
+
+Get evolution variable
+
+Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+
+### Example
 ```kotlin
-apiInstance.userCredentialProvider = { "user" to "pass" }
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = EvolutionApi()
+val id : kotlin.String = 1 // kotlin.String | This parameter can be a string or an integer.
+try {
+    val result : EvolutionVariableDetail = apiInstance.evolutionVariableRetrieve(id)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling EvolutionApi#evolutionVariableRetrieve")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling EvolutionApi#evolutionVariableRetrieve")
+    e.printStackTrace()
+}
 ```
-Configure cookieAuth:
-    ApiClient.apiKey["sessionid"] = ""
-    ApiClient.apiKeyPrefix["sessionid"] = ""
+
+### Parameters
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **kotlin.String**| This parameter can be a string or an integer. | |
+
+### Return type
+
+[**EvolutionVariableDetail**](EvolutionVariableDetail.md)
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 

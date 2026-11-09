@@ -7,7 +7,7 @@ using namespace Tiny;
 ItemFlingEffectEffectText::ItemFlingEffectEffectText()
 {
 	effect = std::string();
-	language = LanguageSummary();
+	language = null;
 }
 
 ItemFlingEffectEffectText::ItemFlingEffectEffectText(std::string jsonString)

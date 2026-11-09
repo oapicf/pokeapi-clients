@@ -15,17 +15,23 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class AbilityChange  {
   
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The version group in which the previous effect of this ability originated.
+  */
+  @ApiModelProperty(required = true, value = "The version group in which the previous effect of this ability originated.")
 
   @Valid
 
   private VersionGroupSummary versionGroup;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The previous effect of this ability listed in different languages.
+  */
+  @ApiModelProperty(required = true, value = "The previous effect of this ability listed in different languages.")
 
   private List<@Valid AbilityChangeEffectText> effectEntries = new ArrayList<>();
  /**
-   * Get versionGroup
+   * The version group in which the previous effect of this ability originated.
    * @return versionGroup
   **/
   @JsonProperty("version_group")
@@ -44,7 +50,7 @@ public class AbilityChange  {
   }
 
  /**
-   * Get effectEntries
+   * The previous effect of this ability listed in different languages.
    * @return effectEntries
   **/
   @JsonProperty("effect_entries")

@@ -9,8 +9,8 @@
         generation=nothing,
     )
 
-    - game_index::Int64
-    - generation::GenerationSummary
+    - game_index::Int64 : The internal id of an API resource within game data.
+    - generation::GenerationSummary : The generation relevent to this game index.
 """
 Base.@kwdef mutable struct ItemGameIndex <: OpenAPI.APIModel
     game_index::Union{Nothing, Int64} = nothing
@@ -39,5 +39,9 @@ end
 
 function OpenAPI.validate_property(::Type{ ItemGameIndex }, name::Symbol, val)
 
+    if name === Symbol("game_index")
+        OpenAPI.validate_param(name, "ItemGameIndex", :maximum, val, 2147483647, false)
+        OpenAPI.validate_param(name, "ItemGameIndex", :minimum, val, -2147483648, false)
+    end
 
 end

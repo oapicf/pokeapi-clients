@@ -7,12 +7,12 @@
     {
       "name": "id",
       "type": "int",
-      "doc": ""
+      "doc": "The identifier for this resource."
     },
     {
       "name": "name",
       "type": "string",
-      "doc": ""
+      "doc": "The name for this resource."
     },
     {
       "name": "names",
@@ -20,15 +20,15 @@
         "type": "array",
         "items": "model.EvolutionTriggerName"
       },
-      "doc": ""
+      "doc": "The name of this resource listed in different languages."
     },
     {
       "name": "pokemon_species",
       "type": {
         "type": "array",
-        "items": "model.AbilityDetailPokemonInnerPokemon"
+        "items": "model.PokemonSpeciesSummary"
       },
-      "doc": ""
+      "doc": "A list of pokemon species that result from this evolution trigger."
     }
   ]
 

@@ -12,10 +12,9 @@ LocationAreaDetail::LocationAreaDetail()
 : id(0)
 , name("")
 , gameIndex(0)
-, encounterMethodRates(std::vector<LocationAreaDetail_encounter_method_rates_inner>())
-, location(LocationSummary())
+, encounterMethodRates(std::vector<LocationAreaEncounterRate>())
 , names(std::vector<LocationAreaName>())
-, pokemonEncounters(std::vector<LocationAreaDetail_pokemon_encounters_inner>())
+, pokemonEncounters(std::vector<LocationAreaPokemonEncounter>())
 {
 }
 // =========================================
@@ -36,7 +35,7 @@ int LocationAreaDetail::getGameIndex() const
 {
     return gameIndex;
 }
-std::vector<LocationAreaDetail_encounter_method_rates_inner> LocationAreaDetail::getEncounterMethodRates() const
+std::vector<LocationAreaEncounterRate> LocationAreaDetail::getEncounterMethodRates() const
 {
     return encounterMethodRates;
 }
@@ -48,7 +47,7 @@ std::vector<LocationAreaName> LocationAreaDetail::getNames() const
 {
     return names;
 }
-std::vector<LocationAreaDetail_pokemon_encounters_inner> LocationAreaDetail::getPokemonEncounters() const
+std::vector<LocationAreaPokemonEncounter> LocationAreaDetail::getPokemonEncounters() const
 {
     return pokemonEncounters;
 }
@@ -68,7 +67,7 @@ void LocationAreaDetail::setGameIndex(const int& gameIndexObj)
 {
     gameIndex = gameIndexObj;
 }
-void LocationAreaDetail::setEncounterMethodRates(const std::vector<LocationAreaDetail_encounter_method_rates_inner>& encounterMethodRatesObj)
+void LocationAreaDetail::setEncounterMethodRates(const std::vector<LocationAreaEncounterRate>& encounterMethodRatesObj)
 {
     encounterMethodRates = encounterMethodRatesObj;
 }
@@ -80,7 +79,7 @@ void LocationAreaDetail::setNames(const std::vector<LocationAreaName>& namesObj)
 {
     names = namesObj;
 }
-void LocationAreaDetail::setPokemonEncounters(const std::vector<LocationAreaDetail_pokemon_encounters_inner>& pokemonEncountersObj)
+void LocationAreaDetail::setPokemonEncounters(const std::vector<LocationAreaPokemonEncounter>& pokemonEncountersObj)
 {
     pokemonEncounters = pokemonEncountersObj;
 }

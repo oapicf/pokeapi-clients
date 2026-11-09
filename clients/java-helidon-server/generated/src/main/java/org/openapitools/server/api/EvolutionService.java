@@ -2,11 +2,13 @@ package org.openapitools.server.api;
 
 import org.openapitools.server.model.EvolutionChainDetail;
 import org.openapitools.server.model.EvolutionTriggerDetail;
+import org.openapitools.server.model.EvolutionVariableDetail;
 import java.util.HexFormat;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.Optional;
 import org.openapitools.server.model.PaginatedEvolutionChainSummaryList;
 import org.openapitools.server.model.PaginatedEvolutionTriggerSummaryList;
+import org.openapitools.server.model.PaginatedEvolutionVariableSummaryList;
 import io.helidon.http.Status;
 
 import io.helidon.webserver.http.HttpRules;
@@ -29,6 +31,8 @@ public interface EvolutionService extends HttpService {
         rules.get("/evolution-chain/{id}/", this::evolutionChainRetrieve);
         rules.get("/evolution-trigger/", this::evolutionTriggerList);
         rules.get("/evolution-trigger/{id}/", this::evolutionTriggerRetrieve);
+        rules.get("/evolution-variable/", this::evolutionVariableList);
+        rules.get("/evolution-variable/{id}/", this::evolutionVariableRetrieve);
     }
 
 
@@ -60,4 +64,18 @@ public interface EvolutionService extends HttpService {
      * @param response the server response
      */
     void evolutionTriggerRetrieve(ServerRequest request, ServerResponse response);
+    /**
+     * GET /api/v2/evolution-variable/ : List evolution variables.
+     *
+     * @param request the server request
+     * @param response the server response
+     */
+    void evolutionVariableList(ServerRequest request, ServerResponse response);
+    /**
+     * GET /api/v2/evolution-variable/{id}/ : Get evolution variable.
+     *
+     * @param request the server request
+     * @param response the server response
+     */
+    void evolutionVariableRetrieve(ServerRequest request, ServerResponse response);
 }

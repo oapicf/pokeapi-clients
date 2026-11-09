@@ -13,8 +13,10 @@ import java.net.URI
 import MoveTargetSummary._
 
 case class MoveTargetSummary (
+  /* The name of the referenced resource. */
   name: String,
-url: URI)
+/* The URL of the referenced resource. */
+  url: URI)
 
 object MoveTargetSummary {
   import DateTimeCodecs._

@@ -81,6 +81,7 @@ class GenerationDetail(Model):
     def id(self):
         """Gets the id of this GenerationDetail.
 
+        The identifier for this resource.
 
         :return: The id of this GenerationDetail.
         :rtype: int
@@ -91,6 +92,7 @@ class GenerationDetail(Model):
     def id(self, id):
         """Sets the id of this GenerationDetail.
 
+        The identifier for this resource.
 
         :param id: The id of this GenerationDetail.
         :type id: int
@@ -104,6 +106,7 @@ class GenerationDetail(Model):
     def name(self):
         """Gets the name of this GenerationDetail.
 
+        The name for this resource.
 
         :return: The name of this GenerationDetail.
         :rtype: str
@@ -114,14 +117,15 @@ class GenerationDetail(Model):
     def name(self, name):
         """Sets the name of this GenerationDetail.
 
+        The name for this resource.
 
         :param name: The name of this GenerationDetail.
         :type name: str
         """
         if name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")
-        if name is not None and len(name) > 100:
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `100`")
+        if name is not None and len(name) > 200:
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `200`")
 
         self._name = name
 
@@ -129,6 +133,7 @@ class GenerationDetail(Model):
     def abilities(self):
         """Gets the abilities of this GenerationDetail.
 
+        A list of abilities that were introduced in this generation.
 
         :return: The abilities of this GenerationDetail.
         :rtype: List[AbilitySummary]
@@ -139,6 +144,7 @@ class GenerationDetail(Model):
     def abilities(self, abilities):
         """Sets the abilities of this GenerationDetail.
 
+        A list of abilities that were introduced in this generation.
 
         :param abilities: The abilities of this GenerationDetail.
         :type abilities: List[AbilitySummary]
@@ -152,6 +158,7 @@ class GenerationDetail(Model):
     def main_region(self):
         """Gets the main_region of this GenerationDetail.
 
+        The main region travelled in this generation.
 
         :return: The main_region of this GenerationDetail.
         :rtype: RegionSummary
@@ -162,6 +169,7 @@ class GenerationDetail(Model):
     def main_region(self, main_region):
         """Sets the main_region of this GenerationDetail.
 
+        The main region travelled in this generation.
 
         :param main_region: The main_region of this GenerationDetail.
         :type main_region: RegionSummary
@@ -175,6 +183,7 @@ class GenerationDetail(Model):
     def moves(self):
         """Gets the moves of this GenerationDetail.
 
+        A list of moves that were introduced in this generation.
 
         :return: The moves of this GenerationDetail.
         :rtype: List[MoveSummary]
@@ -185,6 +194,7 @@ class GenerationDetail(Model):
     def moves(self, moves):
         """Sets the moves of this GenerationDetail.
 
+        A list of moves that were introduced in this generation.
 
         :param moves: The moves of this GenerationDetail.
         :type moves: List[MoveSummary]
@@ -198,6 +208,7 @@ class GenerationDetail(Model):
     def names(self):
         """Gets the names of this GenerationDetail.
 
+        The name of this resource listed in different languages.
 
         :return: The names of this GenerationDetail.
         :rtype: List[GenerationName]
@@ -208,6 +219,7 @@ class GenerationDetail(Model):
     def names(self, names):
         """Sets the names of this GenerationDetail.
 
+        The name of this resource listed in different languages.
 
         :param names: The names of this GenerationDetail.
         :type names: List[GenerationName]
@@ -221,6 +233,7 @@ class GenerationDetail(Model):
     def pokemon_species(self):
         """Gets the pokemon_species of this GenerationDetail.
 
+        A list of Pokémon species that were introduced in this generation.
 
         :return: The pokemon_species of this GenerationDetail.
         :rtype: List[PokemonSpeciesSummary]
@@ -231,6 +244,7 @@ class GenerationDetail(Model):
     def pokemon_species(self, pokemon_species):
         """Sets the pokemon_species of this GenerationDetail.
 
+        A list of Pokémon species that were introduced in this generation.
 
         :param pokemon_species: The pokemon_species of this GenerationDetail.
         :type pokemon_species: List[PokemonSpeciesSummary]
@@ -244,6 +258,7 @@ class GenerationDetail(Model):
     def types(self):
         """Gets the types of this GenerationDetail.
 
+        A list of types that were introduced in this generation.
 
         :return: The types of this GenerationDetail.
         :rtype: List[TypeSummary]
@@ -254,6 +269,7 @@ class GenerationDetail(Model):
     def types(self, types):
         """Sets the types of this GenerationDetail.
 
+        A list of types that were introduced in this generation.
 
         :param types: The types of this GenerationDetail.
         :type types: List[TypeSummary]
@@ -267,6 +283,7 @@ class GenerationDetail(Model):
     def version_groups(self):
         """Gets the version_groups of this GenerationDetail.
 
+        A list of version groups that were introduced in this generation.
 
         :return: The version_groups of this GenerationDetail.
         :rtype: List[VersionGroupSummary]
@@ -277,6 +294,7 @@ class GenerationDetail(Model):
     def version_groups(self, version_groups):
         """Sets the version_groups of this GenerationDetail.
 
+        A list of version groups that were introduced in this generation.
 
         :param version_groups: The version_groups of this GenerationDetail.
         :type version_groups: List[VersionGroupSummary]

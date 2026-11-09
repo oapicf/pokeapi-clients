@@ -107,5 +107,45 @@ using namespace Tiny;
             return response;
         }
 
+        Response<
+            PokeapiMetaResponse
+        >
+        UtilityApi::
+        metaRetrieve(
+        )
+        {
+            std::string url = basepath + "/api/v2/meta/"; //
+
+
+            // Headers  | 
+
+            // Query    | 
+
+            // Form     | 
+
+
+
+
+
+            std::string payload = "";
+            // Send Request
+            // METHOD | GET
+            // Body     | 
+            int httpCode = sendRequest(url, "GET", reinterpret_cast<uint8_t*>(&payload[0]), payload.length());
+
+            // Handle Request
+            String output = getResponseBody();
+            std::string output_string = output.c_str();
+
+
+
+
+            PokeapiMetaResponse obj(output_string);
+
+
+            Response<PokeapiMetaResponse> response(obj, httpCode);
+            return response;
+        }
+
 
 

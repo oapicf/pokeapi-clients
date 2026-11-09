@@ -6,8 +6,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.vertxweb.server.model.PalParkAreaDetailPokemonEncountersInner;
 import org.openapitools.vertxweb.server.model.PalParkAreaName;
+import org.openapitools.vertxweb.server.model.PalParkEncounter;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class PalParkAreaDetail   {
@@ -15,13 +15,13 @@ public class PalParkAreaDetail   {
   private Integer id;
   private String name;
   private List<PalParkAreaName> names = new ArrayList<>();
-  private List<PalParkAreaDetailPokemonEncountersInner> pokemonEncounters = new ArrayList<>();
+  private List<PalParkEncounter> pokemonEncounters = new ArrayList<>();
 
   public PalParkAreaDetail () {
 
   }
 
-  public PalParkAreaDetail (Integer id, String name, List<PalParkAreaName> names, List<PalParkAreaDetailPokemonEncountersInner> pokemonEncounters) {
+  public PalParkAreaDetail (Integer id, String name, List<PalParkAreaName> names, List<PalParkEncounter> pokemonEncounters) {
     this.id = id;
     this.name = name;
     this.names = names;
@@ -57,10 +57,10 @@ public class PalParkAreaDetail   {
 
     
   @JsonProperty("pokemon_encounters")
-  public List<PalParkAreaDetailPokemonEncountersInner> getPokemonEncounters() {
+  public List<PalParkEncounter> getPokemonEncounters() {
     return pokemonEncounters;
   }
-  public void setPokemonEncounters(List<PalParkAreaDetailPokemonEncountersInner> pokemonEncounters) {
+  public void setPokemonEncounters(List<PalParkEncounter> pokemonEncounters) {
     this.pokemonEncounters = pokemonEncounters;
   }
 

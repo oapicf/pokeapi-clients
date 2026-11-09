@@ -11,13 +11,15 @@ part 'item_fling_effect_summary.g.dart';
 /// ItemFlingEffectSummary
 ///
 /// Properties:
-/// * [name] 
-/// * [url] 
+/// * [name] - The name of the referenced resource.
+/// * [url] - The URL of the referenced resource.
 @BuiltValue()
 abstract class ItemFlingEffectSummary implements Built<ItemFlingEffectSummary, ItemFlingEffectSummaryBuilder> {
+  /// The name of the referenced resource.
   @BuiltValueField(wireName: r'name')
   String get name;
 
+  /// The URL of the referenced resource.
   @BuiltValueField(wireName: r'url')
   String get url;
 

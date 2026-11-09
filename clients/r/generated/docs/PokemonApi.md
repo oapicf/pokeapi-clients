@@ -4,9 +4,9 @@ All URIs are relative to *https://pokeapi.co*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**AbilityList**](PokemonApi.md#AbilityList) | **GET** /api/v2/ability/ | 
-[**AbilityRetrieve**](PokemonApi.md#AbilityRetrieve) | **GET** /api/v2/ability/{id}/ | 
-[**CharacteristicList**](PokemonApi.md#CharacteristicList) | **GET** /api/v2/characteristic/ | List charecterictics
+[**AbilityList**](PokemonApi.md#AbilityList) | **GET** /api/v2/ability/ | List abilities
+[**AbilityRetrieve**](PokemonApi.md#AbilityRetrieve) | **GET** /api/v2/ability/{id}/ | Get ability
+[**CharacteristicList**](PokemonApi.md#CharacteristicList) | **GET** /api/v2/characteristic/ | List characteristics
 [**CharacteristicRetrieve**](PokemonApi.md#CharacteristicRetrieve) | **GET** /api/v2/characteristic/{id}/ | Get characteristic
 [**EggGroupList**](PokemonApi.md#EggGroupList) | **GET** /api/v2/egg-group/ | List egg groups
 [**EggGroupRetrieve**](PokemonApi.md#EggGroupRetrieve) | **GET** /api/v2/egg-group/{id}/ | Get egg group
@@ -41,7 +41,7 @@ Method | HTTP request | Description
 # **AbilityList**
 > PaginatedAbilitySummaryList AbilityList(limit = var.limit, offset = var.offset, q = var.q)
 
-
+List abilities
 
 Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
 
@@ -49,17 +49,14 @@ Abilities provide passive effects for Pokémon in battle or in the overworld. Po
 ```R
 library(openapi)
 
+# List abilities
+#
 # prepare function argument(s)
 var_limit <- 56 # integer | Number of results to return per page. (Optional)
 var_offset <- 56 # integer | The initial index from which to return the results. (Optional)
 var_q <- "q_example" # character | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (Optional)
 
 api_instance <- PokemonApi$new()
-# Configure HTTP basic authorization: basicAuth
-api_instance$api_client$username <- Sys.getenv("USERNAME")
-api_instance$api_client$password <- Sys.getenv("PASSWORD")
-# Configure API key authorization: cookieAuth
-# api_instance$api_client$api_keys["sessionid"] <- Sys.getenv("API_KEY")
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
 # result <- api_instance$AbilityList(limit = var_limit, offset = var_offset, q = var_qdata_file = "result.txt")
 result <- api_instance$AbilityList(limit = var_limit, offset = var_offset, q = var_q)
@@ -80,7 +77,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -95,7 +92,7 @@ Name | Type | Description  | Notes
 # **AbilityRetrieve**
 > AbilityDetail AbilityRetrieve(id)
 
-
+Get ability
 
 Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
 
@@ -103,15 +100,12 @@ Abilities provide passive effects for Pokémon in battle or in the overworld. Po
 ```R
 library(openapi)
 
+# Get ability
+#
 # prepare function argument(s)
-var_id <- "id_example" # character | This parameter can be a string or an integer.
+var_id <- "1" # character | This parameter can be a string or an integer.
 
 api_instance <- PokemonApi$new()
-# Configure HTTP basic authorization: basicAuth
-api_instance$api_client$username <- Sys.getenv("USERNAME")
-api_instance$api_client$password <- Sys.getenv("PASSWORD")
-# Configure API key authorization: cookieAuth
-# api_instance$api_client$api_keys["sessionid"] <- Sys.getenv("API_KEY")
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
 # result <- api_instance$AbilityRetrieve(var_iddata_file = "result.txt")
 result <- api_instance$AbilityRetrieve(var_id)
@@ -130,7 +124,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -143,9 +137,9 @@ Name | Type | Description  | Notes
 | **200** |  |  -  |
 
 # **CharacteristicList**
-> PaginatedCharacteristicSummaryList CharacteristicList(limit = var.limit, offset = var.offset, q = var.q)
+> PaginatedCharacteristicSummaryList CharacteristicList(limit = var.limit, offset = var.offset)
 
-List charecterictics
+List characteristics
 
 Characteristics indicate which stat contains a Pokémon's highest IV. A Pokémon's Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail.
 
@@ -153,22 +147,16 @@ Characteristics indicate which stat contains a Pokémon's highest IV. A Pokémon
 ```R
 library(openapi)
 
-# List charecterictics
+# List characteristics
 #
 # prepare function argument(s)
 var_limit <- 56 # integer | Number of results to return per page. (Optional)
 var_offset <- 56 # integer | The initial index from which to return the results. (Optional)
-var_q <- "q_example" # character | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (Optional)
 
 api_instance <- PokemonApi$new()
-# Configure HTTP basic authorization: basicAuth
-api_instance$api_client$username <- Sys.getenv("USERNAME")
-api_instance$api_client$password <- Sys.getenv("PASSWORD")
-# Configure API key authorization: cookieAuth
-# api_instance$api_client$api_keys["sessionid"] <- Sys.getenv("API_KEY")
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
-# result <- api_instance$CharacteristicList(limit = var_limit, offset = var_offset, q = var_qdata_file = "result.txt")
-result <- api_instance$CharacteristicList(limit = var_limit, offset = var_offset, q = var_q)
+# result <- api_instance$CharacteristicList(limit = var_limit, offset = var_offsetdata_file = "result.txt")
+result <- api_instance$CharacteristicList(limit = var_limit, offset = var_offset)
 dput(result)
 ```
 
@@ -178,7 +166,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **integer**| Number of results to return per page. | [optional] 
  **offset** | **integer**| The initial index from which to return the results. | [optional] 
- **q** | **character**| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional] 
 
 ### Return type
 
@@ -186,7 +173,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -212,14 +199,9 @@ library(openapi)
 # Get characteristic
 #
 # prepare function argument(s)
-var_id <- "id_example" # character | This parameter can be a string or an integer.
+var_id <- "1" # character | This parameter can be a string or an integer.
 
 api_instance <- PokemonApi$new()
-# Configure HTTP basic authorization: basicAuth
-api_instance$api_client$username <- Sys.getenv("USERNAME")
-api_instance$api_client$password <- Sys.getenv("PASSWORD")
-# Configure API key authorization: cookieAuth
-# api_instance$api_client$api_keys["sessionid"] <- Sys.getenv("API_KEY")
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
 # result <- api_instance$CharacteristicRetrieve(var_iddata_file = "result.txt")
 result <- api_instance$CharacteristicRetrieve(var_id)
@@ -238,7 +220,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -269,11 +251,6 @@ var_offset <- 56 # integer | The initial index from which to return the results.
 var_q <- "q_example" # character | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (Optional)
 
 api_instance <- PokemonApi$new()
-# Configure HTTP basic authorization: basicAuth
-api_instance$api_client$username <- Sys.getenv("USERNAME")
-api_instance$api_client$password <- Sys.getenv("PASSWORD")
-# Configure API key authorization: cookieAuth
-# api_instance$api_client$api_keys["sessionid"] <- Sys.getenv("API_KEY")
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
 # result <- api_instance$EggGroupList(limit = var_limit, offset = var_offset, q = var_qdata_file = "result.txt")
 result <- api_instance$EggGroupList(limit = var_limit, offset = var_offset, q = var_q)
@@ -294,7 +271,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -320,14 +297,9 @@ library(openapi)
 # Get egg group
 #
 # prepare function argument(s)
-var_id <- "id_example" # character | This parameter can be a string or an integer.
+var_id <- "1" # character | This parameter can be a string or an integer.
 
 api_instance <- PokemonApi$new()
-# Configure HTTP basic authorization: basicAuth
-api_instance$api_client$username <- Sys.getenv("USERNAME")
-api_instance$api_client$password <- Sys.getenv("PASSWORD")
-# Configure API key authorization: cookieAuth
-# api_instance$api_client$api_keys["sessionid"] <- Sys.getenv("API_KEY")
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
 # result <- api_instance$EggGroupRetrieve(var_iddata_file = "result.txt")
 result <- api_instance$EggGroupRetrieve(var_id)
@@ -346,7 +318,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -377,11 +349,6 @@ var_offset <- 56 # integer | The initial index from which to return the results.
 var_q <- "q_example" # character | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (Optional)
 
 api_instance <- PokemonApi$new()
-# Configure HTTP basic authorization: basicAuth
-api_instance$api_client$username <- Sys.getenv("USERNAME")
-api_instance$api_client$password <- Sys.getenv("PASSWORD")
-# Configure API key authorization: cookieAuth
-# api_instance$api_client$api_keys["sessionid"] <- Sys.getenv("API_KEY")
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
 # result <- api_instance$GenderList(limit = var_limit, offset = var_offset, q = var_qdata_file = "result.txt")
 result <- api_instance$GenderList(limit = var_limit, offset = var_offset, q = var_q)
@@ -402,7 +369,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -428,14 +395,9 @@ library(openapi)
 # Get gender
 #
 # prepare function argument(s)
-var_id <- "id_example" # character | This parameter can be a string or an integer.
+var_id <- "1" # character | This parameter can be a string or an integer.
 
 api_instance <- PokemonApi$new()
-# Configure HTTP basic authorization: basicAuth
-api_instance$api_client$username <- Sys.getenv("USERNAME")
-api_instance$api_client$password <- Sys.getenv("PASSWORD")
-# Configure API key authorization: cookieAuth
-# api_instance$api_client$api_keys["sessionid"] <- Sys.getenv("API_KEY")
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
 # result <- api_instance$GenderRetrieve(var_iddata_file = "result.txt")
 result <- api_instance$GenderRetrieve(var_id)
@@ -454,7 +416,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -485,11 +447,6 @@ var_offset <- 56 # integer | The initial index from which to return the results.
 var_q <- "q_example" # character | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (Optional)
 
 api_instance <- PokemonApi$new()
-# Configure HTTP basic authorization: basicAuth
-api_instance$api_client$username <- Sys.getenv("USERNAME")
-api_instance$api_client$password <- Sys.getenv("PASSWORD")
-# Configure API key authorization: cookieAuth
-# api_instance$api_client$api_keys["sessionid"] <- Sys.getenv("API_KEY")
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
 # result <- api_instance$GrowthRateList(limit = var_limit, offset = var_offset, q = var_qdata_file = "result.txt")
 result <- api_instance$GrowthRateList(limit = var_limit, offset = var_offset, q = var_q)
@@ -510,7 +467,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -536,14 +493,9 @@ library(openapi)
 # Get growth rate
 #
 # prepare function argument(s)
-var_id <- "id_example" # character | This parameter can be a string or an integer.
+var_id <- "1" # character | This parameter can be a string or an integer.
 
 api_instance <- PokemonApi$new()
-# Configure HTTP basic authorization: basicAuth
-api_instance$api_client$username <- Sys.getenv("USERNAME")
-api_instance$api_client$password <- Sys.getenv("PASSWORD")
-# Configure API key authorization: cookieAuth
-# api_instance$api_client$api_keys["sessionid"] <- Sys.getenv("API_KEY")
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
 # result <- api_instance$GrowthRateRetrieve(var_iddata_file = "result.txt")
 result <- api_instance$GrowthRateRetrieve(var_id)
@@ -562,7 +514,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -593,11 +545,6 @@ var_offset <- 56 # integer | The initial index from which to return the results.
 var_q <- "q_example" # character | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (Optional)
 
 api_instance <- PokemonApi$new()
-# Configure HTTP basic authorization: basicAuth
-api_instance$api_client$username <- Sys.getenv("USERNAME")
-api_instance$api_client$password <- Sys.getenv("PASSWORD")
-# Configure API key authorization: cookieAuth
-# api_instance$api_client$api_keys["sessionid"] <- Sys.getenv("API_KEY")
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
 # result <- api_instance$MoveDamageClassList(limit = var_limit, offset = var_offset, q = var_qdata_file = "result.txt")
 result <- api_instance$MoveDamageClassList(limit = var_limit, offset = var_offset, q = var_q)
@@ -618,7 +565,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -644,14 +591,9 @@ library(openapi)
 # Get move damage class
 #
 # prepare function argument(s)
-var_id <- "id_example" # character | This parameter can be a string or an integer.
+var_id <- "1" # character | This parameter can be a string or an integer.
 
 api_instance <- PokemonApi$new()
-# Configure HTTP basic authorization: basicAuth
-api_instance$api_client$username <- Sys.getenv("USERNAME")
-api_instance$api_client$password <- Sys.getenv("PASSWORD")
-# Configure API key authorization: cookieAuth
-# api_instance$api_client$api_keys["sessionid"] <- Sys.getenv("API_KEY")
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
 # result <- api_instance$MoveDamageClassRetrieve(var_iddata_file = "result.txt")
 result <- api_instance$MoveDamageClassRetrieve(var_id)
@@ -670,7 +612,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -701,11 +643,6 @@ var_offset <- 56 # integer | The initial index from which to return the results.
 var_q <- "q_example" # character | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (Optional)
 
 api_instance <- PokemonApi$new()
-# Configure HTTP basic authorization: basicAuth
-api_instance$api_client$username <- Sys.getenv("USERNAME")
-api_instance$api_client$password <- Sys.getenv("PASSWORD")
-# Configure API key authorization: cookieAuth
-# api_instance$api_client$api_keys["sessionid"] <- Sys.getenv("API_KEY")
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
 # result <- api_instance$NatureList(limit = var_limit, offset = var_offset, q = var_qdata_file = "result.txt")
 result <- api_instance$NatureList(limit = var_limit, offset = var_offset, q = var_q)
@@ -726,7 +663,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -752,14 +689,9 @@ library(openapi)
 # Get nature
 #
 # prepare function argument(s)
-var_id <- "id_example" # character | This parameter can be a string or an integer.
+var_id <- "1" # character | This parameter can be a string or an integer.
 
 api_instance <- PokemonApi$new()
-# Configure HTTP basic authorization: basicAuth
-api_instance$api_client$username <- Sys.getenv("USERNAME")
-api_instance$api_client$password <- Sys.getenv("PASSWORD")
-# Configure API key authorization: cookieAuth
-# api_instance$api_client$api_keys["sessionid"] <- Sys.getenv("API_KEY")
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
 # result <- api_instance$NatureRetrieve(var_iddata_file = "result.txt")
 result <- api_instance$NatureRetrieve(var_id)
@@ -778,7 +710,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -809,11 +741,6 @@ var_offset <- 56 # integer | The initial index from which to return the results.
 var_q <- "q_example" # character | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (Optional)
 
 api_instance <- PokemonApi$new()
-# Configure HTTP basic authorization: basicAuth
-api_instance$api_client$username <- Sys.getenv("USERNAME")
-api_instance$api_client$password <- Sys.getenv("PASSWORD")
-# Configure API key authorization: cookieAuth
-# api_instance$api_client$api_keys["sessionid"] <- Sys.getenv("API_KEY")
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
 # result <- api_instance$PokeathlonStatList(limit = var_limit, offset = var_offset, q = var_qdata_file = "result.txt")
 result <- api_instance$PokeathlonStatList(limit = var_limit, offset = var_offset, q = var_q)
@@ -834,7 +761,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -860,14 +787,9 @@ library(openapi)
 # Get pokeathlon stat
 #
 # prepare function argument(s)
-var_id <- "id_example" # character | This parameter can be a string or an integer.
+var_id <- "1" # character | This parameter can be a string or an integer.
 
 api_instance <- PokemonApi$new()
-# Configure HTTP basic authorization: basicAuth
-api_instance$api_client$username <- Sys.getenv("USERNAME")
-api_instance$api_client$password <- Sys.getenv("PASSWORD")
-# Configure API key authorization: cookieAuth
-# api_instance$api_client$api_keys["sessionid"] <- Sys.getenv("API_KEY")
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
 # result <- api_instance$PokeathlonStatRetrieve(var_iddata_file = "result.txt")
 result <- api_instance$PokeathlonStatRetrieve(var_id)
@@ -886,7 +808,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -917,11 +839,6 @@ var_offset <- 56 # integer | The initial index from which to return the results.
 var_q <- "q_example" # character | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (Optional)
 
 api_instance <- PokemonApi$new()
-# Configure HTTP basic authorization: basicAuth
-api_instance$api_client$username <- Sys.getenv("USERNAME")
-api_instance$api_client$password <- Sys.getenv("PASSWORD")
-# Configure API key authorization: cookieAuth
-# api_instance$api_client$api_keys["sessionid"] <- Sys.getenv("API_KEY")
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
 # result <- api_instance$PokemonColorList(limit = var_limit, offset = var_offset, q = var_qdata_file = "result.txt")
 result <- api_instance$PokemonColorList(limit = var_limit, offset = var_offset, q = var_q)
@@ -942,7 +859,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -968,14 +885,9 @@ library(openapi)
 # Get pokemon color
 #
 # prepare function argument(s)
-var_id <- "id_example" # character | This parameter can be a string or an integer.
+var_id <- "1" # character | This parameter can be a string or an integer.
 
 api_instance <- PokemonApi$new()
-# Configure HTTP basic authorization: basicAuth
-api_instance$api_client$username <- Sys.getenv("USERNAME")
-api_instance$api_client$password <- Sys.getenv("PASSWORD")
-# Configure API key authorization: cookieAuth
-# api_instance$api_client$api_keys["sessionid"] <- Sys.getenv("API_KEY")
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
 # result <- api_instance$PokemonColorRetrieve(var_iddata_file = "result.txt")
 result <- api_instance$PokemonColorRetrieve(var_id)
@@ -994,7 +906,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1025,11 +937,6 @@ var_offset <- 56 # integer | The initial index from which to return the results.
 var_q <- "q_example" # character | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (Optional)
 
 api_instance <- PokemonApi$new()
-# Configure HTTP basic authorization: basicAuth
-api_instance$api_client$username <- Sys.getenv("USERNAME")
-api_instance$api_client$password <- Sys.getenv("PASSWORD")
-# Configure API key authorization: cookieAuth
-# api_instance$api_client$api_keys["sessionid"] <- Sys.getenv("API_KEY")
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
 # result <- api_instance$PokemonFormList(limit = var_limit, offset = var_offset, q = var_qdata_file = "result.txt")
 result <- api_instance$PokemonFormList(limit = var_limit, offset = var_offset, q = var_q)
@@ -1050,7 +957,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1076,14 +983,9 @@ library(openapi)
 # Get pokemon form
 #
 # prepare function argument(s)
-var_id <- "id_example" # character | This parameter can be a string or an integer.
+var_id <- "1" # character | This parameter can be a string or an integer.
 
 api_instance <- PokemonApi$new()
-# Configure HTTP basic authorization: basicAuth
-api_instance$api_client$username <- Sys.getenv("USERNAME")
-api_instance$api_client$password <- Sys.getenv("PASSWORD")
-# Configure API key authorization: cookieAuth
-# api_instance$api_client$api_keys["sessionid"] <- Sys.getenv("API_KEY")
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
 # result <- api_instance$PokemonFormRetrieve(var_iddata_file = "result.txt")
 result <- api_instance$PokemonFormRetrieve(var_id)
@@ -1102,7 +1004,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1133,11 +1035,6 @@ var_offset <- 56 # integer | The initial index from which to return the results.
 var_q <- "q_example" # character | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (Optional)
 
 api_instance <- PokemonApi$new()
-# Configure HTTP basic authorization: basicAuth
-api_instance$api_client$username <- Sys.getenv("USERNAME")
-api_instance$api_client$password <- Sys.getenv("PASSWORD")
-# Configure API key authorization: cookieAuth
-# api_instance$api_client$api_keys["sessionid"] <- Sys.getenv("API_KEY")
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
 # result <- api_instance$PokemonHabitatList(limit = var_limit, offset = var_offset, q = var_qdata_file = "result.txt")
 result <- api_instance$PokemonHabitatList(limit = var_limit, offset = var_offset, q = var_q)
@@ -1158,7 +1055,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1184,14 +1081,9 @@ library(openapi)
 # Get pokemom habita
 #
 # prepare function argument(s)
-var_id <- "id_example" # character | This parameter can be a string or an integer.
+var_id <- "1" # character | This parameter can be a string or an integer.
 
 api_instance <- PokemonApi$new()
-# Configure HTTP basic authorization: basicAuth
-api_instance$api_client$username <- Sys.getenv("USERNAME")
-api_instance$api_client$password <- Sys.getenv("PASSWORD")
-# Configure API key authorization: cookieAuth
-# api_instance$api_client$api_keys["sessionid"] <- Sys.getenv("API_KEY")
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
 # result <- api_instance$PokemonHabitatRetrieve(var_iddata_file = "result.txt")
 result <- api_instance$PokemonHabitatRetrieve(var_id)
@@ -1210,7 +1102,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1241,11 +1133,6 @@ var_offset <- 56 # integer | The initial index from which to return the results.
 var_q <- "q_example" # character | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (Optional)
 
 api_instance <- PokemonApi$new()
-# Configure HTTP basic authorization: basicAuth
-api_instance$api_client$username <- Sys.getenv("USERNAME")
-api_instance$api_client$password <- Sys.getenv("PASSWORD")
-# Configure API key authorization: cookieAuth
-# api_instance$api_client$api_keys["sessionid"] <- Sys.getenv("API_KEY")
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
 # result <- api_instance$PokemonList(limit = var_limit, offset = var_offset, q = var_qdata_file = "result.txt")
 result <- api_instance$PokemonList(limit = var_limit, offset = var_offset, q = var_q)
@@ -1266,7 +1153,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1292,14 +1179,9 @@ library(openapi)
 # Get pokemon
 #
 # prepare function argument(s)
-var_id <- "id_example" # character | This parameter can be a string or an integer.
+var_id <- "1" # character | This parameter can be a string or an integer.
 
 api_instance <- PokemonApi$new()
-# Configure HTTP basic authorization: basicAuth
-api_instance$api_client$username <- Sys.getenv("USERNAME")
-api_instance$api_client$password <- Sys.getenv("PASSWORD")
-# Configure API key authorization: cookieAuth
-# api_instance$api_client$api_keys["sessionid"] <- Sys.getenv("API_KEY")
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
 # result <- api_instance$PokemonRetrieve(var_iddata_file = "result.txt")
 result <- api_instance$PokemonRetrieve(var_id)
@@ -1318,7 +1200,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1349,11 +1231,6 @@ var_offset <- 56 # integer | The initial index from which to return the results.
 var_q <- "q_example" # character | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (Optional)
 
 api_instance <- PokemonApi$new()
-# Configure HTTP basic authorization: basicAuth
-api_instance$api_client$username <- Sys.getenv("USERNAME")
-api_instance$api_client$password <- Sys.getenv("PASSWORD")
-# Configure API key authorization: cookieAuth
-# api_instance$api_client$api_keys["sessionid"] <- Sys.getenv("API_KEY")
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
 # result <- api_instance$PokemonShapeList(limit = var_limit, offset = var_offset, q = var_qdata_file = "result.txt")
 result <- api_instance$PokemonShapeList(limit = var_limit, offset = var_offset, q = var_q)
@@ -1374,7 +1251,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1400,14 +1277,9 @@ library(openapi)
 # Get pokemon shape
 #
 # prepare function argument(s)
-var_id <- "id_example" # character | This parameter can be a string or an integer.
+var_id <- "1" # character | This parameter can be a string or an integer.
 
 api_instance <- PokemonApi$new()
-# Configure HTTP basic authorization: basicAuth
-api_instance$api_client$username <- Sys.getenv("USERNAME")
-api_instance$api_client$password <- Sys.getenv("PASSWORD")
-# Configure API key authorization: cookieAuth
-# api_instance$api_client$api_keys["sessionid"] <- Sys.getenv("API_KEY")
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
 # result <- api_instance$PokemonShapeRetrieve(var_iddata_file = "result.txt")
 result <- api_instance$PokemonShapeRetrieve(var_id)
@@ -1426,7 +1298,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1457,11 +1329,6 @@ var_offset <- 56 # integer | The initial index from which to return the results.
 var_q <- "q_example" # character | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (Optional)
 
 api_instance <- PokemonApi$new()
-# Configure HTTP basic authorization: basicAuth
-api_instance$api_client$username <- Sys.getenv("USERNAME")
-api_instance$api_client$password <- Sys.getenv("PASSWORD")
-# Configure API key authorization: cookieAuth
-# api_instance$api_client$api_keys["sessionid"] <- Sys.getenv("API_KEY")
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
 # result <- api_instance$PokemonSpeciesList(limit = var_limit, offset = var_offset, q = var_qdata_file = "result.txt")
 result <- api_instance$PokemonSpeciesList(limit = var_limit, offset = var_offset, q = var_q)
@@ -1482,7 +1349,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1508,14 +1375,9 @@ library(openapi)
 # Get pokemon species
 #
 # prepare function argument(s)
-var_id <- "id_example" # character | This parameter can be a string or an integer.
+var_id <- "1" # character | This parameter can be a string or an integer.
 
 api_instance <- PokemonApi$new()
-# Configure HTTP basic authorization: basicAuth
-api_instance$api_client$username <- Sys.getenv("USERNAME")
-api_instance$api_client$password <- Sys.getenv("PASSWORD")
-# Configure API key authorization: cookieAuth
-# api_instance$api_client$api_keys["sessionid"] <- Sys.getenv("API_KEY")
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
 # result <- api_instance$PokemonSpeciesRetrieve(var_iddata_file = "result.txt")
 result <- api_instance$PokemonSpeciesRetrieve(var_id)
@@ -1534,7 +1396,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1565,11 +1427,6 @@ var_offset <- 56 # integer | The initial index from which to return the results.
 var_q <- "q_example" # character | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (Optional)
 
 api_instance <- PokemonApi$new()
-# Configure HTTP basic authorization: basicAuth
-api_instance$api_client$username <- Sys.getenv("USERNAME")
-api_instance$api_client$password <- Sys.getenv("PASSWORD")
-# Configure API key authorization: cookieAuth
-# api_instance$api_client$api_keys["sessionid"] <- Sys.getenv("API_KEY")
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
 # result <- api_instance$StatList(limit = var_limit, offset = var_offset, q = var_qdata_file = "result.txt")
 result <- api_instance$StatList(limit = var_limit, offset = var_offset, q = var_q)
@@ -1590,7 +1447,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1616,14 +1473,9 @@ library(openapi)
 # Get stat
 #
 # prepare function argument(s)
-var_id <- "id_example" # character | This parameter can be a string or an integer.
+var_id <- "1" # character | This parameter can be a string or an integer.
 
 api_instance <- PokemonApi$new()
-# Configure HTTP basic authorization: basicAuth
-api_instance$api_client$username <- Sys.getenv("USERNAME")
-api_instance$api_client$password <- Sys.getenv("PASSWORD")
-# Configure API key authorization: cookieAuth
-# api_instance$api_client$api_keys["sessionid"] <- Sys.getenv("API_KEY")
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
 # result <- api_instance$StatRetrieve(var_iddata_file = "result.txt")
 result <- api_instance$StatRetrieve(var_id)
@@ -1642,7 +1494,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1673,11 +1525,6 @@ var_offset <- 56 # integer | The initial index from which to return the results.
 var_q <- "q_example" # character | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (Optional)
 
 api_instance <- PokemonApi$new()
-# Configure HTTP basic authorization: basicAuth
-api_instance$api_client$username <- Sys.getenv("USERNAME")
-api_instance$api_client$password <- Sys.getenv("PASSWORD")
-# Configure API key authorization: cookieAuth
-# api_instance$api_client$api_keys["sessionid"] <- Sys.getenv("API_KEY")
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
 # result <- api_instance$TypeList(limit = var_limit, offset = var_offset, q = var_qdata_file = "result.txt")
 result <- api_instance$TypeList(limit = var_limit, offset = var_offset, q = var_q)
@@ -1698,7 +1545,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1724,14 +1571,9 @@ library(openapi)
 # Get types
 #
 # prepare function argument(s)
-var_id <- "id_example" # character | This parameter can be a string or an integer.
+var_id <- "1" # character | This parameter can be a string or an integer.
 
 api_instance <- PokemonApi$new()
-# Configure HTTP basic authorization: basicAuth
-api_instance$api_client$username <- Sys.getenv("USERNAME")
-api_instance$api_client$password <- Sys.getenv("PASSWORD")
-# Configure API key authorization: cookieAuth
-# api_instance$api_client$api_keys["sessionid"] <- Sys.getenv("API_KEY")
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
 # result <- api_instance$TypeRetrieve(var_iddata_file = "result.txt")
 result <- api_instance$TypeRetrieve(var_id)
@@ -1750,7 +1592,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

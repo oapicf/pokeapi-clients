@@ -12,9 +12,12 @@ import org.joda.time.DateTime
 import ContestTypeName._
 
 case class ContestTypeName (
+  /* The name for this contest. */
   name: String,
-color: String,
-language: LanguageSummary)
+/* The color associated with this contest's name. */
+  color: String,
+/* The language that this name is in. */
+  language: LanguageSummary)
 
 object ContestTypeName {
   import DateTimeCodecs._

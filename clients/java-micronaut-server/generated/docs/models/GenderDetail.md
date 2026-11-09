@@ -8,10 +8,10 @@ The class is defined in **[GenderDetail.java](../../src/main/java/org/openapitoo
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | `Integer` |  |  [readonly property]
-**name** | `String` |  | 
-**pokemonSpeciesDetails** | [`List&lt;GenderDetailPokemonSpeciesDetailsInner&gt;`](GenderDetailPokemonSpeciesDetailsInner.md) |  |  [readonly property]
-**requiredForEvolution** | [`List&lt;AbilityDetailPokemonInnerPokemon&gt;`](AbilityDetailPokemonInnerPokemon.md) |  |  [readonly property]
+**id** | `Integer` | The identifier for this resource. |  [readonly property]
+**name** | `String` | The name for this resource. | 
+**pokemonSpeciesDetails** | [`List&lt;GenderPokemonSpecies&gt;`](GenderPokemonSpecies.md) | A list of Pokémon species that can be this gender and how likely it is that they will be. |  [readonly property]
+**requiredForEvolution** | [`List&lt;PokemonSpeciesSummary&gt;`](PokemonSpeciesSummary.md) | A list of Pokémon species that required this gender in order for a Pokémon to evolve into them. |  [readonly property]
 
 
 

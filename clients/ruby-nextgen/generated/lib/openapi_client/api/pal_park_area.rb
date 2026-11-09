@@ -12,7 +12,7 @@ module OpenapiClient
           :GET,
           '/api/v2/pal-park-area/',
           type: OpenapiClient::Models::PaginatedPalParkAreaSummaryList,
-          auth: ['basicAuth', 'cookieAuth'],
+          auth: [],
           query: { 'limit' => limit, 'offset' => offset, 'q' => q }
         )
       end
@@ -25,7 +25,7 @@ module OpenapiClient
           '/api/v2/pal-park-area/{id}/'
             .gsub('{id}', ERB::Util.url_encode(id.to_s)),
           type: OpenapiClient::Models::PalParkAreaDetail,
-          auth: ['basicAuth', 'cookieAuth']
+          auth: []
         )
       end
     end

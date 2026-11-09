@@ -4,18 +4,16 @@ from typing import List, Dict  # noqa: F401
 
 from openapi_server.models.base_model import Model
 from openapi_server.models.berry_flavor_summary import BerryFlavorSummary
-from openapi_server.models.berry_summary import BerrySummary
 from openapi_server.models.nature_battle_style_preference import NatureBattleStylePreference
-from openapi_server.models.nature_detail_pokeathlon_stat_changes_inner import NatureDetailPokeathlonStatChangesInner
 from openapi_server.models.nature_name import NatureName
+from openapi_server.models.nature_pokeathlon_stat import NaturePokeathlonStat
 from openapi_server.models.stat_summary import StatSummary
 from openapi_server import util
 
 from openapi_server.models.berry_flavor_summary import BerryFlavorSummary  # noqa: E501
-from openapi_server.models.berry_summary import BerrySummary  # noqa: E501
 from openapi_server.models.nature_battle_style_preference import NatureBattleStylePreference  # noqa: E501
-from openapi_server.models.nature_detail_pokeathlon_stat_changes_inner import NatureDetailPokeathlonStatChangesInner  # noqa: E501
 from openapi_server.models.nature_name import NatureName  # noqa: E501
+from openapi_server.models.nature_pokeathlon_stat import NaturePokeathlonStat  # noqa: E501
 from openapi_server.models.stat_summary import StatSummary  # noqa: E501
 
 class NatureDetail(Model):
@@ -24,7 +22,7 @@ class NatureDetail(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, id=None, name=None, decreased_stat=None, increased_stat=None, likes_flavor=None, hates_flavor=None, berries=None, pokeathlon_stat_changes=None, move_battle_style_preferences=None, names=None):  # noqa: E501
+    def __init__(self, id=None, name=None, decreased_stat=None, increased_stat=None, likes_flavor=None, hates_flavor=None, pokeathlon_stat_changes=None, move_battle_style_preferences=None, names=None):  # noqa: E501
         """NatureDetail - a model defined in OpenAPI
 
         :param id: The id of this NatureDetail.  # noqa: E501
@@ -39,10 +37,8 @@ class NatureDetail(Model):
         :type likes_flavor: BerryFlavorSummary
         :param hates_flavor: The hates_flavor of this NatureDetail.  # noqa: E501
         :type hates_flavor: BerryFlavorSummary
-        :param berries: The berries of this NatureDetail.  # noqa: E501
-        :type berries: List[BerrySummary]
         :param pokeathlon_stat_changes: The pokeathlon_stat_changes of this NatureDetail.  # noqa: E501
-        :type pokeathlon_stat_changes: List[NatureDetailPokeathlonStatChangesInner]
+        :type pokeathlon_stat_changes: List[NaturePokeathlonStat]
         :param move_battle_style_preferences: The move_battle_style_preferences of this NatureDetail.  # noqa: E501
         :type move_battle_style_preferences: List[NatureBattleStylePreference]
         :param names: The names of this NatureDetail.  # noqa: E501
@@ -55,8 +51,7 @@ class NatureDetail(Model):
             'increased_stat': StatSummary,
             'likes_flavor': BerryFlavorSummary,
             'hates_flavor': BerryFlavorSummary,
-            'berries': List[BerrySummary],
-            'pokeathlon_stat_changes': List[NatureDetailPokeathlonStatChangesInner],
+            'pokeathlon_stat_changes': List[NaturePokeathlonStat],
             'move_battle_style_preferences': List[NatureBattleStylePreference],
             'names': List[NatureName]
         }
@@ -68,7 +63,6 @@ class NatureDetail(Model):
             'increased_stat': 'increased_stat',
             'likes_flavor': 'likes_flavor',
             'hates_flavor': 'hates_flavor',
-            'berries': 'berries',
             'pokeathlon_stat_changes': 'pokeathlon_stat_changes',
             'move_battle_style_preferences': 'move_battle_style_preferences',
             'names': 'names'
@@ -80,7 +74,6 @@ class NatureDetail(Model):
         self._increased_stat = increased_stat
         self._likes_flavor = likes_flavor
         self._hates_flavor = hates_flavor
-        self._berries = berries
         self._pokeathlon_stat_changes = pokeathlon_stat_changes
         self._move_battle_style_preferences = move_battle_style_preferences
         self._names = names
@@ -100,6 +93,7 @@ class NatureDetail(Model):
     def id(self) -> int:
         """Gets the id of this NatureDetail.
 
+        The identifier for this resource.  # noqa: E501
 
         :return: The id of this NatureDetail.
         :rtype: int
@@ -110,6 +104,7 @@ class NatureDetail(Model):
     def id(self, id: int):
         """Sets the id of this NatureDetail.
 
+        The identifier for this resource.  # noqa: E501
 
         :param id: The id of this NatureDetail.
         :type id: int
@@ -123,6 +118,7 @@ class NatureDetail(Model):
     def name(self) -> str:
         """Gets the name of this NatureDetail.
 
+        The name for this resource.  # noqa: E501
 
         :return: The name of this NatureDetail.
         :rtype: str
@@ -133,14 +129,15 @@ class NatureDetail(Model):
     def name(self, name: str):
         """Sets the name of this NatureDetail.
 
+        The name for this resource.  # noqa: E501
 
         :param name: The name of this NatureDetail.
         :type name: str
         """
         if name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
-        if name is not None and len(name) > 100:
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `100`")  # noqa: E501
+        if name is not None and len(name) > 200:
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `200`")  # noqa: E501
 
         self._name = name
 
@@ -148,6 +145,7 @@ class NatureDetail(Model):
     def decreased_stat(self) -> StatSummary:
         """Gets the decreased_stat of this NatureDetail.
 
+        The stat decreased by 10% in Pokémon with this nature.  # noqa: E501
 
         :return: The decreased_stat of this NatureDetail.
         :rtype: StatSummary
@@ -158,6 +156,7 @@ class NatureDetail(Model):
     def decreased_stat(self, decreased_stat: StatSummary):
         """Sets the decreased_stat of this NatureDetail.
 
+        The stat decreased by 10% in Pokémon with this nature.  # noqa: E501
 
         :param decreased_stat: The decreased_stat of this NatureDetail.
         :type decreased_stat: StatSummary
@@ -171,6 +170,7 @@ class NatureDetail(Model):
     def increased_stat(self) -> StatSummary:
         """Gets the increased_stat of this NatureDetail.
 
+        The stat increased by 10% in Pokémon with this nature.  # noqa: E501
 
         :return: The increased_stat of this NatureDetail.
         :rtype: StatSummary
@@ -181,6 +181,7 @@ class NatureDetail(Model):
     def increased_stat(self, increased_stat: StatSummary):
         """Sets the increased_stat of this NatureDetail.
 
+        The stat increased by 10% in Pokémon with this nature.  # noqa: E501
 
         :param increased_stat: The increased_stat of this NatureDetail.
         :type increased_stat: StatSummary
@@ -194,6 +195,7 @@ class NatureDetail(Model):
     def likes_flavor(self) -> BerryFlavorSummary:
         """Gets the likes_flavor of this NatureDetail.
 
+        The flavor liked by Pokémon with this nature.  # noqa: E501
 
         :return: The likes_flavor of this NatureDetail.
         :rtype: BerryFlavorSummary
@@ -204,6 +206,7 @@ class NatureDetail(Model):
     def likes_flavor(self, likes_flavor: BerryFlavorSummary):
         """Sets the likes_flavor of this NatureDetail.
 
+        The flavor liked by Pokémon with this nature.  # noqa: E501
 
         :param likes_flavor: The likes_flavor of this NatureDetail.
         :type likes_flavor: BerryFlavorSummary
@@ -217,6 +220,7 @@ class NatureDetail(Model):
     def hates_flavor(self) -> BerryFlavorSummary:
         """Gets the hates_flavor of this NatureDetail.
 
+        The flavor hated by Pokémon with this nature.  # noqa: E501
 
         :return: The hates_flavor of this NatureDetail.
         :rtype: BerryFlavorSummary
@@ -227,6 +231,7 @@ class NatureDetail(Model):
     def hates_flavor(self, hates_flavor: BerryFlavorSummary):
         """Sets the hates_flavor of this NatureDetail.
 
+        The flavor hated by Pokémon with this nature.  # noqa: E501
 
         :param hates_flavor: The hates_flavor of this NatureDetail.
         :type hates_flavor: BerryFlavorSummary
@@ -237,45 +242,24 @@ class NatureDetail(Model):
         self._hates_flavor = hates_flavor
 
     @property
-    def berries(self) -> List[BerrySummary]:
-        """Gets the berries of this NatureDetail.
-
-
-        :return: The berries of this NatureDetail.
-        :rtype: List[BerrySummary]
-        """
-        return self._berries
-
-    @berries.setter
-    def berries(self, berries: List[BerrySummary]):
-        """Sets the berries of this NatureDetail.
-
-
-        :param berries: The berries of this NatureDetail.
-        :type berries: List[BerrySummary]
-        """
-        if berries is None:
-            raise ValueError("Invalid value for `berries`, must not be `None`")  # noqa: E501
-
-        self._berries = berries
-
-    @property
-    def pokeathlon_stat_changes(self) -> List[NatureDetailPokeathlonStatChangesInner]:
+    def pokeathlon_stat_changes(self) -> List[NaturePokeathlonStat]:
         """Gets the pokeathlon_stat_changes of this NatureDetail.
 
+        A list of Pokéathlon stats this nature effects and how much it effects them.  # noqa: E501
 
         :return: The pokeathlon_stat_changes of this NatureDetail.
-        :rtype: List[NatureDetailPokeathlonStatChangesInner]
+        :rtype: List[NaturePokeathlonStat]
         """
         return self._pokeathlon_stat_changes
 
     @pokeathlon_stat_changes.setter
-    def pokeathlon_stat_changes(self, pokeathlon_stat_changes: List[NatureDetailPokeathlonStatChangesInner]):
+    def pokeathlon_stat_changes(self, pokeathlon_stat_changes: List[NaturePokeathlonStat]):
         """Sets the pokeathlon_stat_changes of this NatureDetail.
 
+        A list of Pokéathlon stats this nature effects and how much it effects them.  # noqa: E501
 
         :param pokeathlon_stat_changes: The pokeathlon_stat_changes of this NatureDetail.
-        :type pokeathlon_stat_changes: List[NatureDetailPokeathlonStatChangesInner]
+        :type pokeathlon_stat_changes: List[NaturePokeathlonStat]
         """
         if pokeathlon_stat_changes is None:
             raise ValueError("Invalid value for `pokeathlon_stat_changes`, must not be `None`")  # noqa: E501
@@ -286,6 +270,7 @@ class NatureDetail(Model):
     def move_battle_style_preferences(self) -> List[NatureBattleStylePreference]:
         """Gets the move_battle_style_preferences of this NatureDetail.
 
+        A list of battle styles and how likely a Pokémon with this nature is to use them in the Battle Palace or Battle Tent.  # noqa: E501
 
         :return: The move_battle_style_preferences of this NatureDetail.
         :rtype: List[NatureBattleStylePreference]
@@ -296,6 +281,7 @@ class NatureDetail(Model):
     def move_battle_style_preferences(self, move_battle_style_preferences: List[NatureBattleStylePreference]):
         """Sets the move_battle_style_preferences of this NatureDetail.
 
+        A list of battle styles and how likely a Pokémon with this nature is to use them in the Battle Palace or Battle Tent.  # noqa: E501
 
         :param move_battle_style_preferences: The move_battle_style_preferences of this NatureDetail.
         :type move_battle_style_preferences: List[NatureBattleStylePreference]
@@ -309,6 +295,7 @@ class NatureDetail(Model):
     def names(self) -> List[NatureName]:
         """Gets the names of this NatureDetail.
 
+        The name of this resource listed in different languages.  # noqa: E501
 
         :return: The names of this NatureDetail.
         :rtype: List[NatureName]
@@ -319,6 +306,7 @@ class NatureDetail(Model):
     def names(self, names: List[NatureName]):
         """Sets the names of this NatureDetail.
 
+        The name of this resource listed in different languages.  # noqa: E501
 
         :param names: The names of this NatureDetail.
         :type names: List[NatureName]

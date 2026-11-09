@@ -8,11 +8,13 @@ Method | HTTP request | Description
 [**EvolutionChainRetrieve**](evolution_api.md#EvolutionChainRetrieve) | **GET** /api/v2/evolution-chain/{id}/ | Get evolution chain
 [**EvolutionTriggerList**](evolution_api.md#EvolutionTriggerList) | **GET** /api/v2/evolution-trigger/ | List evolution triggers
 [**EvolutionTriggerRetrieve**](evolution_api.md#EvolutionTriggerRetrieve) | **GET** /api/v2/evolution-trigger/{id}/ | Get evolution trigger
+[**EvolutionVariableList**](evolution_api.md#EvolutionVariableList) | **GET** /api/v2/evolution-variable/ | List evolution variables
+[**EvolutionVariableRetrieve**](evolution_api.md#EvolutionVariableRetrieve) | **GET** /api/v2/evolution-variable/{id}/ | Get evolution variable
 
 
 <a name="EvolutionChainList"></a>
 # **EvolutionChainList**
-> PaginatedEvolutionChainSummaryList EvolutionChainList(limit, offset, q)
+> PaginatedEvolutionChainSummaryList EvolutionChainList(limit, offset)
 
 List evolution chains
 
@@ -38,3 +40,17 @@ Evolution triggers are the events and conditions that cause a Pokémon to evolve
 Get evolution trigger
 
 Evolution triggers are the events and conditions that cause a Pokémon to evolve. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Methods_of_evolution) for greater detail.
+<a name="EvolutionVariableList"></a>
+# **EvolutionVariableList**
+> PaginatedEvolutionVariableSummaryList EvolutionVariableList(limit, offset, q)
+
+List evolution variables
+
+Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+<a name="EvolutionVariableRetrieve"></a>
+# **EvolutionVariableRetrieve**
+> EvolutionVariableDetail EvolutionVariableRetrieve(Id_)
+
+Get evolution variable
+
+Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.

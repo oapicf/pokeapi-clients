@@ -10,9 +10,9 @@
         move_battle_style=nothing,
     )
 
-    - low_hp_preference::Int64
-    - high_hp_preference::Int64
-    - move_battle_style::MoveBattleStyleSummary
+    - low_hp_preference::Int64 : Chance of using the move, in percent, if HP is under one half.
+    - high_hp_preference::Int64 : Chance of using the move, in percent, if HP is over one half.
+    - move_battle_style::MoveBattleStyleSummary : The move battle style.
 """
 Base.@kwdef mutable struct NatureBattleStylePreference <: OpenAPI.APIModel
     low_hp_preference::Union{Nothing, Int64} = nothing
@@ -44,6 +44,14 @@ end
 
 function OpenAPI.validate_property(::Type{ NatureBattleStylePreference }, name::Symbol, val)
 
+    if name === Symbol("low_hp_preference")
+        OpenAPI.validate_param(name, "NatureBattleStylePreference", :maximum, val, 2147483647, false)
+        OpenAPI.validate_param(name, "NatureBattleStylePreference", :minimum, val, -2147483648, false)
+    end
 
+    if name === Symbol("high_hp_preference")
+        OpenAPI.validate_param(name, "NatureBattleStylePreference", :maximum, val, 2147483647, false)
+        OpenAPI.validate_param(name, "NatureBattleStylePreference", :minimum, val, -2147483648, false)
+    end
 
 end

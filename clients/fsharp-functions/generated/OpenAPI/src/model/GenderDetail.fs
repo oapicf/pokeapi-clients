@@ -3,8 +3,8 @@ namespace OpenAPI.Model
 open System
 open System.Collections.Generic
 open Newtonsoft.Json
-open OpenAPI.Model.AbilityDetailPokemonInnerPokemon
-open OpenAPI.Model.GenderDetailPokemonSpeciesDetailsInner
+open OpenAPI.Model.GenderPokemonSpecies
+open OpenAPI.Model.PokemonSpeciesSummary
 
 module GenderDetail =
 
@@ -17,9 +17,9 @@ module GenderDetail =
     [<JsonProperty(PropertyName = "name")>]
     Name : string;
     [<JsonProperty(PropertyName = "pokemon_species_details")>]
-    PokemonSpeciesDetails : GenderDetailPokemonSpeciesDetailsInner[];
+    PokemonSpeciesDetails : GenderPokemonSpecies[];
     [<JsonProperty(PropertyName = "required_for_evolution")>]
-    RequiredForEvolution : AbilityDetailPokemonInnerPokemon[];
+    RequiredForEvolution : PokemonSpeciesSummary[];
   }
 
   //#endregion

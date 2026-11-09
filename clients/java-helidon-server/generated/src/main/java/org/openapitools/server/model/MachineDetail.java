@@ -25,10 +25,10 @@ public class MachineDetail   {
     /**
      * Create MachineDetail.
      *
-     * @param id id
-     * @param item item
-     * @param versionGroup versionGroup
-     * @param move move
+     * @param id The identifier for this resource.
+     * @param item The TM or HM item that corresponds to this machine.
+     * @param versionGroup The version group that this machine applies to.
+     * @param move The move that is taught by this machine.
      */
     public MachineDetail(
         Integer id, 
@@ -45,7 +45,7 @@ public class MachineDetail   {
 
 
     /**
-     * Get id
+     * The identifier for this resource.
      * @return id
      */
     public Integer getId() {
@@ -57,7 +57,7 @@ public class MachineDetail   {
     }
 
     /**
-     * Get item
+     * The TM or HM item that corresponds to this machine.
      * @return item
      */
     public ItemSummary getItem() {
@@ -69,7 +69,7 @@ public class MachineDetail   {
     }
 
     /**
-     * Get versionGroup
+     * The version group that this machine applies to.
      * @return versionGroup
      */
     public VersionGroupSummary getVersionGroup() {
@@ -81,7 +81,7 @@ public class MachineDetail   {
     }
 
     /**
-     * Get move
+     * The move that is taught by this machine.
      * @return move
      */
     public MoveSummary getMove() {

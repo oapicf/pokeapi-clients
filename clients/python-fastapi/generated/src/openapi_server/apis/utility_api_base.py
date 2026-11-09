@@ -7,7 +7,8 @@ from typing import Optional
 from typing_extensions import Annotated
 from openapi_server.models.language_detail import LanguageDetail
 from openapi_server.models.paginated_language_summary_list import PaginatedLanguageSummaryList
-from openapi_server.security_api import get_token_basicAuth, get_token_cookieAuth
+from openapi_server.models.pokeapi_meta_response import PokeapiMetaResponse
+
 
 class BaseUtilityApi:
     subclasses: ClassVar[Tuple] = ()
@@ -15,6 +16,13 @@ class BaseUtilityApi:
     def __init_subclass__(cls, **kwargs):
         super().__init_subclass__(**kwargs)
         BaseUtilityApi.subclasses = BaseUtilityApi.subclasses + (cls,)
+    async def meta_retrieve(
+        self,
+    ) -> PokeapiMetaResponse:
+        """Returns metadata about the current deployed version of the API, including the git commit hash, deploy date, and tag (if any)."""
+        ...
+
+
     async def language_list(
         self,
         limit: Annotated[Optional[int], Field(description="Number of results to return per page.")],

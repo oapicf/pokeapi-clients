@@ -20,7 +20,7 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 import io.swagger.annotations.*;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2026-10-25T05:48:49.952264473Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2026-11-09T13:50:00.159999817Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class GenerationDetail   {
   
   private Integer id;
@@ -34,9 +34,10 @@ public class GenerationDetail   {
   private List<@Valid VersionGroupSummary> versionGroups = new ArrayList<>();
 
   /**
+   * The identifier for this resource.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   @JsonProperty("id")
   @NotNull
   public Integer getId() {
@@ -47,12 +48,13 @@ public class GenerationDetail   {
   }
 
   /**
+   * The name for this resource.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   @JsonProperty("name")
   @NotNull
- @Size(max=100)  public String getName() {
+ @Size(max=200)  public String getName() {
     return name;
   }
   public void setName(String name) {
@@ -60,9 +62,10 @@ public class GenerationDetail   {
   }
 
   /**
+   * A list of abilities that were introduced in this generation.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of abilities that were introduced in this generation.")
   @JsonProperty("abilities")
   @NotNull
   public List<@Valid AbilitySummary> getAbilities() {
@@ -73,9 +76,10 @@ public class GenerationDetail   {
   }
 
   /**
+   * The main region travelled in this generation.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The main region travelled in this generation.")
   @JsonProperty("main_region")
   @NotNull
   @Valid
@@ -87,9 +91,10 @@ public class GenerationDetail   {
   }
 
   /**
+   * A list of moves that were introduced in this generation.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of moves that were introduced in this generation.")
   @JsonProperty("moves")
   @NotNull
   public List<@Valid MoveSummary> getMoves() {
@@ -100,9 +105,10 @@ public class GenerationDetail   {
   }
 
   /**
+   * The name of this resource listed in different languages.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
   @JsonProperty("names")
   @NotNull
   public List<@Valid GenerationName> getNames() {
@@ -113,9 +119,10 @@ public class GenerationDetail   {
   }
 
   /**
+   * A list of Pokémon species that were introduced in this generation.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of Pokémon species that were introduced in this generation.")
   @JsonProperty("pokemon_species")
   @NotNull
   public List<@Valid PokemonSpeciesSummary> getPokemonSpecies() {
@@ -126,9 +133,10 @@ public class GenerationDetail   {
   }
 
   /**
+   * A list of types that were introduced in this generation.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of types that were introduced in this generation.")
   @JsonProperty("types")
   @NotNull
   public List<@Valid TypeSummary> getTypes() {
@@ -139,9 +147,10 @@ public class GenerationDetail   {
   }
 
   /**
+   * A list of version groups that were introduced in this generation.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of version groups that were introduced in this generation.")
   @JsonProperty("version_groups")
   @NotNull
   public List<@Valid VersionGroupSummary> getVersionGroups() {

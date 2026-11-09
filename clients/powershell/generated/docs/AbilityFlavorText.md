@@ -3,9 +3,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**FlavorText** | **String** |  | 
-**Language** | [**LanguageSummary**](LanguageSummary.md) |  | 
-**VersionGroup** | [**VersionGroupSummary**](VersionGroupSummary.md) |  | 
+**FlavorText** | **String** | The localized name for an API resource in a specific language. | 
+**Language** | [**LanguageSummary**](LanguageSummary.md) | The language this text resource is in. | 
+**VersionGroup** | [**VersionGroupSummary**](VersionGroupSummary.md) | The version group that uses this flavor text. | 
 
 ## Examples
 

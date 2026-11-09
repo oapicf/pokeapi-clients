@@ -24,8 +24,8 @@ void
 EvolutionChainDetail::__init()
 {
 	//id = int(0);
-	//baby_trigger_item = new ItemSummary();
-	//chain = new EvolutionChainDetail_chain();
+	//baby_trigger_item = null;
+	//chain = null;
 }
 
 void
@@ -84,11 +84,11 @@ EvolutionChainDetail::fromJson(char* jsonStr)
 	if (node !=NULL) {
 	
 
-		if (isprimitive("EvolutionChainDetail_chain")) {
-			jsonToValue(&chain, node, "EvolutionChainDetail_chain", "EvolutionChainDetail_chain");
+		if (isprimitive("EvolutionChainLink")) {
+			jsonToValue(&chain, node, "EvolutionChainLink", "EvolutionChainLink");
 		} else {
 			
-			EvolutionChainDetail_chain* obj = static_cast<EvolutionChainDetail_chain*> (&chain);
+			EvolutionChainLink* obj = static_cast<EvolutionChainLink*> (&chain);
 			obj->fromJson(json_to_string(node, false));
 			
 		}
@@ -128,13 +128,13 @@ EvolutionChainDetail::toJson()
 	}
 	const gchar *baby_trigger_itemKey = "baby_trigger_item";
 	json_object_set_member(pJsonObject, baby_trigger_itemKey, node);
-	if (isprimitive("EvolutionChainDetail_chain")) {
-		EvolutionChainDetail_chain obj = getChain();
-		node = converttoJson(&obj, "EvolutionChainDetail_chain", "");
+	if (isprimitive("EvolutionChainLink")) {
+		EvolutionChainLink obj = getChain();
+		node = converttoJson(&obj, "EvolutionChainLink", "");
 	}
 	else {
 		
-		EvolutionChainDetail_chain obj = static_cast<EvolutionChainDetail_chain> (getChain());
+		EvolutionChainLink obj = static_cast<EvolutionChainLink> (getChain());
 		GError *mygerror;
 		mygerror = NULL;
 		node = json_from_string(obj.toJson(), &mygerror);
@@ -174,14 +174,14 @@ EvolutionChainDetail::setBabyTriggerItem(ItemSummary  baby_trigger_item)
 	this->baby_trigger_item = baby_trigger_item;
 }
 
-EvolutionChainDetail_chain
+EvolutionChainLink
 EvolutionChainDetail::getChain()
 {
 	return chain;
 }
 
 void
-EvolutionChainDetail::setChain(EvolutionChainDetail_chain  chain)
+EvolutionChainDetail::setChain(EvolutionChainLink  chain)
 {
 	this->chain = chain;
 }

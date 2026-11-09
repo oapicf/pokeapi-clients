@@ -1,0 +1,198 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server PokemonEvolution"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a PokemonEvolution"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  EvolutionConditionExpression = openapi_server.resourceTypes.EvolutionConditionExpression
+  EvolutionTriggerSummary = openapi_server.resourceTypes.EvolutionTriggerSummary
+  ItemSummary = openapi_server.resourceTypes.ItemSummary
+  LocationSummary = openapi_server.resourceTypes.LocationSummary
+  MoveSummary = openapi_server.resourceTypes.MoveSummary
+  NatureSummary = openapi_server.resourceTypes.NatureSummary
+  PokemonEvolutionKnownMove = openapi_server.resourceTypes.PokemonEvolutionKnownMove
+  PokemonFormSummary = openapi_server.resourceTypes.PokemonFormSummary
+  PokemonSpeciesSummary = openapi_server.resourceTypes.PokemonSpeciesSummary
+  RegionSummary = openapi_server.resourceTypes.RegionSummary
+  TypeSummary = openapi_server.resourceTypes.TypeSummary
+  VersionGroupSummary = openapi_server.resourceTypes.VersionGroupSummary
+}
+resourceTypes {
+
+  PokemonEvolution {
+    title = PokemonEvolution
+    description = PokemonEvolution
+    derivedFrom = Root
+    properties {
+        version_group {
+          type = VersionGroupSummary
+          description = "The version group in which these evolution requirements apply."
+          optional = true
+        }
+        is_default {
+          type =  boolean
+          description = "Whether the evolution is considered as the expected evolution in a main series game. Each unique Pokémon variety of a line capable of evolution should have exactly one &#39;default&#39; evolution. For example, the Meowth species has three default evolutions as there are three distinct varieties it can evolve into: Persian, Alolan Persian, and Perrserker."
+          optional = false
+        }
+        item {
+          type = ItemSummary
+          description = "The item required to cause evolution this into Pokémon species."
+          optional = true
+        }
+        trigger {
+          type = EvolutionTriggerSummary
+          description = "The type of event that triggers evolution into this Pokémon species."
+          optional = true
+        }
+        gender {
+          type =  integer
+          description = "The id of the gender of the evolving Pokémon species must be in order to evolve into this Pokémon species."
+          optional = false
+        }
+        held_item {
+          type = ItemSummary
+          description = "The item the evolving Pokémon species must be holding during the evolution trigger event to evolve into this Pokémon species."
+          optional = true
+        }
+        known_move {
+          type = PokemonEvolutionKnownMove
+          description = ""
+          optional = true
+        }
+        known_move_type {
+          type = PokemonEvolutionKnownMove
+          description = ""
+          optional = true
+        }
+        location {
+          type = LocationSummary
+          description = "The location the evolution must be triggered at."
+          optional = true
+        }
+        min_level {
+          type =  integer
+          description = "The minimum required level of the evolving Pokémon species to evolve into this Pokémon species."
+          optional = false
+        }
+        min_happiness {
+          type =  integer
+          description = "The minimum required level of happiness the evolving Pokémon species to evolve into this Pokémon species."
+          optional = false
+        }
+        min_beauty {
+          type =  integer
+          description = "The minimum required level of beauty the evolving Pokémon species to evolve into this Pokémon species."
+          optional = false
+        }
+        min_affection {
+          type =  integer
+          description = "The minimum required level of affection the evolving Pokémon species to evolve into this Pokémon species."
+          optional = false
+        }
+        near_special_rock {
+          type =  boolean
+          description = "Whether or not you need to be near a Moss Rock or Icy Rock to evolve into this Pokémon species."
+          optional = false
+        }
+        needs_multiplayer {
+          type =  boolean
+          description = "Whether or not multiplayer link play is needed to evolve into this Pokémon species (e.g. Union Circle)."
+          optional = false
+        }
+        needs_overworld_rain {
+          type =  boolean
+          description = "Whether or not it must be raining in the overworld to cause evolution this Pokémon species."
+          optional = false
+        }
+        party_species {
+          type = PokemonSpeciesSummary
+          description = "The Pokémon species that must be in the players party in order for the evolving Pokémon species to evolve into this Pokémon species."
+          optional = true
+        }
+        party_type {
+          type = TypeSummary
+          description = "The player must have a Pokémon of this type in their party during the evolution trigger event in order for the evolving Pokémon species to evolve into this Pokémon species."
+          optional = true
+        }
+        relative_physical_stats {
+          type =  integer
+          description = "The required relation between the Pokémon&#39;s Attack and Defense stats. 1 means Attack &gt; Defense. 0 means Attack &#x3D; Defense. -1 means Attack &lt; Defense."
+          optional = false
+        }
+        time_of_day {
+          type =  string
+          description = "The required time of day. Day or night."
+          optional = false
+        }
+        trade_species {
+          type = PokemonSpeciesSummary
+          description = "Pokémon species for which this one must be traded."
+          optional = true
+        }
+        turn_upside_down {
+          type =  boolean
+          description = "Whether or not the 3DS needs to be turned upside-down as this Pokémon levels up."
+          optional = false
+        }
+        region {
+          type = RegionSummary
+          description = "The required region in which this evolution can occur."
+          optional = true
+        }
+        required_pokemon_form {
+          type = PokemonFormSummary
+          description = "The Pokémon form required before evolving, or null if unrestricted."
+          optional = true
+        }
+        evolved_pokemon_form {
+          type = PokemonFormSummary
+          description = "The Pokémon form produced by this evolution, or null if unspecified."
+          optional = true
+        }
+        used_move {
+          type = MoveSummary
+          description = "The move that must be used by the evolving Pokémon species during the evolution trigger event in order to evolve into this Pokémon species."
+          optional = true
+        }
+        min_move_count {
+          type =  integer
+          description = "The minimum number of times a move must be used in order to evolve into this Pokémon species."
+          optional = false
+        }
+        min_steps {
+          type =  integer
+          description = "The minimum number of steps that must be taken in order to evolve into this Pokémon species."
+          optional = false
+        }
+        min_damage_taken {
+          type =  integer
+          description = "The minimum amount of damage taken during the evolution trigger event in order to evolve into this Pokémon species."
+          optional = false
+        }
+        allowed_natures {
+          type = array
+          items.type = NatureSummary
+          description = "The natures that allow this evolution, or null if unrestricted."
+          optional = true
+        }
+        condition_expression {
+          type = EvolutionConditionExpression
+          description = "An additional evolution condition expressed in reverse Polish notation, or null if none."
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  PokemonEvolution {
+    title = PokemonEvolution
+    description = PokemonEvolution
+    implements = openapi_server.resourceTypes.PokemonEvolution
+
+  }
+}

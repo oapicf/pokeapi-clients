@@ -358,27 +358,9 @@ open class ApiClient(val baseUrl: String, val client: Call.Factory = defaultClie
         }
     }
 
-    protected fun <T> updateAuthParams(requestConfig: RequestConfig<T>) {
-        if (requestConfig.headers[AUTHORIZATION].isNullOrEmpty()) {
-            val (user, passw) = userCredentialsProvider()
-            user?.let { user ->
-                passw?.let { passw ->
-                    requestConfig.headers[AUTHORIZATION] = okhttp3.Credentials.basic(user, passw)
-                }
-            }
-        }
-            if (apiKey["sessionid"] != null) {
-                if (apiKeyPrefix["sessionid"] != null) {
-                } else {
-                }
-            }
-    }
 
     protected inline fun <reified I, reified T: Any?> request(requestConfig: RequestConfig<I>): ApiResponse<T?> {
         val httpUrl = baseUrl.toHttpUrlOrNull() ?: throw IllegalStateException("baseUrl is invalid.")
-
-        // take authMethod from operation
-        updateAuthParams(requestConfig)
 
         val url = httpUrl.newBuilder()
             .addEncodedPathSegments(requestConfig.path.trimStart('/'))

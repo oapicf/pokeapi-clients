@@ -8,13 +8,18 @@
 import Foundation
 
 public struct MoveLearnMethodDetail: Codable {
+    /// The identifier for this resource.
     public var id: Int
+    /// The name for this resource.
     public var name: String
+    /// The name of this resource listed in different languages.
     public var names: [MoveLearnMethodName]
+    /// The description of this resource listed in different languages.
     public var descriptions: [MoveLearnMethodDescription]
-    public var versionGroups: [AbilityDetailPokemonInnerPokemon]
+    /// A list of version groups where moves can be learned through this method.
+    public var versionGroups: [VersionGroupSummary]
 
-    public init(id: Int, name: String, names: [MoveLearnMethodName], descriptions: [MoveLearnMethodDescription], versionGroups: [AbilityDetailPokemonInnerPokemon]) {
+    public init(id: Int, name: String, names: [MoveLearnMethodName], descriptions: [MoveLearnMethodDescription], versionGroups: [VersionGroupSummary]) {
         self.id = id
         self.name = name
         self.names = names
@@ -36,7 +41,7 @@ public struct MoveLearnMethodDetail: Codable {
         name = try container.decode(String.self, forKey: .name)
         names = try container.decode([MoveLearnMethodName].self, forKey: .names)
         descriptions = try container.decode([MoveLearnMethodDescription].self, forKey: .descriptions)
-        versionGroups = try container.decode([AbilityDetailPokemonInnerPokemon].self, forKey: .versionGroups)
+        versionGroups = try container.decode([VersionGroupSummary].self, forKey: .versionGroups)
     }
 
     public func encode(to encoder: Encoder) throws {

@@ -73,7 +73,7 @@ void pal_park_area_detail_free(pal_park_area_detail_t *pal_park_area_detail) {
     }
     if (pal_park_area_detail->pokemon_encounters) {
         list_ForEach(listEntry, pal_park_area_detail->pokemon_encounters) {
-            pal_park_area_detail_pokemon_encounters_inner_free(listEntry->data);
+            pal_park_encounter_free(listEntry->data);
         }
         list_freeList(pal_park_area_detail->pokemon_encounters);
         pal_park_area_detail->pokemon_encounters = NULL;
@@ -135,7 +135,7 @@ cJSON *pal_park_area_detail_convertToJSON(pal_park_area_detail_t *pal_park_area_
     listEntry_t *pokemon_encountersListEntry;
     if (pal_park_area_detail->pokemon_encounters) {
     list_ForEach(pokemon_encountersListEntry, pal_park_area_detail->pokemon_encounters) {
-    cJSON *itemLocal = pal_park_area_detail_pokemon_encounters_inner_convertToJSON(pokemon_encountersListEntry->data);
+    cJSON *itemLocal = pal_park_encounter_convertToJSON(pokemon_encountersListEntry->data);
     if(itemLocal == NULL) {
     goto fail;
     }
@@ -251,7 +251,7 @@ pal_park_area_detail_t *pal_park_area_detail_parseFromJSON(cJSON *pal_park_area_
         if(!cJSON_IsObject(pokemon_encounters_local_nonprimitive)){
             goto end;
         }
-        pal_park_area_detail_pokemon_encounters_inner_t *pokemon_encountersItem = pal_park_area_detail_pokemon_encounters_inner_parseFromJSON(pokemon_encounters_local_nonprimitive);
+        pal_park_encounter_t *pokemon_encountersItem = pal_park_encounter_parseFromJSON(pokemon_encounters_local_nonprimitive);
 
         list_addElement(pokemon_encountersList, pokemon_encountersItem);
     }
@@ -292,7 +292,7 @@ end:
     if (pokemon_encountersList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, pokemon_encountersList) {
-            pal_park_area_detail_pokemon_encounters_inner_free(listEntry->data);
+            pal_park_encounter_free(listEntry->data);
             listEntry->data = NULL;
         }
         list_freeList(pokemon_encountersList);

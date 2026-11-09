@@ -6,8 +6,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.vertxweb.server.model.AbilityDetailPokemonInnerPokemon;
 import org.openapitools.vertxweb.server.model.MoveMetaCategoryDescription;
+import org.openapitools.vertxweb.server.model.MoveSummary;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class MoveMetaCategoryDetail   {
@@ -15,13 +15,13 @@ public class MoveMetaCategoryDetail   {
   private Integer id;
   private String name;
   private List<MoveMetaCategoryDescription> descriptions = new ArrayList<>();
-  private List<AbilityDetailPokemonInnerPokemon> moves = new ArrayList<>();
+  private List<MoveSummary> moves = new ArrayList<>();
 
   public MoveMetaCategoryDetail () {
 
   }
 
-  public MoveMetaCategoryDetail (Integer id, String name, List<MoveMetaCategoryDescription> descriptions, List<AbilityDetailPokemonInnerPokemon> moves) {
+  public MoveMetaCategoryDetail (Integer id, String name, List<MoveMetaCategoryDescription> descriptions, List<MoveSummary> moves) {
     this.id = id;
     this.name = name;
     this.descriptions = descriptions;
@@ -57,10 +57,10 @@ public class MoveMetaCategoryDetail   {
 
     
   @JsonProperty("moves")
-  public List<AbilityDetailPokemonInnerPokemon> getMoves() {
+  public List<MoveSummary> getMoves() {
     return moves;
   }
-  public void setMoves(List<AbilityDetailPokemonInnerPokemon> moves) {
+  public void setMoves(List<MoveSummary> moves) {
     this.moves = moves;
   }
 

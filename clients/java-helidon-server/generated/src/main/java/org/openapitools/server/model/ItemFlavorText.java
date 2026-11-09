@@ -23,9 +23,9 @@ public class ItemFlavorText   {
     /**
      * Create ItemFlavorText.
      *
-     * @param text text
-     * @param versionGroup versionGroup
-     * @param language language
+     * @param text The localized flavor text for an API resource in a specific language.
+     * @param versionGroup The version group which uses this flavor text.
+     * @param language The language this name is in.
      */
     public ItemFlavorText(
         String text, 
@@ -40,7 +40,7 @@ public class ItemFlavorText   {
 
 
     /**
-     * Get text
+     * The localized flavor text for an API resource in a specific language.
      * @return text
      */
     public String getText() {
@@ -52,7 +52,7 @@ public class ItemFlavorText   {
     }
 
     /**
-     * Get versionGroup
+     * The version group which uses this flavor text.
      * @return versionGroup
      */
     public VersionGroupSummary getVersionGroup() {
@@ -64,7 +64,7 @@ public class ItemFlavorText   {
     }
 
     /**
-     * Get language
+     * The language this name is in.
      * @return language
      */
     public LanguageSummary getLanguage() {

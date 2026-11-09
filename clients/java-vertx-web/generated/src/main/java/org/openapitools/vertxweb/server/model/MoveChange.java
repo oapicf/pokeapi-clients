@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
-import org.openapitools.vertxweb.server.model.MoveChangeEffectEntriesInner;
+import org.openapitools.vertxweb.server.model.MoveEffectEffectText;
 import org.openapitools.vertxweb.server.model.TypeSummary;
 import org.openapitools.vertxweb.server.model.VersionGroupSummary;
 
@@ -18,7 +18,7 @@ public class MoveChange   {
   private Integer power;
   private Integer pp;
   private Integer effectChance;
-  private List<MoveChangeEffectEntriesInner> effectEntries = new ArrayList<>();
+  private List<MoveEffectEffectText> effectEntries = new ArrayList<>();
   private TypeSummary type;
   private VersionGroupSummary versionGroup;
 
@@ -26,7 +26,7 @@ public class MoveChange   {
 
   }
 
-  public MoveChange (Integer accuracy, Integer power, Integer pp, Integer effectChance, List<MoveChangeEffectEntriesInner> effectEntries, TypeSummary type, VersionGroupSummary versionGroup) {
+  public MoveChange (Integer accuracy, Integer power, Integer pp, Integer effectChance, List<MoveEffectEffectText> effectEntries, TypeSummary type, VersionGroupSummary versionGroup) {
     this.accuracy = accuracy;
     this.power = power;
     this.pp = pp;
@@ -74,10 +74,10 @@ public class MoveChange   {
 
     
   @JsonProperty("effect_entries")
-  public List<MoveChangeEffectEntriesInner> getEffectEntries() {
+  public List<MoveEffectEffectText> getEffectEntries() {
     return effectEntries;
   }
-  public void setEffectEntries(List<MoveChangeEffectEntriesInner> effectEntries) {
+  public void setEffectEntries(List<MoveEffectEffectText> effectEntries) {
     this.effectEntries = effectEntries;
   }
 

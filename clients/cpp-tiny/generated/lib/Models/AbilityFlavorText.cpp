@@ -7,8 +7,8 @@ using namespace Tiny;
 AbilityFlavorText::AbilityFlavorText()
 {
 	flavor_text = std::string();
-	language = LanguageSummary();
-	version_group = VersionGroupSummary();
+	language = null;
+	version_group = null;
 }
 
 AbilityFlavorText::AbilityFlavorText(std::string jsonString)

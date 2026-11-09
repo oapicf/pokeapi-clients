@@ -4,10 +4,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** |  | [readonly] 
-**name** | **str** |  | 
-**categories** | [**List[ItemCategorySummary]**](ItemCategorySummary.md) |  | [readonly] 
-**names** | [**List[ItemPocketName]**](ItemPocketName.md) |  | [readonly] 
+**id** | **int** | The identifier for this resource. | [readonly] 
+**name** | **str** | The name for this resource. | 
+**categories** | [**List[ItemCategorySummary]**](ItemCategorySummary.md) | A list of item categories that are relevant to this item pocket. | [readonly] 
+**names** | [**List[ItemPocketName]**](ItemPocketName.md) | The name of this resource listed in different languages. | [readonly] 
 
 ## Example
 

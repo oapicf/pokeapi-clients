@@ -2,8 +2,10 @@ package controllers;
 
 import apimodels.EvolutionChainDetail;
 import apimodels.EvolutionTriggerDetail;
+import apimodels.EvolutionVariableDetail;
 import apimodels.PaginatedEvolutionChainSummaryList;
 import apimodels.PaginatedEvolutionTriggerSummaryList;
+import apimodels.PaginatedEvolutionVariableSummaryList;
 
 import com.typesafe.config.Config;
 import play.mvc.Controller;
@@ -27,7 +29,7 @@ import com.typesafe.config.Config;
 
 import openapitools.OpenAPIUtils.ApiAction;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-10-25T05:48:13.486809836Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-11-09T13:49:31.462302702Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class EvolutionApiController extends Controller {
     private final EvolutionApiControllerImpInterface imp;
     private final ObjectMapper mapper;
@@ -56,14 +58,7 @@ public class EvolutionApiController extends Controller {
         } else {
             offset = null;
         }
-        String valueq = request.getQueryString("q");
-        String q;
-        if (valueq != null) {
-            q = valueq;
-        } else {
-            q = null;
-        }
-        return imp.evolutionChainListHttp(request, limit, offset, q);
+        return imp.evolutionChainListHttp(request, limit, offset);
     }
 
     @ApiAction
@@ -100,6 +95,37 @@ public class EvolutionApiController extends Controller {
     @ApiAction
     public Result evolutionTriggerRetrieve(Http.Request request, String id) throws Exception {
         return imp.evolutionTriggerRetrieveHttp(request, id);
+    }
+
+    @ApiAction
+    public Result evolutionVariableList(Http.Request request) throws Exception {
+        String valuelimit = request.getQueryString("limit");
+        Integer limit;
+        if (valuelimit != null) {
+            limit = Integer.parseInt(valuelimit);
+        } else {
+            limit = null;
+        }
+        String valueoffset = request.getQueryString("offset");
+        Integer offset;
+        if (valueoffset != null) {
+            offset = Integer.parseInt(valueoffset);
+        } else {
+            offset = null;
+        }
+        String valueq = request.getQueryString("q");
+        String q;
+        if (valueq != null) {
+            q = valueq;
+        } else {
+            q = null;
+        }
+        return imp.evolutionVariableListHttp(request, limit, offset, q);
+    }
+
+    @ApiAction
+    public Result evolutionVariableRetrieve(Http.Request request, String id) throws Exception {
+        return imp.evolutionVariableRetrieveHttp(request, id);
     }
 
 }

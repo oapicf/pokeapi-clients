@@ -123,8 +123,6 @@ pub enum MoveTargetRetrieveResponse {
 #[async_trait]
 #[allow(clippy::ptr_arg)]
 pub trait Moves<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorHandler<E> {
-    type Claims;
-
     /// List move meta ailments.
     ///
     /// MoveAilmentList - GET /api/v2/move-ailment/
@@ -134,7 +132,6 @@ pub trait Moves<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorHa
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       query_params: &models::MoveAilmentListQueryParams,
     ) -> Result<MoveAilmentListResponse, E>;
 
@@ -147,7 +144,6 @@ pub trait Moves<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorHa
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       path_params: &models::MoveAilmentRetrievePathParams,
     ) -> Result<MoveAilmentRetrieveResponse, E>;
 
@@ -160,7 +156,6 @@ pub trait Moves<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorHa
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       query_params: &models::MoveBattleStyleListQueryParams,
     ) -> Result<MoveBattleStyleListResponse, E>;
 
@@ -173,7 +168,6 @@ pub trait Moves<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorHa
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       path_params: &models::MoveBattleStyleRetrievePathParams,
     ) -> Result<MoveBattleStyleRetrieveResponse, E>;
 
@@ -186,7 +180,6 @@ pub trait Moves<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorHa
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       query_params: &models::MoveCategoryListQueryParams,
     ) -> Result<MoveCategoryListResponse, E>;
 
@@ -199,7 +192,6 @@ pub trait Moves<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorHa
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       path_params: &models::MoveCategoryRetrievePathParams,
     ) -> Result<MoveCategoryRetrieveResponse, E>;
 
@@ -212,7 +204,6 @@ pub trait Moves<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorHa
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       query_params: &models::MoveLearnMethodListQueryParams,
     ) -> Result<MoveLearnMethodListResponse, E>;
 
@@ -225,7 +216,6 @@ pub trait Moves<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorHa
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       path_params: &models::MoveLearnMethodRetrievePathParams,
     ) -> Result<MoveLearnMethodRetrieveResponse, E>;
 
@@ -238,7 +228,6 @@ pub trait Moves<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorHa
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       query_params: &models::MoveListQueryParams,
     ) -> Result<MoveListResponse, E>;
 
@@ -251,7 +240,6 @@ pub trait Moves<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorHa
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       path_params: &models::MoveRetrievePathParams,
     ) -> Result<MoveRetrieveResponse, E>;
 
@@ -264,7 +252,6 @@ pub trait Moves<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorHa
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       query_params: &models::MoveTargetListQueryParams,
     ) -> Result<MoveTargetListResponse, E>;
 
@@ -277,7 +264,6 @@ pub trait Moves<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorHa
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       path_params: &models::MoveTargetRetrievePathParams,
     ) -> Result<MoveTargetRetrieveResponse, E>;
 }

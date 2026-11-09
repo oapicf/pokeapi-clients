@@ -10,6 +10,7 @@ class_name PokemonDexEntry
 # PokemonDexEntry Model
 
 
+# The index number within the Pokédex.
 # Required: True
 # isArray: false
 @export var entryUnderscorenumber: int:
@@ -18,6 +19,7 @@ class_name PokemonDexEntry
 		entryUnderscorenumber = value
 var __entryUnderscorenumber__was__set := false
 
+# The Pokédex the referenced Pokémon species can be found in.
 # Required: True
 # isArray: false
 @export var pokedex: PokedexSummary:

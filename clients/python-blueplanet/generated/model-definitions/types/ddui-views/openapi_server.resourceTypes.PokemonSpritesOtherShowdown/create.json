@@ -1,0 +1,24 @@
+{
+  "type": "form",
+  "version": "2.0",
+  "cells": [{
+    "label": "General",
+    "children": [
+      {"model": "label"},
+      {"model": "description"}
+    ]
+  },{
+    "label": "Details",
+    "model": "properties",
+    "children": [
+      {"model": "front_default" },
+      {"model": "front_female" },
+      {"model": "front_shiny" },
+      {"model": "front_shiny_female" },
+      {"model": "back_default" },
+      {"model": "back_female" },
+      {"model": "back_shiny" },
+      {"model": "back_shiny_female" },
+    ]
+  }]
+}

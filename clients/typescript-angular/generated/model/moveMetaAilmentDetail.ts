@@ -7,14 +7,26 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { AbilityDetailPokemonInnerPokemon } from './abilityDetailPokemonInnerPokemon';
+import { MoveSummary } from './moveSummary';
 import { MoveMetaAilmentName } from './moveMetaAilmentName';
 
 
 export interface MoveMetaAilmentDetail { 
+    /**
+     * The identifier for this resource.
+     */
     readonly id: number;
+    /**
+     * The name for this resource.
+     */
     name: string;
-    readonly moves: Array<AbilityDetailPokemonInnerPokemon>;
+    /**
+     * A list of moves that cause this ailment.
+     */
+    readonly moves: Array<MoveSummary>;
+    /**
+     * The name of this resource listed in different languages.
+     */
     readonly names: Array<MoveMetaAilmentName>;
 }
 

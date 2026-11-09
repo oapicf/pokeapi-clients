@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="MachineList"></a>
 # **MachineList**
-> PaginatedMachineSummaryList MachineList(limit, offset, q)
+> PaginatedMachineSummaryList MachineList(limit, offset)
 
 List machines
 

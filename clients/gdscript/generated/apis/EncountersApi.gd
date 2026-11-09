@@ -98,7 +98,7 @@ func encounter_condition_list_threaded(
 #
 # Conditions which affect what pokemon might appear in the wild, e.g., day or night.
 func encounter_condition_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -138,7 +138,7 @@ func encounter_condition_retrieve(
 
 
 func encounter_condition_retrieve_threaded(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -239,7 +239,7 @@ func encounter_condition_value_list_threaded(
 #
 # Encounter condition values are the various states that an encounter condition can have, i.e., time of day can be either day or night.
 func encounter_condition_value_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -279,7 +279,7 @@ func encounter_condition_value_retrieve(
 
 
 func encounter_condition_value_retrieve_threaded(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -380,7 +380,7 @@ func encounter_method_list_threaded(
 #
 # Methods by which the player might can encounter Pokémon in the wild, e.g., walking in tall grass. Check out Bulbapedia for greater detail.
 func encounter_method_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -420,7 +420,7 @@ func encounter_method_retrieve(
 
 
 func encounter_method_retrieve_threaded(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)

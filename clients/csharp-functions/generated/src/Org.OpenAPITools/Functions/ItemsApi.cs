@@ -17,6 +17,24 @@ namespace Org.OpenAPITools.Functions
 { 
     public partial class ItemsApi
     { 
+        [FunctionName("ItemsApi_CurrencyList")]
+        public async Task<ActionResult<PaginatedCurrencySummaryList>> _CurrencyList([HttpTrigger(AuthorizationLevel.Anonymous, "Get", Route = "api/v2/currency/")]HttpRequest req, ExecutionContext context)
+        {
+            var method = this.GetType().GetMethod("CurrencyList");
+            return method != null
+                ? (await ((Task<PaginatedCurrencySummaryList>)method.Invoke(this, new object[] { req, context })).ConfigureAwait(false))
+                : new StatusCodeResult((int)HttpStatusCode.NotImplemented);
+        }
+
+        [FunctionName("ItemsApi_CurrencyRetrieve")]
+        public async Task<ActionResult<CurrencyDetail>> _CurrencyRetrieve([HttpTrigger(AuthorizationLevel.Anonymous, "Get", Route = "api/v2/currency/{id}/")]HttpRequest req, ExecutionContext context, string id)
+        {
+            var method = this.GetType().GetMethod("CurrencyRetrieve");
+            return method != null
+                ? (await ((Task<CurrencyDetail>)method.Invoke(this, new object[] { req, context, id })).ConfigureAwait(false))
+                : new StatusCodeResult((int)HttpStatusCode.NotImplemented);
+        }
+
         [FunctionName("ItemsApi_ItemAttributeList")]
         public async Task<ActionResult<PaginatedItemAttributeSummaryList>> _ItemAttributeList([HttpTrigger(AuthorizationLevel.Anonymous, "Get", Route = "api/v2/item-attribute/")]HttpRequest req, ExecutionContext context)
         {

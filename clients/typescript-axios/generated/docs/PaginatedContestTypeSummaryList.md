@@ -5,10 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**count** | **number** |  | [optional] [default to undefined]
-**next** | **string** |  | [optional] [default to undefined]
-**previous** | **string** |  | [optional] [default to undefined]
-**results** | [**Array&lt;ContestTypeSummary&gt;**](ContestTypeSummary.md) |  | [optional] [default to undefined]
+**count** | **number** | The total number of resources available from this API. | [default to undefined]
+**next** | **string** | The URL for the next page in the list, or null if there is no next page. | [optional] [default to undefined]
+**previous** | **string** | The URL for the previous page in the list, or null if there is no previous page. | [optional] [default to undefined]
+**results** | [**Array&lt;ContestTypeSummary&gt;**](ContestTypeSummary.md) | A list of API resources on this page. | [default to undefined]
 
 ## Example
 

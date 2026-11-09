@@ -11,17 +11,18 @@ type PokemonDetail struct {
 	IsDefault bool `json:"is_default,omitempty"`
 	Order int32 `json:"order,omitempty"`
 	Weight int32 `json:"weight,omitempty"`
-	Abilities []PokemonDetailAbilitiesInner `json:"abilities"`
-	PastAbilities []PokemonDetailPastAbilitiesInner `json:"past_abilities"`
+	Abilities []PokemonAbility `json:"abilities"`
+	PastAbilities []PokemonPastAbility `json:"past_abilities"`
 	Forms []PokemonFormSummary `json:"forms"`
 	GameIndices []PokemonGameIndex `json:"game_indices"`
-	HeldItems PokemonDetailHeldItems `json:"held_items"`
+	HeldItems []PokemonHeldItemSummary `json:"held_items"`
 	LocationAreaEncounters string `json:"location_area_encounters"`
-	Moves []PokemonDetailMovesInner `json:"moves"`
+	Moves []PokemonMove `json:"moves"`
 	Species PokemonSpeciesSummary `json:"species"`
-	Sprites PokemonDetailSprites `json:"sprites"`
-	Cries PokemonDetailCries `json:"cries"`
+	Sprites PokemonSprites `json:"sprites"`
+	Cries PokemonCries `json:"cries"`
 	Stats []PokemonStat `json:"stats"`
-	Types []PokemonDetailTypesInner `json:"types"`
-	PastTypes []PokemonDetailPastTypesInner `json:"past_types"`
+	PastStats []PokemonPastStat `json:"past_stats"`
+	Types []PokemonType `json:"types"`
+	PastTypes []PokemonPastType `json:"past_types"`
 }

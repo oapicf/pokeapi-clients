@@ -1,6 +1,6 @@
 package org.openapitools.model;
 
-import org.openapitools.model.PokeathlonStatDetailAffectingNatures;
+import org.openapitools.model.PokeathlonStatAffectingNatures;
 import org.openapitools.model.PokeathlonStatName;
 import java.util.*;
 import java.util.Objects;
@@ -14,20 +14,32 @@ import java.math.*;
 public class PokeathlonStatDetail implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * The identifier for this resource.
+   */
   @JsonProperty("id")
   private Integer id;
 
+  /**
+   * The name for this resource.
+   */
   @JsonProperty("name")
   private String name;
 
+  /**
+   * A detail of natures which affect this Pokéathlon stat positively or negatively.
+   */
   @JsonProperty("affecting_natures")
-  private PokeathlonStatDetailAffectingNatures affectingNatures;
+  private PokeathlonStatAffectingNatures affectingNatures;
 
+  /**
+   * The name of this resource listed in different languages.
+   */
   @JsonProperty("names")
   private List<PokeathlonStatName> names = new ArrayList<>();
 
   /**
-   * 
+   * The identifier for this resource.
    * @return id
    */
   public Integer getId() {
@@ -39,7 +51,7 @@ public class PokeathlonStatDetail implements Serializable {
   }
 
   /**
-   * 
+   * The name for this resource.
    * @return name
    */
   public String getName() {
@@ -51,19 +63,19 @@ public class PokeathlonStatDetail implements Serializable {
   }
 
   /**
-   * 
+   * A detail of natures which affect this Pokéathlon stat positively or negatively.
    * @return affectingNatures
    */
-  public PokeathlonStatDetailAffectingNatures getAffectingNatures() {
+  public PokeathlonStatAffectingNatures getAffectingNatures() {
     return affectingNatures;
   }
 
-  public void setAffectingNatures(PokeathlonStatDetailAffectingNatures affectingNatures) {
+  public void setAffectingNatures(PokeathlonStatAffectingNatures affectingNatures) {
     this.affectingNatures = affectingNatures;
   }
 
   /**
-   * 
+   * The name of this resource listed in different languages.
    * @return names
    */
   public List<PokeathlonStatName> getNames() {

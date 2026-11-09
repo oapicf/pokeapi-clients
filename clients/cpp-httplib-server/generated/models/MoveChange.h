@@ -10,7 +10,7 @@
 #include <optional>
 #include <cstdint>
 #include <vector>
-#include "MoveChangeEffectEntriesInner.h"
+#include "MoveEffectEffectText.h"
 #include "TypeSummary.h"
 #include "VersionGroupSummary.h"
 
@@ -35,8 +35,8 @@ public:
     void setPp(const int& pp);
     [[nodiscard]] int getEffectChance() const;
     void setEffectChance(const int& effectChance);
-    [[nodiscard]] std::vector<MoveChange_effect_entries_inner> getEffectEntries() const;
-    void setEffectEntries(const std::vector<MoveChange_effect_entries_inner>& effectEntries);
+    [[nodiscard]] std::vector<MoveEffectEffectText> getEffectEntries() const;
+    void setEffectEntries(const std::vector<MoveEffectEffectText>& effectEntries);
     [[nodiscard]] TypeSummary getType() const;
     void setType(const TypeSummary& type);
     [[nodiscard]] VersionGroupSummary getVersionGroup() const;
@@ -52,7 +52,7 @@ private:
     int power;
     int pp;
     int effectChance;
-    std::vector<MoveChange_effect_entries_inner> effectEntries;
+    std::vector<MoveEffectEffectText> effectEntries;
     TypeSummary type;
     VersionGroupSummary versionGroup;
 };

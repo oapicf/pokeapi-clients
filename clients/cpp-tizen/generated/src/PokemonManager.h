@@ -55,7 +55,7 @@ public:
 	PokemonManager();
 	virtual ~PokemonManager();
 
-/*! \brief . *Synchronous*
+/*! \brief List abilities. *Synchronous*
  *
  * Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
  * \param limit Number of results to return per page.
@@ -70,7 +70,7 @@ bool abilityListSync(char * accessToken,
 	void(* handler)(PaginatedAbilitySummaryList, Error, void* )
 	, void* userData);
 
-/*! \brief . *Asynchronous*
+/*! \brief List abilities. *Asynchronous*
  *
  * Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
  * \param limit Number of results to return per page.
@@ -86,7 +86,7 @@ bool abilityListAsync(char * accessToken,
 	, void* userData);
 
 
-/*! \brief . *Synchronous*
+/*! \brief Get ability. *Synchronous*
  *
  * Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
  * \param id This parameter can be a string or an integer. *Required*
@@ -99,7 +99,7 @@ bool abilityRetrieveSync(char * accessToken,
 	void(* handler)(AbilityDetail, Error, void* )
 	, void* userData);
 
-/*! \brief . *Asynchronous*
+/*! \brief Get ability. *Asynchronous*
  *
  * Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
  * \param id This parameter can be a string or an integer. *Required*
@@ -113,33 +113,31 @@ bool abilityRetrieveAsync(char * accessToken,
 	, void* userData);
 
 
-/*! \brief List charecterictics. *Synchronous*
+/*! \brief List characteristics. *Synchronous*
  *
  * Characteristics indicate which stat contains a Pokémon's highest IV. A Pokémon's Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail.
  * \param limit Number of results to return per page.
  * \param offset The initial index from which to return the results.
- * \param q > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
  * \param handler The callback function to be invoked on completion. *Required*
  * \param accessToken The Authorization token. *Required*
  * \param userData The user data to be passed to the callback function.
  */
 bool characteristicListSync(char * accessToken,
-	int limit, int offset, std::string q, 
+	int limit, int offset, 
 	void(* handler)(PaginatedCharacteristicSummaryList, Error, void* )
 	, void* userData);
 
-/*! \brief List charecterictics. *Asynchronous*
+/*! \brief List characteristics. *Asynchronous*
  *
  * Characteristics indicate which stat contains a Pokémon's highest IV. A Pokémon's Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail.
  * \param limit Number of results to return per page.
  * \param offset The initial index from which to return the results.
- * \param q > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
  * \param handler The callback function to be invoked on completion. *Required*
  * \param accessToken The Authorization token. *Required*
  * \param userData The user data to be passed to the callback function.
  */
 bool characteristicListAsync(char * accessToken,
-	int limit, int offset, std::string q, 
+	int limit, int offset, 
 	void(* handler)(PaginatedCharacteristicSummaryList, Error, void* )
 	, void* userData);
 

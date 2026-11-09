@@ -23,9 +23,9 @@
 
 package org.openapitools.client.models
 
-import org.openapitools.client.models.AbilityDetailPokemonInnerPokemon
 import org.openapitools.client.models.ItemAttributeDescription
 import org.openapitools.client.models.ItemAttributeName
+import org.openapitools.client.models.ItemSummary
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -33,28 +33,33 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param id 
- * @param name 
- * @param descriptions 
- * @param items 
- * @param names 
+ * @param id The identifier for this resource.
+ * @param name The name for this resource.
+ * @param descriptions The description of this item attribute listed in different languages.
+ * @param items A list of items that have this attribute.
+ * @param names The name of this item attribute listed in different languages.
  */
 
 
 data class ItemAttributeDetail (
 
+    /* The identifier for this resource. */
     @Json(name = "id")
     val id: kotlin.Int,
 
+    /* The name for this resource. */
     @Json(name = "name")
     val name: kotlin.String,
 
+    /* The description of this item attribute listed in different languages. */
     @Json(name = "descriptions")
     val descriptions: kotlin.collections.List<ItemAttributeDescription>,
 
+    /* A list of items that have this attribute. */
     @Json(name = "items")
-    val items: kotlin.collections.List<AbilityDetailPokemonInnerPokemon>,
+    val items: kotlin.collections.List<ItemSummary>,
 
+    /* The name of this item attribute listed in different languages. */
     @Json(name = "names")
     val names: kotlin.collections.List<ItemAttributeName>
 

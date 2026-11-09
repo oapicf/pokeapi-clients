@@ -16,18 +16,18 @@ import io.swagger.v3.oas.annotations.media.Schema
 
 /**
  * 
- * @param language 
- * @param description 
+ * @param language The language this name is in.
+ * @param description The localized description for an API resource in a specific language.
  */
 data class MoveDamageClassDescription(
 
     @field:Valid
-    @Schema(required = true, description = "")
+    @Schema(required = true, description = "The language this name is in.")
     @param:JsonProperty("language", required = true)
     @get:JsonProperty("language", required = true) val language: LanguageSummary,
 
-    @get:Size(max=1000)
-    @Schema(description = "")
+    @get:Size(max=2000)
+    @Schema(description = "The localized description for an API resource in a specific language.")
     @param:JsonProperty("description")
     @get:JsonProperty("description") val description: kotlin.String? = null
 ) {

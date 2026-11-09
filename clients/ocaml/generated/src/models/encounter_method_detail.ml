@@ -15,23 +15,27 @@
                 
                 
                 ; [@key "id"]
-                                              name: string
+                    (** The identifier for this resource. *)
+                                      name: string
                   
                   
                 
                 
                 ; [@key "name"]
-                                              order: int32
+                    (** The name for this resource. *)
+                                      order: int32
                   
                    option [@default None]
                 
                 
                 ; [@key "order"]
-                                              names: Encounter_method_name.t list
+                    (** A good value for sorting. *)
+                                      names: Encounter_method_name.t list
                 
                 
                 ; [@key "names"]
-                        } [@@deriving yojson { strict = false }, show, eq ];;
+                    (** The name of this resource listed in different languages. *)
+                } [@@deriving yojson { strict = false }, show, eq ];;
         
         let create (id : int32) (name : string) (names : Encounter_method_name.t list) : t = {
             id = id;

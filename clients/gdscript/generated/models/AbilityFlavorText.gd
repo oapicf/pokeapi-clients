@@ -10,6 +10,7 @@ class_name AbilityFlavorText
 # AbilityFlavorText Model
 
 
+# The localized name for an API resource in a specific language.
 # Required: True
 # isArray: false
 @export var flavorUnderscoretext: String:
@@ -18,6 +19,7 @@ class_name AbilityFlavorText
 		flavorUnderscoretext = value
 var __flavorUnderscoretext__was__set := false
 
+# The language this text resource is in.
 # Required: True
 # isArray: false
 @export var language: LanguageSummary:
@@ -26,6 +28,7 @@ var __flavorUnderscoretext__was__set := false
 		language = value
 var __language__was__set := false
 
+# The version group that uses this flavor text.
 # Required: True
 # isArray: false
 @export var versionUnderscoregroup: VersionGroupSummary:

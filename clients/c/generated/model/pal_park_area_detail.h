@@ -15,8 +15,8 @@
 
 typedef struct pal_park_area_detail_t pal_park_area_detail_t;
 
-#include "pal_park_area_detail_pokemon_encounters_inner.h"
 #include "pal_park_area_name.h"
+#include "pal_park_encounter.h"
 
 
 

@@ -1,6 +1,6 @@
 const utils = require('../utils/utils');
-const BerryDetail_flavors_inner = require('../models/BerryDetail_flavors_inner');
 const BerryFirmnessSummary = require('../models/BerryFirmnessSummary');
+const BerryFlavorMap = require('../models/BerryFlavorMap');
 const ItemSummary = require('../models/ItemSummary');
 const TypeSummary = require('../models/TypeSummary');
 
@@ -10,57 +10,51 @@ module.exports = {
         return [
             {
                 key: `${keyPrefix}id`,
-                label: `[${labelPrefix}id]`,
+                label: `The identifier for this resource. - [${labelPrefix}id]`,
                 required: true,
                 type: 'integer',
             },
             {
                 key: `${keyPrefix}name`,
-                label: `[${labelPrefix}name]`,
+                label: `The name for this resource. - [${labelPrefix}name]`,
                 required: true,
                 type: 'string',
             },
             {
                 key: `${keyPrefix}growth_time`,
-                label: `[${labelPrefix}growth_time]`,
-                required: true,
+                label: `Time it takes the tree to grow one stage, in hours. Berry trees go through four of these growth stages before they can be picked. - [${labelPrefix}growth_time]`,
                 type: 'integer',
             },
             {
                 key: `${keyPrefix}max_harvest`,
-                label: `[${labelPrefix}max_harvest]`,
-                required: true,
+                label: `The maximum number of these berries that can grow on one tree in Generation IV. - [${labelPrefix}max_harvest]`,
                 type: 'integer',
             },
             {
                 key: `${keyPrefix}natural_gift_power`,
-                label: `[${labelPrefix}natural_gift_power]`,
-                required: true,
+                label: `The power of the move \"Natural Gift\" when used with this Berry. - [${labelPrefix}natural_gift_power]`,
                 type: 'integer',
             },
             {
                 key: `${keyPrefix}size`,
-                label: `[${labelPrefix}size]`,
-                required: true,
+                label: `The size of this Berry, in millimeters. - [${labelPrefix}size]`,
                 type: 'integer',
             },
             {
                 key: `${keyPrefix}smoothness`,
-                label: `[${labelPrefix}smoothness]`,
-                required: true,
+                label: `The smoothness of this Berry, used in making Pokéblocks or Poffins. - [${labelPrefix}smoothness]`,
                 type: 'integer',
             },
             {
                 key: `${keyPrefix}soil_dryness`,
-                label: `[${labelPrefix}soil_dryness]`,
-                required: true,
+                label: `The speed at which this Berry dries out the soil as it grows. A higher rate means the soil dries more quickly. - [${labelPrefix}soil_dryness]`,
                 type: 'integer',
             },
             ...BerryFirmnessSummary.fields(`${keyPrefix}firmness`, isInput),
             {
                 key: `${keyPrefix}flavors`,
                 label: `[${labelPrefix}flavors]`,
-                children: BerryDetail_flavors_inner.fields(`${keyPrefix}flavors${!isInput ? '[]' : ''}`, isInput, true), 
+                children: BerryFlavorMap.fields(`${keyPrefix}flavors${!isInput ? '[]' : ''}`, isInput, true), 
             },
             ...ItemSummary.fields(`${keyPrefix}item`, isInput),
             ...TypeSummary.fields(`${keyPrefix}natural_gift_type`, isInput),
@@ -78,7 +72,7 @@ module.exports = {
             'smoothness': bundle.inputData?.[`${keyPrefix}smoothness`],
             'soil_dryness': bundle.inputData?.[`${keyPrefix}soil_dryness`],
             'firmness': utils.removeIfEmpty(BerryFirmnessSummary.mapping(bundle, `${keyPrefix}firmness`)),
-            'flavors': utils.childMapping(bundle.inputData?.[`${keyPrefix}flavors`], `${keyPrefix}flavors`, BerryDetail_flavors_inner),
+            'flavors': utils.childMapping(bundle.inputData?.[`${keyPrefix}flavors`], `${keyPrefix}flavors`, BerryFlavorMap),
             'item': utils.removeIfEmpty(ItemSummary.mapping(bundle, `${keyPrefix}item`)),
             'natural_gift_type': utils.removeIfEmpty(TypeSummary.mapping(bundle, `${keyPrefix}natural_gift_type`)),
         }

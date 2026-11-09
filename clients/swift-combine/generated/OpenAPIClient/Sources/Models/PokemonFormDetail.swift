@@ -8,22 +8,40 @@
 import Foundation
 
 public struct PokemonFormDetail: Codable {
+    /// The identifier for this resource.
     public var id: Int
+    /// The name for this resource.
     public var name: String
+    /// The order in which forms should be sorted within all forms. Multiple forms may have equal order, in which case they should fall back on sorting by name.
     public var order: Int?
+    /// The order in which forms should be sorted within a species' forms.
     public var formOrder: Int?
+    /// True for exactly one form used as the default for each Pokémon.
     public var isDefault: Bool?
+    /// Whether or not this form can only happen during battle.
     public var isBattleOnly: Bool?
+    /// Whether or not this form requires mega evolution.
     public var isMega: Bool?
+    /// The name of this form.
     public var formName: String
+    /// The Pokémon that can take on this form.
     public var pokemon: PokemonSummary
-    public var sprites: PokemonFormDetailSprites
+    /// A set of sprites used to depict this Pokémon form in the game.
+    public var sprites: PokemonFormSprites
+    /// The version group this Pokémon form was introduced in.
     public var versionGroup: VersionGroupSummary
-    public var formNames: [PokemonFormDetailFormNamesInner]
-    public var names: [PokemonFormDetailFormNamesInner]
-    public var types: [PokemonDetailTypesInner]
+    /// The form specific form name of this Pokémon form, or empty if the form does not have a specific name.
+    public var formNames: [PokemonFormName]
+    /// The form specific full name of this Pokémon form, or empty if the form does not have a specific name.
+    public var names: [PokemonFormName]
+    /// A list of details showing types this Pokémon form has.
+    public var types: [PokemonFormType]
+    /// The conditions that trigger this form. Resource names and URLs are included when the trigger requires a resource.
+    public var triggerConditions: [PokemonFormTriggerCondition]
+    /// The flavor text of this form listed in different languages and versions.
+    public var flavorTextEntries: [PokemonFormFlavorText]
 
-    public init(id: Int, name: String, order: Int? = nil, formOrder: Int? = nil, isDefault: Bool? = nil, isBattleOnly: Bool? = nil, isMega: Bool? = nil, formName: String, pokemon: PokemonSummary, sprites: PokemonFormDetailSprites, versionGroup: VersionGroupSummary, formNames: [PokemonFormDetailFormNamesInner], names: [PokemonFormDetailFormNamesInner], types: [PokemonDetailTypesInner]) {
+    public init(id: Int, name: String, order: Int? = nil, formOrder: Int? = nil, isDefault: Bool? = nil, isBattleOnly: Bool? = nil, isMega: Bool? = nil, formName: String, pokemon: PokemonSummary, sprites: PokemonFormSprites, versionGroup: VersionGroupSummary, formNames: [PokemonFormName], names: [PokemonFormName], types: [PokemonFormType], triggerConditions: [PokemonFormTriggerCondition], flavorTextEntries: [PokemonFormFlavorText]) {
         self.id = id
         self.name = name
         self.order = order
@@ -38,6 +56,8 @@ public struct PokemonFormDetail: Codable {
         self.formNames = formNames
         self.names = names
         self.types = types
+        self.triggerConditions = triggerConditions
+        self.flavorTextEntries = flavorTextEntries
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -55,6 +75,8 @@ public struct PokemonFormDetail: Codable {
         case formNames = "form_names"
         case names
         case types
+        case triggerConditions = "trigger_conditions"
+        case flavorTextEntries = "flavor_text_entries"
     }
 
     public init(from decoder: Decoder) throws {
@@ -68,11 +90,13 @@ public struct PokemonFormDetail: Codable {
         isMega = try container.decodeIfPresent(Bool.self, forKey: .isMega)
         formName = try container.decode(String.self, forKey: .formName)
         pokemon = try container.decode(PokemonSummary.self, forKey: .pokemon)
-        sprites = try container.decode(PokemonFormDetailSprites.self, forKey: .sprites)
+        sprites = try container.decode(PokemonFormSprites.self, forKey: .sprites)
         versionGroup = try container.decode(VersionGroupSummary.self, forKey: .versionGroup)
-        formNames = try container.decode([PokemonFormDetailFormNamesInner].self, forKey: .formNames)
-        names = try container.decode([PokemonFormDetailFormNamesInner].self, forKey: .names)
-        types = try container.decode([PokemonDetailTypesInner].self, forKey: .types)
+        formNames = try container.decode([PokemonFormName].self, forKey: .formNames)
+        names = try container.decode([PokemonFormName].self, forKey: .names)
+        types = try container.decode([PokemonFormType].self, forKey: .types)
+        triggerConditions = try container.decode([PokemonFormTriggerCondition].self, forKey: .triggerConditions)
+        flavorTextEntries = try container.decode([PokemonFormFlavorText].self, forKey: .flavorTextEntries)
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -91,5 +115,7 @@ public struct PokemonFormDetail: Codable {
         try container.encode(formNames, forKey: .formNames)
         try container.encode(names, forKey: .names)
         try container.encode(types, forKey: .types)
+        try container.encode(triggerConditions, forKey: .triggerConditions)
+        try container.encode(flavorTextEntries, forKey: .flavorTextEntries)
     }
 }

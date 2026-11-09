@@ -52,6 +52,7 @@ class MoveFlavorText(Model):
     def flavor_text(self):
         """Gets the flavor_text of this MoveFlavorText.
 
+        The localized flavor text for an api resource in a specific language.
 
         :return: The flavor_text of this MoveFlavorText.
         :rtype: str
@@ -62,6 +63,7 @@ class MoveFlavorText(Model):
     def flavor_text(self, flavor_text):
         """Sets the flavor_text of this MoveFlavorText.
 
+        The localized flavor text for an api resource in a specific language.
 
         :param flavor_text: The flavor_text of this MoveFlavorText.
         :type flavor_text: str
@@ -75,6 +77,7 @@ class MoveFlavorText(Model):
     def language(self):
         """Gets the language of this MoveFlavorText.
 
+        The language this name is in.
 
         :return: The language of this MoveFlavorText.
         :rtype: LanguageSummary
@@ -85,6 +88,7 @@ class MoveFlavorText(Model):
     def language(self, language):
         """Sets the language of this MoveFlavorText.
 
+        The language this name is in.
 
         :param language: The language of this MoveFlavorText.
         :type language: LanguageSummary
@@ -98,6 +102,7 @@ class MoveFlavorText(Model):
     def version_group(self):
         """Gets the version_group of this MoveFlavorText.
 
+        The version group that uses this flavor text.
 
         :return: The version_group of this MoveFlavorText.
         :rtype: VersionGroupSummary
@@ -108,6 +113,7 @@ class MoveFlavorText(Model):
     def version_group(self, version_group):
         """Sets the version_group of this MoveFlavorText.
 
+        The version group that uses this flavor text.
 
         :param version_group: The version_group of this MoveFlavorText.
         :type version_group: VersionGroupSummary

@@ -19,7 +19,7 @@ import java.util.List;
  * ContestEffectDetail
  */
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-10-25T05:48:09.645019047Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-11-09T13:49:28.343088631Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class ContestEffectDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -44,10 +44,10 @@ public class ContestEffectDetail   {
   }
 
   /**
-   * Get id
+   * The identifier for this resource.
    * @return id
    */
-  @ApiModelProperty(required = true, readOnly = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "The identifier for this resource.")
   public Integer getId() {
     return id;
   }
@@ -62,10 +62,12 @@ public class ContestEffectDetail   {
   }
 
   /**
-   * Get appeal
+   * The base number of hearts the user of this move gets.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return appeal
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The base number of hearts the user of this move gets.")
   public Integer getAppeal() {
     return appeal;
   }
@@ -80,10 +82,12 @@ public class ContestEffectDetail   {
   }
 
   /**
-   * Get jam
+   * The base number of hearts the user's opponent loses.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return jam
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The base number of hearts the user's opponent loses.")
   public Integer getJam() {
     return jam;
   }
@@ -106,10 +110,10 @@ public class ContestEffectDetail   {
   }
 
   /**
-   * Get effectEntries
+   * The result of this contest effect listed in different languages.
    * @return effectEntries
    */
-  @ApiModelProperty(required = true, readOnly = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "The result of this contest effect listed in different languages.")
   public List<ContestEffectEffectText> getEffectEntries() {
     return effectEntries;
   }
@@ -132,10 +136,10 @@ public class ContestEffectDetail   {
   }
 
   /**
-   * Get flavorTextEntries
+   * The flavor text of this contest effect listed in different languages.
    * @return flavorTextEntries
    */
-  @ApiModelProperty(required = true, readOnly = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "The flavor text of this contest effect listed in different languages.")
   public List<ContestEffectFlavorText> getFlavorTextEntries() {
     return flavorTextEntries;
   }

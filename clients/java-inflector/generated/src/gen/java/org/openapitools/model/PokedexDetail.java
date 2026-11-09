@@ -8,17 +8,17 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.model.AbilityDetailPokemonInnerPokemon;
 import org.openapitools.model.PokedexDescription;
-import org.openapitools.model.PokedexDetailPokemonEntriesInner;
 import org.openapitools.model.PokedexName;
+import org.openapitools.model.PokemonDexNumber;
 import org.openapitools.model.RegionSummary;
+import org.openapitools.model.VersionGroupSummary;
 
 
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-10-25T05:47:53.227411880Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-11-09T13:49:15.621225368Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PokedexDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -36,15 +36,16 @@ public class PokedexDetail   {
   private List<PokedexName> names = new ArrayList<>();
 
   @JsonProperty("pokemon_entries")
-  private List<PokedexDetailPokemonEntriesInner> pokemonEntries = new ArrayList<>();
+  private List<PokemonDexNumber> pokemonEntries = new ArrayList<>();
 
   @JsonProperty("region")
   private RegionSummary region;
 
   @JsonProperty("version_groups")
-  private List<AbilityDetailPokemonInnerPokemon> versionGroups = new ArrayList<>();
+  private List<VersionGroupSummary> versionGroups = new ArrayList<>();
 
   /**
+   * The identifier for this resource.
    **/
   public PokedexDetail id(Integer id) {
     this.id = id;
@@ -52,7 +53,7 @@ public class PokedexDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   @JsonProperty("id")
   public Integer getId() {
     return id;
@@ -62,6 +63,7 @@ public class PokedexDetail   {
   }
 
   /**
+   * The name for this resource.
    **/
   public PokedexDetail name(String name) {
     this.name = name;
@@ -69,7 +71,7 @@ public class PokedexDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   @JsonProperty("name")
   public String getName() {
     return name;
@@ -79,6 +81,7 @@ public class PokedexDetail   {
   }
 
   /**
+   * Whether or not this Pokédex originated in the main series of the video games.
    **/
   public PokedexDetail isMainSeries(Boolean isMainSeries) {
     this.isMainSeries = isMainSeries;
@@ -86,7 +89,7 @@ public class PokedexDetail   {
   }
 
   
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Whether or not this Pokédex originated in the main series of the video games.")
   @JsonProperty("is_main_series")
   public Boolean getIsMainSeries() {
     return isMainSeries;
@@ -96,6 +99,7 @@ public class PokedexDetail   {
   }
 
   /**
+   * The description of this resource listed in different languages.
    **/
   public PokedexDetail descriptions(List<PokedexDescription> descriptions) {
     this.descriptions = descriptions;
@@ -103,7 +107,7 @@ public class PokedexDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The description of this resource listed in different languages.")
   @JsonProperty("descriptions")
   public List<PokedexDescription> getDescriptions() {
     return descriptions;
@@ -113,6 +117,7 @@ public class PokedexDetail   {
   }
 
   /**
+   * The name of this resource listed in different languages.
    **/
   public PokedexDetail names(List<PokedexName> names) {
     this.names = names;
@@ -120,7 +125,7 @@ public class PokedexDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
   @JsonProperty("names")
   public List<PokedexName> getNames() {
     return names;
@@ -130,23 +135,25 @@ public class PokedexDetail   {
   }
 
   /**
+   * A list of Pokémon catalogued in this Pokédex and their indexes.
    **/
-  public PokedexDetail pokemonEntries(List<PokedexDetailPokemonEntriesInner> pokemonEntries) {
+  public PokedexDetail pokemonEntries(List<PokemonDexNumber> pokemonEntries) {
     this.pokemonEntries = pokemonEntries;
     return this;
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of Pokémon catalogued in this Pokédex and their indexes.")
   @JsonProperty("pokemon_entries")
-  public List<PokedexDetailPokemonEntriesInner> getPokemonEntries() {
+  public List<PokemonDexNumber> getPokemonEntries() {
     return pokemonEntries;
   }
-  public void setPokemonEntries(List<PokedexDetailPokemonEntriesInner> pokemonEntries) {
+  public void setPokemonEntries(List<PokemonDexNumber> pokemonEntries) {
     this.pokemonEntries = pokemonEntries;
   }
 
   /**
+   * The region this Pokédex catalogues Pokémon for.
    **/
   public PokedexDetail region(RegionSummary region) {
     this.region = region;
@@ -154,7 +161,7 @@ public class PokedexDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The region this Pokédex catalogues Pokémon for.")
   @JsonProperty("region")
   public RegionSummary getRegion() {
     return region;
@@ -164,19 +171,20 @@ public class PokedexDetail   {
   }
 
   /**
+   * A list of version groups this Pokédex is relevant to.
    **/
-  public PokedexDetail versionGroups(List<AbilityDetailPokemonInnerPokemon> versionGroups) {
+  public PokedexDetail versionGroups(List<VersionGroupSummary> versionGroups) {
     this.versionGroups = versionGroups;
     return this;
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of version groups this Pokédex is relevant to.")
   @JsonProperty("version_groups")
-  public List<AbilityDetailPokemonInnerPokemon> getVersionGroups() {
+  public List<VersionGroupSummary> getVersionGroups() {
     return versionGroups;
   }
-  public void setVersionGroups(List<AbilityDetailPokemonInnerPokemon> versionGroups) {
+  public void setVersionGroups(List<VersionGroupSummary> versionGroups) {
     this.versionGroups = versionGroups;
   }
 

@@ -11,25 +11,21 @@ import org.http4s.server._
 import org.openapitools.apis._
 
 final case class API [
-  F[_]: JsonDecoder: Monad, basicAuth, cookieAuth
+  F[_]: JsonDecoder: Monad
 ](
-  basicAuth: Kleisli[OptionT[F, *], Request[F], basicAuth],
-  cookieAuth: Kleisli[OptionT[F, *], Request[F], cookieAuth],
 )(
-  delegateBerriesApi: BerriesApiDelegate[F, basicAuth, cookieAuth],
-  delegateContestsApi: ContestsApiDelegate[F, basicAuth, cookieAuth],
-  delegateEncountersApi: EncountersApiDelegate[F, basicAuth, cookieAuth],
-  delegateEvolutionApi: EvolutionApiDelegate[F, basicAuth, cookieAuth],
-  delegateGamesApi: GamesApiDelegate[F, basicAuth, cookieAuth],
-  delegateItemsApi: ItemsApiDelegate[F, basicAuth, cookieAuth],
-  delegateLocationApi: LocationApiDelegate[F, basicAuth, cookieAuth],
-  delegateMachinesApi: MachinesApiDelegate[F, basicAuth, cookieAuth],
-  delegateMovesApi: MovesApiDelegate[F, basicAuth, cookieAuth],
-  delegatePokemonApi: PokemonApiDelegate[F, basicAuth, cookieAuth],
-  delegateUtilityApi: UtilityApiDelegate[F, basicAuth, cookieAuth],
+  delegateBerriesApi: BerriesApiDelegate[F],
+  delegateContestsApi: ContestsApiDelegate[F],
+  delegateEncountersApi: EncountersApiDelegate[F],
+  delegateEvolutionApi: EvolutionApiDelegate[F],
+  delegateGamesApi: GamesApiDelegate[F],
+  delegateItemsApi: ItemsApiDelegate[F],
+  delegateLocationApi: LocationApiDelegate[F],
+  delegateMachinesApi: MachinesApiDelegate[F],
+  delegateMovesApi: MovesApiDelegate[F],
+  delegatePokemonApi: PokemonApiDelegate[F],
+  delegateUtilityApi: UtilityApiDelegate[F],
 ){
-  val basicAuthMiddleware = AuthMiddleware.withFallThrough(basicAuth)
-  val cookieAuthMiddleware = AuthMiddleware(cookieAuth)
 
   val berriesApiRoutes = new BerriesApiRoutes(delegateBerriesApi)
   val contestsApiRoutes = new ContestsApiRoutes(delegateContestsApi)
@@ -43,34 +39,20 @@ final case class API [
   val pokemonApiRoutes = new PokemonApiRoutes(delegatePokemonApi)
   val utilityApiRoutes = new UtilityApiRoutes(delegateUtilityApi)
 
-  val routesbasicAuth = basicAuthMiddleware(
-    berriesApiRoutes.routesbasicAuth <+>
-      contestsApiRoutes.routesbasicAuth <+>
-      encountersApiRoutes.routesbasicAuth <+>
-      evolutionApiRoutes.routesbasicAuth <+>
-      gamesApiRoutes.routesbasicAuth <+>
-      itemsApiRoutes.routesbasicAuth <+>
-      locationApiRoutes.routesbasicAuth <+>
-      machinesApiRoutes.routesbasicAuth <+>
-      movesApiRoutes.routesbasicAuth <+>
-      pokemonApiRoutes.routesbasicAuth <+>
-      utilityApiRoutes.routesbasicAuth
-  )
-  val routescookieAuth = cookieAuthMiddleware(
-    berriesApiRoutes.routescookieAuth <+>
-      contestsApiRoutes.routescookieAuth <+>
-      encountersApiRoutes.routescookieAuth <+>
-      evolutionApiRoutes.routescookieAuth <+>
-      gamesApiRoutes.routescookieAuth <+>
-      itemsApiRoutes.routescookieAuth <+>
-      locationApiRoutes.routescookieAuth <+>
-      machinesApiRoutes.routescookieAuth <+>
-      movesApiRoutes.routescookieAuth <+>
-      pokemonApiRoutes.routescookieAuth <+>
-      utilityApiRoutes.routescookieAuth
-  )
+  val routes = 
+    berriesApiRoutes.routes <+>
+      contestsApiRoutes.routes <+>
+      encountersApiRoutes.routes <+>
+      evolutionApiRoutes.routes <+>
+      gamesApiRoutes.routes <+>
+      itemsApiRoutes.routes <+>
+      locationApiRoutes.routes <+>
+      machinesApiRoutes.routes <+>
+      movesApiRoutes.routes <+>
+      pokemonApiRoutes.routes <+>
+      utilityApiRoutes.routes
+  
 
   val routesAll =
-    routesbasicAuth <+>
-    routescookieAuth
+    routes
 }

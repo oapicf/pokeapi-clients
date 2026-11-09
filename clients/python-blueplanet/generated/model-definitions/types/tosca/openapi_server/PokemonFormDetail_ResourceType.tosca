@@ -7,9 +7,11 @@ authors     = ["F. Bar (foo@bar.baz)"]
 
 imports {
   Root = tosca.resourceTypes.Root
-  PokemonDetailTypesInner = openapi_server.resourceTypes.PokemonDetailTypesInner
-  PokemonFormDetailFormNamesInner = openapi_server.resourceTypes.PokemonFormDetailFormNamesInner
-  PokemonFormDetailSprites = openapi_server.resourceTypes.PokemonFormDetailSprites
+  PokemonFormFlavorText = openapi_server.resourceTypes.PokemonFormFlavorText
+  PokemonFormName = openapi_server.resourceTypes.PokemonFormName
+  PokemonFormSprites = openapi_server.resourceTypes.PokemonFormSprites
+  PokemonFormTriggerCondition = openapi_server.resourceTypes.PokemonFormTriggerCondition
+  PokemonFormType = openapi_server.resourceTypes.PokemonFormType
   PokemonSummary = openapi_server.resourceTypes.PokemonSummary
   VersionGroupSummary = openapi_server.resourceTypes.VersionGroupSummary
 }
@@ -22,75 +24,87 @@ resourceTypes {
     properties {
         id {
           type =  integer
-          description = ""
+          description = "The identifier for this resource."
           optional = true
         }
         name {
           type =  string
-          description = ""
+          description = "The name for this resource."
           optional = true
         }
         order {
           type =  integer
-          description = ""
+          description = "The order in which forms should be sorted within all forms. Multiple forms may have equal order, in which case they should fall back on sorting by name."
           optional = false
         }
         form_order {
           type =  integer
-          description = ""
+          description = "The order in which forms should be sorted within a species&#39; forms."
           optional = false
         }
         is_default {
           type =  boolean
-          description = ""
+          description = "True for exactly one form used as the default for each Pokémon."
           optional = false
         }
         is_battle_only {
           type =  boolean
-          description = ""
+          description = "Whether or not this form can only happen during battle."
           optional = false
         }
         is_mega {
           type =  boolean
-          description = ""
+          description = "Whether or not this form requires mega evolution."
           optional = false
         }
         form_name {
           type =  string
-          description = ""
+          description = "The name of this form."
           optional = true
         }
         pokemon {
           type = PokemonSummary
-          description = ""
+          description = "The Pokémon that can take on this form."
           optional = true
         }
         sprites {
-          type = PokemonFormDetailSprites
-          description = ""
+          type = PokemonFormSprites
+          description = "A set of sprites used to depict this Pokémon form in the game."
           optional = true
         }
         version_group {
           type = VersionGroupSummary
-          description = ""
+          description = "The version group this Pokémon form was introduced in."
           optional = true
         }
         form_names {
           type = array
-          items.type = PokemonFormDetailFormNamesInner
-          description = ""
+          items.type = PokemonFormName
+          description = "The form specific form name of this Pokémon form, or empty if the form does not have a specific name."
           optional = true
         }
         names {
           type = array
-          items.type = PokemonFormDetailFormNamesInner
-          description = ""
+          items.type = PokemonFormName
+          description = "The form specific full name of this Pokémon form, or empty if the form does not have a specific name."
           optional = true
         }
         types {
           type = array
-          items.type = PokemonDetailTypesInner
-          description = ""
+          items.type = PokemonFormType
+          description = "A list of details showing types this Pokémon form has."
+          optional = true
+        }
+        trigger_conditions {
+          type = array
+          items.type = PokemonFormTriggerCondition
+          description = "The conditions that trigger this form. Resource names and URLs are included when the trigger requires a resource."
+          optional = true
+        }
+        flavor_text_entries {
+          type = array
+          items.type = PokemonFormFlavorText
+          description = "The flavor text of this form listed in different languages and versions."
           optional = true
         }
     }

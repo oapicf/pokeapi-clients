@@ -53,13 +53,11 @@ public class ContestsApiHandler {
 
         Integer limit = requestParameters.queryParameter("limit") != null ? requestParameters.queryParameter("limit").getInteger() : null;
         Integer offset = requestParameters.queryParameter("offset") != null ? requestParameters.queryParameter("offset").getInteger() : null;
-        String q = requestParameters.queryParameter("q") != null ? requestParameters.queryParameter("q").getString() : null;
 
         logger.debug("Parameter limit is {}", limit);
         logger.debug("Parameter offset is {}", offset);
-        logger.debug("Parameter q is {}", q);
 
-        api.contestEffectList(limit, offset, q)
+        api.contestEffectList(limit, offset)
             .onSuccess(apiResponse -> {
                 routingContext.response().setStatusCode(apiResponse.getStatusCode());
                 if (apiResponse.hasData()) {
@@ -149,13 +147,11 @@ public class ContestsApiHandler {
 
         Integer limit = requestParameters.queryParameter("limit") != null ? requestParameters.queryParameter("limit").getInteger() : null;
         Integer offset = requestParameters.queryParameter("offset") != null ? requestParameters.queryParameter("offset").getInteger() : null;
-        String q = requestParameters.queryParameter("q") != null ? requestParameters.queryParameter("q").getString() : null;
 
         logger.debug("Parameter limit is {}", limit);
         logger.debug("Parameter offset is {}", offset);
-        logger.debug("Parameter q is {}", q);
 
-        api.superContestEffectList(limit, offset, q)
+        api.superContestEffectList(limit, offset)
             .onSuccess(apiResponse -> {
                 routingContext.response().setStatusCode(apiResponse.getStatusCode());
                 if (apiResponse.hasData()) {

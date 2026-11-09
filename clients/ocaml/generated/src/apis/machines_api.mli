@@ -5,5 +5,5 @@
  *
  *)
 
-val machine_list : ?limit:int32 -> ?offset:int32 -> ?q:string -> unit -> Paginated_machine_summary_list.t Lwt.t
+val machine_list : ?limit:int32 -> ?offset:int32 -> unit -> Paginated_machine_summary_list.t Lwt.t
 val machine_retrieve : id:string -> Machine_detail.t Lwt.t

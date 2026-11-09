@@ -27,10 +27,10 @@ public class ItemPocketDetail   {
     /**
      * Create ItemPocketDetail.
      *
-     * @param id id
-     * @param name name
-     * @param categories categories
-     * @param names names
+     * @param id The identifier for this resource.
+     * @param name The name for this resource.
+     * @param categories A list of item categories that are relevant to this item pocket.
+     * @param names The name of this resource listed in different languages.
      */
     public ItemPocketDetail(
         Integer id, 
@@ -47,7 +47,7 @@ public class ItemPocketDetail   {
 
 
     /**
-     * Get id
+     * The identifier for this resource.
      * @return id
      */
     public Integer getId() {
@@ -59,7 +59,7 @@ public class ItemPocketDetail   {
     }
 
     /**
-     * Get name
+     * The name for this resource.
      * @return name
      */
     public String getName() {
@@ -71,7 +71,7 @@ public class ItemPocketDetail   {
     }
 
     /**
-     * Get categories
+     * A list of item categories that are relevant to this item pocket.
      * @return categories
      */
     public List<@Valid ItemCategorySummary> getCategories() {
@@ -83,7 +83,7 @@ public class ItemPocketDetail   {
     }
 
     /**
-     * Get names
+     * The name of this resource listed in different languages.
      * @return names
      */
     public List<@Valid ItemPocketName> getNames() {

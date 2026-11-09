@@ -14,7 +14,7 @@ import javax.validation.Valid;
 /**
  * AbilityChange
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-10-25T05:48:13.486809836Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-11-09T13:49:31.462302702Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class AbilityChange   {
   @JsonProperty("version_group")
@@ -35,7 +35,7 @@ public class AbilityChange   {
   }
 
    /**
-   * Get versionGroup
+   * The version group in which the previous effect of this ability originated.
    * @return versionGroup
   **/
   public VersionGroupSummary getVersionGroup() {
@@ -60,7 +60,7 @@ public class AbilityChange   {
   }
 
    /**
-   * Get effectEntries
+   * The previous effect of this ability listed in different languages.
    * @return effectEntries
   **/
   public List<@Valid AbilityChangeEffectText> getEffectEntries() {

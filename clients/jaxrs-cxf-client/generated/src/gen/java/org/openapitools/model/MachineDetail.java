@@ -11,23 +11,35 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class MachineDetail  {
   
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The identifier for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
 
   private Integer id;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The TM or HM item that corresponds to this machine.
+  */
+  @ApiModelProperty(required = true, value = "The TM or HM item that corresponds to this machine.")
 
   private ItemSummary item;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The version group that this machine applies to.
+  */
+  @ApiModelProperty(required = true, value = "The version group that this machine applies to.")
 
   private VersionGroupSummary versionGroup;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The move that is taught by this machine.
+  */
+  @ApiModelProperty(required = true, value = "The move that is taught by this machine.")
 
   private MoveSummary move;
  /**
-   * Get id
+   * The identifier for this resource.
    * @return id
   **/
   @JsonProperty("id")
@@ -37,7 +49,7 @@ public class MachineDetail  {
 
 
  /**
-   * Get item
+   * The TM or HM item that corresponds to this machine.
    * @return item
   **/
   @JsonProperty("item")
@@ -55,7 +67,7 @@ public class MachineDetail  {
   }
 
  /**
-   * Get versionGroup
+   * The version group that this machine applies to.
    * @return versionGroup
   **/
   @JsonProperty("version_group")
@@ -73,7 +85,7 @@ public class MachineDetail  {
   }
 
  /**
-   * Get move
+   * The move that is taught by this machine.
    * @return move
   **/
   @JsonProperty("move")

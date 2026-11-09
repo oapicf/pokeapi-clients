@@ -15,19 +15,22 @@
                 
                 
                 ; [@key "flavor_text"]
-                                              language: Language_summary.t
+                    (** The localized flavor text for an API resource in a specific language. Note that this text is left unprocessed as it is found in game files. This means that it contains special characters that one might want to replace with their visible decodable version. Please check out this <a href='https://github.com/veekun/pokedex/issues/218#issuecomment-339841781' >issue</a> to find out more.  *)
+                                      language: Language_summary.t
                   
                   
                 
                 
                 ; [@key "language"]
-                                              version: Version_summary.t
+                    (** The language this name is in. *)
+                                      version: Version_summary.t
                   
                   
                 
                 
                 ; [@key "version"]
-                        } [@@deriving yojson { strict = false }, show, eq ];;
+                    (** The game version this flavor text is extracted from. *)
+                } [@@deriving yojson { strict = false }, show, eq ];;
         
         let create (flavor_text : string) (language : Language_summary.t) (version : Version_summary.t) : t = {
             flavor_text = flavor_text;

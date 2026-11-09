@@ -10,8 +10,6 @@ namespace models {
 
 ItemFlavorText::ItemFlavorText()
 : text("")
-, versionGroup(VersionGroupSummary())
-, language(LanguageSummary())
 {
 }
 // =========================================

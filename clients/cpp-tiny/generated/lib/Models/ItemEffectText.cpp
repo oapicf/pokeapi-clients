@@ -8,7 +8,7 @@ ItemEffectText::ItemEffectText()
 {
 	effect = std::string();
 	short_effect = std::string();
-	language = LanguageSummary();
+	language = null;
 }
 
 ItemEffectText::ItemEffectText(std::string jsonString)

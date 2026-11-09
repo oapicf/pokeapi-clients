@@ -1,0 +1,41 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server NaturePokeathlonStat"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a NaturePokeathlonStat"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  PokeathlonStatSummary = openapi_server.resourceTypes.PokeathlonStatSummary
+}
+resourceTypes {
+
+  NaturePokeathlonStat {
+    title = NaturePokeathlonStat
+    description = NaturePokeathlonStat
+    derivedFrom = Root
+    properties {
+        max_change {
+          type =  integer
+          description = "The amount of change."
+          optional = true
+        }
+        pokeathlon_stat {
+          type = PokeathlonStatSummary
+          description = "The stat being affected."
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  NaturePokeathlonStat {
+    title = NaturePokeathlonStat
+    description = NaturePokeathlonStat
+    implements = openapi_server.resourceTypes.NaturePokeathlonStat
+
+  }
+}

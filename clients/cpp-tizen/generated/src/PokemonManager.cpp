@@ -423,7 +423,7 @@ static bool characteristicListProcessor(MemoryStruct_s p_chunk, long code, char*
 }
 
 static bool characteristicListHelper(char * accessToken,
-	int limit, int offset, std::string q, 
+	int limit, int offset, 
 	void(* handler)(PaginatedCharacteristicSummaryList, Error, void* )
 	, void* userData, bool isAsync)
 {
@@ -452,13 +452,6 @@ static bool characteristicListHelper(char * accessToken,
 	queryParams.insert(pair<string, string>("offset", itemAtq));
 	if( itemAtq.empty()==true){
 		queryParams.erase("offset");
-	}
-
-
-	itemAtq = stringify(&q, "std::string");
-	queryParams.insert(pair<string, string>("q", itemAtq));
-	if( itemAtq.empty()==true){
-		queryParams.erase("q");
 	}
 
 	string mBody = "";
@@ -515,22 +508,22 @@ static bool characteristicListHelper(char * accessToken,
 
 
 bool PokemonManager::characteristicListAsync(char * accessToken,
-	int limit, int offset, std::string q, 
+	int limit, int offset, 
 	void(* handler)(PaginatedCharacteristicSummaryList, Error, void* )
 	, void* userData)
 {
 	return characteristicListHelper(accessToken,
-	limit, offset, q, 
+	limit, offset, 
 	handler, userData, true);
 }
 
 bool PokemonManager::characteristicListSync(char * accessToken,
-	int limit, int offset, std::string q, 
+	int limit, int offset, 
 	void(* handler)(PaginatedCharacteristicSummaryList, Error, void* )
 	, void* userData)
 {
 	return characteristicListHelper(accessToken,
-	limit, offset, q, 
+	limit, offset, 
 	handler, userData, false);
 }
 

@@ -8,18 +8,19 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
-import org.openapitools.model.PokemonDetailAbilitiesInner;
-import org.openapitools.model.PokemonDetailCries;
-import org.openapitools.model.PokemonDetailHeldItems;
-import org.openapitools.model.PokemonDetailMovesInner;
-import org.openapitools.model.PokemonDetailPastAbilitiesInner;
-import org.openapitools.model.PokemonDetailPastTypesInner;
-import org.openapitools.model.PokemonDetailSprites;
-import org.openapitools.model.PokemonDetailTypesInner;
+import org.openapitools.model.PokemonAbility;
+import org.openapitools.model.PokemonCries;
 import org.openapitools.model.PokemonFormSummary;
 import org.openapitools.model.PokemonGameIndex;
+import org.openapitools.model.PokemonHeldItemSummary;
+import org.openapitools.model.PokemonMove;
+import org.openapitools.model.PokemonPastAbility;
+import org.openapitools.model.PokemonPastStat;
+import org.openapitools.model.PokemonPastType;
 import org.openapitools.model.PokemonSpeciesSummary;
+import org.openapitools.model.PokemonSprites;
 import org.openapitools.model.PokemonStat;
+import org.openapitools.model.PokemonType;
 import java.util.NoSuchElementException;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
@@ -35,48 +36,50 @@ import jakarta.annotation.Generated;
  * PokemonDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-10-25T05:48:25.711080506Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-11-09T13:49:41.168612095Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PokemonDetail {
 
   private Integer id;
 
   private String name;
 
-  private JsonNullable<Integer> baseExperience = JsonNullable.<Integer>undefined();
+  private JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> baseExperience = JsonNullable.<Integer>undefined();
 
-  private JsonNullable<Integer> height = JsonNullable.<Integer>undefined();
+  private JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> height = JsonNullable.<Integer>undefined();
 
   private Boolean isDefault;
 
-  private JsonNullable<Integer> order = JsonNullable.<Integer>undefined();
+  private JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> order = JsonNullable.<Integer>undefined();
 
-  private JsonNullable<Integer> weight = JsonNullable.<Integer>undefined();
+  private JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> weight = JsonNullable.<Integer>undefined();
 
-  private List<@Valid PokemonDetailAbilitiesInner> abilities = new ArrayList<>();
+  private List<@Valid PokemonAbility> abilities = new ArrayList<>();
 
-  private List<@Valid PokemonDetailPastAbilitiesInner> pastAbilities = new ArrayList<>();
+  private List<@Valid PokemonPastAbility> pastAbilities = new ArrayList<>();
 
   private List<@Valid PokemonFormSummary> forms = new ArrayList<>();
 
   private List<@Valid PokemonGameIndex> gameIndices = new ArrayList<>();
 
-  private PokemonDetailHeldItems heldItems;
+  private List<@Valid PokemonHeldItemSummary> heldItems = new ArrayList<>();
 
   private String locationAreaEncounters;
 
-  private List<@Valid PokemonDetailMovesInner> moves = new ArrayList<>();
+  private List<@Valid PokemonMove> moves = new ArrayList<>();
 
   private PokemonSpeciesSummary species;
 
-  private PokemonDetailSprites sprites;
+  private PokemonSprites sprites;
 
-  private PokemonDetailCries cries;
+  private PokemonCries cries;
 
   private List<@Valid PokemonStat> stats = new ArrayList<>();
 
-  private List<@Valid PokemonDetailTypesInner> types = new ArrayList<>();
+  private List<@Valid PokemonPastStat> pastStats = new ArrayList<>();
 
-  private List<@Valid PokemonDetailPastTypesInner> pastTypes = new ArrayList<>();
+  private List<@Valid PokemonType> types = new ArrayList<>();
+
+  private List<@Valid PokemonPastType> pastTypes = new ArrayList<>();
 
   public PokemonDetail() {
     super();
@@ -85,7 +88,7 @@ public class PokemonDetail {
   /**
    * Constructor with only required parameters
    */
-  public PokemonDetail(Integer id, String name, List<@Valid PokemonDetailAbilitiesInner> abilities, List<@Valid PokemonDetailPastAbilitiesInner> pastAbilities, List<@Valid PokemonFormSummary> forms, List<@Valid PokemonGameIndex> gameIndices, PokemonDetailHeldItems heldItems, String locationAreaEncounters, List<@Valid PokemonDetailMovesInner> moves, PokemonSpeciesSummary species, PokemonDetailSprites sprites, PokemonDetailCries cries, List<@Valid PokemonStat> stats, List<@Valid PokemonDetailTypesInner> types, List<@Valid PokemonDetailPastTypesInner> pastTypes) {
+  public PokemonDetail(Integer id, String name, List<@Valid PokemonAbility> abilities, List<@Valid PokemonPastAbility> pastAbilities, List<@Valid PokemonFormSummary> forms, List<@Valid PokemonGameIndex> gameIndices, List<@Valid PokemonHeldItemSummary> heldItems, String locationAreaEncounters, List<@Valid PokemonMove> moves, PokemonSpeciesSummary species, PokemonSprites sprites, PokemonCries cries, List<@Valid PokemonStat> stats, List<@Valid PokemonPastStat> pastStats, List<@Valid PokemonType> types, List<@Valid PokemonPastType> pastTypes) {
     this.id = id;
     this.name = name;
     this.abilities = abilities;
@@ -99,6 +102,7 @@ public class PokemonDetail {
     this.sprites = sprites;
     this.cries = cries;
     this.stats = stats;
+    this.pastStats = pastStats;
     this.types = types;
     this.pastTypes = pastTypes;
   }
@@ -109,11 +113,11 @@ public class PokemonDetail {
   }
 
   /**
-   * Get id
+   * The identifier for this resource.
    * @return id
    */
   
-  @Schema(name = "id", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "id", accessMode = Schema.AccessMode.READ_ONLY, description = "The identifier for this resource.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("id")
   public Integer getId() {
     return id;
@@ -129,11 +133,11 @@ public class PokemonDetail {
   }
 
   /**
-   * Get name
+   * The name for this resource.
    * @return name
    */
-  @NotNull @Size(max = 100) 
-  @Schema(name = "name", requiredMode = Schema.RequiredMode.REQUIRED)
+  @NotNull @Size(max = 200) 
+  @Schema(name = "name", description = "The name for this resource.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("name")
   public String getName() {
     return name;
@@ -149,13 +153,15 @@ public class PokemonDetail {
   }
 
   /**
-   * Get baseExperience
+   * The base experience gained for defeating this Pokémon.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return baseExperience
    */
-  
-  @Schema(name = "base_experience", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Min(value = -2147483648) @Max(value = 2147483647) 
+  @Schema(name = "base_experience", description = "The base experience gained for defeating this Pokémon.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("base_experience")
-  public JsonNullable<Integer> getBaseExperience() {
+  public JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> getBaseExperience() {
     return baseExperience;
   }
 
@@ -169,13 +175,15 @@ public class PokemonDetail {
   }
 
   /**
-   * Get height
+   * The height of this Pokémon in decimetres.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return height
    */
-  
-  @Schema(name = "height", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Min(value = -2147483648) @Max(value = 2147483647) 
+  @Schema(name = "height", description = "The height of this Pokémon in decimetres.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("height")
-  public JsonNullable<Integer> getHeight() {
+  public JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> getHeight() {
     return height;
   }
 
@@ -189,11 +197,11 @@ public class PokemonDetail {
   }
 
   /**
-   * Get isDefault
+   * Set for exactly one Pokémon used as the default for each species.
    * @return isDefault
    */
   
-  @Schema(name = "is_default", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Schema(name = "is_default", description = "Set for exactly one Pokémon used as the default for each species.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("is_default")
   public Boolean getIsDefault() {
     return isDefault;
@@ -209,13 +217,15 @@ public class PokemonDetail {
   }
 
   /**
-   * Get order
+   * Order for sorting. Almost national order, except families are grouped together.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return order
    */
-  
-  @Schema(name = "order", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Min(value = -2147483648) @Max(value = 2147483647) 
+  @Schema(name = "order", description = "Order for sorting. Almost national order, except families are grouped together.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("order")
-  public JsonNullable<Integer> getOrder() {
+  public JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> getOrder() {
     return order;
   }
 
@@ -229,13 +239,15 @@ public class PokemonDetail {
   }
 
   /**
-   * Get weight
+   * The weight of this Pokémon in hectograms.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return weight
    */
-  
-  @Schema(name = "weight", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Min(value = -2147483648) @Max(value = 2147483647) 
+  @Schema(name = "weight", description = "The weight of this Pokémon in hectograms.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("weight")
-  public JsonNullable<Integer> getWeight() {
+  public JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> getWeight() {
     return weight;
   }
 
@@ -243,12 +255,12 @@ public class PokemonDetail {
     this.weight = weight;
   }
 
-  public PokemonDetail abilities(List<@Valid PokemonDetailAbilitiesInner> abilities) {
+  public PokemonDetail abilities(List<@Valid PokemonAbility> abilities) {
     this.abilities = abilities;
     return this;
   }
 
-  public PokemonDetail addAbilitiesItem(PokemonDetailAbilitiesInner abilitiesItem) {
+  public PokemonDetail addAbilitiesItem(PokemonAbility abilitiesItem) {
     if (this.abilities == null) {
       this.abilities = new ArrayList<>();
     }
@@ -257,26 +269,26 @@ public class PokemonDetail {
   }
 
   /**
-   * Get abilities
+   * A list of abilities this Pokémon could potentially have.
    * @return abilities
    */
   
-  @Schema(name = "abilities", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "abilities", accessMode = Schema.AccessMode.READ_ONLY, description = "A list of abilities this Pokémon could potentially have.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("abilities")
-  public List<@Valid PokemonDetailAbilitiesInner> getAbilities() {
+  public List<@Valid PokemonAbility> getAbilities() {
     return abilities;
   }
 
-  public void setAbilities(List<@Valid PokemonDetailAbilitiesInner> abilities) {
+  public void setAbilities(List<@Valid PokemonAbility> abilities) {
     this.abilities = abilities;
   }
 
-  public PokemonDetail pastAbilities(List<@Valid PokemonDetailPastAbilitiesInner> pastAbilities) {
+  public PokemonDetail pastAbilities(List<@Valid PokemonPastAbility> pastAbilities) {
     this.pastAbilities = pastAbilities;
     return this;
   }
 
-  public PokemonDetail addPastAbilitiesItem(PokemonDetailPastAbilitiesInner pastAbilitiesItem) {
+  public PokemonDetail addPastAbilitiesItem(PokemonPastAbility pastAbilitiesItem) {
     if (this.pastAbilities == null) {
       this.pastAbilities = new ArrayList<>();
     }
@@ -285,17 +297,17 @@ public class PokemonDetail {
   }
 
   /**
-   * Get pastAbilities
+   * A list of details showing abilities this pokémon had in previous generations
    * @return pastAbilities
    */
   
-  @Schema(name = "past_abilities", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "past_abilities", accessMode = Schema.AccessMode.READ_ONLY, description = "A list of details showing abilities this pokémon had in previous generations", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("past_abilities")
-  public List<@Valid PokemonDetailPastAbilitiesInner> getPastAbilities() {
+  public List<@Valid PokemonPastAbility> getPastAbilities() {
     return pastAbilities;
   }
 
-  public void setPastAbilities(List<@Valid PokemonDetailPastAbilitiesInner> pastAbilities) {
+  public void setPastAbilities(List<@Valid PokemonPastAbility> pastAbilities) {
     this.pastAbilities = pastAbilities;
   }
 
@@ -313,11 +325,11 @@ public class PokemonDetail {
   }
 
   /**
-   * Get forms
+   * A list of forms this Pokémon can take on.
    * @return forms
    */
   
-  @Schema(name = "forms", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "forms", accessMode = Schema.AccessMode.READ_ONLY, description = "A list of forms this Pokémon can take on.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("forms")
   public List<@Valid PokemonFormSummary> getForms() {
     return forms;
@@ -341,11 +353,11 @@ public class PokemonDetail {
   }
 
   /**
-   * Get gameIndices
+   * A list of game indices relevent to Pokémon item by generation.
    * @return gameIndices
    */
   
-  @Schema(name = "game_indices", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "game_indices", accessMode = Schema.AccessMode.READ_ONLY, description = "A list of game indices relevent to Pokémon item by generation.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("game_indices")
   public List<@Valid PokemonGameIndex> getGameIndices() {
     return gameIndices;
@@ -355,23 +367,31 @@ public class PokemonDetail {
     this.gameIndices = gameIndices;
   }
 
-  public PokemonDetail heldItems(PokemonDetailHeldItems heldItems) {
+  public PokemonDetail heldItems(List<@Valid PokemonHeldItemSummary> heldItems) {
     this.heldItems = heldItems;
     return this;
   }
 
+  public PokemonDetail addHeldItemsItem(PokemonHeldItemSummary heldItemsItem) {
+    if (this.heldItems == null) {
+      this.heldItems = new ArrayList<>();
+    }
+    this.heldItems.add(heldItemsItem);
+    return this;
+  }
+
   /**
-   * Get heldItems
+   * A list of items this Pokémon may be holding when encountered.
    * @return heldItems
    */
-  @NotNull @Valid 
-  @Schema(name = "held_items", requiredMode = Schema.RequiredMode.REQUIRED)
+  
+  @Schema(name = "held_items", accessMode = Schema.AccessMode.READ_ONLY, description = "A list of items this Pokémon may be holding when encountered.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("held_items")
-  public PokemonDetailHeldItems getHeldItems() {
+  public List<@Valid PokemonHeldItemSummary> getHeldItems() {
     return heldItems;
   }
 
-  public void setHeldItems(PokemonDetailHeldItems heldItems) {
+  public void setHeldItems(List<@Valid PokemonHeldItemSummary> heldItems) {
     this.heldItems = heldItems;
   }
 
@@ -381,11 +401,11 @@ public class PokemonDetail {
   }
 
   /**
-   * Get locationAreaEncounters
+   * A link to a list of location areas, as well as encounter details pertaining to specific versions.
    * @return locationAreaEncounters
    */
   
-  @Schema(name = "location_area_encounters", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "location_area_encounters", accessMode = Schema.AccessMode.READ_ONLY, description = "A link to a list of location areas, as well as encounter details pertaining to specific versions.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("location_area_encounters")
   public String getLocationAreaEncounters() {
     return locationAreaEncounters;
@@ -395,12 +415,12 @@ public class PokemonDetail {
     this.locationAreaEncounters = locationAreaEncounters;
   }
 
-  public PokemonDetail moves(List<@Valid PokemonDetailMovesInner> moves) {
+  public PokemonDetail moves(List<@Valid PokemonMove> moves) {
     this.moves = moves;
     return this;
   }
 
-  public PokemonDetail addMovesItem(PokemonDetailMovesInner movesItem) {
+  public PokemonDetail addMovesItem(PokemonMove movesItem) {
     if (this.moves == null) {
       this.moves = new ArrayList<>();
     }
@@ -409,17 +429,17 @@ public class PokemonDetail {
   }
 
   /**
-   * Get moves
+   * A list of moves along with learn methods and level details pertaining to specific version groups.
    * @return moves
    */
   
-  @Schema(name = "moves", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "moves", accessMode = Schema.AccessMode.READ_ONLY, description = "A list of moves along with learn methods and level details pertaining to specific version groups.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("moves")
-  public List<@Valid PokemonDetailMovesInner> getMoves() {
+  public List<@Valid PokemonMove> getMoves() {
     return moves;
   }
 
-  public void setMoves(List<@Valid PokemonDetailMovesInner> moves) {
+  public void setMoves(List<@Valid PokemonMove> moves) {
     this.moves = moves;
   }
 
@@ -429,11 +449,11 @@ public class PokemonDetail {
   }
 
   /**
-   * Get species
+   * The species this Pokémon belongs to.
    * @return species
    */
   @NotNull @Valid 
-  @Schema(name = "species", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "species", description = "The species this Pokémon belongs to.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("species")
   public PokemonSpeciesSummary getSpecies() {
     return species;
@@ -443,43 +463,43 @@ public class PokemonDetail {
     this.species = species;
   }
 
-  public PokemonDetail sprites(PokemonDetailSprites sprites) {
+  public PokemonDetail sprites(PokemonSprites sprites) {
     this.sprites = sprites;
     return this;
   }
 
   /**
-   * Get sprites
+   * A set of sprites used to depict this Pokémon in the game. A visual representation of the various sprites can be found at <a href='https://github.com/PokeAPI/sprites#sprites'>PokeAPI/sprites</a>
    * @return sprites
    */
-  @NotNull @Valid 
-  @Schema(name = "sprites", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "sprites", accessMode = Schema.AccessMode.READ_ONLY, description = "A set of sprites used to depict this Pokémon in the game. A visual representation of the various sprites can be found at <a href='https://github.com/PokeAPI/sprites#sprites'>PokeAPI/sprites</a>", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("sprites")
-  public PokemonDetailSprites getSprites() {
+  public PokemonSprites getSprites() {
     return sprites;
   }
 
-  public void setSprites(PokemonDetailSprites sprites) {
+  public void setSprites(PokemonSprites sprites) {
     this.sprites = sprites;
   }
 
-  public PokemonDetail cries(PokemonDetailCries cries) {
+  public PokemonDetail cries(PokemonCries cries) {
     this.cries = cries;
     return this;
   }
 
   /**
-   * Get cries
+   * A set of cries used to depict this Pokémon in the game. A visual representation of the various cries can be found at <a href='https://github.com/PokeAPI/cries#cries'>PokeAPI/cries</a>
    * @return cries
    */
-  @NotNull @Valid 
-  @Schema(name = "cries", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "cries", accessMode = Schema.AccessMode.READ_ONLY, description = "A set of cries used to depict this Pokémon in the game. A visual representation of the various cries can be found at <a href='https://github.com/PokeAPI/cries#cries'>PokeAPI/cries</a>", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("cries")
-  public PokemonDetailCries getCries() {
+  public PokemonCries getCries() {
     return cries;
   }
 
-  public void setCries(PokemonDetailCries cries) {
+  public void setCries(PokemonCries cries) {
     this.cries = cries;
   }
 
@@ -497,11 +517,11 @@ public class PokemonDetail {
   }
 
   /**
-   * Get stats
+   * A list of base stat values for this Pokémon.
    * @return stats
    */
   
-  @Schema(name = "stats", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "stats", accessMode = Schema.AccessMode.READ_ONLY, description = "A list of base stat values for this Pokémon.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("stats")
   public List<@Valid PokemonStat> getStats() {
     return stats;
@@ -511,12 +531,40 @@ public class PokemonDetail {
     this.stats = stats;
   }
 
-  public PokemonDetail types(List<@Valid PokemonDetailTypesInner> types) {
+  public PokemonDetail pastStats(List<@Valid PokemonPastStat> pastStats) {
+    this.pastStats = pastStats;
+    return this;
+  }
+
+  public PokemonDetail addPastStatsItem(PokemonPastStat pastStatsItem) {
+    if (this.pastStats == null) {
+      this.pastStats = new ArrayList<>();
+    }
+    this.pastStats.add(pastStatsItem);
+    return this;
+  }
+
+  /**
+   * A list of details showing stats this pokémon had in previous generations
+   * @return pastStats
+   */
+  
+  @Schema(name = "past_stats", accessMode = Schema.AccessMode.READ_ONLY, description = "A list of details showing stats this pokémon had in previous generations", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("past_stats")
+  public List<@Valid PokemonPastStat> getPastStats() {
+    return pastStats;
+  }
+
+  public void setPastStats(List<@Valid PokemonPastStat> pastStats) {
+    this.pastStats = pastStats;
+  }
+
+  public PokemonDetail types(List<@Valid PokemonType> types) {
     this.types = types;
     return this;
   }
 
-  public PokemonDetail addTypesItem(PokemonDetailTypesInner typesItem) {
+  public PokemonDetail addTypesItem(PokemonType typesItem) {
     if (this.types == null) {
       this.types = new ArrayList<>();
     }
@@ -525,26 +573,26 @@ public class PokemonDetail {
   }
 
   /**
-   * Get types
+   * A list of details showing types this Pokémon has.
    * @return types
    */
   
-  @Schema(name = "types", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "types", accessMode = Schema.AccessMode.READ_ONLY, description = "A list of details showing types this Pokémon has.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("types")
-  public List<@Valid PokemonDetailTypesInner> getTypes() {
+  public List<@Valid PokemonType> getTypes() {
     return types;
   }
 
-  public void setTypes(List<@Valid PokemonDetailTypesInner> types) {
+  public void setTypes(List<@Valid PokemonType> types) {
     this.types = types;
   }
 
-  public PokemonDetail pastTypes(List<@Valid PokemonDetailPastTypesInner> pastTypes) {
+  public PokemonDetail pastTypes(List<@Valid PokemonPastType> pastTypes) {
     this.pastTypes = pastTypes;
     return this;
   }
 
-  public PokemonDetail addPastTypesItem(PokemonDetailPastTypesInner pastTypesItem) {
+  public PokemonDetail addPastTypesItem(PokemonPastType pastTypesItem) {
     if (this.pastTypes == null) {
       this.pastTypes = new ArrayList<>();
     }
@@ -553,17 +601,17 @@ public class PokemonDetail {
   }
 
   /**
-   * Get pastTypes
+   * A list of details showing types this pokémon had in previous generations
    * @return pastTypes
    */
   
-  @Schema(name = "past_types", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "past_types", accessMode = Schema.AccessMode.READ_ONLY, description = "A list of details showing types this pokémon had in previous generations", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("past_types")
-  public List<@Valid PokemonDetailPastTypesInner> getPastTypes() {
+  public List<@Valid PokemonPastType> getPastTypes() {
     return pastTypes;
   }
 
-  public void setPastTypes(List<@Valid PokemonDetailPastTypesInner> pastTypes) {
+  public void setPastTypes(List<@Valid PokemonPastType> pastTypes) {
     this.pastTypes = pastTypes;
   }
 
@@ -594,6 +642,7 @@ public class PokemonDetail {
         Objects.equals(this.sprites, pokemonDetail.sprites) &&
         Objects.equals(this.cries, pokemonDetail.cries) &&
         Objects.equals(this.stats, pokemonDetail.stats) &&
+        Objects.equals(this.pastStats, pokemonDetail.pastStats) &&
         Objects.equals(this.types, pokemonDetail.types) &&
         Objects.equals(this.pastTypes, pokemonDetail.pastTypes);
   }
@@ -604,7 +653,7 @@ public class PokemonDetail {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, hashCodeNullable(baseExperience), hashCodeNullable(height), isDefault, hashCodeNullable(order), hashCodeNullable(weight), abilities, pastAbilities, forms, gameIndices, heldItems, locationAreaEncounters, moves, species, sprites, cries, stats, types, pastTypes);
+    return Objects.hash(id, name, hashCodeNullable(baseExperience), hashCodeNullable(height), isDefault, hashCodeNullable(order), hashCodeNullable(weight), abilities, pastAbilities, forms, gameIndices, heldItems, locationAreaEncounters, moves, species, sprites, cries, stats, pastStats, types, pastTypes);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -636,6 +685,7 @@ public class PokemonDetail {
     sb.append("    sprites: ").append(toIndentedString(sprites)).append("\n");
     sb.append("    cries: ").append(toIndentedString(cries)).append("\n");
     sb.append("    stats: ").append(toIndentedString(stats)).append("\n");
+    sb.append("    pastStats: ").append(toIndentedString(pastStats)).append("\n");
     sb.append("    types: ").append(toIndentedString(types)).append("\n");
     sb.append("    pastTypes: ").append(toIndentedString(pastTypes)).append("\n");
     sb.append("}");

@@ -8,7 +8,9 @@
 import Foundation
 
 public struct PokemonGameIndex: Codable {
+    /// The internal id of an API resource within game data.
     public var gameIndex: Int
+    /// The version relevent to this game index.
     public var version: VersionSummary
 
     public init(gameIndex: Int, version: VersionSummary) {

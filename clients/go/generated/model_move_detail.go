@@ -1,9 +1,9 @@
 /*
 PokéAPI
 
-All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
 
-API version: 2.7.0
+API version: 2.10.0
 Contact: blah+oapicf@cliffano.com
 */
 
@@ -22,30 +22,54 @@ var _ MappedNullable = &MoveDetail{}
 
 // MoveDetail struct for MoveDetail
 type MoveDetail struct {
+	// The identifier for this resource.
 	Id int32 `json:"id"`
+	// The name for this resource.
 	Name string `json:"name"`
+	// The percent value of how likely this move is to be successful.
 	Accuracy NullableInt32 `json:"accuracy,omitempty"`
-	EffectChance int32 `json:"effect_chance"`
+	// The percent value of how likely it is this moves effect will happen.
+	EffectChance NullableInt32 `json:"effect_chance"`
+	// Power points. The number of times this move can be used.
 	Pp NullableInt32 `json:"pp,omitempty"`
+	// A value between -8 and 8. Sets the order in which moves are executed during battle. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Priority) for greater detail.
 	Priority NullableInt32 `json:"priority,omitempty"`
+	// The base power of this move, or null if it has no fixed base power.
 	Power NullableInt32 `json:"power,omitempty"`
-	ContestCombos MoveDetailContestCombos `json:"contest_combos"`
-	ContestType ContestTypeSummary `json:"contest_type"`
-	ContestEffect ContestEffectSummary `json:"contest_effect"`
+	// A detail of normal and super contest combos that require this move.
+	ContestCombos NullableMoveCombos `json:"contest_combos"`
+	// The type of appeal this move gives a Pokémon when used in a contest.
+	ContestType NullableContestTypeSummary `json:"contest_type"`
+	// The effect the move has when used in a contest.
+	ContestEffect NullableContestEffectSummary `json:"contest_effect"`
+	// The type of damage the move inflicts on the target, e.g. physical.
 	DamageClass MoveDamageClassSummary `json:"damage_class"`
-	EffectEntries []MoveChangeEffectEntriesInner `json:"effect_entries"`
-	EffectChanges []MoveDetailEffectChangesInner `json:"effect_changes"`
+	// The effect of this move listed in different languages.
+	EffectEntries []MoveEffectEffectText `json:"effect_entries"`
+	// The list of previous effects this move has had across version groups of the games.
+	EffectChanges []MoveEffectChange `json:"effect_changes"`
+	// The generation in which this move was introduced.
 	Generation GenerationSummary `json:"generation"`
-	Meta MoveMeta `json:"meta"`
+	// Metadata about this move
+	Meta NullableMoveMeta `json:"meta"`
+	// The name of this resource listed in different languages.
 	Names []MoveName `json:"names"`
+	// A list of move resource value changes across version groups of the game.
 	PastValues []MoveChange `json:"past_values"`
-	StatChanges []MoveDetailStatChangesInner `json:"stat_changes"`
-	SuperContestEffect SuperContestEffectSummary `json:"super_contest_effect"`
+	// A list of stats this moves effects and how much it effects them.
+	StatChanges []MoveMetaStatChange `json:"stat_changes"`
+	// The effect the move has when used in a super contest.
+	SuperContestEffect NullableSuperContestEffectSummary `json:"super_contest_effect"`
+	// The type of target that will receive the effects of the attack.
 	Target MoveTargetSummary `json:"target"`
+	// The elemental type of this move.
 	Type TypeSummary `json:"type"`
-	Machines []MoveDetailMachinesInner `json:"machines"`
+	// A list of the machines that teach this move.
+	Machines []ItemMachine `json:"machines"`
+	// The flavor text of this move listed in different languages.
 	FlavorTextEntries []MoveFlavorText `json:"flavor_text_entries"`
-	LearnedByPokemon []AbilityDetailPokemonInnerPokemon `json:"learned_by_pokemon"`
+	// List of Pokemon that can learn the move
+	LearnedByPokemon []PokemonSummary `json:"learned_by_pokemon"`
 }
 
 type _MoveDetail MoveDetail
@@ -54,7 +78,7 @@ type _MoveDetail MoveDetail
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewMoveDetail(id int32, name string, effectChance int32, contestCombos MoveDetailContestCombos, contestType ContestTypeSummary, contestEffect ContestEffectSummary, damageClass MoveDamageClassSummary, effectEntries []MoveChangeEffectEntriesInner, effectChanges []MoveDetailEffectChangesInner, generation GenerationSummary, meta MoveMeta, names []MoveName, pastValues []MoveChange, statChanges []MoveDetailStatChangesInner, superContestEffect SuperContestEffectSummary, target MoveTargetSummary, type_ TypeSummary, machines []MoveDetailMachinesInner, flavorTextEntries []MoveFlavorText, learnedByPokemon []AbilityDetailPokemonInnerPokemon) *MoveDetail {
+func NewMoveDetail(id int32, name string, effectChance NullableInt32, contestCombos NullableMoveCombos, contestType NullableContestTypeSummary, contestEffect NullableContestEffectSummary, damageClass MoveDamageClassSummary, effectEntries []MoveEffectEffectText, effectChanges []MoveEffectChange, generation GenerationSummary, meta NullableMoveMeta, names []MoveName, pastValues []MoveChange, statChanges []MoveMetaStatChange, superContestEffect NullableSuperContestEffectSummary, target MoveTargetSummary, type_ TypeSummary, machines []ItemMachine, flavorTextEntries []MoveFlavorText, learnedByPokemon []PokemonSummary) *MoveDetail {
 	this := MoveDetail{}
 	this.Id = id
 	this.Name = name
@@ -178,27 +202,29 @@ func (o *MoveDetail) UnsetAccuracy() {
 }
 
 // GetEffectChance returns the EffectChance field value
+// If the value is explicit nil, the zero value for int32 will be returned
 func (o *MoveDetail) GetEffectChance() int32 {
-	if o == nil {
+	if o == nil || o.EffectChance.Get() == nil {
 		var ret int32
 		return ret
 	}
 
-	return o.EffectChance
+	return *o.EffectChance.Get()
 }
 
 // GetEffectChanceOk returns a tuple with the EffectChance field value
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MoveDetail) GetEffectChanceOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.EffectChance, true
+	return o.EffectChance.Get(), o.EffectChance.IsSet()
 }
 
 // SetEffectChance sets field value
 func (o *MoveDetail) SetEffectChance(v int32) {
-	o.EffectChance = v
+	o.EffectChance.Set(&v)
 }
 
 // GetPp returns the Pp field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -328,75 +354,81 @@ func (o *MoveDetail) UnsetPower() {
 }
 
 // GetContestCombos returns the ContestCombos field value
-func (o *MoveDetail) GetContestCombos() MoveDetailContestCombos {
-	if o == nil {
-		var ret MoveDetailContestCombos
+// If the value is explicit nil, the zero value for MoveCombos will be returned
+func (o *MoveDetail) GetContestCombos() MoveCombos {
+	if o == nil || o.ContestCombos.Get() == nil {
+		var ret MoveCombos
 		return ret
 	}
 
-	return o.ContestCombos
+	return *o.ContestCombos.Get()
 }
 
 // GetContestCombosOk returns a tuple with the ContestCombos field value
 // and a boolean to check if the value has been set.
-func (o *MoveDetail) GetContestCombosOk() (*MoveDetailContestCombos, bool) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *MoveDetail) GetContestCombosOk() (*MoveCombos, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.ContestCombos, true
+	return o.ContestCombos.Get(), o.ContestCombos.IsSet()
 }
 
 // SetContestCombos sets field value
-func (o *MoveDetail) SetContestCombos(v MoveDetailContestCombos) {
-	o.ContestCombos = v
+func (o *MoveDetail) SetContestCombos(v MoveCombos) {
+	o.ContestCombos.Set(&v)
 }
 
 // GetContestType returns the ContestType field value
+// If the value is explicit nil, the zero value for ContestTypeSummary will be returned
 func (o *MoveDetail) GetContestType() ContestTypeSummary {
-	if o == nil {
+	if o == nil || o.ContestType.Get() == nil {
 		var ret ContestTypeSummary
 		return ret
 	}
 
-	return o.ContestType
+	return *o.ContestType.Get()
 }
 
 // GetContestTypeOk returns a tuple with the ContestType field value
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MoveDetail) GetContestTypeOk() (*ContestTypeSummary, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.ContestType, true
+	return o.ContestType.Get(), o.ContestType.IsSet()
 }
 
 // SetContestType sets field value
 func (o *MoveDetail) SetContestType(v ContestTypeSummary) {
-	o.ContestType = v
+	o.ContestType.Set(&v)
 }
 
 // GetContestEffect returns the ContestEffect field value
+// If the value is explicit nil, the zero value for ContestEffectSummary will be returned
 func (o *MoveDetail) GetContestEffect() ContestEffectSummary {
-	if o == nil {
+	if o == nil || o.ContestEffect.Get() == nil {
 		var ret ContestEffectSummary
 		return ret
 	}
 
-	return o.ContestEffect
+	return *o.ContestEffect.Get()
 }
 
 // GetContestEffectOk returns a tuple with the ContestEffect field value
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MoveDetail) GetContestEffectOk() (*ContestEffectSummary, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.ContestEffect, true
+	return o.ContestEffect.Get(), o.ContestEffect.IsSet()
 }
 
 // SetContestEffect sets field value
 func (o *MoveDetail) SetContestEffect(v ContestEffectSummary) {
-	o.ContestEffect = v
+	o.ContestEffect.Set(&v)
 }
 
 // GetDamageClass returns the DamageClass field value
@@ -424,9 +456,9 @@ func (o *MoveDetail) SetDamageClass(v MoveDamageClassSummary) {
 }
 
 // GetEffectEntries returns the EffectEntries field value
-func (o *MoveDetail) GetEffectEntries() []MoveChangeEffectEntriesInner {
+func (o *MoveDetail) GetEffectEntries() []MoveEffectEffectText {
 	if o == nil {
-		var ret []MoveChangeEffectEntriesInner
+		var ret []MoveEffectEffectText
 		return ret
 	}
 
@@ -435,7 +467,7 @@ func (o *MoveDetail) GetEffectEntries() []MoveChangeEffectEntriesInner {
 
 // GetEffectEntriesOk returns a tuple with the EffectEntries field value
 // and a boolean to check if the value has been set.
-func (o *MoveDetail) GetEffectEntriesOk() ([]MoveChangeEffectEntriesInner, bool) {
+func (o *MoveDetail) GetEffectEntriesOk() ([]MoveEffectEffectText, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -443,14 +475,14 @@ func (o *MoveDetail) GetEffectEntriesOk() ([]MoveChangeEffectEntriesInner, bool)
 }
 
 // SetEffectEntries sets field value
-func (o *MoveDetail) SetEffectEntries(v []MoveChangeEffectEntriesInner) {
+func (o *MoveDetail) SetEffectEntries(v []MoveEffectEffectText) {
 	o.EffectEntries = v
 }
 
 // GetEffectChanges returns the EffectChanges field value
-func (o *MoveDetail) GetEffectChanges() []MoveDetailEffectChangesInner {
+func (o *MoveDetail) GetEffectChanges() []MoveEffectChange {
 	if o == nil {
-		var ret []MoveDetailEffectChangesInner
+		var ret []MoveEffectChange
 		return ret
 	}
 
@@ -459,7 +491,7 @@ func (o *MoveDetail) GetEffectChanges() []MoveDetailEffectChangesInner {
 
 // GetEffectChangesOk returns a tuple with the EffectChanges field value
 // and a boolean to check if the value has been set.
-func (o *MoveDetail) GetEffectChangesOk() ([]MoveDetailEffectChangesInner, bool) {
+func (o *MoveDetail) GetEffectChangesOk() ([]MoveEffectChange, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -467,7 +499,7 @@ func (o *MoveDetail) GetEffectChangesOk() ([]MoveDetailEffectChangesInner, bool)
 }
 
 // SetEffectChanges sets field value
-func (o *MoveDetail) SetEffectChanges(v []MoveDetailEffectChangesInner) {
+func (o *MoveDetail) SetEffectChanges(v []MoveEffectChange) {
 	o.EffectChanges = v
 }
 
@@ -496,27 +528,29 @@ func (o *MoveDetail) SetGeneration(v GenerationSummary) {
 }
 
 // GetMeta returns the Meta field value
+// If the value is explicit nil, the zero value for MoveMeta will be returned
 func (o *MoveDetail) GetMeta() MoveMeta {
-	if o == nil {
+	if o == nil || o.Meta.Get() == nil {
 		var ret MoveMeta
 		return ret
 	}
 
-	return o.Meta
+	return *o.Meta.Get()
 }
 
 // GetMetaOk returns a tuple with the Meta field value
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MoveDetail) GetMetaOk() (*MoveMeta, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Meta, true
+	return o.Meta.Get(), o.Meta.IsSet()
 }
 
 // SetMeta sets field value
 func (o *MoveDetail) SetMeta(v MoveMeta) {
-	o.Meta = v
+	o.Meta.Set(&v)
 }
 
 // GetNames returns the Names field value
@@ -568,9 +602,9 @@ func (o *MoveDetail) SetPastValues(v []MoveChange) {
 }
 
 // GetStatChanges returns the StatChanges field value
-func (o *MoveDetail) GetStatChanges() []MoveDetailStatChangesInner {
+func (o *MoveDetail) GetStatChanges() []MoveMetaStatChange {
 	if o == nil {
-		var ret []MoveDetailStatChangesInner
+		var ret []MoveMetaStatChange
 		return ret
 	}
 
@@ -579,7 +613,7 @@ func (o *MoveDetail) GetStatChanges() []MoveDetailStatChangesInner {
 
 // GetStatChangesOk returns a tuple with the StatChanges field value
 // and a boolean to check if the value has been set.
-func (o *MoveDetail) GetStatChangesOk() ([]MoveDetailStatChangesInner, bool) {
+func (o *MoveDetail) GetStatChangesOk() ([]MoveMetaStatChange, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -587,32 +621,34 @@ func (o *MoveDetail) GetStatChangesOk() ([]MoveDetailStatChangesInner, bool) {
 }
 
 // SetStatChanges sets field value
-func (o *MoveDetail) SetStatChanges(v []MoveDetailStatChangesInner) {
+func (o *MoveDetail) SetStatChanges(v []MoveMetaStatChange) {
 	o.StatChanges = v
 }
 
 // GetSuperContestEffect returns the SuperContestEffect field value
+// If the value is explicit nil, the zero value for SuperContestEffectSummary will be returned
 func (o *MoveDetail) GetSuperContestEffect() SuperContestEffectSummary {
-	if o == nil {
+	if o == nil || o.SuperContestEffect.Get() == nil {
 		var ret SuperContestEffectSummary
 		return ret
 	}
 
-	return o.SuperContestEffect
+	return *o.SuperContestEffect.Get()
 }
 
 // GetSuperContestEffectOk returns a tuple with the SuperContestEffect field value
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MoveDetail) GetSuperContestEffectOk() (*SuperContestEffectSummary, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.SuperContestEffect, true
+	return o.SuperContestEffect.Get(), o.SuperContestEffect.IsSet()
 }
 
 // SetSuperContestEffect sets field value
 func (o *MoveDetail) SetSuperContestEffect(v SuperContestEffectSummary) {
-	o.SuperContestEffect = v
+	o.SuperContestEffect.Set(&v)
 }
 
 // GetTarget returns the Target field value
@@ -664,9 +700,9 @@ func (o *MoveDetail) SetType(v TypeSummary) {
 }
 
 // GetMachines returns the Machines field value
-func (o *MoveDetail) GetMachines() []MoveDetailMachinesInner {
+func (o *MoveDetail) GetMachines() []ItemMachine {
 	if o == nil {
-		var ret []MoveDetailMachinesInner
+		var ret []ItemMachine
 		return ret
 	}
 
@@ -675,7 +711,7 @@ func (o *MoveDetail) GetMachines() []MoveDetailMachinesInner {
 
 // GetMachinesOk returns a tuple with the Machines field value
 // and a boolean to check if the value has been set.
-func (o *MoveDetail) GetMachinesOk() ([]MoveDetailMachinesInner, bool) {
+func (o *MoveDetail) GetMachinesOk() ([]ItemMachine, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -683,7 +719,7 @@ func (o *MoveDetail) GetMachinesOk() ([]MoveDetailMachinesInner, bool) {
 }
 
 // SetMachines sets field value
-func (o *MoveDetail) SetMachines(v []MoveDetailMachinesInner) {
+func (o *MoveDetail) SetMachines(v []ItemMachine) {
 	o.Machines = v
 }
 
@@ -712,9 +748,9 @@ func (o *MoveDetail) SetFlavorTextEntries(v []MoveFlavorText) {
 }
 
 // GetLearnedByPokemon returns the LearnedByPokemon field value
-func (o *MoveDetail) GetLearnedByPokemon() []AbilityDetailPokemonInnerPokemon {
+func (o *MoveDetail) GetLearnedByPokemon() []PokemonSummary {
 	if o == nil {
-		var ret []AbilityDetailPokemonInnerPokemon
+		var ret []PokemonSummary
 		return ret
 	}
 
@@ -723,7 +759,7 @@ func (o *MoveDetail) GetLearnedByPokemon() []AbilityDetailPokemonInnerPokemon {
 
 // GetLearnedByPokemonOk returns a tuple with the LearnedByPokemon field value
 // and a boolean to check if the value has been set.
-func (o *MoveDetail) GetLearnedByPokemonOk() ([]AbilityDetailPokemonInnerPokemon, bool) {
+func (o *MoveDetail) GetLearnedByPokemonOk() ([]PokemonSummary, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -731,7 +767,7 @@ func (o *MoveDetail) GetLearnedByPokemonOk() ([]AbilityDetailPokemonInnerPokemon
 }
 
 // SetLearnedByPokemon sets field value
-func (o *MoveDetail) SetLearnedByPokemon(v []AbilityDetailPokemonInnerPokemon) {
+func (o *MoveDetail) SetLearnedByPokemon(v []PokemonSummary) {
 	o.LearnedByPokemon = v
 }
 
@@ -750,7 +786,7 @@ func (o MoveDetail) ToMap() (map[string]interface{}, error) {
 	if o.Accuracy.IsSet() {
 		toSerialize["accuracy"] = o.Accuracy.Get()
 	}
-	toSerialize["effect_chance"] = o.EffectChance
+	toSerialize["effect_chance"] = o.EffectChance.Get()
 	if o.Pp.IsSet() {
 		toSerialize["pp"] = o.Pp.Get()
 	}
@@ -760,18 +796,18 @@ func (o MoveDetail) ToMap() (map[string]interface{}, error) {
 	if o.Power.IsSet() {
 		toSerialize["power"] = o.Power.Get()
 	}
-	toSerialize["contest_combos"] = o.ContestCombos
-	toSerialize["contest_type"] = o.ContestType
-	toSerialize["contest_effect"] = o.ContestEffect
+	toSerialize["contest_combos"] = o.ContestCombos.Get()
+	toSerialize["contest_type"] = o.ContestType.Get()
+	toSerialize["contest_effect"] = o.ContestEffect.Get()
 	toSerialize["damage_class"] = o.DamageClass
 	toSerialize["effect_entries"] = o.EffectEntries
 	toSerialize["effect_changes"] = o.EffectChanges
 	toSerialize["generation"] = o.Generation
-	toSerialize["meta"] = o.Meta
+	toSerialize["meta"] = o.Meta.Get()
 	toSerialize["names"] = o.Names
 	toSerialize["past_values"] = o.PastValues
 	toSerialize["stat_changes"] = o.StatChanges
-	toSerialize["super_contest_effect"] = o.SuperContestEffect
+	toSerialize["super_contest_effect"] = o.SuperContestEffect.Get()
 	toSerialize["target"] = o.Target
 	toSerialize["type"] = o.Type
 	toSerialize["machines"] = o.Machines

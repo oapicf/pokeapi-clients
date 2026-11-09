@@ -6,25 +6,29 @@ goog.provide('API.Client.EggGroupDetail');
 API.Client.EggGroupDetail = function() {}
 
 /**
+ * The identifier for this resource.
  * @type {!number}
  * @export
  */
 API.Client.EggGroupDetail.prototype.id;
 
 /**
+ * The name for this resource.
  * @type {!string}
  * @export
  */
 API.Client.EggGroupDetail.prototype.name;
 
 /**
+ * The name of this resource listed in different languages.
  * @type {!Array<!API.Client.EggGroupName>}
  * @export
  */
 API.Client.EggGroupDetail.prototype.names;
 
 /**
- * @type {!Array<!API.Client.EggGroupDetail_pokemon_species_inner>}
+ * A list of all Pokémon species that are members of this egg group.
+ * @type {!Array<!API.Client.PokemonSpeciesSummary>}
  * @export
  */
 API.Client.EggGroupDetail.prototype.pokemonSpecies;

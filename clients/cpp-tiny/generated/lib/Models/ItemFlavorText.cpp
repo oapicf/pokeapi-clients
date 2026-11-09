@@ -7,8 +7,8 @@ using namespace Tiny;
 ItemFlavorText::ItemFlavorText()
 {
 	text = std::string();
-	version_group = VersionGroupSummary();
-	language = LanguageSummary();
+	version_group = null;
+	language = null;
 }
 
 ItemFlavorText::ItemFlavorText(std::string jsonString)

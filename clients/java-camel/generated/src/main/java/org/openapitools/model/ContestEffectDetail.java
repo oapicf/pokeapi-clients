@@ -23,7 +23,7 @@ import jakarta.annotation.Generated;
  * ContestEffectDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-10-25T05:48:25.711080506Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-11-09T13:49:41.168612095Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class ContestEffectDetail {
 
   private Integer id;
@@ -57,11 +57,11 @@ public class ContestEffectDetail {
   }
 
   /**
-   * Get id
+   * The identifier for this resource.
    * @return id
    */
   
-  @Schema(name = "id", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "id", accessMode = Schema.AccessMode.READ_ONLY, description = "The identifier for this resource.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("id")
   public Integer getId() {
     return id;
@@ -77,11 +77,13 @@ public class ContestEffectDetail {
   }
 
   /**
-   * Get appeal
+   * The base number of hearts the user of this move gets.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return appeal
    */
-  @NotNull 
-  @Schema(name = "appeal", requiredMode = Schema.RequiredMode.REQUIRED)
+  @NotNull @Min(value = -2147483648) @Max(value = 2147483647) 
+  @Schema(name = "appeal", description = "The base number of hearts the user of this move gets.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("appeal")
   public Integer getAppeal() {
     return appeal;
@@ -97,11 +99,13 @@ public class ContestEffectDetail {
   }
 
   /**
-   * Get jam
+   * The base number of hearts the user's opponent loses.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return jam
    */
-  @NotNull 
-  @Schema(name = "jam", requiredMode = Schema.RequiredMode.REQUIRED)
+  @NotNull @Min(value = -2147483648) @Max(value = 2147483647) 
+  @Schema(name = "jam", description = "The base number of hearts the user's opponent loses.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("jam")
   public Integer getJam() {
     return jam;
@@ -125,11 +129,11 @@ public class ContestEffectDetail {
   }
 
   /**
-   * Get effectEntries
+   * The result of this contest effect listed in different languages.
    * @return effectEntries
    */
   
-  @Schema(name = "effect_entries", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "effect_entries", accessMode = Schema.AccessMode.READ_ONLY, description = "The result of this contest effect listed in different languages.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("effect_entries")
   public List<@Valid ContestEffectEffectText> getEffectEntries() {
     return effectEntries;
@@ -153,11 +157,11 @@ public class ContestEffectDetail {
   }
 
   /**
-   * Get flavorTextEntries
+   * The flavor text of this contest effect listed in different languages.
    * @return flavorTextEntries
    */
   
-  @Schema(name = "flavor_text_entries", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "flavor_text_entries", accessMode = Schema.AccessMode.READ_ONLY, description = "The flavor text of this contest effect listed in different languages.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("flavor_text_entries")
   public List<@Valid ContestEffectFlavorText> getFlavorTextEntries() {
     return flavorTextEntries;

@@ -7,10 +7,10 @@
 #' @title GenderDetail
 #' @description GenderDetail Class
 #' @format An \code{R6Class} generator object
-#' @field id  integer
-#' @field name  character
-#' @field pokemon_species_details  list(\link{GenderDetailPokemonSpeciesDetailsInner})
-#' @field required_for_evolution  list(\link{AbilityDetailPokemonInnerPokemon})
+#' @field id The identifier for this resource. integer
+#' @field name The name for this resource. character
+#' @field pokemon_species_details A list of Pokémon species that can be this gender and how likely it is that they will be. list(\link{GenderPokemonSpecies})
+#' @field required_for_evolution A list of Pokémon species that required this gender in order for a Pokémon to evolve into them. list(\link{PokemonSpeciesSummary})
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -25,10 +25,10 @@ GenderDetail <- R6::R6Class(
     #' @description
     #' Initialize a new GenderDetail class.
     #'
-    #' @param id id
-    #' @param name name
-    #' @param pokemon_species_details pokemon_species_details
-    #' @param required_for_evolution required_for_evolution
+    #' @param id The identifier for this resource.
+    #' @param name The name for this resource.
+    #' @param pokemon_species_details A list of Pokémon species that can be this gender and how likely it is that they will be.
+    #' @param required_for_evolution A list of Pokémon species that required this gender in order for a Pokémon to evolve into them.
     #' @param ... Other optional arguments.
     initialize = function(`id`, `name`, `pokemon_species_details`, `required_for_evolution`, ...) {
       if (!missing(`id`)) {
@@ -142,10 +142,10 @@ GenderDetail <- R6::R6Class(
         self$`name` <- this_object$`name`
       }
       if (!is.null(this_object$`pokemon_species_details`)) {
-        self$`pokemon_species_details` <- ApiClient$new()$deserializeObj(this_object$`pokemon_species_details`, "array[GenderDetailPokemonSpeciesDetailsInner]", loadNamespace("openapi"))
+        self$`pokemon_species_details` <- ApiClient$new()$deserializeObj(this_object$`pokemon_species_details`, "array[GenderPokemonSpecies]", loadNamespace("openapi"))
       }
       if (!is.null(this_object$`required_for_evolution`)) {
-        self$`required_for_evolution` <- ApiClient$new()$deserializeObj(this_object$`required_for_evolution`, "array[AbilityDetailPokemonInnerPokemon]", loadNamespace("openapi"))
+        self$`required_for_evolution` <- ApiClient$new()$deserializeObj(this_object$`required_for_evolution`, "array[PokemonSpeciesSummary]", loadNamespace("openapi"))
       }
       self
     },
@@ -170,8 +170,8 @@ GenderDetail <- R6::R6Class(
       this_object <- jsonlite::fromJSON(input_json)
       self$`id` <- this_object$`id`
       self$`name` <- this_object$`name`
-      self$`pokemon_species_details` <- ApiClient$new()$deserializeObj(this_object$`pokemon_species_details`, "array[GenderDetailPokemonSpeciesDetailsInner]", loadNamespace("openapi"))
-      self$`required_for_evolution` <- ApiClient$new()$deserializeObj(this_object$`required_for_evolution`, "array[AbilityDetailPokemonInnerPokemon]", loadNamespace("openapi"))
+      self$`pokemon_species_details` <- ApiClient$new()$deserializeObj(this_object$`pokemon_species_details`, "array[GenderPokemonSpecies]", loadNamespace("openapi"))
+      self$`required_for_evolution` <- ApiClient$new()$deserializeObj(this_object$`required_for_evolution`, "array[PokemonSpeciesSummary]", loadNamespace("openapi"))
       self
     },
 
@@ -236,7 +236,7 @@ GenderDetail <- R6::R6Class(
         return(FALSE)
       }
 
-      if (nchar(self$`name`) > 100) {
+      if (nchar(self$`name`) > 200) {
         return(FALSE)
       }
 
@@ -269,8 +269,8 @@ GenderDetail <- R6::R6Class(
         invalid_fields["name"] <- "Non-nullable required field `name` cannot be null."
       }
 
-      if (nchar(self$`name`) > 100) {
-        invalid_fields["name"] <- "Invalid length for `name`, must be smaller than or equal to 100."
+      if (nchar(self$`name`) > 200) {
+        invalid_fields["name"] <- "Invalid length for `name`, must be smaller than or equal to 200."
       }
 
       # check if the required `pokemon_species_details` is null

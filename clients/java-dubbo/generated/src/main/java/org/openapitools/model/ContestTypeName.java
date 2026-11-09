@@ -12,17 +12,26 @@ import java.math.*;
 public class ContestTypeName implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * The name for this contest.
+   */
   @JsonProperty("name")
   private String name;
 
+  /**
+   * The color associated with this contest&#39;s name.
+   */
   @JsonProperty("color")
   private String color;
 
+  /**
+   * The language that this name is in.
+   */
   @JsonProperty("language")
   private LanguageSummary language;
 
   /**
-   * 
+   * The name for this contest.
    * @return name
    */
   public String getName() {
@@ -34,7 +43,7 @@ public class ContestTypeName implements Serializable {
   }
 
   /**
-   * 
+   * The color associated with this contest&#39;s name.
    * @return color
    */
   public String getColor() {
@@ -46,7 +55,7 @@ public class ContestTypeName implements Serializable {
   }
 
   /**
-   * 
+   * The language that this name is in.
    * @return language
    */
   public LanguageSummary getLanguage() {

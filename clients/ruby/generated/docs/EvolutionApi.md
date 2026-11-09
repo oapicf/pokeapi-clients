@@ -8,6 +8,8 @@ All URIs are relative to *https://pokeapi.co*
 | [**evolution_chain_retrieve**](EvolutionApi.md#evolution_chain_retrieve) | **GET** /api/v2/evolution-chain/{id}/ | Get evolution chain |
 | [**evolution_trigger_list**](EvolutionApi.md#evolution_trigger_list) | **GET** /api/v2/evolution-trigger/ | List evolution triggers |
 | [**evolution_trigger_retrieve**](EvolutionApi.md#evolution_trigger_retrieve) | **GET** /api/v2/evolution-trigger/{id}/ | Get evolution trigger |
+| [**evolution_variable_list**](EvolutionApi.md#evolution_variable_list) | **GET** /api/v2/evolution-variable/ | List evolution variables |
+| [**evolution_variable_retrieve**](EvolutionApi.md#evolution_variable_retrieve) | **GET** /api/v2/evolution-variable/{id}/ | Get evolution variable |
 
 
 ## evolution_chain_list
@@ -23,23 +25,11 @@ Evolution chains are essentially family trees. They start with the lowest stage 
 ```ruby
 require 'time'
 require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
 
 api_instance = PokeApiClient::EvolutionApi.new
 opts = {
   limit: 56, # Integer | Number of results to return per page.
-  offset: 56, # Integer | The initial index from which to return the results.
-  q: 'q_example' # String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+  offset: 56 # Integer | The initial index from which to return the results.
 }
 
 begin
@@ -75,7 +65,6 @@ end
 | ---- | ---- | ----------- | ----- |
 | **limit** | **Integer** | Number of results to return per page. | [optional] |
 | **offset** | **Integer** | The initial index from which to return the results. | [optional] |
-| **q** | **String** | &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional] |
 
 ### Return type
 
@@ -83,7 +72,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -104,20 +93,9 @@ Evolution chains are essentially family trees. They start with the lowest stage 
 ```ruby
 require 'time'
 require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
 
 api_instance = PokeApiClient::EvolutionApi.new
-id = 'id_example' # String | This parameter can be a string or an integer.
+id = '1' # String | This parameter can be a string or an integer.
 
 begin
   # Get evolution chain
@@ -158,7 +136,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -179,17 +157,6 @@ Evolution triggers are the events and conditions that cause a Pokémon to evolve
 ```ruby
 require 'time'
 require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
 
 api_instance = PokeApiClient::EvolutionApi.new
 opts = {
@@ -239,7 +206,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -260,20 +227,9 @@ Evolution triggers are the events and conditions that cause a Pokémon to evolve
 ```ruby
 require 'time'
 require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
 
 api_instance = PokeApiClient::EvolutionApi.new
-id = 'id_example' # String | This parameter can be a string or an integer.
+id = '1' # String | This parameter can be a string or an integer.
 
 begin
   # Get evolution trigger
@@ -314,7 +270,141 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## evolution_variable_list
+
+> <PaginatedEvolutionVariableSummaryList> evolution_variable_list(opts)
+
+List evolution variables
+
+Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+
+### Examples
+
+```ruby
+require 'time'
+require 'pokeapi_client'
+
+api_instance = PokeApiClient::EvolutionApi.new
+opts = {
+  limit: 56, # Integer | Number of results to return per page.
+  offset: 56, # Integer | The initial index from which to return the results.
+  q: 'q_example' # String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+}
+
+begin
+  # List evolution variables
+  result = api_instance.evolution_variable_list(opts)
+  p result
+rescue PokeApiClient::ApiError => e
+  puts "Error when calling EvolutionApi->evolution_variable_list: #{e}"
+end
+```
+
+#### Using the evolution_variable_list_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<PaginatedEvolutionVariableSummaryList>, Integer, Hash)> evolution_variable_list_with_http_info(opts)
+
+```ruby
+begin
+  # List evolution variables
+  data, status_code, headers = api_instance.evolution_variable_list_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <PaginatedEvolutionVariableSummaryList>
+rescue PokeApiClient::ApiError => e
+  puts "Error when calling EvolutionApi->evolution_variable_list_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **limit** | **Integer** | Number of results to return per page. | [optional] |
+| **offset** | **Integer** | The initial index from which to return the results. | [optional] |
+| **q** | **String** | &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional] |
+
+### Return type
+
+[**PaginatedEvolutionVariableSummaryList**](PaginatedEvolutionVariableSummaryList.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## evolution_variable_retrieve
+
+> <EvolutionVariableDetail> evolution_variable_retrieve(id)
+
+Get evolution variable
+
+Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+
+### Examples
+
+```ruby
+require 'time'
+require 'pokeapi_client'
+
+api_instance = PokeApiClient::EvolutionApi.new
+id = '1' # String | This parameter can be a string or an integer.
+
+begin
+  # Get evolution variable
+  result = api_instance.evolution_variable_retrieve(id)
+  p result
+rescue PokeApiClient::ApiError => e
+  puts "Error when calling EvolutionApi->evolution_variable_retrieve: #{e}"
+end
+```
+
+#### Using the evolution_variable_retrieve_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<EvolutionVariableDetail>, Integer, Hash)> evolution_variable_retrieve_with_http_info(id)
+
+```ruby
+begin
+  # Get evolution variable
+  data, status_code, headers = api_instance.evolution_variable_retrieve_with_http_info(id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <EvolutionVariableDetail>
+rescue PokeApiClient::ApiError => e
+  puts "Error when calling EvolutionApi->evolution_variable_retrieve_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **String** | This parameter can be a string or an integer. |  |
+
+### Return type
+
+[**EvolutionVariableDetail**](EvolutionVariableDetail.md)
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 

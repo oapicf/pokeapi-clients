@@ -15,7 +15,7 @@ Name | Type
 `smoothness` | number
 `soilDryness` | number
 `firmness` | [BerryFirmnessSummary](BerryFirmnessSummary.md)
-`flavors` | [Array&lt;BerryDetailFlavorsInner&gt;](BerryDetailFlavorsInner.md)
+`flavors` | [Array&lt;BerryFlavorMap&gt;](BerryFlavorMap.md)
 `item` | [ItemSummary](ItemSummary.md)
 `naturalGiftType` | [TypeSummary](TypeSummary.md)
 

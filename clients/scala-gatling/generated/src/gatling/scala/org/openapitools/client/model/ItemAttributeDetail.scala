@@ -3,10 +3,15 @@ package org.openapitools.client.model
 
 
 case class ItemAttributeDetail (
+    /* The identifier for this resource. */
     _id: Integer,
+    /* The name for this resource. */
     _name: String,
+    /* The description of this item attribute listed in different languages. */
     _descriptions: List[ItemAttributeDescription],
-    _items: List[AbilityDetailPokemonInnerPokemon],
+    /* A list of items that have this attribute. */
+    _items: List[ItemSummary],
+    /* The name of this item attribute listed in different languages. */
     _names: List[ItemAttributeName]
 )
 object ItemAttributeDetail {

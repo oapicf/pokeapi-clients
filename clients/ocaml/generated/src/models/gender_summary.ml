@@ -15,13 +15,15 @@
                 
                 
                 ; [@key "name"]
-                                              url: string
+                    (** The name of the referenced resource. *)
+                                      url: string
                   
                   
                 
                 
                 ; [@key "url"]
-                        } [@@deriving yojson { strict = false }, show, eq ];;
+                    (** The URL of the referenced resource. *)
+                } [@@deriving yojson { strict = false }, show, eq ];;
         
         let create (name : string) (url : string) : t = {
             name = name;

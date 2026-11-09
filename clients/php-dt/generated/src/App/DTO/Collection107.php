@@ -6,9 +6,9 @@ namespace App\DTO;
 use Articus\DataTransfer\Annotation as DTA;
 
 /**
- * @DTA\Strategy(name="ObjectList", options={"type":\App\DTO\MoveMetaCategorySummary::class})
+ * @DTA\Strategy(name="ObjectList", options={"type":\App\DTO\MoveMetaAilmentName::class})
  * @DTA\Validator(name="Collection", options={"validators":{
- *     {"name":"TypeCompliant", "options":{"type":\App\DTO\MoveMetaCategorySummary::class}}
+ *     {"name":"TypeCompliant", "options":{"type":\App\DTO\MoveMetaAilmentName::class}}
  * }})
  */
 class Collection107 extends \ArrayObject

@@ -11,33 +11,37 @@
         type t = {
                               count: int32
                   
-                   option [@default None]
+                  
                 
                 
                 ; [@key "count"]
-                                              next: string
+                    (** The total number of resources available from this API. *)
+                                      next: string
                   
                    option [@default None]
                 
                 
                 ; [@key "next"]
-                                              previous: string
+                    (** The URL for the next page in the list, or null if there is no next page. *)
+                                      previous: string
                   
                    option [@default None]
                 
                 
                 ; [@key "previous"]
-                                              results: Pokemon_habitat_summary.t list
-                 [@default []]
+                    (** The URL for the previous page in the list, or null if there is no previous page. *)
+                                      results: Pokemon_habitat_summary.t list
+                
                 
                 ; [@key "results"]
-                        } [@@deriving yojson { strict = false }, show, eq ];;
+                    (** A list of API resources on this page. *)
+                } [@@deriving yojson { strict = false }, show, eq ];;
         
-        let create () : t = {
-            count = None;
+        let create (count : int32) (results : Pokemon_habitat_summary.t list) : t = {
+            count = count;
             next = None;
             previous = None;
-            results = [];
+            results = results;
         }
     
 

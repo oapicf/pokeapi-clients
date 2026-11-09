@@ -19,8 +19,8 @@ openapi_pokemon_stat() ->
     openapi_pokemon_stat([]).
 
 openapi_pokemon_stat(Fields) ->
-  Default = [ {'base_stat', integer() }
-            , {'effort', integer() }
+  Default = [ {'base_stat', integer(-2147483648, 2147483647) }
+            , {'effort', integer(-2147483648, 2147483647) }
             , {'stat', openapi_stat_summary:openapi_stat_summary() }
             ],
   lists:ukeymerge(1, lists:sort(Fields), lists:sort(Default)).

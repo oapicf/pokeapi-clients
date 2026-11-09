@@ -56,6 +56,7 @@ class PokemonColorDetail(Model):
     def id(self):
         """Gets the id of this PokemonColorDetail.
 
+        The identifier for this resource.
 
         :return: The id of this PokemonColorDetail.
         :rtype: int
@@ -66,6 +67,7 @@ class PokemonColorDetail(Model):
     def id(self, id):
         """Sets the id of this PokemonColorDetail.
 
+        The identifier for this resource.
 
         :param id: The id of this PokemonColorDetail.
         :type id: int
@@ -79,6 +81,7 @@ class PokemonColorDetail(Model):
     def name(self):
         """Gets the name of this PokemonColorDetail.
 
+        The name for this resource.
 
         :return: The name of this PokemonColorDetail.
         :rtype: str
@@ -89,14 +92,15 @@ class PokemonColorDetail(Model):
     def name(self, name):
         """Sets the name of this PokemonColorDetail.
 
+        The name for this resource.
 
         :param name: The name of this PokemonColorDetail.
         :type name: str
         """
         if name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")
-        if name is not None and len(name) > 100:
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `100`")
+        if name is not None and len(name) > 200:
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `200`")
 
         self._name = name
 
@@ -104,6 +108,7 @@ class PokemonColorDetail(Model):
     def names(self):
         """Gets the names of this PokemonColorDetail.
 
+        The name of this resource listed in different languages.
 
         :return: The names of this PokemonColorDetail.
         :rtype: List[PokemonColorName]
@@ -114,6 +119,7 @@ class PokemonColorDetail(Model):
     def names(self, names):
         """Sets the names of this PokemonColorDetail.
 
+        The name of this resource listed in different languages.
 
         :param names: The names of this PokemonColorDetail.
         :type names: List[PokemonColorName]
@@ -127,6 +133,7 @@ class PokemonColorDetail(Model):
     def pokemon_species(self):
         """Gets the pokemon_species of this PokemonColorDetail.
 
+        A list of the Pokémon species that have this color.
 
         :return: The pokemon_species of this PokemonColorDetail.
         :rtype: List[PokemonSpeciesSummary]
@@ -137,6 +144,7 @@ class PokemonColorDetail(Model):
     def pokemon_species(self, pokemon_species):
         """Sets the pokemon_species of this PokemonColorDetail.
 
+        A list of the Pokémon species that have this color.
 
         :param pokemon_species: The pokemon_species of this PokemonColorDetail.
         :type pokemon_species: List[PokemonSpeciesSummary]

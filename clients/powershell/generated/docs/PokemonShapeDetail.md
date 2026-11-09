@@ -3,11 +3,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **Int32** |  | [readonly] 
-**Name** | **String** |  | 
-**AwesomeNames** | [**PokemonShapeDetailAwesomeNamesInner[]**](PokemonShapeDetailAwesomeNamesInner.md) |  | [readonly] 
-**Names** | [**PokemonShapeDetailNamesInner[]**](PokemonShapeDetailNamesInner.md) |  | [readonly] 
-**PokemonSpecies** | [**PokemonSpeciesSummary[]**](PokemonSpeciesSummary.md) |  | [readonly] 
+**Id** | **Int32** | The identifier for this resource. | [readonly] 
+**Name** | **String** | The name for this resource. | 
+**AwesomeNames** | [**PokemonShapeAwesomeName[]**](PokemonShapeAwesomeName.md) | The &quot;&quot;scientific&quot;&quot; name of this Pokémon shape listed in different languages. | [readonly] 
+**Names** | [**PokemonShapeName[]**](PokemonShapeName.md) | The name of this resource listed in different languages. | [readonly] 
+**PokemonSpecies** | [**PokemonSpeciesSummary[]**](PokemonSpeciesSummary.md) | A list of the Pokémon species that have this shape. | [readonly] 
 
 ## Examples
 

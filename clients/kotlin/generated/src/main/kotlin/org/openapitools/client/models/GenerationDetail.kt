@@ -37,44 +37,53 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param id 
- * @param name 
- * @param abilities 
- * @param mainRegion 
- * @param moves 
- * @param names 
- * @param pokemonSpecies 
- * @param types 
- * @param versionGroups 
+ * @param id The identifier for this resource.
+ * @param name The name for this resource.
+ * @param abilities A list of abilities that were introduced in this generation.
+ * @param mainRegion The main region travelled in this generation.
+ * @param moves A list of moves that were introduced in this generation.
+ * @param names The name of this resource listed in different languages.
+ * @param pokemonSpecies A list of Pokémon species that were introduced in this generation.
+ * @param types A list of types that were introduced in this generation.
+ * @param versionGroups A list of version groups that were introduced in this generation.
  */
 
 
 data class GenerationDetail (
 
+    /* The identifier for this resource. */
     @Json(name = "id")
     val id: kotlin.Int,
 
+    /* The name for this resource. */
     @Json(name = "name")
     val name: kotlin.String,
 
+    /* A list of abilities that were introduced in this generation. */
     @Json(name = "abilities")
     val abilities: kotlin.collections.List<AbilitySummary>,
 
+    /* The main region travelled in this generation. */
     @Json(name = "main_region")
     val mainRegion: RegionSummary,
 
+    /* A list of moves that were introduced in this generation. */
     @Json(name = "moves")
     val moves: kotlin.collections.List<MoveSummary>,
 
+    /* The name of this resource listed in different languages. */
     @Json(name = "names")
     val names: kotlin.collections.List<GenerationName>,
 
+    /* A list of Pokémon species that were introduced in this generation. */
     @Json(name = "pokemon_species")
     val pokemonSpecies: kotlin.collections.List<PokemonSpeciesSummary>,
 
+    /* A list of types that were introduced in this generation. */
     @Json(name = "types")
     val types: kotlin.collections.List<TypeSummary>,
 
+    /* A list of version groups that were introduced in this generation. */
     @Json(name = "version_groups")
     val versionGroups: kotlin.collections.List<VersionGroupSummary>
 

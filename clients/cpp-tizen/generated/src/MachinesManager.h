@@ -30,13 +30,12 @@ public:
  * Machines are the representation of items that teach moves to Pokémon. They vary from version to version, so it is not certain that one specific TM or HM corresponds to a single Machine.
  * \param limit Number of results to return per page.
  * \param offset The initial index from which to return the results.
- * \param q > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
  * \param handler The callback function to be invoked on completion. *Required*
  * \param accessToken The Authorization token. *Required*
  * \param userData The user data to be passed to the callback function.
  */
 bool machineListSync(char * accessToken,
-	int limit, int offset, std::string q, 
+	int limit, int offset, 
 	void(* handler)(PaginatedMachineSummaryList, Error, void* )
 	, void* userData);
 
@@ -45,13 +44,12 @@ bool machineListSync(char * accessToken,
  * Machines are the representation of items that teach moves to Pokémon. They vary from version to version, so it is not certain that one specific TM or HM corresponds to a single Machine.
  * \param limit Number of results to return per page.
  * \param offset The initial index from which to return the results.
- * \param q > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
  * \param handler The callback function to be invoked on completion. *Required*
  * \param accessToken The Authorization token. *Required*
  * \param userData The user data to be passed to the callback function.
  */
 bool machineListAsync(char * accessToken,
-	int limit, int offset, std::string q, 
+	int limit, int offset, 
 	void(* handler)(PaginatedMachineSummaryList, Error, void* )
 	, void* userData);
 

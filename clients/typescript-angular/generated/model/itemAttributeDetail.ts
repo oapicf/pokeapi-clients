@@ -8,15 +8,30 @@
  * Do not edit the class manually.
  */
 import { ItemAttributeName } from './itemAttributeName';
-import { AbilityDetailPokemonInnerPokemon } from './abilityDetailPokemonInnerPokemon';
 import { ItemAttributeDescription } from './itemAttributeDescription';
+import { ItemSummary } from './itemSummary';
 
 
 export interface ItemAttributeDetail { 
+    /**
+     * The identifier for this resource.
+     */
     readonly id: number;
+    /**
+     * The name for this resource.
+     */
     name: string;
+    /**
+     * The description of this item attribute listed in different languages.
+     */
     readonly descriptions: Array<ItemAttributeDescription>;
-    readonly items: Array<AbilityDetailPokemonInnerPokemon>;
+    /**
+     * A list of items that have this attribute.
+     */
+    readonly items: Array<ItemSummary>;
+    /**
+     * The name of this item attribute listed in different languages.
+     */
     readonly names: Array<ItemAttributeName>;
 }
 

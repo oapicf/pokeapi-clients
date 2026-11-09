@@ -31,16 +31,18 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param entryNumber 
- * @param pokedex 
+ * @param entryNumber The index number within the Pokédex.
+ * @param pokedex The Pokédex the referenced Pokémon species can be found in.
  */
 
 
 data class PokemonDexEntry (
 
+    /* The index number within the Pokédex. */
     @Json(name = "entry_number")
     val entryNumber: kotlin.Int,
 
+    /* The Pokédex the referenced Pokémon species can be found in. */
     @Json(name = "pokedex")
     val pokedex: PokedexSummary
 

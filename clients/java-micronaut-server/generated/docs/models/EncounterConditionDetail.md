@@ -8,10 +8,10 @@ The class is defined in **[EncounterConditionDetail.java](../../src/main/java/or
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | `Integer` |  |  [readonly property]
-**name** | `String` |  | 
-**values** | [`List&lt;EncounterConditionValueSummary&gt;`](EncounterConditionValueSummary.md) |  |  [readonly property]
-**names** | [`List&lt;EncounterConditionName&gt;`](EncounterConditionName.md) |  |  [readonly property]
+**id** | `Integer` | The identifier for this resource. |  [readonly property]
+**name** | `String` | The name for this resource. | 
+**values** | [`List&lt;EncounterConditionValueSummary&gt;`](EncounterConditionValueSummary.md) | A list of possible values for this encounter condition. |  [readonly property]
+**names** | [`List&lt;EncounterConditionName&gt;`](EncounterConditionName.md) | The name of this resource listed in different languages. |  [readonly property]
 
 
 

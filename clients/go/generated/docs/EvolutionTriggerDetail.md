@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int32** |  | [readonly] 
-**Name** | **string** |  | 
-**Names** | [**[]EvolutionTriggerName**](EvolutionTriggerName.md) |  | [readonly] 
-**PokemonSpecies** | [**[]AbilityDetailPokemonInnerPokemon**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] 
+**Id** | **int32** | The identifier for this resource. | [readonly] 
+**Name** | **string** | The name for this resource. | 
+**Names** | [**[]EvolutionTriggerName**](EvolutionTriggerName.md) | The name of this resource listed in different languages. | [readonly] 
+**PokemonSpecies** | [**[]PokemonSpeciesSummary**](PokemonSpeciesSummary.md) | A list of pokemon species that result from this evolution trigger. | [readonly] 
 
 ## Methods
 
 ### NewEvolutionTriggerDetail
 
-`func NewEvolutionTriggerDetail(id int32, name string, names []EvolutionTriggerName, pokemonSpecies []AbilityDetailPokemonInnerPokemon, ) *EvolutionTriggerDetail`
+`func NewEvolutionTriggerDetail(id int32, name string, names []EvolutionTriggerName, pokemonSpecies []PokemonSpeciesSummary, ) *EvolutionTriggerDetail`
 
 NewEvolutionTriggerDetail instantiates a new EvolutionTriggerDetail object
 This constructor will assign default values to properties that have it defined,
@@ -90,20 +90,20 @@ SetNames sets Names field to given value.
 
 ### GetPokemonSpecies
 
-`func (o *EvolutionTriggerDetail) GetPokemonSpecies() []AbilityDetailPokemonInnerPokemon`
+`func (o *EvolutionTriggerDetail) GetPokemonSpecies() []PokemonSpeciesSummary`
 
 GetPokemonSpecies returns the PokemonSpecies field if non-nil, zero value otherwise.
 
 ### GetPokemonSpeciesOk
 
-`func (o *EvolutionTriggerDetail) GetPokemonSpeciesOk() (*[]AbilityDetailPokemonInnerPokemon, bool)`
+`func (o *EvolutionTriggerDetail) GetPokemonSpeciesOk() (*[]PokemonSpeciesSummary, bool)`
 
 GetPokemonSpeciesOk returns a tuple with the PokemonSpecies field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPokemonSpecies
 
-`func (o *EvolutionTriggerDetail) SetPokemonSpecies(v []AbilityDetailPokemonInnerPokemon)`
+`func (o *EvolutionTriggerDetail) SetPokemonSpecies(v []PokemonSpeciesSummary)`
 
 SetPokemonSpecies sets PokemonSpecies field to given value.
 

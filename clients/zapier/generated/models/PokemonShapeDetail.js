@@ -1,6 +1,6 @@
 const utils = require('../utils/utils');
-const PokemonShapeDetail_awesome_names_inner = require('../models/PokemonShapeDetail_awesome_names_inner');
-const PokemonShapeDetail_names_inner = require('../models/PokemonShapeDetail_names_inner');
+const PokemonShapeAwesomeName = require('../models/PokemonShapeAwesomeName');
+const PokemonShapeName = require('../models/PokemonShapeName');
 const PokemonSpeciesSummary = require('../models/PokemonSpeciesSummary');
 
 module.exports = {
@@ -9,25 +9,25 @@ module.exports = {
         return [
             {
                 key: `${keyPrefix}id`,
-                label: `[${labelPrefix}id]`,
+                label: `The identifier for this resource. - [${labelPrefix}id]`,
                 required: true,
                 type: 'integer',
             },
             {
                 key: `${keyPrefix}name`,
-                label: `[${labelPrefix}name]`,
+                label: `The name for this resource. - [${labelPrefix}name]`,
                 required: true,
                 type: 'string',
             },
             {
                 key: `${keyPrefix}awesome_names`,
                 label: `[${labelPrefix}awesome_names]`,
-                children: PokemonShapeDetail_awesome_names_inner.fields(`${keyPrefix}awesome_names${!isInput ? '[]' : ''}`, isInput, true), 
+                children: PokemonShapeAwesomeName.fields(`${keyPrefix}awesome_names${!isInput ? '[]' : ''}`, isInput, true), 
             },
             {
                 key: `${keyPrefix}names`,
                 label: `[${labelPrefix}names]`,
-                children: PokemonShapeDetail_names_inner.fields(`${keyPrefix}names${!isInput ? '[]' : ''}`, isInput, true), 
+                children: PokemonShapeName.fields(`${keyPrefix}names${!isInput ? '[]' : ''}`, isInput, true), 
             },
             {
                 key: `${keyPrefix}pokemon_species`,
@@ -41,8 +41,8 @@ module.exports = {
         return {
             'id': bundle.inputData?.[`${keyPrefix}id`],
             'name': bundle.inputData?.[`${keyPrefix}name`],
-            'awesome_names': utils.childMapping(bundle.inputData?.[`${keyPrefix}awesome_names`], `${keyPrefix}awesome_names`, PokemonShapeDetail_awesome_names_inner),
-            'names': utils.childMapping(bundle.inputData?.[`${keyPrefix}names`], `${keyPrefix}names`, PokemonShapeDetail_names_inner),
+            'awesome_names': utils.childMapping(bundle.inputData?.[`${keyPrefix}awesome_names`], `${keyPrefix}awesome_names`, PokemonShapeAwesomeName),
+            'names': utils.childMapping(bundle.inputData?.[`${keyPrefix}names`], `${keyPrefix}names`, PokemonShapeName),
             'pokemon_species': utils.childMapping(bundle.inputData?.[`${keyPrefix}pokemon_species`], `${keyPrefix}pokemon_species`, PokemonSpeciesSummary),
         }
     },

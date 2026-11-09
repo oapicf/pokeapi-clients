@@ -12,10 +12,14 @@ import org.joda.time.DateTime
 import ContestTypeDetail._
 
 case class ContestTypeDetail (
+  /* The identifier for this resource. */
   id: Integer,
-name: String,
-berryFlavor: BerryFlavorSummary,
-names: List[ContestTypeName])
+/* The name for this resource. */
+  name: String,
+/* The berry flavor that correlates with this contest type. */
+  berryFlavor: BerryFlavorSummary,
+/* The name of this contest type listed in different languages. */
+  names: List[ContestTypeName])
 
 object ContestTypeDetail {
   import DateTimeCodecs._

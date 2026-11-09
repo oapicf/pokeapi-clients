@@ -3,9 +3,9 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:openapi/src/model/pal_park_encounter.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:openapi/src/model/pal_park_area_name.dart';
-import 'package:openapi/src/model/pal_park_area_detail_pokemon_encounters_inner.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -14,23 +14,27 @@ part 'pal_park_area_detail.g.dart';
 /// PalParkAreaDetail
 ///
 /// Properties:
-/// * [id] 
-/// * [name] 
-/// * [names] 
-/// * [pokemonEncounters] 
+/// * [id] - The identifier for this resource.
+/// * [name] - The name for this resource.
+/// * [names] - The name of this resource listed in different languages.
+/// * [pokemonEncounters] - A list of Pokémon encountered in thi pal park area along with details.
 @BuiltValue()
 abstract class PalParkAreaDetail implements Built<PalParkAreaDetail, PalParkAreaDetailBuilder> {
+  /// The identifier for this resource.
   @BuiltValueField(wireName: r'id')
   int get id;
 
+  /// The name for this resource.
   @BuiltValueField(wireName: r'name')
   String get name;
 
+  /// The name of this resource listed in different languages.
   @BuiltValueField(wireName: r'names')
   BuiltList<PalParkAreaName> get names;
 
+  /// A list of Pokémon encountered in thi pal park area along with details.
   @BuiltValueField(wireName: r'pokemon_encounters')
-  BuiltList<PalParkAreaDetailPokemonEncountersInner> get pokemonEncounters;
+  BuiltList<PalParkEncounter> get pokemonEncounters;
 
   PalParkAreaDetail._();
 
@@ -73,7 +77,7 @@ class _$PalParkAreaDetailSerializer implements PrimitiveSerializer<PalParkAreaDe
     yield r'pokemon_encounters';
     yield serializers.serialize(
       object.pokemonEncounters,
-      specifiedType: const FullType(BuiltList, [FullType(PalParkAreaDetailPokemonEncountersInner)]),
+      specifiedType: const FullType(BuiltList, [FullType(PalParkEncounter)]),
     );
   }
 
@@ -122,8 +126,8 @@ class _$PalParkAreaDetailSerializer implements PrimitiveSerializer<PalParkAreaDe
         case r'pokemon_encounters':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(PalParkAreaDetailPokemonEncountersInner)]),
-          ) as BuiltList<PalParkAreaDetailPokemonEncountersInner>;
+            specifiedType: const FullType(BuiltList, [FullType(PalParkEncounter)]),
+          ) as BuiltList<PalParkEncounter>;
           result.pokemonEncounters.replace(valueDes);
           break;
         default:

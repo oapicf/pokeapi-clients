@@ -66,7 +66,7 @@ void move_meta_ailment_detail_free(move_meta_ailment_detail_t *move_meta_ailment
     }
     if (move_meta_ailment_detail->moves) {
         list_ForEach(listEntry, move_meta_ailment_detail->moves) {
-            ability_detail_pokemon_inner_pokemon_free(listEntry->data);
+            move_summary_free(listEntry->data);
         }
         list_freeList(move_meta_ailment_detail->moves);
         move_meta_ailment_detail->moves = NULL;
@@ -114,7 +114,7 @@ cJSON *move_meta_ailment_detail_convertToJSON(move_meta_ailment_detail_t *move_m
     listEntry_t *movesListEntry;
     if (move_meta_ailment_detail->moves) {
     list_ForEach(movesListEntry, move_meta_ailment_detail->moves) {
-    cJSON *itemLocal = ability_detail_pokemon_inner_pokemon_convertToJSON(movesListEntry->data);
+    cJSON *itemLocal = move_summary_convertToJSON(movesListEntry->data);
     if(itemLocal == NULL) {
     goto fail;
     }
@@ -224,7 +224,7 @@ move_meta_ailment_detail_t *move_meta_ailment_detail_parseFromJSON(cJSON *move_m
         if(!cJSON_IsObject(moves_local_nonprimitive)){
             goto end;
         }
-        ability_detail_pokemon_inner_pokemon_t *movesItem = ability_detail_pokemon_inner_pokemon_parseFromJSON(moves_local_nonprimitive);
+        move_summary_t *movesItem = move_summary_parseFromJSON(moves_local_nonprimitive);
 
         list_addElement(movesList, movesItem);
     }
@@ -283,7 +283,7 @@ end:
     if (movesList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, movesList) {
-            ability_detail_pokemon_inner_pokemon_free(listEntry->data);
+            move_summary_free(listEntry->data);
             listEntry->data = NULL;
         }
         list_freeList(movesList);

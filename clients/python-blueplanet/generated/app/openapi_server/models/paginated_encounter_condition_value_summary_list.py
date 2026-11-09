@@ -62,6 +62,7 @@ class PaginatedEncounterConditionValueSummaryList(Model):
     def count(self) -> int:
         """Gets the count of this PaginatedEncounterConditionValueSummaryList.
 
+        The total number of resources available from this API.  # noqa: E501
 
         :return: The count of this PaginatedEncounterConditionValueSummaryList.
         :rtype: int
@@ -72,10 +73,13 @@ class PaginatedEncounterConditionValueSummaryList(Model):
     def count(self, count: int):
         """Sets the count of this PaginatedEncounterConditionValueSummaryList.
 
+        The total number of resources available from this API.  # noqa: E501
 
         :param count: The count of this PaginatedEncounterConditionValueSummaryList.
         :type count: int
         """
+        if count is None:
+            raise ValueError("Invalid value for `count`, must not be `None`")  # noqa: E501
 
         self._count = count
 
@@ -83,6 +87,7 @@ class PaginatedEncounterConditionValueSummaryList(Model):
     def next(self) -> str:
         """Gets the next of this PaginatedEncounterConditionValueSummaryList.
 
+        The URL for the next page in the list, or null if there is no next page.  # noqa: E501
 
         :return: The next of this PaginatedEncounterConditionValueSummaryList.
         :rtype: str
@@ -93,6 +98,7 @@ class PaginatedEncounterConditionValueSummaryList(Model):
     def next(self, next: str):
         """Sets the next of this PaginatedEncounterConditionValueSummaryList.
 
+        The URL for the next page in the list, or null if there is no next page.  # noqa: E501
 
         :param next: The next of this PaginatedEncounterConditionValueSummaryList.
         :type next: str
@@ -104,6 +110,7 @@ class PaginatedEncounterConditionValueSummaryList(Model):
     def previous(self) -> str:
         """Gets the previous of this PaginatedEncounterConditionValueSummaryList.
 
+        The URL for the previous page in the list, or null if there is no previous page.  # noqa: E501
 
         :return: The previous of this PaginatedEncounterConditionValueSummaryList.
         :rtype: str
@@ -114,6 +121,7 @@ class PaginatedEncounterConditionValueSummaryList(Model):
     def previous(self, previous: str):
         """Sets the previous of this PaginatedEncounterConditionValueSummaryList.
 
+        The URL for the previous page in the list, or null if there is no previous page.  # noqa: E501
 
         :param previous: The previous of this PaginatedEncounterConditionValueSummaryList.
         :type previous: str
@@ -125,6 +133,7 @@ class PaginatedEncounterConditionValueSummaryList(Model):
     def results(self) -> List[EncounterConditionValueSummary]:
         """Gets the results of this PaginatedEncounterConditionValueSummaryList.
 
+        A list of API resources on this page.  # noqa: E501
 
         :return: The results of this PaginatedEncounterConditionValueSummaryList.
         :rtype: List[EncounterConditionValueSummary]
@@ -135,9 +144,12 @@ class PaginatedEncounterConditionValueSummaryList(Model):
     def results(self, results: List[EncounterConditionValueSummary]):
         """Sets the results of this PaginatedEncounterConditionValueSummaryList.
 
+        A list of API resources on this page.  # noqa: E501
 
         :param results: The results of this PaginatedEncounterConditionValueSummaryList.
         :type results: List[EncounterConditionValueSummary]
         """
+        if results is None:
+            raise ValueError("Invalid value for `results`, must not be `None`")  # noqa: E501
 
         self._results = results

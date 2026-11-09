@@ -12,7 +12,6 @@ static nature_detail_t *nature_detail_create_internal(
     stat_summary_t *increased_stat,
     berry_flavor_summary_t *likes_flavor,
     berry_flavor_summary_t *hates_flavor,
-    list_t *berries,
     list_t *pokeathlon_stat_changes,
     list_t *move_battle_style_preferences,
     list_t *names
@@ -29,7 +28,6 @@ static nature_detail_t *nature_detail_create_internal(
     nature_detail_local_var->increased_stat = increased_stat;
     nature_detail_local_var->likes_flavor = likes_flavor;
     nature_detail_local_var->hates_flavor = hates_flavor;
-    nature_detail_local_var->berries = berries;
     nature_detail_local_var->pokeathlon_stat_changes = pokeathlon_stat_changes;
     nature_detail_local_var->move_battle_style_preferences = move_battle_style_preferences;
     nature_detail_local_var->names = names;
@@ -43,7 +41,6 @@ __attribute__((deprecated)) nature_detail_t *nature_detail_create(
     stat_summary_t *increased_stat,
     berry_flavor_summary_t *likes_flavor,
     berry_flavor_summary_t *hates_flavor,
-    list_t *berries,
     list_t *pokeathlon_stat_changes,
     list_t *move_battle_style_preferences,
     list_t *names
@@ -60,7 +57,6 @@ __attribute__((deprecated)) nature_detail_t *nature_detail_create(
         increased_stat,
         likes_flavor,
         hates_flavor,
-        berries,
         pokeathlon_stat_changes,
         move_battle_style_preferences,
         names
@@ -104,16 +100,9 @@ void nature_detail_free(nature_detail_t *nature_detail) {
         berry_flavor_summary_free(nature_detail->hates_flavor);
         nature_detail->hates_flavor = NULL;
     }
-    if (nature_detail->berries) {
-        list_ForEach(listEntry, nature_detail->berries) {
-            berry_summary_free(listEntry->data);
-        }
-        list_freeList(nature_detail->berries);
-        nature_detail->berries = NULL;
-    }
     if (nature_detail->pokeathlon_stat_changes) {
         list_ForEach(listEntry, nature_detail->pokeathlon_stat_changes) {
-            nature_detail_pokeathlon_stat_changes_inner_free(listEntry->data);
+            nature_pokeathlon_stat_free(listEntry->data);
         }
         list_freeList(nature_detail->pokeathlon_stat_changes);
         nature_detail->pokeathlon_stat_changes = NULL;
@@ -212,27 +201,6 @@ cJSON *nature_detail_convertToJSON(nature_detail_t *nature_detail) {
     }
 
 
-    // nature_detail->berries
-    if (!nature_detail->berries) {
-        goto fail;
-    }
-    cJSON *berries = cJSON_AddArrayToObject(item, "berries");
-    if(berries == NULL) {
-    goto fail; //nonprimitive container
-    }
-
-    listEntry_t *berriesListEntry;
-    if (nature_detail->berries) {
-    list_ForEach(berriesListEntry, nature_detail->berries) {
-    cJSON *itemLocal = berry_summary_convertToJSON(berriesListEntry->data);
-    if(itemLocal == NULL) {
-    goto fail;
-    }
-    cJSON_AddItemToArray(berries, itemLocal);
-    }
-    }
-
-
     // nature_detail->pokeathlon_stat_changes
     if (!nature_detail->pokeathlon_stat_changes) {
         goto fail;
@@ -245,7 +213,7 @@ cJSON *nature_detail_convertToJSON(nature_detail_t *nature_detail) {
     listEntry_t *pokeathlon_stat_changesListEntry;
     if (nature_detail->pokeathlon_stat_changes) {
     list_ForEach(pokeathlon_stat_changesListEntry, nature_detail->pokeathlon_stat_changes) {
-    cJSON *itemLocal = nature_detail_pokeathlon_stat_changes_inner_convertToJSON(pokeathlon_stat_changesListEntry->data);
+    cJSON *itemLocal = nature_pokeathlon_stat_convertToJSON(pokeathlon_stat_changesListEntry->data);
     if(itemLocal == NULL) {
     goto fail;
     }
@@ -323,9 +291,6 @@ nature_detail_t *nature_detail_parseFromJSON(cJSON *nature_detailJSON){
 
     // define the local variable for nature_detail->hates_flavor
     berry_flavor_summary_t *hates_flavor_local_nonprim = NULL;
-
-    // define the local list for nature_detail->berries
-    list_t *berriesList = NULL;
 
     // define the local list for nature_detail->pokeathlon_stat_changes
     list_t *pokeathlon_stat_changesList = NULL;
@@ -420,33 +385,6 @@ nature_detail_t *nature_detail_parseFromJSON(cJSON *nature_detailJSON){
     
     hates_flavor_local_nonprim = berry_flavor_summary_parseFromJSON(hates_flavor); //nonprimitive
 
-    // nature_detail->berries
-    cJSON *berries = cJSON_GetObjectItemCaseSensitive(nature_detailJSON, "berries");
-    if (cJSON_IsNull(berries)) {
-        berries = NULL;
-    }
-    if (!berries) {
-        goto end;
-    }
-
-    
-    cJSON *berries_local_nonprimitive = NULL;
-    if(!cJSON_IsArray(berries)){
-        goto end; //nonprimitive container
-    }
-
-    berriesList = list_createList();
-
-    cJSON_ArrayForEach(berries_local_nonprimitive,berries )
-    {
-        if(!cJSON_IsObject(berries_local_nonprimitive)){
-            goto end;
-        }
-        berry_summary_t *berriesItem = berry_summary_parseFromJSON(berries_local_nonprimitive);
-
-        list_addElement(berriesList, berriesItem);
-    }
-
     // nature_detail->pokeathlon_stat_changes
     cJSON *pokeathlon_stat_changes = cJSON_GetObjectItemCaseSensitive(nature_detailJSON, "pokeathlon_stat_changes");
     if (cJSON_IsNull(pokeathlon_stat_changes)) {
@@ -469,7 +407,7 @@ nature_detail_t *nature_detail_parseFromJSON(cJSON *nature_detailJSON){
         if(!cJSON_IsObject(pokeathlon_stat_changes_local_nonprimitive)){
             goto end;
         }
-        nature_detail_pokeathlon_stat_changes_inner_t *pokeathlon_stat_changesItem = nature_detail_pokeathlon_stat_changes_inner_parseFromJSON(pokeathlon_stat_changes_local_nonprimitive);
+        nature_pokeathlon_stat_t *pokeathlon_stat_changesItem = nature_pokeathlon_stat_parseFromJSON(pokeathlon_stat_changes_local_nonprimitive);
 
         list_addElement(pokeathlon_stat_changesList, pokeathlon_stat_changesItem);
     }
@@ -538,7 +476,6 @@ nature_detail_t *nature_detail_parseFromJSON(cJSON *nature_detailJSON){
         increased_stat_local_nonprim,
         likes_flavor_local_nonprim,
         hates_flavor_local_nonprim,
-        berriesList,
         pokeathlon_stat_changesList,
         move_battle_style_preferencesList,
         namesList
@@ -574,19 +511,10 @@ end:
         berry_flavor_summary_free(hates_flavor_local_nonprim);
         hates_flavor_local_nonprim = NULL;
     }
-    if (berriesList) {
-        listEntry_t *listEntry = NULL;
-        list_ForEach(listEntry, berriesList) {
-            berry_summary_free(listEntry->data);
-            listEntry->data = NULL;
-        }
-        list_freeList(berriesList);
-        berriesList = NULL;
-    }
     if (pokeathlon_stat_changesList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, pokeathlon_stat_changesList) {
-            nature_detail_pokeathlon_stat_changes_inner_free(listEntry->data);
+            nature_pokeathlon_stat_free(listEntry->data);
             listEntry->data = NULL;
         }
         list_freeList(pokeathlon_stat_changesList);

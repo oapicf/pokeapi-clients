@@ -4,6 +4,7 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.openapitools.jackson.nullable.JsonNullable;
 import org.openapitools.model.EncounterMethodSummary;
 
 import io.swagger.annotations.ApiModelProperty;
@@ -13,23 +14,35 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class PaginatedEncounterMethodSummaryList  {
   
-  @ApiModelProperty(example = "123", value = "")
+ /**
+  * The total number of resources available from this API.
+  */
+  @ApiModelProperty(example = "100", required = true, value = "The total number of resources available from this API.")
 
   private Integer count;
 
-  @ApiModelProperty(example = "http://api.example.org/accounts/?offset=400&limit=100", value = "")
+ /**
+  * The URL for the next page in the list, or null if there is no next page.
+  */
+  @ApiModelProperty(example = "https://pokeapi.co/api/v2/encounter-method/?offset=40&limit=20", value = "The URL for the next page in the list, or null if there is no next page.")
 
   private URI next;
 
-  @ApiModelProperty(example = "http://api.example.org/accounts/?offset=200&limit=100", value = "")
+ /**
+  * The URL for the previous page in the list, or null if there is no previous page.
+  */
+  @ApiModelProperty(example = "https://pokeapi.co/api/v2/encounter-method/?offset=0&limit=20", value = "The URL for the previous page in the list, or null if there is no previous page.")
 
   private URI previous;
 
-  @ApiModelProperty(value = "")
+ /**
+  * A list of API resources on this page.
+  */
+  @ApiModelProperty(required = true, value = "A list of API resources on this page.")
 
   private List<EncounterMethodSummary> results = new ArrayList<>();
  /**
-   * Get count
+   * The total number of resources available from this API.
    * @return count
   **/
   @JsonProperty("count")
@@ -47,7 +60,7 @@ public class PaginatedEncounterMethodSummaryList  {
   }
 
  /**
-   * Get next
+   * The URL for the next page in the list, or null if there is no next page.
    * @return next
   **/
   @JsonProperty("next")
@@ -65,7 +78,7 @@ public class PaginatedEncounterMethodSummaryList  {
   }
 
  /**
-   * Get previous
+   * The URL for the previous page in the list, or null if there is no previous page.
    * @return previous
   **/
   @JsonProperty("previous")
@@ -83,7 +96,7 @@ public class PaginatedEncounterMethodSummaryList  {
   }
 
  /**
-   * Get results
+   * A list of API resources on this page.
    * @return results
   **/
   @JsonProperty("results")

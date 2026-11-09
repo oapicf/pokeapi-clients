@@ -55,7 +55,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -78,7 +78,7 @@ Berries can be soft or hard. Check out [Bulbapedia](http://bulbapedia.bulbagarde
 //import org.openapitools.client.api.BerriesApi;
 
 BerriesApi apiInstance = new BerriesApi();
-String id = null; // String | This parameter can be a string or an integer.
+String id = 1; // String | This parameter can be a string or an integer.
 try {
     BerryFirmnessDetail result = apiInstance.berryFirmnessRetrieve(id);
     System.out.println(result);
@@ -101,7 +101,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -151,7 +151,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -174,7 +174,7 @@ Flavors determine whether a Pokémon will benefit or suffer from eating a berry 
 //import org.openapitools.client.api.BerriesApi;
 
 BerriesApi apiInstance = new BerriesApi();
-String id = null; // String | This parameter can be a string or an integer.
+String id = 1; // String | This parameter can be a string or an integer.
 try {
     BerryFlavorDetail result = apiInstance.berryFlavorRetrieve(id);
     System.out.println(result);
@@ -197,7 +197,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -247,7 +247,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -270,7 +270,7 @@ Berries are small fruits that can provide HP and status condition restoration, s
 //import org.openapitools.client.api.BerriesApi;
 
 BerriesApi apiInstance = new BerriesApi();
-String id = null; // String | This parameter can be a string or an integer.
+String id = 1; // String | This parameter can be a string or an integer.
 try {
     BerryDetail result = apiInstance.berryRetrieve(id);
     System.out.println(result);
@@ -293,7 +293,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

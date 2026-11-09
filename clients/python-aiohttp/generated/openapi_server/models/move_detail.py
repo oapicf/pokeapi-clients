@@ -5,21 +5,21 @@ from datetime import date, datetime
 from typing import List, Dict, Type
 
 from openapi_server.models.base_model import Model
-from openapi_server.models.ability_detail_pokemon_inner_pokemon import AbilityDetailPokemonInnerPokemon
 from openapi_server.models.contest_effect_summary import ContestEffectSummary
 from openapi_server.models.contest_type_summary import ContestTypeSummary
 from openapi_server.models.generation_summary import GenerationSummary
+from openapi_server.models.item_machine import ItemMachine
 from openapi_server.models.move_change import MoveChange
-from openapi_server.models.move_change_effect_entries_inner import MoveChangeEffectEntriesInner
+from openapi_server.models.move_combos import MoveCombos
 from openapi_server.models.move_damage_class_summary import MoveDamageClassSummary
-from openapi_server.models.move_detail_contest_combos import MoveDetailContestCombos
-from openapi_server.models.move_detail_effect_changes_inner import MoveDetailEffectChangesInner
-from openapi_server.models.move_detail_machines_inner import MoveDetailMachinesInner
-from openapi_server.models.move_detail_stat_changes_inner import MoveDetailStatChangesInner
+from openapi_server.models.move_effect_change import MoveEffectChange
+from openapi_server.models.move_effect_effect_text import MoveEffectEffectText
 from openapi_server.models.move_flavor_text import MoveFlavorText
 from openapi_server.models.move_meta import MoveMeta
+from openapi_server.models.move_meta_stat_change import MoveMetaStatChange
 from openapi_server.models.move_name import MoveName
 from openapi_server.models.move_target_summary import MoveTargetSummary
+from openapi_server.models.pokemon_summary import PokemonSummary
 from openapi_server.models.super_contest_effect_summary import SuperContestEffectSummary
 from openapi_server.models.type_summary import TypeSummary
 from openapi_server import util
@@ -31,7 +31,7 @@ class MoveDetail(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, id: int=None, name: str=None, accuracy: int=None, effect_chance: int=None, pp: int=None, priority: int=None, power: int=None, contest_combos: MoveDetailContestCombos=None, contest_type: ContestTypeSummary=None, contest_effect: ContestEffectSummary=None, damage_class: MoveDamageClassSummary=None, effect_entries: List[MoveChangeEffectEntriesInner]=None, effect_changes: List[MoveDetailEffectChangesInner]=None, generation: GenerationSummary=None, meta: MoveMeta=None, names: List[MoveName]=None, past_values: List[MoveChange]=None, stat_changes: List[MoveDetailStatChangesInner]=None, super_contest_effect: SuperContestEffectSummary=None, target: MoveTargetSummary=None, type: TypeSummary=None, machines: List[MoveDetailMachinesInner]=None, flavor_text_entries: List[MoveFlavorText]=None, learned_by_pokemon: List[AbilityDetailPokemonInnerPokemon]=None):
+    def __init__(self, id: int=None, name: str=None, accuracy: int=None, effect_chance: int=None, pp: int=None, priority: int=None, power: int=None, contest_combos: MoveCombos=None, contest_type: ContestTypeSummary=None, contest_effect: ContestEffectSummary=None, damage_class: MoveDamageClassSummary=None, effect_entries: List[MoveEffectEffectText]=None, effect_changes: List[MoveEffectChange]=None, generation: GenerationSummary=None, meta: MoveMeta=None, names: List[MoveName]=None, past_values: List[MoveChange]=None, stat_changes: List[MoveMetaStatChange]=None, super_contest_effect: SuperContestEffectSummary=None, target: MoveTargetSummary=None, type: TypeSummary=None, machines: List[ItemMachine]=None, flavor_text_entries: List[MoveFlavorText]=None, learned_by_pokemon: List[PokemonSummary]=None):
         """MoveDetail - a model defined in OpenAPI
 
         :param id: The id of this MoveDetail.
@@ -67,23 +67,23 @@ class MoveDetail(Model):
             'pp': int,
             'priority': int,
             'power': int,
-            'contest_combos': MoveDetailContestCombos,
+            'contest_combos': MoveCombos,
             'contest_type': ContestTypeSummary,
             'contest_effect': ContestEffectSummary,
             'damage_class': MoveDamageClassSummary,
-            'effect_entries': List[MoveChangeEffectEntriesInner],
-            'effect_changes': List[MoveDetailEffectChangesInner],
+            'effect_entries': List[MoveEffectEffectText],
+            'effect_changes': List[MoveEffectChange],
             'generation': GenerationSummary,
             'meta': MoveMeta,
             'names': List[MoveName],
             'past_values': List[MoveChange],
-            'stat_changes': List[MoveDetailStatChangesInner],
+            'stat_changes': List[MoveMetaStatChange],
             'super_contest_effect': SuperContestEffectSummary,
             'target': MoveTargetSummary,
             'type': TypeSummary,
-            'machines': List[MoveDetailMachinesInner],
+            'machines': List[ItemMachine],
             'flavor_text_entries': List[MoveFlavorText],
-            'learned_by_pokemon': List[AbilityDetailPokemonInnerPokemon]
+            'learned_by_pokemon': List[PokemonSummary]
         }
 
         self.attribute_map = {
@@ -151,6 +151,7 @@ class MoveDetail(Model):
     def id(self):
         """Gets the id of this MoveDetail.
 
+        The identifier for this resource.
 
         :return: The id of this MoveDetail.
         :rtype: int
@@ -161,6 +162,7 @@ class MoveDetail(Model):
     def id(self, id):
         """Sets the id of this MoveDetail.
 
+        The identifier for this resource.
 
         :param id: The id of this MoveDetail.
         :type id: int
@@ -174,6 +176,7 @@ class MoveDetail(Model):
     def name(self):
         """Gets the name of this MoveDetail.
 
+        The name for this resource.
 
         :return: The name of this MoveDetail.
         :rtype: str
@@ -184,14 +187,15 @@ class MoveDetail(Model):
     def name(self, name):
         """Sets the name of this MoveDetail.
 
+        The name for this resource.
 
         :param name: The name of this MoveDetail.
         :type name: str
         """
         if name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")
-        if name is not None and len(name) > 100:
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `100`")
+        if name is not None and len(name) > 200:
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `200`")
 
         self._name = name
 
@@ -199,6 +203,7 @@ class MoveDetail(Model):
     def accuracy(self):
         """Gets the accuracy of this MoveDetail.
 
+        The percent value of how likely this move is to be successful.
 
         :return: The accuracy of this MoveDetail.
         :rtype: int
@@ -209,10 +214,15 @@ class MoveDetail(Model):
     def accuracy(self, accuracy):
         """Sets the accuracy of this MoveDetail.
 
+        The percent value of how likely this move is to be successful.
 
         :param accuracy: The accuracy of this MoveDetail.
         :type accuracy: int
         """
+        if accuracy is not None and accuracy > 2147483647:
+            raise ValueError("Invalid value for `accuracy`, must be a value less than or equal to `2147483647`")
+        if accuracy is not None and accuracy < -2147483648:
+            raise ValueError("Invalid value for `accuracy`, must be a value greater than or equal to `-2147483648`")
 
         self._accuracy = accuracy
 
@@ -220,6 +230,7 @@ class MoveDetail(Model):
     def effect_chance(self):
         """Gets the effect_chance of this MoveDetail.
 
+        The percent value of how likely it is this moves effect will happen.
 
         :return: The effect_chance of this MoveDetail.
         :rtype: int
@@ -230,6 +241,7 @@ class MoveDetail(Model):
     def effect_chance(self, effect_chance):
         """Sets the effect_chance of this MoveDetail.
 
+        The percent value of how likely it is this moves effect will happen.
 
         :param effect_chance: The effect_chance of this MoveDetail.
         :type effect_chance: int
@@ -243,6 +255,7 @@ class MoveDetail(Model):
     def pp(self):
         """Gets the pp of this MoveDetail.
 
+        Power points. The number of times this move can be used.
 
         :return: The pp of this MoveDetail.
         :rtype: int
@@ -253,10 +266,15 @@ class MoveDetail(Model):
     def pp(self, pp):
         """Sets the pp of this MoveDetail.
 
+        Power points. The number of times this move can be used.
 
         :param pp: The pp of this MoveDetail.
         :type pp: int
         """
+        if pp is not None and pp > 2147483647:
+            raise ValueError("Invalid value for `pp`, must be a value less than or equal to `2147483647`")
+        if pp is not None and pp < -2147483648:
+            raise ValueError("Invalid value for `pp`, must be a value greater than or equal to `-2147483648`")
 
         self._pp = pp
 
@@ -264,6 +282,7 @@ class MoveDetail(Model):
     def priority(self):
         """Gets the priority of this MoveDetail.
 
+        A value between -8 and 8. Sets the order in which moves are executed during battle. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Priority) for greater detail.
 
         :return: The priority of this MoveDetail.
         :rtype: int
@@ -274,10 +293,15 @@ class MoveDetail(Model):
     def priority(self, priority):
         """Sets the priority of this MoveDetail.
 
+        A value between -8 and 8. Sets the order in which moves are executed during battle. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Priority) for greater detail.
 
         :param priority: The priority of this MoveDetail.
         :type priority: int
         """
+        if priority is not None and priority > 2147483647:
+            raise ValueError("Invalid value for `priority`, must be a value less than or equal to `2147483647`")
+        if priority is not None and priority < -2147483648:
+            raise ValueError("Invalid value for `priority`, must be a value greater than or equal to `-2147483648`")
 
         self._priority = priority
 
@@ -285,6 +309,7 @@ class MoveDetail(Model):
     def power(self):
         """Gets the power of this MoveDetail.
 
+        The base power of this move, or null if it has no fixed base power.
 
         :return: The power of this MoveDetail.
         :rtype: int
@@ -295,10 +320,15 @@ class MoveDetail(Model):
     def power(self, power):
         """Sets the power of this MoveDetail.
 
+        The base power of this move, or null if it has no fixed base power.
 
         :param power: The power of this MoveDetail.
         :type power: int
         """
+        if power is not None and power > 2147483647:
+            raise ValueError("Invalid value for `power`, must be a value less than or equal to `2147483647`")
+        if power is not None and power < -2147483648:
+            raise ValueError("Invalid value for `power`, must be a value greater than or equal to `-2147483648`")
 
         self._power = power
 
@@ -306,9 +336,10 @@ class MoveDetail(Model):
     def contest_combos(self):
         """Gets the contest_combos of this MoveDetail.
 
+        A detail of normal and super contest combos that require this move.
 
         :return: The contest_combos of this MoveDetail.
-        :rtype: MoveDetailContestCombos
+        :rtype: MoveCombos
         """
         return self._contest_combos
 
@@ -316,9 +347,10 @@ class MoveDetail(Model):
     def contest_combos(self, contest_combos):
         """Sets the contest_combos of this MoveDetail.
 
+        A detail of normal and super contest combos that require this move.
 
         :param contest_combos: The contest_combos of this MoveDetail.
-        :type contest_combos: MoveDetailContestCombos
+        :type contest_combos: MoveCombos
         """
         if contest_combos is None:
             raise ValueError("Invalid value for `contest_combos`, must not be `None`")
@@ -329,6 +361,7 @@ class MoveDetail(Model):
     def contest_type(self):
         """Gets the contest_type of this MoveDetail.
 
+        The type of appeal this move gives a Pokémon when used in a contest.
 
         :return: The contest_type of this MoveDetail.
         :rtype: ContestTypeSummary
@@ -339,6 +372,7 @@ class MoveDetail(Model):
     def contest_type(self, contest_type):
         """Sets the contest_type of this MoveDetail.
 
+        The type of appeal this move gives a Pokémon when used in a contest.
 
         :param contest_type: The contest_type of this MoveDetail.
         :type contest_type: ContestTypeSummary
@@ -352,6 +386,7 @@ class MoveDetail(Model):
     def contest_effect(self):
         """Gets the contest_effect of this MoveDetail.
 
+        The effect the move has when used in a contest.
 
         :return: The contest_effect of this MoveDetail.
         :rtype: ContestEffectSummary
@@ -362,6 +397,7 @@ class MoveDetail(Model):
     def contest_effect(self, contest_effect):
         """Sets the contest_effect of this MoveDetail.
 
+        The effect the move has when used in a contest.
 
         :param contest_effect: The contest_effect of this MoveDetail.
         :type contest_effect: ContestEffectSummary
@@ -375,6 +411,7 @@ class MoveDetail(Model):
     def damage_class(self):
         """Gets the damage_class of this MoveDetail.
 
+        The type of damage the move inflicts on the target, e.g. physical.
 
         :return: The damage_class of this MoveDetail.
         :rtype: MoveDamageClassSummary
@@ -385,6 +422,7 @@ class MoveDetail(Model):
     def damage_class(self, damage_class):
         """Sets the damage_class of this MoveDetail.
 
+        The type of damage the move inflicts on the target, e.g. physical.
 
         :param damage_class: The damage_class of this MoveDetail.
         :type damage_class: MoveDamageClassSummary
@@ -398,9 +436,10 @@ class MoveDetail(Model):
     def effect_entries(self):
         """Gets the effect_entries of this MoveDetail.
 
+        The effect of this move listed in different languages.
 
         :return: The effect_entries of this MoveDetail.
-        :rtype: List[MoveChangeEffectEntriesInner]
+        :rtype: List[MoveEffectEffectText]
         """
         return self._effect_entries
 
@@ -408,9 +447,10 @@ class MoveDetail(Model):
     def effect_entries(self, effect_entries):
         """Sets the effect_entries of this MoveDetail.
 
+        The effect of this move listed in different languages.
 
         :param effect_entries: The effect_entries of this MoveDetail.
-        :type effect_entries: List[MoveChangeEffectEntriesInner]
+        :type effect_entries: List[MoveEffectEffectText]
         """
         if effect_entries is None:
             raise ValueError("Invalid value for `effect_entries`, must not be `None`")
@@ -421,9 +461,10 @@ class MoveDetail(Model):
     def effect_changes(self):
         """Gets the effect_changes of this MoveDetail.
 
+        The list of previous effects this move has had across version groups of the games.
 
         :return: The effect_changes of this MoveDetail.
-        :rtype: List[MoveDetailEffectChangesInner]
+        :rtype: List[MoveEffectChange]
         """
         return self._effect_changes
 
@@ -431,9 +472,10 @@ class MoveDetail(Model):
     def effect_changes(self, effect_changes):
         """Sets the effect_changes of this MoveDetail.
 
+        The list of previous effects this move has had across version groups of the games.
 
         :param effect_changes: The effect_changes of this MoveDetail.
-        :type effect_changes: List[MoveDetailEffectChangesInner]
+        :type effect_changes: List[MoveEffectChange]
         """
         if effect_changes is None:
             raise ValueError("Invalid value for `effect_changes`, must not be `None`")
@@ -444,6 +486,7 @@ class MoveDetail(Model):
     def generation(self):
         """Gets the generation of this MoveDetail.
 
+        The generation in which this move was introduced.
 
         :return: The generation of this MoveDetail.
         :rtype: GenerationSummary
@@ -454,6 +497,7 @@ class MoveDetail(Model):
     def generation(self, generation):
         """Sets the generation of this MoveDetail.
 
+        The generation in which this move was introduced.
 
         :param generation: The generation of this MoveDetail.
         :type generation: GenerationSummary
@@ -467,6 +511,7 @@ class MoveDetail(Model):
     def meta(self):
         """Gets the meta of this MoveDetail.
 
+        Metadata about this move
 
         :return: The meta of this MoveDetail.
         :rtype: MoveMeta
@@ -477,6 +522,7 @@ class MoveDetail(Model):
     def meta(self, meta):
         """Sets the meta of this MoveDetail.
 
+        Metadata about this move
 
         :param meta: The meta of this MoveDetail.
         :type meta: MoveMeta
@@ -490,6 +536,7 @@ class MoveDetail(Model):
     def names(self):
         """Gets the names of this MoveDetail.
 
+        The name of this resource listed in different languages.
 
         :return: The names of this MoveDetail.
         :rtype: List[MoveName]
@@ -500,6 +547,7 @@ class MoveDetail(Model):
     def names(self, names):
         """Sets the names of this MoveDetail.
 
+        The name of this resource listed in different languages.
 
         :param names: The names of this MoveDetail.
         :type names: List[MoveName]
@@ -513,6 +561,7 @@ class MoveDetail(Model):
     def past_values(self):
         """Gets the past_values of this MoveDetail.
 
+        A list of move resource value changes across version groups of the game.
 
         :return: The past_values of this MoveDetail.
         :rtype: List[MoveChange]
@@ -523,6 +572,7 @@ class MoveDetail(Model):
     def past_values(self, past_values):
         """Sets the past_values of this MoveDetail.
 
+        A list of move resource value changes across version groups of the game.
 
         :param past_values: The past_values of this MoveDetail.
         :type past_values: List[MoveChange]
@@ -536,9 +586,10 @@ class MoveDetail(Model):
     def stat_changes(self):
         """Gets the stat_changes of this MoveDetail.
 
+        A list of stats this moves effects and how much it effects them.
 
         :return: The stat_changes of this MoveDetail.
-        :rtype: List[MoveDetailStatChangesInner]
+        :rtype: List[MoveMetaStatChange]
         """
         return self._stat_changes
 
@@ -546,9 +597,10 @@ class MoveDetail(Model):
     def stat_changes(self, stat_changes):
         """Sets the stat_changes of this MoveDetail.
 
+        A list of stats this moves effects and how much it effects them.
 
         :param stat_changes: The stat_changes of this MoveDetail.
-        :type stat_changes: List[MoveDetailStatChangesInner]
+        :type stat_changes: List[MoveMetaStatChange]
         """
         if stat_changes is None:
             raise ValueError("Invalid value for `stat_changes`, must not be `None`")
@@ -559,6 +611,7 @@ class MoveDetail(Model):
     def super_contest_effect(self):
         """Gets the super_contest_effect of this MoveDetail.
 
+        The effect the move has when used in a super contest.
 
         :return: The super_contest_effect of this MoveDetail.
         :rtype: SuperContestEffectSummary
@@ -569,6 +622,7 @@ class MoveDetail(Model):
     def super_contest_effect(self, super_contest_effect):
         """Sets the super_contest_effect of this MoveDetail.
 
+        The effect the move has when used in a super contest.
 
         :param super_contest_effect: The super_contest_effect of this MoveDetail.
         :type super_contest_effect: SuperContestEffectSummary
@@ -582,6 +636,7 @@ class MoveDetail(Model):
     def target(self):
         """Gets the target of this MoveDetail.
 
+        The type of target that will receive the effects of the attack.
 
         :return: The target of this MoveDetail.
         :rtype: MoveTargetSummary
@@ -592,6 +647,7 @@ class MoveDetail(Model):
     def target(self, target):
         """Sets the target of this MoveDetail.
 
+        The type of target that will receive the effects of the attack.
 
         :param target: The target of this MoveDetail.
         :type target: MoveTargetSummary
@@ -605,6 +661,7 @@ class MoveDetail(Model):
     def type(self):
         """Gets the type of this MoveDetail.
 
+        The elemental type of this move.
 
         :return: The type of this MoveDetail.
         :rtype: TypeSummary
@@ -615,6 +672,7 @@ class MoveDetail(Model):
     def type(self, type):
         """Sets the type of this MoveDetail.
 
+        The elemental type of this move.
 
         :param type: The type of this MoveDetail.
         :type type: TypeSummary
@@ -628,9 +686,10 @@ class MoveDetail(Model):
     def machines(self):
         """Gets the machines of this MoveDetail.
 
+        A list of the machines that teach this move.
 
         :return: The machines of this MoveDetail.
-        :rtype: List[MoveDetailMachinesInner]
+        :rtype: List[ItemMachine]
         """
         return self._machines
 
@@ -638,9 +697,10 @@ class MoveDetail(Model):
     def machines(self, machines):
         """Sets the machines of this MoveDetail.
 
+        A list of the machines that teach this move.
 
         :param machines: The machines of this MoveDetail.
-        :type machines: List[MoveDetailMachinesInner]
+        :type machines: List[ItemMachine]
         """
         if machines is None:
             raise ValueError("Invalid value for `machines`, must not be `None`")
@@ -651,6 +711,7 @@ class MoveDetail(Model):
     def flavor_text_entries(self):
         """Gets the flavor_text_entries of this MoveDetail.
 
+        The flavor text of this move listed in different languages.
 
         :return: The flavor_text_entries of this MoveDetail.
         :rtype: List[MoveFlavorText]
@@ -661,6 +722,7 @@ class MoveDetail(Model):
     def flavor_text_entries(self, flavor_text_entries):
         """Sets the flavor_text_entries of this MoveDetail.
 
+        The flavor text of this move listed in different languages.
 
         :param flavor_text_entries: The flavor_text_entries of this MoveDetail.
         :type flavor_text_entries: List[MoveFlavorText]
@@ -674,9 +736,10 @@ class MoveDetail(Model):
     def learned_by_pokemon(self):
         """Gets the learned_by_pokemon of this MoveDetail.
 
+        List of Pokemon that can learn the move
 
         :return: The learned_by_pokemon of this MoveDetail.
-        :rtype: List[AbilityDetailPokemonInnerPokemon]
+        :rtype: List[PokemonSummary]
         """
         return self._learned_by_pokemon
 
@@ -684,9 +747,10 @@ class MoveDetail(Model):
     def learned_by_pokemon(self, learned_by_pokemon):
         """Sets the learned_by_pokemon of this MoveDetail.
 
+        List of Pokemon that can learn the move
 
         :param learned_by_pokemon: The learned_by_pokemon of this MoveDetail.
-        :type learned_by_pokemon: List[AbilityDetailPokemonInnerPokemon]
+        :type learned_by_pokemon: List[PokemonSummary]
         """
         if learned_by_pokemon is None:
             raise ValueError("Invalid value for `learned_by_pokemon`, must not be `None`")

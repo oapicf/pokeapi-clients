@@ -11,7 +11,6 @@ namespace models {
 PokeathlonStatDetail::PokeathlonStatDetail()
 : id(0)
 , name("")
-, affectingNatures(PokeathlonStatDetailAffectingNatures())
 , names(std::vector<PokeathlonStatName>())
 {
 }
@@ -29,7 +28,7 @@ std::string PokeathlonStatDetail::getName() const
 {
     return name;
 }
-PokeathlonStatDetailAffectingNatures PokeathlonStatDetail::getAffectingNatures() const
+PokeathlonStatAffectingNatures PokeathlonStatDetail::getAffectingNatures() const
 {
     return affectingNatures;
 }
@@ -49,7 +48,7 @@ void PokeathlonStatDetail::setName(const std::string& nameObj)
 {
     name = nameObj;
 }
-void PokeathlonStatDetail::setAffectingNatures(const PokeathlonStatDetailAffectingNatures& affectingNaturesObj)
+void PokeathlonStatDetail::setAffectingNatures(const PokeathlonStatAffectingNatures& affectingNaturesObj)
 {
     affectingNatures = affectingNaturesObj;
 }

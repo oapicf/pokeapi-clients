@@ -1,9 +1,9 @@
 /*
 PokéAPI
 
-All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
 
-API version: 2.7.0
+API version: 2.10.0
 Contact: blah+oapicf@cliffano.com
 */
 
@@ -22,17 +22,28 @@ var _ MappedNullable = &TypeDetail{}
 
 // TypeDetail Serializer for the Type resource
 type TypeDetail struct {
+	// The identifier for this resource.
 	Id int32 `json:"id"`
+	// The name for this resource.
 	Name string `json:"name"`
-	DamageRelations TypeDetailDamageRelations `json:"damage_relations"`
-	PastDamageRelations []TypeDetailPastDamageRelationsInner `json:"past_damage_relations"`
+	// A detail of how effective this type is toward others and vice versa.
+	DamageRelations TypeRelationships `json:"damage_relations"`
+	// A list of details of how effective this type was toward others and vice versa in previous generations
+	PastDamageRelations []TypePastRelationships `json:"past_damage_relations"`
+	// A list of game indices relevent to this item by generation.
 	GameIndices []TypeGameIndex `json:"game_indices"`
+	// The generation this type was introduced in.
 	Generation GenerationSummary `json:"generation"`
-	MoveDamageClass MoveDamageClassSummary `json:"move_damage_class"`
-	Names []AbilityName `json:"names"`
-	Pokemon []TypeDetailPokemonInner `json:"pokemon"`
+	// The class of damage inflicted by this type.
+	MoveDamageClass NullableMoveDamageClassSummary `json:"move_damage_class"`
+	// The name of this resource listed in different languages.
+	Names []TypeName `json:"names"`
+	// A list of details of Pokémon that have this type.
+	Pokemon []TypePokemon `json:"pokemon"`
+	// A list of moves that have this type.
 	Moves []MoveSummary `json:"moves"`
-	Sprites map[string]map[string]TypeDetailSpritesValueValue `json:"sprites"`
+	// Type icons grouped by generation and game, with name_icon and symbol_icon URLs. Unavailable icons are null.
+	Sprites map[string]map[string]TypeGameSprite `json:"sprites"`
 }
 
 type _TypeDetail TypeDetail
@@ -41,7 +52,7 @@ type _TypeDetail TypeDetail
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTypeDetail(id int32, name string, damageRelations TypeDetailDamageRelations, pastDamageRelations []TypeDetailPastDamageRelationsInner, gameIndices []TypeGameIndex, generation GenerationSummary, moveDamageClass MoveDamageClassSummary, names []AbilityName, pokemon []TypeDetailPokemonInner, moves []MoveSummary, sprites map[string]map[string]TypeDetailSpritesValueValue) *TypeDetail {
+func NewTypeDetail(id int32, name string, damageRelations TypeRelationships, pastDamageRelations []TypePastRelationships, gameIndices []TypeGameIndex, generation GenerationSummary, moveDamageClass NullableMoveDamageClassSummary, names []TypeName, pokemon []TypePokemon, moves []MoveSummary, sprites map[string]map[string]TypeGameSprite) *TypeDetail {
 	this := TypeDetail{}
 	this.Id = id
 	this.Name = name
@@ -114,9 +125,9 @@ func (o *TypeDetail) SetName(v string) {
 }
 
 // GetDamageRelations returns the DamageRelations field value
-func (o *TypeDetail) GetDamageRelations() TypeDetailDamageRelations {
+func (o *TypeDetail) GetDamageRelations() TypeRelationships {
 	if o == nil {
-		var ret TypeDetailDamageRelations
+		var ret TypeRelationships
 		return ret
 	}
 
@@ -125,7 +136,7 @@ func (o *TypeDetail) GetDamageRelations() TypeDetailDamageRelations {
 
 // GetDamageRelationsOk returns a tuple with the DamageRelations field value
 // and a boolean to check if the value has been set.
-func (o *TypeDetail) GetDamageRelationsOk() (*TypeDetailDamageRelations, bool) {
+func (o *TypeDetail) GetDamageRelationsOk() (*TypeRelationships, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -133,14 +144,14 @@ func (o *TypeDetail) GetDamageRelationsOk() (*TypeDetailDamageRelations, bool) {
 }
 
 // SetDamageRelations sets field value
-func (o *TypeDetail) SetDamageRelations(v TypeDetailDamageRelations) {
+func (o *TypeDetail) SetDamageRelations(v TypeRelationships) {
 	o.DamageRelations = v
 }
 
 // GetPastDamageRelations returns the PastDamageRelations field value
-func (o *TypeDetail) GetPastDamageRelations() []TypeDetailPastDamageRelationsInner {
+func (o *TypeDetail) GetPastDamageRelations() []TypePastRelationships {
 	if o == nil {
-		var ret []TypeDetailPastDamageRelationsInner
+		var ret []TypePastRelationships
 		return ret
 	}
 
@@ -149,7 +160,7 @@ func (o *TypeDetail) GetPastDamageRelations() []TypeDetailPastDamageRelationsInn
 
 // GetPastDamageRelationsOk returns a tuple with the PastDamageRelations field value
 // and a boolean to check if the value has been set.
-func (o *TypeDetail) GetPastDamageRelationsOk() ([]TypeDetailPastDamageRelationsInner, bool) {
+func (o *TypeDetail) GetPastDamageRelationsOk() ([]TypePastRelationships, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -157,7 +168,7 @@ func (o *TypeDetail) GetPastDamageRelationsOk() ([]TypeDetailPastDamageRelations
 }
 
 // SetPastDamageRelations sets field value
-func (o *TypeDetail) SetPastDamageRelations(v []TypeDetailPastDamageRelationsInner) {
+func (o *TypeDetail) SetPastDamageRelations(v []TypePastRelationships) {
 	o.PastDamageRelations = v
 }
 
@@ -210,33 +221,35 @@ func (o *TypeDetail) SetGeneration(v GenerationSummary) {
 }
 
 // GetMoveDamageClass returns the MoveDamageClass field value
+// If the value is explicit nil, the zero value for MoveDamageClassSummary will be returned
 func (o *TypeDetail) GetMoveDamageClass() MoveDamageClassSummary {
-	if o == nil {
+	if o == nil || o.MoveDamageClass.Get() == nil {
 		var ret MoveDamageClassSummary
 		return ret
 	}
 
-	return o.MoveDamageClass
+	return *o.MoveDamageClass.Get()
 }
 
 // GetMoveDamageClassOk returns a tuple with the MoveDamageClass field value
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TypeDetail) GetMoveDamageClassOk() (*MoveDamageClassSummary, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.MoveDamageClass, true
+	return o.MoveDamageClass.Get(), o.MoveDamageClass.IsSet()
 }
 
 // SetMoveDamageClass sets field value
 func (o *TypeDetail) SetMoveDamageClass(v MoveDamageClassSummary) {
-	o.MoveDamageClass = v
+	o.MoveDamageClass.Set(&v)
 }
 
 // GetNames returns the Names field value
-func (o *TypeDetail) GetNames() []AbilityName {
+func (o *TypeDetail) GetNames() []TypeName {
 	if o == nil {
-		var ret []AbilityName
+		var ret []TypeName
 		return ret
 	}
 
@@ -245,7 +258,7 @@ func (o *TypeDetail) GetNames() []AbilityName {
 
 // GetNamesOk returns a tuple with the Names field value
 // and a boolean to check if the value has been set.
-func (o *TypeDetail) GetNamesOk() ([]AbilityName, bool) {
+func (o *TypeDetail) GetNamesOk() ([]TypeName, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -253,14 +266,14 @@ func (o *TypeDetail) GetNamesOk() ([]AbilityName, bool) {
 }
 
 // SetNames sets field value
-func (o *TypeDetail) SetNames(v []AbilityName) {
+func (o *TypeDetail) SetNames(v []TypeName) {
 	o.Names = v
 }
 
 // GetPokemon returns the Pokemon field value
-func (o *TypeDetail) GetPokemon() []TypeDetailPokemonInner {
+func (o *TypeDetail) GetPokemon() []TypePokemon {
 	if o == nil {
-		var ret []TypeDetailPokemonInner
+		var ret []TypePokemon
 		return ret
 	}
 
@@ -269,7 +282,7 @@ func (o *TypeDetail) GetPokemon() []TypeDetailPokemonInner {
 
 // GetPokemonOk returns a tuple with the Pokemon field value
 // and a boolean to check if the value has been set.
-func (o *TypeDetail) GetPokemonOk() ([]TypeDetailPokemonInner, bool) {
+func (o *TypeDetail) GetPokemonOk() ([]TypePokemon, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -277,7 +290,7 @@ func (o *TypeDetail) GetPokemonOk() ([]TypeDetailPokemonInner, bool) {
 }
 
 // SetPokemon sets field value
-func (o *TypeDetail) SetPokemon(v []TypeDetailPokemonInner) {
+func (o *TypeDetail) SetPokemon(v []TypePokemon) {
 	o.Pokemon = v
 }
 
@@ -306,9 +319,9 @@ func (o *TypeDetail) SetMoves(v []MoveSummary) {
 }
 
 // GetSprites returns the Sprites field value
-func (o *TypeDetail) GetSprites() map[string]map[string]TypeDetailSpritesValueValue {
+func (o *TypeDetail) GetSprites() map[string]map[string]TypeGameSprite {
 	if o == nil {
-		var ret map[string]map[string]TypeDetailSpritesValueValue
+		var ret map[string]map[string]TypeGameSprite
 		return ret
 	}
 
@@ -317,15 +330,15 @@ func (o *TypeDetail) GetSprites() map[string]map[string]TypeDetailSpritesValueVa
 
 // GetSpritesOk returns a tuple with the Sprites field value
 // and a boolean to check if the value has been set.
-func (o *TypeDetail) GetSpritesOk() (map[string]map[string]TypeDetailSpritesValueValue, bool) {
+func (o *TypeDetail) GetSpritesOk() (map[string]map[string]TypeGameSprite, bool) {
 	if o == nil {
-		return map[string]map[string]TypeDetailSpritesValueValue{}, false
+		return map[string]map[string]TypeGameSprite{}, false
 	}
 	return o.Sprites, true
 }
 
 // SetSprites sets field value
-func (o *TypeDetail) SetSprites(v map[string]map[string]TypeDetailSpritesValueValue) {
+func (o *TypeDetail) SetSprites(v map[string]map[string]TypeGameSprite) {
 	o.Sprites = v
 }
 
@@ -345,7 +358,7 @@ func (o TypeDetail) ToMap() (map[string]interface{}, error) {
 	toSerialize["past_damage_relations"] = o.PastDamageRelations
 	toSerialize["game_indices"] = o.GameIndices
 	toSerialize["generation"] = o.Generation
-	toSerialize["move_damage_class"] = o.MoveDamageClass
+	toSerialize["move_damage_class"] = o.MoveDamageClass.Get()
 	toSerialize["names"] = o.Names
 	toSerialize["pokemon"] = o.Pokemon
 	toSerialize["moves"] = o.Moves

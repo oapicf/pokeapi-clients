@@ -1,0 +1,17 @@
+-module(openapi_pokeathlon_stat_affecting_natures).
+
+-export([encode/1]).
+
+-export_type([openapi_pokeathlon_stat_affecting_natures/0]).
+
+-type openapi_pokeathlon_stat_affecting_natures() ::
+    #{ 'increase' := list(),
+       'decrease' := list()
+     }.
+
+encode(#{ 'increase' := Increase,
+          'decrease' := Decrease
+        }) ->
+    #{ 'increase' => Increase,
+       'decrease' => Decrease
+     }.

@@ -15,7 +15,7 @@ data class MoveMetaAilmentDetail(
     val name: kotlin.String,
 
     @field:JsonProperty("moves")
-    val moves: kotlin.collections.List<AbilityDetailPokemonInnerPokemon>,
+    val moves: kotlin.collections.List<MoveSummary>,
 
     @field:JsonProperty("names")
     val names: kotlin.collections.List<MoveMetaAilmentName>,

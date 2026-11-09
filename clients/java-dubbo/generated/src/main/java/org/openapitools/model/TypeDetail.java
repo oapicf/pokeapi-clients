@@ -1,14 +1,14 @@
 package org.openapitools.model;
 
-import org.openapitools.model.AbilityName;
 import org.openapitools.model.GenerationSummary;
 import org.openapitools.model.MoveDamageClassSummary;
 import org.openapitools.model.MoveSummary;
-import org.openapitools.model.TypeDetailDamageRelations;
-import org.openapitools.model.TypeDetailPastDamageRelationsInner;
-import org.openapitools.model.TypeDetailPokemonInner;
-import org.openapitools.model.TypeDetailSpritesValueValue;
 import org.openapitools.model.TypeGameIndex;
+import org.openapitools.model.TypeGameSprite;
+import org.openapitools.model.TypeName;
+import org.openapitools.model.TypePastRelationships;
+import org.openapitools.model.TypePokemon;
+import org.openapitools.model.TypeRelationships;
 import java.util.*;
 import java.util.Objects;
 import java.io.Serializable;
@@ -24,41 +24,74 @@ import java.math.*;
 public class TypeDetail implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * The identifier for this resource.
+   */
   @JsonProperty("id")
   private Integer id;
 
+  /**
+   * The name for this resource.
+   */
   @JsonProperty("name")
   private String name;
 
+  /**
+   * A detail of how effective this type is toward others and vice versa.
+   */
   @JsonProperty("damage_relations")
-  private TypeDetailDamageRelations damageRelations;
+  private TypeRelationships damageRelations;
 
+  /**
+   * A list of details of how effective this type was toward others and vice versa in previous generations
+   */
   @JsonProperty("past_damage_relations")
-  private List<TypeDetailPastDamageRelationsInner> pastDamageRelations = new ArrayList<>();
+  private List<TypePastRelationships> pastDamageRelations = new ArrayList<>();
 
+  /**
+   * A list of game indices relevent to this item by generation.
+   */
   @JsonProperty("game_indices")
   private List<TypeGameIndex> gameIndices = new ArrayList<>();
 
+  /**
+   * The generation this type was introduced in.
+   */
   @JsonProperty("generation")
   private GenerationSummary generation;
 
+  /**
+   * The class of damage inflicted by this type.
+   */
   @JsonProperty("move_damage_class")
   private MoveDamageClassSummary moveDamageClass;
 
+  /**
+   * The name of this resource listed in different languages.
+   */
   @JsonProperty("names")
-  private List<AbilityName> names = new ArrayList<>();
+  private List<TypeName> names = new ArrayList<>();
 
+  /**
+   * A list of details of Pokémon that have this type.
+   */
   @JsonProperty("pokemon")
-  private List<TypeDetailPokemonInner> pokemon = new ArrayList<>();
+  private List<TypePokemon> pokemon = new ArrayList<>();
 
+  /**
+   * A list of moves that have this type.
+   */
   @JsonProperty("moves")
   private List<MoveSummary> moves = new ArrayList<>();
 
+  /**
+   * Type icons grouped by generation and game, with name_icon and symbol_icon URLs. Unavailable icons are null.
+   */
   @JsonProperty("sprites")
-  private Map<String, Map<String, TypeDetailSpritesValueValue>> sprites = new HashMap<>();
+  private Map<String, Map<String, TypeGameSprite>> sprites = new HashMap<>();
 
   /**
-   * 
+   * The identifier for this resource.
    * @return id
    */
   public Integer getId() {
@@ -70,7 +103,7 @@ public class TypeDetail implements Serializable {
   }
 
   /**
-   * 
+   * The name for this resource.
    * @return name
    */
   public String getName() {
@@ -82,31 +115,31 @@ public class TypeDetail implements Serializable {
   }
 
   /**
-   * 
+   * A detail of how effective this type is toward others and vice versa.
    * @return damageRelations
    */
-  public TypeDetailDamageRelations getDamageRelations() {
+  public TypeRelationships getDamageRelations() {
     return damageRelations;
   }
 
-  public void setDamageRelations(TypeDetailDamageRelations damageRelations) {
+  public void setDamageRelations(TypeRelationships damageRelations) {
     this.damageRelations = damageRelations;
   }
 
   /**
-   * 
+   * A list of details of how effective this type was toward others and vice versa in previous generations
    * @return pastDamageRelations
    */
-  public List<TypeDetailPastDamageRelationsInner> getPastDamageRelations() {
+  public List<TypePastRelationships> getPastDamageRelations() {
     return pastDamageRelations;
   }
 
-  public void setPastDamageRelations(List<TypeDetailPastDamageRelationsInner> pastDamageRelations) {
+  public void setPastDamageRelations(List<TypePastRelationships> pastDamageRelations) {
     this.pastDamageRelations = pastDamageRelations;
   }
 
   /**
-   * 
+   * A list of game indices relevent to this item by generation.
    * @return gameIndices
    */
   public List<TypeGameIndex> getGameIndices() {
@@ -118,7 +151,7 @@ public class TypeDetail implements Serializable {
   }
 
   /**
-   * 
+   * The generation this type was introduced in.
    * @return generation
    */
   public GenerationSummary getGeneration() {
@@ -130,7 +163,7 @@ public class TypeDetail implements Serializable {
   }
 
   /**
-   * 
+   * The class of damage inflicted by this type.
    * @return moveDamageClass
    */
   public MoveDamageClassSummary getMoveDamageClass() {
@@ -142,31 +175,31 @@ public class TypeDetail implements Serializable {
   }
 
   /**
-   * 
+   * The name of this resource listed in different languages.
    * @return names
    */
-  public List<AbilityName> getNames() {
+  public List<TypeName> getNames() {
     return names;
   }
 
-  public void setNames(List<AbilityName> names) {
+  public void setNames(List<TypeName> names) {
     this.names = names;
   }
 
   /**
-   * 
+   * A list of details of Pokémon that have this type.
    * @return pokemon
    */
-  public List<TypeDetailPokemonInner> getPokemon() {
+  public List<TypePokemon> getPokemon() {
     return pokemon;
   }
 
-  public void setPokemon(List<TypeDetailPokemonInner> pokemon) {
+  public void setPokemon(List<TypePokemon> pokemon) {
     this.pokemon = pokemon;
   }
 
   /**
-   * 
+   * A list of moves that have this type.
    * @return moves
    */
   public List<MoveSummary> getMoves() {
@@ -178,14 +211,14 @@ public class TypeDetail implements Serializable {
   }
 
   /**
-   * 
+   * Type icons grouped by generation and game, with name_icon and symbol_icon URLs. Unavailable icons are null.
    * @return sprites
    */
-  public Map<String, Map<String, TypeDetailSpritesValueValue>> getSprites() {
+  public Map<String, Map<String, TypeGameSprite>> getSprites() {
     return sprites;
   }
 
-  public void setSprites(Map<String, Map<String, TypeDetailSpritesValueValue>> sprites) {
+  public void setSprites(Map<String, Map<String, TypeGameSprite>> sprites) {
     this.sprites = sprites;
   }
 

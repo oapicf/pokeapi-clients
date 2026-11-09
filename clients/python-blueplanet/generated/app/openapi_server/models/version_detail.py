@@ -63,6 +63,7 @@ class VersionDetail(Model):
     def id(self) -> int:
         """Gets the id of this VersionDetail.
 
+        The identifier for this resource.  # noqa: E501
 
         :return: The id of this VersionDetail.
         :rtype: int
@@ -73,6 +74,7 @@ class VersionDetail(Model):
     def id(self, id: int):
         """Sets the id of this VersionDetail.
 
+        The identifier for this resource.  # noqa: E501
 
         :param id: The id of this VersionDetail.
         :type id: int
@@ -86,6 +88,7 @@ class VersionDetail(Model):
     def name(self) -> str:
         """Gets the name of this VersionDetail.
 
+        The name for this resource.  # noqa: E501
 
         :return: The name of this VersionDetail.
         :rtype: str
@@ -96,14 +99,15 @@ class VersionDetail(Model):
     def name(self, name: str):
         """Sets the name of this VersionDetail.
 
+        The name for this resource.  # noqa: E501
 
         :param name: The name of this VersionDetail.
         :type name: str
         """
         if name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
-        if name is not None and len(name) > 100:
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `100`")  # noqa: E501
+        if name is not None and len(name) > 200:
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `200`")  # noqa: E501
 
         self._name = name
 
@@ -111,6 +115,7 @@ class VersionDetail(Model):
     def names(self) -> List[VersionName]:
         """Gets the names of this VersionDetail.
 
+        The name of this resource listed in different languages.  # noqa: E501
 
         :return: The names of this VersionDetail.
         :rtype: List[VersionName]
@@ -121,6 +126,7 @@ class VersionDetail(Model):
     def names(self, names: List[VersionName]):
         """Sets the names of this VersionDetail.
 
+        The name of this resource listed in different languages.  # noqa: E501
 
         :param names: The names of this VersionDetail.
         :type names: List[VersionName]
@@ -134,6 +140,7 @@ class VersionDetail(Model):
     def version_group(self) -> VersionGroupSummary:
         """Gets the version_group of this VersionDetail.
 
+        The version group this version belongs to.  # noqa: E501
 
         :return: The version_group of this VersionDetail.
         :rtype: VersionGroupSummary
@@ -144,6 +151,7 @@ class VersionDetail(Model):
     def version_group(self, version_group: VersionGroupSummary):
         """Sets the version_group of this VersionDetail.
 
+        The version group this version belongs to.  # noqa: E501
 
         :param version_group: The version_group of this VersionDetail.
         :type version_group: VersionGroupSummary

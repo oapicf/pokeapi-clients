@@ -14,7 +14,6 @@ public class UtilityApiMockServer {
     public static MappingBuilder stubLanguageList200(@javax.annotation.Nullable String limit, @javax.annotation.Nullable String offset, @javax.annotation.Nullable String q, String response) {
         MappingBuilder stub = get(urlPathEqualTo("/api/v2/language/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withStatus(200)
                 .withHeader("Content-Type", "application/json")
@@ -37,7 +36,6 @@ public class UtilityApiMockServer {
     public static MappingBuilder stubLanguageListFault(@javax.annotation.Nullable String limit, @javax.annotation.Nullable String offset, @javax.annotation.Nullable String q, Fault fault) {
         MappingBuilder stub = get(urlPathEqualTo("/api/v2/language/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withFault(fault)
             );
@@ -56,7 +54,7 @@ public class UtilityApiMockServer {
     }
 
     public static String languageList200ResponseSample1() {
-        return "{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+        return "{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/language/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/language/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
     }
 
 
@@ -64,7 +62,6 @@ public class UtilityApiMockServer {
     public static MappingBuilder stubLanguageRetrieve200(@javax.annotation.Nonnull String id, String response) {
         MappingBuilder stub = get(urlPathTemplate("/api/v2/language/{id}/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withStatus(200)
                 .withHeader("Content-Type", "application/json")
@@ -79,7 +76,6 @@ public class UtilityApiMockServer {
     public static MappingBuilder stubLanguageRetrieveFault(@javax.annotation.Nonnull String id, Fault fault) {
         MappingBuilder stub = get(urlPathTemplate("/api/v2/language/{id}/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withFault(fault)
             );
@@ -90,7 +86,37 @@ public class UtilityApiMockServer {
     }
 
     public static String languageRetrieve200ResponseSample1() {
-        return "{ \"id\" : 0, \"name\" : \"name\", \"official\" : true, \"iso639\" : \"iso639\", \"iso3166\" : \"iso3166\", \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }";
+        return "{ \"id\" : 0, \"name\" : \"name\", \"official\" : true, \"iso639\" : \"iso639\", \"iso3166\" : \"iso3166\", \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ] }";
+    }
+
+
+
+    public static MappingBuilder stubMetaRetrieve200(String response) {
+        MappingBuilder stub = get(urlPathEqualTo("/api/v2/meta/"))
+            .withHeader("Accept", containing("application/json"))
+            .willReturn(aResponse()
+                .withStatus(200)
+                .withHeader("Content-Type", "application/json")
+                .withBody(response)
+            );
+
+
+        return stub;
+    }
+
+    public static MappingBuilder stubMetaRetrieveFault(Fault fault) {
+        MappingBuilder stub = get(urlPathEqualTo("/api/v2/meta/"))
+            .withHeader("Accept", containing("application/json"))
+            .willReturn(aResponse()
+                .withFault(fault)
+            );
+
+
+        return stub;
+    }
+
+    public static String metaRetrieve200ResponseSample1() {
+        return "{ \"deploy_date\" : \"deploy_date\", \"hash\" : \"hash\", \"tag\" : \"tag\" }";
     }
 
 

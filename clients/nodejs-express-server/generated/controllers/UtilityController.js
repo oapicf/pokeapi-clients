@@ -16,8 +16,13 @@ const language_retrieve = async (request, response) => {
   await Controller.handleRequest(request, response, service.language_retrieve);
 };
 
+const meta_retrieve = async (request, response) => {
+  await Controller.handleRequest(request, response, service.meta_retrieve);
+};
+
 
 module.exports = {
   language_list,
   language_retrieve,
+  meta_retrieve,
 };

@@ -20,7 +20,7 @@ import jakarta.annotation.Generated;
  * NatureBattleStylePreference
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-10-25T05:53:37.479908528Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-11-09T13:53:47.069318184Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class NatureBattleStylePreference {
 
   private Integer lowHpPreference;
@@ -48,11 +48,13 @@ public class NatureBattleStylePreference {
   }
 
   /**
-   * Get lowHpPreference
+   * Chance of using the move, in percent, if HP is under one half.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return lowHpPreference
    */
-  @NotNull 
-  @Schema(name = "low_hp_preference", requiredMode = Schema.RequiredMode.REQUIRED)
+  @NotNull @Min(value = -2147483648) @Max(value = 2147483647) 
+  @Schema(name = "low_hp_preference", description = "Chance of using the move, in percent, if HP is under one half.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("low_hp_preference")
   public Integer getLowHpPreference() {
     return lowHpPreference;
@@ -69,11 +71,13 @@ public class NatureBattleStylePreference {
   }
 
   /**
-   * Get highHpPreference
+   * Chance of using the move, in percent, if HP is over one half.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return highHpPreference
    */
-  @NotNull 
-  @Schema(name = "high_hp_preference", requiredMode = Schema.RequiredMode.REQUIRED)
+  @NotNull @Min(value = -2147483648) @Max(value = 2147483647) 
+  @Schema(name = "high_hp_preference", description = "Chance of using the move, in percent, if HP is over one half.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("high_hp_preference")
   public Integer getHighHpPreference() {
     return highHpPreference;
@@ -90,11 +94,11 @@ public class NatureBattleStylePreference {
   }
 
   /**
-   * Get moveBattleStyle
+   * The move battle style.
    * @return moveBattleStyle
    */
   @NotNull @Valid 
-  @Schema(name = "move_battle_style", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "move_battle_style", description = "The move battle style.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("move_battle_style")
   public MoveBattleStyleSummary getMoveBattleStyle() {
     return moveBattleStyle;

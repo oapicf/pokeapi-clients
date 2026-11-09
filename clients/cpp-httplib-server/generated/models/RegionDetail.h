@@ -7,14 +7,15 @@
 #pragma once
 // System headers
 #include <nlohmann/json.hpp>
+#include <optional>
 #include <cstdint>
 #include <string>
 #include <vector>
 #include "GenerationSummary.h"
 #include "LocationSummary.h"
 #include "PokedexSummary.h"
-#include "RegionDetailVersionGroupsInner.h"
 #include "RegionName.h"
+#include "VersionGroupSummary.h"
 
 
 
@@ -41,8 +42,8 @@ public:
     void setNames(const std::vector<RegionName>& names);
     [[nodiscard]] std::vector<PokedexSummary> getPokedexes() const;
     void setPokedexes(const std::vector<PokedexSummary>& pokedexes);
-    [[nodiscard]] std::vector<RegionDetail_version_groups_inner> getVersionGroups() const;
-    void setVersionGroups(const std::vector<RegionDetail_version_groups_inner>& versionGroups);
+    [[nodiscard]] std::vector<VersionGroupSummary> getVersionGroups() const;
+    void setVersionGroups(const std::vector<VersionGroupSummary>& versionGroups);
 
 
     // JSON serialization using NLOHMANN INTRUSIVE macro (must be inside class to access private members)
@@ -56,7 +57,7 @@ private:
     GenerationSummary mainGeneration;
     std::vector<RegionName> names;
     std::vector<PokedexSummary> pokedexes;
-    std::vector<RegionDetail_version_groups_inner> versionGroups;
+    std::vector<VersionGroupSummary> versionGroups;
 };
 
 

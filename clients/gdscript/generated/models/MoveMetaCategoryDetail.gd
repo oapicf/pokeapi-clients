@@ -10,6 +10,7 @@ class_name MoveMetaCategoryDetail
 # MoveMetaCategoryDetail Model
 
 
+# The identifier for this resource.
 # Required: True
 # isArray: false
 @export var id: int:
@@ -18,6 +19,7 @@ class_name MoveMetaCategoryDetail
 		id = value
 var __id__was__set := false
 
+# The name for this resource.
 # Required: True
 # isArray: false
 @export var name: String:
@@ -26,6 +28,7 @@ var __id__was__set := false
 		name = value
 var __name__was__set := false
 
+# The description of this resource listed in different languages.
 # Required: True
 # isArray: true
 @export var descriptions: Array:
@@ -34,6 +37,7 @@ var __name__was__set := false
 		descriptions = value
 var __descriptions__was__set := false
 
+# A list of moves that fall into this category.
 # Required: True
 # isArray: true
 @export var moves: Array:
@@ -79,7 +83,7 @@ static func bzz_denormalize_single(from_dict: Dictionary):
 	if from_dict.has("descriptions"):
 		me.descriptions = MoveMetaCategoryDescription.bzz_denormalize_multiple(from_dict["descriptions"])
 	if from_dict.has("moves"):
-		me.moves = AbilityDetail_pokemon_inner_pokemon.bzz_denormalize_multiple(from_dict["moves"])
+		me.moves = MoveSummary.bzz_denormalize_multiple(from_dict["moves"])
 	return me
 
 

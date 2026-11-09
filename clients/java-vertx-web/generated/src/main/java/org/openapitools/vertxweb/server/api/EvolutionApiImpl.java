@@ -2,8 +2,10 @@ package org.openapitools.vertxweb.server.api;
 
 import org.openapitools.vertxweb.server.model.EvolutionChainDetail;
 import org.openapitools.vertxweb.server.model.EvolutionTriggerDetail;
+import org.openapitools.vertxweb.server.model.EvolutionVariableDetail;
 import org.openapitools.vertxweb.server.model.PaginatedEvolutionChainSummaryList;
 import org.openapitools.vertxweb.server.model.PaginatedEvolutionTriggerSummaryList;
+import org.openapitools.vertxweb.server.model.PaginatedEvolutionVariableSummaryList;
 
 import org.openapitools.vertxweb.server.ApiResponse;
 
@@ -17,7 +19,7 @@ import java.util.Map;
 // Implement this class
 
 public class EvolutionApiImpl implements EvolutionApi {
-    public Future<ApiResponse<PaginatedEvolutionChainSummaryList>> evolutionChainList(Integer limit, Integer offset, String q) {
+    public Future<ApiResponse<PaginatedEvolutionChainSummaryList>> evolutionChainList(Integer limit, Integer offset) {
         return Future.failedFuture(new HttpException(501));
     }
 
@@ -30,6 +32,14 @@ public class EvolutionApiImpl implements EvolutionApi {
     }
 
     public Future<ApiResponse<EvolutionTriggerDetail>> evolutionTriggerRetrieve(String id) {
+        return Future.failedFuture(new HttpException(501));
+    }
+
+    public Future<ApiResponse<PaginatedEvolutionVariableSummaryList>> evolutionVariableList(Integer limit, Integer offset, String q) {
+        return Future.failedFuture(new HttpException(501));
+    }
+
+    public Future<ApiResponse<EvolutionVariableDetail>> evolutionVariableRetrieve(String id) {
         return Future.failedFuture(new HttpException(501));
     }
 

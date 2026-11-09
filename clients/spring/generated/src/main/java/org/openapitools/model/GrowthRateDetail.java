@@ -25,7 +25,7 @@ import jakarta.annotation.Generated;
  * GrowthRateDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-10-25T05:53:37.479908528Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-11-09T13:53:47.069318184Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class GrowthRateDetail {
 
   private Integer id;
@@ -62,11 +62,11 @@ public class GrowthRateDetail {
   }
 
   /**
-   * Get id
+   * The identifier for this resource.
    * @return id
    */
   
-  @Schema(name = "id", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "id", accessMode = Schema.AccessMode.READ_ONLY, description = "The identifier for this resource.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("id")
   public Integer getId() {
     return id;
@@ -83,11 +83,11 @@ public class GrowthRateDetail {
   }
 
   /**
-   * Get name
+   * The name for this resource.
    * @return name
    */
-  @NotNull @Size(max = 100) 
-  @Schema(name = "name", requiredMode = Schema.RequiredMode.REQUIRED)
+  @NotNull @Size(max = 200) 
+  @Schema(name = "name", description = "The name for this resource.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("name")
   public String getName() {
     return name;
@@ -104,11 +104,11 @@ public class GrowthRateDetail {
   }
 
   /**
-   * Get formula
+   * The formula used to calculate the rate at which the Pokémon species gains level.
    * @return formula
    */
   @NotNull @Size(max = 500) 
-  @Schema(name = "formula", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "formula", description = "The formula used to calculate the rate at which the Pokémon species gains level.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("formula")
   public String getFormula() {
     return formula;
@@ -133,11 +133,11 @@ public class GrowthRateDetail {
   }
 
   /**
-   * Get descriptions
+   * The descriptions of this characteristic listed in different languages.
    * @return descriptions
    */
   
-  @Schema(name = "descriptions", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "descriptions", accessMode = Schema.AccessMode.READ_ONLY, description = "The descriptions of this characteristic listed in different languages.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("descriptions")
   public List<@Valid GrowthRateDescription> getDescriptions() {
     return descriptions;
@@ -162,11 +162,11 @@ public class GrowthRateDetail {
   }
 
   /**
-   * Get levels
+   * A list of levels and the amount of experienced needed to atain them based on this growth rate.
    * @return levels
    */
   
-  @Schema(name = "levels", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "levels", accessMode = Schema.AccessMode.READ_ONLY, description = "A list of levels and the amount of experienced needed to atain them based on this growth rate.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("levels")
   public List<@Valid Experience> getLevels() {
     return levels;
@@ -191,11 +191,11 @@ public class GrowthRateDetail {
   }
 
   /**
-   * Get pokemonSpecies
+   * A list of Pokémon species that gain levels at this growth rate.
    * @return pokemonSpecies
    */
   
-  @Schema(name = "pokemon_species", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "pokemon_species", accessMode = Schema.AccessMode.READ_ONLY, description = "A list of Pokémon species that gain levels at this growth rate.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("pokemon_species")
   public List<@Valid PokemonSpeciesSummary> getPokemonSpecies() {
     return pokemonSpecies;

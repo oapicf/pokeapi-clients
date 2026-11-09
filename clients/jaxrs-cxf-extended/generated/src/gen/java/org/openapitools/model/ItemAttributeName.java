@@ -11,19 +11,25 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class ItemAttributeName  {
   
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The localized name for an API resource in a specific language.
+  */
+  @ApiModelProperty(required = true, value = "The localized name for an API resource in a specific language.")
   private String name;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The language this name is in.
+  */
+  @ApiModelProperty(required = true, value = "The language this name is in.")
   @Valid
   private LanguageSummary language;
  /**
-  * Get name
+  * The localized name for an API resource in a specific language.
   * @return name
   */
   @JsonProperty("name")
   @NotNull
- @Size(max=100)  public String getName() {
+ @Size(max=200)  public String getName() {
     return name;
   }
 
@@ -43,7 +49,7 @@ public class ItemAttributeName  {
   }
 
  /**
-  * Get language
+  * The language this name is in.
   * @return language
   */
   @JsonProperty("language")

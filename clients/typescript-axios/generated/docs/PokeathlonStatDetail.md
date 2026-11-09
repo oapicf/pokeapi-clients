@@ -5,10 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **number** |  | [readonly] [default to undefined]
-**name** | **string** |  | [default to undefined]
-**affecting_natures** | [**PokeathlonStatDetailAffectingNatures**](PokeathlonStatDetailAffectingNatures.md) |  | [default to undefined]
-**names** | [**Array&lt;PokeathlonStatName&gt;**](PokeathlonStatName.md) |  | [readonly] [default to undefined]
+**id** | **number** | The identifier for this resource. | [readonly] [default to undefined]
+**name** | **string** | The name for this resource. | [default to undefined]
+**affecting_natures** | [**PokeathlonStatAffectingNatures**](PokeathlonStatAffectingNatures.md) | A detail of natures which affect this Pokéathlon stat positively or negatively. | [readonly] [default to undefined]
+**names** | [**Array&lt;PokeathlonStatName&gt;**](PokeathlonStatName.md) | The name of this resource listed in different languages. | [readonly] [default to undefined]
 
 ## Example
 

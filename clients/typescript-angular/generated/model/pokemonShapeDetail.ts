@@ -7,16 +7,31 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { PokemonShapeDetailAwesomeNamesInner } from './pokemonShapeDetailAwesomeNamesInner';
+import { PokemonShapeAwesomeName } from './pokemonShapeAwesomeName';
+import { PokemonShapeName } from './pokemonShapeName';
 import { PokemonSpeciesSummary } from './pokemonSpeciesSummary';
-import { PokemonShapeDetailNamesInner } from './pokemonShapeDetailNamesInner';
 
 
 export interface PokemonShapeDetail { 
+    /**
+     * The identifier for this resource.
+     */
     readonly id: number;
+    /**
+     * The name for this resource.
+     */
     name: string;
-    readonly awesome_names: Array<PokemonShapeDetailAwesomeNamesInner>;
-    readonly names: Array<PokemonShapeDetailNamesInner>;
+    /**
+     * The \"scientific\" name of this Pokémon shape listed in different languages.
+     */
+    readonly awesome_names: Array<PokemonShapeAwesomeName>;
+    /**
+     * The name of this resource listed in different languages.
+     */
+    readonly names: Array<PokemonShapeName>;
+    /**
+     * A list of the Pokémon species that have this shape.
+     */
     readonly pokemon_species: Array<PokemonSpeciesSummary>;
 }
 

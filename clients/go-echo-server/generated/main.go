@@ -83,6 +83,12 @@ func main() {
 	// EvolutionTriggerRetrieve - Get evolution trigger
 	e.GET("/api/v2/evolution-trigger/:id/", c.EvolutionTriggerRetrieve)
 
+	// EvolutionVariableList - List evolution variables
+	e.GET("/api/v2/evolution-variable/", c.EvolutionVariableList)
+
+	// EvolutionVariableRetrieve - Get evolution variable
+	e.GET("/api/v2/evolution-variable/:id/", c.EvolutionVariableRetrieve)
+
 	// GenerationList - List genrations
 	e.GET("/api/v2/generation/", c.GenerationList)
 
@@ -106,6 +112,12 @@ func main() {
 
 	// VersionRetrieve - Get version
 	e.GET("/api/v2/version/:id/", c.VersionRetrieve)
+
+	// CurrencyList - List currencies
+	e.GET("/api/v2/currency/", c.CurrencyList)
+
+	// CurrencyRetrieve - Get currency
+	e.GET("/api/v2/currency/:id/", c.CurrencyRetrieve)
 
 	// ItemAttributeList - List item attributes
 	e.GET("/api/v2/item-attribute/", c.ItemAttributeList)
@@ -203,13 +215,13 @@ func main() {
 	// MoveTargetRetrieve - Get move target
 	e.GET("/api/v2/move-target/:id/", c.MoveTargetRetrieve)
 
-	// AbilityList - 
+	// AbilityList - List abilities
 	e.GET("/api/v2/ability/", c.AbilityList)
 
-	// AbilityRetrieve - 
+	// AbilityRetrieve - Get ability
 	e.GET("/api/v2/ability/:id/", c.AbilityRetrieve)
 
-	// CharacteristicList - List charecterictics
+	// CharacteristicList - List characteristics
 	e.GET("/api/v2/characteristic/", c.CharacteristicList)
 
 	// CharacteristicRetrieve - Get characteristic
@@ -304,6 +316,9 @@ func main() {
 
 	// LanguageRetrieve - Get language
 	e.GET("/api/v2/language/:id/", c.LanguageRetrieve)
+
+	// MetaRetrieve - Get API metadata
+	e.GET("/api/v2/meta/", c.MetaRetrieve)
 
 
 	// Start server

@@ -17,16 +17,16 @@ defmodule PokéAPI.Model.GenderDetail do
   @type t :: %__MODULE__{
     :id => integer(),
     :name => String.t,
-    :pokemon_species_details => [PokéAPI.Model.GenderDetailPokemonSpeciesDetailsInner.t],
-    :required_for_evolution => [PokéAPI.Model.AbilityDetailPokemonInnerPokemon.t]
+    :pokemon_species_details => [PokéAPI.Model.GenderPokemonSpecies.t],
+    :required_for_evolution => [PokéAPI.Model.PokemonSpeciesSummary.t]
   }
 
   alias PokéAPI.Deserializer
 
   def decode(value) do
     value
-     |> Deserializer.deserialize(:pokemon_species_details, :list, PokéAPI.Model.GenderDetailPokemonSpeciesDetailsInner)
-     |> Deserializer.deserialize(:required_for_evolution, :list, PokéAPI.Model.AbilityDetailPokemonInnerPokemon)
+     |> Deserializer.deserialize(:pokemon_species_details, :list, PokéAPI.Model.GenderPokemonSpecies)
+     |> Deserializer.deserialize(:required_for_evolution, :list, PokéAPI.Model.PokemonSpeciesSummary)
   end
 end
 

@@ -15,19 +15,22 @@
                 
                 
                 ; [@key "base_stat"]
-                                              effort: int32
+                    (** The base value of the stat. *)
+                                      effort: int32
                   
                   
                 
                 
                 ; [@key "effort"]
-                                              stat: Stat_summary.t
+                    (** The effort points (EV) the Pokémon has in the stat. *)
+                                      stat: Stat_summary.t
                   
                   
                 
                 
                 ; [@key "stat"]
-                        } [@@deriving yojson { strict = false }, show, eq ];;
+                    (** The stat the Pokémon has. *)
+                } [@@deriving yojson { strict = false }, show, eq ];;
         
         let create (base_stat : int32) (effort : int32) (stat : Stat_summary.t) : t = {
             base_stat = base_stat;

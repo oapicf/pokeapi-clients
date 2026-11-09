@@ -1,19 +1,37 @@
 package api
 
 import play.api.libs.json._
+import model.CurrencyDetail
 import model.ItemAttributeDetail
 import model.ItemCategoryDetail
 import model.ItemDetail
 import model.ItemFlingEffectDetail
 import model.ItemPocketDetail
+import model.PaginatedCurrencySummaryList
 import model.PaginatedItemAttributeSummaryList
 import model.PaginatedItemCategorySummaryList
 import model.PaginatedItemFlingEffectSummaryList
 import model.PaginatedItemPocketSummaryList
 import model.PaginatedItemSummaryList
 
-@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2026-10-25T05:53:17.467323765Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2026-11-09T13:53:31.572745352Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 trait ItemsApi {
+  /**
+    * List currencies
+    * Currencies used to buy items.
+    * @param limit Number of results to return per page.
+    * @param offset The initial index from which to return the results.
+    * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. 
+    */
+  def currencyList(limit: Option[Int], offset: Option[Int], q: Option[String]): PaginatedCurrencySummaryList
+
+  /**
+    * Get currency
+    * Currencies used to buy items.
+    * @param id This parameter can be a string or an integer.
+    */
+  def currencyRetrieve(id: String): CurrencyDetail
+
   /**
     * List item attributes
     * Item attributes define particular aspects of items, e.g.\&quot;usable in battle\&quot; or \&quot;consumable\&quot;.

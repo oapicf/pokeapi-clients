@@ -1,9 +1,9 @@
 /*
   PokéAPI
 
-  All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+  All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
 
-  The version of the OpenAPI document: 2.7.0
+  The version of the OpenAPI document: 2.10.0
 
   Contact: blah+oapicf@cliffano.com
 
@@ -14,77 +14,104 @@ syntax = "proto3";
 
 package openapitools;
 
-import public "models/ability_detail_pokemon_inner_pokemon.proto";
+import public "models/egg_group_summary.proto";
 import public "models/evolution_chain_summary.proto";
 import public "models/generation_summary.proto";
 import public "models/growth_rate_summary.proto";
 import public "models/pokemon_color_summary.proto";
 import public "models/pokemon_dex_entry.proto";
-import public "models/pokemon_form_detail_form_names_inner.proto";
 import public "models/pokemon_habitat_summary.proto";
 import public "models/pokemon_shape_summary.proto";
 import public "models/pokemon_species_description.proto";
-import public "models/pokemon_species_detail_genera_inner.proto";
-import public "models/pokemon_species_detail_pal_park_encounters_inner.proto";
-import public "models/pokemon_species_detail_varieties_inner.proto";
 import public "models/pokemon_species_flavor_text.proto";
+import public "models/pokemon_species_genus.proto";
+import public "models/pokemon_species_name.proto";
+import public "models/pokemon_species_pal_park_encounter.proto";
 import public "models/pokemon_species_summary.proto";
+import public "models/pokemon_species_variety.proto";
 
 message PokemonSpeciesDetail {
 
+  // The identifier for this resource.
   int32 id = 3355;
 
+  // The name for this resource.
   string name = 3373707;
 
+  // The order in which species should be sorted. Based on National Dex order, except families are grouped together and sorted by stage.
   optional int32 order = 106006350;
 
+  // The chance of this Pokémon being female, in eighths; or -1 for genderless.
   optional int32 gender_rate = 422093727;
 
+  // The base capture rate; up to 255. The higher the number, the easier the catch.
   optional int32 capture_rate = 230152762;
 
+  // The happiness when caught by a normal Pokéball; up to 255. The higher the number, the happier the Pokémon.
   optional int32 base_happiness = 315124026;
 
+  // Whether or not this is a baby Pokémon.
   bool is_baby = 471096014;
 
+  // Whether or not this is a legendary Pokémon.
   bool is_legendary = 365427303;
 
+  // Whether or not this is a mythical Pokémon.
   bool is_mythical = 71344295;
 
+  // Initial hatch counter: one must walk Y × (hatch_counter + 1) steps before this Pokémon's egg hatches, unless utilizing bonuses like Flame Body's. Y varies per generation. In Generations II, III, and VII, Egg cycles are 256 steps long. In Generation IV, Egg cycles are 255 steps long. In Pokémon Brilliant Diamond and Shining Pearl, Egg cycles are also 255 steps long, but are shorter on special dates. In Generations V and VI, Egg cycles are 257 steps long. In Pokémon Sword and Shield, and in Pokémon Scarlet and Violet, Egg cycles are 128 steps long.
   optional int32 hatch_counter = 519692036;
 
+  // Whether or not this Pokémon has visual gender differences.
   bool has_gender_differences = 61314080;
 
+  // Whether or not this Pokémon has multiple forms and can switch between them.
   bool forms_switchable = 103991141;
 
+  // The rate at which this Pokémon species gains levels.
   GrowthRateSummary growth_rate = 213178280;
 
+  // A list of Pokedexes and the indexes reserved within them for this Pokémon species.
   repeated PokemonDexEntry pokedex_numbers = 414748905;
 
-  repeated AbilityDetailPokemonInnerPokemon egg_groups = 197734223;
+  // A list of egg groups this Pokémon species is a member of.
+  repeated EggGroupSummary egg_groups = 197734223;
 
+  // The color of this Pokémon for Pokédex search.
   PokemonColorSummary color = 94842723;
 
+  // The shape of this Pokémon for Pokédex search.
   PokemonShapeSummary shape = 109399969;
 
+  // The Pokémon species that evolves into this Pokemon_species.
   PokemonSpeciesSummary evolves_from_species = 416233650;
 
+  // The evolution chain this Pokémon species is a member of.
   EvolutionChainSummary evolution_chain = 347869438;
 
+  // The habitat this Pokémon species can be encountered in.
   PokemonHabitatSummary habitat = 145006760;
 
+  // The generation this Pokémon species was introduced in.
   GenerationSummary generation = 305703192;
 
-  repeated PokemonFormDetailFormNamesInner names = 104585032;
+  // The name of this resource listed in different languages.
+  repeated PokemonSpeciesName names = 104585032;
 
-  repeated PokemonSpeciesDetailPalParkEncountersInner pal_park_encounters = 430937744;
+  // A list of encounters that can be had with this Pokémon species in pal park.
+  repeated PokemonSpeciesPalParkEncounter pal_park_encounters = 430937744;
 
+  // Descriptions of different forms Pokémon take on within the Pokémon species.
   repeated PokemonSpeciesDescription form_descriptions = 288110483;
 
+  // A list of flavor text entries for this Pokémon species.
   repeated PokemonSpeciesFlavorText flavor_text_entries = 261557380;
 
-  repeated PokemonSpeciesDetailGeneraInner genera = 175769598;
+  // The genus of this Pokémon species listed in multiple languages.
+  repeated PokemonSpeciesGenus genera = 175769598;
 
-  repeated PokemonSpeciesDetailVarietiesInner varieties = 78250266;
+  // A list of the Pokémon that exist within this Pokémon species.
+  repeated PokemonSpeciesVariety varieties = 78250266;
 
 }
 

@@ -143,12 +143,12 @@ MoveLearnMethodDetail::fromJson(char* jsonStr)
 		{
 			JsonArray* arr = json_node_get_array(node);
 			JsonNode*  temp_json;
-			list<AbilityDetail_pokemon_inner_pokemon> new_list;
-			AbilityDetail_pokemon_inner_pokemon inst;
+			list<VersionGroupSummary> new_list;
+			VersionGroupSummary inst;
 			for (guint i=0;i<json_array_get_length(arr);i++) {
 				temp_json = json_array_get_element(arr,i);
-				if (isprimitive("AbilityDetail_pokemon_inner_pokemon")) {
-					jsonToValue(&inst, temp_json, "AbilityDetail_pokemon_inner_pokemon", "");
+				if (isprimitive("VersionGroupSummary")) {
+					jsonToValue(&inst, temp_json, "VersionGroupSummary", "");
 				} else {
 					
 					inst.fromJson(json_to_string(temp_json, false));
@@ -240,18 +240,18 @@ MoveLearnMethodDetail::toJson()
 	
 	const gchar *descriptionsKey = "descriptions";
 	json_object_set_member(pJsonObject, descriptionsKey, node);
-	if (isprimitive("AbilityDetail_pokemon_inner_pokemon")) {
-		list<AbilityDetail_pokemon_inner_pokemon> new_list = static_cast<list <AbilityDetail_pokemon_inner_pokemon> > (getVersionGroups());
-		node = converttoJson(&new_list, "AbilityDetail_pokemon_inner_pokemon", "array");
+	if (isprimitive("VersionGroupSummary")) {
+		list<VersionGroupSummary> new_list = static_cast<list <VersionGroupSummary> > (getVersionGroups());
+		node = converttoJson(&new_list, "VersionGroupSummary", "array");
 	} else {
 		node = json_node_alloc();
-		list<AbilityDetail_pokemon_inner_pokemon> new_list = static_cast<list <AbilityDetail_pokemon_inner_pokemon> > (getVersionGroups());
+		list<VersionGroupSummary> new_list = static_cast<list <VersionGroupSummary> > (getVersionGroups());
 		JsonArray* json_array = json_array_new();
 		GError *mygerror;
 		
-		for (list<AbilityDetail_pokemon_inner_pokemon>::iterator it = new_list.begin(); it != new_list.end(); it++) {
+		for (list<VersionGroupSummary>::iterator it = new_list.begin(); it != new_list.end(); it++) {
 			mygerror = NULL;
-			AbilityDetail_pokemon_inner_pokemon obj = *it;
+			VersionGroupSummary obj = *it;
 			JsonNode *node_temp = json_from_string(obj.toJson(), &mygerror);
 			json_array_add_element(json_array, node_temp);
 			g_clear_error(&mygerror);
@@ -321,14 +321,14 @@ MoveLearnMethodDetail::setDescriptions(std::list <MoveLearnMethodDescription> de
 	this->descriptions = descriptions;
 }
 
-std::list<AbilityDetail_pokemon_inner_pokemon>
+std::list<VersionGroupSummary>
 MoveLearnMethodDetail::getVersionGroups()
 {
 	return version_groups;
 }
 
 void
-MoveLearnMethodDetail::setVersionGroups(std::list <AbilityDetail_pokemon_inner_pokemon> version_groups)
+MoveLearnMethodDetail::setVersionGroups(std::list <VersionGroupSummary> version_groups)
 {
 	this->version_groups = version_groups;
 }

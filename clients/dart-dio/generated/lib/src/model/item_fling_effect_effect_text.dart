@@ -12,13 +12,15 @@ part 'item_fling_effect_effect_text.g.dart';
 /// ItemFlingEffectEffectText
 ///
 /// Properties:
-/// * [effect] 
-/// * [language] 
+/// * [effect] - The localized effect text for an API resource in a specific language.
+/// * [language] - The language this effect is in.
 @BuiltValue()
 abstract class ItemFlingEffectEffectText implements Built<ItemFlingEffectEffectText, ItemFlingEffectEffectTextBuilder> {
+  /// The localized effect text for an API resource in a specific language.
   @BuiltValueField(wireName: r'effect')
   String get effect;
 
+  /// The language this effect is in.
   @BuiltValueField(wireName: r'language')
   LanguageSummary get language;
 

@@ -12,7 +12,7 @@
   [ {'id', integer() }
   | {'name', binary() }
   | {'names', list(openapi_egg_group_name:openapi_egg_group_name()) }
-  | {'pokemon_species', list(openapi_egg_group_detail_pokemon_species_inner:openapi_egg_group_detail_pokemon_species_inner()) }
+  | {'pokemon_species', list(openapi_pokemon_species_summary:openapi_pokemon_species_summary()) }
   ].
 
 
@@ -23,7 +23,7 @@ openapi_egg_group_detail(Fields) ->
   Default = [ {'id', integer() }
             , {'name', binary() }
             , {'names', list(openapi_egg_group_name:openapi_egg_group_name()) }
-            , {'pokemon_species', list(openapi_egg_group_detail_pokemon_species_inner:openapi_egg_group_detail_pokemon_species_inner()) }
+            , {'pokemon_species', list(openapi_pokemon_species_summary:openapi_pokemon_species_summary()) }
             ],
   lists:ukeymerge(1, lists:sort(Fields), lists:sort(Default)).
 

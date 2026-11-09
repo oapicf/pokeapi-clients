@@ -30,16 +30,18 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param level 
- * @param experience 
+ * @param level The level gained.
+ * @param experience The amount of experience required to reach the referenced level.
  */
 
 
 data class Experience (
 
+    /* The level gained. */
     @Json(name = "level")
     val level: kotlin.Int,
 
+    /* The amount of experience required to reach the referenced level. */
     @Json(name = "experience")
     val experience: kotlin.Int
 

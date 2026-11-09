@@ -15,27 +15,32 @@
                 
                 
                 ; [@key "id"]
-                                              gene_modulo: int32
+                    (** The identifier for this resource. *)
+                                      gene_modulo: int32
                   
                   
                 
                 
                 ; [@key "gene_modulo"]
-                                              possible_values: int32 list
+                    (** The remainder of the highest stat/IV divided by 5. *)
+                                      possible_values: int32 list
                 
                 
                 ; [@key "possible_values"]
-                                              highest_stat: Stat_summary.t
+                    (** The possible values of the highest stat that would result in a Pokémon recieving this characteristic when divided by 5. *)
+                                      highest_stat: Stat_summary.t
                   
                   
                 
                 
                 ; [@key "highest_stat"]
-                                              descriptions: Characteristic_description.t list
+                    (** The stat which results in this characteristic. *)
+                                      descriptions: Characteristic_description.t list
                 
                 
                 ; [@key "descriptions"]
-                        } [@@deriving yojson { strict = false }, show, eq ];;
+                    (** The descriptions of this characteristic listed in different languages. *)
+                } [@@deriving yojson { strict = false }, show, eq ];;
         
         let create (id : int32) (gene_modulo : int32) (possible_values : int32 list) (highest_stat : Stat_summary.t) (descriptions : Characteristic_description.t list) : t = {
             id = id;

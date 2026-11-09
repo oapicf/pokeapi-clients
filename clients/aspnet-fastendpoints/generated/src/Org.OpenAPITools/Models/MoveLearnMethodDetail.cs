@@ -10,7 +10,7 @@ public class MoveLearnMethodDetail
     public string Name { get; set; }
     public List<MoveLearnMethodName> Names { get; set; }
     public List<MoveLearnMethodDescription> Descriptions { get; set; }
-    public List<AbilityDetailPokemonInnerPokemon> VersionGroups { get; set; }
+    public List<VersionGroupSummary> VersionGroups { get; set; }
 }
 
 

@@ -22,7 +22,7 @@ contest_effect_list(Ctx, Optional) ->
 
     Method = get,
     Path = [?BASE_URL, "/api/v2/contest-effect/"],
-    QS = lists:flatten([])++openapi_utils:optional_params(['limit', 'offset', 'q'], _OptionalParams),
+    QS = lists:flatten([])++openapi_utils:optional_params(['limit', 'offset'], _OptionalParams),
     Headers = [],
     Body1 = [],
     ContentTypeHeader = openapi_utils:select_header_content_type([]),
@@ -106,7 +106,7 @@ super_contest_effect_list(Ctx, Optional) ->
 
     Method = get,
     Path = [?BASE_URL, "/api/v2/super-contest-effect/"],
-    QS = lists:flatten([])++openapi_utils:optional_params(['limit', 'offset', 'q'], _OptionalParams),
+    QS = lists:flatten([])++openapi_utils:optional_params(['limit', 'offset'], _OptionalParams),
     Headers = [],
     Body1 = [],
     ContentTypeHeader = openapi_utils:select_header_content_type([]),

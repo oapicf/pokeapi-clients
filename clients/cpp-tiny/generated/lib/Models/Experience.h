@@ -45,18 +45,18 @@ public:
 	 */
     void fromJson(std::string jsonObj);
 
-	/*! \brief Get 
+	/*! \brief Get The level gained.
 	 */
 	int getLevel();
 
-	/*! \brief Set 
+	/*! \brief Set The level gained.
 	 */
 	void setLevel(int level);
-	/*! \brief Get 
+	/*! \brief Get The amount of experience required to reach the referenced level.
 	 */
 	int getExperience();
 
-	/*! \brief Set 
+	/*! \brief Set The amount of experience required to reach the referenced level.
 	 */
 	void setExperience(int experience);
 

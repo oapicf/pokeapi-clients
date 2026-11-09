@@ -7,17 +7,17 @@
     {
       "name": "id",
       "type": "int",
-      "doc": ""
+      "doc": "The identifier for this resource."
     },
     {
       "name": "name",
       "type": "string",
-      "doc": ""
+      "doc": "The name for this resource."
     },
     {
       "name": "affecting_natures",
-      "type": "model.PokeathlonStatDetailAffectingNatures",
-      "doc": ""
+      "type": "model.PokeathlonStatAffectingNatures",
+      "doc": "A detail of natures which affect this Pokéathlon stat positively or negatively."
     },
     {
       "name": "names",
@@ -25,7 +25,7 @@
         "type": "array",
         "items": "model.PokeathlonStatName"
       },
-      "doc": ""
+      "doc": "The name of this resource listed in different languages."
     }
   ]
 

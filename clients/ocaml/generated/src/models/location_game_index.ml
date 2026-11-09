@@ -15,13 +15,15 @@
                 
                 
                 ; [@key "game_index"]
-                                              generation: Generation_summary.t
+                    (** The internal id of an API resource within game data. *)
+                                      generation: Generation_summary.t
                   
                   
                 
                 
                 ; [@key "generation"]
-                        } [@@deriving yojson { strict = false }, show, eq ];;
+                    (** The generation relevent to this game index. *)
+                } [@@deriving yojson { strict = false }, show, eq ];;
         
         let create (game_index : int32) (generation : Generation_summary.t) : t = {
             game_index = game_index;

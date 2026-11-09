@@ -11,7 +11,6 @@ namespace models {
 ContestTypeName::ContestTypeName()
 : name("")
 , color("")
-, language(LanguageSummary())
 {
 }
 // =========================================

@@ -104,7 +104,7 @@ static bool machineListProcessor(MemoryStruct_s p_chunk, long code, char* errorm
 }
 
 static bool machineListHelper(char * accessToken,
-	int limit, int offset, std::string q, 
+	int limit, int offset, 
 	void(* handler)(PaginatedMachineSummaryList, Error, void* )
 	, void* userData, bool isAsync)
 {
@@ -133,13 +133,6 @@ static bool machineListHelper(char * accessToken,
 	queryParams.insert(pair<string, string>("offset", itemAtq));
 	if( itemAtq.empty()==true){
 		queryParams.erase("offset");
-	}
-
-
-	itemAtq = stringify(&q, "std::string");
-	queryParams.insert(pair<string, string>("q", itemAtq));
-	if( itemAtq.empty()==true){
-		queryParams.erase("q");
 	}
 
 	string mBody = "";
@@ -196,22 +189,22 @@ static bool machineListHelper(char * accessToken,
 
 
 bool MachinesManager::machineListAsync(char * accessToken,
-	int limit, int offset, std::string q, 
+	int limit, int offset, 
 	void(* handler)(PaginatedMachineSummaryList, Error, void* )
 	, void* userData)
 {
 	return machineListHelper(accessToken,
-	limit, offset, q, 
+	limit, offset, 
 	handler, userData, true);
 }
 
 bool MachinesManager::machineListSync(char * accessToken,
-	int limit, int offset, std::string q, 
+	int limit, int offset, 
 	void(* handler)(PaginatedMachineSummaryList, Error, void* )
 	, void* userData)
 {
 	return machineListHelper(accessToken,
-	limit, offset, q, 
+	limit, offset, 
 	handler, userData, false);
 }
 

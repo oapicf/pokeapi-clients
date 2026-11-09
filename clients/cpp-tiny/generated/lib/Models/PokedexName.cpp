@@ -7,7 +7,7 @@ using namespace Tiny;
 PokedexName::PokedexName()
 {
 	name = std::string();
-	language = LanguageSummary();
+	language = null;
 }
 
 PokedexName::PokedexName(std::string jsonString)

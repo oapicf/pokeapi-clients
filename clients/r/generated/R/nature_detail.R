@@ -7,16 +7,15 @@
 #' @title NatureDetail
 #' @description NatureDetail Class
 #' @format An \code{R6Class} generator object
-#' @field id  integer
-#' @field name  character
-#' @field decreased_stat  \link{StatSummary}
-#' @field increased_stat  \link{StatSummary}
-#' @field likes_flavor  \link{BerryFlavorSummary}
-#' @field hates_flavor  \link{BerryFlavorSummary}
-#' @field berries  list(\link{BerrySummary})
-#' @field pokeathlon_stat_changes  list(\link{NatureDetailPokeathlonStatChangesInner})
-#' @field move_battle_style_preferences  list(\link{NatureBattleStylePreference})
-#' @field names  list(\link{NatureName})
+#' @field id The identifier for this resource. integer
+#' @field name The name for this resource. character
+#' @field decreased_stat The stat decreased by 10\% in Pokémon with this nature. \link{StatSummary}
+#' @field increased_stat The stat increased by 10\% in Pokémon with this nature. \link{StatSummary}
+#' @field likes_flavor The flavor liked by Pokémon with this nature. \link{BerryFlavorSummary}
+#' @field hates_flavor The flavor hated by Pokémon with this nature. \link{BerryFlavorSummary}
+#' @field pokeathlon_stat_changes A list of Pokéathlon stats this nature effects and how much it effects them. list(\link{NaturePokeathlonStat})
+#' @field move_battle_style_preferences A list of battle styles and how likely a Pokémon with this nature is to use them in the Battle Palace or Battle Tent. list(\link{NatureBattleStylePreference})
+#' @field names The name of this resource listed in different languages. list(\link{NatureName})
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -29,7 +28,6 @@ NatureDetail <- R6::R6Class(
     `increased_stat` = NULL,
     `likes_flavor` = NULL,
     `hates_flavor` = NULL,
-    `berries` = NULL,
     `pokeathlon_stat_changes` = NULL,
     `move_battle_style_preferences` = NULL,
     `names` = NULL,
@@ -37,18 +35,17 @@ NatureDetail <- R6::R6Class(
     #' @description
     #' Initialize a new NatureDetail class.
     #'
-    #' @param id id
-    #' @param name name
-    #' @param decreased_stat decreased_stat
-    #' @param increased_stat increased_stat
-    #' @param likes_flavor likes_flavor
-    #' @param hates_flavor hates_flavor
-    #' @param berries berries
-    #' @param pokeathlon_stat_changes pokeathlon_stat_changes
-    #' @param move_battle_style_preferences move_battle_style_preferences
-    #' @param names names
+    #' @param id The identifier for this resource.
+    #' @param name The name for this resource.
+    #' @param decreased_stat The stat decreased by 10\% in Pokémon with this nature.
+    #' @param increased_stat The stat increased by 10\% in Pokémon with this nature.
+    #' @param likes_flavor The flavor liked by Pokémon with this nature.
+    #' @param hates_flavor The flavor hated by Pokémon with this nature.
+    #' @param pokeathlon_stat_changes A list of Pokéathlon stats this nature effects and how much it effects them.
+    #' @param move_battle_style_preferences A list of battle styles and how likely a Pokémon with this nature is to use them in the Battle Palace or Battle Tent.
+    #' @param names The name of this resource listed in different languages.
     #' @param ... Other optional arguments.
-    initialize = function(`id`, `name`, `decreased_stat`, `increased_stat`, `likes_flavor`, `hates_flavor`, `berries`, `pokeathlon_stat_changes`, `move_battle_style_preferences`, `names`, ...) {
+    initialize = function(`id`, `name`, `decreased_stat`, `increased_stat`, `likes_flavor`, `hates_flavor`, `pokeathlon_stat_changes`, `move_battle_style_preferences`, `names`, ...) {
       if (!missing(`id`)) {
         if (!(is.numeric(`id`) && length(`id`) == 1)) {
           stop(paste("Error! Invalid data for `id`. Must be an integer:", `id`))
@@ -76,11 +73,6 @@ NatureDetail <- R6::R6Class(
       if (!missing(`hates_flavor`)) {
         stopifnot(R6::is.R6(`hates_flavor`))
         self$`hates_flavor` <- `hates_flavor`
-      }
-      if (!missing(`berries`)) {
-        stopifnot(is.vector(`berries`), length(`berries`) != 0)
-        sapply(`berries`, function(x) stopifnot(R6::is.R6(x)))
-        self$`berries` <- `berries`
       }
       if (!missing(`pokeathlon_stat_changes`)) {
         stopifnot(is.vector(`pokeathlon_stat_changes`), length(`pokeathlon_stat_changes`) != 0)
@@ -154,10 +146,6 @@ NatureDetail <- R6::R6Class(
         NatureDetailObject[["hates_flavor"]] <-
           self$extractSimpleType(self$`hates_flavor`)
       }
-      if (!is.null(self$`berries`)) {
-        NatureDetailObject[["berries"]] <-
-          self$extractSimpleType(self$`berries`)
-      }
       if (!is.null(self$`pokeathlon_stat_changes`)) {
         NatureDetailObject[["pokeathlon_stat_changes"]] <-
           self$extractSimpleType(self$`pokeathlon_stat_changes`)
@@ -229,11 +217,8 @@ NatureDetail <- R6::R6Class(
         `hates_flavor_object`$fromJSON(jsonlite::toJSON(this_object$`hates_flavor`, auto_unbox = TRUE, digits = NA))
         self$`hates_flavor` <- `hates_flavor_object`
       }
-      if (!is.null(this_object$`berries`)) {
-        self$`berries` <- ApiClient$new()$deserializeObj(this_object$`berries`, "array[BerrySummary]", loadNamespace("openapi"))
-      }
       if (!is.null(this_object$`pokeathlon_stat_changes`)) {
-        self$`pokeathlon_stat_changes` <- ApiClient$new()$deserializeObj(this_object$`pokeathlon_stat_changes`, "array[NatureDetailPokeathlonStatChangesInner]", loadNamespace("openapi"))
+        self$`pokeathlon_stat_changes` <- ApiClient$new()$deserializeObj(this_object$`pokeathlon_stat_changes`, "array[NaturePokeathlonStat]", loadNamespace("openapi"))
       }
       if (!is.null(this_object$`move_battle_style_preferences`)) {
         self$`move_battle_style_preferences` <- ApiClient$new()$deserializeObj(this_object$`move_battle_style_preferences`, "array[NatureBattleStylePreference]", loadNamespace("openapi"))
@@ -268,8 +253,7 @@ NatureDetail <- R6::R6Class(
       self$`increased_stat` <- StatSummary$new()$fromJSON(jsonlite::toJSON(this_object$`increased_stat`, auto_unbox = TRUE, digits = NA))
       self$`likes_flavor` <- BerryFlavorSummary$new()$fromJSON(jsonlite::toJSON(this_object$`likes_flavor`, auto_unbox = TRUE, digits = NA))
       self$`hates_flavor` <- BerryFlavorSummary$new()$fromJSON(jsonlite::toJSON(this_object$`hates_flavor`, auto_unbox = TRUE, digits = NA))
-      self$`berries` <- ApiClient$new()$deserializeObj(this_object$`berries`, "array[BerrySummary]", loadNamespace("openapi"))
-      self$`pokeathlon_stat_changes` <- ApiClient$new()$deserializeObj(this_object$`pokeathlon_stat_changes`, "array[NatureDetailPokeathlonStatChangesInner]", loadNamespace("openapi"))
+      self$`pokeathlon_stat_changes` <- ApiClient$new()$deserializeObj(this_object$`pokeathlon_stat_changes`, "array[NaturePokeathlonStat]", loadNamespace("openapi"))
       self$`move_battle_style_preferences` <- ApiClient$new()$deserializeObj(this_object$`move_battle_style_preferences`, "array[NatureBattleStylePreference]", loadNamespace("openapi"))
       self$`names` <- ApiClient$new()$deserializeObj(this_object$`names`, "array[NatureName]", loadNamespace("openapi"))
       self
@@ -321,13 +305,6 @@ NatureDetail <- R6::R6Class(
       } else {
         stop(paste("The JSON input `", input, "` is invalid for NatureDetail: the required field `hates_flavor` is missing."))
       }
-      # check the required field `berries`
-      if (!is.null(input_json$`berries`)) {
-        stopifnot(is.vector(input_json$`berries`), length(input_json$`berries`) != 0)
-        tmp <- sapply(input_json$`berries`, function(x) stopifnot(R6::is.R6(x)))
-      } else {
-        stop(paste("The JSON input `", input, "` is invalid for NatureDetail: the required field `berries` is missing."))
-      }
       # check the required field `pokeathlon_stat_changes`
       if (!is.null(input_json$`pokeathlon_stat_changes`)) {
         stopifnot(is.vector(input_json$`pokeathlon_stat_changes`), length(input_json$`pokeathlon_stat_changes`) != 0)
@@ -374,32 +351,7 @@ NatureDetail <- R6::R6Class(
         return(FALSE)
       }
 
-      if (nchar(self$`name`) > 100) {
-        return(FALSE)
-      }
-
-      # check if the required `decreased_stat` is null
-      if (is.null(self$`decreased_stat`)) {
-        return(FALSE)
-      }
-
-      # check if the required `increased_stat` is null
-      if (is.null(self$`increased_stat`)) {
-        return(FALSE)
-      }
-
-      # check if the required `likes_flavor` is null
-      if (is.null(self$`likes_flavor`)) {
-        return(FALSE)
-      }
-
-      # check if the required `hates_flavor` is null
-      if (is.null(self$`hates_flavor`)) {
-        return(FALSE)
-      }
-
-      # check if the required `berries` is null
-      if (is.null(self$`berries`)) {
+      if (nchar(self$`name`) > 200) {
         return(FALSE)
       }
 
@@ -437,33 +389,8 @@ NatureDetail <- R6::R6Class(
         invalid_fields["name"] <- "Non-nullable required field `name` cannot be null."
       }
 
-      if (nchar(self$`name`) > 100) {
-        invalid_fields["name"] <- "Invalid length for `name`, must be smaller than or equal to 100."
-      }
-
-      # check if the required `decreased_stat` is null
-      if (is.null(self$`decreased_stat`)) {
-        invalid_fields["decreased_stat"] <- "Non-nullable required field `decreased_stat` cannot be null."
-      }
-
-      # check if the required `increased_stat` is null
-      if (is.null(self$`increased_stat`)) {
-        invalid_fields["increased_stat"] <- "Non-nullable required field `increased_stat` cannot be null."
-      }
-
-      # check if the required `likes_flavor` is null
-      if (is.null(self$`likes_flavor`)) {
-        invalid_fields["likes_flavor"] <- "Non-nullable required field `likes_flavor` cannot be null."
-      }
-
-      # check if the required `hates_flavor` is null
-      if (is.null(self$`hates_flavor`)) {
-        invalid_fields["hates_flavor"] <- "Non-nullable required field `hates_flavor` cannot be null."
-      }
-
-      # check if the required `berries` is null
-      if (is.null(self$`berries`)) {
-        invalid_fields["berries"] <- "Non-nullable required field `berries` cannot be null."
+      if (nchar(self$`name`) > 200) {
+        invalid_fields["name"] <- "Invalid length for `name`, must be smaller than or equal to 200."
       }
 
       # check if the required `pokeathlon_stat_changes` is null

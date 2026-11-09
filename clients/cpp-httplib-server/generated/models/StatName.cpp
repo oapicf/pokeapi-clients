@@ -10,7 +10,6 @@ namespace models {
 
 StatName::StatName()
 : name("")
-, language(LanguageSummary())
 {
 }
 // =========================================

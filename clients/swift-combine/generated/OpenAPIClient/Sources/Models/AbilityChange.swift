@@ -8,7 +8,9 @@
 import Foundation
 
 public struct AbilityChange: Codable {
+    /// The version group in which the previous effect of this ability originated.
     public var versionGroup: VersionGroupSummary
+    /// The previous effect of this ability listed in different languages.
     public var effectEntries: [AbilityChangeEffectText]
 
     public init(versionGroup: VersionGroupSummary, effectEntries: [AbilityChangeEffectText]) {

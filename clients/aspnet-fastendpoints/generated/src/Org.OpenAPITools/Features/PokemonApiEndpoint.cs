@@ -5,7 +5,7 @@ namespace Org.OpenAPITools.Features;
 
 
 /// <summary>
-/// 
+/// List abilities
 /// </summary>
 
 public class AbilityListEndpoint : FastEndpoints.Endpoint<AbilityListRequest, PaginatedAbilitySummaryList>
@@ -23,7 +23,7 @@ public class AbilityListEndpoint : FastEndpoints.Endpoint<AbilityListRequest, Pa
         });
 
         Summary(s => {
-            s.Summary = "";
+            s.Summary = "List abilities";
             s.RequestParam(r => r.Limit, "Number of results to return per page.");
             s.RequestParam(r => r.Offset, "The initial index from which to return the results.");
             s.RequestParam(r => r.Q, "&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ");
@@ -43,7 +43,7 @@ public class AbilityListEndpoint : FastEndpoints.Endpoint<AbilityListRequest, Pa
 
 
 /// <summary>
-/// 
+/// Get ability
 /// </summary>
 
 public class AbilityRetrieveEndpoint : FastEndpoints.Endpoint<AbilityRetrieveRequest, AbilityDetail>
@@ -61,7 +61,7 @@ public class AbilityRetrieveEndpoint : FastEndpoints.Endpoint<AbilityRetrieveReq
         });
 
         Summary(s => {
-            s.Summary = "";
+            s.Summary = "Get ability";
             s.RequestParam(r => r.Id, "This parameter can be a string or an integer.");
             s.Responses[200] = "";
         });
@@ -79,7 +79,7 @@ public class AbilityRetrieveEndpoint : FastEndpoints.Endpoint<AbilityRetrieveReq
 
 
 /// <summary>
-/// List charecterictics
+/// List characteristics
 /// </summary>
 
 public class CharacteristicListEndpoint : FastEndpoints.Endpoint<CharacteristicListRequest, PaginatedCharacteristicSummaryList>
@@ -97,10 +97,9 @@ public class CharacteristicListEndpoint : FastEndpoints.Endpoint<CharacteristicL
         });
 
         Summary(s => {
-            s.Summary = "List charecterictics";
+            s.Summary = "List characteristics";
             s.RequestParam(r => r.Limit, "Number of results to return per page.");
             s.RequestParam(r => r.Offset, "The initial index from which to return the results.");
-            s.RequestParam(r => r.Q, "&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ");
             s.Responses[200] = "";
         });
     }

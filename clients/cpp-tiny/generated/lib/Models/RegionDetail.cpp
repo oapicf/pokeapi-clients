@@ -12,7 +12,7 @@ RegionDetail::RegionDetail()
 	main_generation = null;
 	names = std::list<RegionName>();
 	pokedexes = std::list<PokedexSummary>();
-	version_groups = std::list<AbilityDetail_pokemon_inner_pokemon>();
+	version_groups = std::list<VersionGroupSummary>();
 }
 
 RegionDetail::RegionDetail(std::string jsonString)
@@ -143,8 +143,8 @@ RegionDetail::fromJson(std::string jsonObj)
         bourne::json value = object[version_groupsKey];
 
 
-        std::list<AbilityDetail_pokemon_inner_pokemon> version_groups_list;
-        AbilityDetail_pokemon_inner_pokemon element;
+        std::list<VersionGroupSummary> version_groups_list;
+        VersionGroupSummary element;
         for(auto& var : value.array_range())
         {
 
@@ -235,12 +235,12 @@ RegionDetail::toJson()
 
 
 
-    std::list<AbilityDetail_pokemon_inner_pokemon> version_groups_list = getVersionGroups();
+    std::list<VersionGroupSummary> version_groups_list = getVersionGroups();
     bourne::json version_groups_arr = bourne::json::array();
 
     for(auto& var : version_groups_list)
     {
-        AbilityDetail_pokemon_inner_pokemon obj = var;
+        VersionGroupSummary obj = var;
         version_groups_arr.append(obj.toJson());
     }
     object["version_groups"] = version_groups_arr;
@@ -324,14 +324,14 @@ RegionDetail::setPokedexes(std::list<PokedexSummary> pokedexes)
 	this->pokedexes = pokedexes;
 }
 
-std::list<AbilityDetail_pokemon_inner_pokemon>
+std::list<VersionGroupSummary>
 RegionDetail::getVersionGroups()
 {
 	return version_groups;
 }
 
 void
-RegionDetail::setVersionGroups(std::list<AbilityDetail_pokemon_inner_pokemon> version_groups)
+RegionDetail::setVersionGroups(std::list<VersionGroupSummary> version_groups)
 {
 	this->version_groups = version_groups;
 }

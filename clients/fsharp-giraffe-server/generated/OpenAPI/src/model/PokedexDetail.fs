@@ -2,11 +2,11 @@ namespace OpenAPI.Model
 
 open System
 open System.Collections.Generic
-open OpenAPI.Model.AbilityDetailPokemonInnerPokemon
 open OpenAPI.Model.PokedexDescription
-open OpenAPI.Model.PokedexDetailPokemonEntriesInner
 open OpenAPI.Model.PokedexName
+open OpenAPI.Model.PokemonDexNumber
 open OpenAPI.Model.RegionSummary
+open OpenAPI.Model.VersionGroupSummary
 
 module PokedexDetail =
 
@@ -19,8 +19,8 @@ module PokedexDetail =
     IsMainSeries : bool;
     Descriptions : PokedexDescription[];
     Names : PokedexName[];
-    PokemonEntries : PokedexDetailPokemonEntriesInner[];
+    PokemonEntries : PokemonDexNumber[];
     Region : RegionSummary;
-    VersionGroups : AbilityDetailPokemonInnerPokemon[];
+    VersionGroups : VersionGroupSummary[];
   }
   //#endregion

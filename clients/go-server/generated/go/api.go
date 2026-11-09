@@ -3,9 +3,9 @@
 /*
  * PokéAPI
  *
- * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+ * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
  *
- * API version: 2.7.0
+ * API version: 2.10.0
  * Contact: blah+oapicf@cliffano.com
  */
 
@@ -59,6 +59,8 @@ type EvolutionAPIRouter interface {
 	EvolutionChainRetrieve(http.ResponseWriter, *http.Request)
 	EvolutionTriggerList(http.ResponseWriter, *http.Request)
 	EvolutionTriggerRetrieve(http.ResponseWriter, *http.Request)
+	EvolutionVariableList(http.ResponseWriter, *http.Request)
+	EvolutionVariableRetrieve(http.ResponseWriter, *http.Request)
 }
 // GamesAPIRouter defines the required methods for binding the api requests to a responses for the GamesAPI
 // The GamesAPIRouter implementation should parse necessary information from the http request,
@@ -87,6 +89,8 @@ type ItemsAPIRouter interface {
 	ItemFlingEffectRetrieve(http.ResponseWriter, *http.Request)
 	ItemPocketList(http.ResponseWriter, *http.Request)
 	ItemPocketRetrieve(http.ResponseWriter, *http.Request)
+	CurrencyList(http.ResponseWriter, *http.Request)
+	CurrencyRetrieve(http.ResponseWriter, *http.Request)
 }
 // LocationAPIRouter defines the required methods for binding the api requests to a responses for the LocationAPI
 // The LocationAPIRouter implementation should parse necessary information from the http request,
@@ -166,6 +170,7 @@ type PokemonAPIRouter interface {
 // The UtilityAPIRouter implementation should parse necessary information from the http request,
 // pass the data to a UtilityAPIServicer to perform the required actions, then write the service results to the http response.
 type UtilityAPIRouter interface { 
+	MetaRetrieve(http.ResponseWriter, *http.Request)
 	LanguageList(http.ResponseWriter, *http.Request)
 	LanguageRetrieve(http.ResponseWriter, *http.Request)
 }
@@ -192,9 +197,9 @@ type BerriesAPIServicer interface {
 type ContestsAPIServicer interface { 
 	ContestTypeList(context.Context, int32, int32, string) (ImplResponse, error)
 	ContestTypeRetrieve(context.Context, string) (ImplResponse, error)
-	ContestEffectList(context.Context, int32, int32, string) (ImplResponse, error)
+	ContestEffectList(context.Context, int32, int32) (ImplResponse, error)
 	ContestEffectRetrieve(context.Context, string) (ImplResponse, error)
-	SuperContestEffectList(context.Context, int32, int32, string) (ImplResponse, error)
+	SuperContestEffectList(context.Context, int32, int32) (ImplResponse, error)
 	SuperContestEffectRetrieve(context.Context, string) (ImplResponse, error)
 }
 
@@ -218,10 +223,12 @@ type EncountersAPIServicer interface {
 // while the service implementation can be ignored with the .openapi-generator-ignore file
 // and updated with the logic required for the API.
 type EvolutionAPIServicer interface { 
-	EvolutionChainList(context.Context, int32, int32, string) (ImplResponse, error)
+	EvolutionChainList(context.Context, int32, int32) (ImplResponse, error)
 	EvolutionChainRetrieve(context.Context, string) (ImplResponse, error)
 	EvolutionTriggerList(context.Context, int32, int32, string) (ImplResponse, error)
 	EvolutionTriggerRetrieve(context.Context, string) (ImplResponse, error)
+	EvolutionVariableList(context.Context, int32, int32, string) (ImplResponse, error)
+	EvolutionVariableRetrieve(context.Context, string) (ImplResponse, error)
 }
 
 
@@ -256,6 +263,8 @@ type ItemsAPIServicer interface {
 	ItemFlingEffectRetrieve(context.Context, string) (ImplResponse, error)
 	ItemPocketList(context.Context, int32, int32, string) (ImplResponse, error)
 	ItemPocketRetrieve(context.Context, string) (ImplResponse, error)
+	CurrencyList(context.Context, int32, int32, string) (ImplResponse, error)
+	CurrencyRetrieve(context.Context, string) (ImplResponse, error)
 }
 
 
@@ -280,7 +289,7 @@ type LocationAPIServicer interface {
 // while the service implementation can be ignored with the .openapi-generator-ignore file
 // and updated with the logic required for the API.
 type MachinesAPIServicer interface { 
-	MachineList(context.Context, int32, int32, string) (ImplResponse, error)
+	MachineList(context.Context, int32, int32) (ImplResponse, error)
 	MachineRetrieve(context.Context, string) (ImplResponse, error)
 }
 
@@ -312,7 +321,7 @@ type MovesAPIServicer interface {
 type PokemonAPIServicer interface { 
 	AbilityList(context.Context, int32, int32, string) (ImplResponse, error)
 	AbilityRetrieve(context.Context, string) (ImplResponse, error)
-	CharacteristicList(context.Context, int32, int32, string) (ImplResponse, error)
+	CharacteristicList(context.Context, int32, int32) (ImplResponse, error)
 	CharacteristicRetrieve(context.Context, string) (ImplResponse, error)
 	EggGroupList(context.Context, int32, int32, string) (ImplResponse, error)
 	EggGroupRetrieve(context.Context, string) (ImplResponse, error)
@@ -350,6 +359,7 @@ type PokemonAPIServicer interface {
 // while the service implementation can be ignored with the .openapi-generator-ignore file
 // and updated with the logic required for the API.
 type UtilityAPIServicer interface { 
+	MetaRetrieve(context.Context) (ImplResponse, error)
 	LanguageList(context.Context, int32, int32, string) (ImplResponse, error)
 	LanguageRetrieve(context.Context, string) (ImplResponse, error)
 }

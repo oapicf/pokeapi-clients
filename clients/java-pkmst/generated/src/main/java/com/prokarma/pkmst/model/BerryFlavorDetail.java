@@ -3,7 +3,7 @@ package com.prokarma.pkmst.model;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.prokarma.pkmst.model.BerryFlavorDetailBerriesInner;
+import com.prokarma.pkmst.model.BerryFlavorBerryMap;
 import com.prokarma.pkmst.model.BerryFlavorName;
 import com.prokarma.pkmst.model.ContestTypeSummary;
 import io.swagger.annotations.ApiModel;
@@ -20,7 +20,7 @@ import java.util.List;
  * BerryFlavorDetail
  */
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-10-25T05:48:09.645019047Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-11-09T13:49:28.343088631Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class BerryFlavorDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -30,7 +30,7 @@ public class BerryFlavorDetail   {
 
   @JsonProperty("berries")
   
-  private List<BerryFlavorDetailBerriesInner> berries = new ArrayList<>();
+  private List<BerryFlavorBerryMap> berries = new ArrayList<>();
 
   @JsonProperty("contest_type")
   private ContestTypeSummary contestType;
@@ -45,10 +45,10 @@ public class BerryFlavorDetail   {
   }
 
   /**
-   * Get id
+   * The identifier for this resource.
    * @return id
    */
-  @ApiModelProperty(required = true, readOnly = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "The identifier for this resource.")
   public Integer getId() {
     return id;
   }
@@ -63,10 +63,10 @@ public class BerryFlavorDetail   {
   }
 
   /**
-   * Get name
+   * The name for this resource.
    * @return name
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   public String getName() {
     return name;
   }
@@ -75,12 +75,12 @@ public class BerryFlavorDetail   {
     this.name = name;
   }
 
-  public BerryFlavorDetail berries(List<BerryFlavorDetailBerriesInner> berries) {
+  public BerryFlavorDetail berries(List<BerryFlavorBerryMap> berries) {
     this.berries = berries;
     return this;
   }
 
-  public BerryFlavorDetail addBerriesItem(BerryFlavorDetailBerriesInner berriesItem) {
+  public BerryFlavorDetail addBerriesItem(BerryFlavorBerryMap berriesItem) {
     if (this.berries == null) {
       this.berries = new ArrayList<>();
     }
@@ -89,15 +89,15 @@ public class BerryFlavorDetail   {
   }
 
   /**
-   * Get berries
+   * A list of the berries with this flavor.
    * @return berries
    */
-  @ApiModelProperty(required = true, readOnly = true, value = "")
-  public List<BerryFlavorDetailBerriesInner> getBerries() {
+  @ApiModelProperty(required = true, readOnly = true, value = "A list of the berries with this flavor.")
+  public List<BerryFlavorBerryMap> getBerries() {
     return berries;
   }
 
-  public void setBerries(List<BerryFlavorDetailBerriesInner> berries) {
+  public void setBerries(List<BerryFlavorBerryMap> berries) {
     this.berries = berries;
   }
 
@@ -107,10 +107,10 @@ public class BerryFlavorDetail   {
   }
 
   /**
-   * Get contestType
+   * The contest type that correlates with this berry flavor.
    * @return contestType
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The contest type that correlates with this berry flavor.")
   public ContestTypeSummary getContestType() {
     return contestType;
   }
@@ -133,10 +133,10 @@ public class BerryFlavorDetail   {
   }
 
   /**
-   * Get names
+   * The name of this resource listed in different languages.
    * @return names
    */
-  @ApiModelProperty(required = true, readOnly = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "The name of this resource listed in different languages.")
   public List<BerryFlavorName> getNames() {
     return names;
   }

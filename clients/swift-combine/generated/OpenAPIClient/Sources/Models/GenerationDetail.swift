@@ -8,14 +8,23 @@
 import Foundation
 
 public struct GenerationDetail: Codable {
+    /// The identifier for this resource.
     public var id: Int
+    /// The name for this resource.
     public var name: String
+    /// A list of abilities that were introduced in this generation.
     public var abilities: [AbilitySummary]
+    /// The main region travelled in this generation.
     public var mainRegion: RegionSummary
+    /// A list of moves that were introduced in this generation.
     public var moves: [MoveSummary]
+    /// The name of this resource listed in different languages.
     public var names: [GenerationName]
+    /// A list of Pokémon species that were introduced in this generation.
     public var pokemonSpecies: [PokemonSpeciesSummary]
+    /// A list of types that were introduced in this generation.
     public var types: [TypeSummary]
+    /// A list of version groups that were introduced in this generation.
     public var versionGroups: [VersionGroupSummary]
 
     public init(id: Int, name: String, abilities: [AbilitySummary], mainRegion: RegionSummary, moves: [MoveSummary], names: [GenerationName], pokemonSpecies: [PokemonSpeciesSummary], types: [TypeSummary], versionGroups: [VersionGroupSummary]) {

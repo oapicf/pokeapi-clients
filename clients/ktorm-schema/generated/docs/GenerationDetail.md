@@ -5,15 +5,15 @@
 ## Properties
 Name | Mapping | SQL Type | Default | Type | Description | Notes
 ---- | ------- | -------- | ------- | ---- | ----------- | -----
-**id** | id | int NOT NULL PRIMARY KEY AUTOINCREMENT |  | **kotlin.Int** |  |  [readonly]
-**name** | name | text NOT NULL |  | **kotlin.String** |  | 
-**abilities** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;AbilitySummary&gt;**](AbilitySummary.md) |  |  [readonly]
-**mainRegion** | main_region | long NOT NULL |  | [**RegionSummary**](RegionSummary.md) |  |  [foreignkey]
-**moves** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;MoveSummary&gt;**](MoveSummary.md) |  |  [readonly]
-**names** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;GenerationName&gt;**](GenerationName.md) |  |  [readonly]
-**pokemonSpecies** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;PokemonSpeciesSummary&gt;**](PokemonSpeciesSummary.md) |  |  [readonly]
-**types** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;TypeSummary&gt;**](TypeSummary.md) |  |  [readonly]
-**versionGroups** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;VersionGroupSummary&gt;**](VersionGroupSummary.md) |  |  [readonly]
+**id** | id | int NOT NULL PRIMARY KEY AUTOINCREMENT |  | **kotlin.Int** | The identifier for this resource. |  [readonly]
+**name** | name | text NOT NULL |  | **kotlin.String** | The name for this resource. | 
+**abilities** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;AbilitySummary&gt;**](AbilitySummary.md) | A list of abilities that were introduced in this generation. |  [readonly]
+**mainRegion** | main_region | long NOT NULL |  | [**RegionSummary**](RegionSummary.md) | The main region travelled in this generation. |  [foreignkey]
+**moves** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;MoveSummary&gt;**](MoveSummary.md) | A list of moves that were introduced in this generation. |  [readonly]
+**names** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;GenerationName&gt;**](GenerationName.md) | The name of this resource listed in different languages. |  [readonly]
+**pokemonSpecies** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;PokemonSpeciesSummary&gt;**](PokemonSpeciesSummary.md) | A list of Pokémon species that were introduced in this generation. |  [readonly]
+**types** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;TypeSummary&gt;**](TypeSummary.md) | A list of types that were introduced in this generation. |  [readonly]
+**versionGroups** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;VersionGroupSummary&gt;**](VersionGroupSummary.md) | A list of version groups that were introduced in this generation. |  [readonly]
 
 
 

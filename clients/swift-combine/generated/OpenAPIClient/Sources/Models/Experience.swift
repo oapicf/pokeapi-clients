@@ -8,7 +8,9 @@
 import Foundation
 
 public struct Experience: Codable {
+    /// The level gained.
     public var level: Int
+    /// The amount of experience required to reach the referenced level.
     public var experience: Int
 
     public init(level: Int, experience: Int) {

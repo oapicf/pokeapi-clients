@@ -12,12 +12,11 @@ AbilityDetail::AbilityDetail()
 : id(0)
 , name("")
 , isMainSeries(false)
-, generation(GenerationSummary())
 , names(std::vector<AbilityName>())
 , effectEntries(std::vector<AbilityEffectText>())
 , effectChanges(std::vector<AbilityChange>())
 , flavorTextEntries(std::vector<AbilityFlavorText>())
-, pokemon(std::vector<AbilityDetail_pokemon_inner>())
+, pokemon(std::vector<AbilityPokemonDetail>())
 {
 }
 // =========================================
@@ -58,7 +57,7 @@ std::vector<AbilityFlavorText> AbilityDetail::getFlavorTextEntries() const
 {
     return flavorTextEntries;
 }
-std::vector<AbilityDetail_pokemon_inner> AbilityDetail::getPokemon() const
+std::vector<AbilityPokemonDetail> AbilityDetail::getPokemon() const
 {
     return pokemon;
 }
@@ -98,7 +97,7 @@ void AbilityDetail::setFlavorTextEntries(const std::vector<AbilityFlavorText>& f
 {
     flavorTextEntries = flavorTextEntriesObj;
 }
-void AbilityDetail::setPokemon(const std::vector<AbilityDetail_pokemon_inner>& pokemonObj)
+void AbilityDetail::setPokemon(const std::vector<AbilityPokemonDetail>& pokemonObj)
 {
     pokemon = pokemonObj;
 }

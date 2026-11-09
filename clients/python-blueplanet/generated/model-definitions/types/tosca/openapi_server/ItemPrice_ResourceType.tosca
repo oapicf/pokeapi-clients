@@ -1,0 +1,52 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server ItemPrice"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a ItemPrice"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  CurrencySummary = openapi_server.resourceTypes.CurrencySummary
+  VersionGroupSummary = openapi_server.resourceTypes.VersionGroupSummary
+}
+resourceTypes {
+
+  ItemPrice {
+    title = ItemPrice
+    description = ItemPrice
+    derivedFrom = Root
+    properties {
+        purchase_price {
+          type =  integer
+          description = "The purchase price in this currency and version group, or null if unavailable."
+          optional = false
+        }
+        sell_price {
+          type =  integer
+          description = "The sell price in this currency and version group, or null if unavailable."
+          optional = false
+        }
+        currency {
+          type = CurrencySummary
+          description = "The currency used for this price."
+          optional = true
+        }
+        version_group {
+          type = VersionGroupSummary
+          description = "The version group to which this price applies."
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  ItemPrice {
+    title = ItemPrice
+    description = ItemPrice
+    implements = openapi_server.resourceTypes.ItemPrice
+
+  }
+}

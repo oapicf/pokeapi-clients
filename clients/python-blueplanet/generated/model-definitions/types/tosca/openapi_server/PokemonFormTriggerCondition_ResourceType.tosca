@@ -1,0 +1,51 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server PokemonFormTriggerCondition"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a PokemonFormTriggerCondition"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  PokemonFormSummary = openapi_server.resourceTypes.PokemonFormSummary
+}
+resourceTypes {
+
+  PokemonFormTriggerCondition {
+    title = PokemonFormTriggerCondition
+    description = PokemonFormTriggerCondition
+    derivedFrom = Root
+    properties {
+        trigger {
+          type =  string
+          description = "The trigger for this form change."
+          optional = true
+        }
+        name {
+          type =  string
+          description = "The name of the required item, ability, or move. Only present for a resource-based trigger."
+          optional = false
+        }
+        url {
+          type =  string
+          description = "The URL of the required item, ability, or move. Only present for a resource-based trigger."
+          optional = false
+        }
+        base_form {
+          type = PokemonFormSummary
+          description = "The required base form. Only present when the trigger specifies one."
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  PokemonFormTriggerCondition {
+    title = PokemonFormTriggerCondition
+    description = PokemonFormTriggerCondition
+    implements = openapi_server.resourceTypes.PokemonFormTriggerCondition
+
+  }
+}

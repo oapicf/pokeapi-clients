@@ -17,7 +17,7 @@
   | {'effect_entries', list(openapi_ability_effect_text:openapi_ability_effect_text()) }
   | {'effect_changes', list(openapi_ability_change:openapi_ability_change()) }
   | {'flavor_text_entries', list(openapi_ability_flavor_text:openapi_ability_flavor_text()) }
-  | {'pokemon', list(openapi_ability_detail_pokemon_inner:openapi_ability_detail_pokemon_inner()) }
+  | {'pokemon', list(openapi_ability_pokemon_detail:openapi_ability_pokemon_detail()) }
   ].
 
 
@@ -33,7 +33,7 @@ openapi_ability_detail(Fields) ->
             , {'effect_entries', list(openapi_ability_effect_text:openapi_ability_effect_text()) }
             , {'effect_changes', list(openapi_ability_change:openapi_ability_change()) }
             , {'flavor_text_entries', list(openapi_ability_flavor_text:openapi_ability_flavor_text()) }
-            , {'pokemon', list(openapi_ability_detail_pokemon_inner:openapi_ability_detail_pokemon_inner()) }
+            , {'pokemon', list(openapi_ability_pokemon_detail:openapi_ability_pokemon_detail()) }
             ],
   lists:ukeymerge(1, lists:sort(Fields), lists:sort(Default)).
 

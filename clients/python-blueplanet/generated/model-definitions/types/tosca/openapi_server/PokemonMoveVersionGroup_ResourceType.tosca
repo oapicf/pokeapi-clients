@@ -1,0 +1,52 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server PokemonMoveVersionGroup"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a PokemonMoveVersionGroup"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  MoveLearnMethodSummary = openapi_server.resourceTypes.MoveLearnMethodSummary
+  VersionGroupSummary = openapi_server.resourceTypes.VersionGroupSummary
+}
+resourceTypes {
+
+  PokemonMoveVersionGroup {
+    title = PokemonMoveVersionGroup
+    description = PokemonMoveVersionGroup
+    derivedFrom = Root
+    properties {
+        level_learned_at {
+          type =  integer
+          description = "The minimum level to learn the move."
+          optional = true
+        }
+        move_learn_method {
+          type = MoveLearnMethodSummary
+          description = "The method by which the move is learned."
+          optional = true
+        }
+        version_group {
+          type = VersionGroupSummary
+          description = "The version group in which the move is learned."
+          optional = true
+        }
+        order {
+          type =  integer
+          description = "Order by which the pokemon will learn the move. A newly learnt move will replace the move with lowest order."
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  PokemonMoveVersionGroup {
+    title = PokemonMoveVersionGroup
+    description = PokemonMoveVersionGroup
+    implements = openapi_server.resourceTypes.PokemonMoveVersionGroup
+
+  }
+}

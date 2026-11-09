@@ -1,8 +1,8 @@
 /**
  * PokéAPI
- * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+ * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
  *
- * OpenAPI spec version: 2.7.0
+ * OpenAPI spec version: 2.10.0
  *
  * Contact: blah+oapicf@cliffano.com
  *
@@ -25,10 +25,14 @@ import upickle.default.*
   * It has no validation - there may be nulls, values out of range, etc
   */
 case class PaginatedGrowthRateSummaryListData(
-  count: Int = 0 ,
+/* The total number of resources available from this API. */
+  count: Int,
+/* The URL for the next page in the list, or null if there is no next page. */
   next: URI = "" ,
+/* The URL for the previous page in the list, or null if there is no previous page. */
   previous: URI = "" ,
-  results: Seq[GrowthRateSummaryData] = Nil 
+/* A list of API resources on this page. */
+  results: Seq[GrowthRateSummaryData]
   
 
 ) derives RW {
@@ -62,6 +66,12 @@ case class PaginatedGrowthRateSummaryListData(
 
         // ================== results validation ==================
         
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if (results == null) {
+            _allValidationErrors += ValidationError(path :+ PaginatedGrowthRateSummaryList.Fields.results, "results is a required field and cannot be null")
+            }
+        }
+        
         
         
         
@@ -94,7 +104,7 @@ case class PaginatedGrowthRateSummaryListData(
   /** use 'validated' to check validation */
   def asModel : PaginatedGrowthRateSummaryList = {
     PaginatedGrowthRateSummaryList(
-        count = Option(count) /* 1 */,
+        count = count /* 2 */,
         next = Option(next).map(_.asModel) /* 4 */,
         previous = Option(previous).map(_.asModel) /* 4 */,
         results = results.map(_.asModel) /* 5 */

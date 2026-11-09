@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**description** | **character** |  | [optional] [Max. length: 1000] 
-**language** | [**LanguageSummary**](LanguageSummary.md) |  | 
+**description** | **character** | The localized description for an API resource in a specific language. | [optional] [Max. length: 2000] 
+**language** | [**LanguageSummary**](LanguageSummary.md) | The language this name is in. | 
 
 

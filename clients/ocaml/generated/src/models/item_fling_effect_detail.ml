@@ -15,21 +15,25 @@
                 
                 
                 ; [@key "id"]
-                                              name: string
+                    (** The identifier for this resource. *)
+                                      name: string
                   
                   
                 
                 
                 ; [@key "name"]
-                                              effect_entries: Item_fling_effect_effect_text.t list
+                    (** The name for this resource. *)
+                                      effect_entries: Item_fling_effect_effect_text.t list
                 
                 
                 ; [@key "effect_entries"]
-                                              items: Item_summary.t list
+                    (** The result of this fling effect listed in different languages. *)
+                                      items: Item_summary.t list
                 
                 
                 ; [@key "items"]
-                        } [@@deriving yojson { strict = false }, show, eq ];;
+                    (** A list of items that have this fling effect. *)
+                } [@@deriving yojson { strict = false }, show, eq ];;
         
         let create (id : int32) (name : string) (effect_entries : Item_fling_effect_effect_text.t list) (items : Item_summary.t list) : t = {
             id = id;

@@ -12,11 +12,16 @@ import org.joda.time.DateTime
 import MoveDamageClassDetail._
 
 case class MoveDamageClassDetail (
+  /* The identifier for this resource. */
   id: Integer,
-name: String,
-descriptions: List[MoveDamageClassDescription],
-moves: List[MoveSummary],
-names: List[MoveDamageClassName])
+/* The name for this resource. */
+  name: String,
+/* The description of this resource listed in different languages. */
+  descriptions: List[MoveDamageClassDescription],
+/* A list of moves that fall into this damage class. */
+  moves: List[MoveSummary],
+/* The name of this resource listed in different languages. */
+  names: List[MoveDamageClassName])
 
 object MoveDamageClassDetail {
   import DateTimeCodecs._

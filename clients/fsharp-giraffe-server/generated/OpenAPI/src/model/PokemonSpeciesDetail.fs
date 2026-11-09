@@ -2,21 +2,21 @@ namespace OpenAPI.Model
 
 open System
 open System.Collections.Generic
-open OpenAPI.Model.AbilityDetailPokemonInnerPokemon
+open OpenAPI.Model.EggGroupSummary
 open OpenAPI.Model.EvolutionChainSummary
 open OpenAPI.Model.GenerationSummary
 open OpenAPI.Model.GrowthRateSummary
 open OpenAPI.Model.PokemonColorSummary
 open OpenAPI.Model.PokemonDexEntry
-open OpenAPI.Model.PokemonFormDetailFormNamesInner
 open OpenAPI.Model.PokemonHabitatSummary
 open OpenAPI.Model.PokemonShapeSummary
 open OpenAPI.Model.PokemonSpeciesDescription
-open OpenAPI.Model.PokemonSpeciesDetailGeneraInner
-open OpenAPI.Model.PokemonSpeciesDetailPalParkEncountersInner
-open OpenAPI.Model.PokemonSpeciesDetailVarietiesInner
 open OpenAPI.Model.PokemonSpeciesFlavorText
+open OpenAPI.Model.PokemonSpeciesGenus
+open OpenAPI.Model.PokemonSpeciesName
+open OpenAPI.Model.PokemonSpeciesPalParkEncounter
 open OpenAPI.Model.PokemonSpeciesSummary
+open OpenAPI.Model.PokemonSpeciesVariety
 open OpenAPI.Model.int option
 
 module PokemonSpeciesDetail =
@@ -39,18 +39,18 @@ module PokemonSpeciesDetail =
     FormsSwitchable : bool;
     GrowthRate : GrowthRateSummary;
     PokedexNumbers : PokemonDexEntry[];
-    EggGroups : AbilityDetailPokemonInnerPokemon[];
+    EggGroups : EggGroupSummary[];
     Color : PokemonColorSummary;
     Shape : PokemonShapeSummary;
     EvolvesFromSpecies : PokemonSpeciesSummary;
     EvolutionChain : EvolutionChainSummary;
     Habitat : PokemonHabitatSummary;
     Generation : GenerationSummary;
-    Names : PokemonFormDetailFormNamesInner[];
-    PalParkEncounters : PokemonSpeciesDetailPalParkEncountersInner[];
+    Names : PokemonSpeciesName[];
+    PalParkEncounters : PokemonSpeciesPalParkEncounter[];
     FormDescriptions : PokemonSpeciesDescription[];
     FlavorTextEntries : PokemonSpeciesFlavorText[];
-    Genera : PokemonSpeciesDetailGeneraInner[];
-    Varieties : PokemonSpeciesDetailVarietiesInner[];
+    Genera : PokemonSpeciesGenus[];
+    Varieties : PokemonSpeciesVariety[];
   }
   //#endregion

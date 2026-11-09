@@ -10,6 +10,7 @@ class_name RegionDetail
 # RegionDetail Model
 
 
+# The identifier for this resource.
 # Required: True
 # isArray: false
 @export var id: int:
@@ -18,6 +19,7 @@ class_name RegionDetail
 		id = value
 var __id__was__set := false
 
+# The name for this resource.
 # Required: True
 # isArray: false
 @export var name: String:
@@ -26,6 +28,7 @@ var __id__was__set := false
 		name = value
 var __name__was__set := false
 
+# A list of locations that can be found in this region.
 # Required: True
 # isArray: true
 @export var locations: Array:
@@ -34,6 +37,7 @@ var __name__was__set := false
 		locations = value
 var __locations__was__set := false
 
+# The generation this region was introduced in.
 # Required: True
 # isArray: false
 @export var mainUnderscoregeneration: GenerationSummary:
@@ -42,6 +46,7 @@ var __locations__was__set := false
 		mainUnderscoregeneration = value
 var __mainUnderscoregeneration__was__set := false
 
+# The name of this resource listed in different languages.
 # Required: True
 # isArray: true
 @export var names: Array:
@@ -50,6 +55,7 @@ var __mainUnderscoregeneration__was__set := false
 		names = value
 var __names__was__set := false
 
+# A list of pokédexes that catalogue Pokémon in this region.
 # Required: True
 # isArray: true
 @export var pokedexes: Array:
@@ -58,6 +64,7 @@ var __names__was__set := false
 		pokedexes = value
 var __pokedexes__was__set := false
 
+# A list of version groups where this region can be visited.
 # Required: True
 # isArray: true
 @export var versionUnderscoregroups: Array:
@@ -121,7 +128,7 @@ static func bzz_denormalize_single(from_dict: Dictionary):
 	if from_dict.has("pokedexes"):
 		me.pokedexes = PokedexSummary.bzz_denormalize_multiple(from_dict["pokedexes"])
 	if from_dict.has("versionUnderscoregroups"):
-		me.versionUnderscoregroups = AbilityDetail_pokemon_inner_pokemon.bzz_denormalize_multiple(from_dict["versionUnderscoregroups"])
+		me.versionUnderscoregroups = VersionGroupSummary.bzz_denormalize_multiple(from_dict["versionUnderscoregroups"])
 	return me
 
 

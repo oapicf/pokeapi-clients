@@ -70,14 +70,14 @@ void pokemon_shape_detail_free(pokemon_shape_detail_t *pokemon_shape_detail) {
     }
     if (pokemon_shape_detail->awesome_names) {
         list_ForEach(listEntry, pokemon_shape_detail->awesome_names) {
-            pokemon_shape_detail_awesome_names_inner_free(listEntry->data);
+            pokemon_shape_awesome_name_free(listEntry->data);
         }
         list_freeList(pokemon_shape_detail->awesome_names);
         pokemon_shape_detail->awesome_names = NULL;
     }
     if (pokemon_shape_detail->names) {
         list_ForEach(listEntry, pokemon_shape_detail->names) {
-            pokemon_shape_detail_names_inner_free(listEntry->data);
+            pokemon_shape_name_free(listEntry->data);
         }
         list_freeList(pokemon_shape_detail->names);
         pokemon_shape_detail->names = NULL;
@@ -125,7 +125,7 @@ cJSON *pokemon_shape_detail_convertToJSON(pokemon_shape_detail_t *pokemon_shape_
     listEntry_t *awesome_namesListEntry;
     if (pokemon_shape_detail->awesome_names) {
     list_ForEach(awesome_namesListEntry, pokemon_shape_detail->awesome_names) {
-    cJSON *itemLocal = pokemon_shape_detail_awesome_names_inner_convertToJSON(awesome_namesListEntry->data);
+    cJSON *itemLocal = pokemon_shape_awesome_name_convertToJSON(awesome_namesListEntry->data);
     if(itemLocal == NULL) {
     goto fail;
     }
@@ -146,7 +146,7 @@ cJSON *pokemon_shape_detail_convertToJSON(pokemon_shape_detail_t *pokemon_shape_
     listEntry_t *namesListEntry;
     if (pokemon_shape_detail->names) {
     list_ForEach(namesListEntry, pokemon_shape_detail->names) {
-    cJSON *itemLocal = pokemon_shape_detail_names_inner_convertToJSON(namesListEntry->data);
+    cJSON *itemLocal = pokemon_shape_name_convertToJSON(namesListEntry->data);
     if(itemLocal == NULL) {
     goto fail;
     }
@@ -259,7 +259,7 @@ pokemon_shape_detail_t *pokemon_shape_detail_parseFromJSON(cJSON *pokemon_shape_
         if(!cJSON_IsObject(awesome_names_local_nonprimitive)){
             goto end;
         }
-        pokemon_shape_detail_awesome_names_inner_t *awesome_namesItem = pokemon_shape_detail_awesome_names_inner_parseFromJSON(awesome_names_local_nonprimitive);
+        pokemon_shape_awesome_name_t *awesome_namesItem = pokemon_shape_awesome_name_parseFromJSON(awesome_names_local_nonprimitive);
 
         list_addElement(awesome_namesList, awesome_namesItem);
     }
@@ -286,7 +286,7 @@ pokemon_shape_detail_t *pokemon_shape_detail_parseFromJSON(cJSON *pokemon_shape_
         if(!cJSON_IsObject(names_local_nonprimitive)){
             goto end;
         }
-        pokemon_shape_detail_names_inner_t *namesItem = pokemon_shape_detail_names_inner_parseFromJSON(names_local_nonprimitive);
+        pokemon_shape_name_t *namesItem = pokemon_shape_name_parseFromJSON(names_local_nonprimitive);
 
         list_addElement(namesList, namesItem);
     }
@@ -346,7 +346,7 @@ end:
     if (awesome_namesList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, awesome_namesList) {
-            pokemon_shape_detail_awesome_names_inner_free(listEntry->data);
+            pokemon_shape_awesome_name_free(listEntry->data);
             listEntry->data = NULL;
         }
         list_freeList(awesome_namesList);
@@ -355,7 +355,7 @@ end:
     if (namesList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, namesList) {
-            pokemon_shape_detail_names_inner_free(listEntry->data);
+            pokemon_shape_name_free(listEntry->data);
             listEntry->data = NULL;
         }
         list_freeList(namesList);

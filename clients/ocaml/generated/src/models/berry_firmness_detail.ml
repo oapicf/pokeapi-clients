@@ -15,21 +15,25 @@
                 
                 
                 ; [@key "id"]
-                                              name: string
+                    (** The identifier for this resource. *)
+                                      name: string
                   
                   
                 
                 
                 ; [@key "name"]
-                                              berries: Berry_summary.t list
+                    (** The name for this resource. *)
+                                      berries: Berry_summary.t list
                 
                 
                 ; [@key "berries"]
-                                              names: Berry_firmness_name.t list
+                    (** A list of the berries with this firmness. *)
+                                      names: Berry_firmness_name.t list
                 
                 
                 ; [@key "names"]
-                        } [@@deriving yojson { strict = false }, show, eq ];;
+                    (** The name of this resource listed in different languages. *)
+                } [@@deriving yojson { strict = false }, show, eq ];;
         
         let create (id : int32) (name : string) (berries : Berry_summary.t list) (names : Berry_firmness_name.t list) : t = {
             id = id;

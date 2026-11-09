@@ -2,16 +2,25 @@
 Protected Class MoveFlavorText
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The localized flavor text for an api resource in a specific language.
+		#tag EndNote
 		flavor_text As String
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The language this name is in.
+		#tag EndNote
 		language As OpenAPIClient.Models.LanguageSummary
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The version group that uses this flavor text.
+		#tag EndNote
 		version_group As OpenAPIClient.Models.VersionGroupSummary
 	#tag EndProperty
 

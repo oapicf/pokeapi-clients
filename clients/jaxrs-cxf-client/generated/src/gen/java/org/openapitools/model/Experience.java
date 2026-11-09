@@ -8,15 +8,23 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Experience  {
   
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The level gained.
+  */
+  @ApiModelProperty(required = true, value = "The level gained.")
 
   private Integer level;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The amount of experience required to reach the referenced level.
+  */
+  @ApiModelProperty(required = true, value = "The amount of experience required to reach the referenced level.")
 
   private Integer experience;
  /**
-   * Get level
+   * The level gained.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return level
   **/
   @JsonProperty("level")
@@ -34,7 +42,9 @@ public class Experience  {
   }
 
  /**
-   * Get experience
+   * The amount of experience required to reach the referenced level.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return experience
   **/
   @JsonProperty("experience")

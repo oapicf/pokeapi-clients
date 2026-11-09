@@ -10,6 +10,77 @@ defmodule PokéAPI.Api.Items do
   import PokéAPI.RequestBuilder
 
   @doc """
+  List currencies
+  Currencies used to buy items.
+
+  ### Parameters
+
+  - `connection` (PokéAPI.Connection): Connection to server
+  - `opts` (keyword): Optional parameters
+    - `:limit` (integer()): Number of results to return per page.
+    - `:offset` (integer()): The initial index from which to return the results.
+    - `:q` (String.t): > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+
+  ### Returns
+
+  - `{:ok, PokéAPI.Model.PaginatedCurrencySummaryList.t}` on success
+  - `{:error, Tesla.Env.t}` on failure
+  """
+  @spec currency_list(Tesla.Env.client, keyword()) :: {:ok, PokéAPI.Model.PaginatedCurrencySummaryList.t} | {:error, Tesla.Env.t}
+  def currency_list(connection, opts \\ []) do
+    optional_params = %{
+      :limit => :query,
+      :offset => :query,
+      :q => :query
+    }
+
+    request =
+      %{}
+      |> method(:get)
+      |> url("/api/v2/currency/")
+      |> add_optional_params(optional_params, opts)
+      |> finalize_request()
+      |> Enum.into([])
+
+    connection
+    |> Connection.request(request)
+    |> evaluate_response([
+      {200, PokéAPI.Model.PaginatedCurrencySummaryList}
+    ])
+  end
+
+  @doc """
+  Get currency
+  Currencies used to buy items.
+
+  ### Parameters
+
+  - `connection` (PokéAPI.Connection): Connection to server
+  - `id` (String.t): This parameter can be a string or an integer.
+  - `opts` (keyword): Optional parameters
+
+  ### Returns
+
+  - `{:ok, PokéAPI.Model.CurrencyDetail.t}` on success
+  - `{:error, Tesla.Env.t}` on failure
+  """
+  @spec currency_retrieve(Tesla.Env.client, String.t, keyword()) :: {:ok, PokéAPI.Model.CurrencyDetail.t} | {:error, Tesla.Env.t}
+  def currency_retrieve(connection, id, _opts \\ []) do
+    request =
+      %{}
+      |> method(:get)
+      |> url("/api/v2/currency/#{id}/")
+      |> finalize_request()
+      |> Enum.into([])
+
+    connection
+    |> Connection.request(request)
+    |> evaluate_response([
+      {200, PokéAPI.Model.CurrencyDetail}
+    ])
+  end
+
+  @doc """
   List item attributes
   Item attributes define particular aspects of items, e.g.\"usable in battle\" or \"consumable\".
 

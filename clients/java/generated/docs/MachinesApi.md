@@ -10,7 +10,7 @@ All URIs are relative to *https://pokeapi.co*
 
 <a id="machineList"></a>
 # **machineList**
-> PaginatedMachineSummaryList machineList(limit, offset, q)
+> PaginatedMachineSummaryList machineList(limit, offset)
 
 List machines
 
@@ -22,7 +22,6 @@ Machines are the representation of items that teach moves to Pokémon. They vary
 import com.github.oapicf.pokeapiclient.ApiClient;
 import com.github.oapicf.pokeapiclient.ApiException;
 import com.github.oapicf.pokeapiclient.Configuration;
-import com.github.oapicf.pokeapiclient.auth.*;
 import com.github.oapicf.pokeapiclient.models.*;
 import com.github.oapicf.pokeapiclient.api.MachinesApi;
 
@@ -30,24 +29,12 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://pokeapi.co");
-    
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
-
-    // Configure API key authorization: cookieAuth
-    ApiKeyAuth cookieAuth = (ApiKeyAuth) defaultClient.getAuthentication("cookieAuth");
-    cookieAuth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //cookieAuth.setApiKeyPrefix("Token");
 
     MachinesApi apiInstance = new MachinesApi(defaultClient);
     Integer limit = 56; // Integer | Number of results to return per page.
     Integer offset = 56; // Integer | The initial index from which to return the results.
-    String q = "q_example"; // String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
     try {
-      PaginatedMachineSummaryList result = apiInstance.machineList(limit, offset, q);
+      PaginatedMachineSummaryList result = apiInstance.machineList(limit, offset);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MachinesApi#machineList");
@@ -66,7 +53,6 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **limit** | **Integer**| Number of results to return per page. | [optional] |
 | **offset** | **Integer**| The initial index from which to return the results. | [optional] |
-| **q** | **String**| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional] |
 
 ### Return type
 
@@ -74,7 +60,7 @@ public class Example {
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -100,7 +86,6 @@ Machines are the representation of items that teach moves to Pokémon. They vary
 import com.github.oapicf.pokeapiclient.ApiClient;
 import com.github.oapicf.pokeapiclient.ApiException;
 import com.github.oapicf.pokeapiclient.Configuration;
-import com.github.oapicf.pokeapiclient.auth.*;
 import com.github.oapicf.pokeapiclient.models.*;
 import com.github.oapicf.pokeapiclient.api.MachinesApi;
 
@@ -108,20 +93,9 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://pokeapi.co");
-    
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
-
-    // Configure API key authorization: cookieAuth
-    ApiKeyAuth cookieAuth = (ApiKeyAuth) defaultClient.getAuthentication("cookieAuth");
-    cookieAuth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //cookieAuth.setApiKeyPrefix("Token");
 
     MachinesApi apiInstance = new MachinesApi(defaultClient);
-    String id = "id_example"; // String | This parameter can be a string or an integer.
+    String id = "1"; // String | This parameter can be a string or an integer.
     try {
       MachineDetail result = apiInstance.machineRetrieve(id);
       System.out.println(result);
@@ -148,7 +122,7 @@ public class Example {
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

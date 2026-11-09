@@ -12,11 +12,14 @@ import java.math.*;
 public class ContestEffectSummary implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * The URL of the referenced resource.
+   */
   @JsonProperty("url")
   private URI url;
 
   /**
-   * 
+   * The URL of the referenced resource.
    * @return url
    */
   public URI getUrl() {

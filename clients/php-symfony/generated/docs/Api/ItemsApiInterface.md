@@ -4,6 +4,8 @@ All URIs are relative to *https://pokeapi.co*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**currencyList**](ItemsApiInterface.md#currencyList) | **GET** /api/v2/currency/ | List currencies
+[**currencyRetrieve**](ItemsApiInterface.md#currencyRetrieve) | **GET** /api/v2/currency/{id}/ | Get currency
 [**itemAttributeList**](ItemsApiInterface.md#itemAttributeList) | **GET** /api/v2/item-attribute/ | List item attributes
 [**itemAttributeRetrieve**](ItemsApiInterface.md#itemAttributeRetrieve) | **GET** /api/v2/item-attribute/{id}/ | Get item attribute
 [**itemCategoryList**](ItemsApiInterface.md#itemCategoryList) | **GET** /api/v2/item-category/ | List item categories
@@ -27,6 +29,116 @@ services:
     # ...
 ```
 
+## **currencyList**
+> OpenAPI\Server\Model\PaginatedCurrencySummaryList currencyList($limit, $offset, $q)
+
+List currencies
+
+Currencies used to buy items.
+
+### Example Implementation
+```php
+<?php
+// src/Acme/MyBundle/Api/ItemsApiInterface.php
+
+namespace Acme\MyBundle\Api;
+
+use OpenAPI\Server\Api\ItemsApiInterface;
+
+class ItemsApi implements ItemsApiInterface
+{
+
+    // ...
+
+    /**
+     * Implementation of ItemsApiInterface#currencyList
+     */
+    public function currencyList(?int $limit, ?int $offset, ?string $q, int &$responseCode, array &$responseHeaders): array|object|null
+    {
+        // Implement the operation ...
+    }
+
+    // ...
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | **int**| Number of results to return per page. | [optional]
+ **offset** | **int**| The initial index from which to return the results. | [optional]
+ **q** | **string**| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. | [optional]
+
+### Return type
+
+[**OpenAPI\Server\Model\PaginatedCurrencySummaryList**](../Model/PaginatedCurrencySummaryList.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+## **currencyRetrieve**
+> OpenAPI\Server\Model\CurrencyDetail currencyRetrieve($id)
+
+Get currency
+
+Currencies used to buy items.
+
+### Example Implementation
+```php
+<?php
+// src/Acme/MyBundle/Api/ItemsApiInterface.php
+
+namespace Acme\MyBundle\Api;
+
+use OpenAPI\Server\Api\ItemsApiInterface;
+
+class ItemsApi implements ItemsApiInterface
+{
+
+    // ...
+
+    /**
+     * Implementation of ItemsApiInterface#currencyRetrieve
+     */
+    public function currencyRetrieve(string $id, int &$responseCode, array &$responseHeaders): array|object|null
+    {
+        // Implement the operation ...
+    }
+
+    // ...
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **string**| This parameter can be a string or an integer. |
+
+### Return type
+
+[**OpenAPI\Server\Model\CurrencyDetail**](../Model/CurrencyDetail.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
 ## **itemAttributeList**
 > OpenAPI\Server\Model\PaginatedItemAttributeSummaryList itemAttributeList($limit, $offset, $q)
 
@@ -45,14 +157,6 @@ use OpenAPI\Server\Api\ItemsApiInterface;
 
 class ItemsApi implements ItemsApiInterface
 {
-
-    /**
-     * Configure API key authorization: cookieAuth
-     */
-    public function setcookieAuth($apiKey)
-    {
-        // Retrieve logged in user from $apiKey ...
-    }
 
     // ...
 
@@ -82,7 +186,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -110,14 +214,6 @@ use OpenAPI\Server\Api\ItemsApiInterface;
 class ItemsApi implements ItemsApiInterface
 {
 
-    /**
-     * Configure API key authorization: cookieAuth
-     */
-    public function setcookieAuth($apiKey)
-    {
-        // Retrieve logged in user from $apiKey ...
-    }
-
     // ...
 
     /**
@@ -144,7 +240,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -171,14 +267,6 @@ use OpenAPI\Server\Api\ItemsApiInterface;
 
 class ItemsApi implements ItemsApiInterface
 {
-
-    /**
-     * Configure API key authorization: cookieAuth
-     */
-    public function setcookieAuth($apiKey)
-    {
-        // Retrieve logged in user from $apiKey ...
-    }
 
     // ...
 
@@ -208,7 +296,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -236,14 +324,6 @@ use OpenAPI\Server\Api\ItemsApiInterface;
 class ItemsApi implements ItemsApiInterface
 {
 
-    /**
-     * Configure API key authorization: cookieAuth
-     */
-    public function setcookieAuth($apiKey)
-    {
-        // Retrieve logged in user from $apiKey ...
-    }
-
     // ...
 
     /**
@@ -270,7 +350,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -297,14 +377,6 @@ use OpenAPI\Server\Api\ItemsApiInterface;
 
 class ItemsApi implements ItemsApiInterface
 {
-
-    /**
-     * Configure API key authorization: cookieAuth
-     */
-    public function setcookieAuth($apiKey)
-    {
-        // Retrieve logged in user from $apiKey ...
-    }
 
     // ...
 
@@ -334,7 +406,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -362,14 +434,6 @@ use OpenAPI\Server\Api\ItemsApiInterface;
 class ItemsApi implements ItemsApiInterface
 {
 
-    /**
-     * Configure API key authorization: cookieAuth
-     */
-    public function setcookieAuth($apiKey)
-    {
-        // Retrieve logged in user from $apiKey ...
-    }
-
     // ...
 
     /**
@@ -396,7 +460,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -423,14 +487,6 @@ use OpenAPI\Server\Api\ItemsApiInterface;
 
 class ItemsApi implements ItemsApiInterface
 {
-
-    /**
-     * Configure API key authorization: cookieAuth
-     */
-    public function setcookieAuth($apiKey)
-    {
-        // Retrieve logged in user from $apiKey ...
-    }
 
     // ...
 
@@ -460,7 +516,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -487,14 +543,6 @@ use OpenAPI\Server\Api\ItemsApiInterface;
 
 class ItemsApi implements ItemsApiInterface
 {
-
-    /**
-     * Configure API key authorization: cookieAuth
-     */
-    public function setcookieAuth($apiKey)
-    {
-        // Retrieve logged in user from $apiKey ...
-    }
 
     // ...
 
@@ -524,7 +572,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -552,14 +600,6 @@ use OpenAPI\Server\Api\ItemsApiInterface;
 class ItemsApi implements ItemsApiInterface
 {
 
-    /**
-     * Configure API key authorization: cookieAuth
-     */
-    public function setcookieAuth($apiKey)
-    {
-        // Retrieve logged in user from $apiKey ...
-    }
-
     // ...
 
     /**
@@ -586,7 +626,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -614,14 +654,6 @@ use OpenAPI\Server\Api\ItemsApiInterface;
 class ItemsApi implements ItemsApiInterface
 {
 
-    /**
-     * Configure API key authorization: cookieAuth
-     */
-    public function setcookieAuth($apiKey)
-    {
-        // Retrieve logged in user from $apiKey ...
-    }
-
     // ...
 
     /**
@@ -648,7 +680,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

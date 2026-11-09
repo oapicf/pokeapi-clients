@@ -160,6 +160,20 @@ open_api_server_evolution_evolutiontriggerretrieve:
     requirements:
         id: '[a-z0-9]+'
 
+open_api_server_evolution_evolutionvariablelist:
+    path:     /api/v2/evolution-variable/
+    methods:  [GET]
+    defaults:
+        _controller: open_api_server.controller.evolution::evolutionVariableListAction
+
+open_api_server_evolution_evolutionvariableretrieve:
+    path:     /api/v2/evolution-variable/{id}/
+    methods:  [GET]
+    defaults:
+        _controller: open_api_server.controller.evolution::evolutionVariableRetrieveAction
+    requirements:
+        id: '[a-z0-9]+'
+
 # games
 open_api_server_games_generationlist:
     path:     /api/v2/generation/
@@ -218,6 +232,20 @@ open_api_server_games_versionretrieve:
         id: '[a-z0-9]+'
 
 # items
+open_api_server_items_currencylist:
+    path:     /api/v2/currency/
+    methods:  [GET]
+    defaults:
+        _controller: open_api_server.controller.items::currencyListAction
+
+open_api_server_items_currencyretrieve:
+    path:     /api/v2/currency/{id}/
+    methods:  [GET]
+    defaults:
+        _controller: open_api_server.controller.items::currencyRetrieveAction
+    requirements:
+        id: '[a-z0-9]+'
+
 open_api_server_items_itemattributelist:
     path:     /api/v2/item-attribute/
     methods:  [GET]
@@ -684,4 +712,10 @@ open_api_server_utility_languageretrieve:
         _controller: open_api_server.controller.utility::languageRetrieveAction
     requirements:
         id: '[a-z0-9]+'
+
+open_api_server_utility_metaretrieve:
+    path:     /api/v2/meta/
+    methods:  [GET]
+    defaults:
+        _controller: open_api_server.controller.utility::metaRetrieveAction
 

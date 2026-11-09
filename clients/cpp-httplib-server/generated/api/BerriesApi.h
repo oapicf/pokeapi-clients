@@ -8,7 +8,6 @@
 
 // System headers
 #include <httplib.h>
-#include <memory>
 #include <variant>
 
 // Project headers
@@ -20,7 +19,6 @@
 #include "models/PaginatedBerrySummaryList.h"
 
 namespace Api {
-    class AuthenticationManager;
 class Berries {
 public:
     Berries() = default;
@@ -28,9 +26,8 @@ public:
     /**
      * @brief Register all routes for this API
      * @param svr The httplib::Server instance to register routes on
-     * @param auth The AuthenticationManager for authentication (optional, defaults to nullptr)
      */
-    void registerRoutes(httplib::Server& svr, std::shared_ptr<AuthenticationManager> auth = nullptr);
+    void registerRoutes(httplib::Server& svr);
     // =========================
     // ===== Request types =====
     // =========================
@@ -172,27 +169,23 @@ private:
     // ===== Helper function declarations =====
     // ========================================
     static bool parseApiv2berryFirmnessGetParams(const httplib::Request& req, Apiv2berryFirmnessGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2berryFirmnessGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2berryFirmnessGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2berryFirmnessGetResponse(const Apiv2berryFirmnessGetResponse& result, httplib::Response& res);
     static bool parseApiv2berryFirmnessidGetParams(const httplib::Request& req, Apiv2berryFirmnessidGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2berryFirmnessidGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2berryFirmnessidGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2berryFirmnessidGetResponse(const Apiv2berryFirmnessidGetResponse& result, httplib::Response& res);
     static bool parseApiv2berryFlavorGetParams(const httplib::Request& req, Apiv2berryFlavorGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2berryFlavorGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2berryFlavorGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2berryFlavorGetResponse(const Apiv2berryFlavorGetResponse& result, httplib::Response& res);
     static bool parseApiv2berryFlavoridGetParams(const httplib::Request& req, Apiv2berryFlavoridGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2berryFlavoridGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2berryFlavoridGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2berryFlavoridGetResponse(const Apiv2berryFlavoridGetResponse& result, httplib::Response& res);
     static bool parseApiv2berryGetParams(const httplib::Request& req, Apiv2berryGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2berryGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2berryGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2berryGetResponse(const Apiv2berryGetResponse& result, httplib::Response& res);
     static bool parseApiv2berryidGetParams(const httplib::Request& req, Apiv2berryidGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2berryidGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2berryidGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2berryidGetResponse(const Apiv2berryidGetResponse& result, httplib::Response& res);
-    static bool performAuthentication(
-        const httplib::Request& req,
-        std::shared_ptr<AuthenticationManager> auth,
-        httplib::Response& res);
 };
 
 } // namespace Api

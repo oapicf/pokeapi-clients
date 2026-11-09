@@ -1,11 +1,13 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
+import org.openapitools.model.CurrencyDetail
 import org.openapitools.model.ItemAttributeDetail
 import org.openapitools.model.ItemCategoryDetail
 import org.openapitools.model.ItemDetail
 import org.openapitools.model.ItemFlingEffectDetail
 import org.openapitools.model.ItemPocketDetail
+import org.openapitools.model.PaginatedCurrencySummaryList
 import org.openapitools.model.PaginatedItemAttributeSummaryList
 import org.openapitools.model.PaginatedItemCategorySummaryList
 import org.openapitools.model.PaginatedItemFlingEffectSummaryList
@@ -16,6 +18,65 @@ class ItemsApi {
     String basePath = "https://pokeapi.co"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
+
+    def currencyList ( Integer limit, Integer offset, String q, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/api/v2/currency/"
+
+        // params
+        def queryParams = [:]
+        def headerParams = [:]
+        def bodyParams
+        def accept
+        def contentType
+
+
+        if (limit != null) {
+            queryParams.put("limit", limit)
+        }
+        if (offset != null) {
+            queryParams.put("offset", offset)
+        }
+        if (q != null) {
+            queryParams.put("q", q)
+        }
+
+
+
+
+        accept = apiUtils.selectHeaderAccept(["application/json"])
+
+        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, accept, contentType,
+                    "GET", "",
+                    PaginatedCurrencySummaryList.class )
+
+    }
+
+    def currencyRetrieve ( String id, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/api/v2/currency/${id}/"
+
+        // params
+        def queryParams = [:]
+        def headerParams = [:]
+        def bodyParams
+        def accept
+        def contentType
+
+        // verify required params are set
+        if (id == null) {
+            throw new RuntimeException("missing required params id")
+        }
+
+
+
+
+
+        accept = apiUtils.selectHeaderAccept(["application/json"])
+
+        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, accept, contentType,
+                    "GET", "",
+                    CurrencyDetail.class )
+
+    }
 
     def itemAttributeList ( Integer limit, Integer offset, String q, Closure onSuccess, Closure onFailure)  {
         String resourcePath = "/api/v2/item-attribute/"

@@ -30,8 +30,10 @@ import misk.web.ResponseContentType
 import misk.web.mediatype.MediaTypes
 import org.openapitools.server.api.model.EvolutionChainDetail
 import org.openapitools.server.api.model.EvolutionTriggerDetail
+import org.openapitools.server.api.model.EvolutionVariableDetail
 import org.openapitools.server.api.model.PaginatedEvolutionChainSummaryList
 import org.openapitools.server.api.model.PaginatedEvolutionTriggerSummaryList
+import org.openapitools.server.api.model.PaginatedEvolutionVariableSummaryList
 
 /**
 * @TODO("Fill out implementation")
@@ -46,8 +48,7 @@ class EvolutionApiAction @Inject constructor(
     @LogRequestResponse(bodySampling = 1.0, errorBodySampling = 1.0)
     fun evolutionChainList(
          @QueryParam(value = "limit") limit: kotlin.Int?, 
-         @QueryParam(value = "offset") offset: kotlin.Int?, 
-         @QueryParam(value = "q") q: kotlin.String?
+         @QueryParam(value = "offset") offset: kotlin.Int?
     ): PaginatedEvolutionChainSummaryList {
         TODO()
     }
@@ -81,6 +82,28 @@ class EvolutionApiAction @Inject constructor(
     fun evolutionTriggerRetrieve(
         @PathParam("id") id: kotlin.String
     ): EvolutionTriggerDetail {
+        TODO()
+    }
+
+    @Get("/api/v2/evolution-variable/")
+    @Description("List evolution variables")
+    @ResponseContentType(MediaTypes.APPLICATION_JSON)
+    @LogRequestResponse(bodySampling = 1.0, errorBodySampling = 1.0)
+    fun evolutionVariableList(
+         @QueryParam(value = "limit") limit: kotlin.Int?, 
+         @QueryParam(value = "offset") offset: kotlin.Int?, 
+         @QueryParam(value = "q") q: kotlin.String?
+    ): PaginatedEvolutionVariableSummaryList {
+        TODO()
+    }
+
+    @Get("/api/v2/evolution-variable/{id}/")
+    @Description("Get evolution variable")
+    @ResponseContentType(MediaTypes.APPLICATION_JSON)
+    @LogRequestResponse(bodySampling = 1.0, errorBodySampling = 1.0)
+    fun evolutionVariableRetrieve(
+        @PathParam("id") id: kotlin.String
+    ): EvolutionVariableDetail {
         TODO()
     }
 }

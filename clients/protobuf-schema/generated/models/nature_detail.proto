@@ -1,9 +1,9 @@
 /*
   PokéAPI
 
-  All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+  All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
 
-  The version of the OpenAPI document: 2.7.0
+  The version of the OpenAPI document: 2.10.0
 
   Contact: blah+oapicf@cliffano.com
 
@@ -15,32 +15,38 @@ syntax = "proto3";
 package openapitools;
 
 import public "models/berry_flavor_summary.proto";
-import public "models/berry_summary.proto";
 import public "models/nature_battle_style_preference.proto";
-import public "models/nature_detail_pokeathlon_stat_changes_inner.proto";
 import public "models/nature_name.proto";
+import public "models/nature_pokeathlon_stat.proto";
 import public "models/stat_summary.proto";
 
 message NatureDetail {
 
+  // The identifier for this resource.
   int32 id = 3355;
 
+  // The name for this resource.
   string name = 3373707;
 
+  // The stat decreased by 10% in Pokémon with this nature.
   StatSummary decreased_stat = 64518000;
 
+  // The stat increased by 10% in Pokémon with this nature.
   StatSummary increased_stat = 264806930;
 
+  // The flavor liked by Pokémon with this nature.
   BerryFlavorSummary likes_flavor = 365533055;
 
+  // The flavor hated by Pokémon with this nature.
   BerryFlavorSummary hates_flavor = 86034670;
 
-  repeated BerrySummary berries = 218626508;
+  // A list of Pokéathlon stats this nature effects and how much it effects them.
+  repeated NaturePokeathlonStat pokeathlon_stat_changes = 144379050;
 
-  repeated NatureDetailPokeathlonStatChangesInner pokeathlon_stat_changes = 144379050;
-
+  // A list of battle styles and how likely a Pokémon with this nature is to use them in the Battle Palace or Battle Tent.
   repeated NatureBattleStylePreference move_battle_style_preferences = 477992367;
 
+  // The name of this resource listed in different languages.
   repeated NatureName names = 104585032;
 
 }

@@ -67,6 +67,7 @@ class ContestEffectDetail(Model):
     def id(self) -> int:
         """Gets the id of this ContestEffectDetail.
 
+        The identifier for this resource.  # noqa: E501
 
         :return: The id of this ContestEffectDetail.
         :rtype: int
@@ -77,6 +78,7 @@ class ContestEffectDetail(Model):
     def id(self, id: int):
         """Sets the id of this ContestEffectDetail.
 
+        The identifier for this resource.  # noqa: E501
 
         :param id: The id of this ContestEffectDetail.
         :type id: int
@@ -90,6 +92,7 @@ class ContestEffectDetail(Model):
     def appeal(self) -> int:
         """Gets the appeal of this ContestEffectDetail.
 
+        The base number of hearts the user of this move gets.  # noqa: E501
 
         :return: The appeal of this ContestEffectDetail.
         :rtype: int
@@ -100,12 +103,17 @@ class ContestEffectDetail(Model):
     def appeal(self, appeal: int):
         """Sets the appeal of this ContestEffectDetail.
 
+        The base number of hearts the user of this move gets.  # noqa: E501
 
         :param appeal: The appeal of this ContestEffectDetail.
         :type appeal: int
         """
         if appeal is None:
             raise ValueError("Invalid value for `appeal`, must not be `None`")  # noqa: E501
+        if appeal is not None and appeal > 2147483647:  # noqa: E501
+            raise ValueError("Invalid value for `appeal`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if appeal is not None and appeal < -2147483648:  # noqa: E501
+            raise ValueError("Invalid value for `appeal`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._appeal = appeal
 
@@ -113,6 +121,7 @@ class ContestEffectDetail(Model):
     def jam(self) -> int:
         """Gets the jam of this ContestEffectDetail.
 
+        The base number of hearts the user's opponent loses.  # noqa: E501
 
         :return: The jam of this ContestEffectDetail.
         :rtype: int
@@ -123,12 +132,17 @@ class ContestEffectDetail(Model):
     def jam(self, jam: int):
         """Sets the jam of this ContestEffectDetail.
 
+        The base number of hearts the user's opponent loses.  # noqa: E501
 
         :param jam: The jam of this ContestEffectDetail.
         :type jam: int
         """
         if jam is None:
             raise ValueError("Invalid value for `jam`, must not be `None`")  # noqa: E501
+        if jam is not None and jam > 2147483647:  # noqa: E501
+            raise ValueError("Invalid value for `jam`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if jam is not None and jam < -2147483648:  # noqa: E501
+            raise ValueError("Invalid value for `jam`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._jam = jam
 
@@ -136,6 +150,7 @@ class ContestEffectDetail(Model):
     def effect_entries(self) -> List[ContestEffectEffectText]:
         """Gets the effect_entries of this ContestEffectDetail.
 
+        The result of this contest effect listed in different languages.  # noqa: E501
 
         :return: The effect_entries of this ContestEffectDetail.
         :rtype: List[ContestEffectEffectText]
@@ -146,6 +161,7 @@ class ContestEffectDetail(Model):
     def effect_entries(self, effect_entries: List[ContestEffectEffectText]):
         """Sets the effect_entries of this ContestEffectDetail.
 
+        The result of this contest effect listed in different languages.  # noqa: E501
 
         :param effect_entries: The effect_entries of this ContestEffectDetail.
         :type effect_entries: List[ContestEffectEffectText]
@@ -159,6 +175,7 @@ class ContestEffectDetail(Model):
     def flavor_text_entries(self) -> List[ContestEffectFlavorText]:
         """Gets the flavor_text_entries of this ContestEffectDetail.
 
+        The flavor text of this contest effect listed in different languages.  # noqa: E501
 
         :return: The flavor_text_entries of this ContestEffectDetail.
         :rtype: List[ContestEffectFlavorText]
@@ -169,6 +186,7 @@ class ContestEffectDetail(Model):
     def flavor_text_entries(self, flavor_text_entries: List[ContestEffectFlavorText]):
         """Sets the flavor_text_entries of this ContestEffectDetail.
 
+        The flavor text of this contest effect listed in different languages.  # noqa: E501
 
         :param flavor_text_entries: The flavor_text_entries of this ContestEffectDetail.
         :type flavor_text_entries: List[ContestEffectFlavorText]

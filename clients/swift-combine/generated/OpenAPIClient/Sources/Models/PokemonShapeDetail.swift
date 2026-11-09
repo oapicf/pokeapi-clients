@@ -8,13 +8,18 @@
 import Foundation
 
 public struct PokemonShapeDetail: Codable {
+    /// The identifier for this resource.
     public var id: Int
+    /// The name for this resource.
     public var name: String
-    public var awesomeNames: [PokemonShapeDetailAwesomeNamesInner]
-    public var names: [PokemonShapeDetailNamesInner]
+    /// The \"scientific\" name of this Pokémon shape listed in different languages.
+    public var awesomeNames: [PokemonShapeAwesomeName]
+    /// The name of this resource listed in different languages.
+    public var names: [PokemonShapeName]
+    /// A list of the Pokémon species that have this shape.
     public var pokemonSpecies: [PokemonSpeciesSummary]
 
-    public init(id: Int, name: String, awesomeNames: [PokemonShapeDetailAwesomeNamesInner], names: [PokemonShapeDetailNamesInner], pokemonSpecies: [PokemonSpeciesSummary]) {
+    public init(id: Int, name: String, awesomeNames: [PokemonShapeAwesomeName], names: [PokemonShapeName], pokemonSpecies: [PokemonSpeciesSummary]) {
         self.id = id
         self.name = name
         self.awesomeNames = awesomeNames
@@ -34,8 +39,8 @@ public struct PokemonShapeDetail: Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         id = try container.decode(Int.self, forKey: .id)
         name = try container.decode(String.self, forKey: .name)
-        awesomeNames = try container.decode([PokemonShapeDetailAwesomeNamesInner].self, forKey: .awesomeNames)
-        names = try container.decode([PokemonShapeDetailNamesInner].self, forKey: .names)
+        awesomeNames = try container.decode([PokemonShapeAwesomeName].self, forKey: .awesomeNames)
+        names = try container.decode([PokemonShapeName].self, forKey: .names)
         pokemonSpecies = try container.decode([PokemonSpeciesSummary].self, forKey: .pokemonSpecies)
     }
 

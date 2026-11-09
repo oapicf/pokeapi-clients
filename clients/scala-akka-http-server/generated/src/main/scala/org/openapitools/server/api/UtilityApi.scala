@@ -9,6 +9,7 @@ import akka.http.scaladsl.unmarshalling.FromStringUnmarshaller
 import org.openapitools.server.AkkaHttpHelper._
 import org.openapitools.server.model.LanguageDetail
 import org.openapitools.server.model.PaginatedLanguageSummaryList
+import org.openapitools.server.model.PokeapiMetaResponse
 
 
 class UtilityApi(
@@ -30,6 +31,11 @@ class UtilityApi(
     path("api" / "v2" / "language" / Segment) { (id) => 
       get {  
             utilityService.languageRetrieve(id = id)
+      }
+    } ~
+    path("api" / "v2" / "meta") { 
+      get {  
+            utilityService.metaRetrieve()
       }
     }
 }
@@ -53,12 +59,22 @@ trait UtilityApiService {
   def languageRetrieve(id: String)
       (implicit toEntityMarshallerLanguageDetail: ToEntityMarshaller[LanguageDetail]): Route
 
+  def metaRetrieve200(responsePokeapiMetaResponse: PokeapiMetaResponse)(implicit toEntityMarshallerPokeapiMetaResponse: ToEntityMarshaller[PokeapiMetaResponse]): Route =
+    complete((200, responsePokeapiMetaResponse))
+  /**
+   * Code: 200, Message: , DataType: PokeapiMetaResponse
+   */
+  def metaRetrieve()
+      (implicit toEntityMarshallerPokeapiMetaResponse: ToEntityMarshaller[PokeapiMetaResponse]): Route
+
 }
 
 trait UtilityApiMarshaller {
 
 
   implicit def toEntityMarshallerLanguageDetail: ToEntityMarshaller[LanguageDetail]
+
+  implicit def toEntityMarshallerPokeapiMetaResponse: ToEntityMarshaller[PokeapiMetaResponse]
 
   implicit def toEntityMarshallerPaginatedLanguageSummaryList: ToEntityMarshaller[PaginatedLanguageSummaryList]
 

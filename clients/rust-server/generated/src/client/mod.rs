@@ -59,8 +59,10 @@ use crate::{Api,
      EncounterMethodRetrieveResponse,
      EvolutionChainListResponse,
      EvolutionTriggerListResponse,
+     EvolutionVariableListResponse,
      EvolutionChainRetrieveResponse,
      EvolutionTriggerRetrieveResponse,
+     EvolutionVariableRetrieveResponse,
      GenerationListResponse,
      PokedexListResponse,
      VersionGroupListResponse,
@@ -69,11 +71,13 @@ use crate::{Api,
      PokedexRetrieveResponse,
      VersionGroupRetrieveResponse,
      VersionRetrieveResponse,
+     CurrencyListResponse,
      ItemAttributeListResponse,
      ItemCategoryListResponse,
      ItemFlingEffectListResponse,
      ItemListResponse,
      ItemPocketListResponse,
+     CurrencyRetrieveResponse,
      ItemAttributeRetrieveResponse,
      ItemCategoryRetrieveResponse,
      ItemFlingEffectRetrieveResponse,
@@ -134,6 +138,7 @@ use crate::{Api,
      StatRetrieveResponse,
      TypeRetrieveResponse,
      LanguageListResponse,
+     MetaRetrieveResponse,
      LanguageRetrieveResponse
      };
 
@@ -533,7 +538,7 @@ impl<S, C, B> Api<C> for Client<S, C> where
        Response=Response<B>> + Clone + Sync + Send + 'static,
     S::Future: Send + 'static,
     S::Error: Into<crate::ServiceError> + fmt::Display,
-    C: Has<XSpanIdString> + Has<Option<AuthData>> + Clone + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Clone + Send + Sync + 'static,
     B: hyper::body::Body + Send + 'static + Unpin,
     B::Data: Send,
     B::Error: Into<Box<dyn Error + Send + Sync>>,
@@ -594,23 +599,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Ok(h) => h,
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
-
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
 
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
@@ -706,23 +694,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
 
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
-
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
 
@@ -817,23 +788,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
 
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
-
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
 
@@ -914,23 +868,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Ok(h) => h,
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
-
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
 
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
@@ -1013,23 +950,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
 
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
-
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
 
@@ -1111,23 +1031,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
 
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
-
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
 
@@ -1171,7 +1074,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
         &self,
         param_limit: Option<i32>,
         param_offset: Option<i32>,
-        param_q: Option<String>,
         context: &C) -> Result<ContestEffectListResponse, ApiError>
     {
         let mut client_service = self.client_service.clone();
@@ -1191,10 +1093,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             if let Some(param_offset) = param_offset {
                 query_string.append_pair("offset",
                     &param_offset.to_string());
-            }
-            if let Some(param_q) = param_q {
-                query_string.append_pair("q",
-                    &param_q);
             }
             query_string.finish()
         };
@@ -1221,23 +1119,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Ok(h) => h,
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
-
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
 
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
@@ -1333,23 +1214,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
 
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
-
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
 
@@ -1393,7 +1257,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
         &self,
         param_limit: Option<i32>,
         param_offset: Option<i32>,
-        param_q: Option<String>,
         context: &C) -> Result<SuperContestEffectListResponse, ApiError>
     {
         let mut client_service = self.client_service.clone();
@@ -1413,10 +1276,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             if let Some(param_offset) = param_offset {
                 query_string.append_pair("offset",
                     &param_offset.to_string());
-            }
-            if let Some(param_q) = param_q {
-                query_string.append_pair("q",
-                    &param_q);
             }
             query_string.finish()
         };
@@ -1443,23 +1302,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Ok(h) => h,
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
-
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
 
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
@@ -1542,23 +1384,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
 
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
-
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
 
@@ -1640,23 +1465,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
 
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
-
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
 
@@ -1737,23 +1545,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Ok(h) => h,
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
-
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
 
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
@@ -1849,23 +1640,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
 
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
-
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
 
@@ -1959,23 +1733,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Ok(h) => h,
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
-
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
 
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
@@ -2071,23 +1828,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
 
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
-
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
 
@@ -2168,23 +1908,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Ok(h) => h,
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
-
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
 
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
@@ -2267,23 +1990,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
 
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
-
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
 
@@ -2365,23 +2071,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
 
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
-
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
 
@@ -2425,7 +2114,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
         &self,
         param_limit: Option<i32>,
         param_offset: Option<i32>,
-        param_q: Option<String>,
         context: &C) -> Result<EvolutionChainListResponse, ApiError>
     {
         let mut client_service = self.client_service.clone();
@@ -2445,10 +2133,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             if let Some(param_offset) = param_offset {
                 query_string.append_pair("offset",
                     &param_offset.to_string());
-            }
-            if let Some(param_q) = param_q {
-                query_string.append_pair("q",
-                    &param_q);
             }
             query_string.finish()
         };
@@ -2475,23 +2159,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Ok(h) => h,
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
-
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
 
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
@@ -2587,23 +2254,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
 
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
-
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
 
@@ -2621,6 +2271,100 @@ impl<S, C, B> Api<C> for Client<S, C> where
                     .map_err(|e| ApiError(format!("Response body did not match the schema: {e}")))?;
 
                 Ok(EvolutionTriggerListResponse::Status200
+                    (body)
+                )
+            }
+            code => {
+                let headers = response.headers().clone();
+                let body = http_body_util::BodyExt::collect(response.into_body())
+                        .await
+                        .map(|f| f.to_bytes().to_vec());
+                Err(ApiError(format!("Unexpected response code {code}:\n{headers:?}\n\n{}",
+                    match body {
+                        Ok(body) => match String::from_utf8(body) {
+                            Ok(body) => body,
+                            Err(e) => format!("<Body was not UTF8: {e:?}>"),
+                        },
+                        Err(e) => format!("<Failed to read body: {}>", Into::<crate::ServiceError>::into(e)),
+                    }
+                )))
+            }
+        }
+    }
+
+    #[allow(clippy::vec_init_then_push)]
+    async fn evolution_variable_list(
+        &self,
+        param_limit: Option<i32>,
+        param_offset: Option<i32>,
+        param_q: Option<String>,
+        context: &C) -> Result<EvolutionVariableListResponse, ApiError>
+    {
+        let mut client_service = self.client_service.clone();
+        #[allow(clippy::uninlined_format_args)]
+        let mut uri = format!(
+            "{}/api/v2/evolution-variable/",
+            self.base_path
+        );
+
+        // Query parameters
+        let query_string = {
+            let mut query_string = form_urlencoded::Serializer::new("".to_owned());
+            if let Some(param_limit) = param_limit {
+                query_string.append_pair("limit",
+                    &param_limit.to_string());
+            }
+            if let Some(param_offset) = param_offset {
+                query_string.append_pair("offset",
+                    &param_offset.to_string());
+            }
+            if let Some(param_q) = param_q {
+                query_string.append_pair("q",
+                    &param_q);
+            }
+            query_string.finish()
+        };
+        if !query_string.is_empty() {
+            uri += "?";
+            uri += &query_string;
+        }
+
+        let uri = match Uri::from_str(&uri) {
+            Ok(uri) => uri,
+            Err(err) => return Err(ApiError(format!("Unable to build URI: {err}"))),
+        };
+
+        let mut request = match Request::builder()
+            .method("GET")
+            .uri(uri)
+            .body(BoxBody::new(http_body_util::Empty::new())) {
+                Ok(req) => req,
+                Err(e) => return Err(ApiError(format!("Unable to create request: {e}")))
+        };
+
+        let header = HeaderValue::from_str(Has::<XSpanIdString>::get(context).0.as_str());
+        request.headers_mut().insert(HeaderName::from_static("x-span-id"), match header {
+            Ok(h) => h,
+            Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
+        });
+
+        let response = client_service.call((request, context.clone()))
+            .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
+
+        match response.status().as_u16() {
+            200 => {
+
+                let body = http_body_util::BodyExt::collect(response.into_body())
+                        .await
+                        .map(|f| f.to_bytes().to_vec())
+                        .map_err(|e| ApiError(format!("Failed to read response: {}", e.into())))?;
+
+                let body = str::from_utf8(&body)
+                    .map_err(|e| ApiError(format!("Response was not valid UTF8: {e}")))?;
+                let body = serde_json::from_str::<models::PaginatedEvolutionVariableSummaryList>(body)
+                    .map_err(|e| ApiError(format!("Response body did not match the schema: {e}")))?;
+
+                Ok(EvolutionVariableListResponse::Status200
                     (body)
                 )
             }
@@ -2684,23 +2428,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Ok(h) => h,
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
-
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
 
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
@@ -2783,23 +2510,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
 
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
-
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
 
@@ -2817,6 +2527,87 @@ impl<S, C, B> Api<C> for Client<S, C> where
                     .map_err(|e| ApiError(format!("Response body did not match the schema: {e}")))?;
 
                 Ok(EvolutionTriggerRetrieveResponse::Status200
+                    (body)
+                )
+            }
+            code => {
+                let headers = response.headers().clone();
+                let body = http_body_util::BodyExt::collect(response.into_body())
+                        .await
+                        .map(|f| f.to_bytes().to_vec());
+                Err(ApiError(format!("Unexpected response code {code}:\n{headers:?}\n\n{}",
+                    match body {
+                        Ok(body) => match String::from_utf8(body) {
+                            Ok(body) => body,
+                            Err(e) => format!("<Body was not UTF8: {e:?}>"),
+                        },
+                        Err(e) => format!("<Failed to read body: {}>", Into::<crate::ServiceError>::into(e)),
+                    }
+                )))
+            }
+        }
+    }
+
+    #[allow(clippy::vec_init_then_push)]
+    async fn evolution_variable_retrieve(
+        &self,
+        param_id: String,
+        context: &C) -> Result<EvolutionVariableRetrieveResponse, ApiError>
+    {
+        let mut client_service = self.client_service.clone();
+        #[allow(clippy::uninlined_format_args)]
+        let mut uri = format!(
+            "{}/api/v2/evolution-variable/{id}/",
+            self.base_path
+            ,id=utf8_percent_encode(&param_id.to_string(), ID_ENCODE_SET)
+        );
+
+        // Query parameters
+        let query_string = {
+            let mut query_string = form_urlencoded::Serializer::new("".to_owned());
+            query_string.finish()
+        };
+        if !query_string.is_empty() {
+            uri += "?";
+            uri += &query_string;
+        }
+
+        let uri = match Uri::from_str(&uri) {
+            Ok(uri) => uri,
+            Err(err) => return Err(ApiError(format!("Unable to build URI: {err}"))),
+        };
+
+        let mut request = match Request::builder()
+            .method("GET")
+            .uri(uri)
+            .body(BoxBody::new(http_body_util::Empty::new())) {
+                Ok(req) => req,
+                Err(e) => return Err(ApiError(format!("Unable to create request: {e}")))
+        };
+
+        let header = HeaderValue::from_str(Has::<XSpanIdString>::get(context).0.as_str());
+        request.headers_mut().insert(HeaderName::from_static("x-span-id"), match header {
+            Ok(h) => h,
+            Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
+        });
+
+        let response = client_service.call((request, context.clone()))
+            .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
+
+        match response.status().as_u16() {
+            200 => {
+
+                let body = http_body_util::BodyExt::collect(response.into_body())
+                        .await
+                        .map(|f| f.to_bytes().to_vec())
+                        .map_err(|e| ApiError(format!("Failed to read response: {}", e.into())))?;
+
+                let body = str::from_utf8(&body)
+                    .map_err(|e| ApiError(format!("Response was not valid UTF8: {e}")))?;
+                let body = serde_json::from_str::<models::EvolutionVariableDetail>(body)
+                    .map_err(|e| ApiError(format!("Response body did not match the schema: {e}")))?;
+
+                Ok(EvolutionVariableRetrieveResponse::Status200
                     (body)
                 )
             }
@@ -2893,23 +2684,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Ok(h) => h,
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
-
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
 
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
@@ -3005,23 +2779,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
 
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
-
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
 
@@ -3115,23 +2872,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Ok(h) => h,
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
-
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
 
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
@@ -3227,23 +2967,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
 
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
-
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
 
@@ -3324,23 +3047,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Ok(h) => h,
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
-
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
 
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
@@ -3423,23 +3129,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
 
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
-
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
 
@@ -3520,23 +3209,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Ok(h) => h,
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
-
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
 
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
@@ -3619,23 +3291,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
 
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
-
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
 
@@ -3653,6 +3308,100 @@ impl<S, C, B> Api<C> for Client<S, C> where
                     .map_err(|e| ApiError(format!("Response body did not match the schema: {e}")))?;
 
                 Ok(VersionRetrieveResponse::Status200
+                    (body)
+                )
+            }
+            code => {
+                let headers = response.headers().clone();
+                let body = http_body_util::BodyExt::collect(response.into_body())
+                        .await
+                        .map(|f| f.to_bytes().to_vec());
+                Err(ApiError(format!("Unexpected response code {code}:\n{headers:?}\n\n{}",
+                    match body {
+                        Ok(body) => match String::from_utf8(body) {
+                            Ok(body) => body,
+                            Err(e) => format!("<Body was not UTF8: {e:?}>"),
+                        },
+                        Err(e) => format!("<Failed to read body: {}>", Into::<crate::ServiceError>::into(e)),
+                    }
+                )))
+            }
+        }
+    }
+
+    #[allow(clippy::vec_init_then_push)]
+    async fn currency_list(
+        &self,
+        param_limit: Option<i32>,
+        param_offset: Option<i32>,
+        param_q: Option<String>,
+        context: &C) -> Result<CurrencyListResponse, ApiError>
+    {
+        let mut client_service = self.client_service.clone();
+        #[allow(clippy::uninlined_format_args)]
+        let mut uri = format!(
+            "{}/api/v2/currency/",
+            self.base_path
+        );
+
+        // Query parameters
+        let query_string = {
+            let mut query_string = form_urlencoded::Serializer::new("".to_owned());
+            if let Some(param_limit) = param_limit {
+                query_string.append_pair("limit",
+                    &param_limit.to_string());
+            }
+            if let Some(param_offset) = param_offset {
+                query_string.append_pair("offset",
+                    &param_offset.to_string());
+            }
+            if let Some(param_q) = param_q {
+                query_string.append_pair("q",
+                    &param_q);
+            }
+            query_string.finish()
+        };
+        if !query_string.is_empty() {
+            uri += "?";
+            uri += &query_string;
+        }
+
+        let uri = match Uri::from_str(&uri) {
+            Ok(uri) => uri,
+            Err(err) => return Err(ApiError(format!("Unable to build URI: {err}"))),
+        };
+
+        let mut request = match Request::builder()
+            .method("GET")
+            .uri(uri)
+            .body(BoxBody::new(http_body_util::Empty::new())) {
+                Ok(req) => req,
+                Err(e) => return Err(ApiError(format!("Unable to create request: {e}")))
+        };
+
+        let header = HeaderValue::from_str(Has::<XSpanIdString>::get(context).0.as_str());
+        request.headers_mut().insert(HeaderName::from_static("x-span-id"), match header {
+            Ok(h) => h,
+            Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
+        });
+
+        let response = client_service.call((request, context.clone()))
+            .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
+
+        match response.status().as_u16() {
+            200 => {
+
+                let body = http_body_util::BodyExt::collect(response.into_body())
+                        .await
+                        .map(|f| f.to_bytes().to_vec())
+                        .map_err(|e| ApiError(format!("Failed to read response: {}", e.into())))?;
+
+                let body = str::from_utf8(&body)
+                    .map_err(|e| ApiError(format!("Response was not valid UTF8: {e}")))?;
+                let body = serde_json::from_str::<models::PaginatedCurrencySummaryList>(body)
+                    .map_err(|e| ApiError(format!("Response body did not match the schema: {e}")))?;
+
+                Ok(CurrencyListResponse::Status200
                     (body)
                 )
             }
@@ -3729,23 +3478,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Ok(h) => h,
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
-
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
 
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
@@ -3841,23 +3573,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
 
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
-
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
 
@@ -3951,23 +3666,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Ok(h) => h,
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
-
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
 
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
@@ -4063,23 +3761,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
 
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
-
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
 
@@ -4174,23 +3855,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
 
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
-
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
 
@@ -4208,6 +3872,87 @@ impl<S, C, B> Api<C> for Client<S, C> where
                     .map_err(|e| ApiError(format!("Response body did not match the schema: {e}")))?;
 
                 Ok(ItemPocketListResponse::Status200
+                    (body)
+                )
+            }
+            code => {
+                let headers = response.headers().clone();
+                let body = http_body_util::BodyExt::collect(response.into_body())
+                        .await
+                        .map(|f| f.to_bytes().to_vec());
+                Err(ApiError(format!("Unexpected response code {code}:\n{headers:?}\n\n{}",
+                    match body {
+                        Ok(body) => match String::from_utf8(body) {
+                            Ok(body) => body,
+                            Err(e) => format!("<Body was not UTF8: {e:?}>"),
+                        },
+                        Err(e) => format!("<Failed to read body: {}>", Into::<crate::ServiceError>::into(e)),
+                    }
+                )))
+            }
+        }
+    }
+
+    #[allow(clippy::vec_init_then_push)]
+    async fn currency_retrieve(
+        &self,
+        param_id: String,
+        context: &C) -> Result<CurrencyRetrieveResponse, ApiError>
+    {
+        let mut client_service = self.client_service.clone();
+        #[allow(clippy::uninlined_format_args)]
+        let mut uri = format!(
+            "{}/api/v2/currency/{id}/",
+            self.base_path
+            ,id=utf8_percent_encode(&param_id.to_string(), ID_ENCODE_SET)
+        );
+
+        // Query parameters
+        let query_string = {
+            let mut query_string = form_urlencoded::Serializer::new("".to_owned());
+            query_string.finish()
+        };
+        if !query_string.is_empty() {
+            uri += "?";
+            uri += &query_string;
+        }
+
+        let uri = match Uri::from_str(&uri) {
+            Ok(uri) => uri,
+            Err(err) => return Err(ApiError(format!("Unable to build URI: {err}"))),
+        };
+
+        let mut request = match Request::builder()
+            .method("GET")
+            .uri(uri)
+            .body(BoxBody::new(http_body_util::Empty::new())) {
+                Ok(req) => req,
+                Err(e) => return Err(ApiError(format!("Unable to create request: {e}")))
+        };
+
+        let header = HeaderValue::from_str(Has::<XSpanIdString>::get(context).0.as_str());
+        request.headers_mut().insert(HeaderName::from_static("x-span-id"), match header {
+            Ok(h) => h,
+            Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
+        });
+
+        let response = client_service.call((request, context.clone()))
+            .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
+
+        match response.status().as_u16() {
+            200 => {
+
+                let body = http_body_util::BodyExt::collect(response.into_body())
+                        .await
+                        .map(|f| f.to_bytes().to_vec())
+                        .map_err(|e| ApiError(format!("Failed to read response: {}", e.into())))?;
+
+                let body = str::from_utf8(&body)
+                    .map_err(|e| ApiError(format!("Response was not valid UTF8: {e}")))?;
+                let body = serde_json::from_str::<models::CurrencyDetail>(body)
+                    .map_err(|e| ApiError(format!("Response body did not match the schema: {e}")))?;
+
+                Ok(CurrencyRetrieveResponse::Status200
                     (body)
                 )
             }
@@ -4271,23 +4016,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Ok(h) => h,
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
-
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
 
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
@@ -4370,23 +4098,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
 
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
-
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
 
@@ -4467,23 +4178,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Ok(h) => h,
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
-
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
 
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
@@ -4566,23 +4260,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
 
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
-
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
 
@@ -4663,23 +4340,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Ok(h) => h,
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
-
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
 
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
@@ -4769,23 +4429,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Ok(h) => h,
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
-
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
 
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
@@ -4881,23 +4524,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
 
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
-
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
 
@@ -4991,23 +4617,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Ok(h) => h,
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
-
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
 
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
@@ -5103,23 +4712,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
 
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
-
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
 
@@ -5200,23 +4792,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Ok(h) => h,
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
-
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
 
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
@@ -5299,23 +4874,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
 
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
-
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
 
@@ -5396,23 +4954,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Ok(h) => h,
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
-
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
 
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
@@ -5495,23 +5036,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
 
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
-
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
 
@@ -5555,7 +5079,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
         &self,
         param_limit: Option<i32>,
         param_offset: Option<i32>,
-        param_q: Option<String>,
         context: &C) -> Result<MachineListResponse, ApiError>
     {
         let mut client_service = self.client_service.clone();
@@ -5575,10 +5098,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             if let Some(param_offset) = param_offset {
                 query_string.append_pair("offset",
                     &param_offset.to_string());
-            }
-            if let Some(param_q) = param_q {
-                query_string.append_pair("q",
-                    &param_q);
             }
             query_string.finish()
         };
@@ -5605,23 +5124,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Ok(h) => h,
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
-
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
 
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
@@ -5703,23 +5205,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Ok(h) => h,
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
-
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
 
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
@@ -5815,23 +5300,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
 
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
-
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
 
@@ -5925,23 +5393,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Ok(h) => h,
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
-
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
 
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
@@ -6037,23 +5488,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
 
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
-
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
 
@@ -6147,23 +5581,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Ok(h) => h,
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
-
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
 
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
@@ -6259,23 +5676,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
 
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
-
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
 
@@ -6370,23 +5770,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
 
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
-
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
 
@@ -6467,23 +5850,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Ok(h) => h,
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
-
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
 
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
@@ -6566,23 +5932,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
 
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
-
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
 
@@ -6663,23 +6012,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Ok(h) => h,
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
-
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
 
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
@@ -6762,23 +6094,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
 
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
-
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
 
@@ -6860,23 +6175,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
 
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
-
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
 
@@ -6957,23 +6255,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Ok(h) => h,
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
-
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
 
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
@@ -7069,23 +6350,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
 
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
-
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
 
@@ -7129,7 +6393,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
         &self,
         param_limit: Option<i32>,
         param_offset: Option<i32>,
-        param_q: Option<String>,
         context: &C) -> Result<CharacteristicListResponse, ApiError>
     {
         let mut client_service = self.client_service.clone();
@@ -7149,10 +6412,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             if let Some(param_offset) = param_offset {
                 query_string.append_pair("offset",
                     &param_offset.to_string());
-            }
-            if let Some(param_q) = param_q {
-                query_string.append_pair("q",
-                    &param_q);
             }
             query_string.finish()
         };
@@ -7179,23 +6438,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Ok(h) => h,
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
-
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
 
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
@@ -7291,23 +6533,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
 
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
-
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
 
@@ -7401,23 +6626,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Ok(h) => h,
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
-
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
 
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
@@ -7513,23 +6721,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
 
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
-
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
 
@@ -7623,23 +6814,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Ok(h) => h,
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
-
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
 
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
@@ -7735,23 +6909,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
 
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
-
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
 
@@ -7845,23 +7002,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Ok(h) => h,
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
-
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
 
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
@@ -7957,23 +7097,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
 
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
-
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
 
@@ -8067,23 +7190,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Ok(h) => h,
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
-
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
 
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
@@ -8179,23 +7285,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
 
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
-
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
 
@@ -8289,23 +7378,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Ok(h) => h,
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
-
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
 
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
@@ -8401,23 +7473,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
 
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
-
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
 
@@ -8511,23 +7566,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Ok(h) => h,
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
-
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
 
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
@@ -8623,23 +7661,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
 
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
-
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
 
@@ -8734,23 +7755,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
 
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
-
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
 
@@ -8831,23 +7835,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Ok(h) => h,
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
-
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
 
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
@@ -8930,23 +7917,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
 
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
-
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
 
@@ -9027,23 +7997,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Ok(h) => h,
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
-
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
 
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
@@ -9126,23 +8079,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
 
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
-
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
 
@@ -9223,23 +8159,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Ok(h) => h,
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
-
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
 
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
@@ -9322,23 +8241,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
 
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
-
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
 
@@ -9419,23 +8321,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Ok(h) => h,
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
-
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
 
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
@@ -9518,23 +8403,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
 
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
-
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
 
@@ -9615,23 +8483,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Ok(h) => h,
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
-
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
 
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
@@ -9714,23 +8565,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
 
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
-
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
 
@@ -9811,23 +8645,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Ok(h) => h,
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
-
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
 
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
@@ -9910,23 +8727,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
 
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
-
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
 
@@ -10007,23 +8807,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Ok(h) => h,
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
-
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
 
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
@@ -10106,23 +8889,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
 
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
-
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
 
@@ -10204,23 +8970,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
 
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
-
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
 
@@ -10301,23 +9050,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Ok(h) => h,
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
-
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
 
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
@@ -10413,23 +9145,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
 
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
-
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
 
@@ -10447,6 +9162,85 @@ impl<S, C, B> Api<C> for Client<S, C> where
                     .map_err(|e| ApiError(format!("Response body did not match the schema: {e}")))?;
 
                 Ok(LanguageListResponse::Status200
+                    (body)
+                )
+            }
+            code => {
+                let headers = response.headers().clone();
+                let body = http_body_util::BodyExt::collect(response.into_body())
+                        .await
+                        .map(|f| f.to_bytes().to_vec());
+                Err(ApiError(format!("Unexpected response code {code}:\n{headers:?}\n\n{}",
+                    match body {
+                        Ok(body) => match String::from_utf8(body) {
+                            Ok(body) => body,
+                            Err(e) => format!("<Body was not UTF8: {e:?}>"),
+                        },
+                        Err(e) => format!("<Failed to read body: {}>", Into::<crate::ServiceError>::into(e)),
+                    }
+                )))
+            }
+        }
+    }
+
+    #[allow(clippy::vec_init_then_push)]
+    async fn meta_retrieve(
+        &self,
+        context: &C) -> Result<MetaRetrieveResponse, ApiError>
+    {
+        let mut client_service = self.client_service.clone();
+        #[allow(clippy::uninlined_format_args)]
+        let mut uri = format!(
+            "{}/api/v2/meta/",
+            self.base_path
+        );
+
+        // Query parameters
+        let query_string = {
+            let mut query_string = form_urlencoded::Serializer::new("".to_owned());
+            query_string.finish()
+        };
+        if !query_string.is_empty() {
+            uri += "?";
+            uri += &query_string;
+        }
+
+        let uri = match Uri::from_str(&uri) {
+            Ok(uri) => uri,
+            Err(err) => return Err(ApiError(format!("Unable to build URI: {err}"))),
+        };
+
+        let mut request = match Request::builder()
+            .method("GET")
+            .uri(uri)
+            .body(BoxBody::new(http_body_util::Empty::new())) {
+                Ok(req) => req,
+                Err(e) => return Err(ApiError(format!("Unable to create request: {e}")))
+        };
+
+        let header = HeaderValue::from_str(Has::<XSpanIdString>::get(context).0.as_str());
+        request.headers_mut().insert(HeaderName::from_static("x-span-id"), match header {
+            Ok(h) => h,
+            Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
+        });
+
+        let response = client_service.call((request, context.clone()))
+            .map_err(|e| ApiError(format!("No response received: {e}"))).await?;
+
+        match response.status().as_u16() {
+            200 => {
+
+                let body = http_body_util::BodyExt::collect(response.into_body())
+                        .await
+                        .map(|f| f.to_bytes().to_vec())
+                        .map_err(|e| ApiError(format!("Failed to read response: {}", e.into())))?;
+
+                let body = str::from_utf8(&body)
+                    .map_err(|e| ApiError(format!("Response was not valid UTF8: {e}")))?;
+                let body = serde_json::from_str::<models::PokeapiMetaResponse>(body)
+                    .map_err(|e| ApiError(format!("Response body did not match the schema: {e}")))?;
+
+                Ok(MetaRetrieveResponse::Status200
                     (body)
                 )
             }
@@ -10510,23 +9304,6 @@ impl<S, C, B> Api<C> for Client<S, C> where
             Ok(h) => h,
             Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {e}")))
         });
-
-        #[allow(clippy::collapsible_match)]
-        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
-            use headers::authorization::Credentials;
-            // The trailing `_` arm is unreachable when the spec declares every kind of
-            // scheme `AuthData` can represent, and the workspace denies warnings.
-            #[allow(unreachable_patterns, clippy::single_match, clippy::match_single_binding)]
-            match auth_data {
-                AuthData::Basic(ref basic_user, ref basic_password) => {
-                    let auth = headers::Authorization::basic(basic_user.as_str(), basic_password.as_str());
-                    request.headers_mut().insert(
-                        hyper::header::AUTHORIZATION,
-                        auth.0.encode());
-                },
-                _ => {}
-            }
-        }
 
         let response = client_service.call((request, context.clone()))
             .map_err(|e| ApiError(format!("No response received: {e}"))).await?;

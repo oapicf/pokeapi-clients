@@ -21,20 +21,20 @@ defmodule PokéAPI.Model.LocationAreaDetail do
     :id => integer(),
     :name => String.t,
     :game_index => integer(),
-    :encounter_method_rates => [PokéAPI.Model.LocationAreaDetailEncounterMethodRatesInner.t],
+    :encounter_method_rates => [PokéAPI.Model.LocationAreaEncounterRate.t],
     :location => PokéAPI.Model.LocationSummary.t,
     :names => [PokéAPI.Model.LocationAreaName.t],
-    :pokemon_encounters => [PokéAPI.Model.LocationAreaDetailPokemonEncountersInner.t]
+    :pokemon_encounters => [PokéAPI.Model.LocationAreaPokemonEncounter.t]
   }
 
   alias PokéAPI.Deserializer
 
   def decode(value) do
     value
-     |> Deserializer.deserialize(:encounter_method_rates, :list, PokéAPI.Model.LocationAreaDetailEncounterMethodRatesInner)
+     |> Deserializer.deserialize(:encounter_method_rates, :list, PokéAPI.Model.LocationAreaEncounterRate)
      |> Deserializer.deserialize(:location, :struct, PokéAPI.Model.LocationSummary)
      |> Deserializer.deserialize(:names, :list, PokéAPI.Model.LocationAreaName)
-     |> Deserializer.deserialize(:pokemon_encounters, :list, PokéAPI.Model.LocationAreaDetailPokemonEncountersInner)
+     |> Deserializer.deserialize(:pokemon_encounters, :list, PokéAPI.Model.LocationAreaPokemonEncounter)
   end
 end
 

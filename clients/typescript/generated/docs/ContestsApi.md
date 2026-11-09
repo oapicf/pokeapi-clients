@@ -32,8 +32,6 @@ const request: ContestsApiContestEffectListRequest = {
   limit: 1,
     // The initial index from which to return the results. (optional)
   offset: 1,
-    // > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
-  q: "q_example",
 };
 
 const data = await apiInstance.contestEffectList(request);
@@ -47,7 +45,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | [**number**] | Number of results to return per page. | (optional) defaults to undefined
  **offset** | [**number**] | The initial index from which to return the results. | (optional) defaults to undefined
- **q** | [**string**] | &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | (optional) defaults to undefined
 
 
 ### Return type
@@ -56,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](README.md#basicAuth), [cookieAuth](README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -88,7 +85,7 @@ const apiInstance = new ContestsApi(configuration);
 
 const request: ContestsApiContestEffectRetrieveRequest = {
     // This parameter can be a string or an integer.
-  id: "id_example",
+  id: "1",
 };
 
 const data = await apiInstance.contestEffectRetrieve(request);
@@ -109,7 +106,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](README.md#basicAuth), [cookieAuth](README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -168,7 +165,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](README.md#basicAuth), [cookieAuth](README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -200,7 +197,7 @@ const apiInstance = new ContestsApi(configuration);
 
 const request: ContestsApiContestTypeRetrieveRequest = {
     // This parameter can be a string or an integer.
-  id: "id_example",
+  id: "1",
 };
 
 const data = await apiInstance.contestTypeRetrieve(request);
@@ -221,7 +218,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](README.md#basicAuth), [cookieAuth](README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -256,8 +253,6 @@ const request: ContestsApiSuperContestEffectListRequest = {
   limit: 1,
     // The initial index from which to return the results. (optional)
   offset: 1,
-    // > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
-  q: "q_example",
 };
 
 const data = await apiInstance.superContestEffectList(request);
@@ -271,7 +266,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | [**number**] | Number of results to return per page. | (optional) defaults to undefined
  **offset** | [**number**] | The initial index from which to return the results. | (optional) defaults to undefined
- **q** | [**string**] | &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | (optional) defaults to undefined
 
 
 ### Return type
@@ -280,7 +274,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](README.md#basicAuth), [cookieAuth](README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -312,7 +306,7 @@ const apiInstance = new ContestsApi(configuration);
 
 const request: ContestsApiSuperContestEffectRetrieveRequest = {
     // This parameter can be a string or an integer.
-  id: "id_example",
+  id: "1",
 };
 
 const data = await apiInstance.superContestEffectRetrieve(request);
@@ -333,7 +327,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](README.md#basicAuth), [cookieAuth](README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

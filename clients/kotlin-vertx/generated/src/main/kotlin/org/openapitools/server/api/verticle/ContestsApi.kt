@@ -24,7 +24,7 @@ interface ContestsApi  {
     fun init(vertx:Vertx,config:JsonObject)
     /* contestEffectList
      * List contest effects */
-    suspend fun contestEffectList(limit:kotlin.Int?,offset:kotlin.Int?,q:kotlin.String?,context:OperationRequest):Response<PaginatedContestEffectSummaryList>
+    suspend fun contestEffectList(limit:kotlin.Int?,offset:kotlin.Int?,context:OperationRequest):Response<PaginatedContestEffectSummaryList>
     /* contestEffectRetrieve
      * Get contest effect */
     suspend fun contestEffectRetrieve(id:kotlin.String?,context:OperationRequest):Response<ContestEffectDetail>
@@ -36,7 +36,7 @@ interface ContestsApi  {
     suspend fun contestTypeRetrieve(id:kotlin.String?,context:OperationRequest):Response<ContestTypeDetail>
     /* superContestEffectList
      * List super contest effects */
-    suspend fun superContestEffectList(limit:kotlin.Int?,offset:kotlin.Int?,q:kotlin.String?,context:OperationRequest):Response<PaginatedSuperContestEffectSummaryList>
+    suspend fun superContestEffectList(limit:kotlin.Int?,offset:kotlin.Int?,context:OperationRequest):Response<PaginatedSuperContestEffectSummaryList>
     /* superContestEffectRetrieve
      * Get super contest effect */
     suspend fun superContestEffectRetrieve(id:kotlin.String?,context:OperationRequest):Response<SuperContestEffectDetail>

@@ -31,16 +31,18 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param flavorText 
- * @param language 
+ * @param flavorText The localized flavor text for an API resource in a specific language.
+ * @param language The language this name is in.
  */
 
 
 data class SuperContestEffectFlavorText (
 
+    /* The localized flavor text for an API resource in a specific language. */
     @Json(name = "flavor_text")
     val flavorText: kotlin.String,
 
+    /* The language this name is in. */
     @Json(name = "language")
     val language: LanguageSummary
 

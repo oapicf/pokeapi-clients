@@ -6,6 +6,7 @@ goog.provide('API.Client.EvolutionChainSummary');
 API.Client.EvolutionChainSummary = function() {}
 
 /**
+ * The URL of the referenced resource.
  * @type {!API.Client.URI}
  * @export
  */

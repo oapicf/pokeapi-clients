@@ -7,8 +7,8 @@ authors     = ["F. Bar (foo@bar.baz)"]
 
 imports {
   Root = tosca.resourceTypes.Root
-  PokemonShapeDetailAwesomeNamesInner = openapi_server.resourceTypes.PokemonShapeDetailAwesomeNamesInner
-  PokemonShapeDetailNamesInner = openapi_server.resourceTypes.PokemonShapeDetailNamesInner
+  PokemonShapeAwesomeName = openapi_server.resourceTypes.PokemonShapeAwesomeName
+  PokemonShapeName = openapi_server.resourceTypes.PokemonShapeName
   PokemonSpeciesSummary = openapi_server.resourceTypes.PokemonSpeciesSummary
 }
 resourceTypes {
@@ -20,30 +20,30 @@ resourceTypes {
     properties {
         id {
           type =  integer
-          description = ""
+          description = "The identifier for this resource."
           optional = true
         }
         name {
           type =  string
-          description = ""
+          description = "The name for this resource."
           optional = true
         }
         awesome_names {
           type = array
-          items.type = PokemonShapeDetailAwesomeNamesInner
-          description = ""
+          items.type = PokemonShapeAwesomeName
+          description = "The \&quot;scientific\&quot; name of this Pokémon shape listed in different languages."
           optional = true
         }
         names {
           type = array
-          items.type = PokemonShapeDetailNamesInner
-          description = ""
+          items.type = PokemonShapeName
+          description = "The name of this resource listed in different languages."
           optional = true
         }
         pokemon_species {
           type = array
           items.type = PokemonSpeciesSummary
-          description = ""
+          description = "A list of the Pokémon species that have this shape."
           optional = true
         }
     }

@@ -60,6 +60,8 @@ class EvolutionApiSimulation extends Simulation {
     val evolutionChainRetrievePerSecond = config.getDouble("performance.operationsPerSecond.evolutionChainRetrieve") * rateMultiplier * instanceMultiplier
     val evolutionTriggerListPerSecond = config.getDouble("performance.operationsPerSecond.evolutionTriggerList") * rateMultiplier * instanceMultiplier
     val evolutionTriggerRetrievePerSecond = config.getDouble("performance.operationsPerSecond.evolutionTriggerRetrieve") * rateMultiplier * instanceMultiplier
+    val evolutionVariableListPerSecond = config.getDouble("performance.operationsPerSecond.evolutionVariableList") * rateMultiplier * instanceMultiplier
+    val evolutionVariableRetrievePerSecond = config.getDouble("performance.operationsPerSecond.evolutionVariableRetrieve") * rateMultiplier * instanceMultiplier
 
     val scenarioBuilders: mutable.MutableList[PopulationBuilder] = new mutable.MutableList[PopulationBuilder]()
 
@@ -68,6 +70,8 @@ class EvolutionApiSimulation extends Simulation {
     val evolution_chain_retrievePATHFeeder = csv(userDataDirectory + File.separator + "evolutionChainRetrieve-pathParams.csv").random
     val evolution_trigger_listQUERYFeeder = csv(userDataDirectory + File.separator + "evolutionTriggerList-queryParams.csv").random
     val evolution_trigger_retrievePATHFeeder = csv(userDataDirectory + File.separator + "evolutionTriggerRetrieve-pathParams.csv").random
+    val evolution_variable_listQUERYFeeder = csv(userDataDirectory + File.separator + "evolutionVariableList-queryParams.csv").random
+    val evolution_variable_retrievePATHFeeder = csv(userDataDirectory + File.separator + "evolutionVariableRetrieve-pathParams.csv").random
 
     // Setup all scenarios
 
@@ -76,7 +80,6 @@ class EvolutionApiSimulation extends Simulation {
         .feed(evolution_chain_listQUERYFeeder)
         .exec(http("evolutionChainList")
         .httpRequest("GET","/api/v2/evolution-chain/")
-        .queryParam("q","${q}")
         .queryParam("offset","${offset}")
         .queryParam("limit","${limit}")
 )
@@ -107,8 +110,8 @@ class EvolutionApiSimulation extends Simulation {
         .feed(evolution_trigger_listQUERYFeeder)
         .exec(http("evolutionTriggerList")
         .httpRequest("GET","/api/v2/evolution-trigger/")
-        .queryParam("q","${q}")
         .queryParam("offset","${offset}")
+        .queryParam("q","${q}")
         .queryParam("limit","${limit}")
 )
 
@@ -131,6 +134,37 @@ class EvolutionApiSimulation extends Simulation {
         rampUsersPerSec(1) to(evolutionTriggerRetrievePerSecond) during(rampUpSeconds),
         constantUsersPerSec(evolutionTriggerRetrievePerSecond) during(durationSeconds),
         rampUsersPerSec(evolutionTriggerRetrievePerSecond) to(1) during(rampDownSeconds)
+    )
+
+    
+    val scnevolutionVariableList = scenario("evolutionVariableListSimulation")
+        .feed(evolution_variable_listQUERYFeeder)
+        .exec(http("evolutionVariableList")
+        .httpRequest("GET","/api/v2/evolution-variable/")
+        .queryParam("offset","${offset}")
+        .queryParam("q","${q}")
+        .queryParam("limit","${limit}")
+)
+
+    // Run scnevolutionVariableList with warm up and reach a constant rate for entire duration
+    scenarioBuilders += scnevolutionVariableList.inject(
+        rampUsersPerSec(1) to(evolutionVariableListPerSecond) during(rampUpSeconds),
+        constantUsersPerSec(evolutionVariableListPerSecond) during(durationSeconds),
+        rampUsersPerSec(evolutionVariableListPerSecond) to(1) during(rampDownSeconds)
+    )
+
+    
+    val scnevolutionVariableRetrieve = scenario("evolutionVariableRetrieveSimulation")
+        .feed(evolution_variable_retrievePATHFeeder)
+        .exec(http("evolutionVariableRetrieve")
+        .httpRequest("GET","/api/v2/evolution-variable/${id}/")
+)
+
+    // Run scnevolutionVariableRetrieve with warm up and reach a constant rate for entire duration
+    scenarioBuilders += scnevolutionVariableRetrieve.inject(
+        rampUsersPerSec(1) to(evolutionVariableRetrievePerSecond) during(rampUpSeconds),
+        constantUsersPerSec(evolutionVariableRetrievePerSecond) during(durationSeconds),
+        rampUsersPerSec(evolutionVariableRetrievePerSecond) to(1) during(rampDownSeconds)
     )
 
     setUp(

@@ -8,11 +8,11 @@ The class is defined in **[ItemAttributeDetail.java](../../src/main/java/org/ope
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | `Integer` |  |  [readonly property]
-**name** | `String` |  | 
-**descriptions** | [`List&lt;ItemAttributeDescription&gt;`](ItemAttributeDescription.md) |  |  [readonly property]
-**items** | [`List&lt;AbilityDetailPokemonInnerPokemon&gt;`](AbilityDetailPokemonInnerPokemon.md) |  |  [readonly property]
-**names** | [`List&lt;ItemAttributeName&gt;`](ItemAttributeName.md) |  |  [readonly property]
+**id** | `Integer` | The identifier for this resource. |  [readonly property]
+**name** | `String` | The name for this resource. | 
+**descriptions** | [`List&lt;ItemAttributeDescription&gt;`](ItemAttributeDescription.md) | The description of this item attribute listed in different languages. |  [readonly property]
+**items** | [`List&lt;ItemSummary&gt;`](ItemSummary.md) | A list of items that have this attribute. |  [readonly property]
+**names** | [`List&lt;ItemAttributeName&gt;`](ItemAttributeName.md) | The name of this item attribute listed in different languages. |  [readonly property]
 
 
 

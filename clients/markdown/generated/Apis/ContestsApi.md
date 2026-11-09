@@ -14,7 +14,7 @@ All URIs are relative to *https://pokeapi.co*
 
 <a name="contestEffectList"></a>
 # **contestEffectList**
-> PaginatedContestEffectSummaryList contestEffectList(limit, offset, q)
+> PaginatedContestEffectSummaryList contestEffectList(limit, offset)
 
 List contest effects
 
@@ -26,7 +26,6 @@ List contest effects
 |------------- | ------------- | ------------- | -------------|
 | **limit** | **Integer**| Number of results to return per page. | [optional] [default to null] |
 | **offset** | **Integer**| The initial index from which to return the results. | [optional] [default to null] |
-| **q** | **String**| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional] [default to null] |
 
 ### Return type
 
@@ -34,7 +33,7 @@ List contest effects
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -61,7 +60,7 @@ Get contest effect
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -90,7 +89,7 @@ List contest types
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -117,7 +116,7 @@ Get contest type
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -126,7 +125,7 @@ Get contest type
 
 <a name="superContestEffectList"></a>
 # **superContestEffectList**
-> PaginatedSuperContestEffectSummaryList superContestEffectList(limit, offset, q)
+> PaginatedSuperContestEffectSummaryList superContestEffectList(limit, offset)
 
 List super contest effects
 
@@ -138,7 +137,6 @@ List super contest effects
 |------------- | ------------- | ------------- | -------------|
 | **limit** | **Integer**| Number of results to return per page. | [optional] [default to null] |
 | **offset** | **Integer**| The initial index from which to return the results. | [optional] [default to null] |
-| **q** | **String**| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional] [default to null] |
 
 ### Return type
 
@@ -146,7 +144,7 @@ List super contest effects
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -173,7 +171,7 @@ Get super contest effect
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

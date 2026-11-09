@@ -5,9 +5,9 @@ from datetime import date, datetime
 from typing import List, Dict, Type
 
 from openapi_server.models.base_model import Model
-from openapi_server.models.ability_detail_pokemon_inner_pokemon import AbilityDetailPokemonInnerPokemon
 from openapi_server.models.move_learn_method_description import MoveLearnMethodDescription
 from openapi_server.models.move_learn_method_name import MoveLearnMethodName
+from openapi_server.models.version_group_summary import VersionGroupSummary
 from openapi_server import util
 
 
@@ -17,7 +17,7 @@ class MoveLearnMethodDetail(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, id: int=None, name: str=None, names: List[MoveLearnMethodName]=None, descriptions: List[MoveLearnMethodDescription]=None, version_groups: List[AbilityDetailPokemonInnerPokemon]=None):
+    def __init__(self, id: int=None, name: str=None, names: List[MoveLearnMethodName]=None, descriptions: List[MoveLearnMethodDescription]=None, version_groups: List[VersionGroupSummary]=None):
         """MoveLearnMethodDetail - a model defined in OpenAPI
 
         :param id: The id of this MoveLearnMethodDetail.
@@ -31,7 +31,7 @@ class MoveLearnMethodDetail(Model):
             'name': str,
             'names': List[MoveLearnMethodName],
             'descriptions': List[MoveLearnMethodDescription],
-            'version_groups': List[AbilityDetailPokemonInnerPokemon]
+            'version_groups': List[VersionGroupSummary]
         }
 
         self.attribute_map = {
@@ -61,6 +61,7 @@ class MoveLearnMethodDetail(Model):
     def id(self):
         """Gets the id of this MoveLearnMethodDetail.
 
+        The identifier for this resource.
 
         :return: The id of this MoveLearnMethodDetail.
         :rtype: int
@@ -71,6 +72,7 @@ class MoveLearnMethodDetail(Model):
     def id(self, id):
         """Sets the id of this MoveLearnMethodDetail.
 
+        The identifier for this resource.
 
         :param id: The id of this MoveLearnMethodDetail.
         :type id: int
@@ -84,6 +86,7 @@ class MoveLearnMethodDetail(Model):
     def name(self):
         """Gets the name of this MoveLearnMethodDetail.
 
+        The name for this resource.
 
         :return: The name of this MoveLearnMethodDetail.
         :rtype: str
@@ -94,14 +97,15 @@ class MoveLearnMethodDetail(Model):
     def name(self, name):
         """Sets the name of this MoveLearnMethodDetail.
 
+        The name for this resource.
 
         :param name: The name of this MoveLearnMethodDetail.
         :type name: str
         """
         if name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")
-        if name is not None and len(name) > 100:
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `100`")
+        if name is not None and len(name) > 200:
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `200`")
 
         self._name = name
 
@@ -109,6 +113,7 @@ class MoveLearnMethodDetail(Model):
     def names(self):
         """Gets the names of this MoveLearnMethodDetail.
 
+        The name of this resource listed in different languages.
 
         :return: The names of this MoveLearnMethodDetail.
         :rtype: List[MoveLearnMethodName]
@@ -119,6 +124,7 @@ class MoveLearnMethodDetail(Model):
     def names(self, names):
         """Sets the names of this MoveLearnMethodDetail.
 
+        The name of this resource listed in different languages.
 
         :param names: The names of this MoveLearnMethodDetail.
         :type names: List[MoveLearnMethodName]
@@ -132,6 +138,7 @@ class MoveLearnMethodDetail(Model):
     def descriptions(self):
         """Gets the descriptions of this MoveLearnMethodDetail.
 
+        The description of this resource listed in different languages.
 
         :return: The descriptions of this MoveLearnMethodDetail.
         :rtype: List[MoveLearnMethodDescription]
@@ -142,6 +149,7 @@ class MoveLearnMethodDetail(Model):
     def descriptions(self, descriptions):
         """Sets the descriptions of this MoveLearnMethodDetail.
 
+        The description of this resource listed in different languages.
 
         :param descriptions: The descriptions of this MoveLearnMethodDetail.
         :type descriptions: List[MoveLearnMethodDescription]
@@ -155,9 +163,10 @@ class MoveLearnMethodDetail(Model):
     def version_groups(self):
         """Gets the version_groups of this MoveLearnMethodDetail.
 
+        A list of version groups where moves can be learned through this method.
 
         :return: The version_groups of this MoveLearnMethodDetail.
-        :rtype: List[AbilityDetailPokemonInnerPokemon]
+        :rtype: List[VersionGroupSummary]
         """
         return self._version_groups
 
@@ -165,9 +174,10 @@ class MoveLearnMethodDetail(Model):
     def version_groups(self, version_groups):
         """Sets the version_groups of this MoveLearnMethodDetail.
 
+        A list of version groups where moves can be learned through this method.
 
         :param version_groups: The version_groups of this MoveLearnMethodDetail.
-        :type version_groups: List[AbilityDetailPokemonInnerPokemon]
+        :type version_groups: List[VersionGroupSummary]
         """
         if version_groups is None:
             raise ValueError("Invalid value for `version_groups`, must not be `None`")

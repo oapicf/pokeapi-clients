@@ -17,29 +17,29 @@ import io.swagger.v3.oas.annotations.media.Schema
 
 /**
  * 
- * @param id 
- * @param name 
- * @param categories 
- * @param names 
+ * @param id The identifier for this resource.
+ * @param name The name for this resource.
+ * @param categories A list of item categories that are relevant to this item pocket.
+ * @param names The name of this resource listed in different languages.
  */
 data class ItemPocketDetail(
 
-    @Schema(required = true, readOnly = true, description = "")
+    @Schema(required = true, readOnly = true, description = "The identifier for this resource.")
     @param:JsonProperty("id", required = true)
     @get:JsonProperty("id", required = true) val id: kotlin.Int,
 
-    @get:Size(max=100)
-    @Schema(required = true, description = "")
+    @get:Size(max=200)
+    @Schema(required = true, description = "The name for this resource.")
     @param:JsonProperty("name", required = true)
     @get:JsonProperty("name", required = true) val name: kotlin.String,
 
     @field:Valid
-    @Schema(required = true, readOnly = true, description = "")
+    @Schema(required = true, readOnly = true, description = "A list of item categories that are relevant to this item pocket.")
     @param:JsonProperty("categories", required = true)
     @get:JsonProperty("categories", required = true) val categories: kotlin.collections.List<ItemCategorySummary>,
 
     @field:Valid
-    @Schema(required = true, readOnly = true, description = "")
+    @Schema(required = true, readOnly = true, description = "The name of this resource listed in different languages.")
     @param:JsonProperty("names", required = true)
     @get:JsonProperty("names", required = true) val names: kotlin.collections.List<ItemPocketName>
 ) {

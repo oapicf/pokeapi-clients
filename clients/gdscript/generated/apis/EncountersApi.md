@@ -24,8 +24,6 @@ Conditions which affect what pokemon might appear in the wild, e.g., day or nigh
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -78,8 +76,6 @@ Conditions which affect what pokemon might appear in the wild, e.g., day or nigh
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -98,7 +94,7 @@ var api = EncountersApi.new(config)
 
 # Invoke an endpoint
 api.encounter_condition_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id,
 	# On Success
@@ -126,8 +122,6 @@ Encounter condition values are the various states that an encounter condition ca
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -180,8 +174,6 @@ Encounter condition values are the various states that an encounter condition ca
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -200,7 +192,7 @@ var api = EncountersApi.new(config)
 
 # Invoke an endpoint
 api.encounter_condition_value_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id,
 	# On Success
@@ -228,8 +220,6 @@ Methods by which the player might can encounter Pokémon in the wild, e.g., walk
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -282,8 +272,6 @@ Methods by which the player might can encounter Pokémon in the wild, e.g., walk
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -302,7 +290,7 @@ var api = EncountersApi.new(config)
 
 # Invoke an endpoint
 api.encounter_method_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id,
 	# On Success
@@ -322,8 +310,7 @@ api.encounter_method_retrieve(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), 
-[cookieAuth](../README.md#cookieAuth)
+No authorization required.
 
 [[Back to top]](#__pageTop) \
 [[Back to API list]](../README.md#documentation-for-api-endpoints) \

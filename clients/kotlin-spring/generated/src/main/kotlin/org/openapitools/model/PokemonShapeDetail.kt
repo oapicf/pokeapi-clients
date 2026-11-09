@@ -2,8 +2,8 @@ package org.openapitools.model
 
 import java.util.Objects
 import com.fasterxml.jackson.annotation.JsonProperty
-import org.openapitools.model.PokemonShapeDetailAwesomeNamesInner
-import org.openapitools.model.PokemonShapeDetailNamesInner
+import org.openapitools.model.PokemonShapeAwesomeName
+import org.openapitools.model.PokemonShapeName
 import org.openapitools.model.PokemonSpeciesSummary
 import javax.validation.constraints.DecimalMax
 import javax.validation.constraints.DecimalMin
@@ -18,35 +18,35 @@ import io.swagger.v3.oas.annotations.media.Schema
 
 /**
  * 
- * @param id 
- * @param name 
- * @param awesomeNames 
- * @param names 
- * @param pokemonSpecies 
+ * @param id The identifier for this resource.
+ * @param name The name for this resource.
+ * @param awesomeNames The \"scientific\" name of this Pokémon shape listed in different languages.
+ * @param names The name of this resource listed in different languages.
+ * @param pokemonSpecies A list of the Pokémon species that have this shape.
  */
 data class PokemonShapeDetail(
 
-    @Schema(required = true, readOnly = true, description = "")
+    @Schema(required = true, readOnly = true, description = "The identifier for this resource.")
     @param:JsonProperty("id", required = true)
     @get:JsonProperty("id", required = true) val id: kotlin.Int,
 
-    @get:Size(max=100)
-    @Schema(required = true, description = "")
+    @get:Size(max=200)
+    @Schema(required = true, description = "The name for this resource.")
     @param:JsonProperty("name", required = true)
     @get:JsonProperty("name", required = true) val name: kotlin.String,
 
     @field:Valid
-    @Schema(required = true, readOnly = true, description = "")
+    @Schema(required = true, readOnly = true, description = "The \"scientific\" name of this Pokémon shape listed in different languages.")
     @param:JsonProperty("awesome_names", required = true)
-    @get:JsonProperty("awesome_names", required = true) val awesomeNames: kotlin.collections.List<PokemonShapeDetailAwesomeNamesInner>,
+    @get:JsonProperty("awesome_names", required = true) val awesomeNames: kotlin.collections.List<PokemonShapeAwesomeName>,
 
     @field:Valid
-    @Schema(required = true, readOnly = true, description = "")
+    @Schema(required = true, readOnly = true, description = "The name of this resource listed in different languages.")
     @param:JsonProperty("names", required = true)
-    @get:JsonProperty("names", required = true) val names: kotlin.collections.List<PokemonShapeDetailNamesInner>,
+    @get:JsonProperty("names", required = true) val names: kotlin.collections.List<PokemonShapeName>,
 
     @field:Valid
-    @Schema(required = true, readOnly = true, description = "")
+    @Schema(required = true, readOnly = true, description = "A list of the Pokémon species that have this shape.")
     @param:JsonProperty("pokemon_species", required = true)
     @get:JsonProperty("pokemon_species", required = true) val pokemonSpecies: kotlin.collections.List<PokemonSpeciesSummary>
 ) {

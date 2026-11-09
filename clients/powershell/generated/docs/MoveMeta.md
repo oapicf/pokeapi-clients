@@ -3,18 +3,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Ailment** | [**MoveMetaAilmentSummary**](MoveMetaAilmentSummary.md) |  | 
-**Category** | [**MoveMetaCategorySummary**](MoveMetaCategorySummary.md) |  | 
-**MinHits** | **Int32** |  | [optional] 
-**MaxHits** | **Int32** |  | [optional] 
-**MinTurns** | **Int32** |  | [optional] 
-**MaxTurns** | **Int32** |  | [optional] 
-**Drain** | **Int32** |  | [optional] 
-**Healing** | **Int32** |  | [optional] 
-**CritRate** | **Int32** |  | [optional] 
-**AilmentChance** | **Int32** |  | [optional] 
-**FlinchChance** | **Int32** |  | [optional] 
-**StatChance** | **Int32** |  | [optional] 
+**Ailment** | [**MoveMetaAilmentSummary**](MoveMetaAilmentSummary.md) | The status ailment this move inflicts on its target. | 
+**Category** | [**MoveMetaCategorySummary**](MoveMetaCategorySummary.md) | The category of move this move falls under, e.g. damage or ailment. | 
+**MinHits** | **Int32** | The minimum number of times this move hits. Null if it always only hits once. | [optional] 
+**MaxHits** | **Int32** | The maximum number of times this move hits. Null if it always only hits once. | [optional] 
+**MinTurns** | **Int32** | The minimum number of turns this move continues to take effect. Null if it always only lasts one turn. | [optional] 
+**MaxTurns** | **Int32** | The maximum number of turns this move continues to take effect. Null if it always only lasts one turn. | [optional] 
+**Drain** | **Int32** | HP drain (if positive) or Recoil damage (if negative), in percent of damage done. | [optional] 
+**Healing** | **Int32** | The amount of hp gained by the attacking Pokemon, in percent of it&#39;s maximum HP. | [optional] 
+**CritRate** | **Int32** | Critical hit rate bonus. | [optional] 
+**AilmentChance** | **Int32** | The likelihood this attack will cause an ailment. | [optional] 
+**FlinchChance** | **Int32** | The likelihood this attack will cause the target Pokémon to flinch. | [optional] 
+**StatChance** | **Int32** | The likelihood this attack will cause a stat change in the target Pokémon. | [optional] 
 
 ## Examples
 

@@ -10,7 +10,6 @@ namespace models {
 
 MoveTargetName::MoveTargetName()
 : name("")
-, language(LanguageSummary())
 {
 }
 // =========================================

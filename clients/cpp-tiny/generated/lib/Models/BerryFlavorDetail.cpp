@@ -8,8 +8,8 @@ BerryFlavorDetail::BerryFlavorDetail()
 {
 	id = int(0);
 	name = std::string();
-	berries = std::list<BerryFlavorDetail_berries_inner>();
-	contest_type = ContestTypeSummary();
+	berries = std::list<BerryFlavorBerryMap>();
+	contest_type = null;
 	names = std::list<BerryFlavorName>();
 }
 
@@ -61,8 +61,8 @@ BerryFlavorDetail::fromJson(std::string jsonObj)
         bourne::json value = object[berriesKey];
 
 
-        std::list<BerryFlavorDetail_berries_inner> berries_list;
-        BerryFlavorDetail_berries_inner element;
+        std::list<BerryFlavorBerryMap> berries_list;
+        BerryFlavorBerryMap element;
         for(auto& var : value.array_range())
         {
 
@@ -137,12 +137,12 @@ BerryFlavorDetail::toJson()
 
 
 
-    std::list<BerryFlavorDetail_berries_inner> berries_list = getBerries();
+    std::list<BerryFlavorBerryMap> berries_list = getBerries();
     bourne::json berries_arr = bourne::json::array();
 
     for(auto& var : berries_list)
     {
-        BerryFlavorDetail_berries_inner obj = var;
+        BerryFlavorBerryMap obj = var;
         berries_arr.append(obj.toJson());
     }
     object["berries"] = berries_arr;
@@ -200,14 +200,14 @@ BerryFlavorDetail::setName(std::string name)
 	this->name = name;
 }
 
-std::list<BerryFlavorDetail_berries_inner>
+std::list<BerryFlavorBerryMap>
 BerryFlavorDetail::getBerries()
 {
 	return berries;
 }
 
 void
-BerryFlavorDetail::setBerries(std::list<BerryFlavorDetail_berries_inner> berries)
+BerryFlavorDetail::setBerries(std::list<BerryFlavorBerryMap> berries)
 {
 	this->berries = berries;
 }

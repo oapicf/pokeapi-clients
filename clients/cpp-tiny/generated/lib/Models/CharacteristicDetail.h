@@ -48,39 +48,39 @@ public:
 	 */
     void fromJson(std::string jsonObj);
 
-	/*! \brief Get 
+	/*! \brief Get The identifier for this resource.
 	 */
 	int getId();
 
-	/*! \brief Set 
+	/*! \brief Set The identifier for this resource.
 	 */
 	void setId(int id);
-	/*! \brief Get 
+	/*! \brief Get The remainder of the highest stat/IV divided by 5.
 	 */
 	int getGeneModulo();
 
-	/*! \brief Set 
+	/*! \brief Set The remainder of the highest stat/IV divided by 5.
 	 */
 	void setGeneModulo(int gene_modulo);
-	/*! \brief Get 
+	/*! \brief Get The possible values of the highest stat that would result in a Pokémon recieving this characteristic when divided by 5.
 	 */
 	std::list<int> getPossibleValues();
 
-	/*! \brief Set 
+	/*! \brief Set The possible values of the highest stat that would result in a Pokémon recieving this characteristic when divided by 5.
 	 */
 	void setPossibleValues(std::list<int> possible_values);
-	/*! \brief Get 
+	/*! \brief Get The stat which results in this characteristic.
 	 */
 	StatSummary getHighestStat();
 
-	/*! \brief Set 
+	/*! \brief Set The stat which results in this characteristic.
 	 */
 	void setHighestStat(StatSummary highest_stat);
-	/*! \brief Get 
+	/*! \brief Get The descriptions of this characteristic listed in different languages.
 	 */
 	std::list<CharacteristicDescription> getDescriptions();
 
-	/*! \brief Set 
+	/*! \brief Set The descriptions of this characteristic listed in different languages.
 	 */
 	void setDescriptions(std::list<CharacteristicDescription> descriptions);
 

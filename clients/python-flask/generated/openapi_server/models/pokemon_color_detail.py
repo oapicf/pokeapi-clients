@@ -62,6 +62,7 @@ class PokemonColorDetail(Model):
     def id(self) -> int:
         """Gets the id of this PokemonColorDetail.
 
+        The identifier for this resource.  # noqa: E501
 
         :return: The id of this PokemonColorDetail.
         :rtype: int
@@ -72,6 +73,7 @@ class PokemonColorDetail(Model):
     def id(self, id: int):
         """Sets the id of this PokemonColorDetail.
 
+        The identifier for this resource.  # noqa: E501
 
         :param id: The id of this PokemonColorDetail.
         :type id: int
@@ -85,6 +87,7 @@ class PokemonColorDetail(Model):
     def name(self) -> str:
         """Gets the name of this PokemonColorDetail.
 
+        The name for this resource.  # noqa: E501
 
         :return: The name of this PokemonColorDetail.
         :rtype: str
@@ -95,14 +98,15 @@ class PokemonColorDetail(Model):
     def name(self, name: str):
         """Sets the name of this PokemonColorDetail.
 
+        The name for this resource.  # noqa: E501
 
         :param name: The name of this PokemonColorDetail.
         :type name: str
         """
         if name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
-        if name is not None and len(name) > 100:
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `100`")  # noqa: E501
+        if name is not None and len(name) > 200:
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `200`")  # noqa: E501
 
         self._name = name
 
@@ -110,6 +114,7 @@ class PokemonColorDetail(Model):
     def names(self) -> List[PokemonColorName]:
         """Gets the names of this PokemonColorDetail.
 
+        The name of this resource listed in different languages.  # noqa: E501
 
         :return: The names of this PokemonColorDetail.
         :rtype: List[PokemonColorName]
@@ -120,6 +125,7 @@ class PokemonColorDetail(Model):
     def names(self, names: List[PokemonColorName]):
         """Sets the names of this PokemonColorDetail.
 
+        The name of this resource listed in different languages.  # noqa: E501
 
         :param names: The names of this PokemonColorDetail.
         :type names: List[PokemonColorName]
@@ -133,6 +139,7 @@ class PokemonColorDetail(Model):
     def pokemon_species(self) -> List[PokemonSpeciesSummary]:
         """Gets the pokemon_species of this PokemonColorDetail.
 
+        A list of the Pokémon species that have this color.  # noqa: E501
 
         :return: The pokemon_species of this PokemonColorDetail.
         :rtype: List[PokemonSpeciesSummary]
@@ -143,6 +150,7 @@ class PokemonColorDetail(Model):
     def pokemon_species(self, pokemon_species: List[PokemonSpeciesSummary]):
         """Sets the pokemon_species of this PokemonColorDetail.
 
+        A list of the Pokémon species that have this color.  # noqa: E501
 
         :param pokemon_species: The pokemon_species of this PokemonColorDetail.
         :type pokemon_species: List[PokemonSpeciesSummary]

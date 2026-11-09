@@ -12,8 +12,8 @@
 #include <string>
 #include "bourne/json.hpp"
 #include "Helpers.h"
-#include "AbilityDetail_pokemon_inner_pokemon.h"
-#include "GenderDetail_pokemon_species_details_inner.h"
+#include "GenderPokemonSpecies.h"
+#include "PokemonSpeciesSummary.h"
 #include <list>
 
 namespace Tiny {
@@ -48,41 +48,41 @@ public:
 	 */
     void fromJson(std::string jsonObj);
 
-	/*! \brief Get 
+	/*! \brief Get The identifier for this resource.
 	 */
 	int getId();
 
-	/*! \brief Set 
+	/*! \brief Set The identifier for this resource.
 	 */
 	void setId(int id);
-	/*! \brief Get 
+	/*! \brief Get The name for this resource.
 	 */
 	std::string getName();
 
-	/*! \brief Set 
+	/*! \brief Set The name for this resource.
 	 */
 	void setName(std::string name);
-	/*! \brief Get 
+	/*! \brief Get A list of Pokémon species that can be this gender and how likely it is that they will be.
 	 */
-	std::list<GenderDetail_pokemon_species_details_inner> getPokemonSpeciesDetails();
+	std::list<GenderPokemonSpecies> getPokemonSpeciesDetails();
 
-	/*! \brief Set 
+	/*! \brief Set A list of Pokémon species that can be this gender and how likely it is that they will be.
 	 */
-	void setPokemonSpeciesDetails(std::list<GenderDetail_pokemon_species_details_inner> pokemon_species_details);
-	/*! \brief Get 
+	void setPokemonSpeciesDetails(std::list<GenderPokemonSpecies> pokemon_species_details);
+	/*! \brief Get A list of Pokémon species that required this gender in order for a Pokémon to evolve into them.
 	 */
-	std::list<AbilityDetail_pokemon_inner_pokemon> getRequiredForEvolution();
+	std::list<PokemonSpeciesSummary> getRequiredForEvolution();
 
-	/*! \brief Set 
+	/*! \brief Set A list of Pokémon species that required this gender in order for a Pokémon to evolve into them.
 	 */
-	void setRequiredForEvolution(std::list<AbilityDetail_pokemon_inner_pokemon> required_for_evolution);
+	void setRequiredForEvolution(std::list<PokemonSpeciesSummary> required_for_evolution);
 
 
     private:
     int id{};
     std::string name{};
-    std::list<GenderDetail_pokemon_species_details_inner> pokemon_species_details;
-    std::list<AbilityDetail_pokemon_inner_pokemon> required_for_evolution;
+    std::list<GenderPokemonSpecies> pokemon_species_details;
+    std::list<PokemonSpeciesSummary> required_for_evolution;
 };
 }
 

@@ -5,9 +5,11 @@ from datetime import date, datetime
 from typing import List, Dict, Type
 
 from openapi_server.models.base_model import Model
-from openapi_server.models.pokemon_detail_types_inner import PokemonDetailTypesInner
-from openapi_server.models.pokemon_form_detail_form_names_inner import PokemonFormDetailFormNamesInner
-from openapi_server.models.pokemon_form_detail_sprites import PokemonFormDetailSprites
+from openapi_server.models.pokemon_form_flavor_text import PokemonFormFlavorText
+from openapi_server.models.pokemon_form_name import PokemonFormName
+from openapi_server.models.pokemon_form_sprites import PokemonFormSprites
+from openapi_server.models.pokemon_form_trigger_condition import PokemonFormTriggerCondition
+from openapi_server.models.pokemon_form_type import PokemonFormType
 from openapi_server.models.pokemon_summary import PokemonSummary
 from openapi_server.models.version_group_summary import VersionGroupSummary
 from openapi_server import util
@@ -19,7 +21,7 @@ class PokemonFormDetail(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, id: int=None, name: str=None, order: int=None, form_order: int=None, is_default: bool=None, is_battle_only: bool=None, is_mega: bool=None, form_name: str=None, pokemon: PokemonSummary=None, sprites: PokemonFormDetailSprites=None, version_group: VersionGroupSummary=None, form_names: List[PokemonFormDetailFormNamesInner]=None, names: List[PokemonFormDetailFormNamesInner]=None, types: List[PokemonDetailTypesInner]=None):
+    def __init__(self, id: int=None, name: str=None, order: int=None, form_order: int=None, is_default: bool=None, is_battle_only: bool=None, is_mega: bool=None, form_name: str=None, pokemon: PokemonSummary=None, sprites: PokemonFormSprites=None, version_group: VersionGroupSummary=None, form_names: List[PokemonFormName]=None, names: List[PokemonFormName]=None, types: List[PokemonFormType]=None, trigger_conditions: List[PokemonFormTriggerCondition]=None, flavor_text_entries: List[PokemonFormFlavorText]=None):
         """PokemonFormDetail - a model defined in OpenAPI
 
         :param id: The id of this PokemonFormDetail.
@@ -36,6 +38,8 @@ class PokemonFormDetail(Model):
         :param form_names: The form_names of this PokemonFormDetail.
         :param names: The names of this PokemonFormDetail.
         :param types: The types of this PokemonFormDetail.
+        :param trigger_conditions: The trigger_conditions of this PokemonFormDetail.
+        :param flavor_text_entries: The flavor_text_entries of this PokemonFormDetail.
         """
         self.openapi_types = {
             'id': int,
@@ -47,11 +51,13 @@ class PokemonFormDetail(Model):
             'is_mega': bool,
             'form_name': str,
             'pokemon': PokemonSummary,
-            'sprites': PokemonFormDetailSprites,
+            'sprites': PokemonFormSprites,
             'version_group': VersionGroupSummary,
-            'form_names': List[PokemonFormDetailFormNamesInner],
-            'names': List[PokemonFormDetailFormNamesInner],
-            'types': List[PokemonDetailTypesInner]
+            'form_names': List[PokemonFormName],
+            'names': List[PokemonFormName],
+            'types': List[PokemonFormType],
+            'trigger_conditions': List[PokemonFormTriggerCondition],
+            'flavor_text_entries': List[PokemonFormFlavorText]
         }
 
         self.attribute_map = {
@@ -68,7 +74,9 @@ class PokemonFormDetail(Model):
             'version_group': 'version_group',
             'form_names': 'form_names',
             'names': 'names',
-            'types': 'types'
+            'types': 'types',
+            'trigger_conditions': 'trigger_conditions',
+            'flavor_text_entries': 'flavor_text_entries'
         }
 
         self._id = id
@@ -85,6 +93,8 @@ class PokemonFormDetail(Model):
         self._form_names = form_names
         self._names = names
         self._types = types
+        self._trigger_conditions = trigger_conditions
+        self._flavor_text_entries = flavor_text_entries
 
     @classmethod
     def from_dict(cls, dikt: dict) -> 'PokemonFormDetail':
@@ -99,6 +109,7 @@ class PokemonFormDetail(Model):
     def id(self):
         """Gets the id of this PokemonFormDetail.
 
+        The identifier for this resource.
 
         :return: The id of this PokemonFormDetail.
         :rtype: int
@@ -109,6 +120,7 @@ class PokemonFormDetail(Model):
     def id(self, id):
         """Sets the id of this PokemonFormDetail.
 
+        The identifier for this resource.
 
         :param id: The id of this PokemonFormDetail.
         :type id: int
@@ -122,6 +134,7 @@ class PokemonFormDetail(Model):
     def name(self):
         """Gets the name of this PokemonFormDetail.
 
+        The name for this resource.
 
         :return: The name of this PokemonFormDetail.
         :rtype: str
@@ -132,14 +145,15 @@ class PokemonFormDetail(Model):
     def name(self, name):
         """Sets the name of this PokemonFormDetail.
 
+        The name for this resource.
 
         :param name: The name of this PokemonFormDetail.
         :type name: str
         """
         if name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")
-        if name is not None and len(name) > 100:
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `100`")
+        if name is not None and len(name) > 200:
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `200`")
 
         self._name = name
 
@@ -147,6 +161,7 @@ class PokemonFormDetail(Model):
     def order(self):
         """Gets the order of this PokemonFormDetail.
 
+        The order in which forms should be sorted within all forms. Multiple forms may have equal order, in which case they should fall back on sorting by name.
 
         :return: The order of this PokemonFormDetail.
         :rtype: int
@@ -157,10 +172,15 @@ class PokemonFormDetail(Model):
     def order(self, order):
         """Sets the order of this PokemonFormDetail.
 
+        The order in which forms should be sorted within all forms. Multiple forms may have equal order, in which case they should fall back on sorting by name.
 
         :param order: The order of this PokemonFormDetail.
         :type order: int
         """
+        if order is not None and order > 2147483647:
+            raise ValueError("Invalid value for `order`, must be a value less than or equal to `2147483647`")
+        if order is not None and order < -2147483648:
+            raise ValueError("Invalid value for `order`, must be a value greater than or equal to `-2147483648`")
 
         self._order = order
 
@@ -168,6 +188,7 @@ class PokemonFormDetail(Model):
     def form_order(self):
         """Gets the form_order of this PokemonFormDetail.
 
+        The order in which forms should be sorted within a species' forms.
 
         :return: The form_order of this PokemonFormDetail.
         :rtype: int
@@ -178,10 +199,15 @@ class PokemonFormDetail(Model):
     def form_order(self, form_order):
         """Sets the form_order of this PokemonFormDetail.
 
+        The order in which forms should be sorted within a species' forms.
 
         :param form_order: The form_order of this PokemonFormDetail.
         :type form_order: int
         """
+        if form_order is not None and form_order > 2147483647:
+            raise ValueError("Invalid value for `form_order`, must be a value less than or equal to `2147483647`")
+        if form_order is not None and form_order < -2147483648:
+            raise ValueError("Invalid value for `form_order`, must be a value greater than or equal to `-2147483648`")
 
         self._form_order = form_order
 
@@ -189,6 +215,7 @@ class PokemonFormDetail(Model):
     def is_default(self):
         """Gets the is_default of this PokemonFormDetail.
 
+        True for exactly one form used as the default for each Pokémon.
 
         :return: The is_default of this PokemonFormDetail.
         :rtype: bool
@@ -199,6 +226,7 @@ class PokemonFormDetail(Model):
     def is_default(self, is_default):
         """Sets the is_default of this PokemonFormDetail.
 
+        True for exactly one form used as the default for each Pokémon.
 
         :param is_default: The is_default of this PokemonFormDetail.
         :type is_default: bool
@@ -210,6 +238,7 @@ class PokemonFormDetail(Model):
     def is_battle_only(self):
         """Gets the is_battle_only of this PokemonFormDetail.
 
+        Whether or not this form can only happen during battle.
 
         :return: The is_battle_only of this PokemonFormDetail.
         :rtype: bool
@@ -220,6 +249,7 @@ class PokemonFormDetail(Model):
     def is_battle_only(self, is_battle_only):
         """Sets the is_battle_only of this PokemonFormDetail.
 
+        Whether or not this form can only happen during battle.
 
         :param is_battle_only: The is_battle_only of this PokemonFormDetail.
         :type is_battle_only: bool
@@ -231,6 +261,7 @@ class PokemonFormDetail(Model):
     def is_mega(self):
         """Gets the is_mega of this PokemonFormDetail.
 
+        Whether or not this form requires mega evolution.
 
         :return: The is_mega of this PokemonFormDetail.
         :rtype: bool
@@ -241,6 +272,7 @@ class PokemonFormDetail(Model):
     def is_mega(self, is_mega):
         """Sets the is_mega of this PokemonFormDetail.
 
+        Whether or not this form requires mega evolution.
 
         :param is_mega: The is_mega of this PokemonFormDetail.
         :type is_mega: bool
@@ -252,6 +284,7 @@ class PokemonFormDetail(Model):
     def form_name(self):
         """Gets the form_name of this PokemonFormDetail.
 
+        The name of this form.
 
         :return: The form_name of this PokemonFormDetail.
         :rtype: str
@@ -262,6 +295,7 @@ class PokemonFormDetail(Model):
     def form_name(self, form_name):
         """Sets the form_name of this PokemonFormDetail.
 
+        The name of this form.
 
         :param form_name: The form_name of this PokemonFormDetail.
         :type form_name: str
@@ -277,6 +311,7 @@ class PokemonFormDetail(Model):
     def pokemon(self):
         """Gets the pokemon of this PokemonFormDetail.
 
+        The Pokémon that can take on this form.
 
         :return: The pokemon of this PokemonFormDetail.
         :rtype: PokemonSummary
@@ -287,6 +322,7 @@ class PokemonFormDetail(Model):
     def pokemon(self, pokemon):
         """Sets the pokemon of this PokemonFormDetail.
 
+        The Pokémon that can take on this form.
 
         :param pokemon: The pokemon of this PokemonFormDetail.
         :type pokemon: PokemonSummary
@@ -300,9 +336,10 @@ class PokemonFormDetail(Model):
     def sprites(self):
         """Gets the sprites of this PokemonFormDetail.
 
+        A set of sprites used to depict this Pokémon form in the game.
 
         :return: The sprites of this PokemonFormDetail.
-        :rtype: PokemonFormDetailSprites
+        :rtype: PokemonFormSprites
         """
         return self._sprites
 
@@ -310,9 +347,10 @@ class PokemonFormDetail(Model):
     def sprites(self, sprites):
         """Sets the sprites of this PokemonFormDetail.
 
+        A set of sprites used to depict this Pokémon form in the game.
 
         :param sprites: The sprites of this PokemonFormDetail.
-        :type sprites: PokemonFormDetailSprites
+        :type sprites: PokemonFormSprites
         """
         if sprites is None:
             raise ValueError("Invalid value for `sprites`, must not be `None`")
@@ -323,6 +361,7 @@ class PokemonFormDetail(Model):
     def version_group(self):
         """Gets the version_group of this PokemonFormDetail.
 
+        The version group this Pokémon form was introduced in.
 
         :return: The version_group of this PokemonFormDetail.
         :rtype: VersionGroupSummary
@@ -333,6 +372,7 @@ class PokemonFormDetail(Model):
     def version_group(self, version_group):
         """Sets the version_group of this PokemonFormDetail.
 
+        The version group this Pokémon form was introduced in.
 
         :param version_group: The version_group of this PokemonFormDetail.
         :type version_group: VersionGroupSummary
@@ -346,9 +386,10 @@ class PokemonFormDetail(Model):
     def form_names(self):
         """Gets the form_names of this PokemonFormDetail.
 
+        The form specific form name of this Pokémon form, or empty if the form does not have a specific name.
 
         :return: The form_names of this PokemonFormDetail.
-        :rtype: List[PokemonFormDetailFormNamesInner]
+        :rtype: List[PokemonFormName]
         """
         return self._form_names
 
@@ -356,9 +397,10 @@ class PokemonFormDetail(Model):
     def form_names(self, form_names):
         """Sets the form_names of this PokemonFormDetail.
 
+        The form specific form name of this Pokémon form, or empty if the form does not have a specific name.
 
         :param form_names: The form_names of this PokemonFormDetail.
-        :type form_names: List[PokemonFormDetailFormNamesInner]
+        :type form_names: List[PokemonFormName]
         """
         if form_names is None:
             raise ValueError("Invalid value for `form_names`, must not be `None`")
@@ -369,9 +411,10 @@ class PokemonFormDetail(Model):
     def names(self):
         """Gets the names of this PokemonFormDetail.
 
+        The form specific full name of this Pokémon form, or empty if the form does not have a specific name.
 
         :return: The names of this PokemonFormDetail.
-        :rtype: List[PokemonFormDetailFormNamesInner]
+        :rtype: List[PokemonFormName]
         """
         return self._names
 
@@ -379,9 +422,10 @@ class PokemonFormDetail(Model):
     def names(self, names):
         """Sets the names of this PokemonFormDetail.
 
+        The form specific full name of this Pokémon form, or empty if the form does not have a specific name.
 
         :param names: The names of this PokemonFormDetail.
-        :type names: List[PokemonFormDetailFormNamesInner]
+        :type names: List[PokemonFormName]
         """
         if names is None:
             raise ValueError("Invalid value for `names`, must not be `None`")
@@ -392,9 +436,10 @@ class PokemonFormDetail(Model):
     def types(self):
         """Gets the types of this PokemonFormDetail.
 
+        A list of details showing types this Pokémon form has.
 
         :return: The types of this PokemonFormDetail.
-        :rtype: List[PokemonDetailTypesInner]
+        :rtype: List[PokemonFormType]
         """
         return self._types
 
@@ -402,11 +447,62 @@ class PokemonFormDetail(Model):
     def types(self, types):
         """Sets the types of this PokemonFormDetail.
 
+        A list of details showing types this Pokémon form has.
 
         :param types: The types of this PokemonFormDetail.
-        :type types: List[PokemonDetailTypesInner]
+        :type types: List[PokemonFormType]
         """
         if types is None:
             raise ValueError("Invalid value for `types`, must not be `None`")
 
         self._types = types
+
+    @property
+    def trigger_conditions(self):
+        """Gets the trigger_conditions of this PokemonFormDetail.
+
+        The conditions that trigger this form. Resource names and URLs are included when the trigger requires a resource.
+
+        :return: The trigger_conditions of this PokemonFormDetail.
+        :rtype: List[PokemonFormTriggerCondition]
+        """
+        return self._trigger_conditions
+
+    @trigger_conditions.setter
+    def trigger_conditions(self, trigger_conditions):
+        """Sets the trigger_conditions of this PokemonFormDetail.
+
+        The conditions that trigger this form. Resource names and URLs are included when the trigger requires a resource.
+
+        :param trigger_conditions: The trigger_conditions of this PokemonFormDetail.
+        :type trigger_conditions: List[PokemonFormTriggerCondition]
+        """
+        if trigger_conditions is None:
+            raise ValueError("Invalid value for `trigger_conditions`, must not be `None`")
+
+        self._trigger_conditions = trigger_conditions
+
+    @property
+    def flavor_text_entries(self):
+        """Gets the flavor_text_entries of this PokemonFormDetail.
+
+        The flavor text of this form listed in different languages and versions.
+
+        :return: The flavor_text_entries of this PokemonFormDetail.
+        :rtype: List[PokemonFormFlavorText]
+        """
+        return self._flavor_text_entries
+
+    @flavor_text_entries.setter
+    def flavor_text_entries(self, flavor_text_entries):
+        """Sets the flavor_text_entries of this PokemonFormDetail.
+
+        The flavor text of this form listed in different languages and versions.
+
+        :param flavor_text_entries: The flavor_text_entries of this PokemonFormDetail.
+        :type flavor_text_entries: List[PokemonFormFlavorText]
+        """
+        if flavor_text_entries is None:
+            raise ValueError("Invalid value for `flavor_text_entries`, must not be `None`")
+
+        self._flavor_text_entries = flavor_text_entries

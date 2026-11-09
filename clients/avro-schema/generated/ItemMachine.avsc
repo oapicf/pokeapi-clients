@@ -1,0 +1,19 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "ItemMachine",
+  "fields": [
+    {
+      "name": "machine",
+      "type": "model.MachineSummary",
+      "doc": "The machine that teaches a move from an item."
+    },
+    {
+      "name": "version_group",
+      "type": "model.VersionGroupSummary",
+      "doc": "The version group of this specific machine."
+    }
+  ]
+
+}

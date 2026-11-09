@@ -26,8 +26,6 @@ A generation is a grouping of the Pokémon games that separates them based on th
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -80,8 +78,6 @@ A generation is a grouping of the Pokémon games that separates them based on th
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -100,7 +96,7 @@ var api = GamesApi.new(config)
 
 # Invoke an endpoint
 api.generation_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id,
 	# On Success
@@ -128,8 +124,6 @@ A Pokédex is a handheld electronic encyclopedia device; one which is capable of
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -182,8 +176,6 @@ A Pokédex is a handheld electronic encyclopedia device; one which is capable of
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -202,7 +194,7 @@ var api = GamesApi.new(config)
 
 # Invoke an endpoint
 api.pokedex_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id,
 	# On Success
@@ -230,8 +222,6 @@ Version groups categorize highly similar versions of the games.
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -284,8 +274,6 @@ Version groups categorize highly similar versions of the games.
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -304,7 +292,7 @@ var api = GamesApi.new(config)
 
 # Invoke an endpoint
 api.version_group_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id,
 	# On Success
@@ -332,8 +320,6 @@ Versions of the games, e.g., Red, Blue or Yellow.
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -386,8 +372,6 @@ Versions of the games, e.g., Red, Blue or Yellow.
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -406,7 +390,7 @@ var api = GamesApi.new(config)
 
 # Invoke an endpoint
 api.version_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id,
 	# On Success
@@ -426,8 +410,7 @@ api.version_retrieve(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), 
-[cookieAuth](../README.md#cookieAuth)
+No authorization required.
 
 [[Back to top]](#__pageTop) \
 [[Back to API list]](../README.md#documentation-for-api-endpoints) \

@@ -4,17 +4,18 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
-import org.openapitools.server.model.AbilityDetailPokemonInnerPokemon;
+import org.openapitools.server.model.EvolutionChainSummary;
+import org.openapitools.server.model.ItemAttributeSummary;
 import org.openapitools.server.model.ItemCategorySummary;
-import org.openapitools.server.model.ItemDetailBabyTriggerFor;
-import org.openapitools.server.model.ItemDetailHeldByPokemonInner;
-import org.openapitools.server.model.ItemDetailMachinesInner;
-import org.openapitools.server.model.ItemDetailSprites;
 import org.openapitools.server.model.ItemEffectText;
 import org.openapitools.server.model.ItemFlavorText;
 import org.openapitools.server.model.ItemFlingEffectSummary;
 import org.openapitools.server.model.ItemGameIndex;
+import org.openapitools.server.model.ItemMachine;
 import org.openapitools.server.model.ItemName;
+import org.openapitools.server.model.ItemPrice;
+import org.openapitools.server.model.ItemSprites;
+import org.openapitools.server.model.PokemonHeldItem;
 import jakarta.validation.constraints.*;
 import jakarta.validation.Valid;
 
@@ -24,19 +25,19 @@ public class ItemDetail   {
 
     private Integer id;
     private String name;
-    private Integer cost;
     private Integer flingPower;
     private ItemFlingEffectSummary flingEffect;
-    private List<@Valid AbilityDetailPokemonInnerPokemon> attributes = new ArrayList<>();
+    private List<@Valid ItemAttributeSummary> attributes = new ArrayList<>();
     private ItemCategorySummary category;
     private List<@Valid ItemEffectText> effectEntries = new ArrayList<>();
     private List<@Valid ItemFlavorText> flavorTextEntries = new ArrayList<>();
     private List<@Valid ItemGameIndex> gameIndices = new ArrayList<>();
+    private List<@Valid ItemPrice> prices = new ArrayList<>();
     private List<@Valid ItemName> names = new ArrayList<>();
-    private List<@Valid ItemDetailHeldByPokemonInner> heldByPokemon = new ArrayList<>();
-    private ItemDetailSprites sprites;
-    private ItemDetailBabyTriggerFor babyTriggerFor;
-    private List<@Valid ItemDetailMachinesInner> machines = new ArrayList<>();
+    private List<@Valid PokemonHeldItem> heldByPokemon = new ArrayList<>();
+    private ItemSprites sprites;
+    private EvolutionChainSummary babyTriggerFor;
+    private List<@Valid ItemMachine> machines = new ArrayList<>();
 
     /**
      * Default constructor.
@@ -48,42 +49,41 @@ public class ItemDetail   {
     /**
      * Create ItemDetail.
      *
-     * @param id id
-     * @param name name
-     * @param cost cost
-     * @param flingPower flingPower
-     * @param flingEffect flingEffect
-     * @param attributes attributes
-     * @param category category
-     * @param effectEntries effectEntries
-     * @param flavorTextEntries flavorTextEntries
-     * @param gameIndices gameIndices
-     * @param names names
-     * @param heldByPokemon heldByPokemon
-     * @param sprites sprites
-     * @param babyTriggerFor babyTriggerFor
-     * @param machines machines
+     * @param id The identifier for this resource.
+     * @param name The name for this resource.
+     * @param flingPower The power of the move Fling when used with this item.
+     * @param flingEffect The effect of the move Fling when used with this item.
+     * @param attributes A list of attributes this item has.
+     * @param category The category of items this item falls into.
+     * @param effectEntries The effect of this ability listed in different languages.
+     * @param flavorTextEntries The flavor text of this ability listed in different languages.
+     * @param gameIndices A list of game indices relevent to this item by generation.
+     * @param prices Purchase and sell prices by currency and version group. Prices may be null when the item cannot be bought or sold.
+     * @param names The name of this item listed in different languages.
+     * @param heldByPokemon A list of Pokémon that might be found in the wild holding this item.
+     * @param sprites A set of sprites used to depict this item in the game.
+     * @param babyTriggerFor An evolution chain this item requires to produce a bay during mating.
+     * @param machines A list of the machines related to this item.
      */
     public ItemDetail(
         Integer id, 
         String name, 
-        Integer cost, 
         Integer flingPower, 
         ItemFlingEffectSummary flingEffect, 
-        List<@Valid AbilityDetailPokemonInnerPokemon> attributes, 
+        List<@Valid ItemAttributeSummary> attributes, 
         ItemCategorySummary category, 
         List<@Valid ItemEffectText> effectEntries, 
         List<@Valid ItemFlavorText> flavorTextEntries, 
         List<@Valid ItemGameIndex> gameIndices, 
+        List<@Valid ItemPrice> prices, 
         List<@Valid ItemName> names, 
-        List<@Valid ItemDetailHeldByPokemonInner> heldByPokemon, 
-        ItemDetailSprites sprites, 
-        ItemDetailBabyTriggerFor babyTriggerFor, 
-        List<@Valid ItemDetailMachinesInner> machines
+        List<@Valid PokemonHeldItem> heldByPokemon, 
+        ItemSprites sprites, 
+        EvolutionChainSummary babyTriggerFor, 
+        List<@Valid ItemMachine> machines
     ) {
         this.id = id;
         this.name = name;
-        this.cost = cost;
         this.flingPower = flingPower;
         this.flingEffect = flingEffect;
         this.attributes = attributes;
@@ -91,6 +91,7 @@ public class ItemDetail   {
         this.effectEntries = effectEntries;
         this.flavorTextEntries = flavorTextEntries;
         this.gameIndices = gameIndices;
+        this.prices = prices;
         this.names = names;
         this.heldByPokemon = heldByPokemon;
         this.sprites = sprites;
@@ -101,7 +102,7 @@ public class ItemDetail   {
 
 
     /**
-     * Get id
+     * The identifier for this resource.
      * @return id
      */
     public Integer getId() {
@@ -113,7 +114,7 @@ public class ItemDetail   {
     }
 
     /**
-     * Get name
+     * The name for this resource.
      * @return name
      */
     public String getName() {
@@ -125,19 +126,9 @@ public class ItemDetail   {
     }
 
     /**
-     * Get cost
-     * @return cost
-     */
-    public Integer getCost() {
-        return cost;
-    }
-
-    public void setCost(Integer cost) {
-        this.cost = cost;
-    }
-
-    /**
-     * Get flingPower
+     * The power of the move Fling when used with this item.
+     * minimum: -2147483648
+     * maximum: 2147483647
      * @return flingPower
      */
     public Integer getFlingPower() {
@@ -149,7 +140,7 @@ public class ItemDetail   {
     }
 
     /**
-     * Get flingEffect
+     * The effect of the move Fling when used with this item.
      * @return flingEffect
      */
     public ItemFlingEffectSummary getFlingEffect() {
@@ -161,19 +152,19 @@ public class ItemDetail   {
     }
 
     /**
-     * Get attributes
+     * A list of attributes this item has.
      * @return attributes
      */
-    public List<@Valid AbilityDetailPokemonInnerPokemon> getAttributes() {
+    public List<@Valid ItemAttributeSummary> getAttributes() {
         return attributes;
     }
 
-    public void setAttributes(List<@Valid AbilityDetailPokemonInnerPokemon> attributes) {
+    public void setAttributes(List<@Valid ItemAttributeSummary> attributes) {
         this.attributes = attributes;
     }
 
     /**
-     * Get category
+     * The category of items this item falls into.
      * @return category
      */
     public ItemCategorySummary getCategory() {
@@ -185,7 +176,7 @@ public class ItemDetail   {
     }
 
     /**
-     * Get effectEntries
+     * The effect of this ability listed in different languages.
      * @return effectEntries
      */
     public List<@Valid ItemEffectText> getEffectEntries() {
@@ -197,7 +188,7 @@ public class ItemDetail   {
     }
 
     /**
-     * Get flavorTextEntries
+     * The flavor text of this ability listed in different languages.
      * @return flavorTextEntries
      */
     public List<@Valid ItemFlavorText> getFlavorTextEntries() {
@@ -209,7 +200,7 @@ public class ItemDetail   {
     }
 
     /**
-     * Get gameIndices
+     * A list of game indices relevent to this item by generation.
      * @return gameIndices
      */
     public List<@Valid ItemGameIndex> getGameIndices() {
@@ -221,7 +212,19 @@ public class ItemDetail   {
     }
 
     /**
-     * Get names
+     * Purchase and sell prices by currency and version group. Prices may be null when the item cannot be bought or sold.
+     * @return prices
+     */
+    public List<@Valid ItemPrice> getPrices() {
+        return prices;
+    }
+
+    public void setPrices(List<@Valid ItemPrice> prices) {
+        this.prices = prices;
+    }
+
+    /**
+     * The name of this item listed in different languages.
      * @return names
      */
     public List<@Valid ItemName> getNames() {
@@ -233,50 +236,50 @@ public class ItemDetail   {
     }
 
     /**
-     * Get heldByPokemon
+     * A list of Pokémon that might be found in the wild holding this item.
      * @return heldByPokemon
      */
-    public List<@Valid ItemDetailHeldByPokemonInner> getHeldByPokemon() {
+    public List<@Valid PokemonHeldItem> getHeldByPokemon() {
         return heldByPokemon;
     }
 
-    public void setHeldByPokemon(List<@Valid ItemDetailHeldByPokemonInner> heldByPokemon) {
+    public void setHeldByPokemon(List<@Valid PokemonHeldItem> heldByPokemon) {
         this.heldByPokemon = heldByPokemon;
     }
 
     /**
-     * Get sprites
+     * A set of sprites used to depict this item in the game.
      * @return sprites
      */
-    public ItemDetailSprites getSprites() {
+    public ItemSprites getSprites() {
         return sprites;
     }
 
-    public void setSprites(ItemDetailSprites sprites) {
+    public void setSprites(ItemSprites sprites) {
         this.sprites = sprites;
     }
 
     /**
-     * Get babyTriggerFor
+     * An evolution chain this item requires to produce a bay during mating.
      * @return babyTriggerFor
      */
-    public ItemDetailBabyTriggerFor getBabyTriggerFor() {
+    public EvolutionChainSummary getBabyTriggerFor() {
         return babyTriggerFor;
     }
 
-    public void setBabyTriggerFor(ItemDetailBabyTriggerFor babyTriggerFor) {
+    public void setBabyTriggerFor(EvolutionChainSummary babyTriggerFor) {
         this.babyTriggerFor = babyTriggerFor;
     }
 
     /**
-     * Get machines
+     * A list of the machines related to this item.
      * @return machines
      */
-    public List<@Valid ItemDetailMachinesInner> getMachines() {
+    public List<@Valid ItemMachine> getMachines() {
         return machines;
     }
 
-    public void setMachines(List<@Valid ItemDetailMachinesInner> machines) {
+    public void setMachines(List<@Valid ItemMachine> machines) {
         this.machines = machines;
     }
 
@@ -290,7 +293,6 @@ public class ItemDetail   {
         
         sb.append("    id: ").append(toIndentedString(id)).append("\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    cost: ").append(toIndentedString(cost)).append("\n");
         sb.append("    flingPower: ").append(toIndentedString(flingPower)).append("\n");
         sb.append("    flingEffect: ").append(toIndentedString(flingEffect)).append("\n");
         sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
@@ -298,6 +300,7 @@ public class ItemDetail   {
         sb.append("    effectEntries: ").append(toIndentedString(effectEntries)).append("\n");
         sb.append("    flavorTextEntries: ").append(toIndentedString(flavorTextEntries)).append("\n");
         sb.append("    gameIndices: ").append(toIndentedString(gameIndices)).append("\n");
+        sb.append("    prices: ").append(toIndentedString(prices)).append("\n");
         sb.append("    names: ").append(toIndentedString(names)).append("\n");
         sb.append("    heldByPokemon: ").append(toIndentedString(heldByPokemon)).append("\n");
         sb.append("    sprites: ").append(toIndentedString(sprites)).append("\n");

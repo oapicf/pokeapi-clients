@@ -3,8 +3,8 @@ package org.openapitools.model;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.model.AbilityDetailPokemonInnerPokemon;
-import org.openapitools.model.GenderDetailPokemonSpeciesDetailsInner;
+import org.openapitools.model.GenderPokemonSpecies;
+import org.openapitools.model.PokemonSpeciesSummary;
 
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
@@ -13,23 +13,35 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class GenderDetail  {
   
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The identifier for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
 
   private Integer id;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The name for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The name for this resource.")
 
   private String name;
 
-  @ApiModelProperty(required = true, value = "")
-
-  private List<GenderDetailPokemonSpeciesDetailsInner> pokemonSpeciesDetails = new ArrayList<>();
-
-  @ApiModelProperty(required = true, value = "")
-
-  private List<AbilityDetailPokemonInnerPokemon> requiredForEvolution = new ArrayList<>();
  /**
-   * Get id
+  * A list of Pokémon species that can be this gender and how likely it is that they will be.
+  */
+  @ApiModelProperty(required = true, value = "A list of Pokémon species that can be this gender and how likely it is that they will be.")
+
+  private List<GenderPokemonSpecies> pokemonSpeciesDetails = new ArrayList<>();
+
+ /**
+  * A list of Pokémon species that required this gender in order for a Pokémon to evolve into them.
+  */
+  @ApiModelProperty(required = true, value = "A list of Pokémon species that required this gender in order for a Pokémon to evolve into them.")
+
+  private List<PokemonSpeciesSummary> requiredForEvolution = new ArrayList<>();
+ /**
+   * The identifier for this resource.
    * @return id
   **/
   @JsonProperty("id")
@@ -39,7 +51,7 @@ public class GenderDetail  {
 
 
  /**
-   * Get name
+   * The name for this resource.
    * @return name
   **/
   @JsonProperty("name")
@@ -57,21 +69,21 @@ public class GenderDetail  {
   }
 
  /**
-   * Get pokemonSpeciesDetails
+   * A list of Pokémon species that can be this gender and how likely it is that they will be.
    * @return pokemonSpeciesDetails
   **/
   @JsonProperty("pokemon_species_details")
-  public List<GenderDetailPokemonSpeciesDetailsInner> getPokemonSpeciesDetails() {
+  public List<GenderPokemonSpecies> getPokemonSpeciesDetails() {
     return pokemonSpeciesDetails;
   }
 
 
  /**
-   * Get requiredForEvolution
+   * A list of Pokémon species that required this gender in order for a Pokémon to evolve into them.
    * @return requiredForEvolution
   **/
   @JsonProperty("required_for_evolution")
-  public List<AbilityDetailPokemonInnerPokemon> getRequiredForEvolution() {
+  public List<PokemonSpeciesSummary> getRequiredForEvolution() {
     return requiredForEvolution;
   }
 

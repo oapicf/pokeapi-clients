@@ -21,8 +21,8 @@ public class MoveMetaAilmentSummary   {
     /**
      * Create MoveMetaAilmentSummary.
      *
-     * @param name name
-     * @param url url
+     * @param name The name of the referenced resource.
+     * @param url The URL of the referenced resource.
      */
     public MoveMetaAilmentSummary(
         String name, 
@@ -35,7 +35,7 @@ public class MoveMetaAilmentSummary   {
 
 
     /**
-     * Get name
+     * The name of the referenced resource.
      * @return name
      */
     public String getName() {
@@ -47,7 +47,7 @@ public class MoveMetaAilmentSummary   {
     }
 
     /**
-     * Get url
+     * The URL of the referenced resource.
      * @return url
      */
     public URI getUrl() {

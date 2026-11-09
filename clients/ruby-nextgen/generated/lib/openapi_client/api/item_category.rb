@@ -12,7 +12,7 @@ module OpenapiClient
           :GET,
           '/api/v2/item-category/',
           type: OpenapiClient::Models::PaginatedItemCategorySummaryList,
-          auth: ['basicAuth', 'cookieAuth'],
+          auth: [],
           query: { 'limit' => limit, 'offset' => offset, 'q' => q }
         )
       end
@@ -25,7 +25,7 @@ module OpenapiClient
           '/api/v2/item-category/{id}/'
             .gsub('{id}', ERB::Util.url_encode(id.to_s)),
           type: OpenapiClient::Models::ItemCategoryDetail,
-          auth: ['basicAuth', 'cookieAuth']
+          auth: []
         )
       end
     end

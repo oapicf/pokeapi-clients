@@ -29,6 +29,7 @@ public class PokemonColorDetail   {
   private List<@Valid PokemonSpeciesSummary> pokemonSpecies = new ArrayList<>();
 
   /**
+   * The identifier for this resource.
    **/
   public PokemonColorDetail id(Integer id) {
     this.id = id;
@@ -36,7 +37,7 @@ public class PokemonColorDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   @JsonProperty("id")
   @NotNull
   public Integer getId() {
@@ -48,6 +49,7 @@ public class PokemonColorDetail   {
 
 
   /**
+   * The name for this resource.
    **/
   public PokemonColorDetail name(String name) {
     this.name = name;
@@ -55,10 +57,10 @@ public class PokemonColorDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   @JsonProperty("name")
   @NotNull
- @Size(max=100)  public String getName() {
+ @Size(max=200)  public String getName() {
     return name;
   }
   public void setName(String name) {
@@ -67,6 +69,7 @@ public class PokemonColorDetail   {
 
 
   /**
+   * The name of this resource listed in different languages.
    **/
   public PokemonColorDetail names(List<@Valid PokemonColorName> names) {
     this.names = names;
@@ -74,7 +77,7 @@ public class PokemonColorDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
   @JsonProperty("names")
   @NotNull
   public List<@Valid PokemonColorName> getNames() {
@@ -94,6 +97,7 @@ public class PokemonColorDetail   {
 
 
   /**
+   * A list of the Pokémon species that have this color.
    **/
   public PokemonColorDetail pokemonSpecies(List<@Valid PokemonSpeciesSummary> pokemonSpecies) {
     this.pokemonSpecies = pokemonSpecies;
@@ -101,7 +105,7 @@ public class PokemonColorDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of the Pokémon species that have this color.")
   @JsonProperty("pokemon_species")
   @NotNull
   public List<@Valid PokemonSpeciesSummary> getPokemonSpecies() {

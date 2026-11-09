@@ -20,14 +20,19 @@ class BerryFlavorDetail {
     this.names = const [],
   });
 
+  /// The identifier for this resource.
   int id;
 
+  /// The name for this resource.
   String name;
 
-  List<BerryFlavorDetailBerriesInner> berries;
+  /// A list of the berries with this flavor.
+  List<BerryFlavorBerryMap> berries;
 
+  /// The contest type that correlates with this berry flavor.
   ContestTypeSummary contestType;
 
+  /// The name of this resource listed in different languages.
   List<BerryFlavorName> names;
 
   @override
@@ -87,7 +92,7 @@ class BerryFlavorDetail {
       return BerryFlavorDetail(
         id: mapValueOfType<int>(json, r'id')!,
         name: mapValueOfType<String>(json, r'name')!,
-        berries: BerryFlavorDetailBerriesInner.listFromJson(json[r'berries']),
+        berries: BerryFlavorBerryMap.listFromJson(json[r'berries']),
         contestType: ContestTypeSummary.fromJson(json[r'contest_type'])!,
         names: BerryFlavorName.listFromJson(json[r'names']),
       );

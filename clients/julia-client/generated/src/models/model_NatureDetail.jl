@@ -11,22 +11,20 @@
         increased_stat=nothing,
         likes_flavor=nothing,
         hates_flavor=nothing,
-        berries=nothing,
         pokeathlon_stat_changes=nothing,
         move_battle_style_preferences=nothing,
         names=nothing,
     )
 
-    - id::Int64
-    - name::String
-    - decreased_stat::StatSummary
-    - increased_stat::StatSummary
-    - likes_flavor::BerryFlavorSummary
-    - hates_flavor::BerryFlavorSummary
-    - berries::Vector{BerrySummary}
-    - pokeathlon_stat_changes::Vector{NatureDetailPokeathlonStatChangesInner}
-    - move_battle_style_preferences::Vector{NatureBattleStylePreference}
-    - names::Vector{NatureName}
+    - id::Int64 : The identifier for this resource.
+    - name::String : The name for this resource.
+    - decreased_stat::StatSummary : The stat decreased by 10% in Pokémon with this nature.
+    - increased_stat::StatSummary : The stat increased by 10% in Pokémon with this nature.
+    - likes_flavor::BerryFlavorSummary : The flavor liked by Pokémon with this nature.
+    - hates_flavor::BerryFlavorSummary : The flavor hated by Pokémon with this nature.
+    - pokeathlon_stat_changes::Vector{NaturePokeathlonStat} : A list of Pokéathlon stats this nature effects and how much it effects them.
+    - move_battle_style_preferences::Vector{NatureBattleStylePreference} : A list of battle styles and how likely a Pokémon with this nature is to use them in the Battle Palace or Battle Tent.
+    - names::Vector{NatureName} : The name of this resource listed in different languages.
 """
 Base.@kwdef mutable struct NatureDetail <: OpenAPI.APIModel
     id::Union{Nothing, Int64} = nothing
@@ -35,19 +33,18 @@ Base.@kwdef mutable struct NatureDetail <: OpenAPI.APIModel
     increased_stat = nothing # spec type: Union{ Nothing, StatSummary }
     likes_flavor = nothing # spec type: Union{ Nothing, BerryFlavorSummary }
     hates_flavor = nothing # spec type: Union{ Nothing, BerryFlavorSummary }
-    berries::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{BerrySummary} }
-    pokeathlon_stat_changes::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{NatureDetailPokeathlonStatChangesInner} }
+    pokeathlon_stat_changes::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{NaturePokeathlonStat} }
     move_battle_style_preferences::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{NatureBattleStylePreference} }
     names::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{NatureName} }
 
-    function NatureDetail(id, name, decreased_stat, increased_stat, likes_flavor, hates_flavor, berries, pokeathlon_stat_changes, move_battle_style_preferences, names, )
-        o = new(id, name, decreased_stat, increased_stat, likes_flavor, hates_flavor, berries, pokeathlon_stat_changes, move_battle_style_preferences, names, )
+    function NatureDetail(id, name, decreased_stat, increased_stat, likes_flavor, hates_flavor, pokeathlon_stat_changes, move_battle_style_preferences, names, )
+        o = new(id, name, decreased_stat, increased_stat, likes_flavor, hates_flavor, pokeathlon_stat_changes, move_battle_style_preferences, names, )
         OpenAPI.validate_properties(o)
         return o
     end
 end # type NatureDetail
 
-const _property_types_NatureDetail = Dict{Symbol,String}(Symbol("id")=>"Int64", Symbol("name")=>"String", Symbol("decreased_stat")=>"StatSummary", Symbol("increased_stat")=>"StatSummary", Symbol("likes_flavor")=>"BerryFlavorSummary", Symbol("hates_flavor")=>"BerryFlavorSummary", Symbol("berries")=>"Vector{BerrySummary}", Symbol("pokeathlon_stat_changes")=>"Vector{NatureDetailPokeathlonStatChangesInner}", Symbol("move_battle_style_preferences")=>"Vector{NatureBattleStylePreference}", Symbol("names")=>"Vector{NatureName}", )
+const _property_types_NatureDetail = Dict{Symbol,String}(Symbol("id")=>"Int64", Symbol("name")=>"String", Symbol("decreased_stat")=>"StatSummary", Symbol("increased_stat")=>"StatSummary", Symbol("likes_flavor")=>"BerryFlavorSummary", Symbol("hates_flavor")=>"BerryFlavorSummary", Symbol("pokeathlon_stat_changes")=>"Vector{NaturePokeathlonStat}", Symbol("move_battle_style_preferences")=>"Vector{NatureBattleStylePreference}", Symbol("names")=>"Vector{NatureName}", )
 OpenAPI.property_type(::Type{ NatureDetail }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_NatureDetail[name]))}
 
 function OpenAPI.check_required(o::NatureDetail)
@@ -57,7 +54,6 @@ function OpenAPI.check_required(o::NatureDetail)
     o.increased_stat === nothing && (return false)
     o.likes_flavor === nothing && (return false)
     o.hates_flavor === nothing && (return false)
-    o.berries === nothing && (return false)
     o.pokeathlon_stat_changes === nothing && (return false)
     o.move_battle_style_preferences === nothing && (return false)
     o.names === nothing && (return false)
@@ -71,7 +67,6 @@ function OpenAPI.validate_properties(o::NatureDetail)
     OpenAPI.validate_property(NatureDetail, Symbol("increased_stat"), o.increased_stat)
     OpenAPI.validate_property(NatureDetail, Symbol("likes_flavor"), o.likes_flavor)
     OpenAPI.validate_property(NatureDetail, Symbol("hates_flavor"), o.hates_flavor)
-    OpenAPI.validate_property(NatureDetail, Symbol("berries"), o.berries)
     OpenAPI.validate_property(NatureDetail, Symbol("pokeathlon_stat_changes"), o.pokeathlon_stat_changes)
     OpenAPI.validate_property(NatureDetail, Symbol("move_battle_style_preferences"), o.move_battle_style_preferences)
     OpenAPI.validate_property(NatureDetail, Symbol("names"), o.names)
@@ -81,9 +76,8 @@ function OpenAPI.validate_property(::Type{ NatureDetail }, name::Symbol, val)
 
 
     if name === Symbol("name")
-        OpenAPI.validate_param(name, "NatureDetail", :maxLength, val, 100)
+        OpenAPI.validate_param(name, "NatureDetail", :maxLength, val, 200)
     end
-
 
 
 

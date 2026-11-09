@@ -1,7 +1,7 @@
 (ns pokéapi.specs.berry-flavor-detail
   (:require [clojure.spec.alpha :as s]
             [spec-tools.data-spec :as ds]
-            [pokéapi.specs.berry-flavor-detail-berries-inner :refer :all]
+            [pokéapi.specs.berry-flavor-berry-map :refer :all]
             [pokéapi.specs.contest-type-summary :refer :all]
             [pokéapi.specs.berry-flavor-name :refer :all]
             )
@@ -12,7 +12,7 @@
   {
    (ds/req :id) int?
    (ds/req :name) string?
-   (ds/req :berries) (s/coll-of berry-flavor-detail-berries-inner-spec)
+   (ds/req :berries) (s/coll-of berry-flavor-berry-map-spec)
    (ds/req :contest_type) contest-type-summary-spec
    (ds/req :names) (s/coll-of berry-flavor-name-spec)
    })

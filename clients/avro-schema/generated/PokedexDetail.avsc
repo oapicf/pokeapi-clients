@@ -7,17 +7,17 @@
     {
       "name": "id",
       "type": "int",
-      "doc": ""
+      "doc": "The identifier for this resource."
     },
     {
       "name": "name",
       "type": "string",
-      "doc": ""
+      "doc": "The name for this resource."
     },
     {
       "name": "is_main_series",
       "type": ["null", "boolean"],
-      "doc": "",
+      "doc": "Whether or not this Pokédex originated in the main series of the video games.",
       "default": null
     },
     {
@@ -26,7 +26,7 @@
         "type": "array",
         "items": "model.PokedexDescription"
       },
-      "doc": ""
+      "doc": "The description of this resource listed in different languages."
     },
     {
       "name": "names",
@@ -34,28 +34,28 @@
         "type": "array",
         "items": "model.PokedexName"
       },
-      "doc": ""
+      "doc": "The name of this resource listed in different languages."
     },
     {
       "name": "pokemon_entries",
       "type": {
         "type": "array",
-        "items": "model.PokedexDetailPokemonEntriesInner"
+        "items": "model.PokemonDexNumber"
       },
-      "doc": ""
+      "doc": "A list of Pokémon catalogued in this Pokédex and their indexes."
     },
     {
       "name": "region",
       "type": "model.RegionSummary",
-      "doc": ""
+      "doc": "The region this Pokédex catalogues Pokémon for."
     },
     {
       "name": "version_groups",
       "type": {
         "type": "array",
-        "items": "model.AbilityDetailPokemonInnerPokemon"
+        "items": "model.VersionGroupSummary"
       },
-      "doc": ""
+      "doc": "A list of version groups this Pokédex is relevant to."
     }
   ]
 

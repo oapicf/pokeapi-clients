@@ -7,7 +7,7 @@ module.exports = {
         return [
             {
                 key: `${keyPrefix}entry_number`,
-                label: `[${labelPrefix}entry_number]`,
+                label: `The index number within the Pokédex. - [${labelPrefix}entry_number]`,
                 required: true,
                 type: 'integer',
             },

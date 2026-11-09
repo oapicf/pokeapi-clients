@@ -11,7 +11,7 @@ import org.openapitools.model.LanguageSummary;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-10-25T05:47:53.227411880Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-11-09T13:49:15.621225368Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class ContestTypeName   {
   @JsonProperty("name")
   private String name;
@@ -23,6 +23,7 @@ public class ContestTypeName   {
   private LanguageSummary language;
 
   /**
+   * The name for this contest.
    **/
   public ContestTypeName name(String name) {
     this.name = name;
@@ -30,7 +31,7 @@ public class ContestTypeName   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this contest.")
   @JsonProperty("name")
   public String getName() {
     return name;
@@ -40,6 +41,7 @@ public class ContestTypeName   {
   }
 
   /**
+   * The color associated with this contest's name.
    **/
   public ContestTypeName color(String color) {
     this.color = color;
@@ -47,7 +49,7 @@ public class ContestTypeName   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The color associated with this contest's name.")
   @JsonProperty("color")
   public String getColor() {
     return color;
@@ -57,6 +59,7 @@ public class ContestTypeName   {
   }
 
   /**
+   * The language that this name is in.
    **/
   public ContestTypeName language(LanguageSummary language) {
     this.language = language;
@@ -64,7 +67,7 @@ public class ContestTypeName   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The language that this name is in.")
   @JsonProperty("language")
   public LanguageSummary getLanguage() {
     return language;

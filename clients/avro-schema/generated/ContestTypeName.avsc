@@ -7,17 +7,17 @@
     {
       "name": "name",
       "type": "string",
-      "doc": ""
+      "doc": "The name for this contest."
     },
     {
       "name": "color",
       "type": "string",
-      "doc": ""
+      "doc": "The color associated with this contest's name."
     },
     {
       "name": "language",
       "type": "model.LanguageSummary",
-      "doc": ""
+      "doc": "The language that this name is in."
     }
   ]
 

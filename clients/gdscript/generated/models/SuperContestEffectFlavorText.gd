@@ -10,6 +10,7 @@ class_name SuperContestEffectFlavorText
 # SuperContestEffectFlavorText Model
 
 
+# The localized flavor text for an API resource in a specific language.
 # Required: True
 # isArray: false
 @export var flavorUnderscoretext: String:
@@ -18,6 +19,7 @@ class_name SuperContestEffectFlavorText
 		flavorUnderscoretext = value
 var __flavorUnderscoretext__was__set := false
 
+# The language this name is in.
 # Required: True
 # isArray: false
 @export var language: LanguageSummary:

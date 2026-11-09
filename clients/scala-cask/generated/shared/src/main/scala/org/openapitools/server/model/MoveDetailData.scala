@@ -1,8 +1,8 @@
 /**
  * PokéAPI
- * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+ * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
  *
- * OpenAPI spec version: 2.7.0
+ * OpenAPI spec version: 2.10.0
  *
  * Contact: blah+oapicf@cliffano.com
  *
@@ -25,30 +25,54 @@ import upickle.default.*
   * It has no validation - there may be nulls, values out of range, etc
   */
 case class MoveDetailData(
+/* The identifier for this resource. */
   id: Int,
+/* The name for this resource. */
   name: String,
+/* The percent value of how likely this move is to be successful. */
   accuracy: Int = 0 ,
+/* The percent value of how likely it is this moves effect will happen. */
   effectChance: Int,
+/* Power points. The number of times this move can be used. */
   pp: Int = 0 ,
+/* A value between -8 and 8. Sets the order in which moves are executed during battle. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Priority) for greater detail. */
   priority: Int = 0 ,
+/* The base power of this move, or null if it has no fixed base power. */
   power: Int = 0 ,
-  contestCombos: MoveDetailContestCombosData,
+/* A detail of normal and super contest combos that require this move. */
+  contestCombos: MoveCombosData,
+/* The type of appeal this move gives a Pokémon when used in a contest. */
   contestType: ContestTypeSummaryData,
+/* The effect the move has when used in a contest. */
   contestEffect: ContestEffectSummaryData,
+/* The type of damage the move inflicts on the target, e.g. physical. */
   damageClass: MoveDamageClassSummaryData,
-  effectEntries: Seq[MoveChangeEffectEntriesInnerData],
-  effectChanges: Seq[MoveDetailEffectChangesInnerData],
+/* The effect of this move listed in different languages. */
+  effectEntries: Seq[MoveEffectEffectTextData],
+/* The list of previous effects this move has had across version groups of the games. */
+  effectChanges: Seq[MoveEffectChangeData],
+/* The generation in which this move was introduced. */
   generation: GenerationSummaryData,
+/* Metadata about this move */
   meta: MoveMetaData,
+/* The name of this resource listed in different languages. */
   names: Seq[MoveNameData],
+/* A list of move resource value changes across version groups of the game. */
   pastValues: Seq[MoveChangeData],
-  statChanges: Seq[MoveDetailStatChangesInnerData],
+/* A list of stats this moves effects and how much it effects them. */
+  statChanges: Seq[MoveMetaStatChangeData],
+/* The effect the move has when used in a super contest. */
   superContestEffect: SuperContestEffectSummaryData,
+/* The type of target that will receive the effects of the attack. */
   target: MoveTargetSummaryData,
+/* The elemental type of this move. */
   `type`: TypeSummaryData,
-  machines: Seq[MoveDetailMachinesInnerData],
+/* A list of the machines that teach this move. */
+  machines: Seq[ItemMachineData],
+/* The flavor text of this move listed in different languages. */
   flavorTextEntries: Seq[MoveFlavorTextData],
-  learnedByPokemon: Seq[AbilityDetailPokemonInnerPokemonData]
+/* List of Pokemon that can learn the move */
+  learnedByPokemon: Seq[PokemonSummaryData]
   
 
 ) derives RW {
@@ -69,11 +93,11 @@ case class MoveDetailData(
         
 
         // ================== name validation ==================
-        // validate max length 100
+        // validate max length 200
         if (_allValidationErrors.isEmpty || !failFast)  {
           val len = if name == null then 0 else name.length
-            if (len < 100) {
-               _allValidationErrors += ValidationError(path :+ MoveDetail.Fields.name, s"length $len is longer than the max length 100")
+            if (len < 200) {
+               _allValidationErrors += ValidationError(path :+ MoveDetail.Fields.name, s"length $len is longer than the max length 200")
             }
         }
         
@@ -82,6 +106,16 @@ case class MoveDetailData(
         
 
         // ================== accuracy validation ==================
+        // validate against minimum -2147483648
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if !(accuracy >= -2147483648) then
+            _allValidationErrors += ValidationError(path :+ MoveDetail.Fields.accuracy, s"value '$accuracy' is not greater than the minimum value -2147483648")
+        }
+        // validate against maximum 2147483647
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if !(accuracy <= 2147483647) then
+            _allValidationErrors += ValidationError(path :+ MoveDetail.Fields.accuracy, s"value '$accuracy' is not greater than the maximum value 2147483647")
+        }
         
         
         
@@ -94,18 +128,48 @@ case class MoveDetailData(
         
 
         // ================== pp validation ==================
+        // validate against minimum -2147483648
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if !(pp >= -2147483648) then
+            _allValidationErrors += ValidationError(path :+ MoveDetail.Fields.pp, s"value '$pp' is not greater than the minimum value -2147483648")
+        }
+        // validate against maximum 2147483647
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if !(pp <= 2147483647) then
+            _allValidationErrors += ValidationError(path :+ MoveDetail.Fields.pp, s"value '$pp' is not greater than the maximum value 2147483647")
+        }
         
         
         
         
 
         // ================== priority validation ==================
+        // validate against minimum -2147483648
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if !(priority >= -2147483648) then
+            _allValidationErrors += ValidationError(path :+ MoveDetail.Fields.priority, s"value '$priority' is not greater than the minimum value -2147483648")
+        }
+        // validate against maximum 2147483647
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if !(priority <= 2147483647) then
+            _allValidationErrors += ValidationError(path :+ MoveDetail.Fields.priority, s"value '$priority' is not greater than the maximum value 2147483647")
+        }
         
         
         
         
 
         // ================== power validation ==================
+        // validate against minimum -2147483648
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if !(power >= -2147483648) then
+            _allValidationErrors += ValidationError(path :+ MoveDetail.Fields.power, s"value '$power' is not greater than the minimum value -2147483648")
+        }
+        // validate against maximum 2147483647
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if !(power <= 2147483647) then
+            _allValidationErrors += ValidationError(path :+ MoveDetail.Fields.power, s"value '$power' is not greater than the maximum value 2147483647")
+        }
         
         
         

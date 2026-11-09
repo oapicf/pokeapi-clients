@@ -77,3 +77,38 @@ public class LanguageRetrieveEndpoint : FastEndpoints.Endpoint<LanguageRetrieveR
     }
 }
 
+
+/// <summary>
+/// Get API metadata
+/// </summary>
+
+public class MetaRetrieveEndpoint : FastEndpoints.EndpointWithoutRequest<PokeapiMetaResponse>
+{
+    public override void Configure()
+    {
+        Get("/api/v2/meta/");
+        
+        
+        AllowAnonymous();
+        
+        Description(x =>
+        {
+            x.WithTags("utility");
+        });
+
+        Summary(s => {
+            s.Summary = "Get API metadata";
+            s.Responses[200] = "";
+        });
+    }
+
+    public override async Task HandleAsync(CancellationToken ct)
+    {
+        //Response = new()
+        //{
+            //...
+        //};
+        //return Task.CompletedTask;
+    }
+}
+

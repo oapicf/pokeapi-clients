@@ -9,8 +9,8 @@
         version=nothing,
     )
 
-    - game_index::Int64
-    - version::VersionSummary
+    - game_index::Int64 : The internal id of an API resource within game data.
+    - version::VersionSummary : The version relevent to this game index.
 """
 Base.@kwdef mutable struct PokemonGameIndex <: OpenAPI.APIModel
     game_index::Union{Nothing, Int64} = nothing
@@ -39,5 +39,9 @@ end
 
 function OpenAPI.validate_property(::Type{ PokemonGameIndex }, name::Symbol, val)
 
+    if name === Symbol("game_index")
+        OpenAPI.validate_param(name, "PokemonGameIndex", :maximum, val, 2147483647, false)
+        OpenAPI.validate_param(name, "PokemonGameIndex", :minimum, val, -2147483648, false)
+    end
 
 end

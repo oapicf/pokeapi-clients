@@ -1,8 +1,8 @@
 (ns pokéapi.specs.pokemon-shape-detail
   (:require [clojure.spec.alpha :as s]
             [spec-tools.data-spec :as ds]
-            [pokéapi.specs.pokemon-shape-detail-awesome-names-inner :refer :all]
-            [pokéapi.specs.pokemon-shape-detail-names-inner :refer :all]
+            [pokéapi.specs.pokemon-shape-awesome-name :refer :all]
+            [pokéapi.specs.pokemon-shape-name :refer :all]
             [pokéapi.specs.pokemon-species-summary :refer :all]
             )
   (:import (java.io File)))
@@ -12,8 +12,8 @@
   {
    (ds/req :id) int?
    (ds/req :name) string?
-   (ds/req :awesome_names) (s/coll-of pokemon-shape-detail-awesome-names-inner-spec)
-   (ds/req :names) (s/coll-of pokemon-shape-detail-names-inner-spec)
+   (ds/req :awesome_names) (s/coll-of pokemon-shape-awesome-name-spec)
+   (ds/req :names) (s/coll-of pokemon-shape-name-spec)
    (ds/req :pokemon_species) (s/coll-of pokemon-species-summary-spec)
    })
 

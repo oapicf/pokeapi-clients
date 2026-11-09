@@ -12,7 +12,6 @@ VersionDetail::VersionDetail()
 : id(0)
 , name("")
 , names(std::vector<VersionName>())
-, versionGroup(VersionGroupSummary())
 {
 }
 // =========================================

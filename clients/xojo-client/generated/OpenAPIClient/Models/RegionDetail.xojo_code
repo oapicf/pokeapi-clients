@@ -2,37 +2,58 @@
 Protected Class RegionDetail
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The identifier for this resource.
+		#tag EndNote
 		id As Integer
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The name for this resource.
+		#tag EndNote
 		name As String
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			A list of locations that can be found in this region.
+		#tag EndNote
 		locations() As OpenAPIClient.Models.LocationSummary
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The generation this region was introduced in.
+		#tag EndNote
 		main_generation As OpenAPIClient.Models.GenerationSummary
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The name of this resource listed in different languages.
+		#tag EndNote
 		names() As OpenAPIClient.Models.RegionName
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			A list of pokédexes that catalogue Pokémon in this region.
+		#tag EndNote
 		pokedexes() As OpenAPIClient.Models.PokedexSummary
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
-		version_groups() As OpenAPIClient.Models.AbilityDetailPokemonInnerPokemon
+		#tag Note
+			A list of version groups where this region can be visited.
+		#tag EndNote
+		version_groups() As OpenAPIClient.Models.VersionGroupSummary
 	#tag EndProperty
 
 
@@ -125,7 +146,7 @@ Protected Class RegionDetail
 			Visible=false
 			Group="Behavior"
 			InitialValue=""
-			Type="AbilityDetailPokemonInnerPokemon"
+			Type="VersionGroupSummary"
 			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior

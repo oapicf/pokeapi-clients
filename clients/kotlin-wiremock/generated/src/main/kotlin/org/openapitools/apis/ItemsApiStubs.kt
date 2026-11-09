@@ -19,6 +19,36 @@ import org.openapitools.models.*
 open class ItemsApiStubs(private val objectMapper: ObjectMapper) {
 
     /**
+     * Construct a stub for the operation currencyList.
+     *
+     * @param limit query parameter limit pattern.
+     * @param offset query parameter offset pattern.
+     * @param q query parameter q pattern.
+     * @param configurer configurer for the [MappingBuilder], allowing for arbitrary changes.
+     * @return A [CurrencyListStubBuilder] to configure the response, and the final [MappingBuilder].
+     */
+    fun currencyList(limit: StringValuePattern? = null, offset: StringValuePattern? = null, q: StringValuePattern? = null, configurer: MappingBuilder.() -> MappingBuilder = { this }): CurrencyListStubBuilder =
+        CurrencyListStubBuilder(objectMapper, get(urlPathTemplate("/api/v2/currency/"))
+            .apply { limit?.let { withQueryParam("limit", it) } }
+            .apply { offset?.let { withQueryParam("offset", it) } }
+            .apply { q?.let { withQueryParam("q", it) } }
+            .configurer()
+        )
+
+    /**
+     * Construct a stub for the operation currencyRetrieve.
+     *
+     * @param id path parameter id pattern.
+     * @param configurer configurer for the [MappingBuilder], allowing for arbitrary changes.
+     * @return A [CurrencyRetrieveStubBuilder] to configure the response, and the final [MappingBuilder].
+     */
+    fun currencyRetrieve(id: StringValuePattern, configurer: MappingBuilder.() -> MappingBuilder = { this }): CurrencyRetrieveStubBuilder =
+        CurrencyRetrieveStubBuilder(objectMapper, get(urlPathTemplate("/api/v2/currency/{id}/"))
+            .withPathParam("id", id)
+            .configurer()
+        )
+
+    /**
      * Construct a stub for the operation itemAttributeList.
      *
      * @param limit query parameter limit pattern.

@@ -15,11 +15,10 @@ const _returntypes_contest_effect_list_ContestsApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => PaginatedContestEffectSummaryList,
 )
 
-function _oacinternal_contest_effect_list(_api::ContestsApi; limit=nothing, offset=nothing, q=nothing, _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_contest_effect_list_ContestsApi, "/api/v2/contest-effect/", ["basicAuth", "cookieAuth", ])
+function _oacinternal_contest_effect_list(_api::ContestsApi; limit=nothing, offset=nothing, _mediaType=nothing)
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_contest_effect_list_ContestsApi, "/api/v2/contest-effect/", [])
     OpenAPI.Clients.set_param(_ctx.query, "limit", limit; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "offset", offset; style="form", is_explode=true)  # type Int64
-    OpenAPI.Clients.set_param(_ctx.query, "q", q; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
     return _ctx
@@ -32,17 +31,16 @@ Contest effects refer to the effects of moves when used in contests.
 Params:
 - `limit`::`Int64`
 - `offset`::`Int64`
-- `q`::`String`
 
 Return: `PaginatedContestEffectSummaryList`, `OpenAPI.Clients.ApiResponse`
 """
-function contest_effect_list(_api::ContestsApi; limit=nothing, offset=nothing, q=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_contest_effect_list(_api; limit=limit, offset=offset, q=q, _mediaType=_mediaType)
+function contest_effect_list(_api::ContestsApi; limit=nothing, offset=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_contest_effect_list(_api; limit=limit, offset=offset, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function contest_effect_list(_api::ContestsApi, response_stream::Channel; limit=nothing, offset=nothing, q=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_contest_effect_list(_api; limit=limit, offset=offset, q=q, _mediaType=_mediaType)
+function contest_effect_list(_api::ContestsApi, response_stream::Channel; limit=nothing, offset=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_contest_effect_list(_api; limit=limit, offset=offset, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -51,7 +49,7 @@ const _returntypes_contest_effect_retrieve_ContestsApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_contest_effect_retrieve(_api::ContestsApi, id::String; _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_contest_effect_retrieve_ContestsApi, "/api/v2/contest-effect/{id}/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_contest_effect_retrieve_ContestsApi, "/api/v2/contest-effect/{id}/", [])
     OpenAPI.Clients.set_param(_ctx.path, "id", id)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
@@ -82,7 +80,7 @@ const _returntypes_contest_type_list_ContestsApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_contest_type_list(_api::ContestsApi; limit=nothing, offset=nothing, q=nothing, _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_contest_type_list_ContestsApi, "/api/v2/contest-type/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_contest_type_list_ContestsApi, "/api/v2/contest-type/", [])
     OpenAPI.Clients.set_param(_ctx.query, "limit", limit; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "offset", offset; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "q", q; style="form", is_explode=true)  # type String
@@ -117,7 +115,7 @@ const _returntypes_contest_type_retrieve_ContestsApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_contest_type_retrieve(_api::ContestsApi, id::String; _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_contest_type_retrieve_ContestsApi, "/api/v2/contest-type/{id}/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_contest_type_retrieve_ContestsApi, "/api/v2/contest-type/{id}/", [])
     OpenAPI.Clients.set_param(_ctx.path, "id", id)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
@@ -147,11 +145,10 @@ const _returntypes_super_contest_effect_list_ContestsApi = Dict{Regex,Type}(
     Regex("^" * replace("200", "x"=>".") * "\$") => PaginatedSuperContestEffectSummaryList,
 )
 
-function _oacinternal_super_contest_effect_list(_api::ContestsApi; limit=nothing, offset=nothing, q=nothing, _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_super_contest_effect_list_ContestsApi, "/api/v2/super-contest-effect/", ["basicAuth", "cookieAuth", ])
+function _oacinternal_super_contest_effect_list(_api::ContestsApi; limit=nothing, offset=nothing, _mediaType=nothing)
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_super_contest_effect_list_ContestsApi, "/api/v2/super-contest-effect/", [])
     OpenAPI.Clients.set_param(_ctx.query, "limit", limit; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "offset", offset; style="form", is_explode=true)  # type Int64
-    OpenAPI.Clients.set_param(_ctx.query, "q", q; style="form", is_explode=true)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
     return _ctx
@@ -164,17 +161,16 @@ Super contest effects refer to the effects of moves when used in super contests.
 Params:
 - `limit`::`Int64`
 - `offset`::`Int64`
-- `q`::`String`
 
 Return: `PaginatedSuperContestEffectSummaryList`, `OpenAPI.Clients.ApiResponse`
 """
-function super_contest_effect_list(_api::ContestsApi; limit=nothing, offset=nothing, q=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_super_contest_effect_list(_api; limit=limit, offset=offset, q=q, _mediaType=_mediaType)
+function super_contest_effect_list(_api::ContestsApi; limit=nothing, offset=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_super_contest_effect_list(_api; limit=limit, offset=offset, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx)
 end
 
-function super_contest_effect_list(_api::ContestsApi, response_stream::Channel; limit=nothing, offset=nothing, q=nothing, _mediaType=nothing)
-    _ctx = _oacinternal_super_contest_effect_list(_api; limit=limit, offset=offset, q=q, _mediaType=_mediaType)
+function super_contest_effect_list(_api::ContestsApi, response_stream::Channel; limit=nothing, offset=nothing, _mediaType=nothing)
+    _ctx = _oacinternal_super_contest_effect_list(_api; limit=limit, offset=offset, _mediaType=_mediaType)
     return OpenAPI.Clients.exec(_ctx, response_stream)
 end
 
@@ -183,7 +179,7 @@ const _returntypes_super_contest_effect_retrieve_ContestsApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_super_contest_effect_retrieve(_api::ContestsApi, id::String; _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_super_contest_effect_retrieve_ContestsApi, "/api/v2/super-contest-effect/{id}/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_super_contest_effect_retrieve_ContestsApi, "/api/v2/super-contest-effect/{id}/", [])
     OpenAPI.Clients.set_param(_ctx.path, "id", id)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])

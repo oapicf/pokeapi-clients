@@ -57,6 +57,7 @@ class AbilityEffectText(Model):
     def effect(self) -> str:
         """Gets the effect of this AbilityEffectText.
 
+        The localized effect text for an API resource in a specific language.  # noqa: E501
 
         :return: The effect of this AbilityEffectText.
         :rtype: str
@@ -67,6 +68,7 @@ class AbilityEffectText(Model):
     def effect(self, effect: str):
         """Sets the effect of this AbilityEffectText.
 
+        The localized effect text for an API resource in a specific language.  # noqa: E501
 
         :param effect: The effect of this AbilityEffectText.
         :type effect: str
@@ -82,6 +84,7 @@ class AbilityEffectText(Model):
     def short_effect(self) -> str:
         """Gets the short_effect of this AbilityEffectText.
 
+        The localized effect text in brief.  # noqa: E501
 
         :return: The short_effect of this AbilityEffectText.
         :rtype: str
@@ -92,6 +95,7 @@ class AbilityEffectText(Model):
     def short_effect(self, short_effect: str):
         """Sets the short_effect of this AbilityEffectText.
 
+        The localized effect text in brief.  # noqa: E501
 
         :param short_effect: The short_effect of this AbilityEffectText.
         :type short_effect: str
@@ -107,6 +111,7 @@ class AbilityEffectText(Model):
     def language(self) -> LanguageSummary:
         """Gets the language of this AbilityEffectText.
 
+        The language this effect is in.  # noqa: E501
 
         :return: The language of this AbilityEffectText.
         :rtype: LanguageSummary
@@ -117,6 +122,7 @@ class AbilityEffectText(Model):
     def language(self, language: LanguageSummary):
         """Sets the language of this AbilityEffectText.
 
+        The language this effect is in.  # noqa: E501
 
         :param language: The language of this AbilityEffectText.
         :type language: LanguageSummary

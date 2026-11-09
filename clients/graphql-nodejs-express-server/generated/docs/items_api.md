@@ -4,6 +4,8 @@ All URIs are relative to *https://pokeapi.co*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**CurrencyList**](items_api.md#CurrencyList) | **GET** /api/v2/currency/ | List currencies
+[**CurrencyRetrieve**](items_api.md#CurrencyRetrieve) | **GET** /api/v2/currency/{id}/ | Get currency
 [**ItemAttributeList**](items_api.md#ItemAttributeList) | **GET** /api/v2/item-attribute/ | List item attributes
 [**ItemAttributeRetrieve**](items_api.md#ItemAttributeRetrieve) | **GET** /api/v2/item-attribute/{id}/ | Get item attribute
 [**ItemCategoryList**](items_api.md#ItemCategoryList) | **GET** /api/v2/item-category/ | List item categories
@@ -16,6 +18,20 @@ Method | HTTP request | Description
 [**ItemRetrieve**](items_api.md#ItemRetrieve) | **GET** /api/v2/item/{id}/ | Get item
 
 
+<a name="CurrencyList"></a>
+# **CurrencyList**
+> PaginatedCurrencySummaryList CurrencyList(limit, offset, q)
+
+List currencies
+
+Currencies used to buy items.
+<a name="CurrencyRetrieve"></a>
+# **CurrencyRetrieve**
+> CurrencyDetail CurrencyRetrieve(Id_)
+
+Get currency
+
+Currencies used to buy items.
 <a name="ItemAttributeList"></a>
 # **ItemAttributeList**
 > PaginatedItemAttributeSummaryList ItemAttributeList(limit, offset, q)

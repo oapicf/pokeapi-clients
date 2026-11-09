@@ -11,22 +11,30 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class PokemonGameIndex  {
   
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The internal id of an API resource within game data.
+  */
+  @ApiModelProperty(required = true, value = "The internal id of an API resource within game data.")
 
   private Integer gameIndex;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The version relevent to this game index.
+  */
+  @ApiModelProperty(required = true, value = "The version relevent to this game index.")
 
   @Valid
 
   private VersionSummary version;
  /**
-   * Get gameIndex
+   * The internal id of an API resource within game data.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return gameIndex
   **/
   @JsonProperty("game_index")
   @NotNull
-  public Integer getGameIndex() {
+ @Min(-2147483648) @Max(2147483647)  public Integer getGameIndex() {
     return gameIndex;
   }
 
@@ -40,7 +48,7 @@ public class PokemonGameIndex  {
   }
 
  /**
-   * Get version
+   * The version relevent to this game index.
    * @return version
   **/
   @JsonProperty("version")

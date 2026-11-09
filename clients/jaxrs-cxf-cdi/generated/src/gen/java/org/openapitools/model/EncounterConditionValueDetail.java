@@ -29,6 +29,7 @@ public class EncounterConditionValueDetail   {
   private List<@Valid EncounterConditionValueName> names = new ArrayList<>();
 
   /**
+   * The identifier for this resource.
    **/
   public EncounterConditionValueDetail id(Integer id) {
     this.id = id;
@@ -36,7 +37,7 @@ public class EncounterConditionValueDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   @JsonProperty("id")
   @NotNull
   public Integer getId() {
@@ -48,6 +49,7 @@ public class EncounterConditionValueDetail   {
 
 
   /**
+   * The name for this resource.
    **/
   public EncounterConditionValueDetail name(String name) {
     this.name = name;
@@ -55,10 +57,10 @@ public class EncounterConditionValueDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   @JsonProperty("name")
   @NotNull
- @Size(max=100)  public String getName() {
+ @Size(max=200)  public String getName() {
     return name;
   }
   public void setName(String name) {
@@ -67,6 +69,7 @@ public class EncounterConditionValueDetail   {
 
 
   /**
+   * The condition this encounter condition value pertains to.
    **/
   public EncounterConditionValueDetail condition(EncounterConditionSummary condition) {
     this.condition = condition;
@@ -74,7 +77,7 @@ public class EncounterConditionValueDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The condition this encounter condition value pertains to.")
   @JsonProperty("condition")
   @NotNull
   public EncounterConditionSummary getCondition() {
@@ -86,6 +89,7 @@ public class EncounterConditionValueDetail   {
 
 
   /**
+   * The name of this resource listed in different languages.
    **/
   public EncounterConditionValueDetail names(List<@Valid EncounterConditionValueName> names) {
     this.names = names;
@@ -93,7 +97,7 @@ public class EncounterConditionValueDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
   @JsonProperty("names")
   @NotNull
   public List<@Valid EncounterConditionValueName> getNames() {

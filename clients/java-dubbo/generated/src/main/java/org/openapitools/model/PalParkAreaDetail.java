@@ -1,7 +1,7 @@
 package org.openapitools.model;
 
-import org.openapitools.model.PalParkAreaDetailPokemonEncountersInner;
 import org.openapitools.model.PalParkAreaName;
+import org.openapitools.model.PalParkEncounter;
 import java.util.*;
 import java.util.Objects;
 import java.io.Serializable;
@@ -14,20 +14,32 @@ import java.math.*;
 public class PalParkAreaDetail implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * The identifier for this resource.
+   */
   @JsonProperty("id")
   private Integer id;
 
+  /**
+   * The name for this resource.
+   */
   @JsonProperty("name")
   private String name;
 
+  /**
+   * The name of this resource listed in different languages.
+   */
   @JsonProperty("names")
   private List<PalParkAreaName> names = new ArrayList<>();
 
+  /**
+   * A list of Pokémon encountered in thi pal park area along with details.
+   */
   @JsonProperty("pokemon_encounters")
-  private List<PalParkAreaDetailPokemonEncountersInner> pokemonEncounters = new ArrayList<>();
+  private List<PalParkEncounter> pokemonEncounters = new ArrayList<>();
 
   /**
-   * 
+   * The identifier for this resource.
    * @return id
    */
   public Integer getId() {
@@ -39,7 +51,7 @@ public class PalParkAreaDetail implements Serializable {
   }
 
   /**
-   * 
+   * The name for this resource.
    * @return name
    */
   public String getName() {
@@ -51,7 +63,7 @@ public class PalParkAreaDetail implements Serializable {
   }
 
   /**
-   * 
+   * The name of this resource listed in different languages.
    * @return names
    */
   public List<PalParkAreaName> getNames() {
@@ -63,14 +75,14 @@ public class PalParkAreaDetail implements Serializable {
   }
 
   /**
-   * 
+   * A list of Pokémon encountered in thi pal park area along with details.
    * @return pokemonEncounters
    */
-  public List<PalParkAreaDetailPokemonEncountersInner> getPokemonEncounters() {
+  public List<PalParkEncounter> getPokemonEncounters() {
     return pokemonEncounters;
   }
 
-  public void setPokemonEncounters(List<PalParkAreaDetailPokemonEncountersInner> pokemonEncounters) {
+  public void setPokemonEncounters(List<PalParkEncounter> pokemonEncounters) {
     this.pokemonEncounters = pokemonEncounters;
   }
 

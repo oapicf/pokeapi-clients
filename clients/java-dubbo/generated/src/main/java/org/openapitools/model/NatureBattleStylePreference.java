@@ -12,17 +12,26 @@ import java.math.*;
 public class NatureBattleStylePreference implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * Chance of using the move, in percent, if HP is under one half.
+   */
   @JsonProperty("low_hp_preference")
   private Integer lowHpPreference;
 
+  /**
+   * Chance of using the move, in percent, if HP is over one half.
+   */
   @JsonProperty("high_hp_preference")
   private Integer highHpPreference;
 
+  /**
+   * The move battle style.
+   */
   @JsonProperty("move_battle_style")
   private MoveBattleStyleSummary moveBattleStyle;
 
   /**
-   * 
+   * Chance of using the move, in percent, if HP is under one half.
    * @return lowHpPreference
    */
   public Integer getLowHpPreference() {
@@ -34,7 +43,7 @@ public class NatureBattleStylePreference implements Serializable {
   }
 
   /**
-   * 
+   * Chance of using the move, in percent, if HP is over one half.
    * @return highHpPreference
    */
   public Integer getHighHpPreference() {
@@ -46,7 +55,7 @@ public class NatureBattleStylePreference implements Serializable {
   }
 
   /**
-   * 
+   * The move battle style.
    * @return moveBattleStyle
    */
   public MoveBattleStyleSummary getMoveBattleStyle() {

@@ -21,16 +21,22 @@ class GrowthRateDetail {
     this.pokemonSpecies = const [],
   });
 
+  /// The identifier for this resource.
   int id;
 
+  /// The name for this resource.
   String name;
 
+  /// The formula used to calculate the rate at which the Pokémon species gains level.
   String formula;
 
+  /// The descriptions of this characteristic listed in different languages.
   List<GrowthRateDescription> descriptions;
 
+  /// A list of levels and the amount of experienced needed to atain them based on this growth rate.
   List<Experience> levels;
 
+  /// A list of Pokémon species that gain levels at this growth rate.
   List<PokemonSpeciesSummary> pokemonSpecies;
 
   @override

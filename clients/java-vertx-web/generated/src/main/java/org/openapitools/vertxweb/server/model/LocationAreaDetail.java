@@ -6,9 +6,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.vertxweb.server.model.LocationAreaDetailEncounterMethodRatesInner;
-import org.openapitools.vertxweb.server.model.LocationAreaDetailPokemonEncountersInner;
+import org.openapitools.vertxweb.server.model.LocationAreaEncounterRate;
 import org.openapitools.vertxweb.server.model.LocationAreaName;
+import org.openapitools.vertxweb.server.model.LocationAreaPokemonEncounter;
 import org.openapitools.vertxweb.server.model.LocationSummary;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -17,16 +17,16 @@ public class LocationAreaDetail   {
   private Integer id;
   private String name;
   private Integer gameIndex;
-  private List<LocationAreaDetailEncounterMethodRatesInner> encounterMethodRates = new ArrayList<>();
+  private List<LocationAreaEncounterRate> encounterMethodRates = new ArrayList<>();
   private LocationSummary location;
   private List<LocationAreaName> names = new ArrayList<>();
-  private List<LocationAreaDetailPokemonEncountersInner> pokemonEncounters = new ArrayList<>();
+  private List<LocationAreaPokemonEncounter> pokemonEncounters = new ArrayList<>();
 
   public LocationAreaDetail () {
 
   }
 
-  public LocationAreaDetail (Integer id, String name, Integer gameIndex, List<LocationAreaDetailEncounterMethodRatesInner> encounterMethodRates, LocationSummary location, List<LocationAreaName> names, List<LocationAreaDetailPokemonEncountersInner> pokemonEncounters) {
+  public LocationAreaDetail (Integer id, String name, Integer gameIndex, List<LocationAreaEncounterRate> encounterMethodRates, LocationSummary location, List<LocationAreaName> names, List<LocationAreaPokemonEncounter> pokemonEncounters) {
     this.id = id;
     this.name = name;
     this.gameIndex = gameIndex;
@@ -65,10 +65,10 @@ public class LocationAreaDetail   {
 
     
   @JsonProperty("encounter_method_rates")
-  public List<LocationAreaDetailEncounterMethodRatesInner> getEncounterMethodRates() {
+  public List<LocationAreaEncounterRate> getEncounterMethodRates() {
     return encounterMethodRates;
   }
-  public void setEncounterMethodRates(List<LocationAreaDetailEncounterMethodRatesInner> encounterMethodRates) {
+  public void setEncounterMethodRates(List<LocationAreaEncounterRate> encounterMethodRates) {
     this.encounterMethodRates = encounterMethodRates;
   }
 
@@ -92,10 +92,10 @@ public class LocationAreaDetail   {
 
     
   @JsonProperty("pokemon_encounters")
-  public List<LocationAreaDetailPokemonEncountersInner> getPokemonEncounters() {
+  public List<LocationAreaPokemonEncounter> getPokemonEncounters() {
     return pokemonEncounters;
   }
-  public void setPokemonEncounters(List<LocationAreaDetailPokemonEncountersInner> pokemonEncounters) {
+  public void setPokemonEncounters(List<LocationAreaPokemonEncounter> pokemonEncounters) {
     this.pokemonEncounters = pokemonEncounters;
   }
 

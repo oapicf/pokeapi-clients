@@ -6,7 +6,7 @@
 import 'package:openapi/src/model/berry_flavor_name.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:openapi/src/model/contest_type_summary.dart';
-import 'package:openapi/src/model/berry_flavor_detail_berries_inner.dart';
+import 'package:openapi/src/model/berry_flavor_berry_map.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -15,25 +15,30 @@ part 'berry_flavor_detail.g.dart';
 /// BerryFlavorDetail
 ///
 /// Properties:
-/// * [id] 
-/// * [name] 
-/// * [berries] 
-/// * [contestType] 
-/// * [names] 
+/// * [id] - The identifier for this resource.
+/// * [name] - The name for this resource.
+/// * [berries] - A list of the berries with this flavor.
+/// * [contestType] - The contest type that correlates with this berry flavor.
+/// * [names] - The name of this resource listed in different languages.
 @BuiltValue()
 abstract class BerryFlavorDetail implements Built<BerryFlavorDetail, BerryFlavorDetailBuilder> {
+  /// The identifier for this resource.
   @BuiltValueField(wireName: r'id')
   int get id;
 
+  /// The name for this resource.
   @BuiltValueField(wireName: r'name')
   String get name;
 
+  /// A list of the berries with this flavor.
   @BuiltValueField(wireName: r'berries')
-  BuiltList<BerryFlavorDetailBerriesInner> get berries;
+  BuiltList<BerryFlavorBerryMap> get berries;
 
+  /// The contest type that correlates with this berry flavor.
   @BuiltValueField(wireName: r'contest_type')
   ContestTypeSummary get contestType;
 
+  /// The name of this resource listed in different languages.
   @BuiltValueField(wireName: r'names')
   BuiltList<BerryFlavorName> get names;
 
@@ -73,7 +78,7 @@ class _$BerryFlavorDetailSerializer implements PrimitiveSerializer<BerryFlavorDe
     yield r'berries';
     yield serializers.serialize(
       object.berries,
-      specifiedType: const FullType(BuiltList, [FullType(BerryFlavorDetailBerriesInner)]),
+      specifiedType: const FullType(BuiltList, [FullType(BerryFlavorBerryMap)]),
     );
     yield r'contest_type';
     yield serializers.serialize(
@@ -125,8 +130,8 @@ class _$BerryFlavorDetailSerializer implements PrimitiveSerializer<BerryFlavorDe
         case r'berries':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(BerryFlavorDetailBerriesInner)]),
-          ) as BuiltList<BerryFlavorDetailBerriesInner>;
+            specifiedType: const FullType(BuiltList, [FullType(BerryFlavorBerryMap)]),
+          ) as BuiltList<BerryFlavorBerryMap>;
           result.berries.replace(valueDes);
           break;
         case r'contest_type':

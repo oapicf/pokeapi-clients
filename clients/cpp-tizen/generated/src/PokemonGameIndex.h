@@ -46,18 +46,18 @@ public:
 	 */
 	void fromJson(char* jsonStr);
 
-	/*! \brief Get 
+	/*! \brief Get The internal id of an API resource within game data.
 	 */
 	int getGameIndex();
 
-	/*! \brief Set 
+	/*! \brief Set The internal id of an API resource within game data.
 	 */
 	void setGameIndex(int  game_index);
-	/*! \brief Get 
+	/*! \brief Get The version relevent to this game index.
 	 */
 	VersionSummary getVersion();
 
-	/*! \brief Set 
+	/*! \brief Set The version relevent to this game index.
 	 */
 	void setVersion(VersionSummary  version);
 

@@ -21,8 +21,8 @@ public class AbilitySummary   {
     /**
      * Create AbilitySummary.
      *
-     * @param name name
-     * @param url url
+     * @param name The name of the referenced resource.
+     * @param url The URL of the referenced resource.
      */
     public AbilitySummary(
         String name, 
@@ -35,7 +35,7 @@ public class AbilitySummary   {
 
 
     /**
-     * Get name
+     * The name of the referenced resource.
      * @return name
      */
     public String getName() {
@@ -47,7 +47,7 @@ public class AbilitySummary   {
     }
 
     /**
-     * Get url
+     * The URL of the referenced resource.
      * @return url
      */
     public URI getUrl() {

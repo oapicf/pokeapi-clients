@@ -16,6 +16,7 @@ use Psr\Http\Message\ServerRequestInterface;
 class ApiV2Ability
 {
     /**
+     * List abilities
      * @PHA\Get()
      * @PHA\Attribute(name=PHAttribute\Transfer::class, options={
      *     "type":\App\DTO\AbilityListQueryData::class,

@@ -18,7 +18,7 @@ defmodule PokéAPI.Model.EggGroupDetail do
     :id => integer(),
     :name => String.t,
     :names => [PokéAPI.Model.EggGroupName.t],
-    :pokemon_species => [PokéAPI.Model.EggGroupDetailPokemonSpeciesInner.t]
+    :pokemon_species => [PokéAPI.Model.PokemonSpeciesSummary.t]
   }
 
   alias PokéAPI.Deserializer
@@ -26,7 +26,7 @@ defmodule PokéAPI.Model.EggGroupDetail do
   def decode(value) do
     value
      |> Deserializer.deserialize(:names, :list, PokéAPI.Model.EggGroupName)
-     |> Deserializer.deserialize(:pokemon_species, :list, PokéAPI.Model.EggGroupDetailPokemonSpeciesInner)
+     |> Deserializer.deserialize(:pokemon_species, :list, PokéAPI.Model.PokemonSpeciesSummary)
   end
 end
 

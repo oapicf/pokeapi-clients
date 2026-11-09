@@ -1,9 +1,9 @@
 /*
 PokéAPI
 
-All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
 
-API version: 2.7.0
+API version: 2.10.0
 Contact: blah+oapicf@cliffano.com
 */
 
@@ -22,33 +22,60 @@ var _ MappedNullable = &PokemonSpeciesDetail{}
 
 // PokemonSpeciesDetail struct for PokemonSpeciesDetail
 type PokemonSpeciesDetail struct {
+	// The identifier for this resource.
 	Id int32 `json:"id"`
+	// The name for this resource.
 	Name string `json:"name"`
+	// The order in which species should be sorted. Based on National Dex order, except families are grouped together and sorted by stage.
 	Order NullableInt32 `json:"order,omitempty"`
+	// The chance of this Pokémon being female, in eighths; or -1 for genderless.
 	GenderRate NullableInt32 `json:"gender_rate,omitempty"`
+	// The base capture rate; up to 255. The higher the number, the easier the catch.
 	CaptureRate NullableInt32 `json:"capture_rate,omitempty"`
+	// The happiness when caught by a normal Pokéball; up to 255. The higher the number, the happier the Pokémon.
 	BaseHappiness NullableInt32 `json:"base_happiness,omitempty"`
+	// Whether or not this is a baby Pokémon.
 	IsBaby *bool `json:"is_baby,omitempty"`
+	// Whether or not this is a legendary Pokémon.
 	IsLegendary *bool `json:"is_legendary,omitempty"`
+	// Whether or not this is a mythical Pokémon.
 	IsMythical *bool `json:"is_mythical,omitempty"`
+	// Initial hatch counter: one must walk Y × (hatch_counter + 1) steps before this Pokémon's egg hatches, unless utilizing bonuses like Flame Body's. Y varies per generation. In Generations II, III, and VII, Egg cycles are 256 steps long. In Generation IV, Egg cycles are 255 steps long. In Pokémon Brilliant Diamond and Shining Pearl, Egg cycles are also 255 steps long, but are shorter on special dates. In Generations V and VI, Egg cycles are 257 steps long. In Pokémon Sword and Shield, and in Pokémon Scarlet and Violet, Egg cycles are 128 steps long.
 	HatchCounter NullableInt32 `json:"hatch_counter,omitempty"`
+	// Whether or not this Pokémon has visual gender differences.
 	HasGenderDifferences *bool `json:"has_gender_differences,omitempty"`
+	// Whether or not this Pokémon has multiple forms and can switch between them.
 	FormsSwitchable *bool `json:"forms_switchable,omitempty"`
+	// The rate at which this Pokémon species gains levels.
 	GrowthRate GrowthRateSummary `json:"growth_rate"`
+	// A list of Pokedexes and the indexes reserved within them for this Pokémon species.
 	PokedexNumbers []PokemonDexEntry `json:"pokedex_numbers"`
-	EggGroups []AbilityDetailPokemonInnerPokemon `json:"egg_groups"`
+	// A list of egg groups this Pokémon species is a member of.
+	EggGroups []EggGroupSummary `json:"egg_groups"`
+	// The color of this Pokémon for Pokédex search.
 	Color PokemonColorSummary `json:"color"`
+	// The shape of this Pokémon for Pokédex search.
 	Shape PokemonShapeSummary `json:"shape"`
-	EvolvesFromSpecies PokemonSpeciesSummary `json:"evolves_from_species"`
+	// The Pokémon species that evolves into this Pokemon_species.
+	EvolvesFromSpecies NullablePokemonSpeciesSummary `json:"evolves_from_species"`
+	// The evolution chain this Pokémon species is a member of.
 	EvolutionChain EvolutionChainSummary `json:"evolution_chain"`
-	Habitat PokemonHabitatSummary `json:"habitat"`
+	// The habitat this Pokémon species can be encountered in.
+	Habitat NullablePokemonHabitatSummary `json:"habitat"`
+	// The generation this Pokémon species was introduced in.
 	Generation GenerationSummary `json:"generation"`
-	Names []PokemonFormDetailFormNamesInner `json:"names"`
-	PalParkEncounters []PokemonSpeciesDetailPalParkEncountersInner `json:"pal_park_encounters"`
+	// The name of this resource listed in different languages.
+	Names []PokemonSpeciesName `json:"names"`
+	// A list of encounters that can be had with this Pokémon species in pal park.
+	PalParkEncounters []PokemonSpeciesPalParkEncounter `json:"pal_park_encounters"`
+	// Descriptions of different forms Pokémon take on within the Pokémon species.
 	FormDescriptions []PokemonSpeciesDescription `json:"form_descriptions"`
+	// A list of flavor text entries for this Pokémon species.
 	FlavorTextEntries []PokemonSpeciesFlavorText `json:"flavor_text_entries"`
-	Genera []PokemonSpeciesDetailGeneraInner `json:"genera"`
-	Varieties []PokemonSpeciesDetailVarietiesInner `json:"varieties"`
+	// The genus of this Pokémon species listed in multiple languages.
+	Genera []PokemonSpeciesGenus `json:"genera"`
+	// A list of the Pokémon that exist within this Pokémon species.
+	Varieties []PokemonSpeciesVariety `json:"varieties"`
 }
 
 type _PokemonSpeciesDetail PokemonSpeciesDetail
@@ -57,7 +84,7 @@ type _PokemonSpeciesDetail PokemonSpeciesDetail
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPokemonSpeciesDetail(id int32, name string, growthRate GrowthRateSummary, pokedexNumbers []PokemonDexEntry, eggGroups []AbilityDetailPokemonInnerPokemon, color PokemonColorSummary, shape PokemonShapeSummary, evolvesFromSpecies PokemonSpeciesSummary, evolutionChain EvolutionChainSummary, habitat PokemonHabitatSummary, generation GenerationSummary, names []PokemonFormDetailFormNamesInner, palParkEncounters []PokemonSpeciesDetailPalParkEncountersInner, formDescriptions []PokemonSpeciesDescription, flavorTextEntries []PokemonSpeciesFlavorText, genera []PokemonSpeciesDetailGeneraInner, varieties []PokemonSpeciesDetailVarietiesInner) *PokemonSpeciesDetail {
+func NewPokemonSpeciesDetail(id int32, name string, growthRate GrowthRateSummary, pokedexNumbers []PokemonDexEntry, eggGroups []EggGroupSummary, color PokemonColorSummary, shape PokemonShapeSummary, evolvesFromSpecies NullablePokemonSpeciesSummary, evolutionChain EvolutionChainSummary, habitat NullablePokemonHabitatSummary, generation GenerationSummary, names []PokemonSpeciesName, palParkEncounters []PokemonSpeciesPalParkEncounter, formDescriptions []PokemonSpeciesDescription, flavorTextEntries []PokemonSpeciesFlavorText, genera []PokemonSpeciesGenus, varieties []PokemonSpeciesVariety) *PokemonSpeciesDetail {
 	this := PokemonSpeciesDetail{}
 	this.Id = id
 	this.Name = name
@@ -554,9 +581,9 @@ func (o *PokemonSpeciesDetail) SetPokedexNumbers(v []PokemonDexEntry) {
 }
 
 // GetEggGroups returns the EggGroups field value
-func (o *PokemonSpeciesDetail) GetEggGroups() []AbilityDetailPokemonInnerPokemon {
+func (o *PokemonSpeciesDetail) GetEggGroups() []EggGroupSummary {
 	if o == nil {
-		var ret []AbilityDetailPokemonInnerPokemon
+		var ret []EggGroupSummary
 		return ret
 	}
 
@@ -565,7 +592,7 @@ func (o *PokemonSpeciesDetail) GetEggGroups() []AbilityDetailPokemonInnerPokemon
 
 // GetEggGroupsOk returns a tuple with the EggGroups field value
 // and a boolean to check if the value has been set.
-func (o *PokemonSpeciesDetail) GetEggGroupsOk() ([]AbilityDetailPokemonInnerPokemon, bool) {
+func (o *PokemonSpeciesDetail) GetEggGroupsOk() ([]EggGroupSummary, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -573,7 +600,7 @@ func (o *PokemonSpeciesDetail) GetEggGroupsOk() ([]AbilityDetailPokemonInnerPoke
 }
 
 // SetEggGroups sets field value
-func (o *PokemonSpeciesDetail) SetEggGroups(v []AbilityDetailPokemonInnerPokemon) {
+func (o *PokemonSpeciesDetail) SetEggGroups(v []EggGroupSummary) {
 	o.EggGroups = v
 }
 
@@ -626,27 +653,29 @@ func (o *PokemonSpeciesDetail) SetShape(v PokemonShapeSummary) {
 }
 
 // GetEvolvesFromSpecies returns the EvolvesFromSpecies field value
+// If the value is explicit nil, the zero value for PokemonSpeciesSummary will be returned
 func (o *PokemonSpeciesDetail) GetEvolvesFromSpecies() PokemonSpeciesSummary {
-	if o == nil {
+	if o == nil || o.EvolvesFromSpecies.Get() == nil {
 		var ret PokemonSpeciesSummary
 		return ret
 	}
 
-	return o.EvolvesFromSpecies
+	return *o.EvolvesFromSpecies.Get()
 }
 
 // GetEvolvesFromSpeciesOk returns a tuple with the EvolvesFromSpecies field value
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PokemonSpeciesDetail) GetEvolvesFromSpeciesOk() (*PokemonSpeciesSummary, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.EvolvesFromSpecies, true
+	return o.EvolvesFromSpecies.Get(), o.EvolvesFromSpecies.IsSet()
 }
 
 // SetEvolvesFromSpecies sets field value
 func (o *PokemonSpeciesDetail) SetEvolvesFromSpecies(v PokemonSpeciesSummary) {
-	o.EvolvesFromSpecies = v
+	o.EvolvesFromSpecies.Set(&v)
 }
 
 // GetEvolutionChain returns the EvolutionChain field value
@@ -674,27 +703,29 @@ func (o *PokemonSpeciesDetail) SetEvolutionChain(v EvolutionChainSummary) {
 }
 
 // GetHabitat returns the Habitat field value
+// If the value is explicit nil, the zero value for PokemonHabitatSummary will be returned
 func (o *PokemonSpeciesDetail) GetHabitat() PokemonHabitatSummary {
-	if o == nil {
+	if o == nil || o.Habitat.Get() == nil {
 		var ret PokemonHabitatSummary
 		return ret
 	}
 
-	return o.Habitat
+	return *o.Habitat.Get()
 }
 
 // GetHabitatOk returns a tuple with the Habitat field value
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PokemonSpeciesDetail) GetHabitatOk() (*PokemonHabitatSummary, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Habitat, true
+	return o.Habitat.Get(), o.Habitat.IsSet()
 }
 
 // SetHabitat sets field value
 func (o *PokemonSpeciesDetail) SetHabitat(v PokemonHabitatSummary) {
-	o.Habitat = v
+	o.Habitat.Set(&v)
 }
 
 // GetGeneration returns the Generation field value
@@ -722,9 +753,9 @@ func (o *PokemonSpeciesDetail) SetGeneration(v GenerationSummary) {
 }
 
 // GetNames returns the Names field value
-func (o *PokemonSpeciesDetail) GetNames() []PokemonFormDetailFormNamesInner {
+func (o *PokemonSpeciesDetail) GetNames() []PokemonSpeciesName {
 	if o == nil {
-		var ret []PokemonFormDetailFormNamesInner
+		var ret []PokemonSpeciesName
 		return ret
 	}
 
@@ -733,7 +764,7 @@ func (o *PokemonSpeciesDetail) GetNames() []PokemonFormDetailFormNamesInner {
 
 // GetNamesOk returns a tuple with the Names field value
 // and a boolean to check if the value has been set.
-func (o *PokemonSpeciesDetail) GetNamesOk() ([]PokemonFormDetailFormNamesInner, bool) {
+func (o *PokemonSpeciesDetail) GetNamesOk() ([]PokemonSpeciesName, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -741,14 +772,14 @@ func (o *PokemonSpeciesDetail) GetNamesOk() ([]PokemonFormDetailFormNamesInner, 
 }
 
 // SetNames sets field value
-func (o *PokemonSpeciesDetail) SetNames(v []PokemonFormDetailFormNamesInner) {
+func (o *PokemonSpeciesDetail) SetNames(v []PokemonSpeciesName) {
 	o.Names = v
 }
 
 // GetPalParkEncounters returns the PalParkEncounters field value
-func (o *PokemonSpeciesDetail) GetPalParkEncounters() []PokemonSpeciesDetailPalParkEncountersInner {
+func (o *PokemonSpeciesDetail) GetPalParkEncounters() []PokemonSpeciesPalParkEncounter {
 	if o == nil {
-		var ret []PokemonSpeciesDetailPalParkEncountersInner
+		var ret []PokemonSpeciesPalParkEncounter
 		return ret
 	}
 
@@ -757,7 +788,7 @@ func (o *PokemonSpeciesDetail) GetPalParkEncounters() []PokemonSpeciesDetailPalP
 
 // GetPalParkEncountersOk returns a tuple with the PalParkEncounters field value
 // and a boolean to check if the value has been set.
-func (o *PokemonSpeciesDetail) GetPalParkEncountersOk() ([]PokemonSpeciesDetailPalParkEncountersInner, bool) {
+func (o *PokemonSpeciesDetail) GetPalParkEncountersOk() ([]PokemonSpeciesPalParkEncounter, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -765,7 +796,7 @@ func (o *PokemonSpeciesDetail) GetPalParkEncountersOk() ([]PokemonSpeciesDetailP
 }
 
 // SetPalParkEncounters sets field value
-func (o *PokemonSpeciesDetail) SetPalParkEncounters(v []PokemonSpeciesDetailPalParkEncountersInner) {
+func (o *PokemonSpeciesDetail) SetPalParkEncounters(v []PokemonSpeciesPalParkEncounter) {
 	o.PalParkEncounters = v
 }
 
@@ -818,9 +849,9 @@ func (o *PokemonSpeciesDetail) SetFlavorTextEntries(v []PokemonSpeciesFlavorText
 }
 
 // GetGenera returns the Genera field value
-func (o *PokemonSpeciesDetail) GetGenera() []PokemonSpeciesDetailGeneraInner {
+func (o *PokemonSpeciesDetail) GetGenera() []PokemonSpeciesGenus {
 	if o == nil {
-		var ret []PokemonSpeciesDetailGeneraInner
+		var ret []PokemonSpeciesGenus
 		return ret
 	}
 
@@ -829,7 +860,7 @@ func (o *PokemonSpeciesDetail) GetGenera() []PokemonSpeciesDetailGeneraInner {
 
 // GetGeneraOk returns a tuple with the Genera field value
 // and a boolean to check if the value has been set.
-func (o *PokemonSpeciesDetail) GetGeneraOk() ([]PokemonSpeciesDetailGeneraInner, bool) {
+func (o *PokemonSpeciesDetail) GetGeneraOk() ([]PokemonSpeciesGenus, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -837,14 +868,14 @@ func (o *PokemonSpeciesDetail) GetGeneraOk() ([]PokemonSpeciesDetailGeneraInner,
 }
 
 // SetGenera sets field value
-func (o *PokemonSpeciesDetail) SetGenera(v []PokemonSpeciesDetailGeneraInner) {
+func (o *PokemonSpeciesDetail) SetGenera(v []PokemonSpeciesGenus) {
 	o.Genera = v
 }
 
 // GetVarieties returns the Varieties field value
-func (o *PokemonSpeciesDetail) GetVarieties() []PokemonSpeciesDetailVarietiesInner {
+func (o *PokemonSpeciesDetail) GetVarieties() []PokemonSpeciesVariety {
 	if o == nil {
-		var ret []PokemonSpeciesDetailVarietiesInner
+		var ret []PokemonSpeciesVariety
 		return ret
 	}
 
@@ -853,7 +884,7 @@ func (o *PokemonSpeciesDetail) GetVarieties() []PokemonSpeciesDetailVarietiesInn
 
 // GetVarietiesOk returns a tuple with the Varieties field value
 // and a boolean to check if the value has been set.
-func (o *PokemonSpeciesDetail) GetVarietiesOk() ([]PokemonSpeciesDetailVarietiesInner, bool) {
+func (o *PokemonSpeciesDetail) GetVarietiesOk() ([]PokemonSpeciesVariety, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -861,7 +892,7 @@ func (o *PokemonSpeciesDetail) GetVarietiesOk() ([]PokemonSpeciesDetailVarieties
 }
 
 // SetVarieties sets field value
-func (o *PokemonSpeciesDetail) SetVarieties(v []PokemonSpeciesDetailVarietiesInner) {
+func (o *PokemonSpeciesDetail) SetVarieties(v []PokemonSpeciesVariety) {
 	o.Varieties = v
 }
 
@@ -912,9 +943,9 @@ func (o PokemonSpeciesDetail) ToMap() (map[string]interface{}, error) {
 	toSerialize["egg_groups"] = o.EggGroups
 	toSerialize["color"] = o.Color
 	toSerialize["shape"] = o.Shape
-	toSerialize["evolves_from_species"] = o.EvolvesFromSpecies
+	toSerialize["evolves_from_species"] = o.EvolvesFromSpecies.Get()
 	toSerialize["evolution_chain"] = o.EvolutionChain
-	toSerialize["habitat"] = o.Habitat
+	toSerialize["habitat"] = o.Habitat.Get()
 	toSerialize["generation"] = o.Generation
 	toSerialize["names"] = o.Names
 	toSerialize["pal_park_encounters"] = o.PalParkEncounters

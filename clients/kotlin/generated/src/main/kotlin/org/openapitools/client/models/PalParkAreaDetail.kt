@@ -23,8 +23,8 @@
 
 package org.openapitools.client.models
 
-import org.openapitools.client.models.PalParkAreaDetailPokemonEncountersInner
 import org.openapitools.client.models.PalParkAreaName
+import org.openapitools.client.models.PalParkEncounter
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -32,26 +32,30 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param id 
- * @param name 
- * @param names 
- * @param pokemonEncounters 
+ * @param id The identifier for this resource.
+ * @param name The name for this resource.
+ * @param names The name of this resource listed in different languages.
+ * @param pokemonEncounters A list of Pokémon encountered in thi pal park area along with details.
  */
 
 
 data class PalParkAreaDetail (
 
+    /* The identifier for this resource. */
     @Json(name = "id")
     val id: kotlin.Int,
 
+    /* The name for this resource. */
     @Json(name = "name")
     val name: kotlin.String,
 
+    /* The name of this resource listed in different languages. */
     @Json(name = "names")
     val names: kotlin.collections.List<PalParkAreaName>,
 
+    /* A list of Pokémon encountered in thi pal park area along with details. */
     @Json(name = "pokemon_encounters")
-    val pokemonEncounters: kotlin.collections.List<PalParkAreaDetailPokemonEncountersInner>
+    val pokemonEncounters: kotlin.collections.List<PalParkEncounter>
 
 ) {
 

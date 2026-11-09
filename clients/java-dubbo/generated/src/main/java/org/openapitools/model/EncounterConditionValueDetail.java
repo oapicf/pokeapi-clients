@@ -14,20 +14,32 @@ import java.math.*;
 public class EncounterConditionValueDetail implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * The identifier for this resource.
+   */
   @JsonProperty("id")
   private Integer id;
 
+  /**
+   * The name for this resource.
+   */
   @JsonProperty("name")
   private String name;
 
+  /**
+   * The condition this encounter condition value pertains to.
+   */
   @JsonProperty("condition")
   private EncounterConditionSummary condition;
 
+  /**
+   * The name of this resource listed in different languages.
+   */
   @JsonProperty("names")
   private List<EncounterConditionValueName> names = new ArrayList<>();
 
   /**
-   * 
+   * The identifier for this resource.
    * @return id
    */
   public Integer getId() {
@@ -39,7 +51,7 @@ public class EncounterConditionValueDetail implements Serializable {
   }
 
   /**
-   * 
+   * The name for this resource.
    * @return name
    */
   public String getName() {
@@ -51,7 +63,7 @@ public class EncounterConditionValueDetail implements Serializable {
   }
 
   /**
-   * 
+   * The condition this encounter condition value pertains to.
    * @return condition
    */
   public EncounterConditionSummary getCondition() {
@@ -63,7 +75,7 @@ public class EncounterConditionValueDetail implements Serializable {
   }
 
   /**
-   * 
+   * The name of this resource listed in different languages.
    * @return names
    */
   public List<EncounterConditionValueName> getNames() {

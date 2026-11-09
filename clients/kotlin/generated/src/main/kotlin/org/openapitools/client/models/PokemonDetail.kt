@@ -23,18 +23,19 @@
 
 package org.openapitools.client.models
 
-import org.openapitools.client.models.PokemonDetailAbilitiesInner
-import org.openapitools.client.models.PokemonDetailCries
-import org.openapitools.client.models.PokemonDetailHeldItems
-import org.openapitools.client.models.PokemonDetailMovesInner
-import org.openapitools.client.models.PokemonDetailPastAbilitiesInner
-import org.openapitools.client.models.PokemonDetailPastTypesInner
-import org.openapitools.client.models.PokemonDetailSprites
-import org.openapitools.client.models.PokemonDetailTypesInner
+import org.openapitools.client.models.PokemonAbility
+import org.openapitools.client.models.PokemonCries
 import org.openapitools.client.models.PokemonFormSummary
 import org.openapitools.client.models.PokemonGameIndex
+import org.openapitools.client.models.PokemonHeldItemSummary
+import org.openapitools.client.models.PokemonMove
+import org.openapitools.client.models.PokemonPastAbility
+import org.openapitools.client.models.PokemonPastStat
+import org.openapitools.client.models.PokemonPastType
 import org.openapitools.client.models.PokemonSpeciesSummary
+import org.openapitools.client.models.PokemonSprites
 import org.openapitools.client.models.PokemonStat
+import org.openapitools.client.models.PokemonType
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -42,88 +43,113 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param id 
- * @param name 
- * @param abilities 
- * @param pastAbilities 
- * @param forms 
- * @param gameIndices 
- * @param heldItems 
- * @param locationAreaEncounters 
- * @param moves 
- * @param species 
- * @param sprites 
- * @param cries 
- * @param stats 
- * @param types 
- * @param pastTypes 
- * @param baseExperience 
- * @param height 
- * @param isDefault 
- * @param order 
- * @param weight 
+ * @param id The identifier for this resource.
+ * @param name The name for this resource.
+ * @param abilities A list of abilities this Pokémon could potentially have.
+ * @param pastAbilities A list of details showing abilities this pokémon had in previous generations
+ * @param forms A list of forms this Pokémon can take on.
+ * @param gameIndices A list of game indices relevent to Pokémon item by generation.
+ * @param heldItems A list of items this Pokémon may be holding when encountered.
+ * @param locationAreaEncounters A link to a list of location areas, as well as encounter details pertaining to specific versions.
+ * @param moves A list of moves along with learn methods and level details pertaining to specific version groups.
+ * @param species The species this Pokémon belongs to.
+ * @param sprites A set of sprites used to depict this Pokémon in the game. A visual representation of the various sprites can be found at <a href='https://github.com/PokeAPI/sprites#sprites'>PokeAPI/sprites</a>
+ * @param cries A set of cries used to depict this Pokémon in the game. A visual representation of the various cries can be found at <a href='https://github.com/PokeAPI/cries#cries'>PokeAPI/cries</a>
+ * @param stats A list of base stat values for this Pokémon.
+ * @param pastStats A list of details showing stats this pokémon had in previous generations
+ * @param types A list of details showing types this Pokémon has.
+ * @param pastTypes A list of details showing types this pokémon had in previous generations
+ * @param baseExperience The base experience gained for defeating this Pokémon.
+ * @param height The height of this Pokémon in decimetres.
+ * @param isDefault Set for exactly one Pokémon used as the default for each species.
+ * @param order Order for sorting. Almost national order, except families are grouped together.
+ * @param weight The weight of this Pokémon in hectograms.
  */
 
 
 data class PokemonDetail (
 
+    /* The identifier for this resource. */
     @Json(name = "id")
     val id: kotlin.Int,
 
+    /* The name for this resource. */
     @Json(name = "name")
     val name: kotlin.String,
 
+    /* A list of abilities this Pokémon could potentially have. */
     @Json(name = "abilities")
-    val abilities: kotlin.collections.List<PokemonDetailAbilitiesInner>,
+    val abilities: kotlin.collections.List<PokemonAbility>,
 
+    /* A list of details showing abilities this pokémon had in previous generations */
     @Json(name = "past_abilities")
-    val pastAbilities: kotlin.collections.List<PokemonDetailPastAbilitiesInner>,
+    val pastAbilities: kotlin.collections.List<PokemonPastAbility>,
 
+    /* A list of forms this Pokémon can take on. */
     @Json(name = "forms")
     val forms: kotlin.collections.List<PokemonFormSummary>,
 
+    /* A list of game indices relevent to Pokémon item by generation. */
     @Json(name = "game_indices")
     val gameIndices: kotlin.collections.List<PokemonGameIndex>,
 
+    /* A list of items this Pokémon may be holding when encountered. */
     @Json(name = "held_items")
-    val heldItems: PokemonDetailHeldItems,
+    val heldItems: kotlin.collections.List<PokemonHeldItemSummary>,
 
+    /* A link to a list of location areas, as well as encounter details pertaining to specific versions. */
     @Json(name = "location_area_encounters")
     val locationAreaEncounters: kotlin.String,
 
+    /* A list of moves along with learn methods and level details pertaining to specific version groups. */
     @Json(name = "moves")
-    val moves: kotlin.collections.List<PokemonDetailMovesInner>,
+    val moves: kotlin.collections.List<PokemonMove>,
 
+    /* The species this Pokémon belongs to. */
     @Json(name = "species")
     val species: PokemonSpeciesSummary,
 
+    /* A set of sprites used to depict this Pokémon in the game. A visual representation of the various sprites can be found at <a href='https://github.com/PokeAPI/sprites#sprites'>PokeAPI/sprites</a> */
     @Json(name = "sprites")
-    val sprites: PokemonDetailSprites,
+    val sprites: PokemonSprites,
 
+    /* A set of cries used to depict this Pokémon in the game. A visual representation of the various cries can be found at <a href='https://github.com/PokeAPI/cries#cries'>PokeAPI/cries</a> */
     @Json(name = "cries")
-    val cries: PokemonDetailCries,
+    val cries: PokemonCries,
 
+    /* A list of base stat values for this Pokémon. */
     @Json(name = "stats")
     val stats: kotlin.collections.List<PokemonStat>,
 
+    /* A list of details showing stats this pokémon had in previous generations */
+    @Json(name = "past_stats")
+    val pastStats: kotlin.collections.List<PokemonPastStat>,
+
+    /* A list of details showing types this Pokémon has. */
     @Json(name = "types")
-    val types: kotlin.collections.List<PokemonDetailTypesInner>,
+    val types: kotlin.collections.List<PokemonType>,
 
+    /* A list of details showing types this pokémon had in previous generations */
     @Json(name = "past_types")
-    val pastTypes: kotlin.collections.List<PokemonDetailPastTypesInner>,
+    val pastTypes: kotlin.collections.List<PokemonPastType>,
 
+    /* The base experience gained for defeating this Pokémon. */
     @Json(name = "base_experience")
     val baseExperience: kotlin.Int? = null,
 
+    /* The height of this Pokémon in decimetres. */
     @Json(name = "height")
     val height: kotlin.Int? = null,
 
+    /* Set for exactly one Pokémon used as the default for each species. */
     @Json(name = "is_default")
     val isDefault: kotlin.Boolean? = null,
 
+    /* Order for sorting. Almost national order, except families are grouped together. */
     @Json(name = "order")
     val order: kotlin.Int? = null,
 
+    /* The weight of this Pokémon in hectograms. */
     @Json(name = "weight")
     val weight: kotlin.Int? = null
 

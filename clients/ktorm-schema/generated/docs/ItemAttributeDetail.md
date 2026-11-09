@@ -5,11 +5,11 @@
 ## Properties
 Name | Mapping | SQL Type | Default | Type | Description | Notes
 ---- | ------- | -------- | ------- | ---- | ----------- | -----
-**id** | id | int NOT NULL PRIMARY KEY AUTOINCREMENT |  | **kotlin.Int** |  |  [readonly]
-**name** | name | text NOT NULL |  | **kotlin.String** |  | 
-**descriptions** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;ItemAttributeDescription&gt;**](ItemAttributeDescription.md) |  |  [readonly]
-**items** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;AbilityDetailPokemonInnerPokemon&gt;**](AbilityDetailPokemonInnerPokemon.md) |  |  [readonly]
-**names** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;ItemAttributeName&gt;**](ItemAttributeName.md) |  |  [readonly]
+**id** | id | int NOT NULL PRIMARY KEY AUTOINCREMENT |  | **kotlin.Int** | The identifier for this resource. |  [readonly]
+**name** | name | text NOT NULL |  | **kotlin.String** | The name for this resource. | 
+**descriptions** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;ItemAttributeDescription&gt;**](ItemAttributeDescription.md) | The description of this item attribute listed in different languages. |  [readonly]
+**items** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;ItemSummary&gt;**](ItemSummary.md) | A list of items that have this attribute. |  [readonly]
+**names** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;ItemAttributeName&gt;**](ItemAttributeName.md) | The name of this item attribute listed in different languages. |  [readonly]
 
 
 
@@ -25,14 +25,14 @@ itemAttributeDescription | itemAttributeDescription | long | | kotlin.Long | For
 
 
 
-# **Table `ItemAttributeDetailAbilityDetailPokemonInnerPokemon`**
-(mapped from: ItemAttributeDetailAbilityDetailPokemonInnerPokemon)
+# **Table `ItemAttributeDetailItemSummary`**
+(mapped from: ItemAttributeDetailItemSummary)
 
 ## Properties
 Name | Mapping | SQL Type | Default | Type | Description | Notes
 ---- | ------- | -------- | ------- | ---- | ----------- | -----
 itemAttributeDetail | itemAttributeDetail | long | | kotlin.Long | Primary Key | *one*
-abilityDetailPokemonInnerPokemon | abilityDetailPokemonInnerPokemon | long | | kotlin.Long | Foreign Key | *many*
+itemSummary | itemSummary | long | | kotlin.Long | Foreign Key | *many*
 
 
 

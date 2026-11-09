@@ -31,32 +31,38 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param id 
- * @param name 
- * @param iso639 
- * @param iso3166 
- * @param names 
- * @param official 
+ * @param id The identifier for this resource.
+ * @param name The name for this resource.
+ * @param iso639 The two-letter ISO 639-1 language code. Multiple PokéAPI language records may share this code.
+ * @param iso3166 The two-letter ISO 3166-1 alpha-2 code of the country or region associated with this language record. Multiple PokéAPI language records may share this code.
+ * @param names The name of this resource listed in different languages.
+ * @param official Whether or not the games are published in this language.
  */
 
 
 data class LanguageDetail (
 
+    /* The identifier for this resource. */
     @Json(name = "id")
     val id: kotlin.Int,
 
+    /* The name for this resource. */
     @Json(name = "name")
     val name: kotlin.String,
 
+    /* The two-letter ISO 639-1 language code. Multiple PokéAPI language records may share this code. */
     @Json(name = "iso639")
     val iso639: kotlin.String,
 
+    /* The two-letter ISO 3166-1 alpha-2 code of the country or region associated with this language record. Multiple PokéAPI language records may share this code. */
     @Json(name = "iso3166")
     val iso3166: kotlin.String,
 
+    /* The name of this resource listed in different languages. */
     @Json(name = "names")
     val names: kotlin.collections.List<LanguageName>,
 
+    /* Whether or not the games are published in this language. */
     @Json(name = "official")
     val official: kotlin.Boolean? = null
 

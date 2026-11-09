@@ -15,21 +15,21 @@
 
 typedef struct pokemon_species_detail_t pokemon_species_detail_t;
 
-#include "ability_detail_pokemon_inner_pokemon.h"
+#include "egg_group_summary.h"
 #include "evolution_chain_summary.h"
 #include "generation_summary.h"
 #include "growth_rate_summary.h"
 #include "pokemon_color_summary.h"
 #include "pokemon_dex_entry.h"
-#include "pokemon_form_detail_form_names_inner.h"
 #include "pokemon_habitat_summary.h"
 #include "pokemon_shape_summary.h"
 #include "pokemon_species_description.h"
-#include "pokemon_species_detail_genera_inner.h"
-#include "pokemon_species_detail_pal_park_encounters_inner.h"
-#include "pokemon_species_detail_varieties_inner.h"
 #include "pokemon_species_flavor_text.h"
+#include "pokemon_species_genus.h"
+#include "pokemon_species_name.h"
+#include "pokemon_species_pal_park_encounter.h"
 #include "pokemon_species_summary.h"
+#include "pokemon_species_variety.h"
 
 
 

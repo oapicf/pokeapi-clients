@@ -4,8 +4,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
-import org.openapitools.model.AbilityDetailPokemonInnerPokemon;
 import org.openapitools.model.GenerationSummary;
+import org.openapitools.model.MoveLearnMethodSummary;
+import org.openapitools.model.PokedexSummary;
+import org.openapitools.model.RegionSummary;
 import org.openapitools.model.VersionSummary;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
@@ -17,32 +19,56 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class VersionGroupDetail  {
   
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The identifier for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   private Integer id;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The name for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   private String name;
 
-  @ApiModelProperty(value = "")
+ /**
+  * Order for sorting. Almost by date of release, except similar versions are grouped together.
+  */
+  @ApiModelProperty(value = "Order for sorting. Almost by date of release, except similar versions are grouped together.")
   private Integer order;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The generation this version was introduced in.
+  */
+  @ApiModelProperty(required = true, value = "The generation this version was introduced in.")
   @Valid
   private GenerationSummary generation;
 
-  @ApiModelProperty(required = true, value = "")
-  private List<@Valid AbilityDetailPokemonInnerPokemon> moveLearnMethods = new ArrayList<>();
+ /**
+  * A list of methods in which Pokémon can learn moves in this version group.
+  */
+  @ApiModelProperty(required = true, value = "A list of methods in which Pokémon can learn moves in this version group.")
+  private List<@Valid MoveLearnMethodSummary> moveLearnMethods = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
-  private List<@Valid AbilityDetailPokemonInnerPokemon> pokedexes = new ArrayList<>();
+ /**
+  * A list of Pokédexes introduces in this version group.
+  */
+  @ApiModelProperty(required = true, value = "A list of Pokédexes introduces in this version group.")
+  private List<@Valid PokedexSummary> pokedexes = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
-  private List<@Valid AbilityDetailPokemonInnerPokemon> regions = new ArrayList<>();
+ /**
+  * A list of regions that can be visited in this version group.
+  */
+  @ApiModelProperty(required = true, value = "A list of regions that can be visited in this version group.")
+  private List<@Valid RegionSummary> regions = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The versions this version group owns.
+  */
+  @ApiModelProperty(required = true, value = "The versions this version group owns.")
   private List<@Valid VersionSummary> versions = new ArrayList<>();
  /**
-  * Get id
+  * The identifier for this resource.
   * @return id
   */
   @JsonProperty("id")
@@ -69,12 +95,12 @@ public class VersionGroupDetail  {
   }
 
  /**
-  * Get name
+  * The name for this resource.
   * @return name
   */
   @JsonProperty("name")
   @NotNull
- @Size(max=100)  public String getName() {
+ @Size(max=200)  public String getName() {
     return name;
   }
 
@@ -94,11 +120,13 @@ public class VersionGroupDetail  {
   }
 
  /**
-  * Get order
+  * Order for sorting. Almost by date of release, except similar versions are grouped together.
+  * minimum: -2147483648
+  * maximum: 2147483647
   * @return order
   */
   @JsonProperty("order")
-  public Integer getOrder() {
+ @Min(-2147483648) @Max(2147483647)  public Integer getOrder() {
     return order;
   }
 
@@ -118,7 +146,7 @@ public class VersionGroupDetail  {
   }
 
  /**
-  * Get generation
+  * The generation this version was introduced in.
   * @return generation
   */
   @JsonProperty("generation")
@@ -143,12 +171,12 @@ public class VersionGroupDetail  {
   }
 
  /**
-  * Get moveLearnMethods
+  * A list of methods in which Pokémon can learn moves in this version group.
   * @return moveLearnMethods
   */
   @JsonProperty("move_learn_methods")
   @NotNull
-  public List<@Valid AbilityDetailPokemonInnerPokemon> getMoveLearnMethods() {
+  public List<@Valid MoveLearnMethodSummary> getMoveLearnMethods() {
     return moveLearnMethods;
   }
 
@@ -156,7 +184,7 @@ public class VersionGroupDetail  {
    * Sets the <code>moveLearnMethods</code> property.
    * <br><em>N.B. <code>moveLearnMethods</code> is <b>read only</b>; client code should not call this method</em>.
    */
- public void setMoveLearnMethods(List<@Valid AbilityDetailPokemonInnerPokemon> moveLearnMethods) {
+ public void setMoveLearnMethods(List<@Valid MoveLearnMethodSummary> moveLearnMethods) {
     this.moveLearnMethods = moveLearnMethods;
   }
 
@@ -164,7 +192,7 @@ public class VersionGroupDetail  {
    * Sets the <code>moveLearnMethods</code> property.
    * <br><em>N.B. <code>moveLearnMethods</code> is <b>read only</b>; client code should not call this method</em>.
    */
-  public VersionGroupDetail moveLearnMethods(List<@Valid AbilityDetailPokemonInnerPokemon> moveLearnMethods) {
+  public VersionGroupDetail moveLearnMethods(List<@Valid MoveLearnMethodSummary> moveLearnMethods) {
     this.moveLearnMethods = moveLearnMethods;
     return this;
   }
@@ -173,18 +201,18 @@ public class VersionGroupDetail  {
    * Adds a new item to the <code>moveLearnMethods</code> list.
    * <br><em>N.B. <code>moveLearnMethods</code> is <b>read only</b>; client code should not call this method</em>.
    */
-  public VersionGroupDetail addMoveLearnMethodsItem(AbilityDetailPokemonInnerPokemon moveLearnMethodsItem) {
+  public VersionGroupDetail addMoveLearnMethodsItem(MoveLearnMethodSummary moveLearnMethodsItem) {
     this.moveLearnMethods.add(moveLearnMethodsItem);
     return this;
   }
 
  /**
-  * Get pokedexes
+  * A list of Pokédexes introduces in this version group.
   * @return pokedexes
   */
   @JsonProperty("pokedexes")
   @NotNull
-  public List<@Valid AbilityDetailPokemonInnerPokemon> getPokedexes() {
+  public List<@Valid PokedexSummary> getPokedexes() {
     return pokedexes;
   }
 
@@ -192,7 +220,7 @@ public class VersionGroupDetail  {
    * Sets the <code>pokedexes</code> property.
    * <br><em>N.B. <code>pokedexes</code> is <b>read only</b>; client code should not call this method</em>.
    */
- public void setPokedexes(List<@Valid AbilityDetailPokemonInnerPokemon> pokedexes) {
+ public void setPokedexes(List<@Valid PokedexSummary> pokedexes) {
     this.pokedexes = pokedexes;
   }
 
@@ -200,7 +228,7 @@ public class VersionGroupDetail  {
    * Sets the <code>pokedexes</code> property.
    * <br><em>N.B. <code>pokedexes</code> is <b>read only</b>; client code should not call this method</em>.
    */
-  public VersionGroupDetail pokedexes(List<@Valid AbilityDetailPokemonInnerPokemon> pokedexes) {
+  public VersionGroupDetail pokedexes(List<@Valid PokedexSummary> pokedexes) {
     this.pokedexes = pokedexes;
     return this;
   }
@@ -209,18 +237,18 @@ public class VersionGroupDetail  {
    * Adds a new item to the <code>pokedexes</code> list.
    * <br><em>N.B. <code>pokedexes</code> is <b>read only</b>; client code should not call this method</em>.
    */
-  public VersionGroupDetail addPokedexesItem(AbilityDetailPokemonInnerPokemon pokedexesItem) {
+  public VersionGroupDetail addPokedexesItem(PokedexSummary pokedexesItem) {
     this.pokedexes.add(pokedexesItem);
     return this;
   }
 
  /**
-  * Get regions
+  * A list of regions that can be visited in this version group.
   * @return regions
   */
   @JsonProperty("regions")
   @NotNull
-  public List<@Valid AbilityDetailPokemonInnerPokemon> getRegions() {
+  public List<@Valid RegionSummary> getRegions() {
     return regions;
   }
 
@@ -228,7 +256,7 @@ public class VersionGroupDetail  {
    * Sets the <code>regions</code> property.
    * <br><em>N.B. <code>regions</code> is <b>read only</b>; client code should not call this method</em>.
    */
- public void setRegions(List<@Valid AbilityDetailPokemonInnerPokemon> regions) {
+ public void setRegions(List<@Valid RegionSummary> regions) {
     this.regions = regions;
   }
 
@@ -236,7 +264,7 @@ public class VersionGroupDetail  {
    * Sets the <code>regions</code> property.
    * <br><em>N.B. <code>regions</code> is <b>read only</b>; client code should not call this method</em>.
    */
-  public VersionGroupDetail regions(List<@Valid AbilityDetailPokemonInnerPokemon> regions) {
+  public VersionGroupDetail regions(List<@Valid RegionSummary> regions) {
     this.regions = regions;
     return this;
   }
@@ -245,13 +273,13 @@ public class VersionGroupDetail  {
    * Adds a new item to the <code>regions</code> list.
    * <br><em>N.B. <code>regions</code> is <b>read only</b>; client code should not call this method</em>.
    */
-  public VersionGroupDetail addRegionsItem(AbilityDetailPokemonInnerPokemon regionsItem) {
+  public VersionGroupDetail addRegionsItem(RegionSummary regionsItem) {
     this.regions.add(regionsItem);
     return this;
   }
 
  /**
-  * Get versions
+  * The versions this version group owns.
   * @return versions
   */
   @JsonProperty("versions")

@@ -6,10 +6,9 @@ from typing import List, Dict, Type
 
 from openapi_server.models.base_model import Model
 from openapi_server.models.berry_flavor_summary import BerryFlavorSummary
-from openapi_server.models.berry_summary import BerrySummary
 from openapi_server.models.nature_battle_style_preference import NatureBattleStylePreference
-from openapi_server.models.nature_detail_pokeathlon_stat_changes_inner import NatureDetailPokeathlonStatChangesInner
 from openapi_server.models.nature_name import NatureName
+from openapi_server.models.nature_pokeathlon_stat import NaturePokeathlonStat
 from openapi_server.models.stat_summary import StatSummary
 from openapi_server import util
 
@@ -20,7 +19,7 @@ class NatureDetail(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, id: int=None, name: str=None, decreased_stat: StatSummary=None, increased_stat: StatSummary=None, likes_flavor: BerryFlavorSummary=None, hates_flavor: BerryFlavorSummary=None, berries: List[BerrySummary]=None, pokeathlon_stat_changes: List[NatureDetailPokeathlonStatChangesInner]=None, move_battle_style_preferences: List[NatureBattleStylePreference]=None, names: List[NatureName]=None):
+    def __init__(self, id: int=None, name: str=None, decreased_stat: StatSummary=None, increased_stat: StatSummary=None, likes_flavor: BerryFlavorSummary=None, hates_flavor: BerryFlavorSummary=None, pokeathlon_stat_changes: List[NaturePokeathlonStat]=None, move_battle_style_preferences: List[NatureBattleStylePreference]=None, names: List[NatureName]=None):
         """NatureDetail - a model defined in OpenAPI
 
         :param id: The id of this NatureDetail.
@@ -29,7 +28,6 @@ class NatureDetail(Model):
         :param increased_stat: The increased_stat of this NatureDetail.
         :param likes_flavor: The likes_flavor of this NatureDetail.
         :param hates_flavor: The hates_flavor of this NatureDetail.
-        :param berries: The berries of this NatureDetail.
         :param pokeathlon_stat_changes: The pokeathlon_stat_changes of this NatureDetail.
         :param move_battle_style_preferences: The move_battle_style_preferences of this NatureDetail.
         :param names: The names of this NatureDetail.
@@ -41,8 +39,7 @@ class NatureDetail(Model):
             'increased_stat': StatSummary,
             'likes_flavor': BerryFlavorSummary,
             'hates_flavor': BerryFlavorSummary,
-            'berries': List[BerrySummary],
-            'pokeathlon_stat_changes': List[NatureDetailPokeathlonStatChangesInner],
+            'pokeathlon_stat_changes': List[NaturePokeathlonStat],
             'move_battle_style_preferences': List[NatureBattleStylePreference],
             'names': List[NatureName]
         }
@@ -54,7 +51,6 @@ class NatureDetail(Model):
             'increased_stat': 'increased_stat',
             'likes_flavor': 'likes_flavor',
             'hates_flavor': 'hates_flavor',
-            'berries': 'berries',
             'pokeathlon_stat_changes': 'pokeathlon_stat_changes',
             'move_battle_style_preferences': 'move_battle_style_preferences',
             'names': 'names'
@@ -66,7 +62,6 @@ class NatureDetail(Model):
         self._increased_stat = increased_stat
         self._likes_flavor = likes_flavor
         self._hates_flavor = hates_flavor
-        self._berries = berries
         self._pokeathlon_stat_changes = pokeathlon_stat_changes
         self._move_battle_style_preferences = move_battle_style_preferences
         self._names = names
@@ -84,6 +79,7 @@ class NatureDetail(Model):
     def id(self):
         """Gets the id of this NatureDetail.
 
+        The identifier for this resource.
 
         :return: The id of this NatureDetail.
         :rtype: int
@@ -94,6 +90,7 @@ class NatureDetail(Model):
     def id(self, id):
         """Sets the id of this NatureDetail.
 
+        The identifier for this resource.
 
         :param id: The id of this NatureDetail.
         :type id: int
@@ -107,6 +104,7 @@ class NatureDetail(Model):
     def name(self):
         """Gets the name of this NatureDetail.
 
+        The name for this resource.
 
         :return: The name of this NatureDetail.
         :rtype: str
@@ -117,14 +115,15 @@ class NatureDetail(Model):
     def name(self, name):
         """Sets the name of this NatureDetail.
 
+        The name for this resource.
 
         :param name: The name of this NatureDetail.
         :type name: str
         """
         if name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")
-        if name is not None and len(name) > 100:
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `100`")
+        if name is not None and len(name) > 200:
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `200`")
 
         self._name = name
 
@@ -132,6 +131,7 @@ class NatureDetail(Model):
     def decreased_stat(self):
         """Gets the decreased_stat of this NatureDetail.
 
+        The stat decreased by 10% in Pokémon with this nature.
 
         :return: The decreased_stat of this NatureDetail.
         :rtype: StatSummary
@@ -142,6 +142,7 @@ class NatureDetail(Model):
     def decreased_stat(self, decreased_stat):
         """Sets the decreased_stat of this NatureDetail.
 
+        The stat decreased by 10% in Pokémon with this nature.
 
         :param decreased_stat: The decreased_stat of this NatureDetail.
         :type decreased_stat: StatSummary
@@ -155,6 +156,7 @@ class NatureDetail(Model):
     def increased_stat(self):
         """Gets the increased_stat of this NatureDetail.
 
+        The stat increased by 10% in Pokémon with this nature.
 
         :return: The increased_stat of this NatureDetail.
         :rtype: StatSummary
@@ -165,6 +167,7 @@ class NatureDetail(Model):
     def increased_stat(self, increased_stat):
         """Sets the increased_stat of this NatureDetail.
 
+        The stat increased by 10% in Pokémon with this nature.
 
         :param increased_stat: The increased_stat of this NatureDetail.
         :type increased_stat: StatSummary
@@ -178,6 +181,7 @@ class NatureDetail(Model):
     def likes_flavor(self):
         """Gets the likes_flavor of this NatureDetail.
 
+        The flavor liked by Pokémon with this nature.
 
         :return: The likes_flavor of this NatureDetail.
         :rtype: BerryFlavorSummary
@@ -188,6 +192,7 @@ class NatureDetail(Model):
     def likes_flavor(self, likes_flavor):
         """Sets the likes_flavor of this NatureDetail.
 
+        The flavor liked by Pokémon with this nature.
 
         :param likes_flavor: The likes_flavor of this NatureDetail.
         :type likes_flavor: BerryFlavorSummary
@@ -201,6 +206,7 @@ class NatureDetail(Model):
     def hates_flavor(self):
         """Gets the hates_flavor of this NatureDetail.
 
+        The flavor hated by Pokémon with this nature.
 
         :return: The hates_flavor of this NatureDetail.
         :rtype: BerryFlavorSummary
@@ -211,6 +217,7 @@ class NatureDetail(Model):
     def hates_flavor(self, hates_flavor):
         """Sets the hates_flavor of this NatureDetail.
 
+        The flavor hated by Pokémon with this nature.
 
         :param hates_flavor: The hates_flavor of this NatureDetail.
         :type hates_flavor: BerryFlavorSummary
@@ -221,35 +228,13 @@ class NatureDetail(Model):
         self._hates_flavor = hates_flavor
 
     @property
-    def berries(self):
-        """Gets the berries of this NatureDetail.
-
-
-        :return: The berries of this NatureDetail.
-        :rtype: List[BerrySummary]
-        """
-        return self._berries
-
-    @berries.setter
-    def berries(self, berries):
-        """Sets the berries of this NatureDetail.
-
-
-        :param berries: The berries of this NatureDetail.
-        :type berries: List[BerrySummary]
-        """
-        if berries is None:
-            raise ValueError("Invalid value for `berries`, must not be `None`")
-
-        self._berries = berries
-
-    @property
     def pokeathlon_stat_changes(self):
         """Gets the pokeathlon_stat_changes of this NatureDetail.
 
+        A list of Pokéathlon stats this nature effects and how much it effects them.
 
         :return: The pokeathlon_stat_changes of this NatureDetail.
-        :rtype: List[NatureDetailPokeathlonStatChangesInner]
+        :rtype: List[NaturePokeathlonStat]
         """
         return self._pokeathlon_stat_changes
 
@@ -257,9 +242,10 @@ class NatureDetail(Model):
     def pokeathlon_stat_changes(self, pokeathlon_stat_changes):
         """Sets the pokeathlon_stat_changes of this NatureDetail.
 
+        A list of Pokéathlon stats this nature effects and how much it effects them.
 
         :param pokeathlon_stat_changes: The pokeathlon_stat_changes of this NatureDetail.
-        :type pokeathlon_stat_changes: List[NatureDetailPokeathlonStatChangesInner]
+        :type pokeathlon_stat_changes: List[NaturePokeathlonStat]
         """
         if pokeathlon_stat_changes is None:
             raise ValueError("Invalid value for `pokeathlon_stat_changes`, must not be `None`")
@@ -270,6 +256,7 @@ class NatureDetail(Model):
     def move_battle_style_preferences(self):
         """Gets the move_battle_style_preferences of this NatureDetail.
 
+        A list of battle styles and how likely a Pokémon with this nature is to use them in the Battle Palace or Battle Tent.
 
         :return: The move_battle_style_preferences of this NatureDetail.
         :rtype: List[NatureBattleStylePreference]
@@ -280,6 +267,7 @@ class NatureDetail(Model):
     def move_battle_style_preferences(self, move_battle_style_preferences):
         """Sets the move_battle_style_preferences of this NatureDetail.
 
+        A list of battle styles and how likely a Pokémon with this nature is to use them in the Battle Palace or Battle Tent.
 
         :param move_battle_style_preferences: The move_battle_style_preferences of this NatureDetail.
         :type move_battle_style_preferences: List[NatureBattleStylePreference]
@@ -293,6 +281,7 @@ class NatureDetail(Model):
     def names(self):
         """Gets the names of this NatureDetail.
 
+        The name of this resource listed in different languages.
 
         :return: The names of this NatureDetail.
         :rtype: List[NatureName]
@@ -303,6 +292,7 @@ class NatureDetail(Model):
     def names(self, names):
         """Sets the names of this NatureDetail.
 
+        The name of this resource listed in different languages.
 
         :param names: The names of this NatureDetail.
         :type names: List[NatureName]

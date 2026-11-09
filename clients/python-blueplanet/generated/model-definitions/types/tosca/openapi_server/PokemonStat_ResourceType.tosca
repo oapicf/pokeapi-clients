@@ -18,17 +18,17 @@ resourceTypes {
     properties {
         base_stat {
           type =  integer
-          description = ""
+          description = "The base value of the stat."
           optional = true
         }
         effort {
           type =  integer
-          description = ""
+          description = "The effort points (EV) the Pokémon has in the stat."
           optional = true
         }
         stat {
           type = StatSummary
-          description = ""
+          description = "The stat the Pokémon has."
           optional = true
         }
     }

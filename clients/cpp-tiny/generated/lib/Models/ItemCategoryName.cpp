@@ -7,7 +7,7 @@ using namespace Tiny;
 ItemCategoryName::ItemCategoryName()
 {
 	name = std::string();
-	language = LanguageSummary();
+	language = null;
 }
 
 ItemCategoryName::ItemCategoryName(std::string jsonString)

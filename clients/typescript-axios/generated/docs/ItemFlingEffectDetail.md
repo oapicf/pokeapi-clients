@@ -5,10 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **number** |  | [readonly] [default to undefined]
-**name** | **string** |  | [default to undefined]
-**effect_entries** | [**Array&lt;ItemFlingEffectEffectText&gt;**](ItemFlingEffectEffectText.md) |  | [readonly] [default to undefined]
-**items** | [**Array&lt;ItemSummary&gt;**](ItemSummary.md) |  | [readonly] [default to undefined]
+**id** | **number** | The identifier for this resource. | [readonly] [default to undefined]
+**name** | **string** | The name for this resource. | [default to undefined]
+**effect_entries** | [**Array&lt;ItemFlingEffectEffectText&gt;**](ItemFlingEffectEffectText.md) | The result of this fling effect listed in different languages. | [readonly] [default to undefined]
+**items** | [**Array&lt;ItemSummary&gt;**](ItemSummary.md) | A list of items that have this fling effect. | [readonly] [default to undefined]
 
 ## Example
 

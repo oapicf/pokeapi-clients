@@ -7,7 +7,7 @@ using namespace Tiny;
 ItemName::ItemName()
 {
 	name = std::string();
-	language = LanguageSummary();
+	language = null;
 }
 
 ItemName::ItemName(std::string jsonString)

@@ -11,8 +11,8 @@
 -type openapi_pokemon_shape_detail() ::
   [ {'id', integer() }
   | {'name', binary() }
-  | {'awesome_names', list(openapi_pokemon_shape_detail_awesome_names_inner:openapi_pokemon_shape_detail_awesome_names_inner()) }
-  | {'names', list(openapi_pokemon_shape_detail_names_inner:openapi_pokemon_shape_detail_names_inner()) }
+  | {'awesome_names', list(openapi_pokemon_shape_awesome_name:openapi_pokemon_shape_awesome_name()) }
+  | {'names', list(openapi_pokemon_shape_name:openapi_pokemon_shape_name()) }
   | {'pokemon_species', list(openapi_pokemon_species_summary:openapi_pokemon_species_summary()) }
   ].
 
@@ -23,8 +23,8 @@ openapi_pokemon_shape_detail() ->
 openapi_pokemon_shape_detail(Fields) ->
   Default = [ {'id', integer() }
             , {'name', binary() }
-            , {'awesome_names', list(openapi_pokemon_shape_detail_awesome_names_inner:openapi_pokemon_shape_detail_awesome_names_inner()) }
-            , {'names', list(openapi_pokemon_shape_detail_names_inner:openapi_pokemon_shape_detail_names_inner()) }
+            , {'awesome_names', list(openapi_pokemon_shape_awesome_name:openapi_pokemon_shape_awesome_name()) }
+            , {'names', list(openapi_pokemon_shape_name:openapi_pokemon_shape_name()) }
             , {'pokemon_species', list(openapi_pokemon_species_summary:openapi_pokemon_species_summary()) }
             ],
   lists:ukeymerge(1, lists:sort(Fields), lists:sort(Default)).

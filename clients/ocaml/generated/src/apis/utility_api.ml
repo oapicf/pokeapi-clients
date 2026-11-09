@@ -79,3 +79,10 @@ let language_retrieve ~id =
     Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
     Request.read_json_body_as (JsonSupport.unwrap Language_detail.of_yojson) resp body
 
+let meta_retrieve () =
+    let open Lwt.Infix in
+    let uri = Request.build_uri "/api/v2/meta/" in
+    let headers = Request.default_headers in
+    Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
+    Request.read_json_body_as (JsonSupport.unwrap Pokeapi_meta_response.of_yojson) resp body
+

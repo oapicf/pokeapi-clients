@@ -3,7 +3,9 @@ package org.openapitools.client.model
 
 
 case class AbilityChange (
+    /* The version group in which the previous effect of this ability originated. */
     _versionGroup: VersionGroupSummary,
+    /* The previous effect of this ability listed in different languages. */
     _effectEntries: List[AbilityChangeEffectText]
 )
 object AbilityChange {

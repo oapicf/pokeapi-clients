@@ -9,7 +9,7 @@ CharacteristicDetail::CharacteristicDetail()
 	id = int(0);
 	gene_modulo = int(0);
 	possible_values = std::list<int>();
-	highest_stat = StatSummary();
+	highest_stat = null;
 	descriptions = std::list<CharacteristicDescription>();
 }
 

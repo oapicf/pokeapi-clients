@@ -4,10 +4,10 @@ open System
 open System.Collections.Generic
 open Newtonsoft.Json
 open OpenAPI.Model.AbilityChange
-open OpenAPI.Model.AbilityDetailPokemonInner
 open OpenAPI.Model.AbilityEffectText
 open OpenAPI.Model.AbilityFlavorText
 open OpenAPI.Model.AbilityName
+open OpenAPI.Model.AbilityPokemonDetail
 open OpenAPI.Model.GenerationSummary
 
 module AbilityDetail =
@@ -33,7 +33,7 @@ module AbilityDetail =
     [<JsonProperty(PropertyName = "flavor_text_entries")>]
     FlavorTextEntries : AbilityFlavorText[];
     [<JsonProperty(PropertyName = "pokemon")>]
-    Pokemon : AbilityDetailPokemonInner[];
+    Pokemon : AbilityPokemonDetail[];
   }
 
   //#endregion

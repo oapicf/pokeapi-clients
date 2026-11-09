@@ -19,12 +19,16 @@ class ContestTypeDetail {
     this.names = const [],
   });
 
+  /// The identifier for this resource.
   int id;
 
+  /// The name for this resource.
   String name;
 
+  /// The berry flavor that correlates with this contest type.
   BerryFlavorSummary berryFlavor;
 
+  /// The name of this contest type listed in different languages.
   List<ContestTypeName> names;
 
   @override

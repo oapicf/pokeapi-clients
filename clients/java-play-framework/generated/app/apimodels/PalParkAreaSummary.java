@@ -10,12 +10,12 @@ import javax.validation.Valid;
 /**
  * PalParkAreaSummary
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-10-25T05:48:13.486809836Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-11-09T13:49:31.462302702Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class PalParkAreaSummary   {
   @JsonProperty("name")
   @NotNull
-@Size(max=100)
+@Size(max=200)
 
   private String name;
 
@@ -31,7 +31,7 @@ public class PalParkAreaSummary   {
   }
 
    /**
-   * Get name
+   * The name of the referenced resource.
    * @return name
   **/
   public String getName() {
@@ -48,7 +48,7 @@ public class PalParkAreaSummary   {
   }
 
    /**
-   * Get url
+   * The URL of the referenced resource.
    * @return url
   **/
   public URI getUrl() {

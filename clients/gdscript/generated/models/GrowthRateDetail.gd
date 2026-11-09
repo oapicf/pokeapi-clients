@@ -10,6 +10,7 @@ class_name GrowthRateDetail
 # GrowthRateDetail Model
 
 
+# The identifier for this resource.
 # Required: True
 # isArray: false
 @export var id: int:
@@ -18,6 +19,7 @@ class_name GrowthRateDetail
 		id = value
 var __id__was__set := false
 
+# The name for this resource.
 # Required: True
 # isArray: false
 @export var name: String:
@@ -26,6 +28,7 @@ var __id__was__set := false
 		name = value
 var __name__was__set := false
 
+# The formula used to calculate the rate at which the Pokémon species gains level.
 # Required: True
 # isArray: false
 @export var formula: String:
@@ -34,6 +37,7 @@ var __name__was__set := false
 		formula = value
 var __formula__was__set := false
 
+# The descriptions of this characteristic listed in different languages.
 # Required: True
 # isArray: true
 @export var descriptions: Array:
@@ -42,6 +46,7 @@ var __formula__was__set := false
 		descriptions = value
 var __descriptions__was__set := false
 
+# A list of levels and the amount of experienced needed to atain them based on this growth rate.
 # Required: True
 # isArray: true
 @export var levels: Array:
@@ -50,6 +55,7 @@ var __descriptions__was__set := false
 		levels = value
 var __levels__was__set := false
 
+# A list of Pokémon species that gain levels at this growth rate.
 # Required: True
 # isArray: true
 @export var pokemonUnderscorespecies: Array:

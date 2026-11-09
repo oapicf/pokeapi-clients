@@ -6,6 +6,7 @@ All URIs are relative to *https://pokeapi.co*
 |------------- | ------------- | -------------|
 |[**languageList**](#languagelist) | **GET** /api/v2/language/ | List languages|
 |[**languageRetrieve**](#languageretrieve) | **GET** /api/v2/language/{id}/ | Get language|
+|[**metaRetrieve**](#metaretrieve) | **GET** /api/v2/meta/ | Get API metadata|
 
 # **languageList**
 > PaginatedLanguageSummaryList languageList()
@@ -49,7 +50,7 @@ const { status, data } = await apiInstance.languageList(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -100,7 +101,51 @@ const { status, data } = await apiInstance.languageRetrieve(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **metaRetrieve**
+> PokeapiMetaResponse metaRetrieve()
+
+Returns metadata about the current deployed version of the API, including the git commit hash, deploy date, and tag (if any).
+
+### Example
+
+```typescript
+import {
+    UtilityApi,
+    Configuration
+} from './api';
+
+const configuration = new Configuration();
+const apiInstance = new UtilityApi(configuration);
+
+const { status, data } = await apiInstance.metaRetrieve();
+```
+
+### Parameters
+This endpoint does not have any parameters.
+
+
+### Return type
+
+**PokeapiMetaResponse**
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 

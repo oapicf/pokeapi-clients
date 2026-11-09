@@ -241,10 +241,6 @@
               <stringProp name="Header.name">accept</stringProp>
               <stringProp name="Header.value">application/json</stringProp>
             </elementProp>
-            <elementProp name="" elementType="Header">
-              <stringProp name="Header.name">Authorization</stringProp>
-              <stringProp name="Header.value">Basic ${__P(basicBasicToken,token)}</stringProp>
-            </elementProp>
           </collectionProp>
         </HeaderManager>
         <hashTree/>
@@ -290,7 +286,7 @@
           <stringProp name="HTTPSampler.implementation"></stringProp>
           <boolProp name="HTTPSampler.monitor">false</boolProp>
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="TestPlan.comments"> Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.</stringProp>
+          <stringProp name="TestPlan.comments">List abilities Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.</stringProp>
         </HTTPSamplerProxy>
         <hashTree>
           <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Load CSV Test Data - abilityList" enabled="true">
@@ -337,10 +333,6 @@
               <stringProp name="Header.name">accept</stringProp>
               <stringProp name="Header.value">application/json</stringProp>
             </elementProp>
-            <elementProp name="" elementType="Header">
-              <stringProp name="Header.name">Authorization</stringProp>
-              <stringProp name="Header.value">Basic ${__P(basicBasicToken,token)}</stringProp>
-            </elementProp>
           </collectionProp>
         </HeaderManager>
         <hashTree/>
@@ -365,7 +357,7 @@
           <stringProp name="HTTPSampler.implementation"></stringProp>
           <boolProp name="HTTPSampler.monitor">false</boolProp>
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="TestPlan.comments"> Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.</stringProp>
+          <stringProp name="TestPlan.comments">Get ability Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.</stringProp>
         </HTTPSamplerProxy>
         <hashTree>
           <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Load CSV Test Data - abilityRetrieve" enabled="true">
@@ -412,10 +404,6 @@
               <stringProp name="Header.name">accept</stringProp>
               <stringProp name="Header.value">application/json</stringProp>
             </elementProp>
-            <elementProp name="" elementType="Header">
-              <stringProp name="Header.name">Authorization</stringProp>
-              <stringProp name="Header.value">Basic ${__P(basicBasicToken,token)}</stringProp>
-            </elementProp>
           </collectionProp>
         </HeaderManager>
         <hashTree/>
@@ -437,13 +425,6 @@
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 <stringProp name="Argument.name">offset</stringProp>
               </elementProp>
-              <elementProp name="q" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">${q}</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-                <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                <stringProp name="Argument.name">q</stringProp>
-              </elementProp>
             </collectionProp>
           </elementProp>
           <stringProp name="HTTPSampler.domain"></stringProp>
@@ -461,7 +442,7 @@
           <stringProp name="HTTPSampler.implementation"></stringProp>
           <boolProp name="HTTPSampler.monitor">false</boolProp>
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="TestPlan.comments">List charecterictics Characteristics indicate which stat contains a Pokémon&#39;s highest IV. A Pokémon&#39;s Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail.</stringProp>
+          <stringProp name="TestPlan.comments">List characteristics Characteristics indicate which stat contains a Pokémon&#39;s highest IV. A Pokémon&#39;s Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail.</stringProp>
         </HTTPSamplerProxy>
         <hashTree>
           <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Load CSV Test Data - characteristicList" enabled="true">
@@ -507,10 +488,6 @@
             <elementProp name="" elementType="Header">
               <stringProp name="Header.name">accept</stringProp>
               <stringProp name="Header.value">application/json</stringProp>
-            </elementProp>
-            <elementProp name="" elementType="Header">
-              <stringProp name="Header.name">Authorization</stringProp>
-              <stringProp name="Header.value">Basic ${__P(basicBasicToken,token)}</stringProp>
             </elementProp>
           </collectionProp>
         </HeaderManager>
@@ -582,10 +559,6 @@
             <elementProp name="" elementType="Header">
               <stringProp name="Header.name">accept</stringProp>
               <stringProp name="Header.value">application/json</stringProp>
-            </elementProp>
-            <elementProp name="" elementType="Header">
-              <stringProp name="Header.name">Authorization</stringProp>
-              <stringProp name="Header.value">Basic ${__P(basicBasicToken,token)}</stringProp>
             </elementProp>
           </collectionProp>
         </HeaderManager>
@@ -679,10 +652,6 @@
               <stringProp name="Header.name">accept</stringProp>
               <stringProp name="Header.value">application/json</stringProp>
             </elementProp>
-            <elementProp name="" elementType="Header">
-              <stringProp name="Header.name">Authorization</stringProp>
-              <stringProp name="Header.value">Basic ${__P(basicBasicToken,token)}</stringProp>
-            </elementProp>
           </collectionProp>
         </HeaderManager>
         <hashTree/>
@@ -753,10 +722,6 @@
             <elementProp name="" elementType="Header">
               <stringProp name="Header.name">accept</stringProp>
               <stringProp name="Header.value">application/json</stringProp>
-            </elementProp>
-            <elementProp name="" elementType="Header">
-              <stringProp name="Header.name">Authorization</stringProp>
-              <stringProp name="Header.value">Basic ${__P(basicBasicToken,token)}</stringProp>
             </elementProp>
           </collectionProp>
         </HeaderManager>
@@ -850,10 +815,6 @@
               <stringProp name="Header.name">accept</stringProp>
               <stringProp name="Header.value">application/json</stringProp>
             </elementProp>
-            <elementProp name="" elementType="Header">
-              <stringProp name="Header.name">Authorization</stringProp>
-              <stringProp name="Header.value">Basic ${__P(basicBasicToken,token)}</stringProp>
-            </elementProp>
           </collectionProp>
         </HeaderManager>
         <hashTree/>
@@ -924,10 +885,6 @@
             <elementProp name="" elementType="Header">
               <stringProp name="Header.name">accept</stringProp>
               <stringProp name="Header.value">application/json</stringProp>
-            </elementProp>
-            <elementProp name="" elementType="Header">
-              <stringProp name="Header.name">Authorization</stringProp>
-              <stringProp name="Header.value">Basic ${__P(basicBasicToken,token)}</stringProp>
             </elementProp>
           </collectionProp>
         </HeaderManager>
@@ -1021,10 +978,6 @@
               <stringProp name="Header.name">accept</stringProp>
               <stringProp name="Header.value">application/json</stringProp>
             </elementProp>
-            <elementProp name="" elementType="Header">
-              <stringProp name="Header.name">Authorization</stringProp>
-              <stringProp name="Header.value">Basic ${__P(basicBasicToken,token)}</stringProp>
-            </elementProp>
           </collectionProp>
         </HeaderManager>
         <hashTree/>
@@ -1095,10 +1048,6 @@
             <elementProp name="" elementType="Header">
               <stringProp name="Header.name">accept</stringProp>
               <stringProp name="Header.value">application/json</stringProp>
-            </elementProp>
-            <elementProp name="" elementType="Header">
-              <stringProp name="Header.name">Authorization</stringProp>
-              <stringProp name="Header.value">Basic ${__P(basicBasicToken,token)}</stringProp>
             </elementProp>
           </collectionProp>
         </HeaderManager>
@@ -1192,10 +1141,6 @@
               <stringProp name="Header.name">accept</stringProp>
               <stringProp name="Header.value">application/json</stringProp>
             </elementProp>
-            <elementProp name="" elementType="Header">
-              <stringProp name="Header.name">Authorization</stringProp>
-              <stringProp name="Header.value">Basic ${__P(basicBasicToken,token)}</stringProp>
-            </elementProp>
           </collectionProp>
         </HeaderManager>
         <hashTree/>
@@ -1266,10 +1211,6 @@
             <elementProp name="" elementType="Header">
               <stringProp name="Header.name">accept</stringProp>
               <stringProp name="Header.value">application/json</stringProp>
-            </elementProp>
-            <elementProp name="" elementType="Header">
-              <stringProp name="Header.name">Authorization</stringProp>
-              <stringProp name="Header.value">Basic ${__P(basicBasicToken,token)}</stringProp>
             </elementProp>
           </collectionProp>
         </HeaderManager>
@@ -1363,10 +1304,6 @@
               <stringProp name="Header.name">accept</stringProp>
               <stringProp name="Header.value">application/json</stringProp>
             </elementProp>
-            <elementProp name="" elementType="Header">
-              <stringProp name="Header.name">Authorization</stringProp>
-              <stringProp name="Header.value">Basic ${__P(basicBasicToken,token)}</stringProp>
-            </elementProp>
           </collectionProp>
         </HeaderManager>
         <hashTree/>
@@ -1437,10 +1374,6 @@
             <elementProp name="" elementType="Header">
               <stringProp name="Header.name">accept</stringProp>
               <stringProp name="Header.value">application/json</stringProp>
-            </elementProp>
-            <elementProp name="" elementType="Header">
-              <stringProp name="Header.name">Authorization</stringProp>
-              <stringProp name="Header.value">Basic ${__P(basicBasicToken,token)}</stringProp>
             </elementProp>
           </collectionProp>
         </HeaderManager>
@@ -1534,10 +1467,6 @@
               <stringProp name="Header.name">accept</stringProp>
               <stringProp name="Header.value">application/json</stringProp>
             </elementProp>
-            <elementProp name="" elementType="Header">
-              <stringProp name="Header.name">Authorization</stringProp>
-              <stringProp name="Header.value">Basic ${__P(basicBasicToken,token)}</stringProp>
-            </elementProp>
           </collectionProp>
         </HeaderManager>
         <hashTree/>
@@ -1608,10 +1537,6 @@
             <elementProp name="" elementType="Header">
               <stringProp name="Header.name">accept</stringProp>
               <stringProp name="Header.value">application/json</stringProp>
-            </elementProp>
-            <elementProp name="" elementType="Header">
-              <stringProp name="Header.name">Authorization</stringProp>
-              <stringProp name="Header.value">Basic ${__P(basicBasicToken,token)}</stringProp>
             </elementProp>
           </collectionProp>
         </HeaderManager>
@@ -1705,10 +1630,6 @@
               <stringProp name="Header.name">accept</stringProp>
               <stringProp name="Header.value">application/json</stringProp>
             </elementProp>
-            <elementProp name="" elementType="Header">
-              <stringProp name="Header.name">Authorization</stringProp>
-              <stringProp name="Header.value">Basic ${__P(basicBasicToken,token)}</stringProp>
-            </elementProp>
           </collectionProp>
         </HeaderManager>
         <hashTree/>
@@ -1779,10 +1700,6 @@
             <elementProp name="" elementType="Header">
               <stringProp name="Header.name">accept</stringProp>
               <stringProp name="Header.value">application/json</stringProp>
-            </elementProp>
-            <elementProp name="" elementType="Header">
-              <stringProp name="Header.name">Authorization</stringProp>
-              <stringProp name="Header.value">Basic ${__P(basicBasicToken,token)}</stringProp>
             </elementProp>
           </collectionProp>
         </HeaderManager>
@@ -1876,10 +1793,6 @@
               <stringProp name="Header.name">accept</stringProp>
               <stringProp name="Header.value">application/json</stringProp>
             </elementProp>
-            <elementProp name="" elementType="Header">
-              <stringProp name="Header.name">Authorization</stringProp>
-              <stringProp name="Header.value">Basic ${__P(basicBasicToken,token)}</stringProp>
-            </elementProp>
           </collectionProp>
         </HeaderManager>
         <hashTree/>
@@ -1950,10 +1863,6 @@
             <elementProp name="" elementType="Header">
               <stringProp name="Header.name">accept</stringProp>
               <stringProp name="Header.value">application/json</stringProp>
-            </elementProp>
-            <elementProp name="" elementType="Header">
-              <stringProp name="Header.name">Authorization</stringProp>
-              <stringProp name="Header.value">Basic ${__P(basicBasicToken,token)}</stringProp>
             </elementProp>
           </collectionProp>
         </HeaderManager>
@@ -2047,10 +1956,6 @@
               <stringProp name="Header.name">accept</stringProp>
               <stringProp name="Header.value">application/json</stringProp>
             </elementProp>
-            <elementProp name="" elementType="Header">
-              <stringProp name="Header.name">Authorization</stringProp>
-              <stringProp name="Header.value">Basic ${__P(basicBasicToken,token)}</stringProp>
-            </elementProp>
           </collectionProp>
         </HeaderManager>
         <hashTree/>
@@ -2121,10 +2026,6 @@
             <elementProp name="" elementType="Header">
               <stringProp name="Header.name">accept</stringProp>
               <stringProp name="Header.value">application/json</stringProp>
-            </elementProp>
-            <elementProp name="" elementType="Header">
-              <stringProp name="Header.name">Authorization</stringProp>
-              <stringProp name="Header.value">Basic ${__P(basicBasicToken,token)}</stringProp>
             </elementProp>
           </collectionProp>
         </HeaderManager>
@@ -2218,10 +2119,6 @@
               <stringProp name="Header.name">accept</stringProp>
               <stringProp name="Header.value">application/json</stringProp>
             </elementProp>
-            <elementProp name="" elementType="Header">
-              <stringProp name="Header.name">Authorization</stringProp>
-              <stringProp name="Header.value">Basic ${__P(basicBasicToken,token)}</stringProp>
-            </elementProp>
           </collectionProp>
         </HeaderManager>
         <hashTree/>
@@ -2292,10 +2189,6 @@
             <elementProp name="" elementType="Header">
               <stringProp name="Header.name">accept</stringProp>
               <stringProp name="Header.value">application/json</stringProp>
-            </elementProp>
-            <elementProp name="" elementType="Header">
-              <stringProp name="Header.name">Authorization</stringProp>
-              <stringProp name="Header.value">Basic ${__P(basicBasicToken,token)}</stringProp>
             </elementProp>
           </collectionProp>
         </HeaderManager>
@@ -2389,10 +2282,6 @@
               <stringProp name="Header.name">accept</stringProp>
               <stringProp name="Header.value">application/json</stringProp>
             </elementProp>
-            <elementProp name="" elementType="Header">
-              <stringProp name="Header.name">Authorization</stringProp>
-              <stringProp name="Header.value">Basic ${__P(basicBasicToken,token)}</stringProp>
-            </elementProp>
           </collectionProp>
         </HeaderManager>
         <hashTree/>
@@ -2463,10 +2352,6 @@
             <elementProp name="" elementType="Header">
               <stringProp name="Header.name">accept</stringProp>
               <stringProp name="Header.value">application/json</stringProp>
-            </elementProp>
-            <elementProp name="" elementType="Header">
-              <stringProp name="Header.name">Authorization</stringProp>
-              <stringProp name="Header.value">Basic ${__P(basicBasicToken,token)}</stringProp>
             </elementProp>
           </collectionProp>
         </HeaderManager>
@@ -2560,10 +2445,6 @@
               <stringProp name="Header.name">accept</stringProp>
               <stringProp name="Header.value">application/json</stringProp>
             </elementProp>
-            <elementProp name="" elementType="Header">
-              <stringProp name="Header.name">Authorization</stringProp>
-              <stringProp name="Header.value">Basic ${__P(basicBasicToken,token)}</stringProp>
-            </elementProp>
           </collectionProp>
         </HeaderManager>
         <hashTree/>
@@ -2634,10 +2515,6 @@
             <elementProp name="" elementType="Header">
               <stringProp name="Header.name">accept</stringProp>
               <stringProp name="Header.value">application/json</stringProp>
-            </elementProp>
-            <elementProp name="" elementType="Header">
-              <stringProp name="Header.name">Authorization</stringProp>
-              <stringProp name="Header.value">Basic ${__P(basicBasicToken,token)}</stringProp>
             </elementProp>
           </collectionProp>
         </HeaderManager>
@@ -2731,10 +2608,6 @@
               <stringProp name="Header.name">accept</stringProp>
               <stringProp name="Header.value">application/json</stringProp>
             </elementProp>
-            <elementProp name="" elementType="Header">
-              <stringProp name="Header.name">Authorization</stringProp>
-              <stringProp name="Header.value">Basic ${__P(basicBasicToken,token)}</stringProp>
-            </elementProp>
           </collectionProp>
         </HeaderManager>
         <hashTree/>
@@ -2805,10 +2678,6 @@
             <elementProp name="" elementType="Header">
               <stringProp name="Header.name">accept</stringProp>
               <stringProp name="Header.value">application/json</stringProp>
-            </elementProp>
-            <elementProp name="" elementType="Header">
-              <stringProp name="Header.name">Authorization</stringProp>
-              <stringProp name="Header.value">Basic ${__P(basicBasicToken,token)}</stringProp>
             </elementProp>
           </collectionProp>
         </HeaderManager>
@@ -2901,10 +2770,6 @@
             <elementProp name="" elementType="Header">
               <stringProp name="Header.name">accept</stringProp>
               <stringProp name="Header.value">application/json</stringProp>
-            </elementProp>
-            <elementProp name="" elementType="Header">
-              <stringProp name="Header.name">Authorization</stringProp>
-              <stringProp name="Header.value">Basic ${__P(basicBasicToken,token)}</stringProp>
             </elementProp>
           </collectionProp>
         </HeaderManager>

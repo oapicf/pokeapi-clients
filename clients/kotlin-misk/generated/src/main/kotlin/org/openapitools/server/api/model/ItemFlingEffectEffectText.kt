@@ -5,6 +5,8 @@ import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
 data class ItemFlingEffectEffectText(
+    /** The localized effect text for an API resource in a specific language. */
     val effect: kotlin.String,
+    /** The language this effect is in. */
     val language: LanguageSummary
 )

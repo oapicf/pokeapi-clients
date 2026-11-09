@@ -8,10 +8,10 @@
 
 (def paginated-berry-flavor-summary-list-data
   {
-   (ds/opt :count) int?
+   (ds/req :count) int?
    (ds/opt :next) string?
    (ds/opt :previous) string?
-   (ds/opt :results) (s/coll-of berry-flavor-summary-spec)
+   (ds/req :results) (s/coll-of berry-flavor-summary-spec)
    })
 
 (def paginated-berry-flavor-summary-list-spec

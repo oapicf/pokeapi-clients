@@ -7,13 +7,13 @@ module.exports = {
         return [
             {
                 key: `${keyPrefix}name`,
-                label: `[${labelPrefix}name]`,
+                label: `The name for this contest. - [${labelPrefix}name]`,
                 required: true,
                 type: 'string',
             },
             {
                 key: `${keyPrefix}color`,
-                label: `[${labelPrefix}color]`,
+                label: `The color associated with this contest's name. - [${labelPrefix}color]`,
                 required: true,
                 type: 'string',
             },

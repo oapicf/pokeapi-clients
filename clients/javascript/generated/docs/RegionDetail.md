@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Number** |  | [readonly] 
-**name** | **String** |  | 
-**locations** | [**[LocationSummary]**](LocationSummary.md) |  | [readonly] 
-**mainGeneration** | [**GenerationSummary**](GenerationSummary.md) |  | [readonly] 
-**names** | [**[RegionName]**](RegionName.md) |  | [readonly] 
-**pokedexes** | [**[PokedexSummary]**](PokedexSummary.md) |  | [readonly] 
-**versionGroups** | [**[AbilityDetailPokemonInnerPokemon]**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] 
+**id** | **Number** | The identifier for this resource. | [readonly] 
+**name** | **String** | The name for this resource. | 
+**locations** | [**[LocationSummary]**](LocationSummary.md) | A list of locations that can be found in this region. | [readonly] 
+**mainGeneration** | [**GenerationSummary**](GenerationSummary.md) | The generation this region was introduced in. | [readonly] 
+**names** | [**[RegionName]**](RegionName.md) | The name of this resource listed in different languages. | [readonly] 
+**pokedexes** | [**[PokedexSummary]**](PokedexSummary.md) | A list of pokédexes that catalogue Pokémon in this region. | [readonly] 
+**versionGroups** | [**[VersionGroupSummary]**](VersionGroupSummary.md) | A list of version groups where this region can be visited. | [readonly] 
 
 

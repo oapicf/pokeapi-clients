@@ -3,9 +3,9 @@ namespace OpenAPI.Model
 open System
 open System.Collections.Generic
 open Newtonsoft.Json
-open OpenAPI.Model.AbilityDetailPokemonInnerPokemon
 open OpenAPI.Model.MoveLearnMethodDescription
 open OpenAPI.Model.MoveLearnMethodName
+open OpenAPI.Model.VersionGroupSummary
 
 module MoveLearnMethodDetail =
 
@@ -22,7 +22,7 @@ module MoveLearnMethodDetail =
     [<JsonProperty(PropertyName = "descriptions")>]
     Descriptions : MoveLearnMethodDescription[];
     [<JsonProperty(PropertyName = "version_groups")>]
-    VersionGroups : AbilityDetailPokemonInnerPokemon[];
+    VersionGroups : VersionGroupSummary[];
   }
 
   //#endregion

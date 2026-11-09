@@ -11,7 +11,6 @@ namespace models {
 ItemEffectText::ItemEffectText()
 : effect("")
 , shortEffect("")
-, language(LanguageSummary())
 {
 }
 // =========================================

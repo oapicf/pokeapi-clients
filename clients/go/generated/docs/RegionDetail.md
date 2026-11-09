@@ -4,19 +4,19 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int32** |  | [readonly] 
-**Name** | **string** |  | 
-**Locations** | [**[]LocationSummary**](LocationSummary.md) |  | [readonly] 
-**MainGeneration** | [**GenerationSummary**](GenerationSummary.md) |  | [readonly] 
-**Names** | [**[]RegionName**](RegionName.md) |  | [readonly] 
-**Pokedexes** | [**[]PokedexSummary**](PokedexSummary.md) |  | [readonly] 
-**VersionGroups** | [**[]AbilityDetailPokemonInnerPokemon**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] 
+**Id** | **int32** | The identifier for this resource. | [readonly] 
+**Name** | **string** | The name for this resource. | 
+**Locations** | [**[]LocationSummary**](LocationSummary.md) | A list of locations that can be found in this region. | [readonly] 
+**MainGeneration** | [**NullableGenerationSummary**](GenerationSummary.md) | The generation this region was introduced in. | [readonly] 
+**Names** | [**[]RegionName**](RegionName.md) | The name of this resource listed in different languages. | [readonly] 
+**Pokedexes** | [**[]PokedexSummary**](PokedexSummary.md) | A list of pokédexes that catalogue Pokémon in this region. | [readonly] 
+**VersionGroups** | [**[]VersionGroupSummary**](VersionGroupSummary.md) | A list of version groups where this region can be visited. | [readonly] 
 
 ## Methods
 
 ### NewRegionDetail
 
-`func NewRegionDetail(id int32, name string, locations []LocationSummary, mainGeneration GenerationSummary, names []RegionName, pokedexes []PokedexSummary, versionGroups []AbilityDetailPokemonInnerPokemon, ) *RegionDetail`
+`func NewRegionDetail(id int32, name string, locations []LocationSummary, mainGeneration NullableGenerationSummary, names []RegionName, pokedexes []PokedexSummary, versionGroups []VersionGroupSummary, ) *RegionDetail`
 
 NewRegionDetail instantiates a new RegionDetail object
 This constructor will assign default values to properties that have it defined,
@@ -111,6 +111,16 @@ and a boolean to check if the value has been set.
 SetMainGeneration sets MainGeneration field to given value.
 
 
+### SetMainGenerationNil
+
+`func (o *RegionDetail) SetMainGenerationNil(b bool)`
+
+ SetMainGenerationNil sets the value for MainGeneration to be an explicit nil
+
+### UnsetMainGeneration
+`func (o *RegionDetail) UnsetMainGeneration()`
+
+UnsetMainGeneration ensures that no value is present for MainGeneration, not even an explicit nil
 ### GetNames
 
 `func (o *RegionDetail) GetNames() []RegionName`
@@ -153,20 +163,20 @@ SetPokedexes sets Pokedexes field to given value.
 
 ### GetVersionGroups
 
-`func (o *RegionDetail) GetVersionGroups() []AbilityDetailPokemonInnerPokemon`
+`func (o *RegionDetail) GetVersionGroups() []VersionGroupSummary`
 
 GetVersionGroups returns the VersionGroups field if non-nil, zero value otherwise.
 
 ### GetVersionGroupsOk
 
-`func (o *RegionDetail) GetVersionGroupsOk() (*[]AbilityDetailPokemonInnerPokemon, bool)`
+`func (o *RegionDetail) GetVersionGroupsOk() (*[]VersionGroupSummary, bool)`
 
 GetVersionGroupsOk returns a tuple with the VersionGroups field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVersionGroups
 
-`func (o *RegionDetail) SetVersionGroups(v []AbilityDetailPokemonInnerPokemon)`
+`func (o *RegionDetail) SetVersionGroups(v []VersionGroupSummary)`
 
 SetVersionGroups sets VersionGroups field to given value.
 

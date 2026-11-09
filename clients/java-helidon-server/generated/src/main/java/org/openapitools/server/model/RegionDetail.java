@@ -3,11 +3,11 @@ package org.openapitools.server.model;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.server.model.AbilityDetailPokemonInnerPokemon;
 import org.openapitools.server.model.GenerationSummary;
 import org.openapitools.server.model.LocationSummary;
 import org.openapitools.server.model.PokedexSummary;
 import org.openapitools.server.model.RegionName;
+import org.openapitools.server.model.VersionGroupSummary;
 import jakarta.validation.constraints.*;
 import jakarta.validation.Valid;
 
@@ -21,7 +21,7 @@ public class RegionDetail   {
     private GenerationSummary mainGeneration;
     private List<@Valid RegionName> names = new ArrayList<>();
     private List<@Valid PokedexSummary> pokedexes = new ArrayList<>();
-    private List<@Valid AbilityDetailPokemonInnerPokemon> versionGroups = new ArrayList<>();
+    private List<@Valid VersionGroupSummary> versionGroups = new ArrayList<>();
 
     /**
      * Default constructor.
@@ -33,13 +33,13 @@ public class RegionDetail   {
     /**
      * Create RegionDetail.
      *
-     * @param id id
-     * @param name name
-     * @param locations locations
-     * @param mainGeneration mainGeneration
-     * @param names names
-     * @param pokedexes pokedexes
-     * @param versionGroups versionGroups
+     * @param id The identifier for this resource.
+     * @param name The name for this resource.
+     * @param locations A list of locations that can be found in this region.
+     * @param mainGeneration The generation this region was introduced in.
+     * @param names The name of this resource listed in different languages.
+     * @param pokedexes A list of pokédexes that catalogue Pokémon in this region.
+     * @param versionGroups A list of version groups where this region can be visited.
      */
     public RegionDetail(
         Integer id, 
@@ -48,7 +48,7 @@ public class RegionDetail   {
         GenerationSummary mainGeneration, 
         List<@Valid RegionName> names, 
         List<@Valid PokedexSummary> pokedexes, 
-        List<@Valid AbilityDetailPokemonInnerPokemon> versionGroups
+        List<@Valid VersionGroupSummary> versionGroups
     ) {
         this.id = id;
         this.name = name;
@@ -62,7 +62,7 @@ public class RegionDetail   {
 
 
     /**
-     * Get id
+     * The identifier for this resource.
      * @return id
      */
     public Integer getId() {
@@ -74,7 +74,7 @@ public class RegionDetail   {
     }
 
     /**
-     * Get name
+     * The name for this resource.
      * @return name
      */
     public String getName() {
@@ -86,7 +86,7 @@ public class RegionDetail   {
     }
 
     /**
-     * Get locations
+     * A list of locations that can be found in this region.
      * @return locations
      */
     public List<@Valid LocationSummary> getLocations() {
@@ -98,7 +98,7 @@ public class RegionDetail   {
     }
 
     /**
-     * Get mainGeneration
+     * The generation this region was introduced in.
      * @return mainGeneration
      */
     public GenerationSummary getMainGeneration() {
@@ -110,7 +110,7 @@ public class RegionDetail   {
     }
 
     /**
-     * Get names
+     * The name of this resource listed in different languages.
      * @return names
      */
     public List<@Valid RegionName> getNames() {
@@ -122,7 +122,7 @@ public class RegionDetail   {
     }
 
     /**
-     * Get pokedexes
+     * A list of pokédexes that catalogue Pokémon in this region.
      * @return pokedexes
      */
     public List<@Valid PokedexSummary> getPokedexes() {
@@ -134,14 +134,14 @@ public class RegionDetail   {
     }
 
     /**
-     * Get versionGroups
+     * A list of version groups where this region can be visited.
      * @return versionGroups
      */
-    public List<@Valid AbilityDetailPokemonInnerPokemon> getVersionGroups() {
+    public List<@Valid VersionGroupSummary> getVersionGroups() {
         return versionGroups;
     }
 
-    public void setVersionGroups(List<@Valid AbilityDetailPokemonInnerPokemon> versionGroups) {
+    public void setVersionGroups(List<@Valid VersionGroupSummary> versionGroups) {
         this.versionGroups = versionGroups;
     }
 

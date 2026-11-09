@@ -26,7 +26,7 @@ AbilityDetail::__init()
 	//id = int(0);
 	//name = std::string();
 	//is_main_series = bool(false);
-	//generation = new GenerationSummary();
+	//generation = null;
 	//new std::list()std::list> names;
 	//new std::list()std::list> effect_entries;
 	//new std::list()std::list> effect_changes;
@@ -240,12 +240,12 @@ AbilityDetail::fromJson(char* jsonStr)
 		{
 			JsonArray* arr = json_node_get_array(node);
 			JsonNode*  temp_json;
-			list<AbilityDetail_pokemon_inner> new_list;
-			AbilityDetail_pokemon_inner inst;
+			list<AbilityPokemonDetail> new_list;
+			AbilityPokemonDetail inst;
 			for (guint i=0;i<json_array_get_length(arr);i++) {
 				temp_json = json_array_get_element(arr,i);
-				if (isprimitive("AbilityDetail_pokemon_inner")) {
-					jsonToValue(&inst, temp_json, "AbilityDetail_pokemon_inner", "");
+				if (isprimitive("AbilityPokemonDetail")) {
+					jsonToValue(&inst, temp_json, "AbilityPokemonDetail", "");
 				} else {
 					
 					inst.fromJson(json_to_string(temp_json, false));
@@ -410,18 +410,18 @@ AbilityDetail::toJson()
 	
 	const gchar *flavor_text_entriesKey = "flavor_text_entries";
 	json_object_set_member(pJsonObject, flavor_text_entriesKey, node);
-	if (isprimitive("AbilityDetail_pokemon_inner")) {
-		list<AbilityDetail_pokemon_inner> new_list = static_cast<list <AbilityDetail_pokemon_inner> > (getPokemon());
-		node = converttoJson(&new_list, "AbilityDetail_pokemon_inner", "array");
+	if (isprimitive("AbilityPokemonDetail")) {
+		list<AbilityPokemonDetail> new_list = static_cast<list <AbilityPokemonDetail> > (getPokemon());
+		node = converttoJson(&new_list, "AbilityPokemonDetail", "array");
 	} else {
 		node = json_node_alloc();
-		list<AbilityDetail_pokemon_inner> new_list = static_cast<list <AbilityDetail_pokemon_inner> > (getPokemon());
+		list<AbilityPokemonDetail> new_list = static_cast<list <AbilityPokemonDetail> > (getPokemon());
 		JsonArray* json_array = json_array_new();
 		GError *mygerror;
 		
-		for (list<AbilityDetail_pokemon_inner>::iterator it = new_list.begin(); it != new_list.end(); it++) {
+		for (list<AbilityPokemonDetail>::iterator it = new_list.begin(); it != new_list.end(); it++) {
 			mygerror = NULL;
-			AbilityDetail_pokemon_inner obj = *it;
+			AbilityPokemonDetail obj = *it;
 			JsonNode *node_temp = json_from_string(obj.toJson(), &mygerror);
 			json_array_add_element(json_array, node_temp);
 			g_clear_error(&mygerror);
@@ -539,14 +539,14 @@ AbilityDetail::setFlavorTextEntries(std::list <AbilityFlavorText> flavor_text_en
 	this->flavor_text_entries = flavor_text_entries;
 }
 
-std::list<AbilityDetail_pokemon_inner>
+std::list<AbilityPokemonDetail>
 AbilityDetail::getPokemon()
 {
 	return pokemon;
 }
 
 void
-AbilityDetail::setPokemon(std::list <AbilityDetail_pokemon_inner> pokemon)
+AbilityDetail::setPokemon(std::list <AbilityPokemonDetail> pokemon)
 {
 	this->pokemon = pokemon;
 }

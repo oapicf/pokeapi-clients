@@ -7,86 +7,102 @@
     {
       "name": "id",
       "type": "int",
-      "doc": ""
+      "doc": "The identifier for this resource."
     },
     {
       "name": "name",
       "type": "string",
-      "doc": ""
+      "doc": "The name for this resource."
     },
     {
       "name": "order",
       "type": ["null", "int"],
-      "doc": "",
+      "doc": "The order in which forms should be sorted within all forms. Multiple forms may have equal order, in which case they should fall back on sorting by name.",
       "default": null
     },
     {
       "name": "form_order",
       "type": ["null", "int"],
-      "doc": "",
+      "doc": "The order in which forms should be sorted within a species' forms.",
       "default": null
     },
     {
       "name": "is_default",
       "type": ["null", "boolean"],
-      "doc": "",
+      "doc": "True for exactly one form used as the default for each Pokémon.",
       "default": null
     },
     {
       "name": "is_battle_only",
       "type": ["null", "boolean"],
-      "doc": "",
+      "doc": "Whether or not this form can only happen during battle.",
       "default": null
     },
     {
       "name": "is_mega",
       "type": ["null", "boolean"],
-      "doc": "",
+      "doc": "Whether or not this form requires mega evolution.",
       "default": null
     },
     {
       "name": "form_name",
       "type": "string",
-      "doc": ""
+      "doc": "The name of this form."
     },
     {
       "name": "pokemon",
       "type": "model.PokemonSummary",
-      "doc": ""
+      "doc": "The Pokémon that can take on this form."
     },
     {
       "name": "sprites",
-      "type": "model.PokemonFormDetailSprites",
-      "doc": ""
+      "type": "model.PokemonFormSprites",
+      "doc": "A set of sprites used to depict this Pokémon form in the game."
     },
     {
       "name": "version_group",
       "type": "model.VersionGroupSummary",
-      "doc": ""
+      "doc": "The version group this Pokémon form was introduced in."
     },
     {
       "name": "form_names",
       "type": {
         "type": "array",
-        "items": "model.PokemonFormDetailFormNamesInner"
+        "items": "model.PokemonFormName"
       },
-      "doc": ""
+      "doc": "The form specific form name of this Pokémon form, or empty if the form does not have a specific name."
     },
     {
       "name": "names",
       "type": {
         "type": "array",
-        "items": "model.PokemonFormDetailFormNamesInner"
+        "items": "model.PokemonFormName"
       },
-      "doc": ""
+      "doc": "The form specific full name of this Pokémon form, or empty if the form does not have a specific name."
     },
     {
       "name": "types",
       "type": {
         "type": "array",
-        "items": "model.PokemonDetailTypesInner"
+        "items": "model.PokemonFormType"
       },
-      "doc": ""
+      "doc": "A list of details showing types this Pokémon form has."
+    },
+    {
+      "name": "trigger_conditions",
+      "type": {
+        "type": "array",
+        "items": "model.PokemonFormTriggerCondition"
+      },
+      "doc": "The conditions that trigger this form. Resource names and URLs are included when the trigger requires a resource."
+    },
+    {
+      "name": "flavor_text_entries",
+      "type": {
+        "type": "array",
+        "items": "model.PokemonFormFlavorText"
+      },
+      "doc": "The flavor text of this form listed in different languages and versions."
     }
   ]
 

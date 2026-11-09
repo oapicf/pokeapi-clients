@@ -49,39 +49,39 @@ public:
 	 */
     void fromJson(std::string jsonObj);
 
-	/*! \brief Get 
+	/*! \brief Get The identifier for this resource.
 	 */
 	int getId();
 
-	/*! \brief Set 
+	/*! \brief Set The identifier for this resource.
 	 */
 	void setId(int id);
-	/*! \brief Get 
+	/*! \brief Get The name for this resource.
 	 */
 	std::string getName();
 
-	/*! \brief Set 
+	/*! \brief Set The name for this resource.
 	 */
 	void setName(std::string name);
-	/*! \brief Get 
+	/*! \brief Get A list of items that are a part of this category.
 	 */
 	std::list<ItemSummary> getItems();
 
-	/*! \brief Set 
+	/*! \brief Set A list of items that are a part of this category.
 	 */
 	void setItems(std::list<ItemSummary> items);
-	/*! \brief Get 
+	/*! \brief Get The name of this item category listed in different languages.
 	 */
 	std::list<ItemCategoryName> getNames();
 
-	/*! \brief Set 
+	/*! \brief Set The name of this item category listed in different languages.
 	 */
 	void setNames(std::list<ItemCategoryName> names);
-	/*! \brief Get 
+	/*! \brief Get The pocket items in this category would be put in.
 	 */
 	ItemPocketSummary getPocket();
 
-	/*! \brief Set 
+	/*! \brief Set The pocket items in this category would be put in.
 	 */
 	void setPocket(ItemPocketSummary pocket);
 

@@ -9,9 +9,14 @@ import Foundation
 
 public struct SuperContestEffectDetail: Sendable, Codable, Hashable {
 
+    public static let appealRule = NumericRule<Int>(minimum: -2147483648, exclusiveMinimum: false, maximum: 2147483647, exclusiveMaximum: false, multipleOf: nil)
+    /** The identifier for this resource. */
     public var id: Int
+    /** The level of appeal this super contest effect has. */
     public var appeal: Int
+    /** The flavor text of this super contest effect listed in different languages. */
     public var flavorTextEntries: [SuperContestEffectFlavorText]
+    /** A list of moves that have the effect when used in super contests. */
     public var moves: [MoveSummary]
 
     public init(id: Int, appeal: Int, flavorTextEntries: [SuperContestEffectFlavorText], moves: [MoveSummary]) {

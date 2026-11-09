@@ -88,9 +88,6 @@ module PokemonApiHandlerParams =
 
       offset : int option;
 
-
-      q : string option;
-
     }
     //#endregion
 

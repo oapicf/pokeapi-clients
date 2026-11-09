@@ -22,9 +22,9 @@ public class NatureBattleStylePreference   {
     /**
      * Create NatureBattleStylePreference.
      *
-     * @param lowHpPreference lowHpPreference
-     * @param highHpPreference highHpPreference
-     * @param moveBattleStyle moveBattleStyle
+     * @param lowHpPreference Chance of using the move, in percent, if HP is under one half.
+     * @param highHpPreference Chance of using the move, in percent, if HP is over one half.
+     * @param moveBattleStyle The move battle style.
      */
     public NatureBattleStylePreference(
         Integer lowHpPreference, 
@@ -39,7 +39,9 @@ public class NatureBattleStylePreference   {
 
 
     /**
-     * Get lowHpPreference
+     * Chance of using the move, in percent, if HP is under one half.
+     * minimum: -2147483648
+     * maximum: 2147483647
      * @return lowHpPreference
      */
     public Integer getLowHpPreference() {
@@ -51,7 +53,9 @@ public class NatureBattleStylePreference   {
     }
 
     /**
-     * Get highHpPreference
+     * Chance of using the move, in percent, if HP is over one half.
+     * minimum: -2147483648
+     * maximum: 2147483647
      * @return highHpPreference
      */
     public Integer getHighHpPreference() {
@@ -63,7 +67,7 @@ public class NatureBattleStylePreference   {
     }
 
     /**
-     * Get moveBattleStyle
+     * The move battle style.
      * @return moveBattleStyle
      */
     public MoveBattleStyleSummary getMoveBattleStyle() {

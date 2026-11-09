@@ -26,6 +26,7 @@ defmodule PokéAPI.Model.PokemonDetail do
     :sprites,
     :cries,
     :stats,
+    :past_stats,
     :types,
     :past_types
   ]
@@ -38,37 +39,39 @@ defmodule PokéAPI.Model.PokemonDetail do
     :is_default => boolean() | nil,
     :order => integer() | nil,
     :weight => integer() | nil,
-    :abilities => [PokéAPI.Model.PokemonDetailAbilitiesInner.t],
-    :past_abilities => [PokéAPI.Model.PokemonDetailPastAbilitiesInner.t],
+    :abilities => [PokéAPI.Model.PokemonAbility.t],
+    :past_abilities => [PokéAPI.Model.PokemonPastAbility.t],
     :forms => [PokéAPI.Model.PokemonFormSummary.t],
     :game_indices => [PokéAPI.Model.PokemonGameIndex.t],
-    :held_items => PokéAPI.Model.PokemonDetailHeldItems.t,
+    :held_items => [PokéAPI.Model.PokemonHeldItemSummary.t],
     :location_area_encounters => String.t,
-    :moves => [PokéAPI.Model.PokemonDetailMovesInner.t],
+    :moves => [PokéAPI.Model.PokemonMove.t],
     :species => PokéAPI.Model.PokemonSpeciesSummary.t,
-    :sprites => PokéAPI.Model.PokemonDetailSprites.t,
-    :cries => PokéAPI.Model.PokemonDetailCries.t,
+    :sprites => PokéAPI.Model.PokemonSprites.t,
+    :cries => PokéAPI.Model.PokemonCries.t,
     :stats => [PokéAPI.Model.PokemonStat.t],
-    :types => [PokéAPI.Model.PokemonDetailTypesInner.t],
-    :past_types => [PokéAPI.Model.PokemonDetailPastTypesInner.t]
+    :past_stats => [PokéAPI.Model.PokemonPastStat.t],
+    :types => [PokéAPI.Model.PokemonType.t],
+    :past_types => [PokéAPI.Model.PokemonPastType.t]
   }
 
   alias PokéAPI.Deserializer
 
   def decode(value) do
     value
-     |> Deserializer.deserialize(:abilities, :list, PokéAPI.Model.PokemonDetailAbilitiesInner)
-     |> Deserializer.deserialize(:past_abilities, :list, PokéAPI.Model.PokemonDetailPastAbilitiesInner)
+     |> Deserializer.deserialize(:abilities, :list, PokéAPI.Model.PokemonAbility)
+     |> Deserializer.deserialize(:past_abilities, :list, PokéAPI.Model.PokemonPastAbility)
      |> Deserializer.deserialize(:forms, :list, PokéAPI.Model.PokemonFormSummary)
      |> Deserializer.deserialize(:game_indices, :list, PokéAPI.Model.PokemonGameIndex)
-     |> Deserializer.deserialize(:held_items, :struct, PokéAPI.Model.PokemonDetailHeldItems)
-     |> Deserializer.deserialize(:moves, :list, PokéAPI.Model.PokemonDetailMovesInner)
+     |> Deserializer.deserialize(:held_items, :list, PokéAPI.Model.PokemonHeldItemSummary)
+     |> Deserializer.deserialize(:moves, :list, PokéAPI.Model.PokemonMove)
      |> Deserializer.deserialize(:species, :struct, PokéAPI.Model.PokemonSpeciesSummary)
-     |> Deserializer.deserialize(:sprites, :struct, PokéAPI.Model.PokemonDetailSprites)
-     |> Deserializer.deserialize(:cries, :struct, PokéAPI.Model.PokemonDetailCries)
+     |> Deserializer.deserialize(:sprites, :struct, PokéAPI.Model.PokemonSprites)
+     |> Deserializer.deserialize(:cries, :struct, PokéAPI.Model.PokemonCries)
      |> Deserializer.deserialize(:stats, :list, PokéAPI.Model.PokemonStat)
-     |> Deserializer.deserialize(:types, :list, PokéAPI.Model.PokemonDetailTypesInner)
-     |> Deserializer.deserialize(:past_types, :list, PokéAPI.Model.PokemonDetailPastTypesInner)
+     |> Deserializer.deserialize(:past_stats, :list, PokéAPI.Model.PokemonPastStat)
+     |> Deserializer.deserialize(:types, :list, PokéAPI.Model.PokemonType)
+     |> Deserializer.deserialize(:past_types, :list, PokéAPI.Model.PokemonPastType)
   end
 end
 

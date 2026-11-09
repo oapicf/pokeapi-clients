@@ -10,9 +10,9 @@
 #include <cstdint>
 #include <string>
 #include <vector>
-#include "LocationAreaDetailEncounterMethodRatesInner.h"
-#include "LocationAreaDetailPokemonEncountersInner.h"
+#include "LocationAreaEncounterRate.h"
 #include "LocationAreaName.h"
+#include "LocationAreaPokemonEncounter.h"
 #include "LocationSummary.h"
 
 
@@ -34,14 +34,14 @@ public:
     void setName(const std::string& name);
     [[nodiscard]] int getGameIndex() const;
     void setGameIndex(const int& gameIndex);
-    [[nodiscard]] std::vector<LocationAreaDetail_encounter_method_rates_inner> getEncounterMethodRates() const;
-    void setEncounterMethodRates(const std::vector<LocationAreaDetail_encounter_method_rates_inner>& encounterMethodRates);
+    [[nodiscard]] std::vector<LocationAreaEncounterRate> getEncounterMethodRates() const;
+    void setEncounterMethodRates(const std::vector<LocationAreaEncounterRate>& encounterMethodRates);
     [[nodiscard]] LocationSummary getLocation() const;
     void setLocation(const LocationSummary& location);
     [[nodiscard]] std::vector<LocationAreaName> getNames() const;
     void setNames(const std::vector<LocationAreaName>& names);
-    [[nodiscard]] std::vector<LocationAreaDetail_pokemon_encounters_inner> getPokemonEncounters() const;
-    void setPokemonEncounters(const std::vector<LocationAreaDetail_pokemon_encounters_inner>& pokemonEncounters);
+    [[nodiscard]] std::vector<LocationAreaPokemonEncounter> getPokemonEncounters() const;
+    void setPokemonEncounters(const std::vector<LocationAreaPokemonEncounter>& pokemonEncounters);
 
 
     // JSON serialization using NLOHMANN INTRUSIVE macro (must be inside class to access private members)
@@ -52,10 +52,10 @@ private:
     int id;
     std::string name;
     int gameIndex;
-    std::vector<LocationAreaDetail_encounter_method_rates_inner> encounterMethodRates;
+    std::vector<LocationAreaEncounterRate> encounterMethodRates;
     LocationSummary location;
     std::vector<LocationAreaName> names;
-    std::vector<LocationAreaDetail_pokemon_encounters_inner> pokemonEncounters;
+    std::vector<LocationAreaPokemonEncounter> pokemonEncounters;
 };
 
 

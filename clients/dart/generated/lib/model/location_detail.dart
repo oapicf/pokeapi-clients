@@ -21,16 +21,22 @@ class LocationDetail {
     this.areas = const [],
   });
 
+  /// The identifier for this resource.
   int id;
 
+  /// The name for this resource.
   String name;
 
-  RegionSummary region;
+  /// The region this location can be found in.
+  RegionSummary? region;
 
+  /// The name of this resource listed in different languages.
   List<LocationName> names;
 
+  /// A list of game indices relevent to this location by generation.
   List<LocationGameIndex> gameIndices;
 
+  /// Areas that can be found within this location.
   List<LocationAreaSummary> areas;
 
   @override
@@ -47,7 +53,7 @@ class LocationDetail {
     // ignore: unnecessary_parenthesis
     (id.hashCode) +
     (name.hashCode) +
-    (region.hashCode) +
+    (region == null ? 0 : region!.hashCode) +
     (names.hashCode) +
     (gameIndices.hashCode) +
     (areas.hashCode);
@@ -59,7 +65,11 @@ class LocationDetail {
     final json = <String, dynamic>{};
       json[r'id'] = this.id;
       json[r'name'] = this.name;
+    if (this.region != null) {
       json[r'region'] = this.region;
+    } else {
+      json[r'region'] = null;
+    }
       json[r'names'] = this.names;
       json[r'game_indices'] = this.gameIndices;
       json[r'areas'] = this.areas;
@@ -82,7 +92,6 @@ class LocationDetail {
         assert(json.containsKey(r'name'), 'Required key "LocationDetail[name]" is missing from JSON.');
         assert(json[r'name'] != null, 'Required key "LocationDetail[name]" has a null value in JSON.');
         assert(json.containsKey(r'region'), 'Required key "LocationDetail[region]" is missing from JSON.');
-        assert(json[r'region'] != null, 'Required key "LocationDetail[region]" has a null value in JSON.');
         assert(json.containsKey(r'names'), 'Required key "LocationDetail[names]" is missing from JSON.');
         assert(json[r'names'] != null, 'Required key "LocationDetail[names]" has a null value in JSON.');
         assert(json.containsKey(r'game_indices'), 'Required key "LocationDetail[game_indices]" is missing from JSON.');
@@ -95,7 +104,7 @@ class LocationDetail {
       return LocationDetail(
         id: mapValueOfType<int>(json, r'id')!,
         name: mapValueOfType<String>(json, r'name')!,
-        region: RegionSummary.fromJson(json[r'region'])!,
+        region: RegionSummary.fromJson(json[r'region']),
         names: LocationName.listFromJson(json[r'names']),
         gameIndices: LocationGameIndex.listFromJson(json[r'game_indices']),
         areas: LocationAreaSummary.listFromJson(json[r'areas']),

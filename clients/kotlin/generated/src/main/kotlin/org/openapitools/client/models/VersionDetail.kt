@@ -32,24 +32,28 @@ import com.squareup.moshi.JsonClass
 /**
  * Should have a link to Version Group info but the Circular dependency and compilation order fight eachother and I'm not sure how to add anything other than a hyperlink
  *
- * @param id 
- * @param name 
- * @param names 
- * @param versionGroup 
+ * @param id The identifier for this resource.
+ * @param name The name for this resource.
+ * @param names The name of this resource listed in different languages.
+ * @param versionGroup The version group this version belongs to.
  */
 
 
 data class VersionDetail (
 
+    /* The identifier for this resource. */
     @Json(name = "id")
     val id: kotlin.Int,
 
+    /* The name for this resource. */
     @Json(name = "name")
     val name: kotlin.String,
 
+    /* The name of this resource listed in different languages. */
     @Json(name = "names")
     val names: kotlin.collections.List<VersionName>,
 
+    /* The version group this version belongs to. */
     @Json(name = "version_group")
     val versionGroup: VersionGroupSummary
 

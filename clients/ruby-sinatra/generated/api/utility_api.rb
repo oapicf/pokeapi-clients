@@ -59,3 +59,19 @@ MyApp.add_route('GET', '/api/v2/language/{id}/', {
   {"message" => "yes, it worked"}.to_json
 end
 
+
+MyApp.add_route('GET', '/api/v2/meta/', {
+  "resourcePath" => "/Utility",
+  "summary" => "Get API metadata",
+  "nickname" => "meta_retrieve",
+  "responseClass" => "PokeapiMetaResponse",
+  "endpoint" => "/api/v2/meta/",
+  "notes" => "Returns metadata about the current deployed version of the API, including the git commit hash, deploy date, and tag (if any).",
+  "parameters" => [
+    ]}) do
+  cross_origin
+  # the guts live here
+
+  {"message" => "yes, it worked"}.to_json
+end
+

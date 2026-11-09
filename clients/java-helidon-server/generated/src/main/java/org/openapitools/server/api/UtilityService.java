@@ -5,6 +5,7 @@ import org.openapitools.server.model.LanguageDetail;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.Optional;
 import org.openapitools.server.model.PaginatedLanguageSummaryList;
+import org.openapitools.server.model.PokeapiMetaResponse;
 import io.helidon.http.Status;
 
 import io.helidon.webserver.http.HttpRules;
@@ -23,8 +24,9 @@ public interface UtilityService extends HttpService {
      */
     @Override
     default void routing(HttpRules rules) {
-        rules.get("/", this::languageList);
-        rules.get("/{id}/", this::languageRetrieve);
+        rules.get("/language/", this::languageList);
+        rules.get("/language/{id}/", this::languageRetrieve);
+        rules.get("/meta/", this::metaRetrieve);
     }
 
 
@@ -42,4 +44,11 @@ public interface UtilityService extends HttpService {
      * @param response the server response
      */
     void languageRetrieve(ServerRequest request, ServerResponse response);
+    /**
+     * GET /api/v2/meta/ : Get API metadata.
+     *
+     * @param request the server request
+     * @param response the server response
+     */
+    void metaRetrieve(ServerRequest request, ServerResponse response);
 }

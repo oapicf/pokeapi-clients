@@ -69,8 +69,6 @@ pub enum EncounterMethodRetrieveResponse {
 #[async_trait]
 #[allow(clippy::ptr_arg)]
 pub trait Encounters<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorHandler<E> {
-    type Claims;
-
     /// List encounter conditions.
     ///
     /// EncounterConditionList - GET /api/v2/encounter-condition/
@@ -80,7 +78,6 @@ pub trait Encounters<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Er
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       query_params: &models::EncounterConditionListQueryParams,
     ) -> Result<EncounterConditionListResponse, E>;
 
@@ -93,7 +90,6 @@ pub trait Encounters<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Er
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       path_params: &models::EncounterConditionRetrievePathParams,
     ) -> Result<EncounterConditionRetrieveResponse, E>;
 
@@ -106,7 +102,6 @@ pub trait Encounters<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Er
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       query_params: &models::EncounterConditionValueListQueryParams,
     ) -> Result<EncounterConditionValueListResponse, E>;
 
@@ -119,7 +114,6 @@ pub trait Encounters<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Er
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       path_params: &models::EncounterConditionValueRetrievePathParams,
     ) -> Result<EncounterConditionValueRetrieveResponse, E>;
 
@@ -132,7 +126,6 @@ pub trait Encounters<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Er
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       query_params: &models::EncounterMethodListQueryParams,
     ) -> Result<EncounterMethodListResponse, E>;
 
@@ -145,7 +138,6 @@ pub trait Encounters<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Er
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       path_params: &models::EncounterMethodRetrievePathParams,
     ) -> Result<EncounterMethodRetrieveResponse, E>;
 }

@@ -1,5 +1,5 @@
 --  PokéAPI
---  All the Pokémon data you'll ever need in one place, easily accessible through a modern free open_source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+--  All the Pokémon data you'll ever need in one place, easily accessible through a modern free open_source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
 --  ------------ EDIT NOTE ------------
 --  This file was generated with openapi-generator.  You can modify it to implement
 --  the server.  After you modify this file, you should add the following line
@@ -86,7 +86,6 @@ package .Servers is
       (Server : in out Server_Type;
        Limit : in Swagger.Nullable_Integer;
        Offset : in Swagger.Nullable_Integer;
-       Q : in Swagger.Nullable_UString;
        Result  : out .Models.PaginatedContestEffectSummaryList_Type;
        Context : in out Swagger.Servers.Context_Type);
 
@@ -126,7 +125,6 @@ package .Servers is
       (Server : in out Server_Type;
        Limit : in Swagger.Nullable_Integer;
        Offset : in Swagger.Nullable_Integer;
-       Q : in Swagger.Nullable_UString;
        Result  : out .Models.PaginatedSuperContestEffectSummaryList_Type;
        Context : in out Swagger.Servers.Context_Type);
 
@@ -206,7 +204,6 @@ package .Servers is
       (Server : in out Server_Type;
        Limit : in Swagger.Nullable_Integer;
        Offset : in Swagger.Nullable_Integer;
-       Q : in Swagger.Nullable_UString;
        Result  : out .Models.PaginatedEvolutionChainSummaryList_Type;
        Context : in out Swagger.Servers.Context_Type);
 
@@ -237,6 +234,26 @@ package .Servers is
       (Server : in out Server_Type;
        Id : in Swagger.UString;
        Result  : out .Models.EvolutionTriggerDetail_Type;
+       Context : in out Swagger.Servers.Context_Type);
+
+   --  List evolution variables
+   --  Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+   overriding
+   procedure Evolution_Variable_List
+      (Server : in out Server_Type;
+       Limit : in Swagger.Nullable_Integer;
+       Offset : in Swagger.Nullable_Integer;
+       Q : in Swagger.Nullable_UString;
+       Result  : out .Models.PaginatedEvolutionVariableSummaryList_Type;
+       Context : in out Swagger.Servers.Context_Type);
+
+   --  Get evolution variable
+   --  Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+   overriding
+   procedure Evolution_Variable_Retrieve
+      (Server : in out Server_Type;
+       Id : in Swagger.UString;
+       Result  : out .Models.EvolutionVariableDetail_Type;
        Context : in out Swagger.Servers.Context_Type);
 
    --  List genrations
@@ -317,6 +334,26 @@ package .Servers is
       (Server : in out Server_Type;
        Id : in Swagger.UString;
        Result  : out .Models.VersionDetail_Type;
+       Context : in out Swagger.Servers.Context_Type);
+
+   --  List currencies
+   --  Currencies used to buy items.
+   overriding
+   procedure Currency_List
+      (Server : in out Server_Type;
+       Limit : in Swagger.Nullable_Integer;
+       Offset : in Swagger.Nullable_Integer;
+       Q : in Swagger.Nullable_UString;
+       Result  : out .Models.PaginatedCurrencySummaryList_Type;
+       Context : in out Swagger.Servers.Context_Type);
+
+   --  Get currency
+   --  Currencies used to buy items.
+   overriding
+   procedure Currency_Retrieve
+      (Server : in out Server_Type;
+       Id : in Swagger.UString;
+       Result  : out .Models.CurrencyDetail_Type;
        Context : in out Swagger.Servers.Context_Type);
 
    --  List item attributes
@@ -505,7 +542,6 @@ package .Servers is
       (Server : in out Server_Type;
        Limit : in Swagger.Nullable_Integer;
        Offset : in Swagger.Nullable_Integer;
-       Q : in Swagger.Nullable_UString;
        Result  : out .Models.PaginatedMachineSummaryList_Type;
        Context : in out Swagger.Servers.Context_Type);
 
@@ -638,7 +674,7 @@ package .Servers is
        Result  : out .Models.MoveTargetDetail_Type;
        Context : in out Swagger.Servers.Context_Type);
 
-   --  
+   --  List abilities
    --  Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
    overriding
    procedure Ability_List
@@ -649,7 +685,7 @@ package .Servers is
        Result  : out .Models.PaginatedAbilitySummaryList_Type;
        Context : in out Swagger.Servers.Context_Type);
 
-   --  
+   --  Get ability
    --  Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
    overriding
    procedure Ability_Retrieve
@@ -658,14 +694,13 @@ package .Servers is
        Result  : out .Models.AbilityDetail_Type;
        Context : in out Swagger.Servers.Context_Type);
 
-   --  List charecterictics
+   --  List characteristics
    --  Characteristics indicate which stat contains a Pokémon's highest IV. A Pokémon's Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail.
    overriding
    procedure Characteristic_List
       (Server : in out Server_Type;
        Limit : in Swagger.Nullable_Integer;
        Offset : in Swagger.Nullable_Integer;
-       Q : in Swagger.Nullable_UString;
        Result  : out .Models.PaginatedCharacteristicSummaryList_Type;
        Context : in out Swagger.Servers.Context_Type);
 
@@ -976,6 +1011,15 @@ package .Servers is
       (Server : in out Server_Type;
        Id : in Swagger.UString;
        Result  : out .Models.LanguageDetail_Type;
+       Context : in out Swagger.Servers.Context_Type);
+
+   --  Get API metadata
+   --  Returns metadata about the current deployed version of the API, including the git commit hash, deploy date, and tag (if any).
+   overriding
+   procedure Meta_Retrieve
+      (Server : in out Server_Type
+       ;
+       Result  : out .Models.PokeapiMetaResponse_Type;
        Context : in out Swagger.Servers.Context_Type);
 
    package Server_Impl is

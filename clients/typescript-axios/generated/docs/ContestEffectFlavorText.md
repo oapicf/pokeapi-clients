@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**flavor_text** | **string** |  | [default to undefined]
-**language** | [**LanguageSummary**](LanguageSummary.md) |  | [default to undefined]
+**flavor_text** | **string** | The localized flavor text for an API resource in a specific language. | [default to undefined]
+**language** | [**LanguageSummary**](LanguageSummary.md) | The language this name is in. | [default to undefined]
 
 ## Example
 

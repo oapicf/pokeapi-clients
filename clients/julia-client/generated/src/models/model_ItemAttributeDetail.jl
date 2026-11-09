@@ -12,17 +12,17 @@
         names=nothing,
     )
 
-    - id::Int64
-    - name::String
-    - descriptions::Vector{ItemAttributeDescription}
-    - items::Vector{AbilityDetailPokemonInnerPokemon}
-    - names::Vector{ItemAttributeName}
+    - id::Int64 : The identifier for this resource.
+    - name::String : The name for this resource.
+    - descriptions::Vector{ItemAttributeDescription} : The description of this item attribute listed in different languages.
+    - items::Vector{ItemSummary} : A list of items that have this attribute.
+    - names::Vector{ItemAttributeName} : The name of this item attribute listed in different languages.
 """
 Base.@kwdef mutable struct ItemAttributeDetail <: OpenAPI.APIModel
     id::Union{Nothing, Int64} = nothing
     name::Union{Nothing, String} = nothing
     descriptions::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{ItemAttributeDescription} }
-    items::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{AbilityDetailPokemonInnerPokemon} }
+    items::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{ItemSummary} }
     names::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{ItemAttributeName} }
 
     function ItemAttributeDetail(id, name, descriptions, items, names, )
@@ -32,7 +32,7 @@ Base.@kwdef mutable struct ItemAttributeDetail <: OpenAPI.APIModel
     end
 end # type ItemAttributeDetail
 
-const _property_types_ItemAttributeDetail = Dict{Symbol,String}(Symbol("id")=>"Int64", Symbol("name")=>"String", Symbol("descriptions")=>"Vector{ItemAttributeDescription}", Symbol("items")=>"Vector{AbilityDetailPokemonInnerPokemon}", Symbol("names")=>"Vector{ItemAttributeName}", )
+const _property_types_ItemAttributeDetail = Dict{Symbol,String}(Symbol("id")=>"Int64", Symbol("name")=>"String", Symbol("descriptions")=>"Vector{ItemAttributeDescription}", Symbol("items")=>"Vector{ItemSummary}", Symbol("names")=>"Vector{ItemAttributeName}", )
 OpenAPI.property_type(::Type{ ItemAttributeDetail }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_ItemAttributeDetail[name]))}
 
 function OpenAPI.check_required(o::ItemAttributeDetail)
@@ -56,7 +56,7 @@ function OpenAPI.validate_property(::Type{ ItemAttributeDetail }, name::Symbol, 
 
 
     if name === Symbol("name")
-        OpenAPI.validate_param(name, "ItemAttributeDetail", :maxLength, val, 100)
+        OpenAPI.validate_param(name, "ItemAttributeDetail", :maxLength, val, 200)
     end
 
 

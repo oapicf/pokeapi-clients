@@ -11,13 +11,15 @@ part 'move_damage_class_summary.g.dart';
 /// MoveDamageClassSummary
 ///
 /// Properties:
-/// * [name] 
-/// * [url] 
+/// * [name] - The name of the referenced resource.
+/// * [url] - The URL of the referenced resource.
 @BuiltValue()
 abstract class MoveDamageClassSummary implements Built<MoveDamageClassSummary, MoveDamageClassSummaryBuilder> {
+  /// The name of the referenced resource.
   @BuiltValueField(wireName: r'name')
   String get name;
 
+  /// The URL of the referenced resource.
   @BuiltValueField(wireName: r'url')
   String get url;
 

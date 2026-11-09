@@ -19,12 +19,16 @@ class PokeathlonStatDetail {
     this.names = const [],
   });
 
+  /// The identifier for this resource.
   int id;
 
+  /// The name for this resource.
   String name;
 
-  PokeathlonStatDetailAffectingNatures affectingNatures;
+  /// A detail of natures which affect this Pokéathlon stat positively or negatively.
+  PokeathlonStatAffectingNatures affectingNatures;
 
+  /// The name of this resource listed in different languages.
   List<PokeathlonStatName> names;
 
   @override
@@ -79,7 +83,7 @@ class PokeathlonStatDetail {
       return PokeathlonStatDetail(
         id: mapValueOfType<int>(json, r'id')!,
         name: mapValueOfType<String>(json, r'name')!,
-        affectingNatures: PokeathlonStatDetailAffectingNatures.fromJson(json[r'affecting_natures'])!,
+        affectingNatures: PokeathlonStatAffectingNatures.fromJson(json[r'affecting_natures'])!,
         names: PokeathlonStatName.listFromJson(json[r'names']),
       );
     }

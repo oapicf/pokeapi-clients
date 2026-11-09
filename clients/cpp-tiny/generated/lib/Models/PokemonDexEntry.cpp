@@ -7,7 +7,7 @@ using namespace Tiny;
 PokemonDexEntry::PokemonDexEntry()
 {
 	entry_number = int(0);
-	pokedex = PokedexSummary();
+	pokedex = null;
 }
 
 PokemonDexEntry::PokemonDexEntry(std::string jsonString)

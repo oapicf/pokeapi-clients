@@ -7,11 +7,11 @@
 #' @title ItemAttributeDetail
 #' @description ItemAttributeDetail Class
 #' @format An \code{R6Class} generator object
-#' @field id  integer
-#' @field name  character
-#' @field descriptions  list(\link{ItemAttributeDescription})
-#' @field items  list(\link{AbilityDetailPokemonInnerPokemon})
-#' @field names  list(\link{ItemAttributeName})
+#' @field id The identifier for this resource. integer
+#' @field name The name for this resource. character
+#' @field descriptions The description of this item attribute listed in different languages. list(\link{ItemAttributeDescription})
+#' @field items A list of items that have this attribute. list(\link{ItemSummary})
+#' @field names The name of this item attribute listed in different languages. list(\link{ItemAttributeName})
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -27,11 +27,11 @@ ItemAttributeDetail <- R6::R6Class(
     #' @description
     #' Initialize a new ItemAttributeDetail class.
     #'
-    #' @param id id
-    #' @param name name
-    #' @param descriptions descriptions
-    #' @param items items
-    #' @param names names
+    #' @param id The identifier for this resource.
+    #' @param name The name for this resource.
+    #' @param descriptions The description of this item attribute listed in different languages.
+    #' @param items A list of items that have this attribute.
+    #' @param names The name of this item attribute listed in different languages.
     #' @param ... Other optional arguments.
     initialize = function(`id`, `name`, `descriptions`, `items`, `names`, ...) {
       if (!missing(`id`)) {
@@ -157,7 +157,7 @@ ItemAttributeDetail <- R6::R6Class(
         self$`descriptions` <- ApiClient$new()$deserializeObj(this_object$`descriptions`, "array[ItemAttributeDescription]", loadNamespace("openapi"))
       }
       if (!is.null(this_object$`items`)) {
-        self$`items` <- ApiClient$new()$deserializeObj(this_object$`items`, "array[AbilityDetailPokemonInnerPokemon]", loadNamespace("openapi"))
+        self$`items` <- ApiClient$new()$deserializeObj(this_object$`items`, "array[ItemSummary]", loadNamespace("openapi"))
       }
       if (!is.null(this_object$`names`)) {
         self$`names` <- ApiClient$new()$deserializeObj(this_object$`names`, "array[ItemAttributeName]", loadNamespace("openapi"))
@@ -186,7 +186,7 @@ ItemAttributeDetail <- R6::R6Class(
       self$`id` <- this_object$`id`
       self$`name` <- this_object$`name`
       self$`descriptions` <- ApiClient$new()$deserializeObj(this_object$`descriptions`, "array[ItemAttributeDescription]", loadNamespace("openapi"))
-      self$`items` <- ApiClient$new()$deserializeObj(this_object$`items`, "array[AbilityDetailPokemonInnerPokemon]", loadNamespace("openapi"))
+      self$`items` <- ApiClient$new()$deserializeObj(this_object$`items`, "array[ItemSummary]", loadNamespace("openapi"))
       self$`names` <- ApiClient$new()$deserializeObj(this_object$`names`, "array[ItemAttributeName]", loadNamespace("openapi"))
       self
     },
@@ -259,7 +259,7 @@ ItemAttributeDetail <- R6::R6Class(
         return(FALSE)
       }
 
-      if (nchar(self$`name`) > 100) {
+      if (nchar(self$`name`) > 200) {
         return(FALSE)
       }
 
@@ -297,8 +297,8 @@ ItemAttributeDetail <- R6::R6Class(
         invalid_fields["name"] <- "Non-nullable required field `name` cannot be null."
       }
 
-      if (nchar(self$`name`) > 100) {
-        invalid_fields["name"] <- "Invalid length for `name`, must be smaller than or equal to 100."
+      if (nchar(self$`name`) > 200) {
+        invalid_fields["name"] <- "Invalid length for `name`, must be smaller than or equal to 200."
       }
 
       # check if the required `descriptions` is null

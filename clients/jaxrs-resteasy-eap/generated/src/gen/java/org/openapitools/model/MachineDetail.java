@@ -13,7 +13,7 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 import io.swagger.annotations.*;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2026-10-25T05:48:53.778376553Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2026-11-09T13:50:03.149615362Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class MachineDetail   {
   
   private Integer id;
@@ -22,9 +22,10 @@ public class MachineDetail   {
   private MoveSummary move;
 
   /**
+   * The identifier for this resource.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   @JsonProperty("id")
   @NotNull
   public Integer getId() {
@@ -35,9 +36,10 @@ public class MachineDetail   {
   }
 
   /**
+   * The TM or HM item that corresponds to this machine.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The TM or HM item that corresponds to this machine.")
   @JsonProperty("item")
   @NotNull
   public ItemSummary getItem() {
@@ -48,9 +50,10 @@ public class MachineDetail   {
   }
 
   /**
+   * The version group that this machine applies to.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The version group that this machine applies to.")
   @JsonProperty("version_group")
   @NotNull
   public VersionGroupSummary getVersionGroup() {
@@ -61,9 +64,10 @@ public class MachineDetail   {
   }
 
   /**
+   * The move that is taught by this machine.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The move that is taught by this machine.")
   @JsonProperty("move")
   @NotNull
   public MoveSummary getMove() {

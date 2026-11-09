@@ -3,8 +3,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**FlavorText** | **String** |  | 
-**Language** | [**LanguageSummary**](LanguageSummary.md) |  | 
+**FlavorText** | **String** | The localized flavor text for an API resource in a specific language. | 
+**Language** | [**LanguageSummary**](LanguageSummary.md) | The language this name is in. | 
 
 ## Examples
 

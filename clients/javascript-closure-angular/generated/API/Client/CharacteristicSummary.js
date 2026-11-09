@@ -6,6 +6,7 @@ goog.provide('API.Client.CharacteristicSummary');
 API.Client.CharacteristicSummary = function() {}
 
 /**
+ * The URL of the referenced resource.
  * @type {!API.Client.URI}
  * @export
  */

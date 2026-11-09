@@ -15,16 +15,20 @@ import io.swagger.v3.oas.annotations.media.Schema
 
 /**
  * 
- * @param level 
- * @param experience 
+ * @param level The level gained.
+ * @param experience The amount of experience required to reach the referenced level.
  */
 data class Experience(
 
-    @Schema(required = true, description = "")
+    @get:Min(value=-2147483648)
+    @get:Max(value=2147483647)
+    @Schema(required = true, description = "The level gained.")
     @param:JsonProperty("level", required = true)
     @get:JsonProperty("level", required = true) val level: kotlin.Int,
 
-    @Schema(required = true, description = "")
+    @get:Min(value=-2147483648)
+    @get:Max(value=2147483647)
+    @Schema(required = true, description = "The amount of experience required to reach the referenced level.")
     @param:JsonProperty("experience", required = true)
     @get:JsonProperty("experience", required = true) val experience: kotlin.Int
 ) {

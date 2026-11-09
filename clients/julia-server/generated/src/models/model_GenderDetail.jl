@@ -11,16 +11,16 @@
         required_for_evolution=nothing,
     )
 
-    - id::Int64
-    - name::String
-    - pokemon_species_details::Vector{GenderDetailPokemonSpeciesDetailsInner}
-    - required_for_evolution::Vector{AbilityDetailPokemonInnerPokemon}
+    - id::Int64 : The identifier for this resource.
+    - name::String : The name for this resource.
+    - pokemon_species_details::Vector{GenderPokemonSpecies} : A list of Pokémon species that can be this gender and how likely it is that they will be.
+    - required_for_evolution::Vector{PokemonSpeciesSummary} : A list of Pokémon species that required this gender in order for a Pokémon to evolve into them.
 """
 Base.@kwdef mutable struct GenderDetail <: OpenAPI.APIModel
     id::Union{Nothing, Int64} = nothing
     name::Union{Nothing, String} = nothing
-    pokemon_species_details::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{GenderDetailPokemonSpeciesDetailsInner} }
-    required_for_evolution::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{AbilityDetailPokemonInnerPokemon} }
+    pokemon_species_details::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{GenderPokemonSpecies} }
+    required_for_evolution::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{PokemonSpeciesSummary} }
 
     function GenderDetail(id, name, pokemon_species_details, required_for_evolution, )
         o = new(id, name, pokemon_species_details, required_for_evolution, )
@@ -29,7 +29,7 @@ Base.@kwdef mutable struct GenderDetail <: OpenAPI.APIModel
     end
 end # type GenderDetail
 
-const _property_types_GenderDetail = Dict{Symbol,String}(Symbol("id")=>"Int64", Symbol("name")=>"String", Symbol("pokemon_species_details")=>"Vector{GenderDetailPokemonSpeciesDetailsInner}", Symbol("required_for_evolution")=>"Vector{AbilityDetailPokemonInnerPokemon}", )
+const _property_types_GenderDetail = Dict{Symbol,String}(Symbol("id")=>"Int64", Symbol("name")=>"String", Symbol("pokemon_species_details")=>"Vector{GenderPokemonSpecies}", Symbol("required_for_evolution")=>"Vector{PokemonSpeciesSummary}", )
 OpenAPI.property_type(::Type{ GenderDetail }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_GenderDetail[name]))}
 
 function OpenAPI.check_required(o::GenderDetail)
@@ -51,7 +51,7 @@ function OpenAPI.validate_property(::Type{ GenderDetail }, name::Symbol, val)
 
 
     if name === Symbol("name")
-        OpenAPI.validate_param(name, "GenderDetail", :maxLength, val, 100)
+        OpenAPI.validate_param(name, "GenderDetail", :maxLength, val, 200)
     end
 
 

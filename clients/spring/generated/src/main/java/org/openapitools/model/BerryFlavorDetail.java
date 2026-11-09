@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.model.BerryFlavorDetailBerriesInner;
+import org.openapitools.model.BerryFlavorBerryMap;
 import org.openapitools.model.BerryFlavorName;
 import org.openapitools.model.ContestTypeSummary;
 import org.springframework.lang.Nullable;
@@ -25,14 +25,14 @@ import jakarta.annotation.Generated;
  * BerryFlavorDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-10-25T05:53:37.479908528Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-11-09T13:53:47.069318184Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class BerryFlavorDetail {
 
   private Integer id;
 
   private String name;
 
-  private List<@Valid BerryFlavorDetailBerriesInner> berries = new ArrayList<>();
+  private List<@Valid BerryFlavorBerryMap> berries = new ArrayList<>();
 
   private ContestTypeSummary contestType;
 
@@ -45,7 +45,7 @@ public class BerryFlavorDetail {
   /**
    * Constructor with only required parameters
    */
-  public BerryFlavorDetail(Integer id, String name, List<@Valid BerryFlavorDetailBerriesInner> berries, ContestTypeSummary contestType, List<@Valid BerryFlavorName> names) {
+  public BerryFlavorDetail(Integer id, String name, List<@Valid BerryFlavorBerryMap> berries, ContestTypeSummary contestType, List<@Valid BerryFlavorName> names) {
     this.id = id;
     this.name = name;
     this.berries = berries;
@@ -59,11 +59,11 @@ public class BerryFlavorDetail {
   }
 
   /**
-   * Get id
+   * The identifier for this resource.
    * @return id
    */
   
-  @Schema(name = "id", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "id", accessMode = Schema.AccessMode.READ_ONLY, description = "The identifier for this resource.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("id")
   public Integer getId() {
     return id;
@@ -80,11 +80,11 @@ public class BerryFlavorDetail {
   }
 
   /**
-   * Get name
+   * The name for this resource.
    * @return name
    */
-  @NotNull @Size(max = 100) 
-  @Schema(name = "name", requiredMode = Schema.RequiredMode.REQUIRED)
+  @NotNull @Size(max = 200) 
+  @Schema(name = "name", description = "The name for this resource.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("name")
   public String getName() {
     return name;
@@ -95,12 +95,12 @@ public class BerryFlavorDetail {
     this.name = name;
   }
 
-  public BerryFlavorDetail berries(List<@Valid BerryFlavorDetailBerriesInner> berries) {
+  public BerryFlavorDetail berries(List<@Valid BerryFlavorBerryMap> berries) {
     this.berries = berries;
     return this;
   }
 
-  public BerryFlavorDetail addBerriesItem(BerryFlavorDetailBerriesInner berriesItem) {
+  public BerryFlavorDetail addBerriesItem(BerryFlavorBerryMap berriesItem) {
     if (this.berries == null) {
       this.berries = new ArrayList<>();
     }
@@ -109,18 +109,18 @@ public class BerryFlavorDetail {
   }
 
   /**
-   * Get berries
+   * A list of the berries with this flavor.
    * @return berries
    */
   
-  @Schema(name = "berries", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "berries", accessMode = Schema.AccessMode.READ_ONLY, description = "A list of the berries with this flavor.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("berries")
-  public List<@Valid BerryFlavorDetailBerriesInner> getBerries() {
+  public List<@Valid BerryFlavorBerryMap> getBerries() {
     return berries;
   }
 
   @JsonProperty("berries")
-  public void setBerries(List<@Valid BerryFlavorDetailBerriesInner> berries) {
+  public void setBerries(List<@Valid BerryFlavorBerryMap> berries) {
     this.berries = berries;
   }
 
@@ -130,11 +130,11 @@ public class BerryFlavorDetail {
   }
 
   /**
-   * Get contestType
+   * The contest type that correlates with this berry flavor.
    * @return contestType
    */
   @NotNull @Valid 
-  @Schema(name = "contest_type", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "contest_type", description = "The contest type that correlates with this berry flavor.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("contest_type")
   public ContestTypeSummary getContestType() {
     return contestType;
@@ -159,11 +159,11 @@ public class BerryFlavorDetail {
   }
 
   /**
-   * Get names
+   * The name of this resource listed in different languages.
    * @return names
    */
   
-  @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, description = "The name of this resource listed in different languages.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("names")
   public List<@Valid BerryFlavorName> getNames() {
     return names;

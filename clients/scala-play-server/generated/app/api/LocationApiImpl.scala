@@ -12,7 +12,7 @@ import model.RegionDetail
 /**
   * Provides a default implementation for [[LocationApi]].
   */
-@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2026-10-25T05:53:17.467323765Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2026-11-09T13:53:31.572745352Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 class LocationApiImpl extends LocationApi {
   /**
     * @inheritdoc
@@ -20,7 +20,7 @@ class LocationApiImpl extends LocationApi {
   override def locationAreaList(limit: Option[Int], offset: Option[Int]): PaginatedLocationAreaSummaryList = {
     // TODO: Implement better logic
 
-    PaginatedLocationAreaSummaryList(None, None, None, None)
+    PaginatedLocationAreaSummaryList(0, None, None, List.empty[LocationAreaSummary])
   }
 
   /**
@@ -29,7 +29,7 @@ class LocationApiImpl extends LocationApi {
   override def locationAreaRetrieve(id: Int): LocationAreaDetail = {
     // TODO: Implement better logic
 
-    LocationAreaDetail(0, "", 0, List.empty[LocationAreaDetailEncounterMethodRatesInner], LocationSummary("", ""), List.empty[LocationAreaName], List.empty[LocationAreaDetailPokemonEncountersInner])
+    LocationAreaDetail(0, "", 0, List.empty[LocationAreaEncounterRate], LocationSummary("", ""), List.empty[LocationAreaName], List.empty[LocationAreaPokemonEncounter])
   }
 
   /**
@@ -38,7 +38,7 @@ class LocationApiImpl extends LocationApi {
   override def locationList(limit: Option[Int], offset: Option[Int], q: Option[String]): PaginatedLocationSummaryList = {
     // TODO: Implement better logic
 
-    PaginatedLocationSummaryList(None, None, None, None)
+    PaginatedLocationSummaryList(0, None, None, List.empty[LocationSummary])
   }
 
   /**
@@ -56,7 +56,7 @@ class LocationApiImpl extends LocationApi {
   override def palParkAreaList(limit: Option[Int], offset: Option[Int], q: Option[String]): PaginatedPalParkAreaSummaryList = {
     // TODO: Implement better logic
 
-    PaginatedPalParkAreaSummaryList(None, None, None, None)
+    PaginatedPalParkAreaSummaryList(0, None, None, List.empty[PalParkAreaSummary])
   }
 
   /**
@@ -65,7 +65,7 @@ class LocationApiImpl extends LocationApi {
   override def palParkAreaRetrieve(id: String): PalParkAreaDetail = {
     // TODO: Implement better logic
 
-    PalParkAreaDetail(0, "", List.empty[PalParkAreaName], List.empty[PalParkAreaDetailPokemonEncountersInner])
+    PalParkAreaDetail(0, "", List.empty[PalParkAreaName], List.empty[PalParkEncounter])
   }
 
   /**
@@ -74,7 +74,7 @@ class LocationApiImpl extends LocationApi {
   override def regionList(limit: Option[Int], offset: Option[Int], q: Option[String]): PaginatedRegionSummaryList = {
     // TODO: Implement better logic
 
-    PaginatedRegionSummaryList(None, None, None, None)
+    PaginatedRegionSummaryList(0, None, None, List.empty[RegionSummary])
   }
 
   /**
@@ -83,6 +83,6 @@ class LocationApiImpl extends LocationApi {
   override def regionRetrieve(id: String): RegionDetail = {
     // TODO: Implement better logic
 
-    RegionDetail(0, "", List.empty[LocationSummary], GenerationSummary("", ""), List.empty[RegionName], List.empty[PokedexSummary], List.empty[AbilityDetailPokemonInnerPokemon])
+    RegionDetail(0, "", List.empty[LocationSummary], GenerationSummary("", ""), List.empty[RegionName], List.empty[PokedexSummary], List.empty[VersionGroupSummary])
   }
 }

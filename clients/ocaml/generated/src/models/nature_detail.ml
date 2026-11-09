@@ -15,62 +15,66 @@
                 
                 
                 ; [@key "id"]
-                                              name: string
+                    (** The identifier for this resource. *)
+                                      name: string
                   
                   
                 
                 
                 ; [@key "name"]
-                                              decreased_stat: Stat_summary.t
-                  
+                    (** The name for this resource. *)
+                                      decreased_stat: Stat_summary.t
+                   option
                   
                 
                 
                 ; [@key "decreased_stat"]
-                                              increased_stat: Stat_summary.t
-                  
+                    (** The stat decreased by 10% in Pokémon with this nature. *)
+                                      increased_stat: Stat_summary.t
+                   option
                   
                 
                 
                 ; [@key "increased_stat"]
-                                              likes_flavor: Berry_flavor_summary.t
-                  
+                    (** The stat increased by 10% in Pokémon with this nature. *)
+                                      likes_flavor: Berry_flavor_summary.t
+                   option
                   
                 
                 
                 ; [@key "likes_flavor"]
-                                              hates_flavor: Berry_flavor_summary.t
-                  
+                    (** The flavor liked by Pokémon with this nature. *)
+                                      hates_flavor: Berry_flavor_summary.t
+                   option
                   
                 
                 
                 ; [@key "hates_flavor"]
-                                              berries: Berry_summary.t list
-                
-                
-                ; [@key "berries"]
-                                              pokeathlon_stat_changes: Nature_detail_pokeathlon_stat_changes_inner.t list
+                    (** The flavor hated by Pokémon with this nature. *)
+                                      pokeathlon_stat_changes: Nature_pokeathlon_stat.t list
                 
                 
                 ; [@key "pokeathlon_stat_changes"]
-                                              move_battle_style_preferences: Nature_battle_style_preference.t list
+                    (** A list of Pokéathlon stats this nature effects and how much it effects them. *)
+                                      move_battle_style_preferences: Nature_battle_style_preference.t list
                 
                 
                 ; [@key "move_battle_style_preferences"]
-                                              names: Nature_name.t list
+                    (** A list of battle styles and how likely a Pokémon with this nature is to use them in the Battle Palace or Battle Tent. *)
+                                      names: Nature_name.t list
                 
                 
                 ; [@key "names"]
-                        } [@@deriving yojson { strict = false }, show, eq ];;
+                    (** The name of this resource listed in different languages. *)
+                } [@@deriving yojson { strict = false }, show, eq ];;
         
-        let create (id : int32) (name : string) (decreased_stat : Stat_summary.t) (increased_stat : Stat_summary.t) (likes_flavor : Berry_flavor_summary.t) (hates_flavor : Berry_flavor_summary.t) (berries : Berry_summary.t list) (pokeathlon_stat_changes : Nature_detail_pokeathlon_stat_changes_inner.t list) (move_battle_style_preferences : Nature_battle_style_preference.t list) (names : Nature_name.t list) : t = {
+        let create (id : int32) (name : string) (decreased_stat : Stat_summary.t option) (increased_stat : Stat_summary.t option) (likes_flavor : Berry_flavor_summary.t option) (hates_flavor : Berry_flavor_summary.t option) (pokeathlon_stat_changes : Nature_pokeathlon_stat.t list) (move_battle_style_preferences : Nature_battle_style_preference.t list) (names : Nature_name.t list) : t = {
             id = id;
             name = name;
             decreased_stat = decreased_stat;
             increased_stat = increased_stat;
             likes_flavor = likes_flavor;
             hates_flavor = hates_flavor;
-            berries = berries;
             pokeathlon_stat_changes = pokeathlon_stat_changes;
             move_battle_style_preferences = move_battle_style_preferences;
             names = names;

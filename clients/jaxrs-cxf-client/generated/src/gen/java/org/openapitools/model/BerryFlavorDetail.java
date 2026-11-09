@@ -3,7 +3,7 @@ package org.openapitools.model;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.model.BerryFlavorDetailBerriesInner;
+import org.openapitools.model.BerryFlavorBerryMap;
 import org.openapitools.model.BerryFlavorName;
 import org.openapitools.model.ContestTypeSummary;
 
@@ -14,27 +14,42 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class BerryFlavorDetail  {
   
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The identifier for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
 
   private Integer id;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The name for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The name for this resource.")
 
   private String name;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * A list of the berries with this flavor.
+  */
+  @ApiModelProperty(required = true, value = "A list of the berries with this flavor.")
 
-  private List<BerryFlavorDetailBerriesInner> berries = new ArrayList<>();
+  private List<BerryFlavorBerryMap> berries = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The contest type that correlates with this berry flavor.
+  */
+  @ApiModelProperty(required = true, value = "The contest type that correlates with this berry flavor.")
 
   private ContestTypeSummary contestType;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The name of this resource listed in different languages.
+  */
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
 
   private List<BerryFlavorName> names = new ArrayList<>();
  /**
-   * Get id
+   * The identifier for this resource.
    * @return id
   **/
   @JsonProperty("id")
@@ -44,7 +59,7 @@ public class BerryFlavorDetail  {
 
 
  /**
-   * Get name
+   * The name for this resource.
    * @return name
   **/
   @JsonProperty("name")
@@ -62,17 +77,17 @@ public class BerryFlavorDetail  {
   }
 
  /**
-   * Get berries
+   * A list of the berries with this flavor.
    * @return berries
   **/
   @JsonProperty("berries")
-  public List<BerryFlavorDetailBerriesInner> getBerries() {
+  public List<BerryFlavorBerryMap> getBerries() {
     return berries;
   }
 
 
  /**
-   * Get contestType
+   * The contest type that correlates with this berry flavor.
    * @return contestType
   **/
   @JsonProperty("contest_type")
@@ -90,7 +105,7 @@ public class BerryFlavorDetail  {
   }
 
  /**
-   * Get names
+   * The name of this resource listed in different languages.
    * @return names
   **/
   @JsonProperty("names")

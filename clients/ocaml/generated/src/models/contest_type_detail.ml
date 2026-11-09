@@ -15,23 +15,27 @@
                 
                 
                 ; [@key "id"]
-                                              name: string
+                    (** The identifier for this resource. *)
+                                      name: string
                   
                   
                 
                 
                 ; [@key "name"]
-                                              berry_flavor: Berry_flavor_summary.t
+                    (** The name for this resource. *)
+                                      berry_flavor: Berry_flavor_summary.t
                   
                   
                 
                 
                 ; [@key "berry_flavor"]
-                                              names: Contest_type_name.t list
+                    (** The berry flavor that correlates with this contest type. *)
+                                      names: Contest_type_name.t list
                 
                 
                 ; [@key "names"]
-                        } [@@deriving yojson { strict = false }, show, eq ];;
+                    (** The name of this contest type listed in different languages. *)
+                } [@@deriving yojson { strict = false }, show, eq ];;
         
         let create (id : int32) (name : string) (berry_flavor : Berry_flavor_summary.t) (names : Contest_type_name.t list) : t = {
             id = id;

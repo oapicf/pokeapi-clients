@@ -47,4 +47,15 @@ open class UtilityApiStubs(private val objectMapper: ObjectMapper) {
             .withPathParam("id", id)
             .configurer()
         )
+
+    /**
+     * Construct a stub for the operation metaRetrieve.
+     *
+     * @param configurer configurer for the [MappingBuilder], allowing for arbitrary changes.
+     * @return A [MetaRetrieveStubBuilder] to configure the response, and the final [MappingBuilder].
+     */
+    fun metaRetrieve(configurer: MappingBuilder.() -> MappingBuilder = { this }): MetaRetrieveStubBuilder =
+        MetaRetrieveStubBuilder(objectMapper, get(urlPathTemplate("/api/v2/meta/"))
+            .configurer()
+        )
 }

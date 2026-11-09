@@ -13,8 +13,10 @@ import java.net.URI
 import ItemPocketSummary._
 
 case class ItemPocketSummary (
+  /* The name of the referenced resource. */
   name: String,
-url: URI)
+/* The URL of the referenced resource. */
+  url: URI)
 
 object ItemPocketSummary {
   import DateTimeCodecs._

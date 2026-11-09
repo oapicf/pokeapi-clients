@@ -25,8 +25,10 @@ use openapi_client::{Api, ApiNoContext, Claims, Client, ContextWrapperExt, model
                       EncounterMethodRetrieveResponse,
                       EvolutionChainListResponse,
                       EvolutionTriggerListResponse,
+                      EvolutionVariableListResponse,
                       EvolutionChainRetrieveResponse,
                       EvolutionTriggerRetrieveResponse,
+                      EvolutionVariableRetrieveResponse,
                       GenerationListResponse,
                       PokedexListResponse,
                       VersionGroupListResponse,
@@ -35,11 +37,13 @@ use openapi_client::{Api, ApiNoContext, Claims, Client, ContextWrapperExt, model
                       PokedexRetrieveResponse,
                       VersionGroupRetrieveResponse,
                       VersionRetrieveResponse,
+                      CurrencyListResponse,
                       ItemAttributeListResponse,
                       ItemCategoryListResponse,
                       ItemFlingEffectListResponse,
                       ItemListResponse,
                       ItemPocketListResponse,
+                      CurrencyRetrieveResponse,
                       ItemAttributeRetrieveResponse,
                       ItemCategoryRetrieveResponse,
                       ItemFlingEffectRetrieveResponse,
@@ -100,6 +104,7 @@ use openapi_client::{Api, ApiNoContext, Claims, Client, ContextWrapperExt, model
                       StatRetrieveResponse,
                       TypeRetrieveResponse,
                       LanguageListResponse,
+                      MetaRetrieveResponse,
                       LanguageRetrieveResponse,
                      };
 use clap::{Command, Arg};
@@ -149,8 +154,10 @@ fn main() {
                 "EncounterMethodRetrieve",
                 "EvolutionChainList",
                 "EvolutionTriggerList",
+                "EvolutionVariableList",
                 "EvolutionChainRetrieve",
                 "EvolutionTriggerRetrieve",
+                "EvolutionVariableRetrieve",
                 "GenerationList",
                 "PokedexList",
                 "VersionGroupList",
@@ -159,11 +166,13 @@ fn main() {
                 "PokedexRetrieve",
                 "VersionGroupRetrieve",
                 "VersionRetrieve",
+                "CurrencyList",
                 "ItemAttributeList",
                 "ItemCategoryList",
                 "ItemFlingEffectList",
                 "ItemList",
                 "ItemPocketList",
+                "CurrencyRetrieve",
                 "ItemAttributeRetrieve",
                 "ItemCategoryRetrieve",
                 "ItemFlingEffectRetrieve",
@@ -224,6 +233,7 @@ fn main() {
                 "StatRetrieve",
                 "TypeRetrieve",
                 "LanguageList",
+                "MetaRetrieve",
                 "LanguageRetrieve",
             ]))
             .required(true)
@@ -334,27 +344,26 @@ fn main() {
         },
         Some("BerryFirmnessRetrieve") => {
             let result = rt.block_on(client.berry_firmness_retrieve(
-                  "id_example".to_string()
+                  "1".to_string()
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("BerryFlavorRetrieve") => {
             let result = rt.block_on(client.berry_flavor_retrieve(
-                  "id_example".to_string()
+                  "1".to_string()
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("BerryRetrieve") => {
             let result = rt.block_on(client.berry_retrieve(
-                  "id_example".to_string()
+                  "1".to_string()
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("ContestEffectList") => {
             let result = rt.block_on(client.contest_effect_list(
                   Some(56),
-                  Some(56),
-                  Some("q_example".to_string())
+                  Some(56)
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
@@ -369,26 +378,25 @@ fn main() {
         Some("SuperContestEffectList") => {
             let result = rt.block_on(client.super_contest_effect_list(
                   Some(56),
-                  Some(56),
-                  Some("q_example".to_string())
+                  Some(56)
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("ContestEffectRetrieve") => {
             let result = rt.block_on(client.contest_effect_retrieve(
-                  "id_example".to_string()
+                  "1".to_string()
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("ContestTypeRetrieve") => {
             let result = rt.block_on(client.contest_type_retrieve(
-                  "id_example".to_string()
+                  "1".to_string()
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("SuperContestEffectRetrieve") => {
             let result = rt.block_on(client.super_contest_effect_retrieve(
-                  "id_example".to_string()
+                  "1".to_string()
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
@@ -418,27 +426,26 @@ fn main() {
         },
         Some("EncounterConditionRetrieve") => {
             let result = rt.block_on(client.encounter_condition_retrieve(
-                  "id_example".to_string()
+                  "1".to_string()
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("EncounterConditionValueRetrieve") => {
             let result = rt.block_on(client.encounter_condition_value_retrieve(
-                  "id_example".to_string()
+                  "1".to_string()
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("EncounterMethodRetrieve") => {
             let result = rt.block_on(client.encounter_method_retrieve(
-                  "id_example".to_string()
+                  "1".to_string()
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("EvolutionChainList") => {
             let result = rt.block_on(client.evolution_chain_list(
                   Some(56),
-                  Some(56),
-                  Some("q_example".to_string())
+                  Some(56)
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
@@ -450,15 +457,29 @@ fn main() {
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
+        Some("EvolutionVariableList") => {
+            let result = rt.block_on(client.evolution_variable_list(
+                  Some(56),
+                  Some(56),
+                  Some("q_example".to_string())
+            ));
+            info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
+        },
         Some("EvolutionChainRetrieve") => {
             let result = rt.block_on(client.evolution_chain_retrieve(
-                  "id_example".to_string()
+                  "1".to_string()
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("EvolutionTriggerRetrieve") => {
             let result = rt.block_on(client.evolution_trigger_retrieve(
-                  "id_example".to_string()
+                  "1".to_string()
+            ));
+            info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
+        },
+        Some("EvolutionVariableRetrieve") => {
+            let result = rt.block_on(client.evolution_variable_retrieve(
+                  "1".to_string()
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
@@ -496,25 +517,33 @@ fn main() {
         },
         Some("GenerationRetrieve") => {
             let result = rt.block_on(client.generation_retrieve(
-                  "id_example".to_string()
+                  "1".to_string()
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("PokedexRetrieve") => {
             let result = rt.block_on(client.pokedex_retrieve(
-                  "id_example".to_string()
+                  "1".to_string()
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("VersionGroupRetrieve") => {
             let result = rt.block_on(client.version_group_retrieve(
-                  "id_example".to_string()
+                  "1".to_string()
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("VersionRetrieve") => {
             let result = rt.block_on(client.version_retrieve(
-                  "id_example".to_string()
+                  "1".to_string()
+            ));
+            info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
+        },
+        Some("CurrencyList") => {
+            let result = rt.block_on(client.currency_list(
+                  Some(56),
+                  Some(56),
+                  Some("q_example".to_string())
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
@@ -558,33 +587,39 @@ fn main() {
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
+        Some("CurrencyRetrieve") => {
+            let result = rt.block_on(client.currency_retrieve(
+                  "1".to_string()
+            ));
+            info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
+        },
         Some("ItemAttributeRetrieve") => {
             let result = rt.block_on(client.item_attribute_retrieve(
-                  "id_example".to_string()
+                  "1".to_string()
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("ItemCategoryRetrieve") => {
             let result = rt.block_on(client.item_category_retrieve(
-                  "id_example".to_string()
+                  "1".to_string()
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("ItemFlingEffectRetrieve") => {
             let result = rt.block_on(client.item_fling_effect_retrieve(
-                  "id_example".to_string()
+                  "1".to_string()
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("ItemPocketRetrieve") => {
             let result = rt.block_on(client.item_pocket_retrieve(
-                  "id_example".to_string()
+                  "1".to_string()
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("ItemRetrieve") => {
             let result = rt.block_on(client.item_retrieve(
-                  "id_example".to_string()
+                  "1".to_string()
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
@@ -621,39 +656,38 @@ fn main() {
         },
         Some("LocationAreaRetrieve") => {
             let result = rt.block_on(client.location_area_retrieve(
-                  56
+                  1
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("LocationRetrieve") => {
             let result = rt.block_on(client.location_retrieve(
-                  "id_example".to_string()
+                  "1".to_string()
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("PalParkAreaRetrieve") => {
             let result = rt.block_on(client.pal_park_area_retrieve(
-                  "id_example".to_string()
+                  "1".to_string()
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("RegionRetrieve") => {
             let result = rt.block_on(client.region_retrieve(
-                  "id_example".to_string()
+                  "1".to_string()
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("MachineList") => {
             let result = rt.block_on(client.machine_list(
                   Some(56),
-                  Some(56),
-                  Some("q_example".to_string())
+                  Some(56)
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("MachineRetrieve") => {
             let result = rt.block_on(client.machine_retrieve(
-                  "id_example".to_string()
+                  "1".to_string()
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
@@ -707,37 +741,37 @@ fn main() {
         },
         Some("MoveAilmentRetrieve") => {
             let result = rt.block_on(client.move_ailment_retrieve(
-                  "id_example".to_string()
+                  "1".to_string()
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("MoveBattleStyleRetrieve") => {
             let result = rt.block_on(client.move_battle_style_retrieve(
-                  "id_example".to_string()
+                  "1".to_string()
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("MoveCategoryRetrieve") => {
             let result = rt.block_on(client.move_category_retrieve(
-                  "id_example".to_string()
+                  "1".to_string()
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("MoveLearnMethodRetrieve") => {
             let result = rt.block_on(client.move_learn_method_retrieve(
-                  "id_example".to_string()
+                  "1".to_string()
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("MoveRetrieve") => {
             let result = rt.block_on(client.move_retrieve(
-                  "id_example".to_string()
+                  "1".to_string()
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("MoveTargetRetrieve") => {
             let result = rt.block_on(client.move_target_retrieve(
-                  "id_example".to_string()
+                  "1".to_string()
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
@@ -752,8 +786,7 @@ fn main() {
         Some("CharacteristicList") => {
             let result = rt.block_on(client.characteristic_list(
                   Some(56),
-                  Some(56),
-                  Some("q_example".to_string())
+                  Some(56)
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
@@ -871,97 +904,97 @@ fn main() {
         },
         Some("AbilityRetrieve") => {
             let result = rt.block_on(client.ability_retrieve(
-                  "id_example".to_string()
+                  "1".to_string()
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("CharacteristicRetrieve") => {
             let result = rt.block_on(client.characteristic_retrieve(
-                  "id_example".to_string()
+                  "1".to_string()
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("EggGroupRetrieve") => {
             let result = rt.block_on(client.egg_group_retrieve(
-                  "id_example".to_string()
+                  "1".to_string()
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("GenderRetrieve") => {
             let result = rt.block_on(client.gender_retrieve(
-                  "id_example".to_string()
+                  "1".to_string()
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("GrowthRateRetrieve") => {
             let result = rt.block_on(client.growth_rate_retrieve(
-                  "id_example".to_string()
+                  "1".to_string()
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("MoveDamageClassRetrieve") => {
             let result = rt.block_on(client.move_damage_class_retrieve(
-                  "id_example".to_string()
+                  "1".to_string()
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("NatureRetrieve") => {
             let result = rt.block_on(client.nature_retrieve(
-                  "id_example".to_string()
+                  "1".to_string()
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("PokeathlonStatRetrieve") => {
             let result = rt.block_on(client.pokeathlon_stat_retrieve(
-                  "id_example".to_string()
+                  "1".to_string()
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("PokemonColorRetrieve") => {
             let result = rt.block_on(client.pokemon_color_retrieve(
-                  "id_example".to_string()
+                  "1".to_string()
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("PokemonFormRetrieve") => {
             let result = rt.block_on(client.pokemon_form_retrieve(
-                  "id_example".to_string()
+                  "1".to_string()
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("PokemonHabitatRetrieve") => {
             let result = rt.block_on(client.pokemon_habitat_retrieve(
-                  "id_example".to_string()
+                  "1".to_string()
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("PokemonRetrieve") => {
             let result = rt.block_on(client.pokemon_retrieve(
-                  "id_example".to_string()
+                  "1".to_string()
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("PokemonShapeRetrieve") => {
             let result = rt.block_on(client.pokemon_shape_retrieve(
-                  "id_example".to_string()
+                  "1".to_string()
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("PokemonSpeciesRetrieve") => {
             let result = rt.block_on(client.pokemon_species_retrieve(
-                  "id_example".to_string()
+                  "1".to_string()
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("StatRetrieve") => {
             let result = rt.block_on(client.stat_retrieve(
-                  "id_example".to_string()
+                  "1".to_string()
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
         Some("TypeRetrieve") => {
             let result = rt.block_on(client.type_retrieve(
-                  "id_example".to_string()
+                  "1".to_string()
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
@@ -973,9 +1006,14 @@ fn main() {
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },
+        Some("MetaRetrieve") => {
+            let result = rt.block_on(client.meta_retrieve(
+            ));
+            info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
+        },
         Some("LanguageRetrieve") => {
             let result = rt.block_on(client.language_retrieve(
-                  "id_example".to_string()
+                  "1".to_string()
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },

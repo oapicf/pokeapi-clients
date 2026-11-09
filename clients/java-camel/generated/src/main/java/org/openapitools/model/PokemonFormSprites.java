@@ -1,0 +1,325 @@
+package org.openapitools.model;
+
+import java.net.URI;
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import java.util.HashMap;
+import java.util.Map;
+import org.openapitools.model.PokemonSpritesOther;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
+
+/**
+ * PokemonFormSprites
+ */
+
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-11-09T13:49:41.168612095Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+public class PokemonFormSprites {
+
+  private JsonNullable<String> frontDefault = JsonNullable.<String>undefined();
+
+  private JsonNullable<String> frontShiny = JsonNullable.<String>undefined();
+
+  private JsonNullable<String> frontFemale = JsonNullable.<String>undefined();
+
+  private JsonNullable<String> frontShinyFemale = JsonNullable.<String>undefined();
+
+  private JsonNullable<String> backDefault = JsonNullable.<String>undefined();
+
+  private JsonNullable<String> backShiny = JsonNullable.<String>undefined();
+
+  private JsonNullable<String> backFemale = JsonNullable.<String>undefined();
+
+  private JsonNullable<String> backShinyFemale = JsonNullable.<String>undefined();
+
+  private PokemonSpritesOther other;
+
+  private Map<String, Map<String, Object>> versions = new HashMap<>();
+
+  public PokemonFormSprites() {
+    super();
+  }
+
+  /**
+   * Constructor with only required parameters
+   */
+  public PokemonFormSprites(String frontDefault, String frontShiny, String frontFemale, String frontShinyFemale, String backDefault, String backShiny, String backFemale, String backShinyFemale) {
+    this.frontDefault = JsonNullable.of(frontDefault);
+    this.frontShiny = JsonNullable.of(frontShiny);
+    this.frontFemale = JsonNullable.of(frontFemale);
+    this.frontShinyFemale = JsonNullable.of(frontShinyFemale);
+    this.backDefault = JsonNullable.of(backDefault);
+    this.backShiny = JsonNullable.of(backShiny);
+    this.backFemale = JsonNullable.of(backFemale);
+    this.backShinyFemale = JsonNullable.of(backShinyFemale);
+  }
+
+  public PokemonFormSprites frontDefault(String frontDefault) {
+    this.frontDefault = JsonNullable.of(frontDefault);
+    return this;
+  }
+
+  /**
+   * The default depiction of this Pokémon from the front in battle.
+   * @return frontDefault
+   */
+  /* @Present */ 
+  @Schema(name = "front_default", description = "The default depiction of this Pokémon from the front in battle.", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("front_default")
+  public JsonNullable<String> getFrontDefault() {
+    return frontDefault;
+  }
+
+  public void setFrontDefault(JsonNullable<String> frontDefault) {
+    this.frontDefault = frontDefault;
+  }
+
+  public PokemonFormSprites frontShiny(String frontShiny) {
+    this.frontShiny = JsonNullable.of(frontShiny);
+    return this;
+  }
+
+  /**
+   * The shiny depiction of this Pokémon from the front in battle.
+   * @return frontShiny
+   */
+  /* @Present */ 
+  @Schema(name = "front_shiny", description = "The shiny depiction of this Pokémon from the front in battle.", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("front_shiny")
+  public JsonNullable<String> getFrontShiny() {
+    return frontShiny;
+  }
+
+  public void setFrontShiny(JsonNullable<String> frontShiny) {
+    this.frontShiny = frontShiny;
+  }
+
+  public PokemonFormSprites frontFemale(String frontFemale) {
+    this.frontFemale = JsonNullable.of(frontFemale);
+    return this;
+  }
+
+  /**
+   * The female depiction of this Pokémon from the front in battle.
+   * @return frontFemale
+   */
+  /* @Present */ 
+  @Schema(name = "front_female", description = "The female depiction of this Pokémon from the front in battle.", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("front_female")
+  public JsonNullable<String> getFrontFemale() {
+    return frontFemale;
+  }
+
+  public void setFrontFemale(JsonNullable<String> frontFemale) {
+    this.frontFemale = frontFemale;
+  }
+
+  public PokemonFormSprites frontShinyFemale(String frontShinyFemale) {
+    this.frontShinyFemale = JsonNullable.of(frontShinyFemale);
+    return this;
+  }
+
+  /**
+   * The shiny female depiction of this Pokémon from the front in battle.
+   * @return frontShinyFemale
+   */
+  /* @Present */ 
+  @Schema(name = "front_shiny_female", description = "The shiny female depiction of this Pokémon from the front in battle.", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("front_shiny_female")
+  public JsonNullable<String> getFrontShinyFemale() {
+    return frontShinyFemale;
+  }
+
+  public void setFrontShinyFemale(JsonNullable<String> frontShinyFemale) {
+    this.frontShinyFemale = frontShinyFemale;
+  }
+
+  public PokemonFormSprites backDefault(String backDefault) {
+    this.backDefault = JsonNullable.of(backDefault);
+    return this;
+  }
+
+  /**
+   * The default depiction of this Pokémon from the back in battle.
+   * @return backDefault
+   */
+  /* @Present */ 
+  @Schema(name = "back_default", description = "The default depiction of this Pokémon from the back in battle.", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("back_default")
+  public JsonNullable<String> getBackDefault() {
+    return backDefault;
+  }
+
+  public void setBackDefault(JsonNullable<String> backDefault) {
+    this.backDefault = backDefault;
+  }
+
+  public PokemonFormSprites backShiny(String backShiny) {
+    this.backShiny = JsonNullable.of(backShiny);
+    return this;
+  }
+
+  /**
+   * The shiny depiction of this Pokémon from the back in battle.
+   * @return backShiny
+   */
+  /* @Present */ 
+  @Schema(name = "back_shiny", description = "The shiny depiction of this Pokémon from the back in battle.", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("back_shiny")
+  public JsonNullable<String> getBackShiny() {
+    return backShiny;
+  }
+
+  public void setBackShiny(JsonNullable<String> backShiny) {
+    this.backShiny = backShiny;
+  }
+
+  public PokemonFormSprites backFemale(String backFemale) {
+    this.backFemale = JsonNullable.of(backFemale);
+    return this;
+  }
+
+  /**
+   * The female depiction of this Pokémon from the back in battle.
+   * @return backFemale
+   */
+  /* @Present */ 
+  @Schema(name = "back_female", description = "The female depiction of this Pokémon from the back in battle.", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("back_female")
+  public JsonNullable<String> getBackFemale() {
+    return backFemale;
+  }
+
+  public void setBackFemale(JsonNullable<String> backFemale) {
+    this.backFemale = backFemale;
+  }
+
+  public PokemonFormSprites backShinyFemale(String backShinyFemale) {
+    this.backShinyFemale = JsonNullable.of(backShinyFemale);
+    return this;
+  }
+
+  /**
+   * The shiny female depiction of this Pokémon from the back in battle.
+   * @return backShinyFemale
+   */
+  /* @Present */ 
+  @Schema(name = "back_shiny_female", description = "The shiny female depiction of this Pokémon from the back in battle.", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("back_shiny_female")
+  public JsonNullable<String> getBackShinyFemale() {
+    return backShinyFemale;
+  }
+
+  public void setBackShinyFemale(JsonNullable<String> backShinyFemale) {
+    this.backShinyFemale = backShinyFemale;
+  }
+
+  public PokemonFormSprites other(PokemonSpritesOther other) {
+    this.other = other;
+    return this;
+  }
+
+  /**
+   * Additional sprites grouped by source, such as official artwork, HOME, and Showdown. Available keys vary by resource.
+   * @return other
+   */
+  @Valid 
+  @Schema(name = "other", description = "Additional sprites grouped by source, such as official artwork, HOME, and Showdown. Available keys vary by resource.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("other")
+  public PokemonSpritesOther getOther() {
+    return other;
+  }
+
+  public void setOther(PokemonSpritesOther other) {
+    this.other = other;
+  }
+
+  public PokemonFormSprites versions(Map<String, Map<String, Object>> versions) {
+    this.versions = versions;
+    return this;
+  }
+
+  public PokemonFormSprites putVersionsItem(String key, Map<String, Object> versionsItem) {
+    if (this.versions == null) {
+      this.versions = new HashMap<>();
+    }
+    this.versions.put(key, versionsItem);
+    return this;
+  }
+
+  /**
+   * Sprites grouped by generation and game. Available keys vary by resource.
+   * @return versions
+   */
+  
+  @Schema(name = "versions", description = "Sprites grouped by generation and game. Available keys vary by resource.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("versions")
+  public Map<String, Map<String, Object>> getVersions() {
+    return versions;
+  }
+
+  public void setVersions(Map<String, Map<String, Object>> versions) {
+    this.versions = versions;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    PokemonFormSprites pokemonFormSprites = (PokemonFormSprites) o;
+    return Objects.equals(this.frontDefault, pokemonFormSprites.frontDefault) &&
+        Objects.equals(this.frontShiny, pokemonFormSprites.frontShiny) &&
+        Objects.equals(this.frontFemale, pokemonFormSprites.frontFemale) &&
+        Objects.equals(this.frontShinyFemale, pokemonFormSprites.frontShinyFemale) &&
+        Objects.equals(this.backDefault, pokemonFormSprites.backDefault) &&
+        Objects.equals(this.backShiny, pokemonFormSprites.backShiny) &&
+        Objects.equals(this.backFemale, pokemonFormSprites.backFemale) &&
+        Objects.equals(this.backShinyFemale, pokemonFormSprites.backShinyFemale) &&
+        Objects.equals(this.other, pokemonFormSprites.other) &&
+        Objects.equals(this.versions, pokemonFormSprites.versions);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(frontDefault, frontShiny, frontFemale, frontShinyFemale, backDefault, backShiny, backFemale, backShinyFemale, other, versions);
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class PokemonFormSprites {\n");
+    sb.append("    frontDefault: ").append(toIndentedString(frontDefault)).append("\n");
+    sb.append("    frontShiny: ").append(toIndentedString(frontShiny)).append("\n");
+    sb.append("    frontFemale: ").append(toIndentedString(frontFemale)).append("\n");
+    sb.append("    frontShinyFemale: ").append(toIndentedString(frontShinyFemale)).append("\n");
+    sb.append("    backDefault: ").append(toIndentedString(backDefault)).append("\n");
+    sb.append("    backShiny: ").append(toIndentedString(backShiny)).append("\n");
+    sb.append("    backFemale: ").append(toIndentedString(backFemale)).append("\n");
+    sb.append("    backShinyFemale: ").append(toIndentedString(backShinyFemale)).append("\n");
+    sb.append("    other: ").append(toIndentedString(other)).append("\n");
+    sb.append("    versions: ").append(toIndentedString(versions)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
+  }
+}
+

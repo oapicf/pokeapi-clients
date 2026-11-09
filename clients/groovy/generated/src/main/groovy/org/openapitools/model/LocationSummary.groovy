@@ -7,8 +7,8 @@ import java.net.URI;
 
 @Canonical
 class LocationSummary {
-    
+    /* The name of the referenced resource. */
     String name
-    
+    /* The URL of the referenced resource. */
     URI url
 }

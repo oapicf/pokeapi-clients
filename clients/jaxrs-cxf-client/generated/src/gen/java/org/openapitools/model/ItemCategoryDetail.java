@@ -14,27 +14,42 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class ItemCategoryDetail  {
   
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The identifier for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
 
   private Integer id;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The name for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The name for this resource.")
 
   private String name;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * A list of items that are a part of this category.
+  */
+  @ApiModelProperty(required = true, value = "A list of items that are a part of this category.")
 
   private List<ItemSummary> items = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The name of this item category listed in different languages.
+  */
+  @ApiModelProperty(required = true, value = "The name of this item category listed in different languages.")
 
   private List<ItemCategoryName> names = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The pocket items in this category would be put in.
+  */
+  @ApiModelProperty(required = true, value = "The pocket items in this category would be put in.")
 
   private ItemPocketSummary pocket;
  /**
-   * Get id
+   * The identifier for this resource.
    * @return id
   **/
   @JsonProperty("id")
@@ -44,7 +59,7 @@ public class ItemCategoryDetail  {
 
 
  /**
-   * Get name
+   * The name for this resource.
    * @return name
   **/
   @JsonProperty("name")
@@ -62,7 +77,7 @@ public class ItemCategoryDetail  {
   }
 
  /**
-   * Get items
+   * A list of items that are a part of this category.
    * @return items
   **/
   @JsonProperty("items")
@@ -72,7 +87,7 @@ public class ItemCategoryDetail  {
 
 
  /**
-   * Get names
+   * The name of this item category listed in different languages.
    * @return names
   **/
   @JsonProperty("names")
@@ -82,7 +97,7 @@ public class ItemCategoryDetail  {
 
 
  /**
-   * Get pocket
+   * The pocket items in this category would be put in.
    * @return pocket
   **/
   @JsonProperty("pocket")

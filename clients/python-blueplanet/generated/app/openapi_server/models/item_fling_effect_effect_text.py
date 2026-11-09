@@ -52,6 +52,7 @@ class ItemFlingEffectEffectText(Model):
     def effect(self) -> str:
         """Gets the effect of this ItemFlingEffectEffectText.
 
+        The localized effect text for an API resource in a specific language.  # noqa: E501
 
         :return: The effect of this ItemFlingEffectEffectText.
         :rtype: str
@@ -62,6 +63,7 @@ class ItemFlingEffectEffectText(Model):
     def effect(self, effect: str):
         """Sets the effect of this ItemFlingEffectEffectText.
 
+        The localized effect text for an API resource in a specific language.  # noqa: E501
 
         :param effect: The effect of this ItemFlingEffectEffectText.
         :type effect: str
@@ -77,6 +79,7 @@ class ItemFlingEffectEffectText(Model):
     def language(self) -> LanguageSummary:
         """Gets the language of this ItemFlingEffectEffectText.
 
+        The language this effect is in.  # noqa: E501
 
         :return: The language of this ItemFlingEffectEffectText.
         :rtype: LanguageSummary
@@ -87,6 +90,7 @@ class ItemFlingEffectEffectText(Model):
     def language(self, language: LanguageSummary):
         """Sets the language of this ItemFlingEffectEffectText.
 
+        The language this effect is in.  # noqa: E501
 
         :param language: The language of this ItemFlingEffectEffectText.
         :type language: LanguageSummary

@@ -5,9 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**low_hp_preference** | **number** |  | [default to undefined]
-**high_hp_preference** | **number** |  | [default to undefined]
-**move_battle_style** | [**MoveBattleStyleSummary**](MoveBattleStyleSummary.md) |  | [default to undefined]
+**low_hp_preference** | **number** | Chance of using the move, in percent, if HP is under one half. | [default to undefined]
+**high_hp_preference** | **number** | Chance of using the move, in percent, if HP is over one half. | [default to undefined]
+**move_battle_style** | [**MoveBattleStyleSummary**](MoveBattleStyleSummary.md) | The move battle style. | [default to undefined]
 
 ## Example
 

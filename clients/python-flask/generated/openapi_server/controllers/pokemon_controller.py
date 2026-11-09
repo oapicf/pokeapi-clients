@@ -39,7 +39,7 @@ from openapi_server import util
 
 
 def ability_list(limit=None, offset=None, q=None):  # noqa: E501
-    """ability_list
+    """List abilities
 
     Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail. # noqa: E501
 
@@ -56,7 +56,7 @@ def ability_list(limit=None, offset=None, q=None):  # noqa: E501
 
 
 def ability_retrieve(id):  # noqa: E501
-    """ability_retrieve
+    """Get ability
 
     Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail. # noqa: E501
 
@@ -68,8 +68,8 @@ def ability_retrieve(id):  # noqa: E501
     return 'do some magic!'
 
 
-def characteristic_list(limit=None, offset=None, q=None):  # noqa: E501
-    """List charecterictics
+def characteristic_list(limit=None, offset=None):  # noqa: E501
+    """List characteristics
 
     Characteristics indicate which stat contains a Pokémon&#39;s highest IV. A Pokémon&#39;s Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail. # noqa: E501
 
@@ -77,8 +77,6 @@ def characteristic_list(limit=None, offset=None, q=None):  # noqa: E501
     :type limit: int
     :param offset: The initial index from which to return the results.
     :type offset: int
-    :param q: &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. 
-    :type q: str
 
     :rtype: Union[PaginatedCharacteristicSummaryList, Tuple[PaginatedCharacteristicSummaryList, int], Tuple[PaginatedCharacteristicSummaryList, int, Dict[str, str]]
     """

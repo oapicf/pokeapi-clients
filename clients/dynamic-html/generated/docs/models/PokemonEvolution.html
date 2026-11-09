@@ -1,0 +1,157 @@
+
+<h2>PokemonEvolution</h2>
+<ul class="parameter">
+  <li class="param-required-true">versionUnderscoregroup : VersionGroupSummary
+    <br/>The version group in which these evolution requirements apply.
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">isUnderscoredefault : Boolean
+    <br/>Whether the evolution is considered as the expected evolution in a main series game. Each unique Pokémon variety of a line capable of evolution should have exactly one &#39;default&#39; evolution. For example, the Meowth species has three default evolutions as there are three distinct varieties it can evolve into: Persian, Alolan Persian, and Perrserker.
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-true">item : ItemSummary
+    <br/>The item required to cause evolution this into Pokémon species.
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-true">trigger : EvolutionTriggerSummary
+    <br/>The type of event that triggers evolution into this Pokémon species.
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">gender : Integer
+    <br/>The id of the gender of the evolving Pokémon species must be in order to evolve into this Pokémon species.
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-true">heldUnderscoreitem : ItemSummary
+    <br/>The item the evolving Pokémon species must be holding during the evolution trigger event to evolve into this Pokémon species.
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-true">knownUnderscoremove : PokemonEvolution_known_move
+    <br/>
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-true">knownUnderscoremoveUnderscoretype : PokemonEvolution_known_move
+    <br/>
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-true">location : LocationSummary
+    <br/>The location the evolution must be triggered at.
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">minUnderscorelevel : Integer
+    <br/>The minimum required level of the evolving Pokémon species to evolve into this Pokémon species.
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">minUnderscorehappiness : Integer
+    <br/>The minimum required level of happiness the evolving Pokémon species to evolve into this Pokémon species.
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">minUnderscorebeauty : Integer
+    <br/>The minimum required level of beauty the evolving Pokémon species to evolve into this Pokémon species.
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">minUnderscoreaffection : Integer
+    <br/>The minimum required level of affection the evolving Pokémon species to evolve into this Pokémon species.
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">nearUnderscorespecialUnderscorerock : Boolean
+    <br/>Whether or not you need to be near a Moss Rock or Icy Rock to evolve into this Pokémon species.
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">needsUnderscoremultiplayer : Boolean
+    <br/>Whether or not multiplayer link play is needed to evolve into this Pokémon species (e.g. Union Circle).
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">needsUnderscoreoverworldUnderscorerain : Boolean
+    <br/>Whether or not it must be raining in the overworld to cause evolution this Pokémon species.
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-true">partyUnderscorespecies : PokemonSpeciesSummary
+    <br/>The Pokémon species that must be in the players party in order for the evolving Pokémon species to evolve into this Pokémon species.
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-true">partyUnderscoretype : TypeSummary
+    <br/>The player must have a Pokémon of this type in their party during the evolution trigger event in order for the evolving Pokémon species to evolve into this Pokémon species.
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">relativeUnderscorephysicalUnderscorestats : Integer
+    <br/>The required relation between the Pokémon&#39;s Attack and Defense stats. 1 means Attack &gt; Defense. 0 means Attack &#x3D; Defense. -1 means Attack &lt; Defense.
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">timeUnderscoreofUnderscoreday : String
+    <br/>The required time of day. Day or night.
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-true">tradeUnderscorespecies : PokemonSpeciesSummary
+    <br/>Pokémon species for which this one must be traded.
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">turnUnderscoreupsideUnderscoredown : Boolean
+    <br/>Whether or not the 3DS needs to be turned upside-down as this Pokémon levels up.
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-true">region : RegionSummary
+    <br/>The required region in which this evolution can occur.
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-true">requiredUnderscorepokemonUnderscoreform : PokemonFormSummary
+    <br/>The Pokémon form required before evolving, or null if unrestricted.
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-true">evolvedUnderscorepokemonUnderscoreform : PokemonFormSummary
+    <br/>The Pokémon form produced by this evolution, or null if unspecified.
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-true">usedUnderscoremove : MoveSummary
+    <br/>The move that must be used by the evolving Pokémon species during the evolution trigger event in order to evolve into this Pokémon species.
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">minUnderscoremoveUnderscorecount : Integer
+    <br/>The minimum number of times a move must be used in order to evolve into this Pokémon species.
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">minUnderscoresteps : Integer
+    <br/>The minimum number of steps that must be taken in order to evolve into this Pokémon species.
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-false">minUnderscoredamageUnderscoretaken : Integer
+    <br/>The minimum amount of damage taken during the evolution trigger event in order to evolve into this Pokémon species.
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-true">allowedUnderscorenatures : List
+    <br/>The natures that allow this evolution, or null if unrestricted.
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-true">conditionUnderscoreexpression : EvolutionConditionExpression
+    <br/>An additional evolution condition expressed in reverse Polish notation, or null if none.
+  </li>
+</ul>

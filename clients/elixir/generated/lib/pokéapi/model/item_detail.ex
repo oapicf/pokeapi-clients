@@ -10,7 +10,6 @@ defmodule PokéAPI.Model.ItemDetail do
   defstruct [
     :id,
     :name,
-    :cost,
     :fling_power,
     :fling_effect,
     :attributes,
@@ -18,6 +17,7 @@ defmodule PokéAPI.Model.ItemDetail do
     :effect_entries,
     :flavor_text_entries,
     :game_indices,
+    :prices,
     :names,
     :held_by_pokemon,
     :sprites,
@@ -28,19 +28,19 @@ defmodule PokéAPI.Model.ItemDetail do
   @type t :: %__MODULE__{
     :id => integer(),
     :name => String.t,
-    :cost => integer() | nil,
     :fling_power => integer() | nil,
-    :fling_effect => PokéAPI.Model.ItemFlingEffectSummary.t,
-    :attributes => [PokéAPI.Model.AbilityDetailPokemonInnerPokemon.t],
+    :fling_effect => PokéAPI.Model.ItemFlingEffectSummary.t | nil,
+    :attributes => [PokéAPI.Model.ItemAttributeSummary.t],
     :category => PokéAPI.Model.ItemCategorySummary.t,
     :effect_entries => [PokéAPI.Model.ItemEffectText.t],
     :flavor_text_entries => [PokéAPI.Model.ItemFlavorText.t],
     :game_indices => [PokéAPI.Model.ItemGameIndex.t],
+    :prices => [PokéAPI.Model.ItemPrice.t],
     :names => [PokéAPI.Model.ItemName.t],
-    :held_by_pokemon => [PokéAPI.Model.ItemDetailHeldByPokemonInner.t],
-    :sprites => PokéAPI.Model.ItemDetailSprites.t,
-    :baby_trigger_for => PokéAPI.Model.ItemDetailBabyTriggerFor.t,
-    :machines => [PokéAPI.Model.ItemDetailMachinesInner.t]
+    :held_by_pokemon => [PokéAPI.Model.PokemonHeldItem.t],
+    :sprites => PokéAPI.Model.ItemSprites.t,
+    :baby_trigger_for => PokéAPI.Model.EvolutionChainSummary.t | nil,
+    :machines => [PokéAPI.Model.ItemMachine.t]
   }
 
   alias PokéAPI.Deserializer
@@ -48,16 +48,17 @@ defmodule PokéAPI.Model.ItemDetail do
   def decode(value) do
     value
      |> Deserializer.deserialize(:fling_effect, :struct, PokéAPI.Model.ItemFlingEffectSummary)
-     |> Deserializer.deserialize(:attributes, :list, PokéAPI.Model.AbilityDetailPokemonInnerPokemon)
+     |> Deserializer.deserialize(:attributes, :list, PokéAPI.Model.ItemAttributeSummary)
      |> Deserializer.deserialize(:category, :struct, PokéAPI.Model.ItemCategorySummary)
      |> Deserializer.deserialize(:effect_entries, :list, PokéAPI.Model.ItemEffectText)
      |> Deserializer.deserialize(:flavor_text_entries, :list, PokéAPI.Model.ItemFlavorText)
      |> Deserializer.deserialize(:game_indices, :list, PokéAPI.Model.ItemGameIndex)
+     |> Deserializer.deserialize(:prices, :list, PokéAPI.Model.ItemPrice)
      |> Deserializer.deserialize(:names, :list, PokéAPI.Model.ItemName)
-     |> Deserializer.deserialize(:held_by_pokemon, :list, PokéAPI.Model.ItemDetailHeldByPokemonInner)
-     |> Deserializer.deserialize(:sprites, :struct, PokéAPI.Model.ItemDetailSprites)
-     |> Deserializer.deserialize(:baby_trigger_for, :struct, PokéAPI.Model.ItemDetailBabyTriggerFor)
-     |> Deserializer.deserialize(:machines, :list, PokéAPI.Model.ItemDetailMachinesInner)
+     |> Deserializer.deserialize(:held_by_pokemon, :list, PokéAPI.Model.PokemonHeldItem)
+     |> Deserializer.deserialize(:sprites, :struct, PokéAPI.Model.ItemSprites)
+     |> Deserializer.deserialize(:baby_trigger_for, :struct, PokéAPI.Model.EvolutionChainSummary)
+     |> Deserializer.deserialize(:machines, :list, PokéAPI.Model.ItemMachine)
   end
 end
 

@@ -10,6 +10,7 @@ class_name CharacteristicDetail
 # CharacteristicDetail Model
 
 
+# The identifier for this resource.
 # Required: True
 # isArray: false
 @export var id: int:
@@ -18,6 +19,7 @@ class_name CharacteristicDetail
 		id = value
 var __id__was__set := false
 
+# The remainder of the highest stat/IV divided by 5.
 # Required: True
 # isArray: false
 @export var geneUnderscoremodulo: int:
@@ -26,6 +28,7 @@ var __id__was__set := false
 		geneUnderscoremodulo = value
 var __geneUnderscoremodulo__was__set := false
 
+# The possible values of the highest stat that would result in a Pokémon recieving this characteristic when divided by 5.
 # Required: True
 # isArray: true
 @export var possibleUnderscorevalues: Array:
@@ -34,6 +37,7 @@ var __geneUnderscoremodulo__was__set := false
 		possibleUnderscorevalues = value
 var __possibleUnderscorevalues__was__set := false
 
+# The stat which results in this characteristic.
 # Required: True
 # isArray: false
 @export var highestUnderscorestat: StatSummary:
@@ -42,6 +46,7 @@ var __possibleUnderscorevalues__was__set := false
 		highestUnderscorestat = value
 var __highestUnderscorestat__was__set := false
 
+# The descriptions of this characteristic listed in different languages.
 # Required: True
 # isArray: true
 @export var descriptions: Array:

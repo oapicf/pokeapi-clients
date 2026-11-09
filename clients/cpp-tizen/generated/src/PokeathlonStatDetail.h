@@ -9,7 +9,7 @@
 
 
 #include <string>
-#include "PokeathlonStatDetail_affecting_natures.h"
+#include "PokeathlonStatAffectingNatures.h"
 #include "PokeathlonStatName.h"
 #include <list>
 #include "Object.h"
@@ -48,39 +48,39 @@ public:
 	 */
 	void fromJson(char* jsonStr);
 
-	/*! \brief Get 
+	/*! \brief Get The identifier for this resource.
 	 */
 	int getId();
 
-	/*! \brief Set 
+	/*! \brief Set The identifier for this resource.
 	 */
 	void setId(int  id);
-	/*! \brief Get 
+	/*! \brief Get The name for this resource.
 	 */
 	std::string getName();
 
-	/*! \brief Set 
+	/*! \brief Set The name for this resource.
 	 */
 	void setName(std::string  name);
-	/*! \brief Get 
+	/*! \brief Get A detail of natures which affect this Pokéathlon stat positively or negatively.
 	 */
-	PokeathlonStatDetail_affecting_natures getAffectingNatures();
+	PokeathlonStatAffectingNatures getAffectingNatures();
 
-	/*! \brief Set 
+	/*! \brief Set A detail of natures which affect this Pokéathlon stat positively or negatively.
 	 */
-	void setAffectingNatures(PokeathlonStatDetail_affecting_natures  affecting_natures);
-	/*! \brief Get 
+	void setAffectingNatures(PokeathlonStatAffectingNatures  affecting_natures);
+	/*! \brief Get The name of this resource listed in different languages.
 	 */
 	std::list<PokeathlonStatName> getNames();
 
-	/*! \brief Set 
+	/*! \brief Set The name of this resource listed in different languages.
 	 */
 	void setNames(std::list <PokeathlonStatName> names);
 
 private:
 	int id;
 	std::string name;
-	PokeathlonStatDetail_affecting_natures affecting_natures;
+	PokeathlonStatAffectingNatures affecting_natures;
 	std::list <PokeathlonStatName>names;
 	void __init();
 	void __cleanup();

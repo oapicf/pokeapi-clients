@@ -16,15 +16,15 @@
         version_groups=nothing,
     )
 
-    - id::Int64
-    - name::String
-    - abilities::Vector{AbilitySummary}
-    - main_region::RegionSummary
-    - moves::Vector{MoveSummary}
-    - names::Vector{GenerationName}
-    - pokemon_species::Vector{PokemonSpeciesSummary}
-    - types::Vector{TypeSummary}
-    - version_groups::Vector{VersionGroupSummary}
+    - id::Int64 : The identifier for this resource.
+    - name::String : The name for this resource.
+    - abilities::Vector{AbilitySummary} : A list of abilities that were introduced in this generation.
+    - main_region::RegionSummary : The main region travelled in this generation.
+    - moves::Vector{MoveSummary} : A list of moves that were introduced in this generation.
+    - names::Vector{GenerationName} : The name of this resource listed in different languages.
+    - pokemon_species::Vector{PokemonSpeciesSummary} : A list of Pokémon species that were introduced in this generation.
+    - types::Vector{TypeSummary} : A list of types that were introduced in this generation.
+    - version_groups::Vector{VersionGroupSummary} : A list of version groups that were introduced in this generation.
 """
 Base.@kwdef mutable struct GenerationDetail <: OpenAPI.APIModel
     id::Union{Nothing, Int64} = nothing
@@ -76,7 +76,7 @@ function OpenAPI.validate_property(::Type{ GenerationDetail }, name::Symbol, val
 
 
     if name === Symbol("name")
-        OpenAPI.validate_param(name, "GenerationDetail", :maxLength, val, 100)
+        OpenAPI.validate_param(name, "GenerationDetail", :maxLength, val, 200)
     end
 
 

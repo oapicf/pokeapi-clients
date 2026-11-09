@@ -19,7 +19,7 @@ import java.util.Map;
 // Implement this class
 
 public class ContestsApiImpl implements ContestsApi {
-    public Future<ApiResponse<PaginatedContestEffectSummaryList>> contestEffectList(Integer limit, Integer offset, String q) {
+    public Future<ApiResponse<PaginatedContestEffectSummaryList>> contestEffectList(Integer limit, Integer offset) {
         return Future.failedFuture(new HttpException(501));
     }
 
@@ -35,7 +35,7 @@ public class ContestsApiImpl implements ContestsApi {
         return Future.failedFuture(new HttpException(501));
     }
 
-    public Future<ApiResponse<PaginatedSuperContestEffectSummaryList>> superContestEffectList(Integer limit, Integer offset, String q) {
+    public Future<ApiResponse<PaginatedSuperContestEffectSummaryList>> superContestEffectList(Integer limit, Integer offset) {
         return Future.failedFuture(new HttpException(501));
     }
 

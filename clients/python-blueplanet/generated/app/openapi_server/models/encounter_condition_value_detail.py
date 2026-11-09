@@ -63,6 +63,7 @@ class EncounterConditionValueDetail(Model):
     def id(self) -> int:
         """Gets the id of this EncounterConditionValueDetail.
 
+        The identifier for this resource.  # noqa: E501
 
         :return: The id of this EncounterConditionValueDetail.
         :rtype: int
@@ -73,6 +74,7 @@ class EncounterConditionValueDetail(Model):
     def id(self, id: int):
         """Sets the id of this EncounterConditionValueDetail.
 
+        The identifier for this resource.  # noqa: E501
 
         :param id: The id of this EncounterConditionValueDetail.
         :type id: int
@@ -86,6 +88,7 @@ class EncounterConditionValueDetail(Model):
     def name(self) -> str:
         """Gets the name of this EncounterConditionValueDetail.
 
+        The name for this resource.  # noqa: E501
 
         :return: The name of this EncounterConditionValueDetail.
         :rtype: str
@@ -96,14 +99,15 @@ class EncounterConditionValueDetail(Model):
     def name(self, name: str):
         """Sets the name of this EncounterConditionValueDetail.
 
+        The name for this resource.  # noqa: E501
 
         :param name: The name of this EncounterConditionValueDetail.
         :type name: str
         """
         if name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
-        if name is not None and len(name) > 100:
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `100`")  # noqa: E501
+        if name is not None and len(name) > 200:
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `200`")  # noqa: E501
 
         self._name = name
 
@@ -111,6 +115,7 @@ class EncounterConditionValueDetail(Model):
     def condition(self) -> EncounterConditionSummary:
         """Gets the condition of this EncounterConditionValueDetail.
 
+        The condition this encounter condition value pertains to.  # noqa: E501
 
         :return: The condition of this EncounterConditionValueDetail.
         :rtype: EncounterConditionSummary
@@ -121,6 +126,7 @@ class EncounterConditionValueDetail(Model):
     def condition(self, condition: EncounterConditionSummary):
         """Sets the condition of this EncounterConditionValueDetail.
 
+        The condition this encounter condition value pertains to.  # noqa: E501
 
         :param condition: The condition of this EncounterConditionValueDetail.
         :type condition: EncounterConditionSummary
@@ -134,6 +140,7 @@ class EncounterConditionValueDetail(Model):
     def names(self) -> List[EncounterConditionValueName]:
         """Gets the names of this EncounterConditionValueDetail.
 
+        The name of this resource listed in different languages.  # noqa: E501
 
         :return: The names of this EncounterConditionValueDetail.
         :rtype: List[EncounterConditionValueName]
@@ -144,6 +151,7 @@ class EncounterConditionValueDetail(Model):
     def names(self, names: List[EncounterConditionValueName]):
         """Sets the names of this EncounterConditionValueDetail.
 
+        The name of this resource listed in different languages.  # noqa: E501
 
         :param names: The names of this EncounterConditionValueDetail.
         :type names: List[EncounterConditionValueName]

@@ -15,8 +15,8 @@
 
 typedef struct gender_detail_t gender_detail_t;
 
-#include "ability_detail_pokemon_inner_pokemon.h"
-#include "gender_detail_pokemon_species_details_inner.h"
+#include "gender_pokemon_species.h"
+#include "pokemon_species_summary.h"
 
 
 

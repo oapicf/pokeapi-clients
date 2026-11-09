@@ -3,9 +3,9 @@
 //> using lib "com.lihaoyi::scalatags:0.12.0"
 /**
  * PokéAPI
- * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+ * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
  *
- * OpenAPI spec version: 2.7.0
+ * OpenAPI spec version: 2.10.0
  *
  * Contact: blah+oapicf@cliffano.com
  *
@@ -188,9 +188,9 @@ class PokemonRoutes(service : PokemonService[Try]) extends cask.Routes {
     }
     // route group for routeWorkAroundForGETApiV2Characteristic
     @cask.get("/api/v2/characteristic", true)
-    def routeWorkAroundForGETApiV2Characteristic(request: cask.Request,limit : Option[Int] = None,offset : Option[Int] = None,q : Option[String] = None) = {
+    def routeWorkAroundForGETApiV2Characteristic(request: cask.Request,limit : Option[Int] = None,offset : Option[Int] = None) = {
         request.remainingPathSegments match {
-            case Seq() => characteristicList(request,limit, offset, q)
+            case Seq() => characteristicList(request,limit, offset)
             case Seq(id) => characteristicRetrieve(id,request)
             case _          => cask.Response("Not Found", statusCode = 404)
         }
@@ -214,13 +214,11 @@ class PokemonRoutes(service : PokemonService[Try]) extends cask.Routes {
         }
     }
 
-        /** 
+        /** List abilities
          * 
          */
         // conflicts with [/api/v2/ability/{id}/, /api/v2/ability/] after/api/v2/ability, ignoring @cask.get("/api/v2/ability/")
         def abilityList(request: cask.Request, limit : Option[Int], offset : Option[Int], q : Option[String]) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
@@ -237,13 +235,11 @@ class PokemonRoutes(service : PokemonService[Try]) extends cask.Routes {
           case Right(other) => cask.Response(s"$other", 200)
         }
       }
-        /** 
+        /** Get ability
          * 
          */
         // conflicts with [/api/v2/ability/{id}/, /api/v2/ability/] after/api/v2/ability, ignoring @cask.get("/api/v2/ability/:id/")
         def abilityRetrieve(id : String, request: cask.Request) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
@@ -261,18 +257,16 @@ class PokemonRoutes(service : PokemonService[Try]) extends cask.Routes {
           case Right(other) => cask.Response(s"$other", 200)
         }
       }
-        /** List charecterictics
+        /** List characteristics
          * 
          */
         // conflicts with [/api/v2/characteristic/{id}/, /api/v2/characteristic/] after/api/v2/characteristic, ignoring @cask.get("/api/v2/characteristic/")
-        def characteristicList(request: cask.Request, limit : Option[Int], offset : Option[Int], q : Option[String]) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
+        def characteristicList(request: cask.Request, limit : Option[Int], offset : Option[Int]) = {
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
         val result =         for {
-            resultTry <- Parsed.eval(service.characteristicList(limit, offset, q))
+            resultTry <- Parsed.eval(service.characteristicList(limit, offset))
             result <- Parsed.fromTry(resultTry)
         } yield result
 
@@ -289,8 +283,6 @@ class PokemonRoutes(service : PokemonService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/characteristic/{id}/, /api/v2/characteristic/] after/api/v2/characteristic, ignoring @cask.get("/api/v2/characteristic/:id/")
         def characteristicRetrieve(id : String, request: cask.Request) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
@@ -313,8 +305,6 @@ class PokemonRoutes(service : PokemonService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/egg-group/{id}/, /api/v2/egg-group/] after/api/v2/egg-group, ignoring @cask.get("/api/v2/egg-group/")
         def eggGroupList(request: cask.Request, limit : Option[Int], offset : Option[Int], q : Option[String]) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
@@ -336,8 +326,6 @@ class PokemonRoutes(service : PokemonService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/egg-group/{id}/, /api/v2/egg-group/] after/api/v2/egg-group, ignoring @cask.get("/api/v2/egg-group/:id/")
         def eggGroupRetrieve(id : String, request: cask.Request) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
@@ -360,8 +348,6 @@ class PokemonRoutes(service : PokemonService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/gender/{id}/, /api/v2/gender/] after/api/v2/gender, ignoring @cask.get("/api/v2/gender/")
         def genderList(request: cask.Request, limit : Option[Int], offset : Option[Int], q : Option[String]) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
@@ -383,8 +369,6 @@ class PokemonRoutes(service : PokemonService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/gender/{id}/, /api/v2/gender/] after/api/v2/gender, ignoring @cask.get("/api/v2/gender/:id/")
         def genderRetrieve(id : String, request: cask.Request) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
@@ -407,8 +391,6 @@ class PokemonRoutes(service : PokemonService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/growth-rate/{id}/, /api/v2/growth-rate/] after/api/v2/growth-rate, ignoring @cask.get("/api/v2/growth-rate/")
         def growthRateList(request: cask.Request, limit : Option[Int], offset : Option[Int], q : Option[String]) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
@@ -430,8 +412,6 @@ class PokemonRoutes(service : PokemonService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/growth-rate/{id}/, /api/v2/growth-rate/] after/api/v2/growth-rate, ignoring @cask.get("/api/v2/growth-rate/:id/")
         def growthRateRetrieve(id : String, request: cask.Request) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
@@ -454,8 +434,6 @@ class PokemonRoutes(service : PokemonService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/move-damage-class/{id}/, /api/v2/move-damage-class/] after/api/v2/move-damage-class, ignoring @cask.get("/api/v2/move-damage-class/")
         def moveDamageClassList(request: cask.Request, limit : Option[Int], offset : Option[Int], q : Option[String]) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
@@ -477,8 +455,6 @@ class PokemonRoutes(service : PokemonService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/move-damage-class/{id}/, /api/v2/move-damage-class/] after/api/v2/move-damage-class, ignoring @cask.get("/api/v2/move-damage-class/:id/")
         def moveDamageClassRetrieve(id : String, request: cask.Request) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
@@ -501,8 +477,6 @@ class PokemonRoutes(service : PokemonService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/nature/{id}/, /api/v2/nature/] after/api/v2/nature, ignoring @cask.get("/api/v2/nature/")
         def natureList(request: cask.Request, limit : Option[Int], offset : Option[Int], q : Option[String]) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
@@ -524,8 +498,6 @@ class PokemonRoutes(service : PokemonService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/nature/{id}/, /api/v2/nature/] after/api/v2/nature, ignoring @cask.get("/api/v2/nature/:id/")
         def natureRetrieve(id : String, request: cask.Request) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
@@ -548,8 +520,6 @@ class PokemonRoutes(service : PokemonService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/pokeathlon-stat/{id}/, /api/v2/pokeathlon-stat/] after/api/v2/pokeathlon-stat, ignoring @cask.get("/api/v2/pokeathlon-stat/")
         def pokeathlonStatList(request: cask.Request, limit : Option[Int], offset : Option[Int], q : Option[String]) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
@@ -571,8 +541,6 @@ class PokemonRoutes(service : PokemonService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/pokeathlon-stat/{id}/, /api/v2/pokeathlon-stat/] after/api/v2/pokeathlon-stat, ignoring @cask.get("/api/v2/pokeathlon-stat/:id/")
         def pokeathlonStatRetrieve(id : String, request: cask.Request) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
@@ -595,8 +563,6 @@ class PokemonRoutes(service : PokemonService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/pokemon-color/{id}/, /api/v2/pokemon-color/] after/api/v2/pokemon-color, ignoring // conflicts with [/api/v2/pokemon/{id}/, /api/v2/pokemon-color/, /api/v2/pokemon-color/{id}/, /api/v2/pokemon-form/, /api/v2/pokemon-form/{id}/, /api/v2/pokemon-habitat/, /api/v2/pokemon-habitat/{id}/, /api/v2/pokemon/, /api/v2/pokemon-shape/, /api/v2/pokemon-shape/{id}/, /api/v2/pokemon-species/, /api/v2/pokemon-species/{id}/] after/api/v2/pokemon, ignoring @cask.get("/api/v2/pokemon-color/")
         def pokemonColorList(request: cask.Request, limit : Option[Int], offset : Option[Int], q : Option[String]) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
@@ -618,8 +584,6 @@ class PokemonRoutes(service : PokemonService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/pokemon-color/{id}/, /api/v2/pokemon-color/] after/api/v2/pokemon-color, ignoring // conflicts with [/api/v2/pokemon/{id}/, /api/v2/pokemon-color/, /api/v2/pokemon-color/{id}/, /api/v2/pokemon-form/, /api/v2/pokemon-form/{id}/, /api/v2/pokemon-habitat/, /api/v2/pokemon-habitat/{id}/, /api/v2/pokemon/, /api/v2/pokemon-shape/, /api/v2/pokemon-shape/{id}/, /api/v2/pokemon-species/, /api/v2/pokemon-species/{id}/] after/api/v2/pokemon, ignoring @cask.get("/api/v2/pokemon-color/:id/")
         def pokemonColorRetrieve(id : String, request: cask.Request) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
@@ -642,8 +606,6 @@ class PokemonRoutes(service : PokemonService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/pokemon-form/{id}/, /api/v2/pokemon-form/] after/api/v2/pokemon-form, ignoring // conflicts with [/api/v2/pokemon/{id}/, /api/v2/pokemon-color/, /api/v2/pokemon-color/{id}/, /api/v2/pokemon-form/, /api/v2/pokemon-form/{id}/, /api/v2/pokemon-habitat/, /api/v2/pokemon-habitat/{id}/, /api/v2/pokemon/, /api/v2/pokemon-shape/, /api/v2/pokemon-shape/{id}/, /api/v2/pokemon-species/, /api/v2/pokemon-species/{id}/] after/api/v2/pokemon, ignoring @cask.get("/api/v2/pokemon-form/")
         def pokemonFormList(request: cask.Request, limit : Option[Int], offset : Option[Int], q : Option[String]) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
@@ -665,8 +627,6 @@ class PokemonRoutes(service : PokemonService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/pokemon-form/{id}/, /api/v2/pokemon-form/] after/api/v2/pokemon-form, ignoring // conflicts with [/api/v2/pokemon/{id}/, /api/v2/pokemon-color/, /api/v2/pokemon-color/{id}/, /api/v2/pokemon-form/, /api/v2/pokemon-form/{id}/, /api/v2/pokemon-habitat/, /api/v2/pokemon-habitat/{id}/, /api/v2/pokemon/, /api/v2/pokemon-shape/, /api/v2/pokemon-shape/{id}/, /api/v2/pokemon-species/, /api/v2/pokemon-species/{id}/] after/api/v2/pokemon, ignoring @cask.get("/api/v2/pokemon-form/:id/")
         def pokemonFormRetrieve(id : String, request: cask.Request) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
@@ -689,8 +649,6 @@ class PokemonRoutes(service : PokemonService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/pokemon-habitat/{id}/, /api/v2/pokemon-habitat/] after/api/v2/pokemon-habitat, ignoring // conflicts with [/api/v2/pokemon/{id}/, /api/v2/pokemon-color/, /api/v2/pokemon-color/{id}/, /api/v2/pokemon-form/, /api/v2/pokemon-form/{id}/, /api/v2/pokemon-habitat/, /api/v2/pokemon-habitat/{id}/, /api/v2/pokemon/, /api/v2/pokemon-shape/, /api/v2/pokemon-shape/{id}/, /api/v2/pokemon-species/, /api/v2/pokemon-species/{id}/] after/api/v2/pokemon, ignoring @cask.get("/api/v2/pokemon-habitat/")
         def pokemonHabitatList(request: cask.Request, limit : Option[Int], offset : Option[Int], q : Option[String]) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
@@ -712,8 +670,6 @@ class PokemonRoutes(service : PokemonService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/pokemon-habitat/{id}/, /api/v2/pokemon-habitat/] after/api/v2/pokemon-habitat, ignoring // conflicts with [/api/v2/pokemon/{id}/, /api/v2/pokemon-color/, /api/v2/pokemon-color/{id}/, /api/v2/pokemon-form/, /api/v2/pokemon-form/{id}/, /api/v2/pokemon-habitat/, /api/v2/pokemon-habitat/{id}/, /api/v2/pokemon/, /api/v2/pokemon-shape/, /api/v2/pokemon-shape/{id}/, /api/v2/pokemon-species/, /api/v2/pokemon-species/{id}/] after/api/v2/pokemon, ignoring @cask.get("/api/v2/pokemon-habitat/:id/")
         def pokemonHabitatRetrieve(id : String, request: cask.Request) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
@@ -736,8 +692,6 @@ class PokemonRoutes(service : PokemonService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/pokemon/{id}/, /api/v2/pokemon-color/, /api/v2/pokemon-color/{id}/, /api/v2/pokemon-form/, /api/v2/pokemon-form/{id}/, /api/v2/pokemon-habitat/, /api/v2/pokemon-habitat/{id}/, /api/v2/pokemon/, /api/v2/pokemon-shape/, /api/v2/pokemon-shape/{id}/, /api/v2/pokemon-species/, /api/v2/pokemon-species/{id}/] after/api/v2/pokemon, ignoring @cask.get("/api/v2/pokemon/")
         def pokemonList(request: cask.Request, limit : Option[Int], offset : Option[Int], q : Option[String]) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
@@ -759,8 +713,6 @@ class PokemonRoutes(service : PokemonService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/pokemon/{id}/, /api/v2/pokemon-color/, /api/v2/pokemon-color/{id}/, /api/v2/pokemon-form/, /api/v2/pokemon-form/{id}/, /api/v2/pokemon-habitat/, /api/v2/pokemon-habitat/{id}/, /api/v2/pokemon/, /api/v2/pokemon-shape/, /api/v2/pokemon-shape/{id}/, /api/v2/pokemon-species/, /api/v2/pokemon-species/{id}/] after/api/v2/pokemon, ignoring @cask.get("/api/v2/pokemon/:id/")
         def pokemonRetrieve(id : String, request: cask.Request) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
@@ -783,8 +735,6 @@ class PokemonRoutes(service : PokemonService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/pokemon-shape/{id}/, /api/v2/pokemon-shape/] after/api/v2/pokemon-shape, ignoring // conflicts with [/api/v2/pokemon/{id}/, /api/v2/pokemon-color/, /api/v2/pokemon-color/{id}/, /api/v2/pokemon-form/, /api/v2/pokemon-form/{id}/, /api/v2/pokemon-habitat/, /api/v2/pokemon-habitat/{id}/, /api/v2/pokemon/, /api/v2/pokemon-shape/, /api/v2/pokemon-shape/{id}/, /api/v2/pokemon-species/, /api/v2/pokemon-species/{id}/] after/api/v2/pokemon, ignoring @cask.get("/api/v2/pokemon-shape/")
         def pokemonShapeList(request: cask.Request, limit : Option[Int], offset : Option[Int], q : Option[String]) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
@@ -806,8 +756,6 @@ class PokemonRoutes(service : PokemonService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/pokemon-shape/{id}/, /api/v2/pokemon-shape/] after/api/v2/pokemon-shape, ignoring // conflicts with [/api/v2/pokemon/{id}/, /api/v2/pokemon-color/, /api/v2/pokemon-color/{id}/, /api/v2/pokemon-form/, /api/v2/pokemon-form/{id}/, /api/v2/pokemon-habitat/, /api/v2/pokemon-habitat/{id}/, /api/v2/pokemon/, /api/v2/pokemon-shape/, /api/v2/pokemon-shape/{id}/, /api/v2/pokemon-species/, /api/v2/pokemon-species/{id}/] after/api/v2/pokemon, ignoring @cask.get("/api/v2/pokemon-shape/:id/")
         def pokemonShapeRetrieve(id : String, request: cask.Request) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
@@ -830,8 +778,6 @@ class PokemonRoutes(service : PokemonService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/pokemon/{id}/, /api/v2/pokemon-color/, /api/v2/pokemon-color/{id}/, /api/v2/pokemon-form/, /api/v2/pokemon-form/{id}/, /api/v2/pokemon-habitat/, /api/v2/pokemon-habitat/{id}/, /api/v2/pokemon/, /api/v2/pokemon-shape/, /api/v2/pokemon-shape/{id}/, /api/v2/pokemon-species/, /api/v2/pokemon-species/{id}/] after/api/v2/pokemon, ignoring // conflicts with [/api/v2/pokemon-species/{id}/, /api/v2/pokemon-species/] after/api/v2/pokemon-species, ignoring @cask.get("/api/v2/pokemon-species/")
         def pokemonSpeciesList(request: cask.Request, limit : Option[Int], offset : Option[Int], q : Option[String]) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
@@ -853,8 +799,6 @@ class PokemonRoutes(service : PokemonService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/pokemon/{id}/, /api/v2/pokemon-color/, /api/v2/pokemon-color/{id}/, /api/v2/pokemon-form/, /api/v2/pokemon-form/{id}/, /api/v2/pokemon-habitat/, /api/v2/pokemon-habitat/{id}/, /api/v2/pokemon/, /api/v2/pokemon-shape/, /api/v2/pokemon-shape/{id}/, /api/v2/pokemon-species/, /api/v2/pokemon-species/{id}/] after/api/v2/pokemon, ignoring // conflicts with [/api/v2/pokemon-species/{id}/, /api/v2/pokemon-species/] after/api/v2/pokemon-species, ignoring @cask.get("/api/v2/pokemon-species/:id/")
         def pokemonSpeciesRetrieve(id : String, request: cask.Request) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
@@ -877,8 +821,6 @@ class PokemonRoutes(service : PokemonService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/stat/{id}/, /api/v2/stat/] after/api/v2/stat, ignoring @cask.get("/api/v2/stat/")
         def statList(request: cask.Request, limit : Option[Int], offset : Option[Int], q : Option[String]) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
@@ -900,8 +842,6 @@ class PokemonRoutes(service : PokemonService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/stat/{id}/, /api/v2/stat/] after/api/v2/stat, ignoring @cask.get("/api/v2/stat/:id/")
         def statRetrieve(id : String, request: cask.Request) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
@@ -924,8 +864,6 @@ class PokemonRoutes(service : PokemonService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/type/{id}/, /api/v2/type/] after/api/v2/type, ignoring @cask.get("/api/v2/type/")
         def typeList(request: cask.Request, limit : Option[Int], offset : Option[Int], q : Option[String]) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
@@ -947,8 +885,6 @@ class PokemonRoutes(service : PokemonService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/type/{id}/, /api/v2/type/] after/api/v2/type, ignoring @cask.get("/api/v2/type/:id/")
         def typeRetrieve(id : String, request: cask.Request) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 

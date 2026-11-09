@@ -9,7 +9,7 @@ EvolutionTriggerDetail::EvolutionTriggerDetail()
 	id = int(0);
 	name = std::string();
 	names = std::list<EvolutionTriggerName>();
-	pokemon_species = std::list<AbilityDetail_pokemon_inner_pokemon>();
+	pokemon_species = std::list<PokemonSpeciesSummary>();
 }
 
 EvolutionTriggerDetail::EvolutionTriggerDetail(std::string jsonString)
@@ -82,8 +82,8 @@ EvolutionTriggerDetail::fromJson(std::string jsonObj)
         bourne::json value = object[pokemon_speciesKey];
 
 
-        std::list<AbilityDetail_pokemon_inner_pokemon> pokemon_species_list;
-        AbilityDetail_pokemon_inner_pokemon element;
+        std::list<PokemonSpeciesSummary> pokemon_species_list;
+        PokemonSpeciesSummary element;
         for(auto& var : value.array_range())
         {
 
@@ -137,12 +137,12 @@ EvolutionTriggerDetail::toJson()
 
 
 
-    std::list<AbilityDetail_pokemon_inner_pokemon> pokemon_species_list = getPokemonSpecies();
+    std::list<PokemonSpeciesSummary> pokemon_species_list = getPokemonSpecies();
     bourne::json pokemon_species_arr = bourne::json::array();
 
     for(auto& var : pokemon_species_list)
     {
-        AbilityDetail_pokemon_inner_pokemon obj = var;
+        PokemonSpeciesSummary obj = var;
         pokemon_species_arr.append(obj.toJson());
     }
     object["pokemon_species"] = pokemon_species_arr;
@@ -190,14 +190,14 @@ EvolutionTriggerDetail::setNames(std::list<EvolutionTriggerName> names)
 	this->names = names;
 }
 
-std::list<AbilityDetail_pokemon_inner_pokemon>
+std::list<PokemonSpeciesSummary>
 EvolutionTriggerDetail::getPokemonSpecies()
 {
 	return pokemon_species;
 }
 
 void
-EvolutionTriggerDetail::setPokemonSpecies(std::list<AbilityDetail_pokemon_inner_pokemon> pokemon_species)
+EvolutionTriggerDetail::setPokemonSpecies(std::list<PokemonSpeciesSummary> pokemon_species)
 {
 	this->pokemon_species = pokemon_species;
 }

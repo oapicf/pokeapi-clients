@@ -7,21 +7,21 @@ authors     = ["F. Bar (foo@bar.baz)"]
 
 imports {
   Root = tosca.resourceTypes.Root
-  AbilityDetailPokemonInnerPokemon = openapi_server.resourceTypes.AbilityDetailPokemonInnerPokemon
+  EggGroupSummary = openapi_server.resourceTypes.EggGroupSummary
   EvolutionChainSummary = openapi_server.resourceTypes.EvolutionChainSummary
   GenerationSummary = openapi_server.resourceTypes.GenerationSummary
   GrowthRateSummary = openapi_server.resourceTypes.GrowthRateSummary
   PokemonColorSummary = openapi_server.resourceTypes.PokemonColorSummary
   PokemonDexEntry = openapi_server.resourceTypes.PokemonDexEntry
-  PokemonFormDetailFormNamesInner = openapi_server.resourceTypes.PokemonFormDetailFormNamesInner
   PokemonHabitatSummary = openapi_server.resourceTypes.PokemonHabitatSummary
   PokemonShapeSummary = openapi_server.resourceTypes.PokemonShapeSummary
   PokemonSpeciesDescription = openapi_server.resourceTypes.PokemonSpeciesDescription
-  PokemonSpeciesDetailGeneraInner = openapi_server.resourceTypes.PokemonSpeciesDetailGeneraInner
-  PokemonSpeciesDetailPalParkEncountersInner = openapi_server.resourceTypes.PokemonSpeciesDetailPalParkEncountersInner
-  PokemonSpeciesDetailVarietiesInner = openapi_server.resourceTypes.PokemonSpeciesDetailVarietiesInner
   PokemonSpeciesFlavorText = openapi_server.resourceTypes.PokemonSpeciesFlavorText
+  PokemonSpeciesGenus = openapi_server.resourceTypes.PokemonSpeciesGenus
+  PokemonSpeciesName = openapi_server.resourceTypes.PokemonSpeciesName
+  PokemonSpeciesPalParkEncounter = openapi_server.resourceTypes.PokemonSpeciesPalParkEncounter
   PokemonSpeciesSummary = openapi_server.resourceTypes.PokemonSpeciesSummary
+  PokemonSpeciesVariety = openapi_server.resourceTypes.PokemonSpeciesVariety
 }
 resourceTypes {
 
@@ -32,145 +32,145 @@ resourceTypes {
     properties {
         id {
           type =  integer
-          description = ""
+          description = "The identifier for this resource."
           optional = true
         }
         name {
           type =  string
-          description = ""
+          description = "The name for this resource."
           optional = true
         }
         order {
           type =  integer
-          description = ""
+          description = "The order in which species should be sorted. Based on National Dex order, except families are grouped together and sorted by stage."
           optional = false
         }
         gender_rate {
           type =  integer
-          description = ""
+          description = "The chance of this Pokémon being female, in eighths; or -1 for genderless."
           optional = false
         }
         capture_rate {
           type =  integer
-          description = ""
+          description = "The base capture rate; up to 255. The higher the number, the easier the catch."
           optional = false
         }
         base_happiness {
           type =  integer
-          description = ""
+          description = "The happiness when caught by a normal Pokéball; up to 255. The higher the number, the happier the Pokémon."
           optional = false
         }
         is_baby {
           type =  boolean
-          description = ""
+          description = "Whether or not this is a baby Pokémon."
           optional = false
         }
         is_legendary {
           type =  boolean
-          description = ""
+          description = "Whether or not this is a legendary Pokémon."
           optional = false
         }
         is_mythical {
           type =  boolean
-          description = ""
+          description = "Whether or not this is a mythical Pokémon."
           optional = false
         }
         hatch_counter {
           type =  integer
-          description = ""
+          description = "Initial hatch counter: one must walk Y × (hatch_counter + 1) steps before this Pokémon&#39;s egg hatches, unless utilizing bonuses like Flame Body&#39;s. Y varies per generation. In Generations II, III, and VII, Egg cycles are 256 steps long. In Generation IV, Egg cycles are 255 steps long. In Pokémon Brilliant Diamond and Shining Pearl, Egg cycles are also 255 steps long, but are shorter on special dates. In Generations V and VI, Egg cycles are 257 steps long. In Pokémon Sword and Shield, and in Pokémon Scarlet and Violet, Egg cycles are 128 steps long."
           optional = false
         }
         has_gender_differences {
           type =  boolean
-          description = ""
+          description = "Whether or not this Pokémon has visual gender differences."
           optional = false
         }
         forms_switchable {
           type =  boolean
-          description = ""
+          description = "Whether or not this Pokémon has multiple forms and can switch between them."
           optional = false
         }
         growth_rate {
           type = GrowthRateSummary
-          description = ""
+          description = "The rate at which this Pokémon species gains levels."
           optional = true
         }
         pokedex_numbers {
           type = array
           items.type = PokemonDexEntry
-          description = ""
+          description = "A list of Pokedexes and the indexes reserved within them for this Pokémon species."
           optional = true
         }
         egg_groups {
           type = array
-          items.type = AbilityDetailPokemonInnerPokemon
-          description = ""
+          items.type = EggGroupSummary
+          description = "A list of egg groups this Pokémon species is a member of."
           optional = true
         }
         color {
           type = PokemonColorSummary
-          description = ""
+          description = "The color of this Pokémon for Pokédex search."
           optional = true
         }
         shape {
           type = PokemonShapeSummary
-          description = ""
+          description = "The shape of this Pokémon for Pokédex search."
           optional = true
         }
         evolves_from_species {
           type = PokemonSpeciesSummary
-          description = ""
+          description = "The Pokémon species that evolves into this Pokemon_species."
           optional = true
         }
         evolution_chain {
           type = EvolutionChainSummary
-          description = ""
+          description = "The evolution chain this Pokémon species is a member of."
           optional = true
         }
         habitat {
           type = PokemonHabitatSummary
-          description = ""
+          description = "The habitat this Pokémon species can be encountered in."
           optional = true
         }
         generation {
           type = GenerationSummary
-          description = ""
+          description = "The generation this Pokémon species was introduced in."
           optional = true
         }
         names {
           type = array
-          items.type = PokemonFormDetailFormNamesInner
-          description = ""
+          items.type = PokemonSpeciesName
+          description = "The name of this resource listed in different languages."
           optional = true
         }
         pal_park_encounters {
           type = array
-          items.type = PokemonSpeciesDetailPalParkEncountersInner
-          description = ""
+          items.type = PokemonSpeciesPalParkEncounter
+          description = "A list of encounters that can be had with this Pokémon species in pal park."
           optional = true
         }
         form_descriptions {
           type = array
           items.type = PokemonSpeciesDescription
-          description = ""
+          description = "Descriptions of different forms Pokémon take on within the Pokémon species."
           optional = true
         }
         flavor_text_entries {
           type = array
           items.type = PokemonSpeciesFlavorText
-          description = ""
+          description = "A list of flavor text entries for this Pokémon species."
           optional = true
         }
         genera {
           type = array
-          items.type = PokemonSpeciesDetailGeneraInner
-          description = ""
+          items.type = PokemonSpeciesGenus
+          description = "The genus of this Pokémon species listed in multiple languages."
           optional = true
         }
         varieties {
           type = array
-          items.type = PokemonSpeciesDetailVarietiesInner
-          description = ""
+          items.type = PokemonSpeciesVariety
+          description = "A list of the Pokémon that exist within this Pokémon species."
           optional = true
         }
     }

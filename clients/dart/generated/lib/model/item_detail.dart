@@ -15,7 +15,6 @@ class ItemDetail {
   ItemDetail({
     required this.id,
     required this.name,
-    this.cost,
     this.flingPower,
     required this.flingEffect,
     this.attributes = const [],
@@ -23,6 +22,7 @@ class ItemDetail {
     this.effectEntries = const [],
     this.flavorTextEntries = const [],
     this.gameIndices = const [],
+    this.prices = const [],
     this.names = const [],
     this.heldByPokemon = const [],
     required this.sprites,
@@ -30,41 +30,58 @@ class ItemDetail {
     this.machines = const [],
   });
 
+  /// The identifier for this resource.
   int id;
 
+  /// The name for this resource.
   String name;
 
-  int? cost;
-
+  /// The power of the move Fling when used with this item.
+  ///
+  /// Minimum value: -2147483648
+  /// Maximum value: 2147483647
   int? flingPower;
 
-  ItemFlingEffectSummary flingEffect;
+  /// The effect of the move Fling when used with this item.
+  ItemFlingEffectSummary? flingEffect;
 
-  List<AbilityDetailPokemonInnerPokemon> attributes;
+  /// A list of attributes this item has.
+  List<ItemAttributeSummary> attributes;
 
+  /// The category of items this item falls into.
   ItemCategorySummary category;
 
+  /// The effect of this ability listed in different languages.
   List<ItemEffectText> effectEntries;
 
+  /// The flavor text of this ability listed in different languages.
   List<ItemFlavorText> flavorTextEntries;
 
+  /// A list of game indices relevent to this item by generation.
   List<ItemGameIndex> gameIndices;
 
+  /// Purchase and sell prices by currency and version group. Prices may be null when the item cannot be bought or sold.
+  List<ItemPrice> prices;
+
+  /// The name of this item listed in different languages.
   List<ItemName> names;
 
-  List<ItemDetailHeldByPokemonInner> heldByPokemon;
+  /// A list of Pokémon that might be found in the wild holding this item.
+  List<PokemonHeldItem> heldByPokemon;
 
-  ItemDetailSprites sprites;
+  /// A set of sprites used to depict this item in the game.
+  ItemSprites sprites;
 
-  ItemDetailBabyTriggerFor babyTriggerFor;
+  /// An evolution chain this item requires to produce a bay during mating.
+  EvolutionChainSummary? babyTriggerFor;
 
-  List<ItemDetailMachinesInner> machines;
+  /// A list of the machines related to this item.
+  List<ItemMachine> machines;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is ItemDetail &&
     other.id == id &&
     other.name == name &&
-    other.cost == cost &&
     other.flingPower == flingPower &&
     other.flingEffect == flingEffect &&
     _deepEquality.equals(other.attributes, attributes) &&
@@ -72,6 +89,7 @@ class ItemDetail {
     _deepEquality.equals(other.effectEntries, effectEntries) &&
     _deepEquality.equals(other.flavorTextEntries, flavorTextEntries) &&
     _deepEquality.equals(other.gameIndices, gameIndices) &&
+    _deepEquality.equals(other.prices, prices) &&
     _deepEquality.equals(other.names, names) &&
     _deepEquality.equals(other.heldByPokemon, heldByPokemon) &&
     other.sprites == sprites &&
@@ -83,47 +101,51 @@ class ItemDetail {
     // ignore: unnecessary_parenthesis
     (id.hashCode) +
     (name.hashCode) +
-    (cost == null ? 0 : cost!.hashCode) +
     (flingPower == null ? 0 : flingPower!.hashCode) +
-    (flingEffect.hashCode) +
+    (flingEffect == null ? 0 : flingEffect!.hashCode) +
     (attributes.hashCode) +
     (category.hashCode) +
     (effectEntries.hashCode) +
     (flavorTextEntries.hashCode) +
     (gameIndices.hashCode) +
+    (prices.hashCode) +
     (names.hashCode) +
     (heldByPokemon.hashCode) +
     (sprites.hashCode) +
-    (babyTriggerFor.hashCode) +
+    (babyTriggerFor == null ? 0 : babyTriggerFor!.hashCode) +
     (machines.hashCode);
 
   @override
-  String toString() => 'ItemDetail[id=$id, name=$name, cost=$cost, flingPower=$flingPower, flingEffect=$flingEffect, attributes=$attributes, category=$category, effectEntries=$effectEntries, flavorTextEntries=$flavorTextEntries, gameIndices=$gameIndices, names=$names, heldByPokemon=$heldByPokemon, sprites=$sprites, babyTriggerFor=$babyTriggerFor, machines=$machines]';
+  String toString() => 'ItemDetail[id=$id, name=$name, flingPower=$flingPower, flingEffect=$flingEffect, attributes=$attributes, category=$category, effectEntries=$effectEntries, flavorTextEntries=$flavorTextEntries, gameIndices=$gameIndices, prices=$prices, names=$names, heldByPokemon=$heldByPokemon, sprites=$sprites, babyTriggerFor=$babyTriggerFor, machines=$machines]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
       json[r'id'] = this.id;
       json[r'name'] = this.name;
-    if (this.cost != null) {
-      json[r'cost'] = this.cost;
-    } else {
-      json[r'cost'] = null;
-    }
     if (this.flingPower != null) {
       json[r'fling_power'] = this.flingPower;
     } else {
       json[r'fling_power'] = null;
     }
+    if (this.flingEffect != null) {
       json[r'fling_effect'] = this.flingEffect;
+    } else {
+      json[r'fling_effect'] = null;
+    }
       json[r'attributes'] = this.attributes;
       json[r'category'] = this.category;
       json[r'effect_entries'] = this.effectEntries;
       json[r'flavor_text_entries'] = this.flavorTextEntries;
       json[r'game_indices'] = this.gameIndices;
+      json[r'prices'] = this.prices;
       json[r'names'] = this.names;
       json[r'held_by_pokemon'] = this.heldByPokemon;
       json[r'sprites'] = this.sprites;
+    if (this.babyTriggerFor != null) {
       json[r'baby_trigger_for'] = this.babyTriggerFor;
+    } else {
+      json[r'baby_trigger_for'] = null;
+    }
       json[r'machines'] = this.machines;
     return json;
   }
@@ -144,7 +166,6 @@ class ItemDetail {
         assert(json.containsKey(r'name'), 'Required key "ItemDetail[name]" is missing from JSON.');
         assert(json[r'name'] != null, 'Required key "ItemDetail[name]" has a null value in JSON.');
         assert(json.containsKey(r'fling_effect'), 'Required key "ItemDetail[fling_effect]" is missing from JSON.');
-        assert(json[r'fling_effect'] != null, 'Required key "ItemDetail[fling_effect]" has a null value in JSON.');
         assert(json.containsKey(r'attributes'), 'Required key "ItemDetail[attributes]" is missing from JSON.');
         assert(json[r'attributes'] != null, 'Required key "ItemDetail[attributes]" has a null value in JSON.');
         assert(json.containsKey(r'category'), 'Required key "ItemDetail[category]" is missing from JSON.');
@@ -155,6 +176,8 @@ class ItemDetail {
         assert(json[r'flavor_text_entries'] != null, 'Required key "ItemDetail[flavor_text_entries]" has a null value in JSON.');
         assert(json.containsKey(r'game_indices'), 'Required key "ItemDetail[game_indices]" is missing from JSON.');
         assert(json[r'game_indices'] != null, 'Required key "ItemDetail[game_indices]" has a null value in JSON.');
+        assert(json.containsKey(r'prices'), 'Required key "ItemDetail[prices]" is missing from JSON.');
+        assert(json[r'prices'] != null, 'Required key "ItemDetail[prices]" has a null value in JSON.');
         assert(json.containsKey(r'names'), 'Required key "ItemDetail[names]" is missing from JSON.');
         assert(json[r'names'] != null, 'Required key "ItemDetail[names]" has a null value in JSON.');
         assert(json.containsKey(r'held_by_pokemon'), 'Required key "ItemDetail[held_by_pokemon]" is missing from JSON.');
@@ -162,7 +185,6 @@ class ItemDetail {
         assert(json.containsKey(r'sprites'), 'Required key "ItemDetail[sprites]" is missing from JSON.');
         assert(json[r'sprites'] != null, 'Required key "ItemDetail[sprites]" has a null value in JSON.');
         assert(json.containsKey(r'baby_trigger_for'), 'Required key "ItemDetail[baby_trigger_for]" is missing from JSON.');
-        assert(json[r'baby_trigger_for'] != null, 'Required key "ItemDetail[baby_trigger_for]" has a null value in JSON.');
         assert(json.containsKey(r'machines'), 'Required key "ItemDetail[machines]" is missing from JSON.');
         assert(json[r'machines'] != null, 'Required key "ItemDetail[machines]" has a null value in JSON.');
         return true;
@@ -171,19 +193,19 @@ class ItemDetail {
       return ItemDetail(
         id: mapValueOfType<int>(json, r'id')!,
         name: mapValueOfType<String>(json, r'name')!,
-        cost: mapValueOfType<int>(json, r'cost'),
         flingPower: mapValueOfType<int>(json, r'fling_power'),
-        flingEffect: ItemFlingEffectSummary.fromJson(json[r'fling_effect'])!,
-        attributes: AbilityDetailPokemonInnerPokemon.listFromJson(json[r'attributes']),
+        flingEffect: ItemFlingEffectSummary.fromJson(json[r'fling_effect']),
+        attributes: ItemAttributeSummary.listFromJson(json[r'attributes']),
         category: ItemCategorySummary.fromJson(json[r'category'])!,
         effectEntries: ItemEffectText.listFromJson(json[r'effect_entries']),
         flavorTextEntries: ItemFlavorText.listFromJson(json[r'flavor_text_entries']),
         gameIndices: ItemGameIndex.listFromJson(json[r'game_indices']),
+        prices: ItemPrice.listFromJson(json[r'prices']),
         names: ItemName.listFromJson(json[r'names']),
-        heldByPokemon: ItemDetailHeldByPokemonInner.listFromJson(json[r'held_by_pokemon']),
-        sprites: ItemDetailSprites.fromJson(json[r'sprites'])!,
-        babyTriggerFor: ItemDetailBabyTriggerFor.fromJson(json[r'baby_trigger_for'])!,
-        machines: ItemDetailMachinesInner.listFromJson(json[r'machines']),
+        heldByPokemon: PokemonHeldItem.listFromJson(json[r'held_by_pokemon']),
+        sprites: ItemSprites.fromJson(json[r'sprites'])!,
+        babyTriggerFor: EvolutionChainSummary.fromJson(json[r'baby_trigger_for']),
+        machines: ItemMachine.listFromJson(json[r'machines']),
       );
     }
     return null;
@@ -239,6 +261,7 @@ class ItemDetail {
     'effect_entries',
     'flavor_text_entries',
     'game_indices',
+    'prices',
     'names',
     'held_by_pokemon',
     'sprites',

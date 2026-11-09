@@ -14,9 +14,9 @@ PokedexDetail::PokedexDetail()
 , isMainSeries(false)
 , descriptions(std::vector<PokedexDescription>())
 , names(std::vector<PokedexName>())
-, pokemonEntries(std::vector<PokedexDetail_pokemon_entries_inner>())
-, region(RegionSummary())
-, versionGroups(std::vector<PokedexDetail_version_groups_inner>())
+, pokemonEntries(std::vector<PokemonDexNumber>())
+, region(std::nullopt)
+, versionGroups(std::vector<VersionGroupSummary>())
 {
 }
 // =========================================
@@ -45,7 +45,7 @@ std::vector<PokedexName> PokedexDetail::getNames() const
 {
     return names;
 }
-std::vector<PokedexDetail_pokemon_entries_inner> PokedexDetail::getPokemonEntries() const
+std::vector<PokemonDexNumber> PokedexDetail::getPokemonEntries() const
 {
     return pokemonEntries;
 }
@@ -53,7 +53,7 @@ RegionSummary PokedexDetail::getRegion() const
 {
     return region;
 }
-std::vector<PokedexDetail_version_groups_inner> PokedexDetail::getVersionGroups() const
+std::vector<VersionGroupSummary> PokedexDetail::getVersionGroups() const
 {
     return versionGroups;
 }
@@ -81,7 +81,7 @@ void PokedexDetail::setNames(const std::vector<PokedexName>& namesObj)
 {
     names = namesObj;
 }
-void PokedexDetail::setPokemonEntries(const std::vector<PokedexDetail_pokemon_entries_inner>& pokemonEntriesObj)
+void PokedexDetail::setPokemonEntries(const std::vector<PokemonDexNumber>& pokemonEntriesObj)
 {
     pokemonEntries = pokemonEntriesObj;
 }
@@ -89,7 +89,7 @@ void PokedexDetail::setRegion(const RegionSummary& regionObj)
 {
     region = regionObj;
 }
-void PokedexDetail::setVersionGroups(const std::vector<PokedexDetail_version_groups_inner>& versionGroupsObj)
+void PokedexDetail::setVersionGroups(const std::vector<VersionGroupSummary>& versionGroupsObj)
 {
     versionGroups = versionGroupsObj;
 }

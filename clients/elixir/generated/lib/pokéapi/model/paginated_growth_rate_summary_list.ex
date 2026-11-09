@@ -15,10 +15,10 @@ defmodule PokéAPI.Model.PaginatedGrowthRateSummaryList do
   ]
 
   @type t :: %__MODULE__{
-    :count => integer() | nil,
+    :count => integer(),
     :next => Uri | nil,
     :previous => Uri | nil,
-    :results => [PokéAPI.Model.GrowthRateSummary.t] | nil
+    :results => [PokéAPI.Model.GrowthRateSummary.t]
   }
 
   alias PokéAPI.Deserializer

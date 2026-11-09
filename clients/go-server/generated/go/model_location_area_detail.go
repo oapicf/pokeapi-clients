@@ -3,9 +3,9 @@
 /*
  * PokéAPI
  *
- * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+ * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
  *
- * API version: 2.7.0
+ * API version: 2.10.0
  * Contact: blah+oapicf@cliffano.com
  */
 
@@ -13,6 +13,7 @@ package openapi
 
 
 import (
+	"errors"
 	"encoding/json"
 	"fmt"
 )
@@ -21,19 +22,26 @@ import (
 
 type LocationAreaDetail struct {
 
+	// The identifier for this resource.
 	Id int32 `json:"id"`
 
+	// The name for this resource.
 	Name string `json:"name"`
 
+	// The internal id of an API resource within game data.
 	GameIndex int32 `json:"game_index"`
 
-	EncounterMethodRates []LocationAreaDetailEncounterMethodRatesInner `json:"encounter_method_rates"`
+	// A list of methods in which Pokémon may be encountered in this area and how likely the method will occur depending on the version of the game.
+	EncounterMethodRates []LocationAreaEncounterRate `json:"encounter_method_rates"`
 
+	// The region this location area can be found in.
 	Location LocationSummary `json:"location"`
 
+	// The name of this resource listed in different languages.
 	Names []LocationAreaName `json:"names"`
 
-	PokemonEncounters []LocationAreaDetailPokemonEncountersInner `json:"pokemon_encounters"`
+	// A list of Pokémon that can be encountered in this area along with version specific details about the encounter.
+	PokemonEncounters []LocationAreaPokemonEncounter `json:"pokemon_encounters"`
 }
 // UnmarshalJSON validates required property keys then unmarshals into LocationAreaDetail
 func (o *LocationAreaDetail) UnmarshalJSON(data []byte) (err error) {
@@ -148,6 +156,12 @@ func AssertLocationAreaDetailRequired(obj LocationAreaDetail) error {
 
 // AssertLocationAreaDetailConstraints checks if the values respects the defined constraints
 func AssertLocationAreaDetailConstraints(obj LocationAreaDetail) error {
+	if obj.GameIndex < -2147483648 {
+		return &ParsingError{Param: "GameIndex", Err: errors.New(errMsgMinValueConstraint)}
+	}
+	if obj.GameIndex > 2147483647 {
+		return &ParsingError{Param: "GameIndex", Err: errors.New(errMsgMaxValueConstraint)}
+	}
 	if err := AssertLocationSummaryConstraints(obj.Location); err != nil {
 		return err
 	}

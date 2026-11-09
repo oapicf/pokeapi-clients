@@ -1,17 +1,47 @@
 from typing import List, Dict
 from aiohttp import web
 
+from openapi_server.models.currency_detail import CurrencyDetail
 from openapi_server.models.item_attribute_detail import ItemAttributeDetail
 from openapi_server.models.item_category_detail import ItemCategoryDetail
 from openapi_server.models.item_detail import ItemDetail
 from openapi_server.models.item_fling_effect_detail import ItemFlingEffectDetail
 from openapi_server.models.item_pocket_detail import ItemPocketDetail
+from openapi_server.models.paginated_currency_summary_list import PaginatedCurrencySummaryList
 from openapi_server.models.paginated_item_attribute_summary_list import PaginatedItemAttributeSummaryList
 from openapi_server.models.paginated_item_category_summary_list import PaginatedItemCategorySummaryList
 from openapi_server.models.paginated_item_fling_effect_summary_list import PaginatedItemFlingEffectSummaryList
 from openapi_server.models.paginated_item_pocket_summary_list import PaginatedItemPocketSummaryList
 from openapi_server.models.paginated_item_summary_list import PaginatedItemSummaryList
 from openapi_server import util
+
+
+async def currency_list(request: web.Request, limit=None, offset=None, q=None) -> web.Response:
+    """List currencies
+
+    Currencies used to buy items.
+
+    :param limit: Number of results to return per page.
+    :type limit: int
+    :param offset: The initial index from which to return the results.
+    :type offset: int
+    :param q: &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. 
+    :type q: str
+
+    """
+    return web.Response(status=200)
+
+
+async def currency_retrieve(request: web.Request, id) -> web.Response:
+    """Get currency
+
+    Currencies used to buy items.
+
+    :param id: This parameter can be a string or an integer.
+    :type id: str
+
+    """
+    return web.Response(status=200)
 
 
 async def item_attribute_list(request: web.Request, limit=None, offset=None, q=None) -> web.Response:

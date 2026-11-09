@@ -7,7 +7,7 @@ using namespace Tiny;
 LocationAreaName::LocationAreaName()
 {
 	name = std::string();
-	language = LanguageSummary();
+	language = null;
 }
 
 LocationAreaName::LocationAreaName(std::string jsonString)

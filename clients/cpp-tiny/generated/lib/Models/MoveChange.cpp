@@ -10,9 +10,9 @@ MoveChange::MoveChange()
 	power = int(0);
 	pp = int(0);
 	effect_chance = int(0);
-	effect_entries = std::list<MoveChange_effect_entries_inner>();
-	type = TypeSummary();
-	version_group = VersionGroupSummary();
+	effect_entries = std::list<MoveEffectEffectText>();
+	type = null;
+	version_group = null;
 }
 
 MoveChange::MoveChange(std::string jsonString)
@@ -89,8 +89,8 @@ MoveChange::fromJson(std::string jsonObj)
         bourne::json value = object[effect_entriesKey];
 
 
-        std::list<MoveChange_effect_entries_inner> effect_entries_list;
-        MoveChange_effect_entries_inner element;
+        std::list<MoveEffectEffectText> effect_entries_list;
+        MoveEffectEffectText element;
         for(auto& var : value.array_range())
         {
 
@@ -171,12 +171,12 @@ MoveChange::toJson()
 
 
 
-    std::list<MoveChange_effect_entries_inner> effect_entries_list = getEffectEntries();
+    std::list<MoveEffectEffectText> effect_entries_list = getEffectEntries();
     bourne::json effect_entries_arr = bourne::json::array();
 
     for(auto& var : effect_entries_list)
     {
-        MoveChange_effect_entries_inner obj = var;
+        MoveEffectEffectText obj = var;
         effect_entries_arr.append(obj.toJson());
     }
     object["effect_entries"] = effect_entries_arr;
@@ -250,14 +250,14 @@ MoveChange::setEffectChance(int effect_chance)
 	this->effect_chance = effect_chance;
 }
 
-std::list<MoveChange_effect_entries_inner>
+std::list<MoveEffectEffectText>
 MoveChange::getEffectEntries()
 {
 	return effect_entries;
 }
 
 void
-MoveChange::setEffectEntries(std::list<MoveChange_effect_entries_inner> effect_entries)
+MoveChange::setEffectEntries(std::list<MoveEffectEffectText> effect_entries)
 {
 	this->effect_entries = effect_entries;
 }

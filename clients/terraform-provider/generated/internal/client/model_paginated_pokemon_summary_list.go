@@ -4,8 +4,8 @@ package client
 
 // PaginatedPokemonSummaryList - PaginatedPokemonSummaryList struct
 type PaginatedPokemonSummaryList struct {
-	Count int32 `json:"count,omitempty"`
+	Count int32 `json:"count"`
 	Next string `json:"next,omitempty"`
 	Previous string `json:"previous,omitempty"`
-	Results []PokemonSummary `json:"results,omitempty"`
+	Results []PokemonSummary `json:"results"`
 }

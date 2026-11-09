@@ -15,82 +15,94 @@
                 
                 
                 ; [@key "id"]
-                                              name: string
+                    (** The identifier for this resource. *)
+                                      name: string
                   
                   
                 
                 
                 ; [@key "name"]
-                                              cost: int32
-                  
-                   option [@default None]
-                
-                
-                ; [@key "cost"]
-                                              fling_power: int32
+                    (** The name for this resource. *)
+                                      fling_power: int32
                   
                    option [@default None]
                 
                 
                 ; [@key "fling_power"]
-                                              fling_effect: Item_fling_effect_summary.t
-                  
+                    (** The power of the move Fling when used with this item. *)
+                                      fling_effect: Item_fling_effect_summary.t
+                   option
                   
                 
                 
                 ; [@key "fling_effect"]
-                                              attributes: Ability_detail_pokemon_inner_pokemon.t list
+                    (** The effect of the move Fling when used with this item. *)
+                                      attributes: Item_attribute_summary.t list
                 
                 
                 ; [@key "attributes"]
-                                              category: Item_category_summary.t
+                    (** A list of attributes this item has. *)
+                                      category: Item_category_summary.t
                   
                   
                 
                 
                 ; [@key "category"]
-                                              effect_entries: Item_effect_text.t list
+                    (** The category of items this item falls into. *)
+                                      effect_entries: Item_effect_text.t list
                 
                 
                 ; [@key "effect_entries"]
-                                              flavor_text_entries: Item_flavor_text.t list
+                    (** The effect of this ability listed in different languages. *)
+                                      flavor_text_entries: Item_flavor_text.t list
                 
                 
                 ; [@key "flavor_text_entries"]
-                                              game_indices: Item_game_index.t list
+                    (** The flavor text of this ability listed in different languages. *)
+                                      game_indices: Item_game_index.t list
                 
                 
                 ; [@key "game_indices"]
-                                              names: Item_name.t list
+                    (** A list of game indices relevent to this item by generation. *)
+                                      prices: Item_price.t list
+                
+                
+                ; [@key "prices"]
+                    (** Purchase and sell prices by currency and version group. Prices may be null when the item cannot be bought or sold. *)
+                                      names: Item_name.t list
                 
                 
                 ; [@key "names"]
-                                              held_by_pokemon: Item_detail_held_by_pokemon_inner.t list
+                    (** The name of this item listed in different languages. *)
+                                      held_by_pokemon: Pokemon_held_item.t list
                 
                 
                 ; [@key "held_by_pokemon"]
-                                              sprites: Item_detail_sprites.t
+                    (** A list of Pokémon that might be found in the wild holding this item. *)
+                                      sprites: Item_sprites.t
                   
                   
                 
                 
                 ; [@key "sprites"]
-                                              baby_trigger_for: Item_detail_baby_trigger_for.t
-                  
+                    (** A set of sprites used to depict this item in the game. *)
+                                      baby_trigger_for: Evolution_chain_summary.t
+                   option
                   
                 
                 
                 ; [@key "baby_trigger_for"]
-                                              machines: Item_detail_machines_inner.t list
+                    (** An evolution chain this item requires to produce a bay during mating. *)
+                                      machines: Item_machine.t list
                 
                 
                 ; [@key "machines"]
-                        } [@@deriving yojson { strict = false }, show, eq ];;
+                    (** A list of the machines related to this item. *)
+                } [@@deriving yojson { strict = false }, show, eq ];;
         
-        let create (id : int32) (name : string) (fling_effect : Item_fling_effect_summary.t) (attributes : Ability_detail_pokemon_inner_pokemon.t list) (category : Item_category_summary.t) (effect_entries : Item_effect_text.t list) (flavor_text_entries : Item_flavor_text.t list) (game_indices : Item_game_index.t list) (names : Item_name.t list) (held_by_pokemon : Item_detail_held_by_pokemon_inner.t list) (sprites : Item_detail_sprites.t) (baby_trigger_for : Item_detail_baby_trigger_for.t) (machines : Item_detail_machines_inner.t list) : t = {
+        let create (id : int32) (name : string) (fling_effect : Item_fling_effect_summary.t option) (attributes : Item_attribute_summary.t list) (category : Item_category_summary.t) (effect_entries : Item_effect_text.t list) (flavor_text_entries : Item_flavor_text.t list) (game_indices : Item_game_index.t list) (prices : Item_price.t list) (names : Item_name.t list) (held_by_pokemon : Pokemon_held_item.t list) (sprites : Item_sprites.t) (baby_trigger_for : Evolution_chain_summary.t option) (machines : Item_machine.t list) : t = {
             id = id;
             name = name;
-            cost = None;
             fling_power = None;
             fling_effect = fling_effect;
             attributes = attributes;
@@ -98,6 +110,7 @@
             effect_entries = effect_entries;
             flavor_text_entries = flavor_text_entries;
             game_indices = game_indices;
+            prices = prices;
             names = names;
             held_by_pokemon = held_by_pokemon;
             sprites = sprites;

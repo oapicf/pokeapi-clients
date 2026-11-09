@@ -16,7 +16,7 @@ import org.openapitools.model.ItemSummary;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-10-25T05:47:53.227411880Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-11-09T13:49:15.621225368Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class ItemCategoryDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -34,6 +34,7 @@ public class ItemCategoryDetail   {
   private ItemPocketSummary pocket;
 
   /**
+   * The identifier for this resource.
    **/
   public ItemCategoryDetail id(Integer id) {
     this.id = id;
@@ -41,7 +42,7 @@ public class ItemCategoryDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   @JsonProperty("id")
   public Integer getId() {
     return id;
@@ -51,6 +52,7 @@ public class ItemCategoryDetail   {
   }
 
   /**
+   * The name for this resource.
    **/
   public ItemCategoryDetail name(String name) {
     this.name = name;
@@ -58,7 +60,7 @@ public class ItemCategoryDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   @JsonProperty("name")
   public String getName() {
     return name;
@@ -68,6 +70,7 @@ public class ItemCategoryDetail   {
   }
 
   /**
+   * A list of items that are a part of this category.
    **/
   public ItemCategoryDetail items(List<ItemSummary> items) {
     this.items = items;
@@ -75,7 +78,7 @@ public class ItemCategoryDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of items that are a part of this category.")
   @JsonProperty("items")
   public List<ItemSummary> getItems() {
     return items;
@@ -85,6 +88,7 @@ public class ItemCategoryDetail   {
   }
 
   /**
+   * The name of this item category listed in different languages.
    **/
   public ItemCategoryDetail names(List<ItemCategoryName> names) {
     this.names = names;
@@ -92,7 +96,7 @@ public class ItemCategoryDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name of this item category listed in different languages.")
   @JsonProperty("names")
   public List<ItemCategoryName> getNames() {
     return names;
@@ -102,6 +106,7 @@ public class ItemCategoryDetail   {
   }
 
   /**
+   * The pocket items in this category would be put in.
    **/
   public ItemCategoryDetail pocket(ItemPocketSummary pocket) {
     this.pocket = pocket;
@@ -109,7 +114,7 @@ public class ItemCategoryDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The pocket items in this category would be put in.")
   @JsonProperty("pocket")
   public ItemPocketSummary getPocket() {
     return pocket;

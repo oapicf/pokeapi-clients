@@ -7,8 +7,8 @@ import org.openapitools.model.LanguageSummary;
 
 @Canonical
 class SuperContestEffectFlavorText {
-    
+    /* The localized flavor text for an API resource in a specific language. */
     String flavorText
-    
+    /* The language this name is in. */
     LanguageSummary language
 }

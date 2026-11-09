@@ -8,9 +8,13 @@
 import Foundation
 
 public struct ItemPocketDetail: Codable {
+    /// The identifier for this resource.
     public var id: Int
+    /// The name for this resource.
     public var name: String
+    /// A list of item categories that are relevant to this item pocket.
     public var categories: [ItemCategorySummary]
+    /// The name of this resource listed in different languages.
     public var names: [ItemPocketName]
 
     public init(id: Int, name: String, categories: [ItemCategorySummary], names: [ItemPocketName]) {

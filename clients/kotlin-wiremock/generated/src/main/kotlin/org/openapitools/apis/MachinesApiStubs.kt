@@ -23,15 +23,13 @@ open class MachinesApiStubs(private val objectMapper: ObjectMapper) {
      *
      * @param limit query parameter limit pattern.
      * @param offset query parameter offset pattern.
-     * @param q query parameter q pattern.
      * @param configurer configurer for the [MappingBuilder], allowing for arbitrary changes.
      * @return A [MachineListStubBuilder] to configure the response, and the final [MappingBuilder].
      */
-    fun machineList(limit: StringValuePattern? = null, offset: StringValuePattern? = null, q: StringValuePattern? = null, configurer: MappingBuilder.() -> MappingBuilder = { this }): MachineListStubBuilder =
+    fun machineList(limit: StringValuePattern? = null, offset: StringValuePattern? = null, configurer: MappingBuilder.() -> MappingBuilder = { this }): MachineListStubBuilder =
         MachineListStubBuilder(objectMapper, get(urlPathTemplate("/api/v2/machine/"))
             .apply { limit?.let { withQueryParam("limit", it) } }
             .apply { offset?.let { withQueryParam("offset", it) } }
-            .apply { q?.let { withQueryParam("q", it) } }
             .configurer()
         )
 

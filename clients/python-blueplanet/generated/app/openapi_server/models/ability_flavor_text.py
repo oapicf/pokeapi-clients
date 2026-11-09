@@ -58,6 +58,7 @@ class AbilityFlavorText(Model):
     def flavor_text(self) -> str:
         """Gets the flavor_text of this AbilityFlavorText.
 
+        The localized name for an API resource in a specific language.  # noqa: E501
 
         :return: The flavor_text of this AbilityFlavorText.
         :rtype: str
@@ -68,6 +69,7 @@ class AbilityFlavorText(Model):
     def flavor_text(self, flavor_text: str):
         """Sets the flavor_text of this AbilityFlavorText.
 
+        The localized name for an API resource in a specific language.  # noqa: E501
 
         :param flavor_text: The flavor_text of this AbilityFlavorText.
         :type flavor_text: str
@@ -81,6 +83,7 @@ class AbilityFlavorText(Model):
     def language(self) -> LanguageSummary:
         """Gets the language of this AbilityFlavorText.
 
+        The language this text resource is in.  # noqa: E501
 
         :return: The language of this AbilityFlavorText.
         :rtype: LanguageSummary
@@ -91,6 +94,7 @@ class AbilityFlavorText(Model):
     def language(self, language: LanguageSummary):
         """Sets the language of this AbilityFlavorText.
 
+        The language this text resource is in.  # noqa: E501
 
         :param language: The language of this AbilityFlavorText.
         :type language: LanguageSummary
@@ -104,6 +108,7 @@ class AbilityFlavorText(Model):
     def version_group(self) -> VersionGroupSummary:
         """Gets the version_group of this AbilityFlavorText.
 
+        The version group that uses this flavor text.  # noqa: E501
 
         :return: The version_group of this AbilityFlavorText.
         :rtype: VersionGroupSummary
@@ -114,6 +119,7 @@ class AbilityFlavorText(Model):
     def version_group(self, version_group: VersionGroupSummary):
         """Sets the version_group of this AbilityFlavorText.
 
+        The version group that uses this flavor text.  # noqa: E501
 
         :param version_group: The version_group of this AbilityFlavorText.
         :type version_group: VersionGroupSummary

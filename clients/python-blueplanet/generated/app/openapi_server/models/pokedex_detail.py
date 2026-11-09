@@ -6,11 +6,11 @@ from datetime import date, datetime  # noqa: F401
 from typing import List, Dict  # noqa: F401
 
 from app.openapi_server.models.base_model import Model
-from app.openapi_server.models.ability_detail_pokemon_inner_pokemon import AbilityDetailPokemonInnerPokemon  # noqa: F401,E501
 from app.openapi_server.models.pokedex_description import PokedexDescription  # noqa: F401,E501
-from app.openapi_server.models.pokedex_detail_pokemon_entries_inner import PokedexDetailPokemonEntriesInner  # noqa: F401,E501
 from app.openapi_server.models.pokedex_name import PokedexName  # noqa: F401,E501
+from app.openapi_server.models.pokemon_dex_number import PokemonDexNumber  # noqa: F401,E501
 from app.openapi_server.models.region_summary import RegionSummary  # noqa: F401,E501
+from app.openapi_server.models.version_group_summary import VersionGroupSummary  # noqa: F401,E501
 from openapi_server import util
 
 
@@ -20,7 +20,7 @@ class PokedexDetail(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, id: int=None, name: str=None, is_main_series: bool=None, descriptions: List[PokedexDescription]=None, names: List[PokedexName]=None, pokemon_entries: List[PokedexDetailPokemonEntriesInner]=None, region: RegionSummary=None, version_groups: List[AbilityDetailPokemonInnerPokemon]=None):  # noqa: E501
+    def __init__(self, id: int=None, name: str=None, is_main_series: bool=None, descriptions: List[PokedexDescription]=None, names: List[PokedexName]=None, pokemon_entries: List[PokemonDexNumber]=None, region: RegionSummary=None, version_groups: List[VersionGroupSummary]=None):  # noqa: E501
         """PokedexDetail - a model defined in Swagger
 
         :param id: The id of this PokedexDetail.  # noqa: E501
@@ -34,11 +34,11 @@ class PokedexDetail(Model):
         :param names: The names of this PokedexDetail.  # noqa: E501
         :type names: List[PokedexName]
         :param pokemon_entries: The pokemon_entries of this PokedexDetail.  # noqa: E501
-        :type pokemon_entries: List[PokedexDetailPokemonEntriesInner]
+        :type pokemon_entries: List[PokemonDexNumber]
         :param region: The region of this PokedexDetail.  # noqa: E501
         :type region: RegionSummary
         :param version_groups: The version_groups of this PokedexDetail.  # noqa: E501
-        :type version_groups: List[AbilityDetailPokemonInnerPokemon]
+        :type version_groups: List[VersionGroupSummary]
         """
         self.swagger_types = {
             'id': int,
@@ -46,9 +46,9 @@ class PokedexDetail(Model):
             'is_main_series': bool,
             'descriptions': List[PokedexDescription],
             'names': List[PokedexName],
-            'pokemon_entries': List[PokedexDetailPokemonEntriesInner],
+            'pokemon_entries': List[PokemonDexNumber],
             'region': RegionSummary,
-            'version_groups': List[AbilityDetailPokemonInnerPokemon]
+            'version_groups': List[VersionGroupSummary]
         }
 
         self.attribute_map = {
@@ -86,6 +86,7 @@ class PokedexDetail(Model):
     def id(self) -> int:
         """Gets the id of this PokedexDetail.
 
+        The identifier for this resource.  # noqa: E501
 
         :return: The id of this PokedexDetail.
         :rtype: int
@@ -96,6 +97,7 @@ class PokedexDetail(Model):
     def id(self, id: int):
         """Sets the id of this PokedexDetail.
 
+        The identifier for this resource.  # noqa: E501
 
         :param id: The id of this PokedexDetail.
         :type id: int
@@ -109,6 +111,7 @@ class PokedexDetail(Model):
     def name(self) -> str:
         """Gets the name of this PokedexDetail.
 
+        The name for this resource.  # noqa: E501
 
         :return: The name of this PokedexDetail.
         :rtype: str
@@ -119,14 +122,15 @@ class PokedexDetail(Model):
     def name(self, name: str):
         """Sets the name of this PokedexDetail.
 
+        The name for this resource.  # noqa: E501
 
         :param name: The name of this PokedexDetail.
         :type name: str
         """
         if name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
-        if name is not None and len(name) > 100:
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `100`")  # noqa: E501
+        if name is not None and len(name) > 200:
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `200`")  # noqa: E501
 
         self._name = name
 
@@ -134,6 +138,7 @@ class PokedexDetail(Model):
     def is_main_series(self) -> bool:
         """Gets the is_main_series of this PokedexDetail.
 
+        Whether or not this Pokédex originated in the main series of the video games.  # noqa: E501
 
         :return: The is_main_series of this PokedexDetail.
         :rtype: bool
@@ -144,6 +149,7 @@ class PokedexDetail(Model):
     def is_main_series(self, is_main_series: bool):
         """Sets the is_main_series of this PokedexDetail.
 
+        Whether or not this Pokédex originated in the main series of the video games.  # noqa: E501
 
         :param is_main_series: The is_main_series of this PokedexDetail.
         :type is_main_series: bool
@@ -155,6 +161,7 @@ class PokedexDetail(Model):
     def descriptions(self) -> List[PokedexDescription]:
         """Gets the descriptions of this PokedexDetail.
 
+        The description of this resource listed in different languages.  # noqa: E501
 
         :return: The descriptions of this PokedexDetail.
         :rtype: List[PokedexDescription]
@@ -165,6 +172,7 @@ class PokedexDetail(Model):
     def descriptions(self, descriptions: List[PokedexDescription]):
         """Sets the descriptions of this PokedexDetail.
 
+        The description of this resource listed in different languages.  # noqa: E501
 
         :param descriptions: The descriptions of this PokedexDetail.
         :type descriptions: List[PokedexDescription]
@@ -178,6 +186,7 @@ class PokedexDetail(Model):
     def names(self) -> List[PokedexName]:
         """Gets the names of this PokedexDetail.
 
+        The name of this resource listed in different languages.  # noqa: E501
 
         :return: The names of this PokedexDetail.
         :rtype: List[PokedexName]
@@ -188,6 +197,7 @@ class PokedexDetail(Model):
     def names(self, names: List[PokedexName]):
         """Sets the names of this PokedexDetail.
 
+        The name of this resource listed in different languages.  # noqa: E501
 
         :param names: The names of this PokedexDetail.
         :type names: List[PokedexName]
@@ -198,22 +208,24 @@ class PokedexDetail(Model):
         self._names = names
 
     @property
-    def pokemon_entries(self) -> List[PokedexDetailPokemonEntriesInner]:
+    def pokemon_entries(self) -> List[PokemonDexNumber]:
         """Gets the pokemon_entries of this PokedexDetail.
 
+        A list of Pokémon catalogued in this Pokédex and their indexes.  # noqa: E501
 
         :return: The pokemon_entries of this PokedexDetail.
-        :rtype: List[PokedexDetailPokemonEntriesInner]
+        :rtype: List[PokemonDexNumber]
         """
         return self._pokemon_entries
 
     @pokemon_entries.setter
-    def pokemon_entries(self, pokemon_entries: List[PokedexDetailPokemonEntriesInner]):
+    def pokemon_entries(self, pokemon_entries: List[PokemonDexNumber]):
         """Sets the pokemon_entries of this PokedexDetail.
 
+        A list of Pokémon catalogued in this Pokédex and their indexes.  # noqa: E501
 
         :param pokemon_entries: The pokemon_entries of this PokedexDetail.
-        :type pokemon_entries: List[PokedexDetailPokemonEntriesInner]
+        :type pokemon_entries: List[PokemonDexNumber]
         """
         if pokemon_entries is None:
             raise ValueError("Invalid value for `pokemon_entries`, must not be `None`")  # noqa: E501
@@ -224,6 +236,7 @@ class PokedexDetail(Model):
     def region(self) -> RegionSummary:
         """Gets the region of this PokedexDetail.
 
+        The region this Pokédex catalogues Pokémon for.  # noqa: E501
 
         :return: The region of this PokedexDetail.
         :rtype: RegionSummary
@@ -234,6 +247,7 @@ class PokedexDetail(Model):
     def region(self, region: RegionSummary):
         """Sets the region of this PokedexDetail.
 
+        The region this Pokédex catalogues Pokémon for.  # noqa: E501
 
         :param region: The region of this PokedexDetail.
         :type region: RegionSummary
@@ -244,22 +258,24 @@ class PokedexDetail(Model):
         self._region = region
 
     @property
-    def version_groups(self) -> List[AbilityDetailPokemonInnerPokemon]:
+    def version_groups(self) -> List[VersionGroupSummary]:
         """Gets the version_groups of this PokedexDetail.
 
+        A list of version groups this Pokédex is relevant to.  # noqa: E501
 
         :return: The version_groups of this PokedexDetail.
-        :rtype: List[AbilityDetailPokemonInnerPokemon]
+        :rtype: List[VersionGroupSummary]
         """
         return self._version_groups
 
     @version_groups.setter
-    def version_groups(self, version_groups: List[AbilityDetailPokemonInnerPokemon]):
+    def version_groups(self, version_groups: List[VersionGroupSummary]):
         """Sets the version_groups of this PokedexDetail.
 
+        A list of version groups this Pokédex is relevant to.  # noqa: E501
 
         :param version_groups: The version_groups of this PokedexDetail.
-        :type version_groups: List[AbilityDetailPokemonInnerPokemon]
+        :type version_groups: List[VersionGroupSummary]
         """
         if version_groups is None:
             raise ValueError("Invalid value for `version_groups`, must not be `None`")  # noqa: E501

@@ -55,6 +55,7 @@ class PaginatedBerrySummaryList(Model):
     def count(self):
         """Gets the count of this PaginatedBerrySummaryList.
 
+        The total number of resources available from this API.
 
         :return: The count of this PaginatedBerrySummaryList.
         :rtype: int
@@ -65,10 +66,13 @@ class PaginatedBerrySummaryList(Model):
     def count(self, count):
         """Sets the count of this PaginatedBerrySummaryList.
 
+        The total number of resources available from this API.
 
         :param count: The count of this PaginatedBerrySummaryList.
         :type count: int
         """
+        if count is None:
+            raise ValueError("Invalid value for `count`, must not be `None`")
 
         self._count = count
 
@@ -76,6 +80,7 @@ class PaginatedBerrySummaryList(Model):
     def next(self):
         """Gets the next of this PaginatedBerrySummaryList.
 
+        The URL for the next page in the list, or null if there is no next page.
 
         :return: The next of this PaginatedBerrySummaryList.
         :rtype: str
@@ -86,6 +91,7 @@ class PaginatedBerrySummaryList(Model):
     def next(self, next):
         """Sets the next of this PaginatedBerrySummaryList.
 
+        The URL for the next page in the list, or null if there is no next page.
 
         :param next: The next of this PaginatedBerrySummaryList.
         :type next: str
@@ -97,6 +103,7 @@ class PaginatedBerrySummaryList(Model):
     def previous(self):
         """Gets the previous of this PaginatedBerrySummaryList.
 
+        The URL for the previous page in the list, or null if there is no previous page.
 
         :return: The previous of this PaginatedBerrySummaryList.
         :rtype: str
@@ -107,6 +114,7 @@ class PaginatedBerrySummaryList(Model):
     def previous(self, previous):
         """Sets the previous of this PaginatedBerrySummaryList.
 
+        The URL for the previous page in the list, or null if there is no previous page.
 
         :param previous: The previous of this PaginatedBerrySummaryList.
         :type previous: str
@@ -118,6 +126,7 @@ class PaginatedBerrySummaryList(Model):
     def results(self):
         """Gets the results of this PaginatedBerrySummaryList.
 
+        A list of API resources on this page.
 
         :return: The results of this PaginatedBerrySummaryList.
         :rtype: List[BerrySummary]
@@ -128,9 +137,12 @@ class PaginatedBerrySummaryList(Model):
     def results(self, results):
         """Sets the results of this PaginatedBerrySummaryList.
 
+        A list of API resources on this page.
 
         :param results: The results of this PaginatedBerrySummaryList.
         :type results: List[BerrySummary]
         """
+        if results is None:
+            raise ValueError("Invalid value for `results`, must not be `None`")
 
         self._results = results

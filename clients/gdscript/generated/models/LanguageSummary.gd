@@ -10,6 +10,7 @@ class_name LanguageSummary
 # LanguageSummary Model
 
 
+# The name of the referenced resource.
 # Required: True
 # isArray: false
 @export var name: String:
@@ -18,6 +19,7 @@ class_name LanguageSummary
 		name = value
 var __name__was__set := false
 
+# The URL of the referenced resource.
 # Required: True
 # isArray: false
 @export var url: URI:

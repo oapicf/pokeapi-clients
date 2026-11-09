@@ -3,11 +3,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **Int32** |  | [readonly] 
-**Name** | **String** |  | 
-**Descriptions** | [**MoveDamageClassDescription[]**](MoveDamageClassDescription.md) |  | [readonly] 
-**Moves** | [**MoveSummary[]**](MoveSummary.md) |  | [readonly] 
-**Names** | [**MoveDamageClassName[]**](MoveDamageClassName.md) |  | [readonly] 
+**Id** | **Int32** | The identifier for this resource. | [readonly] 
+**Name** | **String** | The name for this resource. | 
+**Descriptions** | [**MoveDamageClassDescription[]**](MoveDamageClassDescription.md) | The description of this resource listed in different languages. | [readonly] 
+**Moves** | [**MoveSummary[]**](MoveSummary.md) | A list of moves that fall into this damage class. | [readonly] 
+**Names** | [**MoveDamageClassName[]**](MoveDamageClassName.md) | The name of this resource listed in different languages. | [readonly] 
 
 ## Examples
 

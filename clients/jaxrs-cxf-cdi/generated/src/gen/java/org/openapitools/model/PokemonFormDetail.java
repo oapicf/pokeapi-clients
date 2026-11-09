@@ -8,9 +8,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
-import org.openapitools.model.PokemonDetailTypesInner;
-import org.openapitools.model.PokemonFormDetailFormNamesInner;
-import org.openapitools.model.PokemonFormDetailSprites;
+import org.openapitools.model.PokemonFormFlavorText;
+import org.openapitools.model.PokemonFormName;
+import org.openapitools.model.PokemonFormSprites;
+import org.openapitools.model.PokemonFormTriggerCondition;
+import org.openapitools.model.PokemonFormType;
 import org.openapitools.model.PokemonSummary;
 import org.openapitools.model.VersionGroupSummary;
 import javax.validation.constraints.*;
@@ -42,17 +44,22 @@ public class PokemonFormDetail   {
 
   private PokemonSummary pokemon;
 
-  private PokemonFormDetailSprites sprites;
+  private PokemonFormSprites sprites;
 
   private VersionGroupSummary versionGroup;
 
-  private List<@Valid PokemonFormDetailFormNamesInner> formNames = new ArrayList<>();
+  private List<@Valid PokemonFormName> formNames = new ArrayList<>();
 
-  private List<@Valid PokemonFormDetailFormNamesInner> names = new ArrayList<>();
+  private List<@Valid PokemonFormName> names = new ArrayList<>();
 
-  private List<@Valid PokemonDetailTypesInner> types = new ArrayList<>();
+  private List<@Valid PokemonFormType> types = new ArrayList<>();
+
+  private List<@Valid PokemonFormTriggerCondition> triggerConditions = new ArrayList<>();
+
+  private List<@Valid PokemonFormFlavorText> flavorTextEntries = new ArrayList<>();
 
   /**
+   * The identifier for this resource.
    **/
   public PokemonFormDetail id(Integer id) {
     this.id = id;
@@ -60,7 +67,7 @@ public class PokemonFormDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   @JsonProperty("id")
   @NotNull
   public Integer getId() {
@@ -72,6 +79,7 @@ public class PokemonFormDetail   {
 
 
   /**
+   * The name for this resource.
    **/
   public PokemonFormDetail name(String name) {
     this.name = name;
@@ -79,10 +87,10 @@ public class PokemonFormDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   @JsonProperty("name")
   @NotNull
- @Size(max=100)  public String getName() {
+ @Size(max=200)  public String getName() {
     return name;
   }
   public void setName(String name) {
@@ -91,6 +99,9 @@ public class PokemonFormDetail   {
 
 
   /**
+   * The order in which forms should be sorted within all forms. Multiple forms may have equal order, in which case they should fall back on sorting by name.
+   * minimum: -2147483648
+   * maximum: 2147483647
    **/
   public PokemonFormDetail order(Integer order) {
     this.order = order;
@@ -98,9 +109,9 @@ public class PokemonFormDetail   {
   }
 
   
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The order in which forms should be sorted within all forms. Multiple forms may have equal order, in which case they should fall back on sorting by name.")
   @JsonProperty("order")
-  public Integer getOrder() {
+ @Min(-2147483648) @Max(2147483647)  public Integer getOrder() {
     return order;
   }
   public void setOrder(Integer order) {
@@ -109,6 +120,9 @@ public class PokemonFormDetail   {
 
 
   /**
+   * The order in which forms should be sorted within a species&#39; forms.
+   * minimum: -2147483648
+   * maximum: 2147483647
    **/
   public PokemonFormDetail formOrder(Integer formOrder) {
     this.formOrder = formOrder;
@@ -116,9 +130,9 @@ public class PokemonFormDetail   {
   }
 
   
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The order in which forms should be sorted within a species' forms.")
   @JsonProperty("form_order")
-  public Integer getFormOrder() {
+ @Min(-2147483648) @Max(2147483647)  public Integer getFormOrder() {
     return formOrder;
   }
   public void setFormOrder(Integer formOrder) {
@@ -127,6 +141,7 @@ public class PokemonFormDetail   {
 
 
   /**
+   * True for exactly one form used as the default for each Pokémon.
    **/
   public PokemonFormDetail isDefault(Boolean isDefault) {
     this.isDefault = isDefault;
@@ -134,7 +149,7 @@ public class PokemonFormDetail   {
   }
 
   
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "True for exactly one form used as the default for each Pokémon.")
   @JsonProperty("is_default")
   public Boolean getIsDefault() {
     return isDefault;
@@ -145,6 +160,7 @@ public class PokemonFormDetail   {
 
 
   /**
+   * Whether or not this form can only happen during battle.
    **/
   public PokemonFormDetail isBattleOnly(Boolean isBattleOnly) {
     this.isBattleOnly = isBattleOnly;
@@ -152,7 +168,7 @@ public class PokemonFormDetail   {
   }
 
   
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Whether or not this form can only happen during battle.")
   @JsonProperty("is_battle_only")
   public Boolean getIsBattleOnly() {
     return isBattleOnly;
@@ -163,6 +179,7 @@ public class PokemonFormDetail   {
 
 
   /**
+   * Whether or not this form requires mega evolution.
    **/
   public PokemonFormDetail isMega(Boolean isMega) {
     this.isMega = isMega;
@@ -170,7 +187,7 @@ public class PokemonFormDetail   {
   }
 
   
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Whether or not this form requires mega evolution.")
   @JsonProperty("is_mega")
   public Boolean getIsMega() {
     return isMega;
@@ -181,6 +198,7 @@ public class PokemonFormDetail   {
 
 
   /**
+   * The name of this form.
    **/
   public PokemonFormDetail formName(String formName) {
     this.formName = formName;
@@ -188,7 +206,7 @@ public class PokemonFormDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name of this form.")
   @JsonProperty("form_name")
   @NotNull
  @Size(max=30)  public String getFormName() {
@@ -200,6 +218,7 @@ public class PokemonFormDetail   {
 
 
   /**
+   * The Pokémon that can take on this form.
    **/
   public PokemonFormDetail pokemon(PokemonSummary pokemon) {
     this.pokemon = pokemon;
@@ -207,7 +226,7 @@ public class PokemonFormDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The Pokémon that can take on this form.")
   @JsonProperty("pokemon")
   @NotNull
   public PokemonSummary getPokemon() {
@@ -219,25 +238,27 @@ public class PokemonFormDetail   {
 
 
   /**
+   * A set of sprites used to depict this Pokémon form in the game.
    **/
-  public PokemonFormDetail sprites(PokemonFormDetailSprites sprites) {
+  public PokemonFormDetail sprites(PokemonFormSprites sprites) {
     this.sprites = sprites;
     return this;
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A set of sprites used to depict this Pokémon form in the game.")
   @JsonProperty("sprites")
   @NotNull
-  public PokemonFormDetailSprites getSprites() {
+  public PokemonFormSprites getSprites() {
     return sprites;
   }
-  public void setSprites(PokemonFormDetailSprites sprites) {
+  public void setSprites(PokemonFormSprites sprites) {
     this.sprites = sprites;
   }
 
 
   /**
+   * The version group this Pokémon form was introduced in.
    **/
   public PokemonFormDetail versionGroup(VersionGroupSummary versionGroup) {
     this.versionGroup = versionGroup;
@@ -245,7 +266,7 @@ public class PokemonFormDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The version group this Pokémon form was introduced in.")
   @JsonProperty("version_group")
   @NotNull
   public VersionGroupSummary getVersionGroup() {
@@ -257,24 +278,25 @@ public class PokemonFormDetail   {
 
 
   /**
+   * The form specific form name of this Pokémon form, or empty if the form does not have a specific name.
    **/
-  public PokemonFormDetail formNames(List<@Valid PokemonFormDetailFormNamesInner> formNames) {
+  public PokemonFormDetail formNames(List<@Valid PokemonFormName> formNames) {
     this.formNames = formNames;
     return this;
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The form specific form name of this Pokémon form, or empty if the form does not have a specific name.")
   @JsonProperty("form_names")
   @NotNull
-  public List<@Valid PokemonFormDetailFormNamesInner> getFormNames() {
+  public List<@Valid PokemonFormName> getFormNames() {
     return formNames;
   }
-  public void setFormNames(List<@Valid PokemonFormDetailFormNamesInner> formNames) {
+  public void setFormNames(List<@Valid PokemonFormName> formNames) {
     this.formNames = formNames;
   }
 
-  public PokemonFormDetail addFormNamesItem(PokemonFormDetailFormNamesInner formNamesItem) {
+  public PokemonFormDetail addFormNamesItem(PokemonFormName formNamesItem) {
     if (this.formNames == null) {
       this.formNames = new ArrayList<>();
     }
@@ -284,24 +306,25 @@ public class PokemonFormDetail   {
 
 
   /**
+   * The form specific full name of this Pokémon form, or empty if the form does not have a specific name.
    **/
-  public PokemonFormDetail names(List<@Valid PokemonFormDetailFormNamesInner> names) {
+  public PokemonFormDetail names(List<@Valid PokemonFormName> names) {
     this.names = names;
     return this;
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The form specific full name of this Pokémon form, or empty if the form does not have a specific name.")
   @JsonProperty("names")
   @NotNull
-  public List<@Valid PokemonFormDetailFormNamesInner> getNames() {
+  public List<@Valid PokemonFormName> getNames() {
     return names;
   }
-  public void setNames(List<@Valid PokemonFormDetailFormNamesInner> names) {
+  public void setNames(List<@Valid PokemonFormName> names) {
     this.names = names;
   }
 
-  public PokemonFormDetail addNamesItem(PokemonFormDetailFormNamesInner namesItem) {
+  public PokemonFormDetail addNamesItem(PokemonFormName namesItem) {
     if (this.names == null) {
       this.names = new ArrayList<>();
     }
@@ -311,28 +334,85 @@ public class PokemonFormDetail   {
 
 
   /**
+   * A list of details showing types this Pokémon form has.
    **/
-  public PokemonFormDetail types(List<@Valid PokemonDetailTypesInner> types) {
+  public PokemonFormDetail types(List<@Valid PokemonFormType> types) {
     this.types = types;
     return this;
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of details showing types this Pokémon form has.")
   @JsonProperty("types")
   @NotNull
-  public List<@Valid PokemonDetailTypesInner> getTypes() {
+  public List<@Valid PokemonFormType> getTypes() {
     return types;
   }
-  public void setTypes(List<@Valid PokemonDetailTypesInner> types) {
+  public void setTypes(List<@Valid PokemonFormType> types) {
     this.types = types;
   }
 
-  public PokemonFormDetail addTypesItem(PokemonDetailTypesInner typesItem) {
+  public PokemonFormDetail addTypesItem(PokemonFormType typesItem) {
     if (this.types == null) {
       this.types = new ArrayList<>();
     }
     this.types.add(typesItem);
+    return this;
+  }
+
+
+  /**
+   * The conditions that trigger this form. Resource names and URLs are included when the trigger requires a resource.
+   **/
+  public PokemonFormDetail triggerConditions(List<@Valid PokemonFormTriggerCondition> triggerConditions) {
+    this.triggerConditions = triggerConditions;
+    return this;
+  }
+
+  
+  @ApiModelProperty(required = true, value = "The conditions that trigger this form. Resource names and URLs are included when the trigger requires a resource.")
+  @JsonProperty("trigger_conditions")
+  @NotNull
+  public List<@Valid PokemonFormTriggerCondition> getTriggerConditions() {
+    return triggerConditions;
+  }
+  public void setTriggerConditions(List<@Valid PokemonFormTriggerCondition> triggerConditions) {
+    this.triggerConditions = triggerConditions;
+  }
+
+  public PokemonFormDetail addTriggerConditionsItem(PokemonFormTriggerCondition triggerConditionsItem) {
+    if (this.triggerConditions == null) {
+      this.triggerConditions = new ArrayList<>();
+    }
+    this.triggerConditions.add(triggerConditionsItem);
+    return this;
+  }
+
+
+  /**
+   * The flavor text of this form listed in different languages and versions.
+   **/
+  public PokemonFormDetail flavorTextEntries(List<@Valid PokemonFormFlavorText> flavorTextEntries) {
+    this.flavorTextEntries = flavorTextEntries;
+    return this;
+  }
+
+  
+  @ApiModelProperty(required = true, value = "The flavor text of this form listed in different languages and versions.")
+  @JsonProperty("flavor_text_entries")
+  @NotNull
+  public List<@Valid PokemonFormFlavorText> getFlavorTextEntries() {
+    return flavorTextEntries;
+  }
+  public void setFlavorTextEntries(List<@Valid PokemonFormFlavorText> flavorTextEntries) {
+    this.flavorTextEntries = flavorTextEntries;
+  }
+
+  public PokemonFormDetail addFlavorTextEntriesItem(PokemonFormFlavorText flavorTextEntriesItem) {
+    if (this.flavorTextEntries == null) {
+      this.flavorTextEntries = new ArrayList<>();
+    }
+    this.flavorTextEntries.add(flavorTextEntriesItem);
     return this;
   }
 
@@ -360,12 +440,14 @@ public class PokemonFormDetail   {
         Objects.equals(this.versionGroup, pokemonFormDetail.versionGroup) &&
         Objects.equals(this.formNames, pokemonFormDetail.formNames) &&
         Objects.equals(this.names, pokemonFormDetail.names) &&
-        Objects.equals(this.types, pokemonFormDetail.types);
+        Objects.equals(this.types, pokemonFormDetail.types) &&
+        Objects.equals(this.triggerConditions, pokemonFormDetail.triggerConditions) &&
+        Objects.equals(this.flavorTextEntries, pokemonFormDetail.flavorTextEntries);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, order, formOrder, isDefault, isBattleOnly, isMega, formName, pokemon, sprites, versionGroup, formNames, names, types);
+    return Objects.hash(id, name, order, formOrder, isDefault, isBattleOnly, isMega, formName, pokemon, sprites, versionGroup, formNames, names, types, triggerConditions, flavorTextEntries);
   }
 
   @Override
@@ -387,6 +469,8 @@ public class PokemonFormDetail   {
     sb.append("    formNames: ").append(toIndentedString(formNames)).append("\n");
     sb.append("    names: ").append(toIndentedString(names)).append("\n");
     sb.append("    types: ").append(toIndentedString(types)).append("\n");
+    sb.append("    triggerConditions: ").append(toIndentedString(triggerConditions)).append("\n");
+    sb.append("    flavorTextEntries: ").append(toIndentedString(flavorTextEntries)).append("\n");
     sb.append("}");
     return sb.toString();
   }

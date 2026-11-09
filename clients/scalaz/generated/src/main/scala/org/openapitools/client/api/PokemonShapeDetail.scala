@@ -12,11 +12,16 @@ import org.joda.time.DateTime
 import PokemonShapeDetail._
 
 case class PokemonShapeDetail (
+  /* The identifier for this resource. */
   id: Integer,
-name: String,
-awesomeNames: List[PokemonShapeDetailAwesomeNamesInner],
-names: List[PokemonShapeDetailNamesInner],
-pokemonSpecies: List[PokemonSpeciesSummary])
+/* The name for this resource. */
+  name: String,
+/* The \"scientific\" name of this Pokémon shape listed in different languages. */
+  awesomeNames: List[PokemonShapeAwesomeName],
+/* The name of this resource listed in different languages. */
+  names: List[PokemonShapeName],
+/* A list of the Pokémon species that have this shape. */
+  pokemonSpecies: List[PokemonSpeciesSummary])
 
 object PokemonShapeDetail {
   import DateTimeCodecs._

@@ -17,7 +17,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("ItemGameIndex")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-11-09T13:50:06.168269698Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class ItemGameIndex   {
   private Integer gameIndex;
   private GenerationSummary generation;
@@ -35,6 +35,9 @@ public class ItemGameIndex   {
   }
 
   /**
+   * The internal id of an API resource within game data.
+   * minimum: -2147483648
+   * maximum: 2147483647
    **/
   public ItemGameIndex gameIndex(Integer gameIndex) {
     this.gameIndex = gameIndex;
@@ -42,9 +45,9 @@ public class ItemGameIndex   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The internal id of an API resource within game data.")
   @JsonProperty(required = true, value = "game_index")
-  @NotNull public Integer getGameIndex() {
+  @NotNull  @Min(-2147483648) @Max(2147483647)public Integer getGameIndex() {
     return gameIndex;
   }
 
@@ -54,6 +57,7 @@ public class ItemGameIndex   {
   }
 
   /**
+   * The generation relevent to this game index.
    **/
   public ItemGameIndex generation(GenerationSummary generation) {
     this.generation = generation;
@@ -61,7 +65,7 @@ public class ItemGameIndex   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The generation relevent to this game index.")
   @JsonProperty(required = true, value = "generation")
   @NotNull @Valid public GenerationSummary getGeneration() {
     return generation;

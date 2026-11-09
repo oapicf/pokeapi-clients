@@ -8,14 +8,14 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.model.PalParkAreaDetailPokemonEncountersInner;
 import org.openapitools.model.PalParkAreaName;
+import org.openapitools.model.PalParkEncounter;
 
 
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-10-25T05:47:53.227411880Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-11-09T13:49:15.621225368Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PalParkAreaDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -27,9 +27,10 @@ public class PalParkAreaDetail   {
   private List<PalParkAreaName> names = new ArrayList<>();
 
   @JsonProperty("pokemon_encounters")
-  private List<PalParkAreaDetailPokemonEncountersInner> pokemonEncounters = new ArrayList<>();
+  private List<PalParkEncounter> pokemonEncounters = new ArrayList<>();
 
   /**
+   * The identifier for this resource.
    **/
   public PalParkAreaDetail id(Integer id) {
     this.id = id;
@@ -37,7 +38,7 @@ public class PalParkAreaDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   @JsonProperty("id")
   public Integer getId() {
     return id;
@@ -47,6 +48,7 @@ public class PalParkAreaDetail   {
   }
 
   /**
+   * The name for this resource.
    **/
   public PalParkAreaDetail name(String name) {
     this.name = name;
@@ -54,7 +56,7 @@ public class PalParkAreaDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   @JsonProperty("name")
   public String getName() {
     return name;
@@ -64,6 +66,7 @@ public class PalParkAreaDetail   {
   }
 
   /**
+   * The name of this resource listed in different languages.
    **/
   public PalParkAreaDetail names(List<PalParkAreaName> names) {
     this.names = names;
@@ -71,7 +74,7 @@ public class PalParkAreaDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
   @JsonProperty("names")
   public List<PalParkAreaName> getNames() {
     return names;
@@ -81,19 +84,20 @@ public class PalParkAreaDetail   {
   }
 
   /**
+   * A list of Pokémon encountered in thi pal park area along with details.
    **/
-  public PalParkAreaDetail pokemonEncounters(List<PalParkAreaDetailPokemonEncountersInner> pokemonEncounters) {
+  public PalParkAreaDetail pokemonEncounters(List<PalParkEncounter> pokemonEncounters) {
     this.pokemonEncounters = pokemonEncounters;
     return this;
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of Pokémon encountered in thi pal park area along with details.")
   @JsonProperty("pokemon_encounters")
-  public List<PalParkAreaDetailPokemonEncountersInner> getPokemonEncounters() {
+  public List<PalParkEncounter> getPokemonEncounters() {
     return pokemonEncounters;
   }
-  public void setPokemonEncounters(List<PalParkAreaDetailPokemonEncountersInner> pokemonEncounters) {
+  public void setPokemonEncounters(List<PalParkEncounter> pokemonEncounters) {
     this.pokemonEncounters = pokemonEncounters;
   }
 

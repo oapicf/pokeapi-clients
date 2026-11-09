@@ -1,0 +1,264 @@
+#' Create a new AbilityPokemonDetail
+#'
+#' @description
+#' AbilityPokemonDetail Class
+#'
+#' @docType class
+#' @title AbilityPokemonDetail
+#' @description AbilityPokemonDetail Class
+#' @format An \code{R6Class} generator object
+#' @field is_hidden Whether or not this a hidden ability for the referenced Pokémon. character [optional]
+#' @field slot Pokémon have 3 ability 'slots' which hold references to possible abilities they could have. This is the slot of this ability for the referenced pokemon. integer
+#' @field pokemon The Pokémon this ability could belong to. \link{PokemonSummary}
+#' @importFrom R6 R6Class
+#' @importFrom jsonlite fromJSON toJSON
+#' @export
+AbilityPokemonDetail <- R6::R6Class(
+  "AbilityPokemonDetail",
+  public = list(
+    `is_hidden` = NULL,
+    `slot` = NULL,
+    `pokemon` = NULL,
+
+    #' @description
+    #' Initialize a new AbilityPokemonDetail class.
+    #'
+    #' @param slot Pokémon have 3 ability 'slots' which hold references to possible abilities they could have. This is the slot of this ability for the referenced pokemon.
+    #' @param pokemon The Pokémon this ability could belong to.
+    #' @param is_hidden Whether or not this a hidden ability for the referenced Pokémon.
+    #' @param ... Other optional arguments.
+    initialize = function(`slot`, `pokemon`, `is_hidden` = NULL, ...) {
+      if (!missing(`slot`)) {
+        if (!(is.numeric(`slot`) && length(`slot`) == 1)) {
+          stop(paste("Error! Invalid data for `slot`. Must be an integer:", `slot`))
+        }
+        self$`slot` <- `slot`
+      }
+      if (!missing(`pokemon`)) {
+        stopifnot(R6::is.R6(`pokemon`))
+        self$`pokemon` <- `pokemon`
+      }
+      if (!is.null(`is_hidden`)) {
+        if (!(is.logical(`is_hidden`) && length(`is_hidden`) == 1)) {
+          stop(paste("Error! Invalid data for `is_hidden`. Must be a boolean:", `is_hidden`))
+        }
+        self$`is_hidden` <- `is_hidden`
+      }
+    },
+
+    #' @description
+    #' Convert to an R object. This method is deprecated. Use `toSimpleType()` instead.
+    toJSON = function() {
+      .Deprecated(new = "toSimpleType", msg = "Use the '$toSimpleType()' method instead since that is more clearly named. Use '$toJSONString()' to get a JSON string")
+      return(self$toSimpleType())
+    },
+
+    #' @description
+    #' Convert to a List
+    #'
+    #' Convert the R6 object to a list to work more easily with other tooling.
+    #'
+    #' @return AbilityPokemonDetail as a base R list.
+    #' @examples
+    #' # convert array of AbilityPokemonDetail (x) to a data frame
+    #' \dontrun{
+    #' library(purrr)
+    #' library(tibble)
+    #' df <- x |> map(\(y)y$toList()) |> map(as_tibble) |> list_rbind()
+    #' df
+    #' }
+    toList = function() {
+      return(self$toSimpleType())
+    },
+
+    #' @description
+    #' Convert AbilityPokemonDetail to a base R type
+    #'
+    #' @return A base R type, e.g. a list or numeric/character array.
+    toSimpleType = function() {
+      AbilityPokemonDetailObject <- list()
+      if (!is.null(self$`is_hidden`)) {
+        AbilityPokemonDetailObject[["is_hidden"]] <-
+          self$`is_hidden`
+      }
+      if (!is.null(self$`slot`)) {
+        AbilityPokemonDetailObject[["slot"]] <-
+          self$`slot`
+      }
+      if (!is.null(self$`pokemon`)) {
+        AbilityPokemonDetailObject[["pokemon"]] <-
+          self$extractSimpleType(self$`pokemon`)
+      }
+      return(AbilityPokemonDetailObject)
+    },
+
+    extractSimpleType = function(x) {
+      if (R6::is.R6(x)) {
+        return(x$toSimpleType())
+      } else if (!self$hasNestedR6(x)) {
+        return(x)
+      }
+      lapply(x, self$extractSimpleType)
+    },
+
+    hasNestedR6 = function(x) {
+      if (R6::is.R6(x)) {
+        return(TRUE)
+      }
+      if (is.list(x)) {
+        for (item in x) {
+          if (self$hasNestedR6(item)) {
+            return(TRUE)
+          }
+        }
+      }
+      FALSE
+    },
+
+    #' @description
+    #' Deserialize JSON string into an instance of AbilityPokemonDetail
+    #'
+    #' @param input_json the JSON input
+    #' @return the instance of AbilityPokemonDetail
+    fromJSON = function(input_json) {
+      this_object <- jsonlite::fromJSON(input_json)
+      if (!is.null(this_object$`is_hidden`)) {
+        self$`is_hidden` <- this_object$`is_hidden`
+      }
+      if (!is.null(this_object$`slot`)) {
+        self$`slot` <- this_object$`slot`
+      }
+      if (!is.null(this_object$`pokemon`)) {
+        `pokemon_object` <- PokemonSummary$new()
+        `pokemon_object`$fromJSON(jsonlite::toJSON(this_object$`pokemon`, auto_unbox = TRUE, digits = NA))
+        self$`pokemon` <- `pokemon_object`
+      }
+      self
+    },
+
+    #' @description
+    #' To JSON String
+    #' 
+    #' @param ... Parameters passed to `jsonlite::toJSON`
+    #' @return AbilityPokemonDetail in JSON format
+    toJSONString = function(...) {
+      simple <- self$toSimpleType()
+      json <- jsonlite::toJSON(simple, auto_unbox = TRUE, digits = NA, ...)
+      return(as.character(jsonlite::minify(json)))
+    },
+
+    #' @description
+    #' Deserialize JSON string into an instance of AbilityPokemonDetail
+    #'
+    #' @param input_json the JSON input
+    #' @return the instance of AbilityPokemonDetail
+    fromJSONString = function(input_json) {
+      this_object <- jsonlite::fromJSON(input_json)
+      self$`is_hidden` <- this_object$`is_hidden`
+      self$`slot` <- this_object$`slot`
+      self$`pokemon` <- PokemonSummary$new()$fromJSON(jsonlite::toJSON(this_object$`pokemon`, auto_unbox = TRUE, digits = NA))
+      self
+    },
+
+    #' @description
+    #' Validate JSON input with respect to AbilityPokemonDetail and throw an exception if invalid
+    #'
+    #' @param input the JSON input
+    validateJSON = function(input) {
+      input_json <- jsonlite::fromJSON(input)
+      # check the required field `slot`
+      if (!is.null(input_json$`slot`)) {
+        if (!(is.numeric(input_json$`slot`) && length(input_json$`slot`) == 1)) {
+          stop(paste("Error! Invalid data for `slot`. Must be an integer:", input_json$`slot`))
+        }
+      } else {
+        stop(paste("The JSON input `", input, "` is invalid for AbilityPokemonDetail: the required field `slot` is missing."))
+      }
+      # check the required field `pokemon`
+      if (!is.null(input_json$`pokemon`)) {
+        stopifnot(R6::is.R6(input_json$`pokemon`))
+      } else {
+        stop(paste("The JSON input `", input, "` is invalid for AbilityPokemonDetail: the required field `pokemon` is missing."))
+      }
+    },
+
+    #' @description
+    #' To string (JSON format)
+    #'
+    #' @return String representation of AbilityPokemonDetail
+    toString = function() {
+      self$toJSONString()
+    },
+
+    #' @description
+    #' Return true if the values in all fields are valid.
+    #'
+    #' @return true if the values in all fields are valid.
+    isValid = function() {
+      # check if the required `slot` is null
+      if (is.null(self$`slot`)) {
+        return(FALSE)
+      }
+
+      if (self$`slot` > 2147483647) {
+        return(FALSE)
+      }
+      if (self$`slot` < -2147483648) {
+        return(FALSE)
+      }
+
+      # check if the required `pokemon` is null
+      if (is.null(self$`pokemon`)) {
+        return(FALSE)
+      }
+
+      TRUE
+    },
+
+    #' @description
+    #' Return a list of invalid fields (if any).
+    #'
+    #' @return A list of invalid fields (if any).
+    getInvalidFields = function() {
+      invalid_fields <- list()
+      # check if the required `slot` is null
+      if (is.null(self$`slot`)) {
+        invalid_fields["slot"] <- "Non-nullable required field `slot` cannot be null."
+      }
+
+      if (self$`slot` > 2147483647) {
+        invalid_fields["slot"] <- "Invalid value for `slot`, must be smaller than or equal to 2147483647."
+      }
+      if (self$`slot` < -2147483648) {
+        invalid_fields["slot"] <- "Invalid value for `slot`, must be bigger than or equal to -2147483648."
+      }
+
+      # check if the required `pokemon` is null
+      if (is.null(self$`pokemon`)) {
+        invalid_fields["pokemon"] <- "Non-nullable required field `pokemon` cannot be null."
+      }
+
+      invalid_fields
+    },
+
+    #' @description
+    #' Print the object
+    print = function() {
+      print(jsonlite::prettify(self$toJSONString()))
+      invisible(self)
+    }
+  ),
+  # Lock the class to prevent modifications to the method or field
+  lock_class = TRUE
+)
+## Uncomment below to unlock the class to allow modifications of the method or field
+# AbilityPokemonDetail$unlock()
+#
+## Below is an example to define the print function
+# AbilityPokemonDetail$set("public", "print", function(...) {
+#   print(jsonlite::prettify(self$toJSONString()))
+#   invisible(self)
+# })
+## Uncomment below to lock the class to prevent modifications to the method or field
+# AbilityPokemonDetail$lock()
+

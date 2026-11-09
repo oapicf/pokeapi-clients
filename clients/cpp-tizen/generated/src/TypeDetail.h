@@ -9,15 +9,15 @@
 
 
 #include <string>
-#include "AbilityName.h"
 #include "GenerationSummary.h"
 #include "MoveDamageClassSummary.h"
 #include "MoveSummary.h"
-#include "TypeDetail_damage_relations.h"
-#include "TypeDetail_past_damage_relations_inner.h"
-#include "TypeDetail_pokemon_inner.h"
-#include "TypeDetail_sprites_value_value.h"
 #include "TypeGameIndex.h"
+#include "TypeGameSprite.h"
+#include "TypeName.h"
+#include "TypePastRelationships.h"
+#include "TypePokemon.h"
+#include "TypeRelationships.h"
 #include <list>
 #include <map>
 #include "Object.h"
@@ -56,94 +56,94 @@ public:
 	 */
 	void fromJson(char* jsonStr);
 
-	/*! \brief Get 
+	/*! \brief Get The identifier for this resource.
 	 */
 	int getId();
 
-	/*! \brief Set 
+	/*! \brief Set The identifier for this resource.
 	 */
 	void setId(int  id);
-	/*! \brief Get 
+	/*! \brief Get The name for this resource.
 	 */
 	std::string getName();
 
-	/*! \brief Set 
+	/*! \brief Set The name for this resource.
 	 */
 	void setName(std::string  name);
-	/*! \brief Get 
+	/*! \brief Get A detail of how effective this type is toward others and vice versa.
 	 */
-	TypeDetail_damage_relations getDamageRelations();
+	TypeRelationships getDamageRelations();
 
-	/*! \brief Set 
+	/*! \brief Set A detail of how effective this type is toward others and vice versa.
 	 */
-	void setDamageRelations(TypeDetail_damage_relations  damage_relations);
-	/*! \brief Get 
+	void setDamageRelations(TypeRelationships  damage_relations);
+	/*! \brief Get A list of details of how effective this type was toward others and vice versa in previous generations
 	 */
-	std::list<TypeDetail_past_damage_relations_inner> getPastDamageRelations();
+	std::list<TypePastRelationships> getPastDamageRelations();
 
-	/*! \brief Set 
+	/*! \brief Set A list of details of how effective this type was toward others and vice versa in previous generations
 	 */
-	void setPastDamageRelations(std::list <TypeDetail_past_damage_relations_inner> past_damage_relations);
-	/*! \brief Get 
+	void setPastDamageRelations(std::list <TypePastRelationships> past_damage_relations);
+	/*! \brief Get A list of game indices relevent to this item by generation.
 	 */
 	std::list<TypeGameIndex> getGameIndices();
 
-	/*! \brief Set 
+	/*! \brief Set A list of game indices relevent to this item by generation.
 	 */
 	void setGameIndices(std::list <TypeGameIndex> game_indices);
-	/*! \brief Get 
+	/*! \brief Get The generation this type was introduced in.
 	 */
 	GenerationSummary getGeneration();
 
-	/*! \brief Set 
+	/*! \brief Set The generation this type was introduced in.
 	 */
 	void setGeneration(GenerationSummary  generation);
-	/*! \brief Get 
+	/*! \brief Get The class of damage inflicted by this type.
 	 */
 	MoveDamageClassSummary getMoveDamageClass();
 
-	/*! \brief Set 
+	/*! \brief Set The class of damage inflicted by this type.
 	 */
 	void setMoveDamageClass(MoveDamageClassSummary  move_damage_class);
-	/*! \brief Get 
+	/*! \brief Get The name of this resource listed in different languages.
 	 */
-	std::list<AbilityName> getNames();
+	std::list<TypeName> getNames();
 
-	/*! \brief Set 
+	/*! \brief Set The name of this resource listed in different languages.
 	 */
-	void setNames(std::list <AbilityName> names);
-	/*! \brief Get 
+	void setNames(std::list <TypeName> names);
+	/*! \brief Get A list of details of Pokémon that have this type.
 	 */
-	std::list<TypeDetail_pokemon_inner> getPokemon();
+	std::list<TypePokemon> getPokemon();
 
-	/*! \brief Set 
+	/*! \brief Set A list of details of Pokémon that have this type.
 	 */
-	void setPokemon(std::list <TypeDetail_pokemon_inner> pokemon);
-	/*! \brief Get 
+	void setPokemon(std::list <TypePokemon> pokemon);
+	/*! \brief Get A list of moves that have this type.
 	 */
 	std::list<MoveSummary> getMoves();
 
-	/*! \brief Set 
+	/*! \brief Set A list of moves that have this type.
 	 */
 	void setMoves(std::list <MoveSummary> moves);
-	/*! \brief Get 
+	/*! \brief Get Type icons grouped by generation and game, with name_icon and symbol_icon URLs. Unavailable icons are null.
 	 */
 	std::map<std::string, std::string> getSprites();
 
-	/*! \brief Set 
+	/*! \brief Set Type icons grouped by generation and game, with name_icon and symbol_icon URLs. Unavailable icons are null.
 	 */
 	void setSprites(std::map <std::string, std::string> sprites);
 
 private:
 	int id;
 	std::string name;
-	TypeDetail_damage_relations damage_relations;
-	std::list <TypeDetail_past_damage_relations_inner>past_damage_relations;
+	TypeRelationships damage_relations;
+	std::list <TypePastRelationships>past_damage_relations;
 	std::list <TypeGameIndex>game_indices;
 	GenerationSummary generation;
 	MoveDamageClassSummary move_damage_class;
-	std::list <AbilityName>names;
-	std::list <TypeDetail_pokemon_inner>pokemon;
+	std::list <TypeName>names;
+	std::list <TypePokemon>pokemon;
 	std::list <MoveSummary>moves;
 	std::map <std::string, std::string>sprites;
 	void __init();

@@ -9,7 +9,7 @@ MoveMetaCategoryDetail::MoveMetaCategoryDetail()
 	id = int(0);
 	name = std::string();
 	descriptions = std::list<MoveMetaCategoryDescription>();
-	moves = std::list<AbilityDetail_pokemon_inner_pokemon>();
+	moves = std::list<MoveSummary>();
 }
 
 MoveMetaCategoryDetail::MoveMetaCategoryDetail(std::string jsonString)
@@ -82,8 +82,8 @@ MoveMetaCategoryDetail::fromJson(std::string jsonObj)
         bourne::json value = object[movesKey];
 
 
-        std::list<AbilityDetail_pokemon_inner_pokemon> moves_list;
-        AbilityDetail_pokemon_inner_pokemon element;
+        std::list<MoveSummary> moves_list;
+        MoveSummary element;
         for(auto& var : value.array_range())
         {
 
@@ -137,12 +137,12 @@ MoveMetaCategoryDetail::toJson()
 
 
 
-    std::list<AbilityDetail_pokemon_inner_pokemon> moves_list = getMoves();
+    std::list<MoveSummary> moves_list = getMoves();
     bourne::json moves_arr = bourne::json::array();
 
     for(auto& var : moves_list)
     {
-        AbilityDetail_pokemon_inner_pokemon obj = var;
+        MoveSummary obj = var;
         moves_arr.append(obj.toJson());
     }
     object["moves"] = moves_arr;
@@ -190,14 +190,14 @@ MoveMetaCategoryDetail::setDescriptions(std::list<MoveMetaCategoryDescription> d
 	this->descriptions = descriptions;
 }
 
-std::list<AbilityDetail_pokemon_inner_pokemon>
+std::list<MoveSummary>
 MoveMetaCategoryDetail::getMoves()
 {
 	return moves;
 }
 
 void
-MoveMetaCategoryDetail::setMoves(std::list<AbilityDetail_pokemon_inner_pokemon> moves)
+MoveMetaCategoryDetail::setMoves(std::list<MoveSummary> moves)
 {
 	this->moves = moves;
 }

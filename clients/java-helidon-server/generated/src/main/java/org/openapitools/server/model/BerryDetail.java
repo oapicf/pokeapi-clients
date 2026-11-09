@@ -3,8 +3,9 @@ package org.openapitools.server.model;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.server.model.BerryDetailFlavorsInner;
+import org.openapitools.jackson.nullable.JsonNullable;
 import org.openapitools.server.model.BerryFirmnessSummary;
+import org.openapitools.server.model.BerryFlavorMap;
 import org.openapitools.server.model.ItemSummary;
 import org.openapitools.server.model.TypeSummary;
 import jakarta.validation.constraints.*;
@@ -23,7 +24,7 @@ public class BerryDetail   {
     private Integer smoothness;
     private Integer soilDryness;
     private BerryFirmnessSummary firmness;
-    private List<@Valid BerryDetailFlavorsInner> flavors = new ArrayList<>();
+    private List<@Valid BerryFlavorMap> flavors = new ArrayList<>();
     private ItemSummary item;
     private TypeSummary naturalGiftType;
 
@@ -37,18 +38,18 @@ public class BerryDetail   {
     /**
      * Create BerryDetail.
      *
-     * @param id id
-     * @param name name
-     * @param growthTime growthTime
-     * @param maxHarvest maxHarvest
-     * @param naturalGiftPower naturalGiftPower
-     * @param size size
-     * @param smoothness smoothness
-     * @param soilDryness soilDryness
-     * @param firmness firmness
-     * @param flavors flavors
-     * @param item item
-     * @param naturalGiftType naturalGiftType
+     * @param id The identifier for this resource.
+     * @param name The name for this resource.
+     * @param growthTime Time it takes the tree to grow one stage, in hours. Berry trees go through four of these growth stages before they can be picked.
+     * @param maxHarvest The maximum number of these berries that can grow on one tree in Generation IV.
+     * @param naturalGiftPower The power of the move \&quot;Natural Gift\&quot; when used with this Berry.
+     * @param size The size of this Berry, in millimeters.
+     * @param smoothness The smoothness of this Berry, used in making Pokéblocks or Poffins.
+     * @param soilDryness The speed at which this Berry dries out the soil as it grows. A higher rate means the soil dries more quickly.
+     * @param firmness The firmness of this berry, used in making Pokéblocks or Poffins.
+     * @param flavors A list of references to each flavor a berry can have and the potency of each of those flavors in regard to this berry.
+     * @param item Berries are actually items. This is a reference to the item specific data for this berry.
+     * @param naturalGiftType The type inherited by \&quot;Natural Gift\&quot; when used with this Berry.
      */
     public BerryDetail(
         Integer id, 
@@ -60,7 +61,7 @@ public class BerryDetail   {
         Integer smoothness, 
         Integer soilDryness, 
         BerryFirmnessSummary firmness, 
-        List<@Valid BerryDetailFlavorsInner> flavors, 
+        List<@Valid BerryFlavorMap> flavors, 
         ItemSummary item, 
         TypeSummary naturalGiftType
     ) {
@@ -81,7 +82,7 @@ public class BerryDetail   {
 
 
     /**
-     * Get id
+     * The identifier for this resource.
      * @return id
      */
     public Integer getId() {
@@ -93,7 +94,7 @@ public class BerryDetail   {
     }
 
     /**
-     * Get name
+     * The name for this resource.
      * @return name
      */
     public String getName() {
@@ -105,7 +106,9 @@ public class BerryDetail   {
     }
 
     /**
-     * Get growthTime
+     * Time it takes the tree to grow one stage, in hours. Berry trees go through four of these growth stages before they can be picked.
+     * minimum: -2147483648
+     * maximum: 2147483647
      * @return growthTime
      */
     public Integer getGrowthTime() {
@@ -117,7 +120,9 @@ public class BerryDetail   {
     }
 
     /**
-     * Get maxHarvest
+     * The maximum number of these berries that can grow on one tree in Generation IV.
+     * minimum: -2147483648
+     * maximum: 2147483647
      * @return maxHarvest
      */
     public Integer getMaxHarvest() {
@@ -129,7 +134,9 @@ public class BerryDetail   {
     }
 
     /**
-     * Get naturalGiftPower
+     * The power of the move \"Natural Gift\" when used with this Berry.
+     * minimum: -2147483648
+     * maximum: 2147483647
      * @return naturalGiftPower
      */
     public Integer getNaturalGiftPower() {
@@ -141,7 +148,9 @@ public class BerryDetail   {
     }
 
     /**
-     * Get size
+     * The size of this Berry, in millimeters.
+     * minimum: -2147483648
+     * maximum: 2147483647
      * @return size
      */
     public Integer getSize() {
@@ -153,7 +162,9 @@ public class BerryDetail   {
     }
 
     /**
-     * Get smoothness
+     * The smoothness of this Berry, used in making Pokéblocks or Poffins.
+     * minimum: -2147483648
+     * maximum: 2147483647
      * @return smoothness
      */
     public Integer getSmoothness() {
@@ -165,7 +176,9 @@ public class BerryDetail   {
     }
 
     /**
-     * Get soilDryness
+     * The speed at which this Berry dries out the soil as it grows. A higher rate means the soil dries more quickly.
+     * minimum: -2147483648
+     * maximum: 2147483647
      * @return soilDryness
      */
     public Integer getSoilDryness() {
@@ -177,7 +190,7 @@ public class BerryDetail   {
     }
 
     /**
-     * Get firmness
+     * The firmness of this berry, used in making Pokéblocks or Poffins.
      * @return firmness
      */
     public BerryFirmnessSummary getFirmness() {
@@ -189,19 +202,19 @@ public class BerryDetail   {
     }
 
     /**
-     * Get flavors
+     * A list of references to each flavor a berry can have and the potency of each of those flavors in regard to this berry.
      * @return flavors
      */
-    public List<@Valid BerryDetailFlavorsInner> getFlavors() {
+    public List<@Valid BerryFlavorMap> getFlavors() {
         return flavors;
     }
 
-    public void setFlavors(List<@Valid BerryDetailFlavorsInner> flavors) {
+    public void setFlavors(List<@Valid BerryFlavorMap> flavors) {
         this.flavors = flavors;
     }
 
     /**
-     * Get item
+     * Berries are actually items. This is a reference to the item specific data for this berry.
      * @return item
      */
     public ItemSummary getItem() {
@@ -213,7 +226,7 @@ public class BerryDetail   {
     }
 
     /**
-     * Get naturalGiftType
+     * The type inherited by \"Natural Gift\" when used with this Berry.
      * @return naturalGiftType
      */
     public TypeSummary getNaturalGiftType() {

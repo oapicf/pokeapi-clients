@@ -6,9 +6,9 @@ namespace App\DTO;
 use Articus\DataTransfer\Annotation as DTA;
 
 /**
- * @DTA\Strategy(name="ObjectList", options={"type":\App\DTO\BerryDetailFlavorsInner::class})
+ * @DTA\Strategy(name="ObjectList", options={"type":\App\DTO\BerryFlavorMap::class})
  * @DTA\Validator(name="Collection", options={"validators":{
- *     {"name":"TypeCompliant", "options":{"type":\App\DTO\BerryDetailFlavorsInner::class}}
+ *     {"name":"TypeCompliant", "options":{"type":\App\DTO\BerryFlavorMap::class}}
  * }})
  */
 class Collection8 extends \ArrayObject

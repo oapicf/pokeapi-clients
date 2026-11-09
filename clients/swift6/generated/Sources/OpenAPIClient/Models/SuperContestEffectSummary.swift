@@ -9,6 +9,7 @@ import Foundation
 
 public struct SuperContestEffectSummary: Sendable, Codable, Hashable {
 
+    /** The URL of the referenced resource. */
     public var url: String
 
     public init(url: String) {

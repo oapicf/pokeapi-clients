@@ -89,12 +89,12 @@ MoveMetaAilmentDetail::fromJson(char* jsonStr)
 		{
 			JsonArray* arr = json_node_get_array(node);
 			JsonNode*  temp_json;
-			list<AbilityDetail_pokemon_inner_pokemon> new_list;
-			AbilityDetail_pokemon_inner_pokemon inst;
+			list<MoveSummary> new_list;
+			MoveSummary inst;
 			for (guint i=0;i<json_array_get_length(arr);i++) {
 				temp_json = json_array_get_element(arr,i);
-				if (isprimitive("AbilityDetail_pokemon_inner_pokemon")) {
-					jsonToValue(&inst, temp_json, "AbilityDetail_pokemon_inner_pokemon", "");
+				if (isprimitive("MoveSummary")) {
+					jsonToValue(&inst, temp_json, "MoveSummary", "");
 				} else {
 					
 					inst.fromJson(json_to_string(temp_json, false));
@@ -160,18 +160,18 @@ MoveMetaAilmentDetail::toJson()
 	}
 	const gchar *nameKey = "name";
 	json_object_set_member(pJsonObject, nameKey, node);
-	if (isprimitive("AbilityDetail_pokemon_inner_pokemon")) {
-		list<AbilityDetail_pokemon_inner_pokemon> new_list = static_cast<list <AbilityDetail_pokemon_inner_pokemon> > (getMoves());
-		node = converttoJson(&new_list, "AbilityDetail_pokemon_inner_pokemon", "array");
+	if (isprimitive("MoveSummary")) {
+		list<MoveSummary> new_list = static_cast<list <MoveSummary> > (getMoves());
+		node = converttoJson(&new_list, "MoveSummary", "array");
 	} else {
 		node = json_node_alloc();
-		list<AbilityDetail_pokemon_inner_pokemon> new_list = static_cast<list <AbilityDetail_pokemon_inner_pokemon> > (getMoves());
+		list<MoveSummary> new_list = static_cast<list <MoveSummary> > (getMoves());
 		JsonArray* json_array = json_array_new();
 		GError *mygerror;
 		
-		for (list<AbilityDetail_pokemon_inner_pokemon>::iterator it = new_list.begin(); it != new_list.end(); it++) {
+		for (list<MoveSummary>::iterator it = new_list.begin(); it != new_list.end(); it++) {
 			mygerror = NULL;
-			AbilityDetail_pokemon_inner_pokemon obj = *it;
+			MoveSummary obj = *it;
 			JsonNode *node_temp = json_from_string(obj.toJson(), &mygerror);
 			json_array_add_element(json_array, node_temp);
 			g_clear_error(&mygerror);
@@ -242,14 +242,14 @@ MoveMetaAilmentDetail::setName(std::string  name)
 	this->name = name;
 }
 
-std::list<AbilityDetail_pokemon_inner_pokemon>
+std::list<MoveSummary>
 MoveMetaAilmentDetail::getMoves()
 {
 	return moves;
 }
 
 void
-MoveMetaAilmentDetail::setMoves(std::list <AbilityDetail_pokemon_inner_pokemon> moves)
+MoveMetaAilmentDetail::setMoves(std::list <MoveSummary> moves)
 {
 	this->moves = moves;
 }

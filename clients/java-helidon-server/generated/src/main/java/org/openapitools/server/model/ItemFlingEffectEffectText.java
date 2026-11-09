@@ -21,8 +21,8 @@ public class ItemFlingEffectEffectText   {
     /**
      * Create ItemFlingEffectEffectText.
      *
-     * @param effect effect
-     * @param language language
+     * @param effect The localized effect text for an API resource in a specific language.
+     * @param language The language this effect is in.
      */
     public ItemFlingEffectEffectText(
         String effect, 
@@ -35,7 +35,7 @@ public class ItemFlingEffectEffectText   {
 
 
     /**
-     * Get effect
+     * The localized effect text for an API resource in a specific language.
      * @return effect
      */
     public String getEffect() {
@@ -47,7 +47,7 @@ public class ItemFlingEffectEffectText   {
     }
 
     /**
-     * Get language
+     * The language this effect is in.
      * @return language
      */
     public LanguageSummary getLanguage() {

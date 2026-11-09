@@ -28,11 +28,11 @@ public class ContestEffectDetail   {
     /**
      * Create ContestEffectDetail.
      *
-     * @param id id
-     * @param appeal appeal
-     * @param jam jam
-     * @param effectEntries effectEntries
-     * @param flavorTextEntries flavorTextEntries
+     * @param id The identifier for this resource.
+     * @param appeal The base number of hearts the user of this move gets.
+     * @param jam The base number of hearts the user&#39;s opponent loses.
+     * @param effectEntries The result of this contest effect listed in different languages.
+     * @param flavorTextEntries The flavor text of this contest effect listed in different languages.
      */
     public ContestEffectDetail(
         Integer id, 
@@ -51,7 +51,7 @@ public class ContestEffectDetail   {
 
 
     /**
-     * Get id
+     * The identifier for this resource.
      * @return id
      */
     public Integer getId() {
@@ -63,7 +63,9 @@ public class ContestEffectDetail   {
     }
 
     /**
-     * Get appeal
+     * The base number of hearts the user of this move gets.
+     * minimum: -2147483648
+     * maximum: 2147483647
      * @return appeal
      */
     public Integer getAppeal() {
@@ -75,7 +77,9 @@ public class ContestEffectDetail   {
     }
 
     /**
-     * Get jam
+     * The base number of hearts the user's opponent loses.
+     * minimum: -2147483648
+     * maximum: 2147483647
      * @return jam
      */
     public Integer getJam() {
@@ -87,7 +91,7 @@ public class ContestEffectDetail   {
     }
 
     /**
-     * Get effectEntries
+     * The result of this contest effect listed in different languages.
      * @return effectEntries
      */
     public List<@Valid ContestEffectEffectText> getEffectEntries() {
@@ -99,7 +103,7 @@ public class ContestEffectDetail   {
     }
 
     /**
-     * Get flavorTextEntries
+     * The flavor text of this contest effect listed in different languages.
      * @return flavorTextEntries
      */
     public List<@Valid ContestEffectFlavorText> getFlavorTextEntries() {

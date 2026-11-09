@@ -7,17 +7,17 @@
     {
       "name": "id",
       "type": "int",
-      "doc": ""
+      "doc": "The identifier for this resource."
     },
     {
       "name": "name",
       "type": "string",
-      "doc": ""
+      "doc": "The name for this resource."
     },
     {
       "name": "region",
       "type": "model.RegionSummary",
-      "doc": ""
+      "doc": "The region this location can be found in."
     },
     {
       "name": "names",
@@ -25,7 +25,7 @@
         "type": "array",
         "items": "model.LocationName"
       },
-      "doc": ""
+      "doc": "The name of this resource listed in different languages."
     },
     {
       "name": "game_indices",
@@ -33,7 +33,7 @@
         "type": "array",
         "items": "model.LocationGameIndex"
       },
-      "doc": ""
+      "doc": "A list of game indices relevent to this location by generation."
     },
     {
       "name": "areas",
@@ -41,7 +41,7 @@
         "type": "array",
         "items": "model.LocationAreaSummary"
       },
-      "doc": ""
+      "doc": "Areas that can be found within this location."
     }
   ]
 

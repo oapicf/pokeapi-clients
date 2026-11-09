@@ -7,25 +7,25 @@
     {
       "name": "id",
       "type": "int",
-      "doc": ""
+      "doc": "The identifier for this resource."
     },
     {
       "name": "name",
       "type": "string",
-      "doc": ""
+      "doc": "The name for this resource."
     },
     {
       "name": "berries",
       "type": {
         "type": "array",
-        "items": "model.BerryFlavorDetailBerriesInner"
+        "items": "model.BerryFlavorBerryMap"
       },
-      "doc": ""
+      "doc": "A list of the berries with this flavor."
     },
     {
       "name": "contest_type",
       "type": "model.ContestTypeSummary",
-      "doc": ""
+      "doc": "The contest type that correlates with this berry flavor."
     },
     {
       "name": "names",
@@ -33,7 +33,7 @@
         "type": "array",
         "items": "model.BerryFlavorName"
       },
-      "doc": ""
+      "doc": "The name of this resource listed in different languages."
     }
   ]
 

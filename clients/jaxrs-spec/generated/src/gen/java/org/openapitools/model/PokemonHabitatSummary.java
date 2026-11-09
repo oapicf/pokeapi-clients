@@ -17,7 +17,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("PokemonHabitatSummary")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-11-09T13:50:06.168269698Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PokemonHabitatSummary   {
   private String name;
   private URI url;
@@ -35,6 +35,7 @@ public class PokemonHabitatSummary   {
   }
 
   /**
+   * The name of the referenced resource.
    **/
   public PokemonHabitatSummary name(String name) {
     this.name = name;
@@ -42,9 +43,9 @@ public class PokemonHabitatSummary   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name of the referenced resource.")
   @JsonProperty(required = true, value = "name")
-  @NotNull  @Size(max=100)public String getName() {
+  @NotNull  @Size(max=200)public String getName() {
     return name;
   }
 
@@ -54,6 +55,7 @@ public class PokemonHabitatSummary   {
   }
 
   /**
+   * The URL of the referenced resource.
    **/
   public PokemonHabitatSummary url(URI url) {
     this.url = url;
@@ -61,7 +63,7 @@ public class PokemonHabitatSummary   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The URL of the referenced resource.")
   @JsonProperty(required = true, value = "url")
   public URI getUrl() {
     return url;

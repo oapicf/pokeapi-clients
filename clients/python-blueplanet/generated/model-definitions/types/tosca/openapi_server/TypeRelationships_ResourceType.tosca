@@ -1,0 +1,67 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server TypeRelationships"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a TypeRelationships"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  TypeSummary = openapi_server.resourceTypes.TypeSummary
+}
+resourceTypes {
+
+  TypeRelationships {
+    title = TypeRelationships
+    description = TypeRelationships
+    derivedFrom = Root
+    properties {
+        no_damage_to {
+          type = array
+          items.type = TypeSummary
+          description = "A list of types this type has no effect on."
+          optional = true
+        }
+        half_damage_to {
+          type = array
+          items.type = TypeSummary
+          description = "A list of types this type is not very effect against."
+          optional = true
+        }
+        double_damage_to {
+          type = array
+          items.type = TypeSummary
+          description = "A list of types this type is very effect against."
+          optional = true
+        }
+        no_damage_from {
+          type = array
+          items.type = TypeSummary
+          description = "A list of types that have no effect on this type."
+          optional = true
+        }
+        half_damage_from {
+          type = array
+          items.type = TypeSummary
+          description = "A list of types that are not very effective against this type."
+          optional = true
+        }
+        double_damage_from {
+          type = array
+          items.type = TypeSummary
+          description = "A list of types that are very effective against this type."
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  TypeRelationships {
+    title = TypeRelationships
+    description = TypeRelationships
+    implements = openapi_server.resourceTypes.TypeRelationships
+
+  }
+}

@@ -23,15 +23,13 @@ open class EvolutionApiStubs(private val objectMapper: ObjectMapper) {
      *
      * @param limit query parameter limit pattern.
      * @param offset query parameter offset pattern.
-     * @param q query parameter q pattern.
      * @param configurer configurer for the [MappingBuilder], allowing for arbitrary changes.
      * @return A [EvolutionChainListStubBuilder] to configure the response, and the final [MappingBuilder].
      */
-    fun evolutionChainList(limit: StringValuePattern? = null, offset: StringValuePattern? = null, q: StringValuePattern? = null, configurer: MappingBuilder.() -> MappingBuilder = { this }): EvolutionChainListStubBuilder =
+    fun evolutionChainList(limit: StringValuePattern? = null, offset: StringValuePattern? = null, configurer: MappingBuilder.() -> MappingBuilder = { this }): EvolutionChainListStubBuilder =
         EvolutionChainListStubBuilder(objectMapper, get(urlPathTemplate("/api/v2/evolution-chain/"))
             .apply { limit?.let { withQueryParam("limit", it) } }
             .apply { offset?.let { withQueryParam("offset", it) } }
-            .apply { q?.let { withQueryParam("q", it) } }
             .configurer()
         )
 
@@ -74,6 +72,36 @@ open class EvolutionApiStubs(private val objectMapper: ObjectMapper) {
      */
     fun evolutionTriggerRetrieve(id: StringValuePattern, configurer: MappingBuilder.() -> MappingBuilder = { this }): EvolutionTriggerRetrieveStubBuilder =
         EvolutionTriggerRetrieveStubBuilder(objectMapper, get(urlPathTemplate("/api/v2/evolution-trigger/{id}/"))
+            .withPathParam("id", id)
+            .configurer()
+        )
+
+    /**
+     * Construct a stub for the operation evolutionVariableList.
+     *
+     * @param limit query parameter limit pattern.
+     * @param offset query parameter offset pattern.
+     * @param q query parameter q pattern.
+     * @param configurer configurer for the [MappingBuilder], allowing for arbitrary changes.
+     * @return A [EvolutionVariableListStubBuilder] to configure the response, and the final [MappingBuilder].
+     */
+    fun evolutionVariableList(limit: StringValuePattern? = null, offset: StringValuePattern? = null, q: StringValuePattern? = null, configurer: MappingBuilder.() -> MappingBuilder = { this }): EvolutionVariableListStubBuilder =
+        EvolutionVariableListStubBuilder(objectMapper, get(urlPathTemplate("/api/v2/evolution-variable/"))
+            .apply { limit?.let { withQueryParam("limit", it) } }
+            .apply { offset?.let { withQueryParam("offset", it) } }
+            .apply { q?.let { withQueryParam("q", it) } }
+            .configurer()
+        )
+
+    /**
+     * Construct a stub for the operation evolutionVariableRetrieve.
+     *
+     * @param id path parameter id pattern.
+     * @param configurer configurer for the [MappingBuilder], allowing for arbitrary changes.
+     * @return A [EvolutionVariableRetrieveStubBuilder] to configure the response, and the final [MappingBuilder].
+     */
+    fun evolutionVariableRetrieve(id: StringValuePattern, configurer: MappingBuilder.() -> MappingBuilder = { this }): EvolutionVariableRetrieveStubBuilder =
+        EvolutionVariableRetrieveStubBuilder(objectMapper, get(urlPathTemplate("/api/v2/evolution-variable/{id}/"))
             .withPathParam("id", id)
             .configurer()
         )

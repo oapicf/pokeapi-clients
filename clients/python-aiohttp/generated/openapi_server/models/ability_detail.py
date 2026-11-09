@@ -6,10 +6,10 @@ from typing import List, Dict, Type
 
 from openapi_server.models.base_model import Model
 from openapi_server.models.ability_change import AbilityChange
-from openapi_server.models.ability_detail_pokemon_inner import AbilityDetailPokemonInner
 from openapi_server.models.ability_effect_text import AbilityEffectText
 from openapi_server.models.ability_flavor_text import AbilityFlavorText
 from openapi_server.models.ability_name import AbilityName
+from openapi_server.models.ability_pokemon_detail import AbilityPokemonDetail
 from openapi_server.models.generation_summary import GenerationSummary
 from openapi_server import util
 
@@ -20,7 +20,7 @@ class AbilityDetail(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, id: int=None, name: str=None, is_main_series: bool=None, generation: GenerationSummary=None, names: List[AbilityName]=None, effect_entries: List[AbilityEffectText]=None, effect_changes: List[AbilityChange]=None, flavor_text_entries: List[AbilityFlavorText]=None, pokemon: List[AbilityDetailPokemonInner]=None):
+    def __init__(self, id: int=None, name: str=None, is_main_series: bool=None, generation: GenerationSummary=None, names: List[AbilityName]=None, effect_entries: List[AbilityEffectText]=None, effect_changes: List[AbilityChange]=None, flavor_text_entries: List[AbilityFlavorText]=None, pokemon: List[AbilityPokemonDetail]=None):
         """AbilityDetail - a model defined in OpenAPI
 
         :param id: The id of this AbilityDetail.
@@ -42,7 +42,7 @@ class AbilityDetail(Model):
             'effect_entries': List[AbilityEffectText],
             'effect_changes': List[AbilityChange],
             'flavor_text_entries': List[AbilityFlavorText],
-            'pokemon': List[AbilityDetailPokemonInner]
+            'pokemon': List[AbilityPokemonDetail]
         }
 
         self.attribute_map = {
@@ -80,6 +80,7 @@ class AbilityDetail(Model):
     def id(self):
         """Gets the id of this AbilityDetail.
 
+        The identifier for this resource.
 
         :return: The id of this AbilityDetail.
         :rtype: int
@@ -90,6 +91,7 @@ class AbilityDetail(Model):
     def id(self, id):
         """Sets the id of this AbilityDetail.
 
+        The identifier for this resource.
 
         :param id: The id of this AbilityDetail.
         :type id: int
@@ -103,6 +105,7 @@ class AbilityDetail(Model):
     def name(self):
         """Gets the name of this AbilityDetail.
 
+        The name for this resource.
 
         :return: The name of this AbilityDetail.
         :rtype: str
@@ -113,14 +116,15 @@ class AbilityDetail(Model):
     def name(self, name):
         """Sets the name of this AbilityDetail.
 
+        The name for this resource.
 
         :param name: The name of this AbilityDetail.
         :type name: str
         """
         if name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")
-        if name is not None and len(name) > 100:
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `100`")
+        if name is not None and len(name) > 200:
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `200`")
 
         self._name = name
 
@@ -128,6 +132,7 @@ class AbilityDetail(Model):
     def is_main_series(self):
         """Gets the is_main_series of this AbilityDetail.
 
+        Whether or not this ability originated in the main series of the video games.
 
         :return: The is_main_series of this AbilityDetail.
         :rtype: bool
@@ -138,6 +143,7 @@ class AbilityDetail(Model):
     def is_main_series(self, is_main_series):
         """Sets the is_main_series of this AbilityDetail.
 
+        Whether or not this ability originated in the main series of the video games.
 
         :param is_main_series: The is_main_series of this AbilityDetail.
         :type is_main_series: bool
@@ -149,6 +155,7 @@ class AbilityDetail(Model):
     def generation(self):
         """Gets the generation of this AbilityDetail.
 
+        The generation this ability originated in.
 
         :return: The generation of this AbilityDetail.
         :rtype: GenerationSummary
@@ -159,6 +166,7 @@ class AbilityDetail(Model):
     def generation(self, generation):
         """Sets the generation of this AbilityDetail.
 
+        The generation this ability originated in.
 
         :param generation: The generation of this AbilityDetail.
         :type generation: GenerationSummary
@@ -172,6 +180,7 @@ class AbilityDetail(Model):
     def names(self):
         """Gets the names of this AbilityDetail.
 
+        The name of this resource listed in different languages.
 
         :return: The names of this AbilityDetail.
         :rtype: List[AbilityName]
@@ -182,6 +191,7 @@ class AbilityDetail(Model):
     def names(self, names):
         """Sets the names of this AbilityDetail.
 
+        The name of this resource listed in different languages.
 
         :param names: The names of this AbilityDetail.
         :type names: List[AbilityName]
@@ -195,6 +205,7 @@ class AbilityDetail(Model):
     def effect_entries(self):
         """Gets the effect_entries of this AbilityDetail.
 
+        The effect of this ability listed in different languages.
 
         :return: The effect_entries of this AbilityDetail.
         :rtype: List[AbilityEffectText]
@@ -205,6 +216,7 @@ class AbilityDetail(Model):
     def effect_entries(self, effect_entries):
         """Sets the effect_entries of this AbilityDetail.
 
+        The effect of this ability listed in different languages.
 
         :param effect_entries: The effect_entries of this AbilityDetail.
         :type effect_entries: List[AbilityEffectText]
@@ -218,6 +230,7 @@ class AbilityDetail(Model):
     def effect_changes(self):
         """Gets the effect_changes of this AbilityDetail.
 
+        The list of previous effects this ability has had across version groups.
 
         :return: The effect_changes of this AbilityDetail.
         :rtype: List[AbilityChange]
@@ -228,6 +241,7 @@ class AbilityDetail(Model):
     def effect_changes(self, effect_changes):
         """Sets the effect_changes of this AbilityDetail.
 
+        The list of previous effects this ability has had across version groups.
 
         :param effect_changes: The effect_changes of this AbilityDetail.
         :type effect_changes: List[AbilityChange]
@@ -241,6 +255,7 @@ class AbilityDetail(Model):
     def flavor_text_entries(self):
         """Gets the flavor_text_entries of this AbilityDetail.
 
+        The flavor text of this ability listed in different languages.
 
         :return: The flavor_text_entries of this AbilityDetail.
         :rtype: List[AbilityFlavorText]
@@ -251,6 +266,7 @@ class AbilityDetail(Model):
     def flavor_text_entries(self, flavor_text_entries):
         """Sets the flavor_text_entries of this AbilityDetail.
 
+        The flavor text of this ability listed in different languages.
 
         :param flavor_text_entries: The flavor_text_entries of this AbilityDetail.
         :type flavor_text_entries: List[AbilityFlavorText]
@@ -264,9 +280,10 @@ class AbilityDetail(Model):
     def pokemon(self):
         """Gets the pokemon of this AbilityDetail.
 
+        A list of Pokémon that could potentially have this ability.
 
         :return: The pokemon of this AbilityDetail.
-        :rtype: List[AbilityDetailPokemonInner]
+        :rtype: List[AbilityPokemonDetail]
         """
         return self._pokemon
 
@@ -274,9 +291,10 @@ class AbilityDetail(Model):
     def pokemon(self, pokemon):
         """Sets the pokemon of this AbilityDetail.
 
+        A list of Pokémon that could potentially have this ability.
 
         :param pokemon: The pokemon of this AbilityDetail.
-        :type pokemon: List[AbilityDetailPokemonInner]
+        :type pokemon: List[AbilityPokemonDetail]
         """
         if pokemon is None:
             raise ValueError("Invalid value for `pokemon`, must not be `None`")

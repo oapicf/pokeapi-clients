@@ -14,23 +14,38 @@ import java.math.*;
 public class ContestEffectDetail implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * The identifier for this resource.
+   */
   @JsonProperty("id")
   private Integer id;
 
+  /**
+   * The base number of hearts the user of this move gets.
+   */
   @JsonProperty("appeal")
   private Integer appeal;
 
+  /**
+   * The base number of hearts the user&#39;s opponent loses.
+   */
   @JsonProperty("jam")
   private Integer jam;
 
+  /**
+   * The result of this contest effect listed in different languages.
+   */
   @JsonProperty("effect_entries")
   private List<ContestEffectEffectText> effectEntries = new ArrayList<>();
 
+  /**
+   * The flavor text of this contest effect listed in different languages.
+   */
   @JsonProperty("flavor_text_entries")
   private List<ContestEffectFlavorText> flavorTextEntries = new ArrayList<>();
 
   /**
-   * 
+   * The identifier for this resource.
    * @return id
    */
   public Integer getId() {
@@ -42,7 +57,7 @@ public class ContestEffectDetail implements Serializable {
   }
 
   /**
-   * 
+   * The base number of hearts the user of this move gets.
    * @return appeal
    */
   public Integer getAppeal() {
@@ -54,7 +69,7 @@ public class ContestEffectDetail implements Serializable {
   }
 
   /**
-   * 
+   * The base number of hearts the user&#39;s opponent loses.
    * @return jam
    */
   public Integer getJam() {
@@ -66,7 +81,7 @@ public class ContestEffectDetail implements Serializable {
   }
 
   /**
-   * 
+   * The result of this contest effect listed in different languages.
    * @return effectEntries
    */
   public List<ContestEffectEffectText> getEffectEntries() {
@@ -78,7 +93,7 @@ public class ContestEffectDetail implements Serializable {
   }
 
   /**
-   * 
+   * The flavor text of this contest effect listed in different languages.
    * @return flavorTextEntries
    */
   public List<ContestEffectFlavorText> getFlavorTextEntries() {

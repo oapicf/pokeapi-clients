@@ -1,9 +1,9 @@
 /*
 PokéAPI
 
-All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
 
-API version: 2.7.0
+API version: 2.10.0
 Contact: blah+oapicf@cliffano.com
 */
 
@@ -22,14 +22,25 @@ var _ MappedNullable = &StatDetail{}
 
 // StatDetail struct for StatDetail
 type StatDetail struct {
+	// The identifier for this resource.
 	Id int32 `json:"id"`
+	// The name for this resource.
 	Name string `json:"name"`
+	// ID the games use for this stat.
 	GameIndex int32 `json:"game_index"`
+	// Whether this stat only exists within a battle.
 	IsBattleOnly *bool `json:"is_battle_only,omitempty"`
-	AffectingMoves StatDetailAffectingMoves `json:"affecting_moves"`
-	AffectingNatures StatDetailAffectingNatures `json:"affecting_natures"`
+	// A detail of moves which affect this stat positively or negatively.
+	AffectingMoves StatAffectingMoves `json:"affecting_moves"`
+	// A detail of natures which affect this stat positively or negatively.
+	AffectingNatures StatAffectingNatures `json:"affecting_natures"`
+	// Items that affect this stat, such as vitamins and battle items.
+	AffectingItems []ItemSummary `json:"affecting_items"`
+	// A list of characteristics that are set on a Pokémon when its highest base stat is this stat.
 	Characteristics []CharacteristicSummary `json:"characteristics"`
-	MoveDamageClass MoveDamageClassSummary `json:"move_damage_class"`
+	// The class of damage this stat is directly related to.
+	MoveDamageClass NullableMoveDamageClassSummary `json:"move_damage_class"`
+	// The name of this resource listed in different languages.
 	Names []StatName `json:"names"`
 }
 
@@ -39,13 +50,14 @@ type _StatDetail StatDetail
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewStatDetail(id int32, name string, gameIndex int32, affectingMoves StatDetailAffectingMoves, affectingNatures StatDetailAffectingNatures, characteristics []CharacteristicSummary, moveDamageClass MoveDamageClassSummary, names []StatName) *StatDetail {
+func NewStatDetail(id int32, name string, gameIndex int32, affectingMoves StatAffectingMoves, affectingNatures StatAffectingNatures, affectingItems []ItemSummary, characteristics []CharacteristicSummary, moveDamageClass NullableMoveDamageClassSummary, names []StatName) *StatDetail {
 	this := StatDetail{}
 	this.Id = id
 	this.Name = name
 	this.GameIndex = gameIndex
 	this.AffectingMoves = affectingMoves
 	this.AffectingNatures = affectingNatures
+	this.AffectingItems = affectingItems
 	this.Characteristics = characteristics
 	this.MoveDamageClass = moveDamageClass
 	this.Names = names
@@ -165,9 +177,9 @@ func (o *StatDetail) SetIsBattleOnly(v bool) {
 }
 
 // GetAffectingMoves returns the AffectingMoves field value
-func (o *StatDetail) GetAffectingMoves() StatDetailAffectingMoves {
+func (o *StatDetail) GetAffectingMoves() StatAffectingMoves {
 	if o == nil {
-		var ret StatDetailAffectingMoves
+		var ret StatAffectingMoves
 		return ret
 	}
 
@@ -176,7 +188,7 @@ func (o *StatDetail) GetAffectingMoves() StatDetailAffectingMoves {
 
 // GetAffectingMovesOk returns a tuple with the AffectingMoves field value
 // and a boolean to check if the value has been set.
-func (o *StatDetail) GetAffectingMovesOk() (*StatDetailAffectingMoves, bool) {
+func (o *StatDetail) GetAffectingMovesOk() (*StatAffectingMoves, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -184,14 +196,14 @@ func (o *StatDetail) GetAffectingMovesOk() (*StatDetailAffectingMoves, bool) {
 }
 
 // SetAffectingMoves sets field value
-func (o *StatDetail) SetAffectingMoves(v StatDetailAffectingMoves) {
+func (o *StatDetail) SetAffectingMoves(v StatAffectingMoves) {
 	o.AffectingMoves = v
 }
 
 // GetAffectingNatures returns the AffectingNatures field value
-func (o *StatDetail) GetAffectingNatures() StatDetailAffectingNatures {
+func (o *StatDetail) GetAffectingNatures() StatAffectingNatures {
 	if o == nil {
-		var ret StatDetailAffectingNatures
+		var ret StatAffectingNatures
 		return ret
 	}
 
@@ -200,7 +212,7 @@ func (o *StatDetail) GetAffectingNatures() StatDetailAffectingNatures {
 
 // GetAffectingNaturesOk returns a tuple with the AffectingNatures field value
 // and a boolean to check if the value has been set.
-func (o *StatDetail) GetAffectingNaturesOk() (*StatDetailAffectingNatures, bool) {
+func (o *StatDetail) GetAffectingNaturesOk() (*StatAffectingNatures, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -208,8 +220,32 @@ func (o *StatDetail) GetAffectingNaturesOk() (*StatDetailAffectingNatures, bool)
 }
 
 // SetAffectingNatures sets field value
-func (o *StatDetail) SetAffectingNatures(v StatDetailAffectingNatures) {
+func (o *StatDetail) SetAffectingNatures(v StatAffectingNatures) {
 	o.AffectingNatures = v
+}
+
+// GetAffectingItems returns the AffectingItems field value
+func (o *StatDetail) GetAffectingItems() []ItemSummary {
+	if o == nil {
+		var ret []ItemSummary
+		return ret
+	}
+
+	return o.AffectingItems
+}
+
+// GetAffectingItemsOk returns a tuple with the AffectingItems field value
+// and a boolean to check if the value has been set.
+func (o *StatDetail) GetAffectingItemsOk() ([]ItemSummary, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.AffectingItems, true
+}
+
+// SetAffectingItems sets field value
+func (o *StatDetail) SetAffectingItems(v []ItemSummary) {
+	o.AffectingItems = v
 }
 
 // GetCharacteristics returns the Characteristics field value
@@ -237,27 +273,29 @@ func (o *StatDetail) SetCharacteristics(v []CharacteristicSummary) {
 }
 
 // GetMoveDamageClass returns the MoveDamageClass field value
+// If the value is explicit nil, the zero value for MoveDamageClassSummary will be returned
 func (o *StatDetail) GetMoveDamageClass() MoveDamageClassSummary {
-	if o == nil {
+	if o == nil || o.MoveDamageClass.Get() == nil {
 		var ret MoveDamageClassSummary
 		return ret
 	}
 
-	return o.MoveDamageClass
+	return *o.MoveDamageClass.Get()
 }
 
 // GetMoveDamageClassOk returns a tuple with the MoveDamageClass field value
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *StatDetail) GetMoveDamageClassOk() (*MoveDamageClassSummary, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.MoveDamageClass, true
+	return o.MoveDamageClass.Get(), o.MoveDamageClass.IsSet()
 }
 
 // SetMoveDamageClass sets field value
 func (o *StatDetail) SetMoveDamageClass(v MoveDamageClassSummary) {
-	o.MoveDamageClass = v
+	o.MoveDamageClass.Set(&v)
 }
 
 // GetNames returns the Names field value
@@ -302,8 +340,9 @@ func (o StatDetail) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["affecting_moves"] = o.AffectingMoves
 	toSerialize["affecting_natures"] = o.AffectingNatures
+	toSerialize["affecting_items"] = o.AffectingItems
 	toSerialize["characteristics"] = o.Characteristics
-	toSerialize["move_damage_class"] = o.MoveDamageClass
+	toSerialize["move_damage_class"] = o.MoveDamageClass.Get()
 	toSerialize["names"] = o.Names
 	return toSerialize, nil
 }
@@ -318,6 +357,7 @@ func (o *StatDetail) UnmarshalJSON(data []byte) (err error) {
 		"game_index",
 		"affecting_moves",
 		"affecting_natures",
+		"affecting_items",
 		"characteristics",
 		"move_damage_class",
 		"names",

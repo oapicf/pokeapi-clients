@@ -81,6 +81,8 @@ accept_callback(Class, OperationID, Req0, Context0) ->
     'evolution_chain_retrieve' | %% Get evolution chain
     'evolution_trigger_list' | %% List evolution triggers
     'evolution_trigger_retrieve' | %% Get evolution trigger
+    'evolution_variable_list' | %% List evolution variables
+    'evolution_variable_retrieve' | %% Get evolution variable
     'generation_list' | %% List genrations
     'generation_retrieve' | %% Get genration
     'pokedex_list' | %% List pokedex
@@ -89,6 +91,8 @@ accept_callback(Class, OperationID, Req0, Context0) ->
     'version_group_retrieve' | %% Get version group
     'version_list' | %% List versions
     'version_retrieve' | %% Get version
+    'currency_list' | %% List currencies
+    'currency_retrieve' | %% Get currency
     'item_attribute_list' | %% List item attributes
     'item_attribute_retrieve' | %% Get item attribute
     'item_category_list' | %% List item categories
@@ -121,9 +125,9 @@ accept_callback(Class, OperationID, Req0, Context0) ->
     'move_retrieve' | %% Get move
     'move_target_list' | %% List move targets
     'move_target_retrieve' | %% Get move target
-    'ability_list' | %% 
-    'ability_retrieve' | %% 
-    'characteristic_list' | %% List charecterictics
+    'ability_list' | %% List abilities
+    'ability_retrieve' | %% Get ability
+    'characteristic_list' | %% List characteristics
     'characteristic_retrieve' | %% Get characteristic
     'egg_group_list' | %% List egg groups
     'egg_group_retrieve' | %% Get egg group
@@ -155,6 +159,7 @@ accept_callback(Class, OperationID, Req0, Context0) ->
     'type_retrieve' | %% Get types
     'language_list' | %% List languages
     'language_retrieve' | %% Get language
+    'meta_retrieve' | %% Get API metadata
     {error, unknown_operation}.
 
 -type request_param() :: atom().
@@ -271,6 +276,10 @@ validate_response('evolution_trigger_list', 200, Body, ValidatorState) ->
     validate_response_body('PaginatedEvolutionTriggerSummaryList', 'PaginatedEvolutionTriggerSummaryList', Body, ValidatorState);
 validate_response('evolution_trigger_retrieve', 200, Body, ValidatorState) ->
     validate_response_body('EvolutionTriggerDetail', 'EvolutionTriggerDetail', Body, ValidatorState);
+validate_response('evolution_variable_list', 200, Body, ValidatorState) ->
+    validate_response_body('PaginatedEvolutionVariableSummaryList', 'PaginatedEvolutionVariableSummaryList', Body, ValidatorState);
+validate_response('evolution_variable_retrieve', 200, Body, ValidatorState) ->
+    validate_response_body('EvolutionVariableDetail', 'EvolutionVariableDetail', Body, ValidatorState);
 validate_response('generation_list', 200, Body, ValidatorState) ->
     validate_response_body('PaginatedGenerationSummaryList', 'PaginatedGenerationSummaryList', Body, ValidatorState);
 validate_response('generation_retrieve', 200, Body, ValidatorState) ->
@@ -287,6 +296,10 @@ validate_response('version_list', 200, Body, ValidatorState) ->
     validate_response_body('PaginatedVersionSummaryList', 'PaginatedVersionSummaryList', Body, ValidatorState);
 validate_response('version_retrieve', 200, Body, ValidatorState) ->
     validate_response_body('VersionDetail', 'VersionDetail', Body, ValidatorState);
+validate_response('currency_list', 200, Body, ValidatorState) ->
+    validate_response_body('PaginatedCurrencySummaryList', 'PaginatedCurrencySummaryList', Body, ValidatorState);
+validate_response('currency_retrieve', 200, Body, ValidatorState) ->
+    validate_response_body('CurrencyDetail', 'CurrencyDetail', Body, ValidatorState);
 validate_response('item_attribute_list', 200, Body, ValidatorState) ->
     validate_response_body('PaginatedItemAttributeSummaryList', 'PaginatedItemAttributeSummaryList', Body, ValidatorState);
 validate_response('item_attribute_retrieve', 200, Body, ValidatorState) ->
@@ -419,6 +432,8 @@ validate_response('language_list', 200, Body, ValidatorState) ->
     validate_response_body('PaginatedLanguageSummaryList', 'PaginatedLanguageSummaryList', Body, ValidatorState);
 validate_response('language_retrieve', 200, Body, ValidatorState) ->
     validate_response_body('LanguageDetail', 'LanguageDetail', Body, ValidatorState);
+validate_response('meta_retrieve', 200, Body, ValidatorState) ->
+    validate_response_body('PokeapiMetaResponse', 'PokeapiMetaResponse', Body, ValidatorState);
 validate_response(_OperationID, _Code, _Body, _ValidatorState) ->
     ok.
 
@@ -457,8 +472,7 @@ request_params('berry_retrieve') ->
 request_params('contest_effect_list') ->
     [
         'limit',
-        'offset',
-        'q'
+        'offset'
     ];
 request_params('contest_effect_retrieve') ->
     [
@@ -477,8 +491,7 @@ request_params('contest_type_retrieve') ->
 request_params('super_contest_effect_list') ->
     [
         'limit',
-        'offset',
-        'q'
+        'offset'
     ];
 request_params('super_contest_effect_retrieve') ->
     [
@@ -517,8 +530,7 @@ request_params('encounter_method_retrieve') ->
 request_params('evolution_chain_list') ->
     [
         'limit',
-        'offset',
-        'q'
+        'offset'
     ];
 request_params('evolution_chain_retrieve') ->
     [
@@ -531,6 +543,16 @@ request_params('evolution_trigger_list') ->
         'q'
     ];
 request_params('evolution_trigger_retrieve') ->
+    [
+        'id'
+    ];
+request_params('evolution_variable_list') ->
+    [
+        'limit',
+        'offset',
+        'q'
+    ];
+request_params('evolution_variable_retrieve') ->
     [
         'id'
     ];
@@ -571,6 +593,16 @@ request_params('version_list') ->
         'q'
     ];
 request_params('version_retrieve') ->
+    [
+        'id'
+    ];
+request_params('currency_list') ->
+    [
+        'limit',
+        'offset',
+        'q'
+    ];
+request_params('currency_retrieve') ->
     [
         'id'
     ];
@@ -666,8 +698,7 @@ request_params('region_retrieve') ->
 request_params('machine_list') ->
     [
         'limit',
-        'offset',
-        'q'
+        'offset'
     ];
 request_params('machine_retrieve') ->
     [
@@ -746,8 +777,7 @@ request_params('ability_retrieve') ->
 request_params('characteristic_list') ->
     [
         'limit',
-        'offset',
-        'q'
+        'offset'
     ];
 request_params('characteristic_retrieve') ->
     [
@@ -903,6 +933,9 @@ request_params('language_retrieve') ->
     [
         'id'
     ];
+request_params('meta_retrieve') ->
+    [
+    ];
 request_params(_) ->
     error(unknown_operation).
 
@@ -1020,14 +1053,6 @@ request_param_info('contest_effect_list', 'offset') ->
             not_required
         ]
     };
-request_param_info('contest_effect_list', 'q') ->
-    #{
-        source => qs_val,
-        rules => [
-            {type, binary},
-            not_required
-        ]
-    };
 request_param_info('contest_effect_retrieve', 'id') ->
     #{
         source => binding,
@@ -1081,14 +1106,6 @@ request_param_info('super_contest_effect_list', 'offset') ->
         source => qs_val,
         rules => [
             {type, integer},
-            not_required
-        ]
-    };
-request_param_info('super_contest_effect_list', 'q') ->
-    #{
-        source => qs_val,
-        rules => [
-            {type, binary},
             not_required
         ]
     };
@@ -1212,14 +1229,6 @@ request_param_info('evolution_chain_list', 'offset') ->
             not_required
         ]
     };
-request_param_info('evolution_chain_list', 'q') ->
-    #{
-        source => qs_val,
-        rules => [
-            {type, binary},
-            not_required
-        ]
-    };
 request_param_info('evolution_chain_retrieve', 'id') ->
     #{
         source => binding,
@@ -1253,6 +1262,38 @@ request_param_info('evolution_trigger_list', 'q') ->
         ]
     };
 request_param_info('evolution_trigger_retrieve', 'id') ->
+    #{
+        source => binding,
+        rules => [
+            {type, binary},
+            required
+        ]
+    };
+request_param_info('evolution_variable_list', 'limit') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, integer},
+            not_required
+        ]
+    };
+request_param_info('evolution_variable_list', 'offset') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, integer},
+            not_required
+        ]
+    };
+request_param_info('evolution_variable_list', 'q') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, binary},
+            not_required
+        ]
+    };
+request_param_info('evolution_variable_retrieve', 'id') ->
     #{
         source => binding,
         rules => [
@@ -1381,6 +1422,38 @@ request_param_info('version_list', 'q') ->
         ]
     };
 request_param_info('version_retrieve', 'id') ->
+    #{
+        source => binding,
+        rules => [
+            {type, binary},
+            required
+        ]
+    };
+request_param_info('currency_list', 'limit') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, integer},
+            not_required
+        ]
+    };
+request_param_info('currency_list', 'offset') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, integer},
+            not_required
+        ]
+    };
+request_param_info('currency_list', 'q') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, binary},
+            not_required
+        ]
+    };
+request_param_info('currency_retrieve', 'id') ->
     #{
         source => binding,
         rules => [
@@ -1684,14 +1757,6 @@ request_param_info('machine_list', 'offset') ->
             not_required
         ]
     };
-request_param_info('machine_list', 'q') ->
-    #{
-        source => qs_val,
-        rules => [
-            {type, binary},
-            not_required
-        ]
-    };
 request_param_info('machine_retrieve', 'id') ->
     #{
         source => binding,
@@ -1937,14 +2002,6 @@ request_param_info('characteristic_list', 'offset') ->
         source => qs_val,
         rules => [
             {type, integer},
-            not_required
-        ]
-    };
-request_param_info('characteristic_list', 'q') ->
-    #{
-        source => qs_val,
-        rules => [
-            {type, binary},
             not_required
         ]
     };

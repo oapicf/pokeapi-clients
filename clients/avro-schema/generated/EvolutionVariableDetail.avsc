@@ -1,0 +1,57 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "EvolutionVariableDetail",
+  "fields": [
+    {
+      "name": "id",
+      "type": "int",
+      "doc": "The identifier for this resource."
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "doc": "The name for this resource."
+    },
+    {
+      "name": "symbol",
+      "type": "string",
+      "doc": "The symbol used for this variable in evolution condition expressions."
+    },
+    {
+      "name": "data_type",
+      "type": ["null", "string"],
+      "doc": "The data type of this variable.",
+      "default": null
+    },
+    {
+      "name": "source",
+      "type": ["null", "string"],
+      "doc": "The source of the variable value.",
+      "default": null
+    },
+    {
+      "name": "version_group",
+      "type": "model.VersionGroupSummary",
+      "doc": "The version group in which this variable was introduced."
+    },
+    {
+      "name": "names",
+      "type": {
+        "type": "array",
+        "items": "model.EvolutionVariableName"
+      },
+      "doc": "The name of this resource listed in different languages."
+    },
+    {
+      "name": "descriptions",
+      "type": {
+        "type": "array",
+        "items": "model.EvolutionVariableDescription"
+      },
+      "doc": "The description of this resource listed in different languages."
+    }
+  ]
+
+}

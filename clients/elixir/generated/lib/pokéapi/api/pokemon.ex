@@ -10,6 +10,7 @@ defmodule PokéAPI.Api.Pokemon do
   import PokéAPI.RequestBuilder
 
   @doc """
+  List abilities
   Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
 
   ### Parameters
@@ -49,6 +50,7 @@ defmodule PokéAPI.Api.Pokemon do
   end
 
   @doc """
+  Get ability
   Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
 
   ### Parameters
@@ -79,7 +81,7 @@ defmodule PokéAPI.Api.Pokemon do
   end
 
   @doc """
-  List charecterictics
+  List characteristics
   Characteristics indicate which stat contains a Pokémon's highest IV. A Pokémon's Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail.
 
   ### Parameters
@@ -88,7 +90,6 @@ defmodule PokéAPI.Api.Pokemon do
   - `opts` (keyword): Optional parameters
     - `:limit` (integer()): Number of results to return per page.
     - `:offset` (integer()): The initial index from which to return the results.
-    - `:q` (String.t): > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
 
   ### Returns
 
@@ -99,8 +100,7 @@ defmodule PokéAPI.Api.Pokemon do
   def characteristic_list(connection, opts \\ []) do
     optional_params = %{
       :limit => :query,
-      :offset => :query,
-      :q => :query
+      :offset => :query
     }
 
     request =

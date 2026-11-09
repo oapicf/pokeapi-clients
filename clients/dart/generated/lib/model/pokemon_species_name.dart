@@ -1,0 +1,119 @@
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.18
+
+// ignore_for_file: unused_element, unused_import
+// ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: constant_identifier_names
+// ignore_for_file: lines_longer_than_80_chars
+
+part of openapi.api;
+
+class PokemonSpeciesName {
+  /// Returns a new [PokemonSpeciesName] instance.
+  PokemonSpeciesName({
+    required this.name,
+    required this.language,
+  });
+
+  /// The localized name for an API resource in a specific language.
+  String name;
+
+  /// The language this name is in.
+  LanguageSummary language;
+
+  @override
+  bool operator ==(Object other) => identical(this, other) || other is PokemonSpeciesName &&
+    other.name == name &&
+    other.language == language;
+
+  @override
+  int get hashCode =>
+    // ignore: unnecessary_parenthesis
+    (name.hashCode) +
+    (language.hashCode);
+
+  @override
+  String toString() => 'PokemonSpeciesName[name=$name, language=$language]';
+
+  Map<String, dynamic> toJson() {
+    final json = <String, dynamic>{};
+      json[r'name'] = this.name;
+      json[r'language'] = this.language;
+    return json;
+  }
+
+  /// Returns a new [PokemonSpeciesName] instance and imports its values from
+  /// [value] if it's a [Map], null otherwise.
+  // ignore: prefer_constructors_over_static_methods
+  static PokemonSpeciesName? fromJson(dynamic value) {
+    if (value is Map) {
+      final json = value.cast<String, dynamic>();
+
+      // Ensure that the map contains the required keys.
+      // Note 1: the values aren't checked for validity beyond being non-null.
+      // Note 2: this code is stripped in release mode!
+      assert(() {
+        assert(json.containsKey(r'name'), 'Required key "PokemonSpeciesName[name]" is missing from JSON.');
+        assert(json[r'name'] != null, 'Required key "PokemonSpeciesName[name]" has a null value in JSON.');
+        assert(json.containsKey(r'language'), 'Required key "PokemonSpeciesName[language]" is missing from JSON.');
+        assert(json[r'language'] != null, 'Required key "PokemonSpeciesName[language]" has a null value in JSON.');
+        return true;
+      }());
+
+      return PokemonSpeciesName(
+        name: mapValueOfType<String>(json, r'name')!,
+        language: LanguageSummary.fromJson(json[r'language'])!,
+      );
+    }
+    return null;
+  }
+
+  static List<PokemonSpeciesName> listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <PokemonSpeciesName>[];
+    if (json is List && json.isNotEmpty) {
+      for (final row in json) {
+        final value = PokemonSpeciesName.fromJson(row);
+        if (value != null) {
+          result.add(value);
+        }
+      }
+    }
+    return result.toList(growable: growable);
+  }
+
+  static Map<String, PokemonSpeciesName> mapFromJson(dynamic json) {
+    final map = <String, PokemonSpeciesName>{};
+    if (json is Map && json.isNotEmpty) {
+      json = json.cast<String, dynamic>(); // ignore: parameter_assignments
+      for (final entry in json.entries) {
+        final value = PokemonSpeciesName.fromJson(entry.value);
+        if (value != null) {
+          map[entry.key] = value;
+        }
+      }
+    }
+    return map;
+  }
+
+  // maps a json object with a list of PokemonSpeciesName-objects as value to a dart map
+  static Map<String, List<PokemonSpeciesName>> mapListFromJson(dynamic json, {bool growable = false,}) {
+    final map = <String, List<PokemonSpeciesName>>{};
+    if (json is Map && json.isNotEmpty) {
+      // ignore: parameter_assignments
+      json = json.cast<String, dynamic>();
+      for (final entry in json.entries) {
+        map[entry.key] = PokemonSpeciesName.listFromJson(entry.value, growable: growable,);
+      }
+    }
+    return map;
+  }
+
+  /// The list of required keys that must be present in a JSON.
+  static const requiredKeys = <String>{
+    'name',
+    'language',
+  };
+}
+

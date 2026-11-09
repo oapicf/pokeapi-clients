@@ -1,0 +1,283 @@
+#' Create a new PokemonMoveVersionGroup
+#'
+#' @description
+#' PokemonMoveVersionGroup Class
+#'
+#' @docType class
+#' @title PokemonMoveVersionGroup
+#' @description PokemonMoveVersionGroup Class
+#' @format An \code{R6Class} generator object
+#' @field level_learned_at The minimum level to learn the move. integer
+#' @field move_learn_method The method by which the move is learned. \link{MoveLearnMethodSummary}
+#' @field version_group The version group in which the move is learned. \link{VersionGroupSummary}
+#' @field order Order by which the pokemon will learn the move. A newly learnt move will replace the move with lowest order. integer [optional]
+#' @importFrom R6 R6Class
+#' @importFrom jsonlite fromJSON toJSON
+#' @export
+PokemonMoveVersionGroup <- R6::R6Class(
+  "PokemonMoveVersionGroup",
+  public = list(
+    `level_learned_at` = NULL,
+    `move_learn_method` = NULL,
+    `version_group` = NULL,
+    `order` = NULL,
+
+    #' @description
+    #' Initialize a new PokemonMoveVersionGroup class.
+    #'
+    #' @param level_learned_at The minimum level to learn the move.
+    #' @param move_learn_method The method by which the move is learned.
+    #' @param version_group The version group in which the move is learned.
+    #' @param order Order by which the pokemon will learn the move. A newly learnt move will replace the move with lowest order.
+    #' @param ... Other optional arguments.
+    initialize = function(`level_learned_at`, `move_learn_method`, `version_group`, `order` = NULL, ...) {
+      if (!missing(`level_learned_at`)) {
+        if (!(is.numeric(`level_learned_at`) && length(`level_learned_at`) == 1)) {
+          stop(paste("Error! Invalid data for `level_learned_at`. Must be an integer:", `level_learned_at`))
+        }
+        self$`level_learned_at` <- `level_learned_at`
+      }
+      if (!missing(`move_learn_method`)) {
+        stopifnot(R6::is.R6(`move_learn_method`))
+        self$`move_learn_method` <- `move_learn_method`
+      }
+      if (!missing(`version_group`)) {
+        stopifnot(R6::is.R6(`version_group`))
+        self$`version_group` <- `version_group`
+      }
+      if (!is.null(`order`)) {
+        if (!(is.numeric(`order`) && length(`order`) == 1)) {
+          stop(paste("Error! Invalid data for `order`. Must be an integer:", `order`))
+        }
+        self$`order` <- `order`
+      }
+    },
+
+    #' @description
+    #' Convert to an R object. This method is deprecated. Use `toSimpleType()` instead.
+    toJSON = function() {
+      .Deprecated(new = "toSimpleType", msg = "Use the '$toSimpleType()' method instead since that is more clearly named. Use '$toJSONString()' to get a JSON string")
+      return(self$toSimpleType())
+    },
+
+    #' @description
+    #' Convert to a List
+    #'
+    #' Convert the R6 object to a list to work more easily with other tooling.
+    #'
+    #' @return PokemonMoveVersionGroup as a base R list.
+    #' @examples
+    #' # convert array of PokemonMoveVersionGroup (x) to a data frame
+    #' \dontrun{
+    #' library(purrr)
+    #' library(tibble)
+    #' df <- x |> map(\(y)y$toList()) |> map(as_tibble) |> list_rbind()
+    #' df
+    #' }
+    toList = function() {
+      return(self$toSimpleType())
+    },
+
+    #' @description
+    #' Convert PokemonMoveVersionGroup to a base R type
+    #'
+    #' @return A base R type, e.g. a list or numeric/character array.
+    toSimpleType = function() {
+      PokemonMoveVersionGroupObject <- list()
+      if (!is.null(self$`level_learned_at`)) {
+        PokemonMoveVersionGroupObject[["level_learned_at"]] <-
+          self$`level_learned_at`
+      }
+      if (!is.null(self$`move_learn_method`)) {
+        PokemonMoveVersionGroupObject[["move_learn_method"]] <-
+          self$extractSimpleType(self$`move_learn_method`)
+      }
+      if (!is.null(self$`version_group`)) {
+        PokemonMoveVersionGroupObject[["version_group"]] <-
+          self$extractSimpleType(self$`version_group`)
+      }
+      if (!is.null(self$`order`)) {
+        PokemonMoveVersionGroupObject[["order"]] <-
+          self$`order`
+      }
+      return(PokemonMoveVersionGroupObject)
+    },
+
+    extractSimpleType = function(x) {
+      if (R6::is.R6(x)) {
+        return(x$toSimpleType())
+      } else if (!self$hasNestedR6(x)) {
+        return(x)
+      }
+      lapply(x, self$extractSimpleType)
+    },
+
+    hasNestedR6 = function(x) {
+      if (R6::is.R6(x)) {
+        return(TRUE)
+      }
+      if (is.list(x)) {
+        for (item in x) {
+          if (self$hasNestedR6(item)) {
+            return(TRUE)
+          }
+        }
+      }
+      FALSE
+    },
+
+    #' @description
+    #' Deserialize JSON string into an instance of PokemonMoveVersionGroup
+    #'
+    #' @param input_json the JSON input
+    #' @return the instance of PokemonMoveVersionGroup
+    fromJSON = function(input_json) {
+      this_object <- jsonlite::fromJSON(input_json)
+      if (!is.null(this_object$`level_learned_at`)) {
+        self$`level_learned_at` <- this_object$`level_learned_at`
+      }
+      if (!is.null(this_object$`move_learn_method`)) {
+        `move_learn_method_object` <- MoveLearnMethodSummary$new()
+        `move_learn_method_object`$fromJSON(jsonlite::toJSON(this_object$`move_learn_method`, auto_unbox = TRUE, digits = NA))
+        self$`move_learn_method` <- `move_learn_method_object`
+      }
+      if (!is.null(this_object$`version_group`)) {
+        `version_group_object` <- VersionGroupSummary$new()
+        `version_group_object`$fromJSON(jsonlite::toJSON(this_object$`version_group`, auto_unbox = TRUE, digits = NA))
+        self$`version_group` <- `version_group_object`
+      }
+      if (!is.null(this_object$`order`)) {
+        self$`order` <- this_object$`order`
+      }
+      self
+    },
+
+    #' @description
+    #' To JSON String
+    #' 
+    #' @param ... Parameters passed to `jsonlite::toJSON`
+    #' @return PokemonMoveVersionGroup in JSON format
+    toJSONString = function(...) {
+      simple <- self$toSimpleType()
+      json <- jsonlite::toJSON(simple, auto_unbox = TRUE, digits = NA, ...)
+      return(as.character(jsonlite::minify(json)))
+    },
+
+    #' @description
+    #' Deserialize JSON string into an instance of PokemonMoveVersionGroup
+    #'
+    #' @param input_json the JSON input
+    #' @return the instance of PokemonMoveVersionGroup
+    fromJSONString = function(input_json) {
+      this_object <- jsonlite::fromJSON(input_json)
+      self$`level_learned_at` <- this_object$`level_learned_at`
+      self$`move_learn_method` <- MoveLearnMethodSummary$new()$fromJSON(jsonlite::toJSON(this_object$`move_learn_method`, auto_unbox = TRUE, digits = NA))
+      self$`version_group` <- VersionGroupSummary$new()$fromJSON(jsonlite::toJSON(this_object$`version_group`, auto_unbox = TRUE, digits = NA))
+      self$`order` <- this_object$`order`
+      self
+    },
+
+    #' @description
+    #' Validate JSON input with respect to PokemonMoveVersionGroup and throw an exception if invalid
+    #'
+    #' @param input the JSON input
+    validateJSON = function(input) {
+      input_json <- jsonlite::fromJSON(input)
+      # check the required field `level_learned_at`
+      if (!is.null(input_json$`level_learned_at`)) {
+        if (!(is.numeric(input_json$`level_learned_at`) && length(input_json$`level_learned_at`) == 1)) {
+          stop(paste("Error! Invalid data for `level_learned_at`. Must be an integer:", input_json$`level_learned_at`))
+        }
+      } else {
+        stop(paste("The JSON input `", input, "` is invalid for PokemonMoveVersionGroup: the required field `level_learned_at` is missing."))
+      }
+      # check the required field `move_learn_method`
+      if (!is.null(input_json$`move_learn_method`)) {
+        stopifnot(R6::is.R6(input_json$`move_learn_method`))
+      } else {
+        stop(paste("The JSON input `", input, "` is invalid for PokemonMoveVersionGroup: the required field `move_learn_method` is missing."))
+      }
+      # check the required field `version_group`
+      if (!is.null(input_json$`version_group`)) {
+        stopifnot(R6::is.R6(input_json$`version_group`))
+      } else {
+        stop(paste("The JSON input `", input, "` is invalid for PokemonMoveVersionGroup: the required field `version_group` is missing."))
+      }
+    },
+
+    #' @description
+    #' To string (JSON format)
+    #'
+    #' @return String representation of PokemonMoveVersionGroup
+    toString = function() {
+      self$toJSONString()
+    },
+
+    #' @description
+    #' Return true if the values in all fields are valid.
+    #'
+    #' @return true if the values in all fields are valid.
+    isValid = function() {
+      # check if the required `level_learned_at` is null
+      if (is.null(self$`level_learned_at`)) {
+        return(FALSE)
+      }
+
+      # check if the required `move_learn_method` is null
+      if (is.null(self$`move_learn_method`)) {
+        return(FALSE)
+      }
+
+      # check if the required `version_group` is null
+      if (is.null(self$`version_group`)) {
+        return(FALSE)
+      }
+
+      TRUE
+    },
+
+    #' @description
+    #' Return a list of invalid fields (if any).
+    #'
+    #' @return A list of invalid fields (if any).
+    getInvalidFields = function() {
+      invalid_fields <- list()
+      # check if the required `level_learned_at` is null
+      if (is.null(self$`level_learned_at`)) {
+        invalid_fields["level_learned_at"] <- "Non-nullable required field `level_learned_at` cannot be null."
+      }
+
+      # check if the required `move_learn_method` is null
+      if (is.null(self$`move_learn_method`)) {
+        invalid_fields["move_learn_method"] <- "Non-nullable required field `move_learn_method` cannot be null."
+      }
+
+      # check if the required `version_group` is null
+      if (is.null(self$`version_group`)) {
+        invalid_fields["version_group"] <- "Non-nullable required field `version_group` cannot be null."
+      }
+
+      invalid_fields
+    },
+
+    #' @description
+    #' Print the object
+    print = function() {
+      print(jsonlite::prettify(self$toJSONString()))
+      invisible(self)
+    }
+  ),
+  # Lock the class to prevent modifications to the method or field
+  lock_class = TRUE
+)
+## Uncomment below to unlock the class to allow modifications of the method or field
+# PokemonMoveVersionGroup$unlock()
+#
+## Below is an example to define the print function
+# PokemonMoveVersionGroup$set("public", "print", function(...) {
+#   print(jsonlite::prettify(self$toJSONString()))
+#   invisible(self)
+# })
+## Uncomment below to lock the class to prevent modifications to the method or field
+# PokemonMoveVersionGroup$lock()
+

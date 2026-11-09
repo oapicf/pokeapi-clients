@@ -10,7 +10,6 @@ namespace models {
 
 VersionName::VersionName()
 : name("")
-, language(LanguageSummary())
 {
 }
 // =========================================

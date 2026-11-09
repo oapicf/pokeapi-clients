@@ -12,10 +12,14 @@ import org.joda.time.DateTime
 import MoveMetaCategoryDetail._
 
 case class MoveMetaCategoryDetail (
+  /* The identifier for this resource. */
   id: Integer,
-name: String,
-descriptions: List[MoveMetaCategoryDescription],
-moves: List[AbilityDetailPokemonInnerPokemon])
+/* The name for this resource. */
+  name: String,
+/* The description of this resource listed in different languages. */
+  descriptions: List[MoveMetaCategoryDescription],
+/* A list of moves that fall into this category. */
+  moves: List[MoveSummary])
 
 object MoveMetaCategoryDetail {
   import DateTimeCodecs._

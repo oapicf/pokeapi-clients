@@ -12,7 +12,7 @@ export abstract class PokemonApi {
   abstract abilityRetrieve(id: string,  request: Request): AbilityDetail | Promise<AbilityDetail> | Observable<AbilityDetail>;
 
 
-  abstract characteristicList(limit: number | undefined, offset: number | undefined, q: string | undefined,  request: Request): PaginatedCharacteristicSummaryList | Promise<PaginatedCharacteristicSummaryList> | Observable<PaginatedCharacteristicSummaryList>;
+  abstract characteristicList(limit: number | undefined, offset: number | undefined,  request: Request): PaginatedCharacteristicSummaryList | Promise<PaginatedCharacteristicSummaryList> | Observable<PaginatedCharacteristicSummaryList>;
 
 
   abstract characteristicRetrieve(id: string,  request: Request): CharacteristicDetail | Promise<CharacteristicDetail> | Observable<CharacteristicDetail>;

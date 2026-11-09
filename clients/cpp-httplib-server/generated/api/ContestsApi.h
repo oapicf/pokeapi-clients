@@ -8,7 +8,6 @@
 
 // System headers
 #include <httplib.h>
-#include <memory>
 #include <variant>
 
 // Project headers
@@ -20,7 +19,6 @@
 #include "models/SuperContestEffectDetail.h"
 
 namespace Api {
-    class AuthenticationManager;
 class Contests {
 public:
     Contests() = default;
@@ -28,9 +26,8 @@ public:
     /**
      * @brief Register all routes for this API
      * @param svr The httplib::Server instance to register routes on
-     * @param auth The AuthenticationManager for authentication (optional, defaults to nullptr)
      */
-    void registerRoutes(httplib::Server& svr, std::shared_ptr<AuthenticationManager> auth = nullptr);
+    void registerRoutes(httplib::Server& svr);
     // =========================
     // ===== Request types =====
     // =========================
@@ -43,7 +40,6 @@ public:
 
         std::optional<int> m_limit; //Query Params (optional)
         std::optional<int> m_offset; //Query Params (optional)
-        std::optional<std::string> m_q; //Query Params (optional)
     };
 
     /**
@@ -83,7 +79,6 @@ public:
 
         std::optional<int> m_limit; //Query Params (optional)
         std::optional<int> m_offset; //Query Params (optional)
-        std::optional<std::string> m_q; //Query Params (optional)
     };
 
     /**
@@ -172,27 +167,23 @@ private:
     // ===== Helper function declarations =====
     // ========================================
     static bool parseApiv2contestEffectGetParams(const httplib::Request& req, Apiv2contestEffectGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2contestEffectGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2contestEffectGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2contestEffectGetResponse(const Apiv2contestEffectGetResponse& result, httplib::Response& res);
     static bool parseApiv2contestEffectidGetParams(const httplib::Request& req, Apiv2contestEffectidGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2contestEffectidGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2contestEffectidGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2contestEffectidGetResponse(const Apiv2contestEffectidGetResponse& result, httplib::Response& res);
     static bool parseApiv2contestTypeGetParams(const httplib::Request& req, Apiv2contestTypeGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2contestTypeGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2contestTypeGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2contestTypeGetResponse(const Apiv2contestTypeGetResponse& result, httplib::Response& res);
     static bool parseApiv2contestTypeidGetParams(const httplib::Request& req, Apiv2contestTypeidGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2contestTypeidGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2contestTypeidGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2contestTypeidGetResponse(const Apiv2contestTypeidGetResponse& result, httplib::Response& res);
     static bool parseApiv2superContestEffectGetParams(const httplib::Request& req, Apiv2superContestEffectGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2superContestEffectGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2superContestEffectGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2superContestEffectGetResponse(const Apiv2superContestEffectGetResponse& result, httplib::Response& res);
     static bool parseApiv2superContestEffectidGetParams(const httplib::Request& req, Apiv2superContestEffectidGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2superContestEffectidGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2superContestEffectidGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2superContestEffectidGetResponse(const Apiv2superContestEffectidGetResponse& result, httplib::Response& res);
-    static bool performAuthentication(
-        const httplib::Request& req,
-        std::shared_ptr<AuthenticationManager> auth,
-        httplib::Response& res);
 };
 
 } // namespace Api

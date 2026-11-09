@@ -15,29 +15,35 @@ part 'growth_rate_detail.g.dart';
 /// GrowthRateDetail
 ///
 /// Properties:
-/// * [id] 
-/// * [name] 
-/// * [formula] 
-/// * [descriptions] 
-/// * [levels] 
-/// * [pokemonSpecies] 
+/// * [id] - The identifier for this resource.
+/// * [name] - The name for this resource.
+/// * [formula] - The formula used to calculate the rate at which the Pokémon species gains level.
+/// * [descriptions] - The descriptions of this characteristic listed in different languages.
+/// * [levels] - A list of levels and the amount of experienced needed to atain them based on this growth rate.
+/// * [pokemonSpecies] - A list of Pokémon species that gain levels at this growth rate.
 @BuiltValue()
 abstract class GrowthRateDetail implements Built<GrowthRateDetail, GrowthRateDetailBuilder> {
+  /// The identifier for this resource.
   @BuiltValueField(wireName: r'id')
   int get id;
 
+  /// The name for this resource.
   @BuiltValueField(wireName: r'name')
   String get name;
 
+  /// The formula used to calculate the rate at which the Pokémon species gains level.
   @BuiltValueField(wireName: r'formula')
   String get formula;
 
+  /// The descriptions of this characteristic listed in different languages.
   @BuiltValueField(wireName: r'descriptions')
   BuiltList<GrowthRateDescription> get descriptions;
 
+  /// A list of levels and the amount of experienced needed to atain them based on this growth rate.
   @BuiltValueField(wireName: r'levels')
   BuiltList<Experience> get levels;
 
+  /// A list of Pokémon species that gain levels at this growth rate.
   @BuiltValueField(wireName: r'pokemon_species')
   BuiltList<PokemonSpeciesSummary> get pokemonSpecies;
 

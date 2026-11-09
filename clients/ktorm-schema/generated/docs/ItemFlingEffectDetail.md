@@ -5,10 +5,10 @@
 ## Properties
 Name | Mapping | SQL Type | Default | Type | Description | Notes
 ---- | ------- | -------- | ------- | ---- | ----------- | -----
-**id** | id | int NOT NULL PRIMARY KEY AUTOINCREMENT |  | **kotlin.Int** |  |  [readonly]
-**name** | name | text NOT NULL |  | **kotlin.String** |  | 
-**effectEntries** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;ItemFlingEffectEffectText&gt;**](ItemFlingEffectEffectText.md) |  |  [readonly]
-**items** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;ItemSummary&gt;**](ItemSummary.md) |  |  [readonly]
+**id** | id | int NOT NULL PRIMARY KEY AUTOINCREMENT |  | **kotlin.Int** | The identifier for this resource. |  [readonly]
+**name** | name | text NOT NULL |  | **kotlin.String** | The name for this resource. | 
+**effectEntries** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;ItemFlingEffectEffectText&gt;**](ItemFlingEffectEffectText.md) | The result of this fling effect listed in different languages. |  [readonly]
+**items** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;ItemSummary&gt;**](ItemSummary.md) | A list of items that have this fling effect. |  [readonly]
 
 
 

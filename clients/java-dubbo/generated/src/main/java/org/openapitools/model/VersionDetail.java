@@ -17,20 +17,32 @@ import java.math.*;
 public class VersionDetail implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * The identifier for this resource.
+   */
   @JsonProperty("id")
   private Integer id;
 
+  /**
+   * The name for this resource.
+   */
   @JsonProperty("name")
   private String name;
 
+  /**
+   * The name of this resource listed in different languages.
+   */
   @JsonProperty("names")
   private List<VersionName> names = new ArrayList<>();
 
+  /**
+   * The version group this version belongs to.
+   */
   @JsonProperty("version_group")
   private VersionGroupSummary versionGroup;
 
   /**
-   * 
+   * The identifier for this resource.
    * @return id
    */
   public Integer getId() {
@@ -42,7 +54,7 @@ public class VersionDetail implements Serializable {
   }
 
   /**
-   * 
+   * The name for this resource.
    * @return name
    */
   public String getName() {
@@ -54,7 +66,7 @@ public class VersionDetail implements Serializable {
   }
 
   /**
-   * 
+   * The name of this resource listed in different languages.
    * @return names
    */
   public List<VersionName> getNames() {
@@ -66,7 +78,7 @@ public class VersionDetail implements Serializable {
   }
 
   /**
-   * 
+   * The version group this version belongs to.
    * @return versionGroup
    */
   public VersionGroupSummary getVersionGroup() {

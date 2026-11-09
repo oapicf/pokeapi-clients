@@ -10,10 +10,11 @@ StatDetail::StatDetail()
 	name = std::string();
 	game_index = int(0);
 	is_battle_only = bool(false);
-	affecting_moves = StatDetail_affecting_moves();
-	affecting_natures = StatDetail_affecting_natures();
+	affecting_moves = null;
+	affecting_natures = null;
+	affecting_items = std::list<ItemSummary>();
 	characteristics = std::list<CharacteristicSummary>();
-	move_damage_class = MoveDamageClassSummary();
+	move_damage_class = null;
 	names = std::list<StatName>();
 }
 
@@ -93,7 +94,7 @@ StatDetail::fromJson(std::string jsonObj)
 
 
 
-        StatDetail_affecting_moves* obj = &affecting_moves;
+        StatAffectingMoves* obj = &affecting_moves;
 		obj->fromJson(value.dump());
 
     }
@@ -107,8 +108,30 @@ StatDetail::fromJson(std::string jsonObj)
 
 
 
-        StatDetail_affecting_natures* obj = &affecting_natures;
+        StatAffectingNatures* obj = &affecting_natures;
 		obj->fromJson(value.dump());
+
+    }
+
+    const char *affecting_itemsKey = "affecting_items";
+
+    if(object.has_key(affecting_itemsKey))
+    {
+        bourne::json value = object[affecting_itemsKey];
+
+
+        std::list<ItemSummary> affecting_items_list;
+        ItemSummary element;
+        for(auto& var : value.array_range())
+        {
+
+
+            element.fromJson(var.dump());
+
+            affecting_items_list.push_back(element);
+        }
+        affecting_items = affecting_items_list;
+
 
     }
 
@@ -223,6 +246,21 @@ StatDetail::toJson()
 
 
 
+    std::list<ItemSummary> affecting_items_list = getAffectingItems();
+    bourne::json affecting_items_arr = bourne::json::array();
+
+    for(auto& var : affecting_items_list)
+    {
+        ItemSummary obj = var;
+        affecting_items_arr.append(obj.toJson());
+    }
+    object["affecting_items"] = affecting_items_arr;
+
+
+
+
+
+
     std::list<CharacteristicSummary> characteristics_list = getCharacteristics();
     bourne::json characteristics_arr = bourne::json::array();
 
@@ -310,28 +348,40 @@ StatDetail::setIsBattleOnly(bool is_battle_only)
 	this->is_battle_only = is_battle_only;
 }
 
-StatDetail_affecting_moves
+StatAffectingMoves
 StatDetail::getAffectingMoves()
 {
 	return affecting_moves;
 }
 
 void
-StatDetail::setAffectingMoves(StatDetail_affecting_moves affecting_moves)
+StatDetail::setAffectingMoves(StatAffectingMoves affecting_moves)
 {
 	this->affecting_moves = affecting_moves;
 }
 
-StatDetail_affecting_natures
+StatAffectingNatures
 StatDetail::getAffectingNatures()
 {
 	return affecting_natures;
 }
 
 void
-StatDetail::setAffectingNatures(StatDetail_affecting_natures affecting_natures)
+StatDetail::setAffectingNatures(StatAffectingNatures affecting_natures)
 {
 	this->affecting_natures = affecting_natures;
+}
+
+std::list<ItemSummary>
+StatDetail::getAffectingItems()
+{
+	return affecting_items;
+}
+
+void
+StatDetail::setAffectingItems(std::list<ItemSummary> affecting_items)
+{
+	this->affecting_items = affecting_items;
 }
 
 std::list<CharacteristicSummary>

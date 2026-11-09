@@ -7,7 +7,7 @@ using namespace Tiny;
 MoveMetaCategoryDescription::MoveMetaCategoryDescription()
 {
 	description = std::string();
-	language = LanguageSummary();
+	language = null;
 }
 
 MoveMetaCategoryDescription::MoveMetaCategoryDescription(std::string jsonString)

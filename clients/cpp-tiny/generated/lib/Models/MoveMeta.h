@@ -47,88 +47,88 @@ public:
 	 */
     void fromJson(std::string jsonObj);
 
-	/*! \brief Get 
+	/*! \brief Get The status ailment this move inflicts on its target.
 	 */
 	MoveMetaAilmentSummary getAilment();
 
-	/*! \brief Set 
+	/*! \brief Set The status ailment this move inflicts on its target.
 	 */
 	void setAilment(MoveMetaAilmentSummary ailment);
-	/*! \brief Get 
+	/*! \brief Get The category of move this move falls under, e.g. damage or ailment.
 	 */
 	MoveMetaCategorySummary getCategory();
 
-	/*! \brief Set 
+	/*! \brief Set The category of move this move falls under, e.g. damage or ailment.
 	 */
 	void setCategory(MoveMetaCategorySummary category);
-	/*! \brief Get 
+	/*! \brief Get The minimum number of times this move hits. Null if it always only hits once.
 	 */
 	int getMinHits();
 
-	/*! \brief Set 
+	/*! \brief Set The minimum number of times this move hits. Null if it always only hits once.
 	 */
 	void setMinHits(int min_hits);
-	/*! \brief Get 
+	/*! \brief Get The maximum number of times this move hits. Null if it always only hits once.
 	 */
 	int getMaxHits();
 
-	/*! \brief Set 
+	/*! \brief Set The maximum number of times this move hits. Null if it always only hits once.
 	 */
 	void setMaxHits(int max_hits);
-	/*! \brief Get 
+	/*! \brief Get The minimum number of turns this move continues to take effect. Null if it always only lasts one turn.
 	 */
 	int getMinTurns();
 
-	/*! \brief Set 
+	/*! \brief Set The minimum number of turns this move continues to take effect. Null if it always only lasts one turn.
 	 */
 	void setMinTurns(int min_turns);
-	/*! \brief Get 
+	/*! \brief Get The maximum number of turns this move continues to take effect. Null if it always only lasts one turn.
 	 */
 	int getMaxTurns();
 
-	/*! \brief Set 
+	/*! \brief Set The maximum number of turns this move continues to take effect. Null if it always only lasts one turn.
 	 */
 	void setMaxTurns(int max_turns);
-	/*! \brief Get 
+	/*! \brief Get HP drain (if positive) or Recoil damage (if negative), in percent of damage done.
 	 */
 	int getDrain();
 
-	/*! \brief Set 
+	/*! \brief Set HP drain (if positive) or Recoil damage (if negative), in percent of damage done.
 	 */
 	void setDrain(int drain);
-	/*! \brief Get 
+	/*! \brief Get The amount of hp gained by the attacking Pokemon, in percent of it's maximum HP.
 	 */
 	int getHealing();
 
-	/*! \brief Set 
+	/*! \brief Set The amount of hp gained by the attacking Pokemon, in percent of it's maximum HP.
 	 */
 	void setHealing(int healing);
-	/*! \brief Get 
+	/*! \brief Get Critical hit rate bonus.
 	 */
 	int getCritRate();
 
-	/*! \brief Set 
+	/*! \brief Set Critical hit rate bonus.
 	 */
 	void setCritRate(int crit_rate);
-	/*! \brief Get 
+	/*! \brief Get The likelihood this attack will cause an ailment.
 	 */
 	int getAilmentChance();
 
-	/*! \brief Set 
+	/*! \brief Set The likelihood this attack will cause an ailment.
 	 */
 	void setAilmentChance(int ailment_chance);
-	/*! \brief Get 
+	/*! \brief Get The likelihood this attack will cause the target Pokémon to flinch.
 	 */
 	int getFlinchChance();
 
-	/*! \brief Set 
+	/*! \brief Set The likelihood this attack will cause the target Pokémon to flinch.
 	 */
 	void setFlinchChance(int flinch_chance);
-	/*! \brief Get 
+	/*! \brief Get The likelihood this attack will cause a stat change in the target Pokémon.
 	 */
 	int getStatChance();
 
-	/*! \brief Set 
+	/*! \brief Set The likelihood this attack will cause a stat change in the target Pokémon.
 	 */
 	void setStatChance(int stat_chance);
 

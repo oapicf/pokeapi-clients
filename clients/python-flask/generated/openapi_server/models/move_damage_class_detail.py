@@ -69,6 +69,7 @@ class MoveDamageClassDetail(Model):
     def id(self) -> int:
         """Gets the id of this MoveDamageClassDetail.
 
+        The identifier for this resource.  # noqa: E501
 
         :return: The id of this MoveDamageClassDetail.
         :rtype: int
@@ -79,6 +80,7 @@ class MoveDamageClassDetail(Model):
     def id(self, id: int):
         """Sets the id of this MoveDamageClassDetail.
 
+        The identifier for this resource.  # noqa: E501
 
         :param id: The id of this MoveDamageClassDetail.
         :type id: int
@@ -92,6 +94,7 @@ class MoveDamageClassDetail(Model):
     def name(self) -> str:
         """Gets the name of this MoveDamageClassDetail.
 
+        The name for this resource.  # noqa: E501
 
         :return: The name of this MoveDamageClassDetail.
         :rtype: str
@@ -102,14 +105,15 @@ class MoveDamageClassDetail(Model):
     def name(self, name: str):
         """Sets the name of this MoveDamageClassDetail.
 
+        The name for this resource.  # noqa: E501
 
         :param name: The name of this MoveDamageClassDetail.
         :type name: str
         """
         if name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
-        if name is not None and len(name) > 100:
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `100`")  # noqa: E501
+        if name is not None and len(name) > 200:
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `200`")  # noqa: E501
 
         self._name = name
 
@@ -117,6 +121,7 @@ class MoveDamageClassDetail(Model):
     def descriptions(self) -> List[MoveDamageClassDescription]:
         """Gets the descriptions of this MoveDamageClassDetail.
 
+        The description of this resource listed in different languages.  # noqa: E501
 
         :return: The descriptions of this MoveDamageClassDetail.
         :rtype: List[MoveDamageClassDescription]
@@ -127,6 +132,7 @@ class MoveDamageClassDetail(Model):
     def descriptions(self, descriptions: List[MoveDamageClassDescription]):
         """Sets the descriptions of this MoveDamageClassDetail.
 
+        The description of this resource listed in different languages.  # noqa: E501
 
         :param descriptions: The descriptions of this MoveDamageClassDetail.
         :type descriptions: List[MoveDamageClassDescription]
@@ -140,6 +146,7 @@ class MoveDamageClassDetail(Model):
     def moves(self) -> List[MoveSummary]:
         """Gets the moves of this MoveDamageClassDetail.
 
+        A list of moves that fall into this damage class.  # noqa: E501
 
         :return: The moves of this MoveDamageClassDetail.
         :rtype: List[MoveSummary]
@@ -150,6 +157,7 @@ class MoveDamageClassDetail(Model):
     def moves(self, moves: List[MoveSummary]):
         """Sets the moves of this MoveDamageClassDetail.
 
+        A list of moves that fall into this damage class.  # noqa: E501
 
         :param moves: The moves of this MoveDamageClassDetail.
         :type moves: List[MoveSummary]
@@ -163,6 +171,7 @@ class MoveDamageClassDetail(Model):
     def names(self) -> List[MoveDamageClassName]:
         """Gets the names of this MoveDamageClassDetail.
 
+        The name of this resource listed in different languages.  # noqa: E501
 
         :return: The names of this MoveDamageClassDetail.
         :rtype: List[MoveDamageClassName]
@@ -173,6 +182,7 @@ class MoveDamageClassDetail(Model):
     def names(self, names: List[MoveDamageClassName]):
         """Sets the names of this MoveDamageClassDetail.
 
+        The name of this resource listed in different languages.  # noqa: E501
 
         :param names: The names of this MoveDamageClassDetail.
         :type names: List[MoveDamageClassName]

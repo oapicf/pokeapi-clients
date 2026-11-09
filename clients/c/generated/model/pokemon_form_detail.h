@@ -15,9 +15,11 @@
 
 typedef struct pokemon_form_detail_t pokemon_form_detail_t;
 
-#include "pokemon_detail_types_inner.h"
-#include "pokemon_form_detail_form_names_inner.h"
-#include "pokemon_form_detail_sprites.h"
+#include "pokemon_form_flavor_text.h"
+#include "pokemon_form_name.h"
+#include "pokemon_form_sprites.h"
+#include "pokemon_form_trigger_condition.h"
+#include "pokemon_form_type.h"
 #include "pokemon_summary.h"
 #include "version_group_summary.h"
 
@@ -33,11 +35,13 @@ typedef struct pokemon_form_detail_t {
     int *is_mega; //boolean
     char *form_name; // string
     struct pokemon_summary_t *pokemon; //model
-    pokemon_form_detail_sprites_t *sprites; // custom
+    struct pokemon_form_sprites_t *sprites; //model
     struct version_group_summary_t *version_group; //model
     list_t *form_names; //nonprimitive container
     list_t *names; //nonprimitive container
     list_t *types; //nonprimitive container
+    list_t *trigger_conditions; //nonprimitive container
+    list_t *flavor_text_entries; //nonprimitive container
 
     int _library_owned; // Is the library responsible for freeing this object?
 } pokemon_form_detail_t;
@@ -52,11 +56,13 @@ __attribute__((deprecated)) pokemon_form_detail_t *pokemon_form_detail_create(
     int *is_mega,
     char *form_name,
     pokemon_summary_t *pokemon,
-    pokemon_form_detail_sprites_t *sprites,
+    pokemon_form_sprites_t *sprites,
     version_group_summary_t *version_group,
     list_t *form_names,
     list_t *names,
-    list_t *types
+    list_t *types,
+    list_t *trigger_conditions,
+    list_t *flavor_text_entries
 );
 
 void pokemon_form_detail_free(pokemon_form_detail_t *pokemon_form_detail);

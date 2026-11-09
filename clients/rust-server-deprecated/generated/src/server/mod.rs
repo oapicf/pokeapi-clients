@@ -45,8 +45,10 @@ use crate::{Api,
      EncounterMethodRetrieveResponse,
      EvolutionChainListResponse,
      EvolutionTriggerListResponse,
+     EvolutionVariableListResponse,
      EvolutionChainRetrieveResponse,
      EvolutionTriggerRetrieveResponse,
+     EvolutionVariableRetrieveResponse,
      GenerationListResponse,
      PokedexListResponse,
      VersionGroupListResponse,
@@ -55,11 +57,13 @@ use crate::{Api,
      PokedexRetrieveResponse,
      VersionGroupRetrieveResponse,
      VersionRetrieveResponse,
+     CurrencyListResponse,
      ItemAttributeListResponse,
      ItemCategoryListResponse,
      ItemFlingEffectListResponse,
      ItemListResponse,
      ItemPocketListResponse,
+     CurrencyRetrieveResponse,
      ItemAttributeRetrieveResponse,
      ItemCategoryRetrieveResponse,
      ItemFlingEffectRetrieveResponse,
@@ -120,6 +124,7 @@ use crate::{Api,
      StatRetrieveResponse,
      TypeRetrieveResponse,
      LanguageListResponse,
+     MetaRetrieveResponse,
      LanguageRetrieveResponse
 };
 
@@ -144,6 +149,8 @@ mod paths {
             r"^/api/v2/contest-effect/(?P<id>[^/?#]*)/$",
             r"^/api/v2/contest-type/$",
             r"^/api/v2/contest-type/(?P<id>[^/?#]*)/$",
+            r"^/api/v2/currency/$",
+            r"^/api/v2/currency/(?P<id>[^/?#]*)/$",
             r"^/api/v2/egg-group/$",
             r"^/api/v2/egg-group/(?P<id>[^/?#]*)/$",
             r"^/api/v2/encounter-condition-value/$",
@@ -156,6 +163,8 @@ mod paths {
             r"^/api/v2/evolution-chain/(?P<id>[^/?#]*)/$",
             r"^/api/v2/evolution-trigger/$",
             r"^/api/v2/evolution-trigger/(?P<id>[^/?#]*)/$",
+            r"^/api/v2/evolution-variable/$",
+            r"^/api/v2/evolution-variable/(?P<id>[^/?#]*)/$",
             r"^/api/v2/gender/$",
             r"^/api/v2/gender/(?P<id>[^/?#]*)/$",
             r"^/api/v2/generation/$",
@@ -180,6 +189,7 @@ mod paths {
             r"^/api/v2/location/(?P<id>[^/?#]*)/$",
             r"^/api/v2/machine/$",
             r"^/api/v2/machine/(?P<id>[^/?#]*)/$",
+            r"^/api/v2/meta/$",
             r"^/api/v2/move-ailment/$",
             r"^/api/v2/move-ailment/(?P<id>[^/?#]*)/$",
             r"^/api/v2/move-battle-style/$",
@@ -285,328 +295,345 @@ mod paths {
             regex::Regex::new(r"^/api/v2/contest-type/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_CONTEST_TYPE_ID_");
     }
-    pub(crate) static ID_API_V2_EGG_GROUP_: usize = 14;
-    pub(crate) static ID_API_V2_EGG_GROUP_ID_: usize = 15;
+    pub(crate) static ID_API_V2_CURRENCY_: usize = 14;
+    pub(crate) static ID_API_V2_CURRENCY_ID_: usize = 15;
+    lazy_static! {
+        pub static ref REGEX_API_V2_CURRENCY_ID_: regex::Regex =
+            #[allow(clippy::invalid_regex)]
+            regex::Regex::new(r"^/api/v2/currency/(?P<id>[^/?#]*)/$")
+                .expect("Unable to create regex for API_V2_CURRENCY_ID_");
+    }
+    pub(crate) static ID_API_V2_EGG_GROUP_: usize = 16;
+    pub(crate) static ID_API_V2_EGG_GROUP_ID_: usize = 17;
     lazy_static! {
         pub static ref REGEX_API_V2_EGG_GROUP_ID_: regex::Regex =
             #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/egg-group/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_EGG_GROUP_ID_");
     }
-    pub(crate) static ID_API_V2_ENCOUNTER_CONDITION_VALUE_: usize = 16;
-    pub(crate) static ID_API_V2_ENCOUNTER_CONDITION_VALUE_ID_: usize = 17;
+    pub(crate) static ID_API_V2_ENCOUNTER_CONDITION_VALUE_: usize = 18;
+    pub(crate) static ID_API_V2_ENCOUNTER_CONDITION_VALUE_ID_: usize = 19;
     lazy_static! {
         pub static ref REGEX_API_V2_ENCOUNTER_CONDITION_VALUE_ID_: regex::Regex =
             #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/encounter-condition-value/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_ENCOUNTER_CONDITION_VALUE_ID_");
     }
-    pub(crate) static ID_API_V2_ENCOUNTER_CONDITION_: usize = 18;
-    pub(crate) static ID_API_V2_ENCOUNTER_CONDITION_ID_: usize = 19;
+    pub(crate) static ID_API_V2_ENCOUNTER_CONDITION_: usize = 20;
+    pub(crate) static ID_API_V2_ENCOUNTER_CONDITION_ID_: usize = 21;
     lazy_static! {
         pub static ref REGEX_API_V2_ENCOUNTER_CONDITION_ID_: regex::Regex =
             #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/encounter-condition/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_ENCOUNTER_CONDITION_ID_");
     }
-    pub(crate) static ID_API_V2_ENCOUNTER_METHOD_: usize = 20;
-    pub(crate) static ID_API_V2_ENCOUNTER_METHOD_ID_: usize = 21;
+    pub(crate) static ID_API_V2_ENCOUNTER_METHOD_: usize = 22;
+    pub(crate) static ID_API_V2_ENCOUNTER_METHOD_ID_: usize = 23;
     lazy_static! {
         pub static ref REGEX_API_V2_ENCOUNTER_METHOD_ID_: regex::Regex =
             #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/encounter-method/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_ENCOUNTER_METHOD_ID_");
     }
-    pub(crate) static ID_API_V2_EVOLUTION_CHAIN_: usize = 22;
-    pub(crate) static ID_API_V2_EVOLUTION_CHAIN_ID_: usize = 23;
+    pub(crate) static ID_API_V2_EVOLUTION_CHAIN_: usize = 24;
+    pub(crate) static ID_API_V2_EVOLUTION_CHAIN_ID_: usize = 25;
     lazy_static! {
         pub static ref REGEX_API_V2_EVOLUTION_CHAIN_ID_: regex::Regex =
             #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/evolution-chain/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_EVOLUTION_CHAIN_ID_");
     }
-    pub(crate) static ID_API_V2_EVOLUTION_TRIGGER_: usize = 24;
-    pub(crate) static ID_API_V2_EVOLUTION_TRIGGER_ID_: usize = 25;
+    pub(crate) static ID_API_V2_EVOLUTION_TRIGGER_: usize = 26;
+    pub(crate) static ID_API_V2_EVOLUTION_TRIGGER_ID_: usize = 27;
     lazy_static! {
         pub static ref REGEX_API_V2_EVOLUTION_TRIGGER_ID_: regex::Regex =
             #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/evolution-trigger/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_EVOLUTION_TRIGGER_ID_");
     }
-    pub(crate) static ID_API_V2_GENDER_: usize = 26;
-    pub(crate) static ID_API_V2_GENDER_ID_: usize = 27;
+    pub(crate) static ID_API_V2_EVOLUTION_VARIABLE_: usize = 28;
+    pub(crate) static ID_API_V2_EVOLUTION_VARIABLE_ID_: usize = 29;
+    lazy_static! {
+        pub static ref REGEX_API_V2_EVOLUTION_VARIABLE_ID_: regex::Regex =
+            #[allow(clippy::invalid_regex)]
+            regex::Regex::new(r"^/api/v2/evolution-variable/(?P<id>[^/?#]*)/$")
+                .expect("Unable to create regex for API_V2_EVOLUTION_VARIABLE_ID_");
+    }
+    pub(crate) static ID_API_V2_GENDER_: usize = 30;
+    pub(crate) static ID_API_V2_GENDER_ID_: usize = 31;
     lazy_static! {
         pub static ref REGEX_API_V2_GENDER_ID_: regex::Regex =
             #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/gender/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_GENDER_ID_");
     }
-    pub(crate) static ID_API_V2_GENERATION_: usize = 28;
-    pub(crate) static ID_API_V2_GENERATION_ID_: usize = 29;
+    pub(crate) static ID_API_V2_GENERATION_: usize = 32;
+    pub(crate) static ID_API_V2_GENERATION_ID_: usize = 33;
     lazy_static! {
         pub static ref REGEX_API_V2_GENERATION_ID_: regex::Regex =
             #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/generation/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_GENERATION_ID_");
     }
-    pub(crate) static ID_API_V2_GROWTH_RATE_: usize = 30;
-    pub(crate) static ID_API_V2_GROWTH_RATE_ID_: usize = 31;
+    pub(crate) static ID_API_V2_GROWTH_RATE_: usize = 34;
+    pub(crate) static ID_API_V2_GROWTH_RATE_ID_: usize = 35;
     lazy_static! {
         pub static ref REGEX_API_V2_GROWTH_RATE_ID_: regex::Regex =
             #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/growth-rate/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_GROWTH_RATE_ID_");
     }
-    pub(crate) static ID_API_V2_ITEM_ATTRIBUTE_: usize = 32;
-    pub(crate) static ID_API_V2_ITEM_ATTRIBUTE_ID_: usize = 33;
+    pub(crate) static ID_API_V2_ITEM_ATTRIBUTE_: usize = 36;
+    pub(crate) static ID_API_V2_ITEM_ATTRIBUTE_ID_: usize = 37;
     lazy_static! {
         pub static ref REGEX_API_V2_ITEM_ATTRIBUTE_ID_: regex::Regex =
             #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/item-attribute/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_ITEM_ATTRIBUTE_ID_");
     }
-    pub(crate) static ID_API_V2_ITEM_CATEGORY_: usize = 34;
-    pub(crate) static ID_API_V2_ITEM_CATEGORY_ID_: usize = 35;
+    pub(crate) static ID_API_V2_ITEM_CATEGORY_: usize = 38;
+    pub(crate) static ID_API_V2_ITEM_CATEGORY_ID_: usize = 39;
     lazy_static! {
         pub static ref REGEX_API_V2_ITEM_CATEGORY_ID_: regex::Regex =
             #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/item-category/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_ITEM_CATEGORY_ID_");
     }
-    pub(crate) static ID_API_V2_ITEM_FLING_EFFECT_: usize = 36;
-    pub(crate) static ID_API_V2_ITEM_FLING_EFFECT_ID_: usize = 37;
+    pub(crate) static ID_API_V2_ITEM_FLING_EFFECT_: usize = 40;
+    pub(crate) static ID_API_V2_ITEM_FLING_EFFECT_ID_: usize = 41;
     lazy_static! {
         pub static ref REGEX_API_V2_ITEM_FLING_EFFECT_ID_: regex::Regex =
             #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/item-fling-effect/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_ITEM_FLING_EFFECT_ID_");
     }
-    pub(crate) static ID_API_V2_ITEM_POCKET_: usize = 38;
-    pub(crate) static ID_API_V2_ITEM_POCKET_ID_: usize = 39;
+    pub(crate) static ID_API_V2_ITEM_POCKET_: usize = 42;
+    pub(crate) static ID_API_V2_ITEM_POCKET_ID_: usize = 43;
     lazy_static! {
         pub static ref REGEX_API_V2_ITEM_POCKET_ID_: regex::Regex =
             #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/item-pocket/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_ITEM_POCKET_ID_");
     }
-    pub(crate) static ID_API_V2_ITEM_: usize = 40;
-    pub(crate) static ID_API_V2_ITEM_ID_: usize = 41;
+    pub(crate) static ID_API_V2_ITEM_: usize = 44;
+    pub(crate) static ID_API_V2_ITEM_ID_: usize = 45;
     lazy_static! {
         pub static ref REGEX_API_V2_ITEM_ID_: regex::Regex =
             #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/item/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_ITEM_ID_");
     }
-    pub(crate) static ID_API_V2_LANGUAGE_: usize = 42;
-    pub(crate) static ID_API_V2_LANGUAGE_ID_: usize = 43;
+    pub(crate) static ID_API_V2_LANGUAGE_: usize = 46;
+    pub(crate) static ID_API_V2_LANGUAGE_ID_: usize = 47;
     lazy_static! {
         pub static ref REGEX_API_V2_LANGUAGE_ID_: regex::Regex =
             #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/language/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_LANGUAGE_ID_");
     }
-    pub(crate) static ID_API_V2_LOCATION_AREA_: usize = 44;
-    pub(crate) static ID_API_V2_LOCATION_AREA_ID_: usize = 45;
+    pub(crate) static ID_API_V2_LOCATION_AREA_: usize = 48;
+    pub(crate) static ID_API_V2_LOCATION_AREA_ID_: usize = 49;
     lazy_static! {
         pub static ref REGEX_API_V2_LOCATION_AREA_ID_: regex::Regex =
             #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/location-area/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_LOCATION_AREA_ID_");
     }
-    pub(crate) static ID_API_V2_LOCATION_: usize = 46;
-    pub(crate) static ID_API_V2_LOCATION_ID_: usize = 47;
+    pub(crate) static ID_API_V2_LOCATION_: usize = 50;
+    pub(crate) static ID_API_V2_LOCATION_ID_: usize = 51;
     lazy_static! {
         pub static ref REGEX_API_V2_LOCATION_ID_: regex::Regex =
             #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/location/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_LOCATION_ID_");
     }
-    pub(crate) static ID_API_V2_MACHINE_: usize = 48;
-    pub(crate) static ID_API_V2_MACHINE_ID_: usize = 49;
+    pub(crate) static ID_API_V2_MACHINE_: usize = 52;
+    pub(crate) static ID_API_V2_MACHINE_ID_: usize = 53;
     lazy_static! {
         pub static ref REGEX_API_V2_MACHINE_ID_: regex::Regex =
             #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/machine/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_MACHINE_ID_");
     }
-    pub(crate) static ID_API_V2_MOVE_AILMENT_: usize = 50;
-    pub(crate) static ID_API_V2_MOVE_AILMENT_ID_: usize = 51;
+    pub(crate) static ID_API_V2_META_: usize = 54;
+    pub(crate) static ID_API_V2_MOVE_AILMENT_: usize = 55;
+    pub(crate) static ID_API_V2_MOVE_AILMENT_ID_: usize = 56;
     lazy_static! {
         pub static ref REGEX_API_V2_MOVE_AILMENT_ID_: regex::Regex =
             #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/move-ailment/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_MOVE_AILMENT_ID_");
     }
-    pub(crate) static ID_API_V2_MOVE_BATTLE_STYLE_: usize = 52;
-    pub(crate) static ID_API_V2_MOVE_BATTLE_STYLE_ID_: usize = 53;
+    pub(crate) static ID_API_V2_MOVE_BATTLE_STYLE_: usize = 57;
+    pub(crate) static ID_API_V2_MOVE_BATTLE_STYLE_ID_: usize = 58;
     lazy_static! {
         pub static ref REGEX_API_V2_MOVE_BATTLE_STYLE_ID_: regex::Regex =
             #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/move-battle-style/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_MOVE_BATTLE_STYLE_ID_");
     }
-    pub(crate) static ID_API_V2_MOVE_CATEGORY_: usize = 54;
-    pub(crate) static ID_API_V2_MOVE_CATEGORY_ID_: usize = 55;
+    pub(crate) static ID_API_V2_MOVE_CATEGORY_: usize = 59;
+    pub(crate) static ID_API_V2_MOVE_CATEGORY_ID_: usize = 60;
     lazy_static! {
         pub static ref REGEX_API_V2_MOVE_CATEGORY_ID_: regex::Regex =
             #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/move-category/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_MOVE_CATEGORY_ID_");
     }
-    pub(crate) static ID_API_V2_MOVE_DAMAGE_CLASS_: usize = 56;
-    pub(crate) static ID_API_V2_MOVE_DAMAGE_CLASS_ID_: usize = 57;
+    pub(crate) static ID_API_V2_MOVE_DAMAGE_CLASS_: usize = 61;
+    pub(crate) static ID_API_V2_MOVE_DAMAGE_CLASS_ID_: usize = 62;
     lazy_static! {
         pub static ref REGEX_API_V2_MOVE_DAMAGE_CLASS_ID_: regex::Regex =
             #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/move-damage-class/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_MOVE_DAMAGE_CLASS_ID_");
     }
-    pub(crate) static ID_API_V2_MOVE_LEARN_METHOD_: usize = 58;
-    pub(crate) static ID_API_V2_MOVE_LEARN_METHOD_ID_: usize = 59;
+    pub(crate) static ID_API_V2_MOVE_LEARN_METHOD_: usize = 63;
+    pub(crate) static ID_API_V2_MOVE_LEARN_METHOD_ID_: usize = 64;
     lazy_static! {
         pub static ref REGEX_API_V2_MOVE_LEARN_METHOD_ID_: regex::Regex =
             #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/move-learn-method/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_MOVE_LEARN_METHOD_ID_");
     }
-    pub(crate) static ID_API_V2_MOVE_TARGET_: usize = 60;
-    pub(crate) static ID_API_V2_MOVE_TARGET_ID_: usize = 61;
+    pub(crate) static ID_API_V2_MOVE_TARGET_: usize = 65;
+    pub(crate) static ID_API_V2_MOVE_TARGET_ID_: usize = 66;
     lazy_static! {
         pub static ref REGEX_API_V2_MOVE_TARGET_ID_: regex::Regex =
             #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/move-target/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_MOVE_TARGET_ID_");
     }
-    pub(crate) static ID_API_V2_MOVE_: usize = 62;
-    pub(crate) static ID_API_V2_MOVE_ID_: usize = 63;
+    pub(crate) static ID_API_V2_MOVE_: usize = 67;
+    pub(crate) static ID_API_V2_MOVE_ID_: usize = 68;
     lazy_static! {
         pub static ref REGEX_API_V2_MOVE_ID_: regex::Regex =
             #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/move/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_MOVE_ID_");
     }
-    pub(crate) static ID_API_V2_NATURE_: usize = 64;
-    pub(crate) static ID_API_V2_NATURE_ID_: usize = 65;
+    pub(crate) static ID_API_V2_NATURE_: usize = 69;
+    pub(crate) static ID_API_V2_NATURE_ID_: usize = 70;
     lazy_static! {
         pub static ref REGEX_API_V2_NATURE_ID_: regex::Regex =
             #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/nature/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_NATURE_ID_");
     }
-    pub(crate) static ID_API_V2_PAL_PARK_AREA_: usize = 66;
-    pub(crate) static ID_API_V2_PAL_PARK_AREA_ID_: usize = 67;
+    pub(crate) static ID_API_V2_PAL_PARK_AREA_: usize = 71;
+    pub(crate) static ID_API_V2_PAL_PARK_AREA_ID_: usize = 72;
     lazy_static! {
         pub static ref REGEX_API_V2_PAL_PARK_AREA_ID_: regex::Regex =
             #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/pal-park-area/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_PAL_PARK_AREA_ID_");
     }
-    pub(crate) static ID_API_V2_POKEATHLON_STAT_: usize = 68;
-    pub(crate) static ID_API_V2_POKEATHLON_STAT_ID_: usize = 69;
+    pub(crate) static ID_API_V2_POKEATHLON_STAT_: usize = 73;
+    pub(crate) static ID_API_V2_POKEATHLON_STAT_ID_: usize = 74;
     lazy_static! {
         pub static ref REGEX_API_V2_POKEATHLON_STAT_ID_: regex::Regex =
             #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/pokeathlon-stat/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_POKEATHLON_STAT_ID_");
     }
-    pub(crate) static ID_API_V2_POKEDEX_: usize = 70;
-    pub(crate) static ID_API_V2_POKEDEX_ID_: usize = 71;
+    pub(crate) static ID_API_V2_POKEDEX_: usize = 75;
+    pub(crate) static ID_API_V2_POKEDEX_ID_: usize = 76;
     lazy_static! {
         pub static ref REGEX_API_V2_POKEDEX_ID_: regex::Regex =
             #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/pokedex/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_POKEDEX_ID_");
     }
-    pub(crate) static ID_API_V2_POKEMON_COLOR_: usize = 72;
-    pub(crate) static ID_API_V2_POKEMON_COLOR_ID_: usize = 73;
+    pub(crate) static ID_API_V2_POKEMON_COLOR_: usize = 77;
+    pub(crate) static ID_API_V2_POKEMON_COLOR_ID_: usize = 78;
     lazy_static! {
         pub static ref REGEX_API_V2_POKEMON_COLOR_ID_: regex::Regex =
             #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/pokemon-color/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_POKEMON_COLOR_ID_");
     }
-    pub(crate) static ID_API_V2_POKEMON_FORM_: usize = 74;
-    pub(crate) static ID_API_V2_POKEMON_FORM_ID_: usize = 75;
+    pub(crate) static ID_API_V2_POKEMON_FORM_: usize = 79;
+    pub(crate) static ID_API_V2_POKEMON_FORM_ID_: usize = 80;
     lazy_static! {
         pub static ref REGEX_API_V2_POKEMON_FORM_ID_: regex::Regex =
             #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/pokemon-form/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_POKEMON_FORM_ID_");
     }
-    pub(crate) static ID_API_V2_POKEMON_HABITAT_: usize = 76;
-    pub(crate) static ID_API_V2_POKEMON_HABITAT_ID_: usize = 77;
+    pub(crate) static ID_API_V2_POKEMON_HABITAT_: usize = 81;
+    pub(crate) static ID_API_V2_POKEMON_HABITAT_ID_: usize = 82;
     lazy_static! {
         pub static ref REGEX_API_V2_POKEMON_HABITAT_ID_: regex::Regex =
             #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/pokemon-habitat/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_POKEMON_HABITAT_ID_");
     }
-    pub(crate) static ID_API_V2_POKEMON_SHAPE_: usize = 78;
-    pub(crate) static ID_API_V2_POKEMON_SHAPE_ID_: usize = 79;
+    pub(crate) static ID_API_V2_POKEMON_SHAPE_: usize = 83;
+    pub(crate) static ID_API_V2_POKEMON_SHAPE_ID_: usize = 84;
     lazy_static! {
         pub static ref REGEX_API_V2_POKEMON_SHAPE_ID_: regex::Regex =
             #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/pokemon-shape/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_POKEMON_SHAPE_ID_");
     }
-    pub(crate) static ID_API_V2_POKEMON_SPECIES_: usize = 80;
-    pub(crate) static ID_API_V2_POKEMON_SPECIES_ID_: usize = 81;
+    pub(crate) static ID_API_V2_POKEMON_SPECIES_: usize = 85;
+    pub(crate) static ID_API_V2_POKEMON_SPECIES_ID_: usize = 86;
     lazy_static! {
         pub static ref REGEX_API_V2_POKEMON_SPECIES_ID_: regex::Regex =
             #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/pokemon-species/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_POKEMON_SPECIES_ID_");
     }
-    pub(crate) static ID_API_V2_POKEMON_: usize = 82;
-    pub(crate) static ID_API_V2_POKEMON_ID_: usize = 83;
+    pub(crate) static ID_API_V2_POKEMON_: usize = 87;
+    pub(crate) static ID_API_V2_POKEMON_ID_: usize = 88;
     lazy_static! {
         pub static ref REGEX_API_V2_POKEMON_ID_: regex::Regex =
             #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/pokemon/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_POKEMON_ID_");
     }
-    pub(crate) static ID_API_V2_REGION_: usize = 84;
-    pub(crate) static ID_API_V2_REGION_ID_: usize = 85;
+    pub(crate) static ID_API_V2_REGION_: usize = 89;
+    pub(crate) static ID_API_V2_REGION_ID_: usize = 90;
     lazy_static! {
         pub static ref REGEX_API_V2_REGION_ID_: regex::Regex =
             #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/region/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_REGION_ID_");
     }
-    pub(crate) static ID_API_V2_STAT_: usize = 86;
-    pub(crate) static ID_API_V2_STAT_ID_: usize = 87;
+    pub(crate) static ID_API_V2_STAT_: usize = 91;
+    pub(crate) static ID_API_V2_STAT_ID_: usize = 92;
     lazy_static! {
         pub static ref REGEX_API_V2_STAT_ID_: regex::Regex =
             #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/stat/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_STAT_ID_");
     }
-    pub(crate) static ID_API_V2_SUPER_CONTEST_EFFECT_: usize = 88;
-    pub(crate) static ID_API_V2_SUPER_CONTEST_EFFECT_ID_: usize = 89;
+    pub(crate) static ID_API_V2_SUPER_CONTEST_EFFECT_: usize = 93;
+    pub(crate) static ID_API_V2_SUPER_CONTEST_EFFECT_ID_: usize = 94;
     lazy_static! {
         pub static ref REGEX_API_V2_SUPER_CONTEST_EFFECT_ID_: regex::Regex =
             #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/super-contest-effect/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_SUPER_CONTEST_EFFECT_ID_");
     }
-    pub(crate) static ID_API_V2_TYPE_: usize = 90;
-    pub(crate) static ID_API_V2_TYPE_ID_: usize = 91;
+    pub(crate) static ID_API_V2_TYPE_: usize = 95;
+    pub(crate) static ID_API_V2_TYPE_ID_: usize = 96;
     lazy_static! {
         pub static ref REGEX_API_V2_TYPE_ID_: regex::Regex =
             #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/type/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_TYPE_ID_");
     }
-    pub(crate) static ID_API_V2_VERSION_GROUP_: usize = 92;
-    pub(crate) static ID_API_V2_VERSION_GROUP_ID_: usize = 93;
+    pub(crate) static ID_API_V2_VERSION_GROUP_: usize = 97;
+    pub(crate) static ID_API_V2_VERSION_GROUP_ID_: usize = 98;
     lazy_static! {
         pub static ref REGEX_API_V2_VERSION_GROUP_ID_: regex::Regex =
             #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/version-group/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_VERSION_GROUP_ID_");
     }
-    pub(crate) static ID_API_V2_VERSION_: usize = 94;
-    pub(crate) static ID_API_V2_VERSION_ID_: usize = 95;
+    pub(crate) static ID_API_V2_VERSION_: usize = 99;
+    pub(crate) static ID_API_V2_VERSION_ID_: usize = 100;
     lazy_static! {
         pub static ref REGEX_API_V2_VERSION_ID_: regex::Regex =
             #[allow(clippy::invalid_regex)]
@@ -619,7 +646,7 @@ mod paths {
 pub struct MakeService<T, C>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static
+    C: Has<XSpanIdString>  + Send + Sync + 'static
 {
     api_impl: T,
     marker: PhantomData<C>,
@@ -629,7 +656,7 @@ where
 impl<T, C> MakeService<T, C>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static
+    C: Has<XSpanIdString>  + Send + Sync + 'static
 {
     pub fn new(api_impl: T) -> Self {
         MakeService {
@@ -649,7 +676,7 @@ where
 impl<T, C> Clone for MakeService<T, C>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString>  + Has<Option<Authorization>> + Send + Sync + 'static
+    C: Has<XSpanIdString>   + Send + Sync + 'static
 {
     fn clone(&self) -> Self {
         Self {
@@ -663,7 +690,7 @@ where
 impl<T, C, Target> hyper::service::Service<Target> for MakeService<T, C>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static
+    C: Has<XSpanIdString>  + Send + Sync + 'static
 {
     type Response = Service<T, C>;
     type Error = crate::ServiceError;
@@ -711,7 +738,7 @@ macro_rules! run_validation {
 
 pub struct Service<T, C> where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static
+    C: Has<XSpanIdString>  + Send + Sync + 'static
 {
     api_impl: T,
     marker: PhantomData<C>,
@@ -721,7 +748,7 @@ pub struct Service<T, C> where
 
 impl<T, C> Service<T, C> where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static
+    C: Has<XSpanIdString>  + Send + Sync + 'static
 {
     pub fn new(api_impl: T, validation: bool) -> Self {
         Service {
@@ -739,7 +766,7 @@ impl<T, C> Service<T, C> where
 
 impl<T, C> Clone for Service<T, C> where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static
+    C: Has<XSpanIdString>  + Send + Sync + 'static
 {
     fn clone(&self) -> Self {
         Service {
@@ -761,7 +788,7 @@ fn body_from_str(s: &str) -> BoxBody<Bytes, Infallible> {
 
 impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T, C> where
     T: Api<C> + Clone + Send + Sync + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
@@ -778,7 +805,7 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
         ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
         where
             T: Api<C> + Clone + Send + 'static,
-            C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+            C: Has<XSpanIdString>  + Send + Sync + 'static,
             ReqBody: Body + Send + 'static,
             ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
             ReqBody::Data: Send,
@@ -890,6 +917,11 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                 handle_evolution_trigger_list(api_impl, uri, headers, body, context, validation).await
             },
 
+            // EvolutionVariableList - GET /api/v2/evolution-variable/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_EVOLUTION_VARIABLE_) => {
+                handle_evolution_variable_list(api_impl, uri, headers, body, context, validation).await
+            },
+
             // EvolutionChainRetrieve - GET /api/v2/evolution-chain/{id}/
             hyper::Method::GET if path.matched(paths::ID_API_V2_EVOLUTION_CHAIN_ID_) => {
                 handle_evolution_chain_retrieve(api_impl, uri, headers, body, context, validation).await
@@ -898,6 +930,11 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
             // EvolutionTriggerRetrieve - GET /api/v2/evolution-trigger/{id}/
             hyper::Method::GET if path.matched(paths::ID_API_V2_EVOLUTION_TRIGGER_ID_) => {
                 handle_evolution_trigger_retrieve(api_impl, uri, headers, body, context, validation).await
+            },
+
+            // EvolutionVariableRetrieve - GET /api/v2/evolution-variable/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_EVOLUTION_VARIABLE_ID_) => {
+                handle_evolution_variable_retrieve(api_impl, uri, headers, body, context, validation).await
             },
 
             // GenerationList - GET /api/v2/generation/
@@ -940,6 +977,11 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                 handle_version_retrieve(api_impl, uri, headers, body, context, validation).await
             },
 
+            // CurrencyList - GET /api/v2/currency/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_CURRENCY_) => {
+                handle_currency_list(api_impl, uri, headers, body, context, validation).await
+            },
+
             // ItemAttributeList - GET /api/v2/item-attribute/
             hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_ATTRIBUTE_) => {
                 handle_item_attribute_list(api_impl, uri, headers, body, context, validation).await
@@ -963,6 +1005,11 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
             // ItemPocketList - GET /api/v2/item-pocket/
             hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_POCKET_) => {
                 handle_item_pocket_list(api_impl, uri, headers, body, context, validation).await
+            },
+
+            // CurrencyRetrieve - GET /api/v2/currency/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_CURRENCY_ID_) => {
+                handle_currency_retrieve(api_impl, uri, headers, body, context, validation).await
             },
 
             // ItemAttributeRetrieve - GET /api/v2/item-attribute/{id}/
@@ -1265,6 +1312,11 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                 handle_language_list(api_impl, uri, headers, body, context, validation).await
             },
 
+            // MetaRetrieve - GET /api/v2/meta/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_META_) => {
+                handle_meta_retrieve(api_impl, uri, headers, body, context, validation).await
+            },
+
             // LanguageRetrieve - GET /api/v2/language/{id}/
             hyper::Method::GET if path.matched(paths::ID_API_V2_LANGUAGE_ID_) => {
                 handle_language_retrieve(api_impl, uri, headers, body, context, validation).await
@@ -1284,6 +1336,8 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
             _ if path.matched(paths::ID_API_V2_CONTEST_EFFECT_ID_) => method_not_allowed(),
             _ if path.matched(paths::ID_API_V2_CONTEST_TYPE_) => method_not_allowed(),
             _ if path.matched(paths::ID_API_V2_CONTEST_TYPE_ID_) => method_not_allowed(),
+            _ if path.matched(paths::ID_API_V2_CURRENCY_) => method_not_allowed(),
+            _ if path.matched(paths::ID_API_V2_CURRENCY_ID_) => method_not_allowed(),
             _ if path.matched(paths::ID_API_V2_EGG_GROUP_) => method_not_allowed(),
             _ if path.matched(paths::ID_API_V2_EGG_GROUP_ID_) => method_not_allowed(),
             _ if path.matched(paths::ID_API_V2_ENCOUNTER_CONDITION_VALUE_) => method_not_allowed(),
@@ -1296,6 +1350,8 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
             _ if path.matched(paths::ID_API_V2_EVOLUTION_CHAIN_ID_) => method_not_allowed(),
             _ if path.matched(paths::ID_API_V2_EVOLUTION_TRIGGER_) => method_not_allowed(),
             _ if path.matched(paths::ID_API_V2_EVOLUTION_TRIGGER_ID_) => method_not_allowed(),
+            _ if path.matched(paths::ID_API_V2_EVOLUTION_VARIABLE_) => method_not_allowed(),
+            _ if path.matched(paths::ID_API_V2_EVOLUTION_VARIABLE_ID_) => method_not_allowed(),
             _ if path.matched(paths::ID_API_V2_GENDER_) => method_not_allowed(),
             _ if path.matched(paths::ID_API_V2_GENDER_ID_) => method_not_allowed(),
             _ if path.matched(paths::ID_API_V2_GENERATION_) => method_not_allowed(),
@@ -1320,6 +1376,7 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
             _ if path.matched(paths::ID_API_V2_LOCATION_ID_) => method_not_allowed(),
             _ if path.matched(paths::ID_API_V2_MACHINE_) => method_not_allowed(),
             _ if path.matched(paths::ID_API_V2_MACHINE_ID_) => method_not_allowed(),
+            _ if path.matched(paths::ID_API_V2_META_) => method_not_allowed(),
             _ if path.matched(paths::ID_API_V2_MOVE_AILMENT_) => method_not_allowed(),
             _ if path.matched(paths::ID_API_V2_MOVE_AILMENT_ID_) => method_not_allowed(),
             _ if path.matched(paths::ID_API_V2_MOVE_BATTLE_STYLE_) => method_not_allowed(),
@@ -1390,22 +1447,11 @@ async fn handle_berry_firmness_list<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -1516,22 +1562,11 @@ async fn handle_berry_flavor_list<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -1642,22 +1677,11 @@ async fn handle_berry_list<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -1768,22 +1792,11 @@ async fn handle_berry_firmness_retrieve<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Path parameters
                 let path: &str = uri.path();
                 let path_params =
@@ -1860,22 +1873,11 @@ async fn handle_berry_flavor_retrieve<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Path parameters
                 let path: &str = uri.path();
                 let path_params =
@@ -1952,22 +1954,11 @@ async fn handle_berry_retrieve<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Path parameters
                 let path: &str = uri.path();
                 let path_params =
@@ -2044,22 +2035,11 @@ async fn handle_contest_effect_list<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -2098,29 +2078,10 @@ where
                     },
                     None => None,
                 };
-                let param_q = query_params.iter().filter(|e| e.0 == "q").map(|e| e.1.clone())
-                    .next();
-                let param_q = match param_q {
-                    Some(param_q) => {
-                        let param_q =
-                            <String as std::str::FromStr>::from_str
-                                (&param_q);
-                        match param_q {
-                            Ok(param_q) => Some(param_q),
-                            Err(e) => return Ok(Response::builder()
-                                .status(StatusCode::BAD_REQUEST)
-                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                .body(body_from_string(format!("Couldn't parse query parameter q - doesn't match schema: {e}")))
-                                .expect("Unable to create Bad Request response for invalid query parameter q")),
-                        }
-                    },
-                    None => None,
-                };
 
                                 let result = api_impl.contest_effect_list(
                                             param_limit,
                                             param_offset,
-                                            param_q,
                                         &context
                                     ).await;
                                 let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
@@ -2170,22 +2131,11 @@ async fn handle_contest_type_list<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -2296,22 +2246,11 @@ async fn handle_super_contest_effect_list<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -2350,29 +2289,10 @@ where
                     },
                     None => None,
                 };
-                let param_q = query_params.iter().filter(|e| e.0 == "q").map(|e| e.1.clone())
-                    .next();
-                let param_q = match param_q {
-                    Some(param_q) => {
-                        let param_q =
-                            <String as std::str::FromStr>::from_str
-                                (&param_q);
-                        match param_q {
-                            Ok(param_q) => Some(param_q),
-                            Err(e) => return Ok(Response::builder()
-                                .status(StatusCode::BAD_REQUEST)
-                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                .body(body_from_string(format!("Couldn't parse query parameter q - doesn't match schema: {e}")))
-                                .expect("Unable to create Bad Request response for invalid query parameter q")),
-                        }
-                    },
-                    None => None,
-                };
 
                                 let result = api_impl.super_contest_effect_list(
                                             param_limit,
                                             param_offset,
-                                            param_q,
                                         &context
                                     ).await;
                                 let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
@@ -2422,22 +2342,11 @@ async fn handle_contest_effect_retrieve<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Path parameters
                 let path: &str = uri.path();
                 let path_params =
@@ -2514,22 +2423,11 @@ async fn handle_contest_type_retrieve<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Path parameters
                 let path: &str = uri.path();
                 let path_params =
@@ -2606,22 +2504,11 @@ async fn handle_super_contest_effect_retrieve<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Path parameters
                 let path: &str = uri.path();
                 let path_params =
@@ -2698,22 +2585,11 @@ async fn handle_encounter_condition_list<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -2824,22 +2700,11 @@ async fn handle_encounter_condition_value_list<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -2950,22 +2815,11 @@ async fn handle_encounter_method_list<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -3076,22 +2930,11 @@ async fn handle_encounter_condition_retrieve<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Path parameters
                 let path: &str = uri.path();
                 let path_params =
@@ -3168,22 +3011,11 @@ async fn handle_encounter_condition_value_retrieve<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Path parameters
                 let path: &str = uri.path();
                 let path_params =
@@ -3260,22 +3092,11 @@ async fn handle_encounter_method_retrieve<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Path parameters
                 let path: &str = uri.path();
                 let path_params =
@@ -3352,22 +3173,11 @@ async fn handle_evolution_chain_list<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -3406,29 +3216,10 @@ where
                     },
                     None => None,
                 };
-                let param_q = query_params.iter().filter(|e| e.0 == "q").map(|e| e.1.clone())
-                    .next();
-                let param_q = match param_q {
-                    Some(param_q) => {
-                        let param_q =
-                            <String as std::str::FromStr>::from_str
-                                (&param_q);
-                        match param_q {
-                            Ok(param_q) => Some(param_q),
-                            Err(e) => return Ok(Response::builder()
-                                .status(StatusCode::BAD_REQUEST)
-                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                .body(body_from_string(format!("Couldn't parse query parameter q - doesn't match schema: {e}")))
-                                .expect("Unable to create Bad Request response for invalid query parameter q")),
-                        }
-                    },
-                    None => None,
-                };
 
                                 let result = api_impl.evolution_chain_list(
                                             param_limit,
                                             param_offset,
-                                            param_q,
                                         &context
                                     ).await;
                                 let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
@@ -3478,22 +3269,11 @@ async fn handle_evolution_trigger_list<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -3594,6 +3374,121 @@ where
 }
 
 #[allow(unused_variables)]
+async fn handle_evolution_variable_list<T, C, ReqBody>(
+    mut api_impl: T,
+    uri: hyper::Uri,
+    headers: HeaderMap,
+    body: ReqBody,
+    context: C,
+    validation: bool,
+) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
+where
+    T: Api<C> + Clone + Send + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
+    ReqBody: Body + Send + 'static,
+    ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
+    ReqBody::Data: Send,
+{
+                // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
+                let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
+                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
+                    .next();
+                let param_limit = match param_limit {
+                    Some(param_limit) => {
+                        let param_limit =
+                            <i32 as std::str::FromStr>::from_str
+                                (&param_limit);
+                        match param_limit {
+                            Ok(param_limit) => Some(param_limit),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
+                                .body(body_from_string(format!("Couldn't parse query parameter limit - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter limit")),
+                        }
+                    },
+                    None => None,
+                };
+                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
+                    .next();
+                let param_offset = match param_offset {
+                    Some(param_offset) => {
+                        let param_offset =
+                            <i32 as std::str::FromStr>::from_str
+                                (&param_offset);
+                        match param_offset {
+                            Ok(param_offset) => Some(param_offset),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
+                                .body(body_from_string(format!("Couldn't parse query parameter offset - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter offset")),
+                        }
+                    },
+                    None => None,
+                };
+                let param_q = query_params.iter().filter(|e| e.0 == "q").map(|e| e.1.clone())
+                    .next();
+                let param_q = match param_q {
+                    Some(param_q) => {
+                        let param_q =
+                            <String as std::str::FromStr>::from_str
+                                (&param_q);
+                        match param_q {
+                            Ok(param_q) => Some(param_q),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
+                                .body(body_from_string(format!("Couldn't parse query parameter q - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter q")),
+                        }
+                    },
+                    None => None,
+                };
+
+                                let result = api_impl.evolution_variable_list(
+                                            param_limit,
+                                            param_offset,
+                                            param_q,
+                                        &context
+                                    ).await;
+                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
+                                response.headers_mut().insert(
+                                            HeaderName::from_static("x-span-id"),
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
+                                                .expect("Unable to create X-Span-ID header value"));
+
+                                        match result {
+                                            Ok(rsp) => match rsp {
+                                                EvolutionVariableListResponse::Status200
+                                                    (body)
+                                                => {
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
+                                                    response.headers_mut().insert(
+                                                        CONTENT_TYPE,
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
+                                                    *response.body_mut() = body_from_string(body);
+
+                                                },
+                                            },
+                                            Err(_) => {
+                                                // Application code returned an error. This should not happen, as the implementation should
+                                                // return a valid response.
+                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
+                                                response.headers_mut().insert(
+                                                    CONTENT_TYPE,
+                                                    HeaderValue::from_static("text/plain"),
+                                                );
+                                                *response.body_mut() = body_from_str("An internal error occurred");
+                                            },
+                                        }
+
+                                        Ok(response)
+}
+
+#[allow(unused_variables)]
 async fn handle_evolution_chain_retrieve<T, C, ReqBody>(
     mut api_impl: T,
     uri: hyper::Uri,
@@ -3604,22 +3499,11 @@ async fn handle_evolution_chain_retrieve<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Path parameters
                 let path: &str = uri.path();
                 let path_params =
@@ -3696,22 +3580,11 @@ async fn handle_evolution_trigger_retrieve<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Path parameters
                 let path: &str = uri.path();
                 let path_params =
@@ -3778,6 +3651,87 @@ where
 }
 
 #[allow(unused_variables)]
+async fn handle_evolution_variable_retrieve<T, C, ReqBody>(
+    mut api_impl: T,
+    uri: hyper::Uri,
+    headers: HeaderMap,
+    body: ReqBody,
+    context: C,
+    validation: bool,
+) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
+where
+    T: Api<C> + Clone + Send + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
+    ReqBody: Body + Send + 'static,
+    ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
+    ReqBody::Data: Send,
+{
+                // Path parameters
+                let path: &str = uri.path();
+                let path_params =
+                    paths::REGEX_API_V2_EVOLUTION_VARIABLE_ID_
+                    .captures(path)
+                    .unwrap_or_else(||
+                        panic!("Path {} matched RE API_V2_EVOLUTION_VARIABLE_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_EVOLUTION_VARIABLE_ID_.as_str())
+                    );
+
+                let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
+                    Ok(param_id) => match param_id.parse::<String>() {
+                        Ok(param_id) => param_id,
+                        Err(e) => return Ok(Response::builder()
+                                        .status(StatusCode::BAD_REQUEST)
+                                        .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
+                                        .body(body_from_string(format!("Couldn't parse path parameter id: {e}")))
+                                        .expect("Unable to create Bad Request response for invalid path parameter")),
+                    },
+                    Err(_) => return Ok(Response::builder()
+                                        .status(StatusCode::BAD_REQUEST)
+                                        .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
+                                        .body(body_from_string(format!("Couldn't percent-decode path parameter as UTF-8: {}", &path_params["id"])))
+                                        .expect("Unable to create Bad Request response for invalid percent decode"))
+                };
+
+                                let result = api_impl.evolution_variable_retrieve(
+                                            param_id,
+                                        &context
+                                    ).await;
+                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
+                                response.headers_mut().insert(
+                                            HeaderName::from_static("x-span-id"),
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
+                                                .expect("Unable to create X-Span-ID header value"));
+
+                                        match result {
+                                            Ok(rsp) => match rsp {
+                                                EvolutionVariableRetrieveResponse::Status200
+                                                    (body)
+                                                => {
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
+                                                    response.headers_mut().insert(
+                                                        CONTENT_TYPE,
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
+                                                    *response.body_mut() = body_from_string(body);
+
+                                                },
+                                            },
+                                            Err(_) => {
+                                                // Application code returned an error. This should not happen, as the implementation should
+                                                // return a valid response.
+                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
+                                                response.headers_mut().insert(
+                                                    CONTENT_TYPE,
+                                                    HeaderValue::from_static("text/plain"),
+                                                );
+                                                *response.body_mut() = body_from_str("An internal error occurred");
+                                            },
+                                        }
+
+                                        Ok(response)
+}
+
+#[allow(unused_variables)]
 async fn handle_generation_list<T, C, ReqBody>(
     mut api_impl: T,
     uri: hyper::Uri,
@@ -3788,22 +3742,11 @@ async fn handle_generation_list<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -3914,22 +3857,11 @@ async fn handle_pokedex_list<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -4040,22 +3972,11 @@ async fn handle_version_group_list<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -4166,22 +4087,11 @@ async fn handle_version_list<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -4292,22 +4202,11 @@ async fn handle_generation_retrieve<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Path parameters
                 let path: &str = uri.path();
                 let path_params =
@@ -4384,22 +4283,11 @@ async fn handle_pokedex_retrieve<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Path parameters
                 let path: &str = uri.path();
                 let path_params =
@@ -4476,22 +4364,11 @@ async fn handle_version_group_retrieve<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Path parameters
                 let path: &str = uri.path();
                 let path_params =
@@ -4568,22 +4445,11 @@ async fn handle_version_retrieve<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Path parameters
                 let path: &str = uri.path();
                 let path_params =
@@ -4650,6 +4516,121 @@ where
 }
 
 #[allow(unused_variables)]
+async fn handle_currency_list<T, C, ReqBody>(
+    mut api_impl: T,
+    uri: hyper::Uri,
+    headers: HeaderMap,
+    body: ReqBody,
+    context: C,
+    validation: bool,
+) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
+where
+    T: Api<C> + Clone + Send + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
+    ReqBody: Body + Send + 'static,
+    ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
+    ReqBody::Data: Send,
+{
+                // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
+                let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
+                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
+                    .next();
+                let param_limit = match param_limit {
+                    Some(param_limit) => {
+                        let param_limit =
+                            <i32 as std::str::FromStr>::from_str
+                                (&param_limit);
+                        match param_limit {
+                            Ok(param_limit) => Some(param_limit),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
+                                .body(body_from_string(format!("Couldn't parse query parameter limit - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter limit")),
+                        }
+                    },
+                    None => None,
+                };
+                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
+                    .next();
+                let param_offset = match param_offset {
+                    Some(param_offset) => {
+                        let param_offset =
+                            <i32 as std::str::FromStr>::from_str
+                                (&param_offset);
+                        match param_offset {
+                            Ok(param_offset) => Some(param_offset),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
+                                .body(body_from_string(format!("Couldn't parse query parameter offset - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter offset")),
+                        }
+                    },
+                    None => None,
+                };
+                let param_q = query_params.iter().filter(|e| e.0 == "q").map(|e| e.1.clone())
+                    .next();
+                let param_q = match param_q {
+                    Some(param_q) => {
+                        let param_q =
+                            <String as std::str::FromStr>::from_str
+                                (&param_q);
+                        match param_q {
+                            Ok(param_q) => Some(param_q),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
+                                .body(body_from_string(format!("Couldn't parse query parameter q - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter q")),
+                        }
+                    },
+                    None => None,
+                };
+
+                                let result = api_impl.currency_list(
+                                            param_limit,
+                                            param_offset,
+                                            param_q,
+                                        &context
+                                    ).await;
+                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
+                                response.headers_mut().insert(
+                                            HeaderName::from_static("x-span-id"),
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
+                                                .expect("Unable to create X-Span-ID header value"));
+
+                                        match result {
+                                            Ok(rsp) => match rsp {
+                                                CurrencyListResponse::Status200
+                                                    (body)
+                                                => {
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
+                                                    response.headers_mut().insert(
+                                                        CONTENT_TYPE,
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
+                                                    *response.body_mut() = body_from_string(body);
+
+                                                },
+                                            },
+                                            Err(_) => {
+                                                // Application code returned an error. This should not happen, as the implementation should
+                                                // return a valid response.
+                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
+                                                response.headers_mut().insert(
+                                                    CONTENT_TYPE,
+                                                    HeaderValue::from_static("text/plain"),
+                                                );
+                                                *response.body_mut() = body_from_str("An internal error occurred");
+                                            },
+                                        }
+
+                                        Ok(response)
+}
+
+#[allow(unused_variables)]
 async fn handle_item_attribute_list<T, C, ReqBody>(
     mut api_impl: T,
     uri: hyper::Uri,
@@ -4660,22 +4641,11 @@ async fn handle_item_attribute_list<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -4786,22 +4756,11 @@ async fn handle_item_category_list<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -4912,22 +4871,11 @@ async fn handle_item_fling_effect_list<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -5038,22 +4986,11 @@ async fn handle_item_list<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -5164,22 +5101,11 @@ async fn handle_item_pocket_list<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -5280,6 +5206,87 @@ where
 }
 
 #[allow(unused_variables)]
+async fn handle_currency_retrieve<T, C, ReqBody>(
+    mut api_impl: T,
+    uri: hyper::Uri,
+    headers: HeaderMap,
+    body: ReqBody,
+    context: C,
+    validation: bool,
+) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
+where
+    T: Api<C> + Clone + Send + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
+    ReqBody: Body + Send + 'static,
+    ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
+    ReqBody::Data: Send,
+{
+                // Path parameters
+                let path: &str = uri.path();
+                let path_params =
+                    paths::REGEX_API_V2_CURRENCY_ID_
+                    .captures(path)
+                    .unwrap_or_else(||
+                        panic!("Path {} matched RE API_V2_CURRENCY_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_CURRENCY_ID_.as_str())
+                    );
+
+                let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
+                    Ok(param_id) => match param_id.parse::<String>() {
+                        Ok(param_id) => param_id,
+                        Err(e) => return Ok(Response::builder()
+                                        .status(StatusCode::BAD_REQUEST)
+                                        .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
+                                        .body(body_from_string(format!("Couldn't parse path parameter id: {e}")))
+                                        .expect("Unable to create Bad Request response for invalid path parameter")),
+                    },
+                    Err(_) => return Ok(Response::builder()
+                                        .status(StatusCode::BAD_REQUEST)
+                                        .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
+                                        .body(body_from_string(format!("Couldn't percent-decode path parameter as UTF-8: {}", &path_params["id"])))
+                                        .expect("Unable to create Bad Request response for invalid percent decode"))
+                };
+
+                                let result = api_impl.currency_retrieve(
+                                            param_id,
+                                        &context
+                                    ).await;
+                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
+                                response.headers_mut().insert(
+                                            HeaderName::from_static("x-span-id"),
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
+                                                .expect("Unable to create X-Span-ID header value"));
+
+                                        match result {
+                                            Ok(rsp) => match rsp {
+                                                CurrencyRetrieveResponse::Status200
+                                                    (body)
+                                                => {
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
+                                                    response.headers_mut().insert(
+                                                        CONTENT_TYPE,
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
+                                                    *response.body_mut() = body_from_string(body);
+
+                                                },
+                                            },
+                                            Err(_) => {
+                                                // Application code returned an error. This should not happen, as the implementation should
+                                                // return a valid response.
+                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
+                                                response.headers_mut().insert(
+                                                    CONTENT_TYPE,
+                                                    HeaderValue::from_static("text/plain"),
+                                                );
+                                                *response.body_mut() = body_from_str("An internal error occurred");
+                                            },
+                                        }
+
+                                        Ok(response)
+}
+
+#[allow(unused_variables)]
 async fn handle_item_attribute_retrieve<T, C, ReqBody>(
     mut api_impl: T,
     uri: hyper::Uri,
@@ -5290,22 +5297,11 @@ async fn handle_item_attribute_retrieve<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Path parameters
                 let path: &str = uri.path();
                 let path_params =
@@ -5382,22 +5378,11 @@ async fn handle_item_category_retrieve<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Path parameters
                 let path: &str = uri.path();
                 let path_params =
@@ -5474,22 +5459,11 @@ async fn handle_item_fling_effect_retrieve<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Path parameters
                 let path: &str = uri.path();
                 let path_params =
@@ -5566,22 +5540,11 @@ async fn handle_item_pocket_retrieve<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Path parameters
                 let path: &str = uri.path();
                 let path_params =
@@ -5658,22 +5621,11 @@ async fn handle_item_retrieve<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Path parameters
                 let path: &str = uri.path();
                 let path_params =
@@ -5750,22 +5702,11 @@ async fn handle_location_area_list<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -5857,22 +5798,11 @@ async fn handle_location_list<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -5983,22 +5913,11 @@ async fn handle_pal_park_area_list<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -6109,22 +6028,11 @@ async fn handle_region_list<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -6235,22 +6143,11 @@ async fn handle_location_area_retrieve<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Path parameters
                 let path: &str = uri.path();
                 let path_params =
@@ -6327,22 +6224,11 @@ async fn handle_location_retrieve<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Path parameters
                 let path: &str = uri.path();
                 let path_params =
@@ -6419,22 +6305,11 @@ async fn handle_pal_park_area_retrieve<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Path parameters
                 let path: &str = uri.path();
                 let path_params =
@@ -6511,22 +6386,11 @@ async fn handle_region_retrieve<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Path parameters
                 let path: &str = uri.path();
                 let path_params =
@@ -6603,22 +6467,11 @@ async fn handle_machine_list<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -6657,29 +6510,10 @@ where
                     },
                     None => None,
                 };
-                let param_q = query_params.iter().filter(|e| e.0 == "q").map(|e| e.1.clone())
-                    .next();
-                let param_q = match param_q {
-                    Some(param_q) => {
-                        let param_q =
-                            <String as std::str::FromStr>::from_str
-                                (&param_q);
-                        match param_q {
-                            Ok(param_q) => Some(param_q),
-                            Err(e) => return Ok(Response::builder()
-                                .status(StatusCode::BAD_REQUEST)
-                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                .body(body_from_string(format!("Couldn't parse query parameter q - doesn't match schema: {e}")))
-                                .expect("Unable to create Bad Request response for invalid query parameter q")),
-                        }
-                    },
-                    None => None,
-                };
 
                                 let result = api_impl.machine_list(
                                             param_limit,
                                             param_offset,
-                                            param_q,
                                         &context
                                     ).await;
                                 let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
@@ -6729,22 +6563,11 @@ async fn handle_machine_retrieve<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Path parameters
                 let path: &str = uri.path();
                 let path_params =
@@ -6821,22 +6644,11 @@ async fn handle_move_ailment_list<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -6947,22 +6759,11 @@ async fn handle_move_battle_style_list<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -7073,22 +6874,11 @@ async fn handle_move_category_list<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -7199,22 +6989,11 @@ async fn handle_move_learn_method_list<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -7325,22 +7104,11 @@ async fn handle_move_list<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -7451,22 +7219,11 @@ async fn handle_move_target_list<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -7577,22 +7334,11 @@ async fn handle_move_ailment_retrieve<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Path parameters
                 let path: &str = uri.path();
                 let path_params =
@@ -7669,22 +7415,11 @@ async fn handle_move_battle_style_retrieve<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Path parameters
                 let path: &str = uri.path();
                 let path_params =
@@ -7761,22 +7496,11 @@ async fn handle_move_category_retrieve<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Path parameters
                 let path: &str = uri.path();
                 let path_params =
@@ -7853,22 +7577,11 @@ async fn handle_move_learn_method_retrieve<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Path parameters
                 let path: &str = uri.path();
                 let path_params =
@@ -7945,22 +7658,11 @@ async fn handle_move_retrieve<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Path parameters
                 let path: &str = uri.path();
                 let path_params =
@@ -8037,22 +7739,11 @@ async fn handle_move_target_retrieve<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Path parameters
                 let path: &str = uri.path();
                 let path_params =
@@ -8129,22 +7820,11 @@ async fn handle_ability_list<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -8255,22 +7935,11 @@ async fn handle_characteristic_list<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -8309,29 +7978,10 @@ where
                     },
                     None => None,
                 };
-                let param_q = query_params.iter().filter(|e| e.0 == "q").map(|e| e.1.clone())
-                    .next();
-                let param_q = match param_q {
-                    Some(param_q) => {
-                        let param_q =
-                            <String as std::str::FromStr>::from_str
-                                (&param_q);
-                        match param_q {
-                            Ok(param_q) => Some(param_q),
-                            Err(e) => return Ok(Response::builder()
-                                .status(StatusCode::BAD_REQUEST)
-                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                .body(body_from_string(format!("Couldn't parse query parameter q - doesn't match schema: {e}")))
-                                .expect("Unable to create Bad Request response for invalid query parameter q")),
-                        }
-                    },
-                    None => None,
-                };
 
                                 let result = api_impl.characteristic_list(
                                             param_limit,
                                             param_offset,
-                                            param_q,
                                         &context
                                     ).await;
                                 let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
@@ -8381,22 +8031,11 @@ async fn handle_egg_group_list<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -8507,22 +8146,11 @@ async fn handle_gender_list<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -8633,22 +8261,11 @@ async fn handle_growth_rate_list<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -8759,22 +8376,11 @@ async fn handle_move_damage_class_list<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -8885,22 +8491,11 @@ async fn handle_nature_list<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -9011,22 +8606,11 @@ async fn handle_pokeathlon_stat_list<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -9137,22 +8721,11 @@ async fn handle_pokemon_color_list<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -9263,22 +8836,11 @@ async fn handle_pokemon_form_list<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -9389,22 +8951,11 @@ async fn handle_pokemon_habitat_list<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -9515,22 +9066,11 @@ async fn handle_pokemon_list<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -9641,22 +9181,11 @@ async fn handle_pokemon_shape_list<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -9767,22 +9296,11 @@ async fn handle_pokemon_species_list<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -9893,22 +9411,11 @@ async fn handle_stat_list<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -10019,22 +9526,11 @@ async fn handle_type_list<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -10145,22 +9641,11 @@ async fn handle_ability_retrieve<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Path parameters
                 let path: &str = uri.path();
                 let path_params =
@@ -10237,22 +9722,11 @@ async fn handle_characteristic_retrieve<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Path parameters
                 let path: &str = uri.path();
                 let path_params =
@@ -10329,22 +9803,11 @@ async fn handle_egg_group_retrieve<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Path parameters
                 let path: &str = uri.path();
                 let path_params =
@@ -10421,22 +9884,11 @@ async fn handle_gender_retrieve<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Path parameters
                 let path: &str = uri.path();
                 let path_params =
@@ -10513,22 +9965,11 @@ async fn handle_growth_rate_retrieve<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Path parameters
                 let path: &str = uri.path();
                 let path_params =
@@ -10605,22 +10046,11 @@ async fn handle_move_damage_class_retrieve<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Path parameters
                 let path: &str = uri.path();
                 let path_params =
@@ -10697,22 +10127,11 @@ async fn handle_nature_retrieve<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Path parameters
                 let path: &str = uri.path();
                 let path_params =
@@ -10789,22 +10208,11 @@ async fn handle_pokeathlon_stat_retrieve<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Path parameters
                 let path: &str = uri.path();
                 let path_params =
@@ -10881,22 +10289,11 @@ async fn handle_pokemon_color_retrieve<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Path parameters
                 let path: &str = uri.path();
                 let path_params =
@@ -10973,22 +10370,11 @@ async fn handle_pokemon_form_retrieve<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Path parameters
                 let path: &str = uri.path();
                 let path_params =
@@ -11065,22 +10451,11 @@ async fn handle_pokemon_habitat_retrieve<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Path parameters
                 let path: &str = uri.path();
                 let path_params =
@@ -11157,22 +10532,11 @@ async fn handle_pokemon_retrieve<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Path parameters
                 let path: &str = uri.path();
                 let path_params =
@@ -11249,22 +10613,11 @@ async fn handle_pokemon_shape_retrieve<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Path parameters
                 let path: &str = uri.path();
                 let path_params =
@@ -11341,22 +10694,11 @@ async fn handle_pokemon_species_retrieve<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Path parameters
                 let path: &str = uri.path();
                 let path_params =
@@ -11433,22 +10775,11 @@ async fn handle_stat_retrieve<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Path parameters
                 let path: &str = uri.path();
                 let path_params =
@@ -11525,22 +10856,11 @@ async fn handle_type_retrieve<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Path parameters
                 let path: &str = uri.path();
                 let path_params =
@@ -11617,22 +10937,11 @@ async fn handle_language_list<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -11733,6 +11042,61 @@ where
 }
 
 #[allow(unused_variables)]
+async fn handle_meta_retrieve<T, C, ReqBody>(
+    mut api_impl: T,
+    uri: hyper::Uri,
+    headers: HeaderMap,
+    body: ReqBody,
+    context: C,
+    validation: bool,
+) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
+where
+    T: Api<C> + Clone + Send + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
+    ReqBody: Body + Send + 'static,
+    ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
+    ReqBody::Data: Send,
+{
+                                let result = api_impl.meta_retrieve(
+                                        &context
+                                    ).await;
+                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
+                                response.headers_mut().insert(
+                                            HeaderName::from_static("x-span-id"),
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
+                                                .expect("Unable to create X-Span-ID header value"));
+
+                                        match result {
+                                            Ok(rsp) => match rsp {
+                                                MetaRetrieveResponse::Status200
+                                                    (body)
+                                                => {
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
+                                                    response.headers_mut().insert(
+                                                        CONTENT_TYPE,
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
+                                                    *response.body_mut() = body_from_string(body);
+
+                                                },
+                                            },
+                                            Err(_) => {
+                                                // Application code returned an error. This should not happen, as the implementation should
+                                                // return a valid response.
+                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
+                                                response.headers_mut().insert(
+                                                    CONTENT_TYPE,
+                                                    HeaderValue::from_static("text/plain"),
+                                                );
+                                                *response.body_mut() = body_from_str("An internal error occurred");
+                                            },
+                                        }
+
+                                        Ok(response)
+}
+
+#[allow(unused_variables)]
 async fn handle_language_retrieve<T, C, ReqBody>(
     mut api_impl: T,
     uri: hyper::Uri,
@@ -11743,22 +11107,11 @@ async fn handle_language_retrieve<T, C, ReqBody>(
 ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
 {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .header(CONTENT_TYPE, mime::TEXT_PLAIN.as_ref())
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
                 // Path parameters
                 let path: &str = uri.path();
                 let path_params =
@@ -11870,10 +11223,14 @@ impl<T> RequestParser<T> for ApiRequestParser {
             hyper::Method::GET if path.matched(paths::ID_API_V2_EVOLUTION_CHAIN_) => Some("EvolutionChainList"),
             // EvolutionTriggerList - GET /api/v2/evolution-trigger/
             hyper::Method::GET if path.matched(paths::ID_API_V2_EVOLUTION_TRIGGER_) => Some("EvolutionTriggerList"),
+            // EvolutionVariableList - GET /api/v2/evolution-variable/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_EVOLUTION_VARIABLE_) => Some("EvolutionVariableList"),
             // EvolutionChainRetrieve - GET /api/v2/evolution-chain/{id}/
             hyper::Method::GET if path.matched(paths::ID_API_V2_EVOLUTION_CHAIN_ID_) => Some("EvolutionChainRetrieve"),
             // EvolutionTriggerRetrieve - GET /api/v2/evolution-trigger/{id}/
             hyper::Method::GET if path.matched(paths::ID_API_V2_EVOLUTION_TRIGGER_ID_) => Some("EvolutionTriggerRetrieve"),
+            // EvolutionVariableRetrieve - GET /api/v2/evolution-variable/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_EVOLUTION_VARIABLE_ID_) => Some("EvolutionVariableRetrieve"),
             // GenerationList - GET /api/v2/generation/
             hyper::Method::GET if path.matched(paths::ID_API_V2_GENERATION_) => Some("GenerationList"),
             // PokedexList - GET /api/v2/pokedex/
@@ -11890,6 +11247,8 @@ impl<T> RequestParser<T> for ApiRequestParser {
             hyper::Method::GET if path.matched(paths::ID_API_V2_VERSION_GROUP_ID_) => Some("VersionGroupRetrieve"),
             // VersionRetrieve - GET /api/v2/version/{id}/
             hyper::Method::GET if path.matched(paths::ID_API_V2_VERSION_ID_) => Some("VersionRetrieve"),
+            // CurrencyList - GET /api/v2/currency/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_CURRENCY_) => Some("CurrencyList"),
             // ItemAttributeList - GET /api/v2/item-attribute/
             hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_ATTRIBUTE_) => Some("ItemAttributeList"),
             // ItemCategoryList - GET /api/v2/item-category/
@@ -11900,6 +11259,8 @@ impl<T> RequestParser<T> for ApiRequestParser {
             hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_) => Some("ItemList"),
             // ItemPocketList - GET /api/v2/item-pocket/
             hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_POCKET_) => Some("ItemPocketList"),
+            // CurrencyRetrieve - GET /api/v2/currency/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_CURRENCY_ID_) => Some("CurrencyRetrieve"),
             // ItemAttributeRetrieve - GET /api/v2/item-attribute/{id}/
             hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_ATTRIBUTE_ID_) => Some("ItemAttributeRetrieve"),
             // ItemCategoryRetrieve - GET /api/v2/item-category/{id}/
@@ -12020,6 +11381,8 @@ impl<T> RequestParser<T> for ApiRequestParser {
             hyper::Method::GET if path.matched(paths::ID_API_V2_TYPE_ID_) => Some("TypeRetrieve"),
             // LanguageList - GET /api/v2/language/
             hyper::Method::GET if path.matched(paths::ID_API_V2_LANGUAGE_) => Some("LanguageList"),
+            // MetaRetrieve - GET /api/v2/meta/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_META_) => Some("MetaRetrieve"),
             // LanguageRetrieve - GET /api/v2/language/{id}/
             hyper::Method::GET if path.matched(paths::ID_API_V2_LANGUAGE_ID_) => Some("LanguageRetrieve"),
             _ => None,

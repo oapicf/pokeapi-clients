@@ -12,17 +12,20 @@ part 'pokemon_stat.g.dart';
 /// PokemonStat
 ///
 /// Properties:
-/// * [baseStat] 
-/// * [effort] 
-/// * [stat] 
+/// * [baseStat] - The base value of the stat.
+/// * [effort] - The effort points (EV) the Pokémon has in the stat.
+/// * [stat] - The stat the Pokémon has.
 @BuiltValue()
 abstract class PokemonStat implements Built<PokemonStat, PokemonStatBuilder> {
+  /// The base value of the stat.
   @BuiltValueField(wireName: r'base_stat')
   int get baseStat;
 
+  /// The effort points (EV) the Pokémon has in the stat.
   @BuiltValueField(wireName: r'effort')
   int get effort;
 
+  /// The stat the Pokémon has.
   @BuiltValueField(wireName: r'stat')
   StatSummary get stat;
 

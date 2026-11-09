@@ -5,6 +5,7 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.*;
 import java.util.Set;
 import javax.validation.*;
@@ -14,11 +15,12 @@ import javax.validation.Valid;
 /**
  * PaginatedEvolutionChainSummaryList
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-10-25T05:48:13.486809836Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-11-09T13:49:31.462302702Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class PaginatedEvolutionChainSummaryList   {
   @JsonProperty("count")
-  
+  @NotNull
+
   private Integer count;
 
   @JsonProperty("next")
@@ -32,9 +34,10 @@ public class PaginatedEvolutionChainSummaryList   {
   private URI previous;
 
   @JsonProperty("results")
-  @Valid
+  @NotNull
+@Valid
 
-  private List<@Valid EvolutionChainSummary> results = null;
+  private List<@Valid EvolutionChainSummary> results = new ArrayList<>();
 
   public PaginatedEvolutionChainSummaryList count(Integer count) {
     this.count = count;
@@ -42,7 +45,7 @@ public class PaginatedEvolutionChainSummaryList   {
   }
 
    /**
-   * Get count
+   * The total number of resources available from this API.
    * @return count
   **/
   public Integer getCount() {
@@ -59,7 +62,7 @@ public class PaginatedEvolutionChainSummaryList   {
   }
 
    /**
-   * Get next
+   * The URL for the next page in the list, or null if there is no next page.
    * @return next
   **/
   public URI getNext() {
@@ -76,7 +79,7 @@ public class PaginatedEvolutionChainSummaryList   {
   }
 
    /**
-   * Get previous
+   * The URL for the previous page in the list, or null if there is no previous page.
    * @return previous
   **/
   public URI getPrevious() {
@@ -101,7 +104,7 @@ public class PaginatedEvolutionChainSummaryList   {
   }
 
    /**
-   * Get results
+   * A list of API resources on this page.
    * @return results
   **/
   public List<@Valid EvolutionChainSummary> getResults() {

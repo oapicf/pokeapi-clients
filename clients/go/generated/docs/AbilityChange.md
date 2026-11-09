@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**VersionGroup** | [**VersionGroupSummary**](VersionGroupSummary.md) |  | 
-**EffectEntries** | [**[]AbilityChangeEffectText**](AbilityChangeEffectText.md) |  | [readonly] 
+**VersionGroup** | [**VersionGroupSummary**](VersionGroupSummary.md) | The version group in which the previous effect of this ability originated. | 
+**EffectEntries** | [**[]AbilityChangeEffectText**](AbilityChangeEffectText.md) | The previous effect of this ability listed in different languages. | [readonly] 
 
 ## Methods
 

@@ -20,19 +20,19 @@ public class PokemonSpeciesDetail
     public bool FormsSwitchable { get; set; }
     public GrowthRateSummary GrowthRate { get; set; }
     public List<PokemonDexEntry> PokedexNumbers { get; set; }
-    public List<AbilityDetailPokemonInnerPokemon> EggGroups { get; set; }
+    public List<EggGroupSummary> EggGroups { get; set; }
     public PokemonColorSummary Color { get; set; }
     public PokemonShapeSummary Shape { get; set; }
     public PokemonSpeciesSummary EvolvesFromSpecies { get; set; }
     public EvolutionChainSummary EvolutionChain { get; set; }
     public PokemonHabitatSummary Habitat { get; set; }
     public GenerationSummary Generation { get; set; }
-    public List<PokemonFormDetailFormNamesInner> Names { get; set; }
-    public List<PokemonSpeciesDetailPalParkEncountersInner> PalParkEncounters { get; set; }
+    public List<PokemonSpeciesName> Names { get; set; }
+    public List<PokemonSpeciesPalParkEncounter> PalParkEncounters { get; set; }
     public List<PokemonSpeciesDescription> FormDescriptions { get; set; }
     public List<PokemonSpeciesFlavorText> FlavorTextEntries { get; set; }
-    public List<PokemonSpeciesDetailGeneraInner> Genera { get; set; }
-    public List<PokemonSpeciesDetailVarietiesInner> Varieties { get; set; }
+    public List<PokemonSpeciesGenus> Genera { get; set; }
+    public List<PokemonSpeciesVariety> Varieties { get; set; }
 }
 
 

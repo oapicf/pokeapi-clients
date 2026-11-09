@@ -10,8 +10,9 @@ class_name PaginatedItemAttributeSummaryList
 # PaginatedItemAttributeSummaryList Model
 
 
-# Required: False
-# Example: 123
+# The total number of resources available from this API.
+# Required: True
+# Example: 100
 # isArray: false
 @export var count: int:
 	set(value):
@@ -19,8 +20,9 @@ class_name PaginatedItemAttributeSummaryList
 		count = value
 var __count__was__set := false
 
+# The URL for the next page in the list, or null if there is no next page.
 # Required: False
-# Example: http://api.example.org/accounts/?offset=400&limit=100
+# Example: https://pokeapi.co/api/v2/item-attribute/?offset=40&limit=20
 # isArray: false
 @export var next: URI:
 	set(value):
@@ -28,8 +30,9 @@ var __count__was__set := false
 		next = value
 var __next__was__set := false
 
+# The URL for the previous page in the list, or null if there is no previous page.
 # Required: False
-# Example: http://api.example.org/accounts/?offset=200&limit=100
+# Example: https://pokeapi.co/api/v2/item-attribute/?offset=0&limit=20
 # isArray: false
 @export var previous: URI:
 	set(value):
@@ -37,7 +40,8 @@ var __next__was__set := false
 		previous = value
 var __previous__was__set := false
 
-# Required: False
+# A list of API resources on this page.
+# Required: True
 # isArray: true
 @export var results: Array:
 	set(value):
@@ -48,6 +52,10 @@ var __results__was__set := false
 
 func bzz_collect_missing_properties() -> Array:
 	var bzz_missing_properties := Array()
+	if not self.__count__was__set:
+		bzz_missing_properties.append("count")
+	if not self.__results__was__set:
+		bzz_missing_properties.append("results")
 	return bzz_missing_properties
 
 

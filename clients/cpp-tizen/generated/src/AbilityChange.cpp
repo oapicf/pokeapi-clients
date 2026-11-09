@@ -23,7 +23,7 @@ AbilityChange::~AbilityChange()
 void
 AbilityChange::__init()
 {
-	//version_group = new VersionGroupSummary();
+	//version_group = null;
 	//new std::list()std::list> effect_entries;
 }
 

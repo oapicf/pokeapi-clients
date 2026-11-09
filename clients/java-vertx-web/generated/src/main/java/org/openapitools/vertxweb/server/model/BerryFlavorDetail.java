@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.vertxweb.server.model.BerryFlavorDetailBerriesInner;
+import org.openapitools.vertxweb.server.model.BerryFlavorBerryMap;
 import org.openapitools.vertxweb.server.model.BerryFlavorName;
 import org.openapitools.vertxweb.server.model.ContestTypeSummary;
 
@@ -15,7 +15,7 @@ public class BerryFlavorDetail   {
   
   private Integer id;
   private String name;
-  private List<BerryFlavorDetailBerriesInner> berries = new ArrayList<>();
+  private List<BerryFlavorBerryMap> berries = new ArrayList<>();
   private ContestTypeSummary contestType;
   private List<BerryFlavorName> names = new ArrayList<>();
 
@@ -23,7 +23,7 @@ public class BerryFlavorDetail   {
 
   }
 
-  public BerryFlavorDetail (Integer id, String name, List<BerryFlavorDetailBerriesInner> berries, ContestTypeSummary contestType, List<BerryFlavorName> names) {
+  public BerryFlavorDetail (Integer id, String name, List<BerryFlavorBerryMap> berries, ContestTypeSummary contestType, List<BerryFlavorName> names) {
     this.id = id;
     this.name = name;
     this.berries = berries;
@@ -51,10 +51,10 @@ public class BerryFlavorDetail   {
 
     
   @JsonProperty("berries")
-  public List<BerryFlavorDetailBerriesInner> getBerries() {
+  public List<BerryFlavorBerryMap> getBerries() {
     return berries;
   }
-  public void setBerries(List<BerryFlavorDetailBerriesInner> berries) {
+  public void setBerries(List<BerryFlavorBerryMap> berries) {
     this.berries = berries;
   }
 

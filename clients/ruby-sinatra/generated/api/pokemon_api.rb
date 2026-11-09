@@ -3,7 +3,7 @@ require 'json'
 
 MyApp.add_route('GET', '/api/v2/ability/', {
   "resourcePath" => "/Pokemon",
-  "summary" => "",
+  "summary" => "List abilities",
   "nickname" => "ability_list",
   "responseClass" => "PaginatedAbilitySummaryList",
   "endpoint" => "/api/v2/ability/",
@@ -40,7 +40,7 @@ end
 
 MyApp.add_route('GET', '/api/v2/ability/{id}/', {
   "resourcePath" => "/Pokemon",
-  "summary" => "",
+  "summary" => "Get ability",
   "nickname" => "ability_retrieve",
   "responseClass" => "AbilityDetail",
   "endpoint" => "/api/v2/ability/{id}/",
@@ -62,7 +62,7 @@ end
 
 MyApp.add_route('GET', '/api/v2/characteristic/', {
   "resourcePath" => "/Pokemon",
-  "summary" => "List charecterictics",
+  "summary" => "List characteristics",
   "nickname" => "characteristic_list",
   "responseClass" => "PaginatedCharacteristicSummaryList",
   "endpoint" => "/api/v2/characteristic/",
@@ -79,13 +79,6 @@ MyApp.add_route('GET', '/api/v2/characteristic/', {
       "name" => "offset",
       "description" => "The initial index from which to return the results.",
       "dataType" => "Integer",
-      "allowableValues" => "",
-      "paramType" => "query",
-    },
-    {
-      "name" => "q",
-      "description" => "&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ",
-      "dataType" => "String",
       "allowableValues" => "",
       "paramType" => "query",
     },

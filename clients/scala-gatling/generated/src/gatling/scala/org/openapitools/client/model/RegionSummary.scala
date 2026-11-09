@@ -4,7 +4,9 @@ package org.openapitools.client.model
 import java.net.URI
 
 case class RegionSummary (
+    /* The name of the referenced resource. */
     _name: String,
+    /* The URL of the referenced resource. */
     _url: URI
 )
 object RegionSummary {

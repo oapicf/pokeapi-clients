@@ -1,6 +1,6 @@
 package apimodels;
 
-import apimodels.MoveChangeEffectEntriesInner;
+import apimodels.MoveEffectEffectText;
 import apimodels.TypeSummary;
 import apimodels.VersionGroupSummary;
 import java.util.ArrayList;
@@ -16,19 +16,25 @@ import javax.validation.Valid;
 /**
  * MoveChange
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-10-25T05:48:13.486809836Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-11-09T13:49:31.462302702Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class MoveChange   {
   @JsonProperty("accuracy")
-  
+  @Min(-2147483648)
+@Max(2147483647)
+
   private Integer accuracy;
 
   @JsonProperty("power")
-  
+  @Min(-2147483648)
+@Max(2147483647)
+
   private Integer power;
 
   @JsonProperty("pp")
-  
+  @Min(-2147483648)
+@Max(2147483647)
+
   private Integer pp;
 
   @JsonProperty("effect_chance")
@@ -40,7 +46,7 @@ public class MoveChange   {
   @NotNull
 @Valid
 
-  private List<@Valid MoveChangeEffectEntriesInner> effectEntries = new ArrayList<>();
+  private List<@Valid MoveEffectEffectText> effectEntries = new ArrayList<>();
 
   @JsonProperty("type")
   @NotNull
@@ -60,7 +66,9 @@ public class MoveChange   {
   }
 
    /**
-   * Get accuracy
+   * The percent value of how likely this move is to be successful.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return accuracy
   **/
   public Integer getAccuracy() {
@@ -77,7 +85,9 @@ public class MoveChange   {
   }
 
    /**
-   * Get power
+   * The base power before the listed version group, or null if power did not change.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return power
   **/
   public Integer getPower() {
@@ -94,7 +104,9 @@ public class MoveChange   {
   }
 
    /**
-   * Get pp
+   * Power points. The number of times this move can be used.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return pp
   **/
   public Integer getPp() {
@@ -111,7 +123,7 @@ public class MoveChange   {
   }
 
    /**
-   * Get effectChance
+   * The percent value of how likely it is this moves effect will take effect.
    * @return effectChance
   **/
   public Integer getEffectChance() {
@@ -122,12 +134,12 @@ public class MoveChange   {
     this.effectChance = effectChance;
   }
 
-  public MoveChange effectEntries(List<@Valid MoveChangeEffectEntriesInner> effectEntries) {
+  public MoveChange effectEntries(List<@Valid MoveEffectEffectText> effectEntries) {
     this.effectEntries = effectEntries;
     return this;
   }
 
-  public MoveChange addEffectEntriesItem(MoveChangeEffectEntriesInner effectEntriesItem) {
+  public MoveChange addEffectEntriesItem(MoveEffectEffectText effectEntriesItem) {
     if (this.effectEntries == null) {
       this.effectEntries = new ArrayList<>();
     }
@@ -136,14 +148,14 @@ public class MoveChange   {
   }
 
    /**
-   * Get effectEntries
+   * The effect of this move listed in different languages.
    * @return effectEntries
   **/
-  public List<@Valid MoveChangeEffectEntriesInner> getEffectEntries() {
+  public List<@Valid MoveEffectEffectText> getEffectEntries() {
     return effectEntries;
   }
 
-  public void setEffectEntries(List<@Valid MoveChangeEffectEntriesInner> effectEntries) {
+  public void setEffectEntries(List<@Valid MoveEffectEffectText> effectEntries) {
     this.effectEntries = effectEntries;
   }
 
@@ -153,7 +165,7 @@ public class MoveChange   {
   }
 
    /**
-   * Get type
+   * The elemental type of this move.
    * @return type
   **/
   public TypeSummary getType() {
@@ -170,7 +182,7 @@ public class MoveChange   {
   }
 
    /**
-   * Get versionGroup
+   * The version group in which these move stat values were in effect.
    * @return versionGroup
   **/
   public VersionGroupSummary getVersionGroup() {

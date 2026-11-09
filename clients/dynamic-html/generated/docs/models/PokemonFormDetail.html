@@ -2,71 +2,81 @@
 <h2>PokemonFormDetail</h2>
 <ul class="parameter">
   <li class="param-required-true">id : Integer
-    <br/>
+    <br/>The identifier for this resource.
   </li>
 </ul>
 <ul class="parameter">
   <li class="param-required-true">name : String
-    <br/>
+    <br/>The name for this resource.
   </li>
 </ul>
 <ul class="parameter">
   <li class="param-required-false">order : Integer
-    <br/>
+    <br/>The order in which forms should be sorted within all forms. Multiple forms may have equal order, in which case they should fall back on sorting by name.
   </li>
 </ul>
 <ul class="parameter">
   <li class="param-required-false">formUnderscoreorder : Integer
-    <br/>
+    <br/>The order in which forms should be sorted within a species&#39; forms.
   </li>
 </ul>
 <ul class="parameter">
   <li class="param-required-false">isUnderscoredefault : Boolean
-    <br/>
+    <br/>True for exactly one form used as the default for each Pokémon.
   </li>
 </ul>
 <ul class="parameter">
   <li class="param-required-false">isUnderscorebattleUnderscoreonly : Boolean
-    <br/>
+    <br/>Whether or not this form can only happen during battle.
   </li>
 </ul>
 <ul class="parameter">
   <li class="param-required-false">isUnderscoremega : Boolean
-    <br/>
+    <br/>Whether or not this form requires mega evolution.
   </li>
 </ul>
 <ul class="parameter">
   <li class="param-required-true">formUnderscorename : String
-    <br/>
+    <br/>The name of this form.
   </li>
 </ul>
 <ul class="parameter">
   <li class="param-required-true">pokemon : PokemonSummary
-    <br/>
+    <br/>The Pokémon that can take on this form.
   </li>
 </ul>
 <ul class="parameter">
-  <li class="param-required-true">sprites : PokemonFormDetail_sprites
-    <br/>
+  <li class="param-required-true">sprites : PokemonFormSprites
+    <br/>A set of sprites used to depict this Pokémon form in the game.
   </li>
 </ul>
 <ul class="parameter">
   <li class="param-required-true">versionUnderscoregroup : VersionGroupSummary
-    <br/>
+    <br/>The version group this Pokémon form was introduced in.
   </li>
 </ul>
 <ul class="parameter">
   <li class="param-required-true">formUnderscorenames : List
-    <br/>
+    <br/>The form specific form name of this Pokémon form, or empty if the form does not have a specific name.
   </li>
 </ul>
 <ul class="parameter">
   <li class="param-required-true">names : List
-    <br/>
+    <br/>The form specific full name of this Pokémon form, or empty if the form does not have a specific name.
   </li>
 </ul>
 <ul class="parameter">
   <li class="param-required-true">types : List
-    <br/>
+    <br/>A list of details showing types this Pokémon form has.
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-true">triggerUnderscoreconditions : List
+    <br/>The conditions that trigger this form. Resource names and URLs are included when the trigger requires a resource.
+  </li>
+</ul>
+<ul class="parameter">
+  <li class="param-required-true">flavorUnderscoretextUnderscoreentries : List
+    <br/>The flavor text of this form listed in different languages and versions.
   </li>
 </ul>

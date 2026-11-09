@@ -20,20 +20,32 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class VersionDetail  {
   
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The identifier for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   private Integer id;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The name for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   private String name;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The name of this resource listed in different languages.
+  */
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
   private List<@Valid VersionName> names = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The version group this version belongs to.
+  */
+  @ApiModelProperty(required = true, value = "The version group this version belongs to.")
   @Valid
   private VersionGroupSummary versionGroup;
  /**
-  * Get id
+  * The identifier for this resource.
   * @return id
   */
   @JsonProperty("id")
@@ -60,12 +72,12 @@ public class VersionDetail  {
   }
 
  /**
-  * Get name
+  * The name for this resource.
   * @return name
   */
   @JsonProperty("name")
   @NotNull
- @Size(max=100)  public String getName() {
+ @Size(max=200)  public String getName() {
     return name;
   }
 
@@ -85,7 +97,7 @@ public class VersionDetail  {
   }
 
  /**
-  * Get names
+  * The name of this resource listed in different languages.
   * @return names
   */
   @JsonProperty("names")
@@ -121,7 +133,7 @@ public class VersionDetail  {
   }
 
  /**
-  * Get versionGroup
+  * The version group this version belongs to.
   * @return versionGroup
   */
   @JsonProperty("version_group")

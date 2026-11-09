@@ -1,9 +1,9 @@
 /*
   PokéAPI
 
-  All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+  All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
 
-  The version of the OpenAPI document: 2.7.0
+  The version of the OpenAPI document: 2.10.0
 
   Contact: blah+oapicf@cliffano.com
 
@@ -19,28 +19,40 @@ import public "models/move_meta_category_summary.proto";
 
 message MoveMeta {
 
+  // The status ailment this move inflicts on its target.
   MoveMetaAilmentSummary ailment = 460436319;
 
+  // The category of move this move falls under, e.g. damage or ailment.
   MoveMetaCategorySummary category = 50511102;
 
+  // The minimum number of times this move hits. Null if it always only hits once.
   optional int32 min_hits = 294710005;
 
+  // The maximum number of times this move hits. Null if it always only hits once.
   optional int32 max_hits = 407744827;
 
+  // The minimum number of turns this move continues to take effect. Null if it always only lasts one turn.
   optional int32 min_turns = 2233194;
 
+  // The maximum number of turns this move continues to take effect. Null if it always only lasts one turn.
   optional int32 max_turns = 233374469;
 
+  // HP drain (if positive) or Recoil damage (if negative), in percent of damage done.
   optional int32 drain = 95844856;
 
+  // The amount of hp gained by the attacking Pokemon, in percent of it's maximum HP.
   optional int32 healing = 258679035;
 
+  // Critical hit rate bonus.
   optional int32 crit_rate = 378364965;
 
+  // The likelihood this attack will cause an ailment.
   optional int32 ailment_chance = 439768722;
 
+  // The likelihood this attack will cause the target Pokémon to flinch.
   optional int32 flinch_chance = 179994692;
 
+  // The likelihood this attack will cause a stat change in the target Pokémon.
   optional int32 stat_chance = 71369600;
 
 }

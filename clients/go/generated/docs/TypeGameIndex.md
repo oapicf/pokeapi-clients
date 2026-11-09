@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**GameIndex** | **int32** |  | 
-**Generation** | [**GenerationSummary**](GenerationSummary.md) |  | 
+**GameIndex** | **int32** | The internal id of an API resource within game data. | 
+**Generation** | [**GenerationSummary**](GenerationSummary.md) | The generation relevent to this game index. | 
 
 ## Methods
 

@@ -10,7 +10,6 @@ namespace models {
 
 TypeGameIndex::TypeGameIndex()
 : gameIndex(0)
-, generation(GenerationSummary())
 {
 }
 // =========================================

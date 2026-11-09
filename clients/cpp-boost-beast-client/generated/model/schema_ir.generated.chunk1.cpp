@@ -17,32 +17,1141 @@ namespace {
 
 void appendSchemaRegistryChunk1(SchemaResourceRegistry& reg) {
 
-    { // node 419
+    { // node 494
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        setExact(n.minimum, n.hasMinimum, "-2147483648");
+        setExact(n.maximum, n.hasMaximum, "2147483647");
+        n.annDescription = "\"The base power before the listed version group, or null if power did not change.\"";
+        n.sourceName = "MoveChange_component_prop4";
+        n.schemaPath = "#/components/schemas/MoveChange/properties/power";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveChange/properties/power";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 495
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        setExact(n.minimum, n.hasMinimum, "-2147483648");
+        setExact(n.maximum, n.hasMaximum, "2147483647");
+        n.annDescription = "\"Power points. The number of times this move can be used.\"";
+        n.sourceName = "MoveChange_component_prop5";
+        n.schemaPath = "#/components/schemas/MoveChange/properties/pp";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveChange/properties/pp";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 496
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1770);
+        n.sourceName = "MoveChange_component_prop6";
+        n.schemaPath = "#/components/schemas/MoveChange/properties/type";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveChange/properties/type";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 497
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.allOfChildren.push_back(1388);
+        n.annDescription = "\"The version group in which these move stat values were in effect.\"";
+        n.sourceName = "MoveChange_component_prop7";
+        n.schemaPath = "#/components/schemas/MoveChange/properties/version_group";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveChange/properties/version_group";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 498
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1969);
+        n.sourceName = "MoveChange_type_component_app1";
+        n.schemaPath = "#/components/schemas/MoveChange_type/oneOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveChange_type/oneOf/0";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 499
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 1u;
+        n.sourceName = "MoveChange_type_component_app2";
+        n.schemaPath = "#/components/schemas/MoveChange_type/oneOf/1";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveChange_type/oneOf/1";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 500
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1389;
+        n.annDescription = "\"A list of moves to use after this move.\"";
+        n.sourceName = "MoveComboUsage_component_prop1";
+        n.schemaPath = "#/components/schemas/MoveComboUsage/properties/use_after";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveComboUsage/properties/use_after";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 501
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1390;
+        n.annDescription = "\"A list of moves to use before this move.\"";
+        n.sourceName = "MoveComboUsage_component_prop2";
+        n.schemaPath = "#/components/schemas/MoveComboUsage/properties/use_before";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveComboUsage/properties/use_before";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 502
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.allOfChildren.push_back(1391);
+        n.annDescription = "\"A detail of moves this move can be used before or after, granting additional appeal points in contests.\"";
+        n.sourceName = "MoveCombos_component_prop1";
+        n.schemaPath = "#/components/schemas/MoveCombos/properties/normal";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveCombos/properties/normal";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 503
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.allOfChildren.push_back(1392);
+        n.annDescription = "\"A detail of moves this move can be used before or after, granting additional appeal points in super contests.\"";
+        n.sourceName = "MoveCombos_component_prop2";
+        n.schemaPath = "#/components/schemas/MoveCombos/properties/super";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveCombos/properties/super";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 504
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 8u;
-        setExact(n.maxLength, n.hasMaxLength, "100");
+        setExact(n.maxLength, n.hasMaxLength, "2000");
+        n.annDescription = "\"The localized description for an API resource in a specific language.\"";
+        n.sourceName = "MoveDamageClassDescription_component_prop1";
+        n.schemaPath = "#/components/schemas/MoveDamageClassDescription/properties/description";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDamageClassDescription/properties/description";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 505
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.allOfChildren.push_back(1393);
+        n.annDescription = "\"The language this name is in.\"";
+        n.sourceName = "MoveDamageClassDescription_component_prop2";
+        n.schemaPath = "#/components/schemas/MoveDamageClassDescription/properties/language";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDamageClassDescription/properties/language";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 506
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1394;
+        n.annDescription = "\"The description of this resource listed in different languages.\"";
+        n.annReadOnlyJson = "true";
+        n.sourceName = "MoveDamageClassDetail_component_prop1";
+        n.schemaPath = "#/components/schemas/MoveDamageClassDetail/properties/descriptions";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDamageClassDetail/properties/descriptions";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 507
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        n.annDescription = "\"The identifier for this resource.\"";
+        n.annReadOnlyJson = "true";
+        n.sourceName = "MoveDamageClassDetail_component_prop2";
+        n.schemaPath = "#/components/schemas/MoveDamageClassDetail/properties/id";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDamageClassDetail/properties/id";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 508
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1395;
+        n.annDescription = "\"A list of moves that fall into this damage class.\"";
+        n.annReadOnlyJson = "true";
+        n.sourceName = "MoveDamageClassDetail_component_prop3";
+        n.schemaPath = "#/components/schemas/MoveDamageClassDetail/properties/moves";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDamageClassDetail/properties/moves";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 509
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        setExact(n.maxLength, n.hasMaxLength, "200");
+        n.annDescription = "\"The name for this resource.\"";
+        n.sourceName = "MoveDamageClassDetail_component_prop4";
+        n.schemaPath = "#/components/schemas/MoveDamageClassDetail/properties/name";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDamageClassDetail/properties/name";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 510
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1396;
+        n.annDescription = "\"The name of this resource listed in different languages.\"";
+        n.annReadOnlyJson = "true";
+        n.sourceName = "MoveDamageClassDetail_component_prop5";
+        n.schemaPath = "#/components/schemas/MoveDamageClassDetail/properties/names";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDamageClassDetail/properties/names";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 511
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.allOfChildren.push_back(1397);
+        n.annDescription = "\"The language this name is in.\"";
+        n.sourceName = "MoveDamageClassName_component_prop1";
+        n.schemaPath = "#/components/schemas/MoveDamageClassName/properties/language";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDamageClassName/properties/language";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 512
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        setExact(n.maxLength, n.hasMaxLength, "200");
+        n.annDescription = "\"The localized name for an API resource in a specific language.\"";
+        n.sourceName = "MoveDamageClassName_component_prop2";
+        n.schemaPath = "#/components/schemas/MoveDamageClassName/properties/name";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDamageClassName/properties/name";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 513
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        setExact(n.maxLength, n.hasMaxLength, "200");
+        n.annDescription = "\"The name of the referenced resource.\"";
+        n.sourceName = "MoveDamageClassSummary_component_prop1";
+        n.schemaPath = "#/components/schemas/MoveDamageClassSummary/properties/name";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDamageClassSummary/properties/name";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 514
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL of the referenced resource.\"";
+        n.annReadOnlyJson = "true";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "MoveDamageClassSummary_component_prop2";
+        n.schemaPath = "#/components/schemas/MoveDamageClassSummary/properties/url";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDamageClassSummary/properties/url";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 515
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        setExact(n.minimum, n.hasMinimum, "-2147483648");
+        setExact(n.maximum, n.hasMaximum, "2147483647");
+        n.annDescription = "\"The percent value of how likely this move is to be successful.\"";
+        n.sourceName = "MoveDetail_component_prop1";
+        n.schemaPath = "#/components/schemas/MoveDetail/properties/accuracy";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail/properties/accuracy";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 516
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1778);
+        n.sourceName = "MoveDetail_component_prop2";
+        n.schemaPath = "#/components/schemas/MoveDetail/properties/contest_combos";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail/properties/contest_combos";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 517
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1779);
+        n.sourceName = "MoveDetail_component_prop3";
+        n.schemaPath = "#/components/schemas/MoveDetail/properties/contest_effect";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail/properties/contest_effect";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 518
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1780);
+        n.sourceName = "MoveDetail_component_prop4";
+        n.schemaPath = "#/components/schemas/MoveDetail/properties/contest_type";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail/properties/contest_type";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 519
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.allOfChildren.push_back(1398);
+        n.annDescription = "\"The type of damage the move inflicts on the target, e.g. physical.\"";
+        n.sourceName = "MoveDetail_component_prop5";
+        n.schemaPath = "#/components/schemas/MoveDetail/properties/damage_class";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail/properties/damage_class";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 520
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        n.annDescription = "\"The percent value of how likely it is this moves effect will happen.\"";
+        n.sourceName = "MoveDetail_component_prop6";
+        n.schemaPath = "#/components/schemas/MoveDetail/properties/effect_chance";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail/properties/effect_chance";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 521
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1399;
+        n.annDescription = "\"The list of previous effects this move has had across version groups of the games.\"";
+        n.annReadOnlyJson = "true";
+        n.sourceName = "MoveDetail_component_prop7";
+        n.schemaPath = "#/components/schemas/MoveDetail/properties/effect_changes";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail/properties/effect_changes";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 522
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1400;
+        n.annDescription = "\"The effect of this move listed in different languages.\"";
+        n.annReadOnlyJson = "true";
+        n.sourceName = "MoveDetail_component_prop8";
+        n.schemaPath = "#/components/schemas/MoveDetail/properties/effect_entries";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail/properties/effect_entries";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 523
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1401;
+        n.annDescription = "\"The flavor text of this move listed in different languages.\"";
+        n.annReadOnlyJson = "true";
+        n.sourceName = "MoveDetail_component_prop9";
+        n.schemaPath = "#/components/schemas/MoveDetail/properties/flavor_text_entries";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail/properties/flavor_text_entries";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 524
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.allOfChildren.push_back(1402);
+        n.annDescription = "\"The generation in which this move was introduced.\"";
+        n.sourceName = "MoveDetail_component_prop10";
+        n.schemaPath = "#/components/schemas/MoveDetail/properties/generation";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail/properties/generation";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 525
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        n.annDescription = "\"The identifier for this resource.\"";
+        n.annReadOnlyJson = "true";
+        n.sourceName = "MoveDetail_component_prop11";
+        n.schemaPath = "#/components/schemas/MoveDetail/properties/id";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail/properties/id";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 526
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1403;
+        n.annDescription = "\"List of Pokemon that can learn the move\"";
+        n.annReadOnlyJson = "true";
+        n.sourceName = "MoveDetail_component_prop12";
+        n.schemaPath = "#/components/schemas/MoveDetail/properties/learned_by_pokemon";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail/properties/learned_by_pokemon";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 527
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1404;
+        n.annDescription = "\"A list of the machines that teach this move.\"";
+        n.annReadOnlyJson = "true";
+        n.sourceName = "MoveDetail_component_prop13";
+        n.schemaPath = "#/components/schemas/MoveDetail/properties/machines";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail/properties/machines";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 528
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1781);
+        n.sourceName = "MoveDetail_component_prop14";
+        n.schemaPath = "#/components/schemas/MoveDetail/properties/meta";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail/properties/meta";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 529
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        setExact(n.maxLength, n.hasMaxLength, "200");
+        n.annDescription = "\"The name for this resource.\"";
+        n.sourceName = "MoveDetail_component_prop15";
+        n.schemaPath = "#/components/schemas/MoveDetail/properties/name";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail/properties/name";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 530
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1405;
+        n.annDescription = "\"The name of this resource listed in different languages.\"";
+        n.annReadOnlyJson = "true";
+        n.sourceName = "MoveDetail_component_prop16";
+        n.schemaPath = "#/components/schemas/MoveDetail/properties/names";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail/properties/names";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 531
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1406;
+        n.annDescription = "\"A list of move resource value changes across version groups of the game.\"";
+        n.annReadOnlyJson = "true";
+        n.sourceName = "MoveDetail_component_prop17";
+        n.schemaPath = "#/components/schemas/MoveDetail/properties/past_values";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail/properties/past_values";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 532
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        setExact(n.minimum, n.hasMinimum, "-2147483648");
+        setExact(n.maximum, n.hasMaximum, "2147483647");
+        n.annDescription = "\"The base power of this move, or null if it has no fixed base power.\"";
+        n.sourceName = "MoveDetail_component_prop18";
+        n.schemaPath = "#/components/schemas/MoveDetail/properties/power";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail/properties/power";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 533
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        setExact(n.minimum, n.hasMinimum, "-2147483648");
+        setExact(n.maximum, n.hasMaximum, "2147483647");
+        n.annDescription = "\"Power points. The number of times this move can be used.\"";
+        n.sourceName = "MoveDetail_component_prop19";
+        n.schemaPath = "#/components/schemas/MoveDetail/properties/pp";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail/properties/pp";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 534
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        setExact(n.minimum, n.hasMinimum, "-2147483648");
+        setExact(n.maximum, n.hasMaximum, "2147483647");
+        n.annDescription = "\"A value between -8 and 8. Sets the order in which moves are executed during battle. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Priority) for greater detail.\"";
+        n.sourceName = "MoveDetail_component_prop20";
+        n.schemaPath = "#/components/schemas/MoveDetail/properties/priority";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail/properties/priority";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 535
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1407;
+        n.annDescription = "\"A list of stats this moves effects and how much it effects them.\"";
+        n.annReadOnlyJson = "true";
+        n.sourceName = "MoveDetail_component_prop21";
+        n.schemaPath = "#/components/schemas/MoveDetail/properties/stat_changes";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail/properties/stat_changes";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 536
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1782);
+        n.sourceName = "MoveDetail_component_prop22";
+        n.schemaPath = "#/components/schemas/MoveDetail/properties/super_contest_effect";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail/properties/super_contest_effect";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 537
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.allOfChildren.push_back(1408);
+        n.annDescription = "\"The type of target that will receive the effects of the attack.\"";
+        n.sourceName = "MoveDetail_component_prop23";
+        n.schemaPath = "#/components/schemas/MoveDetail/properties/target";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail/properties/target";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 538
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.allOfChildren.push_back(1409);
+        n.annDescription = "\"The elemental type of this move.\"";
+        n.sourceName = "MoveDetail_component_prop24";
+        n.schemaPath = "#/components/schemas/MoveDetail/properties/type";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail/properties/type";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 539
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1772);
+        n.sourceName = "MoveDetail_contest_combos_component_app1";
+        n.schemaPath = "#/components/schemas/MoveDetail_contest_combos/oneOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail_contest_combos/oneOf/0";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 540
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 1u;
+        n.sourceName = "MoveDetail_contest_combos_component_app2";
+        n.schemaPath = "#/components/schemas/MoveDetail_contest_combos/oneOf/1";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail_contest_combos/oneOf/1";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 541
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1681);
+        n.sourceName = "MoveDetail_contest_effect_component_app1";
+        n.schemaPath = "#/components/schemas/MoveDetail_contest_effect/oneOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail_contest_effect/oneOf/0";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 542
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 1u;
+        n.sourceName = "MoveDetail_contest_effect_component_app2";
+        n.schemaPath = "#/components/schemas/MoveDetail_contest_effect/oneOf/1";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail_contest_effect/oneOf/1";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 543
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1684);
+        n.sourceName = "MoveDetail_contest_type_component_app1";
+        n.schemaPath = "#/components/schemas/MoveDetail_contest_type/oneOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail_contest_type/oneOf/0";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 544
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 1u;
+        n.sourceName = "MoveDetail_contest_type_component_app2";
+        n.schemaPath = "#/components/schemas/MoveDetail_contest_type/oneOf/1";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail_contest_type/oneOf/1";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 545
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1791);
+        n.sourceName = "MoveDetail_meta_component_app1";
+        n.schemaPath = "#/components/schemas/MoveDetail_meta/oneOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail_meta/oneOf/0";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 546
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 1u;
+        n.sourceName = "MoveDetail_meta_component_app2";
+        n.schemaPath = "#/components/schemas/MoveDetail_meta/oneOf/1";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail_meta/oneOf/1";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 547
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1960);
+        n.sourceName = "MoveDetail_super_contest_effect_component_app1";
+        n.schemaPath = "#/components/schemas/MoveDetail_super_contest_effect/oneOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail_super_contest_effect/oneOf/0";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 548
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 1u;
+        n.sourceName = "MoveDetail_super_contest_effect_component_app2";
+        n.schemaPath = "#/components/schemas/MoveDetail_super_contest_effect/oneOf/1";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveDetail_super_contest_effect/oneOf/1";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 549
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1410;
+        n.annDescription = "\"The previous effect of this ability listed in different languages.\"";
+        n.annReadOnlyJson = "true";
+        n.sourceName = "MoveEffectChange_component_prop1";
+        n.schemaPath = "#/components/schemas/MoveEffectChange/properties/effect_entries";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveEffectChange/properties/effect_entries";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 550
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.allOfChildren.push_back(1411);
+        n.annDescription = "\"The version group in which the previous effect of this ability originated.\"";
+        n.sourceName = "MoveEffectChange_component_prop2";
+        n.schemaPath = "#/components/schemas/MoveEffectChange/properties/version_group";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveEffectChange/properties/version_group";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 551
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        setExact(n.maxLength, n.hasMaxLength, "6000");
+        n.annDescription = "\"The localized effect text for an API resource in a specific language.\"";
+        n.sourceName = "MoveEffectChangeEffectText_component_prop1";
+        n.schemaPath = "#/components/schemas/MoveEffectChangeEffectText/properties/effect";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveEffectChangeEffectText/properties/effect";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 552
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.allOfChildren.push_back(1412);
+        n.annDescription = "\"The language this effect is in.\"";
+        n.sourceName = "MoveEffectChangeEffectText_component_prop2";
+        n.schemaPath = "#/components/schemas/MoveEffectChangeEffectText/properties/language";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveEffectChangeEffectText/properties/language";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 553
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        setExact(n.maxLength, n.hasMaxLength, "6000");
+        n.annDescription = "\"The localized effect text for an API resource in a specific language.\"";
+        n.sourceName = "MoveEffectEffectText_component_prop1";
+        n.schemaPath = "#/components/schemas/MoveEffectEffectText/properties/effect";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveEffectEffectText/properties/effect";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 554
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.allOfChildren.push_back(1413);
+        n.annDescription = "\"The language this effect is in.\"";
+        n.sourceName = "MoveEffectEffectText_component_prop2";
+        n.schemaPath = "#/components/schemas/MoveEffectEffectText/properties/language";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveEffectEffectText/properties/language";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 555
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        setExact(n.maxLength, n.hasMaxLength, "300");
+        n.annDescription = "\"The localized effect text in brief.\"";
+        n.sourceName = "MoveEffectEffectText_component_prop3";
+        n.schemaPath = "#/components/schemas/MoveEffectEffectText/properties/short_effect";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveEffectEffectText/properties/short_effect";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 556
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The localized flavor text for an api resource in a specific language.\"";
+        n.sourceName = "MoveFlavorText_component_prop1";
+        n.schemaPath = "#/components/schemas/MoveFlavorText/properties/flavor_text";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveFlavorText/properties/flavor_text";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 557
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.allOfChildren.push_back(1414);
+        n.annDescription = "\"The language this name is in.\"";
+        n.sourceName = "MoveFlavorText_component_prop2";
+        n.schemaPath = "#/components/schemas/MoveFlavorText/properties/language";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveFlavorText/properties/language";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 558
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.allOfChildren.push_back(1415);
+        n.annDescription = "\"The version group that uses this flavor text.\"";
+        n.sourceName = "MoveFlavorText_component_prop3";
+        n.schemaPath = "#/components/schemas/MoveFlavorText/properties/version_group";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveFlavorText/properties/version_group";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 559
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        setExact(n.maxLength, n.hasMaxLength, "2000");
+        n.annDescription = "\"The localized description for an API resource in a specific language.\"";
+        n.sourceName = "MoveLearnMethodDescription_component_prop1";
+        n.schemaPath = "#/components/schemas/MoveLearnMethodDescription/properties/description";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveLearnMethodDescription/properties/description";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 560
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.allOfChildren.push_back(1416);
+        n.annDescription = "\"The language this name is in.\"";
+        n.sourceName = "MoveLearnMethodDescription_component_prop2";
+        n.schemaPath = "#/components/schemas/MoveLearnMethodDescription/properties/language";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveLearnMethodDescription/properties/language";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 561
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1417;
+        n.annDescription = "\"The description of this resource listed in different languages.\"";
+        n.annReadOnlyJson = "true";
+        n.sourceName = "MoveLearnMethodDetail_component_prop1";
+        n.schemaPath = "#/components/schemas/MoveLearnMethodDetail/properties/descriptions";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveLearnMethodDetail/properties/descriptions";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 562
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        n.annDescription = "\"The identifier for this resource.\"";
+        n.annReadOnlyJson = "true";
+        n.sourceName = "MoveLearnMethodDetail_component_prop2";
+        n.schemaPath = "#/components/schemas/MoveLearnMethodDetail/properties/id";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveLearnMethodDetail/properties/id";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 563
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        setExact(n.maxLength, n.hasMaxLength, "200");
+        n.annDescription = "\"The name for this resource.\"";
+        n.sourceName = "MoveLearnMethodDetail_component_prop3";
+        n.schemaPath = "#/components/schemas/MoveLearnMethodDetail/properties/name";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveLearnMethodDetail/properties/name";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 564
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1418;
+        n.annDescription = "\"The name of this resource listed in different languages.\"";
+        n.annReadOnlyJson = "true";
+        n.sourceName = "MoveLearnMethodDetail_component_prop4";
+        n.schemaPath = "#/components/schemas/MoveLearnMethodDetail/properties/names";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveLearnMethodDetail/properties/names";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 565
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1419;
+        n.annDescription = "\"A list of version groups where moves can be learned through this method.\"";
+        n.annReadOnlyJson = "true";
+        n.sourceName = "MoveLearnMethodDetail_component_prop5";
+        n.schemaPath = "#/components/schemas/MoveLearnMethodDetail/properties/version_groups";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveLearnMethodDetail/properties/version_groups";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 566
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.allOfChildren.push_back(1420);
+        n.annDescription = "\"The language this name is in.\"";
+        n.sourceName = "MoveLearnMethodName_component_prop1";
+        n.schemaPath = "#/components/schemas/MoveLearnMethodName/properties/language";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveLearnMethodName/properties/language";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 567
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        setExact(n.maxLength, n.hasMaxLength, "200");
+        n.annDescription = "\"The localized name for an API resource in a specific language.\"";
+        n.sourceName = "MoveLearnMethodName_component_prop2";
+        n.schemaPath = "#/components/schemas/MoveLearnMethodName/properties/name";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveLearnMethodName/properties/name";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 568
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        setExact(n.maxLength, n.hasMaxLength, "200");
+        n.annDescription = "\"The name of the referenced resource.\"";
+        n.sourceName = "MoveLearnMethodSummary_component_prop1";
+        n.schemaPath = "#/components/schemas/MoveLearnMethodSummary/properties/name";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveLearnMethodSummary/properties/name";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 569
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL of the referenced resource.\"";
+        n.annReadOnlyJson = "true";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "MoveLearnMethodSummary_component_prop2";
+        n.schemaPath = "#/components/schemas/MoveLearnMethodSummary/properties/url";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveLearnMethodSummary/properties/url";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 570
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.allOfChildren.push_back(1421);
+        n.annDescription = "\"The status ailment this move inflicts on its target.\"";
+        n.sourceName = "MoveMeta_component_prop1";
+        n.schemaPath = "#/components/schemas/MoveMeta/properties/ailment";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveMeta/properties/ailment";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 571
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        setExact(n.minimum, n.hasMinimum, "-2147483648");
+        setExact(n.maximum, n.hasMaximum, "2147483647");
+        n.annDescription = "\"The likelihood this attack will cause an ailment.\"";
+        n.sourceName = "MoveMeta_component_prop2";
+        n.schemaPath = "#/components/schemas/MoveMeta/properties/ailment_chance";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveMeta/properties/ailment_chance";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 572
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.allOfChildren.push_back(1422);
+        n.annDescription = "\"The category of move this move falls under, e.g. damage or ailment.\"";
+        n.sourceName = "MoveMeta_component_prop3";
+        n.schemaPath = "#/components/schemas/MoveMeta/properties/category";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveMeta/properties/category";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 573
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        setExact(n.minimum, n.hasMinimum, "-2147483648");
+        setExact(n.maximum, n.hasMaximum, "2147483647");
+        n.annDescription = "\"Critical hit rate bonus.\"";
+        n.sourceName = "MoveMeta_component_prop4";
+        n.schemaPath = "#/components/schemas/MoveMeta/properties/crit_rate";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveMeta/properties/crit_rate";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 574
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        setExact(n.minimum, n.hasMinimum, "-2147483648");
+        setExact(n.maximum, n.hasMaximum, "2147483647");
+        n.annDescription = "\"HP drain (if positive) or Recoil damage (if negative), in percent of damage done.\"";
+        n.sourceName = "MoveMeta_component_prop5";
+        n.schemaPath = "#/components/schemas/MoveMeta/properties/drain";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveMeta/properties/drain";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 575
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        setExact(n.minimum, n.hasMinimum, "-2147483648");
+        setExact(n.maximum, n.hasMaximum, "2147483647");
+        n.annDescription = "\"The likelihood this attack will cause the target Pok\303\251mon to flinch.\"";
+        n.sourceName = "MoveMeta_component_prop6";
+        n.schemaPath = "#/components/schemas/MoveMeta/properties/flinch_chance";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveMeta/properties/flinch_chance";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 576
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        setExact(n.minimum, n.hasMinimum, "-2147483648");
+        setExact(n.maximum, n.hasMaximum, "2147483647");
+        n.annDescription = "\"The amount of hp gained by the attacking Pokemon, in percent of it's maximum HP.\"";
+        n.sourceName = "MoveMeta_component_prop7";
+        n.schemaPath = "#/components/schemas/MoveMeta/properties/healing";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveMeta/properties/healing";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 577
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        setExact(n.minimum, n.hasMinimum, "-2147483648");
+        setExact(n.maximum, n.hasMaximum, "2147483647");
+        n.annDescription = "\"The maximum number of times this move hits. Null if it always only hits once.\"";
+        n.sourceName = "MoveMeta_component_prop8";
+        n.schemaPath = "#/components/schemas/MoveMeta/properties/max_hits";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveMeta/properties/max_hits";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 578
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        setExact(n.minimum, n.hasMinimum, "-2147483648");
+        setExact(n.maximum, n.hasMaximum, "2147483647");
+        n.annDescription = "\"The maximum number of turns this move continues to take effect. Null if it always only lasts one turn.\"";
+        n.sourceName = "MoveMeta_component_prop9";
+        n.schemaPath = "#/components/schemas/MoveMeta/properties/max_turns";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveMeta/properties/max_turns";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 579
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        setExact(n.minimum, n.hasMinimum, "-2147483648");
+        setExact(n.maximum, n.hasMaximum, "2147483647");
+        n.annDescription = "\"The minimum number of times this move hits. Null if it always only hits once.\"";
+        n.sourceName = "MoveMeta_component_prop10";
+        n.schemaPath = "#/components/schemas/MoveMeta/properties/min_hits";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveMeta/properties/min_hits";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 580
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        setExact(n.minimum, n.hasMinimum, "-2147483648");
+        setExact(n.maximum, n.hasMaximum, "2147483647");
+        n.annDescription = "\"The minimum number of turns this move continues to take effect. Null if it always only lasts one turn.\"";
+        n.sourceName = "MoveMeta_component_prop11";
+        n.schemaPath = "#/components/schemas/MoveMeta/properties/min_turns";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveMeta/properties/min_turns";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 581
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        setExact(n.minimum, n.hasMinimum, "-2147483648");
+        setExact(n.maximum, n.hasMaximum, "2147483647");
+        n.annDescription = "\"The likelihood this attack will cause a stat change in the target Pok\303\251mon.\"";
+        n.sourceName = "MoveMeta_component_prop12";
+        n.schemaPath = "#/components/schemas/MoveMeta/properties/stat_chance";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveMeta/properties/stat_chance";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 582
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        n.annDescription = "\"The identifier for this resource.\"";
+        n.annReadOnlyJson = "true";
+        n.sourceName = "MoveMetaAilmentDetail_component_prop1";
+        n.schemaPath = "#/components/schemas/MoveMetaAilmentDetail/properties/id";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveMetaAilmentDetail/properties/id";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 583
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1423;
+        n.annDescription = "\"A list of moves that cause this ailment.\"";
+        n.annReadOnlyJson = "true";
+        n.sourceName = "MoveMetaAilmentDetail_component_prop2";
+        n.schemaPath = "#/components/schemas/MoveMetaAilmentDetail/properties/moves";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveMetaAilmentDetail/properties/moves";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 584
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        setExact(n.maxLength, n.hasMaxLength, "200");
+        n.annDescription = "\"The name for this resource.\"";
+        n.sourceName = "MoveMetaAilmentDetail_component_prop3";
+        n.schemaPath = "#/components/schemas/MoveMetaAilmentDetail/properties/name";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveMetaAilmentDetail/properties/name";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 585
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1424;
+        n.annDescription = "\"The name of this resource listed in different languages.\"";
+        n.annReadOnlyJson = "true";
+        n.sourceName = "MoveMetaAilmentDetail_component_prop4";
+        n.schemaPath = "#/components/schemas/MoveMetaAilmentDetail/properties/names";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveMetaAilmentDetail/properties/names";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 586
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.allOfChildren.push_back(1425);
+        n.annDescription = "\"The language this name is in.\"";
+        n.sourceName = "MoveMetaAilmentName_component_prop1";
+        n.schemaPath = "#/components/schemas/MoveMetaAilmentName/properties/language";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveMetaAilmentName/properties/language";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 587
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        setExact(n.maxLength, n.hasMaxLength, "200");
+        n.annDescription = "\"The localized name for an API resource in a specific language.\"";
         n.sourceName = "MoveMetaAilmentName_component_prop2";
         n.schemaPath = "#/components/schemas/MoveMetaAilmentName/properties/name";
         n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveMetaAilmentName/properties/name";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 420
+    { // node 588
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 8u;
-        setExact(n.maxLength, n.hasMaxLength, "100");
+        setExact(n.maxLength, n.hasMaxLength, "200");
+        n.annDescription = "\"The name of the referenced resource.\"";
         n.sourceName = "MoveMetaAilmentSummary_component_prop1";
         n.schemaPath = "#/components/schemas/MoveMetaAilmentSummary/properties/name";
         n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveMetaAilmentSummary/properties/name";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 421
+    { // node 589
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 8u;
+        n.annDescription = "\"The URL of the referenced resource.\"";
         n.annReadOnlyJson = "true";
         n.annFormat = "\"uri\"";
         n.sourceName = "MoveMetaAilmentSummary_component_prop2";
@@ -51,33 +1160,35 @@ void appendSchemaRegistryChunk1(SchemaResourceRegistry& reg) {
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 422
+    { // node 590
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 8u;
-        setExact(n.maxLength, n.hasMaxLength, "1000");
+        setExact(n.maxLength, n.hasMaxLength, "2000");
+        n.annDescription = "\"The localized description for an API resource in a specific language.\"";
         n.sourceName = "MoveMetaCategoryDescription_component_prop1";
         n.schemaPath = "#/components/schemas/MoveMetaCategoryDescription/properties/description";
         n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveMetaCategoryDescription/properties/description";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 423
+    { // node 591
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1912);
+        n.allOfChildren.push_back(1426);
+        n.annDescription = "\"The language this name is in.\"";
         n.sourceName = "MoveMetaCategoryDescription_component_prop2";
         n.schemaPath = "#/components/schemas/MoveMetaCategoryDescription/properties/language";
         n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveMetaCategoryDescription/properties/language";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 424
+    { // node 592
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 16u;
-        n.items = 1080;
+        n.items = 1427;
+        n.annDescription = "\"The description of this resource listed in different languages.\"";
         n.annReadOnlyJson = "true";
         n.sourceName = "MoveMetaCategoryDetail_component_prop1";
         n.schemaPath = "#/components/schemas/MoveMetaCategoryDetail/properties/descriptions";
@@ -85,10 +1196,11 @@ void appendSchemaRegistryChunk1(SchemaResourceRegistry& reg) {
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 425
+    { // node 593
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 64u;
+        n.annDescription = "\"The identifier for this resource.\"";
         n.annReadOnlyJson = "true";
         n.sourceName = "MoveMetaCategoryDetail_component_prop2";
         n.schemaPath = "#/components/schemas/MoveMetaCategoryDetail/properties/id";
@@ -96,11 +1208,12 @@ void appendSchemaRegistryChunk1(SchemaResourceRegistry& reg) {
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 426
+    { // node 594
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 16u;
-        n.items = 1081;
+        n.items = 1428;
+        n.annDescription = "\"A list of moves that fall into this category.\"";
         n.annReadOnlyJson = "true";
         n.sourceName = "MoveMetaCategoryDetail_component_prop3";
         n.schemaPath = "#/components/schemas/MoveMetaCategoryDetail/properties/moves";
@@ -108,32 +1221,35 @@ void appendSchemaRegistryChunk1(SchemaResourceRegistry& reg) {
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 427
+    { // node 595
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 8u;
-        setExact(n.maxLength, n.hasMaxLength, "100");
+        setExact(n.maxLength, n.hasMaxLength, "200");
+        n.annDescription = "\"The name for this resource.\"";
         n.sourceName = "MoveMetaCategoryDetail_component_prop4";
         n.schemaPath = "#/components/schemas/MoveMetaCategoryDetail/properties/name";
         n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveMetaCategoryDetail/properties/name";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 428
+    { // node 596
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 8u;
-        setExact(n.maxLength, n.hasMaxLength, "100");
+        setExact(n.maxLength, n.hasMaxLength, "200");
+        n.annDescription = "\"The name of the referenced resource.\"";
         n.sourceName = "MoveMetaCategorySummary_component_prop1";
         n.schemaPath = "#/components/schemas/MoveMetaCategorySummary/properties/name";
         n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveMetaCategorySummary/properties/name";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 429
+    { // node 597
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 8u;
+        n.annDescription = "\"The URL of the referenced resource.\"";
         n.annReadOnlyJson = "true";
         n.annFormat = "\"uri\"";
         n.sourceName = "MoveMetaCategorySummary_component_prop2";
@@ -142,43 +1258,94 @@ void appendSchemaRegistryChunk1(SchemaResourceRegistry& reg) {
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 430
+    { // node 598
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1912);
+        n.typeFlags = 64u;
+        setExact(n.minimum, n.hasMinimum, "-2147483648");
+        setExact(n.maximum, n.hasMaximum, "2147483647");
+        n.annDescription = "\"The amount of change.\"";
+        n.sourceName = "MoveMetaStatChange_component_prop1";
+        n.schemaPath = "#/components/schemas/MoveMetaStatChange/properties/change";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveMetaStatChange/properties/change";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 599
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.allOfChildren.push_back(1429);
+        n.annDescription = "\"The stat being affected.\"";
+        n.sourceName = "MoveMetaStatChange_component_prop2";
+        n.schemaPath = "#/components/schemas/MoveMetaStatChange/properties/stat";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveMetaStatChange/properties/stat";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 600
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.allOfChildren.push_back(1430);
+        n.annDescription = "\"The language this name is in.\"";
         n.sourceName = "MoveName_component_prop1";
         n.schemaPath = "#/components/schemas/MoveName/properties/language";
         n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveName/properties/language";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 431
+    { // node 601
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 8u;
-        setExact(n.maxLength, n.hasMaxLength, "100");
+        setExact(n.maxLength, n.hasMaxLength, "200");
+        n.annDescription = "\"The localized name for an API resource in a specific language.\"";
         n.sourceName = "MoveName_component_prop2";
         n.schemaPath = "#/components/schemas/MoveName/properties/name";
         n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveName/properties/name";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 432
+    { // node 602
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        setExact(n.minimum, n.hasMinimum, "-2147483648");
+        setExact(n.maximum, n.hasMaximum, "2147483647");
+        n.annDescription = "\"The maximum amount of change to the referenced stat.\"";
+        n.sourceName = "MoveStatChange_component_prop1";
+        n.schemaPath = "#/components/schemas/MoveStatChange/properties/change";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveStatChange/properties/change";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 603
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.allOfChildren.push_back(1431);
+        n.annDescription = "\"The move causing the change.\"";
+        n.sourceName = "MoveStatChange_component_prop2";
+        n.schemaPath = "#/components/schemas/MoveStatChange/properties/move";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveStatChange/properties/move";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 604
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 8u;
-        setExact(n.maxLength, n.hasMaxLength, "100");
+        setExact(n.maxLength, n.hasMaxLength, "200");
+        n.annDescription = "\"The name of the referenced resource.\"";
         n.sourceName = "MoveSummary_component_prop1";
         n.schemaPath = "#/components/schemas/MoveSummary/properties/name";
         n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveSummary/properties/name";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 433
+    { // node 605
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 8u;
+        n.annDescription = "\"The URL of the referenced resource.\"";
         n.annReadOnlyJson = "true";
         n.annFormat = "\"uri\"";
         n.sourceName = "MoveSummary_component_prop2";
@@ -187,33 +1354,35 @@ void appendSchemaRegistryChunk1(SchemaResourceRegistry& reg) {
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 434
+    { // node 606
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 8u;
-        setExact(n.maxLength, n.hasMaxLength, "1000");
+        setExact(n.maxLength, n.hasMaxLength, "2000");
+        n.annDescription = "\"The localized description for an API resource in a specific language.\"";
         n.sourceName = "MoveTargetDescription_component_prop1";
         n.schemaPath = "#/components/schemas/MoveTargetDescription/properties/description";
         n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveTargetDescription/properties/description";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 435
+    { // node 607
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1912);
+        n.allOfChildren.push_back(1432);
+        n.annDescription = "\"The language this name is in.\"";
         n.sourceName = "MoveTargetDescription_component_prop2";
         n.schemaPath = "#/components/schemas/MoveTargetDescription/properties/language";
         n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveTargetDescription/properties/language";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 436
+    { // node 608
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 16u;
-        n.items = 1082;
+        n.items = 1433;
+        n.annDescription = "\"The description of this resource listed in different languages.\"";
         n.annReadOnlyJson = "true";
         n.sourceName = "MoveTargetDetail_component_prop1";
         n.schemaPath = "#/components/schemas/MoveTargetDetail/properties/descriptions";
@@ -221,10 +1390,11 @@ void appendSchemaRegistryChunk1(SchemaResourceRegistry& reg) {
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 437
+    { // node 609
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 64u;
+        n.annDescription = "\"The identifier for this resource.\"";
         n.annReadOnlyJson = "true";
         n.sourceName = "MoveTargetDetail_component_prop2";
         n.schemaPath = "#/components/schemas/MoveTargetDetail/properties/id";
@@ -232,11 +1402,12 @@ void appendSchemaRegistryChunk1(SchemaResourceRegistry& reg) {
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 438
+    { // node 610
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 16u;
-        n.items = 1083;
+        n.items = 1434;
+        n.annDescription = "\"A list of moves that that are directed at this target.\"";
         n.annReadOnlyJson = "true";
         n.sourceName = "MoveTargetDetail_component_prop3";
         n.schemaPath = "#/components/schemas/MoveTargetDetail/properties/moves";
@@ -244,22 +1415,24 @@ void appendSchemaRegistryChunk1(SchemaResourceRegistry& reg) {
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 439
+    { // node 611
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 8u;
-        setExact(n.maxLength, n.hasMaxLength, "100");
+        setExact(n.maxLength, n.hasMaxLength, "200");
+        n.annDescription = "\"The name for this resource.\"";
         n.sourceName = "MoveTargetDetail_component_prop4";
         n.schemaPath = "#/components/schemas/MoveTargetDetail/properties/name";
         n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveTargetDetail/properties/name";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 440
+    { // node 612
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 16u;
-        n.items = 1084;
+        n.items = 1435;
+        n.annDescription = "\"The name of this resource listed in different languages.\"";
         n.annReadOnlyJson = "true";
         n.sourceName = "MoveTargetDetail_component_prop5";
         n.schemaPath = "#/components/schemas/MoveTargetDetail/properties/names";
@@ -267,43 +1440,46 @@ void appendSchemaRegistryChunk1(SchemaResourceRegistry& reg) {
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 441
+    { // node 613
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1912);
+        n.allOfChildren.push_back(1436);
+        n.annDescription = "\"The language this name is in.\"";
         n.sourceName = "MoveTargetName_component_prop1";
         n.schemaPath = "#/components/schemas/MoveTargetName/properties/language";
         n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveTargetName/properties/language";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 442
+    { // node 614
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 8u;
-        setExact(n.maxLength, n.hasMaxLength, "100");
+        setExact(n.maxLength, n.hasMaxLength, "200");
+        n.annDescription = "\"The localized name for an API resource in a specific language.\"";
         n.sourceName = "MoveTargetName_component_prop2";
         n.schemaPath = "#/components/schemas/MoveTargetName/properties/name";
         n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveTargetName/properties/name";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 443
+    { // node 615
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 8u;
-        setExact(n.maxLength, n.hasMaxLength, "100");
+        setExact(n.maxLength, n.hasMaxLength, "200");
+        n.annDescription = "\"The name of the referenced resource.\"";
         n.sourceName = "MoveTargetSummary_component_prop1";
         n.schemaPath = "#/components/schemas/MoveTargetSummary/properties/name";
         n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/MoveTargetSummary/properties/name";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 444
+    { // node 616
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 8u;
+        n.annDescription = "\"The URL of the referenced resource.\"";
         n.annReadOnlyJson = "true";
         n.annFormat = "\"uri\"";
         n.sourceName = "MoveTargetSummary_component_prop2";
@@ -312,214 +1488,298 @@ void appendSchemaRegistryChunk1(SchemaResourceRegistry& reg) {
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 445
+    { // node 617
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 64u;
+        setExact(n.minimum, n.hasMinimum, "-2147483648");
+        setExact(n.maximum, n.hasMaximum, "2147483647");
+        n.annDescription = "\"Chance of using the move, in percent, if HP is over one half.\"";
         n.sourceName = "NatureBattleStylePreference_component_prop1";
         n.schemaPath = "#/components/schemas/NatureBattleStylePreference/properties/high_hp_preference";
         n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/NatureBattleStylePreference/properties/high_hp_preference";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 446
+    { // node 618
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 64u;
+        setExact(n.minimum, n.hasMinimum, "-2147483648");
+        setExact(n.maximum, n.hasMaximum, "2147483647");
+        n.annDescription = "\"Chance of using the move, in percent, if HP is under one half.\"";
         n.sourceName = "NatureBattleStylePreference_component_prop2";
         n.schemaPath = "#/components/schemas/NatureBattleStylePreference/properties/low_hp_preference";
         n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/NatureBattleStylePreference/properties/low_hp_preference";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 447
+    { // node 619
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1929);
+        n.allOfChildren.push_back(1437);
+        n.annDescription = "\"The move battle style.\"";
         n.sourceName = "NatureBattleStylePreference_component_prop3";
         n.schemaPath = "#/components/schemas/NatureBattleStylePreference/properties/move_battle_style";
         n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/NatureBattleStylePreference/properties/move_battle_style";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 448
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1085;
-        n.annReadOnlyJson = "true";
-        n.sourceName = "NatureDetail_component_prop1";
-        n.schemaPath = "#/components/schemas/NatureDetail/properties/berries";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/NatureDetail/properties/berries";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 449
+    { // node 620
         SchemaNode n;
         n.resourceIdentity = 0;
         n.applicator = ApplicatorKind::ref;
-        n.children.push_back(2073);
-        n.sourceName = "NatureDetail_component_prop2";
+        n.children.push_back(1808);
+        n.sourceName = "NatureDetail_component_prop1";
         n.schemaPath = "#/components/schemas/NatureDetail/properties/decreased_stat";
         n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/NatureDetail/properties/decreased_stat";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 450
+    { // node 621
         SchemaNode n;
         n.resourceIdentity = 0;
         n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1842);
-        n.sourceName = "NatureDetail_component_prop3";
+        n.children.push_back(1809);
+        n.sourceName = "NatureDetail_component_prop2";
         n.schemaPath = "#/components/schemas/NatureDetail/properties/hates_flavor";
         n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/NatureDetail/properties/hates_flavor";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 451
+    { // node 622
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 64u;
+        n.annDescription = "\"The identifier for this resource.\"";
         n.annReadOnlyJson = "true";
-        n.sourceName = "NatureDetail_component_prop4";
+        n.sourceName = "NatureDetail_component_prop3";
         n.schemaPath = "#/components/schemas/NatureDetail/properties/id";
         n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/NatureDetail/properties/id";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 452
+    { // node 623
         SchemaNode n;
         n.resourceIdentity = 0;
         n.applicator = ApplicatorKind::ref;
-        n.children.push_back(2073);
-        n.sourceName = "NatureDetail_component_prop5";
+        n.children.push_back(1810);
+        n.sourceName = "NatureDetail_component_prop4";
         n.schemaPath = "#/components/schemas/NatureDetail/properties/increased_stat";
         n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/NatureDetail/properties/increased_stat";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 453
+    { // node 624
         SchemaNode n;
         n.resourceIdentity = 0;
         n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1842);
-        n.sourceName = "NatureDetail_component_prop6";
+        n.children.push_back(1811);
+        n.sourceName = "NatureDetail_component_prop5";
         n.schemaPath = "#/components/schemas/NatureDetail/properties/likes_flavor";
         n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/NatureDetail/properties/likes_flavor";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 454
+    { // node 625
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 16u;
-        n.items = 1086;
+        n.items = 1438;
+        n.annDescription = "\"A list of battle styles and how likely a Pok\303\251mon with this nature is to use them in the Battle Palace or Battle Tent.\"";
         n.annReadOnlyJson = "true";
-        n.sourceName = "NatureDetail_component_prop7";
+        n.sourceName = "NatureDetail_component_prop6";
         n.schemaPath = "#/components/schemas/NatureDetail/properties/move_battle_style_preferences";
         n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/NatureDetail/properties/move_battle_style_preferences";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 455
+    { // node 626
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 8u;
-        setExact(n.maxLength, n.hasMaxLength, "100");
-        n.sourceName = "NatureDetail_component_prop8";
+        setExact(n.maxLength, n.hasMaxLength, "200");
+        n.annDescription = "\"The name for this resource.\"";
+        n.sourceName = "NatureDetail_component_prop7";
         n.schemaPath = "#/components/schemas/NatureDetail/properties/name";
         n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/NatureDetail/properties/name";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 456
+    { // node 627
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 16u;
-        n.items = 1087;
+        n.items = 1439;
+        n.annDescription = "\"The name of this resource listed in different languages.\"";
         n.annReadOnlyJson = "true";
-        n.sourceName = "NatureDetail_component_prop9";
+        n.sourceName = "NatureDetail_component_prop8";
         n.schemaPath = "#/components/schemas/NatureDetail/properties/names";
         n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/NatureDetail/properties/names";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 457
+    { // node 628
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 16u;
-        n.items = 1088;
+        n.items = 1440;
+        n.annDescription = "\"A list of Pok\303\251athlon stats this nature effects and how much it effects them.\"";
         n.annReadOnlyJson = "true";
-        n.sourceName = "NatureDetail_component_prop10";
+        n.sourceName = "NatureDetail_component_prop9";
         n.schemaPath = "#/components/schemas/NatureDetail/properties/pokeathlon_stat_changes";
         n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/NatureDetail/properties/pokeathlon_stat_changes";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 458
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.annExamplesJson = "[1]";
-        n.annFormat = "\"int32\"";
-        n.sourceName = "NatureDetail_pokeathlon_stat_changes_inner_component_prop1";
-        n.schemaPath = "#/components/schemas/NatureDetail_pokeathlon_stat_changes_inner/properties/max_change";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/NatureDetail_pokeathlon_stat_changes_inner/properties/max_change";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 459
+    { // node 629
         SchemaNode n;
         n.resourceIdentity = 0;
         n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1089; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1090; n.properties.push_back(std::move(b)); }
-        n.sourceName = "NatureDetail_pokeathlon_stat_changes_inner_component_prop2";
-        n.schemaPath = "#/components/schemas/NatureDetail_pokeathlon_stat_changes_inner/properties/pokeathlon_stat";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/NatureDetail_pokeathlon_stat_changes_inner/properties/pokeathlon_stat";
+        n.children.push_back(1957);
+        n.sourceName = "NatureDetail_decreased_stat_component_app1";
+        n.schemaPath = "#/components/schemas/NatureDetail_decreased_stat/oneOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/NatureDetail_decreased_stat/oneOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 460
+    { // node 630
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 1u;
+        n.sourceName = "NatureDetail_decreased_stat_component_app2";
+        n.schemaPath = "#/components/schemas/NatureDetail_decreased_stat/oneOf/1";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/NatureDetail_decreased_stat/oneOf/1";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 631
         SchemaNode n;
         n.resourceIdentity = 0;
         n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1912);
+        n.children.push_back(1673);
+        n.sourceName = "NatureDetail_hates_flavor_component_app1";
+        n.schemaPath = "#/components/schemas/NatureDetail_hates_flavor/oneOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/NatureDetail_hates_flavor/oneOf/0";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 632
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 1u;
+        n.sourceName = "NatureDetail_hates_flavor_component_app2";
+        n.schemaPath = "#/components/schemas/NatureDetail_hates_flavor/oneOf/1";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/NatureDetail_hates_flavor/oneOf/1";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 633
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1957);
+        n.sourceName = "NatureDetail_increased_stat_component_app1";
+        n.schemaPath = "#/components/schemas/NatureDetail_increased_stat/oneOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/NatureDetail_increased_stat/oneOf/0";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 634
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 1u;
+        n.sourceName = "NatureDetail_increased_stat_component_app2";
+        n.schemaPath = "#/components/schemas/NatureDetail_increased_stat/oneOf/1";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/NatureDetail_increased_stat/oneOf/1";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 635
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1673);
+        n.sourceName = "NatureDetail_likes_flavor_component_app1";
+        n.schemaPath = "#/components/schemas/NatureDetail_likes_flavor/oneOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/NatureDetail_likes_flavor/oneOf/0";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 636
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 1u;
+        n.sourceName = "NatureDetail_likes_flavor_component_app2";
+        n.schemaPath = "#/components/schemas/NatureDetail_likes_flavor/oneOf/1";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/NatureDetail_likes_flavor/oneOf/1";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 637
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.allOfChildren.push_back(1441);
+        n.annDescription = "\"The language this name is in.\"";
         n.sourceName = "NatureName_component_prop1";
         n.schemaPath = "#/components/schemas/NatureName/properties/language";
         n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/NatureName/properties/language";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 461
+    { // node 638
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 8u;
-        setExact(n.maxLength, n.hasMaxLength, "100");
+        setExact(n.maxLength, n.hasMaxLength, "200");
+        n.annDescription = "\"The localized name for an API resource in a specific language.\"";
         n.sourceName = "NatureName_component_prop2";
         n.schemaPath = "#/components/schemas/NatureName/properties/name";
         n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/NatureName/properties/name";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 462
+    { // node 639
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        setExact(n.minimum, n.hasMinimum, "-2147483648");
+        setExact(n.maximum, n.hasMaximum, "2147483647");
+        n.annDescription = "\"The amount of change.\"";
+        n.sourceName = "NaturePokeathlonStat_component_prop1";
+        n.schemaPath = "#/components/schemas/NaturePokeathlonStat/properties/max_change";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/NaturePokeathlonStat/properties/max_change";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 640
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.allOfChildren.push_back(1442);
+        n.annDescription = "\"The stat being affected.\"";
+        n.sourceName = "NaturePokeathlonStat_component_prop2";
+        n.schemaPath = "#/components/schemas/NaturePokeathlonStat/properties/pokeathlon_stat";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/NaturePokeathlonStat/properties/pokeathlon_stat";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 641
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 8u;
-        setExact(n.maxLength, n.hasMaxLength, "100");
+        setExact(n.maxLength, n.hasMaxLength, "200");
+        n.annDescription = "\"The name of the referenced resource.\"";
         n.sourceName = "NatureSummary_component_prop1";
         n.schemaPath = "#/components/schemas/NatureSummary/properties/name";
         n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/NatureSummary/properties/name";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 463
+    { // node 642
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 8u;
+        n.annDescription = "\"The URL of the referenced resource.\"";
         n.annReadOnlyJson = "true";
         n.annFormat = "\"uri\"";
         n.sourceName = "NatureSummary_component_prop2";
@@ -528,2038 +1788,26 @@ void appendSchemaRegistryChunk1(SchemaResourceRegistry& reg) {
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 464
+    { // node 643
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 64u;
+        n.annDescription = "\"The total number of resources available from this API.\"";
         n.sourceName = "PaginatedAbilitySummaryList_component_prop1";
         n.schemaPath = "#/components/schemas/PaginatedAbilitySummaryList/properties/count";
         n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedAbilitySummaryList/properties/count";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 465
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedAbilitySummaryList_component_prop2";
-        n.schemaPath = "#/components/schemas/PaginatedAbilitySummaryList/properties/next";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedAbilitySummaryList/properties/next";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 466
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedAbilitySummaryList_component_prop3";
-        n.schemaPath = "#/components/schemas/PaginatedAbilitySummaryList/properties/previous";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedAbilitySummaryList/properties/previous";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 467
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1091;
-        n.sourceName = "PaginatedAbilitySummaryList_component_prop4";
-        n.schemaPath = "#/components/schemas/PaginatedAbilitySummaryList/properties/results";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedAbilitySummaryList/properties/results";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 468
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.sourceName = "PaginatedBerryFirmnessSummaryList_component_prop1";
-        n.schemaPath = "#/components/schemas/PaginatedBerryFirmnessSummaryList/properties/count";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedBerryFirmnessSummaryList/properties/count";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 469
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedBerryFirmnessSummaryList_component_prop2";
-        n.schemaPath = "#/components/schemas/PaginatedBerryFirmnessSummaryList/properties/next";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedBerryFirmnessSummaryList/properties/next";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 470
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedBerryFirmnessSummaryList_component_prop3";
-        n.schemaPath = "#/components/schemas/PaginatedBerryFirmnessSummaryList/properties/previous";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedBerryFirmnessSummaryList/properties/previous";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 471
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1092;
-        n.sourceName = "PaginatedBerryFirmnessSummaryList_component_prop4";
-        n.schemaPath = "#/components/schemas/PaginatedBerryFirmnessSummaryList/properties/results";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedBerryFirmnessSummaryList/properties/results";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 472
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.sourceName = "PaginatedBerryFlavorSummaryList_component_prop1";
-        n.schemaPath = "#/components/schemas/PaginatedBerryFlavorSummaryList/properties/count";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedBerryFlavorSummaryList/properties/count";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 473
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedBerryFlavorSummaryList_component_prop2";
-        n.schemaPath = "#/components/schemas/PaginatedBerryFlavorSummaryList/properties/next";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedBerryFlavorSummaryList/properties/next";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 474
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedBerryFlavorSummaryList_component_prop3";
-        n.schemaPath = "#/components/schemas/PaginatedBerryFlavorSummaryList/properties/previous";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedBerryFlavorSummaryList/properties/previous";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 475
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1093;
-        n.sourceName = "PaginatedBerryFlavorSummaryList_component_prop4";
-        n.schemaPath = "#/components/schemas/PaginatedBerryFlavorSummaryList/properties/results";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedBerryFlavorSummaryList/properties/results";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 476
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.sourceName = "PaginatedBerrySummaryList_component_prop1";
-        n.schemaPath = "#/components/schemas/PaginatedBerrySummaryList/properties/count";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedBerrySummaryList/properties/count";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 477
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedBerrySummaryList_component_prop2";
-        n.schemaPath = "#/components/schemas/PaginatedBerrySummaryList/properties/next";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedBerrySummaryList/properties/next";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 478
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedBerrySummaryList_component_prop3";
-        n.schemaPath = "#/components/schemas/PaginatedBerrySummaryList/properties/previous";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedBerrySummaryList/properties/previous";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 479
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1094;
-        n.sourceName = "PaginatedBerrySummaryList_component_prop4";
-        n.schemaPath = "#/components/schemas/PaginatedBerrySummaryList/properties/results";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedBerrySummaryList/properties/results";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 480
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.sourceName = "PaginatedCharacteristicSummaryList_component_prop1";
-        n.schemaPath = "#/components/schemas/PaginatedCharacteristicSummaryList/properties/count";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedCharacteristicSummaryList/properties/count";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 481
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedCharacteristicSummaryList_component_prop2";
-        n.schemaPath = "#/components/schemas/PaginatedCharacteristicSummaryList/properties/next";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedCharacteristicSummaryList/properties/next";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 482
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedCharacteristicSummaryList_component_prop3";
-        n.schemaPath = "#/components/schemas/PaginatedCharacteristicSummaryList/properties/previous";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedCharacteristicSummaryList/properties/previous";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 483
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1095;
-        n.sourceName = "PaginatedCharacteristicSummaryList_component_prop4";
-        n.schemaPath = "#/components/schemas/PaginatedCharacteristicSummaryList/properties/results";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedCharacteristicSummaryList/properties/results";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 484
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.sourceName = "PaginatedContestEffectSummaryList_component_prop1";
-        n.schemaPath = "#/components/schemas/PaginatedContestEffectSummaryList/properties/count";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedContestEffectSummaryList/properties/count";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 485
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedContestEffectSummaryList_component_prop2";
-        n.schemaPath = "#/components/schemas/PaginatedContestEffectSummaryList/properties/next";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedContestEffectSummaryList/properties/next";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 486
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedContestEffectSummaryList_component_prop3";
-        n.schemaPath = "#/components/schemas/PaginatedContestEffectSummaryList/properties/previous";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedContestEffectSummaryList/properties/previous";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 487
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1096;
-        n.sourceName = "PaginatedContestEffectSummaryList_component_prop4";
-        n.schemaPath = "#/components/schemas/PaginatedContestEffectSummaryList/properties/results";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedContestEffectSummaryList/properties/results";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 488
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.sourceName = "PaginatedContestTypeSummaryList_component_prop1";
-        n.schemaPath = "#/components/schemas/PaginatedContestTypeSummaryList/properties/count";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedContestTypeSummaryList/properties/count";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 489
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedContestTypeSummaryList_component_prop2";
-        n.schemaPath = "#/components/schemas/PaginatedContestTypeSummaryList/properties/next";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedContestTypeSummaryList/properties/next";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 490
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedContestTypeSummaryList_component_prop3";
-        n.schemaPath = "#/components/schemas/PaginatedContestTypeSummaryList/properties/previous";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedContestTypeSummaryList/properties/previous";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 491
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1097;
-        n.sourceName = "PaginatedContestTypeSummaryList_component_prop4";
-        n.schemaPath = "#/components/schemas/PaginatedContestTypeSummaryList/properties/results";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedContestTypeSummaryList/properties/results";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 492
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.sourceName = "PaginatedEggGroupSummaryList_component_prop1";
-        n.schemaPath = "#/components/schemas/PaginatedEggGroupSummaryList/properties/count";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedEggGroupSummaryList/properties/count";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 493
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedEggGroupSummaryList_component_prop2";
-        n.schemaPath = "#/components/schemas/PaginatedEggGroupSummaryList/properties/next";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedEggGroupSummaryList/properties/next";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 494
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedEggGroupSummaryList_component_prop3";
-        n.schemaPath = "#/components/schemas/PaginatedEggGroupSummaryList/properties/previous";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedEggGroupSummaryList/properties/previous";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 495
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1098;
-        n.sourceName = "PaginatedEggGroupSummaryList_component_prop4";
-        n.schemaPath = "#/components/schemas/PaginatedEggGroupSummaryList/properties/results";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedEggGroupSummaryList/properties/results";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 496
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.sourceName = "PaginatedEncounterConditionSummaryList_component_prop1";
-        n.schemaPath = "#/components/schemas/PaginatedEncounterConditionSummaryList/properties/count";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedEncounterConditionSummaryList/properties/count";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 497
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedEncounterConditionSummaryList_component_prop2";
-        n.schemaPath = "#/components/schemas/PaginatedEncounterConditionSummaryList/properties/next";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedEncounterConditionSummaryList/properties/next";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 498
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedEncounterConditionSummaryList_component_prop3";
-        n.schemaPath = "#/components/schemas/PaginatedEncounterConditionSummaryList/properties/previous";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedEncounterConditionSummaryList/properties/previous";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 499
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1099;
-        n.sourceName = "PaginatedEncounterConditionSummaryList_component_prop4";
-        n.schemaPath = "#/components/schemas/PaginatedEncounterConditionSummaryList/properties/results";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedEncounterConditionSummaryList/properties/results";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 500
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.sourceName = "PaginatedEncounterConditionValueSummaryList_component_prop1";
-        n.schemaPath = "#/components/schemas/PaginatedEncounterConditionValueSummaryList/properties/count";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedEncounterConditionValueSummaryList/properties/count";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 501
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedEncounterConditionValueSummaryList_component_prop2";
-        n.schemaPath = "#/components/schemas/PaginatedEncounterConditionValueSummaryList/properties/next";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedEncounterConditionValueSummaryList/properties/next";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 502
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedEncounterConditionValueSummaryList_component_prop3";
-        n.schemaPath = "#/components/schemas/PaginatedEncounterConditionValueSummaryList/properties/previous";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedEncounterConditionValueSummaryList/properties/previous";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 503
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1100;
-        n.sourceName = "PaginatedEncounterConditionValueSummaryList_component_prop4";
-        n.schemaPath = "#/components/schemas/PaginatedEncounterConditionValueSummaryList/properties/results";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedEncounterConditionValueSummaryList/properties/results";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 504
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.sourceName = "PaginatedEncounterMethodSummaryList_component_prop1";
-        n.schemaPath = "#/components/schemas/PaginatedEncounterMethodSummaryList/properties/count";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedEncounterMethodSummaryList/properties/count";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 505
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedEncounterMethodSummaryList_component_prop2";
-        n.schemaPath = "#/components/schemas/PaginatedEncounterMethodSummaryList/properties/next";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedEncounterMethodSummaryList/properties/next";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 506
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedEncounterMethodSummaryList_component_prop3";
-        n.schemaPath = "#/components/schemas/PaginatedEncounterMethodSummaryList/properties/previous";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedEncounterMethodSummaryList/properties/previous";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 507
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1101;
-        n.sourceName = "PaginatedEncounterMethodSummaryList_component_prop4";
-        n.schemaPath = "#/components/schemas/PaginatedEncounterMethodSummaryList/properties/results";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedEncounterMethodSummaryList/properties/results";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 508
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.sourceName = "PaginatedEvolutionChainSummaryList_component_prop1";
-        n.schemaPath = "#/components/schemas/PaginatedEvolutionChainSummaryList/properties/count";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedEvolutionChainSummaryList/properties/count";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 509
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedEvolutionChainSummaryList_component_prop2";
-        n.schemaPath = "#/components/schemas/PaginatedEvolutionChainSummaryList/properties/next";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedEvolutionChainSummaryList/properties/next";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 510
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedEvolutionChainSummaryList_component_prop3";
-        n.schemaPath = "#/components/schemas/PaginatedEvolutionChainSummaryList/properties/previous";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedEvolutionChainSummaryList/properties/previous";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 511
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1102;
-        n.sourceName = "PaginatedEvolutionChainSummaryList_component_prop4";
-        n.schemaPath = "#/components/schemas/PaginatedEvolutionChainSummaryList/properties/results";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedEvolutionChainSummaryList/properties/results";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 512
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.sourceName = "PaginatedEvolutionTriggerSummaryList_component_prop1";
-        n.schemaPath = "#/components/schemas/PaginatedEvolutionTriggerSummaryList/properties/count";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedEvolutionTriggerSummaryList/properties/count";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 513
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedEvolutionTriggerSummaryList_component_prop2";
-        n.schemaPath = "#/components/schemas/PaginatedEvolutionTriggerSummaryList/properties/next";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedEvolutionTriggerSummaryList/properties/next";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 514
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedEvolutionTriggerSummaryList_component_prop3";
-        n.schemaPath = "#/components/schemas/PaginatedEvolutionTriggerSummaryList/properties/previous";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedEvolutionTriggerSummaryList/properties/previous";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 515
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1103;
-        n.sourceName = "PaginatedEvolutionTriggerSummaryList_component_prop4";
-        n.schemaPath = "#/components/schemas/PaginatedEvolutionTriggerSummaryList/properties/results";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedEvolutionTriggerSummaryList/properties/results";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 516
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.sourceName = "PaginatedGenderSummaryList_component_prop1";
-        n.schemaPath = "#/components/schemas/PaginatedGenderSummaryList/properties/count";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedGenderSummaryList/properties/count";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 517
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedGenderSummaryList_component_prop2";
-        n.schemaPath = "#/components/schemas/PaginatedGenderSummaryList/properties/next";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedGenderSummaryList/properties/next";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 518
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedGenderSummaryList_component_prop3";
-        n.schemaPath = "#/components/schemas/PaginatedGenderSummaryList/properties/previous";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedGenderSummaryList/properties/previous";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 519
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1104;
-        n.sourceName = "PaginatedGenderSummaryList_component_prop4";
-        n.schemaPath = "#/components/schemas/PaginatedGenderSummaryList/properties/results";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedGenderSummaryList/properties/results";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 520
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.sourceName = "PaginatedGenerationSummaryList_component_prop1";
-        n.schemaPath = "#/components/schemas/PaginatedGenerationSummaryList/properties/count";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedGenerationSummaryList/properties/count";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 521
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedGenerationSummaryList_component_prop2";
-        n.schemaPath = "#/components/schemas/PaginatedGenerationSummaryList/properties/next";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedGenerationSummaryList/properties/next";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 522
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedGenerationSummaryList_component_prop3";
-        n.schemaPath = "#/components/schemas/PaginatedGenerationSummaryList/properties/previous";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedGenerationSummaryList/properties/previous";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 523
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1105;
-        n.sourceName = "PaginatedGenerationSummaryList_component_prop4";
-        n.schemaPath = "#/components/schemas/PaginatedGenerationSummaryList/properties/results";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedGenerationSummaryList/properties/results";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 524
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.sourceName = "PaginatedGrowthRateSummaryList_component_prop1";
-        n.schemaPath = "#/components/schemas/PaginatedGrowthRateSummaryList/properties/count";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedGrowthRateSummaryList/properties/count";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 525
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedGrowthRateSummaryList_component_prop2";
-        n.schemaPath = "#/components/schemas/PaginatedGrowthRateSummaryList/properties/next";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedGrowthRateSummaryList/properties/next";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 526
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedGrowthRateSummaryList_component_prop3";
-        n.schemaPath = "#/components/schemas/PaginatedGrowthRateSummaryList/properties/previous";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedGrowthRateSummaryList/properties/previous";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 527
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1106;
-        n.sourceName = "PaginatedGrowthRateSummaryList_component_prop4";
-        n.schemaPath = "#/components/schemas/PaginatedGrowthRateSummaryList/properties/results";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedGrowthRateSummaryList/properties/results";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 528
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.sourceName = "PaginatedItemAttributeSummaryList_component_prop1";
-        n.schemaPath = "#/components/schemas/PaginatedItemAttributeSummaryList/properties/count";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedItemAttributeSummaryList/properties/count";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 529
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedItemAttributeSummaryList_component_prop2";
-        n.schemaPath = "#/components/schemas/PaginatedItemAttributeSummaryList/properties/next";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedItemAttributeSummaryList/properties/next";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 530
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedItemAttributeSummaryList_component_prop3";
-        n.schemaPath = "#/components/schemas/PaginatedItemAttributeSummaryList/properties/previous";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedItemAttributeSummaryList/properties/previous";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 531
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1107;
-        n.sourceName = "PaginatedItemAttributeSummaryList_component_prop4";
-        n.schemaPath = "#/components/schemas/PaginatedItemAttributeSummaryList/properties/results";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedItemAttributeSummaryList/properties/results";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 532
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.sourceName = "PaginatedItemCategorySummaryList_component_prop1";
-        n.schemaPath = "#/components/schemas/PaginatedItemCategorySummaryList/properties/count";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedItemCategorySummaryList/properties/count";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 533
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedItemCategorySummaryList_component_prop2";
-        n.schemaPath = "#/components/schemas/PaginatedItemCategorySummaryList/properties/next";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedItemCategorySummaryList/properties/next";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 534
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedItemCategorySummaryList_component_prop3";
-        n.schemaPath = "#/components/schemas/PaginatedItemCategorySummaryList/properties/previous";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedItemCategorySummaryList/properties/previous";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 535
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1108;
-        n.sourceName = "PaginatedItemCategorySummaryList_component_prop4";
-        n.schemaPath = "#/components/schemas/PaginatedItemCategorySummaryList/properties/results";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedItemCategorySummaryList/properties/results";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 536
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.sourceName = "PaginatedItemFlingEffectSummaryList_component_prop1";
-        n.schemaPath = "#/components/schemas/PaginatedItemFlingEffectSummaryList/properties/count";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedItemFlingEffectSummaryList/properties/count";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 537
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedItemFlingEffectSummaryList_component_prop2";
-        n.schemaPath = "#/components/schemas/PaginatedItemFlingEffectSummaryList/properties/next";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedItemFlingEffectSummaryList/properties/next";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 538
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedItemFlingEffectSummaryList_component_prop3";
-        n.schemaPath = "#/components/schemas/PaginatedItemFlingEffectSummaryList/properties/previous";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedItemFlingEffectSummaryList/properties/previous";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 539
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1109;
-        n.sourceName = "PaginatedItemFlingEffectSummaryList_component_prop4";
-        n.schemaPath = "#/components/schemas/PaginatedItemFlingEffectSummaryList/properties/results";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedItemFlingEffectSummaryList/properties/results";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 540
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.sourceName = "PaginatedItemPocketSummaryList_component_prop1";
-        n.schemaPath = "#/components/schemas/PaginatedItemPocketSummaryList/properties/count";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedItemPocketSummaryList/properties/count";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 541
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedItemPocketSummaryList_component_prop2";
-        n.schemaPath = "#/components/schemas/PaginatedItemPocketSummaryList/properties/next";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedItemPocketSummaryList/properties/next";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 542
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedItemPocketSummaryList_component_prop3";
-        n.schemaPath = "#/components/schemas/PaginatedItemPocketSummaryList/properties/previous";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedItemPocketSummaryList/properties/previous";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 543
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1110;
-        n.sourceName = "PaginatedItemPocketSummaryList_component_prop4";
-        n.schemaPath = "#/components/schemas/PaginatedItemPocketSummaryList/properties/results";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedItemPocketSummaryList/properties/results";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 544
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.sourceName = "PaginatedItemSummaryList_component_prop1";
-        n.schemaPath = "#/components/schemas/PaginatedItemSummaryList/properties/count";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedItemSummaryList/properties/count";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 545
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedItemSummaryList_component_prop2";
-        n.schemaPath = "#/components/schemas/PaginatedItemSummaryList/properties/next";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedItemSummaryList/properties/next";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 546
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedItemSummaryList_component_prop3";
-        n.schemaPath = "#/components/schemas/PaginatedItemSummaryList/properties/previous";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedItemSummaryList/properties/previous";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 547
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1111;
-        n.sourceName = "PaginatedItemSummaryList_component_prop4";
-        n.schemaPath = "#/components/schemas/PaginatedItemSummaryList/properties/results";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedItemSummaryList/properties/results";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 548
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.sourceName = "PaginatedLanguageSummaryList_component_prop1";
-        n.schemaPath = "#/components/schemas/PaginatedLanguageSummaryList/properties/count";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedLanguageSummaryList/properties/count";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 549
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedLanguageSummaryList_component_prop2";
-        n.schemaPath = "#/components/schemas/PaginatedLanguageSummaryList/properties/next";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedLanguageSummaryList/properties/next";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 550
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedLanguageSummaryList_component_prop3";
-        n.schemaPath = "#/components/schemas/PaginatedLanguageSummaryList/properties/previous";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedLanguageSummaryList/properties/previous";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 551
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1112;
-        n.sourceName = "PaginatedLanguageSummaryList_component_prop4";
-        n.schemaPath = "#/components/schemas/PaginatedLanguageSummaryList/properties/results";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedLanguageSummaryList/properties/results";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 552
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.sourceName = "PaginatedLocationAreaSummaryList_component_prop1";
-        n.schemaPath = "#/components/schemas/PaginatedLocationAreaSummaryList/properties/count";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedLocationAreaSummaryList/properties/count";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 553
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedLocationAreaSummaryList_component_prop2";
-        n.schemaPath = "#/components/schemas/PaginatedLocationAreaSummaryList/properties/next";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedLocationAreaSummaryList/properties/next";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 554
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedLocationAreaSummaryList_component_prop3";
-        n.schemaPath = "#/components/schemas/PaginatedLocationAreaSummaryList/properties/previous";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedLocationAreaSummaryList/properties/previous";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 555
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1113;
-        n.sourceName = "PaginatedLocationAreaSummaryList_component_prop4";
-        n.schemaPath = "#/components/schemas/PaginatedLocationAreaSummaryList/properties/results";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedLocationAreaSummaryList/properties/results";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 556
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.sourceName = "PaginatedLocationSummaryList_component_prop1";
-        n.schemaPath = "#/components/schemas/PaginatedLocationSummaryList/properties/count";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedLocationSummaryList/properties/count";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 557
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedLocationSummaryList_component_prop2";
-        n.schemaPath = "#/components/schemas/PaginatedLocationSummaryList/properties/next";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedLocationSummaryList/properties/next";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 558
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedLocationSummaryList_component_prop3";
-        n.schemaPath = "#/components/schemas/PaginatedLocationSummaryList/properties/previous";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedLocationSummaryList/properties/previous";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 559
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1114;
-        n.sourceName = "PaginatedLocationSummaryList_component_prop4";
-        n.schemaPath = "#/components/schemas/PaginatedLocationSummaryList/properties/results";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedLocationSummaryList/properties/results";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 560
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.sourceName = "PaginatedMachineSummaryList_component_prop1";
-        n.schemaPath = "#/components/schemas/PaginatedMachineSummaryList/properties/count";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMachineSummaryList/properties/count";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 561
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedMachineSummaryList_component_prop2";
-        n.schemaPath = "#/components/schemas/PaginatedMachineSummaryList/properties/next";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMachineSummaryList/properties/next";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 562
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedMachineSummaryList_component_prop3";
-        n.schemaPath = "#/components/schemas/PaginatedMachineSummaryList/properties/previous";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMachineSummaryList/properties/previous";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 563
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1115;
-        n.sourceName = "PaginatedMachineSummaryList_component_prop4";
-        n.schemaPath = "#/components/schemas/PaginatedMachineSummaryList/properties/results";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMachineSummaryList/properties/results";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 564
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.sourceName = "PaginatedMoveBattleStyleSummaryList_component_prop1";
-        n.schemaPath = "#/components/schemas/PaginatedMoveBattleStyleSummaryList/properties/count";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMoveBattleStyleSummaryList/properties/count";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 565
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedMoveBattleStyleSummaryList_component_prop2";
-        n.schemaPath = "#/components/schemas/PaginatedMoveBattleStyleSummaryList/properties/next";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMoveBattleStyleSummaryList/properties/next";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 566
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedMoveBattleStyleSummaryList_component_prop3";
-        n.schemaPath = "#/components/schemas/PaginatedMoveBattleStyleSummaryList/properties/previous";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMoveBattleStyleSummaryList/properties/previous";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 567
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1116;
-        n.sourceName = "PaginatedMoveBattleStyleSummaryList_component_prop4";
-        n.schemaPath = "#/components/schemas/PaginatedMoveBattleStyleSummaryList/properties/results";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMoveBattleStyleSummaryList/properties/results";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 568
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.sourceName = "PaginatedMoveDamageClassSummaryList_component_prop1";
-        n.schemaPath = "#/components/schemas/PaginatedMoveDamageClassSummaryList/properties/count";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMoveDamageClassSummaryList/properties/count";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 569
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedMoveDamageClassSummaryList_component_prop2";
-        n.schemaPath = "#/components/schemas/PaginatedMoveDamageClassSummaryList/properties/next";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMoveDamageClassSummaryList/properties/next";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 570
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedMoveDamageClassSummaryList_component_prop3";
-        n.schemaPath = "#/components/schemas/PaginatedMoveDamageClassSummaryList/properties/previous";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMoveDamageClassSummaryList/properties/previous";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 571
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1117;
-        n.sourceName = "PaginatedMoveDamageClassSummaryList_component_prop4";
-        n.schemaPath = "#/components/schemas/PaginatedMoveDamageClassSummaryList/properties/results";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMoveDamageClassSummaryList/properties/results";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 572
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.sourceName = "PaginatedMoveLearnMethodSummaryList_component_prop1";
-        n.schemaPath = "#/components/schemas/PaginatedMoveLearnMethodSummaryList/properties/count";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMoveLearnMethodSummaryList/properties/count";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 573
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedMoveLearnMethodSummaryList_component_prop2";
-        n.schemaPath = "#/components/schemas/PaginatedMoveLearnMethodSummaryList/properties/next";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMoveLearnMethodSummaryList/properties/next";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 574
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedMoveLearnMethodSummaryList_component_prop3";
-        n.schemaPath = "#/components/schemas/PaginatedMoveLearnMethodSummaryList/properties/previous";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMoveLearnMethodSummaryList/properties/previous";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 575
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1118;
-        n.sourceName = "PaginatedMoveLearnMethodSummaryList_component_prop4";
-        n.schemaPath = "#/components/schemas/PaginatedMoveLearnMethodSummaryList/properties/results";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMoveLearnMethodSummaryList/properties/results";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 576
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.sourceName = "PaginatedMoveMetaAilmentSummaryList_component_prop1";
-        n.schemaPath = "#/components/schemas/PaginatedMoveMetaAilmentSummaryList/properties/count";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMoveMetaAilmentSummaryList/properties/count";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 577
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedMoveMetaAilmentSummaryList_component_prop2";
-        n.schemaPath = "#/components/schemas/PaginatedMoveMetaAilmentSummaryList/properties/next";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMoveMetaAilmentSummaryList/properties/next";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 578
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedMoveMetaAilmentSummaryList_component_prop3";
-        n.schemaPath = "#/components/schemas/PaginatedMoveMetaAilmentSummaryList/properties/previous";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMoveMetaAilmentSummaryList/properties/previous";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 579
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1119;
-        n.sourceName = "PaginatedMoveMetaAilmentSummaryList_component_prop4";
-        n.schemaPath = "#/components/schemas/PaginatedMoveMetaAilmentSummaryList/properties/results";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMoveMetaAilmentSummaryList/properties/results";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 580
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.sourceName = "PaginatedMoveMetaCategorySummaryList_component_prop1";
-        n.schemaPath = "#/components/schemas/PaginatedMoveMetaCategorySummaryList/properties/count";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMoveMetaCategorySummaryList/properties/count";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 581
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedMoveMetaCategorySummaryList_component_prop2";
-        n.schemaPath = "#/components/schemas/PaginatedMoveMetaCategorySummaryList/properties/next";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMoveMetaCategorySummaryList/properties/next";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 582
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedMoveMetaCategorySummaryList_component_prop3";
-        n.schemaPath = "#/components/schemas/PaginatedMoveMetaCategorySummaryList/properties/previous";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMoveMetaCategorySummaryList/properties/previous";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 583
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1120;
-        n.sourceName = "PaginatedMoveMetaCategorySummaryList_component_prop4";
-        n.schemaPath = "#/components/schemas/PaginatedMoveMetaCategorySummaryList/properties/results";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMoveMetaCategorySummaryList/properties/results";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 584
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.sourceName = "PaginatedMoveSummaryList_component_prop1";
-        n.schemaPath = "#/components/schemas/PaginatedMoveSummaryList/properties/count";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMoveSummaryList/properties/count";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 585
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedMoveSummaryList_component_prop2";
-        n.schemaPath = "#/components/schemas/PaginatedMoveSummaryList/properties/next";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMoveSummaryList/properties/next";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 586
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedMoveSummaryList_component_prop3";
-        n.schemaPath = "#/components/schemas/PaginatedMoveSummaryList/properties/previous";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMoveSummaryList/properties/previous";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 587
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1121;
-        n.sourceName = "PaginatedMoveSummaryList_component_prop4";
-        n.schemaPath = "#/components/schemas/PaginatedMoveSummaryList/properties/results";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMoveSummaryList/properties/results";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 588
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.sourceName = "PaginatedMoveTargetSummaryList_component_prop1";
-        n.schemaPath = "#/components/schemas/PaginatedMoveTargetSummaryList/properties/count";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMoveTargetSummaryList/properties/count";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 589
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedMoveTargetSummaryList_component_prop2";
-        n.schemaPath = "#/components/schemas/PaginatedMoveTargetSummaryList/properties/next";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMoveTargetSummaryList/properties/next";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 590
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedMoveTargetSummaryList_component_prop3";
-        n.schemaPath = "#/components/schemas/PaginatedMoveTargetSummaryList/properties/previous";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMoveTargetSummaryList/properties/previous";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 591
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1122;
-        n.sourceName = "PaginatedMoveTargetSummaryList_component_prop4";
-        n.schemaPath = "#/components/schemas/PaginatedMoveTargetSummaryList/properties/results";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMoveTargetSummaryList/properties/results";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 592
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.sourceName = "PaginatedNatureSummaryList_component_prop1";
-        n.schemaPath = "#/components/schemas/PaginatedNatureSummaryList/properties/count";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedNatureSummaryList/properties/count";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 593
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedNatureSummaryList_component_prop2";
-        n.schemaPath = "#/components/schemas/PaginatedNatureSummaryList/properties/next";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedNatureSummaryList/properties/next";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 594
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedNatureSummaryList_component_prop3";
-        n.schemaPath = "#/components/schemas/PaginatedNatureSummaryList/properties/previous";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedNatureSummaryList/properties/previous";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 595
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1123;
-        n.sourceName = "PaginatedNatureSummaryList_component_prop4";
-        n.schemaPath = "#/components/schemas/PaginatedNatureSummaryList/properties/results";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedNatureSummaryList/properties/results";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 596
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.sourceName = "PaginatedPalParkAreaSummaryList_component_prop1";
-        n.schemaPath = "#/components/schemas/PaginatedPalParkAreaSummaryList/properties/count";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPalParkAreaSummaryList/properties/count";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 597
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedPalParkAreaSummaryList_component_prop2";
-        n.schemaPath = "#/components/schemas/PaginatedPalParkAreaSummaryList/properties/next";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPalParkAreaSummaryList/properties/next";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 598
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedPalParkAreaSummaryList_component_prop3";
-        n.schemaPath = "#/components/schemas/PaginatedPalParkAreaSummaryList/properties/previous";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPalParkAreaSummaryList/properties/previous";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 599
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1124;
-        n.sourceName = "PaginatedPalParkAreaSummaryList_component_prop4";
-        n.schemaPath = "#/components/schemas/PaginatedPalParkAreaSummaryList/properties/results";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPalParkAreaSummaryList/properties/results";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 600
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.sourceName = "PaginatedPokeathlonStatSummaryList_component_prop1";
-        n.schemaPath = "#/components/schemas/PaginatedPokeathlonStatSummaryList/properties/count";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokeathlonStatSummaryList/properties/count";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 601
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedPokeathlonStatSummaryList_component_prop2";
-        n.schemaPath = "#/components/schemas/PaginatedPokeathlonStatSummaryList/properties/next";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokeathlonStatSummaryList/properties/next";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 602
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedPokeathlonStatSummaryList_component_prop3";
-        n.schemaPath = "#/components/schemas/PaginatedPokeathlonStatSummaryList/properties/previous";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokeathlonStatSummaryList/properties/previous";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 603
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1125;
-        n.sourceName = "PaginatedPokeathlonStatSummaryList_component_prop4";
-        n.schemaPath = "#/components/schemas/PaginatedPokeathlonStatSummaryList/properties/results";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokeathlonStatSummaryList/properties/results";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 604
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.sourceName = "PaginatedPokedexSummaryList_component_prop1";
-        n.schemaPath = "#/components/schemas/PaginatedPokedexSummaryList/properties/count";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokedexSummaryList/properties/count";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 605
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedPokedexSummaryList_component_prop2";
-        n.schemaPath = "#/components/schemas/PaginatedPokedexSummaryList/properties/next";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokedexSummaryList/properties/next";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 606
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedPokedexSummaryList_component_prop3";
-        n.schemaPath = "#/components/schemas/PaginatedPokedexSummaryList/properties/previous";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokedexSummaryList/properties/previous";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 607
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1126;
-        n.sourceName = "PaginatedPokedexSummaryList_component_prop4";
-        n.schemaPath = "#/components/schemas/PaginatedPokedexSummaryList/properties/results";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokedexSummaryList/properties/results";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 608
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.sourceName = "PaginatedPokemonColorSummaryList_component_prop1";
-        n.schemaPath = "#/components/schemas/PaginatedPokemonColorSummaryList/properties/count";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokemonColorSummaryList/properties/count";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 609
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedPokemonColorSummaryList_component_prop2";
-        n.schemaPath = "#/components/schemas/PaginatedPokemonColorSummaryList/properties/next";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokemonColorSummaryList/properties/next";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 610
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedPokemonColorSummaryList_component_prop3";
-        n.schemaPath = "#/components/schemas/PaginatedPokemonColorSummaryList/properties/previous";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokemonColorSummaryList/properties/previous";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 611
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1127;
-        n.sourceName = "PaginatedPokemonColorSummaryList_component_prop4";
-        n.schemaPath = "#/components/schemas/PaginatedPokemonColorSummaryList/properties/results";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokemonColorSummaryList/properties/results";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 612
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.sourceName = "PaginatedPokemonFormSummaryList_component_prop1";
-        n.schemaPath = "#/components/schemas/PaginatedPokemonFormSummaryList/properties/count";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokemonFormSummaryList/properties/count";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 613
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedPokemonFormSummaryList_component_prop2";
-        n.schemaPath = "#/components/schemas/PaginatedPokemonFormSummaryList/properties/next";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokemonFormSummaryList/properties/next";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 614
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedPokemonFormSummaryList_component_prop3";
-        n.schemaPath = "#/components/schemas/PaginatedPokemonFormSummaryList/properties/previous";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokemonFormSummaryList/properties/previous";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 615
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1128;
-        n.sourceName = "PaginatedPokemonFormSummaryList_component_prop4";
-        n.schemaPath = "#/components/schemas/PaginatedPokemonFormSummaryList/properties/results";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokemonFormSummaryList/properties/results";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 616
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.sourceName = "PaginatedPokemonHabitatSummaryList_component_prop1";
-        n.schemaPath = "#/components/schemas/PaginatedPokemonHabitatSummaryList/properties/count";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokemonHabitatSummaryList/properties/count";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 617
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedPokemonHabitatSummaryList_component_prop2";
-        n.schemaPath = "#/components/schemas/PaginatedPokemonHabitatSummaryList/properties/next";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokemonHabitatSummaryList/properties/next";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 618
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedPokemonHabitatSummaryList_component_prop3";
-        n.schemaPath = "#/components/schemas/PaginatedPokemonHabitatSummaryList/properties/previous";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokemonHabitatSummaryList/properties/previous";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 619
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1129;
-        n.sourceName = "PaginatedPokemonHabitatSummaryList_component_prop4";
-        n.schemaPath = "#/components/schemas/PaginatedPokemonHabitatSummaryList/properties/results";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokemonHabitatSummaryList/properties/results";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 620
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.sourceName = "PaginatedPokemonShapeSummaryList_component_prop1";
-        n.schemaPath = "#/components/schemas/PaginatedPokemonShapeSummaryList/properties/count";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokemonShapeSummaryList/properties/count";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 621
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedPokemonShapeSummaryList_component_prop2";
-        n.schemaPath = "#/components/schemas/PaginatedPokemonShapeSummaryList/properties/next";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokemonShapeSummaryList/properties/next";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 622
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedPokemonShapeSummaryList_component_prop3";
-        n.schemaPath = "#/components/schemas/PaginatedPokemonShapeSummaryList/properties/previous";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokemonShapeSummaryList/properties/previous";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 623
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1130;
-        n.sourceName = "PaginatedPokemonShapeSummaryList_component_prop4";
-        n.schemaPath = "#/components/schemas/PaginatedPokemonShapeSummaryList/properties/results";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokemonShapeSummaryList/properties/results";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 624
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.sourceName = "PaginatedPokemonSpeciesSummaryList_component_prop1";
-        n.schemaPath = "#/components/schemas/PaginatedPokemonSpeciesSummaryList/properties/count";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokemonSpeciesSummaryList/properties/count";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 625
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedPokemonSpeciesSummaryList_component_prop2";
-        n.schemaPath = "#/components/schemas/PaginatedPokemonSpeciesSummaryList/properties/next";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokemonSpeciesSummaryList/properties/next";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 626
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedPokemonSpeciesSummaryList_component_prop3";
-        n.schemaPath = "#/components/schemas/PaginatedPokemonSpeciesSummaryList/properties/previous";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokemonSpeciesSummaryList/properties/previous";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 627
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1131;
-        n.sourceName = "PaginatedPokemonSpeciesSummaryList_component_prop4";
-        n.schemaPath = "#/components/schemas/PaginatedPokemonSpeciesSummaryList/properties/results";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokemonSpeciesSummaryList/properties/results";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 628
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.sourceName = "PaginatedPokemonSummaryList_component_prop1";
-        n.schemaPath = "#/components/schemas/PaginatedPokemonSummaryList/properties/count";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokemonSummaryList/properties/count";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 629
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedPokemonSummaryList_component_prop2";
-        n.schemaPath = "#/components/schemas/PaginatedPokemonSummaryList/properties/next";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokemonSummaryList/properties/next";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 630
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedPokemonSummaryList_component_prop3";
-        n.schemaPath = "#/components/schemas/PaginatedPokemonSummaryList/properties/previous";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokemonSummaryList/properties/previous";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 631
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1132;
-        n.sourceName = "PaginatedPokemonSummaryList_component_prop4";
-        n.schemaPath = "#/components/schemas/PaginatedPokemonSummaryList/properties/results";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokemonSummaryList/properties/results";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 632
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.sourceName = "PaginatedRegionSummaryList_component_prop1";
-        n.schemaPath = "#/components/schemas/PaginatedRegionSummaryList/properties/count";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedRegionSummaryList/properties/count";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 633
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedRegionSummaryList_component_prop2";
-        n.schemaPath = "#/components/schemas/PaginatedRegionSummaryList/properties/next";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedRegionSummaryList/properties/next";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 634
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedRegionSummaryList_component_prop3";
-        n.schemaPath = "#/components/schemas/PaginatedRegionSummaryList/properties/previous";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedRegionSummaryList/properties/previous";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 635
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1133;
-        n.sourceName = "PaginatedRegionSummaryList_component_prop4";
-        n.schemaPath = "#/components/schemas/PaginatedRegionSummaryList/properties/results";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedRegionSummaryList/properties/results";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 636
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.sourceName = "PaginatedStatSummaryList_component_prop1";
-        n.schemaPath = "#/components/schemas/PaginatedStatSummaryList/properties/count";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedStatSummaryList/properties/count";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 637
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedStatSummaryList_component_prop2";
-        n.schemaPath = "#/components/schemas/PaginatedStatSummaryList/properties/next";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedStatSummaryList/properties/next";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 638
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedStatSummaryList_component_prop3";
-        n.schemaPath = "#/components/schemas/PaginatedStatSummaryList/properties/previous";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedStatSummaryList/properties/previous";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 639
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1134;
-        n.sourceName = "PaginatedStatSummaryList_component_prop4";
-        n.schemaPath = "#/components/schemas/PaginatedStatSummaryList/properties/results";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedStatSummaryList/properties/results";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 640
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.sourceName = "PaginatedSuperContestEffectSummaryList_component_prop1";
-        n.schemaPath = "#/components/schemas/PaginatedSuperContestEffectSummaryList/properties/count";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedSuperContestEffectSummaryList/properties/count";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 641
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedSuperContestEffectSummaryList_component_prop2";
-        n.schemaPath = "#/components/schemas/PaginatedSuperContestEffectSummaryList/properties/next";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedSuperContestEffectSummaryList/properties/next";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 642
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedSuperContestEffectSummaryList_component_prop3";
-        n.schemaPath = "#/components/schemas/PaginatedSuperContestEffectSummaryList/properties/previous";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedSuperContestEffectSummaryList/properties/previous";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 643
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1135;
-        n.sourceName = "PaginatedSuperContestEffectSummaryList_component_prop4";
-        n.schemaPath = "#/components/schemas/PaginatedSuperContestEffectSummaryList/properties/results";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedSuperContestEffectSummaryList/properties/results";
-        reg.nodes.push_back(std::move(n));
-    }
-
     { // node 644
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.sourceName = "PaginatedTypeSummaryList_component_prop1";
-        n.schemaPath = "#/components/schemas/PaginatedTypeSummaryList/properties/count";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedTypeSummaryList/properties/count";
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the next page in the list, or null if there is no next page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedAbilitySummaryList_component_prop2";
+        n.schemaPath = "#/components/schemas/PaginatedAbilitySummaryList/properties/next";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedAbilitySummaryList/properties/next";
         reg.nodes.push_back(std::move(n));
     }
 
@@ -2567,44 +1815,46 @@ void appendSchemaRegistryChunk1(SchemaResourceRegistry& reg) {
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the previous page in the list, or null if there is no previous page.\"";
         n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedTypeSummaryList_component_prop2";
-        n.schemaPath = "#/components/schemas/PaginatedTypeSummaryList/properties/next";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedTypeSummaryList/properties/next";
+        n.sourceName = "PaginatedAbilitySummaryList_component_prop3";
+        n.schemaPath = "#/components/schemas/PaginatedAbilitySummaryList/properties/previous";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedAbilitySummaryList/properties/previous";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 646
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedTypeSummaryList_component_prop3";
-        n.schemaPath = "#/components/schemas/PaginatedTypeSummaryList/properties/previous";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedTypeSummaryList/properties/previous";
+        n.typeFlags = 16u;
+        n.items = 1443;
+        n.annDescription = "\"A list of API resources on this page.\"";
+        n.sourceName = "PaginatedAbilitySummaryList_component_prop4";
+        n.schemaPath = "#/components/schemas/PaginatedAbilitySummaryList/properties/results";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedAbilitySummaryList/properties/results";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 647
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1136;
-        n.sourceName = "PaginatedTypeSummaryList_component_prop4";
-        n.schemaPath = "#/components/schemas/PaginatedTypeSummaryList/properties/results";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedTypeSummaryList/properties/results";
+        n.typeFlags = 64u;
+        n.annDescription = "\"The total number of resources available from this API.\"";
+        n.sourceName = "PaginatedBerryFirmnessSummaryList_component_prop1";
+        n.schemaPath = "#/components/schemas/PaginatedBerryFirmnessSummaryList/properties/count";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedBerryFirmnessSummaryList/properties/count";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 648
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.sourceName = "PaginatedVersionGroupSummaryList_component_prop1";
-        n.schemaPath = "#/components/schemas/PaginatedVersionGroupSummaryList/properties/count";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedVersionGroupSummaryList/properties/count";
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the next page in the list, or null if there is no next page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedBerryFirmnessSummaryList_component_prop2";
+        n.schemaPath = "#/components/schemas/PaginatedBerryFirmnessSummaryList/properties/next";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedBerryFirmnessSummaryList/properties/next";
         reg.nodes.push_back(std::move(n));
     }
 
@@ -2612,44 +1862,46 @@ void appendSchemaRegistryChunk1(SchemaResourceRegistry& reg) {
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the previous page in the list, or null if there is no previous page.\"";
         n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedVersionGroupSummaryList_component_prop2";
-        n.schemaPath = "#/components/schemas/PaginatedVersionGroupSummaryList/properties/next";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedVersionGroupSummaryList/properties/next";
+        n.sourceName = "PaginatedBerryFirmnessSummaryList_component_prop3";
+        n.schemaPath = "#/components/schemas/PaginatedBerryFirmnessSummaryList/properties/previous";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedBerryFirmnessSummaryList/properties/previous";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 650
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedVersionGroupSummaryList_component_prop3";
-        n.schemaPath = "#/components/schemas/PaginatedVersionGroupSummaryList/properties/previous";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedVersionGroupSummaryList/properties/previous";
+        n.typeFlags = 16u;
+        n.items = 1444;
+        n.annDescription = "\"A list of API resources on this page.\"";
+        n.sourceName = "PaginatedBerryFirmnessSummaryList_component_prop4";
+        n.schemaPath = "#/components/schemas/PaginatedBerryFirmnessSummaryList/properties/results";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedBerryFirmnessSummaryList/properties/results";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 651
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1137;
-        n.sourceName = "PaginatedVersionGroupSummaryList_component_prop4";
-        n.schemaPath = "#/components/schemas/PaginatedVersionGroupSummaryList/properties/results";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedVersionGroupSummaryList/properties/results";
+        n.typeFlags = 64u;
+        n.annDescription = "\"The total number of resources available from this API.\"";
+        n.sourceName = "PaginatedBerryFlavorSummaryList_component_prop1";
+        n.schemaPath = "#/components/schemas/PaginatedBerryFlavorSummaryList/properties/count";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedBerryFlavorSummaryList/properties/count";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 652
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.sourceName = "PaginatedVersionSummaryList_component_prop1";
-        n.schemaPath = "#/components/schemas/PaginatedVersionSummaryList/properties/count";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedVersionSummaryList/properties/count";
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the next page in the list, or null if there is no next page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedBerryFlavorSummaryList_component_prop2";
+        n.schemaPath = "#/components/schemas/PaginatedBerryFlavorSummaryList/properties/next";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedBerryFlavorSummaryList/properties/next";
         reg.nodes.push_back(std::move(n));
     }
 
@@ -2657,45 +1909,46 @@ void appendSchemaRegistryChunk1(SchemaResourceRegistry& reg) {
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the previous page in the list, or null if there is no previous page.\"";
         n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedVersionSummaryList_component_prop2";
-        n.schemaPath = "#/components/schemas/PaginatedVersionSummaryList/properties/next";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedVersionSummaryList/properties/next";
+        n.sourceName = "PaginatedBerryFlavorSummaryList_component_prop3";
+        n.schemaPath = "#/components/schemas/PaginatedBerryFlavorSummaryList/properties/previous";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedBerryFlavorSummaryList/properties/previous";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 654
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"nullable", "true"});
-        n.sourceName = "PaginatedVersionSummaryList_component_prop3";
-        n.schemaPath = "#/components/schemas/PaginatedVersionSummaryList/properties/previous";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedVersionSummaryList/properties/previous";
+        n.typeFlags = 16u;
+        n.items = 1445;
+        n.annDescription = "\"A list of API resources on this page.\"";
+        n.sourceName = "PaginatedBerryFlavorSummaryList_component_prop4";
+        n.schemaPath = "#/components/schemas/PaginatedBerryFlavorSummaryList/properties/results";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedBerryFlavorSummaryList/properties/results";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 655
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1138;
-        n.sourceName = "PaginatedVersionSummaryList_component_prop4";
-        n.schemaPath = "#/components/schemas/PaginatedVersionSummaryList/properties/results";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedVersionSummaryList/properties/results";
+        n.typeFlags = 64u;
+        n.annDescription = "\"The total number of resources available from this API.\"";
+        n.sourceName = "PaginatedBerrySummaryList_component_prop1";
+        n.schemaPath = "#/components/schemas/PaginatedBerrySummaryList/properties/count";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedBerrySummaryList/properties/count";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 656
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.annReadOnlyJson = "true";
-        n.sourceName = "PalParkAreaDetail_component_prop1";
-        n.schemaPath = "#/components/schemas/PalParkAreaDetail/properties/id";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PalParkAreaDetail/properties/id";
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the next page in the list, or null if there is no next page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedBerrySummaryList_component_prop2";
+        n.schemaPath = "#/components/schemas/PaginatedBerrySummaryList/properties/next";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedBerrySummaryList/properties/next";
         reg.nodes.push_back(std::move(n));
     }
 
@@ -2703,10 +1956,11 @@ void appendSchemaRegistryChunk1(SchemaResourceRegistry& reg) {
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 8u;
-        setExact(n.maxLength, n.hasMaxLength, "100");
-        n.sourceName = "PalParkAreaDetail_component_prop2";
-        n.schemaPath = "#/components/schemas/PalParkAreaDetail/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PalParkAreaDetail/properties/name";
+        n.annDescription = "\"The URL for the previous page in the list, or null if there is no previous page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedBerrySummaryList_component_prop3";
+        n.schemaPath = "#/components/schemas/PaginatedBerrySummaryList/properties/previous";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedBerrySummaryList/properties/previous";
         reg.nodes.push_back(std::move(n));
     }
 
@@ -2714,72 +1968,69 @@ void appendSchemaRegistryChunk1(SchemaResourceRegistry& reg) {
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 16u;
-        n.items = 1139;
-        n.annReadOnlyJson = "true";
-        n.sourceName = "PalParkAreaDetail_component_prop3";
-        n.schemaPath = "#/components/schemas/PalParkAreaDetail/properties/names";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PalParkAreaDetail/properties/names";
+        n.items = 1446;
+        n.annDescription = "\"A list of API resources on this page.\"";
+        n.sourceName = "PaginatedBerrySummaryList_component_prop4";
+        n.schemaPath = "#/components/schemas/PaginatedBerrySummaryList/properties/results";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedBerrySummaryList/properties/results";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 659
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1140;
-        n.annReadOnlyJson = "true";
-        n.sourceName = "PalParkAreaDetail_component_prop4";
-        n.schemaPath = "#/components/schemas/PalParkAreaDetail/properties/pokemon_encounters";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PalParkAreaDetail/properties/pokemon_encounters";
+        n.typeFlags = 64u;
+        n.annDescription = "\"The total number of resources available from this API.\"";
+        n.sourceName = "PaginatedCharacteristicSummaryList_component_prop1";
+        n.schemaPath = "#/components/schemas/PaginatedCharacteristicSummaryList/properties/count";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedCharacteristicSummaryList/properties/count";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 660
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.annExamplesJson = "[50]";
-        n.annFormat = "\"int32\"";
-        n.sourceName = "PalParkAreaDetail_pokemon_encounters_inner_component_prop1";
-        n.schemaPath = "#/components/schemas/PalParkAreaDetail_pokemon_encounters_inner/properties/base_score";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PalParkAreaDetail_pokemon_encounters_inner/properties/base_score";
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the next page in the list, or null if there is no next page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedCharacteristicSummaryList_component_prop2";
+        n.schemaPath = "#/components/schemas/PaginatedCharacteristicSummaryList/properties/next";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedCharacteristicSummaryList/properties/next";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 661
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1141; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1142; n.properties.push_back(std::move(b)); }
-        n.sourceName = "PalParkAreaDetail_pokemon_encounters_inner_component_prop2";
-        n.schemaPath = "#/components/schemas/PalParkAreaDetail_pokemon_encounters_inner/properties/pokemon-species";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PalParkAreaDetail_pokemon_encounters_inner/properties/pokemon-species";
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the previous page in the list, or null if there is no previous page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedCharacteristicSummaryList_component_prop3";
+        n.schemaPath = "#/components/schemas/PaginatedCharacteristicSummaryList/properties/previous";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedCharacteristicSummaryList/properties/previous";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 662
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.annExamplesJson = "[30]";
-        n.annFormat = "\"int32\"";
-        n.sourceName = "PalParkAreaDetail_pokemon_encounters_inner_component_prop3";
-        n.schemaPath = "#/components/schemas/PalParkAreaDetail_pokemon_encounters_inner/properties/rate";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PalParkAreaDetail_pokemon_encounters_inner/properties/rate";
+        n.typeFlags = 16u;
+        n.items = 1447;
+        n.annDescription = "\"A list of API resources on this page.\"";
+        n.sourceName = "PaginatedCharacteristicSummaryList_component_prop4";
+        n.schemaPath = "#/components/schemas/PaginatedCharacteristicSummaryList/properties/results";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedCharacteristicSummaryList/properties/results";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 663
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1912);
-        n.sourceName = "PalParkAreaName_component_prop1";
-        n.schemaPath = "#/components/schemas/PalParkAreaName/properties/language";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PalParkAreaName/properties/language";
+        n.typeFlags = 64u;
+        n.annDescription = "\"The total number of resources available from this API.\"";
+        n.sourceName = "PaginatedContestEffectSummaryList_component_prop1";
+        n.schemaPath = "#/components/schemas/PaginatedContestEffectSummaryList/properties/count";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedContestEffectSummaryList/properties/count";
         reg.nodes.push_back(std::move(n));
     }
 
@@ -2787,10 +2038,11 @@ void appendSchemaRegistryChunk1(SchemaResourceRegistry& reg) {
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 8u;
-        setExact(n.maxLength, n.hasMaxLength, "100");
-        n.sourceName = "PalParkAreaName_component_prop2";
-        n.schemaPath = "#/components/schemas/PalParkAreaName/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PalParkAreaName/properties/name";
+        n.annDescription = "\"The URL for the next page in the list, or null if there is no next page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedContestEffectSummaryList_component_prop2";
+        n.schemaPath = "#/components/schemas/PaginatedContestEffectSummaryList/properties/next";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedContestEffectSummaryList/properties/next";
         reg.nodes.push_back(std::move(n));
     }
 
@@ -2798,17 +2050,2184 @@ void appendSchemaRegistryChunk1(SchemaResourceRegistry& reg) {
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 8u;
-        setExact(n.maxLength, n.hasMaxLength, "100");
-        n.sourceName = "PalParkAreaSummary_component_prop1";
-        n.schemaPath = "#/components/schemas/PalParkAreaSummary/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PalParkAreaSummary/properties/name";
+        n.annDescription = "\"The URL for the previous page in the list, or null if there is no previous page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedContestEffectSummaryList_component_prop3";
+        n.schemaPath = "#/components/schemas/PaginatedContestEffectSummaryList/properties/previous";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedContestEffectSummaryList/properties/previous";
         reg.nodes.push_back(std::move(n));
     }
 
     { // node 666
         SchemaNode n;
         n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1448;
+        n.annDescription = "\"A list of API resources on this page.\"";
+        n.sourceName = "PaginatedContestEffectSummaryList_component_prop4";
+        n.schemaPath = "#/components/schemas/PaginatedContestEffectSummaryList/properties/results";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedContestEffectSummaryList/properties/results";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 667
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        n.annDescription = "\"The total number of resources available from this API.\"";
+        n.sourceName = "PaginatedContestTypeSummaryList_component_prop1";
+        n.schemaPath = "#/components/schemas/PaginatedContestTypeSummaryList/properties/count";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedContestTypeSummaryList/properties/count";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 668
+        SchemaNode n;
+        n.resourceIdentity = 0;
         n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the next page in the list, or null if there is no next page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedContestTypeSummaryList_component_prop2";
+        n.schemaPath = "#/components/schemas/PaginatedContestTypeSummaryList/properties/next";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedContestTypeSummaryList/properties/next";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 669
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the previous page in the list, or null if there is no previous page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedContestTypeSummaryList_component_prop3";
+        n.schemaPath = "#/components/schemas/PaginatedContestTypeSummaryList/properties/previous";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedContestTypeSummaryList/properties/previous";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 670
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1449;
+        n.annDescription = "\"A list of API resources on this page.\"";
+        n.sourceName = "PaginatedContestTypeSummaryList_component_prop4";
+        n.schemaPath = "#/components/schemas/PaginatedContestTypeSummaryList/properties/results";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedContestTypeSummaryList/properties/results";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 671
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        n.annDescription = "\"The total number of resources available from this API.\"";
+        n.sourceName = "PaginatedCurrencySummaryList_component_prop1";
+        n.schemaPath = "#/components/schemas/PaginatedCurrencySummaryList/properties/count";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedCurrencySummaryList/properties/count";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 672
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the next page in the list, or null if there is no next page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedCurrencySummaryList_component_prop2";
+        n.schemaPath = "#/components/schemas/PaginatedCurrencySummaryList/properties/next";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedCurrencySummaryList/properties/next";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 673
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the previous page in the list, or null if there is no previous page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedCurrencySummaryList_component_prop3";
+        n.schemaPath = "#/components/schemas/PaginatedCurrencySummaryList/properties/previous";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedCurrencySummaryList/properties/previous";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 674
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1450;
+        n.annDescription = "\"A list of API resources on this page.\"";
+        n.sourceName = "PaginatedCurrencySummaryList_component_prop4";
+        n.schemaPath = "#/components/schemas/PaginatedCurrencySummaryList/properties/results";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedCurrencySummaryList/properties/results";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 675
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        n.annDescription = "\"The total number of resources available from this API.\"";
+        n.sourceName = "PaginatedEggGroupSummaryList_component_prop1";
+        n.schemaPath = "#/components/schemas/PaginatedEggGroupSummaryList/properties/count";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedEggGroupSummaryList/properties/count";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 676
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the next page in the list, or null if there is no next page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedEggGroupSummaryList_component_prop2";
+        n.schemaPath = "#/components/schemas/PaginatedEggGroupSummaryList/properties/next";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedEggGroupSummaryList/properties/next";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 677
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the previous page in the list, or null if there is no previous page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedEggGroupSummaryList_component_prop3";
+        n.schemaPath = "#/components/schemas/PaginatedEggGroupSummaryList/properties/previous";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedEggGroupSummaryList/properties/previous";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 678
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1451;
+        n.annDescription = "\"A list of API resources on this page.\"";
+        n.sourceName = "PaginatedEggGroupSummaryList_component_prop4";
+        n.schemaPath = "#/components/schemas/PaginatedEggGroupSummaryList/properties/results";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedEggGroupSummaryList/properties/results";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 679
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        n.annDescription = "\"The total number of resources available from this API.\"";
+        n.sourceName = "PaginatedEncounterConditionSummaryList_component_prop1";
+        n.schemaPath = "#/components/schemas/PaginatedEncounterConditionSummaryList/properties/count";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedEncounterConditionSummaryList/properties/count";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 680
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the next page in the list, or null if there is no next page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedEncounterConditionSummaryList_component_prop2";
+        n.schemaPath = "#/components/schemas/PaginatedEncounterConditionSummaryList/properties/next";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedEncounterConditionSummaryList/properties/next";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 681
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the previous page in the list, or null if there is no previous page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedEncounterConditionSummaryList_component_prop3";
+        n.schemaPath = "#/components/schemas/PaginatedEncounterConditionSummaryList/properties/previous";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedEncounterConditionSummaryList/properties/previous";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 682
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1452;
+        n.annDescription = "\"A list of API resources on this page.\"";
+        n.sourceName = "PaginatedEncounterConditionSummaryList_component_prop4";
+        n.schemaPath = "#/components/schemas/PaginatedEncounterConditionSummaryList/properties/results";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedEncounterConditionSummaryList/properties/results";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 683
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        n.annDescription = "\"The total number of resources available from this API.\"";
+        n.sourceName = "PaginatedEncounterConditionValueSummaryList_component_prop1";
+        n.schemaPath = "#/components/schemas/PaginatedEncounterConditionValueSummaryList/properties/count";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedEncounterConditionValueSummaryList/properties/count";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 684
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the next page in the list, or null if there is no next page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedEncounterConditionValueSummaryList_component_prop2";
+        n.schemaPath = "#/components/schemas/PaginatedEncounterConditionValueSummaryList/properties/next";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedEncounterConditionValueSummaryList/properties/next";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 685
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the previous page in the list, or null if there is no previous page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedEncounterConditionValueSummaryList_component_prop3";
+        n.schemaPath = "#/components/schemas/PaginatedEncounterConditionValueSummaryList/properties/previous";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedEncounterConditionValueSummaryList/properties/previous";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 686
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1453;
+        n.annDescription = "\"A list of API resources on this page.\"";
+        n.sourceName = "PaginatedEncounterConditionValueSummaryList_component_prop4";
+        n.schemaPath = "#/components/schemas/PaginatedEncounterConditionValueSummaryList/properties/results";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedEncounterConditionValueSummaryList/properties/results";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 687
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        n.annDescription = "\"The total number of resources available from this API.\"";
+        n.sourceName = "PaginatedEncounterMethodSummaryList_component_prop1";
+        n.schemaPath = "#/components/schemas/PaginatedEncounterMethodSummaryList/properties/count";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedEncounterMethodSummaryList/properties/count";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 688
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the next page in the list, or null if there is no next page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedEncounterMethodSummaryList_component_prop2";
+        n.schemaPath = "#/components/schemas/PaginatedEncounterMethodSummaryList/properties/next";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedEncounterMethodSummaryList/properties/next";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 689
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the previous page in the list, or null if there is no previous page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedEncounterMethodSummaryList_component_prop3";
+        n.schemaPath = "#/components/schemas/PaginatedEncounterMethodSummaryList/properties/previous";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedEncounterMethodSummaryList/properties/previous";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 690
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1454;
+        n.annDescription = "\"A list of API resources on this page.\"";
+        n.sourceName = "PaginatedEncounterMethodSummaryList_component_prop4";
+        n.schemaPath = "#/components/schemas/PaginatedEncounterMethodSummaryList/properties/results";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedEncounterMethodSummaryList/properties/results";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 691
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        n.annDescription = "\"The total number of resources available from this API.\"";
+        n.sourceName = "PaginatedEvolutionChainSummaryList_component_prop1";
+        n.schemaPath = "#/components/schemas/PaginatedEvolutionChainSummaryList/properties/count";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedEvolutionChainSummaryList/properties/count";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 692
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the next page in the list, or null if there is no next page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedEvolutionChainSummaryList_component_prop2";
+        n.schemaPath = "#/components/schemas/PaginatedEvolutionChainSummaryList/properties/next";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedEvolutionChainSummaryList/properties/next";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 693
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the previous page in the list, or null if there is no previous page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedEvolutionChainSummaryList_component_prop3";
+        n.schemaPath = "#/components/schemas/PaginatedEvolutionChainSummaryList/properties/previous";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedEvolutionChainSummaryList/properties/previous";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 694
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1455;
+        n.annDescription = "\"A list of API resources on this page.\"";
+        n.sourceName = "PaginatedEvolutionChainSummaryList_component_prop4";
+        n.schemaPath = "#/components/schemas/PaginatedEvolutionChainSummaryList/properties/results";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedEvolutionChainSummaryList/properties/results";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 695
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        n.annDescription = "\"The total number of resources available from this API.\"";
+        n.sourceName = "PaginatedEvolutionTriggerSummaryList_component_prop1";
+        n.schemaPath = "#/components/schemas/PaginatedEvolutionTriggerSummaryList/properties/count";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedEvolutionTriggerSummaryList/properties/count";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 696
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the next page in the list, or null if there is no next page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedEvolutionTriggerSummaryList_component_prop2";
+        n.schemaPath = "#/components/schemas/PaginatedEvolutionTriggerSummaryList/properties/next";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedEvolutionTriggerSummaryList/properties/next";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 697
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the previous page in the list, or null if there is no previous page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedEvolutionTriggerSummaryList_component_prop3";
+        n.schemaPath = "#/components/schemas/PaginatedEvolutionTriggerSummaryList/properties/previous";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedEvolutionTriggerSummaryList/properties/previous";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 698
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1456;
+        n.annDescription = "\"A list of API resources on this page.\"";
+        n.sourceName = "PaginatedEvolutionTriggerSummaryList_component_prop4";
+        n.schemaPath = "#/components/schemas/PaginatedEvolutionTriggerSummaryList/properties/results";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedEvolutionTriggerSummaryList/properties/results";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 699
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        n.annDescription = "\"The total number of resources available from this API.\"";
+        n.sourceName = "PaginatedEvolutionVariableSummaryList_component_prop1";
+        n.schemaPath = "#/components/schemas/PaginatedEvolutionVariableSummaryList/properties/count";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedEvolutionVariableSummaryList/properties/count";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 700
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the next page in the list, or null if there is no next page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedEvolutionVariableSummaryList_component_prop2";
+        n.schemaPath = "#/components/schemas/PaginatedEvolutionVariableSummaryList/properties/next";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedEvolutionVariableSummaryList/properties/next";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 701
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the previous page in the list, or null if there is no previous page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedEvolutionVariableSummaryList_component_prop3";
+        n.schemaPath = "#/components/schemas/PaginatedEvolutionVariableSummaryList/properties/previous";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedEvolutionVariableSummaryList/properties/previous";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 702
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1457;
+        n.annDescription = "\"A list of API resources on this page.\"";
+        n.sourceName = "PaginatedEvolutionVariableSummaryList_component_prop4";
+        n.schemaPath = "#/components/schemas/PaginatedEvolutionVariableSummaryList/properties/results";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedEvolutionVariableSummaryList/properties/results";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 703
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        n.annDescription = "\"The total number of resources available from this API.\"";
+        n.sourceName = "PaginatedGenderSummaryList_component_prop1";
+        n.schemaPath = "#/components/schemas/PaginatedGenderSummaryList/properties/count";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedGenderSummaryList/properties/count";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 704
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the next page in the list, or null if there is no next page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedGenderSummaryList_component_prop2";
+        n.schemaPath = "#/components/schemas/PaginatedGenderSummaryList/properties/next";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedGenderSummaryList/properties/next";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 705
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the previous page in the list, or null if there is no previous page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedGenderSummaryList_component_prop3";
+        n.schemaPath = "#/components/schemas/PaginatedGenderSummaryList/properties/previous";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedGenderSummaryList/properties/previous";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 706
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1458;
+        n.annDescription = "\"A list of API resources on this page.\"";
+        n.sourceName = "PaginatedGenderSummaryList_component_prop4";
+        n.schemaPath = "#/components/schemas/PaginatedGenderSummaryList/properties/results";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedGenderSummaryList/properties/results";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 707
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        n.annDescription = "\"The total number of resources available from this API.\"";
+        n.sourceName = "PaginatedGenerationSummaryList_component_prop1";
+        n.schemaPath = "#/components/schemas/PaginatedGenerationSummaryList/properties/count";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedGenerationSummaryList/properties/count";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 708
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the next page in the list, or null if there is no next page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedGenerationSummaryList_component_prop2";
+        n.schemaPath = "#/components/schemas/PaginatedGenerationSummaryList/properties/next";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedGenerationSummaryList/properties/next";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 709
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the previous page in the list, or null if there is no previous page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedGenerationSummaryList_component_prop3";
+        n.schemaPath = "#/components/schemas/PaginatedGenerationSummaryList/properties/previous";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedGenerationSummaryList/properties/previous";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 710
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1459;
+        n.annDescription = "\"A list of API resources on this page.\"";
+        n.sourceName = "PaginatedGenerationSummaryList_component_prop4";
+        n.schemaPath = "#/components/schemas/PaginatedGenerationSummaryList/properties/results";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedGenerationSummaryList/properties/results";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 711
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        n.annDescription = "\"The total number of resources available from this API.\"";
+        n.sourceName = "PaginatedGrowthRateSummaryList_component_prop1";
+        n.schemaPath = "#/components/schemas/PaginatedGrowthRateSummaryList/properties/count";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedGrowthRateSummaryList/properties/count";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 712
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the next page in the list, or null if there is no next page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedGrowthRateSummaryList_component_prop2";
+        n.schemaPath = "#/components/schemas/PaginatedGrowthRateSummaryList/properties/next";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedGrowthRateSummaryList/properties/next";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 713
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the previous page in the list, or null if there is no previous page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedGrowthRateSummaryList_component_prop3";
+        n.schemaPath = "#/components/schemas/PaginatedGrowthRateSummaryList/properties/previous";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedGrowthRateSummaryList/properties/previous";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 714
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1460;
+        n.annDescription = "\"A list of API resources on this page.\"";
+        n.sourceName = "PaginatedGrowthRateSummaryList_component_prop4";
+        n.schemaPath = "#/components/schemas/PaginatedGrowthRateSummaryList/properties/results";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedGrowthRateSummaryList/properties/results";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 715
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        n.annDescription = "\"The total number of resources available from this API.\"";
+        n.sourceName = "PaginatedItemAttributeSummaryList_component_prop1";
+        n.schemaPath = "#/components/schemas/PaginatedItemAttributeSummaryList/properties/count";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedItemAttributeSummaryList/properties/count";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 716
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the next page in the list, or null if there is no next page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedItemAttributeSummaryList_component_prop2";
+        n.schemaPath = "#/components/schemas/PaginatedItemAttributeSummaryList/properties/next";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedItemAttributeSummaryList/properties/next";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 717
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the previous page in the list, or null if there is no previous page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedItemAttributeSummaryList_component_prop3";
+        n.schemaPath = "#/components/schemas/PaginatedItemAttributeSummaryList/properties/previous";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedItemAttributeSummaryList/properties/previous";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 718
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1461;
+        n.annDescription = "\"A list of API resources on this page.\"";
+        n.sourceName = "PaginatedItemAttributeSummaryList_component_prop4";
+        n.schemaPath = "#/components/schemas/PaginatedItemAttributeSummaryList/properties/results";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedItemAttributeSummaryList/properties/results";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 719
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        n.annDescription = "\"The total number of resources available from this API.\"";
+        n.sourceName = "PaginatedItemCategorySummaryList_component_prop1";
+        n.schemaPath = "#/components/schemas/PaginatedItemCategorySummaryList/properties/count";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedItemCategorySummaryList/properties/count";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 720
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the next page in the list, or null if there is no next page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedItemCategorySummaryList_component_prop2";
+        n.schemaPath = "#/components/schemas/PaginatedItemCategorySummaryList/properties/next";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedItemCategorySummaryList/properties/next";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 721
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the previous page in the list, or null if there is no previous page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedItemCategorySummaryList_component_prop3";
+        n.schemaPath = "#/components/schemas/PaginatedItemCategorySummaryList/properties/previous";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedItemCategorySummaryList/properties/previous";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 722
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1462;
+        n.annDescription = "\"A list of API resources on this page.\"";
+        n.sourceName = "PaginatedItemCategorySummaryList_component_prop4";
+        n.schemaPath = "#/components/schemas/PaginatedItemCategorySummaryList/properties/results";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedItemCategorySummaryList/properties/results";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 723
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        n.annDescription = "\"The total number of resources available from this API.\"";
+        n.sourceName = "PaginatedItemFlingEffectSummaryList_component_prop1";
+        n.schemaPath = "#/components/schemas/PaginatedItemFlingEffectSummaryList/properties/count";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedItemFlingEffectSummaryList/properties/count";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 724
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the next page in the list, or null if there is no next page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedItemFlingEffectSummaryList_component_prop2";
+        n.schemaPath = "#/components/schemas/PaginatedItemFlingEffectSummaryList/properties/next";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedItemFlingEffectSummaryList/properties/next";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 725
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the previous page in the list, or null if there is no previous page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedItemFlingEffectSummaryList_component_prop3";
+        n.schemaPath = "#/components/schemas/PaginatedItemFlingEffectSummaryList/properties/previous";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedItemFlingEffectSummaryList/properties/previous";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 726
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1463;
+        n.annDescription = "\"A list of API resources on this page.\"";
+        n.sourceName = "PaginatedItemFlingEffectSummaryList_component_prop4";
+        n.schemaPath = "#/components/schemas/PaginatedItemFlingEffectSummaryList/properties/results";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedItemFlingEffectSummaryList/properties/results";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 727
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        n.annDescription = "\"The total number of resources available from this API.\"";
+        n.sourceName = "PaginatedItemPocketSummaryList_component_prop1";
+        n.schemaPath = "#/components/schemas/PaginatedItemPocketSummaryList/properties/count";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedItemPocketSummaryList/properties/count";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 728
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the next page in the list, or null if there is no next page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedItemPocketSummaryList_component_prop2";
+        n.schemaPath = "#/components/schemas/PaginatedItemPocketSummaryList/properties/next";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedItemPocketSummaryList/properties/next";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 729
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the previous page in the list, or null if there is no previous page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedItemPocketSummaryList_component_prop3";
+        n.schemaPath = "#/components/schemas/PaginatedItemPocketSummaryList/properties/previous";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedItemPocketSummaryList/properties/previous";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 730
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1464;
+        n.annDescription = "\"A list of API resources on this page.\"";
+        n.sourceName = "PaginatedItemPocketSummaryList_component_prop4";
+        n.schemaPath = "#/components/schemas/PaginatedItemPocketSummaryList/properties/results";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedItemPocketSummaryList/properties/results";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 731
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        n.annDescription = "\"The total number of resources available from this API.\"";
+        n.sourceName = "PaginatedItemSummaryList_component_prop1";
+        n.schemaPath = "#/components/schemas/PaginatedItemSummaryList/properties/count";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedItemSummaryList/properties/count";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 732
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the next page in the list, or null if there is no next page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedItemSummaryList_component_prop2";
+        n.schemaPath = "#/components/schemas/PaginatedItemSummaryList/properties/next";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedItemSummaryList/properties/next";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 733
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the previous page in the list, or null if there is no previous page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedItemSummaryList_component_prop3";
+        n.schemaPath = "#/components/schemas/PaginatedItemSummaryList/properties/previous";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedItemSummaryList/properties/previous";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 734
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1465;
+        n.annDescription = "\"A list of API resources on this page.\"";
+        n.sourceName = "PaginatedItemSummaryList_component_prop4";
+        n.schemaPath = "#/components/schemas/PaginatedItemSummaryList/properties/results";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedItemSummaryList/properties/results";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 735
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        n.annDescription = "\"The total number of resources available from this API.\"";
+        n.sourceName = "PaginatedLanguageSummaryList_component_prop1";
+        n.schemaPath = "#/components/schemas/PaginatedLanguageSummaryList/properties/count";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedLanguageSummaryList/properties/count";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 736
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the next page in the list, or null if there is no next page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedLanguageSummaryList_component_prop2";
+        n.schemaPath = "#/components/schemas/PaginatedLanguageSummaryList/properties/next";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedLanguageSummaryList/properties/next";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 737
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the previous page in the list, or null if there is no previous page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedLanguageSummaryList_component_prop3";
+        n.schemaPath = "#/components/schemas/PaginatedLanguageSummaryList/properties/previous";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedLanguageSummaryList/properties/previous";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 738
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1466;
+        n.annDescription = "\"A list of API resources on this page.\"";
+        n.sourceName = "PaginatedLanguageSummaryList_component_prop4";
+        n.schemaPath = "#/components/schemas/PaginatedLanguageSummaryList/properties/results";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedLanguageSummaryList/properties/results";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 739
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        n.annDescription = "\"The total number of resources available from this API.\"";
+        n.sourceName = "PaginatedLocationAreaSummaryList_component_prop1";
+        n.schemaPath = "#/components/schemas/PaginatedLocationAreaSummaryList/properties/count";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedLocationAreaSummaryList/properties/count";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 740
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the next page in the list, or null if there is no next page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedLocationAreaSummaryList_component_prop2";
+        n.schemaPath = "#/components/schemas/PaginatedLocationAreaSummaryList/properties/next";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedLocationAreaSummaryList/properties/next";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 741
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the previous page in the list, or null if there is no previous page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedLocationAreaSummaryList_component_prop3";
+        n.schemaPath = "#/components/schemas/PaginatedLocationAreaSummaryList/properties/previous";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedLocationAreaSummaryList/properties/previous";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 742
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1467;
+        n.annDescription = "\"A list of API resources on this page.\"";
+        n.sourceName = "PaginatedLocationAreaSummaryList_component_prop4";
+        n.schemaPath = "#/components/schemas/PaginatedLocationAreaSummaryList/properties/results";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedLocationAreaSummaryList/properties/results";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 743
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        n.annDescription = "\"The total number of resources available from this API.\"";
+        n.sourceName = "PaginatedLocationSummaryList_component_prop1";
+        n.schemaPath = "#/components/schemas/PaginatedLocationSummaryList/properties/count";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedLocationSummaryList/properties/count";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 744
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the next page in the list, or null if there is no next page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedLocationSummaryList_component_prop2";
+        n.schemaPath = "#/components/schemas/PaginatedLocationSummaryList/properties/next";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedLocationSummaryList/properties/next";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 745
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the previous page in the list, or null if there is no previous page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedLocationSummaryList_component_prop3";
+        n.schemaPath = "#/components/schemas/PaginatedLocationSummaryList/properties/previous";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedLocationSummaryList/properties/previous";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 746
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1468;
+        n.annDescription = "\"A list of API resources on this page.\"";
+        n.sourceName = "PaginatedLocationSummaryList_component_prop4";
+        n.schemaPath = "#/components/schemas/PaginatedLocationSummaryList/properties/results";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedLocationSummaryList/properties/results";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 747
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        n.annDescription = "\"The total number of resources available from this API.\"";
+        n.sourceName = "PaginatedMachineSummaryList_component_prop1";
+        n.schemaPath = "#/components/schemas/PaginatedMachineSummaryList/properties/count";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMachineSummaryList/properties/count";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 748
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the next page in the list, or null if there is no next page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedMachineSummaryList_component_prop2";
+        n.schemaPath = "#/components/schemas/PaginatedMachineSummaryList/properties/next";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMachineSummaryList/properties/next";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 749
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the previous page in the list, or null if there is no previous page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedMachineSummaryList_component_prop3";
+        n.schemaPath = "#/components/schemas/PaginatedMachineSummaryList/properties/previous";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMachineSummaryList/properties/previous";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 750
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1469;
+        n.annDescription = "\"A list of API resources on this page.\"";
+        n.sourceName = "PaginatedMachineSummaryList_component_prop4";
+        n.schemaPath = "#/components/schemas/PaginatedMachineSummaryList/properties/results";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMachineSummaryList/properties/results";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 751
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        n.annDescription = "\"The total number of resources available from this API.\"";
+        n.sourceName = "PaginatedMoveBattleStyleSummaryList_component_prop1";
+        n.schemaPath = "#/components/schemas/PaginatedMoveBattleStyleSummaryList/properties/count";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMoveBattleStyleSummaryList/properties/count";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 752
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the next page in the list, or null if there is no next page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedMoveBattleStyleSummaryList_component_prop2";
+        n.schemaPath = "#/components/schemas/PaginatedMoveBattleStyleSummaryList/properties/next";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMoveBattleStyleSummaryList/properties/next";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 753
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the previous page in the list, or null if there is no previous page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedMoveBattleStyleSummaryList_component_prop3";
+        n.schemaPath = "#/components/schemas/PaginatedMoveBattleStyleSummaryList/properties/previous";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMoveBattleStyleSummaryList/properties/previous";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 754
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1470;
+        n.annDescription = "\"A list of API resources on this page.\"";
+        n.sourceName = "PaginatedMoveBattleStyleSummaryList_component_prop4";
+        n.schemaPath = "#/components/schemas/PaginatedMoveBattleStyleSummaryList/properties/results";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMoveBattleStyleSummaryList/properties/results";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 755
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        n.annDescription = "\"The total number of resources available from this API.\"";
+        n.sourceName = "PaginatedMoveDamageClassSummaryList_component_prop1";
+        n.schemaPath = "#/components/schemas/PaginatedMoveDamageClassSummaryList/properties/count";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMoveDamageClassSummaryList/properties/count";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 756
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the next page in the list, or null if there is no next page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedMoveDamageClassSummaryList_component_prop2";
+        n.schemaPath = "#/components/schemas/PaginatedMoveDamageClassSummaryList/properties/next";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMoveDamageClassSummaryList/properties/next";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 757
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the previous page in the list, or null if there is no previous page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedMoveDamageClassSummaryList_component_prop3";
+        n.schemaPath = "#/components/schemas/PaginatedMoveDamageClassSummaryList/properties/previous";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMoveDamageClassSummaryList/properties/previous";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 758
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1471;
+        n.annDescription = "\"A list of API resources on this page.\"";
+        n.sourceName = "PaginatedMoveDamageClassSummaryList_component_prop4";
+        n.schemaPath = "#/components/schemas/PaginatedMoveDamageClassSummaryList/properties/results";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMoveDamageClassSummaryList/properties/results";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 759
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        n.annDescription = "\"The total number of resources available from this API.\"";
+        n.sourceName = "PaginatedMoveLearnMethodSummaryList_component_prop1";
+        n.schemaPath = "#/components/schemas/PaginatedMoveLearnMethodSummaryList/properties/count";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMoveLearnMethodSummaryList/properties/count";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 760
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the next page in the list, or null if there is no next page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedMoveLearnMethodSummaryList_component_prop2";
+        n.schemaPath = "#/components/schemas/PaginatedMoveLearnMethodSummaryList/properties/next";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMoveLearnMethodSummaryList/properties/next";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 761
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the previous page in the list, or null if there is no previous page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedMoveLearnMethodSummaryList_component_prop3";
+        n.schemaPath = "#/components/schemas/PaginatedMoveLearnMethodSummaryList/properties/previous";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMoveLearnMethodSummaryList/properties/previous";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 762
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1472;
+        n.annDescription = "\"A list of API resources on this page.\"";
+        n.sourceName = "PaginatedMoveLearnMethodSummaryList_component_prop4";
+        n.schemaPath = "#/components/schemas/PaginatedMoveLearnMethodSummaryList/properties/results";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMoveLearnMethodSummaryList/properties/results";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 763
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        n.annDescription = "\"The total number of resources available from this API.\"";
+        n.sourceName = "PaginatedMoveMetaAilmentSummaryList_component_prop1";
+        n.schemaPath = "#/components/schemas/PaginatedMoveMetaAilmentSummaryList/properties/count";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMoveMetaAilmentSummaryList/properties/count";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 764
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the next page in the list, or null if there is no next page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedMoveMetaAilmentSummaryList_component_prop2";
+        n.schemaPath = "#/components/schemas/PaginatedMoveMetaAilmentSummaryList/properties/next";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMoveMetaAilmentSummaryList/properties/next";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 765
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the previous page in the list, or null if there is no previous page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedMoveMetaAilmentSummaryList_component_prop3";
+        n.schemaPath = "#/components/schemas/PaginatedMoveMetaAilmentSummaryList/properties/previous";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMoveMetaAilmentSummaryList/properties/previous";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 766
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1473;
+        n.annDescription = "\"A list of API resources on this page.\"";
+        n.sourceName = "PaginatedMoveMetaAilmentSummaryList_component_prop4";
+        n.schemaPath = "#/components/schemas/PaginatedMoveMetaAilmentSummaryList/properties/results";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMoveMetaAilmentSummaryList/properties/results";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 767
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        n.annDescription = "\"The total number of resources available from this API.\"";
+        n.sourceName = "PaginatedMoveMetaCategorySummaryList_component_prop1";
+        n.schemaPath = "#/components/schemas/PaginatedMoveMetaCategorySummaryList/properties/count";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMoveMetaCategorySummaryList/properties/count";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 768
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the next page in the list, or null if there is no next page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedMoveMetaCategorySummaryList_component_prop2";
+        n.schemaPath = "#/components/schemas/PaginatedMoveMetaCategorySummaryList/properties/next";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMoveMetaCategorySummaryList/properties/next";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 769
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the previous page in the list, or null if there is no previous page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedMoveMetaCategorySummaryList_component_prop3";
+        n.schemaPath = "#/components/schemas/PaginatedMoveMetaCategorySummaryList/properties/previous";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMoveMetaCategorySummaryList/properties/previous";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 770
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1474;
+        n.annDescription = "\"A list of API resources on this page.\"";
+        n.sourceName = "PaginatedMoveMetaCategorySummaryList_component_prop4";
+        n.schemaPath = "#/components/schemas/PaginatedMoveMetaCategorySummaryList/properties/results";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMoveMetaCategorySummaryList/properties/results";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 771
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        n.annDescription = "\"The total number of resources available from this API.\"";
+        n.sourceName = "PaginatedMoveSummaryList_component_prop1";
+        n.schemaPath = "#/components/schemas/PaginatedMoveSummaryList/properties/count";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMoveSummaryList/properties/count";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 772
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the next page in the list, or null if there is no next page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedMoveSummaryList_component_prop2";
+        n.schemaPath = "#/components/schemas/PaginatedMoveSummaryList/properties/next";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMoveSummaryList/properties/next";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 773
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the previous page in the list, or null if there is no previous page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedMoveSummaryList_component_prop3";
+        n.schemaPath = "#/components/schemas/PaginatedMoveSummaryList/properties/previous";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMoveSummaryList/properties/previous";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 774
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1475;
+        n.annDescription = "\"A list of API resources on this page.\"";
+        n.sourceName = "PaginatedMoveSummaryList_component_prop4";
+        n.schemaPath = "#/components/schemas/PaginatedMoveSummaryList/properties/results";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMoveSummaryList/properties/results";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 775
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        n.annDescription = "\"The total number of resources available from this API.\"";
+        n.sourceName = "PaginatedMoveTargetSummaryList_component_prop1";
+        n.schemaPath = "#/components/schemas/PaginatedMoveTargetSummaryList/properties/count";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMoveTargetSummaryList/properties/count";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 776
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the next page in the list, or null if there is no next page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedMoveTargetSummaryList_component_prop2";
+        n.schemaPath = "#/components/schemas/PaginatedMoveTargetSummaryList/properties/next";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMoveTargetSummaryList/properties/next";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 777
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the previous page in the list, or null if there is no previous page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedMoveTargetSummaryList_component_prop3";
+        n.schemaPath = "#/components/schemas/PaginatedMoveTargetSummaryList/properties/previous";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMoveTargetSummaryList/properties/previous";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 778
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1476;
+        n.annDescription = "\"A list of API resources on this page.\"";
+        n.sourceName = "PaginatedMoveTargetSummaryList_component_prop4";
+        n.schemaPath = "#/components/schemas/PaginatedMoveTargetSummaryList/properties/results";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedMoveTargetSummaryList/properties/results";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 779
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        n.annDescription = "\"The total number of resources available from this API.\"";
+        n.sourceName = "PaginatedNatureSummaryList_component_prop1";
+        n.schemaPath = "#/components/schemas/PaginatedNatureSummaryList/properties/count";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedNatureSummaryList/properties/count";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 780
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the next page in the list, or null if there is no next page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedNatureSummaryList_component_prop2";
+        n.schemaPath = "#/components/schemas/PaginatedNatureSummaryList/properties/next";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedNatureSummaryList/properties/next";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 781
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the previous page in the list, or null if there is no previous page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedNatureSummaryList_component_prop3";
+        n.schemaPath = "#/components/schemas/PaginatedNatureSummaryList/properties/previous";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedNatureSummaryList/properties/previous";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 782
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1477;
+        n.annDescription = "\"A list of API resources on this page.\"";
+        n.sourceName = "PaginatedNatureSummaryList_component_prop4";
+        n.schemaPath = "#/components/schemas/PaginatedNatureSummaryList/properties/results";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedNatureSummaryList/properties/results";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 783
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        n.annDescription = "\"The total number of resources available from this API.\"";
+        n.sourceName = "PaginatedPalParkAreaSummaryList_component_prop1";
+        n.schemaPath = "#/components/schemas/PaginatedPalParkAreaSummaryList/properties/count";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPalParkAreaSummaryList/properties/count";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 784
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the next page in the list, or null if there is no next page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedPalParkAreaSummaryList_component_prop2";
+        n.schemaPath = "#/components/schemas/PaginatedPalParkAreaSummaryList/properties/next";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPalParkAreaSummaryList/properties/next";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 785
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the previous page in the list, or null if there is no previous page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedPalParkAreaSummaryList_component_prop3";
+        n.schemaPath = "#/components/schemas/PaginatedPalParkAreaSummaryList/properties/previous";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPalParkAreaSummaryList/properties/previous";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 786
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1478;
+        n.annDescription = "\"A list of API resources on this page.\"";
+        n.sourceName = "PaginatedPalParkAreaSummaryList_component_prop4";
+        n.schemaPath = "#/components/schemas/PaginatedPalParkAreaSummaryList/properties/results";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPalParkAreaSummaryList/properties/results";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 787
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        n.annDescription = "\"The total number of resources available from this API.\"";
+        n.sourceName = "PaginatedPokeathlonStatSummaryList_component_prop1";
+        n.schemaPath = "#/components/schemas/PaginatedPokeathlonStatSummaryList/properties/count";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokeathlonStatSummaryList/properties/count";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 788
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the next page in the list, or null if there is no next page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedPokeathlonStatSummaryList_component_prop2";
+        n.schemaPath = "#/components/schemas/PaginatedPokeathlonStatSummaryList/properties/next";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokeathlonStatSummaryList/properties/next";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 789
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the previous page in the list, or null if there is no previous page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedPokeathlonStatSummaryList_component_prop3";
+        n.schemaPath = "#/components/schemas/PaginatedPokeathlonStatSummaryList/properties/previous";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokeathlonStatSummaryList/properties/previous";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 790
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1479;
+        n.annDescription = "\"A list of API resources on this page.\"";
+        n.sourceName = "PaginatedPokeathlonStatSummaryList_component_prop4";
+        n.schemaPath = "#/components/schemas/PaginatedPokeathlonStatSummaryList/properties/results";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokeathlonStatSummaryList/properties/results";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 791
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        n.annDescription = "\"The total number of resources available from this API.\"";
+        n.sourceName = "PaginatedPokedexSummaryList_component_prop1";
+        n.schemaPath = "#/components/schemas/PaginatedPokedexSummaryList/properties/count";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokedexSummaryList/properties/count";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 792
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the next page in the list, or null if there is no next page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedPokedexSummaryList_component_prop2";
+        n.schemaPath = "#/components/schemas/PaginatedPokedexSummaryList/properties/next";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokedexSummaryList/properties/next";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 793
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the previous page in the list, or null if there is no previous page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedPokedexSummaryList_component_prop3";
+        n.schemaPath = "#/components/schemas/PaginatedPokedexSummaryList/properties/previous";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokedexSummaryList/properties/previous";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 794
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1480;
+        n.annDescription = "\"A list of API resources on this page.\"";
+        n.sourceName = "PaginatedPokedexSummaryList_component_prop4";
+        n.schemaPath = "#/components/schemas/PaginatedPokedexSummaryList/properties/results";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokedexSummaryList/properties/results";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 795
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        n.annDescription = "\"The total number of resources available from this API.\"";
+        n.sourceName = "PaginatedPokemonColorSummaryList_component_prop1";
+        n.schemaPath = "#/components/schemas/PaginatedPokemonColorSummaryList/properties/count";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokemonColorSummaryList/properties/count";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 796
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the next page in the list, or null if there is no next page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedPokemonColorSummaryList_component_prop2";
+        n.schemaPath = "#/components/schemas/PaginatedPokemonColorSummaryList/properties/next";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokemonColorSummaryList/properties/next";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 797
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the previous page in the list, or null if there is no previous page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedPokemonColorSummaryList_component_prop3";
+        n.schemaPath = "#/components/schemas/PaginatedPokemonColorSummaryList/properties/previous";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokemonColorSummaryList/properties/previous";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 798
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1481;
+        n.annDescription = "\"A list of API resources on this page.\"";
+        n.sourceName = "PaginatedPokemonColorSummaryList_component_prop4";
+        n.schemaPath = "#/components/schemas/PaginatedPokemonColorSummaryList/properties/results";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokemonColorSummaryList/properties/results";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 799
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        n.annDescription = "\"The total number of resources available from this API.\"";
+        n.sourceName = "PaginatedPokemonFormSummaryList_component_prop1";
+        n.schemaPath = "#/components/schemas/PaginatedPokemonFormSummaryList/properties/count";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokemonFormSummaryList/properties/count";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 800
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the next page in the list, or null if there is no next page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedPokemonFormSummaryList_component_prop2";
+        n.schemaPath = "#/components/schemas/PaginatedPokemonFormSummaryList/properties/next";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokemonFormSummaryList/properties/next";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 801
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the previous page in the list, or null if there is no previous page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedPokemonFormSummaryList_component_prop3";
+        n.schemaPath = "#/components/schemas/PaginatedPokemonFormSummaryList/properties/previous";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokemonFormSummaryList/properties/previous";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 802
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1482;
+        n.annDescription = "\"A list of API resources on this page.\"";
+        n.sourceName = "PaginatedPokemonFormSummaryList_component_prop4";
+        n.schemaPath = "#/components/schemas/PaginatedPokemonFormSummaryList/properties/results";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokemonFormSummaryList/properties/results";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 803
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        n.annDescription = "\"The total number of resources available from this API.\"";
+        n.sourceName = "PaginatedPokemonHabitatSummaryList_component_prop1";
+        n.schemaPath = "#/components/schemas/PaginatedPokemonHabitatSummaryList/properties/count";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokemonHabitatSummaryList/properties/count";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 804
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the next page in the list, or null if there is no next page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedPokemonHabitatSummaryList_component_prop2";
+        n.schemaPath = "#/components/schemas/PaginatedPokemonHabitatSummaryList/properties/next";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokemonHabitatSummaryList/properties/next";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 805
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the previous page in the list, or null if there is no previous page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedPokemonHabitatSummaryList_component_prop3";
+        n.schemaPath = "#/components/schemas/PaginatedPokemonHabitatSummaryList/properties/previous";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokemonHabitatSummaryList/properties/previous";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 806
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1483;
+        n.annDescription = "\"A list of API resources on this page.\"";
+        n.sourceName = "PaginatedPokemonHabitatSummaryList_component_prop4";
+        n.schemaPath = "#/components/schemas/PaginatedPokemonHabitatSummaryList/properties/results";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokemonHabitatSummaryList/properties/results";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 807
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        n.annDescription = "\"The total number of resources available from this API.\"";
+        n.sourceName = "PaginatedPokemonShapeSummaryList_component_prop1";
+        n.schemaPath = "#/components/schemas/PaginatedPokemonShapeSummaryList/properties/count";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokemonShapeSummaryList/properties/count";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 808
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the next page in the list, or null if there is no next page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedPokemonShapeSummaryList_component_prop2";
+        n.schemaPath = "#/components/schemas/PaginatedPokemonShapeSummaryList/properties/next";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokemonShapeSummaryList/properties/next";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 809
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the previous page in the list, or null if there is no previous page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedPokemonShapeSummaryList_component_prop3";
+        n.schemaPath = "#/components/schemas/PaginatedPokemonShapeSummaryList/properties/previous";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokemonShapeSummaryList/properties/previous";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 810
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1484;
+        n.annDescription = "\"A list of API resources on this page.\"";
+        n.sourceName = "PaginatedPokemonShapeSummaryList_component_prop4";
+        n.schemaPath = "#/components/schemas/PaginatedPokemonShapeSummaryList/properties/results";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokemonShapeSummaryList/properties/results";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 811
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        n.annDescription = "\"The total number of resources available from this API.\"";
+        n.sourceName = "PaginatedPokemonSpeciesSummaryList_component_prop1";
+        n.schemaPath = "#/components/schemas/PaginatedPokemonSpeciesSummaryList/properties/count";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokemonSpeciesSummaryList/properties/count";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 812
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the next page in the list, or null if there is no next page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedPokemonSpeciesSummaryList_component_prop2";
+        n.schemaPath = "#/components/schemas/PaginatedPokemonSpeciesSummaryList/properties/next";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokemonSpeciesSummaryList/properties/next";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 813
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the previous page in the list, or null if there is no previous page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedPokemonSpeciesSummaryList_component_prop3";
+        n.schemaPath = "#/components/schemas/PaginatedPokemonSpeciesSummaryList/properties/previous";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokemonSpeciesSummaryList/properties/previous";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 814
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1485;
+        n.annDescription = "\"A list of API resources on this page.\"";
+        n.sourceName = "PaginatedPokemonSpeciesSummaryList_component_prop4";
+        n.schemaPath = "#/components/schemas/PaginatedPokemonSpeciesSummaryList/properties/results";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokemonSpeciesSummaryList/properties/results";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 815
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        n.annDescription = "\"The total number of resources available from this API.\"";
+        n.sourceName = "PaginatedPokemonSummaryList_component_prop1";
+        n.schemaPath = "#/components/schemas/PaginatedPokemonSummaryList/properties/count";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokemonSummaryList/properties/count";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 816
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the next page in the list, or null if there is no next page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedPokemonSummaryList_component_prop2";
+        n.schemaPath = "#/components/schemas/PaginatedPokemonSummaryList/properties/next";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokemonSummaryList/properties/next";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 817
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the previous page in the list, or null if there is no previous page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedPokemonSummaryList_component_prop3";
+        n.schemaPath = "#/components/schemas/PaginatedPokemonSummaryList/properties/previous";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokemonSummaryList/properties/previous";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 818
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1486;
+        n.annDescription = "\"A list of API resources on this page.\"";
+        n.sourceName = "PaginatedPokemonSummaryList_component_prop4";
+        n.schemaPath = "#/components/schemas/PaginatedPokemonSummaryList/properties/results";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedPokemonSummaryList/properties/results";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 819
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        n.annDescription = "\"The total number of resources available from this API.\"";
+        n.sourceName = "PaginatedRegionSummaryList_component_prop1";
+        n.schemaPath = "#/components/schemas/PaginatedRegionSummaryList/properties/count";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedRegionSummaryList/properties/count";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 820
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the next page in the list, or null if there is no next page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedRegionSummaryList_component_prop2";
+        n.schemaPath = "#/components/schemas/PaginatedRegionSummaryList/properties/next";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedRegionSummaryList/properties/next";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 821
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the previous page in the list, or null if there is no previous page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedRegionSummaryList_component_prop3";
+        n.schemaPath = "#/components/schemas/PaginatedRegionSummaryList/properties/previous";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedRegionSummaryList/properties/previous";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 822
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1487;
+        n.annDescription = "\"A list of API resources on this page.\"";
+        n.sourceName = "PaginatedRegionSummaryList_component_prop4";
+        n.schemaPath = "#/components/schemas/PaginatedRegionSummaryList/properties/results";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedRegionSummaryList/properties/results";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 823
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        n.annDescription = "\"The total number of resources available from this API.\"";
+        n.sourceName = "PaginatedStatSummaryList_component_prop1";
+        n.schemaPath = "#/components/schemas/PaginatedStatSummaryList/properties/count";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedStatSummaryList/properties/count";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 824
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the next page in the list, or null if there is no next page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedStatSummaryList_component_prop2";
+        n.schemaPath = "#/components/schemas/PaginatedStatSummaryList/properties/next";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedStatSummaryList/properties/next";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 825
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the previous page in the list, or null if there is no previous page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedStatSummaryList_component_prop3";
+        n.schemaPath = "#/components/schemas/PaginatedStatSummaryList/properties/previous";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedStatSummaryList/properties/previous";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 826
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1488;
+        n.annDescription = "\"A list of API resources on this page.\"";
+        n.sourceName = "PaginatedStatSummaryList_component_prop4";
+        n.schemaPath = "#/components/schemas/PaginatedStatSummaryList/properties/results";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedStatSummaryList/properties/results";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 827
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        n.annDescription = "\"The total number of resources available from this API.\"";
+        n.sourceName = "PaginatedSuperContestEffectSummaryList_component_prop1";
+        n.schemaPath = "#/components/schemas/PaginatedSuperContestEffectSummaryList/properties/count";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedSuperContestEffectSummaryList/properties/count";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 828
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the next page in the list, or null if there is no next page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedSuperContestEffectSummaryList_component_prop2";
+        n.schemaPath = "#/components/schemas/PaginatedSuperContestEffectSummaryList/properties/next";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedSuperContestEffectSummaryList/properties/next";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 829
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the previous page in the list, or null if there is no previous page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedSuperContestEffectSummaryList_component_prop3";
+        n.schemaPath = "#/components/schemas/PaginatedSuperContestEffectSummaryList/properties/previous";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedSuperContestEffectSummaryList/properties/previous";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 830
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1489;
+        n.annDescription = "\"A list of API resources on this page.\"";
+        n.sourceName = "PaginatedSuperContestEffectSummaryList_component_prop4";
+        n.schemaPath = "#/components/schemas/PaginatedSuperContestEffectSummaryList/properties/results";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedSuperContestEffectSummaryList/properties/results";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 831
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        n.annDescription = "\"The total number of resources available from this API.\"";
+        n.sourceName = "PaginatedTypeSummaryList_component_prop1";
+        n.schemaPath = "#/components/schemas/PaginatedTypeSummaryList/properties/count";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedTypeSummaryList/properties/count";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 832
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the next page in the list, or null if there is no next page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedTypeSummaryList_component_prop2";
+        n.schemaPath = "#/components/schemas/PaginatedTypeSummaryList/properties/next";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedTypeSummaryList/properties/next";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 833
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the previous page in the list, or null if there is no previous page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedTypeSummaryList_component_prop3";
+        n.schemaPath = "#/components/schemas/PaginatedTypeSummaryList/properties/previous";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedTypeSummaryList/properties/previous";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 834
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1490;
+        n.annDescription = "\"A list of API resources on this page.\"";
+        n.sourceName = "PaginatedTypeSummaryList_component_prop4";
+        n.schemaPath = "#/components/schemas/PaginatedTypeSummaryList/properties/results";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedTypeSummaryList/properties/results";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 835
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        n.annDescription = "\"The total number of resources available from this API.\"";
+        n.sourceName = "PaginatedVersionGroupSummaryList_component_prop1";
+        n.schemaPath = "#/components/schemas/PaginatedVersionGroupSummaryList/properties/count";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedVersionGroupSummaryList/properties/count";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 836
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the next page in the list, or null if there is no next page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedVersionGroupSummaryList_component_prop2";
+        n.schemaPath = "#/components/schemas/PaginatedVersionGroupSummaryList/properties/next";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedVersionGroupSummaryList/properties/next";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 837
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the previous page in the list, or null if there is no previous page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedVersionGroupSummaryList_component_prop3";
+        n.schemaPath = "#/components/schemas/PaginatedVersionGroupSummaryList/properties/previous";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedVersionGroupSummaryList/properties/previous";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 838
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1491;
+        n.annDescription = "\"A list of API resources on this page.\"";
+        n.sourceName = "PaginatedVersionGroupSummaryList_component_prop4";
+        n.schemaPath = "#/components/schemas/PaginatedVersionGroupSummaryList/properties/results";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedVersionGroupSummaryList/properties/results";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 839
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        n.annDescription = "\"The total number of resources available from this API.\"";
+        n.sourceName = "PaginatedVersionSummaryList_component_prop1";
+        n.schemaPath = "#/components/schemas/PaginatedVersionSummaryList/properties/count";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedVersionSummaryList/properties/count";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 840
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the next page in the list, or null if there is no next page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedVersionSummaryList_component_prop2";
+        n.schemaPath = "#/components/schemas/PaginatedVersionSummaryList/properties/next";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedVersionSummaryList/properties/next";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 841
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL for the previous page in the list, or null if there is no previous page.\"";
+        n.annFormat = "\"uri\"";
+        n.sourceName = "PaginatedVersionSummaryList_component_prop3";
+        n.schemaPath = "#/components/schemas/PaginatedVersionSummaryList/properties/previous";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedVersionSummaryList/properties/previous";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 842
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1492;
+        n.annDescription = "\"A list of API resources on this page.\"";
+        n.sourceName = "PaginatedVersionSummaryList_component_prop4";
+        n.schemaPath = "#/components/schemas/PaginatedVersionSummaryList/properties/results";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PaginatedVersionSummaryList/properties/results";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 843
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        n.annDescription = "\"The identifier for this resource.\"";
+        n.annReadOnlyJson = "true";
+        n.sourceName = "PalParkAreaDetail_component_prop1";
+        n.schemaPath = "#/components/schemas/PalParkAreaDetail/properties/id";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PalParkAreaDetail/properties/id";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 844
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        setExact(n.maxLength, n.hasMaxLength, "200");
+        n.annDescription = "\"The name for this resource.\"";
+        n.sourceName = "PalParkAreaDetail_component_prop2";
+        n.schemaPath = "#/components/schemas/PalParkAreaDetail/properties/name";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PalParkAreaDetail/properties/name";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 845
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1493;
+        n.annDescription = "\"The name of this resource listed in different languages.\"";
+        n.annReadOnlyJson = "true";
+        n.sourceName = "PalParkAreaDetail_component_prop3";
+        n.schemaPath = "#/components/schemas/PalParkAreaDetail/properties/names";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PalParkAreaDetail/properties/names";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 846
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1494;
+        n.annDescription = "\"A list of Pok\303\251mon encountered in thi pal park area along with details.\"";
+        n.annReadOnlyJson = "true";
+        n.sourceName = "PalParkAreaDetail_component_prop4";
+        n.schemaPath = "#/components/schemas/PalParkAreaDetail/properties/pokemon_encounters";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PalParkAreaDetail/properties/pokemon_encounters";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 847
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.allOfChildren.push_back(1495);
+        n.annDescription = "\"The language this name is in.\"";
+        n.sourceName = "PalParkAreaName_component_prop1";
+        n.schemaPath = "#/components/schemas/PalParkAreaName/properties/language";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PalParkAreaName/properties/language";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 848
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        setExact(n.maxLength, n.hasMaxLength, "200");
+        n.annDescription = "\"The localized name for an API resource in a specific language.\"";
+        n.sourceName = "PalParkAreaName_component_prop2";
+        n.schemaPath = "#/components/schemas/PalParkAreaName/properties/name";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PalParkAreaName/properties/name";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 849
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        setExact(n.maxLength, n.hasMaxLength, "200");
+        n.annDescription = "\"The name of the referenced resource.\"";
+        n.sourceName = "PalParkAreaSummary_component_prop1";
+        n.schemaPath = "#/components/schemas/PalParkAreaSummary/properties/name";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PalParkAreaSummary/properties/name";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 850
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The URL of the referenced resource.\"";
         n.annReadOnlyJson = "true";
         n.annFormat = "\"uri\"";
         n.sourceName = "PalParkAreaSummary_component_prop2";
@@ -2817,24 +4236,141 @@ void appendSchemaRegistryChunk1(SchemaResourceRegistry& reg) {
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 667
+    { // node 851
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(2020);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "decrease"; b.node = 1143; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "increase"; b.node = 1144; n.properties.push_back(std::move(b)); }
+        n.typeFlags = 64u;
+        setExact(n.minimum, n.hasMinimum, "-2147483648");
+        setExact(n.maximum, n.hasMaximum, "2147483647");
+        n.annDescription = "\"The base score given to the player when this Pok\303\251mon is caught during a pal park run.\"";
+        n.sourceName = "PalParkEncounter_component_prop1";
+        n.schemaPath = "#/components/schemas/PalParkEncounter/properties/base_score";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PalParkEncounter/properties/base_score";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 852
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.allOfChildren.push_back(1496);
+        n.annDescription = "\"The Pok\303\251mon species being encountered.\"";
+        n.sourceName = "PalParkEncounter_component_prop2";
+        n.schemaPath = "#/components/schemas/PalParkEncounter/properties/pokemon_species";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PalParkEncounter/properties/pokemon_species";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 853
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        setExact(n.minimum, n.hasMinimum, "-2147483648");
+        setExact(n.maximum, n.hasMaximum, "2147483647");
+        n.annDescription = "\"The base rate for encountering this Pok\303\251mon in this pal park area.\"";
+        n.sourceName = "PalParkEncounter_component_prop3";
+        n.schemaPath = "#/components/schemas/PalParkEncounter/properties/rate";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PalParkEncounter/properties/rate";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 854
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The deployment time as a Unix timestamp string.\"";
+        n.sourceName = "PokeapiMetaResponse_component_prop1";
+        n.schemaPath = "#/components/schemas/PokeapiMetaResponse/properties/deploy_date";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokeapiMetaResponse/properties/deploy_date";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 855
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The source commit hash used for this deployment.\"";
+        n.sourceName = "PokeapiMetaResponse_component_prop2";
+        n.schemaPath = "#/components/schemas/PokeapiMetaResponse/properties/hash";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokeapiMetaResponse/properties/hash";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 856
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The deployment tag, or null if the deployment has no tag.\"";
+        n.sourceName = "PokeapiMetaResponse_component_prop3";
+        n.schemaPath = "#/components/schemas/PokeapiMetaResponse/properties/tag";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokeapiMetaResponse/properties/tag";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 857
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        setExact(n.minimum, n.hasMinimum, "-2147483648");
+        setExact(n.maximum, n.hasMaximum, "2147483647");
+        n.annDescription = "\"The maximum amount of change to the referenced Pok\303\251athlon stat.\"";
+        n.sourceName = "PokeathlonStatAffectingNature_component_prop1";
+        n.schemaPath = "#/components/schemas/PokeathlonStatAffectingNature/properties/max_change";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokeathlonStatAffectingNature/properties/max_change";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 858
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.allOfChildren.push_back(1497);
+        n.annDescription = "\"The nature causing the change.\"";
+        n.sourceName = "PokeathlonStatAffectingNature_component_prop2";
+        n.schemaPath = "#/components/schemas/PokeathlonStatAffectingNature/properties/nature";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokeathlonStatAffectingNature/properties/nature";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 859
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1498;
+        n.annDescription = "\"A list of natures and how they change the referenced Pok\303\251athlon stat.\"";
+        n.sourceName = "PokeathlonStatAffectingNatures_component_prop1";
+        n.schemaPath = "#/components/schemas/PokeathlonStatAffectingNatures/properties/decrease";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokeathlonStatAffectingNatures/properties/decrease";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 860
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1499;
+        n.annDescription = "\"A list of natures and how they change the referenced Pok\303\251athlon stat.\"";
+        n.sourceName = "PokeathlonStatAffectingNatures_component_prop2";
+        n.schemaPath = "#/components/schemas/PokeathlonStatAffectingNatures/properties/increase";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokeathlonStatAffectingNatures/properties/increase";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 861
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.allOfChildren.push_back(1500);
+        n.annDescription = "\"A detail of natures which affect this Pok\303\251athlon stat positively or negatively.\"";
+        n.annReadOnlyJson = "true";
         n.sourceName = "PokeathlonStatDetail_component_prop1";
         n.schemaPath = "#/components/schemas/PokeathlonStatDetail/properties/affecting_natures";
         n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokeathlonStatDetail/properties/affecting_natures";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 668
+    { // node 862
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 64u;
+        n.annDescription = "\"The identifier for this resource.\"";
         n.annReadOnlyJson = "true";
         n.sourceName = "PokeathlonStatDetail_component_prop2";
         n.schemaPath = "#/components/schemas/PokeathlonStatDetail/properties/id";
@@ -2842,22 +4378,24 @@ void appendSchemaRegistryChunk1(SchemaResourceRegistry& reg) {
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 669
+    { // node 863
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 8u;
-        setExact(n.maxLength, n.hasMaxLength, "100");
+        setExact(n.maxLength, n.hasMaxLength, "200");
+        n.annDescription = "\"The name for this resource.\"";
         n.sourceName = "PokeathlonStatDetail_component_prop3";
         n.schemaPath = "#/components/schemas/PokeathlonStatDetail/properties/name";
         n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokeathlonStatDetail/properties/name";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 670
+    { // node 864
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 16u;
-        n.items = 1145;
+        n.items = 1501;
+        n.annDescription = "\"The name of this resource listed in different languages.\"";
         n.annReadOnlyJson = "true";
         n.sourceName = "PokeathlonStatDetail_component_prop4";
         n.schemaPath = "#/components/schemas/PokeathlonStatDetail/properties/names";
@@ -2865,119 +4403,46 @@ void appendSchemaRegistryChunk1(SchemaResourceRegistry& reg) {
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 671
+    { // node 865
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1146;
-        n.sourceName = "PokeathlonStatDetail_affecting_natures_component_prop1";
-        n.schemaPath = "#/components/schemas/PokeathlonStatDetail_affecting_natures/properties/decrease";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokeathlonStatDetail_affecting_natures/properties/decrease";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 672
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1147;
-        n.sourceName = "PokeathlonStatDetail_affecting_natures_component_prop2";
-        n.schemaPath = "#/components/schemas/PokeathlonStatDetail_affecting_natures/properties/increase";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokeathlonStatDetail_affecting_natures/properties/increase";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 673
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        setExact(n.maximum, n.hasMaximum, "-1");
-        n.annExamplesJson = "[-1]";
-        n.annFormat = "\"int32\"";
-        n.sourceName = "PokeathlonStatDetail_affecting_natures_decrease_inner_component_prop1";
-        n.schemaPath = "#/components/schemas/PokeathlonStatDetail_affecting_natures_decrease_inner/properties/max_change";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokeathlonStatDetail_affecting_natures_decrease_inner/properties/max_change";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 674
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1148; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1149; n.properties.push_back(std::move(b)); }
-        n.sourceName = "PokeathlonStatDetail_affecting_natures_decrease_inner_component_prop2";
-        n.schemaPath = "#/components/schemas/PokeathlonStatDetail_affecting_natures_decrease_inner/properties/nature";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokeathlonStatDetail_affecting_natures_decrease_inner/properties/nature";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 675
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        setExact(n.minimum, n.hasMinimum, "1");
-        n.annExamplesJson = "[2]";
-        n.annFormat = "\"int32\"";
-        n.sourceName = "PokeathlonStatDetail_affecting_natures_increase_inner_component_prop1";
-        n.schemaPath = "#/components/schemas/PokeathlonStatDetail_affecting_natures_increase_inner/properties/max_change";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokeathlonStatDetail_affecting_natures_increase_inner/properties/max_change";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 676
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1150; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1151; n.properties.push_back(std::move(b)); }
-        n.sourceName = "PokeathlonStatDetail_affecting_natures_increase_inner_component_prop2";
-        n.schemaPath = "#/components/schemas/PokeathlonStatDetail_affecting_natures_increase_inner/properties/nature";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokeathlonStatDetail_affecting_natures_increase_inner/properties/nature";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 677
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1912);
+        n.allOfChildren.push_back(1502);
+        n.annDescription = "\"The language this name is in.\"";
         n.sourceName = "PokeathlonStatName_component_prop1";
         n.schemaPath = "#/components/schemas/PokeathlonStatName/properties/language";
         n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokeathlonStatName/properties/language";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 678
+    { // node 866
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 8u;
-        setExact(n.maxLength, n.hasMaxLength, "100");
+        setExact(n.maxLength, n.hasMaxLength, "200");
+        n.annDescription = "\"The localized name for an API resource in a specific language.\"";
         n.sourceName = "PokeathlonStatName_component_prop2";
         n.schemaPath = "#/components/schemas/PokeathlonStatName/properties/name";
         n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokeathlonStatName/properties/name";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 679
+    { // node 867
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 8u;
-        setExact(n.maxLength, n.hasMaxLength, "100");
+        setExact(n.maxLength, n.hasMaxLength, "200");
+        n.annDescription = "\"The name of the referenced resource.\"";
         n.sourceName = "PokeathlonStatSummary_component_prop1";
         n.schemaPath = "#/components/schemas/PokeathlonStatSummary/properties/name";
         n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokeathlonStatSummary/properties/name";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 680
+    { // node 868
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 8u;
+        n.annDescription = "\"The URL of the referenced resource.\"";
         n.annReadOnlyJson = "true";
         n.annFormat = "\"uri\"";
         n.sourceName = "PokeathlonStatSummary_component_prop2";
@@ -2986,33 +4451,35 @@ void appendSchemaRegistryChunk1(SchemaResourceRegistry& reg) {
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 681
+    { // node 869
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 8u;
-        setExact(n.maxLength, n.hasMaxLength, "1000");
+        setExact(n.maxLength, n.hasMaxLength, "2000");
+        n.annDescription = "\"The localized description for an API resource in a specific language.\"";
         n.sourceName = "PokedexDescription_component_prop1";
         n.schemaPath = "#/components/schemas/PokedexDescription/properties/description";
         n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokedexDescription/properties/description";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 682
+    { // node 870
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1912);
+        n.allOfChildren.push_back(1503);
+        n.annDescription = "\"The language this name is in.\"";
         n.sourceName = "PokedexDescription_component_prop2";
         n.schemaPath = "#/components/schemas/PokedexDescription/properties/language";
         n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokedexDescription/properties/language";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 683
+    { // node 871
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 16u;
-        n.items = 1152;
+        n.items = 1504;
+        n.annDescription = "\"The description of this resource listed in different languages.\"";
         n.annReadOnlyJson = "true";
         n.sourceName = "PokedexDetail_component_prop1";
         n.schemaPath = "#/components/schemas/PokedexDetail/properties/descriptions";
@@ -3020,10 +4487,11 @@ void appendSchemaRegistryChunk1(SchemaResourceRegistry& reg) {
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 684
+    { // node 872
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 64u;
+        n.annDescription = "\"The identifier for this resource.\"";
         n.annReadOnlyJson = "true";
         n.sourceName = "PokedexDetail_component_prop2";
         n.schemaPath = "#/components/schemas/PokedexDetail/properties/id";
@@ -3031,32 +4499,35 @@ void appendSchemaRegistryChunk1(SchemaResourceRegistry& reg) {
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 685
+    { // node 873
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 2u;
+        n.annDescription = "\"Whether or not this Pok\303\251dex originated in the main series of the video games.\"";
         n.sourceName = "PokedexDetail_component_prop3";
         n.schemaPath = "#/components/schemas/PokedexDetail/properties/is_main_series";
         n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokedexDetail/properties/is_main_series";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 686
+    { // node 874
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 8u;
-        setExact(n.maxLength, n.hasMaxLength, "100");
+        setExact(n.maxLength, n.hasMaxLength, "200");
+        n.annDescription = "\"The name for this resource.\"";
         n.sourceName = "PokedexDetail_component_prop4";
         n.schemaPath = "#/components/schemas/PokedexDetail/properties/name";
         n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokedexDetail/properties/name";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 687
+    { // node 875
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 16u;
-        n.items = 1153;
+        n.items = 1505;
+        n.annDescription = "\"The name of this resource listed in different languages.\"";
         n.annReadOnlyJson = "true";
         n.sourceName = "PokedexDetail_component_prop5";
         n.schemaPath = "#/components/schemas/PokedexDetail/properties/names";
@@ -3064,11 +4535,12 @@ void appendSchemaRegistryChunk1(SchemaResourceRegistry& reg) {
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 688
+    { // node 876
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 16u;
-        n.items = 1154;
+        n.items = 1506;
+        n.annDescription = "\"A list of Pok\303\251mon catalogued in this Pok\303\251dex and their indexes.\"";
         n.annReadOnlyJson = "true";
         n.sourceName = "PokedexDetail_component_prop6";
         n.schemaPath = "#/components/schemas/PokedexDetail/properties/pokemon_entries";
@@ -3076,22 +4548,23 @@ void appendSchemaRegistryChunk1(SchemaResourceRegistry& reg) {
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 689
+    { // node 877
         SchemaNode n;
         n.resourceIdentity = 0;
         n.applicator = ApplicatorKind::ref;
-        n.children.push_back(2067);
+        n.children.push_back(1877);
         n.sourceName = "PokedexDetail_component_prop7";
         n.schemaPath = "#/components/schemas/PokedexDetail/properties/region";
         n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokedexDetail/properties/region";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 690
+    { // node 878
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 16u;
-        n.items = 1155;
+        n.items = 1507;
+        n.annDescription = "\"A list of version groups this Pok\303\251dex is relevant to.\"";
         n.annReadOnlyJson = "true";
         n.sourceName = "PokedexDetail_component_prop8";
         n.schemaPath = "#/components/schemas/PokedexDetail/properties/version_groups";
@@ -3099,69 +4572,67 @@ void appendSchemaRegistryChunk1(SchemaResourceRegistry& reg) {
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 691
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.annExamplesJson = "[1]";
-        n.annFormat = "\"int32\"";
-        n.sourceName = "PokedexDetail_pokemon_entries_inner_component_prop1";
-        n.schemaPath = "#/components/schemas/PokedexDetail_pokemon_entries_inner/properties/entry_number";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokedexDetail_pokemon_entries_inner/properties/entry_number";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 692
+    { // node 879
         SchemaNode n;
         n.resourceIdentity = 0;
         n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1156; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1157; n.properties.push_back(std::move(b)); }
-        n.sourceName = "PokedexDetail_pokemon_entries_inner_component_prop2";
-        n.schemaPath = "#/components/schemas/PokedexDetail_pokemon_entries_inner/properties/pokemon_species";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokedexDetail_pokemon_entries_inner/properties/pokemon_species";
+        n.children.push_back(1951);
+        n.sourceName = "PokedexDetail_region_component_app1";
+        n.schemaPath = "#/components/schemas/PokedexDetail_region/oneOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokedexDetail_region/oneOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 693
+    { // node 880
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1912);
+        n.typeFlags = 1u;
+        n.sourceName = "PokedexDetail_region_component_app2";
+        n.schemaPath = "#/components/schemas/PokedexDetail_region/oneOf/1";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokedexDetail_region/oneOf/1";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 881
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.allOfChildren.push_back(1508);
+        n.annDescription = "\"The language this name is in.\"";
         n.sourceName = "PokedexName_component_prop1";
         n.schemaPath = "#/components/schemas/PokedexName/properties/language";
         n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokedexName/properties/language";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 694
+    { // node 882
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 8u;
-        setExact(n.maxLength, n.hasMaxLength, "100");
+        setExact(n.maxLength, n.hasMaxLength, "200");
+        n.annDescription = "\"The localized name for an API resource in a specific language.\"";
         n.sourceName = "PokedexName_component_prop2";
         n.schemaPath = "#/components/schemas/PokedexName/properties/name";
         n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokedexName/properties/name";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 695
+    { // node 883
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 8u;
-        setExact(n.maxLength, n.hasMaxLength, "100");
+        setExact(n.maxLength, n.hasMaxLength, "200");
+        n.annDescription = "\"The name of the referenced resource.\"";
         n.sourceName = "PokedexSummary_component_prop1";
         n.schemaPath = "#/components/schemas/PokedexSummary/properties/name";
         n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokedexSummary/properties/name";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 696
+    { // node 884
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 8u;
+        n.annDescription = "\"The URL of the referenced resource.\"";
         n.annReadOnlyJson = "true";
         n.annFormat = "\"uri\"";
         n.sourceName = "PokedexSummary_component_prop2";
@@ -3170,10 +4641,102 @@ void appendSchemaRegistryChunk1(SchemaResourceRegistry& reg) {
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 697
+    { // node 885
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.allOfChildren.push_back(1509);
+        n.annDescription = "\"The ability the Pok\303\251mon may have.\"";
+        n.sourceName = "PokemonAbility_component_prop1";
+        n.schemaPath = "#/components/schemas/PokemonAbility/properties/ability";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonAbility/properties/ability";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 886
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 2u;
+        n.annDescription = "\"Whether or not this is a hidden ability.\"";
+        n.sourceName = "PokemonAbility_component_prop2";
+        n.schemaPath = "#/components/schemas/PokemonAbility/properties/is_hidden";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonAbility/properties/is_hidden";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 887
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 64u;
+        setExact(n.minimum, n.hasMinimum, "-2147483648");
+        setExact(n.maximum, n.hasMaximum, "2147483647");
+        n.annDescription = "\"The slot this ability occupies in this Pok\303\251mon species.\"";
+        n.sourceName = "PokemonAbility_component_prop3";
+        n.schemaPath = "#/components/schemas/PokemonAbility/properties/slot";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonAbility/properties/slot";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 888
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1882);
+        n.sourceName = "PokemonAbilityPast_component_prop1";
+        n.schemaPath = "#/components/schemas/PokemonAbilityPast/properties/ability";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonAbilityPast/properties/ability";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 889
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 2u;
+        n.annDescription = "\"Whether or not this is a hidden ability.\"";
+        n.sourceName = "PokemonAbilityPast_component_prop2";
+        n.schemaPath = "#/components/schemas/PokemonAbilityPast/properties/is_hidden";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonAbilityPast/properties/is_hidden";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 890
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        setExact(n.minimum, n.hasMinimum, "-2147483648");
+        setExact(n.maximum, n.hasMaximum, "2147483647");
+        n.annDescription = "\"The slot this ability occupies in this Pok\303\251mon species.\"";
+        n.sourceName = "PokemonAbilityPast_component_prop3";
+        n.schemaPath = "#/components/schemas/PokemonAbilityPast/properties/slot";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonAbilityPast/properties/slot";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 891
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1662);
+        n.sourceName = "PokemonAbilityPast_ability_component_app1";
+        n.schemaPath = "#/components/schemas/PokemonAbilityPast_ability/oneOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonAbilityPast_ability/oneOf/0";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 892
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 1u;
+        n.sourceName = "PokemonAbilityPast_ability_component_app2";
+        n.schemaPath = "#/components/schemas/PokemonAbilityPast_ability/oneOf/1";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonAbilityPast_ability/oneOf/1";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 893
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        n.annDescription = "\"The identifier for this resource.\"";
         n.annReadOnlyJson = "true";
         n.sourceName = "PokemonColorDetail_component_prop1";
         n.schemaPath = "#/components/schemas/PokemonColorDetail/properties/id";
@@ -3181,22 +4744,24 @@ void appendSchemaRegistryChunk1(SchemaResourceRegistry& reg) {
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 698
+    { // node 894
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 8u;
-        setExact(n.maxLength, n.hasMaxLength, "100");
+        setExact(n.maxLength, n.hasMaxLength, "200");
+        n.annDescription = "\"The name for this resource.\"";
         n.sourceName = "PokemonColorDetail_component_prop2";
         n.schemaPath = "#/components/schemas/PokemonColorDetail/properties/name";
         n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonColorDetail/properties/name";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 699
+    { // node 895
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 16u;
-        n.items = 1158;
+        n.items = 1510;
+        n.annDescription = "\"The name of this resource listed in different languages.\"";
         n.annReadOnlyJson = "true";
         n.sourceName = "PokemonColorDetail_component_prop3";
         n.schemaPath = "#/components/schemas/PokemonColorDetail/properties/names";
@@ -3204,11 +4769,12 @@ void appendSchemaRegistryChunk1(SchemaResourceRegistry& reg) {
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 700
+    { // node 896
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 16u;
-        n.items = 1159;
+        n.items = 1511;
+        n.annDescription = "\"A list of the Pok\303\251mon species that have this color.\"";
         n.annReadOnlyJson = "true";
         n.sourceName = "PokemonColorDetail_component_prop4";
         n.schemaPath = "#/components/schemas/PokemonColorDetail/properties/pokemon_species";
@@ -3216,43 +4782,46 @@ void appendSchemaRegistryChunk1(SchemaResourceRegistry& reg) {
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 701
+    { // node 897
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1912);
+        n.allOfChildren.push_back(1512);
+        n.annDescription = "\"The language this name is in.\"";
         n.sourceName = "PokemonColorName_component_prop1";
         n.schemaPath = "#/components/schemas/PokemonColorName/properties/language";
         n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonColorName/properties/language";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 702
+    { // node 898
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 8u;
-        setExact(n.maxLength, n.hasMaxLength, "100");
+        setExact(n.maxLength, n.hasMaxLength, "200");
+        n.annDescription = "\"The localized name for an API resource in a specific language.\"";
         n.sourceName = "PokemonColorName_component_prop2";
         n.schemaPath = "#/components/schemas/PokemonColorName/properties/name";
         n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonColorName/properties/name";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 703
+    { // node 899
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 8u;
-        setExact(n.maxLength, n.hasMaxLength, "100");
+        setExact(n.maxLength, n.hasMaxLength, "200");
+        n.annDescription = "\"The name of the referenced resource.\"";
         n.sourceName = "PokemonColorSummary_component_prop1";
         n.schemaPath = "#/components/schemas/PokemonColorSummary/properties/name";
         n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonColorSummary/properties/name";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 704
+    { // node 900
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 8u;
+        n.annDescription = "\"The URL of the referenced resource.\"";
         n.annReadOnlyJson = "true";
         n.annFormat = "\"uri\"";
         n.sourceName = "PokemonColorSummary_component_prop2";
@@ -3261,11 +4830,34 @@ void appendSchemaRegistryChunk1(SchemaResourceRegistry& reg) {
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 705
+    { // node 901
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The latest depiction of this Pok\303\251mon's cry.\"";
+        n.sourceName = "PokemonCries_component_prop1";
+        n.schemaPath = "#/components/schemas/PokemonCries/properties/latest";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonCries/properties/latest";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 902
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
+        n.annDescription = "\"The legacy depiction of this Pok\303\251mon's cry.\"";
+        n.sourceName = "PokemonCries_component_prop2";
+        n.schemaPath = "#/components/schemas/PokemonCries/properties/legacy";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonCries/properties/legacy";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 903
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 16u;
-        n.items = 1160;
+        n.items = 1513;
+        n.annDescription = "\"A list of abilities this Pok\303\251mon could potentially have.\"";
         n.annReadOnlyJson = "true";
         n.sourceName = "PokemonDetail_component_prop1";
         n.schemaPath = "#/components/schemas/PokemonDetail/properties/abilities";
@@ -3273,35 +4865,37 @@ void appendSchemaRegistryChunk1(SchemaResourceRegistry& reg) {
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 706
+    { // node 904
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 64u;
+        setExact(n.minimum, n.hasMinimum, "-2147483648");
+        setExact(n.maximum, n.hasMaximum, "2147483647");
+        n.annDescription = "\"The base experience gained for defeating this Pok\303\251mon.\"";
         n.sourceName = "PokemonDetail_component_prop2";
         n.schemaPath = "#/components/schemas/PokemonDetail/properties/base_experience";
         n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail/properties/base_experience";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 707
+    { // node 905
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(2035);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "latest"; b.node = 1161; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "legacy"; b.node = 1162; n.properties.push_back(std::move(b)); }
+        n.allOfChildren.push_back(1514);
+        n.annDescription = "\"A set of cries used to depict this Pok\303\251mon in the game. A visual representation of the various cries can be found at <a href='https://github.com/PokeAPI/cries#cries'>PokeAPI/cries</a>\"";
+        n.annReadOnlyJson = "true";
         n.sourceName = "PokemonDetail_component_prop3";
         n.schemaPath = "#/components/schemas/PokemonDetail/properties/cries";
         n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail/properties/cries";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 708
+    { // node 906
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 16u;
-        n.items = 1163;
+        n.items = 1515;
+        n.annDescription = "\"A list of forms this Pok\303\251mon can take on.\"";
         n.annReadOnlyJson = "true";
         n.sourceName = "PokemonDetail_component_prop4";
         n.schemaPath = "#/components/schemas/PokemonDetail/properties/forms";
@@ -3309,11 +4903,12 @@ void appendSchemaRegistryChunk1(SchemaResourceRegistry& reg) {
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 709
+    { // node 907
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 16u;
-        n.items = 1164;
+        n.items = 1516;
+        n.annDescription = "\"A list of game indices relevent to Pok\303\251mon item by generation.\"";
         n.annReadOnlyJson = "true";
         n.sourceName = "PokemonDetail_component_prop5";
         n.schemaPath = "#/components/schemas/PokemonDetail/properties/game_indices";
@@ -3321,34 +4916,37 @@ void appendSchemaRegistryChunk1(SchemaResourceRegistry& reg) {
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 710
+    { // node 908
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 64u;
+        setExact(n.minimum, n.hasMinimum, "-2147483648");
+        setExact(n.maximum, n.hasMaximum, "2147483647");
+        n.annDescription = "\"The height of this Pok\303\251mon in decimetres.\"";
         n.sourceName = "PokemonDetail_component_prop6";
         n.schemaPath = "#/components/schemas/PokemonDetail/properties/height";
         n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail/properties/height";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 711
+    { // node 909
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(2036);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "item"; b.node = 1165; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "version_details"; b.node = 1166; n.properties.push_back(std::move(b)); }
+        n.typeFlags = 16u;
+        n.items = 1517;
+        n.annDescription = "\"A list of items this Pok\303\251mon may be holding when encountered.\"";
+        n.annReadOnlyJson = "true";
         n.sourceName = "PokemonDetail_component_prop7";
         n.schemaPath = "#/components/schemas/PokemonDetail/properties/held_items";
         n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail/properties/held_items";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 712
+    { // node 910
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 64u;
+        n.annDescription = "\"The identifier for this resource.\"";
         n.annReadOnlyJson = "true";
         n.sourceName = "PokemonDetail_component_prop8";
         n.schemaPath = "#/components/schemas/PokemonDetail/properties/id";
@@ -3356,21 +4954,22 @@ void appendSchemaRegistryChunk1(SchemaResourceRegistry& reg) {
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 713
+    { // node 911
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 2u;
+        n.annDescription = "\"Set for exactly one Pok\303\251mon used as the default for each species.\"";
         n.sourceName = "PokemonDetail_component_prop9";
         n.schemaPath = "#/components/schemas/PokemonDetail/properties/is_default";
         n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail/properties/is_default";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 714
+    { // node 912
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/pokemon/1/encounters\"]";
+        n.annDescription = "\"A link to a list of location areas, as well as encounter details pertaining to specific versions.\"";
         n.annReadOnlyJson = "true";
         n.sourceName = "PokemonDetail_component_prop10";
         n.schemaPath = "#/components/schemas/PokemonDetail/properties/location_area_encounters";
@@ -3378,11 +4977,12 @@ void appendSchemaRegistryChunk1(SchemaResourceRegistry& reg) {
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 715
+    { // node 913
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 16u;
-        n.items = 1167;
+        n.items = 1518;
+        n.annDescription = "\"A list of moves along with learn methods and level details pertaining to specific version groups.\"";
         n.annReadOnlyJson = "true";
         n.sourceName = "PokemonDetail_component_prop11";
         n.schemaPath = "#/components/schemas/PokemonDetail/properties/moves";
@@ -3390,32 +4990,37 @@ void appendSchemaRegistryChunk1(SchemaResourceRegistry& reg) {
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 716
+    { // node 914
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 8u;
-        setExact(n.maxLength, n.hasMaxLength, "100");
+        setExact(n.maxLength, n.hasMaxLength, "200");
+        n.annDescription = "\"The name for this resource.\"";
         n.sourceName = "PokemonDetail_component_prop12";
         n.schemaPath = "#/components/schemas/PokemonDetail/properties/name";
         n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail/properties/name";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 717
+    { // node 915
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 64u;
+        setExact(n.minimum, n.hasMinimum, "-2147483648");
+        setExact(n.maximum, n.hasMaximum, "2147483647");
+        n.annDescription = "\"Order for sorting. Almost national order, except families are grouped together.\"";
         n.sourceName = "PokemonDetail_component_prop13";
         n.schemaPath = "#/components/schemas/PokemonDetail/properties/order";
         n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail/properties/order";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 718
+    { // node 916
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 16u;
-        n.items = 1168;
+        n.items = 1519;
+        n.annDescription = "\"A list of details showing abilities this pok\303\251mon had in previous generations\"";
         n.annReadOnlyJson = "true";
         n.sourceName = "PokemonDetail_component_prop14";
         n.schemaPath = "#/components/schemas/PokemonDetail/properties/past_abilities";
@@ -3423,1795 +5028,1313 @@ void appendSchemaRegistryChunk1(SchemaResourceRegistry& reg) {
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 719
+    { // node 917
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 16u;
-        n.items = 1169;
+        n.items = 1520;
+        n.annDescription = "\"A list of details showing stats this pok\303\251mon had in previous generations\"";
         n.annReadOnlyJson = "true";
         n.sourceName = "PokemonDetail_component_prop15";
+        n.schemaPath = "#/components/schemas/PokemonDetail/properties/past_stats";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail/properties/past_stats";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 918
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1521;
+        n.annDescription = "\"A list of details showing types this pok\303\251mon had in previous generations\"";
+        n.annReadOnlyJson = "true";
+        n.sourceName = "PokemonDetail_component_prop16";
         n.schemaPath = "#/components/schemas/PokemonDetail/properties/past_types";
         n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail/properties/past_types";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 720
+    { // node 919
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(2062);
-        n.sourceName = "PokemonDetail_component_prop16";
+        n.allOfChildren.push_back(1522);
+        n.annDescription = "\"The species this Pok\303\251mon belongs to.\"";
+        n.sourceName = "PokemonDetail_component_prop17";
         n.schemaPath = "#/components/schemas/PokemonDetail/properties/species";
         n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail/properties/species";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 721
+    { // node 920
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(2041);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "front_default"; b.node = 1170; n.properties.push_back(std::move(b)); }
-        n.additionalProperties = AdditionalPropertiesKind::allowed;
-        n.sourceName = "PokemonDetail_component_prop17";
+        n.allOfChildren.push_back(1523);
+        n.annDescription = "\"A set of sprites used to depict this Pok\303\251mon in the game. A visual representation of the various sprites can be found at <a href='https://github.com/PokeAPI/sprites#sprites'>PokeAPI/sprites</a>\"";
+        n.annReadOnlyJson = "true";
+        n.sourceName = "PokemonDetail_component_prop18";
         n.schemaPath = "#/components/schemas/PokemonDetail/properties/sprites";
         n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail/properties/sprites";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 722
+    { // node 921
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 16u;
-        n.items = 1171;
+        n.items = 1524;
+        n.annDescription = "\"A list of base stat values for this Pok\303\251mon.\"";
         n.annReadOnlyJson = "true";
-        n.sourceName = "PokemonDetail_component_prop18";
+        n.sourceName = "PokemonDetail_component_prop19";
         n.schemaPath = "#/components/schemas/PokemonDetail/properties/stats";
         n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail/properties/stats";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 723
+    { // node 922
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 16u;
-        n.items = 1172;
+        n.items = 1525;
+        n.annDescription = "\"A list of details showing types this Pok\303\251mon has.\"";
         n.annReadOnlyJson = "true";
-        n.sourceName = "PokemonDetail_component_prop19";
+        n.sourceName = "PokemonDetail_component_prop20";
         n.schemaPath = "#/components/schemas/PokemonDetail/properties/types";
         n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail/properties/types";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 724
+    { // node 923
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 64u;
-        n.sourceName = "PokemonDetail_component_prop20";
+        setExact(n.minimum, n.hasMinimum, "-2147483648");
+        setExact(n.maximum, n.hasMaximum, "2147483647");
+        n.annDescription = "\"The weight of this Pok\303\251mon in hectograms.\"";
+        n.sourceName = "PokemonDetail_component_prop21";
         n.schemaPath = "#/components/schemas/PokemonDetail/properties/weight";
         n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail/properties/weight";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 725
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1173; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1174; n.properties.push_back(std::move(b)); }
-        n.sourceName = "PokemonDetail_abilities_inner_component_prop1";
-        n.schemaPath = "#/components/schemas/PokemonDetail_abilities_inner/properties/ability";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail_abilities_inner/properties/ability";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 726
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 2u;
-        n.sourceName = "PokemonDetail_abilities_inner_component_prop2";
-        n.schemaPath = "#/components/schemas/PokemonDetail_abilities_inner/properties/is_hidden";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail_abilities_inner/properties/is_hidden";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 727
+    { // node 924
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 64u;
-        n.annExamplesJson = "[1]";
-        n.annFormat = "\"int32\"";
-        n.sourceName = "PokemonDetail_abilities_inner_component_prop3";
-        n.schemaPath = "#/components/schemas/PokemonDetail_abilities_inner/properties/slot";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail_abilities_inner/properties/slot";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 728
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/50.ogg\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "PokemonDetail_cries_component_prop1";
-        n.schemaPath = "#/components/schemas/PokemonDetail_cries/properties/latest";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail_cries/properties/latest";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 729
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/legacy/50.ogg\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "PokemonDetail_cries_component_prop2";
-        n.schemaPath = "#/components/schemas/PokemonDetail_cries/properties/legacy";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail_cries/properties/legacy";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 730
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1175; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1176; n.properties.push_back(std::move(b)); }
-        n.sourceName = "PokemonDetail_held_items_component_prop1";
-        n.schemaPath = "#/components/schemas/PokemonDetail_held_items/properties/item";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail_held_items/properties/item";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 731
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1177;
-        n.sourceName = "PokemonDetail_held_items_component_prop2";
-        n.schemaPath = "#/components/schemas/PokemonDetail_held_items/properties/version_details";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail_held_items/properties/version_details";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 732
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1178; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1179; n.properties.push_back(std::move(b)); }
-        n.sourceName = "PokemonDetail_moves_inner_component_prop1";
-        n.schemaPath = "#/components/schemas/PokemonDetail_moves_inner/properties/move";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail_moves_inner/properties/move";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 733
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1180;
-        n.sourceName = "PokemonDetail_moves_inner_component_prop2";
-        n.schemaPath = "#/components/schemas/PokemonDetail_moves_inner/properties/version_group_details";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail_moves_inner/properties/version_group_details";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 734
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.annExamplesJson = "[1]";
-        n.annFormat = "\"int32\"";
-        n.sourceName = "PokemonDetail_moves_inner_version_group_details_inner_component_prop1";
-        n.schemaPath = "#/components/schemas/PokemonDetail_moves_inner_version_group_details_inner/properties/level_learned_at";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail_moves_inner_version_group_details_inner/properties/level_learned_at";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 735
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1181; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1182; n.properties.push_back(std::move(b)); }
-        n.sourceName = "PokemonDetail_moves_inner_version_group_details_inner_component_prop2";
-        n.schemaPath = "#/components/schemas/PokemonDetail_moves_inner_version_group_details_inner/properties/move_learn_method";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail_moves_inner_version_group_details_inner/properties/move_learn_method";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 736
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1183; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1184; n.properties.push_back(std::move(b)); }
-        n.sourceName = "PokemonDetail_moves_inner_version_group_details_inner_component_prop3";
-        n.schemaPath = "#/components/schemas/PokemonDetail_moves_inner_version_group_details_inner/properties/version_group";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail_moves_inner_version_group_details_inner/properties/version_group";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 737
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1185;
-        n.sourceName = "PokemonDetail_past_abilities_inner_component_prop1";
-        n.schemaPath = "#/components/schemas/PokemonDetail_past_abilities_inner/properties/abilities";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail_past_abilities_inner/properties/abilities";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 738
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1186; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1187; n.properties.push_back(std::move(b)); }
-        n.sourceName = "PokemonDetail_past_abilities_inner_component_prop2";
-        n.schemaPath = "#/components/schemas/PokemonDetail_past_abilities_inner/properties/generation";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail_past_abilities_inner/properties/generation";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 739
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1188; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1189; n.properties.push_back(std::move(b)); }
-        n.sourceName = "PokemonDetail_past_types_inner_component_prop1";
-        n.schemaPath = "#/components/schemas/PokemonDetail_past_types_inner/properties/generation";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail_past_types_inner/properties/generation";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 740
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1190;
-        n.sourceName = "PokemonDetail_past_types_inner_component_prop2";
-        n.schemaPath = "#/components/schemas/PokemonDetail_past_types_inner/properties/types";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail_past_types_inner/properties/types";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 741
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annFormat = "\"uri\"";
-        n.annExtras.push_back({"exmaple", "\"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/1.png\""});
-        n.sourceName = "PokemonDetail_sprites_component_prop1";
-        n.schemaPath = "#/components/schemas/PokemonDetail_sprites/properties/front_default";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail_sprites/properties/front_default";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 742
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.annExamplesJson = "[1]";
-        n.annFormat = "\"int32\"";
-        n.sourceName = "PokemonDetail_types_inner_component_prop1";
-        n.schemaPath = "#/components/schemas/PokemonDetail_types_inner/properties/slot";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail_types_inner/properties/slot";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 743
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1191; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1192; n.properties.push_back(std::move(b)); }
-        n.sourceName = "PokemonDetail_types_inner_component_prop2";
-        n.schemaPath = "#/components/schemas/PokemonDetail_types_inner/properties/type";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDetail_types_inner/properties/type";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 744
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
+        n.annDescription = "\"The index number within the Pok\303\251dex.\"";
         n.sourceName = "PokemonDexEntry_component_prop1";
         n.schemaPath = "#/components/schemas/PokemonDexEntry/properties/entry_number";
         n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDexEntry/properties/entry_number";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 745
+    { // node 925
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(2029);
+        n.allOfChildren.push_back(1526);
+        n.annDescription = "\"The Pok\303\251dex the referenced Pok\303\251mon species can be found in.\"";
         n.sourceName = "PokemonDexEntry_component_prop2";
         n.schemaPath = "#/components/schemas/PokemonDexEntry/properties/pokedex";
         n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDexEntry/properties/pokedex";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 746
+    { // node 926
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        setExact(n.maxLength, n.hasMaxLength, "30");
-        n.sourceName = "PokemonFormDetail_component_prop1";
-        n.schemaPath = "#/components/schemas/PokemonFormDetail/properties/form_name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonFormDetail/properties/form_name";
+        n.typeFlags = 64u;
+        n.annDescription = "\"The index of this Pok\303\251mon species entry within the Pok\303\251dex.\"";
+        n.sourceName = "PokemonDexNumber_component_prop1";
+        n.schemaPath = "#/components/schemas/PokemonDexNumber/properties/entry_number";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDexNumber/properties/entry_number";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 747
+    { // node 927
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.allOfChildren.push_back(1527);
+        n.annDescription = "\"The Pok\303\251mon species being encountered.\"";
+        n.sourceName = "PokemonDexNumber_component_prop2";
+        n.schemaPath = "#/components/schemas/PokemonDexNumber/properties/pokemon_species";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonDexNumber/properties/pokemon_species";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 928
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        n.annDescription = "\"Percent chance that this encounter will occur.\"";
+        n.sourceName = "PokemonEncounterDetailResponse_component_prop1";
+        n.schemaPath = "#/components/schemas/PokemonEncounterDetailResponse/properties/chance";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEncounterDetailResponse/properties/chance";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 929
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 16u;
-        n.items = 1193;
-        n.annReadOnlyJson = "true";
-        n.sourceName = "PokemonFormDetail_component_prop2";
-        n.schemaPath = "#/components/schemas/PokemonFormDetail/properties/form_names";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonFormDetail/properties/form_names";
+        n.items = 1528;
+        n.annDescription = "\"A list of condition values that must be in effect for this encounter to occur.\"";
+        n.sourceName = "PokemonEncounterDetailResponse_component_prop2";
+        n.schemaPath = "#/components/schemas/PokemonEncounterDetailResponse/properties/condition_values";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEncounterDetailResponse/properties/condition_values";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 748
+    { // node 930
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 64u;
-        n.sourceName = "PokemonFormDetail_component_prop3";
-        n.schemaPath = "#/components/schemas/PokemonFormDetail/properties/form_order";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonFormDetail/properties/form_order";
+        n.annDescription = "\"The highest level the Pok\303\251mon could be encountered at.\"";
+        n.sourceName = "PokemonEncounterDetailResponse_component_prop3";
+        n.schemaPath = "#/components/schemas/PokemonEncounterDetailResponse/properties/max_level";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEncounterDetailResponse/properties/max_level";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 749
+    { // node 931
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.allOfChildren.push_back(1529);
+        n.annDescription = "\"The method by which this encounter happens.\"";
+        n.sourceName = "PokemonEncounterDetailResponse_component_prop4";
+        n.schemaPath = "#/components/schemas/PokemonEncounterDetailResponse/properties/method";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEncounterDetailResponse/properties/method";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 932
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 64u;
-        n.annReadOnlyJson = "true";
-        n.sourceName = "PokemonFormDetail_component_prop4";
-        n.schemaPath = "#/components/schemas/PokemonFormDetail/properties/id";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonFormDetail/properties/id";
+        n.annDescription = "\"The lowest level the Pok\303\251mon could be encountered at.\"";
+        n.sourceName = "PokemonEncounterDetailResponse_component_prop5";
+        n.schemaPath = "#/components/schemas/PokemonEncounterDetailResponse/properties/min_level";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEncounterDetailResponse/properties/min_level";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 750
+    { // node 933
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 2u;
-        n.sourceName = "PokemonFormDetail_component_prop5";
-        n.schemaPath = "#/components/schemas/PokemonFormDetail/properties/is_battle_only";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonFormDetail/properties/is_battle_only";
+        n.allOfChildren.push_back(1530);
+        n.annDescription = "\"The location area the referenced Pok\303\251mon can be encountered in.\"";
+        n.sourceName = "PokemonEncounterResponse_component_prop1";
+        n.schemaPath = "#/components/schemas/PokemonEncounterResponse/properties/location_area";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEncounterResponse/properties/location_area";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 751
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 2u;
-        n.sourceName = "PokemonFormDetail_component_prop6";
-        n.schemaPath = "#/components/schemas/PokemonFormDetail/properties/is_default";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonFormDetail/properties/is_default";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 752
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 2u;
-        n.sourceName = "PokemonFormDetail_component_prop7";
-        n.schemaPath = "#/components/schemas/PokemonFormDetail/properties/is_mega";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonFormDetail/properties/is_mega";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 753
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        setExact(n.maxLength, n.hasMaxLength, "100");
-        n.sourceName = "PokemonFormDetail_component_prop8";
-        n.schemaPath = "#/components/schemas/PokemonFormDetail/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonFormDetail/properties/name";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 754
+    { // node 934
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 16u;
-        n.items = 1194;
-        n.annReadOnlyJson = "true";
-        n.sourceName = "PokemonFormDetail_component_prop9";
-        n.schemaPath = "#/components/schemas/PokemonFormDetail/properties/names";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonFormDetail/properties/names";
+        n.items = 1531;
+        n.annDescription = "\"A list of versions and encounters with the referenced Pok\303\251mon that might happen.\"";
+        n.sourceName = "PokemonEncounterResponse_component_prop2";
+        n.schemaPath = "#/components/schemas/PokemonEncounterResponse/properties/version_details";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEncounterResponse/properties/version_details";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 755
+    { // node 935
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1532;
+        n.annDescription = "\"A list of encounters and their specifics.\"";
+        n.sourceName = "PokemonEncounterVersionDetailResponse_component_prop1";
+        n.schemaPath = "#/components/schemas/PokemonEncounterVersionDetailResponse/properties/encounter_details";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEncounterVersionDetailResponse/properties/encounter_details";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 936
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 64u;
-        n.sourceName = "PokemonFormDetail_component_prop10";
-        n.schemaPath = "#/components/schemas/PokemonFormDetail/properties/order";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonFormDetail/properties/order";
+        n.annDescription = "\"The total percentage of all encounter potential.\"";
+        n.sourceName = "PokemonEncounterVersionDetailResponse_component_prop2";
+        n.schemaPath = "#/components/schemas/PokemonEncounterVersionDetailResponse/properties/max_chance";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEncounterVersionDetailResponse/properties/max_chance";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 756
+    { // node 937
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(2064);
-        n.sourceName = "PokemonFormDetail_component_prop11";
-        n.schemaPath = "#/components/schemas/PokemonFormDetail/properties/pokemon";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonFormDetail/properties/pokemon";
+        n.allOfChildren.push_back(1533);
+        n.annDescription = "\"The game version this encounter happens in.\"";
+        n.sourceName = "PokemonEncounterVersionDetailResponse_component_prop3";
+        n.schemaPath = "#/components/schemas/PokemonEncounterVersionDetailResponse/properties/version";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEncounterVersionDetailResponse/properties/version";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 757
+    { // node 938
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 16u;
+        n.items = 1534;
+        n.annDescription = "\"The natures that allow this evolution, or null if unrestricted.\"";
+        n.annReadOnlyJson = "true";
+        n.sourceName = "PokemonEvolution_component_prop1";
+        n.schemaPath = "#/components/schemas/PokemonEvolution/properties/allowed_natures";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEvolution/properties/allowed_natures";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 939
         SchemaNode n;
         n.resourceIdentity = 0;
         n.applicator = ApplicatorKind::ref;
-        n.children.push_back(2046);
+        n.children.push_back(1894);
+        n.sourceName = "PokemonEvolution_component_prop2";
+        n.schemaPath = "#/components/schemas/PokemonEvolution/properties/condition_expression";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEvolution/properties/condition_expression";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 940
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1895);
+        n.sourceName = "PokemonEvolution_component_prop3";
+        n.schemaPath = "#/components/schemas/PokemonEvolution/properties/evolved_pokemon_form";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEvolution/properties/evolved_pokemon_form";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 941
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 64u;
+        n.annDescription = "\"The id of the gender of the evolving Pok\303\251mon species must be in order to evolve into this Pok\303\251mon species.\"";
+        n.sourceName = "PokemonEvolution_component_prop4";
+        n.schemaPath = "#/components/schemas/PokemonEvolution/properties/gender";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEvolution/properties/gender";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 942
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1896);
+        n.sourceName = "PokemonEvolution_component_prop5";
+        n.schemaPath = "#/components/schemas/PokemonEvolution/properties/held_item";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEvolution/properties/held_item";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 943
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 2u;
+        n.annDescription = "\"Whether the evolution is considered as the expected evolution in a main series game. Each unique Pok\303\251mon variety of a line capable of evolution should have exactly one 'default' evolution. For example, the Meowth species has three default evolutions as there are three distinct varieties it can evolve into: Persian, Alolan Persian, and Perrserker.\"";
+        n.sourceName = "PokemonEvolution_component_prop6";
+        n.schemaPath = "#/components/schemas/PokemonEvolution/properties/is_default";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEvolution/properties/is_default";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 944
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1897);
+        n.sourceName = "PokemonEvolution_component_prop7";
+        n.schemaPath = "#/components/schemas/PokemonEvolution/properties/item";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEvolution/properties/item";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 945
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1898);
         n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "default"; b.node = 1195; n.properties.push_back(std::move(b)); }
-        n.additionalProperties = AdditionalPropertiesKind::allowed;
-        n.sourceName = "PokemonFormDetail_component_prop12";
-        n.schemaPath = "#/components/schemas/PokemonFormDetail/properties/sprites";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonFormDetail/properties/sprites";
+        { PropertyBinding b; b.name = "name"; b.node = 1535; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "url"; b.node = 1536; n.properties.push_back(std::move(b)); }
+        n.sourceName = "PokemonEvolution_component_prop8";
+        n.schemaPath = "#/components/schemas/PokemonEvolution/properties/known_move";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEvolution/properties/known_move";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 758
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1196;
-        n.annReadOnlyJson = "true";
-        n.sourceName = "PokemonFormDetail_component_prop13";
-        n.schemaPath = "#/components/schemas/PokemonFormDetail/properties/types";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonFormDetail/properties/types";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 759
+    { // node 946
         SchemaNode n;
         n.resourceIdentity = 0;
         n.applicator = ApplicatorKind::ref;
-        n.children.push_back(2088);
-        n.sourceName = "PokemonFormDetail_component_prop14";
-        n.schemaPath = "#/components/schemas/PokemonFormDetail/properties/version_group";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonFormDetail/properties/version_group";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 760
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
+        n.children.push_back(1898);
         n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1197; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1198; n.properties.push_back(std::move(b)); }
-        n.sourceName = "PokemonFormDetail_form_names_inner_component_prop1";
-        n.schemaPath = "#/components/schemas/PokemonFormDetail_form_names_inner/properties/language";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonFormDetail_form_names_inner/properties/language";
+        { PropertyBinding b; b.name = "name"; b.node = 1537; n.properties.push_back(std::move(b)); }
+        { PropertyBinding b; b.name = "url"; b.node = 1538; n.properties.push_back(std::move(b)); }
+        n.sourceName = "PokemonEvolution_component_prop9";
+        n.schemaPath = "#/components/schemas/PokemonEvolution/properties/known_move_type";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEvolution/properties/known_move_type";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 761
+    { // node 947
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"bulbasaur\"]";
-        n.sourceName = "PokemonFormDetail_form_names_inner_component_prop2";
-        n.schemaPath = "#/components/schemas/PokemonFormDetail_form_names_inner/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonFormDetail_form_names_inner/properties/name";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1899);
+        n.sourceName = "PokemonEvolution_component_prop10";
+        n.schemaPath = "#/components/schemas/PokemonEvolution/properties/location";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEvolution/properties/location";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 762
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/412.png\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "PokemonFormDetail_sprites_component_prop1";
-        n.schemaPath = "#/components/schemas/PokemonFormDetail_sprites/properties/default";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonFormDetail_sprites/properties/default";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 763
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        setExact(n.maxLength, n.hasMaxLength, "100");
-        n.sourceName = "PokemonFormSummary_component_prop1";
-        n.schemaPath = "#/components/schemas/PokemonFormSummary/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonFormSummary/properties/name";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 764
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annReadOnlyJson = "true";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "PokemonFormSummary_component_prop2";
-        n.schemaPath = "#/components/schemas/PokemonFormSummary/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonFormSummary/properties/url";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 765
+    { // node 948
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 64u;
-        n.sourceName = "PokemonGameIndex_component_prop1";
-        n.schemaPath = "#/components/schemas/PokemonGameIndex/properties/game_index";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonGameIndex/properties/game_index";
+        setExact(n.minimum, n.hasMinimum, "-2147483648");
+        setExact(n.maximum, n.hasMaximum, "2147483647");
+        n.annDescription = "\"The minimum required level of affection the evolving Pok\303\251mon species to evolve into this Pok\303\251mon species.\"";
+        n.sourceName = "PokemonEvolution_component_prop11";
+        n.schemaPath = "#/components/schemas/PokemonEvolution/properties/min_affection";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEvolution/properties/min_affection";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 766
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(2090);
-        n.sourceName = "PokemonGameIndex_component_prop2";
-        n.schemaPath = "#/components/schemas/PokemonGameIndex/properties/version";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonGameIndex/properties/version";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 767
+    { // node 949
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 64u;
-        n.annReadOnlyJson = "true";
-        n.sourceName = "PokemonHabitatDetail_component_prop1";
-        n.schemaPath = "#/components/schemas/PokemonHabitatDetail/properties/id";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonHabitatDetail/properties/id";
+        setExact(n.minimum, n.hasMinimum, "-2147483648");
+        setExact(n.maximum, n.hasMaximum, "2147483647");
+        n.annDescription = "\"The minimum required level of beauty the evolving Pok\303\251mon species to evolve into this Pok\303\251mon species.\"";
+        n.sourceName = "PokemonEvolution_component_prop12";
+        n.schemaPath = "#/components/schemas/PokemonEvolution/properties/min_beauty";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEvolution/properties/min_beauty";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 768
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        setExact(n.maxLength, n.hasMaxLength, "100");
-        n.sourceName = "PokemonHabitatDetail_component_prop2";
-        n.schemaPath = "#/components/schemas/PokemonHabitatDetail/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonHabitatDetail/properties/name";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 769
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1199;
-        n.annReadOnlyJson = "true";
-        n.sourceName = "PokemonHabitatDetail_component_prop3";
-        n.schemaPath = "#/components/schemas/PokemonHabitatDetail/properties/names";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonHabitatDetail/properties/names";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 770
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1200;
-        n.annReadOnlyJson = "true";
-        n.sourceName = "PokemonHabitatDetail_component_prop4";
-        n.schemaPath = "#/components/schemas/PokemonHabitatDetail/properties/pokemon_species";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonHabitatDetail/properties/pokemon_species";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 771
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1912);
-        n.sourceName = "PokemonHabitatName_component_prop1";
-        n.schemaPath = "#/components/schemas/PokemonHabitatName/properties/language";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonHabitatName/properties/language";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 772
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        setExact(n.maxLength, n.hasMaxLength, "100");
-        n.sourceName = "PokemonHabitatName_component_prop2";
-        n.schemaPath = "#/components/schemas/PokemonHabitatName/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonHabitatName/properties/name";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 773
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        setExact(n.maxLength, n.hasMaxLength, "100");
-        n.sourceName = "PokemonHabitatSummary_component_prop1";
-        n.schemaPath = "#/components/schemas/PokemonHabitatSummary/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonHabitatSummary/properties/name";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 774
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annReadOnlyJson = "true";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "PokemonHabitatSummary_component_prop2";
-        n.schemaPath = "#/components/schemas/PokemonHabitatSummary/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonHabitatSummary/properties/url";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 775
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1201;
-        n.annReadOnlyJson = "true";
-        n.sourceName = "PokemonShapeDetail_component_prop1";
-        n.schemaPath = "#/components/schemas/PokemonShapeDetail/properties/awesome_names";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonShapeDetail/properties/awesome_names";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 776
+    { // node 950
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 64u;
-        n.annReadOnlyJson = "true";
-        n.sourceName = "PokemonShapeDetail_component_prop2";
-        n.schemaPath = "#/components/schemas/PokemonShapeDetail/properties/id";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonShapeDetail/properties/id";
+        setExact(n.minimum, n.hasMinimum, "-2147483648");
+        setExact(n.maximum, n.hasMaximum, "2147483647");
+        n.annDescription = "\"The minimum amount of damage taken during the evolution trigger event in order to evolve into this Pok\303\251mon species.\"";
+        n.sourceName = "PokemonEvolution_component_prop13";
+        n.schemaPath = "#/components/schemas/PokemonEvolution/properties/min_damage_taken";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEvolution/properties/min_damage_taken";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 777
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        setExact(n.maxLength, n.hasMaxLength, "100");
-        n.sourceName = "PokemonShapeDetail_component_prop3";
-        n.schemaPath = "#/components/schemas/PokemonShapeDetail/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonShapeDetail/properties/name";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 778
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1202;
-        n.annReadOnlyJson = "true";
-        n.sourceName = "PokemonShapeDetail_component_prop4";
-        n.schemaPath = "#/components/schemas/PokemonShapeDetail/properties/names";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonShapeDetail/properties/names";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 779
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1203;
-        n.annReadOnlyJson = "true";
-        n.sourceName = "PokemonShapeDetail_component_prop5";
-        n.schemaPath = "#/components/schemas/PokemonShapeDetail/properties/pokemon_species";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonShapeDetail/properties/pokemon_species";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 780
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"Pomaceous\"]";
-        n.sourceName = "PokemonShapeDetail_awesome_names_inner_component_prop1";
-        n.schemaPath = "#/components/schemas/PokemonShapeDetail_awesome_names_inner/properties/awesome_name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonShapeDetail_awesome_names_inner/properties/awesome_name";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 781
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1204; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1205; n.properties.push_back(std::move(b)); }
-        n.sourceName = "PokemonShapeDetail_awesome_names_inner_component_prop2";
-        n.schemaPath = "#/components/schemas/PokemonShapeDetail_awesome_names_inner/properties/language";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonShapeDetail_awesome_names_inner/properties/language";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 782
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"Ball\"]";
-        n.sourceName = "PokemonShapeDetail_names_inner_component_prop1";
-        n.schemaPath = "#/components/schemas/PokemonShapeDetail_names_inner/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonShapeDetail_names_inner/properties/name";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 783
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annExamplesJson = "[\"https://pokeapi.co/api/v2/language/9/\"]";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "PokemonShapeDetail_names_inner_component_prop2";
-        n.schemaPath = "#/components/schemas/PokemonShapeDetail_names_inner/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonShapeDetail_names_inner/properties/url";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 784
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        setExact(n.maxLength, n.hasMaxLength, "100");
-        n.sourceName = "PokemonShapeSummary_component_prop1";
-        n.schemaPath = "#/components/schemas/PokemonShapeSummary/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonShapeSummary/properties/name";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 785
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annReadOnlyJson = "true";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "PokemonShapeSummary_component_prop2";
-        n.schemaPath = "#/components/schemas/PokemonShapeSummary/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonShapeSummary/properties/url";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 786
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        setExact(n.maxLength, n.hasMaxLength, "1000");
-        n.sourceName = "PokemonSpeciesDescription_component_prop1";
-        n.schemaPath = "#/components/schemas/PokemonSpeciesDescription/properties/description";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDescription/properties/description";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 787
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1912);
-        n.sourceName = "PokemonSpeciesDescription_component_prop2";
-        n.schemaPath = "#/components/schemas/PokemonSpeciesDescription/properties/language";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDescription/properties/language";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 788
+    { // node 951
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 64u;
-        n.sourceName = "PokemonSpeciesDetail_component_prop1";
-        n.schemaPath = "#/components/schemas/PokemonSpeciesDetail/properties/base_happiness";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDetail/properties/base_happiness";
+        setExact(n.minimum, n.hasMinimum, "-2147483648");
+        setExact(n.maximum, n.hasMaximum, "2147483647");
+        n.annDescription = "\"The minimum required level of happiness the evolving Pok\303\251mon species to evolve into this Pok\303\251mon species.\"";
+        n.sourceName = "PokemonEvolution_component_prop14";
+        n.schemaPath = "#/components/schemas/PokemonEvolution/properties/min_happiness";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEvolution/properties/min_happiness";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 789
+    { // node 952
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 64u;
-        n.sourceName = "PokemonSpeciesDetail_component_prop2";
-        n.schemaPath = "#/components/schemas/PokemonSpeciesDetail/properties/capture_rate";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDetail/properties/capture_rate";
+        setExact(n.minimum, n.hasMinimum, "-2147483648");
+        setExact(n.maximum, n.hasMaximum, "2147483647");
+        n.annDescription = "\"The minimum required level of the evolving Pok\303\251mon species to evolve into this Pok\303\251mon species.\"";
+        n.sourceName = "PokemonEvolution_component_prop15";
+        n.schemaPath = "#/components/schemas/PokemonEvolution/properties/min_level";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEvolution/properties/min_level";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 790
+    { // node 953
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(2032);
-        n.sourceName = "PokemonSpeciesDetail_component_prop3";
-        n.schemaPath = "#/components/schemas/PokemonSpeciesDetail/properties/color";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDetail/properties/color";
+        n.typeFlags = 64u;
+        setExact(n.minimum, n.hasMinimum, "-2147483648");
+        setExact(n.maximum, n.hasMaximum, "2147483647");
+        n.annDescription = "\"The minimum number of times a move must be used in order to evolve into this Pok\303\251mon species.\"";
+        n.sourceName = "PokemonEvolution_component_prop16";
+        n.schemaPath = "#/components/schemas/PokemonEvolution/properties/min_move_count";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEvolution/properties/min_move_count";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 791
+    { // node 954
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1206;
-        n.annReadOnlyJson = "true";
-        n.sourceName = "PokemonSpeciesDetail_component_prop4";
-        n.schemaPath = "#/components/schemas/PokemonSpeciesDetail/properties/egg_groups";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDetail/properties/egg_groups";
+        n.typeFlags = 64u;
+        setExact(n.minimum, n.hasMinimum, "-2147483648");
+        setExact(n.maximum, n.hasMaximum, "2147483647");
+        n.annDescription = "\"The minimum number of steps that must be taken in order to evolve into this Pok\303\251mon species.\"";
+        n.sourceName = "PokemonEvolution_component_prop17";
+        n.schemaPath = "#/components/schemas/PokemonEvolution/properties/min_steps";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEvolution/properties/min_steps";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 792
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1872);
-        n.sourceName = "PokemonSpeciesDetail_component_prop5";
-        n.schemaPath = "#/components/schemas/PokemonSpeciesDetail/properties/evolution_chain";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDetail/properties/evolution_chain";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 793
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(2062);
-        n.sourceName = "PokemonSpeciesDetail_component_prop6";
-        n.schemaPath = "#/components/schemas/PokemonSpeciesDetail/properties/evolves_from_species";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDetail/properties/evolves_from_species";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 794
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1207;
-        n.annReadOnlyJson = "true";
-        n.sourceName = "PokemonSpeciesDetail_component_prop7";
-        n.schemaPath = "#/components/schemas/PokemonSpeciesDetail/properties/flavor_text_entries";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDetail/properties/flavor_text_entries";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 795
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1208;
-        n.annReadOnlyJson = "true";
-        n.sourceName = "PokemonSpeciesDetail_component_prop8";
-        n.schemaPath = "#/components/schemas/PokemonSpeciesDetail/properties/form_descriptions";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDetail/properties/form_descriptions";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 796
+    { // node 955
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 2u;
-        n.sourceName = "PokemonSpeciesDetail_component_prop9";
-        n.schemaPath = "#/components/schemas/PokemonSpeciesDetail/properties/forms_switchable";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDetail/properties/forms_switchable";
+        n.annDescription = "\"Whether or not you need to be near a Moss Rock or Icy Rock to evolve into this Pok\303\251mon species.\"";
+        n.sourceName = "PokemonEvolution_component_prop18";
+        n.schemaPath = "#/components/schemas/PokemonEvolution/properties/near_special_rock";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEvolution/properties/near_special_rock";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 797
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.sourceName = "PokemonSpeciesDetail_component_prop10";
-        n.schemaPath = "#/components/schemas/PokemonSpeciesDetail/properties/gender_rate";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDetail/properties/gender_rate";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 798
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1209;
-        n.annReadOnlyJson = "true";
-        n.sourceName = "PokemonSpeciesDetail_component_prop11";
-        n.schemaPath = "#/components/schemas/PokemonSpeciesDetail/properties/genera";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDetail/properties/genera";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 799
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1882);
-        n.sourceName = "PokemonSpeciesDetail_component_prop12";
-        n.schemaPath = "#/components/schemas/PokemonSpeciesDetail/properties/generation";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDetail/properties/generation";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 800
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1885);
-        n.sourceName = "PokemonSpeciesDetail_component_prop13";
-        n.schemaPath = "#/components/schemas/PokemonSpeciesDetail/properties/growth_rate";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDetail/properties/growth_rate";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 801
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(2051);
-        n.sourceName = "PokemonSpeciesDetail_component_prop14";
-        n.schemaPath = "#/components/schemas/PokemonSpeciesDetail/properties/habitat";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDetail/properties/habitat";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 802
+    { // node 956
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 2u;
-        n.sourceName = "PokemonSpeciesDetail_component_prop15";
-        n.schemaPath = "#/components/schemas/PokemonSpeciesDetail/properties/has_gender_differences";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDetail/properties/has_gender_differences";
+        n.annDescription = "\"Whether or not multiplayer link play is needed to evolve into this Pok\303\251mon species (e.g. Union Circle).\"";
+        n.sourceName = "PokemonEvolution_component_prop19";
+        n.schemaPath = "#/components/schemas/PokemonEvolution/properties/needs_multiplayer";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEvolution/properties/needs_multiplayer";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 803
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.sourceName = "PokemonSpeciesDetail_component_prop16";
-        n.schemaPath = "#/components/schemas/PokemonSpeciesDetail/properties/hatch_counter";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDetail/properties/hatch_counter";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 804
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.annReadOnlyJson = "true";
-        n.sourceName = "PokemonSpeciesDetail_component_prop17";
-        n.schemaPath = "#/components/schemas/PokemonSpeciesDetail/properties/id";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDetail/properties/id";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 805
+    { // node 957
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 2u;
-        n.sourceName = "PokemonSpeciesDetail_component_prop18";
-        n.schemaPath = "#/components/schemas/PokemonSpeciesDetail/properties/is_baby";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDetail/properties/is_baby";
+        n.annDescription = "\"Whether or not it must be raining in the overworld to cause evolution this Pok\303\251mon species.\"";
+        n.sourceName = "PokemonEvolution_component_prop20";
+        n.schemaPath = "#/components/schemas/PokemonEvolution/properties/needs_overworld_rain";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEvolution/properties/needs_overworld_rain";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 806
+    { // node 958
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 2u;
-        n.sourceName = "PokemonSpeciesDetail_component_prop19";
-        n.schemaPath = "#/components/schemas/PokemonSpeciesDetail/properties/is_legendary";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDetail/properties/is_legendary";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1900);
+        n.sourceName = "PokemonEvolution_component_prop21";
+        n.schemaPath = "#/components/schemas/PokemonEvolution/properties/party_species";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEvolution/properties/party_species";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 807
+    { // node 959
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 2u;
-        n.sourceName = "PokemonSpeciesDetail_component_prop20";
-        n.schemaPath = "#/components/schemas/PokemonSpeciesDetail/properties/is_mythical";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDetail/properties/is_mythical";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1901);
+        n.sourceName = "PokemonEvolution_component_prop22";
+        n.schemaPath = "#/components/schemas/PokemonEvolution/properties/party_type";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEvolution/properties/party_type";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 808
+    { // node 960
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        setExact(n.maxLength, n.hasMaxLength, "100");
-        n.sourceName = "PokemonSpeciesDetail_component_prop21";
-        n.schemaPath = "#/components/schemas/PokemonSpeciesDetail/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDetail/properties/name";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1902);
+        n.sourceName = "PokemonEvolution_component_prop23";
+        n.schemaPath = "#/components/schemas/PokemonEvolution/properties/region";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEvolution/properties/region";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 809
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1210;
-        n.annReadOnlyJson = "true";
-        n.sourceName = "PokemonSpeciesDetail_component_prop22";
-        n.schemaPath = "#/components/schemas/PokemonSpeciesDetail/properties/names";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDetail/properties/names";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 810
+    { // node 961
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 64u;
-        n.sourceName = "PokemonSpeciesDetail_component_prop23";
-        n.schemaPath = "#/components/schemas/PokemonSpeciesDetail/properties/order";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDetail/properties/order";
+        setExact(n.minimum, n.hasMinimum, "-2147483648");
+        setExact(n.maximum, n.hasMaximum, "2147483647");
+        n.annDescription = "\"The required relation between the Pok\303\251mon's Attack and Defense stats. 1 means Attack > Defense. 0 means Attack = Defense. -1 means Attack < Defense.\"";
+        n.sourceName = "PokemonEvolution_component_prop24";
+        n.schemaPath = "#/components/schemas/PokemonEvolution/properties/relative_physical_stats";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEvolution/properties/relative_physical_stats";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 811
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1211;
-        n.annReadOnlyJson = "true";
-        n.sourceName = "PokemonSpeciesDetail_component_prop24";
-        n.schemaPath = "#/components/schemas/PokemonSpeciesDetail/properties/pal_park_encounters";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDetail/properties/pal_park_encounters";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 812
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1212;
-        n.annReadOnlyJson = "true";
-        n.sourceName = "PokemonSpeciesDetail_component_prop25";
-        n.schemaPath = "#/components/schemas/PokemonSpeciesDetail/properties/pokedex_numbers";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDetail/properties/pokedex_numbers";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 813
+    { // node 962
         SchemaNode n;
         n.resourceIdentity = 0;
         n.applicator = ApplicatorKind::ref;
-        n.children.push_back(2055);
-        n.sourceName = "PokemonSpeciesDetail_component_prop26";
-        n.schemaPath = "#/components/schemas/PokemonSpeciesDetail/properties/shape";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDetail/properties/shape";
+        n.children.push_back(1903);
+        n.sourceName = "PokemonEvolution_component_prop25";
+        n.schemaPath = "#/components/schemas/PokemonEvolution/properties/required_pokemon_form";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEvolution/properties/required_pokemon_form";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 814
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1213;
-        n.annReadOnlyJson = "true";
-        n.sourceName = "PokemonSpeciesDetail_component_prop27";
-        n.schemaPath = "#/components/schemas/PokemonSpeciesDetail/properties/varieties";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDetail/properties/varieties";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 815
+    { // node 963
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 8u;
-        n.annExamplesJson = "[\"Seed Pok\303\251mon\"]";
-        n.sourceName = "PokemonSpeciesDetail_genera_inner_component_prop1";
-        n.schemaPath = "#/components/schemas/PokemonSpeciesDetail_genera_inner/properties/genus";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDetail_genera_inner/properties/genus";
+        setExact(n.maxLength, n.hasMaxLength, "10");
+        n.annDescription = "\"The required time of day. Day or night.\"";
+        n.sourceName = "PokemonEvolution_component_prop26";
+        n.schemaPath = "#/components/schemas/PokemonEvolution/properties/time_of_day";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEvolution/properties/time_of_day";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 816
+    { // node 964
         SchemaNode n;
         n.resourceIdentity = 0;
         n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1214; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1215; n.properties.push_back(std::move(b)); }
-        n.sourceName = "PokemonSpeciesDetail_genera_inner_component_prop2";
-        n.schemaPath = "#/components/schemas/PokemonSpeciesDetail_genera_inner/properties/language";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDetail_genera_inner/properties/language";
+        n.children.push_back(1904);
+        n.sourceName = "PokemonEvolution_component_prop27";
+        n.schemaPath = "#/components/schemas/PokemonEvolution/properties/trade_species";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEvolution/properties/trade_species";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 817
+    { // node 965
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1216; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1217; n.properties.push_back(std::move(b)); }
-        n.sourceName = "PokemonSpeciesDetail_pal_park_encounters_inner_component_prop1";
-        n.schemaPath = "#/components/schemas/PokemonSpeciesDetail_pal_park_encounters_inner/properties/area";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDetail_pal_park_encounters_inner/properties/area";
+        n.allOfChildren.push_back(1539);
+        n.annDescription = "\"The type of event that triggers evolution into this Pok\303\251mon species.\"";
+        n.sourceName = "PokemonEvolution_component_prop28";
+        n.schemaPath = "#/components/schemas/PokemonEvolution/properties/trigger";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEvolution/properties/trigger";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 818
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.annExamplesJson = "[50]";
-        n.annFormat = "\"int32\"";
-        n.sourceName = "PokemonSpeciesDetail_pal_park_encounters_inner_component_prop2";
-        n.schemaPath = "#/components/schemas/PokemonSpeciesDetail_pal_park_encounters_inner/properties/base_score";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDetail_pal_park_encounters_inner/properties/base_score";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 819
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.annExamplesJson = "[30]";
-        n.annFormat = "\"int32\"";
-        n.sourceName = "PokemonSpeciesDetail_pal_park_encounters_inner_component_prop3";
-        n.schemaPath = "#/components/schemas/PokemonSpeciesDetail_pal_park_encounters_inner/properties/rate";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDetail_pal_park_encounters_inner/properties/rate";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 820
+    { // node 966
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 2u;
-        n.sourceName = "PokemonSpeciesDetail_varieties_inner_component_prop1";
-        n.schemaPath = "#/components/schemas/PokemonSpeciesDetail_varieties_inner/properties/is_default";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDetail_varieties_inner/properties/is_default";
+        n.annDescription = "\"Whether or not the 3DS needs to be turned upside-down as this Pok\303\251mon levels up.\"";
+        n.sourceName = "PokemonEvolution_component_prop29";
+        n.schemaPath = "#/components/schemas/PokemonEvolution/properties/turn_upside_down";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEvolution/properties/turn_upside_down";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 821
+    { // node 967
         SchemaNode n;
         n.resourceIdentity = 0;
         n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1827);
-        n.hasObjectSchema = true;
-        { PropertyBinding b; b.name = "name"; b.node = 1218; n.properties.push_back(std::move(b)); }
-        { PropertyBinding b; b.name = "url"; b.node = 1219; n.properties.push_back(std::move(b)); }
-        n.sourceName = "PokemonSpeciesDetail_varieties_inner_component_prop2";
-        n.schemaPath = "#/components/schemas/PokemonSpeciesDetail_varieties_inner/properties/pokemon";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesDetail_varieties_inner/properties/pokemon";
+        n.children.push_back(1905);
+        n.sourceName = "PokemonEvolution_component_prop30";
+        n.schemaPath = "#/components/schemas/PokemonEvolution/properties/used_move";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEvolution/properties/used_move";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 822
+    { // node 968
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.sourceName = "PokemonSpeciesFlavorText_component_prop1";
-        n.schemaPath = "#/components/schemas/PokemonSpeciesFlavorText/properties/flavor_text";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesFlavorText/properties/flavor_text";
+        n.allOfChildren.push_back(1540);
+        n.annDescription = "\"The version group in which these evolution requirements apply.\"";
+        n.sourceName = "PokemonEvolution_component_prop31";
+        n.schemaPath = "#/components/schemas/PokemonEvolution/properties/version_group";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEvolution/properties/version_group";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 823
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.applicator = ApplicatorKind::ref;
-        n.children.push_back(1912);
-        n.sourceName = "PokemonSpeciesFlavorText_component_prop2";
-        n.schemaPath = "#/components/schemas/PokemonSpeciesFlavorText/properties/language";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesFlavorText/properties/language";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 824
+    { // node 969
         SchemaNode n;
         n.resourceIdentity = 0;
         n.applicator = ApplicatorKind::ref;
-        n.children.push_back(2090);
-        n.sourceName = "PokemonSpeciesFlavorText_component_prop3";
-        n.schemaPath = "#/components/schemas/PokemonSpeciesFlavorText/properties/version";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesFlavorText/properties/version";
+        n.children.push_back(1705);
+        n.sourceName = "PokemonEvolution_condition_expression_component_app1";
+        n.schemaPath = "#/components/schemas/PokemonEvolution_condition_expression/oneOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEvolution_condition_expression/oneOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 825
+    { // node 970
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        setExact(n.maxLength, n.hasMaxLength, "100");
-        n.sourceName = "PokemonSpeciesSummary_component_prop1";
-        n.schemaPath = "#/components/schemas/PokemonSpeciesSummary/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesSummary/properties/name";
+        n.typeFlags = 1u;
+        n.sourceName = "PokemonEvolution_condition_expression_component_app2";
+        n.schemaPath = "#/components/schemas/PokemonEvolution_condition_expression/oneOf/1";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEvolution_condition_expression/oneOf/1";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 826
+    { // node 971
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1910);
+        n.sourceName = "PokemonEvolution_evolved_pokemon_form_component_app1";
+        n.schemaPath = "#/components/schemas/PokemonEvolution_evolved_pokemon_form/oneOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEvolution_evolved_pokemon_form/oneOf/0";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 972
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 1u;
+        n.sourceName = "PokemonEvolution_evolved_pokemon_form_component_app2";
+        n.schemaPath = "#/components/schemas/PokemonEvolution_evolved_pokemon_form/oneOf/1";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEvolution_evolved_pokemon_form/oneOf/1";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 973
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1746);
+        n.sourceName = "PokemonEvolution_held_item_component_app1";
+        n.schemaPath = "#/components/schemas/PokemonEvolution_held_item/oneOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEvolution_held_item/oneOf/0";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 974
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 1u;
+        n.sourceName = "PokemonEvolution_held_item_component_app2";
+        n.schemaPath = "#/components/schemas/PokemonEvolution_held_item/oneOf/1";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEvolution_held_item/oneOf/1";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 975
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1746);
+        n.sourceName = "PokemonEvolution_item_component_app1";
+        n.schemaPath = "#/components/schemas/PokemonEvolution_item/oneOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEvolution_item/oneOf/0";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 976
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 1u;
+        n.sourceName = "PokemonEvolution_item_component_app2";
+        n.schemaPath = "#/components/schemas/PokemonEvolution_item/oneOf/1";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEvolution_item/oneOf/1";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 977
         SchemaNode n;
         n.resourceIdentity = 0;
         n.typeFlags = 8u;
-        n.annReadOnlyJson = "true";
+        n.sourceName = "PokemonEvolution_known_move_component_prop1";
+        n.schemaPath = "#/components/schemas/PokemonEvolution_known_move/properties/name";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEvolution_known_move/properties/name";
+        reg.nodes.push_back(std::move(n));
+    }
+
+    { // node 978
+        SchemaNode n;
+        n.resourceIdentity = 0;
+        n.typeFlags = 8u;
         n.annFormat = "\"uri\"";
-        n.sourceName = "PokemonSpeciesSummary_component_prop2";
-        n.schemaPath = "#/components/schemas/PokemonSpeciesSummary/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSpeciesSummary/properties/url";
+        n.sourceName = "PokemonEvolution_known_move_component_prop2";
+        n.schemaPath = "#/components/schemas/PokemonEvolution_known_move/properties/url";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEvolution_known_move/properties/url";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 827
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.sourceName = "PokemonStat_component_prop1";
-        n.schemaPath = "#/components/schemas/PokemonStat/properties/base_stat";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonStat/properties/base_stat";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 828
-        SchemaNode n;
-        n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.sourceName = "PokemonStat_component_prop2";
-        n.schemaPath = "#/components/schemas/PokemonStat/properties/effort";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonStat/properties/effort";
-        reg.nodes.push_back(std::move(n));
-    }
-
-    { // node 829
+    { // node 979
         SchemaNode n;
         n.resourceIdentity = 0;
         n.applicator = ApplicatorKind::ref;
-        n.children.push_back(2073);
-        n.sourceName = "PokemonStat_component_prop3";
-        n.schemaPath = "#/components/schemas/PokemonStat/properties/stat";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonStat/properties/stat";
+        n.children.push_back(1763);
+        n.sourceName = "PokemonEvolution_location_component_app1";
+        n.schemaPath = "#/components/schemas/PokemonEvolution_location/oneOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEvolution_location/oneOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 830
+    { // node 980
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        setExact(n.maxLength, n.hasMaxLength, "100");
-        n.sourceName = "PokemonSummary_component_prop1";
-        n.schemaPath = "#/components/schemas/PokemonSummary/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSummary/properties/name";
+        n.typeFlags = 1u;
+        n.sourceName = "PokemonEvolution_location_component_app2";
+        n.schemaPath = "#/components/schemas/PokemonEvolution_location/oneOf/1";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEvolution_location/oneOf/1";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 831
+    { // node 981
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        n.annReadOnlyJson = "true";
-        n.annFormat = "\"uri\"";
-        n.sourceName = "PokemonSummary_component_prop2";
-        n.schemaPath = "#/components/schemas/PokemonSummary/properties/url";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonSummary/properties/url";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1937);
+        n.sourceName = "PokemonEvolution_party_species_component_app1";
+        n.schemaPath = "#/components/schemas/PokemonEvolution_party_species/oneOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEvolution_party_species/oneOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 832
+    { // node 982
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 64u;
-        n.annReadOnlyJson = "true";
-        n.sourceName = "RegionDetail_component_prop1";
-        n.schemaPath = "#/components/schemas/RegionDetail/properties/id";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/RegionDetail/properties/id";
+        n.typeFlags = 1u;
+        n.sourceName = "PokemonEvolution_party_species_component_app2";
+        n.schemaPath = "#/components/schemas/PokemonEvolution_party_species/oneOf/1";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEvolution_party_species/oneOf/1";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 833
+    { // node 983
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1220;
-        n.annReadOnlyJson = "true";
-        n.sourceName = "RegionDetail_component_prop2";
-        n.schemaPath = "#/components/schemas/RegionDetail/properties/locations";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/RegionDetail/properties/locations";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1969);
+        n.sourceName = "PokemonEvolution_party_type_component_app1";
+        n.schemaPath = "#/components/schemas/PokemonEvolution_party_type/oneOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEvolution_party_type/oneOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 834
+    { // node 984
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.allOfChildren.push_back(1221);
-        n.annReadOnlyJson = "true";
-        n.sourceName = "RegionDetail_component_prop3";
-        n.schemaPath = "#/components/schemas/RegionDetail/properties/main_generation";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/RegionDetail/properties/main_generation";
+        n.typeFlags = 1u;
+        n.sourceName = "PokemonEvolution_party_type_component_app2";
+        n.schemaPath = "#/components/schemas/PokemonEvolution_party_type/oneOf/1";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEvolution_party_type/oneOf/1";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 835
+    { // node 985
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 8u;
-        setExact(n.maxLength, n.hasMaxLength, "100");
-        n.sourceName = "RegionDetail_component_prop4";
-        n.schemaPath = "#/components/schemas/RegionDetail/properties/name";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/RegionDetail/properties/name";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1951);
+        n.sourceName = "PokemonEvolution_region_component_app1";
+        n.schemaPath = "#/components/schemas/PokemonEvolution_region/oneOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEvolution_region/oneOf/0";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 836
+    { // node 986
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1222;
-        n.annReadOnlyJson = "true";
-        n.sourceName = "RegionDetail_component_prop5";
-        n.schemaPath = "#/components/schemas/RegionDetail/properties/names";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/RegionDetail/properties/names";
+        n.typeFlags = 1u;
+        n.sourceName = "PokemonEvolution_region_component_app2";
+        n.schemaPath = "#/components/schemas/PokemonEvolution_region/oneOf/1";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEvolution_region/oneOf/1";
         reg.nodes.push_back(std::move(n));
     }
 
-    { // node 837
+    { // node 987
         SchemaNode n;
         n.resourceIdentity = 0;
-        n.typeFlags = 16u;
-        n.items = 1223;
-        n.annReadOnlyJson = "true";
-        n.sourceName = "RegionDetail_component_prop6";
-        n.schemaPath = "#/components/schemas/RegionDetail/properties/pokedexes";
-        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/RegionDetail/properties/pokedexes";
+        n.applicator = ApplicatorKind::ref;
+        n.children.push_back(1910);
+        n.sourceName = "PokemonEvolution_required_pokemon_form_component_app1";
+        n.schemaPath = "#/components/schemas/PokemonEvolution_required_pokemon_form/oneOf/0";
+        n.absSchemaUri = "urn:openapi-generator:cpp-boost-beast:schema#/components/schemas/PokemonEvolution_required_pokemon_form/oneOf/0";
         reg.nodes.push_back(std::move(n));
     }
 }
 
 SchemaIndex schemaNodeForChunk1(std::string const& id) {
-    if (id == "MoveMetaAilmentName_component_prop2") return 419;
-    if (id == "MoveMetaAilmentSummary_component_prop1") return 420;
-    if (id == "MoveMetaAilmentSummary_component_prop2") return 421;
-    if (id == "MoveMetaCategoryDescription_component_prop1") return 422;
-    if (id == "MoveMetaCategoryDescription_component_prop2") return 423;
-    if (id == "MoveMetaCategoryDetail_component_prop1") return 424;
-    if (id == "MoveMetaCategoryDetail_component_prop2") return 425;
-    if (id == "MoveMetaCategoryDetail_component_prop3") return 426;
-    if (id == "MoveMetaCategoryDetail_component_prop4") return 427;
-    if (id == "MoveMetaCategorySummary_component_prop1") return 428;
-    if (id == "MoveMetaCategorySummary_component_prop2") return 429;
-    if (id == "MoveName_component_prop1") return 430;
-    if (id == "MoveName_component_prop2") return 431;
-    if (id == "MoveSummary_component_prop1") return 432;
-    if (id == "MoveSummary_component_prop2") return 433;
-    if (id == "MoveTargetDescription_component_prop1") return 434;
-    if (id == "MoveTargetDescription_component_prop2") return 435;
-    if (id == "MoveTargetDetail_component_prop1") return 436;
-    if (id == "MoveTargetDetail_component_prop2") return 437;
-    if (id == "MoveTargetDetail_component_prop3") return 438;
-    if (id == "MoveTargetDetail_component_prop4") return 439;
-    if (id == "MoveTargetDetail_component_prop5") return 440;
-    if (id == "MoveTargetName_component_prop1") return 441;
-    if (id == "MoveTargetName_component_prop2") return 442;
-    if (id == "MoveTargetSummary_component_prop1") return 443;
-    if (id == "MoveTargetSummary_component_prop2") return 444;
-    if (id == "NatureBattleStylePreference_component_prop1") return 445;
-    if (id == "NatureBattleStylePreference_component_prop2") return 446;
-    if (id == "NatureBattleStylePreference_component_prop3") return 447;
-    if (id == "NatureDetail_component_prop1") return 448;
-    if (id == "NatureDetail_component_prop2") return 449;
-    if (id == "NatureDetail_component_prop3") return 450;
-    if (id == "NatureDetail_component_prop4") return 451;
-    if (id == "NatureDetail_component_prop5") return 452;
-    if (id == "NatureDetail_component_prop6") return 453;
-    if (id == "NatureDetail_component_prop7") return 454;
-    if (id == "NatureDetail_component_prop8") return 455;
-    if (id == "NatureDetail_component_prop9") return 456;
-    if (id == "NatureDetail_component_prop10") return 457;
-    if (id == "NatureDetail_pokeathlon_stat_changes_inner_component_prop1") return 458;
-    if (id == "NatureDetail_pokeathlon_stat_changes_inner_component_prop2") return 459;
-    if (id == "NatureName_component_prop1") return 460;
-    if (id == "NatureName_component_prop2") return 461;
-    if (id == "NatureSummary_component_prop1") return 462;
-    if (id == "NatureSummary_component_prop2") return 463;
-    if (id == "PaginatedAbilitySummaryList_component_prop1") return 464;
-    if (id == "PaginatedAbilitySummaryList_component_prop2") return 465;
-    if (id == "PaginatedAbilitySummaryList_component_prop3") return 466;
-    if (id == "PaginatedAbilitySummaryList_component_prop4") return 467;
-    if (id == "PaginatedBerryFirmnessSummaryList_component_prop1") return 468;
-    if (id == "PaginatedBerryFirmnessSummaryList_component_prop2") return 469;
-    if (id == "PaginatedBerryFirmnessSummaryList_component_prop3") return 470;
-    if (id == "PaginatedBerryFirmnessSummaryList_component_prop4") return 471;
-    if (id == "PaginatedBerryFlavorSummaryList_component_prop1") return 472;
-    if (id == "PaginatedBerryFlavorSummaryList_component_prop2") return 473;
-    if (id == "PaginatedBerryFlavorSummaryList_component_prop3") return 474;
-    if (id == "PaginatedBerryFlavorSummaryList_component_prop4") return 475;
-    if (id == "PaginatedBerrySummaryList_component_prop1") return 476;
-    if (id == "PaginatedBerrySummaryList_component_prop2") return 477;
-    if (id == "PaginatedBerrySummaryList_component_prop3") return 478;
-    if (id == "PaginatedBerrySummaryList_component_prop4") return 479;
-    if (id == "PaginatedCharacteristicSummaryList_component_prop1") return 480;
-    if (id == "PaginatedCharacteristicSummaryList_component_prop2") return 481;
-    if (id == "PaginatedCharacteristicSummaryList_component_prop3") return 482;
-    if (id == "PaginatedCharacteristicSummaryList_component_prop4") return 483;
-    if (id == "PaginatedContestEffectSummaryList_component_prop1") return 484;
-    if (id == "PaginatedContestEffectSummaryList_component_prop2") return 485;
-    if (id == "PaginatedContestEffectSummaryList_component_prop3") return 486;
-    if (id == "PaginatedContestEffectSummaryList_component_prop4") return 487;
-    if (id == "PaginatedContestTypeSummaryList_component_prop1") return 488;
-    if (id == "PaginatedContestTypeSummaryList_component_prop2") return 489;
-    if (id == "PaginatedContestTypeSummaryList_component_prop3") return 490;
-    if (id == "PaginatedContestTypeSummaryList_component_prop4") return 491;
-    if (id == "PaginatedEggGroupSummaryList_component_prop1") return 492;
-    if (id == "PaginatedEggGroupSummaryList_component_prop2") return 493;
-    if (id == "PaginatedEggGroupSummaryList_component_prop3") return 494;
-    if (id == "PaginatedEggGroupSummaryList_component_prop4") return 495;
-    if (id == "PaginatedEncounterConditionSummaryList_component_prop1") return 496;
-    if (id == "PaginatedEncounterConditionSummaryList_component_prop2") return 497;
-    if (id == "PaginatedEncounterConditionSummaryList_component_prop3") return 498;
-    if (id == "PaginatedEncounterConditionSummaryList_component_prop4") return 499;
-    if (id == "PaginatedEncounterConditionValueSummaryList_component_prop1") return 500;
-    if (id == "PaginatedEncounterConditionValueSummaryList_component_prop2") return 501;
-    if (id == "PaginatedEncounterConditionValueSummaryList_component_prop3") return 502;
-    if (id == "PaginatedEncounterConditionValueSummaryList_component_prop4") return 503;
-    if (id == "PaginatedEncounterMethodSummaryList_component_prop1") return 504;
-    if (id == "PaginatedEncounterMethodSummaryList_component_prop2") return 505;
-    if (id == "PaginatedEncounterMethodSummaryList_component_prop3") return 506;
-    if (id == "PaginatedEncounterMethodSummaryList_component_prop4") return 507;
-    if (id == "PaginatedEvolutionChainSummaryList_component_prop1") return 508;
-    if (id == "PaginatedEvolutionChainSummaryList_component_prop2") return 509;
-    if (id == "PaginatedEvolutionChainSummaryList_component_prop3") return 510;
-    if (id == "PaginatedEvolutionChainSummaryList_component_prop4") return 511;
-    if (id == "PaginatedEvolutionTriggerSummaryList_component_prop1") return 512;
-    if (id == "PaginatedEvolutionTriggerSummaryList_component_prop2") return 513;
-    if (id == "PaginatedEvolutionTriggerSummaryList_component_prop3") return 514;
-    if (id == "PaginatedEvolutionTriggerSummaryList_component_prop4") return 515;
-    if (id == "PaginatedGenderSummaryList_component_prop1") return 516;
-    if (id == "PaginatedGenderSummaryList_component_prop2") return 517;
-    if (id == "PaginatedGenderSummaryList_component_prop3") return 518;
-    if (id == "PaginatedGenderSummaryList_component_prop4") return 519;
-    if (id == "PaginatedGenerationSummaryList_component_prop1") return 520;
-    if (id == "PaginatedGenerationSummaryList_component_prop2") return 521;
-    if (id == "PaginatedGenerationSummaryList_component_prop3") return 522;
-    if (id == "PaginatedGenerationSummaryList_component_prop4") return 523;
-    if (id == "PaginatedGrowthRateSummaryList_component_prop1") return 524;
-    if (id == "PaginatedGrowthRateSummaryList_component_prop2") return 525;
-    if (id == "PaginatedGrowthRateSummaryList_component_prop3") return 526;
-    if (id == "PaginatedGrowthRateSummaryList_component_prop4") return 527;
-    if (id == "PaginatedItemAttributeSummaryList_component_prop1") return 528;
-    if (id == "PaginatedItemAttributeSummaryList_component_prop2") return 529;
-    if (id == "PaginatedItemAttributeSummaryList_component_prop3") return 530;
-    if (id == "PaginatedItemAttributeSummaryList_component_prop4") return 531;
-    if (id == "PaginatedItemCategorySummaryList_component_prop1") return 532;
-    if (id == "PaginatedItemCategorySummaryList_component_prop2") return 533;
-    if (id == "PaginatedItemCategorySummaryList_component_prop3") return 534;
-    if (id == "PaginatedItemCategorySummaryList_component_prop4") return 535;
-    if (id == "PaginatedItemFlingEffectSummaryList_component_prop1") return 536;
-    if (id == "PaginatedItemFlingEffectSummaryList_component_prop2") return 537;
-    if (id == "PaginatedItemFlingEffectSummaryList_component_prop3") return 538;
-    if (id == "PaginatedItemFlingEffectSummaryList_component_prop4") return 539;
-    if (id == "PaginatedItemPocketSummaryList_component_prop1") return 540;
-    if (id == "PaginatedItemPocketSummaryList_component_prop2") return 541;
-    if (id == "PaginatedItemPocketSummaryList_component_prop3") return 542;
-    if (id == "PaginatedItemPocketSummaryList_component_prop4") return 543;
-    if (id == "PaginatedItemSummaryList_component_prop1") return 544;
-    if (id == "PaginatedItemSummaryList_component_prop2") return 545;
-    if (id == "PaginatedItemSummaryList_component_prop3") return 546;
-    if (id == "PaginatedItemSummaryList_component_prop4") return 547;
-    if (id == "PaginatedLanguageSummaryList_component_prop1") return 548;
-    if (id == "PaginatedLanguageSummaryList_component_prop2") return 549;
-    if (id == "PaginatedLanguageSummaryList_component_prop3") return 550;
-    if (id == "PaginatedLanguageSummaryList_component_prop4") return 551;
-    if (id == "PaginatedLocationAreaSummaryList_component_prop1") return 552;
-    if (id == "PaginatedLocationAreaSummaryList_component_prop2") return 553;
-    if (id == "PaginatedLocationAreaSummaryList_component_prop3") return 554;
-    if (id == "PaginatedLocationAreaSummaryList_component_prop4") return 555;
-    if (id == "PaginatedLocationSummaryList_component_prop1") return 556;
-    if (id == "PaginatedLocationSummaryList_component_prop2") return 557;
-    if (id == "PaginatedLocationSummaryList_component_prop3") return 558;
-    if (id == "PaginatedLocationSummaryList_component_prop4") return 559;
-    if (id == "PaginatedMachineSummaryList_component_prop1") return 560;
-    if (id == "PaginatedMachineSummaryList_component_prop2") return 561;
-    if (id == "PaginatedMachineSummaryList_component_prop3") return 562;
-    if (id == "PaginatedMachineSummaryList_component_prop4") return 563;
-    if (id == "PaginatedMoveBattleStyleSummaryList_component_prop1") return 564;
-    if (id == "PaginatedMoveBattleStyleSummaryList_component_prop2") return 565;
-    if (id == "PaginatedMoveBattleStyleSummaryList_component_prop3") return 566;
-    if (id == "PaginatedMoveBattleStyleSummaryList_component_prop4") return 567;
-    if (id == "PaginatedMoveDamageClassSummaryList_component_prop1") return 568;
-    if (id == "PaginatedMoveDamageClassSummaryList_component_prop2") return 569;
-    if (id == "PaginatedMoveDamageClassSummaryList_component_prop3") return 570;
-    if (id == "PaginatedMoveDamageClassSummaryList_component_prop4") return 571;
-    if (id == "PaginatedMoveLearnMethodSummaryList_component_prop1") return 572;
-    if (id == "PaginatedMoveLearnMethodSummaryList_component_prop2") return 573;
-    if (id == "PaginatedMoveLearnMethodSummaryList_component_prop3") return 574;
-    if (id == "PaginatedMoveLearnMethodSummaryList_component_prop4") return 575;
-    if (id == "PaginatedMoveMetaAilmentSummaryList_component_prop1") return 576;
-    if (id == "PaginatedMoveMetaAilmentSummaryList_component_prop2") return 577;
-    if (id == "PaginatedMoveMetaAilmentSummaryList_component_prop3") return 578;
-    if (id == "PaginatedMoveMetaAilmentSummaryList_component_prop4") return 579;
-    if (id == "PaginatedMoveMetaCategorySummaryList_component_prop1") return 580;
-    if (id == "PaginatedMoveMetaCategorySummaryList_component_prop2") return 581;
-    if (id == "PaginatedMoveMetaCategorySummaryList_component_prop3") return 582;
-    if (id == "PaginatedMoveMetaCategorySummaryList_component_prop4") return 583;
-    if (id == "PaginatedMoveSummaryList_component_prop1") return 584;
-    if (id == "PaginatedMoveSummaryList_component_prop2") return 585;
-    if (id == "PaginatedMoveSummaryList_component_prop3") return 586;
-    if (id == "PaginatedMoveSummaryList_component_prop4") return 587;
-    if (id == "PaginatedMoveTargetSummaryList_component_prop1") return 588;
-    if (id == "PaginatedMoveTargetSummaryList_component_prop2") return 589;
-    if (id == "PaginatedMoveTargetSummaryList_component_prop3") return 590;
-    if (id == "PaginatedMoveTargetSummaryList_component_prop4") return 591;
-    if (id == "PaginatedNatureSummaryList_component_prop1") return 592;
-    if (id == "PaginatedNatureSummaryList_component_prop2") return 593;
-    if (id == "PaginatedNatureSummaryList_component_prop3") return 594;
-    if (id == "PaginatedNatureSummaryList_component_prop4") return 595;
-    if (id == "PaginatedPalParkAreaSummaryList_component_prop1") return 596;
-    if (id == "PaginatedPalParkAreaSummaryList_component_prop2") return 597;
-    if (id == "PaginatedPalParkAreaSummaryList_component_prop3") return 598;
-    if (id == "PaginatedPalParkAreaSummaryList_component_prop4") return 599;
-    if (id == "PaginatedPokeathlonStatSummaryList_component_prop1") return 600;
-    if (id == "PaginatedPokeathlonStatSummaryList_component_prop2") return 601;
-    if (id == "PaginatedPokeathlonStatSummaryList_component_prop3") return 602;
-    if (id == "PaginatedPokeathlonStatSummaryList_component_prop4") return 603;
-    if (id == "PaginatedPokedexSummaryList_component_prop1") return 604;
-    if (id == "PaginatedPokedexSummaryList_component_prop2") return 605;
-    if (id == "PaginatedPokedexSummaryList_component_prop3") return 606;
-    if (id == "PaginatedPokedexSummaryList_component_prop4") return 607;
-    if (id == "PaginatedPokemonColorSummaryList_component_prop1") return 608;
-    if (id == "PaginatedPokemonColorSummaryList_component_prop2") return 609;
-    if (id == "PaginatedPokemonColorSummaryList_component_prop3") return 610;
-    if (id == "PaginatedPokemonColorSummaryList_component_prop4") return 611;
-    if (id == "PaginatedPokemonFormSummaryList_component_prop1") return 612;
-    if (id == "PaginatedPokemonFormSummaryList_component_prop2") return 613;
-    if (id == "PaginatedPokemonFormSummaryList_component_prop3") return 614;
-    if (id == "PaginatedPokemonFormSummaryList_component_prop4") return 615;
-    if (id == "PaginatedPokemonHabitatSummaryList_component_prop1") return 616;
-    if (id == "PaginatedPokemonHabitatSummaryList_component_prop2") return 617;
-    if (id == "PaginatedPokemonHabitatSummaryList_component_prop3") return 618;
-    if (id == "PaginatedPokemonHabitatSummaryList_component_prop4") return 619;
-    if (id == "PaginatedPokemonShapeSummaryList_component_prop1") return 620;
-    if (id == "PaginatedPokemonShapeSummaryList_component_prop2") return 621;
-    if (id == "PaginatedPokemonShapeSummaryList_component_prop3") return 622;
-    if (id == "PaginatedPokemonShapeSummaryList_component_prop4") return 623;
-    if (id == "PaginatedPokemonSpeciesSummaryList_component_prop1") return 624;
-    if (id == "PaginatedPokemonSpeciesSummaryList_component_prop2") return 625;
-    if (id == "PaginatedPokemonSpeciesSummaryList_component_prop3") return 626;
-    if (id == "PaginatedPokemonSpeciesSummaryList_component_prop4") return 627;
-    if (id == "PaginatedPokemonSummaryList_component_prop1") return 628;
-    if (id == "PaginatedPokemonSummaryList_component_prop2") return 629;
-    if (id == "PaginatedPokemonSummaryList_component_prop3") return 630;
-    if (id == "PaginatedPokemonSummaryList_component_prop4") return 631;
-    if (id == "PaginatedRegionSummaryList_component_prop1") return 632;
-    if (id == "PaginatedRegionSummaryList_component_prop2") return 633;
-    if (id == "PaginatedRegionSummaryList_component_prop3") return 634;
-    if (id == "PaginatedRegionSummaryList_component_prop4") return 635;
-    if (id == "PaginatedStatSummaryList_component_prop1") return 636;
-    if (id == "PaginatedStatSummaryList_component_prop2") return 637;
-    if (id == "PaginatedStatSummaryList_component_prop3") return 638;
-    if (id == "PaginatedStatSummaryList_component_prop4") return 639;
-    if (id == "PaginatedSuperContestEffectSummaryList_component_prop1") return 640;
-    if (id == "PaginatedSuperContestEffectSummaryList_component_prop2") return 641;
-    if (id == "PaginatedSuperContestEffectSummaryList_component_prop3") return 642;
-    if (id == "PaginatedSuperContestEffectSummaryList_component_prop4") return 643;
-    if (id == "PaginatedTypeSummaryList_component_prop1") return 644;
-    if (id == "PaginatedTypeSummaryList_component_prop2") return 645;
-    if (id == "PaginatedTypeSummaryList_component_prop3") return 646;
-    if (id == "PaginatedTypeSummaryList_component_prop4") return 647;
-    if (id == "PaginatedVersionGroupSummaryList_component_prop1") return 648;
-    if (id == "PaginatedVersionGroupSummaryList_component_prop2") return 649;
-    if (id == "PaginatedVersionGroupSummaryList_component_prop3") return 650;
-    if (id == "PaginatedVersionGroupSummaryList_component_prop4") return 651;
-    if (id == "PaginatedVersionSummaryList_component_prop1") return 652;
-    if (id == "PaginatedVersionSummaryList_component_prop2") return 653;
-    if (id == "PaginatedVersionSummaryList_component_prop3") return 654;
-    if (id == "PaginatedVersionSummaryList_component_prop4") return 655;
-    if (id == "PalParkAreaDetail_component_prop1") return 656;
-    if (id == "PalParkAreaDetail_component_prop2") return 657;
-    if (id == "PalParkAreaDetail_component_prop3") return 658;
-    if (id == "PalParkAreaDetail_component_prop4") return 659;
-    if (id == "PalParkAreaDetail_pokemon_encounters_inner_component_prop1") return 660;
-    if (id == "PalParkAreaDetail_pokemon_encounters_inner_component_prop2") return 661;
-    if (id == "PalParkAreaDetail_pokemon_encounters_inner_component_prop3") return 662;
-    if (id == "PalParkAreaName_component_prop1") return 663;
-    if (id == "PalParkAreaName_component_prop2") return 664;
-    if (id == "PalParkAreaSummary_component_prop1") return 665;
-    if (id == "PalParkAreaSummary_component_prop2") return 666;
-    if (id == "PokeathlonStatDetail_component_prop1") return 667;
-    if (id == "PokeathlonStatDetail_component_prop2") return 668;
-    if (id == "PokeathlonStatDetail_component_prop3") return 669;
-    if (id == "PokeathlonStatDetail_component_prop4") return 670;
-    if (id == "PokeathlonStatDetail_affecting_natures_component_prop1") return 671;
-    if (id == "PokeathlonStatDetail_affecting_natures_component_prop2") return 672;
-    if (id == "PokeathlonStatDetail_affecting_natures_decrease_inner_component_prop1") return 673;
-    if (id == "PokeathlonStatDetail_affecting_natures_decrease_inner_component_prop2") return 674;
-    if (id == "PokeathlonStatDetail_affecting_natures_increase_inner_component_prop1") return 675;
-    if (id == "PokeathlonStatDetail_affecting_natures_increase_inner_component_prop2") return 676;
-    if (id == "PokeathlonStatName_component_prop1") return 677;
-    if (id == "PokeathlonStatName_component_prop2") return 678;
-    if (id == "PokeathlonStatSummary_component_prop1") return 679;
-    if (id == "PokeathlonStatSummary_component_prop2") return 680;
-    if (id == "PokedexDescription_component_prop1") return 681;
-    if (id == "PokedexDescription_component_prop2") return 682;
-    if (id == "PokedexDetail_component_prop1") return 683;
-    if (id == "PokedexDetail_component_prop2") return 684;
-    if (id == "PokedexDetail_component_prop3") return 685;
-    if (id == "PokedexDetail_component_prop4") return 686;
-    if (id == "PokedexDetail_component_prop5") return 687;
-    if (id == "PokedexDetail_component_prop6") return 688;
-    if (id == "PokedexDetail_component_prop7") return 689;
-    if (id == "PokedexDetail_component_prop8") return 690;
-    if (id == "PokedexDetail_pokemon_entries_inner_component_prop1") return 691;
-    if (id == "PokedexDetail_pokemon_entries_inner_component_prop2") return 692;
-    if (id == "PokedexName_component_prop1") return 693;
-    if (id == "PokedexName_component_prop2") return 694;
-    if (id == "PokedexSummary_component_prop1") return 695;
-    if (id == "PokedexSummary_component_prop2") return 696;
-    if (id == "PokemonColorDetail_component_prop1") return 697;
-    if (id == "PokemonColorDetail_component_prop2") return 698;
-    if (id == "PokemonColorDetail_component_prop3") return 699;
-    if (id == "PokemonColorDetail_component_prop4") return 700;
-    if (id == "PokemonColorName_component_prop1") return 701;
-    if (id == "PokemonColorName_component_prop2") return 702;
-    if (id == "PokemonColorSummary_component_prop1") return 703;
-    if (id == "PokemonColorSummary_component_prop2") return 704;
-    if (id == "PokemonDetail_component_prop1") return 705;
-    if (id == "PokemonDetail_component_prop2") return 706;
-    if (id == "PokemonDetail_component_prop3") return 707;
-    if (id == "PokemonDetail_component_prop4") return 708;
-    if (id == "PokemonDetail_component_prop5") return 709;
-    if (id == "PokemonDetail_component_prop6") return 710;
-    if (id == "PokemonDetail_component_prop7") return 711;
-    if (id == "PokemonDetail_component_prop8") return 712;
-    if (id == "PokemonDetail_component_prop9") return 713;
-    if (id == "PokemonDetail_component_prop10") return 714;
-    if (id == "PokemonDetail_component_prop11") return 715;
-    if (id == "PokemonDetail_component_prop12") return 716;
-    if (id == "PokemonDetail_component_prop13") return 717;
-    if (id == "PokemonDetail_component_prop14") return 718;
-    if (id == "PokemonDetail_component_prop15") return 719;
-    if (id == "PokemonDetail_component_prop16") return 720;
-    if (id == "PokemonDetail_component_prop17") return 721;
-    if (id == "PokemonDetail_component_prop18") return 722;
-    if (id == "PokemonDetail_component_prop19") return 723;
-    if (id == "PokemonDetail_component_prop20") return 724;
-    if (id == "PokemonDetail_abilities_inner_component_prop1") return 725;
-    if (id == "PokemonDetail_abilities_inner_component_prop2") return 726;
-    if (id == "PokemonDetail_abilities_inner_component_prop3") return 727;
-    if (id == "PokemonDetail_cries_component_prop1") return 728;
-    if (id == "PokemonDetail_cries_component_prop2") return 729;
-    if (id == "PokemonDetail_held_items_component_prop1") return 730;
-    if (id == "PokemonDetail_held_items_component_prop2") return 731;
-    if (id == "PokemonDetail_moves_inner_component_prop1") return 732;
-    if (id == "PokemonDetail_moves_inner_component_prop2") return 733;
-    if (id == "PokemonDetail_moves_inner_version_group_details_inner_component_prop1") return 734;
-    if (id == "PokemonDetail_moves_inner_version_group_details_inner_component_prop2") return 735;
-    if (id == "PokemonDetail_moves_inner_version_group_details_inner_component_prop3") return 736;
-    if (id == "PokemonDetail_past_abilities_inner_component_prop1") return 737;
-    if (id == "PokemonDetail_past_abilities_inner_component_prop2") return 738;
-    if (id == "PokemonDetail_past_types_inner_component_prop1") return 739;
-    if (id == "PokemonDetail_past_types_inner_component_prop2") return 740;
-    if (id == "PokemonDetail_sprites_component_prop1") return 741;
-    if (id == "PokemonDetail_types_inner_component_prop1") return 742;
-    if (id == "PokemonDetail_types_inner_component_prop2") return 743;
-    if (id == "PokemonDexEntry_component_prop1") return 744;
-    if (id == "PokemonDexEntry_component_prop2") return 745;
-    if (id == "PokemonFormDetail_component_prop1") return 746;
-    if (id == "PokemonFormDetail_component_prop2") return 747;
-    if (id == "PokemonFormDetail_component_prop3") return 748;
-    if (id == "PokemonFormDetail_component_prop4") return 749;
-    if (id == "PokemonFormDetail_component_prop5") return 750;
-    if (id == "PokemonFormDetail_component_prop6") return 751;
-    if (id == "PokemonFormDetail_component_prop7") return 752;
-    if (id == "PokemonFormDetail_component_prop8") return 753;
-    if (id == "PokemonFormDetail_component_prop9") return 754;
-    if (id == "PokemonFormDetail_component_prop10") return 755;
-    if (id == "PokemonFormDetail_component_prop11") return 756;
-    if (id == "PokemonFormDetail_component_prop12") return 757;
-    if (id == "PokemonFormDetail_component_prop13") return 758;
-    if (id == "PokemonFormDetail_component_prop14") return 759;
-    if (id == "PokemonFormDetail_form_names_inner_component_prop1") return 760;
-    if (id == "PokemonFormDetail_form_names_inner_component_prop2") return 761;
-    if (id == "PokemonFormDetail_sprites_component_prop1") return 762;
-    if (id == "PokemonFormSummary_component_prop1") return 763;
-    if (id == "PokemonFormSummary_component_prop2") return 764;
-    if (id == "PokemonGameIndex_component_prop1") return 765;
-    if (id == "PokemonGameIndex_component_prop2") return 766;
-    if (id == "PokemonHabitatDetail_component_prop1") return 767;
-    if (id == "PokemonHabitatDetail_component_prop2") return 768;
-    if (id == "PokemonHabitatDetail_component_prop3") return 769;
-    if (id == "PokemonHabitatDetail_component_prop4") return 770;
-    if (id == "PokemonHabitatName_component_prop1") return 771;
-    if (id == "PokemonHabitatName_component_prop2") return 772;
-    if (id == "PokemonHabitatSummary_component_prop1") return 773;
-    if (id == "PokemonHabitatSummary_component_prop2") return 774;
-    if (id == "PokemonShapeDetail_component_prop1") return 775;
-    if (id == "PokemonShapeDetail_component_prop2") return 776;
-    if (id == "PokemonShapeDetail_component_prop3") return 777;
-    if (id == "PokemonShapeDetail_component_prop4") return 778;
-    if (id == "PokemonShapeDetail_component_prop5") return 779;
-    if (id == "PokemonShapeDetail_awesome_names_inner_component_prop1") return 780;
-    if (id == "PokemonShapeDetail_awesome_names_inner_component_prop2") return 781;
-    if (id == "PokemonShapeDetail_names_inner_component_prop1") return 782;
-    if (id == "PokemonShapeDetail_names_inner_component_prop2") return 783;
-    if (id == "PokemonShapeSummary_component_prop1") return 784;
-    if (id == "PokemonShapeSummary_component_prop2") return 785;
-    if (id == "PokemonSpeciesDescription_component_prop1") return 786;
-    if (id == "PokemonSpeciesDescription_component_prop2") return 787;
-    if (id == "PokemonSpeciesDetail_component_prop1") return 788;
-    if (id == "PokemonSpeciesDetail_component_prop2") return 789;
-    if (id == "PokemonSpeciesDetail_component_prop3") return 790;
-    if (id == "PokemonSpeciesDetail_component_prop4") return 791;
-    if (id == "PokemonSpeciesDetail_component_prop5") return 792;
-    if (id == "PokemonSpeciesDetail_component_prop6") return 793;
-    if (id == "PokemonSpeciesDetail_component_prop7") return 794;
-    if (id == "PokemonSpeciesDetail_component_prop8") return 795;
-    if (id == "PokemonSpeciesDetail_component_prop9") return 796;
-    if (id == "PokemonSpeciesDetail_component_prop10") return 797;
-    if (id == "PokemonSpeciesDetail_component_prop11") return 798;
-    if (id == "PokemonSpeciesDetail_component_prop12") return 799;
-    if (id == "PokemonSpeciesDetail_component_prop13") return 800;
-    if (id == "PokemonSpeciesDetail_component_prop14") return 801;
-    if (id == "PokemonSpeciesDetail_component_prop15") return 802;
-    if (id == "PokemonSpeciesDetail_component_prop16") return 803;
-    if (id == "PokemonSpeciesDetail_component_prop17") return 804;
-    if (id == "PokemonSpeciesDetail_component_prop18") return 805;
-    if (id == "PokemonSpeciesDetail_component_prop19") return 806;
-    if (id == "PokemonSpeciesDetail_component_prop20") return 807;
-    if (id == "PokemonSpeciesDetail_component_prop21") return 808;
-    if (id == "PokemonSpeciesDetail_component_prop22") return 809;
-    if (id == "PokemonSpeciesDetail_component_prop23") return 810;
-    if (id == "PokemonSpeciesDetail_component_prop24") return 811;
-    if (id == "PokemonSpeciesDetail_component_prop25") return 812;
-    if (id == "PokemonSpeciesDetail_component_prop26") return 813;
-    if (id == "PokemonSpeciesDetail_component_prop27") return 814;
-    if (id == "PokemonSpeciesDetail_genera_inner_component_prop1") return 815;
-    if (id == "PokemonSpeciesDetail_genera_inner_component_prop2") return 816;
-    if (id == "PokemonSpeciesDetail_pal_park_encounters_inner_component_prop1") return 817;
-    if (id == "PokemonSpeciesDetail_pal_park_encounters_inner_component_prop2") return 818;
-    if (id == "PokemonSpeciesDetail_pal_park_encounters_inner_component_prop3") return 819;
-    if (id == "PokemonSpeciesDetail_varieties_inner_component_prop1") return 820;
-    if (id == "PokemonSpeciesDetail_varieties_inner_component_prop2") return 821;
-    if (id == "PokemonSpeciesFlavorText_component_prop1") return 822;
-    if (id == "PokemonSpeciesFlavorText_component_prop2") return 823;
-    if (id == "PokemonSpeciesFlavorText_component_prop3") return 824;
-    if (id == "PokemonSpeciesSummary_component_prop1") return 825;
-    if (id == "PokemonSpeciesSummary_component_prop2") return 826;
-    if (id == "PokemonStat_component_prop1") return 827;
-    if (id == "PokemonStat_component_prop2") return 828;
-    if (id == "PokemonStat_component_prop3") return 829;
-    if (id == "PokemonSummary_component_prop1") return 830;
-    if (id == "PokemonSummary_component_prop2") return 831;
-    if (id == "RegionDetail_component_prop1") return 832;
-    if (id == "RegionDetail_component_prop2") return 833;
-    if (id == "RegionDetail_component_prop3") return 834;
-    if (id == "RegionDetail_component_prop4") return 835;
-    if (id == "RegionDetail_component_prop5") return 836;
-    if (id == "RegionDetail_component_prop6") return 837;
+    if (id == "MoveChange_component_prop4") return 494;
+    if (id == "MoveChange_component_prop5") return 495;
+    if (id == "MoveChange_component_prop6") return 496;
+    if (id == "MoveChange_component_prop7") return 497;
+    if (id == "MoveChange_type_component_app1") return 498;
+    if (id == "MoveChange_type_component_app2") return 499;
+    if (id == "MoveComboUsage_component_prop1") return 500;
+    if (id == "MoveComboUsage_component_prop2") return 501;
+    if (id == "MoveCombos_component_prop1") return 502;
+    if (id == "MoveCombos_component_prop2") return 503;
+    if (id == "MoveDamageClassDescription_component_prop1") return 504;
+    if (id == "MoveDamageClassDescription_component_prop2") return 505;
+    if (id == "MoveDamageClassDetail_component_prop1") return 506;
+    if (id == "MoveDamageClassDetail_component_prop2") return 507;
+    if (id == "MoveDamageClassDetail_component_prop3") return 508;
+    if (id == "MoveDamageClassDetail_component_prop4") return 509;
+    if (id == "MoveDamageClassDetail_component_prop5") return 510;
+    if (id == "MoveDamageClassName_component_prop1") return 511;
+    if (id == "MoveDamageClassName_component_prop2") return 512;
+    if (id == "MoveDamageClassSummary_component_prop1") return 513;
+    if (id == "MoveDamageClassSummary_component_prop2") return 514;
+    if (id == "MoveDetail_component_prop1") return 515;
+    if (id == "MoveDetail_component_prop2") return 516;
+    if (id == "MoveDetail_component_prop3") return 517;
+    if (id == "MoveDetail_component_prop4") return 518;
+    if (id == "MoveDetail_component_prop5") return 519;
+    if (id == "MoveDetail_component_prop6") return 520;
+    if (id == "MoveDetail_component_prop7") return 521;
+    if (id == "MoveDetail_component_prop8") return 522;
+    if (id == "MoveDetail_component_prop9") return 523;
+    if (id == "MoveDetail_component_prop10") return 524;
+    if (id == "MoveDetail_component_prop11") return 525;
+    if (id == "MoveDetail_component_prop12") return 526;
+    if (id == "MoveDetail_component_prop13") return 527;
+    if (id == "MoveDetail_component_prop14") return 528;
+    if (id == "MoveDetail_component_prop15") return 529;
+    if (id == "MoveDetail_component_prop16") return 530;
+    if (id == "MoveDetail_component_prop17") return 531;
+    if (id == "MoveDetail_component_prop18") return 532;
+    if (id == "MoveDetail_component_prop19") return 533;
+    if (id == "MoveDetail_component_prop20") return 534;
+    if (id == "MoveDetail_component_prop21") return 535;
+    if (id == "MoveDetail_component_prop22") return 536;
+    if (id == "MoveDetail_component_prop23") return 537;
+    if (id == "MoveDetail_component_prop24") return 538;
+    if (id == "MoveDetail_contest_combos_component_app1") return 539;
+    if (id == "MoveDetail_contest_combos_component_app2") return 540;
+    if (id == "MoveDetail_contest_effect_component_app1") return 541;
+    if (id == "MoveDetail_contest_effect_component_app2") return 542;
+    if (id == "MoveDetail_contest_type_component_app1") return 543;
+    if (id == "MoveDetail_contest_type_component_app2") return 544;
+    if (id == "MoveDetail_meta_component_app1") return 545;
+    if (id == "MoveDetail_meta_component_app2") return 546;
+    if (id == "MoveDetail_super_contest_effect_component_app1") return 547;
+    if (id == "MoveDetail_super_contest_effect_component_app2") return 548;
+    if (id == "MoveEffectChange_component_prop1") return 549;
+    if (id == "MoveEffectChange_component_prop2") return 550;
+    if (id == "MoveEffectChangeEffectText_component_prop1") return 551;
+    if (id == "MoveEffectChangeEffectText_component_prop2") return 552;
+    if (id == "MoveEffectEffectText_component_prop1") return 553;
+    if (id == "MoveEffectEffectText_component_prop2") return 554;
+    if (id == "MoveEffectEffectText_component_prop3") return 555;
+    if (id == "MoveFlavorText_component_prop1") return 556;
+    if (id == "MoveFlavorText_component_prop2") return 557;
+    if (id == "MoveFlavorText_component_prop3") return 558;
+    if (id == "MoveLearnMethodDescription_component_prop1") return 559;
+    if (id == "MoveLearnMethodDescription_component_prop2") return 560;
+    if (id == "MoveLearnMethodDetail_component_prop1") return 561;
+    if (id == "MoveLearnMethodDetail_component_prop2") return 562;
+    if (id == "MoveLearnMethodDetail_component_prop3") return 563;
+    if (id == "MoveLearnMethodDetail_component_prop4") return 564;
+    if (id == "MoveLearnMethodDetail_component_prop5") return 565;
+    if (id == "MoveLearnMethodName_component_prop1") return 566;
+    if (id == "MoveLearnMethodName_component_prop2") return 567;
+    if (id == "MoveLearnMethodSummary_component_prop1") return 568;
+    if (id == "MoveLearnMethodSummary_component_prop2") return 569;
+    if (id == "MoveMeta_component_prop1") return 570;
+    if (id == "MoveMeta_component_prop2") return 571;
+    if (id == "MoveMeta_component_prop3") return 572;
+    if (id == "MoveMeta_component_prop4") return 573;
+    if (id == "MoveMeta_component_prop5") return 574;
+    if (id == "MoveMeta_component_prop6") return 575;
+    if (id == "MoveMeta_component_prop7") return 576;
+    if (id == "MoveMeta_component_prop8") return 577;
+    if (id == "MoveMeta_component_prop9") return 578;
+    if (id == "MoveMeta_component_prop10") return 579;
+    if (id == "MoveMeta_component_prop11") return 580;
+    if (id == "MoveMeta_component_prop12") return 581;
+    if (id == "MoveMetaAilmentDetail_component_prop1") return 582;
+    if (id == "MoveMetaAilmentDetail_component_prop2") return 583;
+    if (id == "MoveMetaAilmentDetail_component_prop3") return 584;
+    if (id == "MoveMetaAilmentDetail_component_prop4") return 585;
+    if (id == "MoveMetaAilmentName_component_prop1") return 586;
+    if (id == "MoveMetaAilmentName_component_prop2") return 587;
+    if (id == "MoveMetaAilmentSummary_component_prop1") return 588;
+    if (id == "MoveMetaAilmentSummary_component_prop2") return 589;
+    if (id == "MoveMetaCategoryDescription_component_prop1") return 590;
+    if (id == "MoveMetaCategoryDescription_component_prop2") return 591;
+    if (id == "MoveMetaCategoryDetail_component_prop1") return 592;
+    if (id == "MoveMetaCategoryDetail_component_prop2") return 593;
+    if (id == "MoveMetaCategoryDetail_component_prop3") return 594;
+    if (id == "MoveMetaCategoryDetail_component_prop4") return 595;
+    if (id == "MoveMetaCategorySummary_component_prop1") return 596;
+    if (id == "MoveMetaCategorySummary_component_prop2") return 597;
+    if (id == "MoveMetaStatChange_component_prop1") return 598;
+    if (id == "MoveMetaStatChange_component_prop2") return 599;
+    if (id == "MoveName_component_prop1") return 600;
+    if (id == "MoveName_component_prop2") return 601;
+    if (id == "MoveStatChange_component_prop1") return 602;
+    if (id == "MoveStatChange_component_prop2") return 603;
+    if (id == "MoveSummary_component_prop1") return 604;
+    if (id == "MoveSummary_component_prop2") return 605;
+    if (id == "MoveTargetDescription_component_prop1") return 606;
+    if (id == "MoveTargetDescription_component_prop2") return 607;
+    if (id == "MoveTargetDetail_component_prop1") return 608;
+    if (id == "MoveTargetDetail_component_prop2") return 609;
+    if (id == "MoveTargetDetail_component_prop3") return 610;
+    if (id == "MoveTargetDetail_component_prop4") return 611;
+    if (id == "MoveTargetDetail_component_prop5") return 612;
+    if (id == "MoveTargetName_component_prop1") return 613;
+    if (id == "MoveTargetName_component_prop2") return 614;
+    if (id == "MoveTargetSummary_component_prop1") return 615;
+    if (id == "MoveTargetSummary_component_prop2") return 616;
+    if (id == "NatureBattleStylePreference_component_prop1") return 617;
+    if (id == "NatureBattleStylePreference_component_prop2") return 618;
+    if (id == "NatureBattleStylePreference_component_prop3") return 619;
+    if (id == "NatureDetail_component_prop1") return 620;
+    if (id == "NatureDetail_component_prop2") return 621;
+    if (id == "NatureDetail_component_prop3") return 622;
+    if (id == "NatureDetail_component_prop4") return 623;
+    if (id == "NatureDetail_component_prop5") return 624;
+    if (id == "NatureDetail_component_prop6") return 625;
+    if (id == "NatureDetail_component_prop7") return 626;
+    if (id == "NatureDetail_component_prop8") return 627;
+    if (id == "NatureDetail_component_prop9") return 628;
+    if (id == "NatureDetail_decreased_stat_component_app1") return 629;
+    if (id == "NatureDetail_decreased_stat_component_app2") return 630;
+    if (id == "NatureDetail_hates_flavor_component_app1") return 631;
+    if (id == "NatureDetail_hates_flavor_component_app2") return 632;
+    if (id == "NatureDetail_increased_stat_component_app1") return 633;
+    if (id == "NatureDetail_increased_stat_component_app2") return 634;
+    if (id == "NatureDetail_likes_flavor_component_app1") return 635;
+    if (id == "NatureDetail_likes_flavor_component_app2") return 636;
+    if (id == "NatureName_component_prop1") return 637;
+    if (id == "NatureName_component_prop2") return 638;
+    if (id == "NaturePokeathlonStat_component_prop1") return 639;
+    if (id == "NaturePokeathlonStat_component_prop2") return 640;
+    if (id == "NatureSummary_component_prop1") return 641;
+    if (id == "NatureSummary_component_prop2") return 642;
+    if (id == "PaginatedAbilitySummaryList_component_prop1") return 643;
+    if (id == "PaginatedAbilitySummaryList_component_prop2") return 644;
+    if (id == "PaginatedAbilitySummaryList_component_prop3") return 645;
+    if (id == "PaginatedAbilitySummaryList_component_prop4") return 646;
+    if (id == "PaginatedBerryFirmnessSummaryList_component_prop1") return 647;
+    if (id == "PaginatedBerryFirmnessSummaryList_component_prop2") return 648;
+    if (id == "PaginatedBerryFirmnessSummaryList_component_prop3") return 649;
+    if (id == "PaginatedBerryFirmnessSummaryList_component_prop4") return 650;
+    if (id == "PaginatedBerryFlavorSummaryList_component_prop1") return 651;
+    if (id == "PaginatedBerryFlavorSummaryList_component_prop2") return 652;
+    if (id == "PaginatedBerryFlavorSummaryList_component_prop3") return 653;
+    if (id == "PaginatedBerryFlavorSummaryList_component_prop4") return 654;
+    if (id == "PaginatedBerrySummaryList_component_prop1") return 655;
+    if (id == "PaginatedBerrySummaryList_component_prop2") return 656;
+    if (id == "PaginatedBerrySummaryList_component_prop3") return 657;
+    if (id == "PaginatedBerrySummaryList_component_prop4") return 658;
+    if (id == "PaginatedCharacteristicSummaryList_component_prop1") return 659;
+    if (id == "PaginatedCharacteristicSummaryList_component_prop2") return 660;
+    if (id == "PaginatedCharacteristicSummaryList_component_prop3") return 661;
+    if (id == "PaginatedCharacteristicSummaryList_component_prop4") return 662;
+    if (id == "PaginatedContestEffectSummaryList_component_prop1") return 663;
+    if (id == "PaginatedContestEffectSummaryList_component_prop2") return 664;
+    if (id == "PaginatedContestEffectSummaryList_component_prop3") return 665;
+    if (id == "PaginatedContestEffectSummaryList_component_prop4") return 666;
+    if (id == "PaginatedContestTypeSummaryList_component_prop1") return 667;
+    if (id == "PaginatedContestTypeSummaryList_component_prop2") return 668;
+    if (id == "PaginatedContestTypeSummaryList_component_prop3") return 669;
+    if (id == "PaginatedContestTypeSummaryList_component_prop4") return 670;
+    if (id == "PaginatedCurrencySummaryList_component_prop1") return 671;
+    if (id == "PaginatedCurrencySummaryList_component_prop2") return 672;
+    if (id == "PaginatedCurrencySummaryList_component_prop3") return 673;
+    if (id == "PaginatedCurrencySummaryList_component_prop4") return 674;
+    if (id == "PaginatedEggGroupSummaryList_component_prop1") return 675;
+    if (id == "PaginatedEggGroupSummaryList_component_prop2") return 676;
+    if (id == "PaginatedEggGroupSummaryList_component_prop3") return 677;
+    if (id == "PaginatedEggGroupSummaryList_component_prop4") return 678;
+    if (id == "PaginatedEncounterConditionSummaryList_component_prop1") return 679;
+    if (id == "PaginatedEncounterConditionSummaryList_component_prop2") return 680;
+    if (id == "PaginatedEncounterConditionSummaryList_component_prop3") return 681;
+    if (id == "PaginatedEncounterConditionSummaryList_component_prop4") return 682;
+    if (id == "PaginatedEncounterConditionValueSummaryList_component_prop1") return 683;
+    if (id == "PaginatedEncounterConditionValueSummaryList_component_prop2") return 684;
+    if (id == "PaginatedEncounterConditionValueSummaryList_component_prop3") return 685;
+    if (id == "PaginatedEncounterConditionValueSummaryList_component_prop4") return 686;
+    if (id == "PaginatedEncounterMethodSummaryList_component_prop1") return 687;
+    if (id == "PaginatedEncounterMethodSummaryList_component_prop2") return 688;
+    if (id == "PaginatedEncounterMethodSummaryList_component_prop3") return 689;
+    if (id == "PaginatedEncounterMethodSummaryList_component_prop4") return 690;
+    if (id == "PaginatedEvolutionChainSummaryList_component_prop1") return 691;
+    if (id == "PaginatedEvolutionChainSummaryList_component_prop2") return 692;
+    if (id == "PaginatedEvolutionChainSummaryList_component_prop3") return 693;
+    if (id == "PaginatedEvolutionChainSummaryList_component_prop4") return 694;
+    if (id == "PaginatedEvolutionTriggerSummaryList_component_prop1") return 695;
+    if (id == "PaginatedEvolutionTriggerSummaryList_component_prop2") return 696;
+    if (id == "PaginatedEvolutionTriggerSummaryList_component_prop3") return 697;
+    if (id == "PaginatedEvolutionTriggerSummaryList_component_prop4") return 698;
+    if (id == "PaginatedEvolutionVariableSummaryList_component_prop1") return 699;
+    if (id == "PaginatedEvolutionVariableSummaryList_component_prop2") return 700;
+    if (id == "PaginatedEvolutionVariableSummaryList_component_prop3") return 701;
+    if (id == "PaginatedEvolutionVariableSummaryList_component_prop4") return 702;
+    if (id == "PaginatedGenderSummaryList_component_prop1") return 703;
+    if (id == "PaginatedGenderSummaryList_component_prop2") return 704;
+    if (id == "PaginatedGenderSummaryList_component_prop3") return 705;
+    if (id == "PaginatedGenderSummaryList_component_prop4") return 706;
+    if (id == "PaginatedGenerationSummaryList_component_prop1") return 707;
+    if (id == "PaginatedGenerationSummaryList_component_prop2") return 708;
+    if (id == "PaginatedGenerationSummaryList_component_prop3") return 709;
+    if (id == "PaginatedGenerationSummaryList_component_prop4") return 710;
+    if (id == "PaginatedGrowthRateSummaryList_component_prop1") return 711;
+    if (id == "PaginatedGrowthRateSummaryList_component_prop2") return 712;
+    if (id == "PaginatedGrowthRateSummaryList_component_prop3") return 713;
+    if (id == "PaginatedGrowthRateSummaryList_component_prop4") return 714;
+    if (id == "PaginatedItemAttributeSummaryList_component_prop1") return 715;
+    if (id == "PaginatedItemAttributeSummaryList_component_prop2") return 716;
+    if (id == "PaginatedItemAttributeSummaryList_component_prop3") return 717;
+    if (id == "PaginatedItemAttributeSummaryList_component_prop4") return 718;
+    if (id == "PaginatedItemCategorySummaryList_component_prop1") return 719;
+    if (id == "PaginatedItemCategorySummaryList_component_prop2") return 720;
+    if (id == "PaginatedItemCategorySummaryList_component_prop3") return 721;
+    if (id == "PaginatedItemCategorySummaryList_component_prop4") return 722;
+    if (id == "PaginatedItemFlingEffectSummaryList_component_prop1") return 723;
+    if (id == "PaginatedItemFlingEffectSummaryList_component_prop2") return 724;
+    if (id == "PaginatedItemFlingEffectSummaryList_component_prop3") return 725;
+    if (id == "PaginatedItemFlingEffectSummaryList_component_prop4") return 726;
+    if (id == "PaginatedItemPocketSummaryList_component_prop1") return 727;
+    if (id == "PaginatedItemPocketSummaryList_component_prop2") return 728;
+    if (id == "PaginatedItemPocketSummaryList_component_prop3") return 729;
+    if (id == "PaginatedItemPocketSummaryList_component_prop4") return 730;
+    if (id == "PaginatedItemSummaryList_component_prop1") return 731;
+    if (id == "PaginatedItemSummaryList_component_prop2") return 732;
+    if (id == "PaginatedItemSummaryList_component_prop3") return 733;
+    if (id == "PaginatedItemSummaryList_component_prop4") return 734;
+    if (id == "PaginatedLanguageSummaryList_component_prop1") return 735;
+    if (id == "PaginatedLanguageSummaryList_component_prop2") return 736;
+    if (id == "PaginatedLanguageSummaryList_component_prop3") return 737;
+    if (id == "PaginatedLanguageSummaryList_component_prop4") return 738;
+    if (id == "PaginatedLocationAreaSummaryList_component_prop1") return 739;
+    if (id == "PaginatedLocationAreaSummaryList_component_prop2") return 740;
+    if (id == "PaginatedLocationAreaSummaryList_component_prop3") return 741;
+    if (id == "PaginatedLocationAreaSummaryList_component_prop4") return 742;
+    if (id == "PaginatedLocationSummaryList_component_prop1") return 743;
+    if (id == "PaginatedLocationSummaryList_component_prop2") return 744;
+    if (id == "PaginatedLocationSummaryList_component_prop3") return 745;
+    if (id == "PaginatedLocationSummaryList_component_prop4") return 746;
+    if (id == "PaginatedMachineSummaryList_component_prop1") return 747;
+    if (id == "PaginatedMachineSummaryList_component_prop2") return 748;
+    if (id == "PaginatedMachineSummaryList_component_prop3") return 749;
+    if (id == "PaginatedMachineSummaryList_component_prop4") return 750;
+    if (id == "PaginatedMoveBattleStyleSummaryList_component_prop1") return 751;
+    if (id == "PaginatedMoveBattleStyleSummaryList_component_prop2") return 752;
+    if (id == "PaginatedMoveBattleStyleSummaryList_component_prop3") return 753;
+    if (id == "PaginatedMoveBattleStyleSummaryList_component_prop4") return 754;
+    if (id == "PaginatedMoveDamageClassSummaryList_component_prop1") return 755;
+    if (id == "PaginatedMoveDamageClassSummaryList_component_prop2") return 756;
+    if (id == "PaginatedMoveDamageClassSummaryList_component_prop3") return 757;
+    if (id == "PaginatedMoveDamageClassSummaryList_component_prop4") return 758;
+    if (id == "PaginatedMoveLearnMethodSummaryList_component_prop1") return 759;
+    if (id == "PaginatedMoveLearnMethodSummaryList_component_prop2") return 760;
+    if (id == "PaginatedMoveLearnMethodSummaryList_component_prop3") return 761;
+    if (id == "PaginatedMoveLearnMethodSummaryList_component_prop4") return 762;
+    if (id == "PaginatedMoveMetaAilmentSummaryList_component_prop1") return 763;
+    if (id == "PaginatedMoveMetaAilmentSummaryList_component_prop2") return 764;
+    if (id == "PaginatedMoveMetaAilmentSummaryList_component_prop3") return 765;
+    if (id == "PaginatedMoveMetaAilmentSummaryList_component_prop4") return 766;
+    if (id == "PaginatedMoveMetaCategorySummaryList_component_prop1") return 767;
+    if (id == "PaginatedMoveMetaCategorySummaryList_component_prop2") return 768;
+    if (id == "PaginatedMoveMetaCategorySummaryList_component_prop3") return 769;
+    if (id == "PaginatedMoveMetaCategorySummaryList_component_prop4") return 770;
+    if (id == "PaginatedMoveSummaryList_component_prop1") return 771;
+    if (id == "PaginatedMoveSummaryList_component_prop2") return 772;
+    if (id == "PaginatedMoveSummaryList_component_prop3") return 773;
+    if (id == "PaginatedMoveSummaryList_component_prop4") return 774;
+    if (id == "PaginatedMoveTargetSummaryList_component_prop1") return 775;
+    if (id == "PaginatedMoveTargetSummaryList_component_prop2") return 776;
+    if (id == "PaginatedMoveTargetSummaryList_component_prop3") return 777;
+    if (id == "PaginatedMoveTargetSummaryList_component_prop4") return 778;
+    if (id == "PaginatedNatureSummaryList_component_prop1") return 779;
+    if (id == "PaginatedNatureSummaryList_component_prop2") return 780;
+    if (id == "PaginatedNatureSummaryList_component_prop3") return 781;
+    if (id == "PaginatedNatureSummaryList_component_prop4") return 782;
+    if (id == "PaginatedPalParkAreaSummaryList_component_prop1") return 783;
+    if (id == "PaginatedPalParkAreaSummaryList_component_prop2") return 784;
+    if (id == "PaginatedPalParkAreaSummaryList_component_prop3") return 785;
+    if (id == "PaginatedPalParkAreaSummaryList_component_prop4") return 786;
+    if (id == "PaginatedPokeathlonStatSummaryList_component_prop1") return 787;
+    if (id == "PaginatedPokeathlonStatSummaryList_component_prop2") return 788;
+    if (id == "PaginatedPokeathlonStatSummaryList_component_prop3") return 789;
+    if (id == "PaginatedPokeathlonStatSummaryList_component_prop4") return 790;
+    if (id == "PaginatedPokedexSummaryList_component_prop1") return 791;
+    if (id == "PaginatedPokedexSummaryList_component_prop2") return 792;
+    if (id == "PaginatedPokedexSummaryList_component_prop3") return 793;
+    if (id == "PaginatedPokedexSummaryList_component_prop4") return 794;
+    if (id == "PaginatedPokemonColorSummaryList_component_prop1") return 795;
+    if (id == "PaginatedPokemonColorSummaryList_component_prop2") return 796;
+    if (id == "PaginatedPokemonColorSummaryList_component_prop3") return 797;
+    if (id == "PaginatedPokemonColorSummaryList_component_prop4") return 798;
+    if (id == "PaginatedPokemonFormSummaryList_component_prop1") return 799;
+    if (id == "PaginatedPokemonFormSummaryList_component_prop2") return 800;
+    if (id == "PaginatedPokemonFormSummaryList_component_prop3") return 801;
+    if (id == "PaginatedPokemonFormSummaryList_component_prop4") return 802;
+    if (id == "PaginatedPokemonHabitatSummaryList_component_prop1") return 803;
+    if (id == "PaginatedPokemonHabitatSummaryList_component_prop2") return 804;
+    if (id == "PaginatedPokemonHabitatSummaryList_component_prop3") return 805;
+    if (id == "PaginatedPokemonHabitatSummaryList_component_prop4") return 806;
+    if (id == "PaginatedPokemonShapeSummaryList_component_prop1") return 807;
+    if (id == "PaginatedPokemonShapeSummaryList_component_prop2") return 808;
+    if (id == "PaginatedPokemonShapeSummaryList_component_prop3") return 809;
+    if (id == "PaginatedPokemonShapeSummaryList_component_prop4") return 810;
+    if (id == "PaginatedPokemonSpeciesSummaryList_component_prop1") return 811;
+    if (id == "PaginatedPokemonSpeciesSummaryList_component_prop2") return 812;
+    if (id == "PaginatedPokemonSpeciesSummaryList_component_prop3") return 813;
+    if (id == "PaginatedPokemonSpeciesSummaryList_component_prop4") return 814;
+    if (id == "PaginatedPokemonSummaryList_component_prop1") return 815;
+    if (id == "PaginatedPokemonSummaryList_component_prop2") return 816;
+    if (id == "PaginatedPokemonSummaryList_component_prop3") return 817;
+    if (id == "PaginatedPokemonSummaryList_component_prop4") return 818;
+    if (id == "PaginatedRegionSummaryList_component_prop1") return 819;
+    if (id == "PaginatedRegionSummaryList_component_prop2") return 820;
+    if (id == "PaginatedRegionSummaryList_component_prop3") return 821;
+    if (id == "PaginatedRegionSummaryList_component_prop4") return 822;
+    if (id == "PaginatedStatSummaryList_component_prop1") return 823;
+    if (id == "PaginatedStatSummaryList_component_prop2") return 824;
+    if (id == "PaginatedStatSummaryList_component_prop3") return 825;
+    if (id == "PaginatedStatSummaryList_component_prop4") return 826;
+    if (id == "PaginatedSuperContestEffectSummaryList_component_prop1") return 827;
+    if (id == "PaginatedSuperContestEffectSummaryList_component_prop2") return 828;
+    if (id == "PaginatedSuperContestEffectSummaryList_component_prop3") return 829;
+    if (id == "PaginatedSuperContestEffectSummaryList_component_prop4") return 830;
+    if (id == "PaginatedTypeSummaryList_component_prop1") return 831;
+    if (id == "PaginatedTypeSummaryList_component_prop2") return 832;
+    if (id == "PaginatedTypeSummaryList_component_prop3") return 833;
+    if (id == "PaginatedTypeSummaryList_component_prop4") return 834;
+    if (id == "PaginatedVersionGroupSummaryList_component_prop1") return 835;
+    if (id == "PaginatedVersionGroupSummaryList_component_prop2") return 836;
+    if (id == "PaginatedVersionGroupSummaryList_component_prop3") return 837;
+    if (id == "PaginatedVersionGroupSummaryList_component_prop4") return 838;
+    if (id == "PaginatedVersionSummaryList_component_prop1") return 839;
+    if (id == "PaginatedVersionSummaryList_component_prop2") return 840;
+    if (id == "PaginatedVersionSummaryList_component_prop3") return 841;
+    if (id == "PaginatedVersionSummaryList_component_prop4") return 842;
+    if (id == "PalParkAreaDetail_component_prop1") return 843;
+    if (id == "PalParkAreaDetail_component_prop2") return 844;
+    if (id == "PalParkAreaDetail_component_prop3") return 845;
+    if (id == "PalParkAreaDetail_component_prop4") return 846;
+    if (id == "PalParkAreaName_component_prop1") return 847;
+    if (id == "PalParkAreaName_component_prop2") return 848;
+    if (id == "PalParkAreaSummary_component_prop1") return 849;
+    if (id == "PalParkAreaSummary_component_prop2") return 850;
+    if (id == "PalParkEncounter_component_prop1") return 851;
+    if (id == "PalParkEncounter_component_prop2") return 852;
+    if (id == "PalParkEncounter_component_prop3") return 853;
+    if (id == "PokeapiMetaResponse_component_prop1") return 854;
+    if (id == "PokeapiMetaResponse_component_prop2") return 855;
+    if (id == "PokeapiMetaResponse_component_prop3") return 856;
+    if (id == "PokeathlonStatAffectingNature_component_prop1") return 857;
+    if (id == "PokeathlonStatAffectingNature_component_prop2") return 858;
+    if (id == "PokeathlonStatAffectingNatures_component_prop1") return 859;
+    if (id == "PokeathlonStatAffectingNatures_component_prop2") return 860;
+    if (id == "PokeathlonStatDetail_component_prop1") return 861;
+    if (id == "PokeathlonStatDetail_component_prop2") return 862;
+    if (id == "PokeathlonStatDetail_component_prop3") return 863;
+    if (id == "PokeathlonStatDetail_component_prop4") return 864;
+    if (id == "PokeathlonStatName_component_prop1") return 865;
+    if (id == "PokeathlonStatName_component_prop2") return 866;
+    if (id == "PokeathlonStatSummary_component_prop1") return 867;
+    if (id == "PokeathlonStatSummary_component_prop2") return 868;
+    if (id == "PokedexDescription_component_prop1") return 869;
+    if (id == "PokedexDescription_component_prop2") return 870;
+    if (id == "PokedexDetail_component_prop1") return 871;
+    if (id == "PokedexDetail_component_prop2") return 872;
+    if (id == "PokedexDetail_component_prop3") return 873;
+    if (id == "PokedexDetail_component_prop4") return 874;
+    if (id == "PokedexDetail_component_prop5") return 875;
+    if (id == "PokedexDetail_component_prop6") return 876;
+    if (id == "PokedexDetail_component_prop7") return 877;
+    if (id == "PokedexDetail_component_prop8") return 878;
+    if (id == "PokedexDetail_region_component_app1") return 879;
+    if (id == "PokedexDetail_region_component_app2") return 880;
+    if (id == "PokedexName_component_prop1") return 881;
+    if (id == "PokedexName_component_prop2") return 882;
+    if (id == "PokedexSummary_component_prop1") return 883;
+    if (id == "PokedexSummary_component_prop2") return 884;
+    if (id == "PokemonAbility_component_prop1") return 885;
+    if (id == "PokemonAbility_component_prop2") return 886;
+    if (id == "PokemonAbility_component_prop3") return 887;
+    if (id == "PokemonAbilityPast_component_prop1") return 888;
+    if (id == "PokemonAbilityPast_component_prop2") return 889;
+    if (id == "PokemonAbilityPast_component_prop3") return 890;
+    if (id == "PokemonAbilityPast_ability_component_app1") return 891;
+    if (id == "PokemonAbilityPast_ability_component_app2") return 892;
+    if (id == "PokemonColorDetail_component_prop1") return 893;
+    if (id == "PokemonColorDetail_component_prop2") return 894;
+    if (id == "PokemonColorDetail_component_prop3") return 895;
+    if (id == "PokemonColorDetail_component_prop4") return 896;
+    if (id == "PokemonColorName_component_prop1") return 897;
+    if (id == "PokemonColorName_component_prop2") return 898;
+    if (id == "PokemonColorSummary_component_prop1") return 899;
+    if (id == "PokemonColorSummary_component_prop2") return 900;
+    if (id == "PokemonCries_component_prop1") return 901;
+    if (id == "PokemonCries_component_prop2") return 902;
+    if (id == "PokemonDetail_component_prop1") return 903;
+    if (id == "PokemonDetail_component_prop2") return 904;
+    if (id == "PokemonDetail_component_prop3") return 905;
+    if (id == "PokemonDetail_component_prop4") return 906;
+    if (id == "PokemonDetail_component_prop5") return 907;
+    if (id == "PokemonDetail_component_prop6") return 908;
+    if (id == "PokemonDetail_component_prop7") return 909;
+    if (id == "PokemonDetail_component_prop8") return 910;
+    if (id == "PokemonDetail_component_prop9") return 911;
+    if (id == "PokemonDetail_component_prop10") return 912;
+    if (id == "PokemonDetail_component_prop11") return 913;
+    if (id == "PokemonDetail_component_prop12") return 914;
+    if (id == "PokemonDetail_component_prop13") return 915;
+    if (id == "PokemonDetail_component_prop14") return 916;
+    if (id == "PokemonDetail_component_prop15") return 917;
+    if (id == "PokemonDetail_component_prop16") return 918;
+    if (id == "PokemonDetail_component_prop17") return 919;
+    if (id == "PokemonDetail_component_prop18") return 920;
+    if (id == "PokemonDetail_component_prop19") return 921;
+    if (id == "PokemonDetail_component_prop20") return 922;
+    if (id == "PokemonDetail_component_prop21") return 923;
+    if (id == "PokemonDexEntry_component_prop1") return 924;
+    if (id == "PokemonDexEntry_component_prop2") return 925;
+    if (id == "PokemonDexNumber_component_prop1") return 926;
+    if (id == "PokemonDexNumber_component_prop2") return 927;
+    if (id == "PokemonEncounterDetailResponse_component_prop1") return 928;
+    if (id == "PokemonEncounterDetailResponse_component_prop2") return 929;
+    if (id == "PokemonEncounterDetailResponse_component_prop3") return 930;
+    if (id == "PokemonEncounterDetailResponse_component_prop4") return 931;
+    if (id == "PokemonEncounterDetailResponse_component_prop5") return 932;
+    if (id == "PokemonEncounterResponse_component_prop1") return 933;
+    if (id == "PokemonEncounterResponse_component_prop2") return 934;
+    if (id == "PokemonEncounterVersionDetailResponse_component_prop1") return 935;
+    if (id == "PokemonEncounterVersionDetailResponse_component_prop2") return 936;
+    if (id == "PokemonEncounterVersionDetailResponse_component_prop3") return 937;
+    if (id == "PokemonEvolution_component_prop1") return 938;
+    if (id == "PokemonEvolution_component_prop2") return 939;
+    if (id == "PokemonEvolution_component_prop3") return 940;
+    if (id == "PokemonEvolution_component_prop4") return 941;
+    if (id == "PokemonEvolution_component_prop5") return 942;
+    if (id == "PokemonEvolution_component_prop6") return 943;
+    if (id == "PokemonEvolution_component_prop7") return 944;
+    if (id == "PokemonEvolution_component_prop8") return 945;
+    if (id == "PokemonEvolution_component_prop9") return 946;
+    if (id == "PokemonEvolution_component_prop10") return 947;
+    if (id == "PokemonEvolution_component_prop11") return 948;
+    if (id == "PokemonEvolution_component_prop12") return 949;
+    if (id == "PokemonEvolution_component_prop13") return 950;
+    if (id == "PokemonEvolution_component_prop14") return 951;
+    if (id == "PokemonEvolution_component_prop15") return 952;
+    if (id == "PokemonEvolution_component_prop16") return 953;
+    if (id == "PokemonEvolution_component_prop17") return 954;
+    if (id == "PokemonEvolution_component_prop18") return 955;
+    if (id == "PokemonEvolution_component_prop19") return 956;
+    if (id == "PokemonEvolution_component_prop20") return 957;
+    if (id == "PokemonEvolution_component_prop21") return 958;
+    if (id == "PokemonEvolution_component_prop22") return 959;
+    if (id == "PokemonEvolution_component_prop23") return 960;
+    if (id == "PokemonEvolution_component_prop24") return 961;
+    if (id == "PokemonEvolution_component_prop25") return 962;
+    if (id == "PokemonEvolution_component_prop26") return 963;
+    if (id == "PokemonEvolution_component_prop27") return 964;
+    if (id == "PokemonEvolution_component_prop28") return 965;
+    if (id == "PokemonEvolution_component_prop29") return 966;
+    if (id == "PokemonEvolution_component_prop30") return 967;
+    if (id == "PokemonEvolution_component_prop31") return 968;
+    if (id == "PokemonEvolution_condition_expression_component_app1") return 969;
+    if (id == "PokemonEvolution_condition_expression_component_app2") return 970;
+    if (id == "PokemonEvolution_evolved_pokemon_form_component_app1") return 971;
+    if (id == "PokemonEvolution_evolved_pokemon_form_component_app2") return 972;
+    if (id == "PokemonEvolution_held_item_component_app1") return 973;
+    if (id == "PokemonEvolution_held_item_component_app2") return 974;
+    if (id == "PokemonEvolution_item_component_app1") return 975;
+    if (id == "PokemonEvolution_item_component_app2") return 976;
+    if (id == "PokemonEvolution_known_move_component_prop1") return 977;
+    if (id == "PokemonEvolution_known_move_component_prop2") return 978;
+    if (id == "PokemonEvolution_location_component_app1") return 979;
+    if (id == "PokemonEvolution_location_component_app2") return 980;
+    if (id == "PokemonEvolution_party_species_component_app1") return 981;
+    if (id == "PokemonEvolution_party_species_component_app2") return 982;
+    if (id == "PokemonEvolution_party_type_component_app1") return 983;
+    if (id == "PokemonEvolution_party_type_component_app2") return 984;
+    if (id == "PokemonEvolution_region_component_app1") return 985;
+    if (id == "PokemonEvolution_region_component_app2") return 986;
+    if (id == "PokemonEvolution_required_pokemon_form_component_app1") return 987;
     return kNoSchema;
 }
 

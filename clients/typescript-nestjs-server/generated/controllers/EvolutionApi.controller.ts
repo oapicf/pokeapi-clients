@@ -2,15 +2,15 @@ import { Body, Controller, DefaultValuePipe, Get, Param, ParseIntPipe, ParseFloa
 import { Observable } from 'rxjs';
 import { Cookies, Headers } from '../decorators';
 import { EvolutionApi } from '../api';
-import { EvolutionChainDetail, EvolutionTriggerDetail, PaginatedEvolutionChainSummaryList, PaginatedEvolutionTriggerSummaryList,  } from '../models';
+import { EvolutionChainDetail, EvolutionTriggerDetail, EvolutionVariableDetail, PaginatedEvolutionChainSummaryList, PaginatedEvolutionTriggerSummaryList, PaginatedEvolutionVariableSummaryList,  } from '../models';
 
 @Controller()
 export class EvolutionApiController {
   constructor(private readonly evolutionApi: EvolutionApi) {}
 
   @Get('/api/v2/evolution-chain/')
-  evolutionChainList(@Query('limit') limit: number | undefined, @Query('offset') offset: number | undefined, @Query('q') q: string | undefined, @Req() request: Request): PaginatedEvolutionChainSummaryList | Promise<PaginatedEvolutionChainSummaryList> | Observable<PaginatedEvolutionChainSummaryList> {
-    return this.evolutionApi.evolutionChainList(limit, offset, q, request);
+  evolutionChainList(@Query('limit') limit: number | undefined, @Query('offset') offset: number | undefined, @Req() request: Request): PaginatedEvolutionChainSummaryList | Promise<PaginatedEvolutionChainSummaryList> | Observable<PaginatedEvolutionChainSummaryList> {
+    return this.evolutionApi.evolutionChainList(limit, offset, request);
   }
 
   @Get('/api/v2/evolution-chain/:id/')
@@ -26,6 +26,16 @@ export class EvolutionApiController {
   @Get('/api/v2/evolution-trigger/:id/')
   evolutionTriggerRetrieve(@Param('id') id: string, @Req() request: Request): EvolutionTriggerDetail | Promise<EvolutionTriggerDetail> | Observable<EvolutionTriggerDetail> {
     return this.evolutionApi.evolutionTriggerRetrieve(id, request);
+  }
+
+  @Get('/api/v2/evolution-variable/')
+  evolutionVariableList(@Query('limit') limit: number | undefined, @Query('offset') offset: number | undefined, @Query('q') q: string | undefined, @Req() request: Request): PaginatedEvolutionVariableSummaryList | Promise<PaginatedEvolutionVariableSummaryList> | Observable<PaginatedEvolutionVariableSummaryList> {
+    return this.evolutionApi.evolutionVariableList(limit, offset, q, request);
+  }
+
+  @Get('/api/v2/evolution-variable/:id/')
+  evolutionVariableRetrieve(@Param('id') id: string, @Req() request: Request): EvolutionVariableDetail | Promise<EvolutionVariableDetail> | Observable<EvolutionVariableDetail> {
+    return this.evolutionApi.evolutionVariableRetrieve(id, request);
   }
 
 } 

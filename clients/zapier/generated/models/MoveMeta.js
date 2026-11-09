@@ -10,52 +10,52 @@ module.exports = {
             ...MoveMetaCategorySummary.fields(`${keyPrefix}category`, isInput),
             {
                 key: `${keyPrefix}min_hits`,
-                label: `[${labelPrefix}min_hits]`,
+                label: `The minimum number of times this move hits. Null if it always only hits once. - [${labelPrefix}min_hits]`,
                 type: 'integer',
             },
             {
                 key: `${keyPrefix}max_hits`,
-                label: `[${labelPrefix}max_hits]`,
+                label: `The maximum number of times this move hits. Null if it always only hits once. - [${labelPrefix}max_hits]`,
                 type: 'integer',
             },
             {
                 key: `${keyPrefix}min_turns`,
-                label: `[${labelPrefix}min_turns]`,
+                label: `The minimum number of turns this move continues to take effect. Null if it always only lasts one turn. - [${labelPrefix}min_turns]`,
                 type: 'integer',
             },
             {
                 key: `${keyPrefix}max_turns`,
-                label: `[${labelPrefix}max_turns]`,
+                label: `The maximum number of turns this move continues to take effect. Null if it always only lasts one turn. - [${labelPrefix}max_turns]`,
                 type: 'integer',
             },
             {
                 key: `${keyPrefix}drain`,
-                label: `[${labelPrefix}drain]`,
+                label: `HP drain (if positive) or Recoil damage (if negative), in percent of damage done. - [${labelPrefix}drain]`,
                 type: 'integer',
             },
             {
                 key: `${keyPrefix}healing`,
-                label: `[${labelPrefix}healing]`,
+                label: `The amount of hp gained by the attacking Pokemon, in percent of it's maximum HP. - [${labelPrefix}healing]`,
                 type: 'integer',
             },
             {
                 key: `${keyPrefix}crit_rate`,
-                label: `[${labelPrefix}crit_rate]`,
+                label: `Critical hit rate bonus. - [${labelPrefix}crit_rate]`,
                 type: 'integer',
             },
             {
                 key: `${keyPrefix}ailment_chance`,
-                label: `[${labelPrefix}ailment_chance]`,
+                label: `The likelihood this attack will cause an ailment. - [${labelPrefix}ailment_chance]`,
                 type: 'integer',
             },
             {
                 key: `${keyPrefix}flinch_chance`,
-                label: `[${labelPrefix}flinch_chance]`,
+                label: `The likelihood this attack will cause the target Pokémon to flinch. - [${labelPrefix}flinch_chance]`,
                 type: 'integer',
             },
             {
                 key: `${keyPrefix}stat_chance`,
-                label: `[${labelPrefix}stat_chance]`,
+                label: `The likelihood this attack will cause a stat change in the target Pokémon. - [${labelPrefix}stat_chance]`,
                 type: 'integer',
             },
         ]

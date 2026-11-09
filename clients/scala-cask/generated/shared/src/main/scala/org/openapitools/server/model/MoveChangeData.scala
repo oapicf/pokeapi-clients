@@ -1,8 +1,8 @@
 /**
  * PokéAPI
- * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+ * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
  *
- * OpenAPI spec version: 2.7.0
+ * OpenAPI spec version: 2.10.0
  *
  * Contact: blah+oapicf@cliffano.com
  *
@@ -25,12 +25,19 @@ import upickle.default.*
   * It has no validation - there may be nulls, values out of range, etc
   */
 case class MoveChangeData(
+/* The percent value of how likely this move is to be successful. */
   accuracy: Int = 0 ,
+/* The base power before the listed version group, or null if power did not change. */
   power: Int = 0 ,
+/* Power points. The number of times this move can be used. */
   pp: Int = 0 ,
+/* The percent value of how likely it is this moves effect will take effect. */
   effectChance: Int,
-  effectEntries: Seq[MoveChangeEffectEntriesInnerData],
+/* The effect of this move listed in different languages. */
+  effectEntries: Seq[MoveEffectEffectTextData],
+/* The elemental type of this move. */
   `type`: TypeSummaryData,
+/* The version group in which these move stat values were in effect. */
   versionGroup: VersionGroupSummaryData
   
 
@@ -46,18 +53,48 @@ case class MoveChangeData(
   def validationErrors(path : Seq[Field], failFast : Boolean) : Seq[ValidationError] = {
     val _allValidationErrors = scala.collection.mutable.ListBuffer[ValidationError]()
         // ================== accuracy validation ==================
+        // validate against minimum -2147483648
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if !(accuracy >= -2147483648) then
+            _allValidationErrors += ValidationError(path :+ MoveChange.Fields.accuracy, s"value '$accuracy' is not greater than the minimum value -2147483648")
+        }
+        // validate against maximum 2147483647
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if !(accuracy <= 2147483647) then
+            _allValidationErrors += ValidationError(path :+ MoveChange.Fields.accuracy, s"value '$accuracy' is not greater than the maximum value 2147483647")
+        }
         
         
         
         
 
         // ================== power validation ==================
+        // validate against minimum -2147483648
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if !(power >= -2147483648) then
+            _allValidationErrors += ValidationError(path :+ MoveChange.Fields.power, s"value '$power' is not greater than the minimum value -2147483648")
+        }
+        // validate against maximum 2147483647
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if !(power <= 2147483647) then
+            _allValidationErrors += ValidationError(path :+ MoveChange.Fields.power, s"value '$power' is not greater than the maximum value 2147483647")
+        }
         
         
         
         
 
         // ================== pp validation ==================
+        // validate against minimum -2147483648
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if !(pp >= -2147483648) then
+            _allValidationErrors += ValidationError(path :+ MoveChange.Fields.pp, s"value '$pp' is not greater than the minimum value -2147483648")
+        }
+        // validate against maximum 2147483647
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if !(pp <= 2147483647) then
+            _allValidationErrors += ValidationError(path :+ MoveChange.Fields.pp, s"value '$pp' is not greater than the maximum value 2147483647")
+        }
         
         
         

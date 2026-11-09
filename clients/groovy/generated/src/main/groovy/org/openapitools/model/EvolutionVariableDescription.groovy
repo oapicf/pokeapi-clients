@@ -1,0 +1,14 @@
+package org.openapitools.model;
+
+import groovy.transform.Canonical
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import org.openapitools.model.LanguageSummary;
+
+@Canonical
+class EvolutionVariableDescription {
+    /* The localized description for an API resource in a specific language. */
+    String description
+    /* The language this name is in. */
+    LanguageSummary language
+}

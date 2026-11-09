@@ -7,8 +7,8 @@ authors     = ["F. Bar (foo@bar.baz)"]
 
 imports {
   Root = tosca.resourceTypes.Root
-  AbilityDetailPokemonInnerPokemon = openapi_server.resourceTypes.AbilityDetailPokemonInnerPokemon
-  GenderDetailPokemonSpeciesDetailsInner = openapi_server.resourceTypes.GenderDetailPokemonSpeciesDetailsInner
+  GenderPokemonSpecies = openapi_server.resourceTypes.GenderPokemonSpecies
+  PokemonSpeciesSummary = openapi_server.resourceTypes.PokemonSpeciesSummary
 }
 resourceTypes {
 
@@ -19,24 +19,24 @@ resourceTypes {
     properties {
         id {
           type =  integer
-          description = ""
+          description = "The identifier for this resource."
           optional = true
         }
         name {
           type =  string
-          description = ""
+          description = "The name for this resource."
           optional = true
         }
         pokemon_species_details {
           type = array
-          items.type = GenderDetailPokemonSpeciesDetailsInner
-          description = ""
+          items.type = GenderPokemonSpecies
+          description = "A list of Pokémon species that can be this gender and how likely it is that they will be."
           optional = true
         }
         required_for_evolution {
           type = array
-          items.type = AbilityDetailPokemonInnerPokemon
-          description = ""
+          items.type = PokemonSpeciesSummary
+          description = "A list of Pokémon species that required this gender in order for a Pokémon to evolve into them."
           optional = true
         }
     }

@@ -31,12 +31,6 @@ open class UtilityAPI {
     /// List languages
     /// - GET /api/v2/language/
     /// - Languages for translations of API resource information.
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter limit: (query) Number of results to return per page. (optional)
     /// - parameter offset: (query) The initial index from which to return the results. (optional)
     /// - parameter q: (query) &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
@@ -75,12 +69,6 @@ open class UtilityAPI {
     /// Get language
     /// - GET /api/v2/language/{id}/
     /// - Languages for translations of API resource information.
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter id: (path) This parameter can be a string or an integer. 
     /// - returns: AnyPublisher<LanguageDetail, Error> 
     open func languageRetrieve(id: String) -> AnyPublisher<LanguageDetail, Error> {
@@ -104,6 +92,36 @@ open class UtilityAPI {
             return self.transport.send(request: request)
                 .tryMap { response in
                     try self.decoder.decode(LanguageDetail.self, from: response.data)
+                }
+                .eraseToAnyPublisher()
+        }.eraseToAnyPublisher()
+    }
+
+
+    /// Get API metadata
+    /// - GET /api/v2/meta/
+    /// - Returns metadata about the current deployed version of the API, including the git commit hash, deploy date, and tag (if any).
+    /// - returns: AnyPublisher<PokeapiMetaResponse, Error> 
+    open func metaRetrieve() -> AnyPublisher<PokeapiMetaResponse, Error> {
+        Deferred {
+            Result<URLRequest, Error> {
+                guard let baseURL = self.transport.baseURL ?? self.baseURL else {
+                    throw OpenAPITransportError.badURLError()
+                }
+                let localVarPath = "/api/v2/meta/"
+                let localVarURL = baseURL.appendingPathComponent(localVarPath)
+                let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
+                guard let requestURL = components?.url else {
+                    throw OpenAPITransportError.badURLError()
+                }
+                var request = URLRequest(url: requestURL)
+                request.httpMethod = "GET"
+                return request
+            }.publisher
+        }.flatMap { request -> AnyPublisher<PokeapiMetaResponse, Error> in 
+            return self.transport.send(request: request)
+                .tryMap { response in
+                    try self.decoder.decode(PokeapiMetaResponse.self, from: response.data)
                 }
                 .eraseToAnyPublisher()
         }.eraseToAnyPublisher()

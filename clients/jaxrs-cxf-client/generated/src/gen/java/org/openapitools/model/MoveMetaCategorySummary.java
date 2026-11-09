@@ -9,15 +9,21 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class MoveMetaCategorySummary  {
   
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The name of the referenced resource.
+  */
+  @ApiModelProperty(required = true, value = "The name of the referenced resource.")
 
   private String name;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The URL of the referenced resource.
+  */
+  @ApiModelProperty(required = true, value = "The URL of the referenced resource.")
 
   private URI url;
  /**
-   * Get name
+   * The name of the referenced resource.
    * @return name
   **/
   @JsonProperty("name")
@@ -35,7 +41,7 @@ public class MoveMetaCategorySummary  {
   }
 
  /**
-   * Get url
+   * The URL of the referenced resource.
    * @return url
   **/
   @JsonProperty("url")

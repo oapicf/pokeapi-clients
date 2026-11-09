@@ -143,7 +143,7 @@ open class BerriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             path = "/api/v2/berry-firmness/",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -216,7 +216,7 @@ open class BerriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             path = "/api/v2/berry-firmness/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -306,7 +306,7 @@ open class BerriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             path = "/api/v2/berry-flavor/",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -379,7 +379,7 @@ open class BerriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             path = "/api/v2/berry-flavor/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -469,7 +469,7 @@ open class BerriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             path = "/api/v2/berry/",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -542,7 +542,7 @@ open class BerriesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             path = "/api/v2/berry/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }

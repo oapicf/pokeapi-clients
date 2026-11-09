@@ -46,25 +46,25 @@ public:
 	 */
 	void fromJson(char* jsonStr);
 
-	/*! \brief Get 
+	/*! \brief Get The base value of the stat.
 	 */
 	int getBaseStat();
 
-	/*! \brief Set 
+	/*! \brief Set The base value of the stat.
 	 */
 	void setBaseStat(int  base_stat);
-	/*! \brief Get 
+	/*! \brief Get The effort points (EV) the Pokémon has in the stat.
 	 */
 	int getEffort();
 
-	/*! \brief Set 
+	/*! \brief Set The effort points (EV) the Pokémon has in the stat.
 	 */
 	void setEffort(int  effort);
-	/*! \brief Get 
+	/*! \brief Get The stat the Pokémon has.
 	 */
 	StatSummary getStat();
 
-	/*! \brief Set 
+	/*! \brief Set The stat the Pokémon has.
 	 */
 	void setStat(StatSummary  stat);
 

@@ -5,6 +5,21 @@ module Handler.Items where
 import           Import
 
 
+-- | List currencies
+--
+-- Currencies used to buy items.
+-- operationId: currencyList
+getApiV2CurrencyR :: Handler Value
+getApiV2CurrencyR = notImplemented
+
+-- | Get currency
+--
+-- Currencies used to buy items.
+-- operationId: currencyRetrieve
+getApiV2CurrencyByTextR :: Text -- ^ This parameter can be a string or an integer.
+                        -> Handler Value
+getApiV2CurrencyByTextR id = notImplemented
+
 -- | List item attributes
 --
 -- Item attributes define particular aspects of items, e.g.\&quot;usable in battle\&quot; or \&quot;consumable\&quot;.

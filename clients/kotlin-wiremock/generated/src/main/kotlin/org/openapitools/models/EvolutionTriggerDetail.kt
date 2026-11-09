@@ -18,6 +18,6 @@ data class EvolutionTriggerDetail(
     val names: kotlin.collections.List<EvolutionTriggerName>,
 
     @field:JsonProperty("pokemon_species")
-    val pokemonSpecies: kotlin.collections.List<AbilityDetailPokemonInnerPokemon>,
+    val pokemonSpecies: kotlin.collections.List<PokemonSpeciesSummary>,
 
 )

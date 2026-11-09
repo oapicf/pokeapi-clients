@@ -4,19 +4,19 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int32** |  | [readonly] 
-**Name** | **string** |  | 
-**GameIndex** | **int32** |  | 
-**EncounterMethodRates** | [**[]LocationAreaDetailEncounterMethodRatesInner**](LocationAreaDetailEncounterMethodRatesInner.md) |  | [readonly] 
-**Location** | [**LocationSummary**](LocationSummary.md) |  | 
-**Names** | [**[]LocationAreaName**](LocationAreaName.md) |  | [readonly] 
-**PokemonEncounters** | [**[]LocationAreaDetailPokemonEncountersInner**](LocationAreaDetailPokemonEncountersInner.md) |  | [readonly] 
+**Id** | **int32** | The identifier for this resource. | [readonly] 
+**Name** | **string** | The name for this resource. | 
+**GameIndex** | **int32** | The internal id of an API resource within game data. | 
+**EncounterMethodRates** | [**[]LocationAreaEncounterRate**](LocationAreaEncounterRate.md) | A list of methods in which Pokémon may be encountered in this area and how likely the method will occur depending on the version of the game. | [readonly] 
+**Location** | [**LocationSummary**](LocationSummary.md) | The region this location area can be found in. | 
+**Names** | [**[]LocationAreaName**](LocationAreaName.md) | The name of this resource listed in different languages. | [readonly] 
+**PokemonEncounters** | [**[]LocationAreaPokemonEncounter**](LocationAreaPokemonEncounter.md) | A list of Pokémon that can be encountered in this area along with version specific details about the encounter. | [readonly] 
 
 ## Methods
 
 ### NewLocationAreaDetail
 
-`func NewLocationAreaDetail(id int32, name string, gameIndex int32, encounterMethodRates []LocationAreaDetailEncounterMethodRatesInner, location LocationSummary, names []LocationAreaName, pokemonEncounters []LocationAreaDetailPokemonEncountersInner, ) *LocationAreaDetail`
+`func NewLocationAreaDetail(id int32, name string, gameIndex int32, encounterMethodRates []LocationAreaEncounterRate, location LocationSummary, names []LocationAreaName, pokemonEncounters []LocationAreaPokemonEncounter, ) *LocationAreaDetail`
 
 NewLocationAreaDetail instantiates a new LocationAreaDetail object
 This constructor will assign default values to properties that have it defined,
@@ -93,20 +93,20 @@ SetGameIndex sets GameIndex field to given value.
 
 ### GetEncounterMethodRates
 
-`func (o *LocationAreaDetail) GetEncounterMethodRates() []LocationAreaDetailEncounterMethodRatesInner`
+`func (o *LocationAreaDetail) GetEncounterMethodRates() []LocationAreaEncounterRate`
 
 GetEncounterMethodRates returns the EncounterMethodRates field if non-nil, zero value otherwise.
 
 ### GetEncounterMethodRatesOk
 
-`func (o *LocationAreaDetail) GetEncounterMethodRatesOk() (*[]LocationAreaDetailEncounterMethodRatesInner, bool)`
+`func (o *LocationAreaDetail) GetEncounterMethodRatesOk() (*[]LocationAreaEncounterRate, bool)`
 
 GetEncounterMethodRatesOk returns a tuple with the EncounterMethodRates field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEncounterMethodRates
 
-`func (o *LocationAreaDetail) SetEncounterMethodRates(v []LocationAreaDetailEncounterMethodRatesInner)`
+`func (o *LocationAreaDetail) SetEncounterMethodRates(v []LocationAreaEncounterRate)`
 
 SetEncounterMethodRates sets EncounterMethodRates field to given value.
 
@@ -153,20 +153,20 @@ SetNames sets Names field to given value.
 
 ### GetPokemonEncounters
 
-`func (o *LocationAreaDetail) GetPokemonEncounters() []LocationAreaDetailPokemonEncountersInner`
+`func (o *LocationAreaDetail) GetPokemonEncounters() []LocationAreaPokemonEncounter`
 
 GetPokemonEncounters returns the PokemonEncounters field if non-nil, zero value otherwise.
 
 ### GetPokemonEncountersOk
 
-`func (o *LocationAreaDetail) GetPokemonEncountersOk() (*[]LocationAreaDetailPokemonEncountersInner, bool)`
+`func (o *LocationAreaDetail) GetPokemonEncountersOk() (*[]LocationAreaPokemonEncounter, bool)`
 
 GetPokemonEncountersOk returns a tuple with the PokemonEncounters field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPokemonEncounters
 
-`func (o *LocationAreaDetail) SetPokemonEncounters(v []LocationAreaDetailPokemonEncountersInner)`
+`func (o *LocationAreaDetail) SetPokemonEncounters(v []LocationAreaPokemonEncounter)`
 
 SetPokemonEncounters sets PokemonEncounters field to given value.
 

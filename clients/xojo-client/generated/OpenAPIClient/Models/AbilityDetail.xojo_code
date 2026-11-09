@@ -2,47 +2,74 @@
 Protected Class AbilityDetail
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The identifier for this resource.
+		#tag EndNote
 		id As Integer
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The name for this resource.
+		#tag EndNote
 		name As String
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			Whether or not this ability originated in the main series of the video games.
+		#tag EndNote
 		is_main_series As Xoson.O.OptionalBoolean
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The generation this ability originated in.
+		#tag EndNote
 		generation As OpenAPIClient.Models.GenerationSummary
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The name of this resource listed in different languages.
+		#tag EndNote
 		names() As OpenAPIClient.Models.AbilityName
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The effect of this ability listed in different languages.
+		#tag EndNote
 		effect_entries() As OpenAPIClient.Models.AbilityEffectText
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The list of previous effects this ability has had across version groups.
+		#tag EndNote
 		effect_changes() As OpenAPIClient.Models.AbilityChange
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The flavor text of this ability listed in different languages.
+		#tag EndNote
 		flavor_text_entries() As OpenAPIClient.Models.AbilityFlavorText
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
-		pokemon() As OpenAPIClient.Models.AbilityDetailPokemonInner
+		#tag Note
+			A list of Pokémon that could potentially have this ability.
+		#tag EndNote
+		pokemon() As OpenAPIClient.Models.AbilityPokemonDetail
 	#tag EndProperty
 
 
@@ -151,7 +178,7 @@ Protected Class AbilityDetail
 			Visible=false
 			Group="Behavior"
 			InitialValue=""
-			Type="AbilityDetailPokemonInner"
+			Type="AbilityPokemonDetail"
 			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior

@@ -12,8 +12,10 @@ import org.joda.time.DateTime
 import CharacteristicDescription._
 
 case class CharacteristicDescription (
+  /* The localized description for an API resource in a specific language. */
   description: Option[String],
-language: LanguageSummary)
+/* The language this name is in. */
+  language: LanguageSummary)
 
 object CharacteristicDescription {
   import DateTimeCodecs._

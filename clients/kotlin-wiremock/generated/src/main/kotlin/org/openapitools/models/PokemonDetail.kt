@@ -15,10 +15,10 @@ data class PokemonDetail(
     val name: kotlin.String,
 
     @field:JsonProperty("abilities")
-    val abilities: kotlin.collections.List<PokemonDetailAbilitiesInner>,
+    val abilities: kotlin.collections.List<PokemonAbility>,
 
     @field:JsonProperty("past_abilities")
-    val pastAbilities: kotlin.collections.List<PokemonDetailPastAbilitiesInner>,
+    val pastAbilities: kotlin.collections.List<PokemonPastAbility>,
 
     @field:JsonProperty("forms")
     val forms: kotlin.collections.List<PokemonFormSummary>,
@@ -27,31 +27,34 @@ data class PokemonDetail(
     val gameIndices: kotlin.collections.List<PokemonGameIndex>,
 
     @field:JsonProperty("held_items")
-    val heldItems: PokemonDetailHeldItems,
+    val heldItems: kotlin.collections.List<PokemonHeldItemSummary>,
 
     @field:JsonProperty("location_area_encounters")
     val locationAreaEncounters: kotlin.String,
 
     @field:JsonProperty("moves")
-    val moves: kotlin.collections.List<PokemonDetailMovesInner>,
+    val moves: kotlin.collections.List<PokemonMove>,
 
     @field:JsonProperty("species")
     val species: PokemonSpeciesSummary,
 
     @field:JsonProperty("sprites")
-    val sprites: PokemonDetailSprites,
+    val sprites: PokemonSprites,
 
     @field:JsonProperty("cries")
-    val cries: PokemonDetailCries,
+    val cries: PokemonCries,
 
     @field:JsonProperty("stats")
     val stats: kotlin.collections.List<PokemonStat>,
 
+    @field:JsonProperty("past_stats")
+    val pastStats: kotlin.collections.List<PokemonPastStat>,
+
     @field:JsonProperty("types")
-    val types: kotlin.collections.List<PokemonDetailTypesInner>,
+    val types: kotlin.collections.List<PokemonType>,
 
     @field:JsonProperty("past_types")
-    val pastTypes: kotlin.collections.List<PokemonDetailPastTypesInner>,
+    val pastTypes: kotlin.collections.List<PokemonPastType>,
 
     @field:JsonProperty("base_experience")
     val baseExperience: kotlin.Int? = null,

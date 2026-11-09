@@ -2,26 +2,41 @@
 Protected Class CharacteristicDetail
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The identifier for this resource.
+		#tag EndNote
 		id As Integer
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The remainder of the highest stat/IV divided by 5.
+		#tag EndNote
 		gene_modulo As Integer
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The possible values of the highest stat that would result in a Pokémon recieving this characteristic when divided by 5.
+		#tag EndNote
 		possible_values() As Integer
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The stat which results in this characteristic.
+		#tag EndNote
 		highest_stat As OpenAPIClient.Models.StatSummary
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The descriptions of this characteristic listed in different languages.
+		#tag EndNote
 		descriptions() As OpenAPIClient.Models.CharacteristicDescription
 	#tag EndProperty
 

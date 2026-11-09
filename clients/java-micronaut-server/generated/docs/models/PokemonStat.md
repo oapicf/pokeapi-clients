@@ -8,9 +8,9 @@ The class is defined in **[PokemonStat.java](../../src/main/java/org/openapitool
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**baseStat** | `Integer` |  | 
-**effort** | `Integer` |  | 
-**stat** | [`StatSummary`](StatSummary.md) |  | 
+**baseStat** | `Integer` | The base value of the stat. | 
+**effort** | `Integer` | The effort points (EV) the Pokémon has in the stat. | 
+**stat** | [`StatSummary`](StatSummary.md) | The stat the Pokémon has. | 
 
 
 

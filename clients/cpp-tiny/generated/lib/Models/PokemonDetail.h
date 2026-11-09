@@ -12,18 +12,19 @@
 #include <string>
 #include "bourne/json.hpp"
 #include "Helpers.h"
-#include "PokemonDetail_abilities_inner.h"
-#include "PokemonDetail_cries.h"
-#include "PokemonDetail_held_items.h"
-#include "PokemonDetail_moves_inner.h"
-#include "PokemonDetail_past_abilities_inner.h"
-#include "PokemonDetail_past_types_inner.h"
-#include "PokemonDetail_sprites.h"
-#include "PokemonDetail_types_inner.h"
+#include "PokemonAbility.h"
+#include "PokemonCries.h"
 #include "PokemonFormSummary.h"
 #include "PokemonGameIndex.h"
+#include "PokemonHeldItemSummary.h"
+#include "PokemonMove.h"
+#include "PokemonPastAbility.h"
+#include "PokemonPastStat.h"
+#include "PokemonPastType.h"
 #include "PokemonSpeciesSummary.h"
+#include "PokemonSprites.h"
 #include "PokemonStat.h"
+#include "PokemonType.h"
 #include <list>
 
 namespace Tiny {
@@ -58,146 +59,153 @@ public:
 	 */
     void fromJson(std::string jsonObj);
 
-	/*! \brief Get 
+	/*! \brief Get The identifier for this resource.
 	 */
 	int getId();
 
-	/*! \brief Set 
+	/*! \brief Set The identifier for this resource.
 	 */
 	void setId(int id);
-	/*! \brief Get 
+	/*! \brief Get The name for this resource.
 	 */
 	std::string getName();
 
-	/*! \brief Set 
+	/*! \brief Set The name for this resource.
 	 */
 	void setName(std::string name);
-	/*! \brief Get 
+	/*! \brief Get The base experience gained for defeating this Pokémon.
 	 */
 	int getBaseExperience();
 
-	/*! \brief Set 
+	/*! \brief Set The base experience gained for defeating this Pokémon.
 	 */
 	void setBaseExperience(int base_experience);
-	/*! \brief Get 
+	/*! \brief Get The height of this Pokémon in decimetres.
 	 */
 	int getHeight();
 
-	/*! \brief Set 
+	/*! \brief Set The height of this Pokémon in decimetres.
 	 */
 	void setHeight(int height);
-	/*! \brief Get 
+	/*! \brief Get Set for exactly one Pokémon used as the default for each species.
 	 */
 	bool isIsDefault();
 
-	/*! \brief Set 
+	/*! \brief Set Set for exactly one Pokémon used as the default for each species.
 	 */
 	void setIsDefault(bool is_default);
-	/*! \brief Get 
+	/*! \brief Get Order for sorting. Almost national order, except families are grouped together.
 	 */
 	int getOrder();
 
-	/*! \brief Set 
+	/*! \brief Set Order for sorting. Almost national order, except families are grouped together.
 	 */
 	void setOrder(int order);
-	/*! \brief Get 
+	/*! \brief Get The weight of this Pokémon in hectograms.
 	 */
 	int getWeight();
 
-	/*! \brief Set 
+	/*! \brief Set The weight of this Pokémon in hectograms.
 	 */
 	void setWeight(int weight);
-	/*! \brief Get 
+	/*! \brief Get A list of abilities this Pokémon could potentially have.
 	 */
-	std::list<PokemonDetail_abilities_inner> getAbilities();
+	std::list<PokemonAbility> getAbilities();
 
-	/*! \brief Set 
+	/*! \brief Set A list of abilities this Pokémon could potentially have.
 	 */
-	void setAbilities(std::list<PokemonDetail_abilities_inner> abilities);
-	/*! \brief Get 
+	void setAbilities(std::list<PokemonAbility> abilities);
+	/*! \brief Get A list of details showing abilities this pokémon had in previous generations
 	 */
-	std::list<PokemonDetail_past_abilities_inner> getPastAbilities();
+	std::list<PokemonPastAbility> getPastAbilities();
 
-	/*! \brief Set 
+	/*! \brief Set A list of details showing abilities this pokémon had in previous generations
 	 */
-	void setPastAbilities(std::list<PokemonDetail_past_abilities_inner> past_abilities);
-	/*! \brief Get 
+	void setPastAbilities(std::list<PokemonPastAbility> past_abilities);
+	/*! \brief Get A list of forms this Pokémon can take on.
 	 */
 	std::list<PokemonFormSummary> getForms();
 
-	/*! \brief Set 
+	/*! \brief Set A list of forms this Pokémon can take on.
 	 */
 	void setForms(std::list<PokemonFormSummary> forms);
-	/*! \brief Get 
+	/*! \brief Get A list of game indices relevent to Pokémon item by generation.
 	 */
 	std::list<PokemonGameIndex> getGameIndices();
 
-	/*! \brief Set 
+	/*! \brief Set A list of game indices relevent to Pokémon item by generation.
 	 */
 	void setGameIndices(std::list<PokemonGameIndex> game_indices);
-	/*! \brief Get 
+	/*! \brief Get A list of items this Pokémon may be holding when encountered.
 	 */
-	PokemonDetail_held_items getHeldItems();
+	std::list<PokemonHeldItemSummary> getHeldItems();
 
-	/*! \brief Set 
+	/*! \brief Set A list of items this Pokémon may be holding when encountered.
 	 */
-	void setHeldItems(PokemonDetail_held_items held_items);
-	/*! \brief Get 
+	void setHeldItems(std::list<PokemonHeldItemSummary> held_items);
+	/*! \brief Get A link to a list of location areas, as well as encounter details pertaining to specific versions.
 	 */
 	std::string getLocationAreaEncounters();
 
-	/*! \brief Set 
+	/*! \brief Set A link to a list of location areas, as well as encounter details pertaining to specific versions.
 	 */
 	void setLocationAreaEncounters(std::string location_area_encounters);
-	/*! \brief Get 
+	/*! \brief Get A list of moves along with learn methods and level details pertaining to specific version groups.
 	 */
-	std::list<PokemonDetail_moves_inner> getMoves();
+	std::list<PokemonMove> getMoves();
 
-	/*! \brief Set 
+	/*! \brief Set A list of moves along with learn methods and level details pertaining to specific version groups.
 	 */
-	void setMoves(std::list<PokemonDetail_moves_inner> moves);
-	/*! \brief Get 
+	void setMoves(std::list<PokemonMove> moves);
+	/*! \brief Get The species this Pokémon belongs to.
 	 */
 	PokemonSpeciesSummary getSpecies();
 
-	/*! \brief Set 
+	/*! \brief Set The species this Pokémon belongs to.
 	 */
 	void setSpecies(PokemonSpeciesSummary species);
-	/*! \brief Get 
+	/*! \brief Get A set of sprites used to depict this Pokémon in the game. A visual representation of the various sprites can be found at <a href='https://github.com/PokeAPI/sprites#sprites'>PokeAPI/sprites</a>
 	 */
-	PokemonDetail_sprites&lt;std::string, std::string&gt; getSprites();
+	PokemonSprites getSprites();
 
-	/*! \brief Set 
+	/*! \brief Set A set of sprites used to depict this Pokémon in the game. A visual representation of the various sprites can be found at <a href='https://github.com/PokeAPI/sprites#sprites'>PokeAPI/sprites</a>
 	 */
-	void setSprites(PokemonDetail_sprites&lt;std::string, std::string&gt; sprites);
-	/*! \brief Get 
+	void setSprites(PokemonSprites sprites);
+	/*! \brief Get A set of cries used to depict this Pokémon in the game. A visual representation of the various cries can be found at <a href='https://github.com/PokeAPI/cries#cries'>PokeAPI/cries</a>
 	 */
-	PokemonDetail_cries getCries();
+	PokemonCries getCries();
 
-	/*! \brief Set 
+	/*! \brief Set A set of cries used to depict this Pokémon in the game. A visual representation of the various cries can be found at <a href='https://github.com/PokeAPI/cries#cries'>PokeAPI/cries</a>
 	 */
-	void setCries(PokemonDetail_cries cries);
-	/*! \brief Get 
+	void setCries(PokemonCries cries);
+	/*! \brief Get A list of base stat values for this Pokémon.
 	 */
 	std::list<PokemonStat> getStats();
 
-	/*! \brief Set 
+	/*! \brief Set A list of base stat values for this Pokémon.
 	 */
 	void setStats(std::list<PokemonStat> stats);
-	/*! \brief Get 
+	/*! \brief Get A list of details showing stats this pokémon had in previous generations
 	 */
-	std::list<PokemonDetail_types_inner> getTypes();
+	std::list<PokemonPastStat> getPastStats();
 
-	/*! \brief Set 
+	/*! \brief Set A list of details showing stats this pokémon had in previous generations
 	 */
-	void setTypes(std::list<PokemonDetail_types_inner> types);
-	/*! \brief Get 
+	void setPastStats(std::list<PokemonPastStat> past_stats);
+	/*! \brief Get A list of details showing types this Pokémon has.
 	 */
-	std::list<PokemonDetail_past_types_inner> getPastTypes();
+	std::list<PokemonType> getTypes();
 
-	/*! \brief Set 
+	/*! \brief Set A list of details showing types this Pokémon has.
 	 */
-	void setPastTypes(std::list<PokemonDetail_past_types_inner> past_types);
+	void setTypes(std::list<PokemonType> types);
+	/*! \brief Get A list of details showing types this pokémon had in previous generations
+	 */
+	std::list<PokemonPastType> getPastTypes();
+
+	/*! \brief Set A list of details showing types this pokémon had in previous generations
+	 */
+	void setPastTypes(std::list<PokemonPastType> past_types);
 
 
     private:
@@ -208,19 +216,20 @@ public:
     bool is_default{};
     int order{};
     int weight{};
-    std::list<PokemonDetail_abilities_inner> abilities;
-    std::list<PokemonDetail_past_abilities_inner> past_abilities;
+    std::list<PokemonAbility> abilities;
+    std::list<PokemonPastAbility> past_abilities;
     std::list<PokemonFormSummary> forms;
     std::list<PokemonGameIndex> game_indices;
-    PokemonDetail_held_items held_items;
+    std::list<PokemonHeldItemSummary> held_items;
     std::string location_area_encounters{};
-    std::list<PokemonDetail_moves_inner> moves;
+    std::list<PokemonMove> moves;
     PokemonSpeciesSummary species;
-    PokemonDetail_sprites&lt;std::string, std::string&gt; sprites;
-    PokemonDetail_cries cries;
+    PokemonSprites sprites;
+    PokemonCries cries;
     std::list<PokemonStat> stats;
-    std::list<PokemonDetail_types_inner> types;
-    std::list<PokemonDetail_past_types_inner> past_types;
+    std::list<PokemonPastStat> past_stats;
+    std::list<PokemonType> types;
+    std::list<PokemonPastType> past_types;
 };
 }
 

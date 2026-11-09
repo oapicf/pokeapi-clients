@@ -6,22 +6,22 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.vertxweb.server.model.AbilityDetailPokemonInnerPokemon;
-import org.openapitools.vertxweb.server.model.GenderDetailPokemonSpeciesDetailsInner;
+import org.openapitools.vertxweb.server.model.GenderPokemonSpecies;
+import org.openapitools.vertxweb.server.model.PokemonSpeciesSummary;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class GenderDetail   {
   
   private Integer id;
   private String name;
-  private List<GenderDetailPokemonSpeciesDetailsInner> pokemonSpeciesDetails = new ArrayList<>();
-  private List<AbilityDetailPokemonInnerPokemon> requiredForEvolution = new ArrayList<>();
+  private List<GenderPokemonSpecies> pokemonSpeciesDetails = new ArrayList<>();
+  private List<PokemonSpeciesSummary> requiredForEvolution = new ArrayList<>();
 
   public GenderDetail () {
 
   }
 
-  public GenderDetail (Integer id, String name, List<GenderDetailPokemonSpeciesDetailsInner> pokemonSpeciesDetails, List<AbilityDetailPokemonInnerPokemon> requiredForEvolution) {
+  public GenderDetail (Integer id, String name, List<GenderPokemonSpecies> pokemonSpeciesDetails, List<PokemonSpeciesSummary> requiredForEvolution) {
     this.id = id;
     this.name = name;
     this.pokemonSpeciesDetails = pokemonSpeciesDetails;
@@ -48,19 +48,19 @@ public class GenderDetail   {
 
     
   @JsonProperty("pokemon_species_details")
-  public List<GenderDetailPokemonSpeciesDetailsInner> getPokemonSpeciesDetails() {
+  public List<GenderPokemonSpecies> getPokemonSpeciesDetails() {
     return pokemonSpeciesDetails;
   }
-  public void setPokemonSpeciesDetails(List<GenderDetailPokemonSpeciesDetailsInner> pokemonSpeciesDetails) {
+  public void setPokemonSpeciesDetails(List<GenderPokemonSpecies> pokemonSpeciesDetails) {
     this.pokemonSpeciesDetails = pokemonSpeciesDetails;
   }
 
     
   @JsonProperty("required_for_evolution")
-  public List<AbilityDetailPokemonInnerPokemon> getRequiredForEvolution() {
+  public List<PokemonSpeciesSummary> getRequiredForEvolution() {
     return requiredForEvolution;
   }
-  public void setRequiredForEvolution(List<AbilityDetailPokemonInnerPokemon> requiredForEvolution) {
+  public void setRequiredForEvolution(List<PokemonSpeciesSummary> requiredForEvolution) {
     this.requiredForEvolution = requiredForEvolution;
   }
 

@@ -8,13 +8,13 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.model.AbilityDetailPokemonInnerPokemon;
 import org.openapitools.model.MoveMetaCategoryDescription;
+import org.openapitools.model.MoveSummary;
 
 /**
  * MoveMetaCategoryDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-10-25T05:48:05.787850114Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-11-09T13:49:25.341948748Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class MoveMetaCategoryDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -26,13 +26,13 @@ public class MoveMetaCategoryDetail   {
   private List<@Valid MoveMetaCategoryDescription> descriptions = new ArrayList<>();
 
   @JsonProperty("moves")
-  private List<@Valid AbilityDetailPokemonInnerPokemon> moves = new ArrayList<>();
+  private List<@Valid MoveSummary> moves = new ArrayList<>();
 
    /**
-   * Get id
+   * The identifier for this resource.
    * @return id
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   public Integer getId() {
     return id;
   }
@@ -43,10 +43,10 @@ public class MoveMetaCategoryDetail   {
   }
 
    /**
-   * Get name
+   * The name for this resource.
    * @return name
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   public String getName() {
     return name;
   }
@@ -56,20 +56,20 @@ public class MoveMetaCategoryDetail   {
   }
 
    /**
-   * Get descriptions
+   * The description of this resource listed in different languages.
    * @return descriptions
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The description of this resource listed in different languages.")
   public List<@Valid MoveMetaCategoryDescription> getDescriptions() {
     return descriptions;
   }
 
    /**
-   * Get moves
+   * A list of moves that fall into this category.
    * @return moves
   **/
-  @ApiModelProperty(required = true, value = "")
-  public List<@Valid AbilityDetailPokemonInnerPokemon> getMoves() {
+  @ApiModelProperty(required = true, value = "A list of moves that fall into this category.")
+  public List<@Valid MoveSummary> getMoves() {
     return moves;
   }
 

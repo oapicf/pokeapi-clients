@@ -4,20 +4,20 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int32** |  | [readonly] 
-**Name** | **string** |  | 
-**IsMainSeries** | Pointer to **bool** |  | [optional] 
-**Descriptions** | [**[]PokedexDescription**](PokedexDescription.md) |  | [readonly] 
-**Names** | [**[]PokedexName**](PokedexName.md) |  | [readonly] 
-**PokemonEntries** | [**[]PokedexDetailPokemonEntriesInner**](PokedexDetailPokemonEntriesInner.md) |  | [readonly] 
-**Region** | [**RegionSummary**](RegionSummary.md) |  | 
-**VersionGroups** | [**[]AbilityDetailPokemonInnerPokemon**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] 
+**Id** | **int32** | The identifier for this resource. | [readonly] 
+**Name** | **string** | The name for this resource. | 
+**IsMainSeries** | Pointer to **bool** | Whether or not this Pokédex originated in the main series of the video games. | [optional] 
+**Descriptions** | [**[]PokedexDescription**](PokedexDescription.md) | The description of this resource listed in different languages. | [readonly] 
+**Names** | [**[]PokedexName**](PokedexName.md) | The name of this resource listed in different languages. | [readonly] 
+**PokemonEntries** | [**[]PokemonDexNumber**](PokemonDexNumber.md) | A list of Pokémon catalogued in this Pokédex and their indexes. | [readonly] 
+**Region** | [**NullableRegionSummary**](RegionSummary.md) | The region this Pokédex catalogues Pokémon for. | 
+**VersionGroups** | [**[]VersionGroupSummary**](VersionGroupSummary.md) | A list of version groups this Pokédex is relevant to. | [readonly] 
 
 ## Methods
 
 ### NewPokedexDetail
 
-`func NewPokedexDetail(id int32, name string, descriptions []PokedexDescription, names []PokedexName, pokemonEntries []PokedexDetailPokemonEntriesInner, region RegionSummary, versionGroups []AbilityDetailPokemonInnerPokemon, ) *PokedexDetail`
+`func NewPokedexDetail(id int32, name string, descriptions []PokedexDescription, names []PokedexName, pokemonEntries []PokemonDexNumber, region NullableRegionSummary, versionGroups []VersionGroupSummary, ) *PokedexDetail`
 
 NewPokedexDetail instantiates a new PokedexDetail object
 This constructor will assign default values to properties that have it defined,
@@ -139,20 +139,20 @@ SetNames sets Names field to given value.
 
 ### GetPokemonEntries
 
-`func (o *PokedexDetail) GetPokemonEntries() []PokedexDetailPokemonEntriesInner`
+`func (o *PokedexDetail) GetPokemonEntries() []PokemonDexNumber`
 
 GetPokemonEntries returns the PokemonEntries field if non-nil, zero value otherwise.
 
 ### GetPokemonEntriesOk
 
-`func (o *PokedexDetail) GetPokemonEntriesOk() (*[]PokedexDetailPokemonEntriesInner, bool)`
+`func (o *PokedexDetail) GetPokemonEntriesOk() (*[]PokemonDexNumber, bool)`
 
 GetPokemonEntriesOk returns a tuple with the PokemonEntries field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPokemonEntries
 
-`func (o *PokedexDetail) SetPokemonEntries(v []PokedexDetailPokemonEntriesInner)`
+`func (o *PokedexDetail) SetPokemonEntries(v []PokemonDexNumber)`
 
 SetPokemonEntries sets PokemonEntries field to given value.
 
@@ -177,22 +177,32 @@ and a boolean to check if the value has been set.
 SetRegion sets Region field to given value.
 
 
+### SetRegionNil
+
+`func (o *PokedexDetail) SetRegionNil(b bool)`
+
+ SetRegionNil sets the value for Region to be an explicit nil
+
+### UnsetRegion
+`func (o *PokedexDetail) UnsetRegion()`
+
+UnsetRegion ensures that no value is present for Region, not even an explicit nil
 ### GetVersionGroups
 
-`func (o *PokedexDetail) GetVersionGroups() []AbilityDetailPokemonInnerPokemon`
+`func (o *PokedexDetail) GetVersionGroups() []VersionGroupSummary`
 
 GetVersionGroups returns the VersionGroups field if non-nil, zero value otherwise.
 
 ### GetVersionGroupsOk
 
-`func (o *PokedexDetail) GetVersionGroupsOk() (*[]AbilityDetailPokemonInnerPokemon, bool)`
+`func (o *PokedexDetail) GetVersionGroupsOk() (*[]VersionGroupSummary, bool)`
 
 GetVersionGroupsOk returns a tuple with the VersionGroups field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVersionGroups
 
-`func (o *PokedexDetail) SetVersionGroups(v []AbilityDetailPokemonInnerPokemon)`
+`func (o *PokedexDetail) SetVersionGroups(v []VersionGroupSummary)`
 
 SetVersionGroups sets VersionGroups field to given value.
 

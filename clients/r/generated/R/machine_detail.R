@@ -7,10 +7,10 @@
 #' @title MachineDetail
 #' @description MachineDetail Class
 #' @format An \code{R6Class} generator object
-#' @field id  integer
-#' @field item  \link{ItemSummary}
-#' @field version_group  \link{VersionGroupSummary}
-#' @field move  \link{MoveSummary}
+#' @field id The identifier for this resource. integer
+#' @field item The TM or HM item that corresponds to this machine. \link{ItemSummary}
+#' @field version_group The version group that this machine applies to. \link{VersionGroupSummary}
+#' @field move The move that is taught by this machine. \link{MoveSummary}
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -25,10 +25,10 @@ MachineDetail <- R6::R6Class(
     #' @description
     #' Initialize a new MachineDetail class.
     #'
-    #' @param id id
-    #' @param item item
-    #' @param version_group version_group
-    #' @param move move
+    #' @param id The identifier for this resource.
+    #' @param item The TM or HM item that corresponds to this machine.
+    #' @param version_group The version group that this machine applies to.
+    #' @param move The move that is taught by this machine.
     #' @param ... Other optional arguments.
     initialize = function(`id`, `item`, `version_group`, `move`, ...) {
       if (!missing(`id`)) {

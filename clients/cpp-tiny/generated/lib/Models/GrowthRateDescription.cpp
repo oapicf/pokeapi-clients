@@ -7,7 +7,7 @@ using namespace Tiny;
 GrowthRateDescription::GrowthRateDescription()
 {
 	description = std::string();
-	language = LanguageSummary();
+	language = null;
 }
 
 GrowthRateDescription::GrowthRateDescription(std::string jsonString)

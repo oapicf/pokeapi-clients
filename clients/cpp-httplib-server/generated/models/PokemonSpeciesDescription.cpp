@@ -10,7 +10,6 @@ namespace models {
 
 PokemonSpeciesDescription::PokemonSpeciesDescription()
 : description("")
-, language(LanguageSummary())
 {
 }
 // =========================================

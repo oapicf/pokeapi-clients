@@ -4,6 +4,8 @@ All URIs are relative to *https://pokeapi.co*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
+| [**CurrencyList**](ItemsApi.md#currencylist) | **GET** /api/v2/currency/ | List currencies |
+| [**CurrencyRetrieve**](ItemsApi.md#currencyretrieve) | **GET** /api/v2/currency/{id}/ | Get currency |
 | [**ItemAttributeList**](ItemsApi.md#itemattributelist) | **GET** /api/v2/item-attribute/ | List item attributes |
 | [**ItemAttributeRetrieve**](ItemsApi.md#itemattributeretrieve) | **GET** /api/v2/item-attribute/{id}/ | Get item attribute |
 | [**ItemCategoryList**](ItemsApi.md#itemcategorylist) | **GET** /api/v2/item-category/ | List item categories |
@@ -14,6 +16,80 @@ All URIs are relative to *https://pokeapi.co*
 | [**ItemPocketList**](ItemsApi.md#itempocketlist) | **GET** /api/v2/item-pocket/ | List item pockets |
 | [**ItemPocketRetrieve**](ItemsApi.md#itempocketretrieve) | **GET** /api/v2/item-pocket/{id}/ | Get item pocket |
 | [**ItemRetrieve**](ItemsApi.md#itemretrieve) | **GET** /api/v2/item/{id}/ | Get item |
+
+<a id="currencylist"></a>
+# **CurrencyList**
+> PaginatedCurrencySummaryList CurrencyList (int limit = null, int offset = null, string q = null)
+
+List currencies
+
+Currencies used to buy items.
+
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **limit** | **int** | Number of results to return per page. | [optional]  |
+| **offset** | **int** | The initial index from which to return the results. | [optional]  |
+| **q** | **string** | &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional]  |
+
+### Return type
+
+[**PaginatedCurrencySummaryList**](PaginatedCurrencySummaryList.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+<a id="currencyretrieve"></a>
+# **CurrencyRetrieve**
+> CurrencyDetail CurrencyRetrieve (string id)
+
+Get currency
+
+Currencies used to buy items.
+
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **string** | This parameter can be a string or an integer. |  |
+
+### Return type
+
+[**CurrencyDetail**](CurrencyDetail.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 <a id="itemattributelist"></a>
 # **ItemAttributeList**
@@ -38,7 +114,7 @@ Item attributes define particular aspects of items, e.g.\"usable in battle\" or 
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -74,7 +150,7 @@ Item attributes define particular aspects of items, e.g.\"usable in battle\" or 
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -112,7 +188,7 @@ Item categories determine where items will be placed in the players bag.
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -148,7 +224,7 @@ Item categories determine where items will be placed in the players bag.
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -186,7 +262,7 @@ The various effects of the move\"Fling\" when used with different items.
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -222,7 +298,7 @@ The various effects of the move\"Fling\" when used with different items.
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -260,7 +336,7 @@ An item is an object in the games which the player can pick up, keep in their ba
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -298,7 +374,7 @@ Pockets within the players bag used for storing items by category.
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -334,7 +410,7 @@ Pockets within the players bag used for storing items by category.
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -370,7 +446,7 @@ An item is an object in the games which the player can pick up, keep in their ba
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

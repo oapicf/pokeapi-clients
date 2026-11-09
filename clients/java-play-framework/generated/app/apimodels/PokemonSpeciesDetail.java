@@ -1,20 +1,20 @@
 package apimodels;
 
-import apimodels.AbilityDetailPokemonInnerPokemon;
+import apimodels.EggGroupSummary;
 import apimodels.EvolutionChainSummary;
 import apimodels.GenerationSummary;
 import apimodels.GrowthRateSummary;
 import apimodels.PokemonColorSummary;
 import apimodels.PokemonDexEntry;
-import apimodels.PokemonFormDetailFormNamesInner;
 import apimodels.PokemonHabitatSummary;
 import apimodels.PokemonShapeSummary;
 import apimodels.PokemonSpeciesDescription;
-import apimodels.PokemonSpeciesDetailGeneraInner;
-import apimodels.PokemonSpeciesDetailPalParkEncountersInner;
-import apimodels.PokemonSpeciesDetailVarietiesInner;
 import apimodels.PokemonSpeciesFlavorText;
+import apimodels.PokemonSpeciesGenus;
+import apimodels.PokemonSpeciesName;
+import apimodels.PokemonSpeciesPalParkEncounter;
 import apimodels.PokemonSpeciesSummary;
+import apimodels.PokemonSpeciesVariety;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -28,7 +28,7 @@ import javax.validation.Valid;
 /**
  * PokemonSpeciesDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-10-25T05:48:13.486809836Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-11-09T13:49:31.462302702Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class PokemonSpeciesDetail   {
   @JsonProperty("id")
@@ -38,24 +38,32 @@ public class PokemonSpeciesDetail   {
 
   @JsonProperty("name")
   @NotNull
-@Size(max=100)
+@Size(max=200)
 
   private String name;
 
   @JsonProperty("order")
-  
+  @Min(-2147483648)
+@Max(2147483647)
+
   private Integer order;
 
   @JsonProperty("gender_rate")
-  
+  @Min(-2147483648)
+@Max(2147483647)
+
   private Integer genderRate;
 
   @JsonProperty("capture_rate")
-  
+  @Min(-2147483648)
+@Max(2147483647)
+
   private Integer captureRate;
 
   @JsonProperty("base_happiness")
-  
+  @Min(-2147483648)
+@Max(2147483647)
+
   private Integer baseHappiness;
 
   @JsonProperty("is_baby")
@@ -71,7 +79,9 @@ public class PokemonSpeciesDetail   {
   private Boolean isMythical;
 
   @JsonProperty("hatch_counter")
-  
+  @Min(-2147483648)
+@Max(2147483647)
+
   private Integer hatchCounter;
 
   @JsonProperty("has_gender_differences")
@@ -98,7 +108,7 @@ public class PokemonSpeciesDetail   {
   @NotNull
 @Valid
 
-  private List<@Valid AbilityDetailPokemonInnerPokemon> eggGroups = new ArrayList<>();
+  private List<@Valid EggGroupSummary> eggGroups = new ArrayList<>();
 
   @JsonProperty("color")
   @NotNull
@@ -140,13 +150,13 @@ public class PokemonSpeciesDetail   {
   @NotNull
 @Valid
 
-  private List<@Valid PokemonFormDetailFormNamesInner> names = new ArrayList<>();
+  private List<@Valid PokemonSpeciesName> names = new ArrayList<>();
 
   @JsonProperty("pal_park_encounters")
   @NotNull
 @Valid
 
-  private List<@Valid PokemonSpeciesDetailPalParkEncountersInner> palParkEncounters = new ArrayList<>();
+  private List<@Valid PokemonSpeciesPalParkEncounter> palParkEncounters = new ArrayList<>();
 
   @JsonProperty("form_descriptions")
   @NotNull
@@ -164,13 +174,13 @@ public class PokemonSpeciesDetail   {
   @NotNull
 @Valid
 
-  private List<@Valid PokemonSpeciesDetailGeneraInner> genera = new ArrayList<>();
+  private List<@Valid PokemonSpeciesGenus> genera = new ArrayList<>();
 
   @JsonProperty("varieties")
   @NotNull
 @Valid
 
-  private List<@Valid PokemonSpeciesDetailVarietiesInner> varieties = new ArrayList<>();
+  private List<@Valid PokemonSpeciesVariety> varieties = new ArrayList<>();
 
   public PokemonSpeciesDetail id(Integer id) {
     this.id = id;
@@ -178,7 +188,7 @@ public class PokemonSpeciesDetail   {
   }
 
    /**
-   * Get id
+   * The identifier for this resource.
    * @return id
   **/
   public Integer getId() {
@@ -195,7 +205,7 @@ public class PokemonSpeciesDetail   {
   }
 
    /**
-   * Get name
+   * The name for this resource.
    * @return name
   **/
   public String getName() {
@@ -212,7 +222,9 @@ public class PokemonSpeciesDetail   {
   }
 
    /**
-   * Get order
+   * The order in which species should be sorted. Based on National Dex order, except families are grouped together and sorted by stage.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return order
   **/
   public Integer getOrder() {
@@ -229,7 +241,9 @@ public class PokemonSpeciesDetail   {
   }
 
    /**
-   * Get genderRate
+   * The chance of this Pokémon being female, in eighths; or -1 for genderless.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return genderRate
   **/
   public Integer getGenderRate() {
@@ -246,7 +260,9 @@ public class PokemonSpeciesDetail   {
   }
 
    /**
-   * Get captureRate
+   * The base capture rate; up to 255. The higher the number, the easier the catch.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return captureRate
   **/
   public Integer getCaptureRate() {
@@ -263,7 +279,9 @@ public class PokemonSpeciesDetail   {
   }
 
    /**
-   * Get baseHappiness
+   * The happiness when caught by a normal Pokéball; up to 255. The higher the number, the happier the Pokémon.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return baseHappiness
   **/
   public Integer getBaseHappiness() {
@@ -280,7 +298,7 @@ public class PokemonSpeciesDetail   {
   }
 
    /**
-   * Get isBaby
+   * Whether or not this is a baby Pokémon.
    * @return isBaby
   **/
   public Boolean getIsBaby() {
@@ -297,7 +315,7 @@ public class PokemonSpeciesDetail   {
   }
 
    /**
-   * Get isLegendary
+   * Whether or not this is a legendary Pokémon.
    * @return isLegendary
   **/
   public Boolean getIsLegendary() {
@@ -314,7 +332,7 @@ public class PokemonSpeciesDetail   {
   }
 
    /**
-   * Get isMythical
+   * Whether or not this is a mythical Pokémon.
    * @return isMythical
   **/
   public Boolean getIsMythical() {
@@ -331,7 +349,9 @@ public class PokemonSpeciesDetail   {
   }
 
    /**
-   * Get hatchCounter
+   * Initial hatch counter: one must walk Y × (hatch_counter + 1) steps before this Pokémon's egg hatches, unless utilizing bonuses like Flame Body's. Y varies per generation. In Generations II, III, and VII, Egg cycles are 256 steps long. In Generation IV, Egg cycles are 255 steps long. In Pokémon Brilliant Diamond and Shining Pearl, Egg cycles are also 255 steps long, but are shorter on special dates. In Generations V and VI, Egg cycles are 257 steps long. In Pokémon Sword and Shield, and in Pokémon Scarlet and Violet, Egg cycles are 128 steps long.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return hatchCounter
   **/
   public Integer getHatchCounter() {
@@ -348,7 +368,7 @@ public class PokemonSpeciesDetail   {
   }
 
    /**
-   * Get hasGenderDifferences
+   * Whether or not this Pokémon has visual gender differences.
    * @return hasGenderDifferences
   **/
   public Boolean getHasGenderDifferences() {
@@ -365,7 +385,7 @@ public class PokemonSpeciesDetail   {
   }
 
    /**
-   * Get formsSwitchable
+   * Whether or not this Pokémon has multiple forms and can switch between them.
    * @return formsSwitchable
   **/
   public Boolean getFormsSwitchable() {
@@ -382,7 +402,7 @@ public class PokemonSpeciesDetail   {
   }
 
    /**
-   * Get growthRate
+   * The rate at which this Pokémon species gains levels.
    * @return growthRate
   **/
   public GrowthRateSummary getGrowthRate() {
@@ -407,7 +427,7 @@ public class PokemonSpeciesDetail   {
   }
 
    /**
-   * Get pokedexNumbers
+   * A list of Pokedexes and the indexes reserved within them for this Pokémon species.
    * @return pokedexNumbers
   **/
   public List<@Valid PokemonDexEntry> getPokedexNumbers() {
@@ -418,12 +438,12 @@ public class PokemonSpeciesDetail   {
     this.pokedexNumbers = pokedexNumbers;
   }
 
-  public PokemonSpeciesDetail eggGroups(List<@Valid AbilityDetailPokemonInnerPokemon> eggGroups) {
+  public PokemonSpeciesDetail eggGroups(List<@Valid EggGroupSummary> eggGroups) {
     this.eggGroups = eggGroups;
     return this;
   }
 
-  public PokemonSpeciesDetail addEggGroupsItem(AbilityDetailPokemonInnerPokemon eggGroupsItem) {
+  public PokemonSpeciesDetail addEggGroupsItem(EggGroupSummary eggGroupsItem) {
     if (this.eggGroups == null) {
       this.eggGroups = new ArrayList<>();
     }
@@ -432,14 +452,14 @@ public class PokemonSpeciesDetail   {
   }
 
    /**
-   * Get eggGroups
+   * A list of egg groups this Pokémon species is a member of.
    * @return eggGroups
   **/
-  public List<@Valid AbilityDetailPokemonInnerPokemon> getEggGroups() {
+  public List<@Valid EggGroupSummary> getEggGroups() {
     return eggGroups;
   }
 
-  public void setEggGroups(List<@Valid AbilityDetailPokemonInnerPokemon> eggGroups) {
+  public void setEggGroups(List<@Valid EggGroupSummary> eggGroups) {
     this.eggGroups = eggGroups;
   }
 
@@ -449,7 +469,7 @@ public class PokemonSpeciesDetail   {
   }
 
    /**
-   * Get color
+   * The color of this Pokémon for Pokédex search.
    * @return color
   **/
   public PokemonColorSummary getColor() {
@@ -466,7 +486,7 @@ public class PokemonSpeciesDetail   {
   }
 
    /**
-   * Get shape
+   * The shape of this Pokémon for Pokédex search.
    * @return shape
   **/
   public PokemonShapeSummary getShape() {
@@ -483,7 +503,7 @@ public class PokemonSpeciesDetail   {
   }
 
    /**
-   * Get evolvesFromSpecies
+   * The Pokémon species that evolves into this Pokemon_species.
    * @return evolvesFromSpecies
   **/
   public PokemonSpeciesSummary getEvolvesFromSpecies() {
@@ -500,7 +520,7 @@ public class PokemonSpeciesDetail   {
   }
 
    /**
-   * Get evolutionChain
+   * The evolution chain this Pokémon species is a member of.
    * @return evolutionChain
   **/
   public EvolutionChainSummary getEvolutionChain() {
@@ -517,7 +537,7 @@ public class PokemonSpeciesDetail   {
   }
 
    /**
-   * Get habitat
+   * The habitat this Pokémon species can be encountered in.
    * @return habitat
   **/
   public PokemonHabitatSummary getHabitat() {
@@ -534,7 +554,7 @@ public class PokemonSpeciesDetail   {
   }
 
    /**
-   * Get generation
+   * The generation this Pokémon species was introduced in.
    * @return generation
   **/
   public GenerationSummary getGeneration() {
@@ -545,12 +565,12 @@ public class PokemonSpeciesDetail   {
     this.generation = generation;
   }
 
-  public PokemonSpeciesDetail names(List<@Valid PokemonFormDetailFormNamesInner> names) {
+  public PokemonSpeciesDetail names(List<@Valid PokemonSpeciesName> names) {
     this.names = names;
     return this;
   }
 
-  public PokemonSpeciesDetail addNamesItem(PokemonFormDetailFormNamesInner namesItem) {
+  public PokemonSpeciesDetail addNamesItem(PokemonSpeciesName namesItem) {
     if (this.names == null) {
       this.names = new ArrayList<>();
     }
@@ -559,23 +579,23 @@ public class PokemonSpeciesDetail   {
   }
 
    /**
-   * Get names
+   * The name of this resource listed in different languages.
    * @return names
   **/
-  public List<@Valid PokemonFormDetailFormNamesInner> getNames() {
+  public List<@Valid PokemonSpeciesName> getNames() {
     return names;
   }
 
-  public void setNames(List<@Valid PokemonFormDetailFormNamesInner> names) {
+  public void setNames(List<@Valid PokemonSpeciesName> names) {
     this.names = names;
   }
 
-  public PokemonSpeciesDetail palParkEncounters(List<@Valid PokemonSpeciesDetailPalParkEncountersInner> palParkEncounters) {
+  public PokemonSpeciesDetail palParkEncounters(List<@Valid PokemonSpeciesPalParkEncounter> palParkEncounters) {
     this.palParkEncounters = palParkEncounters;
     return this;
   }
 
-  public PokemonSpeciesDetail addPalParkEncountersItem(PokemonSpeciesDetailPalParkEncountersInner palParkEncountersItem) {
+  public PokemonSpeciesDetail addPalParkEncountersItem(PokemonSpeciesPalParkEncounter palParkEncountersItem) {
     if (this.palParkEncounters == null) {
       this.palParkEncounters = new ArrayList<>();
     }
@@ -584,14 +604,14 @@ public class PokemonSpeciesDetail   {
   }
 
    /**
-   * Get palParkEncounters
+   * A list of encounters that can be had with this Pokémon species in pal park.
    * @return palParkEncounters
   **/
-  public List<@Valid PokemonSpeciesDetailPalParkEncountersInner> getPalParkEncounters() {
+  public List<@Valid PokemonSpeciesPalParkEncounter> getPalParkEncounters() {
     return palParkEncounters;
   }
 
-  public void setPalParkEncounters(List<@Valid PokemonSpeciesDetailPalParkEncountersInner> palParkEncounters) {
+  public void setPalParkEncounters(List<@Valid PokemonSpeciesPalParkEncounter> palParkEncounters) {
     this.palParkEncounters = palParkEncounters;
   }
 
@@ -609,7 +629,7 @@ public class PokemonSpeciesDetail   {
   }
 
    /**
-   * Get formDescriptions
+   * Descriptions of different forms Pokémon take on within the Pokémon species.
    * @return formDescriptions
   **/
   public List<@Valid PokemonSpeciesDescription> getFormDescriptions() {
@@ -634,7 +654,7 @@ public class PokemonSpeciesDetail   {
   }
 
    /**
-   * Get flavorTextEntries
+   * A list of flavor text entries for this Pokémon species.
    * @return flavorTextEntries
   **/
   public List<@Valid PokemonSpeciesFlavorText> getFlavorTextEntries() {
@@ -645,12 +665,12 @@ public class PokemonSpeciesDetail   {
     this.flavorTextEntries = flavorTextEntries;
   }
 
-  public PokemonSpeciesDetail genera(List<@Valid PokemonSpeciesDetailGeneraInner> genera) {
+  public PokemonSpeciesDetail genera(List<@Valid PokemonSpeciesGenus> genera) {
     this.genera = genera;
     return this;
   }
 
-  public PokemonSpeciesDetail addGeneraItem(PokemonSpeciesDetailGeneraInner generaItem) {
+  public PokemonSpeciesDetail addGeneraItem(PokemonSpeciesGenus generaItem) {
     if (this.genera == null) {
       this.genera = new ArrayList<>();
     }
@@ -659,23 +679,23 @@ public class PokemonSpeciesDetail   {
   }
 
    /**
-   * Get genera
+   * The genus of this Pokémon species listed in multiple languages.
    * @return genera
   **/
-  public List<@Valid PokemonSpeciesDetailGeneraInner> getGenera() {
+  public List<@Valid PokemonSpeciesGenus> getGenera() {
     return genera;
   }
 
-  public void setGenera(List<@Valid PokemonSpeciesDetailGeneraInner> genera) {
+  public void setGenera(List<@Valid PokemonSpeciesGenus> genera) {
     this.genera = genera;
   }
 
-  public PokemonSpeciesDetail varieties(List<@Valid PokemonSpeciesDetailVarietiesInner> varieties) {
+  public PokemonSpeciesDetail varieties(List<@Valid PokemonSpeciesVariety> varieties) {
     this.varieties = varieties;
     return this;
   }
 
-  public PokemonSpeciesDetail addVarietiesItem(PokemonSpeciesDetailVarietiesInner varietiesItem) {
+  public PokemonSpeciesDetail addVarietiesItem(PokemonSpeciesVariety varietiesItem) {
     if (this.varieties == null) {
       this.varieties = new ArrayList<>();
     }
@@ -684,14 +704,14 @@ public class PokemonSpeciesDetail   {
   }
 
    /**
-   * Get varieties
+   * A list of the Pokémon that exist within this Pokémon species.
    * @return varieties
   **/
-  public List<@Valid PokemonSpeciesDetailVarietiesInner> getVarieties() {
+  public List<@Valid PokemonSpeciesVariety> getVarieties() {
     return varieties;
   }
 
-  public void setVarieties(List<@Valid PokemonSpeciesDetailVarietiesInner> varieties) {
+  public void setVarieties(List<@Valid PokemonSpeciesVariety> varieties) {
     this.varieties = varieties;
   }
 

@@ -5,7 +5,7 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.model.PokeathlonStatDetailAffectingNatures;
+import org.openapitools.model.PokeathlonStatAffectingNatures;
 import org.openapitools.model.PokeathlonStatName;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
@@ -21,11 +21,11 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("PokeathlonStatDetail")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-11-09T13:50:06.168269698Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PokeathlonStatDetail   {
   private Integer id;
   private String name;
-  private PokeathlonStatDetailAffectingNatures affectingNatures;
+  private PokeathlonStatAffectingNatures affectingNatures;
   private List<@Valid PokeathlonStatName> names = new ArrayList<>();
 
   public PokeathlonStatDetail() {
@@ -35,7 +35,7 @@ public class PokeathlonStatDetail   {
   public PokeathlonStatDetail(
     @JsonProperty(required = true, value = "id") Integer id,
     @JsonProperty(required = true, value = "name") String name,
-    @JsonProperty(required = true, value = "affecting_natures") PokeathlonStatDetailAffectingNatures affectingNatures,
+    @JsonProperty(required = true, value = "affecting_natures") PokeathlonStatAffectingNatures affectingNatures,
     @JsonProperty(required = true, value = "names") List<@Valid PokeathlonStatName> names
   ) {
     this.id = id;
@@ -45,6 +45,7 @@ public class PokeathlonStatDetail   {
   }
 
   /**
+   * The identifier for this resource.
    **/
   public PokeathlonStatDetail id(Integer id) {
     this.id = id;
@@ -52,7 +53,7 @@ public class PokeathlonStatDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   @JsonProperty(required = true, value = "id")
   public Integer getId() {
     return id;
@@ -64,6 +65,7 @@ public class PokeathlonStatDetail   {
   }
 
   /**
+   * The name for this resource.
    **/
   public PokeathlonStatDetail name(String name) {
     this.name = name;
@@ -71,9 +73,9 @@ public class PokeathlonStatDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   @JsonProperty(required = true, value = "name")
-  @NotNull  @Size(max=100)public String getName() {
+  @NotNull  @Size(max=200)public String getName() {
     return name;
   }
 
@@ -83,25 +85,27 @@ public class PokeathlonStatDetail   {
   }
 
   /**
+   * A detail of natures which affect this Pokéathlon stat positively or negatively.
    **/
-  public PokeathlonStatDetail affectingNatures(PokeathlonStatDetailAffectingNatures affectingNatures) {
+  public PokeathlonStatDetail affectingNatures(PokeathlonStatAffectingNatures affectingNatures) {
     this.affectingNatures = affectingNatures;
     return this;
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A detail of natures which affect this Pokéathlon stat positively or negatively.")
   @JsonProperty(required = true, value = "affecting_natures")
-  @NotNull @Valid public PokeathlonStatDetailAffectingNatures getAffectingNatures() {
+  @Valid public PokeathlonStatAffectingNatures getAffectingNatures() {
     return affectingNatures;
   }
 
   @JsonProperty(required = true, value = "affecting_natures")
-  public void setAffectingNatures(PokeathlonStatDetailAffectingNatures affectingNatures) {
+  public void setAffectingNatures(PokeathlonStatAffectingNatures affectingNatures) {
     this.affectingNatures = affectingNatures;
   }
 
   /**
+   * The name of this resource listed in different languages.
    **/
   public PokeathlonStatDetail names(List<@Valid PokeathlonStatName> names) {
     this.names = names;
@@ -109,7 +113,7 @@ public class PokeathlonStatDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
   @JsonProperty(required = true, value = "names")
   public List<@Valid PokeathlonStatName> getNames() {
     return names;

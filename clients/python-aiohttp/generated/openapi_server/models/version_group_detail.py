@@ -5,8 +5,10 @@ from datetime import date, datetime
 from typing import List, Dict, Type
 
 from openapi_server.models.base_model import Model
-from openapi_server.models.ability_detail_pokemon_inner_pokemon import AbilityDetailPokemonInnerPokemon
 from openapi_server.models.generation_summary import GenerationSummary
+from openapi_server.models.move_learn_method_summary import MoveLearnMethodSummary
+from openapi_server.models.pokedex_summary import PokedexSummary
+from openapi_server.models.region_summary import RegionSummary
 from openapi_server.models.version_summary import VersionSummary
 from openapi_server import util
 
@@ -17,7 +19,7 @@ class VersionGroupDetail(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, id: int=None, name: str=None, order: int=None, generation: GenerationSummary=None, move_learn_methods: List[AbilityDetailPokemonInnerPokemon]=None, pokedexes: List[AbilityDetailPokemonInnerPokemon]=None, regions: List[AbilityDetailPokemonInnerPokemon]=None, versions: List[VersionSummary]=None):
+    def __init__(self, id: int=None, name: str=None, order: int=None, generation: GenerationSummary=None, move_learn_methods: List[MoveLearnMethodSummary]=None, pokedexes: List[PokedexSummary]=None, regions: List[RegionSummary]=None, versions: List[VersionSummary]=None):
         """VersionGroupDetail - a model defined in OpenAPI
 
         :param id: The id of this VersionGroupDetail.
@@ -34,9 +36,9 @@ class VersionGroupDetail(Model):
             'name': str,
             'order': int,
             'generation': GenerationSummary,
-            'move_learn_methods': List[AbilityDetailPokemonInnerPokemon],
-            'pokedexes': List[AbilityDetailPokemonInnerPokemon],
-            'regions': List[AbilityDetailPokemonInnerPokemon],
+            'move_learn_methods': List[MoveLearnMethodSummary],
+            'pokedexes': List[PokedexSummary],
+            'regions': List[RegionSummary],
             'versions': List[VersionSummary]
         }
 
@@ -73,6 +75,7 @@ class VersionGroupDetail(Model):
     def id(self):
         """Gets the id of this VersionGroupDetail.
 
+        The identifier for this resource.
 
         :return: The id of this VersionGroupDetail.
         :rtype: int
@@ -83,6 +86,7 @@ class VersionGroupDetail(Model):
     def id(self, id):
         """Sets the id of this VersionGroupDetail.
 
+        The identifier for this resource.
 
         :param id: The id of this VersionGroupDetail.
         :type id: int
@@ -96,6 +100,7 @@ class VersionGroupDetail(Model):
     def name(self):
         """Gets the name of this VersionGroupDetail.
 
+        The name for this resource.
 
         :return: The name of this VersionGroupDetail.
         :rtype: str
@@ -106,14 +111,15 @@ class VersionGroupDetail(Model):
     def name(self, name):
         """Sets the name of this VersionGroupDetail.
 
+        The name for this resource.
 
         :param name: The name of this VersionGroupDetail.
         :type name: str
         """
         if name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")
-        if name is not None and len(name) > 100:
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `100`")
+        if name is not None and len(name) > 200:
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `200`")
 
         self._name = name
 
@@ -121,6 +127,7 @@ class VersionGroupDetail(Model):
     def order(self):
         """Gets the order of this VersionGroupDetail.
 
+        Order for sorting. Almost by date of release, except similar versions are grouped together.
 
         :return: The order of this VersionGroupDetail.
         :rtype: int
@@ -131,10 +138,15 @@ class VersionGroupDetail(Model):
     def order(self, order):
         """Sets the order of this VersionGroupDetail.
 
+        Order for sorting. Almost by date of release, except similar versions are grouped together.
 
         :param order: The order of this VersionGroupDetail.
         :type order: int
         """
+        if order is not None and order > 2147483647:
+            raise ValueError("Invalid value for `order`, must be a value less than or equal to `2147483647`")
+        if order is not None and order < -2147483648:
+            raise ValueError("Invalid value for `order`, must be a value greater than or equal to `-2147483648`")
 
         self._order = order
 
@@ -142,6 +154,7 @@ class VersionGroupDetail(Model):
     def generation(self):
         """Gets the generation of this VersionGroupDetail.
 
+        The generation this version was introduced in.
 
         :return: The generation of this VersionGroupDetail.
         :rtype: GenerationSummary
@@ -152,6 +165,7 @@ class VersionGroupDetail(Model):
     def generation(self, generation):
         """Sets the generation of this VersionGroupDetail.
 
+        The generation this version was introduced in.
 
         :param generation: The generation of this VersionGroupDetail.
         :type generation: GenerationSummary
@@ -165,9 +179,10 @@ class VersionGroupDetail(Model):
     def move_learn_methods(self):
         """Gets the move_learn_methods of this VersionGroupDetail.
 
+        A list of methods in which Pokémon can learn moves in this version group.
 
         :return: The move_learn_methods of this VersionGroupDetail.
-        :rtype: List[AbilityDetailPokemonInnerPokemon]
+        :rtype: List[MoveLearnMethodSummary]
         """
         return self._move_learn_methods
 
@@ -175,9 +190,10 @@ class VersionGroupDetail(Model):
     def move_learn_methods(self, move_learn_methods):
         """Sets the move_learn_methods of this VersionGroupDetail.
 
+        A list of methods in which Pokémon can learn moves in this version group.
 
         :param move_learn_methods: The move_learn_methods of this VersionGroupDetail.
-        :type move_learn_methods: List[AbilityDetailPokemonInnerPokemon]
+        :type move_learn_methods: List[MoveLearnMethodSummary]
         """
         if move_learn_methods is None:
             raise ValueError("Invalid value for `move_learn_methods`, must not be `None`")
@@ -188,9 +204,10 @@ class VersionGroupDetail(Model):
     def pokedexes(self):
         """Gets the pokedexes of this VersionGroupDetail.
 
+        A list of Pokédexes introduces in this version group.
 
         :return: The pokedexes of this VersionGroupDetail.
-        :rtype: List[AbilityDetailPokemonInnerPokemon]
+        :rtype: List[PokedexSummary]
         """
         return self._pokedexes
 
@@ -198,9 +215,10 @@ class VersionGroupDetail(Model):
     def pokedexes(self, pokedexes):
         """Sets the pokedexes of this VersionGroupDetail.
 
+        A list of Pokédexes introduces in this version group.
 
         :param pokedexes: The pokedexes of this VersionGroupDetail.
-        :type pokedexes: List[AbilityDetailPokemonInnerPokemon]
+        :type pokedexes: List[PokedexSummary]
         """
         if pokedexes is None:
             raise ValueError("Invalid value for `pokedexes`, must not be `None`")
@@ -211,9 +229,10 @@ class VersionGroupDetail(Model):
     def regions(self):
         """Gets the regions of this VersionGroupDetail.
 
+        A list of regions that can be visited in this version group.
 
         :return: The regions of this VersionGroupDetail.
-        :rtype: List[AbilityDetailPokemonInnerPokemon]
+        :rtype: List[RegionSummary]
         """
         return self._regions
 
@@ -221,9 +240,10 @@ class VersionGroupDetail(Model):
     def regions(self, regions):
         """Sets the regions of this VersionGroupDetail.
 
+        A list of regions that can be visited in this version group.
 
         :param regions: The regions of this VersionGroupDetail.
-        :type regions: List[AbilityDetailPokemonInnerPokemon]
+        :type regions: List[RegionSummary]
         """
         if regions is None:
             raise ValueError("Invalid value for `regions`, must not be `None`")
@@ -234,6 +254,7 @@ class VersionGroupDetail(Model):
     def versions(self):
         """Gets the versions of this VersionGroupDetail.
 
+        The versions this version group owns.
 
         :return: The versions of this VersionGroupDetail.
         :rtype: List[VersionSummary]
@@ -244,6 +265,7 @@ class VersionGroupDetail(Model):
     def versions(self, versions):
         """Sets the versions of this VersionGroupDetail.
 
+        The versions this version group owns.
 
         :param versions: The versions of this VersionGroupDetail.
         :type versions: List[VersionSummary]

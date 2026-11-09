@@ -29,6 +29,7 @@ import okhttp3.HttpUrl
 
 import org.openapitools.client.models.LanguageDetail
 import org.openapitools.client.models.PaginatedLanguageSummaryList
+import org.openapitools.client.models.PokeapiMetaResponse
 
 import com.squareup.moshi.Json
 
@@ -139,7 +140,7 @@ open class UtilityApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             path = "/api/v2/language/",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -212,7 +213,77 @@ open class UtilityApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
             path = "/api/v2/language/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * GET /api/v2/meta/
+     * Get API metadata
+     * Returns metadata about the current deployed version of the API, including the git commit hash, deploy date, and tag (if any).
+     * @return PokeapiMetaResponse
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun metaRetrieve() : PokeapiMetaResponse {
+        val localVarResponse = metaRetrieveWithHttpInfo()
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as PokeapiMetaResponse
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * GET /api/v2/meta/
+     * Get API metadata
+     * Returns metadata about the current deployed version of the API, including the git commit hash, deploy date, and tag (if any).
+     * @return ApiResponse<PokeapiMetaResponse?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun metaRetrieveWithHttpInfo() : ApiResponse<PokeapiMetaResponse?> {
+        val localVariableConfig = metaRetrieveRequestConfig()
+
+        return request<Unit, PokeapiMetaResponse>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation metaRetrieve
+     *
+     * @return RequestConfig
+     */
+    fun metaRetrieveRequestConfig() : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/meta/",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }

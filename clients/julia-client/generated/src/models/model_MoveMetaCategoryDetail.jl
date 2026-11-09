@@ -11,16 +11,16 @@
         moves=nothing,
     )
 
-    - id::Int64
-    - name::String
-    - descriptions::Vector{MoveMetaCategoryDescription}
-    - moves::Vector{AbilityDetailPokemonInnerPokemon}
+    - id::Int64 : The identifier for this resource.
+    - name::String : The name for this resource.
+    - descriptions::Vector{MoveMetaCategoryDescription} : The description of this resource listed in different languages.
+    - moves::Vector{MoveSummary} : A list of moves that fall into this category.
 """
 Base.@kwdef mutable struct MoveMetaCategoryDetail <: OpenAPI.APIModel
     id::Union{Nothing, Int64} = nothing
     name::Union{Nothing, String} = nothing
     descriptions::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{MoveMetaCategoryDescription} }
-    moves::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{AbilityDetailPokemonInnerPokemon} }
+    moves::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{MoveSummary} }
 
     function MoveMetaCategoryDetail(id, name, descriptions, moves, )
         o = new(id, name, descriptions, moves, )
@@ -29,7 +29,7 @@ Base.@kwdef mutable struct MoveMetaCategoryDetail <: OpenAPI.APIModel
     end
 end # type MoveMetaCategoryDetail
 
-const _property_types_MoveMetaCategoryDetail = Dict{Symbol,String}(Symbol("id")=>"Int64", Symbol("name")=>"String", Symbol("descriptions")=>"Vector{MoveMetaCategoryDescription}", Symbol("moves")=>"Vector{AbilityDetailPokemonInnerPokemon}", )
+const _property_types_MoveMetaCategoryDetail = Dict{Symbol,String}(Symbol("id")=>"Int64", Symbol("name")=>"String", Symbol("descriptions")=>"Vector{MoveMetaCategoryDescription}", Symbol("moves")=>"Vector{MoveSummary}", )
 OpenAPI.property_type(::Type{ MoveMetaCategoryDetail }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_MoveMetaCategoryDetail[name]))}
 
 function OpenAPI.check_required(o::MoveMetaCategoryDetail)
@@ -51,7 +51,7 @@ function OpenAPI.validate_property(::Type{ MoveMetaCategoryDetail }, name::Symbo
 
 
     if name === Symbol("name")
-        OpenAPI.validate_param(name, "MoveMetaCategoryDetail", :maxLength, val, 100)
+        OpenAPI.validate_param(name, "MoveMetaCategoryDetail", :maxLength, val, 200)
     end
 
 

@@ -8,10 +8,10 @@
 
 (def paginated-pokemon-color-summary-list-data
   {
-   (ds/opt :count) int?
+   (ds/req :count) int?
    (ds/opt :next) string?
    (ds/opt :previous) string?
-   (ds/opt :results) (s/coll-of pokemon-color-summary-spec)
+   (ds/req :results) (s/coll-of pokemon-color-summary-spec)
    })
 
 (def paginated-pokemon-color-summary-list-spec

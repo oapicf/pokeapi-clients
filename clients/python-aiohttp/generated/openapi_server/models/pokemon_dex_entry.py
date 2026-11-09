@@ -47,6 +47,7 @@ class PokemonDexEntry(Model):
     def entry_number(self):
         """Gets the entry_number of this PokemonDexEntry.
 
+        The index number within the Pokédex.
 
         :return: The entry_number of this PokemonDexEntry.
         :rtype: int
@@ -57,6 +58,7 @@ class PokemonDexEntry(Model):
     def entry_number(self, entry_number):
         """Sets the entry_number of this PokemonDexEntry.
 
+        The index number within the Pokédex.
 
         :param entry_number: The entry_number of this PokemonDexEntry.
         :type entry_number: int
@@ -70,6 +72,7 @@ class PokemonDexEntry(Model):
     def pokedex(self):
         """Gets the pokedex of this PokemonDexEntry.
 
+        The Pokédex the referenced Pokémon species can be found in.
 
         :return: The pokedex of this PokemonDexEntry.
         :rtype: PokedexSummary
@@ -80,6 +83,7 @@ class PokemonDexEntry(Model):
     def pokedex(self, pokedex):
         """Sets the pokedex of this PokemonDexEntry.
 
+        The Pokédex the referenced Pokémon species can be found in.
 
         :param pokedex: The pokedex of this PokemonDexEntry.
         :type pokedex: PokedexSummary

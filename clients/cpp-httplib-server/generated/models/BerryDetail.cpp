@@ -17,10 +17,9 @@ BerryDetail::BerryDetail()
 , size(0)
 , smoothness(0)
 , soilDryness(0)
-, firmness(BerryFirmnessSummary())
-, flavors(std::vector<BerryDetail_flavors_inner>())
-, item(ItemSummary())
-, naturalGiftType(TypeSummary())
+, firmness(std::nullopt)
+, flavors(std::vector<BerryFlavorMap>())
+, naturalGiftType(std::nullopt)
 {
 }
 // =========================================
@@ -65,7 +64,7 @@ BerryFirmnessSummary BerryDetail::getFirmness() const
 {
     return firmness;
 }
-std::vector<BerryDetail_flavors_inner> BerryDetail::getFlavors() const
+std::vector<BerryFlavorMap> BerryDetail::getFlavors() const
 {
     return flavors;
 }
@@ -117,7 +116,7 @@ void BerryDetail::setFirmness(const BerryFirmnessSummary& firmnessObj)
 {
     firmness = firmnessObj;
 }
-void BerryDetail::setFlavors(const std::vector<BerryDetail_flavors_inner>& flavorsObj)
+void BerryDetail::setFlavors(const std::vector<BerryFlavorMap>& flavorsObj)
 {
     flavors = flavorsObj;
 }

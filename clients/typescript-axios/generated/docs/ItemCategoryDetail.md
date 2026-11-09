@@ -5,11 +5,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **number** |  | [readonly] [default to undefined]
-**name** | **string** |  | [default to undefined]
-**items** | [**Array&lt;ItemSummary&gt;**](ItemSummary.md) |  | [readonly] [default to undefined]
-**names** | [**Array&lt;ItemCategoryName&gt;**](ItemCategoryName.md) |  | [readonly] [default to undefined]
-**pocket** | [**ItemPocketSummary**](ItemPocketSummary.md) |  | [default to undefined]
+**id** | **number** | The identifier for this resource. | [readonly] [default to undefined]
+**name** | **string** | The name for this resource. | [default to undefined]
+**items** | [**Array&lt;ItemSummary&gt;**](ItemSummary.md) | A list of items that are a part of this category. | [readonly] [default to undefined]
+**names** | [**Array&lt;ItemCategoryName&gt;**](ItemCategoryName.md) | The name of this item category listed in different languages. | [readonly] [default to undefined]
+**pocket** | [**ItemPocketSummary**](ItemPocketSummary.md) | The pocket items in this category would be put in. | [default to undefined]
 
 ## Example
 

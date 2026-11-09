@@ -38,7 +38,7 @@ A generation is a grouping of the Pokémon games that separates them based on th
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -73,7 +73,7 @@ A generation is a grouping of the Pokémon games that separates them based on th
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -110,7 +110,7 @@ A Pokédex is a handheld electronic encyclopedia device; one which is capable of
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -145,7 +145,7 @@ A Pokédex is a handheld electronic encyclopedia device; one which is capable of
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -182,7 +182,7 @@ Version groups categorize highly similar versions of the games.
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -217,7 +217,7 @@ Version groups categorize highly similar versions of the games.
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -254,7 +254,7 @@ Versions of the games, e.g., Red, Blue or Yellow.
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -289,7 +289,7 @@ Versions of the games, e.g., Red, Blue or Yellow.
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

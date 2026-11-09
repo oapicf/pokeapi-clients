@@ -48,32 +48,32 @@ public:
 	 */
 	void fromJson(char* jsonStr);
 
-	/*! \brief Get 
+	/*! \brief Get The identifier for this resource.
 	 */
 	int getId();
 
-	/*! \brief Set 
+	/*! \brief Set The identifier for this resource.
 	 */
 	void setId(int  id);
-	/*! \brief Get 
+	/*! \brief Get The TM or HM item that corresponds to this machine.
 	 */
 	ItemSummary getItem();
 
-	/*! \brief Set 
+	/*! \brief Set The TM or HM item that corresponds to this machine.
 	 */
 	void setItem(ItemSummary  item);
-	/*! \brief Get 
+	/*! \brief Get The version group that this machine applies to.
 	 */
 	VersionGroupSummary getVersionGroup();
 
-	/*! \brief Set 
+	/*! \brief Set The version group that this machine applies to.
 	 */
 	void setVersionGroup(VersionGroupSummary  version_group);
-	/*! \brief Get 
+	/*! \brief Get The move that is taught by this machine.
 	 */
 	MoveSummary getMove();
 
-	/*! \brief Set 
+	/*! \brief Set The move that is taught by this machine.
 	 */
 	void setMove(MoveSummary  move);
 

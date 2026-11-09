@@ -8,10 +8,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.model.AbilityChange;
-import org.openapitools.model.AbilityDetailPokemonInner;
 import org.openapitools.model.AbilityEffectText;
 import org.openapitools.model.AbilityFlavorText;
 import org.openapitools.model.AbilityName;
+import org.openapitools.model.AbilityPokemonDetail;
 import org.openapitools.model.GenerationSummary;
 import org.springframework.lang.Nullable;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -28,7 +28,7 @@ import jakarta.annotation.Generated;
  * AbilityDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-10-25T05:53:37.479908528Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-11-09T13:53:47.069318184Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class AbilityDetail {
 
   private Integer id;
@@ -47,7 +47,7 @@ public class AbilityDetail {
 
   private List<@Valid AbilityFlavorText> flavorTextEntries = new ArrayList<>();
 
-  private List<@Valid AbilityDetailPokemonInner> pokemon = new ArrayList<>();
+  private List<@Valid AbilityPokemonDetail> pokemon = new ArrayList<>();
 
   public AbilityDetail() {
     super();
@@ -56,7 +56,7 @@ public class AbilityDetail {
   /**
    * Constructor with only required parameters
    */
-  public AbilityDetail(Integer id, String name, GenerationSummary generation, List<@Valid AbilityName> names, List<@Valid AbilityEffectText> effectEntries, List<@Valid AbilityChange> effectChanges, List<@Valid AbilityFlavorText> flavorTextEntries, List<@Valid AbilityDetailPokemonInner> pokemon) {
+  public AbilityDetail(Integer id, String name, GenerationSummary generation, List<@Valid AbilityName> names, List<@Valid AbilityEffectText> effectEntries, List<@Valid AbilityChange> effectChanges, List<@Valid AbilityFlavorText> flavorTextEntries, List<@Valid AbilityPokemonDetail> pokemon) {
     this.id = id;
     this.name = name;
     this.generation = generation;
@@ -73,11 +73,11 @@ public class AbilityDetail {
   }
 
   /**
-   * Get id
+   * The identifier for this resource.
    * @return id
    */
   
-  @Schema(name = "id", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "id", accessMode = Schema.AccessMode.READ_ONLY, description = "The identifier for this resource.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("id")
   public Integer getId() {
     return id;
@@ -94,11 +94,11 @@ public class AbilityDetail {
   }
 
   /**
-   * Get name
+   * The name for this resource.
    * @return name
    */
-  @NotNull @Size(max = 100) 
-  @Schema(name = "name", requiredMode = Schema.RequiredMode.REQUIRED)
+  @NotNull @Size(max = 200) 
+  @Schema(name = "name", description = "The name for this resource.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("name")
   public String getName() {
     return name;
@@ -115,11 +115,11 @@ public class AbilityDetail {
   }
 
   /**
-   * Get isMainSeries
+   * Whether or not this ability originated in the main series of the video games.
    * @return isMainSeries
    */
   
-  @Schema(name = "is_main_series", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Schema(name = "is_main_series", description = "Whether or not this ability originated in the main series of the video games.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("is_main_series")
   public @Nullable Boolean getIsMainSeries() {
     return isMainSeries;
@@ -136,11 +136,11 @@ public class AbilityDetail {
   }
 
   /**
-   * Get generation
+   * The generation this ability originated in.
    * @return generation
    */
   @NotNull @Valid 
-  @Schema(name = "generation", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "generation", description = "The generation this ability originated in.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("generation")
   public GenerationSummary getGeneration() {
     return generation;
@@ -165,11 +165,11 @@ public class AbilityDetail {
   }
 
   /**
-   * Get names
+   * The name of this resource listed in different languages.
    * @return names
    */
   
-  @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, description = "The name of this resource listed in different languages.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("names")
   public List<@Valid AbilityName> getNames() {
     return names;
@@ -194,11 +194,11 @@ public class AbilityDetail {
   }
 
   /**
-   * Get effectEntries
+   * The effect of this ability listed in different languages.
    * @return effectEntries
    */
   
-  @Schema(name = "effect_entries", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "effect_entries", accessMode = Schema.AccessMode.READ_ONLY, description = "The effect of this ability listed in different languages.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("effect_entries")
   public List<@Valid AbilityEffectText> getEffectEntries() {
     return effectEntries;
@@ -223,11 +223,11 @@ public class AbilityDetail {
   }
 
   /**
-   * Get effectChanges
+   * The list of previous effects this ability has had across version groups.
    * @return effectChanges
    */
   
-  @Schema(name = "effect_changes", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "effect_changes", accessMode = Schema.AccessMode.READ_ONLY, description = "The list of previous effects this ability has had across version groups.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("effect_changes")
   public List<@Valid AbilityChange> getEffectChanges() {
     return effectChanges;
@@ -252,11 +252,11 @@ public class AbilityDetail {
   }
 
   /**
-   * Get flavorTextEntries
+   * The flavor text of this ability listed in different languages.
    * @return flavorTextEntries
    */
   
-  @Schema(name = "flavor_text_entries", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "flavor_text_entries", accessMode = Schema.AccessMode.READ_ONLY, description = "The flavor text of this ability listed in different languages.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("flavor_text_entries")
   public List<@Valid AbilityFlavorText> getFlavorTextEntries() {
     return flavorTextEntries;
@@ -267,12 +267,12 @@ public class AbilityDetail {
     this.flavorTextEntries = flavorTextEntries;
   }
 
-  public AbilityDetail pokemon(List<@Valid AbilityDetailPokemonInner> pokemon) {
+  public AbilityDetail pokemon(List<@Valid AbilityPokemonDetail> pokemon) {
     this.pokemon = pokemon;
     return this;
   }
 
-  public AbilityDetail addPokemonItem(AbilityDetailPokemonInner pokemonItem) {
+  public AbilityDetail addPokemonItem(AbilityPokemonDetail pokemonItem) {
     if (this.pokemon == null) {
       this.pokemon = new ArrayList<>();
     }
@@ -281,18 +281,18 @@ public class AbilityDetail {
   }
 
   /**
-   * Get pokemon
+   * A list of Pokémon that could potentially have this ability.
    * @return pokemon
    */
   
-  @Schema(name = "pokemon", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "pokemon", accessMode = Schema.AccessMode.READ_ONLY, description = "A list of Pokémon that could potentially have this ability.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("pokemon")
-  public List<@Valid AbilityDetailPokemonInner> getPokemon() {
+  public List<@Valid AbilityPokemonDetail> getPokemon() {
     return pokemon;
   }
 
   @JsonProperty("pokemon")
-  public void setPokemon(List<@Valid AbilityDetailPokemonInner> pokemon) {
+  public void setPokemon(List<@Valid AbilityPokemonDetail> pokemon) {
     this.pokemon = pokemon;
   }
 

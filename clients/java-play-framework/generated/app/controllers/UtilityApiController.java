@@ -2,6 +2,7 @@ package controllers;
 
 import apimodels.LanguageDetail;
 import apimodels.PaginatedLanguageSummaryList;
+import apimodels.PokeapiMetaResponse;
 
 import com.typesafe.config.Config;
 import play.mvc.Controller;
@@ -25,7 +26,7 @@ import com.typesafe.config.Config;
 
 import openapitools.OpenAPIUtils.ApiAction;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-10-25T05:48:13.486809836Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-11-09T13:49:31.462302702Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class UtilityApiController extends Controller {
     private final UtilityApiControllerImpInterface imp;
     private final ObjectMapper mapper;
@@ -67,6 +68,11 @@ public class UtilityApiController extends Controller {
     @ApiAction
     public Result languageRetrieve(Http.Request request, String id) throws Exception {
         return imp.languageRetrieveHttp(request, id);
+    }
+
+    @ApiAction
+    public Result metaRetrieve(Http.Request request) throws Exception {
+        return imp.metaRetrieveHttp(request);
     }
 
 }

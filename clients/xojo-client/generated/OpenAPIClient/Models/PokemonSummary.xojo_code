@@ -2,11 +2,17 @@
 Protected Class PokemonSummary
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The name of the referenced resource.
+		#tag EndNote
 		name As String
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The URL of the referenced resource.
+		#tag EndNote
 		url As String
 	#tag EndProperty
 

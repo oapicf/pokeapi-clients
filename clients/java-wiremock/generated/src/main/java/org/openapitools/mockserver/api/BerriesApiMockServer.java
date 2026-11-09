@@ -14,7 +14,6 @@ public class BerriesApiMockServer {
     public static MappingBuilder stubBerryFirmnessList200(@javax.annotation.Nullable String limit, @javax.annotation.Nullable String offset, @javax.annotation.Nullable String q, String response) {
         MappingBuilder stub = get(urlPathEqualTo("/api/v2/berry-firmness/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withStatus(200)
                 .withHeader("Content-Type", "application/json")
@@ -37,7 +36,6 @@ public class BerriesApiMockServer {
     public static MappingBuilder stubBerryFirmnessListFault(@javax.annotation.Nullable String limit, @javax.annotation.Nullable String offset, @javax.annotation.Nullable String q, Fault fault) {
         MappingBuilder stub = get(urlPathEqualTo("/api/v2/berry-firmness/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withFault(fault)
             );
@@ -56,7 +54,7 @@ public class BerriesApiMockServer {
     }
 
     public static String berryFirmnessList200ResponseSample1() {
-        return "{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+        return "{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/berry-firmness/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/berry-firmness/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
     }
 
 
@@ -64,7 +62,6 @@ public class BerriesApiMockServer {
     public static MappingBuilder stubBerryFirmnessRetrieve200(@javax.annotation.Nonnull String id, String response) {
         MappingBuilder stub = get(urlPathTemplate("/api/v2/berry-firmness/{id}/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withStatus(200)
                 .withHeader("Content-Type", "application/json")
@@ -79,7 +76,6 @@ public class BerriesApiMockServer {
     public static MappingBuilder stubBerryFirmnessRetrieveFault(@javax.annotation.Nonnull String id, Fault fault) {
         MappingBuilder stub = get(urlPathTemplate("/api/v2/berry-firmness/{id}/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withFault(fault)
             );
@@ -90,7 +86,7 @@ public class BerriesApiMockServer {
     }
 
     public static String berryFirmnessRetrieve200ResponseSample1() {
-        return "{ \"id\" : 0, \"name\" : \"name\", \"berries\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }";
+        return "{ \"id\" : 0, \"name\" : \"name\", \"berries\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ] }";
     }
 
 
@@ -98,7 +94,6 @@ public class BerriesApiMockServer {
     public static MappingBuilder stubBerryFlavorList200(@javax.annotation.Nullable String limit, @javax.annotation.Nullable String offset, @javax.annotation.Nullable String q, String response) {
         MappingBuilder stub = get(urlPathEqualTo("/api/v2/berry-flavor/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withStatus(200)
                 .withHeader("Content-Type", "application/json")
@@ -121,7 +116,6 @@ public class BerriesApiMockServer {
     public static MappingBuilder stubBerryFlavorListFault(@javax.annotation.Nullable String limit, @javax.annotation.Nullable String offset, @javax.annotation.Nullable String q, Fault fault) {
         MappingBuilder stub = get(urlPathEqualTo("/api/v2/berry-flavor/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withFault(fault)
             );
@@ -140,7 +134,7 @@ public class BerriesApiMockServer {
     }
 
     public static String berryFlavorList200ResponseSample1() {
-        return "{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+        return "{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/berry-flavor/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/berry-flavor/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
     }
 
 
@@ -148,7 +142,6 @@ public class BerriesApiMockServer {
     public static MappingBuilder stubBerryFlavorRetrieve200(@javax.annotation.Nonnull String id, String response) {
         MappingBuilder stub = get(urlPathTemplate("/api/v2/berry-flavor/{id}/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withStatus(200)
                 .withHeader("Content-Type", "application/json")
@@ -163,7 +156,6 @@ public class BerriesApiMockServer {
     public static MappingBuilder stubBerryFlavorRetrieveFault(@javax.annotation.Nonnull String id, Fault fault) {
         MappingBuilder stub = get(urlPathTemplate("/api/v2/berry-flavor/{id}/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withFault(fault)
             );
@@ -174,7 +166,7 @@ public class BerriesApiMockServer {
     }
 
     public static String berryFlavorRetrieve200ResponseSample1() {
-        return "{ \"id\" : 0, \"name\" : \"name\", \"berries\" : [ { \"potency\" : 6, \"berry\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"potency\" : 6, \"berry\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"contest_type\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }";
+        return "{ \"id\" : 0, \"name\" : \"name\", \"berries\" : [ { \"potency\" : 441289069, \"berry\" : \"\" }, { \"potency\" : 441289069, \"berry\" : \"\" } ], \"contest_type\" : \"\", \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ] }";
     }
 
 
@@ -182,7 +174,6 @@ public class BerriesApiMockServer {
     public static MappingBuilder stubBerryList200(@javax.annotation.Nullable String limit, @javax.annotation.Nullable String offset, @javax.annotation.Nullable String q, String response) {
         MappingBuilder stub = get(urlPathEqualTo("/api/v2/berry/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withStatus(200)
                 .withHeader("Content-Type", "application/json")
@@ -205,7 +196,6 @@ public class BerriesApiMockServer {
     public static MappingBuilder stubBerryListFault(@javax.annotation.Nullable String limit, @javax.annotation.Nullable String offset, @javax.annotation.Nullable String q, Fault fault) {
         MappingBuilder stub = get(urlPathEqualTo("/api/v2/berry/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withFault(fault)
             );
@@ -224,7 +214,7 @@ public class BerriesApiMockServer {
     }
 
     public static String berryList200ResponseSample1() {
-        return "{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+        return "{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/berry/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/berry/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
     }
 
 
@@ -232,7 +222,6 @@ public class BerriesApiMockServer {
     public static MappingBuilder stubBerryRetrieve200(@javax.annotation.Nonnull String id, String response) {
         MappingBuilder stub = get(urlPathTemplate("/api/v2/berry/{id}/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withStatus(200)
                 .withHeader("Content-Type", "application/json")
@@ -247,7 +236,6 @@ public class BerriesApiMockServer {
     public static MappingBuilder stubBerryRetrieveFault(@javax.annotation.Nonnull String id, Fault fault) {
         MappingBuilder stub = get(urlPathTemplate("/api/v2/berry/{id}/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withFault(fault)
             );
@@ -258,7 +246,7 @@ public class BerriesApiMockServer {
     }
 
     public static String berryRetrieve200ResponseSample1() {
-        return "{ \"id\" : 0, \"name\" : \"name\", \"growth_time\" : 6, \"max_harvest\" : 1, \"natural_gift_power\" : 5, \"size\" : 5, \"smoothness\" : 2, \"soil_dryness\" : 7, \"firmness\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"flavors\" : [ { \"potency\" : 9, \"flavor\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"potency\" : 9, \"flavor\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"item\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"natural_gift_type\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }";
+        return "{ \"id\" : 0, \"name\" : \"name\", \"growth_time\" : 441289069, \"max_harvest\" : -1517921766, \"natural_gift_power\" : 413233370, \"size\" : 273751188, \"smoothness\" : -1158723813, \"soil_dryness\" : 885365090, \"firmness\" : \"\", \"flavors\" : [ { \"potency\" : 1847456234, \"flavor\" : \"\" }, { \"potency\" : 1847456234, \"flavor\" : \"\" } ], \"item\" : \"\", \"natural_gift_type\" : \"\" }";
     }
 
 

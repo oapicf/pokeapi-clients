@@ -12,7 +12,7 @@ data class MoveChange(
     val effectChance: kotlin.Int,
 
     @field:JsonProperty("effect_entries")
-    val effectEntries: kotlin.collections.List<MoveChangeEffectEntriesInner>,
+    val effectEntries: kotlin.collections.List<MoveEffectEffectText>,
 
     @field:JsonProperty("type")
     val type: TypeSummary,

@@ -3,7 +3,7 @@ package org.openapitools.model;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.model.BerryFlavorDetailBerriesInner;
+import org.openapitools.model.BerryFlavorBerryMap;
 import org.openapitools.model.BerryFlavorName;
 import org.openapitools.model.ContestTypeSummary;
 import javax.validation.constraints.*;
@@ -16,23 +16,38 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class BerryFlavorDetail  {
   
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The identifier for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   private Integer id;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The name for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   private String name;
 
-  @ApiModelProperty(required = true, value = "")
-  private List<@Valid BerryFlavorDetailBerriesInner> berries = new ArrayList<>();
+ /**
+  * A list of the berries with this flavor.
+  */
+  @ApiModelProperty(required = true, value = "A list of the berries with this flavor.")
+  private List<@Valid BerryFlavorBerryMap> berries = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The contest type that correlates with this berry flavor.
+  */
+  @ApiModelProperty(required = true, value = "The contest type that correlates with this berry flavor.")
   @Valid
   private ContestTypeSummary contestType;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The name of this resource listed in different languages.
+  */
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
   private List<@Valid BerryFlavorName> names = new ArrayList<>();
  /**
-  * Get id
+  * The identifier for this resource.
   * @return id
   */
   @JsonProperty("id")
@@ -59,12 +74,12 @@ public class BerryFlavorDetail  {
   }
 
  /**
-  * Get name
+  * The name for this resource.
   * @return name
   */
   @JsonProperty("name")
   @NotNull
- @Size(max=100)  public String getName() {
+ @Size(max=200)  public String getName() {
     return name;
   }
 
@@ -84,12 +99,12 @@ public class BerryFlavorDetail  {
   }
 
  /**
-  * Get berries
+  * A list of the berries with this flavor.
   * @return berries
   */
   @JsonProperty("berries")
   @NotNull
-  public List<@Valid BerryFlavorDetailBerriesInner> getBerries() {
+  public List<@Valid BerryFlavorBerryMap> getBerries() {
     return berries;
   }
 
@@ -97,7 +112,7 @@ public class BerryFlavorDetail  {
    * Sets the <code>berries</code> property.
    * <br><em>N.B. <code>berries</code> is <b>read only</b>; client code should not call this method</em>.
    */
- public void setBerries(List<@Valid BerryFlavorDetailBerriesInner> berries) {
+ public void setBerries(List<@Valid BerryFlavorBerryMap> berries) {
     this.berries = berries;
   }
 
@@ -105,7 +120,7 @@ public class BerryFlavorDetail  {
    * Sets the <code>berries</code> property.
    * <br><em>N.B. <code>berries</code> is <b>read only</b>; client code should not call this method</em>.
    */
-  public BerryFlavorDetail berries(List<@Valid BerryFlavorDetailBerriesInner> berries) {
+  public BerryFlavorDetail berries(List<@Valid BerryFlavorBerryMap> berries) {
     this.berries = berries;
     return this;
   }
@@ -114,13 +129,13 @@ public class BerryFlavorDetail  {
    * Adds a new item to the <code>berries</code> list.
    * <br><em>N.B. <code>berries</code> is <b>read only</b>; client code should not call this method</em>.
    */
-  public BerryFlavorDetail addBerriesItem(BerryFlavorDetailBerriesInner berriesItem) {
+  public BerryFlavorDetail addBerriesItem(BerryFlavorBerryMap berriesItem) {
     this.berries.add(berriesItem);
     return this;
   }
 
  /**
-  * Get contestType
+  * The contest type that correlates with this berry flavor.
   * @return contestType
   */
   @JsonProperty("contest_type")
@@ -145,7 +160,7 @@ public class BerryFlavorDetail  {
   }
 
  /**
-  * Get names
+  * The name of this resource listed in different languages.
   * @return names
   */
   @JsonProperty("names")

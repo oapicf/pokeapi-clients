@@ -20,7 +20,7 @@ public class CharacteristicSummary   {
     /**
      * Create CharacteristicSummary.
      *
-     * @param url url
+     * @param url The URL of the referenced resource.
      */
     public CharacteristicSummary(
         URI url
@@ -31,7 +31,7 @@ public class CharacteristicSummary   {
 
 
     /**
-     * Get url
+     * The URL of the referenced resource.
      * @return url
      */
     public URI getUrl() {

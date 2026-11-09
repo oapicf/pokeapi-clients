@@ -95,12 +95,12 @@ PokemonShapeDetail::fromJson(char* jsonStr)
 		{
 			JsonArray* arr = json_node_get_array(node);
 			JsonNode*  temp_json;
-			list<PokemonShapeDetail_awesome_names_inner> new_list;
-			PokemonShapeDetail_awesome_names_inner inst;
+			list<PokemonShapeAwesomeName> new_list;
+			PokemonShapeAwesomeName inst;
 			for (guint i=0;i<json_array_get_length(arr);i++) {
 				temp_json = json_array_get_element(arr,i);
-				if (isprimitive("PokemonShapeDetail_awesome_names_inner")) {
-					jsonToValue(&inst, temp_json, "PokemonShapeDetail_awesome_names_inner", "");
+				if (isprimitive("PokemonShapeAwesomeName")) {
+					jsonToValue(&inst, temp_json, "PokemonShapeAwesomeName", "");
 				} else {
 					
 					inst.fromJson(json_to_string(temp_json, false));
@@ -119,12 +119,12 @@ PokemonShapeDetail::fromJson(char* jsonStr)
 		{
 			JsonArray* arr = json_node_get_array(node);
 			JsonNode*  temp_json;
-			list<PokemonShapeDetail_names_inner> new_list;
-			PokemonShapeDetail_names_inner inst;
+			list<PokemonShapeName> new_list;
+			PokemonShapeName inst;
 			for (guint i=0;i<json_array_get_length(arr);i++) {
 				temp_json = json_array_get_element(arr,i);
-				if (isprimitive("PokemonShapeDetail_names_inner")) {
-					jsonToValue(&inst, temp_json, "PokemonShapeDetail_names_inner", "");
+				if (isprimitive("PokemonShapeName")) {
+					jsonToValue(&inst, temp_json, "PokemonShapeName", "");
 				} else {
 					
 					inst.fromJson(json_to_string(temp_json, false));
@@ -190,18 +190,18 @@ PokemonShapeDetail::toJson()
 	}
 	const gchar *nameKey = "name";
 	json_object_set_member(pJsonObject, nameKey, node);
-	if (isprimitive("PokemonShapeDetail_awesome_names_inner")) {
-		list<PokemonShapeDetail_awesome_names_inner> new_list = static_cast<list <PokemonShapeDetail_awesome_names_inner> > (getAwesomeNames());
-		node = converttoJson(&new_list, "PokemonShapeDetail_awesome_names_inner", "array");
+	if (isprimitive("PokemonShapeAwesomeName")) {
+		list<PokemonShapeAwesomeName> new_list = static_cast<list <PokemonShapeAwesomeName> > (getAwesomeNames());
+		node = converttoJson(&new_list, "PokemonShapeAwesomeName", "array");
 	} else {
 		node = json_node_alloc();
-		list<PokemonShapeDetail_awesome_names_inner> new_list = static_cast<list <PokemonShapeDetail_awesome_names_inner> > (getAwesomeNames());
+		list<PokemonShapeAwesomeName> new_list = static_cast<list <PokemonShapeAwesomeName> > (getAwesomeNames());
 		JsonArray* json_array = json_array_new();
 		GError *mygerror;
 		
-		for (list<PokemonShapeDetail_awesome_names_inner>::iterator it = new_list.begin(); it != new_list.end(); it++) {
+		for (list<PokemonShapeAwesomeName>::iterator it = new_list.begin(); it != new_list.end(); it++) {
 			mygerror = NULL;
-			PokemonShapeDetail_awesome_names_inner obj = *it;
+			PokemonShapeAwesomeName obj = *it;
 			JsonNode *node_temp = json_from_string(obj.toJson(), &mygerror);
 			json_array_add_element(json_array, node_temp);
 			g_clear_error(&mygerror);
@@ -215,18 +215,18 @@ PokemonShapeDetail::toJson()
 	
 	const gchar *awesome_namesKey = "awesome_names";
 	json_object_set_member(pJsonObject, awesome_namesKey, node);
-	if (isprimitive("PokemonShapeDetail_names_inner")) {
-		list<PokemonShapeDetail_names_inner> new_list = static_cast<list <PokemonShapeDetail_names_inner> > (getNames());
-		node = converttoJson(&new_list, "PokemonShapeDetail_names_inner", "array");
+	if (isprimitive("PokemonShapeName")) {
+		list<PokemonShapeName> new_list = static_cast<list <PokemonShapeName> > (getNames());
+		node = converttoJson(&new_list, "PokemonShapeName", "array");
 	} else {
 		node = json_node_alloc();
-		list<PokemonShapeDetail_names_inner> new_list = static_cast<list <PokemonShapeDetail_names_inner> > (getNames());
+		list<PokemonShapeName> new_list = static_cast<list <PokemonShapeName> > (getNames());
 		JsonArray* json_array = json_array_new();
 		GError *mygerror;
 		
-		for (list<PokemonShapeDetail_names_inner>::iterator it = new_list.begin(); it != new_list.end(); it++) {
+		for (list<PokemonShapeName>::iterator it = new_list.begin(); it != new_list.end(); it++) {
 			mygerror = NULL;
-			PokemonShapeDetail_names_inner obj = *it;
+			PokemonShapeName obj = *it;
 			JsonNode *node_temp = json_from_string(obj.toJson(), &mygerror);
 			json_array_add_element(json_array, node_temp);
 			g_clear_error(&mygerror);
@@ -297,26 +297,26 @@ PokemonShapeDetail::setName(std::string  name)
 	this->name = name;
 }
 
-std::list<PokemonShapeDetail_awesome_names_inner>
+std::list<PokemonShapeAwesomeName>
 PokemonShapeDetail::getAwesomeNames()
 {
 	return awesome_names;
 }
 
 void
-PokemonShapeDetail::setAwesomeNames(std::list <PokemonShapeDetail_awesome_names_inner> awesome_names)
+PokemonShapeDetail::setAwesomeNames(std::list <PokemonShapeAwesomeName> awesome_names)
 {
 	this->awesome_names = awesome_names;
 }
 
-std::list<PokemonShapeDetail_names_inner>
+std::list<PokemonShapeName>
 PokemonShapeDetail::getNames()
 {
 	return names;
 }
 
 void
-PokemonShapeDetail::setNames(std::list <PokemonShapeDetail_names_inner> names)
+PokemonShapeDetail::setNames(std::list <PokemonShapeName> names)
 {
 	this->names = names;
 }

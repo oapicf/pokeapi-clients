@@ -13,8 +13,10 @@ import java.net.URI
 import PokeathlonStatSummary._
 
 case class PokeathlonStatSummary (
+  /* The name of the referenced resource. */
   name: String,
-url: URI)
+/* The URL of the referenced resource. */
+  url: URI)
 
 object PokeathlonStatSummary {
   import DateTimeCodecs._

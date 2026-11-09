@@ -10,7 +10,6 @@ namespace models {
 
 EggGroupName::EggGroupName()
 : name("")
-, language(LanguageSummary())
 {
 }
 // =========================================

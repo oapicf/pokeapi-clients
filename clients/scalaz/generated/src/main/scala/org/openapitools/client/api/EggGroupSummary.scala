@@ -13,8 +13,10 @@ import java.net.URI
 import EggGroupSummary._
 
 case class EggGroupSummary (
+  /* The name of the referenced resource. */
   name: String,
-url: URI)
+/* The URL of the referenced resource. */
+  url: URI)
 
 object EggGroupSummary {
   import DateTimeCodecs._

@@ -34,13 +34,12 @@ public:
  * Contest effects refer to the effects of moves when used in contests.
  * \param limit Number of results to return per page.
  * \param offset The initial index from which to return the results.
- * \param q > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
  * \param handler The callback function to be invoked on completion. *Required*
  * \param accessToken The Authorization token. *Required*
  * \param userData The user data to be passed to the callback function.
  */
 bool contestEffectListSync(char * accessToken,
-	int limit, int offset, std::string q, 
+	int limit, int offset, 
 	void(* handler)(PaginatedContestEffectSummaryList, Error, void* )
 	, void* userData);
 
@@ -49,13 +48,12 @@ bool contestEffectListSync(char * accessToken,
  * Contest effects refer to the effects of moves when used in contests.
  * \param limit Number of results to return per page.
  * \param offset The initial index from which to return the results.
- * \param q > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
  * \param handler The callback function to be invoked on completion. *Required*
  * \param accessToken The Authorization token. *Required*
  * \param userData The user data to be passed to the callback function.
  */
 bool contestEffectListAsync(char * accessToken,
-	int limit, int offset, std::string q, 
+	int limit, int offset, 
 	void(* handler)(PaginatedContestEffectSummaryList, Error, void* )
 	, void* userData);
 
@@ -150,13 +148,12 @@ bool contestTypeRetrieveAsync(char * accessToken,
  * Super contest effects refer to the effects of moves when used in super contests.
  * \param limit Number of results to return per page.
  * \param offset The initial index from which to return the results.
- * \param q > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
  * \param handler The callback function to be invoked on completion. *Required*
  * \param accessToken The Authorization token. *Required*
  * \param userData The user data to be passed to the callback function.
  */
 bool superContestEffectListSync(char * accessToken,
-	int limit, int offset, std::string q, 
+	int limit, int offset, 
 	void(* handler)(PaginatedSuperContestEffectSummaryList, Error, void* )
 	, void* userData);
 
@@ -165,13 +162,12 @@ bool superContestEffectListSync(char * accessToken,
  * Super contest effects refer to the effects of moves when used in super contests.
  * \param limit Number of results to return per page.
  * \param offset The initial index from which to return the results.
- * \param q > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
  * \param handler The callback function to be invoked on completion. *Required*
  * \param accessToken The Authorization token. *Required*
  * \param userData The user data to be passed to the callback function.
  */
 bool superContestEffectListAsync(char * accessToken,
-	int limit, int offset, std::string q, 
+	int limit, int offset, 
 	void(* handler)(PaginatedSuperContestEffectSummaryList, Error, void* )
 	, void* userData);
 

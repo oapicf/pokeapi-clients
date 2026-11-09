@@ -14,23 +14,38 @@ import java.math.*;
 public class CharacteristicDetail implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * The identifier for this resource.
+   */
   @JsonProperty("id")
   private Integer id;
 
+  /**
+   * The remainder of the highest stat/IV divided by 5.
+   */
   @JsonProperty("gene_modulo")
   private Integer geneModulo;
 
+  /**
+   * The possible values of the highest stat that would result in a Pokémon recieving this characteristic when divided by 5.
+   */
   @JsonProperty("possible_values")
   private List<Integer> possibleValues = new ArrayList<>();
 
+  /**
+   * The stat which results in this characteristic.
+   */
   @JsonProperty("highest_stat")
   private StatSummary highestStat;
 
+  /**
+   * The descriptions of this characteristic listed in different languages.
+   */
   @JsonProperty("descriptions")
   private List<CharacteristicDescription> descriptions = new ArrayList<>();
 
   /**
-   * 
+   * The identifier for this resource.
    * @return id
    */
   public Integer getId() {
@@ -42,7 +57,7 @@ public class CharacteristicDetail implements Serializable {
   }
 
   /**
-   * 
+   * The remainder of the highest stat/IV divided by 5.
    * @return geneModulo
    */
   public Integer getGeneModulo() {
@@ -54,7 +69,7 @@ public class CharacteristicDetail implements Serializable {
   }
 
   /**
-   * 
+   * The possible values of the highest stat that would result in a Pokémon recieving this characteristic when divided by 5.
    * @return possibleValues
    */
   public List<Integer> getPossibleValues() {
@@ -66,7 +81,7 @@ public class CharacteristicDetail implements Serializable {
   }
 
   /**
-   * 
+   * The stat which results in this characteristic.
    * @return highestStat
    */
   public StatSummary getHighestStat() {
@@ -78,7 +93,7 @@ public class CharacteristicDetail implements Serializable {
   }
 
   /**
-   * 
+   * The descriptions of this characteristic listed in different languages.
    * @return descriptions
    */
   public List<CharacteristicDescription> getDescriptions() {

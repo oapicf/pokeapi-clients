@@ -17,7 +17,7 @@ from openapi_server.models.paginated_move_meta_ailment_summary_list import Pagin
 from openapi_server.models.paginated_move_meta_category_summary_list import PaginatedMoveMetaCategorySummaryList
 from openapi_server.models.paginated_move_summary_list import PaginatedMoveSummaryList
 from openapi_server.models.paginated_move_target_summary_list import PaginatedMoveTargetSummaryList
-from openapi_server.security_api import get_token_basicAuth, get_token_cookieAuth
+
 
 class BaseMovesApi:
     subclasses: ClassVar[Tuple] = ()

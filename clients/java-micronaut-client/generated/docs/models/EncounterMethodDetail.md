@@ -8,10 +8,10 @@ The class is defined in **[EncounterMethodDetail.java](../../src/main/java/org/o
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | `Integer` |  |  [readonly property]
-**name** | `String` |  | 
-**order** | `Integer` |  |  [optional property]
-**names** | [`List&lt;EncounterMethodName&gt;`](EncounterMethodName.md) |  |  [readonly property]
+**id** | `Integer` | The identifier for this resource. |  [readonly property]
+**name** | `String` | The name for this resource. | 
+**order** | `Integer` | A good value for sorting. |  [optional property]
+**names** | [`List&lt;EncounterMethodName&gt;`](EncounterMethodName.md) | The name of this resource listed in different languages. |  [readonly property]
 
 
 

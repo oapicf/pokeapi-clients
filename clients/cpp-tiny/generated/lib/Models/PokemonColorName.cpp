@@ -7,7 +7,7 @@ using namespace Tiny;
 PokemonColorName::PokemonColorName()
 {
 	name = std::string();
-	language = LanguageSummary();
+	language = null;
 }
 
 PokemonColorName::PokemonColorName(std::string jsonString)

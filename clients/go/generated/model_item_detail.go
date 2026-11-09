@@ -1,9 +1,9 @@
 /*
 PokéAPI
 
-All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
 
-API version: 2.7.0
+API version: 2.10.0
 Contact: blah+oapicf@cliffano.com
 */
 
@@ -22,21 +22,36 @@ var _ MappedNullable = &ItemDetail{}
 
 // ItemDetail struct for ItemDetail
 type ItemDetail struct {
+	// The identifier for this resource.
 	Id int32 `json:"id"`
+	// The name for this resource.
 	Name string `json:"name"`
-	Cost NullableInt32 `json:"cost,omitempty"`
+	// The power of the move Fling when used with this item.
 	FlingPower NullableInt32 `json:"fling_power,omitempty"`
-	FlingEffect ItemFlingEffectSummary `json:"fling_effect"`
-	Attributes []AbilityDetailPokemonInnerPokemon `json:"attributes"`
+	// The effect of the move Fling when used with this item.
+	FlingEffect NullableItemFlingEffectSummary `json:"fling_effect"`
+	// A list of attributes this item has.
+	Attributes []ItemAttributeSummary `json:"attributes"`
+	// The category of items this item falls into.
 	Category ItemCategorySummary `json:"category"`
+	// The effect of this ability listed in different languages.
 	EffectEntries []ItemEffectText `json:"effect_entries"`
+	// The flavor text of this ability listed in different languages.
 	FlavorTextEntries []ItemFlavorText `json:"flavor_text_entries"`
+	// A list of game indices relevent to this item by generation.
 	GameIndices []ItemGameIndex `json:"game_indices"`
+	// Purchase and sell prices by currency and version group. Prices may be null when the item cannot be bought or sold.
+	Prices []ItemPrice `json:"prices"`
+	// The name of this item listed in different languages.
 	Names []ItemName `json:"names"`
-	HeldByPokemon []ItemDetailHeldByPokemonInner `json:"held_by_pokemon"`
-	Sprites ItemDetailSprites `json:"sprites"`
-	BabyTriggerFor ItemDetailBabyTriggerFor `json:"baby_trigger_for"`
-	Machines []ItemDetailMachinesInner `json:"machines"`
+	// A list of Pokémon that might be found in the wild holding this item.
+	HeldByPokemon []PokemonHeldItem `json:"held_by_pokemon"`
+	// A set of sprites used to depict this item in the game.
+	Sprites ItemSprites `json:"sprites"`
+	// An evolution chain this item requires to produce a bay during mating.
+	BabyTriggerFor NullableEvolutionChainSummary `json:"baby_trigger_for"`
+	// A list of the machines related to this item.
+	Machines []ItemMachine `json:"machines"`
 }
 
 type _ItemDetail ItemDetail
@@ -45,7 +60,7 @@ type _ItemDetail ItemDetail
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewItemDetail(id int32, name string, flingEffect ItemFlingEffectSummary, attributes []AbilityDetailPokemonInnerPokemon, category ItemCategorySummary, effectEntries []ItemEffectText, flavorTextEntries []ItemFlavorText, gameIndices []ItemGameIndex, names []ItemName, heldByPokemon []ItemDetailHeldByPokemonInner, sprites ItemDetailSprites, babyTriggerFor ItemDetailBabyTriggerFor, machines []ItemDetailMachinesInner) *ItemDetail {
+func NewItemDetail(id int32, name string, flingEffect NullableItemFlingEffectSummary, attributes []ItemAttributeSummary, category ItemCategorySummary, effectEntries []ItemEffectText, flavorTextEntries []ItemFlavorText, gameIndices []ItemGameIndex, prices []ItemPrice, names []ItemName, heldByPokemon []PokemonHeldItem, sprites ItemSprites, babyTriggerFor NullableEvolutionChainSummary, machines []ItemMachine) *ItemDetail {
 	this := ItemDetail{}
 	this.Id = id
 	this.Name = name
@@ -55,6 +70,7 @@ func NewItemDetail(id int32, name string, flingEffect ItemFlingEffectSummary, at
 	this.EffectEntries = effectEntries
 	this.FlavorTextEntries = flavorTextEntries
 	this.GameIndices = gameIndices
+	this.Prices = prices
 	this.Names = names
 	this.HeldByPokemon = heldByPokemon
 	this.Sprites = sprites
@@ -119,48 +135,6 @@ func (o *ItemDetail) SetName(v string) {
 	o.Name = v
 }
 
-// GetCost returns the Cost field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ItemDetail) GetCost() int32 {
-	if o == nil || IsNil(o.Cost.Get()) {
-		var ret int32
-		return ret
-	}
-	return *o.Cost.Get()
-}
-
-// GetCostOk returns a tuple with the Cost field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ItemDetail) GetCostOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.Cost.Get(), o.Cost.IsSet()
-}
-
-// HasCost returns a boolean if a field has been set.
-func (o *ItemDetail) HasCost() bool {
-	if o != nil && o.Cost.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetCost gets a reference to the given NullableInt32 and assigns it to the Cost field.
-func (o *ItemDetail) SetCost(v int32) {
-	o.Cost.Set(&v)
-}
-// SetCostNil sets the value for Cost to be an explicit nil
-func (o *ItemDetail) SetCostNil() {
-	o.Cost.Set(nil)
-}
-
-// UnsetCost ensures that no value is present for Cost, not even an explicit nil
-func (o *ItemDetail) UnsetCost() {
-	o.Cost.Unset()
-}
-
 // GetFlingPower returns the FlingPower field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ItemDetail) GetFlingPower() int32 {
 	if o == nil || IsNil(o.FlingPower.Get()) {
@@ -204,33 +178,35 @@ func (o *ItemDetail) UnsetFlingPower() {
 }
 
 // GetFlingEffect returns the FlingEffect field value
+// If the value is explicit nil, the zero value for ItemFlingEffectSummary will be returned
 func (o *ItemDetail) GetFlingEffect() ItemFlingEffectSummary {
-	if o == nil {
+	if o == nil || o.FlingEffect.Get() == nil {
 		var ret ItemFlingEffectSummary
 		return ret
 	}
 
-	return o.FlingEffect
+	return *o.FlingEffect.Get()
 }
 
 // GetFlingEffectOk returns a tuple with the FlingEffect field value
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ItemDetail) GetFlingEffectOk() (*ItemFlingEffectSummary, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.FlingEffect, true
+	return o.FlingEffect.Get(), o.FlingEffect.IsSet()
 }
 
 // SetFlingEffect sets field value
 func (o *ItemDetail) SetFlingEffect(v ItemFlingEffectSummary) {
-	o.FlingEffect = v
+	o.FlingEffect.Set(&v)
 }
 
 // GetAttributes returns the Attributes field value
-func (o *ItemDetail) GetAttributes() []AbilityDetailPokemonInnerPokemon {
+func (o *ItemDetail) GetAttributes() []ItemAttributeSummary {
 	if o == nil {
-		var ret []AbilityDetailPokemonInnerPokemon
+		var ret []ItemAttributeSummary
 		return ret
 	}
 
@@ -239,7 +215,7 @@ func (o *ItemDetail) GetAttributes() []AbilityDetailPokemonInnerPokemon {
 
 // GetAttributesOk returns a tuple with the Attributes field value
 // and a boolean to check if the value has been set.
-func (o *ItemDetail) GetAttributesOk() ([]AbilityDetailPokemonInnerPokemon, bool) {
+func (o *ItemDetail) GetAttributesOk() ([]ItemAttributeSummary, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -247,7 +223,7 @@ func (o *ItemDetail) GetAttributesOk() ([]AbilityDetailPokemonInnerPokemon, bool
 }
 
 // SetAttributes sets field value
-func (o *ItemDetail) SetAttributes(v []AbilityDetailPokemonInnerPokemon) {
+func (o *ItemDetail) SetAttributes(v []ItemAttributeSummary) {
 	o.Attributes = v
 }
 
@@ -347,6 +323,30 @@ func (o *ItemDetail) SetGameIndices(v []ItemGameIndex) {
 	o.GameIndices = v
 }
 
+// GetPrices returns the Prices field value
+func (o *ItemDetail) GetPrices() []ItemPrice {
+	if o == nil {
+		var ret []ItemPrice
+		return ret
+	}
+
+	return o.Prices
+}
+
+// GetPricesOk returns a tuple with the Prices field value
+// and a boolean to check if the value has been set.
+func (o *ItemDetail) GetPricesOk() ([]ItemPrice, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Prices, true
+}
+
+// SetPrices sets field value
+func (o *ItemDetail) SetPrices(v []ItemPrice) {
+	o.Prices = v
+}
+
 // GetNames returns the Names field value
 func (o *ItemDetail) GetNames() []ItemName {
 	if o == nil {
@@ -372,9 +372,9 @@ func (o *ItemDetail) SetNames(v []ItemName) {
 }
 
 // GetHeldByPokemon returns the HeldByPokemon field value
-func (o *ItemDetail) GetHeldByPokemon() []ItemDetailHeldByPokemonInner {
+func (o *ItemDetail) GetHeldByPokemon() []PokemonHeldItem {
 	if o == nil {
-		var ret []ItemDetailHeldByPokemonInner
+		var ret []PokemonHeldItem
 		return ret
 	}
 
@@ -383,7 +383,7 @@ func (o *ItemDetail) GetHeldByPokemon() []ItemDetailHeldByPokemonInner {
 
 // GetHeldByPokemonOk returns a tuple with the HeldByPokemon field value
 // and a boolean to check if the value has been set.
-func (o *ItemDetail) GetHeldByPokemonOk() ([]ItemDetailHeldByPokemonInner, bool) {
+func (o *ItemDetail) GetHeldByPokemonOk() ([]PokemonHeldItem, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -391,14 +391,14 @@ func (o *ItemDetail) GetHeldByPokemonOk() ([]ItemDetailHeldByPokemonInner, bool)
 }
 
 // SetHeldByPokemon sets field value
-func (o *ItemDetail) SetHeldByPokemon(v []ItemDetailHeldByPokemonInner) {
+func (o *ItemDetail) SetHeldByPokemon(v []PokemonHeldItem) {
 	o.HeldByPokemon = v
 }
 
 // GetSprites returns the Sprites field value
-func (o *ItemDetail) GetSprites() ItemDetailSprites {
+func (o *ItemDetail) GetSprites() ItemSprites {
 	if o == nil {
-		var ret ItemDetailSprites
+		var ret ItemSprites
 		return ret
 	}
 
@@ -407,7 +407,7 @@ func (o *ItemDetail) GetSprites() ItemDetailSprites {
 
 // GetSpritesOk returns a tuple with the Sprites field value
 // and a boolean to check if the value has been set.
-func (o *ItemDetail) GetSpritesOk() (*ItemDetailSprites, bool) {
+func (o *ItemDetail) GetSpritesOk() (*ItemSprites, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -415,38 +415,40 @@ func (o *ItemDetail) GetSpritesOk() (*ItemDetailSprites, bool) {
 }
 
 // SetSprites sets field value
-func (o *ItemDetail) SetSprites(v ItemDetailSprites) {
+func (o *ItemDetail) SetSprites(v ItemSprites) {
 	o.Sprites = v
 }
 
 // GetBabyTriggerFor returns the BabyTriggerFor field value
-func (o *ItemDetail) GetBabyTriggerFor() ItemDetailBabyTriggerFor {
-	if o == nil {
-		var ret ItemDetailBabyTriggerFor
+// If the value is explicit nil, the zero value for EvolutionChainSummary will be returned
+func (o *ItemDetail) GetBabyTriggerFor() EvolutionChainSummary {
+	if o == nil || o.BabyTriggerFor.Get() == nil {
+		var ret EvolutionChainSummary
 		return ret
 	}
 
-	return o.BabyTriggerFor
+	return *o.BabyTriggerFor.Get()
 }
 
 // GetBabyTriggerForOk returns a tuple with the BabyTriggerFor field value
 // and a boolean to check if the value has been set.
-func (o *ItemDetail) GetBabyTriggerForOk() (*ItemDetailBabyTriggerFor, bool) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ItemDetail) GetBabyTriggerForOk() (*EvolutionChainSummary, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.BabyTriggerFor, true
+	return o.BabyTriggerFor.Get(), o.BabyTriggerFor.IsSet()
 }
 
 // SetBabyTriggerFor sets field value
-func (o *ItemDetail) SetBabyTriggerFor(v ItemDetailBabyTriggerFor) {
-	o.BabyTriggerFor = v
+func (o *ItemDetail) SetBabyTriggerFor(v EvolutionChainSummary) {
+	o.BabyTriggerFor.Set(&v)
 }
 
 // GetMachines returns the Machines field value
-func (o *ItemDetail) GetMachines() []ItemDetailMachinesInner {
+func (o *ItemDetail) GetMachines() []ItemMachine {
 	if o == nil {
-		var ret []ItemDetailMachinesInner
+		var ret []ItemMachine
 		return ret
 	}
 
@@ -455,7 +457,7 @@ func (o *ItemDetail) GetMachines() []ItemDetailMachinesInner {
 
 // GetMachinesOk returns a tuple with the Machines field value
 // and a boolean to check if the value has been set.
-func (o *ItemDetail) GetMachinesOk() ([]ItemDetailMachinesInner, bool) {
+func (o *ItemDetail) GetMachinesOk() ([]ItemMachine, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -463,7 +465,7 @@ func (o *ItemDetail) GetMachinesOk() ([]ItemDetailMachinesInner, bool) {
 }
 
 // SetMachines sets field value
-func (o *ItemDetail) SetMachines(v []ItemDetailMachinesInner) {
+func (o *ItemDetail) SetMachines(v []ItemMachine) {
 	o.Machines = v
 }
 
@@ -479,22 +481,20 @@ func (o ItemDetail) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["id"] = o.Id
 	toSerialize["name"] = o.Name
-	if o.Cost.IsSet() {
-		toSerialize["cost"] = o.Cost.Get()
-	}
 	if o.FlingPower.IsSet() {
 		toSerialize["fling_power"] = o.FlingPower.Get()
 	}
-	toSerialize["fling_effect"] = o.FlingEffect
+	toSerialize["fling_effect"] = o.FlingEffect.Get()
 	toSerialize["attributes"] = o.Attributes
 	toSerialize["category"] = o.Category
 	toSerialize["effect_entries"] = o.EffectEntries
 	toSerialize["flavor_text_entries"] = o.FlavorTextEntries
 	toSerialize["game_indices"] = o.GameIndices
+	toSerialize["prices"] = o.Prices
 	toSerialize["names"] = o.Names
 	toSerialize["held_by_pokemon"] = o.HeldByPokemon
 	toSerialize["sprites"] = o.Sprites
-	toSerialize["baby_trigger_for"] = o.BabyTriggerFor
+	toSerialize["baby_trigger_for"] = o.BabyTriggerFor.Get()
 	toSerialize["machines"] = o.Machines
 	return toSerialize, nil
 }
@@ -512,6 +512,7 @@ func (o *ItemDetail) UnmarshalJSON(data []byte) (err error) {
 		"effect_entries",
 		"flavor_text_entries",
 		"game_indices",
+		"prices",
 		"names",
 		"held_by_pokemon",
 		"sprites",

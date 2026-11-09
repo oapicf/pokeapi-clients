@@ -1,0 +1,40 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server CurrencySummary"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a CurrencySummary"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+}
+resourceTypes {
+
+  CurrencySummary {
+    title = CurrencySummary
+    description = CurrencySummary
+    derivedFrom = Root
+    properties {
+        name {
+          type =  string
+          description = "The name of the referenced resource."
+          optional = true
+        }
+        url {
+          type =  string
+          description = "The URL of the referenced resource."
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  CurrencySummary {
+    title = CurrencySummary
+    description = CurrencySummary
+    implements = openapi_server.resourceTypes.CurrencySummary
+
+  }
+}

@@ -7,8 +7,8 @@ using namespace Tiny;
 EvolutionChainDetail::EvolutionChainDetail()
 {
 	id = int(0);
-	baby_trigger_item = ItemSummary();
-	chain = EvolutionChainDetail_chain();
+	baby_trigger_item = null;
+	chain = null;
 }
 
 EvolutionChainDetail::EvolutionChainDetail(std::string jsonString)
@@ -62,7 +62,7 @@ EvolutionChainDetail::fromJson(std::string jsonObj)
 
 
 
-        EvolutionChainDetail_chain* obj = &chain;
+        EvolutionChainLink* obj = &chain;
 		obj->fromJson(value.dump());
 
     }
@@ -125,14 +125,14 @@ EvolutionChainDetail::setBabyTriggerItem(ItemSummary baby_trigger_item)
 	this->baby_trigger_item = baby_trigger_item;
 }
 
-EvolutionChainDetail_chain
+EvolutionChainLink
 EvolutionChainDetail::getChain()
 {
 	return chain;
 }
 
 void
-EvolutionChainDetail::setChain(EvolutionChainDetail_chain chain)
+EvolutionChainDetail::setChain(EvolutionChainLink chain)
 {
 	this->chain = chain;
 }

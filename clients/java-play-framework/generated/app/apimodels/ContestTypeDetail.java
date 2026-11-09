@@ -14,7 +14,7 @@ import javax.validation.Valid;
 /**
  * ContestTypeDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-10-25T05:48:13.486809836Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-11-09T13:49:31.462302702Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class ContestTypeDetail   {
   @JsonProperty("id")
@@ -24,7 +24,7 @@ public class ContestTypeDetail   {
 
   @JsonProperty("name")
   @NotNull
-@Size(max=100)
+@Size(max=200)
 
   private String name;
 
@@ -46,7 +46,7 @@ public class ContestTypeDetail   {
   }
 
    /**
-   * Get id
+   * The identifier for this resource.
    * @return id
   **/
   public Integer getId() {
@@ -63,7 +63,7 @@ public class ContestTypeDetail   {
   }
 
    /**
-   * Get name
+   * The name for this resource.
    * @return name
   **/
   public String getName() {
@@ -80,7 +80,7 @@ public class ContestTypeDetail   {
   }
 
    /**
-   * Get berryFlavor
+   * The berry flavor that correlates with this contest type.
    * @return berryFlavor
   **/
   public BerryFlavorSummary getBerryFlavor() {
@@ -105,7 +105,7 @@ public class ContestTypeDetail   {
   }
 
    /**
-   * Get names
+   * The name of this contest type listed in different languages.
    * @return names
   **/
   public List<@Valid ContestTypeName> getNames() {

@@ -15,19 +15,22 @@
                 
                 
                 ; [@key "text"]
-                                              version_group: Version_group_summary.t
+                    (** The localized flavor text for an API resource in a specific language. *)
+                                      version_group: Version_group_summary.t
                   
                   
                 
                 
                 ; [@key "version_group"]
-                                              language: Language_summary.t
+                    (** The version group which uses this flavor text. *)
+                                      language: Language_summary.t
                   
                   
                 
                 
                 ; [@key "language"]
-                        } [@@deriving yojson { strict = false }, show, eq ];;
+                    (** The language this name is in. *)
+                } [@@deriving yojson { strict = false }, show, eq ];;
         
         let create (text : string) (version_group : Version_group_summary.t) (language : Language_summary.t) : t = {
             text = text;

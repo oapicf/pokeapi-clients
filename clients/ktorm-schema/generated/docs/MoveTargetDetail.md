@@ -5,11 +5,11 @@
 ## Properties
 Name | Mapping | SQL Type | Default | Type | Description | Notes
 ---- | ------- | -------- | ------- | ---- | ----------- | -----
-**id** | id | int NOT NULL PRIMARY KEY AUTOINCREMENT |  | **kotlin.Int** |  |  [readonly]
-**name** | name | text NOT NULL |  | **kotlin.String** |  | 
-**descriptions** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;MoveTargetDescription&gt;**](MoveTargetDescription.md) |  |  [readonly]
-**moves** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;MoveSummary&gt;**](MoveSummary.md) |  |  [readonly]
-**names** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;MoveTargetName&gt;**](MoveTargetName.md) |  |  [readonly]
+**id** | id | int NOT NULL PRIMARY KEY AUTOINCREMENT |  | **kotlin.Int** | The identifier for this resource. |  [readonly]
+**name** | name | text NOT NULL |  | **kotlin.String** | The name for this resource. | 
+**descriptions** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;MoveTargetDescription&gt;**](MoveTargetDescription.md) | The description of this resource listed in different languages. |  [readonly]
+**moves** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;MoveSummary&gt;**](MoveSummary.md) | A list of moves that that are directed at this target. |  [readonly]
+**names** | `One-To-Many` | `----` | `----`  | [**kotlin.Array&lt;MoveTargetName&gt;**](MoveTargetName.md) | The name of this resource listed in different languages. |  [readonly]
 
 
 

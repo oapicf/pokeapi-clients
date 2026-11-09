@@ -24,25 +24,37 @@ class PokemonDetail {
     this.pastAbilities = const [],
     this.forms = const [],
     this.gameIndices = const [],
-    required this.heldItems,
+    this.heldItems = const [],
     required this.locationAreaEncounters,
     this.moves = const [],
     required this.species,
     required this.sprites,
     required this.cries,
     this.stats = const [],
+    this.pastStats = const [],
     this.types = const [],
     this.pastTypes = const [],
   });
 
+  /// The identifier for this resource.
   int id;
 
+  /// The name for this resource.
   String name;
 
+  /// The base experience gained for defeating this Pokémon.
+  ///
+  /// Minimum value: -2147483648
+  /// Maximum value: 2147483647
   int? baseExperience;
 
+  /// The height of this Pokémon in decimetres.
+  ///
+  /// Minimum value: -2147483648
+  /// Maximum value: 2147483647
   int? height;
 
+  /// Set for exactly one Pokémon used as the default for each species.
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated
@@ -51,35 +63,59 @@ class PokemonDetail {
   ///
   bool? isDefault;
 
+  /// Order for sorting. Almost national order, except families are grouped together.
+  ///
+  /// Minimum value: -2147483648
+  /// Maximum value: 2147483647
   int? order;
 
+  /// The weight of this Pokémon in hectograms.
+  ///
+  /// Minimum value: -2147483648
+  /// Maximum value: 2147483647
   int? weight;
 
-  List<PokemonDetailAbilitiesInner> abilities;
+  /// A list of abilities this Pokémon could potentially have.
+  List<PokemonAbility> abilities;
 
-  List<PokemonDetailPastAbilitiesInner> pastAbilities;
+  /// A list of details showing abilities this pokémon had in previous generations
+  List<PokemonPastAbility> pastAbilities;
 
+  /// A list of forms this Pokémon can take on.
   List<PokemonFormSummary> forms;
 
+  /// A list of game indices relevent to Pokémon item by generation.
   List<PokemonGameIndex> gameIndices;
 
-  PokemonDetailHeldItems heldItems;
+  /// A list of items this Pokémon may be holding when encountered.
+  List<PokemonHeldItemSummary> heldItems;
 
+  /// A link to a list of location areas, as well as encounter details pertaining to specific versions.
   String locationAreaEncounters;
 
-  List<PokemonDetailMovesInner> moves;
+  /// A list of moves along with learn methods and level details pertaining to specific version groups.
+  List<PokemonMove> moves;
 
+  /// The species this Pokémon belongs to.
   PokemonSpeciesSummary species;
 
-  PokemonDetailSprites sprites;
+  /// A set of sprites used to depict this Pokémon in the game. A visual representation of the various sprites can be found at <a href='https://github.com/PokeAPI/sprites#sprites'>PokeAPI/sprites</a>
+  PokemonSprites sprites;
 
-  PokemonDetailCries cries;
+  /// A set of cries used to depict this Pokémon in the game. A visual representation of the various cries can be found at <a href='https://github.com/PokeAPI/cries#cries'>PokeAPI/cries</a>
+  PokemonCries cries;
 
+  /// A list of base stat values for this Pokémon.
   List<PokemonStat> stats;
 
-  List<PokemonDetailTypesInner> types;
+  /// A list of details showing stats this pokémon had in previous generations
+  List<PokemonPastStat> pastStats;
 
-  List<PokemonDetailPastTypesInner> pastTypes;
+  /// A list of details showing types this Pokémon has.
+  List<PokemonType> types;
+
+  /// A list of details showing types this pokémon had in previous generations
+  List<PokemonPastType> pastTypes;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is PokemonDetail &&
@@ -94,13 +130,14 @@ class PokemonDetail {
     _deepEquality.equals(other.pastAbilities, pastAbilities) &&
     _deepEquality.equals(other.forms, forms) &&
     _deepEquality.equals(other.gameIndices, gameIndices) &&
-    other.heldItems == heldItems &&
+    _deepEquality.equals(other.heldItems, heldItems) &&
     other.locationAreaEncounters == locationAreaEncounters &&
     _deepEquality.equals(other.moves, moves) &&
     other.species == species &&
     other.sprites == sprites &&
     other.cries == cries &&
     _deepEquality.equals(other.stats, stats) &&
+    _deepEquality.equals(other.pastStats, pastStats) &&
     _deepEquality.equals(other.types, types) &&
     _deepEquality.equals(other.pastTypes, pastTypes);
 
@@ -125,11 +162,12 @@ class PokemonDetail {
     (sprites.hashCode) +
     (cries.hashCode) +
     (stats.hashCode) +
+    (pastStats.hashCode) +
     (types.hashCode) +
     (pastTypes.hashCode);
 
   @override
-  String toString() => 'PokemonDetail[id=$id, name=$name, baseExperience=$baseExperience, height=$height, isDefault=$isDefault, order=$order, weight=$weight, abilities=$abilities, pastAbilities=$pastAbilities, forms=$forms, gameIndices=$gameIndices, heldItems=$heldItems, locationAreaEncounters=$locationAreaEncounters, moves=$moves, species=$species, sprites=$sprites, cries=$cries, stats=$stats, types=$types, pastTypes=$pastTypes]';
+  String toString() => 'PokemonDetail[id=$id, name=$name, baseExperience=$baseExperience, height=$height, isDefault=$isDefault, order=$order, weight=$weight, abilities=$abilities, pastAbilities=$pastAbilities, forms=$forms, gameIndices=$gameIndices, heldItems=$heldItems, locationAreaEncounters=$locationAreaEncounters, moves=$moves, species=$species, sprites=$sprites, cries=$cries, stats=$stats, pastStats=$pastStats, types=$types, pastTypes=$pastTypes]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -171,6 +209,7 @@ class PokemonDetail {
       json[r'sprites'] = this.sprites;
       json[r'cries'] = this.cries;
       json[r'stats'] = this.stats;
+      json[r'past_stats'] = this.pastStats;
       json[r'types'] = this.types;
       json[r'past_types'] = this.pastTypes;
     return json;
@@ -213,6 +252,8 @@ class PokemonDetail {
         assert(json[r'cries'] != null, 'Required key "PokemonDetail[cries]" has a null value in JSON.');
         assert(json.containsKey(r'stats'), 'Required key "PokemonDetail[stats]" is missing from JSON.');
         assert(json[r'stats'] != null, 'Required key "PokemonDetail[stats]" has a null value in JSON.');
+        assert(json.containsKey(r'past_stats'), 'Required key "PokemonDetail[past_stats]" is missing from JSON.');
+        assert(json[r'past_stats'] != null, 'Required key "PokemonDetail[past_stats]" has a null value in JSON.');
         assert(json.containsKey(r'types'), 'Required key "PokemonDetail[types]" is missing from JSON.');
         assert(json[r'types'] != null, 'Required key "PokemonDetail[types]" has a null value in JSON.');
         assert(json.containsKey(r'past_types'), 'Required key "PokemonDetail[past_types]" is missing from JSON.');
@@ -228,19 +269,20 @@ class PokemonDetail {
         isDefault: mapValueOfType<bool>(json, r'is_default'),
         order: mapValueOfType<int>(json, r'order'),
         weight: mapValueOfType<int>(json, r'weight'),
-        abilities: PokemonDetailAbilitiesInner.listFromJson(json[r'abilities']),
-        pastAbilities: PokemonDetailPastAbilitiesInner.listFromJson(json[r'past_abilities']),
+        abilities: PokemonAbility.listFromJson(json[r'abilities']),
+        pastAbilities: PokemonPastAbility.listFromJson(json[r'past_abilities']),
         forms: PokemonFormSummary.listFromJson(json[r'forms']),
         gameIndices: PokemonGameIndex.listFromJson(json[r'game_indices']),
-        heldItems: PokemonDetailHeldItems.fromJson(json[r'held_items'])!,
+        heldItems: PokemonHeldItemSummary.listFromJson(json[r'held_items']),
         locationAreaEncounters: mapValueOfType<String>(json, r'location_area_encounters')!,
-        moves: PokemonDetailMovesInner.listFromJson(json[r'moves']),
+        moves: PokemonMove.listFromJson(json[r'moves']),
         species: PokemonSpeciesSummary.fromJson(json[r'species'])!,
-        sprites: PokemonDetailSprites.fromJson(json[r'sprites'])!,
-        cries: PokemonDetailCries.fromJson(json[r'cries'])!,
+        sprites: PokemonSprites.fromJson(json[r'sprites'])!,
+        cries: PokemonCries.fromJson(json[r'cries'])!,
         stats: PokemonStat.listFromJson(json[r'stats']),
-        types: PokemonDetailTypesInner.listFromJson(json[r'types']),
-        pastTypes: PokemonDetailPastTypesInner.listFromJson(json[r'past_types']),
+        pastStats: PokemonPastStat.listFromJson(json[r'past_stats']),
+        types: PokemonType.listFromJson(json[r'types']),
+        pastTypes: PokemonPastType.listFromJson(json[r'past_types']),
       );
     }
     return null;
@@ -301,6 +343,7 @@ class PokemonDetail {
     'sprites',
     'cries',
     'stats',
+    'past_stats',
     'types',
     'past_types',
   };

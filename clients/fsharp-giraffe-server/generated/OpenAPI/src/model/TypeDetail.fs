@@ -2,15 +2,15 @@ namespace OpenAPI.Model
 
 open System
 open System.Collections.Generic
-open OpenAPI.Model.AbilityName
 open OpenAPI.Model.GenerationSummary
 open OpenAPI.Model.MoveDamageClassSummary
 open OpenAPI.Model.MoveSummary
-open OpenAPI.Model.TypeDetailDamageRelations
-open OpenAPI.Model.TypeDetailPastDamageRelationsInner
-open OpenAPI.Model.TypeDetailPokemonInner
-open OpenAPI.Model.TypeDetailSpritesValueValue
 open OpenAPI.Model.TypeGameIndex
+open OpenAPI.Model.TypeGameSprite
+open OpenAPI.Model.TypeName
+open OpenAPI.Model.TypePastRelationships
+open OpenAPI.Model.TypePokemon
+open OpenAPI.Model.TypeRelationships
 open System.Collections.Generic
 
 module TypeDetail =
@@ -21,14 +21,14 @@ module TypeDetail =
   type TypeDetail = {
     Id : int;
     Name : string;
-    DamageRelations : TypeDetailDamageRelations;
-    PastDamageRelations : TypeDetailPastDamageRelationsInner[];
+    DamageRelations : TypeRelationships;
+    PastDamageRelations : TypePastRelationships[];
     GameIndices : TypeGameIndex[];
     Generation : GenerationSummary;
     MoveDamageClass : MoveDamageClassSummary;
-    Names : AbilityName[];
-    Pokemon : TypeDetailPokemonInner[];
+    Names : TypeName[];
+    Pokemon : TypePokemon[];
     Moves : MoveSummary[];
-    Sprites : IDictionary<string, IDictionary<string, TypeDetailSpritesValueValue>>;
+    Sprites : IDictionary<string, IDictionary<string, TypeGameSprite>>;
   }
   //#endregion

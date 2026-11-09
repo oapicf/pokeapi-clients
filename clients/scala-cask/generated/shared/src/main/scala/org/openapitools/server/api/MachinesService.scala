@@ -3,9 +3,9 @@
 //> using lib "com.lihaoyi::scalatags:0.12.0"
 /**
  * PokéAPI
- * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+ * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
  *
- * OpenAPI spec version: 2.7.0
+ * OpenAPI spec version: 2.10.0
  *
  * Contact: blah+oapicf@cliffano.com
  *
@@ -37,12 +37,12 @@ object MachinesService {
    * The 'Handler' is an implementation of MachinesService convenient for delegating or overriding individual functions
    */
   case class Handler[F[_]](
-        machineListHandler : (limit : Option[Int], offset : Option[Int], q : Option[String]) => F[PaginatedMachineSummaryList], 
+        machineListHandler : (limit : Option[Int], offset : Option[Int]) => F[PaginatedMachineSummaryList], 
         machineRetrieveHandler : (id : String) => F[MachineDetail]
   ) extends MachinesService[F] {
 
-        override def machineList(limit : Option[Int], offset : Option[Int], q : Option[String]) : F[PaginatedMachineSummaryList] = {
-          machineListHandler(limit, offset, q)
+        override def machineList(limit : Option[Int], offset : Option[Int]) : F[PaginatedMachineSummaryList] = {
+          machineListHandler(limit, offset)
         }
 
         override def machineRetrieve(id : String) : F[MachineDetail] = {
@@ -51,7 +51,7 @@ object MachinesService {
   }
 
   def apply() : MachinesService[Try] = MachinesService.Handler[Try](
-        (_, _, _) => notImplemented("machineList"), 
+        (_, _) => notImplemented("machineList"), 
         (_) => notImplemented("machineRetrieve")
   )
 
@@ -73,13 +73,13 @@ trait MachinesService[F[_]] {
    * 
    * @return PaginatedMachineSummaryList
    */
-  def machineList(limit : Option[Int], offset : Option[Int], q : Option[String]) : F[PaginatedMachineSummaryList]
+  def machineList(limit : Option[Int], offset : Option[Int]) : F[PaginatedMachineSummaryList]
 
   /**
    * override machineList with the given handler
    * @return a new implementation of MachinesService[F] with machineList overridden using the given handler
    */
-  final def onMachineList(handler : (limit : Option[Int], offset : Option[Int], q : Option[String]) => F[PaginatedMachineSummaryList]) : MachinesService[F] = {
+  final def onMachineList(handler : (limit : Option[Int], offset : Option[Int]) => F[PaginatedMachineSummaryList]) : MachinesService[F] = {
     asHandler.copy(machineListHandler = handler)
   }
   /** Get machine
@@ -103,7 +103,7 @@ trait MachinesService[F[_]] {
       case h : MachinesService.Handler[F] => h
       case _ =>
         MachinesService.Handler[F](
-              (limit, offset, q) => machineList(limit, offset, q), 
+              (limit, offset) => machineList(limit, offset), 
               (id) => machineRetrieve(id)
         )
   }
@@ -130,8 +130,8 @@ trait MachinesService[F[_]] {
     val self = this
 
     new MachinesService[G] {
-        override def machineList(limit : Option[Int], offset : Option[Int], q : Option[String]) : G[PaginatedMachineSummaryList] = changeEffect {
-          self.machineList(limit, offset, q)
+        override def machineList(limit : Option[Int], offset : Option[Int]) : G[PaginatedMachineSummaryList] = changeEffect {
+          self.machineList(limit, offset)
         }
         override def machineRetrieve(id : String) : G[MachineDetail] = changeEffect {
           self.machineRetrieve(id)

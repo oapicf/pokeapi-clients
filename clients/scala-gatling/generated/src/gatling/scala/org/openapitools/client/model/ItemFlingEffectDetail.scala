@@ -3,9 +3,13 @@ package org.openapitools.client.model
 
 
 case class ItemFlingEffectDetail (
+    /* The identifier for this resource. */
     _id: Integer,
+    /* The name for this resource. */
     _name: String,
+    /* The result of this fling effect listed in different languages. */
     _effectEntries: List[ItemFlingEffectEffectText],
+    /* A list of items that have this fling effect. */
     _items: List[ItemSummary]
 )
 object ItemFlingEffectDetail {

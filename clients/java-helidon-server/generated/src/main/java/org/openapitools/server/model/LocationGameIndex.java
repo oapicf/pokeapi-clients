@@ -21,8 +21,8 @@ public class LocationGameIndex   {
     /**
      * Create LocationGameIndex.
      *
-     * @param gameIndex gameIndex
-     * @param generation generation
+     * @param gameIndex The internal id of an API resource within game data.
+     * @param generation The generation relevent to this game index.
      */
     public LocationGameIndex(
         Integer gameIndex, 
@@ -35,7 +35,9 @@ public class LocationGameIndex   {
 
 
     /**
-     * Get gameIndex
+     * The internal id of an API resource within game data.
+     * minimum: -2147483648
+     * maximum: 2147483647
      * @return gameIndex
      */
     public Integer getGameIndex() {
@@ -47,7 +49,7 @@ public class LocationGameIndex   {
     }
 
     /**
-     * Get generation
+     * The generation relevent to this game index.
      * @return generation
      */
     public GenerationSummary getGeneration() {

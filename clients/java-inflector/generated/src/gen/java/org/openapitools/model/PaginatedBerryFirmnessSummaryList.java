@@ -9,13 +9,14 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.openapitools.jackson.nullable.JsonNullable;
 import org.openapitools.model.BerryFirmnessSummary;
 
 
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-10-25T05:47:53.227411880Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-11-09T13:49:15.621225368Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PaginatedBerryFirmnessSummaryList   {
   @JsonProperty("count")
   private Integer count;
@@ -27,9 +28,10 @@ public class PaginatedBerryFirmnessSummaryList   {
   private URI previous;
 
   @JsonProperty("results")
-  private List<BerryFirmnessSummary> results = null;
+  private List<BerryFirmnessSummary> results = new ArrayList<>();
 
   /**
+   * The total number of resources available from this API.
    **/
   public PaginatedBerryFirmnessSummaryList count(Integer count) {
     this.count = count;
@@ -37,7 +39,7 @@ public class PaginatedBerryFirmnessSummaryList   {
   }
 
   
-  @ApiModelProperty(example = "123", value = "")
+  @ApiModelProperty(example = "100", required = true, value = "The total number of resources available from this API.")
   @JsonProperty("count")
   public Integer getCount() {
     return count;
@@ -47,6 +49,7 @@ public class PaginatedBerryFirmnessSummaryList   {
   }
 
   /**
+   * The URL for the next page in the list, or null if there is no next page.
    **/
   public PaginatedBerryFirmnessSummaryList next(URI next) {
     this.next = next;
@@ -54,7 +57,7 @@ public class PaginatedBerryFirmnessSummaryList   {
   }
 
   
-  @ApiModelProperty(example = "http://api.example.org/accounts/?offset=400&limit=100", value = "")
+  @ApiModelProperty(example = "https://pokeapi.co/api/v2/berry-firmness/?offset=40&limit=20", value = "The URL for the next page in the list, or null if there is no next page.")
   @JsonProperty("next")
   public URI getNext() {
     return next;
@@ -64,6 +67,7 @@ public class PaginatedBerryFirmnessSummaryList   {
   }
 
   /**
+   * The URL for the previous page in the list, or null if there is no previous page.
    **/
   public PaginatedBerryFirmnessSummaryList previous(URI previous) {
     this.previous = previous;
@@ -71,7 +75,7 @@ public class PaginatedBerryFirmnessSummaryList   {
   }
 
   
-  @ApiModelProperty(example = "http://api.example.org/accounts/?offset=200&limit=100", value = "")
+  @ApiModelProperty(example = "https://pokeapi.co/api/v2/berry-firmness/?offset=0&limit=20", value = "The URL for the previous page in the list, or null if there is no previous page.")
   @JsonProperty("previous")
   public URI getPrevious() {
     return previous;
@@ -81,6 +85,7 @@ public class PaginatedBerryFirmnessSummaryList   {
   }
 
   /**
+   * A list of API resources on this page.
    **/
   public PaginatedBerryFirmnessSummaryList results(List<BerryFirmnessSummary> results) {
     this.results = results;
@@ -88,7 +93,7 @@ public class PaginatedBerryFirmnessSummaryList   {
   }
 
   
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "A list of API resources on this page.")
   @JsonProperty("results")
   public List<BerryFirmnessSummary> getResults() {
     return results;

@@ -10,8 +10,6 @@ namespace models {
 
 AbilityFlavorText::AbilityFlavorText()
 : flavorText("")
-, language(LanguageSummary())
-, versionGroup(VersionGroupSummary())
 {
 }
 // =========================================

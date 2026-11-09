@@ -1,5 +1,5 @@
 const utils = require('../utils/utils');
-const BerryFlavorDetail_berries_inner = require('../models/BerryFlavorDetail_berries_inner');
+const BerryFlavorBerryMap = require('../models/BerryFlavorBerryMap');
 const BerryFlavorName = require('../models/BerryFlavorName');
 const ContestTypeSummary = require('../models/ContestTypeSummary');
 
@@ -9,20 +9,20 @@ module.exports = {
         return [
             {
                 key: `${keyPrefix}id`,
-                label: `[${labelPrefix}id]`,
+                label: `The identifier for this resource. - [${labelPrefix}id]`,
                 required: true,
                 type: 'integer',
             },
             {
                 key: `${keyPrefix}name`,
-                label: `[${labelPrefix}name]`,
+                label: `The name for this resource. - [${labelPrefix}name]`,
                 required: true,
                 type: 'string',
             },
             {
                 key: `${keyPrefix}berries`,
                 label: `[${labelPrefix}berries]`,
-                children: BerryFlavorDetail_berries_inner.fields(`${keyPrefix}berries${!isInput ? '[]' : ''}`, isInput, true), 
+                children: BerryFlavorBerryMap.fields(`${keyPrefix}berries${!isInput ? '[]' : ''}`, isInput, true), 
             },
             ...ContestTypeSummary.fields(`${keyPrefix}contest_type`, isInput),
             {
@@ -37,7 +37,7 @@ module.exports = {
         return {
             'id': bundle.inputData?.[`${keyPrefix}id`],
             'name': bundle.inputData?.[`${keyPrefix}name`],
-            'berries': utils.childMapping(bundle.inputData?.[`${keyPrefix}berries`], `${keyPrefix}berries`, BerryFlavorDetail_berries_inner),
+            'berries': utils.childMapping(bundle.inputData?.[`${keyPrefix}berries`], `${keyPrefix}berries`, BerryFlavorBerryMap),
             'contest_type': utils.removeIfEmpty(ContestTypeSummary.mapping(bundle, `${keyPrefix}contest_type`)),
             'names': utils.childMapping(bundle.inputData?.[`${keyPrefix}names`], `${keyPrefix}names`, BerryFlavorName),
         }

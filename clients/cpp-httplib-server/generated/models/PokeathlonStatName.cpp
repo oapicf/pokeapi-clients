@@ -10,7 +10,6 @@ namespace models {
 
 PokeathlonStatName::PokeathlonStatName()
 : name("")
-, language(LanguageSummary())
 {
 }
 // =========================================

@@ -5,8 +5,7 @@
             [pokéapi.specs.stat-summary :refer :all]
             [pokéapi.specs.berry-flavor-summary :refer :all]
             [pokéapi.specs.berry-flavor-summary :refer :all]
-            [pokéapi.specs.berry-summary :refer :all]
-            [pokéapi.specs.nature-detail-pokeathlon-stat-changes-inner :refer :all]
+            [pokéapi.specs.nature-pokeathlon-stat :refer :all]
             [pokéapi.specs.nature-battle-style-preference :refer :all]
             [pokéapi.specs.nature-name :refer :all]
             )
@@ -21,8 +20,7 @@
    (ds/req :increased_stat) stat-summary-spec
    (ds/req :likes_flavor) berry-flavor-summary-spec
    (ds/req :hates_flavor) berry-flavor-summary-spec
-   (ds/req :berries) (s/coll-of berry-summary-spec)
-   (ds/req :pokeathlon_stat_changes) (s/coll-of nature-detail-pokeathlon-stat-changes-inner-spec)
+   (ds/req :pokeathlon_stat_changes) (s/coll-of nature-pokeathlon-stat-spec)
    (ds/req :move_battle_style_preferences) (s/coll-of nature-battle-style-preference-spec)
    (ds/req :names) (s/coll-of nature-name-spec)
    })

@@ -4,10 +4,9 @@ open System
 open System.Collections.Generic
 open Newtonsoft.Json
 open OpenAPI.Model.BerryFlavorSummary
-open OpenAPI.Model.BerrySummary
 open OpenAPI.Model.NatureBattleStylePreference
-open OpenAPI.Model.NatureDetailPokeathlonStatChangesInner
 open OpenAPI.Model.NatureName
+open OpenAPI.Model.NaturePokeathlonStat
 open OpenAPI.Model.StatSummary
 
 module NatureDetail =
@@ -28,10 +27,8 @@ module NatureDetail =
     LikesFlavor : BerryFlavorSummary;
     [<JsonProperty(PropertyName = "hates_flavor")>]
     HatesFlavor : BerryFlavorSummary;
-    [<JsonProperty(PropertyName = "berries")>]
-    Berries : BerrySummary[];
     [<JsonProperty(PropertyName = "pokeathlon_stat_changes")>]
-    PokeathlonStatChanges : NatureDetailPokeathlonStatChangesInner[];
+    PokeathlonStatChanges : NaturePokeathlonStat[];
     [<JsonProperty(PropertyName = "move_battle_style_preferences")>]
     MoveBattleStylePreferences : NatureBattleStylePreference[];
     [<JsonProperty(PropertyName = "names")>]

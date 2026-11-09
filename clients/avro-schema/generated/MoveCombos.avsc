@@ -1,0 +1,19 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "MoveCombos",
+  "fields": [
+    {
+      "name": "normal",
+      "type": "model.MoveComboUsage",
+      "doc": "A detail of moves this move can be used before or after, granting additional appeal points in contests."
+    },
+    {
+      "name": "super",
+      "type": "model.MoveComboUsage",
+      "doc": "A detail of moves this move can be used before or after, granting additional appeal points in super contests."
+    }
+  ]
+
+}

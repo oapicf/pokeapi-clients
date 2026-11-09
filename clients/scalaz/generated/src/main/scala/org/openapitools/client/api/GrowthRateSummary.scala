@@ -13,8 +13,10 @@ import java.net.URI
 import GrowthRateSummary._
 
 case class GrowthRateSummary (
+  /* The name of the referenced resource. */
   name: String,
-url: URI)
+/* The URL of the referenced resource. */
+  url: URI)
 
 object GrowthRateSummary {
   import DateTimeCodecs._

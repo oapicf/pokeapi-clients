@@ -4,32 +4,33 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int32** |  | [readonly] 
-**Name** | **string** |  | 
-**BaseExperience** | Pointer to **NullableInt32** |  | [optional] 
-**Height** | Pointer to **NullableInt32** |  | [optional] 
-**IsDefault** | Pointer to **bool** |  | [optional] 
-**Order** | Pointer to **NullableInt32** |  | [optional] 
-**Weight** | Pointer to **NullableInt32** |  | [optional] 
-**Abilities** | [**[]PokemonDetailAbilitiesInner**](PokemonDetailAbilitiesInner.md) |  | [readonly] 
-**PastAbilities** | [**[]PokemonDetailPastAbilitiesInner**](PokemonDetailPastAbilitiesInner.md) |  | [readonly] 
-**Forms** | [**[]PokemonFormSummary**](PokemonFormSummary.md) |  | [readonly] 
-**GameIndices** | [**[]PokemonGameIndex**](PokemonGameIndex.md) |  | [readonly] 
-**HeldItems** | [**PokemonDetailHeldItems**](PokemonDetailHeldItems.md) |  | 
-**LocationAreaEncounters** | **string** |  | [readonly] 
-**Moves** | [**[]PokemonDetailMovesInner**](PokemonDetailMovesInner.md) |  | [readonly] 
-**Species** | [**PokemonSpeciesSummary**](PokemonSpeciesSummary.md) |  | 
-**Sprites** | [**PokemonDetailSprites**](PokemonDetailSprites.md) |  | 
-**Cries** | [**PokemonDetailCries**](PokemonDetailCries.md) |  | 
-**Stats** | [**[]PokemonStat**](PokemonStat.md) |  | [readonly] 
-**Types** | [**[]PokemonDetailTypesInner**](PokemonDetailTypesInner.md) |  | [readonly] 
-**PastTypes** | [**[]PokemonDetailPastTypesInner**](PokemonDetailPastTypesInner.md) |  | [readonly] 
+**Id** | **int32** | The identifier for this resource. | [readonly] 
+**Name** | **string** | The name for this resource. | 
+**BaseExperience** | Pointer to **NullableInt32** | The base experience gained for defeating this Pokémon. | [optional] 
+**Height** | Pointer to **NullableInt32** | The height of this Pokémon in decimetres. | [optional] 
+**IsDefault** | Pointer to **bool** | Set for exactly one Pokémon used as the default for each species. | [optional] 
+**Order** | Pointer to **NullableInt32** | Order for sorting. Almost national order, except families are grouped together. | [optional] 
+**Weight** | Pointer to **NullableInt32** | The weight of this Pokémon in hectograms. | [optional] 
+**Abilities** | [**[]PokemonAbility**](PokemonAbility.md) | A list of abilities this Pokémon could potentially have. | [readonly] 
+**PastAbilities** | [**[]PokemonPastAbility**](PokemonPastAbility.md) | A list of details showing abilities this pokémon had in previous generations | [readonly] 
+**Forms** | [**[]PokemonFormSummary**](PokemonFormSummary.md) | A list of forms this Pokémon can take on. | [readonly] 
+**GameIndices** | [**[]PokemonGameIndex**](PokemonGameIndex.md) | A list of game indices relevent to Pokémon item by generation. | [readonly] 
+**HeldItems** | [**[]PokemonHeldItemSummary**](PokemonHeldItemSummary.md) | A list of items this Pokémon may be holding when encountered. | [readonly] 
+**LocationAreaEncounters** | **string** | A link to a list of location areas, as well as encounter details pertaining to specific versions. | [readonly] 
+**Moves** | [**[]PokemonMove**](PokemonMove.md) | A list of moves along with learn methods and level details pertaining to specific version groups. | [readonly] 
+**Species** | [**PokemonSpeciesSummary**](PokemonSpeciesSummary.md) | The species this Pokémon belongs to. | 
+**Sprites** | [**PokemonSprites**](PokemonSprites.md) | A set of sprites used to depict this Pokémon in the game. A visual representation of the various sprites can be found at &lt;a href&#x3D;&#39;https://github.com/PokeAPI/sprites#sprites&#39;&gt;PokeAPI/sprites&lt;/a&gt; | [readonly] 
+**Cries** | [**PokemonCries**](PokemonCries.md) | A set of cries used to depict this Pokémon in the game. A visual representation of the various cries can be found at &lt;a href&#x3D;&#39;https://github.com/PokeAPI/cries#cries&#39;&gt;PokeAPI/cries&lt;/a&gt; | [readonly] 
+**Stats** | [**[]PokemonStat**](PokemonStat.md) | A list of base stat values for this Pokémon. | [readonly] 
+**PastStats** | [**[]PokemonPastStat**](PokemonPastStat.md) | A list of details showing stats this pokémon had in previous generations | [readonly] 
+**Types** | [**[]PokemonType**](PokemonType.md) | A list of details showing types this Pokémon has. | [readonly] 
+**PastTypes** | [**[]PokemonPastType**](PokemonPastType.md) | A list of details showing types this pokémon had in previous generations | [readonly] 
 
 ## Methods
 
 ### NewPokemonDetail
 
-`func NewPokemonDetail(id int32, name string, abilities []PokemonDetailAbilitiesInner, pastAbilities []PokemonDetailPastAbilitiesInner, forms []PokemonFormSummary, gameIndices []PokemonGameIndex, heldItems PokemonDetailHeldItems, locationAreaEncounters string, moves []PokemonDetailMovesInner, species PokemonSpeciesSummary, sprites PokemonDetailSprites, cries PokemonDetailCries, stats []PokemonStat, types []PokemonDetailTypesInner, pastTypes []PokemonDetailPastTypesInner, ) *PokemonDetail`
+`func NewPokemonDetail(id int32, name string, abilities []PokemonAbility, pastAbilities []PokemonPastAbility, forms []PokemonFormSummary, gameIndices []PokemonGameIndex, heldItems []PokemonHeldItemSummary, locationAreaEncounters string, moves []PokemonMove, species PokemonSpeciesSummary, sprites PokemonSprites, cries PokemonCries, stats []PokemonStat, pastStats []PokemonPastStat, types []PokemonType, pastTypes []PokemonPastType, ) *PokemonDetail`
 
 NewPokemonDetail instantiates a new PokemonDetail object
 This constructor will assign default values to properties that have it defined,
@@ -251,40 +252,40 @@ HasWeight returns a boolean if a field has been set.
 UnsetWeight ensures that no value is present for Weight, not even an explicit nil
 ### GetAbilities
 
-`func (o *PokemonDetail) GetAbilities() []PokemonDetailAbilitiesInner`
+`func (o *PokemonDetail) GetAbilities() []PokemonAbility`
 
 GetAbilities returns the Abilities field if non-nil, zero value otherwise.
 
 ### GetAbilitiesOk
 
-`func (o *PokemonDetail) GetAbilitiesOk() (*[]PokemonDetailAbilitiesInner, bool)`
+`func (o *PokemonDetail) GetAbilitiesOk() (*[]PokemonAbility, bool)`
 
 GetAbilitiesOk returns a tuple with the Abilities field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAbilities
 
-`func (o *PokemonDetail) SetAbilities(v []PokemonDetailAbilitiesInner)`
+`func (o *PokemonDetail) SetAbilities(v []PokemonAbility)`
 
 SetAbilities sets Abilities field to given value.
 
 
 ### GetPastAbilities
 
-`func (o *PokemonDetail) GetPastAbilities() []PokemonDetailPastAbilitiesInner`
+`func (o *PokemonDetail) GetPastAbilities() []PokemonPastAbility`
 
 GetPastAbilities returns the PastAbilities field if non-nil, zero value otherwise.
 
 ### GetPastAbilitiesOk
 
-`func (o *PokemonDetail) GetPastAbilitiesOk() (*[]PokemonDetailPastAbilitiesInner, bool)`
+`func (o *PokemonDetail) GetPastAbilitiesOk() (*[]PokemonPastAbility, bool)`
 
 GetPastAbilitiesOk returns a tuple with the PastAbilities field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPastAbilities
 
-`func (o *PokemonDetail) SetPastAbilities(v []PokemonDetailPastAbilitiesInner)`
+`func (o *PokemonDetail) SetPastAbilities(v []PokemonPastAbility)`
 
 SetPastAbilities sets PastAbilities field to given value.
 
@@ -331,20 +332,20 @@ SetGameIndices sets GameIndices field to given value.
 
 ### GetHeldItems
 
-`func (o *PokemonDetail) GetHeldItems() PokemonDetailHeldItems`
+`func (o *PokemonDetail) GetHeldItems() []PokemonHeldItemSummary`
 
 GetHeldItems returns the HeldItems field if non-nil, zero value otherwise.
 
 ### GetHeldItemsOk
 
-`func (o *PokemonDetail) GetHeldItemsOk() (*PokemonDetailHeldItems, bool)`
+`func (o *PokemonDetail) GetHeldItemsOk() (*[]PokemonHeldItemSummary, bool)`
 
 GetHeldItemsOk returns a tuple with the HeldItems field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetHeldItems
 
-`func (o *PokemonDetail) SetHeldItems(v PokemonDetailHeldItems)`
+`func (o *PokemonDetail) SetHeldItems(v []PokemonHeldItemSummary)`
 
 SetHeldItems sets HeldItems field to given value.
 
@@ -371,20 +372,20 @@ SetLocationAreaEncounters sets LocationAreaEncounters field to given value.
 
 ### GetMoves
 
-`func (o *PokemonDetail) GetMoves() []PokemonDetailMovesInner`
+`func (o *PokemonDetail) GetMoves() []PokemonMove`
 
 GetMoves returns the Moves field if non-nil, zero value otherwise.
 
 ### GetMovesOk
 
-`func (o *PokemonDetail) GetMovesOk() (*[]PokemonDetailMovesInner, bool)`
+`func (o *PokemonDetail) GetMovesOk() (*[]PokemonMove, bool)`
 
 GetMovesOk returns a tuple with the Moves field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMoves
 
-`func (o *PokemonDetail) SetMoves(v []PokemonDetailMovesInner)`
+`func (o *PokemonDetail) SetMoves(v []PokemonMove)`
 
 SetMoves sets Moves field to given value.
 
@@ -411,40 +412,40 @@ SetSpecies sets Species field to given value.
 
 ### GetSprites
 
-`func (o *PokemonDetail) GetSprites() PokemonDetailSprites`
+`func (o *PokemonDetail) GetSprites() PokemonSprites`
 
 GetSprites returns the Sprites field if non-nil, zero value otherwise.
 
 ### GetSpritesOk
 
-`func (o *PokemonDetail) GetSpritesOk() (*PokemonDetailSprites, bool)`
+`func (o *PokemonDetail) GetSpritesOk() (*PokemonSprites, bool)`
 
 GetSpritesOk returns a tuple with the Sprites field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSprites
 
-`func (o *PokemonDetail) SetSprites(v PokemonDetailSprites)`
+`func (o *PokemonDetail) SetSprites(v PokemonSprites)`
 
 SetSprites sets Sprites field to given value.
 
 
 ### GetCries
 
-`func (o *PokemonDetail) GetCries() PokemonDetailCries`
+`func (o *PokemonDetail) GetCries() PokemonCries`
 
 GetCries returns the Cries field if non-nil, zero value otherwise.
 
 ### GetCriesOk
 
-`func (o *PokemonDetail) GetCriesOk() (*PokemonDetailCries, bool)`
+`func (o *PokemonDetail) GetCriesOk() (*PokemonCries, bool)`
 
 GetCriesOk returns a tuple with the Cries field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCries
 
-`func (o *PokemonDetail) SetCries(v PokemonDetailCries)`
+`func (o *PokemonDetail) SetCries(v PokemonCries)`
 
 SetCries sets Cries field to given value.
 
@@ -469,42 +470,62 @@ and a boolean to check if the value has been set.
 SetStats sets Stats field to given value.
 
 
+### GetPastStats
+
+`func (o *PokemonDetail) GetPastStats() []PokemonPastStat`
+
+GetPastStats returns the PastStats field if non-nil, zero value otherwise.
+
+### GetPastStatsOk
+
+`func (o *PokemonDetail) GetPastStatsOk() (*[]PokemonPastStat, bool)`
+
+GetPastStatsOk returns a tuple with the PastStats field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPastStats
+
+`func (o *PokemonDetail) SetPastStats(v []PokemonPastStat)`
+
+SetPastStats sets PastStats field to given value.
+
+
 ### GetTypes
 
-`func (o *PokemonDetail) GetTypes() []PokemonDetailTypesInner`
+`func (o *PokemonDetail) GetTypes() []PokemonType`
 
 GetTypes returns the Types field if non-nil, zero value otherwise.
 
 ### GetTypesOk
 
-`func (o *PokemonDetail) GetTypesOk() (*[]PokemonDetailTypesInner, bool)`
+`func (o *PokemonDetail) GetTypesOk() (*[]PokemonType, bool)`
 
 GetTypesOk returns a tuple with the Types field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTypes
 
-`func (o *PokemonDetail) SetTypes(v []PokemonDetailTypesInner)`
+`func (o *PokemonDetail) SetTypes(v []PokemonType)`
 
 SetTypes sets Types field to given value.
 
 
 ### GetPastTypes
 
-`func (o *PokemonDetail) GetPastTypes() []PokemonDetailPastTypesInner`
+`func (o *PokemonDetail) GetPastTypes() []PokemonPastType`
 
 GetPastTypes returns the PastTypes field if non-nil, zero value otherwise.
 
 ### GetPastTypesOk
 
-`func (o *PokemonDetail) GetPastTypesOk() (*[]PokemonDetailPastTypesInner, bool)`
+`func (o *PokemonDetail) GetPastTypesOk() (*[]PokemonPastType, bool)`
 
 GetPastTypesOk returns a tuple with the PastTypes field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPastTypes
 
-`func (o *PokemonDetail) SetPastTypes(v []PokemonDetailPastTypesInner)`
+`func (o *PokemonDetail) SetPastTypes(v []PokemonPastType)`
 
 SetPastTypes sets PastTypes field to given value.
 

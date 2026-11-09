@@ -32,24 +32,28 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param id 
- * @param appeal 
- * @param flavorTextEntries 
- * @param moves 
+ * @param id The identifier for this resource.
+ * @param appeal The level of appeal this super contest effect has.
+ * @param flavorTextEntries The flavor text of this super contest effect listed in different languages.
+ * @param moves A list of moves that have the effect when used in super contests.
  */
 
 
 data class SuperContestEffectDetail (
 
+    /* The identifier for this resource. */
     @Json(name = "id")
     val id: kotlin.Int,
 
+    /* The level of appeal this super contest effect has. */
     @Json(name = "appeal")
     val appeal: kotlin.Int,
 
+    /* The flavor text of this super contest effect listed in different languages. */
     @Json(name = "flavor_text_entries")
     val flavorTextEntries: kotlin.collections.List<SuperContestEffectFlavorText>,
 
+    /* A list of moves that have the effect when used in super contests. */
     @Json(name = "moves")
     val moves: kotlin.collections.List<MoveSummary>
 

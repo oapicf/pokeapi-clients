@@ -8,10 +8,10 @@
 
 (def paginated-pokedex-summary-list-data
   {
-   (ds/opt :count) int?
+   (ds/req :count) int?
    (ds/opt :next) string?
    (ds/opt :previous) string?
-   (ds/opt :results) (s/coll-of pokedex-summary-spec)
+   (ds/req :results) (s/coll-of pokedex-summary-spec)
    })
 
 (def paginated-pokedex-summary-list-spec

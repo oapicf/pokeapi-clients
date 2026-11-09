@@ -11,10 +11,9 @@ import com.github.tomakehurst.wiremock.http.Fault;
 
 public class MachinesApiMockServer {
 
-    public static MappingBuilder stubMachineList200(@javax.annotation.Nullable String limit, @javax.annotation.Nullable String offset, @javax.annotation.Nullable String q, String response) {
+    public static MappingBuilder stubMachineList200(@javax.annotation.Nullable String limit, @javax.annotation.Nullable String offset, String response) {
         MappingBuilder stub = get(urlPathEqualTo("/api/v2/machine/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withStatus(200)
                 .withHeader("Content-Type", "application/json")
@@ -27,17 +26,13 @@ public class MachinesApiMockServer {
         if(offset != null) {
             stub = stub.withQueryParam("offset", equalTo(offset));
         }
-        if(q != null) {
-            stub = stub.withQueryParam("q", equalTo(q));
-        }
 
         return stub;
     }
 
-    public static MappingBuilder stubMachineListFault(@javax.annotation.Nullable String limit, @javax.annotation.Nullable String offset, @javax.annotation.Nullable String q, Fault fault) {
+    public static MappingBuilder stubMachineListFault(@javax.annotation.Nullable String limit, @javax.annotation.Nullable String offset, Fault fault) {
         MappingBuilder stub = get(urlPathEqualTo("/api/v2/machine/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withFault(fault)
             );
@@ -48,15 +43,12 @@ public class MachinesApiMockServer {
         if(offset != null) {
             stub = stub.withQueryParam("offset", equalTo(offset));
         }
-        if(q != null) {
-            stub = stub.withQueryParam("q", equalTo(q));
-        }
 
         return stub;
     }
 
     public static String machineList200ResponseSample1() {
-        return "{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"url\" : \"https://openapi-generator.tech\" }, { \"url\" : \"https://openapi-generator.tech\" } ] }";
+        return "{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/machine/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/machine/?offset=0&limit=20\", \"results\" : [ { \"url\" : \"https://openapi-generator.tech\" }, { \"url\" : \"https://openapi-generator.tech\" } ] }";
     }
 
 
@@ -64,7 +56,6 @@ public class MachinesApiMockServer {
     public static MappingBuilder stubMachineRetrieve200(@javax.annotation.Nonnull String id, String response) {
         MappingBuilder stub = get(urlPathTemplate("/api/v2/machine/{id}/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withStatus(200)
                 .withHeader("Content-Type", "application/json")
@@ -79,7 +70,6 @@ public class MachinesApiMockServer {
     public static MappingBuilder stubMachineRetrieveFault(@javax.annotation.Nonnull String id, Fault fault) {
         MappingBuilder stub = get(urlPathTemplate("/api/v2/machine/{id}/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withFault(fault)
             );
@@ -90,7 +80,7 @@ public class MachinesApiMockServer {
     }
 
     public static String machineRetrieve200ResponseSample1() {
-        return "{ \"id\" : 0, \"item\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"move\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }";
+        return "{ \"id\" : 0, \"item\" : \"\", \"version_group\" : \"\", \"move\" : \"\" }";
     }
 
 

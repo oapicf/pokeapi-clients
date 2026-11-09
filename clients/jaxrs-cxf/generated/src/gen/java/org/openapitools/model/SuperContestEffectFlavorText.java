@@ -11,17 +11,23 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class SuperContestEffectFlavorText  {
   
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The localized flavor text for an API resource in a specific language.
+  */
+  @ApiModelProperty(required = true, value = "The localized flavor text for an API resource in a specific language.")
 
   private String flavorText;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The language this name is in.
+  */
+  @ApiModelProperty(required = true, value = "The language this name is in.")
 
   @Valid
 
   private LanguageSummary language;
  /**
-   * Get flavorText
+   * The localized flavor text for an API resource in a specific language.
    * @return flavorText
   **/
   @JsonProperty("flavor_text")
@@ -40,7 +46,7 @@ public class SuperContestEffectFlavorText  {
   }
 
  /**
-   * Get language
+   * The language this name is in.
    * @return language
   **/
   @JsonProperty("language")

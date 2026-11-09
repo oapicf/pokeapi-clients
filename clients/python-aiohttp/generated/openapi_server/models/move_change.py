@@ -5,7 +5,7 @@ from datetime import date, datetime
 from typing import List, Dict, Type
 
 from openapi_server.models.base_model import Model
-from openapi_server.models.move_change_effect_entries_inner import MoveChangeEffectEntriesInner
+from openapi_server.models.move_effect_effect_text import MoveEffectEffectText
 from openapi_server.models.type_summary import TypeSummary
 from openapi_server.models.version_group_summary import VersionGroupSummary
 from openapi_server import util
@@ -17,7 +17,7 @@ class MoveChange(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, accuracy: int=None, power: int=None, pp: int=None, effect_chance: int=None, effect_entries: List[MoveChangeEffectEntriesInner]=None, type: TypeSummary=None, version_group: VersionGroupSummary=None):
+    def __init__(self, accuracy: int=None, power: int=None, pp: int=None, effect_chance: int=None, effect_entries: List[MoveEffectEffectText]=None, type: TypeSummary=None, version_group: VersionGroupSummary=None):
         """MoveChange - a model defined in OpenAPI
 
         :param accuracy: The accuracy of this MoveChange.
@@ -33,7 +33,7 @@ class MoveChange(Model):
             'power': int,
             'pp': int,
             'effect_chance': int,
-            'effect_entries': List[MoveChangeEffectEntriesInner],
+            'effect_entries': List[MoveEffectEffectText],
             'type': TypeSummary,
             'version_group': VersionGroupSummary
         }
@@ -69,6 +69,7 @@ class MoveChange(Model):
     def accuracy(self):
         """Gets the accuracy of this MoveChange.
 
+        The percent value of how likely this move is to be successful.
 
         :return: The accuracy of this MoveChange.
         :rtype: int
@@ -79,10 +80,15 @@ class MoveChange(Model):
     def accuracy(self, accuracy):
         """Sets the accuracy of this MoveChange.
 
+        The percent value of how likely this move is to be successful.
 
         :param accuracy: The accuracy of this MoveChange.
         :type accuracy: int
         """
+        if accuracy is not None and accuracy > 2147483647:
+            raise ValueError("Invalid value for `accuracy`, must be a value less than or equal to `2147483647`")
+        if accuracy is not None and accuracy < -2147483648:
+            raise ValueError("Invalid value for `accuracy`, must be a value greater than or equal to `-2147483648`")
 
         self._accuracy = accuracy
 
@@ -90,6 +96,7 @@ class MoveChange(Model):
     def power(self):
         """Gets the power of this MoveChange.
 
+        The base power before the listed version group, or null if power did not change.
 
         :return: The power of this MoveChange.
         :rtype: int
@@ -100,10 +107,15 @@ class MoveChange(Model):
     def power(self, power):
         """Sets the power of this MoveChange.
 
+        The base power before the listed version group, or null if power did not change.
 
         :param power: The power of this MoveChange.
         :type power: int
         """
+        if power is not None and power > 2147483647:
+            raise ValueError("Invalid value for `power`, must be a value less than or equal to `2147483647`")
+        if power is not None and power < -2147483648:
+            raise ValueError("Invalid value for `power`, must be a value greater than or equal to `-2147483648`")
 
         self._power = power
 
@@ -111,6 +123,7 @@ class MoveChange(Model):
     def pp(self):
         """Gets the pp of this MoveChange.
 
+        Power points. The number of times this move can be used.
 
         :return: The pp of this MoveChange.
         :rtype: int
@@ -121,10 +134,15 @@ class MoveChange(Model):
     def pp(self, pp):
         """Sets the pp of this MoveChange.
 
+        Power points. The number of times this move can be used.
 
         :param pp: The pp of this MoveChange.
         :type pp: int
         """
+        if pp is not None and pp > 2147483647:
+            raise ValueError("Invalid value for `pp`, must be a value less than or equal to `2147483647`")
+        if pp is not None and pp < -2147483648:
+            raise ValueError("Invalid value for `pp`, must be a value greater than or equal to `-2147483648`")
 
         self._pp = pp
 
@@ -132,6 +150,7 @@ class MoveChange(Model):
     def effect_chance(self):
         """Gets the effect_chance of this MoveChange.
 
+        The percent value of how likely it is this moves effect will take effect.
 
         :return: The effect_chance of this MoveChange.
         :rtype: int
@@ -142,6 +161,7 @@ class MoveChange(Model):
     def effect_chance(self, effect_chance):
         """Sets the effect_chance of this MoveChange.
 
+        The percent value of how likely it is this moves effect will take effect.
 
         :param effect_chance: The effect_chance of this MoveChange.
         :type effect_chance: int
@@ -155,9 +175,10 @@ class MoveChange(Model):
     def effect_entries(self):
         """Gets the effect_entries of this MoveChange.
 
+        The effect of this move listed in different languages.
 
         :return: The effect_entries of this MoveChange.
-        :rtype: List[MoveChangeEffectEntriesInner]
+        :rtype: List[MoveEffectEffectText]
         """
         return self._effect_entries
 
@@ -165,9 +186,10 @@ class MoveChange(Model):
     def effect_entries(self, effect_entries):
         """Sets the effect_entries of this MoveChange.
 
+        The effect of this move listed in different languages.
 
         :param effect_entries: The effect_entries of this MoveChange.
-        :type effect_entries: List[MoveChangeEffectEntriesInner]
+        :type effect_entries: List[MoveEffectEffectText]
         """
         if effect_entries is None:
             raise ValueError("Invalid value for `effect_entries`, must not be `None`")
@@ -178,6 +200,7 @@ class MoveChange(Model):
     def type(self):
         """Gets the type of this MoveChange.
 
+        The elemental type of this move.
 
         :return: The type of this MoveChange.
         :rtype: TypeSummary
@@ -188,6 +211,7 @@ class MoveChange(Model):
     def type(self, type):
         """Sets the type of this MoveChange.
 
+        The elemental type of this move.
 
         :param type: The type of this MoveChange.
         :type type: TypeSummary
@@ -201,6 +225,7 @@ class MoveChange(Model):
     def version_group(self):
         """Gets the version_group of this MoveChange.
 
+        The version group in which these move stat values were in effect.
 
         :return: The version_group of this MoveChange.
         :rtype: VersionGroupSummary
@@ -211,6 +236,7 @@ class MoveChange(Model):
     def version_group(self, version_group):
         """Sets the version_group of this MoveChange.
 
+        The version group in which these move stat values were in effect.
 
         :param version_group: The version_group of this MoveChange.
         :type version_group: VersionGroupSummary

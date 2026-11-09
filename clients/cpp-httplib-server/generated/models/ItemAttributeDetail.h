@@ -11,8 +11,8 @@
 #include <string>
 #include <vector>
 #include "ItemAttributeDescription.h"
-#include "ItemAttributeDetailItemsInner.h"
 #include "ItemAttributeName.h"
+#include "ItemSummary.h"
 
 
 
@@ -33,8 +33,8 @@ public:
     void setName(const std::string& name);
     [[nodiscard]] std::vector<ItemAttributeDescription> getDescriptions() const;
     void setDescriptions(const std::vector<ItemAttributeDescription>& descriptions);
-    [[nodiscard]] std::vector<ItemAttributeDetail_items_inner> getItems() const;
-    void setItems(const std::vector<ItemAttributeDetail_items_inner>& items);
+    [[nodiscard]] std::vector<ItemSummary> getItems() const;
+    void setItems(const std::vector<ItemSummary>& items);
     [[nodiscard]] std::vector<ItemAttributeName> getNames() const;
     void setNames(const std::vector<ItemAttributeName>& names);
 
@@ -47,7 +47,7 @@ private:
     int id;
     std::string name;
     std::vector<ItemAttributeDescription> descriptions;
-    std::vector<ItemAttributeDetail_items_inner> items;
+    std::vector<ItemSummary> items;
     std::vector<ItemAttributeName> names;
 };
 

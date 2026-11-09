@@ -3,8 +3,8 @@ package org.openapitools.server.model;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.server.model.PokemonShapeDetailAwesomeNamesInner;
-import org.openapitools.server.model.PokemonShapeDetailNamesInner;
+import org.openapitools.server.model.PokemonShapeAwesomeName;
+import org.openapitools.server.model.PokemonShapeName;
 import org.openapitools.server.model.PokemonSpeciesSummary;
 import jakarta.validation.constraints.*;
 import jakarta.validation.Valid;
@@ -15,8 +15,8 @@ public class PokemonShapeDetail   {
 
     private Integer id;
     private String name;
-    private List<@Valid PokemonShapeDetailAwesomeNamesInner> awesomeNames = new ArrayList<>();
-    private List<@Valid PokemonShapeDetailNamesInner> names = new ArrayList<>();
+    private List<@Valid PokemonShapeAwesomeName> awesomeNames = new ArrayList<>();
+    private List<@Valid PokemonShapeName> names = new ArrayList<>();
     private List<@Valid PokemonSpeciesSummary> pokemonSpecies = new ArrayList<>();
 
     /**
@@ -29,17 +29,17 @@ public class PokemonShapeDetail   {
     /**
      * Create PokemonShapeDetail.
      *
-     * @param id id
-     * @param name name
-     * @param awesomeNames awesomeNames
-     * @param names names
-     * @param pokemonSpecies pokemonSpecies
+     * @param id The identifier for this resource.
+     * @param name The name for this resource.
+     * @param awesomeNames The \&quot;scientific\&quot; name of this Pokémon shape listed in different languages.
+     * @param names The name of this resource listed in different languages.
+     * @param pokemonSpecies A list of the Pokémon species that have this shape.
      */
     public PokemonShapeDetail(
         Integer id, 
         String name, 
-        List<@Valid PokemonShapeDetailAwesomeNamesInner> awesomeNames, 
-        List<@Valid PokemonShapeDetailNamesInner> names, 
+        List<@Valid PokemonShapeAwesomeName> awesomeNames, 
+        List<@Valid PokemonShapeName> names, 
         List<@Valid PokemonSpeciesSummary> pokemonSpecies
     ) {
         this.id = id;
@@ -52,7 +52,7 @@ public class PokemonShapeDetail   {
 
 
     /**
-     * Get id
+     * The identifier for this resource.
      * @return id
      */
     public Integer getId() {
@@ -64,7 +64,7 @@ public class PokemonShapeDetail   {
     }
 
     /**
-     * Get name
+     * The name for this resource.
      * @return name
      */
     public String getName() {
@@ -76,31 +76,31 @@ public class PokemonShapeDetail   {
     }
 
     /**
-     * Get awesomeNames
+     * The \"scientific\" name of this Pokémon shape listed in different languages.
      * @return awesomeNames
      */
-    public List<@Valid PokemonShapeDetailAwesomeNamesInner> getAwesomeNames() {
+    public List<@Valid PokemonShapeAwesomeName> getAwesomeNames() {
         return awesomeNames;
     }
 
-    public void setAwesomeNames(List<@Valid PokemonShapeDetailAwesomeNamesInner> awesomeNames) {
+    public void setAwesomeNames(List<@Valid PokemonShapeAwesomeName> awesomeNames) {
         this.awesomeNames = awesomeNames;
     }
 
     /**
-     * Get names
+     * The name of this resource listed in different languages.
      * @return names
      */
-    public List<@Valid PokemonShapeDetailNamesInner> getNames() {
+    public List<@Valid PokemonShapeName> getNames() {
         return names;
     }
 
-    public void setNames(List<@Valid PokemonShapeDetailNamesInner> names) {
+    public void setNames(List<@Valid PokemonShapeName> names) {
         this.names = names;
     }
 
     /**
-     * Get pokemonSpecies
+     * A list of the Pokémon species that have this shape.
      * @return pokemonSpecies
      */
     public List<@Valid PokemonSpeciesSummary> getPokemonSpecies() {

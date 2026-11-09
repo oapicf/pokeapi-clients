@@ -3,17 +3,49 @@ from typing import Dict
 from typing import Tuple
 from typing import Union
 
+from openapi_server.models.currency_detail import CurrencyDetail  # noqa: E501
 from openapi_server.models.item_attribute_detail import ItemAttributeDetail  # noqa: E501
 from openapi_server.models.item_category_detail import ItemCategoryDetail  # noqa: E501
 from openapi_server.models.item_detail import ItemDetail  # noqa: E501
 from openapi_server.models.item_fling_effect_detail import ItemFlingEffectDetail  # noqa: E501
 from openapi_server.models.item_pocket_detail import ItemPocketDetail  # noqa: E501
+from openapi_server.models.paginated_currency_summary_list import PaginatedCurrencySummaryList  # noqa: E501
 from openapi_server.models.paginated_item_attribute_summary_list import PaginatedItemAttributeSummaryList  # noqa: E501
 from openapi_server.models.paginated_item_category_summary_list import PaginatedItemCategorySummaryList  # noqa: E501
 from openapi_server.models.paginated_item_fling_effect_summary_list import PaginatedItemFlingEffectSummaryList  # noqa: E501
 from openapi_server.models.paginated_item_pocket_summary_list import PaginatedItemPocketSummaryList  # noqa: E501
 from openapi_server.models.paginated_item_summary_list import PaginatedItemSummaryList  # noqa: E501
 from openapi_server import util
+
+
+def currency_list(limit=None, offset=None, q=None):  # noqa: E501
+    """List currencies
+
+    Currencies used to buy items. # noqa: E501
+
+    :param limit: Number of results to return per page.
+    :type limit: int
+    :param offset: The initial index from which to return the results.
+    :type offset: int
+    :param q: &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. 
+    :type q: str
+
+    :rtype: Union[PaginatedCurrencySummaryList, Tuple[PaginatedCurrencySummaryList, int], Tuple[PaginatedCurrencySummaryList, int, Dict[str, str]]
+    """
+    return 'do some magic!'
+
+
+def currency_retrieve(id):  # noqa: E501
+    """Get currency
+
+    Currencies used to buy items. # noqa: E501
+
+    :param id: This parameter can be a string or an integer.
+    :type id: str
+
+    :rtype: Union[CurrencyDetail, Tuple[CurrencyDetail, int], Tuple[CurrencyDetail, int, Dict[str, str]]
+    """
+    return 'do some magic!'
 
 
 def item_attribute_list(limit=None, offset=None, q=None):  # noqa: E501

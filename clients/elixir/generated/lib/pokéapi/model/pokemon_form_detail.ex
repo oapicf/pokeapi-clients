@@ -21,7 +21,9 @@ defmodule PokéAPI.Model.PokemonFormDetail do
     :version_group,
     :form_names,
     :names,
-    :types
+    :types,
+    :trigger_conditions,
+    :flavor_text_entries
   ]
 
   @type t :: %__MODULE__{
@@ -34,11 +36,13 @@ defmodule PokéAPI.Model.PokemonFormDetail do
     :is_mega => boolean() | nil,
     :form_name => String.t,
     :pokemon => PokéAPI.Model.PokemonSummary.t,
-    :sprites => PokéAPI.Model.PokemonFormDetailSprites.t,
+    :sprites => PokéAPI.Model.PokemonFormSprites.t,
     :version_group => PokéAPI.Model.VersionGroupSummary.t,
-    :form_names => [PokéAPI.Model.PokemonFormDetailFormNamesInner.t],
-    :names => [PokéAPI.Model.PokemonFormDetailFormNamesInner.t],
-    :types => [PokéAPI.Model.PokemonDetailTypesInner.t]
+    :form_names => [PokéAPI.Model.PokemonFormName.t],
+    :names => [PokéAPI.Model.PokemonFormName.t],
+    :types => [PokéAPI.Model.PokemonFormType.t],
+    :trigger_conditions => [PokéAPI.Model.PokemonFormTriggerCondition.t],
+    :flavor_text_entries => [PokéAPI.Model.PokemonFormFlavorText.t]
   }
 
   alias PokéAPI.Deserializer
@@ -46,11 +50,13 @@ defmodule PokéAPI.Model.PokemonFormDetail do
   def decode(value) do
     value
      |> Deserializer.deserialize(:pokemon, :struct, PokéAPI.Model.PokemonSummary)
-     |> Deserializer.deserialize(:sprites, :struct, PokéAPI.Model.PokemonFormDetailSprites)
+     |> Deserializer.deserialize(:sprites, :struct, PokéAPI.Model.PokemonFormSprites)
      |> Deserializer.deserialize(:version_group, :struct, PokéAPI.Model.VersionGroupSummary)
-     |> Deserializer.deserialize(:form_names, :list, PokéAPI.Model.PokemonFormDetailFormNamesInner)
-     |> Deserializer.deserialize(:names, :list, PokéAPI.Model.PokemonFormDetailFormNamesInner)
-     |> Deserializer.deserialize(:types, :list, PokéAPI.Model.PokemonDetailTypesInner)
+     |> Deserializer.deserialize(:form_names, :list, PokéAPI.Model.PokemonFormName)
+     |> Deserializer.deserialize(:names, :list, PokéAPI.Model.PokemonFormName)
+     |> Deserializer.deserialize(:types, :list, PokéAPI.Model.PokemonFormType)
+     |> Deserializer.deserialize(:trigger_conditions, :list, PokéAPI.Model.PokemonFormTriggerCondition)
+     |> Deserializer.deserialize(:flavor_text_entries, :list, PokéAPI.Model.PokemonFormFlavorText)
   end
 end
 

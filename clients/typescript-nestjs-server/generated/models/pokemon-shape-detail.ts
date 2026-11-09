@@ -1,13 +1,28 @@
-import { PokemonShapeDetailAwesomeNamesInner } from './pokemon-shape-detail-awesome-names-inner';
+import { PokemonShapeAwesomeName } from './pokemon-shape-awesome-name';
+import { PokemonShapeName } from './pokemon-shape-name';
 import { PokemonSpeciesSummary } from './pokemon-species-summary';
-import { PokemonShapeDetailNamesInner } from './pokemon-shape-detail-names-inner';
 
 
 export interface PokemonShapeDetail { 
+  /**
+   * The identifier for this resource.
+   */
   readonly id: number;
+  /**
+   * The name for this resource.
+   */
   name: string;
-  readonly awesome_names: Array<PokemonShapeDetailAwesomeNamesInner>;
-  readonly names: Array<PokemonShapeDetailNamesInner>;
+  /**
+   * The \"scientific\" name of this Pokémon shape listed in different languages.
+   */
+  readonly awesome_names: Array<PokemonShapeAwesomeName>;
+  /**
+   * The name of this resource listed in different languages.
+   */
+  readonly names: Array<PokemonShapeName>;
+  /**
+   * A list of the Pokémon species that have this shape.
+   */
   readonly pokemon_species: Array<PokemonSpeciesSummary>;
 }
 

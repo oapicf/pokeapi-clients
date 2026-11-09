@@ -39,5 +39,4 @@ library
                      , swagger2
                      , uuid
                      , bytestring
-                     , wai-extra
   default-language:    Haskell2010

@@ -8,13 +8,25 @@
  * Do not edit the class manually.
  */
 import { EggGroupName } from './eggGroupName';
-import { EggGroupDetailPokemonSpeciesInner } from './eggGroupDetailPokemonSpeciesInner';
+import { PokemonSpeciesSummary } from './pokemonSpeciesSummary';
 
 
 export interface EggGroupDetail { 
+    /**
+     * The identifier for this resource.
+     */
     readonly id: number;
+    /**
+     * The name for this resource.
+     */
     name: string;
+    /**
+     * The name of this resource listed in different languages.
+     */
     readonly names: Array<EggGroupName>;
-    readonly pokemon_species: Array<EggGroupDetailPokemonSpeciesInner>;
+    /**
+     * A list of all Pokémon species that are members of this egg group.
+     */
+    readonly pokemon_species: Array<PokemonSpeciesSummary>;
 }
 

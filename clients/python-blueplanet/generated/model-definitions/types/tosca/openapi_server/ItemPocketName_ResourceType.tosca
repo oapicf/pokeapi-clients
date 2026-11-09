@@ -18,12 +18,12 @@ resourceTypes {
     properties {
         name {
           type =  string
-          description = ""
+          description = "The localized name for an API resource in a specific language."
           optional = true
         }
         language {
           type = LanguageSummary
-          description = ""
+          description = "The language this name is in."
           optional = true
         }
     }

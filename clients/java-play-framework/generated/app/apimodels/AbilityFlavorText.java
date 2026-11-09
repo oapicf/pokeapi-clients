@@ -11,7 +11,7 @@ import javax.validation.Valid;
 /**
  * AbilityFlavorText
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-10-25T05:48:13.486809836Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-11-09T13:49:31.462302702Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class AbilityFlavorText   {
   @JsonProperty("flavor_text")
@@ -37,7 +37,7 @@ public class AbilityFlavorText   {
   }
 
    /**
-   * Get flavorText
+   * The localized name for an API resource in a specific language.
    * @return flavorText
   **/
   public String getFlavorText() {
@@ -54,7 +54,7 @@ public class AbilityFlavorText   {
   }
 
    /**
-   * Get language
+   * The language this text resource is in.
    * @return language
   **/
   public LanguageSummary getLanguage() {
@@ -71,7 +71,7 @@ public class AbilityFlavorText   {
   }
 
    /**
-   * Get versionGroup
+   * The version group that uses this flavor text.
    * @return versionGroup
   **/
   public VersionGroupSummary getVersionGroup() {

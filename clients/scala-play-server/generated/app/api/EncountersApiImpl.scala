@@ -10,7 +10,7 @@ import model.PaginatedEncounterMethodSummaryList
 /**
   * Provides a default implementation for [[EncountersApi]].
   */
-@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2026-10-25T05:53:17.467323765Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2026-11-09T13:53:31.572745352Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 class EncountersApiImpl extends EncountersApi {
   /**
     * @inheritdoc
@@ -18,7 +18,7 @@ class EncountersApiImpl extends EncountersApi {
   override def encounterConditionList(limit: Option[Int], offset: Option[Int], q: Option[String]): PaginatedEncounterConditionSummaryList = {
     // TODO: Implement better logic
 
-    PaginatedEncounterConditionSummaryList(None, None, None, None)
+    PaginatedEncounterConditionSummaryList(0, None, None, List.empty[EncounterConditionSummary])
   }
 
   /**
@@ -36,7 +36,7 @@ class EncountersApiImpl extends EncountersApi {
   override def encounterConditionValueList(limit: Option[Int], offset: Option[Int], q: Option[String]): PaginatedEncounterConditionValueSummaryList = {
     // TODO: Implement better logic
 
-    PaginatedEncounterConditionValueSummaryList(None, None, None, None)
+    PaginatedEncounterConditionValueSummaryList(0, None, None, List.empty[EncounterConditionValueSummary])
   }
 
   /**
@@ -54,7 +54,7 @@ class EncountersApiImpl extends EncountersApi {
   override def encounterMethodList(limit: Option[Int], offset: Option[Int], q: Option[String]): PaginatedEncounterMethodSummaryList = {
     // TODO: Implement better logic
 
-    PaginatedEncounterMethodSummaryList(None, None, None, None)
+    PaginatedEncounterMethodSummaryList(0, None, None, List.empty[EncounterMethodSummary])
   }
 
   /**

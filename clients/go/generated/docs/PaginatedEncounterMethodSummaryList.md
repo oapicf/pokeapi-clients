@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Count** | Pointer to **int32** |  | [optional] 
-**Next** | Pointer to **string** |  | [optional] 
-**Previous** | Pointer to **string** |  | [optional] 
-**Results** | Pointer to [**[]EncounterMethodSummary**](EncounterMethodSummary.md) |  | [optional] 
+**Count** | **int32** | The total number of resources available from this API. | 
+**Next** | Pointer to **NullableString** | The URL for the next page in the list, or null if there is no next page. | [optional] 
+**Previous** | Pointer to **NullableString** | The URL for the previous page in the list, or null if there is no previous page. | [optional] 
+**Results** | [**[]EncounterMethodSummary**](EncounterMethodSummary.md) | A list of API resources on this page. | 
 
 ## Methods
 
 ### NewPaginatedEncounterMethodSummaryList
 
-`func NewPaginatedEncounterMethodSummaryList() *PaginatedEncounterMethodSummaryList`
+`func NewPaginatedEncounterMethodSummaryList(count int32, results []EncounterMethodSummary, ) *PaginatedEncounterMethodSummaryList`
 
 NewPaginatedEncounterMethodSummaryList instantiates a new PaginatedEncounterMethodSummaryList object
 This constructor will assign default values to properties that have it defined,
@@ -47,11 +47,6 @@ and a boolean to check if the value has been set.
 
 SetCount sets Count field to given value.
 
-### HasCount
-
-`func (o *PaginatedEncounterMethodSummaryList) HasCount() bool`
-
-HasCount returns a boolean if a field has been set.
 
 ### GetNext
 
@@ -78,6 +73,16 @@ SetNext sets Next field to given value.
 
 HasNext returns a boolean if a field has been set.
 
+### SetNextNil
+
+`func (o *PaginatedEncounterMethodSummaryList) SetNextNil(b bool)`
+
+ SetNextNil sets the value for Next to be an explicit nil
+
+### UnsetNext
+`func (o *PaginatedEncounterMethodSummaryList) UnsetNext()`
+
+UnsetNext ensures that no value is present for Next, not even an explicit nil
 ### GetPrevious
 
 `func (o *PaginatedEncounterMethodSummaryList) GetPrevious() string`
@@ -103,6 +108,16 @@ SetPrevious sets Previous field to given value.
 
 HasPrevious returns a boolean if a field has been set.
 
+### SetPreviousNil
+
+`func (o *PaginatedEncounterMethodSummaryList) SetPreviousNil(b bool)`
+
+ SetPreviousNil sets the value for Previous to be an explicit nil
+
+### UnsetPrevious
+`func (o *PaginatedEncounterMethodSummaryList) UnsetPrevious()`
+
+UnsetPrevious ensures that no value is present for Previous, not even an explicit nil
 ### GetResults
 
 `func (o *PaginatedEncounterMethodSummaryList) GetResults() []EncounterMethodSummary`
@@ -122,11 +137,6 @@ and a boolean to check if the value has been set.
 
 SetResults sets Results field to given value.
 
-### HasResults
-
-`func (o *PaginatedEncounterMethodSummaryList) HasResults() bool`
-
-HasResults returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

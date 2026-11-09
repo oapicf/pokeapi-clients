@@ -21,8 +21,8 @@ public class MoveLearnMethodDescription   {
     /**
      * Create MoveLearnMethodDescription.
      *
-     * @param description description
-     * @param language language
+     * @param description The localized description for an API resource in a specific language.
+     * @param language The language this name is in.
      */
     public MoveLearnMethodDescription(
         String description, 
@@ -35,7 +35,7 @@ public class MoveLearnMethodDescription   {
 
 
     /**
-     * Get description
+     * The localized description for an API resource in a specific language.
      * @return description
      */
     public String getDescription() {
@@ -47,7 +47,7 @@ public class MoveLearnMethodDescription   {
     }
 
     /**
-     * Get language
+     * The language this name is in.
      * @return language
      */
     public LanguageSummary getLanguage() {

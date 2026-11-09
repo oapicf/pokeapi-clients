@@ -12,10 +12,14 @@ import org.joda.time.DateTime
 import EvolutionTriggerDetail._
 
 case class EvolutionTriggerDetail (
+  /* The identifier for this resource. */
   id: Integer,
-name: String,
-names: List[EvolutionTriggerName],
-pokemonSpecies: List[AbilityDetailPokemonInnerPokemon])
+/* The name for this resource. */
+  name: String,
+/* The name of this resource listed in different languages. */
+  names: List[EvolutionTriggerName],
+/* A list of pokemon species that result from this evolution trigger. */
+  pokemonSpecies: List[PokemonSpeciesSummary])
 
 object EvolutionTriggerDetail {
   import DateTimeCodecs._

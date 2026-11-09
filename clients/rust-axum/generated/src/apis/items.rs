@@ -11,6 +11,24 @@ use crate::{models, types::*};
 #[derive(Debug, PartialEq, Serialize, Deserialize)]
 #[must_use]
 #[allow(clippy::large_enum_variant)]
+pub enum CurrencyListResponse {
+
+    Status200
+    (models::PaginatedCurrencySummaryList)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+#[must_use]
+#[allow(clippy::large_enum_variant)]
+pub enum CurrencyRetrieveResponse {
+
+    Status200
+    (models::CurrencyDetail)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+#[must_use]
+#[allow(clippy::large_enum_variant)]
 pub enum ItemAttributeListResponse {
 
     Status200
@@ -105,7 +123,29 @@ pub enum ItemRetrieveResponse {
 #[async_trait]
 #[allow(clippy::ptr_arg)]
 pub trait Items<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorHandler<E> {
-    type Claims;
+    /// List currencies.
+    ///
+    /// CurrencyList - GET /api/v2/currency/
+    async fn currency_list(
+    &self,
+    
+    method: &Method,
+    host: &Host,
+    cookies: &CookieJar,
+      query_params: &models::CurrencyListQueryParams,
+    ) -> Result<CurrencyListResponse, E>;
+
+    /// Get currency.
+    ///
+    /// CurrencyRetrieve - GET /api/v2/currency/{id}/
+    async fn currency_retrieve(
+    &self,
+    
+    method: &Method,
+    host: &Host,
+    cookies: &CookieJar,
+      path_params: &models::CurrencyRetrievePathParams,
+    ) -> Result<CurrencyRetrieveResponse, E>;
 
     /// List item attributes.
     ///
@@ -116,7 +156,6 @@ pub trait Items<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorHa
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       query_params: &models::ItemAttributeListQueryParams,
     ) -> Result<ItemAttributeListResponse, E>;
 
@@ -129,7 +168,6 @@ pub trait Items<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorHa
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       path_params: &models::ItemAttributeRetrievePathParams,
     ) -> Result<ItemAttributeRetrieveResponse, E>;
 
@@ -142,7 +180,6 @@ pub trait Items<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorHa
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       query_params: &models::ItemCategoryListQueryParams,
     ) -> Result<ItemCategoryListResponse, E>;
 
@@ -155,7 +192,6 @@ pub trait Items<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorHa
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       path_params: &models::ItemCategoryRetrievePathParams,
     ) -> Result<ItemCategoryRetrieveResponse, E>;
 
@@ -168,7 +204,6 @@ pub trait Items<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorHa
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       query_params: &models::ItemFlingEffectListQueryParams,
     ) -> Result<ItemFlingEffectListResponse, E>;
 
@@ -181,7 +216,6 @@ pub trait Items<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorHa
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       path_params: &models::ItemFlingEffectRetrievePathParams,
     ) -> Result<ItemFlingEffectRetrieveResponse, E>;
 
@@ -194,7 +228,6 @@ pub trait Items<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorHa
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       query_params: &models::ItemListQueryParams,
     ) -> Result<ItemListResponse, E>;
 
@@ -207,7 +240,6 @@ pub trait Items<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorHa
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       query_params: &models::ItemPocketListQueryParams,
     ) -> Result<ItemPocketListResponse, E>;
 
@@ -220,7 +252,6 @@ pub trait Items<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorHa
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       path_params: &models::ItemPocketRetrievePathParams,
     ) -> Result<ItemPocketRetrieveResponse, E>;
 
@@ -233,7 +264,6 @@ pub trait Items<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorHa
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-        claims: &Self::Claims,
       path_params: &models::ItemRetrievePathParams,
     ) -> Result<ItemRetrieveResponse, E>;
 }

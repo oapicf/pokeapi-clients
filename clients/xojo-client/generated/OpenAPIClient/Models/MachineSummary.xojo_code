@@ -2,6 +2,9 @@
 Protected Class MachineSummary
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The URL of the referenced resource.
+		#tag EndNote
 		url As String
 	#tag EndProperty
 

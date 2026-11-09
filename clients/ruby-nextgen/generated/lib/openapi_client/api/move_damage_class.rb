@@ -12,7 +12,7 @@ module OpenapiClient
           :GET,
           '/api/v2/move-damage-class/',
           type: OpenapiClient::Models::PaginatedMoveDamageClassSummaryList,
-          auth: ['basicAuth', 'cookieAuth'],
+          auth: [],
           query: { 'limit' => limit, 'offset' => offset, 'q' => q }
         )
       end
@@ -25,7 +25,7 @@ module OpenapiClient
           '/api/v2/move-damage-class/{id}/'
             .gsub('{id}', ERB::Util.url_encode(id.to_s)),
           type: OpenapiClient::Models::MoveDamageClassDetail,
-          auth: ['basicAuth', 'cookieAuth']
+          auth: []
         )
       end
     end

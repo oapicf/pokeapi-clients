@@ -84,8 +84,8 @@ class GamesApiSimulation extends Simulation {
         .feed(generation_listQUERYFeeder)
         .exec(http("generationList")
         .httpRequest("GET","/api/v2/generation/")
-        .queryParam("q","${q}")
         .queryParam("offset","${offset}")
+        .queryParam("q","${q}")
         .queryParam("limit","${limit}")
 )
 
@@ -115,8 +115,8 @@ class GamesApiSimulation extends Simulation {
         .feed(pokedex_listQUERYFeeder)
         .exec(http("pokedexList")
         .httpRequest("GET","/api/v2/pokedex/")
-        .queryParam("q","${q}")
         .queryParam("offset","${offset}")
+        .queryParam("q","${q}")
         .queryParam("limit","${limit}")
 )
 
@@ -146,8 +146,8 @@ class GamesApiSimulation extends Simulation {
         .feed(version_group_listQUERYFeeder)
         .exec(http("versionGroupList")
         .httpRequest("GET","/api/v2/version-group/")
-        .queryParam("q","${q}")
         .queryParam("offset","${offset}")
+        .queryParam("q","${q}")
         .queryParam("limit","${limit}")
 )
 
@@ -177,8 +177,8 @@ class GamesApiSimulation extends Simulation {
         .feed(version_listQUERYFeeder)
         .exec(http("versionList")
         .httpRequest("GET","/api/v2/version/")
-        .queryParam("q","${q}")
         .queryParam("offset","${offset}")
+        .queryParam("q","${q}")
         .queryParam("limit","${limit}")
 )
 

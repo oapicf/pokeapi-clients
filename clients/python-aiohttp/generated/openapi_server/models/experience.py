@@ -46,6 +46,7 @@ class Experience(Model):
     def level(self):
         """Gets the level of this Experience.
 
+        The level gained.
 
         :return: The level of this Experience.
         :rtype: int
@@ -56,12 +57,17 @@ class Experience(Model):
     def level(self, level):
         """Sets the level of this Experience.
 
+        The level gained.
 
         :param level: The level of this Experience.
         :type level: int
         """
         if level is None:
             raise ValueError("Invalid value for `level`, must not be `None`")
+        if level is not None and level > 2147483647:
+            raise ValueError("Invalid value for `level`, must be a value less than or equal to `2147483647`")
+        if level is not None and level < -2147483648:
+            raise ValueError("Invalid value for `level`, must be a value greater than or equal to `-2147483648`")
 
         self._level = level
 
@@ -69,6 +75,7 @@ class Experience(Model):
     def experience(self):
         """Gets the experience of this Experience.
 
+        The amount of experience required to reach the referenced level.
 
         :return: The experience of this Experience.
         :rtype: int
@@ -79,11 +86,16 @@ class Experience(Model):
     def experience(self, experience):
         """Sets the experience of this Experience.
 
+        The amount of experience required to reach the referenced level.
 
         :param experience: The experience of this Experience.
         :type experience: int
         """
         if experience is None:
             raise ValueError("Invalid value for `experience`, must not be `None`")
+        if experience is not None and experience > 2147483647:
+            raise ValueError("Invalid value for `experience`, must be a value less than or equal to `2147483647`")
+        if experience is not None and experience < -2147483648:
+            raise ValueError("Invalid value for `experience`, must be a value greater than or equal to `-2147483648`")
 
         self._experience = experience

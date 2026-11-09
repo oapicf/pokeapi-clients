@@ -12,15 +12,24 @@ import org.joda.time.DateTime
 import GenerationDetail._
 
 case class GenerationDetail (
+  /* The identifier for this resource. */
   id: Integer,
-name: String,
-abilities: List[AbilitySummary],
-mainRegion: RegionSummary,
-moves: List[MoveSummary],
-names: List[GenerationName],
-pokemonSpecies: List[PokemonSpeciesSummary],
-types: List[TypeSummary],
-versionGroups: List[VersionGroupSummary])
+/* The name for this resource. */
+  name: String,
+/* A list of abilities that were introduced in this generation. */
+  abilities: List[AbilitySummary],
+/* The main region travelled in this generation. */
+  mainRegion: RegionSummary,
+/* A list of moves that were introduced in this generation. */
+  moves: List[MoveSummary],
+/* The name of this resource listed in different languages. */
+  names: List[GenerationName],
+/* A list of Pokémon species that were introduced in this generation. */
+  pokemonSpecies: List[PokemonSpeciesSummary],
+/* A list of types that were introduced in this generation. */
+  types: List[TypeSummary],
+/* A list of version groups that were introduced in this generation. */
+  versionGroups: List[VersionGroupSummary])
 
 object GenerationDetail {
   import DateTimeCodecs._

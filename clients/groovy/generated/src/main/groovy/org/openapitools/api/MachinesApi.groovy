@@ -9,7 +9,7 @@ class MachinesApi {
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def machineList ( Integer limit, Integer offset, String q, Closure onSuccess, Closure onFailure)  {
+    def machineList ( Integer limit, Integer offset, Closure onSuccess, Closure onFailure)  {
         String resourcePath = "/api/v2/machine/"
 
         // params
@@ -25,9 +25,6 @@ class MachinesApi {
         }
         if (offset != null) {
             queryParams.put("offset", offset)
-        }
-        if (q != null) {
-            queryParams.put("q", q)
         }
 
 

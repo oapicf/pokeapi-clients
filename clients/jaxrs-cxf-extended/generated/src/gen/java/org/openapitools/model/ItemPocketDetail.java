@@ -15,19 +15,31 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class ItemPocketDetail  {
   
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The identifier for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   private Integer id;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The name for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   private String name;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * A list of item categories that are relevant to this item pocket.
+  */
+  @ApiModelProperty(required = true, value = "A list of item categories that are relevant to this item pocket.")
   private List<@Valid ItemCategorySummary> categories = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The name of this resource listed in different languages.
+  */
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
   private List<@Valid ItemPocketName> names = new ArrayList<>();
  /**
-  * Get id
+  * The identifier for this resource.
   * @return id
   */
   @JsonProperty("id")
@@ -54,12 +66,12 @@ public class ItemPocketDetail  {
   }
 
  /**
-  * Get name
+  * The name for this resource.
   * @return name
   */
   @JsonProperty("name")
   @NotNull
- @Size(max=100)  public String getName() {
+ @Size(max=200)  public String getName() {
     return name;
   }
 
@@ -79,7 +91,7 @@ public class ItemPocketDetail  {
   }
 
  /**
-  * Get categories
+  * A list of item categories that are relevant to this item pocket.
   * @return categories
   */
   @JsonProperty("categories")
@@ -115,7 +127,7 @@ public class ItemPocketDetail  {
   }
 
  /**
-  * Get names
+  * The name of this resource listed in different languages.
   * @return names
   */
   @JsonProperty("names")

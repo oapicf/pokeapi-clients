@@ -15,26 +15,44 @@ import java.math.*;
 public class GrowthRateDetail implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * The identifier for this resource.
+   */
   @JsonProperty("id")
   private Integer id;
 
+  /**
+   * The name for this resource.
+   */
   @JsonProperty("name")
   private String name;
 
+  /**
+   * The formula used to calculate the rate at which the Pokémon species gains level.
+   */
   @JsonProperty("formula")
   private String formula;
 
+  /**
+   * The descriptions of this characteristic listed in different languages.
+   */
   @JsonProperty("descriptions")
   private List<GrowthRateDescription> descriptions = new ArrayList<>();
 
+  /**
+   * A list of levels and the amount of experienced needed to atain them based on this growth rate.
+   */
   @JsonProperty("levels")
   private List<Experience> levels = new ArrayList<>();
 
+  /**
+   * A list of Pokémon species that gain levels at this growth rate.
+   */
   @JsonProperty("pokemon_species")
   private List<PokemonSpeciesSummary> pokemonSpecies = new ArrayList<>();
 
   /**
-   * 
+   * The identifier for this resource.
    * @return id
    */
   public Integer getId() {
@@ -46,7 +64,7 @@ public class GrowthRateDetail implements Serializable {
   }
 
   /**
-   * 
+   * The name for this resource.
    * @return name
    */
   public String getName() {
@@ -58,7 +76,7 @@ public class GrowthRateDetail implements Serializable {
   }
 
   /**
-   * 
+   * The formula used to calculate the rate at which the Pokémon species gains level.
    * @return formula
    */
   public String getFormula() {
@@ -70,7 +88,7 @@ public class GrowthRateDetail implements Serializable {
   }
 
   /**
-   * 
+   * The descriptions of this characteristic listed in different languages.
    * @return descriptions
    */
   public List<GrowthRateDescription> getDescriptions() {
@@ -82,7 +100,7 @@ public class GrowthRateDetail implements Serializable {
   }
 
   /**
-   * 
+   * A list of levels and the amount of experienced needed to atain them based on this growth rate.
    * @return levels
    */
   public List<Experience> getLevels() {
@@ -94,7 +112,7 @@ public class GrowthRateDetail implements Serializable {
   }
 
   /**
-   * 
+   * A list of Pokémon species that gain levels at this growth rate.
    * @return pokemonSpecies
    */
   public List<PokemonSpeciesSummary> getPokemonSpecies() {

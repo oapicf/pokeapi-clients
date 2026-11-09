@@ -2,9 +2,9 @@ namespace OpenAPI.Model
 
 open System
 open System.Collections.Generic
-open OpenAPI.Model.LocationAreaDetailEncounterMethodRatesInner
-open OpenAPI.Model.LocationAreaDetailPokemonEncountersInner
+open OpenAPI.Model.LocationAreaEncounterRate
 open OpenAPI.Model.LocationAreaName
+open OpenAPI.Model.LocationAreaPokemonEncounter
 open OpenAPI.Model.LocationSummary
 
 module LocationAreaDetail =
@@ -16,9 +16,9 @@ module LocationAreaDetail =
     Id : int;
     Name : string;
     GameIndex : int;
-    EncounterMethodRates : LocationAreaDetailEncounterMethodRatesInner[];
+    EncounterMethodRates : LocationAreaEncounterRate[];
     Location : LocationSummary;
     Names : LocationAreaName[];
-    PokemonEncounters : LocationAreaDetailPokemonEncountersInner[];
+    PokemonEncounters : LocationAreaPokemonEncounter[];
   }
   //#endregion

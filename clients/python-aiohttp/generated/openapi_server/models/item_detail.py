@@ -5,17 +5,18 @@ from datetime import date, datetime
 from typing import List, Dict, Type
 
 from openapi_server.models.base_model import Model
-from openapi_server.models.ability_detail_pokemon_inner_pokemon import AbilityDetailPokemonInnerPokemon
+from openapi_server.models.evolution_chain_summary import EvolutionChainSummary
+from openapi_server.models.item_attribute_summary import ItemAttributeSummary
 from openapi_server.models.item_category_summary import ItemCategorySummary
-from openapi_server.models.item_detail_baby_trigger_for import ItemDetailBabyTriggerFor
-from openapi_server.models.item_detail_held_by_pokemon_inner import ItemDetailHeldByPokemonInner
-from openapi_server.models.item_detail_machines_inner import ItemDetailMachinesInner
-from openapi_server.models.item_detail_sprites import ItemDetailSprites
 from openapi_server.models.item_effect_text import ItemEffectText
 from openapi_server.models.item_flavor_text import ItemFlavorText
 from openapi_server.models.item_fling_effect_summary import ItemFlingEffectSummary
 from openapi_server.models.item_game_index import ItemGameIndex
+from openapi_server.models.item_machine import ItemMachine
 from openapi_server.models.item_name import ItemName
+from openapi_server.models.item_price import ItemPrice
+from openapi_server.models.item_sprites import ItemSprites
+from openapi_server.models.pokemon_held_item import PokemonHeldItem
 from openapi_server import util
 
 
@@ -25,12 +26,11 @@ class ItemDetail(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, id: int=None, name: str=None, cost: int=None, fling_power: int=None, fling_effect: ItemFlingEffectSummary=None, attributes: List[AbilityDetailPokemonInnerPokemon]=None, category: ItemCategorySummary=None, effect_entries: List[ItemEffectText]=None, flavor_text_entries: List[ItemFlavorText]=None, game_indices: List[ItemGameIndex]=None, names: List[ItemName]=None, held_by_pokemon: List[ItemDetailHeldByPokemonInner]=None, sprites: ItemDetailSprites=None, baby_trigger_for: ItemDetailBabyTriggerFor=None, machines: List[ItemDetailMachinesInner]=None):
+    def __init__(self, id: int=None, name: str=None, fling_power: int=None, fling_effect: ItemFlingEffectSummary=None, attributes: List[ItemAttributeSummary]=None, category: ItemCategorySummary=None, effect_entries: List[ItemEffectText]=None, flavor_text_entries: List[ItemFlavorText]=None, game_indices: List[ItemGameIndex]=None, prices: List[ItemPrice]=None, names: List[ItemName]=None, held_by_pokemon: List[PokemonHeldItem]=None, sprites: ItemSprites=None, baby_trigger_for: EvolutionChainSummary=None, machines: List[ItemMachine]=None):
         """ItemDetail - a model defined in OpenAPI
 
         :param id: The id of this ItemDetail.
         :param name: The name of this ItemDetail.
-        :param cost: The cost of this ItemDetail.
         :param fling_power: The fling_power of this ItemDetail.
         :param fling_effect: The fling_effect of this ItemDetail.
         :param attributes: The attributes of this ItemDetail.
@@ -38,6 +38,7 @@ class ItemDetail(Model):
         :param effect_entries: The effect_entries of this ItemDetail.
         :param flavor_text_entries: The flavor_text_entries of this ItemDetail.
         :param game_indices: The game_indices of this ItemDetail.
+        :param prices: The prices of this ItemDetail.
         :param names: The names of this ItemDetail.
         :param held_by_pokemon: The held_by_pokemon of this ItemDetail.
         :param sprites: The sprites of this ItemDetail.
@@ -47,25 +48,24 @@ class ItemDetail(Model):
         self.openapi_types = {
             'id': int,
             'name': str,
-            'cost': int,
             'fling_power': int,
             'fling_effect': ItemFlingEffectSummary,
-            'attributes': List[AbilityDetailPokemonInnerPokemon],
+            'attributes': List[ItemAttributeSummary],
             'category': ItemCategorySummary,
             'effect_entries': List[ItemEffectText],
             'flavor_text_entries': List[ItemFlavorText],
             'game_indices': List[ItemGameIndex],
+            'prices': List[ItemPrice],
             'names': List[ItemName],
-            'held_by_pokemon': List[ItemDetailHeldByPokemonInner],
-            'sprites': ItemDetailSprites,
-            'baby_trigger_for': ItemDetailBabyTriggerFor,
-            'machines': List[ItemDetailMachinesInner]
+            'held_by_pokemon': List[PokemonHeldItem],
+            'sprites': ItemSprites,
+            'baby_trigger_for': EvolutionChainSummary,
+            'machines': List[ItemMachine]
         }
 
         self.attribute_map = {
             'id': 'id',
             'name': 'name',
-            'cost': 'cost',
             'fling_power': 'fling_power',
             'fling_effect': 'fling_effect',
             'attributes': 'attributes',
@@ -73,6 +73,7 @@ class ItemDetail(Model):
             'effect_entries': 'effect_entries',
             'flavor_text_entries': 'flavor_text_entries',
             'game_indices': 'game_indices',
+            'prices': 'prices',
             'names': 'names',
             'held_by_pokemon': 'held_by_pokemon',
             'sprites': 'sprites',
@@ -82,7 +83,6 @@ class ItemDetail(Model):
 
         self._id = id
         self._name = name
-        self._cost = cost
         self._fling_power = fling_power
         self._fling_effect = fling_effect
         self._attributes = attributes
@@ -90,6 +90,7 @@ class ItemDetail(Model):
         self._effect_entries = effect_entries
         self._flavor_text_entries = flavor_text_entries
         self._game_indices = game_indices
+        self._prices = prices
         self._names = names
         self._held_by_pokemon = held_by_pokemon
         self._sprites = sprites
@@ -109,6 +110,7 @@ class ItemDetail(Model):
     def id(self):
         """Gets the id of this ItemDetail.
 
+        The identifier for this resource.
 
         :return: The id of this ItemDetail.
         :rtype: int
@@ -119,6 +121,7 @@ class ItemDetail(Model):
     def id(self, id):
         """Sets the id of this ItemDetail.
 
+        The identifier for this resource.
 
         :param id: The id of this ItemDetail.
         :type id: int
@@ -132,6 +135,7 @@ class ItemDetail(Model):
     def name(self):
         """Gets the name of this ItemDetail.
 
+        The name for this resource.
 
         :return: The name of this ItemDetail.
         :rtype: str
@@ -142,42 +146,23 @@ class ItemDetail(Model):
     def name(self, name):
         """Sets the name of this ItemDetail.
 
+        The name for this resource.
 
         :param name: The name of this ItemDetail.
         :type name: str
         """
         if name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")
-        if name is not None and len(name) > 100:
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `100`")
+        if name is not None and len(name) > 200:
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `200`")
 
         self._name = name
-
-    @property
-    def cost(self):
-        """Gets the cost of this ItemDetail.
-
-
-        :return: The cost of this ItemDetail.
-        :rtype: int
-        """
-        return self._cost
-
-    @cost.setter
-    def cost(self, cost):
-        """Sets the cost of this ItemDetail.
-
-
-        :param cost: The cost of this ItemDetail.
-        :type cost: int
-        """
-
-        self._cost = cost
 
     @property
     def fling_power(self):
         """Gets the fling_power of this ItemDetail.
 
+        The power of the move Fling when used with this item.
 
         :return: The fling_power of this ItemDetail.
         :rtype: int
@@ -188,10 +173,15 @@ class ItemDetail(Model):
     def fling_power(self, fling_power):
         """Sets the fling_power of this ItemDetail.
 
+        The power of the move Fling when used with this item.
 
         :param fling_power: The fling_power of this ItemDetail.
         :type fling_power: int
         """
+        if fling_power is not None and fling_power > 2147483647:
+            raise ValueError("Invalid value for `fling_power`, must be a value less than or equal to `2147483647`")
+        if fling_power is not None and fling_power < -2147483648:
+            raise ValueError("Invalid value for `fling_power`, must be a value greater than or equal to `-2147483648`")
 
         self._fling_power = fling_power
 
@@ -199,6 +189,7 @@ class ItemDetail(Model):
     def fling_effect(self):
         """Gets the fling_effect of this ItemDetail.
 
+        The effect of the move Fling when used with this item.
 
         :return: The fling_effect of this ItemDetail.
         :rtype: ItemFlingEffectSummary
@@ -209,6 +200,7 @@ class ItemDetail(Model):
     def fling_effect(self, fling_effect):
         """Sets the fling_effect of this ItemDetail.
 
+        The effect of the move Fling when used with this item.
 
         :param fling_effect: The fling_effect of this ItemDetail.
         :type fling_effect: ItemFlingEffectSummary
@@ -222,9 +214,10 @@ class ItemDetail(Model):
     def attributes(self):
         """Gets the attributes of this ItemDetail.
 
+        A list of attributes this item has.
 
         :return: The attributes of this ItemDetail.
-        :rtype: List[AbilityDetailPokemonInnerPokemon]
+        :rtype: List[ItemAttributeSummary]
         """
         return self._attributes
 
@@ -232,9 +225,10 @@ class ItemDetail(Model):
     def attributes(self, attributes):
         """Sets the attributes of this ItemDetail.
 
+        A list of attributes this item has.
 
         :param attributes: The attributes of this ItemDetail.
-        :type attributes: List[AbilityDetailPokemonInnerPokemon]
+        :type attributes: List[ItemAttributeSummary]
         """
         if attributes is None:
             raise ValueError("Invalid value for `attributes`, must not be `None`")
@@ -245,6 +239,7 @@ class ItemDetail(Model):
     def category(self):
         """Gets the category of this ItemDetail.
 
+        The category of items this item falls into.
 
         :return: The category of this ItemDetail.
         :rtype: ItemCategorySummary
@@ -255,6 +250,7 @@ class ItemDetail(Model):
     def category(self, category):
         """Sets the category of this ItemDetail.
 
+        The category of items this item falls into.
 
         :param category: The category of this ItemDetail.
         :type category: ItemCategorySummary
@@ -268,6 +264,7 @@ class ItemDetail(Model):
     def effect_entries(self):
         """Gets the effect_entries of this ItemDetail.
 
+        The effect of this ability listed in different languages.
 
         :return: The effect_entries of this ItemDetail.
         :rtype: List[ItemEffectText]
@@ -278,6 +275,7 @@ class ItemDetail(Model):
     def effect_entries(self, effect_entries):
         """Sets the effect_entries of this ItemDetail.
 
+        The effect of this ability listed in different languages.
 
         :param effect_entries: The effect_entries of this ItemDetail.
         :type effect_entries: List[ItemEffectText]
@@ -291,6 +289,7 @@ class ItemDetail(Model):
     def flavor_text_entries(self):
         """Gets the flavor_text_entries of this ItemDetail.
 
+        The flavor text of this ability listed in different languages.
 
         :return: The flavor_text_entries of this ItemDetail.
         :rtype: List[ItemFlavorText]
@@ -301,6 +300,7 @@ class ItemDetail(Model):
     def flavor_text_entries(self, flavor_text_entries):
         """Sets the flavor_text_entries of this ItemDetail.
 
+        The flavor text of this ability listed in different languages.
 
         :param flavor_text_entries: The flavor_text_entries of this ItemDetail.
         :type flavor_text_entries: List[ItemFlavorText]
@@ -314,6 +314,7 @@ class ItemDetail(Model):
     def game_indices(self):
         """Gets the game_indices of this ItemDetail.
 
+        A list of game indices relevent to this item by generation.
 
         :return: The game_indices of this ItemDetail.
         :rtype: List[ItemGameIndex]
@@ -324,6 +325,7 @@ class ItemDetail(Model):
     def game_indices(self, game_indices):
         """Sets the game_indices of this ItemDetail.
 
+        A list of game indices relevent to this item by generation.
 
         :param game_indices: The game_indices of this ItemDetail.
         :type game_indices: List[ItemGameIndex]
@@ -334,9 +336,35 @@ class ItemDetail(Model):
         self._game_indices = game_indices
 
     @property
+    def prices(self):
+        """Gets the prices of this ItemDetail.
+
+        Purchase and sell prices by currency and version group. Prices may be null when the item cannot be bought or sold.
+
+        :return: The prices of this ItemDetail.
+        :rtype: List[ItemPrice]
+        """
+        return self._prices
+
+    @prices.setter
+    def prices(self, prices):
+        """Sets the prices of this ItemDetail.
+
+        Purchase and sell prices by currency and version group. Prices may be null when the item cannot be bought or sold.
+
+        :param prices: The prices of this ItemDetail.
+        :type prices: List[ItemPrice]
+        """
+        if prices is None:
+            raise ValueError("Invalid value for `prices`, must not be `None`")
+
+        self._prices = prices
+
+    @property
     def names(self):
         """Gets the names of this ItemDetail.
 
+        The name of this item listed in different languages.
 
         :return: The names of this ItemDetail.
         :rtype: List[ItemName]
@@ -347,6 +375,7 @@ class ItemDetail(Model):
     def names(self, names):
         """Sets the names of this ItemDetail.
 
+        The name of this item listed in different languages.
 
         :param names: The names of this ItemDetail.
         :type names: List[ItemName]
@@ -360,9 +389,10 @@ class ItemDetail(Model):
     def held_by_pokemon(self):
         """Gets the held_by_pokemon of this ItemDetail.
 
+        A list of Pokémon that might be found in the wild holding this item.
 
         :return: The held_by_pokemon of this ItemDetail.
-        :rtype: List[ItemDetailHeldByPokemonInner]
+        :rtype: List[PokemonHeldItem]
         """
         return self._held_by_pokemon
 
@@ -370,9 +400,10 @@ class ItemDetail(Model):
     def held_by_pokemon(self, held_by_pokemon):
         """Sets the held_by_pokemon of this ItemDetail.
 
+        A list of Pokémon that might be found in the wild holding this item.
 
         :param held_by_pokemon: The held_by_pokemon of this ItemDetail.
-        :type held_by_pokemon: List[ItemDetailHeldByPokemonInner]
+        :type held_by_pokemon: List[PokemonHeldItem]
         """
         if held_by_pokemon is None:
             raise ValueError("Invalid value for `held_by_pokemon`, must not be `None`")
@@ -383,9 +414,10 @@ class ItemDetail(Model):
     def sprites(self):
         """Gets the sprites of this ItemDetail.
 
+        A set of sprites used to depict this item in the game.
 
         :return: The sprites of this ItemDetail.
-        :rtype: ItemDetailSprites
+        :rtype: ItemSprites
         """
         return self._sprites
 
@@ -393,9 +425,10 @@ class ItemDetail(Model):
     def sprites(self, sprites):
         """Sets the sprites of this ItemDetail.
 
+        A set of sprites used to depict this item in the game.
 
         :param sprites: The sprites of this ItemDetail.
-        :type sprites: ItemDetailSprites
+        :type sprites: ItemSprites
         """
         if sprites is None:
             raise ValueError("Invalid value for `sprites`, must not be `None`")
@@ -406,9 +439,10 @@ class ItemDetail(Model):
     def baby_trigger_for(self):
         """Gets the baby_trigger_for of this ItemDetail.
 
+        An evolution chain this item requires to produce a bay during mating.
 
         :return: The baby_trigger_for of this ItemDetail.
-        :rtype: ItemDetailBabyTriggerFor
+        :rtype: EvolutionChainSummary
         """
         return self._baby_trigger_for
 
@@ -416,9 +450,10 @@ class ItemDetail(Model):
     def baby_trigger_for(self, baby_trigger_for):
         """Sets the baby_trigger_for of this ItemDetail.
 
+        An evolution chain this item requires to produce a bay during mating.
 
         :param baby_trigger_for: The baby_trigger_for of this ItemDetail.
-        :type baby_trigger_for: ItemDetailBabyTriggerFor
+        :type baby_trigger_for: EvolutionChainSummary
         """
         if baby_trigger_for is None:
             raise ValueError("Invalid value for `baby_trigger_for`, must not be `None`")
@@ -429,9 +464,10 @@ class ItemDetail(Model):
     def machines(self):
         """Gets the machines of this ItemDetail.
 
+        A list of the machines related to this item.
 
         :return: The machines of this ItemDetail.
-        :rtype: List[ItemDetailMachinesInner]
+        :rtype: List[ItemMachine]
         """
         return self._machines
 
@@ -439,9 +475,10 @@ class ItemDetail(Model):
     def machines(self, machines):
         """Sets the machines of this ItemDetail.
 
+        A list of the machines related to this item.
 
         :param machines: The machines of this ItemDetail.
-        :type machines: List[ItemDetailMachinesInner]
+        :type machines: List[ItemMachine]
         """
         if machines is None:
             raise ValueError("Invalid value for `machines`, must not be `None`")

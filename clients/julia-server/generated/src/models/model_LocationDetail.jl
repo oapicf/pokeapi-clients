@@ -13,12 +13,12 @@
         areas=nothing,
     )
 
-    - id::Int64
-    - name::String
-    - region::RegionSummary
-    - names::Vector{LocationName}
-    - game_indices::Vector{LocationGameIndex}
-    - areas::Vector{LocationAreaSummary}
+    - id::Int64 : The identifier for this resource.
+    - name::String : The name for this resource.
+    - region::RegionSummary : The region this location can be found in.
+    - names::Vector{LocationName} : The name of this resource listed in different languages.
+    - game_indices::Vector{LocationGameIndex} : A list of game indices relevent to this location by generation.
+    - areas::Vector{LocationAreaSummary} : Areas that can be found within this location.
 """
 Base.@kwdef mutable struct LocationDetail <: OpenAPI.APIModel
     id::Union{Nothing, Int64} = nothing
@@ -61,7 +61,7 @@ function OpenAPI.validate_property(::Type{ LocationDetail }, name::Symbol, val)
 
 
     if name === Symbol("name")
-        OpenAPI.validate_param(name, "LocationDetail", :maxLength, val, 100)
+        OpenAPI.validate_param(name, "LocationDetail", :maxLength, val, 200)
     end
 
 

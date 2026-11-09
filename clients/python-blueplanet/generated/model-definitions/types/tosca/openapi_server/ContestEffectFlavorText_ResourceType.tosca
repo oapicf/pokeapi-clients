@@ -18,12 +18,12 @@ resourceTypes {
     properties {
         flavor_text {
           type =  string
-          description = ""
+          description = "The localized flavor text for an API resource in a specific language."
           optional = true
         }
         language {
           type = LanguageSummary
-          description = ""
+          description = "The language this name is in."
           optional = true
         }
     }

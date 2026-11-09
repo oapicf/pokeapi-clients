@@ -19,7 +19,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("MachineDetail")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-11-09T13:50:06.168269698Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class MachineDetail   {
   private Integer id;
   private ItemSummary item;
@@ -43,6 +43,7 @@ public class MachineDetail   {
   }
 
   /**
+   * The identifier for this resource.
    **/
   public MachineDetail id(Integer id) {
     this.id = id;
@@ -50,7 +51,7 @@ public class MachineDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   @JsonProperty(required = true, value = "id")
   public Integer getId() {
     return id;
@@ -62,6 +63,7 @@ public class MachineDetail   {
   }
 
   /**
+   * The TM or HM item that corresponds to this machine.
    **/
   public MachineDetail item(ItemSummary item) {
     this.item = item;
@@ -69,7 +71,7 @@ public class MachineDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The TM or HM item that corresponds to this machine.")
   @JsonProperty(required = true, value = "item")
   @NotNull @Valid public ItemSummary getItem() {
     return item;
@@ -81,6 +83,7 @@ public class MachineDetail   {
   }
 
   /**
+   * The version group that this machine applies to.
    **/
   public MachineDetail versionGroup(VersionGroupSummary versionGroup) {
     this.versionGroup = versionGroup;
@@ -88,7 +91,7 @@ public class MachineDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The version group that this machine applies to.")
   @JsonProperty(required = true, value = "version_group")
   @NotNull @Valid public VersionGroupSummary getVersionGroup() {
     return versionGroup;
@@ -100,6 +103,7 @@ public class MachineDetail   {
   }
 
   /**
+   * The move that is taught by this machine.
    **/
   public MachineDetail move(MoveSummary move) {
     this.move = move;
@@ -107,7 +111,7 @@ public class MachineDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The move that is taught by this machine.")
   @JsonProperty(required = true, value = "move")
   @NotNull @Valid public MoveSummary getMove() {
     return move;

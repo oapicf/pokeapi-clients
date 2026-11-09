@@ -10,8 +10,10 @@ import {SecurityAuthentication} from '../auth/auth';
 
 import { EvolutionChainDetail } from '../models/EvolutionChainDetail';
 import { EvolutionTriggerDetail } from '../models/EvolutionTriggerDetail';
+import { EvolutionVariableDetail } from '../models/EvolutionVariableDetail';
 import { PaginatedEvolutionChainSummaryList } from '../models/PaginatedEvolutionChainSummaryList';
 import { PaginatedEvolutionTriggerSummaryList } from '../models/PaginatedEvolutionTriggerSummaryList';
+import { PaginatedEvolutionVariableSummaryList } from '../models/PaginatedEvolutionVariableSummaryList';
 
 /**
  * no description
@@ -23,11 +25,9 @@ export class EvolutionApiRequestFactory extends BaseAPIRequestFactory {
      * List evolution chains
      * @param limit Number of results to return per page.
      * @param offset The initial index from which to return the results.
-     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. 
      */
-    public async evolutionChainList(limit?: number, offset?: number, q?: string, _options?: Configuration): Promise<RequestContext> {
+    public async evolutionChainList(limit?: number, offset?: number, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
 
 
 
@@ -48,23 +48,7 @@ export class EvolutionApiRequestFactory extends BaseAPIRequestFactory {
             requestContext.setQueryParam("offset", ObjectSerializer.serialize(offset, "number", ""));
         }
 
-        // Query Params
-        if (q !== undefined) {
-            requestContext.setQueryParam("q", ObjectSerializer.serialize(q, "string", ""));
-        }
 
-
-        let authMethod: SecurityAuthentication | undefined;
-        // Apply auth methods
-        authMethod = _config.authMethods["basicAuth"]
-        if (authMethod?.applySecurityAuthentication) {
-            await authMethod?.applySecurityAuthentication(requestContext);
-        }
-        // Apply auth methods
-        authMethod = _config.authMethods["cookieAuth"]
-        if (authMethod?.applySecurityAuthentication) {
-            await authMethod?.applySecurityAuthentication(requestContext);
-        }
         
         const defaultAuth: SecurityAuthentication | undefined = _config?.authMethods?.default
         if (defaultAuth?.applySecurityAuthentication) {
@@ -97,17 +81,6 @@ export class EvolutionApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
 
-        let authMethod: SecurityAuthentication | undefined;
-        // Apply auth methods
-        authMethod = _config.authMethods["basicAuth"]
-        if (authMethod?.applySecurityAuthentication) {
-            await authMethod?.applySecurityAuthentication(requestContext);
-        }
-        // Apply auth methods
-        authMethod = _config.authMethods["cookieAuth"]
-        if (authMethod?.applySecurityAuthentication) {
-            await authMethod?.applySecurityAuthentication(requestContext);
-        }
         
         const defaultAuth: SecurityAuthentication | undefined = _config?.authMethods?.default
         if (defaultAuth?.applySecurityAuthentication) {
@@ -153,17 +126,6 @@ export class EvolutionApiRequestFactory extends BaseAPIRequestFactory {
         }
 
 
-        let authMethod: SecurityAuthentication | undefined;
-        // Apply auth methods
-        authMethod = _config.authMethods["basicAuth"]
-        if (authMethod?.applySecurityAuthentication) {
-            await authMethod?.applySecurityAuthentication(requestContext);
-        }
-        // Apply auth methods
-        authMethod = _config.authMethods["cookieAuth"]
-        if (authMethod?.applySecurityAuthentication) {
-            await authMethod?.applySecurityAuthentication(requestContext);
-        }
         
         const defaultAuth: SecurityAuthentication | undefined = _config?.authMethods?.default
         if (defaultAuth?.applySecurityAuthentication) {
@@ -196,17 +158,83 @@ export class EvolutionApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
 
-        let authMethod: SecurityAuthentication | undefined;
-        // Apply auth methods
-        authMethod = _config.authMethods["basicAuth"]
-        if (authMethod?.applySecurityAuthentication) {
-            await authMethod?.applySecurityAuthentication(requestContext);
+        
+        const defaultAuth: SecurityAuthentication | undefined = _config?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
         }
-        // Apply auth methods
-        authMethod = _config.authMethods["cookieAuth"]
-        if (authMethod?.applySecurityAuthentication) {
-            await authMethod?.applySecurityAuthentication(requestContext);
+
+        return requestContext;
+    }
+
+    /**
+     * Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+     * List evolution variables
+     * @param limit Number of results to return per page.
+     * @param offset The initial index from which to return the results.
+     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. 
+     */
+    public async evolutionVariableList(limit?: number, offset?: number, q?: string, _options?: Configuration): Promise<RequestContext> {
+        let _config = _options || this.configuration;
+
+
+
+
+        // Path Params
+        const localVarPath = '/api/v2/evolution-variable/';
+
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Query Params
+        if (limit !== undefined) {
+            requestContext.setQueryParam("limit", ObjectSerializer.serialize(limit, "number", ""));
         }
+
+        // Query Params
+        if (offset !== undefined) {
+            requestContext.setQueryParam("offset", ObjectSerializer.serialize(offset, "number", ""));
+        }
+
+        // Query Params
+        if (q !== undefined) {
+            requestContext.setQueryParam("q", ObjectSerializer.serialize(q, "string", ""));
+        }
+
+
+        
+        const defaultAuth: SecurityAuthentication | undefined = _config?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
+
+        return requestContext;
+    }
+
+    /**
+     * Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+     * Get evolution variable
+     * @param id This parameter can be a string or an integer.
+     */
+    public async evolutionVariableRetrieve(id: string, _options?: Configuration): Promise<RequestContext> {
+        let _config = _options || this.configuration;
+
+        // verify required parameter 'id' is not null or undefined
+        if (id === null || id === undefined) {
+            throw new RequiredError("EvolutionApi", "evolutionVariableRetrieve", "id");
+        }
+
+
+        // Path Params
+        const localVarPath = '/api/v2/evolution-variable/{id}/'
+            .replace('{id}', encodeURIComponent(String(id)));
+
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+
         
         const defaultAuth: SecurityAuthentication | undefined = _config?.authMethods?.default
         if (defaultAuth?.applySecurityAuthentication) {
@@ -330,6 +358,64 @@ export class EvolutionApiResponseProcessor {
                 ObjectSerializer.parse(await response.body.text(), contentType),
                 "EvolutionTriggerDetail", ""
             ) as EvolutionTriggerDetail;
+            return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+
+        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to evolutionVariableList
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+     public async evolutionVariableListWithHttpInfo(response: ResponseContext): Promise<HttpInfo<PaginatedEvolutionVariableSummaryList >> {
+        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if (isCodeInRange("200", response.httpStatusCode)) {
+            const body: PaginatedEvolutionVariableSummaryList = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "PaginatedEvolutionVariableSummaryList", ""
+            ) as PaginatedEvolutionVariableSummaryList;
+            return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body: PaginatedEvolutionVariableSummaryList = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "PaginatedEvolutionVariableSummaryList", ""
+            ) as PaginatedEvolutionVariableSummaryList;
+            return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+
+        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to evolutionVariableRetrieve
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+     public async evolutionVariableRetrieveWithHttpInfo(response: ResponseContext): Promise<HttpInfo<EvolutionVariableDetail >> {
+        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if (isCodeInRange("200", response.httpStatusCode)) {
+            const body: EvolutionVariableDetail = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "EvolutionVariableDetail", ""
+            ) as EvolutionVariableDetail;
+            return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body: EvolutionVariableDetail = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "EvolutionVariableDetail", ""
+            ) as EvolutionVariableDetail;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 

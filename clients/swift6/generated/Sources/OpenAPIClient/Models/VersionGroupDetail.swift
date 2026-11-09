@@ -9,17 +9,26 @@ import Foundation
 
 public struct VersionGroupDetail: Sendable, Codable, Hashable {
 
-    public static let nameRule = StringRule(minLength: nil, maxLength: 100, pattern: nil)
+    public static let nameRule = StringRule(minLength: nil, maxLength: 200, pattern: nil)
+    public static let orderRule = NumericRule<Int>(minimum: -2147483648, exclusiveMinimum: false, maximum: 2147483647, exclusiveMaximum: false, multipleOf: nil)
+    /** The identifier for this resource. */
     public var id: Int
+    /** The name for this resource. */
     public var name: String
+    /** Order for sorting. Almost by date of release, except similar versions are grouped together. */
     public var order: Int?
+    /** The generation this version was introduced in. */
     public var generation: GenerationSummary
-    public var moveLearnMethods: [AbilityDetailPokemonInnerPokemon]
-    public var pokedexes: [AbilityDetailPokemonInnerPokemon]
-    public var regions: [AbilityDetailPokemonInnerPokemon]
+    /** A list of methods in which Pokémon can learn moves in this version group. */
+    public var moveLearnMethods: [MoveLearnMethodSummary]
+    /** A list of Pokédexes introduces in this version group. */
+    public var pokedexes: [PokedexSummary]
+    /** A list of regions that can be visited in this version group. */
+    public var regions: [RegionSummary]
+    /** The versions this version group owns. */
     public var versions: [VersionSummary]
 
-    public init(id: Int, name: String, order: Int? = nil, generation: GenerationSummary, moveLearnMethods: [AbilityDetailPokemonInnerPokemon], pokedexes: [AbilityDetailPokemonInnerPokemon], regions: [AbilityDetailPokemonInnerPokemon], versions: [VersionSummary]) {
+    public init(id: Int, name: String, order: Int? = nil, generation: GenerationSummary, moveLearnMethods: [MoveLearnMethodSummary], pokedexes: [PokedexSummary], regions: [RegionSummary], versions: [VersionSummary]) {
         self.id = id
         self.name = name
         self.order = order

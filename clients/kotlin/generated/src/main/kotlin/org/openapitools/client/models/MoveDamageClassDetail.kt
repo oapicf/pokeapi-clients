@@ -33,28 +33,33 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param id 
- * @param name 
- * @param descriptions 
- * @param moves 
- * @param names 
+ * @param id The identifier for this resource.
+ * @param name The name for this resource.
+ * @param descriptions The description of this resource listed in different languages.
+ * @param moves A list of moves that fall into this damage class.
+ * @param names The name of this resource listed in different languages.
  */
 
 
 data class MoveDamageClassDetail (
 
+    /* The identifier for this resource. */
     @Json(name = "id")
     val id: kotlin.Int,
 
+    /* The name for this resource. */
     @Json(name = "name")
     val name: kotlin.String,
 
+    /* The description of this resource listed in different languages. */
     @Json(name = "descriptions")
     val descriptions: kotlin.collections.List<MoveDamageClassDescription>,
 
+    /* A list of moves that fall into this damage class. */
     @Json(name = "moves")
     val moves: kotlin.collections.List<MoveSummary>,
 
+    /* The name of this resource listed in different languages. */
     @Json(name = "names")
     val names: kotlin.collections.List<MoveDamageClassName>
 

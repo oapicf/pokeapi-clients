@@ -3,9 +3,9 @@ package org.openapitools.model;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.model.AbilityDetailPokemonInnerPokemon;
 import org.openapitools.model.ItemAttributeDescription;
 import org.openapitools.model.ItemAttributeName;
+import org.openapitools.model.ItemSummary;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
@@ -16,22 +16,37 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class ItemAttributeDetail  {
   
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The identifier for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   private Integer id;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The name for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   private String name;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The description of this item attribute listed in different languages.
+  */
+  @ApiModelProperty(required = true, value = "The description of this item attribute listed in different languages.")
   private List<@Valid ItemAttributeDescription> descriptions = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
-  private List<@Valid AbilityDetailPokemonInnerPokemon> items = new ArrayList<>();
+ /**
+  * A list of items that have this attribute.
+  */
+  @ApiModelProperty(required = true, value = "A list of items that have this attribute.")
+  private List<@Valid ItemSummary> items = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The name of this item attribute listed in different languages.
+  */
+  @ApiModelProperty(required = true, value = "The name of this item attribute listed in different languages.")
   private List<@Valid ItemAttributeName> names = new ArrayList<>();
  /**
-  * Get id
+  * The identifier for this resource.
   * @return id
   */
   @JsonProperty("id")
@@ -58,12 +73,12 @@ public class ItemAttributeDetail  {
   }
 
  /**
-  * Get name
+  * The name for this resource.
   * @return name
   */
   @JsonProperty("name")
   @NotNull
- @Size(max=100)  public String getName() {
+ @Size(max=200)  public String getName() {
     return name;
   }
 
@@ -83,7 +98,7 @@ public class ItemAttributeDetail  {
   }
 
  /**
-  * Get descriptions
+  * The description of this item attribute listed in different languages.
   * @return descriptions
   */
   @JsonProperty("descriptions")
@@ -119,12 +134,12 @@ public class ItemAttributeDetail  {
   }
 
  /**
-  * Get items
+  * A list of items that have this attribute.
   * @return items
   */
   @JsonProperty("items")
   @NotNull
-  public List<@Valid AbilityDetailPokemonInnerPokemon> getItems() {
+  public List<@Valid ItemSummary> getItems() {
     return items;
   }
 
@@ -132,7 +147,7 @@ public class ItemAttributeDetail  {
    * Sets the <code>items</code> property.
    * <br><em>N.B. <code>items</code> is <b>read only</b>; client code should not call this method</em>.
    */
- public void setItems(List<@Valid AbilityDetailPokemonInnerPokemon> items) {
+ public void setItems(List<@Valid ItemSummary> items) {
     this.items = items;
   }
 
@@ -140,7 +155,7 @@ public class ItemAttributeDetail  {
    * Sets the <code>items</code> property.
    * <br><em>N.B. <code>items</code> is <b>read only</b>; client code should not call this method</em>.
    */
-  public ItemAttributeDetail items(List<@Valid AbilityDetailPokemonInnerPokemon> items) {
+  public ItemAttributeDetail items(List<@Valid ItemSummary> items) {
     this.items = items;
     return this;
   }
@@ -149,13 +164,13 @@ public class ItemAttributeDetail  {
    * Adds a new item to the <code>items</code> list.
    * <br><em>N.B. <code>items</code> is <b>read only</b>; client code should not call this method</em>.
    */
-  public ItemAttributeDetail addItemsItem(AbilityDetailPokemonInnerPokemon itemsItem) {
+  public ItemAttributeDetail addItemsItem(ItemSummary itemsItem) {
     this.items.add(itemsItem);
     return this;
   }
 
  /**
-  * Get names
+  * The name of this item attribute listed in different languages.
   * @return names
   */
   @JsonProperty("names")

@@ -15,7 +15,7 @@ import java.net.URI;
  * PokemonHabitatSummary
  */
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-10-25T05:48:09.645019047Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-11-09T13:49:28.343088631Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PokemonHabitatSummary   {
   @JsonProperty("name")
   private String name;
@@ -29,10 +29,10 @@ public class PokemonHabitatSummary   {
   }
 
   /**
-   * Get name
+   * The name of the referenced resource.
    * @return name
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name of the referenced resource.")
   public String getName() {
     return name;
   }
@@ -47,10 +47,10 @@ public class PokemonHabitatSummary   {
   }
 
   /**
-   * Get url
+   * The URL of the referenced resource.
    * @return url
    */
-  @ApiModelProperty(required = true, readOnly = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "The URL of the referenced resource.")
   public URI getUrl() {
     return url;
   }

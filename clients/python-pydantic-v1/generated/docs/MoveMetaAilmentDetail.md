@@ -4,10 +4,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** |  | [readonly] 
-**name** | **str** |  | 
-**moves** | [**List[AbilityDetailPokemonInnerPokemon]**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] 
-**names** | [**List[MoveMetaAilmentName]**](MoveMetaAilmentName.md) |  | [readonly] 
+**id** | **int** | The identifier for this resource. | [readonly] 
+**name** | **str** | The name for this resource. | 
+**moves** | [**List[MoveSummary]**](MoveSummary.md) | A list of moves that cause this ailment. | [readonly] 
+**names** | [**List[MoveMetaAilmentName]**](MoveMetaAilmentName.md) | The name of this resource listed in different languages. | [readonly] 
 
 ## Example
 

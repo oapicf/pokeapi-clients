@@ -21,7 +21,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("PokemonColorDetail")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-11-09T13:50:06.168269698Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PokemonColorDetail   {
   private Integer id;
   private String name;
@@ -45,6 +45,7 @@ public class PokemonColorDetail   {
   }
 
   /**
+   * The identifier for this resource.
    **/
   public PokemonColorDetail id(Integer id) {
     this.id = id;
@@ -52,7 +53,7 @@ public class PokemonColorDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   @JsonProperty(required = true, value = "id")
   public Integer getId() {
     return id;
@@ -64,6 +65,7 @@ public class PokemonColorDetail   {
   }
 
   /**
+   * The name for this resource.
    **/
   public PokemonColorDetail name(String name) {
     this.name = name;
@@ -71,9 +73,9 @@ public class PokemonColorDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   @JsonProperty(required = true, value = "name")
-  @NotNull  @Size(max=100)public String getName() {
+  @NotNull  @Size(max=200)public String getName() {
     return name;
   }
 
@@ -83,6 +85,7 @@ public class PokemonColorDetail   {
   }
 
   /**
+   * The name of this resource listed in different languages.
    **/
   public PokemonColorDetail names(List<@Valid PokemonColorName> names) {
     this.names = names;
@@ -90,7 +93,7 @@ public class PokemonColorDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
   @JsonProperty(required = true, value = "names")
   public List<@Valid PokemonColorName> getNames() {
     return names;
@@ -118,6 +121,7 @@ public class PokemonColorDetail   {
     return this;
   }
   /**
+   * A list of the Pokémon species that have this color.
    **/
   public PokemonColorDetail pokemonSpecies(List<@Valid PokemonSpeciesSummary> pokemonSpecies) {
     this.pokemonSpecies = pokemonSpecies;
@@ -125,7 +129,7 @@ public class PokemonColorDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of the Pokémon species that have this color.")
   @JsonProperty(required = true, value = "pokemon_species")
   public List<@Valid PokemonSpeciesSummary> getPokemonSpecies() {
     return pokemonSpecies;

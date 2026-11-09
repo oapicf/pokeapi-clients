@@ -19,12 +19,16 @@ class VersionDetail {
     required this.versionGroup,
   });
 
+  /// The identifier for this resource.
   int id;
 
+  /// The name for this resource.
   String name;
 
+  /// The name of this resource listed in different languages.
   List<VersionName> names;
 
+  /// The version group this version belongs to.
   VersionGroupSummary versionGroup;
 
   @override

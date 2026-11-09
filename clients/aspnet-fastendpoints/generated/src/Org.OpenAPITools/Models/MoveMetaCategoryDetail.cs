@@ -9,7 +9,7 @@ public class MoveMetaCategoryDetail
     public int Id { get; set; }
     public string Name { get; set; }
     public List<MoveMetaCategoryDescription> Descriptions { get; set; }
-    public List<AbilityDetailPokemonInnerPokemon> Moves { get; set; }
+    public List<MoveSummary> Moves { get; set; }
 }
 
 

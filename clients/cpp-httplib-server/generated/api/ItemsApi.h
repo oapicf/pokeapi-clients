@@ -8,15 +8,16 @@
 
 // System headers
 #include <httplib.h>
-#include <memory>
 #include <variant>
 
 // Project headers
+#include "models/CurrencyDetail.h"
 #include "models/ItemAttributeDetail.h"
 #include "models/ItemCategoryDetail.h"
 #include "models/ItemDetail.h"
 #include "models/ItemFlingEffectDetail.h"
 #include "models/ItemPocketDetail.h"
+#include "models/PaginatedCurrencySummaryList.h"
 #include "models/PaginatedItemAttributeSummaryList.h"
 #include "models/PaginatedItemCategorySummaryList.h"
 #include "models/PaginatedItemFlingEffectSummaryList.h"
@@ -24,7 +25,6 @@
 #include "models/PaginatedItemSummaryList.h"
 
 namespace Api {
-    class AuthenticationManager;
 class Items {
 public:
     Items() = default;
@@ -32,12 +32,31 @@ public:
     /**
      * @brief Register all routes for this API
      * @param svr The httplib::Server instance to register routes on
-     * @param auth The AuthenticationManager for authentication (optional, defaults to nullptr)
      */
-    void registerRoutes(httplib::Server& svr, std::shared_ptr<AuthenticationManager> auth = nullptr);
+    void registerRoutes(httplib::Server& svr);
     // =========================
     // ===== Request types =====
     // =========================
+
+    /**
+    * @brief Request type for handleGetForApiv2currency.
+    */
+    struct Apiv2currencyGetRequest
+    {
+
+        std::optional<int> m_limit; //Query Params (optional)
+        std::optional<int> m_offset; //Query Params (optional)
+        std::optional<std::string> m_q; //Query Params (optional)
+    };
+
+    /**
+    * @brief Request type for handleGetForApiv2currencyid.
+    */
+    struct Apiv2currencyidGetRequest
+    {
+
+        std::string m_id; //PathParams (always required)
+    };
 
     /**
     * @brief Request type for handleGetForApiv2itemAttribute.
@@ -144,6 +163,16 @@ public:
     // ==========================
 
     /**
+    * @brief Response type for handleGetForApiv2currency.
+    */
+    using Apiv2currencyGetResponse = models::PaginatedCurrencySummaryList;
+
+    /**
+    * @brief Response type for handleGetForApiv2currencyid.
+    */
+    using Apiv2currencyidGetResponse = models::CurrencyDetail;
+
+    /**
     * @brief Response type for handleGetForApiv2itemAttribute.
     */
     using Apiv2itemAttributeGetResponse = models::PaginatedItemAttributeSummaryList;
@@ -195,6 +224,18 @@ public:
     // ============================================================
     // ===== Pure virtual functions to be handled by the user =====
     // ============================================================
+    /**
+     * Apiv2currencyGetRequest - struct containing all the query parameters and headers and schemas as available.
+     * @return Apiv2currencyGetResponse The response type returned by the handler.
+     */
+    virtual Apiv2currencyGetResponse handleGetForApiv2currency(const Apiv2currencyGetRequest& params)=0;
+
+    /**
+     * Apiv2currencyidGetRequest - struct containing all the query parameters and headers and schemas as available.
+     * @return Apiv2currencyidGetResponse The response type returned by the handler.
+     */
+    virtual Apiv2currencyidGetResponse handleGetForApiv2currencyid(const Apiv2currencyidGetRequest& params)=0;
+
     /**
      * Apiv2itemAttributeGetRequest - struct containing all the query parameters and headers and schemas as available.
      * @return Apiv2itemAttributeGetResponse The response type returned by the handler.
@@ -259,40 +300,42 @@ private:
     // ========================================
     // ===== Helper function declarations =====
     // ========================================
+    static bool parseApiv2currencyGetParams(const httplib::Request& req, Apiv2currencyGetRequest& params, std::vector<std::string>& paramErrors);
+    void handleApiv2currencyGetRequest(const httplib::Request& req, httplib::Response& res);
+    static void handleApiv2currencyGetResponse(const Apiv2currencyGetResponse& result, httplib::Response& res);
+    static bool parseApiv2currencyidGetParams(const httplib::Request& req, Apiv2currencyidGetRequest& params, std::vector<std::string>& paramErrors);
+    void handleApiv2currencyidGetRequest(const httplib::Request& req, httplib::Response& res);
+    static void handleApiv2currencyidGetResponse(const Apiv2currencyidGetResponse& result, httplib::Response& res);
     static bool parseApiv2itemAttributeGetParams(const httplib::Request& req, Apiv2itemAttributeGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2itemAttributeGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2itemAttributeGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2itemAttributeGetResponse(const Apiv2itemAttributeGetResponse& result, httplib::Response& res);
     static bool parseApiv2itemAttributeidGetParams(const httplib::Request& req, Apiv2itemAttributeidGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2itemAttributeidGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2itemAttributeidGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2itemAttributeidGetResponse(const Apiv2itemAttributeidGetResponse& result, httplib::Response& res);
     static bool parseApiv2itemCategoryGetParams(const httplib::Request& req, Apiv2itemCategoryGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2itemCategoryGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2itemCategoryGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2itemCategoryGetResponse(const Apiv2itemCategoryGetResponse& result, httplib::Response& res);
     static bool parseApiv2itemCategoryidGetParams(const httplib::Request& req, Apiv2itemCategoryidGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2itemCategoryidGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2itemCategoryidGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2itemCategoryidGetResponse(const Apiv2itemCategoryidGetResponse& result, httplib::Response& res);
     static bool parseApiv2itemFlingEffectGetParams(const httplib::Request& req, Apiv2itemFlingEffectGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2itemFlingEffectGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2itemFlingEffectGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2itemFlingEffectGetResponse(const Apiv2itemFlingEffectGetResponse& result, httplib::Response& res);
     static bool parseApiv2itemFlingEffectidGetParams(const httplib::Request& req, Apiv2itemFlingEffectidGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2itemFlingEffectidGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2itemFlingEffectidGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2itemFlingEffectidGetResponse(const Apiv2itemFlingEffectidGetResponse& result, httplib::Response& res);
     static bool parseApiv2itemGetParams(const httplib::Request& req, Apiv2itemGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2itemGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2itemGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2itemGetResponse(const Apiv2itemGetResponse& result, httplib::Response& res);
     static bool parseApiv2itemPocketGetParams(const httplib::Request& req, Apiv2itemPocketGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2itemPocketGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2itemPocketGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2itemPocketGetResponse(const Apiv2itemPocketGetResponse& result, httplib::Response& res);
     static bool parseApiv2itemPocketidGetParams(const httplib::Request& req, Apiv2itemPocketidGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2itemPocketidGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2itemPocketidGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2itemPocketidGetResponse(const Apiv2itemPocketidGetResponse& result, httplib::Response& res);
     static bool parseApiv2itemidGetParams(const httplib::Request& req, Apiv2itemidGetRequest& params, std::vector<std::string>& paramErrors);
-    void handleApiv2itemidGetRequest(const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth);
+    void handleApiv2itemidGetRequest(const httplib::Request& req, httplib::Response& res);
     static void handleApiv2itemidGetResponse(const Apiv2itemidGetResponse& result, httplib::Response& res);
-    static bool performAuthentication(
-        const httplib::Request& req,
-        std::shared_ptr<AuthenticationManager> auth,
-        httplib::Response& res);
 };
 
 } // namespace Api

@@ -3,8 +3,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**EntryNumber** | **Int32** |  | 
-**Pokedex** | [**PokedexSummary**](PokedexSummary.md) |  | 
+**EntryNumber** | **Int32** | The index number within the Pokédex. | 
+**Pokedex** | [**PokedexSummary**](PokedexSummary.md) | The Pokédex the referenced Pokémon species can be found in. | 
 
 ## Examples
 

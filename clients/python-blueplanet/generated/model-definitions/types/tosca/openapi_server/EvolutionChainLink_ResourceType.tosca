@@ -1,0 +1,54 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server EvolutionChainLink"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a EvolutionChainLink"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  PokemonEvolution = openapi_server.resourceTypes.PokemonEvolution
+  PokemonSpeciesSummary = openapi_server.resourceTypes.PokemonSpeciesSummary
+}
+resourceTypes {
+
+  EvolutionChainLink {
+    title = EvolutionChainLink
+    description = EvolutionChainLink
+    derivedFrom = Root
+    properties {
+        is_baby {
+          type =  boolean
+          description = "Whether or not this link is for a baby Pokémon. This would only ever be true on the base link."
+          optional = true
+        }
+        species {
+          type = PokemonSpeciesSummary
+          description = "The Pokémon species at this point in the evolution chain."
+          optional = true
+        }
+        evolution_details {
+          type = array
+          items.type = PokemonEvolution
+          description = "All details regarding the specific details of the referenced Pokémon species evolution."
+          optional = true
+        }
+        evolves_to {
+          type = array
+          items.type = EvolutionChainLink
+          description = "A List of chain objects."
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  EvolutionChainLink {
+    title = EvolutionChainLink
+    description = EvolutionChainLink
+    implements = openapi_server.resourceTypes.EvolutionChainLink
+
+  }
+}

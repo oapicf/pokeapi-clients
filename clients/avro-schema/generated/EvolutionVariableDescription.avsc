@@ -1,0 +1,20 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "EvolutionVariableDescription",
+  "fields": [
+    {
+      "name": "description",
+      "type": ["null", "string"],
+      "doc": "The localized description for an API resource in a specific language.",
+      "default": null
+    },
+    {
+      "name": "language",
+      "type": "model.LanguageSummary",
+      "doc": "The language this name is in."
+    }
+  ]
+
+}

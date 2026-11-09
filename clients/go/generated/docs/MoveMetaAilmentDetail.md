@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int32** |  | [readonly] 
-**Name** | **string** |  | 
-**Moves** | [**[]AbilityDetailPokemonInnerPokemon**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] 
-**Names** | [**[]MoveMetaAilmentName**](MoveMetaAilmentName.md) |  | [readonly] 
+**Id** | **int32** | The identifier for this resource. | [readonly] 
+**Name** | **string** | The name for this resource. | 
+**Moves** | [**[]MoveSummary**](MoveSummary.md) | A list of moves that cause this ailment. | [readonly] 
+**Names** | [**[]MoveMetaAilmentName**](MoveMetaAilmentName.md) | The name of this resource listed in different languages. | [readonly] 
 
 ## Methods
 
 ### NewMoveMetaAilmentDetail
 
-`func NewMoveMetaAilmentDetail(id int32, name string, moves []AbilityDetailPokemonInnerPokemon, names []MoveMetaAilmentName, ) *MoveMetaAilmentDetail`
+`func NewMoveMetaAilmentDetail(id int32, name string, moves []MoveSummary, names []MoveMetaAilmentName, ) *MoveMetaAilmentDetail`
 
 NewMoveMetaAilmentDetail instantiates a new MoveMetaAilmentDetail object
 This constructor will assign default values to properties that have it defined,
@@ -70,20 +70,20 @@ SetName sets Name field to given value.
 
 ### GetMoves
 
-`func (o *MoveMetaAilmentDetail) GetMoves() []AbilityDetailPokemonInnerPokemon`
+`func (o *MoveMetaAilmentDetail) GetMoves() []MoveSummary`
 
 GetMoves returns the Moves field if non-nil, zero value otherwise.
 
 ### GetMovesOk
 
-`func (o *MoveMetaAilmentDetail) GetMovesOk() (*[]AbilityDetailPokemonInnerPokemon, bool)`
+`func (o *MoveMetaAilmentDetail) GetMovesOk() (*[]MoveSummary, bool)`
 
 GetMovesOk returns a tuple with the Moves field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMoves
 
-`func (o *MoveMetaAilmentDetail) SetMoves(v []AbilityDetailPokemonInnerPokemon)`
+`func (o *MoveMetaAilmentDetail) SetMoves(v []MoveSummary)`
 
 SetMoves sets Moves field to given value.
 

@@ -2,16 +2,25 @@
 Protected Class PokemonStat
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The base value of the stat.
+		#tag EndNote
 		base_stat As Integer
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The effort points (EV) the Pokémon has in the stat.
+		#tag EndNote
 		effort As Integer
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The stat the Pokémon has.
+		#tag EndNote
 		stat As OpenAPIClient.Models.StatSummary
 	#tag EndProperty
 

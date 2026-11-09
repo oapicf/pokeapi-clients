@@ -7,21 +7,21 @@ authors     = ["F. Bar (foo@bar.baz)"]
 
 imports {
   Root = tosca.resourceTypes.Root
-  AbilityDetailPokemonInnerPokemon = openapi_server.resourceTypes.AbilityDetailPokemonInnerPokemon
   ContestEffectSummary = openapi_server.resourceTypes.ContestEffectSummary
   ContestTypeSummary = openapi_server.resourceTypes.ContestTypeSummary
   GenerationSummary = openapi_server.resourceTypes.GenerationSummary
+  ItemMachine = openapi_server.resourceTypes.ItemMachine
   MoveChange = openapi_server.resourceTypes.MoveChange
-  MoveChangeEffectEntriesInner = openapi_server.resourceTypes.MoveChangeEffectEntriesInner
+  MoveCombos = openapi_server.resourceTypes.MoveCombos
   MoveDamageClassSummary = openapi_server.resourceTypes.MoveDamageClassSummary
-  MoveDetailContestCombos = openapi_server.resourceTypes.MoveDetailContestCombos
-  MoveDetailEffectChangesInner = openapi_server.resourceTypes.MoveDetailEffectChangesInner
-  MoveDetailMachinesInner = openapi_server.resourceTypes.MoveDetailMachinesInner
-  MoveDetailStatChangesInner = openapi_server.resourceTypes.MoveDetailStatChangesInner
+  MoveEffectChange = openapi_server.resourceTypes.MoveEffectChange
+  MoveEffectEffectText = openapi_server.resourceTypes.MoveEffectEffectText
   MoveFlavorText = openapi_server.resourceTypes.MoveFlavorText
   MoveMeta = openapi_server.resourceTypes.MoveMeta
+  MoveMetaStatChange = openapi_server.resourceTypes.MoveMetaStatChange
   MoveName = openapi_server.resourceTypes.MoveName
   MoveTargetSummary = openapi_server.resourceTypes.MoveTargetSummary
+  PokemonSummary = openapi_server.resourceTypes.PokemonSummary
   SuperContestEffectSummary = openapi_server.resourceTypes.SuperContestEffectSummary
   TypeSummary = openapi_server.resourceTypes.TypeSummary
 }
@@ -34,130 +34,130 @@ resourceTypes {
     properties {
         id {
           type =  integer
-          description = ""
+          description = "The identifier for this resource."
           optional = true
         }
         name {
           type =  string
-          description = ""
+          description = "The name for this resource."
           optional = true
         }
         accuracy {
           type =  integer
-          description = ""
+          description = "The percent value of how likely this move is to be successful."
           optional = false
         }
         effect_chance {
           type =  integer
-          description = ""
+          description = "The percent value of how likely it is this moves effect will happen."
           optional = true
         }
         pp {
           type =  integer
-          description = ""
+          description = "Power points. The number of times this move can be used."
           optional = false
         }
         priority {
           type =  integer
-          description = ""
+          description = "A value between -8 and 8. Sets the order in which moves are executed during battle. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Priority) for greater detail."
           optional = false
         }
         power {
           type =  integer
-          description = ""
+          description = "The base power of this move, or null if it has no fixed base power."
           optional = false
         }
         contest_combos {
-          type = MoveDetailContestCombos
-          description = ""
+          type = MoveCombos
+          description = "A detail of normal and super contest combos that require this move."
           optional = true
         }
         contest_type {
           type = ContestTypeSummary
-          description = ""
+          description = "The type of appeal this move gives a Pokémon when used in a contest."
           optional = true
         }
         contest_effect {
           type = ContestEffectSummary
-          description = ""
+          description = "The effect the move has when used in a contest."
           optional = true
         }
         damage_class {
           type = MoveDamageClassSummary
-          description = ""
+          description = "The type of damage the move inflicts on the target, e.g. physical."
           optional = true
         }
         effect_entries {
           type = array
-          items.type = MoveChangeEffectEntriesInner
-          description = ""
+          items.type = MoveEffectEffectText
+          description = "The effect of this move listed in different languages."
           optional = true
         }
         effect_changes {
           type = array
-          items.type = MoveDetailEffectChangesInner
-          description = ""
+          items.type = MoveEffectChange
+          description = "The list of previous effects this move has had across version groups of the games."
           optional = true
         }
         generation {
           type = GenerationSummary
-          description = ""
+          description = "The generation in which this move was introduced."
           optional = true
         }
         meta {
           type = MoveMeta
-          description = ""
+          description = "Metadata about this move"
           optional = true
         }
         names {
           type = array
           items.type = MoveName
-          description = ""
+          description = "The name of this resource listed in different languages."
           optional = true
         }
         past_values {
           type = array
           items.type = MoveChange
-          description = ""
+          description = "A list of move resource value changes across version groups of the game."
           optional = true
         }
         stat_changes {
           type = array
-          items.type = MoveDetailStatChangesInner
-          description = ""
+          items.type = MoveMetaStatChange
+          description = "A list of stats this moves effects and how much it effects them."
           optional = true
         }
         super_contest_effect {
           type = SuperContestEffectSummary
-          description = ""
+          description = "The effect the move has when used in a super contest."
           optional = true
         }
         target {
           type = MoveTargetSummary
-          description = ""
+          description = "The type of target that will receive the effects of the attack."
           optional = true
         }
         type {
           type = TypeSummary
-          description = ""
+          description = "The elemental type of this move."
           optional = true
         }
         machines {
           type = array
-          items.type = MoveDetailMachinesInner
-          description = ""
+          items.type = ItemMachine
+          description = "A list of the machines that teach this move."
           optional = true
         }
         flavor_text_entries {
           type = array
           items.type = MoveFlavorText
-          description = ""
+          description = "The flavor text of this move listed in different languages."
           optional = true
         }
         learned_by_pokemon {
           type = array
-          items.type = AbilityDetailPokemonInnerPokemon
-          description = ""
+          items.type = PokemonSummary
+          description = "List of Pokemon that can learn the move"
           optional = true
         }
     }

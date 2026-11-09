@@ -18,7 +18,7 @@ openapi_type_game_index() ->
     openapi_type_game_index([]).
 
 openapi_type_game_index(Fields) ->
-  Default = [ {'game_index', integer() }
+  Default = [ {'game_index', integer(-2147483648, 2147483647) }
             , {'generation', openapi_generation_summary:openapi_generation_summary() }
             ],
   lists:ukeymerge(1, lists:sort(Fields), lists:sort(Default)).

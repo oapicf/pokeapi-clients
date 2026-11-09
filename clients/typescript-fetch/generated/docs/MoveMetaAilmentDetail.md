@@ -8,7 +8,7 @@ Name | Type
 ------------ | -------------
 `id` | number
 `name` | string
-`moves` | [Array&lt;AbilityDetailPokemonInnerPokemon&gt;](AbilityDetailPokemonInnerPokemon.md)
+`moves` | [Array&lt;MoveSummary&gt;](MoveSummary.md)
 `names` | [Array&lt;MoveMetaAilmentName&gt;](MoveMetaAilmentName.md)
 
 ## Example

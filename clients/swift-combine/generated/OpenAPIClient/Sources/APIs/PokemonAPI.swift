@@ -28,14 +28,9 @@ open class PokemonAPI {
     }
 
 
+    /// List abilities
     /// - GET /api/v2/ability/
     /// - Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter limit: (query) Number of results to return per page. (optional)
     /// - parameter offset: (query) The initial index from which to return the results. (optional)
     /// - parameter q: (query) &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
@@ -71,14 +66,9 @@ open class PokemonAPI {
     }
 
 
+    /// Get ability
     /// - GET /api/v2/ability/{id}/
     /// - Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter id: (path) This parameter can be a string or an integer. 
     /// - returns: AnyPublisher<AbilityDetail, Error> 
     open func abilityRetrieve(id: String) -> AnyPublisher<AbilityDetail, Error> {
@@ -108,20 +98,13 @@ open class PokemonAPI {
     }
 
 
-    /// List charecterictics
+    /// List characteristics
     /// - GET /api/v2/characteristic/
     /// - Characteristics indicate which stat contains a Pokémon's highest IV. A Pokémon's Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail.
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter limit: (query) Number of results to return per page. (optional)
     /// - parameter offset: (query) The initial index from which to return the results. (optional)
-    /// - parameter q: (query) &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
     /// - returns: AnyPublisher<PaginatedCharacteristicSummaryList, Error> 
-    open func characteristicList(limit: Int? = nil, offset: Int? = nil, q: String? = nil) -> AnyPublisher<PaginatedCharacteristicSummaryList, Error> {
+    open func characteristicList(limit: Int? = nil, offset: Int? = nil) -> AnyPublisher<PaginatedCharacteristicSummaryList, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
@@ -133,7 +116,6 @@ open class PokemonAPI {
                 var queryItems: [URLQueryItem] = []
                 if let limit = limit { queryItems.append(URLQueryItem(name: "limit", value: "\(limit)")) } 
                 if let offset = offset { queryItems.append(URLQueryItem(name: "offset", value: "\(offset)")) } 
-                if let q = q { queryItems.append(URLQueryItem(name: "q", value: q)) } 
                 components?.queryItems = queryItems
                 guard let requestURL = components?.url else {
                     throw OpenAPITransportError.badURLError()
@@ -155,12 +137,6 @@ open class PokemonAPI {
     /// Get characteristic
     /// - GET /api/v2/characteristic/{id}/
     /// - Characteristics indicate which stat contains a Pokémon's highest IV. A Pokémon's Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail.
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter id: (path) This parameter can be a string or an integer. 
     /// - returns: AnyPublisher<CharacteristicDetail, Error> 
     open func characteristicRetrieve(id: String) -> AnyPublisher<CharacteristicDetail, Error> {
@@ -193,12 +169,6 @@ open class PokemonAPI {
     /// List egg groups
     /// - GET /api/v2/egg-group/
     /// - Egg Groups are categories which determine which Pokémon are able to interbreed. Pokémon may belong to either one or two Egg Groups. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Egg_Group) for greater detail.
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter limit: (query) Number of results to return per page. (optional)
     /// - parameter offset: (query) The initial index from which to return the results. (optional)
     /// - parameter q: (query) &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
@@ -237,12 +207,6 @@ open class PokemonAPI {
     /// Get egg group
     /// - GET /api/v2/egg-group/{id}/
     /// - Egg Groups are categories which determine which Pokémon are able to interbreed. Pokémon may belong to either one or two Egg Groups. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Egg_Group) for greater detail.
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter id: (path) This parameter can be a string or an integer. 
     /// - returns: AnyPublisher<EggGroupDetail, Error> 
     open func eggGroupRetrieve(id: String) -> AnyPublisher<EggGroupDetail, Error> {
@@ -275,12 +239,6 @@ open class PokemonAPI {
     /// List genders
     /// - GET /api/v2/gender/
     /// - Genders were introduced in Generation II for the purposes of breeding Pokémon but can also result in visual differences or even different evolutionary lines. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Gender) for greater detail.
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter limit: (query) Number of results to return per page. (optional)
     /// - parameter offset: (query) The initial index from which to return the results. (optional)
     /// - parameter q: (query) &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
@@ -319,12 +277,6 @@ open class PokemonAPI {
     /// Get gender
     /// - GET /api/v2/gender/{id}/
     /// - Genders were introduced in Generation II for the purposes of breeding Pokémon but can also result in visual differences or even different evolutionary lines. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Gender) for greater detail.
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter id: (path) This parameter can be a string or an integer. 
     /// - returns: AnyPublisher<GenderDetail, Error> 
     open func genderRetrieve(id: String) -> AnyPublisher<GenderDetail, Error> {
@@ -357,12 +309,6 @@ open class PokemonAPI {
     /// List growth rates
     /// - GET /api/v2/growth-rate/
     /// - Growth rates are the speed with which Pokémon gain levels through experience. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Experience) for greater detail.
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter limit: (query) Number of results to return per page. (optional)
     /// - parameter offset: (query) The initial index from which to return the results. (optional)
     /// - parameter q: (query) &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
@@ -401,12 +347,6 @@ open class PokemonAPI {
     /// Get growth rate
     /// - GET /api/v2/growth-rate/{id}/
     /// - Growth rates are the speed with which Pokémon gain levels through experience. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Experience) for greater detail.
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter id: (path) This parameter can be a string or an integer. 
     /// - returns: AnyPublisher<GrowthRateDetail, Error> 
     open func growthRateRetrieve(id: String) -> AnyPublisher<GrowthRateDetail, Error> {
@@ -439,12 +379,6 @@ open class PokemonAPI {
     /// List move damage classes
     /// - GET /api/v2/move-damage-class/
     /// - Damage classes moves can have, e.g. physical, special, or non-damaging.
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter limit: (query) Number of results to return per page. (optional)
     /// - parameter offset: (query) The initial index from which to return the results. (optional)
     /// - parameter q: (query) &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
@@ -483,12 +417,6 @@ open class PokemonAPI {
     /// Get move damage class
     /// - GET /api/v2/move-damage-class/{id}/
     /// - Damage classes moves can have, e.g. physical, special, or non-damaging.
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter id: (path) This parameter can be a string or an integer. 
     /// - returns: AnyPublisher<MoveDamageClassDetail, Error> 
     open func moveDamageClassRetrieve(id: String) -> AnyPublisher<MoveDamageClassDetail, Error> {
@@ -521,12 +449,6 @@ open class PokemonAPI {
     /// List natures
     /// - GET /api/v2/nature/
     /// - Natures influence how a Pokémon's stats grow. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Nature) for greater detail.
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter limit: (query) Number of results to return per page. (optional)
     /// - parameter offset: (query) The initial index from which to return the results. (optional)
     /// - parameter q: (query) &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
@@ -565,12 +487,6 @@ open class PokemonAPI {
     /// Get nature
     /// - GET /api/v2/nature/{id}/
     /// - Natures influence how a Pokémon's stats grow. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Nature) for greater detail.
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter id: (path) This parameter can be a string or an integer. 
     /// - returns: AnyPublisher<NatureDetail, Error> 
     open func natureRetrieve(id: String) -> AnyPublisher<NatureDetail, Error> {
@@ -603,12 +519,6 @@ open class PokemonAPI {
     /// List pokeathlon stats
     /// - GET /api/v2/pokeathlon-stat/
     /// - Pokeathlon Stats are different attributes of a Pokémon's performance in Pokéathlons. In Pokéathlons, competitions happen on different courses; one for each of the different Pokéathlon stats. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9athlon) for greater detail.
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter limit: (query) Number of results to return per page. (optional)
     /// - parameter offset: (query) The initial index from which to return the results. (optional)
     /// - parameter q: (query) &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
@@ -647,12 +557,6 @@ open class PokemonAPI {
     /// Get pokeathlon stat
     /// - GET /api/v2/pokeathlon-stat/{id}/
     /// - Pokeathlon Stats are different attributes of a Pokémon's performance in Pokéathlons. In Pokéathlons, competitions happen on different courses; one for each of the different Pokéathlon stats. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9athlon) for greater detail.
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter id: (path) This parameter can be a string or an integer. 
     /// - returns: AnyPublisher<PokeathlonStatDetail, Error> 
     open func pokeathlonStatRetrieve(id: String) -> AnyPublisher<PokeathlonStatDetail, Error> {
@@ -685,12 +589,6 @@ open class PokemonAPI {
     /// List pokemon colors
     /// - GET /api/v2/pokemon-color/
     /// - Colors used for sorting Pokémon in a Pokédex. The color listed in the Pokédex is usually the color most apparent or covering each Pokémon's body. No orange category exists; Pokémon that are primarily orange are listed as red or brown.
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter limit: (query) Number of results to return per page. (optional)
     /// - parameter offset: (query) The initial index from which to return the results. (optional)
     /// - parameter q: (query) &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
@@ -729,12 +627,6 @@ open class PokemonAPI {
     /// Get pokemon color
     /// - GET /api/v2/pokemon-color/{id}/
     /// - Colors used for sorting Pokémon in a Pokédex. The color listed in the Pokédex is usually the color most apparent or covering each Pokémon's body. No orange category exists; Pokémon that are primarily orange are listed as red or brown.
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter id: (path) This parameter can be a string or an integer. 
     /// - returns: AnyPublisher<PokemonColorDetail, Error> 
     open func pokemonColorRetrieve(id: String) -> AnyPublisher<PokemonColorDetail, Error> {
@@ -767,12 +659,6 @@ open class PokemonAPI {
     /// List pokemon forms
     /// - GET /api/v2/pokemon-form/
     /// - Some Pokémon may appear in one of multiple, visually different forms. These differences are purely cosmetic. For variations within a Pokémon species, which do differ in more than just visuals, the 'Pokémon' entity is used to represent such a variety.
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter limit: (query) Number of results to return per page. (optional)
     /// - parameter offset: (query) The initial index from which to return the results. (optional)
     /// - parameter q: (query) &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
@@ -811,12 +697,6 @@ open class PokemonAPI {
     /// Get pokemon form
     /// - GET /api/v2/pokemon-form/{id}/
     /// - Some Pokémon may appear in one of multiple, visually different forms. These differences are purely cosmetic. For variations within a Pokémon species, which do differ in more than just visuals, the 'Pokémon' entity is used to represent such a variety.
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter id: (path) This parameter can be a string or an integer. 
     /// - returns: AnyPublisher<PokemonFormDetail, Error> 
     open func pokemonFormRetrieve(id: String) -> AnyPublisher<PokemonFormDetail, Error> {
@@ -849,12 +729,6 @@ open class PokemonAPI {
     /// List pokemom habitas
     /// - GET /api/v2/pokemon-habitat/
     /// - Habitats are generally different terrain Pokémon can be found in but can also be areas designated for rare or legendary Pokémon.
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter limit: (query) Number of results to return per page. (optional)
     /// - parameter offset: (query) The initial index from which to return the results. (optional)
     /// - parameter q: (query) &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
@@ -893,12 +767,6 @@ open class PokemonAPI {
     /// Get pokemom habita
     /// - GET /api/v2/pokemon-habitat/{id}/
     /// - Habitats are generally different terrain Pokémon can be found in but can also be areas designated for rare or legendary Pokémon.
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter id: (path) This parameter can be a string or an integer. 
     /// - returns: AnyPublisher<PokemonHabitatDetail, Error> 
     open func pokemonHabitatRetrieve(id: String) -> AnyPublisher<PokemonHabitatDetail, Error> {
@@ -931,12 +799,6 @@ open class PokemonAPI {
     /// List pokemon
     /// - GET /api/v2/pokemon/
     /// - Pokémon are the creatures that inhabit the world of the Pokémon games. They can be caught using Pokéballs and trained by battling with other Pokémon. Each Pokémon belongs to a specific species but may take on a variant which makes it differ from other Pokémon of the same species, such as base stats, available abilities and typings. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_(species)) for greater detail.
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter limit: (query) Number of results to return per page. (optional)
     /// - parameter offset: (query) The initial index from which to return the results. (optional)
     /// - parameter q: (query) &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
@@ -975,12 +837,6 @@ open class PokemonAPI {
     /// Get pokemon
     /// - GET /api/v2/pokemon/{id}/
     /// - Pokémon are the creatures that inhabit the world of the Pokémon games. They can be caught using Pokéballs and trained by battling with other Pokémon. Each Pokémon belongs to a specific species but may take on a variant which makes it differ from other Pokémon of the same species, such as base stats, available abilities and typings. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_(species)) for greater detail.
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter id: (path) This parameter can be a string or an integer. 
     /// - returns: AnyPublisher<PokemonDetail, Error> 
     open func pokemonRetrieve(id: String) -> AnyPublisher<PokemonDetail, Error> {
@@ -1013,12 +869,6 @@ open class PokemonAPI {
     /// List pokemon shapes
     /// - GET /api/v2/pokemon-shape/
     /// - Shapes used for sorting Pokémon in a Pokédex.
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter limit: (query) Number of results to return per page. (optional)
     /// - parameter offset: (query) The initial index from which to return the results. (optional)
     /// - parameter q: (query) &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
@@ -1057,12 +907,6 @@ open class PokemonAPI {
     /// Get pokemon shape
     /// - GET /api/v2/pokemon-shape/{id}/
     /// - Shapes used for sorting Pokémon in a Pokédex.
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter id: (path) This parameter can be a string or an integer. 
     /// - returns: AnyPublisher<PokemonShapeDetail, Error> 
     open func pokemonShapeRetrieve(id: String) -> AnyPublisher<PokemonShapeDetail, Error> {
@@ -1095,12 +939,6 @@ open class PokemonAPI {
     /// List pokemon species
     /// - GET /api/v2/pokemon-species/
     /// - A Pokémon Species forms the basis for at least one Pokémon. Attributes of a Pokémon species are shared across all varieties of Pokémon within the species. A good example is Wormadam; Wormadam is the species which can be found in three different varieties, Wormadam-Trash, Wormadam-Sandy and Wormadam-Plant.
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter limit: (query) Number of results to return per page. (optional)
     /// - parameter offset: (query) The initial index from which to return the results. (optional)
     /// - parameter q: (query) &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
@@ -1139,12 +977,6 @@ open class PokemonAPI {
     /// Get pokemon species
     /// - GET /api/v2/pokemon-species/{id}/
     /// - A Pokémon Species forms the basis for at least one Pokémon. Attributes of a Pokémon species are shared across all varieties of Pokémon within the species. A good example is Wormadam; Wormadam is the species which can be found in three different varieties, Wormadam-Trash, Wormadam-Sandy and Wormadam-Plant.
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter id: (path) This parameter can be a string or an integer. 
     /// - returns: AnyPublisher<PokemonSpeciesDetail, Error> 
     open func pokemonSpeciesRetrieve(id: String) -> AnyPublisher<PokemonSpeciesDetail, Error> {
@@ -1177,12 +1009,6 @@ open class PokemonAPI {
     /// List stats
     /// - GET /api/v2/stat/
     /// - Stats determine certain aspects of battles. Each Pokémon has a value for each stat which grows as they gain levels and can be altered momentarily by effects in battles.
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter limit: (query) Number of results to return per page. (optional)
     /// - parameter offset: (query) The initial index from which to return the results. (optional)
     /// - parameter q: (query) &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
@@ -1221,12 +1047,6 @@ open class PokemonAPI {
     /// Get stat
     /// - GET /api/v2/stat/{id}/
     /// - Stats determine certain aspects of battles. Each Pokémon has a value for each stat which grows as they gain levels and can be altered momentarily by effects in battles.
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter id: (path) This parameter can be a string or an integer. 
     /// - returns: AnyPublisher<StatDetail, Error> 
     open func statRetrieve(id: String) -> AnyPublisher<StatDetail, Error> {
@@ -1259,12 +1079,6 @@ open class PokemonAPI {
     /// List types
     /// - GET /api/v2/type/
     /// - Types are properties for Pokémon and their moves. Each type has three properties: which types of Pokémon it is super effective against, which types of Pokémon it is not very effective against, and which types of Pokémon it is completely ineffective against.
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter limit: (query) Number of results to return per page. (optional)
     /// - parameter offset: (query) The initial index from which to return the results. (optional)
     /// - parameter q: (query) &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
@@ -1303,12 +1117,6 @@ open class PokemonAPI {
     /// Get types
     /// - GET /api/v2/type/{id}/
     /// - Types are properties for Pokémon and their moves. Each type has three properties: which types of Pokémon it is super effective against, which types of Pokémon it is not very effective against, and which types of Pokémon it is completely ineffective against.
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter id: (path) This parameter can be a string or an integer. 
     /// - returns: AnyPublisher<TypeDetail, Error> 
     open func typeRetrieve(id: String) -> AnyPublisher<TypeDetail, Error> {

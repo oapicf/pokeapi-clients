@@ -15,22 +15,37 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class ContestEffectDetail  {
   
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The identifier for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   private Integer id;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The base number of hearts the user of this move gets.
+  */
+  @ApiModelProperty(required = true, value = "The base number of hearts the user of this move gets.")
   private Integer appeal;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The base number of hearts the user's opponent loses.
+  */
+  @ApiModelProperty(required = true, value = "The base number of hearts the user's opponent loses.")
   private Integer jam;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The result of this contest effect listed in different languages.
+  */
+  @ApiModelProperty(required = true, value = "The result of this contest effect listed in different languages.")
   private List<@Valid ContestEffectEffectText> effectEntries = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The flavor text of this contest effect listed in different languages.
+  */
+  @ApiModelProperty(required = true, value = "The flavor text of this contest effect listed in different languages.")
   private List<@Valid ContestEffectFlavorText> flavorTextEntries = new ArrayList<>();
  /**
-  * Get id
+  * The identifier for this resource.
   * @return id
   */
   @JsonProperty("id")
@@ -57,12 +72,14 @@ public class ContestEffectDetail  {
   }
 
  /**
-  * Get appeal
+  * The base number of hearts the user of this move gets.
+  * minimum: -2147483648
+  * maximum: 2147483647
   * @return appeal
   */
   @JsonProperty("appeal")
   @NotNull
-  public Integer getAppeal() {
+ @Min(-2147483648) @Max(2147483647)  public Integer getAppeal() {
     return appeal;
   }
 
@@ -82,12 +99,14 @@ public class ContestEffectDetail  {
   }
 
  /**
-  * Get jam
+  * The base number of hearts the user&#39;s opponent loses.
+  * minimum: -2147483648
+  * maximum: 2147483647
   * @return jam
   */
   @JsonProperty("jam")
   @NotNull
-  public Integer getJam() {
+ @Min(-2147483648) @Max(2147483647)  public Integer getJam() {
     return jam;
   }
 
@@ -107,7 +126,7 @@ public class ContestEffectDetail  {
   }
 
  /**
-  * Get effectEntries
+  * The result of this contest effect listed in different languages.
   * @return effectEntries
   */
   @JsonProperty("effect_entries")
@@ -143,7 +162,7 @@ public class ContestEffectDetail  {
   }
 
  /**
-  * Get flavorTextEntries
+  * The flavor text of this contest effect listed in different languages.
   * @return flavorTextEntries
   */
   @JsonProperty("flavor_text_entries")

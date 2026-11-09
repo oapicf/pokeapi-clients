@@ -42,11 +42,6 @@ public class CharacteristicListRequest
     /// </summary>
     [FastEndpoints.QueryParam, FastEndpoints.BindFrom("offset")]
     public int? Offset { get; set; }
-    /// <summary>
-    /// &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. 
-    /// </summary>
-    [FastEndpoints.QueryParam, FastEndpoints.BindFrom("q")]
-    public string? Q { get; set; }
 }
 public class CharacteristicRetrieveRequest
 {

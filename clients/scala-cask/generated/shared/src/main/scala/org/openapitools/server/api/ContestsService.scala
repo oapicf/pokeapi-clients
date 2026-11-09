@@ -3,9 +3,9 @@
 //> using lib "com.lihaoyi::scalatags:0.12.0"
 /**
  * PokéAPI
- * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+ * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
  *
- * OpenAPI spec version: 2.7.0
+ * OpenAPI spec version: 2.10.0
  *
  * Contact: blah+oapicf@cliffano.com
  *
@@ -41,16 +41,16 @@ object ContestsService {
    * The 'Handler' is an implementation of ContestsService convenient for delegating or overriding individual functions
    */
   case class Handler[F[_]](
-        contestEffectListHandler : (limit : Option[Int], offset : Option[Int], q : Option[String]) => F[PaginatedContestEffectSummaryList], 
+        contestEffectListHandler : (limit : Option[Int], offset : Option[Int]) => F[PaginatedContestEffectSummaryList], 
         contestEffectRetrieveHandler : (id : String) => F[ContestEffectDetail], 
         contestTypeListHandler : (limit : Option[Int], offset : Option[Int], q : Option[String]) => F[PaginatedContestTypeSummaryList], 
         contestTypeRetrieveHandler : (id : String) => F[ContestTypeDetail], 
-        superContestEffectListHandler : (limit : Option[Int], offset : Option[Int], q : Option[String]) => F[PaginatedSuperContestEffectSummaryList], 
+        superContestEffectListHandler : (limit : Option[Int], offset : Option[Int]) => F[PaginatedSuperContestEffectSummaryList], 
         superContestEffectRetrieveHandler : (id : String) => F[SuperContestEffectDetail]
   ) extends ContestsService[F] {
 
-        override def contestEffectList(limit : Option[Int], offset : Option[Int], q : Option[String]) : F[PaginatedContestEffectSummaryList] = {
-          contestEffectListHandler(limit, offset, q)
+        override def contestEffectList(limit : Option[Int], offset : Option[Int]) : F[PaginatedContestEffectSummaryList] = {
+          contestEffectListHandler(limit, offset)
         }
 
         override def contestEffectRetrieve(id : String) : F[ContestEffectDetail] = {
@@ -65,8 +65,8 @@ object ContestsService {
           contestTypeRetrieveHandler(id)
         }
 
-        override def superContestEffectList(limit : Option[Int], offset : Option[Int], q : Option[String]) : F[PaginatedSuperContestEffectSummaryList] = {
-          superContestEffectListHandler(limit, offset, q)
+        override def superContestEffectList(limit : Option[Int], offset : Option[Int]) : F[PaginatedSuperContestEffectSummaryList] = {
+          superContestEffectListHandler(limit, offset)
         }
 
         override def superContestEffectRetrieve(id : String) : F[SuperContestEffectDetail] = {
@@ -75,11 +75,11 @@ object ContestsService {
   }
 
   def apply() : ContestsService[Try] = ContestsService.Handler[Try](
-        (_, _, _) => notImplemented("contestEffectList"), 
+        (_, _) => notImplemented("contestEffectList"), 
         (_) => notImplemented("contestEffectRetrieve"), 
         (_, _, _) => notImplemented("contestTypeList"), 
         (_) => notImplemented("contestTypeRetrieve"), 
-        (_, _, _) => notImplemented("superContestEffectList"), 
+        (_, _) => notImplemented("superContestEffectList"), 
         (_) => notImplemented("superContestEffectRetrieve")
   )
 
@@ -101,13 +101,13 @@ trait ContestsService[F[_]] {
    * 
    * @return PaginatedContestEffectSummaryList
    */
-  def contestEffectList(limit : Option[Int], offset : Option[Int], q : Option[String]) : F[PaginatedContestEffectSummaryList]
+  def contestEffectList(limit : Option[Int], offset : Option[Int]) : F[PaginatedContestEffectSummaryList]
 
   /**
    * override contestEffectList with the given handler
    * @return a new implementation of ContestsService[F] with contestEffectList overridden using the given handler
    */
-  final def onContestEffectList(handler : (limit : Option[Int], offset : Option[Int], q : Option[String]) => F[PaginatedContestEffectSummaryList]) : ContestsService[F] = {
+  final def onContestEffectList(handler : (limit : Option[Int], offset : Option[Int]) => F[PaginatedContestEffectSummaryList]) : ContestsService[F] = {
     asHandler.copy(contestEffectListHandler = handler)
   }
   /** Get contest effect
@@ -153,13 +153,13 @@ trait ContestsService[F[_]] {
    * 
    * @return PaginatedSuperContestEffectSummaryList
    */
-  def superContestEffectList(limit : Option[Int], offset : Option[Int], q : Option[String]) : F[PaginatedSuperContestEffectSummaryList]
+  def superContestEffectList(limit : Option[Int], offset : Option[Int]) : F[PaginatedSuperContestEffectSummaryList]
 
   /**
    * override superContestEffectList with the given handler
    * @return a new implementation of ContestsService[F] with superContestEffectList overridden using the given handler
    */
-  final def onSuperContestEffectList(handler : (limit : Option[Int], offset : Option[Int], q : Option[String]) => F[PaginatedSuperContestEffectSummaryList]) : ContestsService[F] = {
+  final def onSuperContestEffectList(handler : (limit : Option[Int], offset : Option[Int]) => F[PaginatedSuperContestEffectSummaryList]) : ContestsService[F] = {
     asHandler.copy(superContestEffectListHandler = handler)
   }
   /** Get super contest effect
@@ -183,11 +183,11 @@ trait ContestsService[F[_]] {
       case h : ContestsService.Handler[F] => h
       case _ =>
         ContestsService.Handler[F](
-              (limit, offset, q) => contestEffectList(limit, offset, q), 
+              (limit, offset) => contestEffectList(limit, offset), 
               (id) => contestEffectRetrieve(id), 
               (limit, offset, q) => contestTypeList(limit, offset, q), 
               (id) => contestTypeRetrieve(id), 
-              (limit, offset, q) => superContestEffectList(limit, offset, q), 
+              (limit, offset) => superContestEffectList(limit, offset), 
               (id) => superContestEffectRetrieve(id)
         )
   }
@@ -214,8 +214,8 @@ trait ContestsService[F[_]] {
     val self = this
 
     new ContestsService[G] {
-        override def contestEffectList(limit : Option[Int], offset : Option[Int], q : Option[String]) : G[PaginatedContestEffectSummaryList] = changeEffect {
-          self.contestEffectList(limit, offset, q)
+        override def contestEffectList(limit : Option[Int], offset : Option[Int]) : G[PaginatedContestEffectSummaryList] = changeEffect {
+          self.contestEffectList(limit, offset)
         }
         override def contestEffectRetrieve(id : String) : G[ContestEffectDetail] = changeEffect {
           self.contestEffectRetrieve(id)
@@ -226,8 +226,8 @@ trait ContestsService[F[_]] {
         override def contestTypeRetrieve(id : String) : G[ContestTypeDetail] = changeEffect {
           self.contestTypeRetrieve(id)
         }
-        override def superContestEffectList(limit : Option[Int], offset : Option[Int], q : Option[String]) : G[PaginatedSuperContestEffectSummaryList] = changeEffect {
-          self.superContestEffectList(limit, offset, q)
+        override def superContestEffectList(limit : Option[Int], offset : Option[Int]) : G[PaginatedSuperContestEffectSummaryList] = changeEffect {
+          self.superContestEffectList(limit, offset)
         }
         override def superContestEffectRetrieve(id : String) : G[SuperContestEffectDetail] = changeEffect {
           self.superContestEffectRetrieve(id)

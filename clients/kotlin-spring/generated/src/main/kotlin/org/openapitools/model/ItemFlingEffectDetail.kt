@@ -17,29 +17,29 @@ import io.swagger.v3.oas.annotations.media.Schema
 
 /**
  * 
- * @param id 
- * @param name 
- * @param effectEntries 
- * @param items 
+ * @param id The identifier for this resource.
+ * @param name The name for this resource.
+ * @param effectEntries The result of this fling effect listed in different languages.
+ * @param items A list of items that have this fling effect.
  */
 data class ItemFlingEffectDetail(
 
-    @Schema(required = true, readOnly = true, description = "")
+    @Schema(required = true, readOnly = true, description = "The identifier for this resource.")
     @param:JsonProperty("id", required = true)
     @get:JsonProperty("id", required = true) val id: kotlin.Int,
 
-    @get:Size(max=100)
-    @Schema(required = true, description = "")
+    @get:Size(max=200)
+    @Schema(required = true, description = "The name for this resource.")
     @param:JsonProperty("name", required = true)
     @get:JsonProperty("name", required = true) val name: kotlin.String,
 
     @field:Valid
-    @Schema(required = true, readOnly = true, description = "")
+    @Schema(required = true, readOnly = true, description = "The result of this fling effect listed in different languages.")
     @param:JsonProperty("effect_entries", required = true)
     @get:JsonProperty("effect_entries", required = true) val effectEntries: kotlin.collections.List<ItemFlingEffectEffectText>,
 
     @field:Valid
-    @Schema(required = true, readOnly = true, description = "")
+    @Schema(required = true, readOnly = true, description = "A list of items that have this fling effect.")
     @param:JsonProperty("items", required = true)
     @get:JsonProperty("items", required = true) val items: kotlin.collections.List<ItemSummary>
 ) {

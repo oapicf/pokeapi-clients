@@ -1,0 +1,42 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server TypePastRelationships"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a TypePastRelationships"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  GenerationSummary = openapi_server.resourceTypes.GenerationSummary
+  TypeRelationships = openapi_server.resourceTypes.TypeRelationships
+}
+resourceTypes {
+
+  TypePastRelationships {
+    title = TypePastRelationships
+    description = TypePastRelationships
+    derivedFrom = Root
+    properties {
+        generation {
+          type = GenerationSummary
+          description = "The last generation in which the referenced type had the listed damage relations"
+          optional = true
+        }
+        damage_relations {
+          type = TypeRelationships
+          description = "The damage relations the referenced type had up to and including the listed generation"
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  TypePastRelationships {
+    title = TypePastRelationships
+    description = TypePastRelationships
+    implements = openapi_server.resourceTypes.TypePastRelationships
+
+  }
+}

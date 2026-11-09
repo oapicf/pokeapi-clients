@@ -21,18 +21,7 @@ entity AbilityDetail {
     * effect_entries: List<AbilityEffectText>
     * effect_changes: List<AbilityChange>
     * flavor_text_entries: List<AbilityFlavorText>
-    * pokemon: List<AbilityDetailPokemonInner>
-}
-
-entity AbilityDetailPokemonInner {
-    * is_hidden: Boolean
-    * slot: Integer
-    * pokemon: AbilityDetailPokemonInnerPokemon
-}
-
-entity AbilityDetailPokemonInnerPokemon {
-    * name: String
-    * url: URI
+    * pokemon: List<AbilityPokemonDetail>
 }
 
 entity AbilityEffectText {
@@ -52,6 +41,12 @@ entity AbilityName {
     * language: LanguageSummary
 }
 
+entity AbilityPokemonDetail {
+    is_hidden: Boolean
+    * slot: Integer
+    * pokemon: PokemonSummary
+}
+
 entity AbilitySummary {
     * name: String
     * url: URI
@@ -60,26 +55,16 @@ entity AbilitySummary {
 entity BerryDetail {
     * id: Integer
     * name: String
-    * growth_time: Integer
-    * max_harvest: Integer
-    * natural_gift_power: Integer
-    * size: Integer
-    * smoothness: Integer
-    * soil_dryness: Integer
+    growth_time: Integer
+    max_harvest: Integer
+    natural_gift_power: Integer
+    size: Integer
+    smoothness: Integer
+    soil_dryness: Integer
     * firmness: BerryFirmnessSummary
-    * flavors: List<BerryDetailFlavorsInner>
+    * flavors: List<BerryFlavorMap>
     * item: ItemSummary
     * natural_gift_type: TypeSummary
-}
-
-entity BerryDetailFlavorsInner {
-    * potency: Integer
-    * flavor: BerryDetailFlavorsInnerFlavor
-}
-
-entity BerryDetailFlavorsInnerFlavor {
-    name: String
-    url: URI
 }
 
 entity BerryFirmnessDetail {
@@ -99,22 +84,22 @@ entity BerryFirmnessSummary {
     * url: URI
 }
 
+entity BerryFlavorBerryMap {
+    * potency: Integer
+    * berry: BerrySummary
+}
+
 entity BerryFlavorDetail {
     * id: Integer
     * name: String
-    * berries: List<BerryFlavorDetailBerriesInner>
+    * berries: List<BerryFlavorBerryMap>
     * contest_type: ContestTypeSummary
     * names: List<BerryFlavorName>
 }
 
-entity BerryFlavorDetailBerriesInner {
+entity BerryFlavorMap {
     * potency: Integer
-    * berry: BerryFlavorDetailBerriesInnerBerry
-}
-
-entity BerryFlavorDetailBerriesInnerBerry {
-    name: String
-    url: URI
+    * flavor: BerryFlavorSummary
 }
 
 entity BerryFlavorName {
@@ -189,16 +174,27 @@ entity ContestTypeSummary {
     * url: URI
 }
 
+entity CurrencyDetail {
+    * id: Integer
+    * name: String
+    * names: List<CurrencyName>
+}
+
+entity CurrencyName {
+    * name: String
+    * language: LanguageSummary
+}
+
+entity CurrencySummary {
+    * name: String
+    * url: URI
+}
+
 entity EggGroupDetail {
     * id: Integer
     * name: String
     * names: List<EggGroupName>
-    * pokemon_species: List<EggGroupDetailPokemonSpeciesInner>
-}
-
-entity EggGroupDetailPokemonSpeciesInner {
-    name: String
-    url: URI
+    * pokemon_species: List<PokemonSpeciesSummary>
 }
 
 entity EggGroupName {
@@ -262,60 +258,41 @@ entity EncounterMethodSummary {
     * url: URI
 }
 
+entity EncounterPokemonDetail {
+    min_perfect_ivs: Integer
+    always_shiny: Boolean
+    never_shiny: Boolean
+    is_alpha: Boolean
+}
+
 entity EvolutionChainDetail {
     * id: Integer
     * baby_trigger_item: ItemSummary
-    * chain: EvolutionChainDetailChain
+    * chain: EvolutionChainLink
 }
 
-entity EvolutionChainDetailChain {
-    * evolution_details: List<OasAnyTypeNotMapped>
-    * evolves_to: List<EvolutionChainDetailChainEvolvesToInner>
+entity EvolutionChainLink {
     * is_baby: Boolean
-    * species: AbilityDetailPokemonInnerPokemon
-}
-
-entity EvolutionChainDetailChainEvolvesToInner {
-    * evolution_details: List<EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner>
-    * is_baby: Boolean
-    * species: AbilityDetailPokemonInnerPokemon
-}
-
-entity EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner {
-    * gender: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
-    * held_item: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
-    * item: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
-    * known_move: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
-    * known_move_type: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
-    * location: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
-    * min_affection: Integer
-    * min_beauty: Integer
-    * min_happiness: Integer
-    * min_level: Integer
-    * needs_overworld_rain: Boolean
-    * party_species: String
-    * party_type: String
-    * relative_physical_stats: String
-    * time_of_day: String
-    * trade_species: String
-    * trigger: AbilityDetailPokemonInnerPokemon
-    * turn_upside_down: Boolean
-}
-
-entity EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender {
-    * name: String
-    * url: URI
+    * species: PokemonSpeciesSummary
+    * evolution_details: List<PokemonEvolution>
+    * evolves_to: List<EvolutionChainLink>
 }
 
 entity EvolutionChainSummary {
     * url: URI
 }
 
+entity EvolutionConditionExpression {
+    * expression: String
+    * percentage_chance: Double
+    * variables: List<EvolutionVariableSummary>
+}
+
 entity EvolutionTriggerDetail {
     * id: Integer
     * name: String
     * names: List<EvolutionTriggerName>
-    * pokemon_species: List<AbilityDetailPokemonInnerPokemon>
+    * pokemon_species: List<PokemonSpeciesSummary>
 }
 
 entity EvolutionTriggerName {
@@ -328,6 +305,32 @@ entity EvolutionTriggerSummary {
     * url: URI
 }
 
+entity EvolutionVariableDescription {
+    description: String
+    * language: LanguageSummary
+}
+
+entity EvolutionVariableDetail {
+    * id: Integer
+    * name: String
+    * symbol: String
+    data_type: String
+    source: String
+    * version_group: VersionGroupSummary
+    * names: List<EvolutionVariableName>
+    * descriptions: List<EvolutionVariableDescription>
+}
+
+entity EvolutionVariableName {
+    * name: String
+    * language: LanguageSummary
+}
+
+entity EvolutionVariableSummary {
+    * name: String
+    * url: URI
+}
+
 entity Experience {
     * level: Integer
     * experience: Integer
@@ -336,13 +339,13 @@ entity Experience {
 entity GenderDetail {
     * id: Integer
     * name: String
-    * pokemon_species_details: List<GenderDetailPokemonSpeciesDetailsInner>
-    * required_for_evolution: List<AbilityDetailPokemonInnerPokemon>
+    * pokemon_species_details: List<GenderPokemonSpecies>
+    * required_for_evolution: List<PokemonSpeciesSummary>
 }
 
-entity GenderDetailPokemonSpeciesDetailsInner {
+entity GenderPokemonSpecies {
     * rate: Integer
-    * pokemon_species: AbilityDetailPokemonInnerPokemon
+    * pokemon_species: PokemonSpeciesSummary
 }
 
 entity GenderSummary {
@@ -400,7 +403,7 @@ entity ItemAttributeDetail {
     * id: Integer
     * name: String
     * descriptions: List<ItemAttributeDescription>
-    * items: List<AbilityDetailPokemonInnerPokemon>
+    * items: List<ItemSummary>
     * names: List<ItemAttributeName>
 }
 
@@ -435,42 +438,19 @@ entity ItemCategorySummary {
 entity ItemDetail {
     * id: Integer
     * name: String
-    cost: Integer
     fling_power: Integer
     * fling_effect: ItemFlingEffectSummary
-    * attributes: List<AbilityDetailPokemonInnerPokemon>
+    * attributes: List<ItemAttributeSummary>
     * category: ItemCategorySummary
     * effect_entries: List<ItemEffectText>
     * flavor_text_entries: List<ItemFlavorText>
     * game_indices: List<ItemGameIndex>
+    * prices: List<ItemPrice>
     * names: List<ItemName>
-    * held_by_pokemon: List<ItemDetailHeldByPokemonInner>
-    * sprites: ItemDetailSprites
-    * baby_trigger_for: ItemDetailBabyTriggerFor
-    * machines: List<ItemDetailMachinesInner>
-}
-
-entity ItemDetailBabyTriggerFor {
-    * url: URI
-}
-
-entity ItemDetailHeldByPokemonInner {
-    * pokemon: AbilityDetailPokemonInnerPokemon
-    * version-details: List<ItemDetailHeldByPokemonInnerVersionDetailsInner>
-}
-
-entity ItemDetailHeldByPokemonInnerVersionDetailsInner {
-    * rarity: Integer
-    * version: AbilityDetailPokemonInnerPokemon
-}
-
-entity ItemDetailMachinesInner {
-    * machine: URI
-    * version_group: AbilityDetailPokemonInnerPokemon
-}
-
-entity ItemDetailSprites {
-    * default: URI
+    * held_by_pokemon: List<PokemonHeldItem>
+    * sprites: ItemSprites
+    * baby_trigger_for: EvolutionChainSummary
+    * machines: List<ItemMachine>
 }
 
 entity ItemEffectText {
@@ -507,6 +487,11 @@ entity ItemGameIndex {
     * generation: GenerationSummary
 }
 
+entity ItemMachine {
+    * machine: MachineSummary
+    * version_group: VersionGroupSummary
+}
+
 entity ItemName {
     * name: String
     * language: LanguageSummary
@@ -527,6 +512,17 @@ entity ItemPocketName {
 entity ItemPocketSummary {
     * name: String
     * url: URI
+}
+
+entity ItemPrice {
+    purchase_price: Integer
+    sell_price: Integer
+    * currency: CurrencySummary
+    * version_group: VersionGroupSummary
+}
+
+entity ItemSprites {
+    * default: String
 }
 
 entity ItemSummary {
@@ -557,44 +553,45 @@ entity LocationAreaDetail {
     * id: Integer
     * name: String
     * game_index: Integer
-    * encounter_method_rates: List<LocationAreaDetailEncounterMethodRatesInner>
+    * encounter_method_rates: List<LocationAreaEncounterRate>
     * location: LocationSummary
     * names: List<LocationAreaName>
-    * pokemon_encounters: List<LocationAreaDetailPokemonEncountersInner>
+    * pokemon_encounters: List<LocationAreaPokemonEncounter>
 }
 
-entity LocationAreaDetailEncounterMethodRatesInner {
-    * encounter_method: AbilityDetailPokemonInnerPokemon
-    * version_details: List<LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner>
-}
-
-entity LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner {
-    * rate: Integer
-    * version: AbilityDetailPokemonInnerPokemon
-}
-
-entity LocationAreaDetailPokemonEncountersInner {
-    * pokemon: AbilityDetailPokemonInnerPokemon
-    * version_details: List<LocationAreaDetailPokemonEncountersInnerVersionDetailsInner>
-}
-
-entity LocationAreaDetailPokemonEncountersInnerVersionDetailsInner {
-    * version: AbilityDetailPokemonInnerPokemon
-    * max_chance: Integer
-    * encounter_details: LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails
-}
-
-entity LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails {
+entity LocationAreaEncounterDetail {
     * min_level: Integer
     * max_level: Integer
-    condition_values: AbilityDetailPokemonInnerPokemon
-    * chance: Integer
-    * method: AbilityDetailPokemonInnerPokemon
+    chance: Integer
+    method: EncounterMethodSummary
+    * condition_values: List<EncounterConditionValueSummary>
+    * pokemon_details: EncounterPokemonDetail
+}
+
+entity LocationAreaEncounterRate {
+    * encounter_method: EncounterMethodSummary
+    * version_details: List<LocationAreaEncounterVersionDetail>
+}
+
+entity LocationAreaEncounterVersionDetail {
+    * rate: Integer
+    * version: VersionSummary
 }
 
 entity LocationAreaName {
     * name: String
     * language: LanguageSummary
+}
+
+entity LocationAreaPokemonEncounter {
+    * pokemon: PokemonSummary
+    * version_details: List<LocationAreaPokemonEncounterVersion>
+}
+
+entity LocationAreaPokemonEncounterVersion {
+    * version: VersionSummary
+    * max_chance: Integer
+    * encounter_details: List<LocationAreaEncounterDetail>
 }
 
 entity LocationAreaSummary {
@@ -658,15 +655,19 @@ entity MoveChange {
     power: Integer
     pp: Integer
     * effect_chance: Integer
-    * effect_entries: List<MoveChangeEffectEntriesInner>
+    * effect_entries: List<MoveEffectEffectText>
     * type: TypeSummary
     * version_group: VersionGroupSummary
 }
 
-entity MoveChangeEffectEntriesInner {
-    * effect: String
-    * short_effect: String
-    * language: AbilityDetailPokemonInnerPokemon
+entity MoveComboUsage {
+    * use_before: List<MoveSummary>
+    * use_after: List<MoveSummary>
+}
+
+entity MoveCombos {
+    * normal: MoveComboUsage
+    * super: MoveComboUsage
 }
 
 entity MoveDamageClassDescription {
@@ -700,57 +701,39 @@ entity MoveDetail {
     pp: Integer
     priority: Integer
     power: Integer
-    * contest_combos: MoveDetailContestCombos
+    * contest_combos: MoveCombos
     * contest_type: ContestTypeSummary
     * contest_effect: ContestEffectSummary
     * damage_class: MoveDamageClassSummary
-    * effect_entries: List<MoveChangeEffectEntriesInner>
-    * effect_changes: List<MoveDetailEffectChangesInner>
+    * effect_entries: List<MoveEffectEffectText>
+    * effect_changes: List<MoveEffectChange>
     * generation: GenerationSummary
     * meta: MoveMeta
     * names: List<MoveName>
     * past_values: List<MoveChange>
-    * stat_changes: List<MoveDetailStatChangesInner>
+    * stat_changes: List<MoveMetaStatChange>
     * super_contest_effect: SuperContestEffectSummary
     * target: MoveTargetSummary
     * type: TypeSummary
-    * machines: List<MoveDetailMachinesInner>
+    * machines: List<ItemMachine>
     * flavor_text_entries: List<MoveFlavorText>
-    * learned_by_pokemon: List<AbilityDetailPokemonInnerPokemon>
+    * learned_by_pokemon: List<PokemonSummary>
 }
 
-entity MoveDetailContestCombos {
-    * normal: MoveDetailContestCombosNormal
-    * super: MoveDetailContestCombosNormal
+entity MoveEffectChange {
+    * version_group: VersionGroupSummary
+    * effect_entries: List<MoveEffectChangeEffectText>
 }
 
-entity MoveDetailContestCombosNormal {
-    * use_before: List<AbilityDetailPokemonInnerPokemon>
-    * use_after: List<AbilityDetailPokemonInnerPokemon>
-}
-
-entity MoveDetailEffectChangesInner {
-    * effect_entries: List<MoveDetailEffectChangesInnerEffectEntriesInner>
-    * version_group: AbilityDetailPokemonInnerPokemon
-}
-
-entity MoveDetailEffectChangesInnerEffectEntriesInner {
+entity MoveEffectChangeEffectText {
     * effect: String
-    * language: AbilityDetailPokemonInnerPokemon
+    * language: LanguageSummary
 }
 
-entity MoveDetailMachinesInner {
-    * machine: MoveDetailMachinesInnerMachine
-    * version_group: AbilityDetailPokemonInnerPokemon
-}
-
-entity MoveDetailMachinesInnerMachine {
-    * url: URI
-}
-
-entity MoveDetailStatChangesInner {
-    * change: Integer
-    * stat: AbilityDetailPokemonInnerPokemon
+entity MoveEffectEffectText {
+    * effect: String
+    * short_effect: String
+    * language: LanguageSummary
 }
 
 entity MoveFlavorText {
@@ -769,7 +752,7 @@ entity MoveLearnMethodDetail {
     * name: String
     * names: List<MoveLearnMethodName>
     * descriptions: List<MoveLearnMethodDescription>
-    * version_groups: List<AbilityDetailPokemonInnerPokemon>
+    * version_groups: List<VersionGroupSummary>
 }
 
 entity MoveLearnMethodName {
@@ -800,7 +783,7 @@ entity MoveMeta {
 entity MoveMetaAilmentDetail {
     * id: Integer
     * name: String
-    * moves: List<AbilityDetailPokemonInnerPokemon>
+    * moves: List<MoveSummary>
     * names: List<MoveMetaAilmentName>
 }
 
@@ -823,7 +806,7 @@ entity MoveMetaCategoryDetail {
     * id: Integer
     * name: String
     * descriptions: List<MoveMetaCategoryDescription>
-    * moves: List<AbilityDetailPokemonInnerPokemon>
+    * moves: List<MoveSummary>
 }
 
 entity MoveMetaCategorySummary {
@@ -831,9 +814,19 @@ entity MoveMetaCategorySummary {
     * url: URI
 }
 
+entity MoveMetaStatChange {
+    * change: Integer
+    * stat: StatSummary
+}
+
 entity MoveName {
     * name: String
     * language: LanguageSummary
+}
+
+entity MoveStatChange {
+    * change: Integer
+    * move: MoveSummary
 }
 
 entity MoveSummary {
@@ -877,20 +870,19 @@ entity NatureDetail {
     * increased_stat: StatSummary
     * likes_flavor: BerryFlavorSummary
     * hates_flavor: BerryFlavorSummary
-    * berries: List<BerrySummary>
-    * pokeathlon_stat_changes: List<NatureDetailPokeathlonStatChangesInner>
+    * pokeathlon_stat_changes: List<NaturePokeathlonStat>
     * move_battle_style_preferences: List<NatureBattleStylePreference>
     * names: List<NatureName>
-}
-
-entity NatureDetailPokeathlonStatChangesInner {
-    * max_change: Integer
-    * pokeathlon_stat: AbilityDetailPokemonInnerPokemon
 }
 
 entity NatureName {
     * name: String
     * language: LanguageSummary
+}
+
+entity NaturePokeathlonStat {
+    * max_change: Integer
+    * pokeathlon_stat: PokeathlonStatSummary
 }
 
 entity NatureSummary {
@@ -899,352 +891,360 @@ entity NatureSummary {
 }
 
 entity PaginatedAbilitySummaryList {
-    count: Integer
+    * count: Integer
     next: URI
     previous: URI
-    results: List<AbilitySummary>
+    * results: List<AbilitySummary>
 }
 
 entity PaginatedBerryFirmnessSummaryList {
-    count: Integer
+    * count: Integer
     next: URI
     previous: URI
-    results: List<BerryFirmnessSummary>
+    * results: List<BerryFirmnessSummary>
 }
 
 entity PaginatedBerryFlavorSummaryList {
-    count: Integer
+    * count: Integer
     next: URI
     previous: URI
-    results: List<BerryFlavorSummary>
+    * results: List<BerryFlavorSummary>
 }
 
 entity PaginatedBerrySummaryList {
-    count: Integer
+    * count: Integer
     next: URI
     previous: URI
-    results: List<BerrySummary>
+    * results: List<BerrySummary>
 }
 
 entity PaginatedCharacteristicSummaryList {
-    count: Integer
+    * count: Integer
     next: URI
     previous: URI
-    results: List<CharacteristicSummary>
+    * results: List<CharacteristicSummary>
 }
 
 entity PaginatedContestEffectSummaryList {
-    count: Integer
+    * count: Integer
     next: URI
     previous: URI
-    results: List<ContestEffectSummary>
+    * results: List<ContestEffectSummary>
 }
 
 entity PaginatedContestTypeSummaryList {
-    count: Integer
+    * count: Integer
     next: URI
     previous: URI
-    results: List<ContestTypeSummary>
+    * results: List<ContestTypeSummary>
+}
+
+entity PaginatedCurrencySummaryList {
+    * count: Integer
+    next: URI
+    previous: URI
+    * results: List<CurrencySummary>
 }
 
 entity PaginatedEggGroupSummaryList {
-    count: Integer
+    * count: Integer
     next: URI
     previous: URI
-    results: List<EggGroupSummary>
+    * results: List<EggGroupSummary>
 }
 
 entity PaginatedEncounterConditionSummaryList {
-    count: Integer
+    * count: Integer
     next: URI
     previous: URI
-    results: List<EncounterConditionSummary>
+    * results: List<EncounterConditionSummary>
 }
 
 entity PaginatedEncounterConditionValueSummaryList {
-    count: Integer
+    * count: Integer
     next: URI
     previous: URI
-    results: List<EncounterConditionValueSummary>
+    * results: List<EncounterConditionValueSummary>
 }
 
 entity PaginatedEncounterMethodSummaryList {
-    count: Integer
+    * count: Integer
     next: URI
     previous: URI
-    results: List<EncounterMethodSummary>
+    * results: List<EncounterMethodSummary>
 }
 
 entity PaginatedEvolutionChainSummaryList {
-    count: Integer
+    * count: Integer
     next: URI
     previous: URI
-    results: List<EvolutionChainSummary>
+    * results: List<EvolutionChainSummary>
 }
 
 entity PaginatedEvolutionTriggerSummaryList {
-    count: Integer
+    * count: Integer
     next: URI
     previous: URI
-    results: List<EvolutionTriggerSummary>
+    * results: List<EvolutionTriggerSummary>
+}
+
+entity PaginatedEvolutionVariableSummaryList {
+    * count: Integer
+    next: URI
+    previous: URI
+    * results: List<EvolutionVariableSummary>
 }
 
 entity PaginatedGenderSummaryList {
-    count: Integer
+    * count: Integer
     next: URI
     previous: URI
-    results: List<GenderSummary>
+    * results: List<GenderSummary>
 }
 
 entity PaginatedGenerationSummaryList {
-    count: Integer
+    * count: Integer
     next: URI
     previous: URI
-    results: List<GenerationSummary>
+    * results: List<GenerationSummary>
 }
 
 entity PaginatedGrowthRateSummaryList {
-    count: Integer
+    * count: Integer
     next: URI
     previous: URI
-    results: List<GrowthRateSummary>
+    * results: List<GrowthRateSummary>
 }
 
 entity PaginatedItemAttributeSummaryList {
-    count: Integer
+    * count: Integer
     next: URI
     previous: URI
-    results: List<ItemAttributeSummary>
+    * results: List<ItemAttributeSummary>
 }
 
 entity PaginatedItemCategorySummaryList {
-    count: Integer
+    * count: Integer
     next: URI
     previous: URI
-    results: List<ItemCategorySummary>
+    * results: List<ItemCategorySummary>
 }
 
 entity PaginatedItemFlingEffectSummaryList {
-    count: Integer
+    * count: Integer
     next: URI
     previous: URI
-    results: List<ItemFlingEffectSummary>
+    * results: List<ItemFlingEffectSummary>
 }
 
 entity PaginatedItemPocketSummaryList {
-    count: Integer
+    * count: Integer
     next: URI
     previous: URI
-    results: List<ItemPocketSummary>
+    * results: List<ItemPocketSummary>
 }
 
 entity PaginatedItemSummaryList {
-    count: Integer
+    * count: Integer
     next: URI
     previous: URI
-    results: List<ItemSummary>
+    * results: List<ItemSummary>
 }
 
 entity PaginatedLanguageSummaryList {
-    count: Integer
+    * count: Integer
     next: URI
     previous: URI
-    results: List<LanguageSummary>
+    * results: List<LanguageSummary>
 }
 
 entity PaginatedLocationAreaSummaryList {
-    count: Integer
+    * count: Integer
     next: URI
     previous: URI
-    results: List<LocationAreaSummary>
+    * results: List<LocationAreaSummary>
 }
 
 entity PaginatedLocationSummaryList {
-    count: Integer
+    * count: Integer
     next: URI
     previous: URI
-    results: List<LocationSummary>
+    * results: List<LocationSummary>
 }
 
 entity PaginatedMachineSummaryList {
-    count: Integer
+    * count: Integer
     next: URI
     previous: URI
-    results: List<MachineSummary>
+    * results: List<MachineSummary>
 }
 
 entity PaginatedMoveBattleStyleSummaryList {
-    count: Integer
+    * count: Integer
     next: URI
     previous: URI
-    results: List<MoveBattleStyleSummary>
+    * results: List<MoveBattleStyleSummary>
 }
 
 entity PaginatedMoveDamageClassSummaryList {
-    count: Integer
+    * count: Integer
     next: URI
     previous: URI
-    results: List<MoveDamageClassSummary>
+    * results: List<MoveDamageClassSummary>
 }
 
 entity PaginatedMoveLearnMethodSummaryList {
-    count: Integer
+    * count: Integer
     next: URI
     previous: URI
-    results: List<MoveLearnMethodSummary>
+    * results: List<MoveLearnMethodSummary>
 }
 
 entity PaginatedMoveMetaAilmentSummaryList {
-    count: Integer
+    * count: Integer
     next: URI
     previous: URI
-    results: List<MoveMetaAilmentSummary>
+    * results: List<MoveMetaAilmentSummary>
 }
 
 entity PaginatedMoveMetaCategorySummaryList {
-    count: Integer
+    * count: Integer
     next: URI
     previous: URI
-    results: List<MoveMetaCategorySummary>
+    * results: List<MoveMetaCategorySummary>
 }
 
 entity PaginatedMoveSummaryList {
-    count: Integer
+    * count: Integer
     next: URI
     previous: URI
-    results: List<MoveSummary>
+    * results: List<MoveSummary>
 }
 
 entity PaginatedMoveTargetSummaryList {
-    count: Integer
+    * count: Integer
     next: URI
     previous: URI
-    results: List<MoveTargetSummary>
+    * results: List<MoveTargetSummary>
 }
 
 entity PaginatedNatureSummaryList {
-    count: Integer
+    * count: Integer
     next: URI
     previous: URI
-    results: List<NatureSummary>
+    * results: List<NatureSummary>
 }
 
 entity PaginatedPalParkAreaSummaryList {
-    count: Integer
+    * count: Integer
     next: URI
     previous: URI
-    results: List<PalParkAreaSummary>
+    * results: List<PalParkAreaSummary>
 }
 
 entity PaginatedPokeathlonStatSummaryList {
-    count: Integer
+    * count: Integer
     next: URI
     previous: URI
-    results: List<PokeathlonStatSummary>
+    * results: List<PokeathlonStatSummary>
 }
 
 entity PaginatedPokedexSummaryList {
-    count: Integer
+    * count: Integer
     next: URI
     previous: URI
-    results: List<PokedexSummary>
+    * results: List<PokedexSummary>
 }
 
 entity PaginatedPokemonColorSummaryList {
-    count: Integer
+    * count: Integer
     next: URI
     previous: URI
-    results: List<PokemonColorSummary>
+    * results: List<PokemonColorSummary>
 }
 
 entity PaginatedPokemonFormSummaryList {
-    count: Integer
+    * count: Integer
     next: URI
     previous: URI
-    results: List<PokemonFormSummary>
+    * results: List<PokemonFormSummary>
 }
 
 entity PaginatedPokemonHabitatSummaryList {
-    count: Integer
+    * count: Integer
     next: URI
     previous: URI
-    results: List<PokemonHabitatSummary>
+    * results: List<PokemonHabitatSummary>
 }
 
 entity PaginatedPokemonShapeSummaryList {
-    count: Integer
+    * count: Integer
     next: URI
     previous: URI
-    results: List<PokemonShapeSummary>
+    * results: List<PokemonShapeSummary>
 }
 
 entity PaginatedPokemonSpeciesSummaryList {
-    count: Integer
+    * count: Integer
     next: URI
     previous: URI
-    results: List<PokemonSpeciesSummary>
+    * results: List<PokemonSpeciesSummary>
 }
 
 entity PaginatedPokemonSummaryList {
-    count: Integer
+    * count: Integer
     next: URI
     previous: URI
-    results: List<PokemonSummary>
+    * results: List<PokemonSummary>
 }
 
 entity PaginatedRegionSummaryList {
-    count: Integer
+    * count: Integer
     next: URI
     previous: URI
-    results: List<RegionSummary>
+    * results: List<RegionSummary>
 }
 
 entity PaginatedStatSummaryList {
-    count: Integer
+    * count: Integer
     next: URI
     previous: URI
-    results: List<StatSummary>
+    * results: List<StatSummary>
 }
 
 entity PaginatedSuperContestEffectSummaryList {
-    count: Integer
+    * count: Integer
     next: URI
     previous: URI
-    results: List<SuperContestEffectSummary>
+    * results: List<SuperContestEffectSummary>
 }
 
 entity PaginatedTypeSummaryList {
-    count: Integer
+    * count: Integer
     next: URI
     previous: URI
-    results: List<TypeSummary>
+    * results: List<TypeSummary>
 }
 
 entity PaginatedVersionGroupSummaryList {
-    count: Integer
+    * count: Integer
     next: URI
     previous: URI
-    results: List<VersionGroupSummary>
+    * results: List<VersionGroupSummary>
 }
 
 entity PaginatedVersionSummaryList {
-    count: Integer
+    * count: Integer
     next: URI
     previous: URI
-    results: List<VersionSummary>
+    * results: List<VersionSummary>
 }
 
 entity PalParkAreaDetail {
     * id: Integer
     * name: String
     * names: List<PalParkAreaName>
-    * pokemon_encounters: List<PalParkAreaDetailPokemonEncountersInner>
-}
-
-entity PalParkAreaDetailPokemonEncountersInner {
-    * base_score: Integer
-    * pokemon-species: AbilityDetailPokemonInnerPokemon
-    * rate: Integer
+    * pokemon_encounters: List<PalParkEncounter>
 }
 
 entity PalParkAreaName {
@@ -1257,26 +1257,33 @@ entity PalParkAreaSummary {
     * url: URI
 }
 
+entity PalParkEncounter {
+    base_score: Integer
+    * rate: Integer
+    * pokemon_species: PokemonSpeciesSummary
+}
+
+entity PokeapiMetaResponse {
+    * deploy_date: String
+    * hash: String
+    * tag: String
+}
+
+entity PokeathlonStatAffectingNature {
+    * max_change: Integer
+    * nature: NatureSummary
+}
+
+entity PokeathlonStatAffectingNatures {
+    * increase: List<PokeathlonStatAffectingNature>
+    * decrease: List<PokeathlonStatAffectingNature>
+}
+
 entity PokeathlonStatDetail {
     * id: Integer
     * name: String
-    * affecting_natures: PokeathlonStatDetailAffectingNatures
+    * affecting_natures: PokeathlonStatAffectingNatures
     * names: List<PokeathlonStatName>
-}
-
-entity PokeathlonStatDetailAffectingNatures {
-    * decrease: List<PokeathlonStatDetailAffectingNaturesDecreaseInner>
-    * increase: List<PokeathlonStatDetailAffectingNaturesIncreaseInner>
-}
-
-entity PokeathlonStatDetailAffectingNaturesDecreaseInner {
-    * max_change: Integer
-    * nature: AbilityDetailPokemonInnerPokemon
-}
-
-entity PokeathlonStatDetailAffectingNaturesIncreaseInner {
-    * max_change: Integer
-    * nature: AbilityDetailPokemonInnerPokemon
 }
 
 entity PokeathlonStatName {
@@ -1300,14 +1307,9 @@ entity PokedexDetail {
     is_main_series: Boolean
     * descriptions: List<PokedexDescription>
     * names: List<PokedexName>
-    * pokemon_entries: List<PokedexDetailPokemonEntriesInner>
+    * pokemon_entries: List<PokemonDexNumber>
     * region: RegionSummary
-    * version_groups: List<AbilityDetailPokemonInnerPokemon>
-}
-
-entity PokedexDetailPokemonEntriesInner {
-    * entry_number: Integer
-    * pokemon_species: AbilityDetailPokemonInnerPokemon
+    * version_groups: List<VersionGroupSummary>
 }
 
 entity PokedexName {
@@ -1318,6 +1320,18 @@ entity PokedexName {
 entity PokedexSummary {
     * name: String
     * url: URI
+}
+
+entity PokemonAbility {
+    is_hidden: Boolean
+    * slot: Integer
+    * ability: AbilitySummary
+}
+
+entity PokemonAbilityPast {
+    is_hidden: Boolean
+    * slot: Integer
+    * ability: AbilitySummary
 }
 
 entity PokemonColorDetail {
@@ -1337,6 +1351,11 @@ entity PokemonColorSummary {
     * url: URI
 }
 
+entity PokemonCries {
+    * latest: String
+    * legacy: String
+}
+
 entity PokemonDetail {
     * id: Integer
     * name: String
@@ -1345,70 +1364,88 @@ entity PokemonDetail {
     is_default: Boolean
     order: Integer
     weight: Integer
-    * abilities: List<PokemonDetailAbilitiesInner>
-    * past_abilities: List<PokemonDetailPastAbilitiesInner>
+    * abilities: List<PokemonAbility>
+    * past_abilities: List<PokemonPastAbility>
     * forms: List<PokemonFormSummary>
     * game_indices: List<PokemonGameIndex>
-    * held_items: PokemonDetailHeldItems
+    * held_items: List<PokemonHeldItemSummary>
     * location_area_encounters: String
-    * moves: List<PokemonDetailMovesInner>
+    * moves: List<PokemonMove>
     * species: PokemonSpeciesSummary
-    * sprites: PokemonDetailSprites
-    * cries: PokemonDetailCries
+    * sprites: PokemonSprites
+    * cries: PokemonCries
     * stats: List<PokemonStat>
-    * types: List<PokemonDetailTypesInner>
-    * past_types: List<PokemonDetailPastTypesInner>
-}
-
-entity PokemonDetailAbilitiesInner {
-    * ability: AbilityDetailPokemonInnerPokemon
-    * is_hidden: Boolean
-    * slot: Integer
-}
-
-entity PokemonDetailCries {
-    * latest: URI
-    * legacy: URI
-}
-
-entity PokemonDetailHeldItems {
-    * item: AbilityDetailPokemonInnerPokemon
-    * version_details: List<ItemDetailHeldByPokemonInnerVersionDetailsInner>
-}
-
-entity PokemonDetailMovesInner {
-    * move: AbilityDetailPokemonInnerPokemon
-    * version_group_details: List<PokemonDetailMovesInnerVersionGroupDetailsInner>
-}
-
-entity PokemonDetailMovesInnerVersionGroupDetailsInner {
-    * level_learned_at: Integer
-    * move_learn_method: AbilityDetailPokemonInnerPokemon
-    * version_group: AbilityDetailPokemonInnerPokemon
-}
-
-entity PokemonDetailPastAbilitiesInner {
-    * abilities: List<PokemonDetailAbilitiesInner>
-    * generation: AbilityDetailPokemonInnerPokemon
-}
-
-entity PokemonDetailPastTypesInner {
-    * generation: AbilityDetailPokemonInnerPokemon
-    * types: List<PokemonDetailTypesInner>
-}
-
-entity PokemonDetailSprites {
-    front_default: URI
-}
-
-entity PokemonDetailTypesInner {
-    * slot: Integer
-    * type: AbilityDetailPokemonInnerPokemon
+    * past_stats: List<PokemonPastStat>
+    * types: List<PokemonType>
+    * past_types: List<PokemonPastType>
 }
 
 entity PokemonDexEntry {
     * entry_number: Integer
     * pokedex: PokedexSummary
+}
+
+entity PokemonDexNumber {
+    * entry_number: Integer
+    * pokemon_species: PokemonSpeciesSummary
+}
+
+entity PokemonEncounterDetailResponse {
+    * chance: Integer
+    * condition_values: List<EncounterConditionValueSummary>
+    * max_level: Integer
+    * method: EncounterMethodSummary
+    * min_level: Integer
+}
+
+entity PokemonEncounterResponse {
+    * location_area: LocationAreaSummary
+    * version_details: List<PokemonEncounterVersionDetailResponse>
+}
+
+entity PokemonEncounterVersionDetailResponse {
+    * version: VersionSummary
+    * max_chance: Integer
+    * encounter_details: List<PokemonEncounterDetailResponse>
+}
+
+entity PokemonEvolution {
+    * version_group: VersionGroupSummary
+    is_default: Boolean
+    * item: ItemSummary
+    * trigger: EvolutionTriggerSummary
+    gender: Integer
+    * held_item: ItemSummary
+    * known_move: PokemonEvolutionKnownMove
+    * known_move_type: PokemonEvolutionKnownMove
+    * location: LocationSummary
+    min_level: Integer
+    min_happiness: Integer
+    min_beauty: Integer
+    min_affection: Integer
+    near_special_rock: Boolean
+    needs_multiplayer: Boolean
+    needs_overworld_rain: Boolean
+    * party_species: PokemonSpeciesSummary
+    * party_type: TypeSummary
+    relative_physical_stats: Integer
+    time_of_day: String
+    * trade_species: PokemonSpeciesSummary
+    turn_upside_down: Boolean
+    * region: RegionSummary
+    * required_pokemon_form: PokemonFormSummary
+    * evolved_pokemon_form: PokemonFormSummary
+    * used_move: MoveSummary
+    min_move_count: Integer
+    min_steps: Integer
+    min_damage_taken: Integer
+    * allowed_natures: List<NatureSummary>
+    * condition_expression: EvolutionConditionExpression
+}
+
+entity PokemonEvolutionKnownMove {
+    * name: String
+    * url: URI
 }
 
 entity PokemonFormDetail {
@@ -1421,25 +1458,54 @@ entity PokemonFormDetail {
     is_mega: Boolean
     * form_name: String
     * pokemon: PokemonSummary
-    * sprites: PokemonFormDetailSprites
+    * sprites: PokemonFormSprites
     * version_group: VersionGroupSummary
-    * form_names: List<PokemonFormDetailFormNamesInner>
-    * names: List<PokemonFormDetailFormNamesInner>
-    * types: List<PokemonDetailTypesInner>
+    * form_names: List<PokemonFormName>
+    * names: List<PokemonFormName>
+    * types: List<PokemonFormType>
+    * trigger_conditions: List<PokemonFormTriggerCondition>
+    * flavor_text_entries: List<PokemonFormFlavorText>
 }
 
-entity PokemonFormDetailFormNamesInner {
-    * language: AbilityDetailPokemonInnerPokemon
+entity PokemonFormFlavorText {
+    * flavor_text: String
+    * language: LanguageSummary
+    * version: VersionSummary
+}
+
+entity PokemonFormName {
     * name: String
+    * language: LanguageSummary
 }
 
-entity PokemonFormDetailSprites {
-    default: URI
+entity PokemonFormSprites {
+    * front_default: String
+    * front_shiny: String
+    * front_female: String
+    * front_shiny_female: String
+    * back_default: String
+    * back_shiny: String
+    * back_female: String
+    * back_shiny_female: String
+    other: PokemonSpritesOther
+    versions: Map
 }
 
 entity PokemonFormSummary {
     * name: String
     * url: URI
+}
+
+entity PokemonFormTriggerCondition {
+    * trigger: String
+    name: String
+    url: URI
+    base_form: PokemonFormSummary
+}
+
+entity PokemonFormType {
+    * slot: Integer
+    * type: TypeSummary
 }
 
 entity PokemonGameIndex {
@@ -1464,22 +1530,64 @@ entity PokemonHabitatSummary {
     * url: URI
 }
 
+entity PokemonHeldItem {
+    * pokemon: PokemonSummary
+    * version_details: List<PokemonHeldItemVersion>
+}
+
+entity PokemonHeldItemSummary {
+    * item: ItemSummary
+    * version_details: List<PokemonHeldItemVersion>
+}
+
+entity PokemonHeldItemVersion {
+    * rarity: Integer
+    * version: VersionSummary
+}
+
+entity PokemonMove {
+    * move: MoveSummary
+    * version_group_details: List<PokemonMoveVersionGroup>
+}
+
+entity PokemonMoveVersionGroup {
+    * level_learned_at: Integer
+    * move_learn_method: MoveLearnMethodSummary
+    * version_group: VersionGroupSummary
+    order: Integer
+}
+
+entity PokemonPastAbility {
+    * abilities: List<PokemonAbilityPast>
+    * generation: GenerationSummary
+}
+
+entity PokemonPastStat {
+    * generation: GenerationSummary
+    * stats: List<PokemonStat>
+}
+
+entity PokemonPastType {
+    * generation: GenerationSummary
+    * types: List<PokemonType>
+}
+
+entity PokemonShapeAwesomeName {
+    * awesome_name: String
+    * language: LanguageSummary
+}
+
 entity PokemonShapeDetail {
     * id: Integer
     * name: String
-    * awesome_names: List<PokemonShapeDetailAwesomeNamesInner>
-    * names: List<PokemonShapeDetailNamesInner>
+    * awesome_names: List<PokemonShapeAwesomeName>
+    * names: List<PokemonShapeName>
     * pokemon_species: List<PokemonSpeciesSummary>
 }
 
-entity PokemonShapeDetailAwesomeNamesInner {
-    * awesome_name: String
-    * language: AbilityDetailPokemonInnerPokemon
-}
-
-entity PokemonShapeDetailNamesInner {
-    * url: URI
+entity PokemonShapeName {
     * name: String
+    * language: LanguageSummary
 }
 
 entity PokemonShapeSummary {
@@ -1507,35 +1615,19 @@ entity PokemonSpeciesDetail {
     forms_switchable: Boolean
     * growth_rate: GrowthRateSummary
     * pokedex_numbers: List<PokemonDexEntry>
-    * egg_groups: List<AbilityDetailPokemonInnerPokemon>
+    * egg_groups: List<EggGroupSummary>
     * color: PokemonColorSummary
     * shape: PokemonShapeSummary
     * evolves_from_species: PokemonSpeciesSummary
     * evolution_chain: EvolutionChainSummary
     * habitat: PokemonHabitatSummary
     * generation: GenerationSummary
-    * names: List<PokemonFormDetailFormNamesInner>
-    * pal_park_encounters: List<PokemonSpeciesDetailPalParkEncountersInner>
+    * names: List<PokemonSpeciesName>
+    * pal_park_encounters: List<PokemonSpeciesPalParkEncounter>
     * form_descriptions: List<PokemonSpeciesDescription>
     * flavor_text_entries: List<PokemonSpeciesFlavorText>
-    * genera: List<PokemonSpeciesDetailGeneraInner>
-    * varieties: List<PokemonSpeciesDetailVarietiesInner>
-}
-
-entity PokemonSpeciesDetailGeneraInner {
-    * genus: String
-    * language: AbilityDetailPokemonInnerPokemon
-}
-
-entity PokemonSpeciesDetailPalParkEncountersInner {
-    * area: AbilityDetailPokemonInnerPokemon
-    * base_score: Integer
-    * rate: Integer
-}
-
-entity PokemonSpeciesDetailVarietiesInner {
-    * is_default: Boolean
-    * pokemon: AbilityDetailPokemonInnerPokemon
+    * genera: List<PokemonSpeciesGenus>
+    * varieties: List<PokemonSpeciesVariety>
 }
 
 entity PokemonSpeciesFlavorText {
@@ -1544,9 +1636,79 @@ entity PokemonSpeciesFlavorText {
     * version: VersionSummary
 }
 
+entity PokemonSpeciesGenus {
+    * genus: String
+    * language: LanguageSummary
+}
+
+entity PokemonSpeciesName {
+    * name: String
+    * language: LanguageSummary
+}
+
+entity PokemonSpeciesPalParkEncounter {
+    base_score: Integer
+    * rate: Integer
+    * area: PalParkAreaSummary
+}
+
 entity PokemonSpeciesSummary {
     * name: String
     * url: URI
+}
+
+entity PokemonSpeciesVariety {
+    * is_default: Boolean
+    * pokemon: PokemonSummary
+}
+
+entity PokemonSprites {
+    * front_default: String
+    * front_shiny: String
+    * front_female: String
+    * front_shiny_female: String
+    * back_default: String
+    * back_shiny: String
+    * back_female: String
+    * back_shiny_female: String
+    other: PokemonSpritesOther
+    versions: Map
+}
+
+entity PokemonSpritesOther {
+    dream_world: PokemonSpritesOtherDreamWorld
+    home: PokemonSpritesOtherHome
+    showdown: PokemonSpritesOtherShowdown
+    official-artwork: PokemonSpritesOtherOfficialArtwork
+}
+
+entity PokemonSpritesOtherDreamWorld {
+    * front_default: String
+    * front_female: String
+}
+
+entity PokemonSpritesOtherHome {
+    * front_default: String
+    * front_female: String
+    * front_shiny: String
+    * front_shiny_female: String
+}
+
+entity PokemonSpritesOtherOfficialArtwork {
+    * front_default: String
+    * front_shiny: String
+    versions: Map
+}
+
+entity PokemonSpritesOtherShowdown {
+    * front_default: String
+    * front_female: String
+    * front_shiny: String
+    * front_shiny_female: String
+    * back_default: String
+    * back_female: String
+    * back_shiny: String
+    * back_shiny_female: String
 }
 
 entity PokemonStat {
@@ -1560,6 +1722,11 @@ entity PokemonSummary {
     * url: URI
 }
 
+entity PokemonType {
+    * slot: Integer
+    * type: TypeSummary
+}
+
 entity RegionDetail {
     * id: Integer
     * name: String
@@ -1567,7 +1734,7 @@ entity RegionDetail {
     * main_generation: GenerationSummary
     * names: List<RegionName>
     * pokedexes: List<PokedexSummary>
-    * version_groups: List<AbilityDetailPokemonInnerPokemon>
+    * version_groups: List<VersionGroupSummary>
 }
 
 entity RegionName {
@@ -1580,31 +1747,27 @@ entity RegionSummary {
     * url: URI
 }
 
+entity StatAffectingMoves {
+    * increase: List<MoveStatChange>
+    * decrease: List<MoveStatChange>
+}
+
+entity StatAffectingNatures {
+    * increase: List<NatureSummary>
+    * decrease: List<NatureSummary>
+}
+
 entity StatDetail {
     * id: Integer
     * name: String
     * game_index: Integer
     is_battle_only: Boolean
-    * affecting_moves: StatDetailAffectingMoves
-    * affecting_natures: StatDetailAffectingNatures
+    * affecting_moves: StatAffectingMoves
+    * affecting_natures: StatAffectingNatures
+    * affecting_items: List<ItemSummary>
     * characteristics: List<CharacteristicSummary>
     * move_damage_class: MoveDamageClassSummary
     * names: List<StatName>
-}
-
-entity StatDetailAffectingMoves {
-    * increase: List<StatDetailAffectingMovesIncreaseInner>
-    * decrease: List<StatDetailAffectingMovesIncreaseInner>
-}
-
-entity StatDetailAffectingMovesIncreaseInner {
-    * change: Integer
-    * move: AbilityDetailPokemonInnerPokemon
-}
-
-entity StatDetailAffectingNatures {
-    * increase: List<AbilityDetailPokemonInnerPokemon>
-    * decrease: List<AbilityDetailPokemonInnerPokemon>
 }
 
 entity StatName {
@@ -1636,57 +1799,49 @@ entity SuperContestEffectSummary {
 entity TypeDetail {
     * id: Integer
     * name: String
-    * damage_relations: TypeDetailDamageRelations
-    * past_damage_relations: List<TypeDetailPastDamageRelationsInner>
+    * damage_relations: TypeRelationships
+    * past_damage_relations: List<TypePastRelationships>
     * game_indices: List<TypeGameIndex>
     * generation: GenerationSummary
     * move_damage_class: MoveDamageClassSummary
-    * names: List<AbilityName>
-    * pokemon: List<TypeDetailPokemonInner>
+    * names: List<TypeName>
+    * pokemon: List<TypePokemon>
     * moves: List<MoveSummary>
     * sprites: Map
-}
-
-entity TypeDetailDamageRelations {
-    * no_damage_to: List<AbilityDetailPokemonInnerPokemon>
-    * half_damage_to: List<AbilityDetailPokemonInnerPokemon>
-    * double_damage_to: List<AbilityDetailPokemonInnerPokemon>
-    * no_damage_from: List<AbilityDetailPokemonInnerPokemon>
-    * half_damage_from: List<AbilityDetailPokemonInnerPokemon>
-    * double_damage_from: List<AbilityDetailPokemonInnerPokemon>
-}
-
-entity TypeDetailPastDamageRelationsInner {
-    * generation: AbilityDetailPokemonInnerPokemon
-    * damage_relations: TypeDetailPastDamageRelationsInnerDamageRelations
-}
-
-entity TypeDetailPastDamageRelationsInnerDamageRelations {
-    * no_damage_to: List<AbilityDetailPokemonInnerPokemon>
-    * half_damage_to: List<AbilityDetailPokemonInnerPokemon>
-    * double_damage_to: List<AbilityDetailPokemonInnerPokemon>
-    * no_damage_from: List<AbilityDetailPokemonInnerPokemon>
-    * half_damage_from: List<AbilityDetailPokemonInnerPokemon>
-    * double_damage_from: List<AbilityDetailPokemonInnerPokemon>
-}
-
-entity TypeDetailPokemonInner {
-    slot: Integer
-    pokemon: TypeDetailPokemonInnerPokemon
-}
-
-entity TypeDetailPokemonInnerPokemon {
-    name: String
-    url: URI
-}
-
-entity TypeDetailSpritesValueValue {
-    name-icon: URI
 }
 
 entity TypeGameIndex {
     * game_index: Integer
     * generation: GenerationSummary
+}
+
+entity TypeGameSprite {
+    name_icon: String
+    symbol_icon: String
+}
+
+entity TypeName {
+    * name: String
+    * language: LanguageSummary
+}
+
+entity TypePastRelationships {
+    * generation: GenerationSummary
+    * damage_relations: TypeRelationships
+}
+
+entity TypePokemon {
+    * slot: Integer
+    * pokemon: PokemonSummary
+}
+
+entity TypeRelationships {
+    * no_damage_to: List<TypeSummary>
+    * half_damage_to: List<TypeSummary>
+    * double_damage_to: List<TypeSummary>
+    * no_damage_from: List<TypeSummary>
+    * half_damage_from: List<TypeSummary>
+    * double_damage_from: List<TypeSummary>
 }
 
 entity TypeSummary {
@@ -1706,9 +1861,9 @@ entity VersionGroupDetail {
     * name: String
     order: Integer
     * generation: GenerationSummary
-    * move_learn_methods: List<AbilityDetailPokemonInnerPokemon>
-    * pokedexes: List<AbilityDetailPokemonInnerPokemon>
-    * regions: List<AbilityDetailPokemonInnerPokemon>
+    * move_learn_methods: List<MoveLearnMethodSummary>
+    * pokedexes: List<PokedexSummary>
+    * regions: List<RegionSummary>
     * versions: List<VersionSummary>
 }
 
@@ -1729,13 +1884,13 @@ entity VersionSummary {
 
 
 PaginatedItemPocketSummaryList -- "0..*" ItemPocketSummary : results
+PokemonAbility -- AbilitySummary : ability
 PokemonColorDetail -- "0..*" PokemonColorName : names
 PokemonColorDetail -- "0..*" PokemonSpeciesSummary : pokemon_species
 ItemCategoryName -- LanguageSummary : language
 BerryFlavorName -- LanguageSummary : language
 EncounterConditionValueDetail -- EncounterConditionSummary : condition
 EncounterConditionValueDetail -- "0..*" EncounterConditionValueName : names
-NatureDetailPokeathlonStatChangesInner -- AbilityDetailPokemonInnerPokemon : pokeathlon_stat
 PaginatedBerrySummaryList -- "0..*" BerrySummary : results
 MoveMeta -- MoveMetaAilmentSummary : ailment
 MoveMeta -- MoveMetaCategorySummary : category
@@ -1745,35 +1900,39 @@ ItemAttributeName -- LanguageSummary : language
 ItemCategoryDetail -- "0..*" ItemSummary : items
 ItemCategoryDetail -- "0..*" ItemCategoryName : names
 ItemCategoryDetail -- ItemPocketSummary : pocket
-GenderDetailPokemonSpeciesDetailsInner -- AbilityDetailPokemonInnerPokemon : pokemon_species
+PokemonFormTriggerCondition -- PokemonFormSummary : base_form
 PaginatedStatSummaryList -- "0..*" StatSummary : results
-ItemDetailMachinesInner -- AbilityDetailPokemonInnerPokemon : version_group
+GenderPokemonSpecies -- PokemonSpeciesSummary : pokemon_species
 EvolutionTriggerDetail -- "0..*" EvolutionTriggerName : names
-EvolutionTriggerDetail -- "0..*" AbilityDetailPokemonInnerPokemon : pokemon_species
+EvolutionTriggerDetail -- "0..*" PokemonSpeciesSummary : pokemon_species
+PokemonEncounterResponse -- LocationAreaSummary : location_area
+PokemonEncounterResponse -- "0..*" PokemonEncounterVersionDetailResponse : version_details
 PaginatedPokedexSummaryList -- "0..*" PokedexSummary : results
 MoveMetaCategoryDetail -- "0..*" MoveMetaCategoryDescription : descriptions
-MoveMetaCategoryDetail -- "0..*" AbilityDetailPokemonInnerPokemon : moves
+MoveMetaCategoryDetail -- "0..*" MoveSummary : moves
 MachineDetail -- ItemSummary : item
 MachineDetail -- VersionGroupSummary : version_group
 MachineDetail -- MoveSummary : move
 VersionGroupDetail -- GenerationSummary : generation
-VersionGroupDetail -- "0..*" AbilityDetailPokemonInnerPokemon : move_learn_methods
-VersionGroupDetail -- "0..*" AbilityDetailPokemonInnerPokemon : pokedexes
-VersionGroupDetail -- "0..*" AbilityDetailPokemonInnerPokemon : regions
+VersionGroupDetail -- "0..*" MoveLearnMethodSummary : move_learn_methods
+VersionGroupDetail -- "0..*" PokedexSummary : pokedexes
+VersionGroupDetail -- "0..*" RegionSummary : regions
 VersionGroupDetail -- "0..*" VersionSummary : versions
-PokeathlonStatDetailAffectingNatures -- "0..*" PokeathlonStatDetailAffectingNaturesDecreaseInner : decrease
-PokeathlonStatDetailAffectingNatures -- "0..*" PokeathlonStatDetailAffectingNaturesIncreaseInner : increase
+PaginatedCurrencySummaryList -- "0..*" CurrencySummary : results
 EggGroupName -- LanguageSummary : language
 PaginatedVersionGroupSummaryList -- "0..*" VersionGroupSummary : results
-LocationAreaDetailPokemonEncountersInnerVersionDetailsInner -- AbilityDetailPokemonInnerPokemon : version
-LocationAreaDetailPokemonEncountersInnerVersionDetailsInner -- LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails : encounter_details
 NatureName -- LanguageSummary : language
 PalParkAreaName -- LanguageSummary : language
+PokemonMove -- MoveSummary : move
+PokemonMove -- "0..*" PokemonMoveVersionGroup : version_group_details
+PokemonHeldItemSummary -- ItemSummary : item
+PokemonHeldItemSummary -- "0..*" PokemonHeldItemVersion : version_details
 LocationAreaName -- LanguageSummary : language
+PokemonHeldItemVersion -- VersionSummary : version
+PaginatedEvolutionVariableSummaryList -- "0..*" EvolutionVariableSummary : results
 VersionDetail -- "0..*" VersionName : names
 VersionDetail -- VersionGroupSummary : version_group
 EncounterConditionName -- LanguageSummary : language
-ItemDetailHeldByPokemonInnerVersionDetailsInner -- AbilityDetailPokemonInnerPokemon : version
 LocationName -- LanguageSummary : language
 PaginatedEncounterConditionSummaryList -- "0..*" EncounterConditionSummary : results
 PaginatedItemSummaryList -- "0..*" ItemSummary : results
@@ -1782,194 +1941,202 @@ EncounterMethodName -- LanguageSummary : language
 GrowthRateDetail -- "0..*" GrowthRateDescription : descriptions
 GrowthRateDetail -- "0..*" Experience : levels
 GrowthRateDetail -- "0..*" PokemonSpeciesSummary : pokemon_species
-TypeDetailPokemonInner -- TypeDetailPokemonInnerPokemon : pokemon
 MoveMetaAilmentName -- LanguageSummary : language
+PokemonAbilityPast -- AbilitySummary : ability
+LocationAreaEncounterVersionDetail -- VersionSummary : version
 MoveFlavorText -- LanguageSummary : language
 MoveFlavorText -- VersionGroupSummary : version_group
-PokemonSpeciesDetailVarietiesInner -- AbilityDetailPokemonInnerPokemon : pokemon
-GenderDetail -- "0..*" GenderDetailPokemonSpeciesDetailsInner : pokemon_species_details
-GenderDetail -- "0..*" AbilityDetailPokemonInnerPokemon : required_for_evolution
-MoveDetailContestCombosNormal -- "0..*" AbilityDetailPokemonInnerPokemon : use_before
-MoveDetailContestCombosNormal -- "0..*" AbilityDetailPokemonInnerPokemon : use_after
+GenderDetail -- "0..*" GenderPokemonSpecies : pokemon_species_details
+GenderDetail -- "0..*" PokemonSpeciesSummary : required_for_evolution
 PaginatedGenderSummaryList -- "0..*" GenderSummary : results
 PaginatedRegionSummaryList -- "0..*" RegionSummary : results
 EncounterConditionDetail -- "0..*" EncounterConditionValueSummary : values
 EncounterConditionDetail -- "0..*" EncounterConditionName : names
-LocationAreaDetailPokemonEncountersInner -- AbilityDetailPokemonInnerPokemon : pokemon
-LocationAreaDetailPokemonEncountersInner -- "0..*" LocationAreaDetailPokemonEncountersInnerVersionDetailsInner : version_details
+PokemonShapeName -- LanguageSummary : language
 AbilityChange -- VersionGroupSummary : version_group
 AbilityChange -- "0..*" AbilityChangeEffectText : effect_entries
-PokemonSpeciesDetailGeneraInner -- AbilityDetailPokemonInnerPokemon : language
 PokemonHabitatName -- LanguageSummary : language
+PokemonEncounterVersionDetailResponse -- VersionSummary : version
+PokemonEncounterVersionDetailResponse -- "0..*" PokemonEncounterDetailResponse : encounter_details
 PokedexDetail -- "0..*" PokedexDescription : descriptions
 PokedexDetail -- "0..*" PokedexName : names
-PokedexDetail -- "0..*" PokedexDetailPokemonEntriesInner : pokemon_entries
+PokedexDetail -- "0..*" PokemonDexNumber : pokemon_entries
 PokedexDetail -- RegionSummary : region
-PokedexDetail -- "0..*" AbilityDetailPokemonInnerPokemon : version_groups
-PokemonDetailTypesInner -- AbilityDetailPokemonInnerPokemon : type
+PokedexDetail -- "0..*" VersionGroupSummary : version_groups
 LanguageDetail -- "0..*" LanguageName : names
+PokeathlonStatAffectingNatures -- "0..*" PokeathlonStatAffectingNature : increase
+PokeathlonStatAffectingNatures -- "0..*" PokeathlonStatAffectingNature : decrease
 PaginatedBerryFirmnessSummaryList -- "0..*" BerryFirmnessSummary : results
-BerryFlavorDetail -- "0..*" BerryFlavorDetailBerriesInner : berries
+BerryFlavorDetail -- "0..*" BerryFlavorBerryMap : berries
 BerryFlavorDetail -- ContestTypeSummary : contest_type
 BerryFlavorDetail -- "0..*" BerryFlavorName : names
 PaginatedPokeathlonStatSummaryList -- "0..*" PokeathlonStatSummary : results
+TypeName -- LanguageSummary : language
 MoveLearnMethodName -- LanguageSummary : language
 PaginatedEggGroupSummaryList -- "0..*" EggGroupSummary : results
 PaginatedContestTypeSummaryList -- "0..*" ContestTypeSummary : results
-PokeathlonStatDetailAffectingNaturesIncreaseInner -- AbilityDetailPokemonInnerPokemon : nature
-ItemDetailHeldByPokemonInner -- AbilityDetailPokemonInnerPokemon : pokemon
-ItemDetailHeldByPokemonInner -- "0..*" ItemDetailHeldByPokemonInnerVersionDetailsInner : version-details
-MoveDetailContestCombos -- MoveDetailContestCombosNormal : normal
-MoveDetailContestCombos -- MoveDetailContestCombosNormal : super
 AbilityFlavorText -- LanguageSummary : language
 AbilityFlavorText -- VersionGroupSummary : version_group
 PaginatedMoveSummaryList -- "0..*" MoveSummary : results
 BerryFirmnessName -- LanguageSummary : language
+PokemonMoveVersionGroup -- MoveLearnMethodSummary : move_learn_method
+PokemonMoveVersionGroup -- VersionGroupSummary : version_group
 MoveLearnMethodDetail -- "0..*" MoveLearnMethodName : names
 MoveLearnMethodDetail -- "0..*" MoveLearnMethodDescription : descriptions
-MoveLearnMethodDetail -- "0..*" AbilityDetailPokemonInnerPokemon : version_groups
-PokeathlonStatDetailAffectingNaturesDecreaseInner -- AbilityDetailPokemonInnerPokemon : nature
+MoveLearnMethodDetail -- "0..*" VersionGroupSummary : version_groups
 GenerationName -- LanguageSummary : language
 EncounterConditionValueName -- LanguageSummary : language
-LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails -- AbilityDetailPokemonInnerPokemon : condition_values
-LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails -- AbilityDetailPokemonInnerPokemon : method
 RegionDetail -- "0..*" LocationSummary : locations
 RegionDetail -- GenerationSummary : main_generation
 RegionDetail -- "0..*" RegionName : names
 RegionDetail -- "0..*" PokedexSummary : pokedexes
-RegionDetail -- "0..*" AbilityDetailPokemonInnerPokemon : version_groups
+RegionDetail -- "0..*" VersionGroupSummary : version_groups
 MoveBattleStyleDetail -- "0..*" MoveBattleStyleName : names
-PokeathlonStatDetail -- PokeathlonStatDetailAffectingNatures : affecting_natures
+BerryFlavorMap -- BerryFlavorSummary : flavor
+PokeathlonStatDetail -- PokeathlonStatAffectingNatures : affecting_natures
 PokeathlonStatDetail -- "0..*" PokeathlonStatName : names
-StatDetail -- StatDetailAffectingMoves : affecting_moves
-StatDetail -- StatDetailAffectingNatures : affecting_natures
+StatDetail -- StatAffectingMoves : affecting_moves
+StatDetail -- StatAffectingNatures : affecting_natures
+StatDetail -- "0..*" ItemSummary : affecting_items
 StatDetail -- "0..*" CharacteristicSummary : characteristics
 StatDetail -- MoveDamageClassSummary : move_damage_class
 StatDetail -- "0..*" StatName : names
+PokemonFormFlavorText -- LanguageSummary : language
+PokemonFormFlavorText -- VersionSummary : version
+PokemonPastType -- GenerationSummary : generation
+PokemonPastType -- "0..*" PokemonType : types
 PaginatedContestEffectSummaryList -- "0..*" ContestEffectSummary : results
+LocationAreaEncounterDetail -- EncounterMethodSummary : method
+LocationAreaEncounterDetail -- "0..*" EncounterConditionValueSummary : condition_values
+LocationAreaEncounterDetail -- EncounterPokemonDetail : pokemon_details
 EggGroupDetail -- "0..*" EggGroupName : names
-EggGroupDetail -- "0..*" EggGroupDetailPokemonSpeciesInner : pokemon_species
-BerryFlavorDetailBerriesInner -- BerryFlavorDetailBerriesInnerBerry : berry
+EggGroupDetail -- "0..*" PokemonSpeciesSummary : pokemon_species
+PokemonSpritesOther -- PokemonSpritesOtherDreamWorld : dream_world
+PokemonSpritesOther -- PokemonSpritesOtherHome : home
+PokemonSpritesOther -- PokemonSpritesOtherShowdown : showdown
+PokemonSpritesOther -- PokemonSpritesOtherOfficialArtwork : official-artwork
 PaginatedPalParkAreaSummaryList -- "0..*" PalParkAreaSummary : results
+EvolutionVariableDescription -- LanguageSummary : language
 PokemonStat -- StatSummary : stat
 LocationGameIndex -- GenerationSummary : generation
+NaturePokeathlonStat -- PokeathlonStatSummary : pokeathlon_stat
 PaginatedEncounterMethodSummaryList -- "0..*" EncounterMethodSummary : results
-PokemonDetailMovesInnerVersionGroupDetailsInner -- AbilityDetailPokemonInnerPokemon : move_learn_method
-PokemonDetailMovesInnerVersionGroupDetailsInner -- AbilityDetailPokemonInnerPokemon : version_group
+PokemonSpeciesName -- LanguageSummary : language
 ItemDetail -- ItemFlingEffectSummary : fling_effect
-ItemDetail -- "0..*" AbilityDetailPokemonInnerPokemon : attributes
+ItemDetail -- "0..*" ItemAttributeSummary : attributes
 ItemDetail -- ItemCategorySummary : category
 ItemDetail -- "0..*" ItemEffectText : effect_entries
 ItemDetail -- "0..*" ItemFlavorText : flavor_text_entries
 ItemDetail -- "0..*" ItemGameIndex : game_indices
+ItemDetail -- "0..*" ItemPrice : prices
 ItemDetail -- "0..*" ItemName : names
-ItemDetail -- "0..*" ItemDetailHeldByPokemonInner : held_by_pokemon
-ItemDetail -- ItemDetailSprites : sprites
-ItemDetail -- ItemDetailBabyTriggerFor : baby_trigger_for
-ItemDetail -- "0..*" ItemDetailMachinesInner : machines
-PokemonDetailHeldItems -- AbilityDetailPokemonInnerPokemon : item
-PokemonDetailHeldItems -- "0..*" ItemDetailHeldByPokemonInnerVersionDetailsInner : version_details
-BerryDetailFlavorsInner -- BerryDetailFlavorsInnerFlavor : flavor
-PokemonShapeDetailAwesomeNamesInner -- AbilityDetailPokemonInnerPokemon : language
+ItemDetail -- "0..*" PokemonHeldItem : held_by_pokemon
+ItemDetail -- ItemSprites : sprites
+ItemDetail -- EvolutionChainSummary : baby_trigger_for
+ItemDetail -- "0..*" ItemMachine : machines
+PokemonEncounterDetailResponse -- "0..*" EncounterConditionValueSummary : condition_values
+PokemonEncounterDetailResponse -- EncounterMethodSummary : method
 PaginatedTypeSummaryList -- "0..*" TypeSummary : results
 PokemonGameIndex -- VersionSummary : version
-MoveDetailMachinesInner -- MoveDetailMachinesInnerMachine : machine
-MoveDetailMachinesInner -- AbilityDetailPokemonInnerPokemon : version_group
-EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner -- EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender : gender
-EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner -- EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender : held_item
-EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner -- EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender : item
-EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner -- EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender : known_move
-EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner -- EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender : known_move_type
-EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner -- EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender : location
-EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner -- AbilityDetailPokemonInnerPokemon : trigger
 AbilityName -- LanguageSummary : language
 EncounterMethodDetail -- "0..*" EncounterMethodName : names
 PokeathlonStatName -- LanguageSummary : language
-TypeDetailPastDamageRelationsInner -- AbilityDetailPokemonInnerPokemon : generation
-TypeDetailPastDamageRelationsInner -- TypeDetailPastDamageRelationsInnerDamageRelations : damage_relations
 ItemEffectText -- LanguageSummary : language
 AbilityChangeEffectText -- LanguageSummary : language
 MoveDamageClassName -- LanguageSummary : language
 PaginatedPokemonColorSummaryList -- "0..*" PokemonColorSummary : results
 PokemonColorName -- LanguageSummary : language
-TypeDetailDamageRelations -- "0..*" AbilityDetailPokemonInnerPokemon : no_damage_to
-TypeDetailDamageRelations -- "0..*" AbilityDetailPokemonInnerPokemon : half_damage_to
-TypeDetailDamageRelations -- "0..*" AbilityDetailPokemonInnerPokemon : double_damage_to
-TypeDetailDamageRelations -- "0..*" AbilityDetailPokemonInnerPokemon : no_damage_from
-TypeDetailDamageRelations -- "0..*" AbilityDetailPokemonInnerPokemon : half_damage_from
-TypeDetailDamageRelations -- "0..*" AbilityDetailPokemonInnerPokemon : double_damage_from
+TypePokemon -- PokemonSummary : pokemon
+MoveEffectChange -- VersionGroupSummary : version_group
+MoveEffectChange -- "0..*" MoveEffectChangeEffectText : effect_entries
 PaginatedAbilitySummaryList -- "0..*" AbilitySummary : results
+PokemonSpeciesGenus -- LanguageSummary : language
+PokemonDexNumber -- PokemonSpeciesSummary : pokemon_species
 PokemonSpeciesDescription -- LanguageSummary : language
-PokemonDetail -- "0..*" PokemonDetailAbilitiesInner : abilities
-PokemonDetail -- "0..*" PokemonDetailPastAbilitiesInner : past_abilities
+PokemonDetail -- "0..*" PokemonAbility : abilities
+PokemonDetail -- "0..*" PokemonPastAbility : past_abilities
 PokemonDetail -- "0..*" PokemonFormSummary : forms
 PokemonDetail -- "0..*" PokemonGameIndex : game_indices
-PokemonDetail -- PokemonDetailHeldItems : held_items
-PokemonDetail -- "0..*" PokemonDetailMovesInner : moves
+PokemonDetail -- "0..*" PokemonHeldItemSummary : held_items
+PokemonDetail -- "0..*" PokemonMove : moves
 PokemonDetail -- PokemonSpeciesSummary : species
-PokemonDetail -- PokemonDetailCries : cries
+PokemonDetail -- PokemonSprites : sprites
+PokemonDetail -- PokemonCries : cries
 PokemonDetail -- "0..*" PokemonStat : stats
-PokemonDetail -- "0..*" PokemonDetailTypesInner : types
-PokemonDetail -- "0..*" PokemonDetailPastTypesInner : past_types
+PokemonDetail -- "0..*" PokemonPastStat : past_stats
+PokemonDetail -- "0..*" PokemonType : types
+PokemonDetail -- "0..*" PokemonPastType : past_types
 PaginatedGenerationSummaryList -- "0..*" GenerationSummary : results
+MoveCombos -- MoveComboUsage : normal
+MoveCombos -- MoveComboUsage : super
+PalParkEncounter -- PokemonSpeciesSummary : pokemon_species
 PaginatedMoveBattleStyleSummaryList -- "0..*" MoveBattleStyleSummary : results
-PokemonShapeDetail -- "0..*" PokemonShapeDetailAwesomeNamesInner : awesome_names
-PokemonShapeDetail -- "0..*" PokemonShapeDetailNamesInner : names
+PokemonShapeDetail -- "0..*" PokemonShapeAwesomeName : awesome_names
+PokemonShapeDetail -- "0..*" PokemonShapeName : names
 PokemonShapeDetail -- "0..*" PokemonSpeciesSummary : pokemon_species
+TypePastRelationships -- GenerationSummary : generation
+TypePastRelationships -- TypeRelationships : damage_relations
+AbilityPokemonDetail -- PokemonSummary : pokemon
+StatAffectingNatures -- "0..*" NatureSummary : increase
+StatAffectingNatures -- "0..*" NatureSummary : decrease
 PaginatedMoveMetaCategorySummaryList -- "0..*" MoveMetaCategorySummary : results
-MoveDetailEffectChangesInnerEffectEntriesInner -- AbilityDetailPokemonInnerPokemon : language
 MoveTargetName -- LanguageSummary : language
 PaginatedItemFlingEffectSummaryList -- "0..*" ItemFlingEffectSummary : results
 ItemAttributeDetail -- "0..*" ItemAttributeDescription : descriptions
-ItemAttributeDetail -- "0..*" AbilityDetailPokemonInnerPokemon : items
+ItemAttributeDetail -- "0..*" ItemSummary : items
 ItemAttributeDetail -- "0..*" ItemAttributeName : names
 CharacteristicDetail -- StatSummary : highest_stat
 CharacteristicDetail -- "0..*" CharacteristicDescription : descriptions
 PaginatedPokemonSummaryList -- "0..*" PokemonSummary : results
-TypeDetailPastDamageRelationsInnerDamageRelations -- "0..*" AbilityDetailPokemonInnerPokemon : no_damage_to
-TypeDetailPastDamageRelationsInnerDamageRelations -- "0..*" AbilityDetailPokemonInnerPokemon : half_damage_to
-TypeDetailPastDamageRelationsInnerDamageRelations -- "0..*" AbilityDetailPokemonInnerPokemon : double_damage_to
-TypeDetailPastDamageRelationsInnerDamageRelations -- "0..*" AbilityDetailPokemonInnerPokemon : no_damage_from
-TypeDetailPastDamageRelationsInnerDamageRelations -- "0..*" AbilityDetailPokemonInnerPokemon : half_damage_from
-TypeDetailPastDamageRelationsInnerDamageRelations -- "0..*" AbilityDetailPokemonInnerPokemon : double_damage_from
 PaginatedLocationSummaryList -- "0..*" LocationSummary : results
 ItemFlingEffectDetail -- "0..*" ItemFlingEffectEffectText : effect_entries
 ItemFlingEffectDetail -- "0..*" ItemSummary : items
-MoveDetailStatChangesInner -- AbilityDetailPokemonInnerPokemon : stat
+PokemonSpeciesVariety -- PokemonSummary : pokemon
 SuperContestEffectDetail -- "0..*" SuperContestEffectFlavorText : flavor_text_entries
 SuperContestEffectDetail -- "0..*" MoveSummary : moves
+PokemonFormName -- LanguageSummary : language
 ContestTypeDetail -- BerryFlavorSummary : berry_flavor
 ContestTypeDetail -- "0..*" ContestTypeName : names
-PokemonDetailMovesInner -- AbilityDetailPokemonInnerPokemon : move
-PokemonDetailMovesInner -- "0..*" PokemonDetailMovesInnerVersionGroupDetailsInner : version_group_details
+PokemonSpeciesPalParkEncounter -- PalParkAreaSummary : area
+LocationAreaEncounterRate -- EncounterMethodSummary : encounter_method
+LocationAreaEncounterRate -- "0..*" LocationAreaEncounterVersionDetail : version_details
+BerryFlavorBerryMap -- BerrySummary : berry
+PokemonPastAbility -- "0..*" PokemonAbilityPast : abilities
+PokemonPastAbility -- GenerationSummary : generation
 ContestEffectEffectText -- LanguageSummary : language
 MoveDamageClassDescription -- LanguageSummary : language
+CurrencyDetail -- "0..*" CurrencyName : names
 PaginatedBerryFlavorSummaryList -- "0..*" BerryFlavorSummary : results
 MoveDamageClassDetail -- "0..*" MoveDamageClassDescription : descriptions
 MoveDamageClassDetail -- "0..*" MoveSummary : moves
 MoveDamageClassDetail -- "0..*" MoveDamageClassName : names
 VersionName -- LanguageSummary : language
+PokeathlonStatAffectingNature -- NatureSummary : nature
 EvolutionTriggerName -- LanguageSummary : language
 PaginatedLanguageSummaryList -- "0..*" LanguageSummary : results
 TypeGameIndex -- GenerationSummary : generation
-PokemonFormDetailFormNamesInner -- AbilityDetailPokemonInnerPokemon : language
+ItemPrice -- CurrencySummary : currency
+ItemPrice -- VersionGroupSummary : version_group
 ItemFlavorText -- VersionGroupSummary : version_group
 ItemFlavorText -- LanguageSummary : language
-PokemonDetailAbilitiesInner -- AbilityDetailPokemonInnerPokemon : ability
-StatDetailAffectingMoves -- "0..*" StatDetailAffectingMovesIncreaseInner : increase
-StatDetailAffectingMoves -- "0..*" StatDetailAffectingMovesIncreaseInner : decrease
+MoveEffectChangeEffectText -- LanguageSummary : language
 AbilityDetail -- GenerationSummary : generation
 AbilityDetail -- "0..*" AbilityName : names
 AbilityDetail -- "0..*" AbilityEffectText : effect_entries
 AbilityDetail -- "0..*" AbilityChange : effect_changes
 AbilityDetail -- "0..*" AbilityFlavorText : flavor_text_entries
-AbilityDetail -- "0..*" AbilityDetailPokemonInner : pokemon
+AbilityDetail -- "0..*" AbilityPokemonDetail : pokemon
 PaginatedLocationAreaSummaryList -- "0..*" LocationAreaSummary : results
 PokemonFormDetail -- PokemonSummary : pokemon
+PokemonFormDetail -- PokemonFormSprites : sprites
 PokemonFormDetail -- VersionGroupSummary : version_group
-PokemonFormDetail -- "0..*" PokemonFormDetailFormNamesInner : form_names
-PokemonFormDetail -- "0..*" PokemonFormDetailFormNamesInner : names
-PokemonFormDetail -- "0..*" PokemonDetailTypesInner : types
+PokemonFormDetail -- "0..*" PokemonFormName : form_names
+PokemonFormDetail -- "0..*" PokemonFormName : names
+PokemonFormDetail -- "0..*" PokemonFormType : types
+PokemonFormDetail -- "0..*" PokemonFormTriggerCondition : trigger_conditions
+PokemonFormDetail -- "0..*" PokemonFormFlavorText : flavor_text_entries
+LocationAreaPokemonEncounter -- PokemonSummary : pokemon
+LocationAreaPokemonEncounter -- "0..*" LocationAreaPokemonEncounterVersion : version_details
 ItemPocketName -- LanguageSummary : language
 MoveMetaCategoryDescription -- LanguageSummary : language
 LanguageName -- LanguageSummary : language
@@ -1986,113 +2153,132 @@ MoveLearnMethodDescription -- LanguageSummary : language
 ItemGameIndex -- GenerationSummary : generation
 PokemonSpeciesDetail -- GrowthRateSummary : growth_rate
 PokemonSpeciesDetail -- "0..*" PokemonDexEntry : pokedex_numbers
-PokemonSpeciesDetail -- "0..*" AbilityDetailPokemonInnerPokemon : egg_groups
+PokemonSpeciesDetail -- "0..*" EggGroupSummary : egg_groups
 PokemonSpeciesDetail -- PokemonColorSummary : color
 PokemonSpeciesDetail -- PokemonShapeSummary : shape
 PokemonSpeciesDetail -- PokemonSpeciesSummary : evolves_from_species
 PokemonSpeciesDetail -- EvolutionChainSummary : evolution_chain
 PokemonSpeciesDetail -- PokemonHabitatSummary : habitat
 PokemonSpeciesDetail -- GenerationSummary : generation
-PokemonSpeciesDetail -- "0..*" PokemonFormDetailFormNamesInner : names
-PokemonSpeciesDetail -- "0..*" PokemonSpeciesDetailPalParkEncountersInner : pal_park_encounters
+PokemonSpeciesDetail -- "0..*" PokemonSpeciesName : names
+PokemonSpeciesDetail -- "0..*" PokemonSpeciesPalParkEncounter : pal_park_encounters
 PokemonSpeciesDetail -- "0..*" PokemonSpeciesDescription : form_descriptions
 PokemonSpeciesDetail -- "0..*" PokemonSpeciesFlavorText : flavor_text_entries
-PokemonSpeciesDetail -- "0..*" PokemonSpeciesDetailGeneraInner : genera
-PokemonSpeciesDetail -- "0..*" PokemonSpeciesDetailVarietiesInner : varieties
-MoveChangeEffectEntriesInner -- AbilityDetailPokemonInnerPokemon : language
+PokemonSpeciesDetail -- "0..*" PokemonSpeciesGenus : genera
+PokemonSpeciesDetail -- "0..*" PokemonSpeciesVariety : varieties
+ItemMachine -- MachineSummary : machine
+ItemMachine -- VersionGroupSummary : version_group
+MoveComboUsage -- "0..*" MoveSummary : use_before
+MoveComboUsage -- "0..*" MoveSummary : use_after
 PaginatedCharacteristicSummaryList -- "0..*" CharacteristicSummary : results
-LocationAreaDetailEncounterMethodRatesInner -- AbilityDetailPokemonInnerPokemon : encounter_method
-LocationAreaDetailEncounterMethodRatesInner -- "0..*" LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner : version_details
-EvolutionChainDetailChainEvolvesToInner -- "0..*" EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner : evolution_details
-EvolutionChainDetailChainEvolvesToInner -- AbilityDetailPokemonInnerPokemon : species
-LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner -- AbilityDetailPokemonInnerPokemon : version
+PokemonFormSprites -- PokemonSpritesOther : other
 ContestEffectFlavorText -- LanguageSummary : language
 PokemonSpeciesFlavorText -- LanguageSummary : language
 PokemonSpeciesFlavorText -- VersionSummary : version
-StatDetailAffectingMovesIncreaseInner -- AbilityDetailPokemonInnerPokemon : move
+PokemonEvolution -- VersionGroupSummary : version_group
+PokemonEvolution -- ItemSummary : item
+PokemonEvolution -- EvolutionTriggerSummary : trigger
+PokemonEvolution -- ItemSummary : held_item
+PokemonEvolution -- PokemonEvolutionKnownMove : known_move
+PokemonEvolution -- PokemonEvolutionKnownMove : known_move_type
+PokemonEvolution -- LocationSummary : location
+PokemonEvolution -- PokemonSpeciesSummary : party_species
+PokemonEvolution -- TypeSummary : party_type
+PokemonEvolution -- PokemonSpeciesSummary : trade_species
+PokemonEvolution -- RegionSummary : region
+PokemonEvolution -- PokemonFormSummary : required_pokemon_form
+PokemonEvolution -- PokemonFormSummary : evolved_pokemon_form
+PokemonEvolution -- MoveSummary : used_move
+PokemonEvolution -- "0..*" NatureSummary : allowed_natures
+PokemonEvolution -- EvolutionConditionExpression : condition_expression
 SuperContestEffectFlavorText -- LanguageSummary : language
-PalParkAreaDetailPokemonEncountersInner -- AbilityDetailPokemonInnerPokemon : pokemon-species
 PaginatedMoveMetaAilmentSummaryList -- "0..*" MoveMetaAilmentSummary : results
 StatName -- LanguageSummary : language
 PaginatedItemAttributeSummaryList -- "0..*" ItemAttributeSummary : results
 MoveName -- LanguageSummary : language
 MoveBattleStyleName -- LanguageSummary : language
-PokemonSpeciesDetailPalParkEncountersInner -- AbilityDetailPokemonInnerPokemon : area
 PaginatedEncounterConditionValueSummaryList -- "0..*" EncounterConditionValueSummary : results
 ItemAttributeDescription -- LanguageSummary : language
-MoveDetail -- MoveDetailContestCombos : contest_combos
+MoveDetail -- MoveCombos : contest_combos
 MoveDetail -- ContestTypeSummary : contest_type
 MoveDetail -- ContestEffectSummary : contest_effect
 MoveDetail -- MoveDamageClassSummary : damage_class
-MoveDetail -- "0..*" MoveChangeEffectEntriesInner : effect_entries
-MoveDetail -- "0..*" MoveDetailEffectChangesInner : effect_changes
+MoveDetail -- "0..*" MoveEffectEffectText : effect_entries
+MoveDetail -- "0..*" MoveEffectChange : effect_changes
 MoveDetail -- GenerationSummary : generation
 MoveDetail -- MoveMeta : meta
 MoveDetail -- "0..*" MoveName : names
 MoveDetail -- "0..*" MoveChange : past_values
-MoveDetail -- "0..*" MoveDetailStatChangesInner : stat_changes
+MoveDetail -- "0..*" MoveMetaStatChange : stat_changes
 MoveDetail -- SuperContestEffectSummary : super_contest_effect
 MoveDetail -- MoveTargetSummary : target
 MoveDetail -- TypeSummary : type
-MoveDetail -- "0..*" MoveDetailMachinesInner : machines
+MoveDetail -- "0..*" ItemMachine : machines
 MoveDetail -- "0..*" MoveFlavorText : flavor_text_entries
-MoveDetail -- "0..*" AbilityDetailPokemonInnerPokemon : learned_by_pokemon
+MoveDetail -- "0..*" PokemonSummary : learned_by_pokemon
 RegionName -- LanguageSummary : language
-MoveChange -- "0..*" MoveChangeEffectEntriesInner : effect_entries
+PokemonSprites -- PokemonSpritesOther : other
+MoveChange -- "0..*" MoveEffectEffectText : effect_entries
 MoveChange -- TypeSummary : type
 MoveChange -- VersionGroupSummary : version_group
 PaginatedVersionSummaryList -- "0..*" VersionSummary : results
+MoveStatChange -- MoveSummary : move
 PaginatedNatureSummaryList -- "0..*" NatureSummary : results
 PokedexName -- LanguageSummary : language
 PokedexDescription -- LanguageSummary : language
-MoveDetailEffectChangesInner -- "0..*" MoveDetailEffectChangesInnerEffectEntriesInner : effect_entries
-MoveDetailEffectChangesInner -- AbilityDetailPokemonInnerPokemon : version_group
 PaginatedItemCategorySummaryList -- "0..*" ItemCategorySummary : results
 PaginatedPokemonSpeciesSummaryList -- "0..*" PokemonSpeciesSummary : results
 PaginatedSuperContestEffectSummaryList -- "0..*" SuperContestEffectSummary : results
-AbilityDetailPokemonInner -- AbilityDetailPokemonInnerPokemon : pokemon
-PokedexDetailPokemonEntriesInner -- AbilityDetailPokemonInnerPokemon : pokemon_species
+EvolutionVariableDetail -- VersionGroupSummary : version_group
+EvolutionVariableDetail -- "0..*" EvolutionVariableName : names
+EvolutionVariableDetail -- "0..*" EvolutionVariableDescription : descriptions
 PokemonHabitatDetail -- "0..*" PokemonHabitatName : names
 PokemonHabitatDetail -- "0..*" PokemonSpeciesSummary : pokemon_species
-StatDetailAffectingNatures -- "0..*" AbilityDetailPokemonInnerPokemon : increase
-StatDetailAffectingNatures -- "0..*" AbilityDetailPokemonInnerPokemon : decrease
 ContestEffectDetail -- "0..*" ContestEffectEffectText : effect_entries
 ContestEffectDetail -- "0..*" ContestEffectFlavorText : flavor_text_entries
 ItemPocketDetail -- "0..*" ItemCategorySummary : categories
 ItemPocketDetail -- "0..*" ItemPocketName : names
 PalParkAreaDetail -- "0..*" PalParkAreaName : names
-PalParkAreaDetail -- "0..*" PalParkAreaDetailPokemonEncountersInner : pokemon_encounters
+PalParkAreaDetail -- "0..*" PalParkEncounter : pokemon_encounters
+LocationAreaPokemonEncounterVersion -- VersionSummary : version
+LocationAreaPokemonEncounterVersion -- "0..*" LocationAreaEncounterDetail : encounter_details
 MoveTargetDescription -- LanguageSummary : language
 PaginatedGrowthRateSummaryList -- "0..*" GrowthRateSummary : results
 BerryDetail -- BerryFirmnessSummary : firmness
-BerryDetail -- "0..*" BerryDetailFlavorsInner : flavors
+BerryDetail -- "0..*" BerryFlavorMap : flavors
 BerryDetail -- ItemSummary : item
 BerryDetail -- TypeSummary : natural_gift_type
 NatureDetail -- StatSummary : decreased_stat
 NatureDetail -- StatSummary : increased_stat
 NatureDetail -- BerryFlavorSummary : likes_flavor
 NatureDetail -- BerryFlavorSummary : hates_flavor
-NatureDetail -- "0..*" BerrySummary : berries
-NatureDetail -- "0..*" NatureDetailPokeathlonStatChangesInner : pokeathlon_stat_changes
+NatureDetail -- "0..*" NaturePokeathlonStat : pokeathlon_stat_changes
 NatureDetail -- "0..*" NatureBattleStylePreference : move_battle_style_preferences
 NatureDetail -- "0..*" NatureName : names
-MoveMetaAilmentDetail -- "0..*" AbilityDetailPokemonInnerPokemon : moves
+PokemonFormType -- TypeSummary : type
+MoveMetaAilmentDetail -- "0..*" MoveSummary : moves
 MoveMetaAilmentDetail -- "0..*" MoveMetaAilmentName : names
 CharacteristicDescription -- LanguageSummary : language
 MoveTargetDetail -- "0..*" MoveTargetDescription : descriptions
 MoveTargetDetail -- "0..*" MoveSummary : moves
 MoveTargetDetail -- "0..*" MoveTargetName : names
 PaginatedMachineSummaryList -- "0..*" MachineSummary : results
+StatAffectingMoves -- "0..*" MoveStatChange : increase
+StatAffectingMoves -- "0..*" MoveStatChange : decrease
 PaginatedMoveLearnMethodSummaryList -- "0..*" MoveLearnMethodSummary : results
+MoveMetaStatChange -- StatSummary : stat
 PaginatedPokemonHabitatSummaryList -- "0..*" PokemonHabitatSummary : results
 PokemonDexEntry -- PokedexSummary : pokedex
-TypeDetail -- TypeDetailDamageRelations : damage_relations
-TypeDetail -- "0..*" TypeDetailPastDamageRelationsInner : past_damage_relations
+PokemonPastStat -- GenerationSummary : generation
+PokemonPastStat -- "0..*" PokemonStat : stats
+PokemonShapeAwesomeName -- LanguageSummary : language
+TypeDetail -- TypeRelationships : damage_relations
+TypeDetail -- "0..*" TypePastRelationships : past_damage_relations
 TypeDetail -- "0..*" TypeGameIndex : game_indices
 TypeDetail -- GenerationSummary : generation
 TypeDetail -- MoveDamageClassSummary : move_damage_class
-TypeDetail -- "0..*" AbilityName : names
-TypeDetail -- "0..*" TypeDetailPokemonInner : pokemon
+TypeDetail -- "0..*" TypeName : names
+TypeDetail -- "0..*" TypePokemon : pokemon
 TypeDetail -- "0..*" MoveSummary : moves
 GenerationDetail -- "0..*" AbilitySummary : abilities
 GenerationDetail -- RegionSummary : main_region
@@ -2103,21 +2289,31 @@ GenerationDetail -- "0..*" TypeSummary : types
 GenerationDetail -- "0..*" VersionGroupSummary : version_groups
 GrowthRateDescription -- LanguageSummary : language
 ContestTypeName -- LanguageSummary : language
-PokemonDetailPastAbilitiesInner -- "0..*" PokemonDetailAbilitiesInner : abilities
-PokemonDetailPastAbilitiesInner -- AbilityDetailPokemonInnerPokemon : generation
+EvolutionVariableName -- LanguageSummary : language
+EvolutionConditionExpression -- "0..*" EvolutionVariableSummary : variables
 PaginatedPokemonShapeSummaryList -- "0..*" PokemonShapeSummary : results
+PokemonType -- TypeSummary : type
+MoveEffectEffectText -- LanguageSummary : language
 PaginatedMoveTargetSummaryList -- "0..*" MoveTargetSummary : results
 EvolutionChainDetail -- ItemSummary : baby_trigger_item
-EvolutionChainDetail -- EvolutionChainDetailChain : chain
+EvolutionChainDetail -- EvolutionChainLink : chain
+CurrencyName -- LanguageSummary : language
 ItemFlingEffectEffectText -- LanguageSummary : language
-EvolutionChainDetailChain -- "0..*" EvolutionChainDetailChainEvolvesToInner : evolves_to
-EvolutionChainDetailChain -- AbilityDetailPokemonInnerPokemon : species
-PokemonDetailPastTypesInner -- AbilityDetailPokemonInnerPokemon : generation
-PokemonDetailPastTypesInner -- "0..*" PokemonDetailTypesInner : types
+PokemonHeldItem -- PokemonSummary : pokemon
+PokemonHeldItem -- "0..*" PokemonHeldItemVersion : version_details
+TypeRelationships -- "0..*" TypeSummary : no_damage_to
+TypeRelationships -- "0..*" TypeSummary : half_damage_to
+TypeRelationships -- "0..*" TypeSummary : double_damage_to
+TypeRelationships -- "0..*" TypeSummary : no_damage_from
+TypeRelationships -- "0..*" TypeSummary : half_damage_from
+TypeRelationships -- "0..*" TypeSummary : double_damage_from
 AbilityEffectText -- LanguageSummary : language
-LocationAreaDetail -- "0..*" LocationAreaDetailEncounterMethodRatesInner : encounter_method_rates
+EvolutionChainLink -- PokemonSpeciesSummary : species
+EvolutionChainLink -- "0..*" PokemonEvolution : evolution_details
+EvolutionChainLink -- "0..*" EvolutionChainLink : evolves_to
+LocationAreaDetail -- "0..*" LocationAreaEncounterRate : encounter_method_rates
 LocationAreaDetail -- LocationSummary : location
 LocationAreaDetail -- "0..*" LocationAreaName : names
-LocationAreaDetail -- "0..*" LocationAreaDetailPokemonEncountersInner : pokemon_encounters
+LocationAreaDetail -- "0..*" LocationAreaPokemonEncounter : pokemon_encounters
 
 @enduml

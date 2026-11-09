@@ -8,7 +8,7 @@ Name | Type
 ------------ | -------------
 `id` | number
 `name` | string
-`affectingNatures` | [PokeathlonStatDetailAffectingNatures](PokeathlonStatDetailAffectingNatures.md)
+`affectingNatures` | [PokeathlonStatAffectingNatures](PokeathlonStatAffectingNatures.md)
 `names` | [Array&lt;PokeathlonStatName&gt;](PokeathlonStatName.md)
 
 ## Example

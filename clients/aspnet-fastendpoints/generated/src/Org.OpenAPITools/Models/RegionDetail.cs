@@ -12,7 +12,7 @@ public class RegionDetail
     public GenerationSummary MainGeneration { get; set; }
     public List<RegionName> Names { get; set; }
     public List<PokedexSummary> Pokedexes { get; set; }
-    public List<AbilityDetailPokemonInnerPokemon> VersionGroups { get; set; }
+    public List<VersionGroupSummary> VersionGroups { get; set; }
 }
 
 

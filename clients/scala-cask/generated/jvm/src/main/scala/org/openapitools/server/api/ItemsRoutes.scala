@@ -3,9 +3,9 @@
 //> using lib "com.lihaoyi::scalatags:0.12.0"
 /**
  * PokéAPI
- * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+ * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
  *
- * OpenAPI spec version: 2.7.0
+ * OpenAPI spec version: 2.10.0
  *
  * Contact: blah+oapicf@cliffano.com
  *
@@ -24,11 +24,13 @@ import upickle.default.{ReadWriter => RW, macroRW}
 import upickle.default.*
 import scala.util.Try
 
+import org.openapitools.server.model.CurrencyDetail
 import org.openapitools.server.model.ItemAttributeDetail
 import org.openapitools.server.model.ItemCategoryDetail
 import org.openapitools.server.model.ItemDetail
 import org.openapitools.server.model.ItemFlingEffectDetail
 import org.openapitools.server.model.ItemPocketDetail
+import org.openapitools.server.model.PaginatedCurrencySummaryList
 import org.openapitools.server.model.PaginatedItemAttributeSummaryList
 import org.openapitools.server.model.PaginatedItemCategorySummaryList
 import org.openapitools.server.model.PaginatedItemFlingEffectSummaryList
@@ -90,14 +92,64 @@ class ItemsRoutes(service : ItemsService[Try]) extends cask.Routes {
             case _          => cask.Response("Not Found", statusCode = 404)
         }
     }
+    // route group for routeWorkAroundForGETApiV2Currency
+    @cask.get("/api/v2/currency", true)
+    def routeWorkAroundForGETApiV2Currency(request: cask.Request,limit : Option[Int] = None,offset : Option[Int] = None,q : Option[String] = None) = {
+        request.remainingPathSegments match {
+            case Seq() => currencyList(request,limit, offset, q)
+            case Seq(id) => currencyRetrieve(id,request)
+            case _          => cask.Response("Not Found", statusCode = 404)
+        }
+    }
 
+        /** List currencies
+         * 
+         */
+        // conflicts with [/api/v2/currency/{id}/, /api/v2/currency/] after/api/v2/currency, ignoring @cask.get("/api/v2/currency/")
+        def currencyList(request: cask.Request, limit : Option[Int], offset : Option[Int], q : Option[String]) = {
+
+        def failFast = request.queryParams.keySet.contains("failFast")
+
+        val result =         for {
+            resultTry <- Parsed.eval(service.currencyList(limit, offset, q))
+            result <- Parsed.fromTry(resultTry)
+        } yield result
+
+        import PaginatedCurrencySummaryList.{given, *} // this brings in upickle in the case of union (oneOf) types
+
+        (result : @unchecked) match {
+          case Left(error) => cask.Response(error, 500)
+          case Right(value : PaginatedCurrencySummaryList) => cask.Response(data = write(value), 200, headers = Seq("Content-Type" -> "application/json"))
+          case Right(other) => cask.Response(s"$other", 200)
+        }
+      }
+        /** Get currency
+         * 
+         */
+        // conflicts with [/api/v2/currency/{id}/, /api/v2/currency/] after/api/v2/currency, ignoring @cask.get("/api/v2/currency/:id/")
+        def currencyRetrieve(id : String, request: cask.Request) = {
+
+        def failFast = request.queryParams.keySet.contains("failFast")
+
+        val result =         for {
+            id <- Parsed(id)
+            resultTry <- Parsed.eval(service.currencyRetrieve(id))
+            result <- Parsed.fromTry(resultTry)
+        } yield result
+
+        import CurrencyDetail.{given, *} // this brings in upickle in the case of union (oneOf) types
+
+        (result : @unchecked) match {
+          case Left(error) => cask.Response(error, 500)
+          case Right(value : CurrencyDetail) => cask.Response(data = write(value), 200, headers = Seq("Content-Type" -> "application/json"))
+          case Right(other) => cask.Response(s"$other", 200)
+        }
+      }
         /** List item attributes
          * 
          */
         // conflicts with [/api/v2/item/{id}/, /api/v2/item-attribute/, /api/v2/item-attribute/{id}/, /api/v2/item-category/, /api/v2/item-category/{id}/, /api/v2/item-fling-effect/, /api/v2/item-fling-effect/{id}/, /api/v2/item/, /api/v2/item-pocket/, /api/v2/item-pocket/{id}/] after/api/v2/item, ignoring // conflicts with [/api/v2/item-attribute/{id}/, /api/v2/item-attribute/] after/api/v2/item-attribute, ignoring @cask.get("/api/v2/item-attribute/")
         def itemAttributeList(request: cask.Request, limit : Option[Int], offset : Option[Int], q : Option[String]) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
@@ -119,8 +171,6 @@ class ItemsRoutes(service : ItemsService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/item/{id}/, /api/v2/item-attribute/, /api/v2/item-attribute/{id}/, /api/v2/item-category/, /api/v2/item-category/{id}/, /api/v2/item-fling-effect/, /api/v2/item-fling-effect/{id}/, /api/v2/item/, /api/v2/item-pocket/, /api/v2/item-pocket/{id}/] after/api/v2/item, ignoring // conflicts with [/api/v2/item-attribute/{id}/, /api/v2/item-attribute/] after/api/v2/item-attribute, ignoring @cask.get("/api/v2/item-attribute/:id/")
         def itemAttributeRetrieve(id : String, request: cask.Request) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
@@ -143,8 +193,6 @@ class ItemsRoutes(service : ItemsService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/item/{id}/, /api/v2/item-attribute/, /api/v2/item-attribute/{id}/, /api/v2/item-category/, /api/v2/item-category/{id}/, /api/v2/item-fling-effect/, /api/v2/item-fling-effect/{id}/, /api/v2/item/, /api/v2/item-pocket/, /api/v2/item-pocket/{id}/] after/api/v2/item, ignoring // conflicts with [/api/v2/item-category/{id}/, /api/v2/item-category/] after/api/v2/item-category, ignoring @cask.get("/api/v2/item-category/")
         def itemCategoryList(request: cask.Request, limit : Option[Int], offset : Option[Int], q : Option[String]) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
@@ -166,8 +214,6 @@ class ItemsRoutes(service : ItemsService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/item/{id}/, /api/v2/item-attribute/, /api/v2/item-attribute/{id}/, /api/v2/item-category/, /api/v2/item-category/{id}/, /api/v2/item-fling-effect/, /api/v2/item-fling-effect/{id}/, /api/v2/item/, /api/v2/item-pocket/, /api/v2/item-pocket/{id}/] after/api/v2/item, ignoring // conflicts with [/api/v2/item-category/{id}/, /api/v2/item-category/] after/api/v2/item-category, ignoring @cask.get("/api/v2/item-category/:id/")
         def itemCategoryRetrieve(id : String, request: cask.Request) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
@@ -190,8 +236,6 @@ class ItemsRoutes(service : ItemsService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/item/{id}/, /api/v2/item-attribute/, /api/v2/item-attribute/{id}/, /api/v2/item-category/, /api/v2/item-category/{id}/, /api/v2/item-fling-effect/, /api/v2/item-fling-effect/{id}/, /api/v2/item/, /api/v2/item-pocket/, /api/v2/item-pocket/{id}/] after/api/v2/item, ignoring // conflicts with [/api/v2/item-fling-effect/{id}/, /api/v2/item-fling-effect/] after/api/v2/item-fling-effect, ignoring @cask.get("/api/v2/item-fling-effect/")
         def itemFlingEffectList(request: cask.Request, limit : Option[Int], offset : Option[Int], q : Option[String]) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
@@ -213,8 +257,6 @@ class ItemsRoutes(service : ItemsService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/item/{id}/, /api/v2/item-attribute/, /api/v2/item-attribute/{id}/, /api/v2/item-category/, /api/v2/item-category/{id}/, /api/v2/item-fling-effect/, /api/v2/item-fling-effect/{id}/, /api/v2/item/, /api/v2/item-pocket/, /api/v2/item-pocket/{id}/] after/api/v2/item, ignoring // conflicts with [/api/v2/item-fling-effect/{id}/, /api/v2/item-fling-effect/] after/api/v2/item-fling-effect, ignoring @cask.get("/api/v2/item-fling-effect/:id/")
         def itemFlingEffectRetrieve(id : String, request: cask.Request) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
@@ -237,8 +279,6 @@ class ItemsRoutes(service : ItemsService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/item/{id}/, /api/v2/item-attribute/, /api/v2/item-attribute/{id}/, /api/v2/item-category/, /api/v2/item-category/{id}/, /api/v2/item-fling-effect/, /api/v2/item-fling-effect/{id}/, /api/v2/item/, /api/v2/item-pocket/, /api/v2/item-pocket/{id}/] after/api/v2/item, ignoring @cask.get("/api/v2/item/")
         def itemList(request: cask.Request, limit : Option[Int], offset : Option[Int], q : Option[String]) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
@@ -260,8 +300,6 @@ class ItemsRoutes(service : ItemsService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/item-pocket/{id}/, /api/v2/item-pocket/] after/api/v2/item-pocket, ignoring // conflicts with [/api/v2/item/{id}/, /api/v2/item-attribute/, /api/v2/item-attribute/{id}/, /api/v2/item-category/, /api/v2/item-category/{id}/, /api/v2/item-fling-effect/, /api/v2/item-fling-effect/{id}/, /api/v2/item/, /api/v2/item-pocket/, /api/v2/item-pocket/{id}/] after/api/v2/item, ignoring @cask.get("/api/v2/item-pocket/")
         def itemPocketList(request: cask.Request, limit : Option[Int], offset : Option[Int], q : Option[String]) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
@@ -283,8 +321,6 @@ class ItemsRoutes(service : ItemsService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/item-pocket/{id}/, /api/v2/item-pocket/] after/api/v2/item-pocket, ignoring // conflicts with [/api/v2/item/{id}/, /api/v2/item-attribute/, /api/v2/item-attribute/{id}/, /api/v2/item-category/, /api/v2/item-category/{id}/, /api/v2/item-fling-effect/, /api/v2/item-fling-effect/{id}/, /api/v2/item/, /api/v2/item-pocket/, /api/v2/item-pocket/{id}/] after/api/v2/item, ignoring @cask.get("/api/v2/item-pocket/:id/")
         def itemPocketRetrieve(id : String, request: cask.Request) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 
@@ -307,8 +343,6 @@ class ItemsRoutes(service : ItemsService[Try]) extends cask.Routes {
          */
         // conflicts with [/api/v2/item/{id}/, /api/v2/item-attribute/, /api/v2/item-attribute/{id}/, /api/v2/item-category/, /api/v2/item-category/{id}/, /api/v2/item-fling-effect/, /api/v2/item-fling-effect/{id}/, /api/v2/item/, /api/v2/item-pocket/, /api/v2/item-pocket/{id}/] after/api/v2/item, ignoring @cask.get("/api/v2/item/:id/")
         def itemRetrieve(id : String, request: cask.Request) = {
-            // auth method basicAuth : http, keyParamName: 
-            // auth method cookieAuth : apiKey, keyParamName: sessionid
 
         def failFast = request.queryParams.keySet.contains("failFast")
 

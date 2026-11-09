@@ -1,7 +1,7 @@
 const utils = require('../utils/utils');
-const LocationAreaDetail_encounter_method_rates_inner = require('../models/LocationAreaDetail_encounter_method_rates_inner');
-const LocationAreaDetail_pokemon_encounters_inner = require('../models/LocationAreaDetail_pokemon_encounters_inner');
+const LocationAreaEncounterRate = require('../models/LocationAreaEncounterRate');
 const LocationAreaName = require('../models/LocationAreaName');
+const LocationAreaPokemonEncounter = require('../models/LocationAreaPokemonEncounter');
 const LocationSummary = require('../models/LocationSummary');
 
 module.exports = {
@@ -10,26 +10,26 @@ module.exports = {
         return [
             {
                 key: `${keyPrefix}id`,
-                label: `[${labelPrefix}id]`,
+                label: `The identifier for this resource. - [${labelPrefix}id]`,
                 required: true,
                 type: 'integer',
             },
             {
                 key: `${keyPrefix}name`,
-                label: `[${labelPrefix}name]`,
+                label: `The name for this resource. - [${labelPrefix}name]`,
                 required: true,
                 type: 'string',
             },
             {
                 key: `${keyPrefix}game_index`,
-                label: `[${labelPrefix}game_index]`,
+                label: `The internal id of an API resource within game data. - [${labelPrefix}game_index]`,
                 required: true,
                 type: 'integer',
             },
             {
                 key: `${keyPrefix}encounter_method_rates`,
                 label: `[${labelPrefix}encounter_method_rates]`,
-                children: LocationAreaDetail_encounter_method_rates_inner.fields(`${keyPrefix}encounter_method_rates${!isInput ? '[]' : ''}`, isInput, true), 
+                children: LocationAreaEncounterRate.fields(`${keyPrefix}encounter_method_rates${!isInput ? '[]' : ''}`, isInput, true), 
             },
             ...LocationSummary.fields(`${keyPrefix}location`, isInput),
             {
@@ -40,7 +40,7 @@ module.exports = {
             {
                 key: `${keyPrefix}pokemon_encounters`,
                 label: `[${labelPrefix}pokemon_encounters]`,
-                children: LocationAreaDetail_pokemon_encounters_inner.fields(`${keyPrefix}pokemon_encounters${!isInput ? '[]' : ''}`, isInput, true), 
+                children: LocationAreaPokemonEncounter.fields(`${keyPrefix}pokemon_encounters${!isInput ? '[]' : ''}`, isInput, true), 
             },
         ]
     },
@@ -50,10 +50,10 @@ module.exports = {
             'id': bundle.inputData?.[`${keyPrefix}id`],
             'name': bundle.inputData?.[`${keyPrefix}name`],
             'game_index': bundle.inputData?.[`${keyPrefix}game_index`],
-            'encounter_method_rates': utils.childMapping(bundle.inputData?.[`${keyPrefix}encounter_method_rates`], `${keyPrefix}encounter_method_rates`, LocationAreaDetail_encounter_method_rates_inner),
+            'encounter_method_rates': utils.childMapping(bundle.inputData?.[`${keyPrefix}encounter_method_rates`], `${keyPrefix}encounter_method_rates`, LocationAreaEncounterRate),
             'location': utils.removeIfEmpty(LocationSummary.mapping(bundle, `${keyPrefix}location`)),
             'names': utils.childMapping(bundle.inputData?.[`${keyPrefix}names`], `${keyPrefix}names`, LocationAreaName),
-            'pokemon_encounters': utils.childMapping(bundle.inputData?.[`${keyPrefix}pokemon_encounters`], `${keyPrefix}pokemon_encounters`, LocationAreaDetail_pokemon_encounters_inner),
+            'pokemon_encounters': utils.childMapping(bundle.inputData?.[`${keyPrefix}pokemon_encounters`], `${keyPrefix}pokemon_encounters`, LocationAreaPokemonEncounter),
         }
     },
 }

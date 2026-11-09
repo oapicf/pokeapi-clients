@@ -1,8 +1,10 @@
 namespace OpenAPI
 open OpenAPI.Model.EvolutionChainDetail
 open OpenAPI.Model.EvolutionTriggerDetail
+open OpenAPI.Model.EvolutionVariableDetail
 open OpenAPI.Model.PaginatedEvolutionChainSummaryList
 open OpenAPI.Model.PaginatedEvolutionTriggerSummaryList
+open OpenAPI.Model.PaginatedEvolutionVariableSummaryList
 open EvolutionApiHandlerParams
 open EvolutionApiServiceInterface
 open System.Collections.Generic
@@ -29,6 +31,14 @@ module EvolutionApiServiceImplementation =
         member this.EvolutionTriggerRetrieve () =
             let content = "" :> obj :?> EvolutionTriggerDetail // this cast is obviously wrong, and is only intended to allow generated project to compile   
             EvolutionTriggerRetrieveStatusCode200 { content = content }
+
+        member this.EvolutionVariableList () =
+            let content = "" :> obj :?> PaginatedEvolutionVariableSummaryList // this cast is obviously wrong, and is only intended to allow generated project to compile   
+            EvolutionVariableListStatusCode200 { content = content }
+
+        member this.EvolutionVariableRetrieve () =
+            let content = "" :> obj :?> EvolutionVariableDetail // this cast is obviously wrong, and is only intended to allow generated project to compile   
+            EvolutionVariableRetrieveStatusCode200 { content = content }
 
       //#endregion
 

@@ -39,16 +39,12 @@ typedef struct apiClient_t {
     int (*progress_func)(void *, curl_off_t, curl_off_t, curl_off_t, curl_off_t);
     void *progress_data;
     long response_code;
-    char *username;
-    char *password;
-    list_t *apiKeys_cookieAuth;
 } apiClient_t;
 
 apiClient_t* apiClient_create();
 
 apiClient_t* apiClient_create_with_base_path(const char *basePath
 , sslConfig_t *sslConfig
-, list_t *apiKeys_cookieAuth
 );
 
 void apiClient_free(apiClient_t *apiClient);

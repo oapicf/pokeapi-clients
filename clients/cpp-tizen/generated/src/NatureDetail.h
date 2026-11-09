@@ -10,10 +10,9 @@
 
 #include <string>
 #include "BerryFlavorSummary.h"
-#include "BerrySummary.h"
 #include "NatureBattleStylePreference.h"
-#include "NatureDetail_pokeathlon_stat_changes_inner.h"
 #include "NatureName.h"
+#include "NaturePokeathlonStat.h"
 #include "StatSummary.h"
 #include <list>
 #include "Object.h"
@@ -52,74 +51,67 @@ public:
 	 */
 	void fromJson(char* jsonStr);
 
-	/*! \brief Get 
+	/*! \brief Get The identifier for this resource.
 	 */
 	int getId();
 
-	/*! \brief Set 
+	/*! \brief Set The identifier for this resource.
 	 */
 	void setId(int  id);
-	/*! \brief Get 
+	/*! \brief Get The name for this resource.
 	 */
 	std::string getName();
 
-	/*! \brief Set 
+	/*! \brief Set The name for this resource.
 	 */
 	void setName(std::string  name);
-	/*! \brief Get 
+	/*! \brief Get The stat decreased by 10% in Pokémon with this nature.
 	 */
 	StatSummary getDecreasedStat();
 
-	/*! \brief Set 
+	/*! \brief Set The stat decreased by 10% in Pokémon with this nature.
 	 */
 	void setDecreasedStat(StatSummary  decreased_stat);
-	/*! \brief Get 
+	/*! \brief Get The stat increased by 10% in Pokémon with this nature.
 	 */
 	StatSummary getIncreasedStat();
 
-	/*! \brief Set 
+	/*! \brief Set The stat increased by 10% in Pokémon with this nature.
 	 */
 	void setIncreasedStat(StatSummary  increased_stat);
-	/*! \brief Get 
+	/*! \brief Get The flavor liked by Pokémon with this nature.
 	 */
 	BerryFlavorSummary getLikesFlavor();
 
-	/*! \brief Set 
+	/*! \brief Set The flavor liked by Pokémon with this nature.
 	 */
 	void setLikesFlavor(BerryFlavorSummary  likes_flavor);
-	/*! \brief Get 
+	/*! \brief Get The flavor hated by Pokémon with this nature.
 	 */
 	BerryFlavorSummary getHatesFlavor();
 
-	/*! \brief Set 
+	/*! \brief Set The flavor hated by Pokémon with this nature.
 	 */
 	void setHatesFlavor(BerryFlavorSummary  hates_flavor);
-	/*! \brief Get 
+	/*! \brief Get A list of Pokéathlon stats this nature effects and how much it effects them.
 	 */
-	std::list<BerrySummary> getBerries();
+	std::list<NaturePokeathlonStat> getPokeathlonStatChanges();
 
-	/*! \brief Set 
+	/*! \brief Set A list of Pokéathlon stats this nature effects and how much it effects them.
 	 */
-	void setBerries(std::list <BerrySummary> berries);
-	/*! \brief Get 
-	 */
-	std::list<NatureDetail_pokeathlon_stat_changes_inner> getPokeathlonStatChanges();
-
-	/*! \brief Set 
-	 */
-	void setPokeathlonStatChanges(std::list <NatureDetail_pokeathlon_stat_changes_inner> pokeathlon_stat_changes);
-	/*! \brief Get 
+	void setPokeathlonStatChanges(std::list <NaturePokeathlonStat> pokeathlon_stat_changes);
+	/*! \brief Get A list of battle styles and how likely a Pokémon with this nature is to use them in the Battle Palace or Battle Tent.
 	 */
 	std::list<NatureBattleStylePreference> getMoveBattleStylePreferences();
 
-	/*! \brief Set 
+	/*! \brief Set A list of battle styles and how likely a Pokémon with this nature is to use them in the Battle Palace or Battle Tent.
 	 */
 	void setMoveBattleStylePreferences(std::list <NatureBattleStylePreference> move_battle_style_preferences);
-	/*! \brief Get 
+	/*! \brief Get The name of this resource listed in different languages.
 	 */
 	std::list<NatureName> getNames();
 
-	/*! \brief Set 
+	/*! \brief Set The name of this resource listed in different languages.
 	 */
 	void setNames(std::list <NatureName> names);
 
@@ -130,8 +122,7 @@ private:
 	StatSummary increased_stat;
 	BerryFlavorSummary likes_flavor;
 	BerryFlavorSummary hates_flavor;
-	std::list <BerrySummary>berries;
-	std::list <NatureDetail_pokeathlon_stat_changes_inner>pokeathlon_stat_changes;
+	std::list <NaturePokeathlonStat>pokeathlon_stat_changes;
 	std::list <NatureBattleStylePreference>move_battle_style_preferences;
 	std::list <NatureName>names;
 	void __init();

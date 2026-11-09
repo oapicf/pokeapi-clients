@@ -12,7 +12,7 @@
 #include <string>
 #include "bourne/json.hpp"
 #include "Helpers.h"
-#include "EvolutionChainDetail_chain.h"
+#include "EvolutionChainLink.h"
 #include "ItemSummary.h"
 
 namespace Tiny {
@@ -47,33 +47,33 @@ public:
 	 */
     void fromJson(std::string jsonObj);
 
-	/*! \brief Get 
+	/*! \brief Get The identifier for this resource.
 	 */
 	int getId();
 
-	/*! \brief Set 
+	/*! \brief Set The identifier for this resource.
 	 */
 	void setId(int id);
-	/*! \brief Get 
+	/*! \brief Get The item that a Pokémon would be holding when mating that would trigger the egg hatching a baby Pokémon rather than a basic Pokémon.
 	 */
 	ItemSummary getBabyTriggerItem();
 
-	/*! \brief Set 
+	/*! \brief Set The item that a Pokémon would be holding when mating that would trigger the egg hatching a baby Pokémon rather than a basic Pokémon.
 	 */
 	void setBabyTriggerItem(ItemSummary baby_trigger_item);
-	/*! \brief Get 
+	/*! \brief Get The base chain link object. Each link contains evolution details for a Pokémon in the chain. Each link references the next Pokémon in the natural evolution order.
 	 */
-	EvolutionChainDetail_chain getChain();
+	EvolutionChainLink getChain();
 
-	/*! \brief Set 
+	/*! \brief Set The base chain link object. Each link contains evolution details for a Pokémon in the chain. Each link references the next Pokémon in the natural evolution order.
 	 */
-	void setChain(EvolutionChainDetail_chain chain);
+	void setChain(EvolutionChainLink chain);
 
 
     private:
     int id{};
     ItemSummary baby_trigger_item;
-    EvolutionChainDetail_chain chain;
+    EvolutionChainLink chain;
 };
 }
 

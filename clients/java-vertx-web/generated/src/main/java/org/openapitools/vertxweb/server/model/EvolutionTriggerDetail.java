@@ -6,8 +6,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.vertxweb.server.model.AbilityDetailPokemonInnerPokemon;
 import org.openapitools.vertxweb.server.model.EvolutionTriggerName;
+import org.openapitools.vertxweb.server.model.PokemonSpeciesSummary;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class EvolutionTriggerDetail   {
@@ -15,13 +15,13 @@ public class EvolutionTriggerDetail   {
   private Integer id;
   private String name;
   private List<EvolutionTriggerName> names = new ArrayList<>();
-  private List<AbilityDetailPokemonInnerPokemon> pokemonSpecies = new ArrayList<>();
+  private List<PokemonSpeciesSummary> pokemonSpecies = new ArrayList<>();
 
   public EvolutionTriggerDetail () {
 
   }
 
-  public EvolutionTriggerDetail (Integer id, String name, List<EvolutionTriggerName> names, List<AbilityDetailPokemonInnerPokemon> pokemonSpecies) {
+  public EvolutionTriggerDetail (Integer id, String name, List<EvolutionTriggerName> names, List<PokemonSpeciesSummary> pokemonSpecies) {
     this.id = id;
     this.name = name;
     this.names = names;
@@ -57,10 +57,10 @@ public class EvolutionTriggerDetail   {
 
     
   @JsonProperty("pokemon_species")
-  public List<AbilityDetailPokemonInnerPokemon> getPokemonSpecies() {
+  public List<PokemonSpeciesSummary> getPokemonSpecies() {
     return pokemonSpecies;
   }
-  public void setPokemonSpecies(List<AbilityDetailPokemonInnerPokemon> pokemonSpecies) {
+  public void setPokemonSpecies(List<PokemonSpeciesSummary> pokemonSpecies) {
     this.pokemonSpecies = pokemonSpecies;
   }
 

@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Description** | Pointer to **string** |  | [optional] 
-**Language** | [**LanguageSummary**](LanguageSummary.md) |  | 
+**Description** | Pointer to **string** | The localized description for an API resource in a specific language. | [optional] 
+**Language** | [**LanguageSummary**](LanguageSummary.md) | The language this name is in. | 
 
 ## Methods
 

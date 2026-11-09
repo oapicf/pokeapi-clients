@@ -11,16 +11,16 @@
         pokemon_species=nothing,
     )
 
-    - id::Int64
-    - name::String
-    - names::Vector{EggGroupName}
-    - pokemon_species::Vector{EggGroupDetailPokemonSpeciesInner}
+    - id::Int64 : The identifier for this resource.
+    - name::String : The name for this resource.
+    - names::Vector{EggGroupName} : The name of this resource listed in different languages.
+    - pokemon_species::Vector{PokemonSpeciesSummary} : A list of all Pokémon species that are members of this egg group.
 """
 Base.@kwdef mutable struct EggGroupDetail <: OpenAPI.APIModel
     id::Union{Nothing, Int64} = nothing
     name::Union{Nothing, String} = nothing
     names::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{EggGroupName} }
-    pokemon_species::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{EggGroupDetailPokemonSpeciesInner} }
+    pokemon_species::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{PokemonSpeciesSummary} }
 
     function EggGroupDetail(id, name, names, pokemon_species, )
         o = new(id, name, names, pokemon_species, )
@@ -29,7 +29,7 @@ Base.@kwdef mutable struct EggGroupDetail <: OpenAPI.APIModel
     end
 end # type EggGroupDetail
 
-const _property_types_EggGroupDetail = Dict{Symbol,String}(Symbol("id")=>"Int64", Symbol("name")=>"String", Symbol("names")=>"Vector{EggGroupName}", Symbol("pokemon_species")=>"Vector{EggGroupDetailPokemonSpeciesInner}", )
+const _property_types_EggGroupDetail = Dict{Symbol,String}(Symbol("id")=>"Int64", Symbol("name")=>"String", Symbol("names")=>"Vector{EggGroupName}", Symbol("pokemon_species")=>"Vector{PokemonSpeciesSummary}", )
 OpenAPI.property_type(::Type{ EggGroupDetail }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_EggGroupDetail[name]))}
 
 function OpenAPI.check_required(o::EggGroupDetail)
@@ -51,7 +51,7 @@ function OpenAPI.validate_property(::Type{ EggGroupDetail }, name::Symbol, val)
 
 
     if name === Symbol("name")
-        OpenAPI.validate_param(name, "EggGroupDetail", :maxLength, val, 100)
+        OpenAPI.validate_param(name, "EggGroupDetail", :maxLength, val, 200)
     end
 
 

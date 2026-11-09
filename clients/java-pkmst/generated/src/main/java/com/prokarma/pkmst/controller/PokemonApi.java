@@ -50,16 +50,11 @@ import java.util.List;
  * @author pkmst
  *
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-10-25T05:48:09.645019047Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-11-09T13:49:28.343088631Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 @Api(value = "Pokemon", description = "the Pokemon API")
 public interface PokemonApi {
 
-    @ApiOperation(value = "", notes = "Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.", response = PaginatedAbilitySummaryList.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "pokemon", })
+    @ApiOperation(value = "List abilities", notes = "Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.", response = PaginatedAbilitySummaryList.class, tags={ "pokemon", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedAbilitySummaryList.class) })
     @RequestMapping(
@@ -70,12 +65,7 @@ public interface PokemonApi {
     ResponseEntity<PaginatedAbilitySummaryList> abilityList(@ApiParam(value = "Number of results to return per page.")  @RequestParam(value = "limit", required = false) Integer limit,@ApiParam(value = "The initial index from which to return the results.")  @RequestParam(value = "offset", required = false) Integer offset,@ApiParam(value = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")  @RequestParam(value = "q", required = false) String q, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "", notes = "Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.", response = AbilityDetail.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "pokemon", })
+    @ApiOperation(value = "Get ability", notes = "Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.", response = AbilityDetail.class, tags={ "pokemon", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = AbilityDetail.class) })
     @RequestMapping(
@@ -86,12 +76,7 @@ public interface PokemonApi {
     ResponseEntity<AbilityDetail> abilityRetrieve(@ApiParam(value = "This parameter can be a string or an integer.",required=true ) @PathVariable("id") String id, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "List charecterictics", notes = "Characteristics indicate which stat contains a Pokémon's highest IV. A Pokémon's Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail.", response = PaginatedCharacteristicSummaryList.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "pokemon", })
+    @ApiOperation(value = "List characteristics", notes = "Characteristics indicate which stat contains a Pokémon's highest IV. A Pokémon's Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail.", response = PaginatedCharacteristicSummaryList.class, tags={ "pokemon", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedCharacteristicSummaryList.class) })
     @RequestMapping(
@@ -99,15 +84,10 @@ public interface PokemonApi {
         value = "/api/v2/characteristic/",
         produces = { "application/json" }
     )
-    ResponseEntity<PaginatedCharacteristicSummaryList> characteristicList(@ApiParam(value = "Number of results to return per page.")  @RequestParam(value = "limit", required = false) Integer limit,@ApiParam(value = "The initial index from which to return the results.")  @RequestParam(value = "offset", required = false) Integer offset,@ApiParam(value = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")  @RequestParam(value = "q", required = false) String q, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
+    ResponseEntity<PaginatedCharacteristicSummaryList> characteristicList(@ApiParam(value = "Number of results to return per page.")  @RequestParam(value = "limit", required = false) Integer limit,@ApiParam(value = "The initial index from which to return the results.")  @RequestParam(value = "offset", required = false) Integer offset, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "Get characteristic", notes = "Characteristics indicate which stat contains a Pokémon's highest IV. A Pokémon's Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail.", response = CharacteristicDetail.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "pokemon", })
+    @ApiOperation(value = "Get characteristic", notes = "Characteristics indicate which stat contains a Pokémon's highest IV. A Pokémon's Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail.", response = CharacteristicDetail.class, tags={ "pokemon", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = CharacteristicDetail.class) })
     @RequestMapping(
@@ -118,12 +98,7 @@ public interface PokemonApi {
     ResponseEntity<CharacteristicDetail> characteristicRetrieve(@ApiParam(value = "This parameter can be a string or an integer.",required=true ) @PathVariable("id") String id, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "List egg groups", notes = "Egg Groups are categories which determine which Pokémon are able to interbreed. Pokémon may belong to either one or two Egg Groups. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Egg_Group) for greater detail.", response = PaginatedEggGroupSummaryList.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "pokemon", })
+    @ApiOperation(value = "List egg groups", notes = "Egg Groups are categories which determine which Pokémon are able to interbreed. Pokémon may belong to either one or two Egg Groups. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Egg_Group) for greater detail.", response = PaginatedEggGroupSummaryList.class, tags={ "pokemon", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedEggGroupSummaryList.class) })
     @RequestMapping(
@@ -134,12 +109,7 @@ public interface PokemonApi {
     ResponseEntity<PaginatedEggGroupSummaryList> eggGroupList(@ApiParam(value = "Number of results to return per page.")  @RequestParam(value = "limit", required = false) Integer limit,@ApiParam(value = "The initial index from which to return the results.")  @RequestParam(value = "offset", required = false) Integer offset,@ApiParam(value = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")  @RequestParam(value = "q", required = false) String q, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "Get egg group", notes = "Egg Groups are categories which determine which Pokémon are able to interbreed. Pokémon may belong to either one or two Egg Groups. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Egg_Group) for greater detail.", response = EggGroupDetail.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "pokemon", })
+    @ApiOperation(value = "Get egg group", notes = "Egg Groups are categories which determine which Pokémon are able to interbreed. Pokémon may belong to either one or two Egg Groups. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Egg_Group) for greater detail.", response = EggGroupDetail.class, tags={ "pokemon", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = EggGroupDetail.class) })
     @RequestMapping(
@@ -150,12 +120,7 @@ public interface PokemonApi {
     ResponseEntity<EggGroupDetail> eggGroupRetrieve(@ApiParam(value = "This parameter can be a string or an integer.",required=true ) @PathVariable("id") String id, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "List genders", notes = "Genders were introduced in Generation II for the purposes of breeding Pokémon but can also result in visual differences or even different evolutionary lines. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Gender) for greater detail.", response = PaginatedGenderSummaryList.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "pokemon", })
+    @ApiOperation(value = "List genders", notes = "Genders were introduced in Generation II for the purposes of breeding Pokémon but can also result in visual differences or even different evolutionary lines. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Gender) for greater detail.", response = PaginatedGenderSummaryList.class, tags={ "pokemon", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedGenderSummaryList.class) })
     @RequestMapping(
@@ -166,12 +131,7 @@ public interface PokemonApi {
     ResponseEntity<PaginatedGenderSummaryList> genderList(@ApiParam(value = "Number of results to return per page.")  @RequestParam(value = "limit", required = false) Integer limit,@ApiParam(value = "The initial index from which to return the results.")  @RequestParam(value = "offset", required = false) Integer offset,@ApiParam(value = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")  @RequestParam(value = "q", required = false) String q, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "Get gender", notes = "Genders were introduced in Generation II for the purposes of breeding Pokémon but can also result in visual differences or even different evolutionary lines. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Gender) for greater detail.", response = GenderDetail.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "pokemon", })
+    @ApiOperation(value = "Get gender", notes = "Genders were introduced in Generation II for the purposes of breeding Pokémon but can also result in visual differences or even different evolutionary lines. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Gender) for greater detail.", response = GenderDetail.class, tags={ "pokemon", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = GenderDetail.class) })
     @RequestMapping(
@@ -182,12 +142,7 @@ public interface PokemonApi {
     ResponseEntity<GenderDetail> genderRetrieve(@ApiParam(value = "This parameter can be a string or an integer.",required=true ) @PathVariable("id") String id, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "List growth rates", notes = "Growth rates are the speed with which Pokémon gain levels through experience. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Experience) for greater detail.", response = PaginatedGrowthRateSummaryList.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "pokemon", })
+    @ApiOperation(value = "List growth rates", notes = "Growth rates are the speed with which Pokémon gain levels through experience. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Experience) for greater detail.", response = PaginatedGrowthRateSummaryList.class, tags={ "pokemon", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedGrowthRateSummaryList.class) })
     @RequestMapping(
@@ -198,12 +153,7 @@ public interface PokemonApi {
     ResponseEntity<PaginatedGrowthRateSummaryList> growthRateList(@ApiParam(value = "Number of results to return per page.")  @RequestParam(value = "limit", required = false) Integer limit,@ApiParam(value = "The initial index from which to return the results.")  @RequestParam(value = "offset", required = false) Integer offset,@ApiParam(value = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")  @RequestParam(value = "q", required = false) String q, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "Get growth rate", notes = "Growth rates are the speed with which Pokémon gain levels through experience. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Experience) for greater detail.", response = GrowthRateDetail.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "pokemon", })
+    @ApiOperation(value = "Get growth rate", notes = "Growth rates are the speed with which Pokémon gain levels through experience. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Experience) for greater detail.", response = GrowthRateDetail.class, tags={ "pokemon", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = GrowthRateDetail.class) })
     @RequestMapping(
@@ -214,12 +164,7 @@ public interface PokemonApi {
     ResponseEntity<GrowthRateDetail> growthRateRetrieve(@ApiParam(value = "This parameter can be a string or an integer.",required=true ) @PathVariable("id") String id, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "List move damage classes", notes = "Damage classes moves can have, e.g. physical, special, or non-damaging.", response = PaginatedMoveDamageClassSummaryList.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "pokemon", })
+    @ApiOperation(value = "List move damage classes", notes = "Damage classes moves can have, e.g. physical, special, or non-damaging.", response = PaginatedMoveDamageClassSummaryList.class, tags={ "pokemon", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedMoveDamageClassSummaryList.class) })
     @RequestMapping(
@@ -230,12 +175,7 @@ public interface PokemonApi {
     ResponseEntity<PaginatedMoveDamageClassSummaryList> moveDamageClassList(@ApiParam(value = "Number of results to return per page.")  @RequestParam(value = "limit", required = false) Integer limit,@ApiParam(value = "The initial index from which to return the results.")  @RequestParam(value = "offset", required = false) Integer offset,@ApiParam(value = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")  @RequestParam(value = "q", required = false) String q, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "Get move damage class", notes = "Damage classes moves can have, e.g. physical, special, or non-damaging.", response = MoveDamageClassDetail.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "pokemon", })
+    @ApiOperation(value = "Get move damage class", notes = "Damage classes moves can have, e.g. physical, special, or non-damaging.", response = MoveDamageClassDetail.class, tags={ "pokemon", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = MoveDamageClassDetail.class) })
     @RequestMapping(
@@ -246,12 +186,7 @@ public interface PokemonApi {
     ResponseEntity<MoveDamageClassDetail> moveDamageClassRetrieve(@ApiParam(value = "This parameter can be a string or an integer.",required=true ) @PathVariable("id") String id, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "List natures", notes = "Natures influence how a Pokémon's stats grow. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Nature) for greater detail.", response = PaginatedNatureSummaryList.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "pokemon", })
+    @ApiOperation(value = "List natures", notes = "Natures influence how a Pokémon's stats grow. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Nature) for greater detail.", response = PaginatedNatureSummaryList.class, tags={ "pokemon", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedNatureSummaryList.class) })
     @RequestMapping(
@@ -262,12 +197,7 @@ public interface PokemonApi {
     ResponseEntity<PaginatedNatureSummaryList> natureList(@ApiParam(value = "Number of results to return per page.")  @RequestParam(value = "limit", required = false) Integer limit,@ApiParam(value = "The initial index from which to return the results.")  @RequestParam(value = "offset", required = false) Integer offset,@ApiParam(value = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")  @RequestParam(value = "q", required = false) String q, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "Get nature", notes = "Natures influence how a Pokémon's stats grow. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Nature) for greater detail.", response = NatureDetail.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "pokemon", })
+    @ApiOperation(value = "Get nature", notes = "Natures influence how a Pokémon's stats grow. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Nature) for greater detail.", response = NatureDetail.class, tags={ "pokemon", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = NatureDetail.class) })
     @RequestMapping(
@@ -278,12 +208,7 @@ public interface PokemonApi {
     ResponseEntity<NatureDetail> natureRetrieve(@ApiParam(value = "This parameter can be a string or an integer.",required=true ) @PathVariable("id") String id, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "List pokeathlon stats", notes = "Pokeathlon Stats are different attributes of a Pokémon's performance in Pokéathlons. In Pokéathlons, competitions happen on different courses; one for each of the different Pokéathlon stats. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9athlon) for greater detail.", response = PaginatedPokeathlonStatSummaryList.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "pokemon", })
+    @ApiOperation(value = "List pokeathlon stats", notes = "Pokeathlon Stats are different attributes of a Pokémon's performance in Pokéathlons. In Pokéathlons, competitions happen on different courses; one for each of the different Pokéathlon stats. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9athlon) for greater detail.", response = PaginatedPokeathlonStatSummaryList.class, tags={ "pokemon", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedPokeathlonStatSummaryList.class) })
     @RequestMapping(
@@ -294,12 +219,7 @@ public interface PokemonApi {
     ResponseEntity<PaginatedPokeathlonStatSummaryList> pokeathlonStatList(@ApiParam(value = "Number of results to return per page.")  @RequestParam(value = "limit", required = false) Integer limit,@ApiParam(value = "The initial index from which to return the results.")  @RequestParam(value = "offset", required = false) Integer offset,@ApiParam(value = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")  @RequestParam(value = "q", required = false) String q, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "Get pokeathlon stat", notes = "Pokeathlon Stats are different attributes of a Pokémon's performance in Pokéathlons. In Pokéathlons, competitions happen on different courses; one for each of the different Pokéathlon stats. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9athlon) for greater detail.", response = PokeathlonStatDetail.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "pokemon", })
+    @ApiOperation(value = "Get pokeathlon stat", notes = "Pokeathlon Stats are different attributes of a Pokémon's performance in Pokéathlons. In Pokéathlons, competitions happen on different courses; one for each of the different Pokéathlon stats. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9athlon) for greater detail.", response = PokeathlonStatDetail.class, tags={ "pokemon", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PokeathlonStatDetail.class) })
     @RequestMapping(
@@ -310,12 +230,7 @@ public interface PokemonApi {
     ResponseEntity<PokeathlonStatDetail> pokeathlonStatRetrieve(@ApiParam(value = "This parameter can be a string or an integer.",required=true ) @PathVariable("id") String id, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "List pokemon colors", notes = "Colors used for sorting Pokémon in a Pokédex. The color listed in the Pokédex is usually the color most apparent or covering each Pokémon's body. No orange category exists; Pokémon that are primarily orange are listed as red or brown.", response = PaginatedPokemonColorSummaryList.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "pokemon", })
+    @ApiOperation(value = "List pokemon colors", notes = "Colors used for sorting Pokémon in a Pokédex. The color listed in the Pokédex is usually the color most apparent or covering each Pokémon's body. No orange category exists; Pokémon that are primarily orange are listed as red or brown.", response = PaginatedPokemonColorSummaryList.class, tags={ "pokemon", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedPokemonColorSummaryList.class) })
     @RequestMapping(
@@ -326,12 +241,7 @@ public interface PokemonApi {
     ResponseEntity<PaginatedPokemonColorSummaryList> pokemonColorList(@ApiParam(value = "Number of results to return per page.")  @RequestParam(value = "limit", required = false) Integer limit,@ApiParam(value = "The initial index from which to return the results.")  @RequestParam(value = "offset", required = false) Integer offset,@ApiParam(value = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")  @RequestParam(value = "q", required = false) String q, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "Get pokemon color", notes = "Colors used for sorting Pokémon in a Pokédex. The color listed in the Pokédex is usually the color most apparent or covering each Pokémon's body. No orange category exists; Pokémon that are primarily orange are listed as red or brown.", response = PokemonColorDetail.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "pokemon", })
+    @ApiOperation(value = "Get pokemon color", notes = "Colors used for sorting Pokémon in a Pokédex. The color listed in the Pokédex is usually the color most apparent or covering each Pokémon's body. No orange category exists; Pokémon that are primarily orange are listed as red or brown.", response = PokemonColorDetail.class, tags={ "pokemon", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PokemonColorDetail.class) })
     @RequestMapping(
@@ -342,12 +252,7 @@ public interface PokemonApi {
     ResponseEntity<PokemonColorDetail> pokemonColorRetrieve(@ApiParam(value = "This parameter can be a string or an integer.",required=true ) @PathVariable("id") String id, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "List pokemon forms", notes = "Some Pokémon may appear in one of multiple, visually different forms. These differences are purely cosmetic. For variations within a Pokémon species, which do differ in more than just visuals, the 'Pokémon' entity is used to represent such a variety.", response = PaginatedPokemonFormSummaryList.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "pokemon", })
+    @ApiOperation(value = "List pokemon forms", notes = "Some Pokémon may appear in one of multiple, visually different forms. These differences are purely cosmetic. For variations within a Pokémon species, which do differ in more than just visuals, the 'Pokémon' entity is used to represent such a variety.", response = PaginatedPokemonFormSummaryList.class, tags={ "pokemon", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedPokemonFormSummaryList.class) })
     @RequestMapping(
@@ -358,12 +263,7 @@ public interface PokemonApi {
     ResponseEntity<PaginatedPokemonFormSummaryList> pokemonFormList(@ApiParam(value = "Number of results to return per page.")  @RequestParam(value = "limit", required = false) Integer limit,@ApiParam(value = "The initial index from which to return the results.")  @RequestParam(value = "offset", required = false) Integer offset,@ApiParam(value = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")  @RequestParam(value = "q", required = false) String q, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "Get pokemon form", notes = "Some Pokémon may appear in one of multiple, visually different forms. These differences are purely cosmetic. For variations within a Pokémon species, which do differ in more than just visuals, the 'Pokémon' entity is used to represent such a variety.", response = PokemonFormDetail.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "pokemon", })
+    @ApiOperation(value = "Get pokemon form", notes = "Some Pokémon may appear in one of multiple, visually different forms. These differences are purely cosmetic. For variations within a Pokémon species, which do differ in more than just visuals, the 'Pokémon' entity is used to represent such a variety.", response = PokemonFormDetail.class, tags={ "pokemon", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PokemonFormDetail.class) })
     @RequestMapping(
@@ -374,12 +274,7 @@ public interface PokemonApi {
     ResponseEntity<PokemonFormDetail> pokemonFormRetrieve(@ApiParam(value = "This parameter can be a string or an integer.",required=true ) @PathVariable("id") String id, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "List pokemom habitas", notes = "Habitats are generally different terrain Pokémon can be found in but can also be areas designated for rare or legendary Pokémon.", response = PaginatedPokemonHabitatSummaryList.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "pokemon", })
+    @ApiOperation(value = "List pokemom habitas", notes = "Habitats are generally different terrain Pokémon can be found in but can also be areas designated for rare or legendary Pokémon.", response = PaginatedPokemonHabitatSummaryList.class, tags={ "pokemon", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedPokemonHabitatSummaryList.class) })
     @RequestMapping(
@@ -390,12 +285,7 @@ public interface PokemonApi {
     ResponseEntity<PaginatedPokemonHabitatSummaryList> pokemonHabitatList(@ApiParam(value = "Number of results to return per page.")  @RequestParam(value = "limit", required = false) Integer limit,@ApiParam(value = "The initial index from which to return the results.")  @RequestParam(value = "offset", required = false) Integer offset,@ApiParam(value = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")  @RequestParam(value = "q", required = false) String q, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "Get pokemom habita", notes = "Habitats are generally different terrain Pokémon can be found in but can also be areas designated for rare or legendary Pokémon.", response = PokemonHabitatDetail.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "pokemon", })
+    @ApiOperation(value = "Get pokemom habita", notes = "Habitats are generally different terrain Pokémon can be found in but can also be areas designated for rare or legendary Pokémon.", response = PokemonHabitatDetail.class, tags={ "pokemon", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PokemonHabitatDetail.class) })
     @RequestMapping(
@@ -406,12 +296,7 @@ public interface PokemonApi {
     ResponseEntity<PokemonHabitatDetail> pokemonHabitatRetrieve(@ApiParam(value = "This parameter can be a string or an integer.",required=true ) @PathVariable("id") String id, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "List pokemon", notes = "Pokémon are the creatures that inhabit the world of the Pokémon games. They can be caught using Pokéballs and trained by battling with other Pokémon. Each Pokémon belongs to a specific species but may take on a variant which makes it differ from other Pokémon of the same species, such as base stats, available abilities and typings. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_(species)) for greater detail.", response = PaginatedPokemonSummaryList.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "pokemon", })
+    @ApiOperation(value = "List pokemon", notes = "Pokémon are the creatures that inhabit the world of the Pokémon games. They can be caught using Pokéballs and trained by battling with other Pokémon. Each Pokémon belongs to a specific species but may take on a variant which makes it differ from other Pokémon of the same species, such as base stats, available abilities and typings. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_(species)) for greater detail.", response = PaginatedPokemonSummaryList.class, tags={ "pokemon", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedPokemonSummaryList.class) })
     @RequestMapping(
@@ -422,12 +307,7 @@ public interface PokemonApi {
     ResponseEntity<PaginatedPokemonSummaryList> pokemonList(@ApiParam(value = "Number of results to return per page.")  @RequestParam(value = "limit", required = false) Integer limit,@ApiParam(value = "The initial index from which to return the results.")  @RequestParam(value = "offset", required = false) Integer offset,@ApiParam(value = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")  @RequestParam(value = "q", required = false) String q, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "Get pokemon", notes = "Pokémon are the creatures that inhabit the world of the Pokémon games. They can be caught using Pokéballs and trained by battling with other Pokémon. Each Pokémon belongs to a specific species but may take on a variant which makes it differ from other Pokémon of the same species, such as base stats, available abilities and typings. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_(species)) for greater detail.", response = PokemonDetail.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "pokemon", })
+    @ApiOperation(value = "Get pokemon", notes = "Pokémon are the creatures that inhabit the world of the Pokémon games. They can be caught using Pokéballs and trained by battling with other Pokémon. Each Pokémon belongs to a specific species but may take on a variant which makes it differ from other Pokémon of the same species, such as base stats, available abilities and typings. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_(species)) for greater detail.", response = PokemonDetail.class, tags={ "pokemon", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PokemonDetail.class) })
     @RequestMapping(
@@ -438,12 +318,7 @@ public interface PokemonApi {
     ResponseEntity<PokemonDetail> pokemonRetrieve(@ApiParam(value = "This parameter can be a string or an integer.",required=true ) @PathVariable("id") String id, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "List pokemon shapes", notes = "Shapes used for sorting Pokémon in a Pokédex.", response = PaginatedPokemonShapeSummaryList.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "pokemon", })
+    @ApiOperation(value = "List pokemon shapes", notes = "Shapes used for sorting Pokémon in a Pokédex.", response = PaginatedPokemonShapeSummaryList.class, tags={ "pokemon", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedPokemonShapeSummaryList.class) })
     @RequestMapping(
@@ -454,12 +329,7 @@ public interface PokemonApi {
     ResponseEntity<PaginatedPokemonShapeSummaryList> pokemonShapeList(@ApiParam(value = "Number of results to return per page.")  @RequestParam(value = "limit", required = false) Integer limit,@ApiParam(value = "The initial index from which to return the results.")  @RequestParam(value = "offset", required = false) Integer offset,@ApiParam(value = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")  @RequestParam(value = "q", required = false) String q, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "Get pokemon shape", notes = "Shapes used for sorting Pokémon in a Pokédex.", response = PokemonShapeDetail.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "pokemon", })
+    @ApiOperation(value = "Get pokemon shape", notes = "Shapes used for sorting Pokémon in a Pokédex.", response = PokemonShapeDetail.class, tags={ "pokemon", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PokemonShapeDetail.class) })
     @RequestMapping(
@@ -470,12 +340,7 @@ public interface PokemonApi {
     ResponseEntity<PokemonShapeDetail> pokemonShapeRetrieve(@ApiParam(value = "This parameter can be a string or an integer.",required=true ) @PathVariable("id") String id, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "List pokemon species", notes = "A Pokémon Species forms the basis for at least one Pokémon. Attributes of a Pokémon species are shared across all varieties of Pokémon within the species. A good example is Wormadam; Wormadam is the species which can be found in three different varieties, Wormadam-Trash, Wormadam-Sandy and Wormadam-Plant.", response = PaginatedPokemonSpeciesSummaryList.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "pokemon", })
+    @ApiOperation(value = "List pokemon species", notes = "A Pokémon Species forms the basis for at least one Pokémon. Attributes of a Pokémon species are shared across all varieties of Pokémon within the species. A good example is Wormadam; Wormadam is the species which can be found in three different varieties, Wormadam-Trash, Wormadam-Sandy and Wormadam-Plant.", response = PaginatedPokemonSpeciesSummaryList.class, tags={ "pokemon", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedPokemonSpeciesSummaryList.class) })
     @RequestMapping(
@@ -486,12 +351,7 @@ public interface PokemonApi {
     ResponseEntity<PaginatedPokemonSpeciesSummaryList> pokemonSpeciesList(@ApiParam(value = "Number of results to return per page.")  @RequestParam(value = "limit", required = false) Integer limit,@ApiParam(value = "The initial index from which to return the results.")  @RequestParam(value = "offset", required = false) Integer offset,@ApiParam(value = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")  @RequestParam(value = "q", required = false) String q, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "Get pokemon species", notes = "A Pokémon Species forms the basis for at least one Pokémon. Attributes of a Pokémon species are shared across all varieties of Pokémon within the species. A good example is Wormadam; Wormadam is the species which can be found in three different varieties, Wormadam-Trash, Wormadam-Sandy and Wormadam-Plant.", response = PokemonSpeciesDetail.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "pokemon", })
+    @ApiOperation(value = "Get pokemon species", notes = "A Pokémon Species forms the basis for at least one Pokémon. Attributes of a Pokémon species are shared across all varieties of Pokémon within the species. A good example is Wormadam; Wormadam is the species which can be found in three different varieties, Wormadam-Trash, Wormadam-Sandy and Wormadam-Plant.", response = PokemonSpeciesDetail.class, tags={ "pokemon", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PokemonSpeciesDetail.class) })
     @RequestMapping(
@@ -502,12 +362,7 @@ public interface PokemonApi {
     ResponseEntity<PokemonSpeciesDetail> pokemonSpeciesRetrieve(@ApiParam(value = "This parameter can be a string or an integer.",required=true ) @PathVariable("id") String id, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "List stats", notes = "Stats determine certain aspects of battles. Each Pokémon has a value for each stat which grows as they gain levels and can be altered momentarily by effects in battles.", response = PaginatedStatSummaryList.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "pokemon", })
+    @ApiOperation(value = "List stats", notes = "Stats determine certain aspects of battles. Each Pokémon has a value for each stat which grows as they gain levels and can be altered momentarily by effects in battles.", response = PaginatedStatSummaryList.class, tags={ "pokemon", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedStatSummaryList.class) })
     @RequestMapping(
@@ -518,12 +373,7 @@ public interface PokemonApi {
     ResponseEntity<PaginatedStatSummaryList> statList(@ApiParam(value = "Number of results to return per page.")  @RequestParam(value = "limit", required = false) Integer limit,@ApiParam(value = "The initial index from which to return the results.")  @RequestParam(value = "offset", required = false) Integer offset,@ApiParam(value = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")  @RequestParam(value = "q", required = false) String q, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "Get stat", notes = "Stats determine certain aspects of battles. Each Pokémon has a value for each stat which grows as they gain levels and can be altered momentarily by effects in battles.", response = StatDetail.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "pokemon", })
+    @ApiOperation(value = "Get stat", notes = "Stats determine certain aspects of battles. Each Pokémon has a value for each stat which grows as they gain levels and can be altered momentarily by effects in battles.", response = StatDetail.class, tags={ "pokemon", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = StatDetail.class) })
     @RequestMapping(
@@ -534,12 +384,7 @@ public interface PokemonApi {
     ResponseEntity<StatDetail> statRetrieve(@ApiParam(value = "This parameter can be a string or an integer.",required=true ) @PathVariable("id") String id, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "List types", notes = "Types are properties for Pokémon and their moves. Each type has three properties: which types of Pokémon it is super effective against, which types of Pokémon it is not very effective against, and which types of Pokémon it is completely ineffective against.", response = PaginatedTypeSummaryList.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "pokemon", })
+    @ApiOperation(value = "List types", notes = "Types are properties for Pokémon and their moves. Each type has three properties: which types of Pokémon it is super effective against, which types of Pokémon it is not very effective against, and which types of Pokémon it is completely ineffective against.", response = PaginatedTypeSummaryList.class, tags={ "pokemon", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedTypeSummaryList.class) })
     @RequestMapping(
@@ -550,12 +395,7 @@ public interface PokemonApi {
     ResponseEntity<PaginatedTypeSummaryList> typeList(@ApiParam(value = "Number of results to return per page.")  @RequestParam(value = "limit", required = false) Integer limit,@ApiParam(value = "The initial index from which to return the results.")  @RequestParam(value = "offset", required = false) Integer offset,@ApiParam(value = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")  @RequestParam(value = "q", required = false) String q, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "Get types", notes = "Types are properties for Pokémon and their moves. Each type has three properties: which types of Pokémon it is super effective against, which types of Pokémon it is not very effective against, and which types of Pokémon it is completely ineffective against.", response = TypeDetail.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "pokemon", })
+    @ApiOperation(value = "Get types", notes = "Types are properties for Pokémon and their moves. Each type has three properties: which types of Pokémon it is super effective against, which types of Pokémon it is not very effective against, and which types of Pokémon it is completely ineffective against.", response = TypeDetail.class, tags={ "pokemon", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = TypeDetail.class) })
     @RequestMapping(

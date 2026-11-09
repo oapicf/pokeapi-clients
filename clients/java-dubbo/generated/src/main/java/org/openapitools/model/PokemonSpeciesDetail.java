@@ -1,21 +1,21 @@
 package org.openapitools.model;
 
 import org.openapitools.jackson.nullable.JsonNullable;
-import org.openapitools.model.AbilityDetailPokemonInnerPokemon;
+import org.openapitools.model.EggGroupSummary;
 import org.openapitools.model.EvolutionChainSummary;
 import org.openapitools.model.GenerationSummary;
 import org.openapitools.model.GrowthRateSummary;
 import org.openapitools.model.PokemonColorSummary;
 import org.openapitools.model.PokemonDexEntry;
-import org.openapitools.model.PokemonFormDetailFormNamesInner;
 import org.openapitools.model.PokemonHabitatSummary;
 import org.openapitools.model.PokemonShapeSummary;
 import org.openapitools.model.PokemonSpeciesDescription;
-import org.openapitools.model.PokemonSpeciesDetailGeneraInner;
-import org.openapitools.model.PokemonSpeciesDetailPalParkEncountersInner;
-import org.openapitools.model.PokemonSpeciesDetailVarietiesInner;
 import org.openapitools.model.PokemonSpeciesFlavorText;
+import org.openapitools.model.PokemonSpeciesGenus;
+import org.openapitools.model.PokemonSpeciesName;
+import org.openapitools.model.PokemonSpeciesPalParkEncounter;
 import org.openapitools.model.PokemonSpeciesSummary;
+import org.openapitools.model.PokemonSpeciesVariety;
 import java.util.*;
 import java.util.Objects;
 import java.io.Serializable;
@@ -28,89 +28,170 @@ import java.math.*;
 public class PokemonSpeciesDetail implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * The identifier for this resource.
+   */
   @JsonProperty("id")
   private Integer id;
 
+  /**
+   * The name for this resource.
+   */
   @JsonProperty("name")
   private String name;
 
+  /**
+   * The order in which species should be sorted. Based on National Dex order, except families are grouped together and sorted by stage.
+   */
   @JsonProperty("order")
   private Integer order;
 
+  /**
+   * The chance of this Pokémon being female, in eighths; or -1 for genderless.
+   */
   @JsonProperty("gender_rate")
   private Integer genderRate;
 
+  /**
+   * The base capture rate; up to 255. The higher the number, the easier the catch.
+   */
   @JsonProperty("capture_rate")
   private Integer captureRate;
 
+  /**
+   * The happiness when caught by a normal Pokéball; up to 255. The higher the number, the happier the Pokémon.
+   */
   @JsonProperty("base_happiness")
   private Integer baseHappiness;
 
+  /**
+   * Whether or not this is a baby Pokémon.
+   */
   @JsonProperty("is_baby")
   private Boolean isBaby;
 
+  /**
+   * Whether or not this is a legendary Pokémon.
+   */
   @JsonProperty("is_legendary")
   private Boolean isLegendary;
 
+  /**
+   * Whether or not this is a mythical Pokémon.
+   */
   @JsonProperty("is_mythical")
   private Boolean isMythical;
 
+  /**
+   * Initial hatch counter: one must walk Y × (hatch_counter + 1) steps before this Pokémon&#39;s egg hatches, unless utilizing bonuses like Flame Body&#39;s. Y varies per generation. In Generations II, III, and VII, Egg cycles are 256 steps long. In Generation IV, Egg cycles are 255 steps long. In Pokémon Brilliant Diamond and Shining Pearl, Egg cycles are also 255 steps long, but are shorter on special dates. In Generations V and VI, Egg cycles are 257 steps long. In Pokémon Sword and Shield, and in Pokémon Scarlet and Violet, Egg cycles are 128 steps long.
+   */
   @JsonProperty("hatch_counter")
   private Integer hatchCounter;
 
+  /**
+   * Whether or not this Pokémon has visual gender differences.
+   */
   @JsonProperty("has_gender_differences")
   private Boolean hasGenderDifferences;
 
+  /**
+   * Whether or not this Pokémon has multiple forms and can switch between them.
+   */
   @JsonProperty("forms_switchable")
   private Boolean formsSwitchable;
 
+  /**
+   * The rate at which this Pokémon species gains levels.
+   */
   @JsonProperty("growth_rate")
   private GrowthRateSummary growthRate;
 
+  /**
+   * A list of Pokedexes and the indexes reserved within them for this Pokémon species.
+   */
   @JsonProperty("pokedex_numbers")
   private List<PokemonDexEntry> pokedexNumbers = new ArrayList<>();
 
+  /**
+   * A list of egg groups this Pokémon species is a member of.
+   */
   @JsonProperty("egg_groups")
-  private List<AbilityDetailPokemonInnerPokemon> eggGroups = new ArrayList<>();
+  private List<EggGroupSummary> eggGroups = new ArrayList<>();
 
+  /**
+   * The color of this Pokémon for Pokédex search.
+   */
   @JsonProperty("color")
   private PokemonColorSummary color;
 
+  /**
+   * The shape of this Pokémon for Pokédex search.
+   */
   @JsonProperty("shape")
   private PokemonShapeSummary shape;
 
+  /**
+   * The Pokémon species that evolves into this Pokemon_species.
+   */
   @JsonProperty("evolves_from_species")
   private PokemonSpeciesSummary evolvesFromSpecies;
 
+  /**
+   * The evolution chain this Pokémon species is a member of.
+   */
   @JsonProperty("evolution_chain")
   private EvolutionChainSummary evolutionChain;
 
+  /**
+   * The habitat this Pokémon species can be encountered in.
+   */
   @JsonProperty("habitat")
   private PokemonHabitatSummary habitat;
 
+  /**
+   * The generation this Pokémon species was introduced in.
+   */
   @JsonProperty("generation")
   private GenerationSummary generation;
 
+  /**
+   * The name of this resource listed in different languages.
+   */
   @JsonProperty("names")
-  private List<PokemonFormDetailFormNamesInner> names = new ArrayList<>();
+  private List<PokemonSpeciesName> names = new ArrayList<>();
 
+  /**
+   * A list of encounters that can be had with this Pokémon species in pal park.
+   */
   @JsonProperty("pal_park_encounters")
-  private List<PokemonSpeciesDetailPalParkEncountersInner> palParkEncounters = new ArrayList<>();
+  private List<PokemonSpeciesPalParkEncounter> palParkEncounters = new ArrayList<>();
 
+  /**
+   * Descriptions of different forms Pokémon take on within the Pokémon species.
+   */
   @JsonProperty("form_descriptions")
   private List<PokemonSpeciesDescription> formDescriptions = new ArrayList<>();
 
+  /**
+   * A list of flavor text entries for this Pokémon species.
+   */
   @JsonProperty("flavor_text_entries")
   private List<PokemonSpeciesFlavorText> flavorTextEntries = new ArrayList<>();
 
+  /**
+   * The genus of this Pokémon species listed in multiple languages.
+   */
   @JsonProperty("genera")
-  private List<PokemonSpeciesDetailGeneraInner> genera = new ArrayList<>();
-
-  @JsonProperty("varieties")
-  private List<PokemonSpeciesDetailVarietiesInner> varieties = new ArrayList<>();
+  private List<PokemonSpeciesGenus> genera = new ArrayList<>();
 
   /**
-   * 
+   * A list of the Pokémon that exist within this Pokémon species.
+   */
+  @JsonProperty("varieties")
+  private List<PokemonSpeciesVariety> varieties = new ArrayList<>();
+
+  /**
+   * The identifier for this resource.
    * @return id
    */
   public Integer getId() {
@@ -122,7 +203,7 @@ public class PokemonSpeciesDetail implements Serializable {
   }
 
   /**
-   * 
+   * The name for this resource.
    * @return name
    */
   public String getName() {
@@ -134,7 +215,7 @@ public class PokemonSpeciesDetail implements Serializable {
   }
 
   /**
-   * 
+   * The order in which species should be sorted. Based on National Dex order, except families are grouped together and sorted by stage.
    * @return order
    */
   public Integer getOrder() {
@@ -146,7 +227,7 @@ public class PokemonSpeciesDetail implements Serializable {
   }
 
   /**
-   * 
+   * The chance of this Pokémon being female, in eighths; or -1 for genderless.
    * @return genderRate
    */
   public Integer getGenderRate() {
@@ -158,7 +239,7 @@ public class PokemonSpeciesDetail implements Serializable {
   }
 
   /**
-   * 
+   * The base capture rate; up to 255. The higher the number, the easier the catch.
    * @return captureRate
    */
   public Integer getCaptureRate() {
@@ -170,7 +251,7 @@ public class PokemonSpeciesDetail implements Serializable {
   }
 
   /**
-   * 
+   * The happiness when caught by a normal Pokéball; up to 255. The higher the number, the happier the Pokémon.
    * @return baseHappiness
    */
   public Integer getBaseHappiness() {
@@ -182,7 +263,7 @@ public class PokemonSpeciesDetail implements Serializable {
   }
 
   /**
-   * 
+   * Whether or not this is a baby Pokémon.
    * @return isBaby
    */
   public Boolean getIsBaby() {
@@ -194,7 +275,7 @@ public class PokemonSpeciesDetail implements Serializable {
   }
 
   /**
-   * 
+   * Whether or not this is a legendary Pokémon.
    * @return isLegendary
    */
   public Boolean getIsLegendary() {
@@ -206,7 +287,7 @@ public class PokemonSpeciesDetail implements Serializable {
   }
 
   /**
-   * 
+   * Whether or not this is a mythical Pokémon.
    * @return isMythical
    */
   public Boolean getIsMythical() {
@@ -218,7 +299,7 @@ public class PokemonSpeciesDetail implements Serializable {
   }
 
   /**
-   * 
+   * Initial hatch counter: one must walk Y × (hatch_counter + 1) steps before this Pokémon&#39;s egg hatches, unless utilizing bonuses like Flame Body&#39;s. Y varies per generation. In Generations II, III, and VII, Egg cycles are 256 steps long. In Generation IV, Egg cycles are 255 steps long. In Pokémon Brilliant Diamond and Shining Pearl, Egg cycles are also 255 steps long, but are shorter on special dates. In Generations V and VI, Egg cycles are 257 steps long. In Pokémon Sword and Shield, and in Pokémon Scarlet and Violet, Egg cycles are 128 steps long.
    * @return hatchCounter
    */
   public Integer getHatchCounter() {
@@ -230,7 +311,7 @@ public class PokemonSpeciesDetail implements Serializable {
   }
 
   /**
-   * 
+   * Whether or not this Pokémon has visual gender differences.
    * @return hasGenderDifferences
    */
   public Boolean getHasGenderDifferences() {
@@ -242,7 +323,7 @@ public class PokemonSpeciesDetail implements Serializable {
   }
 
   /**
-   * 
+   * Whether or not this Pokémon has multiple forms and can switch between them.
    * @return formsSwitchable
    */
   public Boolean getFormsSwitchable() {
@@ -254,7 +335,7 @@ public class PokemonSpeciesDetail implements Serializable {
   }
 
   /**
-   * 
+   * The rate at which this Pokémon species gains levels.
    * @return growthRate
    */
   public GrowthRateSummary getGrowthRate() {
@@ -266,7 +347,7 @@ public class PokemonSpeciesDetail implements Serializable {
   }
 
   /**
-   * 
+   * A list of Pokedexes and the indexes reserved within them for this Pokémon species.
    * @return pokedexNumbers
    */
   public List<PokemonDexEntry> getPokedexNumbers() {
@@ -278,19 +359,19 @@ public class PokemonSpeciesDetail implements Serializable {
   }
 
   /**
-   * 
+   * A list of egg groups this Pokémon species is a member of.
    * @return eggGroups
    */
-  public List<AbilityDetailPokemonInnerPokemon> getEggGroups() {
+  public List<EggGroupSummary> getEggGroups() {
     return eggGroups;
   }
 
-  public void setEggGroups(List<AbilityDetailPokemonInnerPokemon> eggGroups) {
+  public void setEggGroups(List<EggGroupSummary> eggGroups) {
     this.eggGroups = eggGroups;
   }
 
   /**
-   * 
+   * The color of this Pokémon for Pokédex search.
    * @return color
    */
   public PokemonColorSummary getColor() {
@@ -302,7 +383,7 @@ public class PokemonSpeciesDetail implements Serializable {
   }
 
   /**
-   * 
+   * The shape of this Pokémon for Pokédex search.
    * @return shape
    */
   public PokemonShapeSummary getShape() {
@@ -314,7 +395,7 @@ public class PokemonSpeciesDetail implements Serializable {
   }
 
   /**
-   * 
+   * The Pokémon species that evolves into this Pokemon_species.
    * @return evolvesFromSpecies
    */
   public PokemonSpeciesSummary getEvolvesFromSpecies() {
@@ -326,7 +407,7 @@ public class PokemonSpeciesDetail implements Serializable {
   }
 
   /**
-   * 
+   * The evolution chain this Pokémon species is a member of.
    * @return evolutionChain
    */
   public EvolutionChainSummary getEvolutionChain() {
@@ -338,7 +419,7 @@ public class PokemonSpeciesDetail implements Serializable {
   }
 
   /**
-   * 
+   * The habitat this Pokémon species can be encountered in.
    * @return habitat
    */
   public PokemonHabitatSummary getHabitat() {
@@ -350,7 +431,7 @@ public class PokemonSpeciesDetail implements Serializable {
   }
 
   /**
-   * 
+   * The generation this Pokémon species was introduced in.
    * @return generation
    */
   public GenerationSummary getGeneration() {
@@ -362,31 +443,31 @@ public class PokemonSpeciesDetail implements Serializable {
   }
 
   /**
-   * 
+   * The name of this resource listed in different languages.
    * @return names
    */
-  public List<PokemonFormDetailFormNamesInner> getNames() {
+  public List<PokemonSpeciesName> getNames() {
     return names;
   }
 
-  public void setNames(List<PokemonFormDetailFormNamesInner> names) {
+  public void setNames(List<PokemonSpeciesName> names) {
     this.names = names;
   }
 
   /**
-   * 
+   * A list of encounters that can be had with this Pokémon species in pal park.
    * @return palParkEncounters
    */
-  public List<PokemonSpeciesDetailPalParkEncountersInner> getPalParkEncounters() {
+  public List<PokemonSpeciesPalParkEncounter> getPalParkEncounters() {
     return palParkEncounters;
   }
 
-  public void setPalParkEncounters(List<PokemonSpeciesDetailPalParkEncountersInner> palParkEncounters) {
+  public void setPalParkEncounters(List<PokemonSpeciesPalParkEncounter> palParkEncounters) {
     this.palParkEncounters = palParkEncounters;
   }
 
   /**
-   * 
+   * Descriptions of different forms Pokémon take on within the Pokémon species.
    * @return formDescriptions
    */
   public List<PokemonSpeciesDescription> getFormDescriptions() {
@@ -398,7 +479,7 @@ public class PokemonSpeciesDetail implements Serializable {
   }
 
   /**
-   * 
+   * A list of flavor text entries for this Pokémon species.
    * @return flavorTextEntries
    */
   public List<PokemonSpeciesFlavorText> getFlavorTextEntries() {
@@ -410,26 +491,26 @@ public class PokemonSpeciesDetail implements Serializable {
   }
 
   /**
-   * 
+   * The genus of this Pokémon species listed in multiple languages.
    * @return genera
    */
-  public List<PokemonSpeciesDetailGeneraInner> getGenera() {
+  public List<PokemonSpeciesGenus> getGenera() {
     return genera;
   }
 
-  public void setGenera(List<PokemonSpeciesDetailGeneraInner> genera) {
+  public void setGenera(List<PokemonSpeciesGenus> genera) {
     this.genera = genera;
   }
 
   /**
-   * 
+   * A list of the Pokémon that exist within this Pokémon species.
    * @return varieties
    */
-  public List<PokemonSpeciesDetailVarietiesInner> getVarieties() {
+  public List<PokemonSpeciesVariety> getVarieties() {
     return varieties;
   }
 
-  public void setVarieties(List<PokemonSpeciesDetailVarietiesInner> varieties) {
+  public void setVarieties(List<PokemonSpeciesVariety> varieties) {
     this.varieties = varieties;
   }
 

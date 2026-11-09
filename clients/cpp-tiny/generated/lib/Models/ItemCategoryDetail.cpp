@@ -10,7 +10,7 @@ ItemCategoryDetail::ItemCategoryDetail()
 	name = std::string();
 	items = std::list<ItemSummary>();
 	names = std::list<ItemCategoryName>();
-	pocket = ItemPocketSummary();
+	pocket = null;
 }
 
 ItemCategoryDetail::ItemCategoryDetail(std::string jsonString)

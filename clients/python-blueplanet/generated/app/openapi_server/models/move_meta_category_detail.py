@@ -6,8 +6,8 @@ from datetime import date, datetime  # noqa: F401
 from typing import List, Dict  # noqa: F401
 
 from app.openapi_server.models.base_model import Model
-from app.openapi_server.models.ability_detail_pokemon_inner_pokemon import AbilityDetailPokemonInnerPokemon  # noqa: F401,E501
 from app.openapi_server.models.move_meta_category_description import MoveMetaCategoryDescription  # noqa: F401,E501
+from app.openapi_server.models.move_summary import MoveSummary  # noqa: F401,E501
 from openapi_server import util
 
 
@@ -17,7 +17,7 @@ class MoveMetaCategoryDetail(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, id: int=None, name: str=None, descriptions: List[MoveMetaCategoryDescription]=None, moves: List[AbilityDetailPokemonInnerPokemon]=None):  # noqa: E501
+    def __init__(self, id: int=None, name: str=None, descriptions: List[MoveMetaCategoryDescription]=None, moves: List[MoveSummary]=None):  # noqa: E501
         """MoveMetaCategoryDetail - a model defined in Swagger
 
         :param id: The id of this MoveMetaCategoryDetail.  # noqa: E501
@@ -27,13 +27,13 @@ class MoveMetaCategoryDetail(Model):
         :param descriptions: The descriptions of this MoveMetaCategoryDetail.  # noqa: E501
         :type descriptions: List[MoveMetaCategoryDescription]
         :param moves: The moves of this MoveMetaCategoryDetail.  # noqa: E501
-        :type moves: List[AbilityDetailPokemonInnerPokemon]
+        :type moves: List[MoveSummary]
         """
         self.swagger_types = {
             'id': int,
             'name': str,
             'descriptions': List[MoveMetaCategoryDescription],
-            'moves': List[AbilityDetailPokemonInnerPokemon]
+            'moves': List[MoveSummary]
         }
 
         self.attribute_map = {
@@ -63,6 +63,7 @@ class MoveMetaCategoryDetail(Model):
     def id(self) -> int:
         """Gets the id of this MoveMetaCategoryDetail.
 
+        The identifier for this resource.  # noqa: E501
 
         :return: The id of this MoveMetaCategoryDetail.
         :rtype: int
@@ -73,6 +74,7 @@ class MoveMetaCategoryDetail(Model):
     def id(self, id: int):
         """Sets the id of this MoveMetaCategoryDetail.
 
+        The identifier for this resource.  # noqa: E501
 
         :param id: The id of this MoveMetaCategoryDetail.
         :type id: int
@@ -86,6 +88,7 @@ class MoveMetaCategoryDetail(Model):
     def name(self) -> str:
         """Gets the name of this MoveMetaCategoryDetail.
 
+        The name for this resource.  # noqa: E501
 
         :return: The name of this MoveMetaCategoryDetail.
         :rtype: str
@@ -96,14 +99,15 @@ class MoveMetaCategoryDetail(Model):
     def name(self, name: str):
         """Sets the name of this MoveMetaCategoryDetail.
 
+        The name for this resource.  # noqa: E501
 
         :param name: The name of this MoveMetaCategoryDetail.
         :type name: str
         """
         if name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
-        if name is not None and len(name) > 100:
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `100`")  # noqa: E501
+        if name is not None and len(name) > 200:
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `200`")  # noqa: E501
 
         self._name = name
 
@@ -111,6 +115,7 @@ class MoveMetaCategoryDetail(Model):
     def descriptions(self) -> List[MoveMetaCategoryDescription]:
         """Gets the descriptions of this MoveMetaCategoryDetail.
 
+        The description of this resource listed in different languages.  # noqa: E501
 
         :return: The descriptions of this MoveMetaCategoryDetail.
         :rtype: List[MoveMetaCategoryDescription]
@@ -121,6 +126,7 @@ class MoveMetaCategoryDetail(Model):
     def descriptions(self, descriptions: List[MoveMetaCategoryDescription]):
         """Sets the descriptions of this MoveMetaCategoryDetail.
 
+        The description of this resource listed in different languages.  # noqa: E501
 
         :param descriptions: The descriptions of this MoveMetaCategoryDetail.
         :type descriptions: List[MoveMetaCategoryDescription]
@@ -131,22 +137,24 @@ class MoveMetaCategoryDetail(Model):
         self._descriptions = descriptions
 
     @property
-    def moves(self) -> List[AbilityDetailPokemonInnerPokemon]:
+    def moves(self) -> List[MoveSummary]:
         """Gets the moves of this MoveMetaCategoryDetail.
 
+        A list of moves that fall into this category.  # noqa: E501
 
         :return: The moves of this MoveMetaCategoryDetail.
-        :rtype: List[AbilityDetailPokemonInnerPokemon]
+        :rtype: List[MoveSummary]
         """
         return self._moves
 
     @moves.setter
-    def moves(self, moves: List[AbilityDetailPokemonInnerPokemon]):
+    def moves(self, moves: List[MoveSummary]):
         """Sets the moves of this MoveMetaCategoryDetail.
 
+        A list of moves that fall into this category.  # noqa: E501
 
         :param moves: The moves of this MoveMetaCategoryDetail.
-        :type moves: List[AbilityDetailPokemonInnerPokemon]
+        :type moves: List[MoveSummary]
         """
         if moves is None:
             raise ValueError("Invalid value for `moves`, must not be `None`")  # noqa: E501

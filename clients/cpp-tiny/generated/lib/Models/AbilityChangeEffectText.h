@@ -46,18 +46,18 @@ public:
 	 */
     void fromJson(std::string jsonObj);
 
-	/*! \brief Get 
+	/*! \brief Get The localized effect text for an API resource in a specific language.
 	 */
 	std::string getEffect();
 
-	/*! \brief Set 
+	/*! \brief Set The localized effect text for an API resource in a specific language.
 	 */
 	void setEffect(std::string effect);
-	/*! \brief Get 
+	/*! \brief Get The language this effect is in.
 	 */
 	LanguageSummary getLanguage();
 
-	/*! \brief Set 
+	/*! \brief Set The language this effect is in.
 	 */
 	void setLanguage(LanguageSummary language);
 

@@ -8,11 +8,11 @@ The class is defined in **[BerryFlavorDetail.java](../../src/main/java/org/opena
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | `Integer` |  |  [readonly property]
-**name** | `String` |  | 
-**berries** | [`List&lt;BerryFlavorDetailBerriesInner&gt;`](BerryFlavorDetailBerriesInner.md) |  |  [readonly property]
-**contestType** | [`ContestTypeSummary`](ContestTypeSummary.md) |  | 
-**names** | [`List&lt;BerryFlavorName&gt;`](BerryFlavorName.md) |  |  [readonly property]
+**id** | `Integer` | The identifier for this resource. |  [readonly property]
+**name** | `String` | The name for this resource. | 
+**berries** | [`List&lt;BerryFlavorBerryMap&gt;`](BerryFlavorBerryMap.md) | A list of the berries with this flavor. |  [readonly property]
+**contestType** | [`ContestTypeSummary`](ContestTypeSummary.md) | The contest type that correlates with this berry flavor. | 
+**names** | [`List&lt;BerryFlavorName&gt;`](BerryFlavorName.md) | The name of this resource listed in different languages. |  [readonly property]
 
 
 

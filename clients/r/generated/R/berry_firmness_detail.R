@@ -7,10 +7,10 @@
 #' @title BerryFirmnessDetail
 #' @description BerryFirmnessDetail Class
 #' @format An \code{R6Class} generator object
-#' @field id  integer
-#' @field name  character
-#' @field berries  list(\link{BerrySummary})
-#' @field names  list(\link{BerryFirmnessName})
+#' @field id The identifier for this resource. integer
+#' @field name The name for this resource. character
+#' @field berries A list of the berries with this firmness. list(\link{BerrySummary})
+#' @field names The name of this resource listed in different languages. list(\link{BerryFirmnessName})
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -25,10 +25,10 @@ BerryFirmnessDetail <- R6::R6Class(
     #' @description
     #' Initialize a new BerryFirmnessDetail class.
     #'
-    #' @param id id
-    #' @param name name
-    #' @param berries berries
-    #' @param names names
+    #' @param id The identifier for this resource.
+    #' @param name The name for this resource.
+    #' @param berries A list of the berries with this firmness.
+    #' @param names The name of this resource listed in different languages.
     #' @param ... Other optional arguments.
     initialize = function(`id`, `name`, `berries`, `names`, ...) {
       if (!missing(`id`)) {
@@ -236,7 +236,7 @@ BerryFirmnessDetail <- R6::R6Class(
         return(FALSE)
       }
 
-      if (nchar(self$`name`) > 100) {
+      if (nchar(self$`name`) > 200) {
         return(FALSE)
       }
 
@@ -269,8 +269,8 @@ BerryFirmnessDetail <- R6::R6Class(
         invalid_fields["name"] <- "Non-nullable required field `name` cannot be null."
       }
 
-      if (nchar(self$`name`) > 100) {
-        invalid_fields["name"] <- "Invalid length for `name`, must be smaller than or equal to 100."
+      if (nchar(self$`name`) > 200) {
+        invalid_fields["name"] <- "Invalid length for `name`, must be smaller than or equal to 200."
       }
 
       # check if the required `berries` is null

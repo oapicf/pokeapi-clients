@@ -17,21 +17,18 @@ import 'package:openapi/src/model/date.dart';
 import 'package:openapi/src/model/ability_change.dart';
 import 'package:openapi/src/model/ability_change_effect_text.dart';
 import 'package:openapi/src/model/ability_detail.dart';
-import 'package:openapi/src/model/ability_detail_pokemon_inner.dart';
-import 'package:openapi/src/model/ability_detail_pokemon_inner_pokemon.dart';
 import 'package:openapi/src/model/ability_effect_text.dart';
 import 'package:openapi/src/model/ability_flavor_text.dart';
 import 'package:openapi/src/model/ability_name.dart';
+import 'package:openapi/src/model/ability_pokemon_detail.dart';
 import 'package:openapi/src/model/ability_summary.dart';
 import 'package:openapi/src/model/berry_detail.dart';
-import 'package:openapi/src/model/berry_detail_flavors_inner.dart';
-import 'package:openapi/src/model/berry_detail_flavors_inner_flavor.dart';
 import 'package:openapi/src/model/berry_firmness_detail.dart';
 import 'package:openapi/src/model/berry_firmness_name.dart';
 import 'package:openapi/src/model/berry_firmness_summary.dart';
+import 'package:openapi/src/model/berry_flavor_berry_map.dart';
 import 'package:openapi/src/model/berry_flavor_detail.dart';
-import 'package:openapi/src/model/berry_flavor_detail_berries_inner.dart';
-import 'package:openapi/src/model/berry_flavor_detail_berries_inner_berry.dart';
+import 'package:openapi/src/model/berry_flavor_map.dart';
 import 'package:openapi/src/model/berry_flavor_name.dart';
 import 'package:openapi/src/model/berry_flavor_summary.dart';
 import 'package:openapi/src/model/berry_summary.dart';
@@ -45,8 +42,10 @@ import 'package:openapi/src/model/contest_effect_summary.dart';
 import 'package:openapi/src/model/contest_type_detail.dart';
 import 'package:openapi/src/model/contest_type_name.dart';
 import 'package:openapi/src/model/contest_type_summary.dart';
+import 'package:openapi/src/model/currency_detail.dart';
+import 'package:openapi/src/model/currency_name.dart';
+import 'package:openapi/src/model/currency_summary.dart';
 import 'package:openapi/src/model/egg_group_detail.dart';
-import 'package:openapi/src/model/egg_group_detail_pokemon_species_inner.dart';
 import 'package:openapi/src/model/egg_group_name.dart';
 import 'package:openapi/src/model/egg_group_summary.dart';
 import 'package:openapi/src/model/encounter_condition_detail.dart';
@@ -58,18 +57,21 @@ import 'package:openapi/src/model/encounter_condition_value_summary.dart';
 import 'package:openapi/src/model/encounter_method_detail.dart';
 import 'package:openapi/src/model/encounter_method_name.dart';
 import 'package:openapi/src/model/encounter_method_summary.dart';
+import 'package:openapi/src/model/encounter_pokemon_detail.dart';
 import 'package:openapi/src/model/evolution_chain_detail.dart';
-import 'package:openapi/src/model/evolution_chain_detail_chain.dart';
-import 'package:openapi/src/model/evolution_chain_detail_chain_evolves_to_inner.dart';
-import 'package:openapi/src/model/evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner.dart';
-import 'package:openapi/src/model/evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender.dart';
+import 'package:openapi/src/model/evolution_chain_link.dart';
 import 'package:openapi/src/model/evolution_chain_summary.dart';
+import 'package:openapi/src/model/evolution_condition_expression.dart';
 import 'package:openapi/src/model/evolution_trigger_detail.dart';
 import 'package:openapi/src/model/evolution_trigger_name.dart';
 import 'package:openapi/src/model/evolution_trigger_summary.dart';
+import 'package:openapi/src/model/evolution_variable_description.dart';
+import 'package:openapi/src/model/evolution_variable_detail.dart';
+import 'package:openapi/src/model/evolution_variable_name.dart';
+import 'package:openapi/src/model/evolution_variable_summary.dart';
 import 'package:openapi/src/model/experience.dart';
 import 'package:openapi/src/model/gender_detail.dart';
-import 'package:openapi/src/model/gender_detail_pokemon_species_details_inner.dart';
+import 'package:openapi/src/model/gender_pokemon_species.dart';
 import 'package:openapi/src/model/gender_summary.dart';
 import 'package:openapi/src/model/generation_detail.dart';
 import 'package:openapi/src/model/generation_name.dart';
@@ -85,32 +87,30 @@ import 'package:openapi/src/model/item_category_detail.dart';
 import 'package:openapi/src/model/item_category_name.dart';
 import 'package:openapi/src/model/item_category_summary.dart';
 import 'package:openapi/src/model/item_detail.dart';
-import 'package:openapi/src/model/item_detail_baby_trigger_for.dart';
-import 'package:openapi/src/model/item_detail_held_by_pokemon_inner.dart';
-import 'package:openapi/src/model/item_detail_held_by_pokemon_inner_version_details_inner.dart';
-import 'package:openapi/src/model/item_detail_machines_inner.dart';
-import 'package:openapi/src/model/item_detail_sprites.dart';
 import 'package:openapi/src/model/item_effect_text.dart';
 import 'package:openapi/src/model/item_flavor_text.dart';
 import 'package:openapi/src/model/item_fling_effect_detail.dart';
 import 'package:openapi/src/model/item_fling_effect_effect_text.dart';
 import 'package:openapi/src/model/item_fling_effect_summary.dart';
 import 'package:openapi/src/model/item_game_index.dart';
+import 'package:openapi/src/model/item_machine.dart';
 import 'package:openapi/src/model/item_name.dart';
 import 'package:openapi/src/model/item_pocket_detail.dart';
 import 'package:openapi/src/model/item_pocket_name.dart';
 import 'package:openapi/src/model/item_pocket_summary.dart';
+import 'package:openapi/src/model/item_price.dart';
+import 'package:openapi/src/model/item_sprites.dart';
 import 'package:openapi/src/model/item_summary.dart';
 import 'package:openapi/src/model/language_detail.dart';
 import 'package:openapi/src/model/language_name.dart';
 import 'package:openapi/src/model/language_summary.dart';
 import 'package:openapi/src/model/location_area_detail.dart';
-import 'package:openapi/src/model/location_area_detail_encounter_method_rates_inner.dart';
-import 'package:openapi/src/model/location_area_detail_encounter_method_rates_inner_version_details_inner.dart';
-import 'package:openapi/src/model/location_area_detail_pokemon_encounters_inner.dart';
-import 'package:openapi/src/model/location_area_detail_pokemon_encounters_inner_version_details_inner.dart';
-import 'package:openapi/src/model/location_area_detail_pokemon_encounters_inner_version_details_inner_encounter_details.dart';
+import 'package:openapi/src/model/location_area_encounter_detail.dart';
+import 'package:openapi/src/model/location_area_encounter_rate.dart';
+import 'package:openapi/src/model/location_area_encounter_version_detail.dart';
 import 'package:openapi/src/model/location_area_name.dart';
+import 'package:openapi/src/model/location_area_pokemon_encounter.dart';
+import 'package:openapi/src/model/location_area_pokemon_encounter_version.dart';
 import 'package:openapi/src/model/location_area_summary.dart';
 import 'package:openapi/src/model/location_detail.dart';
 import 'package:openapi/src/model/location_game_index.dart';
@@ -122,19 +122,16 @@ import 'package:openapi/src/model/move_battle_style_detail.dart';
 import 'package:openapi/src/model/move_battle_style_name.dart';
 import 'package:openapi/src/model/move_battle_style_summary.dart';
 import 'package:openapi/src/model/move_change.dart';
-import 'package:openapi/src/model/move_change_effect_entries_inner.dart';
+import 'package:openapi/src/model/move_combo_usage.dart';
+import 'package:openapi/src/model/move_combos.dart';
 import 'package:openapi/src/model/move_damage_class_description.dart';
 import 'package:openapi/src/model/move_damage_class_detail.dart';
 import 'package:openapi/src/model/move_damage_class_name.dart';
 import 'package:openapi/src/model/move_damage_class_summary.dart';
 import 'package:openapi/src/model/move_detail.dart';
-import 'package:openapi/src/model/move_detail_contest_combos.dart';
-import 'package:openapi/src/model/move_detail_contest_combos_normal.dart';
-import 'package:openapi/src/model/move_detail_effect_changes_inner.dart';
-import 'package:openapi/src/model/move_detail_effect_changes_inner_effect_entries_inner.dart';
-import 'package:openapi/src/model/move_detail_machines_inner.dart';
-import 'package:openapi/src/model/move_detail_machines_inner_machine.dart';
-import 'package:openapi/src/model/move_detail_stat_changes_inner.dart';
+import 'package:openapi/src/model/move_effect_change.dart';
+import 'package:openapi/src/model/move_effect_change_effect_text.dart';
+import 'package:openapi/src/model/move_effect_effect_text.dart';
 import 'package:openapi/src/model/move_flavor_text.dart';
 import 'package:openapi/src/model/move_learn_method_description.dart';
 import 'package:openapi/src/model/move_learn_method_detail.dart';
@@ -147,7 +144,9 @@ import 'package:openapi/src/model/move_meta_ailment_summary.dart';
 import 'package:openapi/src/model/move_meta_category_description.dart';
 import 'package:openapi/src/model/move_meta_category_detail.dart';
 import 'package:openapi/src/model/move_meta_category_summary.dart';
+import 'package:openapi/src/model/move_meta_stat_change.dart';
 import 'package:openapi/src/model/move_name.dart';
+import 'package:openapi/src/model/move_stat_change.dart';
 import 'package:openapi/src/model/move_summary.dart';
 import 'package:openapi/src/model/move_target_description.dart';
 import 'package:openapi/src/model/move_target_detail.dart';
@@ -155,8 +154,8 @@ import 'package:openapi/src/model/move_target_name.dart';
 import 'package:openapi/src/model/move_target_summary.dart';
 import 'package:openapi/src/model/nature_battle_style_preference.dart';
 import 'package:openapi/src/model/nature_detail.dart';
-import 'package:openapi/src/model/nature_detail_pokeathlon_stat_changes_inner.dart';
 import 'package:openapi/src/model/nature_name.dart';
+import 'package:openapi/src/model/nature_pokeathlon_stat.dart';
 import 'package:openapi/src/model/nature_summary.dart';
 import 'package:openapi/src/model/paginated_ability_summary_list.dart';
 import 'package:openapi/src/model/paginated_berry_firmness_summary_list.dart';
@@ -165,12 +164,14 @@ import 'package:openapi/src/model/paginated_berry_summary_list.dart';
 import 'package:openapi/src/model/paginated_characteristic_summary_list.dart';
 import 'package:openapi/src/model/paginated_contest_effect_summary_list.dart';
 import 'package:openapi/src/model/paginated_contest_type_summary_list.dart';
+import 'package:openapi/src/model/paginated_currency_summary_list.dart';
 import 'package:openapi/src/model/paginated_egg_group_summary_list.dart';
 import 'package:openapi/src/model/paginated_encounter_condition_summary_list.dart';
 import 'package:openapi/src/model/paginated_encounter_condition_value_summary_list.dart';
 import 'package:openapi/src/model/paginated_encounter_method_summary_list.dart';
 import 'package:openapi/src/model/paginated_evolution_chain_summary_list.dart';
 import 'package:openapi/src/model/paginated_evolution_trigger_summary_list.dart';
+import 'package:openapi/src/model/paginated_evolution_variable_summary_list.dart';
 import 'package:openapi/src/model/paginated_gender_summary_list.dart';
 import 'package:openapi/src/model/paginated_generation_summary_list.dart';
 import 'package:openapi/src/model/paginated_growth_rate_summary_list.dart';
@@ -207,75 +208,91 @@ import 'package:openapi/src/model/paginated_type_summary_list.dart';
 import 'package:openapi/src/model/paginated_version_group_summary_list.dart';
 import 'package:openapi/src/model/paginated_version_summary_list.dart';
 import 'package:openapi/src/model/pal_park_area_detail.dart';
-import 'package:openapi/src/model/pal_park_area_detail_pokemon_encounters_inner.dart';
 import 'package:openapi/src/model/pal_park_area_name.dart';
 import 'package:openapi/src/model/pal_park_area_summary.dart';
+import 'package:openapi/src/model/pal_park_encounter.dart';
+import 'package:openapi/src/model/pokeapi_meta_response.dart';
+import 'package:openapi/src/model/pokeathlon_stat_affecting_nature.dart';
+import 'package:openapi/src/model/pokeathlon_stat_affecting_natures.dart';
 import 'package:openapi/src/model/pokeathlon_stat_detail.dart';
-import 'package:openapi/src/model/pokeathlon_stat_detail_affecting_natures.dart';
-import 'package:openapi/src/model/pokeathlon_stat_detail_affecting_natures_decrease_inner.dart';
-import 'package:openapi/src/model/pokeathlon_stat_detail_affecting_natures_increase_inner.dart';
 import 'package:openapi/src/model/pokeathlon_stat_name.dart';
 import 'package:openapi/src/model/pokeathlon_stat_summary.dart';
 import 'package:openapi/src/model/pokedex_description.dart';
 import 'package:openapi/src/model/pokedex_detail.dart';
-import 'package:openapi/src/model/pokedex_detail_pokemon_entries_inner.dart';
 import 'package:openapi/src/model/pokedex_name.dart';
 import 'package:openapi/src/model/pokedex_summary.dart';
+import 'package:openapi/src/model/pokemon_ability.dart';
+import 'package:openapi/src/model/pokemon_ability_past.dart';
 import 'package:openapi/src/model/pokemon_color_detail.dart';
 import 'package:openapi/src/model/pokemon_color_name.dart';
 import 'package:openapi/src/model/pokemon_color_summary.dart';
+import 'package:openapi/src/model/pokemon_cries.dart';
 import 'package:openapi/src/model/pokemon_detail.dart';
-import 'package:openapi/src/model/pokemon_detail_abilities_inner.dart';
-import 'package:openapi/src/model/pokemon_detail_cries.dart';
-import 'package:openapi/src/model/pokemon_detail_held_items.dart';
-import 'package:openapi/src/model/pokemon_detail_moves_inner.dart';
-import 'package:openapi/src/model/pokemon_detail_moves_inner_version_group_details_inner.dart';
-import 'package:openapi/src/model/pokemon_detail_past_abilities_inner.dart';
-import 'package:openapi/src/model/pokemon_detail_past_types_inner.dart';
-import 'package:openapi/src/model/pokemon_detail_sprites.dart';
-import 'package:openapi/src/model/pokemon_detail_types_inner.dart';
 import 'package:openapi/src/model/pokemon_dex_entry.dart';
+import 'package:openapi/src/model/pokemon_dex_number.dart';
+import 'package:openapi/src/model/pokemon_encounter_detail_response.dart';
+import 'package:openapi/src/model/pokemon_encounter_response.dart';
+import 'package:openapi/src/model/pokemon_encounter_version_detail_response.dart';
+import 'package:openapi/src/model/pokemon_evolution.dart';
+import 'package:openapi/src/model/pokemon_evolution_known_move.dart';
 import 'package:openapi/src/model/pokemon_form_detail.dart';
-import 'package:openapi/src/model/pokemon_form_detail_form_names_inner.dart';
-import 'package:openapi/src/model/pokemon_form_detail_sprites.dart';
+import 'package:openapi/src/model/pokemon_form_flavor_text.dart';
+import 'package:openapi/src/model/pokemon_form_name.dart';
+import 'package:openapi/src/model/pokemon_form_sprites.dart';
 import 'package:openapi/src/model/pokemon_form_summary.dart';
+import 'package:openapi/src/model/pokemon_form_trigger_condition.dart';
+import 'package:openapi/src/model/pokemon_form_type.dart';
 import 'package:openapi/src/model/pokemon_game_index.dart';
 import 'package:openapi/src/model/pokemon_habitat_detail.dart';
 import 'package:openapi/src/model/pokemon_habitat_name.dart';
 import 'package:openapi/src/model/pokemon_habitat_summary.dart';
+import 'package:openapi/src/model/pokemon_held_item.dart';
+import 'package:openapi/src/model/pokemon_held_item_summary.dart';
+import 'package:openapi/src/model/pokemon_held_item_version.dart';
+import 'package:openapi/src/model/pokemon_move.dart';
+import 'package:openapi/src/model/pokemon_move_version_group.dart';
+import 'package:openapi/src/model/pokemon_past_ability.dart';
+import 'package:openapi/src/model/pokemon_past_stat.dart';
+import 'package:openapi/src/model/pokemon_past_type.dart';
+import 'package:openapi/src/model/pokemon_shape_awesome_name.dart';
 import 'package:openapi/src/model/pokemon_shape_detail.dart';
-import 'package:openapi/src/model/pokemon_shape_detail_awesome_names_inner.dart';
-import 'package:openapi/src/model/pokemon_shape_detail_names_inner.dart';
+import 'package:openapi/src/model/pokemon_shape_name.dart';
 import 'package:openapi/src/model/pokemon_shape_summary.dart';
 import 'package:openapi/src/model/pokemon_species_description.dart';
 import 'package:openapi/src/model/pokemon_species_detail.dart';
-import 'package:openapi/src/model/pokemon_species_detail_genera_inner.dart';
-import 'package:openapi/src/model/pokemon_species_detail_pal_park_encounters_inner.dart';
-import 'package:openapi/src/model/pokemon_species_detail_varieties_inner.dart';
 import 'package:openapi/src/model/pokemon_species_flavor_text.dart';
+import 'package:openapi/src/model/pokemon_species_genus.dart';
+import 'package:openapi/src/model/pokemon_species_name.dart';
+import 'package:openapi/src/model/pokemon_species_pal_park_encounter.dart';
 import 'package:openapi/src/model/pokemon_species_summary.dart';
+import 'package:openapi/src/model/pokemon_species_variety.dart';
+import 'package:openapi/src/model/pokemon_sprites.dart';
+import 'package:openapi/src/model/pokemon_sprites_other.dart';
+import 'package:openapi/src/model/pokemon_sprites_other_dream_world.dart';
+import 'package:openapi/src/model/pokemon_sprites_other_home.dart';
+import 'package:openapi/src/model/pokemon_sprites_other_official_artwork.dart';
+import 'package:openapi/src/model/pokemon_sprites_other_showdown.dart';
 import 'package:openapi/src/model/pokemon_stat.dart';
 import 'package:openapi/src/model/pokemon_summary.dart';
+import 'package:openapi/src/model/pokemon_type.dart';
 import 'package:openapi/src/model/region_detail.dart';
 import 'package:openapi/src/model/region_name.dart';
 import 'package:openapi/src/model/region_summary.dart';
+import 'package:openapi/src/model/stat_affecting_moves.dart';
+import 'package:openapi/src/model/stat_affecting_natures.dart';
 import 'package:openapi/src/model/stat_detail.dart';
-import 'package:openapi/src/model/stat_detail_affecting_moves.dart';
-import 'package:openapi/src/model/stat_detail_affecting_moves_increase_inner.dart';
-import 'package:openapi/src/model/stat_detail_affecting_natures.dart';
 import 'package:openapi/src/model/stat_name.dart';
 import 'package:openapi/src/model/stat_summary.dart';
 import 'package:openapi/src/model/super_contest_effect_detail.dart';
 import 'package:openapi/src/model/super_contest_effect_flavor_text.dart';
 import 'package:openapi/src/model/super_contest_effect_summary.dart';
 import 'package:openapi/src/model/type_detail.dart';
-import 'package:openapi/src/model/type_detail_damage_relations.dart';
-import 'package:openapi/src/model/type_detail_past_damage_relations_inner.dart';
-import 'package:openapi/src/model/type_detail_past_damage_relations_inner_damage_relations.dart';
-import 'package:openapi/src/model/type_detail_pokemon_inner.dart';
-import 'package:openapi/src/model/type_detail_pokemon_inner_pokemon.dart';
-import 'package:openapi/src/model/type_detail_sprites_value_value.dart';
 import 'package:openapi/src/model/type_game_index.dart';
+import 'package:openapi/src/model/type_game_sprite.dart';
+import 'package:openapi/src/model/type_name.dart';
+import 'package:openapi/src/model/type_past_relationships.dart';
+import 'package:openapi/src/model/type_pokemon.dart';
+import 'package:openapi/src/model/type_relationships.dart';
 import 'package:openapi/src/model/type_summary.dart';
 import 'package:openapi/src/model/version_detail.dart';
 import 'package:openapi/src/model/version_group_detail.dart';
@@ -289,21 +306,18 @@ part 'serializers.g.dart';
   AbilityChange,
   AbilityChangeEffectText,
   AbilityDetail,
-  AbilityDetailPokemonInner,
-  AbilityDetailPokemonInnerPokemon,
   AbilityEffectText,
   AbilityFlavorText,
   AbilityName,
+  AbilityPokemonDetail,
   AbilitySummary,
   BerryDetail,
-  BerryDetailFlavorsInner,
-  BerryDetailFlavorsInnerFlavor,
   BerryFirmnessDetail,
   BerryFirmnessName,
   BerryFirmnessSummary,
+  BerryFlavorBerryMap,
   BerryFlavorDetail,
-  BerryFlavorDetailBerriesInner,
-  BerryFlavorDetailBerriesInnerBerry,
+  BerryFlavorMap,
   BerryFlavorName,
   BerryFlavorSummary,
   BerrySummary,
@@ -317,8 +331,10 @@ part 'serializers.g.dart';
   ContestTypeDetail,
   ContestTypeName,
   ContestTypeSummary,
+  CurrencyDetail,
+  CurrencyName,
+  CurrencySummary,
   EggGroupDetail,
-  EggGroupDetailPokemonSpeciesInner,
   EggGroupName,
   EggGroupSummary,
   EncounterConditionDetail,
@@ -330,18 +346,21 @@ part 'serializers.g.dart';
   EncounterMethodDetail,
   EncounterMethodName,
   EncounterMethodSummary,
+  EncounterPokemonDetail,
   EvolutionChainDetail,
-  EvolutionChainDetailChain,
-  EvolutionChainDetailChainEvolvesToInner,
-  EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner,
-  EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender,
+  EvolutionChainLink,
   EvolutionChainSummary,
+  EvolutionConditionExpression,
   EvolutionTriggerDetail,
   EvolutionTriggerName,
   EvolutionTriggerSummary,
+  EvolutionVariableDescription,
+  EvolutionVariableDetail,
+  EvolutionVariableName,
+  EvolutionVariableSummary,
   Experience,
   GenderDetail,
-  GenderDetailPokemonSpeciesDetailsInner,
+  GenderPokemonSpecies,
   GenderSummary,
   GenerationDetail,
   GenerationName,
@@ -357,32 +376,30 @@ part 'serializers.g.dart';
   ItemCategoryName,
   ItemCategorySummary,
   ItemDetail,
-  ItemDetailBabyTriggerFor,
-  ItemDetailHeldByPokemonInner,
-  ItemDetailHeldByPokemonInnerVersionDetailsInner,
-  ItemDetailMachinesInner,
-  ItemDetailSprites,
   ItemEffectText,
   ItemFlavorText,
   ItemFlingEffectDetail,
   ItemFlingEffectEffectText,
   ItemFlingEffectSummary,
   ItemGameIndex,
+  ItemMachine,
   ItemName,
   ItemPocketDetail,
   ItemPocketName,
   ItemPocketSummary,
+  ItemPrice,
+  ItemSprites,
   ItemSummary,
   LanguageDetail,
   LanguageName,
   LanguageSummary,
   LocationAreaDetail,
-  LocationAreaDetailEncounterMethodRatesInner,
-  LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner,
-  LocationAreaDetailPokemonEncountersInner,
-  LocationAreaDetailPokemonEncountersInnerVersionDetailsInner,
-  LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails,
+  LocationAreaEncounterDetail,
+  LocationAreaEncounterRate,
+  LocationAreaEncounterVersionDetail,
   LocationAreaName,
+  LocationAreaPokemonEncounter,
+  LocationAreaPokemonEncounterVersion,
   LocationAreaSummary,
   LocationDetail,
   LocationGameIndex,
@@ -394,19 +411,16 @@ part 'serializers.g.dart';
   MoveBattleStyleName,
   MoveBattleStyleSummary,
   MoveChange,
-  MoveChangeEffectEntriesInner,
+  MoveComboUsage,
+  MoveCombos,
   MoveDamageClassDescription,
   MoveDamageClassDetail,
   MoveDamageClassName,
   MoveDamageClassSummary,
   MoveDetail,
-  MoveDetailContestCombos,
-  MoveDetailContestCombosNormal,
-  MoveDetailEffectChangesInner,
-  MoveDetailEffectChangesInnerEffectEntriesInner,
-  MoveDetailMachinesInner,
-  MoveDetailMachinesInnerMachine,
-  MoveDetailStatChangesInner,
+  MoveEffectChange,
+  MoveEffectChangeEffectText,
+  MoveEffectEffectText,
   MoveFlavorText,
   MoveLearnMethodDescription,
   MoveLearnMethodDetail,
@@ -419,7 +433,9 @@ part 'serializers.g.dart';
   MoveMetaCategoryDescription,
   MoveMetaCategoryDetail,
   MoveMetaCategorySummary,
+  MoveMetaStatChange,
   MoveName,
+  MoveStatChange,
   MoveSummary,
   MoveTargetDescription,
   MoveTargetDetail,
@@ -427,8 +443,8 @@ part 'serializers.g.dart';
   MoveTargetSummary,
   NatureBattleStylePreference,
   NatureDetail,
-  NatureDetailPokeathlonStatChangesInner,
   NatureName,
+  NaturePokeathlonStat,
   NatureSummary,
   PaginatedAbilitySummaryList,
   PaginatedBerryFirmnessSummaryList,
@@ -437,12 +453,14 @@ part 'serializers.g.dart';
   PaginatedCharacteristicSummaryList,
   PaginatedContestEffectSummaryList,
   PaginatedContestTypeSummaryList,
+  PaginatedCurrencySummaryList,
   PaginatedEggGroupSummaryList,
   PaginatedEncounterConditionSummaryList,
   PaginatedEncounterConditionValueSummaryList,
   PaginatedEncounterMethodSummaryList,
   PaginatedEvolutionChainSummaryList,
   PaginatedEvolutionTriggerSummaryList,
+  PaginatedEvolutionVariableSummaryList,
   PaginatedGenderSummaryList,
   PaginatedGenerationSummaryList,
   PaginatedGrowthRateSummaryList,
@@ -479,75 +497,91 @@ part 'serializers.g.dart';
   PaginatedVersionGroupSummaryList,
   PaginatedVersionSummaryList,
   PalParkAreaDetail,
-  PalParkAreaDetailPokemonEncountersInner,
   PalParkAreaName,
   PalParkAreaSummary,
+  PalParkEncounter,
+  PokeapiMetaResponse,
+  PokeathlonStatAffectingNature,
+  PokeathlonStatAffectingNatures,
   PokeathlonStatDetail,
-  PokeathlonStatDetailAffectingNatures,
-  PokeathlonStatDetailAffectingNaturesDecreaseInner,
-  PokeathlonStatDetailAffectingNaturesIncreaseInner,
   PokeathlonStatName,
   PokeathlonStatSummary,
   PokedexDescription,
   PokedexDetail,
-  PokedexDetailPokemonEntriesInner,
   PokedexName,
   PokedexSummary,
+  PokemonAbility,
+  PokemonAbilityPast,
   PokemonColorDetail,
   PokemonColorName,
   PokemonColorSummary,
+  PokemonCries,
   PokemonDetail,
-  PokemonDetailAbilitiesInner,
-  PokemonDetailCries,
-  PokemonDetailHeldItems,
-  PokemonDetailMovesInner,
-  PokemonDetailMovesInnerVersionGroupDetailsInner,
-  PokemonDetailPastAbilitiesInner,
-  PokemonDetailPastTypesInner,
-  PokemonDetailSprites,
-  PokemonDetailTypesInner,
   PokemonDexEntry,
+  PokemonDexNumber,
+  PokemonEncounterDetailResponse,
+  PokemonEncounterResponse,
+  PokemonEncounterVersionDetailResponse,
+  PokemonEvolution,
+  PokemonEvolutionKnownMove,
   PokemonFormDetail,
-  PokemonFormDetailFormNamesInner,
-  PokemonFormDetailSprites,
+  PokemonFormFlavorText,
+  PokemonFormName,
+  PokemonFormSprites,
   PokemonFormSummary,
+  PokemonFormTriggerCondition,
+  PokemonFormType,
   PokemonGameIndex,
   PokemonHabitatDetail,
   PokemonHabitatName,
   PokemonHabitatSummary,
+  PokemonHeldItem,
+  PokemonHeldItemSummary,
+  PokemonHeldItemVersion,
+  PokemonMove,
+  PokemonMoveVersionGroup,
+  PokemonPastAbility,
+  PokemonPastStat,
+  PokemonPastType,
+  PokemonShapeAwesomeName,
   PokemonShapeDetail,
-  PokemonShapeDetailAwesomeNamesInner,
-  PokemonShapeDetailNamesInner,
+  PokemonShapeName,
   PokemonShapeSummary,
   PokemonSpeciesDescription,
   PokemonSpeciesDetail,
-  PokemonSpeciesDetailGeneraInner,
-  PokemonSpeciesDetailPalParkEncountersInner,
-  PokemonSpeciesDetailVarietiesInner,
   PokemonSpeciesFlavorText,
+  PokemonSpeciesGenus,
+  PokemonSpeciesName,
+  PokemonSpeciesPalParkEncounter,
   PokemonSpeciesSummary,
+  PokemonSpeciesVariety,
+  PokemonSprites,
+  PokemonSpritesOther,
+  PokemonSpritesOtherDreamWorld,
+  PokemonSpritesOtherHome,
+  PokemonSpritesOtherOfficialArtwork,
+  PokemonSpritesOtherShowdown,
   PokemonStat,
   PokemonSummary,
+  PokemonType,
   RegionDetail,
   RegionName,
   RegionSummary,
+  StatAffectingMoves,
+  StatAffectingNatures,
   StatDetail,
-  StatDetailAffectingMoves,
-  StatDetailAffectingMovesIncreaseInner,
-  StatDetailAffectingNatures,
   StatName,
   StatSummary,
   SuperContestEffectDetail,
   SuperContestEffectFlavorText,
   SuperContestEffectSummary,
   TypeDetail,
-  TypeDetailDamageRelations,
-  TypeDetailPastDamageRelationsInner,
-  TypeDetailPastDamageRelationsInnerDamageRelations,
-  TypeDetailPokemonInner,
-  TypeDetailPokemonInnerPokemon,
-  TypeDetailSpritesValueValue,
   TypeGameIndex,
+  TypeGameSprite,
+  TypeName,
+  TypePastRelationships,
+  TypePokemon,
+  TypeRelationships,
   TypeSummary,
   VersionDetail,
   VersionGroupDetail,
@@ -561,24 +595,20 @@ Serializers serializers = (_$serializers.toBuilder()
         () => ListBuilder<MoveLearnMethodSummary>(),
       )
       ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(AbilityDetailPokemonInner)]),
-        () => ListBuilder<AbilityDetailPokemonInner>(),
-      )
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(PokeathlonStatDetailAffectingNaturesDecreaseInner)]),
-        () => ListBuilder<PokeathlonStatDetailAffectingNaturesDecreaseInner>(),
+        const FullType(BuiltList, [FullType(BerryFlavorMap)]),
+        () => ListBuilder<BerryFlavorMap>(),
       )
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(BerryFirmnessSummary)]),
         () => ListBuilder<BerryFirmnessSummary>(),
       )
       ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(MoveChange)]),
-        () => ListBuilder<MoveChange>(),
+        const FullType(BuiltList, [FullType(LocationAreaEncounterVersionDetail)]),
+        () => ListBuilder<LocationAreaEncounterVersionDetail>(),
       )
       ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(PokemonSpeciesDetailVarietiesInner)]),
-        () => ListBuilder<PokemonSpeciesDetailVarietiesInner>(),
+        const FullType(BuiltList, [FullType(MoveChange)]),
+        () => ListBuilder<MoveChange>(),
       )
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(AbilitySummary)]),
@@ -597,24 +627,8 @@ Serializers serializers = (_$serializers.toBuilder()
         () => ListBuilder<PokemonHabitatSummary>(),
       )
       ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(BerryFlavorDetailBerriesInner)]),
-        () => ListBuilder<BerryFlavorDetailBerriesInner>(),
-      )
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(PokeathlonStatDetailAffectingNaturesIncreaseInner)]),
-        () => ListBuilder<PokeathlonStatDetailAffectingNaturesIncreaseInner>(),
-      )
-      ..addBuilderFactory(
         const FullType(BuiltList, [FullType(ContestEffectFlavorText)]),
         () => ListBuilder<ContestEffectFlavorText>(),
-      )
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(StatDetailAffectingMovesIncreaseInner)]),
-        () => ListBuilder<StatDetailAffectingMovesIncreaseInner>(),
-      )
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(MoveDetailEffectChangesInnerEffectEntriesInner)]),
-        () => ListBuilder<MoveDetailEffectChangesInnerEffectEntriesInner>(),
       )
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(EggGroupSummary)]),
@@ -625,6 +639,22 @@ Serializers serializers = (_$serializers.toBuilder()
         () => ListBuilder<PokemonSpeciesDescription>(),
       )
       ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(MoveEffectChange)]),
+        () => ListBuilder<MoveEffectChange>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(TypeName)]),
+        () => ListBuilder<TypeName>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(PalParkEncounter)]),
+        () => ListBuilder<PalParkEncounter>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(PokemonHeldItem)]),
+        () => ListBuilder<PokemonHeldItem>(),
+      )
+      ..addBuilderFactory(
         const FullType(BuiltList, [FullType(MoveBattleStyleName)]),
         () => ListBuilder<MoveBattleStyleName>(),
       )
@@ -633,8 +663,8 @@ Serializers serializers = (_$serializers.toBuilder()
         () => ListBuilder<LocationGameIndex>(),
       )
       ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(PokemonDetailMovesInnerVersionGroupDetailsInner)]),
-        () => ListBuilder<PokemonDetailMovesInnerVersionGroupDetailsInner>(),
+        const FullType(BuiltList, [FullType(PokemonHeldItemSummary)]),
+        () => ListBuilder<PokemonHeldItemSummary>(),
       )
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(AbilityName)]),
@@ -649,12 +679,12 @@ Serializers serializers = (_$serializers.toBuilder()
         () => ListBuilder<PokemonStat>(),
       )
       ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(PokemonSpeciesDetailPalParkEncountersInner)]),
-        () => ListBuilder<PokemonSpeciesDetailPalParkEncountersInner>(),
-      )
-      ..addBuilderFactory(
         const FullType(BuiltList, [FullType(SuperContestEffectSummary)]),
         () => ListBuilder<SuperContestEffectSummary>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(EvolutionVariableDescription)]),
+        () => ListBuilder<EvolutionVariableDescription>(),
       )
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(BerryFirmnessName)]),
@@ -663,6 +693,10 @@ Serializers serializers = (_$serializers.toBuilder()
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(MoveName)]),
         () => ListBuilder<MoveName>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(PokemonMoveVersionGroup)]),
+        () => ListBuilder<PokemonMoveVersionGroup>(),
       )
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(PokeathlonStatName)]),
@@ -689,24 +723,24 @@ Serializers serializers = (_$serializers.toBuilder()
         () => ListBuilder<EncounterMethodName>(),
       )
       ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(MoveDetailMachinesInner)]),
-        () => ListBuilder<MoveDetailMachinesInner>(),
-      )
-      ..addBuilderFactory(
         const FullType(BuiltList, [FullType(AbilityFlavorText)]),
         () => ListBuilder<AbilityFlavorText>(),
       )
       ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(ItemDetailHeldByPokemonInner)]),
-        () => ListBuilder<ItemDetailHeldByPokemonInner>(),
+        const FullType(BuiltList, [FullType(PokemonFormFlavorText)]),
+        () => ListBuilder<PokemonFormFlavorText>(),
       )
       ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(MoveDetailEffectChangesInner)]),
-        () => ListBuilder<MoveDetailEffectChangesInner>(),
+        const FullType(BuiltList, [FullType(PokemonSpeciesName)]),
+        () => ListBuilder<PokemonSpeciesName>(),
       )
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(GenderSummary)]),
         () => ListBuilder<GenderSummary>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(LocationAreaEncounterDetail)]),
+        () => ListBuilder<LocationAreaEncounterDetail>(),
       )
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(VersionGroupSummary)]),
@@ -721,8 +755,8 @@ Serializers serializers = (_$serializers.toBuilder()
         () => ListBuilder<EvolutionChainSummary>(),
       )
       ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(PokemonSpeciesDetailGeneraInner)]),
-        () => ListBuilder<PokemonSpeciesDetailGeneraInner>(),
+        const FullType(BuiltList, [FullType(PokemonFormType)]),
+        () => ListBuilder<PokemonFormType>(),
       )
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(PokemonSummary)]),
@@ -733,24 +767,12 @@ Serializers serializers = (_$serializers.toBuilder()
         () => ListBuilder<PokedexName>(),
       )
       ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(LocationAreaDetailPokemonEncountersInnerVersionDetailsInner)]),
-        () => ListBuilder<LocationAreaDetailPokemonEncountersInnerVersionDetailsInner>(),
-      )
-      ..addBuilderFactory(
         const FullType(BuiltList, [FullType(MachineSummary)]),
         () => ListBuilder<MachineSummary>(),
       )
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(MoveBattleStyleSummary)]),
         () => ListBuilder<MoveBattleStyleSummary>(),
-      )
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(LocationAreaDetailEncounterMethodRatesInner)]),
-        () => ListBuilder<LocationAreaDetailEncounterMethodRatesInner>(),
-      )
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(PokedexDetailPokemonEntriesInner)]),
-        () => ListBuilder<PokedexDetailPokemonEntriesInner>(),
       )
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(MoveTargetSummary)]),
@@ -773,6 +795,14 @@ Serializers serializers = (_$serializers.toBuilder()
         () => ListBuilder<LocationName>(),
       )
       ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(MoveEffectChangeEffectText)]),
+        () => ListBuilder<MoveEffectChangeEffectText>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(PokemonEncounterVersionDetailResponse)]),
+        () => ListBuilder<PokemonEncounterVersionDetailResponse>(),
+      )
+      ..addBuilderFactory(
         const FullType(BuiltList, [FullType(PokemonHabitatName)]),
         () => ListBuilder<PokemonHabitatName>(),
       )
@@ -781,12 +811,16 @@ Serializers serializers = (_$serializers.toBuilder()
         () => ListBuilder<PokemonSpeciesFlavorText>(),
       )
       ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(LocationAreaDetailPokemonEncountersInner)]),
-        () => ListBuilder<LocationAreaDetailPokemonEncountersInner>(),
+        const FullType(BuiltList, [FullType(PokemonEvolution)]),
+        () => ListBuilder<PokemonEvolution>(),
       )
       ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(PokemonFormDetailFormNamesInner)]),
-        () => ListBuilder<PokemonFormDetailFormNamesInner>(),
+        const FullType(BuiltList, [FullType(PokemonMove)]),
+        () => ListBuilder<PokemonMove>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(PokemonShapeName)]),
+        () => ListBuilder<PokemonShapeName>(),
       )
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(CharacteristicSummary)]),
@@ -797,32 +831,32 @@ Serializers serializers = (_$serializers.toBuilder()
         () => ListBuilder<ContestTypeSummary>(),
       )
       ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(MoveStatChange)]),
+        () => ListBuilder<MoveStatChange>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(PokemonHeldItemVersion)]),
+        () => ListBuilder<PokemonHeldItemVersion>(),
+      )
+      ..addBuilderFactory(
         const FullType(BuiltList, [FullType(MoveLearnMethodDescription)]),
         () => ListBuilder<MoveLearnMethodDescription>(),
-      )
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(PokemonDetailMovesInner)]),
-        () => ListBuilder<PokemonDetailMovesInner>(),
-      )
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(ItemDetailHeldByPokemonInnerVersionDetailsInner)]),
-        () => ListBuilder<ItemDetailHeldByPokemonInnerVersionDetailsInner>(),
-      )
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(PokemonDetailTypesInner)]),
-        () => ListBuilder<PokemonDetailTypesInner>(),
       )
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(StatName)]),
         () => ListBuilder<StatName>(),
       )
       ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(ItemMachine)]),
+        () => ListBuilder<ItemMachine>(),
+      )
+      ..addBuilderFactory(
         const FullType(BuiltList, [FullType(PalParkAreaSummary)]),
         () => ListBuilder<PalParkAreaSummary>(),
       )
       ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(PalParkAreaDetailPokemonEncountersInner)]),
-        () => ListBuilder<PalParkAreaDetailPokemonEncountersInner>(),
+        const FullType(BuiltList, [FullType(PokemonSpeciesPalParkEncounter)]),
+        () => ListBuilder<PokemonSpeciesPalParkEncounter>(),
       )
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(NatureBattleStylePreference)]),
@@ -835,6 +869,14 @@ Serializers serializers = (_$serializers.toBuilder()
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(ItemFlingEffectSummary)]),
         () => ListBuilder<ItemFlingEffectSummary>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(PokeathlonStatAffectingNature)]),
+        () => ListBuilder<PokeathlonStatAffectingNature>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(GenderPokemonSpecies)]),
+        () => ListBuilder<GenderPokemonSpecies>(),
       )
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(PokedexSummary)]),
@@ -853,6 +895,18 @@ Serializers serializers = (_$serializers.toBuilder()
         () => ListBuilder<MoveMetaAilmentName>(),
       )
       ..addBuilderFactory(
+        const FullType(BuiltMap, [FullType(String), FullType.nullable(JsonObject)]),
+        () => MapBuilder<String, JsonObject?>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(BerryFlavorBerryMap)]),
+        () => ListBuilder<BerryFlavorBerryMap>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltMap, [FullType(String), FullType(BuiltMap, [FullType(String), FullType(JsonObject)])]),
+        () => MapBuilder<String, BuiltMap<String, JsonObject>>(),
+      )
+      ..addBuilderFactory(
         const FullType(BuiltList, [FullType(TypeGameIndex)]),
         () => ListBuilder<TypeGameIndex>(),
       )
@@ -861,12 +915,12 @@ Serializers serializers = (_$serializers.toBuilder()
         () => ListBuilder<TypeSummary>(),
       )
       ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(ContestEffectEffectText)]),
-        () => ListBuilder<ContestEffectEffectText>(),
+        const FullType(BuiltList, [FullType(PokemonAbilityPast)]),
+        () => ListBuilder<PokemonAbilityPast>(),
       )
       ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(ItemDetailMachinesInner)]),
-        () => ListBuilder<ItemDetailMachinesInner>(),
+        const FullType(BuiltList, [FullType(ContestEffectEffectText)]),
+        () => ListBuilder<ContestEffectEffectText>(),
       )
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(MoveFlavorText)]),
@@ -877,12 +931,12 @@ Serializers serializers = (_$serializers.toBuilder()
         () => ListBuilder<VersionName>(),
       )
       ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner)]),
-        () => ListBuilder<LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner>(),
-      )
-      ..addBuilderFactory(
         const FullType(BuiltList, [FullType(ItemPocketName)]),
         () => ListBuilder<ItemPocketName>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(PokemonPastAbility)]),
+        () => ListBuilder<PokemonPastAbility>(),
       )
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(SuperContestEffectFlavorText)]),
@@ -909,12 +963,20 @@ Serializers serializers = (_$serializers.toBuilder()
         () => ListBuilder<MoveMetaCategorySummary>(),
       )
       ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(ItemPrice)]),
+        () => ListBuilder<ItemPrice>(),
+      )
+      ..addBuilderFactory(
         const FullType(BuiltList, [FullType(Experience)]),
         () => ListBuilder<Experience>(),
       )
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(PalParkAreaName)]),
         () => ListBuilder<PalParkAreaName>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltMap, [FullType(String), FullType(TypeGameSprite)]),
+        () => MapBuilder<String, TypeGameSprite>(),
       )
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(ItemGameIndex)]),
@@ -929,16 +991,16 @@ Serializers serializers = (_$serializers.toBuilder()
         () => ListBuilder<PokemonDexEntry>(),
       )
       ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(EvolutionChainDetailChainEvolvesToInner)]),
-        () => ListBuilder<EvolutionChainDetailChainEvolvesToInner>(),
+        const FullType(BuiltList, [FullType(PokemonFormName)]),
+        () => ListBuilder<PokemonFormName>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(CurrencySummary)]),
+        () => ListBuilder<CurrencySummary>(),
       )
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(EggGroupName)]),
         () => ListBuilder<EggGroupName>(),
-      )
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(TypeDetailPokemonInner)]),
-        () => ListBuilder<TypeDetailPokemonInner>(),
       )
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(LanguageName)]),
@@ -949,8 +1011,8 @@ Serializers serializers = (_$serializers.toBuilder()
         () => ListBuilder<LocationAreaName>(),
       )
       ..addBuilderFactory(
-        const FullType(BuiltList, [FullType.nullable(JsonObject)]),
-        () => ListBuilder<JsonObject>(),
+        const FullType(BuiltList, [FullType(LocationAreaPokemonEncounter)]),
+        () => ListBuilder<LocationAreaPokemonEncounter>(),
       )
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(ItemEffectText)]),
@@ -981,16 +1043,12 @@ Serializers serializers = (_$serializers.toBuilder()
         () => ListBuilder<MoveMetaAilmentSummary>(),
       )
       ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(LocationAreaEncounterRate)]),
+        () => ListBuilder<LocationAreaEncounterRate>(),
+      )
+      ..addBuilderFactory(
         const FullType(BuiltList, [FullType(EvolutionTriggerName)]),
         () => ListBuilder<EvolutionTriggerName>(),
-      )
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(MoveChangeEffectEntriesInner)]),
-        () => ListBuilder<MoveChangeEffectEntriesInner>(),
-      )
-      ..addBuilderFactory(
-        const FullType(BuiltMap, [FullType(String), FullType(BuiltMap, [FullType(String), FullType(TypeDetailSpritesValueValue)])]),
-        () => MapBuilder<String, BuiltMap<String, TypeDetailSpritesValueValue>>(),
       )
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(EvolutionTriggerSummary)]),
@@ -1009,8 +1067,16 @@ Serializers serializers = (_$serializers.toBuilder()
         () => ListBuilder<BerryFlavorSummary>(),
       )
       ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(EvolutionVariableName)]),
+        () => ListBuilder<EvolutionVariableName>(),
+      )
+      ..addBuilderFactory(
         const FullType(BuiltList, [FullType(NatureSummary)]),
         () => ListBuilder<NatureSummary>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltMap, [FullType(String), FullType(BuiltMap, [FullType(String), FullType(TypeGameSprite)])]),
+        () => MapBuilder<String, BuiltMap<String, TypeGameSprite>>(),
       )
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(NatureName)]),
@@ -1021,44 +1087,60 @@ Serializers serializers = (_$serializers.toBuilder()
         () => ListBuilder<PokemonColorName>(),
       )
       ..addBuilderFactory(
-        const FullType(BuiltMap, [FullType(String), FullType(TypeDetailSpritesValueValue)]),
-        () => MapBuilder<String, TypeDetailSpritesValueValue>(),
+        const FullType(BuiltList, [FullType(PokemonType)]),
+        () => ListBuilder<PokemonType>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(EvolutionVariableSummary)]),
+        () => ListBuilder<EvolutionVariableSummary>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(CurrencyName)]),
+        () => ListBuilder<CurrencyName>(),
       )
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(ItemFlingEffectEffectText)]),
         () => ListBuilder<ItemFlingEffectEffectText>(),
       )
       ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(PokemonDexNumber)]),
+        () => ListBuilder<PokemonDexNumber>(),
+      )
+      ..addBuilderFactory(
         const FullType(BuiltList, [FullType(MoveDamageClassName)]),
         () => ListBuilder<MoveDamageClassName>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(TypePokemon)]),
+        () => ListBuilder<TypePokemon>(),
       )
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(MoveTargetName)]),
         () => ListBuilder<MoveTargetName>(),
       )
       ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner)]),
-        () => ListBuilder<EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner>(),
+        const FullType(BuiltList, [FullType(PokemonPastType)]),
+        () => ListBuilder<PokemonPastType>(),
       )
       ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(EggGroupDetailPokemonSpeciesInner)]),
-        () => ListBuilder<EggGroupDetailPokemonSpeciesInner>(),
+        const FullType(BuiltList, [FullType(PokemonFormTriggerCondition)]),
+        () => ListBuilder<PokemonFormTriggerCondition>(),
       )
       ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(PokemonDetailPastTypesInner)]),
-        () => ListBuilder<PokemonDetailPastTypesInner>(),
+        const FullType(BuiltList, [FullType(LocationAreaPokemonEncounterVersion)]),
+        () => ListBuilder<LocationAreaPokemonEncounterVersion>(),
       )
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(AbilityEffectText)]),
         () => ListBuilder<AbilityEffectText>(),
       )
       ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(MoveDamageClassSummary)]),
-        () => ListBuilder<MoveDamageClassSummary>(),
+        const FullType(BuiltList, [FullType(TypePastRelationships)]),
+        () => ListBuilder<TypePastRelationships>(),
       )
       ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(PokemonDetailAbilitiesInner)]),
-        () => ListBuilder<PokemonDetailAbilitiesInner>(),
+        const FullType(BuiltList, [FullType(MoveDamageClassSummary)]),
+        () => ListBuilder<MoveDamageClassSummary>(),
       )
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(ItemCategorySummary)]),
@@ -1067,6 +1149,10 @@ Serializers serializers = (_$serializers.toBuilder()
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(ItemSummary)]),
         () => ListBuilder<ItemSummary>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(PokemonShapeAwesomeName)]),
+        () => ListBuilder<PokemonShapeAwesomeName>(),
       )
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(MoveTargetDescription)]),
@@ -1085,16 +1171,20 @@ Serializers serializers = (_$serializers.toBuilder()
         () => ListBuilder<CharacteristicDescription>(),
       )
       ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(MoveDetailStatChangesInner)]),
-        () => ListBuilder<MoveDetailStatChangesInner>(),
+        const FullType(BuiltList, [FullType(AbilityPokemonDetail)]),
+        () => ListBuilder<AbilityPokemonDetail>(),
       )
       ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(NatureDetailPokeathlonStatChangesInner)]),
-        () => ListBuilder<NatureDetailPokeathlonStatChangesInner>(),
+        const FullType(BuiltList, [FullType(MoveMetaStatChange)]),
+        () => ListBuilder<MoveMetaStatChange>(),
       )
       ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(AbilityDetailPokemonInnerPokemon)]),
-        () => ListBuilder<AbilityDetailPokemonInnerPokemon>(),
+        const FullType(BuiltList, [FullType(EvolutionChainLink)]),
+        () => ListBuilder<EvolutionChainLink>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(PokemonAbility)]),
+        () => ListBuilder<PokemonAbility>(),
       )
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(GrowthRateDescription)]),
@@ -1105,12 +1195,16 @@ Serializers serializers = (_$serializers.toBuilder()
         () => ListBuilder<EncounterConditionValueName>(),
       )
       ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(BerryDetailFlavorsInner)]),
-        () => ListBuilder<BerryDetailFlavorsInner>(),
+        const FullType(BuiltList, [FullType(PokemonPastStat)]),
+        () => ListBuilder<PokemonPastStat>(),
       )
       ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(TypeDetailPastDamageRelationsInner)]),
-        () => ListBuilder<TypeDetailPastDamageRelationsInner>(),
+        const FullType(BuiltList, [FullType(NaturePokeathlonStat)]),
+        () => ListBuilder<NaturePokeathlonStat>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(PokemonSpeciesVariety)]),
+        () => ListBuilder<PokemonSpeciesVariety>(),
       )
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(ItemCategoryName)]),
@@ -1145,24 +1239,20 @@ Serializers serializers = (_$serializers.toBuilder()
         () => ListBuilder<ContestEffectSummary>(),
       )
       ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(PokemonShapeDetailNamesInner)]),
-        () => ListBuilder<PokemonShapeDetailNamesInner>(),
+        const FullType(BuiltList, [FullType(PokemonSpeciesGenus)]),
+        () => ListBuilder<PokemonSpeciesGenus>(),
       )
       ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(GenderDetailPokemonSpeciesDetailsInner)]),
-        () => ListBuilder<GenderDetailPokemonSpeciesDetailsInner>(),
-      )
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(PokemonDetailPastAbilitiesInner)]),
-        () => ListBuilder<PokemonDetailPastAbilitiesInner>(),
+        const FullType(BuiltList, [FullType(MoveEffectEffectText)]),
+        () => ListBuilder<MoveEffectEffectText>(),
       )
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(PokemonGameIndex)]),
         () => ListBuilder<PokemonGameIndex>(),
       )
       ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(PokemonShapeDetailAwesomeNamesInner)]),
-        () => ListBuilder<PokemonShapeDetailAwesomeNamesInner>(),
+        const FullType(BuiltList, [FullType(PokemonEncounterDetailResponse)]),
+        () => ListBuilder<PokemonEncounterDetailResponse>(),
       )
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(ItemPocketSummary)]),

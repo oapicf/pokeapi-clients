@@ -15,13 +15,15 @@
                 
                 
                 ; [@key "level"]
-                                              experience: int32
+                    (** The level gained. *)
+                                      experience: int32
                   
                   
                 
                 
                 ; [@key "experience"]
-                        } [@@deriving yojson { strict = false }, show, eq ];;
+                    (** The amount of experience required to reach the referenced level. *)
+                } [@@deriving yojson { strict = false }, show, eq ];;
         
         let create (level : int32) (experience : int32) : t = {
             level = level;

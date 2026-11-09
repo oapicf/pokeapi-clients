@@ -24,6 +24,18 @@ Protected Interface EvolutionApiCallbackHandler
 		End Sub
 	#tag EndMethod
 
+	#tag Method, Flags = &h0
+		Sub EvolutionVariableListCallback(status As OpenAPIClient.OpenAPIClientException, Optional data As OpenAPIClient.Models.PaginatedEvolutionVariableSummaryList)
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub EvolutionVariableRetrieveCallback(status As OpenAPIClient.OpenAPIClientException, Optional data As OpenAPIClient.Models.EvolutionVariableDetail)
+		  
+		End Sub
+	#tag EndMethod
+
 
 
 

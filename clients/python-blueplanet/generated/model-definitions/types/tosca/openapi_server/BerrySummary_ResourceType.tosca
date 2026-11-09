@@ -17,12 +17,12 @@ resourceTypes {
     properties {
         name {
           type =  string
-          description = ""
+          description = "The name of the referenced resource."
           optional = true
         }
         url {
           type =  string
-          description = ""
+          description = "The URL of the referenced resource."
           optional = true
         }
     }

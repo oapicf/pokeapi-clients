@@ -23,8 +23,10 @@ import HelperCodecs._
 
 import org.openapitools.client.api.EvolutionChainDetail
 import org.openapitools.client.api.EvolutionTriggerDetail
+import org.openapitools.client.api.EvolutionVariableDetail
 import org.openapitools.client.api.PaginatedEvolutionChainSummaryList
 import org.openapitools.client.api.PaginatedEvolutionTriggerSummaryList
+import org.openapitools.client.api.PaginatedEvolutionVariableSummaryList
 
 object EvolutionApi {
 
@@ -32,7 +34,7 @@ object EvolutionApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def evolutionChainList(host: String, limit: Integer, offset: Integer, q: String)(implicit limitQuery: QueryParam[Integer], offsetQuery: QueryParam[Integer], qQuery: QueryParam[String]): Task[PaginatedEvolutionChainSummaryList] = {
+  def evolutionChainList(host: String, limit: Integer, offset: Integer)(implicit limitQuery: QueryParam[Integer], offsetQuery: QueryParam[Integer]): Task[PaginatedEvolutionChainSummaryList] = {
     implicit val returnTypeDecoder: EntityDecoder[PaginatedEvolutionChainSummaryList] = jsonOf[PaginatedEvolutionChainSummaryList]
 
     val path = "/api/v2/evolution-chain/"
@@ -42,7 +44,7 @@ object EvolutionApi {
     val headers = Headers(
       )
     val queryParams = Query(
-      ("limit", Some(limitQuery.toParamString(limit))), ("offset", Some(offsetQuery.toParamString(offset))), ("q", Some(qQuery.toParamString(q))))
+      ("limit", Some(limitQuery.toParamString(limit))), ("offset", Some(offsetQuery.toParamString(offset))))
 
     for {
       uri           <- Task.fromDisjunction(Uri.fromString(host + path))
@@ -116,6 +118,48 @@ object EvolutionApi {
     } yield resp
   }
 
+  def evolutionVariableList(host: String, limit: Integer, offset: Integer, q: String)(implicit limitQuery: QueryParam[Integer], offsetQuery: QueryParam[Integer], qQuery: QueryParam[String]): Task[PaginatedEvolutionVariableSummaryList] = {
+    implicit val returnTypeDecoder: EntityDecoder[PaginatedEvolutionVariableSummaryList] = jsonOf[PaginatedEvolutionVariableSummaryList]
+
+    val path = "/api/v2/evolution-variable/"
+
+    val httpMethod = Method.GET
+    val contentType = `Content-Type`(MediaType.`application/json`)
+    val headers = Headers(
+      )
+    val queryParams = Query(
+      ("limit", Some(limitQuery.toParamString(limit))), ("offset", Some(offsetQuery.toParamString(offset))), ("q", Some(qQuery.toParamString(q))))
+
+    for {
+      uri           <- Task.fromDisjunction(Uri.fromString(host + path))
+      uriWithParams =  uri.copy(query = queryParams)
+      req           =  Request(method = httpMethod, uri = uriWithParams, headers = headers.put(contentType))
+      resp          <- client.expect[PaginatedEvolutionVariableSummaryList](req)
+
+    } yield resp
+  }
+
+  def evolutionVariableRetrieve(host: String, id: String): Task[EvolutionVariableDetail] = {
+    implicit val returnTypeDecoder: EntityDecoder[EvolutionVariableDetail] = jsonOf[EvolutionVariableDetail]
+
+    val path = "/api/v2/evolution-variable/{id}/".replaceAll("\\{" + "id" + "\\}",escape(id.toString))
+
+    val httpMethod = Method.GET
+    val contentType = `Content-Type`(MediaType.`application/json`)
+    val headers = Headers(
+      )
+    val queryParams = Query(
+      )
+
+    for {
+      uri           <- Task.fromDisjunction(Uri.fromString(host + path))
+      uriWithParams =  uri.copy(query = queryParams)
+      req           =  Request(method = httpMethod, uri = uriWithParams, headers = headers.put(contentType))
+      resp          <- client.expect[EvolutionVariableDetail](req)
+
+    } yield resp
+  }
+
 }
 
 class HttpServiceEvolutionApi(service: HttpService) {
@@ -123,7 +167,7 @@ class HttpServiceEvolutionApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def evolutionChainList(limit: Integer, offset: Integer, q: String)(implicit limitQuery: QueryParam[Integer], offsetQuery: QueryParam[Integer], qQuery: QueryParam[String]): Task[PaginatedEvolutionChainSummaryList] = {
+  def evolutionChainList(limit: Integer, offset: Integer)(implicit limitQuery: QueryParam[Integer], offsetQuery: QueryParam[Integer]): Task[PaginatedEvolutionChainSummaryList] = {
     implicit val returnTypeDecoder: EntityDecoder[PaginatedEvolutionChainSummaryList] = jsonOf[PaginatedEvolutionChainSummaryList]
 
     val path = "/api/v2/evolution-chain/"
@@ -133,7 +177,7 @@ class HttpServiceEvolutionApi(service: HttpService) {
     val headers = Headers(
       )
     val queryParams = Query(
-      ("limit", Some(limitQuery.toParamString(limit))), ("offset", Some(offsetQuery.toParamString(offset))), ("q", Some(qQuery.toParamString(q))))
+      ("limit", Some(limitQuery.toParamString(limit))), ("offset", Some(offsetQuery.toParamString(offset))))
 
     for {
       uri           <- Task.fromDisjunction(Uri.fromString(path))
@@ -203,6 +247,48 @@ class HttpServiceEvolutionApi(service: HttpService) {
       uriWithParams =  uri.copy(query = queryParams)
       req           =  Request(method = httpMethod, uri = uriWithParams, headers = headers.put(contentType))
       resp          <- client.expect[EvolutionTriggerDetail](req)
+
+    } yield resp
+  }
+
+  def evolutionVariableList(limit: Integer, offset: Integer, q: String)(implicit limitQuery: QueryParam[Integer], offsetQuery: QueryParam[Integer], qQuery: QueryParam[String]): Task[PaginatedEvolutionVariableSummaryList] = {
+    implicit val returnTypeDecoder: EntityDecoder[PaginatedEvolutionVariableSummaryList] = jsonOf[PaginatedEvolutionVariableSummaryList]
+
+    val path = "/api/v2/evolution-variable/"
+
+    val httpMethod = Method.GET
+    val contentType = `Content-Type`(MediaType.`application/json`)
+    val headers = Headers(
+      )
+    val queryParams = Query(
+      ("limit", Some(limitQuery.toParamString(limit))), ("offset", Some(offsetQuery.toParamString(offset))), ("q", Some(qQuery.toParamString(q))))
+
+    for {
+      uri           <- Task.fromDisjunction(Uri.fromString(path))
+      uriWithParams =  uri.copy(query = queryParams)
+      req           =  Request(method = httpMethod, uri = uriWithParams, headers = headers.put(contentType))
+      resp          <- client.expect[PaginatedEvolutionVariableSummaryList](req)
+
+    } yield resp
+  }
+
+  def evolutionVariableRetrieve(id: String): Task[EvolutionVariableDetail] = {
+    implicit val returnTypeDecoder: EntityDecoder[EvolutionVariableDetail] = jsonOf[EvolutionVariableDetail]
+
+    val path = "/api/v2/evolution-variable/{id}/".replaceAll("\\{" + "id" + "\\}",escape(id.toString))
+
+    val httpMethod = Method.GET
+    val contentType = `Content-Type`(MediaType.`application/json`)
+    val headers = Headers(
+      )
+    val queryParams = Query(
+      )
+
+    for {
+      uri           <- Task.fromDisjunction(Uri.fromString(path))
+      uriWithParams =  uri.copy(query = queryParams)
+      req           =  Request(method = httpMethod, uri = uriWithParams, headers = headers.put(contentType))
+      resp          <- client.expect[EvolutionVariableDetail](req)
 
     } yield resp
   }

@@ -52,6 +52,7 @@ class LocationName(Model):
     def name(self) -> str:
         """Gets the name of this LocationName.
 
+        The localized name for an API resource in a specific language.  # noqa: E501
 
         :return: The name of this LocationName.
         :rtype: str
@@ -62,14 +63,15 @@ class LocationName(Model):
     def name(self, name: str):
         """Sets the name of this LocationName.
 
+        The localized name for an API resource in a specific language.  # noqa: E501
 
         :param name: The name of this LocationName.
         :type name: str
         """
         if name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
-        if name is not None and len(name) > 100:
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `100`")  # noqa: E501
+        if name is not None and len(name) > 200:
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `200`")  # noqa: E501
 
         self._name = name
 
@@ -77,6 +79,7 @@ class LocationName(Model):
     def language(self) -> LanguageSummary:
         """Gets the language of this LocationName.
 
+        The language this name is in.  # noqa: E501
 
         :return: The language of this LocationName.
         :rtype: LanguageSummary
@@ -87,6 +90,7 @@ class LocationName(Model):
     def language(self, language: LanguageSummary):
         """Sets the language of this LocationName.
 
+        The language this name is in.  # noqa: E501
 
         :param language: The language of this LocationName.
         :type language: LanguageSummary

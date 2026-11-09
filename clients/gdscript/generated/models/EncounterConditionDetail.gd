@@ -10,6 +10,7 @@ class_name EncounterConditionDetail
 # EncounterConditionDetail Model
 
 
+# The identifier for this resource.
 # Required: True
 # isArray: false
 @export var id: int:
@@ -18,6 +19,7 @@ class_name EncounterConditionDetail
 		id = value
 var __id__was__set := false
 
+# The name for this resource.
 # Required: True
 # isArray: false
 @export var name: String:
@@ -26,6 +28,7 @@ var __id__was__set := false
 		name = value
 var __name__was__set := false
 
+# A list of possible values for this encounter condition.
 # Required: True
 # isArray: true
 @export var values: Array:
@@ -34,6 +37,7 @@ var __name__was__set := false
 		values = value
 var __values__was__set := false
 
+# The name of this resource listed in different languages.
 # Required: True
 # isArray: true
 @export var names: Array:

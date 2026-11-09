@@ -10,6 +10,7 @@ class_name MoveMeta
 # MoveMeta Model
 
 
+# The status ailment this move inflicts on its target.
 # Required: True
 # isArray: false
 @export var ailment: MoveMetaAilmentSummary:
@@ -18,6 +19,7 @@ class_name MoveMeta
 		ailment = value
 var __ailment__was__set := false
 
+# The category of move this move falls under, e.g. damage or ailment.
 # Required: True
 # isArray: false
 @export var category: MoveMetaCategorySummary:
@@ -26,6 +28,7 @@ var __ailment__was__set := false
 		category = value
 var __category__was__set := false
 
+# The minimum number of times this move hits. Null if it always only hits once.
 # Required: False
 # isArray: false
 @export var minUnderscorehits: int:
@@ -34,6 +37,7 @@ var __category__was__set := false
 		minUnderscorehits = value
 var __minUnderscorehits__was__set := false
 
+# The maximum number of times this move hits. Null if it always only hits once.
 # Required: False
 # isArray: false
 @export var maxUnderscorehits: int:
@@ -42,6 +46,7 @@ var __minUnderscorehits__was__set := false
 		maxUnderscorehits = value
 var __maxUnderscorehits__was__set := false
 
+# The minimum number of turns this move continues to take effect. Null if it always only lasts one turn.
 # Required: False
 # isArray: false
 @export var minUnderscoreturns: int:
@@ -50,6 +55,7 @@ var __maxUnderscorehits__was__set := false
 		minUnderscoreturns = value
 var __minUnderscoreturns__was__set := false
 
+# The maximum number of turns this move continues to take effect. Null if it always only lasts one turn.
 # Required: False
 # isArray: false
 @export var maxUnderscoreturns: int:
@@ -58,6 +64,7 @@ var __minUnderscoreturns__was__set := false
 		maxUnderscoreturns = value
 var __maxUnderscoreturns__was__set := false
 
+# HP drain (if positive) or Recoil damage (if negative), in percent of damage done.
 # Required: False
 # isArray: false
 @export var drain: int:
@@ -66,6 +73,7 @@ var __maxUnderscoreturns__was__set := false
 		drain = value
 var __drain__was__set := false
 
+# The amount of hp gained by the attacking Pokemon, in percent of it's maximum HP.
 # Required: False
 # isArray: false
 @export var healing: int:
@@ -74,6 +82,7 @@ var __drain__was__set := false
 		healing = value
 var __healing__was__set := false
 
+# Critical hit rate bonus.
 # Required: False
 # isArray: false
 @export var critUnderscorerate: int:
@@ -82,6 +91,7 @@ var __healing__was__set := false
 		critUnderscorerate = value
 var __critUnderscorerate__was__set := false
 
+# The likelihood this attack will cause an ailment.
 # Required: False
 # isArray: false
 @export var ailmentUnderscorechance: int:
@@ -90,6 +100,7 @@ var __critUnderscorerate__was__set := false
 		ailmentUnderscorechance = value
 var __ailmentUnderscorechance__was__set := false
 
+# The likelihood this attack will cause the target Pokémon to flinch.
 # Required: False
 # isArray: false
 @export var flinchUnderscorechance: int:
@@ -98,6 +109,7 @@ var __ailmentUnderscorechance__was__set := false
 		flinchUnderscorechance = value
 var __flinchUnderscorechance__was__set := false
 
+# The likelihood this attack will cause a stat change in the target Pokémon.
 # Required: False
 # isArray: false
 @export var statUnderscorechance: int:

@@ -13,8 +13,10 @@ import java.net.URI
 import MoveBattleStyleSummary._
 
 case class MoveBattleStyleSummary (
+  /* The name of the referenced resource. */
   name: String,
-url: URI)
+/* The URL of the referenced resource. */
+  url: URI)
 
 object MoveBattleStyleSummary {
   import DateTimeCodecs._

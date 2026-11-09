@@ -8,7 +8,9 @@
 import Foundation
 
 public struct EvolutionTriggerName: Codable {
+    /// The localized name for an API resource in a specific language.
     public var name: String
+    /// The language this name is in.
     public var language: LanguageSummary
 
     public init(name: String, language: LanguageSummary) {

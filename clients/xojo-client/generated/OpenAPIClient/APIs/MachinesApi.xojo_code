@@ -1,13 +1,12 @@
 #tag Class
 Protected Class MachinesApi
 	#tag Method, Flags = &h0
-		Sub MachineList(, Optional limit As Xoson.O.OptionalInteger, Optional offset As Xoson.O.OptionalInteger, Optional q As Xoson.O.OptionalString)
+		Sub MachineList(, Optional limit As Xoson.O.OptionalInteger, Optional offset As Xoson.O.OptionalInteger)
 		  // Operation machine_list
 		  // List machines
 		  // - 
 		  // - parameter limit: (query) Number of results to return per page. (optional, default to 0)
 		  // - parameter offset: (query) The initial index from which to return the results. (optional, default to 0)
-		  // - parameter q: (query) &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional, default to Sample)
 		  //
 		  // Invokes MachinesApiCallbackHandler.MachineListCallback(PaginatedMachineSummaryList) on completion. 
 		  //
@@ -15,12 +14,6 @@ Protected Class MachinesApi
 		  // - Machines are the representation of items that teach moves to Pokémon. They vary from version to version, so it is not certain that one specific TM or HM corresponds to a single Machine.
 		  // - defaultResponse: Nil
 		  //
-		  // - BASIC:
-		  //   - type: http
-		  //   - name: basicAuth
-		  // - API Key:
-		  //   - type: apiKey sessionid 
-		  //   - name: cookieAuth
 		  //
 		  
 		  Dim localVarHTTPSocket As New HTTPSecureSocket
@@ -31,13 +24,7 @@ Protected Class MachinesApi
 		  
 		  If offset <> nil Then localVarQueryParams = localVarQueryParams + "&" + EncodeURLComponent("offset") + "=" + EncodeURLComponent(offset.ToString)
 		  
-		  If q <> nil Then localVarQueryParams = localVarQueryParams + "&" + EncodeURLComponent("q") + "=" + EncodeURLComponent(q)
-		  
 
-		  
-		  AddHandler localVarHTTPSocket.AuthenticationRequired, addressof Me.AuthenticationRequiredIf me.ApiKeycookieAuth = "" Then Raise New OpenAPIClient.OpenAPIClientException(kErrorCannotAuthenticate, "API key is unset. Please assign a value to `MachinesApi.ApiKeycookieAuth` before invoking `MachinesApi.MachineList()`.")
-		  
-		  
 		  
 
 
@@ -157,20 +144,10 @@ Protected Class MachinesApi
 		  // - Machines are the representation of items that teach moves to Pokémon. They vary from version to version, so it is not certain that one specific TM or HM corresponds to a single Machine.
 		  // - defaultResponse: Nil
 		  //
-		  // - BASIC:
-		  //   - type: http
-		  //   - name: basicAuth
-		  // - API Key:
-		  //   - type: apiKey sessionid 
-		  //   - name: cookieAuth
 		  //
 		  
 		  Dim localVarHTTPSocket As New HTTPSecureSocket
 		  Me.PrivateFuncPrepareSocket(localVarHTTPSocket)
-		  
-		  
-		  
-		  AddHandler localVarHTTPSocket.AuthenticationRequired, addressof Me.AuthenticationRequiredIf me.ApiKeycookieAuth = "" Then Raise New OpenAPIClient.OpenAPIClientException(kErrorCannotAuthenticate, "API key is unset. Please assign a value to `MachinesApi.ApiKeycookieAuth` before invoking `MachinesApi.MachineRetrieve()`.")
 		  
 		  
 		  
@@ -328,10 +305,6 @@ Protected Class MachinesApi
 
 	#tag Property, Flags = &h0
 		AdditionalHeaders As Dictionary
-	#tag EndProperty
-
-	#tag Property, Flags = &h0
-		ApiKeycookieAuth As String
 	#tag EndProperty
 
 	#tag Property, Flags = &h0

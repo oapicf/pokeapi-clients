@@ -19,7 +19,7 @@ import jakarta.annotation.Generated;
  * SuperContestEffectSummary
  */
 
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-10-25T05:48:25.711080506Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-11-09T13:49:41.168612095Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class SuperContestEffectSummary {
 
   private URI url;
@@ -41,11 +41,11 @@ public class SuperContestEffectSummary {
   }
 
   /**
-   * Get url
+   * The URL of the referenced resource.
    * @return url
    */
   @Valid 
-  @Schema(name = "url", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "url", accessMode = Schema.AccessMode.READ_ONLY, description = "The URL of the referenced resource.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("url")
   public URI getUrl() {
     return url;

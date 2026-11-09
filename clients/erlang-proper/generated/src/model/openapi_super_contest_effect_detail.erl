@@ -21,7 +21,7 @@ openapi_super_contest_effect_detail() ->
 
 openapi_super_contest_effect_detail(Fields) ->
   Default = [ {'id', integer() }
-            , {'appeal', integer() }
+            , {'appeal', integer(-2147483648, 2147483647) }
             , {'flavor_text_entries', list(openapi_super_contest_effect_flavor_text:openapi_super_contest_effect_flavor_text()) }
             , {'moves', list(openapi_move_summary:openapi_move_summary()) }
             ],

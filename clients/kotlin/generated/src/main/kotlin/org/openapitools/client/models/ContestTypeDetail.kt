@@ -32,24 +32,28 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param id 
- * @param name 
- * @param berryFlavor 
- * @param names 
+ * @param id The identifier for this resource.
+ * @param name The name for this resource.
+ * @param berryFlavor The berry flavor that correlates with this contest type.
+ * @param names The name of this contest type listed in different languages.
  */
 
 
 data class ContestTypeDetail (
 
+    /* The identifier for this resource. */
     @Json(name = "id")
     val id: kotlin.Int,
 
+    /* The name for this resource. */
     @Json(name = "name")
     val name: kotlin.String,
 
+    /* The berry flavor that correlates with this contest type. */
     @Json(name = "berry_flavor")
     val berryFlavor: BerryFlavorSummary,
 
+    /* The name of this contest type listed in different languages. */
     @Json(name = "names")
     val names: kotlin.collections.List<ContestTypeName>
 

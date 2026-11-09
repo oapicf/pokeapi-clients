@@ -7,7 +7,7 @@ using namespace Tiny;
 MoveMetaAilmentName::MoveMetaAilmentName()
 {
 	name = std::string();
-	language = LanguageSummary();
+	language = null;
 }
 
 MoveMetaAilmentName::MoveMetaAilmentName(std::string jsonString)

@@ -10,6 +10,7 @@ class_name VersionGroupDetail
 # VersionGroupDetail Model
 
 
+# The identifier for this resource.
 # Required: True
 # isArray: false
 @export var id: int:
@@ -18,6 +19,7 @@ class_name VersionGroupDetail
 		id = value
 var __id__was__set := false
 
+# The name for this resource.
 # Required: True
 # isArray: false
 @export var name: String:
@@ -26,6 +28,7 @@ var __id__was__set := false
 		name = value
 var __name__was__set := false
 
+# Order for sorting. Almost by date of release, except similar versions are grouped together.
 # Required: False
 # isArray: false
 @export var order: int:
@@ -34,6 +37,7 @@ var __name__was__set := false
 		order = value
 var __order__was__set := false
 
+# The generation this version was introduced in.
 # Required: True
 # isArray: false
 @export var generation: GenerationSummary:
@@ -42,6 +46,7 @@ var __order__was__set := false
 		generation = value
 var __generation__was__set := false
 
+# A list of methods in which Pokémon can learn moves in this version group.
 # Required: True
 # isArray: true
 @export var moveUnderscorelearnUnderscoremethods: Array:
@@ -50,6 +55,7 @@ var __generation__was__set := false
 		moveUnderscorelearnUnderscoremethods = value
 var __moveUnderscorelearnUnderscoremethods__was__set := false
 
+# A list of Pokédexes introduces in this version group.
 # Required: True
 # isArray: true
 @export var pokedexes: Array:
@@ -58,6 +64,7 @@ var __moveUnderscorelearnUnderscoremethods__was__set := false
 		pokedexes = value
 var __pokedexes__was__set := false
 
+# A list of regions that can be visited in this version group.
 # Required: True
 # isArray: true
 @export var regions: Array:
@@ -66,6 +73,7 @@ var __pokedexes__was__set := false
 		regions = value
 var __regions__was__set := false
 
+# The versions this version group owns.
 # Required: True
 # isArray: true
 @export var versions: Array:
@@ -127,11 +135,11 @@ static func bzz_denormalize_single(from_dict: Dictionary):
 	if from_dict.has("generation"):
 		me.generation = GenerationSummary.bzz_denormalize_single(from_dict["generation"])
 	if from_dict.has("moveUnderscorelearnUnderscoremethods"):
-		me.moveUnderscorelearnUnderscoremethods = AbilityDetail_pokemon_inner_pokemon.bzz_denormalize_multiple(from_dict["moveUnderscorelearnUnderscoremethods"])
+		me.moveUnderscorelearnUnderscoremethods = MoveLearnMethodSummary.bzz_denormalize_multiple(from_dict["moveUnderscorelearnUnderscoremethods"])
 	if from_dict.has("pokedexes"):
-		me.pokedexes = AbilityDetail_pokemon_inner_pokemon.bzz_denormalize_multiple(from_dict["pokedexes"])
+		me.pokedexes = PokedexSummary.bzz_denormalize_multiple(from_dict["pokedexes"])
 	if from_dict.has("regions"):
-		me.regions = AbilityDetail_pokemon_inner_pokemon.bzz_denormalize_multiple(from_dict["regions"])
+		me.regions = RegionSummary.bzz_denormalize_multiple(from_dict["regions"])
 	if from_dict.has("versions"):
 		me.versions = VersionSummary.bzz_denormalize_multiple(from_dict["versions"])
 	return me

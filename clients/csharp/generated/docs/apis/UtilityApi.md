@@ -6,6 +6,7 @@ All URIs are relative to *https://pokeapi.co*
 |--------|--------------|-------------|
 | [**LanguageList**](UtilityApi.md#languagelist) | **GET** /api/v2/language/ | List languages |
 | [**LanguageRetrieve**](UtilityApi.md#languageretrieve) | **GET** /api/v2/language/{id}/ | Get language |
+| [**MetaRetrieve**](UtilityApi.md#metaretrieve) | **GET** /api/v2/meta/ | Get API metadata |
 
 <a id="languagelist"></a>
 # **LanguageList**
@@ -30,7 +31,7 @@ Languages for translations of API resource information.
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -66,7 +67,39 @@ Languages for translations of API resource information.
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+<a id="metaretrieve"></a>
+# **MetaRetrieve**
+> PokeapiMetaResponse MetaRetrieve ()
+
+Get API metadata
+
+Returns metadata about the current deployed version of the API, including the git commit hash, deploy date, and tag (if any).
+
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**PokeapiMetaResponse**](PokeapiMetaResponse.md)
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 

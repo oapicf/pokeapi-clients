@@ -14,7 +14,7 @@ public class AbilityDetail
     public List<AbilityEffectText> EffectEntries { get; set; }
     public List<AbilityChange> EffectChanges { get; set; }
     public List<AbilityFlavorText> FlavorTextEntries { get; set; }
-    public List<AbilityDetailPokemonInner> Pokemon { get; set; }
+    public List<AbilityPokemonDetail> Pokemon { get; set; }
 }
 
 

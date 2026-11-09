@@ -10,12 +10,12 @@ import javax.validation.Valid;
 /**
  * ContestTypeName
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-10-25T05:48:13.486809836Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-11-09T13:49:31.462302702Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class ContestTypeName   {
   @JsonProperty("name")
   @NotNull
-@Size(max=100)
+@Size(max=200)
 
   private String name;
 
@@ -37,7 +37,7 @@ public class ContestTypeName   {
   }
 
    /**
-   * Get name
+   * The name for this contest.
    * @return name
   **/
   public String getName() {
@@ -54,7 +54,7 @@ public class ContestTypeName   {
   }
 
    /**
-   * Get color
+   * The color associated with this contest's name.
    * @return color
   **/
   public String getColor() {
@@ -71,7 +71,7 @@ public class ContestTypeName   {
   }
 
    /**
-   * Get language
+   * The language that this name is in.
    * @return language
   **/
   public LanguageSummary getLanguage() {

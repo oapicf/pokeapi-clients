@@ -12,17 +12,20 @@ part 'contest_type_name.g.dart';
 /// ContestTypeName
 ///
 /// Properties:
-/// * [name] 
-/// * [color] 
-/// * [language] 
+/// * [name] - The name for this contest.
+/// * [color] - The color associated with this contest's name.
+/// * [language] - The language that this name is in.
 @BuiltValue()
 abstract class ContestTypeName implements Built<ContestTypeName, ContestTypeNameBuilder> {
+  /// The name for this contest.
   @BuiltValueField(wireName: r'name')
   String get name;
 
+  /// The color associated with this contest's name.
   @BuiltValueField(wireName: r'color')
   String get color;
 
+  /// The language that this name is in.
   @BuiltValueField(wireName: r'language')
   LanguageSummary get language;
 

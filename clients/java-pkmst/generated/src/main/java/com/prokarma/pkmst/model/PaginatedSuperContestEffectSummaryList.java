@@ -10,6 +10,7 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.openapitools.jackson.nullable.JsonNullable;
 /**
  * Response class to be returned by Api
  * @author pkmst
@@ -19,7 +20,7 @@ import java.util.List;
  * PaginatedSuperContestEffectSummaryList
  */
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-10-25T05:48:09.645019047Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-11-09T13:49:28.343088631Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PaginatedSuperContestEffectSummaryList   {
   @JsonProperty("count")
   private Integer count;
@@ -32,7 +33,7 @@ public class PaginatedSuperContestEffectSummaryList   {
 
   @JsonProperty("results")
   
-  private List<SuperContestEffectSummary> results = null;
+  private List<SuperContestEffectSummary> results = new ArrayList<>();
 
   public PaginatedSuperContestEffectSummaryList count(Integer count) {
     this.count = count;
@@ -40,10 +41,10 @@ public class PaginatedSuperContestEffectSummaryList   {
   }
 
   /**
-   * Get count
+   * The total number of resources available from this API.
    * @return count
    */
-  @ApiModelProperty(example = "123", value = "")
+  @ApiModelProperty(example = "100", required = true, value = "The total number of resources available from this API.")
   public Integer getCount() {
     return count;
   }
@@ -58,10 +59,10 @@ public class PaginatedSuperContestEffectSummaryList   {
   }
 
   /**
-   * Get next
+   * The URL for the next page in the list, or null if there is no next page.
    * @return next
    */
-  @ApiModelProperty(example = "http://api.example.org/accounts/?offset=400&limit=100", value = "")
+  @ApiModelProperty(example = "https://pokeapi.co/api/v2/super-contest-effect/?offset=40&limit=20", value = "The URL for the next page in the list, or null if there is no next page.")
   public URI getNext() {
     return next;
   }
@@ -76,10 +77,10 @@ public class PaginatedSuperContestEffectSummaryList   {
   }
 
   /**
-   * Get previous
+   * The URL for the previous page in the list, or null if there is no previous page.
    * @return previous
    */
-  @ApiModelProperty(example = "http://api.example.org/accounts/?offset=200&limit=100", value = "")
+  @ApiModelProperty(example = "https://pokeapi.co/api/v2/super-contest-effect/?offset=0&limit=20", value = "The URL for the previous page in the list, or null if there is no previous page.")
   public URI getPrevious() {
     return previous;
   }
@@ -102,10 +103,10 @@ public class PaginatedSuperContestEffectSummaryList   {
   }
 
   /**
-   * Get results
+   * A list of API resources on this page.
    * @return results
    */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "A list of API resources on this page.")
   public List<SuperContestEffectSummary> getResults() {
     return results;
   }

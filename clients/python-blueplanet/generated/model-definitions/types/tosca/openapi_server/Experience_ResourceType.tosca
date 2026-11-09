@@ -17,12 +17,12 @@ resourceTypes {
     properties {
         level {
           type =  integer
-          description = ""
+          description = "The level gained."
           optional = true
         }
         experience {
           type =  integer
-          description = ""
+          description = "The amount of experience required to reach the referenced level."
           optional = true
         }
     }

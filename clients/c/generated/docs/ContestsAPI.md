@@ -18,7 +18,7 @@ Method | HTTP request | Description
 //
 // Contest effects refer to the effects of moves when used in contests.
 //
-paginated_contest_effect_summary_list_t* ContestsAPI_contestEffectList(apiClient_t *apiClient, int *limit, int *offset, char *q);
+paginated_contest_effect_summary_list_t* ContestsAPI_contestEffectList(apiClient_t *apiClient, int *limit, int *offset);
 ```
 
 ### Parameters
@@ -27,7 +27,6 @@ Name | Type | Description  | Notes
 **apiClient** | **apiClient_t \*** | context containing the client configuration |
 **limit** | **int \*** | Number of results to return per page. | [optional] 
 **offset** | **int \*** | The initial index from which to return the results. | [optional] 
-**q** | **char \*** | &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional] 
 
 ### Return type
 
@@ -36,7 +35,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -67,7 +66,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -100,7 +99,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -131,7 +130,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -146,7 +145,7 @@ Name | Type | Description  | Notes
 //
 // Super contest effects refer to the effects of moves when used in super contests.
 //
-paginated_super_contest_effect_summary_list_t* ContestsAPI_superContestEffectList(apiClient_t *apiClient, int *limit, int *offset, char *q);
+paginated_super_contest_effect_summary_list_t* ContestsAPI_superContestEffectList(apiClient_t *apiClient, int *limit, int *offset);
 ```
 
 ### Parameters
@@ -155,7 +154,6 @@ Name | Type | Description  | Notes
 **apiClient** | **apiClient_t \*** | context containing the client configuration |
 **limit** | **int \*** | Number of results to return per page. | [optional] 
 **offset** | **int \*** | The initial index from which to return the results. | [optional] 
-**q** | **char \*** | &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional] 
 
 ### Return type
 
@@ -164,7 +162,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -195,7 +193,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

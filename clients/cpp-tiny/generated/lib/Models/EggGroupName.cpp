@@ -7,7 +7,7 @@ using namespace Tiny;
 EggGroupName::EggGroupName()
 {
 	name = std::string();
-	language = LanguageSummary();
+	language = null;
 }
 
 EggGroupName::EggGroupName(std::string jsonString)

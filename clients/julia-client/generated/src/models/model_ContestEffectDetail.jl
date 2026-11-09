@@ -12,11 +12,11 @@
         flavor_text_entries=nothing,
     )
 
-    - id::Int64
-    - appeal::Int64
-    - jam::Int64
-    - effect_entries::Vector{ContestEffectEffectText}
-    - flavor_text_entries::Vector{ContestEffectFlavorText}
+    - id::Int64 : The identifier for this resource.
+    - appeal::Int64 : The base number of hearts the user of this move gets.
+    - jam::Int64 : The base number of hearts the user&#39;s opponent loses.
+    - effect_entries::Vector{ContestEffectEffectText} : The result of this contest effect listed in different languages.
+    - flavor_text_entries::Vector{ContestEffectFlavorText} : The flavor text of this contest effect listed in different languages.
 """
 Base.@kwdef mutable struct ContestEffectDetail <: OpenAPI.APIModel
     id::Union{Nothing, Int64} = nothing
@@ -55,7 +55,15 @@ end
 function OpenAPI.validate_property(::Type{ ContestEffectDetail }, name::Symbol, val)
 
 
+    if name === Symbol("appeal")
+        OpenAPI.validate_param(name, "ContestEffectDetail", :maximum, val, 2147483647, false)
+        OpenAPI.validate_param(name, "ContestEffectDetail", :minimum, val, -2147483648, false)
+    end
 
+    if name === Symbol("jam")
+        OpenAPI.validate_param(name, "ContestEffectDetail", :maximum, val, 2147483647, false)
+        OpenAPI.validate_param(name, "ContestEffectDetail", :minimum, val, -2147483648, false)
+    end
 
 
 end

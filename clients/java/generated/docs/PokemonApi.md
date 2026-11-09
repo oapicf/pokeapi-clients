@@ -4,9 +4,9 @@ All URIs are relative to *https://pokeapi.co*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**abilityList**](PokemonApi.md#abilityList) | **GET** /api/v2/ability/ |  |
-| [**abilityRetrieve**](PokemonApi.md#abilityRetrieve) | **GET** /api/v2/ability/{id}/ |  |
-| [**characteristicList**](PokemonApi.md#characteristicList) | **GET** /api/v2/characteristic/ | List charecterictics |
+| [**abilityList**](PokemonApi.md#abilityList) | **GET** /api/v2/ability/ | List abilities |
+| [**abilityRetrieve**](PokemonApi.md#abilityRetrieve) | **GET** /api/v2/ability/{id}/ | Get ability |
+| [**characteristicList**](PokemonApi.md#characteristicList) | **GET** /api/v2/characteristic/ | List characteristics |
 | [**characteristicRetrieve**](PokemonApi.md#characteristicRetrieve) | **GET** /api/v2/characteristic/{id}/ | Get characteristic |
 | [**eggGroupList**](PokemonApi.md#eggGroupList) | **GET** /api/v2/egg-group/ | List egg groups |
 | [**eggGroupRetrieve**](PokemonApi.md#eggGroupRetrieve) | **GET** /api/v2/egg-group/{id}/ | Get egg group |
@@ -42,7 +42,7 @@ All URIs are relative to *https://pokeapi.co*
 # **abilityList**
 > PaginatedAbilitySummaryList abilityList(limit, offset, q)
 
-
+List abilities
 
 Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
 
@@ -52,7 +52,6 @@ Abilities provide passive effects for Pokémon in battle or in the overworld. Po
 import com.github.oapicf.pokeapiclient.ApiClient;
 import com.github.oapicf.pokeapiclient.ApiException;
 import com.github.oapicf.pokeapiclient.Configuration;
-import com.github.oapicf.pokeapiclient.auth.*;
 import com.github.oapicf.pokeapiclient.models.*;
 import com.github.oapicf.pokeapiclient.api.PokemonApi;
 
@@ -60,17 +59,6 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://pokeapi.co");
-    
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
-
-    // Configure API key authorization: cookieAuth
-    ApiKeyAuth cookieAuth = (ApiKeyAuth) defaultClient.getAuthentication("cookieAuth");
-    cookieAuth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //cookieAuth.setApiKeyPrefix("Token");
 
     PokemonApi apiInstance = new PokemonApi(defaultClient);
     Integer limit = 56; // Integer | Number of results to return per page.
@@ -104,7 +92,7 @@ public class Example {
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -120,7 +108,7 @@ public class Example {
 # **abilityRetrieve**
 > AbilityDetail abilityRetrieve(id)
 
-
+Get ability
 
 Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
 
@@ -130,7 +118,6 @@ Abilities provide passive effects for Pokémon in battle or in the overworld. Po
 import com.github.oapicf.pokeapiclient.ApiClient;
 import com.github.oapicf.pokeapiclient.ApiException;
 import com.github.oapicf.pokeapiclient.Configuration;
-import com.github.oapicf.pokeapiclient.auth.*;
 import com.github.oapicf.pokeapiclient.models.*;
 import com.github.oapicf.pokeapiclient.api.PokemonApi;
 
@@ -138,20 +125,9 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://pokeapi.co");
-    
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
-
-    // Configure API key authorization: cookieAuth
-    ApiKeyAuth cookieAuth = (ApiKeyAuth) defaultClient.getAuthentication("cookieAuth");
-    cookieAuth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //cookieAuth.setApiKeyPrefix("Token");
 
     PokemonApi apiInstance = new PokemonApi(defaultClient);
-    String id = "id_example"; // String | This parameter can be a string or an integer.
+    String id = "1"; // String | This parameter can be a string or an integer.
     try {
       AbilityDetail result = apiInstance.abilityRetrieve(id);
       System.out.println(result);
@@ -178,7 +154,7 @@ public class Example {
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -192,9 +168,9 @@ public class Example {
 
 <a id="characteristicList"></a>
 # **characteristicList**
-> PaginatedCharacteristicSummaryList characteristicList(limit, offset, q)
+> PaginatedCharacteristicSummaryList characteristicList(limit, offset)
 
-List charecterictics
+List characteristics
 
 Characteristics indicate which stat contains a Pokémon&#39;s highest IV. A Pokémon&#39;s Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail.
 
@@ -204,7 +180,6 @@ Characteristics indicate which stat contains a Pokémon&#39;s highest IV. A Pok�
 import com.github.oapicf.pokeapiclient.ApiClient;
 import com.github.oapicf.pokeapiclient.ApiException;
 import com.github.oapicf.pokeapiclient.Configuration;
-import com.github.oapicf.pokeapiclient.auth.*;
 import com.github.oapicf.pokeapiclient.models.*;
 import com.github.oapicf.pokeapiclient.api.PokemonApi;
 
@@ -212,24 +187,12 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://pokeapi.co");
-    
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
-
-    // Configure API key authorization: cookieAuth
-    ApiKeyAuth cookieAuth = (ApiKeyAuth) defaultClient.getAuthentication("cookieAuth");
-    cookieAuth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //cookieAuth.setApiKeyPrefix("Token");
 
     PokemonApi apiInstance = new PokemonApi(defaultClient);
     Integer limit = 56; // Integer | Number of results to return per page.
     Integer offset = 56; // Integer | The initial index from which to return the results.
-    String q = "q_example"; // String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
     try {
-      PaginatedCharacteristicSummaryList result = apiInstance.characteristicList(limit, offset, q);
+      PaginatedCharacteristicSummaryList result = apiInstance.characteristicList(limit, offset);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PokemonApi#characteristicList");
@@ -248,7 +211,6 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **limit** | **Integer**| Number of results to return per page. | [optional] |
 | **offset** | **Integer**| The initial index from which to return the results. | [optional] |
-| **q** | **String**| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional] |
 
 ### Return type
 
@@ -256,7 +218,7 @@ public class Example {
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -282,7 +244,6 @@ Characteristics indicate which stat contains a Pokémon&#39;s highest IV. A Pok�
 import com.github.oapicf.pokeapiclient.ApiClient;
 import com.github.oapicf.pokeapiclient.ApiException;
 import com.github.oapicf.pokeapiclient.Configuration;
-import com.github.oapicf.pokeapiclient.auth.*;
 import com.github.oapicf.pokeapiclient.models.*;
 import com.github.oapicf.pokeapiclient.api.PokemonApi;
 
@@ -290,20 +251,9 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://pokeapi.co");
-    
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
-
-    // Configure API key authorization: cookieAuth
-    ApiKeyAuth cookieAuth = (ApiKeyAuth) defaultClient.getAuthentication("cookieAuth");
-    cookieAuth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //cookieAuth.setApiKeyPrefix("Token");
 
     PokemonApi apiInstance = new PokemonApi(defaultClient);
-    String id = "id_example"; // String | This parameter can be a string or an integer.
+    String id = "1"; // String | This parameter can be a string or an integer.
     try {
       CharacteristicDetail result = apiInstance.characteristicRetrieve(id);
       System.out.println(result);
@@ -330,7 +280,7 @@ public class Example {
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -356,7 +306,6 @@ Egg Groups are categories which determine which Pokémon are able to interbreed.
 import com.github.oapicf.pokeapiclient.ApiClient;
 import com.github.oapicf.pokeapiclient.ApiException;
 import com.github.oapicf.pokeapiclient.Configuration;
-import com.github.oapicf.pokeapiclient.auth.*;
 import com.github.oapicf.pokeapiclient.models.*;
 import com.github.oapicf.pokeapiclient.api.PokemonApi;
 
@@ -364,17 +313,6 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://pokeapi.co");
-    
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
-
-    // Configure API key authorization: cookieAuth
-    ApiKeyAuth cookieAuth = (ApiKeyAuth) defaultClient.getAuthentication("cookieAuth");
-    cookieAuth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //cookieAuth.setApiKeyPrefix("Token");
 
     PokemonApi apiInstance = new PokemonApi(defaultClient);
     Integer limit = 56; // Integer | Number of results to return per page.
@@ -408,7 +346,7 @@ public class Example {
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -434,7 +372,6 @@ Egg Groups are categories which determine which Pokémon are able to interbreed.
 import com.github.oapicf.pokeapiclient.ApiClient;
 import com.github.oapicf.pokeapiclient.ApiException;
 import com.github.oapicf.pokeapiclient.Configuration;
-import com.github.oapicf.pokeapiclient.auth.*;
 import com.github.oapicf.pokeapiclient.models.*;
 import com.github.oapicf.pokeapiclient.api.PokemonApi;
 
@@ -442,20 +379,9 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://pokeapi.co");
-    
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
-
-    // Configure API key authorization: cookieAuth
-    ApiKeyAuth cookieAuth = (ApiKeyAuth) defaultClient.getAuthentication("cookieAuth");
-    cookieAuth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //cookieAuth.setApiKeyPrefix("Token");
 
     PokemonApi apiInstance = new PokemonApi(defaultClient);
-    String id = "id_example"; // String | This parameter can be a string or an integer.
+    String id = "1"; // String | This parameter can be a string or an integer.
     try {
       EggGroupDetail result = apiInstance.eggGroupRetrieve(id);
       System.out.println(result);
@@ -482,7 +408,7 @@ public class Example {
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -508,7 +434,6 @@ Genders were introduced in Generation II for the purposes of breeding Pokémon b
 import com.github.oapicf.pokeapiclient.ApiClient;
 import com.github.oapicf.pokeapiclient.ApiException;
 import com.github.oapicf.pokeapiclient.Configuration;
-import com.github.oapicf.pokeapiclient.auth.*;
 import com.github.oapicf.pokeapiclient.models.*;
 import com.github.oapicf.pokeapiclient.api.PokemonApi;
 
@@ -516,17 +441,6 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://pokeapi.co");
-    
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
-
-    // Configure API key authorization: cookieAuth
-    ApiKeyAuth cookieAuth = (ApiKeyAuth) defaultClient.getAuthentication("cookieAuth");
-    cookieAuth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //cookieAuth.setApiKeyPrefix("Token");
 
     PokemonApi apiInstance = new PokemonApi(defaultClient);
     Integer limit = 56; // Integer | Number of results to return per page.
@@ -560,7 +474,7 @@ public class Example {
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -586,7 +500,6 @@ Genders were introduced in Generation II for the purposes of breeding Pokémon b
 import com.github.oapicf.pokeapiclient.ApiClient;
 import com.github.oapicf.pokeapiclient.ApiException;
 import com.github.oapicf.pokeapiclient.Configuration;
-import com.github.oapicf.pokeapiclient.auth.*;
 import com.github.oapicf.pokeapiclient.models.*;
 import com.github.oapicf.pokeapiclient.api.PokemonApi;
 
@@ -594,20 +507,9 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://pokeapi.co");
-    
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
-
-    // Configure API key authorization: cookieAuth
-    ApiKeyAuth cookieAuth = (ApiKeyAuth) defaultClient.getAuthentication("cookieAuth");
-    cookieAuth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //cookieAuth.setApiKeyPrefix("Token");
 
     PokemonApi apiInstance = new PokemonApi(defaultClient);
-    String id = "id_example"; // String | This parameter can be a string or an integer.
+    String id = "1"; // String | This parameter can be a string or an integer.
     try {
       GenderDetail result = apiInstance.genderRetrieve(id);
       System.out.println(result);
@@ -634,7 +536,7 @@ public class Example {
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -660,7 +562,6 @@ Growth rates are the speed with which Pokémon gain levels through experience. C
 import com.github.oapicf.pokeapiclient.ApiClient;
 import com.github.oapicf.pokeapiclient.ApiException;
 import com.github.oapicf.pokeapiclient.Configuration;
-import com.github.oapicf.pokeapiclient.auth.*;
 import com.github.oapicf.pokeapiclient.models.*;
 import com.github.oapicf.pokeapiclient.api.PokemonApi;
 
@@ -668,17 +569,6 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://pokeapi.co");
-    
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
-
-    // Configure API key authorization: cookieAuth
-    ApiKeyAuth cookieAuth = (ApiKeyAuth) defaultClient.getAuthentication("cookieAuth");
-    cookieAuth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //cookieAuth.setApiKeyPrefix("Token");
 
     PokemonApi apiInstance = new PokemonApi(defaultClient);
     Integer limit = 56; // Integer | Number of results to return per page.
@@ -712,7 +602,7 @@ public class Example {
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -738,7 +628,6 @@ Growth rates are the speed with which Pokémon gain levels through experience. C
 import com.github.oapicf.pokeapiclient.ApiClient;
 import com.github.oapicf.pokeapiclient.ApiException;
 import com.github.oapicf.pokeapiclient.Configuration;
-import com.github.oapicf.pokeapiclient.auth.*;
 import com.github.oapicf.pokeapiclient.models.*;
 import com.github.oapicf.pokeapiclient.api.PokemonApi;
 
@@ -746,20 +635,9 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://pokeapi.co");
-    
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
-
-    // Configure API key authorization: cookieAuth
-    ApiKeyAuth cookieAuth = (ApiKeyAuth) defaultClient.getAuthentication("cookieAuth");
-    cookieAuth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //cookieAuth.setApiKeyPrefix("Token");
 
     PokemonApi apiInstance = new PokemonApi(defaultClient);
-    String id = "id_example"; // String | This parameter can be a string or an integer.
+    String id = "1"; // String | This parameter can be a string or an integer.
     try {
       GrowthRateDetail result = apiInstance.growthRateRetrieve(id);
       System.out.println(result);
@@ -786,7 +664,7 @@ public class Example {
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -812,7 +690,6 @@ Damage classes moves can have, e.g. physical, special, or non-damaging.
 import com.github.oapicf.pokeapiclient.ApiClient;
 import com.github.oapicf.pokeapiclient.ApiException;
 import com.github.oapicf.pokeapiclient.Configuration;
-import com.github.oapicf.pokeapiclient.auth.*;
 import com.github.oapicf.pokeapiclient.models.*;
 import com.github.oapicf.pokeapiclient.api.PokemonApi;
 
@@ -820,17 +697,6 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://pokeapi.co");
-    
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
-
-    // Configure API key authorization: cookieAuth
-    ApiKeyAuth cookieAuth = (ApiKeyAuth) defaultClient.getAuthentication("cookieAuth");
-    cookieAuth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //cookieAuth.setApiKeyPrefix("Token");
 
     PokemonApi apiInstance = new PokemonApi(defaultClient);
     Integer limit = 56; // Integer | Number of results to return per page.
@@ -864,7 +730,7 @@ public class Example {
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -890,7 +756,6 @@ Damage classes moves can have, e.g. physical, special, or non-damaging.
 import com.github.oapicf.pokeapiclient.ApiClient;
 import com.github.oapicf.pokeapiclient.ApiException;
 import com.github.oapicf.pokeapiclient.Configuration;
-import com.github.oapicf.pokeapiclient.auth.*;
 import com.github.oapicf.pokeapiclient.models.*;
 import com.github.oapicf.pokeapiclient.api.PokemonApi;
 
@@ -898,20 +763,9 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://pokeapi.co");
-    
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
-
-    // Configure API key authorization: cookieAuth
-    ApiKeyAuth cookieAuth = (ApiKeyAuth) defaultClient.getAuthentication("cookieAuth");
-    cookieAuth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //cookieAuth.setApiKeyPrefix("Token");
 
     PokemonApi apiInstance = new PokemonApi(defaultClient);
-    String id = "id_example"; // String | This parameter can be a string or an integer.
+    String id = "1"; // String | This parameter can be a string or an integer.
     try {
       MoveDamageClassDetail result = apiInstance.moveDamageClassRetrieve(id);
       System.out.println(result);
@@ -938,7 +792,7 @@ public class Example {
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -964,7 +818,6 @@ Natures influence how a Pokémon&#39;s stats grow. See [Bulbapedia](http://bulba
 import com.github.oapicf.pokeapiclient.ApiClient;
 import com.github.oapicf.pokeapiclient.ApiException;
 import com.github.oapicf.pokeapiclient.Configuration;
-import com.github.oapicf.pokeapiclient.auth.*;
 import com.github.oapicf.pokeapiclient.models.*;
 import com.github.oapicf.pokeapiclient.api.PokemonApi;
 
@@ -972,17 +825,6 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://pokeapi.co");
-    
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
-
-    // Configure API key authorization: cookieAuth
-    ApiKeyAuth cookieAuth = (ApiKeyAuth) defaultClient.getAuthentication("cookieAuth");
-    cookieAuth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //cookieAuth.setApiKeyPrefix("Token");
 
     PokemonApi apiInstance = new PokemonApi(defaultClient);
     Integer limit = 56; // Integer | Number of results to return per page.
@@ -1016,7 +858,7 @@ public class Example {
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1042,7 +884,6 @@ Natures influence how a Pokémon&#39;s stats grow. See [Bulbapedia](http://bulba
 import com.github.oapicf.pokeapiclient.ApiClient;
 import com.github.oapicf.pokeapiclient.ApiException;
 import com.github.oapicf.pokeapiclient.Configuration;
-import com.github.oapicf.pokeapiclient.auth.*;
 import com.github.oapicf.pokeapiclient.models.*;
 import com.github.oapicf.pokeapiclient.api.PokemonApi;
 
@@ -1050,20 +891,9 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://pokeapi.co");
-    
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
-
-    // Configure API key authorization: cookieAuth
-    ApiKeyAuth cookieAuth = (ApiKeyAuth) defaultClient.getAuthentication("cookieAuth");
-    cookieAuth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //cookieAuth.setApiKeyPrefix("Token");
 
     PokemonApi apiInstance = new PokemonApi(defaultClient);
-    String id = "id_example"; // String | This parameter can be a string or an integer.
+    String id = "1"; // String | This parameter can be a string or an integer.
     try {
       NatureDetail result = apiInstance.natureRetrieve(id);
       System.out.println(result);
@@ -1090,7 +920,7 @@ public class Example {
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1116,7 +946,6 @@ Pokeathlon Stats are different attributes of a Pokémon&#39;s performance in Pok
 import com.github.oapicf.pokeapiclient.ApiClient;
 import com.github.oapicf.pokeapiclient.ApiException;
 import com.github.oapicf.pokeapiclient.Configuration;
-import com.github.oapicf.pokeapiclient.auth.*;
 import com.github.oapicf.pokeapiclient.models.*;
 import com.github.oapicf.pokeapiclient.api.PokemonApi;
 
@@ -1124,17 +953,6 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://pokeapi.co");
-    
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
-
-    // Configure API key authorization: cookieAuth
-    ApiKeyAuth cookieAuth = (ApiKeyAuth) defaultClient.getAuthentication("cookieAuth");
-    cookieAuth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //cookieAuth.setApiKeyPrefix("Token");
 
     PokemonApi apiInstance = new PokemonApi(defaultClient);
     Integer limit = 56; // Integer | Number of results to return per page.
@@ -1168,7 +986,7 @@ public class Example {
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1194,7 +1012,6 @@ Pokeathlon Stats are different attributes of a Pokémon&#39;s performance in Pok
 import com.github.oapicf.pokeapiclient.ApiClient;
 import com.github.oapicf.pokeapiclient.ApiException;
 import com.github.oapicf.pokeapiclient.Configuration;
-import com.github.oapicf.pokeapiclient.auth.*;
 import com.github.oapicf.pokeapiclient.models.*;
 import com.github.oapicf.pokeapiclient.api.PokemonApi;
 
@@ -1202,20 +1019,9 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://pokeapi.co");
-    
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
-
-    // Configure API key authorization: cookieAuth
-    ApiKeyAuth cookieAuth = (ApiKeyAuth) defaultClient.getAuthentication("cookieAuth");
-    cookieAuth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //cookieAuth.setApiKeyPrefix("Token");
 
     PokemonApi apiInstance = new PokemonApi(defaultClient);
-    String id = "id_example"; // String | This parameter can be a string or an integer.
+    String id = "1"; // String | This parameter can be a string or an integer.
     try {
       PokeathlonStatDetail result = apiInstance.pokeathlonStatRetrieve(id);
       System.out.println(result);
@@ -1242,7 +1048,7 @@ public class Example {
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1268,7 +1074,6 @@ Colors used for sorting Pokémon in a Pokédex. The color listed in the Pokédex
 import com.github.oapicf.pokeapiclient.ApiClient;
 import com.github.oapicf.pokeapiclient.ApiException;
 import com.github.oapicf.pokeapiclient.Configuration;
-import com.github.oapicf.pokeapiclient.auth.*;
 import com.github.oapicf.pokeapiclient.models.*;
 import com.github.oapicf.pokeapiclient.api.PokemonApi;
 
@@ -1276,17 +1081,6 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://pokeapi.co");
-    
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
-
-    // Configure API key authorization: cookieAuth
-    ApiKeyAuth cookieAuth = (ApiKeyAuth) defaultClient.getAuthentication("cookieAuth");
-    cookieAuth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //cookieAuth.setApiKeyPrefix("Token");
 
     PokemonApi apiInstance = new PokemonApi(defaultClient);
     Integer limit = 56; // Integer | Number of results to return per page.
@@ -1320,7 +1114,7 @@ public class Example {
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1346,7 +1140,6 @@ Colors used for sorting Pokémon in a Pokédex. The color listed in the Pokédex
 import com.github.oapicf.pokeapiclient.ApiClient;
 import com.github.oapicf.pokeapiclient.ApiException;
 import com.github.oapicf.pokeapiclient.Configuration;
-import com.github.oapicf.pokeapiclient.auth.*;
 import com.github.oapicf.pokeapiclient.models.*;
 import com.github.oapicf.pokeapiclient.api.PokemonApi;
 
@@ -1354,20 +1147,9 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://pokeapi.co");
-    
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
-
-    // Configure API key authorization: cookieAuth
-    ApiKeyAuth cookieAuth = (ApiKeyAuth) defaultClient.getAuthentication("cookieAuth");
-    cookieAuth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //cookieAuth.setApiKeyPrefix("Token");
 
     PokemonApi apiInstance = new PokemonApi(defaultClient);
-    String id = "id_example"; // String | This parameter can be a string or an integer.
+    String id = "1"; // String | This parameter can be a string or an integer.
     try {
       PokemonColorDetail result = apiInstance.pokemonColorRetrieve(id);
       System.out.println(result);
@@ -1394,7 +1176,7 @@ public class Example {
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1420,7 +1202,6 @@ Some Pokémon may appear in one of multiple, visually different forms. These dif
 import com.github.oapicf.pokeapiclient.ApiClient;
 import com.github.oapicf.pokeapiclient.ApiException;
 import com.github.oapicf.pokeapiclient.Configuration;
-import com.github.oapicf.pokeapiclient.auth.*;
 import com.github.oapicf.pokeapiclient.models.*;
 import com.github.oapicf.pokeapiclient.api.PokemonApi;
 
@@ -1428,17 +1209,6 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://pokeapi.co");
-    
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
-
-    // Configure API key authorization: cookieAuth
-    ApiKeyAuth cookieAuth = (ApiKeyAuth) defaultClient.getAuthentication("cookieAuth");
-    cookieAuth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //cookieAuth.setApiKeyPrefix("Token");
 
     PokemonApi apiInstance = new PokemonApi(defaultClient);
     Integer limit = 56; // Integer | Number of results to return per page.
@@ -1472,7 +1242,7 @@ public class Example {
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1498,7 +1268,6 @@ Some Pokémon may appear in one of multiple, visually different forms. These dif
 import com.github.oapicf.pokeapiclient.ApiClient;
 import com.github.oapicf.pokeapiclient.ApiException;
 import com.github.oapicf.pokeapiclient.Configuration;
-import com.github.oapicf.pokeapiclient.auth.*;
 import com.github.oapicf.pokeapiclient.models.*;
 import com.github.oapicf.pokeapiclient.api.PokemonApi;
 
@@ -1506,20 +1275,9 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://pokeapi.co");
-    
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
-
-    // Configure API key authorization: cookieAuth
-    ApiKeyAuth cookieAuth = (ApiKeyAuth) defaultClient.getAuthentication("cookieAuth");
-    cookieAuth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //cookieAuth.setApiKeyPrefix("Token");
 
     PokemonApi apiInstance = new PokemonApi(defaultClient);
-    String id = "id_example"; // String | This parameter can be a string or an integer.
+    String id = "1"; // String | This parameter can be a string or an integer.
     try {
       PokemonFormDetail result = apiInstance.pokemonFormRetrieve(id);
       System.out.println(result);
@@ -1546,7 +1304,7 @@ public class Example {
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1572,7 +1330,6 @@ Habitats are generally different terrain Pokémon can be found in but can also b
 import com.github.oapicf.pokeapiclient.ApiClient;
 import com.github.oapicf.pokeapiclient.ApiException;
 import com.github.oapicf.pokeapiclient.Configuration;
-import com.github.oapicf.pokeapiclient.auth.*;
 import com.github.oapicf.pokeapiclient.models.*;
 import com.github.oapicf.pokeapiclient.api.PokemonApi;
 
@@ -1580,17 +1337,6 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://pokeapi.co");
-    
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
-
-    // Configure API key authorization: cookieAuth
-    ApiKeyAuth cookieAuth = (ApiKeyAuth) defaultClient.getAuthentication("cookieAuth");
-    cookieAuth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //cookieAuth.setApiKeyPrefix("Token");
 
     PokemonApi apiInstance = new PokemonApi(defaultClient);
     Integer limit = 56; // Integer | Number of results to return per page.
@@ -1624,7 +1370,7 @@ public class Example {
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1650,7 +1396,6 @@ Habitats are generally different terrain Pokémon can be found in but can also b
 import com.github.oapicf.pokeapiclient.ApiClient;
 import com.github.oapicf.pokeapiclient.ApiException;
 import com.github.oapicf.pokeapiclient.Configuration;
-import com.github.oapicf.pokeapiclient.auth.*;
 import com.github.oapicf.pokeapiclient.models.*;
 import com.github.oapicf.pokeapiclient.api.PokemonApi;
 
@@ -1658,20 +1403,9 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://pokeapi.co");
-    
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
-
-    // Configure API key authorization: cookieAuth
-    ApiKeyAuth cookieAuth = (ApiKeyAuth) defaultClient.getAuthentication("cookieAuth");
-    cookieAuth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //cookieAuth.setApiKeyPrefix("Token");
 
     PokemonApi apiInstance = new PokemonApi(defaultClient);
-    String id = "id_example"; // String | This parameter can be a string or an integer.
+    String id = "1"; // String | This parameter can be a string or an integer.
     try {
       PokemonHabitatDetail result = apiInstance.pokemonHabitatRetrieve(id);
       System.out.println(result);
@@ -1698,7 +1432,7 @@ public class Example {
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1724,7 +1458,6 @@ Pokémon are the creatures that inhabit the world of the Pokémon games. They ca
 import com.github.oapicf.pokeapiclient.ApiClient;
 import com.github.oapicf.pokeapiclient.ApiException;
 import com.github.oapicf.pokeapiclient.Configuration;
-import com.github.oapicf.pokeapiclient.auth.*;
 import com.github.oapicf.pokeapiclient.models.*;
 import com.github.oapicf.pokeapiclient.api.PokemonApi;
 
@@ -1732,17 +1465,6 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://pokeapi.co");
-    
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
-
-    // Configure API key authorization: cookieAuth
-    ApiKeyAuth cookieAuth = (ApiKeyAuth) defaultClient.getAuthentication("cookieAuth");
-    cookieAuth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //cookieAuth.setApiKeyPrefix("Token");
 
     PokemonApi apiInstance = new PokemonApi(defaultClient);
     Integer limit = 56; // Integer | Number of results to return per page.
@@ -1776,7 +1498,7 @@ public class Example {
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1802,7 +1524,6 @@ Pokémon are the creatures that inhabit the world of the Pokémon games. They ca
 import com.github.oapicf.pokeapiclient.ApiClient;
 import com.github.oapicf.pokeapiclient.ApiException;
 import com.github.oapicf.pokeapiclient.Configuration;
-import com.github.oapicf.pokeapiclient.auth.*;
 import com.github.oapicf.pokeapiclient.models.*;
 import com.github.oapicf.pokeapiclient.api.PokemonApi;
 
@@ -1810,20 +1531,9 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://pokeapi.co");
-    
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
-
-    // Configure API key authorization: cookieAuth
-    ApiKeyAuth cookieAuth = (ApiKeyAuth) defaultClient.getAuthentication("cookieAuth");
-    cookieAuth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //cookieAuth.setApiKeyPrefix("Token");
 
     PokemonApi apiInstance = new PokemonApi(defaultClient);
-    String id = "id_example"; // String | This parameter can be a string or an integer.
+    String id = "1"; // String | This parameter can be a string or an integer.
     try {
       PokemonDetail result = apiInstance.pokemonRetrieve(id);
       System.out.println(result);
@@ -1850,7 +1560,7 @@ public class Example {
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1876,7 +1586,6 @@ Shapes used for sorting Pokémon in a Pokédex.
 import com.github.oapicf.pokeapiclient.ApiClient;
 import com.github.oapicf.pokeapiclient.ApiException;
 import com.github.oapicf.pokeapiclient.Configuration;
-import com.github.oapicf.pokeapiclient.auth.*;
 import com.github.oapicf.pokeapiclient.models.*;
 import com.github.oapicf.pokeapiclient.api.PokemonApi;
 
@@ -1884,17 +1593,6 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://pokeapi.co");
-    
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
-
-    // Configure API key authorization: cookieAuth
-    ApiKeyAuth cookieAuth = (ApiKeyAuth) defaultClient.getAuthentication("cookieAuth");
-    cookieAuth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //cookieAuth.setApiKeyPrefix("Token");
 
     PokemonApi apiInstance = new PokemonApi(defaultClient);
     Integer limit = 56; // Integer | Number of results to return per page.
@@ -1928,7 +1626,7 @@ public class Example {
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1954,7 +1652,6 @@ Shapes used for sorting Pokémon in a Pokédex.
 import com.github.oapicf.pokeapiclient.ApiClient;
 import com.github.oapicf.pokeapiclient.ApiException;
 import com.github.oapicf.pokeapiclient.Configuration;
-import com.github.oapicf.pokeapiclient.auth.*;
 import com.github.oapicf.pokeapiclient.models.*;
 import com.github.oapicf.pokeapiclient.api.PokemonApi;
 
@@ -1962,20 +1659,9 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://pokeapi.co");
-    
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
-
-    // Configure API key authorization: cookieAuth
-    ApiKeyAuth cookieAuth = (ApiKeyAuth) defaultClient.getAuthentication("cookieAuth");
-    cookieAuth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //cookieAuth.setApiKeyPrefix("Token");
 
     PokemonApi apiInstance = new PokemonApi(defaultClient);
-    String id = "id_example"; // String | This parameter can be a string or an integer.
+    String id = "1"; // String | This parameter can be a string or an integer.
     try {
       PokemonShapeDetail result = apiInstance.pokemonShapeRetrieve(id);
       System.out.println(result);
@@ -2002,7 +1688,7 @@ public class Example {
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -2028,7 +1714,6 @@ A Pokémon Species forms the basis for at least one Pokémon. Attributes of a Po
 import com.github.oapicf.pokeapiclient.ApiClient;
 import com.github.oapicf.pokeapiclient.ApiException;
 import com.github.oapicf.pokeapiclient.Configuration;
-import com.github.oapicf.pokeapiclient.auth.*;
 import com.github.oapicf.pokeapiclient.models.*;
 import com.github.oapicf.pokeapiclient.api.PokemonApi;
 
@@ -2036,17 +1721,6 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://pokeapi.co");
-    
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
-
-    // Configure API key authorization: cookieAuth
-    ApiKeyAuth cookieAuth = (ApiKeyAuth) defaultClient.getAuthentication("cookieAuth");
-    cookieAuth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //cookieAuth.setApiKeyPrefix("Token");
 
     PokemonApi apiInstance = new PokemonApi(defaultClient);
     Integer limit = 56; // Integer | Number of results to return per page.
@@ -2080,7 +1754,7 @@ public class Example {
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -2106,7 +1780,6 @@ A Pokémon Species forms the basis for at least one Pokémon. Attributes of a Po
 import com.github.oapicf.pokeapiclient.ApiClient;
 import com.github.oapicf.pokeapiclient.ApiException;
 import com.github.oapicf.pokeapiclient.Configuration;
-import com.github.oapicf.pokeapiclient.auth.*;
 import com.github.oapicf.pokeapiclient.models.*;
 import com.github.oapicf.pokeapiclient.api.PokemonApi;
 
@@ -2114,20 +1787,9 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://pokeapi.co");
-    
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
-
-    // Configure API key authorization: cookieAuth
-    ApiKeyAuth cookieAuth = (ApiKeyAuth) defaultClient.getAuthentication("cookieAuth");
-    cookieAuth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //cookieAuth.setApiKeyPrefix("Token");
 
     PokemonApi apiInstance = new PokemonApi(defaultClient);
-    String id = "id_example"; // String | This parameter can be a string or an integer.
+    String id = "1"; // String | This parameter can be a string or an integer.
     try {
       PokemonSpeciesDetail result = apiInstance.pokemonSpeciesRetrieve(id);
       System.out.println(result);
@@ -2154,7 +1816,7 @@ public class Example {
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -2180,7 +1842,6 @@ Stats determine certain aspects of battles. Each Pokémon has a value for each s
 import com.github.oapicf.pokeapiclient.ApiClient;
 import com.github.oapicf.pokeapiclient.ApiException;
 import com.github.oapicf.pokeapiclient.Configuration;
-import com.github.oapicf.pokeapiclient.auth.*;
 import com.github.oapicf.pokeapiclient.models.*;
 import com.github.oapicf.pokeapiclient.api.PokemonApi;
 
@@ -2188,17 +1849,6 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://pokeapi.co");
-    
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
-
-    // Configure API key authorization: cookieAuth
-    ApiKeyAuth cookieAuth = (ApiKeyAuth) defaultClient.getAuthentication("cookieAuth");
-    cookieAuth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //cookieAuth.setApiKeyPrefix("Token");
 
     PokemonApi apiInstance = new PokemonApi(defaultClient);
     Integer limit = 56; // Integer | Number of results to return per page.
@@ -2232,7 +1882,7 @@ public class Example {
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -2258,7 +1908,6 @@ Stats determine certain aspects of battles. Each Pokémon has a value for each s
 import com.github.oapicf.pokeapiclient.ApiClient;
 import com.github.oapicf.pokeapiclient.ApiException;
 import com.github.oapicf.pokeapiclient.Configuration;
-import com.github.oapicf.pokeapiclient.auth.*;
 import com.github.oapicf.pokeapiclient.models.*;
 import com.github.oapicf.pokeapiclient.api.PokemonApi;
 
@@ -2266,20 +1915,9 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://pokeapi.co");
-    
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
-
-    // Configure API key authorization: cookieAuth
-    ApiKeyAuth cookieAuth = (ApiKeyAuth) defaultClient.getAuthentication("cookieAuth");
-    cookieAuth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //cookieAuth.setApiKeyPrefix("Token");
 
     PokemonApi apiInstance = new PokemonApi(defaultClient);
-    String id = "id_example"; // String | This parameter can be a string or an integer.
+    String id = "1"; // String | This parameter can be a string or an integer.
     try {
       StatDetail result = apiInstance.statRetrieve(id);
       System.out.println(result);
@@ -2306,7 +1944,7 @@ public class Example {
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -2332,7 +1970,6 @@ Types are properties for Pokémon and their moves. Each type has three propertie
 import com.github.oapicf.pokeapiclient.ApiClient;
 import com.github.oapicf.pokeapiclient.ApiException;
 import com.github.oapicf.pokeapiclient.Configuration;
-import com.github.oapicf.pokeapiclient.auth.*;
 import com.github.oapicf.pokeapiclient.models.*;
 import com.github.oapicf.pokeapiclient.api.PokemonApi;
 
@@ -2340,17 +1977,6 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://pokeapi.co");
-    
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
-
-    // Configure API key authorization: cookieAuth
-    ApiKeyAuth cookieAuth = (ApiKeyAuth) defaultClient.getAuthentication("cookieAuth");
-    cookieAuth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //cookieAuth.setApiKeyPrefix("Token");
 
     PokemonApi apiInstance = new PokemonApi(defaultClient);
     Integer limit = 56; // Integer | Number of results to return per page.
@@ -2384,7 +2010,7 @@ public class Example {
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -2410,7 +2036,6 @@ Types are properties for Pokémon and their moves. Each type has three propertie
 import com.github.oapicf.pokeapiclient.ApiClient;
 import com.github.oapicf.pokeapiclient.ApiException;
 import com.github.oapicf.pokeapiclient.Configuration;
-import com.github.oapicf.pokeapiclient.auth.*;
 import com.github.oapicf.pokeapiclient.models.*;
 import com.github.oapicf.pokeapiclient.api.PokemonApi;
 
@@ -2418,20 +2043,9 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://pokeapi.co");
-    
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
-
-    // Configure API key authorization: cookieAuth
-    ApiKeyAuth cookieAuth = (ApiKeyAuth) defaultClient.getAuthentication("cookieAuth");
-    cookieAuth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //cookieAuth.setApiKeyPrefix("Token");
 
     PokemonApi apiInstance = new PokemonApi(defaultClient);
-    String id = "id_example"; // String | This parameter can be a string or an integer.
+    String id = "1"; // String | This parameter can be a string or an integer.
     try {
       TypeDetail result = apiInstance.typeRetrieve(id);
       System.out.println(result);
@@ -2458,7 +2072,7 @@ public class Example {
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

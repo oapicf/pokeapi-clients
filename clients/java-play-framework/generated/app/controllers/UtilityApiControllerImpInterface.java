@@ -2,6 +2,7 @@ package controllers;
 
 import apimodels.LanguageDetail;
 import apimodels.PaginatedLanguageSummaryList;
+import apimodels.PokeapiMetaResponse;
 
 import com.google.inject.Inject;
 import com.typesafe.config.Config;
@@ -57,5 +58,20 @@ public abstract class UtilityApiControllerImpInterface {
     }
 
     public abstract LanguageDetail languageRetrieve(Http.Request request, String id) throws Exception;
+
+    public Result metaRetrieveHttp(Http.Request request) throws Exception {
+        PokeapiMetaResponse obj = metaRetrieve(request);
+
+        if (configuration.getBoolean("useOutputBeanValidation")) {
+            OpenAPIUtils.validate(obj);
+        }
+
+        JsonNode result = mapper.valueToTree(obj);
+
+        return ok(result);
+
+    }
+
+    public abstract PokeapiMetaResponse metaRetrieve(Http.Request request) throws Exception;
 
 }

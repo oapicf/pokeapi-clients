@@ -8,30 +8,34 @@ use Articus\DataTransfer\Annotation as DTA;
 class PokeathlonStatDetail
 {
     /**
+     * The identifier for this resource.
      * @DTA\Data(field="id")
      * @DTA\Validator(name="Scalar", options={"type":"int"})
      */
     public ?int $id = null;
 
     /**
+     * The name for this resource.
      * @DTA\Data(field="name")
      * @DTA\Validator(name="Scalar", options={"type":"string"})
-     * @DTA\Validator(name="Length", options={"max":100})
+     * @DTA\Validator(name="Length", options={"max":200})
      */
     public ?string $name = null;
 
     /**
+     * A detail of natures which affect this Pokéathlon stat positively or negatively.
      * @DTA\Data(field="affecting_natures")
-     * @DTA\Strategy(name="Object", options={"type":\App\DTO\PokeathlonStatDetailAffectingNatures::class})
-     * @DTA\Validator(name="TypeCompliant", options={"type":\App\DTO\PokeathlonStatDetailAffectingNatures::class})
+     * @DTA\Strategy(name="Object", options={"type":\App\DTO\PokeathlonStatAffectingNatures::class})
+     * @DTA\Validator(name="TypeCompliant", options={"type":\App\DTO\PokeathlonStatAffectingNatures::class})
      */
-    public ?\App\DTO\PokeathlonStatDetailAffectingNatures $affecting_natures = null;
+    public ?\App\DTO\PokeathlonStatAffectingNatures $affecting_natures = null;
 
     /**
+     * The name of this resource listed in different languages.
      * @DTA\Data(field="names")
-     * @DTA\Strategy(name="Object", options={"type":\App\DTO\Collection176::class})
-     * @DTA\Validator(name="TypeCompliant", options={"type":\App\DTO\Collection176::class})
+     * @DTA\Strategy(name="Object", options={"type":\App\DTO\Collection179::class})
+     * @DTA\Validator(name="TypeCompliant", options={"type":\App\DTO\Collection179::class})
      */
-    public ?\App\DTO\Collection176 $names = null;
+    public ?\App\DTO\Collection179 $names = null;
 
 }

@@ -18,24 +18,24 @@ resourceTypes {
     properties {
         count {
           type =  integer
-          description = ""
-          optional = false
+          description = "The total number of resources available from this API."
+          optional = true
         }
         next {
           type =  string
-          description = ""
+          description = "The URL for the next page in the list, or null if there is no next page."
           optional = false
         }
         previous {
           type =  string
-          description = ""
+          description = "The URL for the previous page in the list, or null if there is no previous page."
           optional = false
         }
         results {
           type = array
           items.type = PokemonColorSummary
-          description = ""
-          optional = false
+          description = "A list of API resources on this page."
+          optional = true
         }
     }
   }

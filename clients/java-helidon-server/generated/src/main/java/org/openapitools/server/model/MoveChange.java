@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
-import org.openapitools.server.model.MoveChangeEffectEntriesInner;
+import org.openapitools.server.model.MoveEffectEffectText;
 import org.openapitools.server.model.TypeSummary;
 import org.openapitools.server.model.VersionGroupSummary;
 import jakarta.validation.constraints.*;
@@ -18,7 +18,7 @@ public class MoveChange   {
     private Integer power;
     private Integer pp;
     private Integer effectChance;
-    private List<@Valid MoveChangeEffectEntriesInner> effectEntries = new ArrayList<>();
+    private List<@Valid MoveEffectEffectText> effectEntries = new ArrayList<>();
     private TypeSummary type;
     private VersionGroupSummary versionGroup;
 
@@ -32,20 +32,20 @@ public class MoveChange   {
     /**
      * Create MoveChange.
      *
-     * @param accuracy accuracy
-     * @param power power
-     * @param pp pp
-     * @param effectChance effectChance
-     * @param effectEntries effectEntries
-     * @param type type
-     * @param versionGroup versionGroup
+     * @param accuracy The percent value of how likely this move is to be successful.
+     * @param power The base power before the listed version group, or null if power did not change.
+     * @param pp Power points. The number of times this move can be used.
+     * @param effectChance The percent value of how likely it is this moves effect will take effect.
+     * @param effectEntries The effect of this move listed in different languages.
+     * @param type The elemental type of this move.
+     * @param versionGroup The version group in which these move stat values were in effect.
      */
     public MoveChange(
         Integer accuracy, 
         Integer power, 
         Integer pp, 
         Integer effectChance, 
-        List<@Valid MoveChangeEffectEntriesInner> effectEntries, 
+        List<@Valid MoveEffectEffectText> effectEntries, 
         TypeSummary type, 
         VersionGroupSummary versionGroup
     ) {
@@ -61,7 +61,9 @@ public class MoveChange   {
 
 
     /**
-     * Get accuracy
+     * The percent value of how likely this move is to be successful.
+     * minimum: -2147483648
+     * maximum: 2147483647
      * @return accuracy
      */
     public Integer getAccuracy() {
@@ -73,7 +75,9 @@ public class MoveChange   {
     }
 
     /**
-     * Get power
+     * The base power before the listed version group, or null if power did not change.
+     * minimum: -2147483648
+     * maximum: 2147483647
      * @return power
      */
     public Integer getPower() {
@@ -85,7 +89,9 @@ public class MoveChange   {
     }
 
     /**
-     * Get pp
+     * Power points. The number of times this move can be used.
+     * minimum: -2147483648
+     * maximum: 2147483647
      * @return pp
      */
     public Integer getPp() {
@@ -97,7 +103,7 @@ public class MoveChange   {
     }
 
     /**
-     * Get effectChance
+     * The percent value of how likely it is this moves effect will take effect.
      * @return effectChance
      */
     public Integer getEffectChance() {
@@ -109,19 +115,19 @@ public class MoveChange   {
     }
 
     /**
-     * Get effectEntries
+     * The effect of this move listed in different languages.
      * @return effectEntries
      */
-    public List<@Valid MoveChangeEffectEntriesInner> getEffectEntries() {
+    public List<@Valid MoveEffectEffectText> getEffectEntries() {
         return effectEntries;
     }
 
-    public void setEffectEntries(List<@Valid MoveChangeEffectEntriesInner> effectEntries) {
+    public void setEffectEntries(List<@Valid MoveEffectEffectText> effectEntries) {
         this.effectEntries = effectEntries;
     }
 
     /**
-     * Get type
+     * The elemental type of this move.
      * @return type
      */
     public TypeSummary getType() {
@@ -133,7 +139,7 @@ public class MoveChange   {
     }
 
     /**
-     * Get versionGroup
+     * The version group in which these move stat values were in effect.
      * @return versionGroup
      */
     public VersionGroupSummary getVersionGroup() {

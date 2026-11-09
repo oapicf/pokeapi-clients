@@ -1,0 +1,22 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "PokemonMove",
+  "fields": [
+    {
+      "name": "move",
+      "type": "model.MoveSummary",
+      "doc": "The move the Pokémon can learn."
+    },
+    {
+      "name": "version_group_details",
+      "type": {
+        "type": "array",
+        "items": "model.PokemonMoveVersionGroup"
+      },
+      "doc": "The details of the version in which the Pokémon can learn the move."
+    }
+  ]
+
+}

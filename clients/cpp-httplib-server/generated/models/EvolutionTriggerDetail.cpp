@@ -12,7 +12,7 @@ EvolutionTriggerDetail::EvolutionTriggerDetail()
 : id(0)
 , name("")
 , names(std::vector<EvolutionTriggerName>())
-, pokemonSpecies(std::vector<EvolutionTriggerDetail_pokemon_species_inner>())
+, pokemonSpecies(std::vector<PokemonSpeciesSummary>())
 {
 }
 // =========================================
@@ -33,7 +33,7 @@ std::vector<EvolutionTriggerName> EvolutionTriggerDetail::getNames() const
 {
     return names;
 }
-std::vector<EvolutionTriggerDetail_pokemon_species_inner> EvolutionTriggerDetail::getPokemonSpecies() const
+std::vector<PokemonSpeciesSummary> EvolutionTriggerDetail::getPokemonSpecies() const
 {
     return pokemonSpecies;
 }
@@ -53,7 +53,7 @@ void EvolutionTriggerDetail::setNames(const std::vector<EvolutionTriggerName>& n
 {
     names = namesObj;
 }
-void EvolutionTriggerDetail::setPokemonSpecies(const std::vector<EvolutionTriggerDetail_pokemon_species_inner>& pokemonSpeciesObj)
+void EvolutionTriggerDetail::setPokemonSpecies(const std::vector<PokemonSpeciesSummary>& pokemonSpeciesObj)
 {
     pokemonSpecies = pokemonSpeciesObj;
 }

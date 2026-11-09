@@ -16,6 +16,147 @@ class ItemsApi {
 
   final ApiClient apiClient;
 
+  /// List currencies
+  ///
+  /// Currencies used to buy items.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [int] limit:
+  ///   Number of results to return per page.
+  ///
+  /// * [int] offset:
+  ///   The initial index from which to return the results.
+  ///
+  /// * [String] q:
+  ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+  Future<Response> currencyListWithHttpInfo({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
+    // ignore: prefer_const_declarations
+    final path = r'/api/v2/currency/';
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    if (limit != null) {
+      queryParams.addAll(_queryParams('', 'limit', limit));
+    }
+    if (offset != null) {
+      queryParams.addAll(_queryParams('', 'offset', offset));
+    }
+    if (q != null) {
+      queryParams.addAll(_queryParams('', 'q', q));
+    }
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
+    );
+  }
+
+  /// List currencies
+  ///
+  /// Currencies used to buy items.
+  ///
+  /// Parameters:
+  ///
+  /// * [int] limit:
+  ///   Number of results to return per page.
+  ///
+  /// * [int] offset:
+  ///   The initial index from which to return the results.
+  ///
+  /// * [String] q:
+  ///   > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+  Future<PaginatedCurrencySummaryList?> currencyList({ int? limit, int? offset, String? q, Future<void>? abortTrigger, }) async {
+    final response = await currencyListWithHttpInfo(limit: limit, offset: offset, q: q, abortTrigger: abortTrigger,);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedCurrencySummaryList',) as PaginatedCurrencySummaryList;
+    
+    }
+    return null;
+  }
+
+  /// Get currency
+  ///
+  /// Currencies used to buy items.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] id (required):
+  ///   This parameter can be a string or an integer.
+  Future<Response> currencyRetrieveWithHttpInfo(String id, { Future<void>? abortTrigger, }) async {
+    // ignore: prefer_const_declarations
+    final path = r'/api/v2/currency/{id}/'
+      .replaceAll('{id}', id);
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
+    );
+  }
+
+  /// Get currency
+  ///
+  /// Currencies used to buy items.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] id (required):
+  ///   This parameter can be a string or an integer.
+  Future<CurrencyDetail?> currencyRetrieve(String id, { Future<void>? abortTrigger, }) async {
+    final response = await currencyRetrieveWithHttpInfo(id, abortTrigger: abortTrigger,);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'CurrencyDetail',) as CurrencyDetail;
+    
+    }
+    return null;
+  }
+
   /// List item attributes
   ///
   /// Item attributes define particular aspects of items, e.g.\"usable in battle\" or \"consumable\".

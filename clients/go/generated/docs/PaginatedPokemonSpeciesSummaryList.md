@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Count** | Pointer to **int32** |  | [optional] 
-**Next** | Pointer to **string** |  | [optional] 
-**Previous** | Pointer to **string** |  | [optional] 
-**Results** | Pointer to [**[]PokemonSpeciesSummary**](PokemonSpeciesSummary.md) |  | [optional] 
+**Count** | **int32** | The total number of resources available from this API. | 
+**Next** | Pointer to **NullableString** | The URL for the next page in the list, or null if there is no next page. | [optional] 
+**Previous** | Pointer to **NullableString** | The URL for the previous page in the list, or null if there is no previous page. | [optional] 
+**Results** | [**[]PokemonSpeciesSummary**](PokemonSpeciesSummary.md) | A list of API resources on this page. | 
 
 ## Methods
 
 ### NewPaginatedPokemonSpeciesSummaryList
 
-`func NewPaginatedPokemonSpeciesSummaryList() *PaginatedPokemonSpeciesSummaryList`
+`func NewPaginatedPokemonSpeciesSummaryList(count int32, results []PokemonSpeciesSummary, ) *PaginatedPokemonSpeciesSummaryList`
 
 NewPaginatedPokemonSpeciesSummaryList instantiates a new PaginatedPokemonSpeciesSummaryList object
 This constructor will assign default values to properties that have it defined,
@@ -47,11 +47,6 @@ and a boolean to check if the value has been set.
 
 SetCount sets Count field to given value.
 
-### HasCount
-
-`func (o *PaginatedPokemonSpeciesSummaryList) HasCount() bool`
-
-HasCount returns a boolean if a field has been set.
 
 ### GetNext
 
@@ -78,6 +73,16 @@ SetNext sets Next field to given value.
 
 HasNext returns a boolean if a field has been set.
 
+### SetNextNil
+
+`func (o *PaginatedPokemonSpeciesSummaryList) SetNextNil(b bool)`
+
+ SetNextNil sets the value for Next to be an explicit nil
+
+### UnsetNext
+`func (o *PaginatedPokemonSpeciesSummaryList) UnsetNext()`
+
+UnsetNext ensures that no value is present for Next, not even an explicit nil
 ### GetPrevious
 
 `func (o *PaginatedPokemonSpeciesSummaryList) GetPrevious() string`
@@ -103,6 +108,16 @@ SetPrevious sets Previous field to given value.
 
 HasPrevious returns a boolean if a field has been set.
 
+### SetPreviousNil
+
+`func (o *PaginatedPokemonSpeciesSummaryList) SetPreviousNil(b bool)`
+
+ SetPreviousNil sets the value for Previous to be an explicit nil
+
+### UnsetPrevious
+`func (o *PaginatedPokemonSpeciesSummaryList) UnsetPrevious()`
+
+UnsetPrevious ensures that no value is present for Previous, not even an explicit nil
 ### GetResults
 
 `func (o *PaginatedPokemonSpeciesSummaryList) GetResults() []PokemonSpeciesSummary`
@@ -122,11 +137,6 @@ and a boolean to check if the value has been set.
 
 SetResults sets Results field to given value.
 
-### HasResults
-
-`func (o *PaginatedPokemonSpeciesSummaryList) HasResults() bool`
-
-HasResults returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

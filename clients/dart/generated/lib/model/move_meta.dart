@@ -27,28 +27,70 @@ class MoveMeta {
     this.statChance,
   });
 
+  /// The status ailment this move inflicts on its target.
   MoveMetaAilmentSummary ailment;
 
+  /// The category of move this move falls under, e.g. damage or ailment.
   MoveMetaCategorySummary category;
 
+  /// The minimum number of times this move hits. Null if it always only hits once.
+  ///
+  /// Minimum value: -2147483648
+  /// Maximum value: 2147483647
   int? minHits;
 
+  /// The maximum number of times this move hits. Null if it always only hits once.
+  ///
+  /// Minimum value: -2147483648
+  /// Maximum value: 2147483647
   int? maxHits;
 
+  /// The minimum number of turns this move continues to take effect. Null if it always only lasts one turn.
+  ///
+  /// Minimum value: -2147483648
+  /// Maximum value: 2147483647
   int? minTurns;
 
+  /// The maximum number of turns this move continues to take effect. Null if it always only lasts one turn.
+  ///
+  /// Minimum value: -2147483648
+  /// Maximum value: 2147483647
   int? maxTurns;
 
+  /// HP drain (if positive) or Recoil damage (if negative), in percent of damage done.
+  ///
+  /// Minimum value: -2147483648
+  /// Maximum value: 2147483647
   int? drain;
 
+  /// The amount of hp gained by the attacking Pokemon, in percent of it's maximum HP.
+  ///
+  /// Minimum value: -2147483648
+  /// Maximum value: 2147483647
   int? healing;
 
+  /// Critical hit rate bonus.
+  ///
+  /// Minimum value: -2147483648
+  /// Maximum value: 2147483647
   int? critRate;
 
+  /// The likelihood this attack will cause an ailment.
+  ///
+  /// Minimum value: -2147483648
+  /// Maximum value: 2147483647
   int? ailmentChance;
 
+  /// The likelihood this attack will cause the target Pokémon to flinch.
+  ///
+  /// Minimum value: -2147483648
+  /// Maximum value: 2147483647
   int? flinchChance;
 
+  /// The likelihood this attack will cause a stat change in the target Pokémon.
+  ///
+  /// Minimum value: -2147483648
+  /// Maximum value: 2147483647
   int? statChance;
 
   @override

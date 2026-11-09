@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Number** |  | [readonly] 
-**name** | **String** |  | 
-**names** | [**[MoveBattleStyleName]**](MoveBattleStyleName.md) |  | [readonly] 
+**id** | **Number** | The identifier for this resource. | [readonly] 
+**name** | **String** | The name for this resource. | 
+**names** | [**[MoveBattleStyleName]**](MoveBattleStyleName.md) | The name of this resource listed in different languages. | [readonly] 
 
 

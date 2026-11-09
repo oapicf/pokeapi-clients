@@ -12,8 +12,10 @@ import org.joda.time.DateTime
 import SuperContestEffectFlavorText._
 
 case class SuperContestEffectFlavorText (
+  /* The localized flavor text for an API resource in a specific language. */
   flavorText: String,
-language: LanguageSummary)
+/* The language this name is in. */
+  language: LanguageSummary)
 
 object SuperContestEffectFlavorText {
   import DateTimeCodecs._

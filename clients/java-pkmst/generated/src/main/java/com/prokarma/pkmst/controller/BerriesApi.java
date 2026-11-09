@@ -24,16 +24,11 @@ import java.util.List;
  * @author pkmst
  *
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-10-25T05:48:09.645019047Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-11-09T13:49:28.343088631Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 @Api(value = "Berries", description = "the Berries API")
 public interface BerriesApi {
 
-    @ApiOperation(value = "List berry firmness", notes = "Berries can be soft or hard. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Category:Berries_by_firmness) for greater detail.", response = PaginatedBerryFirmnessSummaryList.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "berries", })
+    @ApiOperation(value = "List berry firmness", notes = "Berries can be soft or hard. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Category:Berries_by_firmness) for greater detail.", response = PaginatedBerryFirmnessSummaryList.class, tags={ "berries", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedBerryFirmnessSummaryList.class) })
     @RequestMapping(
@@ -44,12 +39,7 @@ public interface BerriesApi {
     ResponseEntity<PaginatedBerryFirmnessSummaryList> berryFirmnessList(@ApiParam(value = "Number of results to return per page.")  @RequestParam(value = "limit", required = false) Integer limit,@ApiParam(value = "The initial index from which to return the results.")  @RequestParam(value = "offset", required = false) Integer offset,@ApiParam(value = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")  @RequestParam(value = "q", required = false) String q, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "Get berry by firmness", notes = "Berries can be soft or hard. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Category:Berries_by_firmness) for greater detail.", response = BerryFirmnessDetail.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "berries", })
+    @ApiOperation(value = "Get berry by firmness", notes = "Berries can be soft or hard. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Category:Berries_by_firmness) for greater detail.", response = BerryFirmnessDetail.class, tags={ "berries", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = BerryFirmnessDetail.class) })
     @RequestMapping(
@@ -60,12 +50,7 @@ public interface BerriesApi {
     ResponseEntity<BerryFirmnessDetail> berryFirmnessRetrieve(@ApiParam(value = "This parameter can be a string or an integer.",required=true ) @PathVariable("id") String id, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "List berry flavors", notes = "Flavors determine whether a Pokémon will benefit or suffer from eating a berry based on their **nature**. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Flavor) for greater detail.", response = PaginatedBerryFlavorSummaryList.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "berries", })
+    @ApiOperation(value = "List berry flavors", notes = "Flavors determine whether a Pokémon will benefit or suffer from eating a berry based on their **nature**. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Flavor) for greater detail.", response = PaginatedBerryFlavorSummaryList.class, tags={ "berries", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedBerryFlavorSummaryList.class) })
     @RequestMapping(
@@ -76,12 +61,7 @@ public interface BerriesApi {
     ResponseEntity<PaginatedBerryFlavorSummaryList> berryFlavorList(@ApiParam(value = "Number of results to return per page.")  @RequestParam(value = "limit", required = false) Integer limit,@ApiParam(value = "The initial index from which to return the results.")  @RequestParam(value = "offset", required = false) Integer offset,@ApiParam(value = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")  @RequestParam(value = "q", required = false) String q, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "Get berries by flavor", notes = "Flavors determine whether a Pokémon will benefit or suffer from eating a berry based on their **nature**. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Flavor) for greater detail.", response = BerryFlavorDetail.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "berries", })
+    @ApiOperation(value = "Get berries by flavor", notes = "Flavors determine whether a Pokémon will benefit or suffer from eating a berry based on their **nature**. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Flavor) for greater detail.", response = BerryFlavorDetail.class, tags={ "berries", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = BerryFlavorDetail.class) })
     @RequestMapping(
@@ -92,12 +72,7 @@ public interface BerriesApi {
     ResponseEntity<BerryFlavorDetail> berryFlavorRetrieve(@ApiParam(value = "This parameter can be a string or an integer.",required=true ) @PathVariable("id") String id, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "List berries", notes = "Berries are small fruits that can provide HP and status condition restoration, stat enhancement, and even damage negation when eaten by Pokémon. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Berry) for greater detail.", response = PaginatedBerrySummaryList.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "berries", })
+    @ApiOperation(value = "List berries", notes = "Berries are small fruits that can provide HP and status condition restoration, stat enhancement, and even damage negation when eaten by Pokémon. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Berry) for greater detail.", response = PaginatedBerrySummaryList.class, tags={ "berries", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedBerrySummaryList.class) })
     @RequestMapping(
@@ -108,12 +83,7 @@ public interface BerriesApi {
     ResponseEntity<PaginatedBerrySummaryList> berryList(@ApiParam(value = "Number of results to return per page.")  @RequestParam(value = "limit", required = false) Integer limit,@ApiParam(value = "The initial index from which to return the results.")  @RequestParam(value = "offset", required = false) Integer offset,@ApiParam(value = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")  @RequestParam(value = "q", required = false) String q, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "Get a berry", notes = "Berries are small fruits that can provide HP and status condition restoration, stat enhancement, and even damage negation when eaten by Pokémon. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Berry) for greater detail.", response = BerryDetail.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "berries", })
+    @ApiOperation(value = "Get a berry", notes = "Berries are small fruits that can provide HP and status condition restoration, stat enhancement, and even damage negation when eaten by Pokémon. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Berry) for greater detail.", response = BerryDetail.class, tags={ "berries", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = BerryDetail.class) })
     @RequestMapping(

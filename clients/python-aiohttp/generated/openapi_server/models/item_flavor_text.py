@@ -52,6 +52,7 @@ class ItemFlavorText(Model):
     def text(self):
         """Gets the text of this ItemFlavorText.
 
+        The localized flavor text for an API resource in a specific language.
 
         :return: The text of this ItemFlavorText.
         :rtype: str
@@ -62,6 +63,7 @@ class ItemFlavorText(Model):
     def text(self, text):
         """Sets the text of this ItemFlavorText.
 
+        The localized flavor text for an API resource in a specific language.
 
         :param text: The text of this ItemFlavorText.
         :type text: str
@@ -75,6 +77,7 @@ class ItemFlavorText(Model):
     def version_group(self):
         """Gets the version_group of this ItemFlavorText.
 
+        The version group which uses this flavor text.
 
         :return: The version_group of this ItemFlavorText.
         :rtype: VersionGroupSummary
@@ -85,6 +88,7 @@ class ItemFlavorText(Model):
     def version_group(self, version_group):
         """Sets the version_group of this ItemFlavorText.
 
+        The version group which uses this flavor text.
 
         :param version_group: The version_group of this ItemFlavorText.
         :type version_group: VersionGroupSummary
@@ -98,6 +102,7 @@ class ItemFlavorText(Model):
     def language(self):
         """Gets the language of this ItemFlavorText.
 
+        The language this name is in.
 
         :return: The language of this ItemFlavorText.
         :rtype: LanguageSummary
@@ -108,6 +113,7 @@ class ItemFlavorText(Model):
     def language(self, language):
         """Sets the language of this ItemFlavorText.
 
+        The language this name is in.
 
         :param language: The language of this ItemFlavorText.
         :type language: LanguageSummary

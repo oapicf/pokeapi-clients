@@ -10,9 +10,9 @@
         language=nothing,
     )
 
-    - name::String
-    - color::String
-    - language::LanguageSummary
+    - name::String : The name for this contest.
+    - color::String : The color associated with this contest&#39;s name.
+    - language::LanguageSummary : The language that this name is in.
 """
 Base.@kwdef mutable struct ContestTypeName <: OpenAPI.APIModel
     name::Union{Nothing, String} = nothing
@@ -45,7 +45,7 @@ end
 function OpenAPI.validate_property(::Type{ ContestTypeName }, name::Symbol, val)
 
     if name === Symbol("name")
-        OpenAPI.validate_param(name, "ContestTypeName", :maxLength, val, 100)
+        OpenAPI.validate_param(name, "ContestTypeName", :maxLength, val, 200)
     end
 
     if name === Symbol("color")

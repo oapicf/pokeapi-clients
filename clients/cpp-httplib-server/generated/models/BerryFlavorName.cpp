@@ -10,7 +10,6 @@ namespace models {
 
 BerryFlavorName::BerryFlavorName()
 : name("")
-, language(LanguageSummary())
 {
 }
 // =========================================

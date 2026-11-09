@@ -72,6 +72,7 @@ class LanguageDetail(Model):
     def id(self) -> int:
         """Gets the id of this LanguageDetail.
 
+        The identifier for this resource.  # noqa: E501
 
         :return: The id of this LanguageDetail.
         :rtype: int
@@ -82,6 +83,7 @@ class LanguageDetail(Model):
     def id(self, id: int):
         """Sets the id of this LanguageDetail.
 
+        The identifier for this resource.  # noqa: E501
 
         :param id: The id of this LanguageDetail.
         :type id: int
@@ -95,6 +97,7 @@ class LanguageDetail(Model):
     def name(self) -> str:
         """Gets the name of this LanguageDetail.
 
+        The name for this resource.  # noqa: E501
 
         :return: The name of this LanguageDetail.
         :rtype: str
@@ -105,14 +108,15 @@ class LanguageDetail(Model):
     def name(self, name: str):
         """Sets the name of this LanguageDetail.
 
+        The name for this resource.  # noqa: E501
 
         :param name: The name of this LanguageDetail.
         :type name: str
         """
         if name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
-        if name is not None and len(name) > 100:
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `100`")  # noqa: E501
+        if name is not None and len(name) > 200:
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `200`")  # noqa: E501
 
         self._name = name
 
@@ -120,6 +124,7 @@ class LanguageDetail(Model):
     def official(self) -> bool:
         """Gets the official of this LanguageDetail.
 
+        Whether or not the games are published in this language.  # noqa: E501
 
         :return: The official of this LanguageDetail.
         :rtype: bool
@@ -130,6 +135,7 @@ class LanguageDetail(Model):
     def official(self, official: bool):
         """Sets the official of this LanguageDetail.
 
+        Whether or not the games are published in this language.  # noqa: E501
 
         :param official: The official of this LanguageDetail.
         :type official: bool
@@ -141,6 +147,7 @@ class LanguageDetail(Model):
     def iso639(self) -> str:
         """Gets the iso639 of this LanguageDetail.
 
+        The two-letter ISO 639-1 language code. Multiple PokéAPI language records may share this code.  # noqa: E501
 
         :return: The iso639 of this LanguageDetail.
         :rtype: str
@@ -151,6 +158,7 @@ class LanguageDetail(Model):
     def iso639(self, iso639: str):
         """Sets the iso639 of this LanguageDetail.
 
+        The two-letter ISO 639-1 language code. Multiple PokéAPI language records may share this code.  # noqa: E501
 
         :param iso639: The iso639 of this LanguageDetail.
         :type iso639: str
@@ -166,6 +174,7 @@ class LanguageDetail(Model):
     def iso3166(self) -> str:
         """Gets the iso3166 of this LanguageDetail.
 
+        The two-letter ISO 3166-1 alpha-2 code of the country or region associated with this language record. Multiple PokéAPI language records may share this code.  # noqa: E501
 
         :return: The iso3166 of this LanguageDetail.
         :rtype: str
@@ -176,6 +185,7 @@ class LanguageDetail(Model):
     def iso3166(self, iso3166: str):
         """Sets the iso3166 of this LanguageDetail.
 
+        The two-letter ISO 3166-1 alpha-2 code of the country or region associated with this language record. Multiple PokéAPI language records may share this code.  # noqa: E501
 
         :param iso3166: The iso3166 of this LanguageDetail.
         :type iso3166: str
@@ -191,6 +201,7 @@ class LanguageDetail(Model):
     def names(self) -> List[LanguageName]:
         """Gets the names of this LanguageDetail.
 
+        The name of this resource listed in different languages.  # noqa: E501
 
         :return: The names of this LanguageDetail.
         :rtype: List[LanguageName]
@@ -201,6 +212,7 @@ class LanguageDetail(Model):
     def names(self, names: List[LanguageName]):
         """Sets the names of this LanguageDetail.
 
+        The name of this resource listed in different languages.  # noqa: E501
 
         :param names: The names of this LanguageDetail.
         :type names: List[LanguageName]

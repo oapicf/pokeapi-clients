@@ -3,6 +3,7 @@ namespace OpenAPI.Model
 open System
 open System.Collections.Generic
 open OpenAPI.Model.MoveSummary
+open OpenAPI.Model.string option
 
 module PaginatedMoveSummaryList =
 
@@ -11,8 +12,8 @@ module PaginatedMoveSummaryList =
 
   type PaginatedMoveSummaryList = {
     Count : int;
-    Next : string;
-    Previous : string;
+    Next : string option;
+    Previous : string option;
     Results : MoveSummary[];
   }
   //#endregion

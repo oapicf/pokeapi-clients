@@ -5,7 +5,7 @@
  *
  *)
 
-let machine_list ?limit ?offset ?q () =
+let machine_list ?limit ?offset () =
     let open Lwt.Infix in
     let uri = Request.build_uri "/api/v2/machine/" in
     let headers = Request.default_headers in
@@ -39,21 +39,6 @@ let machine_list ?limit ?offset ?q () =
         
         
  offset in
-    let uri = Request.maybe_add_query_param uri "q"     
-    
-    
-    
-    
-    
-    
-    
-    
-    (fun x -> x)
-    
-    
-        
-        
- q in
     Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
     Request.read_json_body_as (JsonSupport.unwrap Paginated_machine_summary_list.of_yojson) resp body
 

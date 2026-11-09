@@ -21,11 +21,13 @@ import scalaz.concurrent.Task
 
 import HelperCodecs._
 
+import org.openapitools.client.api.CurrencyDetail
 import org.openapitools.client.api.ItemAttributeDetail
 import org.openapitools.client.api.ItemCategoryDetail
 import org.openapitools.client.api.ItemDetail
 import org.openapitools.client.api.ItemFlingEffectDetail
 import org.openapitools.client.api.ItemPocketDetail
+import org.openapitools.client.api.PaginatedCurrencySummaryList
 import org.openapitools.client.api.PaginatedItemAttributeSummaryList
 import org.openapitools.client.api.PaginatedItemCategorySummaryList
 import org.openapitools.client.api.PaginatedItemFlingEffectSummaryList
@@ -37,6 +39,48 @@ object ItemsApi {
   val client = PooledHttp1Client()
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
+
+  def currencyList(host: String, limit: Integer, offset: Integer, q: String)(implicit limitQuery: QueryParam[Integer], offsetQuery: QueryParam[Integer], qQuery: QueryParam[String]): Task[PaginatedCurrencySummaryList] = {
+    implicit val returnTypeDecoder: EntityDecoder[PaginatedCurrencySummaryList] = jsonOf[PaginatedCurrencySummaryList]
+
+    val path = "/api/v2/currency/"
+
+    val httpMethod = Method.GET
+    val contentType = `Content-Type`(MediaType.`application/json`)
+    val headers = Headers(
+      )
+    val queryParams = Query(
+      ("limit", Some(limitQuery.toParamString(limit))), ("offset", Some(offsetQuery.toParamString(offset))), ("q", Some(qQuery.toParamString(q))))
+
+    for {
+      uri           <- Task.fromDisjunction(Uri.fromString(host + path))
+      uriWithParams =  uri.copy(query = queryParams)
+      req           =  Request(method = httpMethod, uri = uriWithParams, headers = headers.put(contentType))
+      resp          <- client.expect[PaginatedCurrencySummaryList](req)
+
+    } yield resp
+  }
+
+  def currencyRetrieve(host: String, id: String): Task[CurrencyDetail] = {
+    implicit val returnTypeDecoder: EntityDecoder[CurrencyDetail] = jsonOf[CurrencyDetail]
+
+    val path = "/api/v2/currency/{id}/".replaceAll("\\{" + "id" + "\\}",escape(id.toString))
+
+    val httpMethod = Method.GET
+    val contentType = `Content-Type`(MediaType.`application/json`)
+    val headers = Headers(
+      )
+    val queryParams = Query(
+      )
+
+    for {
+      uri           <- Task.fromDisjunction(Uri.fromString(host + path))
+      uriWithParams =  uri.copy(query = queryParams)
+      req           =  Request(method = httpMethod, uri = uriWithParams, headers = headers.put(contentType))
+      resp          <- client.expect[CurrencyDetail](req)
+
+    } yield resp
+  }
 
   def itemAttributeList(host: String, limit: Integer, offset: Integer, q: String)(implicit limitQuery: QueryParam[Integer], offsetQuery: QueryParam[Integer], qQuery: QueryParam[String]): Task[PaginatedItemAttributeSummaryList] = {
     implicit val returnTypeDecoder: EntityDecoder[PaginatedItemAttributeSummaryList] = jsonOf[PaginatedItemAttributeSummaryList]
@@ -254,6 +298,48 @@ class HttpServiceItemsApi(service: HttpService) {
   val client = Client.fromHttpService(service)
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
+
+  def currencyList(limit: Integer, offset: Integer, q: String)(implicit limitQuery: QueryParam[Integer], offsetQuery: QueryParam[Integer], qQuery: QueryParam[String]): Task[PaginatedCurrencySummaryList] = {
+    implicit val returnTypeDecoder: EntityDecoder[PaginatedCurrencySummaryList] = jsonOf[PaginatedCurrencySummaryList]
+
+    val path = "/api/v2/currency/"
+
+    val httpMethod = Method.GET
+    val contentType = `Content-Type`(MediaType.`application/json`)
+    val headers = Headers(
+      )
+    val queryParams = Query(
+      ("limit", Some(limitQuery.toParamString(limit))), ("offset", Some(offsetQuery.toParamString(offset))), ("q", Some(qQuery.toParamString(q))))
+
+    for {
+      uri           <- Task.fromDisjunction(Uri.fromString(path))
+      uriWithParams =  uri.copy(query = queryParams)
+      req           =  Request(method = httpMethod, uri = uriWithParams, headers = headers.put(contentType))
+      resp          <- client.expect[PaginatedCurrencySummaryList](req)
+
+    } yield resp
+  }
+
+  def currencyRetrieve(id: String): Task[CurrencyDetail] = {
+    implicit val returnTypeDecoder: EntityDecoder[CurrencyDetail] = jsonOf[CurrencyDetail]
+
+    val path = "/api/v2/currency/{id}/".replaceAll("\\{" + "id" + "\\}",escape(id.toString))
+
+    val httpMethod = Method.GET
+    val contentType = `Content-Type`(MediaType.`application/json`)
+    val headers = Headers(
+      )
+    val queryParams = Query(
+      )
+
+    for {
+      uri           <- Task.fromDisjunction(Uri.fromString(path))
+      uriWithParams =  uri.copy(query = queryParams)
+      req           =  Request(method = httpMethod, uri = uriWithParams, headers = headers.put(contentType))
+      resp          <- client.expect[CurrencyDetail](req)
+
+    } yield resp
+  }
 
   def itemAttributeList(limit: Integer, offset: Integer, q: String)(implicit limitQuery: QueryParam[Integer], offsetQuery: QueryParam[Integer], qQuery: QueryParam[String]): Task[PaginatedItemAttributeSummaryList] = {
     implicit val returnTypeDecoder: EntityDecoder[PaginatedItemAttributeSummaryList] = jsonOf[PaginatedItemAttributeSummaryList]

@@ -11,8 +11,8 @@
 #include <string>
 #include <vector>
 #include "MoveLearnMethodDescription.h"
-#include "MoveLearnMethodDetailVersionGroupsInner.h"
 #include "MoveLearnMethodName.h"
+#include "VersionGroupSummary.h"
 
 
 
@@ -35,8 +35,8 @@ public:
     void setNames(const std::vector<MoveLearnMethodName>& names);
     [[nodiscard]] std::vector<MoveLearnMethodDescription> getDescriptions() const;
     void setDescriptions(const std::vector<MoveLearnMethodDescription>& descriptions);
-    [[nodiscard]] std::vector<MoveLearnMethodDetail_version_groups_inner> getVersionGroups() const;
-    void setVersionGroups(const std::vector<MoveLearnMethodDetail_version_groups_inner>& versionGroups);
+    [[nodiscard]] std::vector<VersionGroupSummary> getVersionGroups() const;
+    void setVersionGroups(const std::vector<VersionGroupSummary>& versionGroups);
 
 
     // JSON serialization using NLOHMANN INTRUSIVE macro (must be inside class to access private members)
@@ -48,7 +48,7 @@ private:
     std::string name;
     std::vector<MoveLearnMethodName> names;
     std::vector<MoveLearnMethodDescription> descriptions;
-    std::vector<MoveLearnMethodDetail_version_groups_inner> versionGroups;
+    std::vector<VersionGroupSummary> versionGroups;
 };
 
 

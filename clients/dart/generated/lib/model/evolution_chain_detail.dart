@@ -18,11 +18,14 @@ class EvolutionChainDetail {
     required this.chain,
   });
 
+  /// The identifier for this resource.
   int id;
 
-  ItemSummary babyTriggerItem;
+  /// The item that a Pokémon would be holding when mating that would trigger the egg hatching a baby Pokémon rather than a basic Pokémon.
+  ItemSummary? babyTriggerItem;
 
-  EvolutionChainDetailChain chain;
+  /// The base chain link object. Each link contains evolution details for a Pokémon in the chain. Each link references the next Pokémon in the natural evolution order.
+  EvolutionChainLink chain;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is EvolutionChainDetail &&
@@ -34,7 +37,7 @@ class EvolutionChainDetail {
   int get hashCode =>
     // ignore: unnecessary_parenthesis
     (id.hashCode) +
-    (babyTriggerItem.hashCode) +
+    (babyTriggerItem == null ? 0 : babyTriggerItem!.hashCode) +
     (chain.hashCode);
 
   @override
@@ -43,7 +46,11 @@ class EvolutionChainDetail {
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
       json[r'id'] = this.id;
+    if (this.babyTriggerItem != null) {
       json[r'baby_trigger_item'] = this.babyTriggerItem;
+    } else {
+      json[r'baby_trigger_item'] = null;
+    }
       json[r'chain'] = this.chain;
     return json;
   }
@@ -62,7 +69,6 @@ class EvolutionChainDetail {
         assert(json.containsKey(r'id'), 'Required key "EvolutionChainDetail[id]" is missing from JSON.');
         assert(json[r'id'] != null, 'Required key "EvolutionChainDetail[id]" has a null value in JSON.');
         assert(json.containsKey(r'baby_trigger_item'), 'Required key "EvolutionChainDetail[baby_trigger_item]" is missing from JSON.');
-        assert(json[r'baby_trigger_item'] != null, 'Required key "EvolutionChainDetail[baby_trigger_item]" has a null value in JSON.');
         assert(json.containsKey(r'chain'), 'Required key "EvolutionChainDetail[chain]" is missing from JSON.');
         assert(json[r'chain'] != null, 'Required key "EvolutionChainDetail[chain]" has a null value in JSON.');
         return true;
@@ -70,8 +76,8 @@ class EvolutionChainDetail {
 
       return EvolutionChainDetail(
         id: mapValueOfType<int>(json, r'id')!,
-        babyTriggerItem: ItemSummary.fromJson(json[r'baby_trigger_item'])!,
-        chain: EvolutionChainDetailChain.fromJson(json[r'chain'])!,
+        babyTriggerItem: ItemSummary.fromJson(json[r'baby_trigger_item']),
+        chain: EvolutionChainLink.fromJson(json[r'chain'])!,
       );
     }
     return null;

@@ -1,0 +1,43 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server PokemonPastStat"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a PokemonPastStat"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  GenerationSummary = openapi_server.resourceTypes.GenerationSummary
+  PokemonStat = openapi_server.resourceTypes.PokemonStat
+}
+resourceTypes {
+
+  PokemonPastStat {
+    title = PokemonPastStat
+    description = PokemonPastStat
+    derivedFrom = Root
+    properties {
+        generation {
+          type = GenerationSummary
+          description = "The last generation in which the referenced pokémon had the listed stats."
+          optional = true
+        }
+        stats {
+          type = array
+          items.type = PokemonStat
+          description = "The stat the Pokémon had up to and including the listed generation."
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  PokemonPastStat {
+    title = PokemonPastStat
+    description = PokemonPastStat
+    implements = openapi_server.resourceTypes.PokemonPastStat
+
+  }
+}

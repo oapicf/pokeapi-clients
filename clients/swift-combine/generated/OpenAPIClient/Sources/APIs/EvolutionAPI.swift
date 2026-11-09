@@ -31,17 +31,10 @@ open class EvolutionAPI {
     /// List evolution chains
     /// - GET /api/v2/evolution-chain/
     /// - Evolution chains are essentially family trees. They start with the lowest stage within a family and detail evolution conditions for each as well as Pokémon they can evolve into up through the hierarchy.
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter limit: (query) Number of results to return per page. (optional)
     /// - parameter offset: (query) The initial index from which to return the results. (optional)
-    /// - parameter q: (query) &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
     /// - returns: AnyPublisher<PaginatedEvolutionChainSummaryList, Error> 
-    open func evolutionChainList(limit: Int? = nil, offset: Int? = nil, q: String? = nil) -> AnyPublisher<PaginatedEvolutionChainSummaryList, Error> {
+    open func evolutionChainList(limit: Int? = nil, offset: Int? = nil) -> AnyPublisher<PaginatedEvolutionChainSummaryList, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
@@ -53,7 +46,6 @@ open class EvolutionAPI {
                 var queryItems: [URLQueryItem] = []
                 if let limit = limit { queryItems.append(URLQueryItem(name: "limit", value: "\(limit)")) } 
                 if let offset = offset { queryItems.append(URLQueryItem(name: "offset", value: "\(offset)")) } 
-                if let q = q { queryItems.append(URLQueryItem(name: "q", value: q)) } 
                 components?.queryItems = queryItems
                 guard let requestURL = components?.url else {
                     throw OpenAPITransportError.badURLError()
@@ -75,12 +67,6 @@ open class EvolutionAPI {
     /// Get evolution chain
     /// - GET /api/v2/evolution-chain/{id}/
     /// - Evolution chains are essentially family trees. They start with the lowest stage within a family and detail evolution conditions for each as well as Pokémon they can evolve into up through the hierarchy.
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter id: (path) This parameter can be a string or an integer. 
     /// - returns: AnyPublisher<EvolutionChainDetail, Error> 
     open func evolutionChainRetrieve(id: String) -> AnyPublisher<EvolutionChainDetail, Error> {
@@ -113,12 +99,6 @@ open class EvolutionAPI {
     /// List evolution triggers
     /// - GET /api/v2/evolution-trigger/
     /// - Evolution triggers are the events and conditions that cause a Pokémon to evolve. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Methods_of_evolution) for greater detail.
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter limit: (query) Number of results to return per page. (optional)
     /// - parameter offset: (query) The initial index from which to return the results. (optional)
     /// - parameter q: (query) &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
@@ -157,12 +137,6 @@ open class EvolutionAPI {
     /// Get evolution trigger
     /// - GET /api/v2/evolution-trigger/{id}/
     /// - Evolution triggers are the events and conditions that cause a Pokémon to evolve. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Methods_of_evolution) for greater detail.
-    /// - BASIC:
-    /// - type: http
-    /// - name: basicAuth
-    /// - API Key:
-    /// - type: apiKey sessionid 
-    /// - name: cookieAuth
     /// - parameter id: (path) This parameter can be a string or an integer. 
     /// - returns: AnyPublisher<EvolutionTriggerDetail, Error> 
     open func evolutionTriggerRetrieve(id: String) -> AnyPublisher<EvolutionTriggerDetail, Error> {
@@ -186,6 +160,76 @@ open class EvolutionAPI {
             return self.transport.send(request: request)
                 .tryMap { response in
                     try self.decoder.decode(EvolutionTriggerDetail.self, from: response.data)
+                }
+                .eraseToAnyPublisher()
+        }.eraseToAnyPublisher()
+    }
+
+
+    /// List evolution variables
+    /// - GET /api/v2/evolution-variable/
+    /// - Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+    /// - parameter limit: (query) Number of results to return per page. (optional)
+    /// - parameter offset: (query) The initial index from which to return the results. (optional)
+    /// - parameter q: (query) &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+    /// - returns: AnyPublisher<PaginatedEvolutionVariableSummaryList, Error> 
+    open func evolutionVariableList(limit: Int? = nil, offset: Int? = nil, q: String? = nil) -> AnyPublisher<PaginatedEvolutionVariableSummaryList, Error> {
+        Deferred {
+            Result<URLRequest, Error> {
+                guard let baseURL = self.transport.baseURL ?? self.baseURL else {
+                    throw OpenAPITransportError.badURLError()
+                }
+                let localVarPath = "/api/v2/evolution-variable/"
+                let localVarURL = baseURL.appendingPathComponent(localVarPath)
+                var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
+                var queryItems: [URLQueryItem] = []
+                if let limit = limit { queryItems.append(URLQueryItem(name: "limit", value: "\(limit)")) } 
+                if let offset = offset { queryItems.append(URLQueryItem(name: "offset", value: "\(offset)")) } 
+                if let q = q { queryItems.append(URLQueryItem(name: "q", value: q)) } 
+                components?.queryItems = queryItems
+                guard let requestURL = components?.url else {
+                    throw OpenAPITransportError.badURLError()
+                }
+                var request = URLRequest(url: requestURL)
+                request.httpMethod = "GET"
+                return request
+            }.publisher
+        }.flatMap { request -> AnyPublisher<PaginatedEvolutionVariableSummaryList, Error> in 
+            return self.transport.send(request: request)
+                .tryMap { response in
+                    try self.decoder.decode(PaginatedEvolutionVariableSummaryList.self, from: response.data)
+                }
+                .eraseToAnyPublisher()
+        }.eraseToAnyPublisher()
+    }
+
+
+    /// Get evolution variable
+    /// - GET /api/v2/evolution-variable/{id}/
+    /// - Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+    /// - parameter id: (path) This parameter can be a string or an integer. 
+    /// - returns: AnyPublisher<EvolutionVariableDetail, Error> 
+    open func evolutionVariableRetrieve(id: String) -> AnyPublisher<EvolutionVariableDetail, Error> {
+        Deferred {
+            Result<URLRequest, Error> {
+                guard let baseURL = self.transport.baseURL ?? self.baseURL else {
+                    throw OpenAPITransportError.badURLError()
+                }
+                var localVarPath = "/api/v2/evolution-variable/{id}/"
+                localVarPath = localVarPath.replacingOccurrences(of: "{id}", with: id)
+                let localVarURL = baseURL.appendingPathComponent(localVarPath)
+                let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
+                guard let requestURL = components?.url else {
+                    throw OpenAPITransportError.badURLError()
+                }
+                var request = URLRequest(url: requestURL)
+                request.httpMethod = "GET"
+                return request
+            }.publisher
+        }.flatMap { request -> AnyPublisher<EvolutionVariableDetail, Error> in 
+            return self.transport.send(request: request)
+                .tryMap { response in
+                    try self.decoder.decode(EvolutionVariableDetail.self, from: response.data)
                 }
                 .eraseToAnyPublisher()
         }.eraseToAnyPublisher()

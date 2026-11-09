@@ -8,7 +8,7 @@ LocationDetail::LocationDetail()
 {
 	id = int(0);
 	name = std::string();
-	region = RegionSummary();
+	region = null;
 	names = std::list<LocationName>();
 	game_indices = std::list<LocationGameIndex>();
 	areas = std::list<LocationAreaSummary>();

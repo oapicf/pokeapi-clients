@@ -35,9 +35,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**PaginatedGenerationSummaryList**](../../docs/models/PaginatedGenerationSummaryList.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -61,9 +58,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**GenerationDetail**](../../docs/models/GenerationDetail.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -89,9 +83,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**PaginatedPokedexSummaryList**](../../docs/models/PaginatedPokedexSummaryList.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -115,9 +106,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**PokedexDetail**](../../docs/models/PokedexDetail.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -143,9 +131,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**PaginatedVersionGroupSummaryList**](../../docs/models/PaginatedVersionGroupSummaryList.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -169,9 +154,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**VersionGroupDetail**](../../docs/models/VersionGroupDetail.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -197,9 +179,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**PaginatedVersionSummaryList**](../../docs/models/PaginatedVersionSummaryList.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -223,9 +202,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**VersionDetail**](../../docs/models/VersionDetail.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined

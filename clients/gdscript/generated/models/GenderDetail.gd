@@ -10,6 +10,7 @@ class_name GenderDetail
 # GenderDetail Model
 
 
+# The identifier for this resource.
 # Required: True
 # isArray: false
 @export var id: int:
@@ -18,6 +19,7 @@ class_name GenderDetail
 		id = value
 var __id__was__set := false
 
+# The name for this resource.
 # Required: True
 # isArray: false
 @export var name: String:
@@ -26,6 +28,7 @@ var __id__was__set := false
 		name = value
 var __name__was__set := false
 
+# A list of Pokémon species that can be this gender and how likely it is that they will be.
 # Required: True
 # isArray: true
 @export var pokemonUnderscorespeciesUnderscoredetails: Array:
@@ -34,6 +37,7 @@ var __name__was__set := false
 		pokemonUnderscorespeciesUnderscoredetails = value
 var __pokemonUnderscorespeciesUnderscoredetails__was__set := false
 
+# A list of Pokémon species that required this gender in order for a Pokémon to evolve into them.
 # Required: True
 # isArray: true
 @export var requiredUnderscoreforUnderscoreevolution: Array:
@@ -77,9 +81,9 @@ static func bzz_denormalize_single(from_dict: Dictionary):
 	if from_dict.has("name"):
 		me.name = from_dict["name"]
 	if from_dict.has("pokemonUnderscorespeciesUnderscoredetails"):
-		me.pokemonUnderscorespeciesUnderscoredetails = GenderDetail_pokemon_species_details_inner.bzz_denormalize_multiple(from_dict["pokemonUnderscorespeciesUnderscoredetails"])
+		me.pokemonUnderscorespeciesUnderscoredetails = GenderPokemonSpecies.bzz_denormalize_multiple(from_dict["pokemonUnderscorespeciesUnderscoredetails"])
 	if from_dict.has("requiredUnderscoreforUnderscoreevolution"):
-		me.requiredUnderscoreforUnderscoreevolution = AbilityDetail_pokemon_inner_pokemon.bzz_denormalize_multiple(from_dict["requiredUnderscoreforUnderscoreevolution"])
+		me.requiredUnderscoreforUnderscoreevolution = PokemonSpeciesSummary.bzz_denormalize_multiple(from_dict["requiredUnderscoreforUnderscoreevolution"])
 	return me
 
 

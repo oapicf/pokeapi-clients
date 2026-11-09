@@ -33,9 +33,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**PaginatedBerryFirmnessSummaryList**](../../docs/models/PaginatedBerryFirmnessSummaryList.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -59,9 +56,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**BerryFirmnessDetail**](../../docs/models/BerryFirmnessDetail.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -87,9 +81,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**PaginatedBerryFlavorSummaryList**](../../docs/models/PaginatedBerryFlavorSummaryList.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -113,9 +104,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**BerryFlavorDetail**](../../docs/models/BerryFlavorDetail.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -141,9 +129,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**PaginatedBerrySummaryList**](../../docs/models/PaginatedBerrySummaryList.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -167,9 +152,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**BerryDetail**](../../docs/models/BerryDetail.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined

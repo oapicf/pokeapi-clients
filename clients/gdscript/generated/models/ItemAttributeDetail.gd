@@ -10,6 +10,7 @@ class_name ItemAttributeDetail
 # ItemAttributeDetail Model
 
 
+# The identifier for this resource.
 # Required: True
 # isArray: false
 @export var id: int:
@@ -18,6 +19,7 @@ class_name ItemAttributeDetail
 		id = value
 var __id__was__set := false
 
+# The name for this resource.
 # Required: True
 # isArray: false
 @export var name: String:
@@ -26,6 +28,7 @@ var __id__was__set := false
 		name = value
 var __name__was__set := false
 
+# The description of this item attribute listed in different languages.
 # Required: True
 # isArray: true
 @export var descriptions: Array:
@@ -34,6 +37,7 @@ var __name__was__set := false
 		descriptions = value
 var __descriptions__was__set := false
 
+# A list of items that have this attribute.
 # Required: True
 # isArray: true
 @export var items: Array:
@@ -42,6 +46,7 @@ var __descriptions__was__set := false
 		items = value
 var __items__was__set := false
 
+# The name of this item attribute listed in different languages.
 # Required: True
 # isArray: true
 @export var names: Array:
@@ -91,7 +96,7 @@ static func bzz_denormalize_single(from_dict: Dictionary):
 	if from_dict.has("descriptions"):
 		me.descriptions = ItemAttributeDescription.bzz_denormalize_multiple(from_dict["descriptions"])
 	if from_dict.has("items"):
-		me.items = AbilityDetail_pokemon_inner_pokemon.bzz_denormalize_multiple(from_dict["items"])
+		me.items = ItemSummary.bzz_denormalize_multiple(from_dict["items"])
 	if from_dict.has("names"):
 		me.names = ItemAttributeName.bzz_denormalize_multiple(from_dict["names"])
 	return me

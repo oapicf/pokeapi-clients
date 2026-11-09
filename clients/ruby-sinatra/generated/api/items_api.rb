@@ -1,6 +1,65 @@
 require 'json'
 
 
+MyApp.add_route('GET', '/api/v2/currency/', {
+  "resourcePath" => "/Items",
+  "summary" => "List currencies",
+  "nickname" => "currency_list",
+  "responseClass" => "PaginatedCurrencySummaryList",
+  "endpoint" => "/api/v2/currency/",
+  "notes" => "Currencies used to buy items.",
+  "parameters" => [
+    {
+      "name" => "limit",
+      "description" => "Number of results to return per page.",
+      "dataType" => "Integer",
+      "allowableValues" => "",
+      "paramType" => "query",
+    },
+    {
+      "name" => "offset",
+      "description" => "The initial index from which to return the results.",
+      "dataType" => "Integer",
+      "allowableValues" => "",
+      "paramType" => "query",
+    },
+    {
+      "name" => "q",
+      "description" => "&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ",
+      "dataType" => "String",
+      "allowableValues" => "",
+      "paramType" => "query",
+    },
+    ]}) do
+  cross_origin
+  # the guts live here
+
+  {"message" => "yes, it worked"}.to_json
+end
+
+
+MyApp.add_route('GET', '/api/v2/currency/{id}/', {
+  "resourcePath" => "/Items",
+  "summary" => "Get currency",
+  "nickname" => "currency_retrieve",
+  "responseClass" => "CurrencyDetail",
+  "endpoint" => "/api/v2/currency/{id}/",
+  "notes" => "Currencies used to buy items.",
+  "parameters" => [
+    {
+      "name" => "id",
+      "description" => "This parameter can be a string or an integer.",
+      "dataType" => "String",
+      "paramType" => "path",
+    },
+    ]}) do
+  cross_origin
+  # the guts live here
+
+  {"message" => "yes, it worked"}.to_json
+end
+
+
 MyApp.add_route('GET', '/api/v2/item-attribute/', {
   "resourcePath" => "/Items",
   "summary" => "List item attributes",

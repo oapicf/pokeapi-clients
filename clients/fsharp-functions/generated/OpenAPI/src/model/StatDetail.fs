@@ -4,9 +4,10 @@ open System
 open System.Collections.Generic
 open Newtonsoft.Json
 open OpenAPI.Model.CharacteristicSummary
+open OpenAPI.Model.ItemSummary
 open OpenAPI.Model.MoveDamageClassSummary
-open OpenAPI.Model.StatDetailAffectingMoves
-open OpenAPI.Model.StatDetailAffectingNatures
+open OpenAPI.Model.StatAffectingMoves
+open OpenAPI.Model.StatAffectingNatures
 open OpenAPI.Model.StatName
 
 module StatDetail =
@@ -24,9 +25,11 @@ module StatDetail =
     [<JsonProperty(PropertyName = "is_battle_only")>]
     IsBattleOnly : bool;
     [<JsonProperty(PropertyName = "affecting_moves")>]
-    AffectingMoves : StatDetailAffectingMoves;
+    AffectingMoves : StatAffectingMoves;
     [<JsonProperty(PropertyName = "affecting_natures")>]
-    AffectingNatures : StatDetailAffectingNatures;
+    AffectingNatures : StatAffectingNatures;
+    [<JsonProperty(PropertyName = "affecting_items")>]
+    AffectingItems : ItemSummary[];
     [<JsonProperty(PropertyName = "characteristics")>]
     Characteristics : CharacteristicSummary[];
     [<JsonProperty(PropertyName = "move_damage_class")>]

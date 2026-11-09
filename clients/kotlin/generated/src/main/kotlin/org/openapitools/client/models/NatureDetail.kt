@@ -24,10 +24,9 @@
 package org.openapitools.client.models
 
 import org.openapitools.client.models.BerryFlavorSummary
-import org.openapitools.client.models.BerrySummary
 import org.openapitools.client.models.NatureBattleStylePreference
-import org.openapitools.client.models.NatureDetailPokeathlonStatChangesInner
 import org.openapitools.client.models.NatureName
+import org.openapitools.client.models.NaturePokeathlonStat
 import org.openapitools.client.models.StatSummary
 
 import com.squareup.moshi.Json
@@ -36,48 +35,53 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param id 
- * @param name 
- * @param decreasedStat 
- * @param increasedStat 
- * @param likesFlavor 
- * @param hatesFlavor 
- * @param berries 
- * @param pokeathlonStatChanges 
- * @param moveBattleStylePreferences 
- * @param names 
+ * @param id The identifier for this resource.
+ * @param name The name for this resource.
+ * @param decreasedStat The stat decreased by 10% in Pokémon with this nature.
+ * @param increasedStat The stat increased by 10% in Pokémon with this nature.
+ * @param likesFlavor The flavor liked by Pokémon with this nature.
+ * @param hatesFlavor The flavor hated by Pokémon with this nature.
+ * @param pokeathlonStatChanges A list of Pokéathlon stats this nature effects and how much it effects them.
+ * @param moveBattleStylePreferences A list of battle styles and how likely a Pokémon with this nature is to use them in the Battle Palace or Battle Tent.
+ * @param names The name of this resource listed in different languages.
  */
 
 
 data class NatureDetail (
 
+    /* The identifier for this resource. */
     @Json(name = "id")
     val id: kotlin.Int,
 
+    /* The name for this resource. */
     @Json(name = "name")
     val name: kotlin.String,
 
+    /* The stat decreased by 10% in Pokémon with this nature. */
     @Json(name = "decreased_stat")
-    val decreasedStat: StatSummary,
+    val decreasedStat: StatSummary?,
 
+    /* The stat increased by 10% in Pokémon with this nature. */
     @Json(name = "increased_stat")
-    val increasedStat: StatSummary,
+    val increasedStat: StatSummary?,
 
+    /* The flavor liked by Pokémon with this nature. */
     @Json(name = "likes_flavor")
-    val likesFlavor: BerryFlavorSummary,
+    val likesFlavor: BerryFlavorSummary?,
 
+    /* The flavor hated by Pokémon with this nature. */
     @Json(name = "hates_flavor")
-    val hatesFlavor: BerryFlavorSummary,
+    val hatesFlavor: BerryFlavorSummary?,
 
-    @Json(name = "berries")
-    val berries: kotlin.collections.List<BerrySummary>,
-
+    /* A list of Pokéathlon stats this nature effects and how much it effects them. */
     @Json(name = "pokeathlon_stat_changes")
-    val pokeathlonStatChanges: kotlin.collections.List<NatureDetailPokeathlonStatChangesInner>,
+    val pokeathlonStatChanges: kotlin.collections.List<NaturePokeathlonStat>,
 
+    /* A list of battle styles and how likely a Pokémon with this nature is to use them in the Battle Palace or Battle Tent. */
     @Json(name = "move_battle_style_preferences")
     val moveBattleStylePreferences: kotlin.collections.List<NatureBattleStylePreference>,
 
+    /* The name of this resource listed in different languages. */
     @Json(name = "names")
     val names: kotlin.collections.List<NatureName>
 

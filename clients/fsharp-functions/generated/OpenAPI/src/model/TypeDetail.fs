@@ -3,15 +3,15 @@ namespace OpenAPI.Model
 open System
 open System.Collections.Generic
 open Newtonsoft.Json
-open OpenAPI.Model.AbilityName
 open OpenAPI.Model.GenerationSummary
 open OpenAPI.Model.MoveDamageClassSummary
 open OpenAPI.Model.MoveSummary
-open OpenAPI.Model.TypeDetailDamageRelations
-open OpenAPI.Model.TypeDetailPastDamageRelationsInner
-open OpenAPI.Model.TypeDetailPokemonInner
-open OpenAPI.Model.TypeDetailSpritesValueValue
 open OpenAPI.Model.TypeGameIndex
+open OpenAPI.Model.TypeGameSprite
+open OpenAPI.Model.TypeName
+open OpenAPI.Model.TypePastRelationships
+open OpenAPI.Model.TypePokemon
+open OpenAPI.Model.TypeRelationships
 open System.Collections.Generic
 
 module TypeDetail =
@@ -25,9 +25,9 @@ module TypeDetail =
     [<JsonProperty(PropertyName = "name")>]
     Name : string;
     [<JsonProperty(PropertyName = "damage_relations")>]
-    DamageRelations : TypeDetailDamageRelations;
+    DamageRelations : TypeRelationships;
     [<JsonProperty(PropertyName = "past_damage_relations")>]
-    PastDamageRelations : TypeDetailPastDamageRelationsInner[];
+    PastDamageRelations : TypePastRelationships[];
     [<JsonProperty(PropertyName = "game_indices")>]
     GameIndices : TypeGameIndex[];
     [<JsonProperty(PropertyName = "generation")>]
@@ -35,13 +35,13 @@ module TypeDetail =
     [<JsonProperty(PropertyName = "move_damage_class")>]
     MoveDamageClass : MoveDamageClassSummary;
     [<JsonProperty(PropertyName = "names")>]
-    Names : AbilityName[];
+    Names : TypeName[];
     [<JsonProperty(PropertyName = "pokemon")>]
-    Pokemon : TypeDetailPokemonInner[];
+    Pokemon : TypePokemon[];
     [<JsonProperty(PropertyName = "moves")>]
     Moves : MoveSummary[];
     [<JsonProperty(PropertyName = "sprites")>]
-    Sprites : IDictionary<string, IDictionary<string, TypeDetailSpritesValueValue>>;
+    Sprites : IDictionary<string, IDictionary<string, TypeGameSprite>>;
   }
 
   //#endregion

@@ -3,8 +3,8 @@ package org.openapitools.server.model;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.server.model.AbilityDetailPokemonInnerPokemon;
 import org.openapitools.server.model.MoveMetaAilmentName;
+import org.openapitools.server.model.MoveSummary;
 import jakarta.validation.constraints.*;
 import jakarta.validation.Valid;
 
@@ -14,7 +14,7 @@ public class MoveMetaAilmentDetail   {
 
     private Integer id;
     private String name;
-    private List<@Valid AbilityDetailPokemonInnerPokemon> moves = new ArrayList<>();
+    private List<@Valid MoveSummary> moves = new ArrayList<>();
     private List<@Valid MoveMetaAilmentName> names = new ArrayList<>();
 
     /**
@@ -27,15 +27,15 @@ public class MoveMetaAilmentDetail   {
     /**
      * Create MoveMetaAilmentDetail.
      *
-     * @param id id
-     * @param name name
-     * @param moves moves
-     * @param names names
+     * @param id The identifier for this resource.
+     * @param name The name for this resource.
+     * @param moves A list of moves that cause this ailment.
+     * @param names The name of this resource listed in different languages.
      */
     public MoveMetaAilmentDetail(
         Integer id, 
         String name, 
-        List<@Valid AbilityDetailPokemonInnerPokemon> moves, 
+        List<@Valid MoveSummary> moves, 
         List<@Valid MoveMetaAilmentName> names
     ) {
         this.id = id;
@@ -47,7 +47,7 @@ public class MoveMetaAilmentDetail   {
 
 
     /**
-     * Get id
+     * The identifier for this resource.
      * @return id
      */
     public Integer getId() {
@@ -59,7 +59,7 @@ public class MoveMetaAilmentDetail   {
     }
 
     /**
-     * Get name
+     * The name for this resource.
      * @return name
      */
     public String getName() {
@@ -71,19 +71,19 @@ public class MoveMetaAilmentDetail   {
     }
 
     /**
-     * Get moves
+     * A list of moves that cause this ailment.
      * @return moves
      */
-    public List<@Valid AbilityDetailPokemonInnerPokemon> getMoves() {
+    public List<@Valid MoveSummary> getMoves() {
         return moves;
     }
 
-    public void setMoves(List<@Valid AbilityDetailPokemonInnerPokemon> moves) {
+    public void setMoves(List<@Valid MoveSummary> moves) {
         this.moves = moves;
     }
 
     /**
-     * Get names
+     * The name of this resource listed in different languages.
      * @return names
      */
     public List<@Valid MoveMetaAilmentName> getNames() {

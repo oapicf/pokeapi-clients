@@ -1,0 +1,43 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server StatAffectingMoves"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a StatAffectingMoves"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  MoveStatChange = openapi_server.resourceTypes.MoveStatChange
+}
+resourceTypes {
+
+  StatAffectingMoves {
+    title = StatAffectingMoves
+    description = StatAffectingMoves
+    derivedFrom = Root
+    properties {
+        increase {
+          type = array
+          items.type = MoveStatChange
+          description = "A list of moves and how they change the referenced stat."
+          optional = true
+        }
+        decrease {
+          type = array
+          items.type = MoveStatChange
+          description = "A list of moves and how they change the referenced stat."
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  StatAffectingMoves {
+    title = StatAffectingMoves
+    description = StatAffectingMoves
+    implements = openapi_server.resourceTypes.StatAffectingMoves
+
+  }
+}

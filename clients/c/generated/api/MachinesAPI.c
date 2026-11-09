@@ -14,7 +14,7 @@
 // Machines are the representation of items that teach moves to Pokémon. They vary from version to version, so it is not certain that one specific TM or HM corresponds to a single Machine.
 //
 paginated_machine_summary_list_t*
-MachinesAPI_machineList(apiClient_t *apiClient, int *limit, int *offset, char *q)
+MachinesAPI_machineList(apiClient_t *apiClient, int *limit, int *offset)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -58,18 +58,6 @@ MachinesAPI_machineList(apiClient_t *apiClient, int *limit, int *offset, char *q
         snprintf(valueQuery_offset, MAX_NUMBER_LENGTH, "%d", *offset);
         keyPairQuery_offset = keyValuePair_create(keyQuery_offset, valueQuery_offset);
         list_addElement(localVarQueryParameters,keyPairQuery_offset);
-    }
-
-    // query parameters
-    char *keyQuery_q = NULL;
-    char * valueQuery_q = NULL;
-    keyValuePair_t *keyPairQuery_q = 0;
-    if (q)
-    {
-        keyQuery_q = strdup("q");
-        valueQuery_q = strdup((q));
-        keyPairQuery_q = keyValuePair_create(keyQuery_q, valueQuery_q);
-        list_addElement(localVarQueryParameters,keyPairQuery_q);
     }
     list_addElement(localVarHeaderType,"application/json"); //produces
     apiClient_invoke(apiClient,
@@ -133,18 +121,6 @@ MachinesAPI_machineList(apiClient_t *apiClient, int *limit, int *offset, char *q
     if(keyPairQuery_offset){
         keyValuePair_free(keyPairQuery_offset);
         keyPairQuery_offset = NULL;
-    }
-    if(keyQuery_q){
-        free(keyQuery_q);
-        keyQuery_q = NULL;
-    }
-    if(valueQuery_q){
-        free(valueQuery_q);
-        valueQuery_q = NULL;
-    }
-    if(keyPairQuery_q){
-        keyValuePair_free(keyPairQuery_q);
-        keyPairQuery_q = NULL;
     }
     return elementToReturn;
 end:

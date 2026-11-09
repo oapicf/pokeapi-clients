@@ -10,6 +10,7 @@ class_name PokedexDetail
 # PokedexDetail Model
 
 
+# The identifier for this resource.
 # Required: True
 # isArray: false
 @export var id: int:
@@ -18,6 +19,7 @@ class_name PokedexDetail
 		id = value
 var __id__was__set := false
 
+# The name for this resource.
 # Required: True
 # isArray: false
 @export var name: String:
@@ -26,6 +28,7 @@ var __id__was__set := false
 		name = value
 var __name__was__set := false
 
+# Whether or not this Pokédex originated in the main series of the video games.
 # Required: False
 # isArray: false
 @export var isUnderscoremainUnderscoreseries: bool:
@@ -34,6 +37,7 @@ var __name__was__set := false
 		isUnderscoremainUnderscoreseries = value
 var __isUnderscoremainUnderscoreseries__was__set := false
 
+# The description of this resource listed in different languages.
 # Required: True
 # isArray: true
 @export var descriptions: Array:
@@ -42,6 +46,7 @@ var __isUnderscoremainUnderscoreseries__was__set := false
 		descriptions = value
 var __descriptions__was__set := false
 
+# The name of this resource listed in different languages.
 # Required: True
 # isArray: true
 @export var names: Array:
@@ -50,6 +55,7 @@ var __descriptions__was__set := false
 		names = value
 var __names__was__set := false
 
+# A list of Pokémon catalogued in this Pokédex and their indexes.
 # Required: True
 # isArray: true
 @export var pokemonUnderscoreentries: Array:
@@ -58,6 +64,7 @@ var __names__was__set := false
 		pokemonUnderscoreentries = value
 var __pokemonUnderscoreentries__was__set := false
 
+# The region this Pokédex catalogues Pokémon for.
 # Required: True
 # isArray: false
 @export var region: RegionSummary:
@@ -66,6 +73,7 @@ var __pokemonUnderscoreentries__was__set := false
 		region = value
 var __region__was__set := false
 
+# A list of version groups this Pokédex is relevant to.
 # Required: True
 # isArray: true
 @export var versionUnderscoregroups: Array:
@@ -129,11 +137,11 @@ static func bzz_denormalize_single(from_dict: Dictionary):
 	if from_dict.has("names"):
 		me.names = PokedexName.bzz_denormalize_multiple(from_dict["names"])
 	if from_dict.has("pokemonUnderscoreentries"):
-		me.pokemonUnderscoreentries = PokedexDetail_pokemon_entries_inner.bzz_denormalize_multiple(from_dict["pokemonUnderscoreentries"])
+		me.pokemonUnderscoreentries = PokemonDexNumber.bzz_denormalize_multiple(from_dict["pokemonUnderscoreentries"])
 	if from_dict.has("region"):
 		me.region = RegionSummary.bzz_denormalize_single(from_dict["region"])
 	if from_dict.has("versionUnderscoregroups"):
-		me.versionUnderscoregroups = AbilityDetail_pokemon_inner_pokemon.bzz_denormalize_multiple(from_dict["versionUnderscoregroups"])
+		me.versionUnderscoregroups = VersionGroupSummary.bzz_denormalize_multiple(from_dict["versionUnderscoregroups"])
 	return me
 
 

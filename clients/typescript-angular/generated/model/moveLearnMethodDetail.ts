@@ -8,15 +8,30 @@
  * Do not edit the class manually.
  */
 import { MoveLearnMethodName } from './moveLearnMethodName';
-import { AbilityDetailPokemonInnerPokemon } from './abilityDetailPokemonInnerPokemon';
+import { VersionGroupSummary } from './versionGroupSummary';
 import { MoveLearnMethodDescription } from './moveLearnMethodDescription';
 
 
 export interface MoveLearnMethodDetail { 
+    /**
+     * The identifier for this resource.
+     */
     readonly id: number;
+    /**
+     * The name for this resource.
+     */
     name: string;
+    /**
+     * The name of this resource listed in different languages.
+     */
     readonly names: Array<MoveLearnMethodName>;
+    /**
+     * The description of this resource listed in different languages.
+     */
     readonly descriptions: Array<MoveLearnMethodDescription>;
-    readonly version_groups: Array<AbilityDetailPokemonInnerPokemon>;
+    /**
+     * A list of version groups where moves can be learned through this method.
+     */
+    readonly version_groups: Array<VersionGroupSummary>;
 }
 

@@ -16,7 +16,7 @@ Method | HTTP request | Description
 # **contest_effect_list**   { #contest_effect_list }
 <a name="contest_effect_list"></a>
 
-> `contest_effect_list(limit = null,offset = null,q = null, on_success: Callable, on_failure: Callable)`
+> `contest_effect_list(limit = null,offset = null, on_success: Callable, on_failure: Callable)`
 
 List contest effects
 
@@ -24,8 +24,6 @@ Contest effects refer to the effects of moves when used in contests.
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -50,9 +48,6 @@ api.contest_effect_list(
 	# offset: int   Eg: 56
 	# The initial index from which to return the results.
 	offset,
-	# q: String   Eg: q_example
-	# > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-	q,
 	# On Success
 	func(response):  # response is ApiResponse
 		prints("Success!", "contest_effect_list", response)
@@ -78,8 +73,6 @@ Contest effects refer to the effects of moves when used in contests.
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -98,7 +91,7 @@ var api = ContestsApi.new(config)
 
 # Invoke an endpoint
 api.contest_effect_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id,
 	# On Success
@@ -126,8 +119,6 @@ Contest types are categories judges used to weigh a Pok√©mon's condition in Pok√
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -180,8 +171,6 @@ Contest types are categories judges used to weigh a Pok√©mon's condition in Pok√
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -200,7 +189,7 @@ var api = ContestsApi.new(config)
 
 # Invoke an endpoint
 api.contest_type_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id,
 	# On Success
@@ -220,7 +209,7 @@ api.contest_type_retrieve(
 # **super_contest_effect_list**   { #super_contest_effect_list }
 <a name="super_contest_effect_list"></a>
 
-> `super_contest_effect_list(limit = null,offset = null,q = null, on_success: Callable, on_failure: Callable)`
+> `super_contest_effect_list(limit = null,offset = null, on_success: Callable, on_failure: Callable)`
 
 List super contest effects
 
@@ -228,8 +217,6 @@ Super contest effects refer to the effects of moves when used in super contests.
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -254,9 +241,6 @@ api.super_contest_effect_list(
 	# offset: int   Eg: 56
 	# The initial index from which to return the results.
 	offset,
-	# q: String   Eg: q_example
-	# > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-	q,
 	# On Success
 	func(response):  # response is ApiResponse
 		prints("Success!", "super_contest_effect_list", response)
@@ -282,8 +266,6 @@ Super contest effects refer to the effects of moves when used in super contests.
 
 ### Example
 
-* Basic Authentication (`basicAuth`)
-* Api Key Authentication (`cookieAuth`)
 
 ```gdscript
 
@@ -302,7 +284,7 @@ var api = ContestsApi.new(config)
 
 # Invoke an endpoint
 api.super_contest_effect_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id,
 	# On Success
@@ -322,8 +304,7 @@ api.super_contest_effect_retrieve(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), 
-[cookieAuth](../README.md#cookieAuth)
+No authorization required.
 
 [[Back to top]](#__pageTop) \
 [[Back to API list]](../README.md#documentation-for-api-endpoints) \

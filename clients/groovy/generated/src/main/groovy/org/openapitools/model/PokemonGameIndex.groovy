@@ -7,8 +7,8 @@ import org.openapitools.model.VersionSummary;
 
 @Canonical
 class PokemonGameIndex {
-    
+    /* The internal id of an API resource within game data. */
     Integer gameIndex
-    
+    /* The version relevent to this game index. */
     VersionSummary version
 }

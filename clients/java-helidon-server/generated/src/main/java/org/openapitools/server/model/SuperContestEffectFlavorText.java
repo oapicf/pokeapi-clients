@@ -21,8 +21,8 @@ public class SuperContestEffectFlavorText   {
     /**
      * Create SuperContestEffectFlavorText.
      *
-     * @param flavorText flavorText
-     * @param language language
+     * @param flavorText The localized flavor text for an API resource in a specific language.
+     * @param language The language this name is in.
      */
     public SuperContestEffectFlavorText(
         String flavorText, 
@@ -35,7 +35,7 @@ public class SuperContestEffectFlavorText   {
 
 
     /**
-     * Get flavorText
+     * The localized flavor text for an API resource in a specific language.
      * @return flavorText
      */
     public String getFlavorText() {
@@ -47,7 +47,7 @@ public class SuperContestEffectFlavorText   {
     }
 
     /**
-     * Get language
+     * The language this name is in.
      * @return language
      */
     public LanguageSummary getLanguage() {

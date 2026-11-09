@@ -6,7 +6,7 @@
             [pokéapi.specs.ability-effect-text :refer :all]
             [pokéapi.specs.ability-change :refer :all]
             [pokéapi.specs.ability-flavor-text :refer :all]
-            [pokéapi.specs.ability-detail-pokemon-inner :refer :all]
+            [pokéapi.specs.ability-pokemon-detail :refer :all]
             )
   (:import (java.io File)))
 
@@ -21,7 +21,7 @@
    (ds/req :effect_entries) (s/coll-of ability-effect-text-spec)
    (ds/req :effect_changes) (s/coll-of ability-change-spec)
    (ds/req :flavor_text_entries) (s/coll-of ability-flavor-text-spec)
-   (ds/req :pokemon) (s/coll-of ability-detail-pokemon-inner-spec)
+   (ds/req :pokemon) (s/coll-of ability-pokemon-detail-spec)
    })
 
 (def ability-detail-spec

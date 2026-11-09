@@ -9,13 +9,17 @@ import Foundation
 
 public struct PokeathlonStatDetail: Sendable, Codable, Hashable {
 
-    public static let nameRule = StringRule(minLength: nil, maxLength: 100, pattern: nil)
+    public static let nameRule = StringRule(minLength: nil, maxLength: 200, pattern: nil)
+    /** The identifier for this resource. */
     public var id: Int
+    /** The name for this resource. */
     public var name: String
-    public var affectingNatures: PokeathlonStatDetailAffectingNatures
+    /** A detail of natures which affect this Pokéathlon stat positively or negatively. */
+    public var affectingNatures: PokeathlonStatAffectingNatures
+    /** The name of this resource listed in different languages. */
     public var names: [PokeathlonStatName]
 
-    public init(id: Int, name: String, affectingNatures: PokeathlonStatDetailAffectingNatures, names: [PokeathlonStatName]) {
+    public init(id: Int, name: String, affectingNatures: PokeathlonStatAffectingNatures, names: [PokeathlonStatName]) {
         self.id = id
         self.name = name
         self.affectingNatures = affectingNatures

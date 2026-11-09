@@ -10,6 +10,7 @@
 
 #include "LanguageDetail.h"
 #include "PaginatedLanguageSummaryList.h"
+#include "PokeapiMetaResponse.h"
 
 namespace Tiny {
 
@@ -59,6 +60,16 @@ public:
             
             std::string id
             
+    );
+    /**
+    * Get API metadata.
+    *
+    * Returns metadata about the current deployed version of the API, including the git commit hash, deploy date, and tag (if any).
+    */
+    Response<
+                PokeapiMetaResponse
+        >
+    metaRetrieve(
     );
 }; 
 

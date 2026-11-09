@@ -15,11 +15,13 @@ public class PokemonFormDetail
     public bool IsMega { get; set; }
     public string FormName { get; set; }
     public PokemonSummary Pokemon { get; set; }
-    public PokemonFormDetailSprites Sprites { get; set; }
+    public PokemonFormSprites Sprites { get; set; }
     public VersionGroupSummary VersionGroup { get; set; }
-    public List<PokemonFormDetailFormNamesInner> FormNames { get; set; }
-    public List<PokemonFormDetailFormNamesInner> Names { get; set; }
-    public List<PokemonDetailTypesInner> Types { get; set; }
+    public List<PokemonFormName> FormNames { get; set; }
+    public List<PokemonFormName> Names { get; set; }
+    public List<PokemonFormType> Types { get; set; }
+    public List<PokemonFormTriggerCondition> TriggerConditions { get; set; }
+    public List<PokemonFormFlavorText> FlavorTextEntries { get; set; }
 }
 
 

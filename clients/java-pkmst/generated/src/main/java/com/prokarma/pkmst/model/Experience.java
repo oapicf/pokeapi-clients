@@ -14,7 +14,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Experience
  */
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-10-25T05:48:09.645019047Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-11-09T13:49:28.343088631Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class Experience   {
   @JsonProperty("level")
   private Integer level;
@@ -28,10 +28,12 @@ public class Experience   {
   }
 
   /**
-   * Get level
+   * The level gained.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return level
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The level gained.")
   public Integer getLevel() {
     return level;
   }
@@ -46,10 +48,12 @@ public class Experience   {
   }
 
   /**
-   * Get experience
+   * The amount of experience required to reach the referenced level.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return experience
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The amount of experience required to reach the referenced level.")
   public Integer getExperience() {
     return experience;
   }

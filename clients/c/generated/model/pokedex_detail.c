@@ -106,7 +106,7 @@ void pokedex_detail_free(pokedex_detail_t *pokedex_detail) {
     }
     if (pokedex_detail->pokemon_entries) {
         list_ForEach(listEntry, pokedex_detail->pokemon_entries) {
-            pokedex_detail_pokemon_entries_inner_free(listEntry->data);
+            pokemon_dex_number_free(listEntry->data);
         }
         list_freeList(pokedex_detail->pokemon_entries);
         pokedex_detail->pokemon_entries = NULL;
@@ -117,7 +117,7 @@ void pokedex_detail_free(pokedex_detail_t *pokedex_detail) {
     }
     if (pokedex_detail->version_groups) {
         list_ForEach(listEntry, pokedex_detail->version_groups) {
-            ability_detail_pokemon_inner_pokemon_free(listEntry->data);
+            version_group_summary_free(listEntry->data);
         }
         list_freeList(pokedex_detail->version_groups);
         pokedex_detail->version_groups = NULL;
@@ -208,7 +208,7 @@ cJSON *pokedex_detail_convertToJSON(pokedex_detail_t *pokedex_detail) {
     listEntry_t *pokemon_entriesListEntry;
     if (pokedex_detail->pokemon_entries) {
     list_ForEach(pokemon_entriesListEntry, pokedex_detail->pokemon_entries) {
-    cJSON *itemLocal = pokedex_detail_pokemon_entries_inner_convertToJSON(pokemon_entriesListEntry->data);
+    cJSON *itemLocal = pokemon_dex_number_convertToJSON(pokemon_entriesListEntry->data);
     if(itemLocal == NULL) {
     goto fail;
     }
@@ -243,7 +243,7 @@ cJSON *pokedex_detail_convertToJSON(pokedex_detail_t *pokedex_detail) {
     listEntry_t *version_groupsListEntry;
     if (pokedex_detail->version_groups) {
     list_ForEach(version_groupsListEntry, pokedex_detail->version_groups) {
-    cJSON *itemLocal = ability_detail_pokemon_inner_pokemon_convertToJSON(version_groupsListEntry->data);
+    cJSON *itemLocal = version_group_summary_convertToJSON(version_groupsListEntry->data);
     if(itemLocal == NULL) {
     goto fail;
     }
@@ -416,7 +416,7 @@ pokedex_detail_t *pokedex_detail_parseFromJSON(cJSON *pokedex_detailJSON){
         if(!cJSON_IsObject(pokemon_entries_local_nonprimitive)){
             goto end;
         }
-        pokedex_detail_pokemon_entries_inner_t *pokemon_entriesItem = pokedex_detail_pokemon_entries_inner_parseFromJSON(pokemon_entries_local_nonprimitive);
+        pokemon_dex_number_t *pokemon_entriesItem = pokemon_dex_number_parseFromJSON(pokemon_entries_local_nonprimitive);
 
         list_addElement(pokemon_entriesList, pokemon_entriesItem);
     }
@@ -455,7 +455,7 @@ pokedex_detail_t *pokedex_detail_parseFromJSON(cJSON *pokedex_detailJSON){
         if(!cJSON_IsObject(version_groups_local_nonprimitive)){
             goto end;
         }
-        ability_detail_pokemon_inner_pokemon_t *version_groupsItem = ability_detail_pokemon_inner_pokemon_parseFromJSON(version_groups_local_nonprimitive);
+        version_group_summary_t *version_groupsItem = version_group_summary_parseFromJSON(version_groups_local_nonprimitive);
 
         list_addElement(version_groupsList, version_groupsItem);
     }
@@ -513,7 +513,7 @@ end:
     if (pokemon_entriesList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, pokemon_entriesList) {
-            pokedex_detail_pokemon_entries_inner_free(listEntry->data);
+            pokemon_dex_number_free(listEntry->data);
             listEntry->data = NULL;
         }
         list_freeList(pokemon_entriesList);
@@ -526,7 +526,7 @@ end:
     if (version_groupsList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, version_groupsList) {
-            ability_detail_pokemon_inner_pokemon_free(listEntry->data);
+            version_group_summary_free(listEntry->data);
             listEntry->data = NULL;
         }
         list_freeList(version_groupsList);

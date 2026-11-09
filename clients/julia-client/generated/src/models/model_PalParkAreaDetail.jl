@@ -11,16 +11,16 @@
         pokemon_encounters=nothing,
     )
 
-    - id::Int64
-    - name::String
-    - names::Vector{PalParkAreaName}
-    - pokemon_encounters::Vector{PalParkAreaDetailPokemonEncountersInner}
+    - id::Int64 : The identifier for this resource.
+    - name::String : The name for this resource.
+    - names::Vector{PalParkAreaName} : The name of this resource listed in different languages.
+    - pokemon_encounters::Vector{PalParkEncounter} : A list of Pokémon encountered in thi pal park area along with details.
 """
 Base.@kwdef mutable struct PalParkAreaDetail <: OpenAPI.APIModel
     id::Union{Nothing, Int64} = nothing
     name::Union{Nothing, String} = nothing
     names::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{PalParkAreaName} }
-    pokemon_encounters::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{PalParkAreaDetailPokemonEncountersInner} }
+    pokemon_encounters::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{PalParkEncounter} }
 
     function PalParkAreaDetail(id, name, names, pokemon_encounters, )
         o = new(id, name, names, pokemon_encounters, )
@@ -29,7 +29,7 @@ Base.@kwdef mutable struct PalParkAreaDetail <: OpenAPI.APIModel
     end
 end # type PalParkAreaDetail
 
-const _property_types_PalParkAreaDetail = Dict{Symbol,String}(Symbol("id")=>"Int64", Symbol("name")=>"String", Symbol("names")=>"Vector{PalParkAreaName}", Symbol("pokemon_encounters")=>"Vector{PalParkAreaDetailPokemonEncountersInner}", )
+const _property_types_PalParkAreaDetail = Dict{Symbol,String}(Symbol("id")=>"Int64", Symbol("name")=>"String", Symbol("names")=>"Vector{PalParkAreaName}", Symbol("pokemon_encounters")=>"Vector{PalParkEncounter}", )
 OpenAPI.property_type(::Type{ PalParkAreaDetail }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_PalParkAreaDetail[name]))}
 
 function OpenAPI.check_required(o::PalParkAreaDetail)
@@ -51,7 +51,7 @@ function OpenAPI.validate_property(::Type{ PalParkAreaDetail }, name::Symbol, va
 
 
     if name === Symbol("name")
-        OpenAPI.validate_param(name, "PalParkAreaDetail", :maxLength, val, 100)
+        OpenAPI.validate_param(name, "PalParkAreaDetail", :maxLength, val, 200)
     end
 
 

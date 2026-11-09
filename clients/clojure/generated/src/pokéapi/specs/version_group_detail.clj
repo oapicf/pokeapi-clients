@@ -2,9 +2,9 @@
   (:require [clojure.spec.alpha :as s]
             [spec-tools.data-spec :as ds]
             [pokéapi.specs.generation-summary :refer :all]
-            [pokéapi.specs.ability-detail-pokemon-inner-pokemon :refer :all]
-            [pokéapi.specs.ability-detail-pokemon-inner-pokemon :refer :all]
-            [pokéapi.specs.ability-detail-pokemon-inner-pokemon :refer :all]
+            [pokéapi.specs.move-learn-method-summary :refer :all]
+            [pokéapi.specs.pokedex-summary :refer :all]
+            [pokéapi.specs.region-summary :refer :all]
             [pokéapi.specs.version-summary :refer :all]
             )
   (:import (java.io File)))
@@ -16,9 +16,9 @@
    (ds/req :name) string?
    (ds/opt :order) int?
    (ds/req :generation) generation-summary-spec
-   (ds/req :move_learn_methods) (s/coll-of ability-detail-pokemon-inner-pokemon-spec)
-   (ds/req :pokedexes) (s/coll-of ability-detail-pokemon-inner-pokemon-spec)
-   (ds/req :regions) (s/coll-of ability-detail-pokemon-inner-pokemon-spec)
+   (ds/req :move_learn_methods) (s/coll-of move-learn-method-summary-spec)
+   (ds/req :pokedexes) (s/coll-of pokedex-summary-spec)
+   (ds/req :regions) (s/coll-of region-summary-spec)
    (ds/req :versions) (s/coll-of version-summary-spec)
    })
 

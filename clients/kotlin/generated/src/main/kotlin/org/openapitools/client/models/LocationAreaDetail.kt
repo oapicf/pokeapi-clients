@@ -23,9 +23,9 @@
 
 package org.openapitools.client.models
 
-import org.openapitools.client.models.LocationAreaDetailEncounterMethodRatesInner
-import org.openapitools.client.models.LocationAreaDetailPokemonEncountersInner
+import org.openapitools.client.models.LocationAreaEncounterRate
 import org.openapitools.client.models.LocationAreaName
+import org.openapitools.client.models.LocationAreaPokemonEncounter
 import org.openapitools.client.models.LocationSummary
 
 import com.squareup.moshi.Json
@@ -34,38 +34,45 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param id 
- * @param name 
- * @param gameIndex 
- * @param encounterMethodRates 
- * @param location 
- * @param names 
- * @param pokemonEncounters 
+ * @param id The identifier for this resource.
+ * @param name The name for this resource.
+ * @param gameIndex The internal id of an API resource within game data.
+ * @param encounterMethodRates A list of methods in which Pokémon may be encountered in this area and how likely the method will occur depending on the version of the game.
+ * @param location The region this location area can be found in.
+ * @param names The name of this resource listed in different languages.
+ * @param pokemonEncounters A list of Pokémon that can be encountered in this area along with version specific details about the encounter.
  */
 
 
 data class LocationAreaDetail (
 
+    /* The identifier for this resource. */
     @Json(name = "id")
     val id: kotlin.Int,
 
+    /* The name for this resource. */
     @Json(name = "name")
     val name: kotlin.String,
 
+    /* The internal id of an API resource within game data. */
     @Json(name = "game_index")
     val gameIndex: kotlin.Int,
 
+    /* A list of methods in which Pokémon may be encountered in this area and how likely the method will occur depending on the version of the game. */
     @Json(name = "encounter_method_rates")
-    val encounterMethodRates: kotlin.collections.List<LocationAreaDetailEncounterMethodRatesInner>,
+    val encounterMethodRates: kotlin.collections.List<LocationAreaEncounterRate>,
 
+    /* The region this location area can be found in. */
     @Json(name = "location")
     val location: LocationSummary,
 
+    /* The name of this resource listed in different languages. */
     @Json(name = "names")
     val names: kotlin.collections.List<LocationAreaName>,
 
+    /* A list of Pokémon that can be encountered in this area along with version specific details about the encounter. */
     @Json(name = "pokemon_encounters")
-    val pokemonEncounters: kotlin.collections.List<LocationAreaDetailPokemonEncountersInner>
+    val pokemonEncounters: kotlin.collections.List<LocationAreaPokemonEncounter>
 
 ) {
 

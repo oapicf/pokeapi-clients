@@ -5,11 +5,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** |  | [readonly] 
-**appeal** | **int** |  | 
-**jam** | **int** |  | 
-**effect_entries** | [**List[ContestEffectEffectText]**](ContestEffectEffectText.md) |  | [readonly] 
-**flavor_text_entries** | [**List[ContestEffectFlavorText]**](ContestEffectFlavorText.md) |  | [readonly] 
+**id** | **int** | The identifier for this resource. | [readonly] 
+**appeal** | **int** | The base number of hearts the user of this move gets. | 
+**jam** | **int** | The base number of hearts the user&#39;s opponent loses. | 
+**effect_entries** | [**List[ContestEffectEffectText]**](ContestEffectEffectText.md) | The result of this contest effect listed in different languages. | [readonly] 
+**flavor_text_entries** | [**List[ContestEffectFlavorText]**](ContestEffectFlavorText.md) | The flavor text of this contest effect listed in different languages. | [readonly] 
 
 ## Example
 

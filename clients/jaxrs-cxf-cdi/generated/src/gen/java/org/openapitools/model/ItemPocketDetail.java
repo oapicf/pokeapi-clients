@@ -29,6 +29,7 @@ public class ItemPocketDetail   {
   private List<@Valid ItemPocketName> names = new ArrayList<>();
 
   /**
+   * The identifier for this resource.
    **/
   public ItemPocketDetail id(Integer id) {
     this.id = id;
@@ -36,7 +37,7 @@ public class ItemPocketDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   @JsonProperty("id")
   @NotNull
   public Integer getId() {
@@ -48,6 +49,7 @@ public class ItemPocketDetail   {
 
 
   /**
+   * The name for this resource.
    **/
   public ItemPocketDetail name(String name) {
     this.name = name;
@@ -55,10 +57,10 @@ public class ItemPocketDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   @JsonProperty("name")
   @NotNull
- @Size(max=100)  public String getName() {
+ @Size(max=200)  public String getName() {
     return name;
   }
   public void setName(String name) {
@@ -67,6 +69,7 @@ public class ItemPocketDetail   {
 
 
   /**
+   * A list of item categories that are relevant to this item pocket.
    **/
   public ItemPocketDetail categories(List<@Valid ItemCategorySummary> categories) {
     this.categories = categories;
@@ -74,7 +77,7 @@ public class ItemPocketDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of item categories that are relevant to this item pocket.")
   @JsonProperty("categories")
   @NotNull
   public List<@Valid ItemCategorySummary> getCategories() {
@@ -94,6 +97,7 @@ public class ItemPocketDetail   {
 
 
   /**
+   * The name of this resource listed in different languages.
    **/
   public ItemPocketDetail names(List<@Valid ItemPocketName> names) {
     this.names = names;
@@ -101,7 +105,7 @@ public class ItemPocketDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
   @JsonProperty("names")
   @NotNull
   public List<@Valid ItemPocketName> getNames() {

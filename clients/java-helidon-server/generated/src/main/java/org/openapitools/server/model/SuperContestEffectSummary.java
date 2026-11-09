@@ -20,7 +20,7 @@ public class SuperContestEffectSummary   {
     /**
      * Create SuperContestEffectSummary.
      *
-     * @param url url
+     * @param url The URL of the referenced resource.
      */
     public SuperContestEffectSummary(
         URI url
@@ -31,7 +31,7 @@ public class SuperContestEffectSummary   {
 
 
     /**
-     * Get url
+     * The URL of the referenced resource.
      * @return url
      */
     public URI getUrl() {

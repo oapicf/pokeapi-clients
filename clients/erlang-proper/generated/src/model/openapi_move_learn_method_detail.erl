@@ -13,7 +13,7 @@
   | {'name', binary() }
   | {'names', list(openapi_move_learn_method_name:openapi_move_learn_method_name()) }
   | {'descriptions', list(openapi_move_learn_method_description:openapi_move_learn_method_description()) }
-  | {'version_groups', list(openapi_ability_detail_pokemon_inner_pokemon:openapi_ability_detail_pokemon_inner_pokemon()) }
+  | {'version_groups', list(openapi_version_group_summary:openapi_version_group_summary()) }
   ].
 
 
@@ -25,7 +25,7 @@ openapi_move_learn_method_detail(Fields) ->
             , {'name', binary() }
             , {'names', list(openapi_move_learn_method_name:openapi_move_learn_method_name()) }
             , {'descriptions', list(openapi_move_learn_method_description:openapi_move_learn_method_description()) }
-            , {'version_groups', list(openapi_ability_detail_pokemon_inner_pokemon:openapi_ability_detail_pokemon_inner_pokemon()) }
+            , {'version_groups', list(openapi_version_group_summary:openapi_version_group_summary()) }
             ],
   lists:ukeymerge(1, lists:sort(Fields), lists:sort(Default)).
 

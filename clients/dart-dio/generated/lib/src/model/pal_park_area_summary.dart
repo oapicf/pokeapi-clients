@@ -11,13 +11,15 @@ part 'pal_park_area_summary.g.dart';
 /// PalParkAreaSummary
 ///
 /// Properties:
-/// * [name] 
-/// * [url] 
+/// * [name] - The name of the referenced resource.
+/// * [url] - The URL of the referenced resource.
 @BuiltValue()
 abstract class PalParkAreaSummary implements Built<PalParkAreaSummary, PalParkAreaSummaryBuilder> {
+  /// The name of the referenced resource.
   @BuiltValueField(wireName: r'name')
   String get name;
 
+  /// The URL of the referenced resource.
   @BuiltValueField(wireName: r'url')
   String get url;
 

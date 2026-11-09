@@ -19,8 +19,8 @@ openapi_nature_battle_style_preference() ->
     openapi_nature_battle_style_preference([]).
 
 openapi_nature_battle_style_preference(Fields) ->
-  Default = [ {'low_hp_preference', integer() }
-            , {'high_hp_preference', integer() }
+  Default = [ {'low_hp_preference', integer(-2147483648, 2147483647) }
+            , {'high_hp_preference', integer(-2147483648, 2147483647) }
             , {'move_battle_style', openapi_move_battle_style_summary:openapi_move_battle_style_summary() }
             ],
   lists:ukeymerge(1, lists:sort(Fields), lists:sort(Default)).

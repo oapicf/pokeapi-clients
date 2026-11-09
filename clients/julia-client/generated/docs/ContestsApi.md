@@ -13,8 +13,8 @@ Method | HTTP request | Description
 
 
 # **contest_effect_list**
-> `contest_effect_list`(_api::`ContestsApi`; `limit`=nothing, `offset`=nothing, `q`=nothing, _mediaType=nothing) -> `PaginatedContestEffectSummaryList`, `OpenAPI.Clients.ApiResponse` <br/>
-> `contest_effect_list`(_api::`ContestsApi`, response_stream::`Channel`; `limit`=nothing, `offset`=nothing, `q`=nothing, _mediaType=nothing) -> `Channel`{ `PaginatedContestEffectSummaryList` }, `OpenAPI.Clients.ApiResponse`
+> `contest_effect_list`(_api::`ContestsApi`; `limit`=nothing, `offset`=nothing, _mediaType=nothing) -> `PaginatedContestEffectSummaryList`, `OpenAPI.Clients.ApiResponse` <br/>
+> `contest_effect_list`(_api::`ContestsApi`, response_stream::`Channel`; `limit`=nothing, `offset`=nothing, _mediaType=nothing) -> `Channel`{ `PaginatedContestEffectSummaryList` }, `OpenAPI.Clients.ApiResponse`
 
 List contest effects
 
@@ -32,7 +32,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **`limit`** | **`Int64`** | Number of results to return per page. | [default to nothing]
  **`offset`** | **`Int64`** | The initial index from which to return the results. | [default to nothing]
- **`q`** | **`String`** | &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [default to nothing]
 
 ### Return type
 
@@ -40,7 +39,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -70,7 +69,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -107,7 +106,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -137,7 +136,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -147,8 +146,8 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 # **super_contest_effect_list**
-> `super_contest_effect_list`(_api::`ContestsApi`; `limit`=nothing, `offset`=nothing, `q`=nothing, _mediaType=nothing) -> `PaginatedSuperContestEffectSummaryList`, `OpenAPI.Clients.ApiResponse` <br/>
-> `super_contest_effect_list`(_api::`ContestsApi`, response_stream::`Channel`; `limit`=nothing, `offset`=nothing, `q`=nothing, _mediaType=nothing) -> `Channel`{ `PaginatedSuperContestEffectSummaryList` }, `OpenAPI.Clients.ApiResponse`
+> `super_contest_effect_list`(_api::`ContestsApi`; `limit`=nothing, `offset`=nothing, _mediaType=nothing) -> `PaginatedSuperContestEffectSummaryList`, `OpenAPI.Clients.ApiResponse` <br/>
+> `super_contest_effect_list`(_api::`ContestsApi`, response_stream::`Channel`; `limit`=nothing, `offset`=nothing, _mediaType=nothing) -> `Channel`{ `PaginatedSuperContestEffectSummaryList` }, `OpenAPI.Clients.ApiResponse`
 
 List super contest effects
 
@@ -166,7 +165,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **`limit`** | **`Int64`** | Number of results to return per page. | [default to nothing]
  **`offset`** | **`Int64`** | The initial index from which to return the results. | [default to nothing]
- **`q`** | **`String`** | &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [default to nothing]
 
 ### Return type
 
@@ -174,7 +172,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -204,7 +202,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

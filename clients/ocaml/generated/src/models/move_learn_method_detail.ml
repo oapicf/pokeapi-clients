@@ -15,27 +15,32 @@
                 
                 
                 ; [@key "id"]
-                                              name: string
+                    (** The identifier for this resource. *)
+                                      name: string
                   
                   
                 
                 
                 ; [@key "name"]
-                                              names: Move_learn_method_name.t list
+                    (** The name for this resource. *)
+                                      names: Move_learn_method_name.t list
                 
                 
                 ; [@key "names"]
-                                              descriptions: Move_learn_method_description.t list
+                    (** The name of this resource listed in different languages. *)
+                                      descriptions: Move_learn_method_description.t list
                 
                 
                 ; [@key "descriptions"]
-                                              version_groups: Ability_detail_pokemon_inner_pokemon.t list
+                    (** The description of this resource listed in different languages. *)
+                                      version_groups: Version_group_summary.t list
                 
                 
                 ; [@key "version_groups"]
-                        } [@@deriving yojson { strict = false }, show, eq ];;
+                    (** A list of version groups where moves can be learned through this method. *)
+                } [@@deriving yojson { strict = false }, show, eq ];;
         
-        let create (id : int32) (name : string) (names : Move_learn_method_name.t list) (descriptions : Move_learn_method_description.t list) (version_groups : Ability_detail_pokemon_inner_pokemon.t list) : t = {
+        let create (id : int32) (name : string) (names : Move_learn_method_name.t list) (descriptions : Move_learn_method_description.t list) (version_groups : Version_group_summary.t list) : t = {
             id = id;
             name = name;
             names = names;

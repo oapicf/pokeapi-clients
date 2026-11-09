@@ -3,6 +3,7 @@
 
 -- /static StaticR Static appStatic
 
+/api/v2/meta ApiV2MetaR GET
 /api/v2/ability ApiV2AbilityR GET
 /api/v2/ability/#Text ApiV2AbilityByTextR GET
 /api/v2/berry ApiV2BerryR GET
@@ -29,6 +30,8 @@
 /api/v2/evolution-chain/#Text ApiV2EvolutionChainByTextR GET
 /api/v2/evolution-trigger ApiV2EvolutionTriggerR GET
 /api/v2/evolution-trigger/#Text ApiV2EvolutionTriggerByTextR GET
+/api/v2/evolution-variable ApiV2EvolutionVariableR GET
+/api/v2/evolution-variable/#Text ApiV2EvolutionVariableByTextR GET
 /api/v2/generation ApiV2GenerationR GET
 /api/v2/generation/#Text ApiV2GenerationByTextR GET
 /api/v2/gender ApiV2GenderR GET
@@ -45,6 +48,8 @@
 /api/v2/item-fling-effect/#Text ApiV2ItemFlingEffectByTextR GET
 /api/v2/item-pocket ApiV2ItemPocketR GET
 /api/v2/item-pocket/#Text ApiV2ItemPocketByTextR GET
+/api/v2/currency ApiV2CurrencyR GET
+/api/v2/currency/#Text ApiV2CurrencyByTextR GET
 /api/v2/language ApiV2LanguageR GET
 /api/v2/language/#Text ApiV2LanguageByTextR GET
 /api/v2/location ApiV2LocationR GET

@@ -6,17 +6,18 @@ from datetime import date, datetime  # noqa: F401
 from typing import List, Dict  # noqa: F401
 
 from app.openapi_server.models.base_model import Model
-from app.openapi_server.models.ability_detail_pokemon_inner_pokemon import AbilityDetailPokemonInnerPokemon  # noqa: F401,E501
+from app.openapi_server.models.evolution_chain_summary import EvolutionChainSummary  # noqa: F401,E501
+from app.openapi_server.models.item_attribute_summary import ItemAttributeSummary  # noqa: F401,E501
 from app.openapi_server.models.item_category_summary import ItemCategorySummary  # noqa: F401,E501
-from app.openapi_server.models.item_detail_baby_trigger_for import ItemDetailBabyTriggerFor  # noqa: F401,E501
-from app.openapi_server.models.item_detail_held_by_pokemon_inner import ItemDetailHeldByPokemonInner  # noqa: F401,E501
-from app.openapi_server.models.item_detail_machines_inner import ItemDetailMachinesInner  # noqa: F401,E501
-from app.openapi_server.models.item_detail_sprites import ItemDetailSprites  # noqa: F401,E501
 from app.openapi_server.models.item_effect_text import ItemEffectText  # noqa: F401,E501
 from app.openapi_server.models.item_flavor_text import ItemFlavorText  # noqa: F401,E501
 from app.openapi_server.models.item_fling_effect_summary import ItemFlingEffectSummary  # noqa: F401,E501
 from app.openapi_server.models.item_game_index import ItemGameIndex  # noqa: F401,E501
+from app.openapi_server.models.item_machine import ItemMachine  # noqa: F401,E501
 from app.openapi_server.models.item_name import ItemName  # noqa: F401,E501
+from app.openapi_server.models.item_price import ItemPrice  # noqa: F401,E501
+from app.openapi_server.models.item_sprites import ItemSprites  # noqa: F401,E501
+from app.openapi_server.models.pokemon_held_item import PokemonHeldItem  # noqa: F401,E501
 from openapi_server import util
 
 
@@ -26,21 +27,19 @@ class ItemDetail(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, id: int=None, name: str=None, cost: int=None, fling_power: int=None, fling_effect: ItemFlingEffectSummary=None, attributes: List[AbilityDetailPokemonInnerPokemon]=None, category: ItemCategorySummary=None, effect_entries: List[ItemEffectText]=None, flavor_text_entries: List[ItemFlavorText]=None, game_indices: List[ItemGameIndex]=None, names: List[ItemName]=None, held_by_pokemon: List[ItemDetailHeldByPokemonInner]=None, sprites: ItemDetailSprites=None, baby_trigger_for: ItemDetailBabyTriggerFor=None, machines: List[ItemDetailMachinesInner]=None):  # noqa: E501
+    def __init__(self, id: int=None, name: str=None, fling_power: int=None, fling_effect: ItemFlingEffectSummary=None, attributes: List[ItemAttributeSummary]=None, category: ItemCategorySummary=None, effect_entries: List[ItemEffectText]=None, flavor_text_entries: List[ItemFlavorText]=None, game_indices: List[ItemGameIndex]=None, prices: List[ItemPrice]=None, names: List[ItemName]=None, held_by_pokemon: List[PokemonHeldItem]=None, sprites: ItemSprites=None, baby_trigger_for: EvolutionChainSummary=None, machines: List[ItemMachine]=None):  # noqa: E501
         """ItemDetail - a model defined in Swagger
 
         :param id: The id of this ItemDetail.  # noqa: E501
         :type id: int
         :param name: The name of this ItemDetail.  # noqa: E501
         :type name: str
-        :param cost: The cost of this ItemDetail.  # noqa: E501
-        :type cost: int
         :param fling_power: The fling_power of this ItemDetail.  # noqa: E501
         :type fling_power: int
         :param fling_effect: The fling_effect of this ItemDetail.  # noqa: E501
         :type fling_effect: ItemFlingEffectSummary
         :param attributes: The attributes of this ItemDetail.  # noqa: E501
-        :type attributes: List[AbilityDetailPokemonInnerPokemon]
+        :type attributes: List[ItemAttributeSummary]
         :param category: The category of this ItemDetail.  # noqa: E501
         :type category: ItemCategorySummary
         :param effect_entries: The effect_entries of this ItemDetail.  # noqa: E501
@@ -49,39 +48,40 @@ class ItemDetail(Model):
         :type flavor_text_entries: List[ItemFlavorText]
         :param game_indices: The game_indices of this ItemDetail.  # noqa: E501
         :type game_indices: List[ItemGameIndex]
+        :param prices: The prices of this ItemDetail.  # noqa: E501
+        :type prices: List[ItemPrice]
         :param names: The names of this ItemDetail.  # noqa: E501
         :type names: List[ItemName]
         :param held_by_pokemon: The held_by_pokemon of this ItemDetail.  # noqa: E501
-        :type held_by_pokemon: List[ItemDetailHeldByPokemonInner]
+        :type held_by_pokemon: List[PokemonHeldItem]
         :param sprites: The sprites of this ItemDetail.  # noqa: E501
-        :type sprites: ItemDetailSprites
+        :type sprites: ItemSprites
         :param baby_trigger_for: The baby_trigger_for of this ItemDetail.  # noqa: E501
-        :type baby_trigger_for: ItemDetailBabyTriggerFor
+        :type baby_trigger_for: EvolutionChainSummary
         :param machines: The machines of this ItemDetail.  # noqa: E501
-        :type machines: List[ItemDetailMachinesInner]
+        :type machines: List[ItemMachine]
         """
         self.swagger_types = {
             'id': int,
             'name': str,
-            'cost': int,
             'fling_power': int,
             'fling_effect': ItemFlingEffectSummary,
-            'attributes': List[AbilityDetailPokemonInnerPokemon],
+            'attributes': List[ItemAttributeSummary],
             'category': ItemCategorySummary,
             'effect_entries': List[ItemEffectText],
             'flavor_text_entries': List[ItemFlavorText],
             'game_indices': List[ItemGameIndex],
+            'prices': List[ItemPrice],
             'names': List[ItemName],
-            'held_by_pokemon': List[ItemDetailHeldByPokemonInner],
-            'sprites': ItemDetailSprites,
-            'baby_trigger_for': ItemDetailBabyTriggerFor,
-            'machines': List[ItemDetailMachinesInner]
+            'held_by_pokemon': List[PokemonHeldItem],
+            'sprites': ItemSprites,
+            'baby_trigger_for': EvolutionChainSummary,
+            'machines': List[ItemMachine]
         }
 
         self.attribute_map = {
             'id': 'id',
             'name': 'name',
-            'cost': 'cost',
             'fling_power': 'fling_power',
             'fling_effect': 'fling_effect',
             'attributes': 'attributes',
@@ -89,6 +89,7 @@ class ItemDetail(Model):
             'effect_entries': 'effect_entries',
             'flavor_text_entries': 'flavor_text_entries',
             'game_indices': 'game_indices',
+            'prices': 'prices',
             'names': 'names',
             'held_by_pokemon': 'held_by_pokemon',
             'sprites': 'sprites',
@@ -98,7 +99,6 @@ class ItemDetail(Model):
 
         self._id = id
         self._name = name
-        self._cost = cost
         self._fling_power = fling_power
         self._fling_effect = fling_effect
         self._attributes = attributes
@@ -106,6 +106,7 @@ class ItemDetail(Model):
         self._effect_entries = effect_entries
         self._flavor_text_entries = flavor_text_entries
         self._game_indices = game_indices
+        self._prices = prices
         self._names = names
         self._held_by_pokemon = held_by_pokemon
         self._sprites = sprites
@@ -127,6 +128,7 @@ class ItemDetail(Model):
     def id(self) -> int:
         """Gets the id of this ItemDetail.
 
+        The identifier for this resource.  # noqa: E501
 
         :return: The id of this ItemDetail.
         :rtype: int
@@ -137,6 +139,7 @@ class ItemDetail(Model):
     def id(self, id: int):
         """Sets the id of this ItemDetail.
 
+        The identifier for this resource.  # noqa: E501
 
         :param id: The id of this ItemDetail.
         :type id: int
@@ -150,6 +153,7 @@ class ItemDetail(Model):
     def name(self) -> str:
         """Gets the name of this ItemDetail.
 
+        The name for this resource.  # noqa: E501
 
         :return: The name of this ItemDetail.
         :rtype: str
@@ -160,42 +164,23 @@ class ItemDetail(Model):
     def name(self, name: str):
         """Sets the name of this ItemDetail.
 
+        The name for this resource.  # noqa: E501
 
         :param name: The name of this ItemDetail.
         :type name: str
         """
         if name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
-        if name is not None and len(name) > 100:
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `100`")  # noqa: E501
+        if name is not None and len(name) > 200:
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `200`")  # noqa: E501
 
         self._name = name
-
-    @property
-    def cost(self) -> int:
-        """Gets the cost of this ItemDetail.
-
-
-        :return: The cost of this ItemDetail.
-        :rtype: int
-        """
-        return self._cost
-
-    @cost.setter
-    def cost(self, cost: int):
-        """Sets the cost of this ItemDetail.
-
-
-        :param cost: The cost of this ItemDetail.
-        :type cost: int
-        """
-
-        self._cost = cost
 
     @property
     def fling_power(self) -> int:
         """Gets the fling_power of this ItemDetail.
 
+        The power of the move Fling when used with this item.  # noqa: E501
 
         :return: The fling_power of this ItemDetail.
         :rtype: int
@@ -206,10 +191,15 @@ class ItemDetail(Model):
     def fling_power(self, fling_power: int):
         """Sets the fling_power of this ItemDetail.
 
+        The power of the move Fling when used with this item.  # noqa: E501
 
         :param fling_power: The fling_power of this ItemDetail.
         :type fling_power: int
         """
+        if fling_power is not None and fling_power > 2147483647:  # noqa: E501
+            raise ValueError("Invalid value for `fling_power`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if fling_power is not None and fling_power < -2147483648:  # noqa: E501
+            raise ValueError("Invalid value for `fling_power`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._fling_power = fling_power
 
@@ -217,6 +207,7 @@ class ItemDetail(Model):
     def fling_effect(self) -> ItemFlingEffectSummary:
         """Gets the fling_effect of this ItemDetail.
 
+        The effect of the move Fling when used with this item.  # noqa: E501
 
         :return: The fling_effect of this ItemDetail.
         :rtype: ItemFlingEffectSummary
@@ -227,6 +218,7 @@ class ItemDetail(Model):
     def fling_effect(self, fling_effect: ItemFlingEffectSummary):
         """Sets the fling_effect of this ItemDetail.
 
+        The effect of the move Fling when used with this item.  # noqa: E501
 
         :param fling_effect: The fling_effect of this ItemDetail.
         :type fling_effect: ItemFlingEffectSummary
@@ -237,22 +229,24 @@ class ItemDetail(Model):
         self._fling_effect = fling_effect
 
     @property
-    def attributes(self) -> List[AbilityDetailPokemonInnerPokemon]:
+    def attributes(self) -> List[ItemAttributeSummary]:
         """Gets the attributes of this ItemDetail.
 
+        A list of attributes this item has.  # noqa: E501
 
         :return: The attributes of this ItemDetail.
-        :rtype: List[AbilityDetailPokemonInnerPokemon]
+        :rtype: List[ItemAttributeSummary]
         """
         return self._attributes
 
     @attributes.setter
-    def attributes(self, attributes: List[AbilityDetailPokemonInnerPokemon]):
+    def attributes(self, attributes: List[ItemAttributeSummary]):
         """Sets the attributes of this ItemDetail.
 
+        A list of attributes this item has.  # noqa: E501
 
         :param attributes: The attributes of this ItemDetail.
-        :type attributes: List[AbilityDetailPokemonInnerPokemon]
+        :type attributes: List[ItemAttributeSummary]
         """
         if attributes is None:
             raise ValueError("Invalid value for `attributes`, must not be `None`")  # noqa: E501
@@ -263,6 +257,7 @@ class ItemDetail(Model):
     def category(self) -> ItemCategorySummary:
         """Gets the category of this ItemDetail.
 
+        The category of items this item falls into.  # noqa: E501
 
         :return: The category of this ItemDetail.
         :rtype: ItemCategorySummary
@@ -273,6 +268,7 @@ class ItemDetail(Model):
     def category(self, category: ItemCategorySummary):
         """Sets the category of this ItemDetail.
 
+        The category of items this item falls into.  # noqa: E501
 
         :param category: The category of this ItemDetail.
         :type category: ItemCategorySummary
@@ -286,6 +282,7 @@ class ItemDetail(Model):
     def effect_entries(self) -> List[ItemEffectText]:
         """Gets the effect_entries of this ItemDetail.
 
+        The effect of this ability listed in different languages.  # noqa: E501
 
         :return: The effect_entries of this ItemDetail.
         :rtype: List[ItemEffectText]
@@ -296,6 +293,7 @@ class ItemDetail(Model):
     def effect_entries(self, effect_entries: List[ItemEffectText]):
         """Sets the effect_entries of this ItemDetail.
 
+        The effect of this ability listed in different languages.  # noqa: E501
 
         :param effect_entries: The effect_entries of this ItemDetail.
         :type effect_entries: List[ItemEffectText]
@@ -309,6 +307,7 @@ class ItemDetail(Model):
     def flavor_text_entries(self) -> List[ItemFlavorText]:
         """Gets the flavor_text_entries of this ItemDetail.
 
+        The flavor text of this ability listed in different languages.  # noqa: E501
 
         :return: The flavor_text_entries of this ItemDetail.
         :rtype: List[ItemFlavorText]
@@ -319,6 +318,7 @@ class ItemDetail(Model):
     def flavor_text_entries(self, flavor_text_entries: List[ItemFlavorText]):
         """Sets the flavor_text_entries of this ItemDetail.
 
+        The flavor text of this ability listed in different languages.  # noqa: E501
 
         :param flavor_text_entries: The flavor_text_entries of this ItemDetail.
         :type flavor_text_entries: List[ItemFlavorText]
@@ -332,6 +332,7 @@ class ItemDetail(Model):
     def game_indices(self) -> List[ItemGameIndex]:
         """Gets the game_indices of this ItemDetail.
 
+        A list of game indices relevent to this item by generation.  # noqa: E501
 
         :return: The game_indices of this ItemDetail.
         :rtype: List[ItemGameIndex]
@@ -342,6 +343,7 @@ class ItemDetail(Model):
     def game_indices(self, game_indices: List[ItemGameIndex]):
         """Sets the game_indices of this ItemDetail.
 
+        A list of game indices relevent to this item by generation.  # noqa: E501
 
         :param game_indices: The game_indices of this ItemDetail.
         :type game_indices: List[ItemGameIndex]
@@ -352,9 +354,35 @@ class ItemDetail(Model):
         self._game_indices = game_indices
 
     @property
+    def prices(self) -> List[ItemPrice]:
+        """Gets the prices of this ItemDetail.
+
+        Purchase and sell prices by currency and version group. Prices may be null when the item cannot be bought or sold.  # noqa: E501
+
+        :return: The prices of this ItemDetail.
+        :rtype: List[ItemPrice]
+        """
+        return self._prices
+
+    @prices.setter
+    def prices(self, prices: List[ItemPrice]):
+        """Sets the prices of this ItemDetail.
+
+        Purchase and sell prices by currency and version group. Prices may be null when the item cannot be bought or sold.  # noqa: E501
+
+        :param prices: The prices of this ItemDetail.
+        :type prices: List[ItemPrice]
+        """
+        if prices is None:
+            raise ValueError("Invalid value for `prices`, must not be `None`")  # noqa: E501
+
+        self._prices = prices
+
+    @property
     def names(self) -> List[ItemName]:
         """Gets the names of this ItemDetail.
 
+        The name of this item listed in different languages.  # noqa: E501
 
         :return: The names of this ItemDetail.
         :rtype: List[ItemName]
@@ -365,6 +393,7 @@ class ItemDetail(Model):
     def names(self, names: List[ItemName]):
         """Sets the names of this ItemDetail.
 
+        The name of this item listed in different languages.  # noqa: E501
 
         :param names: The names of this ItemDetail.
         :type names: List[ItemName]
@@ -375,22 +404,24 @@ class ItemDetail(Model):
         self._names = names
 
     @property
-    def held_by_pokemon(self) -> List[ItemDetailHeldByPokemonInner]:
+    def held_by_pokemon(self) -> List[PokemonHeldItem]:
         """Gets the held_by_pokemon of this ItemDetail.
 
+        A list of Pokémon that might be found in the wild holding this item.  # noqa: E501
 
         :return: The held_by_pokemon of this ItemDetail.
-        :rtype: List[ItemDetailHeldByPokemonInner]
+        :rtype: List[PokemonHeldItem]
         """
         return self._held_by_pokemon
 
     @held_by_pokemon.setter
-    def held_by_pokemon(self, held_by_pokemon: List[ItemDetailHeldByPokemonInner]):
+    def held_by_pokemon(self, held_by_pokemon: List[PokemonHeldItem]):
         """Sets the held_by_pokemon of this ItemDetail.
 
+        A list of Pokémon that might be found in the wild holding this item.  # noqa: E501
 
         :param held_by_pokemon: The held_by_pokemon of this ItemDetail.
-        :type held_by_pokemon: List[ItemDetailHeldByPokemonInner]
+        :type held_by_pokemon: List[PokemonHeldItem]
         """
         if held_by_pokemon is None:
             raise ValueError("Invalid value for `held_by_pokemon`, must not be `None`")  # noqa: E501
@@ -398,22 +429,24 @@ class ItemDetail(Model):
         self._held_by_pokemon = held_by_pokemon
 
     @property
-    def sprites(self) -> ItemDetailSprites:
+    def sprites(self) -> ItemSprites:
         """Gets the sprites of this ItemDetail.
 
+        A set of sprites used to depict this item in the game.  # noqa: E501
 
         :return: The sprites of this ItemDetail.
-        :rtype: ItemDetailSprites
+        :rtype: ItemSprites
         """
         return self._sprites
 
     @sprites.setter
-    def sprites(self, sprites: ItemDetailSprites):
+    def sprites(self, sprites: ItemSprites):
         """Sets the sprites of this ItemDetail.
 
+        A set of sprites used to depict this item in the game.  # noqa: E501
 
         :param sprites: The sprites of this ItemDetail.
-        :type sprites: ItemDetailSprites
+        :type sprites: ItemSprites
         """
         if sprites is None:
             raise ValueError("Invalid value for `sprites`, must not be `None`")  # noqa: E501
@@ -421,22 +454,24 @@ class ItemDetail(Model):
         self._sprites = sprites
 
     @property
-    def baby_trigger_for(self) -> ItemDetailBabyTriggerFor:
+    def baby_trigger_for(self) -> EvolutionChainSummary:
         """Gets the baby_trigger_for of this ItemDetail.
 
+        An evolution chain this item requires to produce a bay during mating.  # noqa: E501
 
         :return: The baby_trigger_for of this ItemDetail.
-        :rtype: ItemDetailBabyTriggerFor
+        :rtype: EvolutionChainSummary
         """
         return self._baby_trigger_for
 
     @baby_trigger_for.setter
-    def baby_trigger_for(self, baby_trigger_for: ItemDetailBabyTriggerFor):
+    def baby_trigger_for(self, baby_trigger_for: EvolutionChainSummary):
         """Sets the baby_trigger_for of this ItemDetail.
 
+        An evolution chain this item requires to produce a bay during mating.  # noqa: E501
 
         :param baby_trigger_for: The baby_trigger_for of this ItemDetail.
-        :type baby_trigger_for: ItemDetailBabyTriggerFor
+        :type baby_trigger_for: EvolutionChainSummary
         """
         if baby_trigger_for is None:
             raise ValueError("Invalid value for `baby_trigger_for`, must not be `None`")  # noqa: E501
@@ -444,22 +479,24 @@ class ItemDetail(Model):
         self._baby_trigger_for = baby_trigger_for
 
     @property
-    def machines(self) -> List[ItemDetailMachinesInner]:
+    def machines(self) -> List[ItemMachine]:
         """Gets the machines of this ItemDetail.
 
+        A list of the machines related to this item.  # noqa: E501
 
         :return: The machines of this ItemDetail.
-        :rtype: List[ItemDetailMachinesInner]
+        :rtype: List[ItemMachine]
         """
         return self._machines
 
     @machines.setter
-    def machines(self, machines: List[ItemDetailMachinesInner]):
+    def machines(self, machines: List[ItemMachine]):
         """Sets the machines of this ItemDetail.
 
+        A list of the machines related to this item.  # noqa: E501
 
         :param machines: The machines of this ItemDetail.
-        :type machines: List[ItemDetailMachinesInner]
+        :type machines: List[ItemMachine]
         """
         if machines is None:
             raise ValueError("Invalid value for `machines`, must not be `None`")  # noqa: E501

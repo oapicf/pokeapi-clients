@@ -8,15 +8,15 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.model.AbilityDetailPokemonInnerPokemon;
 import org.openapitools.model.MoveLearnMethodDescription;
 import org.openapitools.model.MoveLearnMethodName;
+import org.openapitools.model.VersionGroupSummary;
 
 
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-10-25T05:47:53.227411880Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-11-09T13:49:15.621225368Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class MoveLearnMethodDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -31,9 +31,10 @@ public class MoveLearnMethodDetail   {
   private List<MoveLearnMethodDescription> descriptions = new ArrayList<>();
 
   @JsonProperty("version_groups")
-  private List<AbilityDetailPokemonInnerPokemon> versionGroups = new ArrayList<>();
+  private List<VersionGroupSummary> versionGroups = new ArrayList<>();
 
   /**
+   * The identifier for this resource.
    **/
   public MoveLearnMethodDetail id(Integer id) {
     this.id = id;
@@ -41,7 +42,7 @@ public class MoveLearnMethodDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   @JsonProperty("id")
   public Integer getId() {
     return id;
@@ -51,6 +52,7 @@ public class MoveLearnMethodDetail   {
   }
 
   /**
+   * The name for this resource.
    **/
   public MoveLearnMethodDetail name(String name) {
     this.name = name;
@@ -58,7 +60,7 @@ public class MoveLearnMethodDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   @JsonProperty("name")
   public String getName() {
     return name;
@@ -68,6 +70,7 @@ public class MoveLearnMethodDetail   {
   }
 
   /**
+   * The name of this resource listed in different languages.
    **/
   public MoveLearnMethodDetail names(List<MoveLearnMethodName> names) {
     this.names = names;
@@ -75,7 +78,7 @@ public class MoveLearnMethodDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
   @JsonProperty("names")
   public List<MoveLearnMethodName> getNames() {
     return names;
@@ -85,6 +88,7 @@ public class MoveLearnMethodDetail   {
   }
 
   /**
+   * The description of this resource listed in different languages.
    **/
   public MoveLearnMethodDetail descriptions(List<MoveLearnMethodDescription> descriptions) {
     this.descriptions = descriptions;
@@ -92,7 +96,7 @@ public class MoveLearnMethodDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The description of this resource listed in different languages.")
   @JsonProperty("descriptions")
   public List<MoveLearnMethodDescription> getDescriptions() {
     return descriptions;
@@ -102,19 +106,20 @@ public class MoveLearnMethodDetail   {
   }
 
   /**
+   * A list of version groups where moves can be learned through this method.
    **/
-  public MoveLearnMethodDetail versionGroups(List<AbilityDetailPokemonInnerPokemon> versionGroups) {
+  public MoveLearnMethodDetail versionGroups(List<VersionGroupSummary> versionGroups) {
     this.versionGroups = versionGroups;
     return this;
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of version groups where moves can be learned through this method.")
   @JsonProperty("version_groups")
-  public List<AbilityDetailPokemonInnerPokemon> getVersionGroups() {
+  public List<VersionGroupSummary> getVersionGroups() {
     return versionGroups;
   }
-  public void setVersionGroups(List<AbilityDetailPokemonInnerPokemon> versionGroups) {
+  public void setVersionGroups(List<VersionGroupSummary> versionGroups) {
     this.versionGroups = versionGroups;
   }
 

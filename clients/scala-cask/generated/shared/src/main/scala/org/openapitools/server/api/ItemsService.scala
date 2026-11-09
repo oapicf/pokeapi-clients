@@ -3,9 +3,9 @@
 //> using lib "com.lihaoyi::scalatags:0.12.0"
 /**
  * PokéAPI
- * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+ * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
  *
- * OpenAPI spec version: 2.7.0
+ * OpenAPI spec version: 2.10.0
  *
  * Contact: blah+oapicf@cliffano.com
  *
@@ -18,11 +18,13 @@
 // generated from apiService.mustache
 package org.openapitools.server.api
 
+import _root_.org.openapitools.server.model.CurrencyDetail
 import _root_.org.openapitools.server.model.ItemAttributeDetail
 import _root_.org.openapitools.server.model.ItemCategoryDetail
 import _root_.org.openapitools.server.model.ItemDetail
 import _root_.org.openapitools.server.model.ItemFlingEffectDetail
 import _root_.org.openapitools.server.model.ItemPocketDetail
+import _root_.org.openapitools.server.model.PaginatedCurrencySummaryList
 import _root_.org.openapitools.server.model.PaginatedItemAttributeSummaryList
 import _root_.org.openapitools.server.model.PaginatedItemCategorySummaryList
 import _root_.org.openapitools.server.model.PaginatedItemFlingEffectSummaryList
@@ -45,6 +47,8 @@ object ItemsService {
    * The 'Handler' is an implementation of ItemsService convenient for delegating or overriding individual functions
    */
   case class Handler[F[_]](
+        currencyListHandler : (limit : Option[Int], offset : Option[Int], q : Option[String]) => F[PaginatedCurrencySummaryList], 
+        currencyRetrieveHandler : (id : String) => F[CurrencyDetail], 
         itemAttributeListHandler : (limit : Option[Int], offset : Option[Int], q : Option[String]) => F[PaginatedItemAttributeSummaryList], 
         itemAttributeRetrieveHandler : (id : String) => F[ItemAttributeDetail], 
         itemCategoryListHandler : (limit : Option[Int], offset : Option[Int], q : Option[String]) => F[PaginatedItemCategorySummaryList], 
@@ -56,6 +60,14 @@ object ItemsService {
         itemPocketRetrieveHandler : (id : String) => F[ItemPocketDetail], 
         itemRetrieveHandler : (id : String) => F[ItemDetail]
   ) extends ItemsService[F] {
+
+        override def currencyList(limit : Option[Int], offset : Option[Int], q : Option[String]) : F[PaginatedCurrencySummaryList] = {
+          currencyListHandler(limit, offset, q)
+        }
+
+        override def currencyRetrieve(id : String) : F[CurrencyDetail] = {
+          currencyRetrieveHandler(id)
+        }
 
         override def itemAttributeList(limit : Option[Int], offset : Option[Int], q : Option[String]) : F[PaginatedItemAttributeSummaryList] = {
           itemAttributeListHandler(limit, offset, q)
@@ -99,6 +111,8 @@ object ItemsService {
   }
 
   def apply() : ItemsService[Try] = ItemsService.Handler[Try](
+        (_, _, _) => notImplemented("currencyList"), 
+        (_) => notImplemented("currencyRetrieve"), 
         (_, _, _) => notImplemented("itemAttributeList"), 
         (_) => notImplemented("itemAttributeRetrieve"), 
         (_, _, _) => notImplemented("itemCategoryList"), 
@@ -125,6 +139,32 @@ object ItemsService {
  * @tparam F the effect type (Future, Try, IO, ID, etc) of the operations
  */
 trait ItemsService[F[_]] {
+  /** List currencies
+   * 
+   * @return PaginatedCurrencySummaryList
+   */
+  def currencyList(limit : Option[Int], offset : Option[Int], q : Option[String]) : F[PaginatedCurrencySummaryList]
+
+  /**
+   * override currencyList with the given handler
+   * @return a new implementation of ItemsService[F] with currencyList overridden using the given handler
+   */
+  final def onCurrencyList(handler : (limit : Option[Int], offset : Option[Int], q : Option[String]) => F[PaginatedCurrencySummaryList]) : ItemsService[F] = {
+    asHandler.copy(currencyListHandler = handler)
+  }
+  /** Get currency
+   * 
+   * @return CurrencyDetail
+   */
+  def currencyRetrieve(id : String) : F[CurrencyDetail]
+
+  /**
+   * override currencyRetrieve with the given handler
+   * @return a new implementation of ItemsService[F] with currencyRetrieve overridden using the given handler
+   */
+  final def onCurrencyRetrieve(handler : (id : String) => F[CurrencyDetail]) : ItemsService[F] = {
+    asHandler.copy(currencyRetrieveHandler = handler)
+  }
   /** List item attributes
    * 
    * @return PaginatedItemAttributeSummaryList
@@ -263,6 +303,8 @@ trait ItemsService[F[_]] {
       case h : ItemsService.Handler[F] => h
       case _ =>
         ItemsService.Handler[F](
+              (limit, offset, q) => currencyList(limit, offset, q), 
+              (id) => currencyRetrieve(id), 
               (limit, offset, q) => itemAttributeList(limit, offset, q), 
               (id) => itemAttributeRetrieve(id), 
               (limit, offset, q) => itemCategoryList(limit, offset, q), 
@@ -298,6 +340,12 @@ trait ItemsService[F[_]] {
     val self = this
 
     new ItemsService[G] {
+        override def currencyList(limit : Option[Int], offset : Option[Int], q : Option[String]) : G[PaginatedCurrencySummaryList] = changeEffect {
+          self.currencyList(limit, offset, q)
+        }
+        override def currencyRetrieve(id : String) : G[CurrencyDetail] = changeEffect {
+          self.currencyRetrieve(id)
+        }
         override def itemAttributeList(limit : Option[Int], offset : Option[Int], q : Option[String]) : G[PaginatedItemAttributeSummaryList] = changeEffect {
           self.itemAttributeList(limit, offset, q)
         }

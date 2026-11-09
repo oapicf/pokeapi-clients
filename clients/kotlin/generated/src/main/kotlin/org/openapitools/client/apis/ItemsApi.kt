@@ -27,11 +27,13 @@ import java.io.IOException
 import okhttp3.Call
 import okhttp3.HttpUrl
 
+import org.openapitools.client.models.CurrencyDetail
 import org.openapitools.client.models.ItemAttributeDetail
 import org.openapitools.client.models.ItemCategoryDetail
 import org.openapitools.client.models.ItemDetail
 import org.openapitools.client.models.ItemFlingEffectDetail
 import org.openapitools.client.models.ItemPocketDetail
+import org.openapitools.client.models.PaginatedCurrencySummaryList
 import org.openapitools.client.models.PaginatedItemAttributeSummaryList
 import org.openapitools.client.models.PaginatedItemCategorySummaryList
 import org.openapitools.client.models.PaginatedItemFlingEffectSummaryList
@@ -60,6 +62,169 @@ open class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
         val defaultBasePath: String by lazy {
             System.getProperties().getProperty(ApiClient.BASE_URL_KEY, "https://pokeapi.co")
         }
+    }
+
+    /**
+     * GET /api/v2/currency/
+     * List currencies
+     * Currencies used to buy items.
+     * @param limit Number of results to return per page. (optional)
+     * @param offset The initial index from which to return the results. (optional)
+     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     * @return PaginatedCurrencySummaryList
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun currencyList(limit: kotlin.Int? = null, offset: kotlin.Int? = null, q: kotlin.String? = null) : PaginatedCurrencySummaryList {
+        val localVarResponse = currencyListWithHttpInfo(limit = limit, offset = offset, q = q)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as PaginatedCurrencySummaryList
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * GET /api/v2/currency/
+     * List currencies
+     * Currencies used to buy items.
+     * @param limit Number of results to return per page. (optional)
+     * @param offset The initial index from which to return the results. (optional)
+     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     * @return ApiResponse<PaginatedCurrencySummaryList?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun currencyListWithHttpInfo(limit: kotlin.Int?, offset: kotlin.Int?, q: kotlin.String?) : ApiResponse<PaginatedCurrencySummaryList?> {
+        val localVariableConfig = currencyListRequestConfig(limit = limit, offset = offset, q = q)
+
+        return request<Unit, PaginatedCurrencySummaryList>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation currencyList
+     *
+     * @param limit Number of results to return per page. (optional)
+     * @param offset The initial index from which to return the results. (optional)
+     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     * @return RequestConfig
+     */
+    fun currencyListRequestConfig(limit: kotlin.Int?, offset: kotlin.Int?, q: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (limit != null) {
+                    put("limit", listOf(limit.toString()))
+                }
+                if (offset != null) {
+                    put("offset", listOf(offset.toString()))
+                }
+                if (q != null) {
+                    put("q", listOf(q.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/currency/",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * GET /api/v2/currency/{id}/
+     * Get currency
+     * Currencies used to buy items.
+     * @param id This parameter can be a string or an integer.
+     * @return CurrencyDetail
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun currencyRetrieve(id: kotlin.String) : CurrencyDetail {
+        val localVarResponse = currencyRetrieveWithHttpInfo(id = id)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as CurrencyDetail
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * GET /api/v2/currency/{id}/
+     * Get currency
+     * Currencies used to buy items.
+     * @param id This parameter can be a string or an integer.
+     * @return ApiResponse<CurrencyDetail?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun currencyRetrieveWithHttpInfo(id: kotlin.String) : ApiResponse<CurrencyDetail?> {
+        val localVariableConfig = currencyRetrieveRequestConfig(id = id)
+
+        return request<Unit, CurrencyDetail>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation currencyRetrieve
+     *
+     * @param id This parameter can be a string or an integer.
+     * @return RequestConfig
+     */
+    fun currencyRetrieveRequestConfig(id: kotlin.String) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/currency/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
     }
 
     /**
@@ -147,7 +312,7 @@ open class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
             path = "/api/v2/item-attribute/",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -220,7 +385,7 @@ open class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
             path = "/api/v2/item-attribute/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -310,7 +475,7 @@ open class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
             path = "/api/v2/item-category/",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -383,7 +548,7 @@ open class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
             path = "/api/v2/item-category/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -473,7 +638,7 @@ open class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
             path = "/api/v2/item-fling-effect/",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -546,7 +711,7 @@ open class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
             path = "/api/v2/item-fling-effect/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -636,7 +801,7 @@ open class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
             path = "/api/v2/item/",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -726,7 +891,7 @@ open class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
             path = "/api/v2/item-pocket/",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -799,7 +964,7 @@ open class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
             path = "/api/v2/item-pocket/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -872,7 +1037,7 @@ open class ItemsApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
             path = "/api/v2/item/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = true,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }

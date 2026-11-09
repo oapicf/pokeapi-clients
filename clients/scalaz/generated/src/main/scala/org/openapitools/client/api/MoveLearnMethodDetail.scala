@@ -12,11 +12,16 @@ import org.joda.time.DateTime
 import MoveLearnMethodDetail._
 
 case class MoveLearnMethodDetail (
+  /* The identifier for this resource. */
   id: Integer,
-name: String,
-names: List[MoveLearnMethodName],
-descriptions: List[MoveLearnMethodDescription],
-versionGroups: List[AbilityDetailPokemonInnerPokemon])
+/* The name for this resource. */
+  name: String,
+/* The name of this resource listed in different languages. */
+  names: List[MoveLearnMethodName],
+/* The description of this resource listed in different languages. */
+  descriptions: List[MoveLearnMethodDescription],
+/* A list of version groups where moves can be learned through this method. */
+  versionGroups: List[VersionGroupSummary])
 
 object MoveLearnMethodDetail {
   import DateTimeCodecs._

@@ -1,10 +1,12 @@
 package org.openapitools.vertxweb.server.api;
 
+import org.openapitools.vertxweb.server.model.CurrencyDetail;
 import org.openapitools.vertxweb.server.model.ItemAttributeDetail;
 import org.openapitools.vertxweb.server.model.ItemCategoryDetail;
 import org.openapitools.vertxweb.server.model.ItemDetail;
 import org.openapitools.vertxweb.server.model.ItemFlingEffectDetail;
 import org.openapitools.vertxweb.server.model.ItemPocketDetail;
+import org.openapitools.vertxweb.server.model.PaginatedCurrencySummaryList;
 import org.openapitools.vertxweb.server.model.PaginatedItemAttributeSummaryList;
 import org.openapitools.vertxweb.server.model.PaginatedItemCategorySummaryList;
 import org.openapitools.vertxweb.server.model.PaginatedItemFlingEffectSummaryList;
@@ -23,6 +25,14 @@ import java.util.Map;
 // Implement this class
 
 public class ItemsApiImpl implements ItemsApi {
+    public Future<ApiResponse<PaginatedCurrencySummaryList>> currencyList(Integer limit, Integer offset, String q) {
+        return Future.failedFuture(new HttpException(501));
+    }
+
+    public Future<ApiResponse<CurrencyDetail>> currencyRetrieve(String id) {
+        return Future.failedFuture(new HttpException(501));
+    }
+
     public Future<ApiResponse<PaginatedItemAttributeSummaryList>> itemAttributeList(Integer limit, Integer offset, String q) {
         return Future.failedFuture(new HttpException(501));
     }

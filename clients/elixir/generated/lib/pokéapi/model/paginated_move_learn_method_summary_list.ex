@@ -15,10 +15,10 @@ defmodule PokéAPI.Model.PaginatedMoveLearnMethodSummaryList do
   ]
 
   @type t :: %__MODULE__{
-    :count => integer() | nil,
+    :count => integer(),
     :next => Uri | nil,
     :previous => Uri | nil,
-    :results => [PokéAPI.Model.MoveLearnMethodSummary.t] | nil
+    :results => [PokéAPI.Model.MoveLearnMethodSummary.t]
   }
 
   alias PokéAPI.Deserializer

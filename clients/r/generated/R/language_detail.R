@@ -7,12 +7,12 @@
 #' @title LanguageDetail
 #' @description LanguageDetail Class
 #' @format An \code{R6Class} generator object
-#' @field id  integer
-#' @field name  character
-#' @field official  character [optional]
-#' @field iso639  character
-#' @field iso3166  character
-#' @field names  list(\link{LanguageName})
+#' @field id The identifier for this resource. integer
+#' @field name The name for this resource. character
+#' @field official Whether or not the games are published in this language. character [optional]
+#' @field iso639 The two-letter ISO 639-1 language code. Multiple PokéAPI language records may share this code. character
+#' @field iso3166 The two-letter ISO 3166-1 alpha-2 code of the country or region associated with this language record. Multiple PokéAPI language records may share this code. character
+#' @field names The name of this resource listed in different languages. list(\link{LanguageName})
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -29,12 +29,12 @@ LanguageDetail <- R6::R6Class(
     #' @description
     #' Initialize a new LanguageDetail class.
     #'
-    #' @param id id
-    #' @param name name
-    #' @param iso639 iso639
-    #' @param iso3166 iso3166
-    #' @param names names
-    #' @param official official
+    #' @param id The identifier for this resource.
+    #' @param name The name for this resource.
+    #' @param iso639 The two-letter ISO 639-1 language code. Multiple PokéAPI language records may share this code.
+    #' @param iso3166 The two-letter ISO 3166-1 alpha-2 code of the country or region associated with this language record. Multiple PokéAPI language records may share this code.
+    #' @param names The name of this resource listed in different languages.
+    #' @param official Whether or not the games are published in this language.
     #' @param ... Other optional arguments.
     initialize = function(`id`, `name`, `iso639`, `iso3166`, `names`, `official` = NULL, ...) {
       if (!missing(`id`)) {
@@ -280,7 +280,7 @@ LanguageDetail <- R6::R6Class(
         return(FALSE)
       }
 
-      if (nchar(self$`name`) > 100) {
+      if (nchar(self$`name`) > 200) {
         return(FALSE)
       }
 
@@ -326,8 +326,8 @@ LanguageDetail <- R6::R6Class(
         invalid_fields["name"] <- "Non-nullable required field `name` cannot be null."
       }
 
-      if (nchar(self$`name`) > 100) {
-        invalid_fields["name"] <- "Invalid length for `name`, must be smaller than or equal to 100."
+      if (nchar(self$`name`) > 200) {
+        invalid_fields["name"] <- "Invalid length for `name`, must be smaller than or equal to 200."
       }
 
       # check if the required `iso639` is null

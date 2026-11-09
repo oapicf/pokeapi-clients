@@ -49,39 +49,39 @@ public:
 	 */
 	void fromJson(char* jsonStr);
 
-	/*! \brief Get 
+	/*! \brief Get The identifier for this resource.
 	 */
 	int getId();
 
-	/*! \brief Set 
+	/*! \brief Set The identifier for this resource.
 	 */
 	void setId(int  id);
-	/*! \brief Get 
+	/*! \brief Get The name for this resource.
 	 */
 	std::string getName();
 
-	/*! \brief Set 
+	/*! \brief Set The name for this resource.
 	 */
 	void setName(std::string  name);
-	/*! \brief Get 
+	/*! \brief Get The description of this resource listed in different languages.
 	 */
 	std::list<MoveTargetDescription> getDescriptions();
 
-	/*! \brief Set 
+	/*! \brief Set The description of this resource listed in different languages.
 	 */
 	void setDescriptions(std::list <MoveTargetDescription> descriptions);
-	/*! \brief Get 
+	/*! \brief Get A list of moves that that are directed at this target.
 	 */
 	std::list<MoveSummary> getMoves();
 
-	/*! \brief Set 
+	/*! \brief Set A list of moves that that are directed at this target.
 	 */
 	void setMoves(std::list <MoveSummary> moves);
-	/*! \brief Get 
+	/*! \brief Get The name of this resource listed in different languages.
 	 */
 	std::list<MoveTargetName> getNames();
 
-	/*! \brief Set 
+	/*! \brief Set The name of this resource listed in different languages.
 	 */
 	void setNames(std::list <MoveTargetName> names);
 

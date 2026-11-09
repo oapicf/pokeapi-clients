@@ -15,81 +15,105 @@
                 
                 
                 ; [@key "id"]
-                                              name: string
+                    (** The identifier for this resource. *)
+                                      name: string
                   
                   
                 
                 
                 ; [@key "name"]
-                                              order: int32
+                    (** The name for this resource. *)
+                                      order: int32
                   
                    option [@default None]
                 
                 
                 ; [@key "order"]
-                                              form_order: int32
+                    (** The order in which forms should be sorted within all forms. Multiple forms may have equal order, in which case they should fall back on sorting by name. *)
+                                      form_order: int32
                   
                    option [@default None]
                 
                 
                 ; [@key "form_order"]
-                                              is_default: bool
+                    (** The order in which forms should be sorted within a species' forms. *)
+                                      is_default: bool
                   
                    option [@default None]
                 
                 
                 ; [@key "is_default"]
-                                              is_battle_only: bool
+                    (** True for exactly one form used as the default for each Pokémon. *)
+                                      is_battle_only: bool
                   
                    option [@default None]
                 
                 
                 ; [@key "is_battle_only"]
-                                              is_mega: bool
+                    (** Whether or not this form can only happen during battle. *)
+                                      is_mega: bool
                   
                    option [@default None]
                 
                 
                 ; [@key "is_mega"]
-                                              form_name: string
+                    (** Whether or not this form requires mega evolution. *)
+                                      form_name: string
                   
                   
                 
                 
                 ; [@key "form_name"]
-                                              pokemon: Pokemon_summary.t
+                    (** The name of this form. *)
+                                      pokemon: Pokemon_summary.t
                   
                   
                 
                 
                 ; [@key "pokemon"]
-                                              sprites: Pokemon_form_detail_sprites.t
+                    (** The Pokémon that can take on this form. *)
+                                      sprites: Pokemon_form_sprites.t
                   
                   
                 
                 
                 ; [@key "sprites"]
-                                              version_group: Version_group_summary.t
+                    (** A set of sprites used to depict this Pokémon form in the game. *)
+                                      version_group: Version_group_summary.t
                   
                   
                 
                 
                 ; [@key "version_group"]
-                                              form_names: Pokemon_form_detail_form_names_inner.t list
+                    (** The version group this Pokémon form was introduced in. *)
+                                      form_names: Pokemon_form_name.t list
                 
                 
                 ; [@key "form_names"]
-                                              names: Pokemon_form_detail_form_names_inner.t list
+                    (** The form specific form name of this Pokémon form, or empty if the form does not have a specific name. *)
+                                      names: Pokemon_form_name.t list
                 
                 
                 ; [@key "names"]
-                                              types: Pokemon_detail_types_inner.t list
+                    (** The form specific full name of this Pokémon form, or empty if the form does not have a specific name. *)
+                                      types: Pokemon_form_type.t list
                 
                 
                 ; [@key "types"]
-                        } [@@deriving yojson { strict = false }, show, eq ];;
+                    (** A list of details showing types this Pokémon form has. *)
+                                      trigger_conditions: Pokemon_form_trigger_condition.t list
+                
+                
+                ; [@key "trigger_conditions"]
+                    (** The conditions that trigger this form. Resource names and URLs are included when the trigger requires a resource. *)
+                                      flavor_text_entries: Pokemon_form_flavor_text.t list
+                
+                
+                ; [@key "flavor_text_entries"]
+                    (** The flavor text of this form listed in different languages and versions. *)
+                } [@@deriving yojson { strict = false }, show, eq ];;
         
-        let create (id : int32) (name : string) (form_name : string) (pokemon : Pokemon_summary.t) (sprites : Pokemon_form_detail_sprites.t) (version_group : Version_group_summary.t) (form_names : Pokemon_form_detail_form_names_inner.t list) (names : Pokemon_form_detail_form_names_inner.t list) (types : Pokemon_detail_types_inner.t list) : t = {
+        let create (id : int32) (name : string) (form_name : string) (pokemon : Pokemon_summary.t) (sprites : Pokemon_form_sprites.t) (version_group : Version_group_summary.t) (form_names : Pokemon_form_name.t list) (names : Pokemon_form_name.t list) (types : Pokemon_form_type.t list) (trigger_conditions : Pokemon_form_trigger_condition.t list) (flavor_text_entries : Pokemon_form_flavor_text.t list) : t = {
             id = id;
             name = name;
             order = None;
@@ -104,6 +128,8 @@
             form_names = form_names;
             names = names;
             types = types;
+            trigger_conditions = trigger_conditions;
+            flavor_text_entries = flavor_text_entries;
         }
     
 

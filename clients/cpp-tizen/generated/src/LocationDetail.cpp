@@ -25,7 +25,7 @@ LocationDetail::__init()
 {
 	//id = int(0);
 	//name = std::string();
-	//region = new RegionSummary();
+	//region = null;
 	//new std::list()std::list> names;
 	//new std::list()std::list> game_indices;
 	//new std::list()std::list> areas;

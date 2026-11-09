@@ -15,8 +15,8 @@ defmodule PokéAPI.Model.EvolutionChainDetail do
 
   @type t :: %__MODULE__{
     :id => integer(),
-    :baby_trigger_item => PokéAPI.Model.ItemSummary.t,
-    :chain => PokéAPI.Model.EvolutionChainDetailChain.t
+    :baby_trigger_item => PokéAPI.Model.ItemSummary.t | nil,
+    :chain => PokéAPI.Model.EvolutionChainLink.t
   }
 
   alias PokéAPI.Deserializer
@@ -24,7 +24,7 @@ defmodule PokéAPI.Model.EvolutionChainDetail do
   def decode(value) do
     value
      |> Deserializer.deserialize(:baby_trigger_item, :struct, PokéAPI.Model.ItemSummary)
-     |> Deserializer.deserialize(:chain, :struct, PokéAPI.Model.EvolutionChainDetailChain)
+     |> Deserializer.deserialize(:chain, :struct, PokéAPI.Model.EvolutionChainLink)
   end
 end
 

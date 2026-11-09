@@ -12,9 +12,9 @@
 #include <string>
 #include <vector>
 #include "GenerationSummary.h"
-#include "VersionGroupDetailMoveLearnMethodsInner.h"
-#include "VersionGroupDetailPokedexesInner.h"
-#include "VersionGroupDetailRegionsInner.h"
+#include "MoveLearnMethodSummary.h"
+#include "PokedexSummary.h"
+#include "RegionSummary.h"
 #include "VersionSummary.h"
 
 
@@ -38,12 +38,12 @@ public:
     void setOrder(const int& order);
     [[nodiscard]] GenerationSummary getGeneration() const;
     void setGeneration(const GenerationSummary& generation);
-    [[nodiscard]] std::vector<VersionGroupDetail_move_learn_methods_inner> getMoveLearnMethods() const;
-    void setMoveLearnMethods(const std::vector<VersionGroupDetail_move_learn_methods_inner>& moveLearnMethods);
-    [[nodiscard]] std::vector<VersionGroupDetail_pokedexes_inner> getPokedexes() const;
-    void setPokedexes(const std::vector<VersionGroupDetail_pokedexes_inner>& pokedexes);
-    [[nodiscard]] std::vector<VersionGroupDetail_regions_inner> getRegions() const;
-    void setRegions(const std::vector<VersionGroupDetail_regions_inner>& regions);
+    [[nodiscard]] std::vector<MoveLearnMethodSummary> getMoveLearnMethods() const;
+    void setMoveLearnMethods(const std::vector<MoveLearnMethodSummary>& moveLearnMethods);
+    [[nodiscard]] std::vector<PokedexSummary> getPokedexes() const;
+    void setPokedexes(const std::vector<PokedexSummary>& pokedexes);
+    [[nodiscard]] std::vector<RegionSummary> getRegions() const;
+    void setRegions(const std::vector<RegionSummary>& regions);
     [[nodiscard]] std::vector<VersionSummary> getVersions() const;
     void setVersions(const std::vector<VersionSummary>& versions);
 
@@ -57,9 +57,9 @@ private:
     std::string name;
     int order;
     GenerationSummary generation;
-    std::vector<VersionGroupDetail_move_learn_methods_inner> moveLearnMethods;
-    std::vector<VersionGroupDetail_pokedexes_inner> pokedexes;
-    std::vector<VersionGroupDetail_regions_inner> regions;
+    std::vector<MoveLearnMethodSummary> moveLearnMethods;
+    std::vector<PokedexSummary> pokedexes;
+    std::vector<RegionSummary> regions;
     std::vector<VersionSummary> versions;
 };
 

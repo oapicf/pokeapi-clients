@@ -12,7 +12,7 @@ module OpenapiClient
           :GET,
           '/api/v2/location-area/',
           type: OpenapiClient::Models::PaginatedLocationAreaSummaryList,
-          auth: ['basicAuth', 'cookieAuth'],
+          auth: [],
           query: { 'limit' => limit, 'offset' => offset }
         )
       end
@@ -25,7 +25,7 @@ module OpenapiClient
           '/api/v2/location-area/{id}/'
             .gsub('{id}', ERB::Util.url_encode(id.to_s)),
           type: OpenapiClient::Models::LocationAreaDetail,
-          auth: ['basicAuth', 'cookieAuth']
+          auth: []
         )
       end
     end

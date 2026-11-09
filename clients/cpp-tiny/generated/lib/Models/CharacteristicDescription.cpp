@@ -7,7 +7,7 @@ using namespace Tiny;
 CharacteristicDescription::CharacteristicDescription()
 {
 	description = std::string();
-	language = LanguageSummary();
+	language = null;
 }
 
 CharacteristicDescription::CharacteristicDescription(std::string jsonString)

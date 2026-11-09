@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int32** |  | [readonly] 
-**Name** | **string** |  | 
-**Items** | [**[]ItemSummary**](ItemSummary.md) |  | [readonly] 
-**Names** | [**[]ItemCategoryName**](ItemCategoryName.md) |  | [readonly] 
-**Pocket** | [**ItemPocketSummary**](ItemPocketSummary.md) |  | 
+**Id** | **int32** | The identifier for this resource. | [readonly] 
+**Name** | **string** | The name for this resource. | 
+**Items** | [**[]ItemSummary**](ItemSummary.md) | A list of items that are a part of this category. | [readonly] 
+**Names** | [**[]ItemCategoryName**](ItemCategoryName.md) | The name of this item category listed in different languages. | [readonly] 
+**Pocket** | [**ItemPocketSummary**](ItemPocketSummary.md) | The pocket items in this category would be put in. | 
 
 ## Methods
 

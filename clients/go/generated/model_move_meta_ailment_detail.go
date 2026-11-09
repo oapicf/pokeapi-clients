@@ -1,9 +1,9 @@
 /*
 PokéAPI
 
-All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
 
-API version: 2.7.0
+API version: 2.10.0
 Contact: blah+oapicf@cliffano.com
 */
 
@@ -22,9 +22,13 @@ var _ MappedNullable = &MoveMetaAilmentDetail{}
 
 // MoveMetaAilmentDetail struct for MoveMetaAilmentDetail
 type MoveMetaAilmentDetail struct {
+	// The identifier for this resource.
 	Id int32 `json:"id"`
+	// The name for this resource.
 	Name string `json:"name"`
-	Moves []AbilityDetailPokemonInnerPokemon `json:"moves"`
+	// A list of moves that cause this ailment.
+	Moves []MoveSummary `json:"moves"`
+	// The name of this resource listed in different languages.
 	Names []MoveMetaAilmentName `json:"names"`
 }
 
@@ -34,7 +38,7 @@ type _MoveMetaAilmentDetail MoveMetaAilmentDetail
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewMoveMetaAilmentDetail(id int32, name string, moves []AbilityDetailPokemonInnerPokemon, names []MoveMetaAilmentName) *MoveMetaAilmentDetail {
+func NewMoveMetaAilmentDetail(id int32, name string, moves []MoveSummary, names []MoveMetaAilmentName) *MoveMetaAilmentDetail {
 	this := MoveMetaAilmentDetail{}
 	this.Id = id
 	this.Name = name
@@ -100,9 +104,9 @@ func (o *MoveMetaAilmentDetail) SetName(v string) {
 }
 
 // GetMoves returns the Moves field value
-func (o *MoveMetaAilmentDetail) GetMoves() []AbilityDetailPokemonInnerPokemon {
+func (o *MoveMetaAilmentDetail) GetMoves() []MoveSummary {
 	if o == nil {
-		var ret []AbilityDetailPokemonInnerPokemon
+		var ret []MoveSummary
 		return ret
 	}
 
@@ -111,7 +115,7 @@ func (o *MoveMetaAilmentDetail) GetMoves() []AbilityDetailPokemonInnerPokemon {
 
 // GetMovesOk returns a tuple with the Moves field value
 // and a boolean to check if the value has been set.
-func (o *MoveMetaAilmentDetail) GetMovesOk() ([]AbilityDetailPokemonInnerPokemon, bool) {
+func (o *MoveMetaAilmentDetail) GetMovesOk() ([]MoveSummary, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -119,7 +123,7 @@ func (o *MoveMetaAilmentDetail) GetMovesOk() ([]AbilityDetailPokemonInnerPokemon
 }
 
 // SetMoves sets field value
-func (o *MoveMetaAilmentDetail) SetMoves(v []AbilityDetailPokemonInnerPokemon) {
+func (o *MoveMetaAilmentDetail) SetMoves(v []MoveSummary) {
 	o.Moves = v
 }
 

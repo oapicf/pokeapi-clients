@@ -27,10 +27,10 @@ public class EncounterConditionDetail   {
     /**
      * Create EncounterConditionDetail.
      *
-     * @param id id
-     * @param name name
-     * @param values values
-     * @param names names
+     * @param id The identifier for this resource.
+     * @param name The name for this resource.
+     * @param values A list of possible values for this encounter condition.
+     * @param names The name of this resource listed in different languages.
      */
     public EncounterConditionDetail(
         Integer id, 
@@ -47,7 +47,7 @@ public class EncounterConditionDetail   {
 
 
     /**
-     * Get id
+     * The identifier for this resource.
      * @return id
      */
     public Integer getId() {
@@ -59,7 +59,7 @@ public class EncounterConditionDetail   {
     }
 
     /**
-     * Get name
+     * The name for this resource.
      * @return name
      */
     public String getName() {
@@ -71,7 +71,7 @@ public class EncounterConditionDetail   {
     }
 
     /**
-     * Get values
+     * A list of possible values for this encounter condition.
      * @return values
      */
     public List<@Valid EncounterConditionValueSummary> getValues() {
@@ -83,7 +83,7 @@ public class EncounterConditionDetail   {
     }
 
     /**
-     * Get names
+     * The name of this resource listed in different languages.
      * @return names
      */
     public List<@Valid EncounterConditionName> getNames() {

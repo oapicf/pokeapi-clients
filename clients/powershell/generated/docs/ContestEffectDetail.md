@@ -3,11 +3,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **Int32** |  | [readonly] 
-**Appeal** | **Int32** |  | 
-**Jam** | **Int32** |  | 
-**EffectEntries** | [**ContestEffectEffectText[]**](ContestEffectEffectText.md) |  | [readonly] 
-**FlavorTextEntries** | [**ContestEffectFlavorText[]**](ContestEffectFlavorText.md) |  | [readonly] 
+**Id** | **Int32** | The identifier for this resource. | [readonly] 
+**Appeal** | **Int32** | The base number of hearts the user of this move gets. | 
+**Jam** | **Int32** | The base number of hearts the user&#39;s opponent loses. | 
+**EffectEntries** | [**ContestEffectEffectText[]**](ContestEffectEffectText.md) | The result of this contest effect listed in different languages. | [readonly] 
+**FlavorTextEntries** | [**ContestEffectFlavorText[]**](ContestEffectFlavorText.md) | The flavor text of this contest effect listed in different languages. | [readonly] 
 
 ## Examples
 

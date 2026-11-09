@@ -12,17 +12,17 @@
         pokemon_species=nothing,
     )
 
-    - id::Int64
-    - name::String
-    - awesome_names::Vector{PokemonShapeDetailAwesomeNamesInner}
-    - names::Vector{PokemonShapeDetailNamesInner}
-    - pokemon_species::Vector{PokemonSpeciesSummary}
+    - id::Int64 : The identifier for this resource.
+    - name::String : The name for this resource.
+    - awesome_names::Vector{PokemonShapeAwesomeName} : The \&quot;scientific\&quot; name of this Pokémon shape listed in different languages.
+    - names::Vector{PokemonShapeName} : The name of this resource listed in different languages.
+    - pokemon_species::Vector{PokemonSpeciesSummary} : A list of the Pokémon species that have this shape.
 """
 Base.@kwdef mutable struct PokemonShapeDetail <: OpenAPI.APIModel
     id::Union{Nothing, Int64} = nothing
     name::Union{Nothing, String} = nothing
-    awesome_names::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{PokemonShapeDetailAwesomeNamesInner} }
-    names::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{PokemonShapeDetailNamesInner} }
+    awesome_names::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{PokemonShapeAwesomeName} }
+    names::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{PokemonShapeName} }
     pokemon_species::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{PokemonSpeciesSummary} }
 
     function PokemonShapeDetail(id, name, awesome_names, names, pokemon_species, )
@@ -32,7 +32,7 @@ Base.@kwdef mutable struct PokemonShapeDetail <: OpenAPI.APIModel
     end
 end # type PokemonShapeDetail
 
-const _property_types_PokemonShapeDetail = Dict{Symbol,String}(Symbol("id")=>"Int64", Symbol("name")=>"String", Symbol("awesome_names")=>"Vector{PokemonShapeDetailAwesomeNamesInner}", Symbol("names")=>"Vector{PokemonShapeDetailNamesInner}", Symbol("pokemon_species")=>"Vector{PokemonSpeciesSummary}", )
+const _property_types_PokemonShapeDetail = Dict{Symbol,String}(Symbol("id")=>"Int64", Symbol("name")=>"String", Symbol("awesome_names")=>"Vector{PokemonShapeAwesomeName}", Symbol("names")=>"Vector{PokemonShapeName}", Symbol("pokemon_species")=>"Vector{PokemonSpeciesSummary}", )
 OpenAPI.property_type(::Type{ PokemonShapeDetail }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_PokemonShapeDetail[name]))}
 
 function OpenAPI.check_required(o::PokemonShapeDetail)
@@ -56,7 +56,7 @@ function OpenAPI.validate_property(::Type{ PokemonShapeDetail }, name::Symbol, v
 
 
     if name === Symbol("name")
-        OpenAPI.validate_param(name, "PokemonShapeDetail", :maxLength, val, 100)
+        OpenAPI.validate_param(name, "PokemonShapeDetail", :maxLength, val, 200)
     end
 
 

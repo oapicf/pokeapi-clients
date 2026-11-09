@@ -1,0 +1,70 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server PokemonSpritesOtherShowdown"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a PokemonSpritesOtherShowdown"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+}
+resourceTypes {
+
+  PokemonSpritesOtherShowdown {
+    title = PokemonSpritesOtherShowdown
+    description = PokemonSpritesOtherShowdown
+    derivedFrom = Root
+    properties {
+        front_default {
+          type =  string
+          description = "The URL of the default Pokémon Showdown front image, or null if unavailable."
+          optional = true
+        }
+        front_female {
+          type =  string
+          description = "The URL of the female Pokémon Showdown front image, or null if unavailable."
+          optional = true
+        }
+        front_shiny {
+          type =  string
+          description = "The URL of the shiny Pokémon Showdown front image, or null if unavailable."
+          optional = true
+        }
+        front_shiny_female {
+          type =  string
+          description = "The URL of the shiny female Pokémon Showdown front image, or null if unavailable."
+          optional = true
+        }
+        back_default {
+          type =  string
+          description = "The URL of the default Pokémon Showdown back image, or null if unavailable."
+          optional = true
+        }
+        back_female {
+          type =  string
+          description = "The URL of the female Pokémon Showdown back image, or null if unavailable."
+          optional = true
+        }
+        back_shiny {
+          type =  string
+          description = "The URL of the shiny Pokémon Showdown back image, or null if unavailable."
+          optional = true
+        }
+        back_shiny_female {
+          type =  string
+          description = "The URL of the shiny female Pokémon Showdown back image, or null if unavailable."
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  PokemonSpritesOtherShowdown {
+    title = PokemonSpritesOtherShowdown
+    description = PokemonSpritesOtherShowdown
+    implements = openapi_server.resourceTypes.PokemonSpritesOtherShowdown
+
+  }
+}

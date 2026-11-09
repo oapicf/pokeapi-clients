@@ -1,8 +1,8 @@
 /**
  * PokéAPI
- * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+ * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
  *
- * OpenAPI spec version: 2.7.0
+ * OpenAPI spec version: 2.10.0
  *
  * Contact: blah+oapicf@cliffano.com
  *
@@ -25,17 +25,29 @@ import upickle.default.*
   * It has no validation - there may be nulls, values out of range, etc
   */
 case class BerryDetailData(
+/* The identifier for this resource. */
   id: Int,
+/* The name for this resource. */
   name: String,
-  growthTime: Int,
-  maxHarvest: Int,
-  naturalGiftPower: Int,
-  size: Int,
-  smoothness: Int,
-  soilDryness: Int,
+/* Time it takes the tree to grow one stage, in hours. Berry trees go through four of these growth stages before they can be picked. */
+  growthTime: Int = 0 ,
+/* The maximum number of these berries that can grow on one tree in Generation IV. */
+  maxHarvest: Int = 0 ,
+/* The power of the move \"Natural Gift\" when used with this Berry. */
+  naturalGiftPower: Int = 0 ,
+/* The size of this Berry, in millimeters. */
+  size: Int = 0 ,
+/* The smoothness of this Berry, used in making Pokéblocks or Poffins. */
+  smoothness: Int = 0 ,
+/* The speed at which this Berry dries out the soil as it grows. A higher rate means the soil dries more quickly. */
+  soilDryness: Int = 0 ,
+/* The firmness of this berry, used in making Pokéblocks or Poffins. */
   firmness: BerryFirmnessSummaryData,
-  flavors: Seq[BerryDetailFlavorsInnerData],
+/* A list of references to each flavor a berry can have and the potency of each of those flavors in regard to this berry. */
+  flavors: Seq[BerryFlavorMapData],
+/* Berries are actually items. This is a reference to the item specific data for this berry. */
   item: ItemSummaryData,
+/* The type inherited by \"Natural Gift\" when used with this Berry. */
   naturalGiftType: TypeSummaryData
   
 
@@ -57,11 +69,11 @@ case class BerryDetailData(
         
 
         // ================== name validation ==================
-        // validate max length 100
+        // validate max length 200
         if (_allValidationErrors.isEmpty || !failFast)  {
           val len = if name == null then 0 else name.length
-            if (len < 100) {
-               _allValidationErrors += ValidationError(path :+ BerryDetail.Fields.name, s"length $len is longer than the max length 100")
+            if (len < 200) {
+               _allValidationErrors += ValidationError(path :+ BerryDetail.Fields.name, s"length $len is longer than the max length 200")
             }
         }
         
@@ -70,36 +82,96 @@ case class BerryDetailData(
         
 
         // ================== growthTime validation ==================
+        // validate against minimum -2147483648
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if !(growthTime >= -2147483648) then
+            _allValidationErrors += ValidationError(path :+ BerryDetail.Fields.growthTime, s"value '$growthTime' is not greater than the minimum value -2147483648")
+        }
+        // validate against maximum 2147483647
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if !(growthTime <= 2147483647) then
+            _allValidationErrors += ValidationError(path :+ BerryDetail.Fields.growthTime, s"value '$growthTime' is not greater than the maximum value 2147483647")
+        }
         
         
         
         
 
         // ================== maxHarvest validation ==================
+        // validate against minimum -2147483648
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if !(maxHarvest >= -2147483648) then
+            _allValidationErrors += ValidationError(path :+ BerryDetail.Fields.maxHarvest, s"value '$maxHarvest' is not greater than the minimum value -2147483648")
+        }
+        // validate against maximum 2147483647
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if !(maxHarvest <= 2147483647) then
+            _allValidationErrors += ValidationError(path :+ BerryDetail.Fields.maxHarvest, s"value '$maxHarvest' is not greater than the maximum value 2147483647")
+        }
         
         
         
         
 
         // ================== naturalGiftPower validation ==================
+        // validate against minimum -2147483648
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if !(naturalGiftPower >= -2147483648) then
+            _allValidationErrors += ValidationError(path :+ BerryDetail.Fields.naturalGiftPower, s"value '$naturalGiftPower' is not greater than the minimum value -2147483648")
+        }
+        // validate against maximum 2147483647
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if !(naturalGiftPower <= 2147483647) then
+            _allValidationErrors += ValidationError(path :+ BerryDetail.Fields.naturalGiftPower, s"value '$naturalGiftPower' is not greater than the maximum value 2147483647")
+        }
         
         
         
         
 
         // ================== size validation ==================
+        // validate against minimum -2147483648
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if !(size >= -2147483648) then
+            _allValidationErrors += ValidationError(path :+ BerryDetail.Fields.size, s"value '$size' is not greater than the minimum value -2147483648")
+        }
+        // validate against maximum 2147483647
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if !(size <= 2147483647) then
+            _allValidationErrors += ValidationError(path :+ BerryDetail.Fields.size, s"value '$size' is not greater than the maximum value 2147483647")
+        }
         
         
         
         
 
         // ================== smoothness validation ==================
+        // validate against minimum -2147483648
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if !(smoothness >= -2147483648) then
+            _allValidationErrors += ValidationError(path :+ BerryDetail.Fields.smoothness, s"value '$smoothness' is not greater than the minimum value -2147483648")
+        }
+        // validate against maximum 2147483647
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if !(smoothness <= 2147483647) then
+            _allValidationErrors += ValidationError(path :+ BerryDetail.Fields.smoothness, s"value '$smoothness' is not greater than the maximum value 2147483647")
+        }
         
         
         
         
 
         // ================== soilDryness validation ==================
+        // validate against minimum -2147483648
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if !(soilDryness >= -2147483648) then
+            _allValidationErrors += ValidationError(path :+ BerryDetail.Fields.soilDryness, s"value '$soilDryness' is not greater than the minimum value -2147483648")
+        }
+        // validate against maximum 2147483647
+        if (_allValidationErrors.isEmpty || !failFast) {
+            if !(soilDryness <= 2147483647) then
+            _allValidationErrors += ValidationError(path :+ BerryDetail.Fields.soilDryness, s"value '$soilDryness' is not greater than the maximum value 2147483647")
+        }
         
         
         
@@ -195,12 +267,12 @@ case class BerryDetailData(
     BerryDetail(
         id = id /* 2 */,
         name = name /* 2 */,
-        growthTime = growthTime /* 2 */,
-        maxHarvest = maxHarvest /* 2 */,
-        naturalGiftPower = naturalGiftPower /* 2 */,
-        size = size /* 2 */,
-        smoothness = smoothness /* 2 */,
-        soilDryness = soilDryness /* 2 */,
+        growthTime = Option(growthTime) /* 1 */,
+        maxHarvest = Option(maxHarvest) /* 1 */,
+        naturalGiftPower = Option(naturalGiftPower) /* 1 */,
+        size = Option(size) /* 1 */,
+        smoothness = Option(smoothness) /* 1 */,
+        soilDryness = Option(soilDryness) /* 1 */,
         firmness = firmness.asModel /* 6 */,
         flavors = flavors.map(_.asModel) /* 5 */,
         item = item.asModel /* 6 */,

@@ -7,48 +7,40 @@
     {
       "name": "id",
       "type": "int",
-      "doc": ""
+      "doc": "The identifier for this resource."
     },
     {
       "name": "name",
       "type": "string",
-      "doc": ""
+      "doc": "The name for this resource."
     },
     {
       "name": "decreased_stat",
       "type": "model.StatSummary",
-      "doc": ""
+      "doc": "The stat decreased by 10% in Pokémon with this nature."
     },
     {
       "name": "increased_stat",
       "type": "model.StatSummary",
-      "doc": ""
+      "doc": "The stat increased by 10% in Pokémon with this nature."
     },
     {
       "name": "likes_flavor",
       "type": "model.BerryFlavorSummary",
-      "doc": ""
+      "doc": "The flavor liked by Pokémon with this nature."
     },
     {
       "name": "hates_flavor",
       "type": "model.BerryFlavorSummary",
-      "doc": ""
-    },
-    {
-      "name": "berries",
-      "type": {
-        "type": "array",
-        "items": "model.BerrySummary"
-      },
-      "doc": ""
+      "doc": "The flavor hated by Pokémon with this nature."
     },
     {
       "name": "pokeathlon_stat_changes",
       "type": {
         "type": "array",
-        "items": "model.NatureDetailPokeathlonStatChangesInner"
+        "items": "model.NaturePokeathlonStat"
       },
-      "doc": ""
+      "doc": "A list of Pokéathlon stats this nature effects and how much it effects them."
     },
     {
       "name": "move_battle_style_preferences",
@@ -56,7 +48,7 @@
         "type": "array",
         "items": "model.NatureBattleStylePreference"
       },
-      "doc": ""
+      "doc": "A list of battle styles and how likely a Pokémon with this nature is to use them in the Battle Palace or Battle Tent."
     },
     {
       "name": "names",
@@ -64,7 +56,7 @@
         "type": "array",
         "items": "model.NatureName"
       },
-      "doc": ""
+      "doc": "The name of this resource listed in different languages."
     }
   ]
 

@@ -20,3 +20,11 @@ func (c *Container) LanguageRetrieve(ctx echo.Context) error {
 	})
 }
 
+
+// MetaRetrieve - Get API metadata
+func (c *Container) MetaRetrieve(ctx echo.Context) error {
+	return ctx.JSON(http.StatusOK, models.HelloWorld {
+		Message: "Hello World",
+	})
+}
+

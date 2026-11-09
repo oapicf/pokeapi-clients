@@ -19,41 +19,50 @@ part 'generation_detail.g.dart';
 /// GenerationDetail
 ///
 /// Properties:
-/// * [id] 
-/// * [name] 
-/// * [abilities] 
-/// * [mainRegion] 
-/// * [moves] 
-/// * [names] 
-/// * [pokemonSpecies] 
-/// * [types] 
-/// * [versionGroups] 
+/// * [id] - The identifier for this resource.
+/// * [name] - The name for this resource.
+/// * [abilities] - A list of abilities that were introduced in this generation.
+/// * [mainRegion] - The main region travelled in this generation.
+/// * [moves] - A list of moves that were introduced in this generation.
+/// * [names] - The name of this resource listed in different languages.
+/// * [pokemonSpecies] - A list of Pokémon species that were introduced in this generation.
+/// * [types] - A list of types that were introduced in this generation.
+/// * [versionGroups] - A list of version groups that were introduced in this generation.
 @BuiltValue()
 abstract class GenerationDetail implements Built<GenerationDetail, GenerationDetailBuilder> {
+  /// The identifier for this resource.
   @BuiltValueField(wireName: r'id')
   int get id;
 
+  /// The name for this resource.
   @BuiltValueField(wireName: r'name')
   String get name;
 
+  /// A list of abilities that were introduced in this generation.
   @BuiltValueField(wireName: r'abilities')
   BuiltList<AbilitySummary> get abilities;
 
+  /// The main region travelled in this generation.
   @BuiltValueField(wireName: r'main_region')
   RegionSummary get mainRegion;
 
+  /// A list of moves that were introduced in this generation.
   @BuiltValueField(wireName: r'moves')
   BuiltList<MoveSummary> get moves;
 
+  /// The name of this resource listed in different languages.
   @BuiltValueField(wireName: r'names')
   BuiltList<GenerationName> get names;
 
+  /// A list of Pokémon species that were introduced in this generation.
   @BuiltValueField(wireName: r'pokemon_species')
   BuiltList<PokemonSpeciesSummary> get pokemonSpecies;
 
+  /// A list of types that were introduced in this generation.
   @BuiltValueField(wireName: r'types')
   BuiltList<TypeSummary> get types;
 
+  /// A list of version groups that were introduced in this generation.
   @BuiltValueField(wireName: r'version_groups')
   BuiltList<VersionGroupSummary> get versionGroups;
 

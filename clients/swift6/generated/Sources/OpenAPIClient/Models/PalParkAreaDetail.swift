@@ -9,13 +9,17 @@ import Foundation
 
 public struct PalParkAreaDetail: Sendable, Codable, Hashable {
 
-    public static let nameRule = StringRule(minLength: nil, maxLength: 100, pattern: nil)
+    public static let nameRule = StringRule(minLength: nil, maxLength: 200, pattern: nil)
+    /** The identifier for this resource. */
     public var id: Int
+    /** The name for this resource. */
     public var name: String
+    /** The name of this resource listed in different languages. */
     public var names: [PalParkAreaName]
-    public var pokemonEncounters: [PalParkAreaDetailPokemonEncountersInner]
+    /** A list of Pokémon encountered in thi pal park area along with details. */
+    public var pokemonEncounters: [PalParkEncounter]
 
-    public init(id: Int, name: String, names: [PalParkAreaName], pokemonEncounters: [PalParkAreaDetailPokemonEncountersInner]) {
+    public init(id: Int, name: String, names: [PalParkAreaName], pokemonEncounters: [PalParkEncounter]) {
         self.id = id
         self.name = name
         self.names = names

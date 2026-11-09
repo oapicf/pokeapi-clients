@@ -24,28 +24,28 @@ defmodule PokéAPI.Model.TypeDetail do
   @type t :: %__MODULE__{
     :id => integer(),
     :name => String.t,
-    :damage_relations => PokéAPI.Model.TypeDetailDamageRelations.t,
-    :past_damage_relations => [PokéAPI.Model.TypeDetailPastDamageRelationsInner.t],
+    :damage_relations => PokéAPI.Model.TypeRelationships.t,
+    :past_damage_relations => [PokéAPI.Model.TypePastRelationships.t],
     :game_indices => [PokéAPI.Model.TypeGameIndex.t],
     :generation => PokéAPI.Model.GenerationSummary.t,
-    :move_damage_class => PokéAPI.Model.MoveDamageClassSummary.t,
-    :names => [PokéAPI.Model.AbilityName.t],
-    :pokemon => [PokéAPI.Model.TypeDetailPokemonInner.t],
+    :move_damage_class => PokéAPI.Model.MoveDamageClassSummary.t | nil,
+    :names => [PokéAPI.Model.TypeName.t],
+    :pokemon => [PokéAPI.Model.TypePokemon.t],
     :moves => [PokéAPI.Model.MoveSummary.t],
-    :sprites => %{optional(String.t) => %{optional(String.t) => PokéAPI.Model.TypeDetailSpritesValueValue.t}}
+    :sprites => %{optional(String.t) => %{optional(String.t) => PokéAPI.Model.TypeGameSprite.t}}
   }
 
   alias PokéAPI.Deserializer
 
   def decode(value) do
     value
-     |> Deserializer.deserialize(:damage_relations, :struct, PokéAPI.Model.TypeDetailDamageRelations)
-     |> Deserializer.deserialize(:past_damage_relations, :list, PokéAPI.Model.TypeDetailPastDamageRelationsInner)
+     |> Deserializer.deserialize(:damage_relations, :struct, PokéAPI.Model.TypeRelationships)
+     |> Deserializer.deserialize(:past_damage_relations, :list, PokéAPI.Model.TypePastRelationships)
      |> Deserializer.deserialize(:game_indices, :list, PokéAPI.Model.TypeGameIndex)
      |> Deserializer.deserialize(:generation, :struct, PokéAPI.Model.GenerationSummary)
      |> Deserializer.deserialize(:move_damage_class, :struct, PokéAPI.Model.MoveDamageClassSummary)
-     |> Deserializer.deserialize(:names, :list, PokéAPI.Model.AbilityName)
-     |> Deserializer.deserialize(:pokemon, :list, PokéAPI.Model.TypeDetailPokemonInner)
+     |> Deserializer.deserialize(:names, :list, PokéAPI.Model.TypeName)
+     |> Deserializer.deserialize(:pokemon, :list, PokéAPI.Model.TypePokemon)
      |> Deserializer.deserialize(:moves, :list, PokéAPI.Model.MoveSummary)
   end
 end

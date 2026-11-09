@@ -37,7 +37,7 @@ Location areas are sections of areas, such as floors in a building or cave. Each
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -72,7 +72,7 @@ Location areas are sections of areas, such as floors in a building or cave. Each
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -109,7 +109,7 @@ Locations that can be visited within the games. Locations make up sizable portio
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -144,7 +144,7 @@ Locations that can be visited within the games. Locations make up sizable portio
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -181,7 +181,7 @@ Areas used for grouping Pokémon encounters in Pal Park. They&#39;re like habita
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -216,7 +216,7 @@ Areas used for grouping Pokémon encounters in Pal Park. They&#39;re like habita
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -253,7 +253,7 @@ A region is an organized area of the Pokémon world. Most often, the main differ
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -288,7 +288,7 @@ A region is an organized area of the Pokémon world. Most often, the main differ
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

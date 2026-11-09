@@ -1,9 +1,9 @@
 /*
 PokéAPI
 
-All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
 
-API version: 2.7.0
+API version: 2.10.0
 Contact: blah+oapicf@cliffano.com
 */
 
@@ -22,13 +22,20 @@ var _ MappedNullable = &RegionDetail{}
 
 // RegionDetail struct for RegionDetail
 type RegionDetail struct {
+	// The identifier for this resource.
 	Id int32 `json:"id"`
+	// The name for this resource.
 	Name string `json:"name"`
+	// A list of locations that can be found in this region.
 	Locations []LocationSummary `json:"locations"`
-	MainGeneration GenerationSummary `json:"main_generation"`
+	// The generation this region was introduced in.
+	MainGeneration NullableGenerationSummary `json:"main_generation"`
+	// The name of this resource listed in different languages.
 	Names []RegionName `json:"names"`
+	// A list of pokédexes that catalogue Pokémon in this region.
 	Pokedexes []PokedexSummary `json:"pokedexes"`
-	VersionGroups []AbilityDetailPokemonInnerPokemon `json:"version_groups"`
+	// A list of version groups where this region can be visited.
+	VersionGroups []VersionGroupSummary `json:"version_groups"`
 }
 
 type _RegionDetail RegionDetail
@@ -37,7 +44,7 @@ type _RegionDetail RegionDetail
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewRegionDetail(id int32, name string, locations []LocationSummary, mainGeneration GenerationSummary, names []RegionName, pokedexes []PokedexSummary, versionGroups []AbilityDetailPokemonInnerPokemon) *RegionDetail {
+func NewRegionDetail(id int32, name string, locations []LocationSummary, mainGeneration NullableGenerationSummary, names []RegionName, pokedexes []PokedexSummary, versionGroups []VersionGroupSummary) *RegionDetail {
 	this := RegionDetail{}
 	this.Id = id
 	this.Name = name
@@ -130,27 +137,29 @@ func (o *RegionDetail) SetLocations(v []LocationSummary) {
 }
 
 // GetMainGeneration returns the MainGeneration field value
+// If the value is explicit nil, the zero value for GenerationSummary will be returned
 func (o *RegionDetail) GetMainGeneration() GenerationSummary {
-	if o == nil {
+	if o == nil || o.MainGeneration.Get() == nil {
 		var ret GenerationSummary
 		return ret
 	}
 
-	return o.MainGeneration
+	return *o.MainGeneration.Get()
 }
 
 // GetMainGenerationOk returns a tuple with the MainGeneration field value
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *RegionDetail) GetMainGenerationOk() (*GenerationSummary, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.MainGeneration, true
+	return o.MainGeneration.Get(), o.MainGeneration.IsSet()
 }
 
 // SetMainGeneration sets field value
 func (o *RegionDetail) SetMainGeneration(v GenerationSummary) {
-	o.MainGeneration = v
+	o.MainGeneration.Set(&v)
 }
 
 // GetNames returns the Names field value
@@ -202,9 +211,9 @@ func (o *RegionDetail) SetPokedexes(v []PokedexSummary) {
 }
 
 // GetVersionGroups returns the VersionGroups field value
-func (o *RegionDetail) GetVersionGroups() []AbilityDetailPokemonInnerPokemon {
+func (o *RegionDetail) GetVersionGroups() []VersionGroupSummary {
 	if o == nil {
-		var ret []AbilityDetailPokemonInnerPokemon
+		var ret []VersionGroupSummary
 		return ret
 	}
 
@@ -213,7 +222,7 @@ func (o *RegionDetail) GetVersionGroups() []AbilityDetailPokemonInnerPokemon {
 
 // GetVersionGroupsOk returns a tuple with the VersionGroups field value
 // and a boolean to check if the value has been set.
-func (o *RegionDetail) GetVersionGroupsOk() ([]AbilityDetailPokemonInnerPokemon, bool) {
+func (o *RegionDetail) GetVersionGroupsOk() ([]VersionGroupSummary, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -221,7 +230,7 @@ func (o *RegionDetail) GetVersionGroupsOk() ([]AbilityDetailPokemonInnerPokemon,
 }
 
 // SetVersionGroups sets field value
-func (o *RegionDetail) SetVersionGroups(v []AbilityDetailPokemonInnerPokemon) {
+func (o *RegionDetail) SetVersionGroups(v []VersionGroupSummary) {
 	o.VersionGroups = v
 }
 
@@ -238,7 +247,7 @@ func (o RegionDetail) ToMap() (map[string]interface{}, error) {
 	toSerialize["id"] = o.Id
 	toSerialize["name"] = o.Name
 	toSerialize["locations"] = o.Locations
-	toSerialize["main_generation"] = o.MainGeneration
+	toSerialize["main_generation"] = o.MainGeneration.Get()
 	toSerialize["names"] = o.Names
 	toSerialize["pokedexes"] = o.Pokedexes
 	toSerialize["version_groups"] = o.VersionGroups

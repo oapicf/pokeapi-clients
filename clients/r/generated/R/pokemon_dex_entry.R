@@ -7,8 +7,8 @@
 #' @title PokemonDexEntry
 #' @description PokemonDexEntry Class
 #' @format An \code{R6Class} generator object
-#' @field entry_number  integer
-#' @field pokedex  \link{PokedexSummary}
+#' @field entry_number The index number within the Pokédex. integer
+#' @field pokedex The Pokédex the referenced Pokémon species can be found in. \link{PokedexSummary}
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -21,8 +21,8 @@ PokemonDexEntry <- R6::R6Class(
     #' @description
     #' Initialize a new PokemonDexEntry class.
     #'
-    #' @param entry_number entry_number
-    #' @param pokedex pokedex
+    #' @param entry_number The index number within the Pokédex.
+    #' @param pokedex The Pokédex the referenced Pokémon species can be found in.
     #' @param ... Other optional arguments.
     initialize = function(`entry_number`, `pokedex`, ...) {
       if (!missing(`entry_number`)) {

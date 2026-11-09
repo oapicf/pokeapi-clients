@@ -9,8 +9,8 @@ export class MachinesApiController {
   constructor(private readonly machinesApi: MachinesApi) {}
 
   @Get('/api/v2/machine/')
-  machineList(@Query('limit') limit: number | undefined, @Query('offset') offset: number | undefined, @Query('q') q: string | undefined, @Req() request: Request): PaginatedMachineSummaryList | Promise<PaginatedMachineSummaryList> | Observable<PaginatedMachineSummaryList> {
-    return this.machinesApi.machineList(limit, offset, q, request);
+  machineList(@Query('limit') limit: number | undefined, @Query('offset') offset: number | undefined, @Req() request: Request): PaginatedMachineSummaryList | Promise<PaginatedMachineSummaryList> | Observable<PaginatedMachineSummaryList> {
+    return this.machinesApi.machineList(limit, offset, request);
   }
 
   @Get('/api/v2/machine/:id/')

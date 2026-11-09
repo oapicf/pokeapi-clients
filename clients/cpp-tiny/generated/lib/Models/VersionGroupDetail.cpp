@@ -9,10 +9,10 @@ VersionGroupDetail::VersionGroupDetail()
 	id = int(0);
 	name = std::string();
 	order = int(0);
-	generation = GenerationSummary();
-	move_learn_methods = std::list<AbilityDetail_pokemon_inner_pokemon>();
-	pokedexes = std::list<AbilityDetail_pokemon_inner_pokemon>();
-	regions = std::list<AbilityDetail_pokemon_inner_pokemon>();
+	generation = null;
+	move_learn_methods = std::list<MoveLearnMethodSummary>();
+	pokedexes = std::list<PokedexSummary>();
+	regions = std::list<RegionSummary>();
 	versions = std::list<VersionSummary>();
 }
 
@@ -91,8 +91,8 @@ VersionGroupDetail::fromJson(std::string jsonObj)
         bourne::json value = object[move_learn_methodsKey];
 
 
-        std::list<AbilityDetail_pokemon_inner_pokemon> move_learn_methods_list;
-        AbilityDetail_pokemon_inner_pokemon element;
+        std::list<MoveLearnMethodSummary> move_learn_methods_list;
+        MoveLearnMethodSummary element;
         for(auto& var : value.array_range())
         {
 
@@ -113,8 +113,8 @@ VersionGroupDetail::fromJson(std::string jsonObj)
         bourne::json value = object[pokedexesKey];
 
 
-        std::list<AbilityDetail_pokemon_inner_pokemon> pokedexes_list;
-        AbilityDetail_pokemon_inner_pokemon element;
+        std::list<PokedexSummary> pokedexes_list;
+        PokedexSummary element;
         for(auto& var : value.array_range())
         {
 
@@ -135,8 +135,8 @@ VersionGroupDetail::fromJson(std::string jsonObj)
         bourne::json value = object[regionsKey];
 
 
-        std::list<AbilityDetail_pokemon_inner_pokemon> regions_list;
-        AbilityDetail_pokemon_inner_pokemon element;
+        std::list<RegionSummary> regions_list;
+        RegionSummary element;
         for(auto& var : value.array_range())
         {
 
@@ -211,12 +211,12 @@ VersionGroupDetail::toJson()
 
 
 
-    std::list<AbilityDetail_pokemon_inner_pokemon> move_learn_methods_list = getMoveLearnMethods();
+    std::list<MoveLearnMethodSummary> move_learn_methods_list = getMoveLearnMethods();
     bourne::json move_learn_methods_arr = bourne::json::array();
 
     for(auto& var : move_learn_methods_list)
     {
-        AbilityDetail_pokemon_inner_pokemon obj = var;
+        MoveLearnMethodSummary obj = var;
         move_learn_methods_arr.append(obj.toJson());
     }
     object["move_learn_methods"] = move_learn_methods_arr;
@@ -226,12 +226,12 @@ VersionGroupDetail::toJson()
 
 
 
-    std::list<AbilityDetail_pokemon_inner_pokemon> pokedexes_list = getPokedexes();
+    std::list<PokedexSummary> pokedexes_list = getPokedexes();
     bourne::json pokedexes_arr = bourne::json::array();
 
     for(auto& var : pokedexes_list)
     {
-        AbilityDetail_pokemon_inner_pokemon obj = var;
+        PokedexSummary obj = var;
         pokedexes_arr.append(obj.toJson());
     }
     object["pokedexes"] = pokedexes_arr;
@@ -241,12 +241,12 @@ VersionGroupDetail::toJson()
 
 
 
-    std::list<AbilityDetail_pokemon_inner_pokemon> regions_list = getRegions();
+    std::list<RegionSummary> regions_list = getRegions();
     bourne::json regions_arr = bourne::json::array();
 
     for(auto& var : regions_list)
     {
-        AbilityDetail_pokemon_inner_pokemon obj = var;
+        RegionSummary obj = var;
         regions_arr.append(obj.toJson());
     }
     object["regions"] = regions_arr;
@@ -321,38 +321,38 @@ VersionGroupDetail::setGeneration(GenerationSummary generation)
 	this->generation = generation;
 }
 
-std::list<AbilityDetail_pokemon_inner_pokemon>
+std::list<MoveLearnMethodSummary>
 VersionGroupDetail::getMoveLearnMethods()
 {
 	return move_learn_methods;
 }
 
 void
-VersionGroupDetail::setMoveLearnMethods(std::list<AbilityDetail_pokemon_inner_pokemon> move_learn_methods)
+VersionGroupDetail::setMoveLearnMethods(std::list<MoveLearnMethodSummary> move_learn_methods)
 {
 	this->move_learn_methods = move_learn_methods;
 }
 
-std::list<AbilityDetail_pokemon_inner_pokemon>
+std::list<PokedexSummary>
 VersionGroupDetail::getPokedexes()
 {
 	return pokedexes;
 }
 
 void
-VersionGroupDetail::setPokedexes(std::list<AbilityDetail_pokemon_inner_pokemon> pokedexes)
+VersionGroupDetail::setPokedexes(std::list<PokedexSummary> pokedexes)
 {
 	this->pokedexes = pokedexes;
 }
 
-std::list<AbilityDetail_pokemon_inner_pokemon>
+std::list<RegionSummary>
 VersionGroupDetail::getRegions()
 {
 	return regions;
 }
 
 void
-VersionGroupDetail::setRegions(std::list<AbilityDetail_pokemon_inner_pokemon> regions)
+VersionGroupDetail::setRegions(std::list<RegionSummary> regions)
 {
 	this->regions = regions;
 }

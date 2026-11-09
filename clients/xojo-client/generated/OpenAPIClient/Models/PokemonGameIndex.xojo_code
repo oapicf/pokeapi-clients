@@ -2,11 +2,17 @@
 Protected Class PokemonGameIndex
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The internal id of an API resource within game data.
+		#tag EndNote
 		game_index As Integer
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The version relevent to this game index.
+		#tag EndNote
 		version As OpenAPIClient.Models.VersionSummary
 	#tag EndProperty
 

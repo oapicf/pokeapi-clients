@@ -31,16 +31,18 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param gameIndex 
- * @param generation 
+ * @param gameIndex The internal id of an API resource within game data.
+ * @param generation The generation relevent to this game index.
  */
 
 
 data class TypeGameIndex (
 
+    /* The internal id of an API resource within game data. */
     @Json(name = "game_index")
     val gameIndex: kotlin.Int,
 
+    /* The generation relevent to this game index. */
     @Json(name = "generation")
     val generation: GenerationSummary
 

@@ -1,10 +1,10 @@
 package org.openapitools.model;
 
-import org.openapitools.model.AbilityDetailPokemonInnerPokemon;
 import org.openapitools.model.PokedexDescription;
-import org.openapitools.model.PokedexDetailPokemonEntriesInner;
 import org.openapitools.model.PokedexName;
+import org.openapitools.model.PokemonDexNumber;
 import org.openapitools.model.RegionSummary;
+import org.openapitools.model.VersionGroupSummary;
 import java.util.*;
 import java.util.Objects;
 import java.io.Serializable;
@@ -17,32 +17,56 @@ import java.math.*;
 public class PokedexDetail implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * The identifier for this resource.
+   */
   @JsonProperty("id")
   private Integer id;
 
+  /**
+   * The name for this resource.
+   */
   @JsonProperty("name")
   private String name;
 
+  /**
+   * Whether or not this Pokédex originated in the main series of the video games.
+   */
   @JsonProperty("is_main_series")
   private Boolean isMainSeries;
 
+  /**
+   * The description of this resource listed in different languages.
+   */
   @JsonProperty("descriptions")
   private List<PokedexDescription> descriptions = new ArrayList<>();
 
+  /**
+   * The name of this resource listed in different languages.
+   */
   @JsonProperty("names")
   private List<PokedexName> names = new ArrayList<>();
 
+  /**
+   * A list of Pokémon catalogued in this Pokédex and their indexes.
+   */
   @JsonProperty("pokemon_entries")
-  private List<PokedexDetailPokemonEntriesInner> pokemonEntries = new ArrayList<>();
+  private List<PokemonDexNumber> pokemonEntries = new ArrayList<>();
 
+  /**
+   * The region this Pokédex catalogues Pokémon for.
+   */
   @JsonProperty("region")
   private RegionSummary region;
 
+  /**
+   * A list of version groups this Pokédex is relevant to.
+   */
   @JsonProperty("version_groups")
-  private List<AbilityDetailPokemonInnerPokemon> versionGroups = new ArrayList<>();
+  private List<VersionGroupSummary> versionGroups = new ArrayList<>();
 
   /**
-   * 
+   * The identifier for this resource.
    * @return id
    */
   public Integer getId() {
@@ -54,7 +78,7 @@ public class PokedexDetail implements Serializable {
   }
 
   /**
-   * 
+   * The name for this resource.
    * @return name
    */
   public String getName() {
@@ -66,7 +90,7 @@ public class PokedexDetail implements Serializable {
   }
 
   /**
-   * 
+   * Whether or not this Pokédex originated in the main series of the video games.
    * @return isMainSeries
    */
   public Boolean getIsMainSeries() {
@@ -78,7 +102,7 @@ public class PokedexDetail implements Serializable {
   }
 
   /**
-   * 
+   * The description of this resource listed in different languages.
    * @return descriptions
    */
   public List<PokedexDescription> getDescriptions() {
@@ -90,7 +114,7 @@ public class PokedexDetail implements Serializable {
   }
 
   /**
-   * 
+   * The name of this resource listed in different languages.
    * @return names
    */
   public List<PokedexName> getNames() {
@@ -102,19 +126,19 @@ public class PokedexDetail implements Serializable {
   }
 
   /**
-   * 
+   * A list of Pokémon catalogued in this Pokédex and their indexes.
    * @return pokemonEntries
    */
-  public List<PokedexDetailPokemonEntriesInner> getPokemonEntries() {
+  public List<PokemonDexNumber> getPokemonEntries() {
     return pokemonEntries;
   }
 
-  public void setPokemonEntries(List<PokedexDetailPokemonEntriesInner> pokemonEntries) {
+  public void setPokemonEntries(List<PokemonDexNumber> pokemonEntries) {
     this.pokemonEntries = pokemonEntries;
   }
 
   /**
-   * 
+   * The region this Pokédex catalogues Pokémon for.
    * @return region
    */
   public RegionSummary getRegion() {
@@ -126,14 +150,14 @@ public class PokedexDetail implements Serializable {
   }
 
   /**
-   * 
+   * A list of version groups this Pokédex is relevant to.
    * @return versionGroups
    */
-  public List<AbilityDetailPokemonInnerPokemon> getVersionGroups() {
+  public List<VersionGroupSummary> getVersionGroups() {
     return versionGroups;
   }
 
-  public void setVersionGroups(List<AbilityDetailPokemonInnerPokemon> versionGroups) {
+  public void setVersionGroups(List<VersionGroupSummary> versionGroups) {
     this.versionGroups = versionGroups;
   }
 

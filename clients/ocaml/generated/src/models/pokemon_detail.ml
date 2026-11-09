@@ -15,107 +15,130 @@
                 
                 
                 ; [@key "id"]
-                                              name: string
+                    (** The identifier for this resource. *)
+                                      name: string
                   
                   
                 
                 
                 ; [@key "name"]
-                                              base_experience: int32
+                    (** The name for this resource. *)
+                                      base_experience: int32
                   
                    option [@default None]
                 
                 
                 ; [@key "base_experience"]
-                                              height: int32
+                    (** The base experience gained for defeating this Pokémon. *)
+                                      height: int32
                   
                    option [@default None]
                 
                 
                 ; [@key "height"]
-                                              is_default: bool
+                    (** The height of this Pokémon in decimetres. *)
+                                      is_default: bool
                   
                    option [@default None]
                 
                 
                 ; [@key "is_default"]
-                                              order: int32
+                    (** Set for exactly one Pokémon used as the default for each species. *)
+                                      order: int32
                   
                    option [@default None]
                 
                 
                 ; [@key "order"]
-                                              weight: int32
+                    (** Order for sorting. Almost national order, except families are grouped together. *)
+                                      weight: int32
                   
                    option [@default None]
                 
                 
                 ; [@key "weight"]
-                                              abilities: Pokemon_detail_abilities_inner.t list
+                    (** The weight of this Pokémon in hectograms. *)
+                                      abilities: Pokemon_ability.t list
                 
                 
                 ; [@key "abilities"]
-                                              past_abilities: Pokemon_detail_past_abilities_inner.t list
+                    (** A list of abilities this Pokémon could potentially have. *)
+                                      past_abilities: Pokemon_past_ability.t list
                 
                 
                 ; [@key "past_abilities"]
-                                              forms: Pokemon_form_summary.t list
+                    (** A list of details showing abilities this pokémon had in previous generations *)
+                                      forms: Pokemon_form_summary.t list
                 
                 
                 ; [@key "forms"]
-                                              game_indices: Pokemon_game_index.t list
+                    (** A list of forms this Pokémon can take on. *)
+                                      game_indices: Pokemon_game_index.t list
                 
                 
                 ; [@key "game_indices"]
-                                              held_items: Pokemon_detail_held_items.t
-                  
-                  
+                    (** A list of game indices relevent to Pokémon item by generation. *)
+                                      held_items: Pokemon_held_item_summary.t list
                 
                 
                 ; [@key "held_items"]
-                                              location_area_encounters: string
+                    (** A list of items this Pokémon may be holding when encountered. *)
+                                      location_area_encounters: string
                   
                   
                 
                 
                 ; [@key "location_area_encounters"]
-                                              moves: Pokemon_detail_moves_inner.t list
+                    (** A link to a list of location areas, as well as encounter details pertaining to specific versions. *)
+                                      moves: Pokemon_move.t list
                 
                 
                 ; [@key "moves"]
-                                              species: Pokemon_species_summary.t
+                    (** A list of moves along with learn methods and level details pertaining to specific version groups. *)
+                                      species: Pokemon_species_summary.t
                   
                   
                 
                 
                 ; [@key "species"]
-                                              sprites: Pokemon_detail_sprites.t
+                    (** The species this Pokémon belongs to. *)
+                                      sprites: Pokemon_sprites.t
                   
                   
                 
                 
                 ; [@key "sprites"]
-                                              cries: Pokemon_detail_cries.t
+                    (** A set of sprites used to depict this Pokémon in the game. A visual representation of the various sprites can be found at <a href='https://github.com/PokeAPI/sprites#sprites'>PokeAPI/sprites</a> *)
+                                      cries: Pokemon_cries.t
                   
                   
                 
                 
                 ; [@key "cries"]
-                                              stats: Pokemon_stat.t list
+                    (** A set of cries used to depict this Pokémon in the game. A visual representation of the various cries can be found at <a href='https://github.com/PokeAPI/cries#cries'>PokeAPI/cries</a> *)
+                                      stats: Pokemon_stat.t list
                 
                 
                 ; [@key "stats"]
-                                              types: Pokemon_detail_types_inner.t list
+                    (** A list of base stat values for this Pokémon. *)
+                                      past_stats: Pokemon_past_stat.t list
+                
+                
+                ; [@key "past_stats"]
+                    (** A list of details showing stats this pokémon had in previous generations *)
+                                      types: Pokemon_type.t list
                 
                 
                 ; [@key "types"]
-                                              past_types: Pokemon_detail_past_types_inner.t list
+                    (** A list of details showing types this Pokémon has. *)
+                                      past_types: Pokemon_past_type.t list
                 
                 
                 ; [@key "past_types"]
-                        } [@@deriving yojson { strict = false }, show, eq ];;
+                    (** A list of details showing types this pokémon had in previous generations *)
+                } [@@deriving yojson { strict = false }, show, eq ];;
         
-        let create (id : int32) (name : string) (abilities : Pokemon_detail_abilities_inner.t list) (past_abilities : Pokemon_detail_past_abilities_inner.t list) (forms : Pokemon_form_summary.t list) (game_indices : Pokemon_game_index.t list) (held_items : Pokemon_detail_held_items.t) (location_area_encounters : string) (moves : Pokemon_detail_moves_inner.t list) (species : Pokemon_species_summary.t) (sprites : Pokemon_detail_sprites.t) (cries : Pokemon_detail_cries.t) (stats : Pokemon_stat.t list) (types : Pokemon_detail_types_inner.t list) (past_types : Pokemon_detail_past_types_inner.t list) : t = {
+        let create (id : int32) (name : string) (abilities : Pokemon_ability.t list) (past_abilities : Pokemon_past_ability.t list) (forms : Pokemon_form_summary.t list) (game_indices : Pokemon_game_index.t list) (held_items : Pokemon_held_item_summary.t list) (location_area_encounters : string) (moves : Pokemon_move.t list) (species : Pokemon_species_summary.t) (sprites : Pokemon_sprites.t) (cries : Pokemon_cries.t) (stats : Pokemon_stat.t list) (past_stats : Pokemon_past_stat.t list) (types : Pokemon_type.t list) (past_types : Pokemon_past_type.t list) : t = {
             id = id;
             name = name;
             base_experience = None;
@@ -134,6 +157,7 @@
             sprites = sprites;
             cries = cries;
             stats = stats;
+            past_stats = past_stats;
             types = types;
             past_types = past_types;
         }

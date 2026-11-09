@@ -15,16 +15,17 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 import io.swagger.annotations.*;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2026-10-25T05:48:49.952264473Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2026-11-09T13:50:00.159999817Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class AbilityChange   {
   
   private VersionGroupSummary versionGroup;
   private List<@Valid AbilityChangeEffectText> effectEntries = new ArrayList<>();
 
   /**
+   * The version group in which the previous effect of this ability originated.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The version group in which the previous effect of this ability originated.")
   @JsonProperty("version_group")
   @NotNull
   @Valid
@@ -36,9 +37,10 @@ public class AbilityChange   {
   }
 
   /**
+   * The previous effect of this ability listed in different languages.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The previous effect of this ability listed in different languages.")
   @JsonProperty("effect_entries")
   @NotNull
   public List<@Valid AbilityChangeEffectText> getEffectEntries() {

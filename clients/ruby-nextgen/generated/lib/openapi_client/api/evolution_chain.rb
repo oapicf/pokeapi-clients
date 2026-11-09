@@ -7,13 +7,13 @@ module OpenapiClient
         @connection = connection
       end
 
-      def list(limit: nil, offset: nil, q: nil)
+      def list(limit: nil, offset: nil)
         @connection.call(
           :GET,
           '/api/v2/evolution-chain/',
           type: OpenapiClient::Models::PaginatedEvolutionChainSummaryList,
-          auth: ['basicAuth', 'cookieAuth'],
-          query: { 'limit' => limit, 'offset' => offset, 'q' => q }
+          auth: [],
+          query: { 'limit' => limit, 'offset' => offset }
         )
       end
 
@@ -25,7 +25,7 @@ module OpenapiClient
           '/api/v2/evolution-chain/{id}/'
             .gsub('{id}', ERB::Util.url_encode(id.to_s)),
           type: OpenapiClient::Models::EvolutionChainDetail,
-          auth: ['basicAuth', 'cookieAuth']
+          auth: []
         )
       end
     end

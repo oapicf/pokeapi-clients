@@ -2,137 +2,218 @@
 Protected Class PokemonSpeciesDetail
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The identifier for this resource.
+		#tag EndNote
 		id As Integer
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The name for this resource.
+		#tag EndNote
 		name As String
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The order in which species should be sorted. Based on National Dex order, except families are grouped together and sorted by stage.
+		#tag EndNote
 		order As Xoson.O.OptionalInteger
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The chance of this Pokémon being female, in eighths; or -1 for genderless.
+		#tag EndNote
 		gender_rate As Xoson.O.OptionalInteger
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The base capture rate; up to 255. The higher the number, the easier the catch.
+		#tag EndNote
 		capture_rate As Xoson.O.OptionalInteger
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The happiness when caught by a normal Pokéball; up to 255. The higher the number, the happier the Pokémon.
+		#tag EndNote
 		base_happiness As Xoson.O.OptionalInteger
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			Whether or not this is a baby Pokémon.
+		#tag EndNote
 		is_baby As Xoson.O.OptionalBoolean
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			Whether or not this is a legendary Pokémon.
+		#tag EndNote
 		is_legendary As Xoson.O.OptionalBoolean
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			Whether or not this is a mythical Pokémon.
+		#tag EndNote
 		is_mythical As Xoson.O.OptionalBoolean
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			Initial hatch counter: one must walk Y × (hatch_counter + 1) steps before this Pokémon's egg hatches, unless utilizing bonuses like Flame Body's. Y varies per generation. In Generations II, III, and VII, Egg cycles are 256 steps long. In Generation IV, Egg cycles are 255 steps long. In Pokémon Brilliant Diamond and Shining Pearl, Egg cycles are also 255 steps long, but are shorter on special dates. In Generations V and VI, Egg cycles are 257 steps long. In Pokémon Sword and Shield, and in Pokémon Scarlet and Violet, Egg cycles are 128 steps long.
+		#tag EndNote
 		hatch_counter As Xoson.O.OptionalInteger
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			Whether or not this Pokémon has visual gender differences.
+		#tag EndNote
 		has_gender_differences As Xoson.O.OptionalBoolean
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			Whether or not this Pokémon has multiple forms and can switch between them.
+		#tag EndNote
 		forms_switchable As Xoson.O.OptionalBoolean
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The rate at which this Pokémon species gains levels.
+		#tag EndNote
 		growth_rate As OpenAPIClient.Models.GrowthRateSummary
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			A list of Pokedexes and the indexes reserved within them for this Pokémon species.
+		#tag EndNote
 		pokedex_numbers() As OpenAPIClient.Models.PokemonDexEntry
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
-		egg_groups() As OpenAPIClient.Models.AbilityDetailPokemonInnerPokemon
+		#tag Note
+			A list of egg groups this Pokémon species is a member of.
+		#tag EndNote
+		egg_groups() As OpenAPIClient.Models.EggGroupSummary
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The color of this Pokémon for Pokédex search.
+		#tag EndNote
 		color As OpenAPIClient.Models.PokemonColorSummary
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The shape of this Pokémon for Pokédex search.
+		#tag EndNote
 		shape As OpenAPIClient.Models.PokemonShapeSummary
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The Pokémon species that evolves into this Pokemon_species.
+		#tag EndNote
 		evolves_from_species As OpenAPIClient.Models.PokemonSpeciesSummary
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The evolution chain this Pokémon species is a member of.
+		#tag EndNote
 		evolution_chain As OpenAPIClient.Models.EvolutionChainSummary
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The habitat this Pokémon species can be encountered in.
+		#tag EndNote
 		habitat As OpenAPIClient.Models.PokemonHabitatSummary
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The generation this Pokémon species was introduced in.
+		#tag EndNote
 		generation As OpenAPIClient.Models.GenerationSummary
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
-		names() As OpenAPIClient.Models.PokemonFormDetailFormNamesInner
+		#tag Note
+			The name of this resource listed in different languages.
+		#tag EndNote
+		names() As OpenAPIClient.Models.PokemonSpeciesName
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
-		pal_park_encounters() As OpenAPIClient.Models.PokemonSpeciesDetailPalParkEncountersInner
+		#tag Note
+			A list of encounters that can be had with this Pokémon species in pal park.
+		#tag EndNote
+		pal_park_encounters() As OpenAPIClient.Models.PokemonSpeciesPalParkEncounter
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			Descriptions of different forms Pokémon take on within the Pokémon species.
+		#tag EndNote
 		form_descriptions() As OpenAPIClient.Models.PokemonSpeciesDescription
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			A list of flavor text entries for this Pokémon species.
+		#tag EndNote
 		flavor_text_entries() As OpenAPIClient.Models.PokemonSpeciesFlavorText
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
-		genera() As OpenAPIClient.Models.PokemonSpeciesDetailGeneraInner
+		#tag Note
+			The genus of this Pokémon species listed in multiple languages.
+		#tag EndNote
+		genera() As OpenAPIClient.Models.PokemonSpeciesGenus
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
-		varieties() As OpenAPIClient.Models.PokemonSpeciesDetailVarietiesInner
+		#tag Note
+			A list of the Pokémon that exist within this Pokémon species.
+		#tag EndNote
+		varieties() As OpenAPIClient.Models.PokemonSpeciesVariety
 	#tag EndProperty
 
 
@@ -289,7 +370,7 @@ Protected Class PokemonSpeciesDetail
 			Visible=false
 			Group="Behavior"
 			InitialValue=""
-			Type="AbilityDetailPokemonInnerPokemon"
+			Type="EggGroupSummary"
 			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
@@ -345,7 +426,7 @@ Protected Class PokemonSpeciesDetail
 			Visible=false
 			Group="Behavior"
 			InitialValue=""
-			Type="PokemonFormDetailFormNamesInner"
+			Type="PokemonSpeciesName"
 			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
@@ -353,7 +434,7 @@ Protected Class PokemonSpeciesDetail
 			Visible=false
 			Group="Behavior"
 			InitialValue=""
-			Type="PokemonSpeciesDetailPalParkEncountersInner"
+			Type="PokemonSpeciesPalParkEncounter"
 			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
@@ -377,7 +458,7 @@ Protected Class PokemonSpeciesDetail
 			Visible=false
 			Group="Behavior"
 			InitialValue=""
-			Type="PokemonSpeciesDetailGeneraInner"
+			Type="PokemonSpeciesGenus"
 			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
@@ -385,7 +466,7 @@ Protected Class PokemonSpeciesDetail
 			Visible=false
 			Group="Behavior"
 			InitialValue=""
-			Type="PokemonSpeciesDetailVarietiesInner"
+			Type="PokemonSpeciesVariety"
 			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior

@@ -8,12 +8,16 @@
 import Foundation
 
 public struct PaginatedContestTypeSummaryList: Codable {
-    public var count: Int?
+    /// The total number of resources available from this API.
+    public var count: Int
+    /// The URL for the next page in the list, or null if there is no next page.
     public var next: String?
+    /// The URL for the previous page in the list, or null if there is no previous page.
     public var previous: String?
-    public var results: [ContestTypeSummary]?
+    /// A list of API resources on this page.
+    public var results: [ContestTypeSummary]
 
-    public init(count: Int? = nil, next: String? = nil, previous: String? = nil, results: [ContestTypeSummary]? = nil) {
+    public init(count: Int, next: String? = nil, previous: String? = nil, results: [ContestTypeSummary]) {
         self.count = count
         self.next = next
         self.previous = previous

@@ -15,19 +15,22 @@
                 
                 
                 ; [@key "name"]
-                                              color: string
+                    (** The name for this contest. *)
+                                      color: string
                   
                   
                 
                 
                 ; [@key "color"]
-                                              language: Language_summary.t
+                    (** The color associated with this contest's name. *)
+                                      language: Language_summary.t
                   
                   
                 
                 
                 ; [@key "language"]
-                        } [@@deriving yojson { strict = false }, show, eq ];;
+                    (** The language that this name is in. *)
+                } [@@deriving yojson { strict = false }, show, eq ];;
         
         let create (name : string) (color : string) (language : Language_summary.t) : t = {
             name = name;

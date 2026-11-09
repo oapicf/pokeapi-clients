@@ -89,21 +89,21 @@ public interface PokemonService extends HttpService {
 
 
     /**
-     * GET /api/v2/ability/.
+     * GET /api/v2/ability/ : List abilities.
      *
      * @param request the server request
      * @param response the server response
      */
     void abilityList(ServerRequest request, ServerResponse response);
     /**
-     * GET /api/v2/ability/{id}/.
+     * GET /api/v2/ability/{id}/ : Get ability.
      *
      * @param request the server request
      * @param response the server response
      */
     void abilityRetrieve(ServerRequest request, ServerResponse response);
     /**
-     * GET /api/v2/characteristic/ : List charecterictics.
+     * GET /api/v2/characteristic/ : List characteristics.
      *
      * @param request the server request
      * @param response the server response

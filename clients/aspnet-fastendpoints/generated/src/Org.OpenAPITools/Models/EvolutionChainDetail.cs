@@ -8,7 +8,7 @@ public class EvolutionChainDetail
 {
     public int Id { get; set; }
     public ItemSummary BabyTriggerItem { get; set; }
-    public EvolutionChainDetailChain Chain { get; set; }
+    public EvolutionChainLink Chain { get; set; }
 }
 
 

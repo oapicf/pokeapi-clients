@@ -25,9 +25,6 @@ func machine_list(
 	# offset: int   Eg: 56
 	# The initial index from which to return the results.
 	offset = null,
-	# q: String   Eg: q_example
-	# > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-	q = null,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
 	on_failure: Callable = Callable(),  # func(error: ApiError)
 ):
@@ -51,7 +48,6 @@ func machine_list(
 	var bzz_query := Dictionary()
 	bzz_query["limit"] = limit
 	bzz_query["offset"] = offset
-	bzz_query["q"] = q
 
 	var bzz_body = null
 
@@ -74,9 +70,6 @@ func machine_list_threaded(
 	# offset: int   Eg: 56
 	# The initial index from which to return the results.
 	offset = null,
-	# q: String   Eg: q_example
-	# > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-	q = null,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
 	on_failure: Callable = Callable(),  # func(error: ApiError)
 ) -> Thread:
@@ -85,7 +78,6 @@ func machine_list_threaded(
 	bzz_callable.bind(
 		limit,
 		offset,
-		q,
 		on_success,
 		on_failure,
 	)
@@ -98,7 +90,7 @@ func machine_list_threaded(
 #
 # Machines are the representation of items that teach moves to Pokémon. They vary from version to version, so it is not certain that one specific TM or HM corresponds to a single Machine.
 func machine_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -138,7 +130,7 @@ func machine_retrieve(
 
 
 func machine_retrieve_threaded(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)

@@ -10,7 +10,6 @@ namespace models {
 
 MoveMetaCategoryDescription::MoveMetaCategoryDescription()
 : description("")
-, language(LanguageSummary())
 {
 }
 // =========================================

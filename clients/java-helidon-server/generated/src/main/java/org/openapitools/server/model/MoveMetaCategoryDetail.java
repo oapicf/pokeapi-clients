@@ -3,8 +3,8 @@ package org.openapitools.server.model;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.server.model.AbilityDetailPokemonInnerPokemon;
 import org.openapitools.server.model.MoveMetaCategoryDescription;
+import org.openapitools.server.model.MoveSummary;
 import jakarta.validation.constraints.*;
 import jakarta.validation.Valid;
 
@@ -15,7 +15,7 @@ public class MoveMetaCategoryDetail   {
     private Integer id;
     private String name;
     private List<@Valid MoveMetaCategoryDescription> descriptions = new ArrayList<>();
-    private List<@Valid AbilityDetailPokemonInnerPokemon> moves = new ArrayList<>();
+    private List<@Valid MoveSummary> moves = new ArrayList<>();
 
     /**
      * Default constructor.
@@ -27,16 +27,16 @@ public class MoveMetaCategoryDetail   {
     /**
      * Create MoveMetaCategoryDetail.
      *
-     * @param id id
-     * @param name name
-     * @param descriptions descriptions
-     * @param moves moves
+     * @param id The identifier for this resource.
+     * @param name The name for this resource.
+     * @param descriptions The description of this resource listed in different languages.
+     * @param moves A list of moves that fall into this category.
      */
     public MoveMetaCategoryDetail(
         Integer id, 
         String name, 
         List<@Valid MoveMetaCategoryDescription> descriptions, 
-        List<@Valid AbilityDetailPokemonInnerPokemon> moves
+        List<@Valid MoveSummary> moves
     ) {
         this.id = id;
         this.name = name;
@@ -47,7 +47,7 @@ public class MoveMetaCategoryDetail   {
 
 
     /**
-     * Get id
+     * The identifier for this resource.
      * @return id
      */
     public Integer getId() {
@@ -59,7 +59,7 @@ public class MoveMetaCategoryDetail   {
     }
 
     /**
-     * Get name
+     * The name for this resource.
      * @return name
      */
     public String getName() {
@@ -71,7 +71,7 @@ public class MoveMetaCategoryDetail   {
     }
 
     /**
-     * Get descriptions
+     * The description of this resource listed in different languages.
      * @return descriptions
      */
     public List<@Valid MoveMetaCategoryDescription> getDescriptions() {
@@ -83,14 +83,14 @@ public class MoveMetaCategoryDetail   {
     }
 
     /**
-     * Get moves
+     * A list of moves that fall into this category.
      * @return moves
      */
-    public List<@Valid AbilityDetailPokemonInnerPokemon> getMoves() {
+    public List<@Valid MoveSummary> getMoves() {
         return moves;
     }
 
-    public void setMoves(List<@Valid AbilityDetailPokemonInnerPokemon> moves) {
+    public void setMoves(List<@Valid MoveSummary> moves) {
         this.moves = moves;
     }
 

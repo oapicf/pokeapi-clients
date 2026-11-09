@@ -18,7 +18,7 @@ defmodule PokéAPI.Model.BerryFlavorDetail do
   @type t :: %__MODULE__{
     :id => integer(),
     :name => String.t,
-    :berries => [PokéAPI.Model.BerryFlavorDetailBerriesInner.t],
+    :berries => [PokéAPI.Model.BerryFlavorBerryMap.t],
     :contest_type => PokéAPI.Model.ContestTypeSummary.t,
     :names => [PokéAPI.Model.BerryFlavorName.t]
   }
@@ -27,7 +27,7 @@ defmodule PokéAPI.Model.BerryFlavorDetail do
 
   def decode(value) do
     value
-     |> Deserializer.deserialize(:berries, :list, PokéAPI.Model.BerryFlavorDetailBerriesInner)
+     |> Deserializer.deserialize(:berries, :list, PokéAPI.Model.BerryFlavorBerryMap)
      |> Deserializer.deserialize(:contest_type, :struct, PokéAPI.Model.ContestTypeSummary)
      |> Deserializer.deserialize(:names, :list, PokéAPI.Model.BerryFlavorName)
   end

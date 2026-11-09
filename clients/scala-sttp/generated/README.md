@@ -1,7 +1,7 @@
 # openapi-client
 
 PokéAPI
-- API version: 2.7.0
+- API version: 2.10.0
   - Generator version: 7.26.0
 
 All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.
@@ -18,8 +18,7 @@ We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this A
 
 This API will always be publicly available and will never require any extensive setup process to consume.
 
-Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
-    
+Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
 
   For more information, please visit [https://github.com/oapicf/pokeapi-clients](https://github.com/oapicf/pokeapi-clients)
 
@@ -104,6 +103,8 @@ Class | Method | HTTP request | Description
 *EvolutionApi* | **evolutionChainRetrieve** | **GET** /api/v2/evolution-chain/${id}/ | Get evolution chain
 *EvolutionApi* | **evolutionTriggerList** | **GET** /api/v2/evolution-trigger/ | List evolution triggers
 *EvolutionApi* | **evolutionTriggerRetrieve** | **GET** /api/v2/evolution-trigger/${id}/ | Get evolution trigger
+*EvolutionApi* | **evolutionVariableList** | **GET** /api/v2/evolution-variable/ | List evolution variables
+*EvolutionApi* | **evolutionVariableRetrieve** | **GET** /api/v2/evolution-variable/${id}/ | Get evolution variable
 *GamesApi* | **generationList** | **GET** /api/v2/generation/ | List genrations
 *GamesApi* | **generationRetrieve** | **GET** /api/v2/generation/${id}/ | Get genration
 *GamesApi* | **pokedexList** | **GET** /api/v2/pokedex/ | List pokedex
@@ -112,6 +113,8 @@ Class | Method | HTTP request | Description
 *GamesApi* | **versionGroupRetrieve** | **GET** /api/v2/version-group/${id}/ | Get version group
 *GamesApi* | **versionList** | **GET** /api/v2/version/ | List versions
 *GamesApi* | **versionRetrieve** | **GET** /api/v2/version/${id}/ | Get version
+*ItemsApi* | **currencyList** | **GET** /api/v2/currency/ | List currencies
+*ItemsApi* | **currencyRetrieve** | **GET** /api/v2/currency/${id}/ | Get currency
 *ItemsApi* | **itemAttributeList** | **GET** /api/v2/item-attribute/ | List item attributes
 *ItemsApi* | **itemAttributeRetrieve** | **GET** /api/v2/item-attribute/${id}/ | Get item attribute
 *ItemsApi* | **itemCategoryList** | **GET** /api/v2/item-category/ | List item categories
@@ -144,9 +147,9 @@ Class | Method | HTTP request | Description
 *MovesApi* | **moveRetrieve** | **GET** /api/v2/move/${id}/ | Get move
 *MovesApi* | **moveTargetList** | **GET** /api/v2/move-target/ | List move targets
 *MovesApi* | **moveTargetRetrieve** | **GET** /api/v2/move-target/${id}/ | Get move target
-*PokemonApi* | **abilityList** | **GET** /api/v2/ability/ | 
-*PokemonApi* | **abilityRetrieve** | **GET** /api/v2/ability/${id}/ | 
-*PokemonApi* | **characteristicList** | **GET** /api/v2/characteristic/ | List charecterictics
+*PokemonApi* | **abilityList** | **GET** /api/v2/ability/ | List abilities
+*PokemonApi* | **abilityRetrieve** | **GET** /api/v2/ability/${id}/ | Get ability
+*PokemonApi* | **characteristicList** | **GET** /api/v2/characteristic/ | List characteristics
 *PokemonApi* | **characteristicRetrieve** | **GET** /api/v2/characteristic/${id}/ | Get characteristic
 *PokemonApi* | **eggGroupList** | **GET** /api/v2/egg-group/ | List egg groups
 *PokemonApi* | **eggGroupRetrieve** | **GET** /api/v2/egg-group/${id}/ | Get egg group
@@ -178,6 +181,7 @@ Class | Method | HTTP request | Description
 *PokemonApi* | **typeRetrieve** | **GET** /api/v2/type/${id}/ | Get types
 *UtilityApi* | **languageList** | **GET** /api/v2/language/ | List languages
 *UtilityApi* | **languageRetrieve** | **GET** /api/v2/language/${id}/ | Get language
+*UtilityApi* | **metaRetrieve** | **GET** /api/v2/meta/ | Get API metadata
 
 
 ## Documentation for Models
@@ -185,21 +189,18 @@ Class | Method | HTTP request | Description
  - [AbilityChange](AbilityChange.md)
  - [AbilityChangeEffectText](AbilityChangeEffectText.md)
  - [AbilityDetail](AbilityDetail.md)
- - [AbilityDetailPokemonInner](AbilityDetailPokemonInner.md)
- - [AbilityDetailPokemonInnerPokemon](AbilityDetailPokemonInnerPokemon.md)
  - [AbilityEffectText](AbilityEffectText.md)
  - [AbilityFlavorText](AbilityFlavorText.md)
  - [AbilityName](AbilityName.md)
+ - [AbilityPokemonDetail](AbilityPokemonDetail.md)
  - [AbilitySummary](AbilitySummary.md)
  - [BerryDetail](BerryDetail.md)
- - [BerryDetailFlavorsInner](BerryDetailFlavorsInner.md)
- - [BerryDetailFlavorsInnerFlavor](BerryDetailFlavorsInnerFlavor.md)
  - [BerryFirmnessDetail](BerryFirmnessDetail.md)
  - [BerryFirmnessName](BerryFirmnessName.md)
  - [BerryFirmnessSummary](BerryFirmnessSummary.md)
+ - [BerryFlavorBerryMap](BerryFlavorBerryMap.md)
  - [BerryFlavorDetail](BerryFlavorDetail.md)
- - [BerryFlavorDetailBerriesInner](BerryFlavorDetailBerriesInner.md)
- - [BerryFlavorDetailBerriesInnerBerry](BerryFlavorDetailBerriesInnerBerry.md)
+ - [BerryFlavorMap](BerryFlavorMap.md)
  - [BerryFlavorName](BerryFlavorName.md)
  - [BerryFlavorSummary](BerryFlavorSummary.md)
  - [BerrySummary](BerrySummary.md)
@@ -213,8 +214,10 @@ Class | Method | HTTP request | Description
  - [ContestTypeDetail](ContestTypeDetail.md)
  - [ContestTypeName](ContestTypeName.md)
  - [ContestTypeSummary](ContestTypeSummary.md)
+ - [CurrencyDetail](CurrencyDetail.md)
+ - [CurrencyName](CurrencyName.md)
+ - [CurrencySummary](CurrencySummary.md)
  - [EggGroupDetail](EggGroupDetail.md)
- - [EggGroupDetailPokemonSpeciesInner](EggGroupDetailPokemonSpeciesInner.md)
  - [EggGroupName](EggGroupName.md)
  - [EggGroupSummary](EggGroupSummary.md)
  - [EncounterConditionDetail](EncounterConditionDetail.md)
@@ -226,18 +229,21 @@ Class | Method | HTTP request | Description
  - [EncounterMethodDetail](EncounterMethodDetail.md)
  - [EncounterMethodName](EncounterMethodName.md)
  - [EncounterMethodSummary](EncounterMethodSummary.md)
+ - [EncounterPokemonDetail](EncounterPokemonDetail.md)
  - [EvolutionChainDetail](EvolutionChainDetail.md)
- - [EvolutionChainDetailChain](EvolutionChainDetailChain.md)
- - [EvolutionChainDetailChainEvolvesToInner](EvolutionChainDetailChainEvolvesToInner.md)
- - [EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner](EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.md)
- - [EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender](EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.md)
+ - [EvolutionChainLink](EvolutionChainLink.md)
  - [EvolutionChainSummary](EvolutionChainSummary.md)
+ - [EvolutionConditionExpression](EvolutionConditionExpression.md)
  - [EvolutionTriggerDetail](EvolutionTriggerDetail.md)
  - [EvolutionTriggerName](EvolutionTriggerName.md)
  - [EvolutionTriggerSummary](EvolutionTriggerSummary.md)
+ - [EvolutionVariableDescription](EvolutionVariableDescription.md)
+ - [EvolutionVariableDetail](EvolutionVariableDetail.md)
+ - [EvolutionVariableName](EvolutionVariableName.md)
+ - [EvolutionVariableSummary](EvolutionVariableSummary.md)
  - [Experience](Experience.md)
  - [GenderDetail](GenderDetail.md)
- - [GenderDetailPokemonSpeciesDetailsInner](GenderDetailPokemonSpeciesDetailsInner.md)
+ - [GenderPokemonSpecies](GenderPokemonSpecies.md)
  - [GenderSummary](GenderSummary.md)
  - [GenerationDetail](GenerationDetail.md)
  - [GenerationName](GenerationName.md)
@@ -253,32 +259,30 @@ Class | Method | HTTP request | Description
  - [ItemCategoryName](ItemCategoryName.md)
  - [ItemCategorySummary](ItemCategorySummary.md)
  - [ItemDetail](ItemDetail.md)
- - [ItemDetailBabyTriggerFor](ItemDetailBabyTriggerFor.md)
- - [ItemDetailHeldByPokemonInner](ItemDetailHeldByPokemonInner.md)
- - [ItemDetailHeldByPokemonInnerVersionDetailsInner](ItemDetailHeldByPokemonInnerVersionDetailsInner.md)
- - [ItemDetailMachinesInner](ItemDetailMachinesInner.md)
- - [ItemDetailSprites](ItemDetailSprites.md)
  - [ItemEffectText](ItemEffectText.md)
  - [ItemFlavorText](ItemFlavorText.md)
  - [ItemFlingEffectDetail](ItemFlingEffectDetail.md)
  - [ItemFlingEffectEffectText](ItemFlingEffectEffectText.md)
  - [ItemFlingEffectSummary](ItemFlingEffectSummary.md)
  - [ItemGameIndex](ItemGameIndex.md)
+ - [ItemMachine](ItemMachine.md)
  - [ItemName](ItemName.md)
  - [ItemPocketDetail](ItemPocketDetail.md)
  - [ItemPocketName](ItemPocketName.md)
  - [ItemPocketSummary](ItemPocketSummary.md)
+ - [ItemPrice](ItemPrice.md)
+ - [ItemSprites](ItemSprites.md)
  - [ItemSummary](ItemSummary.md)
  - [LanguageDetail](LanguageDetail.md)
  - [LanguageName](LanguageName.md)
  - [LanguageSummary](LanguageSummary.md)
  - [LocationAreaDetail](LocationAreaDetail.md)
- - [LocationAreaDetailEncounterMethodRatesInner](LocationAreaDetailEncounterMethodRatesInner.md)
- - [LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner](LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner.md)
- - [LocationAreaDetailPokemonEncountersInner](LocationAreaDetailPokemonEncountersInner.md)
- - [LocationAreaDetailPokemonEncountersInnerVersionDetailsInner](LocationAreaDetailPokemonEncountersInnerVersionDetailsInner.md)
- - [LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails](LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails.md)
+ - [LocationAreaEncounterDetail](LocationAreaEncounterDetail.md)
+ - [LocationAreaEncounterRate](LocationAreaEncounterRate.md)
+ - [LocationAreaEncounterVersionDetail](LocationAreaEncounterVersionDetail.md)
  - [LocationAreaName](LocationAreaName.md)
+ - [LocationAreaPokemonEncounter](LocationAreaPokemonEncounter.md)
+ - [LocationAreaPokemonEncounterVersion](LocationAreaPokemonEncounterVersion.md)
  - [LocationAreaSummary](LocationAreaSummary.md)
  - [LocationDetail](LocationDetail.md)
  - [LocationGameIndex](LocationGameIndex.md)
@@ -290,19 +294,16 @@ Class | Method | HTTP request | Description
  - [MoveBattleStyleName](MoveBattleStyleName.md)
  - [MoveBattleStyleSummary](MoveBattleStyleSummary.md)
  - [MoveChange](MoveChange.md)
- - [MoveChangeEffectEntriesInner](MoveChangeEffectEntriesInner.md)
+ - [MoveComboUsage](MoveComboUsage.md)
+ - [MoveCombos](MoveCombos.md)
  - [MoveDamageClassDescription](MoveDamageClassDescription.md)
  - [MoveDamageClassDetail](MoveDamageClassDetail.md)
  - [MoveDamageClassName](MoveDamageClassName.md)
  - [MoveDamageClassSummary](MoveDamageClassSummary.md)
  - [MoveDetail](MoveDetail.md)
- - [MoveDetailContestCombos](MoveDetailContestCombos.md)
- - [MoveDetailContestCombosNormal](MoveDetailContestCombosNormal.md)
- - [MoveDetailEffectChangesInner](MoveDetailEffectChangesInner.md)
- - [MoveDetailEffectChangesInnerEffectEntriesInner](MoveDetailEffectChangesInnerEffectEntriesInner.md)
- - [MoveDetailMachinesInner](MoveDetailMachinesInner.md)
- - [MoveDetailMachinesInnerMachine](MoveDetailMachinesInnerMachine.md)
- - [MoveDetailStatChangesInner](MoveDetailStatChangesInner.md)
+ - [MoveEffectChange](MoveEffectChange.md)
+ - [MoveEffectChangeEffectText](MoveEffectChangeEffectText.md)
+ - [MoveEffectEffectText](MoveEffectEffectText.md)
  - [MoveFlavorText](MoveFlavorText.md)
  - [MoveLearnMethodDescription](MoveLearnMethodDescription.md)
  - [MoveLearnMethodDetail](MoveLearnMethodDetail.md)
@@ -315,7 +316,9 @@ Class | Method | HTTP request | Description
  - [MoveMetaCategoryDescription](MoveMetaCategoryDescription.md)
  - [MoveMetaCategoryDetail](MoveMetaCategoryDetail.md)
  - [MoveMetaCategorySummary](MoveMetaCategorySummary.md)
+ - [MoveMetaStatChange](MoveMetaStatChange.md)
  - [MoveName](MoveName.md)
+ - [MoveStatChange](MoveStatChange.md)
  - [MoveSummary](MoveSummary.md)
  - [MoveTargetDescription](MoveTargetDescription.md)
  - [MoveTargetDetail](MoveTargetDetail.md)
@@ -323,8 +326,8 @@ Class | Method | HTTP request | Description
  - [MoveTargetSummary](MoveTargetSummary.md)
  - [NatureBattleStylePreference](NatureBattleStylePreference.md)
  - [NatureDetail](NatureDetail.md)
- - [NatureDetailPokeathlonStatChangesInner](NatureDetailPokeathlonStatChangesInner.md)
  - [NatureName](NatureName.md)
+ - [NaturePokeathlonStat](NaturePokeathlonStat.md)
  - [NatureSummary](NatureSummary.md)
  - [PaginatedAbilitySummaryList](PaginatedAbilitySummaryList.md)
  - [PaginatedBerryFirmnessSummaryList](PaginatedBerryFirmnessSummaryList.md)
@@ -333,12 +336,14 @@ Class | Method | HTTP request | Description
  - [PaginatedCharacteristicSummaryList](PaginatedCharacteristicSummaryList.md)
  - [PaginatedContestEffectSummaryList](PaginatedContestEffectSummaryList.md)
  - [PaginatedContestTypeSummaryList](PaginatedContestTypeSummaryList.md)
+ - [PaginatedCurrencySummaryList](PaginatedCurrencySummaryList.md)
  - [PaginatedEggGroupSummaryList](PaginatedEggGroupSummaryList.md)
  - [PaginatedEncounterConditionSummaryList](PaginatedEncounterConditionSummaryList.md)
  - [PaginatedEncounterConditionValueSummaryList](PaginatedEncounterConditionValueSummaryList.md)
  - [PaginatedEncounterMethodSummaryList](PaginatedEncounterMethodSummaryList.md)
  - [PaginatedEvolutionChainSummaryList](PaginatedEvolutionChainSummaryList.md)
  - [PaginatedEvolutionTriggerSummaryList](PaginatedEvolutionTriggerSummaryList.md)
+ - [PaginatedEvolutionVariableSummaryList](PaginatedEvolutionVariableSummaryList.md)
  - [PaginatedGenderSummaryList](PaginatedGenderSummaryList.md)
  - [PaginatedGenerationSummaryList](PaginatedGenerationSummaryList.md)
  - [PaginatedGrowthRateSummaryList](PaginatedGrowthRateSummaryList.md)
@@ -375,75 +380,91 @@ Class | Method | HTTP request | Description
  - [PaginatedVersionGroupSummaryList](PaginatedVersionGroupSummaryList.md)
  - [PaginatedVersionSummaryList](PaginatedVersionSummaryList.md)
  - [PalParkAreaDetail](PalParkAreaDetail.md)
- - [PalParkAreaDetailPokemonEncountersInner](PalParkAreaDetailPokemonEncountersInner.md)
  - [PalParkAreaName](PalParkAreaName.md)
  - [PalParkAreaSummary](PalParkAreaSummary.md)
+ - [PalParkEncounter](PalParkEncounter.md)
+ - [PokeapiMetaResponse](PokeapiMetaResponse.md)
+ - [PokeathlonStatAffectingNature](PokeathlonStatAffectingNature.md)
+ - [PokeathlonStatAffectingNatures](PokeathlonStatAffectingNatures.md)
  - [PokeathlonStatDetail](PokeathlonStatDetail.md)
- - [PokeathlonStatDetailAffectingNatures](PokeathlonStatDetailAffectingNatures.md)
- - [PokeathlonStatDetailAffectingNaturesDecreaseInner](PokeathlonStatDetailAffectingNaturesDecreaseInner.md)
- - [PokeathlonStatDetailAffectingNaturesIncreaseInner](PokeathlonStatDetailAffectingNaturesIncreaseInner.md)
  - [PokeathlonStatName](PokeathlonStatName.md)
  - [PokeathlonStatSummary](PokeathlonStatSummary.md)
  - [PokedexDescription](PokedexDescription.md)
  - [PokedexDetail](PokedexDetail.md)
- - [PokedexDetailPokemonEntriesInner](PokedexDetailPokemonEntriesInner.md)
  - [PokedexName](PokedexName.md)
  - [PokedexSummary](PokedexSummary.md)
+ - [PokemonAbility](PokemonAbility.md)
+ - [PokemonAbilityPast](PokemonAbilityPast.md)
  - [PokemonColorDetail](PokemonColorDetail.md)
  - [PokemonColorName](PokemonColorName.md)
  - [PokemonColorSummary](PokemonColorSummary.md)
+ - [PokemonCries](PokemonCries.md)
  - [PokemonDetail](PokemonDetail.md)
- - [PokemonDetailAbilitiesInner](PokemonDetailAbilitiesInner.md)
- - [PokemonDetailCries](PokemonDetailCries.md)
- - [PokemonDetailHeldItems](PokemonDetailHeldItems.md)
- - [PokemonDetailMovesInner](PokemonDetailMovesInner.md)
- - [PokemonDetailMovesInnerVersionGroupDetailsInner](PokemonDetailMovesInnerVersionGroupDetailsInner.md)
- - [PokemonDetailPastAbilitiesInner](PokemonDetailPastAbilitiesInner.md)
- - [PokemonDetailPastTypesInner](PokemonDetailPastTypesInner.md)
- - [PokemonDetailSprites](PokemonDetailSprites.md)
- - [PokemonDetailTypesInner](PokemonDetailTypesInner.md)
  - [PokemonDexEntry](PokemonDexEntry.md)
+ - [PokemonDexNumber](PokemonDexNumber.md)
+ - [PokemonEncounterDetailResponse](PokemonEncounterDetailResponse.md)
+ - [PokemonEncounterResponse](PokemonEncounterResponse.md)
+ - [PokemonEncounterVersionDetailResponse](PokemonEncounterVersionDetailResponse.md)
+ - [PokemonEvolution](PokemonEvolution.md)
+ - [PokemonEvolutionKnownMove](PokemonEvolutionKnownMove.md)
  - [PokemonFormDetail](PokemonFormDetail.md)
- - [PokemonFormDetailFormNamesInner](PokemonFormDetailFormNamesInner.md)
- - [PokemonFormDetailSprites](PokemonFormDetailSprites.md)
+ - [PokemonFormFlavorText](PokemonFormFlavorText.md)
+ - [PokemonFormName](PokemonFormName.md)
+ - [PokemonFormSprites](PokemonFormSprites.md)
  - [PokemonFormSummary](PokemonFormSummary.md)
+ - [PokemonFormTriggerCondition](PokemonFormTriggerCondition.md)
+ - [PokemonFormType](PokemonFormType.md)
  - [PokemonGameIndex](PokemonGameIndex.md)
  - [PokemonHabitatDetail](PokemonHabitatDetail.md)
  - [PokemonHabitatName](PokemonHabitatName.md)
  - [PokemonHabitatSummary](PokemonHabitatSummary.md)
+ - [PokemonHeldItem](PokemonHeldItem.md)
+ - [PokemonHeldItemSummary](PokemonHeldItemSummary.md)
+ - [PokemonHeldItemVersion](PokemonHeldItemVersion.md)
+ - [PokemonMove](PokemonMove.md)
+ - [PokemonMoveVersionGroup](PokemonMoveVersionGroup.md)
+ - [PokemonPastAbility](PokemonPastAbility.md)
+ - [PokemonPastStat](PokemonPastStat.md)
+ - [PokemonPastType](PokemonPastType.md)
+ - [PokemonShapeAwesomeName](PokemonShapeAwesomeName.md)
  - [PokemonShapeDetail](PokemonShapeDetail.md)
- - [PokemonShapeDetailAwesomeNamesInner](PokemonShapeDetailAwesomeNamesInner.md)
- - [PokemonShapeDetailNamesInner](PokemonShapeDetailNamesInner.md)
+ - [PokemonShapeName](PokemonShapeName.md)
  - [PokemonShapeSummary](PokemonShapeSummary.md)
  - [PokemonSpeciesDescription](PokemonSpeciesDescription.md)
  - [PokemonSpeciesDetail](PokemonSpeciesDetail.md)
- - [PokemonSpeciesDetailGeneraInner](PokemonSpeciesDetailGeneraInner.md)
- - [PokemonSpeciesDetailPalParkEncountersInner](PokemonSpeciesDetailPalParkEncountersInner.md)
- - [PokemonSpeciesDetailVarietiesInner](PokemonSpeciesDetailVarietiesInner.md)
  - [PokemonSpeciesFlavorText](PokemonSpeciesFlavorText.md)
+ - [PokemonSpeciesGenus](PokemonSpeciesGenus.md)
+ - [PokemonSpeciesName](PokemonSpeciesName.md)
+ - [PokemonSpeciesPalParkEncounter](PokemonSpeciesPalParkEncounter.md)
  - [PokemonSpeciesSummary](PokemonSpeciesSummary.md)
+ - [PokemonSpeciesVariety](PokemonSpeciesVariety.md)
+ - [PokemonSprites](PokemonSprites.md)
+ - [PokemonSpritesOther](PokemonSpritesOther.md)
+ - [PokemonSpritesOtherDreamWorld](PokemonSpritesOtherDreamWorld.md)
+ - [PokemonSpritesOtherHome](PokemonSpritesOtherHome.md)
+ - [PokemonSpritesOtherOfficialArtwork](PokemonSpritesOtherOfficialArtwork.md)
+ - [PokemonSpritesOtherShowdown](PokemonSpritesOtherShowdown.md)
  - [PokemonStat](PokemonStat.md)
  - [PokemonSummary](PokemonSummary.md)
+ - [PokemonType](PokemonType.md)
  - [RegionDetail](RegionDetail.md)
  - [RegionName](RegionName.md)
  - [RegionSummary](RegionSummary.md)
+ - [StatAffectingMoves](StatAffectingMoves.md)
+ - [StatAffectingNatures](StatAffectingNatures.md)
  - [StatDetail](StatDetail.md)
- - [StatDetailAffectingMoves](StatDetailAffectingMoves.md)
- - [StatDetailAffectingMovesIncreaseInner](StatDetailAffectingMovesIncreaseInner.md)
- - [StatDetailAffectingNatures](StatDetailAffectingNatures.md)
  - [StatName](StatName.md)
  - [StatSummary](StatSummary.md)
  - [SuperContestEffectDetail](SuperContestEffectDetail.md)
  - [SuperContestEffectFlavorText](SuperContestEffectFlavorText.md)
  - [SuperContestEffectSummary](SuperContestEffectSummary.md)
  - [TypeDetail](TypeDetail.md)
- - [TypeDetailDamageRelations](TypeDetailDamageRelations.md)
- - [TypeDetailPastDamageRelationsInner](TypeDetailPastDamageRelationsInner.md)
- - [TypeDetailPastDamageRelationsInnerDamageRelations](TypeDetailPastDamageRelationsInnerDamageRelations.md)
- - [TypeDetailPokemonInner](TypeDetailPokemonInner.md)
- - [TypeDetailPokemonInnerPokemon](TypeDetailPokemonInnerPokemon.md)
- - [TypeDetailSpritesValueValue](TypeDetailSpritesValueValue.md)
  - [TypeGameIndex](TypeGameIndex.md)
+ - [TypeGameSprite](TypeGameSprite.md)
+ - [TypeName](TypeName.md)
+ - [TypePastRelationships](TypePastRelationships.md)
+ - [TypePokemon](TypePokemon.md)
+ - [TypeRelationships](TypeRelationships.md)
  - [TypeSummary](TypeSummary.md)
  - [VersionDetail](VersionDetail.md)
  - [VersionGroupDetail](VersionGroupDetail.md)
@@ -455,19 +476,7 @@ Class | Method | HTTP request | Description
 <a id="documentation-for-authorization"></a>
 ## Documentation for Authorization
 
-
-Authentication schemes defined for the API:
-<a id="basicAuth"></a>
-### basicAuth
-
-- **Type**: HTTP basic authentication
-
-<a id="cookieAuth"></a>
-### cookieAuth
-
-- **Type**: API key
-- **API key parameter name**: sessionid
-- **Location**: 
+Endpoints do not require authorization.
 
 
 ## Author

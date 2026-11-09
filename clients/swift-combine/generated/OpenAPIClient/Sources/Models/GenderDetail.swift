@@ -8,12 +8,16 @@
 import Foundation
 
 public struct GenderDetail: Codable {
+    /// The identifier for this resource.
     public var id: Int
+    /// The name for this resource.
     public var name: String
-    public var pokemonSpeciesDetails: [GenderDetailPokemonSpeciesDetailsInner]
-    public var requiredForEvolution: [AbilityDetailPokemonInnerPokemon]
+    /// A list of Pokémon species that can be this gender and how likely it is that they will be.
+    public var pokemonSpeciesDetails: [GenderPokemonSpecies]
+    /// A list of Pokémon species that required this gender in order for a Pokémon to evolve into them.
+    public var requiredForEvolution: [PokemonSpeciesSummary]
 
-    public init(id: Int, name: String, pokemonSpeciesDetails: [GenderDetailPokemonSpeciesDetailsInner], requiredForEvolution: [AbilityDetailPokemonInnerPokemon]) {
+    public init(id: Int, name: String, pokemonSpeciesDetails: [GenderPokemonSpecies], requiredForEvolution: [PokemonSpeciesSummary]) {
         self.id = id
         self.name = name
         self.pokemonSpeciesDetails = pokemonSpeciesDetails
@@ -31,8 +35,8 @@ public struct GenderDetail: Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         id = try container.decode(Int.self, forKey: .id)
         name = try container.decode(String.self, forKey: .name)
-        pokemonSpeciesDetails = try container.decode([GenderDetailPokemonSpeciesDetailsInner].self, forKey: .pokemonSpeciesDetails)
-        requiredForEvolution = try container.decode([AbilityDetailPokemonInnerPokemon].self, forKey: .requiredForEvolution)
+        pokemonSpeciesDetails = try container.decode([GenderPokemonSpecies].self, forKey: .pokemonSpeciesDetails)
+        requiredForEvolution = try container.decode([PokemonSpeciesSummary].self, forKey: .requiredForEvolution)
     }
 
     public func encode(to encoder: Encoder) throws {

@@ -20,14 +20,25 @@ class ContestEffectDetail {
     this.flavorTextEntries = const [],
   });
 
+  /// The identifier for this resource.
   int id;
 
+  /// The base number of hearts the user of this move gets.
+  ///
+  /// Minimum value: -2147483648
+  /// Maximum value: 2147483647
   int appeal;
 
+  /// The base number of hearts the user's opponent loses.
+  ///
+  /// Minimum value: -2147483648
+  /// Maximum value: 2147483647
   int jam;
 
+  /// The result of this contest effect listed in different languages.
   List<ContestEffectEffectText> effectEntries;
 
+  /// The flavor text of this contest effect listed in different languages.
   List<ContestEffectFlavorText> flavorTextEntries;
 
   @override

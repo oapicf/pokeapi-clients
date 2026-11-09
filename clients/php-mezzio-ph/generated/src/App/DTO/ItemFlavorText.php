@@ -10,6 +10,7 @@ use Articus\DataTransfer\Annotation as DTA;
 class ItemFlavorText
 {
     /**
+     * The localized flavor text for an API resource in a specific language.
      * @DTA\Data(field="text")
      * @DTA\Validator(name="Scalar", options={"type":"string"})
      * @var string|null
@@ -17,6 +18,7 @@ class ItemFlavorText
     public $text;
 
     /**
+     * The version group which uses this flavor text.
      * @DTA\Data(field="version_group")
      * @DTA\Strategy(name="Object", options={"type":\App\DTO\VersionGroupSummary::class})
      * @DTA\Validator(name="TypeCompliant", options={"type":\App\DTO\VersionGroupSummary::class})
@@ -25,6 +27,7 @@ class ItemFlavorText
     public $version_group;
 
     /**
+     * The language this name is in.
      * @DTA\Data(field="language")
      * @DTA\Strategy(name="Object", options={"type":\App\DTO\LanguageSummary::class})
      * @DTA\Validator(name="TypeCompliant", options={"type":\App\DTO\LanguageSummary::class})

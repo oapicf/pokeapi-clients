@@ -12,8 +12,10 @@ import org.joda.time.DateTime
 import PokemonSpeciesDescription._
 
 case class PokemonSpeciesDescription (
+  /* The localized description for an API resource in a specific language. */
   description: Option[String],
-language: LanguageSummary)
+/* The language this name is in. */
+  language: LanguageSummary)
 
 object PokemonSpeciesDescription {
   import DateTimeCodecs._

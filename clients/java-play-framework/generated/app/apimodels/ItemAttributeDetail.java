@@ -1,8 +1,8 @@
 package apimodels;
 
-import apimodels.AbilityDetailPokemonInnerPokemon;
 import apimodels.ItemAttributeDescription;
 import apimodels.ItemAttributeName;
+import apimodels.ItemSummary;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -15,7 +15,7 @@ import javax.validation.Valid;
 /**
  * ItemAttributeDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-10-25T05:48:13.486809836Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-11-09T13:49:31.462302702Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class ItemAttributeDetail   {
   @JsonProperty("id")
@@ -25,7 +25,7 @@ public class ItemAttributeDetail   {
 
   @JsonProperty("name")
   @NotNull
-@Size(max=100)
+@Size(max=200)
 
   private String name;
 
@@ -39,7 +39,7 @@ public class ItemAttributeDetail   {
   @NotNull
 @Valid
 
-  private List<@Valid AbilityDetailPokemonInnerPokemon> items = new ArrayList<>();
+  private List<@Valid ItemSummary> items = new ArrayList<>();
 
   @JsonProperty("names")
   @NotNull
@@ -53,7 +53,7 @@ public class ItemAttributeDetail   {
   }
 
    /**
-   * Get id
+   * The identifier for this resource.
    * @return id
   **/
   public Integer getId() {
@@ -70,7 +70,7 @@ public class ItemAttributeDetail   {
   }
 
    /**
-   * Get name
+   * The name for this resource.
    * @return name
   **/
   public String getName() {
@@ -95,7 +95,7 @@ public class ItemAttributeDetail   {
   }
 
    /**
-   * Get descriptions
+   * The description of this item attribute listed in different languages.
    * @return descriptions
   **/
   public List<@Valid ItemAttributeDescription> getDescriptions() {
@@ -106,12 +106,12 @@ public class ItemAttributeDetail   {
     this.descriptions = descriptions;
   }
 
-  public ItemAttributeDetail items(List<@Valid AbilityDetailPokemonInnerPokemon> items) {
+  public ItemAttributeDetail items(List<@Valid ItemSummary> items) {
     this.items = items;
     return this;
   }
 
-  public ItemAttributeDetail addItemsItem(AbilityDetailPokemonInnerPokemon itemsItem) {
+  public ItemAttributeDetail addItemsItem(ItemSummary itemsItem) {
     if (this.items == null) {
       this.items = new ArrayList<>();
     }
@@ -120,14 +120,14 @@ public class ItemAttributeDetail   {
   }
 
    /**
-   * Get items
+   * A list of items that have this attribute.
    * @return items
   **/
-  public List<@Valid AbilityDetailPokemonInnerPokemon> getItems() {
+  public List<@Valid ItemSummary> getItems() {
     return items;
   }
 
-  public void setItems(List<@Valid AbilityDetailPokemonInnerPokemon> items) {
+  public void setItems(List<@Valid ItemSummary> items) {
     this.items = items;
   }
 
@@ -145,7 +145,7 @@ public class ItemAttributeDetail   {
   }
 
    /**
-   * Get names
+   * The name of this item attribute listed in different languages.
    * @return names
   **/
   public List<@Valid ItemAttributeName> getNames() {

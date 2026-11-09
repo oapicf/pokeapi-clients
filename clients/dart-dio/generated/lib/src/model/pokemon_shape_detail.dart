@@ -4,9 +4,9 @@
 
 // ignore_for_file: unused_element
 import 'package:built_collection/built_collection.dart';
-import 'package:openapi/src/model/pokemon_shape_detail_awesome_names_inner.dart';
+import 'package:openapi/src/model/pokemon_shape_awesome_name.dart';
+import 'package:openapi/src/model/pokemon_shape_name.dart';
 import 'package:openapi/src/model/pokemon_species_summary.dart';
-import 'package:openapi/src/model/pokemon_shape_detail_names_inner.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -15,25 +15,30 @@ part 'pokemon_shape_detail.g.dart';
 /// PokemonShapeDetail
 ///
 /// Properties:
-/// * [id] 
-/// * [name] 
-/// * [awesomeNames] 
-/// * [names] 
-/// * [pokemonSpecies] 
+/// * [id] - The identifier for this resource.
+/// * [name] - The name for this resource.
+/// * [awesomeNames] - The \"scientific\" name of this Pokémon shape listed in different languages.
+/// * [names] - The name of this resource listed in different languages.
+/// * [pokemonSpecies] - A list of the Pokémon species that have this shape.
 @BuiltValue()
 abstract class PokemonShapeDetail implements Built<PokemonShapeDetail, PokemonShapeDetailBuilder> {
+  /// The identifier for this resource.
   @BuiltValueField(wireName: r'id')
   int get id;
 
+  /// The name for this resource.
   @BuiltValueField(wireName: r'name')
   String get name;
 
+  /// The \"scientific\" name of this Pokémon shape listed in different languages.
   @BuiltValueField(wireName: r'awesome_names')
-  BuiltList<PokemonShapeDetailAwesomeNamesInner> get awesomeNames;
+  BuiltList<PokemonShapeAwesomeName> get awesomeNames;
 
+  /// The name of this resource listed in different languages.
   @BuiltValueField(wireName: r'names')
-  BuiltList<PokemonShapeDetailNamesInner> get names;
+  BuiltList<PokemonShapeName> get names;
 
+  /// A list of the Pokémon species that have this shape.
   @BuiltValueField(wireName: r'pokemon_species')
   BuiltList<PokemonSpeciesSummary> get pokemonSpecies;
 
@@ -73,12 +78,12 @@ class _$PokemonShapeDetailSerializer implements PrimitiveSerializer<PokemonShape
     yield r'awesome_names';
     yield serializers.serialize(
       object.awesomeNames,
-      specifiedType: const FullType(BuiltList, [FullType(PokemonShapeDetailAwesomeNamesInner)]),
+      specifiedType: const FullType(BuiltList, [FullType(PokemonShapeAwesomeName)]),
     );
     yield r'names';
     yield serializers.serialize(
       object.names,
-      specifiedType: const FullType(BuiltList, [FullType(PokemonShapeDetailNamesInner)]),
+      specifiedType: const FullType(BuiltList, [FullType(PokemonShapeName)]),
     );
     yield r'pokemon_species';
     yield serializers.serialize(
@@ -125,15 +130,15 @@ class _$PokemonShapeDetailSerializer implements PrimitiveSerializer<PokemonShape
         case r'awesome_names':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(PokemonShapeDetailAwesomeNamesInner)]),
-          ) as BuiltList<PokemonShapeDetailAwesomeNamesInner>;
+            specifiedType: const FullType(BuiltList, [FullType(PokemonShapeAwesomeName)]),
+          ) as BuiltList<PokemonShapeAwesomeName>;
           result.awesomeNames.replace(valueDes);
           break;
         case r'names':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(PokemonShapeDetailNamesInner)]),
-          ) as BuiltList<PokemonShapeDetailNamesInner>;
+            specifiedType: const FullType(BuiltList, [FullType(PokemonShapeName)]),
+          ) as BuiltList<PokemonShapeName>;
           result.names.replace(valueDes);
           break;
         case r'pokemon_species':

@@ -24,9 +24,9 @@ void
 MachineDetail::__init()
 {
 	//id = int(0);
-	//item = new ItemSummary();
-	//version_group = new VersionGroupSummary();
-	//move = new MoveSummary();
+	//item = null;
+	//version_group = null;
+	//move = null;
 }
 
 void

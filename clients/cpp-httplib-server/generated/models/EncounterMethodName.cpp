@@ -10,7 +10,6 @@ namespace models {
 
 EncounterMethodName::EncounterMethodName()
 : name("")
-, language(LanguageSummary())
 {
 }
 // =========================================

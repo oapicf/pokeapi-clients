@@ -2,26 +2,41 @@
 Protected Class ContestEffectDetail
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The identifier for this resource.
+		#tag EndNote
 		id As Integer
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The base number of hearts the user of this move gets.
+		#tag EndNote
 		appeal As Integer
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The base number of hearts the user's opponent loses.
+		#tag EndNote
 		jam As Integer
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The result of this contest effect listed in different languages.
+		#tag EndNote
 		effect_entries() As OpenAPIClient.Models.ContestEffectEffectText
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The flavor text of this contest effect listed in different languages.
+		#tag EndNote
 		flavor_text_entries() As OpenAPIClient.Models.ContestEffectFlavorText
 	#tag EndProperty
 

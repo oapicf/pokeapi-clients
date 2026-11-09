@@ -14,44 +14,80 @@ import java.math.*;
 public class MoveMeta implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * The status ailment this move inflicts on its target.
+   */
   @JsonProperty("ailment")
   private MoveMetaAilmentSummary ailment;
 
+  /**
+   * The category of move this move falls under, e.g. damage or ailment.
+   */
   @JsonProperty("category")
   private MoveMetaCategorySummary category;
 
+  /**
+   * The minimum number of times this move hits. Null if it always only hits once.
+   */
   @JsonProperty("min_hits")
   private Integer minHits;
 
+  /**
+   * The maximum number of times this move hits. Null if it always only hits once.
+   */
   @JsonProperty("max_hits")
   private Integer maxHits;
 
+  /**
+   * The minimum number of turns this move continues to take effect. Null if it always only lasts one turn.
+   */
   @JsonProperty("min_turns")
   private Integer minTurns;
 
+  /**
+   * The maximum number of turns this move continues to take effect. Null if it always only lasts one turn.
+   */
   @JsonProperty("max_turns")
   private Integer maxTurns;
 
+  /**
+   * HP drain (if positive) or Recoil damage (if negative), in percent of damage done.
+   */
   @JsonProperty("drain")
   private Integer drain;
 
+  /**
+   * The amount of hp gained by the attacking Pokemon, in percent of it&#39;s maximum HP.
+   */
   @JsonProperty("healing")
   private Integer healing;
 
+  /**
+   * Critical hit rate bonus.
+   */
   @JsonProperty("crit_rate")
   private Integer critRate;
 
+  /**
+   * The likelihood this attack will cause an ailment.
+   */
   @JsonProperty("ailment_chance")
   private Integer ailmentChance;
 
+  /**
+   * The likelihood this attack will cause the target Pokémon to flinch.
+   */
   @JsonProperty("flinch_chance")
   private Integer flinchChance;
 
+  /**
+   * The likelihood this attack will cause a stat change in the target Pokémon.
+   */
   @JsonProperty("stat_chance")
   private Integer statChance;
 
   /**
-   * 
+   * The status ailment this move inflicts on its target.
    * @return ailment
    */
   public MoveMetaAilmentSummary getAilment() {
@@ -63,7 +99,7 @@ public class MoveMeta implements Serializable {
   }
 
   /**
-   * 
+   * The category of move this move falls under, e.g. damage or ailment.
    * @return category
    */
   public MoveMetaCategorySummary getCategory() {
@@ -75,7 +111,7 @@ public class MoveMeta implements Serializable {
   }
 
   /**
-   * 
+   * The minimum number of times this move hits. Null if it always only hits once.
    * @return minHits
    */
   public Integer getMinHits() {
@@ -87,7 +123,7 @@ public class MoveMeta implements Serializable {
   }
 
   /**
-   * 
+   * The maximum number of times this move hits. Null if it always only hits once.
    * @return maxHits
    */
   public Integer getMaxHits() {
@@ -99,7 +135,7 @@ public class MoveMeta implements Serializable {
   }
 
   /**
-   * 
+   * The minimum number of turns this move continues to take effect. Null if it always only lasts one turn.
    * @return minTurns
    */
   public Integer getMinTurns() {
@@ -111,7 +147,7 @@ public class MoveMeta implements Serializable {
   }
 
   /**
-   * 
+   * The maximum number of turns this move continues to take effect. Null if it always only lasts one turn.
    * @return maxTurns
    */
   public Integer getMaxTurns() {
@@ -123,7 +159,7 @@ public class MoveMeta implements Serializable {
   }
 
   /**
-   * 
+   * HP drain (if positive) or Recoil damage (if negative), in percent of damage done.
    * @return drain
    */
   public Integer getDrain() {
@@ -135,7 +171,7 @@ public class MoveMeta implements Serializable {
   }
 
   /**
-   * 
+   * The amount of hp gained by the attacking Pokemon, in percent of it&#39;s maximum HP.
    * @return healing
    */
   public Integer getHealing() {
@@ -147,7 +183,7 @@ public class MoveMeta implements Serializable {
   }
 
   /**
-   * 
+   * Critical hit rate bonus.
    * @return critRate
    */
   public Integer getCritRate() {
@@ -159,7 +195,7 @@ public class MoveMeta implements Serializable {
   }
 
   /**
-   * 
+   * The likelihood this attack will cause an ailment.
    * @return ailmentChance
    */
   public Integer getAilmentChance() {
@@ -171,7 +207,7 @@ public class MoveMeta implements Serializable {
   }
 
   /**
-   * 
+   * The likelihood this attack will cause the target Pokémon to flinch.
    * @return flinchChance
    */
   public Integer getFlinchChance() {
@@ -183,7 +219,7 @@ public class MoveMeta implements Serializable {
   }
 
   /**
-   * 
+   * The likelihood this attack will cause a stat change in the target Pokémon.
    * @return statChance
    */
   public Integer getStatChance() {

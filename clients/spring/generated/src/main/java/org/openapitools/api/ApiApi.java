@@ -12,12 +12,14 @@ import org.openapitools.model.BerryFlavorDetail;
 import org.openapitools.model.CharacteristicDetail;
 import org.openapitools.model.ContestEffectDetail;
 import org.openapitools.model.ContestTypeDetail;
+import org.openapitools.model.CurrencyDetail;
 import org.openapitools.model.EggGroupDetail;
 import org.openapitools.model.EncounterConditionDetail;
 import org.openapitools.model.EncounterConditionValueDetail;
 import org.openapitools.model.EncounterMethodDetail;
 import org.openapitools.model.EvolutionChainDetail;
 import org.openapitools.model.EvolutionTriggerDetail;
+import org.openapitools.model.EvolutionVariableDetail;
 import org.openapitools.model.GenderDetail;
 import org.openapitools.model.GenerationDetail;
 import org.openapitools.model.GrowthRateDetail;
@@ -46,12 +48,14 @@ import org.openapitools.model.PaginatedBerrySummaryList;
 import org.openapitools.model.PaginatedCharacteristicSummaryList;
 import org.openapitools.model.PaginatedContestEffectSummaryList;
 import org.openapitools.model.PaginatedContestTypeSummaryList;
+import org.openapitools.model.PaginatedCurrencySummaryList;
 import org.openapitools.model.PaginatedEggGroupSummaryList;
 import org.openapitools.model.PaginatedEncounterConditionSummaryList;
 import org.openapitools.model.PaginatedEncounterConditionValueSummaryList;
 import org.openapitools.model.PaginatedEncounterMethodSummaryList;
 import org.openapitools.model.PaginatedEvolutionChainSummaryList;
 import org.openapitools.model.PaginatedEvolutionTriggerSummaryList;
+import org.openapitools.model.PaginatedEvolutionVariableSummaryList;
 import org.openapitools.model.PaginatedGenderSummaryList;
 import org.openapitools.model.PaginatedGenerationSummaryList;
 import org.openapitools.model.PaginatedGrowthRateSummaryList;
@@ -88,6 +92,7 @@ import org.openapitools.model.PaginatedTypeSummaryList;
 import org.openapitools.model.PaginatedVersionGroupSummaryList;
 import org.openapitools.model.PaginatedVersionSummaryList;
 import org.openapitools.model.PalParkAreaDetail;
+import org.openapitools.model.PokeapiMetaResponse;
 import org.openapitools.model.PokeathlonStatDetail;
 import org.openapitools.model.PokedexDetail;
 import org.openapitools.model.PokemonColorDetail;
@@ -129,7 +134,7 @@ import java.util.Map;
 import java.util.Optional;
 import jakarta.annotation.Generated;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-10-25T05:53:37.479908528Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-11-09T13:53:47.069318184Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 @Validated
 @Tag(name = "pokemon", description = "Pokémon are the creatures that inhabit the world of the Pokémon games. They can be caught using Pokéballs and trained by battling with other Pokémon. Each Pokémon belongs to a specific species but may take on a variant which makes it differ from other Pokémon of the same species, such as base stats, available abilities and typings. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_(species)) for greater detail.")
 public interface ApiApi {
@@ -140,7 +145,7 @@ public interface ApiApi {
 
     String PATH_ABILITY_LIST = "/api/v2/ability/";
     /**
-     * GET /api/v2/ability/
+     * GET /api/v2/ability/ : List abilities
      * Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
      *
      * @param limit Number of results to return per page. (optional)
@@ -150,16 +155,13 @@ public interface ApiApi {
      */
     @Operation(
         operationId = "abilityList",
+        summary = "List abilities",
         description = "Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.",
         tags = { "pokemon" },
         responses = {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedAbilitySummaryList.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -175,7 +177,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    String exampleString = "{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/ability/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/ability/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -188,7 +190,7 @@ public interface ApiApi {
 
     String PATH_ABILITY_RETRIEVE = "/api/v2/ability/{id}/";
     /**
-     * GET /api/v2/ability/{id}/
+     * GET /api/v2/ability/{id}/ : Get ability
      * Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
      *
      * @param id This parameter can be a string or an integer. (required)
@@ -196,16 +198,13 @@ public interface ApiApi {
      */
     @Operation(
         operationId = "abilityRetrieve",
+        summary = "Get ability",
         description = "Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.",
         tags = { "pokemon" },
         responses = {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = AbilityDetail.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -219,7 +218,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"is_main_series\" : true, \"generation\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"effect_entries\" : [ { \"effect\" : \"effect\", \"short_effect\" : \"short_effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"effect\" : \"effect\", \"short_effect\" : \"short_effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"effect_changes\" : [ { \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"effect_entries\" : [ { \"effect\" : \"effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"effect\" : \"effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }, { \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"effect_entries\" : [ { \"effect\" : \"effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"effect\" : \"effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] } ], \"flavor_text_entries\" : [ { \"flavor_text\" : \"flavor_text\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"flavor_text\" : \"flavor_text\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"pokemon\" : [ { \"is_hidden\" : true, \"slot\" : 6, \"pokemon\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"is_hidden\" : true, \"slot\" : 6, \"pokemon\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }";
+                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"is_main_series\" : true, \"generation\" : \"\", \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ], \"effect_entries\" : [ { \"effect\" : \"effect\", \"short_effect\" : \"short_effect\", \"language\" : \"\" }, { \"effect\" : \"effect\", \"short_effect\" : \"short_effect\", \"language\" : \"\" } ], \"effect_changes\" : [ { \"version_group\" : \"\", \"effect_entries\" : [ { \"effect\" : \"effect\", \"language\" : \"\" }, { \"effect\" : \"effect\", \"language\" : \"\" } ] }, { \"version_group\" : \"\", \"effect_entries\" : [ { \"effect\" : \"effect\", \"language\" : \"\" }, { \"effect\" : \"effect\", \"language\" : \"\" } ] } ], \"flavor_text_entries\" : [ { \"flavor_text\" : \"flavor_text\", \"language\" : \"\", \"version_group\" : \"\" }, { \"flavor_text\" : \"flavor_text\", \"language\" : \"\", \"version_group\" : \"\" } ], \"pokemon\" : [ { \"is_hidden\" : true, \"slot\" : 441289069, \"pokemon\" : \"\" }, { \"is_hidden\" : true, \"slot\" : 441289069, \"pokemon\" : \"\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -249,10 +248,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedBerryFirmnessSummaryList.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -268,7 +263,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    String exampleString = "{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/berry-firmness/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/berry-firmness/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -296,10 +291,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = BerryFirmnessDetail.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -313,7 +304,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"berries\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }";
+                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"berries\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -343,10 +334,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedBerryFlavorSummaryList.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -362,7 +349,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    String exampleString = "{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/berry-flavor/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/berry-flavor/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -390,10 +377,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = BerryFlavorDetail.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -407,7 +390,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"berries\" : [ { \"potency\" : 6, \"berry\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"potency\" : 6, \"berry\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"contest_type\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }";
+                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"berries\" : [ { \"potency\" : 441289069, \"berry\" : \"\" }, { \"potency\" : 441289069, \"berry\" : \"\" } ], \"contest_type\" : \"\", \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -437,10 +420,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedBerrySummaryList.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -456,7 +435,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    String exampleString = "{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/berry/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/berry/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -484,10 +463,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = BerryDetail.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -501,7 +476,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"growth_time\" : 6, \"max_harvest\" : 1, \"natural_gift_power\" : 5, \"size\" : 5, \"smoothness\" : 2, \"soil_dryness\" : 7, \"firmness\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"flavors\" : [ { \"potency\" : 9, \"flavor\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"potency\" : 9, \"flavor\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"item\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"natural_gift_type\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }";
+                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"growth_time\" : 441289069, \"max_harvest\" : -1517921766, \"natural_gift_power\" : 413233370, \"size\" : 273751188, \"smoothness\" : -1158723813, \"soil_dryness\" : 885365090, \"firmness\" : \"\", \"flavors\" : [ { \"potency\" : 1847456234, \"flavor\" : \"\" }, { \"potency\" : 1847456234, \"flavor\" : \"\" } ], \"item\" : \"\", \"natural_gift_type\" : \"\" }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -514,27 +489,22 @@ public interface ApiApi {
 
     String PATH_CHARACTERISTIC_LIST = "/api/v2/characteristic/";
     /**
-     * GET /api/v2/characteristic/ : List charecterictics
+     * GET /api/v2/characteristic/ : List characteristics
      * Characteristics indicate which stat contains a Pokémon&#39;s highest IV. A Pokémon&#39;s Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail.
      *
      * @param limit Number of results to return per page. (optional)
      * @param offset The initial index from which to return the results. (optional)
-     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
      * @return  (status code 200)
      */
     @Operation(
         operationId = "characteristicList",
-        summary = "List charecterictics",
+        summary = "List characteristics",
         description = "Characteristics indicate which stat contains a Pokémon's highest IV. A Pokémon's Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail.",
         tags = { "pokemon" },
         responses = {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedCharacteristicSummaryList.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -544,13 +514,12 @@ public interface ApiApi {
     )
     default ResponseEntity<PaginatedCharacteristicSummaryList> characteristicList(
         @Parameter(name = "limit", description = "Number of results to return per page.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
-        @Parameter(name = "offset", description = "The initial index from which to return the results.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset,
-        @Parameter(name = "q", description = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ", in = ParameterIn.QUERY) @Valid @RequestParam(value = "q", required = false) @Nullable String q
+        @Parameter(name = "offset", description = "The initial index from which to return the results.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset
     ) {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"url\" : \"https://openapi-generator.tech\" }, { \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    String exampleString = "{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/characteristic/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/characteristic/?offset=0&limit=20\", \"results\" : [ { \"url\" : \"https://openapi-generator.tech\" }, { \"url\" : \"https://openapi-generator.tech\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -578,10 +547,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = CharacteristicDetail.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -595,7 +560,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"id\" : 0, \"gene_modulo\" : 6, \"possible_values\" : [ 1, 1 ], \"highest_stat\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"descriptions\" : [ { \"description\" : \"description\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"description\" : \"description\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }";
+                    String exampleString = "{ \"id\" : 0, \"gene_modulo\" : 6, \"possible_values\" : [ 1, 1 ], \"highest_stat\" : \"\", \"descriptions\" : [ { \"description\" : \"description\", \"language\" : \"\" }, { \"description\" : \"description\", \"language\" : \"\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -613,7 +578,6 @@ public interface ApiApi {
      *
      * @param limit Number of results to return per page. (optional)
      * @param offset The initial index from which to return the results. (optional)
-     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
      * @return  (status code 200)
      */
     @Operation(
@@ -625,10 +589,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedContestEffectSummaryList.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -638,13 +598,12 @@ public interface ApiApi {
     )
     default ResponseEntity<PaginatedContestEffectSummaryList> contestEffectList(
         @Parameter(name = "limit", description = "Number of results to return per page.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
-        @Parameter(name = "offset", description = "The initial index from which to return the results.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset,
-        @Parameter(name = "q", description = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ", in = ParameterIn.QUERY) @Valid @RequestParam(value = "q", required = false) @Nullable String q
+        @Parameter(name = "offset", description = "The initial index from which to return the results.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset
     ) {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"url\" : \"https://openapi-generator.tech\" }, { \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    String exampleString = "{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/contest-effect/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/contest-effect/?offset=0&limit=20\", \"results\" : [ { \"url\" : \"https://openapi-generator.tech\" }, { \"url\" : \"https://openapi-generator.tech\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -672,10 +631,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = ContestEffectDetail.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -689,7 +644,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"id\" : 0, \"appeal\" : 6, \"jam\" : 1, \"effect_entries\" : [ { \"effect\" : \"effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"effect\" : \"effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"flavor_text_entries\" : [ { \"flavor_text\" : \"flavor_text\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"flavor_text\" : \"flavor_text\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }";
+                    String exampleString = "{ \"id\" : 0, \"appeal\" : 441289069, \"jam\" : -1517921766, \"effect_entries\" : [ { \"effect\" : \"effect\", \"language\" : \"\" }, { \"effect\" : \"effect\", \"language\" : \"\" } ], \"flavor_text_entries\" : [ { \"flavor_text\" : \"flavor_text\", \"language\" : \"\" }, { \"flavor_text\" : \"flavor_text\", \"language\" : \"\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -719,10 +674,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedContestTypeSummaryList.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -738,7 +689,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    String exampleString = "{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/contest-type/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/contest-type/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -766,10 +717,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = ContestTypeDetail.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -783,7 +730,93 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"berry_flavor\" : \"\", \"names\" : [ { \"name\" : \"name\", \"color\" : \"color\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"color\" : \"color\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }";
+                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"berry_flavor\" : \"\", \"names\" : [ { \"name\" : \"name\", \"color\" : \"color\", \"language\" : \"\" }, { \"name\" : \"name\", \"color\" : \"color\", \"language\" : \"\" } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
+        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+
+    }
+
+
+    String PATH_CURRENCY_LIST = "/api/v2/currency/";
+    /**
+     * GET /api/v2/currency/ : List currencies
+     * Currencies used to buy items.
+     *
+     * @param limit Number of results to return per page. (optional)
+     * @param offset The initial index from which to return the results. (optional)
+     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     * @return  (status code 200)
+     */
+    @Operation(
+        operationId = "currencyList",
+        summary = "List currencies",
+        description = "Currencies used to buy items.",
+        tags = { "items" },
+        responses = {
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedCurrencySummaryList.class))
+            })
+        }
+    )
+    @RequestMapping(
+        method = RequestMethod.GET,
+        value = ApiApi.PATH_CURRENCY_LIST,
+        produces = { "application/json" }
+    )
+    default ResponseEntity<PaginatedCurrencySummaryList> currencyList(
+        @Parameter(name = "limit", description = "Number of results to return per page.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
+        @Parameter(name = "offset", description = "The initial index from which to return the results.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset,
+        @Parameter(name = "q", description = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ", in = ParameterIn.QUERY) @Valid @RequestParam(value = "q", required = false) @Nullable String q
+    ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/currency/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/currency/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
+        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+
+    }
+
+
+    String PATH_CURRENCY_RETRIEVE = "/api/v2/currency/{id}/";
+    /**
+     * GET /api/v2/currency/{id}/ : Get currency
+     * Currencies used to buy items.
+     *
+     * @param id This parameter can be a string or an integer. (required)
+     * @return  (status code 200)
+     */
+    @Operation(
+        operationId = "currencyRetrieve",
+        summary = "Get currency",
+        description = "Currencies used to buy items.",
+        tags = { "items" },
+        responses = {
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = CurrencyDetail.class))
+            })
+        }
+    )
+    @RequestMapping(
+        method = RequestMethod.GET,
+        value = ApiApi.PATH_CURRENCY_RETRIEVE,
+        produces = { "application/json" }
+    )
+    default ResponseEntity<CurrencyDetail> currencyRetrieve(
+        @Parameter(name = "id", description = "This parameter can be a string or an integer.", required = true, in = ParameterIn.PATH) @PathVariable("id") String id
+    ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -813,10 +846,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedEggGroupSummaryList.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -832,7 +861,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    String exampleString = "{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/egg-group/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/egg-group/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -860,10 +889,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = EggGroupDetail.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -877,7 +902,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"pokemon_species\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ], \"pokemon_species\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -907,10 +932,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedEncounterConditionSummaryList.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -926,7 +947,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    String exampleString = "{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/encounter-condition/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/encounter-condition/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -954,10 +975,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = EncounterConditionDetail.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -971,7 +988,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"values\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }";
+                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"values\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -1001,10 +1018,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedEncounterConditionValueSummaryList.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -1020,7 +1033,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    String exampleString = "{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/encounter-condition-value/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/encounter-condition-value/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -1048,10 +1061,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = EncounterConditionValueDetail.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -1065,7 +1074,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"condition\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }";
+                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"condition\" : \"\", \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -1095,10 +1104,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedEncounterMethodSummaryList.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -1114,7 +1119,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    String exampleString = "{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/encounter-method/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/encounter-method/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -1142,10 +1147,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = EncounterMethodDetail.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -1159,7 +1160,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"order\" : 6, \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }";
+                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"order\" : 441289069, \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -1177,7 +1178,6 @@ public interface ApiApi {
      *
      * @param limit Number of results to return per page. (optional)
      * @param offset The initial index from which to return the results. (optional)
-     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
      * @return  (status code 200)
      */
     @Operation(
@@ -1189,10 +1189,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedEvolutionChainSummaryList.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -1202,13 +1198,12 @@ public interface ApiApi {
     )
     default ResponseEntity<PaginatedEvolutionChainSummaryList> evolutionChainList(
         @Parameter(name = "limit", description = "Number of results to return per page.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
-        @Parameter(name = "offset", description = "The initial index from which to return the results.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset,
-        @Parameter(name = "q", description = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ", in = ParameterIn.QUERY) @Valid @RequestParam(value = "q", required = false) @Nullable String q
+        @Parameter(name = "offset", description = "The initial index from which to return the results.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset
     ) {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"url\" : \"https://openapi-generator.tech\" }, { \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    String exampleString = "{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/evolution-chain/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/evolution-chain/?offset=0&limit=20\", \"results\" : [ { \"url\" : \"https://openapi-generator.tech\" }, { \"url\" : \"https://openapi-generator.tech\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -1236,10 +1231,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = EvolutionChainDetail.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -1253,7 +1244,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"id\" : 0, \"baby_trigger_item\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"chain\" : { \"evolution_details\" : [ \"\", \"\" ], \"evolves_to\" : [ { \"evolution_details\" : [ { \"gender\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"held_item\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"item\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"known_move\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"known_move_type\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"location\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"min_affection\" : 6, \"min_beauty\" : 1, \"min_happiness\" : 5, \"min_level\" : 5, \"needs_overworld_rain\" : true, \"party_species\" : \"party_species\", \"party_type\" : \"party_type\", \"relative_physical_stats\" : \"relative_physical_stats\", \"time_of_day\" : \"time_of_day\", \"trade_species\" : \"trade_species\", \"trigger\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"turn_upside_down\" : true }, { \"gender\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"held_item\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"item\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"known_move\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"known_move_type\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"location\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"min_affection\" : 6, \"min_beauty\" : 1, \"min_happiness\" : 5, \"min_level\" : 5, \"needs_overworld_rain\" : true, \"party_species\" : \"party_species\", \"party_type\" : \"party_type\", \"relative_physical_stats\" : \"relative_physical_stats\", \"time_of_day\" : \"time_of_day\", \"trade_species\" : \"trade_species\", \"trigger\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"turn_upside_down\" : true } ], \"is_baby\" : true, \"species\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"evolution_details\" : [ { \"gender\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"held_item\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"item\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"known_move\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"known_move_type\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"location\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"min_affection\" : 6, \"min_beauty\" : 1, \"min_happiness\" : 5, \"min_level\" : 5, \"needs_overworld_rain\" : true, \"party_species\" : \"party_species\", \"party_type\" : \"party_type\", \"relative_physical_stats\" : \"relative_physical_stats\", \"time_of_day\" : \"time_of_day\", \"trade_species\" : \"trade_species\", \"trigger\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"turn_upside_down\" : true }, { \"gender\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"held_item\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"item\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"known_move\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"known_move_type\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"location\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"min_affection\" : 6, \"min_beauty\" : 1, \"min_happiness\" : 5, \"min_level\" : 5, \"needs_overworld_rain\" : true, \"party_species\" : \"party_species\", \"party_type\" : \"party_type\", \"relative_physical_stats\" : \"relative_physical_stats\", \"time_of_day\" : \"time_of_day\", \"trade_species\" : \"trade_species\", \"trigger\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"turn_upside_down\" : true } ], \"is_baby\" : true, \"species\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"is_baby\" : true, \"species\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } }";
+                    String exampleString = "{ \"id\" : 0, \"baby_trigger_item\" : \"\", \"chain\" : \"\" }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -1283,10 +1274,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedEvolutionTriggerSummaryList.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -1302,7 +1289,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    String exampleString = "{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/evolution-trigger/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/evolution-trigger/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -1330,10 +1317,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = EvolutionTriggerDetail.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -1347,7 +1330,93 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"pokemon_species\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ], \"pokemon_species\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
+        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+
+    }
+
+
+    String PATH_EVOLUTION_VARIABLE_LIST = "/api/v2/evolution-variable/";
+    /**
+     * GET /api/v2/evolution-variable/ : List evolution variables
+     * Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+     *
+     * @param limit Number of results to return per page. (optional)
+     * @param offset The initial index from which to return the results. (optional)
+     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     * @return  (status code 200)
+     */
+    @Operation(
+        operationId = "evolutionVariableList",
+        summary = "List evolution variables",
+        description = "Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.",
+        tags = { "evolution" },
+        responses = {
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedEvolutionVariableSummaryList.class))
+            })
+        }
+    )
+    @RequestMapping(
+        method = RequestMethod.GET,
+        value = ApiApi.PATH_EVOLUTION_VARIABLE_LIST,
+        produces = { "application/json" }
+    )
+    default ResponseEntity<PaginatedEvolutionVariableSummaryList> evolutionVariableList(
+        @Parameter(name = "limit", description = "Number of results to return per page.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
+        @Parameter(name = "offset", description = "The initial index from which to return the results.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset,
+        @Parameter(name = "q", description = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ", in = ParameterIn.QUERY) @Valid @RequestParam(value = "q", required = false) @Nullable String q
+    ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/evolution-variable/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/evolution-variable/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
+        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+
+    }
+
+
+    String PATH_EVOLUTION_VARIABLE_RETRIEVE = "/api/v2/evolution-variable/{id}/";
+    /**
+     * GET /api/v2/evolution-variable/{id}/ : Get evolution variable
+     * Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+     *
+     * @param id This parameter can be a string or an integer. (required)
+     * @return  (status code 200)
+     */
+    @Operation(
+        operationId = "evolutionVariableRetrieve",
+        summary = "Get evolution variable",
+        description = "Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.",
+        tags = { "evolution" },
+        responses = {
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = EvolutionVariableDetail.class))
+            })
+        }
+    )
+    @RequestMapping(
+        method = RequestMethod.GET,
+        value = ApiApi.PATH_EVOLUTION_VARIABLE_RETRIEVE,
+        produces = { "application/json" }
+    )
+    default ResponseEntity<EvolutionVariableDetail> evolutionVariableRetrieve(
+        @Parameter(name = "id", description = "This parameter can be a string or an integer.", required = true, in = ParameterIn.PATH) @PathVariable("id") String id
+    ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"symbol\" : \"symbol\", \"data_type\" : \"data_type\", \"source\" : \"source\", \"version_group\" : \"\", \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ], \"descriptions\" : [ { \"description\" : \"description\", \"language\" : \"\" }, { \"description\" : \"description\", \"language\" : \"\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -1377,10 +1446,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedGenderSummaryList.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -1396,7 +1461,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    String exampleString = "{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/gender/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/gender/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -1424,10 +1489,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = GenderDetail.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -1441,7 +1502,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"pokemon_species_details\" : [ { \"rate\" : 6, \"pokemon_species\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"rate\" : 6, \"pokemon_species\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"required_for_evolution\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"pokemon_species_details\" : [ { \"rate\" : 6, \"pokemon_species\" : \"\" }, { \"rate\" : 6, \"pokemon_species\" : \"\" } ], \"required_for_evolution\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -1471,10 +1532,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedGenerationSummaryList.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -1490,7 +1547,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    String exampleString = "{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/generation/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/generation/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -1518,10 +1575,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = GenerationDetail.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -1535,7 +1588,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"abilities\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"main_region\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"moves\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"pokemon_species\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"types\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"version_groups\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"abilities\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"main_region\" : \"\", \"moves\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ], \"pokemon_species\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"types\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"version_groups\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -1565,10 +1618,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedGrowthRateSummaryList.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -1584,7 +1633,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    String exampleString = "{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/growth-rate/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/growth-rate/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -1612,10 +1661,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = GrowthRateDetail.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -1629,7 +1674,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"formula\" : \"formula\", \"descriptions\" : [ { \"description\" : \"description\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"description\" : \"description\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"levels\" : [ { \"level\" : 6, \"experience\" : 1 }, { \"level\" : 6, \"experience\" : 1 } ], \"pokemon_species\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"formula\" : \"formula\", \"descriptions\" : [ { \"description\" : \"description\", \"language\" : \"\" }, { \"description\" : \"description\", \"language\" : \"\" } ], \"levels\" : [ { \"level\" : 441289069, \"experience\" : -1517921766 }, { \"level\" : 441289069, \"experience\" : -1517921766 } ], \"pokemon_species\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -1659,10 +1704,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedItemAttributeSummaryList.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -1678,7 +1719,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    String exampleString = "{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/item-attribute/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/item-attribute/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -1706,10 +1747,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = ItemAttributeDetail.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -1723,7 +1760,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"descriptions\" : [ { \"description\" : \"description\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"description\" : \"description\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"items\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }";
+                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"descriptions\" : [ { \"description\" : \"description\", \"language\" : \"\" }, { \"description\" : \"description\", \"language\" : \"\" } ], \"items\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -1753,10 +1790,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedItemCategorySummaryList.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -1772,7 +1805,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    String exampleString = "{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/item-category/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/item-category/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -1800,10 +1833,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = ItemCategoryDetail.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -1817,7 +1846,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"items\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"pocket\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }";
+                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"items\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ], \"pocket\" : \"\" }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -1847,10 +1876,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedItemFlingEffectSummaryList.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -1866,7 +1891,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    String exampleString = "{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/item-fling-effect/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/item-fling-effect/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -1894,10 +1919,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = ItemFlingEffectDetail.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -1911,7 +1932,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"effect_entries\" : [ { \"effect\" : \"effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"effect\" : \"effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"items\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"effect_entries\" : [ { \"effect\" : \"effect\", \"language\" : \"\" }, { \"effect\" : \"effect\", \"language\" : \"\" } ], \"items\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -1941,10 +1962,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedItemSummaryList.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -1960,7 +1977,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    String exampleString = "{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/item/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/item/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -1990,10 +2007,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedItemPocketSummaryList.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -2009,7 +2022,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    String exampleString = "{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/item-pocket/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/item-pocket/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -2037,10 +2050,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = ItemPocketDetail.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -2054,7 +2063,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"categories\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }";
+                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"categories\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -2082,10 +2091,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = ItemDetail.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -2099,7 +2104,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"cost\" : 6, \"fling_power\" : 1, \"fling_effect\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"attributes\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"category\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"effect_entries\" : [ { \"effect\" : \"effect\", \"short_effect\" : \"short_effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"effect\" : \"effect\", \"short_effect\" : \"short_effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"flavor_text_entries\" : [ { \"text\" : \"text\", \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"text\" : \"text\", \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"game_indices\" : [ { \"game_index\" : 5, \"generation\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"game_index\" : 5, \"generation\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"held_by_pokemon\" : [ { \"pokemon\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"version-details\" : [ { \"rarity\" : 5, \"version\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"rarity\" : 5, \"version\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }, { \"pokemon\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"version-details\" : [ { \"rarity\" : 5, \"version\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"rarity\" : 5, \"version\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] } ], \"sprites\" : { \"default\" : \"https://openapi-generator.tech\" }, \"baby_trigger_for\" : { \"url\" : \"https://openapi-generator.tech\" }, \"machines\" : [ { \"machine\" : \"https://openapi-generator.tech\", \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"machine\" : \"https://openapi-generator.tech\", \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }";
+                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"fling_power\" : 441289069, \"fling_effect\" : \"\", \"attributes\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"category\" : \"\", \"effect_entries\" : [ { \"effect\" : \"effect\", \"short_effect\" : \"short_effect\", \"language\" : \"\" }, { \"effect\" : \"effect\", \"short_effect\" : \"short_effect\", \"language\" : \"\" } ], \"flavor_text_entries\" : [ { \"text\" : \"text\", \"version_group\" : \"\", \"language\" : \"\" }, { \"text\" : \"text\", \"version_group\" : \"\", \"language\" : \"\" } ], \"game_indices\" : [ { \"game_index\" : -1517921766, \"generation\" : \"\" }, { \"game_index\" : -1517921766, \"generation\" : \"\" } ], \"prices\" : [ { \"purchase_price\" : 413233370, \"sell_price\" : 273751188, \"currency\" : \"\", \"version_group\" : \"\" }, { \"purchase_price\" : 413233370, \"sell_price\" : 273751188, \"currency\" : \"\", \"version_group\" : \"\" } ], \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ], \"held_by_pokemon\" : [ { \"pokemon\" : \"\", \"version_details\" : [ { \"rarity\" : 2, \"version\" : \"\" }, { \"rarity\" : 2, \"version\" : \"\" } ] }, { \"pokemon\" : \"\", \"version_details\" : [ { \"rarity\" : 2, \"version\" : \"\" }, { \"rarity\" : 2, \"version\" : \"\" } ] } ], \"sprites\" : \"\", \"baby_trigger_for\" : \"\", \"machines\" : [ { \"machine\" : \"\", \"version_group\" : \"\" }, { \"machine\" : \"\", \"version_group\" : \"\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -2129,10 +2134,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedLanguageSummaryList.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -2148,7 +2149,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    String exampleString = "{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/language/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/language/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -2176,10 +2177,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = LanguageDetail.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -2193,7 +2190,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"official\" : true, \"iso639\" : \"iso639\", \"iso3166\" : \"iso3166\", \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }";
+                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"official\" : true, \"iso639\" : \"iso639\", \"iso3166\" : \"iso3166\", \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -2222,10 +2219,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedLocationAreaSummaryList.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -2240,7 +2233,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    String exampleString = "{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/location-area/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/location-area/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -2268,10 +2261,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = LocationAreaDetail.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -2285,7 +2274,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"game_index\" : 6, \"encounter_method_rates\" : [ { \"encounter_method\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"version_details\" : [ { \"rate\" : 1, \"version\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"rate\" : 1, \"version\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }, { \"encounter_method\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"version_details\" : [ { \"rate\" : 1, \"version\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"rate\" : 1, \"version\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] } ], \"location\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"pokemon_encounters\" : [ { \"pokemon\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"version_details\" : [ { \"version\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"max_chance\" : 5, \"encounter_details\" : { \"min_level\" : 5, \"max_level\" : 2, \"condition_values\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"chance\" : 7, \"method\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } }, { \"version\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"max_chance\" : 5, \"encounter_details\" : { \"min_level\" : 5, \"max_level\" : 2, \"condition_values\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"chance\" : 7, \"method\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } } ] }, { \"pokemon\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"version_details\" : [ { \"version\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"max_chance\" : 5, \"encounter_details\" : { \"min_level\" : 5, \"max_level\" : 2, \"condition_values\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"chance\" : 7, \"method\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } }, { \"version\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"max_chance\" : 5, \"encounter_details\" : { \"min_level\" : 5, \"max_level\" : 2, \"condition_values\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"chance\" : 7, \"method\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } } ] } ] }";
+                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"game_index\" : 441289069, \"encounter_method_rates\" : [ { \"encounter_method\" : \"\", \"version_details\" : [ { \"rate\" : 1, \"version\" : \"\" }, { \"rate\" : 1, \"version\" : \"\" } ] }, { \"encounter_method\" : \"\", \"version_details\" : [ { \"rate\" : 1, \"version\" : \"\" }, { \"rate\" : 1, \"version\" : \"\" } ] } ], \"location\" : \"\", \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ], \"pokemon_encounters\" : [ { \"pokemon\" : \"\", \"version_details\" : [ { \"version\" : \"\", \"max_chance\" : 5, \"encounter_details\" : [ { \"min_level\" : 5, \"max_level\" : 2, \"chance\" : 7, \"method\" : \"\", \"condition_values\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"pokemon_details\" : \"\" }, { \"min_level\" : 5, \"max_level\" : 2, \"chance\" : 7, \"method\" : \"\", \"condition_values\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"pokemon_details\" : \"\" } ] }, { \"version\" : \"\", \"max_chance\" : 5, \"encounter_details\" : [ { \"min_level\" : 5, \"max_level\" : 2, \"chance\" : 7, \"method\" : \"\", \"condition_values\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"pokemon_details\" : \"\" }, { \"min_level\" : 5, \"max_level\" : 2, \"chance\" : 7, \"method\" : \"\", \"condition_values\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"pokemon_details\" : \"\" } ] } ] }, { \"pokemon\" : \"\", \"version_details\" : [ { \"version\" : \"\", \"max_chance\" : 5, \"encounter_details\" : [ { \"min_level\" : 5, \"max_level\" : 2, \"chance\" : 7, \"method\" : \"\", \"condition_values\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"pokemon_details\" : \"\" }, { \"min_level\" : 5, \"max_level\" : 2, \"chance\" : 7, \"method\" : \"\", \"condition_values\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"pokemon_details\" : \"\" } ] }, { \"version\" : \"\", \"max_chance\" : 5, \"encounter_details\" : [ { \"min_level\" : 5, \"max_level\" : 2, \"chance\" : 7, \"method\" : \"\", \"condition_values\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"pokemon_details\" : \"\" }, { \"min_level\" : 5, \"max_level\" : 2, \"chance\" : 7, \"method\" : \"\", \"condition_values\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"pokemon_details\" : \"\" } ] } ] } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -2315,10 +2304,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedLocationSummaryList.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -2334,7 +2319,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    String exampleString = "{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/location/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/location/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -2362,10 +2347,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = LocationDetail.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -2379,7 +2360,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"region\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"game_indices\" : [ { \"game_index\" : 5, \"generation\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"game_index\" : 5, \"generation\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"areas\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"region\" : \"\", \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ], \"game_indices\" : [ { \"game_index\" : -1517921766, \"generation\" : \"\" }, { \"game_index\" : -1517921766, \"generation\" : \"\" } ], \"areas\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -2397,7 +2378,6 @@ public interface ApiApi {
      *
      * @param limit Number of results to return per page. (optional)
      * @param offset The initial index from which to return the results. (optional)
-     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
      * @return  (status code 200)
      */
     @Operation(
@@ -2409,10 +2389,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedMachineSummaryList.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -2422,13 +2398,12 @@ public interface ApiApi {
     )
     default ResponseEntity<PaginatedMachineSummaryList> machineList(
         @Parameter(name = "limit", description = "Number of results to return per page.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
-        @Parameter(name = "offset", description = "The initial index from which to return the results.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset,
-        @Parameter(name = "q", description = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ", in = ParameterIn.QUERY) @Valid @RequestParam(value = "q", required = false) @Nullable String q
+        @Parameter(name = "offset", description = "The initial index from which to return the results.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset
     ) {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"url\" : \"https://openapi-generator.tech\" }, { \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    String exampleString = "{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/machine/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/machine/?offset=0&limit=20\", \"results\" : [ { \"url\" : \"https://openapi-generator.tech\" }, { \"url\" : \"https://openapi-generator.tech\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -2456,10 +2431,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = MachineDetail.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -2473,7 +2444,47 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"id\" : 0, \"item\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"move\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }";
+                    String exampleString = "{ \"id\" : 0, \"item\" : \"\", \"version_group\" : \"\", \"move\" : \"\" }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
+        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+
+    }
+
+
+    String PATH_META_RETRIEVE = "/api/v2/meta/";
+    /**
+     * GET /api/v2/meta/ : Get API metadata
+     * Returns metadata about the current deployed version of the API, including the git commit hash, deploy date, and tag (if any).
+     *
+     * @return  (status code 200)
+     */
+    @Operation(
+        operationId = "metaRetrieve",
+        summary = "Get API metadata",
+        description = "Returns metadata about the current deployed version of the API, including the git commit hash, deploy date, and tag (if any).",
+        tags = { "utility" },
+        responses = {
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = PokeapiMetaResponse.class))
+            })
+        }
+    )
+    @RequestMapping(
+        method = RequestMethod.GET,
+        value = ApiApi.PATH_META_RETRIEVE,
+        produces = { "application/json" }
+    )
+    default ResponseEntity<PokeapiMetaResponse> metaRetrieve(
+        
+    ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"deploy_date\" : \"deploy_date\", \"hash\" : \"hash\", \"tag\" : \"tag\" }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -2503,10 +2514,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedMoveMetaAilmentSummaryList.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -2522,7 +2529,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    String exampleString = "{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/move-ailment/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/move-ailment/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -2550,10 +2557,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = MoveMetaAilmentDetail.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -2567,7 +2570,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"moves\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }";
+                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"moves\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -2597,10 +2600,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedMoveBattleStyleSummaryList.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -2616,7 +2615,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    String exampleString = "{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/move-battle-style/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/move-battle-style/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -2644,10 +2643,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = MoveBattleStyleDetail.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -2661,7 +2656,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }";
+                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -2691,10 +2686,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedMoveMetaCategorySummaryList.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -2710,7 +2701,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    String exampleString = "{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/move-category/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/move-category/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -2738,10 +2729,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = MoveMetaCategoryDetail.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -2755,7 +2742,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"descriptions\" : [ { \"description\" : \"description\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"description\" : \"description\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"moves\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"descriptions\" : [ { \"description\" : \"description\", \"language\" : \"\" }, { \"description\" : \"description\", \"language\" : \"\" } ], \"moves\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -2785,10 +2772,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedMoveDamageClassSummaryList.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -2804,7 +2787,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    String exampleString = "{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/move-damage-class/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/move-damage-class/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -2832,10 +2815,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = MoveDamageClassDetail.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -2849,7 +2828,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"descriptions\" : [ { \"description\" : \"description\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"description\" : \"description\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"moves\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }";
+                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"descriptions\" : [ { \"description\" : \"description\", \"language\" : \"\" }, { \"description\" : \"description\", \"language\" : \"\" } ], \"moves\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -2879,10 +2858,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedMoveLearnMethodSummaryList.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -2898,7 +2873,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    String exampleString = "{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/move-learn-method/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/move-learn-method/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -2926,10 +2901,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = MoveLearnMethodDetail.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -2943,7 +2914,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"descriptions\" : [ { \"description\" : \"description\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"description\" : \"description\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"version_groups\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ], \"descriptions\" : [ { \"description\" : \"description\", \"language\" : \"\" }, { \"description\" : \"description\", \"language\" : \"\" } ], \"version_groups\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -2973,10 +2944,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedMoveSummaryList.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -2992,7 +2959,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    String exampleString = "{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/move/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/move/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -3020,10 +2987,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = MoveDetail.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -3037,7 +3000,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"accuracy\" : 6, \"effect_chance\" : 1, \"pp\" : 5, \"priority\" : 5, \"power\" : 2, \"contest_combos\" : { \"normal\" : { \"use_before\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"use_after\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }, \"super\" : { \"use_before\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"use_after\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] } }, \"contest_type\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"contest_effect\" : { \"url\" : \"https://openapi-generator.tech\" }, \"damage_class\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"effect_entries\" : [ { \"effect\" : \"effect\", \"short_effect\" : \"short_effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"effect\" : \"effect\", \"short_effect\" : \"short_effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"effect_changes\" : [ { \"effect_entries\" : [ { \"effect\" : \"effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"effect\" : \"effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"effect_entries\" : [ { \"effect\" : \"effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"effect\" : \"effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"generation\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"meta\" : \"\", \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"past_values\" : [ { \"accuracy\" : 7, \"power\" : 9, \"pp\" : 3, \"effect_chance\" : 2, \"effect_entries\" : [ { \"effect\" : \"effect\", \"short_effect\" : \"short_effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"effect\" : \"effect\", \"short_effect\" : \"short_effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"type\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"accuracy\" : 7, \"power\" : 9, \"pp\" : 3, \"effect_chance\" : 2, \"effect_entries\" : [ { \"effect\" : \"effect\", \"short_effect\" : \"short_effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"effect\" : \"effect\", \"short_effect\" : \"short_effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"type\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"stat_changes\" : [ { \"change\" : 4, \"stat\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"change\" : 4, \"stat\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"super_contest_effect\" : { \"url\" : \"https://openapi-generator.tech\" }, \"target\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"type\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"machines\" : [ { \"machine\" : { \"url\" : \"https://openapi-generator.tech\" }, \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"machine\" : { \"url\" : \"https://openapi-generator.tech\" }, \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"flavor_text_entries\" : [ { \"flavor_text\" : \"flavor_text\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"flavor_text\" : \"flavor_text\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"learned_by_pokemon\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"accuracy\" : 441289069, \"effect_chance\" : 1, \"pp\" : 413233370, \"priority\" : 273751188, \"power\" : -1158723813, \"contest_combos\" : \"\", \"contest_type\" : \"\", \"contest_effect\" : \"\", \"damage_class\" : \"\", \"effect_entries\" : [ { \"effect\" : \"effect\", \"short_effect\" : \"short_effect\", \"language\" : \"\" }, { \"effect\" : \"effect\", \"short_effect\" : \"short_effect\", \"language\" : \"\" } ], \"effect_changes\" : [ { \"version_group\" : \"\", \"effect_entries\" : [ { \"effect\" : \"effect\", \"language\" : \"\" }, { \"effect\" : \"effect\", \"language\" : \"\" } ] }, { \"version_group\" : \"\", \"effect_entries\" : [ { \"effect\" : \"effect\", \"language\" : \"\" }, { \"effect\" : \"effect\", \"language\" : \"\" } ] } ], \"generation\" : \"\", \"meta\" : \"\", \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ], \"past_values\" : [ { \"accuracy\" : 885365090, \"power\" : 1847456234, \"pp\" : -594390510, \"effect_chance\" : 2, \"effect_entries\" : [ { \"effect\" : \"effect\", \"short_effect\" : \"short_effect\", \"language\" : \"\" }, { \"effect\" : \"effect\", \"short_effect\" : \"short_effect\", \"language\" : \"\" } ], \"type\" : \"\", \"version_group\" : \"\" }, { \"accuracy\" : 885365090, \"power\" : 1847456234, \"pp\" : -594390510, \"effect_chance\" : 2, \"effect_entries\" : [ { \"effect\" : \"effect\", \"short_effect\" : \"short_effect\", \"language\" : \"\" }, { \"effect\" : \"effect\", \"short_effect\" : \"short_effect\", \"language\" : \"\" } ], \"type\" : \"\", \"version_group\" : \"\" } ], \"stat_changes\" : [ { \"change\" : -366958557, \"stat\" : \"\" }, { \"change\" : -366958557, \"stat\" : \"\" } ], \"super_contest_effect\" : \"\", \"target\" : \"\", \"type\" : \"\", \"machines\" : [ { \"machine\" : \"\", \"version_group\" : \"\" }, { \"machine\" : \"\", \"version_group\" : \"\" } ], \"flavor_text_entries\" : [ { \"flavor_text\" : \"flavor_text\", \"language\" : \"\", \"version_group\" : \"\" }, { \"flavor_text\" : \"flavor_text\", \"language\" : \"\", \"version_group\" : \"\" } ], \"learned_by_pokemon\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -3067,10 +3030,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedMoveTargetSummaryList.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -3086,7 +3045,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    String exampleString = "{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/move-target/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/move-target/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -3114,10 +3073,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = MoveTargetDetail.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -3131,7 +3086,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"descriptions\" : [ { \"description\" : \"description\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"description\" : \"description\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"moves\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }";
+                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"descriptions\" : [ { \"description\" : \"description\", \"language\" : \"\" }, { \"description\" : \"description\", \"language\" : \"\" } ], \"moves\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -3161,10 +3116,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedNatureSummaryList.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -3180,7 +3131,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    String exampleString = "{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/nature/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/nature/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -3208,10 +3159,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = NatureDetail.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -3225,7 +3172,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"decreased_stat\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"increased_stat\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"likes_flavor\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"hates_flavor\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"berries\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"pokeathlon_stat_changes\" : [ { \"max_change\" : 6, \"pokeathlon_stat\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"max_change\" : 6, \"pokeathlon_stat\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"move_battle_style_preferences\" : [ { \"low_hp_preference\" : 1, \"high_hp_preference\" : 5, \"move_battle_style\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"low_hp_preference\" : 1, \"high_hp_preference\" : 5, \"move_battle_style\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }";
+                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"decreased_stat\" : \"\", \"increased_stat\" : \"\", \"likes_flavor\" : \"\", \"hates_flavor\" : \"\", \"pokeathlon_stat_changes\" : [ { \"max_change\" : 441289069, \"pokeathlon_stat\" : \"\" }, { \"max_change\" : 441289069, \"pokeathlon_stat\" : \"\" } ], \"move_battle_style_preferences\" : [ { \"low_hp_preference\" : -1517921766, \"high_hp_preference\" : 413233370, \"move_battle_style\" : \"\" }, { \"low_hp_preference\" : -1517921766, \"high_hp_preference\" : 413233370, \"move_battle_style\" : \"\" } ], \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -3255,10 +3202,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedPalParkAreaSummaryList.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -3274,7 +3217,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    String exampleString = "{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/pal-park-area/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/pal-park-area/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -3302,10 +3245,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = PalParkAreaDetail.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -3319,7 +3258,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"pokemon_encounters\" : [ { \"base_score\" : 6, \"pokemon-species\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"rate\" : 1 }, { \"base_score\" : 6, \"pokemon-species\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"rate\" : 1 } ] }";
+                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ], \"pokemon_encounters\" : [ { \"base_score\" : 441289069, \"rate\" : -1517921766, \"pokemon_species\" : \"\" }, { \"base_score\" : 441289069, \"rate\" : -1517921766, \"pokemon_species\" : \"\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -3349,10 +3288,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedPokeathlonStatSummaryList.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -3368,7 +3303,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    String exampleString = "{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/pokeathlon-stat/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/pokeathlon-stat/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -3396,10 +3331,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = PokeathlonStatDetail.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -3413,7 +3344,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"affecting_natures\" : { \"decrease\" : [ { \"max_change\" : 0, \"nature\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"max_change\" : 0, \"nature\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"increase\" : [ { \"max_change\" : 1, \"nature\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"max_change\" : 1, \"nature\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }, \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }";
+                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"affecting_natures\" : \"\", \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -3443,10 +3374,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedPokedexSummaryList.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -3462,7 +3389,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    String exampleString = "{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/pokedex/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/pokedex/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -3490,10 +3417,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = PokedexDetail.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -3507,7 +3430,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"is_main_series\" : true, \"descriptions\" : [ { \"description\" : \"description\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"description\" : \"description\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"pokemon_entries\" : [ { \"entry_number\" : 6, \"pokemon_species\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"entry_number\" : 6, \"pokemon_species\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"region\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"version_groups\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"is_main_series\" : true, \"descriptions\" : [ { \"description\" : \"description\", \"language\" : \"\" }, { \"description\" : \"description\", \"language\" : \"\" } ], \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ], \"pokemon_entries\" : [ { \"entry_number\" : 6, \"pokemon_species\" : \"\" }, { \"entry_number\" : 6, \"pokemon_species\" : \"\" } ], \"region\" : \"\", \"version_groups\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -3537,10 +3460,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedPokemonColorSummaryList.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -3556,7 +3475,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    String exampleString = "{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/pokemon-color/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/pokemon-color/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -3584,10 +3503,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = PokemonColorDetail.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -3601,7 +3516,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"pokemon_species\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ], \"pokemon_species\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -3631,10 +3546,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedPokemonFormSummaryList.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -3650,7 +3561,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    String exampleString = "{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/pokemon-form/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/pokemon-form/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -3678,10 +3589,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = PokemonFormDetail.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -3695,7 +3602,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"order\" : 6, \"form_order\" : 1, \"is_default\" : true, \"is_battle_only\" : true, \"is_mega\" : true, \"form_name\" : \"form_name\", \"pokemon\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"sprites\" : { \"default\" : \"https://openapi-generator.tech\" }, \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"form_names\" : [ { \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"name\" : \"name\" }, { \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"name\" : \"name\" } ], \"names\" : [ { \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"name\" : \"name\" }, { \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"name\" : \"name\" } ], \"types\" : [ { \"slot\" : 4, \"type\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"slot\" : 4, \"type\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }";
+                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"order\" : 441289069, \"form_order\" : -1517921766, \"is_default\" : true, \"is_battle_only\" : true, \"is_mega\" : true, \"form_name\" : \"form_name\", \"pokemon\" : \"\", \"sprites\" : \"\", \"version_group\" : \"\", \"form_names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ], \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ], \"types\" : [ { \"slot\" : 413233370, \"type\" : \"\" }, { \"slot\" : 413233370, \"type\" : \"\" } ], \"trigger_conditions\" : [ { \"trigger\" : \"trigger\", \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\", \"base_form\" : \"\" }, { \"trigger\" : \"trigger\", \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\", \"base_form\" : \"\" } ], \"flavor_text_entries\" : [ { \"flavor_text\" : \"flavor_text\", \"language\" : \"\", \"version\" : \"\" }, { \"flavor_text\" : \"flavor_text\", \"language\" : \"\", \"version\" : \"\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -3725,10 +3632,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedPokemonHabitatSummaryList.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -3744,7 +3647,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    String exampleString = "{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/pokemon-habitat/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/pokemon-habitat/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -3772,10 +3675,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = PokemonHabitatDetail.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -3789,7 +3688,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"pokemon_species\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ], \"pokemon_species\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -3819,10 +3718,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedPokemonSummaryList.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -3838,7 +3733,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    String exampleString = "{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/pokemon/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/pokemon/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -3866,10 +3761,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = PokemonDetail.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -3883,7 +3774,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"base_experience\" : 6, \"height\" : 1, \"is_default\" : true, \"order\" : 5, \"weight\" : 5, \"abilities\" : [ { \"ability\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"is_hidden\" : true, \"slot\" : 2 }, { \"ability\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"is_hidden\" : true, \"slot\" : 2 } ], \"past_abilities\" : [ { \"abilities\" : [ { \"ability\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"is_hidden\" : true, \"slot\" : 2 }, { \"ability\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"is_hidden\" : true, \"slot\" : 2 } ], \"generation\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"abilities\" : [ { \"ability\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"is_hidden\" : true, \"slot\" : 2 }, { \"ability\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"is_hidden\" : true, \"slot\" : 2 } ], \"generation\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"forms\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"game_indices\" : [ { \"game_index\" : 7, \"version\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"game_index\" : 7, \"version\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"held_items\" : { \"item\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"version_details\" : [ { \"rarity\" : 5, \"version\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"rarity\" : 5, \"version\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }, \"location_area_encounters\" : \"location_area_encounters\", \"moves\" : [ { \"move\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"version_group_details\" : [ { \"level_learned_at\" : 9, \"move_learn_method\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"level_learned_at\" : 9, \"move_learn_method\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }, { \"move\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"version_group_details\" : [ { \"level_learned_at\" : 9, \"move_learn_method\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"level_learned_at\" : 9, \"move_learn_method\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] } ], \"species\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"sprites\" : { \"front_default\" : \"https://openapi-generator.tech\" }, \"cries\" : { \"latest\" : \"https://openapi-generator.tech\", \"legacy\" : \"https://openapi-generator.tech\" }, \"stats\" : [ { \"base_stat\" : 3, \"effort\" : 2, \"stat\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"base_stat\" : 3, \"effort\" : 2, \"stat\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"types\" : [ { \"slot\" : 4, \"type\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"slot\" : 4, \"type\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"past_types\" : [ { \"generation\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"types\" : [ { \"slot\" : 4, \"type\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"slot\" : 4, \"type\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }, { \"generation\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"types\" : [ { \"slot\" : 4, \"type\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"slot\" : 4, \"type\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] } ] }";
+                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"base_experience\" : 441289069, \"height\" : -1517921766, \"is_default\" : true, \"order\" : 413233370, \"weight\" : 273751188, \"abilities\" : [ { \"is_hidden\" : true, \"slot\" : -1158723813, \"ability\" : \"\" }, { \"is_hidden\" : true, \"slot\" : -1158723813, \"ability\" : \"\" } ], \"past_abilities\" : [ { \"abilities\" : [ { \"is_hidden\" : true, \"slot\" : 885365090, \"ability\" : \"\" }, { \"is_hidden\" : true, \"slot\" : 885365090, \"ability\" : \"\" } ], \"generation\" : \"\" }, { \"abilities\" : [ { \"is_hidden\" : true, \"slot\" : 885365090, \"ability\" : \"\" }, { \"is_hidden\" : true, \"slot\" : 885365090, \"ability\" : \"\" } ], \"generation\" : \"\" } ], \"forms\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"game_indices\" : [ { \"game_index\" : 1847456234, \"version\" : \"\" }, { \"game_index\" : 1847456234, \"version\" : \"\" } ], \"held_items\" : [ { \"item\" : \"\", \"version_details\" : [ { \"rarity\" : 2, \"version\" : \"\" }, { \"rarity\" : 2, \"version\" : \"\" } ] }, { \"item\" : \"\", \"version_details\" : [ { \"rarity\" : 2, \"version\" : \"\" }, { \"rarity\" : 2, \"version\" : \"\" } ] } ], \"location_area_encounters\" : \"location_area_encounters\", \"moves\" : [ { \"move\" : \"\", \"version_group_details\" : [ { \"level_learned_at\" : 3, \"move_learn_method\" : \"\", \"version_group\" : \"\", \"order\" : 2 }, { \"level_learned_at\" : 3, \"move_learn_method\" : \"\", \"version_group\" : \"\", \"order\" : 2 } ] }, { \"move\" : \"\", \"version_group_details\" : [ { \"level_learned_at\" : 3, \"move_learn_method\" : \"\", \"version_group\" : \"\", \"order\" : 2 }, { \"level_learned_at\" : 3, \"move_learn_method\" : \"\", \"version_group\" : \"\", \"order\" : 2 } ] } ], \"species\" : \"\", \"sprites\" : \"\", \"cries\" : \"\", \"stats\" : [ { \"base_stat\" : -366958557, \"effort\" : 1024900291, \"stat\" : \"\" }, { \"base_stat\" : -366958557, \"effort\" : 1024900291, \"stat\" : \"\" } ], \"past_stats\" : [ { \"generation\" : \"\", \"stats\" : [ { \"base_stat\" : -366958557, \"effort\" : 1024900291, \"stat\" : \"\" }, { \"base_stat\" : -366958557, \"effort\" : 1024900291, \"stat\" : \"\" } ] }, { \"generation\" : \"\", \"stats\" : [ { \"base_stat\" : -366958557, \"effort\" : 1024900291, \"stat\" : \"\" }, { \"base_stat\" : -366958557, \"effort\" : 1024900291, \"stat\" : \"\" } ] } ], \"types\" : [ { \"slot\" : -1618552611, \"type\" : \"\" }, { \"slot\" : -1618552611, \"type\" : \"\" } ], \"past_types\" : [ { \"generation\" : \"\", \"types\" : [ { \"slot\" : -1618552611, \"type\" : \"\" }, { \"slot\" : -1618552611, \"type\" : \"\" } ] }, { \"generation\" : \"\", \"types\" : [ { \"slot\" : -1618552611, \"type\" : \"\" }, { \"slot\" : -1618552611, \"type\" : \"\" } ] } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -3913,10 +3804,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedPokemonShapeSummaryList.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -3932,7 +3819,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    String exampleString = "{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/pokemon-shape/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/pokemon-shape/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -3960,10 +3847,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = PokemonShapeDetail.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -3977,7 +3860,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"awesome_names\" : [ { \"awesome_name\" : \"awesome_name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"awesome_name\" : \"awesome_name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"names\" : [ { \"url\" : \"https://openapi-generator.tech\", \"name\" : \"name\" }, { \"url\" : \"https://openapi-generator.tech\", \"name\" : \"name\" } ], \"pokemon_species\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"awesome_names\" : [ { \"awesome_name\" : \"awesome_name\", \"language\" : \"\" }, { \"awesome_name\" : \"awesome_name\", \"language\" : \"\" } ], \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ], \"pokemon_species\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -4007,10 +3890,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedPokemonSpeciesSummaryList.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -4026,7 +3905,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    String exampleString = "{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/pokemon-species/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/pokemon-species/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -4054,10 +3933,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = PokemonSpeciesDetail.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -4071,7 +3946,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"order\" : 6, \"gender_rate\" : 1, \"capture_rate\" : 5, \"base_happiness\" : 5, \"is_baby\" : true, \"is_legendary\" : true, \"is_mythical\" : true, \"hatch_counter\" : 2, \"has_gender_differences\" : true, \"forms_switchable\" : true, \"growth_rate\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"pokedex_numbers\" : [ { \"entry_number\" : 7, \"pokedex\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"entry_number\" : 7, \"pokedex\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"egg_groups\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"color\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"shape\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"evolves_from_species\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"evolution_chain\" : { \"url\" : \"https://openapi-generator.tech\" }, \"habitat\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"generation\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"names\" : [ { \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"name\" : \"name\" }, { \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"name\" : \"name\" } ], \"pal_park_encounters\" : [ { \"area\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"base_score\" : 9, \"rate\" : 3 }, { \"area\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"base_score\" : 9, \"rate\" : 3 } ], \"form_descriptions\" : [ { \"description\" : \"description\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"description\" : \"description\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"flavor_text_entries\" : [ { \"flavor_text\" : \"flavor_text\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"version\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"flavor_text\" : \"flavor_text\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"version\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"genera\" : [ { \"genus\" : \"genus\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"genus\" : \"genus\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"varieties\" : [ { \"is_default\" : true, \"pokemon\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"is_default\" : true, \"pokemon\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }";
+                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"order\" : 441289069, \"gender_rate\" : -1517921766, \"capture_rate\" : 413233370, \"base_happiness\" : 273751188, \"is_baby\" : true, \"is_legendary\" : true, \"is_mythical\" : true, \"hatch_counter\" : -1158723813, \"has_gender_differences\" : true, \"forms_switchable\" : true, \"growth_rate\" : \"\", \"pokedex_numbers\" : [ { \"entry_number\" : 7, \"pokedex\" : \"\" }, { \"entry_number\" : 7, \"pokedex\" : \"\" } ], \"egg_groups\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"color\" : \"\", \"shape\" : \"\", \"evolves_from_species\" : \"\", \"evolution_chain\" : \"\", \"habitat\" : \"\", \"generation\" : \"\", \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ], \"pal_park_encounters\" : [ { \"base_score\" : 1847456234, \"rate\" : -594390510, \"area\" : \"\" }, { \"base_score\" : 1847456234, \"rate\" : -594390510, \"area\" : \"\" } ], \"form_descriptions\" : [ { \"description\" : \"description\", \"language\" : \"\" }, { \"description\" : \"description\", \"language\" : \"\" } ], \"flavor_text_entries\" : [ { \"flavor_text\" : \"flavor_text\", \"language\" : \"\", \"version\" : \"\" }, { \"flavor_text\" : \"flavor_text\", \"language\" : \"\", \"version\" : \"\" } ], \"genera\" : [ { \"genus\" : \"genus\", \"language\" : \"\" }, { \"genus\" : \"genus\", \"language\" : \"\" } ], \"varieties\" : [ { \"is_default\" : true, \"pokemon\" : \"\" }, { \"is_default\" : true, \"pokemon\" : \"\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -4101,10 +3976,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedRegionSummaryList.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -4120,7 +3991,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    String exampleString = "{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/region/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/region/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -4148,10 +4019,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = RegionDetail.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -4165,7 +4032,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"locations\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"main_generation\" : \"\", \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"pokedexes\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"version_groups\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"locations\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"main_generation\" : \"\", \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ], \"pokedexes\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"version_groups\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -4195,10 +4062,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedStatSummaryList.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -4214,7 +4077,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    String exampleString = "{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/stat/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/stat/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -4242,10 +4105,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = StatDetail.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -4259,7 +4118,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"game_index\" : 6, \"is_battle_only\" : true, \"affecting_moves\" : { \"increase\" : [ { \"change\" : 1, \"move\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"change\" : 1, \"move\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"decrease\" : [ { \"change\" : 1, \"move\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"change\" : 1, \"move\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }, \"affecting_natures\" : { \"increase\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"decrease\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }, \"characteristics\" : [ { \"url\" : \"https://openapi-generator.tech\" }, { \"url\" : \"https://openapi-generator.tech\" } ], \"move_damage_class\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }";
+                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"game_index\" : 441289069, \"is_battle_only\" : true, \"affecting_moves\" : \"\", \"affecting_natures\" : \"\", \"affecting_items\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"characteristics\" : [ { \"url\" : \"https://openapi-generator.tech\" }, { \"url\" : \"https://openapi-generator.tech\" } ], \"move_damage_class\" : \"\", \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -4277,7 +4136,6 @@ public interface ApiApi {
      *
      * @param limit Number of results to return per page. (optional)
      * @param offset The initial index from which to return the results. (optional)
-     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
      * @return  (status code 200)
      */
     @Operation(
@@ -4289,10 +4147,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedSuperContestEffectSummaryList.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -4302,13 +4156,12 @@ public interface ApiApi {
     )
     default ResponseEntity<PaginatedSuperContestEffectSummaryList> superContestEffectList(
         @Parameter(name = "limit", description = "Number of results to return per page.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
-        @Parameter(name = "offset", description = "The initial index from which to return the results.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset,
-        @Parameter(name = "q", description = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ", in = ParameterIn.QUERY) @Valid @RequestParam(value = "q", required = false) @Nullable String q
+        @Parameter(name = "offset", description = "The initial index from which to return the results.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset
     ) {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"url\" : \"https://openapi-generator.tech\" }, { \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    String exampleString = "{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/super-contest-effect/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/super-contest-effect/?offset=0&limit=20\", \"results\" : [ { \"url\" : \"https://openapi-generator.tech\" }, { \"url\" : \"https://openapi-generator.tech\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -4336,10 +4189,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = SuperContestEffectDetail.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -4353,7 +4202,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"id\" : 0, \"appeal\" : 6, \"flavor_text_entries\" : [ { \"flavor_text\" : \"flavor_text\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"flavor_text\" : \"flavor_text\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"moves\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    String exampleString = "{ \"id\" : 0, \"appeal\" : 441289069, \"flavor_text_entries\" : [ { \"flavor_text\" : \"flavor_text\", \"language\" : \"\" }, { \"flavor_text\" : \"flavor_text\", \"language\" : \"\" } ], \"moves\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -4383,10 +4232,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedTypeSummaryList.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -4402,7 +4247,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    String exampleString = "{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/type/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/type/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -4430,10 +4275,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = TypeDetail.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -4447,7 +4288,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"damage_relations\" : { \"no_damage_to\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"half_damage_to\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"double_damage_to\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"no_damage_from\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"half_damage_from\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"double_damage_from\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }, \"past_damage_relations\" : [ { \"generation\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"damage_relations\" : { \"no_damage_to\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"half_damage_to\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"double_damage_to\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"no_damage_from\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"half_damage_from\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"double_damage_from\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] } }, { \"generation\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"damage_relations\" : { \"no_damage_to\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"half_damage_to\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"double_damage_to\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"no_damage_from\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"half_damage_from\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"double_damage_from\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] } } ], \"game_indices\" : [ { \"game_index\" : 5, \"generation\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"game_index\" : 5, \"generation\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"generation\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"move_damage_class\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"pokemon\" : [ { \"slot\" : 6, \"pokemon\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"slot\" : 6, \"pokemon\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"moves\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"sprites\" : { \"key\" : { \"key\" : { \"name-icon\" : \"https://openapi-generator.tech\" } } } }";
+                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"damage_relations\" : \"\", \"past_damage_relations\" : [ { \"generation\" : \"\", \"damage_relations\" : \"\" }, { \"generation\" : \"\", \"damage_relations\" : \"\" } ], \"game_indices\" : [ { \"game_index\" : -1517921766, \"generation\" : \"\" }, { \"game_index\" : -1517921766, \"generation\" : \"\" } ], \"generation\" : \"\", \"move_damage_class\" : \"\", \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ], \"pokemon\" : [ { \"slot\" : 441289069, \"pokemon\" : \"\" }, { \"slot\" : 441289069, \"pokemon\" : \"\" } ], \"moves\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"sprites\" : { \"key\" : { \"key\" : { \"name_icon\" : \"name_icon\", \"symbol_icon\" : \"symbol_icon\" } } } }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -4477,10 +4318,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedVersionGroupSummaryList.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -4496,7 +4333,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    String exampleString = "{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/version-group/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/version-group/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -4524,10 +4361,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = VersionGroupDetail.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -4541,7 +4374,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"order\" : 6, \"generation\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"move_learn_methods\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"pokedexes\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"regions\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"versions\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"order\" : 441289069, \"generation\" : \"\", \"move_learn_methods\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"pokedexes\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"regions\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"versions\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -4571,10 +4404,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedVersionSummaryList.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -4590,7 +4419,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    String exampleString = "{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/version/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/version/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -4618,10 +4447,6 @@ public interface ApiApi {
             @ApiResponse(responseCode = "200", description = "", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = VersionDetail.class))
             })
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
@@ -4635,7 +4460,7 @@ public interface ApiApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }";
+                    String exampleString = "{ \"id\" : 0, \"name\" : \"name\", \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ], \"version_group\" : \"\" }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }

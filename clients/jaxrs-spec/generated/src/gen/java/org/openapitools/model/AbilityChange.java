@@ -21,7 +21,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("AbilityChange")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-11-09T13:50:06.168269698Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class AbilityChange   {
   private VersionGroupSummary versionGroup;
   private List<@Valid AbilityChangeEffectText> effectEntries = new ArrayList<>();
@@ -39,6 +39,7 @@ public class AbilityChange   {
   }
 
   /**
+   * The version group in which the previous effect of this ability originated.
    **/
   public AbilityChange versionGroup(VersionGroupSummary versionGroup) {
     this.versionGroup = versionGroup;
@@ -46,7 +47,7 @@ public class AbilityChange   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The version group in which the previous effect of this ability originated.")
   @JsonProperty(required = true, value = "version_group")
   @NotNull @Valid public VersionGroupSummary getVersionGroup() {
     return versionGroup;
@@ -58,6 +59,7 @@ public class AbilityChange   {
   }
 
   /**
+   * The previous effect of this ability listed in different languages.
    **/
   public AbilityChange effectEntries(List<@Valid AbilityChangeEffectText> effectEntries) {
     this.effectEntries = effectEntries;
@@ -65,7 +67,7 @@ public class AbilityChange   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The previous effect of this ability listed in different languages.")
   @JsonProperty(required = true, value = "effect_entries")
   public List<@Valid AbilityChangeEffectText> getEffectEntries() {
     return effectEntries;

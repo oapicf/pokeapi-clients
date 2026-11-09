@@ -157,8 +157,10 @@ use openapi_client::{
     EncounterMethodRetrieveResponse,
     EvolutionChainListResponse,
     EvolutionTriggerListResponse,
+    EvolutionVariableListResponse,
     EvolutionChainRetrieveResponse,
     EvolutionTriggerRetrieveResponse,
+    EvolutionVariableRetrieveResponse,
     GenerationListResponse,
     PokedexListResponse,
     VersionGroupListResponse,
@@ -167,11 +169,13 @@ use openapi_client::{
     PokedexRetrieveResponse,
     VersionGroupRetrieveResponse,
     VersionRetrieveResponse,
+    CurrencyListResponse,
     ItemAttributeListResponse,
     ItemCategoryListResponse,
     ItemFlingEffectListResponse,
     ItemListResponse,
     ItemPocketListResponse,
+    CurrencyRetrieveResponse,
     ItemAttributeRetrieveResponse,
     ItemCategoryRetrieveResponse,
     ItemFlingEffectRetrieveResponse,
@@ -232,6 +236,7 @@ use openapi_client::{
     StatRetrieveResponse,
     TypeRetrieveResponse,
     LanguageListResponse,
+    MetaRetrieveResponse,
     LanguageRetrieveResponse,
 };
 use openapi_client::server::MakeService;
@@ -312,10 +317,9 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
-        q: Option<String>,
         context: &C) -> Result<ContestEffectListResponse, ApiError>
     {
-        info!("contest_effect_list({:?}, {:?}, {:?}) - X-Span-ID: {:?}", limit, offset, q, context.get().0.clone());
+        info!("contest_effect_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
@@ -336,10 +340,9 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
-        q: Option<String>,
         context: &C) -> Result<SuperContestEffectListResponse, ApiError>
     {
-        info!("super_contest_effect_list({:?}, {:?}, {:?}) - X-Span-ID: {:?}", limit, offset, q, context.get().0.clone());
+        info!("super_contest_effect_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
@@ -444,10 +447,9 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
-        q: Option<String>,
         context: &C) -> Result<EvolutionChainListResponse, ApiError>
     {
-        info!("evolution_chain_list({:?}, {:?}, {:?}) - X-Span-ID: {:?}", limit, offset, q, context.get().0.clone());
+        info!("evolution_chain_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
@@ -460,6 +462,18 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<EvolutionTriggerListResponse, ApiError>
     {
         info!("evolution_trigger_list({:?}, {:?}, {:?}) - X-Span-ID: {:?}", limit, offset, q, context.get().0.clone());
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
+    }
+
+    /// List evolution variables
+    async fn evolution_variable_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        context: &C) -> Result<EvolutionVariableListResponse, ApiError>
+    {
+        info!("evolution_variable_list({:?}, {:?}, {:?}) - X-Span-ID: {:?}", limit, offset, q, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
@@ -480,6 +494,16 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<EvolutionTriggerRetrieveResponse, ApiError>
     {
         info!("evolution_trigger_retrieve({:?}) - X-Span-ID: {:?}", id, context.get().0.clone());
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
+    }
+
+    /// Get evolution variable
+    async fn evolution_variable_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<EvolutionVariableRetrieveResponse, ApiError>
+    {
+        info!("evolution_variable_retrieve({:?}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
@@ -571,6 +595,18 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
+    /// List currencies
+    async fn currency_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        context: &C) -> Result<CurrencyListResponse, ApiError>
+    {
+        info!("currency_list({:?}, {:?}, {:?}) - X-Span-ID: {:?}", limit, offset, q, context.get().0.clone());
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
+    }
+
     /// List item attributes
     async fn item_attribute_list(
         &self,
@@ -628,6 +664,16 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<ItemPocketListResponse, ApiError>
     {
         info!("item_pocket_list({:?}, {:?}, {:?}) - X-Span-ID: {:?}", limit, offset, q, context.get().0.clone());
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
+    }
+
+    /// Get currency
+    async fn currency_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<CurrencyRetrieveResponse, ApiError>
+    {
+        info!("currency_retrieve({:?}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
@@ -773,10 +819,9 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
-        q: Option<String>,
         context: &C) -> Result<MachineListResponse, ApiError>
     {
-        info!("machine_list({:?}, {:?}, {:?}) - X-Span-ID: {:?}", limit, offset, q, context.get().0.clone());
+        info!("machine_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
@@ -922,6 +967,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
+    /// List abilities
     async fn ability_list(
         &self,
         limit: Option<i32>,
@@ -933,15 +979,14 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
-    /// List charecterictics
+    /// List characteristics
     async fn characteristic_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
-        q: Option<String>,
         context: &C) -> Result<CharacteristicListResponse, ApiError>
     {
-        info!("characteristic_list({:?}, {:?}, {:?}) - X-Span-ID: {:?}", limit, offset, q, context.get().0.clone());
+        info!("characteristic_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
@@ -1113,6 +1158,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
+    /// Get ability
     async fn ability_retrieve(
         &self,
         id: String,
@@ -1281,6 +1327,15 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<LanguageListResponse, ApiError>
     {
         info!("language_list({:?}, {:?}, {:?}) - X-Span-ID: {:?}", limit, offset, q, context.get().0.clone());
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
+    }
+
+    /// Get API metadata
+    async fn meta_retrieve(
+        &self,
+        context: &C) -> Result<MetaRetrieveResponse, ApiError>
+    {
+        info!("meta_retrieve() - X-Span-ID: {:?}", context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 

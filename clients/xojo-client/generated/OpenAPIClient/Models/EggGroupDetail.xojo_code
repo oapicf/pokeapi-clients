@@ -2,22 +2,34 @@
 Protected Class EggGroupDetail
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The identifier for this resource.
+		#tag EndNote
 		id As Integer
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The name for this resource.
+		#tag EndNote
 		name As String
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The name of this resource listed in different languages.
+		#tag EndNote
 		names() As OpenAPIClient.Models.EggGroupName
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
-		pokemon_species() As OpenAPIClient.Models.EggGroupDetailPokemonSpeciesInner
+		#tag Note
+			A list of all Pokémon species that are members of this egg group.
+		#tag EndNote
+		pokemon_species() As OpenAPIClient.Models.PokemonSpeciesSummary
 	#tag EndProperty
 
 
@@ -86,7 +98,7 @@ Protected Class EggGroupDetail
 			Visible=false
 			Group="Behavior"
 			InitialValue=""
-			Type="EggGroupDetailPokemonSpeciesInner"
+			Type="PokemonSpeciesSummary"
 			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior

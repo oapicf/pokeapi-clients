@@ -12,8 +12,10 @@ import org.joda.time.DateTime
 import TypeGameIndex._
 
 case class TypeGameIndex (
+  /* The internal id of an API resource within game data. */
   gameIndex: Integer,
-generation: GenerationSummary)
+/* The generation relevent to this game index. */
+  generation: GenerationSummary)
 
 object TypeGameIndex {
   import DateTimeCodecs._

@@ -1,0 +1,35 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "EvolutionChainLink",
+  "fields": [
+    {
+      "name": "is_baby",
+      "type": "boolean",
+      "doc": "Whether or not this link is for a baby Pokémon. This would only ever be true on the base link."
+    },
+    {
+      "name": "species",
+      "type": "model.PokemonSpeciesSummary",
+      "doc": "The Pokémon species at this point in the evolution chain."
+    },
+    {
+      "name": "evolution_details",
+      "type": {
+        "type": "array",
+        "items": "model.PokemonEvolution"
+      },
+      "doc": "All details regarding the specific details of the referenced Pokémon species evolution."
+    },
+    {
+      "name": "evolves_to",
+      "type": {
+        "type": "array",
+        "items": "model.EvolutionChainLink"
+      },
+      "doc": "A List of chain objects."
+    }
+  ]
+
+}

@@ -8,9 +8,13 @@
 import Foundation
 
 public struct MachineDetail: Codable {
+    /// The identifier for this resource.
     public var id: Int
+    /// The TM or HM item that corresponds to this machine.
     public var item: ItemSummary
+    /// The version group that this machine applies to.
     public var versionGroup: VersionGroupSummary
+    /// The move that is taught by this machine.
     public var move: MoveSummary
 
     public init(id: Int, item: ItemSummary, versionGroup: VersionGroupSummary, move: MoveSummary) {

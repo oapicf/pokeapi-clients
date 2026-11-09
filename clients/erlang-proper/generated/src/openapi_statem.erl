@@ -77,3 +77,13 @@ language_retrieve(Id) ->
 language_retrieve_args(_S) ->
   [binary()].
 
+%%==============================================================================
+%% meta_retrieve
+%%==============================================================================
+
+meta_retrieve() ->
+  openapi_api:meta_retrieve().
+
+meta_retrieve_args(_S) ->
+  [].
+

@@ -9,27 +9,42 @@ import Foundation
 
 public struct ItemDetail: Sendable, Codable, Hashable {
 
-    public static let nameRule = StringRule(minLength: nil, maxLength: 100, pattern: nil)
+    public static let nameRule = StringRule(minLength: nil, maxLength: 200, pattern: nil)
+    public static let flingPowerRule = NumericRule<Int>(minimum: -2147483648, exclusiveMinimum: false, maximum: 2147483647, exclusiveMaximum: false, multipleOf: nil)
+    /** The identifier for this resource. */
     public var id: Int
+    /** The name for this resource. */
     public var name: String
-    public var cost: Int?
+    /** The power of the move Fling when used with this item. */
     public var flingPower: Int?
-    public var flingEffect: ItemFlingEffectSummary
-    public var attributes: [AbilityDetailPokemonInnerPokemon]
+    /** The effect of the move Fling when used with this item. */
+    public var flingEffect: ItemFlingEffectSummary?
+    /** A list of attributes this item has. */
+    public var attributes: [ItemAttributeSummary]
+    /** The category of items this item falls into. */
     public var category: ItemCategorySummary
+    /** The effect of this ability listed in different languages. */
     public var effectEntries: [ItemEffectText]
+    /** The flavor text of this ability listed in different languages. */
     public var flavorTextEntries: [ItemFlavorText]
+    /** A list of game indices relevent to this item by generation. */
     public var gameIndices: [ItemGameIndex]
+    /** Purchase and sell prices by currency and version group. Prices may be null when the item cannot be bought or sold. */
+    public var prices: [ItemPrice]
+    /** The name of this item listed in different languages. */
     public var names: [ItemName]
-    public var heldByPokemon: [ItemDetailHeldByPokemonInner]
-    public var sprites: ItemDetailSprites
-    public var babyTriggerFor: ItemDetailBabyTriggerFor
-    public var machines: [ItemDetailMachinesInner]
+    /** A list of Pokémon that might be found in the wild holding this item. */
+    public var heldByPokemon: [PokemonHeldItem]
+    /** A set of sprites used to depict this item in the game. */
+    public var sprites: ItemSprites
+    /** An evolution chain this item requires to produce a bay during mating. */
+    public var babyTriggerFor: EvolutionChainSummary?
+    /** A list of the machines related to this item. */
+    public var machines: [ItemMachine]
 
-    public init(id: Int, name: String, cost: Int? = nil, flingPower: Int? = nil, flingEffect: ItemFlingEffectSummary, attributes: [AbilityDetailPokemonInnerPokemon], category: ItemCategorySummary, effectEntries: [ItemEffectText], flavorTextEntries: [ItemFlavorText], gameIndices: [ItemGameIndex], names: [ItemName], heldByPokemon: [ItemDetailHeldByPokemonInner], sprites: ItemDetailSprites, babyTriggerFor: ItemDetailBabyTriggerFor, machines: [ItemDetailMachinesInner]) {
+    public init(id: Int, name: String, flingPower: Int? = nil, flingEffect: ItemFlingEffectSummary?, attributes: [ItemAttributeSummary], category: ItemCategorySummary, effectEntries: [ItemEffectText], flavorTextEntries: [ItemFlavorText], gameIndices: [ItemGameIndex], prices: [ItemPrice], names: [ItemName], heldByPokemon: [PokemonHeldItem], sprites: ItemSprites, babyTriggerFor: EvolutionChainSummary?, machines: [ItemMachine]) {
         self.id = id
         self.name = name
-        self.cost = cost
         self.flingPower = flingPower
         self.flingEffect = flingEffect
         self.attributes = attributes
@@ -37,6 +52,7 @@ public struct ItemDetail: Sendable, Codable, Hashable {
         self.effectEntries = effectEntries
         self.flavorTextEntries = flavorTextEntries
         self.gameIndices = gameIndices
+        self.prices = prices
         self.names = names
         self.heldByPokemon = heldByPokemon
         self.sprites = sprites
@@ -47,7 +63,6 @@ public struct ItemDetail: Sendable, Codable, Hashable {
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case id
         case name
-        case cost
         case flingPower = "fling_power"
         case flingEffect = "fling_effect"
         case attributes
@@ -55,6 +70,7 @@ public struct ItemDetail: Sendable, Codable, Hashable {
         case effectEntries = "effect_entries"
         case flavorTextEntries = "flavor_text_entries"
         case gameIndices = "game_indices"
+        case prices
         case names
         case heldByPokemon = "held_by_pokemon"
         case sprites
@@ -68,7 +84,6 @@ public struct ItemDetail: Sendable, Codable, Hashable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(id, forKey: .id)
         try container.encode(name, forKey: .name)
-        try container.encodeIfPresent(cost, forKey: .cost)
         try container.encodeIfPresent(flingPower, forKey: .flingPower)
         try container.encode(flingEffect, forKey: .flingEffect)
         try container.encode(attributes, forKey: .attributes)
@@ -76,6 +91,7 @@ public struct ItemDetail: Sendable, Codable, Hashable {
         try container.encode(effectEntries, forKey: .effectEntries)
         try container.encode(flavorTextEntries, forKey: .flavorTextEntries)
         try container.encode(gameIndices, forKey: .gameIndices)
+        try container.encode(prices, forKey: .prices)
         try container.encode(names, forKey: .names)
         try container.encode(heldByPokemon, forKey: .heldByPokemon)
         try container.encode(sprites, forKey: .sprites)

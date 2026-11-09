@@ -3,10 +3,10 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:openapi/src/model/location_area_detail_encounter_method_rates_inner.dart';
 import 'package:openapi/src/model/location_area_name.dart';
 import 'package:built_collection/built_collection.dart';
-import 'package:openapi/src/model/location_area_detail_pokemon_encounters_inner.dart';
+import 'package:openapi/src/model/location_area_pokemon_encounter.dart';
+import 'package:openapi/src/model/location_area_encounter_rate.dart';
 import 'package:openapi/src/model/location_summary.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -16,35 +16,42 @@ part 'location_area_detail.g.dart';
 /// LocationAreaDetail
 ///
 /// Properties:
-/// * [id] 
-/// * [name] 
-/// * [gameIndex] 
-/// * [encounterMethodRates] 
-/// * [location] 
-/// * [names] 
-/// * [pokemonEncounters] 
+/// * [id] - The identifier for this resource.
+/// * [name] - The name for this resource.
+/// * [gameIndex] - The internal id of an API resource within game data.
+/// * [encounterMethodRates] - A list of methods in which Pokémon may be encountered in this area and how likely the method will occur depending on the version of the game.
+/// * [location] - The region this location area can be found in.
+/// * [names] - The name of this resource listed in different languages.
+/// * [pokemonEncounters] - A list of Pokémon that can be encountered in this area along with version specific details about the encounter.
 @BuiltValue()
 abstract class LocationAreaDetail implements Built<LocationAreaDetail, LocationAreaDetailBuilder> {
+  /// The identifier for this resource.
   @BuiltValueField(wireName: r'id')
   int get id;
 
+  /// The name for this resource.
   @BuiltValueField(wireName: r'name')
   String get name;
 
+  /// The internal id of an API resource within game data.
   @BuiltValueField(wireName: r'game_index')
   int get gameIndex;
 
+  /// A list of methods in which Pokémon may be encountered in this area and how likely the method will occur depending on the version of the game.
   @BuiltValueField(wireName: r'encounter_method_rates')
-  BuiltList<LocationAreaDetailEncounterMethodRatesInner> get encounterMethodRates;
+  BuiltList<LocationAreaEncounterRate> get encounterMethodRates;
 
+  /// The region this location area can be found in.
   @BuiltValueField(wireName: r'location')
   LocationSummary get location;
 
+  /// The name of this resource listed in different languages.
   @BuiltValueField(wireName: r'names')
   BuiltList<LocationAreaName> get names;
 
+  /// A list of Pokémon that can be encountered in this area along with version specific details about the encounter.
   @BuiltValueField(wireName: r'pokemon_encounters')
-  BuiltList<LocationAreaDetailPokemonEncountersInner> get pokemonEncounters;
+  BuiltList<LocationAreaPokemonEncounter> get pokemonEncounters;
 
   LocationAreaDetail._();
 
@@ -87,7 +94,7 @@ class _$LocationAreaDetailSerializer implements PrimitiveSerializer<LocationArea
     yield r'encounter_method_rates';
     yield serializers.serialize(
       object.encounterMethodRates,
-      specifiedType: const FullType(BuiltList, [FullType(LocationAreaDetailEncounterMethodRatesInner)]),
+      specifiedType: const FullType(BuiltList, [FullType(LocationAreaEncounterRate)]),
     );
     yield r'location';
     yield serializers.serialize(
@@ -102,7 +109,7 @@ class _$LocationAreaDetailSerializer implements PrimitiveSerializer<LocationArea
     yield r'pokemon_encounters';
     yield serializers.serialize(
       object.pokemonEncounters,
-      specifiedType: const FullType(BuiltList, [FullType(LocationAreaDetailPokemonEncountersInner)]),
+      specifiedType: const FullType(BuiltList, [FullType(LocationAreaPokemonEncounter)]),
     );
   }
 
@@ -151,8 +158,8 @@ class _$LocationAreaDetailSerializer implements PrimitiveSerializer<LocationArea
         case r'encounter_method_rates':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(LocationAreaDetailEncounterMethodRatesInner)]),
-          ) as BuiltList<LocationAreaDetailEncounterMethodRatesInner>;
+            specifiedType: const FullType(BuiltList, [FullType(LocationAreaEncounterRate)]),
+          ) as BuiltList<LocationAreaEncounterRate>;
           result.encounterMethodRates.replace(valueDes);
           break;
         case r'location':
@@ -172,8 +179,8 @@ class _$LocationAreaDetailSerializer implements PrimitiveSerializer<LocationArea
         case r'pokemon_encounters':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(LocationAreaDetailPokemonEncountersInner)]),
-          ) as BuiltList<LocationAreaDetailPokemonEncountersInner>;
+            specifiedType: const FullType(BuiltList, [FullType(LocationAreaPokemonEncounter)]),
+          ) as BuiltList<LocationAreaPokemonEncounter>;
           result.pokemonEncounters.replace(valueDes);
           break;
         default:

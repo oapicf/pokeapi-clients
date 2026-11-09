@@ -6,7 +6,7 @@ from datetime import date, datetime  # noqa: F401
 from typing import List, Dict  # noqa: F401
 
 from app.openapi_server.models.base_model import Model
-from app.openapi_server.models.pokeathlon_stat_detail_affecting_natures import PokeathlonStatDetailAffectingNatures  # noqa: F401,E501
+from app.openapi_server.models.pokeathlon_stat_affecting_natures import PokeathlonStatAffectingNatures  # noqa: F401,E501
 from app.openapi_server.models.pokeathlon_stat_name import PokeathlonStatName  # noqa: F401,E501
 from openapi_server import util
 
@@ -17,7 +17,7 @@ class PokeathlonStatDetail(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, id: int=None, name: str=None, affecting_natures: PokeathlonStatDetailAffectingNatures=None, names: List[PokeathlonStatName]=None):  # noqa: E501
+    def __init__(self, id: int=None, name: str=None, affecting_natures: PokeathlonStatAffectingNatures=None, names: List[PokeathlonStatName]=None):  # noqa: E501
         """PokeathlonStatDetail - a model defined in Swagger
 
         :param id: The id of this PokeathlonStatDetail.  # noqa: E501
@@ -25,14 +25,14 @@ class PokeathlonStatDetail(Model):
         :param name: The name of this PokeathlonStatDetail.  # noqa: E501
         :type name: str
         :param affecting_natures: The affecting_natures of this PokeathlonStatDetail.  # noqa: E501
-        :type affecting_natures: PokeathlonStatDetailAffectingNatures
+        :type affecting_natures: PokeathlonStatAffectingNatures
         :param names: The names of this PokeathlonStatDetail.  # noqa: E501
         :type names: List[PokeathlonStatName]
         """
         self.swagger_types = {
             'id': int,
             'name': str,
-            'affecting_natures': PokeathlonStatDetailAffectingNatures,
+            'affecting_natures': PokeathlonStatAffectingNatures,
             'names': List[PokeathlonStatName]
         }
 
@@ -63,6 +63,7 @@ class PokeathlonStatDetail(Model):
     def id(self) -> int:
         """Gets the id of this PokeathlonStatDetail.
 
+        The identifier for this resource.  # noqa: E501
 
         :return: The id of this PokeathlonStatDetail.
         :rtype: int
@@ -73,6 +74,7 @@ class PokeathlonStatDetail(Model):
     def id(self, id: int):
         """Sets the id of this PokeathlonStatDetail.
 
+        The identifier for this resource.  # noqa: E501
 
         :param id: The id of this PokeathlonStatDetail.
         :type id: int
@@ -86,6 +88,7 @@ class PokeathlonStatDetail(Model):
     def name(self) -> str:
         """Gets the name of this PokeathlonStatDetail.
 
+        The name for this resource.  # noqa: E501
 
         :return: The name of this PokeathlonStatDetail.
         :rtype: str
@@ -96,34 +99,37 @@ class PokeathlonStatDetail(Model):
     def name(self, name: str):
         """Sets the name of this PokeathlonStatDetail.
 
+        The name for this resource.  # noqa: E501
 
         :param name: The name of this PokeathlonStatDetail.
         :type name: str
         """
         if name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
-        if name is not None and len(name) > 100:
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `100`")  # noqa: E501
+        if name is not None and len(name) > 200:
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `200`")  # noqa: E501
 
         self._name = name
 
     @property
-    def affecting_natures(self) -> PokeathlonStatDetailAffectingNatures:
+    def affecting_natures(self) -> PokeathlonStatAffectingNatures:
         """Gets the affecting_natures of this PokeathlonStatDetail.
 
+        A detail of natures which affect this Pokéathlon stat positively or negatively.  # noqa: E501
 
         :return: The affecting_natures of this PokeathlonStatDetail.
-        :rtype: PokeathlonStatDetailAffectingNatures
+        :rtype: PokeathlonStatAffectingNatures
         """
         return self._affecting_natures
 
     @affecting_natures.setter
-    def affecting_natures(self, affecting_natures: PokeathlonStatDetailAffectingNatures):
+    def affecting_natures(self, affecting_natures: PokeathlonStatAffectingNatures):
         """Sets the affecting_natures of this PokeathlonStatDetail.
 
+        A detail of natures which affect this Pokéathlon stat positively or negatively.  # noqa: E501
 
         :param affecting_natures: The affecting_natures of this PokeathlonStatDetail.
-        :type affecting_natures: PokeathlonStatDetailAffectingNatures
+        :type affecting_natures: PokeathlonStatAffectingNatures
         """
         if affecting_natures is None:
             raise ValueError("Invalid value for `affecting_natures`, must not be `None`")  # noqa: E501
@@ -134,6 +140,7 @@ class PokeathlonStatDetail(Model):
     def names(self) -> List[PokeathlonStatName]:
         """Gets the names of this PokeathlonStatDetail.
 
+        The name of this resource listed in different languages.  # noqa: E501
 
         :return: The names of this PokeathlonStatDetail.
         :rtype: List[PokeathlonStatName]
@@ -144,6 +151,7 @@ class PokeathlonStatDetail(Model):
     def names(self, names: List[PokeathlonStatName]):
         """Sets the names of this PokeathlonStatDetail.
 
+        The name of this resource listed in different languages.  # noqa: E501
 
         :param names: The names of this PokeathlonStatDetail.
         :type names: List[PokeathlonStatName]

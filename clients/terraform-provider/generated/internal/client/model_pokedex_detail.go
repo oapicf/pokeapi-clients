@@ -9,7 +9,7 @@ type PokedexDetail struct {
 	IsMainSeries bool `json:"is_main_series,omitempty"`
 	Descriptions []PokedexDescription `json:"descriptions"`
 	Names []PokedexName `json:"names"`
-	PokemonEntries []PokedexDetailPokemonEntriesInner `json:"pokemon_entries"`
+	PokemonEntries []PokemonDexNumber `json:"pokemon_entries"`
 	Region RegionSummary `json:"region"`
-	VersionGroups []AbilityDetailPokemonInnerPokemon `json:"version_groups"`
+	VersionGroups []VersionGroupSummary `json:"version_groups"`
 }

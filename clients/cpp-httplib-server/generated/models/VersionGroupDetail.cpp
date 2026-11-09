@@ -12,10 +12,9 @@ VersionGroupDetail::VersionGroupDetail()
 : id(0)
 , name("")
 , order(0)
-, generation(GenerationSummary())
-, moveLearnMethods(std::vector<VersionGroupDetail_move_learn_methods_inner>())
-, pokedexes(std::vector<VersionGroupDetail_pokedexes_inner>())
-, regions(std::vector<VersionGroupDetail_regions_inner>())
+, moveLearnMethods(std::vector<MoveLearnMethodSummary>())
+, pokedexes(std::vector<PokedexSummary>())
+, regions(std::vector<RegionSummary>())
 , versions(std::vector<VersionSummary>())
 {
 }
@@ -41,15 +40,15 @@ GenerationSummary VersionGroupDetail::getGeneration() const
 {
     return generation;
 }
-std::vector<VersionGroupDetail_move_learn_methods_inner> VersionGroupDetail::getMoveLearnMethods() const
+std::vector<MoveLearnMethodSummary> VersionGroupDetail::getMoveLearnMethods() const
 {
     return moveLearnMethods;
 }
-std::vector<VersionGroupDetail_pokedexes_inner> VersionGroupDetail::getPokedexes() const
+std::vector<PokedexSummary> VersionGroupDetail::getPokedexes() const
 {
     return pokedexes;
 }
-std::vector<VersionGroupDetail_regions_inner> VersionGroupDetail::getRegions() const
+std::vector<RegionSummary> VersionGroupDetail::getRegions() const
 {
     return regions;
 }
@@ -77,15 +76,15 @@ void VersionGroupDetail::setGeneration(const GenerationSummary& generationObj)
 {
     generation = generationObj;
 }
-void VersionGroupDetail::setMoveLearnMethods(const std::vector<VersionGroupDetail_move_learn_methods_inner>& moveLearnMethodsObj)
+void VersionGroupDetail::setMoveLearnMethods(const std::vector<MoveLearnMethodSummary>& moveLearnMethodsObj)
 {
     moveLearnMethods = moveLearnMethodsObj;
 }
-void VersionGroupDetail::setPokedexes(const std::vector<VersionGroupDetail_pokedexes_inner>& pokedexesObj)
+void VersionGroupDetail::setPokedexes(const std::vector<PokedexSummary>& pokedexesObj)
 {
     pokedexes = pokedexesObj;
 }
-void VersionGroupDetail::setRegions(const std::vector<VersionGroupDetail_regions_inner>& regionsObj)
+void VersionGroupDetail::setRegions(const std::vector<RegionSummary>& regionsObj)
 {
     regions = regionsObj;
 }

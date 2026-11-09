@@ -1,17 +1,18 @@
 package apimodels;
 
-import apimodels.PokemonDetailAbilitiesInner;
-import apimodels.PokemonDetailCries;
-import apimodels.PokemonDetailHeldItems;
-import apimodels.PokemonDetailMovesInner;
-import apimodels.PokemonDetailPastAbilitiesInner;
-import apimodels.PokemonDetailPastTypesInner;
-import apimodels.PokemonDetailSprites;
-import apimodels.PokemonDetailTypesInner;
+import apimodels.PokemonAbility;
+import apimodels.PokemonCries;
 import apimodels.PokemonFormSummary;
 import apimodels.PokemonGameIndex;
+import apimodels.PokemonHeldItemSummary;
+import apimodels.PokemonMove;
+import apimodels.PokemonPastAbility;
+import apimodels.PokemonPastStat;
+import apimodels.PokemonPastType;
 import apimodels.PokemonSpeciesSummary;
+import apimodels.PokemonSprites;
 import apimodels.PokemonStat;
+import apimodels.PokemonType;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -25,7 +26,7 @@ import javax.validation.Valid;
 /**
  * PokemonDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-10-25T05:48:13.486809836Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-11-09T13:49:31.462302702Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class PokemonDetail   {
   @JsonProperty("id")
@@ -35,16 +36,20 @@ public class PokemonDetail   {
 
   @JsonProperty("name")
   @NotNull
-@Size(max=100)
+@Size(max=200)
 
   private String name;
 
   @JsonProperty("base_experience")
-  
+  @Min(-2147483648)
+@Max(2147483647)
+
   private Integer baseExperience;
 
   @JsonProperty("height")
-  
+  @Min(-2147483648)
+@Max(2147483647)
+
   private Integer height;
 
   @JsonProperty("is_default")
@@ -52,24 +57,28 @@ public class PokemonDetail   {
   private Boolean isDefault;
 
   @JsonProperty("order")
-  
+  @Min(-2147483648)
+@Max(2147483647)
+
   private Integer order;
 
   @JsonProperty("weight")
-  
+  @Min(-2147483648)
+@Max(2147483647)
+
   private Integer weight;
 
   @JsonProperty("abilities")
   @NotNull
 @Valid
 
-  private List<@Valid PokemonDetailAbilitiesInner> abilities = new ArrayList<>();
+  private List<@Valid PokemonAbility> abilities = new ArrayList<>();
 
   @JsonProperty("past_abilities")
   @NotNull
 @Valid
 
-  private List<@Valid PokemonDetailPastAbilitiesInner> pastAbilities = new ArrayList<>();
+  private List<@Valid PokemonPastAbility> pastAbilities = new ArrayList<>();
 
   @JsonProperty("forms")
   @NotNull
@@ -87,7 +96,7 @@ public class PokemonDetail   {
   @NotNull
 @Valid
 
-  private PokemonDetailHeldItems heldItems;
+  private List<@Valid PokemonHeldItemSummary> heldItems = new ArrayList<>();
 
   @JsonProperty("location_area_encounters")
   @NotNull
@@ -98,7 +107,7 @@ public class PokemonDetail   {
   @NotNull
 @Valid
 
-  private List<@Valid PokemonDetailMovesInner> moves = new ArrayList<>();
+  private List<@Valid PokemonMove> moves = new ArrayList<>();
 
   @JsonProperty("species")
   @NotNull
@@ -110,13 +119,13 @@ public class PokemonDetail   {
   @NotNull
 @Valid
 
-  private PokemonDetailSprites sprites;
+  private PokemonSprites sprites;
 
   @JsonProperty("cries")
   @NotNull
 @Valid
 
-  private PokemonDetailCries cries;
+  private PokemonCries cries;
 
   @JsonProperty("stats")
   @NotNull
@@ -124,17 +133,23 @@ public class PokemonDetail   {
 
   private List<@Valid PokemonStat> stats = new ArrayList<>();
 
+  @JsonProperty("past_stats")
+  @NotNull
+@Valid
+
+  private List<@Valid PokemonPastStat> pastStats = new ArrayList<>();
+
   @JsonProperty("types")
   @NotNull
 @Valid
 
-  private List<@Valid PokemonDetailTypesInner> types = new ArrayList<>();
+  private List<@Valid PokemonType> types = new ArrayList<>();
 
   @JsonProperty("past_types")
   @NotNull
 @Valid
 
-  private List<@Valid PokemonDetailPastTypesInner> pastTypes = new ArrayList<>();
+  private List<@Valid PokemonPastType> pastTypes = new ArrayList<>();
 
   public PokemonDetail id(Integer id) {
     this.id = id;
@@ -142,7 +157,7 @@ public class PokemonDetail   {
   }
 
    /**
-   * Get id
+   * The identifier for this resource.
    * @return id
   **/
   public Integer getId() {
@@ -159,7 +174,7 @@ public class PokemonDetail   {
   }
 
    /**
-   * Get name
+   * The name for this resource.
    * @return name
   **/
   public String getName() {
@@ -176,7 +191,9 @@ public class PokemonDetail   {
   }
 
    /**
-   * Get baseExperience
+   * The base experience gained for defeating this Pokémon.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return baseExperience
   **/
   public Integer getBaseExperience() {
@@ -193,7 +210,9 @@ public class PokemonDetail   {
   }
 
    /**
-   * Get height
+   * The height of this Pokémon in decimetres.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return height
   **/
   public Integer getHeight() {
@@ -210,7 +229,7 @@ public class PokemonDetail   {
   }
 
    /**
-   * Get isDefault
+   * Set for exactly one Pokémon used as the default for each species.
    * @return isDefault
   **/
   public Boolean getIsDefault() {
@@ -227,7 +246,9 @@ public class PokemonDetail   {
   }
 
    /**
-   * Get order
+   * Order for sorting. Almost national order, except families are grouped together.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return order
   **/
   public Integer getOrder() {
@@ -244,7 +265,9 @@ public class PokemonDetail   {
   }
 
    /**
-   * Get weight
+   * The weight of this Pokémon in hectograms.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return weight
   **/
   public Integer getWeight() {
@@ -255,12 +278,12 @@ public class PokemonDetail   {
     this.weight = weight;
   }
 
-  public PokemonDetail abilities(List<@Valid PokemonDetailAbilitiesInner> abilities) {
+  public PokemonDetail abilities(List<@Valid PokemonAbility> abilities) {
     this.abilities = abilities;
     return this;
   }
 
-  public PokemonDetail addAbilitiesItem(PokemonDetailAbilitiesInner abilitiesItem) {
+  public PokemonDetail addAbilitiesItem(PokemonAbility abilitiesItem) {
     if (this.abilities == null) {
       this.abilities = new ArrayList<>();
     }
@@ -269,23 +292,23 @@ public class PokemonDetail   {
   }
 
    /**
-   * Get abilities
+   * A list of abilities this Pokémon could potentially have.
    * @return abilities
   **/
-  public List<@Valid PokemonDetailAbilitiesInner> getAbilities() {
+  public List<@Valid PokemonAbility> getAbilities() {
     return abilities;
   }
 
-  public void setAbilities(List<@Valid PokemonDetailAbilitiesInner> abilities) {
+  public void setAbilities(List<@Valid PokemonAbility> abilities) {
     this.abilities = abilities;
   }
 
-  public PokemonDetail pastAbilities(List<@Valid PokemonDetailPastAbilitiesInner> pastAbilities) {
+  public PokemonDetail pastAbilities(List<@Valid PokemonPastAbility> pastAbilities) {
     this.pastAbilities = pastAbilities;
     return this;
   }
 
-  public PokemonDetail addPastAbilitiesItem(PokemonDetailPastAbilitiesInner pastAbilitiesItem) {
+  public PokemonDetail addPastAbilitiesItem(PokemonPastAbility pastAbilitiesItem) {
     if (this.pastAbilities == null) {
       this.pastAbilities = new ArrayList<>();
     }
@@ -294,14 +317,14 @@ public class PokemonDetail   {
   }
 
    /**
-   * Get pastAbilities
+   * A list of details showing abilities this pokémon had in previous generations
    * @return pastAbilities
   **/
-  public List<@Valid PokemonDetailPastAbilitiesInner> getPastAbilities() {
+  public List<@Valid PokemonPastAbility> getPastAbilities() {
     return pastAbilities;
   }
 
-  public void setPastAbilities(List<@Valid PokemonDetailPastAbilitiesInner> pastAbilities) {
+  public void setPastAbilities(List<@Valid PokemonPastAbility> pastAbilities) {
     this.pastAbilities = pastAbilities;
   }
 
@@ -319,7 +342,7 @@ public class PokemonDetail   {
   }
 
    /**
-   * Get forms
+   * A list of forms this Pokémon can take on.
    * @return forms
   **/
   public List<@Valid PokemonFormSummary> getForms() {
@@ -344,7 +367,7 @@ public class PokemonDetail   {
   }
 
    /**
-   * Get gameIndices
+   * A list of game indices relevent to Pokémon item by generation.
    * @return gameIndices
   **/
   public List<@Valid PokemonGameIndex> getGameIndices() {
@@ -355,20 +378,28 @@ public class PokemonDetail   {
     this.gameIndices = gameIndices;
   }
 
-  public PokemonDetail heldItems(PokemonDetailHeldItems heldItems) {
+  public PokemonDetail heldItems(List<@Valid PokemonHeldItemSummary> heldItems) {
     this.heldItems = heldItems;
     return this;
   }
 
+  public PokemonDetail addHeldItemsItem(PokemonHeldItemSummary heldItemsItem) {
+    if (this.heldItems == null) {
+      this.heldItems = new ArrayList<>();
+    }
+    this.heldItems.add(heldItemsItem);
+    return this;
+  }
+
    /**
-   * Get heldItems
+   * A list of items this Pokémon may be holding when encountered.
    * @return heldItems
   **/
-  public PokemonDetailHeldItems getHeldItems() {
+  public List<@Valid PokemonHeldItemSummary> getHeldItems() {
     return heldItems;
   }
 
-  public void setHeldItems(PokemonDetailHeldItems heldItems) {
+  public void setHeldItems(List<@Valid PokemonHeldItemSummary> heldItems) {
     this.heldItems = heldItems;
   }
 
@@ -378,7 +409,7 @@ public class PokemonDetail   {
   }
 
    /**
-   * Get locationAreaEncounters
+   * A link to a list of location areas, as well as encounter details pertaining to specific versions.
    * @return locationAreaEncounters
   **/
   public String getLocationAreaEncounters() {
@@ -389,12 +420,12 @@ public class PokemonDetail   {
     this.locationAreaEncounters = locationAreaEncounters;
   }
 
-  public PokemonDetail moves(List<@Valid PokemonDetailMovesInner> moves) {
+  public PokemonDetail moves(List<@Valid PokemonMove> moves) {
     this.moves = moves;
     return this;
   }
 
-  public PokemonDetail addMovesItem(PokemonDetailMovesInner movesItem) {
+  public PokemonDetail addMovesItem(PokemonMove movesItem) {
     if (this.moves == null) {
       this.moves = new ArrayList<>();
     }
@@ -403,14 +434,14 @@ public class PokemonDetail   {
   }
 
    /**
-   * Get moves
+   * A list of moves along with learn methods and level details pertaining to specific version groups.
    * @return moves
   **/
-  public List<@Valid PokemonDetailMovesInner> getMoves() {
+  public List<@Valid PokemonMove> getMoves() {
     return moves;
   }
 
-  public void setMoves(List<@Valid PokemonDetailMovesInner> moves) {
+  public void setMoves(List<@Valid PokemonMove> moves) {
     this.moves = moves;
   }
 
@@ -420,7 +451,7 @@ public class PokemonDetail   {
   }
 
    /**
-   * Get species
+   * The species this Pokémon belongs to.
    * @return species
   **/
   public PokemonSpeciesSummary getSpecies() {
@@ -431,37 +462,37 @@ public class PokemonDetail   {
     this.species = species;
   }
 
-  public PokemonDetail sprites(PokemonDetailSprites sprites) {
+  public PokemonDetail sprites(PokemonSprites sprites) {
     this.sprites = sprites;
     return this;
   }
 
    /**
-   * Get sprites
+   * A set of sprites used to depict this Pokémon in the game. A visual representation of the various sprites can be found at <a href='https://github.com/PokeAPI/sprites#sprites'>PokeAPI/sprites</a>
    * @return sprites
   **/
-  public PokemonDetailSprites getSprites() {
+  public PokemonSprites getSprites() {
     return sprites;
   }
 
-  public void setSprites(PokemonDetailSprites sprites) {
+  public void setSprites(PokemonSprites sprites) {
     this.sprites = sprites;
   }
 
-  public PokemonDetail cries(PokemonDetailCries cries) {
+  public PokemonDetail cries(PokemonCries cries) {
     this.cries = cries;
     return this;
   }
 
    /**
-   * Get cries
+   * A set of cries used to depict this Pokémon in the game. A visual representation of the various cries can be found at <a href='https://github.com/PokeAPI/cries#cries'>PokeAPI/cries</a>
    * @return cries
   **/
-  public PokemonDetailCries getCries() {
+  public PokemonCries getCries() {
     return cries;
   }
 
-  public void setCries(PokemonDetailCries cries) {
+  public void setCries(PokemonCries cries) {
     this.cries = cries;
   }
 
@@ -479,7 +510,7 @@ public class PokemonDetail   {
   }
 
    /**
-   * Get stats
+   * A list of base stat values for this Pokémon.
    * @return stats
   **/
   public List<@Valid PokemonStat> getStats() {
@@ -490,12 +521,37 @@ public class PokemonDetail   {
     this.stats = stats;
   }
 
-  public PokemonDetail types(List<@Valid PokemonDetailTypesInner> types) {
+  public PokemonDetail pastStats(List<@Valid PokemonPastStat> pastStats) {
+    this.pastStats = pastStats;
+    return this;
+  }
+
+  public PokemonDetail addPastStatsItem(PokemonPastStat pastStatsItem) {
+    if (this.pastStats == null) {
+      this.pastStats = new ArrayList<>();
+    }
+    this.pastStats.add(pastStatsItem);
+    return this;
+  }
+
+   /**
+   * A list of details showing stats this pokémon had in previous generations
+   * @return pastStats
+  **/
+  public List<@Valid PokemonPastStat> getPastStats() {
+    return pastStats;
+  }
+
+  public void setPastStats(List<@Valid PokemonPastStat> pastStats) {
+    this.pastStats = pastStats;
+  }
+
+  public PokemonDetail types(List<@Valid PokemonType> types) {
     this.types = types;
     return this;
   }
 
-  public PokemonDetail addTypesItem(PokemonDetailTypesInner typesItem) {
+  public PokemonDetail addTypesItem(PokemonType typesItem) {
     if (this.types == null) {
       this.types = new ArrayList<>();
     }
@@ -504,23 +560,23 @@ public class PokemonDetail   {
   }
 
    /**
-   * Get types
+   * A list of details showing types this Pokémon has.
    * @return types
   **/
-  public List<@Valid PokemonDetailTypesInner> getTypes() {
+  public List<@Valid PokemonType> getTypes() {
     return types;
   }
 
-  public void setTypes(List<@Valid PokemonDetailTypesInner> types) {
+  public void setTypes(List<@Valid PokemonType> types) {
     this.types = types;
   }
 
-  public PokemonDetail pastTypes(List<@Valid PokemonDetailPastTypesInner> pastTypes) {
+  public PokemonDetail pastTypes(List<@Valid PokemonPastType> pastTypes) {
     this.pastTypes = pastTypes;
     return this;
   }
 
-  public PokemonDetail addPastTypesItem(PokemonDetailPastTypesInner pastTypesItem) {
+  public PokemonDetail addPastTypesItem(PokemonPastType pastTypesItem) {
     if (this.pastTypes == null) {
       this.pastTypes = new ArrayList<>();
     }
@@ -529,14 +585,14 @@ public class PokemonDetail   {
   }
 
    /**
-   * Get pastTypes
+   * A list of details showing types this pokémon had in previous generations
    * @return pastTypes
   **/
-  public List<@Valid PokemonDetailPastTypesInner> getPastTypes() {
+  public List<@Valid PokemonPastType> getPastTypes() {
     return pastTypes;
   }
 
-  public void setPastTypes(List<@Valid PokemonDetailPastTypesInner> pastTypes) {
+  public void setPastTypes(List<@Valid PokemonPastType> pastTypes) {
     this.pastTypes = pastTypes;
   }
 
@@ -568,13 +624,14 @@ public class PokemonDetail   {
         Objects.equals(sprites, pokemonDetail.sprites) &&
         Objects.equals(cries, pokemonDetail.cries) &&
         Objects.equals(stats, pokemonDetail.stats) &&
+        Objects.equals(pastStats, pokemonDetail.pastStats) &&
         Objects.equals(types, pokemonDetail.types) &&
         Objects.equals(pastTypes, pokemonDetail.pastTypes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, baseExperience, height, isDefault, order, weight, abilities, pastAbilities, forms, gameIndices, heldItems, locationAreaEncounters, moves, species, sprites, cries, stats, types, pastTypes);
+    return Objects.hash(id, name, baseExperience, height, isDefault, order, weight, abilities, pastAbilities, forms, gameIndices, heldItems, locationAreaEncounters, moves, species, sprites, cries, stats, pastStats, types, pastTypes);
   }
 
   @SuppressWarnings("StringBufferReplaceableByString")
@@ -601,6 +658,7 @@ public class PokemonDetail   {
     sb.append("    sprites: ").append(toIndentedString(sprites)).append("\n");
     sb.append("    cries: ").append(toIndentedString(cries)).append("\n");
     sb.append("    stats: ").append(toIndentedString(stats)).append("\n");
+    sb.append("    pastStats: ").append(toIndentedString(pastStats)).append("\n");
     sb.append("    types: ").append(toIndentedString(types)).append("\n");
     sb.append("    pastTypes: ").append(toIndentedString(pastTypes)).append("\n");
     sb.append("}");

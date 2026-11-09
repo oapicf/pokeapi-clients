@@ -10,7 +10,7 @@ import model.PaginatedBerrySummaryList
 /**
   * Provides a default implementation for [[BerriesApi]].
   */
-@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2026-10-25T05:53:17.467323765Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2026-11-09T13:53:31.572745352Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 class BerriesApiImpl extends BerriesApi {
   /**
     * @inheritdoc
@@ -18,7 +18,7 @@ class BerriesApiImpl extends BerriesApi {
   override def berryFirmnessList(limit: Option[Int], offset: Option[Int], q: Option[String]): PaginatedBerryFirmnessSummaryList = {
     // TODO: Implement better logic
 
-    PaginatedBerryFirmnessSummaryList(None, None, None, None)
+    PaginatedBerryFirmnessSummaryList(0, None, None, List.empty[BerryFirmnessSummary])
   }
 
   /**
@@ -36,7 +36,7 @@ class BerriesApiImpl extends BerriesApi {
   override def berryFlavorList(limit: Option[Int], offset: Option[Int], q: Option[String]): PaginatedBerryFlavorSummaryList = {
     // TODO: Implement better logic
 
-    PaginatedBerryFlavorSummaryList(None, None, None, None)
+    PaginatedBerryFlavorSummaryList(0, None, None, List.empty[BerryFlavorSummary])
   }
 
   /**
@@ -45,7 +45,7 @@ class BerriesApiImpl extends BerriesApi {
   override def berryFlavorRetrieve(id: String): BerryFlavorDetail = {
     // TODO: Implement better logic
 
-    BerryFlavorDetail(0, "", List.empty[BerryFlavorDetailBerriesInner], ContestTypeSummary("", ""), List.empty[BerryFlavorName])
+    BerryFlavorDetail(0, "", List.empty[BerryFlavorBerryMap], ContestTypeSummary("", ""), List.empty[BerryFlavorName])
   }
 
   /**
@@ -54,7 +54,7 @@ class BerriesApiImpl extends BerriesApi {
   override def berryList(limit: Option[Int], offset: Option[Int], q: Option[String]): PaginatedBerrySummaryList = {
     // TODO: Implement better logic
 
-    PaginatedBerrySummaryList(None, None, None, None)
+    PaginatedBerrySummaryList(0, None, None, List.empty[BerrySummary])
   }
 
   /**
@@ -63,6 +63,6 @@ class BerriesApiImpl extends BerriesApi {
   override def berryRetrieve(id: String): BerryDetail = {
     // TODO: Implement better logic
 
-    BerryDetail(0, "", 0, 0, 0, 0, 0, 0, BerryFirmnessSummary("", ""), List.empty[BerryDetailFlavorsInner], ItemSummary("", ""), TypeSummary("", ""))
+    BerryDetail(0, "", None, None, None, None, None, None, BerryFirmnessSummary("", ""), List.empty[BerryFlavorMap], ItemSummary("", ""), TypeSummary("", ""))
   }
 }

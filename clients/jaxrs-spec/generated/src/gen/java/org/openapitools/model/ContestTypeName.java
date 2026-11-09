@@ -17,7 +17,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("ContestTypeName")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-11-09T13:50:06.168269698Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class ContestTypeName   {
   private String name;
   private String color;
@@ -38,6 +38,7 @@ public class ContestTypeName   {
   }
 
   /**
+   * The name for this contest.
    **/
   public ContestTypeName name(String name) {
     this.name = name;
@@ -45,9 +46,9 @@ public class ContestTypeName   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this contest.")
   @JsonProperty(required = true, value = "name")
-  @NotNull  @Size(max=100)public String getName() {
+  @NotNull  @Size(max=200)public String getName() {
     return name;
   }
 
@@ -57,6 +58,7 @@ public class ContestTypeName   {
   }
 
   /**
+   * The color associated with this contest&#39;s name.
    **/
   public ContestTypeName color(String color) {
     this.color = color;
@@ -64,7 +66,7 @@ public class ContestTypeName   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The color associated with this contest's name.")
   @JsonProperty(required = true, value = "color")
   @NotNull  @Size(max=10)public String getColor() {
     return color;
@@ -76,6 +78,7 @@ public class ContestTypeName   {
   }
 
   /**
+   * The language that this name is in.
    **/
   public ContestTypeName language(LanguageSummary language) {
     this.language = language;
@@ -83,7 +86,7 @@ public class ContestTypeName   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The language that this name is in.")
   @JsonProperty(required = true, value = "language")
   @NotNull @Valid public LanguageSummary getLanguage() {
     return language;

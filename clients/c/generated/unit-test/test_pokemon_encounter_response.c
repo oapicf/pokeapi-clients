@@ -1,0 +1,62 @@
+#ifndef pokemon_encounter_response_TEST
+#define pokemon_encounter_response_TEST
+
+// the following is to include only the main from the first c file
+#ifndef TEST_MAIN
+#define TEST_MAIN
+#define pokemon_encounter_response_MAIN
+#endif // TEST_MAIN
+
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <stdbool.h>
+#include "../external/cJSON.h"
+
+#include "../model/pokemon_encounter_response.h"
+pokemon_encounter_response_t* instantiate_pokemon_encounter_response(int include_optional);
+
+#include "test_location_area_summary.c"
+
+
+pokemon_encounter_response_t* instantiate_pokemon_encounter_response(int include_optional) {
+  pokemon_encounter_response_t* pokemon_encounter_response = NULL;
+  if (include_optional) {
+    pokemon_encounter_response = pokemon_encounter_response_create(
+       // false, not to have infinite recursion
+      instantiate_location_area_summary(0),
+      list_createList()
+    );
+  } else {
+    pokemon_encounter_response = pokemon_encounter_response_create(
+      NULL,
+      list_createList()
+    );
+  }
+
+  return pokemon_encounter_response;
+}
+
+
+#ifdef pokemon_encounter_response_MAIN
+
+void test_pokemon_encounter_response(int include_optional) {
+    pokemon_encounter_response_t* pokemon_encounter_response_1 = instantiate_pokemon_encounter_response(include_optional);
+
+	cJSON* jsonpokemon_encounter_response_1 = pokemon_encounter_response_convertToJSON(pokemon_encounter_response_1);
+	printf("pokemon_encounter_response :\n%s\n", cJSON_Print(jsonpokemon_encounter_response_1));
+	pokemon_encounter_response_t* pokemon_encounter_response_2 = pokemon_encounter_response_parseFromJSON(jsonpokemon_encounter_response_1);
+	cJSON* jsonpokemon_encounter_response_2 = pokemon_encounter_response_convertToJSON(pokemon_encounter_response_2);
+	printf("repeating pokemon_encounter_response:\n%s\n", cJSON_Print(jsonpokemon_encounter_response_2));
+}
+
+int main() {
+  test_pokemon_encounter_response(1);
+  test_pokemon_encounter_response(0);
+
+  printf("Hello world \n");
+  return 0;
+}
+
+#endif // pokemon_encounter_response_MAIN
+#endif // pokemon_encounter_response_TEST

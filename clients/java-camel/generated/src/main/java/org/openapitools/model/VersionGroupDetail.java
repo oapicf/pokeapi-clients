@@ -8,8 +8,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
-import org.openapitools.model.AbilityDetailPokemonInnerPokemon;
 import org.openapitools.model.GenerationSummary;
+import org.openapitools.model.MoveLearnMethodSummary;
+import org.openapitools.model.PokedexSummary;
+import org.openapitools.model.RegionSummary;
 import org.openapitools.model.VersionSummary;
 import java.util.NoSuchElementException;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -26,22 +28,22 @@ import jakarta.annotation.Generated;
  * VersionGroupDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-10-25T05:48:25.711080506Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-11-09T13:49:41.168612095Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class VersionGroupDetail {
 
   private Integer id;
 
   private String name;
 
-  private JsonNullable<Integer> order = JsonNullable.<Integer>undefined();
+  private JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> order = JsonNullable.<Integer>undefined();
 
   private GenerationSummary generation;
 
-  private List<@Valid AbilityDetailPokemonInnerPokemon> moveLearnMethods = new ArrayList<>();
+  private List<@Valid MoveLearnMethodSummary> moveLearnMethods = new ArrayList<>();
 
-  private List<@Valid AbilityDetailPokemonInnerPokemon> pokedexes = new ArrayList<>();
+  private List<@Valid PokedexSummary> pokedexes = new ArrayList<>();
 
-  private List<@Valid AbilityDetailPokemonInnerPokemon> regions = new ArrayList<>();
+  private List<@Valid RegionSummary> regions = new ArrayList<>();
 
   private List<@Valid VersionSummary> versions = new ArrayList<>();
 
@@ -52,7 +54,7 @@ public class VersionGroupDetail {
   /**
    * Constructor with only required parameters
    */
-  public VersionGroupDetail(Integer id, String name, GenerationSummary generation, List<@Valid AbilityDetailPokemonInnerPokemon> moveLearnMethods, List<@Valid AbilityDetailPokemonInnerPokemon> pokedexes, List<@Valid AbilityDetailPokemonInnerPokemon> regions, List<@Valid VersionSummary> versions) {
+  public VersionGroupDetail(Integer id, String name, GenerationSummary generation, List<@Valid MoveLearnMethodSummary> moveLearnMethods, List<@Valid PokedexSummary> pokedexes, List<@Valid RegionSummary> regions, List<@Valid VersionSummary> versions) {
     this.id = id;
     this.name = name;
     this.generation = generation;
@@ -68,11 +70,11 @@ public class VersionGroupDetail {
   }
 
   /**
-   * Get id
+   * The identifier for this resource.
    * @return id
    */
   
-  @Schema(name = "id", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "id", accessMode = Schema.AccessMode.READ_ONLY, description = "The identifier for this resource.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("id")
   public Integer getId() {
     return id;
@@ -88,11 +90,11 @@ public class VersionGroupDetail {
   }
 
   /**
-   * Get name
+   * The name for this resource.
    * @return name
    */
-  @NotNull @Size(max = 100) 
-  @Schema(name = "name", requiredMode = Schema.RequiredMode.REQUIRED)
+  @NotNull @Size(max = 200) 
+  @Schema(name = "name", description = "The name for this resource.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("name")
   public String getName() {
     return name;
@@ -108,13 +110,15 @@ public class VersionGroupDetail {
   }
 
   /**
-   * Get order
+   * Order for sorting. Almost by date of release, except similar versions are grouped together.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return order
    */
-  
-  @Schema(name = "order", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Min(value = -2147483648) @Max(value = 2147483647) 
+  @Schema(name = "order", description = "Order for sorting. Almost by date of release, except similar versions are grouped together.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("order")
-  public JsonNullable<Integer> getOrder() {
+  public JsonNullable<@Min(value = -2147483648) @Max(value = 2147483647) Integer> getOrder() {
     return order;
   }
 
@@ -128,11 +132,11 @@ public class VersionGroupDetail {
   }
 
   /**
-   * Get generation
+   * The generation this version was introduced in.
    * @return generation
    */
   @NotNull @Valid 
-  @Schema(name = "generation", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "generation", description = "The generation this version was introduced in.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("generation")
   public GenerationSummary getGeneration() {
     return generation;
@@ -142,12 +146,12 @@ public class VersionGroupDetail {
     this.generation = generation;
   }
 
-  public VersionGroupDetail moveLearnMethods(List<@Valid AbilityDetailPokemonInnerPokemon> moveLearnMethods) {
+  public VersionGroupDetail moveLearnMethods(List<@Valid MoveLearnMethodSummary> moveLearnMethods) {
     this.moveLearnMethods = moveLearnMethods;
     return this;
   }
 
-  public VersionGroupDetail addMoveLearnMethodsItem(AbilityDetailPokemonInnerPokemon moveLearnMethodsItem) {
+  public VersionGroupDetail addMoveLearnMethodsItem(MoveLearnMethodSummary moveLearnMethodsItem) {
     if (this.moveLearnMethods == null) {
       this.moveLearnMethods = new ArrayList<>();
     }
@@ -156,26 +160,26 @@ public class VersionGroupDetail {
   }
 
   /**
-   * Get moveLearnMethods
+   * A list of methods in which Pokémon can learn moves in this version group.
    * @return moveLearnMethods
    */
   
-  @Schema(name = "move_learn_methods", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "move_learn_methods", accessMode = Schema.AccessMode.READ_ONLY, description = "A list of methods in which Pokémon can learn moves in this version group.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("move_learn_methods")
-  public List<@Valid AbilityDetailPokemonInnerPokemon> getMoveLearnMethods() {
+  public List<@Valid MoveLearnMethodSummary> getMoveLearnMethods() {
     return moveLearnMethods;
   }
 
-  public void setMoveLearnMethods(List<@Valid AbilityDetailPokemonInnerPokemon> moveLearnMethods) {
+  public void setMoveLearnMethods(List<@Valid MoveLearnMethodSummary> moveLearnMethods) {
     this.moveLearnMethods = moveLearnMethods;
   }
 
-  public VersionGroupDetail pokedexes(List<@Valid AbilityDetailPokemonInnerPokemon> pokedexes) {
+  public VersionGroupDetail pokedexes(List<@Valid PokedexSummary> pokedexes) {
     this.pokedexes = pokedexes;
     return this;
   }
 
-  public VersionGroupDetail addPokedexesItem(AbilityDetailPokemonInnerPokemon pokedexesItem) {
+  public VersionGroupDetail addPokedexesItem(PokedexSummary pokedexesItem) {
     if (this.pokedexes == null) {
       this.pokedexes = new ArrayList<>();
     }
@@ -184,26 +188,26 @@ public class VersionGroupDetail {
   }
 
   /**
-   * Get pokedexes
+   * A list of Pokédexes introduces in this version group.
    * @return pokedexes
    */
   
-  @Schema(name = "pokedexes", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "pokedexes", accessMode = Schema.AccessMode.READ_ONLY, description = "A list of Pokédexes introduces in this version group.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("pokedexes")
-  public List<@Valid AbilityDetailPokemonInnerPokemon> getPokedexes() {
+  public List<@Valid PokedexSummary> getPokedexes() {
     return pokedexes;
   }
 
-  public void setPokedexes(List<@Valid AbilityDetailPokemonInnerPokemon> pokedexes) {
+  public void setPokedexes(List<@Valid PokedexSummary> pokedexes) {
     this.pokedexes = pokedexes;
   }
 
-  public VersionGroupDetail regions(List<@Valid AbilityDetailPokemonInnerPokemon> regions) {
+  public VersionGroupDetail regions(List<@Valid RegionSummary> regions) {
     this.regions = regions;
     return this;
   }
 
-  public VersionGroupDetail addRegionsItem(AbilityDetailPokemonInnerPokemon regionsItem) {
+  public VersionGroupDetail addRegionsItem(RegionSummary regionsItem) {
     if (this.regions == null) {
       this.regions = new ArrayList<>();
     }
@@ -212,17 +216,17 @@ public class VersionGroupDetail {
   }
 
   /**
-   * Get regions
+   * A list of regions that can be visited in this version group.
    * @return regions
    */
   
-  @Schema(name = "regions", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "regions", accessMode = Schema.AccessMode.READ_ONLY, description = "A list of regions that can be visited in this version group.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("regions")
-  public List<@Valid AbilityDetailPokemonInnerPokemon> getRegions() {
+  public List<@Valid RegionSummary> getRegions() {
     return regions;
   }
 
-  public void setRegions(List<@Valid AbilityDetailPokemonInnerPokemon> regions) {
+  public void setRegions(List<@Valid RegionSummary> regions) {
     this.regions = regions;
   }
 
@@ -240,11 +244,11 @@ public class VersionGroupDetail {
   }
 
   /**
-   * Get versions
+   * The versions this version group owns.
    * @return versions
    */
   
-  @Schema(name = "versions", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "versions", accessMode = Schema.AccessMode.READ_ONLY, description = "The versions this version group owns.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("versions")
   public List<@Valid VersionSummary> getVersions() {
     return versions;

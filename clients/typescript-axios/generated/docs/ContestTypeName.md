@@ -5,9 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **string** |  | [default to undefined]
-**color** | **string** |  | [default to undefined]
-**language** | [**LanguageSummary**](LanguageSummary.md) |  | [default to undefined]
+**name** | **string** | The name for this contest. | [default to undefined]
+**color** | **string** | The color associated with this contest\&#39;s name. | [default to undefined]
+**language** | [**LanguageSummary**](LanguageSummary.md) | The language that this name is in. | [default to undefined]
 
 ## Example
 

@@ -19,7 +19,7 @@ import jakarta.annotation.Generated;
  * ItemFlingEffectEffectText
  */
 
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-10-25T05:48:25.711080506Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-11-09T13:49:41.168612095Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class ItemFlingEffectEffectText {
 
   private String effect;
@@ -44,11 +44,11 @@ public class ItemFlingEffectEffectText {
   }
 
   /**
-   * Get effect
+   * The localized effect text for an API resource in a specific language.
    * @return effect
    */
   @NotNull @Size(max = 6000) 
-  @Schema(name = "effect", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "effect", description = "The localized effect text for an API resource in a specific language.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("effect")
   public String getEffect() {
     return effect;
@@ -64,11 +64,11 @@ public class ItemFlingEffectEffectText {
   }
 
   /**
-   * Get language
+   * The language this effect is in.
    * @return language
    */
   @NotNull @Valid 
-  @Schema(name = "language", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "language", description = "The language this effect is in.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("language")
   public LanguageSummary getLanguage() {
     return language;

@@ -18,17 +18,17 @@ resourceTypes {
     properties {
         low_hp_preference {
           type =  integer
-          description = ""
+          description = "Chance of using the move, in percent, if HP is under one half."
           optional = true
         }
         high_hp_preference {
           type =  integer
-          description = ""
+          description = "Chance of using the move, in percent, if HP is over one half."
           optional = true
         }
         move_battle_style {
           type = MoveBattleStyleSummary
-          description = ""
+          description = "The move battle style."
           optional = true
         }
     }

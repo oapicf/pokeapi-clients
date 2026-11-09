@@ -113,12 +113,12 @@ EggGroupDetail::fromJson(char* jsonStr)
 		{
 			JsonArray* arr = json_node_get_array(node);
 			JsonNode*  temp_json;
-			list<EggGroupDetail_pokemon_species_inner> new_list;
-			EggGroupDetail_pokemon_species_inner inst;
+			list<PokemonSpeciesSummary> new_list;
+			PokemonSpeciesSummary inst;
 			for (guint i=0;i<json_array_get_length(arr);i++) {
 				temp_json = json_array_get_element(arr,i);
-				if (isprimitive("EggGroupDetail_pokemon_species_inner")) {
-					jsonToValue(&inst, temp_json, "EggGroupDetail_pokemon_species_inner", "");
+				if (isprimitive("PokemonSpeciesSummary")) {
+					jsonToValue(&inst, temp_json, "PokemonSpeciesSummary", "");
 				} else {
 					
 					inst.fromJson(json_to_string(temp_json, false));
@@ -185,18 +185,18 @@ EggGroupDetail::toJson()
 	
 	const gchar *namesKey = "names";
 	json_object_set_member(pJsonObject, namesKey, node);
-	if (isprimitive("EggGroupDetail_pokemon_species_inner")) {
-		list<EggGroupDetail_pokemon_species_inner> new_list = static_cast<list <EggGroupDetail_pokemon_species_inner> > (getPokemonSpecies());
-		node = converttoJson(&new_list, "EggGroupDetail_pokemon_species_inner", "array");
+	if (isprimitive("PokemonSpeciesSummary")) {
+		list<PokemonSpeciesSummary> new_list = static_cast<list <PokemonSpeciesSummary> > (getPokemonSpecies());
+		node = converttoJson(&new_list, "PokemonSpeciesSummary", "array");
 	} else {
 		node = json_node_alloc();
-		list<EggGroupDetail_pokemon_species_inner> new_list = static_cast<list <EggGroupDetail_pokemon_species_inner> > (getPokemonSpecies());
+		list<PokemonSpeciesSummary> new_list = static_cast<list <PokemonSpeciesSummary> > (getPokemonSpecies());
 		JsonArray* json_array = json_array_new();
 		GError *mygerror;
 		
-		for (list<EggGroupDetail_pokemon_species_inner>::iterator it = new_list.begin(); it != new_list.end(); it++) {
+		for (list<PokemonSpeciesSummary>::iterator it = new_list.begin(); it != new_list.end(); it++) {
 			mygerror = NULL;
-			EggGroupDetail_pokemon_species_inner obj = *it;
+			PokemonSpeciesSummary obj = *it;
 			JsonNode *node_temp = json_from_string(obj.toJson(), &mygerror);
 			json_array_add_element(json_array, node_temp);
 			g_clear_error(&mygerror);
@@ -254,14 +254,14 @@ EggGroupDetail::setNames(std::list <EggGroupName> names)
 	this->names = names;
 }
 
-std::list<EggGroupDetail_pokemon_species_inner>
+std::list<PokemonSpeciesSummary>
 EggGroupDetail::getPokemonSpecies()
 {
 	return pokemon_species;
 }
 
 void
-EggGroupDetail::setPokemonSpecies(std::list <EggGroupDetail_pokemon_species_inner> pokemon_species)
+EggGroupDetail::setPokemonSpecies(std::list <PokemonSpeciesSummary> pokemon_species)
 {
 	this->pokemon_species = pokemon_species;
 }

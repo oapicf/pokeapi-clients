@@ -4,10 +4,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** |  | [readonly] 
-**name** | **str** |  | 
-**berry_flavor** | [**BerryFlavorSummary**](BerryFlavorSummary.md) |  | [readonly] 
-**names** | [**List[ContestTypeName]**](ContestTypeName.md) |  | [readonly] 
+**id** | **int** | The identifier for this resource. | [readonly] 
+**name** | **str** | The name for this resource. | 
+**berry_flavor** | [**BerryFlavorSummary**](BerryFlavorSummary.md) | The berry flavor that correlates with this contest type. | [readonly] 
+**names** | [**List[ContestTypeName]**](ContestTypeName.md) | The name of this contest type listed in different languages. | [readonly] 
 
 ## Example
 

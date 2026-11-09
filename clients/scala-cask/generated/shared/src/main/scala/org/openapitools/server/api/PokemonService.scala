@@ -3,9 +3,9 @@
 //> using lib "com.lihaoyi::scalatags:0.12.0"
 /**
  * PokéAPI
- * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+ * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
  *
- * OpenAPI spec version: 2.7.0
+ * OpenAPI spec version: 2.10.0
  *
  * Contact: blah+oapicf@cliffano.com
  *
@@ -69,7 +69,7 @@ object PokemonService {
   case class Handler[F[_]](
         abilityListHandler : (limit : Option[Int], offset : Option[Int], q : Option[String]) => F[PaginatedAbilitySummaryList], 
         abilityRetrieveHandler : (id : String) => F[AbilityDetail], 
-        characteristicListHandler : (limit : Option[Int], offset : Option[Int], q : Option[String]) => F[PaginatedCharacteristicSummaryList], 
+        characteristicListHandler : (limit : Option[Int], offset : Option[Int]) => F[PaginatedCharacteristicSummaryList], 
         characteristicRetrieveHandler : (id : String) => F[CharacteristicDetail], 
         eggGroupListHandler : (limit : Option[Int], offset : Option[Int], q : Option[String]) => F[PaginatedEggGroupSummaryList], 
         eggGroupRetrieveHandler : (id : String) => F[EggGroupDetail], 
@@ -109,8 +109,8 @@ object PokemonService {
           abilityRetrieveHandler(id)
         }
 
-        override def characteristicList(limit : Option[Int], offset : Option[Int], q : Option[String]) : F[PaginatedCharacteristicSummaryList] = {
-          characteristicListHandler(limit, offset, q)
+        override def characteristicList(limit : Option[Int], offset : Option[Int]) : F[PaginatedCharacteristicSummaryList] = {
+          characteristicListHandler(limit, offset)
         }
 
         override def characteristicRetrieve(id : String) : F[CharacteristicDetail] = {
@@ -233,7 +233,7 @@ object PokemonService {
   def apply() : PokemonService[Try] = PokemonService.Handler[Try](
         (_, _, _) => notImplemented("abilityList"), 
         (_) => notImplemented("abilityRetrieve"), 
-        (_, _, _) => notImplemented("characteristicList"), 
+        (_, _) => notImplemented("characteristicList"), 
         (_) => notImplemented("characteristicRetrieve"), 
         (_, _, _) => notImplemented("eggGroupList"), 
         (_) => notImplemented("eggGroupRetrieve"), 
@@ -279,7 +279,7 @@ object PokemonService {
  * @tparam F the effect type (Future, Try, IO, ID, etc) of the operations
  */
 trait PokemonService[F[_]] {
-  /** 
+  /** List abilities
    * 
    * @return PaginatedAbilitySummaryList
    */
@@ -292,7 +292,7 @@ trait PokemonService[F[_]] {
   final def onAbilityList(handler : (limit : Option[Int], offset : Option[Int], q : Option[String]) => F[PaginatedAbilitySummaryList]) : PokemonService[F] = {
     asHandler.copy(abilityListHandler = handler)
   }
-  /** 
+  /** Get ability
    * 
    * @return AbilityDetail
    */
@@ -305,17 +305,17 @@ trait PokemonService[F[_]] {
   final def onAbilityRetrieve(handler : (id : String) => F[AbilityDetail]) : PokemonService[F] = {
     asHandler.copy(abilityRetrieveHandler = handler)
   }
-  /** List charecterictics
+  /** List characteristics
    * 
    * @return PaginatedCharacteristicSummaryList
    */
-  def characteristicList(limit : Option[Int], offset : Option[Int], q : Option[String]) : F[PaginatedCharacteristicSummaryList]
+  def characteristicList(limit : Option[Int], offset : Option[Int]) : F[PaginatedCharacteristicSummaryList]
 
   /**
    * override characteristicList with the given handler
    * @return a new implementation of PokemonService[F] with characteristicList overridden using the given handler
    */
-  final def onCharacteristicList(handler : (limit : Option[Int], offset : Option[Int], q : Option[String]) => F[PaginatedCharacteristicSummaryList]) : PokemonService[F] = {
+  final def onCharacteristicList(handler : (limit : Option[Int], offset : Option[Int]) => F[PaginatedCharacteristicSummaryList]) : PokemonService[F] = {
     asHandler.copy(characteristicListHandler = handler)
   }
   /** Get characteristic
@@ -705,7 +705,7 @@ trait PokemonService[F[_]] {
         PokemonService.Handler[F](
               (limit, offset, q) => abilityList(limit, offset, q), 
               (id) => abilityRetrieve(id), 
-              (limit, offset, q) => characteristicList(limit, offset, q), 
+              (limit, offset) => characteristicList(limit, offset), 
               (id) => characteristicRetrieve(id), 
               (limit, offset, q) => eggGroupList(limit, offset, q), 
               (id) => eggGroupRetrieve(id), 
@@ -766,8 +766,8 @@ trait PokemonService[F[_]] {
         override def abilityRetrieve(id : String) : G[AbilityDetail] = changeEffect {
           self.abilityRetrieve(id)
         }
-        override def characteristicList(limit : Option[Int], offset : Option[Int], q : Option[String]) : G[PaginatedCharacteristicSummaryList] = changeEffect {
-          self.characteristicList(limit, offset, q)
+        override def characteristicList(limit : Option[Int], offset : Option[Int]) : G[PaginatedCharacteristicSummaryList] = changeEffect {
+          self.characteristicList(limit, offset)
         }
         override def characteristicRetrieve(id : String) : G[CharacteristicDetail] = changeEffect {
           self.characteristicRetrieve(id)

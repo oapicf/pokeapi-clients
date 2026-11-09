@@ -12,10 +12,14 @@ import org.joda.time.DateTime
 import PokemonHabitatDetail._
 
 case class PokemonHabitatDetail (
+  /* The identifier for this resource. */
   id: Integer,
-name: String,
-names: List[PokemonHabitatName],
-pokemonSpecies: List[PokemonSpeciesSummary])
+/* The name for this resource. */
+  name: String,
+/* The name of this resource listed in different languages. */
+  names: List[PokemonHabitatName],
+/* A list of the Pokémon species that can be found in this habitat. */
+  pokemonSpecies: List[PokemonSpeciesSummary])
 
 object PokemonHabitatDetail {
   import DateTimeCodecs._

@@ -15,8 +15,8 @@
 
 typedef struct berry_detail_t berry_detail_t;
 
-#include "berry_detail_flavors_inner.h"
 #include "berry_firmness_summary.h"
+#include "berry_flavor_map.h"
 #include "item_summary.h"
 #include "type_summary.h"
 

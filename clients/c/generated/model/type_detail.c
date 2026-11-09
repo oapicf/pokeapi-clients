@@ -8,7 +8,7 @@
 static type_detail_t *type_detail_create_internal(
     int *id,
     char *name,
-    type_detail_damage_relations_t *damage_relations,
+    type_relationships_t *damage_relations,
     list_t *past_damage_relations,
     list_t *game_indices,
     generation_summary_t *generation,
@@ -41,7 +41,7 @@ static type_detail_t *type_detail_create_internal(
 __attribute__((deprecated)) type_detail_t *type_detail_create(
     int *id,
     char *name,
-    type_detail_damage_relations_t *damage_relations,
+    type_relationships_t *damage_relations,
     list_t *past_damage_relations,
     list_t *game_indices,
     generation_summary_t *generation,
@@ -93,12 +93,12 @@ void type_detail_free(type_detail_t *type_detail) {
         type_detail->name = NULL;
     }
     if (type_detail->damage_relations) {
-        type_detail_damage_relations_free(type_detail->damage_relations);
+        type_relationships_free(type_detail->damage_relations);
         type_detail->damage_relations = NULL;
     }
     if (type_detail->past_damage_relations) {
         list_ForEach(listEntry, type_detail->past_damage_relations) {
-            type_detail_past_damage_relations_inner_free(listEntry->data);
+            type_past_relationships_free(listEntry->data);
         }
         list_freeList(type_detail->past_damage_relations);
         type_detail->past_damage_relations = NULL;
@@ -120,14 +120,14 @@ void type_detail_free(type_detail_t *type_detail) {
     }
     if (type_detail->names) {
         list_ForEach(listEntry, type_detail->names) {
-            ability_name_free(listEntry->data);
+            ModelTypeName_free(listEntry->data);
         }
         list_freeList(type_detail->names);
         type_detail->names = NULL;
     }
     if (type_detail->pokemon) {
         list_ForEach(listEntry, type_detail->pokemon) {
-            type_detail_pokemon_inner_free(listEntry->data);
+            type_pokemon_free(listEntry->data);
         }
         list_freeList(type_detail->pokemon);
         type_detail->pokemon = NULL;
@@ -177,7 +177,7 @@ cJSON *type_detail_convertToJSON(type_detail_t *type_detail) {
     if (!type_detail->damage_relations) {
         goto fail;
     }
-    cJSON *damage_relations_local_JSON = type_detail_damage_relations_convertToJSON(type_detail->damage_relations);
+    cJSON *damage_relations_local_JSON = type_relationships_convertToJSON(type_detail->damage_relations);
     if(damage_relations_local_JSON == NULL) {
     goto fail; //model
     }
@@ -199,7 +199,7 @@ cJSON *type_detail_convertToJSON(type_detail_t *type_detail) {
     listEntry_t *past_damage_relationsListEntry;
     if (type_detail->past_damage_relations) {
     list_ForEach(past_damage_relationsListEntry, type_detail->past_damage_relations) {
-    cJSON *itemLocal = type_detail_past_damage_relations_inner_convertToJSON(past_damage_relationsListEntry->data);
+    cJSON *itemLocal = type_past_relationships_convertToJSON(past_damage_relationsListEntry->data);
     if(itemLocal == NULL) {
     goto fail;
     }
@@ -269,7 +269,7 @@ cJSON *type_detail_convertToJSON(type_detail_t *type_detail) {
     listEntry_t *namesListEntry;
     if (type_detail->names) {
     list_ForEach(namesListEntry, type_detail->names) {
-    cJSON *itemLocal = ability_name_convertToJSON(namesListEntry->data);
+    cJSON *itemLocal = ModelTypeName_convertToJSON(namesListEntry->data);
     if(itemLocal == NULL) {
     goto fail;
     }
@@ -290,7 +290,7 @@ cJSON *type_detail_convertToJSON(type_detail_t *type_detail) {
     listEntry_t *pokemonListEntry;
     if (type_detail->pokemon) {
     list_ForEach(pokemonListEntry, type_detail->pokemon) {
-    cJSON *itemLocal = type_detail_pokemon_inner_convertToJSON(pokemonListEntry->data);
+    cJSON *itemLocal = type_pokemon_convertToJSON(pokemonListEntry->data);
     if(itemLocal == NULL) {
     goto fail;
     }
@@ -354,7 +354,7 @@ type_detail_t *type_detail_parseFromJSON(cJSON *type_detailJSON){
     char *name_local_str = NULL;
 
     // define the local variable for type_detail->damage_relations
-    type_detail_damage_relations_t *damage_relations_local_nonprim = NULL;
+    type_relationships_t *damage_relations_local_nonprim = NULL;
 
     // define the local list for type_detail->past_damage_relations
     list_t *past_damage_relationsList = NULL;
@@ -426,7 +426,7 @@ type_detail_t *type_detail_parseFromJSON(cJSON *type_detailJSON){
     }
 
     
-    damage_relations_local_nonprim = type_detail_damage_relations_parseFromJSON(damage_relations); //nonprimitive
+    damage_relations_local_nonprim = type_relationships_parseFromJSON(damage_relations); //nonprimitive
 
     // type_detail->past_damage_relations
     cJSON *past_damage_relations = cJSON_GetObjectItemCaseSensitive(type_detailJSON, "past_damage_relations");
@@ -450,7 +450,7 @@ type_detail_t *type_detail_parseFromJSON(cJSON *type_detailJSON){
         if(!cJSON_IsObject(past_damage_relations_local_nonprimitive)){
             goto end;
         }
-        type_detail_past_damage_relations_inner_t *past_damage_relationsItem = type_detail_past_damage_relations_inner_parseFromJSON(past_damage_relations_local_nonprimitive);
+        type_past_relationships_t *past_damage_relationsItem = type_past_relationships_parseFromJSON(past_damage_relations_local_nonprimitive);
 
         list_addElement(past_damage_relationsList, past_damage_relationsItem);
     }
@@ -528,7 +528,7 @@ type_detail_t *type_detail_parseFromJSON(cJSON *type_detailJSON){
         if(!cJSON_IsObject(names_local_nonprimitive)){
             goto end;
         }
-        ability_name_t *namesItem = ability_name_parseFromJSON(names_local_nonprimitive);
+        ModelTypeName_t *namesItem = ModelTypeName_parseFromJSON(names_local_nonprimitive);
 
         list_addElement(namesList, namesItem);
     }
@@ -555,7 +555,7 @@ type_detail_t *type_detail_parseFromJSON(cJSON *type_detailJSON){
         if(!cJSON_IsObject(pokemon_local_nonprimitive)){
             goto end;
         }
-        type_detail_pokemon_inner_t *pokemonItem = type_detail_pokemon_inner_parseFromJSON(pokemon_local_nonprimitive);
+        type_pokemon_t *pokemonItem = type_pokemon_parseFromJSON(pokemon_local_nonprimitive);
 
         list_addElement(pokemonList, pokemonItem);
     }
@@ -645,13 +645,13 @@ end:
         name_local_str = NULL;
     }
     if (damage_relations_local_nonprim) {
-        type_detail_damage_relations_free(damage_relations_local_nonprim);
+        type_relationships_free(damage_relations_local_nonprim);
         damage_relations_local_nonprim = NULL;
     }
     if (past_damage_relationsList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, past_damage_relationsList) {
-            type_detail_past_damage_relations_inner_free(listEntry->data);
+            type_past_relationships_free(listEntry->data);
             listEntry->data = NULL;
         }
         list_freeList(past_damage_relationsList);
@@ -677,7 +677,7 @@ end:
     if (namesList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, namesList) {
-            ability_name_free(listEntry->data);
+            ModelTypeName_free(listEntry->data);
             listEntry->data = NULL;
         }
         list_freeList(namesList);
@@ -686,7 +686,7 @@ end:
     if (pokemonList) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, pokemonList) {
-            type_detail_pokemon_inner_free(listEntry->data);
+            type_pokemon_free(listEntry->data);
             listEntry->data = NULL;
         }
         list_freeList(pokemonList);

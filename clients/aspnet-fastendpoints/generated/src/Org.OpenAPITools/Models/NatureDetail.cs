@@ -12,8 +12,7 @@ public class NatureDetail
     public StatSummary IncreasedStat { get; set; }
     public BerryFlavorSummary LikesFlavor { get; set; }
     public BerryFlavorSummary HatesFlavor { get; set; }
-    public List<BerrySummary> Berries { get; set; }
-    public List<NatureDetailPokeathlonStatChangesInner> PokeathlonStatChanges { get; set; }
+    public List<NaturePokeathlonStat> PokeathlonStatChanges { get; set; }
     public List<NatureBattleStylePreference> MoveBattleStylePreferences { get; set; }
     public List<NatureName> Names { get; set; }
 }

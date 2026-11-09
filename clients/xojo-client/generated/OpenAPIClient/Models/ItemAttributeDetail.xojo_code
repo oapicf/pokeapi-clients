@@ -2,26 +2,41 @@
 Protected Class ItemAttributeDetail
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The identifier for this resource.
+		#tag EndNote
 		id As Integer
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The name for this resource.
+		#tag EndNote
 		name As String
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The description of this item attribute listed in different languages.
+		#tag EndNote
 		descriptions() As OpenAPIClient.Models.ItemAttributeDescription
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
-		items() As OpenAPIClient.Models.AbilityDetailPokemonInnerPokemon
+		#tag Note
+			A list of items that have this attribute.
+		#tag EndNote
+		items() As OpenAPIClient.Models.ItemSummary
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The name of this item attribute listed in different languages.
+		#tag EndNote
 		names() As OpenAPIClient.Models.ItemAttributeName
 	#tag EndProperty
 
@@ -91,7 +106,7 @@ Protected Class ItemAttributeDetail
 			Visible=false
 			Group="Behavior"
 			InitialValue=""
-			Type="AbilityDetailPokemonInnerPokemon"
+			Type="ItemSummary"
 			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty

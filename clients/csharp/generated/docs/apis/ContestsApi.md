@@ -13,7 +13,7 @@ All URIs are relative to *https://pokeapi.co*
 
 <a id="contesteffectlist"></a>
 # **ContestEffectList**
-> PaginatedContestEffectSummaryList ContestEffectList (int limit = null, int offset = null, string q = null)
+> PaginatedContestEffectSummaryList ContestEffectList (int limit = null, int offset = null)
 
 List contest effects
 
@@ -26,7 +26,6 @@ Contest effects refer to the effects of moves when used in contests.
 |------|------|-------------|-------|
 | **limit** | **int** | Number of results to return per page. | [optional]  |
 | **offset** | **int** | The initial index from which to return the results. | [optional]  |
-| **q** | **string** | &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional]  |
 
 ### Return type
 
@@ -34,7 +33,7 @@ Contest effects refer to the effects of moves when used in contests.
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -70,7 +69,7 @@ Contest effects refer to the effects of moves when used in contests.
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -108,7 +107,7 @@ Contest types are categories judges used to weigh a Pok√©mon's condition in Pok√
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -144,7 +143,7 @@ Contest types are categories judges used to weigh a Pok√©mon's condition in Pok√
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -161,7 +160,7 @@ Contest types are categories judges used to weigh a Pok√©mon's condition in Pok√
 
 <a id="supercontesteffectlist"></a>
 # **SuperContestEffectList**
-> PaginatedSuperContestEffectSummaryList SuperContestEffectList (int limit = null, int offset = null, string q = null)
+> PaginatedSuperContestEffectSummaryList SuperContestEffectList (int limit = null, int offset = null)
 
 List super contest effects
 
@@ -174,7 +173,6 @@ Super contest effects refer to the effects of moves when used in super contests.
 |------|------|-------------|-------|
 | **limit** | **int** | Number of results to return per page. | [optional]  |
 | **offset** | **int** | The initial index from which to return the results. | [optional]  |
-| **q** | **string** | &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional]  |
 
 ### Return type
 
@@ -182,7 +180,7 @@ Super contest effects refer to the effects of moves when used in super contests.
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -218,7 +216,7 @@ Super contest effects refer to the effects of moves when used in super contests.
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

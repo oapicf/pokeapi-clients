@@ -3,7 +3,7 @@ namespace OpenAPI.Model
 open System
 open System.Collections.Generic
 open Newtonsoft.Json
-open OpenAPI.Model.PokeathlonStatDetailAffectingNatures
+open OpenAPI.Model.PokeathlonStatAffectingNatures
 open OpenAPI.Model.PokeathlonStatName
 
 module PokeathlonStatDetail =
@@ -17,7 +17,7 @@ module PokeathlonStatDetail =
     [<JsonProperty(PropertyName = "name")>]
     Name : string;
     [<JsonProperty(PropertyName = "affecting_natures")>]
-    AffectingNatures : PokeathlonStatDetailAffectingNatures;
+    AffectingNatures : PokeathlonStatAffectingNatures;
     [<JsonProperty(PropertyName = "names")>]
     Names : PokeathlonStatName[];
   }

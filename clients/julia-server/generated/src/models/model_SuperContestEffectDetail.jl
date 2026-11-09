@@ -11,10 +11,10 @@
         moves=nothing,
     )
 
-    - id::Int64
-    - appeal::Int64
-    - flavor_text_entries::Vector{SuperContestEffectFlavorText}
-    - moves::Vector{MoveSummary}
+    - id::Int64 : The identifier for this resource.
+    - appeal::Int64 : The level of appeal this super contest effect has.
+    - flavor_text_entries::Vector{SuperContestEffectFlavorText} : The flavor text of this super contest effect listed in different languages.
+    - moves::Vector{MoveSummary} : A list of moves that have the effect when used in super contests.
 """
 Base.@kwdef mutable struct SuperContestEffectDetail <: OpenAPI.APIModel
     id::Union{Nothing, Int64} = nothing
@@ -50,6 +50,10 @@ end
 function OpenAPI.validate_property(::Type{ SuperContestEffectDetail }, name::Symbol, val)
 
 
+    if name === Symbol("appeal")
+        OpenAPI.validate_param(name, "SuperContestEffectDetail", :maximum, val, 2147483647, false)
+        OpenAPI.validate_param(name, "SuperContestEffectDetail", :minimum, val, -2147483648, false)
+    end
 
 
 end

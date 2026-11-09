@@ -27,10 +27,10 @@ public class SuperContestEffectDetail   {
     /**
      * Create SuperContestEffectDetail.
      *
-     * @param id id
-     * @param appeal appeal
-     * @param flavorTextEntries flavorTextEntries
-     * @param moves moves
+     * @param id The identifier for this resource.
+     * @param appeal The level of appeal this super contest effect has.
+     * @param flavorTextEntries The flavor text of this super contest effect listed in different languages.
+     * @param moves A list of moves that have the effect when used in super contests.
      */
     public SuperContestEffectDetail(
         Integer id, 
@@ -47,7 +47,7 @@ public class SuperContestEffectDetail   {
 
 
     /**
-     * Get id
+     * The identifier for this resource.
      * @return id
      */
     public Integer getId() {
@@ -59,7 +59,9 @@ public class SuperContestEffectDetail   {
     }
 
     /**
-     * Get appeal
+     * The level of appeal this super contest effect has.
+     * minimum: -2147483648
+     * maximum: 2147483647
      * @return appeal
      */
     public Integer getAppeal() {
@@ -71,7 +73,7 @@ public class SuperContestEffectDetail   {
     }
 
     /**
-     * Get flavorTextEntries
+     * The flavor text of this super contest effect listed in different languages.
      * @return flavorTextEntries
      */
     public List<@Valid SuperContestEffectFlavorText> getFlavorTextEntries() {
@@ -83,7 +85,7 @@ public class SuperContestEffectDetail   {
     }
 
     /**
-     * Get moves
+     * A list of moves that have the effect when used in super contests.
      * @return moves
      */
     public List<@Valid MoveSummary> getMoves() {

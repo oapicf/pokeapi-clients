@@ -15,19 +15,31 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class EncounterConditionDetail  {
   
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The identifier for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   private Integer id;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The name for this resource.
+  */
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   private String name;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * A list of possible values for this encounter condition.
+  */
+  @ApiModelProperty(required = true, value = "A list of possible values for this encounter condition.")
   private List<@Valid EncounterConditionValueSummary> values = new ArrayList<>();
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The name of this resource listed in different languages.
+  */
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
   private List<@Valid EncounterConditionName> names = new ArrayList<>();
  /**
-  * Get id
+  * The identifier for this resource.
   * @return id
   */
   @JsonProperty("id")
@@ -54,12 +66,12 @@ public class EncounterConditionDetail  {
   }
 
  /**
-  * Get name
+  * The name for this resource.
   * @return name
   */
   @JsonProperty("name")
   @NotNull
- @Size(max=100)  public String getName() {
+ @Size(max=200)  public String getName() {
     return name;
   }
 
@@ -79,7 +91,7 @@ public class EncounterConditionDetail  {
   }
 
  /**
-  * Get values
+  * A list of possible values for this encounter condition.
   * @return values
   */
   @JsonProperty("values")
@@ -115,7 +127,7 @@ public class EncounterConditionDetail  {
   }
 
  /**
-  * Get names
+  * The name of this resource listed in different languages.
   * @return names
   */
   @JsonProperty("names")

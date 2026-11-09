@@ -16,7 +16,7 @@ const _returntypes_move_ailment_list_MovesApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_move_ailment_list(_api::MovesApi; limit=nothing, offset=nothing, q=nothing, _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_move_ailment_list_MovesApi, "/api/v2/move-ailment/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_move_ailment_list_MovesApi, "/api/v2/move-ailment/", [])
     OpenAPI.Clients.set_param(_ctx.query, "limit", limit; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "offset", offset; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "q", q; style="form", is_explode=true)  # type String
@@ -51,7 +51,7 @@ const _returntypes_move_ailment_retrieve_MovesApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_move_ailment_retrieve(_api::MovesApi, id::String; _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_move_ailment_retrieve_MovesApi, "/api/v2/move-ailment/{id}/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_move_ailment_retrieve_MovesApi, "/api/v2/move-ailment/{id}/", [])
     OpenAPI.Clients.set_param(_ctx.path, "id", id)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
@@ -82,7 +82,7 @@ const _returntypes_move_battle_style_list_MovesApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_move_battle_style_list(_api::MovesApi; limit=nothing, offset=nothing, q=nothing, _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_move_battle_style_list_MovesApi, "/api/v2/move-battle-style/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_move_battle_style_list_MovesApi, "/api/v2/move-battle-style/", [])
     OpenAPI.Clients.set_param(_ctx.query, "limit", limit; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "offset", offset; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "q", q; style="form", is_explode=true)  # type String
@@ -117,7 +117,7 @@ const _returntypes_move_battle_style_retrieve_MovesApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_move_battle_style_retrieve(_api::MovesApi, id::String; _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_move_battle_style_retrieve_MovesApi, "/api/v2/move-battle-style/{id}/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_move_battle_style_retrieve_MovesApi, "/api/v2/move-battle-style/{id}/", [])
     OpenAPI.Clients.set_param(_ctx.path, "id", id)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
@@ -148,7 +148,7 @@ const _returntypes_move_category_list_MovesApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_move_category_list(_api::MovesApi; limit=nothing, offset=nothing, q=nothing, _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_move_category_list_MovesApi, "/api/v2/move-category/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_move_category_list_MovesApi, "/api/v2/move-category/", [])
     OpenAPI.Clients.set_param(_ctx.query, "limit", limit; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "offset", offset; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "q", q; style="form", is_explode=true)  # type String
@@ -183,7 +183,7 @@ const _returntypes_move_category_retrieve_MovesApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_move_category_retrieve(_api::MovesApi, id::String; _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_move_category_retrieve_MovesApi, "/api/v2/move-category/{id}/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_move_category_retrieve_MovesApi, "/api/v2/move-category/{id}/", [])
     OpenAPI.Clients.set_param(_ctx.path, "id", id)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
@@ -214,7 +214,7 @@ const _returntypes_move_learn_method_list_MovesApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_move_learn_method_list(_api::MovesApi; limit=nothing, offset=nothing, q=nothing, _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_move_learn_method_list_MovesApi, "/api/v2/move-learn-method/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_move_learn_method_list_MovesApi, "/api/v2/move-learn-method/", [])
     OpenAPI.Clients.set_param(_ctx.query, "limit", limit; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "offset", offset; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "q", q; style="form", is_explode=true)  # type String
@@ -249,7 +249,7 @@ const _returntypes_move_learn_method_retrieve_MovesApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_move_learn_method_retrieve(_api::MovesApi, id::String; _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_move_learn_method_retrieve_MovesApi, "/api/v2/move-learn-method/{id}/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_move_learn_method_retrieve_MovesApi, "/api/v2/move-learn-method/{id}/", [])
     OpenAPI.Clients.set_param(_ctx.path, "id", id)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
@@ -280,7 +280,7 @@ const _returntypes_move_list_MovesApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_move_list(_api::MovesApi; limit=nothing, offset=nothing, q=nothing, _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_move_list_MovesApi, "/api/v2/move/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_move_list_MovesApi, "/api/v2/move/", [])
     OpenAPI.Clients.set_param(_ctx.query, "limit", limit; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "offset", offset; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "q", q; style="form", is_explode=true)  # type String
@@ -315,7 +315,7 @@ const _returntypes_move_retrieve_MovesApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_move_retrieve(_api::MovesApi, id::String; _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_move_retrieve_MovesApi, "/api/v2/move/{id}/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_move_retrieve_MovesApi, "/api/v2/move/{id}/", [])
     OpenAPI.Clients.set_param(_ctx.path, "id", id)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
@@ -346,7 +346,7 @@ const _returntypes_move_target_list_MovesApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_move_target_list(_api::MovesApi; limit=nothing, offset=nothing, q=nothing, _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_move_target_list_MovesApi, "/api/v2/move-target/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_move_target_list_MovesApi, "/api/v2/move-target/", [])
     OpenAPI.Clients.set_param(_ctx.query, "limit", limit; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "offset", offset; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "q", q; style="form", is_explode=true)  # type String
@@ -381,7 +381,7 @@ const _returntypes_move_target_retrieve_MovesApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_move_target_retrieve(_api::MovesApi, id::String; _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_move_target_retrieve_MovesApi, "/api/v2/move-target/{id}/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_move_target_retrieve_MovesApi, "/api/v2/move-target/{id}/", [])
     OpenAPI.Clients.set_param(_ctx.path, "id", id)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])

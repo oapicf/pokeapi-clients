@@ -1,0 +1,64 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server LocationAreaEncounterDetail"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a LocationAreaEncounterDetail"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  EncounterConditionValueSummary = openapi_server.resourceTypes.EncounterConditionValueSummary
+  EncounterMethodSummary = openapi_server.resourceTypes.EncounterMethodSummary
+  EncounterPokemonDetail = openapi_server.resourceTypes.EncounterPokemonDetail
+}
+resourceTypes {
+
+  LocationAreaEncounterDetail {
+    title = LocationAreaEncounterDetail
+    description = LocationAreaEncounterDetail
+    derivedFrom = Root
+    properties {
+        min_level {
+          type =  integer
+          description = "The lowest level the Pokémon could be encountered at."
+          optional = true
+        }
+        max_level {
+          type =  integer
+          description = "The highest level the Pokémon could be encountered at."
+          optional = true
+        }
+        chance {
+          type =  integer
+          description = "Percent chance that this encounter will occur."
+          optional = false
+        }
+        method {
+          type = EncounterMethodSummary
+          description = "The method by which this encounter happens."
+          optional = false
+        }
+        condition_values {
+          type = array
+          items.type = EncounterConditionValueSummary
+          description = "A list of condition values that must be in effect for this encounter to occur."
+          optional = true
+        }
+        pokemon_details {
+          type = EncounterPokemonDetail
+          description = "Additional properties of the encountered Pokémon, or null if unspecified."
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  LocationAreaEncounterDetail {
+    title = LocationAreaEncounterDetail
+    description = LocationAreaEncounterDetail
+    implements = openapi_server.resourceTypes.LocationAreaEncounterDetail
+
+  }
+}

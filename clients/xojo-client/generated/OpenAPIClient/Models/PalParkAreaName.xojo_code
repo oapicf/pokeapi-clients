@@ -2,11 +2,17 @@
 Protected Class PalParkAreaName
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The localized name for an API resource in a specific language.
+		#tag EndNote
 		name As String
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The language this name is in.
+		#tag EndNote
 		language As OpenAPIClient.Models.LanguageSummary
 	#tag EndProperty
 

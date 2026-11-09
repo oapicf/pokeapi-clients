@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** |  | [readonly]
-**name** | **string** |  |
-**values** | [**\OpenAPI\Client\Model\EncounterConditionValueSummary[]**](EncounterConditionValueSummary.md) |  | [readonly]
-**names** | [**\OpenAPI\Client\Model\EncounterConditionName[]**](EncounterConditionName.md) |  | [readonly]
+**id** | **int** | The identifier for this resource. | [readonly]
+**name** | **string** | The name for this resource. |
+**values** | [**\OpenAPI\Client\Model\EncounterConditionValueSummary[]**](EncounterConditionValueSummary.md) | A list of possible values for this encounter condition. | [readonly]
+**names** | [**\OpenAPI\Client\Model\EncounterConditionName[]**](EncounterConditionName.md) | The name of this resource listed in different languages. | [readonly]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

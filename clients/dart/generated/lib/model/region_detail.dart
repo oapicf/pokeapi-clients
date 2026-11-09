@@ -22,19 +22,26 @@ class RegionDetail {
     this.versionGroups = const [],
   });
 
+  /// The identifier for this resource.
   int id;
 
+  /// The name for this resource.
   String name;
 
+  /// A list of locations that can be found in this region.
   List<LocationSummary> locations;
 
-  GenerationSummary mainGeneration;
+  /// The generation this region was introduced in.
+  GenerationSummary? mainGeneration;
 
+  /// The name of this resource listed in different languages.
   List<RegionName> names;
 
+  /// A list of pokédexes that catalogue Pokémon in this region.
   List<PokedexSummary> pokedexes;
 
-  List<AbilityDetailPokemonInnerPokemon> versionGroups;
+  /// A list of version groups where this region can be visited.
+  List<VersionGroupSummary> versionGroups;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is RegionDetail &&
@@ -52,7 +59,7 @@ class RegionDetail {
     (id.hashCode) +
     (name.hashCode) +
     (locations.hashCode) +
-    (mainGeneration.hashCode) +
+    (mainGeneration == null ? 0 : mainGeneration!.hashCode) +
     (names.hashCode) +
     (pokedexes.hashCode) +
     (versionGroups.hashCode);
@@ -65,7 +72,11 @@ class RegionDetail {
       json[r'id'] = this.id;
       json[r'name'] = this.name;
       json[r'locations'] = this.locations;
+    if (this.mainGeneration != null) {
       json[r'main_generation'] = this.mainGeneration;
+    } else {
+      json[r'main_generation'] = null;
+    }
       json[r'names'] = this.names;
       json[r'pokedexes'] = this.pokedexes;
       json[r'version_groups'] = this.versionGroups;
@@ -90,7 +101,6 @@ class RegionDetail {
         assert(json.containsKey(r'locations'), 'Required key "RegionDetail[locations]" is missing from JSON.');
         assert(json[r'locations'] != null, 'Required key "RegionDetail[locations]" has a null value in JSON.');
         assert(json.containsKey(r'main_generation'), 'Required key "RegionDetail[main_generation]" is missing from JSON.');
-        assert(json[r'main_generation'] != null, 'Required key "RegionDetail[main_generation]" has a null value in JSON.');
         assert(json.containsKey(r'names'), 'Required key "RegionDetail[names]" is missing from JSON.');
         assert(json[r'names'] != null, 'Required key "RegionDetail[names]" has a null value in JSON.');
         assert(json.containsKey(r'pokedexes'), 'Required key "RegionDetail[pokedexes]" is missing from JSON.');
@@ -104,10 +114,10 @@ class RegionDetail {
         id: mapValueOfType<int>(json, r'id')!,
         name: mapValueOfType<String>(json, r'name')!,
         locations: LocationSummary.listFromJson(json[r'locations']),
-        mainGeneration: GenerationSummary.fromJson(json[r'main_generation'])!,
+        mainGeneration: GenerationSummary.fromJson(json[r'main_generation']),
         names: RegionName.listFromJson(json[r'names']),
         pokedexes: PokedexSummary.listFromJson(json[r'pokedexes']),
-        versionGroups: AbilityDetailPokemonInnerPokemon.listFromJson(json[r'version_groups']),
+        versionGroups: VersionGroupSummary.listFromJson(json[r'version_groups']),
       );
     }
     return null;

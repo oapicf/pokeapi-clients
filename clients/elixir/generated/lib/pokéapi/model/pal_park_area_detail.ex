@@ -18,7 +18,7 @@ defmodule PokéAPI.Model.PalParkAreaDetail do
     :id => integer(),
     :name => String.t,
     :names => [PokéAPI.Model.PalParkAreaName.t],
-    :pokemon_encounters => [PokéAPI.Model.PalParkAreaDetailPokemonEncountersInner.t]
+    :pokemon_encounters => [PokéAPI.Model.PalParkEncounter.t]
   }
 
   alias PokéAPI.Deserializer
@@ -26,7 +26,7 @@ defmodule PokéAPI.Model.PalParkAreaDetail do
   def decode(value) do
     value
      |> Deserializer.deserialize(:names, :list, PokéAPI.Model.PalParkAreaName)
-     |> Deserializer.deserialize(:pokemon_encounters, :list, PokéAPI.Model.PalParkAreaDetailPokemonEncountersInner)
+     |> Deserializer.deserialize(:pokemon_encounters, :list, PokéAPI.Model.PalParkEncounter)
   end
 end
 

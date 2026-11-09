@@ -17,7 +17,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("NatureBattleStylePreference")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-11-09T13:50:06.168269698Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class NatureBattleStylePreference   {
   private Integer lowHpPreference;
   private Integer highHpPreference;
@@ -38,6 +38,9 @@ public class NatureBattleStylePreference   {
   }
 
   /**
+   * Chance of using the move, in percent, if HP is under one half.
+   * minimum: -2147483648
+   * maximum: 2147483647
    **/
   public NatureBattleStylePreference lowHpPreference(Integer lowHpPreference) {
     this.lowHpPreference = lowHpPreference;
@@ -45,9 +48,9 @@ public class NatureBattleStylePreference   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "Chance of using the move, in percent, if HP is under one half.")
   @JsonProperty(required = true, value = "low_hp_preference")
-  @NotNull public Integer getLowHpPreference() {
+  @NotNull  @Min(-2147483648) @Max(2147483647)public Integer getLowHpPreference() {
     return lowHpPreference;
   }
 
@@ -57,6 +60,9 @@ public class NatureBattleStylePreference   {
   }
 
   /**
+   * Chance of using the move, in percent, if HP is over one half.
+   * minimum: -2147483648
+   * maximum: 2147483647
    **/
   public NatureBattleStylePreference highHpPreference(Integer highHpPreference) {
     this.highHpPreference = highHpPreference;
@@ -64,9 +70,9 @@ public class NatureBattleStylePreference   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "Chance of using the move, in percent, if HP is over one half.")
   @JsonProperty(required = true, value = "high_hp_preference")
-  @NotNull public Integer getHighHpPreference() {
+  @NotNull  @Min(-2147483648) @Max(2147483647)public Integer getHighHpPreference() {
     return highHpPreference;
   }
 
@@ -76,6 +82,7 @@ public class NatureBattleStylePreference   {
   }
 
   /**
+   * The move battle style.
    **/
   public NatureBattleStylePreference moveBattleStyle(MoveBattleStyleSummary moveBattleStyle) {
     this.moveBattleStyle = moveBattleStyle;
@@ -83,7 +90,7 @@ public class NatureBattleStylePreference   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The move battle style.")
   @JsonProperty(required = true, value = "move_battle_style")
   @NotNull @Valid public MoveBattleStyleSummary getMoveBattleStyle() {
     return moveBattleStyle;

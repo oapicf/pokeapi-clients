@@ -12,13 +12,15 @@ part 'item_category_name.g.dart';
 /// ItemCategoryName
 ///
 /// Properties:
-/// * [name] 
-/// * [language] 
+/// * [name] - The localized name for an API resource in a specific language.
+/// * [language] - The language this name is in.
 @BuiltValue()
 abstract class ItemCategoryName implements Built<ItemCategoryName, ItemCategoryNameBuilder> {
+  /// The localized name for an API resource in a specific language.
   @BuiltValueField(wireName: r'name')
   String get name;
 
+  /// The language this name is in.
   @BuiltValueField(wireName: r'language')
   LanguageSummary get language;
 

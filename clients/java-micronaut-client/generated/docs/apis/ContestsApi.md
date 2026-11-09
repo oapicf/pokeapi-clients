@@ -43,7 +43,7 @@ More information can be found inside [Inversion of Control guide section](https:
 <a id="contestEffectList"></a>
 # **contestEffectList**
 ```java
-Mono<PaginatedContestEffectSummaryList> ContestsApi.contestEffectList(limitoffsetq)
+Mono<PaginatedContestEffectSummaryList> ContestsApi.contestEffectList(limitoffset)
 ```
 
 List contest effects
@@ -55,15 +55,12 @@ Contest effects refer to the effects of moves when used in contests.
 |------------- | ------------- | ------------- | -------------|
 | **limit** | `Integer`| Number of results to return per page. | [optional parameter] |
 | **offset** | `Integer`| The initial index from which to return the results. | [optional parameter] |
-| **q** | `String`| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional parameter] |
 
 
 ### Return type
 [**PaginatedContestEffectSummaryList**](PaginatedContestEffectSummaryList.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -88,9 +85,7 @@ Contest effects refer to the effects of moves when used in contests.
 ### Return type
 [**ContestEffectDetail**](ContestEffectDetail.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -117,9 +112,7 @@ Contest types are categories judges used to weigh a Pokémon&#39;s condition in 
 ### Return type
 [**PaginatedContestTypeSummaryList**](PaginatedContestTypeSummaryList.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -144,9 +137,7 @@ Contest types are categories judges used to weigh a Pokémon&#39;s condition in 
 ### Return type
 [**ContestTypeDetail**](ContestTypeDetail.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -155,7 +146,7 @@ Contest types are categories judges used to weigh a Pokémon&#39;s condition in 
 <a id="superContestEffectList"></a>
 # **superContestEffectList**
 ```java
-Mono<PaginatedSuperContestEffectSummaryList> ContestsApi.superContestEffectList(limitoffsetq)
+Mono<PaginatedSuperContestEffectSummaryList> ContestsApi.superContestEffectList(limitoffset)
 ```
 
 List super contest effects
@@ -167,15 +158,12 @@ Super contest effects refer to the effects of moves when used in super contests.
 |------------- | ------------- | ------------- | -------------|
 | **limit** | `Integer`| Number of results to return per page. | [optional parameter] |
 | **offset** | `Integer`| The initial index from which to return the results. | [optional parameter] |
-| **q** | `String`| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional parameter] |
 
 
 ### Return type
 [**PaginatedSuperContestEffectSummaryList**](PaginatedSuperContestEffectSummaryList.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -200,9 +188,7 @@ Super contest effects refer to the effects of moves when used in super contests.
 ### Return type
 [**SuperContestEffectDetail**](SuperContestEffectDetail.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined

@@ -9,7 +9,7 @@
 
 
 #include <string>
-#include "MoveChange_effect_entries_inner.h"
+#include "MoveEffectEffectText.h"
 #include "TypeSummary.h"
 #include "VersionGroupSummary.h"
 #include <list>
@@ -49,53 +49,53 @@ public:
 	 */
 	void fromJson(char* jsonStr);
 
-	/*! \brief Get 
+	/*! \brief Get The percent value of how likely this move is to be successful.
 	 */
 	int getAccuracy();
 
-	/*! \brief Set 
+	/*! \brief Set The percent value of how likely this move is to be successful.
 	 */
 	void setAccuracy(int  accuracy);
-	/*! \brief Get 
+	/*! \brief Get The base power before the listed version group, or null if power did not change.
 	 */
 	int getPower();
 
-	/*! \brief Set 
+	/*! \brief Set The base power before the listed version group, or null if power did not change.
 	 */
 	void setPower(int  power);
-	/*! \brief Get 
+	/*! \brief Get Power points. The number of times this move can be used.
 	 */
 	int getPp();
 
-	/*! \brief Set 
+	/*! \brief Set Power points. The number of times this move can be used.
 	 */
 	void setPp(int  pp);
-	/*! \brief Get 
+	/*! \brief Get The percent value of how likely it is this moves effect will take effect.
 	 */
 	int getEffectChance();
 
-	/*! \brief Set 
+	/*! \brief Set The percent value of how likely it is this moves effect will take effect.
 	 */
 	void setEffectChance(int  effect_chance);
-	/*! \brief Get 
+	/*! \brief Get The effect of this move listed in different languages.
 	 */
-	std::list<MoveChange_effect_entries_inner> getEffectEntries();
+	std::list<MoveEffectEffectText> getEffectEntries();
 
-	/*! \brief Set 
+	/*! \brief Set The effect of this move listed in different languages.
 	 */
-	void setEffectEntries(std::list <MoveChange_effect_entries_inner> effect_entries);
-	/*! \brief Get 
+	void setEffectEntries(std::list <MoveEffectEffectText> effect_entries);
+	/*! \brief Get The elemental type of this move.
 	 */
 	TypeSummary getType();
 
-	/*! \brief Set 
+	/*! \brief Set The elemental type of this move.
 	 */
 	void setType(TypeSummary  type);
-	/*! \brief Get 
+	/*! \brief Get The version group in which these move stat values were in effect.
 	 */
 	VersionGroupSummary getVersionGroup();
 
-	/*! \brief Set 
+	/*! \brief Set The version group in which these move stat values were in effect.
 	 */
 	void setVersionGroup(VersionGroupSummary  version_group);
 
@@ -104,7 +104,7 @@ private:
 	int power;
 	int pp;
 	int effect_chance;
-	std::list <MoveChange_effect_entries_inner>effect_entries;
+	std::list <MoveEffectEffectText>effect_entries;
 	TypeSummary type;
 	VersionGroupSummary version_group;
 	void __init();

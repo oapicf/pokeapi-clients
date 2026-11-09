@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Url** | **String** |  | [readonly] 
+**Url** | **String** | The URL of the referenced resource. | [readonly] 
 
 ## Examples
 

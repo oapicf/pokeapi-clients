@@ -11,13 +11,15 @@ part 'move_learn_method_summary.g.dart';
 /// MoveLearnMethodSummary
 ///
 /// Properties:
-/// * [name] 
-/// * [url] 
+/// * [name] - The name of the referenced resource.
+/// * [url] - The URL of the referenced resource.
 @BuiltValue()
 abstract class MoveLearnMethodSummary implements Built<MoveLearnMethodSummary, MoveLearnMethodSummaryBuilder> {
+  /// The name of the referenced resource.
   @BuiltValueField(wireName: r'name')
   String get name;
 
+  /// The URL of the referenced resource.
   @BuiltValueField(wireName: r'url')
   String get url;
 

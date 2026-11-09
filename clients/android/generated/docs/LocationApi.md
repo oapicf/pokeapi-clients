@@ -55,7 +55,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -78,7 +78,7 @@ Location areas are sections of areas, such as floors in a building or cave. Each
 //import org.openapitools.client.api.LocationApi;
 
 LocationApi apiInstance = new LocationApi();
-Integer id = null; // Integer | A unique integer value identifying this location area.
+Integer id = 1; // Integer | A unique integer value identifying this location area.
 try {
     LocationAreaDetail result = apiInstance.locationAreaRetrieve(id);
     System.out.println(result);
@@ -101,7 +101,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -151,7 +151,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -174,7 +174,7 @@ Locations that can be visited within the games. Locations make up sizable portio
 //import org.openapitools.client.api.LocationApi;
 
 LocationApi apiInstance = new LocationApi();
-String id = null; // String | This parameter can be a string or an integer.
+String id = 1; // String | This parameter can be a string or an integer.
 try {
     LocationDetail result = apiInstance.locationRetrieve(id);
     System.out.println(result);
@@ -197,7 +197,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -247,7 +247,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -270,7 +270,7 @@ Areas used for grouping Pokémon encounters in Pal Park. They&#39;re like habita
 //import org.openapitools.client.api.LocationApi;
 
 LocationApi apiInstance = new LocationApi();
-String id = null; // String | This parameter can be a string or an integer.
+String id = 1; // String | This parameter can be a string or an integer.
 try {
     PalParkAreaDetail result = apiInstance.palParkAreaRetrieve(id);
     System.out.println(result);
@@ -293,7 +293,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -343,7 +343,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -366,7 +366,7 @@ A region is an organized area of the Pokémon world. Most often, the main differ
 //import org.openapitools.client.api.LocationApi;
 
 LocationApi apiInstance = new LocationApi();
-String id = null; // String | This parameter can be a string or an integer.
+String id = 1; // String | This parameter can be a string or an integer.
 try {
     RegionDetail result = apiInstance.regionRetrieve(id);
     System.out.println(result);
@@ -389,7 +389,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

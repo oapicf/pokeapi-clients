@@ -10,6 +10,7 @@ class_name PokemonSpeciesDetail
 # PokemonSpeciesDetail Model
 
 
+# The identifier for this resource.
 # Required: True
 # isArray: false
 @export var id: int:
@@ -18,6 +19,7 @@ class_name PokemonSpeciesDetail
 		id = value
 var __id__was__set := false
 
+# The name for this resource.
 # Required: True
 # isArray: false
 @export var name: String:
@@ -26,6 +28,7 @@ var __id__was__set := false
 		name = value
 var __name__was__set := false
 
+# The order in which species should be sorted. Based on National Dex order, except families are grouped together and sorted by stage.
 # Required: False
 # isArray: false
 @export var order: int:
@@ -34,6 +37,7 @@ var __name__was__set := false
 		order = value
 var __order__was__set := false
 
+# The chance of this Pokémon being female, in eighths; or -1 for genderless.
 # Required: False
 # isArray: false
 @export var genderUnderscorerate: int:
@@ -42,6 +46,7 @@ var __order__was__set := false
 		genderUnderscorerate = value
 var __genderUnderscorerate__was__set := false
 
+# The base capture rate; up to 255. The higher the number, the easier the catch.
 # Required: False
 # isArray: false
 @export var captureUnderscorerate: int:
@@ -50,6 +55,7 @@ var __genderUnderscorerate__was__set := false
 		captureUnderscorerate = value
 var __captureUnderscorerate__was__set := false
 
+# The happiness when caught by a normal Pokéball; up to 255. The higher the number, the happier the Pokémon.
 # Required: False
 # isArray: false
 @export var baseUnderscorehappiness: int:
@@ -58,6 +64,7 @@ var __captureUnderscorerate__was__set := false
 		baseUnderscorehappiness = value
 var __baseUnderscorehappiness__was__set := false
 
+# Whether or not this is a baby Pokémon.
 # Required: False
 # isArray: false
 @export var isUnderscorebaby: bool:
@@ -66,6 +73,7 @@ var __baseUnderscorehappiness__was__set := false
 		isUnderscorebaby = value
 var __isUnderscorebaby__was__set := false
 
+# Whether or not this is a legendary Pokémon.
 # Required: False
 # isArray: false
 @export var isUnderscorelegendary: bool:
@@ -74,6 +82,7 @@ var __isUnderscorebaby__was__set := false
 		isUnderscorelegendary = value
 var __isUnderscorelegendary__was__set := false
 
+# Whether or not this is a mythical Pokémon.
 # Required: False
 # isArray: false
 @export var isUnderscoremythical: bool:
@@ -82,6 +91,7 @@ var __isUnderscorelegendary__was__set := false
 		isUnderscoremythical = value
 var __isUnderscoremythical__was__set := false
 
+# Initial hatch counter: one must walk Y × (hatch_counter + 1) steps before this Pokémon's egg hatches, unless utilizing bonuses like Flame Body's. Y varies per generation. In Generations II, III, and VII, Egg cycles are 256 steps long. In Generation IV, Egg cycles are 255 steps long. In Pokémon Brilliant Diamond and Shining Pearl, Egg cycles are also 255 steps long, but are shorter on special dates. In Generations V and VI, Egg cycles are 257 steps long. In Pokémon Sword and Shield, and in Pokémon Scarlet and Violet, Egg cycles are 128 steps long.
 # Required: False
 # isArray: false
 @export var hatchUnderscorecounter: int:
@@ -90,6 +100,7 @@ var __isUnderscoremythical__was__set := false
 		hatchUnderscorecounter = value
 var __hatchUnderscorecounter__was__set := false
 
+# Whether or not this Pokémon has visual gender differences.
 # Required: False
 # isArray: false
 @export var hasUnderscoregenderUnderscoredifferences: bool:
@@ -98,6 +109,7 @@ var __hatchUnderscorecounter__was__set := false
 		hasUnderscoregenderUnderscoredifferences = value
 var __hasUnderscoregenderUnderscoredifferences__was__set := false
 
+# Whether or not this Pokémon has multiple forms and can switch between them.
 # Required: False
 # isArray: false
 @export var formsUnderscoreswitchable: bool:
@@ -106,6 +118,7 @@ var __hasUnderscoregenderUnderscoredifferences__was__set := false
 		formsUnderscoreswitchable = value
 var __formsUnderscoreswitchable__was__set := false
 
+# The rate at which this Pokémon species gains levels.
 # Required: True
 # isArray: false
 @export var growthUnderscorerate: GrowthRateSummary:
@@ -114,6 +127,7 @@ var __formsUnderscoreswitchable__was__set := false
 		growthUnderscorerate = value
 var __growthUnderscorerate__was__set := false
 
+# A list of Pokedexes and the indexes reserved within them for this Pokémon species.
 # Required: True
 # isArray: true
 @export var pokedexUnderscorenumbers: Array:
@@ -122,6 +136,7 @@ var __growthUnderscorerate__was__set := false
 		pokedexUnderscorenumbers = value
 var __pokedexUnderscorenumbers__was__set := false
 
+# A list of egg groups this Pokémon species is a member of.
 # Required: True
 # isArray: true
 @export var eggUnderscoregroups: Array:
@@ -130,6 +145,7 @@ var __pokedexUnderscorenumbers__was__set := false
 		eggUnderscoregroups = value
 var __eggUnderscoregroups__was__set := false
 
+# The color of this Pokémon for Pokédex search.
 # Required: True
 # isArray: false
 @export var some_color: PokemonColorSummary:
@@ -138,6 +154,7 @@ var __eggUnderscoregroups__was__set := false
 		some_color = value
 var __some_color__was__set := false
 
+# The shape of this Pokémon for Pokédex search.
 # Required: True
 # isArray: false
 @export var shape: PokemonShapeSummary:
@@ -146,6 +163,7 @@ var __some_color__was__set := false
 		shape = value
 var __shape__was__set := false
 
+# The Pokémon species that evolves into this Pokemon_species.
 # Required: True
 # isArray: false
 @export var evolvesUnderscorefromUnderscorespecies: PokemonSpeciesSummary:
@@ -154,6 +172,7 @@ var __shape__was__set := false
 		evolvesUnderscorefromUnderscorespecies = value
 var __evolvesUnderscorefromUnderscorespecies__was__set := false
 
+# The evolution chain this Pokémon species is a member of.
 # Required: True
 # isArray: false
 @export var evolutionUnderscorechain: EvolutionChainSummary:
@@ -162,6 +181,7 @@ var __evolvesUnderscorefromUnderscorespecies__was__set := false
 		evolutionUnderscorechain = value
 var __evolutionUnderscorechain__was__set := false
 
+# The habitat this Pokémon species can be encountered in.
 # Required: True
 # isArray: false
 @export var habitat: PokemonHabitatSummary:
@@ -170,6 +190,7 @@ var __evolutionUnderscorechain__was__set := false
 		habitat = value
 var __habitat__was__set := false
 
+# The generation this Pokémon species was introduced in.
 # Required: True
 # isArray: false
 @export var generation: GenerationSummary:
@@ -178,6 +199,7 @@ var __habitat__was__set := false
 		generation = value
 var __generation__was__set := false
 
+# The name of this resource listed in different languages.
 # Required: True
 # isArray: true
 @export var names: Array:
@@ -186,6 +208,7 @@ var __generation__was__set := false
 		names = value
 var __names__was__set := false
 
+# A list of encounters that can be had with this Pokémon species in pal park.
 # Required: True
 # isArray: true
 @export var palUnderscoreparkUnderscoreencounters: Array:
@@ -194,6 +217,7 @@ var __names__was__set := false
 		palUnderscoreparkUnderscoreencounters = value
 var __palUnderscoreparkUnderscoreencounters__was__set := false
 
+# Descriptions of different forms Pokémon take on within the Pokémon species.
 # Required: True
 # isArray: true
 @export var formUnderscoredescriptions: Array:
@@ -202,6 +226,7 @@ var __palUnderscoreparkUnderscoreencounters__was__set := false
 		formUnderscoredescriptions = value
 var __formUnderscoredescriptions__was__set := false
 
+# A list of flavor text entries for this Pokémon species.
 # Required: True
 # isArray: true
 @export var flavorUnderscoretextUnderscoreentries: Array:
@@ -210,6 +235,7 @@ var __formUnderscoredescriptions__was__set := false
 		flavorUnderscoretextUnderscoreentries = value
 var __flavorUnderscoretextUnderscoreentries__was__set := false
 
+# The genus of this Pokémon species listed in multiple languages.
 # Required: True
 # isArray: true
 @export var genera: Array:
@@ -218,6 +244,7 @@ var __flavorUnderscoretextUnderscoreentries__was__set := false
 		genera = value
 var __genera__was__set := false
 
+# A list of the Pokémon that exist within this Pokémon species.
 # Required: True
 # isArray: true
 @export var varieties: Array:
@@ -357,7 +384,7 @@ static func bzz_denormalize_single(from_dict: Dictionary):
 	if from_dict.has("pokedexUnderscorenumbers"):
 		me.pokedexUnderscorenumbers = PokemonDexEntry.bzz_denormalize_multiple(from_dict["pokedexUnderscorenumbers"])
 	if from_dict.has("eggUnderscoregroups"):
-		me.eggUnderscoregroups = AbilityDetail_pokemon_inner_pokemon.bzz_denormalize_multiple(from_dict["eggUnderscoregroups"])
+		me.eggUnderscoregroups = EggGroupSummary.bzz_denormalize_multiple(from_dict["eggUnderscoregroups"])
 	if from_dict.has("some_color"):
 		me.some_color = PokemonColorSummary.bzz_denormalize_single(from_dict["some_color"])
 	if from_dict.has("shape"):
@@ -371,17 +398,17 @@ static func bzz_denormalize_single(from_dict: Dictionary):
 	if from_dict.has("generation"):
 		me.generation = GenerationSummary.bzz_denormalize_single(from_dict["generation"])
 	if from_dict.has("names"):
-		me.names = PokemonFormDetail_form_names_inner.bzz_denormalize_multiple(from_dict["names"])
+		me.names = PokemonSpeciesName.bzz_denormalize_multiple(from_dict["names"])
 	if from_dict.has("palUnderscoreparkUnderscoreencounters"):
-		me.palUnderscoreparkUnderscoreencounters = PokemonSpeciesDetail_pal_park_encounters_inner.bzz_denormalize_multiple(from_dict["palUnderscoreparkUnderscoreencounters"])
+		me.palUnderscoreparkUnderscoreencounters = PokemonSpeciesPalParkEncounter.bzz_denormalize_multiple(from_dict["palUnderscoreparkUnderscoreencounters"])
 	if from_dict.has("formUnderscoredescriptions"):
 		me.formUnderscoredescriptions = PokemonSpeciesDescription.bzz_denormalize_multiple(from_dict["formUnderscoredescriptions"])
 	if from_dict.has("flavorUnderscoretextUnderscoreentries"):
 		me.flavorUnderscoretextUnderscoreentries = PokemonSpeciesFlavorText.bzz_denormalize_multiple(from_dict["flavorUnderscoretextUnderscoreentries"])
 	if from_dict.has("genera"):
-		me.genera = PokemonSpeciesDetail_genera_inner.bzz_denormalize_multiple(from_dict["genera"])
+		me.genera = PokemonSpeciesGenus.bzz_denormalize_multiple(from_dict["genera"])
 	if from_dict.has("varieties"):
-		me.varieties = PokemonSpeciesDetail_varieties_inner.bzz_denormalize_multiple(from_dict["varieties"])
+		me.varieties = PokemonSpeciesVariety.bzz_denormalize_multiple(from_dict["varieties"])
 	return me
 
 

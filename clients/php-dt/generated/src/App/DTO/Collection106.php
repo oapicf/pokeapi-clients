@@ -6,9 +6,9 @@ namespace App\DTO;
 use Articus\DataTransfer\Annotation as DTA;
 
 /**
- * @DTA\Strategy(name="ObjectList", options={"type":\App\DTO\MoveBattleStyleName::class})
+ * @DTA\Strategy(name="ObjectList", options={"type":\App\DTO\MoveSummary::class})
  * @DTA\Validator(name="Collection", options={"validators":{
- *     {"name":"TypeCompliant", "options":{"type":\App\DTO\MoveBattleStyleName::class}}
+ *     {"name":"TypeCompliant", "options":{"type":\App\DTO\MoveSummary::class}}
  * }})
  */
 class Collection106 extends \ArrayObject

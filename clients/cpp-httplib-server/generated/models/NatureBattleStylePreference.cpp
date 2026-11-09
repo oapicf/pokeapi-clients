@@ -11,7 +11,6 @@ namespace models {
 NatureBattleStylePreference::NatureBattleStylePreference()
 : lowHpPreference(0)
 , highHpPreference(0)
-, moveBattleStyle(MoveBattleStyleSummary())
 {
 }
 // =========================================

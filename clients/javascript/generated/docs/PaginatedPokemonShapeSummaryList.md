@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**count** | **Number** |  | [optional] 
-**next** | **String** |  | [optional] 
-**previous** | **String** |  | [optional] 
-**results** | [**[PokemonShapeSummary]**](PokemonShapeSummary.md) |  | [optional] 
+**count** | **Number** | The total number of resources available from this API. | 
+**next** | **String** | The URL for the next page in the list, or null if there is no next page. | [optional] 
+**previous** | **String** | The URL for the previous page in the list, or null if there is no previous page. | [optional] 
+**results** | [**[PokemonShapeSummary]**](PokemonShapeSummary.md) | A list of API resources on this page. | 
 
 

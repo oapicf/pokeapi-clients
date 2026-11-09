@@ -10,7 +10,6 @@ namespace models {
 
 SuperContestEffectFlavorText::SuperContestEffectFlavorText()
 : flavorText("")
-, language(LanguageSummary())
 {
 }
 // =========================================

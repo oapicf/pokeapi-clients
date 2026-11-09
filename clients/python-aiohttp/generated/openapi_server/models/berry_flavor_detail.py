@@ -5,7 +5,7 @@ from datetime import date, datetime
 from typing import List, Dict, Type
 
 from openapi_server.models.base_model import Model
-from openapi_server.models.berry_flavor_detail_berries_inner import BerryFlavorDetailBerriesInner
+from openapi_server.models.berry_flavor_berry_map import BerryFlavorBerryMap
 from openapi_server.models.berry_flavor_name import BerryFlavorName
 from openapi_server.models.contest_type_summary import ContestTypeSummary
 from openapi_server import util
@@ -17,7 +17,7 @@ class BerryFlavorDetail(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, id: int=None, name: str=None, berries: List[BerryFlavorDetailBerriesInner]=None, contest_type: ContestTypeSummary=None, names: List[BerryFlavorName]=None):
+    def __init__(self, id: int=None, name: str=None, berries: List[BerryFlavorBerryMap]=None, contest_type: ContestTypeSummary=None, names: List[BerryFlavorName]=None):
         """BerryFlavorDetail - a model defined in OpenAPI
 
         :param id: The id of this BerryFlavorDetail.
@@ -29,7 +29,7 @@ class BerryFlavorDetail(Model):
         self.openapi_types = {
             'id': int,
             'name': str,
-            'berries': List[BerryFlavorDetailBerriesInner],
+            'berries': List[BerryFlavorBerryMap],
             'contest_type': ContestTypeSummary,
             'names': List[BerryFlavorName]
         }
@@ -61,6 +61,7 @@ class BerryFlavorDetail(Model):
     def id(self):
         """Gets the id of this BerryFlavorDetail.
 
+        The identifier for this resource.
 
         :return: The id of this BerryFlavorDetail.
         :rtype: int
@@ -71,6 +72,7 @@ class BerryFlavorDetail(Model):
     def id(self, id):
         """Sets the id of this BerryFlavorDetail.
 
+        The identifier for this resource.
 
         :param id: The id of this BerryFlavorDetail.
         :type id: int
@@ -84,6 +86,7 @@ class BerryFlavorDetail(Model):
     def name(self):
         """Gets the name of this BerryFlavorDetail.
 
+        The name for this resource.
 
         :return: The name of this BerryFlavorDetail.
         :rtype: str
@@ -94,14 +97,15 @@ class BerryFlavorDetail(Model):
     def name(self, name):
         """Sets the name of this BerryFlavorDetail.
 
+        The name for this resource.
 
         :param name: The name of this BerryFlavorDetail.
         :type name: str
         """
         if name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")
-        if name is not None and len(name) > 100:
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `100`")
+        if name is not None and len(name) > 200:
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `200`")
 
         self._name = name
 
@@ -109,9 +113,10 @@ class BerryFlavorDetail(Model):
     def berries(self):
         """Gets the berries of this BerryFlavorDetail.
 
+        A list of the berries with this flavor.
 
         :return: The berries of this BerryFlavorDetail.
-        :rtype: List[BerryFlavorDetailBerriesInner]
+        :rtype: List[BerryFlavorBerryMap]
         """
         return self._berries
 
@@ -119,9 +124,10 @@ class BerryFlavorDetail(Model):
     def berries(self, berries):
         """Sets the berries of this BerryFlavorDetail.
 
+        A list of the berries with this flavor.
 
         :param berries: The berries of this BerryFlavorDetail.
-        :type berries: List[BerryFlavorDetailBerriesInner]
+        :type berries: List[BerryFlavorBerryMap]
         """
         if berries is None:
             raise ValueError("Invalid value for `berries`, must not be `None`")
@@ -132,6 +138,7 @@ class BerryFlavorDetail(Model):
     def contest_type(self):
         """Gets the contest_type of this BerryFlavorDetail.
 
+        The contest type that correlates with this berry flavor.
 
         :return: The contest_type of this BerryFlavorDetail.
         :rtype: ContestTypeSummary
@@ -142,6 +149,7 @@ class BerryFlavorDetail(Model):
     def contest_type(self, contest_type):
         """Sets the contest_type of this BerryFlavorDetail.
 
+        The contest type that correlates with this berry flavor.
 
         :param contest_type: The contest_type of this BerryFlavorDetail.
         :type contest_type: ContestTypeSummary
@@ -155,6 +163,7 @@ class BerryFlavorDetail(Model):
     def names(self):
         """Gets the names of this BerryFlavorDetail.
 
+        The name of this resource listed in different languages.
 
         :return: The names of this BerryFlavorDetail.
         :rtype: List[BerryFlavorName]
@@ -165,6 +174,7 @@ class BerryFlavorDetail(Model):
     def names(self, names):
         """Sets the names of this BerryFlavorDetail.
 
+        The name of this resource listed in different languages.
 
         :param names: The names of this BerryFlavorDetail.
         :type names: List[BerryFlavorName]

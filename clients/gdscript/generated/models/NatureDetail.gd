@@ -10,6 +10,7 @@ class_name NatureDetail
 # NatureDetail Model
 
 
+# The identifier for this resource.
 # Required: True
 # isArray: false
 @export var id: int:
@@ -18,6 +19,7 @@ class_name NatureDetail
 		id = value
 var __id__was__set := false
 
+# The name for this resource.
 # Required: True
 # isArray: false
 @export var name: String:
@@ -26,6 +28,7 @@ var __id__was__set := false
 		name = value
 var __name__was__set := false
 
+# The stat decreased by 10% in Pokémon with this nature.
 # Required: True
 # isArray: false
 @export var decreasedUnderscorestat: StatSummary:
@@ -34,6 +37,7 @@ var __name__was__set := false
 		decreasedUnderscorestat = value
 var __decreasedUnderscorestat__was__set := false
 
+# The stat increased by 10% in Pokémon with this nature.
 # Required: True
 # isArray: false
 @export var increasedUnderscorestat: StatSummary:
@@ -42,6 +46,7 @@ var __decreasedUnderscorestat__was__set := false
 		increasedUnderscorestat = value
 var __increasedUnderscorestat__was__set := false
 
+# The flavor liked by Pokémon with this nature.
 # Required: True
 # isArray: false
 @export var likesUnderscoreflavor: BerryFlavorSummary:
@@ -50,6 +55,7 @@ var __increasedUnderscorestat__was__set := false
 		likesUnderscoreflavor = value
 var __likesUnderscoreflavor__was__set := false
 
+# The flavor hated by Pokémon with this nature.
 # Required: True
 # isArray: false
 @export var hatesUnderscoreflavor: BerryFlavorSummary:
@@ -58,14 +64,7 @@ var __likesUnderscoreflavor__was__set := false
 		hatesUnderscoreflavor = value
 var __hatesUnderscoreflavor__was__set := false
 
-# Required: True
-# isArray: true
-@export var berries: Array:
-	set(value):
-		__berries__was__set = true
-		berries = value
-var __berries__was__set := false
-
+# A list of Pokéathlon stats this nature effects and how much it effects them.
 # Required: True
 # isArray: true
 @export var pokeathlonUnderscorestatUnderscorechanges: Array:
@@ -74,6 +73,7 @@ var __berries__was__set := false
 		pokeathlonUnderscorestatUnderscorechanges = value
 var __pokeathlonUnderscorestatUnderscorechanges__was__set := false
 
+# A list of battle styles and how likely a Pokémon with this nature is to use them in the Battle Palace or Battle Tent.
 # Required: True
 # isArray: true
 @export var moveUnderscorebattleUnderscorestyleUnderscorepreferences: Array:
@@ -82,6 +82,7 @@ var __pokeathlonUnderscorestatUnderscorechanges__was__set := false
 		moveUnderscorebattleUnderscorestyleUnderscorepreferences = value
 var __moveUnderscorebattleUnderscorestyleUnderscorepreferences__was__set := false
 
+# The name of this resource listed in different languages.
 # Required: True
 # isArray: true
 @export var names: Array:
@@ -105,8 +106,6 @@ func bzz_collect_missing_properties() -> Array:
 		bzz_missing_properties.append("likesUnderscoreflavor")
 	if not self.__hatesUnderscoreflavor__was__set:
 		bzz_missing_properties.append("hatesUnderscoreflavor")
-	if not self.__berries__was__set:
-		bzz_missing_properties.append("berries")
 	if not self.__pokeathlonUnderscorestatUnderscorechanges__was__set:
 		bzz_missing_properties.append("pokeathlonUnderscorestatUnderscorechanges")
 	if not self.__moveUnderscorebattleUnderscorestyleUnderscorepreferences__was__set:
@@ -130,8 +129,6 @@ func bzz_normalize() -> Dictionary:
 		bzz_dictionary["likesUnderscoreflavor"] = self.likesUnderscoreflavor
 	if self.__hatesUnderscoreflavor__was__set:
 		bzz_dictionary["hatesUnderscoreflavor"] = self.hatesUnderscoreflavor
-	if self.__berries__was__set:
-		bzz_dictionary["berries"] = self.berries
 	if self.__pokeathlonUnderscorestatUnderscorechanges__was__set:
 		bzz_dictionary["pokeathlonUnderscorestatUnderscorechanges"] = self.pokeathlonUnderscorestatUnderscorechanges
 	if self.__moveUnderscorebattleUnderscorestyleUnderscorepreferences__was__set:
@@ -156,10 +153,8 @@ static func bzz_denormalize_single(from_dict: Dictionary):
 		me.likesUnderscoreflavor = BerryFlavorSummary.bzz_denormalize_single(from_dict["likesUnderscoreflavor"])
 	if from_dict.has("hatesUnderscoreflavor"):
 		me.hatesUnderscoreflavor = BerryFlavorSummary.bzz_denormalize_single(from_dict["hatesUnderscoreflavor"])
-	if from_dict.has("berries"):
-		me.berries = BerrySummary.bzz_denormalize_multiple(from_dict["berries"])
 	if from_dict.has("pokeathlonUnderscorestatUnderscorechanges"):
-		me.pokeathlonUnderscorestatUnderscorechanges = NatureDetail_pokeathlon_stat_changes_inner.bzz_denormalize_multiple(from_dict["pokeathlonUnderscorestatUnderscorechanges"])
+		me.pokeathlonUnderscorestatUnderscorechanges = NaturePokeathlonStat.bzz_denormalize_multiple(from_dict["pokeathlonUnderscorestatUnderscorechanges"])
 	if from_dict.has("moveUnderscorebattleUnderscorestyleUnderscorepreferences"):
 		me.moveUnderscorebattleUnderscorestyleUnderscorepreferences = NatureBattleStylePreference.bzz_denormalize_multiple(from_dict["moveUnderscorebattleUnderscorestyleUnderscorepreferences"])
 	if from_dict.has("names"):

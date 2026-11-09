@@ -47,31 +47,43 @@ import io.swagger.jaxrs.PATCH;
 /**
  * PokéAPI
  *
- * <p>All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+ * <p>All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
  *
  */
 @Path("/api/v2")
 @Api(value = "/", description = "")
 public interface PokemonApi  {
 
+    /**
+     * List abilities
+     *
+     * Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
+     *
+     */
     @GET
     @Path("/ability/")
     @Produces({ "application/json" })
-    @ApiOperation(value = "", tags={  })
+    @ApiOperation(value = "List abilities", tags={  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedAbilitySummaryList.class) })
     public PaginatedAbilitySummaryList abilityList(@QueryParam("limit") Integer limit, @QueryParam("offset") Integer offset, @QueryParam("q") String q);
 
+    /**
+     * Get ability
+     *
+     * Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
+     *
+     */
     @GET
     @Path("/ability/{id}/")
     @Produces({ "application/json" })
-    @ApiOperation(value = "", tags={  })
+    @ApiOperation(value = "Get ability", tags={  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = AbilityDetail.class) })
     public AbilityDetail abilityRetrieve(@PathParam("id") String id);
 
     /**
-     * List charecterictics
+     * List characteristics
      *
      * Characteristics indicate which stat contains a Pokémon&#39;s highest IV. A Pokémon&#39;s Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail.
      *
@@ -79,10 +91,10 @@ public interface PokemonApi  {
     @GET
     @Path("/characteristic/")
     @Produces({ "application/json" })
-    @ApiOperation(value = "List charecterictics", tags={  })
+    @ApiOperation(value = "List characteristics", tags={  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedCharacteristicSummaryList.class) })
-    public PaginatedCharacteristicSummaryList characteristicList(@QueryParam("limit") Integer limit, @QueryParam("offset") Integer offset, @QueryParam("q") String q);
+    public PaginatedCharacteristicSummaryList characteristicList(@QueryParam("limit") Integer limit, @QueryParam("offset") Integer offset);
 
     /**
      * Get characteristic

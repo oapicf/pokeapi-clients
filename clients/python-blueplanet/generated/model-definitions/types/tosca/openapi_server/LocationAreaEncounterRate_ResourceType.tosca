@@ -1,0 +1,43 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server LocationAreaEncounterRate"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a LocationAreaEncounterRate"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  EncounterMethodSummary = openapi_server.resourceTypes.EncounterMethodSummary
+  LocationAreaEncounterVersionDetail = openapi_server.resourceTypes.LocationAreaEncounterVersionDetail
+}
+resourceTypes {
+
+  LocationAreaEncounterRate {
+    title = LocationAreaEncounterRate
+    description = LocationAreaEncounterRate
+    derivedFrom = Root
+    properties {
+        encounter_method {
+          type = EncounterMethodSummary
+          description = "The method in which Pokémon may be encountered in an area.."
+          optional = true
+        }
+        version_details {
+          type = array
+          items.type = LocationAreaEncounterVersionDetail
+          description = "The chance of the encounter to occur on a version of the game."
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  LocationAreaEncounterRate {
+    title = LocationAreaEncounterRate
+    description = LocationAreaEncounterRate
+    implements = openapi_server.resourceTypes.LocationAreaEncounterRate
+
+  }
+}

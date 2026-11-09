@@ -3,8 +3,8 @@ namespace OpenAPI.Model
 open System
 open System.Collections.Generic
 open Newtonsoft.Json
-open OpenAPI.Model.PalParkAreaDetailPokemonEncountersInner
 open OpenAPI.Model.PalParkAreaName
+open OpenAPI.Model.PalParkEncounter
 
 module PalParkAreaDetail =
 
@@ -19,7 +19,7 @@ module PalParkAreaDetail =
     [<JsonProperty(PropertyName = "names")>]
     Names : PalParkAreaName[];
     [<JsonProperty(PropertyName = "pokemon_encounters")>]
-    PokemonEncounters : PalParkAreaDetailPokemonEncountersInner[];
+    PokemonEncounters : PalParkEncounter[];
   }
 
   //#endregion

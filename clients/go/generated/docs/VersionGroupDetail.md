@@ -4,20 +4,20 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int32** |  | [readonly] 
-**Name** | **string** |  | 
-**Order** | Pointer to **NullableInt32** |  | [optional] 
-**Generation** | [**GenerationSummary**](GenerationSummary.md) |  | 
-**MoveLearnMethods** | [**[]AbilityDetailPokemonInnerPokemon**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] 
-**Pokedexes** | [**[]AbilityDetailPokemonInnerPokemon**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] 
-**Regions** | [**[]AbilityDetailPokemonInnerPokemon**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] 
-**Versions** | [**[]VersionSummary**](VersionSummary.md) |  | [readonly] 
+**Id** | **int32** | The identifier for this resource. | [readonly] 
+**Name** | **string** | The name for this resource. | 
+**Order** | Pointer to **NullableInt32** | Order for sorting. Almost by date of release, except similar versions are grouped together. | [optional] 
+**Generation** | [**GenerationSummary**](GenerationSummary.md) | The generation this version was introduced in. | 
+**MoveLearnMethods** | [**[]MoveLearnMethodSummary**](MoveLearnMethodSummary.md) | A list of methods in which Pokémon can learn moves in this version group. | [readonly] 
+**Pokedexes** | [**[]PokedexSummary**](PokedexSummary.md) | A list of Pokédexes introduces in this version group. | [readonly] 
+**Regions** | [**[]RegionSummary**](RegionSummary.md) | A list of regions that can be visited in this version group. | [readonly] 
+**Versions** | [**[]VersionSummary**](VersionSummary.md) | The versions this version group owns. | [readonly] 
 
 ## Methods
 
 ### NewVersionGroupDetail
 
-`func NewVersionGroupDetail(id int32, name string, generation GenerationSummary, moveLearnMethods []AbilityDetailPokemonInnerPokemon, pokedexes []AbilityDetailPokemonInnerPokemon, regions []AbilityDetailPokemonInnerPokemon, versions []VersionSummary, ) *VersionGroupDetail`
+`func NewVersionGroupDetail(id int32, name string, generation GenerationSummary, moveLearnMethods []MoveLearnMethodSummary, pokedexes []PokedexSummary, regions []RegionSummary, versions []VersionSummary, ) *VersionGroupDetail`
 
 NewVersionGroupDetail instantiates a new VersionGroupDetail object
 This constructor will assign default values to properties that have it defined,
@@ -129,60 +129,60 @@ SetGeneration sets Generation field to given value.
 
 ### GetMoveLearnMethods
 
-`func (o *VersionGroupDetail) GetMoveLearnMethods() []AbilityDetailPokemonInnerPokemon`
+`func (o *VersionGroupDetail) GetMoveLearnMethods() []MoveLearnMethodSummary`
 
 GetMoveLearnMethods returns the MoveLearnMethods field if non-nil, zero value otherwise.
 
 ### GetMoveLearnMethodsOk
 
-`func (o *VersionGroupDetail) GetMoveLearnMethodsOk() (*[]AbilityDetailPokemonInnerPokemon, bool)`
+`func (o *VersionGroupDetail) GetMoveLearnMethodsOk() (*[]MoveLearnMethodSummary, bool)`
 
 GetMoveLearnMethodsOk returns a tuple with the MoveLearnMethods field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMoveLearnMethods
 
-`func (o *VersionGroupDetail) SetMoveLearnMethods(v []AbilityDetailPokemonInnerPokemon)`
+`func (o *VersionGroupDetail) SetMoveLearnMethods(v []MoveLearnMethodSummary)`
 
 SetMoveLearnMethods sets MoveLearnMethods field to given value.
 
 
 ### GetPokedexes
 
-`func (o *VersionGroupDetail) GetPokedexes() []AbilityDetailPokemonInnerPokemon`
+`func (o *VersionGroupDetail) GetPokedexes() []PokedexSummary`
 
 GetPokedexes returns the Pokedexes field if non-nil, zero value otherwise.
 
 ### GetPokedexesOk
 
-`func (o *VersionGroupDetail) GetPokedexesOk() (*[]AbilityDetailPokemonInnerPokemon, bool)`
+`func (o *VersionGroupDetail) GetPokedexesOk() (*[]PokedexSummary, bool)`
 
 GetPokedexesOk returns a tuple with the Pokedexes field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPokedexes
 
-`func (o *VersionGroupDetail) SetPokedexes(v []AbilityDetailPokemonInnerPokemon)`
+`func (o *VersionGroupDetail) SetPokedexes(v []PokedexSummary)`
 
 SetPokedexes sets Pokedexes field to given value.
 
 
 ### GetRegions
 
-`func (o *VersionGroupDetail) GetRegions() []AbilityDetailPokemonInnerPokemon`
+`func (o *VersionGroupDetail) GetRegions() []RegionSummary`
 
 GetRegions returns the Regions field if non-nil, zero value otherwise.
 
 ### GetRegionsOk
 
-`func (o *VersionGroupDetail) GetRegionsOk() (*[]AbilityDetailPokemonInnerPokemon, bool)`
+`func (o *VersionGroupDetail) GetRegionsOk() (*[]RegionSummary, bool)`
 
 GetRegionsOk returns a tuple with the Regions field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRegions
 
-`func (o *VersionGroupDetail) SetRegions(v []AbilityDetailPokemonInnerPokemon)`
+`func (o *VersionGroupDetail) SetRegions(v []RegionSummary)`
 
 SetRegions sets Regions field to given value.
 

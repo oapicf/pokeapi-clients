@@ -62,6 +62,7 @@ class ItemFlingEffectDetail(Model):
     def id(self) -> int:
         """Gets the id of this ItemFlingEffectDetail.
 
+        The identifier for this resource.  # noqa: E501
 
         :return: The id of this ItemFlingEffectDetail.
         :rtype: int
@@ -72,6 +73,7 @@ class ItemFlingEffectDetail(Model):
     def id(self, id: int):
         """Sets the id of this ItemFlingEffectDetail.
 
+        The identifier for this resource.  # noqa: E501
 
         :param id: The id of this ItemFlingEffectDetail.
         :type id: int
@@ -85,6 +87,7 @@ class ItemFlingEffectDetail(Model):
     def name(self) -> str:
         """Gets the name of this ItemFlingEffectDetail.
 
+        The name for this resource.  # noqa: E501
 
         :return: The name of this ItemFlingEffectDetail.
         :rtype: str
@@ -95,14 +98,15 @@ class ItemFlingEffectDetail(Model):
     def name(self, name: str):
         """Sets the name of this ItemFlingEffectDetail.
 
+        The name for this resource.  # noqa: E501
 
         :param name: The name of this ItemFlingEffectDetail.
         :type name: str
         """
         if name is None:
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
-        if name is not None and len(name) > 100:
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `100`")  # noqa: E501
+        if name is not None and len(name) > 200:
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `200`")  # noqa: E501
 
         self._name = name
 
@@ -110,6 +114,7 @@ class ItemFlingEffectDetail(Model):
     def effect_entries(self) -> List[ItemFlingEffectEffectText]:
         """Gets the effect_entries of this ItemFlingEffectDetail.
 
+        The result of this fling effect listed in different languages.  # noqa: E501
 
         :return: The effect_entries of this ItemFlingEffectDetail.
         :rtype: List[ItemFlingEffectEffectText]
@@ -120,6 +125,7 @@ class ItemFlingEffectDetail(Model):
     def effect_entries(self, effect_entries: List[ItemFlingEffectEffectText]):
         """Sets the effect_entries of this ItemFlingEffectDetail.
 
+        The result of this fling effect listed in different languages.  # noqa: E501
 
         :param effect_entries: The effect_entries of this ItemFlingEffectDetail.
         :type effect_entries: List[ItemFlingEffectEffectText]
@@ -133,6 +139,7 @@ class ItemFlingEffectDetail(Model):
     def items(self) -> List[ItemSummary]:
         """Gets the items of this ItemFlingEffectDetail.
 
+        A list of items that have this fling effect.  # noqa: E501
 
         :return: The items of this ItemFlingEffectDetail.
         :rtype: List[ItemSummary]
@@ -143,6 +150,7 @@ class ItemFlingEffectDetail(Model):
     def items(self, items: List[ItemSummary]):
         """Sets the items of this ItemFlingEffectDetail.
 
+        A list of items that have this fling effect.  # noqa: E501
 
         :param items: The items of this ItemFlingEffectDetail.
         :type items: List[ItemSummary]

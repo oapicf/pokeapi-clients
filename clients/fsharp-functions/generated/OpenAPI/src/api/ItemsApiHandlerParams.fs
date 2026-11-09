@@ -1,10 +1,12 @@
 namespace OpenAPI
 
+open OpenAPI.Model.CurrencyDetail
 open OpenAPI.Model.ItemAttributeDetail
 open OpenAPI.Model.ItemCategoryDetail
 open OpenAPI.Model.ItemDetail
 open OpenAPI.Model.ItemFlingEffectDetail
 open OpenAPI.Model.ItemPocketDetail
+open OpenAPI.Model.PaginatedCurrencySummaryList
 open OpenAPI.Model.PaginatedItemAttributeSummaryList
 open OpenAPI.Model.PaginatedItemCategorySummaryList
 open OpenAPI.Model.PaginatedItemFlingEffectSummaryList
@@ -15,6 +17,48 @@ open System
 
 module ItemsApiHandlerParams =
 
+
+    //#region Query parameters
+    [<CLIMutable>]
+    type CurrencyListQueryParams = {
+      limit : int option;
+
+
+      offset : int option;
+
+
+      q : string option;
+
+    }
+    //#endregion
+
+
+    type CurrencyListStatusCode200Response = {
+      content:PaginatedCurrencySummaryList;
+      
+    }
+    type CurrencyListResult = CurrencyListStatusCode200 of CurrencyListStatusCode200Response
+
+    type CurrencyListArgs = {
+      queryParams:Result<CurrencyListQueryParams,string>;
+    }
+    //#region Path parameters
+    [<CLIMutable>]
+    type CurrencyRetrievePathParams = {
+      id : string ;
+    }
+    //#endregion
+
+
+    type CurrencyRetrieveStatusCode200Response = {
+      content:CurrencyDetail;
+      
+    }
+    type CurrencyRetrieveResult = CurrencyRetrieveStatusCode200 of CurrencyRetrieveStatusCode200Response
+
+    type CurrencyRetrieveArgs = {
+      pathParams:CurrencyRetrievePathParams;
+    }
 
     //#region Query parameters
     [<CLIMutable>]

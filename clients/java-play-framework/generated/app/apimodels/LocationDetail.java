@@ -16,7 +16,7 @@ import javax.validation.Valid;
 /**
  * LocationDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-10-25T05:48:13.486809836Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-11-09T13:49:31.462302702Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class LocationDetail   {
   @JsonProperty("id")
@@ -26,7 +26,7 @@ public class LocationDetail   {
 
   @JsonProperty("name")
   @NotNull
-@Size(max=100)
+@Size(max=200)
 
   private String name;
 
@@ -60,7 +60,7 @@ public class LocationDetail   {
   }
 
    /**
-   * Get id
+   * The identifier for this resource.
    * @return id
   **/
   public Integer getId() {
@@ -77,7 +77,7 @@ public class LocationDetail   {
   }
 
    /**
-   * Get name
+   * The name for this resource.
    * @return name
   **/
   public String getName() {
@@ -94,7 +94,7 @@ public class LocationDetail   {
   }
 
    /**
-   * Get region
+   * The region this location can be found in.
    * @return region
   **/
   public RegionSummary getRegion() {
@@ -119,7 +119,7 @@ public class LocationDetail   {
   }
 
    /**
-   * Get names
+   * The name of this resource listed in different languages.
    * @return names
   **/
   public List<@Valid LocationName> getNames() {
@@ -144,7 +144,7 @@ public class LocationDetail   {
   }
 
    /**
-   * Get gameIndices
+   * A list of game indices relevent to this location by generation.
    * @return gameIndices
   **/
   public List<@Valid LocationGameIndex> getGameIndices() {
@@ -169,7 +169,7 @@ public class LocationDetail   {
   }
 
    /**
-   * Get areas
+   * Areas that can be found within this location.
    * @return areas
   **/
   public List<@Valid LocationAreaSummary> getAreas() {

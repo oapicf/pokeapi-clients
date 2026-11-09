@@ -7,7 +7,7 @@ authors     = ["F. Bar (foo@bar.baz)"]
 
 imports {
   Root = tosca.resourceTypes.Root
-  PokeathlonStatDetailAffectingNatures = openapi_server.resourceTypes.PokeathlonStatDetailAffectingNatures
+  PokeathlonStatAffectingNatures = openapi_server.resourceTypes.PokeathlonStatAffectingNatures
   PokeathlonStatName = openapi_server.resourceTypes.PokeathlonStatName
 }
 resourceTypes {
@@ -19,23 +19,23 @@ resourceTypes {
     properties {
         id {
           type =  integer
-          description = ""
+          description = "The identifier for this resource."
           optional = true
         }
         name {
           type =  string
-          description = ""
+          description = "The name for this resource."
           optional = true
         }
         affecting_natures {
-          type = PokeathlonStatDetailAffectingNatures
-          description = ""
+          type = PokeathlonStatAffectingNatures
+          description = "A detail of natures which affect this Pokéathlon stat positively or negatively."
           optional = true
         }
         names {
           type = array
           items.type = PokeathlonStatName
-          description = ""
+          description = "The name of this resource listed in different languages."
           optional = true
         }
     }

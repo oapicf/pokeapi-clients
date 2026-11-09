@@ -11,8 +11,7 @@ namespace models {
 BerryFlavorDetail::BerryFlavorDetail()
 : id(0)
 , name("")
-, berries(std::vector<BerryFlavorDetail_berries_inner>())
-, contestType(ContestTypeSummary())
+, berries(std::vector<BerryFlavorBerryMap>())
 , names(std::vector<BerryFlavorName>())
 {
 }
@@ -30,7 +29,7 @@ std::string BerryFlavorDetail::getName() const
 {
     return name;
 }
-std::vector<BerryFlavorDetail_berries_inner> BerryFlavorDetail::getBerries() const
+std::vector<BerryFlavorBerryMap> BerryFlavorDetail::getBerries() const
 {
     return berries;
 }
@@ -54,7 +53,7 @@ void BerryFlavorDetail::setName(const std::string& nameObj)
 {
     name = nameObj;
 }
-void BerryFlavorDetail::setBerries(const std::vector<BerryFlavorDetail_berries_inner>& berriesObj)
+void BerryFlavorDetail::setBerries(const std::vector<BerryFlavorBerryMap>& berriesObj)
 {
     berries = berriesObj;
 }

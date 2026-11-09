@@ -11,8 +11,8 @@ namespace models {
 PokemonShapeDetail::PokemonShapeDetail()
 : id(0)
 , name("")
-, awesomeNames(std::vector<PokemonShapeDetail_awesome_names_inner>())
-, names(std::vector<PokemonShapeDetail_names_inner>())
+, awesomeNames(std::vector<PokemonShapeAwesomeName>())
+, names(std::vector<PokemonShapeName>())
 , pokemonSpecies(std::vector<PokemonSpeciesSummary>())
 {
 }
@@ -30,11 +30,11 @@ std::string PokemonShapeDetail::getName() const
 {
     return name;
 }
-std::vector<PokemonShapeDetail_awesome_names_inner> PokemonShapeDetail::getAwesomeNames() const
+std::vector<PokemonShapeAwesomeName> PokemonShapeDetail::getAwesomeNames() const
 {
     return awesomeNames;
 }
-std::vector<PokemonShapeDetail_names_inner> PokemonShapeDetail::getNames() const
+std::vector<PokemonShapeName> PokemonShapeDetail::getNames() const
 {
     return names;
 }
@@ -54,11 +54,11 @@ void PokemonShapeDetail::setName(const std::string& nameObj)
 {
     name = nameObj;
 }
-void PokemonShapeDetail::setAwesomeNames(const std::vector<PokemonShapeDetail_awesome_names_inner>& awesomeNamesObj)
+void PokemonShapeDetail::setAwesomeNames(const std::vector<PokemonShapeAwesomeName>& awesomeNamesObj)
 {
     awesomeNames = awesomeNamesObj;
 }
-void PokemonShapeDetail::setNames(const std::vector<PokemonShapeDetail_names_inner>& namesObj)
+void PokemonShapeDetail::setNames(const std::vector<PokemonShapeName>& namesObj)
 {
     names = namesObj;
 }

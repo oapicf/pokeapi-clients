@@ -11,9 +11,10 @@ part 'evolution_chain_summary.g.dart';
 /// EvolutionChainSummary
 ///
 /// Properties:
-/// * [url] 
+/// * [url] - The URL of the referenced resource.
 @BuiltValue()
 abstract class EvolutionChainSummary implements Built<EvolutionChainSummary, EvolutionChainSummaryBuilder> {
+  /// The URL of the referenced resource.
   @BuiltValueField(wireName: r'url')
   String get url;
 

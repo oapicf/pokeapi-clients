@@ -10,7 +10,7 @@ import org.openapitools.model.PokedexSummary;
 /**
  * PokemonDexEntry
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-10-25T05:48:05.787850114Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-11-09T13:49:25.341948748Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PokemonDexEntry   {
   @JsonProperty("entry_number")
   private Integer entryNumber;
@@ -24,10 +24,10 @@ public class PokemonDexEntry   {
   }
 
    /**
-   * Get entryNumber
+   * The index number within the Pokédex.
    * @return entryNumber
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The index number within the Pokédex.")
   public Integer getEntryNumber() {
     return entryNumber;
   }
@@ -42,10 +42,10 @@ public class PokemonDexEntry   {
   }
 
    /**
-   * Get pokedex
+   * The Pokédex the referenced Pokémon species can be found in.
    * @return pokedex
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The Pokédex the referenced Pokémon species can be found in.")
   public PokedexSummary getPokedex() {
     return pokedex;
   }

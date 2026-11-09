@@ -7,23 +7,23 @@
     {
       "name": "id",
       "type": "int",
-      "doc": ""
+      "doc": "The identifier for this resource."
     },
     {
       "name": "name",
       "type": "string",
-      "doc": ""
+      "doc": "The name for this resource."
     },
     {
       "name": "is_main_series",
       "type": ["null", "boolean"],
-      "doc": "",
+      "doc": "Whether or not this ability originated in the main series of the video games.",
       "default": null
     },
     {
       "name": "generation",
       "type": "model.GenerationSummary",
-      "doc": ""
+      "doc": "The generation this ability originated in."
     },
     {
       "name": "names",
@@ -31,7 +31,7 @@
         "type": "array",
         "items": "model.AbilityName"
       },
-      "doc": ""
+      "doc": "The name of this resource listed in different languages."
     },
     {
       "name": "effect_entries",
@@ -39,7 +39,7 @@
         "type": "array",
         "items": "model.AbilityEffectText"
       },
-      "doc": ""
+      "doc": "The effect of this ability listed in different languages."
     },
     {
       "name": "effect_changes",
@@ -47,7 +47,7 @@
         "type": "array",
         "items": "model.AbilityChange"
       },
-      "doc": ""
+      "doc": "The list of previous effects this ability has had across version groups."
     },
     {
       "name": "flavor_text_entries",
@@ -55,15 +55,15 @@
         "type": "array",
         "items": "model.AbilityFlavorText"
       },
-      "doc": ""
+      "doc": "The flavor text of this ability listed in different languages."
     },
     {
       "name": "pokemon",
       "type": {
         "type": "array",
-        "items": "model.AbilityDetailPokemonInner"
+        "items": "model.AbilityPokemonDetail"
       },
-      "doc": ""
+      "doc": "A list of Pokémon that could potentially have this ability."
     }
   ]
 

@@ -16,58 +16,69 @@
                 
                 
                 ; [@key "id"]
-                                              name: string
+                    (** The identifier for this resource. *)
+                                      name: string
                   
                   
                 
                 
                 ; [@key "name"]
-                                              damage_relations: Type_detail_damage_relations.t
+                    (** The name for this resource. *)
+                                      damage_relations: Type_relationships.t
                   
                   
                 
                 
                 ; [@key "damage_relations"]
-                                              past_damage_relations: Type_detail_past_damage_relations_inner.t list
+                    (** A detail of how effective this type is toward others and vice versa. *)
+                                      past_damage_relations: Type_past_relationships.t list
                 
                 
                 ; [@key "past_damage_relations"]
-                                              game_indices: Type_game_index.t list
+                    (** A list of details of how effective this type was toward others and vice versa in previous generations *)
+                                      game_indices: Type_game_index.t list
                 
                 
                 ; [@key "game_indices"]
-                                              generation: Generation_summary.t
+                    (** A list of game indices relevent to this item by generation. *)
+                                      generation: Generation_summary.t
                   
                   
                 
                 
                 ; [@key "generation"]
-                                              move_damage_class: Move_damage_class_summary.t
-                  
+                    (** The generation this type was introduced in. *)
+                                      move_damage_class: Move_damage_class_summary.t
+                   option
                   
                 
                 
                 ; [@key "move_damage_class"]
-                                              names: Ability_name.t list
+                    (** The class of damage inflicted by this type. *)
+                                      names: Type_name.t list
                 
                 
                 ; [@key "names"]
-                                              pokemon: Type_detail_pokemon_inner.t list
+                    (** The name of this resource listed in different languages. *)
+                                      pokemon: Type_pokemon.t list
                 
                 
                 ; [@key "pokemon"]
-                                              moves: Move_summary.t list
+                    (** A list of details of Pokémon that have this type. *)
+                                      moves: Move_summary.t list
                 
                 
                 ; [@key "moves"]
-                                              sprites: (string * (string * Type_detail_sprites_value_value.t) list) list
+                    (** A list of moves that have this type. *)
+                                      sprites: (string * (string * Type_game_sprite.t) list) list
                 
-                 [@to_yojson JsonSupport.of_map_of [%to_yojson: (string * Type_detail_sprites_value_value.t) list]] [@of_yojson JsonSupport.to_map_of [%of_yojson: (string * Type_detail_sprites_value_value.t) list]]
+                 [@to_yojson JsonSupport.of_map_of [%to_yojson: (string * Type_game_sprite.t) list]] [@of_yojson JsonSupport.to_map_of [%of_yojson: (string * Type_game_sprite.t) list]]
                 ; [@key "sprites"]
-                        } [@@deriving yojson { strict = false }, show, eq ];;
+                    (** Type icons grouped by generation and game, with name_icon and symbol_icon URLs. Unavailable icons are null. *)
+                } [@@deriving yojson { strict = false }, show, eq ];;
         
         (** Serializer for the Type resource *)
-        let create (id : int32) (name : string) (damage_relations : Type_detail_damage_relations.t) (past_damage_relations : Type_detail_past_damage_relations_inner.t list) (game_indices : Type_game_index.t list) (generation : Generation_summary.t) (move_damage_class : Move_damage_class_summary.t) (names : Ability_name.t list) (pokemon : Type_detail_pokemon_inner.t list) (moves : Move_summary.t list) (sprites : (string * (string * Type_detail_sprites_value_value.t) list) list) : t = {
+        let create (id : int32) (name : string) (damage_relations : Type_relationships.t) (past_damage_relations : Type_past_relationships.t list) (game_indices : Type_game_index.t list) (generation : Generation_summary.t) (move_damage_class : Move_damage_class_summary.t option) (names : Type_name.t list) (pokemon : Type_pokemon.t list) (moves : Move_summary.t list) (sprites : (string * (string * Type_game_sprite.t) list) list) : t = {
             id = id;
             name = name;
             damage_relations = damage_relations;

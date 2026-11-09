@@ -12,7 +12,7 @@ module OpenapiClient
           :GET,
           '/api/v2/version-group/',
           type: OpenapiClient::Models::PaginatedVersionGroupSummaryList,
-          auth: ['basicAuth', 'cookieAuth'],
+          auth: [],
           query: { 'limit' => limit, 'offset' => offset, 'q' => q }
         )
       end
@@ -25,7 +25,7 @@ module OpenapiClient
           '/api/v2/version-group/{id}/'
             .gsub('{id}', ERB::Util.url_encode(id.to_s)),
           type: OpenapiClient::Models::VersionGroupDetail,
-          auth: ['basicAuth', 'cookieAuth']
+          auth: []
         )
       end
     end

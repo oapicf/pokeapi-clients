@@ -8,6 +8,8 @@ Method | HTTP request | Description
 [**evolutionChainRetrieve**](EvolutionApi.md#evolutionChainRetrieve) | **GET** /api/v2/evolution-chain/{id}/ | Get evolution chain
 [**evolutionTriggerList**](EvolutionApi.md#evolutionTriggerList) | **GET** /api/v2/evolution-trigger/ | List evolution triggers
 [**evolutionTriggerRetrieve**](EvolutionApi.md#evolutionTriggerRetrieve) | **GET** /api/v2/evolution-trigger/{id}/ | Get evolution trigger
+[**evolutionVariableList**](EvolutionApi.md#evolutionVariableList) | **GET** /api/v2/evolution-variable/ | List evolution variables
+[**evolutionVariableRetrieve**](EvolutionApi.md#evolutionVariableRetrieve) | **GET** /api/v2/evolution-variable/{id}/ | Get evolution variable
 
 
 # **evolutionChainList**
@@ -30,8 +32,6 @@ const request: EvolutionApiEvolutionChainListRequest = {
   limit: 1,
     // The initial index from which to return the results. (optional)
   offset: 1,
-    // > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
-  q: "q_example",
 };
 
 const data = await apiInstance.evolutionChainList(request);
@@ -45,7 +45,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | [**number**] | Number of results to return per page. | (optional) defaults to undefined
  **offset** | [**number**] | The initial index from which to return the results. | (optional) defaults to undefined
- **q** | [**string**] | &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | (optional) defaults to undefined
 
 
 ### Return type
@@ -54,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](README.md#basicAuth), [cookieAuth](README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -86,7 +85,7 @@ const apiInstance = new EvolutionApi(configuration);
 
 const request: EvolutionApiEvolutionChainRetrieveRequest = {
     // This parameter can be a string or an integer.
-  id: "id_example",
+  id: "1",
 };
 
 const data = await apiInstance.evolutionChainRetrieve(request);
@@ -107,7 +106,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](README.md#basicAuth), [cookieAuth](README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -166,7 +165,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](README.md#basicAuth), [cookieAuth](README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -198,7 +197,7 @@ const apiInstance = new EvolutionApi(configuration);
 
 const request: EvolutionApiEvolutionTriggerRetrieveRequest = {
     // This parameter can be a string or an integer.
-  id: "id_example",
+  id: "1",
 };
 
 const data = await apiInstance.evolutionTriggerRetrieve(request);
@@ -219,7 +218,119 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](README.md#basicAuth), [cookieAuth](README.md#cookieAuth)
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **evolutionVariableList**
+> PaginatedEvolutionVariableSummaryList evolutionVariableList()
+
+Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+
+### Example
+
+
+```typescript
+import { createConfiguration, EvolutionApi } from '';
+import type { EvolutionApiEvolutionVariableListRequest } from '';
+
+const configuration = createConfiguration();
+const apiInstance = new EvolutionApi(configuration);
+
+const request: EvolutionApiEvolutionVariableListRequest = {
+    // Number of results to return per page. (optional)
+  limit: 1,
+    // The initial index from which to return the results. (optional)
+  offset: 1,
+    // > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
+  q: "q_example",
+};
+
+const data = await apiInstance.evolutionVariableList(request);
+console.log('API called successfully. Returned data:', data);
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | [**number**] | Number of results to return per page. | (optional) defaults to undefined
+ **offset** | [**number**] | The initial index from which to return the results. | (optional) defaults to undefined
+ **q** | [**string**] | &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | (optional) defaults to undefined
+
+
+### Return type
+
+**PaginatedEvolutionVariableSummaryList**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **evolutionVariableRetrieve**
+> EvolutionVariableDetail evolutionVariableRetrieve()
+
+Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+
+### Example
+
+
+```typescript
+import { createConfiguration, EvolutionApi } from '';
+import type { EvolutionApiEvolutionVariableRetrieveRequest } from '';
+
+const configuration = createConfiguration();
+const apiInstance = new EvolutionApi(configuration);
+
+const request: EvolutionApiEvolutionVariableRetrieveRequest = {
+    // This parameter can be a string or an integer.
+  id: "1",
+};
+
+const data = await apiInstance.evolutionVariableRetrieve(request);
+console.log('API called successfully. Returned data:', data);
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | [**string**] | This parameter can be a string or an integer. | defaults to undefined
+
+
+### Return type
+
+**EvolutionVariableDetail**
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 

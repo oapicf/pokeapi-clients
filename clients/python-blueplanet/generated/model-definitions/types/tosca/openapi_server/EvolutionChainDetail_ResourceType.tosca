@@ -7,7 +7,7 @@ authors     = ["F. Bar (foo@bar.baz)"]
 
 imports {
   Root = tosca.resourceTypes.Root
-  EvolutionChainDetailChain = openapi_server.resourceTypes.EvolutionChainDetailChain
+  EvolutionChainLink = openapi_server.resourceTypes.EvolutionChainLink
   ItemSummary = openapi_server.resourceTypes.ItemSummary
 }
 resourceTypes {
@@ -19,17 +19,17 @@ resourceTypes {
     properties {
         id {
           type =  integer
-          description = ""
+          description = "The identifier for this resource."
           optional = true
         }
         baby_trigger_item {
           type = ItemSummary
-          description = ""
+          description = "The item that a Pokémon would be holding when mating that would trigger the egg hatching a baby Pokémon rather than a basic Pokémon."
           optional = true
         }
         chain {
-          type = EvolutionChainDetailChain
-          description = ""
+          type = EvolutionChainLink
+          description = "The base chain link object. Each link contains evolution details for a Pokémon in the chain. Each link references the next Pokémon in the natural evolution order."
           optional = true
         }
     }

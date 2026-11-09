@@ -6,6 +6,7 @@ All URIs are relative to *https://pokeapi.co*
 | ------------- | ------------- | ------------- |
 | [**languageList**](UtilityApi.md#languageList) | **GET** /api/v2/language/ | List languages |
 | [**languageRetrieve**](UtilityApi.md#languageRetrieve) | **GET** /api/v2/language/{id}/ | Get language |
+| [**metaRetrieve**](UtilityApi.md#metaRetrieve) | **GET** /api/v2/meta/ | Get API metadata |
 
 
 <a id="languageList"></a>
@@ -51,19 +52,7 @@ try {
 
 ### Authorization
 
-
-Configure basicAuth statically:
-```kotlin
-ApiClient.username = ""
-ApiClient.password = ""
-```
-Configure basicAuth dynamically:
-```kotlin
-apiInstance.userCredentialProvider = { "user" to "pass" }
-```
-Configure cookieAuth:
-    ApiClient.apiKey["sessionid"] = ""
-    ApiClient.apiKeyPrefix["sessionid"] = ""
+No authorization required
 
 ### HTTP request headers
 
@@ -85,7 +74,7 @@ Languages for translations of API resource information.
 //import org.openapitools.client.models.*
 
 val apiInstance = UtilityApi()
-val id : kotlin.String = id_example // kotlin.String | This parameter can be a string or an integer.
+val id : kotlin.String = 1 // kotlin.String | This parameter can be a string or an integer.
 try {
     val result : LanguageDetail = apiInstance.languageRetrieve(id)
     println(result)
@@ -109,19 +98,50 @@ try {
 
 ### Authorization
 
+No authorization required
 
-Configure basicAuth statically:
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="metaRetrieve"></a>
+# **metaRetrieve**
+> PokeapiMetaResponse metaRetrieve()
+
+Get API metadata
+
+Returns metadata about the current deployed version of the API, including the git commit hash, deploy date, and tag (if any).
+
+### Example
 ```kotlin
-ApiClient.username = ""
-ApiClient.password = ""
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = UtilityApi()
+try {
+    val result : PokeapiMetaResponse = apiInstance.metaRetrieve()
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling UtilityApi#metaRetrieve")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling UtilityApi#metaRetrieve")
+    e.printStackTrace()
+}
 ```
-Configure basicAuth dynamically:
-```kotlin
-apiInstance.userCredentialProvider = { "user" to "pass" }
-```
-Configure cookieAuth:
-    ApiClient.apiKey["sessionid"] = ""
-    ApiClient.apiKeyPrefix["sessionid"] = ""
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**PokeapiMetaResponse**](PokeapiMetaResponse.md)
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 

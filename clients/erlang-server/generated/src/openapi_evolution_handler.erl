@@ -18,6 +18,14 @@ Evolution triggers are the events and conditions that cause a Pokémon to evolve
 Get evolution trigger.
 Evolution triggers are the events and conditions that cause a Pokémon to evolve. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Methods_of_evolution) for greater detail.
 
+- `GET` to `/api/v2/evolution-variable/`, OperationId: `evolution_variable_list`:
+List evolution variables.
+Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+
+- `GET` to `/api/v2/evolution-variable/:id/`, OperationId: `evolution_variable_retrieve`:
+Get evolution variable.
+Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Personality_value) for greater detail.
+
 """.
 
 -behaviour(cowboy_rest).
@@ -44,7 +52,9 @@ Evolution triggers are the events and conditions that cause a Pokémon to evolve
     'evolution_chain_list' %% List evolution chains
     | 'evolution_chain_retrieve' %% Get evolution chain
     | 'evolution_trigger_list' %% List evolution triggers
-    | 'evolution_trigger_retrieve'. %% Get evolution trigger
+    | 'evolution_trigger_retrieve' %% Get evolution trigger
+    | 'evolution_variable_list' %% List evolution variables
+    | 'evolution_variable_retrieve'. %% Get evolution variable
 
 
 -record(state,
@@ -80,47 +90,15 @@ allowed_methods(Req, #state{operation_id = 'evolution_trigger_list'} = State) ->
     {[<<"GET">>], Req, State};
 allowed_methods(Req, #state{operation_id = 'evolution_trigger_retrieve'} = State) ->
     {[<<"GET">>], Req, State};
+allowed_methods(Req, #state{operation_id = 'evolution_variable_list'} = State) ->
+    {[<<"GET">>], Req, State};
+allowed_methods(Req, #state{operation_id = 'evolution_variable_retrieve'} = State) ->
+    {[<<"GET">>], Req, State};
 allowed_methods(Req, State) ->
     {[], Req, State}.
 
 -spec is_authorized(cowboy_req:req(), state()) ->
     {true | {false, iodata()}, cowboy_req:req(), state()}.
-is_authorized(Req0,
-              #state{operation_id = 'evolution_chain_list' = OperationID,
-                     api_key_callback = Handler} = State) ->
-    case openapi_auth:authorize_api_key(Handler, OperationID, header, <<"authorization">>, Req0) of
-        {true, Context, Req} ->
-            {true, Req, State#state{context = Context}};
-        {false, AuthHeader, Req} ->
-            {{false, AuthHeader}, Req, State}
-    end;
-is_authorized(Req0,
-              #state{operation_id = 'evolution_chain_retrieve' = OperationID,
-                     api_key_callback = Handler} = State) ->
-    case openapi_auth:authorize_api_key(Handler, OperationID, header, <<"authorization">>, Req0) of
-        {true, Context, Req} ->
-            {true, Req, State#state{context = Context}};
-        {false, AuthHeader, Req} ->
-            {{false, AuthHeader}, Req, State}
-    end;
-is_authorized(Req0,
-              #state{operation_id = 'evolution_trigger_list' = OperationID,
-                     api_key_callback = Handler} = State) ->
-    case openapi_auth:authorize_api_key(Handler, OperationID, header, <<"authorization">>, Req0) of
-        {true, Context, Req} ->
-            {true, Req, State#state{context = Context}};
-        {false, AuthHeader, Req} ->
-            {{false, AuthHeader}, Req, State}
-    end;
-is_authorized(Req0,
-              #state{operation_id = 'evolution_trigger_retrieve' = OperationID,
-                     api_key_callback = Handler} = State) ->
-    case openapi_auth:authorize_api_key(Handler, OperationID, header, <<"authorization">>, Req0) of
-        {true, Context, Req} ->
-            {true, Req, State#state{context = Context}};
-        {false, AuthHeader, Req} ->
-            {{false, AuthHeader}, Req, State}
-    end;
 is_authorized(Req, State) ->
     {true, Req, State}.
 
@@ -134,6 +112,10 @@ content_types_accepted(Req, #state{operation_id = 'evolution_trigger_list'} = St
     {[], Req, State};
 content_types_accepted(Req, #state{operation_id = 'evolution_trigger_retrieve'} = State) ->
     {[], Req, State};
+content_types_accepted(Req, #state{operation_id = 'evolution_variable_list'} = State) ->
+    {[], Req, State};
+content_types_accepted(Req, #state{operation_id = 'evolution_variable_retrieve'} = State) ->
+    {[], Req, State};
 content_types_accepted(Req, State) ->
     {[], Req, State}.
 
@@ -146,6 +128,10 @@ valid_content_headers(Req, #state{operation_id = 'evolution_chain_retrieve'} = S
 valid_content_headers(Req, #state{operation_id = 'evolution_trigger_list'} = State) ->
     {true, Req, State};
 valid_content_headers(Req, #state{operation_id = 'evolution_trigger_retrieve'} = State) ->
+    {true, Req, State};
+valid_content_headers(Req, #state{operation_id = 'evolution_variable_list'} = State) ->
+    {true, Req, State};
+valid_content_headers(Req, #state{operation_id = 'evolution_variable_retrieve'} = State) ->
     {true, Req, State};
 valid_content_headers(Req, State) ->
     {false, Req, State}.
@@ -165,6 +151,14 @@ content_types_provided(Req, #state{operation_id = 'evolution_trigger_list'} = St
       {<<"application/json">>, handle_type_provided}
      ], Req, State};
 content_types_provided(Req, #state{operation_id = 'evolution_trigger_retrieve'} = State) ->
+    {[
+      {<<"application/json">>, handle_type_provided}
+     ], Req, State};
+content_types_provided(Req, #state{operation_id = 'evolution_variable_list'} = State) ->
+    {[
+      {<<"application/json">>, handle_type_provided}
+     ], Req, State};
+content_types_provided(Req, #state{operation_id = 'evolution_variable_retrieve'} = State) ->
     {[
       {<<"application/json">>, handle_type_provided}
      ], Req, State};

@@ -13,8 +13,10 @@ import java.net.URI
 import PalParkAreaSummary._
 
 case class PalParkAreaSummary (
+  /* The name of the referenced resource. */
   name: String,
-url: URI)
+/* The URL of the referenced resource. */
+  url: URI)
 
 object PalParkAreaSummary {
   import DateTimeCodecs._

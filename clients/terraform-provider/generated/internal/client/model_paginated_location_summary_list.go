@@ -4,8 +4,8 @@ package client
 
 // PaginatedLocationSummaryList - PaginatedLocationSummaryList struct
 type PaginatedLocationSummaryList struct {
-	Count int32 `json:"count,omitempty"`
+	Count int32 `json:"count"`
 	Next string `json:"next,omitempty"`
 	Previous string `json:"previous,omitempty"`
-	Results []LocationSummary `json:"results,omitempty"`
+	Results []LocationSummary `json:"results"`
 }

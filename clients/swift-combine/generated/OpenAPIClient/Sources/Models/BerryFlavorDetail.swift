@@ -8,13 +8,18 @@
 import Foundation
 
 public struct BerryFlavorDetail: Codable {
+    /// The identifier for this resource.
     public var id: Int
+    /// The name for this resource.
     public var name: String
-    public var berries: [BerryFlavorDetailBerriesInner]
+    /// A list of the berries with this flavor.
+    public var berries: [BerryFlavorBerryMap]
+    /// The contest type that correlates with this berry flavor.
     public var contestType: ContestTypeSummary
+    /// The name of this resource listed in different languages.
     public var names: [BerryFlavorName]
 
-    public init(id: Int, name: String, berries: [BerryFlavorDetailBerriesInner], contestType: ContestTypeSummary, names: [BerryFlavorName]) {
+    public init(id: Int, name: String, berries: [BerryFlavorBerryMap], contestType: ContestTypeSummary, names: [BerryFlavorName]) {
         self.id = id
         self.name = name
         self.berries = berries
@@ -34,7 +39,7 @@ public struct BerryFlavorDetail: Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         id = try container.decode(Int.self, forKey: .id)
         name = try container.decode(String.self, forKey: .name)
-        berries = try container.decode([BerryFlavorDetailBerriesInner].self, forKey: .berries)
+        berries = try container.decode([BerryFlavorBerryMap].self, forKey: .berries)
         contestType = try container.decode(ContestTypeSummary.self, forKey: .contestType)
         names = try container.decode([BerryFlavorName].self, forKey: .names)
     }

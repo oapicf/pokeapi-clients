@@ -52,6 +52,7 @@ class ItemGameIndex(Model):
     def game_index(self) -> int:
         """Gets the game_index of this ItemGameIndex.
 
+        The internal id of an API resource within game data.  # noqa: E501
 
         :return: The game_index of this ItemGameIndex.
         :rtype: int
@@ -62,12 +63,17 @@ class ItemGameIndex(Model):
     def game_index(self, game_index: int):
         """Sets the game_index of this ItemGameIndex.
 
+        The internal id of an API resource within game data.  # noqa: E501
 
         :param game_index: The game_index of this ItemGameIndex.
         :type game_index: int
         """
         if game_index is None:
             raise ValueError("Invalid value for `game_index`, must not be `None`")  # noqa: E501
+        if game_index is not None and game_index > 2147483647:  # noqa: E501
+            raise ValueError("Invalid value for `game_index`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if game_index is not None and game_index < -2147483648:  # noqa: E501
+            raise ValueError("Invalid value for `game_index`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._game_index = game_index
 
@@ -75,6 +81,7 @@ class ItemGameIndex(Model):
     def generation(self) -> GenerationSummary:
         """Gets the generation of this ItemGameIndex.
 
+        The generation relevent to this game index.  # noqa: E501
 
         :return: The generation of this ItemGameIndex.
         :rtype: GenerationSummary
@@ -85,6 +92,7 @@ class ItemGameIndex(Model):
     def generation(self, generation: GenerationSummary):
         """Sets the generation of this ItemGameIndex.
 
+        The generation relevent to this game index.  # noqa: E501
 
         :param generation: The generation of this ItemGameIndex.
         :type generation: GenerationSummary

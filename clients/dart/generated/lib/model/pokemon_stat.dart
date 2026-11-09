@@ -18,10 +18,19 @@ class PokemonStat {
     required this.stat,
   });
 
+  /// The base value of the stat.
+  ///
+  /// Minimum value: -2147483648
+  /// Maximum value: 2147483647
   int baseStat;
 
+  /// The effort points (EV) the Pokémon has in the stat.
+  ///
+  /// Minimum value: -2147483648
+  /// Maximum value: 2147483647
   int effort;
 
+  /// The stat the Pokémon has.
   StatSummary stat;
 
   @override

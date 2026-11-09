@@ -8,10 +8,15 @@
 import Foundation
 
 public struct MoveDamageClassDetail: Codable {
+    /// The identifier for this resource.
     public var id: Int
+    /// The name for this resource.
     public var name: String
+    /// The description of this resource listed in different languages.
     public var descriptions: [MoveDamageClassDescription]
+    /// A list of moves that fall into this damage class.
     public var moves: [MoveSummary]
+    /// The name of this resource listed in different languages.
     public var names: [MoveDamageClassName]
 
     public init(id: Int, name: String, descriptions: [MoveDamageClassDescription], moves: [MoveSummary], names: [MoveDamageClassName]) {

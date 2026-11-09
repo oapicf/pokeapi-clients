@@ -7,33 +7,41 @@
     {
       "name": "id",
       "type": "int",
-      "doc": ""
+      "doc": "The identifier for this resource."
     },
     {
       "name": "name",
       "type": "string",
-      "doc": ""
+      "doc": "The name for this resource."
     },
     {
       "name": "game_index",
       "type": "int",
-      "doc": ""
+      "doc": "ID the games use for this stat."
     },
     {
       "name": "is_battle_only",
       "type": ["null", "boolean"],
-      "doc": "",
+      "doc": "Whether this stat only exists within a battle.",
       "default": null
     },
     {
       "name": "affecting_moves",
-      "type": "model.StatDetailAffectingMoves",
-      "doc": ""
+      "type": "model.StatAffectingMoves",
+      "doc": "A detail of moves which affect this stat positively or negatively."
     },
     {
       "name": "affecting_natures",
-      "type": "model.StatDetailAffectingNatures",
-      "doc": ""
+      "type": "model.StatAffectingNatures",
+      "doc": "A detail of natures which affect this stat positively or negatively."
+    },
+    {
+      "name": "affecting_items",
+      "type": {
+        "type": "array",
+        "items": "model.ItemSummary"
+      },
+      "doc": "Items that affect this stat, such as vitamins and battle items."
     },
     {
       "name": "characteristics",
@@ -41,12 +49,12 @@
         "type": "array",
         "items": "model.CharacteristicSummary"
       },
-      "doc": ""
+      "doc": "A list of characteristics that are set on a Pokémon when its highest base stat is this stat."
     },
     {
       "name": "move_damage_class",
       "type": "model.MoveDamageClassSummary",
-      "doc": ""
+      "doc": "The class of damage this stat is directly related to."
     },
     {
       "name": "names",
@@ -54,7 +62,7 @@
         "type": "array",
         "items": "model.StatName"
       },
-      "doc": ""
+      "doc": "The name of this resource listed in different languages."
     }
   ]
 

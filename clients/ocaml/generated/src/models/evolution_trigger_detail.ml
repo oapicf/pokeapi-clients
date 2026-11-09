@@ -15,23 +15,27 @@
                 
                 
                 ; [@key "id"]
-                                              name: string
+                    (** The identifier for this resource. *)
+                                      name: string
                   
                   
                 
                 
                 ; [@key "name"]
-                                              names: Evolution_trigger_name.t list
+                    (** The name for this resource. *)
+                                      names: Evolution_trigger_name.t list
                 
                 
                 ; [@key "names"]
-                                              pokemon_species: Ability_detail_pokemon_inner_pokemon.t list
+                    (** The name of this resource listed in different languages. *)
+                                      pokemon_species: Pokemon_species_summary.t list
                 
                 
                 ; [@key "pokemon_species"]
-                        } [@@deriving yojson { strict = false }, show, eq ];;
+                    (** A list of pokemon species that result from this evolution trigger. *)
+                } [@@deriving yojson { strict = false }, show, eq ];;
         
-        let create (id : int32) (name : string) (names : Evolution_trigger_name.t list) (pokemon_species : Ability_detail_pokemon_inner_pokemon.t list) : t = {
+        let create (id : int32) (name : string) (names : Evolution_trigger_name.t list) (pokemon_species : Pokemon_species_summary.t list) : t = {
             id = id;
             name = name;
             names = names;

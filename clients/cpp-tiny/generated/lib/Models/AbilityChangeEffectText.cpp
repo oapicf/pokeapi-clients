@@ -7,7 +7,7 @@ using namespace Tiny;
 AbilityChangeEffectText::AbilityChangeEffectText()
 {
 	effect = std::string();
-	language = LanguageSummary();
+	language = null;
 }
 
 AbilityChangeEffectText::AbilityChangeEffectText(std::string jsonString)

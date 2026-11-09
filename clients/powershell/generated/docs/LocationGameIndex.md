@@ -3,8 +3,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**GameIndex** | **Int32** |  | 
-**Generation** | [**GenerationSummary**](GenerationSummary.md) |  | 
+**GameIndex** | **Int32** | The internal id of an API resource within game data. | 
+**Generation** | [**GenerationSummary**](GenerationSummary.md) | The generation relevent to this game index. | 
 
 ## Examples
 

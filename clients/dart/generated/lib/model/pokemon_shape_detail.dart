@@ -20,14 +20,19 @@ class PokemonShapeDetail {
     this.pokemonSpecies = const [],
   });
 
+  /// The identifier for this resource.
   int id;
 
+  /// The name for this resource.
   String name;
 
-  List<PokemonShapeDetailAwesomeNamesInner> awesomeNames;
+  /// The \"scientific\" name of this Pokémon shape listed in different languages.
+  List<PokemonShapeAwesomeName> awesomeNames;
 
-  List<PokemonShapeDetailNamesInner> names;
+  /// The name of this resource listed in different languages.
+  List<PokemonShapeName> names;
 
+  /// A list of the Pokémon species that have this shape.
   List<PokemonSpeciesSummary> pokemonSpecies;
 
   @override
@@ -87,8 +92,8 @@ class PokemonShapeDetail {
       return PokemonShapeDetail(
         id: mapValueOfType<int>(json, r'id')!,
         name: mapValueOfType<String>(json, r'name')!,
-        awesomeNames: PokemonShapeDetailAwesomeNamesInner.listFromJson(json[r'awesome_names']),
-        names: PokemonShapeDetailNamesInner.listFromJson(json[r'names']),
+        awesomeNames: PokemonShapeAwesomeName.listFromJson(json[r'awesome_names']),
+        names: PokemonShapeName.listFromJson(json[r'names']),
         pokemonSpecies: PokemonSpeciesSummary.listFromJson(json[r'pokemon_species']),
       );
     }

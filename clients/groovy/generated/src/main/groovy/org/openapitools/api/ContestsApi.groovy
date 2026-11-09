@@ -13,7 +13,7 @@ class ContestsApi {
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def contestEffectList ( Integer limit, Integer offset, String q, Closure onSuccess, Closure onFailure)  {
+    def contestEffectList ( Integer limit, Integer offset, Closure onSuccess, Closure onFailure)  {
         String resourcePath = "/api/v2/contest-effect/"
 
         // params
@@ -29,9 +29,6 @@ class ContestsApi {
         }
         if (offset != null) {
             queryParams.put("offset", offset)
-        }
-        if (q != null) {
-            queryParams.put("q", q)
         }
 
 
@@ -131,7 +128,7 @@ class ContestsApi {
 
     }
 
-    def superContestEffectList ( Integer limit, Integer offset, String q, Closure onSuccess, Closure onFailure)  {
+    def superContestEffectList ( Integer limit, Integer offset, Closure onSuccess, Closure onFailure)  {
         String resourcePath = "/api/v2/super-contest-effect/"
 
         // params
@@ -147,9 +144,6 @@ class ContestsApi {
         }
         if (offset != null) {
             queryParams.put("offset", offset)
-        }
-        if (q != null) {
-            queryParams.put("q", q)
         }
 
 

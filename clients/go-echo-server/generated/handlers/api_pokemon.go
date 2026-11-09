@@ -5,7 +5,7 @@ import (
 	"net/http"
 )
 
-// AbilityList - 
+// AbilityList - List abilities
 func (c *Container) AbilityList(ctx echo.Context) error {
 	return ctx.JSON(http.StatusOK, models.HelloWorld {
 		Message: "Hello World",
@@ -13,7 +13,7 @@ func (c *Container) AbilityList(ctx echo.Context) error {
 }
 
 
-// AbilityRetrieve - 
+// AbilityRetrieve - Get ability
 func (c *Container) AbilityRetrieve(ctx echo.Context) error {
 	return ctx.JSON(http.StatusOK, models.HelloWorld {
 		Message: "Hello World",
@@ -21,7 +21,7 @@ func (c *Container) AbilityRetrieve(ctx echo.Context) error {
 }
 
 
-// CharacteristicList - List charecterictics
+// CharacteristicList - List characteristics
 func (c *Container) CharacteristicList(ctx echo.Context) error {
 	return ctx.JSON(http.StatusOK, models.HelloWorld {
 		Message: "Hello World",

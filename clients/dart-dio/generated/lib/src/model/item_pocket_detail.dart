@@ -14,21 +14,25 @@ part 'item_pocket_detail.g.dart';
 /// ItemPocketDetail
 ///
 /// Properties:
-/// * [id] 
-/// * [name] 
-/// * [categories] 
-/// * [names] 
+/// * [id] - The identifier for this resource.
+/// * [name] - The name for this resource.
+/// * [categories] - A list of item categories that are relevant to this item pocket.
+/// * [names] - The name of this resource listed in different languages.
 @BuiltValue()
 abstract class ItemPocketDetail implements Built<ItemPocketDetail, ItemPocketDetailBuilder> {
+  /// The identifier for this resource.
   @BuiltValueField(wireName: r'id')
   int get id;
 
+  /// The name for this resource.
   @BuiltValueField(wireName: r'name')
   String get name;
 
+  /// A list of item categories that are relevant to this item pocket.
   @BuiltValueField(wireName: r'categories')
   BuiltList<ItemCategorySummary> get categories;
 
+  /// The name of this resource listed in different languages.
   @BuiltValueField(wireName: r'names')
   BuiltList<ItemPocketName> get names;
 

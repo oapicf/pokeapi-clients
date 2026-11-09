@@ -27,7 +27,7 @@ ItemCategoryDetail::__init()
 	//name = std::string();
 	//new std::list()std::list> items;
 	//new std::list()std::list> names;
-	//pocket = new ItemPocketSummary();
+	//pocket = null;
 }
 
 void

@@ -25,12 +25,10 @@ const apiInstance = new MachinesApi(configuration);
 
 let limit: number; //Number of results to return per page. (optional) (default to undefined)
 let offset: number; //The initial index from which to return the results. (optional) (default to undefined)
-let q: string; //> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional) (default to undefined)
 
 const { status, data } = await apiInstance.machineList(
     limit,
-    offset,
-    q
+    offset
 );
 ```
 
@@ -40,7 +38,6 @@ const { status, data } = await apiInstance.machineList(
 |------------- | ------------- | ------------- | -------------|
 | **limit** | [**number**] | Number of results to return per page. | (optional) defaults to undefined|
 | **offset** | [**number**] | The initial index from which to return the results. | (optional) defaults to undefined|
-| **q** | [**string**] | &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | (optional) defaults to undefined|
 
 
 ### Return type
@@ -49,7 +46,7 @@ const { status, data } = await apiInstance.machineList(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -100,7 +97,7 @@ const { status, data } = await apiInstance.machineRetrieve(
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

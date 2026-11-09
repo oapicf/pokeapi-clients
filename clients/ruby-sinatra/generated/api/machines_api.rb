@@ -23,13 +23,6 @@ MyApp.add_route('GET', '/api/v2/machine/', {
       "allowableValues" => "",
       "paramType" => "query",
     },
-    {
-      "name" => "q",
-      "description" => "&gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. ",
-      "dataType" => "String",
-      "allowableValues" => "",
-      "paramType" => "query",
-    },
     ]}) do
   cross_origin
   # the guts live here

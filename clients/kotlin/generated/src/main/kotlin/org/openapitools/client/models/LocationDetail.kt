@@ -34,32 +34,38 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param id 
- * @param name 
- * @param region 
- * @param names 
- * @param gameIndices 
- * @param areas 
+ * @param id The identifier for this resource.
+ * @param name The name for this resource.
+ * @param region The region this location can be found in.
+ * @param names The name of this resource listed in different languages.
+ * @param gameIndices A list of game indices relevent to this location by generation.
+ * @param areas Areas that can be found within this location.
  */
 
 
 data class LocationDetail (
 
+    /* The identifier for this resource. */
     @Json(name = "id")
     val id: kotlin.Int,
 
+    /* The name for this resource. */
     @Json(name = "name")
     val name: kotlin.String,
 
+    /* The region this location can be found in. */
     @Json(name = "region")
-    val region: RegionSummary,
+    val region: RegionSummary?,
 
+    /* The name of this resource listed in different languages. */
     @Json(name = "names")
     val names: kotlin.collections.List<LocationName>,
 
+    /* A list of game indices relevent to this location by generation. */
     @Json(name = "game_indices")
     val gameIndices: kotlin.collections.List<LocationGameIndex>,
 
+    /* Areas that can be found within this location. */
     @Json(name = "areas")
     val areas: kotlin.collections.List<LocationAreaSummary>
 

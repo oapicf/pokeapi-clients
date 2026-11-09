@@ -32,20 +32,23 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param text 
- * @param versionGroup 
- * @param language 
+ * @param text The localized flavor text for an API resource in a specific language.
+ * @param versionGroup The version group which uses this flavor text.
+ * @param language The language this name is in.
  */
 
 
 data class ItemFlavorText (
 
+    /* The localized flavor text for an API resource in a specific language. */
     @Json(name = "text")
     val text: kotlin.String,
 
+    /* The version group which uses this flavor text. */
     @Json(name = "version_group")
     val versionGroup: VersionGroupSummary,
 
+    /* The language this name is in. */
     @Json(name = "language")
     val language: LanguageSummary
 

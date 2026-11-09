@@ -9,7 +9,10 @@ import Foundation
 
 public struct TypeGameIndex: Sendable, Codable, Hashable {
 
+    public static let gameIndexRule = NumericRule<Int>(minimum: -2147483648, exclusiveMinimum: false, maximum: 2147483647, exclusiveMaximum: false, multipleOf: nil)
+    /** The internal id of an API resource within game data. */
     public var gameIndex: Int
+    /** The generation relevent to this game index. */
     public var generation: GenerationSummary
 
     public init(gameIndex: Int, generation: GenerationSummary) {

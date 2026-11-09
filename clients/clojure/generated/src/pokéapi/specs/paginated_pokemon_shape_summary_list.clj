@@ -8,10 +8,10 @@
 
 (def paginated-pokemon-shape-summary-list-data
   {
-   (ds/opt :count) int?
+   (ds/req :count) int?
    (ds/opt :next) string?
    (ds/opt :previous) string?
-   (ds/opt :results) (s/coll-of pokemon-shape-summary-spec)
+   (ds/req :results) (s/coll-of pokemon-shape-summary-spec)
    })
 
 (def paginated-pokemon-shape-summary-list-spec

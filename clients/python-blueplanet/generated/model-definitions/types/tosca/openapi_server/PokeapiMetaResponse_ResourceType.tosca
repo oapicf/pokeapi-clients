@@ -1,0 +1,45 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server PokeapiMetaResponse"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a PokeapiMetaResponse"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+}
+resourceTypes {
+
+  PokeapiMetaResponse {
+    title = PokeapiMetaResponse
+    description = PokeapiMetaResponse
+    derivedFrom = Root
+    properties {
+        deploy_date {
+          type =  string
+          description = "The deployment time as a Unix timestamp string."
+          optional = true
+        }
+        hash {
+          type =  string
+          description = "The source commit hash used for this deployment."
+          optional = true
+        }
+        tag {
+          type =  string
+          description = "The deployment tag, or null if the deployment has no tag."
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  PokeapiMetaResponse {
+    title = PokeapiMetaResponse
+    description = PokeapiMetaResponse
+    implements = openapi_server.resourceTypes.PokeapiMetaResponse
+
+  }
+}

@@ -11,13 +11,15 @@ part 'move_meta_category_summary.g.dart';
 /// MoveMetaCategorySummary
 ///
 /// Properties:
-/// * [name] 
-/// * [url] 
+/// * [name] - The name of the referenced resource.
+/// * [url] - The URL of the referenced resource.
 @BuiltValue()
 abstract class MoveMetaCategorySummary implements Built<MoveMetaCategorySummary, MoveMetaCategorySummaryBuilder> {
+  /// The name of the referenced resource.
   @BuiltValueField(wireName: r'name')
   String get name;
 
+  /// The URL of the referenced resource.
   @BuiltValueField(wireName: r'url')
   String get url;
 

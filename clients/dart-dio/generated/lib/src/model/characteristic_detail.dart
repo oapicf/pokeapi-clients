@@ -14,25 +14,30 @@ part 'characteristic_detail.g.dart';
 /// CharacteristicDetail
 ///
 /// Properties:
-/// * [id] 
-/// * [geneModulo] 
-/// * [possibleValues] 
-/// * [highestStat] 
-/// * [descriptions] 
+/// * [id] - The identifier for this resource.
+/// * [geneModulo] - The remainder of the highest stat/IV divided by 5.
+/// * [possibleValues] - The possible values of the highest stat that would result in a Pokémon recieving this characteristic when divided by 5.
+/// * [highestStat] - The stat which results in this characteristic.
+/// * [descriptions] - The descriptions of this characteristic listed in different languages.
 @BuiltValue()
 abstract class CharacteristicDetail implements Built<CharacteristicDetail, CharacteristicDetailBuilder> {
+  /// The identifier for this resource.
   @BuiltValueField(wireName: r'id')
   int get id;
 
+  /// The remainder of the highest stat/IV divided by 5.
   @BuiltValueField(wireName: r'gene_modulo')
   int get geneModulo;
 
+  /// The possible values of the highest stat that would result in a Pokémon recieving this characteristic when divided by 5.
   @BuiltValueField(wireName: r'possible_values')
   BuiltList<int> get possibleValues;
 
+  /// The stat which results in this characteristic.
   @BuiltValueField(wireName: r'highest_stat')
   StatSummary get highestStat;
 
+  /// The descriptions of this characteristic listed in different languages.
   @BuiltValueField(wireName: r'descriptions')
   BuiltList<CharacteristicDescription> get descriptions;
 

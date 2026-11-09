@@ -13,12 +13,14 @@ import org.openapitools.model.BerryFlavorDetail;
 import org.openapitools.model.CharacteristicDetail;
 import org.openapitools.model.ContestEffectDetail;
 import org.openapitools.model.ContestTypeDetail;
+import org.openapitools.model.CurrencyDetail;
 import org.openapitools.model.EggGroupDetail;
 import org.openapitools.model.EncounterConditionDetail;
 import org.openapitools.model.EncounterConditionValueDetail;
 import org.openapitools.model.EncounterMethodDetail;
 import org.openapitools.model.EvolutionChainDetail;
 import org.openapitools.model.EvolutionTriggerDetail;
+import org.openapitools.model.EvolutionVariableDetail;
 import org.openapitools.model.GenderDetail;
 import org.openapitools.model.GenerationDetail;
 import org.openapitools.model.GrowthRateDetail;
@@ -46,12 +48,14 @@ import org.openapitools.model.PaginatedBerrySummaryList;
 import org.openapitools.model.PaginatedCharacteristicSummaryList;
 import org.openapitools.model.PaginatedContestEffectSummaryList;
 import org.openapitools.model.PaginatedContestTypeSummaryList;
+import org.openapitools.model.PaginatedCurrencySummaryList;
 import org.openapitools.model.PaginatedEggGroupSummaryList;
 import org.openapitools.model.PaginatedEncounterConditionSummaryList;
 import org.openapitools.model.PaginatedEncounterConditionValueSummaryList;
 import org.openapitools.model.PaginatedEncounterMethodSummaryList;
 import org.openapitools.model.PaginatedEvolutionChainSummaryList;
 import org.openapitools.model.PaginatedEvolutionTriggerSummaryList;
+import org.openapitools.model.PaginatedEvolutionVariableSummaryList;
 import org.openapitools.model.PaginatedGenderSummaryList;
 import org.openapitools.model.PaginatedGenerationSummaryList;
 import org.openapitools.model.PaginatedGrowthRateSummaryList;
@@ -88,6 +92,7 @@ import org.openapitools.model.PaginatedTypeSummaryList;
 import org.openapitools.model.PaginatedVersionGroupSummaryList;
 import org.openapitools.model.PaginatedVersionSummaryList;
 import org.openapitools.model.PalParkAreaDetail;
+import org.openapitools.model.PokeapiMetaResponse;
 import org.openapitools.model.PokeathlonStatDetail;
 import org.openapitools.model.PokedexDetail;
 import org.openapitools.model.PokemonColorDetail;
@@ -111,7 +116,7 @@ import java.io.InputStream;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-10-25T05:48:05.787850114Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-11-09T13:49:25.341948748Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public abstract class ApiApiService {
     public abstract Response abilityList(Integer limit
  ,Integer offset
@@ -139,13 +144,11 @@ public abstract class ApiApiService {
  ) throws NotFoundException;
     public abstract Response characteristicList(Integer limit
  ,Integer offset
- ,String q
  ) throws NotFoundException;
     public abstract Response characteristicRetrieve(String id
  ) throws NotFoundException;
     public abstract Response contestEffectList(Integer limit
  ,Integer offset
- ,String q
  ) throws NotFoundException;
     public abstract Response contestEffectRetrieve(String id
  ) throws NotFoundException;
@@ -154,6 +157,12 @@ public abstract class ApiApiService {
  ,String q
  ) throws NotFoundException;
     public abstract Response contestTypeRetrieve(String id
+ ) throws NotFoundException;
+    public abstract Response currencyList(Integer limit
+ ,Integer offset
+ ,String q
+ ) throws NotFoundException;
+    public abstract Response currencyRetrieve(String id
  ) throws NotFoundException;
     public abstract Response eggGroupList(Integer limit
  ,Integer offset
@@ -181,7 +190,6 @@ public abstract class ApiApiService {
  ) throws NotFoundException;
     public abstract Response evolutionChainList(Integer limit
  ,Integer offset
- ,String q
  ) throws NotFoundException;
     public abstract Response evolutionChainRetrieve(String id
  ) throws NotFoundException;
@@ -190,6 +198,12 @@ public abstract class ApiApiService {
  ,String q
  ) throws NotFoundException;
     public abstract Response evolutionTriggerRetrieve(String id
+ ) throws NotFoundException;
+    public abstract Response evolutionVariableList(Integer limit
+ ,Integer offset
+ ,String q
+ ) throws NotFoundException;
+    public abstract Response evolutionVariableRetrieve(String id
  ) throws NotFoundException;
     public abstract Response genderList(Integer limit
  ,Integer offset
@@ -258,10 +272,10 @@ public abstract class ApiApiService {
  ) throws NotFoundException;
     public abstract Response machineList(Integer limit
  ,Integer offset
- ,String q
  ) throws NotFoundException;
     public abstract Response machineRetrieve(String id
  ) throws NotFoundException;
+    public abstract Response metaRetrieve() throws NotFoundException;
     public abstract Response moveAilmentList(Integer limit
  ,Integer offset
  ,String q
@@ -378,7 +392,6 @@ public abstract class ApiApiService {
  ) throws NotFoundException;
     public abstract Response superContestEffectList(Integer limit
  ,Integer offset
- ,String q
  ) throws NotFoundException;
     public abstract Response superContestEffectRetrieve(String id
  ) throws NotFoundException;

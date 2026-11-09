@@ -15,7 +15,7 @@
   | {'main_generation', openapi_generation_summary:openapi_generation_summary() }
   | {'names', list(openapi_region_name:openapi_region_name()) }
   | {'pokedexes', list(openapi_pokedex_summary:openapi_pokedex_summary()) }
-  | {'version_groups', list(openapi_ability_detail_pokemon_inner_pokemon:openapi_ability_detail_pokemon_inner_pokemon()) }
+  | {'version_groups', list(openapi_version_group_summary:openapi_version_group_summary()) }
   ].
 
 
@@ -29,7 +29,7 @@ openapi_region_detail(Fields) ->
             , {'main_generation', openapi_generation_summary:openapi_generation_summary() }
             , {'names', list(openapi_region_name:openapi_region_name()) }
             , {'pokedexes', list(openapi_pokedex_summary:openapi_pokedex_summary()) }
-            , {'version_groups', list(openapi_ability_detail_pokemon_inner_pokemon:openapi_ability_detail_pokemon_inner_pokemon()) }
+            , {'version_groups', list(openapi_version_group_summary:openapi_version_group_summary()) }
             ],
   lists:ukeymerge(1, lists:sort(Fields), lists:sort(Default)).
 

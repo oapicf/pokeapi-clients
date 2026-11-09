@@ -30,7 +30,6 @@ A generation is a grouping of the Pokémon games that separates them based on th
 import org.openapitools.server.ApiClient;
 import org.openapitools.server.ApiException;
 import org.openapitools.server.Configuration;
-import org.openapitools.server.auth.*;
 import org.openapitools.server.models.*;
 import org.openapitools.server.api.GamesApi;
 
@@ -38,17 +37,6 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("https://pokeapi.co");
-        
-        // Configure HTTP basic authorization: basicAuth
-        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-        basicAuth.setUsername("YOUR USERNAME");
-        basicAuth.setPassword("YOUR PASSWORD");
-
-        // Configure API key authorization: cookieAuth
-        ApiKeyAuth cookieAuth = (ApiKeyAuth) defaultClient.getAuthentication("cookieAuth");
-        cookieAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //cookieAuth.setApiKeyPrefix("Token");
 
         GamesApi apiInstance = new GamesApi(defaultClient);
         Integer limit = 56; // Integer | Number of results to return per page.
@@ -83,7 +71,7 @@ public class Example {
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -112,7 +100,6 @@ A generation is a grouping of the Pokémon games that separates them based on th
 import org.openapitools.server.ApiClient;
 import org.openapitools.server.ApiException;
 import org.openapitools.server.Configuration;
-import org.openapitools.server.auth.*;
 import org.openapitools.server.models.*;
 import org.openapitools.server.api.GamesApi;
 
@@ -120,20 +107,9 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("https://pokeapi.co");
-        
-        // Configure HTTP basic authorization: basicAuth
-        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-        basicAuth.setUsername("YOUR USERNAME");
-        basicAuth.setPassword("YOUR PASSWORD");
-
-        // Configure API key authorization: cookieAuth
-        ApiKeyAuth cookieAuth = (ApiKeyAuth) defaultClient.getAuthentication("cookieAuth");
-        cookieAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //cookieAuth.setApiKeyPrefix("Token");
 
         GamesApi apiInstance = new GamesApi(defaultClient);
-        String id = "id_example"; // String | This parameter can be a string or an integer.
+        String id = "1"; // String | This parameter can be a string or an integer.
         try {
             GenerationDetail result = apiInstance.generationRetrieve(id);
             System.out.println(result);
@@ -161,7 +137,7 @@ public class Example {
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -190,7 +166,6 @@ A Pokédex is a handheld electronic encyclopedia device; one which is capable of
 import org.openapitools.server.ApiClient;
 import org.openapitools.server.ApiException;
 import org.openapitools.server.Configuration;
-import org.openapitools.server.auth.*;
 import org.openapitools.server.models.*;
 import org.openapitools.server.api.GamesApi;
 
@@ -198,17 +173,6 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("https://pokeapi.co");
-        
-        // Configure HTTP basic authorization: basicAuth
-        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-        basicAuth.setUsername("YOUR USERNAME");
-        basicAuth.setPassword("YOUR PASSWORD");
-
-        // Configure API key authorization: cookieAuth
-        ApiKeyAuth cookieAuth = (ApiKeyAuth) defaultClient.getAuthentication("cookieAuth");
-        cookieAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //cookieAuth.setApiKeyPrefix("Token");
 
         GamesApi apiInstance = new GamesApi(defaultClient);
         Integer limit = 56; // Integer | Number of results to return per page.
@@ -243,7 +207,7 @@ public class Example {
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -272,7 +236,6 @@ A Pokédex is a handheld electronic encyclopedia device; one which is capable of
 import org.openapitools.server.ApiClient;
 import org.openapitools.server.ApiException;
 import org.openapitools.server.Configuration;
-import org.openapitools.server.auth.*;
 import org.openapitools.server.models.*;
 import org.openapitools.server.api.GamesApi;
 
@@ -280,20 +243,9 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("https://pokeapi.co");
-        
-        // Configure HTTP basic authorization: basicAuth
-        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-        basicAuth.setUsername("YOUR USERNAME");
-        basicAuth.setPassword("YOUR PASSWORD");
-
-        // Configure API key authorization: cookieAuth
-        ApiKeyAuth cookieAuth = (ApiKeyAuth) defaultClient.getAuthentication("cookieAuth");
-        cookieAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //cookieAuth.setApiKeyPrefix("Token");
 
         GamesApi apiInstance = new GamesApi(defaultClient);
-        String id = "id_example"; // String | This parameter can be a string or an integer.
+        String id = "1"; // String | This parameter can be a string or an integer.
         try {
             PokedexDetail result = apiInstance.pokedexRetrieve(id);
             System.out.println(result);
@@ -321,7 +273,7 @@ public class Example {
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -350,7 +302,6 @@ Version groups categorize highly similar versions of the games.
 import org.openapitools.server.ApiClient;
 import org.openapitools.server.ApiException;
 import org.openapitools.server.Configuration;
-import org.openapitools.server.auth.*;
 import org.openapitools.server.models.*;
 import org.openapitools.server.api.GamesApi;
 
@@ -358,17 +309,6 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("https://pokeapi.co");
-        
-        // Configure HTTP basic authorization: basicAuth
-        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-        basicAuth.setUsername("YOUR USERNAME");
-        basicAuth.setPassword("YOUR PASSWORD");
-
-        // Configure API key authorization: cookieAuth
-        ApiKeyAuth cookieAuth = (ApiKeyAuth) defaultClient.getAuthentication("cookieAuth");
-        cookieAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //cookieAuth.setApiKeyPrefix("Token");
 
         GamesApi apiInstance = new GamesApi(defaultClient);
         Integer limit = 56; // Integer | Number of results to return per page.
@@ -403,7 +343,7 @@ public class Example {
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -432,7 +372,6 @@ Version groups categorize highly similar versions of the games.
 import org.openapitools.server.ApiClient;
 import org.openapitools.server.ApiException;
 import org.openapitools.server.Configuration;
-import org.openapitools.server.auth.*;
 import org.openapitools.server.models.*;
 import org.openapitools.server.api.GamesApi;
 
@@ -440,20 +379,9 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("https://pokeapi.co");
-        
-        // Configure HTTP basic authorization: basicAuth
-        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-        basicAuth.setUsername("YOUR USERNAME");
-        basicAuth.setPassword("YOUR PASSWORD");
-
-        // Configure API key authorization: cookieAuth
-        ApiKeyAuth cookieAuth = (ApiKeyAuth) defaultClient.getAuthentication("cookieAuth");
-        cookieAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //cookieAuth.setApiKeyPrefix("Token");
 
         GamesApi apiInstance = new GamesApi(defaultClient);
-        String id = "id_example"; // String | This parameter can be a string or an integer.
+        String id = "1"; // String | This parameter can be a string or an integer.
         try {
             VersionGroupDetail result = apiInstance.versionGroupRetrieve(id);
             System.out.println(result);
@@ -481,7 +409,7 @@ public class Example {
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -510,7 +438,6 @@ Versions of the games, e.g., Red, Blue or Yellow.
 import org.openapitools.server.ApiClient;
 import org.openapitools.server.ApiException;
 import org.openapitools.server.Configuration;
-import org.openapitools.server.auth.*;
 import org.openapitools.server.models.*;
 import org.openapitools.server.api.GamesApi;
 
@@ -518,17 +445,6 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("https://pokeapi.co");
-        
-        // Configure HTTP basic authorization: basicAuth
-        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-        basicAuth.setUsername("YOUR USERNAME");
-        basicAuth.setPassword("YOUR PASSWORD");
-
-        // Configure API key authorization: cookieAuth
-        ApiKeyAuth cookieAuth = (ApiKeyAuth) defaultClient.getAuthentication("cookieAuth");
-        cookieAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //cookieAuth.setApiKeyPrefix("Token");
 
         GamesApi apiInstance = new GamesApi(defaultClient);
         Integer limit = 56; // Integer | Number of results to return per page.
@@ -563,7 +479,7 @@ public class Example {
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -592,7 +508,6 @@ Versions of the games, e.g., Red, Blue or Yellow.
 import org.openapitools.server.ApiClient;
 import org.openapitools.server.ApiException;
 import org.openapitools.server.Configuration;
-import org.openapitools.server.auth.*;
 import org.openapitools.server.models.*;
 import org.openapitools.server.api.GamesApi;
 
@@ -600,20 +515,9 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("https://pokeapi.co");
-        
-        // Configure HTTP basic authorization: basicAuth
-        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-        basicAuth.setUsername("YOUR USERNAME");
-        basicAuth.setPassword("YOUR PASSWORD");
-
-        // Configure API key authorization: cookieAuth
-        ApiKeyAuth cookieAuth = (ApiKeyAuth) defaultClient.getAuthentication("cookieAuth");
-        cookieAuth.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //cookieAuth.setApiKeyPrefix("Token");
 
         GamesApi apiInstance = new GamesApi(defaultClient);
-        String id = "id_example"; // String | This parameter can be a string or an integer.
+        String id = "1"; // String | This parameter can be a string or an integer.
         try {
             VersionDetail result = apiInstance.versionRetrieve(id);
             System.out.println(result);
@@ -641,7 +545,7 @@ public class Example {
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

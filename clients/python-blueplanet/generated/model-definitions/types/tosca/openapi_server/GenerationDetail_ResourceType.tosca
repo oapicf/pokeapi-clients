@@ -24,53 +24,53 @@ resourceTypes {
     properties {
         id {
           type =  integer
-          description = ""
+          description = "The identifier for this resource."
           optional = true
         }
         name {
           type =  string
-          description = ""
+          description = "The name for this resource."
           optional = true
         }
         abilities {
           type = array
           items.type = AbilitySummary
-          description = ""
+          description = "A list of abilities that were introduced in this generation."
           optional = true
         }
         main_region {
           type = RegionSummary
-          description = ""
+          description = "The main region travelled in this generation."
           optional = true
         }
         moves {
           type = array
           items.type = MoveSummary
-          description = ""
+          description = "A list of moves that were introduced in this generation."
           optional = true
         }
         names {
           type = array
           items.type = GenerationName
-          description = ""
+          description = "The name of this resource listed in different languages."
           optional = true
         }
         pokemon_species {
           type = array
           items.type = PokemonSpeciesSummary
-          description = ""
+          description = "A list of Pokémon species that were introduced in this generation."
           optional = true
         }
         types {
           type = array
           items.type = TypeSummary
-          description = ""
+          description = "A list of types that were introduced in this generation."
           optional = true
         }
         version_groups {
           type = array
           items.type = VersionGroupSummary
-          description = ""
+          description = "A list of version groups that were introduced in this generation."
           optional = true
         }
     }

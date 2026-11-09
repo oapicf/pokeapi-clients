@@ -10,7 +10,7 @@ import org.openapitools.model.StatSummary;
 /**
  * PokemonStat
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-10-25T05:48:05.787850114Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-11-09T13:49:25.341948748Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PokemonStat   {
   @JsonProperty("base_stat")
   private Integer baseStat;
@@ -27,10 +27,12 @@ public class PokemonStat   {
   }
 
    /**
-   * Get baseStat
+   * The base value of the stat.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return baseStat
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The base value of the stat.")
   public Integer getBaseStat() {
     return baseStat;
   }
@@ -45,10 +47,12 @@ public class PokemonStat   {
   }
 
    /**
-   * Get effort
+   * The effort points (EV) the Pokémon has in the stat.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return effort
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The effort points (EV) the Pokémon has in the stat.")
   public Integer getEffort() {
     return effort;
   }
@@ -63,10 +67,10 @@ public class PokemonStat   {
   }
 
    /**
-   * Get stat
+   * The stat the Pokémon has.
    * @return stat
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The stat the Pokémon has.")
   public StatSummary getStat() {
     return stat;
   }

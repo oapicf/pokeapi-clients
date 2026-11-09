@@ -18,6 +18,7 @@ import com.google.gson.reflect.TypeToken
 import com.google.gson.Gson
 import org.openapitools.server.api.model.LanguageDetail
 import org.openapitools.server.api.model.PaginatedLanguageSummaryList
+import org.openapitools.server.api.model.PokeapiMetaResponse
 
 class UtilityApiVertxProxyHandler(private val vertx: Vertx, private val service: UtilityApi, topLevel: Boolean, private val timeoutSeconds: Long) : ProxyHandler() {
     private lateinit var timerID: Long
@@ -94,6 +95,9 @@ class UtilityApiVertxProxyHandler(private val vertx: Vertx, private val service:
                     }.invokeOnCompletion{
                         it?.let{ throw it }
                     }
+                }
+        
+                "metaRetrieve" -> {
                 }
         
             }

@@ -6,7 +6,7 @@
 import 'package:built_collection/built_collection.dart';
 import 'package:openapi/src/model/version_group_summary.dart';
 import 'package:openapi/src/model/type_summary.dart';
-import 'package:openapi/src/model/move_change_effect_entries_inner.dart';
+import 'package:openapi/src/model/move_effect_effect_text.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -15,33 +15,40 @@ part 'move_change.g.dart';
 /// MoveChange
 ///
 /// Properties:
-/// * [accuracy] 
-/// * [power] 
-/// * [pp] 
-/// * [effectChance] 
-/// * [effectEntries] 
-/// * [type] 
-/// * [versionGroup] 
+/// * [accuracy] - The percent value of how likely this move is to be successful.
+/// * [power] - The base power before the listed version group, or null if power did not change.
+/// * [pp] - Power points. The number of times this move can be used.
+/// * [effectChance] - The percent value of how likely it is this moves effect will take effect.
+/// * [effectEntries] - The effect of this move listed in different languages.
+/// * [type] - The elemental type of this move.
+/// * [versionGroup] - The version group in which these move stat values were in effect.
 @BuiltValue()
 abstract class MoveChange implements Built<MoveChange, MoveChangeBuilder> {
+  /// The percent value of how likely this move is to be successful.
   @BuiltValueField(wireName: r'accuracy')
   int? get accuracy;
 
+  /// The base power before the listed version group, or null if power did not change.
   @BuiltValueField(wireName: r'power')
   int? get power;
 
+  /// Power points. The number of times this move can be used.
   @BuiltValueField(wireName: r'pp')
   int? get pp;
 
+  /// The percent value of how likely it is this moves effect will take effect.
   @BuiltValueField(wireName: r'effect_chance')
-  int get effectChance;
+  int? get effectChance;
 
+  /// The effect of this move listed in different languages.
   @BuiltValueField(wireName: r'effect_entries')
-  BuiltList<MoveChangeEffectEntriesInner> get effectEntries;
+  BuiltList<MoveEffectEffectText> get effectEntries;
 
+  /// The elemental type of this move.
   @BuiltValueField(wireName: r'type')
-  TypeSummary get type;
+  TypeSummary? get type;
 
+  /// The version group in which these move stat values were in effect.
   @BuiltValueField(wireName: r'version_group')
   VersionGroupSummary get versionGroup;
 
@@ -90,19 +97,19 @@ class _$MoveChangeSerializer implements PrimitiveSerializer<MoveChange> {
       );
     }
     yield r'effect_chance';
-    yield serializers.serialize(
+    yield object.effectChance == null ? null : serializers.serialize(
       object.effectChance,
-      specifiedType: const FullType(int),
+      specifiedType: const FullType.nullable(int),
     );
     yield r'effect_entries';
     yield serializers.serialize(
       object.effectEntries,
-      specifiedType: const FullType(BuiltList, [FullType(MoveChangeEffectEntriesInner)]),
+      specifiedType: const FullType(BuiltList, [FullType(MoveEffectEffectText)]),
     );
     yield r'type';
-    yield serializers.serialize(
+    yield object.type == null ? null : serializers.serialize(
       object.type,
-      specifiedType: const FullType(TypeSummary),
+      specifiedType: const FullType.nullable(TypeSummary),
     );
     yield r'version_group';
     yield serializers.serialize(
@@ -159,22 +166,24 @@ class _$MoveChangeSerializer implements PrimitiveSerializer<MoveChange> {
         case r'effect_chance':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(int),
-          ) as int;
+            specifiedType: const FullType.nullable(int),
+          ) as int?;
+          if (valueDes == null) continue;
           result.effectChance = valueDes;
           break;
         case r'effect_entries':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(MoveChangeEffectEntriesInner)]),
-          ) as BuiltList<MoveChangeEffectEntriesInner>;
+            specifiedType: const FullType(BuiltList, [FullType(MoveEffectEffectText)]),
+          ) as BuiltList<MoveEffectEffectText>;
           result.effectEntries.replace(valueDes);
           break;
         case r'type':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(TypeSummary),
-          ) as TypeSummary;
+            specifiedType: const FullType.nullable(TypeSummary),
+          ) as TypeSummary?;
+          if (valueDes == null) continue;
           result.type.replace(valueDes);
           break;
         case r'version_group':

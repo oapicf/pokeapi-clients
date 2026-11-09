@@ -12,14 +12,20 @@ import java.math.*;
 public class ItemFlingEffectEffectText implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * The localized effect text for an API resource in a specific language.
+   */
   @JsonProperty("effect")
   private String effect;
 
+  /**
+   * The language this effect is in.
+   */
   @JsonProperty("language")
   private LanguageSummary language;
 
   /**
-   * 
+   * The localized effect text for an API resource in a specific language.
    * @return effect
    */
   public String getEffect() {
@@ -31,7 +37,7 @@ public class ItemFlingEffectEffectText implements Serializable {
   }
 
   /**
-   * 
+   * The language this effect is in.
    * @return language
    */
   public LanguageSummary getLanguage() {

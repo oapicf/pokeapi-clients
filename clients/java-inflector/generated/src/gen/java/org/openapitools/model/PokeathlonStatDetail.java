@@ -8,14 +8,14 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.model.PokeathlonStatDetailAffectingNatures;
+import org.openapitools.model.PokeathlonStatAffectingNatures;
 import org.openapitools.model.PokeathlonStatName;
 
 
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-10-25T05:47:53.227411880Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-11-09T13:49:15.621225368Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PokeathlonStatDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -24,12 +24,13 @@ public class PokeathlonStatDetail   {
   private String name;
 
   @JsonProperty("affecting_natures")
-  private PokeathlonStatDetailAffectingNatures affectingNatures;
+  private PokeathlonStatAffectingNatures affectingNatures;
 
   @JsonProperty("names")
   private List<PokeathlonStatName> names = new ArrayList<>();
 
   /**
+   * The identifier for this resource.
    **/
   public PokeathlonStatDetail id(Integer id) {
     this.id = id;
@@ -37,7 +38,7 @@ public class PokeathlonStatDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   @JsonProperty("id")
   public Integer getId() {
     return id;
@@ -47,6 +48,7 @@ public class PokeathlonStatDetail   {
   }
 
   /**
+   * The name for this resource.
    **/
   public PokeathlonStatDetail name(String name) {
     this.name = name;
@@ -54,7 +56,7 @@ public class PokeathlonStatDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   @JsonProperty("name")
   public String getName() {
     return name;
@@ -64,23 +66,25 @@ public class PokeathlonStatDetail   {
   }
 
   /**
+   * A detail of natures which affect this Pokéathlon stat positively or negatively.
    **/
-  public PokeathlonStatDetail affectingNatures(PokeathlonStatDetailAffectingNatures affectingNatures) {
+  public PokeathlonStatDetail affectingNatures(PokeathlonStatAffectingNatures affectingNatures) {
     this.affectingNatures = affectingNatures;
     return this;
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A detail of natures which affect this Pokéathlon stat positively or negatively.")
   @JsonProperty("affecting_natures")
-  public PokeathlonStatDetailAffectingNatures getAffectingNatures() {
+  public PokeathlonStatAffectingNatures getAffectingNatures() {
     return affectingNatures;
   }
-  public void setAffectingNatures(PokeathlonStatDetailAffectingNatures affectingNatures) {
+  public void setAffectingNatures(PokeathlonStatAffectingNatures affectingNatures) {
     this.affectingNatures = affectingNatures;
   }
 
   /**
+   * The name of this resource listed in different languages.
    **/
   public PokeathlonStatDetail names(List<PokeathlonStatName> names) {
     this.names = names;
@@ -88,7 +92,7 @@ public class PokeathlonStatDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
   @JsonProperty("names")
   public List<PokeathlonStatName> getNames() {
     return names;

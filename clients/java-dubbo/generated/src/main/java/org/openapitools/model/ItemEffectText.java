@@ -12,17 +12,26 @@ import java.math.*;
 public class ItemEffectText implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * The localized effect text for an API resource in a specific language.
+   */
   @JsonProperty("effect")
   private String effect;
 
+  /**
+   * The localized effect text in brief.
+   */
   @JsonProperty("short_effect")
   private String shortEffect;
 
+  /**
+   * The language this effect is in.
+   */
   @JsonProperty("language")
   private LanguageSummary language;
 
   /**
-   * 
+   * The localized effect text for an API resource in a specific language.
    * @return effect
    */
   public String getEffect() {
@@ -34,7 +43,7 @@ public class ItemEffectText implements Serializable {
   }
 
   /**
-   * 
+   * The localized effect text in brief.
    * @return shortEffect
    */
   public String getShortEffect() {
@@ -46,7 +55,7 @@ public class ItemEffectText implements Serializable {
   }
 
   /**
-   * 
+   * The language this effect is in.
    * @return language
    */
   public LanguageSummary getLanguage() {

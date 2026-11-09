@@ -4,21 +4,21 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
-import org.openapitools.server.model.AbilityDetailPokemonInnerPokemon;
+import org.openapitools.server.model.EggGroupSummary;
 import org.openapitools.server.model.EvolutionChainSummary;
 import org.openapitools.server.model.GenerationSummary;
 import org.openapitools.server.model.GrowthRateSummary;
 import org.openapitools.server.model.PokemonColorSummary;
 import org.openapitools.server.model.PokemonDexEntry;
-import org.openapitools.server.model.PokemonFormDetailFormNamesInner;
 import org.openapitools.server.model.PokemonHabitatSummary;
 import org.openapitools.server.model.PokemonShapeSummary;
 import org.openapitools.server.model.PokemonSpeciesDescription;
-import org.openapitools.server.model.PokemonSpeciesDetailGeneraInner;
-import org.openapitools.server.model.PokemonSpeciesDetailPalParkEncountersInner;
-import org.openapitools.server.model.PokemonSpeciesDetailVarietiesInner;
 import org.openapitools.server.model.PokemonSpeciesFlavorText;
+import org.openapitools.server.model.PokemonSpeciesGenus;
+import org.openapitools.server.model.PokemonSpeciesName;
+import org.openapitools.server.model.PokemonSpeciesPalParkEncounter;
 import org.openapitools.server.model.PokemonSpeciesSummary;
+import org.openapitools.server.model.PokemonSpeciesVariety;
 import jakarta.validation.constraints.*;
 import jakarta.validation.Valid;
 
@@ -40,19 +40,19 @@ public class PokemonSpeciesDetail   {
     private Boolean formsSwitchable;
     private GrowthRateSummary growthRate;
     private List<@Valid PokemonDexEntry> pokedexNumbers = new ArrayList<>();
-    private List<@Valid AbilityDetailPokemonInnerPokemon> eggGroups = new ArrayList<>();
+    private List<@Valid EggGroupSummary> eggGroups = new ArrayList<>();
     private PokemonColorSummary color;
     private PokemonShapeSummary shape;
     private PokemonSpeciesSummary evolvesFromSpecies;
     private EvolutionChainSummary evolutionChain;
     private PokemonHabitatSummary habitat;
     private GenerationSummary generation;
-    private List<@Valid PokemonFormDetailFormNamesInner> names = new ArrayList<>();
-    private List<@Valid PokemonSpeciesDetailPalParkEncountersInner> palParkEncounters = new ArrayList<>();
+    private List<@Valid PokemonSpeciesName> names = new ArrayList<>();
+    private List<@Valid PokemonSpeciesPalParkEncounter> palParkEncounters = new ArrayList<>();
     private List<@Valid PokemonSpeciesDescription> formDescriptions = new ArrayList<>();
     private List<@Valid PokemonSpeciesFlavorText> flavorTextEntries = new ArrayList<>();
-    private List<@Valid PokemonSpeciesDetailGeneraInner> genera = new ArrayList<>();
-    private List<@Valid PokemonSpeciesDetailVarietiesInner> varieties = new ArrayList<>();
+    private List<@Valid PokemonSpeciesGenus> genera = new ArrayList<>();
+    private List<@Valid PokemonSpeciesVariety> varieties = new ArrayList<>();
 
     /**
      * Default constructor.
@@ -64,33 +64,33 @@ public class PokemonSpeciesDetail   {
     /**
      * Create PokemonSpeciesDetail.
      *
-     * @param id id
-     * @param name name
-     * @param order order
-     * @param genderRate genderRate
-     * @param captureRate captureRate
-     * @param baseHappiness baseHappiness
-     * @param isBaby isBaby
-     * @param isLegendary isLegendary
-     * @param isMythical isMythical
-     * @param hatchCounter hatchCounter
-     * @param hasGenderDifferences hasGenderDifferences
-     * @param formsSwitchable formsSwitchable
-     * @param growthRate growthRate
-     * @param pokedexNumbers pokedexNumbers
-     * @param eggGroups eggGroups
-     * @param color color
-     * @param shape shape
-     * @param evolvesFromSpecies evolvesFromSpecies
-     * @param evolutionChain evolutionChain
-     * @param habitat habitat
-     * @param generation generation
-     * @param names names
-     * @param palParkEncounters palParkEncounters
-     * @param formDescriptions formDescriptions
-     * @param flavorTextEntries flavorTextEntries
-     * @param genera genera
-     * @param varieties varieties
+     * @param id The identifier for this resource.
+     * @param name The name for this resource.
+     * @param order The order in which species should be sorted. Based on National Dex order, except families are grouped together and sorted by stage.
+     * @param genderRate The chance of this Pokémon being female, in eighths; or -1 for genderless.
+     * @param captureRate The base capture rate; up to 255. The higher the number, the easier the catch.
+     * @param baseHappiness The happiness when caught by a normal Pokéball; up to 255. The higher the number, the happier the Pokémon.
+     * @param isBaby Whether or not this is a baby Pokémon.
+     * @param isLegendary Whether or not this is a legendary Pokémon.
+     * @param isMythical Whether or not this is a mythical Pokémon.
+     * @param hatchCounter Initial hatch counter: one must walk Y × (hatch_counter + 1) steps before this Pokémon&#39;s egg hatches, unless utilizing bonuses like Flame Body&#39;s. Y varies per generation. In Generations II, III, and VII, Egg cycles are 256 steps long. In Generation IV, Egg cycles are 255 steps long. In Pokémon Brilliant Diamond and Shining Pearl, Egg cycles are also 255 steps long, but are shorter on special dates. In Generations V and VI, Egg cycles are 257 steps long. In Pokémon Sword and Shield, and in Pokémon Scarlet and Violet, Egg cycles are 128 steps long.
+     * @param hasGenderDifferences Whether or not this Pokémon has visual gender differences.
+     * @param formsSwitchable Whether or not this Pokémon has multiple forms and can switch between them.
+     * @param growthRate The rate at which this Pokémon species gains levels.
+     * @param pokedexNumbers A list of Pokedexes and the indexes reserved within them for this Pokémon species.
+     * @param eggGroups A list of egg groups this Pokémon species is a member of.
+     * @param color The color of this Pokémon for Pokédex search.
+     * @param shape The shape of this Pokémon for Pokédex search.
+     * @param evolvesFromSpecies The Pokémon species that evolves into this Pokemon_species.
+     * @param evolutionChain The evolution chain this Pokémon species is a member of.
+     * @param habitat The habitat this Pokémon species can be encountered in.
+     * @param generation The generation this Pokémon species was introduced in.
+     * @param names The name of this resource listed in different languages.
+     * @param palParkEncounters A list of encounters that can be had with this Pokémon species in pal park.
+     * @param formDescriptions Descriptions of different forms Pokémon take on within the Pokémon species.
+     * @param flavorTextEntries A list of flavor text entries for this Pokémon species.
+     * @param genera The genus of this Pokémon species listed in multiple languages.
+     * @param varieties A list of the Pokémon that exist within this Pokémon species.
      */
     public PokemonSpeciesDetail(
         Integer id, 
@@ -107,19 +107,19 @@ public class PokemonSpeciesDetail   {
         Boolean formsSwitchable, 
         GrowthRateSummary growthRate, 
         List<@Valid PokemonDexEntry> pokedexNumbers, 
-        List<@Valid AbilityDetailPokemonInnerPokemon> eggGroups, 
+        List<@Valid EggGroupSummary> eggGroups, 
         PokemonColorSummary color, 
         PokemonShapeSummary shape, 
         PokemonSpeciesSummary evolvesFromSpecies, 
         EvolutionChainSummary evolutionChain, 
         PokemonHabitatSummary habitat, 
         GenerationSummary generation, 
-        List<@Valid PokemonFormDetailFormNamesInner> names, 
-        List<@Valid PokemonSpeciesDetailPalParkEncountersInner> palParkEncounters, 
+        List<@Valid PokemonSpeciesName> names, 
+        List<@Valid PokemonSpeciesPalParkEncounter> palParkEncounters, 
         List<@Valid PokemonSpeciesDescription> formDescriptions, 
         List<@Valid PokemonSpeciesFlavorText> flavorTextEntries, 
-        List<@Valid PokemonSpeciesDetailGeneraInner> genera, 
-        List<@Valid PokemonSpeciesDetailVarietiesInner> varieties
+        List<@Valid PokemonSpeciesGenus> genera, 
+        List<@Valid PokemonSpeciesVariety> varieties
     ) {
         this.id = id;
         this.name = name;
@@ -153,7 +153,7 @@ public class PokemonSpeciesDetail   {
 
 
     /**
-     * Get id
+     * The identifier for this resource.
      * @return id
      */
     public Integer getId() {
@@ -165,7 +165,7 @@ public class PokemonSpeciesDetail   {
     }
 
     /**
-     * Get name
+     * The name for this resource.
      * @return name
      */
     public String getName() {
@@ -177,7 +177,9 @@ public class PokemonSpeciesDetail   {
     }
 
     /**
-     * Get order
+     * The order in which species should be sorted. Based on National Dex order, except families are grouped together and sorted by stage.
+     * minimum: -2147483648
+     * maximum: 2147483647
      * @return order
      */
     public Integer getOrder() {
@@ -189,7 +191,9 @@ public class PokemonSpeciesDetail   {
     }
 
     /**
-     * Get genderRate
+     * The chance of this Pokémon being female, in eighths; or -1 for genderless.
+     * minimum: -2147483648
+     * maximum: 2147483647
      * @return genderRate
      */
     public Integer getGenderRate() {
@@ -201,7 +205,9 @@ public class PokemonSpeciesDetail   {
     }
 
     /**
-     * Get captureRate
+     * The base capture rate; up to 255. The higher the number, the easier the catch.
+     * minimum: -2147483648
+     * maximum: 2147483647
      * @return captureRate
      */
     public Integer getCaptureRate() {
@@ -213,7 +219,9 @@ public class PokemonSpeciesDetail   {
     }
 
     /**
-     * Get baseHappiness
+     * The happiness when caught by a normal Pokéball; up to 255. The higher the number, the happier the Pokémon.
+     * minimum: -2147483648
+     * maximum: 2147483647
      * @return baseHappiness
      */
     public Integer getBaseHappiness() {
@@ -225,7 +233,7 @@ public class PokemonSpeciesDetail   {
     }
 
     /**
-     * Get isBaby
+     * Whether or not this is a baby Pokémon.
      * @return isBaby
      */
     public Boolean getIsBaby() {
@@ -237,7 +245,7 @@ public class PokemonSpeciesDetail   {
     }
 
     /**
-     * Get isLegendary
+     * Whether or not this is a legendary Pokémon.
      * @return isLegendary
      */
     public Boolean getIsLegendary() {
@@ -249,7 +257,7 @@ public class PokemonSpeciesDetail   {
     }
 
     /**
-     * Get isMythical
+     * Whether or not this is a mythical Pokémon.
      * @return isMythical
      */
     public Boolean getIsMythical() {
@@ -261,7 +269,9 @@ public class PokemonSpeciesDetail   {
     }
 
     /**
-     * Get hatchCounter
+     * Initial hatch counter: one must walk Y × (hatch_counter + 1) steps before this Pokémon's egg hatches, unless utilizing bonuses like Flame Body's. Y varies per generation. In Generations II, III, and VII, Egg cycles are 256 steps long. In Generation IV, Egg cycles are 255 steps long. In Pokémon Brilliant Diamond and Shining Pearl, Egg cycles are also 255 steps long, but are shorter on special dates. In Generations V and VI, Egg cycles are 257 steps long. In Pokémon Sword and Shield, and in Pokémon Scarlet and Violet, Egg cycles are 128 steps long.
+     * minimum: -2147483648
+     * maximum: 2147483647
      * @return hatchCounter
      */
     public Integer getHatchCounter() {
@@ -273,7 +283,7 @@ public class PokemonSpeciesDetail   {
     }
 
     /**
-     * Get hasGenderDifferences
+     * Whether or not this Pokémon has visual gender differences.
      * @return hasGenderDifferences
      */
     public Boolean getHasGenderDifferences() {
@@ -285,7 +295,7 @@ public class PokemonSpeciesDetail   {
     }
 
     /**
-     * Get formsSwitchable
+     * Whether or not this Pokémon has multiple forms and can switch between them.
      * @return formsSwitchable
      */
     public Boolean getFormsSwitchable() {
@@ -297,7 +307,7 @@ public class PokemonSpeciesDetail   {
     }
 
     /**
-     * Get growthRate
+     * The rate at which this Pokémon species gains levels.
      * @return growthRate
      */
     public GrowthRateSummary getGrowthRate() {
@@ -309,7 +319,7 @@ public class PokemonSpeciesDetail   {
     }
 
     /**
-     * Get pokedexNumbers
+     * A list of Pokedexes and the indexes reserved within them for this Pokémon species.
      * @return pokedexNumbers
      */
     public List<@Valid PokemonDexEntry> getPokedexNumbers() {
@@ -321,19 +331,19 @@ public class PokemonSpeciesDetail   {
     }
 
     /**
-     * Get eggGroups
+     * A list of egg groups this Pokémon species is a member of.
      * @return eggGroups
      */
-    public List<@Valid AbilityDetailPokemonInnerPokemon> getEggGroups() {
+    public List<@Valid EggGroupSummary> getEggGroups() {
         return eggGroups;
     }
 
-    public void setEggGroups(List<@Valid AbilityDetailPokemonInnerPokemon> eggGroups) {
+    public void setEggGroups(List<@Valid EggGroupSummary> eggGroups) {
         this.eggGroups = eggGroups;
     }
 
     /**
-     * Get color
+     * The color of this Pokémon for Pokédex search.
      * @return color
      */
     public PokemonColorSummary getColor() {
@@ -345,7 +355,7 @@ public class PokemonSpeciesDetail   {
     }
 
     /**
-     * Get shape
+     * The shape of this Pokémon for Pokédex search.
      * @return shape
      */
     public PokemonShapeSummary getShape() {
@@ -357,7 +367,7 @@ public class PokemonSpeciesDetail   {
     }
 
     /**
-     * Get evolvesFromSpecies
+     * The Pokémon species that evolves into this Pokemon_species.
      * @return evolvesFromSpecies
      */
     public PokemonSpeciesSummary getEvolvesFromSpecies() {
@@ -369,7 +379,7 @@ public class PokemonSpeciesDetail   {
     }
 
     /**
-     * Get evolutionChain
+     * The evolution chain this Pokémon species is a member of.
      * @return evolutionChain
      */
     public EvolutionChainSummary getEvolutionChain() {
@@ -381,7 +391,7 @@ public class PokemonSpeciesDetail   {
     }
 
     /**
-     * Get habitat
+     * The habitat this Pokémon species can be encountered in.
      * @return habitat
      */
     public PokemonHabitatSummary getHabitat() {
@@ -393,7 +403,7 @@ public class PokemonSpeciesDetail   {
     }
 
     /**
-     * Get generation
+     * The generation this Pokémon species was introduced in.
      * @return generation
      */
     public GenerationSummary getGeneration() {
@@ -405,31 +415,31 @@ public class PokemonSpeciesDetail   {
     }
 
     /**
-     * Get names
+     * The name of this resource listed in different languages.
      * @return names
      */
-    public List<@Valid PokemonFormDetailFormNamesInner> getNames() {
+    public List<@Valid PokemonSpeciesName> getNames() {
         return names;
     }
 
-    public void setNames(List<@Valid PokemonFormDetailFormNamesInner> names) {
+    public void setNames(List<@Valid PokemonSpeciesName> names) {
         this.names = names;
     }
 
     /**
-     * Get palParkEncounters
+     * A list of encounters that can be had with this Pokémon species in pal park.
      * @return palParkEncounters
      */
-    public List<@Valid PokemonSpeciesDetailPalParkEncountersInner> getPalParkEncounters() {
+    public List<@Valid PokemonSpeciesPalParkEncounter> getPalParkEncounters() {
         return palParkEncounters;
     }
 
-    public void setPalParkEncounters(List<@Valid PokemonSpeciesDetailPalParkEncountersInner> palParkEncounters) {
+    public void setPalParkEncounters(List<@Valid PokemonSpeciesPalParkEncounter> palParkEncounters) {
         this.palParkEncounters = palParkEncounters;
     }
 
     /**
-     * Get formDescriptions
+     * Descriptions of different forms Pokémon take on within the Pokémon species.
      * @return formDescriptions
      */
     public List<@Valid PokemonSpeciesDescription> getFormDescriptions() {
@@ -441,7 +451,7 @@ public class PokemonSpeciesDetail   {
     }
 
     /**
-     * Get flavorTextEntries
+     * A list of flavor text entries for this Pokémon species.
      * @return flavorTextEntries
      */
     public List<@Valid PokemonSpeciesFlavorText> getFlavorTextEntries() {
@@ -453,26 +463,26 @@ public class PokemonSpeciesDetail   {
     }
 
     /**
-     * Get genera
+     * The genus of this Pokémon species listed in multiple languages.
      * @return genera
      */
-    public List<@Valid PokemonSpeciesDetailGeneraInner> getGenera() {
+    public List<@Valid PokemonSpeciesGenus> getGenera() {
         return genera;
     }
 
-    public void setGenera(List<@Valid PokemonSpeciesDetailGeneraInner> genera) {
+    public void setGenera(List<@Valid PokemonSpeciesGenus> genera) {
         this.genera = genera;
     }
 
     /**
-     * Get varieties
+     * A list of the Pokémon that exist within this Pokémon species.
      * @return varieties
      */
-    public List<@Valid PokemonSpeciesDetailVarietiesInner> getVarieties() {
+    public List<@Valid PokemonSpeciesVariety> getVarieties() {
         return varieties;
     }
 
-    public void setVarieties(List<@Valid PokemonSpeciesDetailVarietiesInner> varieties) {
+    public void setVarieties(List<@Valid PokemonSpeciesVariety> varieties) {
         this.varieties = varieties;
     }
 

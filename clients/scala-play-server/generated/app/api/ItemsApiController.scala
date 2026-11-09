@@ -4,20 +4,57 @@ import org.openapitools.OpenApiExceptions
 import javax.inject.{Inject, Singleton}
 import play.api.libs.json._
 import play.api.mvc._
+import model.CurrencyDetail
 import model.ItemAttributeDetail
 import model.ItemCategoryDetail
 import model.ItemDetail
 import model.ItemFlingEffectDetail
 import model.ItemPocketDetail
+import model.PaginatedCurrencySummaryList
 import model.PaginatedItemAttributeSummaryList
 import model.PaginatedItemCategorySummaryList
 import model.PaginatedItemFlingEffectSummaryList
 import model.PaginatedItemPocketSummaryList
 import model.PaginatedItemSummaryList
 
-@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2026-10-25T05:53:17.467323765Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2026-11-09T13:53:31.572745352Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 @Singleton
 class ItemsApiController @Inject()(cc: ControllerComponents, api: ItemsApi) extends AbstractController(cc) {
+  /**
+    * GET /api/v2/currency/?limit=[value]&offset=[value]&q=[value]
+    */
+  def currencyList(): Action[AnyContent] = Action { request =>
+    def executeApi(): PaginatedCurrencySummaryList = {
+      val limit = request.getQueryString("limit")
+        .map(value => value.toInt)
+        
+      val offset = request.getQueryString("offset")
+        .map(value => value.toInt)
+        
+      val q = request.getQueryString("q")
+        
+      api.currencyList(limit, offset, q)
+    }
+
+    val result = executeApi()
+    val json = Json.toJson(result)
+    Ok(json)
+  }
+
+  /**
+    * GET /api/v2/currency/:id/
+    * @param id This parameter can be a string or an integer.
+    */
+  def currencyRetrieve(id: String): Action[AnyContent] = Action { request =>
+    def executeApi(): CurrencyDetail = {
+      api.currencyRetrieve(id)
+    }
+
+    val result = executeApi()
+    val json = Json.toJson(result)
+    Ok(json)
+  }
+
   /**
     * GET /api/v2/item-attribute/?limit=[value]&offset=[value]&q=[value]
     */

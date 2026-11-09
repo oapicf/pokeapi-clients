@@ -145,26 +145,7 @@ genAbilityDetail n =
     <*> arbitraryReduced n -- abilityDetailEffectEntries :: [AbilityEffectText]
     <*> arbitraryReduced n -- abilityDetailEffectChanges :: [AbilityChange]
     <*> arbitraryReduced n -- abilityDetailFlavorTextEntries :: [AbilityFlavorText]
-    <*> arbitraryReduced n -- abilityDetailPokemon :: [AbilityDetailPokemonInner]
-  
-instance Arbitrary AbilityDetailPokemonInner where
-  arbitrary = sized genAbilityDetailPokemonInner
-
-genAbilityDetailPokemonInner :: Int -> Gen AbilityDetailPokemonInner
-genAbilityDetailPokemonInner n =
-  AbilityDetailPokemonInner
-    <$> arbitrary -- abilityDetailPokemonInnerIsHidden :: Bool
-    <*> arbitrary -- abilityDetailPokemonInnerSlot :: Int
-    <*> arbitraryReduced n -- abilityDetailPokemonInnerPokemon :: AbilityDetailPokemonInnerPokemon
-  
-instance Arbitrary AbilityDetailPokemonInnerPokemon where
-  arbitrary = sized genAbilityDetailPokemonInnerPokemon
-
-genAbilityDetailPokemonInnerPokemon :: Int -> Gen AbilityDetailPokemonInnerPokemon
-genAbilityDetailPokemonInnerPokemon n =
-  AbilityDetailPokemonInnerPokemon
-    <$> arbitrary -- abilityDetailPokemonInnerPokemonName :: Text
-    <*> arbitrary -- abilityDetailPokemonInnerPokemonUrl :: Text
+    <*> arbitraryReduced n -- abilityDetailPokemon :: [AbilityPokemonDetail]
   
 instance Arbitrary AbilityEffectText where
   arbitrary = sized genAbilityEffectText
@@ -195,6 +176,16 @@ genAbilityName n =
     <$> arbitrary -- abilityNameName :: Text
     <*> arbitraryReduced n -- abilityNameLanguage :: LanguageSummary
   
+instance Arbitrary AbilityPokemonDetail where
+  arbitrary = sized genAbilityPokemonDetail
+
+genAbilityPokemonDetail :: Int -> Gen AbilityPokemonDetail
+genAbilityPokemonDetail n =
+  AbilityPokemonDetail
+    <$> arbitraryReducedMaybe n -- abilityPokemonDetailIsHidden :: Maybe Bool
+    <*> arbitrary -- abilityPokemonDetailSlot :: Int
+    <*> arbitraryReduced n -- abilityPokemonDetailPokemon :: PokemonSummary
+  
 instance Arbitrary AbilitySummary where
   arbitrary = sized genAbilitySummary
 
@@ -212,34 +203,16 @@ genBerryDetail n =
   BerryDetail
     <$> arbitrary -- berryDetailId :: Int
     <*> arbitrary -- berryDetailName :: Text
-    <*> arbitrary -- berryDetailGrowthTime :: Int
-    <*> arbitrary -- berryDetailMaxHarvest :: Int
-    <*> arbitrary -- berryDetailNaturalGiftPower :: Int
-    <*> arbitrary -- berryDetailSize :: Int
-    <*> arbitrary -- berryDetailSmoothness :: Int
-    <*> arbitrary -- berryDetailSoilDryness :: Int
+    <*> arbitraryReducedMaybe n -- berryDetailGrowthTime :: Maybe Int
+    <*> arbitraryReducedMaybe n -- berryDetailMaxHarvest :: Maybe Int
+    <*> arbitraryReducedMaybe n -- berryDetailNaturalGiftPower :: Maybe Int
+    <*> arbitraryReducedMaybe n -- berryDetailSize :: Maybe Int
+    <*> arbitraryReducedMaybe n -- berryDetailSmoothness :: Maybe Int
+    <*> arbitraryReducedMaybe n -- berryDetailSoilDryness :: Maybe Int
     <*> arbitraryReduced n -- berryDetailFirmness :: BerryFirmnessSummary
-    <*> arbitraryReduced n -- berryDetailFlavors :: [BerryDetailFlavorsInner]
+    <*> arbitraryReduced n -- berryDetailFlavors :: [BerryFlavorMap]
     <*> arbitraryReduced n -- berryDetailItem :: ItemSummary
     <*> arbitraryReduced n -- berryDetailNaturalGiftType :: TypeSummary
-  
-instance Arbitrary BerryDetailFlavorsInner where
-  arbitrary = sized genBerryDetailFlavorsInner
-
-genBerryDetailFlavorsInner :: Int -> Gen BerryDetailFlavorsInner
-genBerryDetailFlavorsInner n =
-  BerryDetailFlavorsInner
-    <$> arbitrary -- berryDetailFlavorsInnerPotency :: Int
-    <*> arbitraryReduced n -- berryDetailFlavorsInnerFlavor :: BerryDetailFlavorsInnerFlavor
-  
-instance Arbitrary BerryDetailFlavorsInnerFlavor where
-  arbitrary = sized genBerryDetailFlavorsInnerFlavor
-
-genBerryDetailFlavorsInnerFlavor :: Int -> Gen BerryDetailFlavorsInnerFlavor
-genBerryDetailFlavorsInnerFlavor n =
-  BerryDetailFlavorsInnerFlavor
-    <$> arbitraryReducedMaybe n -- berryDetailFlavorsInnerFlavorName :: Maybe Text
-    <*> arbitraryReducedMaybe n -- berryDetailFlavorsInnerFlavorUrl :: Maybe Text
   
 instance Arbitrary BerryFirmnessDetail where
   arbitrary = sized genBerryFirmnessDetail
@@ -270,6 +243,15 @@ genBerryFirmnessSummary n =
     <$> arbitrary -- berryFirmnessSummaryName :: Text
     <*> arbitrary -- berryFirmnessSummaryUrl :: Text
   
+instance Arbitrary BerryFlavorBerryMap where
+  arbitrary = sized genBerryFlavorBerryMap
+
+genBerryFlavorBerryMap :: Int -> Gen BerryFlavorBerryMap
+genBerryFlavorBerryMap n =
+  BerryFlavorBerryMap
+    <$> arbitrary -- berryFlavorBerryMapPotency :: Int
+    <*> arbitraryReduced n -- berryFlavorBerryMapBerry :: BerrySummary
+  
 instance Arbitrary BerryFlavorDetail where
   arbitrary = sized genBerryFlavorDetail
 
@@ -278,27 +260,18 @@ genBerryFlavorDetail n =
   BerryFlavorDetail
     <$> arbitrary -- berryFlavorDetailId :: Int
     <*> arbitrary -- berryFlavorDetailName :: Text
-    <*> arbitraryReduced n -- berryFlavorDetailBerries :: [BerryFlavorDetailBerriesInner]
+    <*> arbitraryReduced n -- berryFlavorDetailBerries :: [BerryFlavorBerryMap]
     <*> arbitraryReduced n -- berryFlavorDetailContestType :: ContestTypeSummary
     <*> arbitraryReduced n -- berryFlavorDetailNames :: [BerryFlavorName]
   
-instance Arbitrary BerryFlavorDetailBerriesInner where
-  arbitrary = sized genBerryFlavorDetailBerriesInner
+instance Arbitrary BerryFlavorMap where
+  arbitrary = sized genBerryFlavorMap
 
-genBerryFlavorDetailBerriesInner :: Int -> Gen BerryFlavorDetailBerriesInner
-genBerryFlavorDetailBerriesInner n =
-  BerryFlavorDetailBerriesInner
-    <$> arbitrary -- berryFlavorDetailBerriesInnerPotency :: Int
-    <*> arbitraryReduced n -- berryFlavorDetailBerriesInnerBerry :: BerryFlavorDetailBerriesInnerBerry
-  
-instance Arbitrary BerryFlavorDetailBerriesInnerBerry where
-  arbitrary = sized genBerryFlavorDetailBerriesInnerBerry
-
-genBerryFlavorDetailBerriesInnerBerry :: Int -> Gen BerryFlavorDetailBerriesInnerBerry
-genBerryFlavorDetailBerriesInnerBerry n =
-  BerryFlavorDetailBerriesInnerBerry
-    <$> arbitraryReducedMaybe n -- berryFlavorDetailBerriesInnerBerryName :: Maybe Text
-    <*> arbitraryReducedMaybe n -- berryFlavorDetailBerriesInnerBerryUrl :: Maybe Text
+genBerryFlavorMap :: Int -> Gen BerryFlavorMap
+genBerryFlavorMap n =
+  BerryFlavorMap
+    <$> arbitrary -- berryFlavorMapPotency :: Int
+    <*> arbitraryReduced n -- berryFlavorMapFlavor :: BerryFlavorSummary
   
 instance Arbitrary BerryFlavorName where
   arbitrary = sized genBerryFlavorName
@@ -424,6 +397,34 @@ genContestTypeSummary n =
     <$> arbitrary -- contestTypeSummaryName :: Text
     <*> arbitrary -- contestTypeSummaryUrl :: Text
   
+instance Arbitrary CurrencyDetail where
+  arbitrary = sized genCurrencyDetail
+
+genCurrencyDetail :: Int -> Gen CurrencyDetail
+genCurrencyDetail n =
+  CurrencyDetail
+    <$> arbitrary -- currencyDetailId :: Int
+    <*> arbitrary -- currencyDetailName :: Text
+    <*> arbitraryReduced n -- currencyDetailNames :: [CurrencyName]
+  
+instance Arbitrary CurrencyName where
+  arbitrary = sized genCurrencyName
+
+genCurrencyName :: Int -> Gen CurrencyName
+genCurrencyName n =
+  CurrencyName
+    <$> arbitrary -- currencyNameName :: Text
+    <*> arbitraryReduced n -- currencyNameLanguage :: LanguageSummary
+  
+instance Arbitrary CurrencySummary where
+  arbitrary = sized genCurrencySummary
+
+genCurrencySummary :: Int -> Gen CurrencySummary
+genCurrencySummary n =
+  CurrencySummary
+    <$> arbitrary -- currencySummaryName :: Text
+    <*> arbitrary -- currencySummaryUrl :: Text
+  
 instance Arbitrary EggGroupDetail where
   arbitrary = sized genEggGroupDetail
 
@@ -433,16 +434,7 @@ genEggGroupDetail n =
     <$> arbitrary -- eggGroupDetailId :: Int
     <*> arbitrary -- eggGroupDetailName :: Text
     <*> arbitraryReduced n -- eggGroupDetailNames :: [EggGroupName]
-    <*> arbitraryReduced n -- eggGroupDetailPokemonSpecies :: [EggGroupDetailPokemonSpeciesInner]
-  
-instance Arbitrary EggGroupDetailPokemonSpeciesInner where
-  arbitrary = sized genEggGroupDetailPokemonSpeciesInner
-
-genEggGroupDetailPokemonSpeciesInner :: Int -> Gen EggGroupDetailPokemonSpeciesInner
-genEggGroupDetailPokemonSpeciesInner n =
-  EggGroupDetailPokemonSpeciesInner
-    <$> arbitraryReducedMaybe n -- eggGroupDetailPokemonSpeciesInnerName :: Maybe Text
-    <*> arbitraryReducedMaybe n -- eggGroupDetailPokemonSpeciesInnerUrl :: Maybe Text
+    <*> arbitraryReduced n -- eggGroupDetailPokemonSpecies :: [PokemonSpeciesSummary]
   
 instance Arbitrary EggGroupName where
   arbitrary = sized genEggGroupName
@@ -549,6 +541,17 @@ genEncounterMethodSummary n =
     <$> arbitrary -- encounterMethodSummaryName :: Text
     <*> arbitrary -- encounterMethodSummaryUrl :: Text
   
+instance Arbitrary EncounterPokemonDetail where
+  arbitrary = sized genEncounterPokemonDetail
+
+genEncounterPokemonDetail :: Int -> Gen EncounterPokemonDetail
+genEncounterPokemonDetail n =
+  EncounterPokemonDetail
+    <$> arbitraryReducedMaybe n -- encounterPokemonDetailMinPerfectIvs :: Maybe Int
+    <*> arbitraryReducedMaybe n -- encounterPokemonDetailAlwaysShiny :: Maybe Bool
+    <*> arbitraryReducedMaybe n -- encounterPokemonDetailNeverShiny :: Maybe Bool
+    <*> arbitraryReducedMaybe n -- encounterPokemonDetailIsAlpha :: Maybe Bool
+  
 instance Arbitrary EvolutionChainDetail where
   arbitrary = sized genEvolutionChainDetail
 
@@ -557,62 +560,18 @@ genEvolutionChainDetail n =
   EvolutionChainDetail
     <$> arbitrary -- evolutionChainDetailId :: Int
     <*> arbitraryReduced n -- evolutionChainDetailBabyTriggerItem :: ItemSummary
-    <*> arbitraryReduced n -- evolutionChainDetailChain :: EvolutionChainDetailChain
+    <*> arbitraryReduced n -- evolutionChainDetailChain :: EvolutionChainLink
   
-instance Arbitrary EvolutionChainDetailChain where
-  arbitrary = sized genEvolutionChainDetailChain
+instance Arbitrary EvolutionChainLink where
+  arbitrary = sized genEvolutionChainLink
 
-genEvolutionChainDetailChain :: Int -> Gen EvolutionChainDetailChain
-genEvolutionChainDetailChain n =
-  EvolutionChainDetailChain
-    <$> arbitraryReduced n -- evolutionChainDetailChainEvolutionDetails :: [AnyType]
-    <*> arbitraryReduced n -- evolutionChainDetailChainEvolvesTo :: [EvolutionChainDetailChainEvolvesToInner]
-    <*> arbitrary -- evolutionChainDetailChainIsBaby :: Bool
-    <*> arbitraryReduced n -- evolutionChainDetailChainSpecies :: AbilityDetailPokemonInnerPokemon
-  
-instance Arbitrary EvolutionChainDetailChainEvolvesToInner where
-  arbitrary = sized genEvolutionChainDetailChainEvolvesToInner
-
-genEvolutionChainDetailChainEvolvesToInner :: Int -> Gen EvolutionChainDetailChainEvolvesToInner
-genEvolutionChainDetailChainEvolvesToInner n =
-  EvolutionChainDetailChainEvolvesToInner
-    <$> arbitraryReduced n -- evolutionChainDetailChainEvolvesToInnerEvolutionDetails :: [EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner]
-    <*> arbitrary -- evolutionChainDetailChainEvolvesToInnerIsBaby :: Bool
-    <*> arbitraryReduced n -- evolutionChainDetailChainEvolvesToInnerSpecies :: AbilityDetailPokemonInnerPokemon
-  
-instance Arbitrary EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner where
-  arbitrary = sized genEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
-
-genEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner :: Int -> Gen EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
-genEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner n =
-  EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
-    <$> arbitraryReduced n -- evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender :: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
-    <*> arbitraryReduced n -- evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerHeldItem :: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
-    <*> arbitraryReduced n -- evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerItem :: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
-    <*> arbitraryReduced n -- evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerKnownMove :: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
-    <*> arbitraryReduced n -- evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerKnownMoveType :: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
-    <*> arbitraryReduced n -- evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerLocation :: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
-    <*> arbitrary -- evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerMinAffection :: Int
-    <*> arbitrary -- evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerMinBeauty :: Int
-    <*> arbitrary -- evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerMinHappiness :: Int
-    <*> arbitrary -- evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerMinLevel :: Int
-    <*> arbitrary -- evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerNeedsOverworldRain :: Bool
-    <*> arbitrary -- evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerPartySpecies :: Text
-    <*> arbitrary -- evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerPartyType :: Text
-    <*> arbitrary -- evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerRelativePhysicalStats :: Text
-    <*> arbitrary -- evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerTimeOfDay :: Text
-    <*> arbitrary -- evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerTradeSpecies :: Text
-    <*> arbitraryReduced n -- evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerTrigger :: AbilityDetailPokemonInnerPokemon
-    <*> arbitrary -- evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerTurnUpsideDown :: Bool
-  
-instance Arbitrary EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender where
-  arbitrary = sized genEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
-
-genEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender :: Int -> Gen EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
-genEvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender n =
-  EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
-    <$> arbitrary -- evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGenderName :: Text
-    <*> arbitrary -- evolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGenderUrl :: Text
+genEvolutionChainLink :: Int -> Gen EvolutionChainLink
+genEvolutionChainLink n =
+  EvolutionChainLink
+    <$> arbitrary -- evolutionChainLinkIsBaby :: Bool
+    <*> arbitraryReduced n -- evolutionChainLinkSpecies :: PokemonSpeciesSummary
+    <*> arbitraryReduced n -- evolutionChainLinkEvolutionDetails :: [PokemonEvolution]
+    <*> arbitraryReduced n -- evolutionChainLinkEvolvesTo :: [EvolutionChainLink]
   
 instance Arbitrary EvolutionChainSummary where
   arbitrary = sized genEvolutionChainSummary
@@ -621,6 +580,16 @@ genEvolutionChainSummary :: Int -> Gen EvolutionChainSummary
 genEvolutionChainSummary n =
   EvolutionChainSummary
     <$> arbitrary -- evolutionChainSummaryUrl :: Text
+  
+instance Arbitrary EvolutionConditionExpression where
+  arbitrary = sized genEvolutionConditionExpression
+
+genEvolutionConditionExpression :: Int -> Gen EvolutionConditionExpression
+genEvolutionConditionExpression n =
+  EvolutionConditionExpression
+    <$> arbitrary -- evolutionConditionExpressionExpression :: Text
+    <*> arbitrary -- evolutionConditionExpressionPercentageChance :: Double
+    <*> arbitraryReduced n -- evolutionConditionExpressionVariables :: [EvolutionVariableSummary]
   
 instance Arbitrary EvolutionTriggerDetail where
   arbitrary = sized genEvolutionTriggerDetail
@@ -631,7 +600,7 @@ genEvolutionTriggerDetail n =
     <$> arbitrary -- evolutionTriggerDetailId :: Int
     <*> arbitrary -- evolutionTriggerDetailName :: Text
     <*> arbitraryReduced n -- evolutionTriggerDetailNames :: [EvolutionTriggerName]
-    <*> arbitraryReduced n -- evolutionTriggerDetailPokemonSpecies :: [AbilityDetailPokemonInnerPokemon]
+    <*> arbitraryReduced n -- evolutionTriggerDetailPokemonSpecies :: [PokemonSpeciesSummary]
   
 instance Arbitrary EvolutionTriggerName where
   arbitrary = sized genEvolutionTriggerName
@@ -651,6 +620,48 @@ genEvolutionTriggerSummary n =
     <$> arbitrary -- evolutionTriggerSummaryName :: Text
     <*> arbitrary -- evolutionTriggerSummaryUrl :: Text
   
+instance Arbitrary EvolutionVariableDescription where
+  arbitrary = sized genEvolutionVariableDescription
+
+genEvolutionVariableDescription :: Int -> Gen EvolutionVariableDescription
+genEvolutionVariableDescription n =
+  EvolutionVariableDescription
+    <$> arbitraryReducedMaybe n -- evolutionVariableDescriptionDescription :: Maybe Text
+    <*> arbitraryReduced n -- evolutionVariableDescriptionLanguage :: LanguageSummary
+  
+instance Arbitrary EvolutionVariableDetail where
+  arbitrary = sized genEvolutionVariableDetail
+
+genEvolutionVariableDetail :: Int -> Gen EvolutionVariableDetail
+genEvolutionVariableDetail n =
+  EvolutionVariableDetail
+    <$> arbitrary -- evolutionVariableDetailId :: Int
+    <*> arbitrary -- evolutionVariableDetailName :: Text
+    <*> arbitrary -- evolutionVariableDetailSymbol :: Text
+    <*> arbitraryReducedMaybe n -- evolutionVariableDetailDataType :: Maybe Text
+    <*> arbitraryReducedMaybe n -- evolutionVariableDetailSource :: Maybe Text
+    <*> arbitraryReduced n -- evolutionVariableDetailVersionGroup :: VersionGroupSummary
+    <*> arbitraryReduced n -- evolutionVariableDetailNames :: [EvolutionVariableName]
+    <*> arbitraryReduced n -- evolutionVariableDetailDescriptions :: [EvolutionVariableDescription]
+  
+instance Arbitrary EvolutionVariableName where
+  arbitrary = sized genEvolutionVariableName
+
+genEvolutionVariableName :: Int -> Gen EvolutionVariableName
+genEvolutionVariableName n =
+  EvolutionVariableName
+    <$> arbitrary -- evolutionVariableNameName :: Text
+    <*> arbitraryReduced n -- evolutionVariableNameLanguage :: LanguageSummary
+  
+instance Arbitrary EvolutionVariableSummary where
+  arbitrary = sized genEvolutionVariableSummary
+
+genEvolutionVariableSummary :: Int -> Gen EvolutionVariableSummary
+genEvolutionVariableSummary n =
+  EvolutionVariableSummary
+    <$> arbitrary -- evolutionVariableSummaryName :: Text
+    <*> arbitrary -- evolutionVariableSummaryUrl :: Text
+  
 instance Arbitrary Experience where
   arbitrary = sized genExperience
 
@@ -668,17 +679,17 @@ genGenderDetail n =
   GenderDetail
     <$> arbitrary -- genderDetailId :: Int
     <*> arbitrary -- genderDetailName :: Text
-    <*> arbitraryReduced n -- genderDetailPokemonSpeciesDetails :: [GenderDetailPokemonSpeciesDetailsInner]
-    <*> arbitraryReduced n -- genderDetailRequiredForEvolution :: [AbilityDetailPokemonInnerPokemon]
+    <*> arbitraryReduced n -- genderDetailPokemonSpeciesDetails :: [GenderPokemonSpecies]
+    <*> arbitraryReduced n -- genderDetailRequiredForEvolution :: [PokemonSpeciesSummary]
   
-instance Arbitrary GenderDetailPokemonSpeciesDetailsInner where
-  arbitrary = sized genGenderDetailPokemonSpeciesDetailsInner
+instance Arbitrary GenderPokemonSpecies where
+  arbitrary = sized genGenderPokemonSpecies
 
-genGenderDetailPokemonSpeciesDetailsInner :: Int -> Gen GenderDetailPokemonSpeciesDetailsInner
-genGenderDetailPokemonSpeciesDetailsInner n =
-  GenderDetailPokemonSpeciesDetailsInner
-    <$> arbitrary -- genderDetailPokemonSpeciesDetailsInnerRate :: Int
-    <*> arbitraryReduced n -- genderDetailPokemonSpeciesDetailsInnerPokemonSpecies :: AbilityDetailPokemonInnerPokemon
+genGenderPokemonSpecies :: Int -> Gen GenderPokemonSpecies
+genGenderPokemonSpecies n =
+  GenderPokemonSpecies
+    <$> arbitrary -- genderPokemonSpeciesRate :: Int
+    <*> arbitraryReduced n -- genderPokemonSpeciesPokemonSpecies :: PokemonSpeciesSummary
   
 instance Arbitrary GenderSummary where
   arbitrary = sized genGenderSummary
@@ -772,7 +783,7 @@ genItemAttributeDetail n =
     <$> arbitrary -- itemAttributeDetailId :: Int
     <*> arbitrary -- itemAttributeDetailName :: Text
     <*> arbitraryReduced n -- itemAttributeDetailDescriptions :: [ItemAttributeDescription]
-    <*> arbitraryReduced n -- itemAttributeDetailItems :: [AbilityDetailPokemonInnerPokemon]
+    <*> arbitraryReduced n -- itemAttributeDetailItems :: [ItemSummary]
     <*> arbitraryReduced n -- itemAttributeDetailNames :: [ItemAttributeName]
   
 instance Arbitrary ItemAttributeName where
@@ -831,62 +842,19 @@ genItemDetail n =
   ItemDetail
     <$> arbitrary -- itemDetailId :: Int
     <*> arbitrary -- itemDetailName :: Text
-    <*> arbitraryReducedMaybe n -- itemDetailCost :: Maybe Int
     <*> arbitraryReducedMaybe n -- itemDetailFlingPower :: Maybe Int
     <*> arbitraryReduced n -- itemDetailFlingEffect :: ItemFlingEffectSummary
-    <*> arbitraryReduced n -- itemDetailAttributes :: [AbilityDetailPokemonInnerPokemon]
+    <*> arbitraryReduced n -- itemDetailAttributes :: [ItemAttributeSummary]
     <*> arbitraryReduced n -- itemDetailCategory :: ItemCategorySummary
     <*> arbitraryReduced n -- itemDetailEffectEntries :: [ItemEffectText]
     <*> arbitraryReduced n -- itemDetailFlavorTextEntries :: [ItemFlavorText]
     <*> arbitraryReduced n -- itemDetailGameIndices :: [ItemGameIndex]
+    <*> arbitraryReduced n -- itemDetailPrices :: [ItemPrice]
     <*> arbitraryReduced n -- itemDetailNames :: [ItemName]
-    <*> arbitraryReduced n -- itemDetailHeldByPokemon :: [ItemDetailHeldByPokemonInner]
-    <*> arbitraryReduced n -- itemDetailSprites :: ItemDetailSprites
-    <*> arbitraryReduced n -- itemDetailBabyTriggerFor :: ItemDetailBabyTriggerFor
-    <*> arbitraryReduced n -- itemDetailMachines :: [ItemDetailMachinesInner]
-  
-instance Arbitrary ItemDetailBabyTriggerFor where
-  arbitrary = sized genItemDetailBabyTriggerFor
-
-genItemDetailBabyTriggerFor :: Int -> Gen ItemDetailBabyTriggerFor
-genItemDetailBabyTriggerFor n =
-  ItemDetailBabyTriggerFor
-    <$> arbitrary -- itemDetailBabyTriggerForUrl :: Text
-  
-instance Arbitrary ItemDetailHeldByPokemonInner where
-  arbitrary = sized genItemDetailHeldByPokemonInner
-
-genItemDetailHeldByPokemonInner :: Int -> Gen ItemDetailHeldByPokemonInner
-genItemDetailHeldByPokemonInner n =
-  ItemDetailHeldByPokemonInner
-    <$> arbitraryReduced n -- itemDetailHeldByPokemonInnerPokemon :: AbilityDetailPokemonInnerPokemon
-    <*> arbitraryReduced n -- itemDetailHeldByPokemonInnerVersionDetails :: [ItemDetailHeldByPokemonInnerVersionDetailsInner]
-  
-instance Arbitrary ItemDetailHeldByPokemonInnerVersionDetailsInner where
-  arbitrary = sized genItemDetailHeldByPokemonInnerVersionDetailsInner
-
-genItemDetailHeldByPokemonInnerVersionDetailsInner :: Int -> Gen ItemDetailHeldByPokemonInnerVersionDetailsInner
-genItemDetailHeldByPokemonInnerVersionDetailsInner n =
-  ItemDetailHeldByPokemonInnerVersionDetailsInner
-    <$> arbitrary -- itemDetailHeldByPokemonInnerVersionDetailsInnerRarity :: Int
-    <*> arbitraryReduced n -- itemDetailHeldByPokemonInnerVersionDetailsInnerVersion :: AbilityDetailPokemonInnerPokemon
-  
-instance Arbitrary ItemDetailMachinesInner where
-  arbitrary = sized genItemDetailMachinesInner
-
-genItemDetailMachinesInner :: Int -> Gen ItemDetailMachinesInner
-genItemDetailMachinesInner n =
-  ItemDetailMachinesInner
-    <$> arbitrary -- itemDetailMachinesInnerMachine :: Text
-    <*> arbitraryReduced n -- itemDetailMachinesInnerVersionGroup :: AbilityDetailPokemonInnerPokemon
-  
-instance Arbitrary ItemDetailSprites where
-  arbitrary = sized genItemDetailSprites
-
-genItemDetailSprites :: Int -> Gen ItemDetailSprites
-genItemDetailSprites n =
-  ItemDetailSprites
-    <$> arbitrary -- itemDetailSpritesDefault :: Text
+    <*> arbitraryReduced n -- itemDetailHeldByPokemon :: [PokemonHeldItem]
+    <*> arbitraryReduced n -- itemDetailSprites :: ItemSprites
+    <*> arbitraryReduced n -- itemDetailBabyTriggerFor :: EvolutionChainSummary
+    <*> arbitraryReduced n -- itemDetailMachines :: [ItemMachine]
   
 instance Arbitrary ItemEffectText where
   arbitrary = sized genItemEffectText
@@ -946,6 +914,15 @@ genItemGameIndex n =
     <$> arbitrary -- itemGameIndexGameIndex :: Int
     <*> arbitraryReduced n -- itemGameIndexGeneration :: GenerationSummary
   
+instance Arbitrary ItemMachine where
+  arbitrary = sized genItemMachine
+
+genItemMachine :: Int -> Gen ItemMachine
+genItemMachine n =
+  ItemMachine
+    <$> arbitraryReduced n -- itemMachineMachine :: MachineSummary
+    <*> arbitraryReduced n -- itemMachineVersionGroup :: VersionGroupSummary
+  
 instance Arbitrary ItemName where
   arbitrary = sized genItemName
 
@@ -983,6 +960,25 @@ genItemPocketSummary n =
   ItemPocketSummary
     <$> arbitrary -- itemPocketSummaryName :: Text
     <*> arbitrary -- itemPocketSummaryUrl :: Text
+  
+instance Arbitrary ItemPrice where
+  arbitrary = sized genItemPrice
+
+genItemPrice :: Int -> Gen ItemPrice
+genItemPrice n =
+  ItemPrice
+    <$> arbitraryReducedMaybe n -- itemPricePurchasePrice :: Maybe Int
+    <*> arbitraryReducedMaybe n -- itemPriceSellPrice :: Maybe Int
+    <*> arbitraryReduced n -- itemPriceCurrency :: CurrencySummary
+    <*> arbitraryReduced n -- itemPriceVersionGroup :: VersionGroupSummary
+  
+instance Arbitrary ItemSprites where
+  arbitrary = sized genItemSprites
+
+genItemSprites :: Int -> Gen ItemSprites
+genItemSprites n =
+  ItemSprites
+    <$> arbitrary -- itemSpritesDefault :: Text
   
 instance Arbitrary ItemSummary where
   arbitrary = sized genItemSummary
@@ -1033,59 +1029,41 @@ genLocationAreaDetail n =
     <$> arbitrary -- locationAreaDetailId :: Int
     <*> arbitrary -- locationAreaDetailName :: Text
     <*> arbitrary -- locationAreaDetailGameIndex :: Int
-    <*> arbitraryReduced n -- locationAreaDetailEncounterMethodRates :: [LocationAreaDetailEncounterMethodRatesInner]
+    <*> arbitraryReduced n -- locationAreaDetailEncounterMethodRates :: [LocationAreaEncounterRate]
     <*> arbitraryReduced n -- locationAreaDetailLocation :: LocationSummary
     <*> arbitraryReduced n -- locationAreaDetailNames :: [LocationAreaName]
-    <*> arbitraryReduced n -- locationAreaDetailPokemonEncounters :: [LocationAreaDetailPokemonEncountersInner]
+    <*> arbitraryReduced n -- locationAreaDetailPokemonEncounters :: [LocationAreaPokemonEncounter]
   
-instance Arbitrary LocationAreaDetailEncounterMethodRatesInner where
-  arbitrary = sized genLocationAreaDetailEncounterMethodRatesInner
+instance Arbitrary LocationAreaEncounterDetail where
+  arbitrary = sized genLocationAreaEncounterDetail
 
-genLocationAreaDetailEncounterMethodRatesInner :: Int -> Gen LocationAreaDetailEncounterMethodRatesInner
-genLocationAreaDetailEncounterMethodRatesInner n =
-  LocationAreaDetailEncounterMethodRatesInner
-    <$> arbitraryReduced n -- locationAreaDetailEncounterMethodRatesInnerEncounterMethod :: AbilityDetailPokemonInnerPokemon
-    <*> arbitraryReduced n -- locationAreaDetailEncounterMethodRatesInnerVersionDetails :: [LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner]
+genLocationAreaEncounterDetail :: Int -> Gen LocationAreaEncounterDetail
+genLocationAreaEncounterDetail n =
+  LocationAreaEncounterDetail
+    <$> arbitrary -- locationAreaEncounterDetailMinLevel :: Int
+    <*> arbitrary -- locationAreaEncounterDetailMaxLevel :: Int
+    <*> arbitraryReducedMaybe n -- locationAreaEncounterDetailChance :: Maybe Int
+    <*> arbitraryReducedMaybe n -- locationAreaEncounterDetailMethod :: Maybe EncounterMethodSummary
+    <*> arbitraryReduced n -- locationAreaEncounterDetailConditionValues :: [EncounterConditionValueSummary]
+    <*> arbitraryReduced n -- locationAreaEncounterDetailPokemonDetails :: EncounterPokemonDetail
   
-instance Arbitrary LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner where
-  arbitrary = sized genLocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner
+instance Arbitrary LocationAreaEncounterRate where
+  arbitrary = sized genLocationAreaEncounterRate
 
-genLocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner :: Int -> Gen LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner
-genLocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner n =
-  LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner
-    <$> arbitrary -- locationAreaDetailEncounterMethodRatesInnerVersionDetailsInnerRate :: Int
-    <*> arbitraryReduced n -- locationAreaDetailEncounterMethodRatesInnerVersionDetailsInnerVersion :: AbilityDetailPokemonInnerPokemon
+genLocationAreaEncounterRate :: Int -> Gen LocationAreaEncounterRate
+genLocationAreaEncounterRate n =
+  LocationAreaEncounterRate
+    <$> arbitraryReduced n -- locationAreaEncounterRateEncounterMethod :: EncounterMethodSummary
+    <*> arbitraryReduced n -- locationAreaEncounterRateVersionDetails :: [LocationAreaEncounterVersionDetail]
   
-instance Arbitrary LocationAreaDetailPokemonEncountersInner where
-  arbitrary = sized genLocationAreaDetailPokemonEncountersInner
+instance Arbitrary LocationAreaEncounterVersionDetail where
+  arbitrary = sized genLocationAreaEncounterVersionDetail
 
-genLocationAreaDetailPokemonEncountersInner :: Int -> Gen LocationAreaDetailPokemonEncountersInner
-genLocationAreaDetailPokemonEncountersInner n =
-  LocationAreaDetailPokemonEncountersInner
-    <$> arbitraryReduced n -- locationAreaDetailPokemonEncountersInnerPokemon :: AbilityDetailPokemonInnerPokemon
-    <*> arbitraryReduced n -- locationAreaDetailPokemonEncountersInnerVersionDetails :: [LocationAreaDetailPokemonEncountersInnerVersionDetailsInner]
-  
-instance Arbitrary LocationAreaDetailPokemonEncountersInnerVersionDetailsInner where
-  arbitrary = sized genLocationAreaDetailPokemonEncountersInnerVersionDetailsInner
-
-genLocationAreaDetailPokemonEncountersInnerVersionDetailsInner :: Int -> Gen LocationAreaDetailPokemonEncountersInnerVersionDetailsInner
-genLocationAreaDetailPokemonEncountersInnerVersionDetailsInner n =
-  LocationAreaDetailPokemonEncountersInnerVersionDetailsInner
-    <$> arbitraryReduced n -- locationAreaDetailPokemonEncountersInnerVersionDetailsInnerVersion :: AbilityDetailPokemonInnerPokemon
-    <*> arbitrary -- locationAreaDetailPokemonEncountersInnerVersionDetailsInnerMaxChance :: Int
-    <*> arbitraryReduced n -- locationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails :: LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails
-  
-instance Arbitrary LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails where
-  arbitrary = sized genLocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails
-
-genLocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails :: Int -> Gen LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails
-genLocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails n =
-  LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails
-    <$> arbitrary -- locationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetailsMinLevel :: Int
-    <*> arbitrary -- locationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetailsMaxLevel :: Int
-    <*> arbitraryReducedMaybe n -- locationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetailsConditionValues :: Maybe AbilityDetailPokemonInnerPokemon
-    <*> arbitrary -- locationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetailsChance :: Int
-    <*> arbitraryReduced n -- locationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetailsMethod :: AbilityDetailPokemonInnerPokemon
+genLocationAreaEncounterVersionDetail :: Int -> Gen LocationAreaEncounterVersionDetail
+genLocationAreaEncounterVersionDetail n =
+  LocationAreaEncounterVersionDetail
+    <$> arbitrary -- locationAreaEncounterVersionDetailRate :: Int
+    <*> arbitraryReduced n -- locationAreaEncounterVersionDetailVersion :: VersionSummary
   
 instance Arbitrary LocationAreaName where
   arbitrary = sized genLocationAreaName
@@ -1095,6 +1073,25 @@ genLocationAreaName n =
   LocationAreaName
     <$> arbitrary -- locationAreaNameName :: Text
     <*> arbitraryReduced n -- locationAreaNameLanguage :: LanguageSummary
+  
+instance Arbitrary LocationAreaPokemonEncounter where
+  arbitrary = sized genLocationAreaPokemonEncounter
+
+genLocationAreaPokemonEncounter :: Int -> Gen LocationAreaPokemonEncounter
+genLocationAreaPokemonEncounter n =
+  LocationAreaPokemonEncounter
+    <$> arbitraryReduced n -- locationAreaPokemonEncounterPokemon :: PokemonSummary
+    <*> arbitraryReduced n -- locationAreaPokemonEncounterVersionDetails :: [LocationAreaPokemonEncounterVersion]
+  
+instance Arbitrary LocationAreaPokemonEncounterVersion where
+  arbitrary = sized genLocationAreaPokemonEncounterVersion
+
+genLocationAreaPokemonEncounterVersion :: Int -> Gen LocationAreaPokemonEncounterVersion
+genLocationAreaPokemonEncounterVersion n =
+  LocationAreaPokemonEncounterVersion
+    <$> arbitraryReduced n -- locationAreaPokemonEncounterVersionVersion :: VersionSummary
+    <*> arbitrary -- locationAreaPokemonEncounterVersionMaxChance :: Int
+    <*> arbitraryReduced n -- locationAreaPokemonEncounterVersionEncounterDetails :: [LocationAreaEncounterDetail]
   
 instance Arbitrary LocationAreaSummary where
   arbitrary = sized genLocationAreaSummary
@@ -1202,19 +1199,27 @@ genMoveChange n =
     <*> arbitraryReducedMaybe n -- moveChangePower :: Maybe Int
     <*> arbitraryReducedMaybe n -- moveChangePp :: Maybe Int
     <*> arbitrary -- moveChangeEffectChance :: Int
-    <*> arbitraryReduced n -- moveChangeEffectEntries :: [MoveChangeEffectEntriesInner]
+    <*> arbitraryReduced n -- moveChangeEffectEntries :: [MoveEffectEffectText]
     <*> arbitraryReduced n -- moveChangeType :: TypeSummary
     <*> arbitraryReduced n -- moveChangeVersionGroup :: VersionGroupSummary
   
-instance Arbitrary MoveChangeEffectEntriesInner where
-  arbitrary = sized genMoveChangeEffectEntriesInner
+instance Arbitrary MoveComboUsage where
+  arbitrary = sized genMoveComboUsage
 
-genMoveChangeEffectEntriesInner :: Int -> Gen MoveChangeEffectEntriesInner
-genMoveChangeEffectEntriesInner n =
-  MoveChangeEffectEntriesInner
-    <$> arbitrary -- moveChangeEffectEntriesInnerEffect :: Text
-    <*> arbitrary -- moveChangeEffectEntriesInnerShortEffect :: Text
-    <*> arbitraryReduced n -- moveChangeEffectEntriesInnerLanguage :: AbilityDetailPokemonInnerPokemon
+genMoveComboUsage :: Int -> Gen MoveComboUsage
+genMoveComboUsage n =
+  MoveComboUsage
+    <$> arbitraryReduced n -- moveComboUsageUseBefore :: [MoveSummary]
+    <*> arbitraryReduced n -- moveComboUsageUseAfter :: [MoveSummary]
+  
+instance Arbitrary MoveCombos where
+  arbitrary = sized genMoveCombos
+
+genMoveCombos :: Int -> Gen MoveCombos
+genMoveCombos n =
+  MoveCombos
+    <$> arbitraryReduced n -- moveCombosNormal :: MoveComboUsage
+    <*> arbitraryReduced n -- moveCombosSuper :: MoveComboUsage
   
 instance Arbitrary MoveDamageClassDescription where
   arbitrary = sized genMoveDamageClassDescription
@@ -1268,85 +1273,51 @@ genMoveDetail n =
     <*> arbitraryReducedMaybe n -- moveDetailPp :: Maybe Int
     <*> arbitraryReducedMaybe n -- moveDetailPriority :: Maybe Int
     <*> arbitraryReducedMaybe n -- moveDetailPower :: Maybe Int
-    <*> arbitraryReduced n -- moveDetailContestCombos :: MoveDetailContestCombos
+    <*> arbitraryReduced n -- moveDetailContestCombos :: MoveCombos
     <*> arbitraryReduced n -- moveDetailContestType :: ContestTypeSummary
     <*> arbitraryReduced n -- moveDetailContestEffect :: ContestEffectSummary
     <*> arbitraryReduced n -- moveDetailDamageClass :: MoveDamageClassSummary
-    <*> arbitraryReduced n -- moveDetailEffectEntries :: [MoveChangeEffectEntriesInner]
-    <*> arbitraryReduced n -- moveDetailEffectChanges :: [MoveDetailEffectChangesInner]
+    <*> arbitraryReduced n -- moveDetailEffectEntries :: [MoveEffectEffectText]
+    <*> arbitraryReduced n -- moveDetailEffectChanges :: [MoveEffectChange]
     <*> arbitraryReduced n -- moveDetailGeneration :: GenerationSummary
     <*> arbitraryReduced n -- moveDetailMeta :: MoveMeta
     <*> arbitraryReduced n -- moveDetailNames :: [MoveName]
     <*> arbitraryReduced n -- moveDetailPastValues :: [MoveChange]
-    <*> arbitraryReduced n -- moveDetailStatChanges :: [MoveDetailStatChangesInner]
+    <*> arbitraryReduced n -- moveDetailStatChanges :: [MoveMetaStatChange]
     <*> arbitraryReduced n -- moveDetailSuperContestEffect :: SuperContestEffectSummary
     <*> arbitraryReduced n -- moveDetailTarget :: MoveTargetSummary
     <*> arbitraryReduced n -- moveDetailType :: TypeSummary
-    <*> arbitraryReduced n -- moveDetailMachines :: [MoveDetailMachinesInner]
+    <*> arbitraryReduced n -- moveDetailMachines :: [ItemMachine]
     <*> arbitraryReduced n -- moveDetailFlavorTextEntries :: [MoveFlavorText]
-    <*> arbitraryReduced n -- moveDetailLearnedByPokemon :: [AbilityDetailPokemonInnerPokemon]
+    <*> arbitraryReduced n -- moveDetailLearnedByPokemon :: [PokemonSummary]
   
-instance Arbitrary MoveDetailContestCombos where
-  arbitrary = sized genMoveDetailContestCombos
+instance Arbitrary MoveEffectChange where
+  arbitrary = sized genMoveEffectChange
 
-genMoveDetailContestCombos :: Int -> Gen MoveDetailContestCombos
-genMoveDetailContestCombos n =
-  MoveDetailContestCombos
-    <$> arbitraryReduced n -- moveDetailContestCombosNormal :: MoveDetailContestCombosNormal
-    <*> arbitraryReduced n -- moveDetailContestCombosSuper :: MoveDetailContestCombosNormal
+genMoveEffectChange :: Int -> Gen MoveEffectChange
+genMoveEffectChange n =
+  MoveEffectChange
+    <$> arbitraryReduced n -- moveEffectChangeVersionGroup :: VersionGroupSummary
+    <*> arbitraryReduced n -- moveEffectChangeEffectEntries :: [MoveEffectChangeEffectText]
   
-instance Arbitrary MoveDetailContestCombosNormal where
-  arbitrary = sized genMoveDetailContestCombosNormal
+instance Arbitrary MoveEffectChangeEffectText where
+  arbitrary = sized genMoveEffectChangeEffectText
 
-genMoveDetailContestCombosNormal :: Int -> Gen MoveDetailContestCombosNormal
-genMoveDetailContestCombosNormal n =
-  MoveDetailContestCombosNormal
-    <$> arbitraryReduced n -- moveDetailContestCombosNormalUseBefore :: [AbilityDetailPokemonInnerPokemon]
-    <*> arbitraryReduced n -- moveDetailContestCombosNormalUseAfter :: [AbilityDetailPokemonInnerPokemon]
+genMoveEffectChangeEffectText :: Int -> Gen MoveEffectChangeEffectText
+genMoveEffectChangeEffectText n =
+  MoveEffectChangeEffectText
+    <$> arbitrary -- moveEffectChangeEffectTextEffect :: Text
+    <*> arbitraryReduced n -- moveEffectChangeEffectTextLanguage :: LanguageSummary
   
-instance Arbitrary MoveDetailEffectChangesInner where
-  arbitrary = sized genMoveDetailEffectChangesInner
+instance Arbitrary MoveEffectEffectText where
+  arbitrary = sized genMoveEffectEffectText
 
-genMoveDetailEffectChangesInner :: Int -> Gen MoveDetailEffectChangesInner
-genMoveDetailEffectChangesInner n =
-  MoveDetailEffectChangesInner
-    <$> arbitraryReduced n -- moveDetailEffectChangesInnerEffectEntries :: [MoveDetailEffectChangesInnerEffectEntriesInner]
-    <*> arbitraryReduced n -- moveDetailEffectChangesInnerVersionGroup :: AbilityDetailPokemonInnerPokemon
-  
-instance Arbitrary MoveDetailEffectChangesInnerEffectEntriesInner where
-  arbitrary = sized genMoveDetailEffectChangesInnerEffectEntriesInner
-
-genMoveDetailEffectChangesInnerEffectEntriesInner :: Int -> Gen MoveDetailEffectChangesInnerEffectEntriesInner
-genMoveDetailEffectChangesInnerEffectEntriesInner n =
-  MoveDetailEffectChangesInnerEffectEntriesInner
-    <$> arbitrary -- moveDetailEffectChangesInnerEffectEntriesInnerEffect :: Text
-    <*> arbitraryReduced n -- moveDetailEffectChangesInnerEffectEntriesInnerLanguage :: AbilityDetailPokemonInnerPokemon
-  
-instance Arbitrary MoveDetailMachinesInner where
-  arbitrary = sized genMoveDetailMachinesInner
-
-genMoveDetailMachinesInner :: Int -> Gen MoveDetailMachinesInner
-genMoveDetailMachinesInner n =
-  MoveDetailMachinesInner
-    <$> arbitraryReduced n -- moveDetailMachinesInnerMachine :: MoveDetailMachinesInnerMachine
-    <*> arbitraryReduced n -- moveDetailMachinesInnerVersionGroup :: AbilityDetailPokemonInnerPokemon
-  
-instance Arbitrary MoveDetailMachinesInnerMachine where
-  arbitrary = sized genMoveDetailMachinesInnerMachine
-
-genMoveDetailMachinesInnerMachine :: Int -> Gen MoveDetailMachinesInnerMachine
-genMoveDetailMachinesInnerMachine n =
-  MoveDetailMachinesInnerMachine
-    <$> arbitrary -- moveDetailMachinesInnerMachineUrl :: Text
-  
-instance Arbitrary MoveDetailStatChangesInner where
-  arbitrary = sized genMoveDetailStatChangesInner
-
-genMoveDetailStatChangesInner :: Int -> Gen MoveDetailStatChangesInner
-genMoveDetailStatChangesInner n =
-  MoveDetailStatChangesInner
-    <$> arbitrary -- moveDetailStatChangesInnerChange :: Int
-    <*> arbitraryReduced n -- moveDetailStatChangesInnerStat :: AbilityDetailPokemonInnerPokemon
+genMoveEffectEffectText :: Int -> Gen MoveEffectEffectText
+genMoveEffectEffectText n =
+  MoveEffectEffectText
+    <$> arbitrary -- moveEffectEffectTextEffect :: Text
+    <*> arbitrary -- moveEffectEffectTextShortEffect :: Text
+    <*> arbitraryReduced n -- moveEffectEffectTextLanguage :: LanguageSummary
   
 instance Arbitrary MoveFlavorText where
   arbitrary = sized genMoveFlavorText
@@ -1377,7 +1348,7 @@ genMoveLearnMethodDetail n =
     <*> arbitrary -- moveLearnMethodDetailName :: Text
     <*> arbitraryReduced n -- moveLearnMethodDetailNames :: [MoveLearnMethodName]
     <*> arbitraryReduced n -- moveLearnMethodDetailDescriptions :: [MoveLearnMethodDescription]
-    <*> arbitraryReduced n -- moveLearnMethodDetailVersionGroups :: [AbilityDetailPokemonInnerPokemon]
+    <*> arbitraryReduced n -- moveLearnMethodDetailVersionGroups :: [VersionGroupSummary]
   
 instance Arbitrary MoveLearnMethodName where
   arbitrary = sized genMoveLearnMethodName
@@ -1424,7 +1395,7 @@ genMoveMetaAilmentDetail n =
   MoveMetaAilmentDetail
     <$> arbitrary -- moveMetaAilmentDetailId :: Int
     <*> arbitrary -- moveMetaAilmentDetailName :: Text
-    <*> arbitraryReduced n -- moveMetaAilmentDetailMoves :: [AbilityDetailPokemonInnerPokemon]
+    <*> arbitraryReduced n -- moveMetaAilmentDetailMoves :: [MoveSummary]
     <*> arbitraryReduced n -- moveMetaAilmentDetailNames :: [MoveMetaAilmentName]
   
 instance Arbitrary MoveMetaAilmentName where
@@ -1463,7 +1434,7 @@ genMoveMetaCategoryDetail n =
     <$> arbitrary -- moveMetaCategoryDetailId :: Int
     <*> arbitrary -- moveMetaCategoryDetailName :: Text
     <*> arbitraryReduced n -- moveMetaCategoryDetailDescriptions :: [MoveMetaCategoryDescription]
-    <*> arbitraryReduced n -- moveMetaCategoryDetailMoves :: [AbilityDetailPokemonInnerPokemon]
+    <*> arbitraryReduced n -- moveMetaCategoryDetailMoves :: [MoveSummary]
   
 instance Arbitrary MoveMetaCategorySummary where
   arbitrary = sized genMoveMetaCategorySummary
@@ -1474,6 +1445,15 @@ genMoveMetaCategorySummary n =
     <$> arbitrary -- moveMetaCategorySummaryName :: Text
     <*> arbitrary -- moveMetaCategorySummaryUrl :: Text
   
+instance Arbitrary MoveMetaStatChange where
+  arbitrary = sized genMoveMetaStatChange
+
+genMoveMetaStatChange :: Int -> Gen MoveMetaStatChange
+genMoveMetaStatChange n =
+  MoveMetaStatChange
+    <$> arbitrary -- moveMetaStatChangeChange :: Int
+    <*> arbitraryReduced n -- moveMetaStatChangeStat :: StatSummary
+  
 instance Arbitrary MoveName where
   arbitrary = sized genMoveName
 
@@ -1482,6 +1462,15 @@ genMoveName n =
   MoveName
     <$> arbitrary -- moveNameName :: Text
     <*> arbitraryReduced n -- moveNameLanguage :: LanguageSummary
+  
+instance Arbitrary MoveStatChange where
+  arbitrary = sized genMoveStatChange
+
+genMoveStatChange :: Int -> Gen MoveStatChange
+genMoveStatChange n =
+  MoveStatChange
+    <$> arbitrary -- moveStatChangeChange :: Int
+    <*> arbitraryReduced n -- moveStatChangeMove :: MoveSummary
   
 instance Arbitrary MoveSummary where
   arbitrary = sized genMoveSummary
@@ -1553,19 +1542,9 @@ genNatureDetail n =
     <*> arbitraryReduced n -- natureDetailIncreasedStat :: StatSummary
     <*> arbitraryReduced n -- natureDetailLikesFlavor :: BerryFlavorSummary
     <*> arbitraryReduced n -- natureDetailHatesFlavor :: BerryFlavorSummary
-    <*> arbitraryReduced n -- natureDetailBerries :: [BerrySummary]
-    <*> arbitraryReduced n -- natureDetailPokeathlonStatChanges :: [NatureDetailPokeathlonStatChangesInner]
+    <*> arbitraryReduced n -- natureDetailPokeathlonStatChanges :: [NaturePokeathlonStat]
     <*> arbitraryReduced n -- natureDetailMoveBattleStylePreferences :: [NatureBattleStylePreference]
     <*> arbitraryReduced n -- natureDetailNames :: [NatureName]
-  
-instance Arbitrary NatureDetailPokeathlonStatChangesInner where
-  arbitrary = sized genNatureDetailPokeathlonStatChangesInner
-
-genNatureDetailPokeathlonStatChangesInner :: Int -> Gen NatureDetailPokeathlonStatChangesInner
-genNatureDetailPokeathlonStatChangesInner n =
-  NatureDetailPokeathlonStatChangesInner
-    <$> arbitrary -- natureDetailPokeathlonStatChangesInnerMaxChange :: Int
-    <*> arbitraryReduced n -- natureDetailPokeathlonStatChangesInnerPokeathlonStat :: AbilityDetailPokemonInnerPokemon
   
 instance Arbitrary NatureName where
   arbitrary = sized genNatureName
@@ -1575,6 +1554,15 @@ genNatureName n =
   NatureName
     <$> arbitrary -- natureNameName :: Text
     <*> arbitraryReduced n -- natureNameLanguage :: LanguageSummary
+  
+instance Arbitrary NaturePokeathlonStat where
+  arbitrary = sized genNaturePokeathlonStat
+
+genNaturePokeathlonStat :: Int -> Gen NaturePokeathlonStat
+genNaturePokeathlonStat n =
+  NaturePokeathlonStat
+    <$> arbitrary -- naturePokeathlonStatMaxChange :: Int
+    <*> arbitraryReduced n -- naturePokeathlonStatPokeathlonStat :: PokeathlonStatSummary
   
 instance Arbitrary NatureSummary where
   arbitrary = sized genNatureSummary
@@ -1591,10 +1579,10 @@ instance Arbitrary PaginatedAbilitySummaryList where
 genPaginatedAbilitySummaryList :: Int -> Gen PaginatedAbilitySummaryList
 genPaginatedAbilitySummaryList n =
   PaginatedAbilitySummaryList
-    <$> arbitraryReducedMaybe n -- paginatedAbilitySummaryListCount :: Maybe Int
+    <$> arbitrary -- paginatedAbilitySummaryListCount :: Int
     <*> arbitraryReducedMaybe n -- paginatedAbilitySummaryListNext :: Maybe Text
     <*> arbitraryReducedMaybe n -- paginatedAbilitySummaryListPrevious :: Maybe Text
-    <*> arbitraryReducedMaybe n -- paginatedAbilitySummaryListResults :: Maybe [AbilitySummary]
+    <*> arbitraryReduced n -- paginatedAbilitySummaryListResults :: [AbilitySummary]
   
 instance Arbitrary PaginatedBerryFirmnessSummaryList where
   arbitrary = sized genPaginatedBerryFirmnessSummaryList
@@ -1602,10 +1590,10 @@ instance Arbitrary PaginatedBerryFirmnessSummaryList where
 genPaginatedBerryFirmnessSummaryList :: Int -> Gen PaginatedBerryFirmnessSummaryList
 genPaginatedBerryFirmnessSummaryList n =
   PaginatedBerryFirmnessSummaryList
-    <$> arbitraryReducedMaybe n -- paginatedBerryFirmnessSummaryListCount :: Maybe Int
+    <$> arbitrary -- paginatedBerryFirmnessSummaryListCount :: Int
     <*> arbitraryReducedMaybe n -- paginatedBerryFirmnessSummaryListNext :: Maybe Text
     <*> arbitraryReducedMaybe n -- paginatedBerryFirmnessSummaryListPrevious :: Maybe Text
-    <*> arbitraryReducedMaybe n -- paginatedBerryFirmnessSummaryListResults :: Maybe [BerryFirmnessSummary]
+    <*> arbitraryReduced n -- paginatedBerryFirmnessSummaryListResults :: [BerryFirmnessSummary]
   
 instance Arbitrary PaginatedBerryFlavorSummaryList where
   arbitrary = sized genPaginatedBerryFlavorSummaryList
@@ -1613,10 +1601,10 @@ instance Arbitrary PaginatedBerryFlavorSummaryList where
 genPaginatedBerryFlavorSummaryList :: Int -> Gen PaginatedBerryFlavorSummaryList
 genPaginatedBerryFlavorSummaryList n =
   PaginatedBerryFlavorSummaryList
-    <$> arbitraryReducedMaybe n -- paginatedBerryFlavorSummaryListCount :: Maybe Int
+    <$> arbitrary -- paginatedBerryFlavorSummaryListCount :: Int
     <*> arbitraryReducedMaybe n -- paginatedBerryFlavorSummaryListNext :: Maybe Text
     <*> arbitraryReducedMaybe n -- paginatedBerryFlavorSummaryListPrevious :: Maybe Text
-    <*> arbitraryReducedMaybe n -- paginatedBerryFlavorSummaryListResults :: Maybe [BerryFlavorSummary]
+    <*> arbitraryReduced n -- paginatedBerryFlavorSummaryListResults :: [BerryFlavorSummary]
   
 instance Arbitrary PaginatedBerrySummaryList where
   arbitrary = sized genPaginatedBerrySummaryList
@@ -1624,10 +1612,10 @@ instance Arbitrary PaginatedBerrySummaryList where
 genPaginatedBerrySummaryList :: Int -> Gen PaginatedBerrySummaryList
 genPaginatedBerrySummaryList n =
   PaginatedBerrySummaryList
-    <$> arbitraryReducedMaybe n -- paginatedBerrySummaryListCount :: Maybe Int
+    <$> arbitrary -- paginatedBerrySummaryListCount :: Int
     <*> arbitraryReducedMaybe n -- paginatedBerrySummaryListNext :: Maybe Text
     <*> arbitraryReducedMaybe n -- paginatedBerrySummaryListPrevious :: Maybe Text
-    <*> arbitraryReducedMaybe n -- paginatedBerrySummaryListResults :: Maybe [BerrySummary]
+    <*> arbitraryReduced n -- paginatedBerrySummaryListResults :: [BerrySummary]
   
 instance Arbitrary PaginatedCharacteristicSummaryList where
   arbitrary = sized genPaginatedCharacteristicSummaryList
@@ -1635,10 +1623,10 @@ instance Arbitrary PaginatedCharacteristicSummaryList where
 genPaginatedCharacteristicSummaryList :: Int -> Gen PaginatedCharacteristicSummaryList
 genPaginatedCharacteristicSummaryList n =
   PaginatedCharacteristicSummaryList
-    <$> arbitraryReducedMaybe n -- paginatedCharacteristicSummaryListCount :: Maybe Int
+    <$> arbitrary -- paginatedCharacteristicSummaryListCount :: Int
     <*> arbitraryReducedMaybe n -- paginatedCharacteristicSummaryListNext :: Maybe Text
     <*> arbitraryReducedMaybe n -- paginatedCharacteristicSummaryListPrevious :: Maybe Text
-    <*> arbitraryReducedMaybe n -- paginatedCharacteristicSummaryListResults :: Maybe [CharacteristicSummary]
+    <*> arbitraryReduced n -- paginatedCharacteristicSummaryListResults :: [CharacteristicSummary]
   
 instance Arbitrary PaginatedContestEffectSummaryList where
   arbitrary = sized genPaginatedContestEffectSummaryList
@@ -1646,10 +1634,10 @@ instance Arbitrary PaginatedContestEffectSummaryList where
 genPaginatedContestEffectSummaryList :: Int -> Gen PaginatedContestEffectSummaryList
 genPaginatedContestEffectSummaryList n =
   PaginatedContestEffectSummaryList
-    <$> arbitraryReducedMaybe n -- paginatedContestEffectSummaryListCount :: Maybe Int
+    <$> arbitrary -- paginatedContestEffectSummaryListCount :: Int
     <*> arbitraryReducedMaybe n -- paginatedContestEffectSummaryListNext :: Maybe Text
     <*> arbitraryReducedMaybe n -- paginatedContestEffectSummaryListPrevious :: Maybe Text
-    <*> arbitraryReducedMaybe n -- paginatedContestEffectSummaryListResults :: Maybe [ContestEffectSummary]
+    <*> arbitraryReduced n -- paginatedContestEffectSummaryListResults :: [ContestEffectSummary]
   
 instance Arbitrary PaginatedContestTypeSummaryList where
   arbitrary = sized genPaginatedContestTypeSummaryList
@@ -1657,10 +1645,21 @@ instance Arbitrary PaginatedContestTypeSummaryList where
 genPaginatedContestTypeSummaryList :: Int -> Gen PaginatedContestTypeSummaryList
 genPaginatedContestTypeSummaryList n =
   PaginatedContestTypeSummaryList
-    <$> arbitraryReducedMaybe n -- paginatedContestTypeSummaryListCount :: Maybe Int
+    <$> arbitrary -- paginatedContestTypeSummaryListCount :: Int
     <*> arbitraryReducedMaybe n -- paginatedContestTypeSummaryListNext :: Maybe Text
     <*> arbitraryReducedMaybe n -- paginatedContestTypeSummaryListPrevious :: Maybe Text
-    <*> arbitraryReducedMaybe n -- paginatedContestTypeSummaryListResults :: Maybe [ContestTypeSummary]
+    <*> arbitraryReduced n -- paginatedContestTypeSummaryListResults :: [ContestTypeSummary]
+  
+instance Arbitrary PaginatedCurrencySummaryList where
+  arbitrary = sized genPaginatedCurrencySummaryList
+
+genPaginatedCurrencySummaryList :: Int -> Gen PaginatedCurrencySummaryList
+genPaginatedCurrencySummaryList n =
+  PaginatedCurrencySummaryList
+    <$> arbitrary -- paginatedCurrencySummaryListCount :: Int
+    <*> arbitraryReducedMaybe n -- paginatedCurrencySummaryListNext :: Maybe Text
+    <*> arbitraryReducedMaybe n -- paginatedCurrencySummaryListPrevious :: Maybe Text
+    <*> arbitraryReduced n -- paginatedCurrencySummaryListResults :: [CurrencySummary]
   
 instance Arbitrary PaginatedEggGroupSummaryList where
   arbitrary = sized genPaginatedEggGroupSummaryList
@@ -1668,10 +1667,10 @@ instance Arbitrary PaginatedEggGroupSummaryList where
 genPaginatedEggGroupSummaryList :: Int -> Gen PaginatedEggGroupSummaryList
 genPaginatedEggGroupSummaryList n =
   PaginatedEggGroupSummaryList
-    <$> arbitraryReducedMaybe n -- paginatedEggGroupSummaryListCount :: Maybe Int
+    <$> arbitrary -- paginatedEggGroupSummaryListCount :: Int
     <*> arbitraryReducedMaybe n -- paginatedEggGroupSummaryListNext :: Maybe Text
     <*> arbitraryReducedMaybe n -- paginatedEggGroupSummaryListPrevious :: Maybe Text
-    <*> arbitraryReducedMaybe n -- paginatedEggGroupSummaryListResults :: Maybe [EggGroupSummary]
+    <*> arbitraryReduced n -- paginatedEggGroupSummaryListResults :: [EggGroupSummary]
   
 instance Arbitrary PaginatedEncounterConditionSummaryList where
   arbitrary = sized genPaginatedEncounterConditionSummaryList
@@ -1679,10 +1678,10 @@ instance Arbitrary PaginatedEncounterConditionSummaryList where
 genPaginatedEncounterConditionSummaryList :: Int -> Gen PaginatedEncounterConditionSummaryList
 genPaginatedEncounterConditionSummaryList n =
   PaginatedEncounterConditionSummaryList
-    <$> arbitraryReducedMaybe n -- paginatedEncounterConditionSummaryListCount :: Maybe Int
+    <$> arbitrary -- paginatedEncounterConditionSummaryListCount :: Int
     <*> arbitraryReducedMaybe n -- paginatedEncounterConditionSummaryListNext :: Maybe Text
     <*> arbitraryReducedMaybe n -- paginatedEncounterConditionSummaryListPrevious :: Maybe Text
-    <*> arbitraryReducedMaybe n -- paginatedEncounterConditionSummaryListResults :: Maybe [EncounterConditionSummary]
+    <*> arbitraryReduced n -- paginatedEncounterConditionSummaryListResults :: [EncounterConditionSummary]
   
 instance Arbitrary PaginatedEncounterConditionValueSummaryList where
   arbitrary = sized genPaginatedEncounterConditionValueSummaryList
@@ -1690,10 +1689,10 @@ instance Arbitrary PaginatedEncounterConditionValueSummaryList where
 genPaginatedEncounterConditionValueSummaryList :: Int -> Gen PaginatedEncounterConditionValueSummaryList
 genPaginatedEncounterConditionValueSummaryList n =
   PaginatedEncounterConditionValueSummaryList
-    <$> arbitraryReducedMaybe n -- paginatedEncounterConditionValueSummaryListCount :: Maybe Int
+    <$> arbitrary -- paginatedEncounterConditionValueSummaryListCount :: Int
     <*> arbitraryReducedMaybe n -- paginatedEncounterConditionValueSummaryListNext :: Maybe Text
     <*> arbitraryReducedMaybe n -- paginatedEncounterConditionValueSummaryListPrevious :: Maybe Text
-    <*> arbitraryReducedMaybe n -- paginatedEncounterConditionValueSummaryListResults :: Maybe [EncounterConditionValueSummary]
+    <*> arbitraryReduced n -- paginatedEncounterConditionValueSummaryListResults :: [EncounterConditionValueSummary]
   
 instance Arbitrary PaginatedEncounterMethodSummaryList where
   arbitrary = sized genPaginatedEncounterMethodSummaryList
@@ -1701,10 +1700,10 @@ instance Arbitrary PaginatedEncounterMethodSummaryList where
 genPaginatedEncounterMethodSummaryList :: Int -> Gen PaginatedEncounterMethodSummaryList
 genPaginatedEncounterMethodSummaryList n =
   PaginatedEncounterMethodSummaryList
-    <$> arbitraryReducedMaybe n -- paginatedEncounterMethodSummaryListCount :: Maybe Int
+    <$> arbitrary -- paginatedEncounterMethodSummaryListCount :: Int
     <*> arbitraryReducedMaybe n -- paginatedEncounterMethodSummaryListNext :: Maybe Text
     <*> arbitraryReducedMaybe n -- paginatedEncounterMethodSummaryListPrevious :: Maybe Text
-    <*> arbitraryReducedMaybe n -- paginatedEncounterMethodSummaryListResults :: Maybe [EncounterMethodSummary]
+    <*> arbitraryReduced n -- paginatedEncounterMethodSummaryListResults :: [EncounterMethodSummary]
   
 instance Arbitrary PaginatedEvolutionChainSummaryList where
   arbitrary = sized genPaginatedEvolutionChainSummaryList
@@ -1712,10 +1711,10 @@ instance Arbitrary PaginatedEvolutionChainSummaryList where
 genPaginatedEvolutionChainSummaryList :: Int -> Gen PaginatedEvolutionChainSummaryList
 genPaginatedEvolutionChainSummaryList n =
   PaginatedEvolutionChainSummaryList
-    <$> arbitraryReducedMaybe n -- paginatedEvolutionChainSummaryListCount :: Maybe Int
+    <$> arbitrary -- paginatedEvolutionChainSummaryListCount :: Int
     <*> arbitraryReducedMaybe n -- paginatedEvolutionChainSummaryListNext :: Maybe Text
     <*> arbitraryReducedMaybe n -- paginatedEvolutionChainSummaryListPrevious :: Maybe Text
-    <*> arbitraryReducedMaybe n -- paginatedEvolutionChainSummaryListResults :: Maybe [EvolutionChainSummary]
+    <*> arbitraryReduced n -- paginatedEvolutionChainSummaryListResults :: [EvolutionChainSummary]
   
 instance Arbitrary PaginatedEvolutionTriggerSummaryList where
   arbitrary = sized genPaginatedEvolutionTriggerSummaryList
@@ -1723,10 +1722,21 @@ instance Arbitrary PaginatedEvolutionTriggerSummaryList where
 genPaginatedEvolutionTriggerSummaryList :: Int -> Gen PaginatedEvolutionTriggerSummaryList
 genPaginatedEvolutionTriggerSummaryList n =
   PaginatedEvolutionTriggerSummaryList
-    <$> arbitraryReducedMaybe n -- paginatedEvolutionTriggerSummaryListCount :: Maybe Int
+    <$> arbitrary -- paginatedEvolutionTriggerSummaryListCount :: Int
     <*> arbitraryReducedMaybe n -- paginatedEvolutionTriggerSummaryListNext :: Maybe Text
     <*> arbitraryReducedMaybe n -- paginatedEvolutionTriggerSummaryListPrevious :: Maybe Text
-    <*> arbitraryReducedMaybe n -- paginatedEvolutionTriggerSummaryListResults :: Maybe [EvolutionTriggerSummary]
+    <*> arbitraryReduced n -- paginatedEvolutionTriggerSummaryListResults :: [EvolutionTriggerSummary]
+  
+instance Arbitrary PaginatedEvolutionVariableSummaryList where
+  arbitrary = sized genPaginatedEvolutionVariableSummaryList
+
+genPaginatedEvolutionVariableSummaryList :: Int -> Gen PaginatedEvolutionVariableSummaryList
+genPaginatedEvolutionVariableSummaryList n =
+  PaginatedEvolutionVariableSummaryList
+    <$> arbitrary -- paginatedEvolutionVariableSummaryListCount :: Int
+    <*> arbitraryReducedMaybe n -- paginatedEvolutionVariableSummaryListNext :: Maybe Text
+    <*> arbitraryReducedMaybe n -- paginatedEvolutionVariableSummaryListPrevious :: Maybe Text
+    <*> arbitraryReduced n -- paginatedEvolutionVariableSummaryListResults :: [EvolutionVariableSummary]
   
 instance Arbitrary PaginatedGenderSummaryList where
   arbitrary = sized genPaginatedGenderSummaryList
@@ -1734,10 +1744,10 @@ instance Arbitrary PaginatedGenderSummaryList where
 genPaginatedGenderSummaryList :: Int -> Gen PaginatedGenderSummaryList
 genPaginatedGenderSummaryList n =
   PaginatedGenderSummaryList
-    <$> arbitraryReducedMaybe n -- paginatedGenderSummaryListCount :: Maybe Int
+    <$> arbitrary -- paginatedGenderSummaryListCount :: Int
     <*> arbitraryReducedMaybe n -- paginatedGenderSummaryListNext :: Maybe Text
     <*> arbitraryReducedMaybe n -- paginatedGenderSummaryListPrevious :: Maybe Text
-    <*> arbitraryReducedMaybe n -- paginatedGenderSummaryListResults :: Maybe [GenderSummary]
+    <*> arbitraryReduced n -- paginatedGenderSummaryListResults :: [GenderSummary]
   
 instance Arbitrary PaginatedGenerationSummaryList where
   arbitrary = sized genPaginatedGenerationSummaryList
@@ -1745,10 +1755,10 @@ instance Arbitrary PaginatedGenerationSummaryList where
 genPaginatedGenerationSummaryList :: Int -> Gen PaginatedGenerationSummaryList
 genPaginatedGenerationSummaryList n =
   PaginatedGenerationSummaryList
-    <$> arbitraryReducedMaybe n -- paginatedGenerationSummaryListCount :: Maybe Int
+    <$> arbitrary -- paginatedGenerationSummaryListCount :: Int
     <*> arbitraryReducedMaybe n -- paginatedGenerationSummaryListNext :: Maybe Text
     <*> arbitraryReducedMaybe n -- paginatedGenerationSummaryListPrevious :: Maybe Text
-    <*> arbitraryReducedMaybe n -- paginatedGenerationSummaryListResults :: Maybe [GenerationSummary]
+    <*> arbitraryReduced n -- paginatedGenerationSummaryListResults :: [GenerationSummary]
   
 instance Arbitrary PaginatedGrowthRateSummaryList where
   arbitrary = sized genPaginatedGrowthRateSummaryList
@@ -1756,10 +1766,10 @@ instance Arbitrary PaginatedGrowthRateSummaryList where
 genPaginatedGrowthRateSummaryList :: Int -> Gen PaginatedGrowthRateSummaryList
 genPaginatedGrowthRateSummaryList n =
   PaginatedGrowthRateSummaryList
-    <$> arbitraryReducedMaybe n -- paginatedGrowthRateSummaryListCount :: Maybe Int
+    <$> arbitrary -- paginatedGrowthRateSummaryListCount :: Int
     <*> arbitraryReducedMaybe n -- paginatedGrowthRateSummaryListNext :: Maybe Text
     <*> arbitraryReducedMaybe n -- paginatedGrowthRateSummaryListPrevious :: Maybe Text
-    <*> arbitraryReducedMaybe n -- paginatedGrowthRateSummaryListResults :: Maybe [GrowthRateSummary]
+    <*> arbitraryReduced n -- paginatedGrowthRateSummaryListResults :: [GrowthRateSummary]
   
 instance Arbitrary PaginatedItemAttributeSummaryList where
   arbitrary = sized genPaginatedItemAttributeSummaryList
@@ -1767,10 +1777,10 @@ instance Arbitrary PaginatedItemAttributeSummaryList where
 genPaginatedItemAttributeSummaryList :: Int -> Gen PaginatedItemAttributeSummaryList
 genPaginatedItemAttributeSummaryList n =
   PaginatedItemAttributeSummaryList
-    <$> arbitraryReducedMaybe n -- paginatedItemAttributeSummaryListCount :: Maybe Int
+    <$> arbitrary -- paginatedItemAttributeSummaryListCount :: Int
     <*> arbitraryReducedMaybe n -- paginatedItemAttributeSummaryListNext :: Maybe Text
     <*> arbitraryReducedMaybe n -- paginatedItemAttributeSummaryListPrevious :: Maybe Text
-    <*> arbitraryReducedMaybe n -- paginatedItemAttributeSummaryListResults :: Maybe [ItemAttributeSummary]
+    <*> arbitraryReduced n -- paginatedItemAttributeSummaryListResults :: [ItemAttributeSummary]
   
 instance Arbitrary PaginatedItemCategorySummaryList where
   arbitrary = sized genPaginatedItemCategorySummaryList
@@ -1778,10 +1788,10 @@ instance Arbitrary PaginatedItemCategorySummaryList where
 genPaginatedItemCategorySummaryList :: Int -> Gen PaginatedItemCategorySummaryList
 genPaginatedItemCategorySummaryList n =
   PaginatedItemCategorySummaryList
-    <$> arbitraryReducedMaybe n -- paginatedItemCategorySummaryListCount :: Maybe Int
+    <$> arbitrary -- paginatedItemCategorySummaryListCount :: Int
     <*> arbitraryReducedMaybe n -- paginatedItemCategorySummaryListNext :: Maybe Text
     <*> arbitraryReducedMaybe n -- paginatedItemCategorySummaryListPrevious :: Maybe Text
-    <*> arbitraryReducedMaybe n -- paginatedItemCategorySummaryListResults :: Maybe [ItemCategorySummary]
+    <*> arbitraryReduced n -- paginatedItemCategorySummaryListResults :: [ItemCategorySummary]
   
 instance Arbitrary PaginatedItemFlingEffectSummaryList where
   arbitrary = sized genPaginatedItemFlingEffectSummaryList
@@ -1789,10 +1799,10 @@ instance Arbitrary PaginatedItemFlingEffectSummaryList where
 genPaginatedItemFlingEffectSummaryList :: Int -> Gen PaginatedItemFlingEffectSummaryList
 genPaginatedItemFlingEffectSummaryList n =
   PaginatedItemFlingEffectSummaryList
-    <$> arbitraryReducedMaybe n -- paginatedItemFlingEffectSummaryListCount :: Maybe Int
+    <$> arbitrary -- paginatedItemFlingEffectSummaryListCount :: Int
     <*> arbitraryReducedMaybe n -- paginatedItemFlingEffectSummaryListNext :: Maybe Text
     <*> arbitraryReducedMaybe n -- paginatedItemFlingEffectSummaryListPrevious :: Maybe Text
-    <*> arbitraryReducedMaybe n -- paginatedItemFlingEffectSummaryListResults :: Maybe [ItemFlingEffectSummary]
+    <*> arbitraryReduced n -- paginatedItemFlingEffectSummaryListResults :: [ItemFlingEffectSummary]
   
 instance Arbitrary PaginatedItemPocketSummaryList where
   arbitrary = sized genPaginatedItemPocketSummaryList
@@ -1800,10 +1810,10 @@ instance Arbitrary PaginatedItemPocketSummaryList where
 genPaginatedItemPocketSummaryList :: Int -> Gen PaginatedItemPocketSummaryList
 genPaginatedItemPocketSummaryList n =
   PaginatedItemPocketSummaryList
-    <$> arbitraryReducedMaybe n -- paginatedItemPocketSummaryListCount :: Maybe Int
+    <$> arbitrary -- paginatedItemPocketSummaryListCount :: Int
     <*> arbitraryReducedMaybe n -- paginatedItemPocketSummaryListNext :: Maybe Text
     <*> arbitraryReducedMaybe n -- paginatedItemPocketSummaryListPrevious :: Maybe Text
-    <*> arbitraryReducedMaybe n -- paginatedItemPocketSummaryListResults :: Maybe [ItemPocketSummary]
+    <*> arbitraryReduced n -- paginatedItemPocketSummaryListResults :: [ItemPocketSummary]
   
 instance Arbitrary PaginatedItemSummaryList where
   arbitrary = sized genPaginatedItemSummaryList
@@ -1811,10 +1821,10 @@ instance Arbitrary PaginatedItemSummaryList where
 genPaginatedItemSummaryList :: Int -> Gen PaginatedItemSummaryList
 genPaginatedItemSummaryList n =
   PaginatedItemSummaryList
-    <$> arbitraryReducedMaybe n -- paginatedItemSummaryListCount :: Maybe Int
+    <$> arbitrary -- paginatedItemSummaryListCount :: Int
     <*> arbitraryReducedMaybe n -- paginatedItemSummaryListNext :: Maybe Text
     <*> arbitraryReducedMaybe n -- paginatedItemSummaryListPrevious :: Maybe Text
-    <*> arbitraryReducedMaybe n -- paginatedItemSummaryListResults :: Maybe [ItemSummary]
+    <*> arbitraryReduced n -- paginatedItemSummaryListResults :: [ItemSummary]
   
 instance Arbitrary PaginatedLanguageSummaryList where
   arbitrary = sized genPaginatedLanguageSummaryList
@@ -1822,10 +1832,10 @@ instance Arbitrary PaginatedLanguageSummaryList where
 genPaginatedLanguageSummaryList :: Int -> Gen PaginatedLanguageSummaryList
 genPaginatedLanguageSummaryList n =
   PaginatedLanguageSummaryList
-    <$> arbitraryReducedMaybe n -- paginatedLanguageSummaryListCount :: Maybe Int
+    <$> arbitrary -- paginatedLanguageSummaryListCount :: Int
     <*> arbitraryReducedMaybe n -- paginatedLanguageSummaryListNext :: Maybe Text
     <*> arbitraryReducedMaybe n -- paginatedLanguageSummaryListPrevious :: Maybe Text
-    <*> arbitraryReducedMaybe n -- paginatedLanguageSummaryListResults :: Maybe [LanguageSummary]
+    <*> arbitraryReduced n -- paginatedLanguageSummaryListResults :: [LanguageSummary]
   
 instance Arbitrary PaginatedLocationAreaSummaryList where
   arbitrary = sized genPaginatedLocationAreaSummaryList
@@ -1833,10 +1843,10 @@ instance Arbitrary PaginatedLocationAreaSummaryList where
 genPaginatedLocationAreaSummaryList :: Int -> Gen PaginatedLocationAreaSummaryList
 genPaginatedLocationAreaSummaryList n =
   PaginatedLocationAreaSummaryList
-    <$> arbitraryReducedMaybe n -- paginatedLocationAreaSummaryListCount :: Maybe Int
+    <$> arbitrary -- paginatedLocationAreaSummaryListCount :: Int
     <*> arbitraryReducedMaybe n -- paginatedLocationAreaSummaryListNext :: Maybe Text
     <*> arbitraryReducedMaybe n -- paginatedLocationAreaSummaryListPrevious :: Maybe Text
-    <*> arbitraryReducedMaybe n -- paginatedLocationAreaSummaryListResults :: Maybe [LocationAreaSummary]
+    <*> arbitraryReduced n -- paginatedLocationAreaSummaryListResults :: [LocationAreaSummary]
   
 instance Arbitrary PaginatedLocationSummaryList where
   arbitrary = sized genPaginatedLocationSummaryList
@@ -1844,10 +1854,10 @@ instance Arbitrary PaginatedLocationSummaryList where
 genPaginatedLocationSummaryList :: Int -> Gen PaginatedLocationSummaryList
 genPaginatedLocationSummaryList n =
   PaginatedLocationSummaryList
-    <$> arbitraryReducedMaybe n -- paginatedLocationSummaryListCount :: Maybe Int
+    <$> arbitrary -- paginatedLocationSummaryListCount :: Int
     <*> arbitraryReducedMaybe n -- paginatedLocationSummaryListNext :: Maybe Text
     <*> arbitraryReducedMaybe n -- paginatedLocationSummaryListPrevious :: Maybe Text
-    <*> arbitraryReducedMaybe n -- paginatedLocationSummaryListResults :: Maybe [LocationSummary]
+    <*> arbitraryReduced n -- paginatedLocationSummaryListResults :: [LocationSummary]
   
 instance Arbitrary PaginatedMachineSummaryList where
   arbitrary = sized genPaginatedMachineSummaryList
@@ -1855,10 +1865,10 @@ instance Arbitrary PaginatedMachineSummaryList where
 genPaginatedMachineSummaryList :: Int -> Gen PaginatedMachineSummaryList
 genPaginatedMachineSummaryList n =
   PaginatedMachineSummaryList
-    <$> arbitraryReducedMaybe n -- paginatedMachineSummaryListCount :: Maybe Int
+    <$> arbitrary -- paginatedMachineSummaryListCount :: Int
     <*> arbitraryReducedMaybe n -- paginatedMachineSummaryListNext :: Maybe Text
     <*> arbitraryReducedMaybe n -- paginatedMachineSummaryListPrevious :: Maybe Text
-    <*> arbitraryReducedMaybe n -- paginatedMachineSummaryListResults :: Maybe [MachineSummary]
+    <*> arbitraryReduced n -- paginatedMachineSummaryListResults :: [MachineSummary]
   
 instance Arbitrary PaginatedMoveBattleStyleSummaryList where
   arbitrary = sized genPaginatedMoveBattleStyleSummaryList
@@ -1866,10 +1876,10 @@ instance Arbitrary PaginatedMoveBattleStyleSummaryList where
 genPaginatedMoveBattleStyleSummaryList :: Int -> Gen PaginatedMoveBattleStyleSummaryList
 genPaginatedMoveBattleStyleSummaryList n =
   PaginatedMoveBattleStyleSummaryList
-    <$> arbitraryReducedMaybe n -- paginatedMoveBattleStyleSummaryListCount :: Maybe Int
+    <$> arbitrary -- paginatedMoveBattleStyleSummaryListCount :: Int
     <*> arbitraryReducedMaybe n -- paginatedMoveBattleStyleSummaryListNext :: Maybe Text
     <*> arbitraryReducedMaybe n -- paginatedMoveBattleStyleSummaryListPrevious :: Maybe Text
-    <*> arbitraryReducedMaybe n -- paginatedMoveBattleStyleSummaryListResults :: Maybe [MoveBattleStyleSummary]
+    <*> arbitraryReduced n -- paginatedMoveBattleStyleSummaryListResults :: [MoveBattleStyleSummary]
   
 instance Arbitrary PaginatedMoveDamageClassSummaryList where
   arbitrary = sized genPaginatedMoveDamageClassSummaryList
@@ -1877,10 +1887,10 @@ instance Arbitrary PaginatedMoveDamageClassSummaryList where
 genPaginatedMoveDamageClassSummaryList :: Int -> Gen PaginatedMoveDamageClassSummaryList
 genPaginatedMoveDamageClassSummaryList n =
   PaginatedMoveDamageClassSummaryList
-    <$> arbitraryReducedMaybe n -- paginatedMoveDamageClassSummaryListCount :: Maybe Int
+    <$> arbitrary -- paginatedMoveDamageClassSummaryListCount :: Int
     <*> arbitraryReducedMaybe n -- paginatedMoveDamageClassSummaryListNext :: Maybe Text
     <*> arbitraryReducedMaybe n -- paginatedMoveDamageClassSummaryListPrevious :: Maybe Text
-    <*> arbitraryReducedMaybe n -- paginatedMoveDamageClassSummaryListResults :: Maybe [MoveDamageClassSummary]
+    <*> arbitraryReduced n -- paginatedMoveDamageClassSummaryListResults :: [MoveDamageClassSummary]
   
 instance Arbitrary PaginatedMoveLearnMethodSummaryList where
   arbitrary = sized genPaginatedMoveLearnMethodSummaryList
@@ -1888,10 +1898,10 @@ instance Arbitrary PaginatedMoveLearnMethodSummaryList where
 genPaginatedMoveLearnMethodSummaryList :: Int -> Gen PaginatedMoveLearnMethodSummaryList
 genPaginatedMoveLearnMethodSummaryList n =
   PaginatedMoveLearnMethodSummaryList
-    <$> arbitraryReducedMaybe n -- paginatedMoveLearnMethodSummaryListCount :: Maybe Int
+    <$> arbitrary -- paginatedMoveLearnMethodSummaryListCount :: Int
     <*> arbitraryReducedMaybe n -- paginatedMoveLearnMethodSummaryListNext :: Maybe Text
     <*> arbitraryReducedMaybe n -- paginatedMoveLearnMethodSummaryListPrevious :: Maybe Text
-    <*> arbitraryReducedMaybe n -- paginatedMoveLearnMethodSummaryListResults :: Maybe [MoveLearnMethodSummary]
+    <*> arbitraryReduced n -- paginatedMoveLearnMethodSummaryListResults :: [MoveLearnMethodSummary]
   
 instance Arbitrary PaginatedMoveMetaAilmentSummaryList where
   arbitrary = sized genPaginatedMoveMetaAilmentSummaryList
@@ -1899,10 +1909,10 @@ instance Arbitrary PaginatedMoveMetaAilmentSummaryList where
 genPaginatedMoveMetaAilmentSummaryList :: Int -> Gen PaginatedMoveMetaAilmentSummaryList
 genPaginatedMoveMetaAilmentSummaryList n =
   PaginatedMoveMetaAilmentSummaryList
-    <$> arbitraryReducedMaybe n -- paginatedMoveMetaAilmentSummaryListCount :: Maybe Int
+    <$> arbitrary -- paginatedMoveMetaAilmentSummaryListCount :: Int
     <*> arbitraryReducedMaybe n -- paginatedMoveMetaAilmentSummaryListNext :: Maybe Text
     <*> arbitraryReducedMaybe n -- paginatedMoveMetaAilmentSummaryListPrevious :: Maybe Text
-    <*> arbitraryReducedMaybe n -- paginatedMoveMetaAilmentSummaryListResults :: Maybe [MoveMetaAilmentSummary]
+    <*> arbitraryReduced n -- paginatedMoveMetaAilmentSummaryListResults :: [MoveMetaAilmentSummary]
   
 instance Arbitrary PaginatedMoveMetaCategorySummaryList where
   arbitrary = sized genPaginatedMoveMetaCategorySummaryList
@@ -1910,10 +1920,10 @@ instance Arbitrary PaginatedMoveMetaCategorySummaryList where
 genPaginatedMoveMetaCategorySummaryList :: Int -> Gen PaginatedMoveMetaCategorySummaryList
 genPaginatedMoveMetaCategorySummaryList n =
   PaginatedMoveMetaCategorySummaryList
-    <$> arbitraryReducedMaybe n -- paginatedMoveMetaCategorySummaryListCount :: Maybe Int
+    <$> arbitrary -- paginatedMoveMetaCategorySummaryListCount :: Int
     <*> arbitraryReducedMaybe n -- paginatedMoveMetaCategorySummaryListNext :: Maybe Text
     <*> arbitraryReducedMaybe n -- paginatedMoveMetaCategorySummaryListPrevious :: Maybe Text
-    <*> arbitraryReducedMaybe n -- paginatedMoveMetaCategorySummaryListResults :: Maybe [MoveMetaCategorySummary]
+    <*> arbitraryReduced n -- paginatedMoveMetaCategorySummaryListResults :: [MoveMetaCategorySummary]
   
 instance Arbitrary PaginatedMoveSummaryList where
   arbitrary = sized genPaginatedMoveSummaryList
@@ -1921,10 +1931,10 @@ instance Arbitrary PaginatedMoveSummaryList where
 genPaginatedMoveSummaryList :: Int -> Gen PaginatedMoveSummaryList
 genPaginatedMoveSummaryList n =
   PaginatedMoveSummaryList
-    <$> arbitraryReducedMaybe n -- paginatedMoveSummaryListCount :: Maybe Int
+    <$> arbitrary -- paginatedMoveSummaryListCount :: Int
     <*> arbitraryReducedMaybe n -- paginatedMoveSummaryListNext :: Maybe Text
     <*> arbitraryReducedMaybe n -- paginatedMoveSummaryListPrevious :: Maybe Text
-    <*> arbitraryReducedMaybe n -- paginatedMoveSummaryListResults :: Maybe [MoveSummary]
+    <*> arbitraryReduced n -- paginatedMoveSummaryListResults :: [MoveSummary]
   
 instance Arbitrary PaginatedMoveTargetSummaryList where
   arbitrary = sized genPaginatedMoveTargetSummaryList
@@ -1932,10 +1942,10 @@ instance Arbitrary PaginatedMoveTargetSummaryList where
 genPaginatedMoveTargetSummaryList :: Int -> Gen PaginatedMoveTargetSummaryList
 genPaginatedMoveTargetSummaryList n =
   PaginatedMoveTargetSummaryList
-    <$> arbitraryReducedMaybe n -- paginatedMoveTargetSummaryListCount :: Maybe Int
+    <$> arbitrary -- paginatedMoveTargetSummaryListCount :: Int
     <*> arbitraryReducedMaybe n -- paginatedMoveTargetSummaryListNext :: Maybe Text
     <*> arbitraryReducedMaybe n -- paginatedMoveTargetSummaryListPrevious :: Maybe Text
-    <*> arbitraryReducedMaybe n -- paginatedMoveTargetSummaryListResults :: Maybe [MoveTargetSummary]
+    <*> arbitraryReduced n -- paginatedMoveTargetSummaryListResults :: [MoveTargetSummary]
   
 instance Arbitrary PaginatedNatureSummaryList where
   arbitrary = sized genPaginatedNatureSummaryList
@@ -1943,10 +1953,10 @@ instance Arbitrary PaginatedNatureSummaryList where
 genPaginatedNatureSummaryList :: Int -> Gen PaginatedNatureSummaryList
 genPaginatedNatureSummaryList n =
   PaginatedNatureSummaryList
-    <$> arbitraryReducedMaybe n -- paginatedNatureSummaryListCount :: Maybe Int
+    <$> arbitrary -- paginatedNatureSummaryListCount :: Int
     <*> arbitraryReducedMaybe n -- paginatedNatureSummaryListNext :: Maybe Text
     <*> arbitraryReducedMaybe n -- paginatedNatureSummaryListPrevious :: Maybe Text
-    <*> arbitraryReducedMaybe n -- paginatedNatureSummaryListResults :: Maybe [NatureSummary]
+    <*> arbitraryReduced n -- paginatedNatureSummaryListResults :: [NatureSummary]
   
 instance Arbitrary PaginatedPalParkAreaSummaryList where
   arbitrary = sized genPaginatedPalParkAreaSummaryList
@@ -1954,10 +1964,10 @@ instance Arbitrary PaginatedPalParkAreaSummaryList where
 genPaginatedPalParkAreaSummaryList :: Int -> Gen PaginatedPalParkAreaSummaryList
 genPaginatedPalParkAreaSummaryList n =
   PaginatedPalParkAreaSummaryList
-    <$> arbitraryReducedMaybe n -- paginatedPalParkAreaSummaryListCount :: Maybe Int
+    <$> arbitrary -- paginatedPalParkAreaSummaryListCount :: Int
     <*> arbitraryReducedMaybe n -- paginatedPalParkAreaSummaryListNext :: Maybe Text
     <*> arbitraryReducedMaybe n -- paginatedPalParkAreaSummaryListPrevious :: Maybe Text
-    <*> arbitraryReducedMaybe n -- paginatedPalParkAreaSummaryListResults :: Maybe [PalParkAreaSummary]
+    <*> arbitraryReduced n -- paginatedPalParkAreaSummaryListResults :: [PalParkAreaSummary]
   
 instance Arbitrary PaginatedPokeathlonStatSummaryList where
   arbitrary = sized genPaginatedPokeathlonStatSummaryList
@@ -1965,10 +1975,10 @@ instance Arbitrary PaginatedPokeathlonStatSummaryList where
 genPaginatedPokeathlonStatSummaryList :: Int -> Gen PaginatedPokeathlonStatSummaryList
 genPaginatedPokeathlonStatSummaryList n =
   PaginatedPokeathlonStatSummaryList
-    <$> arbitraryReducedMaybe n -- paginatedPokeathlonStatSummaryListCount :: Maybe Int
+    <$> arbitrary -- paginatedPokeathlonStatSummaryListCount :: Int
     <*> arbitraryReducedMaybe n -- paginatedPokeathlonStatSummaryListNext :: Maybe Text
     <*> arbitraryReducedMaybe n -- paginatedPokeathlonStatSummaryListPrevious :: Maybe Text
-    <*> arbitraryReducedMaybe n -- paginatedPokeathlonStatSummaryListResults :: Maybe [PokeathlonStatSummary]
+    <*> arbitraryReduced n -- paginatedPokeathlonStatSummaryListResults :: [PokeathlonStatSummary]
   
 instance Arbitrary PaginatedPokedexSummaryList where
   arbitrary = sized genPaginatedPokedexSummaryList
@@ -1976,10 +1986,10 @@ instance Arbitrary PaginatedPokedexSummaryList where
 genPaginatedPokedexSummaryList :: Int -> Gen PaginatedPokedexSummaryList
 genPaginatedPokedexSummaryList n =
   PaginatedPokedexSummaryList
-    <$> arbitraryReducedMaybe n -- paginatedPokedexSummaryListCount :: Maybe Int
+    <$> arbitrary -- paginatedPokedexSummaryListCount :: Int
     <*> arbitraryReducedMaybe n -- paginatedPokedexSummaryListNext :: Maybe Text
     <*> arbitraryReducedMaybe n -- paginatedPokedexSummaryListPrevious :: Maybe Text
-    <*> arbitraryReducedMaybe n -- paginatedPokedexSummaryListResults :: Maybe [PokedexSummary]
+    <*> arbitraryReduced n -- paginatedPokedexSummaryListResults :: [PokedexSummary]
   
 instance Arbitrary PaginatedPokemonColorSummaryList where
   arbitrary = sized genPaginatedPokemonColorSummaryList
@@ -1987,10 +1997,10 @@ instance Arbitrary PaginatedPokemonColorSummaryList where
 genPaginatedPokemonColorSummaryList :: Int -> Gen PaginatedPokemonColorSummaryList
 genPaginatedPokemonColorSummaryList n =
   PaginatedPokemonColorSummaryList
-    <$> arbitraryReducedMaybe n -- paginatedPokemonColorSummaryListCount :: Maybe Int
+    <$> arbitrary -- paginatedPokemonColorSummaryListCount :: Int
     <*> arbitraryReducedMaybe n -- paginatedPokemonColorSummaryListNext :: Maybe Text
     <*> arbitraryReducedMaybe n -- paginatedPokemonColorSummaryListPrevious :: Maybe Text
-    <*> arbitraryReducedMaybe n -- paginatedPokemonColorSummaryListResults :: Maybe [PokemonColorSummary]
+    <*> arbitraryReduced n -- paginatedPokemonColorSummaryListResults :: [PokemonColorSummary]
   
 instance Arbitrary PaginatedPokemonFormSummaryList where
   arbitrary = sized genPaginatedPokemonFormSummaryList
@@ -1998,10 +2008,10 @@ instance Arbitrary PaginatedPokemonFormSummaryList where
 genPaginatedPokemonFormSummaryList :: Int -> Gen PaginatedPokemonFormSummaryList
 genPaginatedPokemonFormSummaryList n =
   PaginatedPokemonFormSummaryList
-    <$> arbitraryReducedMaybe n -- paginatedPokemonFormSummaryListCount :: Maybe Int
+    <$> arbitrary -- paginatedPokemonFormSummaryListCount :: Int
     <*> arbitraryReducedMaybe n -- paginatedPokemonFormSummaryListNext :: Maybe Text
     <*> arbitraryReducedMaybe n -- paginatedPokemonFormSummaryListPrevious :: Maybe Text
-    <*> arbitraryReducedMaybe n -- paginatedPokemonFormSummaryListResults :: Maybe [PokemonFormSummary]
+    <*> arbitraryReduced n -- paginatedPokemonFormSummaryListResults :: [PokemonFormSummary]
   
 instance Arbitrary PaginatedPokemonHabitatSummaryList where
   arbitrary = sized genPaginatedPokemonHabitatSummaryList
@@ -2009,10 +2019,10 @@ instance Arbitrary PaginatedPokemonHabitatSummaryList where
 genPaginatedPokemonHabitatSummaryList :: Int -> Gen PaginatedPokemonHabitatSummaryList
 genPaginatedPokemonHabitatSummaryList n =
   PaginatedPokemonHabitatSummaryList
-    <$> arbitraryReducedMaybe n -- paginatedPokemonHabitatSummaryListCount :: Maybe Int
+    <$> arbitrary -- paginatedPokemonHabitatSummaryListCount :: Int
     <*> arbitraryReducedMaybe n -- paginatedPokemonHabitatSummaryListNext :: Maybe Text
     <*> arbitraryReducedMaybe n -- paginatedPokemonHabitatSummaryListPrevious :: Maybe Text
-    <*> arbitraryReducedMaybe n -- paginatedPokemonHabitatSummaryListResults :: Maybe [PokemonHabitatSummary]
+    <*> arbitraryReduced n -- paginatedPokemonHabitatSummaryListResults :: [PokemonHabitatSummary]
   
 instance Arbitrary PaginatedPokemonShapeSummaryList where
   arbitrary = sized genPaginatedPokemonShapeSummaryList
@@ -2020,10 +2030,10 @@ instance Arbitrary PaginatedPokemonShapeSummaryList where
 genPaginatedPokemonShapeSummaryList :: Int -> Gen PaginatedPokemonShapeSummaryList
 genPaginatedPokemonShapeSummaryList n =
   PaginatedPokemonShapeSummaryList
-    <$> arbitraryReducedMaybe n -- paginatedPokemonShapeSummaryListCount :: Maybe Int
+    <$> arbitrary -- paginatedPokemonShapeSummaryListCount :: Int
     <*> arbitraryReducedMaybe n -- paginatedPokemonShapeSummaryListNext :: Maybe Text
     <*> arbitraryReducedMaybe n -- paginatedPokemonShapeSummaryListPrevious :: Maybe Text
-    <*> arbitraryReducedMaybe n -- paginatedPokemonShapeSummaryListResults :: Maybe [PokemonShapeSummary]
+    <*> arbitraryReduced n -- paginatedPokemonShapeSummaryListResults :: [PokemonShapeSummary]
   
 instance Arbitrary PaginatedPokemonSpeciesSummaryList where
   arbitrary = sized genPaginatedPokemonSpeciesSummaryList
@@ -2031,10 +2041,10 @@ instance Arbitrary PaginatedPokemonSpeciesSummaryList where
 genPaginatedPokemonSpeciesSummaryList :: Int -> Gen PaginatedPokemonSpeciesSummaryList
 genPaginatedPokemonSpeciesSummaryList n =
   PaginatedPokemonSpeciesSummaryList
-    <$> arbitraryReducedMaybe n -- paginatedPokemonSpeciesSummaryListCount :: Maybe Int
+    <$> arbitrary -- paginatedPokemonSpeciesSummaryListCount :: Int
     <*> arbitraryReducedMaybe n -- paginatedPokemonSpeciesSummaryListNext :: Maybe Text
     <*> arbitraryReducedMaybe n -- paginatedPokemonSpeciesSummaryListPrevious :: Maybe Text
-    <*> arbitraryReducedMaybe n -- paginatedPokemonSpeciesSummaryListResults :: Maybe [PokemonSpeciesSummary]
+    <*> arbitraryReduced n -- paginatedPokemonSpeciesSummaryListResults :: [PokemonSpeciesSummary]
   
 instance Arbitrary PaginatedPokemonSummaryList where
   arbitrary = sized genPaginatedPokemonSummaryList
@@ -2042,10 +2052,10 @@ instance Arbitrary PaginatedPokemonSummaryList where
 genPaginatedPokemonSummaryList :: Int -> Gen PaginatedPokemonSummaryList
 genPaginatedPokemonSummaryList n =
   PaginatedPokemonSummaryList
-    <$> arbitraryReducedMaybe n -- paginatedPokemonSummaryListCount :: Maybe Int
+    <$> arbitrary -- paginatedPokemonSummaryListCount :: Int
     <*> arbitraryReducedMaybe n -- paginatedPokemonSummaryListNext :: Maybe Text
     <*> arbitraryReducedMaybe n -- paginatedPokemonSummaryListPrevious :: Maybe Text
-    <*> arbitraryReducedMaybe n -- paginatedPokemonSummaryListResults :: Maybe [PokemonSummary]
+    <*> arbitraryReduced n -- paginatedPokemonSummaryListResults :: [PokemonSummary]
   
 instance Arbitrary PaginatedRegionSummaryList where
   arbitrary = sized genPaginatedRegionSummaryList
@@ -2053,10 +2063,10 @@ instance Arbitrary PaginatedRegionSummaryList where
 genPaginatedRegionSummaryList :: Int -> Gen PaginatedRegionSummaryList
 genPaginatedRegionSummaryList n =
   PaginatedRegionSummaryList
-    <$> arbitraryReducedMaybe n -- paginatedRegionSummaryListCount :: Maybe Int
+    <$> arbitrary -- paginatedRegionSummaryListCount :: Int
     <*> arbitraryReducedMaybe n -- paginatedRegionSummaryListNext :: Maybe Text
     <*> arbitraryReducedMaybe n -- paginatedRegionSummaryListPrevious :: Maybe Text
-    <*> arbitraryReducedMaybe n -- paginatedRegionSummaryListResults :: Maybe [RegionSummary]
+    <*> arbitraryReduced n -- paginatedRegionSummaryListResults :: [RegionSummary]
   
 instance Arbitrary PaginatedStatSummaryList where
   arbitrary = sized genPaginatedStatSummaryList
@@ -2064,10 +2074,10 @@ instance Arbitrary PaginatedStatSummaryList where
 genPaginatedStatSummaryList :: Int -> Gen PaginatedStatSummaryList
 genPaginatedStatSummaryList n =
   PaginatedStatSummaryList
-    <$> arbitraryReducedMaybe n -- paginatedStatSummaryListCount :: Maybe Int
+    <$> arbitrary -- paginatedStatSummaryListCount :: Int
     <*> arbitraryReducedMaybe n -- paginatedStatSummaryListNext :: Maybe Text
     <*> arbitraryReducedMaybe n -- paginatedStatSummaryListPrevious :: Maybe Text
-    <*> arbitraryReducedMaybe n -- paginatedStatSummaryListResults :: Maybe [StatSummary]
+    <*> arbitraryReduced n -- paginatedStatSummaryListResults :: [StatSummary]
   
 instance Arbitrary PaginatedSuperContestEffectSummaryList where
   arbitrary = sized genPaginatedSuperContestEffectSummaryList
@@ -2075,10 +2085,10 @@ instance Arbitrary PaginatedSuperContestEffectSummaryList where
 genPaginatedSuperContestEffectSummaryList :: Int -> Gen PaginatedSuperContestEffectSummaryList
 genPaginatedSuperContestEffectSummaryList n =
   PaginatedSuperContestEffectSummaryList
-    <$> arbitraryReducedMaybe n -- paginatedSuperContestEffectSummaryListCount :: Maybe Int
+    <$> arbitrary -- paginatedSuperContestEffectSummaryListCount :: Int
     <*> arbitraryReducedMaybe n -- paginatedSuperContestEffectSummaryListNext :: Maybe Text
     <*> arbitraryReducedMaybe n -- paginatedSuperContestEffectSummaryListPrevious :: Maybe Text
-    <*> arbitraryReducedMaybe n -- paginatedSuperContestEffectSummaryListResults :: Maybe [SuperContestEffectSummary]
+    <*> arbitraryReduced n -- paginatedSuperContestEffectSummaryListResults :: [SuperContestEffectSummary]
   
 instance Arbitrary PaginatedTypeSummaryList where
   arbitrary = sized genPaginatedTypeSummaryList
@@ -2086,10 +2096,10 @@ instance Arbitrary PaginatedTypeSummaryList where
 genPaginatedTypeSummaryList :: Int -> Gen PaginatedTypeSummaryList
 genPaginatedTypeSummaryList n =
   PaginatedTypeSummaryList
-    <$> arbitraryReducedMaybe n -- paginatedTypeSummaryListCount :: Maybe Int
+    <$> arbitrary -- paginatedTypeSummaryListCount :: Int
     <*> arbitraryReducedMaybe n -- paginatedTypeSummaryListNext :: Maybe Text
     <*> arbitraryReducedMaybe n -- paginatedTypeSummaryListPrevious :: Maybe Text
-    <*> arbitraryReducedMaybe n -- paginatedTypeSummaryListResults :: Maybe [TypeSummary]
+    <*> arbitraryReduced n -- paginatedTypeSummaryListResults :: [TypeSummary]
   
 instance Arbitrary PaginatedVersionGroupSummaryList where
   arbitrary = sized genPaginatedVersionGroupSummaryList
@@ -2097,10 +2107,10 @@ instance Arbitrary PaginatedVersionGroupSummaryList where
 genPaginatedVersionGroupSummaryList :: Int -> Gen PaginatedVersionGroupSummaryList
 genPaginatedVersionGroupSummaryList n =
   PaginatedVersionGroupSummaryList
-    <$> arbitraryReducedMaybe n -- paginatedVersionGroupSummaryListCount :: Maybe Int
+    <$> arbitrary -- paginatedVersionGroupSummaryListCount :: Int
     <*> arbitraryReducedMaybe n -- paginatedVersionGroupSummaryListNext :: Maybe Text
     <*> arbitraryReducedMaybe n -- paginatedVersionGroupSummaryListPrevious :: Maybe Text
-    <*> arbitraryReducedMaybe n -- paginatedVersionGroupSummaryListResults :: Maybe [VersionGroupSummary]
+    <*> arbitraryReduced n -- paginatedVersionGroupSummaryListResults :: [VersionGroupSummary]
   
 instance Arbitrary PaginatedVersionSummaryList where
   arbitrary = sized genPaginatedVersionSummaryList
@@ -2108,10 +2118,10 @@ instance Arbitrary PaginatedVersionSummaryList where
 genPaginatedVersionSummaryList :: Int -> Gen PaginatedVersionSummaryList
 genPaginatedVersionSummaryList n =
   PaginatedVersionSummaryList
-    <$> arbitraryReducedMaybe n -- paginatedVersionSummaryListCount :: Maybe Int
+    <$> arbitrary -- paginatedVersionSummaryListCount :: Int
     <*> arbitraryReducedMaybe n -- paginatedVersionSummaryListNext :: Maybe Text
     <*> arbitraryReducedMaybe n -- paginatedVersionSummaryListPrevious :: Maybe Text
-    <*> arbitraryReducedMaybe n -- paginatedVersionSummaryListResults :: Maybe [VersionSummary]
+    <*> arbitraryReduced n -- paginatedVersionSummaryListResults :: [VersionSummary]
   
 instance Arbitrary PalParkAreaDetail where
   arbitrary = sized genPalParkAreaDetail
@@ -2122,17 +2132,7 @@ genPalParkAreaDetail n =
     <$> arbitrary -- palParkAreaDetailId :: Int
     <*> arbitrary -- palParkAreaDetailName :: Text
     <*> arbitraryReduced n -- palParkAreaDetailNames :: [PalParkAreaName]
-    <*> arbitraryReduced n -- palParkAreaDetailPokemonEncounters :: [PalParkAreaDetailPokemonEncountersInner]
-  
-instance Arbitrary PalParkAreaDetailPokemonEncountersInner where
-  arbitrary = sized genPalParkAreaDetailPokemonEncountersInner
-
-genPalParkAreaDetailPokemonEncountersInner :: Int -> Gen PalParkAreaDetailPokemonEncountersInner
-genPalParkAreaDetailPokemonEncountersInner n =
-  PalParkAreaDetailPokemonEncountersInner
-    <$> arbitrary -- palParkAreaDetailPokemonEncountersInnerBaseScore :: Int
-    <*> arbitraryReduced n -- palParkAreaDetailPokemonEncountersInnerPokemonSpecies :: AbilityDetailPokemonInnerPokemon
-    <*> arbitrary -- palParkAreaDetailPokemonEncountersInnerRate :: Int
+    <*> arbitraryReduced n -- palParkAreaDetailPokemonEncounters :: [PalParkEncounter]
   
 instance Arbitrary PalParkAreaName where
   arbitrary = sized genPalParkAreaName
@@ -2152,6 +2152,44 @@ genPalParkAreaSummary n =
     <$> arbitrary -- palParkAreaSummaryName :: Text
     <*> arbitrary -- palParkAreaSummaryUrl :: Text
   
+instance Arbitrary PalParkEncounter where
+  arbitrary = sized genPalParkEncounter
+
+genPalParkEncounter :: Int -> Gen PalParkEncounter
+genPalParkEncounter n =
+  PalParkEncounter
+    <$> arbitraryReducedMaybe n -- palParkEncounterBaseScore :: Maybe Int
+    <*> arbitrary -- palParkEncounterRate :: Int
+    <*> arbitraryReduced n -- palParkEncounterPokemonSpecies :: PokemonSpeciesSummary
+  
+instance Arbitrary PokeapiMetaResponse where
+  arbitrary = sized genPokeapiMetaResponse
+
+genPokeapiMetaResponse :: Int -> Gen PokeapiMetaResponse
+genPokeapiMetaResponse n =
+  PokeapiMetaResponse
+    <$> arbitrary -- pokeapiMetaResponseDeployDate :: Text
+    <*> arbitrary -- pokeapiMetaResponseHash :: Text
+    <*> arbitrary -- pokeapiMetaResponseTag :: Text
+  
+instance Arbitrary PokeathlonStatAffectingNature where
+  arbitrary = sized genPokeathlonStatAffectingNature
+
+genPokeathlonStatAffectingNature :: Int -> Gen PokeathlonStatAffectingNature
+genPokeathlonStatAffectingNature n =
+  PokeathlonStatAffectingNature
+    <$> arbitrary -- pokeathlonStatAffectingNatureMaxChange :: Int
+    <*> arbitraryReduced n -- pokeathlonStatAffectingNatureNature :: NatureSummary
+  
+instance Arbitrary PokeathlonStatAffectingNatures where
+  arbitrary = sized genPokeathlonStatAffectingNatures
+
+genPokeathlonStatAffectingNatures :: Int -> Gen PokeathlonStatAffectingNatures
+genPokeathlonStatAffectingNatures n =
+  PokeathlonStatAffectingNatures
+    <$> arbitraryReduced n -- pokeathlonStatAffectingNaturesIncrease :: [PokeathlonStatAffectingNature]
+    <*> arbitraryReduced n -- pokeathlonStatAffectingNaturesDecrease :: [PokeathlonStatAffectingNature]
+  
 instance Arbitrary PokeathlonStatDetail where
   arbitrary = sized genPokeathlonStatDetail
 
@@ -2160,35 +2198,8 @@ genPokeathlonStatDetail n =
   PokeathlonStatDetail
     <$> arbitrary -- pokeathlonStatDetailId :: Int
     <*> arbitrary -- pokeathlonStatDetailName :: Text
-    <*> arbitraryReduced n -- pokeathlonStatDetailAffectingNatures :: PokeathlonStatDetailAffectingNatures
+    <*> arbitraryReduced n -- pokeathlonStatDetailAffectingNatures :: PokeathlonStatAffectingNatures
     <*> arbitraryReduced n -- pokeathlonStatDetailNames :: [PokeathlonStatName]
-  
-instance Arbitrary PokeathlonStatDetailAffectingNatures where
-  arbitrary = sized genPokeathlonStatDetailAffectingNatures
-
-genPokeathlonStatDetailAffectingNatures :: Int -> Gen PokeathlonStatDetailAffectingNatures
-genPokeathlonStatDetailAffectingNatures n =
-  PokeathlonStatDetailAffectingNatures
-    <$> arbitraryReduced n -- pokeathlonStatDetailAffectingNaturesDecrease :: [PokeathlonStatDetailAffectingNaturesDecreaseInner]
-    <*> arbitraryReduced n -- pokeathlonStatDetailAffectingNaturesIncrease :: [PokeathlonStatDetailAffectingNaturesIncreaseInner]
-  
-instance Arbitrary PokeathlonStatDetailAffectingNaturesDecreaseInner where
-  arbitrary = sized genPokeathlonStatDetailAffectingNaturesDecreaseInner
-
-genPokeathlonStatDetailAffectingNaturesDecreaseInner :: Int -> Gen PokeathlonStatDetailAffectingNaturesDecreaseInner
-genPokeathlonStatDetailAffectingNaturesDecreaseInner n =
-  PokeathlonStatDetailAffectingNaturesDecreaseInner
-    <$> arbitrary -- pokeathlonStatDetailAffectingNaturesDecreaseInnerMaxChange :: Int
-    <*> arbitraryReduced n -- pokeathlonStatDetailAffectingNaturesDecreaseInnerNature :: AbilityDetailPokemonInnerPokemon
-  
-instance Arbitrary PokeathlonStatDetailAffectingNaturesIncreaseInner where
-  arbitrary = sized genPokeathlonStatDetailAffectingNaturesIncreaseInner
-
-genPokeathlonStatDetailAffectingNaturesIncreaseInner :: Int -> Gen PokeathlonStatDetailAffectingNaturesIncreaseInner
-genPokeathlonStatDetailAffectingNaturesIncreaseInner n =
-  PokeathlonStatDetailAffectingNaturesIncreaseInner
-    <$> arbitrary -- pokeathlonStatDetailAffectingNaturesIncreaseInnerMaxChange :: Int
-    <*> arbitraryReduced n -- pokeathlonStatDetailAffectingNaturesIncreaseInnerNature :: AbilityDetailPokemonInnerPokemon
   
 instance Arbitrary PokeathlonStatName where
   arbitrary = sized genPokeathlonStatName
@@ -2228,18 +2239,9 @@ genPokedexDetail n =
     <*> arbitraryReducedMaybe n -- pokedexDetailIsMainSeries :: Maybe Bool
     <*> arbitraryReduced n -- pokedexDetailDescriptions :: [PokedexDescription]
     <*> arbitraryReduced n -- pokedexDetailNames :: [PokedexName]
-    <*> arbitraryReduced n -- pokedexDetailPokemonEntries :: [PokedexDetailPokemonEntriesInner]
+    <*> arbitraryReduced n -- pokedexDetailPokemonEntries :: [PokemonDexNumber]
     <*> arbitraryReduced n -- pokedexDetailRegion :: RegionSummary
-    <*> arbitraryReduced n -- pokedexDetailVersionGroups :: [AbilityDetailPokemonInnerPokemon]
-  
-instance Arbitrary PokedexDetailPokemonEntriesInner where
-  arbitrary = sized genPokedexDetailPokemonEntriesInner
-
-genPokedexDetailPokemonEntriesInner :: Int -> Gen PokedexDetailPokemonEntriesInner
-genPokedexDetailPokemonEntriesInner n =
-  PokedexDetailPokemonEntriesInner
-    <$> arbitrary -- pokedexDetailPokemonEntriesInnerEntryNumber :: Int
-    <*> arbitraryReduced n -- pokedexDetailPokemonEntriesInnerPokemonSpecies :: AbilityDetailPokemonInnerPokemon
+    <*> arbitraryReduced n -- pokedexDetailVersionGroups :: [VersionGroupSummary]
   
 instance Arbitrary PokedexName where
   arbitrary = sized genPokedexName
@@ -2258,6 +2260,26 @@ genPokedexSummary n =
   PokedexSummary
     <$> arbitrary -- pokedexSummaryName :: Text
     <*> arbitrary -- pokedexSummaryUrl :: Text
+  
+instance Arbitrary PokemonAbility where
+  arbitrary = sized genPokemonAbility
+
+genPokemonAbility :: Int -> Gen PokemonAbility
+genPokemonAbility n =
+  PokemonAbility
+    <$> arbitraryReducedMaybe n -- pokemonAbilityIsHidden :: Maybe Bool
+    <*> arbitrary -- pokemonAbilitySlot :: Int
+    <*> arbitraryReduced n -- pokemonAbilityAbility :: AbilitySummary
+  
+instance Arbitrary PokemonAbilityPast where
+  arbitrary = sized genPokemonAbilityPast
+
+genPokemonAbilityPast :: Int -> Gen PokemonAbilityPast
+genPokemonAbilityPast n =
+  PokemonAbilityPast
+    <$> arbitraryReducedMaybe n -- pokemonAbilityPastIsHidden :: Maybe Bool
+    <*> arbitrary -- pokemonAbilityPastSlot :: Int
+    <*> arbitraryReduced n -- pokemonAbilityPastAbility :: AbilitySummary
   
 instance Arbitrary PokemonColorDetail where
   arbitrary = sized genPokemonColorDetail
@@ -2288,6 +2310,15 @@ genPokemonColorSummary n =
     <$> arbitrary -- pokemonColorSummaryName :: Text
     <*> arbitrary -- pokemonColorSummaryUrl :: Text
   
+instance Arbitrary PokemonCries where
+  arbitrary = sized genPokemonCries
+
+genPokemonCries :: Int -> Gen PokemonCries
+genPokemonCries n =
+  PokemonCries
+    <$> arbitrary -- pokemonCriesLatest :: Text
+    <*> arbitrary -- pokemonCriesLegacy :: Text
+  
 instance Arbitrary PokemonDetail where
   arbitrary = sized genPokemonDetail
 
@@ -2301,101 +2332,20 @@ genPokemonDetail n =
     <*> arbitraryReducedMaybe n -- pokemonDetailIsDefault :: Maybe Bool
     <*> arbitraryReducedMaybe n -- pokemonDetailOrder :: Maybe Int
     <*> arbitraryReducedMaybe n -- pokemonDetailWeight :: Maybe Int
-    <*> arbitraryReduced n -- pokemonDetailAbilities :: [PokemonDetailAbilitiesInner]
-    <*> arbitraryReduced n -- pokemonDetailPastAbilities :: [PokemonDetailPastAbilitiesInner]
+    <*> arbitraryReduced n -- pokemonDetailAbilities :: [PokemonAbility]
+    <*> arbitraryReduced n -- pokemonDetailPastAbilities :: [PokemonPastAbility]
     <*> arbitraryReduced n -- pokemonDetailForms :: [PokemonFormSummary]
     <*> arbitraryReduced n -- pokemonDetailGameIndices :: [PokemonGameIndex]
-    <*> arbitraryReduced n -- pokemonDetailHeldItems :: PokemonDetailHeldItems
+    <*> arbitraryReduced n -- pokemonDetailHeldItems :: [PokemonHeldItemSummary]
     <*> arbitrary -- pokemonDetailLocationAreaEncounters :: Text
-    <*> arbitraryReduced n -- pokemonDetailMoves :: [PokemonDetailMovesInner]
+    <*> arbitraryReduced n -- pokemonDetailMoves :: [PokemonMove]
     <*> arbitraryReduced n -- pokemonDetailSpecies :: PokemonSpeciesSummary
-    <*> arbitraryReduced n -- pokemonDetailSprites :: PokemonDetailSprites
-    <*> arbitraryReduced n -- pokemonDetailCries :: PokemonDetailCries
+    <*> arbitraryReduced n -- pokemonDetailSprites :: PokemonSprites
+    <*> arbitraryReduced n -- pokemonDetailCries :: PokemonCries
     <*> arbitraryReduced n -- pokemonDetailStats :: [PokemonStat]
-    <*> arbitraryReduced n -- pokemonDetailTypes :: [PokemonDetailTypesInner]
-    <*> arbitraryReduced n -- pokemonDetailPastTypes :: [PokemonDetailPastTypesInner]
-  
-instance Arbitrary PokemonDetailAbilitiesInner where
-  arbitrary = sized genPokemonDetailAbilitiesInner
-
-genPokemonDetailAbilitiesInner :: Int -> Gen PokemonDetailAbilitiesInner
-genPokemonDetailAbilitiesInner n =
-  PokemonDetailAbilitiesInner
-    <$> arbitraryReduced n -- pokemonDetailAbilitiesInnerAbility :: AbilityDetailPokemonInnerPokemon
-    <*> arbitrary -- pokemonDetailAbilitiesInnerIsHidden :: Bool
-    <*> arbitrary -- pokemonDetailAbilitiesInnerSlot :: Int
-  
-instance Arbitrary PokemonDetailCries where
-  arbitrary = sized genPokemonDetailCries
-
-genPokemonDetailCries :: Int -> Gen PokemonDetailCries
-genPokemonDetailCries n =
-  PokemonDetailCries
-    <$> arbitrary -- pokemonDetailCriesLatest :: Text
-    <*> arbitrary -- pokemonDetailCriesLegacy :: Text
-  
-instance Arbitrary PokemonDetailHeldItems where
-  arbitrary = sized genPokemonDetailHeldItems
-
-genPokemonDetailHeldItems :: Int -> Gen PokemonDetailHeldItems
-genPokemonDetailHeldItems n =
-  PokemonDetailHeldItems
-    <$> arbitraryReduced n -- pokemonDetailHeldItemsItem :: AbilityDetailPokemonInnerPokemon
-    <*> arbitraryReduced n -- pokemonDetailHeldItemsVersionDetails :: [ItemDetailHeldByPokemonInnerVersionDetailsInner]
-  
-instance Arbitrary PokemonDetailMovesInner where
-  arbitrary = sized genPokemonDetailMovesInner
-
-genPokemonDetailMovesInner :: Int -> Gen PokemonDetailMovesInner
-genPokemonDetailMovesInner n =
-  PokemonDetailMovesInner
-    <$> arbitraryReduced n -- pokemonDetailMovesInnerMove :: AbilityDetailPokemonInnerPokemon
-    <*> arbitraryReduced n -- pokemonDetailMovesInnerVersionGroupDetails :: [PokemonDetailMovesInnerVersionGroupDetailsInner]
-  
-instance Arbitrary PokemonDetailMovesInnerVersionGroupDetailsInner where
-  arbitrary = sized genPokemonDetailMovesInnerVersionGroupDetailsInner
-
-genPokemonDetailMovesInnerVersionGroupDetailsInner :: Int -> Gen PokemonDetailMovesInnerVersionGroupDetailsInner
-genPokemonDetailMovesInnerVersionGroupDetailsInner n =
-  PokemonDetailMovesInnerVersionGroupDetailsInner
-    <$> arbitrary -- pokemonDetailMovesInnerVersionGroupDetailsInnerLevelLearnedAt :: Int
-    <*> arbitraryReduced n -- pokemonDetailMovesInnerVersionGroupDetailsInnerMoveLearnMethod :: AbilityDetailPokemonInnerPokemon
-    <*> arbitraryReduced n -- pokemonDetailMovesInnerVersionGroupDetailsInnerVersionGroup :: AbilityDetailPokemonInnerPokemon
-  
-instance Arbitrary PokemonDetailPastAbilitiesInner where
-  arbitrary = sized genPokemonDetailPastAbilitiesInner
-
-genPokemonDetailPastAbilitiesInner :: Int -> Gen PokemonDetailPastAbilitiesInner
-genPokemonDetailPastAbilitiesInner n =
-  PokemonDetailPastAbilitiesInner
-    <$> arbitraryReduced n -- pokemonDetailPastAbilitiesInnerAbilities :: [PokemonDetailAbilitiesInner]
-    <*> arbitraryReduced n -- pokemonDetailPastAbilitiesInnerGeneration :: AbilityDetailPokemonInnerPokemon
-  
-instance Arbitrary PokemonDetailPastTypesInner where
-  arbitrary = sized genPokemonDetailPastTypesInner
-
-genPokemonDetailPastTypesInner :: Int -> Gen PokemonDetailPastTypesInner
-genPokemonDetailPastTypesInner n =
-  PokemonDetailPastTypesInner
-    <$> arbitraryReduced n -- pokemonDetailPastTypesInnerGeneration :: AbilityDetailPokemonInnerPokemon
-    <*> arbitraryReduced n -- pokemonDetailPastTypesInnerTypes :: [PokemonDetailTypesInner]
-  
-instance Arbitrary PokemonDetailSprites where
-  arbitrary = sized genPokemonDetailSprites
-
-genPokemonDetailSprites :: Int -> Gen PokemonDetailSprites
-genPokemonDetailSprites n =
-  PokemonDetailSprites
-    <$> arbitraryReducedMaybe n -- pokemonDetailSpritesFrontDefault :: Maybe Text
-  
-instance Arbitrary PokemonDetailTypesInner where
-  arbitrary = sized genPokemonDetailTypesInner
-
-genPokemonDetailTypesInner :: Int -> Gen PokemonDetailTypesInner
-genPokemonDetailTypesInner n =
-  PokemonDetailTypesInner
-    <$> arbitrary -- pokemonDetailTypesInnerSlot :: Int
-    <*> arbitraryReduced n -- pokemonDetailTypesInnerType :: AbilityDetailPokemonInnerPokemon
+    <*> arbitraryReduced n -- pokemonDetailPastStats :: [PokemonPastStat]
+    <*> arbitraryReduced n -- pokemonDetailTypes :: [PokemonType]
+    <*> arbitraryReduced n -- pokemonDetailPastTypes :: [PokemonPastType]
   
 instance Arbitrary PokemonDexEntry where
   arbitrary = sized genPokemonDexEntry
@@ -2405,6 +2355,93 @@ genPokemonDexEntry n =
   PokemonDexEntry
     <$> arbitrary -- pokemonDexEntryEntryNumber :: Int
     <*> arbitraryReduced n -- pokemonDexEntryPokedex :: PokedexSummary
+  
+instance Arbitrary PokemonDexNumber where
+  arbitrary = sized genPokemonDexNumber
+
+genPokemonDexNumber :: Int -> Gen PokemonDexNumber
+genPokemonDexNumber n =
+  PokemonDexNumber
+    <$> arbitrary -- pokemonDexNumberEntryNumber :: Int
+    <*> arbitraryReduced n -- pokemonDexNumberPokemonSpecies :: PokemonSpeciesSummary
+  
+instance Arbitrary PokemonEncounterDetailResponse where
+  arbitrary = sized genPokemonEncounterDetailResponse
+
+genPokemonEncounterDetailResponse :: Int -> Gen PokemonEncounterDetailResponse
+genPokemonEncounterDetailResponse n =
+  PokemonEncounterDetailResponse
+    <$> arbitrary -- pokemonEncounterDetailResponseChance :: Int
+    <*> arbitraryReduced n -- pokemonEncounterDetailResponseConditionValues :: [EncounterConditionValueSummary]
+    <*> arbitrary -- pokemonEncounterDetailResponseMaxLevel :: Int
+    <*> arbitraryReduced n -- pokemonEncounterDetailResponseMethod :: EncounterMethodSummary
+    <*> arbitrary -- pokemonEncounterDetailResponseMinLevel :: Int
+  
+instance Arbitrary PokemonEncounterResponse where
+  arbitrary = sized genPokemonEncounterResponse
+
+genPokemonEncounterResponse :: Int -> Gen PokemonEncounterResponse
+genPokemonEncounterResponse n =
+  PokemonEncounterResponse
+    <$> arbitraryReduced n -- pokemonEncounterResponseLocationArea :: LocationAreaSummary
+    <*> arbitraryReduced n -- pokemonEncounterResponseVersionDetails :: [PokemonEncounterVersionDetailResponse]
+  
+instance Arbitrary PokemonEncounterVersionDetailResponse where
+  arbitrary = sized genPokemonEncounterVersionDetailResponse
+
+genPokemonEncounterVersionDetailResponse :: Int -> Gen PokemonEncounterVersionDetailResponse
+genPokemonEncounterVersionDetailResponse n =
+  PokemonEncounterVersionDetailResponse
+    <$> arbitraryReduced n -- pokemonEncounterVersionDetailResponseVersion :: VersionSummary
+    <*> arbitrary -- pokemonEncounterVersionDetailResponseMaxChance :: Int
+    <*> arbitraryReduced n -- pokemonEncounterVersionDetailResponseEncounterDetails :: [PokemonEncounterDetailResponse]
+  
+instance Arbitrary PokemonEvolution where
+  arbitrary = sized genPokemonEvolution
+
+genPokemonEvolution :: Int -> Gen PokemonEvolution
+genPokemonEvolution n =
+  PokemonEvolution
+    <$> arbitraryReduced n -- pokemonEvolutionVersionGroup :: VersionGroupSummary
+    <*> arbitraryReducedMaybe n -- pokemonEvolutionIsDefault :: Maybe Bool
+    <*> arbitraryReduced n -- pokemonEvolutionItem :: ItemSummary
+    <*> arbitraryReduced n -- pokemonEvolutionTrigger :: EvolutionTriggerSummary
+    <*> arbitraryReducedMaybe n -- pokemonEvolutionGender :: Maybe Int
+    <*> arbitraryReduced n -- pokemonEvolutionHeldItem :: ItemSummary
+    <*> arbitraryReduced n -- pokemonEvolutionKnownMove :: PokemonEvolutionKnownMove
+    <*> arbitraryReduced n -- pokemonEvolutionKnownMoveType :: PokemonEvolutionKnownMove
+    <*> arbitraryReduced n -- pokemonEvolutionLocation :: LocationSummary
+    <*> arbitraryReducedMaybe n -- pokemonEvolutionMinLevel :: Maybe Int
+    <*> arbitraryReducedMaybe n -- pokemonEvolutionMinHappiness :: Maybe Int
+    <*> arbitraryReducedMaybe n -- pokemonEvolutionMinBeauty :: Maybe Int
+    <*> arbitraryReducedMaybe n -- pokemonEvolutionMinAffection :: Maybe Int
+    <*> arbitraryReducedMaybe n -- pokemonEvolutionNearSpecialRock :: Maybe Bool
+    <*> arbitraryReducedMaybe n -- pokemonEvolutionNeedsMultiplayer :: Maybe Bool
+    <*> arbitraryReducedMaybe n -- pokemonEvolutionNeedsOverworldRain :: Maybe Bool
+    <*> arbitraryReduced n -- pokemonEvolutionPartySpecies :: PokemonSpeciesSummary
+    <*> arbitraryReduced n -- pokemonEvolutionPartyType :: TypeSummary
+    <*> arbitraryReducedMaybe n -- pokemonEvolutionRelativePhysicalStats :: Maybe Int
+    <*> arbitraryReducedMaybe n -- pokemonEvolutionTimeOfDay :: Maybe Text
+    <*> arbitraryReduced n -- pokemonEvolutionTradeSpecies :: PokemonSpeciesSummary
+    <*> arbitraryReducedMaybe n -- pokemonEvolutionTurnUpsideDown :: Maybe Bool
+    <*> arbitraryReduced n -- pokemonEvolutionRegion :: RegionSummary
+    <*> arbitraryReduced n -- pokemonEvolutionRequiredPokemonForm :: PokemonFormSummary
+    <*> arbitraryReduced n -- pokemonEvolutionEvolvedPokemonForm :: PokemonFormSummary
+    <*> arbitraryReduced n -- pokemonEvolutionUsedMove :: MoveSummary
+    <*> arbitraryReducedMaybe n -- pokemonEvolutionMinMoveCount :: Maybe Int
+    <*> arbitraryReducedMaybe n -- pokemonEvolutionMinSteps :: Maybe Int
+    <*> arbitraryReducedMaybe n -- pokemonEvolutionMinDamageTaken :: Maybe Int
+    <*> arbitraryReduced n -- pokemonEvolutionAllowedNatures :: [NatureSummary]
+    <*> arbitraryReduced n -- pokemonEvolutionConditionExpression :: EvolutionConditionExpression
+  
+instance Arbitrary PokemonEvolutionKnownMove where
+  arbitrary = sized genPokemonEvolutionKnownMove
+
+genPokemonEvolutionKnownMove :: Int -> Gen PokemonEvolutionKnownMove
+genPokemonEvolutionKnownMove n =
+  PokemonEvolutionKnownMove
+    <$> arbitrary -- pokemonEvolutionKnownMoveName :: Text
+    <*> arbitrary -- pokemonEvolutionKnownMoveUrl :: Text
   
 instance Arbitrary PokemonFormDetail where
   arbitrary = sized genPokemonFormDetail
@@ -2421,28 +2458,49 @@ genPokemonFormDetail n =
     <*> arbitraryReducedMaybe n -- pokemonFormDetailIsMega :: Maybe Bool
     <*> arbitrary -- pokemonFormDetailFormName :: Text
     <*> arbitraryReduced n -- pokemonFormDetailPokemon :: PokemonSummary
-    <*> arbitraryReduced n -- pokemonFormDetailSprites :: PokemonFormDetailSprites
+    <*> arbitraryReduced n -- pokemonFormDetailSprites :: PokemonFormSprites
     <*> arbitraryReduced n -- pokemonFormDetailVersionGroup :: VersionGroupSummary
-    <*> arbitraryReduced n -- pokemonFormDetailFormNames :: [PokemonFormDetailFormNamesInner]
-    <*> arbitraryReduced n -- pokemonFormDetailNames :: [PokemonFormDetailFormNamesInner]
-    <*> arbitraryReduced n -- pokemonFormDetailTypes :: [PokemonDetailTypesInner]
+    <*> arbitraryReduced n -- pokemonFormDetailFormNames :: [PokemonFormName]
+    <*> arbitraryReduced n -- pokemonFormDetailNames :: [PokemonFormName]
+    <*> arbitraryReduced n -- pokemonFormDetailTypes :: [PokemonFormType]
+    <*> arbitraryReduced n -- pokemonFormDetailTriggerConditions :: [PokemonFormTriggerCondition]
+    <*> arbitraryReduced n -- pokemonFormDetailFlavorTextEntries :: [PokemonFormFlavorText]
   
-instance Arbitrary PokemonFormDetailFormNamesInner where
-  arbitrary = sized genPokemonFormDetailFormNamesInner
+instance Arbitrary PokemonFormFlavorText where
+  arbitrary = sized genPokemonFormFlavorText
 
-genPokemonFormDetailFormNamesInner :: Int -> Gen PokemonFormDetailFormNamesInner
-genPokemonFormDetailFormNamesInner n =
-  PokemonFormDetailFormNamesInner
-    <$> arbitraryReduced n -- pokemonFormDetailFormNamesInnerLanguage :: AbilityDetailPokemonInnerPokemon
-    <*> arbitrary -- pokemonFormDetailFormNamesInnerName :: Text
+genPokemonFormFlavorText :: Int -> Gen PokemonFormFlavorText
+genPokemonFormFlavorText n =
+  PokemonFormFlavorText
+    <$> arbitrary -- pokemonFormFlavorTextFlavorText :: Text
+    <*> arbitraryReduced n -- pokemonFormFlavorTextLanguage :: LanguageSummary
+    <*> arbitraryReduced n -- pokemonFormFlavorTextVersion :: VersionSummary
   
-instance Arbitrary PokemonFormDetailSprites where
-  arbitrary = sized genPokemonFormDetailSprites
+instance Arbitrary PokemonFormName where
+  arbitrary = sized genPokemonFormName
 
-genPokemonFormDetailSprites :: Int -> Gen PokemonFormDetailSprites
-genPokemonFormDetailSprites n =
-  PokemonFormDetailSprites
-    <$> arbitraryReducedMaybe n -- pokemonFormDetailSpritesDefault :: Maybe Text
+genPokemonFormName :: Int -> Gen PokemonFormName
+genPokemonFormName n =
+  PokemonFormName
+    <$> arbitrary -- pokemonFormNameName :: Text
+    <*> arbitraryReduced n -- pokemonFormNameLanguage :: LanguageSummary
+  
+instance Arbitrary PokemonFormSprites where
+  arbitrary = sized genPokemonFormSprites
+
+genPokemonFormSprites :: Int -> Gen PokemonFormSprites
+genPokemonFormSprites n =
+  PokemonFormSprites
+    <$> arbitrary -- pokemonFormSpritesFrontDefault :: Text
+    <*> arbitrary -- pokemonFormSpritesFrontShiny :: Text
+    <*> arbitrary -- pokemonFormSpritesFrontFemale :: Text
+    <*> arbitrary -- pokemonFormSpritesFrontShinyFemale :: Text
+    <*> arbitrary -- pokemonFormSpritesBackDefault :: Text
+    <*> arbitrary -- pokemonFormSpritesBackShiny :: Text
+    <*> arbitrary -- pokemonFormSpritesBackFemale :: Text
+    <*> arbitrary -- pokemonFormSpritesBackShinyFemale :: Text
+    <*> arbitraryReducedMaybe n -- pokemonFormSpritesOther :: Maybe PokemonSpritesOther
+    <*> arbitraryReducedMaybe n -- pokemonFormSpritesVersions :: Maybe (Map.Map String (Map.Map String AnyType))
   
 instance Arbitrary PokemonFormSummary where
   arbitrary = sized genPokemonFormSummary
@@ -2452,6 +2510,26 @@ genPokemonFormSummary n =
   PokemonFormSummary
     <$> arbitrary -- pokemonFormSummaryName :: Text
     <*> arbitrary -- pokemonFormSummaryUrl :: Text
+  
+instance Arbitrary PokemonFormTriggerCondition where
+  arbitrary = sized genPokemonFormTriggerCondition
+
+genPokemonFormTriggerCondition :: Int -> Gen PokemonFormTriggerCondition
+genPokemonFormTriggerCondition n =
+  PokemonFormTriggerCondition
+    <$> arbitrary -- pokemonFormTriggerConditionTrigger :: Text
+    <*> arbitraryReducedMaybe n -- pokemonFormTriggerConditionName :: Maybe Text
+    <*> arbitraryReducedMaybe n -- pokemonFormTriggerConditionUrl :: Maybe Text
+    <*> arbitraryReducedMaybe n -- pokemonFormTriggerConditionBaseForm :: Maybe PokemonFormSummary
+  
+instance Arbitrary PokemonFormType where
+  arbitrary = sized genPokemonFormType
+
+genPokemonFormType :: Int -> Gen PokemonFormType
+genPokemonFormType n =
+  PokemonFormType
+    <$> arbitrary -- pokemonFormTypeSlot :: Int
+    <*> arbitraryReduced n -- pokemonFormTypeType :: TypeSummary
   
 instance Arbitrary PokemonGameIndex where
   arbitrary = sized genPokemonGameIndex
@@ -2491,6 +2569,89 @@ genPokemonHabitatSummary n =
     <$> arbitrary -- pokemonHabitatSummaryName :: Text
     <*> arbitrary -- pokemonHabitatSummaryUrl :: Text
   
+instance Arbitrary PokemonHeldItem where
+  arbitrary = sized genPokemonHeldItem
+
+genPokemonHeldItem :: Int -> Gen PokemonHeldItem
+genPokemonHeldItem n =
+  PokemonHeldItem
+    <$> arbitraryReduced n -- pokemonHeldItemPokemon :: PokemonSummary
+    <*> arbitraryReduced n -- pokemonHeldItemVersionDetails :: [PokemonHeldItemVersion]
+  
+instance Arbitrary PokemonHeldItemSummary where
+  arbitrary = sized genPokemonHeldItemSummary
+
+genPokemonHeldItemSummary :: Int -> Gen PokemonHeldItemSummary
+genPokemonHeldItemSummary n =
+  PokemonHeldItemSummary
+    <$> arbitraryReduced n -- pokemonHeldItemSummaryItem :: ItemSummary
+    <*> arbitraryReduced n -- pokemonHeldItemSummaryVersionDetails :: [PokemonHeldItemVersion]
+  
+instance Arbitrary PokemonHeldItemVersion where
+  arbitrary = sized genPokemonHeldItemVersion
+
+genPokemonHeldItemVersion :: Int -> Gen PokemonHeldItemVersion
+genPokemonHeldItemVersion n =
+  PokemonHeldItemVersion
+    <$> arbitrary -- pokemonHeldItemVersionRarity :: Int
+    <*> arbitraryReduced n -- pokemonHeldItemVersionVersion :: VersionSummary
+  
+instance Arbitrary PokemonMove where
+  arbitrary = sized genPokemonMove
+
+genPokemonMove :: Int -> Gen PokemonMove
+genPokemonMove n =
+  PokemonMove
+    <$> arbitraryReduced n -- pokemonMoveMove :: MoveSummary
+    <*> arbitraryReduced n -- pokemonMoveVersionGroupDetails :: [PokemonMoveVersionGroup]
+  
+instance Arbitrary PokemonMoveVersionGroup where
+  arbitrary = sized genPokemonMoveVersionGroup
+
+genPokemonMoveVersionGroup :: Int -> Gen PokemonMoveVersionGroup
+genPokemonMoveVersionGroup n =
+  PokemonMoveVersionGroup
+    <$> arbitrary -- pokemonMoveVersionGroupLevelLearnedAt :: Int
+    <*> arbitraryReduced n -- pokemonMoveVersionGroupMoveLearnMethod :: MoveLearnMethodSummary
+    <*> arbitraryReduced n -- pokemonMoveVersionGroupVersionGroup :: VersionGroupSummary
+    <*> arbitraryReducedMaybe n -- pokemonMoveVersionGroupOrder :: Maybe Int
+  
+instance Arbitrary PokemonPastAbility where
+  arbitrary = sized genPokemonPastAbility
+
+genPokemonPastAbility :: Int -> Gen PokemonPastAbility
+genPokemonPastAbility n =
+  PokemonPastAbility
+    <$> arbitraryReduced n -- pokemonPastAbilityAbilities :: [PokemonAbilityPast]
+    <*> arbitraryReduced n -- pokemonPastAbilityGeneration :: GenerationSummary
+  
+instance Arbitrary PokemonPastStat where
+  arbitrary = sized genPokemonPastStat
+
+genPokemonPastStat :: Int -> Gen PokemonPastStat
+genPokemonPastStat n =
+  PokemonPastStat
+    <$> arbitraryReduced n -- pokemonPastStatGeneration :: GenerationSummary
+    <*> arbitraryReduced n -- pokemonPastStatStats :: [PokemonStat]
+  
+instance Arbitrary PokemonPastType where
+  arbitrary = sized genPokemonPastType
+
+genPokemonPastType :: Int -> Gen PokemonPastType
+genPokemonPastType n =
+  PokemonPastType
+    <$> arbitraryReduced n -- pokemonPastTypeGeneration :: GenerationSummary
+    <*> arbitraryReduced n -- pokemonPastTypeTypes :: [PokemonType]
+  
+instance Arbitrary PokemonShapeAwesomeName where
+  arbitrary = sized genPokemonShapeAwesomeName
+
+genPokemonShapeAwesomeName :: Int -> Gen PokemonShapeAwesomeName
+genPokemonShapeAwesomeName n =
+  PokemonShapeAwesomeName
+    <$> arbitrary -- pokemonShapeAwesomeNameAwesomeName :: Text
+    <*> arbitraryReduced n -- pokemonShapeAwesomeNameLanguage :: LanguageSummary
+  
 instance Arbitrary PokemonShapeDetail where
   arbitrary = sized genPokemonShapeDetail
 
@@ -2499,27 +2660,18 @@ genPokemonShapeDetail n =
   PokemonShapeDetail
     <$> arbitrary -- pokemonShapeDetailId :: Int
     <*> arbitrary -- pokemonShapeDetailName :: Text
-    <*> arbitraryReduced n -- pokemonShapeDetailAwesomeNames :: [PokemonShapeDetailAwesomeNamesInner]
-    <*> arbitraryReduced n -- pokemonShapeDetailNames :: [PokemonShapeDetailNamesInner]
+    <*> arbitraryReduced n -- pokemonShapeDetailAwesomeNames :: [PokemonShapeAwesomeName]
+    <*> arbitraryReduced n -- pokemonShapeDetailNames :: [PokemonShapeName]
     <*> arbitraryReduced n -- pokemonShapeDetailPokemonSpecies :: [PokemonSpeciesSummary]
   
-instance Arbitrary PokemonShapeDetailAwesomeNamesInner where
-  arbitrary = sized genPokemonShapeDetailAwesomeNamesInner
+instance Arbitrary PokemonShapeName where
+  arbitrary = sized genPokemonShapeName
 
-genPokemonShapeDetailAwesomeNamesInner :: Int -> Gen PokemonShapeDetailAwesomeNamesInner
-genPokemonShapeDetailAwesomeNamesInner n =
-  PokemonShapeDetailAwesomeNamesInner
-    <$> arbitrary -- pokemonShapeDetailAwesomeNamesInnerAwesomeName :: Text
-    <*> arbitraryReduced n -- pokemonShapeDetailAwesomeNamesInnerLanguage :: AbilityDetailPokemonInnerPokemon
-  
-instance Arbitrary PokemonShapeDetailNamesInner where
-  arbitrary = sized genPokemonShapeDetailNamesInner
-
-genPokemonShapeDetailNamesInner :: Int -> Gen PokemonShapeDetailNamesInner
-genPokemonShapeDetailNamesInner n =
-  PokemonShapeDetailNamesInner
-    <$> arbitrary -- pokemonShapeDetailNamesInnerUrl :: Text
-    <*> arbitrary -- pokemonShapeDetailNamesInnerName :: Text
+genPokemonShapeName :: Int -> Gen PokemonShapeName
+genPokemonShapeName n =
+  PokemonShapeName
+    <$> arbitrary -- pokemonShapeNameName :: Text
+    <*> arbitraryReduced n -- pokemonShapeNameLanguage :: LanguageSummary
   
 instance Arbitrary PokemonShapeSummary where
   arbitrary = sized genPokemonShapeSummary
@@ -2559,47 +2711,19 @@ genPokemonSpeciesDetail n =
     <*> arbitraryReducedMaybe n -- pokemonSpeciesDetailFormsSwitchable :: Maybe Bool
     <*> arbitraryReduced n -- pokemonSpeciesDetailGrowthRate :: GrowthRateSummary
     <*> arbitraryReduced n -- pokemonSpeciesDetailPokedexNumbers :: [PokemonDexEntry]
-    <*> arbitraryReduced n -- pokemonSpeciesDetailEggGroups :: [AbilityDetailPokemonInnerPokemon]
+    <*> arbitraryReduced n -- pokemonSpeciesDetailEggGroups :: [EggGroupSummary]
     <*> arbitraryReduced n -- pokemonSpeciesDetailColor :: PokemonColorSummary
     <*> arbitraryReduced n -- pokemonSpeciesDetailShape :: PokemonShapeSummary
     <*> arbitraryReduced n -- pokemonSpeciesDetailEvolvesFromSpecies :: PokemonSpeciesSummary
     <*> arbitraryReduced n -- pokemonSpeciesDetailEvolutionChain :: EvolutionChainSummary
     <*> arbitraryReduced n -- pokemonSpeciesDetailHabitat :: PokemonHabitatSummary
     <*> arbitraryReduced n -- pokemonSpeciesDetailGeneration :: GenerationSummary
-    <*> arbitraryReduced n -- pokemonSpeciesDetailNames :: [PokemonFormDetailFormNamesInner]
-    <*> arbitraryReduced n -- pokemonSpeciesDetailPalParkEncounters :: [PokemonSpeciesDetailPalParkEncountersInner]
+    <*> arbitraryReduced n -- pokemonSpeciesDetailNames :: [PokemonSpeciesName]
+    <*> arbitraryReduced n -- pokemonSpeciesDetailPalParkEncounters :: [PokemonSpeciesPalParkEncounter]
     <*> arbitraryReduced n -- pokemonSpeciesDetailFormDescriptions :: [PokemonSpeciesDescription]
     <*> arbitraryReduced n -- pokemonSpeciesDetailFlavorTextEntries :: [PokemonSpeciesFlavorText]
-    <*> arbitraryReduced n -- pokemonSpeciesDetailGenera :: [PokemonSpeciesDetailGeneraInner]
-    <*> arbitraryReduced n -- pokemonSpeciesDetailVarieties :: [PokemonSpeciesDetailVarietiesInner]
-  
-instance Arbitrary PokemonSpeciesDetailGeneraInner where
-  arbitrary = sized genPokemonSpeciesDetailGeneraInner
-
-genPokemonSpeciesDetailGeneraInner :: Int -> Gen PokemonSpeciesDetailGeneraInner
-genPokemonSpeciesDetailGeneraInner n =
-  PokemonSpeciesDetailGeneraInner
-    <$> arbitrary -- pokemonSpeciesDetailGeneraInnerGenus :: Text
-    <*> arbitraryReduced n -- pokemonSpeciesDetailGeneraInnerLanguage :: AbilityDetailPokemonInnerPokemon
-  
-instance Arbitrary PokemonSpeciesDetailPalParkEncountersInner where
-  arbitrary = sized genPokemonSpeciesDetailPalParkEncountersInner
-
-genPokemonSpeciesDetailPalParkEncountersInner :: Int -> Gen PokemonSpeciesDetailPalParkEncountersInner
-genPokemonSpeciesDetailPalParkEncountersInner n =
-  PokemonSpeciesDetailPalParkEncountersInner
-    <$> arbitraryReduced n -- pokemonSpeciesDetailPalParkEncountersInnerArea :: AbilityDetailPokemonInnerPokemon
-    <*> arbitrary -- pokemonSpeciesDetailPalParkEncountersInnerBaseScore :: Int
-    <*> arbitrary -- pokemonSpeciesDetailPalParkEncountersInnerRate :: Int
-  
-instance Arbitrary PokemonSpeciesDetailVarietiesInner where
-  arbitrary = sized genPokemonSpeciesDetailVarietiesInner
-
-genPokemonSpeciesDetailVarietiesInner :: Int -> Gen PokemonSpeciesDetailVarietiesInner
-genPokemonSpeciesDetailVarietiesInner n =
-  PokemonSpeciesDetailVarietiesInner
-    <$> arbitrary -- pokemonSpeciesDetailVarietiesInnerIsDefault :: Bool
-    <*> arbitraryReduced n -- pokemonSpeciesDetailVarietiesInnerPokemon :: AbilityDetailPokemonInnerPokemon
+    <*> arbitraryReduced n -- pokemonSpeciesDetailGenera :: [PokemonSpeciesGenus]
+    <*> arbitraryReduced n -- pokemonSpeciesDetailVarieties :: [PokemonSpeciesVariety]
   
 instance Arbitrary PokemonSpeciesFlavorText where
   arbitrary = sized genPokemonSpeciesFlavorText
@@ -2611,6 +2735,34 @@ genPokemonSpeciesFlavorText n =
     <*> arbitraryReduced n -- pokemonSpeciesFlavorTextLanguage :: LanguageSummary
     <*> arbitraryReduced n -- pokemonSpeciesFlavorTextVersion :: VersionSummary
   
+instance Arbitrary PokemonSpeciesGenus where
+  arbitrary = sized genPokemonSpeciesGenus
+
+genPokemonSpeciesGenus :: Int -> Gen PokemonSpeciesGenus
+genPokemonSpeciesGenus n =
+  PokemonSpeciesGenus
+    <$> arbitrary -- pokemonSpeciesGenusGenus :: Text
+    <*> arbitraryReduced n -- pokemonSpeciesGenusLanguage :: LanguageSummary
+  
+instance Arbitrary PokemonSpeciesName where
+  arbitrary = sized genPokemonSpeciesName
+
+genPokemonSpeciesName :: Int -> Gen PokemonSpeciesName
+genPokemonSpeciesName n =
+  PokemonSpeciesName
+    <$> arbitrary -- pokemonSpeciesNameName :: Text
+    <*> arbitraryReduced n -- pokemonSpeciesNameLanguage :: LanguageSummary
+  
+instance Arbitrary PokemonSpeciesPalParkEncounter where
+  arbitrary = sized genPokemonSpeciesPalParkEncounter
+
+genPokemonSpeciesPalParkEncounter :: Int -> Gen PokemonSpeciesPalParkEncounter
+genPokemonSpeciesPalParkEncounter n =
+  PokemonSpeciesPalParkEncounter
+    <$> arbitraryReducedMaybe n -- pokemonSpeciesPalParkEncounterBaseScore :: Maybe Int
+    <*> arbitrary -- pokemonSpeciesPalParkEncounterRate :: Int
+    <*> arbitraryReduced n -- pokemonSpeciesPalParkEncounterArea :: PalParkAreaSummary
+  
 instance Arbitrary PokemonSpeciesSummary where
   arbitrary = sized genPokemonSpeciesSummary
 
@@ -2619,6 +2771,88 @@ genPokemonSpeciesSummary n =
   PokemonSpeciesSummary
     <$> arbitrary -- pokemonSpeciesSummaryName :: Text
     <*> arbitrary -- pokemonSpeciesSummaryUrl :: Text
+  
+instance Arbitrary PokemonSpeciesVariety where
+  arbitrary = sized genPokemonSpeciesVariety
+
+genPokemonSpeciesVariety :: Int -> Gen PokemonSpeciesVariety
+genPokemonSpeciesVariety n =
+  PokemonSpeciesVariety
+    <$> arbitrary -- pokemonSpeciesVarietyIsDefault :: Bool
+    <*> arbitraryReduced n -- pokemonSpeciesVarietyPokemon :: PokemonSummary
+  
+instance Arbitrary PokemonSprites where
+  arbitrary = sized genPokemonSprites
+
+genPokemonSprites :: Int -> Gen PokemonSprites
+genPokemonSprites n =
+  PokemonSprites
+    <$> arbitrary -- pokemonSpritesFrontDefault :: Text
+    <*> arbitrary -- pokemonSpritesFrontShiny :: Text
+    <*> arbitrary -- pokemonSpritesFrontFemale :: Text
+    <*> arbitrary -- pokemonSpritesFrontShinyFemale :: Text
+    <*> arbitrary -- pokemonSpritesBackDefault :: Text
+    <*> arbitrary -- pokemonSpritesBackShiny :: Text
+    <*> arbitrary -- pokemonSpritesBackFemale :: Text
+    <*> arbitrary -- pokemonSpritesBackShinyFemale :: Text
+    <*> arbitraryReducedMaybe n -- pokemonSpritesOther :: Maybe PokemonSpritesOther
+    <*> arbitraryReducedMaybe n -- pokemonSpritesVersions :: Maybe (Map.Map String (Map.Map String AnyType))
+  
+instance Arbitrary PokemonSpritesOther where
+  arbitrary = sized genPokemonSpritesOther
+
+genPokemonSpritesOther :: Int -> Gen PokemonSpritesOther
+genPokemonSpritesOther n =
+  PokemonSpritesOther
+    <$> arbitraryReducedMaybe n -- pokemonSpritesOtherDreamWorld :: Maybe PokemonSpritesOtherDreamWorld
+    <*> arbitraryReducedMaybe n -- pokemonSpritesOtherHome :: Maybe PokemonSpritesOtherHome
+    <*> arbitraryReducedMaybe n -- pokemonSpritesOtherShowdown :: Maybe PokemonSpritesOtherShowdown
+    <*> arbitraryReducedMaybe n -- pokemonSpritesOtherOfficialArtwork :: Maybe PokemonSpritesOtherOfficialArtwork
+  
+instance Arbitrary PokemonSpritesOtherDreamWorld where
+  arbitrary = sized genPokemonSpritesOtherDreamWorld
+
+genPokemonSpritesOtherDreamWorld :: Int -> Gen PokemonSpritesOtherDreamWorld
+genPokemonSpritesOtherDreamWorld n =
+  PokemonSpritesOtherDreamWorld
+    <$> arbitrary -- pokemonSpritesOtherDreamWorldFrontDefault :: Text
+    <*> arbitrary -- pokemonSpritesOtherDreamWorldFrontFemale :: Text
+  
+instance Arbitrary PokemonSpritesOtherHome where
+  arbitrary = sized genPokemonSpritesOtherHome
+
+genPokemonSpritesOtherHome :: Int -> Gen PokemonSpritesOtherHome
+genPokemonSpritesOtherHome n =
+  PokemonSpritesOtherHome
+    <$> arbitrary -- pokemonSpritesOtherHomeFrontDefault :: Text
+    <*> arbitrary -- pokemonSpritesOtherHomeFrontFemale :: Text
+    <*> arbitrary -- pokemonSpritesOtherHomeFrontShiny :: Text
+    <*> arbitrary -- pokemonSpritesOtherHomeFrontShinyFemale :: Text
+  
+instance Arbitrary PokemonSpritesOtherOfficialArtwork where
+  arbitrary = sized genPokemonSpritesOtherOfficialArtwork
+
+genPokemonSpritesOtherOfficialArtwork :: Int -> Gen PokemonSpritesOtherOfficialArtwork
+genPokemonSpritesOtherOfficialArtwork n =
+  PokemonSpritesOtherOfficialArtwork
+    <$> arbitrary -- pokemonSpritesOtherOfficialArtworkFrontDefault :: Text
+    <*> arbitrary -- pokemonSpritesOtherOfficialArtworkFrontShiny :: Text
+    <*> arbitraryReducedMaybe n -- pokemonSpritesOtherOfficialArtworkVersions :: Maybe (Map.Map String (Map.Map String AnyType))
+  
+instance Arbitrary PokemonSpritesOtherShowdown where
+  arbitrary = sized genPokemonSpritesOtherShowdown
+
+genPokemonSpritesOtherShowdown :: Int -> Gen PokemonSpritesOtherShowdown
+genPokemonSpritesOtherShowdown n =
+  PokemonSpritesOtherShowdown
+    <$> arbitrary -- pokemonSpritesOtherShowdownFrontDefault :: Text
+    <*> arbitrary -- pokemonSpritesOtherShowdownFrontFemale :: Text
+    <*> arbitrary -- pokemonSpritesOtherShowdownFrontShiny :: Text
+    <*> arbitrary -- pokemonSpritesOtherShowdownFrontShinyFemale :: Text
+    <*> arbitrary -- pokemonSpritesOtherShowdownBackDefault :: Text
+    <*> arbitrary -- pokemonSpritesOtherShowdownBackFemale :: Text
+    <*> arbitrary -- pokemonSpritesOtherShowdownBackShiny :: Text
+    <*> arbitrary -- pokemonSpritesOtherShowdownBackShinyFemale :: Text
   
 instance Arbitrary PokemonStat where
   arbitrary = sized genPokemonStat
@@ -2639,6 +2873,15 @@ genPokemonSummary n =
     <$> arbitrary -- pokemonSummaryName :: Text
     <*> arbitrary -- pokemonSummaryUrl :: Text
   
+instance Arbitrary PokemonType where
+  arbitrary = sized genPokemonType
+
+genPokemonType :: Int -> Gen PokemonType
+genPokemonType n =
+  PokemonType
+    <$> arbitrary -- pokemonTypeSlot :: Int
+    <*> arbitraryReduced n -- pokemonTypeType :: TypeSummary
+  
 instance Arbitrary RegionDetail where
   arbitrary = sized genRegionDetail
 
@@ -2651,7 +2894,7 @@ genRegionDetail n =
     <*> arbitraryReduced n -- regionDetailMainGeneration :: GenerationSummary
     <*> arbitraryReduced n -- regionDetailNames :: [RegionName]
     <*> arbitraryReduced n -- regionDetailPokedexes :: [PokedexSummary]
-    <*> arbitraryReduced n -- regionDetailVersionGroups :: [AbilityDetailPokemonInnerPokemon]
+    <*> arbitraryReduced n -- regionDetailVersionGroups :: [VersionGroupSummary]
   
 instance Arbitrary RegionName where
   arbitrary = sized genRegionName
@@ -2671,6 +2914,24 @@ genRegionSummary n =
     <$> arbitrary -- regionSummaryName :: Text
     <*> arbitrary -- regionSummaryUrl :: Text
   
+instance Arbitrary StatAffectingMoves where
+  arbitrary = sized genStatAffectingMoves
+
+genStatAffectingMoves :: Int -> Gen StatAffectingMoves
+genStatAffectingMoves n =
+  StatAffectingMoves
+    <$> arbitraryReduced n -- statAffectingMovesIncrease :: [MoveStatChange]
+    <*> arbitraryReduced n -- statAffectingMovesDecrease :: [MoveStatChange]
+  
+instance Arbitrary StatAffectingNatures where
+  arbitrary = sized genStatAffectingNatures
+
+genStatAffectingNatures :: Int -> Gen StatAffectingNatures
+genStatAffectingNatures n =
+  StatAffectingNatures
+    <$> arbitraryReduced n -- statAffectingNaturesIncrease :: [NatureSummary]
+    <*> arbitraryReduced n -- statAffectingNaturesDecrease :: [NatureSummary]
+  
 instance Arbitrary StatDetail where
   arbitrary = sized genStatDetail
 
@@ -2681,38 +2942,12 @@ genStatDetail n =
     <*> arbitrary -- statDetailName :: Text
     <*> arbitrary -- statDetailGameIndex :: Int
     <*> arbitraryReducedMaybe n -- statDetailIsBattleOnly :: Maybe Bool
-    <*> arbitraryReduced n -- statDetailAffectingMoves :: StatDetailAffectingMoves
-    <*> arbitraryReduced n -- statDetailAffectingNatures :: StatDetailAffectingNatures
+    <*> arbitraryReduced n -- statDetailAffectingMoves :: StatAffectingMoves
+    <*> arbitraryReduced n -- statDetailAffectingNatures :: StatAffectingNatures
+    <*> arbitraryReduced n -- statDetailAffectingItems :: [ItemSummary]
     <*> arbitraryReduced n -- statDetailCharacteristics :: [CharacteristicSummary]
     <*> arbitraryReduced n -- statDetailMoveDamageClass :: MoveDamageClassSummary
     <*> arbitraryReduced n -- statDetailNames :: [StatName]
-  
-instance Arbitrary StatDetailAffectingMoves where
-  arbitrary = sized genStatDetailAffectingMoves
-
-genStatDetailAffectingMoves :: Int -> Gen StatDetailAffectingMoves
-genStatDetailAffectingMoves n =
-  StatDetailAffectingMoves
-    <$> arbitraryReduced n -- statDetailAffectingMovesIncrease :: [StatDetailAffectingMovesIncreaseInner]
-    <*> arbitraryReduced n -- statDetailAffectingMovesDecrease :: [StatDetailAffectingMovesIncreaseInner]
-  
-instance Arbitrary StatDetailAffectingMovesIncreaseInner where
-  arbitrary = sized genStatDetailAffectingMovesIncreaseInner
-
-genStatDetailAffectingMovesIncreaseInner :: Int -> Gen StatDetailAffectingMovesIncreaseInner
-genStatDetailAffectingMovesIncreaseInner n =
-  StatDetailAffectingMovesIncreaseInner
-    <$> arbitrary -- statDetailAffectingMovesIncreaseInnerChange :: Int
-    <*> arbitraryReduced n -- statDetailAffectingMovesIncreaseInnerMove :: AbilityDetailPokemonInnerPokemon
-  
-instance Arbitrary StatDetailAffectingNatures where
-  arbitrary = sized genStatDetailAffectingNatures
-
-genStatDetailAffectingNatures :: Int -> Gen StatDetailAffectingNatures
-genStatDetailAffectingNatures n =
-  StatDetailAffectingNatures
-    <$> arbitraryReduced n -- statDetailAffectingNaturesIncrease :: [AbilityDetailPokemonInnerPokemon]
-    <*> arbitraryReduced n -- statDetailAffectingNaturesDecrease :: [AbilityDetailPokemonInnerPokemon]
   
 instance Arbitrary StatName where
   arbitrary = sized genStatName
@@ -2768,76 +3003,15 @@ genTypeDetail n =
   TypeDetail
     <$> arbitrary -- typeDetailId :: Int
     <*> arbitrary -- typeDetailName :: Text
-    <*> arbitraryReduced n -- typeDetailDamageRelations :: TypeDetailDamageRelations
-    <*> arbitraryReduced n -- typeDetailPastDamageRelations :: [TypeDetailPastDamageRelationsInner]
+    <*> arbitraryReduced n -- typeDetailDamageRelations :: TypeRelationships
+    <*> arbitraryReduced n -- typeDetailPastDamageRelations :: [TypePastRelationships]
     <*> arbitraryReduced n -- typeDetailGameIndices :: [TypeGameIndex]
     <*> arbitraryReduced n -- typeDetailGeneration :: GenerationSummary
     <*> arbitraryReduced n -- typeDetailMoveDamageClass :: MoveDamageClassSummary
-    <*> arbitraryReduced n -- typeDetailNames :: [AbilityName]
-    <*> arbitraryReduced n -- typeDetailPokemon :: [TypeDetailPokemonInner]
+    <*> arbitraryReduced n -- typeDetailNames :: [TypeName]
+    <*> arbitraryReduced n -- typeDetailPokemon :: [TypePokemon]
     <*> arbitraryReduced n -- typeDetailMoves :: [MoveSummary]
-    <*> arbitraryReduced n -- typeDetailSprites :: (Map.Map String (Map.Map String TypeDetailSpritesValueValue))
-  
-instance Arbitrary TypeDetailDamageRelations where
-  arbitrary = sized genTypeDetailDamageRelations
-
-genTypeDetailDamageRelations :: Int -> Gen TypeDetailDamageRelations
-genTypeDetailDamageRelations n =
-  TypeDetailDamageRelations
-    <$> arbitraryReduced n -- typeDetailDamageRelationsNoDamageTo :: [AbilityDetailPokemonInnerPokemon]
-    <*> arbitraryReduced n -- typeDetailDamageRelationsHalfDamageTo :: [AbilityDetailPokemonInnerPokemon]
-    <*> arbitraryReduced n -- typeDetailDamageRelationsDoubleDamageTo :: [AbilityDetailPokemonInnerPokemon]
-    <*> arbitraryReduced n -- typeDetailDamageRelationsNoDamageFrom :: [AbilityDetailPokemonInnerPokemon]
-    <*> arbitraryReduced n -- typeDetailDamageRelationsHalfDamageFrom :: [AbilityDetailPokemonInnerPokemon]
-    <*> arbitraryReduced n -- typeDetailDamageRelationsDoubleDamageFrom :: [AbilityDetailPokemonInnerPokemon]
-  
-instance Arbitrary TypeDetailPastDamageRelationsInner where
-  arbitrary = sized genTypeDetailPastDamageRelationsInner
-
-genTypeDetailPastDamageRelationsInner :: Int -> Gen TypeDetailPastDamageRelationsInner
-genTypeDetailPastDamageRelationsInner n =
-  TypeDetailPastDamageRelationsInner
-    <$> arbitraryReduced n -- typeDetailPastDamageRelationsInnerGeneration :: AbilityDetailPokemonInnerPokemon
-    <*> arbitraryReduced n -- typeDetailPastDamageRelationsInnerDamageRelations :: TypeDetailPastDamageRelationsInnerDamageRelations
-  
-instance Arbitrary TypeDetailPastDamageRelationsInnerDamageRelations where
-  arbitrary = sized genTypeDetailPastDamageRelationsInnerDamageRelations
-
-genTypeDetailPastDamageRelationsInnerDamageRelations :: Int -> Gen TypeDetailPastDamageRelationsInnerDamageRelations
-genTypeDetailPastDamageRelationsInnerDamageRelations n =
-  TypeDetailPastDamageRelationsInnerDamageRelations
-    <$> arbitraryReduced n -- typeDetailPastDamageRelationsInnerDamageRelationsNoDamageTo :: [AbilityDetailPokemonInnerPokemon]
-    <*> arbitraryReduced n -- typeDetailPastDamageRelationsInnerDamageRelationsHalfDamageTo :: [AbilityDetailPokemonInnerPokemon]
-    <*> arbitraryReduced n -- typeDetailPastDamageRelationsInnerDamageRelationsDoubleDamageTo :: [AbilityDetailPokemonInnerPokemon]
-    <*> arbitraryReduced n -- typeDetailPastDamageRelationsInnerDamageRelationsNoDamageFrom :: [AbilityDetailPokemonInnerPokemon]
-    <*> arbitraryReduced n -- typeDetailPastDamageRelationsInnerDamageRelationsHalfDamageFrom :: [AbilityDetailPokemonInnerPokemon]
-    <*> arbitraryReduced n -- typeDetailPastDamageRelationsInnerDamageRelationsDoubleDamageFrom :: [AbilityDetailPokemonInnerPokemon]
-  
-instance Arbitrary TypeDetailPokemonInner where
-  arbitrary = sized genTypeDetailPokemonInner
-
-genTypeDetailPokemonInner :: Int -> Gen TypeDetailPokemonInner
-genTypeDetailPokemonInner n =
-  TypeDetailPokemonInner
-    <$> arbitraryReducedMaybe n -- typeDetailPokemonInnerSlot :: Maybe Int
-    <*> arbitraryReducedMaybe n -- typeDetailPokemonInnerPokemon :: Maybe TypeDetailPokemonInnerPokemon
-  
-instance Arbitrary TypeDetailPokemonInnerPokemon where
-  arbitrary = sized genTypeDetailPokemonInnerPokemon
-
-genTypeDetailPokemonInnerPokemon :: Int -> Gen TypeDetailPokemonInnerPokemon
-genTypeDetailPokemonInnerPokemon n =
-  TypeDetailPokemonInnerPokemon
-    <$> arbitraryReducedMaybe n -- typeDetailPokemonInnerPokemonName :: Maybe Text
-    <*> arbitraryReducedMaybe n -- typeDetailPokemonInnerPokemonUrl :: Maybe Text
-  
-instance Arbitrary TypeDetailSpritesValueValue where
-  arbitrary = sized genTypeDetailSpritesValueValue
-
-genTypeDetailSpritesValueValue :: Int -> Gen TypeDetailSpritesValueValue
-genTypeDetailSpritesValueValue n =
-  TypeDetailSpritesValueValue
-    <$> arbitraryReducedMaybe n -- typeDetailSpritesValueValueNameIcon :: Maybe Text
+    <*> arbitraryReduced n -- typeDetailSprites :: (Map.Map String (Map.Map String TypeGameSprite))
   
 instance Arbitrary TypeGameIndex where
   arbitrary = sized genTypeGameIndex
@@ -2847,6 +3021,55 @@ genTypeGameIndex n =
   TypeGameIndex
     <$> arbitrary -- typeGameIndexGameIndex :: Int
     <*> arbitraryReduced n -- typeGameIndexGeneration :: GenerationSummary
+  
+instance Arbitrary TypeGameSprite where
+  arbitrary = sized genTypeGameSprite
+
+genTypeGameSprite :: Int -> Gen TypeGameSprite
+genTypeGameSprite n =
+  TypeGameSprite
+    <$> arbitraryReducedMaybe n -- typeGameSpriteNameIcon :: Maybe Text
+    <*> arbitraryReducedMaybe n -- typeGameSpriteSymbolIcon :: Maybe Text
+  
+instance Arbitrary TypeName where
+  arbitrary = sized genTypeName
+
+genTypeName :: Int -> Gen TypeName
+genTypeName n =
+  TypeName
+    <$> arbitrary -- typeNameName :: Text
+    <*> arbitraryReduced n -- typeNameLanguage :: LanguageSummary
+  
+instance Arbitrary TypePastRelationships where
+  arbitrary = sized genTypePastRelationships
+
+genTypePastRelationships :: Int -> Gen TypePastRelationships
+genTypePastRelationships n =
+  TypePastRelationships
+    <$> arbitraryReduced n -- typePastRelationshipsGeneration :: GenerationSummary
+    <*> arbitraryReduced n -- typePastRelationshipsDamageRelations :: TypeRelationships
+  
+instance Arbitrary TypePokemon where
+  arbitrary = sized genTypePokemon
+
+genTypePokemon :: Int -> Gen TypePokemon
+genTypePokemon n =
+  TypePokemon
+    <$> arbitrary -- typePokemonSlot :: Int
+    <*> arbitraryReduced n -- typePokemonPokemon :: PokemonSummary
+  
+instance Arbitrary TypeRelationships where
+  arbitrary = sized genTypeRelationships
+
+genTypeRelationships :: Int -> Gen TypeRelationships
+genTypeRelationships n =
+  TypeRelationships
+    <$> arbitraryReduced n -- typeRelationshipsNoDamageTo :: [TypeSummary]
+    <*> arbitraryReduced n -- typeRelationshipsHalfDamageTo :: [TypeSummary]
+    <*> arbitraryReduced n -- typeRelationshipsDoubleDamageTo :: [TypeSummary]
+    <*> arbitraryReduced n -- typeRelationshipsNoDamageFrom :: [TypeSummary]
+    <*> arbitraryReduced n -- typeRelationshipsHalfDamageFrom :: [TypeSummary]
+    <*> arbitraryReduced n -- typeRelationshipsDoubleDamageFrom :: [TypeSummary]
   
 instance Arbitrary TypeSummary where
   arbitrary = sized genTypeSummary
@@ -2878,9 +3101,9 @@ genVersionGroupDetail n =
     <*> arbitrary -- versionGroupDetailName :: Text
     <*> arbitraryReducedMaybe n -- versionGroupDetailOrder :: Maybe Int
     <*> arbitraryReduced n -- versionGroupDetailGeneration :: GenerationSummary
-    <*> arbitraryReduced n -- versionGroupDetailMoveLearnMethods :: [AbilityDetailPokemonInnerPokemon]
-    <*> arbitraryReduced n -- versionGroupDetailPokedexes :: [AbilityDetailPokemonInnerPokemon]
-    <*> arbitraryReduced n -- versionGroupDetailRegions :: [AbilityDetailPokemonInnerPokemon]
+    <*> arbitraryReduced n -- versionGroupDetailMoveLearnMethods :: [MoveLearnMethodSummary]
+    <*> arbitraryReduced n -- versionGroupDetailPokedexes :: [PokedexSummary]
+    <*> arbitraryReduced n -- versionGroupDetailRegions :: [RegionSummary]
     <*> arbitraryReduced n -- versionGroupDetailVersions :: [VersionSummary]
   
 instance Arbitrary VersionGroupSummary where

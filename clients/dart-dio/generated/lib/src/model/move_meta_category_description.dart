@@ -12,13 +12,15 @@ part 'move_meta_category_description.g.dart';
 /// MoveMetaCategoryDescription
 ///
 /// Properties:
-/// * [description] 
-/// * [language] 
+/// * [description] - The localized description for an API resource in a specific language.
+/// * [language] - The language this name is in.
 @BuiltValue()
 abstract class MoveMetaCategoryDescription implements Built<MoveMetaCategoryDescription, MoveMetaCategoryDescriptionBuilder> {
+  /// The localized description for an API resource in a specific language.
   @BuiltValueField(wireName: r'description')
   String? get description;
 
+  /// The language this name is in.
   @BuiltValueField(wireName: r'language')
   LanguageSummary get language;
 

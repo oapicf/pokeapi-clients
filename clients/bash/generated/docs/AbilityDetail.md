@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **effectUnderscoreentries** | [**array[AbilityEffectText]**](AbilityEffectText.md) |  | [readonly] [default to null]
 **effectUnderscorechanges** | [**array[AbilityChange]**](AbilityChange.md) |  | [readonly] [default to null]
 **flavorUnderscoretextUnderscoreentries** | [**array[AbilityFlavorText]**](AbilityFlavorText.md) |  | [readonly] [default to null]
-**pokemon** | [**array[AbilityDetailPokemonInner]**](AbilityDetailPokemonInner.md) |  | [readonly] [default to null]
+**pokemon** | [**array[AbilityPokemonDetail]**](AbilityPokemonDetail.md) |  | [readonly] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -10,7 +10,7 @@
 #include <cstdint>
 #include <string>
 #include <vector>
-#include "BerryFlavorDetailBerriesInner.h"
+#include "BerryFlavorBerryMap.h"
 #include "BerryFlavorName.h"
 #include "ContestTypeSummary.h"
 
@@ -31,8 +31,8 @@ public:
     void setId(const int& id);
     [[nodiscard]] std::string getName() const;
     void setName(const std::string& name);
-    [[nodiscard]] std::vector<BerryFlavorDetail_berries_inner> getBerries() const;
-    void setBerries(const std::vector<BerryFlavorDetail_berries_inner>& berries);
+    [[nodiscard]] std::vector<BerryFlavorBerryMap> getBerries() const;
+    void setBerries(const std::vector<BerryFlavorBerryMap>& berries);
     [[nodiscard]] ContestTypeSummary getContestType() const;
     void setContestType(const ContestTypeSummary& contestType);
     [[nodiscard]] std::vector<BerryFlavorName> getNames() const;
@@ -46,7 +46,7 @@ public:
 private:
     int id;
     std::string name;
-    std::vector<BerryFlavorDetail_berries_inner> berries;
+    std::vector<BerryFlavorBerryMap> berries;
     ContestTypeSummary contestType;
     std::vector<BerryFlavorName> names;
 };

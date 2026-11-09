@@ -7,14 +7,15 @@
 #pragma once
 // System headers
 #include <nlohmann/json.hpp>
+#include <optional>
 #include <cstdint>
 #include <string>
 #include <vector>
 #include "PokedexDescription.h"
-#include "PokedexDetailPokemonEntriesInner.h"
-#include "PokedexDetailVersionGroupsInner.h"
 #include "PokedexName.h"
+#include "PokemonDexNumber.h"
 #include "RegionSummary.h"
+#include "VersionGroupSummary.h"
 
 
 
@@ -39,12 +40,12 @@ public:
     void setDescriptions(const std::vector<PokedexDescription>& descriptions);
     [[nodiscard]] std::vector<PokedexName> getNames() const;
     void setNames(const std::vector<PokedexName>& names);
-    [[nodiscard]] std::vector<PokedexDetail_pokemon_entries_inner> getPokemonEntries() const;
-    void setPokemonEntries(const std::vector<PokedexDetail_pokemon_entries_inner>& pokemonEntries);
+    [[nodiscard]] std::vector<PokemonDexNumber> getPokemonEntries() const;
+    void setPokemonEntries(const std::vector<PokemonDexNumber>& pokemonEntries);
     [[nodiscard]] RegionSummary getRegion() const;
     void setRegion(const RegionSummary& region);
-    [[nodiscard]] std::vector<PokedexDetail_version_groups_inner> getVersionGroups() const;
-    void setVersionGroups(const std::vector<PokedexDetail_version_groups_inner>& versionGroups);
+    [[nodiscard]] std::vector<VersionGroupSummary> getVersionGroups() const;
+    void setVersionGroups(const std::vector<VersionGroupSummary>& versionGroups);
 
 
     // JSON serialization using NLOHMANN INTRUSIVE macro (must be inside class to access private members)
@@ -57,9 +58,9 @@ private:
     bool isMainSeries;
     std::vector<PokedexDescription> descriptions;
     std::vector<PokedexName> names;
-    std::vector<PokedexDetail_pokemon_entries_inner> pokemonEntries;
+    std::vector<PokemonDexNumber> pokemonEntries;
     RegionSummary region;
-    std::vector<PokedexDetail_version_groups_inner> versionGroups;
+    std::vector<VersionGroupSummary> versionGroups;
 };
 
 

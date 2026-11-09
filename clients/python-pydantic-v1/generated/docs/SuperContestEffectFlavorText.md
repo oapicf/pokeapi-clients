@@ -4,8 +4,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**flavor_text** | **str** |  | 
-**language** | [**LanguageSummary**](LanguageSummary.md) |  | 
+**flavor_text** | **str** | The localized flavor text for an API resource in a specific language. | 
+**language** | [**LanguageSummary**](LanguageSummary.md) | The language this name is in. | 
 
 ## Example
 

@@ -23,9 +23,11 @@
 
 package org.openapitools.client.models
 
-import org.openapitools.client.models.PokemonDetailTypesInner
-import org.openapitools.client.models.PokemonFormDetailFormNamesInner
-import org.openapitools.client.models.PokemonFormDetailSprites
+import org.openapitools.client.models.PokemonFormFlavorText
+import org.openapitools.client.models.PokemonFormName
+import org.openapitools.client.models.PokemonFormSprites
+import org.openapitools.client.models.PokemonFormTriggerCondition
+import org.openapitools.client.models.PokemonFormType
 import org.openapitools.client.models.PokemonSummary
 import org.openapitools.client.models.VersionGroupSummary
 
@@ -35,64 +37,88 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param id 
- * @param name 
- * @param formName 
- * @param pokemon 
- * @param sprites 
- * @param versionGroup 
- * @param formNames 
- * @param names 
- * @param types 
- * @param order 
- * @param formOrder 
- * @param isDefault 
- * @param isBattleOnly 
- * @param isMega 
+ * @param id The identifier for this resource.
+ * @param name The name for this resource.
+ * @param formName The name of this form.
+ * @param pokemon The Pokémon that can take on this form.
+ * @param sprites A set of sprites used to depict this Pokémon form in the game.
+ * @param versionGroup The version group this Pokémon form was introduced in.
+ * @param formNames The form specific form name of this Pokémon form, or empty if the form does not have a specific name.
+ * @param names The form specific full name of this Pokémon form, or empty if the form does not have a specific name.
+ * @param types A list of details showing types this Pokémon form has.
+ * @param triggerConditions The conditions that trigger this form. Resource names and URLs are included when the trigger requires a resource.
+ * @param flavorTextEntries The flavor text of this form listed in different languages and versions.
+ * @param order The order in which forms should be sorted within all forms. Multiple forms may have equal order, in which case they should fall back on sorting by name.
+ * @param formOrder The order in which forms should be sorted within a species' forms.
+ * @param isDefault True for exactly one form used as the default for each Pokémon.
+ * @param isBattleOnly Whether or not this form can only happen during battle.
+ * @param isMega Whether or not this form requires mega evolution.
  */
 
 
 data class PokemonFormDetail (
 
+    /* The identifier for this resource. */
     @Json(name = "id")
     val id: kotlin.Int,
 
+    /* The name for this resource. */
     @Json(name = "name")
     val name: kotlin.String,
 
+    /* The name of this form. */
     @Json(name = "form_name")
     val formName: kotlin.String,
 
+    /* The Pokémon that can take on this form. */
     @Json(name = "pokemon")
     val pokemon: PokemonSummary,
 
+    /* A set of sprites used to depict this Pokémon form in the game. */
     @Json(name = "sprites")
-    val sprites: PokemonFormDetailSprites,
+    val sprites: PokemonFormSprites,
 
+    /* The version group this Pokémon form was introduced in. */
     @Json(name = "version_group")
     val versionGroup: VersionGroupSummary,
 
+    /* The form specific form name of this Pokémon form, or empty if the form does not have a specific name. */
     @Json(name = "form_names")
-    val formNames: kotlin.collections.List<PokemonFormDetailFormNamesInner>,
+    val formNames: kotlin.collections.List<PokemonFormName>,
 
+    /* The form specific full name of this Pokémon form, or empty if the form does not have a specific name. */
     @Json(name = "names")
-    val names: kotlin.collections.List<PokemonFormDetailFormNamesInner>,
+    val names: kotlin.collections.List<PokemonFormName>,
 
+    /* A list of details showing types this Pokémon form has. */
     @Json(name = "types")
-    val types: kotlin.collections.List<PokemonDetailTypesInner>,
+    val types: kotlin.collections.List<PokemonFormType>,
 
+    /* The conditions that trigger this form. Resource names and URLs are included when the trigger requires a resource. */
+    @Json(name = "trigger_conditions")
+    val triggerConditions: kotlin.collections.List<PokemonFormTriggerCondition>,
+
+    /* The flavor text of this form listed in different languages and versions. */
+    @Json(name = "flavor_text_entries")
+    val flavorTextEntries: kotlin.collections.List<PokemonFormFlavorText>,
+
+    /* The order in which forms should be sorted within all forms. Multiple forms may have equal order, in which case they should fall back on sorting by name. */
     @Json(name = "order")
     val order: kotlin.Int? = null,
 
+    /* The order in which forms should be sorted within a species' forms. */
     @Json(name = "form_order")
     val formOrder: kotlin.Int? = null,
 
+    /* True for exactly one form used as the default for each Pokémon. */
     @Json(name = "is_default")
     val isDefault: kotlin.Boolean? = null,
 
+    /* Whether or not this form can only happen during battle. */
     @Json(name = "is_battle_only")
     val isBattleOnly: kotlin.Boolean? = null,
 
+    /* Whether or not this form requires mega evolution. */
     @Json(name = "is_mega")
     val isMega: kotlin.Boolean? = null
 

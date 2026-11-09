@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**entry_number** | **number** |  | [default to undefined]
-**pokedex** | [**PokedexSummary**](PokedexSummary.md) |  | [default to undefined]
+**entry_number** | **number** | The index number within the Pokédex. | [default to undefined]
+**pokedex** | [**PokedexSummary**](PokedexSummary.md) | The Pokédex the referenced Pokémon species can be found in. | [default to undefined]
 
 ## Example
 

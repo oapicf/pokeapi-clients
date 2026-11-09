@@ -9,8 +9,10 @@ import Foundation
 
 public struct PokedexDescription: Sendable, Codable, Hashable {
 
-    public static let descriptionRule = StringRule(minLength: nil, maxLength: 1000, pattern: nil)
+    public static let descriptionRule = StringRule(minLength: nil, maxLength: 2000, pattern: nil)
+    /** The localized description for an API resource in a specific language. */
     public var description: String?
+    /** The language this name is in. */
     public var language: LanguageSummary
 
     public init(description: String? = nil, language: LanguageSummary) {

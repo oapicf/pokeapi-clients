@@ -19,6 +19,7 @@ public class MachineSummary   {
   private URI url;
 
   /**
+   * The URL of the referenced resource.
    **/
   public MachineSummary url(URI url) {
     this.url = url;
@@ -26,7 +27,7 @@ public class MachineSummary   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The URL of the referenced resource.")
   @JsonProperty("url")
   @NotNull
   public URI getUrl() {

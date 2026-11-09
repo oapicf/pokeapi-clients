@@ -17,7 +17,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 
 @JsonTypeName("AbilityChangeEffectText")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-10-25T05:48:57.630723375Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-11-09T13:50:06.168269698Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class AbilityChangeEffectText   {
   private String effect;
   private LanguageSummary language;
@@ -35,6 +35,7 @@ public class AbilityChangeEffectText   {
   }
 
   /**
+   * The localized effect text for an API resource in a specific language.
    **/
   public AbilityChangeEffectText effect(String effect) {
     this.effect = effect;
@@ -42,7 +43,7 @@ public class AbilityChangeEffectText   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The localized effect text for an API resource in a specific language.")
   @JsonProperty(required = true, value = "effect")
   @NotNull  @Size(max=6000)public String getEffect() {
     return effect;
@@ -54,6 +55,7 @@ public class AbilityChangeEffectText   {
   }
 
   /**
+   * The language this effect is in.
    **/
   public AbilityChangeEffectText language(LanguageSummary language) {
     this.language = language;
@@ -61,7 +63,7 @@ public class AbilityChangeEffectText   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The language this effect is in.")
   @JsonProperty(required = true, value = "language")
   @NotNull @Valid public LanguageSummary getLanguage() {
     return language;

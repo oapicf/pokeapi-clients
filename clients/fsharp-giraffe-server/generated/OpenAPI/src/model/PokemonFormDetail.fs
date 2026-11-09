@@ -2,9 +2,11 @@ namespace OpenAPI.Model
 
 open System
 open System.Collections.Generic
-open OpenAPI.Model.PokemonDetailTypesInner
-open OpenAPI.Model.PokemonFormDetailFormNamesInner
-open OpenAPI.Model.PokemonFormDetailSprites
+open OpenAPI.Model.PokemonFormFlavorText
+open OpenAPI.Model.PokemonFormName
+open OpenAPI.Model.PokemonFormSprites
+open OpenAPI.Model.PokemonFormTriggerCondition
+open OpenAPI.Model.PokemonFormType
 open OpenAPI.Model.PokemonSummary
 open OpenAPI.Model.VersionGroupSummary
 open OpenAPI.Model.int option
@@ -24,10 +26,12 @@ module PokemonFormDetail =
     IsMega : bool;
     FormName : string;
     Pokemon : PokemonSummary;
-    Sprites : PokemonFormDetailSprites;
+    Sprites : PokemonFormSprites;
     VersionGroup : VersionGroupSummary;
-    FormNames : PokemonFormDetailFormNamesInner[];
-    Names : PokemonFormDetailFormNamesInner[];
-    Types : PokemonDetailTypesInner[];
+    FormNames : PokemonFormName[];
+    Names : PokemonFormName[];
+    Types : PokemonFormType[];
+    TriggerConditions : PokemonFormTriggerCondition[];
+    FlavorTextEntries : PokemonFormFlavorText[];
   }
   //#endregion

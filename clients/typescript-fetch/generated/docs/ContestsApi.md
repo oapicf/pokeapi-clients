@@ -15,7 +15,7 @@ All URIs are relative to *https://pokeapi.co*
 
 ## contestEffectList
 
-> PaginatedContestEffectSummaryList contestEffectList(limit, offset, q)
+> PaginatedContestEffectSummaryList contestEffectList(limit, offset)
 
 List contest effects
 
@@ -32,22 +32,13 @@ import type { ContestEffectListRequest } from '';
 
 async function example() {
   console.log("🚀 Testing  SDK...");
-  const config = new Configuration({ 
-    // To configure HTTP basic authorization: basicAuth
-    username: "YOUR USERNAME",
-    password: "YOUR PASSWORD",
-    // To configure API key authorization: cookieAuth
-    apiKey: "YOUR API KEY",
-  });
-  const api = new ContestsApi(config);
+  const api = new ContestsApi();
 
   const body = {
     // number | Number of results to return per page. (optional)
     limit: 56,
     // number | The initial index from which to return the results. (optional)
     offset: 56,
-    // string | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
-    q: q_example,
   } satisfies ContestEffectListRequest;
 
   try {
@@ -69,7 +60,6 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **limit** | `number` | Number of results to return per page. | [Optional] [Defaults to `undefined`] |
 | **offset** | `number` | The initial index from which to return the results. | [Optional] [Defaults to `undefined`] |
-| **q** | `string` | &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -77,7 +67,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -112,18 +102,11 @@ import type { ContestEffectRetrieveRequest } from '';
 
 async function example() {
   console.log("🚀 Testing  SDK...");
-  const config = new Configuration({ 
-    // To configure HTTP basic authorization: basicAuth
-    username: "YOUR USERNAME",
-    password: "YOUR PASSWORD",
-    // To configure API key authorization: cookieAuth
-    apiKey: "YOUR API KEY",
-  });
-  const api = new ContestsApi(config);
+  const api = new ContestsApi();
 
   const body = {
     // string | This parameter can be a string or an integer.
-    id: id_example,
+    id: 1,
   } satisfies ContestEffectRetrieveRequest;
 
   try {
@@ -151,7 +134,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -186,14 +169,7 @@ import type { ContestTypeListRequest } from '';
 
 async function example() {
   console.log("🚀 Testing  SDK...");
-  const config = new Configuration({ 
-    // To configure HTTP basic authorization: basicAuth
-    username: "YOUR USERNAME",
-    password: "YOUR PASSWORD",
-    // To configure API key authorization: cookieAuth
-    apiKey: "YOUR API KEY",
-  });
-  const api = new ContestsApi(config);
+  const api = new ContestsApi();
 
   const body = {
     // number | Number of results to return per page. (optional)
@@ -231,7 +207,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -266,18 +242,11 @@ import type { ContestTypeRetrieveRequest } from '';
 
 async function example() {
   console.log("🚀 Testing  SDK...");
-  const config = new Configuration({ 
-    // To configure HTTP basic authorization: basicAuth
-    username: "YOUR USERNAME",
-    password: "YOUR PASSWORD",
-    // To configure API key authorization: cookieAuth
-    apiKey: "YOUR API KEY",
-  });
-  const api = new ContestsApi(config);
+  const api = new ContestsApi();
 
   const body = {
     // string | This parameter can be a string or an integer.
-    id: id_example,
+    id: 1,
   } satisfies ContestTypeRetrieveRequest;
 
   try {
@@ -305,7 +274,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -323,7 +292,7 @@ example().catch(console.error);
 
 ## superContestEffectList
 
-> PaginatedSuperContestEffectSummaryList superContestEffectList(limit, offset, q)
+> PaginatedSuperContestEffectSummaryList superContestEffectList(limit, offset)
 
 List super contest effects
 
@@ -340,22 +309,13 @@ import type { SuperContestEffectListRequest } from '';
 
 async function example() {
   console.log("🚀 Testing  SDK...");
-  const config = new Configuration({ 
-    // To configure HTTP basic authorization: basicAuth
-    username: "YOUR USERNAME",
-    password: "YOUR PASSWORD",
-    // To configure API key authorization: cookieAuth
-    apiKey: "YOUR API KEY",
-  });
-  const api = new ContestsApi(config);
+  const api = new ContestsApi();
 
   const body = {
     // number | Number of results to return per page. (optional)
     limit: 56,
     // number | The initial index from which to return the results. (optional)
     offset: 56,
-    // string | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
-    q: q_example,
   } satisfies SuperContestEffectListRequest;
 
   try {
@@ -377,7 +337,6 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **limit** | `number` | Number of results to return per page. | [Optional] [Defaults to `undefined`] |
 | **offset** | `number` | The initial index from which to return the results. | [Optional] [Defaults to `undefined`] |
-| **q** | `string` | &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -385,7 +344,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -420,18 +379,11 @@ import type { SuperContestEffectRetrieveRequest } from '';
 
 async function example() {
   console.log("🚀 Testing  SDK...");
-  const config = new Configuration({ 
-    // To configure HTTP basic authorization: basicAuth
-    username: "YOUR USERNAME",
-    password: "YOUR PASSWORD",
-    // To configure API key authorization: cookieAuth
-    apiKey: "YOUR API KEY",
-  });
-  const api = new ContestsApi(config);
+  const api = new ContestsApi();
 
   const body = {
     // string | This parameter can be a string or an integer.
-    id: id_example,
+    id: 1,
   } satisfies SuperContestEffectRetrieveRequest;
 
   try {
@@ -459,7 +411,7 @@ example().catch(console.error);
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

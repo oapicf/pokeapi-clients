@@ -3,6 +3,7 @@ namespace OpenAPI.Model
 open System
 open System.Collections.Generic
 open OpenAPI.Model.SuperContestEffectSummary
+open OpenAPI.Model.string option
 
 module PaginatedSuperContestEffectSummaryList =
 
@@ -11,8 +12,8 @@ module PaginatedSuperContestEffectSummaryList =
 
   type PaginatedSuperContestEffectSummaryList = {
     Count : int;
-    Next : string;
-    Previous : string;
+    Next : string option;
+    Previous : string option;
     Results : SuperContestEffectSummary[];
   }
   //#endregion

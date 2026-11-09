@@ -79,4 +79,34 @@ defmodule PokéAPI.Api.Utility do
       {200, PokéAPI.Model.LanguageDetail}
     ])
   end
+
+  @doc """
+  Get API metadata
+  Returns metadata about the current deployed version of the API, including the git commit hash, deploy date, and tag (if any).
+
+  ### Parameters
+
+  - `connection` (PokéAPI.Connection): Connection to server
+  - `opts` (keyword): Optional parameters
+
+  ### Returns
+
+  - `{:ok, PokéAPI.Model.PokeapiMetaResponse.t}` on success
+  - `{:error, Tesla.Env.t}` on failure
+  """
+  @spec meta_retrieve(Tesla.Env.client, keyword()) :: {:ok, PokéAPI.Model.PokeapiMetaResponse.t} | {:error, Tesla.Env.t}
+  def meta_retrieve(connection, _opts \\ []) do
+    request =
+      %{}
+      |> method(:get)
+      |> url("/api/v2/meta/")
+      |> finalize_request()
+      |> Enum.into([])
+
+    connection
+    |> Connection.request(request)
+    |> evaluate_response([
+      {200, PokéAPI.Model.PokeapiMetaResponse}
+    ])
+  end
 end

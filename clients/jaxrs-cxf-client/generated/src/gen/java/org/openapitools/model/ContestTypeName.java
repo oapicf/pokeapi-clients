@@ -9,19 +9,28 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class ContestTypeName  {
   
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The name for this contest.
+  */
+  @ApiModelProperty(required = true, value = "The name for this contest.")
 
   private String name;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The color associated with this contest's name.
+  */
+  @ApiModelProperty(required = true, value = "The color associated with this contest's name.")
 
   private String color;
 
-  @ApiModelProperty(required = true, value = "")
+ /**
+  * The language that this name is in.
+  */
+  @ApiModelProperty(required = true, value = "The language that this name is in.")
 
   private LanguageSummary language;
  /**
-   * Get name
+   * The name for this contest.
    * @return name
   **/
   @JsonProperty("name")
@@ -39,7 +48,7 @@ public class ContestTypeName  {
   }
 
  /**
-   * Get color
+   * The color associated with this contest&#39;s name.
    * @return color
   **/
   @JsonProperty("color")
@@ -57,7 +66,7 @@ public class ContestTypeName  {
   }
 
  /**
-   * Get language
+   * The language that this name is in.
    * @return language
   **/
   @JsonProperty("language")

@@ -12,14 +12,20 @@ import java.math.*;
 public class SuperContestEffectFlavorText implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * The localized flavor text for an API resource in a specific language.
+   */
   @JsonProperty("flavor_text")
   private String flavorText;
 
+  /**
+   * The language this name is in.
+   */
   @JsonProperty("language")
   private LanguageSummary language;
 
   /**
-   * 
+   * The localized flavor text for an API resource in a specific language.
    * @return flavorText
    */
   public String getFlavorText() {
@@ -31,7 +37,7 @@ public class SuperContestEffectFlavorText implements Serializable {
   }
 
   /**
-   * 
+   * The language this name is in.
    * @return language
    */
   public LanguageSummary getLanguage() {

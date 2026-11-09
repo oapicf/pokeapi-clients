@@ -31,20 +31,23 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param lowHpPreference 
- * @param highHpPreference 
- * @param moveBattleStyle 
+ * @param lowHpPreference Chance of using the move, in percent, if HP is under one half.
+ * @param highHpPreference Chance of using the move, in percent, if HP is over one half.
+ * @param moveBattleStyle The move battle style.
  */
 
 
 data class NatureBattleStylePreference (
 
+    /* Chance of using the move, in percent, if HP is under one half. */
     @Json(name = "low_hp_preference")
     val lowHpPreference: kotlin.Int,
 
+    /* Chance of using the move, in percent, if HP is over one half. */
     @Json(name = "high_hp_preference")
     val highHpPreference: kotlin.Int,
 
+    /* The move battle style. */
     @Json(name = "move_battle_style")
     val moveBattleStyle: MoveBattleStyleSummary
 

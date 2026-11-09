@@ -14,7 +14,6 @@ public class LocationApiMockServer {
     public static MappingBuilder stubLocationAreaList200(@javax.annotation.Nullable String limit, @javax.annotation.Nullable String offset, String response) {
         MappingBuilder stub = get(urlPathEqualTo("/api/v2/location-area/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withStatus(200)
                 .withHeader("Content-Type", "application/json")
@@ -34,7 +33,6 @@ public class LocationApiMockServer {
     public static MappingBuilder stubLocationAreaListFault(@javax.annotation.Nullable String limit, @javax.annotation.Nullable String offset, Fault fault) {
         MappingBuilder stub = get(urlPathEqualTo("/api/v2/location-area/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withFault(fault)
             );
@@ -50,7 +48,7 @@ public class LocationApiMockServer {
     }
 
     public static String locationAreaList200ResponseSample1() {
-        return "{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+        return "{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/location-area/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/location-area/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
     }
 
 
@@ -58,7 +56,6 @@ public class LocationApiMockServer {
     public static MappingBuilder stubLocationAreaRetrieve200(@javax.annotation.Nonnull String id, String response) {
         MappingBuilder stub = get(urlPathTemplate("/api/v2/location-area/{id}/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withStatus(200)
                 .withHeader("Content-Type", "application/json")
@@ -73,7 +70,6 @@ public class LocationApiMockServer {
     public static MappingBuilder stubLocationAreaRetrieveFault(@javax.annotation.Nonnull String id, Fault fault) {
         MappingBuilder stub = get(urlPathTemplate("/api/v2/location-area/{id}/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withFault(fault)
             );
@@ -84,7 +80,7 @@ public class LocationApiMockServer {
     }
 
     public static String locationAreaRetrieve200ResponseSample1() {
-        return "{ \"id\" : 0, \"name\" : \"name\", \"game_index\" : 6, \"encounter_method_rates\" : [ { \"encounter_method\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"version_details\" : [ { \"rate\" : 1, \"version\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"rate\" : 1, \"version\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }, { \"encounter_method\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"version_details\" : [ { \"rate\" : 1, \"version\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"rate\" : 1, \"version\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] } ], \"location\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"pokemon_encounters\" : [ { \"pokemon\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"version_details\" : [ { \"version\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"max_chance\" : 5, \"encounter_details\" : { \"min_level\" : 5, \"max_level\" : 2, \"condition_values\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"chance\" : 7, \"method\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } }, { \"version\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"max_chance\" : 5, \"encounter_details\" : { \"min_level\" : 5, \"max_level\" : 2, \"condition_values\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"chance\" : 7, \"method\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } } ] }, { \"pokemon\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"version_details\" : [ { \"version\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"max_chance\" : 5, \"encounter_details\" : { \"min_level\" : 5, \"max_level\" : 2, \"condition_values\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"chance\" : 7, \"method\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } }, { \"version\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"max_chance\" : 5, \"encounter_details\" : { \"min_level\" : 5, \"max_level\" : 2, \"condition_values\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"chance\" : 7, \"method\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } } ] } ] }";
+        return "{ \"id\" : 0, \"name\" : \"name\", \"game_index\" : 441289069, \"encounter_method_rates\" : [ { \"encounter_method\" : \"\", \"version_details\" : [ { \"rate\" : 1, \"version\" : \"\" }, { \"rate\" : 1, \"version\" : \"\" } ] }, { \"encounter_method\" : \"\", \"version_details\" : [ { \"rate\" : 1, \"version\" : \"\" }, { \"rate\" : 1, \"version\" : \"\" } ] } ], \"location\" : \"\", \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ], \"pokemon_encounters\" : [ { \"pokemon\" : \"\", \"version_details\" : [ { \"version\" : \"\", \"max_chance\" : 5, \"encounter_details\" : [ { \"min_level\" : 5, \"max_level\" : 2, \"chance\" : 7, \"method\" : \"\", \"condition_values\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"pokemon_details\" : \"\" }, { \"min_level\" : 5, \"max_level\" : 2, \"chance\" : 7, \"method\" : \"\", \"condition_values\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"pokemon_details\" : \"\" } ] }, { \"version\" : \"\", \"max_chance\" : 5, \"encounter_details\" : [ { \"min_level\" : 5, \"max_level\" : 2, \"chance\" : 7, \"method\" : \"\", \"condition_values\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"pokemon_details\" : \"\" }, { \"min_level\" : 5, \"max_level\" : 2, \"chance\" : 7, \"method\" : \"\", \"condition_values\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"pokemon_details\" : \"\" } ] } ] }, { \"pokemon\" : \"\", \"version_details\" : [ { \"version\" : \"\", \"max_chance\" : 5, \"encounter_details\" : [ { \"min_level\" : 5, \"max_level\" : 2, \"chance\" : 7, \"method\" : \"\", \"condition_values\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"pokemon_details\" : \"\" }, { \"min_level\" : 5, \"max_level\" : 2, \"chance\" : 7, \"method\" : \"\", \"condition_values\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"pokemon_details\" : \"\" } ] }, { \"version\" : \"\", \"max_chance\" : 5, \"encounter_details\" : [ { \"min_level\" : 5, \"max_level\" : 2, \"chance\" : 7, \"method\" : \"\", \"condition_values\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"pokemon_details\" : \"\" }, { \"min_level\" : 5, \"max_level\" : 2, \"chance\" : 7, \"method\" : \"\", \"condition_values\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"pokemon_details\" : \"\" } ] } ] } ] }";
     }
 
 
@@ -92,7 +88,6 @@ public class LocationApiMockServer {
     public static MappingBuilder stubLocationList200(@javax.annotation.Nullable String limit, @javax.annotation.Nullable String offset, @javax.annotation.Nullable String q, String response) {
         MappingBuilder stub = get(urlPathEqualTo("/api/v2/location/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withStatus(200)
                 .withHeader("Content-Type", "application/json")
@@ -115,7 +110,6 @@ public class LocationApiMockServer {
     public static MappingBuilder stubLocationListFault(@javax.annotation.Nullable String limit, @javax.annotation.Nullable String offset, @javax.annotation.Nullable String q, Fault fault) {
         MappingBuilder stub = get(urlPathEqualTo("/api/v2/location/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withFault(fault)
             );
@@ -134,7 +128,7 @@ public class LocationApiMockServer {
     }
 
     public static String locationList200ResponseSample1() {
-        return "{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+        return "{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/location/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/location/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
     }
 
 
@@ -142,7 +136,6 @@ public class LocationApiMockServer {
     public static MappingBuilder stubLocationRetrieve200(@javax.annotation.Nonnull String id, String response) {
         MappingBuilder stub = get(urlPathTemplate("/api/v2/location/{id}/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withStatus(200)
                 .withHeader("Content-Type", "application/json")
@@ -157,7 +150,6 @@ public class LocationApiMockServer {
     public static MappingBuilder stubLocationRetrieveFault(@javax.annotation.Nonnull String id, Fault fault) {
         MappingBuilder stub = get(urlPathTemplate("/api/v2/location/{id}/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withFault(fault)
             );
@@ -168,7 +160,7 @@ public class LocationApiMockServer {
     }
 
     public static String locationRetrieve200ResponseSample1() {
-        return "{ \"id\" : 0, \"name\" : \"name\", \"region\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"game_indices\" : [ { \"game_index\" : 5, \"generation\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"game_index\" : 5, \"generation\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"areas\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+        return "{ \"id\" : 0, \"name\" : \"name\", \"region\" : \"\", \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ], \"game_indices\" : [ { \"game_index\" : -1517921766, \"generation\" : \"\" }, { \"game_index\" : -1517921766, \"generation\" : \"\" } ], \"areas\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
     }
 
 
@@ -176,7 +168,6 @@ public class LocationApiMockServer {
     public static MappingBuilder stubPalParkAreaList200(@javax.annotation.Nullable String limit, @javax.annotation.Nullable String offset, @javax.annotation.Nullable String q, String response) {
         MappingBuilder stub = get(urlPathEqualTo("/api/v2/pal-park-area/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withStatus(200)
                 .withHeader("Content-Type", "application/json")
@@ -199,7 +190,6 @@ public class LocationApiMockServer {
     public static MappingBuilder stubPalParkAreaListFault(@javax.annotation.Nullable String limit, @javax.annotation.Nullable String offset, @javax.annotation.Nullable String q, Fault fault) {
         MappingBuilder stub = get(urlPathEqualTo("/api/v2/pal-park-area/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withFault(fault)
             );
@@ -218,7 +208,7 @@ public class LocationApiMockServer {
     }
 
     public static String palParkAreaList200ResponseSample1() {
-        return "{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+        return "{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/pal-park-area/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/pal-park-area/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
     }
 
 
@@ -226,7 +216,6 @@ public class LocationApiMockServer {
     public static MappingBuilder stubPalParkAreaRetrieve200(@javax.annotation.Nonnull String id, String response) {
         MappingBuilder stub = get(urlPathTemplate("/api/v2/pal-park-area/{id}/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withStatus(200)
                 .withHeader("Content-Type", "application/json")
@@ -241,7 +230,6 @@ public class LocationApiMockServer {
     public static MappingBuilder stubPalParkAreaRetrieveFault(@javax.annotation.Nonnull String id, Fault fault) {
         MappingBuilder stub = get(urlPathTemplate("/api/v2/pal-park-area/{id}/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withFault(fault)
             );
@@ -252,7 +240,7 @@ public class LocationApiMockServer {
     }
 
     public static String palParkAreaRetrieve200ResponseSample1() {
-        return "{ \"id\" : 0, \"name\" : \"name\", \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"pokemon_encounters\" : [ { \"base_score\" : 6, \"pokemon-species\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"rate\" : 1 }, { \"base_score\" : 6, \"pokemon-species\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"rate\" : 1 } ] }";
+        return "{ \"id\" : 0, \"name\" : \"name\", \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ], \"pokemon_encounters\" : [ { \"base_score\" : 441289069, \"rate\" : -1517921766, \"pokemon_species\" : \"\" }, { \"base_score\" : 441289069, \"rate\" : -1517921766, \"pokemon_species\" : \"\" } ] }";
     }
 
 
@@ -260,7 +248,6 @@ public class LocationApiMockServer {
     public static MappingBuilder stubRegionList200(@javax.annotation.Nullable String limit, @javax.annotation.Nullable String offset, @javax.annotation.Nullable String q, String response) {
         MappingBuilder stub = get(urlPathEqualTo("/api/v2/region/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withStatus(200)
                 .withHeader("Content-Type", "application/json")
@@ -283,7 +270,6 @@ public class LocationApiMockServer {
     public static MappingBuilder stubRegionListFault(@javax.annotation.Nullable String limit, @javax.annotation.Nullable String offset, @javax.annotation.Nullable String q, Fault fault) {
         MappingBuilder stub = get(urlPathEqualTo("/api/v2/region/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withFault(fault)
             );
@@ -302,7 +288,7 @@ public class LocationApiMockServer {
     }
 
     public static String regionList200ResponseSample1() {
-        return "{ \"count\" : 123, \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+        return "{ \"count\" : 100, \"next\" : \"https://pokeapi.co/api/v2/region/?offset=40&limit=20\", \"previous\" : \"https://pokeapi.co/api/v2/region/?offset=0&limit=20\", \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
     }
 
 
@@ -310,7 +296,6 @@ public class LocationApiMockServer {
     public static MappingBuilder stubRegionRetrieve200(@javax.annotation.Nonnull String id, String response) {
         MappingBuilder stub = get(urlPathTemplate("/api/v2/region/{id}/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withStatus(200)
                 .withHeader("Content-Type", "application/json")
@@ -325,7 +310,6 @@ public class LocationApiMockServer {
     public static MappingBuilder stubRegionRetrieveFault(@javax.annotation.Nonnull String id, Fault fault) {
         MappingBuilder stub = get(urlPathTemplate("/api/v2/region/{id}/"))
             .withHeader("Accept", containing("application/json"))
-            .withHeader("Authorization", matching(".*"))
             .willReturn(aResponse()
                 .withFault(fault)
             );
@@ -336,7 +320,7 @@ public class LocationApiMockServer {
     }
 
     public static String regionRetrieve200ResponseSample1() {
-        return "{ \"id\" : 0, \"name\" : \"name\", \"locations\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"main_generation\" : \"\", \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"pokedexes\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"version_groups\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+        return "{ \"id\" : 0, \"name\" : \"name\", \"locations\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"main_generation\" : \"\", \"names\" : [ { \"name\" : \"name\", \"language\" : \"\" }, { \"name\" : \"name\", \"language\" : \"\" } ], \"pokedexes\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"version_groups\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
     }
 
 

@@ -7,10 +7,10 @@
 #' @title EncounterConditionDetail
 #' @description EncounterConditionDetail Class
 #' @format An \code{R6Class} generator object
-#' @field id  integer
-#' @field name  character
-#' @field values  list(\link{EncounterConditionValueSummary})
-#' @field names  list(\link{EncounterConditionName})
+#' @field id The identifier for this resource. integer
+#' @field name The name for this resource. character
+#' @field values A list of possible values for this encounter condition. list(\link{EncounterConditionValueSummary})
+#' @field names The name of this resource listed in different languages. list(\link{EncounterConditionName})
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -25,10 +25,10 @@ EncounterConditionDetail <- R6::R6Class(
     #' @description
     #' Initialize a new EncounterConditionDetail class.
     #'
-    #' @param id id
-    #' @param name name
-    #' @param values values
-    #' @param names names
+    #' @param id The identifier for this resource.
+    #' @param name The name for this resource.
+    #' @param values A list of possible values for this encounter condition.
+    #' @param names The name of this resource listed in different languages.
     #' @param ... Other optional arguments.
     initialize = function(`id`, `name`, `values`, `names`, ...) {
       if (!missing(`id`)) {
@@ -236,7 +236,7 @@ EncounterConditionDetail <- R6::R6Class(
         return(FALSE)
       }
 
-      if (nchar(self$`name`) > 100) {
+      if (nchar(self$`name`) > 200) {
         return(FALSE)
       }
 
@@ -269,8 +269,8 @@ EncounterConditionDetail <- R6::R6Class(
         invalid_fields["name"] <- "Non-nullable required field `name` cannot be null."
       }
 
-      if (nchar(self$`name`) > 100) {
-        invalid_fields["name"] <- "Invalid length for `name`, must be smaller than or equal to 100."
+      if (nchar(self$`name`) > 200) {
+        invalid_fields["name"] <- "Invalid length for `name`, must be smaller than or equal to 200."
       }
 
       # check if the required `values` is null

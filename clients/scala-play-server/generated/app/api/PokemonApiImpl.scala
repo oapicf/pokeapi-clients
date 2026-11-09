@@ -36,7 +36,7 @@ import model.TypeDetail
 /**
   * Provides a default implementation for [[PokemonApi]].
   */
-@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2026-10-25T05:53:17.467323765Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2026-11-09T13:53:31.572745352Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 class PokemonApiImpl extends PokemonApi {
   /**
     * @inheritdoc
@@ -44,7 +44,7 @@ class PokemonApiImpl extends PokemonApi {
   override def abilityList(limit: Option[Int], offset: Option[Int], q: Option[String]): PaginatedAbilitySummaryList = {
     // TODO: Implement better logic
 
-    PaginatedAbilitySummaryList(None, None, None, None)
+    PaginatedAbilitySummaryList(0, None, None, List.empty[AbilitySummary])
   }
 
   /**
@@ -53,16 +53,16 @@ class PokemonApiImpl extends PokemonApi {
   override def abilityRetrieve(id: String): AbilityDetail = {
     // TODO: Implement better logic
 
-    AbilityDetail(0, "", None, GenerationSummary("", ""), List.empty[AbilityName], List.empty[AbilityEffectText], List.empty[AbilityChange], List.empty[AbilityFlavorText], List.empty[AbilityDetailPokemonInner])
+    AbilityDetail(0, "", None, GenerationSummary("", ""), List.empty[AbilityName], List.empty[AbilityEffectText], List.empty[AbilityChange], List.empty[AbilityFlavorText], List.empty[AbilityPokemonDetail])
   }
 
   /**
     * @inheritdoc
     */
-  override def characteristicList(limit: Option[Int], offset: Option[Int], q: Option[String]): PaginatedCharacteristicSummaryList = {
+  override def characteristicList(limit: Option[Int], offset: Option[Int]): PaginatedCharacteristicSummaryList = {
     // TODO: Implement better logic
 
-    PaginatedCharacteristicSummaryList(None, None, None, None)
+    PaginatedCharacteristicSummaryList(0, None, None, List.empty[CharacteristicSummary])
   }
 
   /**
@@ -80,7 +80,7 @@ class PokemonApiImpl extends PokemonApi {
   override def eggGroupList(limit: Option[Int], offset: Option[Int], q: Option[String]): PaginatedEggGroupSummaryList = {
     // TODO: Implement better logic
 
-    PaginatedEggGroupSummaryList(None, None, None, None)
+    PaginatedEggGroupSummaryList(0, None, None, List.empty[EggGroupSummary])
   }
 
   /**
@@ -89,7 +89,7 @@ class PokemonApiImpl extends PokemonApi {
   override def eggGroupRetrieve(id: String): EggGroupDetail = {
     // TODO: Implement better logic
 
-    EggGroupDetail(0, "", List.empty[EggGroupName], List.empty[EggGroupDetailPokemonSpeciesInner])
+    EggGroupDetail(0, "", List.empty[EggGroupName], List.empty[PokemonSpeciesSummary])
   }
 
   /**
@@ -98,7 +98,7 @@ class PokemonApiImpl extends PokemonApi {
   override def genderList(limit: Option[Int], offset: Option[Int], q: Option[String]): PaginatedGenderSummaryList = {
     // TODO: Implement better logic
 
-    PaginatedGenderSummaryList(None, None, None, None)
+    PaginatedGenderSummaryList(0, None, None, List.empty[GenderSummary])
   }
 
   /**
@@ -107,7 +107,7 @@ class PokemonApiImpl extends PokemonApi {
   override def genderRetrieve(id: String): GenderDetail = {
     // TODO: Implement better logic
 
-    GenderDetail(0, "", List.empty[GenderDetailPokemonSpeciesDetailsInner], List.empty[AbilityDetailPokemonInnerPokemon])
+    GenderDetail(0, "", List.empty[GenderPokemonSpecies], List.empty[PokemonSpeciesSummary])
   }
 
   /**
@@ -116,7 +116,7 @@ class PokemonApiImpl extends PokemonApi {
   override def growthRateList(limit: Option[Int], offset: Option[Int], q: Option[String]): PaginatedGrowthRateSummaryList = {
     // TODO: Implement better logic
 
-    PaginatedGrowthRateSummaryList(None, None, None, None)
+    PaginatedGrowthRateSummaryList(0, None, None, List.empty[GrowthRateSummary])
   }
 
   /**
@@ -134,7 +134,7 @@ class PokemonApiImpl extends PokemonApi {
   override def moveDamageClassList(limit: Option[Int], offset: Option[Int], q: Option[String]): PaginatedMoveDamageClassSummaryList = {
     // TODO: Implement better logic
 
-    PaginatedMoveDamageClassSummaryList(None, None, None, None)
+    PaginatedMoveDamageClassSummaryList(0, None, None, List.empty[MoveDamageClassSummary])
   }
 
   /**
@@ -152,7 +152,7 @@ class PokemonApiImpl extends PokemonApi {
   override def natureList(limit: Option[Int], offset: Option[Int], q: Option[String]): PaginatedNatureSummaryList = {
     // TODO: Implement better logic
 
-    PaginatedNatureSummaryList(None, None, None, None)
+    PaginatedNatureSummaryList(0, None, None, List.empty[NatureSummary])
   }
 
   /**
@@ -161,7 +161,7 @@ class PokemonApiImpl extends PokemonApi {
   override def natureRetrieve(id: String): NatureDetail = {
     // TODO: Implement better logic
 
-    NatureDetail(0, "", StatSummary("", ""), StatSummary("", ""), BerryFlavorSummary("", ""), BerryFlavorSummary("", ""), List.empty[BerrySummary], List.empty[NatureDetailPokeathlonStatChangesInner], List.empty[NatureBattleStylePreference], List.empty[NatureName])
+    NatureDetail(0, "", StatSummary("", ""), StatSummary("", ""), BerryFlavorSummary("", ""), BerryFlavorSummary("", ""), List.empty[NaturePokeathlonStat], List.empty[NatureBattleStylePreference], List.empty[NatureName])
   }
 
   /**
@@ -170,7 +170,7 @@ class PokemonApiImpl extends PokemonApi {
   override def pokeathlonStatList(limit: Option[Int], offset: Option[Int], q: Option[String]): PaginatedPokeathlonStatSummaryList = {
     // TODO: Implement better logic
 
-    PaginatedPokeathlonStatSummaryList(None, None, None, None)
+    PaginatedPokeathlonStatSummaryList(0, None, None, List.empty[PokeathlonStatSummary])
   }
 
   /**
@@ -179,7 +179,7 @@ class PokemonApiImpl extends PokemonApi {
   override def pokeathlonStatRetrieve(id: String): PokeathlonStatDetail = {
     // TODO: Implement better logic
 
-    PokeathlonStatDetail(0, "", PokeathlonStatDetailAffectingNatures(List.empty[PokeathlonStatDetailAffectingNaturesDecreaseInner], List.empty[PokeathlonStatDetailAffectingNaturesIncreaseInner]), List.empty[PokeathlonStatName])
+    PokeathlonStatDetail(0, "", PokeathlonStatAffectingNatures(List.empty[PokeathlonStatAffectingNature], List.empty[PokeathlonStatAffectingNature]), List.empty[PokeathlonStatName])
   }
 
   /**
@@ -188,7 +188,7 @@ class PokemonApiImpl extends PokemonApi {
   override def pokemonColorList(limit: Option[Int], offset: Option[Int], q: Option[String]): PaginatedPokemonColorSummaryList = {
     // TODO: Implement better logic
 
-    PaginatedPokemonColorSummaryList(None, None, None, None)
+    PaginatedPokemonColorSummaryList(0, None, None, List.empty[PokemonColorSummary])
   }
 
   /**
@@ -206,7 +206,7 @@ class PokemonApiImpl extends PokemonApi {
   override def pokemonFormList(limit: Option[Int], offset: Option[Int], q: Option[String]): PaginatedPokemonFormSummaryList = {
     // TODO: Implement better logic
 
-    PaginatedPokemonFormSummaryList(None, None, None, None)
+    PaginatedPokemonFormSummaryList(0, None, None, List.empty[PokemonFormSummary])
   }
 
   /**
@@ -215,7 +215,7 @@ class PokemonApiImpl extends PokemonApi {
   override def pokemonFormRetrieve(id: String): PokemonFormDetail = {
     // TODO: Implement better logic
 
-    PokemonFormDetail(0, "", None, None, None, None, None, "", PokemonSummary("", ""), PokemonFormDetailSprites(None, Map.empty), VersionGroupSummary("", ""), List.empty[PokemonFormDetailFormNamesInner], List.empty[PokemonFormDetailFormNamesInner], List.empty[PokemonDetailTypesInner])
+    PokemonFormDetail(0, "", None, None, None, None, None, "", PokemonSummary("", ""), PokemonFormSprites("", "", "", "", "", "", "", "", None, None), VersionGroupSummary("", ""), List.empty[PokemonFormName], List.empty[PokemonFormName], List.empty[PokemonFormType], List.empty[PokemonFormTriggerCondition], List.empty[PokemonFormFlavorText])
   }
 
   /**
@@ -224,7 +224,7 @@ class PokemonApiImpl extends PokemonApi {
   override def pokemonHabitatList(limit: Option[Int], offset: Option[Int], q: Option[String]): PaginatedPokemonHabitatSummaryList = {
     // TODO: Implement better logic
 
-    PaginatedPokemonHabitatSummaryList(None, None, None, None)
+    PaginatedPokemonHabitatSummaryList(0, None, None, List.empty[PokemonHabitatSummary])
   }
 
   /**
@@ -242,7 +242,7 @@ class PokemonApiImpl extends PokemonApi {
   override def pokemonList(limit: Option[Int], offset: Option[Int], q: Option[String]): PaginatedPokemonSummaryList = {
     // TODO: Implement better logic
 
-    PaginatedPokemonSummaryList(None, None, None, None)
+    PaginatedPokemonSummaryList(0, None, None, List.empty[PokemonSummary])
   }
 
   /**
@@ -251,7 +251,7 @@ class PokemonApiImpl extends PokemonApi {
   override def pokemonRetrieve(id: String): PokemonDetail = {
     // TODO: Implement better logic
 
-    PokemonDetail(0, "", None, None, None, None, None, List.empty[PokemonDetailAbilitiesInner], List.empty[PokemonDetailPastAbilitiesInner], List.empty[PokemonFormSummary], List.empty[PokemonGameIndex], PokemonDetailHeldItems(AbilityDetailPokemonInnerPokemon("", ""), List.empty[ItemDetailHeldByPokemonInnerVersionDetailsInner]), "", List.empty[PokemonDetailMovesInner], PokemonSpeciesSummary("", ""), PokemonDetailSprites(None, Map.empty), PokemonDetailCries("", ""), List.empty[PokemonStat], List.empty[PokemonDetailTypesInner], List.empty[PokemonDetailPastTypesInner])
+    PokemonDetail(0, "", None, None, None, None, None, List.empty[PokemonAbility], List.empty[PokemonPastAbility], List.empty[PokemonFormSummary], List.empty[PokemonGameIndex], List.empty[PokemonHeldItemSummary], "", List.empty[PokemonMove], PokemonSpeciesSummary("", ""), PokemonSprites("", "", "", "", "", "", "", "", None, None), PokemonCries("", ""), List.empty[PokemonStat], List.empty[PokemonPastStat], List.empty[PokemonType], List.empty[PokemonPastType])
   }
 
   /**
@@ -260,7 +260,7 @@ class PokemonApiImpl extends PokemonApi {
   override def pokemonShapeList(limit: Option[Int], offset: Option[Int], q: Option[String]): PaginatedPokemonShapeSummaryList = {
     // TODO: Implement better logic
 
-    PaginatedPokemonShapeSummaryList(None, None, None, None)
+    PaginatedPokemonShapeSummaryList(0, None, None, List.empty[PokemonShapeSummary])
   }
 
   /**
@@ -269,7 +269,7 @@ class PokemonApiImpl extends PokemonApi {
   override def pokemonShapeRetrieve(id: String): PokemonShapeDetail = {
     // TODO: Implement better logic
 
-    PokemonShapeDetail(0, "", List.empty[PokemonShapeDetailAwesomeNamesInner], List.empty[PokemonShapeDetailNamesInner], List.empty[PokemonSpeciesSummary])
+    PokemonShapeDetail(0, "", List.empty[PokemonShapeAwesomeName], List.empty[PokemonShapeName], List.empty[PokemonSpeciesSummary])
   }
 
   /**
@@ -278,7 +278,7 @@ class PokemonApiImpl extends PokemonApi {
   override def pokemonSpeciesList(limit: Option[Int], offset: Option[Int], q: Option[String]): PaginatedPokemonSpeciesSummaryList = {
     // TODO: Implement better logic
 
-    PaginatedPokemonSpeciesSummaryList(None, None, None, None)
+    PaginatedPokemonSpeciesSummaryList(0, None, None, List.empty[PokemonSpeciesSummary])
   }
 
   /**
@@ -287,7 +287,7 @@ class PokemonApiImpl extends PokemonApi {
   override def pokemonSpeciesRetrieve(id: String): PokemonSpeciesDetail = {
     // TODO: Implement better logic
 
-    PokemonSpeciesDetail(0, "", None, None, None, None, None, None, None, None, None, None, GrowthRateSummary("", ""), List.empty[PokemonDexEntry], List.empty[AbilityDetailPokemonInnerPokemon], PokemonColorSummary("", ""), PokemonShapeSummary("", ""), PokemonSpeciesSummary("", ""), EvolutionChainSummary(""), PokemonHabitatSummary("", ""), GenerationSummary("", ""), List.empty[PokemonFormDetailFormNamesInner], List.empty[PokemonSpeciesDetailPalParkEncountersInner], List.empty[PokemonSpeciesDescription], List.empty[PokemonSpeciesFlavorText], List.empty[PokemonSpeciesDetailGeneraInner], List.empty[PokemonSpeciesDetailVarietiesInner])
+    PokemonSpeciesDetail(0, "", None, None, None, None, None, None, None, None, None, None, GrowthRateSummary("", ""), List.empty[PokemonDexEntry], List.empty[EggGroupSummary], PokemonColorSummary("", ""), PokemonShapeSummary("", ""), PokemonSpeciesSummary("", ""), EvolutionChainSummary(""), PokemonHabitatSummary("", ""), GenerationSummary("", ""), List.empty[PokemonSpeciesName], List.empty[PokemonSpeciesPalParkEncounter], List.empty[PokemonSpeciesDescription], List.empty[PokemonSpeciesFlavorText], List.empty[PokemonSpeciesGenus], List.empty[PokemonSpeciesVariety])
   }
 
   /**
@@ -296,7 +296,7 @@ class PokemonApiImpl extends PokemonApi {
   override def statList(limit: Option[Int], offset: Option[Int], q: Option[String]): PaginatedStatSummaryList = {
     // TODO: Implement better logic
 
-    PaginatedStatSummaryList(None, None, None, None)
+    PaginatedStatSummaryList(0, None, None, List.empty[StatSummary])
   }
 
   /**
@@ -305,7 +305,7 @@ class PokemonApiImpl extends PokemonApi {
   override def statRetrieve(id: String): StatDetail = {
     // TODO: Implement better logic
 
-    StatDetail(0, "", 0, None, StatDetailAffectingMoves(List.empty[StatDetailAffectingMovesIncreaseInner], List.empty[StatDetailAffectingMovesIncreaseInner]), StatDetailAffectingNatures(List.empty[AbilityDetailPokemonInnerPokemon], List.empty[AbilityDetailPokemonInnerPokemon]), List.empty[CharacteristicSummary], MoveDamageClassSummary("", ""), List.empty[StatName])
+    StatDetail(0, "", 0, None, StatAffectingMoves(List.empty[MoveStatChange], List.empty[MoveStatChange]), StatAffectingNatures(List.empty[NatureSummary], List.empty[NatureSummary]), List.empty[ItemSummary], List.empty[CharacteristicSummary], MoveDamageClassSummary("", ""), List.empty[StatName])
   }
 
   /**
@@ -314,7 +314,7 @@ class PokemonApiImpl extends PokemonApi {
   override def typeList(limit: Option[Int], offset: Option[Int], q: Option[String]): PaginatedTypeSummaryList = {
     // TODO: Implement better logic
 
-    PaginatedTypeSummaryList(None, None, None, None)
+    PaginatedTypeSummaryList(0, None, None, List.empty[TypeSummary])
   }
 
   /**
@@ -323,6 +323,6 @@ class PokemonApiImpl extends PokemonApi {
   override def typeRetrieve(id: String): TypeDetail = {
     // TODO: Implement better logic
 
-    TypeDetail(0, "", TypeDetailDamageRelations(List.empty[AbilityDetailPokemonInnerPokemon], List.empty[AbilityDetailPokemonInnerPokemon], List.empty[AbilityDetailPokemonInnerPokemon], List.empty[AbilityDetailPokemonInnerPokemon], List.empty[AbilityDetailPokemonInnerPokemon], List.empty[AbilityDetailPokemonInnerPokemon]), List.empty[TypeDetailPastDamageRelationsInner], List.empty[TypeGameIndex], GenerationSummary("", ""), MoveDamageClassSummary("", ""), List.empty[AbilityName], List.empty[TypeDetailPokemonInner], List.empty[MoveSummary], Map.empty[String, Map])
+    TypeDetail(0, "", TypeRelationships(List.empty[TypeSummary], List.empty[TypeSummary], List.empty[TypeSummary], List.empty[TypeSummary], List.empty[TypeSummary], List.empty[TypeSummary]), List.empty[TypePastRelationships], List.empty[TypeGameIndex], GenerationSummary("", ""), MoveDamageClassSummary("", ""), List.empty[TypeName], List.empty[TypePokemon], List.empty[MoveSummary], Map.empty[String, Map])
   }
 }

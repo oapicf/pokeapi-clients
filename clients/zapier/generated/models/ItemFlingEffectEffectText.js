@@ -7,7 +7,7 @@ module.exports = {
         return [
             {
                 key: `${keyPrefix}effect`,
-                label: `[${labelPrefix}effect]`,
+                label: `The localized effect text for an API resource in a specific language. - [${labelPrefix}effect]`,
                 required: true,
                 type: 'string',
             },

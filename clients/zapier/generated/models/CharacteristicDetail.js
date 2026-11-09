@@ -8,19 +8,19 @@ module.exports = {
         return [
             {
                 key: `${keyPrefix}id`,
-                label: `[${labelPrefix}id]`,
+                label: `The identifier for this resource. - [${labelPrefix}id]`,
                 required: true,
                 type: 'integer',
             },
             {
                 key: `${keyPrefix}gene_modulo`,
-                label: `[${labelPrefix}gene_modulo]`,
+                label: `The remainder of the highest stat/IV divided by 5. - [${labelPrefix}gene_modulo]`,
                 required: true,
                 type: 'integer',
             },
             {
                 key: `${keyPrefix}possible_values`,
-                label: `[${labelPrefix}possible_values]`,
+                label: `The possible values of the highest stat that would result in a Pokémon recieving this characteristic when divided by 5. - [${labelPrefix}possible_values]`,
                 required: true,
                 list: true,
                 type: 'integer',

@@ -18,17 +18,17 @@ resourceTypes {
     properties {
         effect {
           type =  string
-          description = ""
+          description = "The localized effect text for an API resource in a specific language."
           optional = true
         }
         short_effect {
           type =  string
-          description = ""
+          description = "The localized effect text in brief."
           optional = true
         }
         language {
           type = LanguageSummary
-          description = ""
+          description = "The language this effect is in."
           optional = true
         }
     }

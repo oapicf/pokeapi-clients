@@ -10,6 +10,7 @@ class_name AbilityDetail
 # AbilityDetail Model
 
 
+# The identifier for this resource.
 # Required: True
 # isArray: false
 @export var id: int:
@@ -18,6 +19,7 @@ class_name AbilityDetail
 		id = value
 var __id__was__set := false
 
+# The name for this resource.
 # Required: True
 # isArray: false
 @export var name: String:
@@ -26,6 +28,7 @@ var __id__was__set := false
 		name = value
 var __name__was__set := false
 
+# Whether or not this ability originated in the main series of the video games.
 # Required: False
 # isArray: false
 @export var isUnderscoremainUnderscoreseries: bool:
@@ -34,6 +37,7 @@ var __name__was__set := false
 		isUnderscoremainUnderscoreseries = value
 var __isUnderscoremainUnderscoreseries__was__set := false
 
+# The generation this ability originated in.
 # Required: True
 # isArray: false
 @export var generation: GenerationSummary:
@@ -42,6 +46,7 @@ var __isUnderscoremainUnderscoreseries__was__set := false
 		generation = value
 var __generation__was__set := false
 
+# The name of this resource listed in different languages.
 # Required: True
 # isArray: true
 @export var names: Array:
@@ -50,6 +55,7 @@ var __generation__was__set := false
 		names = value
 var __names__was__set := false
 
+# The effect of this ability listed in different languages.
 # Required: True
 # isArray: true
 @export var effectUnderscoreentries: Array:
@@ -58,6 +64,7 @@ var __names__was__set := false
 		effectUnderscoreentries = value
 var __effectUnderscoreentries__was__set := false
 
+# The list of previous effects this ability has had across version groups.
 # Required: True
 # isArray: true
 @export var effectUnderscorechanges: Array:
@@ -66,6 +73,7 @@ var __effectUnderscoreentries__was__set := false
 		effectUnderscorechanges = value
 var __effectUnderscorechanges__was__set := false
 
+# The flavor text of this ability listed in different languages.
 # Required: True
 # isArray: true
 @export var flavorUnderscoretextUnderscoreentries: Array:
@@ -74,6 +82,7 @@ var __effectUnderscorechanges__was__set := false
 		flavorUnderscoretextUnderscoreentries = value
 var __flavorUnderscoretextUnderscoreentries__was__set := false
 
+# A list of Pokémon that could potentially have this ability.
 # Required: True
 # isArray: true
 @export var pokemon: Array:
@@ -147,7 +156,7 @@ static func bzz_denormalize_single(from_dict: Dictionary):
 	if from_dict.has("flavorUnderscoretextUnderscoreentries"):
 		me.flavorUnderscoretextUnderscoreentries = AbilityFlavorText.bzz_denormalize_multiple(from_dict["flavorUnderscoretextUnderscoreentries"])
 	if from_dict.has("pokemon"):
-		me.pokemon = AbilityDetail_pokemon_inner.bzz_denormalize_multiple(from_dict["pokemon"])
+		me.pokemon = AbilityPokemonDetail.bzz_denormalize_multiple(from_dict["pokemon"])
 	return me
 
 

@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**game_index** | **number** |  | [default to undefined]
-**version** | [**VersionSummary**](VersionSummary.md) |  | [default to undefined]
+**game_index** | **number** | The internal id of an API resource within game data. | [default to undefined]
+**version** | [**VersionSummary**](VersionSummary.md) | The version relevent to this game index. | [default to undefined]
 
 ## Example
 

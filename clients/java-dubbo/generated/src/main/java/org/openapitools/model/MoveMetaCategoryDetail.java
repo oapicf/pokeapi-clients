@@ -1,7 +1,7 @@
 package org.openapitools.model;
 
-import org.openapitools.model.AbilityDetailPokemonInnerPokemon;
 import org.openapitools.model.MoveMetaCategoryDescription;
+import org.openapitools.model.MoveSummary;
 import java.util.*;
 import java.util.Objects;
 import java.io.Serializable;
@@ -14,20 +14,32 @@ import java.math.*;
 public class MoveMetaCategoryDetail implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * The identifier for this resource.
+   */
   @JsonProperty("id")
   private Integer id;
 
+  /**
+   * The name for this resource.
+   */
   @JsonProperty("name")
   private String name;
 
+  /**
+   * The description of this resource listed in different languages.
+   */
   @JsonProperty("descriptions")
   private List<MoveMetaCategoryDescription> descriptions = new ArrayList<>();
 
+  /**
+   * A list of moves that fall into this category.
+   */
   @JsonProperty("moves")
-  private List<AbilityDetailPokemonInnerPokemon> moves = new ArrayList<>();
+  private List<MoveSummary> moves = new ArrayList<>();
 
   /**
-   * 
+   * The identifier for this resource.
    * @return id
    */
   public Integer getId() {
@@ -39,7 +51,7 @@ public class MoveMetaCategoryDetail implements Serializable {
   }
 
   /**
-   * 
+   * The name for this resource.
    * @return name
    */
   public String getName() {
@@ -51,7 +63,7 @@ public class MoveMetaCategoryDetail implements Serializable {
   }
 
   /**
-   * 
+   * The description of this resource listed in different languages.
    * @return descriptions
    */
   public List<MoveMetaCategoryDescription> getDescriptions() {
@@ -63,14 +75,14 @@ public class MoveMetaCategoryDetail implements Serializable {
   }
 
   /**
-   * 
+   * A list of moves that fall into this category.
    * @return moves
    */
-  public List<AbilityDetailPokemonInnerPokemon> getMoves() {
+  public List<MoveSummary> getMoves() {
     return moves;
   }
 
-  public void setMoves(List<AbilityDetailPokemonInnerPokemon> moves) {
+  public void setMoves(List<MoveSummary> moves) {
     this.moves = moves;
   }
 

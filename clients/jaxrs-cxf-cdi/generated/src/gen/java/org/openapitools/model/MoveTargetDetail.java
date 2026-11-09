@@ -32,6 +32,7 @@ public class MoveTargetDetail   {
   private List<@Valid MoveTargetName> names = new ArrayList<>();
 
   /**
+   * The identifier for this resource.
    **/
   public MoveTargetDetail id(Integer id) {
     this.id = id;
@@ -39,7 +40,7 @@ public class MoveTargetDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   @JsonProperty("id")
   @NotNull
   public Integer getId() {
@@ -51,6 +52,7 @@ public class MoveTargetDetail   {
 
 
   /**
+   * The name for this resource.
    **/
   public MoveTargetDetail name(String name) {
     this.name = name;
@@ -58,10 +60,10 @@ public class MoveTargetDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   @JsonProperty("name")
   @NotNull
- @Size(max=100)  public String getName() {
+ @Size(max=200)  public String getName() {
     return name;
   }
   public void setName(String name) {
@@ -70,6 +72,7 @@ public class MoveTargetDetail   {
 
 
   /**
+   * The description of this resource listed in different languages.
    **/
   public MoveTargetDetail descriptions(List<@Valid MoveTargetDescription> descriptions) {
     this.descriptions = descriptions;
@@ -77,7 +80,7 @@ public class MoveTargetDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The description of this resource listed in different languages.")
   @JsonProperty("descriptions")
   @NotNull
   public List<@Valid MoveTargetDescription> getDescriptions() {
@@ -97,6 +100,7 @@ public class MoveTargetDetail   {
 
 
   /**
+   * A list of moves that that are directed at this target.
    **/
   public MoveTargetDetail moves(List<@Valid MoveSummary> moves) {
     this.moves = moves;
@@ -104,7 +108,7 @@ public class MoveTargetDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of moves that that are directed at this target.")
   @JsonProperty("moves")
   @NotNull
   public List<@Valid MoveSummary> getMoves() {
@@ -124,6 +128,7 @@ public class MoveTargetDetail   {
 
 
   /**
+   * The name of this resource listed in different languages.
    **/
   public MoveTargetDetail names(List<@Valid MoveTargetName> names) {
     this.names = names;
@@ -131,7 +136,7 @@ public class MoveTargetDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name of this resource listed in different languages.")
   @JsonProperty("names")
   @NotNull
   public List<@Valid MoveTargetName> getNames() {

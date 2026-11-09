@@ -6,6 +6,8 @@ The controller class is defined in **[ItemsController.java](../../src/main/java/
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**currencyList**](#currencyList) | **GET** /api/v2/currency/ | List currencies
+[**currencyRetrieve**](#currencyRetrieve) | **GET** /api/v2/currency/{id}/ | Get currency
 [**itemAttributeList**](#itemAttributeList) | **GET** /api/v2/item-attribute/ | List item attributes
 [**itemAttributeRetrieve**](#itemAttributeRetrieve) | **GET** /api/v2/item-attribute/{id}/ | Get item attribute
 [**itemCategoryList**](#itemCategoryList) | **GET** /api/v2/item-category/ | List item categories
@@ -16,6 +18,54 @@ Method | HTTP request | Description
 [**itemPocketList**](#itemPocketList) | **GET** /api/v2/item-pocket/ | List item pockets
 [**itemPocketRetrieve**](#itemPocketRetrieve) | **GET** /api/v2/item-pocket/{id}/ | Get item pocket
 [**itemRetrieve**](#itemRetrieve) | **GET** /api/v2/item/{id}/ | Get item
+
+<a id="currencyList"></a>
+# **currencyList**
+```java
+Mono<PaginatedCurrencySummaryList> ItemsController.currencyList(limitoffsetq)
+```
+
+List currencies
+
+Currencies used to buy items.
+
+### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**limit** | `Integer` | Number of results to return per page. | [optional parameter]
+**offset** | `Integer` | The initial index from which to return the results. | [optional parameter]
+**q** | `String` | &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional parameter]
+
+### Return type
+[**PaginatedCurrencySummaryList**](../../docs/models/PaginatedCurrencySummaryList.md)
+
+
+### HTTP request headers
+ - **Accepts Content-Type**: Not defined
+ - **Produces Content-Type**: `application/json`
+
+<a id="currencyRetrieve"></a>
+# **currencyRetrieve**
+```java
+Mono<CurrencyDetail> ItemsController.currencyRetrieve(id)
+```
+
+Get currency
+
+Currencies used to buy items.
+
+### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**id** | `String` | This parameter can be a string or an integer. |
+
+### Return type
+[**CurrencyDetail**](../../docs/models/CurrencyDetail.md)
+
+
+### HTTP request headers
+ - **Accepts Content-Type**: Not defined
+ - **Produces Content-Type**: `application/json`
 
 <a id="itemAttributeList"></a>
 # **itemAttributeList**
@@ -37,9 +87,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**PaginatedItemAttributeSummaryList**](../../docs/models/PaginatedItemAttributeSummaryList.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -63,9 +110,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**ItemAttributeDetail**](../../docs/models/ItemAttributeDetail.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -91,9 +135,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**PaginatedItemCategorySummaryList**](../../docs/models/PaginatedItemCategorySummaryList.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -117,9 +158,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**ItemCategoryDetail**](../../docs/models/ItemCategoryDetail.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -145,9 +183,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**PaginatedItemFlingEffectSummaryList**](../../docs/models/PaginatedItemFlingEffectSummaryList.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -171,9 +206,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**ItemFlingEffectDetail**](../../docs/models/ItemFlingEffectDetail.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -199,9 +231,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**PaginatedItemSummaryList**](../../docs/models/PaginatedItemSummaryList.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -227,9 +256,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**PaginatedItemPocketSummaryList**](../../docs/models/PaginatedItemPocketSummaryList.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -253,9 +279,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**ItemPocketDetail**](../../docs/models/ItemPocketDetail.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -279,9 +302,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**ItemDetail**](../../docs/models/ItemDetail.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined

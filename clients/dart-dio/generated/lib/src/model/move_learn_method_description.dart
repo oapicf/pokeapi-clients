@@ -12,13 +12,15 @@ part 'move_learn_method_description.g.dart';
 /// MoveLearnMethodDescription
 ///
 /// Properties:
-/// * [description] 
-/// * [language] 
+/// * [description] - The localized description for an API resource in a specific language.
+/// * [language] - The language this name is in.
 @BuiltValue()
 abstract class MoveLearnMethodDescription implements Built<MoveLearnMethodDescription, MoveLearnMethodDescriptionBuilder> {
+  /// The localized description for an API resource in a specific language.
   @BuiltValueField(wireName: r'description')
   String? get description;
 
+  /// The language this name is in.
   @BuiltValueField(wireName: r'language')
   LanguageSummary get language;
 

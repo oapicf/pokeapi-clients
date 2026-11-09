@@ -25,6 +25,7 @@ public class AbilityChange   {
   private List<@Valid AbilityChangeEffectText> effectEntries = new ArrayList<>();
 
   /**
+   * The version group in which the previous effect of this ability originated.
    **/
   public AbilityChange versionGroup(VersionGroupSummary versionGroup) {
     this.versionGroup = versionGroup;
@@ -32,7 +33,7 @@ public class AbilityChange   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The version group in which the previous effect of this ability originated.")
   @JsonProperty("version_group")
   @NotNull
   public VersionGroupSummary getVersionGroup() {
@@ -44,6 +45,7 @@ public class AbilityChange   {
 
 
   /**
+   * The previous effect of this ability listed in different languages.
    **/
   public AbilityChange effectEntries(List<@Valid AbilityChangeEffectText> effectEntries) {
     this.effectEntries = effectEntries;
@@ -51,7 +53,7 @@ public class AbilityChange   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The previous effect of this ability listed in different languages.")
   @JsonProperty("effect_entries")
   @NotNull
   public List<@Valid AbilityChangeEffectText> getEffectEntries() {

@@ -9,16 +9,23 @@ import Foundation
 
 public struct RegionDetail: Sendable, Codable, Hashable {
 
-    public static let nameRule = StringRule(minLength: nil, maxLength: 100, pattern: nil)
+    public static let nameRule = StringRule(minLength: nil, maxLength: 200, pattern: nil)
+    /** The identifier for this resource. */
     public var id: Int
+    /** The name for this resource. */
     public var name: String
+    /** A list of locations that can be found in this region. */
     public var locations: [LocationSummary]
-    public var mainGeneration: GenerationSummary
+    /** The generation this region was introduced in. */
+    public var mainGeneration: GenerationSummary?
+    /** The name of this resource listed in different languages. */
     public var names: [RegionName]
+    /** A list of pokédexes that catalogue Pokémon in this region. */
     public var pokedexes: [PokedexSummary]
-    public var versionGroups: [AbilityDetailPokemonInnerPokemon]
+    /** A list of version groups where this region can be visited. */
+    public var versionGroups: [VersionGroupSummary]
 
-    public init(id: Int, name: String, locations: [LocationSummary], mainGeneration: GenerationSummary, names: [RegionName], pokedexes: [PokedexSummary], versionGroups: [AbilityDetailPokemonInnerPokemon]) {
+    public init(id: Int, name: String, locations: [LocationSummary], mainGeneration: GenerationSummary?, names: [RegionName], pokedexes: [PokedexSummary], versionGroups: [VersionGroupSummary]) {
         self.id = id
         self.name = name
         self.locations = locations

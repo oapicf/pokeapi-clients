@@ -25,9 +25,6 @@ func contest_effect_list(
 	# offset: int   Eg: 56
 	# The initial index from which to return the results.
 	offset = null,
-	# q: String   Eg: q_example
-	# > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-	q = null,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
 	on_failure: Callable = Callable(),  # func(error: ApiError)
 ):
@@ -51,7 +48,6 @@ func contest_effect_list(
 	var bzz_query := Dictionary()
 	bzz_query["limit"] = limit
 	bzz_query["offset"] = offset
-	bzz_query["q"] = q
 
 	var bzz_body = null
 
@@ -74,9 +70,6 @@ func contest_effect_list_threaded(
 	# offset: int   Eg: 56
 	# The initial index from which to return the results.
 	offset = null,
-	# q: String   Eg: q_example
-	# > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-	q = null,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
 	on_failure: Callable = Callable(),  # func(error: ApiError)
 ) -> Thread:
@@ -85,7 +78,6 @@ func contest_effect_list_threaded(
 	bzz_callable.bind(
 		limit,
 		offset,
-		q,
 		on_success,
 		on_failure,
 	)
@@ -98,7 +90,7 @@ func contest_effect_list_threaded(
 #
 # Contest effects refer to the effects of moves when used in contests.
 func contest_effect_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -138,7 +130,7 @@ func contest_effect_retrieve(
 
 
 func contest_effect_retrieve_threaded(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -239,7 +231,7 @@ func contest_type_list_threaded(
 #
 # Contest types are categories judges used to weigh a Pokémon's condition in Pokémon contests. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Contest_condition) for greater detail.
 func contest_type_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -279,7 +271,7 @@ func contest_type_retrieve(
 
 
 func contest_type_retrieve_threaded(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -307,9 +299,6 @@ func super_contest_effect_list(
 	# offset: int   Eg: 56
 	# The initial index from which to return the results.
 	offset = null,
-	# q: String   Eg: q_example
-	# > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-	q = null,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
 	on_failure: Callable = Callable(),  # func(error: ApiError)
 ):
@@ -333,7 +322,6 @@ func super_contest_effect_list(
 	var bzz_query := Dictionary()
 	bzz_query["limit"] = limit
 	bzz_query["offset"] = offset
-	bzz_query["q"] = q
 
 	var bzz_body = null
 
@@ -356,9 +344,6 @@ func super_contest_effect_list_threaded(
 	# offset: int   Eg: 56
 	# The initial index from which to return the results.
 	offset = null,
-	# q: String   Eg: q_example
-	# > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
-	q = null,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
 	on_failure: Callable = Callable(),  # func(error: ApiError)
 ) -> Thread:
@@ -367,7 +352,6 @@ func super_contest_effect_list_threaded(
 	bzz_callable.bind(
 		limit,
 		offset,
-		q,
 		on_success,
 		on_failure,
 	)
@@ -380,7 +364,7 @@ func super_contest_effect_list_threaded(
 #
 # Super contest effects refer to the effects of moves when used in super contests.
 func super_contest_effect_retrieve(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -420,7 +404,7 @@ func super_contest_effect_retrieve(
 
 
 func super_contest_effect_retrieve_threaded(
-	# id: String   Eg: id_example
+	# id: String   Eg: 1
 	# This parameter can be a string or an integer.
 	id: String,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)

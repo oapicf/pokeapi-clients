@@ -3,8 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **NSString*** |  | 
-**url** | **NSString*** |  | [readonly] 
+**name** | **NSString*** | The name of the referenced resource. | 
+**url** | **NSString*** | The URL of the referenced resource. | [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

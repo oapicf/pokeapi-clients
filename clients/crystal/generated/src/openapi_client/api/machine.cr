@@ -6,13 +6,13 @@ module OpenAPIClient
     def initialize(@conn : Connection); end
 
     # List machines Machines are the representation of items that teach moves to Pokémon. They vary from version to version, so it is not certain that one specific TM or HM corresponds to a single Machine.
-    def list(*, limit : Int32? = nil, offset : Int32? = nil, q : String? = nil) : Response(OpenAPIClient::PaginatedMachineSummaryList)
+    def list(*, limit : Int32? = nil, offset : Int32? = nil) : Response(OpenAPIClient::PaginatedMachineSummaryList)
       @conn.request(OpenAPIClient::PaginatedMachineSummaryList,
         method: :GET,
         path: "/api/v2/machine/",
-        query: { "limit" => limit, "offset" => offset, "q" => q },
+        query: { "limit" => limit, "offset" => offset },
         accept: %w[application/json],
-        auth: %w[basicAuth cookieAuth])
+        auth: %w[])
     end
 
     # Get machine Machines are the representation of items that teach moves to Pokémon. They vary from version to version, so it is not certain that one specific TM or HM corresponds to a single Machine.
@@ -21,7 +21,7 @@ module OpenAPIClient
         method: :GET,
         path: "/api/v2/machine/{id}/".sub("{id}", OpenAPIClient.enc(id)),
         accept: %w[application/json],
-        auth: %w[basicAuth cookieAuth])
+        auth: %w[])
     end
   end
   end

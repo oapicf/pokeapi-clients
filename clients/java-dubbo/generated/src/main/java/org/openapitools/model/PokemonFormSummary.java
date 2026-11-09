@@ -12,14 +12,20 @@ import java.math.*;
 public class PokemonFormSummary implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * The name of the referenced resource.
+   */
   @JsonProperty("name")
   private String name;
 
+  /**
+   * The URL of the referenced resource.
+   */
   @JsonProperty("url")
   private URI url;
 
   /**
-   * 
+   * The name of the referenced resource.
    * @return name
    */
   public String getName() {
@@ -31,7 +37,7 @@ public class PokemonFormSummary implements Serializable {
   }
 
   /**
-   * 
+   * The URL of the referenced resource.
    * @return url
    */
   public URI getUrl() {

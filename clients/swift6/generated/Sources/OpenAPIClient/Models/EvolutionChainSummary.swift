@@ -9,6 +9,7 @@ import Foundation
 
 public struct EvolutionChainSummary: Sendable, Codable, Hashable {
 
+    /** The URL of the referenced resource. */
     public var url: String
 
     public init(url: String) {

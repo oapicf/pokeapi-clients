@@ -11,10 +11,10 @@
         names=nothing,
     )
 
-    - id::Int64
-    - name::String
-    - berry_flavor::BerryFlavorSummary
-    - names::Vector{ContestTypeName}
+    - id::Int64 : The identifier for this resource.
+    - name::String : The name for this resource.
+    - berry_flavor::BerryFlavorSummary : The berry flavor that correlates with this contest type.
+    - names::Vector{ContestTypeName} : The name of this contest type listed in different languages.
 """
 Base.@kwdef mutable struct ContestTypeDetail <: OpenAPI.APIModel
     id::Union{Nothing, Int64} = nothing
@@ -51,7 +51,7 @@ function OpenAPI.validate_property(::Type{ ContestTypeDetail }, name::Symbol, va
 
 
     if name === Symbol("name")
-        OpenAPI.validate_param(name, "ContestTypeDetail", :maxLength, val, 100)
+        OpenAPI.validate_param(name, "ContestTypeDetail", :maxLength, val, 200)
     end
 
 

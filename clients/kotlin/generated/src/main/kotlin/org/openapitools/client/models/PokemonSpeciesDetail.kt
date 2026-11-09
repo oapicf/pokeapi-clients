@@ -23,21 +23,21 @@
 
 package org.openapitools.client.models
 
-import org.openapitools.client.models.AbilityDetailPokemonInnerPokemon
+import org.openapitools.client.models.EggGroupSummary
 import org.openapitools.client.models.EvolutionChainSummary
 import org.openapitools.client.models.GenerationSummary
 import org.openapitools.client.models.GrowthRateSummary
 import org.openapitools.client.models.PokemonColorSummary
 import org.openapitools.client.models.PokemonDexEntry
-import org.openapitools.client.models.PokemonFormDetailFormNamesInner
 import org.openapitools.client.models.PokemonHabitatSummary
 import org.openapitools.client.models.PokemonShapeSummary
 import org.openapitools.client.models.PokemonSpeciesDescription
-import org.openapitools.client.models.PokemonSpeciesDetailGeneraInner
-import org.openapitools.client.models.PokemonSpeciesDetailPalParkEncountersInner
-import org.openapitools.client.models.PokemonSpeciesDetailVarietiesInner
 import org.openapitools.client.models.PokemonSpeciesFlavorText
+import org.openapitools.client.models.PokemonSpeciesGenus
+import org.openapitools.client.models.PokemonSpeciesName
+import org.openapitools.client.models.PokemonSpeciesPalParkEncounter
 import org.openapitools.client.models.PokemonSpeciesSummary
+import org.openapitools.client.models.PokemonSpeciesVariety
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -45,116 +45,143 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param id 
- * @param name 
- * @param growthRate 
- * @param pokedexNumbers 
- * @param eggGroups 
- * @param color 
- * @param shape 
- * @param evolvesFromSpecies 
- * @param evolutionChain 
- * @param habitat 
- * @param generation 
- * @param names 
- * @param palParkEncounters 
- * @param formDescriptions 
- * @param flavorTextEntries 
- * @param genera 
- * @param varieties 
- * @param order 
- * @param genderRate 
- * @param captureRate 
- * @param baseHappiness 
- * @param isBaby 
- * @param isLegendary 
- * @param isMythical 
- * @param hatchCounter 
- * @param hasGenderDifferences 
- * @param formsSwitchable 
+ * @param id The identifier for this resource.
+ * @param name The name for this resource.
+ * @param growthRate The rate at which this Pokémon species gains levels.
+ * @param pokedexNumbers A list of Pokedexes and the indexes reserved within them for this Pokémon species.
+ * @param eggGroups A list of egg groups this Pokémon species is a member of.
+ * @param color The color of this Pokémon for Pokédex search.
+ * @param shape The shape of this Pokémon for Pokédex search.
+ * @param evolvesFromSpecies The Pokémon species that evolves into this Pokemon_species.
+ * @param evolutionChain The evolution chain this Pokémon species is a member of.
+ * @param habitat The habitat this Pokémon species can be encountered in.
+ * @param generation The generation this Pokémon species was introduced in.
+ * @param names The name of this resource listed in different languages.
+ * @param palParkEncounters A list of encounters that can be had with this Pokémon species in pal park.
+ * @param formDescriptions Descriptions of different forms Pokémon take on within the Pokémon species.
+ * @param flavorTextEntries A list of flavor text entries for this Pokémon species.
+ * @param genera The genus of this Pokémon species listed in multiple languages.
+ * @param varieties A list of the Pokémon that exist within this Pokémon species.
+ * @param order The order in which species should be sorted. Based on National Dex order, except families are grouped together and sorted by stage.
+ * @param genderRate The chance of this Pokémon being female, in eighths; or -1 for genderless.
+ * @param captureRate The base capture rate; up to 255. The higher the number, the easier the catch.
+ * @param baseHappiness The happiness when caught by a normal Pokéball; up to 255. The higher the number, the happier the Pokémon.
+ * @param isBaby Whether or not this is a baby Pokémon.
+ * @param isLegendary Whether or not this is a legendary Pokémon.
+ * @param isMythical Whether or not this is a mythical Pokémon.
+ * @param hatchCounter Initial hatch counter: one must walk Y × (hatch_counter + 1) steps before this Pokémon's egg hatches, unless utilizing bonuses like Flame Body's. Y varies per generation. In Generations II, III, and VII, Egg cycles are 256 steps long. In Generation IV, Egg cycles are 255 steps long. In Pokémon Brilliant Diamond and Shining Pearl, Egg cycles are also 255 steps long, but are shorter on special dates. In Generations V and VI, Egg cycles are 257 steps long. In Pokémon Sword and Shield, and in Pokémon Scarlet and Violet, Egg cycles are 128 steps long.
+ * @param hasGenderDifferences Whether or not this Pokémon has visual gender differences.
+ * @param formsSwitchable Whether or not this Pokémon has multiple forms and can switch between them.
  */
 
 
 data class PokemonSpeciesDetail (
 
+    /* The identifier for this resource. */
     @Json(name = "id")
     val id: kotlin.Int,
 
+    /* The name for this resource. */
     @Json(name = "name")
     val name: kotlin.String,
 
+    /* The rate at which this Pokémon species gains levels. */
     @Json(name = "growth_rate")
     val growthRate: GrowthRateSummary,
 
+    /* A list of Pokedexes and the indexes reserved within them for this Pokémon species. */
     @Json(name = "pokedex_numbers")
     val pokedexNumbers: kotlin.collections.List<PokemonDexEntry>,
 
+    /* A list of egg groups this Pokémon species is a member of. */
     @Json(name = "egg_groups")
-    val eggGroups: kotlin.collections.List<AbilityDetailPokemonInnerPokemon>,
+    val eggGroups: kotlin.collections.List<EggGroupSummary>,
 
+    /* The color of this Pokémon for Pokédex search. */
     @Json(name = "color")
     val color: PokemonColorSummary,
 
+    /* The shape of this Pokémon for Pokédex search. */
     @Json(name = "shape")
     val shape: PokemonShapeSummary,
 
+    /* The Pokémon species that evolves into this Pokemon_species. */
     @Json(name = "evolves_from_species")
-    val evolvesFromSpecies: PokemonSpeciesSummary,
+    val evolvesFromSpecies: PokemonSpeciesSummary?,
 
+    /* The evolution chain this Pokémon species is a member of. */
     @Json(name = "evolution_chain")
     val evolutionChain: EvolutionChainSummary,
 
+    /* The habitat this Pokémon species can be encountered in. */
     @Json(name = "habitat")
-    val habitat: PokemonHabitatSummary,
+    val habitat: PokemonHabitatSummary?,
 
+    /* The generation this Pokémon species was introduced in. */
     @Json(name = "generation")
     val generation: GenerationSummary,
 
+    /* The name of this resource listed in different languages. */
     @Json(name = "names")
-    val names: kotlin.collections.List<PokemonFormDetailFormNamesInner>,
+    val names: kotlin.collections.List<PokemonSpeciesName>,
 
+    /* A list of encounters that can be had with this Pokémon species in pal park. */
     @Json(name = "pal_park_encounters")
-    val palParkEncounters: kotlin.collections.List<PokemonSpeciesDetailPalParkEncountersInner>,
+    val palParkEncounters: kotlin.collections.List<PokemonSpeciesPalParkEncounter>,
 
+    /* Descriptions of different forms Pokémon take on within the Pokémon species. */
     @Json(name = "form_descriptions")
     val formDescriptions: kotlin.collections.List<PokemonSpeciesDescription>,
 
+    /* A list of flavor text entries for this Pokémon species. */
     @Json(name = "flavor_text_entries")
     val flavorTextEntries: kotlin.collections.List<PokemonSpeciesFlavorText>,
 
+    /* The genus of this Pokémon species listed in multiple languages. */
     @Json(name = "genera")
-    val genera: kotlin.collections.List<PokemonSpeciesDetailGeneraInner>,
+    val genera: kotlin.collections.List<PokemonSpeciesGenus>,
 
+    /* A list of the Pokémon that exist within this Pokémon species. */
     @Json(name = "varieties")
-    val varieties: kotlin.collections.List<PokemonSpeciesDetailVarietiesInner>,
+    val varieties: kotlin.collections.List<PokemonSpeciesVariety>,
 
+    /* The order in which species should be sorted. Based on National Dex order, except families are grouped together and sorted by stage. */
     @Json(name = "order")
     val order: kotlin.Int? = null,
 
+    /* The chance of this Pokémon being female, in eighths; or -1 for genderless. */
     @Json(name = "gender_rate")
     val genderRate: kotlin.Int? = null,
 
+    /* The base capture rate; up to 255. The higher the number, the easier the catch. */
     @Json(name = "capture_rate")
     val captureRate: kotlin.Int? = null,
 
+    /* The happiness when caught by a normal Pokéball; up to 255. The higher the number, the happier the Pokémon. */
     @Json(name = "base_happiness")
     val baseHappiness: kotlin.Int? = null,
 
+    /* Whether or not this is a baby Pokémon. */
     @Json(name = "is_baby")
     val isBaby: kotlin.Boolean? = null,
 
+    /* Whether or not this is a legendary Pokémon. */
     @Json(name = "is_legendary")
     val isLegendary: kotlin.Boolean? = null,
 
+    /* Whether or not this is a mythical Pokémon. */
     @Json(name = "is_mythical")
     val isMythical: kotlin.Boolean? = null,
 
+    /* Initial hatch counter: one must walk Y × (hatch_counter + 1) steps before this Pokémon's egg hatches, unless utilizing bonuses like Flame Body's. Y varies per generation. In Generations II, III, and VII, Egg cycles are 256 steps long. In Generation IV, Egg cycles are 255 steps long. In Pokémon Brilliant Diamond and Shining Pearl, Egg cycles are also 255 steps long, but are shorter on special dates. In Generations V and VI, Egg cycles are 257 steps long. In Pokémon Sword and Shield, and in Pokémon Scarlet and Violet, Egg cycles are 128 steps long. */
     @Json(name = "hatch_counter")
     val hatchCounter: kotlin.Int? = null,
 
+    /* Whether or not this Pokémon has visual gender differences. */
     @Json(name = "has_gender_differences")
     val hasGenderDifferences: kotlin.Boolean? = null,
 
+    /* Whether or not this Pokémon has multiple forms and can switch between them. */
     @Json(name = "forms_switchable")
     val formsSwitchable: kotlin.Boolean? = null
 

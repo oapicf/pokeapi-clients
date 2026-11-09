@@ -19,23 +19,23 @@ resourceTypes {
     properties {
         id {
           type =  integer
-          description = ""
+          description = "The identifier for this resource."
           optional = true
         }
         name {
           type =  string
-          description = ""
+          description = "The name for this resource."
           optional = true
         }
         names {
           type = array
           items.type = VersionName
-          description = ""
+          description = "The name of this resource listed in different languages."
           optional = true
         }
         version_group {
           type = VersionGroupSummary
-          description = ""
+          description = "The version group this version belongs to."
           optional = true
         }
     }

@@ -9,7 +9,6 @@
 namespace models {
 
 AbilityChange::AbilityChange()
-: versionGroup(VersionGroupSummary())
 , effectEntries(std::vector<AbilityChangeEffectText>())
 {
 }

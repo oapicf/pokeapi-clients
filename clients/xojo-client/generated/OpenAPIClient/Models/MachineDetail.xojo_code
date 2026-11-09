@@ -2,21 +2,33 @@
 Protected Class MachineDetail
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The identifier for this resource.
+		#tag EndNote
 		id As Integer
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The TM or HM item that corresponds to this machine.
+		#tag EndNote
 		item As OpenAPIClient.Models.ItemSummary
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The version group that this machine applies to.
+		#tag EndNote
 		version_group As OpenAPIClient.Models.VersionGroupSummary
 	#tag EndProperty
 
 
 	#tag Property, Flags = &h0
+		#tag Note
+			The move that is taught by this machine.
+		#tag EndNote
 		move As OpenAPIClient.Models.MoveSummary
 	#tag EndProperty
 

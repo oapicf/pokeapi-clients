@@ -11,13 +11,15 @@ part 'move_meta_ailment_summary.g.dart';
 /// MoveMetaAilmentSummary
 ///
 /// Properties:
-/// * [name] 
-/// * [url] 
+/// * [name] - The name of the referenced resource.
+/// * [url] - The URL of the referenced resource.
 @BuiltValue()
 abstract class MoveMetaAilmentSummary implements Built<MoveMetaAilmentSummary, MoveMetaAilmentSummaryBuilder> {
+  /// The name of the referenced resource.
   @BuiltValueField(wireName: r'name')
   String get name;
 
+  /// The URL of the referenced resource.
   @BuiltValueField(wireName: r'url')
   String get url;
 

@@ -10,6 +10,7 @@ class_name MoveDetail
 # MoveDetail Model
 
 
+# The identifier for this resource.
 # Required: True
 # isArray: false
 @export var id: int:
@@ -18,6 +19,7 @@ class_name MoveDetail
 		id = value
 var __id__was__set := false
 
+# The name for this resource.
 # Required: True
 # isArray: false
 @export var name: String:
@@ -26,6 +28,7 @@ var __id__was__set := false
 		name = value
 var __name__was__set := false
 
+# The percent value of how likely this move is to be successful.
 # Required: False
 # isArray: false
 @export var accuracy: int:
@@ -34,6 +37,7 @@ var __name__was__set := false
 		accuracy = value
 var __accuracy__was__set := false
 
+# The percent value of how likely it is this moves effect will happen.
 # Required: True
 # isArray: false
 @export var effectUnderscorechance: int:
@@ -42,6 +46,7 @@ var __accuracy__was__set := false
 		effectUnderscorechance = value
 var __effectUnderscorechance__was__set := false
 
+# Power points. The number of times this move can be used.
 # Required: False
 # isArray: false
 @export var pp: int:
@@ -50,6 +55,7 @@ var __effectUnderscorechance__was__set := false
 		pp = value
 var __pp__was__set := false
 
+# A value between -8 and 8. Sets the order in which moves are executed during battle. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Priority) for greater detail.
 # Required: False
 # isArray: false
 @export var priority: int:
@@ -58,6 +64,7 @@ var __pp__was__set := false
 		priority = value
 var __priority__was__set := false
 
+# The base power of this move, or null if it has no fixed base power.
 # Required: False
 # isArray: false
 @export var power: int:
@@ -66,14 +73,16 @@ var __priority__was__set := false
 		power = value
 var __power__was__set := false
 
+# A detail of normal and super contest combos that require this move.
 # Required: True
 # isArray: false
-@export var contestUnderscorecombos: MoveDetailContestCombos:
+@export var contestUnderscorecombos: MoveCombos:
 	set(value):
 		__contestUnderscorecombos__was__set = true
 		contestUnderscorecombos = value
 var __contestUnderscorecombos__was__set := false
 
+# The type of appeal this move gives a Pokémon when used in a contest.
 # Required: True
 # isArray: false
 @export var contestUnderscoretype: ContestTypeSummary:
@@ -82,6 +91,7 @@ var __contestUnderscorecombos__was__set := false
 		contestUnderscoretype = value
 var __contestUnderscoretype__was__set := false
 
+# The effect the move has when used in a contest.
 # Required: True
 # isArray: false
 @export var contestUnderscoreeffect: ContestEffectSummary:
@@ -90,6 +100,7 @@ var __contestUnderscoretype__was__set := false
 		contestUnderscoreeffect = value
 var __contestUnderscoreeffect__was__set := false
 
+# The type of damage the move inflicts on the target, e.g. physical.
 # Required: True
 # isArray: false
 @export var damageUnderscoreclass: MoveDamageClassSummary:
@@ -98,6 +109,7 @@ var __contestUnderscoreeffect__was__set := false
 		damageUnderscoreclass = value
 var __damageUnderscoreclass__was__set := false
 
+# The effect of this move listed in different languages.
 # Required: True
 # isArray: true
 @export var effectUnderscoreentries: Array:
@@ -106,6 +118,7 @@ var __damageUnderscoreclass__was__set := false
 		effectUnderscoreentries = value
 var __effectUnderscoreentries__was__set := false
 
+# The list of previous effects this move has had across version groups of the games.
 # Required: True
 # isArray: true
 @export var effectUnderscorechanges: Array:
@@ -114,6 +127,7 @@ var __effectUnderscoreentries__was__set := false
 		effectUnderscorechanges = value
 var __effectUnderscorechanges__was__set := false
 
+# The generation in which this move was introduced.
 # Required: True
 # isArray: false
 @export var generation: GenerationSummary:
@@ -122,6 +136,7 @@ var __effectUnderscorechanges__was__set := false
 		generation = value
 var __generation__was__set := false
 
+# Metadata about this move
 # Required: True
 # isArray: false
 @export var meta: MoveMeta:
@@ -130,6 +145,7 @@ var __generation__was__set := false
 		meta = value
 var __meta__was__set := false
 
+# The name of this resource listed in different languages.
 # Required: True
 # isArray: true
 @export var names: Array:
@@ -138,6 +154,7 @@ var __meta__was__set := false
 		names = value
 var __names__was__set := false
 
+# A list of move resource value changes across version groups of the game.
 # Required: True
 # isArray: true
 @export var pastUnderscorevalues: Array:
@@ -146,6 +163,7 @@ var __names__was__set := false
 		pastUnderscorevalues = value
 var __pastUnderscorevalues__was__set := false
 
+# A list of stats this moves effects and how much it effects them.
 # Required: True
 # isArray: true
 @export var statUnderscorechanges: Array:
@@ -154,6 +172,7 @@ var __pastUnderscorevalues__was__set := false
 		statUnderscorechanges = value
 var __statUnderscorechanges__was__set := false
 
+# The effect the move has when used in a super contest.
 # Required: True
 # isArray: false
 @export var superUnderscorecontestUnderscoreeffect: SuperContestEffectSummary:
@@ -162,6 +181,7 @@ var __statUnderscorechanges__was__set := false
 		superUnderscorecontestUnderscoreeffect = value
 var __superUnderscorecontestUnderscoreeffect__was__set := false
 
+# The type of target that will receive the effects of the attack.
 # Required: True
 # isArray: false
 @export var target: MoveTargetSummary:
@@ -170,6 +190,7 @@ var __superUnderscorecontestUnderscoreeffect__was__set := false
 		target = value
 var __target__was__set := false
 
+# The elemental type of this move.
 # Required: True
 # isArray: false
 @export var type: TypeSummary:
@@ -178,6 +199,7 @@ var __target__was__set := false
 		type = value
 var __type__was__set := false
 
+# A list of the machines that teach this move.
 # Required: True
 # isArray: true
 @export var machines: Array:
@@ -186,6 +208,7 @@ var __type__was__set := false
 		machines = value
 var __machines__was__set := false
 
+# The flavor text of this move listed in different languages.
 # Required: True
 # isArray: true
 @export var flavorUnderscoretextUnderscoreentries: Array:
@@ -194,6 +217,7 @@ var __machines__was__set := false
 		flavorUnderscoretextUnderscoreentries = value
 var __flavorUnderscoretextUnderscoreentries__was__set := false
 
+# List of Pokemon that can learn the move
 # Required: True
 # isArray: true
 @export var learnedUnderscorebyUnderscorepokemon: Array:
@@ -319,7 +343,7 @@ static func bzz_denormalize_single(from_dict: Dictionary):
 	if from_dict.has("power"):
 		me.power = from_dict["power"]
 	if from_dict.has("contestUnderscorecombos"):
-		me.contestUnderscorecombos = MoveDetail_contest_combos.bzz_denormalize_single(from_dict["contestUnderscorecombos"])
+		me.contestUnderscorecombos = MoveCombos.bzz_denormalize_single(from_dict["contestUnderscorecombos"])
 	if from_dict.has("contestUnderscoretype"):
 		me.contestUnderscoretype = ContestTypeSummary.bzz_denormalize_single(from_dict["contestUnderscoretype"])
 	if from_dict.has("contestUnderscoreeffect"):
@@ -327,9 +351,9 @@ static func bzz_denormalize_single(from_dict: Dictionary):
 	if from_dict.has("damageUnderscoreclass"):
 		me.damageUnderscoreclass = MoveDamageClassSummary.bzz_denormalize_single(from_dict["damageUnderscoreclass"])
 	if from_dict.has("effectUnderscoreentries"):
-		me.effectUnderscoreentries = MoveChange_effect_entries_inner.bzz_denormalize_multiple(from_dict["effectUnderscoreentries"])
+		me.effectUnderscoreentries = MoveEffectEffectText.bzz_denormalize_multiple(from_dict["effectUnderscoreentries"])
 	if from_dict.has("effectUnderscorechanges"):
-		me.effectUnderscorechanges = MoveDetail_effect_changes_inner.bzz_denormalize_multiple(from_dict["effectUnderscorechanges"])
+		me.effectUnderscorechanges = MoveEffectChange.bzz_denormalize_multiple(from_dict["effectUnderscorechanges"])
 	if from_dict.has("generation"):
 		me.generation = GenerationSummary.bzz_denormalize_single(from_dict["generation"])
 	if from_dict.has("meta"):
@@ -339,7 +363,7 @@ static func bzz_denormalize_single(from_dict: Dictionary):
 	if from_dict.has("pastUnderscorevalues"):
 		me.pastUnderscorevalues = MoveChange.bzz_denormalize_multiple(from_dict["pastUnderscorevalues"])
 	if from_dict.has("statUnderscorechanges"):
-		me.statUnderscorechanges = MoveDetail_stat_changes_inner.bzz_denormalize_multiple(from_dict["statUnderscorechanges"])
+		me.statUnderscorechanges = MoveMetaStatChange.bzz_denormalize_multiple(from_dict["statUnderscorechanges"])
 	if from_dict.has("superUnderscorecontestUnderscoreeffect"):
 		me.superUnderscorecontestUnderscoreeffect = SuperContestEffectSummary.bzz_denormalize_single(from_dict["superUnderscorecontestUnderscoreeffect"])
 	if from_dict.has("target"):
@@ -347,11 +371,11 @@ static func bzz_denormalize_single(from_dict: Dictionary):
 	if from_dict.has("type"):
 		me.type = TypeSummary.bzz_denormalize_single(from_dict["type"])
 	if from_dict.has("machines"):
-		me.machines = MoveDetail_machines_inner.bzz_denormalize_multiple(from_dict["machines"])
+		me.machines = ItemMachine.bzz_denormalize_multiple(from_dict["machines"])
 	if from_dict.has("flavorUnderscoretextUnderscoreentries"):
 		me.flavorUnderscoretextUnderscoreentries = MoveFlavorText.bzz_denormalize_multiple(from_dict["flavorUnderscoretextUnderscoreentries"])
 	if from_dict.has("learnedUnderscorebyUnderscorepokemon"):
-		me.learnedUnderscorebyUnderscorepokemon = AbilityDetail_pokemon_inner_pokemon.bzz_denormalize_multiple(from_dict["learnedUnderscorebyUnderscorepokemon"])
+		me.learnedUnderscorebyUnderscorepokemon = PokemonSummary.bzz_denormalize_multiple(from_dict["learnedUnderscorebyUnderscorepokemon"])
 	return me
 
 

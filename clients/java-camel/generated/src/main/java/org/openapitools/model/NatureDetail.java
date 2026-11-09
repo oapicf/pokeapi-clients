@@ -8,10 +8,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.model.BerryFlavorSummary;
-import org.openapitools.model.BerrySummary;
 import org.openapitools.model.NatureBattleStylePreference;
-import org.openapitools.model.NatureDetailPokeathlonStatChangesInner;
 import org.openapitools.model.NatureName;
+import org.openapitools.model.NaturePokeathlonStat;
 import org.openapitools.model.StatSummary;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
@@ -27,24 +26,22 @@ import jakarta.annotation.Generated;
  * NatureDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-10-25T05:48:25.711080506Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-11-09T13:49:41.168612095Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class NatureDetail {
 
   private Integer id;
 
   private String name;
 
-  private StatSummary decreasedStat;
+  private JsonNullable<StatSummary> decreasedStat = JsonNullable.<StatSummary>undefined();
 
-  private StatSummary increasedStat;
+  private JsonNullable<StatSummary> increasedStat = JsonNullable.<StatSummary>undefined();
 
-  private BerryFlavorSummary likesFlavor;
+  private JsonNullable<BerryFlavorSummary> likesFlavor = JsonNullable.<BerryFlavorSummary>undefined();
 
-  private BerryFlavorSummary hatesFlavor;
+  private JsonNullable<BerryFlavorSummary> hatesFlavor = JsonNullable.<BerryFlavorSummary>undefined();
 
-  private List<@Valid BerrySummary> berries = new ArrayList<>();
-
-  private List<@Valid NatureDetailPokeathlonStatChangesInner> pokeathlonStatChanges = new ArrayList<>();
+  private List<@Valid NaturePokeathlonStat> pokeathlonStatChanges = new ArrayList<>();
 
   private List<@Valid NatureBattleStylePreference> moveBattleStylePreferences = new ArrayList<>();
 
@@ -57,14 +54,13 @@ public class NatureDetail {
   /**
    * Constructor with only required parameters
    */
-  public NatureDetail(Integer id, String name, StatSummary decreasedStat, StatSummary increasedStat, BerryFlavorSummary likesFlavor, BerryFlavorSummary hatesFlavor, List<@Valid BerrySummary> berries, List<@Valid NatureDetailPokeathlonStatChangesInner> pokeathlonStatChanges, List<@Valid NatureBattleStylePreference> moveBattleStylePreferences, List<@Valid NatureName> names) {
+  public NatureDetail(Integer id, String name, StatSummary decreasedStat, StatSummary increasedStat, BerryFlavorSummary likesFlavor, BerryFlavorSummary hatesFlavor, List<@Valid NaturePokeathlonStat> pokeathlonStatChanges, List<@Valid NatureBattleStylePreference> moveBattleStylePreferences, List<@Valid NatureName> names) {
     this.id = id;
     this.name = name;
-    this.decreasedStat = decreasedStat;
-    this.increasedStat = increasedStat;
-    this.likesFlavor = likesFlavor;
-    this.hatesFlavor = hatesFlavor;
-    this.berries = berries;
+    this.decreasedStat = JsonNullable.of(decreasedStat);
+    this.increasedStat = JsonNullable.of(increasedStat);
+    this.likesFlavor = JsonNullable.of(likesFlavor);
+    this.hatesFlavor = JsonNullable.of(hatesFlavor);
     this.pokeathlonStatChanges = pokeathlonStatChanges;
     this.moveBattleStylePreferences = moveBattleStylePreferences;
     this.names = names;
@@ -76,11 +72,11 @@ public class NatureDetail {
   }
 
   /**
-   * Get id
+   * The identifier for this resource.
    * @return id
    */
   
-  @Schema(name = "id", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "id", accessMode = Schema.AccessMode.READ_ONLY, description = "The identifier for this resource.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("id")
   public Integer getId() {
     return id;
@@ -96,11 +92,11 @@ public class NatureDetail {
   }
 
   /**
-   * Get name
+   * The name for this resource.
    * @return name
    */
-  @NotNull @Size(max = 100) 
-  @Schema(name = "name", requiredMode = Schema.RequiredMode.REQUIRED)
+  @NotNull @Size(max = 200) 
+  @Schema(name = "name", description = "The name for this resource.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("name")
   public String getName() {
     return name;
@@ -111,119 +107,91 @@ public class NatureDetail {
   }
 
   public NatureDetail decreasedStat(StatSummary decreasedStat) {
-    this.decreasedStat = decreasedStat;
+    this.decreasedStat = JsonNullable.of(decreasedStat);
     return this;
   }
 
   /**
-   * Get decreasedStat
+   * The stat decreased by 10% in Pokémon with this nature.
    * @return decreasedStat
    */
-  @NotNull @Valid 
-  @Schema(name = "decreased_stat", requiredMode = Schema.RequiredMode.REQUIRED)
+  /* @Present */ @Valid 
+  @Schema(name = "decreased_stat", description = "The stat decreased by 10% in Pokémon with this nature.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("decreased_stat")
-  public StatSummary getDecreasedStat() {
+  public JsonNullable<StatSummary> getDecreasedStat() {
     return decreasedStat;
   }
 
-  public void setDecreasedStat(StatSummary decreasedStat) {
+  public void setDecreasedStat(JsonNullable<StatSummary> decreasedStat) {
     this.decreasedStat = decreasedStat;
   }
 
   public NatureDetail increasedStat(StatSummary increasedStat) {
-    this.increasedStat = increasedStat;
+    this.increasedStat = JsonNullable.of(increasedStat);
     return this;
   }
 
   /**
-   * Get increasedStat
+   * The stat increased by 10% in Pokémon with this nature.
    * @return increasedStat
    */
-  @NotNull @Valid 
-  @Schema(name = "increased_stat", requiredMode = Schema.RequiredMode.REQUIRED)
+  /* @Present */ @Valid 
+  @Schema(name = "increased_stat", description = "The stat increased by 10% in Pokémon with this nature.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("increased_stat")
-  public StatSummary getIncreasedStat() {
+  public JsonNullable<StatSummary> getIncreasedStat() {
     return increasedStat;
   }
 
-  public void setIncreasedStat(StatSummary increasedStat) {
+  public void setIncreasedStat(JsonNullable<StatSummary> increasedStat) {
     this.increasedStat = increasedStat;
   }
 
   public NatureDetail likesFlavor(BerryFlavorSummary likesFlavor) {
-    this.likesFlavor = likesFlavor;
+    this.likesFlavor = JsonNullable.of(likesFlavor);
     return this;
   }
 
   /**
-   * Get likesFlavor
+   * The flavor liked by Pokémon with this nature.
    * @return likesFlavor
    */
-  @NotNull @Valid 
-  @Schema(name = "likes_flavor", requiredMode = Schema.RequiredMode.REQUIRED)
+  /* @Present */ @Valid 
+  @Schema(name = "likes_flavor", description = "The flavor liked by Pokémon with this nature.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("likes_flavor")
-  public BerryFlavorSummary getLikesFlavor() {
+  public JsonNullable<BerryFlavorSummary> getLikesFlavor() {
     return likesFlavor;
   }
 
-  public void setLikesFlavor(BerryFlavorSummary likesFlavor) {
+  public void setLikesFlavor(JsonNullable<BerryFlavorSummary> likesFlavor) {
     this.likesFlavor = likesFlavor;
   }
 
   public NatureDetail hatesFlavor(BerryFlavorSummary hatesFlavor) {
-    this.hatesFlavor = hatesFlavor;
+    this.hatesFlavor = JsonNullable.of(hatesFlavor);
     return this;
   }
 
   /**
-   * Get hatesFlavor
+   * The flavor hated by Pokémon with this nature.
    * @return hatesFlavor
    */
-  @NotNull @Valid 
-  @Schema(name = "hates_flavor", requiredMode = Schema.RequiredMode.REQUIRED)
+  /* @Present */ @Valid 
+  @Schema(name = "hates_flavor", description = "The flavor hated by Pokémon with this nature.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("hates_flavor")
-  public BerryFlavorSummary getHatesFlavor() {
+  public JsonNullable<BerryFlavorSummary> getHatesFlavor() {
     return hatesFlavor;
   }
 
-  public void setHatesFlavor(BerryFlavorSummary hatesFlavor) {
+  public void setHatesFlavor(JsonNullable<BerryFlavorSummary> hatesFlavor) {
     this.hatesFlavor = hatesFlavor;
   }
 
-  public NatureDetail berries(List<@Valid BerrySummary> berries) {
-    this.berries = berries;
-    return this;
-  }
-
-  public NatureDetail addBerriesItem(BerrySummary berriesItem) {
-    if (this.berries == null) {
-      this.berries = new ArrayList<>();
-    }
-    this.berries.add(berriesItem);
-    return this;
-  }
-
-  /**
-   * Get berries
-   * @return berries
-   */
-  
-  @Schema(name = "berries", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
-  @JsonProperty("berries")
-  public List<@Valid BerrySummary> getBerries() {
-    return berries;
-  }
-
-  public void setBerries(List<@Valid BerrySummary> berries) {
-    this.berries = berries;
-  }
-
-  public NatureDetail pokeathlonStatChanges(List<@Valid NatureDetailPokeathlonStatChangesInner> pokeathlonStatChanges) {
+  public NatureDetail pokeathlonStatChanges(List<@Valid NaturePokeathlonStat> pokeathlonStatChanges) {
     this.pokeathlonStatChanges = pokeathlonStatChanges;
     return this;
   }
 
-  public NatureDetail addPokeathlonStatChangesItem(NatureDetailPokeathlonStatChangesInner pokeathlonStatChangesItem) {
+  public NatureDetail addPokeathlonStatChangesItem(NaturePokeathlonStat pokeathlonStatChangesItem) {
     if (this.pokeathlonStatChanges == null) {
       this.pokeathlonStatChanges = new ArrayList<>();
     }
@@ -232,17 +200,17 @@ public class NatureDetail {
   }
 
   /**
-   * Get pokeathlonStatChanges
+   * A list of Pokéathlon stats this nature effects and how much it effects them.
    * @return pokeathlonStatChanges
    */
   
-  @Schema(name = "pokeathlon_stat_changes", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "pokeathlon_stat_changes", accessMode = Schema.AccessMode.READ_ONLY, description = "A list of Pokéathlon stats this nature effects and how much it effects them.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("pokeathlon_stat_changes")
-  public List<@Valid NatureDetailPokeathlonStatChangesInner> getPokeathlonStatChanges() {
+  public List<@Valid NaturePokeathlonStat> getPokeathlonStatChanges() {
     return pokeathlonStatChanges;
   }
 
-  public void setPokeathlonStatChanges(List<@Valid NatureDetailPokeathlonStatChangesInner> pokeathlonStatChanges) {
+  public void setPokeathlonStatChanges(List<@Valid NaturePokeathlonStat> pokeathlonStatChanges) {
     this.pokeathlonStatChanges = pokeathlonStatChanges;
   }
 
@@ -260,11 +228,11 @@ public class NatureDetail {
   }
 
   /**
-   * Get moveBattleStylePreferences
+   * A list of battle styles and how likely a Pokémon with this nature is to use them in the Battle Palace or Battle Tent.
    * @return moveBattleStylePreferences
    */
   
-  @Schema(name = "move_battle_style_preferences", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "move_battle_style_preferences", accessMode = Schema.AccessMode.READ_ONLY, description = "A list of battle styles and how likely a Pokémon with this nature is to use them in the Battle Palace or Battle Tent.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("move_battle_style_preferences")
   public List<@Valid NatureBattleStylePreference> getMoveBattleStylePreferences() {
     return moveBattleStylePreferences;
@@ -288,11 +256,11 @@ public class NatureDetail {
   }
 
   /**
-   * Get names
+   * The name of this resource listed in different languages.
    * @return names
    */
   
-  @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, description = "The name of this resource listed in different languages.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("names")
   public List<@Valid NatureName> getNames() {
     return names;
@@ -317,7 +285,6 @@ public class NatureDetail {
         Objects.equals(this.increasedStat, natureDetail.increasedStat) &&
         Objects.equals(this.likesFlavor, natureDetail.likesFlavor) &&
         Objects.equals(this.hatesFlavor, natureDetail.hatesFlavor) &&
-        Objects.equals(this.berries, natureDetail.berries) &&
         Objects.equals(this.pokeathlonStatChanges, natureDetail.pokeathlonStatChanges) &&
         Objects.equals(this.moveBattleStylePreferences, natureDetail.moveBattleStylePreferences) &&
         Objects.equals(this.names, natureDetail.names);
@@ -325,7 +292,7 @@ public class NatureDetail {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, decreasedStat, increasedStat, likesFlavor, hatesFlavor, berries, pokeathlonStatChanges, moveBattleStylePreferences, names);
+    return Objects.hash(id, name, decreasedStat, increasedStat, likesFlavor, hatesFlavor, pokeathlonStatChanges, moveBattleStylePreferences, names);
   }
 
   @Override
@@ -338,7 +305,6 @@ public class NatureDetail {
     sb.append("    increasedStat: ").append(toIndentedString(increasedStat)).append("\n");
     sb.append("    likesFlavor: ").append(toIndentedString(likesFlavor)).append("\n");
     sb.append("    hatesFlavor: ").append(toIndentedString(hatesFlavor)).append("\n");
-    sb.append("    berries: ").append(toIndentedString(berries)).append("\n");
     sb.append("    pokeathlonStatChanges: ").append(toIndentedString(pokeathlonStatChanges)).append("\n");
     sb.append("    moveBattleStylePreferences: ").append(toIndentedString(moveBattleStylePreferences)).append("\n");
     sb.append("    names: ").append(toIndentedString(names)).append("\n");

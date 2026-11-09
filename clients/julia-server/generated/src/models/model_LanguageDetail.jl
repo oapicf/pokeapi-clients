@@ -13,12 +13,12 @@
         names=nothing,
     )
 
-    - id::Int64
-    - name::String
-    - official::Bool
-    - iso639::String
-    - iso3166::String
-    - names::Vector{LanguageName}
+    - id::Int64 : The identifier for this resource.
+    - name::String : The name for this resource.
+    - official::Bool : Whether or not the games are published in this language.
+    - iso639::String : The two-letter ISO 639-1 language code. Multiple PokéAPI language records may share this code.
+    - iso3166::String : The two-letter ISO 3166-1 alpha-2 code of the country or region associated with this language record. Multiple PokéAPI language records may share this code.
+    - names::Vector{LanguageName} : The name of this resource listed in different languages.
 """
 Base.@kwdef mutable struct LanguageDetail <: OpenAPI.APIModel
     id::Union{Nothing, Int64} = nothing
@@ -60,7 +60,7 @@ function OpenAPI.validate_property(::Type{ LanguageDetail }, name::Symbol, val)
 
 
     if name === Symbol("name")
-        OpenAPI.validate_param(name, "LanguageDetail", :maxLength, val, 100)
+        OpenAPI.validate_param(name, "LanguageDetail", :maxLength, val, 200)
     end
 
 

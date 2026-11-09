@@ -15,18 +15,19 @@
 
 typedef struct pokemon_detail_t pokemon_detail_t;
 
-#include "pokemon_detail_abilities_inner.h"
-#include "pokemon_detail_cries.h"
-#include "pokemon_detail_held_items.h"
-#include "pokemon_detail_moves_inner.h"
-#include "pokemon_detail_past_abilities_inner.h"
-#include "pokemon_detail_past_types_inner.h"
-#include "pokemon_detail_sprites.h"
-#include "pokemon_detail_types_inner.h"
+#include "pokemon_ability.h"
+#include "pokemon_cries.h"
 #include "pokemon_form_summary.h"
 #include "pokemon_game_index.h"
+#include "pokemon_held_item_summary.h"
+#include "pokemon_move.h"
+#include "pokemon_past_ability.h"
+#include "pokemon_past_stat.h"
+#include "pokemon_past_type.h"
 #include "pokemon_species_summary.h"
+#include "pokemon_sprites.h"
 #include "pokemon_stat.h"
+#include "pokemon_type.h"
 
 
 
@@ -42,13 +43,14 @@ typedef struct pokemon_detail_t {
     list_t *past_abilities; //nonprimitive container
     list_t *forms; //nonprimitive container
     list_t *game_indices; //nonprimitive container
-    struct pokemon_detail_held_items_t *held_items; //model
+    list_t *held_items; //nonprimitive container
     char *location_area_encounters; // string
     list_t *moves; //nonprimitive container
     struct pokemon_species_summary_t *species; //model
-    pokemon_detail_sprites_t *sprites; // custom
-    struct pokemon_detail_cries_t *cries; //model
+    struct pokemon_sprites_t *sprites; //model
+    struct pokemon_cries_t *cries; //model
     list_t *stats; //nonprimitive container
+    list_t *past_stats; //nonprimitive container
     list_t *types; //nonprimitive container
     list_t *past_types; //nonprimitive container
 
@@ -67,13 +69,14 @@ __attribute__((deprecated)) pokemon_detail_t *pokemon_detail_create(
     list_t *past_abilities,
     list_t *forms,
     list_t *game_indices,
-    pokemon_detail_held_items_t *held_items,
+    list_t *held_items,
     char *location_area_encounters,
     list_t *moves,
     pokemon_species_summary_t *species,
-    pokemon_detail_sprites_t *sprites,
-    pokemon_detail_cries_t *cries,
+    pokemon_sprites_t *sprites,
+    pokemon_cries_t *cries,
     list_t *stats,
+    list_t *past_stats,
     list_t *types,
     list_t *past_types
 );

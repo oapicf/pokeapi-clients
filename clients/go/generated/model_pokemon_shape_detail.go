@@ -1,9 +1,9 @@
 /*
 PokéAPI
 
-All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
 
-API version: 2.7.0
+API version: 2.10.0
 Contact: blah+oapicf@cliffano.com
 */
 
@@ -22,10 +22,15 @@ var _ MappedNullable = &PokemonShapeDetail{}
 
 // PokemonShapeDetail struct for PokemonShapeDetail
 type PokemonShapeDetail struct {
+	// The identifier for this resource.
 	Id int32 `json:"id"`
+	// The name for this resource.
 	Name string `json:"name"`
-	AwesomeNames []PokemonShapeDetailAwesomeNamesInner `json:"awesome_names"`
-	Names []PokemonShapeDetailNamesInner `json:"names"`
+	// The \"scientific\" name of this Pokémon shape listed in different languages.
+	AwesomeNames []PokemonShapeAwesomeName `json:"awesome_names"`
+	// The name of this resource listed in different languages.
+	Names []PokemonShapeName `json:"names"`
+	// A list of the Pokémon species that have this shape.
 	PokemonSpecies []PokemonSpeciesSummary `json:"pokemon_species"`
 }
 
@@ -35,7 +40,7 @@ type _PokemonShapeDetail PokemonShapeDetail
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPokemonShapeDetail(id int32, name string, awesomeNames []PokemonShapeDetailAwesomeNamesInner, names []PokemonShapeDetailNamesInner, pokemonSpecies []PokemonSpeciesSummary) *PokemonShapeDetail {
+func NewPokemonShapeDetail(id int32, name string, awesomeNames []PokemonShapeAwesomeName, names []PokemonShapeName, pokemonSpecies []PokemonSpeciesSummary) *PokemonShapeDetail {
 	this := PokemonShapeDetail{}
 	this.Id = id
 	this.Name = name
@@ -102,9 +107,9 @@ func (o *PokemonShapeDetail) SetName(v string) {
 }
 
 // GetAwesomeNames returns the AwesomeNames field value
-func (o *PokemonShapeDetail) GetAwesomeNames() []PokemonShapeDetailAwesomeNamesInner {
+func (o *PokemonShapeDetail) GetAwesomeNames() []PokemonShapeAwesomeName {
 	if o == nil {
-		var ret []PokemonShapeDetailAwesomeNamesInner
+		var ret []PokemonShapeAwesomeName
 		return ret
 	}
 
@@ -113,7 +118,7 @@ func (o *PokemonShapeDetail) GetAwesomeNames() []PokemonShapeDetailAwesomeNamesI
 
 // GetAwesomeNamesOk returns a tuple with the AwesomeNames field value
 // and a boolean to check if the value has been set.
-func (o *PokemonShapeDetail) GetAwesomeNamesOk() ([]PokemonShapeDetailAwesomeNamesInner, bool) {
+func (o *PokemonShapeDetail) GetAwesomeNamesOk() ([]PokemonShapeAwesomeName, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -121,14 +126,14 @@ func (o *PokemonShapeDetail) GetAwesomeNamesOk() ([]PokemonShapeDetailAwesomeNam
 }
 
 // SetAwesomeNames sets field value
-func (o *PokemonShapeDetail) SetAwesomeNames(v []PokemonShapeDetailAwesomeNamesInner) {
+func (o *PokemonShapeDetail) SetAwesomeNames(v []PokemonShapeAwesomeName) {
 	o.AwesomeNames = v
 }
 
 // GetNames returns the Names field value
-func (o *PokemonShapeDetail) GetNames() []PokemonShapeDetailNamesInner {
+func (o *PokemonShapeDetail) GetNames() []PokemonShapeName {
 	if o == nil {
-		var ret []PokemonShapeDetailNamesInner
+		var ret []PokemonShapeName
 		return ret
 	}
 
@@ -137,7 +142,7 @@ func (o *PokemonShapeDetail) GetNames() []PokemonShapeDetailNamesInner {
 
 // GetNamesOk returns a tuple with the Names field value
 // and a boolean to check if the value has been set.
-func (o *PokemonShapeDetail) GetNamesOk() ([]PokemonShapeDetailNamesInner, bool) {
+func (o *PokemonShapeDetail) GetNamesOk() ([]PokemonShapeName, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -145,7 +150,7 @@ func (o *PokemonShapeDetail) GetNamesOk() ([]PokemonShapeDetailNamesInner, bool)
 }
 
 // SetNames sets field value
-func (o *PokemonShapeDetail) SetNames(v []PokemonShapeDetailNamesInner) {
+func (o *PokemonShapeDetail) SetNames(v []PokemonShapeName) {
 	o.Names = v
 }
 

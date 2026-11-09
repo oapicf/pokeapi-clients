@@ -26,7 +26,7 @@ GenerationDetail::__init()
 	//id = int(0);
 	//name = std::string();
 	//new std::list()std::list> abilities;
-	//main_region = new RegionSummary();
+	//main_region = null;
 	//new std::list()std::list> moves;
 	//new std::list()std::list> names;
 	//new std::list()std::list> pokemon_species;

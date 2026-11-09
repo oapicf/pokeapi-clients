@@ -6,6 +6,7 @@ All URIs are relative to *https://pokeapi.co*
 | ------ | ------------ | ----------- |
 | [**language_list**](UtilityApi.md#language_list) | **GET** /api/v2/language/ | List languages |
 | [**language_retrieve**](UtilityApi.md#language_retrieve) | **GET** /api/v2/language/{id}/ | Get language |
+| [**meta_retrieve**](UtilityApi.md#meta_retrieve) | **GET** /api/v2/meta/ | Get API metadata |
 
 
 ## language_list
@@ -21,17 +22,6 @@ Languages for translations of API resource information.
 ```ruby
 require 'time'
 require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
 
 api_instance = PokeApiClient::UtilityApi.new
 opts = {
@@ -81,7 +71,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -102,20 +92,9 @@ Languages for translations of API resource information.
 ```ruby
 require 'time'
 require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
 
 api_instance = PokeApiClient::UtilityApi.new
-id = 'id_example' # String | This parameter can be a string or an integer.
+id = '1' # String | This parameter can be a string or an integer.
 
 begin
   # Get language
@@ -156,7 +135,68 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## meta_retrieve
+
+> <PokeapiMetaResponse> meta_retrieve
+
+Get API metadata
+
+Returns metadata about the current deployed version of the API, including the git commit hash, deploy date, and tag (if any).
+
+### Examples
+
+```ruby
+require 'time'
+require 'pokeapi_client'
+
+api_instance = PokeApiClient::UtilityApi.new
+
+begin
+  # Get API metadata
+  result = api_instance.meta_retrieve
+  p result
+rescue PokeApiClient::ApiError => e
+  puts "Error when calling UtilityApi->meta_retrieve: #{e}"
+end
+```
+
+#### Using the meta_retrieve_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<PokeapiMetaResponse>, Integer, Hash)> meta_retrieve_with_http_info
+
+```ruby
+begin
+  # Get API metadata
+  data, status_code, headers = api_instance.meta_retrieve_with_http_info
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <PokeapiMetaResponse>
+rescue PokeApiClient::ApiError => e
+  puts "Error when calling UtilityApi->meta_retrieve_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**PokeapiMetaResponse**](PokeapiMetaResponse.md)
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 

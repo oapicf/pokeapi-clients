@@ -3,9 +3,9 @@ package com.prokarma.pkmst.model;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.prokarma.pkmst.model.AbilityDetailPokemonInnerPokemon;
 import com.prokarma.pkmst.model.MoveLearnMethodDescription;
 import com.prokarma.pkmst.model.MoveLearnMethodName;
+import com.prokarma.pkmst.model.VersionGroupSummary;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
@@ -20,7 +20,7 @@ import java.util.List;
  * MoveLearnMethodDetail
  */
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-10-25T05:48:09.645019047Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-11-09T13:49:28.343088631Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class MoveLearnMethodDetail   {
   @JsonProperty("id")
   private Integer id;
@@ -38,7 +38,7 @@ public class MoveLearnMethodDetail   {
 
   @JsonProperty("version_groups")
   
-  private List<AbilityDetailPokemonInnerPokemon> versionGroups = new ArrayList<>();
+  private List<VersionGroupSummary> versionGroups = new ArrayList<>();
 
   public MoveLearnMethodDetail id(Integer id) {
     this.id = id;
@@ -46,10 +46,10 @@ public class MoveLearnMethodDetail   {
   }
 
   /**
-   * Get id
+   * The identifier for this resource.
    * @return id
    */
-  @ApiModelProperty(required = true, readOnly = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "The identifier for this resource.")
   public Integer getId() {
     return id;
   }
@@ -64,10 +64,10 @@ public class MoveLearnMethodDetail   {
   }
 
   /**
-   * Get name
+   * The name for this resource.
    * @return name
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   public String getName() {
     return name;
   }
@@ -90,10 +90,10 @@ public class MoveLearnMethodDetail   {
   }
 
   /**
-   * Get names
+   * The name of this resource listed in different languages.
    * @return names
    */
-  @ApiModelProperty(required = true, readOnly = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "The name of this resource listed in different languages.")
   public List<MoveLearnMethodName> getNames() {
     return names;
   }
@@ -116,10 +116,10 @@ public class MoveLearnMethodDetail   {
   }
 
   /**
-   * Get descriptions
+   * The description of this resource listed in different languages.
    * @return descriptions
    */
-  @ApiModelProperty(required = true, readOnly = true, value = "")
+  @ApiModelProperty(required = true, readOnly = true, value = "The description of this resource listed in different languages.")
   public List<MoveLearnMethodDescription> getDescriptions() {
     return descriptions;
   }
@@ -128,12 +128,12 @@ public class MoveLearnMethodDetail   {
     this.descriptions = descriptions;
   }
 
-  public MoveLearnMethodDetail versionGroups(List<AbilityDetailPokemonInnerPokemon> versionGroups) {
+  public MoveLearnMethodDetail versionGroups(List<VersionGroupSummary> versionGroups) {
     this.versionGroups = versionGroups;
     return this;
   }
 
-  public MoveLearnMethodDetail addVersionGroupsItem(AbilityDetailPokemonInnerPokemon versionGroupsItem) {
+  public MoveLearnMethodDetail addVersionGroupsItem(VersionGroupSummary versionGroupsItem) {
     if (this.versionGroups == null) {
       this.versionGroups = new ArrayList<>();
     }
@@ -142,15 +142,15 @@ public class MoveLearnMethodDetail   {
   }
 
   /**
-   * Get versionGroups
+   * A list of version groups where moves can be learned through this method.
    * @return versionGroups
    */
-  @ApiModelProperty(required = true, readOnly = true, value = "")
-  public List<AbilityDetailPokemonInnerPokemon> getVersionGroups() {
+  @ApiModelProperty(required = true, readOnly = true, value = "A list of version groups where moves can be learned through this method.")
+  public List<VersionGroupSummary> getVersionGroups() {
     return versionGroups;
   }
 
-  public void setVersionGroups(List<AbilityDetailPokemonInnerPokemon> versionGroups) {
+  public void setVersionGroups(List<VersionGroupSummary> versionGroups) {
     this.versionGroups = versionGroups;
   }
 

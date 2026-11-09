@@ -10,6 +10,7 @@ class_name MoveMetaCategoryDescription
 # MoveMetaCategoryDescription Model
 
 
+# The localized description for an API resource in a specific language.
 # Required: False
 # isArray: false
 @export var description: String:
@@ -18,6 +19,7 @@ class_name MoveMetaCategoryDescription
 		description = value
 var __description__was__set := false
 
+# The language this name is in.
 # Required: True
 # isArray: false
 @export var language: LanguageSummary:

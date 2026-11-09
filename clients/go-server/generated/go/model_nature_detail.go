@@ -3,9 +3,9 @@
 /*
  * PokéAPI
  *
- * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+ * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
  *
- * API version: 2.7.0
+ * API version: 2.10.0
  * Contact: blah+oapicf@cliffano.com
  */
 
@@ -21,24 +21,31 @@ import (
 
 type NatureDetail struct {
 
+	// The identifier for this resource.
 	Id int32 `json:"id"`
 
+	// The name for this resource.
 	Name string `json:"name"`
 
-	DecreasedStat StatSummary `json:"decreased_stat"`
+	// The stat decreased by 10% in Pokémon with this nature.
+	DecreasedStat *StatSummary `json:"decreased_stat"`
 
-	IncreasedStat StatSummary `json:"increased_stat"`
+	// The stat increased by 10% in Pokémon with this nature.
+	IncreasedStat *StatSummary `json:"increased_stat"`
 
-	LikesFlavor BerryFlavorSummary `json:"likes_flavor"`
+	// The flavor liked by Pokémon with this nature.
+	LikesFlavor *BerryFlavorSummary `json:"likes_flavor"`
 
-	HatesFlavor BerryFlavorSummary `json:"hates_flavor"`
+	// The flavor hated by Pokémon with this nature.
+	HatesFlavor *BerryFlavorSummary `json:"hates_flavor"`
 
-	Berries []BerrySummary `json:"berries"`
+	// A list of Pokéathlon stats this nature effects and how much it effects them.
+	PokeathlonStatChanges []NaturePokeathlonStat `json:"pokeathlon_stat_changes"`
 
-	PokeathlonStatChanges []NatureDetailPokeathlonStatChangesInner `json:"pokeathlon_stat_changes"`
-
+	// A list of battle styles and how likely a Pokémon with this nature is to use them in the Battle Palace or Battle Tent.
 	MoveBattleStylePreferences []NatureBattleStylePreference `json:"move_battle_style_preferences"`
 
+	// The name of this resource listed in different languages.
 	Names []NatureName `json:"names"`
 }
 // UnmarshalJSON validates required property keys then unmarshals into NatureDetail
@@ -55,10 +62,10 @@ func (o *NatureDetail) UnmarshalJSON(data []byte) (err error) {
 
 	requiredNullableProperties := map[string]bool{
 		"name": false,
-		"decreased_stat": false,
-		"increased_stat": false,
-		"likes_flavor": false,
-		"hates_flavor": false,
+		"decreased_stat": true,
+		"increased_stat": true,
+		"likes_flavor": true,
+		"hates_flavor": true,
 	}
 
 	allowedJsonKeys := map[string]struct{}{
@@ -68,7 +75,6 @@ func (o *NatureDetail) UnmarshalJSON(data []byte) (err error) {
 		"increased_stat": {},
 		"likes_flavor": {},
 		"hates_flavor": {},
-		"berries": {},
 		"pokeathlon_stat_changes": {},
 		"move_battle_style_preferences": {},
 		"names": {},
@@ -130,11 +136,6 @@ func (o *NatureDetail) UnmarshalJSON(data []byte) (err error) {
 			return err
 		}
 	}
-	if value, exists := allProperties["berries"]; exists {
-		if err = json.Unmarshal(value, &decoded.Berries); err != nil {
-			return err
-		}
-	}
 	if value, exists := allProperties["pokeathlon_stat_changes"]; exists {
 		if err = json.Unmarshal(value, &decoded.PokeathlonStatChanges); err != nil {
 			return err
@@ -159,46 +160,50 @@ func (o *NatureDetail) UnmarshalJSON(data []byte) (err error) {
 // AssertNatureDetailRequired checks complex required fields (models, arrays, maps) and embedded parents.
 // Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertNatureDetailRequired(obj NatureDetail) error {
-	elements := map[string]interface{}{
-		"decreased_stat": obj.DecreasedStat,
-		"increased_stat": obj.IncreasedStat,
-		"likes_flavor": obj.LikesFlavor,
-		"hates_flavor": obj.HatesFlavor,
-	}
-	for name, el := range elements {
-		if isZero := IsZeroValue(el); isZero {
-			return &RequiredError{Field: name}
+	if obj.DecreasedStat != nil {
+		if err := AssertStatSummaryRequired(*obj.DecreasedStat); err != nil {
+			return err
 		}
 	}
-
-	if err := AssertStatSummaryRequired(obj.DecreasedStat); err != nil {
-		return err
+	if obj.IncreasedStat != nil {
+		if err := AssertStatSummaryRequired(*obj.IncreasedStat); err != nil {
+			return err
+		}
 	}
-	if err := AssertStatSummaryRequired(obj.IncreasedStat); err != nil {
-		return err
+	if obj.LikesFlavor != nil {
+		if err := AssertBerryFlavorSummaryRequired(*obj.LikesFlavor); err != nil {
+			return err
+		}
 	}
-	if err := AssertBerryFlavorSummaryRequired(obj.LikesFlavor); err != nil {
-		return err
-	}
-	if err := AssertBerryFlavorSummaryRequired(obj.HatesFlavor); err != nil {
-		return err
+	if obj.HatesFlavor != nil {
+		if err := AssertBerryFlavorSummaryRequired(*obj.HatesFlavor); err != nil {
+			return err
+		}
 	}
 	return nil
 }
 
 // AssertNatureDetailConstraints checks if the values respects the defined constraints
 func AssertNatureDetailConstraints(obj NatureDetail) error {
-	if err := AssertStatSummaryConstraints(obj.DecreasedStat); err != nil {
-		return err
-	}
-	if err := AssertStatSummaryConstraints(obj.IncreasedStat); err != nil {
-		return err
-	}
-	if err := AssertBerryFlavorSummaryConstraints(obj.LikesFlavor); err != nil {
-		return err
-	}
-	if err := AssertBerryFlavorSummaryConstraints(obj.HatesFlavor); err != nil {
-		return err
-	}
+    if obj.DecreasedStat != nil {
+     	if err := AssertStatSummaryConstraints(*obj.DecreasedStat); err != nil {
+     		return err
+     	}
+    }
+    if obj.IncreasedStat != nil {
+     	if err := AssertStatSummaryConstraints(*obj.IncreasedStat); err != nil {
+     		return err
+     	}
+    }
+    if obj.LikesFlavor != nil {
+     	if err := AssertBerryFlavorSummaryConstraints(*obj.LikesFlavor); err != nil {
+     		return err
+     	}
+    }
+    if obj.HatesFlavor != nil {
+     	if err := AssertBerryFlavorSummaryConstraints(*obj.HatesFlavor); err != nil {
+     		return err
+     	}
+    }
 	return nil
 }

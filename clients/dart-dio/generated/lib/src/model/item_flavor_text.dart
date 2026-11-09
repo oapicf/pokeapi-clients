@@ -13,17 +13,20 @@ part 'item_flavor_text.g.dart';
 /// ItemFlavorText
 ///
 /// Properties:
-/// * [text] 
-/// * [versionGroup] 
-/// * [language] 
+/// * [text] - The localized flavor text for an API resource in a specific language.
+/// * [versionGroup] - The version group which uses this flavor text.
+/// * [language] - The language this name is in.
 @BuiltValue()
 abstract class ItemFlavorText implements Built<ItemFlavorText, ItemFlavorTextBuilder> {
+  /// The localized flavor text for an API resource in a specific language.
   @BuiltValueField(wireName: r'text')
   String get text;
 
+  /// The version group which uses this flavor text.
   @BuiltValueField(wireName: r'version_group')
   VersionGroupSummary get versionGroup;
 
+  /// The language this name is in.
   @BuiltValueField(wireName: r'language')
   LanguageSummary get language;
 

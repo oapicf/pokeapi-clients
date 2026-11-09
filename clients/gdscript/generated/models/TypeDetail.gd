@@ -11,6 +11,7 @@ class_name TypeDetail
 # Serializer for the Type resource
 
 
+# The identifier for this resource.
 # Required: True
 # isArray: false
 @export var id: int:
@@ -19,6 +20,7 @@ class_name TypeDetail
 		id = value
 var __id__was__set := false
 
+# The name for this resource.
 # Required: True
 # isArray: false
 @export var name: String:
@@ -27,14 +29,16 @@ var __id__was__set := false
 		name = value
 var __name__was__set := false
 
+# A detail of how effective this type is toward others and vice versa.
 # Required: True
 # isArray: false
-@export var damageUnderscorerelations: TypeDetailDamageRelations:
+@export var damageUnderscorerelations: TypeRelationships:
 	set(value):
 		__damageUnderscorerelations__was__set = true
 		damageUnderscorerelations = value
 var __damageUnderscorerelations__was__set := false
 
+# A list of details of how effective this type was toward others and vice versa in previous generations
 # Required: True
 # isArray: true
 @export var pastUnderscoredamageUnderscorerelations: Array:
@@ -43,6 +47,7 @@ var __damageUnderscorerelations__was__set := false
 		pastUnderscoredamageUnderscorerelations = value
 var __pastUnderscoredamageUnderscorerelations__was__set := false
 
+# A list of game indices relevent to this item by generation.
 # Required: True
 # isArray: true
 @export var gameUnderscoreindices: Array:
@@ -51,6 +56,7 @@ var __pastUnderscoredamageUnderscorerelations__was__set := false
 		gameUnderscoreindices = value
 var __gameUnderscoreindices__was__set := false
 
+# The generation this type was introduced in.
 # Required: True
 # isArray: false
 @export var generation: GenerationSummary:
@@ -59,6 +65,7 @@ var __gameUnderscoreindices__was__set := false
 		generation = value
 var __generation__was__set := false
 
+# The class of damage inflicted by this type.
 # Required: True
 # isArray: false
 @export var moveUnderscoredamageUnderscoreclass: MoveDamageClassSummary:
@@ -67,6 +74,7 @@ var __generation__was__set := false
 		moveUnderscoredamageUnderscoreclass = value
 var __moveUnderscoredamageUnderscoreclass__was__set := false
 
+# The name of this resource listed in different languages.
 # Required: True
 # isArray: true
 @export var names: Array:
@@ -75,6 +83,7 @@ var __moveUnderscoredamageUnderscoreclass__was__set := false
 		names = value
 var __names__was__set := false
 
+# A list of details of Pokémon that have this type.
 # Required: True
 # isArray: true
 @export var pokemon: Array:
@@ -83,6 +92,7 @@ var __names__was__set := false
 		pokemon = value
 var __pokemon__was__set := false
 
+# A list of moves that have this type.
 # Required: True
 # isArray: true
 @export var moves: Array:
@@ -91,6 +101,7 @@ var __pokemon__was__set := false
 		moves = value
 var __moves__was__set := false
 
+# Type icons grouped by generation and game, with name_icon and symbol_icon URLs. Unavailable icons are null.
 # Required: True
 # isArray: false
 @export var sprites: Dictionary:
@@ -162,9 +173,9 @@ static func bzz_denormalize_single(from_dict: Dictionary):
 	if from_dict.has("name"):
 		me.name = from_dict["name"]
 	if from_dict.has("damageUnderscorerelations"):
-		me.damageUnderscorerelations = TypeDetail_damage_relations.bzz_denormalize_single(from_dict["damageUnderscorerelations"])
+		me.damageUnderscorerelations = TypeRelationships.bzz_denormalize_single(from_dict["damageUnderscorerelations"])
 	if from_dict.has("pastUnderscoredamageUnderscorerelations"):
-		me.pastUnderscoredamageUnderscorerelations = TypeDetail_past_damage_relations_inner.bzz_denormalize_multiple(from_dict["pastUnderscoredamageUnderscorerelations"])
+		me.pastUnderscoredamageUnderscorerelations = TypePastRelationships.bzz_denormalize_multiple(from_dict["pastUnderscoredamageUnderscorerelations"])
 	if from_dict.has("gameUnderscoreindices"):
 		me.gameUnderscoreindices = TypeGameIndex.bzz_denormalize_multiple(from_dict["gameUnderscoreindices"])
 	if from_dict.has("generation"):
@@ -172,9 +183,9 @@ static func bzz_denormalize_single(from_dict: Dictionary):
 	if from_dict.has("moveUnderscoredamageUnderscoreclass"):
 		me.moveUnderscoredamageUnderscoreclass = MoveDamageClassSummary.bzz_denormalize_single(from_dict["moveUnderscoredamageUnderscoreclass"])
 	if from_dict.has("names"):
-		me.names = AbilityName.bzz_denormalize_multiple(from_dict["names"])
+		me.names = TypeName.bzz_denormalize_multiple(from_dict["names"])
 	if from_dict.has("pokemon"):
-		me.pokemon = TypeDetail_pokemon_inner.bzz_denormalize_multiple(from_dict["pokemon"])
+		me.pokemon = TypePokemon.bzz_denormalize_multiple(from_dict["pokemon"])
 	if from_dict.has("moves"):
 		me.moves = MoveSummary.bzz_denormalize_multiple(from_dict["moves"])
 	if from_dict.has("sprites"):

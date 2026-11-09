@@ -2,11 +2,13 @@
   (:require [clojure.spec.alpha :as s]
             [spec-tools.data-spec :as ds]
             [pokéapi.specs.pokemon-summary :refer :all]
-            [pokéapi.specs.pokemon-form-detail-sprites :refer :all]
+            [pokéapi.specs.pokemon-form-sprites :refer :all]
             [pokéapi.specs.version-group-summary :refer :all]
-            [pokéapi.specs.pokemon-form-detail-form-names-inner :refer :all]
-            [pokéapi.specs.pokemon-form-detail-form-names-inner :refer :all]
-            [pokéapi.specs.pokemon-detail-types-inner :refer :all]
+            [pokéapi.specs.pokemon-form-name :refer :all]
+            [pokéapi.specs.pokemon-form-name :refer :all]
+            [pokéapi.specs.pokemon-form-type :refer :all]
+            [pokéapi.specs.pokemon-form-trigger-condition :refer :all]
+            [pokéapi.specs.pokemon-form-flavor-text :refer :all]
             )
   (:import (java.io File)))
 
@@ -22,11 +24,13 @@
    (ds/opt :is_mega) boolean?
    (ds/req :form_name) string?
    (ds/req :pokemon) pokemon-summary-spec
-   (ds/req :sprites) pokemon-form-detail-sprites-spec
+   (ds/req :sprites) pokemon-form-sprites-spec
    (ds/req :version_group) version-group-summary-spec
-   (ds/req :form_names) (s/coll-of pokemon-form-detail-form-names-inner-spec)
-   (ds/req :names) (s/coll-of pokemon-form-detail-form-names-inner-spec)
-   (ds/req :types) (s/coll-of pokemon-detail-types-inner-spec)
+   (ds/req :form_names) (s/coll-of pokemon-form-name-spec)
+   (ds/req :names) (s/coll-of pokemon-form-name-spec)
+   (ds/req :types) (s/coll-of pokemon-form-type-spec)
+   (ds/req :trigger_conditions) (s/coll-of pokemon-form-trigger-condition-spec)
+   (ds/req :flavor_text_entries) (s/coll-of pokemon-form-flavor-text-spec)
    })
 
 (def pokemon-form-detail-spec

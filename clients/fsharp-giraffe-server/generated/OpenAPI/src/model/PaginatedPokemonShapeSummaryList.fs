@@ -3,6 +3,7 @@ namespace OpenAPI.Model
 open System
 open System.Collections.Generic
 open OpenAPI.Model.PokemonShapeSummary
+open OpenAPI.Model.string option
 
 module PaginatedPokemonShapeSummaryList =
 
@@ -11,8 +12,8 @@ module PaginatedPokemonShapeSummaryList =
 
   type PaginatedPokemonShapeSummaryList = {
     Count : int;
-    Next : string;
-    Previous : string;
+    Next : string option;
+    Previous : string option;
     Results : PokemonShapeSummary[];
   }
   //#endregion

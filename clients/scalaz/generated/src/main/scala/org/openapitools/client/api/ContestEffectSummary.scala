@@ -13,6 +13,7 @@ import java.net.URI
 import ContestEffectSummary._
 
 case class ContestEffectSummary (
+  /* The URL of the referenced resource. */
   url: URI)
 
 object ContestEffectSummary {

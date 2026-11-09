@@ -6,7 +6,7 @@ using namespace Tiny;
 
 AbilityChange::AbilityChange()
 {
-	version_group = VersionGroupSummary();
+	version_group = null;
 	effect_entries = std::list<AbilityChangeEffectText>();
 }
 

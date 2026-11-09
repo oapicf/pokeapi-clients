@@ -88,8 +88,8 @@ public abstract class PokemonApiControllerImpInterface {
 
     public abstract AbilityDetail abilityRetrieve(Http.Request request, String id) throws Exception;
 
-    public Result characteristicListHttp(Http.Request request, Integer limit, Integer offset, String q) throws Exception {
-        PaginatedCharacteristicSummaryList obj = characteristicList(request, limit, offset, q);
+    public Result characteristicListHttp(Http.Request request, Integer limit, Integer offset) throws Exception {
+        PaginatedCharacteristicSummaryList obj = characteristicList(request, limit, offset);
 
         if (configuration.getBoolean("useOutputBeanValidation")) {
             OpenAPIUtils.validate(obj);
@@ -101,7 +101,7 @@ public abstract class PokemonApiControllerImpInterface {
 
     }
 
-    public abstract PaginatedCharacteristicSummaryList characteristicList(Http.Request request, Integer limit, Integer offset, String q) throws Exception;
+    public abstract PaginatedCharacteristicSummaryList characteristicList(Http.Request request, Integer limit, Integer offset) throws Exception;
 
     public Result characteristicRetrieveHttp(Http.Request request, String id) throws Exception {
         CharacteristicDetail obj = characteristicRetrieve(request, id);

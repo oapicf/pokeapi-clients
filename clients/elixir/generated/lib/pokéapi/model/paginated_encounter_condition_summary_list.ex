@@ -15,10 +15,10 @@ defmodule PokéAPI.Model.PaginatedEncounterConditionSummaryList do
   ]
 
   @type t :: %__MODULE__{
-    :count => integer() | nil,
+    :count => integer(),
     :next => Uri | nil,
     :previous => Uri | nil,
-    :results => [PokéAPI.Model.EncounterConditionSummary.t] | nil
+    :results => [PokéAPI.Model.EncounterConditionSummary.t]
   }
 
   alias PokéAPI.Deserializer

@@ -10,6 +10,7 @@ class_name ItemEffectText
 # ItemEffectText Model
 
 
+# The localized effect text for an API resource in a specific language.
 # Required: True
 # isArray: false
 @export var effect: String:
@@ -18,6 +19,7 @@ class_name ItemEffectText
 		effect = value
 var __effect__was__set := false
 
+# The localized effect text in brief.
 # Required: True
 # isArray: false
 @export var shortUnderscoreeffect: String:
@@ -26,6 +28,7 @@ var __effect__was__set := false
 		shortUnderscoreeffect = value
 var __shortUnderscoreeffect__was__set := false
 
+# The language this effect is in.
 # Required: True
 # isArray: false
 @export var language: LanguageSummary:

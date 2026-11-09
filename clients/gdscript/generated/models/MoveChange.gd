@@ -10,6 +10,7 @@ class_name MoveChange
 # MoveChange Model
 
 
+# The percent value of how likely this move is to be successful.
 # Required: False
 # isArray: false
 @export var accuracy: int:
@@ -18,6 +19,7 @@ class_name MoveChange
 		accuracy = value
 var __accuracy__was__set := false
 
+# The base power before the listed version group, or null if power did not change.
 # Required: False
 # isArray: false
 @export var power: int:
@@ -26,6 +28,7 @@ var __accuracy__was__set := false
 		power = value
 var __power__was__set := false
 
+# Power points. The number of times this move can be used.
 # Required: False
 # isArray: false
 @export var pp: int:
@@ -34,6 +37,7 @@ var __power__was__set := false
 		pp = value
 var __pp__was__set := false
 
+# The percent value of how likely it is this moves effect will take effect.
 # Required: True
 # isArray: false
 @export var effectUnderscorechance: int:
@@ -42,6 +46,7 @@ var __pp__was__set := false
 		effectUnderscorechance = value
 var __effectUnderscorechance__was__set := false
 
+# The effect of this move listed in different languages.
 # Required: True
 # isArray: true
 @export var effectUnderscoreentries: Array:
@@ -50,6 +55,7 @@ var __effectUnderscorechance__was__set := false
 		effectUnderscoreentries = value
 var __effectUnderscoreentries__was__set := false
 
+# The elemental type of this move.
 # Required: True
 # isArray: false
 @export var type: TypeSummary:
@@ -58,6 +64,7 @@ var __effectUnderscoreentries__was__set := false
 		type = value
 var __type__was__set := false
 
+# The version group in which these move stat values were in effect.
 # Required: True
 # isArray: false
 @export var versionUnderscoregroup: VersionGroupSummary:
@@ -111,7 +118,7 @@ static func bzz_denormalize_single(from_dict: Dictionary):
 	if from_dict.has("effectUnderscorechance"):
 		me.effectUnderscorechance = from_dict["effectUnderscorechance"]
 	if from_dict.has("effectUnderscoreentries"):
-		me.effectUnderscoreentries = MoveChange_effect_entries_inner.bzz_denormalize_multiple(from_dict["effectUnderscoreentries"])
+		me.effectUnderscoreentries = MoveEffectEffectText.bzz_denormalize_multiple(from_dict["effectUnderscoreentries"])
 	if from_dict.has("type"):
 		me.type = TypeSummary.bzz_denormalize_single(from_dict["type"])
 	if from_dict.has("versionUnderscoregroup"):

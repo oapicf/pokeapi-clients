@@ -14,6 +14,38 @@ module ItemsApiHandlers =
     /// 
     /// </summary>
 
+    //#region CurrencyList
+    /// <summary>
+    /// List currencies
+    /// </summary>
+   [<FunctionName("CurrencyList")>]
+    let CurrencyList
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/currency/")>]
+        req:HttpRequest ) =
+
+      let result = ItemsApiService.CurrencyList ()
+      match result with
+      | CurrencyListStatusCode200 resolved ->
+          let content = JsonConvert.SerializeObject resolved.content
+          let responseContentType = "application/json"
+          ContentResult(Content = content, ContentType = responseContentType, StatusCode = System.Nullable(200))
+
+    //#region CurrencyRetrieve
+    /// <summary>
+    /// Get currency
+    /// </summary>
+   [<FunctionName("CurrencyRetrieve")>]
+    let CurrencyRetrieve
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/currency/{id}/")>]
+        req:HttpRequest ) =
+
+      let result = ItemsApiService.CurrencyRetrieve ()
+      match result with
+      | CurrencyRetrieveStatusCode200 resolved ->
+          let content = JsonConvert.SerializeObject resolved.content
+          let responseContentType = "application/json"
+          ContentResult(Content = content, ContentType = responseContentType, StatusCode = System.Nullable(200))
+
     //#region ItemAttributeList
     /// <summary>
     /// List item attributes

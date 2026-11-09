@@ -3,10 +3,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **Int32** |  | [readonly] 
-**Name** | **String** |  | 
-**Names** | [**VersionName[]**](VersionName.md) |  | [readonly] 
-**VersionGroup** | [**VersionGroupSummary**](VersionGroupSummary.md) |  | 
+**Id** | **Int32** | The identifier for this resource. | [readonly] 
+**Name** | **String** | The name for this resource. | 
+**Names** | [**VersionName[]**](VersionName.md) | The name of this resource listed in different languages. | [readonly] 
+**VersionGroup** | [**VersionGroupSummary**](VersionGroupSummary.md) | The version group this version belongs to. | 
 
 ## Examples
 

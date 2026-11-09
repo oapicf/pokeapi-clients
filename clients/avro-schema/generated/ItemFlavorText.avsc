@@ -7,17 +7,17 @@
     {
       "name": "text",
       "type": "string",
-      "doc": ""
+      "doc": "The localized flavor text for an API resource in a specific language."
     },
     {
       "name": "version_group",
       "type": "model.VersionGroupSummary",
-      "doc": ""
+      "doc": "The version group which uses this flavor text."
     },
     {
       "name": "language",
       "type": "model.LanguageSummary",
-      "doc": ""
+      "doc": "The language this name is in."
     }
   ]
 

@@ -11,7 +11,6 @@
 
 // Project headers
 #include "BerriesApi.h"
-#include "AuthenticationManager.h"
 
 constexpr int HTTP_RESPONSE_CODE_PAGINATED_BERRY_FIRMNESS_SUMMARY_LIST = 200;
 constexpr int HTTP_RESPONSE_CODE_BERRY_FIRMNESS_DETAIL = 200;
@@ -20,7 +19,6 @@ constexpr int HTTP_RESPONSE_CODE_BERRY_FLAVOR_DETAIL = 200;
 constexpr int HTTP_RESPONSE_CODE_PAGINATED_BERRY_SUMMARY_LIST = 200;
 constexpr int HTTP_RESPONSE_CODE_BERRY_DETAIL = 200;
 constexpr int HTTP_RESPONSE_CODE_BAD_REQUEST = 400;
-constexpr int HTTP_RESPONSE_CODE_UNAUTHORIZED = 401;
 constexpr int HTTP_RESPONSE_CODE_INTERNAL_SERVER_ERROR = 500;
 
 namespace Api {
@@ -334,61 +332,11 @@ void Berries::handleApiv2berryidGetResponse(const Apiv2berryidGetResponse& resul
     res.set_content(responseJson.dump(), "application/json");
 }
 
-bool Berries::performAuthentication(
-    const httplib::Request& req,
-    std::shared_ptr<AuthenticationManager> auth,
-    httplib::Response& res)
-{
-    if (!auth)
-    {
-        nlohmann::json errorJson = nlohmann::json::object();
-        errorJson["message"] = "AuthenticationManager not configured";
-        res.status = HTTP_RESPONSE_CODE_INTERNAL_SERVER_ERROR;
-        res.set_content(errorJson.dump(), "application/json");
-        return false;
-    }
 
-    {
-        auto cookieHeader = req.get_header_value("Cookie");
-        std::string key = "sessionid=";
-        size_t start = cookieHeader.find(key);
-        if (start != std::string::npos)
-        {
-            start += key.length();
-            size_t end = cookieHeader.find(";", start);
-            if (end == std::string::npos) end = cookieHeader.length();
-            std::string cookieValue = cookieHeader.substr(start, end - start);
-            if (auth->validateApiKey(cookieValue)) return true;
-        }
-    }
-
-    if (req.has_header("Authorization"))
-    {
-        auto authHeader = req.get_header_value("Authorization");
-        if (authHeader.find("Basic ") == 0)
-        {
-            std::string credentials = authHeader.substr(6);
-            if (auth->validateBasicAuth(credentials, "")) return true;
-        }
-    }
-
-
-
-    return false;
-}
-
-void Berries::handleApiv2berryFirmnessGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Berries::handleApiv2berryFirmnessGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2berryFirmnessGetRequest params;
         std::vector<std::string> paramErrors;
@@ -414,18 +362,10 @@ void Berries::handleApiv2berryFirmnessGetRequest([[maybe_unused]] const httplib:
     }
 }
 
-void Berries::handleApiv2berryFirmnessidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Berries::handleApiv2berryFirmnessidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2berryFirmnessidGetRequest params;
         std::vector<std::string> paramErrors;
@@ -451,18 +391,10 @@ void Berries::handleApiv2berryFirmnessidGetRequest([[maybe_unused]] const httpli
     }
 }
 
-void Berries::handleApiv2berryFlavorGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Berries::handleApiv2berryFlavorGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2berryFlavorGetRequest params;
         std::vector<std::string> paramErrors;
@@ -488,18 +420,10 @@ void Berries::handleApiv2berryFlavorGetRequest([[maybe_unused]] const httplib::R
     }
 }
 
-void Berries::handleApiv2berryFlavoridGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Berries::handleApiv2berryFlavoridGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2berryFlavoridGetRequest params;
         std::vector<std::string> paramErrors;
@@ -525,18 +449,10 @@ void Berries::handleApiv2berryFlavoridGetRequest([[maybe_unused]] const httplib:
     }
 }
 
-void Berries::handleApiv2berryGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Berries::handleApiv2berryGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2berryGetRequest params;
         std::vector<std::string> paramErrors;
@@ -562,18 +478,10 @@ void Berries::handleApiv2berryGetRequest([[maybe_unused]] const httplib::Request
     }
 }
 
-void Berries::handleApiv2berryidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res, std::shared_ptr<AuthenticationManager> auth)
+void Berries::handleApiv2berryidGetRequest([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
 {
     try
     {
-        if (!performAuthentication(req, auth, res))
-        {
-            nlohmann::json errorJson = nlohmann::json::object();
-            errorJson["message"] = "Authentication required";
-            res.status = HTTP_RESPONSE_CODE_UNAUTHORIZED;
-            res.set_content(errorJson.dump(), "application/json");
-            return;
-        }
 
         Apiv2berryidGetRequest params;
         std::vector<std::string> paramErrors;
@@ -600,31 +508,31 @@ void Berries::handleApiv2berryidGetRequest([[maybe_unused]] const httplib::Reque
 }
 
 
-void Berries::registerRoutes(httplib::Server& svr, std::shared_ptr<AuthenticationManager> auth)
+void Berries::registerRoutes(httplib::Server& svr)
 {
-    svr.Get("/api/v2/berry-firmness/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/berry-firmness/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2berryFirmnessGetRequest(req, res, auth);
+        handleApiv2berryFirmnessGetRequest(req, res);
     });
-    svr.Get("/api/v2/berry-firmness/{id}/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/berry-firmness/{id}/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2berryFirmnessidGetRequest(req, res, auth);
+        handleApiv2berryFirmnessidGetRequest(req, res);
     });
-    svr.Get("/api/v2/berry-flavor/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/berry-flavor/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2berryFlavorGetRequest(req, res, auth);
+        handleApiv2berryFlavorGetRequest(req, res);
     });
-    svr.Get("/api/v2/berry-flavor/{id}/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/berry-flavor/{id}/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2berryFlavoridGetRequest(req, res, auth);
+        handleApiv2berryFlavoridGetRequest(req, res);
     });
-    svr.Get("/api/v2/berry/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/berry/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2berryGetRequest(req, res, auth);
+        handleApiv2berryGetRequest(req, res);
     });
-    svr.Get("/api/v2/berry/{id}/", [this, auth]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
+    svr.Get("/api/v2/berry/{id}/", [this]([[maybe_unused]] const httplib::Request& req, httplib::Response& res)
     {
-        handleApiv2berryidGetRequest(req, res, auth);
+        handleApiv2berryidGetRequest(req, res);
     });
 }
 

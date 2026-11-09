@@ -15,11 +15,13 @@ Name | Type
 `isMega` | boolean
 `formName` | string
 `pokemon` | [PokemonSummary](PokemonSummary.md)
-`sprites` | [PokemonFormDetailSprites](PokemonFormDetailSprites.md)
+`sprites` | [PokemonFormSprites](PokemonFormSprites.md)
 `versionGroup` | [VersionGroupSummary](VersionGroupSummary.md)
-`formNames` | [Array&lt;PokemonFormDetailFormNamesInner&gt;](PokemonFormDetailFormNamesInner.md)
-`names` | [Array&lt;PokemonFormDetailFormNamesInner&gt;](PokemonFormDetailFormNamesInner.md)
-`types` | [Array&lt;PokemonDetailTypesInner&gt;](PokemonDetailTypesInner.md)
+`formNames` | [Array&lt;PokemonFormName&gt;](PokemonFormName.md)
+`names` | [Array&lt;PokemonFormName&gt;](PokemonFormName.md)
+`types` | [Array&lt;PokemonFormType&gt;](PokemonFormType.md)
+`triggerConditions` | [Array&lt;PokemonFormTriggerCondition&gt;](PokemonFormTriggerCondition.md)
+`flavorTextEntries` | [Array&lt;PokemonFormFlavorText&gt;](PokemonFormFlavorText.md)
 
 ## Example
 
@@ -42,6 +44,8 @@ const example = {
   "formNames": null,
   "names": null,
   "types": null,
+  "triggerConditions": null,
+  "flavorTextEntries": null,
 } satisfies PokemonFormDetail
 
 console.log(example)

@@ -104,7 +104,7 @@ static bool contestEffectListProcessor(MemoryStruct_s p_chunk, long code, char* 
 }
 
 static bool contestEffectListHelper(char * accessToken,
-	int limit, int offset, std::string q, 
+	int limit, int offset, 
 	void(* handler)(PaginatedContestEffectSummaryList, Error, void* )
 	, void* userData, bool isAsync)
 {
@@ -133,13 +133,6 @@ static bool contestEffectListHelper(char * accessToken,
 	queryParams.insert(pair<string, string>("offset", itemAtq));
 	if( itemAtq.empty()==true){
 		queryParams.erase("offset");
-	}
-
-
-	itemAtq = stringify(&q, "std::string");
-	queryParams.insert(pair<string, string>("q", itemAtq));
-	if( itemAtq.empty()==true){
-		queryParams.erase("q");
 	}
 
 	string mBody = "";
@@ -196,22 +189,22 @@ static bool contestEffectListHelper(char * accessToken,
 
 
 bool ContestsManager::contestEffectListAsync(char * accessToken,
-	int limit, int offset, std::string q, 
+	int limit, int offset, 
 	void(* handler)(PaginatedContestEffectSummaryList, Error, void* )
 	, void* userData)
 {
 	return contestEffectListHelper(accessToken,
-	limit, offset, q, 
+	limit, offset, 
 	handler, userData, true);
 }
 
 bool ContestsManager::contestEffectListSync(char * accessToken,
-	int limit, int offset, std::string q, 
+	int limit, int offset, 
 	void(* handler)(PaginatedContestEffectSummaryList, Error, void* )
 	, void* userData)
 {
 	return contestEffectListHelper(accessToken,
-	limit, offset, q, 
+	limit, offset, 
 	handler, userData, false);
 }
 
@@ -742,7 +735,7 @@ static bool superContestEffectListProcessor(MemoryStruct_s p_chunk, long code, c
 }
 
 static bool superContestEffectListHelper(char * accessToken,
-	int limit, int offset, std::string q, 
+	int limit, int offset, 
 	void(* handler)(PaginatedSuperContestEffectSummaryList, Error, void* )
 	, void* userData, bool isAsync)
 {
@@ -771,13 +764,6 @@ static bool superContestEffectListHelper(char * accessToken,
 	queryParams.insert(pair<string, string>("offset", itemAtq));
 	if( itemAtq.empty()==true){
 		queryParams.erase("offset");
-	}
-
-
-	itemAtq = stringify(&q, "std::string");
-	queryParams.insert(pair<string, string>("q", itemAtq));
-	if( itemAtq.empty()==true){
-		queryParams.erase("q");
 	}
 
 	string mBody = "";
@@ -834,22 +820,22 @@ static bool superContestEffectListHelper(char * accessToken,
 
 
 bool ContestsManager::superContestEffectListAsync(char * accessToken,
-	int limit, int offset, std::string q, 
+	int limit, int offset, 
 	void(* handler)(PaginatedSuperContestEffectSummaryList, Error, void* )
 	, void* userData)
 {
 	return superContestEffectListHelper(accessToken,
-	limit, offset, q, 
+	limit, offset, 
 	handler, userData, true);
 }
 
 bool ContestsManager::superContestEffectListSync(char * accessToken,
-	int limit, int offset, std::string q, 
+	int limit, int offset, 
 	void(* handler)(PaginatedSuperContestEffectSummaryList, Error, void* )
 	, void* userData)
 {
 	return superContestEffectListHelper(accessToken,
-	limit, offset, q, 
+	limit, offset, 
 	handler, userData, false);
 }
 

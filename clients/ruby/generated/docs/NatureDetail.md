@@ -4,16 +4,15 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **Integer** |  | [readonly] |
-| **name** | **String** |  |  |
-| **decreased_stat** | [**StatSummary**](StatSummary.md) |  |  |
-| **increased_stat** | [**StatSummary**](StatSummary.md) |  |  |
-| **likes_flavor** | [**BerryFlavorSummary**](BerryFlavorSummary.md) |  |  |
-| **hates_flavor** | [**BerryFlavorSummary**](BerryFlavorSummary.md) |  |  |
-| **berries** | [**Array&lt;BerrySummary&gt;**](BerrySummary.md) |  | [readonly] |
-| **pokeathlon_stat_changes** | [**Array&lt;NatureDetailPokeathlonStatChangesInner&gt;**](NatureDetailPokeathlonStatChangesInner.md) |  | [readonly] |
-| **move_battle_style_preferences** | [**Array&lt;NatureBattleStylePreference&gt;**](NatureBattleStylePreference.md) |  | [readonly] |
-| **names** | [**Array&lt;NatureName&gt;**](NatureName.md) |  | [readonly] |
+| **id** | **Integer** | The identifier for this resource. | [readonly] |
+| **name** | **String** | The name for this resource. |  |
+| **decreased_stat** | [**StatSummary**](StatSummary.md) | The stat decreased by 10% in Pokémon with this nature. |  |
+| **increased_stat** | [**StatSummary**](StatSummary.md) | The stat increased by 10% in Pokémon with this nature. |  |
+| **likes_flavor** | [**BerryFlavorSummary**](BerryFlavorSummary.md) | The flavor liked by Pokémon with this nature. |  |
+| **hates_flavor** | [**BerryFlavorSummary**](BerryFlavorSummary.md) | The flavor hated by Pokémon with this nature. |  |
+| **pokeathlon_stat_changes** | [**Array&lt;NaturePokeathlonStat&gt;**](NaturePokeathlonStat.md) | A list of Pokéathlon stats this nature effects and how much it effects them. | [readonly] |
+| **move_battle_style_preferences** | [**Array&lt;NatureBattleStylePreference&gt;**](NatureBattleStylePreference.md) | A list of battle styles and how likely a Pokémon with this nature is to use them in the Battle Palace or Battle Tent. | [readonly] |
+| **names** | [**Array&lt;NatureName&gt;**](NatureName.md) | The name of this resource listed in different languages. | [readonly] |
 
 ## Example
 
@@ -27,7 +26,6 @@ instance = PokeApiClient::NatureDetail.new(
   increased_stat: null,
   likes_flavor: null,
   hates_flavor: null,
-  berries: null,
   pokeathlon_stat_changes: null,
   move_battle_style_preferences: null,
   names: null

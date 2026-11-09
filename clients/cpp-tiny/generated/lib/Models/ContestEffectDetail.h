@@ -48,39 +48,39 @@ public:
 	 */
     void fromJson(std::string jsonObj);
 
-	/*! \brief Get 
+	/*! \brief Get The identifier for this resource.
 	 */
 	int getId();
 
-	/*! \brief Set 
+	/*! \brief Set The identifier for this resource.
 	 */
 	void setId(int id);
-	/*! \brief Get 
+	/*! \brief Get The base number of hearts the user of this move gets.
 	 */
 	int getAppeal();
 
-	/*! \brief Set 
+	/*! \brief Set The base number of hearts the user of this move gets.
 	 */
 	void setAppeal(int appeal);
-	/*! \brief Get 
+	/*! \brief Get The base number of hearts the user's opponent loses.
 	 */
 	int getJam();
 
-	/*! \brief Set 
+	/*! \brief Set The base number of hearts the user's opponent loses.
 	 */
 	void setJam(int jam);
-	/*! \brief Get 
+	/*! \brief Get The result of this contest effect listed in different languages.
 	 */
 	std::list<ContestEffectEffectText> getEffectEntries();
 
-	/*! \brief Set 
+	/*! \brief Set The result of this contest effect listed in different languages.
 	 */
 	void setEffectEntries(std::list<ContestEffectEffectText> effect_entries);
-	/*! \brief Get 
+	/*! \brief Get The flavor text of this contest effect listed in different languages.
 	 */
 	std::list<ContestEffectFlavorText> getFlavorTextEntries();
 
-	/*! \brief Set 
+	/*! \brief Set The flavor text of this contest effect listed in different languages.
 	 */
 	void setFlavorTextEntries(std::list<ContestEffectFlavorText> flavor_text_entries);
 

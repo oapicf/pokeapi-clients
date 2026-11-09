@@ -1,0 +1,27 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "PokemonEncounterVersionDetailResponse",
+  "fields": [
+    {
+      "name": "version",
+      "type": "model.VersionSummary",
+      "doc": "The game version this encounter happens in."
+    },
+    {
+      "name": "max_chance",
+      "type": "int",
+      "doc": "The total percentage of all encounter potential."
+    },
+    {
+      "name": "encounter_details",
+      "type": {
+        "type": "array",
+        "items": "model.PokemonEncounterDetailResponse"
+      },
+      "doc": "A list of encounters and their specifics."
+    }
+  ]
+
+}

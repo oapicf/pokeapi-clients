@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int32** |  | [readonly] 
-**Name** | **string** |  | 
-**Names** | [**[]PalParkAreaName**](PalParkAreaName.md) |  | [readonly] 
-**PokemonEncounters** | [**[]PalParkAreaDetailPokemonEncountersInner**](PalParkAreaDetailPokemonEncountersInner.md) |  | [readonly] 
+**Id** | **int32** | The identifier for this resource. | [readonly] 
+**Name** | **string** | The name for this resource. | 
+**Names** | [**[]PalParkAreaName**](PalParkAreaName.md) | The name of this resource listed in different languages. | [readonly] 
+**PokemonEncounters** | [**[]PalParkEncounter**](PalParkEncounter.md) | A list of Pokémon encountered in thi pal park area along with details. | [readonly] 
 
 ## Methods
 
 ### NewPalParkAreaDetail
 
-`func NewPalParkAreaDetail(id int32, name string, names []PalParkAreaName, pokemonEncounters []PalParkAreaDetailPokemonEncountersInner, ) *PalParkAreaDetail`
+`func NewPalParkAreaDetail(id int32, name string, names []PalParkAreaName, pokemonEncounters []PalParkEncounter, ) *PalParkAreaDetail`
 
 NewPalParkAreaDetail instantiates a new PalParkAreaDetail object
 This constructor will assign default values to properties that have it defined,
@@ -90,20 +90,20 @@ SetNames sets Names field to given value.
 
 ### GetPokemonEncounters
 
-`func (o *PalParkAreaDetail) GetPokemonEncounters() []PalParkAreaDetailPokemonEncountersInner`
+`func (o *PalParkAreaDetail) GetPokemonEncounters() []PalParkEncounter`
 
 GetPokemonEncounters returns the PokemonEncounters field if non-nil, zero value otherwise.
 
 ### GetPokemonEncountersOk
 
-`func (o *PalParkAreaDetail) GetPokemonEncountersOk() (*[]PalParkAreaDetailPokemonEncountersInner, bool)`
+`func (o *PalParkAreaDetail) GetPokemonEncountersOk() (*[]PalParkEncounter, bool)`
 
 GetPokemonEncountersOk returns a tuple with the PokemonEncounters field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPokemonEncounters
 
-`func (o *PalParkAreaDetail) SetPokemonEncounters(v []PalParkAreaDetailPokemonEncountersInner)`
+`func (o *PalParkAreaDetail) SetPokemonEncounters(v []PalParkEncounter)`
 
 SetPokemonEncounters sets PokemonEncounters field to given value.
 

@@ -12,10 +12,14 @@ import org.joda.time.DateTime
 import BerryFirmnessDetail._
 
 case class BerryFirmnessDetail (
+  /* The identifier for this resource. */
   id: Integer,
-name: String,
-berries: List[BerrySummary],
-names: List[BerryFirmnessName])
+/* The name for this resource. */
+  name: String,
+/* A list of the berries with this firmness. */
+  berries: List[BerrySummary],
+/* The name of this resource listed in different languages. */
+  names: List[BerryFirmnessName])
 
 object BerryFirmnessDetail {
   import DateTimeCodecs._

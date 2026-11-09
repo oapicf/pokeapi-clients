@@ -10,6 +10,7 @@ class_name ItemFlingEffectDetail
 # ItemFlingEffectDetail Model
 
 
+# The identifier for this resource.
 # Required: True
 # isArray: false
 @export var id: int:
@@ -18,6 +19,7 @@ class_name ItemFlingEffectDetail
 		id = value
 var __id__was__set := false
 
+# The name for this resource.
 # Required: True
 # isArray: false
 @export var name: String:
@@ -26,6 +28,7 @@ var __id__was__set := false
 		name = value
 var __name__was__set := false
 
+# The result of this fling effect listed in different languages.
 # Required: True
 # isArray: true
 @export var effectUnderscoreentries: Array:
@@ -34,6 +37,7 @@ var __name__was__set := false
 		effectUnderscoreentries = value
 var __effectUnderscoreentries__was__set := false
 
+# A list of items that have this fling effect.
 # Required: True
 # isArray: true
 @export var items: Array:

@@ -4,21 +4,21 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int32** |  | [readonly] 
-**Name** | **string** |  | 
-**IsMainSeries** | Pointer to **bool** |  | [optional] 
-**Generation** | [**GenerationSummary**](GenerationSummary.md) |  | 
-**Names** | [**[]AbilityName**](AbilityName.md) |  | [readonly] 
-**EffectEntries** | [**[]AbilityEffectText**](AbilityEffectText.md) |  | [readonly] 
-**EffectChanges** | [**[]AbilityChange**](AbilityChange.md) |  | [readonly] 
-**FlavorTextEntries** | [**[]AbilityFlavorText**](AbilityFlavorText.md) |  | [readonly] 
-**Pokemon** | [**[]AbilityDetailPokemonInner**](AbilityDetailPokemonInner.md) |  | [readonly] 
+**Id** | **int32** | The identifier for this resource. | [readonly] 
+**Name** | **string** | The name for this resource. | 
+**IsMainSeries** | Pointer to **bool** | Whether or not this ability originated in the main series of the video games. | [optional] 
+**Generation** | [**GenerationSummary**](GenerationSummary.md) | The generation this ability originated in. | 
+**Names** | [**[]AbilityName**](AbilityName.md) | The name of this resource listed in different languages. | [readonly] 
+**EffectEntries** | [**[]AbilityEffectText**](AbilityEffectText.md) | The effect of this ability listed in different languages. | [readonly] 
+**EffectChanges** | [**[]AbilityChange**](AbilityChange.md) | The list of previous effects this ability has had across version groups. | [readonly] 
+**FlavorTextEntries** | [**[]AbilityFlavorText**](AbilityFlavorText.md) | The flavor text of this ability listed in different languages. | [readonly] 
+**Pokemon** | [**[]AbilityPokemonDetail**](AbilityPokemonDetail.md) | A list of Pokémon that could potentially have this ability. | [readonly] 
 
 ## Methods
 
 ### NewAbilityDetail
 
-`func NewAbilityDetail(id int32, name string, generation GenerationSummary, names []AbilityName, effectEntries []AbilityEffectText, effectChanges []AbilityChange, flavorTextEntries []AbilityFlavorText, pokemon []AbilityDetailPokemonInner, ) *AbilityDetail`
+`func NewAbilityDetail(id int32, name string, generation GenerationSummary, names []AbilityName, effectEntries []AbilityEffectText, effectChanges []AbilityChange, flavorTextEntries []AbilityFlavorText, pokemon []AbilityPokemonDetail, ) *AbilityDetail`
 
 NewAbilityDetail instantiates a new AbilityDetail object
 This constructor will assign default values to properties that have it defined,
@@ -200,20 +200,20 @@ SetFlavorTextEntries sets FlavorTextEntries field to given value.
 
 ### GetPokemon
 
-`func (o *AbilityDetail) GetPokemon() []AbilityDetailPokemonInner`
+`func (o *AbilityDetail) GetPokemon() []AbilityPokemonDetail`
 
 GetPokemon returns the Pokemon field if non-nil, zero value otherwise.
 
 ### GetPokemonOk
 
-`func (o *AbilityDetail) GetPokemonOk() (*[]AbilityDetailPokemonInner, bool)`
+`func (o *AbilityDetail) GetPokemonOk() (*[]AbilityPokemonDetail, bool)`
 
 GetPokemonOk returns a tuple with the Pokemon field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPokemon
 
-`func (o *AbilityDetail) SetPokemon(v []AbilityDetailPokemonInner)`
+`func (o *AbilityDetail) SetPokemon(v []AbilityPokemonDetail)`
 
 SetPokemon sets Pokemon field to given value.
 

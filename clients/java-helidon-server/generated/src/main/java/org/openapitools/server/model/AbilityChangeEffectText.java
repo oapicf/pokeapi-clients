@@ -21,8 +21,8 @@ public class AbilityChangeEffectText   {
     /**
      * Create AbilityChangeEffectText.
      *
-     * @param effect effect
-     * @param language language
+     * @param effect The localized effect text for an API resource in a specific language.
+     * @param language The language this effect is in.
      */
     public AbilityChangeEffectText(
         String effect, 
@@ -35,7 +35,7 @@ public class AbilityChangeEffectText   {
 
 
     /**
-     * Get effect
+     * The localized effect text for an API resource in a specific language.
      * @return effect
      */
     public String getEffect() {
@@ -47,7 +47,7 @@ public class AbilityChangeEffectText   {
     }
 
     /**
-     * Get language
+     * The language this effect is in.
      * @return language
      */
     public LanguageSummary getLanguage() {

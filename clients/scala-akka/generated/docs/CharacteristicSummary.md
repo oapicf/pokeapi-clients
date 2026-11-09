@@ -7,7 +7,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**url** | **URI** |  |  [readonly]
+**url** | **URI** | The URL of the referenced resource. |  [readonly]
 
 
 

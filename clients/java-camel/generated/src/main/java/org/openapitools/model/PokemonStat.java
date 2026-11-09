@@ -19,7 +19,7 @@ import jakarta.annotation.Generated;
  * PokemonStat
  */
 
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-10-25T05:48:25.711080506Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-11-09T13:49:41.168612095Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PokemonStat {
 
   private Integer baseStat;
@@ -47,11 +47,13 @@ public class PokemonStat {
   }
 
   /**
-   * Get baseStat
+   * The base value of the stat.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return baseStat
    */
-  @NotNull 
-  @Schema(name = "base_stat", requiredMode = Schema.RequiredMode.REQUIRED)
+  @NotNull @Min(value = -2147483648) @Max(value = 2147483647) 
+  @Schema(name = "base_stat", description = "The base value of the stat.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("base_stat")
   public Integer getBaseStat() {
     return baseStat;
@@ -67,11 +69,13 @@ public class PokemonStat {
   }
 
   /**
-   * Get effort
+   * The effort points (EV) the Pokémon has in the stat.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return effort
    */
-  @NotNull 
-  @Schema(name = "effort", requiredMode = Schema.RequiredMode.REQUIRED)
+  @NotNull @Min(value = -2147483648) @Max(value = 2147483647) 
+  @Schema(name = "effort", description = "The effort points (EV) the Pokémon has in the stat.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("effort")
   public Integer getEffort() {
     return effort;
@@ -87,11 +91,11 @@ public class PokemonStat {
   }
 
   /**
-   * Get stat
+   * The stat the Pokémon has.
    * @return stat
    */
   @NotNull @Valid 
-  @Schema(name = "stat", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "stat", description = "The stat the Pokémon has.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("stat")
   public StatSummary getStat() {
     return stat;

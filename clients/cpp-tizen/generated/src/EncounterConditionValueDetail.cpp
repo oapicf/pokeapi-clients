@@ -25,7 +25,7 @@ EncounterConditionValueDetail::__init()
 {
 	//id = int(0);
 	//name = std::string();
-	//condition = new EncounterConditionSummary();
+	//condition = null;
 	//new std::list()std::list> names;
 }
 

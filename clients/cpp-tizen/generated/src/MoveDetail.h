@@ -9,21 +9,21 @@
 
 
 #include <string>
-#include "AbilityDetail_pokemon_inner_pokemon.h"
 #include "ContestEffectSummary.h"
 #include "ContestTypeSummary.h"
 #include "GenerationSummary.h"
+#include "ItemMachine.h"
 #include "MoveChange.h"
-#include "MoveChange_effect_entries_inner.h"
+#include "MoveCombos.h"
 #include "MoveDamageClassSummary.h"
-#include "MoveDetail_contest_combos.h"
-#include "MoveDetail_effect_changes_inner.h"
-#include "MoveDetail_machines_inner.h"
-#include "MoveDetail_stat_changes_inner.h"
+#include "MoveEffectChange.h"
+#include "MoveEffectEffectText.h"
 #include "MoveFlavorText.h"
 #include "MoveMeta.h"
+#include "MoveMetaStatChange.h"
 #include "MoveName.h"
 #include "MoveTargetSummary.h"
+#include "PokemonSummary.h"
 #include "SuperContestEffectSummary.h"
 #include "TypeSummary.h"
 #include <list>
@@ -63,174 +63,174 @@ public:
 	 */
 	void fromJson(char* jsonStr);
 
-	/*! \brief Get 
+	/*! \brief Get The identifier for this resource.
 	 */
 	int getId();
 
-	/*! \brief Set 
+	/*! \brief Set The identifier for this resource.
 	 */
 	void setId(int  id);
-	/*! \brief Get 
+	/*! \brief Get The name for this resource.
 	 */
 	std::string getName();
 
-	/*! \brief Set 
+	/*! \brief Set The name for this resource.
 	 */
 	void setName(std::string  name);
-	/*! \brief Get 
+	/*! \brief Get The percent value of how likely this move is to be successful.
 	 */
 	int getAccuracy();
 
-	/*! \brief Set 
+	/*! \brief Set The percent value of how likely this move is to be successful.
 	 */
 	void setAccuracy(int  accuracy);
-	/*! \brief Get 
+	/*! \brief Get The percent value of how likely it is this moves effect will happen.
 	 */
 	int getEffectChance();
 
-	/*! \brief Set 
+	/*! \brief Set The percent value of how likely it is this moves effect will happen.
 	 */
 	void setEffectChance(int  effect_chance);
-	/*! \brief Get 
+	/*! \brief Get Power points. The number of times this move can be used.
 	 */
 	int getPp();
 
-	/*! \brief Set 
+	/*! \brief Set Power points. The number of times this move can be used.
 	 */
 	void setPp(int  pp);
-	/*! \brief Get 
+	/*! \brief Get A value between -8 and 8. Sets the order in which moves are executed during battle. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Priority) for greater detail.
 	 */
 	int getPriority();
 
-	/*! \brief Set 
+	/*! \brief Set A value between -8 and 8. Sets the order in which moves are executed during battle. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Priority) for greater detail.
 	 */
 	void setPriority(int  priority);
-	/*! \brief Get 
+	/*! \brief Get The base power of this move, or null if it has no fixed base power.
 	 */
 	int getPower();
 
-	/*! \brief Set 
+	/*! \brief Set The base power of this move, or null if it has no fixed base power.
 	 */
 	void setPower(int  power);
-	/*! \brief Get 
+	/*! \brief Get A detail of normal and super contest combos that require this move.
 	 */
-	MoveDetail_contest_combos getContestCombos();
+	MoveCombos getContestCombos();
 
-	/*! \brief Set 
+	/*! \brief Set A detail of normal and super contest combos that require this move.
 	 */
-	void setContestCombos(MoveDetail_contest_combos  contest_combos);
-	/*! \brief Get 
+	void setContestCombos(MoveCombos  contest_combos);
+	/*! \brief Get The type of appeal this move gives a Pokémon when used in a contest.
 	 */
 	ContestTypeSummary getContestType();
 
-	/*! \brief Set 
+	/*! \brief Set The type of appeal this move gives a Pokémon when used in a contest.
 	 */
 	void setContestType(ContestTypeSummary  contest_type);
-	/*! \brief Get 
+	/*! \brief Get The effect the move has when used in a contest.
 	 */
 	ContestEffectSummary getContestEffect();
 
-	/*! \brief Set 
+	/*! \brief Set The effect the move has when used in a contest.
 	 */
 	void setContestEffect(ContestEffectSummary  contest_effect);
-	/*! \brief Get 
+	/*! \brief Get The type of damage the move inflicts on the target, e.g. physical.
 	 */
 	MoveDamageClassSummary getDamageClass();
 
-	/*! \brief Set 
+	/*! \brief Set The type of damage the move inflicts on the target, e.g. physical.
 	 */
 	void setDamageClass(MoveDamageClassSummary  damage_class);
-	/*! \brief Get 
+	/*! \brief Get The effect of this move listed in different languages.
 	 */
-	std::list<MoveChange_effect_entries_inner> getEffectEntries();
+	std::list<MoveEffectEffectText> getEffectEntries();
 
-	/*! \brief Set 
+	/*! \brief Set The effect of this move listed in different languages.
 	 */
-	void setEffectEntries(std::list <MoveChange_effect_entries_inner> effect_entries);
-	/*! \brief Get 
+	void setEffectEntries(std::list <MoveEffectEffectText> effect_entries);
+	/*! \brief Get The list of previous effects this move has had across version groups of the games.
 	 */
-	std::list<MoveDetail_effect_changes_inner> getEffectChanges();
+	std::list<MoveEffectChange> getEffectChanges();
 
-	/*! \brief Set 
+	/*! \brief Set The list of previous effects this move has had across version groups of the games.
 	 */
-	void setEffectChanges(std::list <MoveDetail_effect_changes_inner> effect_changes);
-	/*! \brief Get 
+	void setEffectChanges(std::list <MoveEffectChange> effect_changes);
+	/*! \brief Get The generation in which this move was introduced.
 	 */
 	GenerationSummary getGeneration();
 
-	/*! \brief Set 
+	/*! \brief Set The generation in which this move was introduced.
 	 */
 	void setGeneration(GenerationSummary  generation);
-	/*! \brief Get 
+	/*! \brief Get Metadata about this move
 	 */
 	MoveMeta getMeta();
 
-	/*! \brief Set 
+	/*! \brief Set Metadata about this move
 	 */
 	void setMeta(MoveMeta  meta);
-	/*! \brief Get 
+	/*! \brief Get The name of this resource listed in different languages.
 	 */
 	std::list<MoveName> getNames();
 
-	/*! \brief Set 
+	/*! \brief Set The name of this resource listed in different languages.
 	 */
 	void setNames(std::list <MoveName> names);
-	/*! \brief Get 
+	/*! \brief Get A list of move resource value changes across version groups of the game.
 	 */
 	std::list<MoveChange> getPastValues();
 
-	/*! \brief Set 
+	/*! \brief Set A list of move resource value changes across version groups of the game.
 	 */
 	void setPastValues(std::list <MoveChange> past_values);
-	/*! \brief Get 
+	/*! \brief Get A list of stats this moves effects and how much it effects them.
 	 */
-	std::list<MoveDetail_stat_changes_inner> getStatChanges();
+	std::list<MoveMetaStatChange> getStatChanges();
 
-	/*! \brief Set 
+	/*! \brief Set A list of stats this moves effects and how much it effects them.
 	 */
-	void setStatChanges(std::list <MoveDetail_stat_changes_inner> stat_changes);
-	/*! \brief Get 
+	void setStatChanges(std::list <MoveMetaStatChange> stat_changes);
+	/*! \brief Get The effect the move has when used in a super contest.
 	 */
 	SuperContestEffectSummary getSuperContestEffect();
 
-	/*! \brief Set 
+	/*! \brief Set The effect the move has when used in a super contest.
 	 */
 	void setSuperContestEffect(SuperContestEffectSummary  super_contest_effect);
-	/*! \brief Get 
+	/*! \brief Get The type of target that will receive the effects of the attack.
 	 */
 	MoveTargetSummary getTarget();
 
-	/*! \brief Set 
+	/*! \brief Set The type of target that will receive the effects of the attack.
 	 */
 	void setTarget(MoveTargetSummary  target);
-	/*! \brief Get 
+	/*! \brief Get The elemental type of this move.
 	 */
 	TypeSummary getType();
 
-	/*! \brief Set 
+	/*! \brief Set The elemental type of this move.
 	 */
 	void setType(TypeSummary  type);
-	/*! \brief Get 
+	/*! \brief Get A list of the machines that teach this move.
 	 */
-	std::list<MoveDetail_machines_inner> getMachines();
+	std::list<ItemMachine> getMachines();
 
-	/*! \brief Set 
+	/*! \brief Set A list of the machines that teach this move.
 	 */
-	void setMachines(std::list <MoveDetail_machines_inner> machines);
-	/*! \brief Get 
+	void setMachines(std::list <ItemMachine> machines);
+	/*! \brief Get The flavor text of this move listed in different languages.
 	 */
 	std::list<MoveFlavorText> getFlavorTextEntries();
 
-	/*! \brief Set 
+	/*! \brief Set The flavor text of this move listed in different languages.
 	 */
 	void setFlavorTextEntries(std::list <MoveFlavorText> flavor_text_entries);
-	/*! \brief Get 
+	/*! \brief Get List of Pokemon that can learn the move
 	 */
-	std::list<AbilityDetail_pokemon_inner_pokemon> getLearnedByPokemon();
+	std::list<PokemonSummary> getLearnedByPokemon();
 
-	/*! \brief Set 
+	/*! \brief Set List of Pokemon that can learn the move
 	 */
-	void setLearnedByPokemon(std::list <AbilityDetail_pokemon_inner_pokemon> learned_by_pokemon);
+	void setLearnedByPokemon(std::list <PokemonSummary> learned_by_pokemon);
 
 private:
 	int id;
@@ -240,23 +240,23 @@ private:
 	int pp;
 	int priority;
 	int power;
-	MoveDetail_contest_combos contest_combos;
+	MoveCombos contest_combos;
 	ContestTypeSummary contest_type;
 	ContestEffectSummary contest_effect;
 	MoveDamageClassSummary damage_class;
-	std::list <MoveChange_effect_entries_inner>effect_entries;
-	std::list <MoveDetail_effect_changes_inner>effect_changes;
+	std::list <MoveEffectEffectText>effect_entries;
+	std::list <MoveEffectChange>effect_changes;
 	GenerationSummary generation;
 	MoveMeta meta;
 	std::list <MoveName>names;
 	std::list <MoveChange>past_values;
-	std::list <MoveDetail_stat_changes_inner>stat_changes;
+	std::list <MoveMetaStatChange>stat_changes;
 	SuperContestEffectSummary super_contest_effect;
 	MoveTargetSummary target;
 	TypeSummary type;
-	std::list <MoveDetail_machines_inner>machines;
+	std::list <ItemMachine>machines;
 	std::list <MoveFlavorText>flavor_text_entries;
-	std::list <AbilityDetail_pokemon_inner_pokemon>learned_by_pokemon;
+	std::list <PokemonSummary>learned_by_pokemon;
 	void __init();
 	void __cleanup();
 

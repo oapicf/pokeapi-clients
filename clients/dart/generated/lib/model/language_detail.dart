@@ -21,10 +21,13 @@ class LanguageDetail {
     this.names = const [],
   });
 
+  /// The identifier for this resource.
   int id;
 
+  /// The name for this resource.
   String name;
 
+  /// Whether or not the games are published in this language.
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated
@@ -33,10 +36,13 @@ class LanguageDetail {
   ///
   bool? official;
 
+  /// The two-letter ISO 639-1 language code. Multiple PokéAPI language records may share this code.
   String iso639;
 
+  /// The two-letter ISO 3166-1 alpha-2 code of the country or region associated with this language record. Multiple PokéAPI language records may share this code.
   String iso3166;
 
+  /// The name of this resource listed in different languages.
   List<LanguageName> names;
 
   @override

@@ -12,7 +12,7 @@ Method | HTTP request | Description
 <a id="machineList"></a>
 # **machineList**
 ```java
-Mono<PaginatedMachineSummaryList> MachinesController.machineList(limitoffsetq)
+Mono<PaginatedMachineSummaryList> MachinesController.machineList(limitoffset)
 ```
 
 List machines
@@ -24,14 +24,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **limit** | `Integer` | Number of results to return per page. | [optional parameter]
 **offset** | `Integer` | The initial index from which to return the results. | [optional parameter]
-**q** | `String` | &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional parameter]
 
 ### Return type
 [**PaginatedMachineSummaryList**](../../docs/models/PaginatedMachineSummaryList.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined
@@ -55,9 +51,6 @@ Name | Type | Description  | Notes
 ### Return type
 [**MachineDetail**](../../docs/models/MachineDetail.md)
 
-### Authorization
-* **basicAuth**
-* **cookieAuth**
 
 ### HTTP request headers
  - **Accepts Content-Type**: Not defined

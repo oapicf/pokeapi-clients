@@ -20,14 +20,19 @@ class MoveDamageClassDetail {
     this.names = const [],
   });
 
+  /// The identifier for this resource.
   int id;
 
+  /// The name for this resource.
   String name;
 
+  /// The description of this resource listed in different languages.
   List<MoveDamageClassDescription> descriptions;
 
+  /// A list of moves that fall into this damage class.
   List<MoveSummary> moves;
 
+  /// The name of this resource listed in different languages.
   List<MoveDamageClassName> names;
 
   @override

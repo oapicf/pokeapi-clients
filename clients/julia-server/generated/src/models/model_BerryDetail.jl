@@ -19,18 +19,18 @@
         natural_gift_type=nothing,
     )
 
-    - id::Int64
-    - name::String
-    - growth_time::Int64
-    - max_harvest::Int64
-    - natural_gift_power::Int64
-    - size::Int64
-    - smoothness::Int64
-    - soil_dryness::Int64
-    - firmness::BerryFirmnessSummary
-    - flavors::Vector{BerryDetailFlavorsInner}
-    - item::ItemSummary
-    - natural_gift_type::TypeSummary
+    - id::Int64 : The identifier for this resource.
+    - name::String : The name for this resource.
+    - growth_time::Int64 : Time it takes the tree to grow one stage, in hours. Berry trees go through four of these growth stages before they can be picked.
+    - max_harvest::Int64 : The maximum number of these berries that can grow on one tree in Generation IV.
+    - natural_gift_power::Int64 : The power of the move \&quot;Natural Gift\&quot; when used with this Berry.
+    - size::Int64 : The size of this Berry, in millimeters.
+    - smoothness::Int64 : The smoothness of this Berry, used in making Pokéblocks or Poffins.
+    - soil_dryness::Int64 : The speed at which this Berry dries out the soil as it grows. A higher rate means the soil dries more quickly.
+    - firmness::BerryFirmnessSummary : The firmness of this berry, used in making Pokéblocks or Poffins.
+    - flavors::Vector{BerryFlavorMap} : A list of references to each flavor a berry can have and the potency of each of those flavors in regard to this berry.
+    - item::ItemSummary : Berries are actually items. This is a reference to the item specific data for this berry.
+    - natural_gift_type::TypeSummary : The type inherited by \&quot;Natural Gift\&quot; when used with this Berry.
 """
 Base.@kwdef mutable struct BerryDetail <: OpenAPI.APIModel
     id::Union{Nothing, Int64} = nothing
@@ -42,7 +42,7 @@ Base.@kwdef mutable struct BerryDetail <: OpenAPI.APIModel
     smoothness::Union{Nothing, Int64} = nothing
     soil_dryness::Union{Nothing, Int64} = nothing
     firmness = nothing # spec type: Union{ Nothing, BerryFirmnessSummary }
-    flavors::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{BerryDetailFlavorsInner} }
+    flavors::Union{Nothing, Vector} = nothing # spec type: Union{ Nothing, Vector{BerryFlavorMap} }
     item = nothing # spec type: Union{ Nothing, ItemSummary }
     natural_gift_type = nothing # spec type: Union{ Nothing, TypeSummary }
 
@@ -53,18 +53,12 @@ Base.@kwdef mutable struct BerryDetail <: OpenAPI.APIModel
     end
 end # type BerryDetail
 
-const _property_types_BerryDetail = Dict{Symbol,String}(Symbol("id")=>"Int64", Symbol("name")=>"String", Symbol("growth_time")=>"Int64", Symbol("max_harvest")=>"Int64", Symbol("natural_gift_power")=>"Int64", Symbol("size")=>"Int64", Symbol("smoothness")=>"Int64", Symbol("soil_dryness")=>"Int64", Symbol("firmness")=>"BerryFirmnessSummary", Symbol("flavors")=>"Vector{BerryDetailFlavorsInner}", Symbol("item")=>"ItemSummary", Symbol("natural_gift_type")=>"TypeSummary", )
+const _property_types_BerryDetail = Dict{Symbol,String}(Symbol("id")=>"Int64", Symbol("name")=>"String", Symbol("growth_time")=>"Int64", Symbol("max_harvest")=>"Int64", Symbol("natural_gift_power")=>"Int64", Symbol("size")=>"Int64", Symbol("smoothness")=>"Int64", Symbol("soil_dryness")=>"Int64", Symbol("firmness")=>"BerryFirmnessSummary", Symbol("flavors")=>"Vector{BerryFlavorMap}", Symbol("item")=>"ItemSummary", Symbol("natural_gift_type")=>"TypeSummary", )
 OpenAPI.property_type(::Type{ BerryDetail }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_BerryDetail[name]))}
 
 function OpenAPI.check_required(o::BerryDetail)
     o.id === nothing && (return false)
     o.name === nothing && (return false)
-    o.growth_time === nothing && (return false)
-    o.max_harvest === nothing && (return false)
-    o.natural_gift_power === nothing && (return false)
-    o.size === nothing && (return false)
-    o.smoothness === nothing && (return false)
-    o.soil_dryness === nothing && (return false)
     o.firmness === nothing && (return false)
     o.flavors === nothing && (return false)
     o.item === nothing && (return false)
@@ -91,14 +85,38 @@ function OpenAPI.validate_property(::Type{ BerryDetail }, name::Symbol, val)
 
 
     if name === Symbol("name")
-        OpenAPI.validate_param(name, "BerryDetail", :maxLength, val, 100)
+        OpenAPI.validate_param(name, "BerryDetail", :maxLength, val, 200)
     end
 
+    if name === Symbol("growth_time")
+        OpenAPI.validate_param(name, "BerryDetail", :maximum, val, 2147483647, false)
+        OpenAPI.validate_param(name, "BerryDetail", :minimum, val, -2147483648, false)
+    end
 
+    if name === Symbol("max_harvest")
+        OpenAPI.validate_param(name, "BerryDetail", :maximum, val, 2147483647, false)
+        OpenAPI.validate_param(name, "BerryDetail", :minimum, val, -2147483648, false)
+    end
 
+    if name === Symbol("natural_gift_power")
+        OpenAPI.validate_param(name, "BerryDetail", :maximum, val, 2147483647, false)
+        OpenAPI.validate_param(name, "BerryDetail", :minimum, val, -2147483648, false)
+    end
 
+    if name === Symbol("size")
+        OpenAPI.validate_param(name, "BerryDetail", :maximum, val, 2147483647, false)
+        OpenAPI.validate_param(name, "BerryDetail", :minimum, val, -2147483648, false)
+    end
 
+    if name === Symbol("smoothness")
+        OpenAPI.validate_param(name, "BerryDetail", :maximum, val, 2147483647, false)
+        OpenAPI.validate_param(name, "BerryDetail", :minimum, val, -2147483648, false)
+    end
 
+    if name === Symbol("soil_dryness")
+        OpenAPI.validate_param(name, "BerryDetail", :maximum, val, 2147483647, false)
+        OpenAPI.validate_param(name, "BerryDetail", :minimum, val, -2147483648, false)
+    end
 
 
 

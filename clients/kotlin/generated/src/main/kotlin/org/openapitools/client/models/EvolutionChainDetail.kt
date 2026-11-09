@@ -23,7 +23,7 @@
 
 package org.openapitools.client.models
 
-import org.openapitools.client.models.EvolutionChainDetailChain
+import org.openapitools.client.models.EvolutionChainLink
 import org.openapitools.client.models.ItemSummary
 
 import com.squareup.moshi.Json
@@ -32,22 +32,25 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param id 
- * @param babyTriggerItem 
- * @param chain 
+ * @param id The identifier for this resource.
+ * @param babyTriggerItem The item that a Pokémon would be holding when mating that would trigger the egg hatching a baby Pokémon rather than a basic Pokémon.
+ * @param chain The base chain link object. Each link contains evolution details for a Pokémon in the chain. Each link references the next Pokémon in the natural evolution order.
  */
 
 
 data class EvolutionChainDetail (
 
+    /* The identifier for this resource. */
     @Json(name = "id")
     val id: kotlin.Int,
 
+    /* The item that a Pokémon would be holding when mating that would trigger the egg hatching a baby Pokémon rather than a basic Pokémon. */
     @Json(name = "baby_trigger_item")
-    val babyTriggerItem: ItemSummary,
+    val babyTriggerItem: ItemSummary?,
 
+    /* The base chain link object. Each link contains evolution details for a Pokémon in the chain. Each link references the next Pokémon in the natural evolution order. */
     @Json(name = "chain")
-    val chain: EvolutionChainDetailChain
+    val chain: EvolutionChainLink
 
 ) {
 

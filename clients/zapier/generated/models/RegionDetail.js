@@ -1,9 +1,9 @@
 const utils = require('../utils/utils');
-const AbilityDetail_pokemon_inner_pokemon = require('../models/AbilityDetail_pokemon_inner_pokemon');
 const GenerationSummary = require('../models/GenerationSummary');
 const LocationSummary = require('../models/LocationSummary');
 const PokedexSummary = require('../models/PokedexSummary');
 const RegionName = require('../models/RegionName');
+const VersionGroupSummary = require('../models/VersionGroupSummary');
 
 module.exports = {
     fields: (prefix = '', isInput = true, isArrayChild = false) => {
@@ -11,13 +11,13 @@ module.exports = {
         return [
             {
                 key: `${keyPrefix}id`,
-                label: `[${labelPrefix}id]`,
+                label: `The identifier for this resource. - [${labelPrefix}id]`,
                 required: true,
                 type: 'integer',
             },
             {
                 key: `${keyPrefix}name`,
-                label: `[${labelPrefix}name]`,
+                label: `The name for this resource. - [${labelPrefix}name]`,
                 required: true,
                 type: 'string',
             },
@@ -40,7 +40,7 @@ module.exports = {
             {
                 key: `${keyPrefix}version_groups`,
                 label: `[${labelPrefix}version_groups]`,
-                children: AbilityDetail_pokemon_inner_pokemon.fields(`${keyPrefix}version_groups${!isInput ? '[]' : ''}`, isInput, true), 
+                children: VersionGroupSummary.fields(`${keyPrefix}version_groups${!isInput ? '[]' : ''}`, isInput, true), 
             },
         ]
     },
@@ -53,7 +53,7 @@ module.exports = {
             'main_generation': utils.removeIfEmpty(GenerationSummary.mapping(bundle, `${keyPrefix}main_generation`)),
             'names': utils.childMapping(bundle.inputData?.[`${keyPrefix}names`], `${keyPrefix}names`, RegionName),
             'pokedexes': utils.childMapping(bundle.inputData?.[`${keyPrefix}pokedexes`], `${keyPrefix}pokedexes`, PokedexSummary),
-            'version_groups': utils.childMapping(bundle.inputData?.[`${keyPrefix}version_groups`], `${keyPrefix}version_groups`, AbilityDetail_pokemon_inner_pokemon),
+            'version_groups': utils.childMapping(bundle.inputData?.[`${keyPrefix}version_groups`], `${keyPrefix}version_groups`, VersionGroupSummary),
         }
     },
 }

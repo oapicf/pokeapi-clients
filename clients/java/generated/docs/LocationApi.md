@@ -28,7 +28,6 @@ Location areas are sections of areas, such as floors in a building or cave. Each
 import com.github.oapicf.pokeapiclient.ApiClient;
 import com.github.oapicf.pokeapiclient.ApiException;
 import com.github.oapicf.pokeapiclient.Configuration;
-import com.github.oapicf.pokeapiclient.auth.*;
 import com.github.oapicf.pokeapiclient.models.*;
 import com.github.oapicf.pokeapiclient.api.LocationApi;
 
@@ -36,17 +35,6 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://pokeapi.co");
-    
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
-
-    // Configure API key authorization: cookieAuth
-    ApiKeyAuth cookieAuth = (ApiKeyAuth) defaultClient.getAuthentication("cookieAuth");
-    cookieAuth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //cookieAuth.setApiKeyPrefix("Token");
 
     LocationApi apiInstance = new LocationApi(defaultClient);
     Integer limit = 56; // Integer | Number of results to return per page.
@@ -78,7 +66,7 @@ public class Example {
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -104,7 +92,6 @@ Location areas are sections of areas, such as floors in a building or cave. Each
 import com.github.oapicf.pokeapiclient.ApiClient;
 import com.github.oapicf.pokeapiclient.ApiException;
 import com.github.oapicf.pokeapiclient.Configuration;
-import com.github.oapicf.pokeapiclient.auth.*;
 import com.github.oapicf.pokeapiclient.models.*;
 import com.github.oapicf.pokeapiclient.api.LocationApi;
 
@@ -112,20 +99,9 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://pokeapi.co");
-    
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
-
-    // Configure API key authorization: cookieAuth
-    ApiKeyAuth cookieAuth = (ApiKeyAuth) defaultClient.getAuthentication("cookieAuth");
-    cookieAuth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //cookieAuth.setApiKeyPrefix("Token");
 
     LocationApi apiInstance = new LocationApi(defaultClient);
-    Integer id = 56; // Integer | A unique integer value identifying this location area.
+    Integer id = 1; // Integer | A unique integer value identifying this location area.
     try {
       LocationAreaDetail result = apiInstance.locationAreaRetrieve(id);
       System.out.println(result);
@@ -152,7 +128,7 @@ public class Example {
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -178,7 +154,6 @@ Locations that can be visited within the games. Locations make up sizable portio
 import com.github.oapicf.pokeapiclient.ApiClient;
 import com.github.oapicf.pokeapiclient.ApiException;
 import com.github.oapicf.pokeapiclient.Configuration;
-import com.github.oapicf.pokeapiclient.auth.*;
 import com.github.oapicf.pokeapiclient.models.*;
 import com.github.oapicf.pokeapiclient.api.LocationApi;
 
@@ -186,17 +161,6 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://pokeapi.co");
-    
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
-
-    // Configure API key authorization: cookieAuth
-    ApiKeyAuth cookieAuth = (ApiKeyAuth) defaultClient.getAuthentication("cookieAuth");
-    cookieAuth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //cookieAuth.setApiKeyPrefix("Token");
 
     LocationApi apiInstance = new LocationApi(defaultClient);
     Integer limit = 56; // Integer | Number of results to return per page.
@@ -230,7 +194,7 @@ public class Example {
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -256,7 +220,6 @@ Locations that can be visited within the games. Locations make up sizable portio
 import com.github.oapicf.pokeapiclient.ApiClient;
 import com.github.oapicf.pokeapiclient.ApiException;
 import com.github.oapicf.pokeapiclient.Configuration;
-import com.github.oapicf.pokeapiclient.auth.*;
 import com.github.oapicf.pokeapiclient.models.*;
 import com.github.oapicf.pokeapiclient.api.LocationApi;
 
@@ -264,20 +227,9 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://pokeapi.co");
-    
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
-
-    // Configure API key authorization: cookieAuth
-    ApiKeyAuth cookieAuth = (ApiKeyAuth) defaultClient.getAuthentication("cookieAuth");
-    cookieAuth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //cookieAuth.setApiKeyPrefix("Token");
 
     LocationApi apiInstance = new LocationApi(defaultClient);
-    String id = "id_example"; // String | This parameter can be a string or an integer.
+    String id = "1"; // String | This parameter can be a string or an integer.
     try {
       LocationDetail result = apiInstance.locationRetrieve(id);
       System.out.println(result);
@@ -304,7 +256,7 @@ public class Example {
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -330,7 +282,6 @@ Areas used for grouping Pokémon encounters in Pal Park. They&#39;re like habita
 import com.github.oapicf.pokeapiclient.ApiClient;
 import com.github.oapicf.pokeapiclient.ApiException;
 import com.github.oapicf.pokeapiclient.Configuration;
-import com.github.oapicf.pokeapiclient.auth.*;
 import com.github.oapicf.pokeapiclient.models.*;
 import com.github.oapicf.pokeapiclient.api.LocationApi;
 
@@ -338,17 +289,6 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://pokeapi.co");
-    
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
-
-    // Configure API key authorization: cookieAuth
-    ApiKeyAuth cookieAuth = (ApiKeyAuth) defaultClient.getAuthentication("cookieAuth");
-    cookieAuth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //cookieAuth.setApiKeyPrefix("Token");
 
     LocationApi apiInstance = new LocationApi(defaultClient);
     Integer limit = 56; // Integer | Number of results to return per page.
@@ -382,7 +322,7 @@ public class Example {
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -408,7 +348,6 @@ Areas used for grouping Pokémon encounters in Pal Park. They&#39;re like habita
 import com.github.oapicf.pokeapiclient.ApiClient;
 import com.github.oapicf.pokeapiclient.ApiException;
 import com.github.oapicf.pokeapiclient.Configuration;
-import com.github.oapicf.pokeapiclient.auth.*;
 import com.github.oapicf.pokeapiclient.models.*;
 import com.github.oapicf.pokeapiclient.api.LocationApi;
 
@@ -416,20 +355,9 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://pokeapi.co");
-    
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
-
-    // Configure API key authorization: cookieAuth
-    ApiKeyAuth cookieAuth = (ApiKeyAuth) defaultClient.getAuthentication("cookieAuth");
-    cookieAuth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //cookieAuth.setApiKeyPrefix("Token");
 
     LocationApi apiInstance = new LocationApi(defaultClient);
-    String id = "id_example"; // String | This parameter can be a string or an integer.
+    String id = "1"; // String | This parameter can be a string or an integer.
     try {
       PalParkAreaDetail result = apiInstance.palParkAreaRetrieve(id);
       System.out.println(result);
@@ -456,7 +384,7 @@ public class Example {
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -482,7 +410,6 @@ A region is an organized area of the Pokémon world. Most often, the main differ
 import com.github.oapicf.pokeapiclient.ApiClient;
 import com.github.oapicf.pokeapiclient.ApiException;
 import com.github.oapicf.pokeapiclient.Configuration;
-import com.github.oapicf.pokeapiclient.auth.*;
 import com.github.oapicf.pokeapiclient.models.*;
 import com.github.oapicf.pokeapiclient.api.LocationApi;
 
@@ -490,17 +417,6 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://pokeapi.co");
-    
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
-
-    // Configure API key authorization: cookieAuth
-    ApiKeyAuth cookieAuth = (ApiKeyAuth) defaultClient.getAuthentication("cookieAuth");
-    cookieAuth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //cookieAuth.setApiKeyPrefix("Token");
 
     LocationApi apiInstance = new LocationApi(defaultClient);
     Integer limit = 56; // Integer | Number of results to return per page.
@@ -534,7 +450,7 @@ public class Example {
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -560,7 +476,6 @@ A region is an organized area of the Pokémon world. Most often, the main differ
 import com.github.oapicf.pokeapiclient.ApiClient;
 import com.github.oapicf.pokeapiclient.ApiException;
 import com.github.oapicf.pokeapiclient.Configuration;
-import com.github.oapicf.pokeapiclient.auth.*;
 import com.github.oapicf.pokeapiclient.models.*;
 import com.github.oapicf.pokeapiclient.api.LocationApi;
 
@@ -568,20 +483,9 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://pokeapi.co");
-    
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
-
-    // Configure API key authorization: cookieAuth
-    ApiKeyAuth cookieAuth = (ApiKeyAuth) defaultClient.getAuthentication("cookieAuth");
-    cookieAuth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //cookieAuth.setApiKeyPrefix("Token");
 
     LocationApi apiInstance = new LocationApi(defaultClient);
-    String id = "id_example"; // String | This parameter can be a string or an integer.
+    String id = "1"; // String | This parameter can be a string or an integer.
     try {
       RegionDetail result = apiInstance.regionRetrieve(id);
       System.out.println(result);
@@ -608,7 +512,7 @@ public class Example {
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

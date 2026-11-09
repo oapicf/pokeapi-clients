@@ -1,9 +1,9 @@
 /*
  * PokéAPI
  *
- * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+ * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
  *
- * OpenAPI document version: 2.7.0
+ * OpenAPI document version: 2.10.0
  * Maintained by: blah+oapicf@cliffano.com
  *
  * AUTO-GENERATED FILE, DO NOT MODIFY!
@@ -19,27 +19,30 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
-import org.openapitools.model.AbilityDetailPokemonInnerPokemon;
 import org.openapitools.model.GenerationSummary;
+import org.openapitools.model.MoveLearnMethodSummary;
+import org.openapitools.model.PokedexSummary;
+import org.openapitools.model.RegionSummary;
 import org.openapitools.model.VersionSummary;
 
 
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2026-10-25T05:48:17.483504027Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2026-11-09T13:49:34.675912514Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class VersionGroupDetail   {
   
   private Integer id;
   private String name;
   private Integer order;
   private GenerationSummary generation;
-  private List<AbilityDetailPokemonInnerPokemon> moveLearnMethods = new ArrayList<>();
-  private List<AbilityDetailPokemonInnerPokemon> pokedexes = new ArrayList<>();
-  private List<AbilityDetailPokemonInnerPokemon> regions = new ArrayList<>();
+  private List<MoveLearnMethodSummary> moveLearnMethods = new ArrayList<>();
+  private List<PokedexSummary> pokedexes = new ArrayList<>();
+  private List<RegionSummary> regions = new ArrayList<>();
   private List<VersionSummary> versions = new ArrayList<>();
 
   /**
+   * The identifier for this resource.
    */
   public VersionGroupDetail id(Integer id) {
     this.id = id;
@@ -47,7 +50,7 @@ public class VersionGroupDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The identifier for this resource.")
   @JsonProperty("id")
   public Integer getId() {
     return id;
@@ -57,6 +60,7 @@ public class VersionGroupDetail   {
   }
 
   /**
+   * The name for this resource.
    */
   public VersionGroupDetail name(String name) {
     this.name = name;
@@ -64,7 +68,7 @@ public class VersionGroupDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name for this resource.")
   @JsonProperty("name")
   public String getName() {
     return name;
@@ -74,6 +78,9 @@ public class VersionGroupDetail   {
   }
 
   /**
+   * Order for sorting. Almost by date of release, except similar versions are grouped together.
+   * minimum: -2147483648
+   * maximum: 2147483647
    */
   public VersionGroupDetail order(Integer order) {
     this.order = order;
@@ -81,7 +88,7 @@ public class VersionGroupDetail   {
   }
 
   
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Order for sorting. Almost by date of release, except similar versions are grouped together.")
   @JsonProperty("order")
   public Integer getOrder() {
     return order;
@@ -91,6 +98,7 @@ public class VersionGroupDetail   {
   }
 
   /**
+   * The generation this version was introduced in.
    */
   public VersionGroupDetail generation(GenerationSummary generation) {
     this.generation = generation;
@@ -98,7 +106,7 @@ public class VersionGroupDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The generation this version was introduced in.")
   @JsonProperty("generation")
   public GenerationSummary getGeneration() {
     return generation;
@@ -108,57 +116,61 @@ public class VersionGroupDetail   {
   }
 
   /**
+   * A list of methods in which Pokémon can learn moves in this version group.
    */
-  public VersionGroupDetail moveLearnMethods(List<AbilityDetailPokemonInnerPokemon> moveLearnMethods) {
+  public VersionGroupDetail moveLearnMethods(List<MoveLearnMethodSummary> moveLearnMethods) {
     this.moveLearnMethods = moveLearnMethods;
     return this;
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of methods in which Pokémon can learn moves in this version group.")
   @JsonProperty("move_learn_methods")
-  public List<AbilityDetailPokemonInnerPokemon> getMoveLearnMethods() {
+  public List<MoveLearnMethodSummary> getMoveLearnMethods() {
     return moveLearnMethods;
   }
-  public void setMoveLearnMethods(List<AbilityDetailPokemonInnerPokemon> moveLearnMethods) {
+  public void setMoveLearnMethods(List<MoveLearnMethodSummary> moveLearnMethods) {
     this.moveLearnMethods = moveLearnMethods;
   }
 
   /**
+   * A list of Pokédexes introduces in this version group.
    */
-  public VersionGroupDetail pokedexes(List<AbilityDetailPokemonInnerPokemon> pokedexes) {
+  public VersionGroupDetail pokedexes(List<PokedexSummary> pokedexes) {
     this.pokedexes = pokedexes;
     return this;
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of Pokédexes introduces in this version group.")
   @JsonProperty("pokedexes")
-  public List<AbilityDetailPokemonInnerPokemon> getPokedexes() {
+  public List<PokedexSummary> getPokedexes() {
     return pokedexes;
   }
-  public void setPokedexes(List<AbilityDetailPokemonInnerPokemon> pokedexes) {
+  public void setPokedexes(List<PokedexSummary> pokedexes) {
     this.pokedexes = pokedexes;
   }
 
   /**
+   * A list of regions that can be visited in this version group.
    */
-  public VersionGroupDetail regions(List<AbilityDetailPokemonInnerPokemon> regions) {
+  public VersionGroupDetail regions(List<RegionSummary> regions) {
     this.regions = regions;
     return this;
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of regions that can be visited in this version group.")
   @JsonProperty("regions")
-  public List<AbilityDetailPokemonInnerPokemon> getRegions() {
+  public List<RegionSummary> getRegions() {
     return regions;
   }
-  public void setRegions(List<AbilityDetailPokemonInnerPokemon> regions) {
+  public void setRegions(List<RegionSummary> regions) {
     this.regions = regions;
   }
 
   /**
+   * The versions this version group owns.
    */
   public VersionGroupDetail versions(List<VersionSummary> versions) {
     this.versions = versions;
@@ -166,7 +178,7 @@ public class VersionGroupDetail   {
   }
 
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The versions this version group owns.")
   @JsonProperty("versions")
   public List<VersionSummary> getVersions() {
     return versions;

@@ -10,30 +10,33 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
-import org.openapitools.model.MoveChangeEffectEntriesInner;
+import org.openapitools.model.MoveEffectEffectText;
 import org.openapitools.model.TypeSummary;
 import org.openapitools.model.VersionGroupSummary;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 import io.swagger.annotations.*;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2026-10-25T05:48:53.778376553Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2026-11-09T13:50:03.149615362Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class MoveChange   {
   
   private Integer accuracy;
   private Integer power;
   private Integer pp;
   private Integer effectChance;
-  private List<@Valid MoveChangeEffectEntriesInner> effectEntries = new ArrayList<>();
+  private List<@Valid MoveEffectEffectText> effectEntries = new ArrayList<>();
   private TypeSummary type;
   private VersionGroupSummary versionGroup;
 
   /**
+   * The percent value of how likely this move is to be successful.
+   * minimum: -2147483648
+   * maximum: 2147483647
    **/
   
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The percent value of how likely this move is to be successful.")
   @JsonProperty("accuracy")
-  public Integer getAccuracy() {
+ @Min(-2147483648) @Max(2147483647)  public Integer getAccuracy() {
     return accuracy;
   }
   public void setAccuracy(Integer accuracy) {
@@ -41,11 +44,14 @@ public class MoveChange   {
   }
 
   /**
+   * The base power before the listed version group, or null if power did not change.
+   * minimum: -2147483648
+   * maximum: 2147483647
    **/
   
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The base power before the listed version group, or null if power did not change.")
   @JsonProperty("power")
-  public Integer getPower() {
+ @Min(-2147483648) @Max(2147483647)  public Integer getPower() {
     return power;
   }
   public void setPower(Integer power) {
@@ -53,11 +59,14 @@ public class MoveChange   {
   }
 
   /**
+   * Power points. The number of times this move can be used.
+   * minimum: -2147483648
+   * maximum: 2147483647
    **/
   
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Power points. The number of times this move can be used.")
   @JsonProperty("pp")
-  public Integer getPp() {
+ @Min(-2147483648) @Max(2147483647)  public Integer getPp() {
     return pp;
   }
   public void setPp(Integer pp) {
@@ -65,9 +74,10 @@ public class MoveChange   {
   }
 
   /**
+   * The percent value of how likely it is this moves effect will take effect.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The percent value of how likely it is this moves effect will take effect.")
   @JsonProperty("effect_chance")
   @NotNull
   public Integer getEffectChance() {
@@ -78,22 +88,24 @@ public class MoveChange   {
   }
 
   /**
+   * The effect of this move listed in different languages.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The effect of this move listed in different languages.")
   @JsonProperty("effect_entries")
   @NotNull
-  public List<@Valid MoveChangeEffectEntriesInner> getEffectEntries() {
+  public List<@Valid MoveEffectEffectText> getEffectEntries() {
     return effectEntries;
   }
-  public void setEffectEntries(List<@Valid MoveChangeEffectEntriesInner> effectEntries) {
+  public void setEffectEntries(List<@Valid MoveEffectEffectText> effectEntries) {
     this.effectEntries = effectEntries;
   }
 
   /**
+   * The elemental type of this move.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The elemental type of this move.")
   @JsonProperty("type")
   @NotNull
   public TypeSummary getType() {
@@ -104,9 +116,10 @@ public class MoveChange   {
   }
 
   /**
+   * The version group in which these move stat values were in effect.
    **/
   
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The version group in which these move stat values were in effect.")
   @JsonProperty("version_group")
   @NotNull
   public VersionGroupSummary getVersionGroup() {

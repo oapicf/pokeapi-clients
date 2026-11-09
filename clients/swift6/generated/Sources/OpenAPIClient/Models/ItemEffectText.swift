@@ -11,8 +11,11 @@ public struct ItemEffectText: Sendable, Codable, Hashable {
 
     public static let effectRule = StringRule(minLength: nil, maxLength: 6000, pattern: nil)
     public static let shortEffectRule = StringRule(minLength: nil, maxLength: 300, pattern: nil)
+    /** The localized effect text for an API resource in a specific language. */
     public var effect: String
+    /** The localized effect text in brief. */
     public var shortEffect: String
+    /** The language this effect is in. */
     public var language: LanguageSummary
 
     public init(effect: String, shortEffect: String, language: LanguageSummary) {

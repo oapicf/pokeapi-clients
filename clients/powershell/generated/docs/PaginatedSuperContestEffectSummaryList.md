@@ -3,18 +3,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Count** | **Int32** |  | [optional] 
-**Next** | **String** |  | [optional] 
-**Previous** | **String** |  | [optional] 
-**Results** | [**SuperContestEffectSummary[]**](SuperContestEffectSummary.md) |  | [optional] 
+**Count** | **Int32** | The total number of resources available from this API. | 
+**Next** | **String** | The URL for the next page in the list, or null if there is no next page. | [optional] 
+**Previous** | **String** | The URL for the previous page in the list, or null if there is no previous page. | [optional] 
+**Results** | [**SuperContestEffectSummary[]**](SuperContestEffectSummary.md) | A list of API resources on this page. | 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$PaginatedSuperContestEffectSummaryList = Initialize-PSOpenAPIToolsPaginatedSuperContestEffectSummaryList  -Count 123 `
- -Next http://api.example.org/accounts/?offset&#x3D;400&amp;limit&#x3D;100 `
- -Previous http://api.example.org/accounts/?offset&#x3D;200&amp;limit&#x3D;100 `
+$PaginatedSuperContestEffectSummaryList = Initialize-PSOpenAPIToolsPaginatedSuperContestEffectSummaryList  -Count 100 `
+ -Next https://pokeapi.co/api/v2/super-contest-effect/?offset&#x3D;40&amp;limit&#x3D;20 `
+ -Previous https://pokeapi.co/api/v2/super-contest-effect/?offset&#x3D;0&amp;limit&#x3D;20 `
  -Results null
 ```
 

@@ -3,9 +3,9 @@ package org.openapitools.server.model;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.server.model.LocationAreaDetailEncounterMethodRatesInner;
-import org.openapitools.server.model.LocationAreaDetailPokemonEncountersInner;
+import org.openapitools.server.model.LocationAreaEncounterRate;
 import org.openapitools.server.model.LocationAreaName;
+import org.openapitools.server.model.LocationAreaPokemonEncounter;
 import org.openapitools.server.model.LocationSummary;
 import jakarta.validation.constraints.*;
 import jakarta.validation.Valid;
@@ -17,10 +17,10 @@ public class LocationAreaDetail   {
     private Integer id;
     private String name;
     private Integer gameIndex;
-    private List<@Valid LocationAreaDetailEncounterMethodRatesInner> encounterMethodRates = new ArrayList<>();
+    private List<@Valid LocationAreaEncounterRate> encounterMethodRates = new ArrayList<>();
     private LocationSummary location;
     private List<@Valid LocationAreaName> names = new ArrayList<>();
-    private List<@Valid LocationAreaDetailPokemonEncountersInner> pokemonEncounters = new ArrayList<>();
+    private List<@Valid LocationAreaPokemonEncounter> pokemonEncounters = new ArrayList<>();
 
     /**
      * Default constructor.
@@ -32,22 +32,22 @@ public class LocationAreaDetail   {
     /**
      * Create LocationAreaDetail.
      *
-     * @param id id
-     * @param name name
-     * @param gameIndex gameIndex
-     * @param encounterMethodRates encounterMethodRates
-     * @param location location
-     * @param names names
-     * @param pokemonEncounters pokemonEncounters
+     * @param id The identifier for this resource.
+     * @param name The name for this resource.
+     * @param gameIndex The internal id of an API resource within game data.
+     * @param encounterMethodRates A list of methods in which Pokémon may be encountered in this area and how likely the method will occur depending on the version of the game.
+     * @param location The region this location area can be found in.
+     * @param names The name of this resource listed in different languages.
+     * @param pokemonEncounters A list of Pokémon that can be encountered in this area along with version specific details about the encounter.
      */
     public LocationAreaDetail(
         Integer id, 
         String name, 
         Integer gameIndex, 
-        List<@Valid LocationAreaDetailEncounterMethodRatesInner> encounterMethodRates, 
+        List<@Valid LocationAreaEncounterRate> encounterMethodRates, 
         LocationSummary location, 
         List<@Valid LocationAreaName> names, 
-        List<@Valid LocationAreaDetailPokemonEncountersInner> pokemonEncounters
+        List<@Valid LocationAreaPokemonEncounter> pokemonEncounters
     ) {
         this.id = id;
         this.name = name;
@@ -61,7 +61,7 @@ public class LocationAreaDetail   {
 
 
     /**
-     * Get id
+     * The identifier for this resource.
      * @return id
      */
     public Integer getId() {
@@ -73,7 +73,7 @@ public class LocationAreaDetail   {
     }
 
     /**
-     * Get name
+     * The name for this resource.
      * @return name
      */
     public String getName() {
@@ -85,7 +85,9 @@ public class LocationAreaDetail   {
     }
 
     /**
-     * Get gameIndex
+     * The internal id of an API resource within game data.
+     * minimum: -2147483648
+     * maximum: 2147483647
      * @return gameIndex
      */
     public Integer getGameIndex() {
@@ -97,19 +99,19 @@ public class LocationAreaDetail   {
     }
 
     /**
-     * Get encounterMethodRates
+     * A list of methods in which Pokémon may be encountered in this area and how likely the method will occur depending on the version of the game.
      * @return encounterMethodRates
      */
-    public List<@Valid LocationAreaDetailEncounterMethodRatesInner> getEncounterMethodRates() {
+    public List<@Valid LocationAreaEncounterRate> getEncounterMethodRates() {
         return encounterMethodRates;
     }
 
-    public void setEncounterMethodRates(List<@Valid LocationAreaDetailEncounterMethodRatesInner> encounterMethodRates) {
+    public void setEncounterMethodRates(List<@Valid LocationAreaEncounterRate> encounterMethodRates) {
         this.encounterMethodRates = encounterMethodRates;
     }
 
     /**
-     * Get location
+     * The region this location area can be found in.
      * @return location
      */
     public LocationSummary getLocation() {
@@ -121,7 +123,7 @@ public class LocationAreaDetail   {
     }
 
     /**
-     * Get names
+     * The name of this resource listed in different languages.
      * @return names
      */
     public List<@Valid LocationAreaName> getNames() {
@@ -133,14 +135,14 @@ public class LocationAreaDetail   {
     }
 
     /**
-     * Get pokemonEncounters
+     * A list of Pokémon that can be encountered in this area along with version specific details about the encounter.
      * @return pokemonEncounters
      */
-    public List<@Valid LocationAreaDetailPokemonEncountersInner> getPokemonEncounters() {
+    public List<@Valid LocationAreaPokemonEncounter> getPokemonEncounters() {
         return pokemonEncounters;
     }
 
-    public void setPokemonEncounters(List<@Valid LocationAreaDetailPokemonEncountersInner> pokemonEncounters) {
+    public void setPokemonEncounters(List<@Valid LocationAreaPokemonEncounter> pokemonEncounters) {
         this.pokemonEncounters = pokemonEncounters;
     }
 

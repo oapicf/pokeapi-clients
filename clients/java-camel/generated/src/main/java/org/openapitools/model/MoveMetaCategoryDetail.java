@@ -7,8 +7,8 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.model.AbilityDetailPokemonInnerPokemon;
 import org.openapitools.model.MoveMetaCategoryDescription;
+import org.openapitools.model.MoveSummary;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
@@ -23,7 +23,7 @@ import jakarta.annotation.Generated;
  * MoveMetaCategoryDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-10-25T05:48:25.711080506Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-11-09T13:49:41.168612095Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class MoveMetaCategoryDetail {
 
   private Integer id;
@@ -32,7 +32,7 @@ public class MoveMetaCategoryDetail {
 
   private List<@Valid MoveMetaCategoryDescription> descriptions = new ArrayList<>();
 
-  private List<@Valid AbilityDetailPokemonInnerPokemon> moves = new ArrayList<>();
+  private List<@Valid MoveSummary> moves = new ArrayList<>();
 
   public MoveMetaCategoryDetail() {
     super();
@@ -41,7 +41,7 @@ public class MoveMetaCategoryDetail {
   /**
    * Constructor with only required parameters
    */
-  public MoveMetaCategoryDetail(Integer id, String name, List<@Valid MoveMetaCategoryDescription> descriptions, List<@Valid AbilityDetailPokemonInnerPokemon> moves) {
+  public MoveMetaCategoryDetail(Integer id, String name, List<@Valid MoveMetaCategoryDescription> descriptions, List<@Valid MoveSummary> moves) {
     this.id = id;
     this.name = name;
     this.descriptions = descriptions;
@@ -54,11 +54,11 @@ public class MoveMetaCategoryDetail {
   }
 
   /**
-   * Get id
+   * The identifier for this resource.
    * @return id
    */
   
-  @Schema(name = "id", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "id", accessMode = Schema.AccessMode.READ_ONLY, description = "The identifier for this resource.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("id")
   public Integer getId() {
     return id;
@@ -74,11 +74,11 @@ public class MoveMetaCategoryDetail {
   }
 
   /**
-   * Get name
+   * The name for this resource.
    * @return name
    */
-  @NotNull @Size(max = 100) 
-  @Schema(name = "name", requiredMode = Schema.RequiredMode.REQUIRED)
+  @NotNull @Size(max = 200) 
+  @Schema(name = "name", description = "The name for this resource.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("name")
   public String getName() {
     return name;
@@ -102,11 +102,11 @@ public class MoveMetaCategoryDetail {
   }
 
   /**
-   * Get descriptions
+   * The description of this resource listed in different languages.
    * @return descriptions
    */
   
-  @Schema(name = "descriptions", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "descriptions", accessMode = Schema.AccessMode.READ_ONLY, description = "The description of this resource listed in different languages.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("descriptions")
   public List<@Valid MoveMetaCategoryDescription> getDescriptions() {
     return descriptions;
@@ -116,12 +116,12 @@ public class MoveMetaCategoryDetail {
     this.descriptions = descriptions;
   }
 
-  public MoveMetaCategoryDetail moves(List<@Valid AbilityDetailPokemonInnerPokemon> moves) {
+  public MoveMetaCategoryDetail moves(List<@Valid MoveSummary> moves) {
     this.moves = moves;
     return this;
   }
 
-  public MoveMetaCategoryDetail addMovesItem(AbilityDetailPokemonInnerPokemon movesItem) {
+  public MoveMetaCategoryDetail addMovesItem(MoveSummary movesItem) {
     if (this.moves == null) {
       this.moves = new ArrayList<>();
     }
@@ -130,17 +130,17 @@ public class MoveMetaCategoryDetail {
   }
 
   /**
-   * Get moves
+   * A list of moves that fall into this category.
    * @return moves
    */
   
-  @Schema(name = "moves", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "moves", accessMode = Schema.AccessMode.READ_ONLY, description = "A list of moves that fall into this category.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("moves")
-  public List<@Valid AbilityDetailPokemonInnerPokemon> getMoves() {
+  public List<@Valid MoveSummary> getMoves() {
     return moves;
   }
 
-  public void setMoves(List<@Valid AbilityDetailPokemonInnerPokemon> moves) {
+  public void setMoves(List<@Valid MoveSummary> moves) {
     this.moves = moves;
   }
 

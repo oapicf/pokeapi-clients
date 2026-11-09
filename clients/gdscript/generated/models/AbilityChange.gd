@@ -10,6 +10,7 @@ class_name AbilityChange
 # AbilityChange Model
 
 
+# The version group in which the previous effect of this ability originated.
 # Required: True
 # isArray: false
 @export var versionUnderscoregroup: VersionGroupSummary:
@@ -18,6 +19,7 @@ class_name AbilityChange
 		versionUnderscoregroup = value
 var __versionUnderscoregroup__was__set := false
 
+# The previous effect of this ability listed in different languages.
 # Required: True
 # isArray: true
 @export var effectUnderscoreentries: Array:

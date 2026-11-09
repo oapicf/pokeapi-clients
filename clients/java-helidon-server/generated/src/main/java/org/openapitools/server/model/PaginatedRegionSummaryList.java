@@ -4,6 +4,7 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.openapitools.jackson.nullable.JsonNullable;
 import org.openapitools.server.model.RegionSummary;
 import jakarta.validation.constraints.*;
 import jakarta.validation.Valid;
@@ -27,10 +28,10 @@ public class PaginatedRegionSummaryList   {
     /**
      * Create PaginatedRegionSummaryList.
      *
-     * @param count count
-     * @param next next
-     * @param previous previous
-     * @param results results
+     * @param count The total number of resources available from this API.
+     * @param next The URL for the next page in the list, or null if there is no next page.
+     * @param previous The URL for the previous page in the list, or null if there is no previous page.
+     * @param results A list of API resources on this page.
      */
     public PaginatedRegionSummaryList(
         Integer count, 
@@ -47,7 +48,7 @@ public class PaginatedRegionSummaryList   {
 
 
     /**
-     * Get count
+     * The total number of resources available from this API.
      * @return count
      */
     public Integer getCount() {
@@ -59,7 +60,7 @@ public class PaginatedRegionSummaryList   {
     }
 
     /**
-     * Get next
+     * The URL for the next page in the list, or null if there is no next page.
      * @return next
      */
     public URI getNext() {
@@ -71,7 +72,7 @@ public class PaginatedRegionSummaryList   {
     }
 
     /**
-     * Get previous
+     * The URL for the previous page in the list, or null if there is no previous page.
      * @return previous
      */
     public URI getPrevious() {
@@ -83,7 +84,7 @@ public class PaginatedRegionSummaryList   {
     }
 
     /**
-     * Get results
+     * A list of API resources on this page.
      * @return results
      */
     public List<@Valid RegionSummary> getResults() {

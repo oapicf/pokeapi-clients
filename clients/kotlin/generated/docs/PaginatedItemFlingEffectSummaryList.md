@@ -4,10 +4,10 @@
 ## Properties
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
-| **count** | **kotlin.Int** |  |  [optional] |
-| **next** | [**java.net.URI**](java.net.URI.md) |  |  [optional] |
-| **previous** | [**java.net.URI**](java.net.URI.md) |  |  [optional] |
-| **results** | [**kotlin.collections.List&lt;ItemFlingEffectSummary&gt;**](ItemFlingEffectSummary.md) |  |  [optional] |
+| **count** | **kotlin.Int** | The total number of resources available from this API. |  |
+| **results** | [**kotlin.collections.List&lt;ItemFlingEffectSummary&gt;**](ItemFlingEffectSummary.md) | A list of API resources on this page. |  |
+| **next** | [**java.net.URI**](java.net.URI.md) | The URL for the next page in the list, or null if there is no next page. |  [optional] |
+| **previous** | [**java.net.URI**](java.net.URI.md) | The URL for the previous page in the list, or null if there is no previous page. |  [optional] |
 
 
 

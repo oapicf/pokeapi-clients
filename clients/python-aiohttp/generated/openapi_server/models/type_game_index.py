@@ -47,6 +47,7 @@ class TypeGameIndex(Model):
     def game_index(self):
         """Gets the game_index of this TypeGameIndex.
 
+        The internal id of an API resource within game data.
 
         :return: The game_index of this TypeGameIndex.
         :rtype: int
@@ -57,12 +58,17 @@ class TypeGameIndex(Model):
     def game_index(self, game_index):
         """Sets the game_index of this TypeGameIndex.
 
+        The internal id of an API resource within game data.
 
         :param game_index: The game_index of this TypeGameIndex.
         :type game_index: int
         """
         if game_index is None:
             raise ValueError("Invalid value for `game_index`, must not be `None`")
+        if game_index is not None and game_index > 2147483647:
+            raise ValueError("Invalid value for `game_index`, must be a value less than or equal to `2147483647`")
+        if game_index is not None and game_index < -2147483648:
+            raise ValueError("Invalid value for `game_index`, must be a value greater than or equal to `-2147483648`")
 
         self._game_index = game_index
 
@@ -70,6 +76,7 @@ class TypeGameIndex(Model):
     def generation(self):
         """Gets the generation of this TypeGameIndex.
 
+        The generation relevent to this game index.
 
         :return: The generation of this TypeGameIndex.
         :rtype: GenerationSummary
@@ -80,6 +87,7 @@ class TypeGameIndex(Model):
     def generation(self, generation):
         """Sets the generation of this TypeGameIndex.
 
+        The generation relevent to this game index.
 
         :param generation: The generation of this TypeGameIndex.
         :type generation: GenerationSummary

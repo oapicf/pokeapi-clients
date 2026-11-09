@@ -1,10 +1,16 @@
 import { Injectable } from '@nestjs/common';
 import { Observable } from 'rxjs';
-import { ItemAttributeDetail, ItemCategoryDetail, ItemDetail, ItemFlingEffectDetail, ItemPocketDetail, PaginatedItemAttributeSummaryList, PaginatedItemCategorySummaryList, PaginatedItemFlingEffectSummaryList, PaginatedItemPocketSummaryList, PaginatedItemSummaryList,  } from '../models';
+import { CurrencyDetail, ItemAttributeDetail, ItemCategoryDetail, ItemDetail, ItemFlingEffectDetail, ItemPocketDetail, PaginatedCurrencySummaryList, PaginatedItemAttributeSummaryList, PaginatedItemCategorySummaryList, PaginatedItemFlingEffectSummaryList, PaginatedItemPocketSummaryList, PaginatedItemSummaryList,  } from '../models';
 
 
 @Injectable()
 export abstract class ItemsApi {
+
+  abstract currencyList(limit: number | undefined, offset: number | undefined, q: string | undefined,  request: Request): PaginatedCurrencySummaryList | Promise<PaginatedCurrencySummaryList> | Observable<PaginatedCurrencySummaryList>;
+
+
+  abstract currencyRetrieve(id: string,  request: Request): CurrencyDetail | Promise<CurrencyDetail> | Observable<CurrencyDetail>;
+
 
   abstract itemAttributeList(limit: number | undefined, offset: number | undefined, q: string | undefined,  request: Request): PaginatedItemAttributeSummaryList | Promise<PaginatedItemAttributeSummaryList> | Observable<PaginatedItemAttributeSummaryList>;
 

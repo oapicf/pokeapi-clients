@@ -8,7 +8,9 @@
 import Foundation
 
 public struct MoveDamageClassDescription: Codable {
+    /// The localized description for an API resource in a specific language.
     public var description: String?
+    /// The language this name is in.
     public var language: LanguageSummary
 
     public init(description: String? = nil, language: LanguageSummary) {

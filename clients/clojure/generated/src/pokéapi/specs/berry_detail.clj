@@ -2,7 +2,7 @@
   (:require [clojure.spec.alpha :as s]
             [spec-tools.data-spec :as ds]
             [pokéapi.specs.berry-firmness-summary :refer :all]
-            [pokéapi.specs.berry-detail-flavors-inner :refer :all]
+            [pokéapi.specs.berry-flavor-map :refer :all]
             [pokéapi.specs.item-summary :refer :all]
             [pokéapi.specs.type-summary :refer :all]
             )
@@ -13,14 +13,14 @@
   {
    (ds/req :id) int?
    (ds/req :name) string?
-   (ds/req :growth_time) int?
-   (ds/req :max_harvest) int?
-   (ds/req :natural_gift_power) int?
-   (ds/req :size) int?
-   (ds/req :smoothness) int?
-   (ds/req :soil_dryness) int?
+   (ds/opt :growth_time) int?
+   (ds/opt :max_harvest) int?
+   (ds/opt :natural_gift_power) int?
+   (ds/opt :size) int?
+   (ds/opt :smoothness) int?
+   (ds/opt :soil_dryness) int?
    (ds/req :firmness) berry-firmness-summary-spec
-   (ds/req :flavors) (s/coll-of berry-detail-flavors-inner-spec)
+   (ds/req :flavors) (s/coll-of berry-flavor-map-spec)
    (ds/req :item) item-summary-spec
    (ds/req :natural_gift_type) type-summary-spec
    })

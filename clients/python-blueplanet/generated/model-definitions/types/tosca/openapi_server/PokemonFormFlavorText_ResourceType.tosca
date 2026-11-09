@@ -1,0 +1,47 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server PokemonFormFlavorText"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a PokemonFormFlavorText"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  LanguageSummary = openapi_server.resourceTypes.LanguageSummary
+  VersionSummary = openapi_server.resourceTypes.VersionSummary
+}
+resourceTypes {
+
+  PokemonFormFlavorText {
+    title = PokemonFormFlavorText
+    description = PokemonFormFlavorText
+    derivedFrom = Root
+    properties {
+        flavor_text {
+          type =  string
+          description = "The localized flavor text for an API resource in a specific language. Note that this text is left unprocessed as it is found in game files. This means that it contains special characters that one might want to replace with their visible decodable version. Please check out this &lt;a href&#x3D;&#39;https://github.com/veekun/pokedex/issues/218#issuecomment-339841781&#39; &gt;issue&lt;/a&gt; to find out more. "
+          optional = true
+        }
+        language {
+          type = LanguageSummary
+          description = "The language this name is in."
+          optional = true
+        }
+        version {
+          type = VersionSummary
+          description = "The game version this flavor text is extracted from."
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  PokemonFormFlavorText {
+    title = PokemonFormFlavorText
+    description = PokemonFormFlavorText
+    implements = openapi_server.resourceTypes.PokemonFormFlavorText
+
+  }
+}

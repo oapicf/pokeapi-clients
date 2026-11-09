@@ -8,9 +8,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.model.CharacteristicSummary;
+import org.openapitools.model.ItemSummary;
 import org.openapitools.model.MoveDamageClassSummary;
-import org.openapitools.model.StatDetailAffectingMoves;
-import org.openapitools.model.StatDetailAffectingNatures;
+import org.openapitools.model.StatAffectingMoves;
+import org.openapitools.model.StatAffectingNatures;
 import org.openapitools.model.StatName;
 import org.springframework.lang.Nullable;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -27,7 +28,7 @@ import jakarta.annotation.Generated;
  * StatDetail
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-10-25T05:53:37.479908528Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-11-09T13:53:47.069318184Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class StatDetail {
 
   private Integer id;
@@ -38,13 +39,15 @@ public class StatDetail {
 
   private @Nullable Boolean isBattleOnly;
 
-  private StatDetailAffectingMoves affectingMoves;
+  private StatAffectingMoves affectingMoves;
 
-  private StatDetailAffectingNatures affectingNatures;
+  private StatAffectingNatures affectingNatures;
+
+  private List<@Valid ItemSummary> affectingItems = new ArrayList<>();
 
   private List<@Valid CharacteristicSummary> characteristics = new ArrayList<>();
 
-  private MoveDamageClassSummary moveDamageClass;
+  private JsonNullable<MoveDamageClassSummary> moveDamageClass = JsonNullable.<MoveDamageClassSummary>undefined();
 
   private List<@Valid StatName> names = new ArrayList<>();
 
@@ -55,14 +58,15 @@ public class StatDetail {
   /**
    * Constructor with only required parameters
    */
-  public StatDetail(Integer id, String name, Integer gameIndex, StatDetailAffectingMoves affectingMoves, StatDetailAffectingNatures affectingNatures, List<@Valid CharacteristicSummary> characteristics, MoveDamageClassSummary moveDamageClass, List<@Valid StatName> names) {
+  public StatDetail(Integer id, String name, Integer gameIndex, StatAffectingMoves affectingMoves, StatAffectingNatures affectingNatures, List<@Valid ItemSummary> affectingItems, List<@Valid CharacteristicSummary> characteristics, MoveDamageClassSummary moveDamageClass, List<@Valid StatName> names) {
     this.id = id;
     this.name = name;
     this.gameIndex = gameIndex;
     this.affectingMoves = affectingMoves;
     this.affectingNatures = affectingNatures;
+    this.affectingItems = affectingItems;
     this.characteristics = characteristics;
-    this.moveDamageClass = moveDamageClass;
+    this.moveDamageClass = JsonNullable.of(moveDamageClass);
     this.names = names;
   }
 
@@ -72,11 +76,11 @@ public class StatDetail {
   }
 
   /**
-   * Get id
+   * The identifier for this resource.
    * @return id
    */
   
-  @Schema(name = "id", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "id", accessMode = Schema.AccessMode.READ_ONLY, description = "The identifier for this resource.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("id")
   public Integer getId() {
     return id;
@@ -93,11 +97,11 @@ public class StatDetail {
   }
 
   /**
-   * Get name
+   * The name for this resource.
    * @return name
    */
-  @NotNull @Size(max = 100) 
-  @Schema(name = "name", requiredMode = Schema.RequiredMode.REQUIRED)
+  @NotNull @Size(max = 200) 
+  @Schema(name = "name", description = "The name for this resource.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("name")
   public String getName() {
     return name;
@@ -114,11 +118,13 @@ public class StatDetail {
   }
 
   /**
-   * Get gameIndex
+   * ID the games use for this stat.
+   * minimum: -2147483648
+   * maximum: 2147483647
    * @return gameIndex
    */
-  @NotNull 
-  @Schema(name = "game_index", requiredMode = Schema.RequiredMode.REQUIRED)
+  @NotNull @Min(value = -2147483648) @Max(value = 2147483647) 
+  @Schema(name = "game_index", description = "ID the games use for this stat.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("game_index")
   public Integer getGameIndex() {
     return gameIndex;
@@ -135,11 +141,11 @@ public class StatDetail {
   }
 
   /**
-   * Get isBattleOnly
+   * Whether this stat only exists within a battle.
    * @return isBattleOnly
    */
   
-  @Schema(name = "is_battle_only", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Schema(name = "is_battle_only", description = "Whether this stat only exists within a battle.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("is_battle_only")
   public @Nullable Boolean getIsBattleOnly() {
     return isBattleOnly;
@@ -150,46 +156,75 @@ public class StatDetail {
     this.isBattleOnly = isBattleOnly;
   }
 
-  public StatDetail affectingMoves(StatDetailAffectingMoves affectingMoves) {
+  public StatDetail affectingMoves(StatAffectingMoves affectingMoves) {
     this.affectingMoves = affectingMoves;
     return this;
   }
 
   /**
-   * Get affectingMoves
+   * A detail of moves which affect this stat positively or negatively.
    * @return affectingMoves
    */
-  @NotNull @Valid 
-  @Schema(name = "affecting_moves", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "affecting_moves", accessMode = Schema.AccessMode.READ_ONLY, description = "A detail of moves which affect this stat positively or negatively.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("affecting_moves")
-  public StatDetailAffectingMoves getAffectingMoves() {
+  public StatAffectingMoves getAffectingMoves() {
     return affectingMoves;
   }
 
   @JsonProperty("affecting_moves")
-  public void setAffectingMoves(StatDetailAffectingMoves affectingMoves) {
+  public void setAffectingMoves(StatAffectingMoves affectingMoves) {
     this.affectingMoves = affectingMoves;
   }
 
-  public StatDetail affectingNatures(StatDetailAffectingNatures affectingNatures) {
+  public StatDetail affectingNatures(StatAffectingNatures affectingNatures) {
     this.affectingNatures = affectingNatures;
     return this;
   }
 
   /**
-   * Get affectingNatures
+   * A detail of natures which affect this stat positively or negatively.
    * @return affectingNatures
    */
-  @NotNull @Valid 
-  @Schema(name = "affecting_natures", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Valid 
+  @Schema(name = "affecting_natures", accessMode = Schema.AccessMode.READ_ONLY, description = "A detail of natures which affect this stat positively or negatively.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("affecting_natures")
-  public StatDetailAffectingNatures getAffectingNatures() {
+  public StatAffectingNatures getAffectingNatures() {
     return affectingNatures;
   }
 
   @JsonProperty("affecting_natures")
-  public void setAffectingNatures(StatDetailAffectingNatures affectingNatures) {
+  public void setAffectingNatures(StatAffectingNatures affectingNatures) {
     this.affectingNatures = affectingNatures;
+  }
+
+  public StatDetail affectingItems(List<@Valid ItemSummary> affectingItems) {
+    this.affectingItems = affectingItems;
+    return this;
+  }
+
+  public StatDetail addAffectingItemsItem(ItemSummary affectingItemsItem) {
+    if (this.affectingItems == null) {
+      this.affectingItems = new ArrayList<>();
+    }
+    this.affectingItems.add(affectingItemsItem);
+    return this;
+  }
+
+  /**
+   * Items that affect this stat, such as vitamins and battle items.
+   * @return affectingItems
+   */
+  
+  @Schema(name = "affecting_items", accessMode = Schema.AccessMode.READ_ONLY, description = "Items that affect this stat, such as vitamins and battle items.", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("affecting_items")
+  public List<@Valid ItemSummary> getAffectingItems() {
+    return affectingItems;
+  }
+
+  @JsonProperty("affecting_items")
+  public void setAffectingItems(List<@Valid ItemSummary> affectingItems) {
+    this.affectingItems = affectingItems;
   }
 
   public StatDetail characteristics(List<@Valid CharacteristicSummary> characteristics) {
@@ -206,11 +241,11 @@ public class StatDetail {
   }
 
   /**
-   * Get characteristics
+   * A list of characteristics that are set on a Pokémon when its highest base stat is this stat.
    * @return characteristics
    */
   
-  @Schema(name = "characteristics", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "characteristics", accessMode = Schema.AccessMode.READ_ONLY, description = "A list of characteristics that are set on a Pokémon when its highest base stat is this stat.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("characteristics")
   public List<@Valid CharacteristicSummary> getCharacteristics() {
     return characteristics;
@@ -222,23 +257,23 @@ public class StatDetail {
   }
 
   public StatDetail moveDamageClass(MoveDamageClassSummary moveDamageClass) {
-    this.moveDamageClass = moveDamageClass;
+    this.moveDamageClass = JsonNullable.of(moveDamageClass);
     return this;
   }
 
   /**
-   * Get moveDamageClass
+   * The class of damage this stat is directly related to.
    * @return moveDamageClass
    */
-  @NotNull @Valid 
-  @Schema(name = "move_damage_class", requiredMode = Schema.RequiredMode.REQUIRED)
+  /* @Present */ @Valid 
+  @Schema(name = "move_damage_class", description = "The class of damage this stat is directly related to.", requiredMode = Schema.RequiredMode.REQUIRED, nullable = true)
   @JsonProperty("move_damage_class")
-  public MoveDamageClassSummary getMoveDamageClass() {
+  public JsonNullable<MoveDamageClassSummary> getMoveDamageClass() {
     return moveDamageClass;
   }
 
   @JsonProperty("move_damage_class")
-  public void setMoveDamageClass(MoveDamageClassSummary moveDamageClass) {
+  public void setMoveDamageClass(JsonNullable<MoveDamageClassSummary> moveDamageClass) {
     this.moveDamageClass = moveDamageClass;
   }
 
@@ -256,11 +291,11 @@ public class StatDetail {
   }
 
   /**
-   * Get names
+   * The name of this resource listed in different languages.
    * @return names
    */
   
-  @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "names", accessMode = Schema.AccessMode.READ_ONLY, description = "The name of this resource listed in different languages.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("names")
   public List<@Valid StatName> getNames() {
     return names;
@@ -286,6 +321,7 @@ public class StatDetail {
         Objects.equals(this.isBattleOnly, statDetail.isBattleOnly) &&
         Objects.equals(this.affectingMoves, statDetail.affectingMoves) &&
         Objects.equals(this.affectingNatures, statDetail.affectingNatures) &&
+        Objects.equals(this.affectingItems, statDetail.affectingItems) &&
         Objects.equals(this.characteristics, statDetail.characteristics) &&
         Objects.equals(this.moveDamageClass, statDetail.moveDamageClass) &&
         Objects.equals(this.names, statDetail.names);
@@ -293,7 +329,7 @@ public class StatDetail {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, gameIndex, isBattleOnly, affectingMoves, affectingNatures, characteristics, moveDamageClass, names);
+    return Objects.hash(id, name, gameIndex, isBattleOnly, affectingMoves, affectingNatures, affectingItems, characteristics, moveDamageClass, names);
   }
 
   @Override
@@ -306,6 +342,7 @@ public class StatDetail {
     sb.append("    isBattleOnly: ").append(toIndentedString(isBattleOnly)).append("\n");
     sb.append("    affectingMoves: ").append(toIndentedString(affectingMoves)).append("\n");
     sb.append("    affectingNatures: ").append(toIndentedString(affectingNatures)).append("\n");
+    sb.append("    affectingItems: ").append(toIndentedString(affectingItems)).append("\n");
     sb.append("    characteristics: ").append(toIndentedString(characteristics)).append("\n");
     sb.append("    moveDamageClass: ").append(toIndentedString(moveDamageClass)).append("\n");
     sb.append("    names: ").append(toIndentedString(names)).append("\n");

@@ -16,7 +16,7 @@ const _returntypes_location_area_list_LocationApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_location_area_list(_api::LocationApi; limit=nothing, offset=nothing, _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_location_area_list_LocationApi, "/api/v2/location-area/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_location_area_list_LocationApi, "/api/v2/location-area/", [])
     OpenAPI.Clients.set_param(_ctx.query, "limit", limit; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "offset", offset; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
@@ -49,7 +49,7 @@ const _returntypes_location_area_retrieve_LocationApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_location_area_retrieve(_api::LocationApi, id::Int64; _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_location_area_retrieve_LocationApi, "/api/v2/location-area/{id}/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_location_area_retrieve_LocationApi, "/api/v2/location-area/{id}/", [])
     OpenAPI.Clients.set_param(_ctx.path, "id", id)  # type Int64
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
@@ -80,7 +80,7 @@ const _returntypes_location_list_LocationApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_location_list(_api::LocationApi; limit=nothing, offset=nothing, q=nothing, _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_location_list_LocationApi, "/api/v2/location/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_location_list_LocationApi, "/api/v2/location/", [])
     OpenAPI.Clients.set_param(_ctx.query, "limit", limit; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "offset", offset; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "q", q; style="form", is_explode=true)  # type String
@@ -115,7 +115,7 @@ const _returntypes_location_retrieve_LocationApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_location_retrieve(_api::LocationApi, id::String; _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_location_retrieve_LocationApi, "/api/v2/location/{id}/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_location_retrieve_LocationApi, "/api/v2/location/{id}/", [])
     OpenAPI.Clients.set_param(_ctx.path, "id", id)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
@@ -146,7 +146,7 @@ const _returntypes_pal_park_area_list_LocationApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_pal_park_area_list(_api::LocationApi; limit=nothing, offset=nothing, q=nothing, _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_pal_park_area_list_LocationApi, "/api/v2/pal-park-area/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_pal_park_area_list_LocationApi, "/api/v2/pal-park-area/", [])
     OpenAPI.Clients.set_param(_ctx.query, "limit", limit; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "offset", offset; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "q", q; style="form", is_explode=true)  # type String
@@ -181,7 +181,7 @@ const _returntypes_pal_park_area_retrieve_LocationApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_pal_park_area_retrieve(_api::LocationApi, id::String; _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_pal_park_area_retrieve_LocationApi, "/api/v2/pal-park-area/{id}/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_pal_park_area_retrieve_LocationApi, "/api/v2/pal-park-area/{id}/", [])
     OpenAPI.Clients.set_param(_ctx.path, "id", id)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])
@@ -212,7 +212,7 @@ const _returntypes_region_list_LocationApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_region_list(_api::LocationApi; limit=nothing, offset=nothing, q=nothing, _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_region_list_LocationApi, "/api/v2/region/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_region_list_LocationApi, "/api/v2/region/", [])
     OpenAPI.Clients.set_param(_ctx.query, "limit", limit; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "offset", offset; style="form", is_explode=true)  # type Int64
     OpenAPI.Clients.set_param(_ctx.query, "q", q; style="form", is_explode=true)  # type String
@@ -247,7 +247,7 @@ const _returntypes_region_retrieve_LocationApi = Dict{Regex,Type}(
 )
 
 function _oacinternal_region_retrieve(_api::LocationApi, id::String; _mediaType=nothing)
-    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_region_retrieve_LocationApi, "/api/v2/region/{id}/", ["basicAuth", "cookieAuth", ])
+    _ctx = OpenAPI.Clients.Ctx(_api.client, "GET", _returntypes_region_retrieve_LocationApi, "/api/v2/region/{id}/", [])
     OpenAPI.Clients.set_param(_ctx.path, "id", id)  # type String
     OpenAPI.Clients.set_header_accept(_ctx, ["application/json", ])
     OpenAPI.Clients.set_header_content_type(_ctx, (_mediaType === nothing) ? [] : [_mediaType])

@@ -4,9 +4,9 @@ All URIs are relative to *https://pokeapi.co*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**abilityList**](PokemonApi.md#abilityList) | **GET** /api/v2/ability/ |  |
-| [**abilityRetrieve**](PokemonApi.md#abilityRetrieve) | **GET** /api/v2/ability/{id}/ |  |
-| [**characteristicList**](PokemonApi.md#characteristicList) | **GET** /api/v2/characteristic/ | List charecterictics |
+| [**abilityList**](PokemonApi.md#abilityList) | **GET** /api/v2/ability/ | List abilities |
+| [**abilityRetrieve**](PokemonApi.md#abilityRetrieve) | **GET** /api/v2/ability/{id}/ | Get ability |
+| [**characteristicList**](PokemonApi.md#characteristicList) | **GET** /api/v2/characteristic/ | List characteristics |
 | [**characteristicRetrieve**](PokemonApi.md#characteristicRetrieve) | **GET** /api/v2/characteristic/{id}/ | Get characteristic |
 | [**eggGroupList**](PokemonApi.md#eggGroupList) | **GET** /api/v2/egg-group/ | List egg groups |
 | [**eggGroupRetrieve**](PokemonApi.md#eggGroupRetrieve) | **GET** /api/v2/egg-group/{id}/ | Get egg group |
@@ -72,7 +72,7 @@ More information can be found inside [Inversion of Control guide section](https:
 Mono<PaginatedAbilitySummaryList> PokemonApi.abilityList(limitoffsetq)
 ```
 
-
+List abilities
 
 Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
 
@@ -87,9 +87,7 @@ Abilities provide passive effects for Pokémon in battle or in the overworld. Po
 ### Return type
 [**PaginatedAbilitySummaryList**](PaginatedAbilitySummaryList.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -101,7 +99,7 @@ Abilities provide passive effects for Pokémon in battle or in the overworld. Po
 Mono<AbilityDetail> PokemonApi.abilityRetrieve(id)
 ```
 
-
+Get ability
 
 Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
 
@@ -114,9 +112,7 @@ Abilities provide passive effects for Pokémon in battle or in the overworld. Po
 ### Return type
 [**AbilityDetail**](AbilityDetail.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -125,10 +121,10 @@ Abilities provide passive effects for Pokémon in battle or in the overworld. Po
 <a id="characteristicList"></a>
 # **characteristicList**
 ```java
-Mono<PaginatedCharacteristicSummaryList> PokemonApi.characteristicList(limitoffsetq)
+Mono<PaginatedCharacteristicSummaryList> PokemonApi.characteristicList(limitoffset)
 ```
 
-List charecterictics
+List characteristics
 
 Characteristics indicate which stat contains a Pokémon&#39;s highest IV. A Pokémon&#39;s Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail.
 
@@ -137,15 +133,12 @@ Characteristics indicate which stat contains a Pokémon&#39;s highest IV. A Pok�
 |------------- | ------------- | ------------- | -------------|
 | **limit** | `Integer`| Number of results to return per page. | [optional parameter] |
 | **offset** | `Integer`| The initial index from which to return the results. | [optional parameter] |
-| **q** | `String`| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional parameter] |
 
 
 ### Return type
 [**PaginatedCharacteristicSummaryList**](PaginatedCharacteristicSummaryList.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -170,9 +163,7 @@ Characteristics indicate which stat contains a Pokémon&#39;s highest IV. A Pok�
 ### Return type
 [**CharacteristicDetail**](CharacteristicDetail.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -199,9 +190,7 @@ Egg Groups are categories which determine which Pokémon are able to interbreed.
 ### Return type
 [**PaginatedEggGroupSummaryList**](PaginatedEggGroupSummaryList.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -226,9 +215,7 @@ Egg Groups are categories which determine which Pokémon are able to interbreed.
 ### Return type
 [**EggGroupDetail**](EggGroupDetail.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -255,9 +242,7 @@ Genders were introduced in Generation II for the purposes of breeding Pokémon b
 ### Return type
 [**PaginatedGenderSummaryList**](PaginatedGenderSummaryList.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -282,9 +267,7 @@ Genders were introduced in Generation II for the purposes of breeding Pokémon b
 ### Return type
 [**GenderDetail**](GenderDetail.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -311,9 +294,7 @@ Growth rates are the speed with which Pokémon gain levels through experience. C
 ### Return type
 [**PaginatedGrowthRateSummaryList**](PaginatedGrowthRateSummaryList.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -338,9 +319,7 @@ Growth rates are the speed with which Pokémon gain levels through experience. C
 ### Return type
 [**GrowthRateDetail**](GrowthRateDetail.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -367,9 +346,7 @@ Damage classes moves can have, e.g. physical, special, or non-damaging.
 ### Return type
 [**PaginatedMoveDamageClassSummaryList**](PaginatedMoveDamageClassSummaryList.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -394,9 +371,7 @@ Damage classes moves can have, e.g. physical, special, or non-damaging.
 ### Return type
 [**MoveDamageClassDetail**](MoveDamageClassDetail.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -423,9 +398,7 @@ Natures influence how a Pokémon&#39;s stats grow. See [Bulbapedia](http://bulba
 ### Return type
 [**PaginatedNatureSummaryList**](PaginatedNatureSummaryList.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -450,9 +423,7 @@ Natures influence how a Pokémon&#39;s stats grow. See [Bulbapedia](http://bulba
 ### Return type
 [**NatureDetail**](NatureDetail.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -479,9 +450,7 @@ Pokeathlon Stats are different attributes of a Pokémon&#39;s performance in Pok
 ### Return type
 [**PaginatedPokeathlonStatSummaryList**](PaginatedPokeathlonStatSummaryList.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -506,9 +475,7 @@ Pokeathlon Stats are different attributes of a Pokémon&#39;s performance in Pok
 ### Return type
 [**PokeathlonStatDetail**](PokeathlonStatDetail.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -535,9 +502,7 @@ Colors used for sorting Pokémon in a Pokédex. The color listed in the Pokédex
 ### Return type
 [**PaginatedPokemonColorSummaryList**](PaginatedPokemonColorSummaryList.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -562,9 +527,7 @@ Colors used for sorting Pokémon in a Pokédex. The color listed in the Pokédex
 ### Return type
 [**PokemonColorDetail**](PokemonColorDetail.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -591,9 +554,7 @@ Some Pokémon may appear in one of multiple, visually different forms. These dif
 ### Return type
 [**PaginatedPokemonFormSummaryList**](PaginatedPokemonFormSummaryList.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -618,9 +579,7 @@ Some Pokémon may appear in one of multiple, visually different forms. These dif
 ### Return type
 [**PokemonFormDetail**](PokemonFormDetail.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -647,9 +606,7 @@ Habitats are generally different terrain Pokémon can be found in but can also b
 ### Return type
 [**PaginatedPokemonHabitatSummaryList**](PaginatedPokemonHabitatSummaryList.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -674,9 +631,7 @@ Habitats are generally different terrain Pokémon can be found in but can also b
 ### Return type
 [**PokemonHabitatDetail**](PokemonHabitatDetail.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -703,9 +658,7 @@ Pokémon are the creatures that inhabit the world of the Pokémon games. They ca
 ### Return type
 [**PaginatedPokemonSummaryList**](PaginatedPokemonSummaryList.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -730,9 +683,7 @@ Pokémon are the creatures that inhabit the world of the Pokémon games. They ca
 ### Return type
 [**PokemonDetail**](PokemonDetail.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -759,9 +710,7 @@ Shapes used for sorting Pokémon in a Pokédex.
 ### Return type
 [**PaginatedPokemonShapeSummaryList**](PaginatedPokemonShapeSummaryList.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -786,9 +735,7 @@ Shapes used for sorting Pokémon in a Pokédex.
 ### Return type
 [**PokemonShapeDetail**](PokemonShapeDetail.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -815,9 +762,7 @@ A Pokémon Species forms the basis for at least one Pokémon. Attributes of a Po
 ### Return type
 [**PaginatedPokemonSpeciesSummaryList**](PaginatedPokemonSpeciesSummaryList.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -842,9 +787,7 @@ A Pokémon Species forms the basis for at least one Pokémon. Attributes of a Po
 ### Return type
 [**PokemonSpeciesDetail**](PokemonSpeciesDetail.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -871,9 +814,7 @@ Stats determine certain aspects of battles. Each Pokémon has a value for each s
 ### Return type
 [**PaginatedStatSummaryList**](PaginatedStatSummaryList.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -898,9 +839,7 @@ Stats determine certain aspects of battles. Each Pokémon has a value for each s
 ### Return type
 [**StatDetail**](StatDetail.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -927,9 +866,7 @@ Types are properties for Pokémon and their moves. Each type has three propertie
 ### Return type
 [**PaginatedTypeSummaryList**](PaginatedTypeSummaryList.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -954,9 +891,7 @@ Types are properties for Pokémon and their moves. Each type has three propertie
 ### Return type
 [**TypeDetail**](TypeDetail.md)
 
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
+
 
 ### HTTP request headers
  - **Content-Type**: Not defined

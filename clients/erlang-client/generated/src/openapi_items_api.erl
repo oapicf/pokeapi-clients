@@ -1,6 +1,8 @@
 -module(openapi_items_api).
 
--export([item_attribute_list/1, item_attribute_list/2,
+-export([currency_list/1, currency_list/2,
+         currency_retrieve/2, currency_retrieve/3,
+         item_attribute_list/1, item_attribute_list/2,
          item_attribute_retrieve/2, item_attribute_retrieve/3,
          item_category_list/1, item_category_list/2,
          item_category_retrieve/2, item_category_retrieve/3,
@@ -12,6 +14,48 @@
          item_retrieve/2, item_retrieve/3]).
 
 -define(BASE_URL, <<"">>).
+
+%% @doc List currencies
+%% Currencies used to buy items.
+-spec currency_list(ctx:ctx()) -> {ok, openapi_paginated_currency_summary_list:openapi_paginated_currency_summary_list(), openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
+currency_list(Ctx) ->
+    currency_list(Ctx, #{}).
+
+-spec currency_list(ctx:ctx(), maps:map()) -> {ok, openapi_paginated_currency_summary_list:openapi_paginated_currency_summary_list(), openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
+currency_list(Ctx, Optional) ->
+    _OptionalParams = maps:get(params, Optional, #{}),
+    Cfg = maps:get(cfg, Optional, application:get_env(openapi_api, config, #{})),
+
+    Method = get,
+    Path = [?BASE_URL, "/api/v2/currency/"],
+    QS = lists:flatten([])++openapi_utils:optional_params(['limit', 'offset', 'q'], _OptionalParams),
+    Headers = [],
+    Body1 = [],
+    ContentTypeHeader = openapi_utils:select_header_content_type([]),
+    Opts = maps:get(hackney_opts, Optional, []),
+
+    openapi_utils:request(Ctx, Method, Path, QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
+
+%% @doc Get currency
+%% Currencies used to buy items.
+-spec currency_retrieve(ctx:ctx(), binary()) -> {ok, openapi_currency_detail:openapi_currency_detail(), openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
+currency_retrieve(Ctx, Id) ->
+    currency_retrieve(Ctx, Id, #{}).
+
+-spec currency_retrieve(ctx:ctx(), binary(), maps:map()) -> {ok, openapi_currency_detail:openapi_currency_detail(), openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
+currency_retrieve(Ctx, Id, Optional) ->
+    _OptionalParams = maps:get(params, Optional, #{}),
+    Cfg = maps:get(cfg, Optional, application:get_env(openapi_api, config, #{})),
+
+    Method = get,
+    Path = [?BASE_URL, "/api/v2/currency/", Id, "/"],
+    QS = [],
+    Headers = [],
+    Body1 = [],
+    ContentTypeHeader = openapi_utils:select_header_content_type([]),
+    Opts = maps:get(hackney_opts, Optional, []),
+
+    openapi_utils:request(Ctx, Method, Path, QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
 
 %% @doc List item attributes
 %% Item attributes define particular aspects of items, e.g.\"usable in battle\" or \"consumable\".

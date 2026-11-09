@@ -1,9 +1,9 @@
 /*
  * PokéAPI
  *
- * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.     
+ * All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.  ## What is this?  This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.  We've covered everything from Pokémon to Berry Flavors.  ## Where do I start?  We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.  This API will always be publicly available and will never require any extensive setup process to consume.  Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI contributors**](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
  *
- * OpenAPI document version: 2.7.0
+ * OpenAPI document version: 2.10.0
  * Maintained by: blah+oapicf@cliffano.com
  *
  * AUTO-GENERATED FILE, DO NOT MODIFY!
@@ -19,13 +19,14 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.openapitools.jackson.nullable.JsonNullable;
 import org.openapitools.model.PokeathlonStatSummary;
 
 
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2026-10-25T05:48:17.483504027Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2026-11-09T13:49:34.675912514Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PaginatedPokeathlonStatSummaryList   {
   
   private Integer count;
@@ -34,6 +35,7 @@ public class PaginatedPokeathlonStatSummaryList   {
   private List<PokeathlonStatSummary> results = new ArrayList<>();
 
   /**
+   * The total number of resources available from this API.
    */
   public PaginatedPokeathlonStatSummaryList count(Integer count) {
     this.count = count;
@@ -41,7 +43,7 @@ public class PaginatedPokeathlonStatSummaryList   {
   }
 
   
-  @ApiModelProperty(example = "123", value = "")
+  @ApiModelProperty(example = "100", required = true, value = "The total number of resources available from this API.")
   @JsonProperty("count")
   public Integer getCount() {
     return count;
@@ -51,6 +53,7 @@ public class PaginatedPokeathlonStatSummaryList   {
   }
 
   /**
+   * The URL for the next page in the list, or null if there is no next page.
    */
   public PaginatedPokeathlonStatSummaryList next(URI next) {
     this.next = next;
@@ -58,7 +61,7 @@ public class PaginatedPokeathlonStatSummaryList   {
   }
 
   
-  @ApiModelProperty(example = "http://api.example.org/accounts/?offset=400&limit=100", value = "")
+  @ApiModelProperty(example = "https://pokeapi.co/api/v2/pokeathlon-stat/?offset=40&limit=20", value = "The URL for the next page in the list, or null if there is no next page.")
   @JsonProperty("next")
   public URI getNext() {
     return next;
@@ -68,6 +71,7 @@ public class PaginatedPokeathlonStatSummaryList   {
   }
 
   /**
+   * The URL for the previous page in the list, or null if there is no previous page.
    */
   public PaginatedPokeathlonStatSummaryList previous(URI previous) {
     this.previous = previous;
@@ -75,7 +79,7 @@ public class PaginatedPokeathlonStatSummaryList   {
   }
 
   
-  @ApiModelProperty(example = "http://api.example.org/accounts/?offset=200&limit=100", value = "")
+  @ApiModelProperty(example = "https://pokeapi.co/api/v2/pokeathlon-stat/?offset=0&limit=20", value = "The URL for the previous page in the list, or null if there is no previous page.")
   @JsonProperty("previous")
   public URI getPrevious() {
     return previous;
@@ -85,6 +89,7 @@ public class PaginatedPokeathlonStatSummaryList   {
   }
 
   /**
+   * A list of API resources on this page.
    */
   public PaginatedPokeathlonStatSummaryList results(List<PokeathlonStatSummary> results) {
     this.results = results;
@@ -92,7 +97,7 @@ public class PaginatedPokeathlonStatSummaryList   {
   }
 
   
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "A list of API resources on this page.")
   @JsonProperty("results")
   public List<PokeathlonStatSummary> getResults() {
     return results;

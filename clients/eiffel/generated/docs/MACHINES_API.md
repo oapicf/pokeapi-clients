@@ -9,7 +9,7 @@ Feature | HTTP request | Description
 
 
 # **machine_list**
-> machine_list (limit:  detachable INTEGER_32 ; offset:  detachable INTEGER_32 ; q:  detachable STRING_32 ): detachable PAGINATED_MACHINE_SUMMARY_LIST
+> machine_list (limit:  detachable INTEGER_32 ; offset:  detachable INTEGER_32 ): detachable PAGINATED_MACHINE_SUMMARY_LIST
 
 
 List machines
@@ -23,7 +23,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **INTEGER_32**| Number of results to return per page. | [optional] [default to null]
  **offset** | **INTEGER_32**| The initial index from which to return the results. | [optional] [default to null]
- **q** | **STRING_32**| &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  | [optional] [default to null]
 
 ### Return type
 
@@ -31,7 +30,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -61,7 +60,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
+No authorization required
 
 ### HTTP request headers
 

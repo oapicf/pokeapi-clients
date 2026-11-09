@@ -14,7 +14,6 @@ defmodule PokéAPI.Model.NatureDetail do
     :increased_stat,
     :likes_flavor,
     :hates_flavor,
-    :berries,
     :pokeathlon_stat_changes,
     :move_battle_style_preferences,
     :names
@@ -23,12 +22,11 @@ defmodule PokéAPI.Model.NatureDetail do
   @type t :: %__MODULE__{
     :id => integer(),
     :name => String.t,
-    :decreased_stat => PokéAPI.Model.StatSummary.t,
-    :increased_stat => PokéAPI.Model.StatSummary.t,
-    :likes_flavor => PokéAPI.Model.BerryFlavorSummary.t,
-    :hates_flavor => PokéAPI.Model.BerryFlavorSummary.t,
-    :berries => [PokéAPI.Model.BerrySummary.t],
-    :pokeathlon_stat_changes => [PokéAPI.Model.NatureDetailPokeathlonStatChangesInner.t],
+    :decreased_stat => PokéAPI.Model.StatSummary.t | nil,
+    :increased_stat => PokéAPI.Model.StatSummary.t | nil,
+    :likes_flavor => PokéAPI.Model.BerryFlavorSummary.t | nil,
+    :hates_flavor => PokéAPI.Model.BerryFlavorSummary.t | nil,
+    :pokeathlon_stat_changes => [PokéAPI.Model.NaturePokeathlonStat.t],
     :move_battle_style_preferences => [PokéAPI.Model.NatureBattleStylePreference.t],
     :names => [PokéAPI.Model.NatureName.t]
   }
@@ -41,8 +39,7 @@ defmodule PokéAPI.Model.NatureDetail do
      |> Deserializer.deserialize(:increased_stat, :struct, PokéAPI.Model.StatSummary)
      |> Deserializer.deserialize(:likes_flavor, :struct, PokéAPI.Model.BerryFlavorSummary)
      |> Deserializer.deserialize(:hates_flavor, :struct, PokéAPI.Model.BerryFlavorSummary)
-     |> Deserializer.deserialize(:berries, :list, PokéAPI.Model.BerrySummary)
-     |> Deserializer.deserialize(:pokeathlon_stat_changes, :list, PokéAPI.Model.NatureDetailPokeathlonStatChangesInner)
+     |> Deserializer.deserialize(:pokeathlon_stat_changes, :list, PokéAPI.Model.NaturePokeathlonStat)
      |> Deserializer.deserialize(:move_battle_style_preferences, :list, PokéAPI.Model.NatureBattleStylePreference)
      |> Deserializer.deserialize(:names, :list, PokéAPI.Model.NatureName)
   end

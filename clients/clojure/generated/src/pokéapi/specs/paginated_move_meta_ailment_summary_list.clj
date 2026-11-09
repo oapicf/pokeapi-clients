@@ -8,10 +8,10 @@
 
 (def paginated-move-meta-ailment-summary-list-data
   {
-   (ds/opt :count) int?
+   (ds/req :count) int?
    (ds/opt :next) string?
    (ds/opt :previous) string?
-   (ds/opt :results) (s/coll-of move-meta-ailment-summary-spec)
+   (ds/req :results) (s/coll-of move-meta-ailment-summary-spec)
    })
 
 (def paginated-move-meta-ailment-summary-list-spec

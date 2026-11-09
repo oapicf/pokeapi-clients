@@ -20,7 +20,7 @@ import jakarta.annotation.Generated;
  * PokemonSpeciesFlavorText
  */
 
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-10-25T05:48:25.711080506Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-11-09T13:49:41.168612095Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class PokemonSpeciesFlavorText {
 
   private String flavorText;
@@ -48,11 +48,11 @@ public class PokemonSpeciesFlavorText {
   }
 
   /**
-   * Get flavorText
+   * The localized flavor text for an API resource in a specific language. Note that this text is left unprocessed as it is found in game files. This means that it contains special characters that one might want to replace with their visible decodable version. Please check out this <a href='https://github.com/veekun/pokedex/issues/218#issuecomment-339841781' >issue</a> to find out more. 
    * @return flavorText
    */
   @NotNull 
-  @Schema(name = "flavor_text", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "flavor_text", description = "The localized flavor text for an API resource in a specific language. Note that this text is left unprocessed as it is found in game files. This means that it contains special characters that one might want to replace with their visible decodable version. Please check out this <a href='https://github.com/veekun/pokedex/issues/218#issuecomment-339841781' >issue</a> to find out more. ", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("flavor_text")
   public String getFlavorText() {
     return flavorText;
@@ -68,11 +68,11 @@ public class PokemonSpeciesFlavorText {
   }
 
   /**
-   * Get language
+   * The language this name is in.
    * @return language
    */
   @NotNull @Valid 
-  @Schema(name = "language", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "language", description = "The language this name is in.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("language")
   public LanguageSummary getLanguage() {
     return language;
@@ -88,11 +88,11 @@ public class PokemonSpeciesFlavorText {
   }
 
   /**
-   * Get version
+   * The game version this flavor text is extracted from.
    * @return version
    */
   @NotNull @Valid 
-  @Schema(name = "version", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "version", description = "The game version this flavor text is extracted from.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("version")
   public VersionSummary getVersion() {
     return version;

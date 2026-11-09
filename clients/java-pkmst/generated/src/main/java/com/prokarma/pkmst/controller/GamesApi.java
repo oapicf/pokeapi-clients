@@ -26,16 +26,11 @@ import java.util.List;
  * @author pkmst
  *
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-10-25T05:48:09.645019047Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-11-09T13:49:28.343088631Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 @Api(value = "Games", description = "the Games API")
 public interface GamesApi {
 
-    @ApiOperation(value = "List genrations", notes = "A generation is a grouping of the Pokémon games that separates them based on the Pokémon they include. In each generation, a new set of Pokémon, Moves, Abilities and Types that did not exist in the previous generation are released.", response = PaginatedGenerationSummaryList.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "games", })
+    @ApiOperation(value = "List genrations", notes = "A generation is a grouping of the Pokémon games that separates them based on the Pokémon they include. In each generation, a new set of Pokémon, Moves, Abilities and Types that did not exist in the previous generation are released.", response = PaginatedGenerationSummaryList.class, tags={ "games", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedGenerationSummaryList.class) })
     @RequestMapping(
@@ -46,12 +41,7 @@ public interface GamesApi {
     ResponseEntity<PaginatedGenerationSummaryList> generationList(@ApiParam(value = "Number of results to return per page.")  @RequestParam(value = "limit", required = false) Integer limit,@ApiParam(value = "The initial index from which to return the results.")  @RequestParam(value = "offset", required = false) Integer offset,@ApiParam(value = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")  @RequestParam(value = "q", required = false) String q, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "Get genration", notes = "A generation is a grouping of the Pokémon games that separates them based on the Pokémon they include. In each generation, a new set of Pokémon, Moves, Abilities and Types that did not exist in the previous generation are released.", response = GenerationDetail.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "games", })
+    @ApiOperation(value = "Get genration", notes = "A generation is a grouping of the Pokémon games that separates them based on the Pokémon they include. In each generation, a new set of Pokémon, Moves, Abilities and Types that did not exist in the previous generation are released.", response = GenerationDetail.class, tags={ "games", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = GenerationDetail.class) })
     @RequestMapping(
@@ -62,12 +52,7 @@ public interface GamesApi {
     ResponseEntity<GenerationDetail> generationRetrieve(@ApiParam(value = "This parameter can be a string or an integer.",required=true ) @PathVariable("id") String id, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "List pokedex", notes = "A Pokédex is a handheld electronic encyclopedia device; one which is capable of recording and retaining information of the various Pokémon in a given region with the exception of the national dex and some smaller dexes related to portions of a region. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pokedex) for greater detail.", response = PaginatedPokedexSummaryList.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "games", })
+    @ApiOperation(value = "List pokedex", notes = "A Pokédex is a handheld electronic encyclopedia device; one which is capable of recording and retaining information of the various Pokémon in a given region with the exception of the national dex and some smaller dexes related to portions of a region. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pokedex) for greater detail.", response = PaginatedPokedexSummaryList.class, tags={ "games", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedPokedexSummaryList.class) })
     @RequestMapping(
@@ -78,12 +63,7 @@ public interface GamesApi {
     ResponseEntity<PaginatedPokedexSummaryList> pokedexList(@ApiParam(value = "Number of results to return per page.")  @RequestParam(value = "limit", required = false) Integer limit,@ApiParam(value = "The initial index from which to return the results.")  @RequestParam(value = "offset", required = false) Integer offset,@ApiParam(value = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")  @RequestParam(value = "q", required = false) String q, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "Get pokedex", notes = "A Pokédex is a handheld electronic encyclopedia device; one which is capable of recording and retaining information of the various Pokémon in a given region with the exception of the national dex and some smaller dexes related to portions of a region. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pokedex) for greater detail.", response = PokedexDetail.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "games", })
+    @ApiOperation(value = "Get pokedex", notes = "A Pokédex is a handheld electronic encyclopedia device; one which is capable of recording and retaining information of the various Pokémon in a given region with the exception of the national dex and some smaller dexes related to portions of a region. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pokedex) for greater detail.", response = PokedexDetail.class, tags={ "games", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PokedexDetail.class) })
     @RequestMapping(
@@ -94,12 +74,7 @@ public interface GamesApi {
     ResponseEntity<PokedexDetail> pokedexRetrieve(@ApiParam(value = "This parameter can be a string or an integer.",required=true ) @PathVariable("id") String id, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "List version groups", notes = "Version groups categorize highly similar versions of the games.", response = PaginatedVersionGroupSummaryList.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "games", })
+    @ApiOperation(value = "List version groups", notes = "Version groups categorize highly similar versions of the games.", response = PaginatedVersionGroupSummaryList.class, tags={ "games", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedVersionGroupSummaryList.class) })
     @RequestMapping(
@@ -110,12 +85,7 @@ public interface GamesApi {
     ResponseEntity<PaginatedVersionGroupSummaryList> versionGroupList(@ApiParam(value = "Number of results to return per page.")  @RequestParam(value = "limit", required = false) Integer limit,@ApiParam(value = "The initial index from which to return the results.")  @RequestParam(value = "offset", required = false) Integer offset,@ApiParam(value = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")  @RequestParam(value = "q", required = false) String q, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "Get version group", notes = "Version groups categorize highly similar versions of the games.", response = VersionGroupDetail.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "games", })
+    @ApiOperation(value = "Get version group", notes = "Version groups categorize highly similar versions of the games.", response = VersionGroupDetail.class, tags={ "games", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = VersionGroupDetail.class) })
     @RequestMapping(
@@ -126,12 +96,7 @@ public interface GamesApi {
     ResponseEntity<VersionGroupDetail> versionGroupRetrieve(@ApiParam(value = "This parameter can be a string or an integer.",required=true ) @PathVariable("id") String id, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "List versions", notes = "Versions of the games, e.g., Red, Blue or Yellow.", response = PaginatedVersionSummaryList.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "games", })
+    @ApiOperation(value = "List versions", notes = "Versions of the games, e.g., Red, Blue or Yellow.", response = PaginatedVersionSummaryList.class, tags={ "games", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = PaginatedVersionSummaryList.class) })
     @RequestMapping(
@@ -142,12 +107,7 @@ public interface GamesApi {
     ResponseEntity<PaginatedVersionSummaryList> versionList(@ApiParam(value = "Number of results to return per page.")  @RequestParam(value = "limit", required = false) Integer limit,@ApiParam(value = "The initial index from which to return the results.")  @RequestParam(value = "offset", required = false) Integer offset,@ApiParam(value = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")  @RequestParam(value = "q", required = false) String q, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "Get version", notes = "Versions of the games, e.g., Red, Blue or Yellow.", response = VersionDetail.class, authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "games", })
+    @ApiOperation(value = "Get version", notes = "Versions of the games, e.g., Red, Blue or Yellow.", response = VersionDetail.class, tags={ "games", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = VersionDetail.class) })
     @RequestMapping(

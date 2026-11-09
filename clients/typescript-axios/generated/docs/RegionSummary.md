@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **string** |  | [default to undefined]
-**url** | **string** |  | [readonly] [default to undefined]
+**name** | **string** | The name of the referenced resource. | [default to undefined]
+**url** | **string** | The URL of the referenced resource. | [readonly] [default to undefined]
 
 ## Example
 

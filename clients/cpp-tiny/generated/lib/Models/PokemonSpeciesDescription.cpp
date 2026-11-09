@@ -7,7 +7,7 @@ using namespace Tiny;
 PokemonSpeciesDescription::PokemonSpeciesDescription()
 {
 	description = std::string();
-	language = LanguageSummary();
+	language = null;
 }
 
 PokemonSpeciesDescription::PokemonSpeciesDescription(std::string jsonString)

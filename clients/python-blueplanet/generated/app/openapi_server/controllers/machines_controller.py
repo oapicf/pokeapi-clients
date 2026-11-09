@@ -5,7 +5,7 @@ from app.openapi_server.models.paginated_machine_summary_list import PaginatedMa
 from openapi_server import util
 
 
-def machine_list(limit=None, offset=None, q=None):  # noqa: E501
+def machine_list(limit=None, offset=None):  # noqa: E501
     """List machines
 
     Machines are the representation of items that teach moves to Pokémon. They vary from version to version, so it is not certain that one specific TM or HM corresponds to a single Machine. # noqa: E501
@@ -14,8 +14,6 @@ def machine_list(limit=None, offset=None, q=None):  # noqa: E501
     :type limit: int
     :param offset: The initial index from which to return the results.
     :type offset: int
-    :param q: &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property. 
-    :type q: str
 
     :rtype: PaginatedMachineSummaryList
     """

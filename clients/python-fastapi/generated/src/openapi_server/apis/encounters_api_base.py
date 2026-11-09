@@ -11,7 +11,7 @@ from openapi_server.models.encounter_method_detail import EncounterMethodDetail
 from openapi_server.models.paginated_encounter_condition_summary_list import PaginatedEncounterConditionSummaryList
 from openapi_server.models.paginated_encounter_condition_value_summary_list import PaginatedEncounterConditionValueSummaryList
 from openapi_server.models.paginated_encounter_method_summary_list import PaginatedEncounterMethodSummaryList
-from openapi_server.security_api import get_token_basicAuth, get_token_cookieAuth
+
 
 class BaseEncountersApi:
     subclasses: ClassVar[Tuple] = ()

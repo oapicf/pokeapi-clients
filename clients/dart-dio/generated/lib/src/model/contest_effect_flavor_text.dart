@@ -12,13 +12,15 @@ part 'contest_effect_flavor_text.g.dart';
 /// ContestEffectFlavorText
 ///
 /// Properties:
-/// * [flavorText] 
-/// * [language] 
+/// * [flavorText] - The localized flavor text for an API resource in a specific language.
+/// * [language] - The language this name is in.
 @BuiltValue()
 abstract class ContestEffectFlavorText implements Built<ContestEffectFlavorText, ContestEffectFlavorTextBuilder> {
+  /// The localized flavor text for an API resource in a specific language.
   @BuiltValueField(wireName: r'flavor_text')
   String get flavorText;
 
+  /// The language this name is in.
   @BuiltValueField(wireName: r'language')
   LanguageSummary get language;
 

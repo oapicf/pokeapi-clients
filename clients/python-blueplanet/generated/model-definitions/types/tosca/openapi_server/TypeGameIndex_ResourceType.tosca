@@ -18,12 +18,12 @@ resourceTypes {
     properties {
         game_index {
           type =  integer
-          description = ""
+          description = "The internal id of an API resource within game data."
           optional = true
         }
         generation {
           type = GenerationSummary
-          description = ""
+          description = "The generation relevent to this game index."
           optional = true
         }
     }

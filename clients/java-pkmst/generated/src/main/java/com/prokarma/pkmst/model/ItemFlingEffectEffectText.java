@@ -15,7 +15,7 @@ import io.swagger.annotations.ApiModelProperty;
  * ItemFlingEffectEffectText
  */
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-10-25T05:48:09.645019047Z[Etc/UTC]", comments = "Generator version: 7.26.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-11-09T13:49:28.343088631Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class ItemFlingEffectEffectText   {
   @JsonProperty("effect")
   private String effect;
@@ -29,10 +29,10 @@ public class ItemFlingEffectEffectText   {
   }
 
   /**
-   * Get effect
+   * The localized effect text for an API resource in a specific language.
    * @return effect
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The localized effect text for an API resource in a specific language.")
   public String getEffect() {
     return effect;
   }
@@ -47,10 +47,10 @@ public class ItemFlingEffectEffectText   {
   }
 
   /**
-   * Get language
+   * The language this effect is in.
    * @return language
    */
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The language this effect is in.")
   public LanguageSummary getLanguage() {
     return language;
   }

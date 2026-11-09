@@ -4,17 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int32** |  | [readonly] 
-**Name** | **string** |  | 
-**Names** | [**[]MoveLearnMethodName**](MoveLearnMethodName.md) |  | [readonly] 
-**Descriptions** | [**[]MoveLearnMethodDescription**](MoveLearnMethodDescription.md) |  | [readonly] 
-**VersionGroups** | [**[]AbilityDetailPokemonInnerPokemon**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] 
+**Id** | **int32** | The identifier for this resource. | [readonly] 
+**Name** | **string** | The name for this resource. | 
+**Names** | [**[]MoveLearnMethodName**](MoveLearnMethodName.md) | The name of this resource listed in different languages. | [readonly] 
+**Descriptions** | [**[]MoveLearnMethodDescription**](MoveLearnMethodDescription.md) | The description of this resource listed in different languages. | [readonly] 
+**VersionGroups** | [**[]VersionGroupSummary**](VersionGroupSummary.md) | A list of version groups where moves can be learned through this method. | [readonly] 
 
 ## Methods
 
 ### NewMoveLearnMethodDetail
 
-`func NewMoveLearnMethodDetail(id int32, name string, names []MoveLearnMethodName, descriptions []MoveLearnMethodDescription, versionGroups []AbilityDetailPokemonInnerPokemon, ) *MoveLearnMethodDetail`
+`func NewMoveLearnMethodDetail(id int32, name string, names []MoveLearnMethodName, descriptions []MoveLearnMethodDescription, versionGroups []VersionGroupSummary, ) *MoveLearnMethodDetail`
 
 NewMoveLearnMethodDetail instantiates a new MoveLearnMethodDetail object
 This constructor will assign default values to properties that have it defined,
@@ -111,20 +111,20 @@ SetDescriptions sets Descriptions field to given value.
 
 ### GetVersionGroups
 
-`func (o *MoveLearnMethodDetail) GetVersionGroups() []AbilityDetailPokemonInnerPokemon`
+`func (o *MoveLearnMethodDetail) GetVersionGroups() []VersionGroupSummary`
 
 GetVersionGroups returns the VersionGroups field if non-nil, zero value otherwise.
 
 ### GetVersionGroupsOk
 
-`func (o *MoveLearnMethodDetail) GetVersionGroupsOk() (*[]AbilityDetailPokemonInnerPokemon, bool)`
+`func (o *MoveLearnMethodDetail) GetVersionGroupsOk() (*[]VersionGroupSummary, bool)`
 
 GetVersionGroupsOk returns a tuple with the VersionGroups field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVersionGroups
 
-`func (o *MoveLearnMethodDetail) SetVersionGroups(v []AbilityDetailPokemonInnerPokemon)`
+`func (o *MoveLearnMethodDetail) SetVersionGroups(v []VersionGroupSummary)`
 
 SetVersionGroups sets VersionGroups field to given value.
 

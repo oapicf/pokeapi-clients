@@ -3,18 +3,19 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:openapi/src/model/item_detail_baby_trigger_for.dart';
-import 'package:built_collection/built_collection.dart';
-import 'package:openapi/src/model/item_detail_machines_inner.dart';
-import 'package:openapi/src/model/item_flavor_text.dart';
-import 'package:openapi/src/model/item_detail_held_by_pokemon_inner.dart';
-import 'package:openapi/src/model/item_detail_sprites.dart';
+import 'package:openapi/src/model/evolution_chain_summary.dart';
 import 'package:openapi/src/model/item_fling_effect_summary.dart';
-import 'package:openapi/src/model/ability_detail_pokemon_inner_pokemon.dart';
 import 'package:openapi/src/model/item_effect_text.dart';
+import 'package:openapi/src/model/item_sprites.dart';
 import 'package:openapi/src/model/item_category_summary.dart';
 import 'package:openapi/src/model/item_game_index.dart';
 import 'package:openapi/src/model/item_name.dart';
+import 'package:openapi/src/model/pokemon_held_item.dart';
+import 'package:openapi/src/model/item_price.dart';
+import 'package:built_collection/built_collection.dart';
+import 'package:openapi/src/model/item_flavor_text.dart';
+import 'package:openapi/src/model/item_attribute_summary.dart';
+import 'package:openapi/src/model/item_machine.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -23,67 +24,82 @@ part 'item_detail.g.dart';
 /// ItemDetail
 ///
 /// Properties:
-/// * [id] 
-/// * [name] 
-/// * [cost] 
-/// * [flingPower] 
-/// * [flingEffect] 
-/// * [attributes] 
-/// * [category] 
-/// * [effectEntries] 
-/// * [flavorTextEntries] 
-/// * [gameIndices] 
-/// * [names] 
-/// * [heldByPokemon] 
-/// * [sprites] 
-/// * [babyTriggerFor] 
-/// * [machines] 
+/// * [id] - The identifier for this resource.
+/// * [name] - The name for this resource.
+/// * [flingPower] - The power of the move Fling when used with this item.
+/// * [flingEffect] - The effect of the move Fling when used with this item.
+/// * [attributes] - A list of attributes this item has.
+/// * [category] - The category of items this item falls into.
+/// * [effectEntries] - The effect of this ability listed in different languages.
+/// * [flavorTextEntries] - The flavor text of this ability listed in different languages.
+/// * [gameIndices] - A list of game indices relevent to this item by generation.
+/// * [prices] - Purchase and sell prices by currency and version group. Prices may be null when the item cannot be bought or sold.
+/// * [names] - The name of this item listed in different languages.
+/// * [heldByPokemon] - A list of Pokémon that might be found in the wild holding this item.
+/// * [sprites] - A set of sprites used to depict this item in the game.
+/// * [babyTriggerFor] - An evolution chain this item requires to produce a bay during mating.
+/// * [machines] - A list of the machines related to this item.
 @BuiltValue()
 abstract class ItemDetail implements Built<ItemDetail, ItemDetailBuilder> {
+  /// The identifier for this resource.
   @BuiltValueField(wireName: r'id')
   int get id;
 
+  /// The name for this resource.
   @BuiltValueField(wireName: r'name')
   String get name;
 
-  @BuiltValueField(wireName: r'cost')
-  int? get cost;
-
+  /// The power of the move Fling when used with this item.
   @BuiltValueField(wireName: r'fling_power')
   int? get flingPower;
 
+  /// The effect of the move Fling when used with this item.
   @BuiltValueField(wireName: r'fling_effect')
-  ItemFlingEffectSummary get flingEffect;
+  ItemFlingEffectSummary? get flingEffect;
 
+  /// A list of attributes this item has.
   @BuiltValueField(wireName: r'attributes')
-  BuiltList<AbilityDetailPokemonInnerPokemon> get attributes;
+  BuiltList<ItemAttributeSummary> get attributes;
 
+  /// The category of items this item falls into.
   @BuiltValueField(wireName: r'category')
   ItemCategorySummary get category;
 
+  /// The effect of this ability listed in different languages.
   @BuiltValueField(wireName: r'effect_entries')
   BuiltList<ItemEffectText> get effectEntries;
 
+  /// The flavor text of this ability listed in different languages.
   @BuiltValueField(wireName: r'flavor_text_entries')
   BuiltList<ItemFlavorText> get flavorTextEntries;
 
+  /// A list of game indices relevent to this item by generation.
   @BuiltValueField(wireName: r'game_indices')
   BuiltList<ItemGameIndex> get gameIndices;
 
+  /// Purchase and sell prices by currency and version group. Prices may be null when the item cannot be bought or sold.
+  @BuiltValueField(wireName: r'prices')
+  BuiltList<ItemPrice> get prices;
+
+  /// The name of this item listed in different languages.
   @BuiltValueField(wireName: r'names')
   BuiltList<ItemName> get names;
 
+  /// A list of Pokémon that might be found in the wild holding this item.
   @BuiltValueField(wireName: r'held_by_pokemon')
-  BuiltList<ItemDetailHeldByPokemonInner> get heldByPokemon;
+  BuiltList<PokemonHeldItem> get heldByPokemon;
 
+  /// A set of sprites used to depict this item in the game.
   @BuiltValueField(wireName: r'sprites')
-  ItemDetailSprites get sprites;
+  ItemSprites get sprites;
 
+  /// An evolution chain this item requires to produce a bay during mating.
   @BuiltValueField(wireName: r'baby_trigger_for')
-  ItemDetailBabyTriggerFor get babyTriggerFor;
+  EvolutionChainSummary? get babyTriggerFor;
 
+  /// A list of the machines related to this item.
   @BuiltValueField(wireName: r'machines')
-  BuiltList<ItemDetailMachinesInner> get machines;
+  BuiltList<ItemMachine> get machines;
 
   ItemDetail._();
 
@@ -118,13 +134,6 @@ class _$ItemDetailSerializer implements PrimitiveSerializer<ItemDetail> {
       object.name,
       specifiedType: const FullType(String),
     );
-    if (object.cost != null) {
-      yield r'cost';
-      yield serializers.serialize(
-        object.cost,
-        specifiedType: const FullType.nullable(int),
-      );
-    }
     if (object.flingPower != null) {
       yield r'fling_power';
       yield serializers.serialize(
@@ -133,14 +142,14 @@ class _$ItemDetailSerializer implements PrimitiveSerializer<ItemDetail> {
       );
     }
     yield r'fling_effect';
-    yield serializers.serialize(
+    yield object.flingEffect == null ? null : serializers.serialize(
       object.flingEffect,
-      specifiedType: const FullType(ItemFlingEffectSummary),
+      specifiedType: const FullType.nullable(ItemFlingEffectSummary),
     );
     yield r'attributes';
     yield serializers.serialize(
       object.attributes,
-      specifiedType: const FullType(BuiltList, [FullType(AbilityDetailPokemonInnerPokemon)]),
+      specifiedType: const FullType(BuiltList, [FullType(ItemAttributeSummary)]),
     );
     yield r'category';
     yield serializers.serialize(
@@ -162,6 +171,11 @@ class _$ItemDetailSerializer implements PrimitiveSerializer<ItemDetail> {
       object.gameIndices,
       specifiedType: const FullType(BuiltList, [FullType(ItemGameIndex)]),
     );
+    yield r'prices';
+    yield serializers.serialize(
+      object.prices,
+      specifiedType: const FullType(BuiltList, [FullType(ItemPrice)]),
+    );
     yield r'names';
     yield serializers.serialize(
       object.names,
@@ -170,22 +184,22 @@ class _$ItemDetailSerializer implements PrimitiveSerializer<ItemDetail> {
     yield r'held_by_pokemon';
     yield serializers.serialize(
       object.heldByPokemon,
-      specifiedType: const FullType(BuiltList, [FullType(ItemDetailHeldByPokemonInner)]),
+      specifiedType: const FullType(BuiltList, [FullType(PokemonHeldItem)]),
     );
     yield r'sprites';
     yield serializers.serialize(
       object.sprites,
-      specifiedType: const FullType(ItemDetailSprites),
+      specifiedType: const FullType(ItemSprites),
     );
     yield r'baby_trigger_for';
-    yield serializers.serialize(
+    yield object.babyTriggerFor == null ? null : serializers.serialize(
       object.babyTriggerFor,
-      specifiedType: const FullType(ItemDetailBabyTriggerFor),
+      specifiedType: const FullType.nullable(EvolutionChainSummary),
     );
     yield r'machines';
     yield serializers.serialize(
       object.machines,
-      specifiedType: const FullType(BuiltList, [FullType(ItemDetailMachinesInner)]),
+      specifiedType: const FullType(BuiltList, [FullType(ItemMachine)]),
     );
   }
 
@@ -224,14 +238,6 @@ class _$ItemDetailSerializer implements PrimitiveSerializer<ItemDetail> {
           ) as String;
           result.name = valueDes;
           break;
-        case r'cost':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType.nullable(int),
-          ) as int?;
-          if (valueDes == null) continue;
-          result.cost = valueDes;
-          break;
         case r'fling_power':
           final valueDes = serializers.deserialize(
             value,
@@ -243,15 +249,16 @@ class _$ItemDetailSerializer implements PrimitiveSerializer<ItemDetail> {
         case r'fling_effect':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(ItemFlingEffectSummary),
-          ) as ItemFlingEffectSummary;
+            specifiedType: const FullType.nullable(ItemFlingEffectSummary),
+          ) as ItemFlingEffectSummary?;
+          if (valueDes == null) continue;
           result.flingEffect.replace(valueDes);
           break;
         case r'attributes':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(AbilityDetailPokemonInnerPokemon)]),
-          ) as BuiltList<AbilityDetailPokemonInnerPokemon>;
+            specifiedType: const FullType(BuiltList, [FullType(ItemAttributeSummary)]),
+          ) as BuiltList<ItemAttributeSummary>;
           result.attributes.replace(valueDes);
           break;
         case r'category':
@@ -282,6 +289,13 @@ class _$ItemDetailSerializer implements PrimitiveSerializer<ItemDetail> {
           ) as BuiltList<ItemGameIndex>;
           result.gameIndices.replace(valueDes);
           break;
+        case r'prices':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(BuiltList, [FullType(ItemPrice)]),
+          ) as BuiltList<ItemPrice>;
+          result.prices.replace(valueDes);
+          break;
         case r'names':
           final valueDes = serializers.deserialize(
             value,
@@ -292,29 +306,30 @@ class _$ItemDetailSerializer implements PrimitiveSerializer<ItemDetail> {
         case r'held_by_pokemon':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(ItemDetailHeldByPokemonInner)]),
-          ) as BuiltList<ItemDetailHeldByPokemonInner>;
+            specifiedType: const FullType(BuiltList, [FullType(PokemonHeldItem)]),
+          ) as BuiltList<PokemonHeldItem>;
           result.heldByPokemon.replace(valueDes);
           break;
         case r'sprites':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(ItemDetailSprites),
-          ) as ItemDetailSprites;
+            specifiedType: const FullType(ItemSprites),
+          ) as ItemSprites;
           result.sprites.replace(valueDes);
           break;
         case r'baby_trigger_for':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(ItemDetailBabyTriggerFor),
-          ) as ItemDetailBabyTriggerFor;
+            specifiedType: const FullType.nullable(EvolutionChainSummary),
+          ) as EvolutionChainSummary?;
+          if (valueDes == null) continue;
           result.babyTriggerFor.replace(valueDes);
           break;
         case r'machines':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(ItemDetailMachinesInner)]),
-          ) as BuiltList<ItemDetailMachinesInner>;
+            specifiedType: const FullType(BuiltList, [FullType(ItemMachine)]),
+          ) as BuiltList<ItemMachine>;
           result.machines.replace(valueDes);
           break;
         default:

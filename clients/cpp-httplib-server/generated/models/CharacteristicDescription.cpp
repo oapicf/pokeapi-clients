@@ -10,7 +10,6 @@ namespace models {
 
 CharacteristicDescription::CharacteristicDescription()
 : description("")
-, language(LanguageSummary())
 {
 }
 // =========================================

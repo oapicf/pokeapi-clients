@@ -4,27 +4,27 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int32** |  | [readonly] 
-**Name** | **string** |  | 
-**Cost** | Pointer to **NullableInt32** |  | [optional] 
-**FlingPower** | Pointer to **NullableInt32** |  | [optional] 
-**FlingEffect** | [**ItemFlingEffectSummary**](ItemFlingEffectSummary.md) |  | 
-**Attributes** | [**[]AbilityDetailPokemonInnerPokemon**](AbilityDetailPokemonInnerPokemon.md) |  | [readonly] 
-**Category** | [**ItemCategorySummary**](ItemCategorySummary.md) |  | 
-**EffectEntries** | [**[]ItemEffectText**](ItemEffectText.md) |  | [readonly] 
-**FlavorTextEntries** | [**[]ItemFlavorText**](ItemFlavorText.md) |  | [readonly] 
-**GameIndices** | [**[]ItemGameIndex**](ItemGameIndex.md) |  | [readonly] 
-**Names** | [**[]ItemName**](ItemName.md) |  | [readonly] 
-**HeldByPokemon** | [**[]ItemDetailHeldByPokemonInner**](ItemDetailHeldByPokemonInner.md) |  | [readonly] 
-**Sprites** | [**ItemDetailSprites**](ItemDetailSprites.md) |  | 
-**BabyTriggerFor** | [**ItemDetailBabyTriggerFor**](ItemDetailBabyTriggerFor.md) |  | 
-**Machines** | [**[]ItemDetailMachinesInner**](ItemDetailMachinesInner.md) |  | [readonly] 
+**Id** | **int32** | The identifier for this resource. | [readonly] 
+**Name** | **string** | The name for this resource. | 
+**FlingPower** | Pointer to **NullableInt32** | The power of the move Fling when used with this item. | [optional] 
+**FlingEffect** | [**NullableItemFlingEffectSummary**](ItemFlingEffectSummary.md) | The effect of the move Fling when used with this item. | 
+**Attributes** | [**[]ItemAttributeSummary**](ItemAttributeSummary.md) | A list of attributes this item has. | [readonly] 
+**Category** | [**ItemCategorySummary**](ItemCategorySummary.md) | The category of items this item falls into. | 
+**EffectEntries** | [**[]ItemEffectText**](ItemEffectText.md) | The effect of this ability listed in different languages. | [readonly] 
+**FlavorTextEntries** | [**[]ItemFlavorText**](ItemFlavorText.md) | The flavor text of this ability listed in different languages. | [readonly] 
+**GameIndices** | [**[]ItemGameIndex**](ItemGameIndex.md) | A list of game indices relevent to this item by generation. | [readonly] 
+**Prices** | [**[]ItemPrice**](ItemPrice.md) | Purchase and sell prices by currency and version group. Prices may be null when the item cannot be bought or sold. | [readonly] 
+**Names** | [**[]ItemName**](ItemName.md) | The name of this item listed in different languages. | [readonly] 
+**HeldByPokemon** | [**[]PokemonHeldItem**](PokemonHeldItem.md) | A list of Pokémon that might be found in the wild holding this item. | [readonly] 
+**Sprites** | [**ItemSprites**](ItemSprites.md) | A set of sprites used to depict this item in the game. | [readonly] 
+**BabyTriggerFor** | [**NullableEvolutionChainSummary**](EvolutionChainSummary.md) | An evolution chain this item requires to produce a bay during mating. | [readonly] 
+**Machines** | [**[]ItemMachine**](ItemMachine.md) | A list of the machines related to this item. | [readonly] 
 
 ## Methods
 
 ### NewItemDetail
 
-`func NewItemDetail(id int32, name string, flingEffect ItemFlingEffectSummary, attributes []AbilityDetailPokemonInnerPokemon, category ItemCategorySummary, effectEntries []ItemEffectText, flavorTextEntries []ItemFlavorText, gameIndices []ItemGameIndex, names []ItemName, heldByPokemon []ItemDetailHeldByPokemonInner, sprites ItemDetailSprites, babyTriggerFor ItemDetailBabyTriggerFor, machines []ItemDetailMachinesInner, ) *ItemDetail`
+`func NewItemDetail(id int32, name string, flingEffect NullableItemFlingEffectSummary, attributes []ItemAttributeSummary, category ItemCategorySummary, effectEntries []ItemEffectText, flavorTextEntries []ItemFlavorText, gameIndices []ItemGameIndex, prices []ItemPrice, names []ItemName, heldByPokemon []PokemonHeldItem, sprites ItemSprites, babyTriggerFor NullableEvolutionChainSummary, machines []ItemMachine, ) *ItemDetail`
 
 NewItemDetail instantiates a new ItemDetail object
 This constructor will assign default values to properties that have it defined,
@@ -79,41 +79,6 @@ and a boolean to check if the value has been set.
 SetName sets Name field to given value.
 
 
-### GetCost
-
-`func (o *ItemDetail) GetCost() int32`
-
-GetCost returns the Cost field if non-nil, zero value otherwise.
-
-### GetCostOk
-
-`func (o *ItemDetail) GetCostOk() (*int32, bool)`
-
-GetCostOk returns a tuple with the Cost field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCost
-
-`func (o *ItemDetail) SetCost(v int32)`
-
-SetCost sets Cost field to given value.
-
-### HasCost
-
-`func (o *ItemDetail) HasCost() bool`
-
-HasCost returns a boolean if a field has been set.
-
-### SetCostNil
-
-`func (o *ItemDetail) SetCostNil(b bool)`
-
- SetCostNil sets the value for Cost to be an explicit nil
-
-### UnsetCost
-`func (o *ItemDetail) UnsetCost()`
-
-UnsetCost ensures that no value is present for Cost, not even an explicit nil
 ### GetFlingPower
 
 `func (o *ItemDetail) GetFlingPower() int32`
@@ -169,22 +134,32 @@ and a boolean to check if the value has been set.
 SetFlingEffect sets FlingEffect field to given value.
 
 
+### SetFlingEffectNil
+
+`func (o *ItemDetail) SetFlingEffectNil(b bool)`
+
+ SetFlingEffectNil sets the value for FlingEffect to be an explicit nil
+
+### UnsetFlingEffect
+`func (o *ItemDetail) UnsetFlingEffect()`
+
+UnsetFlingEffect ensures that no value is present for FlingEffect, not even an explicit nil
 ### GetAttributes
 
-`func (o *ItemDetail) GetAttributes() []AbilityDetailPokemonInnerPokemon`
+`func (o *ItemDetail) GetAttributes() []ItemAttributeSummary`
 
 GetAttributes returns the Attributes field if non-nil, zero value otherwise.
 
 ### GetAttributesOk
 
-`func (o *ItemDetail) GetAttributesOk() (*[]AbilityDetailPokemonInnerPokemon, bool)`
+`func (o *ItemDetail) GetAttributesOk() (*[]ItemAttributeSummary, bool)`
 
 GetAttributesOk returns a tuple with the Attributes field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAttributes
 
-`func (o *ItemDetail) SetAttributes(v []AbilityDetailPokemonInnerPokemon)`
+`func (o *ItemDetail) SetAttributes(v []ItemAttributeSummary)`
 
 SetAttributes sets Attributes field to given value.
 
@@ -269,6 +244,26 @@ and a boolean to check if the value has been set.
 SetGameIndices sets GameIndices field to given value.
 
 
+### GetPrices
+
+`func (o *ItemDetail) GetPrices() []ItemPrice`
+
+GetPrices returns the Prices field if non-nil, zero value otherwise.
+
+### GetPricesOk
+
+`func (o *ItemDetail) GetPricesOk() (*[]ItemPrice, bool)`
+
+GetPricesOk returns a tuple with the Prices field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPrices
+
+`func (o *ItemDetail) SetPrices(v []ItemPrice)`
+
+SetPrices sets Prices field to given value.
+
+
 ### GetNames
 
 `func (o *ItemDetail) GetNames() []ItemName`
@@ -291,80 +286,90 @@ SetNames sets Names field to given value.
 
 ### GetHeldByPokemon
 
-`func (o *ItemDetail) GetHeldByPokemon() []ItemDetailHeldByPokemonInner`
+`func (o *ItemDetail) GetHeldByPokemon() []PokemonHeldItem`
 
 GetHeldByPokemon returns the HeldByPokemon field if non-nil, zero value otherwise.
 
 ### GetHeldByPokemonOk
 
-`func (o *ItemDetail) GetHeldByPokemonOk() (*[]ItemDetailHeldByPokemonInner, bool)`
+`func (o *ItemDetail) GetHeldByPokemonOk() (*[]PokemonHeldItem, bool)`
 
 GetHeldByPokemonOk returns a tuple with the HeldByPokemon field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetHeldByPokemon
 
-`func (o *ItemDetail) SetHeldByPokemon(v []ItemDetailHeldByPokemonInner)`
+`func (o *ItemDetail) SetHeldByPokemon(v []PokemonHeldItem)`
 
 SetHeldByPokemon sets HeldByPokemon field to given value.
 
 
 ### GetSprites
 
-`func (o *ItemDetail) GetSprites() ItemDetailSprites`
+`func (o *ItemDetail) GetSprites() ItemSprites`
 
 GetSprites returns the Sprites field if non-nil, zero value otherwise.
 
 ### GetSpritesOk
 
-`func (o *ItemDetail) GetSpritesOk() (*ItemDetailSprites, bool)`
+`func (o *ItemDetail) GetSpritesOk() (*ItemSprites, bool)`
 
 GetSpritesOk returns a tuple with the Sprites field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSprites
 
-`func (o *ItemDetail) SetSprites(v ItemDetailSprites)`
+`func (o *ItemDetail) SetSprites(v ItemSprites)`
 
 SetSprites sets Sprites field to given value.
 
 
 ### GetBabyTriggerFor
 
-`func (o *ItemDetail) GetBabyTriggerFor() ItemDetailBabyTriggerFor`
+`func (o *ItemDetail) GetBabyTriggerFor() EvolutionChainSummary`
 
 GetBabyTriggerFor returns the BabyTriggerFor field if non-nil, zero value otherwise.
 
 ### GetBabyTriggerForOk
 
-`func (o *ItemDetail) GetBabyTriggerForOk() (*ItemDetailBabyTriggerFor, bool)`
+`func (o *ItemDetail) GetBabyTriggerForOk() (*EvolutionChainSummary, bool)`
 
 GetBabyTriggerForOk returns a tuple with the BabyTriggerFor field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetBabyTriggerFor
 
-`func (o *ItemDetail) SetBabyTriggerFor(v ItemDetailBabyTriggerFor)`
+`func (o *ItemDetail) SetBabyTriggerFor(v EvolutionChainSummary)`
 
 SetBabyTriggerFor sets BabyTriggerFor field to given value.
 
 
+### SetBabyTriggerForNil
+
+`func (o *ItemDetail) SetBabyTriggerForNil(b bool)`
+
+ SetBabyTriggerForNil sets the value for BabyTriggerFor to be an explicit nil
+
+### UnsetBabyTriggerFor
+`func (o *ItemDetail) UnsetBabyTriggerFor()`
+
+UnsetBabyTriggerFor ensures that no value is present for BabyTriggerFor, not even an explicit nil
 ### GetMachines
 
-`func (o *ItemDetail) GetMachines() []ItemDetailMachinesInner`
+`func (o *ItemDetail) GetMachines() []ItemMachine`
 
 GetMachines returns the Machines field if non-nil, zero value otherwise.
 
 ### GetMachinesOk
 
-`func (o *ItemDetail) GetMachinesOk() (*[]ItemDetailMachinesInner, bool)`
+`func (o *ItemDetail) GetMachinesOk() (*[]ItemMachine, bool)`
 
 GetMachinesOk returns a tuple with the Machines field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMachines
 
-`func (o *ItemDetail) SetMachines(v []ItemDetailMachinesInner)`
+`func (o *ItemDetail) SetMachines(v []ItemMachine)`
 
 SetMachines sets Machines field to given value.
 
